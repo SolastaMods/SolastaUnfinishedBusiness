@@ -93,6 +93,12 @@ internal class ConditionDefinitionBuilder
         return this;
     }
 
+    internal ConditionDefinitionBuilder IsDetrimental()
+    {
+        Definition.conditionType = RuleDefinitions.ConditionType.Detrimental;
+        return this;
+    }
+
     internal ConditionDefinitionBuilder SetTurnOccurence(RuleDefinitions.TurnOccurenceType value)
     {
         Definition.turnOccurence = value;

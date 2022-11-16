@@ -583,30 +583,38 @@ internal sealed class MartialTactician : AbstractSubclass
             .SetCustomSubFeatures(PowerFromInvocation.Marker)
             .SetUniqueInstance()
             .SetShowCasting(false)
-            .SetSharedPool(ActivationTime.NoCost, GambitPool)
+            .SetSharedPool(ActivationTime.BonusAction, GambitPool)
             .SetEffectDescription(EffectDescriptionBuilder.Create()
                 .SetTargetingData(Side.All, RangeType.Touch, 1, TargetType.Individuals)
                 .ExcludeCaster()
-                // .SetDurationData(DurationType.Round, 1, TurnOccurenceType.StartOfTurn)
-                .SetHasSavingThrow(AttributeDefinitions.Intelligence,
+                .SetHasSavingThrow(AttributeDefinitions.Strength,
                     EffectDifficultyClassComputation.AbilityScoreAndProficiency,
                     AttributeDefinitions.Intelligence,
                     disableSavingThrowOnAllies: true)
                 .SetEffectForms(
                     EffectFormBuilder.Create()
-                        .SetMotionForm(MotionForm.MotionType.SwapPositions, 1)
+                        .SetMotionForm(ExtraMotionType.CustomSwap, 1)
                         .HasSavingThrow(EffectSavingThrowType.Negates)
                         .Build(),
                     EffectFormBuilder.Create()
                         .SetConditionForm(ConditionDefinitionBuilder
                             //TODO: make this grant AC bonus (ideally equal to Gambit die roll)
                             .Create($"Condition{name}")
-                            .SetGuiPresentation(ConditionDefinitions.ConditionHasted.GuiPresentation)
+                            .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionBranded)
+                            .IsDetrimental()
                             .SetSilent(Silent.None)
-                            .SetFeatures(ConditionDefinitions.ConditionHasted.Features)
+                            .SetAmountOrigin(ExtraOriginOfAmount.SourceProficiencyBonusNegative)
+                            .SetFeatures(FeatureDefinitionAttributeModifierBuilder
+                                .Create($"AttributeModifier{name}")
+                                .SetGuiPresentation(Category.Feature)
+                                .SetModifier(
+                                    FeatureDefinitionAttributeModifier.AttributeModifierOperation.AddConditionAmount,
+                                    AttributeDefinitions.ArmorClass)
+                                .AddToDB())
                             .SetSpecialDuration()
                             .SetDuration(DurationType.Round, 1)
-                            .AddToDB(), ConditionForm.ConditionOperation.Add, true, false)
+                            .AddToDB(), ConditionForm.ConditionOperation.Add)
+                        .HasSavingThrow(EffectSavingThrowType.Negates)
                         .Build())
                 .SetParticleEffectParameters(SpellDefinitions.Haste)
                 .Build())
