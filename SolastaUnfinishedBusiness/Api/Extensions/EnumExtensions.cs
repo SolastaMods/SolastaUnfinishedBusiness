@@ -43,6 +43,21 @@ internal enum ExtraRitualCasting
 }
 #endif
 
+internal enum ExtraMotionType
+{
+    // PushFromOrigin,
+    // DragToOrigin,
+    // TeleportToDestination,
+    // Levitate,
+    // PushFromWall,
+    // FallProne,
+    // SwapPositions,
+    // Telekinesis,
+    // RallyKindred,
+    // PushRandomDirection,
+    CustomSwap = 9000
+}
+
 internal enum ExtraPowerAttackHitComputation
 {
     // Fixed = PowerAttackHitComputation.Fixed,
@@ -140,6 +155,7 @@ internal enum ExtraActionId
     TacticianGambitMain = 9005,
     TacticianGambitBonus = 9006,
     TacticianGambitNoCost = 9007,
+    PushedCustom = 9008,
 }
 
 internal static class EnumImplementation

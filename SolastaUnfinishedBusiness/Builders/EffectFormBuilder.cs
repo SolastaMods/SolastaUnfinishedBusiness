@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using SolastaUnfinishedBusiness.Api.Extensions;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 using static RuleDefinitions;
@@ -278,6 +279,11 @@ internal class EffectFormBuilder
         effectForm.motionForm = motionForm;
         effectForm.FormType = EffectForm.EffectFormType.Motion;
         return this;
+    }
+
+    internal EffectFormBuilder SetMotionForm(ExtraMotionType motionType, int motionDistance = 0)
+    {
+        return SetMotionForm((MotionForm.MotionType)motionType, motionDistance);
     }
 
     internal EffectFormBuilder SetReviveForm(
