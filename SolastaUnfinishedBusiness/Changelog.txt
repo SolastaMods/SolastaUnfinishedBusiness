@@ -1,5 +1,7 @@
 ﻿CHANGES:
 
-1.4.26.3:
+1.4.26.4:
 
-- Refactor Way of Shadow into Way of The Silhouette
+- Fix Arcanist Mark tooltip
+- Fix Arcane Pulse number of uses
+- Refactor common code in Moonlit and Way of Silhouette
