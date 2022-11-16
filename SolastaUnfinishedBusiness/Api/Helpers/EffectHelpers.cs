@@ -57,7 +57,7 @@ internal static class EffectHelpers
             : null;
     }
 
-    private static RulesetCharacter GetCharacterByGuid(ulong guid)
+    internal static RulesetCharacter GetCharacterByGuid(ulong guid)
     {
         if (guid == 0)
         {
