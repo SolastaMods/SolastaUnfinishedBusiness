@@ -54,13 +54,14 @@ internal sealed class WayOfSilhouette : AbstractSubclass
         var powerWayOfSilhouetteSilhouetteStep = FeatureDefinitionPowerBuilder
             .Create("PowerWayOfSilhouetteSilhouetteStep")
             .SetGuiPresentation(Category.Feature, SpellDefinitions.MistyStep)
-            .SetUsesFixed(ActivationTime.BonusAction, RechargeRate.ShortRest)
+            .SetUsesFixed(ActivationTime.BonusAction)
             .SetEffectDescription(SpellDefinitions.MistyStep.EffectDescription)
             .SetShowCasting(true)
+            .SetCustomSubFeatures(
+                new ValidatorsPowerUse(
+                    ValidatorsCharacter
+                        .HasAnyOfConditions(CustomConditionsContext.ConditionInvisibilityEveryRoundHidden)))
             .AddToDB();
-
-        // only reports condition on char panel
-        Global.CharacterLabelEnabledConditions.Add(CustomConditionsContext.InvisibilityEveryRound);
 
         var lightAffinityWayOfSilhouetteCloakOfSilhouettesWeak = FeatureDefinitionLightAffinityBuilder
             .Create("LightAffinityWayOfSilhouetteCloakOfSilhouettesWeak")
