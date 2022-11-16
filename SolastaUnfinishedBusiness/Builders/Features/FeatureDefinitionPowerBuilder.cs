@@ -60,19 +60,15 @@ internal abstract class
 
     internal TBuilder SetUsesAbilityBonus(
         ActivationTime activationTime,
-        RechargeRate recharge = RechargeRate.AtWill,
-        string usesAbilityScoreName = "",
-        int costPerUse = 1,
-        int usesPerRecharge = 1)
+        RechargeRate recharge,
+        string usesAbilityScoreName)
     {
         Definition.usesDetermination = UsesDetermination.AbilityBonusPlusFixed;
         Definition.activationTime = activationTime;
         Definition.rechargeRate = recharge;
-        Definition.costPerUse = costPerUse;
-        Definition.fixedUsesPerRecharge = usesPerRecharge;
-        Definition.usesAbilityScoreName = usesAbilityScoreName == string.Empty
-            ? AttributeDefinitions.Charisma // game default
-            : usesAbilityScoreName;
+        Definition.costPerUse = 1;
+        Definition.fixedUsesPerRecharge = 0;
+        Definition.usesAbilityScoreName = usesAbilityScoreName;
         return (TBuilder)this;
     }
 

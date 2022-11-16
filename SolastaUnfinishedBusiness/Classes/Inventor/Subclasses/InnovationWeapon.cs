@@ -413,8 +413,7 @@ public static class InnovationWeapon
             .Create("PowerInnovationWeaponArcaneJolt")
             .SetGuiPresentation(Category.Feature,
                 Sprites.GetSprite("InventorArcaneJolt", Resources.InventorArcaneJolt, 256, 128))
-            .SetUsesAbilityBonus(ActivationTime.OnAttackHit, RechargeRate.LongRest, AttributeDefinitions.Intelligence,
-                1, 0)
+            .SetUsesAbilityBonus(ActivationTime.OnAttackHit, RechargeRate.LongRest, AttributeDefinitions.Intelligence)
             .SetEffectDescription(EffectDescriptionBuilder
                 .Create()
                 .SetTargetingData(Side.Enemy, RangeType.Distance, 1, TargetType.Individuals)
