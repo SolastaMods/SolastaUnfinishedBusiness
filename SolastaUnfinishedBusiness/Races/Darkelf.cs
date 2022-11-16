@@ -30,7 +30,6 @@ internal static class DarkelfSubraceBuilder
                 AttributeDefinitions.Charisma,
                 8)
             .Build())
-        .SetShowCasting(true)
         .AddToDB();
 
     internal static readonly FeatureDefinitionPower PowerDarkelfDarkness = FeatureDefinitionPowerBuilder
@@ -38,7 +37,6 @@ internal static class DarkelfSubraceBuilder
         .SetGuiPresentation(Category.Feature, SpellDefinitions.Darkness)
         .SetUsesFixed(ActivationTime.Action, RechargeRate.LongRest)
         .SetEffectDescription(SpellDefinitions.Darkness.EffectDescription)
-        .SetShowCasting(true)
         .AddToDB();
 
     internal static CharacterRaceDefinition SubraceDarkelf { get; } = BuildDarkelf();

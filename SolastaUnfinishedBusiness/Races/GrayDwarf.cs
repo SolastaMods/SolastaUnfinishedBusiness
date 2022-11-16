@@ -122,7 +122,6 @@ internal static class GrayDwarfSubraceBuilder
                         false, false)
                     .Build())
                 .Build())
-            .SetShowCasting(true)
             .AddToDB();
 
         var powerGrayDwarfInvisibility = FeatureDefinitionPowerBuilder
@@ -134,7 +133,6 @@ internal static class GrayDwarfSubraceBuilder
                 .SetDurationData(DurationType.Minute, 1, TurnOccurenceType.StartOfTurn)
                 .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
                 .Build())
-            .SetShowCasting(true)
             .AddToDB();
 
         var grayDwarfRacePresentation = Dwarf.RacePresentation.DeepCopy();

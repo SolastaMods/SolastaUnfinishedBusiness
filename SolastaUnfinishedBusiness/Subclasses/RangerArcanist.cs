@@ -167,7 +167,6 @@ internal sealed class RangerArcanist : AbstractSubclass
                 .SetTargetingData(Side.Enemy, RangeType.Distance, 6, TargetType.Sphere, 3)
                 .SetEffectForms(effectForms)
                 .Build())
-            .SetShowCasting(true)
             .SetOverriddenPower(overriddenPower)
             .AddToDB();
     }

@@ -18,7 +18,6 @@ internal sealed class WayOfSilhouette : AbstractSubclass
             .SetGuiPresentation(SpellDefinitions.Darkness.GuiPresentation)
             .SetUsesFixed(ActivationTime.Action, RechargeRate.KiPoints, 2)
             .SetEffectDescription(SpellDefinitions.Darkness.EffectDescription)
-            .SetShowCasting(true)
             .AddToDB();
 
         var powerWayOfSilhouetteDarkvision = FeatureDefinitionPowerBuilder
@@ -26,7 +25,6 @@ internal sealed class WayOfSilhouette : AbstractSubclass
             .SetGuiPresentation(SpellDefinitions.Darkvision.GuiPresentation)
             .SetUsesFixed(ActivationTime.Action, RechargeRate.KiPoints, 2)
             .SetEffectDescription(SpellDefinitions.Darkvision.EffectDescription)
-            .SetShowCasting(true)
             .AddToDB();
 
         var powerWayOfSilhouettePassWithoutTrace = FeatureDefinitionPowerBuilder
@@ -34,7 +32,6 @@ internal sealed class WayOfSilhouette : AbstractSubclass
             .SetGuiPresentation(SpellDefinitions.PassWithoutTrace.GuiPresentation)
             .SetUsesFixed(ActivationTime.Action, RechargeRate.KiPoints, 2)
             .SetEffectDescription(SpellDefinitions.PassWithoutTrace.EffectDescription)
-            .SetShowCasting(true)
             .AddToDB();
 
         var powerWayOfSilhouetteSilence = FeatureDefinitionPowerBuilder
@@ -42,7 +39,6 @@ internal sealed class WayOfSilhouette : AbstractSubclass
             .SetGuiPresentation(SpellDefinitions.Silence.GuiPresentation)
             .SetUsesFixed(ActivationTime.Action, RechargeRate.KiPoints, 2)
             .SetEffectDescription(SpellDefinitions.Silence.EffectDescription)
-            .SetShowCasting(true)
             .AddToDB();
 
         var featureSetWayOfSilhouetteSilhouetteArts = FeatureDefinitionFeatureSetBuilder

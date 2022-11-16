@@ -109,7 +109,6 @@ internal sealed class SorcerousDivineHeart : AbstractSubclass
             .SetGuiPresentation(Category.Feature, DimensionDoor)
             .SetUsesFixed(ActivationTime.Action)
             .SetEffectDescription(DimensionDoor.EffectDescription)
-            .SetShowCasting(true)
             .AddToDB();
 
         var powerDivineHeartDivineRecovery = FeatureDefinitionPowerBuilder
@@ -121,7 +120,6 @@ internal sealed class SorcerousDivineHeart : AbstractSubclass
                     .Create(Heal.EffectDescription)
                     .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
                     .Build())
-            .SetShowCasting(true)
             .AddToDB();
 
         Subclass = CharacterSubclassDefinitionBuilder
