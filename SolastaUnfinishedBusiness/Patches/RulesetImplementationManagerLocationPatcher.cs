@@ -95,7 +95,46 @@ public static class RulesetImplementationManagerLocationPatcher
             // used for Grenadier's force grenades
             // if effect source definition has marker, and forms params have position, will try to push target from that point
 
-            return PushesFromEffectPoint.TryPushFromEffectTargetPoint(effectForm, formsParams);
+            var useDefaultLogic = PushesFromEffectPoint.TryPushFromEffectTargetPoint(effectForm, formsParams);
+
+            if (useDefaultLogic)
+            {
+                useDefaultLogic = CustomSwap(effectForm, formsParams);
+            }
+
+            return useDefaultLogic;
+        }
+
+        public static bool CustomSwap(EffectForm effectForm,
+            RulesetImplementationDefinitions.ApplyFormsParams formsParams)
+        {
+            // Main.Log2($"CustomSwap", true);
+            var motionForm = effectForm.MotionForm;
+            if (motionForm.Type != (MotionForm.MotionType)ExtraMotionType.CustomSwap)
+            {
+                return true;
+            }
+
+            var action = ServiceRepository.GetService<IGameLocationActionService>();
+            var attacker = GameLocationCharacter.GetFromActor(formsParams.sourceCharacter);
+            var defender = GameLocationCharacter.GetFromActor(formsParams.targetCharacter);
+            if (attacker == null || defender == null)
+                return true;
+
+            var actionId = (ActionDefinitions.Id)ExtraActionId.PushedCustom;
+
+            action.ExecuteAction(
+                new CharacterActionParams(attacker, actionId, defender.LocationPosition)
+                {
+                    BoolParameter = false, BoolParameter4 = false, CanBeCancelled = false, CanBeAborted = false
+                }, null, true);
+            action.ExecuteAction(
+                new CharacterActionParams(defender, ActionDefinitions.Id.Pushed, attacker.LocationPosition)
+                {
+                    BoolParameter = false, BoolParameter4 = false, CanBeCancelled = false, CanBeAborted = false
+                }, null, false);
+
+            return false;
         }
     }
 }
