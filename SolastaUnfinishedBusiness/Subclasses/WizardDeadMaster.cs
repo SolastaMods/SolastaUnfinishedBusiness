@@ -86,7 +86,7 @@ internal sealed class WizardDeadMaster : AbstractSubclass
         var powerDeadMasterCommandUndead = FeatureDefinitionPowerBuilder
             .Create("PowerDeadMasterCommandUndead")
             .SetGuiPresentation(Category.Feature)
-            .SetUsesProficiencyBonus(ActivationTime.Action, RechargeRate.LongRest)
+            .SetUsesProficiencyBonus(ActivationTime.Action)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create(DominateBeast.EffectDescription)

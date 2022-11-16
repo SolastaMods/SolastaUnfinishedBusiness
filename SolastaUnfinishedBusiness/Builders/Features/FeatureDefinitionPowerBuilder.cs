@@ -48,17 +48,13 @@ internal abstract class
         return (TBuilder)this;
     }
 
-    internal TBuilder SetUsesProficiencyBonus(
-        ActivationTime activationTime,
-        RechargeRate recharge = RechargeRate.AtWill,
-        int costPerUse = 1,
-        int usesPerRecharge = 1)
+    internal TBuilder SetUsesProficiencyBonus(ActivationTime activationTime)
     {
         Definition.usesDetermination = UsesDetermination.ProficiencyBonus;
         Definition.activationTime = activationTime;
-        Definition.rechargeRate = recharge;
-        Definition.costPerUse = costPerUse;
-        Definition.fixedUsesPerRecharge = usesPerRecharge;
+        Definition.rechargeRate = RechargeRate.LongRest;
+        Definition.costPerUse = 1;
+        Definition.fixedUsesPerRecharge = 0;
         return (TBuilder)this;
     }
 

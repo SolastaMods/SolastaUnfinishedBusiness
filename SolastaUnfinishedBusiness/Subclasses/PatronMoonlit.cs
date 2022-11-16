@@ -79,7 +79,7 @@ internal sealed class PatronMoonlit : AbstractSubclass
         var powerMoonlitDarkMoon = FeatureDefinitionPowerBuilder
             .Create("PowerMoonlitDarkMoon")
             .SetGuiPresentation(Category.Feature, Darkness)
-            .SetUsesProficiencyBonus(ActivationTime.Action, RechargeRate.LongRest)
+            .SetUsesProficiencyBonus(ActivationTime.Action)
             .SetEffectDescription(EffectDescriptionBuilder
                 .Create(Darkness.EffectDescription)
                 .SetDurationData(DurationType.Minute, 1)
@@ -90,7 +90,7 @@ internal sealed class PatronMoonlit : AbstractSubclass
         var powerMoonlitFullMoon = FeatureDefinitionPowerBuilder
             .Create("PowerMoonlitFullMoon")
             .SetGuiPresentation(Category.Feature, Daylight)
-            .SetUsesProficiencyBonus(ActivationTime.Action, RechargeRate.LongRest)
+            .SetUsesProficiencyBonus(ActivationTime.Action)
             .SetEffectDescription(EffectDescriptionBuilder
                 .Create(Daylight.EffectDescription)
                 .SetDurationData(DurationType.Minute, 1)

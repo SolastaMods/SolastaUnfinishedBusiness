@@ -27,7 +27,7 @@ internal static class PrecisionFocusedFeats
         var powerArcanePrecision = FeatureDefinitionPowerBuilder
             .Create("PowerArcanePrecision")
             .SetGuiPresentation("FeatArcanePrecision", Category.Feat, PowerDomainElementalLightningBlade)
-            .SetUsesProficiencyBonus(ActivationTime.BonusAction, RechargeRate.LongRest)
+            .SetUsesProficiencyBonus(ActivationTime.BonusAction)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
@@ -64,7 +64,7 @@ internal static class PrecisionFocusedFeats
         var powerCharismaticPrecision = FeatureDefinitionPowerBuilder
             .Create("PowerCharismaticPrecision")
             .SetGuiPresentation("FeatCharismaticPrecision", Category.Feat, PowerDomainElementalLightningBlade)
-            .SetUsesProficiencyBonus(ActivationTime.BonusAction, RechargeRate.LongRest)
+            .SetUsesProficiencyBonus(ActivationTime.BonusAction)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
@@ -101,7 +101,7 @@ internal static class PrecisionFocusedFeats
         var powerWisePrecision = FeatureDefinitionPowerBuilder
             .Create("PowerWisePrecision")
             .SetGuiPresentation("FeatWisePrecision", Category.Feat, PowerDomainElementalLightningBlade)
-            .SetUsesProficiencyBonus(ActivationTime.BonusAction, RechargeRate.LongRest)
+            .SetUsesProficiencyBonus(ActivationTime.BonusAction)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()

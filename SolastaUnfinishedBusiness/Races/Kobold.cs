@@ -31,7 +31,7 @@ internal static class KoboldRaceBuilder
         var powerDraconicKoboldDraconicCry = FeatureDefinitionPowerBuilder
             .Create("PowerDraconicKoboldDraconicCry")
             .SetGuiPresentation(Category.Feature, Aid)
-            .SetUsesProficiencyBonus(ActivationTime.BonusAction, RechargeRate.LongRest)
+            .SetUsesProficiencyBonus(ActivationTime.BonusAction)
             .SetEffectDescription(EffectDescriptionBuilder
                 .Create()
                 .SetDurationData(DurationType.Round, 1)
