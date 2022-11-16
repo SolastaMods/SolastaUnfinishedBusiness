@@ -98,7 +98,7 @@ internal sealed class MartialSpellShield : AbstractSubclass
         var powerSpellShieldArcaneDeflection = FeatureDefinitionPowerBuilder
             .Create("PowerSpellShieldArcaneDeflection")
             .SetGuiPresentation(Category.Feature, ConditionShielded)
-            .SetUsesAbilityBonus(ActivationTime.Reaction, RechargeRate.AtWill, AttributeDefinitions.Intelligence)
+            .SetUsesFixed(ActivationTime.Reaction)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
