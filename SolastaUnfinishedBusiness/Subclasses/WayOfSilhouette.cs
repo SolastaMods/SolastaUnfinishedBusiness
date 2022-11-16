@@ -1,4 +1,5 @@
-﻿using SolastaUnfinishedBusiness.Builders;
+﻿using SolastaUnfinishedBusiness.Api;
+using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomInterfaces;
@@ -8,120 +9,104 @@ using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 
 namespace SolastaUnfinishedBusiness.Subclasses;
 
-internal sealed class WayOfShadow : AbstractSubclass
+internal sealed class WayOfSilhouette : AbstractSubclass
 {
-    internal WayOfShadow()
+    internal WayOfSilhouette()
     {
-        var powerWayOfShadowDarkness = FeatureDefinitionPowerBuilder
-            .Create("PowerWayOfShadowDarkness")
+        var powerWayOfSilhouetteDarkness = FeatureDefinitionPowerBuilder
+            .Create("PowerWayOfSilhouetteDarkness")
             .SetGuiPresentation(SpellDefinitions.Darkness.GuiPresentation)
             .SetUsesFixed(ActivationTime.Action, RechargeRate.KiPoints, 2)
             .SetEffectDescription(SpellDefinitions.Darkness.EffectDescription)
             .SetShowCasting(true)
             .AddToDB();
 
-        var powerWayOfShadowDarkvision = FeatureDefinitionPowerBuilder
-            .Create("PowerWayOfShadowDarkvision")
+        var powerWayOfSilhouetteDarkvision = FeatureDefinitionPowerBuilder
+            .Create("PowerWayOfSilhouetteDarkvision")
             .SetGuiPresentation(SpellDefinitions.Darkvision.GuiPresentation)
             .SetUsesFixed(ActivationTime.Action, RechargeRate.KiPoints, 2)
             .SetEffectDescription(SpellDefinitions.Darkvision.EffectDescription)
             .SetShowCasting(true)
             .AddToDB();
 
-        var powerWayOfShadowPassWithoutTrace = FeatureDefinitionPowerBuilder
-            .Create("PowerWayOfShadowPassWithoutTrace")
+        var powerWayOfSilhouettePassWithoutTrace = FeatureDefinitionPowerBuilder
+            .Create("PowerWayOfSilhouettePassWithoutTrace")
             .SetGuiPresentation(SpellDefinitions.PassWithoutTrace.GuiPresentation)
             .SetUsesFixed(ActivationTime.Action, RechargeRate.KiPoints, 2)
             .SetEffectDescription(SpellDefinitions.PassWithoutTrace.EffectDescription)
             .SetShowCasting(true)
             .AddToDB();
 
-        var powerWayOfShadowSilence = FeatureDefinitionPowerBuilder
-            .Create("PowerWayOfShadowSilence")
+        var powerWayOfSilhouetteSilence = FeatureDefinitionPowerBuilder
+            .Create("PowerWayOfSilhouetteSilence")
             .SetGuiPresentation(SpellDefinitions.Silence.GuiPresentation)
             .SetUsesFixed(ActivationTime.Action, RechargeRate.KiPoints, 2)
             .SetEffectDescription(SpellDefinitions.Silence.EffectDescription)
             .SetShowCasting(true)
             .AddToDB();
 
-        var featureSetWayOfShadowShadowArts = FeatureDefinitionFeatureSetBuilder
-            .Create("FeatureSetWayOfShadowShadowArts")
+        var featureSetWayOfSilhouetteSilhouetteArts = FeatureDefinitionFeatureSetBuilder
+            .Create("FeatureSetWayOfSilhouetteSilhouetteArts")
             .SetGuiPresentation(Category.Feature)
             .AddFeatureSet(
-                powerWayOfShadowDarkness,
-                powerWayOfShadowDarkvision,
-                powerWayOfShadowPassWithoutTrace,
-                powerWayOfShadowSilence)
+                powerWayOfSilhouetteDarkness,
+                powerWayOfSilhouetteDarkvision,
+                powerWayOfSilhouettePassWithoutTrace,
+                powerWayOfSilhouetteSilence)
             .AddToDB();
 
-        //
-        // keep a tab if it can use certain powers
-        //
+        var powerWayOfSilhouetteSilhouetteStep = FeatureDefinitionPowerBuilder
+            .Create("PowerWayOfSilhouetteSilhouetteStep")
+            .SetGuiPresentation(Category.Feature, SpellDefinitions.MistyStep)
+            .SetUsesFixed(ActivationTime.BonusAction, RechargeRate.ShortRest)
+            .SetEffectDescription(SpellDefinitions.MistyStep.EffectDescription)
+            .SetShowCasting(true)
+            .AddToDB();
 
-        var conditionWayOfShadowTrackHiddenRevealed = ConditionDefinitionBuilder
-            .Create("ConditionWayOfShadowTrackHiddenRevealed")
-            .SetGuiPresentationNoContent(true)
+        var conditionWayOfSilhouetteInvisibility = ConditionDefinitionBuilder
+            .Create("ConditionWayOfSilhouetteInvisibility")
+            .SetGuiPresentationNoContent()
             .SetSilent(Silent.WhenAddedOrRemoved)
-            .SetFeatures(WayOfShadowVisibilityTracker.Build())
+            .SetFeatures(WayOfSilhouetteInvisibility.Build())
             .SetTurnOccurence(TurnOccurenceType.StartOfTurn)
             .AddToDB();
 
         // only reports condition on char panel
-        Global.CharacterLabelEnabledConditions.Add(conditionWayOfShadowTrackHiddenRevealed);
+        Global.CharacterLabelEnabledConditions.Add(conditionWayOfSilhouetteInvisibility);
 
-        var lightAffinityWayOfShadow = FeatureDefinitionLightAffinityBuilder
-            .Create("LightAffinityWayOfShadow")
-            .SetGuiPresentationNoContent(true)
+        var lightAffinityWayOfSilhouetteCloakOfSilhouettesWeak = FeatureDefinitionLightAffinityBuilder
+            .Create("LightAffinityWayOfSilhouetteCloakOfSilhouettesWeak")
+            .SetGuiPresentation(Category.Feature)
             .AddLightingEffectAndCondition(new FeatureDefinitionLightAffinity.LightingEffectAndCondition
             {
-                lightingState = LocationDefinitions.LightingState.Unlit,
-                condition = conditionWayOfShadowTrackHiddenRevealed
+                lightingState = LocationDefinitions.LightingState.Unlit, condition = conditionWayOfSilhouetteInvisibility
+            })
+            .AddToDB();
+        
+        var lightAffinityWayOfSilhouetteStrong = FeatureDefinitionLightAffinityBuilder
+            .Create("LightAffinityWayOfSilhouetteCloakOfSilhouettesStrong")
+            .SetGuiPresentation(Category.Feature)
+            .AddLightingEffectAndCondition(new FeatureDefinitionLightAffinity.LightingEffectAndCondition
+            {
+                lightingState = LocationDefinitions.LightingState.Dim, condition = conditionWayOfSilhouetteInvisibility
             })
             .AddLightingEffectAndCondition(new FeatureDefinitionLightAffinity.LightingEffectAndCondition
             {
-                lightingState = LocationDefinitions.LightingState.Dim,
-                condition = conditionWayOfShadowTrackHiddenRevealed
+                lightingState = LocationDefinitions.LightingState.Darkness, condition = conditionWayOfSilhouetteInvisibility
             })
-            .AddToDB();
-
-        // TODO: add advantage on first melee attack
-        var powerWayOfShadowShadowStep = FeatureDefinitionPowerBuilder
-            .Create("PowerWayOfShadowShadowStep")
-            .SetGuiPresentation(Category.Feature, SpellDefinitions.MistyStep)
-            .SetUsesFixed(ActivationTime.Action)
-            .SetEffectDescription(EffectDescriptionBuilder
-                .Create(SpellDefinitions.MistyStep.EffectDescription)
-                .SetTargetingData(Side.Ally, RangeType.Distance, 6, TargetType.Self)
-                .Build())
-            .SetCustomSubFeatures(
-                ValidatorsCharacter.HasAnyOfConditions(WayOfShadowVisibilityTracker.ConditionWayOfShadowHidden))
-            .SetShowCasting(true)
-            .AddToDB();
-
-        var powerWayOfShadowCloakOfShadows = FeatureDefinitionPowerBuilder
-            .Create("PowerWayOfShadowCloakOfShadows")
-            .SetGuiPresentation(Category.Feature, SpellDefinitions.Invisibility)
-            .SetUsesFixed(ActivationTime.Action)
-            .SetEffectDescription(EffectDescriptionBuilder
-                .Create(SpellDefinitions.Invisibility.EffectDescription)
-                .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
-                .Build())
-            .SetCustomSubFeatures(
-                ValidatorsCharacter.HasAnyOfConditions(WayOfShadowVisibilityTracker.ConditionWayOfShadowHidden))
-            .SetShowCasting(true)
             .AddToDB();
 
         Subclass = CharacterSubclassDefinitionBuilder
-            .Create("WayOfShadow")
+            .Create("WayOfSilhouette")
             .SetOrUpdateGuiPresentation(Category.Subclass, CharacterSubclassDefinitions.RoguishShadowCaster)
             .AddFeaturesAtLevel(3,
-                featureSetWayOfShadowShadowArts,
+                featureSetWayOfSilhouetteSilhouetteArts,
                 FeatureDefinitionCastSpells.CastSpellTraditionLight)
             .AddFeaturesAtLevel(6,
-                lightAffinityWayOfShadow,
-                powerWayOfShadowShadowStep)
+                lightAffinityWayOfSilhouetteCloakOfSilhouettesWeak,
+                powerWayOfSilhouetteSilhouetteStep)
             .AddFeaturesAtLevel(11,
-                powerWayOfShadowCloakOfShadows)
+                lightAffinityWayOfSilhouetteStrong)
             .AddToDB();
     }
 
@@ -131,27 +116,18 @@ internal sealed class WayOfShadow : AbstractSubclass
         FeatureDefinitionSubclassChoices.SubclassChoiceMonkMonasticTraditions;
 }
 
-internal sealed class WayOfShadowVisibilityTracker : ICustomOnActionFeature, ICustomConditionFeature
+internal sealed class WayOfSilhouetteInvisibility : ICustomOnActionFeature, ICustomConditionFeature
 {
-    private const string CategoryRevealed = "WayOfShadowRevealed";
-    private const string CategoryHidden = "WayOfShadowHidden";
-    private static ConditionDefinition ConditionWayOfShadowRevealed { get; set; }
-    internal static ConditionDefinition ConditionWayOfShadowHidden { get; set; }
+    private const string CategoryRevealed = "WayOfSilhouetteRevealed";
+    private const string CategoryHidden = "WayOfSilhouetteHidden";
+    private static ConditionDefinition ConditionWayOfSilhouetteRevealed { get; set; }
+    private static ConditionDefinition ConditionWayOfSilhouetteInvisibility { get; set; }
 
     public void ApplyFeature(RulesetCharacter hero)
     {
-        if (!hero.HasConditionOfType(ConditionWayOfShadowRevealed))
+        if (!hero.HasConditionOfType(ConditionWayOfSilhouetteRevealed))
         {
-            hero.AddConditionOfCategory(CategoryHidden,
-                RulesetCondition.CreateActiveCondition(
-                    hero.Guid,
-                    ConditionWayOfShadowHidden,
-                    DurationType.Permanent,
-                    0,
-                    TurnOccurenceType.EndOfTurn,
-                    hero.Guid,
-                    hero.CurrentFaction.Name),
-                false);
+            BecomeInvisible(hero);
         }
     }
 
@@ -176,32 +152,22 @@ internal sealed class WayOfShadowVisibilityTracker : ICustomOnActionFeature, ICu
 
         if (ruleEffect == null || !IsAllowedEffect(ruleEffect.EffectDescription))
         {
-            hero.AddConditionOfCategory(CategoryRevealed,
-                RulesetCondition.CreateActiveCondition(
-                    hero.Guid,
-                    ConditionWayOfShadowRevealed,
-                    DurationType.Round,
-                    1,
-                    TurnOccurenceType.StartOfTurn,
-                    hero.Guid,
-                    hero.CurrentFaction.Name
-                ));
+            BecomeRevealed(hero);
         }
     }
 
     internal static FeatureDefinition Build()
     {
-        ConditionWayOfShadowRevealed = ConditionDefinitionBuilder
-            .Create("ConditionWayOfShadowRevealed")
+        ConditionWayOfSilhouetteRevealed = ConditionDefinitionBuilder
+            .Create("ConditionWayOfSilhouetteRevealed")
             .SetGuiPresentationNoContent()
             .SetDuration(DurationType.Round, 1)
             .SetSilent(Silent.WhenAddedOrRemoved)
             .AddToDB();
 
-        ConditionWayOfShadowHidden = ConditionDefinitionBuilder
-            .Create("ConditionWayOfShadowHidden")
-            .SetGuiPresentationNoContent()
-            .SetCancellingConditions(ConditionWayOfShadowRevealed)
+        ConditionWayOfSilhouetteInvisibility = ConditionDefinitionBuilder
+            .Create(ConditionDefinitions.ConditionInvisible, "ConditionWayOfSilhouetteInvisible")
+            .SetCancellingConditions(ConditionWayOfSilhouetteRevealed)
             .SetSilent(Silent.WhenAddedOrRemoved)
             .SetSpecialInterruptions(
                 ConditionInterruption.Attacks,
@@ -211,9 +177,9 @@ internal sealed class WayOfShadowVisibilityTracker : ICustomOnActionFeature, ICu
             .AddToDB();
 
         return FeatureDefinitionBuilder
-            .Create("FeatureWayOfShadowTrackHiddenRevealed")
+            .Create("FeatureWayOfSilhouetteInvisibility")
             .SetGuiPresentationNoContent()
-            .SetCustomSubFeatures(new WayOfShadowVisibilityTracker())
+            .SetCustomSubFeatures(new WayOfSilhouetteInvisibility())
             .AddToDB();
     }
 
@@ -259,4 +225,33 @@ internal sealed class WayOfShadowVisibilityTracker : ICustomOnActionFeature, ICu
 
         return true;
     }
+
+    private static void BecomeRevealed(RulesetCharacter hero)
+    {
+        hero.AddConditionOfCategory(CategoryRevealed,
+            RulesetCondition.CreateActiveCondition(
+                hero.Guid,
+                ConditionWayOfSilhouetteRevealed,
+                DurationType.Round,
+                1,
+                TurnOccurenceType.StartOfTurn,
+                hero.Guid,
+                hero.CurrentFaction.Name
+            ));
+    }
+
+    private static void BecomeInvisible(RulesetCharacter hero)
+    {
+        hero.AddConditionOfCategory(CategoryHidden,
+            RulesetCondition.CreateActiveCondition(
+                hero.Guid,
+                ConditionWayOfSilhouetteInvisibility,
+                DurationType.Permanent,
+                0,
+                TurnOccurenceType.EndOfTurn,
+                hero.Guid,
+                hero.CurrentFaction.Name),
+            false);
+    }
 }
+

@@ -3,7 +3,9 @@
   "inDungeonEditor": false,
   "parentCondition": null,
   "conditionType": "Beneficial",
-  "features": [],
+  "features": [
+    "Definition:FeatureWayOfSilhouetteInvisibility:815bdc10-f793-564d-b7ef-1c1fe2b0b6d2"
+  ],
   "allowMultipleInstances": false,
   "silentWhenAdded": true,
   "silentWhenRemoved": true,
@@ -14,11 +16,7 @@
   "durationParameter": 1,
   "forceTurnOccurence": false,
   "turnOccurence": "StartOfTurn",
-  "specialInterruptions": [
-    "Attacks",
-    "CastSpell",
-    "UsePower"
-  ],
+  "specialInterruptions": [],
   "interruptionRequiresSavingThrow": false,
   "interruptionSavingThrowComputationMethod": "SaveOverride",
   "interruptionSavingThrowAbility": "",
@@ -27,9 +25,7 @@
   "interruptionSavingThrowAffinity": "None",
   "conditionTags": [],
   "recurrentEffectForms": [],
-  "cancellingConditions": [
-    "Definition:ConditionWayOfShadowRevealed:1f0b88bd-7103-5fcf-b62b-c027bd127a75"
-  ],
+  "cancellingConditions": [],
   "additionalDamageWhenHit": false,
   "additionalDamageTypeDetermination": "Specific",
   "additionalDamageType": "",
@@ -153,7 +149,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "920f4222-c735-5536-9ef2-dfda9d999206",
+  "guid": "75ee9d6a-7d5a-5f35-a1f5-3ae6bd9a1a13",
   "contentPack": 9999,
-  "name": "ConditionWayOfShadowHidden"
+  "name": "ConditionWayOfSilhouetteInvisibility"
 }

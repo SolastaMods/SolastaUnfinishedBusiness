@@ -1,5 +1,9 @@
 ﻿CHANGES:
 
+1.4.26.3:
+
+- Refactor Way of Shadow into Way of The Silhouette
+
 1.4.26.2:
 
 - Add 2 WIP gambits (Brace and Switch)
@@ -37,6 +41,7 @@
 - Rebrand to Unfinished Business
 - Add Inventor
 - Add Kobold
+- Add Way of The Silhouette
 - Add UI feat groups
 - Add new Fighting Styles
 - Allow 6 players on multiplayer [beta]

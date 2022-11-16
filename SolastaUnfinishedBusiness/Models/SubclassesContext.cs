@@ -41,7 +41,7 @@ internal static class SubclassesContext
 
         // Monk
         LoadSubclass(new WayOfTheDistantHand());
-        LoadSubclass(new WayOfShadow());
+        LoadSubclass(new WayOfSilhouette());
 
         // Warlock
         LoadSubclass(new PatronMoonlit());

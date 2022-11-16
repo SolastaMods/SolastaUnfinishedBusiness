@@ -1,8 +1,5 @@
 ﻿CHANGES:
 
-1.4.26.2:
+1.4.26.3:
 
-- Add 2 WIP gambits (Brace and Switch)
-- Add rubble proxy to Earth Tremor spell
-- Add Way of Shadow subclass
-- Fix Adaptive Strategy restoring wrong amount of dice
+- Refactor Way of Shadow into Way of The Silhouette

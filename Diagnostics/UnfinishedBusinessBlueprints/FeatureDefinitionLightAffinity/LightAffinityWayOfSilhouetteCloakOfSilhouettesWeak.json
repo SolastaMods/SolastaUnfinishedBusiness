@@ -4,13 +4,7 @@
     {
       "$type": "FeatureDefinitionLightAffinity+LightingEffectAndCondition, Assembly-CSharp",
       "lightingState": "Unlit",
-      "condition": "Definition:ConditionWayOfShadowTrackHiddenRevealed:cf5f3170-c263-5ab7-af34-173c872dade7",
-      "effect": null
-    },
-    {
-      "$type": "FeatureDefinitionLightAffinity+LightingEffectAndCondition, Assembly-CSharp",
-      "lightingState": "Dim",
-      "condition": "Definition:ConditionWayOfShadowTrackHiddenRevealed:cf5f3170-c263-5ab7-af34-173c872dade7",
+      "condition": "Definition:ConditionWayOfSilhouetteInvisibility:75ee9d6a-7d5a-5f35-a1f5-3ae6bd9a1a13",
       "effect": null
     }
   ],
@@ -18,9 +12,9 @@
   "otherCharacterFamilyRestrictions": [],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
-    "hidden": true,
-    "title": "Feature/&NoContentTitle",
-    "description": "Feature/&NoContentTitle",
+    "hidden": false,
+    "title": "Feature/&LightAffinityWayOfSilhouetteCloakOfSilhouettesWeakTitle",
+    "description": "Feature/&LightAffinityWayOfSilhouetteCloakOfSilhouettesWeakDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -40,7 +34,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "6faee54a-4b89-5890-a0fb-1c3116c1a119",
+  "guid": "68d58944-d6dd-5e5b-b928-9c074351cb9f",
   "contentPack": 9999,
-  "name": "LightAffinityWayOfShadow"
+  "name": "LightAffinityWayOfSilhouetteCloakOfSilhouettesWeak"
 }

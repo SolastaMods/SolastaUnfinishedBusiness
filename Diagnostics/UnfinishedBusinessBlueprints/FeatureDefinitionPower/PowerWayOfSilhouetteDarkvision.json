@@ -2,18 +2,18 @@
   "$type": "FeatureDefinitionPower, Assembly-CSharp",
   "effectDescription": {
     "$type": "EffectDescription, Assembly-CSharp",
-    "rangeType": "Distance",
+    "rangeType": "Touch",
     "rangeParameter": 6,
     "halfDamageOnAMiss": false,
     "hitAffinitiesByTargetTag": [],
     "targetType": "IndividualsUnique",
     "itemSelectionType": "Equiped",
-    "targetParameter": 6,
+    "targetParameter": 1,
     "targetParameter2": 2,
     "emissiveBorder": "None",
     "emissiveParameter": 1,
     "requiresTargetProximity": false,
-    "targetProximityDistance": 30,
+    "targetProximityDistance": 5,
     "targetExcludeCaster": false,
     "canBePlacedOnCharacter": true,
     "affectOnlyGround": false,
@@ -32,11 +32,11 @@
     "targetConditionAsset": null,
     "targetSide": "Ally",
     "durationType": "Hour",
-    "durationParameter": 1,
+    "durationParameter": 8,
     "endOfEffect": "EndOfTurn",
     "hasSavingThrow": false,
     "disableSavingThrowOnAllies": false,
-    "savingThrowAbility": "Charisma",
+    "savingThrowAbility": "Constitution",
     "ignoreCover": false,
     "grantedConditionOnSave": null,
     "rollSaveOnlyIfRelevantForms": false,
@@ -71,14 +71,14 @@
         "createdByCharacter": true,
         "createdByCondition": false,
         "hasSavingThrow": false,
-        "savingThrowAffinity": "None",
+        "savingThrowAffinity": "Negates",
         "dcModifier": 0,
         "canSaveToCancel": false,
         "saveOccurence": "EndOfTurn",
         "conditionForm": {
           "$type": "ConditionForm, Assembly-CSharp",
-          "conditionDefinitionName": "ConditionBlessed",
-          "conditionDefinition": "Definition:ConditionPassWithoutTrace:a388ed2698ecbe640ac9f29ede4a007b",
+          "conditionDefinitionName": "ConditionDarkvision",
+          "conditionDefinition": "Definition:ConditionDarkvision:acec7f6b3e28afe459b07617af3aa1b6",
           "operation": "Add",
           "conditionsList": [],
           "applyToSelf": false,
@@ -92,10 +92,10 @@
     "effectAdvancement": {
       "$type": "EffectAdvancement, Assembly-CSharp",
       "effectIncrementMethod": "None",
-      "incrementMultiplier": 1,
-      "additionalTargetsPerIncrement": 1,
+      "incrementMultiplier": 5,
+      "additionalTargetsPerIncrement": 0,
       "additionalSubtargetsPerIncrement": 0,
-      "additionalDicePerIncrement": 0,
+      "additionalDicePerIncrement": 1,
       "additionalSpellLevelPerIncrement": 0,
       "additionalSummonsPerIncrement": 0,
       "additionalHPPerIncrement": 0,
@@ -105,22 +105,22 @@
       "additionalWeaponDie": 0,
       "alteredDuration": "None"
     },
-    "speedType": "Instant",
-    "speedParameter": 10.0,
+    "speedType": "Fixed",
+    "speedParameter": 0.15,
     "offsetImpactTimeBasedOnDistance": false,
     "offsetImpactTimeBasedOnDistanceFactor": 0.1,
-    "offsetImpactTimePerTarget": 0.1,
+    "offsetImpactTimePerTarget": 0.0,
     "effectParticleParameters": {
       "$type": "EffectParticleParameters, Assembly-CSharp",
       "casterParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "6a8b8119774067740a6895a72319a60d",
+        "m_AssetGUID": "66eab5c3dc6b1494b896c4bef1551bbb",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
       "casterSelfParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "",
+        "m_AssetGUID": "57ac898b65149b147ad04d187835dbae",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -247,7 +247,7 @@
       },
       "conditionStartParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "3c8bb1e60b02bb14e8dec4bcf254754e",
+        "m_AssetGUID": "f90a27e99897a8542bdaf946f82a6157",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -259,7 +259,7 @@
       },
       "conditionEndParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "68c1a6c0489c0cc4fba4b91a3c88eafb",
+        "m_AssetGUID": "54d2968f31c61564eb77c2f3c506f8e8",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -324,12 +324,12 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Spell/&PassWithoutTraceTitle",
-    "description": "Spell/&PassWithoutTraceDescription",
+    "title": "Spell/&DarkvisionTitle",
+    "description": "Spell/&DarkvisionDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "687eef905bf70114fa9f5c18bae3f048",
-      "m_SubObjectName": "PassWithoutTrace",
+      "m_AssetGUID": "9489830f04d9f104083a171ec029479d",
+      "m_SubObjectName": "Darkvision",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
@@ -345,7 +345,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "a314715c-7eda-550c-a2ce-3efdc94d1762",
+  "guid": "d95f450c-d3d8-5aa0-9dbb-d26c2da04c1d",
   "contentPack": 9999,
-  "name": "PowerWayOfShadowPassWithoutTrace"
+  "name": "PowerWayOfSilhouetteDarkvision"
 }

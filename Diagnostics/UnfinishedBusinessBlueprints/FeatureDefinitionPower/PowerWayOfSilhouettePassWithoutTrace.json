@@ -2,13 +2,13 @@
   "$type": "FeatureDefinitionPower, Assembly-CSharp",
   "effectDescription": {
     "$type": "EffectDescription, Assembly-CSharp",
-    "rangeType": "Self",
-    "rangeParameter": 0,
+    "rangeType": "Distance",
+    "rangeParameter": 6,
     "halfDamageOnAMiss": false,
     "hitAffinitiesByTargetTag": [],
-    "targetType": "Self",
-    "itemSelectionType": "None",
-    "targetParameter": 1,
+    "targetType": "IndividualsUnique",
+    "itemSelectionType": "Equiped",
+    "targetParameter": 6,
     "targetParameter2": 2,
     "emissiveBorder": "None",
     "emissiveParameter": 1,
@@ -36,7 +36,7 @@
     "endOfEffect": "EndOfTurn",
     "hasSavingThrow": false,
     "disableSavingThrowOnAllies": false,
-    "savingThrowAbility": "Dexterity",
+    "savingThrowAbility": "Charisma",
     "ignoreCover": false,
     "grantedConditionOnSave": null,
     "rollSaveOnlyIfRelevantForms": false,
@@ -77,8 +77,8 @@
         "saveOccurence": "EndOfTurn",
         "conditionForm": {
           "$type": "ConditionForm, Assembly-CSharp",
-          "conditionDefinitionName": "ConditionInvisible",
-          "conditionDefinition": "Definition:ConditionInvisible:6fff2284783105e4fa9793d4bf8afa3f",
+          "conditionDefinitionName": "ConditionBlessed",
+          "conditionDefinition": "Definition:ConditionPassWithoutTrace:a388ed2698ecbe640ac9f29ede4a007b",
           "operation": "Add",
           "conditionsList": [],
           "applyToSelf": false,
@@ -91,7 +91,7 @@
     "specialFormsDescription": "",
     "effectAdvancement": {
       "$type": "EffectAdvancement, Assembly-CSharp",
-      "effectIncrementMethod": "PerAdditionalSlotLevel",
+      "effectIncrementMethod": "None",
       "incrementMultiplier": 1,
       "additionalTargetsPerIncrement": 1,
       "additionalSubtargetsPerIncrement": 0,
@@ -109,18 +109,18 @@
     "speedParameter": 10.0,
     "offsetImpactTimeBasedOnDistance": false,
     "offsetImpactTimeBasedOnDistanceFactor": 0.1,
-    "offsetImpactTimePerTarget": 0.0,
+    "offsetImpactTimePerTarget": 0.1,
     "effectParticleParameters": {
       "$type": "EffectParticleParameters, Assembly-CSharp",
       "casterParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "a56cb8792645db5478ef288ba5d692d6",
+        "m_AssetGUID": "6a8b8119774067740a6895a72319a60d",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
       "casterSelfParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "b47f2e2f5757dff47a392712be9c2925",
+        "m_AssetGUID": "",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -247,7 +247,7 @@
       },
       "conditionStartParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "18358f685aa889543b2d6d68c78f1b96",
+        "m_AssetGUID": "3c8bb1e60b02bb14e8dec4bcf254754e",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -259,7 +259,7 @@
       },
       "conditionEndParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "b04ebd84a933a19499efab399f1c25a6",
+        "m_AssetGUID": "68c1a6c0489c0cc4fba4b91a3c88eafb",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -278,10 +278,10 @@
     "effectAIParameters": {
       "$type": "EffectAIParameters, Assembly-CSharp",
       "aoeScoreMultiplier": 1.0,
-      "cooldownForCaster": 3,
+      "cooldownForCaster": 0,
       "cooldownForBattle": 0,
       "sortingScoreMultiplier": 1.0,
-      "dynamicCooldown": true
+      "dynamicCooldown": false
     },
     "animationMagicEffect": "Animation0",
     "lightCounterDispellsEffect": false
@@ -304,8 +304,8 @@
   "canUseInDialog": false,
   "disableIfConditionIsOwned": null,
   "disableIfTargetConditionIsOwned": null,
-  "rechargeRate": "AtWill",
-  "costPerUse": 1,
+  "rechargeRate": "KiPoints",
+  "costPerUse": 2,
   "spellcastingFeature": null,
   "usesDetermination": "Fixed",
   "abilityScoreDetermination": "Explicit",
@@ -324,12 +324,12 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&PowerWayOfShadowCloakOfShadowsTitle",
-    "description": "Feature/&PowerWayOfShadowCloakOfShadowsDescription",
+    "title": "Spell/&PassWithoutTraceTitle",
+    "description": "Spell/&PassWithoutTraceDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "75e87f6e6651cc040afcc690e549c073",
-      "m_SubObjectName": "Invisibility",
+      "m_AssetGUID": "687eef905bf70114fa9f5c18bae3f048",
+      "m_SubObjectName": "PassWithoutTrace",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
@@ -345,7 +345,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "21b0ef7a-8ef2-54d5-a8c3-db94b97abbf4",
+  "guid": "494323b2-39be-53a1-aba3-b915b8d239b5",
   "contentPack": 9999,
-  "name": "PowerWayOfShadowCloakOfShadows"
+  "name": "PowerWayOfSilhouettePassWithoutTrace"
 }

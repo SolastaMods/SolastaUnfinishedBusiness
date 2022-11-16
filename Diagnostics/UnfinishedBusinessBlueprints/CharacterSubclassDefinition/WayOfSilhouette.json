@@ -3,7 +3,7 @@
   "featureUnlocks": [
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:FeatureSetWayOfShadowShadowArts:2e54a4fc-85cc-5a2c-9ae1-e0b361b1b383",
+      "featureDefinition": "Definition:FeatureSetWayOfSilhouetteSilhouetteArts:2c6a6eca-0bd9-5ddf-9423-47b7b9a69eca",
       "level": 3
     },
     {
@@ -13,17 +13,17 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:LightAffinityWayOfShadow:6faee54a-4b89-5890-a0fb-1c3116c1a119",
+      "featureDefinition": "Definition:LightAffinityWayOfSilhouetteCloakOfSilhouettesWeak:68d58944-d6dd-5e5b-b928-9c074351cb9f",
       "level": 6
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:PowerWayOfShadowShadowStep:fa779660-00ac-546a-806b-9254714d76f9",
+      "featureDefinition": "Definition:PowerWayOfSilhouetteSilhouetteStep:91b0a741-32f5-50df-bc7b-1c964ceb1397",
       "level": 6
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:PowerWayOfShadowCloakOfShadows:21b0ef7a-8ef2-54d5-a8c3-db94b97abbf4",
+      "featureDefinition": "Definition:LightAffinityWayOfSilhouetteCloakOfSilhouettesStrong:11148dc3-2ce8-5793-a86b-1ed6f9aa4fc5",
       "level": 11
     }
   ],
@@ -32,8 +32,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Subclass/&WayOfShadowTitle",
-    "description": "Subclass/&WayOfShadowDescription",
+    "title": "Subclass/&WayOfSilhouetteTitle",
+    "description": "Subclass/&WayOfSilhouetteDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "29d762aa92314b04ea0c8f607efe10ae",
@@ -53,7 +53,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "baec1d14-0e4c-5ff6-ae3b-ab608448b587",
+  "guid": "e618659c-bd19-52a4-a19a-2128445a4776",
   "contentPack": 9999,
-  "name": "WayOfShadow"
+  "name": "WayOfSilhouette"
 }
