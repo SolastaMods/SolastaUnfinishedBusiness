@@ -34,8 +34,8 @@ internal static class FlexibleRacesContext
         // unofficial races
         { "RaceBolgrif", AttributeChoiceThree },
         { "RaceHalfElfVariant", AttributeChoiceFour },
-        { "RaceDarkKobold", AttributeChoiceThree },
-        { "RaceDraconicKobold", AttributeChoiceFour },
+        //{ "RaceDarkKobold", AttributeChoiceThree },
+        { "RaceKobold", AttributeChoiceFour },
         { "RaceGnome", AttributeChoiceThree }
     };
 
@@ -72,8 +72,8 @@ internal static class FlexibleRacesContext
         { "RaceDarkelf", new List<string> { "AttributeModifierDarkelfCharismaAbilityScoreIncrease" } },
         { "RaceHalfElfVariant", new List<string> { "FeatureSetHalfElfAbilityScoreIncrease" } },
         { "RaceGrayDwarf", new List<string> { "AttributeModifierGrayDwarfStrengthAbilityScoreIncrease" } },
-        { "RaceDarkKobold", new List<string> { "FeatureSetHalfOrcAbilityScoreIncrease" } },
-        { "RaceDraconicKobold", new List<string> { "FeatureSetHalfElfAbilityScoreIncrease" } }
+        //{ "RaceDarkKobold", new List<string> { "FeatureSetHalfOrcAbilityScoreIncrease" } },
+        { "RaceKobold", new List<string> { "FeatureSetHalfElfAbilityScoreIncrease" } }
     };
 
     private static void RemoveMatchingFeature([NotNull] List<FeatureUnlockByLevel> unlocks, BaseDefinition toRemove)
