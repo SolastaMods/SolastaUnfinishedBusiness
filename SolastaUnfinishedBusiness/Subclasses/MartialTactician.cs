@@ -840,7 +840,6 @@ internal sealed class MartialTactician : AbstractSubclass
             (int3, int3) movement,
             GameLocationBattleManager battle)
         {
-            //TODO: check that enemy actually entered reach, and not just moves within it
             var manager = ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
             if (manager == null)
             {
@@ -853,11 +852,12 @@ internal sealed class MartialTactician : AbstractSubclass
                 yield break;
             }
 
-            var reactionParams = new CharacterActionParams(me, ActionDefinitions.Id.AttackOpportunity);
-
-            reactionParams.TargetCharacters.Add(mover);
-            reactionParams.ActionModifiers.Add(retaliationModifier);
-            reactionParams.AttackMode = retaliationMode;
+            var reactionParams = new CharacterActionParams(
+                me,
+                ActionDefinitions.Id.AttackOpportunity,
+                retaliationMode,
+                mover,
+                retaliationModifier);
 
             var character = me.RulesetCharacter;
             var rulesetCondition = RulesetCondition.CreateActiveCondition(character.Guid,
