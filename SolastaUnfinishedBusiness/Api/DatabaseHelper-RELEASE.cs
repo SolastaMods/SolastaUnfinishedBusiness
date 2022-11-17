@@ -50,9 +50,6 @@ internal static partial class DatabaseHelper
         internal static MorphotypeElementDefinition FaceAndSkin_Neutral { get; } =
             GetDefinition<MorphotypeElementDefinition>("FaceAndSkin_Neutral");
 
-        internal static MorphotypeElementDefinition FaceAndSkin_Defiler { get; } =
-            GetDefinition<MorphotypeElementDefinition>("FaceAndSkin_Defiler");
-
         internal static MorphotypeElementDefinition BodyDecorationColor_Default_00 { get; } =
             GetDefinition<MorphotypeElementDefinition>("BodyDecorationColor_Default_00");
 
@@ -706,9 +703,6 @@ internal static partial class DatabaseHelper
 
         internal static CharacterSubclassDefinition RangerSwiftBlade { get; } =
             GetDefinition<CharacterSubclassDefinition>("RangerSwiftBlade");
-
-        internal static CharacterSubclassDefinition RoguishHoodlum { get; } =
-            GetDefinition<CharacterSubclassDefinition>("RoguishHoodlum");
 
         internal static CharacterSubclassDefinition RoguishShadowCaster { get; } =
             GetDefinition<CharacterSubclassDefinition>("RoguishShadowCaster");
