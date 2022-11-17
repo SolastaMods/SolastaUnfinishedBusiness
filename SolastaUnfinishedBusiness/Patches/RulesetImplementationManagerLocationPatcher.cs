@@ -119,7 +119,9 @@ public static class RulesetImplementationManagerLocationPatcher
             var attacker = GameLocationCharacter.GetFromActor(formsParams.sourceCharacter);
             var defender = GameLocationCharacter.GetFromActor(formsParams.targetCharacter);
             if (attacker == null || defender == null)
+            {
                 return true;
+            }
 
             var actionId = (ActionDefinitions.Id)ExtraActionId.PushedCustom;
 

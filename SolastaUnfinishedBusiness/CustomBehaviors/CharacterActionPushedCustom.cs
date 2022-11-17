@@ -1,6 +1,7 @@
 ﻿using System.Collections;
-using SolastaUnfinishedBusiness;
 using TA;
+
+namespace SolastaUnfinishedBusiness.CustomBehaviors;
 
 public class CharacterActionPushedCustom : CharacterAction
 {
@@ -66,7 +67,7 @@ public class CharacterActionPushedCustom : CharacterAction
             yield return character.EventSystem.UpdateMotionsAndWaitForEvent(GameLocationCharacterEventSystem.Event
                 .MovementStepEnd);
 
-            
+
             character.StopMoving(character.Orientation);
             if (forceProne)
             {

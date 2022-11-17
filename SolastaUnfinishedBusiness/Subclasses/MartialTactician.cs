@@ -232,7 +232,7 @@ internal sealed class MartialTactician : AbstractSubclass
             .AddToDB();
 
         var conditionGambitDieDamage = ConditionDefinitionBuilder
-            .Create($"ConditionGambitDieDamage")
+            .Create("ConditionGambitDieDamage")
             .SetGuiPresentationNoContent(true)
             .SetSilent(Silent.WhenAddedOrRemoved)
             .SetFeatures(BuildGambitDieDamage("Reaction"))

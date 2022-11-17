@@ -29,7 +29,7 @@ public static class InvocationSubPanelPatcher
             InvocationsContext.SortInvocations(__instance);
         }
     }
-    
+
     [HarmonyPatch(typeof(InvocationSubPanel), "SetState")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     public static class SetState_Patch

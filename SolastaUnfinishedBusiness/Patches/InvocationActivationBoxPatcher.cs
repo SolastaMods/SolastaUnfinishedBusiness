@@ -15,6 +15,25 @@ public static class InvocationActivationBoxPatcher
     private const string TableName = "SlotStatusTable";
     private const string HighSlotsName = "HighSlotNumber";
 
+    private static void DisablePowerUseSlots(InvocationActivationBox box)
+    {
+        var boxRect = box.rectTransform;
+
+        var slotTable = boxRect.Find(TableName);
+
+        if (slotTable != null)
+        {
+            slotTable.gameObject.SetActive(false);
+        }
+
+        var highTransform = boxRect.Find(HighSlotsName);
+
+        if (highTransform != null)
+        {
+            highTransform.gameObject.SetActive(false);
+        }
+    }
+
     [HarmonyPatch(typeof(InvocationActivationBox), "Bind")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     public static class Bind_Patch
@@ -213,25 +232,6 @@ public static class InvocationActivationBoxPatcher
         {
             //PATCH: clean up custom widgets added for power invocations
             DisablePowerUseSlots(__instance);
-        }
-    }
-
-    private static void DisablePowerUseSlots(InvocationActivationBox box)
-    {
-        var boxRect = box.rectTransform;
-
-        var slotTable = boxRect.Find(TableName);
-
-        if (slotTable != null)
-        {
-            slotTable.gameObject.SetActive(false);
-        }
-
-        var highTransform = boxRect.Find(HighSlotsName);
-
-        if (highTransform != null)
-        {
-            highTransform.gameObject.SetActive(false);
         }
     }
 }

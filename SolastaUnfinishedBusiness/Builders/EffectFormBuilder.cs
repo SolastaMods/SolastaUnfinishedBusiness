@@ -355,7 +355,7 @@ internal class EffectFormBuilder
         effectForm.FormType = EffectForm.EffectFormType.Summon;
         return this;
     }
-    
+
     internal EffectFormBuilder SetSummonEffectProxyForm(EffectProxyDefinition effectProxyDefinition)
     {
         var summonForm = new SummonForm

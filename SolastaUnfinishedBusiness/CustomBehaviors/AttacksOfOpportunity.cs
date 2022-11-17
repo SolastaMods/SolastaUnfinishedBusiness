@@ -118,7 +118,7 @@ internal static class AttacksOfOpportunity
                 }
 
                 yield return ProcessPolearmExpert(unit, mover, movement, battleManager);
-                
+
                 foreach (var brace in unit.RulesetActor.GetSubFeaturesByType<MartialTactician.Brace>())
                 {
                     if (unit.GetActionTypeStatus(ActionType.Reaction) != ActionStatus.Available)
