@@ -847,9 +847,8 @@ internal sealed class MartialTactician : AbstractSubclass
                 yield break;
             }
 
-            var (retaliationMode, retaliationModifier) = me.GetFirstMeleeAttackThatCanAttack(mover);
-
-            if (retaliationMode == null)
+            if (!me.CanPerformOpportunityAttackOnCharacter(mover, movement.Item2, movement.Item1,
+                    out var retaliationMode, out var retaliationModifier, battle))
             {
                 yield break;
             }
