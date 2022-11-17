@@ -5,6 +5,7 @@ using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomInterfaces;
+using SolastaUnfinishedBusiness.Models;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterSubclassDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
@@ -28,9 +29,8 @@ internal sealed class RangerWildMaster : AbstractSubclass
                 .Create("ActionAffinitySpiritBeast03")
                 .SetGuiPresentationNoContent()
                 .SetDefaultAllowedActionTypes()
-                .SetForbiddenActions(Id.AttackMain, Id.AttackOff, Id.AttackReadied, Id.AttackOpportunity,
-                    Id.DisengageBonus,
-                    Id.DisengageMain, Id.Ready, Id.Shove, Id.PowerMain, Id.PowerBonus, Id.PowerReaction, Id.SpendPower)
+                .SetForbiddenActions(Id.AttackMain, Id.AttackOff, Id.AttackReadied, Id.Ready, Id.DisengageBonus,
+                    Id.DisengageMain, Id.Shove, Id.PowerMain, Id.PowerBonus, Id.PowerReaction, Id.SpendPower)
                 .SetCustomSubFeatures(new SummonerHasConditionOrKOd())
                 .AddToDB();
 
@@ -39,8 +39,7 @@ internal sealed class RangerWildMaster : AbstractSubclass
                 .Create("ActionAffinitySpiritBeast07")
                 .SetGuiPresentationNoContent()
                 .SetDefaultAllowedActionTypes()
-                .SetForbiddenActions(Id.AttackMain, Id.AttackOff, Id.AttackReadied, Id.AttackOpportunity, Id.Ready,
-                    Id.PowerMain, Id.PowerBonus, Id.PowerReaction, Id.SpendPower)
+                .SetForbiddenActions(Id.AttackMain, Id.AttackOff, Id.AttackReadied, Id.Ready)
                 .SetCustomSubFeatures(new SummonerHasConditionOrKOd())
                 .AddToDB();
 
@@ -101,18 +100,21 @@ internal sealed class RangerWildMaster : AbstractSubclass
 
         var powerKindredSpiritBear07 = BuildSpiritBeastPower(powerWildMasterSummonSpiritBeastPool,
             powerKindredSpiritBear03, MonsterDefinitions.KindredSpiritBear, 7,
+            CharacterContext.FeatureDefinitionPowerHelpAction,
             actionAffinitySpiritBeast07,
             conditionAffinityWildMasterSpiritBeastInitiative,
             perceptionAffinitySpiritBeast);
 
         var powerKindredSpiritEagle07 = BuildSpiritBeastPower(powerWildMasterSummonSpiritBeastPool,
             powerKindredSpiritEagle03, MonsterDefinitions.KindredSpiritEagle, 7,
+            CharacterContext.FeatureDefinitionPowerHelpAction,
             actionAffinitySpiritBeast07,
             conditionAffinityWildMasterSpiritBeastInitiative,
             perceptionAffinitySpiritBeast);
 
         var powerKindredSpiritTiger07 = BuildSpiritBeastPower(powerWildMasterSummonSpiritBeastPool,
             powerKindredSpiritTiger03, MonsterDefinitions.KindredSpiritTiger, 7,
+            CharacterContext.FeatureDefinitionPowerHelpAction,
             actionAffinitySpiritBeast07,
             conditionAffinityWildMasterSpiritBeastInitiative,
             perceptionAffinitySpiritBeast);
@@ -140,13 +142,19 @@ internal sealed class RangerWildMaster : AbstractSubclass
                 powerKindredSpiritTiger07)
             .AddToDB();
 
+        var featureSetWildMaster11 = FeatureDefinitionFeatureSetBuilder
+            .Create("FeatureSetWildMaster11")
+            .SetGuiPresentation(Category.Feature)
+            .AddFeatureSet(
+                BuildSpiritBeastAffinityLevel11())
+            .AddToDB();
+
         Subclass = CharacterSubclassDefinitionBuilder
             .Create("RangerWildMaster")
             .SetGuiPresentation(Category.Subclass, PatronFiend)
             .AddFeaturesAtLevel(3, featureSetWildMaster03)
             .AddFeaturesAtLevel(7, featureSetWildMaster07)
-            .AddFeaturesAtLevel(11)
-            .AddFeaturesAtLevel(15)
+            .AddFeaturesAtLevel(11, featureSetWildMaster11)
             .AddToDB();
     }
 
@@ -292,6 +300,34 @@ internal sealed class RangerWildMaster : AbstractSubclass
             .AddToDB();
     }
 
+    private static FeatureDefinition BuildSpiritBeastAffinityLevel11()
+    {
+        return FeatureDefinitionSummoningAffinityBuilder
+            .Create("SummoningAffinityWildMasterSummonSpiritBeast11")
+            .SetGuiPresentationNoContent()
+            .SetRequiredMonsterTag(SpiritBeastTag)
+            .SetAddedConditions(
+                ConditionDefinitionBuilder
+                    .Create("ConditionWildMasterSummonSpiritBeastSaving")
+                    .SetGuiPresentationNoContent()
+                    .SetSilent(Silent.WhenAddedOrRemoved)
+                    .SetAmountOrigin(ConditionDefinition.OriginOfAmount.SourceSpellAttack)
+                    .SetFeatures(
+                        FeatureDefinitionSavingThrowAffinityBuilder
+                            .Create("SavingThrowAffinityWildMasterSummonSpiritBeast")
+                            .SetGuiPresentationNoContent()
+                            .SetCustomSubFeatures(new AddPBToSummonCheck(1,
+                                AttributeDefinitions.Strength,
+                                AttributeDefinitions.Dexterity,
+                                AttributeDefinitions.Constitution,
+                                AttributeDefinitions.Intelligence,
+                                AttributeDefinitions.Wisdom,
+                                AttributeDefinitions.Charisma))
+                            .AddToDB())
+                    .AddToDB())
+            .AddToDB();
+    }
+
     private static FeatureDefinition BuildCommandSpiritBeast()
     {
         var condition = ConditionDefinitionBuilder
@@ -406,16 +442,6 @@ internal sealed class RangerWildMaster : AbstractSubclass
         {
             return ServiceRepository.GetService<IGameLocationBattleService>().IsBattleInProgress &&
                    character.powersUsedByMe.Any(p => p.sourceDefinition.Name.StartsWith(SummonSpiritBeastPower));
-        }
-    }
-
-    private class TargetSpiritBeast : IRetargetCustomRestPower
-    {
-        public GameLocationCharacter GetTarget(RulesetCharacter summoner)
-        {
-            var spiritBeast = GetSpiritBeast(summoner);
-
-            return spiritBeast == null ? null : GameLocationCharacter.GetFromActor(spiritBeast);
         }
     }
 }
