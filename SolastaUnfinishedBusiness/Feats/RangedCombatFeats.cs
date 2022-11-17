@@ -167,8 +167,8 @@ internal static class RangedCombatFeats
             }
 
             var proficiency = character.GetAttribute(AttributeDefinitions.ProficiencyBonus).CurrentValue;
-            var toHit = -proficiency;
-            var toDamage = 2 * proficiency;
+            var toHit = -3;
+            var toDamage = 3 + proficiency;
 
             attackMode.ToHitBonus += toHit;
             attackMode.ToHitBonusTrends.Add(new TrendInfo(toHit,
