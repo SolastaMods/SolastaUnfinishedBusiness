@@ -149,7 +149,7 @@ You gain the ability to cast the healing word, cure wounds and lesser restoratio
 While you are not wearing any armor, your AC equals 10 + your Dexterity modifier + your Charisma modifier.
 [*][b]Charismatic Precision[/b]: Increase your Charisma by 1, to a maximum of 20.
 You can use a bonus action to select a weapon. Its attacks count as magical and you use your Charisma for your attack and damage rolls for 1 minute. This feature can be used Proficiency Bonus times per long rest.
-[*][b]Crippling[/b]: Upon hitting with a melee attack, you can reduce the speed of your opponents by 10 ft and reduce their Armor Class until the start of your next turn (not stacking).
+[*][b]Crippling[/b]: Upon hitting with a melee attack, you can reduce the speed of your opponents by 10 ft and reduce their Armor Class by 1 for 2 turns.
 [*][b]Deadeye[/b]: You have mastered ranged weapons and can make shots that others find impossible:
 • Attacking at long range doesn't impose disadvantage on your ranged weapon attack rolls.
 • Your ranged weapon attacks ignore half cover and three-quarters cover.
@@ -196,12 +196,12 @@ You gain proficiency with medium armor and shields.
 [*][b]Metamagic: Quickened Spell[/b]: You gain 3 sorcery points and learn the Quickened Spell metamagic: Can cast a main action spell with a bonus action instead, though you can't cast another spell during the same turn, except for cantrips. 
 [*][b]Metamagic: Twinned Spell[/b]: You gain 3 sorcery points and learn the Twinned Spell metamagic: If the source spell targets one creature only, this adds another target 
 [*][b]Pickpocket[/b]: You gain proficiency with Sleight of Hand, or expertise if already proficient. You also have advantage on Sleight of Hand Dexterity checks.
-[*][b]Polearm Expert[/b]: Your expert training with polearms grants you these benefits:
-• When you take the Attack action and attack with only a polearm weapon, you can use a bonus action to make a melee attack with the opposite end of the weapon. This attack uses the same ability modifier as the primary attack. The weapon's damage die for this attack is a d4, and it deals bludgeoning damage.
-• While you are wielding a polearm weapon, other creatures provoke an opportunity attack from you when they enter the reach you have with that weapon.
+[*][b]Polearm Expert[/b]: Your expert training with a polearm grants you these benefits:
+• When you take the Attack action and attack with only a polearm weapon, you can use a bonus action to make a melee attack with the opposite end of the weapon. This attack uses the same ability modifier as the primary attack and deals 1d4 bludgeoning damage.
+• Other creatures provoke an opportunity attack from you when they enter the reach you have with wielding a polearm weapon.
 [*][b]Power Attack[/b]: You learned to trade accuracy to land deadlier blows. When attacking with melee weapons, you can choose to take a -3 penalty to your to hit in order to do additional damage equal to 3 + your proficiency bonus.
 [*][b]Protection[/b]: When a creature you can see attacks a target other than you that is within one cell of you, you can use your reaction to impose disadvantage on the attack roll. You must be wielding a shield.
-[*][b]Pugilist[/b]: Your unarmed strikes deal an additional 1d4 bludgeoning damage and you can punch with your offhand as a bonus action. If you have free hand, you can shove as a bonus action.
+[*][b]Pugilist[/b]: Your unarmed strikes deal an additional 1d4 bludgeoning damage and you can punch with your offhand as a bonus action. You can shove as a bonus action if you have free hand.
 [*][b]Ranged Expert[/b]: Your expert training with ranged weapons grants you these benefits:
 • You no longer have disadvantage on ranged attacks when there is an enemy within 5 feet of you.
 • If you take the Attack action on your turn, you can use a bonus action to make an attack with a one-handed ranged or thrown weapon.
@@ -209,17 +209,17 @@ You gain proficiency with medium armor and shields.
 [*][b]Savage Attack[/b]: Reroll weapon and spell damage dice when you roll a 1 (Not all damage sources re-roll dice. For example, sneak attack and smite damage are not re-rolled).
 [*][b]Scriber[/b]: Increase your Intelligence by 1, to a maximum of 20.
 You gain proficiency with scroll kit and Arcana, or expertise if already proficient.
-[*][b]Sentinel[/b]: You have mastered techniques to take advantage of every drop in any enemy's guard, gaining the following benefits:
+[*][b]Sentinel[/b]: You have mastered techniques to take advantage of every drop in any enemy's guard:
 • When you hit a creature with an opportunity attack, the creature's speed becomes 0 for the rest of the turn.
 • Creatures provoke opportunity attacks from you even if they take the Disengage action before leaving your reach.
-• When a creature makes an attack against a target other than you, you can use your reaction to make a melee weapon attack against the attacking creature.
+• You can use your reaction to make a melee weapon attack against the attacking creature when a creature makes an attack against a target other than you.
 [*][b]Shadow Touched [Cha][/b]: Increase your Charisma attribute by 1, to a maximum of 20.
 You gain the ability to cast the invisibility, inflict wounds, and false life spells once per long rest and you can cast these spells with your spell slots.
 [*][b]Shadow Touched [Int][/b]: Increase your Intelligence attribute by 1, to a maximum of 20.
 You gain the ability to cast the invisibility, inflict wounds, and false life spells once per long rest and you can cast these spells with your spell slots.
 [*][b]Shadow Touched [Wis][/b]: Increase your Wisdom attribute by 1, to a maximum of 20.
 You gain the ability to cast the invisibility, inflict wounds, and false life spells once per long rest and you can cast these spells with your spell slots.
-[*][b]Shield Expert[/b]: You have trained in the use of a shield as a weapon. For you, it becomes a melee weapon that you are proficient with that deals 1d4 bludgeoning damage. You gain advantage on shove attempts while wielding a shield.
+[*][b]Shield Expert[/b]: You have trained in the use of a shield as a weapon. It becomes a melee weapon that you are proficient with that deals 1d4 bludgeoning damage. You gain advantage on shove attempts while wielding a shield.
 [*][b]Superior Critical[/b]: Your attacks are critical hits on a roll of 18, 19 or 20.
 [*][b]Telekinetic [Cha][/b]: Increase your Charisma by 1, to a maximum of 20.
 As a bonus action, you can telekinetically push or pull one creature you can see within 30 feet of you. The target must succeed on a Strength saving throw (DC 8 + your proficiency bonus + your Charisma modifier) or be moved 5 feet.
@@ -250,19 +250,19 @@ You can use a bonus action to select a weapon. Its attacks count as magical and 
 [list=1]
 
 [*][b]Blind Fighting[/b]: You have blind sight with a range of 10 feet. Within that range, you can effectively see anything that isn't behind total cover, even if you're blinded or in darkness. Moreover, you can see an invisible creature within that range, unless the creature successfully hides from you.
-[*][b]Crippling[/b]: Upon hitting with a melee attack, you can reduce the speed of your opponents by 10 ft and reduce their Armor Class until the start of your next turn (not stacking).
+[*][b]Crippling[/b]: Upon hitting with a melee attack, you can reduce the speed of your opponents by 10 ft and reduce their Armor Class by 1 for 2 turns.
 [*][b]Executioner[/b]: You gain a +PB to damage against creatures that are blinded, frightened, restrained, incapacitated, paralyzed, prone or stunned.
 [*][b]Hand-and-a-Half[/b]: You gain a +1 to hit and a +1 to damage rolls when you use a versatile weapon in two hands.
 [*][b]Merciless[/b]: When you reduce a target to 0 HP using a melee weapon attack on your turn, enemies within a radius of the downed target equal to half of your proficiency bonus (rounded up) who can see the target must make a Wisdom save (DC equal to 8 + PB + your STR modifier) or become frightened of you until the end of their next turn. If the triggering attack is a critical hit, the radius is instead equal to your proficiency bonus.
-[*][b]Polearm Expert[/b]: Your expert training with polearms grants you these benefits:
-• When you take the Attack action and attack with only a polearm weapon, you can use a bonus action to make a melee attack with the opposite end of the weapon. This attack uses the same ability modifier as the primary attack. The weapon's damage die for this attack is a d4, and it deals bludgeoning damage.
-• While you are wielding a polearm weapon, other creatures provoke an opportunity attack from you when they enter the reach you have with that weapon.
-[*][b]Pugilist[/b]: Your unarmed strikes deal an additional 1d4 bludgeoning damage and you can punch with your offhand as a bonus action. If you have free hand, you can shove as a bonus action.
-[*][b]Sentinel[/b]: You have mastered techniques to take advantage of every drop in any enemy's guard, gaining the following benefits:
+[*][b]Polearm Expert[/b]: Your expert training with a polearm grants you these benefits:
+• When you take the Attack action and attack with only a polearm weapon, you can use a bonus action to make a melee attack with the opposite end of the weapon. This attack uses the same ability modifier as the primary attack and deals 1d4 bludgeoning damage.
+• Other creatures provoke an opportunity attack from you when they enter the reach you have with wielding a polearm weapon.
+[*][b]Pugilist[/b]: Your unarmed strikes deal an additional 1d4 bludgeoning damage and you can punch with your offhand as a bonus action. You can shove as a bonus action if you have free hand.
+[*][b]Sentinel[/b]: You have mastered techniques to take advantage of every drop in any enemy's guard:
 • When you hit a creature with an opportunity attack, the creature's speed becomes 0 for the rest of the turn.
 • Creatures provoke opportunity attacks from you even if they take the Disengage action before leaving your reach.
-• When a creature makes an attack against a target other than you, you can use your reaction to make a melee weapon attack against the attacking creature.
-[*][b]Shield Expert[/b]: You have trained in the use of a shield as a weapon. For you, it becomes a melee weapon that you are proficient with that deals 1d4 bludgeoning damage. You gain advantage on shove attempts while wielding a shield.
+• You can use your reaction to make a melee weapon attack against the attacking creature when a creature makes an attack against a target other than you.
+[*][b]Shield Expert[/b]: You have trained in the use of a shield as a weapon. It becomes a melee weapon that you are proficient with that deals 1d4 bludgeoning damage. You gain advantage on shove attempts while wielding a shield.
 [/list]
 
 [size=3][b]Invocations[/b][/size]

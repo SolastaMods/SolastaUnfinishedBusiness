@@ -1,7 +1,8 @@
 ﻿CHANGES:
 
-1.4.26.5:
+1.4.28.0:
 
 - Add Beast Master [beta]
 - Improve Tactician
-- Minor fixes
+- Fix all reported translation issues
+- Remove Light Footed FS as too similar to an official feat
