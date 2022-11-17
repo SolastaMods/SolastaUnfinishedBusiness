@@ -85,7 +85,7 @@ internal static partial class SpellBuilders
                 EffectDifficultyClassComputation.AbilityScoreAndProficiency,
                 AttributeDefinitions.Wisdom,
                 12)
-            .SetDurationData(DurationType.Minute, 1)
+            .SetDurationData(DurationType.Instantaneous)
             .SetParticleEffectParameters(ConeOfCold)
             .SetTargetingData(Side.All, RangeType.Self, 0, TargetType.Cone, 3)
             .SetEffectForms(
