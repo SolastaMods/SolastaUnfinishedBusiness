@@ -26,6 +26,9 @@ public static class InvocationActivationBoxPatcher
             RulesetInvocation invocation,
             RulesetCharacter activator)
         {
+            //PATCH: clean up custom widgets added for power invocations
+            DisablePowerUseSlots(__instance);
+
             //PATCH: make sure hidden invocations are indeed hidden and not interactable
             if (__instance.Invocation.invocationDefinition.HasSubFeatureOfType<Hidden>())
             {
@@ -209,21 +212,26 @@ public static class InvocationActivationBoxPatcher
         public static void Prefix(InvocationActivationBox __instance)
         {
             //PATCH: clean up custom widgets added for power invocations
-            var boxRect = __instance.rectTransform;
+            DisablePowerUseSlots(__instance);
+        }
+    }
 
-            var slotTable = boxRect.Find(TableName);
+    private static void DisablePowerUseSlots(InvocationActivationBox box)
+    {
+        var boxRect = box.rectTransform;
 
-            if (slotTable != null)
-            {
-                slotTable.gameObject.SetActive(false);
-            }
+        var slotTable = boxRect.Find(TableName);
 
-            var highTransform = boxRect.Find(HighSlotsName);
+        if (slotTable != null)
+        {
+            slotTable.gameObject.SetActive(false);
+        }
 
-            if (highTransform != null)
-            {
-                highTransform.gameObject.SetActive(false);
-            }
+        var highTransform = boxRect.Find(HighSlotsName);
+
+        if (highTransform != null)
+        {
+            highTransform.gameObject.SetActive(false);
         }
     }
 }

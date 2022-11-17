@@ -1,11 +1,7 @@
-﻿using System.Collections.Generic;
-using System.Diagnostics.CodeAnalysis;
-using System.Reflection.Emit;
+﻿using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
-using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.Extensions;
-using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.CustomBehaviors;
 using static RuleDefinitions;
 
@@ -87,87 +83,6 @@ public static class RulesetImplementationManagerLocationPatcher
         }
     }
 
-    //PATCH: Implements ExtraOriginOfAmount
-    [HarmonyPatch(typeof(RulesetImplementationManagerLocation), "ApplySummonForm")]
-    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    public static class ApplySummonForm_Patch
-    {
-        public static RulesetCondition ExtendInflictCondition(
-            RulesetActor rulesetActor,
-            string conditionDefinitionName,
-            DurationType durationType,
-            int durationParameter,
-            TurnOccurenceType endOccurence,
-            string tag,
-            ulong sourceGuid,
-            string sourceFaction,
-            int effectLevel,
-            string effectDefinitionName,
-            int sourceAmount,
-            int sourceAbilityBonus,
-            int sourceProficiencyBonus,
-            DieType bardicInspirationDie,
-            RulesetImplementationDefinitions.ApplyFormsParams formsParams,
-            ConditionDefinition addedCondition)
-        {
-            var sourceCharacter = (RulesetCharacterHero)formsParams.sourceCharacter;
-
-            switch (addedCondition.AmountOrigin)
-            {
-                case (ConditionDefinition.OriginOfAmount)ExtraOriginOfAmount.SourceProficiencyBonus:
-                    sourceAmount =
-                        formsParams.sourceCharacter.TryGetAttributeValue(AttributeDefinitions.ProficiencyBonus);
-                    break;
-
-                case (ConditionDefinition.OriginOfAmount)ExtraOriginOfAmount.SourceCharacterLevel:
-                    sourceAmount =
-                        formsParams.sourceCharacter.TryGetAttributeValue(AttributeDefinitions.CharacterLevel);
-                    break;
-
-                case (ConditionDefinition.OriginOfAmount)ExtraOriginOfAmount.SourceClassLevel:
-
-                    // Find a better place to put this in?
-                    var classType = addedCondition.AdditionalDamageType;
-                    if (DatabaseHelper.TryGetDefinition<CharacterClassDefinition>(classType,
-                            out var characterClassDefinition)
-                        && sourceCharacter.ClassesAndLevels != null
-                        && sourceCharacter.ClassesAndLevels.TryGetValue(characterClassDefinition, out var classLevel))
-                    {
-                        sourceAmount = classLevel;
-                    }
-
-                    break;
-                case (ConditionDefinition.OriginOfAmount)ExtraOriginOfAmount.SourceAbilityBonus:
-                    // Find a better place to put this in?
-                    var attributeName = addedCondition.AdditionalDamageType;
-                    if (sourceCharacter.TryGetAttribute(attributeName, out var attribute))
-                    {
-                        sourceAmount = AttributeDefinitions.ComputeAbilityScoreModifier(attribute.CurrentValue);
-                    }
-
-                    break;
-            }
-
-            return rulesetActor.InflictCondition(conditionDefinitionName, durationType, durationParameter, endOccurence,
-                tag, sourceGuid, sourceFaction, effectLevel, effectDefinitionName, sourceAmount, sourceAbilityBonus,
-                sourceProficiencyBonus, bardicInspirationDie);
-        }
-
-        [NotNull]
-        public static IEnumerable<CodeInstruction> Transpiler([NotNull] IEnumerable<CodeInstruction> instructions)
-        {
-            var addedConditionPos = Main.IsDebugBuild ? 37 : 27;
-            var inflictConditionMethod = typeof(RulesetActor).GetMethod("InflictCondition");
-            var extendInflictConditionMethod =
-                typeof(ApplySummonForm_Patch).GetMethod("ExtendInflictCondition");
-
-            return instructions.ReplaceCall(inflictConditionMethod,
-                3, "RulesetImplementationManagerLocation.ApplySummonForm",
-                new CodeInstruction(OpCodes.Ldarg_2),
-                new CodeInstruction(OpCodes.Ldloc_S, addedConditionPos),
-                new CodeInstruction(OpCodes.Call, extendInflictConditionMethod));
-        }
-    }
 
     [HarmonyPatch(typeof(RulesetImplementationManagerLocation), "ApplyMotionForm")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
@@ -180,7 +95,46 @@ public static class RulesetImplementationManagerLocationPatcher
             // used for Grenadier's force grenades
             // if effect source definition has marker, and forms params have position, will try to push target from that point
 
-            return PushesFromEffectPoint.TryPushFromEffectTargetPoint(effectForm, formsParams);
+            var useDefaultLogic = PushesFromEffectPoint.TryPushFromEffectTargetPoint(effectForm, formsParams);
+
+            if (useDefaultLogic)
+            {
+                useDefaultLogic = CustomSwap(effectForm, formsParams);
+            }
+
+            return useDefaultLogic;
+        }
+
+        public static bool CustomSwap(EffectForm effectForm,
+            RulesetImplementationDefinitions.ApplyFormsParams formsParams)
+        {
+            // Main.Log2($"CustomSwap", true);
+            var motionForm = effectForm.MotionForm;
+            if (motionForm.Type != (MotionForm.MotionType)ExtraMotionType.CustomSwap)
+            {
+                return true;
+            }
+
+            var action = ServiceRepository.GetService<IGameLocationActionService>();
+            var attacker = GameLocationCharacter.GetFromActor(formsParams.sourceCharacter);
+            var defender = GameLocationCharacter.GetFromActor(formsParams.targetCharacter);
+            if (attacker == null || defender == null)
+                return true;
+
+            var actionId = (ActionDefinitions.Id)ExtraActionId.PushedCustom;
+
+            action.ExecuteAction(
+                new CharacterActionParams(attacker, actionId, defender.LocationPosition)
+                {
+                    BoolParameter = false, BoolParameter4 = false, CanBeCancelled = false, CanBeAborted = false
+                }, null, true);
+            action.ExecuteAction(
+                new CharacterActionParams(defender, ActionDefinitions.Id.Pushed, attacker.LocationPosition)
+                {
+                    BoolParameter = false, BoolParameter4 = false, CanBeCancelled = false, CanBeAborted = false
+                }, null, false);
+
+            return false;
         }
     }
 }
