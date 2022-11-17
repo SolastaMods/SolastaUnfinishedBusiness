@@ -154,6 +154,13 @@ internal class MonsterDefinitionBuilder : DefinitionBuilder<MonsterDefinition, M
         return this;
     }
 
+    internal MonsterDefinitionBuilder AddFeatures(params FeatureDefinition[] features)
+    {
+        Definition.Features.AddRange(features);
+        Definition.Features.Sort(Sorting.Compare);
+        return this;
+    }
+
     internal MonsterDefinitionBuilder SetFeatures(params FeatureDefinition[] features)
     {
         Definition.Features.SetRange(features);

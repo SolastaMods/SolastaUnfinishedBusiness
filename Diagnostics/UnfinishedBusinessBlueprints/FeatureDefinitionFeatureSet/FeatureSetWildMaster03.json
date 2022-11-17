@@ -1,0 +1,46 @@
+{
+  "$type": "FeatureDefinitionFeatureSet, Assembly-CSharp",
+  "featureSet": [
+    "Definition:PowerRangerWildBeastSpiritBeastCommand:83277e1e-e605-56a9-8d5c-f10f8a71c40d",
+    "Definition:SummoningAffinityWildMasterSummonSpiritBeast:2cbeb588-8f04-52a6-9494-6b83090d50ca",
+    "Definition:PowerWildMasterSummonSpiritBeastPool:46816a6a-0d4f-5133-bb70-886541bf9ad8",
+    "Definition:PowerWildMasterSpiritBeastMender:9034bfcd-2918-5b8d-b012-8c0e8074f45d",
+    "Definition:PowerWildMasterSummonSpiritBeastKindredSpiritTiger3:7eb21533-f07f-5ebc-9fb7-9196ff0b133c",
+    "Definition:PowerWildMasterSummonSpiritBeastKindredSpiritBear3:ddf97a0a-7c2b-5a4e-9333-44e4119566de",
+    "Definition:PowerWildMasterSummonSpiritBeastKindredSpiritEagle3:34bd3aae-6891-5a0d-a543-aa2d2560b965"
+  ],
+  "mode": "Union",
+  "ancestryDamageTypeMap": [],
+  "ancestryType": "Sorcerer",
+  "defaultSelection": 0,
+  "uniqueChoices": false,
+  "enumerateInDescription": false,
+  "hasRacialAffinity": false,
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feature/&FeatureSetWildMaster03Title",
+    "description": "Feature/&FeatureSetWildMaster03Description",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "d7255ff8-8ca8-5346-a265-2bf66893c260",
+  "contentPack": 9999,
+  "name": "FeatureSetWildMaster03"
+}

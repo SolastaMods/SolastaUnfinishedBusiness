@@ -221,6 +221,9 @@ internal static partial class DatabaseHelper
 
     internal static class MonsterDefinitions
     {
+        internal static MonsterDefinition KindredSpiritWolf { get; } =
+            GetDefinition<MonsterDefinition>("KindredSpiritWolf");
+        
         internal static MonsterDefinition Air_Elemental { get; } =
             GetDefinition<MonsterDefinition>("Air_Elemental");
 
@@ -626,6 +629,9 @@ internal static partial class DatabaseHelper
 
     internal static class CharacterSubclassDefinitions
     {
+        internal static CharacterSubclassDefinition PatronFiend { get; } =
+            GetDefinition<CharacterSubclassDefinition>("PatronFiend");
+
         internal static CharacterSubclassDefinition DomainBattle { get; } =
             GetDefinition<CharacterSubclassDefinition>("DomainBattle");
 
