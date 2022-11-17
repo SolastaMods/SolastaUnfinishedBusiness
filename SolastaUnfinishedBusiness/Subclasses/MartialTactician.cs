@@ -598,13 +598,13 @@ internal sealed class MartialTactician : AbstractSubclass
                     EffectFormBuilder.Create()
                         .SetConditionForm(ConditionDefinitionBuilder
                             .Create($"Condition{name}")
-                            .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionBranded)
+                            .SetGuiPresentation(name, Category.Condition, ConditionDefinitions.ConditionBranded)
                             .IsDetrimental()
                             .SetSilent(Silent.None)
                             .SetAmountOrigin(ExtraOriginOfAmount.SourceProficiencyBonusNegative)
                             .SetFeatures(FeatureDefinitionAttributeModifierBuilder
                                 .Create($"AttributeModifier{name}")
-                                .SetGuiPresentation(Category.Feature)
+                                .SetGuiPresentation(name, Category.Condition)
                                 .SetModifier(
                                     FeatureDefinitionAttributeModifier.AttributeModifierOperation.AddConditionAmount,
                                     AttributeDefinitions.ArmorClass)
