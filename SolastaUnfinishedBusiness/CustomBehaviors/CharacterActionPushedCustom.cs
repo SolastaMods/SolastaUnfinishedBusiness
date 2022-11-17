@@ -67,7 +67,6 @@ public class CharacterActionPushedCustom : CharacterAction
             yield return character.EventSystem.UpdateMotionsAndWaitForEvent(GameLocationCharacterEventSystem.Event
                 .MovementStepEnd);
 
-
             character.StopMoving(character.Orientation);
             if (forceProne)
             {

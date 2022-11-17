@@ -151,13 +151,24 @@ internal static class AttacksOfOpportunity
 
         var actionService = ServiceRepository.GetService<IGameLocationActionService>();
         var count = actionService.PendingReactionRequestGroups.Count;
-
-        actionService.ReactForOpportunityAttack(new CharacterActionParams(
+        var reactionParams = new CharacterActionParams(
             attacker,
             Id.AttackOpportunity,
             attackMode,
             mover,
-            new ActionModifier()));
+            new ActionModifier());
+
+        var manager = actionService as GameLocationActionManager;
+        if (manager == null)
+        {
+            //shouldn't happen, but just in case use regular AoO reaction
+            actionService.ReactForOpportunityAttack(reactionParams);
+        }
+        else
+        {
+            manager.AddInterruptRequest(new ReactionRequestReactionAttack("AoOEnter", reactionParams));
+        }
+
 
         yield return battleManager.WaitForReactions(attacker, actionService, count);
     }

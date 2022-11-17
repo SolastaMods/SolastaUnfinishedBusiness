@@ -1,4 +1,6 @@
 Condition/&ConditionGambitGoadingEffectTitle=Goaded
+Condition/&GambitSwitchDescription=Armor Class is decreased by the proficiency bonus of Tactician who inflicted this effect.
+Condition/&GambitSwitchTitle=Baited
 Feature/&AttributeModifierTacticianEverVigilantDescription=Gain INT modifier (minimum 1) bonus to your initiative rolls.
 Feature/&AttributeModifierTacticianEverVigilantTitle=Ever Vigilant
 Feature/&FeatureAdaptiveStrategyDescription=Gain one Gambit Die whenever you get critical miss or critical hit on your attack. This gain cannot put you over your maximum gambit dice limit.
