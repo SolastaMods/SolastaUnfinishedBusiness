@@ -30,6 +30,7 @@ internal static class ValidatorsCharacter
                || ValidatorsWeapon.IsPolearm(slotsByName[EquipmentDefinitions.SlotTypeOffHand].EquipedItem);
     };
 
+#if false
     internal static readonly IsCharacterValidHandler HasLightRangeWeapon = character =>
     {
         var slotsByName = character.CharacterInventory.InventorySlotsByName;
@@ -54,6 +55,7 @@ internal static class ValidatorsCharacter
                || equipedItemDescription.WeaponDescription.WeaponTypeDefinition ==
                CustomWeaponsContext.HandXbowWeaponType;
     };
+#endif
 
     internal static readonly IsCharacterValidHandler HasTwoHandedRangeWeapon = character =>
     {
@@ -82,9 +84,11 @@ internal static class ValidatorsCharacter
                DatabaseHelper.WeaponTypeDefinitions.HeavyCrossbowType;
     };
 
+#if false
     internal static readonly IsCharacterValidHandler MainHandIsFinesseWeapon = character =>
         ValidatorsWeapon.HasAnyWeaponTag(character.GetItemInSlot(EquipmentDefinitions.SlotTypeMainHand),
             TagsDefinitions.WeaponTagFinesse);
+#endif
 
     internal static readonly IsCharacterValidHandler MainHandIsVersatileWeapon = character =>
         ValidatorsWeapon.HasAnyWeaponTag(character.GetItemInSlot(EquipmentDefinitions.SlotTypeMainHand),
