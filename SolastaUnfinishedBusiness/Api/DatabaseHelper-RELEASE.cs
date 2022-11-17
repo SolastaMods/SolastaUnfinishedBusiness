@@ -323,6 +323,15 @@ internal static partial class DatabaseHelper
 
     internal static class ConditionDefinitions
     {
+        internal static ConditionDefinition ConditionFlying12 { get; } =
+            GetDefinition<ConditionDefinition>("ConditionFlying12");
+
+        internal static ConditionDefinition ConditionDarkvision { get; } =
+            GetDefinition<ConditionDefinition>("ConditionDarkvision");
+
+        internal static ConditionDefinition ConditionProtectedFromPoison { get; } =
+            GetDefinition<ConditionDefinition>("ConditionProtectedFromPoison");
+
         internal static ConditionDefinition ConditionHasted { get; } =
             GetDefinition<ConditionDefinition>("ConditionHasted");
 
@@ -635,6 +644,9 @@ internal static partial class DatabaseHelper
 
     internal static class CharacterSubclassDefinitions
     {
+        internal static CharacterSubclassDefinition RoguishDarkweaver { get; } =
+            GetDefinition<CharacterSubclassDefinition>("RoguishDarkweaver");
+
         internal static CharacterSubclassDefinition PatronFiend { get; } =
             GetDefinition<CharacterSubclassDefinition>("PatronFiend");
 
@@ -1417,6 +1429,12 @@ internal static partial class DatabaseHelper
 
     internal static class FeatureDefinitionPowers
     {
+        internal static FeatureDefinitionPower PowerDomainElementalFireBurst { get; } =
+            GetDefinition<FeatureDefinitionPower>("PowerDomainElementalFireBurst");
+
+        internal static FeatureDefinitionPower PowerDomainBattleDivineWrath { get; } =
+            GetDefinition<FeatureDefinitionPower>("PowerDomainBattleDivineWrath");
+
         internal static FeatureDefinitionPower PowerInvocationRepellingBlast { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerInvocationRepellingBlast");
 
@@ -1657,6 +1675,9 @@ internal static partial class DatabaseHelper
 
     internal static class FeatureDefinitionSavingThrowAffinitys
     {
+        internal static FeatureDefinitionSavingThrowAffinity SavingThrowAffinityCreedOfArun { get; } =
+            GetDefinition<FeatureDefinitionSavingThrowAffinity>("SavingThrowAffinityCreedOfArun");
+
         internal static FeatureDefinitionSavingThrowAffinity SavingThrowAffinityConditionBlessed { get; } =
             GetDefinition<FeatureDefinitionSavingThrowAffinity>("SavingThrowAffinityConditionBlessed");
 
@@ -2650,6 +2671,27 @@ internal static partial class DatabaseHelper
 
     internal static class SpellDefinitions
     {
+        internal static SpellDefinition Blight { get; } =
+            GetDefinition<SpellDefinition>("Blight");
+
+        internal static SpellDefinition MassHealingWord { get; } =
+            GetDefinition<SpellDefinition>("MassHealingWord");
+
+        internal static SpellDefinition CharmPerson { get; } =
+            GetDefinition<SpellDefinition>("CharmPerson");
+
+        internal static SpellDefinition ColorSpray { get; } =
+            GetDefinition<SpellDefinition>("ColorSpray");
+
+        internal static SpellDefinition HoldPerson { get; } =
+            GetDefinition<SpellDefinition>("HoldPerson");
+
+        internal static SpellDefinition Banishment { get; } =
+            GetDefinition<SpellDefinition>("Banishment");
+
+        internal static SpellDefinition Counterspell { get; } =
+            GetDefinition<SpellDefinition>("Counterspell");
+
         internal static SpellDefinition Silence { get; } =
             GetDefinition<SpellDefinition>("Silence");
 

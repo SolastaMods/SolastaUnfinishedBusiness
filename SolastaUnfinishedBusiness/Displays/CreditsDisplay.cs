@@ -21,7 +21,7 @@ internal static class CreditsDisplay
             "game UI, infrastructure, gameplay, feats, invocations, spells, Dead Master improvements, SoulBlade, Tactician, Way of The Distant Hand, Inventor"),
         ("ImpPhil", "api, builders, gameplay, rules, quality of life"),
         ("SilverGriffon", "gameplay, visuals, spells, Dark Elf, Draconic Kobold, Grey Dwarf, Divine Heart"),
-        ("ChrisJohnDigital", "gameplay, feats, fighting styles, Spell Shield"),
+        ("ChrisJohnDigital", "gameplay, feats, fighting styles, Arcane Master, Life Transmuter, Spell Master, Spell Shield"),
         ("Nd", "Spell Shield improvements, Marshal, Opportunist, Raven"),
         ("DubhHerder", "gameplay, spells, Moonlit"),
         ("ElAntonious", "feats, Arcanist"),

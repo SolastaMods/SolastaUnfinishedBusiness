@@ -40,7 +40,7 @@ internal static class RacesClassesSubclassesDisplay
         }
 
         // ModUi/&OverrideRogueConArtistImprovedManipulationSpellDc=<color=white>Override <color=#D89555>Rogue Con Artist</color>\nImproved Manipulation Spell DC</color>
-        // ModUi/&OverrideWizardMasterManipulatorArcaneManipulationSpellDc=<color=white>Override <color=#D89555>Wizard Master Manipulator</color>\nArcane Manipulation Spell DC</color>
+        // ModUi/&OverrideWizardManipulatorMasterArcaneManipulationSpellDc=<color=white>Override <color=#D89555>Wizard Master Manipulator</color>\nArcane Manipulation Spell DC</color>
         UI.Label("");
         //UI.Label(Gui.Localize("ModUi/&OverrideRogueConArtistImprovedManipulationSpellDc"));
         var intValue = Main.Settings.OverrideRogueConArtistImprovedManipulationSpellDc;
@@ -53,14 +53,14 @@ internal static class RacesClassesSubclassesDisplay
         }
 
         UI.Label("");
-        //UI.Label(Gui.Localize("ModUi/&OverrideWizardMasterManipulatorArcaneManipulationSpellDc"));
-        intValue = Main.Settings.OverrideWizardMasterManipulatorArcaneManipulationSpellDc;
+        //UI.Label(Gui.Localize("ModUi/&OverrideWizardManipulatorMasterArcaneManipulationSpellDc"));
+        intValue = Main.Settings.OverrideWizardManipulatorMasterArcaneManipulationSpellDc;
         if (UI.Slider(
-                Gui.Localize("ModUi/&OverrideWizardMasterManipulatorArcaneManipulationSpellDc"),
+                Gui.Localize("ModUi/&OverrideWizardManipulatorMasterArcaneManipulationSpellDc"),
                 ref intValue, 0, 5, 2, "", UI.AutoWidth()))
         {
-            Main.Settings.OverrideWizardMasterManipulatorArcaneManipulationSpellDc = intValue;
-            WizardMasterManipulator.UpdateSpellDcBoost();
+            Main.Settings.OverrideWizardManipulatorMasterArcaneManipulationSpellDc = intValue;
+            WizardManipulatorMaster.UpdateSpellDcBoost();
         }
 
         // UI.Label("");

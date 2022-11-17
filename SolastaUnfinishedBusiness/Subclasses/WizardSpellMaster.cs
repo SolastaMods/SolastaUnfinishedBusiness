@@ -37,7 +37,6 @@ internal sealed class WizardSpellMaster : AbstractSubclass
                 EffectDescriptionBuilder
                     .Create()
                     .SetTargetingData(Side.All, RangeType.Self, 0, TargetType.Self)
-                    .SetCreatedByCharacter()
                     .SetEffectForms(
                         EffectFormBuilder
                             .Create()

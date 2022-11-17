@@ -64,10 +64,9 @@ internal sealed class WizardArcaneFighter : AbstractSubclass
                     .SetTargetingData(
                         Side.Ally,
                         RangeType.Touch,
-                        1,
+                        0,
                         TargetType.Item,
                         itemSelectionType: ActionDefinitions.ItemSelectionType.Weapon)
-                    .SetCreatedByCharacter()
                     .SetDurationData(DurationType.Minute, 10)
                     .SetEffectForms(
                         EffectFormBuilder

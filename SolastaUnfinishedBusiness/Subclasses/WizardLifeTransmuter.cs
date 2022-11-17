@@ -1,5 +1,4 @@
-﻿#if false
-using SolastaUnfinishedBusiness.Builders;
+﻿using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterSubclassDefinitions;
@@ -27,7 +26,7 @@ internal sealed class WizardLifeTransmuter : AbstractSubclass
                 BestowCurse, // necromancy
                 VampiricTouch, // necromancy
                 Blight, // necromancy
-                CloudKill) // conjuration)
+                CloudKill) // conjuration
             .AddToDB();
 
         // LEVEL 06
@@ -35,8 +34,7 @@ internal sealed class WizardLifeTransmuter : AbstractSubclass
         var powerSharedPoolLifeTransmuterHealingPool = FeatureDefinitionPowerBuilder
             .Create("PowerSharedPoolLifeTransmuterHealingPool")
             .SetGuiPresentation(Category.Feature)
-            .SetUsesFixed(ActivationTime.Permanent, RechargeRate.LongRest, 1, 2)
-            .SetIsPowerPool()
+            .SetUsesFixed(ActivationTime.BonusAction, RechargeRate.LongRest, 1, 2)
             .AddToDB();
 
         var conditionLifeTransmuterDarkvision = ConditionDefinitionBuilder
@@ -56,7 +54,6 @@ internal sealed class WizardLifeTransmuter : AbstractSubclass
                 EffectDescriptionBuilder
                     .Create()
                     .SetTargetingData(Side.Ally, RangeType.Touch, 2, TargetType.IndividualsUnique)
-                    .SetCreatedByCharacter()
                     .SetDurationData(DurationType.UntilLongRest)
                     .SetEffectForms(
                         EffectFormBuilder
@@ -92,7 +89,6 @@ internal sealed class WizardLifeTransmuter : AbstractSubclass
                 EffectDescriptionBuilder
                     .Create()
                     .SetTargetingData(Side.Ally, RangeType.Touch, 2, TargetType.IndividualsUnique)
-                    .SetCreatedByCharacter()
                     .SetDurationData(DurationType.UntilLongRest)
                     .SetEffectForms(
                         EffectFormBuilder
@@ -121,7 +117,6 @@ internal sealed class WizardLifeTransmuter : AbstractSubclass
                 EffectDescriptionBuilder
                     .Create()
                     .SetTargetingData(Side.Ally, RangeType.Touch, 2, TargetType.IndividualsUnique)
-                    .SetCreatedByCharacter()
                     .SetDurationData(DurationType.UntilLongRest)
                     .SetEffectForms(
                         EffectFormBuilder
@@ -143,7 +138,6 @@ internal sealed class WizardLifeTransmuter : AbstractSubclass
                 EffectDescriptionBuilder
                     .Create()
                     .SetTargetingData(Side.Ally, RangeType.Touch, 2, TargetType.IndividualsUnique)
-                    .SetCreatedByCharacter()
                     .SetDurationData(DurationType.UntilLongRest)
                     .SetEffectForms(
                         EffectFormBuilder
@@ -209,4 +203,3 @@ internal sealed class WizardLifeTransmuter : AbstractSubclass
     internal override FeatureDefinitionSubclassChoice SubclassChoice =>
         FeatureDefinitionSubclassChoices.SubclassChoiceWizardArcaneTraditions;
 }
-#endif

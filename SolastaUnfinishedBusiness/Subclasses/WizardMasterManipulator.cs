@@ -1,5 +1,4 @@
-﻿#if false
-using SolastaUnfinishedBusiness.Builders;
+﻿using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterSubclassDefinitions;
@@ -8,12 +7,12 @@ using static RuleDefinitions;
 
 namespace SolastaUnfinishedBusiness.Subclasses;
 
-internal sealed class WizardMasterManipulator : AbstractSubclass
+internal sealed class WizardManipulatorMaster : AbstractSubclass
 {
-    internal WizardMasterManipulator()
+    internal WizardManipulatorMaster()
     {
-        var magicAffinityMasterManipulatorControlHeightened = FeatureDefinitionMagicAffinityBuilder
-            .Create("MagicAffinityMasterManipulatorControlHeightened")
+        var magicAffinityManipulatorMasterControlHeightened = FeatureDefinitionMagicAffinityBuilder
+            .Create("MagicAffinityManipulatorMasterControlHeightened")
             .SetGuiPresentation(Category.Feature)
             .SetWarList(1,
                 CharmPerson, // enchantment
@@ -30,14 +29,14 @@ internal sealed class WizardMasterManipulator : AbstractSubclass
                 HoldMonster) // Enchantment
             .AddToDB();
 
-        var magicAffinityMasterManipulatorDc = FeatureDefinitionMagicAffinityBuilder
-            .Create("MagicAffinityMasterManipulatorDC")
+        var magicAffinityManipulatorMasterDc = FeatureDefinitionMagicAffinityBuilder
+            .Create("MagicAffinityManipulatorMasterDC")
             .SetGuiPresentation(Category.Feature)
             .SetCastingModifiers(0, SpellParamsModifierType.None, 2)
             .AddToDB();
 
-        var proficiencyMasterManipulatorMentalSavingThrows = FeatureDefinitionProficiencyBuilder
-            .Create("ProficiencyMasterManipulatorMentalSavingThrows")
+        var proficiencyManipulatorMasterMentalSavingThrows = FeatureDefinitionProficiencyBuilder
+            .Create("ProficiencyManipulatorMasterMentalSavingThrows")
             .SetGuiPresentation(Category.Feature)
             .SetProficiencies(
                 ProficiencyType.SavingThrow,
@@ -45,24 +44,24 @@ internal sealed class WizardMasterManipulator : AbstractSubclass
                 AttributeDefinitions.Constitution)
             .AddToDB();
 
-        var powerMasterManipulatorDominatePerson = FeatureDefinitionPowerBuilder
-            .Create("PowerMasterManipulatorDominatePerson")
+        var powerManipulatorMasterDominatePerson = FeatureDefinitionPowerBuilder
+            .Create("PowerManipulatorMasterDominatePerson")
             .SetGuiPresentation(Category.Feature, DominatePerson)
             .SetUsesAbilityBonus(ActivationTime.BonusAction, RechargeRate.LongRest, AttributeDefinitions.Intelligence)
             .SetEffectDescription(DominatePerson.EffectDescription)
             .AddToDB();
 
         Subclass = CharacterSubclassDefinitionBuilder
-            .Create("WizardMasterManipulator")
+            .Create("WizardManipulatorMaster")
             .SetGuiPresentation(Category.Subclass, RoguishShadowCaster)
             .AddFeaturesAtLevel(2,
-                magicAffinityMasterManipulatorControlHeightened)
+                magicAffinityManipulatorMasterControlHeightened)
             .AddFeaturesAtLevel(6,
-                magicAffinityMasterManipulatorDc)
+                magicAffinityManipulatorMasterDc)
             .AddFeaturesAtLevel(10,
-                proficiencyMasterManipulatorMentalSavingThrows)
+                proficiencyManipulatorMasterMentalSavingThrows)
             .AddFeaturesAtLevel(14,
-                powerMasterManipulatorDominatePerson)
+                powerManipulatorMasterDominatePerson)
             .AddToDB();
     }
 
@@ -71,4 +70,3 @@ internal sealed class WizardMasterManipulator : AbstractSubclass
     internal override FeatureDefinitionSubclassChoice SubclassChoice =>
         FeatureDefinitionSubclassChoices.SubclassChoiceWizardArcaneTraditions;
 }
-#endif

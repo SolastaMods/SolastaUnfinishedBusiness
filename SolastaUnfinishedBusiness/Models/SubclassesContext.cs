@@ -49,8 +49,12 @@ internal static class SubclassesContext
         LoadSubclass(new PatronSoulBlade());
 
         // Wizard
+        LoadSubclass(new WizardArcaneFighter());
         LoadSubclass(new WizardBladeDancer());
         LoadSubclass(new WizardDeadMaster());
+        LoadSubclass(new WizardLifeTransmuter());
+        LoadSubclass(new WizardManipulatorMaster());
+        LoadSubclass(new WizardSpellMaster());
 
         // settings paring
         foreach (var name in Main.Settings.SubclassEnabled
