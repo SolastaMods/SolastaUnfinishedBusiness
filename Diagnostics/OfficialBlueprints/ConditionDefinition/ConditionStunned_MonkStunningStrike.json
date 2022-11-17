@@ -1,6 +1,6 @@
 {
   "$type": "ConditionDefinition, Assembly-CSharp",
-  "inDungeonEditor": true,
+  "inDungeonEditor": false,
   "parentCondition": "Definition:ConditionStunned:126115c02838c1a4ca7d25682af5ddb0",
   "conditionType": "Detrimental",
   "features": [],

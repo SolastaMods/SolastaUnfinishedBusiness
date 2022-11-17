@@ -97,7 +97,7 @@
           "applyToSelf": false,
           "forceOnSelf": false
         },
-        "hasFilterId": true,
+        "hasFilterId": false,
         "filterId": 0
       }
     ],
@@ -313,7 +313,7 @@
   "specificMaterialComponentConsumed": true,
   "terminateOnItemUnequip": false,
   "displayConditionDuration": false,
-  "vocalSpellSemeType": "Buff",
+  "vocalSpellSemeType": "Debuff",
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,

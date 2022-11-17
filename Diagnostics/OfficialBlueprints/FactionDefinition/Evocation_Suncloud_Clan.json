@@ -17,8 +17,8 @@
   "questFailThreshold": -70,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
-    "hidden": true,
-    "title": "Feature/&Emptystring",
+    "hidden": false,
+    "title": "Factions/&Faction_Orc_COTM_Suncloud",
     "description": "Feature/&Emptystring",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",

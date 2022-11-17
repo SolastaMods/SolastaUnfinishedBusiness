@@ -97,7 +97,7 @@
           "applyToSelf": false,
           "forceOnSelf": false
         },
-        "hasFilterId": true,
+        "hasFilterId": false,
         "filterId": 0
       }
     ],

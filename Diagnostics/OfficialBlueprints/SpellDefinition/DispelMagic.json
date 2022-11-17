@@ -94,7 +94,7 @@
           "addSpellCastingAbility": true,
           "addProficiencyBonus": false,
           "addAbilityBonus": false,
-          "abilityToAdd": ""
+          "abilityToAdd": "Strength"
         },
         "hasFilterId": false,
         "filterId": 0

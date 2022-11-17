@@ -1,6 +1,6 @@
 {
   "$type": "ConditionDefinition, Assembly-CSharp",
-  "inDungeonEditor": true,
+  "inDungeonEditor": false,
   "parentCondition": "Definition:ConditionInvisible:6fff2284783105e4fa9793d4bf8afa3f",
   "conditionType": "Beneficial",
   "features": [],
