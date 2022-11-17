@@ -1,14 +1,11 @@
 {
-  "$type": "FeatureDefinitionSummoningAffinity, Assembly-CSharp",
-  "requiredMonsterTag": "SpiritBeast",
-  "addedConditions": [
-    "Definition:ConditionWildMasterSummonSpiritBeastAcBonus:7a170a18-d4f2-5a0e-8647-13b6bafeeee4",
-    "Definition:ConditionWildMasterSummonSpiritBeastDamageBonus:953df9c7-6d4c-5f5a-b4cf-7586b65174ac",
-    "Definition:ConditionWildMasterSummonSpiritBeastLevel:2b5618ad-8ed2-5ebc-aa0e-702f31b08b51",
-    "Definition:ConditionWildMasterSummonSpiritBeastToHitBonus:9457ffa9-d5f3-58e5-bb0c-dd068c2b4afe"
-  ],
-  "effectOnConjuredDeath": false,
-  "effectForms": [],
+  "$type": "FeatureDefinitionSavingThrowAffinity, Assembly-CSharp",
+  "useControllerSavingThrows": false,
+  "priorityAbilityScore": "",
+  "affinityGroups": [],
+  "indomitableSavingThrows": 0,
+  "canBorrowLuck": false,
+  "canUseDiamondSoul": false,
   "myselfFamilyRestrictions": [],
   "otherCharacterFamilyRestrictions": [],
   "guiPresentation": {
@@ -35,7 +32,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "2cbeb588-8f04-52a6-9494-6b83090d50ca",
+  "guid": "019e0fed-a6d9-5224-b405-21f96da7ac5e",
   "contentPack": 9999,
-  "name": "SummoningAffinityWildMasterSummonSpiritBeast"
+  "name": "SavingThrowAffinityWildMasterSummonSpiritBeast"
 }

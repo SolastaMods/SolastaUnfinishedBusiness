@@ -1,28 +1,13 @@
 {
-  "$type": "FeatureDefinitionActionAffinity, Assembly-CSharp",
-  "allowedActionTypes": [
-    true,
-    true,
-    true,
-    true,
-    true,
-    true
+  "$type": "FeatureDefinitionSummoningAffinity, Assembly-CSharp",
+  "requiredMonsterTag": "SpiritBeast",
+  "addedConditions": [
+    "Definition:ConditionWildMasterSummonSpiritBeastSaving:e7bbe644-c1f9-5cda-a5cc-d270ea4e8f49"
   ],
-  "eitherMainOrBonus": false,
-  "maxAttacksNumber": -1,
-  "forbiddenActions": [
-    "AttackMain",
-    "AttackOff",
-    "AttackReadied",
-    "Ready"
-  ],
-  "authorizedActions": [],
-  "restrictedActions": [],
-  "actionExecutionModifiers": [],
-  "specialBehaviour": "None",
-  "randomBehaviorDie": "D10",
-  "randomBehaviourOptions": [],
-  "rechargeReactionsAtEveryTurn": false,
+  "effectOnConjuredDeath": false,
+  "effectForms": [],
+  "myselfFamilyRestrictions": [],
+  "otherCharacterFamilyRestrictions": [],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
@@ -47,7 +32,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "b704e1bd-78fb-5db8-9b24-f3bdae644d7e",
+  "guid": "8a1d65e8-1a44-59b0-a548-614e5c97e8af",
   "contentPack": 9999,
-  "name": "ActionAffinitySpiritBeast07"
+  "name": "SummoningAffinityWildMasterSummonSpiritBeast11"
 }

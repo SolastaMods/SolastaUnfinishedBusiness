@@ -1,13 +1,7 @@
 {
   "$type": "FeatureDefinitionFeatureSet, Assembly-CSharp",
   "featureSet": [
-    "Definition:PowerRangerWildBeastSpiritBeastCommand:83277e1e-e605-56a9-8d5c-f10f8a71c40d",
-    "Definition:SummoningAffinityWildMasterSummonSpiritBeast03:11fe31a6-2809-54e7-83c3-585d298cdef7",
-    "Definition:PowerWildMasterSummonSpiritBeastPool:46816a6a-0d4f-5133-bb70-886541bf9ad8",
-    "Definition:PowerWildMasterSpiritBeastMender:9034bfcd-2918-5b8d-b012-8c0e8074f45d",
-    "Definition:PowerWildMasterSummonSpiritBeastKindredSpiritTiger3:7eb21533-f07f-5ebc-9fb7-9196ff0b133c",
-    "Definition:PowerWildMasterSummonSpiritBeastKindredSpiritBear3:ddf97a0a-7c2b-5a4e-9333-44e4119566de",
-    "Definition:PowerWildMasterSummonSpiritBeastKindredSpiritEagle3:34bd3aae-6891-5a0d-a543-aa2d2560b965"
+    "Definition:SummoningAffinityWildMasterSummonSpiritBeast11:8a1d65e8-1a44-59b0-a548-614e5c97e8af"
   ],
   "mode": "Union",
   "ancestryDamageTypeMap": [],
@@ -19,8 +13,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&FeatureSetWildMaster03Title",
-    "description": "Feature/&FeatureSetWildMaster03Description",
+    "title": "Feature/&FeatureSetWildMaster11Title",
+    "description": "Feature/&FeatureSetWildMaster11Description",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -40,7 +34,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "d7255ff8-8ca8-5346-a265-2bf66893c260",
+  "guid": "a5190c33-d74a-5537-8fe9-391b957d150f",
   "contentPack": 9999,
-  "name": "FeatureSetWildMaster03"
+  "name": "FeatureSetWildMaster11"
 }
