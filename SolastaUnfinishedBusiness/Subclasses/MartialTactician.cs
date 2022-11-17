@@ -585,20 +585,18 @@ internal sealed class MartialTactician : AbstractSubclass
             .SetShowCasting(false)
             .SetSharedPool(ActivationTime.BonusAction, GambitPool)
             .SetEffectDescription(EffectDescriptionBuilder.Create()
-                .SetTargetingData(Side.All, RangeType.Touch, 1, TargetType.Individuals)
+                .SetTargetingData(Side.Enemy, RangeType.Touch, 1, TargetType.Individuals)
                 .ExcludeCaster()
-                .SetHasSavingThrow(AttributeDefinitions.Strength,
+                .SetHasSavingThrow(AttributeDefinitions.Wisdom,
                     EffectDifficultyClassComputation.AbilityScoreAndProficiency,
                     AttributeDefinitions.Intelligence,
                     disableSavingThrowOnAllies: true)
                 .SetEffectForms(
                     EffectFormBuilder.Create()
                         .SetMotionForm(ExtraMotionType.CustomSwap, 1)
-                        .HasSavingThrow(EffectSavingThrowType.Negates)
                         .Build(),
                     EffectFormBuilder.Create()
                         .SetConditionForm(ConditionDefinitionBuilder
-                            //TODO: make this grant AC bonus (ideally equal to Gambit die roll)
                             .Create($"Condition{name}")
                             .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionBranded)
                             .IsDetrimental()
