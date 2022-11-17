@@ -1,7 +1,3 @@
-AttributeModifierGambitSwitch	Title='Feature/&AttributeModifierGambitSwitchTitle'.
-AttributeModifierGambitSwitch	Description='Feature/&AttributeModifierGambitSwitchDescription'.
-ConditionGambitSwitch	Title='Condition/&ConditionGambitSwitchTitle'.
-ConditionGambitSwitch	Description='Condition/&ConditionGambitSwitchDescription'.
 PowerWildMasterSummonSpiritBeastKindredSpiritTiger3	Title='Summon Feature/&PowerSpiritTigerTitle'.
 PowerWildMasterSummonSpiritBeastKindredSpiritTiger7	Title='Summon Feature/&PowerSpiritTigerTitle'.
 WildMasterSpiritBeastKindredSpiritTiger3	Title='Feature/&PowerSpiritTigerTitle'.

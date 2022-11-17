@@ -128,8 +128,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Condition/&ConditionGambitSwitchTitle",
-    "description": "Condition/&ConditionGambitSwitchDescription",
+    "title": "Condition/&GambitSwitchTitle",
+    "description": "Condition/&GambitSwitchDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "94b1c2ba7b2f95049af55da16899fc86",

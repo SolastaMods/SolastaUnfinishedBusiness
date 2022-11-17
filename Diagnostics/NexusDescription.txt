@@ -183,7 +183,6 @@ You gain the ability to cast the burning hands, hellish rebuke and scorching ray
 [*][b]Healer[/b]: You gain proficiency or expertise in Medicine checks. You gain the ability to stabilize a dying creature as well as to revive a creature that died within the last 12 seconds once per long rest. You can use an action to restore 1d6 + 4 + character level hit points a number of times per short rest equal to your Wisdom modifier.
 [*][b]Improved Critical[/b]: Your attacks are critical hits on a roll of 19 or 20.
 [*][b]Inspiring Leader[/b]: You can spend 10 minutes to inspire up to 6 friendly creatures (which can include yourself) within 30 feet of you. Each creature gains temporary hit points equal to your level + your Charisma modifier.
-[*][b]Light Footed[/b]: While wielding only weapons that are light-ranged or use the finesse property, you gain a +10ft to your movement speed.
 [*][b]Medium Armor [Dex][/b]: Increase your Dexterity by 1, to a maximum of 20.
 You gain proficiency with medium armor and shields.
 [*][b]Medium Armor [Str][/b]: Increase your Strength by 1, to a maximum of 20.
@@ -254,7 +253,6 @@ You can use a bonus action to select a weapon. Its attacks count as magical and 
 [*][b]Crippling[/b]: Upon hitting with a melee attack, you can reduce the speed of your opponents by 10 ft and reduce their Armor Class until the start of your next turn (not stacking).
 [*][b]Executioner[/b]: You gain a +PB to damage against creatures that are blinded, frightened, restrained, incapacitated, paralyzed, prone or stunned.
 [*][b]Hand-and-a-Half[/b]: You gain a +1 to hit and a +1 to damage rolls when you use a versatile weapon in two hands.
-[*][b]Light Footed[/b]: While wielding only weapons that are light-ranged or use the finesse property, you gain a +10ft to your movement speed.
 [*][b]Merciless[/b]: When you reduce a target to 0 HP using a melee weapon attack on your turn, enemies within a radius of the downed target equal to half of your proficiency bonus (rounded up) who can see the target must make a Wisdom save (DC equal to 8 + PB + your STR modifier) or become frightened of you until the end of their next turn. If the triggering attack is a critical hit, the radius is instead equal to your proficiency bonus.
 [*][b]Polearm Expert[/b]: Your expert training with polearms grants you these benefits:
 • When you take the Attack action and attack with only a polearm weapon, you can use a bonus action to make a melee attack with the opposite end of the weapon. This attack uses the same ability modifier as the primary attack. The weapon's damage die for this attack is a d4, and it deals bludgeoning damage.
@@ -315,7 +313,7 @@ A creature is unaffected by this spell if it is Blinded, or has Blindsight, True
 [*][b]Earth Tremor[/b]: You strike the ground and unleash a tremor of seismic force, hurling up earth, rock, and sand.
 [*][b]Spirit Shroud[/b]: You call forth spirits of the dead, which flit around you for the spell's duration. The spirits are intangible and invulnerable.
 Until the spell ends, any attack you make deals 1d8 extra damage when you hit a creature within 10 feet of you. This damage is radiant, necrotic, or cold (your choice when you cast the spell). Any creature that takes this damage can't regain hit points until the start of your next turn.
-In addition, any enemy creature within 10ft of you wen you cast, or that enters or starts its turn in that range has its movement speed lowered by 10ft until start of its next turn.
+In addition, any enemy creature within 10ft of you when you cast, or that enters or starts its turn in that range has its movement speed lowered by 10ft until start of its next turn.
 When you cast this spell using a spell slot of 4th level or higher, the damage increases by 1d8 for every two slot levels above 3rd.
 [*][b]Winter's Breath[/b]: Create a blast of cold wind to chill your enemies and knock them prone.
 [*][b]Far Step[/b]: You teleport up to 60 feet to an unoccupied space you can see. On each of your turns before the spell ends, you can use a bonus action to teleport in this way again.

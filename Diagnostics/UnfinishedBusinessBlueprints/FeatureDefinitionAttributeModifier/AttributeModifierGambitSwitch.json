@@ -10,8 +10,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&AttributeModifierGambitSwitchTitle",
-    "description": "Feature/&AttributeModifierGambitSwitchDescription",
+    "title": "Condition/&GambitSwitchTitle",
+    "description": "Condition/&GambitSwitchDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
