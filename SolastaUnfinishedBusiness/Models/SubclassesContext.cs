@@ -46,6 +46,7 @@ internal static class SubclassesContext
 
         // Warlock
         LoadSubclass(new PatronMoonlit());
+        LoadSubclass(new PatronRiftWalker());
         LoadSubclass(new PatronSoulBlade());
 
         // Wizard

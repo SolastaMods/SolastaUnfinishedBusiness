@@ -74,6 +74,12 @@ internal class EffectDescriptionBuilder
         return this;
     }
 
+    internal EffectDescriptionBuilder SetNoSavingThrow()
+    {
+        effect.hasSavingThrow = false;
+        return this;
+    }
+
     internal EffectDescriptionBuilder SetEffectAdvancement(
         EffectIncrementMethod effectIncrementMethod,
         int incrementMultiplier = 1,

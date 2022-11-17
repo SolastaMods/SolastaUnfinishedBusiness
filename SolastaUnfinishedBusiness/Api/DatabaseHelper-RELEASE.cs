@@ -1429,6 +1429,9 @@ internal static partial class DatabaseHelper
 
     internal static class FeatureDefinitionPowers
     {
+        internal static FeatureDefinitionPower PowerShadowcasterShadowDodge { get; } =
+            GetDefinition<FeatureDefinitionPower>("PowerShadowcasterShadowDodge");
+
         internal static FeatureDefinitionPower PowerDomainElementalFireBurst { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerDomainElementalFireBurst");
 
@@ -2671,6 +2674,12 @@ internal static partial class DatabaseHelper
 
     internal static class SpellDefinitions
     {
+        internal static SpellDefinition WardingBond { get; } =
+            GetDefinition<SpellDefinition>("WardingBond");
+
+        internal static SpellDefinition DispelEvilAndGood { get; } =
+            GetDefinition<SpellDefinition>("DispelEvilAndGood");
+
         internal static SpellDefinition Blight { get; } =
             GetDefinition<SpellDefinition>("Blight");
 

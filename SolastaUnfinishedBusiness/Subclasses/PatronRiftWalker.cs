@@ -1,5 +1,4 @@
-﻿#if false
-using SolastaUnfinishedBusiness.Builders;
+﻿using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
@@ -35,7 +34,7 @@ internal sealed class PatronRiftWalker : AbstractSubclass
         var powerRiftWalkerRiftWalk = FeatureDefinitionPowerBuilder
             .Create("PowerRiftWalkerRiftWalk")
             .SetGuiPresentation(Category.Feature, MistyStep)
-            .SetUsesProficiencyBonus(ActivationTime.BonusAction, RechargeRate.LongRest)
+            .SetUsesProficiencyBonus(ActivationTime.BonusAction)
             .SetEffectDescription(MistyStep.EffectDescription)
             .SetUniqueInstance()
             .AddToDB();
@@ -43,7 +42,7 @@ internal sealed class PatronRiftWalker : AbstractSubclass
         var powerRiftWalkerBlink = FeatureDefinitionPowerBuilder
             .Create("PowerRiftWalkerBlink")
             .SetGuiPresentation(Category.Feature, PowerShadowcasterShadowDodge)
-            .SetUsesProficiencyBonus(ActivationTime.BonusAction, RechargeRate.LongRest)
+            .SetUsesProficiencyBonus(ActivationTime.BonusAction)
             .SetEffectDescription(EffectDescriptionBuilder
                 .Create(Banishment.EffectDescription)
                 .SetTargetingData(Side.Ally, RangeType.Distance, 12, TargetType.Self)
@@ -61,7 +60,7 @@ internal sealed class PatronRiftWalker : AbstractSubclass
         var powerRiftWalkerRiftStrike = FeatureDefinitionPowerBuilder
             .Create("PowerRiftWalkerRiftStrike")
             .SetGuiPresentation(Category.Feature, Banishment)
-            .SetUsesProficiencyBonus(ActivationTime.Reaction, RechargeRate.LongRest)
+            .SetUsesProficiencyBonus(ActivationTime.Reaction)
             .SetEffectDescription(EffectDescriptionBuilder
                 .Create(Banishment.EffectDescription)
                 .SetDurationData(DurationType.Round, 1, TurnOccurenceType.StartOfTurn)
@@ -75,7 +74,7 @@ internal sealed class PatronRiftWalker : AbstractSubclass
             .Create("PowerRiftWalkerRiftControl")
             .SetGuiPresentation(Category.Feature, DimensionDoor)
             .SetOverriddenPower(powerRiftWalkerRiftWalk)
-            .SetUsesProficiencyBonus(ActivationTime.BonusAction, RechargeRate.LongRest)
+            .SetUsesProficiencyBonus(ActivationTime.BonusAction)
             .SetEffectDescription(DimensionDoor.EffectDescription)
             .SetUniqueInstance()
             .AddToDB();
@@ -119,4 +118,3 @@ internal sealed class PatronRiftWalker : AbstractSubclass
     internal override FeatureDefinitionSubclassChoice SubclassChoice =>
         FeatureDefinitionSubclassChoices.SubclassChoiceWarlockOtherworldlyPatrons;
 }
-#endif
