@@ -221,6 +221,15 @@ internal static partial class DatabaseHelper
 
     internal static class MonsterDefinitions
     {
+        internal static MonsterDefinition KindredSpiritBear { get; } =
+            GetDefinition<MonsterDefinition>("KindredSpiritBear");
+
+        internal static MonsterDefinition KindredSpiritEagle { get; } =
+            GetDefinition<MonsterDefinition>("KindredSpiritEagle");
+
+        internal static MonsterDefinition KindredSpiritTiger { get; } =
+            GetDefinition<MonsterDefinition>("KindredSpiritTiger");
+
         internal static MonsterDefinition Air_Elemental { get; } =
             GetDefinition<MonsterDefinition>("Air_Elemental");
 
@@ -626,6 +635,9 @@ internal static partial class DatabaseHelper
 
     internal static class CharacterSubclassDefinitions
     {
+        internal static CharacterSubclassDefinition PatronFiend { get; } =
+            GetDefinition<CharacterSubclassDefinition>("PatronFiend");
+
         internal static CharacterSubclassDefinition DomainBattle { get; } =
             GetDefinition<CharacterSubclassDefinition>("DomainBattle");
 
@@ -1716,6 +1728,9 @@ internal static partial class DatabaseHelper
     {
         internal static FeatureDefinitionSummoningAffinity SummoningAffinityKindredSpiritBond { get; } =
             GetDefinition<FeatureDefinitionSummoningAffinity>("SummoningAffinityKindredSpiritBond");
+
+        internal static FeatureDefinitionSummoningAffinity SummoningAffinityKindredSpiritMagicalSpirit { get; } =
+            GetDefinition<FeatureDefinitionSummoningAffinity>("SummoningAffinityKindredSpiritMagicalSpirit");
     }
 
     internal static class ItemDefinitions

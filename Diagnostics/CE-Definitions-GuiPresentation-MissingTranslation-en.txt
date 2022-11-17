@@ -1,0 +1,4 @@
+PowerWildMasterSummonSpiritBeastKindredSpiritTiger3	Title='Summon Feature/&PowerSpiritTigerTitle'.
+PowerWildMasterSummonSpiritBeastKindredSpiritTiger7	Title='Summon Feature/&PowerSpiritTigerTitle'.
+WildMasterSpiritBeastKindredSpiritTiger3	Title='Feature/&PowerSpiritTigerTitle'.
+WildMasterSpiritBeastKindredSpiritTiger7	Title='Feature/&PowerSpiritTigerTitle'.

@@ -30,7 +30,7 @@ internal static class CharacterContext
 
     private static int PreviousTotalFeatsGrantedFirstLevel { get; set; } = -1;
     private static bool PreviousAlternateHuman { get; set; }
-    private static FeatureDefinitionPower FeatureDefinitionPowerHelpAction { get; set; }
+    internal static FeatureDefinitionPower FeatureDefinitionPowerHelpAction { get; set; }
 
     internal static void Load()
     {
