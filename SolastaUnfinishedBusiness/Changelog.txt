@@ -1,7 +1,7 @@
 ﻿CHANGES:
 
-1.4.26.4:
+1.4.26.5:
 
-- Fix Arcanist Mark tooltip
-- Fix Arcane Pulse number of uses
-- Refactor common code in Moonlit and Way of Silhouette
+- Add Beast Master [beta]
+- Improve Tactician
+- Minor fixes

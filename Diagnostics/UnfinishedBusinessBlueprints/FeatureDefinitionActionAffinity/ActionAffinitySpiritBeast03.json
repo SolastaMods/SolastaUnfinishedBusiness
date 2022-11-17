@@ -13,7 +13,6 @@
   "forbiddenActions": [
     "AttackMain",
     "AttackOff",
-    "AttackOpportunity",
     "DisengageBonus",
     "DisengageMain",
     "PowerBonus",

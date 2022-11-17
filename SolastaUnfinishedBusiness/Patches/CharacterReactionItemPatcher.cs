@@ -68,7 +68,7 @@ public static class CharacterReactionItemPatcher
             item.remainingResourceValue.Text = resource.GetUses(item.guiCharacter.rulesetCharacter);
             item.resourceCostGroup.gameObject.SetActive(true);
             item.resourceCostImage.sprite = item.resourceCostSprite;
-            item.resourceCostValue.Text = "1";//TODO: improve if needed to customize
+            item.resourceCostValue.Text = "1"; //TODO: improve if needed to customize
         }
 
         //patch implementation

@@ -40,3 +40,4 @@ Screen/&FlameTouchedSpellDescription=This Flame touched spell is always prepared
 Screen/&FlameTouchedSpellTitle=Flame
 Screen/&ShadowTouchedSpellDescription=This Shadow touched spell is always prepared.
 Screen/&ShadowTouchedSpellTitle=Shadow
+UI/&CustomFeatureSelectionTooltipTypePlaneMagic=Plane Magic

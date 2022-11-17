@@ -1,8 +1,6 @@
-﻿using SolastaUnfinishedBusiness.Api;
-using SolastaUnfinishedBusiness.Builders;
+﻿using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
-using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.Models;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
@@ -68,20 +66,23 @@ internal sealed class WayOfSilhouette : AbstractSubclass
             .SetGuiPresentation(Category.Feature)
             .AddLightingEffectAndCondition(new FeatureDefinitionLightAffinity.LightingEffectAndCondition
             {
-                lightingState = LocationDefinitions.LightingState.Unlit, condition = CustomConditionsContext.InvisibilityEveryRound
+                lightingState = LocationDefinitions.LightingState.Unlit,
+                condition = CustomConditionsContext.InvisibilityEveryRound
             })
             .AddToDB();
-        
+
         var lightAffinityWayOfSilhouetteStrong = FeatureDefinitionLightAffinityBuilder
             .Create("LightAffinityWayOfSilhouetteCloakOfSilhouettesStrong")
             .SetGuiPresentation(Category.Feature)
             .AddLightingEffectAndCondition(new FeatureDefinitionLightAffinity.LightingEffectAndCondition
             {
-                lightingState = LocationDefinitions.LightingState.Dim, condition = CustomConditionsContext.InvisibilityEveryRound
+                lightingState = LocationDefinitions.LightingState.Dim,
+                condition = CustomConditionsContext.InvisibilityEveryRound
             })
             .AddLightingEffectAndCondition(new FeatureDefinitionLightAffinity.LightingEffectAndCondition
             {
-                lightingState = LocationDefinitions.LightingState.Darkness, condition = CustomConditionsContext.InvisibilityEveryRound
+                lightingState = LocationDefinitions.LightingState.Darkness,
+                condition = CustomConditionsContext.InvisibilityEveryRound
             })
             .AddToDB();
 

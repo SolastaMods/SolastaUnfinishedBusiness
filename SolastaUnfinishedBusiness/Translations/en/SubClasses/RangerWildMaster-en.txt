@@ -1,7 +1,7 @@
 ﻿Condition/&ConditionWildMasterSummonSpiritBeastBonusTitle=Wild Master Bonus
-Feature/&FeatureSetWildMaster03Description=You gain a Spirit Beast companion that accompanies you on your adventures and is trained to fight alongside you. Choose a Bear, an Eagle or a Tiger. Add your proficiency bonus to the Spirit Beast’s AC, attack rolls, and damage rolls. Add 4 HP per Ranger level to the Spirit Beast total HP.
+Feature/&FeatureSetWildMaster03Description=You gain a Spirit Beast companion that accompanies you on your adventures and is trained to fight alongside you. Choose a Bear, an Eagle or a Tiger. Add your proficiency bonus to the Spirit Beast's AC, attack rolls, and damage rolls. Add 4 HP per Ranger level to the Spirit Beast total HP.
 Feature/&FeatureSetWildMaster03Title=Spirit Beast Companion
-Feature/&FeatureSetWildMaster07Description=You can use a bonus action to command the Spirit Beast to take the Dash, Disengage, or Help action on its turn. In addition, the Spirit Beast’s attacks now count as magical for the purpose of overcoming resistance and immunity to non-magical attacks and damage.
+Feature/&FeatureSetWildMaster07Description=You can use a bonus action to command the Spirit Beast to take the Dash, Disengage, or Help action on its turn. In addition, the Spirit Beast attack now count as magical for the purpose of overcoming resistance and immunity to non-magical attacks and damage.
 Feature/&FeatureSetWildMaster07Title=Wonderful Expertise
 Feature/&FeatureSetWildMaster11Description=Add your proficiency bonus to all Spirit Beast's saving throws.
 Feature/&FeatureSetWildMaster11Title=Supreme Savings

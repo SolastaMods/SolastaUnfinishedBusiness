@@ -48,7 +48,7 @@ public static class GuiFeatDefinitionPatcher
                     new CodeInstruction(OpCodes.Call,
                         new Func<RulesetCharacterHero, int>(CanCastSpells).Method))
 
-            // PATCH: Remove asserts in DEBUG build
+                // PATCH: Remove asserts in DEBUG build
                 .RemoveBoolAsserts();
         }
 

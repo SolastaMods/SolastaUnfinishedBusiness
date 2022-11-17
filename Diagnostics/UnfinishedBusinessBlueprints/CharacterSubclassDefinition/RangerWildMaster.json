@@ -10,6 +10,11 @@
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:FeatureSetWildMaster07:bb4c0ac8-d7f3-52ee-8e49-f31701e9497c",
       "level": 7
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:FeatureSetWildMaster11:a5190c33-d74a-5537-8fe9-391b957d150f",
+      "level": 11
     }
   ],
   "personalityFlagOccurences": [],
