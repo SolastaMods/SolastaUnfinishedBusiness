@@ -1,5 +1,4 @@
-﻿#if false
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
@@ -288,4 +287,3 @@ internal sealed class PatronElementalist : AbstractSubclass
         internal AssetReference Shaders;
     }
 }
-#endif
