@@ -308,7 +308,7 @@ internal sealed class RangerWildMaster : AbstractSubclass
             .SetBestiaryEntry(BestiaryDefinitions.BestiaryEntry.None)
             .SetDungeonMakerPresence(MonsterDefinition.DungeonMaker.None)
             .NoExperienceGain()
-            //.SetGroupAttacks(groupAttacks)
+            .SetGroupAttacks(groupAttacks)
             .AddToDB();
     }
 
