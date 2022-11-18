@@ -79,19 +79,5 @@ internal sealed class Executioner : AbstractFightingStyle
 
             effectDescription.EffectForms.Insert(i + 1, additionalDice);
         }
-
-        public void AfterOnAttackDamage(
-            GameLocationCharacter attacker,
-            GameLocationCharacter defender,
-            ActionModifier attackModifier,
-            RulesetAttackMode attackMode,
-            bool rangedAttack,
-            RuleDefinitions.AdvantageType advantageType,
-            List<EffectForm> actualEffectForms,
-            RulesetEffect rulesetEffect,
-            bool criticalHit,
-            bool firstTarget)
-        {
-        }
     }
 }

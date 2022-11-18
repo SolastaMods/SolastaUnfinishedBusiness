@@ -205,6 +205,7 @@ public static class GameLocationBattleManagerPatcher
                 yield return values.Current;
             }
 
+#if false            
             if (character != null)
             {
                 foreach (var feature in character.GetSubFeaturesByType<IOnAttackDamageEffect>())
@@ -213,6 +214,7 @@ public static class GameLocationBattleManagerPatcher
                         advantageType, actualEffectForms, rulesetEffect, criticalHit, firstTarget);
                 }
             }
+#endif
         }
     }
 

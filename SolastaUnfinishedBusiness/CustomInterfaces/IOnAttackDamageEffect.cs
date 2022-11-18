@@ -16,6 +16,7 @@ public interface IOnAttackDamageEffect
         bool criticalHit,
         bool firstTarget);
 
+#if false
     public void AfterOnAttackDamage(
         GameLocationCharacter attacker,
         GameLocationCharacter defender,
@@ -27,4 +28,5 @@ public interface IOnAttackDamageEffect
         RulesetEffect rulesetEffect,
         bool criticalHit,
         bool firstTarget);
+#endif
 }
