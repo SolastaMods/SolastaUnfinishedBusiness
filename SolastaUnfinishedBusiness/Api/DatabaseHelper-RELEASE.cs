@@ -23,7 +23,7 @@ internal static partial class DatabaseHelper
         internal static DamageDefinition DamageThunder { get; } =
             GetDefinition<DamageDefinition>("DamageThunder");
     }
-    
+
     internal static class FeatureDefinitionCampAffinitys
     {
         internal static FeatureDefinitionCampAffinity CampAffinityDomainOblivionPeacefulRest { get; } =
@@ -658,7 +658,7 @@ internal static partial class DatabaseHelper
     {
         internal static CharacterSubclassDefinition TraditionLoremaster { get; } =
             GetDefinition<CharacterSubclassDefinition>("TraditionLoremaster");
-        
+
         internal static CharacterSubclassDefinition RoguishDarkweaver { get; } =
             GetDefinition<CharacterSubclassDefinition>("RoguishDarkweaver");
 
@@ -902,6 +902,15 @@ internal static partial class DatabaseHelper
 
     internal static class FeatureDefinitionActionAffinitys
     {
+        internal static FeatureDefinitionActionAffinity ActionAffinityKindredSpiritRally { get; } =
+            GetDefinition<FeatureDefinitionActionAffinity>("ActionAffinityKindredSpiritRally");
+
+        internal static FeatureDefinitionActionAffinity ActionAffinityInvocationOneWithShadowsTurnInvisible { get; } =
+            GetDefinition<FeatureDefinitionActionAffinity>("ActionAffinityInvocationOneWithShadowsTurnInvisible");
+
+        internal static FeatureDefinitionActionAffinity ActionAffinityKindredSpiritRage { get; } =
+            GetDefinition<FeatureDefinitionActionAffinity>("ActionAffinityKindredSpiritRage");
+
         internal static FeatureDefinitionActionAffinity ActionAffinityRangerVanish { get; } =
             GetDefinition<FeatureDefinitionActionAffinity>("ActionAffinityRangerVanish");
 
@@ -1129,7 +1138,7 @@ internal static partial class DatabaseHelper
     {
         internal static FeatureDefinitionCombatAffinity CombatAffinityProtectedFromEvil { get; } =
             GetDefinition<FeatureDefinitionCombatAffinity>("CombatAffinityProtectedFromEvil");
-        
+
         internal static FeatureDefinitionCombatAffinity CombatAffinityBlessed { get; } =
             GetDefinition<FeatureDefinitionCombatAffinity>("CombatAffinityBlessed");
 
@@ -1156,10 +1165,10 @@ internal static partial class DatabaseHelper
     {
         internal static FeatureDefinitionConditionAffinity ConditionAffinityCircleLandNaturesWardFrightened { get; } =
             GetDefinition<FeatureDefinitionConditionAffinity>("ConditionAffinityCircleLandNaturesWardFrightened");
-        
+
         internal static FeatureDefinitionConditionAffinity ConditionAffinityCircleLandNaturesWardCharmed { get; } =
             GetDefinition<FeatureDefinitionConditionAffinity>("ConditionAffinityCircleLandNaturesWardCharmed");
-        
+
         internal static FeatureDefinitionConditionAffinity ConditionAffinityCalmEmotionCharmedImmunity { get; } =
             GetDefinition<FeatureDefinitionConditionAffinity>("ConditionAffinityCalmEmotionCharmedImmunity");
 
@@ -1212,13 +1221,13 @@ internal static partial class DatabaseHelper
     {
         internal static FeatureDefinitionDamageAffinity DamageAffinityThunderImmunity { get; } =
             GetDefinition<FeatureDefinitionDamageAffinity>("DamageAffinityThunderImmunity");
-        
+
         internal static FeatureDefinitionDamageAffinity DamageAffinityBludgeoningImmunity { get; } =
             GetDefinition<FeatureDefinitionDamageAffinity>("DamageAffinityBludgeoningImmunity");
-        
+
         internal static FeatureDefinitionDamageAffinity DamageAffinityFireImmunity { get; } =
             GetDefinition<FeatureDefinitionDamageAffinity>("DamageAffinityFireImmunity");
-        
+
         internal static FeatureDefinitionDamageAffinity DamageAffinityAcidResistance { get; } =
             GetDefinition<FeatureDefinitionDamageAffinity>("DamageAffinityAcidResistance");
 
@@ -1287,7 +1296,7 @@ internal static partial class DatabaseHelper
     {
         internal static FeatureDefinitionFeatureSet FeatureSetGreenmageWardenOfTheForest { get; } =
             GetDefinition<FeatureDefinitionFeatureSet>("FeatureSetGreenmageWardenOfTheForest");
-        
+
         internal static FeatureDefinitionAttributeModifier AttributeModifierFighterIndomitableAdd1 { get; } =
             GetDefinition<FeatureDefinitionAttributeModifier>("AttributeModifierFighterIndomitableAdd1");
 
@@ -1755,7 +1764,7 @@ internal static partial class DatabaseHelper
     {
         internal static FeatureDefinitionSubclassChoice SubclassChoiceBardColleges { get; } =
             GetDefinition<FeatureDefinitionSubclassChoice>("SubclassChoiceBardColleges");
-        
+
         internal static FeatureDefinitionSubclassChoice SubclassChoiceBarbarianPrimalPath { get; } =
             GetDefinition<FeatureDefinitionSubclassChoice>("SubclassChoiceBarbarianPrimalPath");
 
@@ -2712,16 +2721,16 @@ internal static partial class DatabaseHelper
     {
         internal static SpellDefinition FlameStrike { get; } =
             GetDefinition<SpellDefinition>("FlameStrike");
-        
+
         internal static SpellDefinition WallOfFire { get; } =
             GetDefinition<SpellDefinition>("WallOfFire");
-        
+
         internal static SpellDefinition IceStorm { get; } =
             GetDefinition<SpellDefinition>("IceStorm");
-        
+
         internal static SpellDefinition FlamingSphere { get; } =
             GetDefinition<SpellDefinition>("FlamingSphere");
-        
+
         internal static SpellDefinition WardingBond { get; } =
             GetDefinition<SpellDefinition>("WardingBond");
 

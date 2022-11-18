@@ -1,9 +1,9 @@
 ﻿Condition/&ConditionWildMasterSummonSpiritBeastBonusTitle=Wild Master Bonus
-Feature/&FeatureSetWildMaster03Description=You gain a Spirit Beast companion that accompanies you on your adventures and is trained to fight alongside you. Choose a Bear, an Eagle or a Wolf. Add your proficiency bonus to the Spirit Beast's AC, attack rolls, and damage rolls. Add 4 HP per Ranger level to the Spirit Beast total HP.
+Feature/&FeatureSetWildMaster03Description=You gain a Spirit Beast companion that accompanies you on your adventures and is trained to fight alongside you. The Spirit Beast can only take the Dodge action on its turn unless you command it to do otherwise. It gains your proficiency bonus to the armor class, attack rolls and damage rolls. It also gains 4 HP per Ranger level. You can choose a Bear, an Eagle or a Wolf. The Bear can rally, the eagle can turn invisible in areas of dim light and the wolf can rage in their respective turns. Both Spirit Beast and summoner share the same initiative and the its turn always happen after the summoner.
 Feature/&FeatureSetWildMaster03Title=Spirit Beast Companion
-Feature/&FeatureSetWildMaster07Description=You can use a bonus action to command the Spirit Beast to take the Dash, Disengage, or Help action on its turn. In addition, the Spirit Beast attack now count as magical for the purpose of overcoming resistance and immunity to non-magical attacks and damage.
+Feature/&FeatureSetWildMaster07Description=The Spirit Beast can now take the Dash, Disengage, or Help action on its turn. In addition, the Spirit Beast attack now count as magical for the purpose of overcoming resistance and immunity to non-magical attacks and damage.
 Feature/&FeatureSetWildMaster07Title=Wonderful Expertise
-Feature/&FeatureSetWildMaster11Description=Add your proficiency bonus to all Spirit Beast's saving throws. The Spirit Beast can now act independently after it's summoner round.
+Feature/&FeatureSetWildMaster11Description=The Spirit Beast can now act independently and any action on its turn. It also gains your proficiency bonus to all saving throws and can never be surprised.
 Feature/&FeatureSetWildMaster11Title=Supreme Savings
 Feature/&PowerWildMasterSpiritBeastCommandDescription=Issue command for your Spirit Beast so until the start of your next turn it is not limited in types of action it can take. You will command it automatically if you end your turn without spending bonus action.
 Feature/&PowerWildMasterSpiritBeastCommandTitle=Command Spirit Beast
