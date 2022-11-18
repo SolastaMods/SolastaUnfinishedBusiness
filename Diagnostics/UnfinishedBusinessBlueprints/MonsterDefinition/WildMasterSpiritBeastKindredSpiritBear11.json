@@ -44,8 +44,9 @@
   "bestiaryLootOptions": [],
   "features": [
     "Definition:ActionAffinityKindredSpiritRally:1dbfb8454512e034081cd11da19a957e",
-    "Definition:ActionAffinitySpiritBeast07:b704e1bd-78fb-5db8-9b24-f3bdae644d7e",
+    "Definition:ConditionAffinityWildMasterSpiritBeastInitiative:074d3251-8db0-5c10-949c-97fed558a0c3",
     "Definition:MoveModeMove5:39236d1a5cbaf114d96e2709eb817529",
+    "Definition:PerceptionAffinitySpiritBeast:4cee47ac-3024-5c3d-9d4b-ba5f827150b0",
     "Definition:PowerHelp:faded953-56c9-55e9-aa49-54a485c1de6d",
     "Definition:SenseNormalVision:222ef639393ed4e4bbd7152690597945"
   ],
@@ -210,7 +211,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "bf7767c4-22d8-5fb8-9432-696b6a4a02b9",
+  "guid": "672c843c-44b5-5582-b9e1-61a13a7b98f9",
   "contentPack": 9999,
-  "name": "WildMasterSpiritBeastKindredSpiritBear7"
+  "name": "WildMasterSpiritBeastKindredSpiritBear11"
 }
