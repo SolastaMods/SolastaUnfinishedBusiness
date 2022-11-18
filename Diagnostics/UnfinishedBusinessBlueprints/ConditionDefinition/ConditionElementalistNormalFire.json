@@ -4,14 +4,15 @@
   "parentCondition": null,
   "conditionType": "Beneficial",
   "features": [
-    "Definition:AttributeModifierSpellShieldArcaneDeflection:0fb7e2de-703b-5950-9c2f-01424b936e01"
+    "Definition:AdditionalDamageElementalistFire:2db42e37-34a5-58aa-abfc-287132298906",
+    "Definition:DamageAffinityFireResistance:65d64edf05bfa284999522d4c5375d17"
   ],
   "allowMultipleInstances": false,
   "silentWhenAdded": false,
   "silentWhenRemoved": false,
   "terminateWhenRemoved": false,
   "specialDuration": false,
-  "durationType": "Round",
+  "durationType": "Minute",
   "durationParameterDie": "D4",
   "durationParameter": 1,
   "forceTurnOccurence": false,
@@ -45,9 +46,9 @@
   },
   "conditionParticleReference": {
     "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-    "m_AssetGUID": "",
-    "m_SubObjectName": null,
-    "m_SubObjectType": null
+    "m_AssetGUID": "1a7c8ed60c954dd42bf2beb0fcf894c4",
+    "m_SubObjectName": "",
+    "m_SubObjectType": ""
   },
   "conditionEndParticleReference": {
     "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
@@ -128,13 +129,13 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&PowerSpellShieldArcaneDeflectionTitle",
-    "description": "Feature/&PowerSpellShieldArcaneDeflectionDescription",
+    "title": "Channeling Fire Plane",
+    "description": "Deal additional Fire damage equal to your proficiency bonus on a first hit each round.",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "869bb1641c1c46242931a9fb5819c792",
-      "m_SubObjectName": "ConditionShielded",
-      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+      "m_AssetGUID": "3373bdff-d688-56b3-9652-617c83d5306a",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
@@ -149,7 +150,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "7580a117-7912-5b1d-bd1c-552ff726506b",
+  "guid": "d6497723-c8b3-56c6-8f0c-ee4d5540aa2c",
   "contentPack": 9999,
-  "name": "ConditionSpellShieldArcaneDeflection"
+  "name": "ConditionElementalistNormalFire"
 }

@@ -1,0 +1,40 @@
+{
+  "$type": "FeatureDefinitionLightAffinity, Assembly-CSharp",
+  "lightingEffectAndConditionList": [
+    {
+      "$type": "FeatureDefinitionLightAffinity+LightingEffectAndCondition, Assembly-CSharp",
+      "lightingState": "Unlit",
+      "condition": "Definition:ConditionInvisibilityEveryRound:8f1fecc4-ea18-53c2-8cef-63c365b2b5ad",
+      "effect": null
+    }
+  ],
+  "myselfFamilyRestrictions": [],
+  "otherCharacterFamilyRestrictions": [],
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feature/&LightAffinityMoonlitWeakTitle",
+    "description": "Feature/&LightAffinityMoonlitWeakDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "c1d98666-29b4-5429-ad81-4284628b843d",
+  "contentPack": 9999,
+  "name": "LightAffinityMoonlitWeak"
+}

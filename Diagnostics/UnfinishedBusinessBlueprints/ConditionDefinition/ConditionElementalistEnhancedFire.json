@@ -4,14 +4,15 @@
   "parentCondition": null,
   "conditionType": "Beneficial",
   "features": [
-    "Definition:AttributeModifierSpellShieldArcaneDeflection:0fb7e2de-703b-5950-9c2f-01424b936e01"
+    "Definition:AdditionalDamageElementalistFire:2db42e37-34a5-58aa-abfc-287132298906",
+    "Definition:DamageAffinityFireImmunity:6f4ede3c34539284e941dd084eaf4429"
   ],
   "allowMultipleInstances": false,
   "silentWhenAdded": false,
   "silentWhenRemoved": false,
   "terminateWhenRemoved": false,
   "specialDuration": false,
-  "durationType": "Round",
+  "durationType": "Minute",
   "durationParameterDie": "D4",
   "durationParameter": 1,
   "forceTurnOccurence": false,
@@ -45,9 +46,9 @@
   },
   "conditionParticleReference": {
     "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-    "m_AssetGUID": "",
-    "m_SubObjectName": null,
-    "m_SubObjectType": null
+    "m_AssetGUID": "1a7c8ed60c954dd42bf2beb0fcf894c4",
+    "m_SubObjectName": "",
+    "m_SubObjectType": ""
   },
   "conditionEndParticleReference": {
     "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
@@ -58,9 +59,9 @@
   "recurrentEffectParticleReference": null,
   "characterShaderReference": {
     "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-    "m_AssetGUID": "",
-    "m_SubObjectName": null,
-    "m_SubObjectType": null
+    "m_AssetGUID": "a008bb3ffbadf594ca935988fcf2456a",
+    "m_SubObjectName": "",
+    "m_SubObjectType": ""
   },
   "particlesBasedOnAncestryDamageType": false,
   "ancestryType": "Sorcerer",
@@ -128,13 +129,13 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&PowerSpellShieldArcaneDeflectionTitle",
-    "description": "Feature/&PowerSpellShieldArcaneDeflectionDescription",
+    "title": "Channeling Fire Plane",
+    "description": "Deal additional Fire damage equal to your proficiency bonus on a first hit each round.",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "869bb1641c1c46242931a9fb5819c792",
-      "m_SubObjectName": "ConditionShielded",
-      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+      "m_AssetGUID": "762fc2db-21c6-56b6-b542-3a25e61f3ed5",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
@@ -149,7 +150,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "7580a117-7912-5b1d-bd1c-552ff726506b",
+  "guid": "4a1ea446-e42b-5b1f-862e-77847e90af7b",
   "contentPack": 9999,
-  "name": "ConditionSpellShieldArcaneDeflection"
+  "name": "ConditionElementalistEnhancedFire"
 }
