@@ -186,7 +186,7 @@ internal static class OtherFeats
             .SetGuiPresentation(Category.Feat)
             .SetFeatures(FeatureDefinitionPowerBuilder
                 .Create("PowerTorchbearer")
-                .SetGuiPresentation(Category.Feature)
+                .SetGuiPresentation(Category.Feature, PowerDragonbornBreathWeaponGold)
                 .SetUsesFixed(ActivationTime.BonusAction)
                 .SetEffectDescription(EffectDescriptionBuilder
                     .Create(SpellDefinitions.Fireball.EffectDescription)
