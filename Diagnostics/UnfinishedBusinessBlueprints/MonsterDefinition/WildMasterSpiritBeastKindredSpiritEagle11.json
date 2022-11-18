@@ -49,13 +49,15 @@
   "stealableLootDefinition": null,
   "bestiaryLootOptions": [],
   "features": [
+    "Definition:ActionAffinityWildMasterSpiritBeast:67246cb1-3617-5d0b-89f5-215e54bf88a3",
     "Definition:ConditionAffinityProneImmunity:abedf907fa238ce4c91865e7ab06c78d",
     "Definition:ConditionAffinityWildMasterSpiritBeastInitiative:074d3251-8db0-5c10-949c-97fed558a0c3",
     "Definition:MovementAffinityNoClimb:f65dd18ad2835b14e96502705a1b9544",
     "Definition:MovementAffinityNoSpecialMoves:0cd5ea35f59f7e84fa3a0c6615abf781",
     "Definition:MoveModeFly10:983b70804daf71d42a2bc3e844c00987",
     "Definition:MoveModeMove2:0127a492ba7a429408b3282dde9374d7",
-    "Definition:PerceptionAffinityWildMasterSpiritBeast:428e7055-c49a-51d9-a0f6-b12c87974615",
+    "Definition:PowerDragonbornBreathWeaponBlack:dca30e1e1a2112e4e933e870243a6362",
+    "Definition:PowerEyebiteAsleep:2a17a15d979ca2a4da3014e43ceceef7",
     "Definition:PowerHelp:faded953-56c9-55e9-aa49-54a485c1de6d",
     "Definition:SenseNormalVision:222ef639393ed4e4bbd7152690597945"
   ],
@@ -193,7 +195,7 @@
   "hasLookAt": false,
   "forceNoFlyAnimation": false,
   "followFloorAngle": false,
-  "groupAttacks": false,
+  "groupAttacks": true,
   "isUnique": false,
   "uniqueNameId": "",
   "guiPresentation": {

@@ -1,21 +1,21 @@
 {
-  "$type": "FeatureDefinitionPower, Assembly-CSharp",
+  "$type": "SolastaUnfinishedBusiness.CustomDefinitions.FeatureDefinitionPowerSharedPool, SolastaUnfinishedBusiness",
   "effectDescription": {
     "$type": "EffectDescription, Assembly-CSharp",
-    "rangeType": "Touch",
-    "rangeParameter": 1,
+    "rangeType": "Distance",
+    "rangeParameter": 3,
     "halfDamageOnAMiss": false,
     "hitAffinitiesByTargetTag": [],
-    "targetType": "Individuals",
+    "targetType": "Position",
     "itemSelectionType": "None",
     "targetParameter": 1,
     "targetParameter2": 2,
     "emissiveBorder": "None",
     "emissiveParameter": 1,
     "requiresTargetProximity": false,
-    "targetProximityDistance": 30,
+    "targetProximityDistance": 6,
     "targetExcludeCaster": false,
-    "canBePlacedOnCharacter": false,
+    "canBePlacedOnCharacter": true,
     "affectOnlyGround": false,
     "targetFilteringMethod": "AllCharacterAndGadgets",
     "targetFilteringTag": "No",
@@ -30,20 +30,20 @@
     "trapRangeType": "Triggerer",
     "targetConditionName": "",
     "targetConditionAsset": null,
-    "targetSide": "Enemy",
-    "durationType": "Round",
-    "durationParameter": 3,
+    "targetSide": "Ally",
+    "durationType": "Permanent",
+    "durationParameter": 0,
     "endOfEffect": "EndOfTurn",
-    "hasSavingThrow": true,
+    "hasSavingThrow": false,
     "disableSavingThrowOnAllies": false,
     "savingThrowAbility": "Dexterity",
     "ignoreCover": false,
     "grantedConditionOnSave": null,
     "rollSaveOnlyIfRelevantForms": false,
     "hasShoveRoll": false,
-    "createdByCharacter": true,
-    "difficultyClassComputation": "AbilityScoreAndProficiency",
-    "savingThrowDifficultyAbility": "Dexterity",
+    "createdByCharacter": false,
+    "difficultyClassComputation": "SpellCastingFeature",
+    "savingThrowDifficultyAbility": "Wisdom",
     "fixedSavingThrowDifficultyClass": 15,
     "savingThrowAffinitiesBySense": [],
     "savingThrowAffinitiesByFamily": [],
@@ -62,7 +62,7 @@
     "effectForms": [
       {
         "$type": "EffectForm, Assembly-CSharp",
-        "formType": "Condition",
+        "formType": "Summon",
         "addBonusMode": "None",
         "applyLevel": "No",
         "levelType": "ClassLevel",
@@ -75,16 +75,17 @@
         "dcModifier": 0,
         "canSaveToCancel": false,
         "saveOccurence": "EndOfTurn",
-        "conditionForm": {
-          "$type": "ConditionForm, Assembly-CSharp",
-          "conditionDefinitionName": "ConditionOnFire1D4",
-          "conditionDefinition": "Definition:ConditionOnFire1D4:c832b5142b6541b40a0d925d502e0f9d",
-          "operation": "Add",
-          "conditionsList": [
-            "Definition:ConditionOnFire1D4:c832b5142b6541b40a0d925d502e0f9d"
-          ],
-          "applyToSelf": false,
-          "forceOnSelf": false
+        "summonForm": {
+          "$type": "SummonForm, Assembly-CSharp",
+          "summonType": "Creature",
+          "itemDefinition": null,
+          "trackItem": false,
+          "monsterDefinitionName": "WildMasterSpiritBeastKindredSpiritEagle15",
+          "number": 1,
+          "conditionDefinition": null,
+          "persistOnConcentrationLoss": false,
+          "decisionPackage": null,
+          "effectProxyDefinitionName": null
         },
         "hasFilterId": false,
         "filterId": 0
@@ -93,11 +94,11 @@
     "specialFormsDescription": "",
     "effectAdvancement": {
       "$type": "EffectAdvancement, Assembly-CSharp",
-      "effectIncrementMethod": "PerAdditionalSlotLevel",
+      "effectIncrementMethod": "None",
       "incrementMultiplier": 1,
       "additionalTargetsPerIncrement": 0,
       "additionalSubtargetsPerIncrement": 0,
-      "additionalDicePerIncrement": 1,
+      "additionalDicePerIncrement": 0,
       "additionalSpellLevelPerIncrement": 0,
       "additionalSummonsPerIncrement": 0,
       "additionalHPPerIncrement": 0,
@@ -108,15 +109,15 @@
       "alteredDuration": "None"
     },
     "speedType": "Instant",
-    "speedParameter": 11.0,
-    "offsetImpactTimeBasedOnDistance": true,
-    "offsetImpactTimeBasedOnDistanceFactor": 0.05,
+    "speedParameter": 10.0,
+    "offsetImpactTimeBasedOnDistance": false,
+    "offsetImpactTimeBasedOnDistanceFactor": 0.1,
     "offsetImpactTimePerTarget": 0.0,
     "effectParticleParameters": {
       "$type": "EffectParticleParameters, Assembly-CSharp",
       "casterParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "a527dee34e46e7a4c8c68a9d244b3855",
+        "m_AssetGUID": "3a2adaa2387014840a7a04a703e43d8b",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -134,13 +135,13 @@
       },
       "targetParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "",
+        "m_AssetGUID": "26c07e68e0e726245bd204b85d216c40",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
       "effectParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "070e9243691997b4183a2025e63764b3",
+        "m_AssetGUID": "",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -152,7 +153,7 @@
       },
       "zoneParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "d264457be672895478d6d499e8a57e0d",
+        "m_AssetGUID": "",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -164,7 +165,7 @@
       },
       "impactParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "2ed767daca3c7374badf6c78a308ce9e",
+        "m_AssetGUID": "",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -261,7 +262,7 @@
       },
       "conditionEndParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "",
+        "m_AssetGUID": "1f552e7fef196454db3f99c581aeb0e4",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -280,10 +281,10 @@
     "effectAIParameters": {
       "$type": "EffectAIParameters, Assembly-CSharp",
       "aoeScoreMultiplier": 1.0,
-      "cooldownForCaster": 1,
-      "cooldownForBattle": 1,
+      "cooldownForCaster": 0,
+      "cooldownForBattle": 0,
       "sortingScoreMultiplier": 1.0,
-      "dynamicCooldown": true
+      "dynamicCooldown": false
     },
     "animationMagicEffect": "Animation0",
     "lightCounterDispellsEffect": false
@@ -291,7 +292,7 @@
   "delegatedToAction": false,
   "surrogateToSpell": null,
   "triggeredBySpecialMove": false,
-  "activationTime": "BonusAction",
+  "activationTime": "Action",
   "autoActivationRequiredTargetSenseType": "None",
   "autoActivationRequiredTargetCreatureTag": "",
   "autoActivationPowerTag": "",
@@ -306,7 +307,7 @@
   "canUseInDialog": false,
   "disableIfConditionIsOwned": null,
   "disableIfTargetConditionIsOwned": null,
-  "rechargeRate": "AtWill",
+  "rechargeRate": "LongRest",
   "costPerUse": 1,
   "spellcastingFeature": null,
   "usesDetermination": "Fixed",
@@ -318,20 +319,20 @@
   "fixedAttackHit": 0,
   "abilityScoreBonusToAttack": false,
   "proficiencyBonusToAttack": false,
-  "uniqueInstance": false,
-  "showCasting": false,
+  "uniqueInstance": true,
+  "showCasting": true,
   "shortTitleOverride": "",
-  "overriddenPower": null,
+  "overriddenPower": "Definition:PowerWildMasterSummonSpiritBeastKindredSpiritEagle11:b470a26a-58d5-5440-8d27-895a9d349505",
   "includeBaseDescription": false,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&PowerTorchbearerTitle",
-    "description": "Feature/&PowerTorchbearerDescription",
+    "title": "Summon Spirit Eagle",
+    "description": "A Spirit Eagle bonded to a Ranger.",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "3f9d7f1e19c5d0f4a9add3aedb41fcfc",
-      "m_SubObjectName": "BreathWeaponGold",
+      "m_AssetGUID": "d802c8670a28fe544abd53ce549a07b1",
+      "m_SubObjectName": "KindredSpiritEagle",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
@@ -347,7 +348,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "7acd8210-3f93-52be-bdeb-1e8956d1115a",
+  "guid": "e5b23807-b2fe-5e9e-883f-eb6f08405f68",
   "contentPack": 9999,
-  "name": "PowerTorchbearer"
+  "name": "PowerWildMasterSummonSpiritBeastKindredSpiritEagle15"
 }

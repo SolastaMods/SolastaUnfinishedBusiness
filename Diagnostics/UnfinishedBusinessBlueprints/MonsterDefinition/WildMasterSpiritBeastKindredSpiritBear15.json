@@ -43,10 +43,11 @@
   "stealableLootDefinition": null,
   "bestiaryLootOptions": [],
   "features": [
-    "Definition:ActionAffinityWildMasterSpiritBeast:67246cb1-3617-5d0b-89f5-215e54bf88a3",
     "Definition:ConditionAffinityWildMasterSpiritBeastInitiative:074d3251-8db0-5c10-949c-97fed558a0c3",
     "Definition:MoveModeMove5:39236d1a5cbaf114d96e2709eb817529",
+    "Definition:PerceptionAffinityWildMasterSpiritBeast:428e7055-c49a-51d9-a0f6-b12c87974615",
     "Definition:PowerEyebitePanicked:7c9fd45374147c04da705bf77d14916c",
+    "Definition:PowerGreen_Hag_Invisibility:ee75d2fe8cd622e4093aa1a3f511ec28",
     "Definition:PowerHelp:faded953-56c9-55e9-aa49-54a485c1de6d",
     "Definition:PowerReckless:3095894976883c04e8c53ac7253e8005",
     "Definition:SenseNormalVision:222ef639393ed4e4bbd7152690597945"
@@ -212,7 +213,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "672c843c-44b5-5582-b9e1-61a13a7b98f9",
+  "guid": "571144df-4745-5849-a201-5fb54442934c",
   "contentPack": 9999,
-  "name": "WildMasterSpiritBeastKindredSpiritBear11"
+  "name": "WildMasterSpiritBeastKindredSpiritBear15"
 }

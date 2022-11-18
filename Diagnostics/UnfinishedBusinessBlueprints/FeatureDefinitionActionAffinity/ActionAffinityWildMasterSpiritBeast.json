@@ -17,7 +17,6 @@
     "PowerBonus",
     "PowerMain",
     "PowerReaction",
-    "Shove",
     "SpendPower",
     "AttackReadied",
     "Ready"
@@ -53,7 +52,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "f1000631-34ce-59f0-80bf-4d708cd858d3",
+  "guid": "67246cb1-3617-5d0b-89f5-215e54bf88a3",
   "contentPack": 9999,
-  "name": "ActionAffinityWildMasterSpiritBeast03"
+  "name": "ActionAffinityWildMasterSpiritBeast"
 }

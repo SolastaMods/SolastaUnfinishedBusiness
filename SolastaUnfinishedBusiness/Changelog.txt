@@ -1,11 +1,7 @@
 ﻿CHANGES:
 
-1.4.28.3:
+1.4.28.4:
 
-- Fix dual-flurry triggering on misses
-- Fix IncreaseMeleeAttackReach on thrown melee weapons
-- Improve Multiclass spell tag
-- Improve Wild Master with distinct actions per Spirit Beast
-- Increase Gambit die pool at 5 and 10
-- Rename Debilitate to Provoke
-- Rename Feint to Precision
+- Add a sprite to Torchbearer
+- Fix Shared Vigilance using INT of a target instead of self
+- Improve / fix Wild Master
