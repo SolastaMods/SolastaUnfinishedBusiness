@@ -224,8 +224,8 @@ internal static partial class DatabaseHelper
         internal static MonsterDefinition KindredSpiritEagle { get; } =
             GetDefinition<MonsterDefinition>("KindredSpiritEagle");
 
-        internal static MonsterDefinition KindredSpiritTiger { get; } =
-            GetDefinition<MonsterDefinition>("KindredSpiritTiger");
+        internal static MonsterDefinition KindredSpiritWolf { get; } =
+            GetDefinition<MonsterDefinition>("KindredSpiritWolf");
 
         internal static MonsterDefinition Air_Elemental { get; } =
             GetDefinition<MonsterDefinition>("Air_Elemental");

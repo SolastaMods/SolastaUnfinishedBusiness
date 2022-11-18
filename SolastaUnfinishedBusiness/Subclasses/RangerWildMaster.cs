@@ -92,8 +92,8 @@ internal sealed class RangerWildMaster : AbstractSubclass
             conditionAffinityWildMasterSpiritBeastInitiative,
             perceptionAffinitySpiritBeast);
 
-        var powerKindredSpiritTiger03 = BuildSpiritBeastPower(powerWildMasterSummonSpiritBeastPool,
-            null, MonsterDefinitions.KindredSpiritTiger, 3,
+        var powerKindredSpiritWolf03 = BuildSpiritBeastPower(powerWildMasterSummonSpiritBeastPool,
+            null, MonsterDefinitions.KindredSpiritWolf, 3,
             actionAffinitySpiritBeast03,
             conditionAffinityWildMasterSpiritBeastInitiative,
             perceptionAffinitySpiritBeast);
@@ -112,8 +112,8 @@ internal sealed class RangerWildMaster : AbstractSubclass
             conditionAffinityWildMasterSpiritBeastInitiative,
             perceptionAffinitySpiritBeast);
 
-        var powerKindredSpiritTiger07 = BuildSpiritBeastPower(powerWildMasterSummonSpiritBeastPool,
-            powerKindredSpiritTiger03, MonsterDefinitions.KindredSpiritTiger, 7,
+        var powerKindredSpiritWolf07 = BuildSpiritBeastPower(powerWildMasterSummonSpiritBeastPool,
+            powerKindredSpiritWolf03, MonsterDefinitions.KindredSpiritWolf, 7,
             CharacterContext.FeatureDefinitionPowerHelpAction,
             actionAffinitySpiritBeast07,
             conditionAffinityWildMasterSpiritBeastInitiative,
@@ -129,7 +129,7 @@ internal sealed class RangerWildMaster : AbstractSubclass
                 powerWildMasterSpiritBeastMender,
                 powerKindredSpiritBear03,
                 powerKindredSpiritEagle03,
-                powerKindredSpiritTiger03)
+                powerKindredSpiritWolf03)
             .AddToDB();
 
         var featureSetWildMaster07 = FeatureDefinitionFeatureSetBuilder
@@ -139,7 +139,7 @@ internal sealed class RangerWildMaster : AbstractSubclass
                 BuildSpiritBeastAffinityLevel07(),
                 powerKindredSpiritBear07,
                 powerKindredSpiritEagle07,
-                powerKindredSpiritTiger07)
+                powerKindredSpiritWolf07)
             .AddToDB();
 
         var featureSetWildMaster11 = FeatureDefinitionFeatureSetBuilder
