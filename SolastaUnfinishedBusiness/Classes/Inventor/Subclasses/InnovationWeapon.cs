@@ -288,7 +288,7 @@ public static class InnovationWeapon
             .Create("InnovationWeaponSteelDefender")
             .SetGuiPresentation(Category.Monster,
                 Sprites.GetSprite("SteelDefenderMonster", Resources.SteelDefenderMonster, 160, 240))
-            .HideFromDungeonEditor()
+            .SetDungeonMakerPresence(MonsterDefinition.DungeonMaker.None)
             .SetAbilityScores(14, 12, 14, 4, 10, 6)
             .SetSkillScores(
                 (SkillDefinitions.Athletics, 2), //has feature that adds summoner's PB
