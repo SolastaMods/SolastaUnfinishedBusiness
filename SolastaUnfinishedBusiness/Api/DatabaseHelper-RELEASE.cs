@@ -1,7 +1,7 @@
 // this file is manually maintained
 // whenever you use a definition in DEBUG mode copy it over here
 // goal is to increase mod boot time and reduce total payload size
-// last update on 11/13/22 10:30 AM
+// last update on 11/18/22 09:00 AM
 
 using TA.AI;
 
@@ -355,9 +355,6 @@ internal static partial class DatabaseHelper
 
         internal static ConditionDefinition ConditionBaned { get; } =
             GetDefinition<ConditionDefinition>("ConditionBaned");
-
-        internal static ConditionDefinition ConditionBarkskin { get; } =
-            GetDefinition<ConditionDefinition>("ConditionBarkskin");
 
         internal static ConditionDefinition ConditionBearsEndurance { get; } =
             GetDefinition<ConditionDefinition>("ConditionBearsEndurance");
@@ -1528,9 +1525,6 @@ internal static partial class DatabaseHelper
         internal static FeatureDefinitionPower PowerDragonBreath_Poison { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerDragonBreath_Poison");
 
-        internal static FeatureDefinitionPower PowerDruidWildShape { get; } =
-            GetDefinition<FeatureDefinitionPower>("PowerDruidWildShape");
-
         internal static FeatureDefinitionPower PowerFighterActionSurge { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerFighterActionSurge");
 
@@ -1767,9 +1761,6 @@ internal static partial class DatabaseHelper
 
         internal static FeatureDefinitionSubclassChoice SubclassChoiceBarbarianPrimalPath { get; } =
             GetDefinition<FeatureDefinitionSubclassChoice>("SubclassChoiceBarbarianPrimalPath");
-
-        internal static FeatureDefinitionSubclassChoice SubclassChoiceDruidCircle { get; } =
-            GetDefinition<FeatureDefinitionSubclassChoice>("SubclassChoiceDruidCircle");
 
         internal static FeatureDefinitionSubclassChoice SubclassChoiceFighterMartialArchetypes { get; } =
             GetDefinition<FeatureDefinitionSubclassChoice>("SubclassChoiceFighterMartialArchetypes");
@@ -2919,9 +2910,6 @@ internal static partial class DatabaseHelper
 
         internal static SpellDefinition FireShield { get; } =
             GetDefinition<SpellDefinition>("FireShield");
-
-        internal static SpellDefinition FlameBlade { get; } =
-            GetDefinition<SpellDefinition>("FlameBlade");
 
         internal static SpellDefinition Fly { get; } =
             GetDefinition<SpellDefinition>("Fly");

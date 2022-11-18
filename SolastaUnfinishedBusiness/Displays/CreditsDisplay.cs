@@ -28,10 +28,7 @@ internal static class CreditsDisplay
         ("ElAntonious", "feats, Arcanist"),
         ("Holic75", "spells, Bolgrif"),
         ("RedOrca", "Path of The Light"),
-        ("DreadMaker", "Circle of The Forest Guardian"),
-        ("Bazou", "fighting styles, rules, spells"),
-        ("Esker", "ruleset support, qa"),
-        ("Lyraele", "ruleset support, qa")
+        ("Bazou", "fighting styles, rules, spells")
     };
 
     private static readonly bool IsUnityExplorerInstalled =

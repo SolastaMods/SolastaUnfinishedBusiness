@@ -23,9 +23,6 @@ internal static class SubclassesContext
 
         // Bard
         LoadSubclass(new CollegeOfGuts());
-        
-        // Druid
-        LoadSubclass(new CircleOfTheForestGuardian());
 
         // Fighter
         LoadSubclass(new MartialMarshal());
