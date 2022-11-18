@@ -66,22 +66,20 @@ public static class SpellBoxPatcher
             var type = parts[0];
             var name = parts[1];
 
-            const string MULTICLASS = "Screen/&MulticlassExtraSpellTitle";
             const string CLASS_FORMAT = "Screen/&ClassExtraSpellDescriptionFormat";
             const string SUBCLASS_FORMAT = "Screen/&SubclassClassExtraSpellDescriptionFormat";
 
+            __instance.autoPreparedTitle.Text = "Screen/&MulticlassExtraSpellTitle";
             if (type == LevelUpContext.ExtraClassTag &&
                 DatabaseHelper.TryGetDefinition<CharacterClassDefinition>(name, out var classDef))
             {
                 name = classDef.FormatTitle();
-                __instance.autoPreparedTitle.Text = MULTICLASS;
                 __instance.autoPreparedTooltip.Content = Gui.Format(CLASS_FORMAT, name);
             }
             else if (type == LevelUpContext.ExtraSubclassTag &&
                      DatabaseHelper.TryGetDefinition<CharacterSubclassDefinition>(name, out var subDef))
             {
                 name = subDef.FormatTitle();
-                __instance.autoPreparedTitle.Text = MULTICLASS;
                 __instance.autoPreparedTooltip.Content = Gui.Format(SUBCLASS_FORMAT, name);
             }
         }
