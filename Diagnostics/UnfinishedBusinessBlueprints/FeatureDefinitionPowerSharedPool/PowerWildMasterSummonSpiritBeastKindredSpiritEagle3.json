@@ -328,7 +328,7 @@
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "Summon Spirit Eagle",
-    "description": "A spirit creature bonded to a druid.",
+    "description": "A Spirit Eagle with a bond with the Ranger.",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "d802c8670a28fe544abd53ce549a07b1",

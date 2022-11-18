@@ -271,7 +271,7 @@ internal sealed class RangerWildMaster : AbstractSubclass
                 Gui.Format("Feature/&PowerWildMasterSummonSpiritBeastTitle",
                     spiritBeastMonster.FormatTitle()),
                 Gui.Format("Feature/&PowerWildMasterSummonSpiritBeastDescription",
-                    spiritBeastMonster.FormatDescription()),
+                    spiritBeastMonster.FormatTitle()),
                 monsterDefinition)
             .SetSharedPool(ActivationTime.Action, featureDefinitionPower)
             .SetOverriddenPower(featureDefinitionPowerToReplace)

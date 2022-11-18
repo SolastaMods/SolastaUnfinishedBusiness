@@ -328,7 +328,7 @@
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "Summon Spirit Bear",
-    "description": "A spirit creature bonded to a druid.",
+    "description": "A Spirit Bear with a bond with the Ranger.",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "943d38399cb94af4db6e5fbcf3d55efa",
