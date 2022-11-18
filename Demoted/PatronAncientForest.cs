@@ -63,7 +63,6 @@ internal sealed class PatronAncientForest : AbstractSubclass
             .Create("PowerPoolAncientForestHerbalBrew")
             .SetGuiPresentation(Category.Feature, PotionRemedy)
             .SetUsesFixed(ActivationTime.Rest, RechargeRate.LongRest)
-            .SetIsPowerPool()
             .SetBonusToAttack(true)
             .AddToDB();
 
@@ -147,7 +146,6 @@ internal sealed class PatronAncientForest : AbstractSubclass
             .Create("PowerPoolAncientForestWallOfThorns")
             .SetGuiPresentationNoContent()
             .SetUsesAbilityBonus(ActivationTime.Permanent, RechargeRate.LongRest, AttributeDefinitions.Charisma)
-            .SetIsPowerPool()
             .SetBonusToAttack(true)
             .AddToDB();
 

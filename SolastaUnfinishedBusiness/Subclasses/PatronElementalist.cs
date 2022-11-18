@@ -104,7 +104,6 @@ internal sealed class PatronElementalist : AbstractSubclass
             .Create("PowerElementalistElementalFormPool")
             .SetGuiPresentation(Category.Feature, formRegular)
             .SetUsesFixed(ActivationTime.BonusAction, RechargeRate.LongRest)
-            .SetIsPowerPool()
             .SetBonusToAttack(true)
             .AddToDB();
 

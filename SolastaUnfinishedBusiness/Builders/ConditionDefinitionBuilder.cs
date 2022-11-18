@@ -111,6 +111,18 @@ internal class ConditionDefinitionBuilder
         return this;
     }
 
+    internal ConditionDefinitionBuilder SetConditionParticleReference(AssetReference value)
+    {
+        Definition.conditionParticleReference = value;
+        return this;
+    }
+
+    internal ConditionDefinitionBuilder SetCharacterShaderReference(AssetReference value)
+    {
+        Definition.characterShaderReference = value;
+        return this;
+    }
+
     internal ConditionDefinitionBuilder ClearFeatures()
     {
         Definition.Features.Clear();

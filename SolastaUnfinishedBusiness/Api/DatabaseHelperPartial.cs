@@ -10,7 +10,7 @@ internal static partial class DatabaseHelper
     {
         var db = DatabaseRepository.GetDatabase<T>();
 
-#if DEBUG        
+#if DEBUG
         if (db == null)
         {
             throw new SolastaUnfinishedBusinessException(
