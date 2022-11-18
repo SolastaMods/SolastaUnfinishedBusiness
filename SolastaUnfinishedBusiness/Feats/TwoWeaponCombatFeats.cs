@@ -100,7 +100,8 @@ internal static class TwoWeaponCombatFeats
             RulesetAttackMode attackMode,
             ActionModifier attackModifier)
         {
-            if (attackMode == null)
+            // Test for Failed attack, as this routine is running on a miss
+            if ((attackMode == null) || (outcome == RollOutcome.Failure) || (outcome == RollOutcome.CriticalFailure))
             {
                 return;
             }
