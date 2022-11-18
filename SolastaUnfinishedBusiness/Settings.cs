@@ -144,8 +144,9 @@ public class Settings : UnityModManager.ModSettings
     public bool ChangeSleetStormToCube { get; set; }
     public bool UseHeightOneCylinderEffect { get; set; }
 
-
     // House
+    public int DeadEyeAndPowerAttackBaseValue { get; set; } = -3;
+
     public bool AllowStackedMaterialComponent { get; set; }
     public bool AllowAnyClassToWearSylvanArmor { get; set; }
     public bool AllowDruidToWearMetalArmor { get; set; }
@@ -201,7 +202,7 @@ public class Settings : UnityModManager.ModSettings
     public int OverridePartySize { get; set; } = ToolsContext.GamePartySize;
     public bool AllowAllPlayersOnNarrativeSequences { get; set; }
     public float FasterTimeModifier { get; set; } = ToolsDisplay.DefaultFastTimeModifier;
-    public bool EnableTogglesToOverwriteDefaultTestParty { get; set; } = true;
+    public bool EnableTogglesToOverwriteDefaultTestParty { get; set; }
     public List<string> DefaultPartyHeroes { get; } = new();
 
     //

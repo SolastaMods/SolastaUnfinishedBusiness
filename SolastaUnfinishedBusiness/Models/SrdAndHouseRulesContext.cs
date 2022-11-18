@@ -85,6 +85,29 @@ internal static class SrdAndHouseRulesContext
         SwitchFullyControlConjurations();
     }
 
+    internal static void ModifyAttackModeAndDamage(RulesetCharacter character, string sourceName,
+        [CanBeNull] RulesetAttackMode attackMode)
+    {
+        var damage = attackMode?.EffectDescription?.FindFirstDamageForm();
+
+        if (damage == null)
+        {
+            return;
+        }
+
+        var proficiency = character.GetAttribute(AttributeDefinitions.ProficiencyBonus).CurrentValue;
+        var toHit = -Main.Settings.DeadEyeAndPowerAttackBaseValue;
+        var toDamage = Main.Settings.DeadEyeAndPowerAttackBaseValue + proficiency;
+
+        attackMode.ToHitBonus += toHit;
+        attackMode.ToHitBonusTrends.Add(new TrendInfo(toHit,
+            FeatureSourceType.Power, "Deadeye", null));
+
+        damage.BonusDamage += toDamage;
+        damage.DamageBonusTrends.Add(new TrendInfo(toDamage,
+            FeatureSourceType.Power, "Deadeye", null));
+    }
+
     internal static void SwitchUniversalSylvanArmorAndLightbringer()
     {
         GreenmageArmor.RequiredAttunementClasses.Clear();

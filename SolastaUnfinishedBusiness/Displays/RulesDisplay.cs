@@ -116,6 +116,16 @@ internal static class RulesDisplay
         UI.Label(Gui.Localize("ModUi/&House"));
         UI.Label();
 
+        var intValue = Main.Settings.DeadEyeAndPowerAttackBaseValue;
+        if (UI.Slider(Gui.Localize("ModUi/&DeadEyeAndPowerAttackBaseBaseValue"), ref intValue,
+                -5, -1, -3, "",
+                UI.AutoWidth()))
+        {
+            Main.Settings.DeadEyeAndPowerAttackBaseValue = intValue;
+        }
+
+        UI.Label();
+
         toggle = Main.Settings.AllowStackedMaterialComponent;
         if (UI.Toggle(Gui.Localize("ModUi/&AllowStackedMaterialComponent"), ref toggle, UI.AutoWidth()))
         {
@@ -152,7 +162,7 @@ internal static class RulesDisplay
 
         UI.Label();
 
-        var intValue = Main.Settings.IncreaseSenseNormalVision;
+        intValue = Main.Settings.IncreaseSenseNormalVision;
         UI.Label(Gui.Localize("ModUi/&IncreaseSenseNormalVision"));
         if (UI.Slider(Gui.Localize("ModUi/&IncreaseSenseNormalVisionHelp"),
                 ref intValue,
