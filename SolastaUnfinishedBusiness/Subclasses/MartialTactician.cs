@@ -41,9 +41,9 @@ internal sealed class MartialTactician : AbstractSubclass
             .Create("MartialTactician")
             .SetGuiPresentation(Category.Subclass, RoguishShadowCaster)
             .AddFeaturesAtLevel(3, BuildSharpMind(), GambitPool, learn3Gambits, EverVigilant)
-            .AddFeaturesAtLevel(5, BuildGambitDieSize(DieType.D8))
+            .AddFeaturesAtLevel(5, BuildGambitPoolIncrease(), BuildGambitDieSize(DieType.D8))
             .AddFeaturesAtLevel(7, BuildGambitPoolIncrease(), learn1Gambit, BuildSharedVigilance())
-            .AddFeaturesAtLevel(10, BuildAdaptiveStrategy(), BuildGambitDieSize(DieType.D10))
+            .AddFeaturesAtLevel(10, BuildGambitPoolIncrease(), BuildAdaptiveStrategy(), BuildGambitDieSize(DieType.D10))
             .AddFeaturesAtLevel(15, BuildGambitPoolIncrease(), learn1Gambit, BuildGambitDieSize(DieType.D12))
             .AddToDB();
 
