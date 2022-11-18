@@ -1,5 +1,13 @@
 ﻿CHANGES:
 
+1.4.28.3:
+
+- Fix dual-flurry triggering on misses
+- Fix IncreaseMeleeAttackReach not working on thrown melee
+- Improve Multiclass spell tag
+- Improve Wild Master
+- Increase Gambit die pool at 5 and 10
+
 1.4.28.2:
 
 - Add College of Guts

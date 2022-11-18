@@ -1,7 +1,9 @@
 ﻿CHANGES:
 
-1.4.28.2:
+1.4.28.3:
 
-- Add College of Guts
-- Fix inverted sign on Deadeye and Power Attack
-- Fix Wild Master empty powers display
+- Fix dual-flurry triggering on misses
+- Fix IncreaseMeleeAttackReach on thrown melee weapons
+- Improve Multiclass spell tag
+- Improve Wild Master
+- Increase Gambit die pool at 5 and 10
