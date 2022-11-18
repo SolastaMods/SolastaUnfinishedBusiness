@@ -19,7 +19,7 @@ internal sealed class Executioner : AbstractFightingStyle
             FeatureDefinitionBuilder
                 .Create("OnComputeAttackModifierFightingStyleExecutioner")
                 .SetGuiPresentationNoContent(true)
-                .SetCustomSubFeatures(new OnAttackHitEffectFightingStyleExecutioner())
+                .SetCustomSubFeatures(new OnAttackDamageEffectFightingStyleExecutioner())
                 .AddToDB())
         .AddToDB();
 
@@ -28,7 +28,7 @@ internal sealed class Executioner : AbstractFightingStyle
         FightingStyleChampionAdditional, FightingStyleFighter, FightingStylePaladin, FightingStyleRanger
     };
 
-    private sealed class OnAttackHitEffectFightingStyleExecutioner : IOnAttackDamageEffect
+    private sealed class OnAttackDamageEffectFightingStyleExecutioner : IOnAttackDamageEffect
     {
         public void BeforeOnAttackDamage(
             GameLocationCharacter attacker,
