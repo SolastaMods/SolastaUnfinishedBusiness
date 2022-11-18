@@ -85,7 +85,9 @@ internal static class SrdAndHouseRulesContext
         SwitchFullyControlConjurations();
     }
 
-    internal static void ModifyAttackModeAndDamage(RulesetCharacter character, string sourceName,
+    internal static void ModifyAttackModeAndDamage(
+        RulesetCharacter character,
+        string sourceName,
         [CanBeNull] RulesetAttackMode attackMode)
     {
         var damage = attackMode?.EffectDescription?.FindFirstDamageForm();
@@ -100,12 +102,10 @@ internal static class SrdAndHouseRulesContext
         var toDamage = Main.Settings.DeadEyeAndPowerAttackBaseValue + proficiency;
 
         attackMode.ToHitBonus += toHit;
-        attackMode.ToHitBonusTrends.Add(new TrendInfo(toHit,
-            FeatureSourceType.Power, "Deadeye", null));
+        attackMode.ToHitBonusTrends.Add(new TrendInfo(toHit, FeatureSourceType.Power, sourceName, null));
 
         damage.BonusDamage += toDamage;
-        damage.DamageBonusTrends.Add(new TrendInfo(toDamage,
-            FeatureSourceType.Power, "Deadeye", null));
+        damage.DamageBonusTrends.Add(new TrendInfo(toDamage, FeatureSourceType.Power, sourceName, null));
     }
 
     internal static void SwitchUniversalSylvanArmorAndLightbringer()

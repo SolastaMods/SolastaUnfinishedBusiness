@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.Infrastructure;
 using SolastaUnfinishedBusiness.Builders;
@@ -116,8 +115,7 @@ internal static class MeleeCombatFeats
         return FeatDefinitionBuilder
             .Create("FeatPowerAttack")
             .SetGuiPresentation(Category.Feat,
-                Gui.Format("Feat/&FeatPowerAttackDescription",
-                    Math.Abs(Main.Settings.DeadEyeAndPowerAttackBaseValue).ToString()))
+                Gui.Format("Feat/&FeatPowerAttackDescription", Main.Settings.DeadEyeAndPowerAttackBaseValue.ToString()))
             .SetFeatures(
                 powerAttack,
                 powerTurnOffPowerAttack

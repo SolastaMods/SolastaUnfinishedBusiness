@@ -118,7 +118,7 @@ internal static class RulesDisplay
 
         var intValue = Main.Settings.DeadEyeAndPowerAttackBaseValue;
         if (UI.Slider(Gui.Localize("ModUi/&DeadEyeAndPowerAttackBaseBaseValue"), ref intValue,
-                -5, -1, -3, "",
+                1, 5, 3, "",
                 UI.AutoWidth()))
         {
             Main.Settings.DeadEyeAndPowerAttackBaseValue = intValue;

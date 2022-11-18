@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.Infrastructure;
 using SolastaUnfinishedBusiness.Builders;
@@ -114,8 +113,7 @@ internal static class RangedCombatFeats
         return FeatDefinitionBuilder
             .Create("FeatDeadeye")
             .SetGuiPresentation(Category.Feat,
-                Gui.Format("Feat/&FeatDeadeyeDescription",
-                    Math.Abs(Main.Settings.DeadEyeAndPowerAttackBaseValue).ToString()))
+                Gui.Format("Feat/&FeatDeadeyeDescription", Main.Settings.DeadEyeAndPowerAttackBaseValue.ToString()))
             .SetFeatures(
                 powerDeadeye,
                 powerTurnOffDeadeye,
