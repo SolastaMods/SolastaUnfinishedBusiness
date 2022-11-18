@@ -21,6 +21,9 @@ internal static class SubclassesContext
         // Barbarian
         LoadSubclass(new PathOfTheLight());
 
+        // Bard
+        LoadSubclass(new CollegeOfGuts());
+        
         // Druid
         LoadSubclass(new CircleOfTheForestGuardian());
 
@@ -45,6 +48,8 @@ internal static class SubclassesContext
         LoadSubclass(new WayOfSilhouette());
 
         // Warlock
+        LoadSubclass(new PatronElementalist());
+        LoadSubclass(new PatronMoonlit());
         LoadSubclass(new PatronRiftWalker());
         LoadSubclass(new PatronSoulBlade());
 
