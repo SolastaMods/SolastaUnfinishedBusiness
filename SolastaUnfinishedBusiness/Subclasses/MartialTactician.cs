@@ -129,7 +129,13 @@ internal sealed class MartialTactician : AbstractSubclass
                     .SetConditionForm(ConditionDefinitionBuilder
                         .Create("ConditionTacticianSharedVigilance")
                         .SetGuiPresentationNoContent(true)
-                        .SetFeatures(EverVigilant)
+                        .SetSilent(Silent.WhenAddedOrRemoved)
+                        .SetAmountOrigin(ExtraOriginOfAmount.SourceAbilityBonus, AttributeDefinitions.Intelligence)
+                        .SetFeatures(FeatureDefinitionAttributeModifierBuilder
+                            .Create("AttributeModifierTacticianSharedVigilance")
+                            .SetGuiPresentation(EverVigilant.GuiPresentation)
+                            .SetAddConditionAmount(AttributeDefinitions.Initiative)
+                            .AddToDB())
                         .AddToDB(), ConditionForm.ConditionOperation.Add)
                     .Build())
                 .Build())
