@@ -1753,6 +1753,9 @@ internal static partial class DatabaseHelper
 
     internal static class FeatureDefinitionSubclassChoices
     {
+        internal static FeatureDefinitionSubclassChoice SubclassChoiceBardColleges { get; } =
+            GetDefinition<FeatureDefinitionSubclassChoice>("SubclassChoiceBardColleges");
+        
         internal static FeatureDefinitionSubclassChoice SubclassChoiceBarbarianPrimalPath { get; } =
             GetDefinition<FeatureDefinitionSubclassChoice>("SubclassChoiceBarbarianPrimalPath");
 

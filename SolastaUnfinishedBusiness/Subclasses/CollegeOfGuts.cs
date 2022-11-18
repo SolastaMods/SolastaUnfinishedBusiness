@@ -83,5 +83,5 @@ internal sealed class CollegeOfGuts : AbstractSubclass
     internal override CharacterSubclassDefinition Subclass { get; }
 
     internal override FeatureDefinitionSubclassChoice SubclassChoice =>
-        FeatureDefinitionSubclassChoices.SubclassChoiceFighterMartialArchetypes;
+        FeatureDefinitionSubclassChoices.SubclassChoiceBardColleges;
 }
