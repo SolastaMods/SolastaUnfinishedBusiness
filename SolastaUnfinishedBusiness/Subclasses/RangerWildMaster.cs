@@ -51,7 +51,7 @@ internal sealed class RangerWildMaster : AbstractSubclass
 
         var powerWildMasterSummonSpiritBeastPool = FeatureDefinitionPowerBuilder
             .Create("PowerWildMasterSummonSpiritBeastPool")
-            .SetGuiPresentationNoContent()
+            .SetGuiPresentationNoContent(true)
             .SetUsesFixed(ActivationTime.Action, RechargeRate.LongRest)
             .AddToDB();
 
@@ -177,8 +177,6 @@ internal sealed class RangerWildMaster : AbstractSubclass
                 BuildCommandSpiritBeast(),
                 BuildPowerWildMasterSpiritBeastRecuperate(),
                 BuildSpiritBeastAffinityLevel03(),
-                FeatureDefinitionActionAffinitys.ActionAffinityKindredSpiritRage,
-                FeatureDefinitionActionAffinitys.ActionAffinityKindredSpiritRally,
                 powerKindredSpiritBear03,
                 powerKindredSpiritEagle03,
                 powerKindredSpiritWolf03)
@@ -227,7 +225,7 @@ internal sealed class RangerWildMaster : AbstractSubclass
         Subclass = CharacterSubclassDefinitionBuilder
             .Create("RangerWildMaster")
             .SetGuiPresentation(Category.Subclass, PatronFiend)
-            .AddFeaturesAtLevel(3, featureSetWildMaster03)
+            .AddFeaturesAtLevel(3, powerWildMasterSummonSpiritBeastPool, featureSetWildMaster03)
             .AddFeaturesAtLevel(7, featureSetWildMaster07)
             .AddFeaturesAtLevel(11, featureSetWildMaster11)
             .AddFeaturesAtLevel(15, featureSetWildMaster15)
@@ -311,8 +309,8 @@ internal sealed class RangerWildMaster : AbstractSubclass
     }
 
     private static FeatureDefinitionPower BuildSpiritBeastPower(
-        FeatureDefinitionPower featureDefinitionPower,
-        FeatureDefinitionPower featureDefinitionPowerToReplace,
+        FeatureDefinitionPower sharedPoolPower,
+        FeatureDefinitionPower powerToReplace,
         MonsterDefinition monsterDefinition,
         int level,
         bool groupAttacks,
@@ -330,8 +328,8 @@ internal sealed class RangerWildMaster : AbstractSubclass
                 Gui.Format("Feature/&PowerWildMasterSummonSpiritBeastDescription",
                     spiritBeastMonster.FormatTitle()),
                 monsterDefinition)
-            .SetSharedPool(ActivationTime.Action, featureDefinitionPower)
-            .SetOverriddenPower(featureDefinitionPowerToReplace)
+            .SetSharedPool(ActivationTime.Action, sharedPoolPower)
+            .SetOverriddenPower(powerToReplace)
             .SetEffectDescription(EffectDescriptionBuilder
                 .Create()
                 .SetDurationData(DurationType.Permanent)
