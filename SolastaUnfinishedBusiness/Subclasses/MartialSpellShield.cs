@@ -84,11 +84,11 @@ internal sealed class MartialSpellShield : AbstractSubclass
             .SetGuiPresentation("PowerSpellShieldArcaneDeflection", Category.Feature, ConditionShielded)
             .AddFeatures(FeatureDefinitionAttributeModifierBuilder
                 .Create("AttributeModifierSpellShieldArcaneDeflection")
+                .SetGuiPresentation("PowerSpellShieldArcaneDeflection", Category.Feature)
                 .SetModifier(
                     FeatureDefinitionAttributeModifier.AttributeModifierOperation.Additive,
                     AttributeDefinitions.ArmorClass,
                     3)
-                .SetGuiPresentation("ConditionSpellShieldArcaneDeflection", Category.Condition)
                 .AddToDB())
             .SetConditionType(ConditionType.Beneficial)
             .SetDuration(DurationType.Round, 1)
