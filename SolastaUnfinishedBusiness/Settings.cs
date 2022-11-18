@@ -201,6 +201,8 @@ public class Settings : UnityModManager.ModSettings
     public int OverridePartySize { get; set; } = ToolsContext.GamePartySize;
     public bool AllowAllPlayersOnNarrativeSequences { get; set; }
     public float FasterTimeModifier { get; set; } = ToolsDisplay.DefaultFastTimeModifier;
+    public bool EnableTogglesToOverwriteDefaultTestParty { get; set; } = true;
+    public List<string> DefaultPartyHeroes { get; } = new();
 
     //
     // Interface - Game UI

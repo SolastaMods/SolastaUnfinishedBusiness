@@ -4,6 +4,8 @@ using System.Linq;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Builders;
 using TA;
+using UnityEngine;
+using UnityEngine.UI;
 
 namespace SolastaUnfinishedBusiness.Models;
 
@@ -24,6 +26,8 @@ internal static class ToolsContext
 
     private const string RespecName = "RestActivityRespec";
 
+    private static List<string> BuiltInHeroNames { get; } = new();
+
     private static RestActivityDefinition RestActivityRespec { get; } = RestActivityDefinitionBuilder
         .Create(RespecName)
         .SetGuiPresentation(Category.RestActivity)
@@ -35,9 +39,17 @@ internal static class ToolsContext
             string.Empty)
         .AddToDB();
 
+    internal static bool IsBuiltIn(string name)
+    {
+        return BuiltInHeroNames.Contains(name);
+    }
+
     internal static void Load()
     {
-        _ = RestActivityRespec;
+        BuiltInHeroNames.AddRange(DatabaseRepository
+            .GetDatabase<CharacterTemplateDefinition>()
+            .Where(x => !x.EditorOnly)
+            .Select(x => x.Name));
 
         ServiceRepository.GetService<IFunctorService>().RegisterFunctor(RespecName, new FunctorRespec());
         SwitchRespec();
@@ -48,6 +60,51 @@ internal static class ToolsContext
         RestActivityRespec.condition = Main.Settings.EnableRespec
             ? RestActivityDefinition.ActivityCondition.None
             : ActivityConditionDisabled;
+    }
+
+    public static void Rebase(Transform parent, int max)
+    {
+        while (Main.Settings.DefaultPartyHeroes.Count > max)
+        {
+            var heroToDelete = Main.Settings.DefaultPartyHeroes.ElementAt(0);
+
+            var child = parent.FindChildRecursive(heroToDelete);
+
+            if (child)
+            {
+                child.GetComponentInChildren<Toggle>().isOn = false;
+            }
+        }
+    }
+
+    public static Transform CreateHeroCheckbox(Component character)
+    {
+        var settingCheckboxItem = Resources.Load<GameObject>("Gui/Prefabs/Modal/Setting/SettingCheckboxItem");
+        var smallToggleNoFrame = settingCheckboxItem.transform.Find("SmallToggleNoFrame");
+        var checkBox = Object.Instantiate(smallToggleNoFrame, character.transform);
+        var checkBoxRect = checkBox.GetComponent<RectTransform>();
+
+        checkBox.name = "DefaultHeroToggle";
+        checkBox.gameObject.SetActive(true);
+        checkBox.Find("Background").gameObject.AddComponent<GuiTooltip>();
+
+        checkBoxRect.anchoredPosition = new Vector2(160, 40);
+
+        return checkBox;
+    }
+
+    internal static void Disable(RectTransform charactersTable)
+    {
+        for (var i = 0; i < charactersTable.childCount; i++)
+        {
+            var character = charactersTable.GetChild(i);
+            var checkBoxToggle = character.GetComponentInChildren<Toggle>();
+
+            if (checkBoxToggle)
+            {
+                checkBoxToggle.gameObject.SetActive(false);
+            }
+        }
     }
 
     internal sealed class FunctorRespec : Functor

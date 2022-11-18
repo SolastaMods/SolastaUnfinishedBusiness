@@ -50,5 +50,11 @@ public static class CharacterSelectionModalPatcher
                 new CodeInstruction(OpCodes.Ldfld, levelsField),
                 new CodeInstruction(OpCodes.Call, myLevelMethod));
         }
+
+        //PATCH: don't display checkboxes when selection heroes on a modal (DEFAULT_PARTY)
+        public static void Postfix([NotNull] CharacterSelectionModal __instance)
+        {
+            ToolsContext.Disable(__instance.charactersTable);
+        }
     }
 }

@@ -1,6 +1,7 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
 using SolastaUnfinishedBusiness.Models;
+using UnityEngine.UI;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
@@ -34,6 +35,56 @@ public static class CharactersPanelPatcher
             // in which case the character will move.
 
             __instance.charactersScrollview.verticalNormalizedPosition = __state;
+        }
+    }
+
+    //PATCH: add checkboxes to heroes plate to allow heroes pre-selection (DEFAULT_PARTY)
+    [HarmonyPatch(typeof(CharactersPanel), "EnumeratePlates")]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    internal static class EnumeratePlates_Patch
+    {
+        internal static void Postfix(CharactersPanel __instance)
+        {
+            if (!Main.Settings.EnableTogglesToOverwriteDefaultTestParty)
+            {
+                ToolsContext.Disable(__instance.charactersTable);
+
+                return;
+            }
+
+            var max = Main.Settings.OverridePartySize;
+            var characterPoolService = ServiceRepository.GetService<ICharacterPoolService>();
+
+            Main.Settings.DefaultPartyHeroes.RemoveAll(x => !characterPoolService.ContainsCharacter(x));
+
+            for (var i = 0; i < __instance.charactersTable.childCount; i++)
+            {
+                var character = __instance.charactersTable.GetChild(i);
+                var checkBox = character.Find("DefaultHeroToggle") ?? ToolsContext.CreateHeroCheckbox(character);
+                var tooltip = checkBox.Find("Background").GetComponentInChildren<GuiTooltip>();
+                var checkBoxToggle = checkBox.GetComponentInChildren<Toggle>();
+
+                tooltip.AnchorMode = TooltipDefinitions.AnchorMode.LEFT_CENTER;
+                tooltip.Content = Gui.Format("ToolTip/&CheckBoxDefaultPartyTitle", max.ToString());
+
+                checkBoxToggle.gameObject.SetActive(true);
+                checkBoxToggle.onValueChanged = new Toggle.ToggleEvent();
+                checkBoxToggle.isOn = Main.Settings.DefaultPartyHeroes.Contains(character.name);
+                checkBoxToggle.onValueChanged.AddListener(delegate
+                {
+                    if (checkBoxToggle.isOn)
+                    {
+                        Main.Settings.DefaultPartyHeroes.Add(character.name);
+                        ToolsContext.Rebase(character.parent.transform, max);
+                    }
+                    else
+                    {
+                        Main.Settings.DefaultPartyHeroes.Remove(character.name);
+                    }
+                });
+            }
+
+            ToolsContext.Rebase(__instance.charactersTable, max);
         }
     }
 }
