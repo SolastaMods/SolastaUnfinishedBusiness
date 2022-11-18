@@ -80,7 +80,7 @@
           "summonType": "Creature",
           "itemDefinition": null,
           "trackItem": false,
-          "monsterDefinitionName": "WildMasterSpiritBeastKindredSpiritTiger3",
+          "monsterDefinitionName": "WildMasterSpiritBeastKindredSpiritWolf3",
           "number": 1,
           "conditionDefinition": null,
           "persistOnConcentrationLoss": false,
@@ -327,12 +327,12 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Summon Spirit Tiger",
+    "title": "Summon Spirit Wolf",
     "description": "A spirit creature bonded to a druid.",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "dc34d57f60d66b64b892eb6c2731dba8",
-      "m_SubObjectName": "KindredSpiritTiger",
+      "m_AssetGUID": "f0c21bbf7b2430746a0e97ee7740ea79",
+      "m_SubObjectName": "KindredSpiritWolf",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
@@ -348,7 +348,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "7eb21533-f07f-5ebc-9fb7-9196ff0b133c",
+  "guid": "e36c7078-7e3a-5ac3-aebc-a873c62df6d7",
   "contentPack": 9999,
-  "name": "PowerWildMasterSummonSpiritBeastKindredSpiritTiger3"
+  "name": "PowerWildMasterSummonSpiritBeastKindredSpiritWolf3"
 }
