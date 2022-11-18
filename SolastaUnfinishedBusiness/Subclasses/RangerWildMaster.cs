@@ -189,8 +189,7 @@ internal sealed class RangerWildMaster : AbstractSubclass
                 HasModifiedUses.Marker,
                 new ValidatorsPowerUse(HasInjuredBeast),
                 new ModifyRestPowerTitleHandler(GetRestPowerTitle),
-                new TargetDefendingBlade()
-            )
+                new RetargetSpiritBeast())
             .SetUsesFixed(ActivationTime.Rest, RechargeRate.LongRest, 1, 0)
             .SetEffectDescription(EffectDescriptionBuilder.Create()
                 .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
@@ -210,32 +209,32 @@ internal sealed class RangerWildMaster : AbstractSubclass
 
     private static RulesetCharacter GetSpiritBeast(RulesetCharacter character)
     {
-        var bladeEffect =
+        var spiritBeastEffect =
             character.powersUsedByMe.Find(p => p.sourceDefinition.Name.StartsWith(SummonSpiritBeastPower));
-        var summons = EffectHelpers.GetSummonedCreatures(bladeEffect);
+        var summons = EffectHelpers.GetSummonedCreatures(spiritBeastEffect);
 
         return summons.Empty() ? null : summons[0];
     }
 
     private static bool HasInjuredBeast(RulesetCharacter character)
     {
-        var blade = GetSpiritBeast(character);
+        var spiritBeast = GetSpiritBeast(character);
 
-        return blade is { IsMissingHitPoints: true };
+        return spiritBeast is { IsMissingHitPoints: true };
     }
 
     private static string GetRestPowerTitle(RulesetCharacter character)
     {
-        var blade = GetSpiritBeast(character);
+        var spiritBeast = GetSpiritBeast(character);
 
-        if (blade == null)
+        if (spiritBeast == null)
         {
             return string.Empty;
         }
 
         return Gui.Format("Feature/&PowerWildMasterSpiritBeastRecuperateFormat",
-            blade.CurrentHitPoints.ToString(),
-            blade.TryGetAttributeValue(AttributeDefinitions.HitPoints).ToString());
+            spiritBeast.CurrentHitPoints.ToString(),
+            spiritBeast.TryGetAttributeValue(AttributeDefinitions.HitPoints).ToString());
     }
 
     private static FeatureDefinitionPower BuildSpiritBeastPower(
@@ -512,7 +511,7 @@ internal sealed class RangerWildMaster : AbstractSubclass
         }
     }
 
-    private class TargetDefendingBlade : IRetargetCustomRestPower
+    private class RetargetSpiritBeast : IRetargetCustomRestPower
     {
         public GameLocationCharacter GetTarget(RulesetCharacter character)
         {
