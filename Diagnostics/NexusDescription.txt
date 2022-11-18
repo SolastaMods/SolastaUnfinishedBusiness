@@ -367,7 +367,7 @@ When you cast this spell using a spell slot of 4th level or higher, the damage i
 
 [list]
 
-[*][b]Zappastuff[/b]: maintenance, gameplay, feats, fighting styles, invocations, rules, quality of life, Half-elf variants, Blade Dancer, Dead Master, Way of The Silhouette, Wild Master, Multiclass
+[*][b]Zappastuff[/b]: maintenance, gameplay, feats, fighting styles, invocations, rules, quality of life, Half-elf variants, Blade Dancer, College of Guts, Dead Master, Way of The Silhouette, Wild Master, Multiclass
 [*][b]TPABOBAP[/b]: game UI, infrastructure, gameplay, feats, invocations, spells, Dead Master, Elementalist, Moonlit, RiftWalker, SoulBlade, Tactician, Way of The Distant Hand, Inventor
 [*][b]ImpPhil[/b]: api, builders, gameplay, rules, quality of life
 [*][b]SilverGriffon[/b]: gameplay, visuals, spells, Dark Elf, Draconic Kobold, Grey Dwarf, Divine Heart

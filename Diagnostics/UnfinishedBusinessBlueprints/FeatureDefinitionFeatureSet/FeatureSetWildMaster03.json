@@ -1,10 +1,9 @@
 {
   "$type": "FeatureDefinitionFeatureSet, Assembly-CSharp",
   "featureSet": [
-    "Definition:PowerRangerWildBeastSpiritBeastCommand:83277e1e-e605-56a9-8d5c-f10f8a71c40d",
+    "Definition:PowerWildMasterSpiritBeastCommand:410ff4d7-599b-50b5-b0b4-a8377bebacec",
+    "Definition:PowerWildMasterSpiritBeastRecuperate:68612847-21ad-5487-8d54-da9d78cc4ce3",
     "Definition:SummoningAffinityWildMasterSummonSpiritBeast03:11fe31a6-2809-54e7-83c3-585d298cdef7",
-    "Definition:PowerWildMasterSummonSpiritBeastPool:46816a6a-0d4f-5133-bb70-886541bf9ad8",
-    "Definition:PowerWildMasterSpiritBeastMender:9034bfcd-2918-5b8d-b012-8c0e8074f45d",
     "Definition:PowerWildMasterSummonSpiritBeastKindredSpiritBear3:ddf97a0a-7c2b-5a4e-9333-44e4119566de",
     "Definition:PowerWildMasterSummonSpiritBeastKindredSpiritEagle3:34bd3aae-6891-5a0d-a543-aa2d2560b965",
     "Definition:PowerWildMasterSummonSpiritBeastKindredSpiritWolf3:e36c7078-7e3a-5ac3-aebc-a873c62df6d7"

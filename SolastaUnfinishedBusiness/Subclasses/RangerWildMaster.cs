@@ -65,6 +65,9 @@ internal sealed class RangerWildMaster : AbstractSubclass
             .SetUsesFixed(ActivationTime.Action, RechargeRate.LongRest)
             .AddToDB();
 
+#if false
+        //Feature/&PowerWildMasterSpiritBeastMenderDescription=You can roll 2 1d8 dices 3 times a day to fix any injure.
+        //Feature/&PowerWildMasterSpiritBeastMenderTitle=Spirit Beast Mender
         var powerWildMasterSpiritBeastMender = FeatureDefinitionPowerBuilder
             .Create("PowerWildMasterSpiritBeastMender")
             .SetGuiPresentation(Category.Feature)
@@ -74,11 +77,12 @@ internal sealed class RangerWildMaster : AbstractSubclass
                 .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
                 .SetEffectForms(EffectFormBuilder
                     .Create()
-                    .SetHealingForm(HealingComputation.Dice, 4, DieType.D8, 2, false,
+                    .SetHealingForm(HealingComputation.Dice, 0, DieType.D8, 2, false,
                         HealingCap.MaximumHitPoints)
                     .Build())
                 .Build())
             .AddToDB();
+#endif
 
         var powerKindredSpiritBear03 = BuildSpiritBeastPower(powerWildMasterSummonSpiritBeastPool,
             null, MonsterDefinitions.KindredSpiritBear, 3,
@@ -124,9 +128,8 @@ internal sealed class RangerWildMaster : AbstractSubclass
             .SetGuiPresentation(Category.Feature)
             .AddFeatureSet(
                 BuildCommandSpiritBeast(),
+                BuildPowerWildMasterSpiritBeastRecuperate(),
                 BuildSpiritBeastAffinityLevel03(),
-                powerWildMasterSummonSpiritBeastPool,
-                powerWildMasterSpiritBeastMender,
                 powerKindredSpiritBear03,
                 powerKindredSpiritEagle03,
                 powerKindredSpiritWolf03)
@@ -163,12 +166,76 @@ internal sealed class RangerWildMaster : AbstractSubclass
     internal override FeatureDefinitionSubclassChoice SubclassChoice =>
         FeatureDefinitionSubclassChoices.SubclassChoiceRangerArchetypes;
 
+    private static FeatureDefinition BuildPowerWildMasterSpiritBeastRecuperate()
+    {
+        const string NAME = "PowerWildMasterSpiritBeastRecuperate";
+
+        RestActivityDefinitionBuilder
+            .Create("RestActivityWildMasterSpiritBeastRecuperate")
+            .SetGuiPresentation(NAME, Category.Feature)
+            .SetRestData(
+                RestDefinitions.RestStage.AfterRest,
+                RestType.ShortRest,
+                RestActivityDefinition.ActivityCondition.CanUsePower,
+                PowerBundleContext.UseCustomRestPowerFunctorName,
+                NAME)
+            .AddToDB();
+
+        var power = FeatureDefinitionPowerBuilder
+            .Create(NAME)
+            .SetGuiPresentation(Category.Feature)
+            .SetCustomSubFeatures(
+                PowerVisibilityModifier.Hidden,
+                HasModifiedUses.Marker,
+                new ValidatorsPowerUse(HasInjuredBeast),
+                new ModifyRestPowerTitleHandler(GetRestPowerTitle),
+                new TargetDefendingBlade()
+            )
+            .SetUsesFixed(ActivationTime.Rest, RechargeRate.LongRest, 1, 0)
+            .SetEffectDescription(EffectDescriptionBuilder.Create()
+                .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
+                .SetEffectForms(EffectFormBuilder.Create()
+                    .SetHealingForm(HealingComputation.Dice, 0, DieType.D8, 1, false, HealingCap.MaximumHitPoints)
+                    .Build())
+                .Build())
+            .AddToDB();
+
+        power.AddCustomSubFeatures(new PowerUseModifier
+        {
+            PowerPool = power, Type = PowerPoolBonusCalculationType.ClassLevel, Attribute = RangerClass
+        });
+
+        return power;
+    }
+
     private static RulesetCharacter GetSpiritBeast(RulesetCharacter character)
     {
-        var bladeEffect = character.powersUsedByMe.Find(p => p.sourceDefinition.Name.Contains(SummonSpiritBeastPower));
+        var bladeEffect =
+            character.powersUsedByMe.Find(p => p.sourceDefinition.Name.StartsWith(SummonSpiritBeastPower));
         var summons = EffectHelpers.GetSummonedCreatures(bladeEffect);
 
         return summons.Empty() ? null : summons[0];
+    }
+
+    private static bool HasInjuredBeast(RulesetCharacter character)
+    {
+        var blade = GetSpiritBeast(character);
+
+        return blade is { IsMissingHitPoints: true };
+    }
+
+    private static string GetRestPowerTitle(RulesetCharacter character)
+    {
+        var blade = GetSpiritBeast(character);
+
+        if (blade == null)
+        {
+            return string.Empty;
+        }
+
+        return Gui.Format("Feature/&PowerWildMasterSpiritBeastRecuperateFormat",
+            blade.CurrentHitPoints.ToString(),
+            blade.TryGetAttributeValue(AttributeDefinitions.HitPoints).ToString());
     }
 
     private static FeatureDefinitionPower BuildSpiritBeastPower(
@@ -340,7 +407,7 @@ internal sealed class RangerWildMaster : AbstractSubclass
             .AddToDB();
 
         var power = FeatureDefinitionPowerBuilder
-            .Create("PowerRangerWildBeastSpiritBeastCommand")
+            .Create("PowerWildMasterSpiritBeastCommand")
             .SetGuiPresentation(Category.Feature, Command)
             .SetUsesFixed(ActivationTime.BonusAction)
             .SetEffectDescription(EffectDescriptionBuilder.Create()
@@ -442,6 +509,16 @@ internal sealed class RangerWildMaster : AbstractSubclass
         {
             return ServiceRepository.GetService<IGameLocationBattleService>().IsBattleInProgress &&
                    character.powersUsedByMe.Any(p => p.sourceDefinition.Name.StartsWith(SummonSpiritBeastPower));
+        }
+    }
+
+    private class TargetDefendingBlade : IRetargetCustomRestPower
+    {
+        public GameLocationCharacter GetTarget(RulesetCharacter character)
+        {
+            var spiritBeast = GetSpiritBeast(character);
+
+            return spiritBeast == null ? null : GameLocationCharacter.GetFromActor(spiritBeast);
         }
     }
 }

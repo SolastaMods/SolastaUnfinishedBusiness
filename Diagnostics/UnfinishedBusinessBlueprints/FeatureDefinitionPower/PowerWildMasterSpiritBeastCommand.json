@@ -62,7 +62,7 @@
     "effectForms": [
       {
         "$type": "EffectForm, Assembly-CSharp",
-        "formType": "Healing",
+        "formType": "Condition",
         "addBonusMode": "None",
         "applyLevel": "No",
         "levelType": "ClassLevel",
@@ -75,14 +75,16 @@
         "dcModifier": 0,
         "canSaveToCancel": false,
         "saveOccurence": "EndOfTurn",
-        "healingForm": {
-          "$type": "HealingForm, Assembly-CSharp",
-          "healingComputation": "Dice",
-          "diceNumber": 2,
-          "dieType": "D8",
-          "bonusHealing": 4,
-          "variablePool": false,
-          "healingCap": "MaximumHitPoints"
+        "conditionForm": {
+          "$type": "ConditionForm, Assembly-CSharp",
+          "conditionDefinitionName": "ConditionWildMasterSpiritBeastCommand",
+          "conditionDefinition": "Definition:ConditionWildMasterSpiritBeastCommand:733150a1-a0fc-5299-8775-47a90bb4ae4e",
+          "operation": "Add",
+          "conditionsList": [
+            "Definition:ConditionWildMasterSpiritBeastCommand:733150a1-a0fc-5299-8775-47a90bb4ae4e"
+          ],
+          "applyToSelf": false,
+          "forceOnSelf": false
         },
         "hasFilterId": false,
         "filterId": 0
@@ -289,7 +291,7 @@
   "delegatedToAction": false,
   "surrogateToSpell": null,
   "triggeredBySpecialMove": false,
-  "activationTime": "Action",
+  "activationTime": "BonusAction",
   "autoActivationRequiredTargetSenseType": "None",
   "autoActivationRequiredTargetCreatureTag": "",
   "autoActivationPowerTag": "",
@@ -304,13 +306,13 @@
   "canUseInDialog": false,
   "disableIfConditionIsOwned": null,
   "disableIfTargetConditionIsOwned": null,
-  "rechargeRate": "LongRest",
+  "rechargeRate": "AtWill",
   "costPerUse": 1,
   "spellcastingFeature": null,
   "usesDetermination": "Fixed",
   "abilityScoreDetermination": "Explicit",
   "usesAbilityScoreName": "Charisma",
-  "fixedUsesPerRecharge": 3,
+  "fixedUsesPerRecharge": 1,
   "abilityScore": "Intelligence",
   "attackHitComputation": "AbilityScore",
   "fixedAttackHit": 0,
@@ -324,13 +326,13 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&PowerWildMasterSpiritBeastMenderTitle",
-    "description": "Feature/&PowerWildMasterSpiritBeastMenderDescription",
+    "title": "Feature/&PowerWildMasterSpiritBeastCommandTitle",
+    "description": "Feature/&PowerWildMasterSpiritBeastCommandDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "",
-      "m_SubObjectName": null,
-      "m_SubObjectType": null
+      "m_AssetGUID": "6edc0b78da56b1e4b94c3d7fb6c96dec",
+      "m_SubObjectName": "Command",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
@@ -345,7 +347,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "9034bfcd-2918-5b8d-b012-8c0e8074f45d",
+  "guid": "410ff4d7-599b-50b5-b0b4-a8377bebacec",
   "contentPack": 9999,
-  "name": "PowerWildMasterSpiritBeastMender"
+  "name": "PowerWildMasterSpiritBeastCommand"
 }
