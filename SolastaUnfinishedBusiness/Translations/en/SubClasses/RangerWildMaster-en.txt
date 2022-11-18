@@ -1,10 +1,12 @@
 ﻿Condition/&ConditionWildMasterSummonSpiritBeastBonusTitle=Wild Master Bonus
-Feature/&FeatureSetWildMaster03Description=You gain a Spirit Beast companion that accompanies you on your adventures and is trained to fight alongside you. It can only take the Dodge action on its turn unless you command it to do otherwise. It gains your proficiency bonus to armor class, attack rolls and damage rolls. It also gains 4 HP per Ranger level. You can choose a Bear, an Eagle or a Wolf. Both Spirit Beast and summoner share the same initiative.
+Feature/&FeatureSetWildMaster03Description=You gain a Spirit Beast companion that accompanies you on your adventures and is trained to fight alongside you. It can only take the Dodge action on its turn unless you command it to do otherwise. It gains your proficiency bonus to armor class, attack rolls and damage rolls. It also gains 4 HP per Ranger level. You can choose a Bear, an Eagle or a Wolf. Both Spirit Beast and summoner share the same initiative. The Bear can become Reckless, the Eagle can breath acid and the Wolf can perform a vampiric touch attack.
 Feature/&FeatureSetWildMaster03Title=Spirit Beast Companion
-Feature/&FeatureSetWildMaster07Description=The Spirit Beast can now take the Dash or Disengage action on its turn. In addition it cannot be surprised and its attack now count as magical for the purpose of overcoming resistance and immunity.
-Feature/&FeatureSetWildMaster07Title=Wonderful Expertise
-Feature/&FeatureSetWildMaster11Description=The Spirit Beast can now act independently, take any action on its turn and fully use all attacks available. It also gains your proficiency bonus to all saving throws.
-Feature/&FeatureSetWildMaster11Title=Surprising Savings
+Feature/&FeatureSetWildMaster07Description=The Spirit Beast can now take the Dash or Disengage action on its turn. its attack count as magical for the purpose of overcoming resistance and immunity. The Spirit Beast is also more powerful: The Bear can eye bite with panic effects, the Eagle with asleep and the Wolf with sickening.
+Feature/&FeatureSetWildMaster07Title=True Expertise
+Feature/&FeatureSetWildMaster11Description=The Spirit Beast can now fully use all attacks available. It also gains your proficiency bonus to all saving throws.
+Feature/&FeatureSetWildMaster11Title=Master Expertise
+Feature/&FeatureSetWildMaster15Description=The Spirit Beast can now act independently, cannot be surprised and can become invisible when the situation arises.
+Feature/&FeatureSetWildMaster15Title=Free Will
 Feature/&PowerWildMasterSpiritBeastCommandDescription=Issue command for your Spirit Beast so until the start of your next turn it is not limited in types of action it can take. You will command it automatically if you end your turn without spending bonus action.
 Feature/&PowerWildMasterSpiritBeastCommandTitle=Command Spirit Beast
 Feature/&PowerWildMasterSpiritBeastRecuperateDescription=Spirit Beast has number of d8 hit dice equal to your Ranger level. During short rest you can roll them to restore the Spirit Beast hit points.

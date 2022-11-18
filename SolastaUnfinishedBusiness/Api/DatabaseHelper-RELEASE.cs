@@ -1468,6 +1468,27 @@ internal static partial class DatabaseHelper
 
     internal static class FeatureDefinitionPowers
     {
+        internal static FeatureDefinitionPower PowerDragonbornBreathWeaponGold { get; } =
+            GetDefinition<FeatureDefinitionPower>("PowerDragonbornBreathWeaponGold");
+
+        internal static FeatureDefinitionPower PowerGreen_Hag_Invisibility { get; } =
+            GetDefinition<FeatureDefinitionPower>("PowerGreen_Hag_Invisibility");
+
+        internal static FeatureDefinitionPower PowerEyebitePanicked { get; } =
+            GetDefinition<FeatureDefinitionPower>("PowerEyebitePanicked");
+
+        internal static FeatureDefinitionPower PowerEyebiteAsleep { get; } =
+            GetDefinition<FeatureDefinitionPower>("PowerEyebiteAsleep");
+
+        internal static FeatureDefinitionPower PowerEyebiteSickened { get; } =
+            GetDefinition<FeatureDefinitionPower>("PowerEyebiteSickened");
+
+        internal static FeatureDefinitionPower PowerDragonbornBreathWeaponBlack { get; } =
+            GetDefinition<FeatureDefinitionPower>("PowerDragonbornBreathWeaponBlack");
+
+        internal static FeatureDefinitionPower PowerReckless { get; } =
+            GetDefinition<FeatureDefinitionPower>("PowerReckless");
+
         internal static FeatureDefinitionPower PowerShadowcasterShadowDodge { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerShadowcasterShadowDodge");
 
@@ -2710,6 +2731,15 @@ internal static partial class DatabaseHelper
 
     internal static class SpellDefinitions
     {
+        internal static SpellDefinition EyebiteAsleep { get; } =
+            GetDefinition<SpellDefinition>("EyebiteAsleep");
+
+        internal static SpellDefinition EyebitePanicked { get; } =
+            GetDefinition<SpellDefinition>("EyebitePanicked");
+
+        internal static SpellDefinition EyebiteSickened { get; } =
+            GetDefinition<SpellDefinition>("EyebiteSickened");
+
         internal static SpellDefinition FlameStrike { get; } =
             GetDefinition<SpellDefinition>("FlameStrike");
 

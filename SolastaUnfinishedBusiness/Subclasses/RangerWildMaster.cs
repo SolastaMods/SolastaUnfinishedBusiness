@@ -23,22 +23,13 @@ internal sealed class RangerWildMaster : AbstractSubclass
 
     internal RangerWildMaster()
     {
-        var actionAffinitySpiritBeast03 =
+        var actionAffinitySpiritBeast =
             FeatureDefinitionActionAffinityBuilder
-                .Create("ActionAffinityWildMasterSpiritBeast03")
+                .Create("ActionAffinityWildMasterSpiritBeast")
                 .SetGuiPresentationNoContent()
                 .SetDefaultAllowedActionTypes()
                 .SetForbiddenActions(Id.AttackMain, Id.AttackOff, Id.AttackReadied, Id.AttackOpportunity, Id.Ready,
-                    Id.Shove, Id.PowerMain, Id.PowerBonus, Id.PowerReaction, Id.SpendPower)
-                .SetCustomSubFeatures(new SummonerHasConditionOrKOd())
-                .AddToDB();
-
-        var actionAffinitySpiritBeast07 =
-            FeatureDefinitionActionAffinityBuilder
-                .Create("ActionAffinityWildMasterSpiritBeast07")
-                .SetGuiPresentationNoContent()
-                .SetDefaultAllowedActionTypes()
-                .SetForbiddenActions(Id.AttackMain, Id.AttackOff, Id.AttackReadied, Id.Ready)
+                    Id.PowerMain, Id.PowerBonus, Id.PowerReaction, Id.SpendPower)
                 .SetCustomSubFeatures(new SummonerHasConditionOrKOd())
                 .AddToDB();
 
@@ -85,54 +76,96 @@ internal sealed class RangerWildMaster : AbstractSubclass
 
         var powerKindredSpiritBear03 = BuildSpiritBeastPower(powerWildMasterSummonSpiritBeastPool,
             null, MonsterDefinitions.KindredSpiritBear, 3, false,
+            FeatureDefinitionPowers.PowerReckless,
+            CharacterContext.FeatureDefinitionPowerHelpAction,
             conditionAffinityWildMasterSpiritBeastInitiative,
-            actionAffinitySpiritBeast03);
+            actionAffinitySpiritBeast);
 
         var powerKindredSpiritEagle03 = BuildSpiritBeastPower(powerWildMasterSummonSpiritBeastPool,
             null, MonsterDefinitions.KindredSpiritEagle, 3, false,
+            FeatureDefinitionPowers.PowerDragonbornBreathWeaponBlack,
+            CharacterContext.FeatureDefinitionPowerHelpAction,
             conditionAffinityWildMasterSpiritBeastInitiative,
-            actionAffinitySpiritBeast03);
+            actionAffinitySpiritBeast);
 
         var powerKindredSpiritWolf03 = BuildSpiritBeastPower(powerWildMasterSummonSpiritBeastPool,
             null, MonsterDefinitions.KindredSpiritWolf, 3, false,
+            FeatureDefinitionPowers.PowerVampiricTouch,
+            CharacterContext.FeatureDefinitionPowerHelpAction,
             conditionAffinityWildMasterSpiritBeastInitiative,
-            actionAffinitySpiritBeast03);
+            actionAffinitySpiritBeast);
 
         var powerKindredSpiritBear07 = BuildSpiritBeastPower(powerWildMasterSummonSpiritBeastPool,
             powerKindredSpiritBear03, MonsterDefinitions.KindredSpiritBear, 7, false,
+            FeatureDefinitionPowers.PowerReckless,
+            FeatureDefinitionPowers.PowerEyebitePanicked,
             CharacterContext.FeatureDefinitionPowerHelpAction,
             conditionAffinityWildMasterSpiritBeastInitiative,
-            perceptionAffinitySpiritBeast,
-            actionAffinitySpiritBeast07);
+            actionAffinitySpiritBeast);
 
         var powerKindredSpiritEagle07 = BuildSpiritBeastPower(powerWildMasterSummonSpiritBeastPool,
             powerKindredSpiritEagle03, MonsterDefinitions.KindredSpiritEagle, 7, false,
+            FeatureDefinitionPowers.PowerDragonbornBreathWeaponBlack,
             CharacterContext.FeatureDefinitionPowerHelpAction,
+            FeatureDefinitionPowers.PowerEyebiteAsleep,
             conditionAffinityWildMasterSpiritBeastInitiative,
-            perceptionAffinitySpiritBeast,
-            actionAffinitySpiritBeast07);
+            actionAffinitySpiritBeast);
 
         var powerKindredSpiritWolf07 = BuildSpiritBeastPower(powerWildMasterSummonSpiritBeastPool,
             powerKindredSpiritWolf03, MonsterDefinitions.KindredSpiritWolf, 7, false,
+            FeatureDefinitionPowers.PowerVampiricTouch,
+            FeatureDefinitionPowers.PowerEyebiteSickened,
             CharacterContext.FeatureDefinitionPowerHelpAction,
             conditionAffinityWildMasterSpiritBeastInitiative,
-            perceptionAffinitySpiritBeast,
-            actionAffinitySpiritBeast07);
+            actionAffinitySpiritBeast);
 
         var powerKindredSpiritBear11 = BuildSpiritBeastPower(powerWildMasterSummonSpiritBeastPool,
             powerKindredSpiritBear07, MonsterDefinitions.KindredSpiritBear, 11, true,
+            FeatureDefinitionPowers.PowerReckless,
+            FeatureDefinitionPowers.PowerEyebitePanicked,
             CharacterContext.FeatureDefinitionPowerHelpAction,
-            conditionAffinityWildMasterSpiritBeastInitiative,
-            perceptionAffinitySpiritBeast);
+            actionAffinitySpiritBeast,
+            conditionAffinityWildMasterSpiritBeastInitiative);
 
         var powerKindredSpiritEagle11 = BuildSpiritBeastPower(powerWildMasterSummonSpiritBeastPool,
             powerKindredSpiritEagle07, MonsterDefinitions.KindredSpiritEagle, 11, true,
+            FeatureDefinitionPowers.PowerDragonbornBreathWeaponBlack,
+            FeatureDefinitionPowers.PowerEyebiteAsleep,
+            CharacterContext.FeatureDefinitionPowerHelpAction,
+            actionAffinitySpiritBeast,
+            conditionAffinityWildMasterSpiritBeastInitiative);
+
+        var powerKindredSpiritWolf11 = BuildSpiritBeastPower(powerWildMasterSummonSpiritBeastPool,
+            powerKindredSpiritWolf07, MonsterDefinitions.KindredSpiritWolf, 11, true,
+            FeatureDefinitionPowers.PowerVampiricTouch,
+            FeatureDefinitionPowers.PowerEyebiteSickened,
+            CharacterContext.FeatureDefinitionPowerHelpAction,
+            actionAffinitySpiritBeast,
+            conditionAffinityWildMasterSpiritBeastInitiative);
+
+        var powerKindredSpiritBear15 = BuildSpiritBeastPower(powerWildMasterSummonSpiritBeastPool,
+            powerKindredSpiritBear11, MonsterDefinitions.KindredSpiritBear, 15, true,
+            FeatureDefinitionPowers.PowerReckless,
+            FeatureDefinitionPowers.PowerEyebitePanicked,
+            FeatureDefinitionPowers.PowerGreen_Hag_Invisibility,
             CharacterContext.FeatureDefinitionPowerHelpAction,
             conditionAffinityWildMasterSpiritBeastInitiative,
             perceptionAffinitySpiritBeast);
 
-        var powerKindredSpiritWolf11 = BuildSpiritBeastPower(powerWildMasterSummonSpiritBeastPool,
-            powerKindredSpiritWolf07, MonsterDefinitions.KindredSpiritWolf, 11, true,
+        var powerKindredSpiritEagle15 = BuildSpiritBeastPower(powerWildMasterSummonSpiritBeastPool,
+            powerKindredSpiritEagle11, MonsterDefinitions.KindredSpiritEagle, 15, true,
+            FeatureDefinitionPowers.PowerDragonbornBreathWeaponBlack,
+            FeatureDefinitionPowers.PowerEyebiteAsleep,
+            FeatureDefinitionPowers.PowerGreen_Hag_Invisibility,
+            CharacterContext.FeatureDefinitionPowerHelpAction,
+            conditionAffinityWildMasterSpiritBeastInitiative,
+            perceptionAffinitySpiritBeast);
+
+        var powerKindredSpiritWolf15 = BuildSpiritBeastPower(powerWildMasterSummonSpiritBeastPool,
+            powerKindredSpiritWolf11, MonsterDefinitions.KindredSpiritWolf, 15, true,
+            FeatureDefinitionPowers.PowerVampiricTouch,
+            FeatureDefinitionPowers.PowerEyebiteSickened,
+            FeatureDefinitionPowers.PowerGreen_Hag_Invisibility,
             CharacterContext.FeatureDefinitionPowerHelpAction,
             conditionAffinityWildMasterSpiritBeastInitiative,
             perceptionAffinitySpiritBeast);
@@ -171,12 +204,33 @@ internal sealed class RangerWildMaster : AbstractSubclass
                 powerKindredSpiritWolf11)
             .AddToDB();
 
+        var featureSetWildMaster15 = FeatureDefinitionFeatureSetBuilder
+            .Create("FeatureSetWildMaster15")
+            .SetGuiPresentation(Category.Feature)
+            .AddFeatureSet(
+                powerKindredSpiritBear15,
+                powerKindredSpiritEagle15,
+                powerKindredSpiritWolf15)
+            .AddToDB();
+
+        // I know but these powers are only used by monsters
+        // Not a big deal change them directly like this ;-)
+        FeatureDefinitionPowers.PowerEyebiteAsleep.guiPresentation.spriteReference =
+            EyebiteAsleep.guiPresentation.spriteReference;
+
+        FeatureDefinitionPowers.PowerEyebitePanicked.guiPresentation.spriteReference =
+            EyebitePanicked.guiPresentation.spriteReference;
+
+        FeatureDefinitionPowers.PowerEyebiteSickened.guiPresentation.spriteReference =
+            EyebiteSickened.guiPresentation.spriteReference;
+
         Subclass = CharacterSubclassDefinitionBuilder
             .Create("RangerWildMaster")
             .SetGuiPresentation(Category.Subclass, PatronFiend)
             .AddFeaturesAtLevel(3, featureSetWildMaster03)
             .AddFeaturesAtLevel(7, featureSetWildMaster07)
             .AddFeaturesAtLevel(11, featureSetWildMaster11)
+            .AddFeaturesAtLevel(15, featureSetWildMaster15)
             .AddToDB();
     }
 
@@ -264,7 +318,7 @@ internal sealed class RangerWildMaster : AbstractSubclass
         bool groupAttacks,
         params FeatureDefinition[] monsterAdditionalFeatures)
     {
-        var spiritBeastMonster = 
+        var spiritBeastMonster =
             BuildSpiritBeastMonster(monsterDefinition, level, groupAttacks, monsterAdditionalFeatures);
         var name = SummonSpiritBeastPower + monsterDefinition.name + level;
 
