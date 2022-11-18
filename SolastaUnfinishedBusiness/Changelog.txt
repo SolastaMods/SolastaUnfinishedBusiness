@@ -5,5 +5,7 @@
 - Fix dual-flurry triggering on misses
 - Fix IncreaseMeleeAttackReach on thrown melee weapons
 - Improve Multiclass spell tag
-- Improve Wild Master
+- Improve Wild Master with distinct actions per Spirit Beast
 - Increase Gambit die pool at 5 and 10
+- Rename Debilitate to Provoke
+- Rename Feint to Precision
