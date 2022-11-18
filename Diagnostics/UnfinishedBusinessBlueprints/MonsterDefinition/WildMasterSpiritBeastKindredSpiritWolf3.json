@@ -70,14 +70,14 @@
   "audioSwitches": [],
   "audioSwitchesOnHands": [],
   "audioRaceRTPCValue": 11.0,
-  "challengeRating": 0.25,
+  "challengeRating": 0.0,
   "noExperienceGain": true,
   "droppedLootDefinition": null,
   "stealableLootDefinition": null,
   "bestiaryLootOptions": [],
   "features": [
-    "Definition:ActionAffinityKindredSpiritRage:ec5f9028b1fb1ed47abbcd5c0bc22f57",
-    "Definition:ActionAffinitySpiritBeast03:44323b4c-7e8c-5f58-a42a-e49aa25240b9",
+    "Definition:ActionAffinityWildMasterSpiritBeast03:f1000631-34ce-59f0-80bf-4d708cd858d3",
+    "Definition:ConditionAffinityWildMasterSpiritBeastInitiative:074d3251-8db0-5c10-949c-97fed558a0c3",
     "Definition:MoveModeMove8:4c110104739c99e4d920529a058ab2e2",
     "Definition:SenseNormalVision:222ef639393ed4e4bbd7152690597945"
   ],

@@ -21,26 +21,32 @@ internal sealed class RangerWildMaster : AbstractSubclass
     private const string CommandSpiritBeastCondition = "ConditionWildMasterSpiritBeastCommand";
     private const string SummonSpiritBeastPower = "PowerWildMasterSummonSpiritBeast";
 
-
     internal RangerWildMaster()
     {
         var actionAffinitySpiritBeast03 =
             FeatureDefinitionActionAffinityBuilder
-                .Create("ActionAffinitySpiritBeast03")
+                .Create("ActionAffinityWildMasterSpiritBeast03")
                 .SetGuiPresentationNoContent()
                 .SetDefaultAllowedActionTypes()
-                .SetForbiddenActions(Id.AttackMain, Id.AttackOff, Id.AttackReadied, Id.Ready, Id.DisengageBonus,
-                    Id.DisengageMain, Id.Shove, Id.PowerMain, Id.PowerBonus, Id.PowerReaction, Id.SpendPower)
+                .SetForbiddenActions(Id.AttackMain, Id.AttackOff, Id.AttackReadied, Id.AttackOpportunity, Id.Ready,
+                    Id.Shove, Id.PowerMain, Id.PowerBonus, Id.PowerReaction, Id.SpendPower)
                 .SetCustomSubFeatures(new SummonerHasConditionOrKOd())
                 .AddToDB();
 
         var actionAffinitySpiritBeast07 =
             FeatureDefinitionActionAffinityBuilder
-                .Create("ActionAffinitySpiritBeast07")
+                .Create("ActionAffinityWildMasterSpiritBeast07")
                 .SetGuiPresentationNoContent()
                 .SetDefaultAllowedActionTypes()
                 .SetForbiddenActions(Id.AttackMain, Id.AttackOff, Id.AttackReadied, Id.Ready)
                 .SetCustomSubFeatures(new SummonerHasConditionOrKOd())
+                .AddToDB();
+
+        var perceptionAffinitySpiritBeast =
+            FeatureDefinitionPerceptionAffinityBuilder
+                .Create("PerceptionAffinityWildMasterSpiritBeast")
+                .SetGuiPresentationNoContent()
+                .CannotBeSurprised()
                 .AddToDB();
 
         var conditionAffinityWildMasterSpiritBeastInitiative =
@@ -50,13 +56,6 @@ internal sealed class RangerWildMaster : AbstractSubclass
                 .SetConditionAffinityType(ConditionAffinityType.Immunity)
                 .SetConditionType(ConditionDefinitions.ConditionSurprised)
                 .SetCustomSubFeatures(ForceInitiativeToSummoner.Mark)
-                .AddToDB();
-
-        var perceptionAffinitySpiritBeast =
-            FeatureDefinitionPerceptionAffinityBuilder
-                .Create("PerceptionAffinitySpiritBeast")
-                .SetGuiPresentationNoContent()
-                .CannotBeSurprised()
                 .AddToDB();
 
         var powerWildMasterSummonSpiritBeastPool = FeatureDefinitionPowerBuilder
@@ -85,58 +84,58 @@ internal sealed class RangerWildMaster : AbstractSubclass
 #endif
 
         var powerKindredSpiritBear03 = BuildSpiritBeastPower(powerWildMasterSummonSpiritBeastPool,
-            null, MonsterDefinitions.KindredSpiritBear, 3,
-            actionAffinitySpiritBeast03,
-            FeatureDefinitionActionAffinitys.ActionAffinityKindredSpiritRally);
+            null, MonsterDefinitions.KindredSpiritBear, 3, false,
+            conditionAffinityWildMasterSpiritBeastInitiative,
+            actionAffinitySpiritBeast03);
 
         var powerKindredSpiritEagle03 = BuildSpiritBeastPower(powerWildMasterSummonSpiritBeastPool,
-            null, MonsterDefinitions.KindredSpiritEagle, 3,
-            actionAffinitySpiritBeast03,
-            FeatureDefinitionActionAffinitys.ActionAffinityInvocationOneWithShadowsTurnInvisible);
+            null, MonsterDefinitions.KindredSpiritEagle, 3, false,
+            conditionAffinityWildMasterSpiritBeastInitiative,
+            actionAffinitySpiritBeast03);
 
         var powerKindredSpiritWolf03 = BuildSpiritBeastPower(powerWildMasterSummonSpiritBeastPool,
-            null, MonsterDefinitions.KindredSpiritWolf, 3,
-            actionAffinitySpiritBeast03,
-            FeatureDefinitionActionAffinitys.ActionAffinityKindredSpiritRage);
+            null, MonsterDefinitions.KindredSpiritWolf, 3, false,
+            conditionAffinityWildMasterSpiritBeastInitiative,
+            actionAffinitySpiritBeast03);
 
         var powerKindredSpiritBear07 = BuildSpiritBeastPower(powerWildMasterSummonSpiritBeastPool,
-            powerKindredSpiritBear03, MonsterDefinitions.KindredSpiritBear, 7,
+            powerKindredSpiritBear03, MonsterDefinitions.KindredSpiritBear, 7, false,
             CharacterContext.FeatureDefinitionPowerHelpAction,
-            actionAffinitySpiritBeast07,
-            FeatureDefinitionActionAffinitys.ActionAffinityKindredSpiritRally);
+            conditionAffinityWildMasterSpiritBeastInitiative,
+            perceptionAffinitySpiritBeast,
+            actionAffinitySpiritBeast07);
 
         var powerKindredSpiritEagle07 = BuildSpiritBeastPower(powerWildMasterSummonSpiritBeastPool,
-            powerKindredSpiritEagle03, MonsterDefinitions.KindredSpiritEagle, 7,
+            powerKindredSpiritEagle03, MonsterDefinitions.KindredSpiritEagle, 7, false,
             CharacterContext.FeatureDefinitionPowerHelpAction,
-            actionAffinitySpiritBeast07,
-            FeatureDefinitionActionAffinitys.ActionAffinityInvocationOneWithShadowsTurnInvisible);
+            conditionAffinityWildMasterSpiritBeastInitiative,
+            perceptionAffinitySpiritBeast,
+            actionAffinitySpiritBeast07);
 
         var powerKindredSpiritWolf07 = BuildSpiritBeastPower(powerWildMasterSummonSpiritBeastPool,
-            powerKindredSpiritWolf03, MonsterDefinitions.KindredSpiritWolf, 7,
+            powerKindredSpiritWolf03, MonsterDefinitions.KindredSpiritWolf, 7, false,
             CharacterContext.FeatureDefinitionPowerHelpAction,
-            actionAffinitySpiritBeast07,
-            FeatureDefinitionActionAffinitys.ActionAffinityKindredSpiritRage);
+            conditionAffinityWildMasterSpiritBeastInitiative,
+            perceptionAffinitySpiritBeast,
+            actionAffinitySpiritBeast07);
 
         var powerKindredSpiritBear11 = BuildSpiritBeastPower(powerWildMasterSummonSpiritBeastPool,
-            powerKindredSpiritBear07, MonsterDefinitions.KindredSpiritBear, 11,
+            powerKindredSpiritBear07, MonsterDefinitions.KindredSpiritBear, 11, true,
             CharacterContext.FeatureDefinitionPowerHelpAction,
             conditionAffinityWildMasterSpiritBeastInitiative,
-            perceptionAffinitySpiritBeast,
-            FeatureDefinitionActionAffinitys.ActionAffinityKindredSpiritRally);
+            perceptionAffinitySpiritBeast);
 
         var powerKindredSpiritEagle11 = BuildSpiritBeastPower(powerWildMasterSummonSpiritBeastPool,
-            powerKindredSpiritEagle07, MonsterDefinitions.KindredSpiritEagle, 11,
+            powerKindredSpiritEagle07, MonsterDefinitions.KindredSpiritEagle, 11, true,
             CharacterContext.FeatureDefinitionPowerHelpAction,
             conditionAffinityWildMasterSpiritBeastInitiative,
-            perceptionAffinitySpiritBeast,
-            FeatureDefinitionActionAffinitys.ActionAffinityInvocationOneWithShadowsTurnInvisible);
+            perceptionAffinitySpiritBeast);
 
         var powerKindredSpiritWolf11 = BuildSpiritBeastPower(powerWildMasterSummonSpiritBeastPool,
-            powerKindredSpiritWolf07, MonsterDefinitions.KindredSpiritWolf, 11,
+            powerKindredSpiritWolf07, MonsterDefinitions.KindredSpiritWolf, 11, true,
             CharacterContext.FeatureDefinitionPowerHelpAction,
             conditionAffinityWildMasterSpiritBeastInitiative,
-            perceptionAffinitySpiritBeast,
-            FeatureDefinitionActionAffinitys.ActionAffinityKindredSpiritRage);
+            perceptionAffinitySpiritBeast);
 
         var featureSetWildMaster03 = FeatureDefinitionFeatureSetBuilder
             .Create("FeatureSetWildMaster03")
@@ -145,6 +144,8 @@ internal sealed class RangerWildMaster : AbstractSubclass
                 BuildCommandSpiritBeast(),
                 BuildPowerWildMasterSpiritBeastRecuperate(),
                 BuildSpiritBeastAffinityLevel03(),
+                FeatureDefinitionActionAffinitys.ActionAffinityKindredSpiritRage,
+                FeatureDefinitionActionAffinitys.ActionAffinityKindredSpiritRally,
                 powerKindredSpiritBear03,
                 powerKindredSpiritEagle03,
                 powerKindredSpiritWolf03)
@@ -260,9 +261,11 @@ internal sealed class RangerWildMaster : AbstractSubclass
         FeatureDefinitionPower featureDefinitionPowerToReplace,
         MonsterDefinition monsterDefinition,
         int level,
+        bool groupAttacks,
         params FeatureDefinition[] monsterAdditionalFeatures)
     {
-        var spiritBeastMonster = BuildSpiritBeastMonster(monsterDefinition, level, monsterAdditionalFeatures);
+        var spiritBeastMonster = 
+            BuildSpiritBeastMonster(monsterDefinition, level, groupAttacks, monsterAdditionalFeatures);
         var name = SummonSpiritBeastPower + monsterDefinition.name + level;
 
         return FeatureDefinitionPowerSharedPoolBuilder
@@ -293,15 +296,19 @@ internal sealed class RangerWildMaster : AbstractSubclass
     private static MonsterDefinition BuildSpiritBeastMonster(
         MonsterDefinition monsterDefinition,
         int level,
+        bool groupAttacks,
         params FeatureDefinition[] monsterAdditionalFeatures)
     {
         return MonsterDefinitionBuilder
             .Create(monsterDefinition, "WildMasterSpiritBeast" + monsterDefinition.name + level)
-            .HideFromDungeonEditor()
             .AddFeatures(monsterAdditionalFeatures)
             .SetCreatureTags(SpiritBeastTag)
+            .SetChallengeRating(0)
             .SetFullyControlledWhenAllied(true)
+            .SetBestiaryEntry(BestiaryDefinitions.BestiaryEntry.None)
+            .SetDungeonMakerPresence(MonsterDefinition.DungeonMaker.None)
             .NoExperienceGain()
+            //.SetGroupAttacks(groupAttacks)
             .AddToDB();
     }
 

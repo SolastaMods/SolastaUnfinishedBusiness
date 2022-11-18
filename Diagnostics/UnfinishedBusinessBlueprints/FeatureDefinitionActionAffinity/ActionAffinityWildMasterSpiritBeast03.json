@@ -13,8 +13,7 @@
   "forbiddenActions": [
     "AttackMain",
     "AttackOff",
-    "DisengageBonus",
-    "DisengageMain",
+    "AttackOpportunity",
     "PowerBonus",
     "PowerMain",
     "PowerReaction",
@@ -54,7 +53,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "44323b4c-7e8c-5f58-a42a-e49aa25240b9",
+  "guid": "f1000631-34ce-59f0-80bf-4d708cd858d3",
   "contentPack": 9999,
-  "name": "ActionAffinitySpiritBeast03"
+  "name": "ActionAffinityWildMasterSpiritBeast03"
 }

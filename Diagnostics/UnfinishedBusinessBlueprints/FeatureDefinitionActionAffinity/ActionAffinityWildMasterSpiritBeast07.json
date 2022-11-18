@@ -1,12 +1,28 @@
 {
-  "$type": "FeatureDefinitionPerceptionAffinity, Assembly-CSharp",
-  "requiredSensesToPerceive": [],
-  "impairedSight": false,
-  "characterFamilyRevealed": false,
-  "characterPositionRevealed": false,
-  "cannotBeSurprised": true,
-  "myselfFamilyRestrictions": [],
-  "otherCharacterFamilyRestrictions": [],
+  "$type": "FeatureDefinitionActionAffinity, Assembly-CSharp",
+  "allowedActionTypes": [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+  ],
+  "eitherMainOrBonus": false,
+  "maxAttacksNumber": -1,
+  "forbiddenActions": [
+    "AttackMain",
+    "AttackOff",
+    "AttackReadied",
+    "Ready"
+  ],
+  "authorizedActions": [],
+  "restrictedActions": [],
+  "actionExecutionModifiers": [],
+  "specialBehaviour": "None",
+  "randomBehaviorDie": "D10",
+  "randomBehaviourOptions": [],
+  "rechargeReactionsAtEveryTurn": false,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
@@ -31,7 +47,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "4cee47ac-3024-5c3d-9d4b-ba5f827150b0",
+  "guid": "604866f8-e110-5680-9870-d88fc699e05b",
   "contentPack": 9999,
-  "name": "PerceptionAffinitySpiritBeast"
+  "name": "ActionAffinityWildMasterSpiritBeast07"
 }
