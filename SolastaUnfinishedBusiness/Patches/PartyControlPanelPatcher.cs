@@ -24,9 +24,9 @@ public static class PartyControlPanelPatcher
         }
     }
 
-    [HarmonyPatch(typeof(PartyControlPanel), "OnEndShow")]
+    [HarmonyPatch(typeof(PartyControlPanel), "Refresh")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    public static class OnEndShow_Patch
+    public static class Refresh_Patch
     {
         public static void Postfix(PartyControlPanel __instance)
         {
