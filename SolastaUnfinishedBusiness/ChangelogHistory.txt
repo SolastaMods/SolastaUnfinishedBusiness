@@ -1,5 +1,15 @@
 ﻿CHANGES:
 
+1.4.28.1:
+
+- Bring back default party feature
+- Change Deadeye to use same base modifier as Power Attack
+- Add setting under Gameplay / Rules to change above modifier
+- Fix translations
+- Fix Wild Master from Tiger to Wolf
+- Fix Winter Breath duration
+- Promote some subclasses back per requests
+
 1.4.28.0:
 
 - Add Beast Master [beta]
