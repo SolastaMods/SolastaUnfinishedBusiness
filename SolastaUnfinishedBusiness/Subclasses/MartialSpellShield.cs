@@ -81,7 +81,7 @@ internal sealed class MartialSpellShield : AbstractSubclass
 
         var conditionSpellShieldArcaneDeflection = ConditionDefinitionBuilder
             .Create("ConditionSpellShieldArcaneDeflection")
-            .SetGuiPresentation(Category.Condition, ConditionShielded)
+            .SetGuiPresentation("PowerSpellShieldArcaneDeflection", Category.Feature, ConditionShielded)
             .AddFeatures(FeatureDefinitionAttributeModifierBuilder
                 .Create("AttributeModifierSpellShieldArcaneDeflection")
                 .SetModifier(
