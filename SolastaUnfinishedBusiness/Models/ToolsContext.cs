@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Builders;
@@ -46,10 +47,13 @@ internal static class ToolsContext
 
     internal static void Load()
     {
-        BuiltInHeroNames.AddRange(DatabaseRepository
-            .GetDatabase<CharacterTemplateDefinition>()
-            .Where(x => !x.EditorOnly)
-            .Select(x => x.Name));
+        var gameBuiltInCharactersDirectory = TacticalAdventuresApplication.GameBuiltInCharactersDirectory;
+
+        BuiltInHeroNames.AddRange(Directory
+            .GetFiles(gameBuiltInCharactersDirectory)
+            .Select(x => Path
+                .GetFileName(x)
+                .Replace(".chr", "")));
 
         ServiceRepository.GetService<IFunctorService>().RegisterFunctor(RespecName, new FunctorRespec());
         SwitchRespec();
