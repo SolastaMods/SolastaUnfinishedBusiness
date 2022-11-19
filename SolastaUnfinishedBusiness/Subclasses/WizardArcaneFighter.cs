@@ -33,6 +33,11 @@ internal sealed class WizardArcaneFighter : AbstractSubclass
                 FeatureDefinitionAttributeModifier.AttributeModifierOperation.ForceIfBetter,
                 AttributeDefinitions.AttacksNumber, 2)
             .AddToDB();
+        
+        var replaceAttackWithCantripArcaneFighter = FeatureDefinitionReplaceAttackWithCantripBuilder
+            .Create("ReplaceAttackWithCantripArcaneFighter")
+            .SetGuiPresentation(Category.Feature)
+            .AddToDB();
 
         var additionalActionArcaneFighter = FeatureDefinitionAdditionalActionBuilder
             .Create("AdditionalActionArcaneFighter")
@@ -96,7 +101,8 @@ internal sealed class WizardArcaneFighter : AbstractSubclass
                 magicAffinityArcaneFighterConcentrationAdvantage,
                 powerArcaneFighterEnchantWeapon)
             .AddFeaturesAtLevel(6,
-                attributeModifierArcaneFighterExtraAttack)
+                attributeModifierArcaneFighterExtraAttack,
+                replaceAttackWithCantripArcaneFighter)
             .AddFeaturesAtLevel(10,
                 additionalActionArcaneFighter)
             .AddFeaturesAtLevel(14,
