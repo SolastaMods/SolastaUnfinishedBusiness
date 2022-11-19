@@ -33,10 +33,12 @@ internal sealed class WizardLifeTransmuter : AbstractSubclass
 
         var powerSharedPoolLifeTransmuterHealingPool = FeatureDefinitionPowerBuilder
             .Create("PowerSharedPoolLifeTransmuterHealingPool")
-            .SetGuiPresentationNoContent(true)
+            .SetGuiPresentation(Category.Feature)
             .SetUsesFixed(ActivationTime.BonusAction, RechargeRate.LongRest, 1, 2)
             .AddToDB();
 
+        powerSharedPoolLifeTransmuterHealingPool.GuiPresentation.hidden = true;
+        
         var conditionLifeTransmuterDarkvision = ConditionDefinitionBuilder
             .Create("ConditionLifeTransmuterDarkvision")
             .SetGuiPresentation("PowerSharedPoolLifeTransmuterDarkvision", Category.Feature, ConditionDarkvision)
