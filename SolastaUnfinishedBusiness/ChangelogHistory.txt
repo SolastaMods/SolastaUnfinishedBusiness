@@ -1,5 +1,12 @@
 ﻿CHANGES:
 
+1.4.28.6:
+
+- fixed wrong College of Life progression
+- rebalanced College of Life
+- rebalanced Field Manipulator
+- tweaked subclasses gui presentation
+
 1.4.28.5:
 
 - fixed default party on DM

@@ -4,7 +4,7 @@
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:MagicAffinityCollegeOfLifeHeightened:097dc3d1-6825-59e9-ab6c-64fa34a77c7f",
-      "level": 2
+      "level": 3
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
@@ -14,6 +14,21 @@
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:PowerSharedPoolCollegeOfLifeElementalResistance:b4492193-45f5-5c77-b688-a9ac91c38dbf",
+      "level": 6
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:PowerSharedPoolCollegeOfLifeFly:b20f8cf5-354a-5895-b5b7-bbddd7cc8994",
+      "level": 6
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:PowerSharedPoolCollegeOfLifeHeal:6b5e17c7-fdf9-51f0-ba95-1d89cc9c4024",
+      "level": 6
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:PowerSharedPoolCollegeOfLifeRevive:7fcdc4f2-27b2-5e33-b1e3-897882b03590",
       "level": 6
     },
     {
@@ -28,32 +43,7 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:PowerUseModifierCollegeOfLifeHealingPoolExtra:2742b912-190a-5766-9d65-47d9f1175918",
-      "level": 10
-    },
-    {
-      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:PowerSharedPoolCollegeOfLifeFly:b20f8cf5-354a-5895-b5b7-bbddd7cc8994",
-      "level": 10
-    },
-    {
-      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:PowerSharedPoolCollegeOfLifeHeal:6b5e17c7-fdf9-51f0-ba95-1d89cc9c4024",
-      "level": 10
-    },
-    {
-      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:PowerSharedPoolCollegeOfLifeRevive:7fcdc4f2-27b2-5e33-b1e3-897882b03590",
-      "level": 10
-    },
-    {
-      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:PowerUseModifierCollegeOfLifeHealingPoolBonus:6c661cf0-b8e7-5468-abd8-4231898554fb",
-      "level": 14
-    },
-    {
-      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:DamageAffinityNecroticResistance:ee5f1fbda4f516844b493f08fdd4fb5a",
+      "featureDefinition": "Definition:FeatureSetCollegeOfLifeNecroticResistance:9f852b57-974b-5224-b97a-356d32bfae62",
       "level": 14
     }
   ],

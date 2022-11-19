@@ -3,13 +3,8 @@
   "featureUnlocks": [
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:MagicAffinityFieldManipulatorControlHeightened:59aba99e-e34f-55f9-a2a1-5a9bf346be7b",
-      "level": 2
-    },
-    {
-      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:AutoPreparedSpellsFieldManipulator:abca93d7-b427-5b34-87cc-13bb662efe9e",
-      "level": 2
+      "level": 1
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
@@ -19,12 +14,12 @@
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:ProficiencyFieldManipulatorMentalSavingThrows:25355fc5-62cf-55a4-827d-24ec9938cb5b",
-      "level": 10
+      "level": 14
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:PowerFieldManipulatorDominatePerson:ab90e45c-abb3-5de0-ac44-174fc664ed9e",
-      "level": 14
+      "level": 18
     }
   ],
   "personalityFlagOccurences": [],
