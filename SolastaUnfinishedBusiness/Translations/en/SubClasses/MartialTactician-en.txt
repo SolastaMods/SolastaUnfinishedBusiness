@@ -1,4 +1,6 @@
 Condition/&ConditionGambitGoadingEffectTitle=Goaded
+Condition/&ConditionTacticianTacticalSurgeDescription=Restore 2 Gambit Dice at the start of your turn.
+Condition/&ConditionTacticianTacticalSurgeTitle=Tactical Surge
 Condition/&GambitSwitchDescription=Armor Class is decreased by the proficiency bonus of Tactician who inflicted this effect.
 Condition/&GambitSwitchTitle=Baited
 Feature/&AttributeModifierTacticianEverVigilantDescription=Gain INT modifier (minimum 1) bonus to your initiative rolls.
@@ -47,6 +49,8 @@ Feature/&FeatureTacticianGambitDieSizeD12Description=Your Gambit Die is upgraded
 Feature/&FeatureTacticianGambitDieSizeD12Title=Gambit Die Size (d12)
 Feature/&FeatureTacticianGambitDieSizeD8Description=Your Gambit Die is upgraded to D8.
 Feature/&FeatureTacticianGambitDieSizeD8Title=Gambit Die Size (d8)
+Feature/&FeatureTacticianTacticalSurgeDescription=When you use <b>Action Surge</b> you regain 4 Gambit Dice and for the next minute restore 2 more Gambit Dice every time your turn starts.
+Feature/&FeatureTacticianTacticalSurgeTitle=Tactical Surge
 Feedback/&AdditionalDamageGambitDieFormat=Gambit!
 Feedback/&AdditionalDamageGambitDieLine={0} rolls Gambit Die and deals +{2} extrta damage!
 Reaction/&ReactionAttackGambitBraceDescription={0} has entered your melee reach - you can use Reaction to spend Gambit Die and attack it, dealing extra damage equal to Gambit Die roll on hit.
