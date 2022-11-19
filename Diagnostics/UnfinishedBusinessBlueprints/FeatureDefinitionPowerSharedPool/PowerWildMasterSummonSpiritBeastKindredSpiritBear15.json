@@ -31,7 +31,7 @@
     "targetConditionName": "",
     "targetConditionAsset": null,
     "targetSide": "Ally",
-    "durationType": "Permanent",
+    "durationType": "UntilLongRest",
     "durationParameter": 0,
     "endOfEffect": "EndOfTurn",
     "hasSavingThrow": false,
@@ -322,7 +322,7 @@
   "uniqueInstance": true,
   "showCasting": true,
   "shortTitleOverride": "",
-  "overriddenPower": "Definition:PowerWildMasterSummonSpiritBeastKindredSpiritEagle11:b470a26a-58d5-5440-8d27-895a9d349505",
+  "overriddenPower": "Definition:PowerWildMasterSummonSpiritBeastKindredSpiritBear11:b0c7fbef-12f8-5d2f-8a95-4f9a324ec8f2",
   "includeBaseDescription": false,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",

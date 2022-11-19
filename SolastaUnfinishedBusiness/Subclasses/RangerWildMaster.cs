@@ -19,10 +19,12 @@ internal sealed class RangerWildMaster : AbstractSubclass
 {
     private const string SpiritBeastTag = "SpiritBeast";
     private const string CommandSpiritBeastCondition = "ConditionWildMasterSpiritBeastCommand";
-    internal const string SummonSpiritBeastPower = "PowerWildMasterSummonSpiritBeast";
+    private const string SummonSpiritBeastPower = "PowerWildMasterSummonSpiritBeast";
 
     internal RangerWildMaster()
     {
+        #region COMMON
+
         var actionAffinitySpiritBeast =
             FeatureDefinitionActionAffinityBuilder
                 .Create("ActionAffinityWildMasterSpiritBeast")
@@ -32,6 +34,12 @@ internal sealed class RangerWildMaster : AbstractSubclass
                     Id.PowerMain, Id.PowerBonus, Id.PowerReaction, Id.SpendPower)
                 .SetCustomSubFeatures(new SummonerHasConditionOrKOd())
                 .AddToDB();
+
+        var combatAffinityWildMasterSummonerIsNextToBeast = FeatureDefinitionCombatAffinityBuilder
+            .Create(FeatureDefinitionCombatAffinitys.CombatAffinityPackTactics,
+                "CombatAffinityWildMasterSummonerIsNextToBeast")
+            .SetSituationalContext(ExtraSituationalContext.SummonerIsNextToBeast)
+            .AddToDB();
 
         var conditionAffinityWildMasterSpiritBeastInitiative =
             FeatureDefinitionConditionAffinityBuilder
@@ -49,30 +57,22 @@ internal sealed class RangerWildMaster : AbstractSubclass
                 .CannotBeSurprised()
                 .AddToDB();
 
+        var spellEffectLevelFromSummonerLevel = new SpellEffectLevelFromSummonerLevel();
+
         var powerWildMasterSummonSpiritBeastPool = FeatureDefinitionPowerBuilder
             .Create("PowerWildMasterSummonSpiritBeastPool")
             .SetGuiPresentationNoContent(true)
             .SetUsesFixed(ActivationTime.Action, RechargeRate.LongRest)
             .AddToDB();
 
-        var spellEffectLevelFromSummonerLevel = new SpellEffectLevelFromSummonerLevel();
-
         var powerWildMasterInvisibility = FeatureDefinitionPowerBuilder
-            .Create(FeatureDefinitionPowers.PowerGreen_Hag_Invisibility, "PowerWildMasterInvisibility")
+            .Create(FeatureDefinitionPowers.PowerFunctionPotionOfInvisibility, "PowerWildMasterInvisibility")
+            .SetOrUpdateGuiPresentation(Category.Feature)
+            .SetUsesFixed(ActivationTime.BonusAction, RechargeRate.LongRest, 1, 3)
             .SetCustomSubFeatures(spellEffectLevelFromSummonerLevel)
             .AddToDB();
 
-        var combatAffinityWildMasterBeastIsNextToSummoner = FeatureDefinitionCombatAffinityBuilder
-            .Create(FeatureDefinitionCombatAffinitys.CombatAffinityPackTactics,
-                "CombatAffinityWildMasterBeastIsNextToSummoner")
-            .SetSituationalContext(ExtraSituationalContext.BeastIsNextToSummoner)
-            .AddToDB();
-
-        var combatAffinityWildMasterSummonerIsNextToBeast = FeatureDefinitionCombatAffinityBuilder
-            .Create(FeatureDefinitionCombatAffinitys.CombatAffinityPackTactics,
-                "CombatAffinityWildMasterSummonerIsNextToBeast")
-            .SetSituationalContext(ExtraSituationalContext.SummonerIsNextToBeast)
-            .AddToDB();
+        #endregion
 
         #region EAGLE
 
@@ -157,7 +157,7 @@ internal sealed class RangerWildMaster : AbstractSubclass
             conditionAffinityWildMasterSpiritBeastInitiative);
 
         var powerKindredSpiritBear07 = BuildSpiritBeastPower(powerWildMasterSummonSpiritBeastPool,
-            powerKindredSpiritEagle03, MonsterDefinitions.KindredSpiritBear, 7, false,
+            powerKindredSpiritBear03, MonsterDefinitions.KindredSpiritBear, 7, false,
             powerWildMasterBreathWeaponFire,
             powerWildMasterResilienceFire,
             CharacterContext.FeatureDefinitionPowerHelpAction,
@@ -166,7 +166,7 @@ internal sealed class RangerWildMaster : AbstractSubclass
             conditionAffinityWildMasterSpiritBeastInitiative);
 
         var powerKindredSpiritBear11 = BuildSpiritBeastPower(powerWildMasterSummonSpiritBeastPool,
-            powerKindredSpiritEagle07, MonsterDefinitions.KindredSpiritBear, 11, true,
+            powerKindredSpiritBear07, MonsterDefinitions.KindredSpiritBear, 11, true,
             powerWildMasterBreathWeaponFire,
             powerWildMasterResilienceFire,
             powerWildMasterInvisibility,
@@ -176,7 +176,7 @@ internal sealed class RangerWildMaster : AbstractSubclass
             conditionAffinityWildMasterSpiritBeastInitiative);
 
         var powerKindredSpiritBear15 = BuildSpiritBeastPower(powerWildMasterSummonSpiritBeastPool,
-            powerKindredSpiritEagle11, MonsterDefinitions.KindredSpiritBear, 15, true,
+            powerKindredSpiritBear11, MonsterDefinitions.KindredSpiritBear, 15, true,
             powerWildMasterBreathWeaponFire,
             powerWildMasterResilienceFire,
             powerWildMasterInvisibility,
@@ -245,13 +245,13 @@ internal sealed class RangerWildMaster : AbstractSubclass
 
         #endregion
 
-        // only for display
-        var featureSetWildMasterBeastIsNextToSummoner = FeatureDefinitionFeatureSetBuilder
-            .Create("FeatureSetWildMasterBeastIsNextToSummoner")
-            .SetGuiPresentation(Category.Feature)
-            .SetCustomSubFeatures(combatAffinityWildMasterBeastIsNextToSummoner)
-            .AddToDB();
+        #region SUBCLASS
 
+        var featureSetWildMasterBeastIsNextToSummoner = FeatureDefinitionBuilder
+            .Create("FeatureWildMasterBeastIsNextToSummoner")
+            .SetGuiPresentation(Category.Feature)
+            .AddToDB();
+        
         var featureSetWildMaster03 = FeatureDefinitionFeatureSetBuilder
             .Create("FeatureSetWildMaster03")
             .SetGuiPresentation(Category.Feature)
@@ -293,15 +293,6 @@ internal sealed class RangerWildMaster : AbstractSubclass
                 powerKindredSpiritWolf15)
             .AddToDB();
 
-        FeatureDefinitionPowers.PowerEyebiteAsleep.guiPresentation.spriteReference =
-            EyebiteAsleep.guiPresentation.spriteReference;
-
-        FeatureDefinitionPowers.PowerEyebitePanicked.guiPresentation.spriteReference =
-            EyebitePanicked.guiPresentation.spriteReference;
-
-        FeatureDefinitionPowers.PowerEyebiteSickened.guiPresentation.spriteReference =
-            EyebiteSickened.guiPresentation.spriteReference;
-
         Subclass = CharacterSubclassDefinitionBuilder
             .Create("RangerWildMaster")
             .SetGuiPresentation(Category.Subclass, PatronFiend)
@@ -316,6 +307,21 @@ internal sealed class RangerWildMaster : AbstractSubclass
             .AddFeaturesAtLevel(15,
                 featureSetWildMaster15)
             .AddToDB();
+
+        #endregion
+
+        //
+        // required for a better UI presentation on level 15
+        //
+
+        FeatureDefinitionPowers.PowerEyebiteAsleep.guiPresentation.spriteReference =
+            EyebiteAsleep.guiPresentation.spriteReference;
+
+        FeatureDefinitionPowers.PowerEyebitePanicked.guiPresentation.spriteReference =
+            EyebitePanicked.guiPresentation.spriteReference;
+
+        FeatureDefinitionPowers.PowerEyebiteSickened.guiPresentation.spriteReference =
+            EyebiteSickened.guiPresentation.spriteReference;
     }
 
     internal override CharacterSubclassDefinition Subclass { get; }
@@ -418,7 +424,7 @@ internal sealed class RangerWildMaster : AbstractSubclass
             .SetOverriddenPower(powerToReplace)
             .SetEffectDescription(EffectDescriptionBuilder
                 .Create()
-                .SetDurationData(DurationType.Permanent)
+                .SetDurationData(DurationType.UntilLongRest)
                 .SetTargetingData(Side.Ally, RangeType.Distance, 3, TargetType.Position)
                 .SetEffectForms(EffectFormBuilder
                     .Create()
@@ -490,30 +496,43 @@ internal sealed class RangerWildMaster : AbstractSubclass
                     .SetAmountOrigin(ConditionDefinition.OriginOfAmount.SourceSpellCastingAbility)
                     .SetFeatures(acBonus)
                     .AddToDB(),
-                //Bonuses from Ranger's Spell Casting Ability
                 ConditionDefinitionBuilder
-                    .Create("ConditionWildMasterSummonSpiritBeastToHitBonus")
+                    .Create("ConditionWildMasterSummonSpiritBeastSourceSpellCastingAbilityBonusToHit")
                     .SetGuiPresentation("Condition/&ConditionWildMasterSummonSpiritBeastBonusTitle", Gui.NoLocalization)
                     .SetSilent(Silent.WhenAddedOrRemoved)
                     .SetPossessive()
                     .SetAmountOrigin(ConditionDefinition.OriginOfAmount.SourceSpellCastingAbility)
                     .SetFeatures(toHit)
                     .AddToDB(),
-                //Bonuses from Ranger's Proficiency Bonus
                 ConditionDefinitionBuilder
-                    .Create("ConditionWildMasterSummonSpiritBeastDamageBonus")
+                    .Create("ConditionWildMasterSummonSpiritBeastSourceProficiencyBonusToHit")
+                    .SetGuiPresentation("Condition/&ConditionWildMasterSummonSpiritBeastBonusTitle", Gui.NoLocalization)
+                    .SetSilent(Silent.WhenAddedOrRemoved)
+                    .SetPossessive()
+                    .SetAmountOrigin(ExtraOriginOfAmount.SourceProficiencyBonus)
+                    .SetFeatures(toHit)
+                    .AddToDB(),
+                ConditionDefinitionBuilder
+                    .Create("ConditionWildMasterSummonSpiritBeastSourceSpellCastingAbilityBonusToDamage")
                     .SetGuiPresentation("Condition/&ConditionWildMasterSummonSpiritBeastBonusTitle", Gui.NoLocalization)
                     .SetSilent(Silent.WhenAddedOrRemoved)
                     .SetAmountOrigin(ConditionDefinition.OriginOfAmount.SourceSpellCastingAbility)
                     .SetFeatures(toDamage)
                     .AddToDB(),
-                //Bonuses from Ranger's level
+                ConditionDefinitionBuilder
+                    .Create("ConditionWildMasterSummonSpiritBeastProficiencyBonusToDamage")
+                    .SetGuiPresentation("Condition/&ConditionWildMasterSummonSpiritBeastBonusTitle", Gui.NoLocalization)
+                    .SetSilent(Silent.WhenAddedOrRemoved)
+                    .SetPossessive()
+                    .SetAmountOrigin(ExtraOriginOfAmount.SourceProficiencyBonus)
+                    .SetFeatures(toDamage)
+                    .AddToDB(),
                 ConditionDefinitionBuilder
                     .Create("ConditionWildMasterSummonSpiritBeastLevel")
                     .SetGuiPresentationNoContent()
                     .SetSilent(Silent.WhenAddedOrRemoved)
                     .SetAmountOrigin(ExtraOriginOfAmount.SourceClassLevel)
-                    //Set damage type to class name so `ExtraOriginOfAmount.SourceClassLevel` would know what class to use
+                    // set damage type to class name so `ExtraOriginOfAmount.SourceClassLevel` would know what class to use
                     .SetAdditionalDamageWhenHit(damageType: RangerClass, active: false)
                     .SetFeatures(hpBonus, hpBonus, hpBonus, hpBonus) // 4 HP per level
                     .AddToDB())

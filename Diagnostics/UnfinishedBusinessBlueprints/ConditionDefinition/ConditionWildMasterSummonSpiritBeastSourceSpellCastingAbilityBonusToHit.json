@@ -149,7 +149,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "9457ffa9-d5f3-58e5-bb0c-dd068c2b4afe",
+  "guid": "1e33886d-b059-5ac3-b366-26d2fffd63b6",
   "contentPack": 9999,
-  "name": "ConditionWildMasterSummonSpiritBeastToHitBonus"
+  "name": "ConditionWildMasterSummonSpiritBeastSourceSpellCastingAbilityBonusToHit"
 }

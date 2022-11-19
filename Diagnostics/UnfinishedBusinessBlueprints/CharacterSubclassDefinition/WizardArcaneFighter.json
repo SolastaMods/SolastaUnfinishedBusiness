@@ -18,6 +18,11 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:ReplaceAttackWithCantripArcaneFighter:a02c396a-4a94-587f-9189-801afceec782",
+      "level": 6
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:AttributeModifierArcaneFighterExtraAttack:1c358d22-ca8a-5331-8cee-7af0efbfbed1",
       "level": 6
     },

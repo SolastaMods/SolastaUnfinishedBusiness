@@ -1,18 +1,10 @@
 {
-  "$type": "FeatureDefinitionFeatureSet, Assembly-CSharp",
-  "featureSet": [],
-  "mode": "Union",
-  "ancestryDamageTypeMap": [],
-  "ancestryType": "Sorcerer",
-  "defaultSelection": 0,
-  "uniqueChoices": false,
-  "enumerateInDescription": false,
-  "hasRacialAffinity": false,
+  "$type": "FeatureDefinition, Assembly-CSharp",
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&FeatureSetWildMasterBeastIsNextToSummonerTitle",
-    "description": "Feature/&FeatureSetWildMasterBeastIsNextToSummonerDescription",
+    "title": "Feature/&FeatureWildMasterBeastIsNextToSummonerTitle",
+    "description": "Feature/&FeatureWildMasterBeastIsNextToSummonerDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -32,7 +24,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "fc697e8c-4bf5-590a-9d65-e6f4ae8c0824",
+  "guid": "fe6a4dfb-87ac-5479-810b-e6f0a8678ab3",
   "contentPack": 9999,
-  "name": "FeatureSetWildMasterBeastIsNextToSummoner"
+  "name": "FeatureWildMasterBeastIsNextToSummoner"
 }

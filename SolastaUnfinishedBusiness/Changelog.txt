@@ -1,8 +1,5 @@
 ﻿CHANGES:
 
-1.4.28.4:
+1.4.28.5:
 
-- Add a sprite to Torchbearer
-- Fix Shared Vigilance using target INT instead of self
-- Fix Wild Master offering multiple summons
-- Improve Wild Master beast powers
+- Fix Wild Master

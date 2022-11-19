@@ -86,8 +86,8 @@
   },
   "timeToWaitBeforeApplyingShader": 0.5,
   "timeToWaitBeforeRemovingShader": 0.5,
-  "possessive": false,
-  "amountOrigin": "SourceSpellCastingAbility",
+  "possessive": true,
+  "amountOrigin": 9000,
   "baseAmount": 0,
   "additiveAmount": false,
   "sourceAbilityBonusMinValue": 1,
@@ -149,7 +149,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "953df9c7-6d4c-5f5a-b4cf-7586b65174ac",
+  "guid": "0a08ea75-15ef-570d-8704-980dc2dde62c",
   "contentPack": 9999,
-  "name": "ConditionWildMasterSummonSpiritBeastDamageBonus"
+  "name": "ConditionWildMasterSummonSpiritBeastProficiencyBonusToDamage"
 }
