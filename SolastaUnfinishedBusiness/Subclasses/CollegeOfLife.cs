@@ -181,6 +181,12 @@ internal sealed class CollegeOfLife : AbstractSubclass
             .SetFixedValue(powerSharedPoolCollegeOfLifeHealingPool, 4)
             .AddToDB();
 
+        var f = FeatureDefinitionFeatureSetBuilder
+            .Create("FeatureSetCollegeOfLifeNecroticResistance")
+            .SetGuiPresentation(Category.Feature)
+            .AddFeatureSet(DamageAffinityNecroticResistance)
+            .AddToDB();
+
         Subclass = CharacterSubclassDefinitionBuilder
             .Create("CollegeOfLife")
             .SetGuiPresentation(Category.Subclass,
