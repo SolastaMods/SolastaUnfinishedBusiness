@@ -80,5 +80,5 @@ internal sealed class SorcerousFieldManipulator : AbstractSubclass
     internal override CharacterSubclassDefinition Subclass { get; }
 
     internal override FeatureDefinitionSubclassChoice SubclassChoice =>
-        FeatureDefinitionSubclassChoices.SubclassChoiceWizardArcaneTraditions;
+        FeatureDefinitionSubclassChoices.SubclassChoiceSorcerousOrigin;
 }
