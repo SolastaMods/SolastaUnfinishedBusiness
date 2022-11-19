@@ -9,9 +9,9 @@
   "forbiddenItemTags": [],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
-    "hidden": false,
-    "title": "Feature/&ProficiencyCollegeOfGutsArmorTitle",
-    "description": "Feature/&ProficiencyCollegeOfGutsArmorDescription",
+    "hidden": true,
+    "title": "Feature/&NoContentTitle",
+    "description": "Feature/&NoContentTitle",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -31,7 +31,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "1cb782e2-8db7-5d12-b487-4a0e2eb0bd59",
+  "guid": "55d4a882-ee48-5f70-91dc-ba26d9729a07",
   "contentPack": 9999,
-  "name": "ProficiencyCollegeOfGutsArmor"
+  "name": "ProficiencyCasterFightingArmor"
 }

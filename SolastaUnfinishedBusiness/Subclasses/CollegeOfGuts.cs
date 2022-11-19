@@ -3,7 +3,6 @@ using SolastaUnfinishedBusiness.Builders.Features;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterSubclassDefinitions;
-using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionProficiencys;
 
 namespace SolastaUnfinishedBusiness.Subclasses;
 
@@ -11,34 +10,12 @@ internal sealed class CollegeOfGuts : AbstractSubclass
 {
     internal CollegeOfGuts()
     {
-        var proficiencyCollegeOfGutsArmor = FeatureDefinitionProficiencyBuilder
-            .Create(ProficiencyClericArmor, "ProficiencyCollegeOfGutsArmor")
-            .SetGuiPresentationNoContent(true)
-            .AddToDB();
-
-        var proficiencyCollegeOfGutsWeapon = FeatureDefinitionProficiencyBuilder
-            .Create(ProficiencyFighterWeapon, "ProficiencyCollegeOfGutsWeapon")
-            .SetGuiPresentationNoContent(true)
-            .AddToDB();
-
-        var f = FeatureDefinitionFeatureSetBuilder
-            .Create("ProficiencyCollegeOfGutsFighting")
-            .AddFeatureSet(proficiencyCollegeOfGutsArmor, proficiencyCollegeOfGutsWeapon)
-            .AddToDB();
-
         var magicAffinityCollegeOfGutsCombatMagic = FeatureDefinitionMagicAffinityBuilder
             .Create("MagicAffinityCollegeOfGutsCombatMagic")
             .SetGuiPresentation(Category.Feature)
             .SetConcentrationModifiers(ConcentrationAffinity.Advantage, 0)
             .SetHandsFullCastingModifiers(true, true, true)
             .SetCastingModifiers(0, SpellParamsModifierType.None, 0, SpellParamsModifierType.FlatValue, true)
-            .AddToDB();
-
-        var attributeModifierCollegeOfGutsExtraAttack = FeatureDefinitionAttributeModifierBuilder
-            .Create("AttributeModifierCollegeOfGutsExtraAttack")
-            .SetGuiPresentation(Category.Feature)
-            .SetModifier(FeatureDefinitionAttributeModifier.AttributeModifierOperation.ForceIfBetter,
-                AttributeDefinitions.AttacksNumber, 2)
             .AddToDB();
 
         var powerCollegeOfGutsWarMagic = FeatureDefinitionPowerBuilder
@@ -74,11 +51,10 @@ internal sealed class CollegeOfGuts : AbstractSubclass
             .Create("CollegeOfGuts")
             .SetGuiPresentation(Category.Subclass, DomainBattle)
             .AddFeaturesAtLevel(3,
-                proficiencyCollegeOfGutsArmor,
-                proficiencyCollegeOfGutsWeapon,
+                FeatureSetCasterFighting,
                 magicAffinityCollegeOfGutsCombatMagic)
             .AddFeaturesAtLevel(6,
-                attributeModifierCollegeOfGutsExtraAttack,
+                AttributeModifierCasterFightingExtraAttack,
                 replaceAttackWithCantripCollegeOfGuts)
             .AddFeaturesAtLevel(14,
                 powerCollegeOfGutsWarMagic)

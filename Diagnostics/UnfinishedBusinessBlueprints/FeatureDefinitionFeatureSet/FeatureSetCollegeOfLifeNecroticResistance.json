@@ -1,16 +1,20 @@
 {
-  "$type": "FeatureDefinitionProficiency, Assembly-CSharp",
-  "proficiencyType": "Weapon",
-  "proficiencies": [
-    "SimpleWeaponCategory",
-    "MartialWeaponCategory"
+  "$type": "FeatureDefinitionFeatureSet, Assembly-CSharp",
+  "featureSet": [
+    "Definition:DamageAffinityNecroticResistance:ee5f1fbda4f516844b493f08fdd4fb5a"
   ],
-  "forbiddenItemTags": [],
+  "mode": "Union",
+  "ancestryDamageTypeMap": [],
+  "ancestryType": "Sorcerer",
+  "defaultSelection": 0,
+  "uniqueChoices": false,
+  "enumerateInDescription": false,
+  "hasRacialAffinity": false,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&ProficiencySoulBladeWeaponTitle",
-    "description": "Feature/&ProficiencySoulBladeWeaponDescription",
+    "title": "Feature/&FeatureSetCollegeOfLifeNecroticResistanceTitle",
+    "description": "Feature/&FeatureSetCollegeOfLifeNecroticResistanceDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -30,7 +34,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "9f57a0aa-dfaf-5d9c-8890-ab3cd681560b",
+  "guid": "9f852b57-974b-5224-b97a-356d32bfae62",
   "contentPack": 9999,
-  "name": "ProficiencySoulBladeWeapon"
+  "name": "FeatureSetCollegeOfLifeNecroticResistance"
 }

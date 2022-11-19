@@ -1,17 +1,17 @@
 {
-  "$type": "FeatureDefinitionProficiency, Assembly-CSharp",
-  "proficiencyType": "Armor",
-  "proficiencies": [
-    "LightArmorCategory",
-    "MediumArmorCategory",
-    "ShieldCategory"
-  ],
-  "forbiddenItemTags": [],
+  "$type": "FeatureDefinitionAttributeModifier, Assembly-CSharp",
+  "modifiedAttribute": "AttacksNumber",
+  "modifierOperation": "ForceIfBetter",
+  "modifierValue": 2,
+  "modifierAbilityScore": "Constitution",
+  "situationalContext": "None",
+  "minimum1": false,
+  "useBonusFromCaster": false,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&ProficiencySoulBladeArmorTitle",
-    "description": "Feature/&ProficiencySoulBladeArmorDescription",
+    "title": "Feature/&AttributeModifierCasterFightingExtraAttackTitle",
+    "description": "Feature/&AttributeModifierCasterFightingExtraAttackDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -31,7 +31,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "4778a605-86e3-599a-b627-6077d32a5a55",
+  "guid": "d683c90c-1240-51bc-878a-617aa7133df0",
   "contentPack": 9999,
-  "name": "ProficiencySoulBladeArmor"
+  "name": "AttributeModifierCasterFightingExtraAttack"
 }

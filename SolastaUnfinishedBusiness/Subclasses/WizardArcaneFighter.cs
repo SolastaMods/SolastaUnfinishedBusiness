@@ -11,27 +11,10 @@ internal sealed class WizardArcaneFighter : AbstractSubclass
 {
     internal WizardArcaneFighter()
     {
-        var proficiencyArcaneFighterSimpleWeapons = FeatureDefinitionProficiencyBuilder
-            .Create("ProficiencyArcaneFighterSimpleWeapons")
-            .SetGuiPresentation(Category.Feature)
-            .SetProficiencies(
-                ProficiencyType.Weapon,
-                EquipmentDefinitions.SimpleWeaponCategory,
-                EquipmentDefinitions.MartialWeaponCategory)
-            .AddToDB();
-
         var magicAffinityArcaneFighterConcentrationAdvantage = FeatureDefinitionMagicAffinityBuilder
             .Create("MagicAffinityArcaneFighterConcentrationAdvantage")
             .SetGuiPresentation(Category.Feature)
             .SetConcentrationModifiers(ConcentrationAffinity.Advantage)
-            .AddToDB();
-
-        var attributeModifierArcaneFighterExtraAttack = FeatureDefinitionAttributeModifierBuilder
-            .Create("AttributeModifierArcaneFighterExtraAttack")
-            .SetGuiPresentation(Category.Feature)
-            .SetModifier(
-                FeatureDefinitionAttributeModifier.AttributeModifierOperation.ForceIfBetter,
-                AttributeDefinitions.AttacksNumber, 2)
             .AddToDB();
 
         var replaceAttackWithCantripArcaneFighter = FeatureDefinitionReplaceAttackWithCantripBuilder
@@ -97,11 +80,11 @@ internal sealed class WizardArcaneFighter : AbstractSubclass
             .Create("WizardArcaneFighter")
             .SetGuiPresentation(Category.Subclass, MartialSpellblade)
             .AddFeaturesAtLevel(2,
-                proficiencyArcaneFighterSimpleWeapons,
+                FeatureSetCasterFighting,
                 magicAffinityArcaneFighterConcentrationAdvantage,
                 powerArcaneFighterEnchantWeapon)
             .AddFeaturesAtLevel(6,
-                attributeModifierArcaneFighterExtraAttack,
+                AttributeModifierCasterFightingExtraAttack,
                 replaceAttackWithCantripArcaneFighter)
             .AddFeaturesAtLevel(10,
                 additionalActionArcaneFighter)

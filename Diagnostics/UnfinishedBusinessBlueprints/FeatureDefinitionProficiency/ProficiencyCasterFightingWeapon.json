@@ -1,17 +1,16 @@
 {
-  "$type": "FeatureDefinitionAttributeModifier, Assembly-CSharp",
-  "modifiedAttribute": "AttacksNumber",
-  "modifierOperation": "ForceIfBetter",
-  "modifierValue": 2,
-  "modifierAbilityScore": "Constitution",
-  "situationalContext": "None",
-  "minimum1": false,
-  "useBonusFromCaster": false,
+  "$type": "FeatureDefinitionProficiency, Assembly-CSharp",
+  "proficiencyType": "Weapon",
+  "proficiencies": [
+    "MartialWeaponCategory",
+    "SimpleWeaponCategory"
+  ],
+  "forbiddenItemTags": [],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
-    "hidden": false,
-    "title": "Feature/&AttributeModifierArcaneFighterExtraAttackTitle",
-    "description": "Feature/&AttributeModifierArcaneFighterExtraAttackDescription",
+    "hidden": true,
+    "title": "Feature/&NoContentTitle",
+    "description": "Feature/&NoContentTitle",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -31,7 +30,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "1c358d22-ca8a-5331-8cee-7af0efbfbed1",
+  "guid": "048afc36-2db9-5969-8143-0110731e6175",
   "contentPack": 9999,
-  "name": "AttributeModifierArcaneFighterExtraAttack"
+  "name": "ProficiencyCasterFightingWeapon"
 }
