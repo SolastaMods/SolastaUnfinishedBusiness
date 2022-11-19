@@ -65,7 +65,6 @@ internal sealed class RangerWildMaster : AbstractSubclass
         var combatAffinityWildMasterBeastIsNextToSummoner = FeatureDefinitionCombatAffinityBuilder
             .Create(FeatureDefinitionCombatAffinitys.CombatAffinityPackTactics,
                 "CombatAffinityWildMasterBeastIsNextToSummoner")
-            .SetOrUpdateGuiPresentation(Category.Feature)
             .SetSituationalContext(ExtraSituationalContext.BeastIsNextToSummoner)
             .AddToDB();
 
@@ -246,6 +245,13 @@ internal sealed class RangerWildMaster : AbstractSubclass
 
         #endregion
 
+        // only for display
+        var featureSetWildMasterBeastIsNextToSummoner = FeatureDefinitionFeatureSetBuilder
+            .Create("FeatureSetWildMasterBeastIsNextToSummoner")
+            .SetGuiPresentation(Category.Feature)
+            .SetCustomSubFeatures(combatAffinityWildMasterBeastIsNextToSummoner)
+            .AddToDB();
+
         var featureSetWildMaster03 = FeatureDefinitionFeatureSetBuilder
             .Create("FeatureSetWildMaster03")
             .SetGuiPresentation(Category.Feature)
@@ -299,11 +305,16 @@ internal sealed class RangerWildMaster : AbstractSubclass
         Subclass = CharacterSubclassDefinitionBuilder
             .Create("RangerWildMaster")
             .SetGuiPresentation(Category.Subclass, PatronFiend)
-            .AddFeaturesAtLevel(3, powerWildMasterSummonSpiritBeastPool, featureSetWildMaster03,
-                combatAffinityWildMasterBeastIsNextToSummoner)
-            .AddFeaturesAtLevel(7, featureSetWildMaster07)
-            .AddFeaturesAtLevel(11, featureSetWildMaster11)
-            .AddFeaturesAtLevel(15, featureSetWildMaster15)
+            .AddFeaturesAtLevel(3,
+                powerWildMasterSummonSpiritBeastPool,
+                featureSetWildMaster03,
+                featureSetWildMasterBeastIsNextToSummoner)
+            .AddFeaturesAtLevel(7,
+                featureSetWildMaster07)
+            .AddFeaturesAtLevel(11,
+                featureSetWildMaster11)
+            .AddFeaturesAtLevel(15,
+                featureSetWildMaster15)
             .AddToDB();
     }
 
