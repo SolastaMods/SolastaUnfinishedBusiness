@@ -2,4 +2,13 @@
 
 1.4.28.5:
 
-- Fix Wild Master
+- fixed default party on DM
+- fixed reported translations typos
+- fixed Dual Flurry counting hits from reaction attacks
+- fixed Marshal's Study Your Enemy
+- fixed Wild Master soft lock on power damage
+- migrated Life Transmuter to College of Life
+- migrated Manipulator Master to Sorcerous Field Manipulator
+- added Gambit replacement to levels where new ones are learned (TACTICIAN)
+- added level 10 Tactical Surge feature (TACTICIAN)
+- fixed error when using Switching gambit (TACTICIAN)
