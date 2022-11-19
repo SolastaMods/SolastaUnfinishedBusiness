@@ -23,6 +23,9 @@ internal sealed class SorcerousFieldManipulator : AbstractSubclass
             .AddPreparedSpellGroup(6, GlobeOfInvulnerability)
             .AddToDB();
 
+#if false
+        // Feature/&MagicAffinityFieldManipulatorControlHeightenedDescription=When casting some Enchantment, Abjuration, and Illusion spells, the ones in your auto prepared list, they are cast at a spell slot 1 level higher than the one used.
+        // Feature/&MagicAffinityFieldManipulatorControlHeightenedTitle=Arcane Manipulation
         var magicAffinityFieldManipulatorControlHeightened = FeatureDefinitionMagicAffinityBuilder
             .Create("MagicAffinityFieldManipulatorControlHeightened")
             .SetGuiPresentation(Category.Feature)
@@ -39,7 +42,8 @@ internal sealed class SorcerousFieldManipulator : AbstractSubclass
                 Invisibility, // illusion 2
                 Sleep) // enchantment 1
             .AddToDB();
-
+#endif
+        
         var magicAffinityFieldManipulatorDc = FeatureDefinitionMagicAffinityBuilder
             .Create("MagicAffinityFieldManipulatorDC")
             .SetGuiPresentation(Category.Feature)
@@ -65,14 +69,14 @@ internal sealed class SorcerousFieldManipulator : AbstractSubclass
         Subclass = CharacterSubclassDefinitionBuilder
             .Create("FieldManipulator")
             .SetGuiPresentation(Category.Subclass, RoguishShadowCaster)
-            .AddFeaturesAtLevel(2,
-                autoPreparedSpellsFieldManipulator,
-                magicAffinityFieldManipulatorControlHeightened)
+            .AddFeaturesAtLevel(1,
+                // magicAffinityFieldManipulatorControlHeightened
+                autoPreparedSpellsFieldManipulator)
             .AddFeaturesAtLevel(6,
                 magicAffinityFieldManipulatorDc)
-            .AddFeaturesAtLevel(10,
-                proficiencyFieldManipulatorMentalSavingThrows)
             .AddFeaturesAtLevel(14,
+                proficiencyFieldManipulatorMentalSavingThrows)
+            .AddFeaturesAtLevel(18,
                 powerFieldManipulatorDominatePerson)
             .AddToDB();
     }
