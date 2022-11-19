@@ -40,6 +40,7 @@ internal static class SubclassesContext
 
         // Sorcerer
         LoadSubclass(new SorcerousDivineHeart());
+        LoadSubclass(new SorcerousFieldManipulator());
 
         // Monk
         LoadSubclass(new WayOfTheDistantHand());
@@ -55,7 +56,6 @@ internal static class SubclassesContext
         LoadSubclass(new WizardArcaneFighter());
         LoadSubclass(new WizardBladeDancer());
         LoadSubclass(new WizardDeadMaster());
-        LoadSubclass(new WizardManipulatorMaster());
         LoadSubclass(new WizardSpellMaster());
 
         // settings paring

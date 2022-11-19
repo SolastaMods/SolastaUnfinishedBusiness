@@ -1,8 +1,8 @@
 {
   "$type": "FeatureDefinitionMagicAffinity, Assembly-CSharp",
   "preparedSpellModifier": "None",
-  "saveDCModifierType": "FlatValue",
-  "saveDCModifier": 2,
+  "saveDCModifierType": "None",
+  "saveDCModifier": 0,
   "spellAttackModifierType": "None",
   "spellAttackModifier": 0,
   "spellImmunities": [],
@@ -21,7 +21,7 @@
   "canUseProficientWeaponAsFocus": false,
   "rangeSpellNoProximityPenalty": false,
   "targetSelfOverride": null,
-  "usesWarList": false,
+  "usesWarList": true,
   "warListSlotBonus": 1,
   "ritualCasting": "None",
   "canLearnRitualScrolls": false,
@@ -30,7 +30,19 @@
   "scribeCostMultiplier": 1.0,
   "additionalScribedSpells": 0,
   "additionalKnownSpellsCount": 0,
-  "warListSpells": [],
+  "warListSpells": [
+    "Banishment",
+    "CharmPerson",
+    "Confusion",
+    "Counterspell",
+    "DispelMagic",
+    "DominatePerson",
+    "GlobeOfInvulnerability",
+    "HoldMonster",
+    "HoldPerson",
+    "Invisibility",
+    "Sleep"
+  ],
   "counterspellAffinity": "None",
   "spellsCounterAffinity": "None",
   "extendedSpellList": null,
@@ -53,8 +65,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&MagicAffinityManipulatorMasterDCTitle",
-    "description": "Feature/&MagicAffinityManipulatorMasterDCDescription",
+    "title": "Feature/&MagicAffinityFieldManipulatorControlHeightenedTitle",
+    "description": "Feature/&MagicAffinityFieldManipulatorControlHeightenedDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -74,7 +86,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "c8deba18-21e8-5065-984c-51fadb0e9a9b",
+  "guid": "59aba99e-e34f-55f9-a2a1-5a9bf346be7b",
   "contentPack": 9999,
-  "name": "MagicAffinityManipulatorMasterDC"
+  "name": "MagicAffinityFieldManipulatorControlHeightened"
 }

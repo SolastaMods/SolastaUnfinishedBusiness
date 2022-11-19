@@ -3,22 +3,27 @@
   "featureUnlocks": [
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:MagicAffinityManipulatorMasterControlHeightened:ad71190c-3ed2-56ce-98ed-73afe180a670",
+      "featureDefinition": "Definition:MagicAffinityFieldManipulatorControlHeightened:59aba99e-e34f-55f9-a2a1-5a9bf346be7b",
       "level": 2
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:MagicAffinityManipulatorMasterDC:c8deba18-21e8-5065-984c-51fadb0e9a9b",
+      "featureDefinition": "Definition:AutoPreparedSpellsFieldManipulator:abca93d7-b427-5b34-87cc-13bb662efe9e",
+      "level": 2
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:MagicAffinityFieldManipulatorDC:b36e95da-d336-5e26-83b0-b7e817052c46",
       "level": 6
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:ProficiencyManipulatorMasterMentalSavingThrows:73f7a4b3-044c-5506-959f-1e165d6e8b6b",
+      "featureDefinition": "Definition:ProficiencyFieldManipulatorMentalSavingThrows:25355fc5-62cf-55a4-827d-24ec9938cb5b",
       "level": 10
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:PowerManipulatorMasterDominatePerson:dc0b95aa-cc45-5b3a-90a6-3e06a80a5ac0",
+      "featureDefinition": "Definition:PowerFieldManipulatorDominatePerson:ab90e45c-abb3-5de0-ac44-174fc664ed9e",
       "level": 14
     }
   ],
@@ -27,8 +32,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Subclass/&WizardManipulatorMasterTitle",
-    "description": "Subclass/&WizardManipulatorMasterDescription",
+    "title": "Subclass/&FieldManipulatorTitle",
+    "description": "Subclass/&FieldManipulatorDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "29d762aa92314b04ea0c8f607efe10ae",
@@ -48,7 +53,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "d41547db-12b8-55e0-a806-49a380858870",
+  "guid": "9af6c87c-3977-5aae-984c-f15ce002f679",
   "contentPack": 9999,
-  "name": "WizardManipulatorMaster"
+  "name": "FieldManipulator"
 }

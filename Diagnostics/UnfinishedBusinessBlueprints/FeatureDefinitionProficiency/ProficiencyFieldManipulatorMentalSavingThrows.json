@@ -2,15 +2,15 @@
   "$type": "FeatureDefinitionProficiency, Assembly-CSharp",
   "proficiencyType": "SavingThrow",
   "proficiencies": [
-    "Charisma",
-    "Constitution"
+    "Intelligence",
+    "Wisdom"
   ],
   "forbiddenItemTags": [],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&ProficiencyManipulatorMasterMentalSavingThrowsTitle",
-    "description": "Feature/&ProficiencyManipulatorMasterMentalSavingThrowsDescription",
+    "title": "Feature/&ProficiencyFieldManipulatorMentalSavingThrowsTitle",
+    "description": "Feature/&ProficiencyFieldManipulatorMentalSavingThrowsDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -30,7 +30,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "73f7a4b3-044c-5506-959f-1e165d6e8b6b",
+  "guid": "25355fc5-62cf-55a4-827d-24ec9938cb5b",
   "contentPack": 9999,
-  "name": "ProficiencyManipulatorMasterMentalSavingThrows"
+  "name": "ProficiencyFieldManipulatorMentalSavingThrows"
 }

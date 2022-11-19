@@ -2761,17 +2761,11 @@ internal static partial class DatabaseHelper
         internal static SpellDefinition DispelEvilAndGood { get; } =
             GetDefinition<SpellDefinition>("DispelEvilAndGood");
 
-        internal static SpellDefinition Blight { get; } =
-            GetDefinition<SpellDefinition>("Blight");
-
         internal static SpellDefinition MassHealingWord { get; } =
             GetDefinition<SpellDefinition>("MassHealingWord");
 
         internal static SpellDefinition CharmPerson { get; } =
             GetDefinition<SpellDefinition>("CharmPerson");
-
-        internal static SpellDefinition ColorSpray { get; } =
-            GetDefinition<SpellDefinition>("ColorSpray");
 
         internal static SpellDefinition HoldPerson { get; } =
             GetDefinition<SpellDefinition>("HoldPerson");
@@ -2910,10 +2904,22 @@ internal static partial class DatabaseHelper
 
         internal static SpellDefinition DominatePerson { get; } =
             GetDefinition<SpellDefinition>("DominatePerson");
-
+        
+        internal static SpellDefinition GlobeOfInvulnerability { get; } =
+            GetDefinition<SpellDefinition>("GlobeOfInvulnerability");
+        
         internal static SpellDefinition EldritchBlast { get; } =
             GetDefinition<SpellDefinition>("EldritchBlast");
 
+        internal static SpellDefinition Knock { get; } =
+            GetDefinition<SpellDefinition>("Knock");
+        
+        internal static SpellDefinition Eyebite { get; } =
+            GetDefinition<SpellDefinition>("Eyebite");
+        
+        internal static SpellDefinition RaiseDead { get; } =
+            GetDefinition<SpellDefinition>("RaiseDead");
+        
         internal static SpellDefinition EnhanceAbility { get; } =
             GetDefinition<SpellDefinition>("EnhanceAbility");
 

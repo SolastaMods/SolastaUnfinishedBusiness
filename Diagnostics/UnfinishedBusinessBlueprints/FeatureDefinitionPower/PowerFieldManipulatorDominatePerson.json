@@ -311,7 +311,7 @@
   "spellcastingFeature": null,
   "usesDetermination": "AbilityBonusPlusFixed",
   "abilityScoreDetermination": "Explicit",
-  "usesAbilityScoreName": "Intelligence",
+  "usesAbilityScoreName": "Charisma",
   "fixedUsesPerRecharge": 0,
   "abilityScore": "Intelligence",
   "attackHitComputation": "AbilityScore",
@@ -326,8 +326,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&PowerManipulatorMasterDominatePersonTitle",
-    "description": "Feature/&PowerManipulatorMasterDominatePersonDescription",
+    "title": "Feature/&PowerFieldManipulatorDominatePersonTitle",
+    "description": "Feature/&PowerFieldManipulatorDominatePersonDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "99a1671811467f54fb597e307e6d0a47",
@@ -347,7 +347,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "dc0b95aa-cc45-5b3a-90a6-3e06a80a5ac0",
+  "guid": "ab90e45c-abb3-5de0-ac44-174fc664ed9e",
   "contentPack": 9999,
-  "name": "PowerManipulatorMasterDominatePerson"
+  "name": "PowerFieldManipulatorDominatePerson"
 }
