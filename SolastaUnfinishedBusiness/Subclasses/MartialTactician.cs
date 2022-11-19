@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using SolastaUnfinishedBusiness.Api.Extensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Builders;
@@ -35,6 +36,7 @@ internal sealed class MartialTactician : AbstractSubclass
 
         var learn1Gambit = BuildLearn(1);
         var learn3Gambits = BuildLearn(3);
+        var unlearn = BuildUnlearn();
 
         EverVigilant = BuildEverVigilant();
         Subclass = CharacterSubclassDefinitionBuilder
@@ -42,9 +44,10 @@ internal sealed class MartialTactician : AbstractSubclass
             .SetGuiPresentation(Category.Subclass, RoguishShadowCaster)
             .AddFeaturesAtLevel(3, BuildSharpMind(), GambitPool, learn3Gambits, EverVigilant)
             .AddFeaturesAtLevel(5, BuildGambitPoolIncrease(), BuildGambitDieSize(DieType.D8))
-            .AddFeaturesAtLevel(7, BuildGambitPoolIncrease(), learn1Gambit, BuildSharedVigilance())
-            .AddFeaturesAtLevel(10, BuildGambitPoolIncrease(), BuildAdaptiveStrategy(), BuildGambitDieSize(DieType.D10))
-            .AddFeaturesAtLevel(15, BuildGambitPoolIncrease(), learn1Gambit, BuildGambitDieSize(DieType.D12))
+            .AddFeaturesAtLevel(7, BuildGambitPoolIncrease(), learn1Gambit, unlearn, BuildSharedVigilance())
+            .AddFeaturesAtLevel(10, BuildGambitPoolIncrease(), BuildAdaptiveStrategy(), BuildTacticalSurge(),
+                BuildGambitDieSize(DieType.D10))
+            .AddFeaturesAtLevel(15, BuildGambitPoolIncrease(), learn1Gambit, unlearn, BuildGambitDieSize(DieType.D12))
             .AddToDB();
 
         BuildGambits();
@@ -172,6 +175,15 @@ internal sealed class MartialTactician : AbstractSubclass
             .AddToDB();
     }
 
+    private static FeatureDefinitionCustomInvocationPool BuildUnlearn()
+    {
+        return CustomInvocationPoolDefinitionBuilder
+            .Create($"InvocationPoolGambitUnlearn")
+            .SetGuiPresentationNoContent(true)
+            .Setup(InvocationPoolTypeCustom.Pools.Gambit, 1, true)
+            .AddToDB();
+    }
+
     private static FeatureDefinition BuildGambitDieSize(DieType size)
     {
         //doesn't do anything, just to display to player dice size progression on levelup
@@ -193,6 +205,32 @@ internal sealed class MartialTactician : AbstractSubclass
             .SetNotificationTag("GambitDie")
             .SetFrequencyLimit(limit)
             .AddToDB();
+    }
+
+    private static FeatureDefinition BuildTacticalSurge()
+    {
+        const string conditionName = "ConditionTacticianTacticalSurge";
+        var tick = FeatureDefinitionBuilder
+            .Create("FeatureTacticianTacticalSurgeTick")
+            .SetGuiPresentation(conditionName, Category.Condition)
+            .AddToDB();
+
+        tick.SetCustomSubFeatures(new TacticalSurgeTick(GambitPool, tick));
+
+        var feature = FeatureDefinitionBuilder
+            .Create("FeatureTacticianTacticalSurge")
+            .SetGuiPresentation(Category.Feature)
+            .AddToDB();
+
+        var condition = ConditionDefinitionBuilder
+            .Create(conditionName)
+            .SetGuiPresentation(Category.Condition, Sprites.ConditionTacticalSurge)
+            .SetFeatures(tick)
+            .AddToDB();
+
+        feature.SetCustomSubFeatures(new TacticalSurge(GambitPool, feature, condition));
+
+        return feature;
     }
 
     private void BuildGambits()
@@ -897,6 +935,68 @@ internal sealed class MartialTactician : AbstractSubclass
         }
     }
 
+    internal class TacticalSurge : ICustomOnActionFeature
+    {
+        private readonly FeatureDefinitionPower power;
+        private readonly FeatureDefinition feature;
+        private readonly ConditionDefinition condition;
+
+        public TacticalSurge(FeatureDefinitionPower power, FeatureDefinition feature,
+            ConditionDefinition condition)
+        {
+            this.power = power;
+            this.feature = feature;
+            this.condition = condition;
+        }
+
+        public void OnAfterAction(CharacterAction action)
+        {
+            if (action is not CharacterActionActionSurge)
+            {
+                return;
+            }
+
+            var character = action.ActingCharacter.RulesetCharacter;
+            var charges = character.GetRemainingPowerUses(power) - character.GetMaxUsesForPool(power);
+            charges = Math.Max(charges, -4);
+
+            GameConsoleHelper.LogCharacterUsedFeature(character, feature, indent: true);
+            if (charges < 0)
+            {
+                character.UpdateUsageForPower(power, charges);
+            }
+
+            character.InflictCondition(condition.Name, DurationType.Minute, 1, TurnOccurenceType.StartOfTurn,
+                AttributeDefinitions.TagCombat, character.Guid, character.CurrentFaction.Name, 1, feature.Name, 1, 0, 0);
+        }
+    }
+
+    internal class TacticalSurgeTick : ICharacterTurnStartListener
+    {
+        private readonly FeatureDefinition feature;
+        private readonly FeatureDefinitionPower power;
+
+        public TacticalSurgeTick(FeatureDefinitionPower power, FeatureDefinition feature)
+        {
+            this.power = power;
+            this.feature = feature;
+        }
+
+        public void OnCharacterTurnStarted(GameLocationCharacter locationCharacter)
+        {
+            var character = locationCharacter.RulesetCharacter;
+            var charges = character.GetRemainingPowerUses(power) - character.GetMaxUsesForPool(power);
+            charges = Math.Max(charges, -2);
+
+            if (charges >= 0)
+            {
+                return;
+            }
+
+            GameConsoleHelper.LogCharacterUsedFeature(character, feature, indent: true);
+            character.UpdateUsageForPower(power, charges);
+        }
+    }
 
     internal class GambitActionDiceBox : IActionItemDiceBox
     {

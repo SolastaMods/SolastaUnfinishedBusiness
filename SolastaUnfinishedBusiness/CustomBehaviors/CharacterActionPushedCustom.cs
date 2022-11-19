@@ -1,8 +1,8 @@
 ﻿using System.Collections;
 using TA;
 
-namespace SolastaUnfinishedBusiness.CustomBehaviors;
-
+//This should have default namespace so that it can be properly created by `CharacterActionPatcher`
+// ReSharper disable once CheckNamespace
 public class CharacterActionPushedCustom : CharacterAction
 {
     private readonly bool forceFallProne;
