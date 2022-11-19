@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
+using System.IO;
 using System.Linq;
 using System.Reflection.Emit;
 using HarmonyLib;
@@ -28,10 +29,9 @@ public static class SessionState_SetupPatcher
                 slotIndex < Main.Settings.DefaultPartyHeroes.Count)
             {
                 var name = Main.Settings.DefaultPartyHeroes.ElementAt(slotIndex);
-                var characterPoolService = ServiceRepository.GetService<CharacterPoolManager>();
                 var isBuiltIn = ToolsContext.IsBuiltIn(name);
 
-                filename = characterPoolService.BuildCharacterFilename(name, isBuiltIn);
+                filename = Path.Combine(!isBuiltIn ? TacticalAdventuresApplication.GameCharactersDirectory : TacticalAdventuresApplication.GameBuiltInCharactersDirectory, name) + ".chr";
             }
 
             session.AssignCharacterToPlayer(playerIndex, slotIndex, filename, notify);
