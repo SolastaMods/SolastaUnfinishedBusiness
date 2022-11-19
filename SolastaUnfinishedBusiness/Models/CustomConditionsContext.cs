@@ -123,17 +123,17 @@ internal static class CustomConditionsContext
         private const string CategoryHidden = "InvisibilityEveryRoundHidden";
 
 
-        public void ApplyFeature(RulesetCharacter hero)
+        public void ApplyFeature(RulesetCharacter target, RulesetCondition rulesetCondition)
         {
-            if (!hero.HasConditionOfType(ConditionInvisibilityEveryRoundRevealed))
+            if (!target.HasConditionOfType(ConditionInvisibilityEveryRoundRevealed))
             {
-                BecomeHidden(hero);
+                BecomeHidden(target);
             }
         }
 
-        public void RemoveFeature(RulesetCharacter hero)
+        public void RemoveFeature(RulesetCharacter target, RulesetCondition rulesetCondition)
         {
-            hero.RemoveAllConditionsOfCategory(CategoryHidden, false);
+            target.RemoveAllConditionsOfCategory(CategoryHidden, false);
         }
 
         public void OnAfterAction(CharacterAction characterAction)
