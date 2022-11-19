@@ -23,6 +23,7 @@ internal static class SubclassesContext
 
         // Bard
         LoadSubclass(new CollegeOfGuts());
+        LoadSubclass(new CollegeOfLife());
 
         // Fighter
         LoadSubclass(new MartialMarshal());
@@ -54,7 +55,6 @@ internal static class SubclassesContext
         LoadSubclass(new WizardArcaneFighter());
         LoadSubclass(new WizardBladeDancer());
         LoadSubclass(new WizardDeadMaster());
-        LoadSubclass(new WizardLifeTransmuter());
         LoadSubclass(new WizardManipulatorMaster());
         LoadSubclass(new WizardSpellMaster());
 

@@ -2,12 +2,14 @@
 using System.Diagnostics;
 using System.IO;
 using System.IO.Compression;
+using System.Linq;
 using System.Net;
 using System.Runtime.InteropServices;
 using System.Text;
 using JetBrains.Annotations;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.CustomUI;
 using UnityEngine;
@@ -131,6 +133,13 @@ internal static class BootContext
             // Manages update or welcome messages
             Load();
             Main.Enable();
+
+            var sl = DatabaseHelper.SpellListDefinitions.SpellListBard;
+
+            foreach (var x in sl.SpellsByLevel.SelectMany(x => x.Spells))
+            {
+                Main.Log($"{x.name} - {x.schoolOfMagic}");
+            }
         };
     }
 
