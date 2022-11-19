@@ -77,6 +77,7 @@
   "bestiaryLootOptions": [],
   "features": [
     "Definition:ActionAffinityWildMasterSpiritBeast:67246cb1-3617-5d0b-89f5-215e54bf88a3",
+    "Definition:CombatAffinityWildMasterSummonerIsNextToBeast:5caab56f-2aec-5048-b426-36ae4df0b447",
     "Definition:ConditionAffinityWildMasterSpiritBeastInitiative:074d3251-8db0-5c10-949c-97fed558a0c3",
     "Definition:MoveModeMove8:4c110104739c99e4d920529a058ab2e2",
     "Definition:PowerHelp:faded953-56c9-55e9-aa49-54a485c1de6d",
