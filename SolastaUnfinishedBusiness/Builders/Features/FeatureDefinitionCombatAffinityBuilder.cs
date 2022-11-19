@@ -48,6 +48,12 @@ internal class FeatureDefinitionCombatAffinityBuilder
     }
 #endif
 
+    internal FeatureDefinitionCombatAffinityBuilder SetSituationalContext(RuleDefinitions.SituationalContext context)
+    {
+        Definition.situationalContext = context;
+        return this;
+    }
+
     internal FeatureDefinitionCombatAffinityBuilder SetSituationalContext(ExtraSituationalContext context)
     {
         Definition.situationalContext = (RuleDefinitions.SituationalContext)context;
