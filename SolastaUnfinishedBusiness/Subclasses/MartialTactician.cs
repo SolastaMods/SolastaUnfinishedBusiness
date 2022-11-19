@@ -35,6 +35,7 @@ internal sealed class MartialTactician : AbstractSubclass
 
         var learn1Gambit = BuildLearn(1);
         var learn3Gambits = BuildLearn(3);
+        var unlearn = BuildUnlearn();
 
         EverVigilant = BuildEverVigilant();
         Subclass = CharacterSubclassDefinitionBuilder
@@ -42,9 +43,9 @@ internal sealed class MartialTactician : AbstractSubclass
             .SetGuiPresentation(Category.Subclass, RoguishShadowCaster)
             .AddFeaturesAtLevel(3, BuildSharpMind(), GambitPool, learn3Gambits, EverVigilant)
             .AddFeaturesAtLevel(5, BuildGambitPoolIncrease(), BuildGambitDieSize(DieType.D8))
-            .AddFeaturesAtLevel(7, BuildGambitPoolIncrease(), learn1Gambit, BuildSharedVigilance())
+            .AddFeaturesAtLevel(7, BuildGambitPoolIncrease(), learn1Gambit, unlearn, BuildSharedVigilance())
             .AddFeaturesAtLevel(10, BuildGambitPoolIncrease(), BuildAdaptiveStrategy(), BuildGambitDieSize(DieType.D10))
-            .AddFeaturesAtLevel(15, BuildGambitPoolIncrease(), learn1Gambit, BuildGambitDieSize(DieType.D12))
+            .AddFeaturesAtLevel(15, BuildGambitPoolIncrease(), learn1Gambit, unlearn, BuildGambitDieSize(DieType.D12))
             .AddToDB();
 
         BuildGambits();
@@ -169,6 +170,15 @@ internal sealed class MartialTactician : AbstractSubclass
             .Create($"InvocationPoolGambitLearn{points}")
             .SetGuiPresentation(Category.Feature)
             .Setup(InvocationPoolTypeCustom.Pools.Gambit, points)
+            .AddToDB();
+    }
+
+    private static FeatureDefinitionCustomInvocationPool BuildUnlearn()
+    {
+        return CustomInvocationPoolDefinitionBuilder
+            .Create($"InvocationPoolGambitUnlearn")
+            .SetGuiPresentationNoContent(true)
+            .Setup(InvocationPoolTypeCustom.Pools.Gambit, 1, true)
             .AddToDB();
     }
 
