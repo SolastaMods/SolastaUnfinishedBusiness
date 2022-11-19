@@ -899,15 +899,6 @@ internal static partial class DatabaseHelper
 
     internal static class FeatureDefinitionActionAffinitys
     {
-        internal static FeatureDefinitionActionAffinity ActionAffinityKindredSpiritRally { get; } =
-            GetDefinition<FeatureDefinitionActionAffinity>("ActionAffinityKindredSpiritRally");
-
-        internal static FeatureDefinitionActionAffinity ActionAffinityInvocationOneWithShadowsTurnInvisible { get; } =
-            GetDefinition<FeatureDefinitionActionAffinity>("ActionAffinityInvocationOneWithShadowsTurnInvisible");
-
-        internal static FeatureDefinitionActionAffinity ActionAffinityKindredSpiritRage { get; } =
-            GetDefinition<FeatureDefinitionActionAffinity>("ActionAffinityKindredSpiritRage");
-
         internal static FeatureDefinitionActionAffinity ActionAffinityRangerVanish { get; } =
             GetDefinition<FeatureDefinitionActionAffinity>("ActionAffinityRangerVanish");
 
@@ -1468,6 +1459,15 @@ internal static partial class DatabaseHelper
 
     internal static class FeatureDefinitionPowers
     {
+        internal static FeatureDefinitionPower PowerFiendishResilienceFire { get; } =
+            GetDefinition<FeatureDefinitionPower>("PowerFiendishResilienceFire");
+
+        internal static FeatureDefinitionPower PowerFiendishResilienceCold { get; } =
+            GetDefinition<FeatureDefinitionPower>("PowerFiendishResilienceCold");
+
+        internal static FeatureDefinitionPower PowerDragonbornBreathWeaponSilver { get; } =
+            GetDefinition<FeatureDefinitionPower>("PowerDragonbornBreathWeaponSilver");
+
         internal static FeatureDefinitionPower PowerDragonbornBreathWeaponGold { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerDragonbornBreathWeaponGold");
 
@@ -1483,11 +1483,11 @@ internal static partial class DatabaseHelper
         internal static FeatureDefinitionPower PowerEyebiteSickened { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerEyebiteSickened");
 
-        internal static FeatureDefinitionPower PowerDragonbornBreathWeaponBlack { get; } =
-            GetDefinition<FeatureDefinitionPower>("PowerDragonbornBreathWeaponBlack");
+        internal static FeatureDefinitionPower PowerDragonbornBreathWeaponBlue { get; } =
+            GetDefinition<FeatureDefinitionPower>("PowerDragonbornBreathWeaponBlue");
 
-        internal static FeatureDefinitionPower PowerReckless { get; } =
-            GetDefinition<FeatureDefinitionPower>("PowerReckless");
+        internal static FeatureDefinitionPower PowerFiendishResilienceLightning { get; } =
+            GetDefinition<FeatureDefinitionPower>("PowerFiendishResilienceLightning");
 
         internal static FeatureDefinitionPower PowerShadowcasterShadowDodge { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerShadowcasterShadowDodge");
