@@ -519,12 +519,6 @@ internal static partial class DatabaseHelper
             GetDefinition<ConditionDefinition>("ConditionTrueStrike");
     }
 
-    internal static class ArmorCategoryDefinitions
-    {
-        internal static ArmorCategoryDefinition LightArmorCategory { get; } =
-            GetDefinition<ArmorCategoryDefinition>("LightArmorCategory");
-    }
-
     internal static class CharacterBackgroundDefinitions
     {
         internal static CharacterBackgroundDefinition Academic { get; } =
