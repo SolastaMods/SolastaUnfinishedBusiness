@@ -134,8 +134,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Condition/&ConditionLifeTransmuterElementalResistanceTitle",
-    "description": "Condition/&ConditionLifeTransmuterElementalResistanceDescription",
+    "title": "Condition/&ConditionCollegeOfLifeElementalResistanceTitle",
+    "description": "Condition/&ConditionCollegeOfLifeElementalResistanceDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "a723156c787808644b470992b3f992df",
@@ -155,7 +155,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "3af2d724-7069-59e0-a32c-899d9c8726dc",
+  "guid": "4710d88e-bee9-5ac9-8290-99dd97796762",
   "contentPack": 9999,
-  "name": "ConditionLifeTransmuterElementalResistance"
+  "name": "ConditionCollegeOfLifeElementalResistance"
 }

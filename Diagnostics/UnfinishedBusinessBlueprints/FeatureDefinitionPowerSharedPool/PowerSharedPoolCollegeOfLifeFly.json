@@ -77,8 +77,8 @@
         "saveOccurence": "EndOfTurn",
         "conditionForm": {
           "$type": "ConditionForm, Assembly-CSharp",
-          "conditionDefinitionName": "ConditionLifeTransmuterDarkvision",
-          "conditionDefinition": "Definition:ConditionLifeTransmuterDarkvision:4296de99-3d8c-5879-bd0b-de43ffca691f",
+          "conditionDefinitionName": "ConditionFlying12",
+          "conditionDefinition": "Definition:ConditionFlying12:33fb0e0fb4c74604e8fe76b8d3370510",
           "operation": "Add",
           "conditionsList": [],
           "applyToSelf": false,
@@ -324,12 +324,12 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&PowerSharedPoolLifeTransmuterDarkvisionTitle",
-    "description": "Feature/&PowerSharedPoolLifeTransmuterDarkvisionDescription",
+    "title": "Feature/&PowerSharedPoolCollegeOfLifeFlyTitle",
+    "description": "Feature/&PowerSharedPoolCollegeOfLifeFlyDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "e5a2bfebebf72bb48a6206b4fc8aabee",
-      "m_SubObjectName": "DivineWrath",
+      "m_AssetGUID": "bd509ecf20184584aa866233551cac90",
+      "m_SubObjectName": "Fly",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
@@ -345,7 +345,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "75523ff0-07a9-5e52-b6a4-d4c7f5881959",
+  "guid": "b20f8cf5-354a-5895-b5b7-bbddd7cc8994",
   "contentPack": 9999,
-  "name": "PowerSharedPoolLifeTransmuterDarkvision"
+  "name": "PowerSharedPoolCollegeOfLifeFly"
 }

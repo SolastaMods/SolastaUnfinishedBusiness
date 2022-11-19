@@ -32,13 +32,14 @@
   "additionalKnownSpellsCount": 0,
   "warListSpells": [
     "BestowCurse",
-    "Blight",
     "Blindness",
-    "CloudKill",
-    "FalseLife",
-    "Fly",
-    "MagicWeapon",
-    "VampiricTouch"
+    "EnhanceAbility",
+    "Eyebite",
+    "FeatherFall",
+    "HeatMetal",
+    "Knock",
+    "Longstrider",
+    "RaiseDead"
   ],
   "counterspellAffinity": "None",
   "spellsCounterAffinity": "None",
@@ -62,8 +63,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&MagicAffinityLifeTransmuterHeightenedTitle",
-    "description": "Feature/&MagicAffinityLifeTransmuterHeightenedDescription",
+    "title": "Feature/&MagicAffinityCollegeOfLifeHeightenedTitle",
+    "description": "Feature/&MagicAffinityCollegeOfLifeHeightenedDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -83,7 +84,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "f2f375b0-f592-5080-a406-5331ccabc1fb",
+  "guid": "097dc3d1-6825-59e9-ab6c-64fa34a77c7f",
   "contentPack": 9999,
-  "name": "MagicAffinityLifeTransmuterHeightened"
+  "name": "MagicAffinityCollegeOfLifeHeightened"
 }

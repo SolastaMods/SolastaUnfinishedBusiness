@@ -2,13 +2,13 @@
   "$type": "SolastaUnfinishedBusiness.CustomDefinitions.FeatureDefinitionPowerSharedPool, SolastaUnfinishedBusiness",
   "effectDescription": {
     "$type": "EffectDescription, Assembly-CSharp",
-    "rangeType": "Touch",
-    "rangeParameter": 0,
+    "rangeType": "Distance",
+    "rangeParameter": 12,
     "halfDamageOnAMiss": false,
     "hitAffinitiesByTargetTag": [],
     "targetType": "IndividualsUnique",
     "itemSelectionType": "Equiped",
-    "targetParameter": 1,
+    "targetParameter": 6,
     "targetParameter2": 2,
     "emissiveBorder": "None",
     "emissiveParameter": 1,
@@ -29,7 +29,7 @@
     "poolFilterDieType": "D8",
     "trapRangeType": "Triggerer",
     "targetConditionName": "",
-    "targetConditionAsset": "Definition:ConditionDead:9ec3d42bf0e13a8469b604a8dca4c477",
+    "targetConditionAsset": null,
     "targetSide": "Ally",
     "durationType": "Instantaneous",
     "durationParameter": 1,
@@ -53,7 +53,10 @@
     "velocityCellsPerRound": 2,
     "velocityType": "AwayFromSourceOriginalPosition",
     "restrictedCreatureFamilies": [],
-    "immuneCreatureFamilies": [],
+    "immuneCreatureFamilies": [
+      "Construct",
+      "Undead"
+    ],
     "restrictedCharacterSizes": [],
     "hasLimitedEffectPool": false,
     "effectPoolAmount": 60,
@@ -62,11 +65,11 @@
     "effectForms": [
       {
         "$type": "EffectForm, Assembly-CSharp",
-        "formType": "Revive",
-        "addBonusMode": "None",
+        "formType": "Healing",
+        "addBonusMode": "AbilityBonus",
         "applyLevel": "No",
         "levelType": "ClassLevel",
-        "levelMultiplier": 0,
+        "levelMultiplier": 1,
         "diceByLevelTable": [],
         "createdByCharacter": true,
         "createdByCondition": false,
@@ -74,14 +77,15 @@
         "savingThrowAffinity": "None",
         "dcModifier": 0,
         "canSaveToCancel": false,
-        "saveOccurence": "StartOfTurn",
-        "reviveForm": {
-          "$type": "ReviveForm, Assembly-CSharp",
-          "maxSecondsSinceDeath": 60,
-          "reviveHitPoints": "One",
-          "removedConditions": [
-            "Definition:ConditionLifeDrained:ce10be38f182d7046bca13becd0e6bf6"
-          ]
+        "saveOccurence": "EndOfTurn",
+        "healingForm": {
+          "$type": "HealingForm, Assembly-CSharp",
+          "healingComputation": "Dice",
+          "diceNumber": 1,
+          "dieType": "D4",
+          "bonusHealing": 0,
+          "variablePool": false,
+          "healingCap": "MaximumHitPoints"
         },
         "hasFilterId": false,
         "filterId": 0
@@ -90,11 +94,11 @@
     "specialFormsDescription": "",
     "effectAdvancement": {
       "$type": "EffectAdvancement, Assembly-CSharp",
-      "effectIncrementMethod": "None",
+      "effectIncrementMethod": "PerAdditionalSlotLevel",
       "incrementMultiplier": 1,
       "additionalTargetsPerIncrement": 0,
       "additionalSubtargetsPerIncrement": 0,
-      "additionalDicePerIncrement": 0,
+      "additionalDicePerIncrement": 1,
       "additionalSpellLevelPerIncrement": 0,
       "additionalSummonsPerIncrement": 0,
       "additionalHPPerIncrement": 0,
@@ -113,13 +117,13 @@
       "$type": "EffectParticleParameters, Assembly-CSharp",
       "casterParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "7b3b48710ec53e0469ef86876ed968d1",
+        "m_AssetGUID": "ffbd91a19da42df498cb2d6792ed88a7",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
       "casterSelfParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "",
+        "m_AssetGUID": "34f0dc03c444b7d4b9cda7f2fedb34e6",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -131,13 +135,13 @@
       },
       "targetParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "efab587ac80b70a46b9c16c19a71e189",
+        "m_AssetGUID": "",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
       "effectParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "7ce3a0a8c5cbb274e9aa0829b28da532",
+        "m_AssetGUID": "ed804b962d30d5d4594418ac573ccc5e",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -323,12 +327,12 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&PowerSharedPoolLifeTransmuterReviveTitle",
-    "description": "Feature/&PowerSharedPoolLifeTransmuterReviveDescription",
+    "title": "Feature/&PowerSharedPoolCollegeOfLifeHealTitle",
+    "description": "Feature/&PowerSharedPoolCollegeOfLifeHealDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "24436746e9ef52b40ac3fdc3dd866fc7",
-      "m_SubObjectName": "Revivify",
+      "m_AssetGUID": "4ddb7825c66c9094db0cbd1598281c1a",
+      "m_SubObjectName": "MassHealingWord",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
@@ -344,7 +348,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "fc5a773d-4ac0-50d3-b0dc-bc60943e05fe",
+  "guid": "6b5e17c7-fdf9-51f0-ba95-1d89cc9c4024",
   "contentPack": 9999,
-  "name": "PowerSharedPoolLifeTransmuterRevive"
+  "name": "PowerSharedPoolCollegeOfLifeHeal"
 }

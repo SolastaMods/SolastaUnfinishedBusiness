@@ -171,8 +171,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
-    "title": "Feature/&NoContentTitle",
-    "description": "Feature/&NoContentTitle",
+    "title": "Feature/&PowerSharedPoolCollegeOfLifeHealingPoolTitle",
+    "description": "Feature/&PowerSharedPoolCollegeOfLifeHealingPoolDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -192,7 +192,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "4235f0aa-76f9-5934-a082-e38b2d8f3675",
+  "guid": "e197ef97-b732-5855-9dc2-a455625e4ef6",
   "contentPack": 9999,
-  "name": "PowerSharedPoolLifeTransmuterHealingPool"
+  "name": "PowerSharedPoolCollegeOfLifeHealingPool"
 }

@@ -128,8 +128,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&PowerSharedPoolLifeTransmuterDarkvisionTitle",
-    "description": "Feature/&PowerSharedPoolLifeTransmuterDarkvisionDescription",
+    "title": "Feature/&PowerSharedPoolCollegeOfLifeDarkvisionTitle",
+    "description": "Feature/&PowerSharedPoolCollegeOfLifeDarkvisionDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "da3138226e574a442803ae1229974089",
@@ -149,7 +149,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "4296de99-3d8c-5879-bd0b-de43ffca691f",
+  "guid": "e0d8a982-b0b5-54b6-aa18-edef36694c6a",
   "contentPack": 9999,
-  "name": "ConditionLifeTransmuterDarkvision"
+  "name": "ConditionCollegeOfLifeDarkvision"
 }

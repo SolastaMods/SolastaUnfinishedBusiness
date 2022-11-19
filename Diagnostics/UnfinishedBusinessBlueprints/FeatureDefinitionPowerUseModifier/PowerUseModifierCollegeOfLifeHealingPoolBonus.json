@@ -3,8 +3,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&PowerUseModifierLifeTransmuterHealingPoolExtraTitle",
-    "description": "Feature/&PowerUseModifierLifeTransmuterHealingPoolExtraDescription",
+    "title": "Feature/&PowerUseModifierCollegeOfLifeHealingPoolBonusTitle",
+    "description": "Feature/&PowerUseModifierCollegeOfLifeHealingPoolBonusDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -24,7 +24,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "f17d2147-03c8-5680-8130-cd3679afc8e9",
+  "guid": "6c661cf0-b8e7-5468-abd8-4231898554fb",
   "contentPack": 9999,
-  "name": "PowerUseModifierLifeTransmuterHealingPoolExtra"
+  "name": "PowerUseModifierCollegeOfLifeHealingPoolBonus"
 }

@@ -128,8 +128,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Condition/&ConditionLifeTransmuterConstitutionTitle",
-    "description": "Condition/&ConditionLifeTransmuterConstitutionDescription",
+    "title": "Condition/&ConditionCollegeOfLifeConstitutionTitle",
+    "description": "Condition/&ConditionCollegeOfLifeConstitutionDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "7e058de2206b3f74881faf121820130b",
@@ -149,7 +149,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "eca17e0e-7fa5-57e6-b43d-f756e963ad0d",
+  "guid": "22f859a3-3ab4-5a6d-8244-949bae28ccf2",
   "contentPack": 9999,
-  "name": "ConditionLifeTransmuterConstitution"
+  "name": "ConditionCollegeOfLifeConstitution"
 }

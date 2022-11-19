@@ -77,8 +77,8 @@
         "saveOccurence": "EndOfTurn",
         "conditionForm": {
           "$type": "ConditionForm, Assembly-CSharp",
-          "conditionDefinitionName": "ConditionLifeTransmuterElementalResistance",
-          "conditionDefinition": "Definition:ConditionLifeTransmuterElementalResistance:3af2d724-7069-59e0-a32c-899d9c8726dc",
+          "conditionDefinitionName": "ConditionCollegeOfLifeElementalResistance",
+          "conditionDefinition": "Definition:ConditionCollegeOfLifeElementalResistance:4710d88e-bee9-5ac9-8290-99dd97796762",
           "operation": "Add",
           "conditionsList": [],
           "applyToSelf": false,
@@ -324,8 +324,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&PowerSharedPoolLifeTransmuterElementalResistanceTitle",
-    "description": "Feature/&PowerSharedPoolLifeTransmuterElementalResistanceDescription",
+    "title": "Feature/&PowerSharedPoolCollegeOfLifeElementalResistanceTitle",
+    "description": "Feature/&PowerSharedPoolCollegeOfLifeElementalResistanceDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "c913e2f384f838e4d8d2efdf863996f9",
@@ -345,7 +345,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "637acbab-fceb-5716-8ccb-fd0d0d413a35",
+  "guid": "b4492193-45f5-5c77-b688-a9ac91c38dbf",
   "contentPack": 9999,
-  "name": "PowerSharedPoolLifeTransmuterElementalResistance"
+  "name": "PowerSharedPoolCollegeOfLifeElementalResistance"
 }
