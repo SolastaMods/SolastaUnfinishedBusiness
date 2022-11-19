@@ -322,7 +322,7 @@
   "uniqueInstance": true,
   "showCasting": true,
   "shortTitleOverride": "",
-  "overriddenPower": "Definition:PowerWildMasterSummonSpiritBeastKindredSpiritBear3:ddf97a0a-7c2b-5a4e-9333-44e4119566de",
+  "overriddenPower": "Definition:PowerWildMasterSummonSpiritBeastKindredSpiritEagle3:34bd3aae-6891-5a0d-a543-aa2d2560b965",
   "includeBaseDescription": false,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",

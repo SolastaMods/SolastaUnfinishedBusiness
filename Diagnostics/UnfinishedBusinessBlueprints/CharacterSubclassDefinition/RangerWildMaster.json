@@ -3,6 +3,11 @@
   "featureUnlocks": [
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:PowerWildMasterSummonSpiritBeastPool:46816a6a-0d4f-5133-bb70-886541bf9ad8",
+      "level": 3
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:FeatureSetWildMaster03:d7255ff8-8ca8-5346-a265-2bf66893c260",
       "level": 3
     },

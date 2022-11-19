@@ -3,8 +3,9 @@
 1.4.28.4:
 
 - Add a sprite to Torchbearer
-- Fix Shared Vigilance using INT of a target instead of self
-- Improve / fix Wild Master
+- Fix Shared Vigilance using target INT instead of self
+- Fix Wild Master offering multiple summons
+- Improve Wild Master beast powers
 
 1.4.28.3:
 

@@ -79,9 +79,9 @@
     "Definition:ActionAffinityWildMasterSpiritBeast:67246cb1-3617-5d0b-89f5-215e54bf88a3",
     "Definition:ConditionAffinityWildMasterSpiritBeastInitiative:074d3251-8db0-5c10-949c-97fed558a0c3",
     "Definition:MoveModeMove8:4c110104739c99e4d920529a058ab2e2",
-    "Definition:PowerEyebiteSickened:c5b18871e7914624ea2cbbd847303907",
     "Definition:PowerHelp:faded953-56c9-55e9-aa49-54a485c1de6d",
-    "Definition:PowerVampiricTouch:a578a0f3cd07e6b4e892d32f8e786e07",
+    "Definition:PowerWildMasterBreathWeaponCold:a7a04114-dd76-5370-bf61-ddc0e71070fb",
+    "Definition:PowerWildMasterResilienceCold:d0971894-d407-588e-ac07-1d33adf2ae1b",
     "Definition:SenseNormalVision:222ef639393ed4e4bbd7152690597945"
   ],
   "attackIterations": [

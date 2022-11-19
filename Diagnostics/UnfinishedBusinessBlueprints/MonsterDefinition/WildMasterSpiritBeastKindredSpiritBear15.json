@@ -46,10 +46,11 @@
     "Definition:ConditionAffinityWildMasterSpiritBeastInitiative:074d3251-8db0-5c10-949c-97fed558a0c3",
     "Definition:MoveModeMove5:39236d1a5cbaf114d96e2709eb817529",
     "Definition:PerceptionAffinityWildMasterSpiritBeast:428e7055-c49a-51d9-a0f6-b12c87974615",
-    "Definition:PowerEyebitePanicked:7c9fd45374147c04da705bf77d14916c",
     "Definition:PowerGreen_Hag_Invisibility:ee75d2fe8cd622e4093aa1a3f511ec28",
     "Definition:PowerHelp:faded953-56c9-55e9-aa49-54a485c1de6d",
-    "Definition:PowerReckless:3095894976883c04e8c53ac7253e8005",
+    "Definition:PowerWildMasterBreathWeaponFire:1f8ec674-b7eb-56fa-8a82-efcd6e40661e",
+    "Definition:PowerWildMasterEyebiteFire:d91017a4-c24d-54a4-bd96-b54ae11d49c9",
+    "Definition:PowerWildMasterResilienceFire:32e13879-ed28-5146-80c4-8c67b7e25c2c",
     "Definition:SenseNormalVision:222ef639393ed4e4bbd7152690597945"
   ],
   "attackIterations": [

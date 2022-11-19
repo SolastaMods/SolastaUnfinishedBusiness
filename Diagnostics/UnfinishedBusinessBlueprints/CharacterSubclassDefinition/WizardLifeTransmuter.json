@@ -18,12 +18,12 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:PowerSharedPoolLifeTransmuterDarkvision:75523ff0-07a9-5e52-b6a4-d4c7f5881959",
+      "featureDefinition": "Definition:PowerSharedPoolLifeTransmuterHealingPool:4235f0aa-76f9-5934-a082-e38b2d8f3675",
       "level": 6
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:PowerSharedPoolLifeTransmuterHealingPool:4235f0aa-76f9-5934-a082-e38b2d8f3675",
+      "featureDefinition": "Definition:PowerSharedPoolLifeTransmuterDarkvision:75523ff0-07a9-5e52-b6a4-d4c7f5881959",
       "level": 6
     },
     {
