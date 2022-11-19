@@ -33,7 +33,7 @@ internal sealed class WizardLifeTransmuter : AbstractSubclass
 
         var powerSharedPoolLifeTransmuterHealingPool = FeatureDefinitionPowerBuilder
             .Create("PowerSharedPoolLifeTransmuterHealingPool")
-            .SetGuiPresentation(Category.Feature)
+            .SetGuiPresentationNoContent(true)
             .SetUsesFixed(ActivationTime.BonusAction, RechargeRate.LongRest, 1, 2)
             .AddToDB();
 
