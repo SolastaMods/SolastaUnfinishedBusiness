@@ -325,7 +325,7 @@ internal sealed class RangerWildMaster : AbstractSubclass
             powerKindredSpiritWolf07,
             powerKindredSpiritWolf11,
             powerKindredSpiritWolf15);
-        
+
         //
         // required for a better UI presentation on level 15
         //

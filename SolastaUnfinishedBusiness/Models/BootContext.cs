@@ -133,13 +133,6 @@ internal static class BootContext
             // Manages update or welcome messages
             Load();
             Main.Enable();
-
-            var sl = DatabaseHelper.SpellListDefinitions.SpellListBard;
-
-            foreach (var x in sl.SpellsByLevel.SelectMany(x => x.Spells))
-            {
-                Main.Log($"{x.name} - {x.schoolOfMagic}");
-            }
         };
     }
 

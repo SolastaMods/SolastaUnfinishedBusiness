@@ -178,7 +178,7 @@ internal sealed class MartialTactician : AbstractSubclass
     private static FeatureDefinitionCustomInvocationPool BuildUnlearn()
     {
         return CustomInvocationPoolDefinitionBuilder
-            .Create($"InvocationPoolGambitUnlearn")
+            .Create("InvocationPoolGambitUnlearn")
             .SetGuiPresentationNoContent(true)
             .Setup(InvocationPoolTypeCustom.Pools.Gambit, 1, true)
             .AddToDB();
@@ -935,11 +935,11 @@ internal sealed class MartialTactician : AbstractSubclass
         }
     }
 
-    internal class TacticalSurge : ICustomOnActionFeature
+    private class TacticalSurge : ICustomOnActionFeature
     {
-        private readonly FeatureDefinitionPower power;
-        private readonly FeatureDefinition feature;
         private readonly ConditionDefinition condition;
+        private readonly FeatureDefinition feature;
+        private readonly FeatureDefinitionPower power;
 
         public TacticalSurge(FeatureDefinitionPower power, FeatureDefinition feature,
             ConditionDefinition condition)
@@ -967,7 +967,8 @@ internal sealed class MartialTactician : AbstractSubclass
             }
 
             character.InflictCondition(condition.Name, DurationType.Minute, 1, TurnOccurenceType.StartOfTurn,
-                AttributeDefinitions.TagCombat, character.Guid, character.CurrentFaction.Name, 1, feature.Name, 1, 0, 0);
+                AttributeDefinitions.TagCombat, character.Guid, character.CurrentFaction.Name, 1, feature.Name, 1, 0,
+                0);
         }
     }
 
