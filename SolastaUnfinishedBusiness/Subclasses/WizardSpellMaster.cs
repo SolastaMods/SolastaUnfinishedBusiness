@@ -1,9 +1,9 @@
 ﻿using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
+using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterSubclassDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPowers;
-using static RuleDefinitions;
 
 namespace SolastaUnfinishedBusiness.Subclasses;
 
@@ -86,7 +86,6 @@ internal sealed class WizardSpellMaster : AbstractSubclass
                 AttributeDefinitions.Intelligence,
                 AttributeDefinitions.Charisma)
             .AddToDB();
-
 
         _ = RestActivityDefinitionBuilder
             .Create("RestActivitySpellMasterArcaneDepth")

@@ -18,7 +18,7 @@ internal class FeatureDefinitionAttributeModifierBuilder
         Definition.modifierValue = amount;
         return this;
     }
-    
+
     internal FeatureDefinitionAttributeModifierBuilder SetAddConditionAmount(string attribute)
     {
         Definition.modifierOperation = AttributeModifierOperation.AddConditionAmount;

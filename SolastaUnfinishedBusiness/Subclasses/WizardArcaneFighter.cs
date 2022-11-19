@@ -1,9 +1,9 @@
 ﻿using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
+using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterSubclassDefinitions;
-using static RuleDefinitions;
 
 namespace SolastaUnfinishedBusiness.Subclasses;
 
@@ -33,7 +33,7 @@ internal sealed class WizardArcaneFighter : AbstractSubclass
                 FeatureDefinitionAttributeModifier.AttributeModifierOperation.ForceIfBetter,
                 AttributeDefinitions.AttacksNumber, 2)
             .AddToDB();
-        
+
         var replaceAttackWithCantripArcaneFighter = FeatureDefinitionReplaceAttackWithCantripBuilder
             .Create("ReplaceAttackWithCantripArcaneFighter")
             .SetGuiPresentation(Category.Feature)

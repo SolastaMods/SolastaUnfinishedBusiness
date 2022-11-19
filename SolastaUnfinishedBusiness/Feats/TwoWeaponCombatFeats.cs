@@ -101,7 +101,7 @@ internal static class TwoWeaponCombatFeats
             ActionModifier attackModifier)
         {
             // Test for Failed attack, as this routine is running on a miss
-            if ((attackMode == null) || (outcome == RollOutcome.Failure) || (outcome == RollOutcome.CriticalFailure))
+            if (attackMode == null || outcome is RollOutcome.Failure or RollOutcome.CriticalFailure)
             {
                 return;
             }

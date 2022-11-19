@@ -6,12 +6,12 @@ using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.Models;
+using static ActionDefinitions;
+using static FeatureDefinitionAttributeModifier;
+using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterSubclassDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
-using static RuleDefinitions;
-using static ActionDefinitions;
-using static FeatureDefinitionAttributeModifier;
 
 namespace SolastaUnfinishedBusiness.Subclasses;
 
@@ -251,7 +251,7 @@ internal sealed class RangerWildMaster : AbstractSubclass
             .Create("FeatureWildMasterBeastIsNextToSummoner")
             .SetGuiPresentation(Category.Feature)
             .AddToDB();
-        
+
         var featureSetWildMaster03 = FeatureDefinitionFeatureSetBuilder
             .Create("FeatureSetWildMaster03")
             .SetGuiPresentation(Category.Feature)

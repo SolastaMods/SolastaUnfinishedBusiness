@@ -205,7 +205,7 @@ public static class GameLocationBattleManagerPatcher
                 yield return values.Current;
             }
 
-#if false            
+#if false
             if (character != null)
             {
                 foreach (var feature in character.GetSubFeaturesByType<IOnAttackDamageEffect>())
