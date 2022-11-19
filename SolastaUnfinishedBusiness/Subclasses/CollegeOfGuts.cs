@@ -13,12 +13,17 @@ internal sealed class CollegeOfGuts : AbstractSubclass
     {
         var proficiencyCollegeOfGutsArmor = FeatureDefinitionProficiencyBuilder
             .Create(ProficiencyClericArmor, "ProficiencyCollegeOfGutsArmor")
-            .SetGuiPresentation(Category.Feature)
+            .SetGuiPresentationNoContent(true)
             .AddToDB();
 
         var proficiencyCollegeOfGutsWeapon = FeatureDefinitionProficiencyBuilder
             .Create(ProficiencyFighterWeapon, "ProficiencyCollegeOfGutsWeapon")
-            .SetGuiPresentation(Category.Feature)
+            .SetGuiPresentationNoContent(true)
+            .AddToDB();
+
+        var f = FeatureDefinitionFeatureSetBuilder
+            .Create("ProficiencyCollegeOfGutsFighting")
+            .AddFeatureSet(proficiencyCollegeOfGutsArmor, proficiencyCollegeOfGutsWeapon)
             .AddToDB();
 
         var magicAffinityCollegeOfGutsCombatMagic = FeatureDefinitionMagicAffinityBuilder
