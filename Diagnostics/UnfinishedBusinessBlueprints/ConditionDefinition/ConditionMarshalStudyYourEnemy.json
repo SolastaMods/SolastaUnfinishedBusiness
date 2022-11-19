@@ -9,14 +9,12 @@
   "silentWhenRemoved": true,
   "terminateWhenRemoved": false,
   "specialDuration": false,
-  "durationType": "Round",
+  "durationType": "Hour",
   "durationParameterDie": "D4",
-  "durationParameter": 0,
+  "durationParameter": 1,
   "forceTurnOccurence": false,
   "turnOccurence": "EndOfTurn",
-  "specialInterruptions": [
-    "AnyBattleTurnEnd"
-  ],
+  "specialInterruptions": [],
   "interruptionRequiresSavingThrow": false,
   "interruptionSavingThrowComputationMethod": "SaveOverride",
   "interruptionSavingThrowAbility": "",
@@ -86,7 +84,7 @@
   },
   "timeToWaitBeforeApplyingShader": 0.5,
   "timeToWaitBeforeRemovingShader": 0.5,
-  "possessive": true,
+  "possessive": false,
   "amountOrigin": "None",
   "baseAmount": 0,
   "additiveAmount": false,
@@ -127,9 +125,9 @@
   },
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
-    "hidden": false,
-    "title": "Condition/&ConditionDualFlurryApplyTitle",
-    "description": "Condition/&ConditionDualFlurryApplyDescription",
+    "hidden": true,
+    "title": "Feature/&NoContentTitle",
+    "description": "Feature/&NoContentTitle",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -149,7 +147,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "2567264f-c871-5687-bd4b-4167a39a02fa",
+  "guid": "b3e29bd8-e71b-581b-8094-a8d7e0a598b9",
   "contentPack": 9999,
-  "name": "ConditionDualFlurryApply"
+  "name": "ConditionMarshalStudyYourEnemy"
 }

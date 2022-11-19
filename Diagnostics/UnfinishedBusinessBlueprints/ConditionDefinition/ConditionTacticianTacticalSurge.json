@@ -3,20 +3,20 @@
   "inDungeonEditor": false,
   "parentCondition": null,
   "conditionType": "Beneficial",
-  "features": [],
+  "features": [
+    "Definition:FeatureTacticianTacticalSurgeTick:7c8241de-f723-54f2-ad86-856d13b82e15"
+  ],
   "allowMultipleInstances": false,
-  "silentWhenAdded": true,
-  "silentWhenRemoved": true,
+  "silentWhenAdded": false,
+  "silentWhenRemoved": false,
   "terminateWhenRemoved": false,
   "specialDuration": false,
-  "durationType": "Round",
+  "durationType": "Hour",
   "durationParameterDie": "D4",
-  "durationParameter": 0,
+  "durationParameter": 1,
   "forceTurnOccurence": false,
   "turnOccurence": "EndOfTurn",
-  "specialInterruptions": [
-    "AnyBattleTurnEnd"
-  ],
+  "specialInterruptions": [],
   "interruptionRequiresSavingThrow": false,
   "interruptionSavingThrowComputationMethod": "SaveOverride",
   "interruptionSavingThrowAbility": "",
@@ -86,7 +86,7 @@
   },
   "timeToWaitBeforeApplyingShader": 0.5,
   "timeToWaitBeforeRemovingShader": 0.5,
-  "possessive": true,
+  "possessive": false,
   "amountOrigin": "None",
   "baseAmount": 0,
   "additiveAmount": false,
@@ -128,11 +128,11 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Condition/&ConditionDualFlurryApplyTitle",
-    "description": "Condition/&ConditionDualFlurryApplyDescription",
+    "title": "Condition/&ConditionTacticianTacticalSurgeTitle",
+    "description": "Condition/&ConditionTacticianTacticalSurgeDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "",
+      "m_AssetGUID": "009a0dd5-4cbc-546d-bb0f-559ffe689449",
       "m_SubObjectName": null,
       "m_SubObjectType": null
     },
@@ -149,7 +149,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "2567264f-c871-5687-bd4b-4167a39a02fa",
+  "guid": "1843e9d7-7ca5-533c-9716-a5e50ba7c5fe",
   "contentPack": 9999,
-  "name": "ConditionDualFlurryApply"
+  "name": "ConditionTacticianTacticalSurge"
 }
