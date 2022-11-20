@@ -43,7 +43,7 @@ internal sealed class SorcerousFieldManipulator : AbstractSubclass
                 Sleep) // enchantment 1
             .AddToDB();
 #endif
-        
+
         var magicAffinityFieldManipulatorDc = FeatureDefinitionMagicAffinityBuilder
             .Create("MagicAffinityFieldManipulatorDC")
             .SetGuiPresentation(Category.Feature)

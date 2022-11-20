@@ -31,7 +31,10 @@ public static class SessionState_SetupPatcher
                 var name = Main.Settings.DefaultPartyHeroes.ElementAt(slotIndex);
                 var isBuiltIn = ToolsContext.IsBuiltIn(name);
 
-                filename = Path.Combine(!isBuiltIn ? TacticalAdventuresApplication.GameCharactersDirectory : TacticalAdventuresApplication.GameBuiltInCharactersDirectory, name) + ".chr";
+                filename = Path.Combine(
+                    !isBuiltIn
+                        ? TacticalAdventuresApplication.GameCharactersDirectory
+                        : TacticalAdventuresApplication.GameBuiltInCharactersDirectory, name) + ".chr";
             }
 
             session.AssignCharacterToPlayer(playerIndex, slotIndex, filename, notify);

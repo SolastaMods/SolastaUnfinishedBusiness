@@ -90,7 +90,11 @@ public static class NewAdventurePanelPatcher
 
                 var name = Main.Settings.DefaultPartyHeroes[i];
                 var isBuiltIn = ToolsContext.IsBuiltIn(name);
-                var filename = Path.Combine(!isBuiltIn ? TacticalAdventuresApplication.GameCharactersDirectory : TacticalAdventuresApplication.GameBuiltInCharactersDirectory, name) + ".chr";
+                var filename =
+                    Path.Combine(
+                        !isBuiltIn
+                            ? TacticalAdventuresApplication.GameCharactersDirectory
+                            : TacticalAdventuresApplication.GameBuiltInCharactersDirectory, name) + ".chr";
 
                 __instance.selectedSlot = i;
                 __instance.CharacterSelected(filename);
