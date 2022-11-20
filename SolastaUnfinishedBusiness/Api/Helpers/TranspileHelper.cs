@@ -96,15 +96,25 @@ internal static class TranspileHelper
         return instructions.ReplaceCodeImpl(match, occurrence, 0, patchContext, codeInstructions);
     }
 
+    private static void NoAssert(bool condition)
+    {
+    }
+
+    private static void NoAssert(bool condition, string message, params object[] args)
+    {
+    }
+
     public static IEnumerable<CodeInstruction> RemoveBoolAsserts(this IEnumerable<CodeInstruction> instructions)
     {
-        static void NoAssert(bool condition)
-        {
-        }
-
-        var assert = typeof(Trace).GetMethod("Assert", new[] { typeof(bool) });
-        var noAssert = new Action<bool>(NoAssert).Method;
         var code = instructions.ToList();
+
+        var assert = typeof(Trace).GetMethod("Assert", new[] {typeof(bool)});
+        var noAssert = new Action<bool>(NoAssert).Method;
+
+        code.FindAll(x => x.Calls(assert)).ForEach(x => x.operand = noAssert);
+
+        assert = typeof(Trace).GetMethod("Assert", new[] {typeof(bool), typeof(string), typeof(object[])});
+        noAssert = new Action<bool, string, object[]>(NoAssert).Method;
 
         code.FindAll(x => x.Calls(assert)).ForEach(x => x.operand = noAssert);
 

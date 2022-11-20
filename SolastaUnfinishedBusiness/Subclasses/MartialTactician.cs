@@ -43,10 +43,9 @@ internal sealed class MartialTactician : AbstractSubclass
             .Create("MartialTactician")
             .SetGuiPresentation(Category.Subclass, RoguishShadowCaster)
             .AddFeaturesAtLevel(3, BuildSharpMind(), GambitPool, learn3Gambits, EverVigilant)
-            .AddFeaturesAtLevel(5, BuildGambitPoolIncrease(), BuildGambitDieSize(DieType.D8))
+            .AddFeaturesAtLevel(5, BuildGambitDieSize(DieType.D8))
             .AddFeaturesAtLevel(7, BuildGambitPoolIncrease(), learn1Gambit, unlearn, BuildSharedVigilance())
-            .AddFeaturesAtLevel(10, BuildGambitPoolIncrease(), BuildAdaptiveStrategy(), BuildTacticalSurge(),
-                BuildGambitDieSize(DieType.D10))
+            .AddFeaturesAtLevel(10, BuildAdaptiveStrategy(), BuildTacticalSurge(), BuildGambitDieSize(DieType.D10))
             .AddFeaturesAtLevel(15, BuildGambitPoolIncrease(), learn1Gambit, unlearn, BuildGambitDieSize(DieType.D12))
             .AddToDB();
 
@@ -621,6 +620,35 @@ internal sealed class MartialTactician : AbstractSubclass
         //TODO: add proper icon
         sprite = Sprites.ActionGambit;
 
+        var good = ConditionDefinitionBuilder
+            .Create($"Condition{name}Good")
+            .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionBlessed)
+            .SetSilent(Silent.None)
+            .SetAmountOrigin(ExtraOriginOfAmount.SourceProficiencyBonus)
+            .SetFeatures(FeatureDefinitionAttributeModifierBuilder
+                .Create($"AttributeModifier{name}Good")
+                .SetGuiPresentation($"Condition{name}Good", Category.Condition)
+                .SetAddConditionAmount(AttributeDefinitions.ArmorClass)
+                .AddToDB())
+            .SetSpecialDuration()
+            .SetDuration(DurationType.Round, 1)
+            .AddToDB();
+
+        var bad = ConditionDefinitionBuilder
+            .Create($"Condition{name}Bad")
+            .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionBranded)
+            .IsDetrimental()
+            .SetSilent(Silent.None)
+            .SetAmountOrigin(ExtraOriginOfAmount.SourceProficiencyBonusNegative)
+            .SetFeatures(FeatureDefinitionAttributeModifierBuilder
+                .Create($"AttributeModifier{name}Bad")
+                .SetGuiPresentation($"Condition{name}Bad", Category.Condition)
+                .SetAddConditionAmount(AttributeDefinitions.ArmorClass)
+                .AddToDB())
+            .SetSpecialDuration()
+            .SetDuration(DurationType.Round, 1)
+            .AddToDB();
+
         power = FeatureDefinitionPowerSharedPoolBuilder
             .Create($"Power{name}Activate")
             .SetGuiPresentation(name, Category.Feature, sprite)
@@ -629,7 +657,8 @@ internal sealed class MartialTactician : AbstractSubclass
             .SetShowCasting(false)
             .SetSharedPool(ActivationTime.BonusAction, GambitPool)
             .SetEffectDescription(EffectDescriptionBuilder.Create()
-                .SetTargetingData(Side.Enemy, RangeType.Touch, 1, TargetType.Individuals)
+                .SetTargetFiltering(TargetFilteringMethod.CharacterOnly)
+                .SetTargetingData(Side.All, RangeType.Touch, 1, TargetType.Individuals)
                 .ExcludeCaster()
                 .SetHasSavingThrow(AttributeDefinitions.Wisdom,
                     EffectDifficultyClassComputation.AbilityScoreAndProficiency,
@@ -642,19 +671,9 @@ internal sealed class MartialTactician : AbstractSubclass
                     EffectFormBuilder.Create()
                         .SetConditionForm(ConditionDefinitionBuilder
                             .Create($"Condition{name}")
-                            .SetGuiPresentation(name, Category.Condition, ConditionDefinitions.ConditionBranded)
-                            .IsDetrimental()
-                            .SetSilent(Silent.None)
-                            .SetAmountOrigin(ExtraOriginOfAmount.SourceProficiencyBonusNegative)
-                            .SetFeatures(FeatureDefinitionAttributeModifierBuilder
-                                .Create($"AttributeModifier{name}")
-                                .SetGuiPresentation(name, Category.Condition)
-                                .SetModifier(
-                                    FeatureDefinitionAttributeModifier.AttributeModifierOperation.AddConditionAmount,
-                                    AttributeDefinitions.ArmorClass)
-                                .AddToDB())
-                            .SetSpecialDuration()
-                            .SetDuration(DurationType.Round, 1)
+                            .SetGuiPresentationNoContent(true)
+                            .SetCustomSubFeatures(new ApplyConditionDependingOnSide(good, bad))
+                            .SetSilent(Silent.WhenAddedOrRemoved)
                             .AddToDB(), ConditionForm.ConditionOperation.Add)
                         .HasSavingThrow(EffectSavingThrowType.Negates)
                         .Build())
@@ -867,6 +886,35 @@ internal sealed class MartialTactician : AbstractSubclass
         }
     }
 
+    private class ApplyConditionDependingOnSide : ICustomConditionFeature
+    {
+        private readonly ConditionDefinition good, bad;
+
+        public ApplyConditionDependingOnSide(ConditionDefinition good, ConditionDefinition bad)
+        {
+            this.good = good;
+            this.bad = bad;
+        }
+
+        public void ApplyFeature(RulesetCharacter target, RulesetCondition rulesetCondition)
+        {
+            var caster = EffectHelpers.GetCharacterByGuid(rulesetCondition.sourceGuid);
+            if (caster == null)
+            {
+                return;
+            }
+
+            var condition = caster.IsOppositeSide(target.Side) ? bad : good;
+
+            target.InflictCondition(condition.Name, DurationType.Round, 1, TurnOccurenceType.StartOfTurn,
+                AttributeDefinitions.TagCombat, caster.Guid, caster.CurrentFaction.Name, 1, null, 0, 0, 0);
+        }
+
+        public void RemoveFeature(RulesetCharacter target, RulesetCondition rulesetCondition)
+        {
+        }
+    }
+
     internal class Brace
     {
         private readonly ConditionDefinition condition;
@@ -958,7 +1006,7 @@ internal sealed class MartialTactician : AbstractSubclass
 
             var character = action.ActingCharacter.RulesetCharacter;
             var charges = character.GetRemainingPowerUses(power) - character.GetMaxUsesForPool(power);
-            charges = Math.Max(charges, -4);
+            charges = Math.Max(charges, -2);
 
             GameConsoleHelper.LogCharacterUsedFeature(character, feature, indent: true);
             if (charges < 0)
@@ -987,7 +1035,7 @@ internal sealed class MartialTactician : AbstractSubclass
         {
             var character = locationCharacter.RulesetCharacter;
             var charges = character.GetRemainingPowerUses(power) - character.GetMaxUsesForPool(power);
-            charges = Math.Max(charges, -2);
+            charges = Math.Max(charges, -1);
 
             if (charges >= 0)
             {
