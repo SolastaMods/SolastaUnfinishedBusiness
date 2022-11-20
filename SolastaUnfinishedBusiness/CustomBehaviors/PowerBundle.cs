@@ -5,6 +5,7 @@ using System.Linq;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.Extensions;
 using SolastaUnfinishedBusiness.Builders;
+using SolastaUnfinishedBusiness.CustomDefinitions;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.Models;
 using UnityEngine;
@@ -333,8 +334,13 @@ internal static class PowerBundle
             result = baseDefinition.GetCustomEffect(caster) ?? original;
         }
 
-        var modifiers = caster.GetSubFeaturesByType<IModifyMagicEffect>();
+        //ignore features from powers, they would be processed later
+        var modifiers = caster.GetSubFeaturesByType<IModifyMagicEffect>(
+            typeof(FeatureDefinitionPower),
+            typeof(FeatureDefinitionPowerSharedPool)
+        );
 
+        //process features from spell/power
         modifiers.AddRange(definition.GetAllSubFeaturesOfType<IModifyMagicEffect>());
 
         if (!modifiers.Empty())
