@@ -4,6 +4,7 @@ using SolastaUnfinishedBusiness.CustomBehaviors;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterSubclassDefinitions;
+using static SolastaUnfinishedBusiness.Subclasses.CommonBuilders;
 
 namespace SolastaUnfinishedBusiness.Subclasses;
 
@@ -15,11 +16,6 @@ internal sealed class WizardArcaneFighter : AbstractSubclass
             .Create("MagicAffinityArcaneFighterConcentrationAdvantage")
             .SetGuiPresentation(Category.Feature)
             .SetConcentrationModifiers(ConcentrationAffinity.Advantage)
-            .AddToDB();
-
-        var replaceAttackWithCantripArcaneFighter = FeatureDefinitionReplaceAttackWithCantripBuilder
-            .Create("ReplaceAttackWithCantripArcaneFighter")
-            .SetGuiPresentation(Category.Feature)
             .AddToDB();
 
         var additionalActionArcaneFighter = FeatureDefinitionAdditionalActionBuilder
@@ -43,8 +39,7 @@ internal sealed class WizardArcaneFighter : AbstractSubclass
 
         var powerArcaneFighterEnchantWeapon = FeatureDefinitionPowerBuilder
             .Create("PowerArcaneFighterEnchantWeapon")
-            .SetGuiPresentation("AttackModifierArcaneFighterIntBonus", Category.Feature,
-                FeatureDefinitionPowers.PowerDomainElementalLightningBlade)
+            .SetGuiPresentation(Category.Feature, FeatureDefinitionPowers.PowerDomainElementalLightningBlade)
             .SetUsesProficiencyBonus(ActivationTime.BonusAction, RechargeRate.ShortRest)
             .SetEffectDescription(
                 EffectDescriptionBuilder
@@ -65,7 +60,7 @@ internal sealed class WizardArcaneFighter : AbstractSubclass
                                 new FeatureUnlockByLevel(
                                     FeatureDefinitionAttackModifierBuilder
                                         .Create("AttackModifierArcaneFighterIntBonus")
-                                        .SetGuiPresentation(Category.Feature,
+                                        .SetGuiPresentation("PowerArcaneFighterEnchantWeapon", Category.Feature,
                                             FeatureDefinitionAttackModifiers.AttackModifierMagicWeapon)
                                         .SetAbilityScoreReplacement(AbilityScoreReplacement.SpellcastingAbility)
                                         .SetAdditionalAttackTag(TagsDefinitions.Magical)
@@ -80,12 +75,12 @@ internal sealed class WizardArcaneFighter : AbstractSubclass
             .Create("WizardArcaneFighter")
             .SetGuiPresentation(Category.Subclass, MartialSpellblade)
             .AddFeaturesAtLevel(2,
-                FeatureSetCasterFighting,
+                FeatureSetCasterFightingProficiency,
                 magicAffinityArcaneFighterConcentrationAdvantage,
                 powerArcaneFighterEnchantWeapon)
             .AddFeaturesAtLevel(6,
                 AttributeModifierCasterFightingExtraAttack,
-                replaceAttackWithCantripArcaneFighter)
+                ReplaceAttackWithCantripCasterFighting)
             .AddFeaturesAtLevel(10,
                 additionalActionArcaneFighter)
             .AddFeaturesAtLevel(14,

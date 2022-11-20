@@ -8,7 +8,7 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:FeatureSetCasterFighting:dc682f89-4f12-58e2-98ae-4d9ac285d092",
+      "featureDefinition": "Definition:FeatureSetCasterFightingProficiency:d0bc1302-ebf6-535a-94dd-d1770b2c3dcb",
       "level": 2
     },
     {
@@ -18,7 +18,7 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:ReplaceAttackWithCantripArcaneFighter:a02c396a-4a94-587f-9189-801afceec782",
+      "featureDefinition": "Definition:ReplaceAttackWithCantripCasterFighting:9f727855-aa19-56a0-a6e6-6b2d42facae0",
       "level": 6
     },
     {

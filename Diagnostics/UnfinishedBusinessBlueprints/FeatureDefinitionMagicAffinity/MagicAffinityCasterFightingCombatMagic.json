@@ -53,8 +53,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&MagicAffinityCollegeOfGutsCombatMagicTitle",
-    "description": "Feature/&MagicAffinityCollegeOfGutsCombatMagicDescription",
+    "title": "Feature/&MagicAffinityCasterFightingCombatMagicTitle",
+    "description": "Feature/&MagicAffinityCasterFightingCombatMagicDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -74,7 +74,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "2376bde6-4b37-5956-b7cf-057ce0502931",
+  "guid": "d97ab358-d6a2-5b95-909f-e18f70293ad3",
   "contentPack": 9999,
-  "name": "MagicAffinityCollegeOfGutsCombatMagic"
+  "name": "MagicAffinityCasterFightingCombatMagic"
 }

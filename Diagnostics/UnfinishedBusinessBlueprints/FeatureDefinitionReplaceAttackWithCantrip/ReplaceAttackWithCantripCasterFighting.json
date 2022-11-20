@@ -3,8 +3,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&ReplaceAttackWithCantripSpellShieldTitle",
-    "description": "Feature/&ReplaceAttackWithCantripSpellShieldDescription",
+    "title": "Feature/&ReplaceAttackWithCantripCasterFightingTitle",
+    "description": "Feature/&ReplaceAttackWithCantripCasterFightingDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -24,7 +24,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "8425b3e4-37ce-553a-8c46-db31230aa21b",
+  "guid": "9f727855-aa19-56a0-a6e6-6b2d42facae0",
   "contentPack": 9999,
-  "name": "ReplaceAttackWithCantripSpellShield"
+  "name": "ReplaceAttackWithCantripCasterFighting"
 }

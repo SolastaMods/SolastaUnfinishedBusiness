@@ -18,12 +18,12 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:AttributeModifierCasterFightingExtraAttack:d683c90c-1240-51bc-878a-617aa7133df0",
+      "featureDefinition": "Definition:ReplaceAttackWithCantripCasterFighting:9f727855-aa19-56a0-a6e6-6b2d42facae0",
       "level": 6
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:ReplaceAttackWithCantripBladeDancer:76d4e568-ee87-5e94-b391-7e235e6fae99",
+      "featureDefinition": "Definition:AttributeModifierCasterFightingExtraAttack:d683c90c-1240-51bc-878a-617aa7133df0",
       "level": 6
     },
     {

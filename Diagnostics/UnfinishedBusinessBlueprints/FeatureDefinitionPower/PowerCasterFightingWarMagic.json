@@ -77,11 +77,11 @@
         "saveOccurence": "EndOfTurn",
         "conditionForm": {
           "$type": "ConditionForm, Assembly-CSharp",
-          "conditionDefinitionName": "ConditionCollegeOfGutsWarMagic",
-          "conditionDefinition": "Definition:ConditionCollegeOfGutsWarMagic:b420be37-d4cb-5eeb-a8b4-3c135b836084",
+          "conditionDefinitionName": "ConditionCasterFightingWarMagic",
+          "conditionDefinition": "Definition:ConditionCasterFightingWarMagic:7673ca94-a0c8-5086-9d9e-cf632937cff6",
           "operation": "Add",
           "conditionsList": [
-            "Definition:ConditionCollegeOfGutsWarMagic:b420be37-d4cb-5eeb-a8b4-3c135b836084"
+            "Definition:ConditionCasterFightingWarMagic:7673ca94-a0c8-5086-9d9e-cf632937cff6"
           ],
           "applyToSelf": false,
           "forceOnSelf": false
@@ -326,8 +326,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&PowerCollegeOfGutsWarMagicTitle",
-    "description": "Feature/&PowerCollegeOfGutsWarMagicDescription",
+    "title": "Feature/&PowerCasterFightingWarMagicTitle",
+    "description": "Feature/&PowerCasterFightingWarMagicDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -347,7 +347,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "18c012be-9bfd-5022-80d6-f4ffe58002c5",
+  "guid": "368681bf-0523-5709-a17a-62416add2f96",
   "contentPack": 9999,
-  "name": "PowerCollegeOfGutsWarMagic"
+  "name": "PowerCasterFightingWarMagic"
 }

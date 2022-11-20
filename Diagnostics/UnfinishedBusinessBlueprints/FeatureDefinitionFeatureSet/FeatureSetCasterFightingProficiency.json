@@ -14,8 +14,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&FeatureSetCasterFightingTitle",
-    "description": "Feature/&FeatureSetCasterFightingDescription",
+    "title": "Feature/&FeatureSetCasterFightingProficiencyTitle",
+    "description": "Feature/&FeatureSetCasterFightingProficiencyDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -35,7 +35,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "dc682f89-4f12-58e2-98ae-4d9ac285d092",
+  "guid": "d0bc1302-ebf6-535a-94dd-d1770b2c3dcb",
   "contentPack": 9999,
-  "name": "FeatureSetCasterFighting"
+  "name": "FeatureSetCasterFightingProficiency"
 }
