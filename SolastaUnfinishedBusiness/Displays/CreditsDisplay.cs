@@ -16,13 +16,13 @@ internal static class CreditsDisplay
     internal static readonly List<(string, string)> CreditsTable = new()
     {
         ("Zappastuff",
-            "maintenance, gameplay, feats, fighting styles, invocations, rules, quality of life, Half-elf variants, Blade Dancer, College of Guts, Dead Master, Way of The Silhouette, Wild Master, Multiclass"),
+            "maintenance, gameplay, feats, fighting styles, invocations, rules, quality of life, Half-elf variants, Blade Dancer, College of Guts, College of Life, Dead Master, Field Manipulator, Way of The Silhouette, Wild Master, Multiclass"),
         ("TPABOBAP",
             "game UI, infrastructure, gameplay, feats, invocations, spells, Dead Master, Elementalist, Moonlit, RiftWalker, SoulBlade, Tactician, Way of The Distant Hand, Inventor"),
         ("ImpPhil", "api, builders, gameplay, rules, quality of life"),
-        ("SilverGriffon", "gameplay, visuals, spells, Dark Elf, Draconic Kobold, Grey Dwarf, Divine Heart"),
         ("ChrisJohnDigital",
-            "gameplay, feats, fighting styles, Arcane Master, Life Transmuter, Spell Master, Spell Shield"),
+            "gameplay, feats, fighting styles, Arcane Fighter, Life Transmuter, Master Manipulator, Spell Master, Spell Shield"),
+        ("SilverGriffon", "gameplay, visuals, spells, Dark Elf, Draconic Kobold, Grey Dwarf, Divine Heart"),
         ("Nd", "Marshal, Opportunist, Raven, Spell Shield"),
         ("DubhHerder", "gameplay, spells, Elementalist, Moonlit, RiftWalker"),
         ("ElAntonious", "feats, Arcanist"),
@@ -80,7 +80,7 @@ internal static class CreditsDisplay
                 using (UI.HorizontalScope())
                 {
                     UI.Label(author.Orange(), UI.Width(150));
-                    UI.Label(content, UI.Width(900));
+                    UI.Label(content, UI.Width(500));
                 }
             }
         }

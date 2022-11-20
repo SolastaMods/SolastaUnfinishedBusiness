@@ -2,6 +2,9 @@
 
 1.4.28.6:
 
+- consolidated common subclasses features
+- fixed executioner damage
+- fixed reported translations issues
 - fixed wrong College of Life progression
 - rebalanced College of Life
 - rebalanced Field Manipulator

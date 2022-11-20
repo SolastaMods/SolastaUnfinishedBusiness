@@ -3,12 +3,12 @@
   "featureUnlocks": [
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:MagicAffinitySoulBladeExpandedSpells:3ccab35a-8074-5d5e-b5ab-4f278f9f5fd2",
+      "featureDefinition": "Definition:FeatureSetCasterFightingProficiency:d0bc1302-ebf6-535a-94dd-d1770b2c3dcb",
       "level": 1
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:FeatureSetCasterFightingProficiency:d0bc1302-ebf6-535a-94dd-d1770b2c3dcb",
+      "featureDefinition": "Definition:MagicAffinitySoulBladeExpandedSpells:3ccab35a-8074-5d5e-b5ab-4f278f9f5fd2",
       "level": 1
     },
     {
