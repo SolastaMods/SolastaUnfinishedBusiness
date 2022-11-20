@@ -1,0 +1,18 @@
+﻿Feedback/&BardicInspirationUsedToBoostCombatAbility={0} spends a {1} inspiration die to increase attack bonus, attack damage, AC and movement speed by {2}
+Feature/&CombatInspirationTitle=Combat Inspiration
+Feature/&CombatInspirationDescription=You are inspired when bathing in the heat of a fight. You can roll a bardic inspiration die and add the roll to your weapon attack, damage, AC and movement speed. The inspiration lasts until the start of your next turn
+Condition/&ConditionFightingAbilityEnhancedTitle=Ferocious
+Condition/&ConditionFightingAbilityEnhancedDescription=Your fighting ability is greatly enhanced
+Feature/&CombatInspirationArmorClassEnhancementTitle=Inspired Defense
+Feature/&CombatInspirationArmorClassEnhancementDescription=You gain a bonus to your AC equal to your bardic inspiration roll
+Feature/&CombatInspirationMovementEnhancementTitle=Inspired Movement
+Feature/&CombatInspirationMovementEnhancementDescription=You gain a bonus to your movement speed equal to your bardic inspiration roll
+Feature/&CombatInspirationAttackEnhancementTitle=Inspired Offense
+Feature/&CombatInspirationAttackEnhancementDescription=You gain a bonus to your attack and damage equal to your bardic inspiration roll
+Feature/&TerrificPerformanceTitle=Terrific Performance
+Feature/&TerrificPerformanceDescription=You strike down your enemies in a magnificent way that inspired fear in those who are still alive. Whenever you kill an enemy all other enemies within 30' of you must make a WIS saving throw against your spell DC to avoid being terrified. A terrified enemy has disadvantage on attack and saving throw. The effect last until the end of your next turn.
+Feature/&ImproveCombatInspirationTitle=Improved Combat Inspiration
+Feature/&ImproveCombatInspirationDescription=You regain a bardic inspiration die whenever you stroke down an enemy
+Subclass/&CollegeOfHarlequinTitle=College of Harlequin
+Subclass/&CollegeOfHarlequinDescription=Bards of the College of Guts gather in mead halls or around great bonfires to sing the deeds of the mighty, both past and present. They travel the land to witness great events firsthand and to ensure that the memory of those events doesn't pass from the world. With their songs, they inspire others to reach the same heights of accomplishment as the heroes of old.
+

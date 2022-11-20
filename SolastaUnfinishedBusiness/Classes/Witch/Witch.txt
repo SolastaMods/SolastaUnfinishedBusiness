@@ -1,0 +1,53 @@
+﻿Level progression:
+lv1: spell casting, summon familiar,
+lv2: secret lesson,  melee spell from familiar position
+lv3: 
+lv4: ability score bonus
+lv5: 
+lv6: secret lesson feature
+lv7: 
+lv8: ability score bonus
+lv9: 
+lv10: secret feature
+lv11:  
+lv12: ability score increase 
+lv13: 
+lv14: secret lesson feature
+lv15:  
+lv16: ability score bonus
+
+// witchcraft always int save
+// cannot imbue to save or suck spell
+burden ->  disadvantage in STR/DEX ability check and STR/DEX save, no save, focus pool, 1 point.
+simple mind -> cannot have advantage, disadvantage in INT save, no save, focus pool, 1 point.
+blind rage -> disadvantage in attack except source.
+
+fire spider kiss -> web like restrained with fire damage, STR save, PB per long rest, 2 point
+// work on save or suck spell
+mind trick -> change any save to int save, PB per long rest, 2 point
+
+forsaken -> creature is considered non-native if failed a CHA save
+blossom -> target familiar to do AOE -> 1 point
+mediation -> free, one per short rest, action, recharge focus pool equal to PB
+elemental betrayal -> remove resistance and immunity to elemental, no save
+sarcarify -> using reaction to drop to 1 HP if familiar alive
+
+ 
+Bonus spell list
+2: 
+- Burning Rage -> 1d6 per round/+2 to hit/damage/DC, heal on melee attack
+- Over Focus -> 1d6 per round/+2 to magic attack/DC, heal on touch or melee attack magic 
+
+6: Mutation 
+- 2d8 necrotic/CON save/strip immunity and resistance
+
+10: 
+- 
+14: 
+ 
+
+War
+2: Reaction cantrip if target failed the save from familiar attack
+6: Bonus action to command familiar to activate power again
+10: 
+

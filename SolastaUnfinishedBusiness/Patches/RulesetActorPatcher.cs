@@ -4,6 +4,7 @@ using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Reflection;
 using System.Reflection.Emit;
+using System.Web.UI.WebControls.WebParts;
 using HarmonyLib;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api;
@@ -11,6 +12,7 @@ using SolastaUnfinishedBusiness.Api.Extensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.Feats;
+using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Subclasses;
 using TA;
 using UnityEngine;
@@ -82,6 +84,10 @@ public static class RulesetActorPatcher
                         sourceAmount = AttributeDefinitions.ComputeAbilityScoreModifier(attribute.CurrentValue);
                     }
 
+                    break;
+                case (ConditionDefinition.OriginOfAmount)ExtraOriginOfAmount.SourceRollBardicDie:
+                    Main.Log("Add AC here",true);
+                    sourceAmount = Global.GetBardicRoll(sourceGuid);
                     break;
             }
         }

@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.CustomBehaviors;
 using UnityEngine;
@@ -61,6 +62,8 @@ internal static class Global
     // special case for our powers that add a turn off stop provider
     internal static HashSet<FeatureDefinitionPower> PowersThatIgnoreInterruptions { get; } = new();
 
+    internal static Dictionary<ulong, int> BardicDieRollPerCharacter { get; } = new();
+
     // restate globals on every new action
     internal static void ActionStarted([NotNull] CharacterAction characterAction)
     {
@@ -86,5 +89,23 @@ internal static class Global
                 PowerBundle.SpendBundledPowerIfNeeded(spendPower);
                 break;
         }
+    }
+
+    internal static int GetBardicRoll(ulong sourceGuid)
+    {
+        BardicDieRollPerCharacter.TryGetValue(sourceGuid, out int roll);
+        return roll;
+    }
+
+    internal static void SetBardicRoll(ulong sourceGuid, int roll)
+    {
+        Main.Log($"SetBardicRoll {sourceGuid}", true);
+        BardicDieRollPerCharacter.AddOrReplace(sourceGuid, roll);
+    }
+
+    internal static void RemoveBardicRoll(ulong sourceGuid)
+    {
+        Main.Log($"RemoveBardicRoll {sourceGuid}", true);
+        BardicDieRollPerCharacter.Remove(sourceGuid);
     }
 }

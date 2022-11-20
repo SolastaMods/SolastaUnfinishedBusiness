@@ -13,6 +13,7 @@ using SolastaUnfinishedBusiness.Api.Infrastructure;
 using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.Models;
+using SolastaUnfinishedBusiness.Subclasses;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
@@ -1020,6 +1021,25 @@ public static class RulesetCharacterPatcher
             failureFlag = string.Empty;
 
             return true;
+        }
+    }
+    
+    [HarmonyPatch(typeof(RulesetCharacter), "ComputeSpeedAddition")]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    public static class ComputeSpeedAddition_Patch
+    {
+        public static void Postfix(RulesetCharacter __instance, IMovementAffinityProvider provider, ref int __result)
+        {
+            var feature = provider as FeatureDefinition;
+            if (feature == null)
+            {
+                return;
+            }
+
+            if (feature.HasSubFeatureOfType<CollegeOfHarlequin.UseBardicDieRollForSpeedModifier>())
+            {
+                __result += Global.GetBardicRoll(__instance.guid);
+            }
         }
     }
 }
