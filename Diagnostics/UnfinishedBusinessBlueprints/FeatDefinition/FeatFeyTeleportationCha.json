@@ -14,7 +14,8 @@
   "features": [
     "Definition:AttributeModifierCreed_Of_Solasta:330246532ae609848887c37e44b7f7e4",
     "Definition:AutoPreparedSpellsFeyTeleportation:5684cdcf-e1a6-5aef-b2f5-698ea1545a56",
-    "Definition:PowerFeatFeyTeleportationMistyStep:ef9535e7-1456-510b-b522-8b64eda41124",
+    "Definition:CastSpellFeyTeleportCharisma:0bc50b63-3545-5477-b794-b73241821332",
+    "Definition:GrantInvocationsFeyTeleportCharisma:11a189c2-e276-584b-83dc-aeac545478a4",
     "Definition:ProficiencyFeatFeyTeleportationTirmarian:9cdd9f9d-6d92-51aa-acf7-3e56efcfa083"
   ],
   "guiPresentation": {

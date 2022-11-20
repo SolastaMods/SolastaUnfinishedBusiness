@@ -14,7 +14,8 @@
   "features": [
     "Definition:AttributeModifierCreed_Of_Pakri:de9467691aafac34c890c3e25d2f306c",
     "Definition:AutoPreparedSpellsFeyTeleportation:5684cdcf-e1a6-5aef-b2f5-698ea1545a56",
-    "Definition:PowerFeatFeyTeleportationMistyStep:ef9535e7-1456-510b-b522-8b64eda41124",
+    "Definition:CastSpellFeyTeleportIntelligence:e4a358c2-5c74-515d-afd9-edded52fca16",
+    "Definition:GrantInvocationsFeyTeleportIntelligence:95ae0c56-7750-58c8-9291-a85f10122d39",
     "Definition:ProficiencyFeatFeyTeleportationTirmarian:9cdd9f9d-6d92-51aa-acf7-3e56efcfa083"
   ],
   "guiPresentation": {

@@ -2,7 +2,7 @@
   "$type": "FeatureDefinitionAttributeModifier, Assembly-CSharp",
   "modifiedAttribute": "ArmorClass",
   "modifierOperation": "AddConditionAmount",
-  "modifierValue": 0,
+  "modifierValue": 1,
   "modifierAbilityScore": "Constitution",
   "situationalContext": "None",
   "minimum1": false,
@@ -10,8 +10,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Condition/&GambitSwitchTitle",
-    "description": "Condition/&GambitSwitchDescription",
+    "title": "Condition/&ConditionGambitSwitchGoodTitle",
+    "description": "Condition/&ConditionGambitSwitchGoodDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -31,7 +31,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "20668144-feb9-592e-a9aa-8619cf821531",
+  "guid": "fac73097-26ac-58f8-9cd6-3a78dacefbbc",
   "contentPack": 9999,
-  "name": "AttributeModifierGambitSwitch"
+  "name": "AttributeModifierGambitSwitchGood"
 }

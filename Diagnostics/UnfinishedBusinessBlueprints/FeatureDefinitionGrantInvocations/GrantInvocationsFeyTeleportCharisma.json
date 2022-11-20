@@ -1,10 +1,10 @@
 {
-  "$type": "SolastaUnfinishedBusiness.CustomDefinitions.FeatureDefinitionPowerUseModifier, SolastaUnfinishedBusiness",
+  "$type": "SolastaUnfinishedBusiness.CustomDefinitions.FeatureDefinitionGrantInvocations, SolastaUnfinishedBusiness",
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
-    "hidden": false,
-    "title": "Feature/&PowerUseModifierTacticianGambitPoolTitle",
-    "description": "Feature/&PowerUseModifierTacticianGambitPoolDescription",
+    "hidden": true,
+    "title": "Feature/&NoContentTitle",
+    "description": "Feature/&NoContentTitle",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -24,7 +24,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "549b3ed6-83b6-51b7-a538-34273c387e40",
+  "guid": "11a189c2-e276-584b-83dc-aeac545478a4",
   "contentPack": 9999,
-  "name": "PowerUseModifierTacticianGambitPool03"
+  "name": "GrantInvocationsFeyTeleportCharisma"
 }
