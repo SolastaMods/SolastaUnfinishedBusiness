@@ -26,6 +26,7 @@ internal static class SubclassesContext
         LoadSubclass(new CollegeOfLife());
 
         // Druid
+        LoadSubclass(new CircleOfTheAncientForest());
         LoadSubclass(new CircleOfTheForestGuardian());
 
         // Fighter

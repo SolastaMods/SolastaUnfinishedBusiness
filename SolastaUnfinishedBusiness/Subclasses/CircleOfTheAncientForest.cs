@@ -14,32 +14,32 @@ using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionDamag
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPowers;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.ItemDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
-using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellListDefinitions;
+using static SolastaUnfinishedBusiness.Builders.Features.AutoPreparedSpellsGroupBuilder;
 
 namespace SolastaUnfinishedBusiness.Subclasses;
 
-internal sealed class PatronAncientForest : AbstractSubclass
+internal sealed class CircleOfTheAncientForest : AbstractSubclass
 {
     private const string LifeSapName = "OnMagicalAttackDamageEffectAncientForestLifeSap";
 
-    internal PatronAncientForest()
+    internal CircleOfTheAncientForest()
     {
-        var spellListAncientForest = SpellListDefinitionBuilder
-            .Create(SpellListPaladin, "SpellListAncientForest")
-            .SetGuiPresentationNoContent(true)
-            .ClearSpells()
-            .SetSpellsAtLevel(1, Goodberry, Entangle)
-            .SetSpellsAtLevel(2, ProtectionFromPoison, SpikeGrowth)
-            .SetSpellsAtLevel(3, Revivify, StinkingCloud)
-            .SetSpellsAtLevel(4, Blight, GiantInsect)
-            .SetSpellsAtLevel(5, Contagion, InsectPlague)
-            .FinalizeSpells(true, 9)
+        var bonusCantripAncientForest = FeatureDefinitionBonusCantripsBuilder
+            .Create("BonusCantripAncientForest")
+            .SetGuiPresentation(Category.Feature)
+            .SetBonusCantrips(Shillelagh, ChillTouch)
             .AddToDB();
 
-        var magicAffinityAncientForestExpandedSpells = FeatureDefinitionMagicAffinityBuilder
-            .Create("MagicAffinityAncientForestExpandedSpells")
-            .SetGuiPresentation("MagicAffinityPatronExpandedSpells", Category.Feature)
-            .SetExtendedSpellList(spellListAncientForest)
+        var autoPreparedSpellsForestGuardian = FeatureDefinitionAutoPreparedSpellsBuilder
+            .Create("AutoPreparedSpellsAncientForest")
+            .SetGuiPresentation("DomainSpells", Category.Feature)
+            .SetPreparedSpellGroups(
+                BuildSpellGroup(2, Goodberry, Entangle),
+                BuildSpellGroup(3, ProtectionFromPoison, SpikeGrowth),
+                BuildSpellGroup(5, Revivify, StinkingCloud),
+                BuildSpellGroup(7, Blight, GiantInsect),
+                BuildSpellGroup(9, Contagion, InsectPlague))
+            .SetSpellcastingClass(DatabaseHelper.CharacterClassDefinitions.Druid)
             .AddToDB();
 
         var lifeSapFeature = FeatureDefinitionBuilder
@@ -51,12 +51,6 @@ internal sealed class PatronAncientForest : AbstractSubclass
         var powerAncientForestRegrowth = FeatureDefinitionPowerBuilder
             .Create(PowerPaladinLayOnHands, "PowerAncientForestRegrowth")
             .SetGuiPresentation(Category.Feature, PowerFunctionGoodberryHealing)
-            .AddToDB();
-
-        var bonusCantripAncientForest = FeatureDefinitionBonusCantripsBuilder
-            .Create("BonusCantripAncientForest")
-            .SetGuiPresentation(Category.Feature)
-            .SetBonusCantrips(Shillelagh, ChillTouch)
             .AddToDB();
 
         var powerPoolAncientForestHerbalBrew = FeatureDefinitionPowerBuilder
@@ -183,10 +177,10 @@ internal sealed class PatronAncientForest : AbstractSubclass
             .AddToDB();
 
         Subclass = CharacterSubclassDefinitionBuilder
-            .Create("PatronAncientForest")
+            .Create("CircleOfTheAncientForest")
             .SetGuiPresentation(Category.Subclass, TraditionGreenmage)
-            .AddFeaturesAtLevel(1,
-                magicAffinityAncientForestExpandedSpells,
+            .AddFeaturesAtLevel(2,
+                autoPreparedSpellsForestGuardian,
                 attributeModifierAncientForestRegrowth,
                 attributeModifierAncientForestRegrowthMultiplier,
                 powerAncientForestRegrowth,
@@ -206,7 +200,7 @@ internal sealed class PatronAncientForest : AbstractSubclass
     internal override CharacterSubclassDefinition Subclass { get; }
 
     internal override FeatureDefinitionSubclassChoice SubclassChoice => DatabaseHelper.FeatureDefinitionSubclassChoices
-        .SubclassChoiceWarlockOtherworldlyPatrons;
+        .SubclassChoiceDruidCircle;
 
     private static FeatureDefinitionPower BuildHerbalBrew(
         FeatureDefinitionPower pool,
@@ -309,7 +303,7 @@ internal sealed class PatronAncientForest : AbstractSubclass
             .SetGuiPresentation(guiPresentation)
             .MakeMagical()
             .SetFoodDescription(foodDescription)
-            .SetUsableDeviceDescription(new[] { powerAncientForestPotion })
+            .SetUsableDeviceDescription(powerAncientForestPotion)
             .SetItemRarity(ItemRarity.Common)
             .SetRequiresIdentification(false)
             .AddToDB();
