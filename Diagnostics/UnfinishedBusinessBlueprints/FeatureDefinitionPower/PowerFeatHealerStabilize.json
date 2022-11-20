@@ -313,7 +313,7 @@
   "usesDetermination": "AbilityBonusPlusFixed",
   "abilityScoreDetermination": "Explicit",
   "usesAbilityScoreName": "Wisdom",
-  "fixedUsesPerRecharge": 1,
+  "fixedUsesPerRecharge": 0,
   "abilityScore": "Intelligence",
   "attackHitComputation": "AbilityScore",
   "fixedAttackHit": 0,

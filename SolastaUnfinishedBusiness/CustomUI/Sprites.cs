@@ -119,6 +119,9 @@ public static class Sprites
     internal static AssetReferenceSprite ConditionGambit =>
         GetSprite("ConditionGambit", Resources.ConditionGambit, 32);
 
+    internal static AssetReferenceSprite ConditionTacticalSurge =>
+        GetSprite("ConditionTacticalSurge", Resources.ConditionTacticalSurge, 32);
+
     #endregion
 
     #region Spells

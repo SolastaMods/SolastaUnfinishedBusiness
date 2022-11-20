@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
-using System.Linq;
 using System.Reflection.Emit;
 using HarmonyLib;
 using JetBrains.Annotations;
@@ -48,8 +47,8 @@ public static class GuiFeatDefinitionPatcher
                     1, "GuiFeatDefinition.IsFeatMatchingPrerequisites",
                     new CodeInstruction(OpCodes.Call,
                         new Func<RulesetCharacterHero, int>(CanCastSpells).Method))
-                
-            // PATCH: Remove asserts in DEBUG build
+
+                // PATCH: Remove asserts in DEBUG build
                 .RemoveBoolAsserts();
         }
 

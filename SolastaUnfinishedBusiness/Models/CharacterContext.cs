@@ -30,7 +30,7 @@ internal static class CharacterContext
 
     private static int PreviousTotalFeatsGrantedFirstLevel { get; set; } = -1;
     private static bool PreviousAlternateHuman { get; set; }
-    private static FeatureDefinitionPower FeatureDefinitionPowerHelpAction { get; set; }
+    internal static FeatureDefinitionPower FeatureDefinitionPowerHelpAction { get; set; }
 
     internal static void Load()
     {
@@ -136,6 +136,27 @@ internal static class CharacterContext
     {
         var dbMorphotypeElementDefinition = DatabaseRepository.GetDatabase<MorphotypeElementDefinition>();
 
+        if (Main.Settings.UnlockSkinColors)
+        {
+            foreach (var morphotype in dbMorphotypeElementDefinition.Where(
+                         x => x.Category == MorphotypeElementDefinition.ElementCategory.Skin &&
+                              x != FaceAndSkin_12 &&
+                              x != FaceAndSkin_13 &&
+                              x != FaceAndSkin_14 &&
+                              x != FaceAndSkin_15 &&
+                              x != FaceAndSkin_16 &&
+                              x != FaceAndSkin_17 &&
+                              x != FaceAndSkin_18))
+            {
+                morphotype.playerSelectable = true;
+                morphotype.originAllowed = EyeColor_001.OriginAllowed;
+                if (morphotype.Name.Contains("Dragonborn"))
+                {
+                    morphotype.GuiPresentation.sortOrder = morphotype.GuiPresentation.SortOrder + 54;
+                }
+            }
+        }
+
         if (Main.Settings.UnlockGlowingColorsForAllMarksAndTattoos)
         {
             foreach (var morphotype in dbMorphotypeElementDefinition.Where(
@@ -199,9 +220,6 @@ internal static class CharacterContext
 
         if (Main.Settings.UnlockAllNpcFaces)
         {
-            FaceAndSkin_Defiler.playerSelectable = true;
-            FaceAndSkin_Neutral.playerSelectable = true;
-
             HalfElf.RacePresentation.FemaleFaceShapeOptions.Add("FaceShape_NPC_Princess");
             HalfElf.RacePresentation.MaleFaceShapeOptions.Add("FaceShape_HalfElf_NPC_Bartender");
             Human.RacePresentation.MaleFaceShapeOptions.Add("FaceShape_NPC_TavernGuy");

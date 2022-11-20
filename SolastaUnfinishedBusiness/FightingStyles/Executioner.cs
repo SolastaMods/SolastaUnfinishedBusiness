@@ -19,7 +19,7 @@ internal sealed class Executioner : AbstractFightingStyle
             FeatureDefinitionBuilder
                 .Create("OnComputeAttackModifierFightingStyleExecutioner")
                 .SetGuiPresentationNoContent(true)
-                .SetCustomSubFeatures(new OnAttackHitEffectFightingStyleExecutioner())
+                .SetCustomSubFeatures(new OnAttackDamageEffectFightingStyleExecutioner())
                 .AddToDB())
         .AddToDB();
 
@@ -28,7 +28,7 @@ internal sealed class Executioner : AbstractFightingStyle
         FightingStyleChampionAdditional, FightingStyleFighter, FightingStylePaladin, FightingStyleRanger
     };
 
-    private sealed class OnAttackHitEffectFightingStyleExecutioner : IOnAttackDamageEffect
+    private sealed class OnAttackDamageEffectFightingStyleExecutioner : IOnAttackDamageEffect
     {
         public void BeforeOnAttackDamage(
             GameLocationCharacter attacker,
@@ -63,35 +63,18 @@ internal sealed class Executioner : AbstractFightingStyle
 
             var effectDescription = attackMode.EffectDescription;
             var damage = effectDescription.FindFirstDamageForm();
-            var i = effectDescription.EffectForms.FindIndex(x => x.damageForm == damage);
 
-            if (i < 0 || damage == null)
+            if (damage == null)
             {
                 return;
             }
 
             var proficiencyBonus =
                 attacker.RulesetCharacter.GetAttribute(AttributeDefinitions.ProficiencyBonus).CurrentValue;
-            var additionalDice = EffectFormBuilder
-                .Create()
-                .SetDamageForm(damage.damageType, 0, RuleDefinitions.DieType.D4, proficiencyBonus)
-                .Build();
 
-            effectDescription.EffectForms.Insert(i + 1, additionalDice);
-        }
-
-        public void AfterOnAttackDamage(
-            GameLocationCharacter attacker,
-            GameLocationCharacter defender,
-            ActionModifier attackModifier,
-            RulesetAttackMode attackMode,
-            bool rangedAttack,
-            RuleDefinitions.AdvantageType advantageType,
-            List<EffectForm> actualEffectForms,
-            RulesetEffect rulesetEffect,
-            bool criticalHit,
-            bool firstTarget)
-        {
+            damage.BonusDamage += proficiencyBonus;
+            damage.DamageBonusTrends.Add(new RuleDefinitions.TrendInfo(proficiencyBonus,
+                RuleDefinitions.FeatureSourceType.FightingStyle, "Executioner", null));
         }
     }
 }

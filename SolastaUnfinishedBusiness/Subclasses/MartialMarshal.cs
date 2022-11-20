@@ -3,28 +3,28 @@ using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.Extensions;
+using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
-using SolastaUnfinishedBusiness.CustomDefinitions;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Models;
 using UnityEngine;
+using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
-using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionConditionAffinitys;
-using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
-using static SolastaUnfinishedBusiness.Api.DatabaseHelper.MonsterDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterSubclassDefinitions;
-using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionSenses;
-using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionMoveModes;
-using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionDamageAffinitys;
-using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionSummoningAffinitys;
-using static SolastaUnfinishedBusiness.Api.DatabaseHelper.DecisionPackageDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.ConditionDefinitions;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.DecisionPackageDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionActionAffinitys;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionAdditionalDamages;
-using static RuleDefinitions;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionConditionAffinitys;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionDamageAffinitys;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionMoveModes;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionSenses;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionSummoningAffinitys;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.MonsterDefinitions;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
 
 namespace SolastaUnfinishedBusiness.Subclasses;
 
@@ -118,7 +118,14 @@ internal sealed class MartialMarshal : AbstractSubclass
                 .Create(IdentifyCreatures.EffectDescription)
                 .SetDurationData(DurationType.Instantaneous)
                 .ClearRestrictedCreatureFamilies()
-                .SetEffectForms(new CustomEffectFormMarshalStudyYourEnemy())
+                .SetEffectForms(EffectFormBuilder.Create()
+                    .SetConditionForm(ConditionDefinitionBuilder
+                        .Create("ConditionMarshalStudyYourEnemy")
+                        .SetGuiPresentationNoContent(true)
+                        .SetCustomSubFeatures(new StudyYourEnemy())
+                        .SetSilent(Silent.WhenAddedOrRemoved)
+                        .AddToDB(), ConditionForm.ConditionOperation.Add)
+                    .Build())
                 .SetTargetingData(Side.Enemy, RangeType.Distance, 12, TargetType.Individuals)
                 .Build())
             .AddToDB();
@@ -296,8 +303,6 @@ internal sealed class MartialMarshal : AbstractSubclass
             .SetUsesFixed(ActivationTime.PermanentUnlessIncapacitated)
             .SetEffectDescription(EffectDescriptionBuilder
                 .Create()
-                .SetCreatedByCharacter()
-                .SetCanBePlacedOnCharacter()
                 .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Cube, 5)
                 .SetDurationData(DurationType.Permanent)
                 .SetRecurrentEffect(
@@ -455,21 +460,20 @@ internal sealed class MartialMarshal : AbstractSubclass
         }
     }
 
-    private sealed class CustomEffectFormMarshalStudyYourEnemy : CustomEffectForm
+    private sealed class StudyYourEnemy : ICustomConditionFeature
     {
-        internal override void ApplyForm(
-            RulesetImplementationDefinitions.ApplyFormsParams formsParams,
-            List<string> effectiveDamageTypes,
-            bool retargeting,
-            bool proxyOnly,
-            bool forceSelfConditionOnly,
-            EffectApplication effectApplication = EffectApplication.All,
-            [CanBeNull] List<EffectFormFilter> filters = null)
+        public void ApplyFeature(RulesetCharacter target, RulesetCondition rulesetCondition)
         {
             var manager = ServiceRepository.GetService<IGameLoreService>();
-            var gameLocationCharacter = GameLocationCharacter.GetFromActor(formsParams.targetCharacter);
+            var gameLocationCharacter = GameLocationCharacter.GetFromActor(target);
 
             if (gameLocationCharacter.RulesetCharacter is not RulesetCharacterMonster creature)
+            {
+                return;
+            }
+
+            var sourceCharacter = EffectHelpers.GetCharacterByGuid(rulesetCondition.sourceGuid);
+            if (sourceCharacter == null)
             {
                 return;
             }
@@ -490,7 +494,7 @@ internal sealed class MartialMarshal : AbstractSubclass
             }
 
             var checkModifier = new ActionModifier();
-            var roller = GameLocationCharacter.GetFromActor(formsParams.sourceCharacter);
+            var roller = GameLocationCharacter.GetFromActor(sourceCharacter);
 
             roller.RollAbilityCheck(AttributeDefinitions.Wisdom, SkillDefinitions.Survival,
                 10 + Mathf.FloorToInt(entry.MonsterDefinition.ChallengeRating), AdvantageType.None, checkModifier,
@@ -509,6 +513,10 @@ internal sealed class MartialMarshal : AbstractSubclass
 
             gameLocationCharacter.RulesetCharacter.MonsterIdentificationRolled?.Invoke(
                 gameLocationCharacter.RulesetCharacter, entry.MonsterDefinition, outcome, level, num);
+        }
+
+        public void RemoveFeature(RulesetCharacter target, RulesetCondition rulesetCondition)
+        {
         }
     }
 }

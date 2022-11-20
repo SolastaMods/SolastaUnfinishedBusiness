@@ -9,6 +9,7 @@ internal static class Global
 {
     // true if in a multiplayer game
     internal static bool IsMultiplayer => ServiceRepository.GetService<INetworkingService>().IsMultiplayerGame;
+    internal static bool IsSettingUpMultiplayer { get; set; }
 
     // level up hero
     [CanBeNull]

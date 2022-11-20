@@ -7,6 +7,7 @@ using HarmonyLib;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.CustomDefinitions;
+using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Models;
 using TA;
 using static FeatureDefinitionCastSpell;
@@ -207,6 +208,20 @@ public static class CharacterBuildingManagerPatcher
             }
 
             FeatureDefinitionGrantInvocations.GrantInvocations(hero, tag, grantedFeatures);
+        }
+
+        public static IEnumerable<CodeInstruction> Transpiler([NotNull] IEnumerable<CodeInstruction> instructions)
+        {
+            var getInvocationProficiencies = typeof(RulesetCharacterHero).GetMethod("get_InvocationProficiencies");
+            var customInvocationsProficiencies =
+                new Func<RulesetCharacterHero, List<string>>(CustomInvocationSubPanel.CustomInvocationsProficiencies)
+                    .Method;
+
+            return instructions
+                //PATCH: don't offer invocations unlearn on non Warlock classes (MULTICLASS)
+                .ReplaceCalls(getInvocationProficiencies,
+                    "CharacterBuildingManager.GrantFeatures",
+                    new CodeInstruction(OpCodes.Call, customInvocationsProficiencies));
         }
     }
 

@@ -209,6 +209,12 @@ internal static class CharacterDisplay
             Main.Settings.UnlockEyeStyles = toggle;
         }
 
+        toggle = Main.Settings.UnlockSkinColors;
+        if (UI.Toggle(Gui.Localize("ModUi/&UnlockSkinColors"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.UnlockSkinColors = toggle;
+        }
+
         UI.Label();
     }
 }

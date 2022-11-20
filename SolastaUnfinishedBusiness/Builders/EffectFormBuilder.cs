@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using SolastaUnfinishedBusiness.Api.Extensions;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 using static RuleDefinitions;
@@ -280,6 +281,11 @@ internal class EffectFormBuilder
         return this;
     }
 
+    internal EffectFormBuilder SetMotionForm(ExtraMotionType motionType, int motionDistance = 0)
+    {
+        return SetMotionForm((MotionForm.MotionType)motionType, motionDistance);
+    }
+
     internal EffectFormBuilder SetReviveForm(
         int secondsSinceDeath,
         ReviveHitPoints reviveHitPoints,
@@ -343,6 +349,26 @@ internal class EffectFormBuilder
             persistOnConcentrationLoss = true,
             decisionPackage = null,
             effectProxyDefinitionName = null
+        };
+
+        effectForm.summonForm = summonForm;
+        effectForm.FormType = EffectForm.EffectFormType.Summon;
+        return this;
+    }
+
+    internal EffectFormBuilder SetSummonEffectProxyForm(EffectProxyDefinition effectProxyDefinition)
+    {
+        var summonForm = new SummonForm
+        {
+            summonType = SummonForm.Type.EffectProxy,
+            itemDefinition = null,
+            number = 0,
+            trackItem = false,
+            monsterDefinitionName = "",
+            conditionDefinition = null,
+            persistOnConcentrationLoss = true,
+            decisionPackage = null,
+            effectProxyDefinitionName = effectProxyDefinition.Name
         };
 
         effectForm.summonForm = summonForm;

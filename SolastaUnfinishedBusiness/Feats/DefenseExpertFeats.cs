@@ -23,7 +23,7 @@ internal static class DefenseExpertFeats
                 FeatureDefinitionAttributeModifierBuilder
                     .Create("AttributeModifierFeatArcaneDefenseAdd")
                     .SetGuiPresentationNoContent()
-                    .SetSituationalContext(SituationalContext.NotWearingArmorOrMageArmor)
+                    .SetSituationalContext(SituationalContext.NotWearingArmorOrMageArmorOrShield)
                     .SetDexPlusAbilityScore(AttributeDefinitions.ArmorClass, AttributeDefinitions.Intelligence)
                     .AddToDB())
             .SetAbilityScorePrerequisite(AttributeDefinitions.Intelligence, 13)
@@ -39,7 +39,7 @@ internal static class DefenseExpertFeats
                 FeatureDefinitionAttributeModifierBuilder
                     .Create("AttributeModifierFeatCharismaticDefenseAdd")
                     .SetGuiPresentationNoContent()
-                    .SetSituationalContext(SituationalContext.NotWearingArmorOrMageArmor)
+                    .SetSituationalContext(SituationalContext.NotWearingArmorOrMageArmorOrShield)
                     .SetDexPlusAbilityScore(AttributeDefinitions.ArmorClass, AttributeDefinitions.Charisma)
                     .AddToDB())
             .SetAbilityScorePrerequisite(AttributeDefinitions.Charisma, 13)

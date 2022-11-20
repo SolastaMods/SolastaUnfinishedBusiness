@@ -99,24 +99,18 @@ internal static class CasterFeats
 
         const string FEY_TELEPORT = "FeyTeleport";
 
+        spells = BuildSpellGroup(0, MistyStep);
+
         autoPreparedSpells = FeatureDefinitionAutoPreparedSpellsBuilder
             .Create("AutoPreparedSpellsFeyTeleportation")
             .SetGuiPresentationNoContent(true)
             .SetCustomSubFeatures(ValidateRepertoireForAutoprepared.AnyClassOrSubclass)
-            .AddPreparedSpellGroup(0, MistyStep)
+            .SetPreparedSpellGroups(spells)
             .SetSpellcastingClass(null)
             .SetAutoTag(FEY_TELEPORT)
             .AddToDB();
 
-        //Invocations for now don't support bonus actions, so leave custom power for now
-        var powerFeatFeyTeleportationMistyStep = FeatureDefinitionPowerBuilder
-            .Create("PowerFeatFeyTeleportationMistyStep")
-            .SetGuiPresentation(MistyStep.GuiPresentation)
-            .SetUsesFixed(ActivationTime.BonusAction, RechargeRate.ShortRest)
-            .SetEffectDescription(MistyStep.EffectDescription)
-            .AddToDB();
-
-        var proficiencyFeatFeyTeleportationTirmarian = FeatureDefinitionProficiencyBuilder
+        var learnTirmarian = FeatureDefinitionProficiencyBuilder
             .Create("ProficiencyFeatFeyTeleportationTirmarian")
             .SetGuiPresentationNoContent(true)
             .SetProficiencies(ProficiencyType.Language, "Language_Tirmarian")
@@ -126,33 +120,24 @@ internal static class CasterFeats
             // fey teleportation int
             FeatDefinitionBuilder
                 .Create("FeatFeyTeleportationInt")
-                .SetFeatures(
-                    AttributeModifierCreed_Of_Pakri,
-                    proficiencyFeatFeyTeleportationTirmarian,
-                    autoPreparedSpells,
-                    powerFeatFeyTeleportationMistyStep)
+                .SetFeatures(autoPreparedSpells, AttributeModifierCreed_Of_Pakri, learnTirmarian)
+                .AddFeatures(MakeSpellFeatureAndInvocations(spells, FEY_TELEPORT, AttributeDefinitions.Intelligence))
                 .SetGuiPresentation(Category.Feat)
                 .SetFeatFamily(FEY_TELEPORT)
                 .AddToDB(),
             // fey teleportation cha
             FeatDefinitionBuilder
                 .Create("FeatFeyTeleportationCha")
-                .SetFeatures(
-                    AttributeModifierCreed_Of_Solasta,
-                    proficiencyFeatFeyTeleportationTirmarian,
-                    autoPreparedSpells,
-                    powerFeatFeyTeleportationMistyStep)
+                .SetFeatures(autoPreparedSpells, AttributeModifierCreed_Of_Solasta, learnTirmarian)
+                .AddFeatures(MakeSpellFeatureAndInvocations(spells, FEY_TELEPORT, AttributeDefinitions.Charisma))
                 .SetGuiPresentation(Category.Feat)
                 .SetFeatFamily(FEY_TELEPORT)
                 .AddToDB(),
             // fey teleportation wis
             FeatDefinitionBuilder
                 .Create("FeatFeyTeleportationWis")
-                .SetFeatures(
-                    AttributeModifierCreed_Of_Maraike,
-                    proficiencyFeatFeyTeleportationTirmarian,
-                    autoPreparedSpells,
-                    powerFeatFeyTeleportationMistyStep)
+                .SetFeatures(autoPreparedSpells, AttributeModifierCreed_Of_Maraike, learnTirmarian)
+                .AddFeatures(MakeSpellFeatureAndInvocations(spells, FEY_TELEPORT, AttributeDefinitions.Wisdom))
                 .SetGuiPresentation(Category.Feat)
                 .SetFeatFamily(FEY_TELEPORT)
                 .AddToDB()
@@ -363,7 +348,6 @@ internal static class CasterFeats
             .SetEffectDescription(EffectDescriptionBuilder
                 .Create()
                 .SetTargetingData(Side.All, RangeType.Distance, 6, TargetType.Individuals)
-                .SetCreatedByCharacter()
                 .SetSavingThrowData(
                     true,
                     AttributeDefinitions.Strength,

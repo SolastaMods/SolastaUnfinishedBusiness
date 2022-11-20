@@ -48,35 +48,28 @@ internal abstract class
         return (TBuilder)this;
     }
 
-    internal TBuilder SetUsesProficiencyBonus(
-        ActivationTime activationTime,
-        RechargeRate recharge = RechargeRate.AtWill,
-        int costPerUse = 1,
-        int usesPerRecharge = 1)
+    internal TBuilder SetUsesProficiencyBonus(ActivationTime activationTime,
+        RechargeRate rechargeRate = RechargeRate.LongRest)
     {
         Definition.usesDetermination = UsesDetermination.ProficiencyBonus;
         Definition.activationTime = activationTime;
-        Definition.rechargeRate = recharge;
-        Definition.costPerUse = costPerUse;
-        Definition.fixedUsesPerRecharge = usesPerRecharge;
+        Definition.rechargeRate = rechargeRate;
+        Definition.costPerUse = 1;
+        Definition.fixedUsesPerRecharge = 0;
         return (TBuilder)this;
     }
 
     internal TBuilder SetUsesAbilityBonus(
         ActivationTime activationTime,
-        RechargeRate recharge = RechargeRate.AtWill,
-        string usesAbilityScoreName = "",
-        int costPerUse = 1,
-        int usesPerRecharge = 1)
+        RechargeRate recharge,
+        string usesAbilityScoreName)
     {
         Definition.usesDetermination = UsesDetermination.AbilityBonusPlusFixed;
         Definition.activationTime = activationTime;
         Definition.rechargeRate = recharge;
-        Definition.costPerUse = costPerUse;
-        Definition.fixedUsesPerRecharge = usesPerRecharge;
-        Definition.usesAbilityScoreName = usesAbilityScoreName == string.Empty
-            ? AttributeDefinitions.Charisma // game default
-            : usesAbilityScoreName;
+        Definition.costPerUse = 1;
+        Definition.fixedUsesPerRecharge = 0;
+        Definition.usesAbilityScoreName = usesAbilityScoreName;
         return (TBuilder)this;
     }
 
@@ -86,9 +79,9 @@ internal abstract class
         return (TBuilder)this;
     }
 
-    internal TBuilder SetUniqueInstance(bool unique = true)
+    internal TBuilder SetUniqueInstance()
     {
-        Definition.uniqueInstance = unique;
+        Definition.uniqueInstance = true;
         return (TBuilder)this;
     }
 

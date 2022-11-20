@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using JetBrains.Annotations;
 
 namespace SolastaUnfinishedBusiness.Builders.Features;
@@ -59,7 +60,6 @@ internal class FeatureDefinitionMagicAffinityBuilder
         return this;
     }
 
-#if false
     internal FeatureDefinitionMagicAffinityBuilder SetWarList(
         int levelBonus,
         params SpellDefinition[] spells)
@@ -87,7 +87,7 @@ internal class FeatureDefinitionMagicAffinityBuilder
 
         return this;
     }
-#endif
+
 
     internal FeatureDefinitionMagicAffinityBuilder SetExtendedSpellList(SpellListDefinition spellListDefinition)
     {
@@ -96,9 +96,9 @@ internal class FeatureDefinitionMagicAffinityBuilder
         return this;
     }
 
-    internal FeatureDefinitionMagicAffinityBuilder IgnoreClassRestrictionsOnMagicalItems(bool ignore = true)
+    internal FeatureDefinitionMagicAffinityBuilder IgnoreClassRestrictionsOnMagicalItems()
     {
-        Definition.ignoreClassRestrictionsOnMagicalItems = ignore;
+        Definition.ignoreClassRestrictionsOnMagicalItems = true;
 
         return this;
     }

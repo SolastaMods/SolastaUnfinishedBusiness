@@ -1,10 +1,9 @@
 ﻿using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
-using static SolastaUnfinishedBusiness.Builders.Features.AutoPreparedSpellsGroupBuilder;
+using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterSubclassDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
-using static RuleDefinitions;
 
 namespace SolastaUnfinishedBusiness.Subclasses;
 
@@ -92,17 +91,24 @@ internal sealed class SorcerousDivineHeart : AbstractSubclass
         var powerDivineHeartEmpoweredHealing = FeatureDefinitionPowerBuilder
             .Create(FeatureDefinitionPowers.PowerSorcererChildRiftDeflection, "PowerDivineHeartEmpoweredHealing")
             .SetGuiPresentation(Category.Feature, HealingWord)
+            .SetEffectDescription(EffectDescriptionBuilder.Create()
+                .SetDurationData(DurationType.Round, 1)
+                .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
+                .SetEffectForms(EffectFormBuilder.Create()
+                    .SetConditionForm(
+                        conditionDivineHeartEmpoweredHealing,
+                        ConditionForm.ConditionOperation.Add,
+                        false,
+                        false)
+                    .Build())
+                .Build())
             .AddToDB();
-
-        powerDivineHeartEmpoweredHealing.EffectDescription.EffectForms[0].ConditionForm.conditionDefinition =
-            conditionDivineHeartEmpoweredHealing;
 
         var powerDivineHeartPlanarPortal = FeatureDefinitionPowerBuilder
             .Create("PowerDivineHeartPlanarPortal")
             .SetGuiPresentation(Category.Feature, DimensionDoor)
             .SetUsesFixed(ActivationTime.Action)
             .SetEffectDescription(DimensionDoor.EffectDescription)
-            .SetShowCasting(true)
             .AddToDB();
 
         var powerDivineHeartDivineRecovery = FeatureDefinitionPowerBuilder
@@ -114,7 +120,6 @@ internal sealed class SorcerousDivineHeart : AbstractSubclass
                     .Create(Heal.EffectDescription)
                     .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
                     .Build())
-            .SetShowCasting(true)
             .AddToDB();
 
         Subclass = CharacterSubclassDefinitionBuilder

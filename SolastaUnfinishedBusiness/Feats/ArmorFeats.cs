@@ -4,7 +4,6 @@ using SolastaUnfinishedBusiness.Api.Infrastructure;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using static RuleDefinitions;
-using static SolastaUnfinishedBusiness.Api.DatabaseHelper.ArmorCategoryDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionAttributeModifiers;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatDefinitions;
 
@@ -26,14 +25,14 @@ internal static class ArmorFeats
             .Create("FeatMediumArmorDex")
             .SetGuiPresentation(Category.Feat)
             .SetFeatures(proficiencyFeatMediumArmor, AttributeModifierCreed_Of_Misaye)
-            .SetArmorProficiencyPrerequisite(LightArmorCategory)
+            .SetArmorProficiencyPrerequisite(EquipmentDefinitions.LightArmorCategory)
             .AddToDB();
 
         var featMediumArmorStr = FeatDefinitionBuilder
             .Create("FeatMediumArmorStr")
             .SetGuiPresentation(Category.Feat)
             .SetFeatures(proficiencyFeatMediumArmor, AttributeModifierCreed_Of_Einar)
-            .SetArmorProficiencyPrerequisite(LightArmorCategory)
+            .SetArmorProficiencyPrerequisite(EquipmentDefinitions.LightArmorCategory)
             .AddToDB();
 
         feats.AddRange(featMediumArmorDex, featMediumArmorStr);

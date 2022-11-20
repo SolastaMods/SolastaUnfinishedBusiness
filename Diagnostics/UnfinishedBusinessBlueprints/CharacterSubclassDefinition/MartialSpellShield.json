@@ -3,7 +3,7 @@
   "featureUnlocks": [
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:MagicAffinitySpellShieldCombatMagic:67839da9-6e6f-5b97-bf2c-3cc8c9bc8fe6",
+      "featureDefinition": "Definition:MagicAffinityCasterFightingCombatMagic:d97ab358-d6a2-5b95-909f-e18f70293ad3",
       "level": 3
     },
     {
@@ -13,12 +13,12 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:ReplaceAttackWithCantripSpellShield:8425b3e4-37ce-553a-8c46-db31230aa21b",
+      "featureDefinition": "Definition:ReplaceAttackWithCantripCasterFighting:9f727855-aa19-56a0-a6e6-6b2d42facae0",
       "level": 7
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:PowerSpellShieldWarMagic:0226f614-9d9d-56dd-803d-8607fd9aa071",
+      "featureDefinition": "Definition:PowerCasterFightingWarMagic:368681bf-0523-5709-a17a-62416add2f96",
       "level": 7
     },
     {

@@ -11,12 +11,12 @@ using SolastaUnfinishedBusiness.Models;
 using UnityEngine.AddressableAssets;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterFamilyDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterSubclassDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionDamageAffinitys;
-using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
-using static SolastaUnfinishedBusiness.Api.DatabaseHelper.MonsterDefinitions;
-using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterFamilyDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.ItemDefinitions;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.MonsterDefinitions;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
 
 namespace SolastaUnfinishedBusiness.Subclasses;
 
@@ -49,6 +49,7 @@ internal sealed class WizardDeadMaster : AbstractSubclass
             .SetModifier(FeatureDefinitionAttributeModifier.AttributeModifierOperation.AddConditionAmount,
                 AttributeDefinitions.HitPoints)
             .AddToDB();
+
         var attackBonus = FeatureDefinitionAttackModifierBuilder
             .Create("AttackModifierDeadMasterUndeadChains")
             .SetGuiPresentation(ChainsName, Category.Feature)
@@ -85,7 +86,7 @@ internal sealed class WizardDeadMaster : AbstractSubclass
         var powerDeadMasterCommandUndead = FeatureDefinitionPowerBuilder
             .Create("PowerDeadMasterCommandUndead")
             .SetGuiPresentation(Category.Feature)
-            .SetUsesProficiencyBonus(ActivationTime.Action, RechargeRate.LongRest)
+            .SetUsesProficiencyBonus(ActivationTime.Action)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create(DominateBeast.EffectDescription)

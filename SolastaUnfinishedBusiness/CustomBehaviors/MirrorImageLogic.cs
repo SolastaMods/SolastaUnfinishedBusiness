@@ -269,18 +269,18 @@ public class MirrorImageLogic
 
         public static ICustomConditionFeature Mark { get; } = new DuplicateCounter();
 
-        public void ApplyFeature(RulesetCharacter hero)
+        public void ApplyFeature(RulesetCharacter target, RulesetCondition rulesetCondition)
         {
         }
 
-        public void RemoveFeature(RulesetCharacter hero)
+        public void RemoveFeature(RulesetCharacter target, RulesetCondition rulesetCondition)
         {
-            if (!GetConditions(hero).Empty())
+            if (!GetConditions(target).Empty())
             {
                 return;
             }
 
-            hero.SpellsCastByMe.Find(e => e.SpellDefinition == SpellDefinitions.MirrorImage)?.Terminate(true);
+            target.SpellsCastByMe.Find(e => e.SpellDefinition == SpellDefinitions.MirrorImage)?.Terminate(true);
         }
     }
 
@@ -292,25 +292,25 @@ public class MirrorImageLogic
 
         public static ICustomConditionFeature Mark { get; } = new DuplicateProvider();
 
-        public void ApplyFeature(RulesetCharacter hero)
+        public void ApplyFeature(RulesetCharacter target, RulesetCondition rulesetCondition)
         {
             for (var i = 0; i < 3; i++)
             {
                 var condition = RulesetCondition.CreateActiveCondition(
-                    hero.Guid, Condition, RuleDefinitions.DurationType.Minute, 1,
-                    RuleDefinitions.TurnOccurenceType.EndOfTurn, hero.Guid, hero.CurrentFaction.Name);
+                    target.Guid, Condition, RuleDefinitions.DurationType.Minute, 1,
+                    RuleDefinitions.TurnOccurenceType.EndOfTurn, target.Guid, target.CurrentFaction.Name);
 
-                hero.AddConditionOfCategory(AttributeDefinitions.TagCombat, condition);
+                target.AddConditionOfCategory(AttributeDefinitions.TagCombat, condition);
             }
         }
 
-        public void RemoveFeature(RulesetCharacter hero)
+        public void RemoveFeature(RulesetCharacter target, RulesetCondition rulesetCondition)
         {
-            var conditions = GetConditions(hero);
+            var conditions = GetConditions(target);
 
             foreach (var condition in conditions)
             {
-                hero.RemoveCondition(condition);
+                target.RemoveCondition(condition);
             }
         }
     }

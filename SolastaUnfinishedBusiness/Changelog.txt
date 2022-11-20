@@ -1,18 +1,10 @@
 ﻿CHANGES:
 
-1.4.25.1:
+1.4.28.7:
 
-- Add Kobold sprite
-- Fix feats selection
-
-1.4.25.0:
-
-- Rebrand to Unfinished Business
-- Add Inventor
-- Add Kobold
-- Add UI feat groups
-- Add new Fighting Styles
-- Allow 6 players on multiplayer [beta]
-- Allow 6 players on official campaigns
-- Improve Tactician
-- Improve Wizard Dead Master
+- promoted Circle of The Ancient Forest
+- promoted Circle of The Forest Guardian
+- changed Tactical Surge to provide 2 dice on use and 1 charge per turn
+- made switch gambit work on allies and grant them PB to AC
+- removed extra gambit pool increases at 5 and 10\
+- tweak Gnome scale

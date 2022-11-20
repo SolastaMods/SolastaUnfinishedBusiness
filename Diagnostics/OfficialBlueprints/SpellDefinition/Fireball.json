@@ -103,7 +103,7 @@
           "ignoreFlyingCharacters": false,
           "ignoreCriticalDoubleDice": false
         },
-        "hasFilterId": true,
+        "hasFilterId": false,
         "filterId": 0
       }
     ],

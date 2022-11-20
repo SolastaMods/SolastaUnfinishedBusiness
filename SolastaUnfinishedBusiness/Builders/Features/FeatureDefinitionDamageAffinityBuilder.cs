@@ -13,11 +13,13 @@ internal class FeatureDefinitionDamageAffinityBuilder
         return this;
     }
 
+#if false
     internal FeatureDefinitionDamageAffinityBuilder SetAncestryDefinesDamageType(bool ancestryDefinesDamageType)
     {
         Definition.ancestryDefinesDamageType = ancestryDefinesDamageType;
         return this;
     }
+#endif
 
     internal FeatureDefinitionDamageAffinityBuilder SetDamageAffinityType(
         RuleDefinitions.DamageAffinityType damageAffinityType)

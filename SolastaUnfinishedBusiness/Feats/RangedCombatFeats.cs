@@ -10,7 +10,6 @@ using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Properties;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
-using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionActionAffinitys;
 
 namespace SolastaUnfinishedBusiness.Feats;
 
@@ -113,7 +112,8 @@ internal static class RangedCombatFeats
 
         return FeatDefinitionBuilder
             .Create("FeatDeadeye")
-            .SetGuiPresentation(Category.Feat)
+            .SetGuiPresentation(Category.Feat,
+                Gui.Format("Feat/&FeatDeadeyeDescription", Main.Settings.DeadEyeAndPowerAttackBaseValue.ToString()))
             .SetFeatures(
                 powerDeadeye,
                 powerTurnOffDeadeye,
@@ -155,29 +155,12 @@ internal static class RangedCombatFeats
     {
         public void ModifyAttackMode(RulesetCharacter character, [CanBeNull] RulesetAttackMode attackMode)
         {
-            var damage = attackMode?.EffectDescription?.FindFirstDamageForm();
-
-            if (damage == null)
-            {
-                return;
-            }
-
             if (attackMode is not { Reach: false, Ranged: true })
             {
                 return;
             }
 
-            var proficiency = character.GetAttribute(AttributeDefinitions.ProficiencyBonus).CurrentValue;
-            var toHit = -proficiency;
-            var toDamage = 2 * proficiency;
-
-            attackMode.ToHitBonus += toHit;
-            attackMode.ToHitBonusTrends.Add(new TrendInfo(toHit,
-                FeatureSourceType.Power, "Deadeye", null));
-
-            damage.BonusDamage += toDamage;
-            damage.DamageBonusTrends.Add(new TrendInfo(toDamage,
-                FeatureSourceType.Power, "Deadeye", null));
+            SrdAndHouseRulesContext.ModifyAttackModeAndDamage(character, "DeadEye", attackMode);
         }
     }
 }

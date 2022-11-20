@@ -126,13 +126,16 @@ internal static partial class SpellBuilders
         public EffectDescription GetCustomEffect([NotNull] RulesetCharacter caster)
         {
             var casterLevel = caster.GetAttribute(AttributeDefinitions.CharacterLevel).CurrentValue;
+
             return casterLevel < _level ? null : _upgraded;
         }
     }
 
     private sealed class UpgradeRangeBasedOnWeaponReach : IModifyMagicEffect
     {
-        public EffectDescription ModifyEffect(BaseDefinition definition, EffectDescription effect,
+        public EffectDescription ModifyEffect(
+            BaseDefinition definition,
+            EffectDescription effect,
             RulesetCharacter caster)
         {
             if (caster is not RulesetCharacterHero hero)
@@ -141,6 +144,7 @@ internal static partial class SpellBuilders
             }
 
             var weapon = hero.GetMainWeapon();
+
             if (weapon == null || !weapon.itemDefinition.IsWeapon)
             {
                 return effect;

@@ -128,8 +128,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Condition/&ConditionSpellShieldArcaneDeflectionTitle",
-    "description": "Condition/&ConditionSpellShieldArcaneDeflectionDescription",
+    "title": "Feature/&PowerSpellShieldArcaneDeflectionTitle",
+    "description": "Feature/&PowerSpellShieldArcaneDeflectionDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "869bb1641c1c46242931a9fb5819c792",

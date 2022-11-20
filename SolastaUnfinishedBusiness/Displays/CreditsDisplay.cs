@@ -16,21 +16,19 @@ internal static class CreditsDisplay
     internal static readonly List<(string, string)> CreditsTable = new()
     {
         ("Zappastuff",
-            "maintenance, gameplay, feats, fighting styles, invocations, rules, quality of life, Half-elf variants, Blade Dancer, Dead Master, Multiclass"),
+            "maintenance, gameplay, feats, fighting styles, invocations, rules, quality of life, Half-elf variants, Blade Dancer, College of Guts, College of Life, Dead Master, Field Manipulator, Way of The Silhouette, Wild Master, Multiclass"),
         ("TPABOBAP",
-            "game UI, infrastructure, gameplay, feats, invocations, spells, Dead Master improvements, SoulBlade, Tactician, Way of The Distant Hand, Inventor"),
+            "game UI, infrastructure, gameplay, feats, invocations, spells, Dead Master, Elementalist, Moonlit, RiftWalker, SoulBlade, Tactician, Way of The Distant Hand, Inventor"),
         ("ImpPhil", "api, builders, gameplay, rules, quality of life"),
+        ("ChrisJohnDigital",
+            "gameplay, feats, fighting styles, Arcane Fighter, Life Transmuter, Master Manipulator, Spell Master, Spell Shield"),
         ("SilverGriffon", "gameplay, visuals, spells, Dark Elf, Draconic Kobold, Grey Dwarf, Divine Heart"),
-        ("ChrisJohnDigital", "gameplay, feats, fighting styles, Spell Shield"),
-        ("Nd", "Spell Shield improvements, Marshal, Opportunist, Raven"),
-        ("DubhHerder", "gameplay, spells, Moonlit"),
+        ("Nd", "Marshal, Opportunist, Raven, Spell Shield"),
+        ("DubhHerder", "gameplay, spells, Elementalist, Moonlit, RiftWalker"),
         ("ElAntonious", "feats, Arcanist"),
         ("Holic75", "spells, Bolgrif"),
         ("RedOrca", "Path of The Light"),
-        ("DreadMaker", "Circle of The Forest Guardian"),
-        ("Bazou", "fighting styles, rules, spells"),
-        ("Esker", "ruleset support, qa"),
-        ("Lyraele", "ruleset support, qa")
+        ("Bazou", "fighting styles, rules, spells")
     };
 
     private static readonly bool IsUnityExplorerInstalled =
@@ -82,7 +80,7 @@ internal static class CreditsDisplay
                 using (UI.HorizontalScope())
                 {
                     UI.Label(author.Orange(), UI.Width(150));
-                    UI.Label(content, UI.Width(900));
+                    UI.Label(content, UI.Width(500));
                 }
             }
         }

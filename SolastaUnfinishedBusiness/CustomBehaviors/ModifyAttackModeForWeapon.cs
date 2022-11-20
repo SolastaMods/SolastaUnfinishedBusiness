@@ -190,7 +190,7 @@ internal sealed class IncreaseMeleeAttackReach : ModifyAttackModeForWeaponBase
         RulesetItem weapon)
     {
         //this getter also checks is this is not thrown/ranged mode
-        if (!attackMode.Reach)
+        if (weapon != null && !ValidatorsWeapon.HasAnyWeaponTag(weapon, TagsDefinitions.WeaponTagMelee))
         {
             return;
         }

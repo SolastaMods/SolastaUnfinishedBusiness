@@ -19,6 +19,13 @@ internal class FeatureDefinitionAttributeModifierBuilder
         return this;
     }
 
+    internal FeatureDefinitionAttributeModifierBuilder SetAddConditionAmount(string attribute)
+    {
+        Definition.modifierOperation = AttributeModifierOperation.AddConditionAmount;
+        Definition.modifiedAttribute = attribute;
+        return this;
+    }
+
     internal FeatureDefinitionAttributeModifierBuilder SetModifierAbilityScore(
         string attribute,
         string abilityScore,

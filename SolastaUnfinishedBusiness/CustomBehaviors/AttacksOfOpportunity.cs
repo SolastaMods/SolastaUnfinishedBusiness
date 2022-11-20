@@ -7,7 +7,9 @@ using SolastaUnfinishedBusiness.Api.Extensions;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.FightingStyles;
+using SolastaUnfinishedBusiness.Subclasses;
 using TA;
+using static ActionDefinitions;
 
 namespace SolastaUnfinishedBusiness.CustomBehaviors;
 
@@ -70,7 +72,7 @@ internal static class AttacksOfOpportunity
 
         RequestReactionAttack(Sentinel.SentinelName, new CharacterActionParams(
             unit,
-            ActionDefinitions.Id.AttackOpportunity,
+            Id.AttackOpportunity,
             opportunityAttackMode,
             attacker,
             actionModifier)
@@ -106,9 +108,26 @@ internal static class AttacksOfOpportunity
         //Process other participants of the battle
         foreach (var unit in units)
         {
-            if (mover != unit)
+            if (mover != unit
+                && mover.IsOppositeSide(unit.Side)
+                && MovingCharactersCache.TryGetValue(mover.Guid, out var movement))
             {
-                yield return ProcessPolearmExpert(unit, mover, battleManager);
+                if (unit.GetActionTypeStatus(ActionType.Reaction) != ActionStatus.Available)
+                {
+                    break;
+                }
+
+                yield return ProcessPolearmExpert(unit, mover, movement, battleManager);
+
+                foreach (var brace in unit.RulesetActor.GetSubFeaturesByType<MartialTactician.Brace>())
+                {
+                    if (unit.GetActionTypeStatus(ActionType.Reaction) != ActionStatus.Available)
+                    {
+                        break;
+                    }
+
+                    yield return brace.Process(unit, mover, movement, battleManager);
+                }
             }
         }
     }
@@ -118,13 +137,12 @@ internal static class AttacksOfOpportunity
         MovingCharactersCache.Clear();
     }
 
-    private static IEnumerator ProcessPolearmExpert(
-        [NotNull] GameLocationCharacter attacker,
+    private static IEnumerator ProcessPolearmExpert([NotNull] GameLocationCharacter attacker,
         [NotNull] GameLocationCharacter mover,
+        (int3, int3) movement,
         GameLocationBattleManager battleManager)
     {
-        if (!attacker.IsOppositeSide(mover.Side) || !CanMakeAoOOnEnemyEnterReach(attacker.RulesetCharacter) ||
-            !MovingCharactersCache.TryGetValue(mover.Guid, out var movement) ||
+        if (!CanMakeAoOOnEnemyEnterReach(attacker.RulesetCharacter) ||
             !battleManager.CanPerformOpportunityAttackOnCharacter(attacker, mover, movement.Item2, movement.Item1,
                 out var attackMode))
         {
@@ -133,13 +151,24 @@ internal static class AttacksOfOpportunity
 
         var actionService = ServiceRepository.GetService<IGameLocationActionService>();
         var count = actionService.PendingReactionRequestGroups.Count;
-
-        actionService.ReactForOpportunityAttack(new CharacterActionParams(
+        var reactionParams = new CharacterActionParams(
             attacker,
-            ActionDefinitions.Id.AttackOpportunity,
+            Id.AttackOpportunity,
             attackMode,
             mover,
-            new ActionModifier()));
+            new ActionModifier());
+
+        var manager = actionService as GameLocationActionManager;
+        if (manager == null)
+        {
+            //shouldn't happen, but just in case use regular AoO reaction
+            actionService.ReactForOpportunityAttack(reactionParams);
+        }
+        else
+        {
+            manager.AddInterruptRequest(new ReactionRequestReactionAttack("AoOEnter", reactionParams));
+        }
+
 
         yield return battleManager.WaitForReactions(attacker, actionService, count);
     }
@@ -177,7 +206,7 @@ internal static class AttacksOfOpportunity
             return false;
         }
 
-        attackMode = attacker.FindActionAttackMode(ActionDefinitions.Id.AttackOpportunity);
+        attackMode = attacker.FindActionAttackMode(Id.AttackOpportunity);
 
         if (attackMode == null)
         {

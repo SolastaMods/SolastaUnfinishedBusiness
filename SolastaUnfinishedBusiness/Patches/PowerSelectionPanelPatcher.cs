@@ -33,7 +33,7 @@ public static class PowerSelectionPanelPatcher
                 setPowerCancelledMethod,
                 1,
                 "PowerSelectionPanel.Bind",
-                new CodeInstruction(OpCodes.Call, setPowerCancelledMethod),// checked for Call vs CallVirtual
+                new CodeInstruction(OpCodes.Call, setPowerCancelledMethod), // checked for Call vs CallVirtual
                 new CodeInstruction(OpCodes.Ldarg_0),
                 new CodeInstruction(OpCodes.Ldarg_1),
                 new CodeInstruction(OpCodes.Call, removeInvalidPowersMethod));

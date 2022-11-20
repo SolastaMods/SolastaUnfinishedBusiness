@@ -32,7 +32,7 @@ internal class CustomPortraitPoolPower : ICustomPortraitPointPoolProvider
 
 internal class CustomPortraitPointPool : MonoBehaviour
 {
-    internal static CustomPortraitPointPool Setup(ICustomPortraitPointPoolProvider provider, RulesetCharacter character,
+    internal static void Setup(ICustomPortraitPointPoolProvider provider, RulesetCharacter character,
         GameObject prefab, Transform parent)
     {
         CustomPortraitPointPool pool;
@@ -50,15 +50,13 @@ internal class CustomPortraitPointPool : MonoBehaviour
 
             obj.name = name;
             pool = obj.AddComponent<CustomPortraitPointPool>();
-            pool.Setup(provider, character);
+            pool.Setup(provider);
         }
 
         pool.UpdateState(provider, character);
-
-        return pool;
     }
 
-    private void Setup(ICustomPortraitPointPoolProvider provider, RulesetCharacter character)
+    private void Setup(ICustomPortraitPointPoolProvider provider)
     {
         var image = transform.Find("SorceryPointsImage").GetComponent<Image>();
 

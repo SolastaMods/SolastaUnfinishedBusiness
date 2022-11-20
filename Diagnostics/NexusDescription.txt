@@ -106,19 +106,29 @@ All settings start disabled by default.
 [list=1]
 
 [*][b]Path of The Light[/b]: Barbarians who follow the Path of The Light illuminate the darkness and protect their allies from dangers that lurk within it.
+[*][b]College of Guts[/b]: Bards of the College of Guts gather in mead halls or around great bonfires to sing the deeds of the mighty, both past and present. They travel the land to witness great events firsthand and to ensure that the memory of those events doesn't pass from the world. With their songs, they inspire others to reach the same heights of accomplishment as the heroes of old.
+[*][b]College of Life[/b]: Masters of manipulating both matter and life energy.
+[*][b]The Ancient Forest[/b]: You have forged a relationship with a powerful nature entity: Ancient Dryads, Archdruids, Manifestations of the Feywild bleeding into the material plane, Forgotten gods from a primal age. It may wish for you to protect the natural world, travel to far off lands that it cannot, or it may have another motive that seems inscrutable to short-lived mortals.
 [*][b]Circle of the Forest Guardian[/b]: Circle of the Forest Guardian Druids are sworn to protect the forests and all that dwell within them. Skilled in the use of Abjuration magic and martial combat, members of this druidic circle are fearsome opponents on the battlefield.
 [*][b]Marshal[/b]: Skilled in studying enemies' weaknesses and coordinating attacks of other party member to exploit them, fighters who trained in this martial part are famous orchestrators of the battle field.
 [*][b]Spell Shield[/b]: Spell Shields are fighters that specialize in defense and protection. They use magic to aid their natural abilities.
 [*][b]Tactician[/b]: The Tactician uses their knowledge and might on the battlefield to perform different gambits as they are needed. They can knock down foes, inspire their allies and get in deadly counter-strikes against their foes.
 [*][b]Arcanist[/b]: The Arcanist melds their Ranger skills with arcane abilities. Their weapons can afflict their opponents with the Arcanist's Mark, and have learned how to cast some Wizard spells as part of their Ranger spell repertoire.
+[*][b]Wild Master[/b]: The Wild Master archetype embodies a friendship between the civilized races and the beasts of the world. United in focus, spirit and ranger work as one to fight the monstrous foes that threaten civilization and the wilderness alike.
 [*][b]Opportunist[/b]: Opportunist are those who never let a chance to finish their enemies slide. They stab fast and stab where it matters. Not many facing them can escape unscratched.
 [*][b]Raven[/b]: Ravens are ranged weapon specialists that are trained to take down enemies quickly and effectively.
 [*][b]Divine Heart[/b]: Your innate magic has been imparted to you by a Deity for a purpose you may or may not understand. 
+[*][b]Field Manipulator[/b]: Field Manipulators excel at controlling the battlefield and preventing their enemies from being able to attack them.
 [*][b]Way of The Distant Hand[/b]: Practitioners of the Way of the Distant Hand train to make arrows an extension of their hands. They are proficient in using bows and delivering ki-empowered effects through arrows.
+[*][b]Way of The Silhouette[/b]: Monks of the Way of Silhouette follow a tradition that values stealth and subterfuge. These monks serve as spies and assassins. Sometimes the members of a ninja monastery are family members, forming a clan sworn to secrecy about their arts and missions. Other monasteries are more like thieves' guilds, hiring out their services to nobles, rich merchants, or anyone else who can pay their fees. Regardless of their methods, the heads of these monasteries expect the unquestioning obedience of their students.
+[*][b]The Elementalist[/b]: You've been made a pact with and been changed by primordials present in the elemental badlands. The elemental chaos of the patron has suffused your soul, letting you use the power of different elemental types.
 [*][b]The Moonlit[/b]: Your patron is a spirit of the moon, an entity that embodies the cyclical nature of light and darkness. These spirits seek to maintain the power of the moon over the night sky while keeping profane powers that stalk the darkness at bay and task their warlocks with the same, granting them command over the powers of the moon and its effects.
+[*][b]The Rift Walker[/b]: Your patron is one of the rare beings who calls the void between worlds their home. They slip between the planes with ease and the knowledge you have gained from interacting with them allows you to harness lingering rift energies to your benefit within solasta. You might be sometimes filled with a longing for the distant realm of your patron, a desire to wander between dimensions for the rest of your days, or watch for signs of another Rift event, either to prevent or encourage.
 [*][b]The SoulBlade[/b]: You have struck a bargain with a sentient weapon that you feed souls to in return for power.
+[*][b]Arcane Fighter[/b]: Channel your magic into weapon attacks.
 [*][b]Blade Dancer[/b]: Blade Dancers use a series of intricate, elegant maneuvers that fend off harm and allow the blade dancer to channel magic into devastating attacks and a cunning defense. Many who have observed a blade dancer at work remember the display as one of the more beautiful experiences in their life, a glorious dance accompanied by a blade.
 [*][b]Dead Master[/b]: Dead Masters learn to manipulate the energy that animates all living things. As you progress, you learn to sap the life force from a creature as your magic destroys its body, transforming that vital energy into magical power you can manipulate.
+[*][b]Spell Master[/b]: Spell Masters immerse themselves in magic and try to learn every spell they can get their hands on. They are unmatched in their spell knowledge.
 [/list]
 
 [size=3][b]Feats[/b][/size]
@@ -147,11 +157,8 @@ You gain the ability to cast the healing word, cure wounds and lesser restoratio
 While you are not wearing any armor, your AC equals 10 + your Dexterity modifier + your Charisma modifier.
 [*][b]Charismatic Precision[/b]: Increase your Charisma by 1, to a maximum of 20.
 You can use a bonus action to select a weapon. Its attacks count as magical and you use your Charisma for your attack and damage rolls for 1 minute. This feature can be used Proficiency Bonus times per long rest.
-[*][b]Crippling[/b]: Upon hitting with a melee attack, you can reduce the speed of your opponents by 10 ft and reduce their Armor Class until the start of your next turn (not stacking).
-[*][b]Deadeye[/b]: You have mastered ranged weapons and can make shots that others find impossible:
-• Attacking at long range doesn't impose disadvantage on your ranged weapon attack rolls.
-• Your ranged weapon attacks ignore half cover and three-quarters cover.
-• You can choose to take a -PB penalty to your ranged weapon attack roll. If the attack hits, you deal an additional 2xPB damage of the weapon's type.
+[*][b]Crippling[/b]: Upon hitting with a melee attack, you can reduce the speed of your opponents by 10 ft and reduce their Armor Class by 1 for 2 turns.
+[*][b]Deadeye[/b]: You have learned to trade accuracy to land deadlier shots. When attacking with ranged weapons, you can choose to take a -3 penalty to your to hit in order to do additional damage equal to 3 + your proficiency bonus. Attacking at long range doesn't impose disadvantage and your ranged weapon attacks ignore half cover and three-quarters cover.
 [*][b]Defense[/b]: While you are wearing armor, you gain a +1 bonus to AC.
 [*][b]Dual Flurry[/b]: You are a master of fighting with paired weapons. On any turn where you hit twice with melee attacks while wielding a weapon in each hand, you may make an additional off-hand attack when attacking with your bonus action.
 [*][b]Dual Weapon Defense[/b]: You gain a +1 bonus to AC while you are wielding a separate melee weapon in each hand.
@@ -160,7 +167,7 @@ You can use a bonus action to select a weapon. Its attacks count as magical and 
 [*][b]Elven Precision [Dex][/b]: You have uncanny aim with attacks that rely on precision rather than brute force. Increase your Dexterity by 1, to a maximum of 20. Whenever you have advantage on an attack roll using Dexterity, Intelligence, Wisdom, or Charisma, you can reroll one of the dice once.
 [*][b]Elven Precision [Int][/b]: You have uncanny aim with attacks that rely on precision rather than brute force. Increase your Intelligence by 1, to a maximum of 20. Whenever you have advantage on an attack roll using Dexterity, Intelligence, Wisdom, or Charisma, you can reroll one of the dice once.
 [*][b]Elven Precision [Wis][/b]: You have uncanny aim with attacks that rely on precision rather than brute force. Increase your Wisdom by 1, to a maximum of 20. Whenever you have advantage on an attack roll using Dexterity, Intelligence, Wisdom, or Charisma, you can reroll one of the dice once.
-[*][b]Executioner[/b]: You gain a +PB to damage against creatures that are blinded, frightened, restrained, incapacitated, paralyzed, prone or stunned.
+[*][b]Executioner[/b]: You gain +PB to damage against creatures that are blinded, frightened, restrained, incapacitated, paralyzed, prone or stunned.
 [*][b]Fey Teleportation [Cha][/b]: Increase your Charisma by 1, to a maximum of 20.
 You can use misty step once per short rest, and you can cast this spell with your spell slots.
 You gain proficiency in Tirmarian.
@@ -177,11 +184,10 @@ You gain the ability to cast the burning hands, hellish rebuke and scorching ray
 [*][b]Flame Touched [Wis][/b]: Increase your Wisdom attribute by 1, to a maximum of 20.
 You gain the ability to cast the burning hands, hellish rebuke and scorching ray spells once per long rest and you can cast these spells with your spell slots.
 [*][b]Great Weapon Fighting[/b]: When you roll a 1 or 2 on a damage die for an attack you make with a melee weapon that you are wielding with two hands, you can reroll the die. You must use the new roll, even if it is a 1 or a 2. The weapon must have the two-handed or versatile property for you to gain this benefit.
-[*][b]Hand-and-a-Half[/b]: You gain a +1 to hit and a +1 to damage rolls when you use a versatile weapon in two hands.
+[*][b]Hand-and-a-Half[/b]: You gain +1 to hit and +1 to damage rolls when you use a versatile weapon in two hands.
 [*][b]Healer[/b]: You gain proficiency or expertise in Medicine checks. You gain the ability to stabilize a dying creature as well as to revive a creature that died within the last 12 seconds once per long rest. You can use an action to restore 1d6 + 4 + character level hit points a number of times per short rest equal to your Wisdom modifier.
 [*][b]Improved Critical[/b]: Your attacks are critical hits on a roll of 19 or 20.
 [*][b]Inspiring Leader[/b]: You can spend 10 minutes to inspire up to 6 friendly creatures (which can include yourself) within 30 feet of you. Each creature gains temporary hit points equal to your level + your Charisma modifier.
-[*][b]Light Footed[/b]: While wielding only weapons that are light-ranged or use the finesse property, you gain a +10ft to your movement speed.
 [*][b]Medium Armor [Dex][/b]: Increase your Dexterity by 1, to a maximum of 20.
 You gain proficiency with medium armor and shields.
 [*][b]Medium Armor [Str][/b]: Increase your Strength by 1, to a maximum of 20.
@@ -195,12 +201,12 @@ You gain proficiency with medium armor and shields.
 [*][b]Metamagic: Quickened Spell[/b]: You gain 3 sorcery points and learn the Quickened Spell metamagic: Can cast a main action spell with a bonus action instead, though you can't cast another spell during the same turn, except for cantrips. 
 [*][b]Metamagic: Twinned Spell[/b]: You gain 3 sorcery points and learn the Twinned Spell metamagic: If the source spell targets one creature only, this adds another target 
 [*][b]Pickpocket[/b]: You gain proficiency with Sleight of Hand, or expertise if already proficient. You also have advantage on Sleight of Hand Dexterity checks.
-[*][b]Polearm Expert[/b]: Your expert training with polearms grants you these benefits:
-• When you take the Attack action and attack with only a polearm weapon, you can use a bonus action to make a melee attack with the opposite end of the weapon. This attack uses the same ability modifier as the primary attack. The weapon's damage die for this attack is a d4, and it deals bludgeoning damage.
-• While you are wielding a polearm weapon, other creatures provoke an opportunity attack from you when they enter the reach you have with that weapon.
-[*][b]Power Attack[/b]: You learned to trade accuracy to land deadlier blows. When attacking with melee weapons, you can choose to take a -3 penalty to your to hit in order to do additional damage equal to 3 + your proficiency bonus.
+[*][b]Polearm Expert[/b]: Your expert training with a polearm grants you these benefits:
+• When you take the Attack action and attack with only a polearm weapon, you can use a bonus action to make a melee attack with the opposite end of the weapon. This attack uses the same ability modifier as the primary attack and deals 1d4 bludgeoning damage.
+• Other creatures provoke an opportunity attack from you when they enter the reach you have with wielding a polearm weapon.
+[*][b]Power Attack[/b]: You have learned to trade accuracy to land deadlier blows. When attacking with melee weapons, you can choose to take a -3 penalty to your to hit in order to do additional damage equal to 3 + your proficiency bonus.
 [*][b]Protection[/b]: When a creature you can see attacks a target other than you that is within one cell of you, you can use your reaction to impose disadvantage on the attack roll. You must be wielding a shield.
-[*][b]Pugilist[/b]: Your unarmed strikes deal an additional 1d4 bludgeoning damage and you can punch with your offhand as a bonus action. If you have free hand, you can shove as a bonus action.
+[*][b]Pugilist[/b]: Your unarmed strikes deal an additional 1d4 bludgeoning damage and you can punch with your offhand as a bonus action. You can shove as a bonus action if you have free hand.
 [*][b]Ranged Expert[/b]: Your expert training with ranged weapons grants you these benefits:
 • You no longer have disadvantage on ranged attacks when there is an enemy within 5 feet of you.
 • If you take the Attack action on your turn, you can use a bonus action to make an attack with a one-handed ranged or thrown weapon.
@@ -208,17 +214,17 @@ You gain proficiency with medium armor and shields.
 [*][b]Savage Attack[/b]: Reroll weapon and spell damage dice when you roll a 1 (Not all damage sources re-roll dice. For example, sneak attack and smite damage are not re-rolled).
 [*][b]Scriber[/b]: Increase your Intelligence by 1, to a maximum of 20.
 You gain proficiency with scroll kit and Arcana, or expertise if already proficient.
-[*][b]Sentinel[/b]: You have mastered techniques to take advantage of every drop in any enemy's guard, gaining the following benefits:
+[*][b]Sentinel[/b]: You have mastered techniques to take advantage of every drop in any enemy's guard:
 • When you hit a creature with an opportunity attack, the creature's speed becomes 0 for the rest of the turn.
 • Creatures provoke opportunity attacks from you even if they take the Disengage action before leaving your reach.
-• When a creature makes an attack against a target other than you, you can use your reaction to make a melee weapon attack against the attacking creature.
+• You can use your reaction to make a melee weapon attack against the attacking creature when a creature makes an attack against a target other than you.
 [*][b]Shadow Touched [Cha][/b]: Increase your Charisma attribute by 1, to a maximum of 20.
 You gain the ability to cast the invisibility, inflict wounds, and false life spells once per long rest and you can cast these spells with your spell slots.
 [*][b]Shadow Touched [Int][/b]: Increase your Intelligence attribute by 1, to a maximum of 20.
 You gain the ability to cast the invisibility, inflict wounds, and false life spells once per long rest and you can cast these spells with your spell slots.
 [*][b]Shadow Touched [Wis][/b]: Increase your Wisdom attribute by 1, to a maximum of 20.
 You gain the ability to cast the invisibility, inflict wounds, and false life spells once per long rest and you can cast these spells with your spell slots.
-[*][b]Shield Expert[/b]: You have trained in the use of a shield as a weapon. For you, it becomes a melee weapon that you are proficient with that deals 1d4 bludgeoning damage. You gain advantage on shove attempts while wielding a shield.
+[*][b]Shield Expert[/b]: You have trained in the use of a shield as a weapon. It becomes a melee weapon that you are proficient with that deals 1d4 bludgeoning damage. You gain advantage on shove attempts while wielding a shield.
 [*][b]Superior Critical[/b]: Your attacks are critical hits on a roll of 18, 19 or 20.
 [*][b]Telekinetic [Cha][/b]: Increase your Charisma by 1, to a maximum of 20.
 As a bonus action, you can telekinetically push or pull one creature you can see within 30 feet of you. The target must succeed on a Strength saving throw (DC 8 + your proficiency bonus + your Charisma modifier) or be moved 5 feet.
@@ -249,20 +255,19 @@ You can use a bonus action to select a weapon. Its attacks count as magical and 
 [list=1]
 
 [*][b]Blind Fighting[/b]: You have blind sight with a range of 10 feet. Within that range, you can effectively see anything that isn't behind total cover, even if you're blinded or in darkness. Moreover, you can see an invisible creature within that range, unless the creature successfully hides from you.
-[*][b]Crippling[/b]: Upon hitting with a melee attack, you can reduce the speed of your opponents by 10 ft and reduce their Armor Class until the start of your next turn (not stacking).
-[*][b]Executioner[/b]: You gain a +PB to damage against creatures that are blinded, frightened, restrained, incapacitated, paralyzed, prone or stunned.
-[*][b]Hand-and-a-Half[/b]: You gain a +1 to hit and a +1 to damage rolls when you use a versatile weapon in two hands.
-[*][b]Light Footed[/b]: While wielding only weapons that are light-ranged or use the finesse property, you gain a +10ft to your movement speed.
+[*][b]Crippling[/b]: Upon hitting with a melee attack, you can reduce the speed of your opponents by 10 ft and reduce their Armor Class by 1 for 2 turns.
+[*][b]Executioner[/b]: You gain +PB to damage against creatures that are blinded, frightened, restrained, incapacitated, paralyzed, prone or stunned.
+[*][b]Hand-and-a-Half[/b]: You gain +1 to hit and +1 to damage rolls when you use a versatile weapon in two hands.
 [*][b]Merciless[/b]: When you reduce a target to 0 HP using a melee weapon attack on your turn, enemies within a radius of the downed target equal to half of your proficiency bonus (rounded up) who can see the target must make a Wisdom save (DC equal to 8 + PB + your STR modifier) or become frightened of you until the end of their next turn. If the triggering attack is a critical hit, the radius is instead equal to your proficiency bonus.
-[*][b]Polearm Expert[/b]: Your expert training with polearms grants you these benefits:
-• When you take the Attack action and attack with only a polearm weapon, you can use a bonus action to make a melee attack with the opposite end of the weapon. This attack uses the same ability modifier as the primary attack. The weapon's damage die for this attack is a d4, and it deals bludgeoning damage.
-• While you are wielding a polearm weapon, other creatures provoke an opportunity attack from you when they enter the reach you have with that weapon.
-[*][b]Pugilist[/b]: Your unarmed strikes deal an additional 1d4 bludgeoning damage and you can punch with your offhand as a bonus action. If you have free hand, you can shove as a bonus action.
-[*][b]Sentinel[/b]: You have mastered techniques to take advantage of every drop in any enemy's guard, gaining the following benefits:
+[*][b]Polearm Expert[/b]: Your expert training with a polearm grants you these benefits:
+• When you take the Attack action and attack with only a polearm weapon, you can use a bonus action to make a melee attack with the opposite end of the weapon. This attack uses the same ability modifier as the primary attack and deals 1d4 bludgeoning damage.
+• Other creatures provoke an opportunity attack from you when they enter the reach you have with wielding a polearm weapon.
+[*][b]Pugilist[/b]: Your unarmed strikes deal an additional 1d4 bludgeoning damage and you can punch with your offhand as a bonus action. You can shove as a bonus action if you have free hand.
+[*][b]Sentinel[/b]: You have mastered techniques to take advantage of every drop in any enemy's guard:
 • When you hit a creature with an opportunity attack, the creature's speed becomes 0 for the rest of the turn.
 • Creatures provoke opportunity attacks from you even if they take the Disengage action before leaving your reach.
-• When a creature makes an attack against a target other than you, you can use your reaction to make a melee weapon attack against the attacking creature.
-[*][b]Shield Expert[/b]: You have trained in the use of a shield as a weapon. For you, it becomes a melee weapon that you are proficient with that deals 1d4 bludgeoning damage. You gain advantage on shove attempts while wielding a shield.
+• You can use your reaction to make a melee weapon attack against the attacking creature when a creature makes an attack against a target other than you.
+[*][b]Shield Expert[/b]: You have trained in the use of a shield as a weapon. It becomes a melee weapon that you are proficient with that deals 1d4 bludgeoning damage. You gain advantage on shove attempts while wielding a shield.
 [/list]
 
 [size=3][b]Invocations[/b][/size]
@@ -313,7 +318,7 @@ A creature is unaffected by this spell if it is Blinded, or has Blindsight, True
 [*][b]Earth Tremor[/b]: You strike the ground and unleash a tremor of seismic force, hurling up earth, rock, and sand.
 [*][b]Spirit Shroud[/b]: You call forth spirits of the dead, which flit around you for the spell's duration. The spirits are intangible and invulnerable.
 Until the spell ends, any attack you make deals 1d8 extra damage when you hit a creature within 10 feet of you. This damage is radiant, necrotic, or cold (your choice when you cast the spell). Any creature that takes this damage can't regain hit points until the start of your next turn.
-In addition, any enemy creature within 10ft of you wen you cast, or that enters or starts its turn in that range has its movement speed lowered by 10ft until start of its next turn.
+In addition, any enemy creature within 10ft of you when you cast, or that enters or starts its turn in that range has its movement speed lowered by 10ft until start of its next turn.
 When you cast this spell using a spell slot of 4th level or higher, the damage increases by 1d8 for every two slot levels above 3rd.
 [*][b]Winter's Breath[/b]: Create a blast of cold wind to chill your enemies and knock them prone.
 [*][b]Far Step[/b]: You teleport up to 60 feet to an unoccupied space you can see. On each of your turns before the spell ends, you can use a bonus action to teleport in this way again.
@@ -363,19 +368,16 @@ When you cast this spell using a spell slot of 4th level or higher, the damage i
 
 [list]
 
-[*][b]Zappastuff[/b]: maintenance, gameplay, feats, fighting styles, invocations, rules, quality of life, Half-elf variants, Blade Dancer, Dead Master, Multiclass
-[*][b]TPABOBAP[/b]: game UI, infrastructure, gameplay, feats, invocations, spells, Dead Master improvements, SoulBlade, Tactician, Way of The Distant Hand, Inventor
+[*][b]Zappastuff[/b]: maintenance, gameplay, feats, fighting styles, invocations, rules, quality of life, Half-elf variants, Blade Dancer, College of Guts, College of Life, Dead Master, Field Manipulator, Way of The Silhouette, Wild Master, Multiclass
+[*][b]TPABOBAP[/b]: game UI, infrastructure, gameplay, feats, invocations, spells, Dead Master, Elementalist, Moonlit, RiftWalker, SoulBlade, Tactician, Way of The Distant Hand, Inventor
 [*][b]ImpPhil[/b]: api, builders, gameplay, rules, quality of life
+[*][b]ChrisJohnDigital[/b]: gameplay, feats, fighting styles, Arcane Fighter, Life Transmuter, Master Manipulator, Spell Master, Spell Shield
 [*][b]SilverGriffon[/b]: gameplay, visuals, spells, Dark Elf, Draconic Kobold, Grey Dwarf, Divine Heart
-[*][b]ChrisJohnDigital[/b]: gameplay, feats, fighting styles, Spell Shield
-[*][b]Nd[/b]: Spell Shield improvements, Marshal, Opportunist, Raven
-[*][b]DubhHerder[/b]: gameplay, spells, Moonlit
+[*][b]Nd[/b]: Marshal, Opportunist, Raven, Spell Shield
+[*][b]DubhHerder[/b]: gameplay, spells, Elementalist, Moonlit, RiftWalker
 [*][b]ElAntonious[/b]: feats, Arcanist
 [*][b]Holic75[/b]: spells, Bolgrif
 [*][b]RedOrca[/b]: Path of The Light
-[*][b]DreadMaker[/b]: Circle of The Forest Guardian
 [*][b]Bazou[/b]: fighting styles, rules, spells
-[*][b]Esker[/b]: ruleset support, qa
-[*][b]Lyraele[/b]: ruleset support, qa
 [/list]
 

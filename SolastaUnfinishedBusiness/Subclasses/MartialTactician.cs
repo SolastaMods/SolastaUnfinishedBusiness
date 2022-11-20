@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using SolastaUnfinishedBusiness.Api.Extensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Builders;
@@ -8,6 +9,7 @@ using SolastaUnfinishedBusiness.CustomDefinitions;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Models;
+using TA;
 using UnityEngine.AddressableAssets;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterSubclassDefinitions;
@@ -27,28 +29,14 @@ internal sealed class MartialTactician : AbstractSubclass
     {
         BuildGambitPool();
 
-        GambitDieDamage = FeatureDefinitionAdditionalDamageBuilder
-            .Create("AdditionalDamageGambitDie")
-            .SetGuiPresentationNoContent(true)
-            .SetCustomSubFeatures(UpgradeDice)
-            .SetDamageDice(DieType.D6, 1)
-            .SetAdditionalDamageType(AdditionalDamageType.SameAsBaseDamage)
-            .SetNotificationTag("GambitDie")
-            .AddToDB();
+        GambitDieDamage = BuildGambitDieDamage("");
 
         //make sure that if we add any custom sub-features to base one we add them to this one too
-        GambitDieDamageOnce = FeatureDefinitionAdditionalDamageBuilder
-            .Create("AdditionalDamageGambitDieOnce")
-            .SetGuiPresentationNoContent(true)
-            .SetCustomSubFeatures(UpgradeDice)
-            .SetDamageDice(DieType.D6, 1)
-            .SetAdditionalDamageType(AdditionalDamageType.SameAsBaseDamage)
-            .SetNotificationTag("GambitDie")
-            .SetFrequencyLimit(FeatureLimitedUsage.OncePerTurn)
-            .AddToDB();
+        GambitDieDamageOnce = BuildGambitDieDamage("Once", FeatureLimitedUsage.OncePerTurn);
 
         var learn1Gambit = BuildLearn(1);
         var learn3Gambits = BuildLearn(3);
+        var unlearn = BuildUnlearn();
 
         EverVigilant = BuildEverVigilant();
         Subclass = CharacterSubclassDefinitionBuilder
@@ -56,9 +44,9 @@ internal sealed class MartialTactician : AbstractSubclass
             .SetGuiPresentation(Category.Subclass, RoguishShadowCaster)
             .AddFeaturesAtLevel(3, BuildSharpMind(), GambitPool, learn3Gambits, EverVigilant)
             .AddFeaturesAtLevel(5, BuildGambitDieSize(DieType.D8))
-            .AddFeaturesAtLevel(7, BuildGambitPoolIncrease(), learn1Gambit, BuildSharedVigilance())
-            .AddFeaturesAtLevel(10, BuildAdaptiveStrategy(), BuildGambitDieSize(DieType.D10))
-            .AddFeaturesAtLevel(15, BuildGambitPoolIncrease(), learn1Gambit, BuildGambitDieSize(DieType.D12))
+            .AddFeaturesAtLevel(7, BuildGambitPoolIncrease(), learn1Gambit, unlearn, BuildSharedVigilance())
+            .AddFeaturesAtLevel(10, BuildAdaptiveStrategy(), BuildTacticalSurge(), BuildGambitDieSize(DieType.D10))
+            .AddFeaturesAtLevel(15, BuildGambitPoolIncrease(), learn1Gambit, unlearn, BuildGambitDieSize(DieType.D12))
             .AddToDB();
 
         BuildGambits();
@@ -84,25 +72,17 @@ internal sealed class MartialTactician : AbstractSubclass
             .AddToDB();
     }
 
-    internal static DieType GetGambitDieSize(RulesetCharacter character)
+    private static DieType GetGambitDieSize(RulesetCharacter character)
     {
         var level = character.GetClassLevel(CharacterClassDefinitions.Fighter);
-        if (level >= 15)
-        {
-            return DieType.D12;
-        }
 
-        if (level >= 10)
+        return level switch
         {
-            return DieType.D10;
-        }
-
-        if (level >= 5)
-        {
-            return DieType.D8;
-        }
-
-        return DieType.D6;
+            >= 15 => DieType.D12,
+            >= 10 => DieType.D10,
+            >= 5 => DieType.D8,
+            _ => DieType.D6
+        };
     }
 
     private static FeatureDefinition BuildSharpMind()
@@ -151,7 +131,13 @@ internal sealed class MartialTactician : AbstractSubclass
                     .SetConditionForm(ConditionDefinitionBuilder
                         .Create("ConditionTacticianSharedVigilance")
                         .SetGuiPresentationNoContent(true)
-                        .SetFeatures(EverVigilant)
+                        .SetSilent(Silent.WhenAddedOrRemoved)
+                        .SetAmountOrigin(ExtraOriginOfAmount.SourceAbilityBonus, AttributeDefinitions.Intelligence)
+                        .SetFeatures(FeatureDefinitionAttributeModifierBuilder
+                            .Create("AttributeModifierTacticianSharedVigilance")
+                            .SetGuiPresentation(EverVigilant.GuiPresentation)
+                            .SetAddConditionAmount(AttributeDefinitions.Initiative)
+                            .AddToDB())
                         .AddToDB(), ConditionForm.ConditionOperation.Add)
                     .Build())
                 .Build())
@@ -188,13 +174,62 @@ internal sealed class MartialTactician : AbstractSubclass
             .AddToDB();
     }
 
+    private static FeatureDefinitionCustomInvocationPool BuildUnlearn()
+    {
+        return CustomInvocationPoolDefinitionBuilder
+            .Create("InvocationPoolGambitUnlearn")
+            .SetGuiPresentationNoContent(true)
+            .Setup(InvocationPoolTypeCustom.Pools.Gambit, 1, true)
+            .AddToDB();
+    }
+
     private static FeatureDefinition BuildGambitDieSize(DieType size)
     {
         //doesn't do anything, just to display to player dice size progression on levelup
-        return CustomInvocationPoolDefinitionBuilder
+        return FeatureDefinitionBuilder
             .Create($"FeatureTacticianGambitDieSize{size}")
             .SetGuiPresentation(Category.Feature)
             .AddToDB();
+    }
+
+    private static FeatureDefinitionAdditionalDamage BuildGambitDieDamage(string name,
+        FeatureLimitedUsage limit = FeatureLimitedUsage.None)
+    {
+        return FeatureDefinitionAdditionalDamageBuilder
+            .Create($"AdditionalDamageGambitDie{name}")
+            .SetGuiPresentationNoContent(true)
+            .SetCustomSubFeatures(UpgradeDice)
+            .SetDamageDice(DieType.D6, 1)
+            .SetAdditionalDamageType(AdditionalDamageType.SameAsBaseDamage)
+            .SetNotificationTag("GambitDie")
+            .SetFrequencyLimit(limit)
+            .AddToDB();
+    }
+
+    private static FeatureDefinition BuildTacticalSurge()
+    {
+        const string conditionName = "ConditionTacticianTacticalSurge";
+        var tick = FeatureDefinitionBuilder
+            .Create("FeatureTacticianTacticalSurgeTick")
+            .SetGuiPresentation(conditionName, Category.Condition)
+            .AddToDB();
+
+        tick.SetCustomSubFeatures(new TacticalSurgeTick(GambitPool, tick));
+
+        var feature = FeatureDefinitionBuilder
+            .Create("FeatureTacticianTacticalSurge")
+            .SetGuiPresentation(Category.Feature)
+            .AddToDB();
+
+        var condition = ConditionDefinitionBuilder
+            .Create(conditionName)
+            .SetGuiPresentation(Category.Condition, Sprites.ConditionTacticalSurge)
+            .SetFeatures(tick)
+            .AddToDB();
+
+        feature.SetCustomSubFeatures(new TacticalSurge(GambitPool, feature, condition));
+
+        return feature;
     }
 
     private void BuildGambits()
@@ -237,6 +272,13 @@ internal sealed class MartialTactician : AbstractSubclass
             .Create("FeatureSpendGambitDieOnConditionRemoval")
             .SetGuiPresentationNoContent(true)
             .SetCustomSubFeatures(spendDieOnAttack)
+            .AddToDB();
+
+        var conditionGambitDieDamage = ConditionDefinitionBuilder
+            .Create("ConditionGambitDieDamage")
+            .SetGuiPresentationNoContent(true)
+            .SetSilent(Silent.WhenAddedOrRemoved)
+            .SetFeatures(BuildGambitDieDamage("Reaction"))
             .AddToDB();
 
         #endregion
@@ -359,7 +401,7 @@ internal sealed class MartialTactician : AbstractSubclass
         reaction = new AddUsablePowerFromCondition(FeatureDefinitionPowerBuilder
             .Create($"Power{name}React")
             .SetGuiPresentation(name, Category.Feature, sprite)
-            .SetCustomSubFeatures(PowerVisibilityModifier.Hidden, ForcePowerUseInSpendPowerAction.Marker)
+            .SetCustomSubFeatures(PowerVisibilityModifier.Hidden)
             .SetUsesFixed(ActivationTime.OnAttackHitMeleeAuto)
             .SetEffectDescription(EffectDescriptionBuilder.Create()
                 .SetTargetingData(Side.Enemy, RangeType.MeleeHit, 1, TargetType.Individuals)
@@ -429,7 +471,7 @@ internal sealed class MartialTactician : AbstractSubclass
                             .SetMyAttackAdvantage(AdvantageType.Disadvantage)
                             .SetSituationalContext(ExtraSituationalContext.TargetIsNotEffectSource)
                             .AddToDB())
-                        .SetSpecialDuration(true)
+                        .SetSpecialDuration()
                         //Lasts until the end of the target's turn
                         .SetDuration(DurationType.Round, 0, false)
                         .SetTurnOccurence(TurnOccurenceType.EndOfTurn)
@@ -572,6 +614,77 @@ internal sealed class MartialTactician : AbstractSubclass
 
         #endregion
 
+        #region Bait and Switch
+
+        name = "GambitSwitch";
+        //TODO: add proper icon
+        sprite = Sprites.ActionGambit;
+
+        var good = ConditionDefinitionBuilder
+            .Create($"Condition{name}Good")
+            .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionBlessed)
+            .SetSilent(Silent.None)
+            .SetAmountOrigin(ExtraOriginOfAmount.SourceProficiencyBonus)
+            .SetFeatures(FeatureDefinitionAttributeModifierBuilder
+                .Create($"AttributeModifier{name}Good")
+                .SetGuiPresentation($"Condition{name}Good", Category.Condition)
+                .SetAddConditionAmount(AttributeDefinitions.ArmorClass)
+                .AddToDB())
+            .SetSpecialDuration()
+            .SetDuration(DurationType.Round, 1)
+            .AddToDB();
+
+        var bad = ConditionDefinitionBuilder
+            .Create($"Condition{name}Bad")
+            .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionBranded)
+            .IsDetrimental()
+            .SetSilent(Silent.None)
+            .SetAmountOrigin(ExtraOriginOfAmount.SourceProficiencyBonusNegative)
+            .SetFeatures(FeatureDefinitionAttributeModifierBuilder
+                .Create($"AttributeModifier{name}Bad")
+                .SetGuiPresentation($"Condition{name}Bad", Category.Condition)
+                .SetAddConditionAmount(AttributeDefinitions.ArmorClass)
+                .AddToDB())
+            .SetSpecialDuration()
+            .SetDuration(DurationType.Round, 1)
+            .AddToDB();
+
+        power = FeatureDefinitionPowerSharedPoolBuilder
+            .Create($"Power{name}Activate")
+            .SetGuiPresentation(name, Category.Feature, sprite)
+            .SetCustomSubFeatures(PowerFromInvocation.Marker)
+            .SetUniqueInstance()
+            .SetShowCasting(false)
+            .SetSharedPool(ActivationTime.BonusAction, GambitPool)
+            .SetEffectDescription(EffectDescriptionBuilder.Create()
+                .SetTargetFiltering(TargetFilteringMethod.CharacterOnly)
+                .SetTargetingData(Side.All, RangeType.Touch, 1, TargetType.Individuals)
+                .ExcludeCaster()
+                .SetHasSavingThrow(AttributeDefinitions.Wisdom,
+                    EffectDifficultyClassComputation.AbilityScoreAndProficiency,
+                    AttributeDefinitions.Intelligence,
+                    disableSavingThrowOnAllies: true)
+                .SetEffectForms(
+                    EffectFormBuilder.Create()
+                        .SetMotionForm(ExtraMotionType.CustomSwap, 1)
+                        .Build(),
+                    EffectFormBuilder.Create()
+                        .SetConditionForm(ConditionDefinitionBuilder
+                            .Create($"Condition{name}")
+                            .SetGuiPresentationNoContent(true)
+                            .SetCustomSubFeatures(new ApplyConditionDependingOnSide(good, bad))
+                            .SetSilent(Silent.WhenAddedOrRemoved)
+                            .AddToDB(), ConditionForm.ConditionOperation.Add)
+                        .HasSavingThrow(EffectSavingThrowType.Negates)
+                        .Build())
+                .SetParticleEffectParameters(SpellDefinitions.Haste)
+                .Build())
+            .AddToDB();
+
+        BuildFeatureInvocation(name, sprite, power);
+
+        #endregion
+
         #region Riposte
 
         name = "GambitRiposte";
@@ -581,12 +694,23 @@ internal sealed class MartialTactician : AbstractSubclass
         feature = FeatureDefinitionBuilder
             .Create($"Feature{name}")
             .SetGuiPresentation(name, Category.Feature, sprite)
-            .SetCustomSubFeatures(new Retaliate(spendDiePower, ConditionDefinitionBuilder
-                .Create($"Condition{name}")
-                .SetGuiPresentationNoContent(true)
-                .SetSilent(Silent.WhenAddedOrRemoved)
-                .SetFeatures(GambitDieDamage)
-                .AddToDB()))
+            .SetCustomSubFeatures(new Retaliate(spendDiePower, conditionGambitDieDamage))
+            .AddToDB();
+
+        BuildFeatureInvocation(name, sprite, feature);
+
+        #endregion
+
+        #region Brace
+
+        name = "GambitBrace";
+        //TODO: add proper icon
+        sprite = Sprites.ActionGambit;
+
+        feature = FeatureDefinitionBuilder
+            .Create($"Feature{name}")
+            .SetGuiPresentation(name, Category.Feature, sprite)
+            .SetCustomSubFeatures(new Brace(spendDiePower, conditionGambitDieDamage))
             .AddToDB();
 
         BuildFeatureInvocation(name, sprite, feature);
@@ -594,7 +718,9 @@ internal sealed class MartialTactician : AbstractSubclass
         #endregion
     }
 
-    private static void BuildFeatureInvocation(string name, AssetReferenceSprite sprite,
+    private static void BuildFeatureInvocation(
+        string name,
+        AssetReferenceSprite sprite,
         FeatureDefinition feature)
     {
         CustomInvocationDefinitionBuilder
@@ -614,8 +740,12 @@ internal sealed class MartialTactician : AbstractSubclass
             this.power = power;
         }
 
-        public void BeforeOnAttackHit(GameLocationCharacter attacker, GameLocationCharacter defender,
-            RollOutcome outcome, CharacterActionParams actionParams, RulesetAttackMode attackMode,
+        public void BeforeOnAttackHit(
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            RollOutcome outcome,
+            CharacterActionParams actionParams,
+            RulesetAttackMode attackMode,
             ActionModifier attackModifier)
         {
             if (attackMode == null)
@@ -640,8 +770,12 @@ internal sealed class MartialTactician : AbstractSubclass
             this.feature = feature;
         }
 
-        public void AfterOnAttackHit(GameLocationCharacter attacker, GameLocationCharacter defender,
-            RollOutcome outcome, CharacterActionParams actionParams, RulesetAttackMode attackMode,
+        public void AfterOnAttackHit(
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            RollOutcome outcome,
+            CharacterActionParams actionParams,
+            RulesetAttackMode attackMode,
             ActionModifier attackModifier)
         {
             if (outcome is not (RollOutcome.CriticalFailure or RollOutcome.CriticalSuccess)) { return; }
@@ -664,7 +798,7 @@ internal sealed class MartialTactician : AbstractSubclass
             }
 
             GameConsoleHelper.LogCharacterUsedFeature(character, feature, indent: true);
-            character.RepayPowerUse(UsablePowersProvider.Get(power, character));
+            character.UpdateUsageForPower(power, -1);
         }
     }
 
@@ -679,8 +813,13 @@ internal sealed class MartialTactician : AbstractSubclass
             this.pool = pool;
         }
 
-        public IEnumerator HandleReactToAttackOnMeFinished(GameLocationCharacter attacker, GameLocationCharacter me,
-            RollOutcome outcome, CharacterActionParams actionParams, RulesetAttackMode mode, ActionModifier modifier)
+        public IEnumerator HandleReactToAttackOnMeFinished(
+            GameLocationCharacter attacker,
+            GameLocationCharacter me,
+            RollOutcome outcome,
+            CharacterActionParams actionParams,
+            RulesetAttackMode mode,
+            ActionModifier modifier)
         {
             //trigger only on a miss
             if (outcome is not (RollOutcome.Failure or RollOutcome.CriticalFailure))
@@ -716,18 +855,17 @@ internal sealed class MartialTactician : AbstractSubclass
             reactionParams.AttackMode = retaliationMode;
 
             var character = me.RulesetCharacter;
-            var rulesetCondition = RulesetCondition.CreateActiveCondition(character.Guid,
+            var rulesetCondition = RulesetCondition.CreateActiveCondition(
+                character.Guid,
                 condition,
                 DurationType.Round,
                 1,
                 TurnOccurenceType.StartOfTurn,
                 character.Guid,
-                string.Empty
-            );
+                string.Empty);
 
             character.AddConditionOfCategory(AttributeDefinitions.TagCombat, rulesetCondition);
 
-            //TODO: try making this reaction request show how many dice remaining
             var previousReactionCount = manager.PendingReactionRequestGroups.Count;
             var reactionRequest = new ReactionRequestReactionAttack("GambitRiposte", reactionParams)
             {
@@ -745,6 +883,167 @@ internal sealed class MartialTactician : AbstractSubclass
             }
 
             character.RemoveCondition(rulesetCondition);
+        }
+    }
+
+    private class ApplyConditionDependingOnSide : ICustomConditionFeature
+    {
+        private readonly ConditionDefinition good, bad;
+
+        public ApplyConditionDependingOnSide(ConditionDefinition good, ConditionDefinition bad)
+        {
+            this.good = good;
+            this.bad = bad;
+        }
+
+        public void ApplyFeature(RulesetCharacter target, RulesetCondition rulesetCondition)
+        {
+            var caster = EffectHelpers.GetCharacterByGuid(rulesetCondition.sourceGuid);
+            if (caster == null)
+            {
+                return;
+            }
+
+            var condition = caster.IsOppositeSide(target.Side) ? bad : good;
+
+            target.InflictCondition(condition.Name, DurationType.Round, 1, TurnOccurenceType.StartOfTurn,
+                AttributeDefinitions.TagCombat, caster.Guid, caster.CurrentFaction.Name, 1, null, 0, 0, 0);
+        }
+
+        public void RemoveFeature(RulesetCharacter target, RulesetCondition rulesetCondition)
+        {
+        }
+    }
+
+    internal class Brace
+    {
+        private readonly ConditionDefinition condition;
+        private readonly FeatureDefinitionPower pool;
+
+        public Brace(FeatureDefinitionPower pool, ConditionDefinition condition)
+        {
+            this.pool = pool;
+            this.condition = condition;
+        }
+
+        internal IEnumerator Process(
+            GameLocationCharacter me,
+            GameLocationCharacter mover,
+            (int3, int3) movement,
+            GameLocationBattleManager battle)
+        {
+            var manager = ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
+            if (manager == null)
+            {
+                yield break;
+            }
+
+            if (!me.CanPerformOpportunityAttackOnCharacter(mover, movement.Item2, movement.Item1,
+                    out var retaliationMode, out var retaliationModifier, battle))
+            {
+                yield break;
+            }
+
+            var reactionParams = new CharacterActionParams(
+                me,
+                ActionDefinitions.Id.AttackOpportunity,
+                retaliationMode,
+                mover,
+                retaliationModifier);
+
+            var character = me.RulesetCharacter;
+            var rulesetCondition = RulesetCondition.CreateActiveCondition(character.Guid,
+                condition,
+                DurationType.Round,
+                1,
+                TurnOccurenceType.StartOfTurn,
+                character.Guid,
+                string.Empty
+            );
+
+            character.AddConditionOfCategory(AttributeDefinitions.TagCombat, rulesetCondition);
+
+            var previousReactionCount = manager.PendingReactionRequestGroups.Count;
+            var reactionRequest = new ReactionRequestReactionAttack("GambitBrace", reactionParams)
+            {
+                Resource = new ReactionResourcePowerPool(pool, Sprites.GambitResourceIcon)
+            };
+
+            manager.AddInterruptRequest(reactionRequest);
+
+            yield return battle.WaitForReactions(mover, manager, previousReactionCount);
+
+            //Can we detect this before attack starts? Currently we get to this part after attack finishes, if reaction was validated
+            if (reactionParams.ReactionValidated)
+            {
+                character.UsePower(UsablePowersProvider.Get(pool, character));
+            }
+
+            character.RemoveCondition(rulesetCondition);
+        }
+    }
+
+    private class TacticalSurge : ICustomOnActionFeature
+    {
+        private readonly ConditionDefinition condition;
+        private readonly FeatureDefinition feature;
+        private readonly FeatureDefinitionPower power;
+
+        public TacticalSurge(FeatureDefinitionPower power, FeatureDefinition feature,
+            ConditionDefinition condition)
+        {
+            this.power = power;
+            this.feature = feature;
+            this.condition = condition;
+        }
+
+        public void OnAfterAction(CharacterAction action)
+        {
+            if (action is not CharacterActionActionSurge)
+            {
+                return;
+            }
+
+            var character = action.ActingCharacter.RulesetCharacter;
+            var charges = character.GetRemainingPowerUses(power) - character.GetMaxUsesForPool(power);
+            charges = Math.Max(charges, -2);
+
+            GameConsoleHelper.LogCharacterUsedFeature(character, feature, indent: true);
+            if (charges < 0)
+            {
+                character.UpdateUsageForPower(power, charges);
+            }
+
+            character.InflictCondition(condition.Name, DurationType.Minute, 1, TurnOccurenceType.StartOfTurn,
+                AttributeDefinitions.TagCombat, character.Guid, character.CurrentFaction.Name, 1, feature.Name, 1, 0,
+                0);
+        }
+    }
+
+    internal class TacticalSurgeTick : ICharacterTurnStartListener
+    {
+        private readonly FeatureDefinition feature;
+        private readonly FeatureDefinitionPower power;
+
+        public TacticalSurgeTick(FeatureDefinitionPower power, FeatureDefinition feature)
+        {
+            this.power = power;
+            this.feature = feature;
+        }
+
+        public void OnCharacterTurnStarted(GameLocationCharacter locationCharacter)
+        {
+            var character = locationCharacter.RulesetCharacter;
+            var charges = character.GetRemainingPowerUses(power) - character.GetMaxUsesForPool(power);
+            charges = Math.Max(charges, -1);
+
+            if (charges >= 0)
+            {
+                return;
+            }
+
+            GameConsoleHelper.LogCharacterUsedFeature(character, feature, indent: true);
+            character.UpdateUsageForPower(power, charges);
         }
     }
 

@@ -93,6 +93,12 @@ internal class ConditionDefinitionBuilder
         return this;
     }
 
+    internal ConditionDefinitionBuilder IsDetrimental()
+    {
+        Definition.conditionType = RuleDefinitions.ConditionType.Detrimental;
+        return this;
+    }
+
     internal ConditionDefinitionBuilder SetTurnOccurence(RuleDefinitions.TurnOccurenceType value)
     {
         Definition.turnOccurence = value;
@@ -102,6 +108,18 @@ internal class ConditionDefinitionBuilder
     internal ConditionDefinitionBuilder SetParentCondition(ConditionDefinition value)
     {
         Definition.parentCondition = value;
+        return this;
+    }
+
+    internal ConditionDefinitionBuilder SetConditionParticleReference(AssetReference value)
+    {
+        Definition.conditionParticleReference = value;
+        return this;
+    }
+
+    internal ConditionDefinitionBuilder SetCharacterShaderReference(AssetReference value)
+    {
+        Definition.characterShaderReference = value;
         return this;
     }
 
@@ -153,9 +171,9 @@ internal class ConditionDefinitionBuilder
         return this;
     }
 
-    internal ConditionDefinitionBuilder SetTerminateWhenRemoved(bool value)
+    internal ConditionDefinitionBuilder SetTerminateWhenRemoved()
     {
-        Definition.terminateWhenRemoved = value;
+        Definition.terminateWhenRemoved = true;
         return this;
     }
 
@@ -166,15 +184,15 @@ internal class ConditionDefinitionBuilder
         return this;
     }
 
-    internal ConditionDefinitionBuilder SetSpecialDuration(bool value)
+    internal ConditionDefinitionBuilder SetSpecialDuration()
     {
-        Definition.specialDuration = value;
+        Definition.specialDuration = true;
         return this;
     }
 
-    internal ConditionDefinitionBuilder SetPossessive(bool value = true)
+    internal ConditionDefinitionBuilder SetPossessive()
     {
-        Definition.possessive = value;
+        Definition.possessive = true;
         return this;
     }
 

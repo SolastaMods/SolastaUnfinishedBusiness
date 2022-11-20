@@ -2,13 +2,12 @@
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
+using System.Reflection.Emit;
 using HarmonyLib;
 using JetBrains.Annotations;
-using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.Extensions;
 using SolastaUnfinishedBusiness.Api.Infrastructure;
 using SolastaUnfinishedBusiness.CustomBehaviors;
-using SolastaUnfinishedBusiness.CustomDefinitions;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.Models;
 
@@ -16,6 +15,58 @@ namespace SolastaUnfinishedBusiness.Patches;
 
 public static class RulesetCharacterHeroPatcher
 {
+    [HarmonyPatch(typeof(RulesetCharacterHero), "RefreshArmorClass")]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    public static class RefreshArmorClass_Patch
+    {
+        public static IEnumerable<CodeInstruction> Transpiler([NotNull] IEnumerable<CodeInstruction> instructions)
+        {
+            //PATCH: pass condition amount to `RefreshArmorClassInFeatures` - allows AC modification by Condition Amount for heroes
+            //in vanilla this only works on monsters, but for heroes only default 0 is passed
+
+            var codes = instructions.ToList();
+            object rulesetConditionVar = null;
+            var found = false;
+
+            var getAmount = typeof(RulesetCondition).GetMethod("get_Amount");
+
+            for (var index = 0; index < codes.Count; index++)
+            {
+                var code = codes[index];
+                if (found) { continue; }
+
+                if (rulesetConditionVar == null && code.opcode == OpCodes.Ldloc_S &&
+                    $"{code.operand}".Contains("RulesetCondition"))
+                {
+                    rulesetConditionVar = code.operand;
+                    continue;
+                }
+
+                if (rulesetConditionVar != null && code.opcode == OpCodes.Ldc_I4_0)
+                {
+                    codes[index] = new CodeInstruction(OpCodes.Ldloc_S, rulesetConditionVar);
+                    codes.Insert(index + 1, new CodeInstruction(OpCodes.Callvirt, getAmount));
+                    found = true;
+                    continue;
+                }
+
+                if (rulesetConditionVar != null && $"{code.operand}".Contains("RefreshArmorClassInFeatures"))
+                {
+                    //abort if we reached refresh call after reaching RulesetCondition local var, but haven't found place of insertion
+                    //this means code has changed and we need to look at it - maybe this patch is not needed anymore in this case
+                    break;
+                }
+            }
+
+            if (!found)
+            {
+                Main.Error("Couldn't patch RulesetCharacterHero.RefreshArmorClass");
+            }
+
+            return codes;
+        }
+    }
+
     [HarmonyPatch(typeof(RulesetCharacterHero), "FindClassHoldingFeature")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     public static class FindClassHoldingFeature_Patch
@@ -462,41 +513,6 @@ public static class RulesetCharacterHeroPatcher
             __instance.hitPointsGainHistory.Add(HeroDefinitions.RollHitPoints(classDefinition.HitDice));
             __instance.ComputeCharacterLevel();
             __instance.ComputeProficiencyBonus();
-
-            return false;
-        }
-    }
-
-    [HarmonyPatch(typeof(RulesetCharacterHero), "InvocationProficiencies", MethodType.Getter)]
-    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    public static class InvocationProficiencies_Patch
-    {
-        public static bool Prefix(RulesetCharacterHero __instance, ref List<string> __result)
-        {
-            var isLevelingUp = LevelUpContext.IsLevelingUp(__instance);
-
-            if (!isLevelingUp)
-            {
-                return true;
-            }
-
-            //PATCH: don't offer invocations unlearn on non Warlock classes (MULTICLASS)
-            var selectedClass = LevelUpContext.GetSelectedClass(__instance);
-
-            if (selectedClass == DatabaseHelper.CharacterClassDefinitions.Warlock)
-            {
-                var custom = DatabaseRepository.GetDatabase<InvocationDefinition>()
-                    .OfType<InvocationDefinitionCustom>()
-                    .Select(i => i.Name)
-                    .ToList();
-
-                __result = __instance.invocationProficiencies.Where(p => !custom.Contains(p)).ToList();
-            }
-            else
-            {
-                __result = new List<string>();
-            }
-
 
             return false;
         }

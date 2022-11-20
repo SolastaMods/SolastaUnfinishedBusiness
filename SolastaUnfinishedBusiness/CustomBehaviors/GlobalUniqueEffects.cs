@@ -218,5 +218,5 @@ internal static class GlobalUniqueEffects
         }
     }
 
-    internal enum Group { Familiar, InventorSpellStoringItem, GrenadierGrenadeMode }
+    internal enum Group { Familiar, InventorSpellStoringItem, GrenadierGrenadeMode, WildMasterBeast }
 }

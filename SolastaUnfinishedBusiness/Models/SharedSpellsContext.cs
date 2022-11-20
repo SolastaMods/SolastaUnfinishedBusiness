@@ -27,8 +27,8 @@ internal static class SharedSpellsContext
     {
         { PowerCircleLandNaturalRecovery.Name, Druid },
         { PowerWizardArcaneRecovery.Name, Wizard },
-        { Level20Context.PowerWarlockEldritchMasterName, Warlock }
-        // { WizardSpellMaster.PowerSpellMasterBonusRecoveryName, Wizard }
+        { Level20Context.PowerWarlockEldritchMasterName, Warlock },
+        { WizardSpellMaster.PowerSpellMasterBonusRecoveryName, Wizard }
     };
 
     private static Dictionary<string, CasterProgression> ClassCasterType { get; } = new()

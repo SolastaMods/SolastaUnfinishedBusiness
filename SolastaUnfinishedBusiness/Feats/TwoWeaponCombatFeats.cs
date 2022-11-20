@@ -37,6 +37,7 @@ internal static class TwoWeaponCombatFeats
             .SetPossessive()
             .SetSilent(Silent.WhenAddedOrRemoved)
             .SetConditionType(ConditionType.Beneficial)
+            .SetSpecialInterruptions(ConditionInterruption.AnyBattleTurnEnd)
             .AddToDB();
 
         var conditionDualFlurryGrant = ConditionDefinitionBuilder
@@ -47,6 +48,7 @@ internal static class TwoWeaponCombatFeats
             .SetPossessive()
             .SetSilent(Silent.WhenAddedOrRemoved)
             .SetConditionType(ConditionType.Beneficial)
+            .SetSpecialInterruptions(ConditionInterruption.AnyBattleTurnEnd)
             .SetFeatures(
                 FeatureDefinitionAdditionalActionBuilder
                     .Create(AdditionalActionSurgedMain, "AdditionalActionDualFlurry")
@@ -100,7 +102,8 @@ internal static class TwoWeaponCombatFeats
             RulesetAttackMode attackMode,
             ActionModifier attackModifier)
         {
-            if (attackMode == null)
+            // Test for Failed attack, as this routine is running on a miss
+            if (attackMode == null || outcome is RollOutcome.Failure or RollOutcome.CriticalFailure)
             {
                 return;
             }

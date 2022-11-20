@@ -134,7 +134,7 @@ public static class CharacterStageClassSelectionPanelPatcher
                 new CodeInstruction(OpCodes.Ldarg_0),
                 new CodeInstruction(OpCodes.Ldfld, currentHeroField),
                 new CodeInstruction(OpCodes.Call, mySetActiveMethod),
-                new CodeInstruction(OpCodes.Call, setActiveMethod));// checked for Call vs CallVirtual
+                new CodeInstruction(OpCodes.Call, setActiveMethod)); // checked for Call vs CallVirtual
         }
     }
 }

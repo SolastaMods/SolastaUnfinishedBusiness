@@ -1,13 +1,13 @@
 ﻿using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
-using static SolastaUnfinishedBusiness.Builders.Features.AutoPreparedSpellsGroupBuilder;
+using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterSubclassDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionAdditionalDamages;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionMagicAffinitys;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPowers;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
-using static RuleDefinitions;
+using static SolastaUnfinishedBusiness.Builders.Features.AutoPreparedSpellsGroupBuilder;
 
 namespace SolastaUnfinishedBusiness.Subclasses;
 
@@ -23,7 +23,7 @@ internal sealed class RangerArcanist : AbstractSubclass
             .SetDuration(DurationType.Permanent)
             .SetTurnOccurence(TurnOccurenceType.EndOfTurn)
             .SetPossessive()
-            .SetSpecialDuration(true)
+            .SetSpecialDuration()
             .AddToDB();
 
         //
@@ -164,11 +164,9 @@ internal sealed class RangerArcanist : AbstractSubclass
             .SetUsesAbilityBonus(ActivationTime.Action, RechargeRate.LongRest, AttributeDefinitions.Wisdom)
             .SetEffectDescription(EffectDescriptionBuilder
                 .Create(MagicMissile.EffectDescription)
-                .SetCreatedByCharacter()
                 .SetTargetingData(Side.Enemy, RangeType.Distance, 6, TargetType.Sphere, 3)
                 .SetEffectForms(effectForms)
                 .Build())
-            .SetShowCasting(true)
             .SetOverriddenPower(overriddenPower)
             .AddToDB();
     }

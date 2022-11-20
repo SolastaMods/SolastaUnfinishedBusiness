@@ -1,8 +1,11 @@
-﻿using System.Diagnostics.CodeAnalysis;
+﻿using System;
+using System.Diagnostics.CodeAnalysis;
+using System.IO;
 using HarmonyLib;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Models;
 using UnityEngine;
+using Object = UnityEngine.Object;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
@@ -55,6 +58,59 @@ public static class NewAdventurePanelPatcher
                     parentRectTransform.localScale = new Vector3(1, 1, 1);
                     break;
             }
+        }
+    }
+
+    //PATCH: auto assign heroes on new adventures (DEFAULT_PARTY)
+    [HarmonyPatch(typeof(NewAdventurePanel), "OnEndShow")]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    public static class OnEndShow_Patch
+    {
+        public static void Postfix(NewAdventurePanel __instance)
+        {
+            if (Global.IsMultiplayer || !Main.Settings.EnableTogglesToOverwriteDefaultTestParty)
+            {
+                return;
+            }
+
+            var max = Math.Min(Main.Settings.DefaultPartyHeroes.Count,
+                __instance.characterSessionPlatesTable.childCount);
+
+            __instance.RecreateSession();
+
+            for (var i = 0; i < max; i++)
+            {
+                var characterPlateSession =
+                    __instance.characterSessionPlatesTable.GetChild(i).GetComponent<CharacterPlateSession>();
+
+                if (!characterPlateSession.gameObject.activeSelf)
+                {
+                    continue;
+                }
+
+                var name = Main.Settings.DefaultPartyHeroes[i];
+                var isBuiltIn = ToolsContext.IsBuiltIn(name);
+                var filename =
+                    Path.Combine(
+                        !isBuiltIn
+                            ? TacticalAdventuresApplication.GameCharactersDirectory
+                            : TacticalAdventuresApplication.GameBuiltInCharactersDirectory, name) + ".chr";
+
+                __instance.selectedSlot = i;
+                __instance.CharacterSelected(filename);
+            }
+        }
+    }
+
+    //PATCH: clear flag that prevents hero auto assignment under MP (DEFAULT_PARTY)
+    [HarmonyPatch(typeof(NewAdventurePanel), "OnEndHide")]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    public static class OnEndHide_Patch
+    {
+        // ReSharper disable once UnusedMember.Global
+        public static void Prefix()
+        {
+            Global.IsSettingUpMultiplayer = false;
         }
     }
 }

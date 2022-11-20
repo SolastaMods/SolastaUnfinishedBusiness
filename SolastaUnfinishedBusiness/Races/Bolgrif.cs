@@ -51,10 +51,10 @@ internal static class RaceBolgrifBuilder
                 .ClearEffectAdvancements()
                 .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
                 .Build())
-            .SetShowCasting(true)
             .AddToDB();
 
         var druidCantrips = SpellListDefinitions.SpellListDruid.SpellsByLevel[0].Spells;
+
         var spellListBolgrif = SpellListDefinitionBuilder
             .Create(SpellListDefinitions.SpellListDruid, "SpellListBolgrif")
             .SetGuiPresentationNoContent()

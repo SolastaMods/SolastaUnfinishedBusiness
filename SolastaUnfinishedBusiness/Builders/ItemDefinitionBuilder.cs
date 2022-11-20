@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.Infrastructure;
 
 namespace SolastaUnfinishedBusiness.Builders;
@@ -244,7 +245,6 @@ internal class ItemDefinitionBuilder : DefinitionBuilder<ItemDefinition, ItemDef
         return this;
     }
 
-#if false
     internal ItemDefinitionBuilder SetFoodDescription(FoodDescription foodDescription)
     {
         Definition.IsFood = true;
@@ -252,20 +252,22 @@ internal class ItemDefinitionBuilder : DefinitionBuilder<ItemDefinition, ItemDef
         return this;
     }
 
+#if false
     internal ItemDefinitionBuilder SetFocusDescription(FocusItemDescription focus)
     {
         Definition.isFocusItem = focus != null;
         Definition.focusItemDefinition = focus;
         return this;
     }
+#endif
 
-    internal ItemDefinitionBuilder SetUsableDeviceDescription(IEnumerable<FeatureDefinitionPower> functions)
+    internal ItemDefinitionBuilder SetUsableDeviceDescription(params FeatureDefinitionPower[] functions)
     {
         Definition.IsUsableDevice = true;
         Definition.usableDeviceDescription = new UsableDeviceDescription();
         Definition.UsableDeviceDescription.DeviceFunctions.Clear();
 
-        var deviceFunction = Berry_Ration.UsableDeviceDescription.DeviceFunctions[0];
+        var deviceFunction = DatabaseHelper.ItemDefinitions.Berry_Ration.UsableDeviceDescription.DeviceFunctions[0];
 
         foreach (var power in functions)
         {
@@ -279,7 +281,7 @@ internal class ItemDefinitionBuilder : DefinitionBuilder<ItemDefinition, ItemDef
 
         return this;
     }
-#endif
+
 
     #region Constructors
 

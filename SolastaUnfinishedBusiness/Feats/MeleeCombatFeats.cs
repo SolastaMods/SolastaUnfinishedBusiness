@@ -114,7 +114,8 @@ internal static class MeleeCombatFeats
 
         return FeatDefinitionBuilder
             .Create("FeatPowerAttack")
-            .SetGuiPresentation(Category.Feat)
+            .SetGuiPresentation(Category.Feat,
+                Gui.Format("Feat/&FeatPowerAttackDescription", Main.Settings.DeadEyeAndPowerAttackBaseValue.ToString()))
             .SetFeatures(
                 powerAttack,
                 powerTurnOffPowerAttack
@@ -157,31 +158,14 @@ internal static class MeleeCombatFeats
 
     private sealed class ModifyPowerAttackPower : IModifyAttackModeForWeapon
     {
-        public void ModifyAttackMode(RulesetCharacter character, [CanBeNull] RulesetAttackMode attackMode)
+        public void ModifyAttackMode(RulesetCharacter character, RulesetAttackMode attackMode)
         {
-            var damage = attackMode?.EffectDescription?.FindFirstDamageForm();
-
-            if (damage == null)
+            if (attackMode == null || !ValidatorsWeapon.IsMelee(attackMode))
             {
                 return;
             }
 
-            if (!ValidatorsWeapon.IsMelee(attackMode))
-            {
-                return;
-            }
-
-            var proficiency = character.GetAttribute(AttributeDefinitions.ProficiencyBonus).CurrentValue;
-            const int TO_HIT = -3;
-            var toDamage = 3 + proficiency;
-
-            attackMode.ToHitBonus += TO_HIT;
-            attackMode.ToHitBonusTrends.Add(new TrendInfo(TO_HIT,
-                FeatureSourceType.Power, "PowerAttack", null));
-
-            damage.BonusDamage += toDamage;
-            damage.DamageBonusTrends.Add(new TrendInfo(toDamage,
-                FeatureSourceType.Power, "PowerAttack", null));
+            SrdAndHouseRulesContext.ModifyAttackModeAndDamage(character, "PowerAttack", attackMode);
         }
     }
 }

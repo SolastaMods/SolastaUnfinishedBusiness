@@ -310,7 +310,7 @@ internal static class MulticlassContext
             }
             catch
             {
-                Main.Error($"Failed to ClassesHistoryTranspiler patch to {method.DeclaringType}.{method.Name}");
+                Main.Error($"Failed to apply ClassesHistoryTranspiler patch to {method.DeclaringType}.{method.Name}");
             }
         }
     }

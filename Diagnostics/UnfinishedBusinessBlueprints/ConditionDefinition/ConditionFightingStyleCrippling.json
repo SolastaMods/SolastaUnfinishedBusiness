@@ -14,7 +14,7 @@
   "specialDuration": true,
   "durationType": "Round",
   "durationParameterDie": "D1",
-  "durationParameter": 1,
+  "durationParameter": 2,
   "forceTurnOccurence": false,
   "turnOccurence": "EndOfTurn",
   "specialInterruptions": [],

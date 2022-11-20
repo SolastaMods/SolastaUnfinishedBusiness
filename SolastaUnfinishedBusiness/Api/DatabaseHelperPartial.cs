@@ -10,6 +10,7 @@ internal static partial class DatabaseHelper
     {
         var db = DatabaseRepository.GetDatabase<T>();
 
+#if DEBUG
         if (db == null)
         {
             throw new SolastaUnfinishedBusinessException(
@@ -23,12 +24,16 @@ internal static partial class DatabaseHelper
         }
 
         return definition;
+#else
+        return db.GetElement(key);
+#endif
     }
 
     internal static bool TryGetDefinition<T>(string key, out T definition) where T : BaseDefinition
     {
         var db = DatabaseRepository.GetDatabase<T>();
 
+#if DEBUG
         if (key != null && db != null)
         {
             return db.TryGetElement(key, out definition);
@@ -37,6 +42,9 @@ internal static partial class DatabaseHelper
         definition = null;
 
         return false;
+#else
+        return db.TryGetElement(key, out definition);
+#endif
     }
 
     internal static class GadgetBlueprints

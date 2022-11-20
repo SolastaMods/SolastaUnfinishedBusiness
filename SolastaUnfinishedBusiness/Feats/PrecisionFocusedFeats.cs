@@ -27,14 +27,13 @@ internal static class PrecisionFocusedFeats
         var powerArcanePrecision = FeatureDefinitionPowerBuilder
             .Create("PowerArcanePrecision")
             .SetGuiPresentation("FeatArcanePrecision", Category.Feat, PowerDomainElementalLightningBlade)
-            .SetUsesProficiencyBonus(ActivationTime.BonusAction, RechargeRate.LongRest)
+            .SetUsesProficiencyBonus(ActivationTime.BonusAction)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
                     .SetTargetingData(Side.Ally, RangeType.Touch, 0, TargetType.Item,
                         itemSelectionType: ActionDefinitions.ItemSelectionType.Weapon)
-                    .SetCreatedByCharacter()
-                    .SetDurationData(DurationType.Minute, 1 /* duration */)
+                    .SetDurationData(DurationType.Minute, 1)
                     .SetEffectForms(
                         EffectFormBuilder
                             .Create()
@@ -65,13 +64,12 @@ internal static class PrecisionFocusedFeats
         var powerCharismaticPrecision = FeatureDefinitionPowerBuilder
             .Create("PowerCharismaticPrecision")
             .SetGuiPresentation("FeatCharismaticPrecision", Category.Feat, PowerDomainElementalLightningBlade)
-            .SetUsesProficiencyBonus(ActivationTime.BonusAction, RechargeRate.LongRest)
+            .SetUsesProficiencyBonus(ActivationTime.BonusAction)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
                     .SetTargetingData(Side.Ally, RangeType.Touch, 0, TargetType.Item,
                         itemSelectionType: ActionDefinitions.ItemSelectionType.Weapon)
-                    .SetCreatedByCharacter()
                     .SetDurationData(DurationType.Minute, 1)
                     .SetEffectForms(
                         EffectFormBuilder
@@ -103,13 +101,12 @@ internal static class PrecisionFocusedFeats
         var powerWisePrecision = FeatureDefinitionPowerBuilder
             .Create("PowerWisePrecision")
             .SetGuiPresentation("FeatWisePrecision", Category.Feat, PowerDomainElementalLightningBlade)
-            .SetUsesProficiencyBonus(ActivationTime.BonusAction, RechargeRate.LongRest)
+            .SetUsesProficiencyBonus(ActivationTime.BonusAction)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
                     .SetTargetingData(Side.Ally, RangeType.Touch, 0, TargetType.Item,
                         itemSelectionType: ActionDefinitions.ItemSelectionType.Weapon)
-                    .SetCreatedByCharacter()
                     .SetDurationData(DurationType.Minute, 1)
                     .SetEffectForms(
                         EffectFormBuilder

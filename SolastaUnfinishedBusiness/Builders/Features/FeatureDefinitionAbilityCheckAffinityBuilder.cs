@@ -32,9 +32,9 @@ internal class FeatureDefinitionAbilityCheckAffinityBuilder
     }
 
 #if false
-    internal FeatureDefinitionAbilityCheckAffinityBuilder UseControllerAbilityChecks(bool value = true)
+    internal FeatureDefinitionAbilityCheckAffinityBuilder UseControllerAbilityChecks()
     {
-        Definition.useControllerAbilityChecks = value;
+        Definition.useControllerAbilityChecks = true;
         return this;
     }
 #endif

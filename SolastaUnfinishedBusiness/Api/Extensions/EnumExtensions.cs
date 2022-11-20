@@ -7,9 +7,11 @@ internal enum ExtraSituationalContext
 {
     MainWeaponIsMelee = 1000,
     WearingNoArmorOrLightArmorWithoutShield = 1001,
-    MainWeaponIsFinesseOrLightRange = 1002,
-    MainWeaponIsVersatileWithoutShield = 1003,
-    TargetIsNotEffectSource = 1004
+
+    // MainWeaponIsFinesseOrLightRange = 1002,
+    // MainWeaponIsVersatileWithoutShield = 1003,
+    TargetIsNotEffectSource = 1004,
+    SummonerIsNextToBeast = 1005
 }
 
 internal enum ExtraEffectFormType
@@ -43,6 +45,21 @@ internal enum ExtraRitualCasting
 }
 #endif
 
+internal enum ExtraMotionType
+{
+    // PushFromOrigin,
+    // DragToOrigin,
+    // TeleportToDestination,
+    // Levitate,
+    // PushFromWall,
+    // FallProne,
+    // SwapPositions,
+    // Telekinesis,
+    // RallyKindred,
+    // PushRandomDirection,
+    CustomSwap = 9000
+}
+
 internal enum ExtraPowerAttackHitComputation
 {
     // Fixed = PowerAttackHitComputation.Fixed,
@@ -63,7 +80,8 @@ internal enum ExtraOriginOfAmount
     SourceProficiencyBonus = 9000,
     SourceCharacterLevel = 9001,
     SourceClassLevel = 9002, //Class name should be in the `additionalDamageType` field of the condition
-    SourceAbilityBonus = 9003 //Attribute name should be in the `additionalDamageType` field of the condition
+    SourceAbilityBonus = 9003, //Attribute name should be in the `additionalDamageType` field of the condition
+    SourceProficiencyBonusNegative = 9004,
 }
 
 internal enum ExtraAdditionalDamageTriggerCondition
@@ -139,6 +157,7 @@ internal enum ExtraActionId
     TacticianGambitMain = 9005,
     TacticianGambitBonus = 9006,
     TacticianGambitNoCost = 9007,
+    PushedCustom = 9008,
 }
 
 internal static class EnumImplementation

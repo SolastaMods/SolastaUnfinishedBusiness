@@ -1,0 +1,79 @@
+{
+  "$type": "CharacterSubclassDefinition, Assembly-CSharp",
+  "featureUnlocks": [
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:MagicAffinityCollegeOfLifeHeightened:097dc3d1-6825-59e9-ab6c-64fa34a77c7f",
+      "level": 3
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:PowerSharedPoolCollegeOfLifeConstitution:4674f3b9-93d7-5bb5-9725-22e34aa0f502",
+      "level": 6
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:PowerSharedPoolCollegeOfLifeElementalResistance:b4492193-45f5-5c77-b688-a9ac91c38dbf",
+      "level": 6
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:PowerSharedPoolCollegeOfLifeFly:b20f8cf5-354a-5895-b5b7-bbddd7cc8994",
+      "level": 6
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:PowerSharedPoolCollegeOfLifeHeal:6b5e17c7-fdf9-51f0-ba95-1d89cc9c4024",
+      "level": 6
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:PowerSharedPoolCollegeOfLifeRevive:7fcdc4f2-27b2-5e33-b1e3-897882b03590",
+      "level": 6
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:PowerSharedPoolCollegeOfLifeDarkvision:0cf0959c-3f4c-51ba-be8b-d98489230bbb",
+      "level": 6
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:PowerSharedPoolCollegeOfLifeHealingPool:e197ef97-b732-5855-9dc2-a455625e4ef6",
+      "level": 6
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:FeatureSetCollegeOfLifeNecroticResistance:9f852b57-974b-5224-b97a-356d32bfae62",
+      "level": 14
+    }
+  ],
+  "personalityFlagOccurences": [],
+  "morphotypeSubclassFilterTag": "Default",
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Subclass/&CollegeOfLifeTitle",
+    "description": "Subclass/&CollegeOfLifeDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "c291e4e1949a73241806e4d7d93d71bb",
+      "m_SubObjectName": "Rogue_Spider",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "dabadbf7-777a-58c3-adfc-5dad4aa1f951",
+  "contentPack": 9999,
+  "name": "CollegeOfLife"
+}

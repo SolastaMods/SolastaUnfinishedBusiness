@@ -52,6 +52,9 @@ internal sealed class WayOfTheDistantHand : AbstractSubclass
             .SetCustomSubFeatures(
                 new ReactionAttackModeRestriction((mode, _, _) =>
                     mode != null && mode.AttackTags.Contains(ZenArrowTag)))
+            .SetEffectDescription(EffectDescriptionBuilder.Create()
+                .SetTargetingData(Side.Enemy, RangeType.Distance, 1, TargetType.Individuals)
+                .Build())
             .AddToDB();
 
         var powerWayOfTheDistantHandZenArrowProne = FeatureDefinitionPowerBuilder
@@ -188,7 +191,7 @@ internal sealed class WayOfTheDistantHand : AbstractSubclass
                             .SetGuiPresentationNoContent(true)
                             .SetSilent(Silent.WhenAddedOrRemoved)
                             .SetDuration(DurationType.Round, 0, false)
-                            .SetSpecialDuration(true)
+                            .SetSpecialDuration()
                             .SetTurnOccurence(TurnOccurenceType.EndOfTurn)
                             .SetSpecialInterruptions(
                                 ConditionInterruption.BattleEnd,
@@ -389,29 +392,32 @@ internal sealed class WayOfTheDistantHand : AbstractSubclass
 
     private static bool IsMonkWeapon(RulesetActor actor, ItemDefinition weapon)
     {
+        return weapon != null && IsMonkWeapon(actor, weapon.WeaponDescription);
+    }
+
+    internal static bool IsMonkWeapon(RulesetActor actor, WeaponDescription weapon)
+    {
         if (weapon == null)
         {
             return false;
         }
 
-        var typeDefinition = weapon.WeaponDescription?.WeaponTypeDefinition;
-
-        if (typeDefinition == null)
-        {
-            return false;
-        }
-
-        return ZenArcherWeapons.Contains(typeDefinition) || IsZenArcherWeapon(actor, weapon);
+        return weapon.IsMonkWeaponOrUnarmed() || IsZenArcherWeapon(actor, weapon);
     }
 
     private static bool IsZenArcherWeapon(RulesetActor actor, ItemDefinition item)
     {
-        if (actor == null || item == null)
+        return IsZenArcherWeapon(actor, item.WeaponDescription);
+    }
+
+    private static bool IsZenArcherWeapon(RulesetActor actor, WeaponDescription weapon)
+    {
+        if (actor == null || weapon == null)
         {
             return false;
         }
 
-        var typeDefinition = item.WeaponDescription?.WeaponTypeDefinition;
+        var typeDefinition = weapon.WeaponTypeDefinition;
 
         if (typeDefinition == null)
         {

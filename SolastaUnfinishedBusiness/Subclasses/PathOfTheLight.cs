@@ -4,12 +4,13 @@ using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomInterfaces;
+using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterSubclassDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.ConditionDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPowers;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
-using static RuleDefinitions;
+
 
 namespace SolastaUnfinishedBusiness.Subclasses;
 
@@ -60,7 +61,7 @@ internal sealed class PathOfTheLight : AbstractSubclass
             .SetConditionType(ConditionType.Detrimental)
             .SetDuration(DurationType.Irrelevant)
             .SetSilent(Silent.WhenAdded)
-            .SetSpecialDuration(true)
+            .SetSpecialDuration()
             .AddFeatures(
                 attackDisadvantageAgainstNonSourcePathOfTheLightIlluminated,
                 featureSetPathOfTheLightIlluminatedPreventInvisibility)
@@ -123,7 +124,7 @@ internal sealed class PathOfTheLight : AbstractSubclass
                                             .SetGuiPresentationNoContent(true)
                                             .SetConditionType(ConditionType.Beneficial)
                                             .SetDuration(DurationType.Minute, 1)
-                                            .SetTerminateWhenRemoved(true)
+                                            .SetTerminateWhenRemoved()
                                             .SetSilent(Silent.WhenAddedOrRemoved)
                                             .SetSpecialInterruptions(ConditionInterruption.RageStop)
                                             .SetFeatures(additionalDamagePathOfTheLightIlluminatingStrike)

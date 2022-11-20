@@ -288,7 +288,7 @@ public static class InnovationWeapon
             .Create("InnovationWeaponSteelDefender")
             .SetGuiPresentation(Category.Monster,
                 Sprites.GetSprite("SteelDefenderMonster", Resources.SteelDefenderMonster, 160, 240))
-            .HideFromDungeonEditor()
+            .SetDungeonMakerPresence(MonsterDefinition.DungeonMaker.None)
             .SetAbilityScores(14, 12, 14, 4, 10, 6)
             .SetSkillScores(
                 (SkillDefinitions.Athletics, 2), //has feature that adds summoner's PB
@@ -383,7 +383,7 @@ public static class InnovationWeapon
             .SetGuiPresentationNoContent()
             .SetSilent(Silent.WhenAddedOrRemoved)
             .SetDuration(DurationType.Round, 1)
-            .SetSpecialDuration(true)
+            .SetSpecialDuration()
             .SetTurnOccurence(TurnOccurenceType.StartOfTurn)
             .AddToDB();
 
@@ -413,8 +413,7 @@ public static class InnovationWeapon
             .Create("PowerInnovationWeaponArcaneJolt")
             .SetGuiPresentation(Category.Feature,
                 Sprites.GetSprite("InventorArcaneJolt", Resources.InventorArcaneJolt, 256, 128))
-            .SetUsesAbilityBonus(ActivationTime.OnAttackHit, RechargeRate.LongRest, AttributeDefinitions.Intelligence,
-                1, 0)
+            .SetUsesAbilityBonus(ActivationTime.OnAttackHit, RechargeRate.LongRest, AttributeDefinitions.Intelligence)
             .SetEffectDescription(EffectDescriptionBuilder
                 .Create()
                 .SetTargetingData(Side.Enemy, RangeType.Distance, 1, TargetType.Individuals)

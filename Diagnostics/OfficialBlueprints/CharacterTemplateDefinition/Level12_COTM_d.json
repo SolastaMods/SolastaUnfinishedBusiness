@@ -1,6 +1,6 @@
 {
   "$type": "CharacterTemplateDefinition, Assembly-CSharp",
-  "editorOnly": false,
+  "editorOnly": true,
   "isPremade": false,
   "premadeFilename": "",
   "firstName": "Race/&HumanSurName7Title",
@@ -30,8 +30,8 @@
   "bodyDecorationMorphotype": "BodyDecoration_None",
   "bodyDecorationColorMorphotype": "BodyDecorationColor_Default_00",
   "scarsMorphotype": "Scars_None",
-  "hornsMorphotype": "",
-  "tailMorphotype": "",
+  "hornsMorphotype": "Horns_None",
+  "tailMorphotype": "Tail_None",
   "mainClass": "Definition:Fighter:5d0445b8e44872d4c900ebe861ae4b6f",
   "subClass": "Definition:MartialSpellblade:09e74bece88a0c74a97f67f542ad3046",
   "deity": null,

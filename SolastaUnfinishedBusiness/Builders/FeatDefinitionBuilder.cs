@@ -75,10 +75,10 @@ internal abstract class FeatDefinitionBuilder<TDefinition, TBuilder> : Definitio
         return (TBuilder)this;
     }
 
-    internal TBuilder SetArmorProficiencyPrerequisite(ArmorCategoryDefinition category = null)
+    internal TBuilder SetArmorProficiencyPrerequisite(string category = null)
     {
         Definition.armorProficiencyPrerequisite = category != null;
-        Definition.armorProficiencyCategory = category == null ? String.Empty : category.Name;
+        Definition.armorProficiencyCategory = category ?? String.Empty;
         return (TBuilder)this;
     }
 

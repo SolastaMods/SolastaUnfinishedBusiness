@@ -12,6 +12,7 @@ public static class CustomActionIdContext
     internal static void Load()
     {
         BuildCustomInvocationActions();
+        BuildCustomPushedAction();
     }
 
     private static void BuildCustomInvocationActions()
@@ -84,6 +85,19 @@ public static class CustomActionIdContext
             .SetActionId(ExtraActionId.TacticianGambitNoCost)
             .SetActionType(ActionType.NoCost)
             .SetActionScope(ActionScope.Battle)
+            .AddToDB();
+    }
+
+    private static void BuildCustomPushedAction()
+    {
+        if (!DatabaseHelper.TryGetDefinition<ActionDefinition>("Pushed", out var baseAction))
+        {
+            return;
+        }
+
+        ActionDefinitionBuilder
+            .Create(baseAction, "PushedCustom")
+            .SetActionId(ExtraActionId.PushedCustom)
             .AddToDB();
     }
 

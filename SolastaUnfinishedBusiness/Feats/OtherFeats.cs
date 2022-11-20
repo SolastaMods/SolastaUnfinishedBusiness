@@ -56,7 +56,6 @@ internal static class OtherFeats
             .SetEffectDescription(EffectDescriptionBuilder
                 .Create()
                 .SetTargetingData(Side.Ally, RangeType.Touch, 1, TargetType.Individuals)
-                .SetCreatedByCharacter()
                 .SetDurationData(DurationType.Permanent)
                 .SetEffectForms(
                     EffectFormBuilder
@@ -88,7 +87,6 @@ internal static class OtherFeats
                     TargetFilteringTag.No,
                     5,
                     DieType.D8)
-                .SetCreatedByCharacter()
                 .SetDurationData(DurationType.Permanent)
                 .SetRequiredCondition(ConditionDefinitions.ConditionDead)
                 .SetEffectForms(
@@ -135,7 +133,6 @@ internal static class OtherFeats
             .SetEffectDescription(EffectDescriptionBuilder
                 .Create()
                 .SetTargetingData(Side.Ally, RangeType.Distance, 6, TargetType.Individuals, 6)
-                .SetCreatedByCharacter()
                 .SetDurationData(DurationType.Permanent)
                 .SetEffectForms(
                     EffectFormBuilder
@@ -189,12 +186,11 @@ internal static class OtherFeats
             .SetGuiPresentation(Category.Feat)
             .SetFeatures(FeatureDefinitionPowerBuilder
                 .Create("PowerTorchbearer")
-                .SetGuiPresentation(Category.Feature)
+                .SetGuiPresentation(Category.Feature, PowerDragonbornBreathWeaponGold)
                 .SetUsesFixed(ActivationTime.BonusAction)
                 .SetEffectDescription(EffectDescriptionBuilder
                     .Create(SpellDefinitions.Fireball.EffectDescription)
                     .SetCanBePlacedOnCharacter(false)
-                    .SetCreatedByCharacter()
                     .SetDurationData(DurationType.Round, 3)
                     .SetSpeed(SpeedType.Instant, 11f)
                     .SetTargetingData(Side.Enemy, RangeType.Touch, 1, TargetType.Individuals)

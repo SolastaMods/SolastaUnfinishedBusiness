@@ -85,6 +85,29 @@ internal static class SrdAndHouseRulesContext
         SwitchFullyControlConjurations();
     }
 
+    internal static void ModifyAttackModeAndDamage(
+        RulesetCharacter character,
+        string sourceName,
+        [CanBeNull] RulesetAttackMode attackMode)
+    {
+        var damage = attackMode?.EffectDescription?.FindFirstDamageForm();
+
+        if (damage == null)
+        {
+            return;
+        }
+
+        var proficiency = character.GetAttribute(AttributeDefinitions.ProficiencyBonus).CurrentValue;
+        var toHit = -Main.Settings.DeadEyeAndPowerAttackBaseValue;
+        var toDamage = Main.Settings.DeadEyeAndPowerAttackBaseValue + proficiency;
+
+        attackMode.ToHitBonus += toHit;
+        attackMode.ToHitBonusTrends.Add(new TrendInfo(toHit, FeatureSourceType.Feat, sourceName, null));
+
+        damage.BonusDamage += toDamage;
+        damage.DamageBonusTrends.Add(new TrendInfo(toDamage, FeatureSourceType.Feat, sourceName, null));
+    }
+
     internal static void SwitchUniversalSylvanArmorAndLightbringer()
     {
         GreenmageArmor.RequiredAttunementClasses.Clear();
@@ -394,28 +417,22 @@ internal static class SrdAndHouseRulesContext
                 cf.ConditionForm.ConditionsList.Remove(ConditionBleeding);
             }
         }
-        else
-        {
-            Main.Error("Unable to find form of type Condition in LesserRestoration");
-        }
 
         var cfg = GreaterRestoration.EffectDescription.GetFirstFormOfType(EffectForm.EffectFormType.Condition);
 
-        if (cfg != null)
+        if (cfg == null)
         {
-            // NOTE: using the same setting as for Lesser Restoration for compatibility
-            if (Main.Settings.AddBleedingToLesserRestoration)
-            {
-                cfg.ConditionForm.ConditionsList.TryAdd(ConditionBleeding);
-            }
-            else
-            {
-                cfg.ConditionForm.ConditionsList.Remove(ConditionBleeding);
-            }
+            return;
+        }
+
+        // NOTE: using the same setting as for Lesser Restoration for compatibility
+        if (Main.Settings.AddBleedingToLesserRestoration)
+        {
+            cfg.ConditionForm.ConditionsList.TryAdd(ConditionBleeding);
         }
         else
         {
-            Main.Error("Unable to find form of type Condition in GreaterRestoration");
+            cfg.ConditionForm.ConditionsList.Remove(ConditionBleeding);
         }
     }
 
@@ -476,12 +493,16 @@ internal static class ArmorClassStacking
 {
     internal static void ProcessWildShapeAc(List<RulesetAttributeModifier> modifiers, RulesetCharacterMonster monster)
     {
-        var ac = monster.GetAttribute(AttributeDefinitions.ArmorClass);
+        //process only for wild-shaped heroes
+        if (monster.OriginalFormCharacter is RulesetCharacterHero)
+        {
+            var ac = monster.GetAttribute(AttributeDefinitions.ArmorClass);
 
-        MulticlassWildshapeContext.RefreshWildShapeAcFeatures(monster, ac);
-        MulticlassWildshapeContext.UpdateWildShapeAcTrends(modifiers, monster, ac);
+            MulticlassWildshapeContext.RefreshWildShapeAcFeatures(monster, ac);
+            MulticlassWildshapeContext.UpdateWildShapeAcTrends(modifiers, monster, ac);
+        }
 
-        //sort modifiers
+        //sort modifiers, since we replaced this call
         RulesetAttributeModifier.SortAttributeModifiersList(modifiers);
     }
 }

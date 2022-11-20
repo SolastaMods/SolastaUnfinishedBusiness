@@ -20,11 +20,13 @@ internal class FeatureDefinitionFeatureSetBuilder
         return this;
     }
 
+#if false
     internal FeatureDefinitionFeatureSetBuilder SetEnumerateInDescription(bool value)
     {
         Definition.enumerateInDescription = value;
         return this;
     }
+#endif
 
     #region Constructors
 

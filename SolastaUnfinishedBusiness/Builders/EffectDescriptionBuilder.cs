@@ -57,13 +57,7 @@ internal class EffectDescriptionBuilder
         return this;
     }
 
-    internal EffectDescriptionBuilder SetCreatedByCharacter(bool value = true)
-    {
-        effect.createdByCharacter = value;
-        return this;
-    }
-
-    internal EffectDescriptionBuilder SetCanBePlacedOnCharacter(bool value = true)
+    internal EffectDescriptionBuilder SetCanBePlacedOnCharacter(bool value)
     {
         effect.canBePlacedOnCharacter = value;
         return this;
@@ -77,6 +71,12 @@ internal class EffectDescriptionBuilder
     internal EffectDescriptionBuilder SetParticleEffectParameters(EffectParticleParameters parameters)
     {
         effect.effectParticleParameters = parameters;
+        return this;
+    }
+
+    internal EffectDescriptionBuilder SetNoSavingThrow()
+    {
+        effect.hasSavingThrow = false;
         return this;
     }
 
@@ -188,9 +188,9 @@ internal class EffectDescriptionBuilder
         return this;
     }
 
-    internal EffectDescriptionBuilder SetIgnoreCover(bool value = true)
+    internal EffectDescriptionBuilder SetIgnoreCover()
     {
-        effect.ignoreCover = value;
+        effect.ignoreCover = true;
         return this;
     }
 
@@ -244,6 +244,14 @@ internal class EffectDescriptionBuilder
         effect.ImmuneCreatureFamilies.AddRange(families.Select(f => f.Name));
         return this;
     }
+
+#if false
+    internal EffectDescriptionBuilder InviteOptionalAlly(bool value = true)
+    {
+        effect.inviteOptionalAlly = value;
+        return this;
+    }
+#endif
 
     internal EffectDescriptionBuilder SetSpeed(SpeedType speedType, float speedParameter = 0f)
     {

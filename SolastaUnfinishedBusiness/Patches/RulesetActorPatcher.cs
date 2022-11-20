@@ -21,6 +21,72 @@ namespace SolastaUnfinishedBusiness.Patches;
 
 public static class RulesetActorPatcher
 {
+    [HarmonyPatch(typeof(RulesetActor), "InflictCondition")]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    public static class InflictCondition_Patch
+    {
+        public static void Prefix(RulesetActor __instance,
+            string conditionDefinitionName,
+            RuleDefinitions.DurationType durationType,
+            int durationParameter,
+            RuleDefinitions.TurnOccurenceType endOccurence,
+            string tag,
+            ulong sourceGuid,
+            string sourceFaction,
+            int effectLevel,
+            string effectDefinitionName,
+            ref int sourceAmount,
+            int sourceAbilityBonus,
+            int sourceProficiencyBonus,
+            RuleDefinitions.DieType bardicInspirationDie)
+        {
+            //PATCH: Implements `ExtraOriginOfAmount`
+            var sourceCharacter = EffectHelpers.GetCharacterByGuid(sourceGuid);
+            if (sourceCharacter == null)
+            {
+                return;
+            }
+
+            if (!DatabaseHelper.TryGetDefinition<ConditionDefinition>(conditionDefinitionName, out var addedCondition))
+            {
+                return;
+            }
+
+            switch (addedCondition.AmountOrigin)
+            {
+                case (ConditionDefinition.OriginOfAmount)ExtraOriginOfAmount.SourceProficiencyBonus:
+                    sourceAmount =
+                        sourceCharacter.TryGetAttributeValue(AttributeDefinitions.ProficiencyBonus);
+                    break;
+
+                case (ConditionDefinition.OriginOfAmount)ExtraOriginOfAmount.SourceProficiencyBonusNegative:
+                    sourceAmount =
+                        -sourceCharacter.TryGetAttributeValue(AttributeDefinitions.ProficiencyBonus);
+                    break;
+
+                case (ConditionDefinition.OriginOfAmount)ExtraOriginOfAmount.SourceCharacterLevel:
+                    sourceAmount =
+                        sourceCharacter.TryGetAttributeValue(AttributeDefinitions.CharacterLevel);
+                    break;
+
+                case (ConditionDefinition.OriginOfAmount)ExtraOriginOfAmount.SourceClassLevel:
+                    // Find a better place to put this in?
+                    var classType = addedCondition.AdditionalDamageType;
+                    sourceAmount = sourceCharacter.GetClassLevel(classType);
+                    break;
+                case (ConditionDefinition.OriginOfAmount)ExtraOriginOfAmount.SourceAbilityBonus:
+                    // Find a better place to put this in?
+                    var attributeName = addedCondition.AdditionalDamageType;
+                    if (sourceCharacter.TryGetAttribute(attributeName, out var attribute))
+                    {
+                        sourceAmount = AttributeDefinitions.ComputeAbilityScoreModifier(attribute.CurrentValue);
+                    }
+
+                    break;
+            }
+        }
+    }
+
     [HarmonyPatch(typeof(RulesetActor), "RemoveCondition")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     public static class RemoveCondition_Patch
@@ -290,7 +356,7 @@ public static class RulesetActorPatcher
             return instructions.ReplaceCalls(refreshAttributes, "RulesetActor.RefreshAttributes",
                 new CodeInstruction(OpCodes.Ldarg_0),
                 new CodeInstruction(OpCodes.Call, custom),
-                new CodeInstruction(OpCodes.Call, refreshAttributes));// checked for Call vs CallVirtual
+                new CodeInstruction(OpCodes.Call, refreshAttributes)); // checked for Call vs CallVirtual
         }
     }
 }

@@ -21,7 +21,12 @@ internal static class SubclassesContext
         // Barbarian
         LoadSubclass(new PathOfTheLight());
 
+        // Bard
+        LoadSubclass(new CollegeOfGuts());
+        LoadSubclass(new CollegeOfLife());
+
         // Druid
+        LoadSubclass(new CircleOfTheAncientForest());
         LoadSubclass(new CircleOfTheForestGuardian());
 
         // Fighter
@@ -31,6 +36,7 @@ internal static class SubclassesContext
 
         // Ranger
         LoadSubclass(new RangerArcanist());
+        LoadSubclass(new RangerWildMaster());
 
         // Rogue
         LoadSubclass(new RoguishOpportunist());
@@ -38,17 +44,23 @@ internal static class SubclassesContext
 
         // Sorcerer
         LoadSubclass(new SorcerousDivineHeart());
+        LoadSubclass(new SorcerousFieldManipulator());
 
         // Monk
         LoadSubclass(new WayOfTheDistantHand());
+        LoadSubclass(new WayOfSilhouette());
 
         // Warlock
+        LoadSubclass(new PatronElementalist());
         LoadSubclass(new PatronMoonlit());
+        LoadSubclass(new PatronRiftWalker());
         LoadSubclass(new PatronSoulBlade());
 
         // Wizard
+        LoadSubclass(new WizardArcaneFighter());
         LoadSubclass(new WizardBladeDancer());
         LoadSubclass(new WizardDeadMaster());
+        LoadSubclass(new WizardSpellMaster());
 
         // settings paring
         foreach (var name in Main.Settings.SubclassEnabled

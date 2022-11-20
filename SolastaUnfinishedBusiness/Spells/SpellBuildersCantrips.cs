@@ -26,7 +26,7 @@ internal static partial class SpellBuilders
             .SetGuiPresentation(Category.Condition, ConditionAcidSpit)
             .SetConditionType(ConditionType.Detrimental)
             .SetDuration(DurationType.Round, 1)
-            .SetSpecialDuration(true)
+            .SetSpecialDuration()
             .SetFeatures(FeatureDefinitionAttributeModifierBuilder
                 .Create("AttributeModifierAcidClawsACDebuff")
                 .SetGuiPresentation("ConditionAcidClaws", Category.Condition)
@@ -66,7 +66,6 @@ internal static partial class SpellBuilders
             .SetEffectDescription(effectDescription)
             .SetCastingTime(ActivationTime.Action)
             .SetSpellLevel(0)
-            .SetRequiresConcentration(false)
             .SetVerboseComponent(false)
             .SetVocalSpellSameType(VocalSpellSemeType.Attack)
             .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolTransmutation)
@@ -111,7 +110,6 @@ internal static partial class SpellBuilders
             .SetEffectDescription(effectDescription)
             .SetCastingTime(ActivationTime.Action)
             .SetSpellLevel(0)
-            .SetRequiresConcentration(false)
             .SetVocalSpellSameType(VocalSpellSemeType.Attack)
             .SetMaterialComponent(MaterialComponentType.None)
             .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolTransmutation)
@@ -153,7 +151,6 @@ internal static partial class SpellBuilders
             .SetEffectDescription(effectDescription)
             .SetCastingTime(ActivationTime.Action)
             .SetSpellLevel(0)
-            .SetRequiresConcentration(false)
             .SetSomaticComponent(false)
             .SetVocalSpellSameType(VocalSpellSemeType.Attack)
             .SetMaterialComponent(MaterialComponentType.Mundane)
@@ -193,7 +190,6 @@ internal static partial class SpellBuilders
             .SetVerboseComponent(false)
             .SetVocalSpellSameType(VocalSpellSemeType.Attack)
             .SetSpellLevel(0)
-            .SetRequiresConcentration(false)
             .SetEffectDescription(EffectDescriptionBuilder
                 .Create()
                 .SetTargetingData(Side.Enemy, RangeType.RangeHit, 12, TargetType.Individuals)
@@ -315,7 +311,7 @@ internal static partial class SpellBuilders
                 .SetSpecialInterruptions(ConditionInterruption.Attacked)
                 .SetDuration(DurationType.Round, 1)
                 .SetTurnOccurence(TurnOccurenceType.StartOfTurn)
-                .SetSpecialDuration(true)
+                .SetSpecialDuration()
                 .AddToDB()
         };
 
@@ -447,14 +443,14 @@ internal static partial class SpellBuilders
                 15)
             .SetDurationData(DurationType.Instantaneous)
             .SetTargetingData(Side.All, RangeType.Self, 0, TargetType.Sphere)
+            .ExcludeCaster()
             .SetEffectForms(
                 EffectFormBuilder
                     .Create()
                     .SetDamageForm(DamageTypeThunder, 1, DieType.D6)
-                    .HasSavingThrow(EffectSavingThrowType.Negates).Build())
+                    .HasSavingThrow(EffectSavingThrowType.Negates)
+                    .Build())
             .Build();
-
-        effectDescription.targetExcludeCaster = true;
 
         var spell = SpellDefinitionBuilder
             .Create(NAME)
@@ -462,7 +458,6 @@ internal static partial class SpellBuilders
             .SetEffectDescription(effectDescription)
             .SetCastingTime(ActivationTime.Action)
             .SetSpellLevel(0)
-            .SetRequiresConcentration(false)
             .SetVocalSpellSameType(VocalSpellSemeType.Attack)
             .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolEvocation)
             .AddToDB();

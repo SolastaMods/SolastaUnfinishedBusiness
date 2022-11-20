@@ -7,6 +7,7 @@ using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterSubclassDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPowers;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
+using static SolastaUnfinishedBusiness.Subclasses.CommonBuilders;
 
 namespace SolastaUnfinishedBusiness.Subclasses;
 
@@ -18,7 +19,7 @@ internal sealed class CircleOfTheForestGuardian : AbstractSubclass
     {
         var autoPreparedSpellsForestGuardian = FeatureDefinitionAutoPreparedSpellsBuilder
             .Create("AutoPreparedSpellsForestGuardian")
-            .SetGuiPresentation(Category.Feature)
+            .SetGuiPresentation("DomainSpells", Category.Feature)
             .SetPreparedSpellGroups(
                 BuildSpellGroup(2, Shield, FogCloud),
                 BuildSpellGroup(3, Blur, FlameBlade),
@@ -28,22 +29,10 @@ internal sealed class CircleOfTheForestGuardian : AbstractSubclass
             .SetSpellcastingClass(CharacterClassDefinitions.Druid)
             .AddToDB();
 
-        var attributeModifierForestGuardianExtraAttack = FeatureDefinitionAttributeModifierBuilder
-            .Create("AttributeModifierForestGuardianExtraAttack")
-            .SetGuiPresentation(Category.Feature)
-            .SetModifier(AttributeModifierOperation.ForceIfBetter, AttributeDefinitions.AttacksNumber, 2)
-            .AddToDB();
-
         var attributeModifierForestGuardianSylvanDurability = FeatureDefinitionAttributeModifierBuilder
             .Create("AttributeModifierForestGuardianSylvanDurability")
             .SetGuiPresentation(Category.Feature)
             .SetModifier(AttributeModifierOperation.Additive, AttributeDefinitions.HitPointBonusPerLevel, 1)
-            .AddToDB();
-
-        var magicAffinityForestGuardianSylvanWarMagic = FeatureDefinitionMagicAffinityBuilder
-            .Create(FeatureDefinitionMagicAffinitys.MagicAffinityBattleMagic,
-                "MagicAffinityForestGuardianSylvanWarMagic")
-            .SetGuiPresentation(Category.Feature)
             .AddToDB();
 
         var effectFormTemporaryHitPoints = EffectFormBuilder
@@ -87,15 +76,20 @@ internal sealed class CircleOfTheForestGuardian : AbstractSubclass
             .SetUniqueInstance()
             .AddToDB();
 
+        var powerForestGuardianBarkWardPool = FeatureDefinitionPowerBuilder
+            .Create("PowerForestGuardianBarkWardPool")
+            .SetGuiPresentation(Category.Feature, hidden: true)
+            .SetUsesProficiencyBonus(ActivationTime.BonusAction)
+            .AddToDB();
+
         var powerSharedPoolForestGuardianBarkWard = FeatureDefinitionPowerSharedPoolBuilder
             .Create("PowerSharedPoolForestGuardianBarkWard")
             .SetGuiPresentation(Category.Feature, PowerDruidWildShape)
-            .SetSharedPool(ActivationTime.BonusAction, PowerDruidWildShape)
+            .SetSharedPool(ActivationTime.BonusAction, powerForestGuardianBarkWardPool)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
                     .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
-                    .SetCreatedByCharacter()
                     .SetDurationData(DurationType.Minute, 10)
                     .SetEffectForms(
                         effectFormTemporaryHitPoints,
@@ -118,12 +112,11 @@ internal sealed class CircleOfTheForestGuardian : AbstractSubclass
         var powerSharedPoolForestGuardianImprovedBarkWard = FeatureDefinitionPowerSharedPoolBuilder
             .Create("PowerSharedPoolForestGuardianImprovedBarkWard")
             .SetGuiPresentation(Category.Feature, PowerDruidWildShape)
-            .SetSharedPool(ActivationTime.BonusAction, PowerDruidWildShape)
+            .SetSharedPool(ActivationTime.BonusAction, powerForestGuardianBarkWardPool)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
                     .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
-                    .SetCreatedByCharacter()
                     .SetDurationData(DurationType.Minute, 10)
                     .SetEffectForms(
                         effectFormTemporaryHitPoints,
@@ -157,12 +150,11 @@ internal sealed class CircleOfTheForestGuardian : AbstractSubclass
         var powerSharedPoolForestGuardianSuperiorBarkWard = FeatureDefinitionPowerSharedPoolBuilder
             .Create("PowerSharedPoolForestGuardianSuperiorBarkWard")
             .SetGuiPresentation(Category.Feature, PowerDruidWildShape)
-            .SetSharedPool(ActivationTime.BonusAction, PowerDruidWildShape)
+            .SetSharedPool(ActivationTime.BonusAction, powerForestGuardianBarkWardPool)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
                     .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
-                    .SetCreatedByCharacter()
                     .SetDurationData(DurationType.Minute, 10)
                     .SetEffectForms(
                         effectFormTemporaryHitPoints,
@@ -199,10 +191,10 @@ internal sealed class CircleOfTheForestGuardian : AbstractSubclass
             .AddFeaturesAtLevel(2,
                 autoPreparedSpellsForestGuardian,
                 attributeModifierForestGuardianSylvanDurability,
-                magicAffinityForestGuardianSylvanWarMagic,
+                PowerCasterFightingWarMagic,
                 powerSharedPoolForestGuardianBarkWard)
             .AddFeaturesAtLevel(6,
-                attributeModifierForestGuardianExtraAttack)
+                AttributeModifierCasterFightingExtraAttack)
             .AddFeaturesAtLevel(10,
                 powerSharedPoolForestGuardianImprovedBarkWard)
             .AddFeaturesAtLevel(14,

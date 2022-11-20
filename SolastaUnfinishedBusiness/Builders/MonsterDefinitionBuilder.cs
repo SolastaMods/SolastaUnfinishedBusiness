@@ -11,15 +11,16 @@ namespace SolastaUnfinishedBusiness.Builders;
 [UsedImplicitly]
 internal class MonsterDefinitionBuilder : DefinitionBuilder<MonsterDefinition, MonsterDefinitionBuilder>
 {
-    internal MonsterDefinitionBuilder SetAlignment(string alignment)
+    internal MonsterDefinitionBuilder SetGroupAttacks(bool value)
     {
-        Definition.alignment = alignment;
+        Definition.groupAttacks = value;
         return this;
     }
 
     internal MonsterDefinitionBuilder SetAlignment(AlignmentDefinition alignment)
     {
-        return SetAlignment(alignment.Name);
+        Definition.alignment = alignment.name;
+        return this;
     }
 
     internal MonsterDefinitionBuilder SetArmorClass(int armorClass, string type = "")
@@ -57,12 +58,6 @@ internal class MonsterDefinitionBuilder : DefinitionBuilder<MonsterDefinition, M
     {
         Definition.savingThrowScores.SetRange(saves.Select(x =>
             new MonsterSavingThrowProficiency { abilityScoreName = x.Item1, bonus = x.Item2 }));
-        return this;
-    }
-
-    public MonsterDefinitionBuilder HideFromDungeonEditor()
-    {
-        Definition.dungeonMakerPresence = MonsterDefinition.DungeonMaker.None;
         return this;
     }
 
@@ -151,6 +146,13 @@ internal class MonsterDefinitionBuilder : DefinitionBuilder<MonsterDefinition, M
             Definition.AbilityScores.SetValue(a[i], i);
         }
 
+        return this;
+    }
+
+    internal MonsterDefinitionBuilder AddFeatures(params FeatureDefinition[] features)
+    {
+        Definition.Features.AddRange(features);
+        Definition.Features.Sort(Sorting.Compare);
         return this;
     }
 

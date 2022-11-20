@@ -251,7 +251,7 @@ internal static class DmProRendererContext
             reflectionProbe.transform.position = new Vector3(size.x / 2f, size.y, size.z / 2f);
         }
     }
-    
+
     internal static bool ExtendedGetAssetKey(
         BaseBlueprint __instance,
         ref string __result,

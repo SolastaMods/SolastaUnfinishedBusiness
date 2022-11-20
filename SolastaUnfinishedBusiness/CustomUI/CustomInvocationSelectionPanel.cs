@@ -503,6 +503,7 @@ internal class CustomInvocationSelectionPanel : CharacterStagePanel
                 .Where(f => f.Level == gainedClassLevel)
                 .Select(f => f.FeatureDefinition))
             .OfType<FeatureDefinitionCustomInvocationPool>()
+            .Where(x => x.PoolType != null)
             .Select(f => (poolTag, f))
         );
 
@@ -514,6 +515,7 @@ internal class CustomInvocationSelectionPanel : CharacterStagePanel
                     .Where(f => f.Level == gainedClassLevel)
                     .Select(f => f.FeatureDefinition))
                 .OfType<FeatureDefinitionCustomInvocationPool>()
+                .Where(x => x.PoolType != null)
                 .Select(f => (poolTag, f))
             );
         }

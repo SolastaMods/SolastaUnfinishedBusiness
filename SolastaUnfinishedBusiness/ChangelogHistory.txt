@@ -1,0 +1,128 @@
+﻿CHANGES:
+
+1.4.28.7:
+
+- promoted Circle of The Ancient Forest
+- promoted Circle of The Forest Guardian
+- changed Tactical Surge to provide 2 dice on use and 1 charge per turn
+- made switch gambit work on allies and grant them PB to AC
+- removed extra gambit pool increases at 5 and 10
+- tweak Gnome scale
+
+1.4.28.6:
+
+- consolidated common subclasses features
+- fixed executioner damage
+- fixed reported translations issues
+- fixed wrong College of Life progression
+- rebalanced College of Life
+- rebalanced Field Manipulator
+- tweaked subclasses gui presentation
+
+1.4.28.5:
+
+- fixed default party on DM
+- fixed reported translations typos
+- fixed Dual Flurry counting hits from reaction attacks
+- fixed Marshal's Study Your Enemy
+- fixed Wild Master soft lock on power damage
+- migrated Life Transmuter to College of Life
+- migrated Manipulator Master to Sorcerous Field Manipulator
+- added Gambit replacement to levels where new ones are learned (TACTICIAN)
+- added level 10 Tactical Surge feature (TACTICIAN)
+- fixed error when using Switching gambit (TACTICIAN)
+
+1.4.28.4:
+
+- Add a sprite to Torchbearer
+- Fix Shared Vigilance using target INT instead of self
+- Fix Wild Master offering multiple summons
+- Improve Wild Master beast powers
+
+1.4.28.3:
+
+- Fix dual-flurry triggering on misses
+- Fix IncreaseMeleeAttackReach on thrown melee weapons
+- Improve Multiclass spell tag
+- Improve Wild Master with distinct actions per Spirit Beast
+- Increase Gambit die pool at 5 and 10
+- Rename Debilitate to Provoke
+- Rename Feint to Precision
+
+1.4.28.2:
+
+- Add College of Guts
+- Fix inverted sign on Deadeye and Power Attack
+- Fix Wild Master empty powers display
+
+1.4.28.1:
+
+- Bring back default party feature
+- Change Deadeye to use same base modifier as Power Attack
+- Add setting under Gameplay / Rules to change above modifier
+- Fix translations
+- Fix Wild Master from Tiger to Wolf
+- Fix Winter Breath duration
+- Promote some subclasses back per requests
+
+1.4.28.0:
+
+- Add Beast Master [beta]
+- Improve Tactician
+- Fix all reported translation issues
+- Remove Light Footed FS as too similar to an official feat
+
+1.4.26.4:
+
+- Fix Arcanist Mark tooltip
+- Fix Arcane Pulse number of uses
+- Refactor common code in Moonlit and Way of Silhouette
+
+1.4.26.3:
+
+- Refactor Way of Shadow into Way of The Silhouette
+
+1.4.26.2:
+
+- Add 2 WIP gambits (Brace and Switch)
+- Add rubble proxy to Earth Tremor spell
+- Add Way of Shadow subclass
+- Fix Adaptive Strategy restoring wrong amount of dice
+
+1.4.26.1:
+
+- Add unlock skin colors option
+- Fix Divine Heart Empowered Healing
+
+1.4.26.0:
+
+- Fix distant hand technique (Way of Distant Hand)
+- Fix warning sign over bows (Way of Distant Hand)
+- Fix EN terms (Inventor)
+
+1.4.25.3:
+
+- Fix Tactician level up
+
+1.4.25.2:
+
+- Fix Tactician translations
+- Fix Unlearn Invocations patch
+
+1.4.25.1:
+
+- Add Kobold sprite
+- Fix feats selection
+
+1.4.25.0:
+
+- Rebrand to Unfinished Business
+- Add Inventor
+- Add Kobold
+- Add Way of The Silhouette
+- Add UI feat groups
+- Add new Fighting Styles
+- Allow 6 players on multiplayer [beta]
+- Allow 6 players on official campaigns
+- Improve Tactician
+- Improve Wizard Dead Master
