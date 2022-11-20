@@ -1,6 +1,5 @@
 ﻿using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
-using SolastaUnfinishedBusiness.CustomBehaviors;
 using static FeatureDefinitionAttributeModifier;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Builders.Features.AutoPreparedSpellsGroupBuilder;
@@ -82,7 +81,7 @@ internal sealed class CircleOfTheForestGuardian : AbstractSubclass
             .SetGuiPresentation(Category.Feature, hidden: true)
             .SetUsesProficiencyBonus(ActivationTime.BonusAction)
             .AddToDB();
-        
+
         var powerSharedPoolForestGuardianBarkWard = FeatureDefinitionPowerSharedPoolBuilder
             .Create("PowerSharedPoolForestGuardianBarkWard")
             .SetGuiPresentation(Category.Feature, PowerDruidWildShape)

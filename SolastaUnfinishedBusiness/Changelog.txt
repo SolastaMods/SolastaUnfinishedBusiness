@@ -1,10 +1,6 @@
 ﻿CHANGES:
 
-1.4.28.6:
+1.4.28.7:
 
-- consolidated common subclasses features
-- fixed executioner damage
-- fixed wrong College of Life progression
-- rebalanced College of Life
-- rebalanced Field Manipulator
-- tweaked subclasses gui presentation
+- promote Circle of The Ancient Forest
+- promote Circle of The Forest Guardian

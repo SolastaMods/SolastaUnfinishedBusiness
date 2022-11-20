@@ -136,7 +136,7 @@
   "delegatedToAction": false,
   "surrogateToSpell": null,
   "triggeredBySpecialMove": false,
-  "activationTime": "Permanent",
+  "activationTime": "BonusAction",
   "autoActivationRequiredTargetSenseType": "None",
   "autoActivationRequiredTargetCreatureTag": "",
   "autoActivationPowerTag": "",
@@ -170,9 +170,9 @@
   "includeBaseDescription": false,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
-    "hidden": false,
-    "title": "Feature/&NoContentTitle",
-    "description": "Feature/&NoContentTitle",
+    "hidden": true,
+    "title": "Feature/&PowerPoolAncientForestWallOfThornsTitle",
+    "description": "Feature/&PowerPoolAncientForestWallOfThornsDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",

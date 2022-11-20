@@ -1,6 +1,7 @@
 {
   "$type": "FeatureDefinitionFeatureSet, Assembly-CSharp",
   "featureSet": [
+    "Definition:PowerPoolAncientForestWallOfThorns:2466c405-6f71-5a6b-916d-20925a0d5263",
     "Definition:PowerSharedPoolAncientForestWallOfThornsWallLine:1f970de3-393c-5397-9558-df30fc6f36b5",
     "Definition:PowerSharedPoolAncientForestWallOfThornsWallRing:898dee9c-2d89-5393-bc41-41e0aecc930a"
   ],

@@ -138,14 +138,15 @@ internal sealed class CircleOfTheAncientForest : AbstractSubclass
 
         var powerPoolAncientForestWallOfThorns = FeatureDefinitionPowerBuilder
             .Create("PowerPoolAncientForestWallOfThorns")
-            .SetGuiPresentationNoContent()
-            .SetUsesAbilityBonus(ActivationTime.Permanent, RechargeRate.LongRest, AttributeDefinitions.Charisma)
+            .SetGuiPresentation(Category.Feature, hidden: true)
+            .SetUsesAbilityBonus(ActivationTime.BonusAction, RechargeRate.LongRest, AttributeDefinitions.Charisma)
             .SetBonusToAttack(true)
             .AddToDB();
 
         var featureSetWallOfThorns = FeatureDefinitionFeatureSetBuilder
             .Create("FeatureSetWallOfThorns")
             .SetGuiPresentation(Category.Feature)
+            .AddFeatureSet(powerPoolAncientForestWallOfThorns)
             .AddToDB();
 
         var wallOfThornsSpells = new[] { WallOfThornsWallLine, WallOfThornsWallRing };
