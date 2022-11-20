@@ -139,7 +139,7 @@ internal sealed class CircleOfTheAncientForest : AbstractSubclass
         var powerPoolAncientForestWallOfThorns = FeatureDefinitionPowerBuilder
             .Create("PowerPoolAncientForestWallOfThorns")
             .SetGuiPresentation(Category.Feature, hidden: true)
-            .SetUsesAbilityBonus(ActivationTime.BonusAction, RechargeRate.LongRest, AttributeDefinitions.Charisma)
+            .SetUsesAbilityBonus(ActivationTime.BonusAction, RechargeRate.LongRest, AttributeDefinitions.Wisdom)
             .SetBonusToAttack(true)
             .AddToDB();
 
