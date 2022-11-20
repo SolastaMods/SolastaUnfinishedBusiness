@@ -76,12 +76,12 @@ internal sealed class PatronElementalist : AbstractSubclass
             .Create(SpellListDefinitions.SpellListWizard, "SpellListElementalist")
             .SetGuiPresentationNoContent(true)
             .ClearSpells()
-            .SetSpellsAtLevel(0, FireBolt, RayOfFrost, ShockingGrasp)
-            .SetSpellsAtLevel(1, BurningHands, Thunderwave, FogCloud)
-            .SetSpellsAtLevel(2, FlamingSphere, ScorchingRay, HeatMetal)
-            .SetSpellsAtLevel(3, Fireball, LightningBolt, SleetStorm)
-            .SetSpellsAtLevel(4, Stoneskin, IceStorm, WallOfFire)
-            .SetSpellsAtLevel(5, ConeOfCold, FlameStrike, ConjureElemental)
+            .SetSpellsAtLevel(0, FireBolt, RayOfFrost)
+            .SetSpellsAtLevel(1, BurningHands, Thunderwave)
+            .SetSpellsAtLevel(2, FlamingSphere, ScorchingRay)
+            .SetSpellsAtLevel(3, Fireball, LightningBolt)
+            .SetSpellsAtLevel(4, IceStorm, WallOfFire)
+            .SetSpellsAtLevel(5, ConeOfCold, FlameStrike)
             .FinalizeSpells(true, 9)
             .AddToDB();
 
