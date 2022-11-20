@@ -957,7 +957,7 @@ internal sealed class MartialTactician : AbstractSubclass
 
             var character = action.ActingCharacter.RulesetCharacter;
             var charges = character.GetRemainingPowerUses(power) - character.GetMaxUsesForPool(power);
-            charges = Math.Max(charges, -4);
+            charges = Math.Max(charges, -2);
 
             GameConsoleHelper.LogCharacterUsedFeature(character, feature, indent: true);
             if (charges < 0)
@@ -986,7 +986,7 @@ internal sealed class MartialTactician : AbstractSubclass
         {
             var character = locationCharacter.RulesetCharacter;
             var charges = character.GetRemainingPowerUses(power) - character.GetMaxUsesForPool(power);
-            charges = Math.Max(charges, -2);
+            charges = Math.Max(charges, -1);
 
             if (charges >= 0)
             {
