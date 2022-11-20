@@ -2,8 +2,12 @@
 
 1.4.28.7:
 
-- promote Circle of The Ancient Forest
-- promote Circle of The Forest Guardian
+- promoted Circle of The Ancient Forest
+- promoted Circle of The Forest Guardian
+- changed Tactical Surge to provide 2 dice on use and 1 charge per turn
+- made switch gambit work on allies and grant them PB to AC
+- removed extra gambit pool increases at 5 and 10
+- tweak Gnome scale
 
 1.4.28.6:
 
