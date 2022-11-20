@@ -34,7 +34,7 @@ internal sealed class MartialTactician : AbstractSubclass
         //make sure that if we add any custom sub-features to base one we add them to this one too
         GambitDieDamageOnce = BuildGambitDieDamage("Once", FeatureLimitedUsage.OncePerTurn);
 
-        var learn1Gambit = BuildLearn(1);
+        var learn2Gambits = BuildLearn(2);
         var learn3Gambits = BuildLearn(3);
         var unlearn = BuildUnlearn();
 
@@ -44,9 +44,9 @@ internal sealed class MartialTactician : AbstractSubclass
             .SetGuiPresentation(Category.Subclass, RoguishShadowCaster)
             .AddFeaturesAtLevel(3, BuildSharpMind(), GambitPool, learn3Gambits, EverVigilant)
             .AddFeaturesAtLevel(5, BuildGambitDieSize(DieType.D8))
-            .AddFeaturesAtLevel(7, BuildGambitPoolIncrease(), learn1Gambit, unlearn, BuildSharedVigilance())
+            .AddFeaturesAtLevel(7, BuildGambitPoolIncrease(), learn2Gambits, unlearn, BuildSharedVigilance())
             .AddFeaturesAtLevel(10, BuildAdaptiveStrategy(), BuildTacticalSurge(), BuildGambitDieSize(DieType.D10))
-            .AddFeaturesAtLevel(15, BuildGambitPoolIncrease(), learn1Gambit, unlearn, BuildGambitDieSize(DieType.D12))
+            .AddFeaturesAtLevel(15, BuildGambitPoolIncrease(), learn2Gambits, unlearn, BuildGambitDieSize(DieType.D12))
             .AddToDB();
 
         BuildGambits();
