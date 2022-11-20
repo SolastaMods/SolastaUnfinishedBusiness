@@ -3,6 +3,7 @@ using SolastaUnfinishedBusiness.Api.Infrastructure;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomUI;
+using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Properties;
 using TA;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
@@ -72,7 +73,7 @@ internal static class GnomeRaceBuilder
 
         gnomeRacePresentation.preferedHairColors = new RangedInt(26, 47);
 
-        var gnome = CharacterRaceDefinitionBuilder
+        var raceGnome = CharacterRaceDefinitionBuilder
             .Create(CharacterRaceDefinitions.Human, "RaceGnome")
             .SetGuiPresentation(Category.Race, gnomeSpriteReference)
             .SetRacePresentation(gnomeRacePresentation)
@@ -92,8 +93,9 @@ internal static class GnomeRaceBuilder
                 proficiencyGnomeLanguages)
             .AddToDB();
 
-        FeatDefinitions.FocusedSleeper.CompatibleRacesPrerequisite.Add(gnome.name);
+        RacesContext.RaceScaleMap[raceGnome] = 8f / 9.4f;
+        FeatDefinitions.FocusedSleeper.CompatibleRacesPrerequisite.Add(raceGnome.name);
 
-        return gnome;
+        return raceGnome;
     }
 }
