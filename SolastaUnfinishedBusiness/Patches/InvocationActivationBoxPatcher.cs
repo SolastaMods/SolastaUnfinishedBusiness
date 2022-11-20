@@ -72,7 +72,7 @@ public static class InvocationActivationBoxPatcher
         {
             var feature = invocation.invocationDefinition as InvocationDefinitionCustom;
 
-            if (feature == null || feature.PoolType == null)
+            if (feature == null || feature.PoolType == null || feature.grantedSpell != null)
             {
                 return;
             }
