@@ -1,0 +1,69 @@
+{
+  "$type": "CharacterSubclassDefinition, Assembly-CSharp",
+  "featureUnlocks": [
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:PowerSharedPoolForestGuardianBarkWard:9e840509-63ba-5093-863a-aacb24745e79",
+      "level": 2
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:AutoPreparedSpellsForestGuardian:dc9a52ce-f76b-5ac2-859f-d39aafcfd16d",
+      "level": 2
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:AttributeModifierForestGuardianSylvanDurability:8f809572-05d0-5741-b97a-c1d4a99752f8",
+      "level": 2
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:PowerCasterFightingWarMagic:368681bf-0523-5709-a17a-62416add2f96",
+      "level": 2
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:AttributeModifierCasterFightingExtraAttack:d683c90c-1240-51bc-878a-617aa7133df0",
+      "level": 6
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:PowerSharedPoolForestGuardianImprovedBarkWard:1e5f493c-3342-55c4-bed6-85423d8a53e0",
+      "level": 10
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:PowerSharedPoolForestGuardianSuperiorBarkWard:2d08f18e-8164-522e-8748-8033e9a1bad1",
+      "level": 14
+    }
+  ],
+  "personalityFlagOccurences": [],
+  "morphotypeSubclassFilterTag": "Default",
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Subclass/&CircleOfTheForestGuardianTitle",
+    "description": "Subclass/&CircleOfTheForestGuardianDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "66614872ccbd31747b1555dcb689b144",
+      "m_SubObjectName": "Mountaineer",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "37a50cd9-b696-5703-9811-77c74646be62",
+  "contentPack": 9999,
+  "name": "CircleOfTheForestGuardian"
+}
