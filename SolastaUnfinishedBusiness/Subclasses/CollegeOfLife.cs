@@ -37,11 +37,9 @@ internal sealed class CollegeOfLife : AbstractSubclass
 
         var powerSharedPoolCollegeOfLifeHealingPool = FeatureDefinitionPowerBuilder
             .Create("PowerSharedPoolCollegeOfLifeHealingPool")
-            .SetGuiPresentation(Category.Feature)
+            .SetGuiPresentation(Category.Feature, hidden: true)
             .SetUsesProficiencyBonus(ActivationTime.BonusAction)
             .AddToDB();
-
-        powerSharedPoolCollegeOfLifeHealingPool.GuiPresentation.hidden = true;
 
         var conditionCollegeOfLifeDarkvision = ConditionDefinitionBuilder
             .Create("ConditionCollegeOfLifeDarkvision")

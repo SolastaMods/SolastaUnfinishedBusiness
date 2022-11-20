@@ -61,11 +61,9 @@ internal sealed class RangerWildMaster : AbstractSubclass
 
         var powerWildMasterSummonSpiritBeastPool = FeatureDefinitionPowerBuilder
             .Create("PowerWildMasterSummonSpiritBeastPool")
-            .SetGuiPresentation(Category.Feature)
+            .SetGuiPresentation(Category.Feature, hidden: true)
             .SetUsesFixed(ActivationTime.Action, RechargeRate.LongRest)
             .AddToDB();
-
-        powerWildMasterSummonSpiritBeastPool.GuiPresentation.hidden = true;
 
         var powerWildMasterInvisibility = FeatureDefinitionPowerBuilder
             .Create(FeatureDefinitionPowers.PowerFunctionPotionOfInvisibility, "PowerWildMasterInvisibility")
