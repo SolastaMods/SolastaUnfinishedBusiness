@@ -317,7 +317,7 @@ internal static class CasterFeats
             .Create($"Power{name}{savingThrowDifficultyAbility}")
             .SetGuiPresentation(name, Category.Feature, Sprites.FeatTelekinetic)
             //TODO: ideally not hide out of combat, but make it disabled
-            .SetCustomSubFeatures(PowerFromInvocation.Marker, ValidatorsPowerUse.InCombat)
+            .SetCustomSubFeatures(PowerFromInvocation.Marker)
             .SetUsesFixed(ActivationTime.BonusAction)
             .SetEffectDescription(EffectDescriptionBuilder.Create()
                 .SetTargetingData(Side.All, RangeType.Distance, 6, TargetType.Individuals)
