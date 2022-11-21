@@ -3,6 +3,7 @@ using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomDefinitions;
 using static RuleDefinitions;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionDamageAffinitys;
 
 namespace SolastaUnfinishedBusiness.Subclasses;
 
@@ -17,6 +18,12 @@ internal static class CommonBuilders
                 AttributeDefinitions.AttacksNumber, 2)
             .AddToDB();
 
+    internal static readonly FeatureDefinitionDamageAffinity DamageAffinityGenericHardenToNecrotic = 
+        FeatureDefinitionDamageAffinityBuilder
+            .Create(DamageAffinityNecroticImmunity, "DamageAffinityGenericHardenToNecrotic")
+            .SetGuiPresentation(Category.Feature)
+            .AddToDB();
+        
     internal static readonly FeatureDefinitionFeatureSet FeatureSetCasterFightingProficiency =
         FeatureDefinitionFeatureSetBuilder
             .Create("FeatureSetCasterFightingProficiency")

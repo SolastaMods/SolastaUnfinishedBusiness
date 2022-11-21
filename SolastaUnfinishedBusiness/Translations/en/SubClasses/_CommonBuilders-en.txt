@@ -8,3 +8,5 @@ Feature/&PowerCasterFightingWarMagicDescription=You can use your bonus action to
 Feature/&PowerCasterFightingWarMagicTitle=War Magic
 Feature/&ReplaceAttackWithCantripCasterFightingDescription=You can replace one of your attacks with a cantrip.
 Feature/&ReplaceAttackWithCantripCasterFightingTitle=Cantrip Attack
+Feature/&DamageAffinityGenericHardenToNecroticDescription=You have immunity to necrotic damage, and your hit point maximum can't be reduced.
+Feature/&DamageAffinityGenericHardenToNecroticTitle=Harden to Necrotic
