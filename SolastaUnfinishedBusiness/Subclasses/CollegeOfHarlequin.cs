@@ -1,7 +1,7 @@
 ﻿using System.Collections;
+using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
-using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.Extensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
@@ -14,6 +14,24 @@ namespace SolastaUnfinishedBusiness.Subclasses;
 
 internal sealed class CollegeOfHarlequin : AbstractSubclass
 {
+    private static Dictionary<ulong, int> BardicDieRollPerCharacter { get; } = new();
+    internal static int GetBardicRoll(ulong sourceGuid)
+    {
+        BardicDieRollPerCharacter.TryGetValue(sourceGuid, out int roll);
+        return roll;
+    }
+
+    internal static void SetBardicRoll(ulong sourceGuid, int roll)
+    {
+        Main.Log($"SetBardicRoll {sourceGuid}", true);
+        BardicDieRollPerCharacter.AddOrReplace(sourceGuid, roll);
+    }
+
+    internal static void RemoveBardicRoll(ulong sourceGuid)
+    {
+        Main.Log($"RemoveBardicRoll {sourceGuid}", true);
+        BardicDieRollPerCharacter.Remove(sourceGuid);
+    }
     private static readonly FeatureDefinitionPower PowerTerrificPerformance = FeatureDefinitionPowerBuilder
         .Create("PowerTerrificPerformance")
         .SetGuiPresentation("TerrificPerformance", Category.Feature)
@@ -89,6 +107,13 @@ internal sealed class CollegeOfHarlequin : AbstractSubclass
             )
             .AddToDB();
 
+        var proficiencyCollegeOfHarlequinMartialWeapon = FeatureDefinitionProficiencyBuilder
+            .Create("ProficiencyCollegeOfHarlequinMartialWeapon")
+            .SetGuiPresentation("ProficiencyCollegeOfHarlequinMartialWeapon", Category.Feature)
+            .SetProficiencies(ProficiencyType.Weapon,
+                EquipmentDefinitions.SimpleWeaponCategory, EquipmentDefinitions.MartialWeaponCategory)
+            .AddToDB();
+
         var featureTerrificPerformance = FeatureDefinitionBuilder
             .Create("TargetReducedToZeroHpPowerTerrificPerformance")
             .SetGuiPresentation("TerrificPerformance", Category.Feature)
@@ -98,7 +123,6 @@ internal sealed class CollegeOfHarlequin : AbstractSubclass
         var powerImprovedCombatInspiration = FeatureDefinitionPowerBuilder
             .Create("PowerImprovedCombatInspiration")
             .SetGuiPresentation("ImproveCombatInspiration", Category.Feature)
-            //.SetShowCasting(false)
             .SetEffectDescription(EffectDescriptionBuilder
                 .Create()
                 .SetDurationData(DurationType.Instantaneous)
@@ -123,10 +147,10 @@ internal sealed class CollegeOfHarlequin : AbstractSubclass
             .SetOrUpdateGuiPresentation("CollegeOfHarlequin", Category.Subclass,
                 CharacterSubclassDefinitions.RoguishShadowCaster)
             .AddFeaturesAtLevel(3, powerCombatInspiration, featureTerrificPerformance,
-                FeatureDefinitionProficiencys.ProficiencyFighterWeapon,
-                FeatureDefinitionMagicAffinitys.MagicAffinityBattleMagic)
+                proficiencyCollegeOfHarlequinMartialWeapon,
+                CommonBuilders.MagicAffinityCasterFightingCombatMagic)
             .AddFeaturesAtLevel(6,
-                FeatureDefinitionAttributeModifiers.AttributeModifierFighterExtraAttack,
+                CommonBuilders.AttributeModifierCasterFightingExtraAttack,
                 powerImprovedCombatInspiration)
             .AddToDB();
     }
@@ -167,12 +191,12 @@ internal sealed class CollegeOfHarlequin : AbstractSubclass
             }
 
             // this is set for movement modifier
-            Global.SetBardicRoll(target.guid, dieRoll);
+            SetBardicRoll(target.guid, dieRoll);
         }
 
         public void RemoveFeature(RulesetCharacter target, RulesetCondition rulesetCondition)
         {
-            Global.RemoveBardicRoll(target.guid);
+            RemoveBardicRoll(target.guid);
             var armorClassAttribute = target.attributes[AttributeDefinitions.ArmorClass];
             armorClassAttribute.RemoveModifiersByTags(CombatInspiredEnhancedArmorClass);
         }
@@ -249,7 +273,7 @@ internal sealed class CollegeOfHarlequin : AbstractSubclass
                 return;
             }
 
-            var dieRoll = Global.GetBardicRoll(character.guid);
+            var dieRoll = GetBardicRoll(character.guid);
 
             attackMode.ToHitBonus += dieRoll;
             attackMode.ToHitBonusTrends.Add(new TrendInfo(dieRoll,

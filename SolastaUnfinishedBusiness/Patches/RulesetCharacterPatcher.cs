@@ -1030,15 +1030,11 @@ public static class RulesetCharacterPatcher
     {
         public static void Postfix(RulesetCharacter __instance, IMovementAffinityProvider provider, ref int __result)
         {
-            var feature = provider as FeatureDefinition;
-            if (feature == null)
-            {
-                return;
-            }
+            if (provider is not FeatureDefinition feature) { return; }
 
             if (feature.HasSubFeatureOfType<CollegeOfHarlequin.UseBardicDieRollForSpeedModifier>())
             {
-                __result += Global.GetBardicRoll(__instance.guid);
+                __result += CollegeOfHarlequin.GetBardicRoll(__instance.guid);
             }
         }
     }
