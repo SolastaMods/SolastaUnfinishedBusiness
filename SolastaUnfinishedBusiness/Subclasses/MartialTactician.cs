@@ -23,7 +23,7 @@ internal sealed class MartialTactician : AbstractSubclass
 
     private static readonly DamageDieProvider UpgradeDice = (character, _) => GetGambitDieSize(character);
 
-    private int _gambitPoolIncreases;
+    private static int _gambitPoolIncreases;
 
     internal MartialTactician()
     {
@@ -58,9 +58,9 @@ internal sealed class MartialTactician : AbstractSubclass
         FeatureDefinitionSubclassChoices.SubclassChoiceFighterMartialArchetypes;
 
     private static FeatureDefinitionPower GambitPool { get; set; }
-    private FeatureDefinitionAdditionalDamage GambitDieDamage { get; }
-    private FeatureDefinitionAdditionalDamage GambitDieDamageOnce { get; }
-    private FeatureDefinition EverVigilant { get; }
+    private static FeatureDefinitionAdditionalDamage GambitDieDamage { get; set; }
+    private static FeatureDefinitionAdditionalDamage GambitDieDamageOnce { get; set; }
+    private static FeatureDefinition EverVigilant { get; set; }
 
     private static void BuildGambitPool()
     {
@@ -114,7 +114,7 @@ internal sealed class MartialTactician : AbstractSubclass
             .AddToDB();
     }
 
-    private FeatureDefinition BuildSharedVigilance()
+    private static FeatureDefinition BuildSharedVigilance()
     {
         return FeatureDefinitionPowerBuilder
             .Create("PowerTacticianSharedVigilance")
@@ -144,7 +144,7 @@ internal sealed class MartialTactician : AbstractSubclass
             .AddToDB();
     }
 
-    private FeatureDefinition BuildGambitPoolIncrease()
+    private static FeatureDefinition BuildGambitPoolIncrease()
     {
         return FeatureDefinitionPowerUseModifierBuilder
             .Create($"PowerUseModifierTacticianGambitPool{_gambitPoolIncreases++:D2}")
@@ -153,7 +153,7 @@ internal sealed class MartialTactician : AbstractSubclass
             .AddToDB();
     }
 
-    private FeatureDefinition BuildAdaptiveStrategy()
+    private static FeatureDefinition BuildAdaptiveStrategy()
     {
         var feature = FeatureDefinitionBuilder
             .Create("FeatureAdaptiveStrategy")
@@ -208,10 +208,11 @@ internal sealed class MartialTactician : AbstractSubclass
 
     private static FeatureDefinition BuildTacticalSurge()
     {
-        const string conditionName = "ConditionTacticianTacticalSurge";
+        const string CONDITION_NAME = "ConditionTacticianTacticalSurge";
+        
         var tick = FeatureDefinitionBuilder
             .Create("FeatureTacticianTacticalSurgeTick")
-            .SetGuiPresentation(conditionName, Category.Condition)
+            .SetGuiPresentation(CONDITION_NAME, Category.Condition)
             .AddToDB();
 
         tick.SetCustomSubFeatures(new TacticalSurgeTick(GambitPool, tick));
@@ -222,7 +223,7 @@ internal sealed class MartialTactician : AbstractSubclass
             .AddToDB();
 
         var condition = ConditionDefinitionBuilder
-            .Create(conditionName)
+            .Create(CONDITION_NAME)
             .SetGuiPresentation(Category.Condition, Sprites.ConditionTacticalSurge)
             .SetFeatures(tick)
             .AddToDB();
@@ -232,7 +233,7 @@ internal sealed class MartialTactician : AbstractSubclass
         return feature;
     }
 
-    private void BuildGambits()
+    private static void BuildGambits()
     {
         string name;
         AssetReferenceSprite sprite;
@@ -778,7 +779,10 @@ internal sealed class MartialTactician : AbstractSubclass
             RulesetAttackMode attackMode,
             ActionModifier attackModifier)
         {
-            if (outcome is not (RollOutcome.CriticalFailure or RollOutcome.CriticalSuccess)) { return; }
+            if (outcome is not (RollOutcome.CriticalFailure or RollOutcome.CriticalSuccess))
+            {
+                return;
+            }
 
             if (attackMode == null)
             {
@@ -1020,7 +1024,7 @@ internal sealed class MartialTactician : AbstractSubclass
         }
     }
 
-    internal class TacticalSurgeTick : ICharacterTurnStartListener
+    private class TacticalSurgeTick : ICharacterTurnStartListener
     {
         private readonly FeatureDefinition feature;
         private readonly FeatureDefinitionPower power;
@@ -1035,6 +1039,7 @@ internal sealed class MartialTactician : AbstractSubclass
         {
             var character = locationCharacter.RulesetCharacter;
             var charges = character.GetRemainingPowerUses(power) - character.GetMaxUsesForPool(power);
+            
             charges = Math.Max(charges, -1);
 
             if (charges >= 0)
