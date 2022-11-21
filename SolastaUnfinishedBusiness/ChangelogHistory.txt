@@ -1,5 +1,13 @@
 ﻿CHANGES:
 
+1.4.28.9:
+
+added Blind gambit
+changed Telekinetic feat to give 1 invocation power that allows to move target, instead of 2 powers that push or pull
+reworked Executioner FS to use CustomAdditionalDamage so its trigger will be properly recorded
+set require spell casting and +13 CHA for Metamagic feat group
+set require spell casting for Spell Combat feat group
+
 1.4.28.8:
 
 - changed Elementalist auto learned spells to 2 per level

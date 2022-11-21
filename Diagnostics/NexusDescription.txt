@@ -227,11 +227,11 @@ You gain the ability to cast the invisibility, inflict wounds, and false life sp
 [*][b]Shield Expert[/b]: You have trained in the use of a shield as a weapon. It becomes a melee weapon that you are proficient with that deals 1d4 bludgeoning damage. You gain advantage on shove attempts while wielding a shield.
 [*][b]Superior Critical[/b]: Your attacks are critical hits on a roll of 18, 19 or 20.
 [*][b]Telekinetic [Cha][/b]: Increase your Charisma by 1, to a maximum of 20.
-As a bonus action, you can telekinetically push or pull one creature you can see within 30 feet of you. The target must succeed on a Strength saving throw (DC 8 + your proficiency bonus + your Charisma modifier) or be moved 5 feet.
+As a bonus action during combat, you can telekinetically move one creature you can see within 30 feet of you. The target must succeed on a Strength saving throw (DC 8 + your proficiency bonus + your Charisma modifier) or be moved 5 feet in a direction of your choosing.
 [*][b]Telekinetic [Int][/b]: Increase your Intelligence by 1, to a maximum of 20.
-As a bonus action, you can telekinetically push or pull one creature you can see within 30 feet of you. The target must succeed on a Strength saving throw (DC 8 + your proficiency bonus + your Intelligence modifier) or be moved 5 feet.
+As a bonus action during combat, you can telekinetically move one creature you can see within 30 feet of you. The target must succeed on a Strength saving throw (DC 8 + your proficiency bonus + your Intelligence modifier) or be moved 5 feet in a direction of your choosing.
 [*][b]Telekinetic [Wis][/b]: Increase your Wisdom by 1, to a maximum of 20.
-As a bonus action, you can telekinetically push or pull one creature you can see within 30 feet of you. The target must succeed on a Strength saving throw (DC 8 + your proficiency bonus + your Wisdom modifier) or be moved 5 feet.
+As a bonus action during combat, you can telekinetically move one creature you can see within 30 feet of you. The target must succeed on a Strength saving throw (DC 8 + your proficiency bonus + your Wisdom modifier) or be moved 5 feet in a direction of your choosing.
 [*][b]Torchbearer[/b]: You are skilled in the use of a torch in battle. Once per turn, as a bonus action, you may elect to use a light source you have equipped to attempt to set an enemy you can touch on fire. Your target must succeed on a Dexterity saving throw (DC 8 + your proficiency bonus + your Dexterity modifier) or take 1d4 fire damage per turn for 3 turns or until extinguished.
 [*][b]Tough[/b]: Your hit point maximum increases by an amount equal to twice your level when you gain this feat. Whenever you gain a level thereafter, your hit point maximum increases by an additional 2 hit points.
 [*][b]Toxicologist [Cha][/b]: Increase your Charisma by 1, to a maximum of 20.

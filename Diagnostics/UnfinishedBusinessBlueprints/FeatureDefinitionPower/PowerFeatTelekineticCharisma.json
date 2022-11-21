@@ -77,7 +77,7 @@
         "saveOccurence": "EndOfTurn",
         "motionForm": {
           "$type": "MotionForm, Assembly-CSharp",
-          "type": "DragToOrigin",
+          "type": "Telekinesis",
           "distance": 1,
           "forceTurnTowardsSourceCharacterAfterPush": false,
           "forceSourceCharacterTurnTowardsTargetAfterPush": false
@@ -322,13 +322,13 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&PowerFeatTelekineticPullTitle",
-    "description": "Feature/&PowerFeatTelekineticPullDescription",
+    "title": "Feature/&FeatTelekineticTitle",
+    "description": "Feature/&FeatTelekineticDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "cad1a69fd7e99d44ea3366b73f1cc5c7",
-      "m_SubObjectName": "GenericPower",
-      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+      "m_AssetGUID": "3f4f97bd-6969-5bbd-9378-7b25583153b7",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
@@ -343,7 +343,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "1af6b4eb-59a3-5cf3-b285-ef36a9017492",
+  "guid": "db9f8762-a3ea-5fca-9719-eb378c088569",
   "contentPack": 9999,
-  "name": "PowerFeatTelekineticChaPull"
+  "name": "PowerFeatTelekineticCharisma"
 }
