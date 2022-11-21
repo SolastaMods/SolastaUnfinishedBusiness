@@ -10,3 +10,5 @@ Feature/&PowerDruidPrimalStrikeTitle=Primal Strike
 Feature/&PowerDruidPrimalStrikeDescription=Starting at 6th level, your attacks in beast form count as magical for the purpose of overcoming resistance and immunity to nonmagical attacks and damage.
 Feature/&PowerDruidSuperiorCombatWildShapeHealingTitle=Superior Combat Healing
 Feature/&PowerDruidSuperiorCombatWildShapeHealingDescription=Your Combat Healing now heals you for 3d8+6 hit points.
+Monster/&WildShapeDireBearTitle=Dire Bear
+Monster/&WildShapeDireBearDescription=The omnivorous dire bear usually does not bother creatures that try to avoid it, but will aggressively defend a kill or other source of food. It will not hesitate to rip apart anything that might contain something edible.

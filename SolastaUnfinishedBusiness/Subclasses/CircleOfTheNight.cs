@@ -7,7 +7,6 @@ using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPower
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.MonsterDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.MonsterAttackDefinitions;
 using static EffectForm;
-using SolastaUnfinishedBusiness.Patches;
 
 namespace SolastaUnfinishedBusiness.Subclasses;
 
@@ -50,7 +49,7 @@ internal sealed class CircleOfTheNight : AbstractSubclass
             .SetStandardHitPoints(42)
             .SetHitDice(DieType.D10, 5)
             .SetChallengeRating(2)
-            .SetOrUpdateGuiPresentation("Dire Bear", "A really big bear", WildshapeBlackBear)
+            .SetOrUpdateGuiPresentation(Category.Monster, WildshapeBlackBear)
             .SetAttackIterations(new MonsterAttackIteration[] { biteAttack, clawAttack })
             .AddToDB();
 
