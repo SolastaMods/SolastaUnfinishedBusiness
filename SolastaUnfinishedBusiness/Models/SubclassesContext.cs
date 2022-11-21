@@ -23,6 +23,11 @@ internal static class SubclassesContext
 
         // Bard
         LoadSubclass(new CollegeOfGuts());
+        LoadSubclass(new CollegeOfLife());
+
+        // Druid
+        LoadSubclass(new CircleOfTheAncientForest());
+        LoadSubclass(new CircleOfTheForestGuardian());
 
         // Fighter
         LoadSubclass(new MartialMarshal());
@@ -39,10 +44,11 @@ internal static class SubclassesContext
 
         // Sorcerer
         LoadSubclass(new SorcerousDivineHeart());
+        LoadSubclass(new SorcerousFieldManipulator());
 
         // Monk
         LoadSubclass(new WayOfTheDistantHand());
-        LoadSubclass(new WayOfSilhouette());
+        LoadSubclass(new WayOfTheSilhouette());
 
         // Warlock
         LoadSubclass(new PatronElementalist());
@@ -54,8 +60,6 @@ internal static class SubclassesContext
         LoadSubclass(new WizardArcaneFighter());
         LoadSubclass(new WizardBladeDancer());
         LoadSubclass(new WizardDeadMaster());
-        LoadSubclass(new WizardLifeTransmuter());
-        LoadSubclass(new WizardManipulatorMaster());
         LoadSubclass(new WizardSpellMaster());
 
         // settings paring

@@ -8,6 +8,7 @@ using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterSubclassDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.ConditionDefinitions;
+using static SolastaUnfinishedBusiness.Subclasses.CommonBuilders;
 
 namespace SolastaUnfinishedBusiness.Subclasses;
 
@@ -17,19 +18,21 @@ internal sealed class WizardBladeDancer : AbstractSubclass
     {
         var proficiencyBladeDancerLightArmor = FeatureDefinitionProficiencyBuilder
             .Create("ProficiencyBladeDancerLightArmor")
-            .SetGuiPresentation(Category.Feature)
-            .SetProficiencies(ProficiencyType.Armor, ArmorCategoryDefinitions.LightArmorCategory.Name)
+            .SetGuiPresentationNoContent(true)
+            .SetProficiencies(ProficiencyType.Armor, EquipmentDefinitions.LightArmorCategory)
             .AddToDB();
 
         var proficiencyBladeDancerMartialWeapon = FeatureDefinitionProficiencyBuilder
             .Create("ProficiencyBladeDancerMartialWeapon")
-            .SetGuiPresentation(Category.Feature)
-            .SetProficiencies(ProficiencyType.Weapon, WeaponCategoryDefinitions.MartialWeaponCategory.Name)
+            .SetGuiPresentationNoContent(true)
+            .SetProficiencies(ProficiencyType.Weapon,
+                EquipmentDefinitions.SimpleWeaponCategory, EquipmentDefinitions.MartialWeaponCategory)
             .AddToDB();
 
-        var replaceAttackWithCantripBladeDancer = FeatureDefinitionReplaceAttackWithCantripBuilder
-            .Create("ReplaceAttackWithCantripBladeDancer")
+        var featureSetCasterBladeDancerFighting = FeatureDefinitionFeatureSetBuilder
+            .Create("FeatureSetCasterBladeDancerFighting")
             .SetGuiPresentation(Category.Feature)
+            .AddFeatureSet(proficiencyBladeDancerLightArmor, proficiencyBladeDancerMartialWeapon)
             .AddToDB();
 
         ConditionBladeDancerBladeDance = ConditionDefinitionBuilder
@@ -170,12 +173,11 @@ internal sealed class WizardBladeDancer : AbstractSubclass
             .SetGuiPresentation(Category.Subclass, RangerSwiftBlade)
             .AddFeaturesAtLevel(2,
                 heroRefreshedBladeDanceValidateEquipment,
-                proficiencyBladeDancerLightArmor,
-                proficiencyBladeDancerMartialWeapon,
+                featureSetCasterBladeDancerFighting,
                 featureSetBladeDancerBladeDance)
             .AddFeaturesAtLevel(6,
-                replaceAttackWithCantripBladeDancer,
-                FeatureDefinitionAttributeModifiers.AttributeModifierFighterExtraAttack)
+                AttributeModifierCasterFightingExtraAttack,
+                ReplaceAttackWithCantripCasterFighting)
             .AddFeaturesAtLevel(10,
                 featureSetBladeDancerDanceOfDefense)
             .AddFeaturesAtLevel(14,

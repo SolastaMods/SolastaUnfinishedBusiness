@@ -120,13 +120,15 @@ internal static class GlobalUniqueEffects
         }
     }
 
-    private static List<RulesetEffectPower> GetLimitedPowerEffects(RulesetCharacter character,
+    private static List<RulesetEffectPower> GetLimitedPowerEffects(
+        RulesetCharacter character,
         ILimitedEffectInstances limit)
     {
         return character.PowersUsedByMe
             .Where(powerEffect =>
             {
                 var tmp = powerEffect.PowerDefinition.GetFirstSubFeatureOfType<ILimitedEffectInstances>();
+                
                 if (tmp == null)
                 {
                     return false;
@@ -149,7 +151,9 @@ internal static class GlobalUniqueEffects
         TerminateSpells(character, spell, spells);
     }
 
-    private static void TerminatePowers(RulesetCharacter character, FeatureDefinitionPower exclude,
+    private static void TerminatePowers(
+        RulesetCharacter character,
+        FeatureDefinitionPower exclude,
         IEnumerable<FeatureDefinitionPower> powers)
     {
         var allSubPowers = new HashSet<FeatureDefinitionPower>();
@@ -218,5 +222,5 @@ internal static class GlobalUniqueEffects
         }
     }
 
-    internal enum Group { Familiar, InventorSpellStoringItem, GrenadierGrenadeMode }
+    internal enum Group { Familiar, InventorSpellStoringItem, GrenadierGrenadeMode, WildMasterBeast }
 }

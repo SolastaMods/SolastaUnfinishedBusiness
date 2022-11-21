@@ -136,17 +136,13 @@ public class MirrorImageLogic
 
         var hitImage = false;
 
-        if (conditions.Count >= 3 && result >= 6)
+        switch (conditions.Count)
         {
-            hitImage = true;
-        }
-        else if (conditions.Count == 2 && result >= 8)
-        {
-            hitImage = true;
-        }
-        else if (conditions.Count == 1 && result >= 11)
-        {
-            hitImage = true;
+            case >= 3 when result >= 6:
+            case 2 when result >= 8:
+            case 1 when result >= 11:
+                hitImage = true;
+                break;
         }
 
         ReportTargetingMirrorImage(attacker, target, result, hitImage);
@@ -158,7 +154,8 @@ public class MirrorImageLogic
     }
 
     internal static void AttackRollPostfix(
-        RulesetCharacter attacker, RulesetAttackMode attackMode,
+        RulesetCharacter attacker,
+        RulesetAttackMode attackMode,
         RulesetActor target,
         List<RuleDefinitions.TrendInfo> toHitTrends,
         ref RuleDefinitions.RollOutcome outcome,
@@ -269,18 +266,18 @@ public class MirrorImageLogic
 
         public static ICustomConditionFeature Mark { get; } = new DuplicateCounter();
 
-        public void ApplyFeature(RulesetCharacter hero)
+        public void ApplyFeature(RulesetCharacter target, RulesetCondition rulesetCondition)
         {
         }
 
-        public void RemoveFeature(RulesetCharacter hero)
+        public void RemoveFeature(RulesetCharacter target, RulesetCondition rulesetCondition)
         {
-            if (!GetConditions(hero).Empty())
+            if (!GetConditions(target).Empty())
             {
                 return;
             }
 
-            hero.SpellsCastByMe.Find(e => e.SpellDefinition == SpellDefinitions.MirrorImage)?.Terminate(true);
+            target.SpellsCastByMe.Find(e => e.SpellDefinition == SpellDefinitions.MirrorImage)?.Terminate(true);
         }
     }
 
@@ -292,25 +289,25 @@ public class MirrorImageLogic
 
         public static ICustomConditionFeature Mark { get; } = new DuplicateProvider();
 
-        public void ApplyFeature(RulesetCharacter hero)
+        public void ApplyFeature(RulesetCharacter target, RulesetCondition rulesetCondition)
         {
             for (var i = 0; i < 3; i++)
             {
                 var condition = RulesetCondition.CreateActiveCondition(
-                    hero.Guid, Condition, RuleDefinitions.DurationType.Minute, 1,
-                    RuleDefinitions.TurnOccurenceType.EndOfTurn, hero.Guid, hero.CurrentFaction.Name);
+                    target.Guid, Condition, RuleDefinitions.DurationType.Minute, 1,
+                    RuleDefinitions.TurnOccurenceType.EndOfTurn, target.Guid, target.CurrentFaction.Name);
 
-                hero.AddConditionOfCategory(AttributeDefinitions.TagCombat, condition);
+                target.AddConditionOfCategory(AttributeDefinitions.TagCombat, condition);
             }
         }
 
-        public void RemoveFeature(RulesetCharacter hero)
+        public void RemoveFeature(RulesetCharacter target, RulesetCondition rulesetCondition)
         {
-            var conditions = GetConditions(hero);
+            var conditions = GetConditions(target);
 
             foreach (var condition in conditions)
             {
-                hero.RemoveCondition(condition);
+                target.RemoveCondition(condition);
             }
         }
     }

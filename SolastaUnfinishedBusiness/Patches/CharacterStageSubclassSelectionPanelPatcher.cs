@@ -18,13 +18,36 @@ public static class CharacterStageSubclassSelectionPanelPatcher
         {
             //PATCH: changes the subclasses layout to allow more offering
             var table = __instance.subclassesTable;
-            var rectTransform = table.parent.parent.parent.GetComponent<RectTransform>();
             var gridLayoutGroup = table.GetComponent<GridLayoutGroup>();
+            var rectTransform = table.parent.parent.parent.GetComponent<RectTransform>();
+            var count = __instance.compatibleSubclasses.Count;
 
+            gridLayoutGroup.spacing = new Vector2(50, 100);
             rectTransform.anchoredPosition = new Vector2(rectTransform.anchoredPosition.x, 30f);
+            
+            switch (count)
+            {
+                case > 10:
+                {
+                    const float TWO_THIRDS = 2 / 3f;
 
-            // gridLayoutGroup.spacing = new Vector2(50, 100);
-            gridLayoutGroup.constraintCount = 3;
+                    gridLayoutGroup.constraintCount = 3;
+                    rectTransform.localScale = new Vector3(TWO_THIRDS, TWO_THIRDS, TWO_THIRDS);
+                    break;
+                }
+                case > 8:
+                    gridLayoutGroup.constraintCount = 3;
+                    rectTransform.localScale = new Vector3(0.8f, 0.8f, 0.8f);
+                    break;
+                case > 6:
+                    gridLayoutGroup.constraintCount = 3;
+                    rectTransform.localScale = Vector3.one;
+                    break;
+                default:
+                    gridLayoutGroup.constraintCount = 2;
+                    rectTransform.localScale = Vector3.one;
+                    break;
+            }
 
             //PATCH: sorts the sub classes panel by Title
             if (!Main.Settings.EnableSortingSubclasses)

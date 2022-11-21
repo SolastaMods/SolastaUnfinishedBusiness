@@ -3,32 +3,27 @@
   "featureUnlocks": [
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:ProficiencyCollegeOfGutsArmor:1cb782e2-8db7-5d12-b487-4a0e2eb0bd59",
+      "featureDefinition": "Definition:FeatureSetCasterFightingProficiency:d0bc1302-ebf6-535a-94dd-d1770b2c3dcb",
       "level": 3
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:ProficiencyCollegeOfGutsWeapon:1abbdad8-030c-593d-bafd-661f60aef2ba",
+      "featureDefinition": "Definition:MagicAffinityCasterFightingCombatMagic:d97ab358-d6a2-5b95-909f-e18f70293ad3",
       "level": 3
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:MagicAffinityCollegeOfGutsCombatMagic:2376bde6-4b37-5956-b7cf-057ce0502931",
-      "level": 3
-    },
-    {
-      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:ReplaceAttackWithCantripCollegeOfGuts:48bf14ad-83b2-5818-a2f3-bf3f3445b9e6",
+      "featureDefinition": "Definition:ReplaceAttackWithCantripCasterFighting:9f727855-aa19-56a0-a6e6-6b2d42facae0",
       "level": 6
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:AttributeModifierCollegeOfGutsExtraAttack:cfa22218-a1ee-5992-81c3-f4f737ba2739",
+      "featureDefinition": "Definition:AttributeModifierCasterFightingExtraAttack:d683c90c-1240-51bc-878a-617aa7133df0",
       "level": 6
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:PowerCollegeOfGutsWarMagic:18c012be-9bfd-5022-80d6-f4ffe58002c5",
+      "featureDefinition": "Definition:PowerCasterFightingWarMagic:368681bf-0523-5709-a17a-62416add2f96",
       "level": 14
     }
   ],

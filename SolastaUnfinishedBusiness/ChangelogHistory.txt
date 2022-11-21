@@ -1,8 +1,50 @@
 ﻿CHANGES:
 
+1.4.28.8:
+
+- changed Elementalist auto learned spells to 2 per level
+- changed Executioner and Dual Flurry to trigger on IBeforeAttackEffect
+- changed Field Manipulator auto learned spells to 1 per level
+- changed Tactician RefundPowerUseAfterCrit to trigger on IBeforeAttackEffect
+- changed to 2 gambits learned on Tactician levels 7th and 15th
+- changed Wild Master beast to use character level on effect powers
+- changed Wild Master summon power to a bundle
+- fixed translation typos
+- fixed features sorting under different scenarios
+- rebalanced College of Life
+- rebalanced Way of The Silhouette
+
+1.4.28.7:
+
+- promoted Circle of The Ancient Forest
+- promoted Circle of The Forest Guardian
+- changed Tactical Surge to provide 2 dice on use and 1 charge per turn
+- made switch gambit work on allies and grant them PB to AC
+- removed extra gambit pool increases at 5 and 10
+- tweak Gnome scale
+
+1.4.28.6:
+
+- consolidated common subclasses features
+- fixed executioner damage
+- fixed reported translations issues
+- fixed wrong College of Life progression
+- rebalanced College of Life
+- rebalanced Field Manipulator
+- tweaked subclasses gui presentation
+
 1.4.28.5:
 
-- Fix Wild Master
+- fixed default party on DM
+- fixed reported translations typos
+- fixed Dual Flurry counting hits from reaction attacks
+- fixed Marshal's Study Your Enemy
+- fixed Wild Master soft lock on power damage
+- migrated Life Transmuter to College of Life
+- migrated Manipulator Master to Sorcerous Field Manipulator
+- added Gambit replacement to levels where new ones are learned (TACTICIAN)
+- added level 10 Tactical Surge feature (TACTICIAN)
+- fixed error when using Switching gambit (TACTICIAN)
 
 1.4.28.4:
 

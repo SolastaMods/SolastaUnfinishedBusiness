@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
 using UnityEngine;
@@ -91,16 +92,18 @@ internal static class RulesetActorExtensions
     }
 
     [NotNull]
-    internal static List<T> GetSubFeaturesByType<T>(this RulesetActor actor) where T : class
+    internal static List<T> GetSubFeaturesByType<T>(this RulesetActor actor, params Type[] typesToSkip) where T : class
     {
         return FeaturesByType<FeatureDefinition>(actor)
+            .Where(f => !typesToSkip.Contains(f.GetType()))
             .SelectMany(f => f.GetAllSubFeaturesOfType<T>())
             .ToList();
     }
 
-    internal static bool HasSubFeatureOfType<T>(this RulesetActor actor) where T : class
+    internal static bool HasSubFeatureOfType<T>(this RulesetActor actor, params Type[] typesToSkip) where T : class
     {
         return FeaturesByType<FeatureDefinition>(actor)
+            .Where(f => !typesToSkip.Contains(f.GetType()))
             .SelectMany(f => f.GetAllSubFeaturesOfType<T>())
             .FirstOrDefault() != null;
     }

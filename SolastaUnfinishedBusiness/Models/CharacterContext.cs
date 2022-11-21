@@ -365,6 +365,11 @@ internal static class CharacterContext
                     }
                 }
             }
+
+            if (Main.Settings.EnableSortingFutureFeatures)
+            {
+                characterClassDefinition.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
+            }
         }
     }
 

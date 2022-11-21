@@ -102,10 +102,10 @@ internal static class SrdAndHouseRulesContext
         var toDamage = Main.Settings.DeadEyeAndPowerAttackBaseValue + proficiency;
 
         attackMode.ToHitBonus += toHit;
-        attackMode.ToHitBonusTrends.Add(new TrendInfo(toHit, FeatureSourceType.Power, sourceName, null));
+        attackMode.ToHitBonusTrends.Add(new TrendInfo(toHit, FeatureSourceType.Feat, sourceName, null));
 
         damage.BonusDamage += toDamage;
-        damage.DamageBonusTrends.Add(new TrendInfo(toDamage, FeatureSourceType.Power, sourceName, null));
+        damage.DamageBonusTrends.Add(new TrendInfo(toDamage, FeatureSourceType.Feat, sourceName, null));
     }
 
     internal static void SwitchUniversalSylvanArmorAndLightbringer()
@@ -493,12 +493,16 @@ internal static class ArmorClassStacking
 {
     internal static void ProcessWildShapeAc(List<RulesetAttributeModifier> modifiers, RulesetCharacterMonster monster)
     {
-        var ac = monster.GetAttribute(AttributeDefinitions.ArmorClass);
+        //process only for wild-shaped heroes
+        if (monster.OriginalFormCharacter is RulesetCharacterHero)
+        {
+            var ac = monster.GetAttribute(AttributeDefinitions.ArmorClass);
 
-        MulticlassWildshapeContext.RefreshWildShapeAcFeatures(monster, ac);
-        MulticlassWildshapeContext.UpdateWildShapeAcTrends(modifiers, monster, ac);
+            MulticlassWildshapeContext.RefreshWildShapeAcFeatures(monster, ac);
+            MulticlassWildshapeContext.UpdateWildShapeAcTrends(modifiers, monster, ac);
+        }
 
-        //sort modifiers
+        //sort modifiers, since we replaced this call
         RulesetAttributeModifier.SortAttributeModifiersList(modifiers);
     }
 }
