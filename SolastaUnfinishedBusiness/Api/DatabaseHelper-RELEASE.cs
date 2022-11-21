@@ -1,4 +1,4 @@
-﻿// manually generated on 11/19/2022 07:00:00 PM
+// manually generated on 11/19/2022 07:00:00 PM
 using TA.AI;
 namespace SolastaUnfinishedBusiness.Api;
         internal static partial class DatabaseHelper
@@ -91,7 +91,6 @@ namespace SolastaUnfinishedBusiness.Api;
         internal static CharacterSubclassDefinition TraditionGreenmage { get; } = GetDefinition<CharacterSubclassDefinition>("TraditionGreenmage");
         internal static CharacterSubclassDefinition TraditionLoremaster { get; } = GetDefinition<CharacterSubclassDefinition>("TraditionLoremaster");
         internal static CharacterSubclassDefinition TraditionOpenHand { get; } = GetDefinition<CharacterSubclassDefinition>("TraditionOpenHand");
-        internal static CharacterSubclassDefinition PathClaw { get; } = GetDefinition<CharacterSubclassDefinition>("PathClaw");
     }
     internal static class ConditionDefinitions
     {
@@ -157,7 +156,6 @@ namespace SolastaUnfinishedBusiness.Api;
         internal static ConditionDefinition ConditionStunned { get; } = GetDefinition<ConditionDefinition>("ConditionStunned");
         internal static ConditionDefinition ConditionSurprised { get; } = GetDefinition<ConditionDefinition>("ConditionSurprised");
         internal static ConditionDefinition ConditionTrueStrike { get; } = GetDefinition<ConditionDefinition>("ConditionTrueStrike");
-        internal static ConditionDefinition ConditionWildShapeSubstituteForm { get; } = GetDefinition<ConditionDefinition>("ConditionWildShapeSubstituteForm");
     }
     internal static class DamageDefinitions
     {
@@ -517,7 +515,6 @@ namespace SolastaUnfinishedBusiness.Api;
         internal static FeatureDefinitionPower PowerTraditionShockArcanistArcaneFury { get; } = GetDefinition<FeatureDefinitionPower>("PowerTraditionShockArcanistArcaneFury");
         internal static FeatureDefinitionPower PowerVampiricTouch { get; } = GetDefinition<FeatureDefinitionPower>("PowerVampiricTouch");
         internal static FeatureDefinitionPower PowerWizardArcaneRecovery { get; } = GetDefinition<FeatureDefinitionPower>("PowerWizardArcaneRecovery");
-        internal static FeatureDefinitionPower PowerPaladinCureDisease { get; } = GetDefinition<FeatureDefinitionPower>("PowerPaladinCureDisease");
     }
     internal static class FeatureDefinitionProficiencys
     {
@@ -896,8 +893,6 @@ namespace SolastaUnfinishedBusiness.Api;
         internal static MonsterAttackDefinition Attack_Wildshape_Ape_Toss_Rock { get; } = GetDefinition<MonsterAttackDefinition>("Attack_Wildshape_Ape_Toss_Rock");
         internal static MonsterAttackDefinition Attack_Wildshape_GiantEagle_Talons { get; } = GetDefinition<MonsterAttackDefinition>("Attack_Wildshape_GiantEagle_Talons");
         internal static MonsterAttackDefinition Attack_Wildshape_Wolf_Bite { get; } = GetDefinition<MonsterAttackDefinition>("Attack_Wildshape_Wolf_Bite");
-        internal static MonsterAttackDefinition Attack_Wildshape_BrownBear_Bite { get; } = GetDefinition<MonsterAttackDefinition>("Attack_Wildshape_BrownBear_Bite");
-        internal static MonsterAttackDefinition Attack_Wildshape_BrownBear_Claw { get; } = GetDefinition<MonsterAttackDefinition>("Attack_Wildshape_BrownBear_Claw");
     }
     internal static class MonsterDefinitions
     {
@@ -934,17 +929,6 @@ namespace SolastaUnfinishedBusiness.Api;
         internal static MonsterDefinition WightLord { get; } = GetDefinition<MonsterDefinition>("WightLord");
         internal static MonsterDefinition WindSnake { get; } = GetDefinition<MonsterDefinition>("WindSnake");
         internal static MonsterDefinition Wolf { get; } = GetDefinition<MonsterDefinition>("Wolf");
-        internal static MonsterDefinition Ice_Elemental { get; } = GetDefinition<MonsterDefinition>("Ice_Elemental");
-        internal static MonsterDefinition WildShapeApe { get; } = GetDefinition<MonsterDefinition>("WildShapeApe");
-        internal static MonsterDefinition WildShapeBadlandsSpider { get; } = GetDefinition<MonsterDefinition>("WildShapeBadlandsSpider");
-        internal static MonsterDefinition WildshapeBlackBear { get; } = GetDefinition<MonsterDefinition>("WildshapeBlackBear");
-        internal static MonsterDefinition WildShapeBrownBear { get; } = GetDefinition<MonsterDefinition>("WildShapeBrownBear");
-        internal static MonsterDefinition WildshapeDeepSpider { get; } = GetDefinition<MonsterDefinition>("WildshapeDeepSpider");
-        internal static MonsterDefinition WildshapeDirewolf { get; } = GetDefinition<MonsterDefinition>("WildshapeDirewolf");
-        internal static MonsterDefinition WildShapeGiant_Eagle { get; } = GetDefinition<MonsterDefinition>("WildShapeGiant_Eagle");
-        internal static MonsterDefinition WildshapeTiger_Drake { get; } = GetDefinition<MonsterDefinition>("WildshapeTiger_Drake");
-        internal static MonsterDefinition WildShapeTundraTiger { get; } = GetDefinition<MonsterDefinition>("WildShapeTundraTiger");
-        internal static MonsterDefinition WildShapeWolf { get; } = GetDefinition<MonsterDefinition>("WildShapeWolf");
     }
     internal static class MorphotypeElementDefinitions
     {
