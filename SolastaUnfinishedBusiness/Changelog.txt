@@ -11,3 +11,4 @@
 - changed Wild Master summon power to a bundle
 - fixed translation typos
 - fixed features sorting under different scenarios
+- rebalanced College of Life

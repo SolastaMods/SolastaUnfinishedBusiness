@@ -18,7 +18,7 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:DamageAffinityDeadMasterHardenToNecrotic:93b6c812-5d43-5976-9eec-69c9b7745e90",
+      "featureDefinition": "Definition:DamageAffinityGenericHardenToNecrotic:44b34f3e-0c4c-5527-8cf1-053015ed46d1",
       "level": 10
     },
     {

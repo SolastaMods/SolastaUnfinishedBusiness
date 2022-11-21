@@ -11,6 +11,7 @@
 - changed Wild Master summon power to a bundle
 - fixed translation typos
 - fixed features sorting under different scenarios
+- rebalanced College of Life
 
 1.4.28.7:
 
