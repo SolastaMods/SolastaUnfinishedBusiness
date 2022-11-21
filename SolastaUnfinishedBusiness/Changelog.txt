@@ -2,10 +2,12 @@
 
 1.4.28.8:
 
+- changed Elementalist auto learned spells to 2 per level
 - changed Executioner and Dual Flurry to trigger on IBeforeAttackEffect
+- changed Field Manipulator auto learned spells to 1 per level
+- changed Tactician RefundPowerUseAfterCrit to trigger on IBeforeAttackEffect
 - changed to 2 gambits learned on Tactician levels 7th and 15th
-- converted Wild Master summon power to a bundle
+- changed Wild Master beast to use character level on effect powers
+- changed Wild Master summon power to a bundle
 - fixed translation typos
-- fixed `Switch Even Level Feats` future features sorting
-- trimmed Elementalist auto learned spells to 2 per level
-- trimmed Field Manipulator auto learned spells to 1 per level
+- fixed features sorting under different scenarios
