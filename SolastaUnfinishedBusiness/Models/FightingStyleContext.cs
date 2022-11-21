@@ -23,6 +23,7 @@ internal static class FightingStyleContext
         LoadStyle(new Pugilist());
         LoadStyle(new Sentinel());
         LoadStyle(new ShieldExpert());
+        LoadStyle(new Torchbearer());
 
         // sorting
         FightingStyles = FightingStyles.OrderBy(x => x.FormatTitle()).ToHashSet();
