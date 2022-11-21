@@ -32,7 +32,7 @@ internal sealed class Sentinel : AbstractFightingStyle
         FightingStyleChampionAdditional, FightingStyleFighter, FightingStylePaladin, FightingStyleRanger
     };
 
-    private sealed class OnAttackHitEffectFeatSentinel : IBeforeAttackEffect
+    private sealed class OnAttackHitEffectFeatSentinel : IAfterAttackEffect
     {
         private readonly ConditionDefinition _conditionSentinelStopMovement;
 
@@ -41,7 +41,7 @@ internal sealed class Sentinel : AbstractFightingStyle
             _conditionSentinelStopMovement = conditionSentinelStopMovement;
         }
 
-        public void BeforeOnAttackHit(
+        public void AfterOnAttackHit(
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
             RollOutcome outcome,

@@ -91,7 +91,6 @@ public static class GameLocationCharacterPatcher
         }
     }
 
-#if false
     [HarmonyPatch(typeof(GameLocationCharacter), "AttackImpactOn")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     public static class AttackImpactOn_Patch
@@ -120,7 +119,6 @@ public static class GameLocationCharacterPatcher
             }
         }
     }
-#endif
 
     // Yes the actual game typos this it is "OnPower" and not the expected "OnePower"
     [HarmonyPatch(typeof(GameLocationCharacter), "CanUseAtLeastOnPower")]
