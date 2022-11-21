@@ -24,7 +24,7 @@ Feature/&LightAffinityAncientForestPhotosynthesisDescription=You can absorb ener
 Feature/&LightAffinityAncientForestPhotosynthesisTitle=Photosynthesis
 Feature/&OnMagicalAttackDamageEffectAncientForestLifeSapDescription=When you damage an enemy with a spell, you heal HP equal to half your level once per turn. If you are below half HP, you instead heal HP equal to your level instead, but only up to half of your maximum HP.
 Feature/&OnMagicalAttackDamageEffectAncientForestLifeSapTitle=Life Sap
-Feature/&PowerAncientForestRegrowthDescription=You have a pool of healing power that replenishes when you take a long rest. With that pool, you can restore a total number of hit points equal to your Warlock level × 5.
+Feature/&PowerAncientForestRegrowthDescription=You have a pool of healing power that replenishes when you take a long rest. With that pool, you can restore a total number of hit points equal to your Druid level × 5.
 Feature/&PowerAncientForestRegrowthTitle=Regrowth
 Feature/&PowerAncientForestRootedDescription=Arboreal tendrils grow from your feet and dig into the ground. Your speed becomes 0, and you gain advantage on any saving throws to push you, pull you, or knock you prone.You can cast entangle at will.
 Feature/&PowerAncientForestRootedTitle=Rooted
@@ -40,4 +40,4 @@ Feedback/&AncientForestHerbalBrewDamageAffinityRadiantResistancePowerUsedWhileTr
 Feedback/&AncientForestHerbalBrewHealingPowerUsedWhileTravellingFormat={0} creates {1}
 Feedback/&AncientForestHerbalBrewToxifyingPowerUsedWhileTravellingFormat={0} creates {1}
 Subclass/&CircleOfTheAncientForestDescription=You have forged a relationship with a powerful nature entity: Ancient Dryads, Archdruids, Manifestations of the Feywild bleeding into the material plane, Forgotten gods from a primal age. It may wish for you to protect the natural world, travel to far off lands that it cannot, or it may have another motive that seems inscrutable to short-lived mortals.
-Subclass/&CircleOfTheAncientForestTitle=The Ancient Forest
+Subclass/&CircleOfTheAncientForestTitle=Circle of The Ancient Forest

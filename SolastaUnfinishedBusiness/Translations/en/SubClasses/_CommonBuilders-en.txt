@@ -1,7 +1,7 @@
 Feature/&AttributeModifierCasterFightingExtraAttackDescription=You gain an extra attack and can now attack up to 2 times in your turn.
-Feature/&AttributeModifierCasterFightingExtraAttackTitle=Caster Extra Attack
+Feature/&AttributeModifierCasterFightingExtraAttackTitle=Extra Attack
 Feature/&FeatureSetCasterFightingProficiencyDescription=You can wear Light Armor, Medium Armor and Shield and also gain proficiency with martial weapons.
-Feature/&FeatureSetCasterFightingProficiencyTitle=Caster Proficiency
+Feature/&FeatureSetCasterFightingProficiencyTitle=Armor and Weapons
 Feature/&MagicAffinityCasterFightingCombatMagicDescription=Advantage on concentration checks as well as the ability to perform somatic components of spells while holding items.
 Feature/&MagicAffinityCasterFightingCombatMagicTitle=War Casting
 Feature/&PowerCasterFightingWarMagicDescription=You can use your bonus action to attack using the weapon in your main hand after casting a spell.
