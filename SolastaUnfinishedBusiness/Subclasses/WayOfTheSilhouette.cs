@@ -7,9 +7,9 @@ using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 
 namespace SolastaUnfinishedBusiness.Subclasses;
 
-internal sealed class WayOfSilhouette : AbstractSubclass
+internal sealed class WayOfTheSilhouette : AbstractSubclass
 {
-    internal WayOfSilhouette()
+    internal WayOfTheSilhouette()
     {
         var powerWayOfSilhouetteDarkness = FeatureDefinitionPowerBuilder
             .Create("PowerWayOfSilhouetteDarkness")
