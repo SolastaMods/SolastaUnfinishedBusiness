@@ -14,24 +14,6 @@ namespace SolastaUnfinishedBusiness.Subclasses;
 
 internal sealed class CollegeOfHarlequin : AbstractSubclass
 {
-    private static Dictionary<ulong, int> BardicDieRollPerCharacter { get; } = new();
-    internal static int GetBardicRoll(ulong sourceGuid)
-    {
-        BardicDieRollPerCharacter.TryGetValue(sourceGuid, out int roll);
-        return roll;
-    }
-
-    internal static void SetBardicRoll(ulong sourceGuid, int roll)
-    {
-        Main.Log($"SetBardicRoll {sourceGuid}", true);
-        BardicDieRollPerCharacter.AddOrReplace(sourceGuid, roll);
-    }
-
-    internal static void RemoveBardicRoll(ulong sourceGuid)
-    {
-        Main.Log($"RemoveBardicRoll {sourceGuid}", true);
-        BardicDieRollPerCharacter.Remove(sourceGuid);
-    }
     private static readonly FeatureDefinitionPower PowerTerrificPerformance = FeatureDefinitionPowerBuilder
         .Create("PowerTerrificPerformance")
         .SetGuiPresentation("TerrificPerformance", Category.Feature)
@@ -40,19 +22,19 @@ internal sealed class CollegeOfHarlequin : AbstractSubclass
             .SetDurationData(DurationType.Round, 1)
             .SetParticleEffectParameters(SpellDefinitions.Fear.effectDescription.effectParticleParameters)
             .SetEffectForms(
-                new EffectForm()
+                new EffectForm
                 {
                     FormType = EffectForm.EffectFormType.Condition,
-                    ConditionForm = new ConditionForm()
+                    ConditionForm = new ConditionForm
                     {
                         ConditionDefinition = ConditionDefinitions.ConditionFrightened,
                         operation = ConditionForm.ConditionOperation.Add
                     }
                 },
-                new EffectForm()
+                new EffectForm
                 {
                     FormType = EffectForm.EffectFormType.Condition,
-                    ConditionForm = new ConditionForm()
+                    ConditionForm = new ConditionForm
                     {
                         ConditionDefinition =
                             ConditionDefinitions.ConditionPatronHiveWeakeningPheromones,
@@ -63,7 +45,7 @@ internal sealed class CollegeOfHarlequin : AbstractSubclass
             .Build()
         )
         .AddToDB();
-    
+
     internal CollegeOfHarlequin()
     {
         var powerCombatInspiration = FeatureDefinitionPowerBuilder
@@ -155,10 +137,28 @@ internal sealed class CollegeOfHarlequin : AbstractSubclass
             .AddToDB();
     }
 
+    private static Dictionary<ulong, int> BardicDieRollPerCharacter { get; } = new();
+
     internal override CharacterSubclassDefinition Subclass { get; }
 
     internal override FeatureDefinitionSubclassChoice SubclassChoice =>
         FeatureDefinitionSubclassChoices.SubclassChoiceBardColleges;
+
+    internal static int GetBardicRoll(ulong sourceGuid)
+    {
+        BardicDieRollPerCharacter.TryGetValue(sourceGuid, out var roll);
+        return roll;
+    }
+
+    private static void SetBardicRoll(ulong sourceGuid, int roll)
+    {
+        BardicDieRollPerCharacter.AddOrReplace(sourceGuid, roll);
+    }
+
+    private static void RemoveBardicRoll(ulong sourceGuid)
+    {
+        BardicDieRollPerCharacter.Remove(sourceGuid);
+    }
 
     private sealed class ConditionCombatInspired : ICustomConditionFeature
     {
@@ -173,8 +173,8 @@ internal sealed class CollegeOfHarlequin : AbstractSubclass
             }
 
             var dieType = hero.GetBardicInspirationDieValue();
-            var dieRoll = RollDie(dieType, AdvantageType.Advantage, out int _, out int _);
-            
+            var dieRoll = RollDie(dieType, AdvantageType.Advantage, out var _, out var _);
+
             var console = Gui.Game.GameConsole;
             var entry = new GameConsoleEntry("Feedback/&BardicInspirationUsedToBoostCombatAbility",
                 console.consoleTableDefinition);
@@ -244,7 +244,8 @@ internal sealed class CollegeOfHarlequin : AbstractSubclass
                 yield break;
             }
 
-            var proficiencyBonus = attacker.RulesetCharacter.GetAttribute(AttributeDefinitions.ProficiencyBonus).CurrentValue;
+            var proficiencyBonus = attacker.RulesetCharacter.GetAttribute(AttributeDefinitions.ProficiencyBonus)
+                .CurrentValue;
             var charisma = attacker.RulesetCharacter.GetAttribute(AttributeDefinitions.Charisma).CurrentValue;
             var rulesetAttacker = attacker.RulesetCharacter;
             var usablePower = new RulesetUsablePower(PowerTerrificPerformance, null, null)
@@ -253,7 +254,7 @@ internal sealed class CollegeOfHarlequin : AbstractSubclass
             };
 
             var effectPower = new RulesetEffectPower(rulesetAttacker, usablePower);
-            
+
             foreach (var enemy in battle.EnemyContenders
                          .Where(enemy => attacker.RulesetActor.DistanceTo(enemy.RulesetActor) <= 3))
             {
@@ -261,7 +262,7 @@ internal sealed class CollegeOfHarlequin : AbstractSubclass
             }
         }
     }
-    
+
     private sealed class AddBardicDieRollToAttackAndDamage : IModifyAttackModeForWeapon
     {
         public void ModifyAttackMode(RulesetCharacter character, [CanBeNull] RulesetAttackMode attackMode)
