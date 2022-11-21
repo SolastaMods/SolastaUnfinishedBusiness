@@ -760,7 +760,7 @@ internal sealed class MartialTactician : AbstractSubclass
         }
     }
 
-    private class RefundPowerUseAfterCrit : IAfterAttackEffect
+    private class RefundPowerUseAfterCrit : IBeforeAttackEffect
     {
         private readonly FeatureDefinition feature;
         private readonly FeatureDefinitionPower power;
@@ -771,7 +771,7 @@ internal sealed class MartialTactician : AbstractSubclass
             this.feature = feature;
         }
 
-        public void AfterOnAttackHit(
+        public void BeforeOnAttackHit(
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
             RollOutcome outcome,
