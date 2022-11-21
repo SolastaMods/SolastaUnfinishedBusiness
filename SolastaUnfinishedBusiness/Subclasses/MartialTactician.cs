@@ -185,7 +185,7 @@ internal sealed class MartialTactician : AbstractSubclass
 
     private static FeatureDefinition BuildGambitDieSize(DieType size)
     {
-        //doesn't do anything, just to display to player dice size progression on levelup
+        //doesn't do anything, just to display to player dice size progression on level up
         return FeatureDefinitionBuilder
             .Create($"FeatureTacticianGambitDieSize{size}")
             .SetGuiPresentation(Category.Feature)
@@ -209,7 +209,7 @@ internal sealed class MartialTactician : AbstractSubclass
     private static FeatureDefinition BuildTacticalSurge()
     {
         const string CONDITION_NAME = "ConditionTacticianTacticalSurge";
-        
+
         var tick = FeatureDefinitionBuilder
             .Create("FeatureTacticianTacticalSurgeTick")
             .SetGuiPresentation(CONDITION_NAME, Category.Condition)
@@ -243,7 +243,7 @@ internal sealed class MartialTactician : AbstractSubclass
 
         #region Helpers
 
-        // sub-feature that spends gambit die when melee attack hits
+        //sub-feature that spends gambit die when melee attack hits
         var spendDieOnMeleeHit = new AddUsablePowerFromCondition(FeatureDefinitionPowerSharedPoolBuilder
             .Create("PowerReactionSpendGambitDieOnMeleeHit")
             .SetGuiPresentationNoContent(true)
@@ -903,6 +903,7 @@ internal sealed class MartialTactician : AbstractSubclass
         public void ApplyFeature(RulesetCharacter target, RulesetCondition rulesetCondition)
         {
             var caster = EffectHelpers.GetCharacterByGuid(rulesetCondition.sourceGuid);
+
             if (caster == null)
             {
                 return;
@@ -937,6 +938,7 @@ internal sealed class MartialTactician : AbstractSubclass
             GameLocationBattleManager battle)
         {
             var manager = ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
+
             if (manager == null)
             {
                 yield break;
@@ -956,6 +958,7 @@ internal sealed class MartialTactician : AbstractSubclass
                 retaliationModifier);
 
             var character = me.RulesetCharacter;
+
             var rulesetCondition = RulesetCondition.CreateActiveCondition(character.Guid,
                 condition,
                 DurationType.Round,
@@ -1039,7 +1042,7 @@ internal sealed class MartialTactician : AbstractSubclass
         {
             var character = locationCharacter.RulesetCharacter;
             var charges = character.GetRemainingPowerUses(power) - character.GetMaxUsesForPool(power);
-            
+
             charges = Math.Max(charges, -1);
 
             if (charges >= 0)
