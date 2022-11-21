@@ -13,10 +13,10 @@ using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterFamilyDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterSubclassDefinitions;
-using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionDamageAffinitys;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.ItemDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.MonsterDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
+using static SolastaUnfinishedBusiness.Subclasses.CommonBuilders;
 
 namespace SolastaUnfinishedBusiness.Subclasses;
 
@@ -78,11 +78,6 @@ internal sealed class WizardDeadMaster : AbstractSubclass
                     .AddToDB())
             .AddToDB();
 
-        var damageAffinityDeadMasterHardenToNecrotic = FeatureDefinitionDamageAffinityBuilder
-            .Create(DamageAffinityNecroticImmunity, "DamageAffinityDeadMasterHardenToNecrotic")
-            .SetGuiPresentation(Category.Feature)
-            .AddToDB();
-
         var powerDeadMasterCommandUndead = FeatureDefinitionPowerBuilder
             .Create("PowerDeadMasterCommandUndead")
             .SetGuiPresentation(Category.Feature)
@@ -113,7 +108,7 @@ internal sealed class WizardDeadMaster : AbstractSubclass
             .AddFeaturesAtLevel(6,
                 targetReducedToZeroHpDeadMasterStarkHarvest)
             .AddFeaturesAtLevel(10,
-                damageAffinityDeadMasterHardenToNecrotic)
+                DamageAffinityGenericHardenToNecrotic)
             .AddFeaturesAtLevel(14,
                 powerDeadMasterCommandUndead)
             .AddToDB();
