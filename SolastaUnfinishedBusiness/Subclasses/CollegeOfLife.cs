@@ -83,6 +83,7 @@ internal sealed class CollegeOfLife : AbstractSubclass
                 DamageAffinityColdResistance,
                 DamageAffinityFireResistance,
                 DamageAffinityLightningResistance,
+                DamageAffinityNecroticResistance,
                 DamageAffinityPoisonResistance,
                 DamageAffinityThunderResistance)
             .SetConditionType(ConditionType.Beneficial)
