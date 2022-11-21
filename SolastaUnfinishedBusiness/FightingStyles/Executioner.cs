@@ -2,9 +2,9 @@
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomInterfaces;
+using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterSubclassDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionFightingStyleChoices;
-using static SolastaUnfinishedBusiness.Api.DatabaseHelper.ConditionDefinitions;
 
 namespace SolastaUnfinishedBusiness.FightingStyles;
 
@@ -28,22 +28,17 @@ internal sealed class Executioner : AbstractFightingStyle
         FightingStyleChampionAdditional, FightingStyleFighter, FightingStylePaladin, FightingStyleRanger
     };
 
-    private sealed class OnAttackDamageEffectFightingStyleExecutioner : IOnAttackDamageEffect
+    private sealed class OnAttackDamageEffectFightingStyleExecutioner : IBeforeAttackEffect
     {
-        public void BeforeOnAttackDamage(
+        public void BeforeOnAttackHit(
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
-            ActionModifier attackModifier,
+            RollOutcome outcome,
+            CharacterActionParams actionParams,
             RulesetAttackMode attackMode,
-            bool rangedAttack,
-            RuleDefinitions.AdvantageType advantageType,
-            List<EffectForm> actualEffectForms,
-            RulesetEffect rulesetEffect,
-            bool criticalHit,
-            bool firstTarget)
+            ActionModifier attackModifier)
         {
-            // melee attack only
-            if (attackMode == null || defender == null)
+            if (attackMode == null || outcome is RollOutcome.Failure or RollOutcome.CriticalFailure)
             {
                 return;
             }
@@ -74,7 +69,7 @@ internal sealed class Executioner : AbstractFightingStyle
 
             damage.BonusDamage += proficiencyBonus;
             damage.DamageBonusTrends.Add(new RuleDefinitions.TrendInfo(proficiencyBonus,
-                RuleDefinitions.FeatureSourceType.FightingStyle, "Executioner", null));
+                FeatureSourceType.FightingStyle, "Executioner", null));
         }
     }
 }
