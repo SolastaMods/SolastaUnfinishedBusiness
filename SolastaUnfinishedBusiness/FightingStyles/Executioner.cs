@@ -17,10 +17,11 @@ internal sealed class Executioner : AbstractFightingStyle
         .Create(ExecutionerName)
         .SetGuiPresentation(Category.FightingStyle, PathMagebane)
         .SetFeatures(FeatureDefinitionBuilder
-            .Create("OnComputeAttackModifierFightingStyleExecutioner")
+            .Create("FeatureFightingStyleExecutioner")
             .SetGuiPresentationNoContent(true)
             .SetCustomSubFeatures(new ExecutionerDamage(FeatureDefinitionAdditionalDamageBuilder
                 .Create("AdditionalDamageFightingStyleExecutioner")
+                .SetGuiPresentationNoContent(true)
                 .SetNotificationTag(ExecutionerName)
                 .SetDamageValueDetermination(AdditionalDamageValueDetermination.ProficiencyBonus)
                 .AddToDB()))
