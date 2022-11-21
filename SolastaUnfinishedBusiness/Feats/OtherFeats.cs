@@ -41,10 +41,11 @@ internal static class OtherFeats
             featHealer,
             featPickPocket);
 
-        GroupFeats.MakeGroup("FeatGroupSpellCombat", null,
+        var group = GroupFeats.MakeGroup("FeatGroupSpellCombat", null,
             FeatDefinitions.FlawlessConcentration,
             FeatDefinitions.PowerfulCantrip,
             featWarCaster);
+        group.mustCastSpellsPrerequisite = true;
     }
 
     private static FeatDefinition BuildHealer()
