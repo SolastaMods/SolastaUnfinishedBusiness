@@ -13,13 +13,13 @@ internal sealed class SorcerousFieldManipulator : AbstractSubclass
     {
         var autoPreparedSpellsFieldManipulator = FeatureDefinitionAutoPreparedSpellsBuilder
             .Create("AutoPreparedSpellsFieldManipulator")
-            .SetGuiPresentation(Category.Feature)
+            .SetGuiPresentation("DomainSpells", Category.Feature)
             .SetSpellcastingClass(CharacterClassDefinitions.Sorcerer)
-            .AddPreparedSpellGroup(1, CharmPerson, Sleep)
-            .AddPreparedSpellGroup(2, HoldPerson, Invisibility)
-            .AddPreparedSpellGroup(3, Counterspell, DispelMagic)
-            .AddPreparedSpellGroup(4, Banishment, Confusion)
-            .AddPreparedSpellGroup(5, DominatePerson, HoldMonster)
+            .AddPreparedSpellGroup(1, Sleep)
+            .AddPreparedSpellGroup(2, Invisibility)
+            .AddPreparedSpellGroup(3, Counterspell)
+            .AddPreparedSpellGroup(4, Banishment)
+            .AddPreparedSpellGroup(5, HoldMonster)
             .AddPreparedSpellGroup(6, GlobeOfInvulnerability)
             .AddToDB();
 
@@ -43,7 +43,7 @@ internal sealed class SorcerousFieldManipulator : AbstractSubclass
                 Sleep) // enchantment 1
             .AddToDB();
 #endif
-        
+
         var magicAffinityFieldManipulatorDc = FeatureDefinitionMagicAffinityBuilder
             .Create("MagicAffinityFieldManipulatorDC")
             .SetGuiPresentation(Category.Feature)

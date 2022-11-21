@@ -8,6 +8,7 @@ using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterSubclassDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.ConditionDefinitions;
+using static SolastaUnfinishedBusiness.Subclasses.CommonBuilders;
 
 namespace SolastaUnfinishedBusiness.Subclasses;
 
@@ -32,11 +33,6 @@ internal sealed class WizardBladeDancer : AbstractSubclass
             .Create("FeatureSetCasterBladeDancerFighting")
             .SetGuiPresentation(Category.Feature)
             .AddFeatureSet(proficiencyBladeDancerLightArmor, proficiencyBladeDancerMartialWeapon)
-            .AddToDB();
-
-        var replaceAttackWithCantripBladeDancer = FeatureDefinitionReplaceAttackWithCantripBuilder
-            .Create("ReplaceAttackWithCantripBladeDancer")
-            .SetGuiPresentation(Category.Feature)
             .AddToDB();
 
         ConditionBladeDancerBladeDance = ConditionDefinitionBuilder
@@ -181,7 +177,7 @@ internal sealed class WizardBladeDancer : AbstractSubclass
                 featureSetBladeDancerBladeDance)
             .AddFeaturesAtLevel(6,
                 AttributeModifierCasterFightingExtraAttack,
-                replaceAttackWithCantripBladeDancer)
+                ReplaceAttackWithCantripCasterFighting)
             .AddFeaturesAtLevel(10,
                 featureSetBladeDancerDanceOfDefense)
             .AddFeaturesAtLevel(14,

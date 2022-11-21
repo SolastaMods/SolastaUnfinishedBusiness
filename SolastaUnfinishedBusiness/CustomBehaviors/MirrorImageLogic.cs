@@ -136,17 +136,13 @@ public class MirrorImageLogic
 
         var hitImage = false;
 
-        if (conditions.Count >= 3 && result >= 6)
+        switch (conditions.Count)
         {
-            hitImage = true;
-        }
-        else if (conditions.Count == 2 && result >= 8)
-        {
-            hitImage = true;
-        }
-        else if (conditions.Count == 1 && result >= 11)
-        {
-            hitImage = true;
+            case >= 3 when result >= 6:
+            case 2 when result >= 8:
+            case 1 when result >= 11:
+                hitImage = true;
+                break;
         }
 
         ReportTargetingMirrorImage(attacker, target, result, hitImage);
@@ -158,7 +154,8 @@ public class MirrorImageLogic
     }
 
     internal static void AttackRollPostfix(
-        RulesetCharacter attacker, RulesetAttackMode attackMode,
+        RulesetCharacter attacker,
+        RulesetAttackMode attackMode,
         RulesetActor target,
         List<RuleDefinitions.TrendInfo> toHitTrends,
         ref RuleDefinitions.RollOutcome outcome,

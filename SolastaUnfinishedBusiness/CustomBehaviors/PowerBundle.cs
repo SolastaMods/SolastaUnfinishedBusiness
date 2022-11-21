@@ -5,6 +5,7 @@ using System.Linq;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.Extensions;
 using SolastaUnfinishedBusiness.Builders;
+using SolastaUnfinishedBusiness.CustomDefinitions;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.Models;
 using UnityEngine;
@@ -333,8 +334,13 @@ internal static class PowerBundle
             result = baseDefinition.GetCustomEffect(caster) ?? original;
         }
 
-        var modifiers = caster.GetSubFeaturesByType<IModifyMagicEffect>();
+        //ignore features from powers, they would be processed later
+        var modifiers = caster.GetSubFeaturesByType<IModifyMagicEffect>(
+            typeof(FeatureDefinitionPower),
+            typeof(FeatureDefinitionPowerSharedPool)
+        );
 
+        //process features from spell/power
         modifiers.AddRange(definition.GetAllSubFeaturesOfType<IModifyMagicEffect>());
 
         if (!modifiers.Empty())
@@ -494,6 +500,7 @@ internal static class PowerBundle
     internal static void SpendBundledPowerIfNeeded([NotNull] CharacterActionSpendPower action)
     {
         var activePower = action.ActionParams.RulesetEffect as RulesetEffectPower;
+        
         if (activePower is not { OriginItem: null })
         {
             return;
@@ -524,7 +531,6 @@ internal static class PowerBundle
     internal static bool PowerBoxActivated(UsablePowerBox box)
     {
         var masterPower = box.usablePower.PowerDefinition;
-
         var bundle = GetBundle(masterPower);
 
         if (bundle == null)
@@ -566,7 +572,10 @@ internal static class PowerBundle
         var invocation = box.Invocation;
         var masterPower = invocation.InvocationDefinition.GetPower();
 
-        if (masterPower == null) { return true; }
+        if (masterPower == null)
+        {
+            return true;
+        }
 
         var bundle = GetBundle(masterPower);
 

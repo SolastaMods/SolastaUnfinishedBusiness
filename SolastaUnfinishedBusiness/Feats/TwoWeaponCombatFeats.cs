@@ -81,7 +81,7 @@ internal static class TwoWeaponCombatFeats
             .AddToDB();
     }
 
-    private sealed class OnAttackHitEffectFeatDualFlurry : IAfterAttackEffect
+    private sealed class OnAttackHitEffectFeatDualFlurry : IBeforeAttackEffect
     {
         private readonly ConditionDefinition _conditionDualFlurryApply;
         private readonly ConditionDefinition _conditionDualFlurryGrant;
@@ -94,7 +94,7 @@ internal static class TwoWeaponCombatFeats
             _conditionDualFlurryApply = conditionDualFlurryApply;
         }
 
-        public void AfterOnAttackHit(
+        public void BeforeOnAttackHit(
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
             RollOutcome outcome,
@@ -102,7 +102,6 @@ internal static class TwoWeaponCombatFeats
             RulesetAttackMode attackMode,
             ActionModifier attackModifier)
         {
-            // Test for Failed attack, as this routine is running on a miss
             if (attackMode == null || outcome is RollOutcome.Failure or RollOutcome.CriticalFailure)
             {
                 return;

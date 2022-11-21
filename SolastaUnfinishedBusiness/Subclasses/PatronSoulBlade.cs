@@ -5,6 +5,7 @@ using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPowers;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
+using static SolastaUnfinishedBusiness.Subclasses.CommonBuilders;
 
 namespace SolastaUnfinishedBusiness.Subclasses;
 
@@ -90,7 +91,7 @@ internal sealed class PatronSoulBlade : AbstractSubclass
             .Create("PatronSoulBlade")
             .SetGuiPresentation(Category.Subclass, CharacterSubclassDefinitions.OathOfTheMotherland)
             .AddFeaturesAtLevel(1,
-                FeatureSetCasterFighting,
+                FeatureSetCasterFightingProficiency,
                 magicAffinitySoulBladeExpandedSpells,
                 powerSoulBladeEmpowerWeapon)
             .AddFeaturesAtLevel(6,

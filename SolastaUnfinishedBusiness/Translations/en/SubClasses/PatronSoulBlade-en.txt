@@ -1,6 +1,6 @@
 ﻿Feature/&AttackModifierSoulBladeEmpowerWeaponDescription=Weapon uses Charisma modifier for attack and damage rolls and counts as magical until long rest.
 Feature/&AttackModifierSoulBladeEmpowerWeaponTitle=Soul Empowered
-Feature/&PowerSoulBladeEmpowerWeaponDescription=Once per long rest you can empower a weapon with the power of souls. That weapon uses Charisma modifier for attack and damage rolls and counts as magical. Only one weapon can have this effect - applying it to second will remove it from the first.
+Feature/&PowerSoulBladeEmpowerWeaponDescription=Once per long rest you can empower a weapon with the power of souls. The weapon uses Charisma modifier for attack and damage rolls and counts as magical. Only one weapon can be under this effect.
 Feature/&PowerSoulBladeEmpowerWeaponTitle=Soul Empower
 Feature/&PowerSoulBladeSoulShieldDescription=Once per short rest, you use the power of souls to defend yourself. Using a bonus action, you gain temp hp equal to your level + Charisma modifier.
 Feature/&PowerSoulBladeSoulShieldTitle=Soul Shield

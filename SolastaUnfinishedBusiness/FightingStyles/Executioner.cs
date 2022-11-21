@@ -2,9 +2,9 @@
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomInterfaces;
+using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterSubclassDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionFightingStyleChoices;
-using static SolastaUnfinishedBusiness.Api.DatabaseHelper.ConditionDefinitions;
 
 namespace SolastaUnfinishedBusiness.FightingStyles;
 
@@ -28,22 +28,17 @@ internal sealed class Executioner : AbstractFightingStyle
         FightingStyleChampionAdditional, FightingStyleFighter, FightingStylePaladin, FightingStyleRanger
     };
 
-    private sealed class OnAttackDamageEffectFightingStyleExecutioner : IOnAttackDamageEffect
+    private sealed class OnAttackDamageEffectFightingStyleExecutioner : IBeforeAttackEffect
     {
-        public void BeforeOnAttackDamage(
+        public void BeforeOnAttackHit(
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
-            ActionModifier attackModifier,
+            RollOutcome outcome,
+            CharacterActionParams actionParams,
             RulesetAttackMode attackMode,
-            bool rangedAttack,
-            RuleDefinitions.AdvantageType advantageType,
-            List<EffectForm> actualEffectForms,
-            RulesetEffect rulesetEffect,
-            bool criticalHit,
-            bool firstTarget)
+            ActionModifier attackModifier)
         {
-            // melee attack only
-            if (attackMode == null || defender == null)
+            if (attackMode == null || outcome is RollOutcome.Failure or RollOutcome.CriticalFailure)
             {
                 return;
             }
@@ -63,21 +58,18 @@ internal sealed class Executioner : AbstractFightingStyle
 
             var effectDescription = attackMode.EffectDescription;
             var damage = effectDescription.FindFirstDamageForm();
-            var i = effectDescription.EffectForms.FindIndex(x => x.damageForm == damage);
 
-            if (i < 0 || damage == null)
+            if (damage == null)
             {
                 return;
             }
 
             var proficiencyBonus =
                 attacker.RulesetCharacter.GetAttribute(AttributeDefinitions.ProficiencyBonus).CurrentValue;
-            var additionalDice = EffectFormBuilder
-                .Create()
-                .SetDamageForm(damage.damageType, 0, RuleDefinitions.DieType.D4, proficiencyBonus)
-                .Build();
 
-            effectDescription.EffectForms.Insert(i + 1, additionalDice);
+            damage.BonusDamage += proficiencyBonus;
+            damage.DamageBonusTrends.Add(new RuleDefinitions.TrendInfo(proficiencyBonus,
+                FeatureSourceType.FightingStyle, "Executioner", null));
         }
     }
 }

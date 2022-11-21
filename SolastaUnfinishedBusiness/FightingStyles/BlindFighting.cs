@@ -21,6 +21,6 @@ internal class BlindFighting : AbstractFightingStyle
 
     internal override List<FeatureDefinitionFightingStyleChoice> FightingStyleChoice => new()
     {
-        FightingStyleChampionAdditional, FightingStyleFighter, FightingStyleRanger, FightingStylePaladin
+        FightingStyleChampionAdditional, FightingStyleFighter, FightingStylePaladin, FightingStyleRanger
     };
 }

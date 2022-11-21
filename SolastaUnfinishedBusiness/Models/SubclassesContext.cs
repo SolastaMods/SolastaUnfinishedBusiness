@@ -26,6 +26,10 @@ internal static class SubclassesContext
         LoadSubclass(new CollegeOfHarlequin());
         LoadSubclass(new CollegeOfLife());
 
+        // Druid
+        LoadSubclass(new CircleOfTheAncientForest());
+        LoadSubclass(new CircleOfTheForestGuardian());
+
         // Fighter
         LoadSubclass(new MartialMarshal());
         LoadSubclass(new MartialSpellShield());
@@ -45,7 +49,7 @@ internal static class SubclassesContext
 
         // Monk
         LoadSubclass(new WayOfTheDistantHand());
-        LoadSubclass(new WayOfSilhouette());
+        LoadSubclass(new WayOfTheSilhouette());
 
         // Warlock
         LoadSubclass(new PatronElementalist());

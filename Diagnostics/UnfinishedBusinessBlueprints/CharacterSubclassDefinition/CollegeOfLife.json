@@ -28,6 +28,11 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:DamageAffinityCollegeOfLifeNecroticResistance:6905cb79-96ab-5ccd-8b13-3f772741a763",
+      "level": 6
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:PowerSharedPoolCollegeOfLifeRevive:7fcdc4f2-27b2-5e33-b1e3-897882b03590",
       "level": 6
     },
@@ -43,7 +48,7 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:FeatureSetCollegeOfLifeNecroticResistance:9f852b57-974b-5224-b97a-356d32bfae62",
+      "featureDefinition": "Definition:DamageAffinityGenericHardenToNecrotic:44b34f3e-0c4c-5527-8cf1-053015ed46d1",
       "level": 14
     }
   ],

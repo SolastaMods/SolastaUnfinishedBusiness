@@ -7,6 +7,7 @@ using static SolastaUnfinishedBusiness.Api.DatabaseHelper.ConditionDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionDamageAffinitys;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPowers;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
+using static SolastaUnfinishedBusiness.Subclasses.CommonBuilders;
 
 namespace SolastaUnfinishedBusiness.Subclasses;
 
@@ -35,13 +36,16 @@ internal sealed class CollegeOfLife : AbstractSubclass
 
         // LEVEL 06
 
+        var damageAffinityCollegeOfLifeNecroticResistance = FeatureDefinitionDamageAffinityBuilder
+            .Create(DamageAffinityNecroticResistance, "DamageAffinityCollegeOfLifeNecroticResistance")
+            .SetGuiPresentation(Category.Feature)
+            .AddToDB();
+        
         var powerSharedPoolCollegeOfLifeHealingPool = FeatureDefinitionPowerBuilder
             .Create("PowerSharedPoolCollegeOfLifeHealingPool")
-            .SetGuiPresentation(Category.Feature)
+            .SetGuiPresentation(Category.Feature, hidden: true)
             .SetUsesProficiencyBonus(ActivationTime.BonusAction)
             .AddToDB();
-
-        powerSharedPoolCollegeOfLifeHealingPool.GuiPresentation.hidden = true;
 
         var conditionCollegeOfLifeDarkvision = ConditionDefinitionBuilder
             .Create("ConditionCollegeOfLifeDarkvision")
@@ -75,13 +79,13 @@ internal sealed class CollegeOfLife : AbstractSubclass
             .Create("ConditionCollegeOfLifeElementalResistance")
             .SetGuiPresentation(Category.Condition, ConditionProtectedFromPoison)
             .SetFeatures(
-                DamageAffinityPoisonResistance,
                 DamageAffinityAcidResistance,
                 DamageAffinityColdResistance,
                 DamageAffinityFireResistance,
-                DamageAffinityThunderResistance,
                 DamageAffinityLightningResistance,
-                DamageAffinityNecroticResistance)
+                DamageAffinityNecroticResistance,
+                DamageAffinityPoisonResistance,
+                DamageAffinityThunderResistance)
             .SetConditionType(ConditionType.Beneficial)
             .SetAllowMultipleInstances(false)
             .SetDuration(DurationType.UntilLongRest)
@@ -166,20 +170,13 @@ internal sealed class CollegeOfLife : AbstractSubclass
             .SetEffectDescription(Revivify.EffectDescription)
             .AddToDB();
 
-        // LEVEL 14
-
-        var featureSetCollegeOfLifeNecroticResistance = FeatureDefinitionFeatureSetBuilder
-            .Create("FeatureSetCollegeOfLifeNecroticResistance")
-            .SetGuiPresentation(Category.Feature)
-            .AddFeatureSet(DamageAffinityNecroticResistance)
-            .AddToDB();
-
         Subclass = CharacterSubclassDefinitionBuilder
             .Create("CollegeOfLife")
             .SetGuiPresentation(Category.Subclass, RoguishDarkweaver)
             .AddFeaturesAtLevel(3,
                 magicAffinityCollegeOfLifeHeightened)
             .AddFeaturesAtLevel(6,
+                damageAffinityCollegeOfLifeNecroticResistance,
                 powerSharedPoolCollegeOfLifeHealingPool,
                 powerSharedPoolCollegeOfLifeDarkvision,
                 powerSharedPoolCollegeOfLifePoison,
@@ -188,7 +185,7 @@ internal sealed class CollegeOfLife : AbstractSubclass
                 powerSharedPoolCollegeOfLifeHeal,
                 powerSharedPoolCollegeOfLifeRevive)
             .AddFeaturesAtLevel(14,
-                featureSetCollegeOfLifeNecroticResistance)
+                DamageAffinityGenericHardenToNecrotic)
             .AddToDB();
     }
 

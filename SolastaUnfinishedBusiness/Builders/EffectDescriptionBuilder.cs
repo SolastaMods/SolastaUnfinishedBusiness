@@ -245,11 +245,13 @@ internal class EffectDescriptionBuilder
         return this;
     }
 
+#if false
     internal EffectDescriptionBuilder InviteOptionalAlly(bool value = true)
     {
         effect.inviteOptionalAlly = value;
         return this;
     }
+#endif
 
     internal EffectDescriptionBuilder SetSpeed(SpeedType speedType, float speedParameter = 0f)
     {

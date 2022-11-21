@@ -102,10 +102,10 @@ internal static class SrdAndHouseRulesContext
         var toDamage = Main.Settings.DeadEyeAndPowerAttackBaseValue + proficiency;
 
         attackMode.ToHitBonus += toHit;
-        attackMode.ToHitBonusTrends.Add(new TrendInfo(toHit, FeatureSourceType.Power, sourceName, null));
+        attackMode.ToHitBonusTrends.Add(new TrendInfo(toHit, FeatureSourceType.Feat, sourceName, null));
 
         damage.BonusDamage += toDamage;
-        damage.DamageBonusTrends.Add(new TrendInfo(toDamage, FeatureSourceType.Power, sourceName, null));
+        damage.DamageBonusTrends.Add(new TrendInfo(toDamage, FeatureSourceType.Feat, sourceName, null));
     }
 
     internal static void SwitchUniversalSylvanArmorAndLightbringer()
