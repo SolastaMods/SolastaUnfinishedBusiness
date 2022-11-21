@@ -1,8 +1,4 @@
-﻿#if false
-using System.Collections.Generic;
-using JetBrains.Annotations;
-using SolastaUnfinishedBusiness.CustomInterfaces;
-using SolastaUnfinishedBusiness.Subclasses;
+﻿using JetBrains.Annotations;
 
 namespace SolastaUnfinishedBusiness.Models;
 
@@ -163,7 +159,7 @@ internal static class DelegatesContext
 
         var gameLocationActionService = ServiceRepository.GetService<IGameLocationActionService>();
 
-        gameLocationActionService.ActionStarted += ActionStarted;
+        gameLocationActionService.ActionStarted += Global.ActionStarted;
         // gameLocationActionService.ActionChainStarted += ActionChainStarted;
         // gameLocationActionService.ActionChainFinished += ActionChainFinished;
         // gameLocationActionService.MagicEffectPreparing += MagicEffectPreparing;
@@ -290,7 +286,7 @@ internal static class DelegatesContext
 
         var gameLocationActionService = ServiceRepository.GetService<IGameLocationActionService>();
 
-        gameLocationActionService.ActionStarted -= ActionStarted;
+        gameLocationActionService.ActionStarted -= Global.ActionStarted;
         // gameLocationActionService.ActionChainStarted -= ActionChainStarted;
         // gameLocationActionService.ActionChainFinished -= ActionChainFinished;
         // gameLocationActionService.MagicEffectPreparing -= MagicEffectPreparing;
@@ -385,10 +381,10 @@ internal static class DelegatesContext
     // IGameLocationActionService
     //
 
-    private static void ActionStarted([NotNull] CharacterAction characterAction)
-    {
-        Main.Logger.Log($"{characterAction.ActingCharacter.Name} {characterAction.ActionId} Action Started");
-    }
+    // private static void ActionStarted([NotNull] CharacterAction characterAction)
+    // {
+    //     Main.Logger.Log($"{characterAction.ActingCharacter.Name} {characterAction.ActionId} Action Started");
+    // }
 
     // private static void ActionChainStarted([NotNull] CharacterActionChainParams characterActionChainParams)
     // {
@@ -1033,4 +1029,3 @@ internal static class DelegatesContext
     //     Main.Logger.Log("ActorReplaced");
     // }
 }
-#endif
