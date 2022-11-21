@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.CustomBehaviors;
 using UnityEngine;
@@ -61,7 +60,7 @@ internal static class Global
 
     // special case for our powers that add a turn off stop provider
     internal static HashSet<FeatureDefinitionPower> PowersThatIgnoreInterruptions { get; } = new();
-    
+
     // restate globals on every new action
     internal static void ActionStarted([NotNull] CharacterAction characterAction)
     {
