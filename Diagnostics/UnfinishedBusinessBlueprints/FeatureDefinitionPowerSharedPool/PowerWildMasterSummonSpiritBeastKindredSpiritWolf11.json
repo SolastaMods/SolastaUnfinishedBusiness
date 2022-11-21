@@ -322,7 +322,7 @@
   "uniqueInstance": true,
   "showCasting": true,
   "shortTitleOverride": "",
-  "overriddenPower": "Definition:PowerWildMasterSummonSpiritBeastKindredSpiritWolf7:fff5945e-21d0-5cae-b0ae-ceb085155208",
+  "overriddenPower": null,
   "includeBaseDescription": false,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",

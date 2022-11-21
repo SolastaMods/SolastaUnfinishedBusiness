@@ -3,8 +3,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&InvocationPoolGambitLearn1Title",
-    "description": "Feature/&InvocationPoolGambitLearn1Description",
+    "title": "Feature/&InvocationPoolGambitLearn2Title",
+    "description": "Feature/&InvocationPoolGambitLearn2Description",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -24,7 +24,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "3ff65ff4-2627-5d45-8dbb-f58aa34f2e1e",
+  "guid": "81610ec8-6ee4-5218-a274-46987457db6c",
   "contentPack": 9999,
-  "name": "InvocationPoolGambitLearn1"
+  "name": "InvocationPoolGambitLearn2"
 }
