@@ -83,7 +83,6 @@ internal sealed class CollegeOfHarlequin : AbstractSubclass
                                 .AddToDB()
                         )
                         .SetCustomSubFeatures(new ConditionCombatInspired())
-                        .SetAmountOrigin(ExtraOriginOfAmount.SourceRollBardicDie)
                         .AddToDB(), ConditionForm.ConditionOperation.Add)
                     .Build())
                 .Build()

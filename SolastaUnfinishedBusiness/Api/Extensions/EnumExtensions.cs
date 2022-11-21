@@ -82,7 +82,6 @@ internal enum ExtraOriginOfAmount
     SourceClassLevel = 9002, //Class name should be in the `additionalDamageType` field of the condition
     SourceAbilityBonus = 9003, //Attribute name should be in the `additionalDamageType` field of the condition
     SourceProficiencyBonusNegative = 9004,
-    SourceRollBardicDie = 9005, // Roll a bardic die and add t
 }
 
 internal enum ExtraAdditionalDamageTriggerCondition
