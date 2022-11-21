@@ -16,7 +16,11 @@ internal static class MetamagicFeats
     {
         var metaMagicFeats = BuildMetamagic();
 
-        GroupFeats.MakeGroup("FeatGroupMetamagic", null, metaMagicFeats);
+        var group = GroupFeats.MakeGroup("FeatGroupMetamagic", null, metaMagicFeats);
+        group.mustCastSpellsPrerequisite = true;
+        group.minimalAbilityScorePrerequisite = true;
+        group.minimalAbilityScoreName = AttributeDefinitions.Charisma;
+        group.minimalAbilityScoreValue = 13;
 
         feats.AddRange(metaMagicFeats);
     }
