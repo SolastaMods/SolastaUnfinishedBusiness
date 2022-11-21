@@ -37,6 +37,7 @@ internal static class TwoWeaponCombatFeats
             .SetPossessive()
             .SetSilent(Silent.WhenAddedOrRemoved)
             .SetConditionType(ConditionType.Beneficial)
+            .SetSpecialInterruptions(ConditionInterruption.AnyBattleTurnEnd)
             .AddToDB();
 
         var conditionDualFlurryGrant = ConditionDefinitionBuilder
@@ -47,6 +48,7 @@ internal static class TwoWeaponCombatFeats
             .SetPossessive()
             .SetSilent(Silent.WhenAddedOrRemoved)
             .SetConditionType(ConditionType.Beneficial)
+            .SetSpecialInterruptions(ConditionInterruption.AnyBattleTurnEnd)
             .SetFeatures(
                 FeatureDefinitionAdditionalActionBuilder
                     .Create(AdditionalActionSurgedMain, "AdditionalActionDualFlurry")

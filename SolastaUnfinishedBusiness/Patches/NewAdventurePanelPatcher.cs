@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Diagnostics.CodeAnalysis;
+using System.IO;
 using HarmonyLib;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Models;
@@ -74,7 +75,6 @@ public static class NewAdventurePanelPatcher
 
             var max = Math.Min(Main.Settings.DefaultPartyHeroes.Count,
                 __instance.characterSessionPlatesTable.childCount);
-            var characterPoolService = ServiceRepository.GetService<ICharacterPoolService>();
 
             __instance.RecreateSession();
 
@@ -90,7 +90,7 @@ public static class NewAdventurePanelPatcher
 
                 var name = Main.Settings.DefaultPartyHeroes[i];
                 var isBuiltIn = ToolsContext.IsBuiltIn(name);
-                var filename = characterPoolService.BuildCharacterFilename(name, isBuiltIn);
+                var filename = Path.Combine(!isBuiltIn ? TacticalAdventuresApplication.GameCharactersDirectory : TacticalAdventuresApplication.GameBuiltInCharactersDirectory, name) + ".chr";
 
                 __instance.selectedSlot = i;
                 __instance.CharacterSelected(filename);

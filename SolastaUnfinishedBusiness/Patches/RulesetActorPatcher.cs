@@ -85,10 +85,6 @@ public static class RulesetActorPatcher
                     }
 
                     break;
-                case (ConditionDefinition.OriginOfAmount)ExtraOriginOfAmount.SourceRollBardicDie:
-                    Main.Log("Add AC here",true);
-                    sourceAmount = Global.GetBardicRoll(sourceGuid);
-                    break;
             }
         }
     }

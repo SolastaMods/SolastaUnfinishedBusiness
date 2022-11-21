@@ -5,45 +5,17 @@ using System.Linq;
 using System.Reflection.Emit;
 using HarmonyLib;
 using JetBrains.Annotations;
+using SolastaUnfinishedBusiness.Api.Extensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.CustomBehaviors;
-using SolastaUnfinishedBusiness.CustomDefinitions;
 using SolastaUnfinishedBusiness.Models;
+using SolastaUnfinishedBusiness.Subclasses;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterClassDefinitions;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
 public static class RulesetImplementationManagerPatcher
 {
-    //PATCH: Applies custom effect forms
-    [HarmonyPatch(typeof(RulesetImplementationManager), "ApplyEffectForms")]
-    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    public static class ApplyEffectForms_Patch
-    {
-        public static void Postfix(
-            List<EffectForm> effectForms,
-            RulesetImplementationDefinitions.ApplyFormsParams formsParams,
-            List<string> effectiveDamageTypes,
-            bool retargeting,
-            bool proxyOnly,
-            bool forceSelfConditionOnly,
-            RuleDefinitions.EffectApplication effectApplication,
-            List<EffectFormFilter> filters)
-        {
-            foreach (var customEffect in effectForms.OfType<CustomEffectForm>())
-            {
-                customEffect.ApplyForm(
-                    formsParams,
-                    effectiveDamageTypes,
-                    retargeting,
-                    proxyOnly,
-                    forceSelfConditionOnly,
-                    effectApplication,
-                    filters);
-            }
-        }
-    }
-
     [HarmonyPatch(typeof(RulesetImplementationManager), "ApplySummonForm")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     public static class ApplySummonForm_Patch

@@ -17,14 +17,21 @@ internal sealed class WizardBladeDancer : AbstractSubclass
     {
         var proficiencyBladeDancerLightArmor = FeatureDefinitionProficiencyBuilder
             .Create("ProficiencyBladeDancerLightArmor")
-            .SetGuiPresentation(Category.Feature)
-            .SetProficiencies(ProficiencyType.Armor, ArmorCategoryDefinitions.LightArmorCategory.Name)
+            .SetGuiPresentationNoContent(true)
+            .SetProficiencies(ProficiencyType.Armor, EquipmentDefinitions.LightArmorCategory)
             .AddToDB();
 
         var proficiencyBladeDancerMartialWeapon = FeatureDefinitionProficiencyBuilder
             .Create("ProficiencyBladeDancerMartialWeapon")
+            .SetGuiPresentationNoContent(true)
+            .SetProficiencies(ProficiencyType.Weapon,
+                EquipmentDefinitions.SimpleWeaponCategory, EquipmentDefinitions.MartialWeaponCategory)
+            .AddToDB();
+
+        var featureSetCasterBladeDancerFighting = FeatureDefinitionFeatureSetBuilder
+            .Create("FeatureSetCasterBladeDancerFighting")
             .SetGuiPresentation(Category.Feature)
-            .SetProficiencies(ProficiencyType.Weapon, WeaponCategoryDefinitions.MartialWeaponCategory.Name)
+            .AddFeatureSet(proficiencyBladeDancerLightArmor, proficiencyBladeDancerMartialWeapon)
             .AddToDB();
 
         var replaceAttackWithCantripBladeDancer = FeatureDefinitionReplaceAttackWithCantripBuilder
@@ -170,12 +177,11 @@ internal sealed class WizardBladeDancer : AbstractSubclass
             .SetGuiPresentation(Category.Subclass, RangerSwiftBlade)
             .AddFeaturesAtLevel(2,
                 heroRefreshedBladeDanceValidateEquipment,
-                proficiencyBladeDancerLightArmor,
-                proficiencyBladeDancerMartialWeapon,
+                featureSetCasterBladeDancerFighting,
                 featureSetBladeDancerBladeDance)
             .AddFeaturesAtLevel(6,
-                replaceAttackWithCantripBladeDancer,
-                FeatureDefinitionAttributeModifiers.AttributeModifierFighterExtraAttack)
+                AttributeModifierCasterFightingExtraAttack,
+                replaceAttackWithCantripBladeDancer)
             .AddFeaturesAtLevel(10,
                 featureSetBladeDancerDanceOfDefense)
             .AddFeaturesAtLevel(14,

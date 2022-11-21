@@ -3,12 +3,7 @@
   "featureUnlocks": [
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:ProficiencyCollegeOfGutsArmor:1cb782e2-8db7-5d12-b487-4a0e2eb0bd59",
-      "level": 3
-    },
-    {
-      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:ProficiencyCollegeOfGutsWeapon:1abbdad8-030c-593d-bafd-661f60aef2ba",
+      "featureDefinition": "Definition:FeatureSetCasterFighting:dc682f89-4f12-58e2-98ae-4d9ac285d092",
       "level": 3
     },
     {
@@ -23,7 +18,7 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:AttributeModifierCollegeOfGutsExtraAttack:cfa22218-a1ee-5992-81c3-f4f737ba2739",
+      "featureDefinition": "Definition:AttributeModifierCasterFightingExtraAttack:d683c90c-1240-51bc-878a-617aa7133df0",
       "level": 6
     },
     {

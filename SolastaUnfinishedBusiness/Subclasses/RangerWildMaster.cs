@@ -61,9 +61,11 @@ internal sealed class RangerWildMaster : AbstractSubclass
 
         var powerWildMasterSummonSpiritBeastPool = FeatureDefinitionPowerBuilder
             .Create("PowerWildMasterSummonSpiritBeastPool")
-            .SetGuiPresentationNoContent(true)
+            .SetGuiPresentation(Category.Feature)
             .SetUsesFixed(ActivationTime.Action, RechargeRate.LongRest)
             .AddToDB();
+
+        powerWildMasterSummonSpiritBeastPool.GuiPresentation.hidden = true;
 
         var powerWildMasterInvisibility = FeatureDefinitionPowerBuilder
             .Create(FeatureDefinitionPowers.PowerFunctionPotionOfInvisibility, "PowerWildMasterInvisibility")
@@ -310,6 +312,20 @@ internal sealed class RangerWildMaster : AbstractSubclass
 
         #endregion
 
+        GlobalUniqueEffects.AddToGroup(GlobalUniqueEffects.Group.WildMasterBeast,
+            powerKindredSpiritBear03,
+            powerKindredSpiritBear07,
+            powerKindredSpiritBear11,
+            powerKindredSpiritBear15,
+            powerKindredSpiritEagle03,
+            powerKindredSpiritEagle07,
+            powerKindredSpiritEagle11,
+            powerKindredSpiritEagle15,
+            powerKindredSpiritWolf03,
+            powerKindredSpiritWolf07,
+            powerKindredSpiritWolf11,
+            powerKindredSpiritWolf15);
+
         //
         // required for a better UI presentation on level 15
         //
@@ -424,7 +440,7 @@ internal sealed class RangerWildMaster : AbstractSubclass
             .SetOverriddenPower(powerToReplace)
             .SetEffectDescription(EffectDescriptionBuilder
                 .Create()
-                .SetDurationData(DurationType.UntilLongRest)
+                .SetDurationData(DurationType.Permanent)
                 .SetTargetingData(Side.Ally, RangeType.Distance, 3, TargetType.Position)
                 .SetEffectForms(EffectFormBuilder
                     .Create()

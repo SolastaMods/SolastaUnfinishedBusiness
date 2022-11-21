@@ -50,12 +50,12 @@ public static class RulesetCharacterPatcher
             //PATCH: notifies custom condition features that condition is applied
             var definition = activeCondition.ConditionDefinition;
             definition.GetAllSubFeaturesOfType<ICustomConditionFeature>()
-                .ForEach(c => c.ApplyFeature(__instance));
+                .ForEach(c => c.ApplyFeature(__instance, activeCondition));
 
             definition.Features
                 .SelectMany(f => f.GetAllSubFeaturesOfType<ICustomConditionFeature>())
                 .ToList()
-                .ForEach(c => c.ApplyFeature(__instance));
+                .ForEach(c => c.ApplyFeature(__instance, activeCondition));
         }
     }
 
@@ -68,12 +68,12 @@ public static class RulesetCharacterPatcher
             //PATCH: notifies custom condition features that condition is removed 
             var definition = activeCondition.ConditionDefinition;
             definition.GetAllSubFeaturesOfType<ICustomConditionFeature>()
-                .ForEach(c => c.RemoveFeature(__instance));
+                .ForEach(c => c.RemoveFeature(__instance, activeCondition));
 
             definition.Features
                 .SelectMany(f => f.GetAllSubFeaturesOfType<ICustomConditionFeature>())
                 .ToList()
-                .ForEach(c => c.RemoveFeature(__instance));
+                .ForEach(c => c.RemoveFeature(__instance, activeCondition));
         }
     }
 
@@ -1042,4 +1042,71 @@ public static class RulesetCharacterPatcher
             }
         }
     }
+    
+    #if false
+    [HarmonyPatch(typeof(RulesetCharacter), "SortArmorClassModifierTrends")]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    public static class SortArmorClassModifierTrends_Patch
+    {
+        public static bool Prefix(ref RulesetCharacter __instance, RulesetAttribute armorClassAttribute)
+        {
+            Main.Log($"SortArmorClassModifierTrends_Patch {armorClassAttribute.activeModifiers.Count} {armorClassAttribute.ValueTrends.Count} ", true);
+            foreach (RulesetAttributeModifier activeModifier in armorClassAttribute.ActiveModifiers)
+            {
+                if (activeModifier.Invalidated)
+                {
+                    continue;
+                }
+                foreach (RuleDefinitions.TrendInfo valueTrend in armorClassAttribute.ValueTrends)
+                {
+                    foreach (var tag in valueTrend.attributeModifier.tags)
+                    {
+                        Main.Log($"tag: {tag}", true);
+                    }
+                    
+                    if (valueTrend.attributeModifier == activeModifier)
+                    {
+                        if (activeModifier.tags.Contains("CombatInspiredEnhancedArmorClass"))
+                        {
+                            Main.Log($"Add CombatInspiredEnhancedArmorClass {valueTrend.additionalDetails}", true);
+                        }
+                        __instance.sortedTrends.Add(valueTrend);
+                    }
+                }
+            }
+            armorClassAttribute.ValueTrends.Clear();
+            armorClassAttribute.ValueTrends.AddRange(__instance.sortedTrends);
+            int num = 0;
+            int num2 = 0;
+            foreach (RulesetAttributeModifier activeModifier2 in armorClassAttribute.ActiveModifiers)
+            {
+                if (!activeModifier2.Invalidated)
+                {
+                    switch (activeModifier2.Operation)
+                    {
+                        case FeatureDefinitionAttributeModifier.AttributeModifierOperation.Set:
+                        case FeatureDefinitionAttributeModifier.AttributeModifierOperation.SetWithDexPlusOtherAbilityScoreBonusIfBetter:
+                            num++;
+                            break;
+                        case FeatureDefinitionAttributeModifier.AttributeModifierOperation.ForceIfBetter:
+                        case FeatureDefinitionAttributeModifier.AttributeModifierOperation.ForceIfWorse:
+                        case FeatureDefinitionAttributeModifier.AttributeModifierOperation.ForceAnyway:
+                            num2++;
+                            break;
+                    }
+                }
+            }
+            if (num > 1)
+            {
+                armorClassAttribute.ValueTrends.RemoveRange(0, num - 1);
+            }
+            if (num2 > 1)
+            {
+                armorClassAttribute.ValueTrends.RemoveRange(armorClassAttribute.ValueTrends.Count - num2, num2 - 1);
+            }
+
+            return false;
+        }
+    }
+#endif
 }

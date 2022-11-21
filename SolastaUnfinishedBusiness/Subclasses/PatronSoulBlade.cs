@@ -4,7 +4,6 @@ using SolastaUnfinishedBusiness.CustomBehaviors;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPowers;
-using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionProficiencys;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
 
 namespace SolastaUnfinishedBusiness.Subclasses;
@@ -29,16 +28,6 @@ internal sealed class PatronSoulBlade : AbstractSubclass
             .Create("MagicAffinitySoulBladeExpandedSpells")
             .SetOrUpdateGuiPresentation("MagicAffinityPatronExpandedSpells", Category.Feature)
             .SetExtendedSpellList(spellListSoulBlade)
-            .AddToDB();
-
-        var proficiencySoulBladeArmor = FeatureDefinitionProficiencyBuilder
-            .Create(ProficiencyClericArmor, "ProficiencySoulBladeArmor")
-            .SetGuiPresentation(Category.Feature)
-            .AddToDB();
-
-        var proficiencySoulBladeWeapon = FeatureDefinitionProficiencyBuilder
-            .Create(ProficiencyFighterWeapon, "ProficiencySoulBladeWeapon")
-            .SetGuiPresentation(Category.Feature)
             .AddToDB();
 
         var powerSoulBladeEmpowerWeapon = FeatureDefinitionPowerBuilder
@@ -101,9 +90,8 @@ internal sealed class PatronSoulBlade : AbstractSubclass
             .Create("PatronSoulBlade")
             .SetGuiPresentation(Category.Subclass, CharacterSubclassDefinitions.OathOfTheMotherland)
             .AddFeaturesAtLevel(1,
+                FeatureSetCasterFighting,
                 magicAffinitySoulBladeExpandedSpells,
-                proficiencySoulBladeArmor,
-                proficiencySoulBladeWeapon,
                 powerSoulBladeEmpowerWeapon)
             .AddFeaturesAtLevel(6,
                 powerSoulBladeSummonPactWeapon)

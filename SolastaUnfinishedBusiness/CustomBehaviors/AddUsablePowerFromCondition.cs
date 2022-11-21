@@ -12,21 +12,21 @@ public class AddUsablePowerFromCondition : ICustomConditionFeature
         this.power = power;
     }
 
-    public void ApplyFeature(RulesetCharacter hero)
+    public void ApplyFeature(RulesetCharacter target, RulesetCondition rulesetCondition)
     {
-        if (hero.UsablePowers.Any(u => u.PowerDefinition == power))
+        if (target.UsablePowers.Any(u => u.PowerDefinition == power))
         {
             return;
         }
 
         var usablePower = new RulesetUsablePower(power, null, null);
         usablePower.Recharge();
-        hero.UsablePowers.Add(usablePower);
-        hero.RefreshUsablePower(usablePower);
+        target.UsablePowers.Add(usablePower);
+        target.RefreshUsablePower(usablePower);
     }
 
-    public void RemoveFeature(RulesetCharacter hero)
+    public void RemoveFeature(RulesetCharacter target, RulesetCondition rulesetCondition)
     {
-        hero.UsablePowers.RemoveAll(usablePower => usablePower.PowerDefinition == power);
+        target.UsablePowers.RemoveAll(usablePower => usablePower.PowerDefinition == power);
     }
 }

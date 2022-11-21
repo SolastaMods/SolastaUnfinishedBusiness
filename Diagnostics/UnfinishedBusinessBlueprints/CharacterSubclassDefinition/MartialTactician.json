@@ -43,6 +43,11 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:InvocationPoolGambitUnlearn:444d8f27-2c19-580a-bb72-1fe476ae5ec6",
+      "level": 7
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:PowerTacticianSharedVigilance:3581ed42-7ce9-5464-a495-910e3bd168a9",
       "level": 7
     },
@@ -63,6 +68,11 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:FeatureTacticianTacticalSurge:bdb7d959-c315-5760-9f1b-ba503a3c8f7c",
+      "level": 10
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:InvocationPoolGambitLearn1:3ff65ff4-2627-5d45-8dbb-f58aa34f2e1e",
       "level": 15
     },
@@ -74,6 +84,11 @@
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:FeatureTacticianGambitDieSizeD12:e40d45bb-fc63-55a5-8d99-56561ba957fc",
+      "level": 15
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:InvocationPoolGambitUnlearn:444d8f27-2c19-580a-bb72-1fe476ae5ec6",
       "level": 15
     }
   ],

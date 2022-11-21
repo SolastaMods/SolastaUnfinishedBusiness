@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using static FeatureDefinitionFeatureSet;
 
 namespace SolastaUnfinishedBusiness.Models;
 
@@ -124,12 +125,26 @@ internal static class MulticlassWildshapeContext
 
     internal static void RefreshWildShapeAcFeatures(RulesetCharacterMonster monster, RulesetAttribute ac)
     {
+        if (monster.OriginalFormCharacter is not RulesetCharacterHero hero) { return; }
+
         var ruleset = ServiceRepository.GetService<IRulesetImplementationService>();
 
         ac.RemoveModifiersByTags(TagWildShape);
 
         monster.FeaturesToBrowse.Clear();
-        monster.EnumerateFeaturesToBrowse<FeatureDefinition>(monster.FeaturesToBrowse);
+        foreach (var pair in hero.ActiveFeatures)
+        {
+            //process only class and subclass features, feats are processed on base method
+            if (!pair.Key.Contains(AttributeDefinitions.TagClass)
+                && !pair.Key.Contains(AttributeDefinitions.TagSubclass))
+            {
+                continue;
+            }
+
+            EnumerateFeaturesToBrowseHierarchicaly<FeatureDefinition>(pair.Value, monster.FeaturesToBrowse,
+                RuleDefinitions.FeatureSourceType.MonsterFeature, null, hero);
+        }
+
         monster.RefreshArmorClassInFeatures(ruleset, ac, monster.FeaturesToBrowse, TagWildShape,
             RuleDefinitions.FeatureSourceType.CharacterFeature, string.Empty);
     }
