@@ -743,6 +743,7 @@ internal sealed class RangerWildMaster : AbstractSubclass
         }
     }
 
+    // monsters use hero level in their effects
     private sealed class SpellEffectLevelFromSummonerLevel : ICustomSpellEffectLevel
     {
         public int GetEffectLevel(RulesetActor caster)
@@ -750,7 +751,7 @@ internal sealed class RangerWildMaster : AbstractSubclass
             if (caster is RulesetCharacterMonster monster &&
                 monster.GetMySummoner().RulesetCharacter is RulesetCharacterHero hero)
             {
-                return hero.ClassesAndLevels[CharacterClassDefinitions.Ranger];
+                return hero.GetAttribute(AttributeDefinitions.CharacterLevel).CurrentValue;
             }
 
             return 1;
