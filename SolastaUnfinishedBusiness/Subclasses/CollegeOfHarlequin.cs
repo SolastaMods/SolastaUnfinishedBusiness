@@ -143,18 +143,14 @@ internal sealed class CollegeOfHarlequin : AbstractSubclass
 
         public void ApplyFeature(RulesetCharacter target, RulesetCondition rulesetCondition)
         {
-            Main.Log("DEBUG: CombatInspirationEffectForm Apply Form", true);
-
             if (target is not RulesetCharacterHero hero ||
                 hero.GetBardicInspirationDieValue() == DieType.D1)
             {
-                Main.Log("DEBUG: CombatInspirationEffectForm Apply Form Return", true);
                 return;
             }
 
             var dieType = hero.GetBardicInspirationDieValue();
-            var dieRoll = RollDie(dieType, AdvantageType.None, out int _, out int _);
-            dieRoll = 30;
+            var dieRoll = RollDie(dieType, AdvantageType.Advantage, out int _, out int _);
             
             var console = Gui.Game.GameConsole;
             var entry = new GameConsoleEntry("Feedback/&BardicInspirationUsedToBoostCombatAbility",
@@ -170,22 +166,7 @@ internal sealed class CollegeOfHarlequin : AbstractSubclass
             {
                 feature.modifierValue = dieRoll;
             }
-            else
-            {
-                Main.Log("Skip adding amount", true);
-            }
-            /*var armorClassAttribute = target.attributes[AttributeDefinitions.ArmorClass];
-            RulesetAttributeModifier rulesetAttributeModifier =
-                RulesetAttributeModifier.BuildAttributeModifier(
-                    FeatureDefinitionAttributeModifier.AttributeModifierOperation.Additive, dieRoll,
-                    CombatInspiredEnhancedArmorClass);
 
-            armorClassAttribute.AddModifier(rulesetAttributeModifier);
-            TrendInfo item = new TrendInfo(dieRoll, FeatureSourceType.Condition, rulesetCondition.Name, null, rulesetAttributeModifier);
-            item.additionalDetails = "Combat Inspiration";
-            item.additive = true;
-            armorClassAttribute.ValueTrends.Add(item);*/
-            
             // this is set for movement modifier
             Global.SetBardicRoll(target.guid, dieRoll);
         }
@@ -228,10 +209,8 @@ internal sealed class CollegeOfHarlequin : AbstractSubclass
             GameLocationCharacter downedCreature,
             RulesetAttackMode attackMode, RulesetEffect activeEffect)
         {
-            Main.Log("DEBUG HandleCharacterReduceToZero", true);
             if (Global.CurrentAction is not CharacterActionAttack)
             {
-                Main.Log("DEBUG HandleCharacterReduceToZero 1", true);
                 yield break;
             }
 
@@ -239,7 +218,6 @@ internal sealed class CollegeOfHarlequin : AbstractSubclass
 
             if (battle == null)
             {
-                Main.Log("DEBUG HandleCharacterReduceToZero 2", true);
                 yield break;
             }
 
@@ -254,14 +232,8 @@ internal sealed class CollegeOfHarlequin : AbstractSubclass
             var effectPower = new RulesetEffectPower(rulesetAttacker, usablePower);
             
             foreach (var enemy in battle.EnemyContenders
-                         .Where(enemy => attacker.RulesetActor.DistanceTo(enemy.RulesetActor) <= 12))
+                         .Where(enemy => attacker.RulesetActor.DistanceTo(enemy.RulesetActor) <= 3))
             {
-                if (enemy == downedCreature)
-                {
-                    Main.Log("Skip down enemy", true);
-                    continue;
-                }
-                Main.Log("DEBUG HandleCharacterReduceToZero 3", true);
                 effectPower.ApplyEffectOnCharacter(enemy.RulesetCharacter, true, enemy.LocationPosition);
             }
         }
