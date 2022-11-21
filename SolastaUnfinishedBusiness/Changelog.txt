@@ -12,3 +12,4 @@
 - fixed translation typos
 - fixed features sorting under different scenarios
 - rebalanced College of Life
+- rebalanced Way of The Silhouette

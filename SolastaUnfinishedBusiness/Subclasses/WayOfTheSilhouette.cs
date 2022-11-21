@@ -55,10 +55,10 @@ internal sealed class WayOfTheSilhouette : AbstractSubclass
             .SetUsesFixed(ActivationTime.BonusAction)
             .SetEffectDescription(SpellDefinitions.MistyStep.EffectDescription)
             .SetShowCasting(true)
-            .SetCustomSubFeatures(
-                new ValidatorsPowerUse(
-                    ValidatorsCharacter
-                        .HasAnyOfConditions(CustomConditionsContext.ConditionInvisibilityEveryRoundHidden)))
+            // .SetCustomSubFeatures(
+            //     new ValidatorsPowerUse(
+            //         ValidatorsCharacter
+            //             .HasAnyOfConditions(CustomConditionsContext.ConditionInvisibilityEveryRoundHidden)))
             .AddToDB();
 
         var lightAffinityWayOfSilhouetteCloakOfSilhouettesWeak = FeatureDefinitionLightAffinityBuilder
