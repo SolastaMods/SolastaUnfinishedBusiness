@@ -1,0 +1,12 @@
+Subclass/&CircleOfTheNightTitle=Circle of the Night
+Subclass/&CircleOfTheNightDescription=Druids of the Circle of the Night are fierce guardians of the wilds. Their order gathers under the full moon to share news and trade warnings. They haunt the deepest parts of the wilderness, where they might go for weeks on end before crossing paths with another humanoid creature, let alone another druid.
+Feature/&PowerDruidCombatWildShapeTitle=Combat Wild Shape
+Feature/&PowerDruidCombatWildShapeDescription=The rites of your circle grant you the ability to transform into more dangerous animal forms.Starting at 2nd level, you can use your Wild Shape to transform into a beast with a challenge rating as high as 1. Starting at 6th level, you can transform into a beast with a challenge rating as high as your druid level divided by 3, rounded down.
+Feature/&PowerDruidCombatWildShapeHealingTitle=Combat Healing
+Feature/&PowerDruidCombatWildShapeHealingDescription=While wildshaped, you can use a bonus action to heal yourself for 1d8 hit points. You can use this feature a number of times equal to your proficiency modifier per form you adopt per long rest.
+Feature/&PowerDruidImprovedCombatWildShapeHealingTitle=Improved Combat Healing
+Feature/&PowerDruidImprovedCombatWildShapeHealingDescription=Your Combat Healing now heals you for 2d8+3 hit points.
+Feature/&PowerDruidPrimalStrikeTitle=Primal Strike
+Feature/&PowerDruidPrimalStrikeDescription=Starting at 6th level, your attacks in beast form count as magical for the purpose of overcoming resistance and immunity to nonmagical attacks and damage.
+Feature/&PowerDruidSuperiorCombatWildShapeHealingTitle=Superior Combat Healing
+Feature/&PowerDruidSuperiorCombatWildShapeHealingDescription=Your Combat Healing now heals you for 3d8+6 hit points.

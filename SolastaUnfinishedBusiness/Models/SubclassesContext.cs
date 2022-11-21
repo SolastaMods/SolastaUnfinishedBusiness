@@ -28,6 +28,7 @@ internal static class SubclassesContext
         // Druid
         LoadSubclass(new CircleOfTheAncientForest());
         LoadSubclass(new CircleOfTheForestGuardian());
+        LoadSubclass(new CircleOfTheNight());
 
         // Fighter
         LoadSubclass(new MartialMarshal());
