@@ -24,7 +24,7 @@ public static class CharacterStageSubclassSelectionPanelPatcher
 
             gridLayoutGroup.spacing = new Vector2(50, 100);
             rectTransform.anchoredPosition = new Vector2(rectTransform.anchoredPosition.x, 30f);
-            
+
             switch (count)
             {
                 case > 10:

@@ -217,7 +217,7 @@ public static class GameLocationBattleManagerPatcher
         }
     }
 #endif
-            
+
     [HarmonyPatch(typeof(GameLocationBattleManager), "HandleAttackerTriggeringPowerOnCharacterAttackHitConfirmed")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     public static class HandleAttackerTriggeringPowerOnCharacterAttackHitConfirmed_Patch

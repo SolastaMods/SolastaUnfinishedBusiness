@@ -1023,7 +1023,7 @@ public static class RulesetCharacterPatcher
             return true;
         }
     }
-    
+
     [HarmonyPatch(typeof(RulesetCharacter), "ComputeSpeedAddition")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     public static class ComputeSpeedAddition_Patch
