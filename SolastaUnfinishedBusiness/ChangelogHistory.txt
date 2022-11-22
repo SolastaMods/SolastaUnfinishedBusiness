@@ -1,5 +1,11 @@
 ﻿CHANGES:
 
+1.4.28.10:
+
+- fixed inspection not displaying higher level slots for MC heroes
+- fixed translations
+- fixed Wild Master displaying all summon powers
+
 1.4.28.9:
 
 - added Blind gambit

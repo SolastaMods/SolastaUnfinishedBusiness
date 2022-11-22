@@ -326,7 +326,7 @@
   "includeBaseDescription": false,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
-    "hidden": false,
+    "hidden": true,
     "title": "Summon Spirit Wolf",
     "description": "A Spirit Wolf bonded to a Ranger.",
     "spriteReference": {

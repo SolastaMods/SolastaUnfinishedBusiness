@@ -1,13 +1,7 @@
 ﻿CHANGES:
 
-1.4.28.9:
+1.4.28.10:
 
-- added Blind gambit
-- added College of The Harlequin
-- changed Telekinetic feat to give 1 invocation power that allows to move target, instead of 2 powers that push or pull
-- fixed shared slots calculation
-- fixed SHIFT-click on slot type selection
-- fixed divine smite dice progression
-- reworked Executioner fighting style to use CustomAdditionalDamage so its trigger will be properly recorded
-- set require spell casting and +13 CHA for Metamagic feat group
-- set require spell casting for Spell Combat feat group
+- fixed spell slots display on inspection
+- fixed translations
+- fixed Wild Master displaying all summon powers
