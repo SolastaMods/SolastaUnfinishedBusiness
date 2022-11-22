@@ -1,4 +1,5 @@
-﻿using SolastaUnfinishedBusiness.Builders;
+﻿using SolastaUnfinishedBusiness.Api.Infrastructure;
+using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
@@ -8,6 +9,8 @@ using static SolastaUnfinishedBusiness.Api.DatabaseHelper.MonsterDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.MonsterAttackDefinitions;
 using static EffectForm;
 using SolastaUnfinishedBusiness.CustomBehaviors;
+using SolastaUnfinishedBusiness.CustomDefinitions;
+using UnityEngine;
 
 namespace SolastaUnfinishedBusiness.Subclasses;
 
@@ -20,11 +23,17 @@ internal sealed class CircleOfTheNight : AbstractSubclass
         // 3rd level
         // Combat Wildshape 
         // Official rules are CR = 1/3 of druid level. However in solasta the selection of beasts is greatly reduced
-        var powerCircleOfTheNightWildShapeCombat = FeatureDefinitionPowerBuilder
-            .Create(PowerDruidWildShape, "PowerCircleOfTheNightWildShapeCombat")
+        var powerCircleOfTheNightWildShapeCombat = FeatureDefinitionPowerSharedPoolBuilder
+            .Create("PowerCircleOfTheNightWildShapeCombat")
+            .SetGuiPresentationNoContent(true)
             .SetOverriddenPower(PowerDruidWildShape)
-            .SetGuiPresentation(Category.Feature)
+            .SetSharedPool(ActivationTime.Action, PowerDruidWildShape)
             .SetEffectDescription(BuildCombatWildShapeEffectDescription())
+            .AddToDB();
+
+        var featureSetCircleOfTheNightWildShapeCombat = FeatureDefinitionFeatureSetBuilder
+            .Create("FeatureSetCircleOfTheNightWildShapeCombat")
+            .AddFeatureSet(powerCircleOfTheNightWildShapeCombat)
             .AddToDB();
 
         // Combat Wild Shape Healing
@@ -79,12 +88,11 @@ internal sealed class CircleOfTheNight : AbstractSubclass
             .SetGuiPresentation(Category.Feature)
             .AddToDB();
 
-
         Subclass = CharacterSubclassDefinitionBuilder
             .Create(CircleOfTheNightName)
             .SetGuiPresentation(Category.Subclass, PathClaw)
             .AddFeaturesAtLevel(2,
-                powerCircleOfTheNightWildShapeCombat,
+                featureSetCircleOfTheNightWildShapeCombat,
                 powerCircleOfTheNightWildShapeHealing)
             .AddFeaturesAtLevel(6,
                 powerCircleOfTheNightPrimalStrike,
