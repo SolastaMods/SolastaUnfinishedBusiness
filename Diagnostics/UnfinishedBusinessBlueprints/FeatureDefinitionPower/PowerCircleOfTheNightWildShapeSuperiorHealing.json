@@ -3,12 +3,12 @@
   "effectDescription": {
     "$type": "EffectDescription, Assembly-CSharp",
     "rangeType": "Self",
-    "rangeParameter": 0,
+    "rangeParameter": 1,
     "halfDamageOnAMiss": false,
     "hitAffinitiesByTargetTag": [],
-    "targetType": "Cube",
+    "targetType": "Self",
     "itemSelectionType": "None",
-    "targetParameter": 3,
+    "targetParameter": 1,
     "targetParameter2": 2,
     "emissiveBorder": "None",
     "emissiveParameter": 1,
@@ -28,11 +28,11 @@
     "poolFilterDiceNumber": 5,
     "poolFilterDieType": "D8",
     "trapRangeType": "Triggerer",
-    "targetConditionName": "",
-    "targetConditionAsset": null,
-    "targetSide": "Enemy",
-    "durationType": "Round",
-    "durationParameter": 1,
+    "targetConditionName": "ConditionWildShapeSubstituteForm",
+    "targetConditionAsset": "Definition:ConditionWildShapeSubstituteForm:7bb134227813c9340949c7c091077b11",
+    "targetSide": "Ally",
+    "durationType": "Instantaneous",
+    "durationParameter": 0,
     "endOfEffect": "EndOfTurn",
     "hasSavingThrow": false,
     "disableSavingThrowOnAllies": false,
@@ -62,7 +62,7 @@
     "effectForms": [
       {
         "$type": "EffectForm, Assembly-CSharp",
-        "formType": "Condition",
+        "formType": "Healing",
         "addBonusMode": "None",
         "applyLevel": "No",
         "levelType": "ClassLevel",
@@ -75,14 +75,14 @@
         "dcModifier": 0,
         "canSaveToCancel": false,
         "saveOccurence": "EndOfTurn",
-        "conditionForm": {
-          "$type": "ConditionForm, Assembly-CSharp",
-          "conditionDefinitionName": "ConditionDistractedByAlly",
-          "conditionDefinition": "Definition:ConditionDistractedByAlly:f8ed1df8-d922-521d-9a9c-65f1811c8980",
-          "operation": "Add",
-          "conditionsList": [],
-          "applyToSelf": false,
-          "forceOnSelf": false
+        "healingForm": {
+          "$type": "HealingForm, Assembly-CSharp",
+          "healingComputation": "Dice",
+          "diceNumber": 3,
+          "dieType": "D8",
+          "bonusHealing": 6,
+          "variablePool": false,
+          "healingCap": "MaximumHitPoints"
         },
         "hasFilterId": false,
         "filterId": 0
@@ -316,20 +316,20 @@
   "fixedAttackHit": 0,
   "abilityScoreBonusToAttack": false,
   "proficiencyBonusToAttack": false,
-  "uniqueInstance": true,
+  "uniqueInstance": false,
   "showCasting": true,
   "shortTitleOverride": "",
-  "overriddenPower": null,
+  "overriddenPower": "Definition:PowerCircleOfTheNightWildShapeImprovedHealing:6ba5156a-7b15-53e3-b0c7-44ffd76d0af5",
   "includeBaseDescription": false,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&PowerDraconicKoboldDraconicCryTitle",
-    "description": "Feature/&PowerDraconicKoboldDraconicCryDescription",
+    "title": "Feature/&PowerCircleOfTheNightWildShapeSuperiorHealingTitle",
+    "description": "Feature/&PowerCircleOfTheNightWildShapeSuperiorHealingDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "f0b4ad7b83123234f94ca22704c686f6",
-      "m_SubObjectName": "Aid",
+      "m_AssetGUID": "31fcd144ed456374399a0af1e0977882",
+      "m_SubObjectName": "CureDisease",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
@@ -345,7 +345,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "05e3c44a-c55a-517d-83d0-bdb161307956",
+  "guid": "f51d8ec5-e1da-567b-9a04-aab5af3ed007",
   "contentPack": 9999,
-  "name": "PowerDraconicKoboldDraconicCry"
+  "name": "PowerCircleOfTheNightWildShapeSuperiorHealing"
 }
