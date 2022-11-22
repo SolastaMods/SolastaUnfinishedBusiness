@@ -47,9 +47,7 @@ internal static class SharedSpellsContext
     {
         { MartialSpellblade.Name, CasterProgression.OneThird },
         { RoguishShadowCaster.Name, CasterProgression.OneThird },
-        // { RoguishConArtist.Name, CasterProgression.OneThird },
         { MartialSpellShield.Name, CasterProgression.OneThird }
-        // { PathOfTheRageMage.Name, CasterProgression.OneThird }
     };
 
     internal static RulesetCharacterHero GetHero(string name)
@@ -101,17 +99,10 @@ internal static class SharedSpellsContext
                    .Count(sr => sr.SpellCastingFeature.SpellCastingOrigin != CastingOrigin.Race) > 1;
     }
 
-    // need the null check for companions who don't have repertoires
-    internal static bool IsSharedcaster([CanBeNull] RulesetCharacterHero rulesetCharacterHero)
-    {
-        return rulesetCharacterHero != null
-               && rulesetCharacterHero.SpellRepertoires
-                   .Where(sr => sr.SpellCastingClass != Warlock)
-                   .Count(sr => sr.SpellCastingFeature.SpellCastingOrigin != CastingOrigin.Race) > 1;
-    }
-
     // factor mystic arcanum level if Warlock repertoire
-    internal static void FactorMysticArcanum(RulesetCharacterHero hero, RulesetSpellRepertoire repertoire,
+    internal static void FactorMysticArcanum(
+        RulesetCharacterHero hero,
+        RulesetSpellRepertoire repertoire,
         ref int level)
     {
         if (repertoire.spellCastingClass != Warlock)
