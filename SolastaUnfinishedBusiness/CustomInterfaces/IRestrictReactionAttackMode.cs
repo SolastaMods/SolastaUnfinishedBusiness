@@ -1,6 +1,6 @@
 ﻿namespace SolastaUnfinishedBusiness.CustomInterfaces;
 
-public interface IReactionAttackModeRestriction
+public interface IRestrictReactionAttackMode
 {
     public bool ValidReactionMode(
         RulesetAttackMode attackMode,

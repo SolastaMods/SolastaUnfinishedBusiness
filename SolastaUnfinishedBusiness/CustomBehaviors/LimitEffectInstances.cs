@@ -2,11 +2,11 @@
 
 namespace SolastaUnfinishedBusiness.CustomBehaviors;
 
-internal class LimitedEffectInstances : ILimitedEffectInstances
+internal class LimitEffectInstances : ILimitEffectInstances
 {
     private readonly GetEffectLimit _handler;
 
-    internal LimitedEffectInstances(string name, GetEffectLimit handler)
+    internal LimitEffectInstances(string name, GetEffectLimit handler)
     {
         _handler = handler;
         Name = name;

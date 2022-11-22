@@ -19,7 +19,7 @@ namespace SolastaUnfinishedBusiness.Subclasses;
 
 internal sealed class MartialTactician : AbstractSubclass
 {
-    private static readonly LimitedEffectInstances GambitLimiter = new("Gambit", _ => 1);
+    private static readonly LimitEffectInstances GambitLimiter = new("Gambit", _ => 1);
 
     private static readonly DamageDieProvider UpgradeDice = (character, _) => GetGambitDieSize(character);
 
