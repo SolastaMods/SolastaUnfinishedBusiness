@@ -7,6 +7,7 @@ using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPower
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.MonsterDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.MonsterAttackDefinitions;
 using static EffectForm;
+using SolastaUnfinishedBusiness.CustomBehaviors;
 
 namespace SolastaUnfinishedBusiness.Subclasses;
 
@@ -34,6 +35,7 @@ internal sealed class CircleOfTheNight : AbstractSubclass
             .SetGuiPresentation(Category.Feature, PowerPaladinCureDisease)
             .SetUsesProficiencyBonus(ActivationTime.BonusAction)
             .SetEffectDescription(CombatHealing())
+            .SetCustomSubFeatures(CanUseCombatHealing())
             .AddToDB();
 
         // 6th Level
@@ -55,6 +57,7 @@ internal sealed class CircleOfTheNight : AbstractSubclass
             .SetGuiPresentation(Category.Feature, PowerPaladinCureDisease)
             .SetUsesProficiencyBonus(ActivationTime.BonusAction)
             .SetEffectDescription(CombatHealing(2))
+            .SetCustomSubFeatures(CanUseCombatHealing())
             .SetOverriddenPower(powerCircleOfTheNightWildShapeHealing)
             .AddToDB();
 
@@ -64,8 +67,9 @@ internal sealed class CircleOfTheNight : AbstractSubclass
         var powerCircleOfTheNightWildShapeSuperiorHealing = FeatureDefinitionPowerBuilder
             .Create("PowerCircleOfTheNightWildShapeSuperiorHealing")
             .SetGuiPresentation(Category.Feature, PowerPaladinCureDisease)
-            .SetEffectDescription(CombatHealing(3, DieType.D8, 6))
             .SetUsesProficiencyBonus(ActivationTime.BonusAction)
+            .SetEffectDescription(CombatHealing(3, DieType.D8, 6))
+            .SetCustomSubFeatures(CanUseCombatHealing())
             .SetOverriddenPower(powerCircleOfTheNightWildShapeImprovedHealing)
             .AddToDB();
 
@@ -340,5 +344,10 @@ internal sealed class CircleOfTheNight : AbstractSubclass
             .Build();
 
         return effectDescription;
+    }
+
+    private static ValidatorsPowerUse CanUseCombatHealing()
+    {
+        return new ValidatorsPowerUse(ValidatorsCharacter.HasAnyOfConditions(ConditionDefinitions.ConditionWildShapeSubstituteForm));
     }
 }
