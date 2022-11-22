@@ -70,7 +70,7 @@ internal static class Global
         CurrentAction = characterAction;
         ActionCharacter = characterAction.ActingCharacter;
 
-        // Main.Log($"{ActionCharacter?.Name} -> {CurrentAction.ActionDefinition.Name} STARTED");
+        Main.Log($"{ActionCharacter?.Name} -> {CurrentAction.ActionDefinition.Name} STARTED");
 
         switch (characterAction)
         {
@@ -89,14 +89,17 @@ internal static class Global
         }
     }
 
-    internal static void ActionFinished([NotNull] CharacterAction characterAction)
+    internal static void ActionUsed(
+        GameLocationCharacter actingCharacter,
+        CharacterActionParams actionParams,
+        ActionDefinition actionDefinition)
     {
-        // Main.Log($"{characterAction.ActingCharacter?.Name} -> {characterAction.ActionDefinition.Name} FINISHED");
+        Main.Log($"{actingCharacter.Name} -> {actionDefinition.Name} FINISHED");
 
-        foreach (var feature in characterAction.ActingCharacter.RulesetCharacter
+        foreach (var feature in actingCharacter.RulesetCharacter
                      .GetSubFeaturesByType<IOnAfterActionFeature>())
         {
-            feature.OnAfterAction(characterAction);
+            feature.OnAfterAction(actingCharacter, actionParams, actionDefinition);
         }
     }
 }

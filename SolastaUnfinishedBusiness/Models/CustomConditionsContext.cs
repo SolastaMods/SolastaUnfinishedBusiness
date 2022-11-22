@@ -136,19 +136,21 @@ internal static class CustomConditionsContext
             target.RemoveAllConditionsOfCategory(CategoryHidden, false);
         }
 
-        public void OnAfterAction(CharacterAction characterAction)
+        public void OnAfterAction(
+            GameLocationCharacter actingCharacter,
+            CharacterActionParams actionParams,
+            ActionDefinition actionDefinition)
         {
-            var hero = characterAction.ActingCharacter.RulesetCharacter;
-            var action = characterAction.ActionDefinition;
+            var hero = actingCharacter.RulesetCharacter;
 
-            if (!action.Name.StartsWith("Attack")
-                && !action.Name.StartsWith("Cast")
-                && !action.Name.StartsWith("Power"))
+            if (!actionDefinition.Name.StartsWith("Attack")
+                && !actionDefinition.Name.StartsWith("Cast")
+                && !actionDefinition.Name.StartsWith("Power"))
             {
                 return;
             }
 
-            var ruleEffect = characterAction.ActionParams.RulesetEffect;
+            var ruleEffect = actionParams.RulesetEffect;
 
             if (ruleEffect == null || !IsAllowedEffect(ruleEffect.EffectDescription))
             {

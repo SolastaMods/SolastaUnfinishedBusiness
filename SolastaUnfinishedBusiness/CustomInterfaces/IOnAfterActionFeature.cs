@@ -2,5 +2,8 @@
 
 public interface IOnAfterActionFeature
 {
-    public void OnAfterAction(CharacterAction characterAction);
+    public void OnAfterAction(
+        GameLocationCharacter actingCharacter,
+        CharacterActionParams actionParams,
+        ActionDefinition actionDefinition);
 }
