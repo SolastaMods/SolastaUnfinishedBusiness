@@ -1,6 +1,9 @@
 ﻿using System;
+using System.Collections;
 using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
+using JetBrains.Annotations;
+using SolastaUnfinishedBusiness.Models;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
@@ -33,6 +36,23 @@ public static class CharacterActionPatcher
             __result = Activator.CreateInstance(type, actionParams) as CharacterAction;
 
             return false;
+        }
+    }
+
+    [HarmonyPatch(typeof(CharacterAction), nameof(CharacterAction.Execute))]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    public static class Execute_Patch
+    {
+        public static IEnumerator Postfix([NotNull] IEnumerator values, [NotNull] CharacterAction __instance)
+        {
+            //PATCH: support for character action tracking
+
+            while (values.MoveNext())
+            {
+                yield return values.Current;
+            }
+
+            Global.ActionFinished(__instance);
         }
     }
 }
