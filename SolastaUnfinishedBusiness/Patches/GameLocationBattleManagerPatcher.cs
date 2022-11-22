@@ -39,7 +39,7 @@ public static class GameLocationBattleManagerPatcher
             //PATCH: support for `IReactionAttackModeRestriction`
             if (__result)
             {
-                __result = ReactionAttackModeRestriction.CanCharacterReactWithPower(__instance, usablePower);
+                __result = RestrictReactionAttackMode.CanCharacterReactWithPower(__instance, usablePower);
             }
         }
     }
@@ -217,7 +217,7 @@ public static class GameLocationBattleManagerPatcher
         }
     }
 #endif
-            
+
     [HarmonyPatch(typeof(GameLocationBattleManager), "HandleAttackerTriggeringPowerOnCharacterAttackHitConfirmed")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     public static class HandleAttackerTriggeringPowerOnCharacterAttackHitConfirmed_Patch
@@ -228,7 +228,7 @@ public static class GameLocationBattleManagerPatcher
             RulesetAttackMode attackMode)
         {
             //PATCH: support for `IReactionAttackModeRestriction`
-            ReactionAttackModeRestriction.ReactionContext = (attacker, defender, attackMode);
+            RestrictReactionAttackMode.ReactionContext = (attacker, defender, attackMode);
         }
 
         public static void Postfix(
@@ -237,7 +237,7 @@ public static class GameLocationBattleManagerPatcher
             RulesetAttackMode attackMode)
         {
             //PATCH: support for `IReactionAttackModeRestriction`
-            ReactionAttackModeRestriction.ReactionContext = (null, null, null);
+            RestrictReactionAttackMode.ReactionContext = (null, null, null);
         }
     }
 

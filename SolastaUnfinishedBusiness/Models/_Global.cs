@@ -64,6 +64,7 @@ internal static class Global
     // restate globals on every new action
     internal static void ActionStarted([NotNull] CharacterAction characterAction)
     {
+        var isShiftPressed = Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift);
         CurrentAction = characterAction;
         ActionCharacter = characterAction.ActingCharacter;
 
@@ -71,10 +72,8 @@ internal static class Global
 
         switch (characterAction)
         {
-            case CharacterActionCastSpell:
+            case CharacterActionCastSpell or CharacterActionSpendSpellSlot:
                 // Hold the state of the SHIFT key on BOOL PARAM 5. Used to determine which slot to use on MC Warlock
-                var isShiftPressed = Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift);
-
                 characterAction.actionParams.BoolParameter5 = isShiftPressed;
                 break;
 

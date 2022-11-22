@@ -153,7 +153,7 @@ internal static class RulesetCharacterExtensions
 
         return caster == instance
                //detecting if this item is from infusion by checking if it has infusion limiter
-               && definition.GetAllSubFeaturesOfType<ILimitedEffectInstances>().Contains(InventorClass.InfusionLimiter);
+               && definition.GetAllSubFeaturesOfType<ILimitEffectInstances>().Contains(InventorClass.InfusionLimiter);
     }
 
     /**@returns character who summoned this creature, or null*/

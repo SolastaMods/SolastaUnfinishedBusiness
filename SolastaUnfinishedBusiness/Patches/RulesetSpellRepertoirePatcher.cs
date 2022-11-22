@@ -110,8 +110,8 @@ public static class RulesetSpellRepertoirePatcher
         {
             var pactMaxSlots = SharedSpellsContext.GetWarlockMaxSlots(heroWithSpellRepertoire);
             var pactUsedSlots = SharedSpellsContext.GetWarlockUsedSlots(heroWithSpellRepertoire);
-            var isShiftPressed = Global.CurrentAction is CharacterActionCastSpell &&
-                                 Global.CurrentAction.actionParams.BoolParameter5;
+            var isShiftPressed = Global.CurrentAction is (CharacterActionCastSpell or CharacterActionSpendSpellSlot)
+                                 && Global.CurrentAction.actionParams.BoolParameter5;
             var warlockSpellLevel = SharedSpellsContext.GetWarlockSpellLevel(heroWithSpellRepertoire);
             var canConsumePactSlot = pactMaxSlots - pactUsedSlots > 0 && slotLevel <= warlockSpellLevel;
 

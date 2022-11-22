@@ -76,9 +76,8 @@ internal static class MulticlassGameUiContext
     internal static void RebuildSlotsTable(SpellRepertoirePanel __instance)
     {
         var spellRepertoire = __instance.SpellRepertoire;
-
         var hero = __instance.GuiCharacter.RulesetCharacterHero;
-        var isSharedcaster = SharedSpellsContext.IsSharedcaster(hero);
+        var isMulticaster = SharedSpellsContext.IsMulticaster(hero);
         var sharedSpellLevel = SharedSpellsContext.GetSharedSpellLevel(hero);
         var warlockSpellLevel = SharedSpellsContext.GetWarlockSpellLevel(hero);
         var classSpellLevel = spellRepertoire.spellCastingRace != null
@@ -87,7 +86,7 @@ internal static class MulticlassGameUiContext
 
         SharedSpellsContext.FactorMysticArcanum(hero, spellRepertoire, ref classSpellLevel);
 
-        var slotLevel = Math.Max(isSharedcaster ? sharedSpellLevel : classSpellLevel, warlockSpellLevel);
+        var slotLevel = !isMulticaster ? classSpellLevel : Math.Max(sharedSpellLevel, warlockSpellLevel);
         var accountForCantrips = spellRepertoire.KnownCantrips.Count > 0 ? 1 : 0;
 
         while (__instance.levelButtonsTable.childCount < classSpellLevel + accountForCantrips)

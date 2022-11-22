@@ -1,8 +1,6 @@
-﻿#if false
-using System.Collections.Generic;
-using JetBrains.Annotations;
+﻿using JetBrains.Annotations;
+using SolastaUnfinishedBusiness.Api.Extensions;
 using SolastaUnfinishedBusiness.CustomInterfaces;
-using SolastaUnfinishedBusiness.Subclasses;
 
 namespace SolastaUnfinishedBusiness.Models;
 
@@ -58,10 +56,12 @@ internal static class DelegatesContext
 
         var gameLocationCharacterService = ServiceRepository.GetService<IGameLocationCharacterService>();
 
+#if false
         gameLocationCharacterService.CharacterCreated += CharacterCreated;
         gameLocationCharacterService.CharacterRevealed += CharacterRevealed;
         gameLocationCharacterService.CharacterKilled += CharacterKilled;
         gameLocationCharacterService.CharacterDestroying += CharacterDestroying;
+#endif
 
         foreach (var gameLocationCharacter in gameLocationCharacterService.ValidCharacters)
         {
@@ -88,8 +88,8 @@ internal static class DelegatesContext
             // gameLocationCharacter.ClimbStarted += ClimbStarted;
             // gameLocationCharacter.ClimbFinished += ClimbFinished;
             // gameLocationCharacter.ChangeSurfaceStarted += ChangeSurfaceStarted;
-            // gameLocationCharacter.AttackStart += AttackStart;
-            // gameLocationCharacter.AttackImpactStart += AttackImpactStart;
+            gameLocationCharacter.AttackStart += AttackStart;
+            gameLocationCharacter.AttackImpactStart += AttackImpactStart;
             // gameLocationCharacter.DeflectAttackStart += DeflectAttackStart;
             // gameLocationCharacter.ManipulateStart += ManipulateStart;
             // gameLocationCharacter.ManipulateEnd += ManipulateEnd;
@@ -155,6 +155,7 @@ internal static class DelegatesContext
             }
 
             rulesetCharacterHero.ItemEquipedCallback += ItemEquipped;
+            
             // rulesetCharacterHero.CharacterInventory.ItemEquiped += ItemEquiped;
             // rulesetCharacterHero.CharacterInventory.ItemAltered += ItemAltered;
             // rulesetCharacterHero.CharacterInventory.ItemUnequiped += ItemUnequiped;
@@ -164,6 +165,7 @@ internal static class DelegatesContext
         var gameLocationActionService = ServiceRepository.GetService<IGameLocationActionService>();
 
         gameLocationActionService.ActionStarted += ActionStarted;
+        
         // gameLocationActionService.ActionChainStarted += ActionChainStarted;
         // gameLocationActionService.ActionChainFinished += ActionChainFinished;
         // gameLocationActionService.MagicEffectPreparing += MagicEffectPreparing;
@@ -185,11 +187,12 @@ internal static class DelegatesContext
 
         var gameLocationCharacterService = ServiceRepository.GetService<IGameLocationCharacterService>();
 
+#if false
         gameLocationCharacterService.CharacterCreated -= CharacterCreated;
         gameLocationCharacterService.CharacterRevealed -= CharacterRevealed;
         gameLocationCharacterService.CharacterKilled -= CharacterKilled;
         gameLocationCharacterService.CharacterDestroying -= CharacterDestroying;
-
+#endif
         foreach (var gameLocationCharacter in gameLocationCharacterService.ValidCharacters)
         {
             // gameLocationCharacter.Placed -= Placed;
@@ -290,7 +293,7 @@ internal static class DelegatesContext
 
         var gameLocationActionService = ServiceRepository.GetService<IGameLocationActionService>();
 
-        gameLocationActionService.ActionStarted -= ActionStarted;
+        gameLocationActionService.ActionStarted -= Global.ActionStarted;
         // gameLocationActionService.ActionChainStarted -= ActionChainStarted;
         // gameLocationActionService.ActionChainFinished -= ActionChainFinished;
         // gameLocationActionService.MagicEffectPreparing -= MagicEffectPreparing;
@@ -319,6 +322,7 @@ internal static class DelegatesContext
     // IGameLocationCharacterService
     //
 
+#if false
     private static void CharacterCreated([NotNull] GameLocationCharacter character)
     {
         Main.Logger.Log($"{character.Name} Character Created");
@@ -338,6 +342,7 @@ internal static class DelegatesContext
     {
         Main.Logger.Log($"{character.Name} Character Killed");
     }
+#endif
 
     //
     // RulesetCharacterHero
@@ -346,6 +351,8 @@ internal static class DelegatesContext
     private static void ItemEquipped([NotNull] RulesetCharacterHero hero, [NotNull] RulesetItem item)
     {
         Main.Logger.Log($"{hero.Name} Item Equipped Hero");
+        
+        Subclasses.WizardBladeDancer.OnItemEquipped(hero);
     }
 
     //
@@ -388,6 +395,8 @@ internal static class DelegatesContext
     private static void ActionStarted([NotNull] CharacterAction characterAction)
     {
         Main.Logger.Log($"{characterAction.ActingCharacter.Name} {characterAction.ActionId} Action Started");
+
+        Global.ActionStarted(characterAction);
     }
 
     // private static void ActionChainStarted([NotNull] CharacterActionChainParams characterActionChainParams)
@@ -625,29 +634,59 @@ internal static class DelegatesContext
     // {
     //     Main.Logger.Log($"{character.Name} Change Surface Started");
     // }
-    //
-    // private static void AttackStart(
-    //     [NotNull] GameLocationCharacter attacker,
-    //     [NotNull] GameLocationCharacter defender,
-    //     RuleDefinitions.RollOutcome outcome,
-    //     CharacterActionParams actionParams,
-    //     RulesetAttackMode attackMode,
-    //     ActionModifier attackModifier)
-    // {
-    //     Main.Logger.Log($"{attacker.Name},{defender.Name} Attack Start");
-    // }
-    //
-    // private static void AttackImpactStart(
-    //     [NotNull] GameLocationCharacter attacker,
-    //     [NotNull] GameLocationCharacter defender,
-    //     RuleDefinitions.RollOutcome outcome,
-    //     CharacterActionParams actionParams,
-    //     RulesetAttackMode attackMode,
-    //     ActionModifier attackModifier)
-    // {
-    //     Main.Logger.Log($"{attacker.Name},{defender.Name}Attack Impact Start");
-    // }
-    //
+    
+    private static void AttackStart(
+        [NotNull] GameLocationCharacter attacker,
+        [NotNull] GameLocationCharacter defender,
+        RuleDefinitions.RollOutcome outcome,
+        CharacterActionParams actionParams,
+        RulesetAttackMode attackMode,
+        ActionModifier attackModifier)
+    {
+        Main.Logger.Log($"{attacker.Name},{defender.Name} Attack Start");
+        
+        //PATCH: support for `IOnAttackHitEffect` - calls before attack handlers
+        var character = attacker.RulesetCharacter;
+
+        if (character == null)
+        {
+            return;
+        }
+
+        var features = character.GetSubFeaturesByType<IBeforeAttackEffect>();
+
+        foreach (var effect in features)
+        {
+            effect.BeforeOnAttackHit(attacker, defender, outcome, actionParams, attackMode, attackModifier);
+        }
+    }
+    
+    private static void AttackImpactStart(
+        [NotNull] GameLocationCharacter attacker,
+        [NotNull] GameLocationCharacter defender,
+        RuleDefinitions.RollOutcome outcome,
+        CharacterActionParams actionParams,
+        RulesetAttackMode attackMode,
+        ActionModifier attackModifier)
+    {
+        Main.Logger.Log($"{attacker.Name},{defender.Name}Attack Impact Start");
+        
+        //PATCH: support for `IOnAttackHitEffect` - calls after attack handlers
+        var character = attacker.RulesetCharacter;
+
+        if (character == null)
+        {
+            return;
+        }
+
+        var features = character.GetSubFeaturesByType<IAfterAttackEffect>();
+
+        foreach (var effect in features)
+        {
+            effect.AfterOnAttackHit(attacker, defender, outcome, actionParams, attackMode, attackModifier);
+        }
+    }
+
     // private static void DeflectAttackStart(
     //     [NotNull] GameLocationCharacter blocker,
     //     [NotNull] GameLocationCharacter attacker,
@@ -1033,4 +1072,3 @@ internal static class DelegatesContext
     //     Main.Logger.Log("ActorReplaced");
     // }
 }
-#endif

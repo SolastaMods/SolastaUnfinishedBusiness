@@ -13,16 +13,25 @@ public static class CharacterActionPatcher
         public static bool Prefix(CharacterActionParams actionParams, ref CharacterAction __result)
         {
             //PATCH: creates action objects for actions defined in mod
+
+            // required when interacting with some game inanimate objects (like minor gates)
+            if (actionParams == null)
+            {
+                return true;
+            }
+
             var name = CharacterAction.GetTypeName(actionParams);
 
             //Actions defined in mod will be non-null, actions from base game will be null
             var type = Type.GetType(name);
+
             if (type == null)
             {
                 return true;
             }
 
             __result = Activator.CreateInstance(type, actionParams) as CharacterAction;
+
             return false;
         }
     }

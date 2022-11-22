@@ -32,7 +32,7 @@ internal static class InventorClass
         Sprites.GetSprite("InventorPictogram", Resources.InventorPictogram, 128);
 
     private static SpellListDefinition _spellList;
-    public static readonly LimitedEffectInstances InfusionLimiter = new("Infusion", GetInfusionLimit);
+    public static readonly LimitEffectInstances InfusionLimiter = new("Infusion", GetInfusionLimit);
 
     private static FeatureDefinitionCustomInvocationPool _learn2, _learn4, _unlearn;
     private static int _infusionPoolIncreases;

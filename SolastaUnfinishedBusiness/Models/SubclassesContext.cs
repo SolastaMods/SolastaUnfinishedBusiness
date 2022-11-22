@@ -20,14 +20,16 @@ internal static class SubclassesContext
     {
         // Barbarian
         LoadSubclass(new PathOfTheLight());
-
+        
         // Bard
         LoadSubclass(new CollegeOfGuts());
+        LoadSubclass(new CollegeOfHarlequin());
         LoadSubclass(new CollegeOfLife());
 
         // Druid
         LoadSubclass(new CircleOfTheAncientForest());
         LoadSubclass(new CircleOfTheForestGuardian());
+        LoadSubclass(new CircleOfTheNight());
 
         // Fighter
         LoadSubclass(new MartialMarshal());

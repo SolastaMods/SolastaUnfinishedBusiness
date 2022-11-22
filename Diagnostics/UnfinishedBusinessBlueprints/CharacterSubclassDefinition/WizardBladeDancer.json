@@ -13,11 +13,6 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:HeroRefreshedBladeDanceValidateEquipment:4dce0745-e8ae-5ce4-9fdd-ed7d03feadd2",
-      "level": 2
-    },
-    {
-      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:ReplaceAttackWithCantripCasterFighting:9f727855-aa19-56a0-a6e6-6b2d42facae0",
       "level": 6
     },

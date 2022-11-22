@@ -50,7 +50,7 @@ internal sealed class WayOfTheDistantHand : AbstractSubclass
             .SetGuiPresentation(Category.Feature, zenArrow)
             .SetUsesFixed(ActivationTime.OnAttackHit, RechargeRate.KiPoints)
             .SetCustomSubFeatures(
-                new ReactionAttackModeRestriction((mode, _, _) =>
+                new RestrictReactionAttackMode((mode, _, _) =>
                     mode != null && mode.AttackTags.Contains(ZenArrowTag)))
             .SetEffectDescription(EffectDescriptionBuilder.Create()
                 .SetTargetingData(Side.Enemy, RangeType.Distance, 1, TargetType.Individuals)
@@ -231,7 +231,7 @@ internal sealed class WayOfTheDistantHand : AbstractSubclass
             .SetGuiPresentation(Category.Feature, zenArrow)
             .SetUsesFixed(ActivationTime.OnAttackHit, RechargeRate.KiPoints)
             .SetOverriddenPower(powerWayOfTheDistantHandZenArrowTechnique)
-            .SetCustomSubFeatures(new ReactionAttackModeRestriction((mode, _, _) =>
+            .SetCustomSubFeatures(new RestrictReactionAttackMode((mode, _, _) =>
                 mode != null && mode.AttackTags.Contains(ZenArrowTag)))
             .AddToDB();
 

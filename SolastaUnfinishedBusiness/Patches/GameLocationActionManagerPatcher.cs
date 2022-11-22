@@ -6,7 +6,6 @@ using SolastaUnfinishedBusiness.Api.Extensions;
 using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomUI;
-using SolastaUnfinishedBusiness.Models;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
@@ -71,8 +70,6 @@ public static class GameLocationActionManagerPatcher
             [NotNull] IEnumerator values,
             [NotNull] CharacterAction action)
         {
-            Global.ActionStarted(action);
-
             //PATCH: calls handlers for `ICustomOnActionFeature`
             var features = action.ActingCharacter.RulesetCharacter.GetSubFeaturesByType<ICustomOnActionFeature>();
 

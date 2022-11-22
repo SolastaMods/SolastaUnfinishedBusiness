@@ -47,9 +47,7 @@ internal static class SharedSpellsContext
     {
         { MartialSpellblade.Name, CasterProgression.OneThird },
         { RoguishShadowCaster.Name, CasterProgression.OneThird },
-        // { RoguishConArtist.Name, CasterProgression.OneThird },
         { MartialSpellShield.Name, CasterProgression.OneThird }
-        // { PathOfTheRageMage.Name, CasterProgression.OneThird }
     };
 
     internal static RulesetCharacterHero GetHero(string name)
@@ -101,17 +99,10 @@ internal static class SharedSpellsContext
                    .Count(sr => sr.SpellCastingFeature.SpellCastingOrigin != CastingOrigin.Race) > 1;
     }
 
-    // need the null check for companions who don't have repertoires
-    internal static bool IsSharedcaster([CanBeNull] RulesetCharacterHero rulesetCharacterHero)
-    {
-        return rulesetCharacterHero != null
-               && rulesetCharacterHero.SpellRepertoires
-                   .Where(sr => sr.SpellCastingClass != Warlock)
-                   .Count(sr => sr.SpellCastingFeature.SpellCastingOrigin != CastingOrigin.Race) > 1;
-    }
-
     // factor mystic arcanum level if Warlock repertoire
-    internal static void FactorMysticArcanum(RulesetCharacterHero hero, RulesetSpellRepertoire repertoire,
+    internal static void FactorMysticArcanum(
+        RulesetCharacterHero hero,
+        RulesetSpellRepertoire repertoire,
         ref int level)
     {
         if (repertoire.spellCastingClass != Warlock)
@@ -218,15 +209,6 @@ internal static class SharedSpellsContext
 
     internal static int GetSharedSpellLevel(RulesetCharacterHero rulesetCharacterHero)
     {
-        if (!IsSharedcaster(rulesetCharacterHero))
-        {
-            var repertoire = rulesetCharacterHero.SpellRepertoires
-                .Find(x => x.SpellCastingFeature.SpellCastingOrigin != CastingOrigin.Race &&
-                           x.SpellCastingClass != Warlock);
-
-            return repertoire == null ? 0 : MaxSpellLevelOfSpellCastingLevel(repertoire);
-        }
-
         var sharedCasterLevel = GetSharedCasterLevel(rulesetCharacterHero);
 
         return sharedCasterLevel > 0 ? FullCastingSlots[sharedCasterLevel - 1].Slots.IndexOf(0) : 0;
@@ -297,6 +279,22 @@ internal static class SharedSpellsContext
 
     private sealed class CasterLevelContext
     {
+        // first index is for absence of levels. always 0
+        private static readonly int[] FromHalfCaster =
+        {
+            0, 0, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8, 9, 9, 10, 10
+        };
+
+        private static readonly int[] FromHalfRoundUpCaster =
+        {
+            0, 1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8, 9, 9, 10, 10
+        };
+
+        private static readonly int[] FromOneThirdCaster =
+        {
+            0, 0, 0, 1, 2, 2, 2, 3, 3, 3, 4, 4, 4, 5, 5, 5, 6, 6, 6, 7, 7
+        };
+
         private readonly Dictionary<CasterProgression, int> levels;
 
         internal CasterLevelContext()
@@ -318,26 +316,10 @@ internal static class SharedSpellsContext
 
         internal int GetCasterLevel()
         {
-            var casterLevel = 0;
-
-            // Full Casters
-            casterLevel += levels[CasterProgression.Full];
-
-            // Artisan / ...
-            if (levels[CasterProgression.HalfRoundUp] == 1)
-            {
-                casterLevel++;
-            }
-            // Half Casters
-            else
-            {
-                casterLevel += (int)Math.Floor(levels[CasterProgression.HalfRoundUp] / 2.0);
-            }
-
-            casterLevel += (int)Math.Floor(levels[CasterProgression.Half] / 2.0);
-
-            // Con Artist / ...
-            casterLevel += (int)Math.Floor(levels[CasterProgression.OneThird] / 3.0);
+            var casterLevel = levels[CasterProgression.Full]
+                              + FromHalfCaster[levels[CasterProgression.Half]]
+                              + FromHalfRoundUpCaster[levels[CasterProgression.HalfRoundUp]]
+                              + FromOneThirdCaster[levels[CasterProgression.OneThird]];
 
             return casterLevel;
         }
