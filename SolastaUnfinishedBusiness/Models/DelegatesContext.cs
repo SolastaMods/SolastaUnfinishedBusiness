@@ -344,6 +344,8 @@ internal static class DelegatesContext
     private static void ItemEquipped([NotNull] RulesetCharacterHero hero, [NotNull] RulesetItem item)
     {
         Main.Logger.Log($"{hero.Name} Item Equipped Hero");
+        
+        Subclasses.WizardBladeDancer.OnItemEquipped(hero);
     }
 
     //
