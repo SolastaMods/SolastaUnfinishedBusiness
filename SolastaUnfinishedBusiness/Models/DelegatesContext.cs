@@ -56,10 +56,12 @@ internal static class DelegatesContext
 
         var gameLocationCharacterService = ServiceRepository.GetService<IGameLocationCharacterService>();
 
+#if false
         gameLocationCharacterService.CharacterCreated += CharacterCreated;
         gameLocationCharacterService.CharacterRevealed += CharacterRevealed;
         gameLocationCharacterService.CharacterKilled += CharacterKilled;
         gameLocationCharacterService.CharacterDestroying += CharacterDestroying;
+#endif
 
         foreach (var gameLocationCharacter in gameLocationCharacterService.ValidCharacters)
         {
@@ -153,6 +155,7 @@ internal static class DelegatesContext
             }
 
             rulesetCharacterHero.ItemEquipedCallback += ItemEquipped;
+            
             // rulesetCharacterHero.CharacterInventory.ItemEquiped += ItemEquiped;
             // rulesetCharacterHero.CharacterInventory.ItemAltered += ItemAltered;
             // rulesetCharacterHero.CharacterInventory.ItemUnequiped += ItemUnequiped;
@@ -162,6 +165,7 @@ internal static class DelegatesContext
         var gameLocationActionService = ServiceRepository.GetService<IGameLocationActionService>();
 
         gameLocationActionService.ActionStarted += ActionStarted;
+        
         // gameLocationActionService.ActionChainStarted += ActionChainStarted;
         // gameLocationActionService.ActionChainFinished += ActionChainFinished;
         // gameLocationActionService.MagicEffectPreparing += MagicEffectPreparing;
@@ -183,11 +187,12 @@ internal static class DelegatesContext
 
         var gameLocationCharacterService = ServiceRepository.GetService<IGameLocationCharacterService>();
 
+#if false
         gameLocationCharacterService.CharacterCreated -= CharacterCreated;
         gameLocationCharacterService.CharacterRevealed -= CharacterRevealed;
         gameLocationCharacterService.CharacterKilled -= CharacterKilled;
         gameLocationCharacterService.CharacterDestroying -= CharacterDestroying;
-
+#endif
         foreach (var gameLocationCharacter in gameLocationCharacterService.ValidCharacters)
         {
             // gameLocationCharacter.Placed -= Placed;
@@ -317,6 +322,7 @@ internal static class DelegatesContext
     // IGameLocationCharacterService
     //
 
+#if false
     private static void CharacterCreated([NotNull] GameLocationCharacter character)
     {
         Main.Logger.Log($"{character.Name} Character Created");
@@ -336,6 +342,7 @@ internal static class DelegatesContext
     {
         Main.Logger.Log($"{character.Name} Character Killed");
     }
+#endif
 
     //
     // RulesetCharacterHero
