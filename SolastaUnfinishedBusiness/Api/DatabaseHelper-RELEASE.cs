@@ -76,6 +76,7 @@ namespace SolastaUnfinishedBusiness.Api;
         internal static CharacterSubclassDefinition MartialSpellblade { get; } = GetDefinition<CharacterSubclassDefinition>("MartialSpellblade");
         internal static CharacterSubclassDefinition OathOfJugement { get; } = GetDefinition<CharacterSubclassDefinition>("OathOfJugement");
         internal static CharacterSubclassDefinition OathOfTheMotherland { get; } = GetDefinition<CharacterSubclassDefinition>("OathOfTheMotherland");
+        internal static CharacterSubclassDefinition PathClaw { get; } = GetDefinition<CharacterSubclassDefinition>("PathClaw");  
         internal static CharacterSubclassDefinition PathMagebane { get; } = GetDefinition<CharacterSubclassDefinition>("PathMagebane");
         internal static CharacterSubclassDefinition PatronFiend { get; } = GetDefinition<CharacterSubclassDefinition>("PatronFiend");
         internal static CharacterSubclassDefinition RangerMarksman { get; } = GetDefinition<CharacterSubclassDefinition>("RangerMarksman");
@@ -157,6 +158,7 @@ namespace SolastaUnfinishedBusiness.Api;
         internal static ConditionDefinition ConditionStunned { get; } = GetDefinition<ConditionDefinition>("ConditionStunned");
         internal static ConditionDefinition ConditionSurprised { get; } = GetDefinition<ConditionDefinition>("ConditionSurprised");
         internal static ConditionDefinition ConditionTrueStrike { get; } = GetDefinition<ConditionDefinition>("ConditionTrueStrike");
+        internal static ConditionDefinition ConditionWildShapeSubstituteForm { get; } = GetDefinition<ConditionDefinition>("ConditionWildShapeSubstituteForm");
     }
     internal static class DamageDefinitions
     {
@@ -507,6 +509,7 @@ namespace SolastaUnfinishedBusiness.Api;
         internal static FeatureDefinitionPower PowerPaladinAuraOfCourage { get; } = GetDefinition<FeatureDefinitionPower>("PowerPaladinAuraOfCourage");
         internal static FeatureDefinitionPower PowerPaladinAuraOfProtection { get; } = GetDefinition<FeatureDefinitionPower>("PowerPaladinAuraOfProtection");
         internal static FeatureDefinitionPower PowerPaladinCleansingTouch { get; } = GetDefinition<FeatureDefinitionPower>("PowerPaladinCleansingTouch");
+        internal static FeatureDefinitionPower PowerPaladinCureDisease { get; } = GetDefinition<FeatureDefinitionPower>("PowerPaladinCureDisease");
         internal static FeatureDefinitionPower PowerPaladinLayOnHands { get; } = GetDefinition<FeatureDefinitionPower>("PowerPaladinLayOnHands");
         internal static FeatureDefinitionPower PowerRangerHideInPlainSight { get; } = GetDefinition<FeatureDefinitionPower>("PowerRangerHideInPlainSight");
         internal static FeatureDefinitionPower PowerShadowcasterShadowDodge { get; } = GetDefinition<FeatureDefinitionPower>("PowerShadowcasterShadowDodge");
@@ -893,6 +896,9 @@ namespace SolastaUnfinishedBusiness.Api;
     {
         internal static MonsterAttackDefinition Attack_Generic_Guard_Longsword { get; } = GetDefinition<MonsterAttackDefinition>("Attack_Generic_Guard_Longsword");
         internal static MonsterAttackDefinition Attack_Wildshape_Ape_Toss_Rock { get; } = GetDefinition<MonsterAttackDefinition>("Attack_Wildshape_Ape_Toss_Rock");
+        
+        internal static MonsterAttackDefinition Attack_Wildshape_BrownBear_Bite { get; } = GetDefinition<MonsterAttackDefinition>("Attack_Wildshape_BrownBear_Bite");
+        internal static MonsterAttackDefinition Attack_Wildshape_BrownBear_Claw { get; } = GetDefinition<MonsterAttackDefinition>("Attack_Wildshape_BrownBear_Claw"); 
         internal static MonsterAttackDefinition Attack_Wildshape_GiantEagle_Talons { get; } = GetDefinition<MonsterAttackDefinition>("Attack_Wildshape_GiantEagle_Talons");
         internal static MonsterAttackDefinition Attack_Wildshape_Wolf_Bite { get; } = GetDefinition<MonsterAttackDefinition>("Attack_Wildshape_Wolf_Bite");
     }
@@ -929,6 +935,14 @@ namespace SolastaUnfinishedBusiness.Api;
         internal static MonsterDefinition SuperEgo_Servant_Hostile { get; } = GetDefinition<MonsterDefinition>("SuperEgo_Servant_Hostile");
         internal static MonsterDefinition Wight { get; } = GetDefinition<MonsterDefinition>("Wight");
         internal static MonsterDefinition WightLord { get; } = GetDefinition<MonsterDefinition>("WightLord");
+        internal static MonsterDefinition WildShapeApe { get; } = GetDefinition<MonsterDefinition>("WildShapeApe");
+        internal static MonsterDefinition WildShapeBadlandsSpider { get; } = GetDefinition<MonsterDefinition>("WildShapeBadlandsSpider");
+        internal static MonsterDefinition WildshapeBlackBear { get; } = GetDefinition<MonsterDefinition>("WildshapeBlackBear");
+        internal static MonsterDefinition WildShapeBrownBear { get; } = GetDefinition<MonsterDefinition>("WildShapeBrownBear");
+        internal static MonsterDefinition WildshapeDeepSpider { get; } = GetDefinition<MonsterDefinition>("WildshapeDeepSpider");
+        internal static MonsterDefinition WildshapeDirewolf { get; } = GetDefinition<MonsterDefinition>("WildshapeDirewolf");
+        internal static MonsterDefinition WildshapeTiger_Drake { get; } = GetDefinition<MonsterDefinition>("WildshapeTiger_Drake");
+        internal static MonsterDefinition WildShapeGiant_Eagle { get; } = GetDefinition<MonsterDefinition>("WildShapeGiant_Eagle");
         internal static MonsterDefinition WindSnake { get; } = GetDefinition<MonsterDefinition>("WindSnake");
         internal static MonsterDefinition Wolf { get; } = GetDefinition<MonsterDefinition>("Wolf");
     }

@@ -143,13 +143,6 @@ internal sealed class WizardBladeDancer : AbstractSubclass
         //
         // use sets for better descriptions on level up
         //
-
-        var heroRefreshedBladeDanceValidateEquipment = FeatureDefinitionBuilder
-            .Create("HeroRefreshedBladeDanceValidateEquipment")
-            .SetGuiPresentationNoContent(true)
-            .SetCustomSubFeatures(new HeroRefreshedBladeDanceValidateEquipment())
-            .AddToDB();
-
         var featureSetBladeDancerBladeDance = FeatureDefinitionFeatureSetBuilder
             .Create("FeatureSetBladeDancerBladeDance")
             .SetGuiPresentation("FeatureBladeDance", Category.Feature)
@@ -172,7 +165,6 @@ internal sealed class WizardBladeDancer : AbstractSubclass
             .Create("WizardBladeDancer")
             .SetGuiPresentation(Category.Subclass, RangerSwiftBlade)
             .AddFeaturesAtLevel(2,
-                heroRefreshedBladeDanceValidateEquipment,
                 featureSetCasterBladeDancerFighting,
                 featureSetBladeDancerBladeDance)
             .AddFeaturesAtLevel(6,
@@ -204,34 +196,31 @@ internal sealed class WizardBladeDancer : AbstractSubclass
                && !hero.IsWieldingTwoHandedWeapon();
     }
 
-    private class HeroRefreshedBladeDanceValidateEquipment : IHeroRefreshed
+    internal static void OnItemEquipped([NotNull] RulesetCharacter hero)
     {
-        public void OnHeroRefreshed([NotNull] RulesetCharacter hero)
+        if (IsBladeDanceValid(hero))
         {
-            if (IsBladeDanceValid(hero))
-            {
-                return;
-            }
+            return;
+        }
 
-            if (hero.HasConditionOfCategoryAndType(AttributeDefinitions.TagEffect, ConditionBladeDancerBladeDance.Name))
-            {
-                hero.RemoveConditionOfCategory(AttributeDefinitions.TagEffect,
-                    new RulesetCondition { conditionDefinition = ConditionBladeDancerBladeDance });
-            }
+        if (hero.HasConditionOfCategoryAndType(AttributeDefinitions.TagEffect, ConditionBladeDancerBladeDance.Name))
+        {
+            hero.RemoveConditionOfCategory(AttributeDefinitions.TagEffect,
+                new RulesetCondition { conditionDefinition = ConditionBladeDancerBladeDance });
+        }
 
-            if (hero.HasConditionOfCategoryAndType(AttributeDefinitions.TagEffect,
-                    ConditionBladeDancerDanceOfDefense.Name))
-            {
-                hero.RemoveConditionOfCategory(AttributeDefinitions.TagEffect,
-                    new RulesetCondition { conditionDefinition = ConditionBladeDancerDanceOfDefense });
-            }
+        if (hero.HasConditionOfCategoryAndType(AttributeDefinitions.TagEffect,
+                ConditionBladeDancerDanceOfDefense.Name))
+        {
+            hero.RemoveConditionOfCategory(AttributeDefinitions.TagEffect,
+                new RulesetCondition { conditionDefinition = ConditionBladeDancerDanceOfDefense });
+        }
 
-            if (hero.HasConditionOfCategoryAndType(AttributeDefinitions.TagEffect,
-                    ConditionBladeDancerDanceOfVictory.Name))
-            {
-                hero.RemoveConditionOfCategory(AttributeDefinitions.TagEffect,
-                    new RulesetCondition { conditionDefinition = ConditionBladeDancerDanceOfVictory });
-            }
+        if (hero.HasConditionOfCategoryAndType(AttributeDefinitions.TagEffect,
+                ConditionBladeDancerDanceOfVictory.Name))
+        {
+            hero.RemoveConditionOfCategory(AttributeDefinitions.TagEffect,
+                new RulesetCondition { conditionDefinition = ConditionBladeDancerDanceOfVictory });
         }
     }
 }

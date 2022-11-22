@@ -4,14 +4,14 @@ using SolastaUnfinishedBusiness.CustomInterfaces;
 
 namespace SolastaUnfinishedBusiness.CustomBehaviors;
 
-internal sealed class ReactionAttackModeRestriction : IReactionAttackModeRestriction
+internal sealed class RestrictReactionAttackMode : IRestrictReactionAttackMode
 {
     internal static (GameLocationCharacter, GameLocationCharacter, RulesetAttackMode) ReactionContext =
         (null, null, null);
 
     private readonly ValidReactionModeHandler[] validators;
 
-    internal ReactionAttackModeRestriction(params ValidReactionModeHandler[] validators)
+    internal RestrictReactionAttackMode(params ValidReactionModeHandler[] validators)
     {
         this.validators = validators;
     }
@@ -45,7 +45,7 @@ internal sealed class ReactionAttackModeRestriction : IReactionAttackModeRestric
             return true;
         }
 
-        var validator = usablePower.PowerDefinition.GetFirstSubFeatureOfType<IReactionAttackModeRestriction>();
+        var validator = usablePower.PowerDefinition.GetFirstSubFeatureOfType<IRestrictReactionAttackMode>();
 
         return validator == null || validator.ValidReactionMode(attackMode, attacker, defender);
     }

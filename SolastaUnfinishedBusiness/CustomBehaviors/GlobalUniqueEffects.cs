@@ -102,7 +102,7 @@ internal static class GlobalUniqueEffects
     {
         var power = action.activePower.PowerDefinition;
 
-        var limiter = power.GetFirstSubFeatureOfType<ILimitedEffectInstances>();
+        var limiter = power.GetFirstSubFeatureOfType<ILimitEffectInstances>();
 
         if (limiter == null)
         {
@@ -122,12 +122,12 @@ internal static class GlobalUniqueEffects
 
     private static List<RulesetEffectPower> GetLimitedPowerEffects(
         RulesetCharacter character,
-        ILimitedEffectInstances limit)
+        ILimitEffectInstances limit)
     {
         return character.PowersUsedByMe
             .Where(powerEffect =>
             {
-                var tmp = powerEffect.PowerDefinition.GetFirstSubFeatureOfType<ILimitedEffectInstances>();
+                var tmp = powerEffect.PowerDefinition.GetFirstSubFeatureOfType<ILimitEffectInstances>();
                 
                 if (tmp == null)
                 {

@@ -1,5 +1,17 @@
 {
-  "$type": "FeatureDefinitionPower, Assembly-CSharp",
+  "$type": "MonsterAttackDefinition, Assembly-CSharp",
+  "displayedInEditor": true,
+  "methodName": "",
+  "actionType": "Main",
+  "toHitBonus": 7,
+  "afterChargeOnly": false,
+  "limitedUse": false,
+  "maxUses": -1,
+  "proximity": "Melee",
+  "reachRange": 1,
+  "closeRange": 10,
+  "maxRange": 20,
+  "magical": false,
   "effectDescription": {
     "$type": "EffectDescription, Assembly-CSharp",
     "rangeType": "Self",
@@ -13,7 +25,7 @@
     "emissiveBorder": "None",
     "emissiveParameter": 1,
     "requiresTargetProximity": false,
-    "targetProximityDistance": 6,
+    "targetProximityDistance": 30,
     "targetExcludeCaster": false,
     "canBePlacedOnCharacter": true,
     "affectOnlyGround": false,
@@ -41,7 +53,7 @@
     "grantedConditionOnSave": null,
     "rollSaveOnlyIfRelevantForms": false,
     "hasShoveRoll": false,
-    "createdByCharacter": true,
+    "createdByCharacter": false,
     "difficultyClassComputation": "SpellCastingFeature",
     "savingThrowDifficultyAbility": "Wisdom",
     "fixedSavingThrowDifficultyClass": 15,
@@ -62,27 +74,35 @@
     "effectForms": [
       {
         "$type": "EffectForm, Assembly-CSharp",
-        "formType": "Condition",
+        "formType": "Damage",
         "addBonusMode": "None",
         "applyLevel": "No",
         "levelType": "ClassLevel",
-        "levelMultiplier": 0,
+        "levelMultiplier": 1,
         "diceByLevelTable": [],
-        "createdByCharacter": true,
+        "createdByCharacter": false,
         "createdByCondition": false,
         "hasSavingThrow": false,
         "savingThrowAffinity": "None",
         "dcModifier": 0,
         "canSaveToCancel": false,
         "saveOccurence": "StartOfTurn",
-        "conditionForm": {
-          "$type": "ConditionForm, Assembly-CSharp",
-          "conditionDefinitionName": "",
-          "conditionDefinition": "Definition:ConditionFiendishResilienceCold:f9ce7b1abc02f7a42bb32a4798a838be",
-          "operation": "Add",
-          "conditionsList": [],
-          "applyToSelf": false,
-          "forceOnSelf": false
+        "damageForm": {
+          "$type": "DamageForm, Assembly-CSharp",
+          "versatile": false,
+          "diceNumber": 2,
+          "dieType": "D6",
+          "overrideWithBardicInspirationDie": false,
+          "versatileDieType": "D1",
+          "bonusDamage": 4,
+          "damageType": "DamageSlashing",
+          "ancestryType": "Sorcerer",
+          "healFromInflictedDamage": "Never",
+          "hitPointsFloor": 0,
+          "forceKillOnZeroHp": false,
+          "specialDeathCondition": null,
+          "ignoreFlyingCharacters": false,
+          "ignoreCriticalDoubleDice": false
         },
         "hasFilterId": false,
         "filterId": 0
@@ -114,7 +134,7 @@
       "$type": "EffectParticleParameters, Assembly-CSharp",
       "casterParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "",
+        "m_AssetGUID": "20791cf9da385a546a4278a895d60d7f",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -162,7 +182,7 @@
       },
       "impactParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "",
+        "m_AssetGUID": "fdd58114e20e52f449068f6de39ccfd9",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -286,50 +306,76 @@
     "animationMagicEffect": "Animation0",
     "lightCounterDispellsEffect": false
   },
-  "delegatedToAction": false,
-  "surrogateToSpell": null,
-  "triggeredBySpecialMove": false,
-  "activationTime": "RestSubpower",
-  "autoActivationRequiredTargetSenseType": "None",
-  "autoActivationRequiredTargetCreatureTag": "",
-  "autoActivationPowerTag": "",
-  "triggeringPower": null,
-  "copyTargetingFromTriggeringPower": false,
-  "reactionContext": "None",
-  "reactionName": "",
-  "reactionActingCharacterParamIdx": 0,
-  "reactionAttackerParamIdx": -1,
-  "hasCastingFailure": false,
-  "castingSuccessComputation": "CasterLevel",
-  "canUseInDialog": false,
-  "disableIfConditionIsOwned": null,
-  "disableIfTargetConditionIsOwned": null,
-  "rechargeRate": "AtWill",
-  "costPerUse": 1,
-  "spellcastingFeature": null,
-  "usesDetermination": "Fixed",
-  "abilityScoreDetermination": "Explicit",
-  "usesAbilityScoreName": "Charisma",
-  "fixedUsesPerRecharge": 1,
-  "abilityScore": "Intelligence",
-  "attackHitComputation": "AbilityScore",
-  "fixedAttackHit": 0,
-  "abilityScoreBonusToAttack": false,
-  "proficiencyBonusToAttack": false,
-  "uniqueInstance": false,
-  "showCasting": false,
-  "shortTitleOverride": "",
-  "overriddenPower": null,
-  "includeBaseDescription": false,
+  "projectile": "Arrow",
+  "projectileBone": "Prop1",
+  "itemDefinitionMainHand": null,
+  "itemDefinitionOffHand": null,
+  "useAnimationTag": true,
+  "animationTag": "Dagger",
+  "isMultiattack": false,
+  "chargePrepareParticle": {
+    "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+    "m_AssetGUID": "",
+    "m_SubObjectName": "",
+    "m_SubObjectType": ""
+  },
+  "chargeStartParticle": {
+    "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+    "m_AssetGUID": "",
+    "m_SubObjectName": "",
+    "m_SubObjectType": ""
+  },
+  "chargeLoopParticle": {
+    "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+    "m_AssetGUID": "",
+    "m_SubObjectName": "",
+    "m_SubObjectType": ""
+  },
+  "chargeEndParticle": {
+    "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+    "m_AssetGUID": "",
+    "m_SubObjectName": "",
+    "m_SubObjectType": ""
+  },
+  "soundEffectOnHitDescription": {
+    "$type": "SoundEffectOnHitDescription, Assembly-CSharp",
+    "switchOnHit": {
+      "$type": "AK.Wwise.Switch, AK.Wwise.Unity.API.WwiseTypes",
+      "WwiseObjectReference": {
+        "$type": "WwiseSwitchReference, AK.Wwise.Unity.API.WwiseTypes",
+        "WwiseSwitchGroupReference": {
+          "$type": "WwiseSwitchGroupReference, AK.Wwise.Unity.API.WwiseTypes",
+          "objectName": "Switch_Damage",
+          "id": 1103537035,
+          "guid": "E07EEA51-E76E-4219-92C0-6F0E1AA3C15A",
+          "name": "E07EEA51-E76E-4219-92C0-6F0E1AA3C15A"
+        },
+        "objectName": "Claw_Bear_Brown",
+        "id": 2402474284,
+        "guid": "59CF3C46-78F4-41D1-8EC9-893AFD053E7C",
+        "name": "59CF3C46-78F4-41D1-8EC9-893AFD053E7C"
+      },
+      "groupIdInternal": 0,
+      "groupGuidInternal": {
+        "$type": "System.Byte[], mscorlib",
+        "$value": ""
+      },
+      "idInternal": 0,
+      "valueGuidInternal": {
+        "$type": "System.Byte[], mscorlib",
+        "$value": ""
+      }
+    }
+  },
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
-    "hidden": true,
-    "title": "Feature/&PowerFiendishResilienceColdTitle",
-    "description": "Feature/&PowerFiendishResilienceDescription",
+    "hidden": false,
+    "title": "MonsterAttacks/&Attack_Claws_Title",
+    "description": "Feature/&NoContentTitle",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "a13e50e4e5feb744c9a2aec280c8eb3d",
-      "m_SubObjectName": "SolidColorWhite",
+      "m_AssetGUID": "01953efe7eeb8704491aa2377785db9a",
+      "m_SubObjectName": "Attack_Wildshape_Bear_Claw",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
@@ -340,12 +386,12 @@
       "a": 1.0
     },
     "symbolChar": "221E",
-    "sortOrder": 2,
+    "sortOrder": 0,
     "unusedInSolastaCOTM": false,
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "d0971894-d407-588e-ac07-1d33adf2ae1b",
+  "guid": "73a04cdf-6f80-5427-b3a3-6b872d40ba22",
   "contentPack": 9999,
-  "name": "PowerWildMasterResilienceCold"
+  "name": "Attack_Wildshape_DireBear_Claw"
 }

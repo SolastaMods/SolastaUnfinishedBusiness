@@ -1,6 +1,6 @@
 ﻿namespace SolastaUnfinishedBusiness.CustomInterfaces;
 
-public interface ILimitedEffectInstances
+public interface ILimitEffectInstances
 {
     public string Name { get; }
     public int GetLimit(RulesetCharacter character);

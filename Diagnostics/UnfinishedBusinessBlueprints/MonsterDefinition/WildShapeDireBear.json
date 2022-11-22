@@ -4,102 +4,69 @@
   "overrideSpawnDecision": null,
   "characterFamily": "Beast",
   "creatureTags": [
-    "SpiritBeast"
+    "WildShape"
   ],
-  "defaultFaction": "Party",
-  "fullyControlledWhenAllied": true,
-  "sizeDefinition": "Definition:Small:79feb0e022c48a7419b88b88e49218d2",
-  "alignment": "Unaligned",
-  "armorClass": 11,
+  "defaultFaction": "HostileMonsters",
+  "fullyControlledWhenAllied": false,
+  "sizeDefinition": "Definition:Medium:eef4b35a8a6793147af905a8f26e4c60",
+  "alignment": "Neutral",
+  "armorClass": 14,
   "armor": "",
-  "hitDice": 2,
-  "hitDiceType": "D8",
-  "hitPointsBonus": 4,
-  "standardHitPoints": 10,
+  "hitDice": 5,
+  "hitDiceType": "D10",
+  "hitPointsBonus": 6,
+  "standardHitPoints": 42,
   "abilityScores": [
-    12,
-    15,
-    18,
-    8,
-    12,
-    6
+    20,
+    10,
+    16,
+    2,
+    13,
+    7
   ],
   "savingThrowScores": [],
-  "skillScores": [
-    {
-      "$type": "MonsterSkillProficiency, Assembly-CSharp",
-      "skillName": "Stealth",
-      "bonus": 4
-    },
-    {
-      "$type": "MonsterSkillProficiency, Assembly-CSharp",
-      "skillName": "Perception",
-      "bonus": 3
-    }
-  ],
+  "skillScores": [],
   "legendaryCreature": false,
   "maxLegendaryResistances": 3,
   "maxLegendaryActionPoints": 3,
   "differentActionEachTurn": false,
   "legendaryActionOptions": [],
-  "defaultBattleDecisionPackage": "Definition:WolfCombatDecisions:77a3ff0e3e333d644b7139f85f1eeb99",
-  "threatEvaluatorDefinition": {
-    "$type": "TA.AI.ThreatEvaluatorDefinition, Assembly-CSharp",
-    "threatEvaluator": {
-      "$type": "TA.AI.ThreatEvaluator, Assembly-CSharp",
-      "hateResponse": {
-        "$type": "UnityEngine.AnimationCurve, UnityEngine.CoreModule"
-      },
-      "woundRatioResponse": {
-        "$type": "UnityEngine.AnimationCurve, UnityEngine.CoreModule"
-      },
-      "maxHPResponse": {
-        "$type": "UnityEngine.AnimationCurve, UnityEngine.CoreModule"
-      },
-      "attackersCountResponse": {
-        "$type": "UnityEngine.AnimationCurve, UnityEngine.CoreModule"
-      },
-      "meleeVsRangedResponse": {
-        "$type": "UnityEngine.AnimationCurve, UnityEngine.CoreModule"
-      },
-      "previousTargetRelatedMalus": 0.1
-    },
-    "name": "PrioritizeNooneButFocus"
-  },
+  "defaultBattleDecisionPackage": "Definition:DefaultMeleeBeastCombatDecisions:fae777d0212f18d4189c57c8ba45a0e7",
+  "threatEvaluatorDefinition": null,
   "languages": [],
   "audioSwitches": [],
   "audioSwitchesOnHands": [],
-  "audioRaceRTPCValue": 11.0,
-  "challengeRating": 0.0,
-  "noExperienceGain": true,
+  "audioRaceRTPCValue": 43.0,
+  "challengeRating": 2.0,
+  "noExperienceGain": false,
   "droppedLootDefinition": null,
   "stealableLootDefinition": null,
   "bestiaryLootOptions": [],
   "features": [
-    "Definition:ActionAffinityWildMasterSpiritBeast:67246cb1-3617-5d0b-89f5-215e54bf88a3",
-    "Definition:CombatAffinityWildMasterSummonerIsNextToBeast:5caab56f-2aec-5048-b426-36ae4df0b447",
-    "Definition:ConditionAffinityWildMasterSpiritBeastInitiative:074d3251-8db0-5c10-949c-97fed558a0c3",
     "Definition:MoveModeMove8:4c110104739c99e4d920529a058ab2e2",
-    "Definition:PowerDragonbornBreathWeaponSilver:24f01c8e9b1c995498f0e7dab316db30",
-    "Definition:PowerFiendishResilienceCold:5ac188b2da08815448fdf880b02847ac",
-    "Definition:PowerHelp:faded953-56c9-55e9-aa49-54a485c1de6d",
-    "Definition:SenseNormalVision:222ef639393ed4e4bbd7152690597945"
+    "Definition:SenseNormalVision:222ef639393ed4e4bbd7152690597945",
+    "Definition:AbilityCheckAffinityKeenSmell:ad58749fe3130524781820bdc7f034df"
   ],
   "attackIterations": [
     {
       "$type": "MonsterAttackIteration, Assembly-CSharp",
       "number": 1,
-      "monsterAttackDefinition": "Definition:Attack_SpiritWolf_Bite:80c83c5324cfc3c4ca189fef5843243f"
+      "monsterAttackDefinition": "Definition:Attack_Wildshape_DireBear_Bite:8e5fc1b6-b11d-5409-a72d-24eba1307f14"
+    },
+    {
+      "$type": "MonsterAttackIteration, Assembly-CSharp",
+      "number": 1,
+      "monsterAttackDefinition": "Definition:Attack_Wildshape_DireBear_Claw:73a04cdf-6f80-5427-b3a3-6b872d40ba22"
     }
   ],
   "sneakStance": "Stealth",
-  "patrolStance": "Run",
+  "patrolStance": "SlowWalk",
   "interceptStance": "Run",
   "dualSex": true,
   "minimalAge": 20,
   "maximalAge": 100,
-  "height": 4,
-  "weight": 100,
+  "height": 10,
+  "weight": 1000,
   "isHusk": false,
   "isPet": false,
   "forbidFastTravel": false,
@@ -116,19 +83,26 @@
   "alwaysHideStats": false,
   "bestiarySpriteReference": {
     "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-    "m_AssetGUID": "539ab800b5fb6074abd127f9f93512a8",
-    "m_SubObjectName": "Wolf",
-    "m_SubObjectType": ""
+    "m_AssetGUID": "c696101f900a09743b68f5b5f7c506f8",
+    "m_SubObjectName": "BlackBear",
+    "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
   },
   "monsterPresentation": {
     "$type": "MonsterPresentation, Assembly-CSharp",
     "useHumanoidMonsterPresentationName": false,
     "humanoidMonsterPresentationDefinitions": [],
-    "useCustomMaterials": false,
-    "customMaterials": [],
+    "useCustomMaterials": true,
+    "customMaterials": [
+      {
+        "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+        "m_AssetGUID": "ae54d4197f698cd43a601ce91fcd7fe7",
+        "m_SubObjectName": "",
+        "m_SubObjectType": ""
+      }
+    ],
     "customShaderReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-      "m_AssetGUID": "2965466ace50ec94bbf7f067ace406df",
+      "m_AssetGUID": "",
       "m_SubObjectName": "",
       "m_SubObjectType": ""
     },
@@ -138,27 +112,27 @@
       "y": -1.0,
       "z": 0.0
     },
-    "overrideCharacterShaderColors": true,
+    "overrideCharacterShaderColors": false,
     "firstCharacterShaderColor": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
-      "r": 0.152941167,
-      "g": 0.745098054,
-      "b": 0.389533758,
-      "a": 1.0
+      "r": 0.0,
+      "g": 0.0,
+      "b": 0.0,
+      "a": 0.0
     },
     "secondCharacterShaderColor": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
-      "r": 0.325490177,
-      "g": 0.831372559,
-      "b": 0.8157103,
-      "a": 1.0
+      "r": 0.0,
+      "g": 0.0,
+      "b": 0.0,
+      "a": 0.0
     },
     "hasPhantomDistortion": true,
     "hasPhantomFadingFeet": true,
     "hasPhantomVertexAnimation": true,
     "attachedParticlesReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-      "m_AssetGUID": "48afe6d0fa3bbe44e8afeac916500cbc",
+      "m_AssetGUID": "",
       "m_SubObjectName": "",
       "m_SubObjectType": ""
     },
@@ -172,37 +146,37 @@
     "monsterPresentationDefinitions": [],
     "malePrefabReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-      "m_AssetGUID": "6e02c9bcfb5122042a533e7732182b1d",
+      "m_AssetGUID": "cc36634f504fa7049a4499a91749d7d5",
       "m_SubObjectName": "",
       "m_SubObjectType": ""
     },
     "maleModelScale": 0.655,
     "femalePrefabReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-      "m_AssetGUID": "6e02c9bcfb5122042a533e7732182b1d",
+      "m_AssetGUID": "cc36634f504fa7049a4499a91749d7d5",
       "m_SubObjectName": "",
       "m_SubObjectType": ""
     },
     "femaleModelScale": 0.655,
     "wieldedItemsScale": 1.0,
     "hideWieldedItemsWhenPassive": false,
-    "hideDuringCutscene": true,
+    "hideDuringCutscene": false,
     "hasLightingCutscene": true,
-    "canGeneratePortrait": true,
+    "canGeneratePortrait": false,
     "needMerchantPortrait": false,
     "hasMonsterPortraitBackground": true,
     "portraitCameraFollowOffset": {
       "$type": "UnityEngine.Vector3, UnityEngine.CoreModule",
       "x": 0.0,
       "y": -0.5,
-      "z": -12.0
+      "z": -5.0
     },
     "portraitCameraLookAtScreenOffset": {
       "$type": "UnityEngine.Vector2, UnityEngine.CoreModule",
       "x": 0.5,
-      "y": 0.5
+      "y": 0.4
     },
-    "portraitCameraFOV": 20.0,
+    "portraitCameraFOV": 40.0,
     "portraitCameraLightingOffset": {
       "$type": "UnityEngine.Vector3, UnityEngine.CoreModule",
       "x": 0.0,
@@ -213,19 +187,19 @@
   "forceCombatStartsAnimation": false,
   "hasLookAt": false,
   "forceNoFlyAnimation": false,
-  "followFloorAngle": true,
-  "groupAttacks": false,
+  "followFloorAngle": false,
+  "groupAttacks": true,
   "isUnique": false,
   "uniqueNameId": "",
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&PowerSpiritWolfTitle",
-    "description": "Monster/&SpiritDescription",
+    "title": "Monster/&WildShapeDireBearTitle",
+    "description": "Monster/&WildShapeDireBearDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "f0c21bbf7b2430746a0e97ee7740ea79",
-      "m_SubObjectName": "KindredSpiritWolf",
+      "m_AssetGUID": "1f23bba0872efd04197fc69418687e1f",
+      "m_SubObjectName": "CustomPortrait_BlackBear",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
@@ -241,7 +215,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "e6a54b15-f335-572b-8020-dbde6fed937e",
+  "guid": "96c3d602-df80-5a9e-ae1b-5f3bbe628c59",
   "contentPack": 9999,
-  "name": "WildMasterSpiritBeastKindredSpiritWolf7"
+  "name": "WildShapeDireBear"
 }
