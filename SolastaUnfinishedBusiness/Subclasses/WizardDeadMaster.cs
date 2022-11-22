@@ -7,7 +7,6 @@ using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomUI;
-using SolastaUnfinishedBusiness.Models;
 using UnityEngine.AddressableAssets;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
@@ -282,7 +281,7 @@ internal sealed class WizardDeadMaster : AbstractSubclass
             RulesetAttackMode attackMode,
             RulesetEffect activeEffect)
         {
-            if (Global.CurrentAction is not CharacterActionCastSpell actionCastSpell)
+            if (activeEffect is not RulesetEffectSpell spellEffect)
             {
                 yield break;
             }
@@ -295,9 +294,9 @@ internal sealed class WizardDeadMaster : AbstractSubclass
             }
 
             var rulesetAttacker = attacker.RulesetCharacter;
-            var spellLevel = actionCastSpell.ActiveSpell.SpellDefinition.SpellLevel;
-            var isNecromancy = actionCastSpell.ActiveSpell.SpellDefinition.SchoolOfMagic == SchoolNecromancy;
-            var healingReceived = (isNecromancy ? 3 : 2) * spellLevel;
+            var spell = spellEffect.SpellDefinition;
+            var isNecromancy = spell.SchoolOfMagic == SchoolNecromancy;
+            var healingReceived = (isNecromancy ? 3 : 2) * spell.SpellLevel;
 
             rulesetAttacker.ReceiveHealing(healingReceived, true, rulesetAttacker.Guid);
         }
