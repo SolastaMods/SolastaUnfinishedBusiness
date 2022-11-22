@@ -117,7 +117,7 @@ internal static class CustomConditionsContext
         return conditionLightSensitive;
     }
 
-    private sealed class InvisibilityEveryRoundBehavior : ICustomOnActionFeature, ICustomConditionFeature
+    private sealed class InvisibilityEveryRoundBehavior : IOnAfterActionFeature, ICustomConditionFeature
     {
         private const string CategoryRevealed = "InvisibilityEveryRoundRevealed";
         private const string CategoryHidden = "InvisibilityEveryRoundHidden";

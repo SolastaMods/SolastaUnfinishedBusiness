@@ -94,7 +94,7 @@ internal static class Global
         // Main.Log($"{characterAction.ActingCharacter?.Name} -> {characterAction.ActionDefinition.Name} FINISHED");
 
         foreach (var feature in characterAction.ActingCharacter.RulesetCharacter
-                     .GetSubFeaturesByType<ICustomOnActionFeature>())
+                     .GetSubFeaturesByType<IOnAfterActionFeature>())
         {
             feature.OnAfterAction(characterAction);
         }

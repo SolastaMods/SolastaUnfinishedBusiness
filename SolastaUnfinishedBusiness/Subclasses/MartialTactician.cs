@@ -1042,7 +1042,7 @@ internal sealed class MartialTactician : AbstractSubclass
         }
     }
 
-    private class TacticalSurge : ICustomOnActionFeature
+    private class TacticalSurge : IOnAfterActionFeature
     {
         private readonly ConditionDefinition condition;
         private readonly FeatureDefinition feature;
