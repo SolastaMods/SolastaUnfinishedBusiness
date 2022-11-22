@@ -54,7 +54,7 @@ public static class CharacterActionPatcher
             var actingCharacter = __instance.ActingCharacter;
             var actionParams = __instance.ActionParams;
             var actionDefinition = __instance.ActionDefinition;
-            
+
             Global.ActionFinished(actingCharacter, actionParams, actionDefinition);
         }
     }

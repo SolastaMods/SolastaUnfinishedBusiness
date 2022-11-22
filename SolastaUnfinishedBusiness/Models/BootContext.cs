@@ -92,7 +92,7 @@ internal static class BootContext
         ServiceRepository.GetService<IRuntimeService>().RuntimeLoaded += _ =>
         {
             DelegatesContext.LateLoad();
-            
+
             // Late initialized to allow feats and races from other mods
             CharacterContext.LateLoad();
 

@@ -61,27 +61,27 @@ internal sealed class CollegeOfHarlequin : AbstractSubclass
                 .SetEffectForms(EffectFormBuilder
                     .Create()
                     .SetConditionForm(ConditionDefinitionBuilder
-                        .Create("ConditionCollegeOfHarlequinFightingAbilityEnhanced")
-                        .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionHeraldOfBattle)
-                        .AddFeatures(FeatureDefinitionAttributeModifierBuilder
-                                .Create("AttributeModifierCollegeOfHarlequinCombatInspirationArmorClassEnhancement")
-                                .SetGuiPresentation(Category.Feature)
-                                .SetModifier(FeatureDefinitionAttributeModifier.AttributeModifierOperation.Additive,
-                                    AttributeDefinitions.ArmorClass)
-                                .AddToDB(),
-                            FeatureDefinitionMovementAffinityBuilder
-                                .Create("MovementAffinityCollegeOfHarlequinCombatInspirationMovementEnhancement")
-                                .SetGuiPresentation(Category.Feature)
-                                .SetCustomSubFeatures(new UseBardicDieRollForSpeedModifier())
-                                .AddToDB(),
-                            FeatureDefinitionAttackModifierBuilder
-                                .Create("AttackModifierCollegeOfHarlequinCombatInspirationAttackEnhancement")
-                                .SetGuiPresentation(Category.Feature)
-                                .SetCustomSubFeatures(new AddBardicDieRollToAttackAndDamage())
-                                .AddToDB()
-                        )
-                        .SetCustomSubFeatures(new ConditionCombatInspired())
-                        .AddToDB(), 
+                            .Create("ConditionCollegeOfHarlequinFightingAbilityEnhanced")
+                            .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionHeraldOfBattle)
+                            .AddFeatures(FeatureDefinitionAttributeModifierBuilder
+                                    .Create("AttributeModifierCollegeOfHarlequinCombatInspirationArmorClassEnhancement")
+                                    .SetGuiPresentation(Category.Feature)
+                                    .SetModifier(FeatureDefinitionAttributeModifier.AttributeModifierOperation.Additive,
+                                        AttributeDefinitions.ArmorClass)
+                                    .AddToDB(),
+                                FeatureDefinitionMovementAffinityBuilder
+                                    .Create("MovementAffinityCollegeOfHarlequinCombatInspirationMovementEnhancement")
+                                    .SetGuiPresentation(Category.Feature)
+                                    .SetCustomSubFeatures(new UseBardicDieRollForSpeedModifier())
+                                    .AddToDB(),
+                                FeatureDefinitionAttackModifierBuilder
+                                    .Create("AttackModifierCollegeOfHarlequinCombatInspirationAttackEnhancement")
+                                    .SetGuiPresentation(Category.Feature)
+                                    .SetCustomSubFeatures(new AddBardicDieRollToAttackAndDamage())
+                                    .AddToDB()
+                            )
+                            .SetCustomSubFeatures(new ConditionCombatInspired())
+                            .AddToDB(),
                         ConditionForm.ConditionOperation.Add)
                     .Build())
                 .Build()

@@ -18,12 +18,12 @@ internal static class CommonBuilders
                 AttributeDefinitions.AttacksNumber, 2)
             .AddToDB();
 
-    internal static readonly FeatureDefinitionDamageAffinity DamageAffinityGenericHardenToNecrotic = 
+    internal static readonly FeatureDefinitionDamageAffinity DamageAffinityGenericHardenToNecrotic =
         FeatureDefinitionDamageAffinityBuilder
             .Create(DamageAffinityNecroticImmunity, "DamageAffinityGenericHardenToNecrotic")
             .SetGuiPresentation(Category.Feature)
             .AddToDB();
-        
+
     internal static readonly FeatureDefinitionFeatureSet FeatureSetCasterFightingProficiency =
         FeatureDefinitionFeatureSetBuilder
             .Create("FeatureSetCasterFightingProficiency")

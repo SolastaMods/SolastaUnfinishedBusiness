@@ -42,7 +42,7 @@ public class MirrorImageLogic
             .SetPossessive()
             .SetFeatures(FeatureDefinitionBuilder
                 .Create("FeatureMirrorImageCounter")
-                .SetGuiPresentationNoContent(hidden: true)
+                .SetGuiPresentationNoContent(true)
                 .SetCustomSubFeatures(DuplicateCounter.Mark)
                 .AddToDB())
             .AddToDB();

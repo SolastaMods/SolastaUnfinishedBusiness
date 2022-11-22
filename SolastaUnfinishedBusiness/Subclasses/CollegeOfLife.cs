@@ -40,7 +40,7 @@ internal sealed class CollegeOfLife : AbstractSubclass
             .Create(DamageAffinityNecroticResistance, "DamageAffinityCollegeOfLifeNecroticResistance")
             .SetGuiPresentation(Category.Feature)
             .AddToDB();
-        
+
         var powerSharedPoolCollegeOfLifeHealingPool = FeatureDefinitionPowerBuilder
             .Create("PowerSharedPoolCollegeOfLifeHealingPool")
             .SetGuiPresentation(Category.Feature, hidden: true)
