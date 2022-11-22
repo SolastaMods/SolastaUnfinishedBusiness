@@ -619,6 +619,19 @@ namespace SolastaUnfinishedBusiness.Api;
         internal static FormationDefinition SingleCreature { get; } = GetDefinition<FormationDefinition>("SingleCreature");
         internal static FormationDefinition Squad4 { get; } = GetDefinition<FormationDefinition>("Squad4");
     }
+    internal static class GadgetBlueprints
+    {
+        internal static GadgetBlueprint TeleporterIndividual { get; } = GetDefinition<GadgetBlueprint>("TeleporterIndividual");
+        internal static GadgetBlueprint TeleporterParty { get; } = GetDefinition<GadgetBlueprint>("TeleporterParty");
+        internal static GadgetBlueprint VirtualExit { get; } = GetDefinition<GadgetBlueprint>("VirtualExit");
+        internal static GadgetBlueprint VirtualExitMultiple { get; } = GetDefinition<GadgetBlueprint>("VirtualExitMultiple");
+        internal static GadgetBlueprint Exit { get; } = GetDefinition<GadgetBlueprint>("Exit");
+        internal static GadgetBlueprint ExitMultiple { get; } = GetDefinition<GadgetBlueprint>("ExitMultiple");
+    }
+    internal static class GadgetDefinitions
+    {
+        internal static GadgetDefinition Activator { get; } = GetDefinition<GadgetDefinition>("Activator");
+    }
     internal static class InvocationDefinitions
     {
         internal static InvocationDefinition EldritchSpear { get; } = GetDefinition<InvocationDefinition>("EldritchSpear");
