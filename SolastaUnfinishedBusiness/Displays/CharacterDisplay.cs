@@ -169,6 +169,12 @@ internal static class CharacterDisplay
             Main.Settings.UnlockAllNpcFaces = toggle;
         }
 
+        toggle = Main.Settings.AllowBeardlessDwarves;
+        if (UI.Toggle(Gui.Localize("ModUi/&AllowBeardlessDwarves"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.AllowBeardlessDwarves = toggle;
+        }
+
         UI.Label();
 
         toggle = Main.Settings.AllowUnmarkedSorcerers;

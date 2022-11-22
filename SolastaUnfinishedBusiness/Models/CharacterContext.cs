@@ -198,6 +198,7 @@ internal static class CharacterContext
                          x.Category == MorphotypeElementDefinition.ElementCategory.Eye))
             {
                 morphotype.subClassFilterMask = GraphicsDefinitions.MorphotypeSubclassFilterTag.All;
+                morphotype.originAllowed = EyeColor_001.OriginAllowed;
             }
 
             var races = DatabaseRepository.GetDatabase<CharacterRaceDefinition>();
@@ -231,6 +232,14 @@ internal static class CharacterContext
             {
                 morphotype.playerSelectable = true;
             }
+        }
+
+        if (Main.Settings.AllowBeardlessDwarves)
+        {
+            Dwarf.RacePresentation.needBeard = false;
+            DwarfHill.RacePresentation.needBeard = false;
+            DwarfSnow.RacePresentation.needBeard = false;
+            Dwarf.RacePresentation.MaleBeardShapeOptions.Add(BeardShape_None.Name);
         }
 
         if (Main.Settings.UnlockMarkAndTattoosForAllCharacters)
