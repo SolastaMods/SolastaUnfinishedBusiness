@@ -234,6 +234,14 @@ internal static class CharacterContext
             }
         }
 
+        if (Main.Settings.AllowBeardlessDwarves)
+        {
+            Dwarf.RacePresentation.needBeard = false;
+            DwarfHill.RacePresentation.needBeard = false;
+            DwarfSnow.RacePresentation.needBeard = false;
+            Dwarf.RacePresentation.MaleBeardShapeOptions.Add(BeardShape_None.Name);
+        }
+
         if (Main.Settings.UnlockMarkAndTattoosForAllCharacters)
         {
             foreach (var morphotype in dbMorphotypeElementDefinition.Where(x =>
