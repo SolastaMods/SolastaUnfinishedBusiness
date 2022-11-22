@@ -326,8 +326,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&PowerDeadMasterCommandUndeadTitle",
-    "description": "Feature/&PowerDeadMasterCommandUndeadDescription",
+    "title": "Feature/&PowerCasterCommandUndeadTitle",
+    "description": "Feature/&PowerCasterCommandUndeadDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -347,7 +347,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "9f289f69-cb71-51db-a752-16b26f902eef",
+  "guid": "b73f8a69-89ca-5b00-b016-582ac4cb73ba",
   "contentPack": 9999,
-  "name": "PowerDeadMasterCommandUndead"
+  "name": "PowerCasterCommandUndead"
 }

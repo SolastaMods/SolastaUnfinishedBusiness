@@ -23,7 +23,7 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:PowerDeadMasterCommandUndead:9f289f69-cb71-51db-a752-16b26f902eef",
+      "featureDefinition": "Definition:PowerCasterCommandUndead:b73f8a69-89ca-5b00-b016-582ac4cb73ba",
       "level": 14
     }
   ],
