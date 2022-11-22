@@ -16,18 +16,19 @@ internal static class CreditsDisplay
     internal static readonly List<(string, string)> CreditsTable = new()
     {
         ("Zappastuff",
-            "maintenance, gameplay, feats, fighting styles, invocations, rules, quality of life, Half-elf variants, Blade Dancer, College of Guts, College of Life, Dead Master, Field Manipulator, Way of The Silhouette, Wild Master, Multiclass"),
+            "maintenance, infrastructure, gameplay, feats, fighting styles, invocations, rules, quality of life, Half-elf variants, Blade Dancer, Ancient Forest, College of Guts, College of Life, Dead Master, Field Manipulator, Way of The Silhouette, Wild Master, Multiclass"),
         ("TPABOBAP",
             "game UI, infrastructure, gameplay, feats, invocations, spells, Dead Master, Elementalist, Moonlit, RiftWalker, SoulBlade, Tactician, Way of The Distant Hand, Inventor"),
         ("ImpPhil", "api, builders, gameplay, rules, quality of life"),
         ("ChrisJohnDigital",
-            "gameplay, feats, fighting styles, Arcane Fighter, Life Transmuter, Master Manipulator, Spell Master, Spell Shield"),
+            "gameplay, feats, fighting styles, original Wizard subclasses, Arcane Fighter, Spell Master, Spell Shield"),
         ("SilverGriffon", "gameplay, visuals, spells, Dark Elf, Draconic Kobold, Grey Dwarf, Divine Heart"),
         ("Nd", "Marshal, Opportunist, Raven, Spell Shield"),
-        ("DubhHerder", "gameplay, spells, Elementalist, Moonlit, RiftWalker"),
+        ("DubhHerder", "gameplay, spells, original Warlock subclasses"),
         ("ElAntonious", "feats, Arcanist"),
-        ("Holic75", "spells, Bolgrif"),
+        ("Holic75", "spells, Bolgrif, Gnome"),
         ("RedOrca", "Path of The Light"),
+        ("DreadMaker", "Forest Guardian"),
         ("Bazou", "fighting styles, rules, spells")
     };
 
@@ -80,7 +81,7 @@ internal static class CreditsDisplay
                 using (UI.HorizontalScope())
                 {
                     UI.Label(author.Orange(), UI.Width(150));
-                    UI.Label(content, UI.Width(500));
+                    UI.Label(content, UI.Width(600));
                 }
             }
         }

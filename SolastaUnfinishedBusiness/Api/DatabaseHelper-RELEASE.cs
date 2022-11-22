@@ -139,6 +139,7 @@ namespace SolastaUnfinishedBusiness.Api;
         internal static ConditionDefinition ConditionMarkedByBrandingSmite { get; } = GetDefinition<ConditionDefinition>("ConditionMarkedByBrandingSmite");
         internal static ConditionDefinition ConditionOnFire1D4 { get; } = GetDefinition<ConditionDefinition>("ConditionOnFire1D4");
         internal static ConditionDefinition ConditionParalyzed { get; } = GetDefinition<ConditionDefinition>("ConditionParalyzed");
+        internal static ConditionDefinition ConditionPatronHiveWeakeningPheromones { get; } = GetDefinition<ConditionDefinition>("ConditionPatronHiveWeakeningPheromones");
         internal static ConditionDefinition ConditionPoisoned { get; } = GetDefinition<ConditionDefinition>("ConditionPoisoned");
         internal static ConditionDefinition ConditionProne { get; } = GetDefinition<ConditionDefinition>("ConditionProne");
         internal static ConditionDefinition ConditionProtectedFromEnergyLightning { get; } = GetDefinition<ConditionDefinition>("ConditionProtectedFromEnergyLightning");
@@ -470,6 +471,7 @@ namespace SolastaUnfinishedBusiness.Api;
     internal static class FeatureDefinitionPowers
     {
         internal static FeatureDefinitionPower PowerBarbarianPersistentRageStart { get; } = GetDefinition<FeatureDefinitionPower>("PowerBarbarianPersistentRageStart");
+        internal static FeatureDefinitionPower PowerBardGiveBardicInspiration { get; } = GetDefinition<FeatureDefinitionPower>("PowerBardGiveBardicInspiration");
         internal static FeatureDefinitionPower PowerCircleLandNaturalRecovery { get; } = GetDefinition<FeatureDefinitionPower>("PowerCircleLandNaturalRecovery");
         internal static FeatureDefinitionPower PowerClericDivineInterventionCleric { get; } = GetDefinition<FeatureDefinitionPower>("PowerClericDivineInterventionCleric");
         internal static FeatureDefinitionPower PowerClericDivineInterventionPaladin { get; } = GetDefinition<FeatureDefinitionPower>("PowerClericDivineInterventionPaladin");

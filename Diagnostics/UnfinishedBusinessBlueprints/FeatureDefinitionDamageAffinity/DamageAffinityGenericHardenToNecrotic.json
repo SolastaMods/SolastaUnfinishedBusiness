@@ -29,8 +29,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&DamageAffinityDeadMasterHardenToNecroticTitle",
-    "description": "Feature/&DamageAffinityDeadMasterHardenToNecroticDescription",
+    "title": "Feature/&DamageAffinityGenericHardenToNecroticTitle",
+    "description": "Feature/&DamageAffinityGenericHardenToNecroticDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -50,7 +50,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "93b6c812-5d43-5976-9eec-69c9b7745e90",
+  "guid": "44b34f3e-0c4c-5527-8cf1-053015ed46d1",
   "contentPack": 9999,
-  "name": "DamageAffinityDeadMasterHardenToNecrotic"
+  "name": "DamageAffinityGenericHardenToNecrotic"
 }

@@ -7,9 +7,9 @@ using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 
 namespace SolastaUnfinishedBusiness.Subclasses;
 
-internal sealed class WayOfSilhouette : AbstractSubclass
+internal sealed class WayOfTheSilhouette : AbstractSubclass
 {
-    internal WayOfSilhouette()
+    internal WayOfTheSilhouette()
     {
         var powerWayOfSilhouetteDarkness = FeatureDefinitionPowerBuilder
             .Create("PowerWayOfSilhouetteDarkness")
@@ -55,10 +55,10 @@ internal sealed class WayOfSilhouette : AbstractSubclass
             .SetUsesFixed(ActivationTime.BonusAction)
             .SetEffectDescription(SpellDefinitions.MistyStep.EffectDescription)
             .SetShowCasting(true)
-            .SetCustomSubFeatures(
-                new ValidatorsPowerUse(
-                    ValidatorsCharacter
-                        .HasAnyOfConditions(CustomConditionsContext.ConditionInvisibilityEveryRoundHidden)))
+            // .SetCustomSubFeatures(
+            //     new ValidatorsPowerUse(
+            //         ValidatorsCharacter
+            //             .HasAnyOfConditions(CustomConditionsContext.ConditionInvisibilityEveryRoundHidden)))
             .AddToDB();
 
         var lightAffinityWayOfSilhouetteCloakOfSilhouettesWeak = FeatureDefinitionLightAffinityBuilder

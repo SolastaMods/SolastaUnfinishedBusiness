@@ -6,6 +6,7 @@ using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomDefinitions;
+using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Models;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Builders.Features.AutoPreparedSpellsGroupBuilder;
@@ -29,62 +30,36 @@ internal static class CasterFeats
         // telekinetic general
         const string TELEKINETIC = "Telekinetic";
 
-        var pushPresentation = GuiPresentationBuilder.Build("PowerFeatTelekineticPush", Category.Feature,
-            PowerVampiricTouch.GuiPresentation.SpriteReference);
-
-        var pullPresentation = GuiPresentationBuilder.Build("PowerFeatTelekineticPull", Category.Feature,
-            PowerVampiricTouch.GuiPresentation.SpriteReference);
-
         // telekinetic int
-
-        var powerFeatTelekineticIntPush = BuildMotionFormPower("PowerFeatTelekineticIntPush",
-            AttributeDefinitions.Intelligence, MotionForm.MotionType.PushFromOrigin, pushPresentation);
-
-        var powerFeatTelekineticIntPull = BuildMotionFormPower("PowerFeatTelekineticIntPull",
-            AttributeDefinitions.Intelligence, MotionForm.MotionType.DragToOrigin, pullPresentation);
 
         var featTelekineticInt = FeatDefinitionBuilder
             .Create("FeatTelekineticInt")
             .SetGuiPresentation(Category.Feat)
             .SetFeatures(
-                powerFeatTelekineticIntPush,
-                powerFeatTelekineticIntPull,
+                BuildTelekinesis(AttributeDefinitions.Intelligence),
                 AttributeModifierCreed_Of_Pakri)
             .SetFeatFamily(TELEKINETIC)
             .AddToDB();
 
         // telekinetic cha
 
-        var powerFeatTelekineticChaPush = BuildMotionFormPower("PowerFeatTelekineticChaPush",
-            AttributeDefinitions.Charisma, MotionForm.MotionType.PushFromOrigin, pushPresentation);
-
-        var powerFeatTelekineticChaPull = BuildMotionFormPower("PowerFeatTelekineticChaPull",
-            AttributeDefinitions.Charisma, MotionForm.MotionType.DragToOrigin, pullPresentation);
 
         var featTelekineticCha = FeatDefinitionBuilder
             .Create("FeatTelekineticCha")
             .SetGuiPresentation(Category.Feat)
             .SetFeatures(
-                powerFeatTelekineticChaPush,
-                powerFeatTelekineticChaPull,
+                BuildTelekinesis(AttributeDefinitions.Charisma),
                 AttributeModifierCreed_Of_Solasta)
             .SetFeatFamily(TELEKINETIC)
             .AddToDB();
 
         // telekinetic wis
 
-        var powerFeatTelekineticWisPush = BuildMotionFormPower("PowerFeatTelekineticWisPush",
-            AttributeDefinitions.Wisdom, MotionForm.MotionType.PushFromOrigin, pushPresentation);
-
-        var powerFeatTelekineticWisPull = BuildMotionFormPower("PowerFeatTelekineticWisPull",
-            AttributeDefinitions.Wisdom, MotionForm.MotionType.DragToOrigin, pullPresentation);
-
         var featTelekineticWis = FeatDefinitionBuilder
             .Create("FeatTelekineticWis")
             .SetGuiPresentation(Category.Feat)
             .SetFeatures(
-                powerFeatTelekineticWisPush,
-                powerFeatTelekineticWisPull,
+                BuildTelekinesis(AttributeDefinitions.Wisdom),
                 AttributeModifierCreed_Of_Maraike)
             .SetFeatFamily(TELEKINETIC)
             .AddToDB();
@@ -335,18 +310,16 @@ internal static class CasterFeats
     }
 
     [NotNull]
-    private static FeatureDefinitionPower BuildMotionFormPower(
-        string name,
-        string savingThrowDifficultyAbility,
-        MotionForm.MotionType motionType,
-        GuiPresentation guiPresentation)
+    private static FeatureDefinition BuildTelekinesis(string savingThrowDifficultyAbility)
     {
-        return FeatureDefinitionPowerBuilder
-            .Create(name)
-            .SetGuiPresentation(guiPresentation)
+        var name = "FeatTelekinetic";
+        var power = FeatureDefinitionPowerBuilder
+            .Create($"Power{name}{savingThrowDifficultyAbility}")
+            .SetGuiPresentation(name, Category.Feature, Sprites.FeatTelekinetic)
+            //TODO: ideally not hide out of combat, but make it disabled
+            .SetCustomSubFeatures(PowerFromInvocation.Marker)
             .SetUsesFixed(ActivationTime.BonusAction)
-            .SetEffectDescription(EffectDescriptionBuilder
-                .Create()
+            .SetEffectDescription(EffectDescriptionBuilder.Create()
                 .SetTargetingData(Side.All, RangeType.Distance, 6, TargetType.Individuals)
                 .SetSavingThrowData(
                     true,
@@ -354,13 +327,25 @@ internal static class CasterFeats
                     true,
                     EffectDifficultyClassComputation.AbilityScoreAndProficiency,
                     savingThrowDifficultyAbility)
-                .SetEffectForms(EffectFormBuilder
-                    .Create()
-                    .SetMotionForm(motionType, 1)
+                .SetEffectForms(EffectFormBuilder.Create()
+                    .SetMotionForm(MotionForm.MotionType.Telekinesis, 1)
                     .Build())
                 .SetEffectAdvancement(EffectIncrementMethod.None)
                 .SetParticleEffectParameters(PowerWizardArcaneRecovery)
                 .Build())
+            .AddToDB();
+
+        var invocation = CustomInvocationDefinitionBuilder
+            .Create($"CustomInvocation{name}{savingThrowDifficultyAbility}")
+            .SetGuiPresentation(power.GuiPresentation)
+            .SetPoolType(InvocationPoolTypeCustom.Pools.PlaneMagic)
+            .SetGrantedFeature(power)
+            .AddToDB();
+
+        return FeatureDefinitionGrantInvocationsBuilder
+            .Create($"GrantInvocations{name}{savingThrowDifficultyAbility}")
+            .SetGuiPresentationNoContent(true)
+            .SetInvocations(invocation)
             .AddToDB();
     }
 }

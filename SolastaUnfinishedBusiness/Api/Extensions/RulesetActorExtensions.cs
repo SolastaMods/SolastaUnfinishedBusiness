@@ -88,7 +88,7 @@ internal static class RulesetActorExtensions
         return features.SelectMany(f =>
             f is FeatureDefinitionFeatureSet set
                 ? FlattenFeatureList(set.FeatureSet)
-                : new List<FeatureDefinition> { f });
+                : new List<FeatureDefinition> {f});
     }
 
     [NotNull]
@@ -129,5 +129,10 @@ internal static class RulesetActorExtensions
                && !actor.HasConditionOfType(RuleDefinitions.ConditionLevitate)
                && !(actor is RulesetCharacter character &&
                     character.MoveModes.ContainsKey((int)RuleDefinitions.MoveMode.Fly));
+    }
+
+    internal static bool HasAnyConditionOfType(this RulesetActor actor, params string[] conditions)
+    {
+        return conditions.Any(c => actor.HasConditionOfType(c));
     }
 }

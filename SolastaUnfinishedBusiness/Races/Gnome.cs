@@ -93,7 +93,7 @@ internal static class GnomeRaceBuilder
                 proficiencyGnomeLanguages)
             .AddToDB();
 
-        RacesContext.RaceScaleMap[raceGnome] = 8f / 9.4f;
+        RacesContext.RaceScaleMap[raceGnome] = 7f / 9.4f;
         FeatDefinitions.FocusedSleeper.CompatibleRacesPrerequisite.Add(raceGnome.name);
 
         return raceGnome;

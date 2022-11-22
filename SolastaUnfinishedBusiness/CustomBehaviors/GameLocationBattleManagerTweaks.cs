@@ -988,5 +988,29 @@ internal static class GameLocationBattleManagerTweaks
                 instance.triggeredAdditionalDamageTags.Add(provider.NotificationTag);
             }
         }
+
+        /*
+         * ######################################
+         * [CE] EDIT START
+         * Support for `CustomAdditionalDamage`
+         */
+
+        foreach (var feature in attacker.RulesetCharacter.GetSubFeaturesByType<CustomAdditionalDamage>())
+        {
+            if (feature.IsValid(instance, attacker, defender, attackModifier, attackMode, rangedAttack, advantageType,
+                    actualEffectForms, rulesetEffect, criticalHit, firstTarget, out var reactionParams
+                ))
+            {
+                instance.ComputeAndNotifyAdditionalDamage(attacker, defender, feature.Provider, actualEffectForms,
+                    reactionParams, attackMode, criticalHit);
+                instance.triggeredAdditionalDamageTags.Add(feature.Provider.NotificationTag);
+            }
+        }
+
+        /*
+         * Support for for `CustomAdditionalDamage`
+         * [CE] EDIT END
+         * ######################################
+         */
     }
 }

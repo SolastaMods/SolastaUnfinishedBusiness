@@ -2,7 +2,7 @@
 
 internal class ConditionSourceCanUsePowerToImproveFailedSaveRoll
 {
-    public ConditionSourceCanUsePowerToImproveFailedSaveRoll(FeatureDefinitionPower power, string reactionName)
+    protected ConditionSourceCanUsePowerToImproveFailedSaveRoll(FeatureDefinitionPower power, string reactionName)
     {
         Power = power;
         ReactionName = reactionName;

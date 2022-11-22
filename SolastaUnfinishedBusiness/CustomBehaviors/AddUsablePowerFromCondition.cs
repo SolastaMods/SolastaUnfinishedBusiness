@@ -20,6 +20,7 @@ public class AddUsablePowerFromCondition : ICustomConditionFeature
         }
 
         var usablePower = new RulesetUsablePower(power, null, null);
+        
         usablePower.Recharge();
         target.UsablePowers.Add(usablePower);
         target.RefreshUsablePower(usablePower);

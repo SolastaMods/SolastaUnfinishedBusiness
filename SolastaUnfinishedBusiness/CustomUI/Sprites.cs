@@ -152,6 +152,9 @@ public static class Sprites
 
     internal static AssetReferenceSprite SpellRaiseWightLord =>
         GetSprite("SpellRaiseWightLord", Resources.SpellRaiseWightLord, 128);
+    
+    internal static AssetReferenceSprite FeatTelekinetic =>
+        GetSprite("FeatTelekinetic", Resources.FeatTelekinetic, 128);
 
     #endregion
 

@@ -500,6 +500,7 @@ internal static class PowerBundle
     internal static void SpendBundledPowerIfNeeded([NotNull] CharacterActionSpendPower action)
     {
         var activePower = action.ActionParams.RulesetEffect as RulesetEffectPower;
+        
         if (activePower is not { OriginItem: null })
         {
             return;
@@ -530,7 +531,6 @@ internal static class PowerBundle
     internal static bool PowerBoxActivated(UsablePowerBox box)
     {
         var masterPower = box.usablePower.PowerDefinition;
-
         var bundle = GetBundle(masterPower);
 
         if (bundle == null)
@@ -572,7 +572,10 @@ internal static class PowerBundle
         var invocation = box.Invocation;
         var masterPower = invocation.InvocationDefinition.GetPower();
 
-        if (masterPower == null) { return true; }
+        if (masterPower == null)
+        {
+            return true;
+        }
 
         var bundle = GetBundle(masterPower);
 
