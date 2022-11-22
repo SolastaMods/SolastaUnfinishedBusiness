@@ -35,7 +35,7 @@ internal static class KoboldRaceBuilder
             .SetEffectDescription(EffectDescriptionBuilder
                 .Create()
                 .SetDurationData(DurationType.Round, 1)
-                .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Cube, 3)
+                .SetTargetingData(Side.Enemy, RangeType.Self, 0, TargetType.Cube, 3)
                 .SetEffectForms(EffectFormBuilder
                     .Create()
                     .SetConditionForm(CustomConditionsContext.Distracted, ConditionForm.ConditionOperation.Add,
