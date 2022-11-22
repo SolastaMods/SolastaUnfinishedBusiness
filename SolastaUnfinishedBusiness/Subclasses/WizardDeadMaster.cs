@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.Extensions;
+using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomInterfaces;
@@ -34,11 +35,12 @@ internal sealed class WizardDeadMaster : AbstractSubclass
             .SetPreparedSpellGroups(GetDeadSpellAutoPreparedGroups())
             .AddToDB();
 
-        var targetReducedToZeroHpDeadMasterStarkHarvest = FeatureDefinitionBuilder
+        var starkHarvest = FeatureDefinitionBuilder
             .Create("TargetReducedToZeroHpDeadMasterStarkHarvest")
             .SetGuiPresentation(Category.Feature)
-            .SetCustomSubFeatures(new TargetReducedToZeroHpDeadMasterStarkHarvest())
             .AddToDB();
+
+        starkHarvest.SetCustomSubFeatures(new StarkHarvest(starkHarvest));
 
         const string ChainsName = "SummoningAffinityDeadMasterUndeadChains";
 
@@ -105,7 +107,7 @@ internal sealed class WizardDeadMaster : AbstractSubclass
                 deadMasterUndeadChains
             )
             .AddFeaturesAtLevel(6,
-                targetReducedToZeroHpDeadMasterStarkHarvest)
+                starkHarvest)
             .AddFeaturesAtLevel(10,
                 DamageAffinityGenericHardenToNecrotic)
             .AddFeaturesAtLevel(14,
@@ -273,8 +275,15 @@ internal sealed class WizardDeadMaster : AbstractSubclass
         return modified;
     }
 
-    private sealed class TargetReducedToZeroHpDeadMasterStarkHarvest : ITargetReducedToZeroHp
+    private sealed class StarkHarvest : ITargetReducedToZeroHp
     {
+        private readonly FeatureDefinition feature;
+
+        public StarkHarvest(FeatureDefinition feature)
+        {
+            this.feature = feature;
+        }
+
         public IEnumerator HandleCharacterReducedToZeroHp(
             GameLocationCharacter attacker,
             GameLocationCharacter downedCreature,
@@ -293,12 +302,32 @@ internal sealed class WizardDeadMaster : AbstractSubclass
                 yield break;
             }
 
+            var usedSpecialFeatures = attacker.UsedSpecialFeatures;
+            usedSpecialFeatures.TryAdd(feature.Name, 0);
+
+            if (usedSpecialFeatures[feature.Name] > 0)
+            {
+                yield break;
+            }
+
+            usedSpecialFeatures[feature.Name]++;
+
             var rulesetAttacker = attacker.RulesetCharacter;
             var spell = spellEffect.SpellDefinition;
             var isNecromancy = spell.SchoolOfMagic == SchoolNecromancy;
             var healingReceived = (isNecromancy ? 3 : 2) * spell.SpellLevel;
 
-            rulesetAttacker.ReceiveHealing(healingReceived, true, rulesetAttacker.Guid);
+            GameConsoleHelper.LogCharacterUsedFeature(rulesetAttacker, feature, indent: true);
+
+            if (rulesetAttacker.MissingHitPoints > 0)
+            {
+                rulesetAttacker.ReceiveHealing(healingReceived, true, rulesetAttacker.Guid);
+            }
+            else if (rulesetAttacker.TemporaryHitPoints <= healingReceived)
+            {
+                rulesetAttacker.ReceiveTemporaryHitPoints(healingReceived, DurationType.Minute, 1,
+                    TurnOccurenceType.EndOfTurn, rulesetAttacker.Guid);
+            }
         }
     }
 }
