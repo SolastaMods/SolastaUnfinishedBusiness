@@ -8,7 +8,7 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:PowerCircleOfTheNightWildShapeCombat:c619b94c-d2d8-5e01-8921-65cdd7f32872",
+      "featureDefinition": "Definition:FeatureSetCircleOfTheNightWildShapeCombat:27a4e9da-c8d6-5ec3-a88e-590209648f72",
       "level": 2
     },
     {
@@ -20,6 +20,11 @@
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:PowerCircleOfTheNightPrimalStrike:174e3a39-0e45-5857-ba71-a4a0ba2ffcc9",
       "level": 6
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:FeatureSetCircleOfTheNightElementalForms:8c43308c-2202-5d95-939d-e5cb5f999c80",
+      "level": 10
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",

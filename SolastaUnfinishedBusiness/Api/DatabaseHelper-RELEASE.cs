@@ -48,6 +48,7 @@ namespace SolastaUnfinishedBusiness.Api;
         internal static CharacterRaceDefinition Dragonborn { get; } = GetDefinition<CharacterRaceDefinition>("Dragonborn");
         internal static CharacterRaceDefinition Dwarf { get; } = GetDefinition<CharacterRaceDefinition>("Dwarf");
         internal static CharacterRaceDefinition DwarfHill { get; } = GetDefinition<CharacterRaceDefinition>("DwarfHill");
+        internal static CharacterRaceDefinition DwarfSnow { get; } = GetDefinition<CharacterRaceDefinition>("DwarfSnow");
         internal static CharacterRaceDefinition Elf { get; } = GetDefinition<CharacterRaceDefinition>("Elf");
         internal static CharacterRaceDefinition ElfHigh { get; } = GetDefinition<CharacterRaceDefinition>("ElfHigh");
         internal static CharacterRaceDefinition ElfSylvan { get; } = GetDefinition<CharacterRaceDefinition>("ElfSylvan");
@@ -619,6 +620,19 @@ namespace SolastaUnfinishedBusiness.Api;
         internal static FormationDefinition SingleCreature { get; } = GetDefinition<FormationDefinition>("SingleCreature");
         internal static FormationDefinition Squad4 { get; } = GetDefinition<FormationDefinition>("Squad4");
     }
+    internal static class GadgetBlueprints
+    {
+        internal static GadgetBlueprint TeleporterIndividual { get; } = GetDefinition<GadgetBlueprint>("TeleporterIndividual");
+        internal static GadgetBlueprint TeleporterParty { get; } = GetDefinition<GadgetBlueprint>("TeleporterParty");
+        internal static GadgetBlueprint VirtualExit { get; } = GetDefinition<GadgetBlueprint>("VirtualExit");
+        internal static GadgetBlueprint VirtualExitMultiple { get; } = GetDefinition<GadgetBlueprint>("VirtualExitMultiple");
+        internal static GadgetBlueprint Exit { get; } = GetDefinition<GadgetBlueprint>("Exit");
+        internal static GadgetBlueprint ExitMultiple { get; } = GetDefinition<GadgetBlueprint>("ExitMultiple");
+    }
+    internal static class GadgetDefinitions
+    {
+        internal static GadgetDefinition Activator { get; } = GetDefinition<GadgetDefinition>("Activator");
+    }
     internal static class InvocationDefinitions
     {
         internal static InvocationDefinition EldritchSpear { get; } = GetDefinition<InvocationDefinition>("EldritchSpear");
@@ -948,6 +962,7 @@ namespace SolastaUnfinishedBusiness.Api;
     }
     internal static class MorphotypeElementDefinitions
     {
+        internal static MorphotypeElementDefinition BeardShape_None { get; } = GetDefinition<MorphotypeElementDefinition>("BeardShape_None");
         internal static MorphotypeElementDefinition BodyDecorationColor_Default_00 { get; } = GetDefinition<MorphotypeElementDefinition>("BodyDecorationColor_Default_00");
         internal static MorphotypeElementDefinition BodyDecorationColor_SorcererManaPainter_00 { get; } = GetDefinition<MorphotypeElementDefinition>("BodyDecorationColor_SorcererManaPainter_00");
         internal static MorphotypeElementDefinition BodyDecorationColor_SorcererManaPainter_01 { get; } = GetDefinition<MorphotypeElementDefinition>("BodyDecorationColor_SorcererManaPainter_01");

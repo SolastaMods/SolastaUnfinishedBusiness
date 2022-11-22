@@ -196,7 +196,6 @@ namespace SolastaCeBootstrap
                 "EncounterTable",
                 "Environment",
                 "EnvironmentEffect",
-                "Gadget",
                 "HumanoidMonsterPresentation",
                 "Inventory",
                 "Investigation",

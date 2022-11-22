@@ -500,7 +500,7 @@ internal static class PowerBundle
     internal static void SpendBundledPowerIfNeeded([NotNull] CharacterActionSpendPower action)
     {
         var activePower = action.ActionParams.RulesetEffect as RulesetEffectPower;
-        
+
         if (activePower is not { OriginItem: null })
         {
             return;

@@ -35,11 +35,16 @@ internal static class CharacterContext
     internal static void Load()
     {
         // +1 here as need to count the Alternate Human Feat
-        for (var i = 2; i <= MaxInitialFeats + 1; i++)
+        // + 20 here to allow it to be set directly on XML file
+        for (var i = 2; i <= MaxInitialFeats + 1 + 20; i++)
         {
+            var s = i.ToString();
+
             _ = FeatureDefinitionPointPoolBuilder
                 .Create($"PointPool{i}BonusFeats")
-                .SetGuiPresentation($"PointPoolSelect{i}BonusFeats", Category.Feature)
+                .SetGuiPresentation(
+                    Gui.Format("Feature/&PointPoolSelectBonusFeatsTitle", s),
+                    Gui.Format("Feature/&PointPoolSelectBonusFeatsDescription", s))
                 .SetPool(HeroDefinitions.PointsPoolType.Feat, i)
                 .AddToDB();
         }
@@ -198,6 +203,7 @@ internal static class CharacterContext
                          x.Category == MorphotypeElementDefinition.ElementCategory.Eye))
             {
                 morphotype.subClassFilterMask = GraphicsDefinitions.MorphotypeSubclassFilterTag.All;
+                morphotype.originAllowed = EyeColor_001.OriginAllowed;
             }
 
             var races = DatabaseRepository.GetDatabase<CharacterRaceDefinition>();
@@ -231,6 +237,14 @@ internal static class CharacterContext
             {
                 morphotype.playerSelectable = true;
             }
+        }
+
+        if (Main.Settings.AllowBeardlessDwarves)
+        {
+            Dwarf.RacePresentation.needBeard = false;
+            DwarfHill.RacePresentation.needBeard = false;
+            DwarfSnow.RacePresentation.needBeard = false;
+            Dwarf.RacePresentation.MaleBeardShapeOptions.Add(BeardShape_None.Name);
         }
 
         if (Main.Settings.UnlockMarkAndTattoosForAllCharacters)

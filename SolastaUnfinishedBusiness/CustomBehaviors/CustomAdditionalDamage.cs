@@ -3,16 +3,16 @@
 namespace SolastaUnfinishedBusiness.CustomBehaviors;
 
 /**
- * Can be used tt trigger Additional Damage feature with custom checks
+ * Can be used to trigger Additional Damage feature with custom checks
  */
 public abstract class CustomAdditionalDamage
 {
-    public IAdditionalDamageProvider Provider { get; }
-
     public CustomAdditionalDamage(IAdditionalDamageProvider provider)
     {
-        this.Provider = provider;
+        Provider = provider;
     }
+
+    public IAdditionalDamageProvider Provider { get; }
 
     internal abstract bool IsValid(GameLocationBattleManager battleManager,
         GameLocationCharacter attacker,

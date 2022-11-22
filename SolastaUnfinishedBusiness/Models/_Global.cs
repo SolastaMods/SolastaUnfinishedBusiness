@@ -1,6 +1,8 @@
 ﻿using System.Collections.Generic;
 using JetBrains.Annotations;
+using SolastaUnfinishedBusiness.Api.Extensions;
 using SolastaUnfinishedBusiness.CustomBehaviors;
+using SolastaUnfinishedBusiness.CustomInterfaces;
 using UnityEngine;
 
 namespace SolastaUnfinishedBusiness.Models;
@@ -68,7 +70,7 @@ internal static class Global
         CurrentAction = characterAction;
         ActionCharacter = characterAction.ActingCharacter;
 
-        Main.Log($"{ActionCharacter?.Name} -> {CurrentAction.ActionDefinition.Name}");
+        Main.Log($"{ActionCharacter?.Name} -> {CurrentAction.ActionDefinition.Name} STARTED");
 
         switch (characterAction)
         {
@@ -84,6 +86,20 @@ internal static class Global
             case CharacterActionSpendPower spendPower:
                 PowerBundle.SpendBundledPowerIfNeeded(spendPower);
                 break;
+        }
+    }
+
+    internal static void ActionFinished(
+        GameLocationCharacter actingCharacter,
+        CharacterActionParams actionParams,
+        ActionDefinition actionDefinition)
+    {
+        Main.Log($"{actingCharacter.Name} -> {actionDefinition.Name} FINISHED");
+
+        foreach (var feature in actingCharacter.RulesetCharacter
+                     .GetSubFeaturesByType<IOnAfterActionFeature>())
+        {
+            feature.OnAfterAction(actingCharacter, actionParams, actionDefinition);
         }
     }
 }

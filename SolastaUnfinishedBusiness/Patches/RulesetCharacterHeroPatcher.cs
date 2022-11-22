@@ -234,7 +234,7 @@ public static class RulesetCharacterHeroPatcher
             //PATCH: clears cached customized spell effects
             PowerBundle.ClearSpellEffectCache(__instance);
 
-#if false            
+#if false
             //PATCH: Support for `IHeroRefreshed`
             __instance.GetSubFeaturesByType<IHeroRefreshed>()
                 .ForEach(listener => listener.OnHeroRefreshed(__instance));

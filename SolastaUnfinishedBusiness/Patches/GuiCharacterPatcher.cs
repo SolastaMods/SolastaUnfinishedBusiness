@@ -50,6 +50,7 @@ public static class GuiCharacterPatcher
             uniqueLevelSlotsGroup.gameObject.SetActive(false);
         }
 
+        [UsedImplicitly]
         public static void GetSlotsNumber(
             RulesetSpellRepertoire spellRepertoire,
             int spellLevel,
@@ -67,13 +68,8 @@ public static class GuiCharacterPatcher
                 return;
             }
 
-            var sharedCasterLevel = SharedSpellsContext.GetSharedCasterLevel(hero);
-            var warlockSpellLevel = SharedSpellsContext.GetWarlockSpellLevel(hero);
-            var sharedSpellSlots =
-                SharedSpellsContext.FullCastingSlots[sharedCasterLevel - 1].Slots[warlockSpellLevel - 1];
-
-            remaining -= sharedSpellSlots;
-            max -= sharedSpellSlots;
+            max = SharedSpellsContext.GetWarlockMaxSlots(hero);
+            remaining = max - SharedSpellsContext.GetWarlockUsedSlots(hero);
         }
 
         public static IEnumerable<CodeInstruction> Transpiler([NotNull] IEnumerable<CodeInstruction> instructions)
