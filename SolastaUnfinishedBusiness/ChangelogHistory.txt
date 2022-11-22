@@ -2,6 +2,7 @@
 
 1.4.28.A:
 
+- added Circle of The Night (beta)
 - demoted Gnome
 - fixed spell slots display on inspection
 - fixed translations
