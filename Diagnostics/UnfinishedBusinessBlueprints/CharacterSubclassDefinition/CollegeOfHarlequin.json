@@ -1,0 +1,64 @@
+{
+  "$type": "CharacterSubclassDefinition, Assembly-CSharp",
+  "featureUnlocks": [
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:PowerCollegeOfHarlequinCombatInspiration:b22d9565-0c7c-5a5b-8783-416d5730ac4b",
+      "level": 3
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:ProficiencyCollegeOfHarlequinMartialWeapon:459f109d-5d1c-540a-aefb-d3a3290e349d",
+      "level": 3
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:TargetReducedToZeroHpPowerCollegeOfHarlequinTerrificPerformance:7c637a75-1093-551a-87e5-76573a64250c",
+      "level": 3
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:MagicAffinityCasterFightingCombatMagic:d97ab358-d6a2-5b95-909f-e18f70293ad3",
+      "level": 3
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:AttributeModifierCasterFightingExtraAttack:d683c90c-1240-51bc-878a-617aa7133df0",
+      "level": 6
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:PowerCollegeOfHarlequinImprovedCombatInspiration:27cc7798-4a8b-553d-82ba-698af5e03805",
+      "level": 6
+    }
+  ],
+  "personalityFlagOccurences": [],
+  "morphotypeSubclassFilterTag": "Default",
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Subclass/&CollegeOfHarlequinTitle",
+    "description": "Subclass/&CollegeOfHarlequinDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "29d762aa92314b04ea0c8f607efe10ae",
+      "m_SubObjectName": "Rogue_Shadowcaster",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "89219b52-79be-52bb-85b3-0abefe106d80",
+  "contentPack": 9999,
+  "name": "CollegeOfHarlequin"
+}

@@ -15,8 +15,8 @@ namespace SolastaUnfinishedBusiness.Subclasses;
 internal sealed class CollegeOfHarlequin : AbstractSubclass
 {
     private static readonly FeatureDefinitionPower PowerTerrificPerformance = FeatureDefinitionPowerBuilder
-        .Create("PowerTerrificPerformance")
-        .SetGuiPresentation("TerrificPerformance", Category.Feature)
+        .Create("PowerCollegeOfHarlequinTerrificPerformance")
+        .SetGuiPresentation(Category.Feature)
         .SetEffectDescription(EffectDescriptionBuilder
             .Create()
             .SetDurationData(DurationType.Round, 1)
@@ -49,9 +49,8 @@ internal sealed class CollegeOfHarlequin : AbstractSubclass
     internal CollegeOfHarlequin()
     {
         var powerCombatInspiration = FeatureDefinitionPowerBuilder
-            .Create("PowerCombatInspiration")
-            .SetGuiPresentation("CombatInspiration", Category.Feature,
-                SpellDefinitions.MagicWeapon.GuiPresentation.spriteReference)
+            .Create("PowerCollegeOfHarlequinCombatInspiration")
+            .SetGuiPresentation(Category.Feature, SpellDefinitions.MagicWeapon)
             .SetUsesFixed(ActivationTime.NoCost, RechargeRate.BardicInspiration)
             .SetEffectDescription(EffectDescriptionBuilder
                 .Create()
@@ -62,28 +61,28 @@ internal sealed class CollegeOfHarlequin : AbstractSubclass
                 .SetEffectForms(EffectFormBuilder
                     .Create()
                     .SetConditionForm(ConditionDefinitionBuilder
-                        .Create("ConditionFightingAbilityEnhanced")
-                        .SetGuiPresentation("ConditionFightingAbilityEnhanced", Category.Condition,
-                            ConditionDefinitions.ConditionHeraldOfBattle.GuiPresentation.SpriteReference)
+                        .Create("ConditionCollegeOfHarlequinFightingAbilityEnhanced")
+                        .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionHeraldOfBattle)
                         .AddFeatures(FeatureDefinitionAttributeModifierBuilder
-                                .Create("CombatInspirationArmorClassEnhancement")
-                                .SetGuiPresentation("CombatInspirationArmorClassEnhancement", Category.Feature)
+                                .Create("AttributeModifierCollegeOfHarlequinCombatInspirationArmorClassEnhancement")
+                                .SetGuiPresentation(Category.Feature)
                                 .SetModifier(FeatureDefinitionAttributeModifier.AttributeModifierOperation.Additive,
                                     AttributeDefinitions.ArmorClass)
                                 .AddToDB(),
                             FeatureDefinitionMovementAffinityBuilder
-                                .Create("CombatInspirationMovementEnhancement")
-                                .SetGuiPresentation("CombatInspirationMovementEnhancement", Category.Feature)
+                                .Create("MovementAffinityCollegeOfHarlequinCombatInspirationMovementEnhancement")
+                                .SetGuiPresentation(Category.Feature)
                                 .SetCustomSubFeatures(new UseBardicDieRollForSpeedModifier())
                                 .AddToDB(),
                             FeatureDefinitionAttackModifierBuilder
-                                .Create("CombatInspirationAttackEnhancement")
-                                .SetGuiPresentation("CombatInspirationAttackEnhancement", Category.Feature)
+                                .Create("AttackModifierCollegeOfHarlequinCombatInspirationAttackEnhancement")
+                                .SetGuiPresentation(Category.Feature)
                                 .SetCustomSubFeatures(new AddBardicDieRollToAttackAndDamage())
                                 .AddToDB()
                         )
                         .SetCustomSubFeatures(new ConditionCombatInspired())
-                        .AddToDB(), ConditionForm.ConditionOperation.Add)
+                        .AddToDB(), 
+                        ConditionForm.ConditionOperation.Add)
                     .Build())
                 .Build()
             )
@@ -91,34 +90,34 @@ internal sealed class CollegeOfHarlequin : AbstractSubclass
 
         var proficiencyCollegeOfHarlequinMartialWeapon = FeatureDefinitionProficiencyBuilder
             .Create("ProficiencyCollegeOfHarlequinMartialWeapon")
-            .SetGuiPresentation("ProficiencyCollegeOfHarlequinMartialWeapon", Category.Feature)
+            .SetGuiPresentation(Category.Feature)
             .SetProficiencies(ProficiencyType.Weapon,
                 EquipmentDefinitions.SimpleWeaponCategory, EquipmentDefinitions.MartialWeaponCategory)
             .AddToDB();
 
         var featureTerrificPerformance = FeatureDefinitionBuilder
-            .Create("TargetReducedToZeroHpPowerTerrificPerformance")
-            .SetGuiPresentation("TerrificPerformance", Category.Feature)
+            .Create("TargetReducedToZeroHpPowerCollegeOfHarlequinTerrificPerformance")
+            .SetGuiPresentation("PowerCollegeOfHarlequinTerrificPerformance", Category.Feature)
             .SetCustomSubFeatures(new TargetReducedToZeroHpTerrificPerformance())
             .AddToDB();
 
         var powerImprovedCombatInspiration = FeatureDefinitionPowerBuilder
-            .Create("PowerImprovedCombatInspiration")
-            .SetGuiPresentation("ImproveCombatInspiration", Category.Feature)
+            .Create("PowerCollegeOfHarlequinImprovedCombatInspiration")
+            .SetGuiPresentation(Category.Feature)
             .SetEffectDescription(EffectDescriptionBuilder
                 .Create()
                 .SetDurationData(DurationType.Instantaneous)
                 .SetEffectForms(EffectFormBuilder
                     .Create()
                     .SetConditionForm(ConditionDefinitionBuilder
-                        .Create("ConditionRegainBardicInspirationOnKill")
+                        .Create("ConditionCollegeOfHarlequinRegainBardicInspirationOnKill")
                         .SetGuiPresentationNoContent(true)
                         .SetSilent(Silent.WhenAddedOrRemoved)
                         .SetCustomSubFeatures(new ConditionRegainBardicInspirationDieOnKill())
                         .AddToDB(), ConditionForm.ConditionOperation.Add)
                     .Build())
-                .SetParticleEffectParameters(FeatureDefinitionPowers.PowerBardGiveBardicInspiration.EffectDescription
-                    .effectParticleParameters)
+                .SetParticleEffectParameters(
+                    FeatureDefinitionPowers.PowerBardGiveBardicInspiration.EffectDescription.effectParticleParameters)
                 .Build()
             )
             .SetUsesFixed(ActivationTime.OnReduceCreatureToZeroHPAuto)
@@ -126,9 +125,10 @@ internal sealed class CollegeOfHarlequin : AbstractSubclass
 
         Subclass = CharacterSubclassDefinitionBuilder
             .Create("CollegeOfHarlequin")
-            .SetOrUpdateGuiPresentation("CollegeOfHarlequin", Category.Subclass,
-                CharacterSubclassDefinitions.RoguishShadowCaster)
-            .AddFeaturesAtLevel(3, powerCombatInspiration, featureTerrificPerformance,
+            .SetOrUpdateGuiPresentation(Category.Subclass, CharacterSubclassDefinitions.RoguishShadowCaster)
+            .AddFeaturesAtLevel(3,
+                powerCombatInspiration,
+                featureTerrificPerformance,
                 proficiencyCollegeOfHarlequinMartialWeapon,
                 CommonBuilders.MagicAffinityCasterFightingCombatMagic)
             .AddFeaturesAtLevel(6,
@@ -166,8 +166,7 @@ internal sealed class CollegeOfHarlequin : AbstractSubclass
 
         public void ApplyFeature(RulesetCharacter target, RulesetCondition rulesetCondition)
         {
-            if (target is not RulesetCharacterHero hero ||
-                hero.GetBardicInspirationDieValue() == DieType.D1)
+            if (target is not RulesetCharacterHero hero || hero.GetBardicInspirationDieValue() == DieType.D1)
             {
                 return;
             }
@@ -178,6 +177,7 @@ internal sealed class CollegeOfHarlequin : AbstractSubclass
             var console = Gui.Game.GameConsole;
             var entry = new GameConsoleEntry("Feedback/&BardicInspirationUsedToBoostCombatAbility",
                 console.consoleTableDefinition);
+
             console.AddCharacterEntry(target, entry);
             entry.AddParameter(ConsoleStyleDuplet.ParameterType.Positive, Gui.FormatDieTitle(dieType));
             entry.AddParameter(ConsoleStyleDuplet.ParameterType.Positive, dieRoll.ToString());
@@ -185,6 +185,7 @@ internal sealed class CollegeOfHarlequin : AbstractSubclass
 
             // for armor class
             var feature = rulesetCondition.ConditionDefinition.Features[0] as FeatureDefinitionAttributeModifier;
+
             if (feature != null)
             {
                 feature.modifierValue = dieRoll;
@@ -197,7 +198,9 @@ internal sealed class CollegeOfHarlequin : AbstractSubclass
         public void RemoveFeature(RulesetCharacter target, RulesetCondition rulesetCondition)
         {
             RemoveBardicRoll(target.guid);
+
             var armorClassAttribute = target.attributes[AttributeDefinitions.ArmorClass];
+
             armorClassAttribute.RemoveModifiersByTags(CombatInspiredEnhancedArmorClass);
         }
     }
@@ -228,7 +231,8 @@ internal sealed class CollegeOfHarlequin : AbstractSubclass
 
     private sealed class TargetReducedToZeroHpTerrificPerformance : ITargetReducedToZeroHp
     {
-        public IEnumerator HandleCharacterReducedToZeroHp(GameLocationCharacter attacker,
+        public IEnumerator HandleCharacterReducedToZeroHp(
+            GameLocationCharacter attacker,
             GameLocationCharacter downedCreature,
             RulesetAttackMode attackMode, RulesetEffect activeEffect)
         {
@@ -244,8 +248,8 @@ internal sealed class CollegeOfHarlequin : AbstractSubclass
                 yield break;
             }
 
-            var proficiencyBonus = attacker.RulesetCharacter.GetAttribute(AttributeDefinitions.ProficiencyBonus)
-                .CurrentValue;
+            var proficiencyBonus =
+                attacker.RulesetCharacter.GetAttribute(AttributeDefinitions.ProficiencyBonus).CurrentValue;
             var charisma = attacker.RulesetCharacter.GetAttribute(AttributeDefinitions.Charisma).CurrentValue;
             var rulesetAttacker = attacker.RulesetCharacter;
             var usablePower = new RulesetUsablePower(PowerTerrificPerformance, null, null)
