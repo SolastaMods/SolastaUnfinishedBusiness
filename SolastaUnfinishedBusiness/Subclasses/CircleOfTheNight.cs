@@ -28,11 +28,10 @@ internal sealed class CircleOfTheNight : AbstractSubclass
 
         // Combat Wild Shape Healing
         // While wild shaped, you can use a bonus action to heal yourself for 1d8 hit points.
-        // You can use this feature a number of times equal to your Wisdom modifier per long rest
+        // You can use this feature a number of times equal to your Proficiency Modifier per form per long rest
         var powerCircleOfTheNightWildShapeHealing = FeatureDefinitionPowerBuilder
             .Create("PowerCircleOfTheNightWildShapeHealing")
             .SetGuiPresentation(Category.Feature, PowerPaladinCureDisease)
-            //.SetUsesFixed(ActivationTime.BonusAction, RechargeRate.LongRest, 1, 2) // manual proficiency
             .SetUsesProficiencyBonus(ActivationTime.BonusAction)
             .SetEffectDescription(CombatHealing())
             .AddToDB();
@@ -70,6 +69,12 @@ internal sealed class CircleOfTheNight : AbstractSubclass
             .SetOverriddenPower(powerCircleOfTheNightWildShapeImprovedHealing)
             .AddToDB();
 
+        // Elemental Forms
+        var featureSetCircleOfTheNightElementalForms = FeatureDefinitionFeatureSetBuilder
+            .Create("FeatureSetCircleOfTheNightElementalForms")
+            .SetGuiPresentation(Category.Feature)
+            .AddToDB();
+
 
         Subclass = CharacterSubclassDefinitionBuilder
             .Create(CircleOfTheNightName)
@@ -81,6 +86,7 @@ internal sealed class CircleOfTheNight : AbstractSubclass
                 powerCircleOfTheNightPrimalStrike,
                 powerCircleOfTheNightWildShapeImprovedHealing)
             .AddFeaturesAtLevel(10,
+                featureSetCircleOfTheNightElementalForms,
                 powerCircleOfTheNightWildShapeSuperiorHealing)
             .AddToDB();
     }
