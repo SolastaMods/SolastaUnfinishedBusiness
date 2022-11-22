@@ -198,6 +198,7 @@ internal static class CharacterContext
                          x.Category == MorphotypeElementDefinition.ElementCategory.Eye))
             {
                 morphotype.subClassFilterMask = GraphicsDefinitions.MorphotypeSubclassFilterTag.All;
+                morphotype.originAllowed = EyeColor_001.OriginAllowed;
             }
 
             var races = DatabaseRepository.GetDatabase<CharacterRaceDefinition>();
