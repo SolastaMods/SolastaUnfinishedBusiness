@@ -35,11 +35,16 @@ internal static class CharacterContext
     internal static void Load()
     {
         // +1 here as need to count the Alternate Human Feat
-        for (var i = 2; i <= MaxInitialFeats + 1; i++)
+        // + 20 here to allow it to be set directly on XML file
+        for (var i = 2; i <= MaxInitialFeats + 1 + 20; i++)
         {
+            var s = i.ToString();
+
             _ = FeatureDefinitionPointPoolBuilder
                 .Create($"PointPool{i}BonusFeats")
-                .SetGuiPresentation($"PointPoolSelect{i}BonusFeats", Category.Feature)
+                .SetGuiPresentation(
+                    Gui.Format("Feature/&PointPoolSelectBonusFeatsTitle", s),
+                    Gui.Format("Feature/&PointPoolSelectBonusFeatsDescription", s))
                 .SetPool(HeroDefinitions.PointsPoolType.Feat, i)
                 .AddToDB();
         }
