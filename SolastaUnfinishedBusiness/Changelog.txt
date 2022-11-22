@@ -1,11 +1,9 @@
 ﻿CHANGES:
 
-1.4.28.A:
+1.4.28.B:
 
-- added Circle of The Night (beta)
-- demoted Gnome
-- fixed spell slots display on inspection
-- fixed translations
-- fixed Kobold Draconic Cry targeting allies
-- fixed Wild Master summon powers display
-- moved IOnAttackEffects handling to delegates
+- added an UI 10th level feature description on Circle of The Nights
+- allowed the horror of beardless dwarves
+- disabled some patches in favor of game delegates
+- fixed Circle of The Night combat healing to only work under WS
+- fixed Warlock slots display issues on inspection under MC

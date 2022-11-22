@@ -48,6 +48,7 @@ namespace SolastaUnfinishedBusiness.Api;
         internal static CharacterRaceDefinition Dragonborn { get; } = GetDefinition<CharacterRaceDefinition>("Dragonborn");
         internal static CharacterRaceDefinition Dwarf { get; } = GetDefinition<CharacterRaceDefinition>("Dwarf");
         internal static CharacterRaceDefinition DwarfHill { get; } = GetDefinition<CharacterRaceDefinition>("DwarfHill");
+        internal static CharacterRaceDefinition DwarfSnow { get; } = GetDefinition<CharacterRaceDefinition>("DwarfSnow");
         internal static CharacterRaceDefinition Elf { get; } = GetDefinition<CharacterRaceDefinition>("Elf");
         internal static CharacterRaceDefinition ElfHigh { get; } = GetDefinition<CharacterRaceDefinition>("ElfHigh");
         internal static CharacterRaceDefinition ElfSylvan { get; } = GetDefinition<CharacterRaceDefinition>("ElfSylvan");
@@ -961,6 +962,7 @@ namespace SolastaUnfinishedBusiness.Api;
     }
     internal static class MorphotypeElementDefinitions
     {
+        internal static MorphotypeElementDefinition BeardShape_None { get; } = GetDefinition<MorphotypeElementDefinition>("BeardShape_None");
         internal static MorphotypeElementDefinition BodyDecorationColor_Default_00 { get; } = GetDefinition<MorphotypeElementDefinition>("BodyDecorationColor_Default_00");
         internal static MorphotypeElementDefinition BodyDecorationColor_SorcererManaPainter_00 { get; } = GetDefinition<MorphotypeElementDefinition>("BodyDecorationColor_SorcererManaPainter_00");
         internal static MorphotypeElementDefinition BodyDecorationColor_SorcererManaPainter_01 { get; } = GetDefinition<MorphotypeElementDefinition>("BodyDecorationColor_SorcererManaPainter_01");

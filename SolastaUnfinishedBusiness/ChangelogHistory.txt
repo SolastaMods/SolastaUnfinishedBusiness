@@ -1,5 +1,13 @@
 ﻿CHANGES:
 
+1.4.28.B:
+
+- added an UI 10th level feature description on Circle of The Nights
+- allowed the horror of beardless dwarves
+- disabled some patches in favor of game delegates
+- fixed Circle of The Night combat healing to only work under WS
+- fixed Warlock slots display issues on inspection under MC
+
 1.4.28.A:
 
 - added Circle of The Night (beta)
