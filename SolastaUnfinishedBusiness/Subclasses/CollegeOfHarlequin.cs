@@ -40,10 +40,8 @@ internal sealed class CollegeOfHarlequin : AbstractSubclass
                             ConditionDefinitions.ConditionPatronHiveWeakeningPheromones,
                         operation = ConditionForm.ConditionOperation.Add
                     }
-                }
-            )
-            .Build()
-        )
+                })
+            .Build())
         .AddToDB();
 
     internal CollegeOfHarlequin()
@@ -78,14 +76,12 @@ internal sealed class CollegeOfHarlequin : AbstractSubclass
                                     .Create("AttackModifierCollegeOfHarlequinCombatInspirationAttackEnhancement")
                                     .SetGuiPresentation(Category.Feature)
                                     .SetCustomSubFeatures(new AddBardicDieRollToAttackAndDamage())
-                                    .AddToDB()
-                            )
+                                    .AddToDB())
                             .SetCustomSubFeatures(new ConditionCombatInspired())
                             .AddToDB(),
                         ConditionForm.ConditionOperation.Add)
                     .Build())
-                .Build()
-            )
+                .Build())
             .AddToDB();
 
         var proficiencyCollegeOfHarlequinMartialWeapon = FeatureDefinitionProficiencyBuilder
@@ -118,8 +114,7 @@ internal sealed class CollegeOfHarlequin : AbstractSubclass
                     .Build())
                 .SetParticleEffectParameters(
                     FeatureDefinitionPowers.PowerBardGiveBardicInspiration.EffectDescription.effectParticleParameters)
-                .Build()
-            )
+                .Build())
             .SetUsesFixed(ActivationTime.OnReduceCreatureToZeroHPAuto)
             .AddToDB();
 
@@ -147,6 +142,7 @@ internal sealed class CollegeOfHarlequin : AbstractSubclass
     internal static int GetBardicRoll(ulong sourceGuid)
     {
         BardicDieRollPerCharacter.TryGetValue(sourceGuid, out var roll);
+
         return roll;
     }
 
