@@ -1,7 +1,7 @@
 {
   "$type": "FeatureDefinitionPointPool, Assembly-CSharp",
   "poolType": "Feat",
-  "poolAmount": 3,
+  "poolAmount": 7,
   "restrictedChoices": [],
   "uniqueChoices": false,
   "spellListOverride": null,
@@ -12,8 +12,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "3 Bonus Feats",
-    "description": "Select 3 additional feats for your character.",
+    "title": "7 Bonus Feats",
+    "description": "Select 7 additional feats for your character.",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -33,7 +33,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "27ab1eaf-5a4e-54d9-966d-d480035d104c",
+  "guid": "a723985d-913f-5fa5-b97d-4646d192683b",
   "contentPack": 9999,
-  "name": "PointPool3BonusFeats"
+  "name": "PointPool7BonusFeats"
 }

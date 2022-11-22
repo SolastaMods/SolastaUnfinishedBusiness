@@ -3,4 +3,6 @@
 1.4.28.C:
 
 - allowed up to 22 first level feats if set directly on XML (for QA)
-- rolled back delegates use for ActionFinished
+- improved Circle of The Nights EffectDescription creation
+- rolled back delegates use on ActionFinished
+- updated Aze.Publicise.MSBuild.Task to version 1.1.0
