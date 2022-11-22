@@ -89,7 +89,7 @@ internal static class Global
         }
     }
 
-    internal static void ActionUsed(
+    internal static void ActionFinished(
         GameLocationCharacter actingCharacter,
         CharacterActionParams actionParams,
         ActionDefinition actionDefinition)

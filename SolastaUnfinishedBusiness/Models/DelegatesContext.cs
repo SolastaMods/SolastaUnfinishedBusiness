@@ -431,8 +431,6 @@ internal static class DelegatesContext
         ActionDefinition actionDefinition)
     {
         Main.Logger.Log($"{actingCharacter.Name} Action Used");
-
-        Global.ActionUsed(actingCharacter, actionParams, actionDefinition);
     }
 
     private static void ShoveActionUsed(
