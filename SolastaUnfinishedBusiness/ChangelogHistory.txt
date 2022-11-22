@@ -1,6 +1,6 @@
 ﻿CHANGES:
 
-1.4.28.10:
+1.4.28.A:
 
 - demoted Gnome
 - fixed spell slots display on inspection
