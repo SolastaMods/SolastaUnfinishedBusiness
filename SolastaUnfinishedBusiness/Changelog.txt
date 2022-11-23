@@ -1,7 +1,5 @@
 ﻿CHANGES:
 
-1.4.28.F:
+1.4.28.G:
 
-- added Water Elemental to Circle of The Night WS forms (based of Air)
-- improved conditions tooltip
-- shrunk shapes offering panel when too many shapes are offered
+- added SRD rule option to identify items over rest activities

@@ -1,5 +1,9 @@
 ﻿CHANGES:
 
+1.4.28.G:
+
+- added SRD rule option to identify items over rest activities
+
 1.4.28.F:
 
 - added Water Elemental to Circle of The Night WS forms (based of Air)
