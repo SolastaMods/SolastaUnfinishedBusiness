@@ -21,7 +21,7 @@ internal static class Main
 
     internal static Action Enable { get; private set; }
 
-    internal static UnityModManager.ModEntry.ModLogger Logger { get; private set; }
+    private static UnityModManager.ModEntry.ModLogger Logger { get; set; }
 
     internal static Settings Settings => Mod.Settings;
 
@@ -51,6 +51,11 @@ internal static class Main
     internal static void Error(string msg)
     {
         Logger.Error(msg);
+    }
+
+    internal static void Info(string msg)
+    {
+        Logger.Log(msg);
     }
 
     [UsedImplicitly]

@@ -210,7 +210,7 @@ internal static class TranslatorContext
             lineCount++;
         }
 
-        Main.Logger.Log($"{lineCount} {languageCode} translation terms loaded.");
+        Main.Info($"{lineCount} {languageCode} translation terms loaded.");
     }
 
     internal static bool HasTranslation(string term)
