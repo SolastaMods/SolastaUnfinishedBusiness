@@ -1,5 +1,6 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
+using SolastaUnfinishedBusiness.Api.Extensions;
 using SolastaUnfinishedBusiness.Models;
 using UnityEngine;
 
@@ -17,7 +18,7 @@ public static class CharacterReactionSubitemPatcher
             RulesetSpellRepertoire spellRepertoire,
             int slotLevel)
         {
-            var heroWithSpellRepertoire = SharedSpellsContext.GetHero(spellRepertoire.CharacterName);
+            var heroWithSpellRepertoire = spellRepertoire.GetCasterHero();
 
             if (heroWithSpellRepertoire is null)
             {

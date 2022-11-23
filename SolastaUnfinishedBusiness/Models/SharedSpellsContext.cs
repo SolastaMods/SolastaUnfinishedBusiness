@@ -50,29 +50,6 @@ internal static class SharedSpellsContext
         { MartialSpellShield.Name, CasterProgression.OneThird }
     };
 
-    internal static RulesetCharacterHero GetHero(string name)
-    {
-        // try to get hero from game campaign
-        var gameCampaign = Gui.GameCampaign;
-
-        if (gameCampaign == null)
-        {
-            // gets hero on inspection or falls back to level up
-            return Global.InspectedHero ?? Global.LevelUpHero;
-        }
-
-        var gameCampaignCharacter =
-            gameCampaign.Party.CharactersList.Find(x => x.RulesetCharacter.Name == name);
-
-        if (gameCampaignCharacter is { RulesetCharacter: RulesetCharacterHero rulesetCharacterHero })
-        {
-            return rulesetCharacterHero;
-        }
-
-        // gets hero on inspection or falls back to level up
-        return Global.InspectedHero ?? Global.LevelUpHero;
-    }
-
     // supports auto prepared spells scenarios on subs
     private static CasterProgression GetCasterTypeForClassOrSubclass(
         [CanBeNull] string characterClassDefinition,
