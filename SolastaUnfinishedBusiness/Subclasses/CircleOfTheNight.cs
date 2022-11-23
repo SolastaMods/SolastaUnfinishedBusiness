@@ -9,6 +9,10 @@ using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterSubclassDefin
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPowers;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.MonsterDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.MonsterAttackDefinitions;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionDamageAffinitys;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionConditionAffinitys;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionSenses;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionMoveModes;
 
 namespace SolastaUnfinishedBusiness.Subclasses;
 
@@ -52,8 +56,7 @@ internal sealed class CircleOfTheNight : AbstractSubclass
             ShapeBuilder(10, HBWildShapeAirElemental()),
             ShapeBuilder(10, HBWildShapeFireElemental()),
             ShapeBuilder(10, HBWildShapeEarthElemental()),
-            // don't use future features
-            // ShapeBuilder(10, HBWildShapeWaterElemental())
+            ShapeBuilder(10, HBWildShapeWaterElemental())
         };
         
         // 3rd level
@@ -210,15 +213,50 @@ internal sealed class CircleOfTheNight : AbstractSubclass
         return shape;
     }
 
-#if false
     private static MonsterDefinition HBWildShapeWaterElemental()
     {
-        var shape = MonsterDefinitionBuilder.Create(Ice_Elemental, "WildShapeWaterElemental")
+        // TODO Create Whelm attack (recharge 5/6)
+        // Whelm(Recharge 4–6).Each creature in the elemental's space must make a DC 15 Strength saving throw.
+        // On a failure, a target takes 13 (2d8 + 4) bludgeoning damage. If it is Large or smaller,
+        // it is also grappled (escape DC 14). Until this grapple ends, the target is restrained and
+        // unable to breathe unless it can breathe water. If the saving throw is successful, the target
+        // is pushed out of the elemental's space.
+
+
+        // TODO FUTURE: when IceElemental is implemented in Base Game, replace Air_Elemental with Ice_Elemental
+        var shape = MonsterDefinitionBuilder
+            .Create(Air_Elemental, "WildShapeWaterElemental")
+            .SetAbilityScores(18, 14, 18, 5, 10, 8)
+            .SetArmorClass(14)
+            .SetHitDice(DieType.D10, 12)
+            .SetHitPointsBonus(48)
+            .SetStandardHitPoints(114)
+            .SetFeatures(
+                DamageAffinityAcidResistance,
+                DamageAffinityBludgeoningResistance,
+                DamageAffinityPiercingResistance,
+                DamageAffinitySlashingResistance,
+                DamageAffinityFireImmunity,
+                DamageAffinityPoisonImmunity,
+                ConditionAffinityExhaustionImmunity,
+                ConditionAffinityGrappledImmunity,
+                ConditionAffinityParalyzedmmunity,
+                ConditionAffinityPetrifiedImmunity,
+                ConditionAffinityPoisonImmunity,
+                ConditionAffinityProneImmunity,
+                ConditionAffinityRestrainedmmunity,
+                ConditionAffinityUnconsciousImmunity,
+                SenseNormalVision,
+                SenseDarkvision,
+                MoveModeMove10,
+                MoveModeFly6
+            )
+            .SetOrUpdateGuiPresentation(Category.Monster, Air_Elemental)
             .AddToDB();
+
 
         return shape;
     }
-#endif
 
     private static ShapeOptionDescription ShapeBuilder(int level, MonsterDefinition monster)
     {
