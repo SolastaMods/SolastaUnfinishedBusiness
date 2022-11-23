@@ -13,30 +13,30 @@ internal sealed class WayOfTheSilhouette : AbstractSubclass
     {
         var powerWayOfSilhouetteDarkness = FeatureDefinitionPowerBuilder
             .Create("PowerWayOfSilhouetteDarkness")
-            .SetGuiPresentation(SpellDefinitions.Darkness.GuiPresentation)
+            .SetGuiPresentation(Darkness.GuiPresentation)
             .SetUsesFixed(ActivationTime.Action, RechargeRate.KiPoints, 2)
-            .SetEffectDescription(SpellDefinitions.Darkness.EffectDescription)
+            .SetEffectDescription(Darkness.EffectDescription)
             .AddToDB();
 
         var powerWayOfSilhouetteDarkvision = FeatureDefinitionPowerBuilder
             .Create("PowerWayOfSilhouetteDarkvision")
-            .SetGuiPresentation(SpellDefinitions.Darkvision.GuiPresentation)
+            .SetGuiPresentation(Darkvision.GuiPresentation)
             .SetUsesFixed(ActivationTime.Action, RechargeRate.KiPoints, 2)
-            .SetEffectDescription(SpellDefinitions.Darkvision.EffectDescription)
+            .SetEffectDescription(Darkvision.EffectDescription)
             .AddToDB();
 
         var powerWayOfSilhouettePassWithoutTrace = FeatureDefinitionPowerBuilder
             .Create("PowerWayOfSilhouettePassWithoutTrace")
-            .SetGuiPresentation(SpellDefinitions.PassWithoutTrace.GuiPresentation)
+            .SetGuiPresentation(PassWithoutTrace.GuiPresentation)
             .SetUsesFixed(ActivationTime.Action, RechargeRate.KiPoints, 2)
-            .SetEffectDescription(SpellDefinitions.PassWithoutTrace.EffectDescription)
+            .SetEffectDescription(PassWithoutTrace.EffectDescription)
             .AddToDB();
 
         var powerWayOfSilhouetteSilence = FeatureDefinitionPowerBuilder
             .Create("PowerWayOfSilhouetteSilence")
-            .SetGuiPresentation(SpellDefinitions.Silence.GuiPresentation)
+            .SetGuiPresentation(Silence.GuiPresentation)
             .SetUsesFixed(ActivationTime.Action, RechargeRate.KiPoints, 2)
-            .SetEffectDescription(SpellDefinitions.Silence.EffectDescription)
+            .SetEffectDescription(Silence.EffectDescription)
             .AddToDB();
 
         var featureSetWayOfSilhouetteSilhouetteArts = FeatureDefinitionFeatureSetBuilder
@@ -51,9 +51,9 @@ internal sealed class WayOfTheSilhouette : AbstractSubclass
 
         var powerWayOfSilhouetteSilhouetteStep = FeatureDefinitionPowerBuilder
             .Create("PowerWayOfSilhouetteSilhouetteStep")
-            .SetGuiPresentation(Category.Feature, SpellDefinitions.MistyStep)
-            .SetUsesFixed(ActivationTime.BonusAction)
-            .SetEffectDescription(SpellDefinitions.MistyStep.EffectDescription)
+            .SetGuiPresentation(Category.Feature, MistyStep)
+            .SetUsesProficiencyBonus(ActivationTime.BonusAction)
+            .SetEffectDescription(MistyStep.EffectDescription)
             .SetShowCasting(true)
             .AddToDB();
 
@@ -86,7 +86,7 @@ internal sealed class WayOfTheSilhouette : AbstractSubclass
             .Create("PowerWayOfSilhouetteImprovedSilhouetteStep")
             .SetGuiPresentation(Category.Feature, DimensionDoor)
             .SetOverriddenPower(powerWayOfSilhouetteSilhouetteStep)
-            .SetUsesProficiencyBonus(ActivationTime.BonusAction)
+            .SetUsesProficiencyBonus(ActivationTime.BonusAction, RechargeRate.ShortRest)
             .SetEffectDescription(DimensionDoor.EffectDescription)
             .SetUniqueInstance()
             .AddToDB();
