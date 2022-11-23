@@ -23,7 +23,7 @@ internal sealed class PathOfTheSpirits : AbstractSubclass
         // Yours is a path that seeks attunement with the natural world, giving you a kinship with beasts.
         // At 3rd level when you adopt this path, you gain the ability to cast the AnimalFriendship and FindTraps spells at will.
         var featureSetPathOfTheSpiritsSpiritSeeker = FeatureDefinitionFeatureSetBuilder
-            .Create("PathOfTheSpiritsSpiritSeeker")
+            .Create("FeatureSetPathOfTheSpiritsSpiritSeeker")
             .SetGuiPresentation(Category.Feature)
             .AddFeatureSet(
                 BuildSpiritSeekerSpell(SpellDefinitions.AnimalFriendship),
@@ -35,7 +35,7 @@ internal sealed class PathOfTheSpirits : AbstractSubclass
         // Animal Spirit
         // At 3rd level, when you adopt this path, you choose an animal spirit as a guide and gain its feature.
         var featureSetPathOfTheSpiritsAnimalSpirit = FeatureDefinitionFeatureSetBuilder
-        .Create(FeatureDefinitionFeatureSets.FeatureSetSorcererDraconicChoice, "PathOfTheSpiritsAnimalSpiritChoices")
+        .Create(FeatureDefinitionFeatureSets.FeatureSetSorcererDraconicChoice, "FeatureSetPathOfTheSpiritsAnimalSpiritChoices")
         .SetGuiPresentation(Category.Feature)
         .ClearFeatureSet()
         .AddFeatureSet(
@@ -55,7 +55,7 @@ internal sealed class PathOfTheSpirits : AbstractSubclass
         // Animal Aspect
         // At 6th level, you gain a magical aspect (benefit) based on the spirit animal of your choice. You can choose the same animal you selected at 3rd level or a different one.
         var featureSetPathOfTheSpiritsAnimalAspect = FeatureDefinitionFeatureSetBuilder
-            .Create(FeatureDefinitionFeatureSets.FeatureSetSorcererDraconicChoice, "PathOfTheSpiritsAnimalAspectChoices")
+            .Create(FeatureDefinitionFeatureSets.FeatureSetSorcererDraconicChoice, "FeatureSetPathOfTheSpiritsAnimalAspectChoices")
             .SetGuiPresentation(Category.Feature)
             .ClearFeatureSet()
             .AddFeatureSet(
@@ -80,7 +80,7 @@ internal sealed class PathOfTheSpirits : AbstractSubclass
         // On a successful save, the creature takes half as much damage.
         // You can use this feature a number of times equal to your proficiency modifier.
         var featureSetPathOfTheSpiritsSpiritWalker = FeatureDefinitionFeatureSetBuilder
-            .Create("PathOfTheSpiritsSpiritWalker")
+            .Create("FeatureSetPathOfTheSpiritsSpiritWalker")
             .SetGuiPresentation(Category.Feature)
             .AddFeatureSet(PowerSpiritGuardian())
             .AddToDB();
@@ -103,7 +103,7 @@ internal sealed class PathOfTheSpirits : AbstractSubclass
     private static FeatureDefinition BuildSpiritSeekerSpell(SpellDefinition spellDefinition)
     {
         return FeatureDefinitionPowerBuilder
-            .Create($"PathOfTheSpirits{spellDefinition.name}")
+            .Create($"PowerPathOfTheSpirits{spellDefinition.name}")
             .SetGuiPresentation(spellDefinition.GuiPresentation)
             .SetUsesFixed(ActivationTime.Action, RechargeRate.AtWill)
             .SetEffectDescription(spellDefinition.EffectDescription)
@@ -112,7 +112,7 @@ internal sealed class PathOfTheSpirits : AbstractSubclass
     private static FeatureDefinitionFeatureSet BuildAnimalSpiritChoice(string name, params FeatureDefinition[] featureDefinitions)
     {
         return FeatureDefinitionFeatureSetBuilder
-            .Create($"PathOfTheSpiritsAnimalSpiritChoice{name}")
+            .Create($"FeatureSetPathOfTheSpiritsAnimalSpiritChoice{name}")
             .SetGuiPresentation(Category.Feature)
             .AddFeatureSet(featureDefinitions)
             .AddToDB();
@@ -120,7 +120,7 @@ internal sealed class PathOfTheSpirits : AbstractSubclass
     private static FeatureDefinitionFeatureSet BuildAnimalAspectChoice(string name, params FeatureDefinition[] featureDefinitions)
     {
         return FeatureDefinitionFeatureSetBuilder
-            .Create($"PathOfTheSpiritsAnimalAspectChoice{name}")
+            .Create($"FeatureSetPathOfTheSpiritsAnimalAspectChoice{name}")
             .SetGuiPresentation(Category.Feature)
             .AddFeatureSet(featureDefinitions)
             .AddToDB();
@@ -163,7 +163,7 @@ internal sealed class PathOfTheSpirits : AbstractSubclass
     private static FeatureDefinition PowerBearDurability()
     {
         return FeatureDefinitionAttributeModifierBuilder
-            .Create("PathOfTheSpiritsBearDurability")
+            .Create("PowerPathOfTheSpiritsBearDurability")
             .SetGuiPresentation(Category.Feature)
             .SetModifier(AttributeModifierOperation.Additive, AttributeDefinitions.HitPointBonusPerLevel, 2)
             .AddToDB();
@@ -207,7 +207,7 @@ internal sealed class PathOfTheSpirits : AbstractSubclass
     private static FeatureDefinition PowerBearMight()
     {
         return FeatureDefinitionAbilityCheckAffinityBuilder
-            .Create("PathOfTheSpiritsBearMight")
+            .Create("PowerPathOfTheSpiritsBearMight")
             .SetGuiPresentation(Category.Feature)
             .BuildAndSetAffinityGroups(CharacterAbilityCheckAffinity.Advantage, DieType.D1, 0, (AttributeDefinitions.Strength, string.Empty))
             .AddToDB();
@@ -216,7 +216,7 @@ internal sealed class PathOfTheSpirits : AbstractSubclass
     private static FeatureDefinition PowerWolfKnowledge()
     {
         return FeatureDefinitionFeatureSetBuilder
-            .Create("PathOfTheSpiritsWolfKnowledge")
+            .Create("FeatureSetPathOfTheSpiritsWolfKnowledge")
             .SetGuiPresentation(Category.Feature)
             .AddFeatureSet(BuildSpiritSeekerSpell(SpellDefinitions.IdentifyCreatures))
             .AddToDB();
@@ -225,7 +225,7 @@ internal sealed class PathOfTheSpirits : AbstractSubclass
     private static FeatureDefinition PowerSpiritGuardian()
     {
         return FeatureDefinitionPowerBuilder
-            .Create("PathOfTheSpiritsSpiritGuardians")
+            .Create("PowerPathOfTheSpiritsSpiritGuardians")
             .SetGuiPresentation(SpellDefinitions.SpiritGuardians.guiPresentation)
             .SetUsesProficiencyBonus(ActivationTime.BonusAction, RechargeRate.LongRest)
             .SetEffectDescription(SpellDefinitions.SpiritGuardians.EffectDescription)
