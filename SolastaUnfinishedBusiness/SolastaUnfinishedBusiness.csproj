@@ -279,6 +279,12 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Update="ChangelogHistory.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
     <None Update="Info.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
