@@ -90,7 +90,7 @@ internal sealed class WayOfTheSilhouette : AbstractSubclass
             .SetEffectDescription(DimensionDoor.EffectDescription)
             .SetUniqueInstance()
             .AddToDB();
-        
+
         Subclass = CharacterSubclassDefinitionBuilder
             .Create("WayOfSilhouette")
             .SetOrUpdateGuiPresentation(Category.Subclass, CharacterSubclassDefinitions.RoguishShadowCaster)

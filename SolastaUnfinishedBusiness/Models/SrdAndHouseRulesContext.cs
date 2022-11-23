@@ -4,6 +4,7 @@ using System.Linq;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.Extensions;
 using SolastaUnfinishedBusiness.Builders;
+using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
@@ -14,7 +15,6 @@ using static SolastaUnfinishedBusiness.Api.DatabaseHelper.MonsterDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionSenses;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterClassDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.ItemDefinitions;
-using SolastaUnfinishedBusiness.Builders.Features;
 
 namespace SolastaUnfinishedBusiness.Models;
 
@@ -24,8 +24,6 @@ internal static class SrdAndHouseRulesContext
     internal const int MaxVisionRange = 120;
 
     private const string InvisibleStalkerSubspellName = "ConjureElementalInvisibleStalker";
-    
-    internal static FeatureDefinitionPower FeatureDefinitionPowerAfterRestIdentify { get; set; }
 
     internal static readonly HashSet<MonsterDefinition> ConjuredMonsters = new()
     {
@@ -57,6 +55,8 @@ internal static class SrdAndHouseRulesContext
         FeyWolf, // CR 2
         FeyDriad // CR 1
     };
+
+    internal static FeatureDefinitionPower FeatureDefinitionPowerAfterRestIdentify { get; set; }
 
     private static SpellDefinition ConjureElementalInvisibleStalker { get; set; }
 
@@ -496,7 +496,7 @@ internal static class SrdAndHouseRulesContext
     private static void LoadAfterRestIdentify()
     {
         const string AfterRestIdentifyName = "PowerAfterRestIdentify";
-        
+
         RestActivityDefinitionBuilder
             .Create("RestActivityShortRestIdentify")
             .SetGuiPresentation(AfterRestIdentifyName, Category.Feature)

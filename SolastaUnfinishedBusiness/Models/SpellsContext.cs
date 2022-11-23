@@ -130,7 +130,8 @@ internal static class SpellsContext
 
         // cantrips
         RegisterSpell(BuildAcidClaw(), 0, SpellListDruid);
-        RegisterSpell(BuildAirBlast(), 0, SpellListBard, SpellListCleric, SpellListDruid, SpellListSorcerer, SpellListWizard);
+        RegisterSpell(BuildAirBlast(), 0, SpellListBard, SpellListCleric, SpellListDruid, SpellListSorcerer,
+            SpellListWizard);
         RegisterSpell(BuildBurstOfRadiance(), 0, SpellListCleric);
         RegisterSpell(BuildIlluminatingSphere(), 0, SpellListBard, SpellListSorcerer, SpellListWizard);
         RegisterSpell(BuildMinorLifesteal(), 0, SpellListBard, SpellListSorcerer, SpellListWizard, SpellListWarlock);
@@ -167,7 +168,7 @@ internal static class SpellsContext
         RegisterSpell(BuildMindBlank(), 0, SpellListBard, SpellListWizard);
 
         // 9th level
-        RegisterSpell(BuildForesight(), 0,  SpellListBard, SpellListSorcerer, SpellListWizard);
+        RegisterSpell(BuildForesight(), 0, SpellListBard, SpellListSorcerer, SpellListWizard);
         RegisterSpell(BuildMassHeal(), 0, SpellListCleric);
         RegisterSpell(BuildMeteorSwarmSingleTarget(), 0, SpellListSorcerer, SpellListWizard);
         RegisterSpell(BuildPowerWordHeal(), 0, SpellListBard, SpellListCleric);
