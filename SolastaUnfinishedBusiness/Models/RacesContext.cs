@@ -18,6 +18,7 @@ internal static class RacesContext
         Morphotypes.Load();
 
         LoadRace(DarkelfSubraceBuilder.SubraceDarkelf);
+        LoadRace(GnomeRaceBuilder.RaceGnome);
         LoadRace(GrayDwarfSubraceBuilder.SubraceGrayDwarf);
         LoadRace(RaceBolgrifBuilder.RaceBolgrif);
         LoadRace(RaceHalfElfVariantRaceBuilder.RaceHalfElfVariant); // depends on DarkElf sub race
