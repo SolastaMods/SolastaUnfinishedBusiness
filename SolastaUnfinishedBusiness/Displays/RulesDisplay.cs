@@ -30,6 +30,12 @@ internal static class RulesDisplay
             Main.Settings.UseOfficialAdvantageDisadvantageRules = toggle;
         }
 
+        toggle = Main.Settings.IdentifyAfterRest;
+        if (UI.Toggle(Gui.Localize("ModUi/&IdentifyAfterRest"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.IdentifyAfterRest = toggle;
+        }
+
         UI.Label();
 
         toggle = Main.Settings.AddBleedingToLesserRestoration;

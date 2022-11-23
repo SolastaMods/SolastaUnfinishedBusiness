@@ -618,7 +618,7 @@ internal static class DelegatesContext
         ActionModifier attackModifier)
     {
         Main.Info($"{attacker.Name},{defender.Name} Attack Start");
-
+#if false
         //PATCH: support for `IOnAttackHitEffect` - calls before attack handlers
         var character = attacker.RulesetCharacter;
 
@@ -633,6 +633,7 @@ internal static class DelegatesContext
         {
             effect.BeforeOnAttackHit(attacker, defender, outcome, actionParams, attackMode, attackModifier);
         }
+#endif
     }
 
     private static void AttackImpactStart(

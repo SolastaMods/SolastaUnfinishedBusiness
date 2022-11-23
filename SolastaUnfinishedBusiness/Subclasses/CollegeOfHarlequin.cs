@@ -232,7 +232,7 @@ internal sealed class CollegeOfHarlequin : AbstractSubclass
             GameLocationCharacter downedCreature,
             RulesetAttackMode attackMode, RulesetEffect activeEffect)
         {
-            if (Global.CurrentAction is not CharacterActionAttack)
+            if (attackMode == null || activeEffect != null)
             {
                 yield break;
             }

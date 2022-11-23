@@ -12,6 +12,7 @@ internal static class Global
     // true if in a multiplayer game
     internal static bool IsMultiplayer => IsSettingUpMultiplayer
                                           || ServiceRepository.GetService<INetworkingService>().IsMultiplayerGame;
+
     internal static bool IsSettingUpMultiplayer { get; set; }
 
     // level up hero
@@ -26,7 +27,7 @@ internal static class Global
     [CanBeNull] internal static RulesetCharacterHero InspectedHero { get; set; }
 
     // active player character
-    internal static GameLocationCharacter ActionCharacter { get; private set; }
+    // internal static GameLocationCharacter ActionCharacter { get; private set; }
 
     private static GameLocationCharacter ControlledLocationCharacter
     {
@@ -49,8 +50,7 @@ internal static class Global
 
     internal static RulesetCharacter CurrentCharacter => InspectedHero
                                                          ?? LevelUpHero
-                                                         ?? ControlledLocationCharacter?.RulesetCharacter
-                                                         ?? ActionCharacter?.RulesetCharacter;
+                                                         ?? ControlledLocationCharacter?.RulesetCharacter;
 
     // current action from any character on the map
     internal static CharacterAction CurrentAction { get; private set; }
@@ -68,7 +68,7 @@ internal static class Global
     internal static void ActionStarted([NotNull] CharacterAction characterAction)
     {
         CurrentAction = characterAction;
-        ActionCharacter = characterAction.ActingCharacter;
+        // ActionCharacter = characterAction.ActingCharacter;
 
         switch (characterAction)
         {

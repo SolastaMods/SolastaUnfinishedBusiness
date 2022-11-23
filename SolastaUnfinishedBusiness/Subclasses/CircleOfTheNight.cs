@@ -20,19 +20,6 @@ internal sealed class CircleOfTheNight : AbstractSubclass
 {
     private const string CircleOfTheNightName = "CircleOfTheNight";
 
-    private sealed class ChangeShapeOptionsCircleOfTheNightWildShapeCombat : IChangeShapeOptions
-    {
-        private readonly List<ShapeOptionDescription> _shapeOptionDescriptions;
-
-        public ChangeShapeOptionsCircleOfTheNightWildShapeCombat(
-            List<ShapeOptionDescription> shapeOptionDescriptions)
-        {
-            _shapeOptionDescriptions = shapeOptionDescriptions;
-        }
-
-        public ConditionDefinition SpecialSubstituteCondition => ConditionDefinitions.ConditionWildShapeSubstituteForm;
-        public List<ShapeOptionDescription> ShapeOptions => _shapeOptionDescriptions;
-    }
     internal CircleOfTheNight()
     {
         var shapeOptions = new List<ShapeOptionDescription>
@@ -58,9 +45,9 @@ internal sealed class CircleOfTheNight : AbstractSubclass
             ShapeBuilder(10, HBWildShapeEarthElemental()),
             ShapeBuilder(10, HBWildShapeWaterElemental())
         };
-        
+
         // 3rd level
-        
+
         // Combat Wildshape 
         // Official rules are CR = 1/3 of druid level. However in solasta the selection of beasts is greatly reduced
         var powerCircleOfTheNightWildShapeCombat = FeatureDefinitionBuilder
@@ -81,7 +68,7 @@ internal sealed class CircleOfTheNight : AbstractSubclass
             .AddToDB();
 
         // 6th Level
-        
+
         // Primal Strike
         // Starting at 6th level, your attacks in beast form count as magical for the purpose of overcoming resistance
         // and immunity to non magical attacks and damage.
@@ -105,7 +92,7 @@ internal sealed class CircleOfTheNight : AbstractSubclass
             .AddToDB();
 
         // 10th Level
-        
+
         // Superior Combat Healing
         // At 10th level, your combat healing improves to 3d8 + 6
         var powerCircleOfTheNightWildShapeSuperiorHealing = FeatureDefinitionPowerBuilder
@@ -293,5 +280,17 @@ internal sealed class CircleOfTheNight : AbstractSubclass
     {
         return new ValidatorsPowerUse(
             ValidatorsCharacter.HasAnyOfConditions(ConditionDefinitions.ConditionWildShapeSubstituteForm));
+    }
+
+    private sealed class ChangeShapeOptionsCircleOfTheNightWildShapeCombat : IChangeShapeOptions
+    {
+        public ChangeShapeOptionsCircleOfTheNightWildShapeCombat(
+            List<ShapeOptionDescription> shapeOptionDescriptions)
+        {
+            ShapeOptions = shapeOptionDescriptions;
+        }
+
+        public ConditionDefinition SpecialSubstituteCondition => ConditionDefinitions.ConditionWildShapeSubstituteForm;
+        public List<ShapeOptionDescription> ShapeOptions { get; }
     }
 }
