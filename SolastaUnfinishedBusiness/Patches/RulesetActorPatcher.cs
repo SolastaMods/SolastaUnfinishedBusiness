@@ -42,6 +42,7 @@ public static class RulesetActorPatcher
         {
             //PATCH: Implements `ExtraOriginOfAmount`
             var sourceCharacter = EffectHelpers.GetCharacterByGuid(sourceGuid);
+
             if (sourceCharacter == null)
             {
                 return;
@@ -72,14 +73,26 @@ public static class RulesetActorPatcher
                 case (ConditionDefinition.OriginOfAmount)ExtraOriginOfAmount.SourceClassLevel:
                     // Find a better place to put this in?
                     var classType = addedCondition.AdditionalDamageType;
+
                     sourceAmount = sourceCharacter.GetClassLevel(classType);
                     break;
                 case (ConditionDefinition.OriginOfAmount)ExtraOriginOfAmount.SourceAbilityBonus:
                     // Find a better place to put this in?
-                    var attributeName = addedCondition.AdditionalDamageType;
-                    if (sourceCharacter.TryGetAttribute(attributeName, out var attribute))
+                    var attributeName1 = addedCondition.AdditionalDamageType;
+
+                    if (sourceCharacter.TryGetAttribute(attributeName1, out var attribute1))
                     {
-                        sourceAmount = AttributeDefinitions.ComputeAbilityScoreModifier(attribute.CurrentValue);
+                        sourceAmount = AttributeDefinitions.ComputeAbilityScoreModifier(attribute1.CurrentValue);
+                    }
+
+                    break;
+                case (ConditionDefinition.OriginOfAmount)ExtraOriginOfAmount.SourceCopyAttributeFromSummoner:
+                    // Find a better place to put this in?
+                    var attributeName2 = addedCondition.AdditionalDamageType;
+
+                    if (sourceCharacter.TryGetAttribute(attributeName2, out var attribute2))
+                    {
+                        __instance.Attributes.Add(attributeName2, attribute2);
                     }
 
                     break;
