@@ -249,7 +249,7 @@ internal sealed class MartialMarshal : AbstractSubclass
             .SetGuiPresentationNoContent(true)
             .SetAmountOrigin(ExtraOriginOfAmount.SourceClassLevel)
             .SetAllowMultipleInstances(true)
-            .SetAdditionalDamageWhenHit(ConditionDefinition.DamageQuantity.AbilityBonus, DieType.D1, 1, FighterClass)
+            .SetAdditionalDamageType(FighterClass)
             .AddToDB();
 
         var summoningAffinityMarshalEternalComrade = FeatureDefinitionSummoningAffinityBuilder

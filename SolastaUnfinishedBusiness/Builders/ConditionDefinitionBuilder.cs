@@ -150,17 +150,8 @@ internal class ConditionDefinitionBuilder
         return this;
     }
 
-    internal ConditionDefinitionBuilder SetAdditionalDamageWhenHit(
-        ConditionDefinition.DamageQuantity damageQuantity = ConditionDefinition.DamageQuantity.Dice,
-        RuleDefinitions.DieType dieType = RuleDefinitions.DieType.D1,
-        int numberOfDie = 0,
-        string damageType = "",
-        bool active = true)
+    internal ConditionDefinitionBuilder SetAdditionalDamageType(string damageType)
     {
-        Definition.additionalDamageWhenHit = active;
-        Definition.additionalDamageDieType = dieType;
-        Definition.additionalDamageDieNumber = numberOfDie;
-        Definition.additionalDamageQuantity = damageQuantity;
         Definition.additionalDamageType = damageType;
         return this;
     }
