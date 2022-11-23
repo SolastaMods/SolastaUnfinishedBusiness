@@ -46,31 +46,4 @@ internal static partial class DatabaseHelper
         return db.TryGetElement(key, out definition);
 #endif
     }
-
-    internal static class GadgetBlueprints
-    {
-        internal static GadgetBlueprint TeleporterIndividual { get; } =
-            GetDefinition<GadgetBlueprint>("TeleporterIndividual");
-
-        internal static GadgetBlueprint TeleporterParty { get; } =
-            GetDefinition<GadgetBlueprint>("TeleporterParty");
-
-        internal static GadgetBlueprint VirtualExit { get; } =
-            GetDefinition<GadgetBlueprint>("VirtualExit");
-
-        internal static GadgetBlueprint VirtualExitMultiple { get; } =
-            GetDefinition<GadgetBlueprint>("VirtualExitMultiple");
-
-        internal static GadgetBlueprint Exit { get; } =
-            GetDefinition<GadgetBlueprint>("Exit");
-
-        internal static GadgetBlueprint ExitMultiple { get; } =
-            GetDefinition<GadgetBlueprint>("ExitMultiple");
-    }
-
-    internal static class GadgetDefinitions
-    {
-        internal static GadgetDefinition Activator { get; } =
-            GetDefinition<GadgetDefinition>("Activator");
-    }
 }

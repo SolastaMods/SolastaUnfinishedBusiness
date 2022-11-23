@@ -3,7 +3,9 @@ using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomDefinitions;
 using static RuleDefinitions;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterFamilyDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionDamageAffinitys;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
 
 namespace SolastaUnfinishedBusiness.Subclasses;
 
@@ -18,12 +20,12 @@ internal static class CommonBuilders
                 AttributeDefinitions.AttacksNumber, 2)
             .AddToDB();
 
-    internal static readonly FeatureDefinitionDamageAffinity DamageAffinityGenericHardenToNecrotic = 
+    internal static readonly FeatureDefinitionDamageAffinity DamageAffinityGenericHardenToNecrotic =
         FeatureDefinitionDamageAffinityBuilder
             .Create(DamageAffinityNecroticImmunity, "DamageAffinityGenericHardenToNecrotic")
             .SetGuiPresentation(Category.Feature)
             .AddToDB();
-        
+
     internal static readonly FeatureDefinitionFeatureSet FeatureSetCasterFightingProficiency =
         FeatureDefinitionFeatureSetBuilder
             .Create("FeatureSetCasterFightingProficiency")
@@ -77,6 +79,26 @@ internal static class CommonBuilders
                             ConditionForm.ConditionOperation.Add)
                         .Build()
                 )
+                .Build())
+        .AddToDB();
+
+    internal static readonly FeatureDefinitionPower PowerCasterCommandUndead = FeatureDefinitionPowerBuilder
+        .Create("PowerCasterCommandUndead")
+        .SetGuiPresentation(Category.Feature)
+        .SetUsesProficiencyBonus(ActivationTime.Action)
+        .SetEffectDescription(
+            EffectDescriptionBuilder
+                .Create(DominateBeast.EffectDescription)
+                .SetEffectAdvancement(EffectIncrementMethod.None)
+                .SetRestrictedCreatureFamilies(Undead)
+                .SetSavingThrowData(
+                    false,
+                    AttributeDefinitions.Charisma,
+                    false,
+                    EffectDifficultyClassComputation.AbilityScoreAndProficiency,
+                    AttributeDefinitions.Intelligence,
+                    8,
+                    true)
                 .Build())
         .AddToDB();
 

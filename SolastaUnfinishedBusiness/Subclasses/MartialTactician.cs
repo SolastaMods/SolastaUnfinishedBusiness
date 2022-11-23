@@ -335,7 +335,7 @@ internal sealed class MartialTactician : AbstractSubclass
         BuildFeatureInvocation(name, sprite, power);
 
         #endregion
-        
+
         #region Knockdown
 
         name = "GambitKnockdown";
@@ -1042,7 +1042,7 @@ internal sealed class MartialTactician : AbstractSubclass
         }
     }
 
-    private class TacticalSurge : ICustomOnActionFeature
+    private class TacticalSurge : IOnAfterActionFeature
     {
         private readonly ConditionDefinition condition;
         private readonly FeatureDefinition feature;
@@ -1056,14 +1056,17 @@ internal sealed class MartialTactician : AbstractSubclass
             this.condition = condition;
         }
 
-        public void OnAfterAction(CharacterAction action)
+        public void OnAfterAction(
+            GameLocationCharacter actingCharacter,
+            CharacterActionParams actionParams,
+            ActionDefinition actionDefinition)
         {
-            if (action is not CharacterActionActionSurge)
+            if (actionParams.TargetAction is not CharacterActionActionSurge)
             {
                 return;
             }
 
-            var character = action.ActingCharacter.RulesetCharacter;
+            var character = actingCharacter.RulesetCharacter;
             var charges = character.GetRemainingPowerUses(power) - character.GetMaxUsesForPool(power);
             charges = Math.Max(charges, -2);
 

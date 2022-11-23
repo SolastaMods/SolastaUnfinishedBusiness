@@ -117,7 +117,7 @@ internal static class CustomConditionsContext
         return conditionLightSensitive;
     }
 
-    private sealed class InvisibilityEveryRoundBehavior : ICustomOnActionFeature, ICustomConditionFeature
+    private sealed class InvisibilityEveryRoundBehavior : IOnAfterActionFeature, ICustomConditionFeature
     {
         private const string CategoryRevealed = "InvisibilityEveryRoundRevealed";
         private const string CategoryHidden = "InvisibilityEveryRoundHidden";
@@ -136,19 +136,21 @@ internal static class CustomConditionsContext
             target.RemoveAllConditionsOfCategory(CategoryHidden, false);
         }
 
-        public void OnAfterAction(CharacterAction characterAction)
+        public void OnAfterAction(
+            GameLocationCharacter actingCharacter,
+            CharacterActionParams actionParams,
+            ActionDefinition actionDefinition)
         {
-            var hero = characterAction.ActingCharacter.RulesetCharacter;
-            var action = characterAction.ActionDefinition;
+            var hero = actingCharacter.RulesetCharacter;
 
-            if (!action.Name.StartsWith("Attack")
-                && !action.Name.StartsWith("Cast")
-                && !action.Name.StartsWith("Power"))
+            if (!actionDefinition.Name.StartsWith("Attack")
+                && !actionDefinition.Name.StartsWith("Cast")
+                && !actionDefinition.Name.StartsWith("Power"))
             {
                 return;
             }
 
-            var ruleEffect = characterAction.ActionParams.RulesetEffect;
+            var ruleEffect = actionParams.RulesetEffect;
 
             if (ruleEffect == null || !IsAllowedEffect(ruleEffect.EffectDescription))
             {

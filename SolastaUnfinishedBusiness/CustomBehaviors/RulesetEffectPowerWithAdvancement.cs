@@ -1,5 +1,4 @@
 ﻿using SolastaUnfinishedBusiness.Api.Extensions;
-using SolastaUnfinishedBusiness.Models;
 
 namespace SolastaUnfinishedBusiness.CustomBehaviors;
 
@@ -20,7 +19,7 @@ internal class RulesetEffectPowerWithAdvancement : RulesetEffectPower
 
             if (provider != null)
             {
-                var steps = provider.OverchargeSteps(Global.CurrentCharacter);
+                var steps = provider.OverchargeSteps(user);
 
                 effectLevel = 1 + CustomOverchargeProvider.GetAdvancementFromOvercharge(extraCharges, steps);
             }

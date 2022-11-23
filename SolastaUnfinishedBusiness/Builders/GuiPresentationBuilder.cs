@@ -166,7 +166,8 @@ internal static class BaseDefinitionBuilderGuiPresentationExtensions
             sprite = spriteDefinition.GuiPresentation.spriteReference;
         }
 
-        return SetGuiPresentation(builder, GuiPresentationBuilder.Build(null, title, description, sprite, hidden: hidden));
+        return SetGuiPresentation(builder,
+            GuiPresentationBuilder.Build(null, title, description, sprite, hidden: hidden));
     }
 
     /// <summary>

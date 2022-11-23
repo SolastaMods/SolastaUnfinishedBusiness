@@ -1,12 +1,18 @@
-﻿using SolastaUnfinishedBusiness.Builders;
+﻿using System.Collections.Generic;
+using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
+using SolastaUnfinishedBusiness.CustomBehaviors;
+using SolastaUnfinishedBusiness.CustomInterfaces;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterSubclassDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPowers;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.MonsterDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.MonsterAttackDefinitions;
-using static EffectForm;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionDamageAffinitys;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionConditionAffinitys;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionSenses;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionMoveModes;
 
 namespace SolastaUnfinishedBusiness.Subclasses;
 
@@ -16,28 +22,53 @@ internal sealed class CircleOfTheNight : AbstractSubclass
 
     internal CircleOfTheNight()
     {
+        var shapeOptions = new List<ShapeOptionDescription>
+        {
+            ShapeBuilder(2, WildShapeBadlandsSpider),
+            ShapeBuilder(2, WildshapeDirewolf),
+            ShapeBuilder(2, WildShapeBrownBear),
+            ShapeBuilder(4, WildshapeDeepSpider),
+            ShapeBuilder(4, HBWildShapeDireBear()),
+            ShapeBuilder(6, WildShapeApe),
+            // flying
+            ShapeBuilder(8, WildshapeTiger_Drake),
+            ShapeBuilder(8, WildShapeGiant_Eagle),
+            // don't use future features
+            // ShapeBuilder(10, WildShapeTundraTiger),
+            // elementals
+            // According to the rules, transforming into an elemental should cost 2 Wild Shape Charges
+            // However elementals in this game are nerfed, since they don't have special attacks, such as Whirlwind
+            //TODO: Create a new feature for elemental transformation.
+            //TODO: Add special attacks to elemental forms (whirlwind, Whelm, Earth Glide maybe)
+            ShapeBuilder(10, HBWildShapeAirElemental()),
+            ShapeBuilder(10, HBWildShapeFireElemental()),
+            ShapeBuilder(10, HBWildShapeEarthElemental()),
+            ShapeBuilder(10, HBWildShapeWaterElemental())
+        };
+
         // 3rd level
+
         // Combat Wildshape 
         // Official rules are CR = 1/3 of druid level. However in solasta the selection of beasts is greatly reduced
-        var powerCircleOfTheNightWildShapeCombat = FeatureDefinitionPowerBuilder
-            .Create(PowerDruidWildShape, "PowerCircleOfTheNightWildShapeCombat")
-            .SetOverriddenPower(PowerDruidWildShape)
+        var powerCircleOfTheNightWildShapeCombat = FeatureDefinitionBuilder
+            .Create("PowerCircleOfTheNightWildShapeCombat")
             .SetGuiPresentation(Category.Feature)
-            .SetEffectDescription(BuildCombatWildShapeEffectDescription())
+            .SetCustomSubFeatures(new ChangeShapeOptionsCircleOfTheNightWildShapeCombat(shapeOptions))
             .AddToDB();
 
         // Combat Wild Shape Healing
         // While wild shaped, you can use a bonus action to heal yourself for 1d8 hit points.
-        // You can use this feature a number of times equal to your Wisdom modifier per long rest
+        // You can use this feature a number of times equal to your Proficiency Modifier per form per long rest
         var powerCircleOfTheNightWildShapeHealing = FeatureDefinitionPowerBuilder
             .Create("PowerCircleOfTheNightWildShapeHealing")
             .SetGuiPresentation(Category.Feature, PowerPaladinCureDisease)
-            //.SetUsesFixed(ActivationTime.BonusAction, RechargeRate.LongRest, 1, 2) // manual proficiency
             .SetUsesProficiencyBonus(ActivationTime.BonusAction)
             .SetEffectDescription(CombatHealing())
+            .SetCustomSubFeatures(CanUseCombatHealing())
             .AddToDB();
 
         // 6th Level
+
         // Primal Strike
         // Starting at 6th level, your attacks in beast form count as magical for the purpose of overcoming resistance
         // and immunity to non magical attacks and damage.
@@ -56,20 +87,28 @@ internal sealed class CircleOfTheNight : AbstractSubclass
             .SetGuiPresentation(Category.Feature, PowerPaladinCureDisease)
             .SetUsesProficiencyBonus(ActivationTime.BonusAction)
             .SetEffectDescription(CombatHealing(2))
+            .SetCustomSubFeatures(CanUseCombatHealing())
             .SetOverriddenPower(powerCircleOfTheNightWildShapeHealing)
             .AddToDB();
 
         // 10th Level
+
         // Superior Combat Healing
         // At 10th level, your combat healing improves to 3d8 + 6
         var powerCircleOfTheNightWildShapeSuperiorHealing = FeatureDefinitionPowerBuilder
             .Create("PowerCircleOfTheNightWildShapeSuperiorHealing")
             .SetGuiPresentation(Category.Feature, PowerPaladinCureDisease)
-            .SetEffectDescription(CombatHealing(3, DieType.D8, 6))
             .SetUsesProficiencyBonus(ActivationTime.BonusAction)
+            .SetEffectDescription(CombatHealing(3, DieType.D8, 6))
+            .SetCustomSubFeatures(CanUseCombatHealing())
             .SetOverriddenPower(powerCircleOfTheNightWildShapeImprovedHealing)
             .AddToDB();
 
+        // Elemental Forms
+        var featureSetCircleOfTheNightElementalForms = FeatureDefinitionFeatureSetBuilder
+            .Create("FeatureSetCircleOfTheNightElementalForms")
+            .SetGuiPresentation(Category.Feature)
+            .AddToDB();
 
         Subclass = CharacterSubclassDefinitionBuilder
             .Create(CircleOfTheNightName)
@@ -81,6 +120,7 @@ internal sealed class CircleOfTheNight : AbstractSubclass
                 powerCircleOfTheNightPrimalStrike,
                 powerCircleOfTheNightWildShapeImprovedHealing)
             .AddFeaturesAtLevel(10,
+                featureSetCircleOfTheNightElementalForms,
                 powerCircleOfTheNightWildShapeSuperiorHealing)
             .AddToDB();
     }
@@ -89,7 +129,6 @@ internal sealed class CircleOfTheNight : AbstractSubclass
 
     internal override FeatureDefinitionSubclassChoice SubclassChoice =>
         FeatureDefinitionSubclassChoices.SubclassChoiceDruidCircle;
-
 
     // custom wild shapes
 
@@ -161,154 +200,55 @@ internal sealed class CircleOfTheNight : AbstractSubclass
         return shape;
     }
 
-#if false
     private static MonsterDefinition HBWildShapeWaterElemental()
     {
-        var shape = MonsterDefinitionBuilder.Create(Ice_Elemental, "WildShapeWaterElemental")
+        // TODO Create Whelm attack (recharge 5/6)
+        // Whelm(Recharge 4–6).Each creature in the elemental's space must make a DC 15 Strength saving throw.
+        // On a failure, a target takes 13 (2d8 + 4) bludgeoning damage. If it is Large or smaller,
+        // it is also grappled (escape DC 14). Until this grapple ends, the target is restrained and
+        // unable to breathe unless it can breathe water. If the saving throw is successful, the target
+        // is pushed out of the elemental's space.
+
+
+        // TODO FUTURE: when IceElemental is implemented in Base Game, replace Air_Elemental with Ice_Elemental
+        var shape = MonsterDefinitionBuilder
+            .Create(Air_Elemental, "WildShapeWaterElemental")
+            .SetAbilityScores(18, 14, 18, 5, 10, 8)
+            .SetArmorClass(14)
+            .SetHitDice(DieType.D10, 12)
+            .SetHitPointsBonus(48)
+            .SetStandardHitPoints(114)
+            .SetFeatures(
+                DamageAffinityAcidResistance,
+                DamageAffinityBludgeoningResistance,
+                DamageAffinityPiercingResistance,
+                DamageAffinitySlashingResistance,
+                DamageAffinityFireImmunity,
+                DamageAffinityPoisonImmunity,
+                ConditionAffinityExhaustionImmunity,
+                ConditionAffinityGrappledImmunity,
+                ConditionAffinityParalyzedmmunity,
+                ConditionAffinityPetrifiedImmunity,
+                ConditionAffinityPoisonImmunity,
+                ConditionAffinityProneImmunity,
+                ConditionAffinityRestrainedmmunity,
+                ConditionAffinityUnconsciousImmunity,
+                SenseNormalVision,
+                SenseDarkvision,
+                MoveModeMove10,
+                MoveModeFly6
+            )
+            .SetOrUpdateGuiPresentation(Category.Monster, Air_Elemental)
             .AddToDB();
+
 
         return shape;
     }
-#endif
 
     private static ShapeOptionDescription ShapeBuilder(int level, MonsterDefinition monster)
     {
         var shape = new ShapeOptionDescription { requiredLevel = level, substituteMonster = monster };
         return shape;
-    }
-
-    //TODO: use builders here
-    private static EffectDescription BuildCombatWildShapeEffectDescription()
-    {
-        var wildShapeEffect = EffectDescriptionBuilder
-            .Create()
-            .SetEffectAdvancement(EffectIncrementMethod.None)
-            .Build();
-
-        //WildShapeEffect.targetParameter = 1;
-        wildShapeEffect.rangeType = RangeType.Self;
-        wildShapeEffect.rangeParameter = 0;
-        wildShapeEffect.halfDamageOnAMiss = false;
-        //WildShapeEffect.hitAffinitiesByTargetTag = [];
-        wildShapeEffect.targetType = TargetType.Self;
-        //WildShapeEffect.itemSelectionType = ActionDefinitions.ItemSelectionType.Equiped;
-        //WildShapeEffect.targetParameter = 1;
-        //WildShapeEffect.targetParameter2 = 2;
-        wildShapeEffect.emissiveBorder = EmissiveBorder.None;
-        //WildShapeEffect.emissiveParameter = 1;
-        wildShapeEffect.requiresTargetProximity = false;
-        //WildShapeEffect.targetProximityDistance = 6;
-        wildShapeEffect.targetExcludeCaster = false;
-        wildShapeEffect.canBePlacedOnCharacter = true;
-        wildShapeEffect.affectOnlyGround = false;
-        wildShapeEffect.targetFilteringMethod = TargetFilteringMethod.AllCharacterAndGadgets;
-        wildShapeEffect.targetFilteringTag = TargetFilteringTag.No;
-        //WildShapeEffect.requiresVisibilityForPosition = true;
-        wildShapeEffect.inviteOptionalAlly = false;
-        //WildShapeEffect.slotTypes = [];
-        wildShapeEffect.recurrentEffect = RecurrentEffect.No;
-        wildShapeEffect.retargetAfterDeath = false;
-        //WildShapeEffect.retargetActionType = ActionDefinitions.ActionType.Bonus;
-        //WildShapeEffect.poolFilterDiceNumber = 5;
-        //WildShapeEffect.poolFilterDieType = RuleDefinitions.DieType.D8;
-        //WildShapeEffect.trapRangeType = Triggered";
-        //WildShapeEffect.targetConditionName = ";
-        wildShapeEffect.targetConditionAsset = null;
-        //WildShapeEffect.targetSide = Enemy;
-        wildShapeEffect.durationType = DurationType.HalfClassLevelHours;
-        //WildShapeEffect.durationParameter = 1;
-        //WildShapeEffect.endOfEffect = EndOfTurn;
-        wildShapeEffect.hasSavingThrow = false;
-        wildShapeEffect.disableSavingThrowOnAllies = false;
-        //WildShapeEffect.savingThrowAbility = Dexterity";
-        wildShapeEffect.ignoreCover = false;
-        wildShapeEffect.grantedConditionOnSave = null;
-        wildShapeEffect.rollSaveOnlyIfRelevantForms = false;
-        wildShapeEffect.hasShoveRoll = false;
-        wildShapeEffect.createdByCharacter = true;
-        wildShapeEffect.difficultyClassComputation = EffectDifficultyClassComputation.SpellCastingFeature;
-        //WildShapeEffect.savingThrowDifficultyAbility = Wisdom;
-        //WildShapeEffect.fixedSavingThrowDifficultyClass = 15;
-        //WildShapeEffect.savingThrowAffinitiesBySense = [];
-        //WildShapeEffect.savingThrowAffinitiesByFamily = [];
-        wildShapeEffect.advantageForEnemies = false;
-        wildShapeEffect.canBeDispersed = false;
-        wildShapeEffect.hasVelocity = false;
-        wildShapeEffect.velocityCellsPerRound = 2;
-        wildShapeEffect.velocityType = VelocityType.AwayFromSourceOriginalPosition;
-        //WildShapeEffect.restrictedCreatureFamilies = [];
-        //WildShapeEffect.immuneCreatureFamilies = [];
-        //WildShapeEffect.restrictedCharacterSizes = [];
-        wildShapeEffect.hasLimitedEffectPool = false;
-        wildShapeEffect.effectPoolAmount = 60;
-        wildShapeEffect.effectApplication = EffectApplication.All;
-        //WildShapeEffect.effectFormFilters = [];
-        //WildShapeEffect.specialFormsDescription = "";
-        wildShapeEffect.speedType = SpeedType.Instant;
-        wildShapeEffect.speedParameter = 10f;
-        wildShapeEffect.offsetImpactTimeBasedOnDistance = false;
-        //WildShapeEffect.offsetImpactTimeBasedOnDistanceFactor = 0.1f;
-        wildShapeEffect.offsetImpactTimePerTarget = 0.0f;
-        wildShapeEffect.animationMagicEffect = AnimationDefinitions.AnimationMagicEffect.Animation0;
-        wildShapeEffect.lightCounterDispellsEffect = false;
-        wildShapeEffect.effectAIParameters = PowerDruidWildShape.effectDescription.effectAIParameters;
-        wildShapeEffect.effectParticleParameters = PowerDruidWildShape.effectDescription.effectParticleParameters;
-
-        var effectForm = new EffectForm
-        {
-            formType = EffectFormType.ShapeChange,
-            addBonusMode = AddBonusMode.None,
-            applyLevel = LevelApplianceType.No,
-            levelType = LevelSourceType.ClassLevel,
-            levelMultiplier = 0,
-            createdByCharacter = true,
-            createdByCondition = false,
-            hasSavingThrow = false,
-            savingThrowAffinity = EffectSavingThrowType.None,
-            dcModifier = 0,
-            canSaveToCancel = false,
-            saveOccurence = TurnOccurenceType.StartOfTurn,
-            hasFilterId = false,
-            filterId = 0,
-            shapeChangeForm = new ShapeChangeForm
-            {
-                shapeChangeType = ShapeChangeForm.Type.ClassLevelListSelection,
-                keepMentalAbilityScores = true,
-                //specialSubstituteCondition = PowerDruidWildShape.effectDescription.effectForms[0].shapeChangeForm.specialSubstituteCondition,
-                specialSubstituteCondition = ConditionDefinitions.ConditionWildShapeSubstituteForm
-            }
-        };
-
-        // doesn't make much sense to have weaker forms of the shapes such as wolf and black bear
-        //effectForm.shapeChangeForm.shapeOptions.Add(ShapeBuilder(2, WildShapeWolf));
-        //effectForm.shapeChangeForm.shapeOptions.Add(ShapeBuilder(2, WildShapeBrownBear));
-        effectForm.shapeChangeForm.shapeOptions.Add(ShapeBuilder(2, WildShapeBadlandsSpider));
-        effectForm.shapeChangeForm.shapeOptions.Add(ShapeBuilder(2, WildshapeDirewolf));
-        effectForm.shapeChangeForm.shapeOptions.Add(ShapeBuilder(2, WildShapeBrownBear));
-        effectForm.shapeChangeForm.shapeOptions.Add(ShapeBuilder(4, WildshapeDeepSpider));
-        effectForm.shapeChangeForm.shapeOptions.Add(ShapeBuilder(4, HBWildShapeDireBear()));
-        effectForm.shapeChangeForm.shapeOptions.Add(ShapeBuilder(6, WildShapeApe));
-        effectForm.shapeChangeForm.shapeOptions.Add(ShapeBuilder(8, WildshapeTiger_Drake)); // flying
-        effectForm.shapeChangeForm.shapeOptions.Add(ShapeBuilder(8, WildShapeGiant_Eagle)); // flying
-
-        // don't use future features
-        //effectForm.shapeChangeForm.shapeOptions.Add(ShapeBuilder(10, WildShapeTundraTiger));
-
-        // Elementals
-        // According to the rules, transforming into an elemental should cost 2 Wild Shape Charges
-        // However elementals in this game are nerfed, since they don't have special attacks, such as Whirlwind
-        //TODO: Create a new feature for elemental transformation.
-        //TODO: Add special attacks to elemental forms (whirlwind, Whelm, Earth Glide maybe)
-        effectForm.shapeChangeForm.shapeOptions.Add(ShapeBuilder(10, HBWildShapeAirElemental()));
-        effectForm.shapeChangeForm.shapeOptions.Add(ShapeBuilder(10, HBWildShapeFireElemental()));
-
-        // don't use future features
-        //effectForm.shapeChangeForm.shapeOptions.Add(ShapeBuilder(10, HBWildShapeWaterElemental()));
-        effectForm.shapeChangeForm.shapeOptions.Add(ShapeBuilder(10, HBWildShapeEarthElemental()));
-
-        wildShapeEffect.effectForms.Add(effectForm);
-
-        return wildShapeEffect;
     }
 
     private static EffectDescription CombatHealing(
@@ -334,5 +274,23 @@ internal sealed class CircleOfTheNight : AbstractSubclass
             .Build();
 
         return effectDescription;
+    }
+
+    private static ValidatorsPowerUse CanUseCombatHealing()
+    {
+        return new ValidatorsPowerUse(
+            ValidatorsCharacter.HasAnyOfConditions(ConditionDefinitions.ConditionWildShapeSubstituteForm));
+    }
+
+    private sealed class ChangeShapeOptionsCircleOfTheNightWildShapeCombat : IChangeShapeOptions
+    {
+        public ChangeShapeOptionsCircleOfTheNightWildShapeCombat(
+            List<ShapeOptionDescription> shapeOptionDescriptions)
+        {
+            ShapeOptions = shapeOptionDescriptions;
+        }
+
+        public ConditionDefinition SpecialSubstituteCondition => ConditionDefinitions.ConditionWildShapeSubstituteForm;
+        public List<ShapeOptionDescription> ShapeOptions { get; }
     }
 }

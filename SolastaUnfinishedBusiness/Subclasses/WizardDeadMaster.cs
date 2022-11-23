@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.Extensions;
+using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomUI;
-using SolastaUnfinishedBusiness.Models;
 using UnityEngine.AddressableAssets;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
@@ -38,8 +38,10 @@ internal sealed class WizardDeadMaster : AbstractSubclass
         var targetReducedToZeroHpDeadMasterStarkHarvest = FeatureDefinitionBuilder
             .Create("TargetReducedToZeroHpDeadMasterStarkHarvest")
             .SetGuiPresentation(Category.Feature)
-            .SetCustomSubFeatures(new TargetReducedToZeroHpDeadMasterStarkHarvest())
             .AddToDB();
+
+        targetReducedToZeroHpDeadMasterStarkHarvest.SetCustomSubFeatures(
+            new StarkHarvest(targetReducedToZeroHpDeadMasterStarkHarvest));
 
         const string ChainsName = "SummoningAffinityDeadMasterUndeadChains";
 
@@ -78,39 +80,18 @@ internal sealed class WizardDeadMaster : AbstractSubclass
                     .AddToDB())
             .AddToDB();
 
-        var powerDeadMasterCommandUndead = FeatureDefinitionPowerBuilder
-            .Create("PowerDeadMasterCommandUndead")
-            .SetGuiPresentation(Category.Feature)
-            .SetUsesProficiencyBonus(ActivationTime.Action)
-            .SetEffectDescription(
-                EffectDescriptionBuilder
-                    .Create(DominateBeast.EffectDescription)
-                    .SetEffectAdvancement(EffectIncrementMethod.None)
-                    .SetRestrictedCreatureFamilies(Undead)
-                    .SetSavingThrowData(
-                        false,
-                        AttributeDefinitions.Charisma,
-                        false,
-                        EffectDifficultyClassComputation.AbilityScoreAndProficiency,
-                        AttributeDefinitions.Intelligence,
-                        8,
-                        true)
-                    .Build())
-            .AddToDB();
-
         Subclass = CharacterSubclassDefinitionBuilder
             .Create(WizardDeadMasterName)
             .SetGuiPresentation(Category.Subclass, SorcerousHauntedSoul)
             .AddFeaturesAtLevel(2,
                 autoPreparedSpellsDeadMaster,
-                deadMasterUndeadChains
-            )
+                deadMasterUndeadChains)
             .AddFeaturesAtLevel(6,
                 targetReducedToZeroHpDeadMasterStarkHarvest)
             .AddFeaturesAtLevel(10,
                 DamageAffinityGenericHardenToNecrotic)
             .AddFeaturesAtLevel(14,
-                powerDeadMasterCommandUndead)
+                PowerCasterCommandUndead)
             .AddToDB();
 
         EnableCommandAllUndead();
@@ -207,14 +188,15 @@ internal sealed class WizardDeadMaster : AbstractSubclass
             foreach (var (monsterDefinition, count, icon, attackSprites) in monsters)
             {
                 var monster = MakeSummonedMonster(monsterDefinition, attackSprites);
+                var title = Gui.Format("Spell/&SpellRaiseDeadFormatTitle",
+                    monster.FormatTitle());
+                var description = Gui.Format("Spell/&SpellRaiseDeadFormatDescription",
+                    monster.FormatTitle(),
+                    monster.FormatDescription());
 
                 spells.Add(SpellDefinitionBuilder
                     .Create($"CreateDead{monster.name}")
-                    .SetGuiPresentation(
-                        Gui.Format("Spell/&SpellRaiseDeadFormatTitle", monster.FormatTitle()),
-                        Gui.Format("Spell/&SpellRaiseDeadFormatDescription", monster.FormatTitle(),
-                            monster.FormatDescription()),
-                        icon)
+                    .SetGuiPresentation(title, description, icon)
                     .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolNecromancy)
                     .SetSpellLevel(spell)
                     .SetMaterialComponent(MaterialComponentType.Mundane)
@@ -274,15 +256,22 @@ internal sealed class WizardDeadMaster : AbstractSubclass
         return modified;
     }
 
-    private sealed class TargetReducedToZeroHpDeadMasterStarkHarvest : ITargetReducedToZeroHp
+    private sealed class StarkHarvest : ITargetReducedToZeroHp
     {
+        private readonly FeatureDefinition feature;
+
+        public StarkHarvest(FeatureDefinition feature)
+        {
+            this.feature = feature;
+        }
+
         public IEnumerator HandleCharacterReducedToZeroHp(
             GameLocationCharacter attacker,
             GameLocationCharacter downedCreature,
             RulesetAttackMode attackMode,
             RulesetEffect activeEffect)
         {
-            if (Global.CurrentAction is not CharacterActionCastSpell actionCastSpell)
+            if (activeEffect is not RulesetEffectSpell spellEffect)
             {
                 yield break;
             }
@@ -294,12 +283,33 @@ internal sealed class WizardDeadMaster : AbstractSubclass
                 yield break;
             }
 
-            var rulesetAttacker = attacker.RulesetCharacter;
-            var spellLevel = actionCastSpell.ActiveSpell.SpellDefinition.SpellLevel;
-            var isNecromancy = actionCastSpell.ActiveSpell.SpellDefinition.SchoolOfMagic == SchoolNecromancy;
-            var healingReceived = (isNecromancy ? 3 : 2) * spellLevel;
+            var usedSpecialFeatures = attacker.UsedSpecialFeatures;
 
-            rulesetAttacker.ReceiveHealing(healingReceived, true, rulesetAttacker.Guid);
+            usedSpecialFeatures.TryAdd(feature.Name, 0);
+
+            if (usedSpecialFeatures[feature.Name] > 0)
+            {
+                yield break;
+            }
+
+            usedSpecialFeatures[feature.Name]++;
+
+            var rulesetAttacker = attacker.RulesetCharacter;
+            var spell = spellEffect.SpellDefinition;
+            var isNecromancy = spell.SchoolOfMagic == SchoolNecromancy;
+            var healingReceived = (isNecromancy ? 3 : 2) * spell.SpellLevel;
+
+            GameConsoleHelper.LogCharacterUsedFeature(rulesetAttacker, feature, indent: true);
+
+            if (rulesetAttacker.MissingHitPoints > 0)
+            {
+                rulesetAttacker.ReceiveHealing(healingReceived, true, rulesetAttacker.Guid);
+            }
+            else if (rulesetAttacker.TemporaryHitPoints <= healingReceived)
+            {
+                rulesetAttacker.ReceiveTemporaryHitPoints(healingReceived, DurationType.Minute, 1,
+                    TurnOccurenceType.EndOfTurn, rulesetAttacker.Guid);
+            }
         }
     }
 }

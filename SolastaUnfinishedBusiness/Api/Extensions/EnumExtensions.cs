@@ -82,6 +82,9 @@ internal enum ExtraOriginOfAmount
     SourceClassLevel = 9002, //Class name should be in the `additionalDamageType` field of the condition
     SourceAbilityBonus = 9003, //Attribute name should be in the `additionalDamageType` field of the condition
     SourceProficiencyBonusNegative = 9004,
+
+    SourceCopyAttributeFromSummoner =
+        9005, //Attribute name should be in the `additionalDamageType` field of the condition
 }
 
 internal enum ExtraAdditionalDamageTriggerCondition

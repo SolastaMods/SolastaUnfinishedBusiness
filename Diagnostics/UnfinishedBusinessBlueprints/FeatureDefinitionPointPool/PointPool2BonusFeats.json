@@ -12,8 +12,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&PointPoolSelect2BonusFeatsTitle",
-    "description": "Feature/&PointPoolSelect2BonusFeatsDescription",
+    "title": "2 Bonus Feats",
+    "description": "Select 2 additional feats for your character.",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",

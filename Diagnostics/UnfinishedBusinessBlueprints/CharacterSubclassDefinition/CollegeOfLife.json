@@ -48,6 +48,11 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:PowerCasterCommandUndead:b73f8a69-89ca-5b00-b016-582ac4cb73ba",
+      "level": 14
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:DamageAffinityGenericHardenToNecrotic:44b34f3e-0c4c-5527-8cf1-053015ed46d1",
       "level": 14
     }

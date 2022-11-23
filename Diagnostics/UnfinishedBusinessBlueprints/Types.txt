@@ -38,6 +38,7 @@ FeatureDefinitionSummoningAffinity
 FightingStyleDefinition
 InvocationDefinition
 ItemDefinition
+LanguageDefinition
 MonsterAttackDefinition
 MonsterDefinition
 MorphotypeElementDefinition

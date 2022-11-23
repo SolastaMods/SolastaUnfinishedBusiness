@@ -128,7 +128,7 @@ internal static class GlobalUniqueEffects
             .Where(powerEffect =>
             {
                 var tmp = powerEffect.PowerDefinition.GetFirstSubFeatureOfType<ILimitEffectInstances>();
-                
+
                 if (tmp == null)
                 {
                     return false;

@@ -1,5 +1,47 @@
 ﻿CHANGES:
 
+1.4.28.G:
+
+- added SRD rule option to identify items over rest activities
+
+1.4.28.F:
+
+- added Water Elemental to Circle of The Night WS forms (based of Air)
+- improved conditions tooltip
+- shrunk shapes offering panel when too many shapes are offered
+
+1.4.28.E:
+
+- changed Silhouette Step recharge rate to PB over long rest
+- fixed Circle of The Night loosing Wildshape condition
+- updated suggested spells to include Bard
+- restated level 9 spells
+
+1.4.28.D:
+
+- improved College of Life level 14 with Command Undead from Dead Master
+- improved Way of The Silhouette progression to be on par with Moonlit
+- promoted Gnomes after better QA
+
+1.4.28.C:
+
+- allowed up to 22 first level feats if set directly on XML (for QA)
+- fixed Circle of The Nights Druid Combat power
+- fixed Stark Harvest to respect once per turn use
+- rolled back delegates use on ActionFinished
+- updated Aze.Publicise.MSBuild.Task to version 1.1.0
+- tweaked some condition descriptions on UI and ALT key behavior on them
+- tweaked Stark Harvest to grant temp HP if caster is at full health
+
+1.4.28.B:
+
+- added an UI 10th level feature description on Circle of The Nights
+- added eye styles to Dragonborn
+- allowed the horror of beardless dwarves
+- disabled some patches in favor of game delegates
+- fixed Circle of The Night combat healing to only work under WS
+- fixed Warlock slots display issues on inspection under MC
+
 1.4.28.A:
 
 - added Circle of The Night (beta)

@@ -1,6 +1,8 @@
 ﻿using System.Collections.Generic;
 using JetBrains.Annotations;
+using SolastaUnfinishedBusiness.Api.Extensions;
 using SolastaUnfinishedBusiness.CustomBehaviors;
+using SolastaUnfinishedBusiness.CustomInterfaces;
 using UnityEngine;
 
 namespace SolastaUnfinishedBusiness.Models;
@@ -8,7 +10,9 @@ namespace SolastaUnfinishedBusiness.Models;
 internal static class Global
 {
     // true if in a multiplayer game
-    internal static bool IsMultiplayer => ServiceRepository.GetService<INetworkingService>().IsMultiplayerGame;
+    internal static bool IsMultiplayer => IsSettingUpMultiplayer
+                                          || ServiceRepository.GetService<INetworkingService>().IsMultiplayerGame;
+
     internal static bool IsSettingUpMultiplayer { get; set; }
 
     // level up hero
@@ -23,7 +27,7 @@ internal static class Global
     [CanBeNull] internal static RulesetCharacterHero InspectedHero { get; set; }
 
     // active player character
-    internal static GameLocationCharacter ActionCharacter { get; private set; }
+    // internal static GameLocationCharacter ActionCharacter { get; private set; }
 
     private static GameLocationCharacter ControlledLocationCharacter
     {
@@ -46,8 +50,7 @@ internal static class Global
 
     internal static RulesetCharacter CurrentCharacter => InspectedHero
                                                          ?? LevelUpHero
-                                                         ?? ControlledLocationCharacter?.RulesetCharacter
-                                                         ?? ActionCharacter?.RulesetCharacter;
+                                                         ?? ControlledLocationCharacter?.RulesetCharacter;
 
     // current action from any character on the map
     internal static CharacterAction CurrentAction { get; private set; }
@@ -64,16 +67,15 @@ internal static class Global
     // restate globals on every new action
     internal static void ActionStarted([NotNull] CharacterAction characterAction)
     {
-        var isShiftPressed = Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift);
         CurrentAction = characterAction;
-        ActionCharacter = characterAction.ActingCharacter;
-
-        Main.Log($"{ActionCharacter?.Name} -> {CurrentAction.ActionDefinition.Name}");
+        // ActionCharacter = characterAction.ActingCharacter;
 
         switch (characterAction)
         {
             case CharacterActionCastSpell or CharacterActionSpendSpellSlot:
                 // Hold the state of the SHIFT key on BOOL PARAM 5. Used to determine which slot to use on MC Warlock
+                var isShiftPressed = Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift);
+
                 characterAction.actionParams.BoolParameter5 = isShiftPressed;
                 break;
 
@@ -84,6 +86,17 @@ internal static class Global
             case CharacterActionSpendPower spendPower:
                 PowerBundle.SpendBundledPowerIfNeeded(spendPower);
                 break;
+        }
+    }
+
+    internal static void ActionFinished(
+        GameLocationCharacter actingCharacter,
+        CharacterActionParams actionParams,
+        ActionDefinition actionDefinition)
+    {
+        foreach (var feature in actingCharacter.RulesetCharacter.GetSubFeaturesByType<IOnAfterActionFeature>())
+        {
+            feature.OnAfterAction(actingCharacter, actionParams, actionDefinition);
         }
     }
 }

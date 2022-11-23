@@ -40,10 +40,8 @@ internal sealed class CollegeOfHarlequin : AbstractSubclass
                             ConditionDefinitions.ConditionPatronHiveWeakeningPheromones,
                         operation = ConditionForm.ConditionOperation.Add
                     }
-                }
-            )
-            .Build()
-        )
+                })
+            .Build())
         .AddToDB();
 
     internal CollegeOfHarlequin()
@@ -61,31 +59,29 @@ internal sealed class CollegeOfHarlequin : AbstractSubclass
                 .SetEffectForms(EffectFormBuilder
                     .Create()
                     .SetConditionForm(ConditionDefinitionBuilder
-                        .Create("ConditionCollegeOfHarlequinFightingAbilityEnhanced")
-                        .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionHeraldOfBattle)
-                        .AddFeatures(FeatureDefinitionAttributeModifierBuilder
-                                .Create("AttributeModifierCollegeOfHarlequinCombatInspirationArmorClassEnhancement")
-                                .SetGuiPresentation(Category.Feature)
-                                .SetModifier(FeatureDefinitionAttributeModifier.AttributeModifierOperation.Additive,
-                                    AttributeDefinitions.ArmorClass)
-                                .AddToDB(),
-                            FeatureDefinitionMovementAffinityBuilder
-                                .Create("MovementAffinityCollegeOfHarlequinCombatInspirationMovementEnhancement")
-                                .SetGuiPresentation(Category.Feature)
-                                .SetCustomSubFeatures(new UseBardicDieRollForSpeedModifier())
-                                .AddToDB(),
-                            FeatureDefinitionAttackModifierBuilder
-                                .Create("AttackModifierCollegeOfHarlequinCombatInspirationAttackEnhancement")
-                                .SetGuiPresentation(Category.Feature)
-                                .SetCustomSubFeatures(new AddBardicDieRollToAttackAndDamage())
-                                .AddToDB()
-                        )
-                        .SetCustomSubFeatures(new ConditionCombatInspired())
-                        .AddToDB(), 
+                            .Create("ConditionCollegeOfHarlequinFightingAbilityEnhanced")
+                            .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionHeraldOfBattle)
+                            .AddFeatures(FeatureDefinitionAttributeModifierBuilder
+                                    .Create("AttributeModifierCollegeOfHarlequinCombatInspirationArmorClassEnhancement")
+                                    .SetGuiPresentation(Category.Feature)
+                                    .SetModifier(FeatureDefinitionAttributeModifier.AttributeModifierOperation.Additive,
+                                        AttributeDefinitions.ArmorClass)
+                                    .AddToDB(),
+                                FeatureDefinitionMovementAffinityBuilder
+                                    .Create("MovementAffinityCollegeOfHarlequinCombatInspirationMovementEnhancement")
+                                    .SetGuiPresentation(Category.Feature)
+                                    .SetCustomSubFeatures(new UseBardicDieRollForSpeedModifier())
+                                    .AddToDB(),
+                                FeatureDefinitionAttackModifierBuilder
+                                    .Create("AttackModifierCollegeOfHarlequinCombatInspirationAttackEnhancement")
+                                    .SetGuiPresentation(Category.Feature)
+                                    .SetCustomSubFeatures(new AddBardicDieRollToAttackAndDamage())
+                                    .AddToDB())
+                            .SetCustomSubFeatures(new ConditionCombatInspired())
+                            .AddToDB(),
                         ConditionForm.ConditionOperation.Add)
                     .Build())
-                .Build()
-            )
+                .Build())
             .AddToDB();
 
         var proficiencyCollegeOfHarlequinMartialWeapon = FeatureDefinitionProficiencyBuilder
@@ -118,8 +114,7 @@ internal sealed class CollegeOfHarlequin : AbstractSubclass
                     .Build())
                 .SetParticleEffectParameters(
                     FeatureDefinitionPowers.PowerBardGiveBardicInspiration.EffectDescription.effectParticleParameters)
-                .Build()
-            )
+                .Build())
             .SetUsesFixed(ActivationTime.OnReduceCreatureToZeroHPAuto)
             .AddToDB();
 
@@ -147,6 +142,7 @@ internal sealed class CollegeOfHarlequin : AbstractSubclass
     internal static int GetBardicRoll(ulong sourceGuid)
     {
         BardicDieRollPerCharacter.TryGetValue(sourceGuid, out var roll);
+
         return roll;
     }
 
@@ -236,7 +232,7 @@ internal sealed class CollegeOfHarlequin : AbstractSubclass
             GameLocationCharacter downedCreature,
             RulesetAttackMode attackMode, RulesetEffect activeEffect)
         {
-            if (Global.CurrentAction is not CharacterActionAttack)
+            if (attackMode == null || activeEffect != null)
             {
                 yield break;
             }

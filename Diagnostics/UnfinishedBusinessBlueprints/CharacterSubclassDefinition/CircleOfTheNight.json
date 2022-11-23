@@ -23,6 +23,11 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:FeatureSetCircleOfTheNightElementalForms:8c43308c-2202-5d95-939d-e5cb5f999c80",
+      "level": 10
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:PowerCircleOfTheNightWildShapeSuperiorHealing:f51d8ec5-e1da-567b-9a04-aab5af3ed007",
       "level": 10
     }

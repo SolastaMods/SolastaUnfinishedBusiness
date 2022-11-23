@@ -92,7 +92,7 @@ internal static class BootContext
         ServiceRepository.GetService<IRuntimeService>().RuntimeLoaded += _ =>
         {
             DelegatesContext.LateLoad();
-            
+
             // Late initialized to allow feats and races from other mods
             CharacterContext.LateLoad();
 
@@ -156,26 +156,40 @@ internal static class BootContext
             return;
         }
 
-        var featDef = gui.tooltipClassDefinitions["FeatDefinition"];
+        var definition = gui.tooltipClassDefinitions[GuiFeatDefinition.tooltipClass];
 
-        var prerequisites = featDef.tooltipFeatures.FindIndex(f =>
+        var index = definition.tooltipFeatures.FindIndex(f =>
             f.scope == TooltipDefinitions.Scope.All &&
             f.featurePrefab.GetComponent<TooltipFeature>() is TooltipFeaturePrerequisites);
 
-        if (prerequisites < 0)
+        if (index >= 0)
         {
-            return;
+            var custom = GuiTooltipClassDefinitionBuilder
+                .Create(gui.tooltipClassDefinitions["ItemDefinition"], CustomItemTooltipProvider.ItemWithPreReqsTooltip)
+                .SetGuiPresentationNoContent()
+                .AddTooltipFeature(definition.tooltipFeatures[index])
+                //TODO: figure out why only background widens, but not content
+                // .SetPanelWidth(400f) //items have 340f by default
+                .AddToDB();
+
+            gui.tooltipClassDefinitions.Add(custom.Name, custom);
         }
 
-        var custom = GuiTooltipClassDefinitionBuilder
-            .Create(gui.tooltipClassDefinitions["ItemDefinition"], CustomItemTooltipProvider.ItemWithPreReqsTooltip)
-            .SetGuiPresentationNoContent()
-            .AddTooltipFeature(featDef.tooltipFeatures[prerequisites])
-            //TODO: figure out why only background widens, but not content
-            // .SetPanelWidth(400f) //items have 340f by default
-            .AddToDB();
+        //make condition description visible on both modes
+        definition = gui.tooltipClassDefinitions[GuiActiveCondition.tooltipClass];
+        index = definition.tooltipFeatures.FindIndex(f =>
+            f.scope == TooltipDefinitions.Scope.Simplified &&
+            f.featurePrefab.GetComponent<TooltipFeature>() is TooltipFeatureDescription);
 
-        gui.tooltipClassDefinitions.Add(custom.Name, custom);
+        if (index >= 0)
+        {
+            //since FeatureInfo is a struct we get here a copy
+            var info = definition.tooltipFeatures[index];
+            //modify it
+            info.scope = TooltipDefinitions.Scope.All;
+            //and then put copy back
+            definition.tooltipFeatures[index] = info;
+        }
     }
 
     private static void Load()

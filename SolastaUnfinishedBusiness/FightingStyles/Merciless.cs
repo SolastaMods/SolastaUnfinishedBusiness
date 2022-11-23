@@ -52,7 +52,7 @@ internal sealed class Merciless : AbstractFightingStyle
             RulesetAttackMode attackMode,
             RulesetEffect activeEffect)
         {
-            if (Global.CurrentAction is not CharacterActionAttack)
+            if (attackMode == null || activeEffect != null)
             {
                 yield break;
             }
