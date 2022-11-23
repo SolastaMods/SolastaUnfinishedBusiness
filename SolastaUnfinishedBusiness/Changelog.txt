@@ -1,7 +1,8 @@
 ﻿CHANGES:
 
-1.4.28.D:
+1.4.28.E:
 
-- improved College of Life level 14 with Command Undead from Dead Master
-- improved Way of The Silhouette progression to be on par with Moonlit
-- promoted Gnomes after better QA
+- changed Silhouette Step recharge rate to PB over long rest
+- fixed Circle of The Night loosing Wildshape condition
+- updated suggested spells to include Bard
+- restated level 9 spells
