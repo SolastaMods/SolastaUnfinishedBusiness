@@ -249,9 +249,7 @@ public static class InnovationWeapon
                     .Create("ConditionInnovationWeaponSummonSteelDefenderLevel")
                     .SetGuiPresentationNoContent()
                     .SetSilent(Silent.WhenAddedOrRemoved)
-                    .SetAmountOrigin(ExtraOriginOfAmount.SourceClassLevel)
-                    //Set damage type to class name so `ExtraOriginOfAmount.SourceClassLevel` would know what class to use
-                    .SetAdditionalDamageWhenHit(damageType: InventorClass.ClassName, active: false)
+                    .SetAmountOrigin(ExtraOriginOfAmount.SourceClassLevel, InventorClass.ClassName)
                     .SetFeatures(hpBonus, hpBonus, hpBonus, hpBonus, hpBonus) // 5 HP per level
                     .AddToDB(),
                 //Bonuses from Inventor's INT
@@ -259,9 +257,7 @@ public static class InnovationWeapon
                     .Create("ConditionInnovationWeaponSummonSteelDefenderIntelligence")
                     .SetGuiPresentationNoContent()
                     .SetSilent(Silent.WhenAddedOrRemoved)
-                    .SetAmountOrigin(ExtraOriginOfAmount.SourceAbilityBonus)
-                    //Set damage type to class name so `ExtraOriginOfAmount.SourceAbilityBonus` would know what class to use
-                    .SetAdditionalDamageWhenHit(damageType: AttributeDefinitions.Intelligence, active: false)
+                    .SetAmountOrigin(ExtraOriginOfAmount.SourceAbilityBonus, AttributeDefinitions.Intelligence)
                     .SetFeatures(hpBonus) // 1 hp per INT mod
                     .AddToDB()
             )
