@@ -50,7 +50,6 @@ internal sealed class PathOfTheSpirits : AbstractSubclass
 
         #endregion
 
-
         #region 6th LEVEL FEATURES
 
         // Animal Aspect
@@ -60,7 +59,7 @@ internal sealed class PathOfTheSpirits : AbstractSubclass
             .SetGuiPresentation(Category.Feature)
             .ClearFeatureSet()
             .AddFeatureSet(
-                //Bear: You gain the might of a bear. Your HP increases by 2 points for every level you take in this class and have advantage on Strenght Checks.
+                //Bear: You gain the might of a bear. Your HP increases by 2 points for every level you take in this class and have advantage on Strength Checks.
                 BuildAnimalAspectChoice("Bear", PowerBearDurability(), PowerBearMight()),
                 //Eagle: You gain the eyesight of an eagle. You gain superior darkvision and Keen Sight.
                 BuildAnimalAspectChoice("Eagle", SenseSuperiorDarkvision, AbilityCheckAffinityKeenSight),
@@ -79,7 +78,7 @@ internal sealed class PathOfTheSpirits : AbstractSubclass
         // the area for the first time on a turn or starts its turn there, it must make a Wisdom saving throw.
         // On a failed save, the creature takes 3d8 radiant damage (if you are good or neutral) or 3d8 necrotic damage (if you are evil).
         // On a successful save, the creature takes half as much damage.
-        // You can use this feature 3 times per long rest.
+        // You can use this feature a number of times equal to your proficiency modifier.
         var featureSetPathOfTheSpiritsSpiritWalker = FeatureDefinitionFeatureSetBuilder
             .Create("PathOfTheSpiritsSpiritWalker")
             .SetGuiPresentation(Category.Feature)
@@ -87,7 +86,6 @@ internal sealed class PathOfTheSpirits : AbstractSubclass
             .AddToDB();
 
         #endregion
-
 
 
         Subclass = CharacterSubclassDefinitionBuilder
@@ -229,7 +227,7 @@ internal sealed class PathOfTheSpirits : AbstractSubclass
         return FeatureDefinitionPowerBuilder
             .Create("PathOfTheSpiritsSpiritGuardians")
             .SetGuiPresentation(SpellDefinitions.SpiritGuardians.guiPresentation)
-            .SetUsesFixed(ActivationTime.BonusAction, RechargeRate.LongRest, 3)
+            .SetUsesProficiencyBonus(ActivationTime.BonusAction, RechargeRate.LongRest)
             .SetEffectDescription(SpellDefinitions.SpiritGuardians.EffectDescription)
             .AddToDB();
     }
