@@ -75,12 +75,6 @@ internal class ConditionDefinitionBuilder
         return this;
     }
 
-    internal ConditionDefinitionBuilder SetAdditionalDamageType(string value)
-    {
-        Definition.additionalDamageType = value;
-        return this;
-    }
-
     internal ConditionDefinitionBuilder AddConditionTags(params string[] tags)
     {
         Definition.conditionTags.AddRange(tags);
