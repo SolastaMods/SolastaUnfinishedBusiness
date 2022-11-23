@@ -27,7 +27,7 @@ internal static class Global
     [CanBeNull] internal static RulesetCharacterHero InspectedHero { get; set; }
 
     // active player character
-    internal static GameLocationCharacter ActionCharacter { get; private set; }
+    // internal static GameLocationCharacter ActionCharacter { get; private set; }
 
     private static GameLocationCharacter ControlledLocationCharacter
     {
@@ -68,7 +68,7 @@ internal static class Global
     internal static void ActionStarted([NotNull] CharacterAction characterAction)
     {
         CurrentAction = characterAction;
-        ActionCharacter = characterAction.ActingCharacter;
+        // ActionCharacter = characterAction.ActingCharacter;
 
         switch (characterAction)
         {
