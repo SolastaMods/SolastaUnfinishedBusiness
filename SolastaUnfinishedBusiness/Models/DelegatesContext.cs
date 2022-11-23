@@ -366,7 +366,7 @@ internal static class DelegatesContext
 
     private static void ActionStarted(CharacterAction characterAction)
     {
-        Main.Info($"{characterAction.ActingCharacter.Name} {characterAction.ActionId} Action Started");
+        Main.Info($"{characterAction.ActingCharacter?.Name} -> {characterAction.ActionDefinition.Name} STARTED");
 
         Global.ActionStarted(characterAction);
     }
@@ -428,7 +428,7 @@ internal static class DelegatesContext
         CharacterActionParams actionParams,
         ActionDefinition actionDefinition)
     {
-        Main.Info($"{actingCharacter.Name} Action Used");
+        Main.Info($"{actingCharacter?.Name} -> {actionDefinition.Name} FINISHED");
     }
 
     private static void ShoveActionUsed(
