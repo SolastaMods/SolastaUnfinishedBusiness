@@ -50,8 +50,7 @@ internal static class Global
 
     internal static RulesetCharacter CurrentCharacter => InspectedHero
                                                          ?? LevelUpHero
-                                                         ?? ControlledLocationCharacter?.RulesetCharacter
-                                                         ?? ActionCharacter?.RulesetCharacter;
+                                                         ?? ControlledLocationCharacter?.RulesetCharacter;
 
     // current action from any character on the map
     internal static CharacterAction CurrentAction { get; private set; }
