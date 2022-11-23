@@ -1,7 +1,9 @@
 // manually generated on 11/19/2022 07:00:00 PM
 using TA.AI;
+
 namespace SolastaUnfinishedBusiness.Api;
-        internal static partial class DatabaseHelper
+
+internal static partial class DatabaseHelper
 {
     internal static class AlignmentDefinitions
     {
@@ -77,7 +79,7 @@ namespace SolastaUnfinishedBusiness.Api;
         internal static CharacterSubclassDefinition MartialSpellblade { get; } = GetDefinition<CharacterSubclassDefinition>("MartialSpellblade");
         internal static CharacterSubclassDefinition OathOfJugement { get; } = GetDefinition<CharacterSubclassDefinition>("OathOfJugement");
         internal static CharacterSubclassDefinition OathOfTheMotherland { get; } = GetDefinition<CharacterSubclassDefinition>("OathOfTheMotherland");
-        internal static CharacterSubclassDefinition PathClaw { get; } = GetDefinition<CharacterSubclassDefinition>("PathClaw");  
+        internal static CharacterSubclassDefinition PathClaw { get; } = GetDefinition<CharacterSubclassDefinition>("PathClaw");
         internal static CharacterSubclassDefinition PathMagebane { get; } = GetDefinition<CharacterSubclassDefinition>("PathMagebane");
         internal static CharacterSubclassDefinition PatronFiend { get; } = GetDefinition<CharacterSubclassDefinition>("PatronFiend");
         internal static CharacterSubclassDefinition RangerMarksman { get; } = GetDefinition<CharacterSubclassDefinition>("RangerMarksman");
@@ -107,6 +109,8 @@ namespace SolastaUnfinishedBusiness.Api;
         internal static ConditionDefinition ConditionBranded { get; } = GetDefinition<ConditionDefinition>("ConditionBranded");
         internal static ConditionDefinition ConditionBullsStrength { get; } = GetDefinition<ConditionDefinition>("ConditionBullsStrength");
         internal static ConditionDefinition ConditionCalmedByCalmEmotionsAlly { get; } = GetDefinition<ConditionDefinition>("ConditionCalmedByCalmEmotionsAlly");
+        internal static ConditionDefinition ConditionCharmed { get; } = GetDefinition<ConditionDefinition>("ConditionCharmed");
+        internal static ConditionDefinition ConditionCharmedByHypnoticPattern { get; } = GetDefinition<ConditionDefinition>("ConditionCharmedByHypnoticPattern");
         internal static ConditionDefinition ConditionChilledByTouch { get; } = GetDefinition<ConditionDefinition>("ConditionChilledByTouch");
         internal static ConditionDefinition ConditionConfused { get; } = GetDefinition<ConditionDefinition>("ConditionConfused");
         internal static ConditionDefinition ConditionConjuredCreature { get; } = GetDefinition<ConditionDefinition>("ConditionConjuredCreature");
@@ -121,6 +125,7 @@ namespace SolastaUnfinishedBusiness.Api;
         internal static ConditionDefinition ConditionFlying12 { get; } = GetDefinition<ConditionDefinition>("ConditionFlying12");
         internal static ConditionDefinition ConditionFrightened { get; } = GetDefinition<ConditionDefinition>("ConditionFrightened");
         internal static ConditionDefinition ConditionFrightenedFear { get; } = GetDefinition<ConditionDefinition>("ConditionFrightenedFear");
+        internal static ConditionDefinition ConditionFrightenedPhantasmalKiller { get; } = GetDefinition<ConditionDefinition>("ConditionFrightenedPhantasmalKiller");
         internal static ConditionDefinition ConditionHasted { get; } = GetDefinition<ConditionDefinition>("ConditionHasted");
         internal static ConditionDefinition ConditionHeraldOfBattle { get; } = GetDefinition<ConditionDefinition>("ConditionHeraldOfBattle");
         internal static ConditionDefinition ConditionHeroism { get; } = GetDefinition<ConditionDefinition>("ConditionHeroism");
@@ -141,6 +146,8 @@ namespace SolastaUnfinishedBusiness.Api;
         internal static ConditionDefinition ConditionMarkedByBrandingSmite { get; } = GetDefinition<ConditionDefinition>("ConditionMarkedByBrandingSmite");
         internal static ConditionDefinition ConditionOnFire1D4 { get; } = GetDefinition<ConditionDefinition>("ConditionOnFire1D4");
         internal static ConditionDefinition ConditionParalyzed { get; } = GetDefinition<ConditionDefinition>("ConditionParalyzed");
+        internal static ConditionDefinition ConditionParalyzed_CrimsonSpiderVenom { get; } = GetDefinition<ConditionDefinition>("ConditionParalyzed_CrimsonSpiderVenom");
+        internal static ConditionDefinition ConditionParalyzed_GhoulsCaress { get; } = GetDefinition<ConditionDefinition>("ConditionParalyzed_GhoulsCaress");
         internal static ConditionDefinition ConditionPatronHiveWeakeningPheromones { get; } = GetDefinition<ConditionDefinition>("ConditionPatronHiveWeakeningPheromones");
         internal static ConditionDefinition ConditionPoisoned { get; } = GetDefinition<ConditionDefinition>("ConditionPoisoned");
         internal static ConditionDefinition ConditionProne { get; } = GetDefinition<ConditionDefinition>("ConditionProne");
@@ -157,6 +164,8 @@ namespace SolastaUnfinishedBusiness.Api;
         internal static ConditionDefinition ConditionSpiritGuardiansSelf { get; } = GetDefinition<ConditionDefinition>("ConditionSpiritGuardiansSelf");
         internal static ConditionDefinition ConditionStoneResilience { get; } = GetDefinition<ConditionDefinition>("ConditionStoneResilience");
         internal static ConditionDefinition ConditionStunned { get; } = GetDefinition<ConditionDefinition>("ConditionStunned");
+        internal static ConditionDefinition ConditionStunned_MutantApeSlam { get; } = GetDefinition<ConditionDefinition>("ConditionStunned_MutantApeSlam");
+        internal static ConditionDefinition ConditionStunnedConjuredDeath { get; } = GetDefinition<ConditionDefinition>("ConditionStunnedConjuredDeath");
         internal static ConditionDefinition ConditionSurprised { get; } = GetDefinition<ConditionDefinition>("ConditionSurprised");
         internal static ConditionDefinition ConditionTrueStrike { get; } = GetDefinition<ConditionDefinition>("ConditionTrueStrike");
         internal static ConditionDefinition ConditionWildShapeSubstituteForm { get; } = GetDefinition<ConditionDefinition>("ConditionWildShapeSubstituteForm");
@@ -233,7 +242,12 @@ namespace SolastaUnfinishedBusiness.Api;
     }
     internal static class FeatureDefinitionAbilityCheckAffinitys
     {
+        internal static FeatureDefinitionAbilityCheckAffinity AbilityCheckAffinityConditionBearsEndurance { get; } = GetDefinition<FeatureDefinitionAbilityCheckAffinity>("AbilityCheckAffinityConditionBearsEndurance");
         internal static FeatureDefinitionAbilityCheckAffinity AbilityCheckAffinityConditionBullsStrength { get; } = GetDefinition<FeatureDefinitionAbilityCheckAffinity>("AbilityCheckAffinityConditionBullsStrength");
+        internal static FeatureDefinitionAbilityCheckAffinity AbilityCheckAffinityConditionCatsGrace { get; } = GetDefinition<FeatureDefinitionAbilityCheckAffinity>("AbilityCheckAffinityConditionCatsGrace");
+        internal static FeatureDefinitionAbilityCheckAffinity AbilityCheckAffinityConditionEaglesSplendor { get; } = GetDefinition<FeatureDefinitionAbilityCheckAffinity>("AbilityCheckAffinityConditionEaglesSplendor");
+        internal static FeatureDefinitionAbilityCheckAffinity AbilityCheckAffinityConditionFoxsCunning { get; } = GetDefinition<FeatureDefinitionAbilityCheckAffinity>("AbilityCheckAffinityConditionFoxsCunning");
+        internal static FeatureDefinitionAbilityCheckAffinity AbilityCheckAffinityConditionOwlsWisdom { get; } = GetDefinition<FeatureDefinitionAbilityCheckAffinity>("AbilityCheckAffinityConditionOwlsWisdom");
         internal static FeatureDefinitionAbilityCheckAffinity AbilityCheckAffinityFeatLockbreaker { get; } = GetDefinition<FeatureDefinitionAbilityCheckAffinity>("AbilityCheckAffinityFeatLockbreaker");
         internal static FeatureDefinitionAbilityCheckAffinity AbilityCheckAffinityIslandHalflingAcrobatics { get; } = GetDefinition<FeatureDefinitionAbilityCheckAffinity>("AbilityCheckAffinityIslandHalflingAcrobatics");
         internal static FeatureDefinitionAbilityCheckAffinity AbilityCheckAffinityStealthDisadvantage { get; } = GetDefinition<FeatureDefinitionAbilityCheckAffinity>("AbilityCheckAffinityStealthDisadvantage");
@@ -344,6 +358,7 @@ namespace SolastaUnfinishedBusiness.Api;
         internal static FeatureDefinitionCombatAffinity CombatAffinityProtectedFromEvil { get; } = GetDefinition<FeatureDefinitionCombatAffinity>("CombatAffinityProtectedFromEvil");
         internal static FeatureDefinitionCombatAffinity CombatAffinityReckless { get; } = GetDefinition<FeatureDefinitionCombatAffinity>("CombatAffinityReckless");
         internal static FeatureDefinitionCombatAffinity CombatAffinitySensitiveToLight { get; } = GetDefinition<FeatureDefinitionCombatAffinity>("CombatAffinitySensitiveToLight");
+        internal static FeatureDefinitionCombatAffinity CombatAffinityStealthy { get; } = GetDefinition<FeatureDefinitionCombatAffinity>("CombatAffinityStealthy");
     }
     internal static class FeatureDefinitionConditionAffinitys
     {
@@ -353,7 +368,9 @@ namespace SolastaUnfinishedBusiness.Api;
         internal static FeatureDefinitionConditionAffinity ConditionAffinityCircleLandNaturesWardCharmed { get; } = GetDefinition<FeatureDefinitionConditionAffinity>("ConditionAffinityCircleLandNaturesWardCharmed");
         internal static FeatureDefinitionConditionAffinity ConditionAffinityCircleLandNaturesWardFrightened { get; } = GetDefinition<FeatureDefinitionConditionAffinity>("ConditionAffinityCircleLandNaturesWardFrightened");
         internal static FeatureDefinitionConditionAffinity ConditionAffinityElfFeyAncestryCharm { get; } = GetDefinition<FeatureDefinitionConditionAffinity>("ConditionAffinityElfFeyAncestryCharm");
-        internal static FeatureDefinitionConditionAffinity ConditionAffinityElfFeyAncestryCharmedByHypnoticPattern { get; } = GetDefinition<FeatureDefinitionConditionAffinity>(     "ConditionAffinityElfFeyAncestryCharmedByHypnoticPattern");
+        internal static FeatureDefinitionConditionAffinity
+ConditionAffinityElfFeyAncestryCharmedByHypnoticPattern { get; } = GetDefinition<FeatureDefinitionConditionAffinity>(
+    "ConditionAffinityElfFeyAncestryCharmedByHypnoticPattern");
         internal static FeatureDefinitionConditionAffinity ConditionAffinityExhaustionImmunity { get; } = GetDefinition<FeatureDefinitionConditionAffinity>("ConditionAffinityExhaustionImmunity");
         internal static FeatureDefinitionConditionAffinity ConditionAffinityFrightenedImmunity { get; } = GetDefinition<FeatureDefinitionConditionAffinity>("ConditionAffinityFrightenedImmunity");
         internal static FeatureDefinitionConditionAffinity ConditionAffinityGrappledImmunity { get; } = GetDefinition<FeatureDefinitionConditionAffinity>("ConditionAffinityGrappledImmunity");
@@ -484,6 +501,7 @@ namespace SolastaUnfinishedBusiness.Api;
         internal static FeatureDefinitionPower PowerDomainElementalFireBurst { get; } = GetDefinition<FeatureDefinitionPower>("PowerDomainElementalFireBurst");
         internal static FeatureDefinitionPower PowerDomainElementalHeraldOfTheElementsThunder { get; } = GetDefinition<FeatureDefinitionPower>("PowerDomainElementalHeraldOfTheElementsThunder");
         internal static FeatureDefinitionPower PowerDomainElementalLightningBlade { get; } = GetDefinition<FeatureDefinitionPower>("PowerDomainElementalLightningBlade");
+        internal static FeatureDefinitionPower PowerDomainLawWordOfLaw { get; } = GetDefinition<FeatureDefinitionPower>("PowerDomainLawWordOfLaw");
         internal static FeatureDefinitionPower PowerDomainLifePreserveLife { get; } = GetDefinition<FeatureDefinitionPower>("PowerDomainLifePreserveLife");
         internal static FeatureDefinitionPower PowerDomainSunHeraldOfTheSun { get; } = GetDefinition<FeatureDefinitionPower>("PowerDomainSunHeraldOfTheSun");
         internal static FeatureDefinitionPower PowerDragonbornBreathWeaponBlue { get; } = GetDefinition<FeatureDefinitionPower>("PowerDragonbornBreathWeaponBlue");
@@ -519,7 +537,6 @@ namespace SolastaUnfinishedBusiness.Api;
         internal static FeatureDefinitionPower PowerSorcererChildRiftDeflection { get; } = GetDefinition<FeatureDefinitionPower>("PowerSorcererChildRiftDeflection");
         internal static FeatureDefinitionPower PowerSpiderQueenPoisonCloud { get; } = GetDefinition<FeatureDefinitionPower>("PowerSpiderQueenPoisonCloud");
         internal static FeatureDefinitionPower PowerTraditionShockArcanistArcaneFury { get; } = GetDefinition<FeatureDefinitionPower>("PowerTraditionShockArcanistArcaneFury");
-        internal static FeatureDefinitionPower PowerVampiricTouch { get; } = GetDefinition<FeatureDefinitionPower>("PowerVampiricTouch");
         internal static FeatureDefinitionPower PowerWizardArcaneRecovery { get; } = GetDefinition<FeatureDefinitionPower>("PowerWizardArcaneRecovery");
     }
     internal static class FeatureDefinitionProficiencys
@@ -581,6 +598,7 @@ namespace SolastaUnfinishedBusiness.Api;
         internal static FeatureDefinitionSavingThrowAffinity SavingThrowAffinityConditionRaging { get; } = GetDefinition<FeatureDefinitionSavingThrowAffinity>("SavingThrowAffinityConditionRaging");
         internal static FeatureDefinitionSavingThrowAffinity SavingThrowAffinityCreedOfArun { get; } = GetDefinition<FeatureDefinitionSavingThrowAffinity>("SavingThrowAffinityCreedOfArun");
         internal static FeatureDefinitionSavingThrowAffinity SavingThrowAffinityGemIllusion { get; } = GetDefinition<FeatureDefinitionSavingThrowAffinity>("SavingThrowAffinityGemIllusion");
+        internal static FeatureDefinitionSavingThrowAffinity SavingThrowAffinityShelteringBreeze { get; } = GetDefinition<FeatureDefinitionSavingThrowAffinity>("SavingThrowAffinityShelteringBreeze");
     }
     internal static class FeatureDefinitionSenses
     {
@@ -910,14 +928,23 @@ namespace SolastaUnfinishedBusiness.Api;
     {
         internal static MonsterAttackDefinition Attack_Generic_Guard_Longsword { get; } = GetDefinition<MonsterAttackDefinition>("Attack_Generic_Guard_Longsword");
         internal static MonsterAttackDefinition Attack_Wildshape_Ape_Toss_Rock { get; } = GetDefinition<MonsterAttackDefinition>("Attack_Wildshape_Ape_Toss_Rock");
-        
         internal static MonsterAttackDefinition Attack_Wildshape_BrownBear_Bite { get; } = GetDefinition<MonsterAttackDefinition>("Attack_Wildshape_BrownBear_Bite");
-        internal static MonsterAttackDefinition Attack_Wildshape_BrownBear_Claw { get; } = GetDefinition<MonsterAttackDefinition>("Attack_Wildshape_BrownBear_Claw"); 
+        internal static MonsterAttackDefinition Attack_Wildshape_BrownBear_Claw { get; } = GetDefinition<MonsterAttackDefinition>("Attack_Wildshape_BrownBear_Claw");
         internal static MonsterAttackDefinition Attack_Wildshape_GiantEagle_Talons { get; } = GetDefinition<MonsterAttackDefinition>("Attack_Wildshape_GiantEagle_Talons");
         internal static MonsterAttackDefinition Attack_Wildshape_Wolf_Bite { get; } = GetDefinition<MonsterAttackDefinition>("Attack_Wildshape_Wolf_Bite");
     }
     internal static class MonsterDefinitions
     {
+        internal static MonsterDefinition BlackDragon_MasterOfNecromancy { get; } = GetDefinition<MonsterDefinition>("BlackDragon_MasterOfNecromancy");
+        internal static MonsterDefinition Divine_Avatar { get; } = GetDefinition<MonsterDefinition>("Divine_Avatar");
+        internal static MonsterDefinition Emperor_Laethar { get; } = GetDefinition<MonsterDefinition>("Emperor_Laethar");
+        internal static MonsterDefinition Giant_Ape { get; } = GetDefinition<MonsterDefinition>("Giant_Ape");
+        internal static MonsterDefinition GoldDragon_AerElai { get; } = GetDefinition<MonsterDefinition>("GoldDragon_AerElai");
+        internal static MonsterDefinition GreenDragon_MasterOfConjuration { get; } = GetDefinition<MonsterDefinition>("GreenDragon_MasterOfConjuration");
+        internal static MonsterDefinition Remorhaz { get; } = GetDefinition<MonsterDefinition>("Remorhaz");
+        internal static MonsterDefinition Spider_Queen { get; } = GetDefinition<MonsterDefinition>("Spider_Queen");
+        internal static MonsterDefinition Sorr_Akkath_Shikkath { get; } = GetDefinition<MonsterDefinition>("Sorr-Akkath_Shikkath");
+        internal static MonsterDefinition Sorr_Akkath_Tshar_Boss { get; } = GetDefinition<MonsterDefinition>("Sorr-Akkath_Tshar_Boss");
         internal static MonsterDefinition Air_Elemental { get; } = GetDefinition<MonsterDefinition>("Air_Elemental");
         internal static MonsterDefinition Ape_MonsterDefinition { get; } = GetDefinition<MonsterDefinition>("Ape_MonsterDefinition");
         internal static MonsterDefinition BrownBear { get; } = GetDefinition<MonsterDefinition>("BrownBear");
@@ -1109,6 +1136,7 @@ namespace SolastaUnfinishedBusiness.Api;
         internal static SpellDefinition DeathWard { get; } = GetDefinition<SpellDefinition>("DeathWard");
         internal static SpellDefinition DetectMagic { get; } = GetDefinition<SpellDefinition>("DetectMagic");
         internal static SpellDefinition DimensionDoor { get; } = GetDefinition<SpellDefinition>("DimensionDoor");
+        internal static SpellDefinition Disintegrate { get; } = GetDefinition<SpellDefinition>("Disintegrate");
         internal static SpellDefinition DispelEvilAndGood { get; } = GetDefinition<SpellDefinition>("DispelEvilAndGood");
         internal static SpellDefinition DispelMagic { get; } = GetDefinition<SpellDefinition>("DispelMagic");
         internal static SpellDefinition DominateBeast { get; } = GetDefinition<SpellDefinition>("DominateBeast");
@@ -1212,6 +1240,7 @@ namespace SolastaUnfinishedBusiness.Api;
         internal static SpellDefinition StinkingCloud { get; } = GetDefinition<SpellDefinition>("StinkingCloud");
         internal static SpellDefinition Stoneskin { get; } = GetDefinition<SpellDefinition>("Stoneskin");
         internal static SpellDefinition Thunderwave { get; } = GetDefinition<SpellDefinition>("Thunderwave");
+        internal static SpellDefinition TrueSeeing { get; } = GetDefinition<SpellDefinition>("TrueSeeing");
         internal static SpellDefinition TrueStrike { get; } = GetDefinition<SpellDefinition>("TrueStrike");
         internal static SpellDefinition VampiricTouch { get; } = GetDefinition<SpellDefinition>("VampiricTouch");
         internal static SpellDefinition VenomousSpike { get; } = GetDefinition<SpellDefinition>("VenomousSpike");

@@ -1,5 +1,12 @@
 ﻿CHANGES:
 
+1.4.28.E:
+
+- changed Silhouette Step recharge rate to PB over long rest
+- fixed Circle of The Night loosing Wildshape condition
+- updated suggested spells to include Bard
+- restated level 9 spells
+
 1.4.28.D:
 
 - improved College of Life level 14 with Command Undead from Dead Master

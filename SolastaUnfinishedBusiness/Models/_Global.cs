@@ -10,7 +10,8 @@ namespace SolastaUnfinishedBusiness.Models;
 internal static class Global
 {
     // true if in a multiplayer game
-    internal static bool IsMultiplayer => ServiceRepository.GetService<INetworkingService>().IsMultiplayerGame;
+    internal static bool IsMultiplayer => IsSettingUpMultiplayer
+                                          || ServiceRepository.GetService<INetworkingService>().IsMultiplayerGame;
     internal static bool IsSettingUpMultiplayer { get; set; }
 
     // level up hero
@@ -66,16 +67,15 @@ internal static class Global
     // restate globals on every new action
     internal static void ActionStarted([NotNull] CharacterAction characterAction)
     {
-        var isShiftPressed = Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift);
         CurrentAction = characterAction;
         ActionCharacter = characterAction.ActingCharacter;
-
-        Main.Log($"{ActionCharacter?.Name} -> {CurrentAction.ActionDefinition.Name} STARTED");
 
         switch (characterAction)
         {
             case CharacterActionCastSpell or CharacterActionSpendSpellSlot:
                 // Hold the state of the SHIFT key on BOOL PARAM 5. Used to determine which slot to use on MC Warlock
+                var isShiftPressed = Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift);
+
                 characterAction.actionParams.BoolParameter5 = isShiftPressed;
                 break;
 
@@ -94,10 +94,7 @@ internal static class Global
         CharacterActionParams actionParams,
         ActionDefinition actionDefinition)
     {
-        Main.Log($"{actingCharacter.Name} -> {actionDefinition.Name} FINISHED");
-
-        foreach (var feature in actingCharacter.RulesetCharacter
-                     .GetSubFeaturesByType<IOnAfterActionFeature>())
+        foreach (var feature in actingCharacter.RulesetCharacter.GetSubFeaturesByType<IOnAfterActionFeature>())
         {
             feature.OnAfterAction(actingCharacter, actionParams, actionDefinition);
         }

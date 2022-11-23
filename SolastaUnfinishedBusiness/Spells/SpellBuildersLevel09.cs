@@ -1,30 +1,6 @@
-﻿#if false
-// Spell/&ForesightDescription=You touch a willing creature and bestow a limited ability to see into the immediate future. For the duration, the target can't be surprised and has advantage on attack rolls, ability checks, and saving throws. Additionally, other creatures have disadvantage on attack rolls against the target for the duration.
-// Spell/&ForesightTitle=Foresight
-// Spell/&MassHealDescription=A flood of healing energy flows from you into injured creatures around you. You restore 120 hit points each to 6 creatures that you can see within range. Creatures healed by this spell are also cured of all diseases and any effect making them blinded or deafened. This spell has no effect on undead or constructs. 
-// Spell/&MassHealTitle=Mass Heal
-// Spell/&MeteorSwarmSingleTargetDescription=Blazing orbs of fire plummet to the ground at a single point you can see within range. Each creature in a 40-foot-radius sphere centered on the point you choose must make a Dexterity saving throw. The sphere spreads around corners. A creature takes 20d6 fire damage and 20d6 bludgeoning damage on a failed save, or half as much damage on a successful one. A creature in the area of more than one fiery burst is affected only once.
-// Spell/&MeteorSwarmSingleTargetTitle=Meteor Swarm [Single Target]
-// Spell/&PowerWordHealDescription=A wave of healing energy washes over the creature you touch. The target regains all its hit points. If the creature is charmed, frightened, paralyzed, or stunned, the condition ends. If the creature is prone, it can use its reaction to stand up. This spell has no effect on undead or constructs.
-// Spell/&PowerWordHealTitle=Power Word Heal
-// Spell/&PowerWordKillDescription=You utter a word of power that can compel one creature you can see within range to die instantly. If the creature you choose has 100 hit points or fewer, it dies. Otherwise, the spell has no effect.
-// Spell/&PowerWordKillTitle=Power Word Kill
-// Spell/&TimeStopDescription=You briefly stop the flow of time for everyone but yourself. No time passes for other creatures, while you take 1d4 + 1 turns in a row, during which you can use actions and move as normal.
-// Spell/&TimeStopTitle=Time Stop
-// Spell/&ShapechangeDescription=You assume the form of a different creature for the duration. The new form can be of any creature with a challenge rating equal to your level or lower.
-// Spell/&ShapechangeTitle=Shapechange
-// Spell/&WeirdDescription=Drawing on the deepest fears of a group of creatures, you create illusory creatures in their minds, visible only to them. Each creature in a 30-foot-radius sphere centered on a point of your choice within range must make a Wisdom saving throw. On a failed save, a creature becomes frightened for the duration. The illusion calls on the creature's deepest fears, manifesting its worst nightmares as an implacable threat. At the end of each of the frightened creature's turns, it must succeed on a Wisdom saving throw or take 4d10 psychic damage. On a successful save, the spell ends for that creature.
-// Spell/&WeirdTitle=Weird
-// Condition/&ConditionTimeStopDescription=Time is frozen for the affected creature.
-// Condition/&ConditionTimeStopTitle=Time Stopped
-// Condition/&ConditionWeirdDescription=Frightened. At the end of each turn, make a Wisdom saving throw. On a failure, take 4d10 psychic damage. On a success, this condition ends.
-// Condition/&ConditionWeirdTitle=Weirded
-// Condition/&ConditionForesightDescription=Advantage on all attack rolls, ability checks, and saving throws. Other creatures have disadvantage on attack rolls.
-// Condition/&ConditionForesightTitle=Foresight
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using SolastaUnfinishedBusiness.Builders;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
-using static SolastaUnfinishedBusiness.Api.DatabaseHelper.ConditionDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPowers;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.MonsterDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
@@ -47,7 +23,7 @@ internal static partial class SpellBuilders
                 .Create()
                 .SetConditionForm(
                     ConditionDefinitionBuilder
-                        .Create(ConditionBearsEndurance, "ConditionForesight")
+                        .Create(ConditionDefinitions.ConditionBearsEndurance, "ConditionForesight")
                         .SetOrUpdateGuiPresentation(Category.Condition)
                         .SetFeatures(
                             FeatureDefinitionAbilityCheckAffinitys.AbilityCheckAffinityConditionBearsEndurance,
@@ -57,8 +33,7 @@ internal static partial class SpellBuilders
                             FeatureDefinitionAbilityCheckAffinitys.AbilityCheckAffinityConditionFoxsCunning,
                             FeatureDefinitionAbilityCheckAffinitys.AbilityCheckAffinityConditionOwlsWisdom,
                             FeatureDefinitionCombatAffinitys.CombatAffinityStealthy,
-                            FeatureDefinitionSavingThrowAffinitys.SavingThrowAffinityShelteringBreeze
-                        )
+                            FeatureDefinitionSavingThrowAffinitys.SavingThrowAffinityShelteringBreeze)
                         .AddToDB(),
                     ConditionForm.ConditionOperation.Add,
                     false,
@@ -72,7 +47,6 @@ internal static partial class SpellBuilders
             .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolTransmutation)
             .SetSpellLevel(9)
             .SetCastingTime(ActivationTime.Minute1)
-            .SetVerboseComponent(true)
             .SetSomaticComponent(false)
             .SetVocalSpellSameType(VocalSpellSemeType.Divination)
             .SetEffectDescription(effectDescription)
@@ -82,7 +56,8 @@ internal static partial class SpellBuilders
 
     internal static SpellDefinition BuildMassHeal()
     {
-        var effectDescription = EffectDescriptionBuilder.Create()
+        var effectDescription = EffectDescriptionBuilder
+            .Create()
             .SetDurationData(DurationType.Instantaneous)
             .SetTargetingData(Side.All, RangeType.Distance, 12, TargetType.Individuals, 6)
             .SetEffectForms(EffectFormBuilder
@@ -103,7 +78,6 @@ internal static partial class SpellBuilders
             .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolTransmutation)
             .SetSpellLevel(9)
             .SetCastingTime(ActivationTime.Action)
-            .SetVerboseComponent(true)
             .SetSomaticComponent(false)
             .SetVocalSpellSameType(VocalSpellSemeType.Healing)
             .SetEffectDescription(effectDescription)
@@ -116,13 +90,7 @@ internal static partial class SpellBuilders
         var effectDescription = EffectDescriptionBuilder
             .Create()
             .SetDurationData(DurationType.Instantaneous)
-            .SetTargetingData(
-                Side.All,
-                RangeType.Distance,
-                200,
-                TargetType.Sphere,
-                8,
-                8)
+            .SetTargetingData(Side.All, RangeType.Distance, 200, TargetType.Sphere, 8, 8)
             // 20 dice number because hits dont stack even on single target
             .SetEffectForms(
                 EffectFormBuilder
@@ -151,7 +119,6 @@ internal static partial class SpellBuilders
             .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolTransmutation)
             .SetSpellLevel(9)
             .SetCastingTime(ActivationTime.Action)
-            .SetVerboseComponent(true)
             .SetSomaticComponent(false)
             .SetVocalSpellSameType(VocalSpellSemeType.Attack)
             .SetEffectDescription(effectDescription)
@@ -164,11 +131,7 @@ internal static partial class SpellBuilders
         var effectDescription = EffectDescriptionBuilder
             .Create()
             .SetDurationData(DurationType.Instantaneous)
-            .SetTargetingData(
-                Side.Ally,
-                RangeType.Distance,
-                12,
-                TargetType.Individuals)
+            .SetTargetingData(Side.Ally, RangeType.Distance, 12, TargetType.Individuals)
             .SetEffectForms(
                 EffectFormBuilder
                     .Create()
@@ -188,16 +151,16 @@ internal static partial class SpellBuilders
                         false,
                         false,
                         ConditionDefinitions.ConditionCharmed,
-                        ConditionCharmedByHypnoticPattern,
+                        ConditionDefinitions.ConditionCharmedByHypnoticPattern,
                         ConditionDefinitions.ConditionFrightened,
                         ConditionDefinitions.ConditionFrightenedFear,
-                        ConditionFrightenedPhantasmalKiller,
+                        ConditionDefinitions.ConditionFrightenedPhantasmalKiller,
                         ConditionDefinitions.ConditionParalyzed,
-                        ConditionParalyzed_CrimsonSpiderVenom,
-                        ConditionParalyzed_GhoulsCaress,
+                        ConditionDefinitions.ConditionParalyzed_CrimsonSpiderVenom,
+                        ConditionDefinitions.ConditionParalyzed_GhoulsCaress,
                         ConditionDefinitions.ConditionStunned,
-                        ConditionStunned_MutantApeSlam,
-                        ConditionStunnedConjuredDeath,
+                        ConditionDefinitions.ConditionStunned_MutantApeSlam,
+                        ConditionDefinitions.ConditionStunnedConjuredDeath,
                         ConditionDefinitions.ConditionProne)
                     .Build())
             .Build();
@@ -208,7 +171,6 @@ internal static partial class SpellBuilders
             .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolTransmutation)
             .SetSpellLevel(9)
             .SetCastingTime(ActivationTime.Action)
-            .SetVerboseComponent(true)
             .SetSomaticComponent(false)
             .SetVocalSpellSameType(VocalSpellSemeType.Healing)
             .SetEffectDescription(effectDescription)
@@ -221,21 +183,12 @@ internal static partial class SpellBuilders
         var effectDescription = EffectDescriptionBuilder
             .Create()
             .SetDurationData(DurationType.Instantaneous)
-            .SetTargetingData(
-                Side.Enemy,
-                RangeType.Distance,
-                12,
-                TargetType.Individuals)
+            .SetTargetingData(Side.Enemy, RangeType.Distance, 12, TargetType.Individuals)
             .SetEffectForms(
                 EffectFormBuilder
                     .Create()
-                    .SetKillForm(
-                        KillCondition.UnderHitPoints,
-                        0F,
-                        100)
-                    .SetLevelAdvancement(
-                        LevelApplianceType.No,
-                        LevelSourceType.ClassLevel)
+                    .SetKillForm(KillCondition.UnderHitPoints, 0F, 100)
+                    .SetLevelAdvancement(LevelApplianceType.No, LevelSourceType.ClassLevel)
                     .CreatedByCharacter()
                     .Build())
             .Build();
@@ -246,7 +199,6 @@ internal static partial class SpellBuilders
             .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolTransmutation)
             .SetSpellLevel(9)
             .SetCastingTime(ActivationTime.Action)
-            .SetVerboseComponent(true)
             .SetSomaticComponent(false)
             .SetVocalSpellSameType(VocalSpellSemeType.Attack)
             .SetEffectDescription(effectDescription)
@@ -258,47 +210,36 @@ internal static partial class SpellBuilders
     {
         var effectDescription = EffectDescriptionBuilder
             .Create()
-            .SetCreatedByCharacter()
             .SetParticleEffectParameters(PowerDruidWildShape)
-            .SetDurationData(
-                DurationType.Hour,
-                1)
-            .SetTargetingData(
-                Side.Ally,
-                RangeType.Distance,
-                12,
-                TargetType.Self)
-            .SetEffectForms(
-                new EffectForm
+            .SetDurationData(DurationType.Hour, 1)
+            .SetTargetingData(Side.Ally, RangeType.Distance, 12, TargetType.Self)
+            .SetEffectForms(new EffectForm
+            {
+                addBonusMode = AddBonusMode.None,
+                applyLevel = LevelApplianceType.No,
+                canSaveToCancel = false,
+                createdByCharacter = true,
+                formType = EffectFormType.ShapeChange,
+                shapeChangeForm = new ShapeChangeForm
                 {
-                    addBonusMode = AddBonusMode.None,
-                    applyLevel = LevelApplianceType.No,
-                    canSaveToCancel = false,
-                    createdByCharacter = true,
-                    formType = EffectFormType.ShapeChange,
-                    shapeChangeForm = new ShapeChangeForm
+                    keepMentalAbilityScores = true,
+                    shapeChangeType = ShapeChangeForm.Type.FreeListSelection,
+                    specialSubstituteCondition = ConditionDefinitions.ConditionWildShapeSubstituteForm,
+                    shapeOptions = new List<ShapeOptionDescription>
                     {
-                        keepMentalAbilityScores = true,
-                        shapeChangeType = ShapeChangeForm.Type.FreeListSelection,
-                        specialSubstituteCondition = ConditionDefinitions.ConditionWildShapeSubstituteForm,
-                        shapeOptions = new List<ShapeOptionDescription>
-                        {
-                            new() { requiredLevel = 1, substituteMonster = GoldDragon_AerElai },
-                            new() { requiredLevel = 1, substituteMonster = Divine_Avatar },
-                            new() { requiredLevel = 1, substituteMonster = Sorr_Akkath_Tshar_Boss },
-                            new()
-                            {
-                                requiredLevel = 1, substituteMonster = GreenDragon_MasterOfConjuration
-                            },
-                            new() { requiredLevel = 1, substituteMonster = BlackDragon_MasterOfNecromancy },
-                            new() { requiredLevel = 1, substituteMonster = Remorhaz },
-                            new() { requiredLevel = 1, substituteMonster = Emperor_Laethar },
-                            new() { requiredLevel = 1, substituteMonster = Giant_Ape },
-                            new() { requiredLevel = 1, substituteMonster = Spider_Queen },
-                            new() { requiredLevel = 1, substituteMonster = Sorr_Akkath_Shikkath }
-                        }
+                        new() { requiredLevel = 1, substituteMonster = BlackDragon_MasterOfNecromancy },
+                        new() { requiredLevel = 1, substituteMonster = Divine_Avatar },
+                        new() { requiredLevel = 1, substituteMonster = Emperor_Laethar },
+                        new() { requiredLevel = 1, substituteMonster = Giant_Ape },
+                        new() { requiredLevel = 1, substituteMonster = GoldDragon_AerElai },
+                        new() { requiredLevel = 1, substituteMonster = GreenDragon_MasterOfConjuration },
+                        new() { requiredLevel = 1, substituteMonster = Remorhaz },
+                        new() { requiredLevel = 1, substituteMonster = Spider_Queen },
+                        new() { requiredLevel = 1, substituteMonster = Sorr_Akkath_Shikkath },
+                        new() { requiredLevel = 1, substituteMonster = Sorr_Akkath_Tshar_Boss }
                     }
-                })
+                }
+            })
             .Build();
 
         return SpellDefinitionBuilder
@@ -307,7 +248,6 @@ internal static partial class SpellBuilders
             .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolTransmutation)
             .SetSpellLevel(9)
             .SetCastingTime(ActivationTime.Action)
-            .SetVerboseComponent(true)
             .SetSomaticComponent(false)
             .SetVocalSpellSameType(VocalSpellSemeType.Buff)
             .SetEffectDescription(effectDescription)
@@ -329,9 +269,7 @@ internal static partial class SpellBuilders
                         .Create(ConditionDefinitions.ConditionIncapacitated, "ConditionTimeStop")
                         .SetOrUpdateGuiPresentation(Category.Condition)
                         .SetInterruptionDamageThreshold(1)
-                        .SetSpecialInterruptions(
-                            ConditionInterruption.Attacked,
-                            ConditionInterruption.Damaged)
+                        .SetSpecialInterruptions(ConditionInterruption.Attacked, ConditionInterruption.Damaged)
                         .AddToDB(),
                     ConditionForm.ConditionOperation.Add,
                     false,
@@ -346,7 +284,6 @@ internal static partial class SpellBuilders
             .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolTransmutation)
             .SetSpellLevel(9)
             .SetCastingTime(ActivationTime.Action)
-            .SetVerboseComponent(true)
             .SetSomaticComponent(false)
             .SetVocalSpellSameType(VocalSpellSemeType.Divination)
             .SetEffectDescription(effectDescription)
@@ -356,7 +293,8 @@ internal static partial class SpellBuilders
 
     internal static SpellDefinition BuildWeird()
     {
-        var effectDescription = EffectDescriptionBuilder.Create()
+        var effectDescription = EffectDescriptionBuilder
+            .Create()
             .SetDurationData(DurationType.Minute, 1)
             .SetTargetingData(Side.Enemy, RangeType.Distance, 12, TargetType.Sphere, 6, 6)
             .SetSavingThrowData(
@@ -370,7 +308,7 @@ internal static partial class SpellBuilders
                 .Create()
                 .SetConditionForm(
                     ConditionDefinitionBuilder
-                        .Create(ConditionFrightenedPhantasmalKiller, "ConditionWeird")
+                        .Create(ConditionDefinitions.ConditionFrightenedPhantasmalKiller, "ConditionWeird")
                         .SetOrUpdateGuiPresentation(Category.Condition)
                         .AddToDB(),
                     ConditionForm.ConditionOperation.Add,
@@ -387,7 +325,6 @@ internal static partial class SpellBuilders
             .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolTransmutation)
             .SetSpellLevel(9)
             .SetCastingTime(ActivationTime.Action)
-            .SetVerboseComponent(true)
             .SetSomaticComponent(false)
             .SetVocalSpellSameType(VocalSpellSemeType.Attack)
             .SetEffectDescription(effectDescription)
@@ -398,4 +335,3 @@ internal static partial class SpellBuilders
 
     #endregion
 }
-#endif
