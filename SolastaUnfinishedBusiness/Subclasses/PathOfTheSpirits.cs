@@ -13,6 +13,7 @@ using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.Api.Extensions;
 
 namespace SolastaUnfinishedBusiness.Subclasses;
+
 internal sealed class PathOfTheSpirits : AbstractSubclass
 {
     private const string SubclassName = "PathOfTheSpirits";
@@ -33,22 +34,20 @@ internal sealed class PathOfTheSpirits : AbstractSubclass
             )
             .AddToDB();
 
-
         // Animal Spirit
         // At 3rd level, when you adopt this path, you choose an animal spirit as a guide and gain its feature.
         var featureSetPathOfTheSpiritsAnimalSpirit = FeatureDefinitionFeatureSetBuilder
-        .Create(FeatureDefinitionFeatureSets.FeatureSetSorcererDraconicChoice, "FeatureSetPathOfTheSpiritsAnimalSpiritChoices")
-        .SetGuiPresentation(Category.Feature)
-        .ClearFeatureSet()
-        .AddFeatureSet(
-            // Bear: While raging, you have resistance to all damage except psychic damage. The spirit of the bear makes you tough enough to stand up to any punishment.
-            BuildAnimalSpiritChoice("Bear", PowerBearResistance()),
-            // Eagle: (rogue's cunning action) The spirit of the eagle makes you into a nimble predator who can weave through the fray with ease. You can take the Dash, Disengage, or Hide action as a Bonus Action.
-            BuildAnimalSpiritChoice("Eagle", ActionAffinityRogueCunningAction),
-            // Wolf: The spirit of the wolf makes you a leader of hunters. While you're raging, your friends have advantage on melee attack rolls against any creature within 5 feet of you that is hostile to you.
-            BuildAnimalSpiritChoice("Wolf", PowerWolfLeadership()) // Needs to be implemented, right now gives advantage to self instead of friends
-        )
-        .AddToDB();
+            .Create(FeatureDefinitionFeatureSets.FeatureSetSorcererDraconicChoice, "FeatureSetPathOfTheSpiritsAnimalSpiritChoices")
+            .SetGuiPresentation(Category.Feature)
+            .ClearFeatureSet()
+            .AddFeatureSet(
+                // Bear: While raging, you have resistance to all damage except psychic damage. The spirit of the bear makes you tough enough to stand up to any punishment.
+                BuildAnimalSpiritChoice("Bear", PowerBearResistance()),
+                // Eagle: (rogue's cunning action) The spirit of the eagle makes you into a nimble predator who can weave through the fray with ease. You can take the Dash, Disengage, or Hide action as a Bonus Action.
+                BuildAnimalSpiritChoice("Eagle", ActionAffinityRogueCunningAction),
+                // Wolf: The spirit of the wolf makes you a leader of hunters. While you're raging, your friends have advantage on melee attack rolls against any creature within 5 feet of you that is hostile to you.
+                BuildAnimalSpiritChoice("Wolf", PowerWolfLeadership()))
+            .AddToDB();
 
         #endregion
 
@@ -57,16 +56,24 @@ internal sealed class PathOfTheSpirits : AbstractSubclass
         // Animal Aspect
         // At 6th level, you gain a magical aspect (benefit) based on the spirit animal of your choice. You can choose the same animal you selected at 3rd level or a different one.
         var featureSetPathOfTheSpiritsAnimalAspect = FeatureDefinitionFeatureSetBuilder
-            .Create(FeatureDefinitionFeatureSets.FeatureSetSorcererDraconicChoice, "FeatureSetPathOfTheSpiritsAnimalAspectChoices")
+            .Create(FeatureDefinitionFeatureSets.FeatureSetSorcererDraconicChoice,
+                "FeatureSetPathOfTheSpiritsAnimalAspectChoices")
             .SetGuiPresentation(Category.Feature)
             .ClearFeatureSet()
             .AddFeatureSet(
                 //Bear: You gain the might of a bear. Your HP increases by 2 points for every level you take in this class and have advantage on Strength Checks.
-                BuildAnimalAspectChoice("Bear", PowerBearDurability(), PowerBearMight()),
+                BuildAnimalAspectChoice("Bear",
+                    AttributeModifierBearDurability(),
+                    AbilityCheckAffinityPathOfTheSpiritsBearMight()),
                 //Eagle: You gain the eyesight of an eagle. You gain superior darkvision and Keen Sight.
-                BuildAnimalAspectChoice("Eagle", SenseSuperiorDarkvision, AbilityCheckAffinityKeenSight),
+                BuildAnimalAspectChoice("Eagle",
+                    SenseSuperiorDarkvision,
+                    AbilityCheckAffinityKeenSight),
                 //Wolf: You gain the hunting sensibilities of a wolf. You can track other creatures by smell and hearing (Keen Smell and Keen Hearing). You also gain the ability of casting the IdentifyCreatures spell at will.
-                BuildAnimalAspectChoice("Wolf", PowerWolfKnowledge(), AbilityCheckAffinityKeenSmell, AbilityCheckAffinityKeenHearing)
+                BuildAnimalAspectChoice("Wolf",
+                    BuildSpiritSeekerSpell(SpellDefinitions.IdentifyCreatures),
+                    AbilityCheckAffinityKeenSmell,
+                    AbilityCheckAffinityKeenHearing)
             )
             .AddToDB();
 
@@ -89,29 +96,32 @@ internal sealed class PathOfTheSpirits : AbstractSubclass
 
         #endregion
 
-
         Subclass = CharacterSubclassDefinitionBuilder
-        .Create(SubclassName)
-        .SetGuiPresentation(Category.Subclass, MartialMountaineer)
-        .AddFeaturesAtLevel(3,
-            featureSetPathOfTheSpiritsSpiritSeeker,
-            featureSetPathOfTheSpiritsAnimalSpirit)
-        .AddFeaturesAtLevel(6,
-            featureSetPathOfTheSpiritsAnimalAspect)
-        .AddFeaturesAtLevel(10,
-            featureSetPathOfTheSpiritsSpiritWalker)
-        .AddToDB();
+            .Create(SubclassName)
+            .SetGuiPresentation(Category.Subclass, MartialMountaineer)
+            .AddFeaturesAtLevel(3,
+                featureSetPathOfTheSpiritsSpiritSeeker,
+                featureSetPathOfTheSpiritsAnimalSpirit)
+            .AddFeaturesAtLevel(6,
+                featureSetPathOfTheSpiritsAnimalAspect)
+            .AddFeaturesAtLevel(10,
+                featureSetPathOfTheSpiritsSpiritWalker)
+            .AddToDB();
     }
+
     private static FeatureDefinition BuildSpiritSeekerSpell(SpellDefinition spellDefinition)
     {
         return FeatureDefinitionPowerBuilder
             .Create($"PowerPathOfTheSpirits{spellDefinition.name}")
             .SetGuiPresentation(spellDefinition.GuiPresentation)
-            .SetUsesFixed(ActivationTime.Action, RechargeRate.AtWill)
+            .SetUsesFixed(ActivationTime.Action)
             .SetEffectDescription(spellDefinition.EffectDescription)
             .AddToDB();
     }
-    private static FeatureDefinitionFeatureSet BuildAnimalSpiritChoice(string name, params FeatureDefinition[] featureDefinitions)
+
+    private static FeatureDefinitionFeatureSet BuildAnimalSpiritChoice(
+        string name,
+        params FeatureDefinition[] featureDefinitions)
     {
         return FeatureDefinitionFeatureSetBuilder
             .Create($"FeatureSetPathOfTheSpiritsAnimalSpiritChoice{name}")
@@ -119,7 +129,10 @@ internal sealed class PathOfTheSpirits : AbstractSubclass
             .AddFeatureSet(featureDefinitions)
             .AddToDB();
     }
-    private static FeatureDefinitionFeatureSet BuildAnimalAspectChoice(string name, params FeatureDefinition[] featureDefinitions)
+
+    private static FeatureDefinitionFeatureSet BuildAnimalAspectChoice(
+        string name,
+        params FeatureDefinition[] featureDefinitions)
     {
         return FeatureDefinitionFeatureSetBuilder
             .Create($"FeatureSetPathOfTheSpiritsAnimalAspectChoice{name}")
@@ -128,11 +141,11 @@ internal sealed class PathOfTheSpirits : AbstractSubclass
             .AddToDB();
     }
 
-    private static FeatureDefinition PowerBearResistance()
+    private static FeatureDefinition PowerPathOfTheSpiritsBearResistance()
     {
         return FeatureDefinitionPowerBuilder
-            .Create($"PowerPathOfTheSpiritsBearResistance")
-            .SetGuiPresentation(Category.Feature)
+            .Create("PowerPathOfTheSpiritsBearResistance")
+            .SetGuiPresentationNoContent(true)
             .SetUsesFixed(ActivationTime.OnRageStartAutomatic)
             .SetEffectDescription(EffectDescriptionBuilder
                 .Create()
@@ -140,7 +153,7 @@ internal sealed class PathOfTheSpirits : AbstractSubclass
                 .SetEffectForms(EffectFormBuilder
                     .Create()
                     .SetConditionForm(ConditionDefinitionBuilder
-                        .Create($"ConditionPathOfTheSpiritsBearResistance")
+                        .Create("ConditionPathOfTheSpiritsBearResistance")
                         .SetGuiPresentationNoContent(true)
                         .SetConditionType(ConditionType.Beneficial)
                         .SetDuration(DurationType.Permanent)
@@ -156,17 +169,18 @@ internal sealed class PathOfTheSpirits : AbstractSubclass
                             DamageAffinityLightningResistance,
                             DamageAffinityNecroticResistance)
                         .SetAllowMultipleInstances(false)
-                        .AddToDB(), ConditionForm.ConditionOperation.Add)
+                        .AddToDB(),
+                        ConditionForm.ConditionOperation.Add)
                     .Build())
                 .Build())
             .AddToDB();
     }
 
-    private static FeatureDefinition PowerBearDurability()
+    private static FeatureDefinition AttributeModifierBearDurability()
     {
         return FeatureDefinitionAttributeModifierBuilder
-            .Create("PowerPathOfTheSpiritsBearDurability")
-            .SetGuiPresentation(Category.Feature)
+            .Create("AttributeModifierPathOfTheSpiritsBearDurability")
+            .SetGuiPresentationNoContent(true)
             .SetModifier(AttributeModifierOperation.Additive, AttributeDefinitions.HitPointBonusPerLevel, 2)
             .AddToDB();
     }
@@ -205,12 +219,13 @@ internal sealed class PathOfTheSpirits : AbstractSubclass
             .AddToDB();
     }
 
-    private static FeatureDefinition PowerWolfKnowledge()
+    private static FeatureDefinition AbilityCheckAffinityPathOfTheSpiritsBearMight()
     {
-        return FeatureDefinitionFeatureSetBuilder
-            .Create("FeatureSetPathOfTheSpiritsWolfKnowledge")
-            .SetGuiPresentation(Category.Feature)
-            .AddFeatureSet(BuildSpiritSeekerSpell(SpellDefinitions.IdentifyCreatures))
+        return FeatureDefinitionAbilityCheckAffinityBuilder
+            .Create("AbilityCheckAffinityPathOfTheSpiritsBearMight")
+            .SetGuiPresentationNoContent(true)
+            .BuildAndSetAffinityGroups(CharacterAbilityCheckAffinity.Advantage, DieType.D1, 0,
+                (AttributeDefinitions.Strength, string.Empty))
             .AddToDB();
     }
 
@@ -219,12 +234,13 @@ internal sealed class PathOfTheSpirits : AbstractSubclass
         return FeatureDefinitionPowerBuilder
             .Create("PowerPathOfTheSpiritsSpiritGuardians")
             .SetGuiPresentation(SpellDefinitions.SpiritGuardians.guiPresentation)
-            .SetUsesProficiencyBonus(ActivationTime.BonusAction, RechargeRate.LongRest)
+            .SetUsesProficiencyBonus(ActivationTime.BonusAction)
             .SetEffectDescription(SpellDefinitions.SpiritGuardians.EffectDescription)
             .AddToDB();
     }
 
     internal override CharacterSubclassDefinition Subclass { get; }
+
     internal override FeatureDefinitionSubclassChoice SubclassChoice =>
         FeatureDefinitionSubclassChoices.SubclassChoiceBarbarianPrimalPath;
 }

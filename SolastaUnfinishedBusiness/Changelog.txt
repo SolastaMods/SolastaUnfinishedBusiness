@@ -2,4 +2,6 @@
 
 1.4.28.G:
 
+- added Path of The Spirits
 - added SRD rule option to identify items over rest activities
+- improved behind the scenes code
