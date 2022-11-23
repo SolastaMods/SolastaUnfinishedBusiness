@@ -1,12 +1,11 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using System.Linq;
-using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.Extensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
+using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomInterfaces;
-using SolastaUnfinishedBusiness.Models;
+using static FeatureDefinitionAttributeModifier.AttributeModifierOperation;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 
@@ -49,33 +48,32 @@ internal sealed class CollegeOfHarlequin : AbstractSubclass
         var powerCombatInspiration = FeatureDefinitionPowerBuilder
             .Create("PowerCollegeOfHarlequinCombatInspiration")
             .SetGuiPresentation(Category.Feature, SpellDefinitions.MagicWeapon)
+            //TODO: hide outside of combat or when already affected by Combat Inspiration
             .SetUsesFixed(ActivationTime.NoCost, RechargeRate.BardicInspiration)
-            .SetEffectDescription(EffectDescriptionBuilder
-                .Create()
+            .SetEffectDescription(EffectDescriptionBuilder.Create()
                 .SetDurationData(DurationType.Round, 1, TurnOccurenceType.StartOfTurn)
-                .SetParticleEffectParameters(FeatureDefinitionPowers.PowerBardGiveBardicInspiration.EffectDescription
-                    .EffectParticleParameters)
+                .SetParticleEffectParameters(FeatureDefinitionPowers.PowerBardGiveBardicInspiration)
                 .SetTargetingData(Side.Ally, RangeType.Self, 1, TargetType.Self)
-                .SetEffectForms(EffectFormBuilder
-                    .Create()
+                .SetEffectForms(EffectFormBuilder.Create()
                     .SetConditionForm(ConditionDefinitionBuilder
                             .Create("ConditionCollegeOfHarlequinFightingAbilityEnhanced")
                             .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionHeraldOfBattle)
-                            .AddFeatures(FeatureDefinitionAttributeModifierBuilder
+                            .AddFeatures(
+                                FeatureDefinitionAttributeModifierBuilder
                                     .Create("AttributeModifierCollegeOfHarlequinCombatInspirationArmorClassEnhancement")
                                     .SetGuiPresentation(Category.Feature)
-                                    .SetModifier(FeatureDefinitionAttributeModifier.AttributeModifierOperation.Additive,
-                                        AttributeDefinitions.ArmorClass)
+                                    .SetModifier(AddConditionAmount, AttributeDefinitions.ArmorClass)
                                     .AddToDB(),
                                 FeatureDefinitionMovementAffinityBuilder
                                     .Create("MovementAffinityCollegeOfHarlequinCombatInspirationMovementEnhancement")
                                     .SetGuiPresentation(Category.Feature)
-                                    .SetCustomSubFeatures(new UseBardicDieRollForSpeedModifier())
+                                    .SetCustomSubFeatures(new AddConditionAmountToSpeedModifier())
                                     .AddToDB(),
                                 FeatureDefinitionAttackModifierBuilder
                                     .Create("AttackModifierCollegeOfHarlequinCombatInspirationAttackEnhancement")
                                     .SetGuiPresentation(Category.Feature)
-                                    .SetCustomSubFeatures(new AddBardicDieRollToAttackAndDamage())
+                                    .SetAttackRollModifier(method: AttackModifierMethod.SourceConditionAmount)
+                                    .SetDamageRollModifier(method: AttackModifierMethod.SourceConditionAmount)
                                     .AddToDB())
                             .SetCustomSubFeatures(new ConditionCombatInspired())
                             .AddToDB(),
@@ -100,11 +98,9 @@ internal sealed class CollegeOfHarlequin : AbstractSubclass
         var powerImprovedCombatInspiration = FeatureDefinitionPowerBuilder
             .Create("PowerCollegeOfHarlequinImprovedCombatInspiration")
             .SetGuiPresentation(Category.Feature)
-            .SetEffectDescription(EffectDescriptionBuilder
-                .Create()
+            .SetEffectDescription(EffectDescriptionBuilder.Create()
                 .SetDurationData(DurationType.Instantaneous)
-                .SetEffectForms(EffectFormBuilder
-                    .Create()
+                .SetEffectForms(EffectFormBuilder.Create()
                     .SetConditionForm(ConditionDefinitionBuilder
                         .Create("ConditionCollegeOfHarlequinRegainBardicInspirationOnKill")
                         .SetGuiPresentationNoContent(true)
@@ -132,34 +128,13 @@ internal sealed class CollegeOfHarlequin : AbstractSubclass
             .AddToDB();
     }
 
-    private static Dictionary<ulong, int> BardicDieRollPerCharacter { get; } = new();
-
     internal override CharacterSubclassDefinition Subclass { get; }
 
     internal override FeatureDefinitionSubclassChoice SubclassChoice =>
         FeatureDefinitionSubclassChoices.SubclassChoiceBardColleges;
 
-    internal static int GetBardicRoll(ulong sourceGuid)
-    {
-        BardicDieRollPerCharacter.TryGetValue(sourceGuid, out var roll);
-
-        return roll;
-    }
-
-    private static void SetBardicRoll(ulong sourceGuid, int roll)
-    {
-        BardicDieRollPerCharacter.AddOrReplace(sourceGuid, roll);
-    }
-
-    private static void RemoveBardicRoll(ulong sourceGuid)
-    {
-        BardicDieRollPerCharacter.Remove(sourceGuid);
-    }
-
     private sealed class ConditionCombatInspired : ICustomConditionFeature
     {
-        private const string CombatInspiredEnhancedArmorClass = "CombatInspiredEnhancedArmorClass";
-
         public void ApplyFeature(RulesetCharacter target, RulesetCondition rulesetCondition)
         {
             if (target is not RulesetCharacterHero hero || hero.GetBardicInspirationDieValue() == DieType.D1)
@@ -172,32 +147,18 @@ internal sealed class CollegeOfHarlequin : AbstractSubclass
 
             var console = Gui.Game.GameConsole;
             var entry = new GameConsoleEntry("Feedback/&BardicInspirationUsedToBoostCombatAbility",
-                console.consoleTableDefinition);
+                console.consoleTableDefinition) {indent = true};
 
             console.AddCharacterEntry(target, entry);
             entry.AddParameter(ConsoleStyleDuplet.ParameterType.Positive, Gui.FormatDieTitle(dieType));
             entry.AddParameter(ConsoleStyleDuplet.ParameterType.Positive, dieRoll.ToString());
             console.AddEntry(entry);
 
-            // for armor class
-            var feature = rulesetCondition.ConditionDefinition.Features[0] as FeatureDefinitionAttributeModifier;
-
-            if (feature != null)
-            {
-                feature.modifierValue = dieRoll;
-            }
-
-            // this is set for movement modifier
-            SetBardicRoll(target.guid, dieRoll);
+            rulesetCondition.amount = dieRoll;
         }
 
         public void RemoveFeature(RulesetCharacter target, RulesetCondition rulesetCondition)
         {
-            RemoveBardicRoll(target.guid);
-
-            var armorClassAttribute = target.attributes[AttributeDefinitions.ArmorClass];
-
-            armorClassAttribute.RemoveModifiersByTags(CombatInspiredEnhancedArmorClass);
         }
     }
 
@@ -219,10 +180,6 @@ internal sealed class CollegeOfHarlequin : AbstractSubclass
         public void RemoveFeature(RulesetCharacter target, RulesetCondition rulesetCondition)
         {
         }
-    }
-
-    internal sealed class UseBardicDieRollForSpeedModifier
-    {
     }
 
     private sealed class TargetReducedToZeroHpTerrificPerformance : ITargetReducedToZeroHp
@@ -260,29 +217,6 @@ internal sealed class CollegeOfHarlequin : AbstractSubclass
             {
                 effectPower.ApplyEffectOnCharacter(enemy.RulesetCharacter, true, enemy.LocationPosition);
             }
-        }
-    }
-
-    private sealed class AddBardicDieRollToAttackAndDamage : IModifyAttackModeForWeapon
-    {
-        public void ModifyAttackMode(RulesetCharacter character, [CanBeNull] RulesetAttackMode attackMode)
-        {
-            var damage = attackMode?.EffectDescription?.FindFirstDamageForm();
-
-            if (damage == null)
-            {
-                return;
-            }
-
-            var dieRoll = GetBardicRoll(character.guid);
-
-            attackMode.ToHitBonus += dieRoll;
-            attackMode.ToHitBonusTrends.Add(new TrendInfo(dieRoll,
-                FeatureSourceType.Condition, "Combat Inspiration", null));
-
-            damage.BonusDamage += dieRoll;
-            damage.DamageBonusTrends.Add(new TrendInfo(dieRoll,
-                FeatureSourceType.Condition, "Combat Inspiration", null));
         }
     }
 }
