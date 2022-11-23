@@ -14,6 +14,7 @@ using static SolastaUnfinishedBusiness.Api.DatabaseHelper.MonsterDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionSenses;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterClassDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.ItemDefinitions;
+using SolastaUnfinishedBusiness.Builders.Features;
 
 namespace SolastaUnfinishedBusiness.Models;
 
@@ -23,6 +24,8 @@ internal static class SrdAndHouseRulesContext
     internal const int MaxVisionRange = 120;
 
     private const string InvisibleStalkerSubspellName = "ConjureElementalInvisibleStalker";
+    
+    internal static FeatureDefinitionPower FeatureDefinitionPowerAfterRestIdentify { get; set; }
 
     internal static readonly HashSet<MonsterDefinition> ConjuredMonsters = new()
     {
@@ -64,6 +67,7 @@ internal static class SrdAndHouseRulesContext
         ApplySrdWeightToFoodRations();
         BuildConjureElementalInvisibleStalker();
         SenseNormalVision.senseRange = Main.Settings.IncreaseSenseNormalVision;
+        LoadAfterRestIdentify();
     }
 
     internal static void LateLoad()
@@ -83,6 +87,7 @@ internal static class SrdAndHouseRulesContext
         SwitchMagicStaffFoci();
         SwitchEnableUpcastConjureElementalAndFey();
         SwitchFullyControlConjurations();
+        SwitchIdentifyAfterRest();
     }
 
     internal static void ModifyAttackModeAndDamage(
@@ -485,6 +490,93 @@ internal static class SrdAndHouseRulesContext
 
             advancement.effectIncrementMethod = EffectIncrementMethod.PerAdditionalSlotLevel;
             advancement.additionalSpellLevelPerIncrement = 1;
+        }
+    }
+
+    private static void LoadAfterRestIdentify()
+    {
+        const string AfterRestIdentifyName = "PowerAfterRestIdentify";
+        
+        RestActivityDefinitionBuilder
+            .Create("RestActivityShortRestIdentify")
+            .SetGuiPresentation(AfterRestIdentifyName, Category.Feature)
+            .SetRestData(
+                RestDefinitions.RestStage.AfterRest,
+                RestType.ShortRest,
+                RestActivityDefinition.ActivityCondition.CanUsePower,
+                FunctorDefinitions.FunctorUsePower,
+                AfterRestIdentifyName)
+            .AddToDB();
+
+        RestActivityDefinitionBuilder
+            .Create("RestActivityLongRestIdentify")
+            .SetGuiPresentation(AfterRestIdentifyName, Category.Feature)
+            .SetRestData(
+                RestDefinitions.RestStage.AfterRest,
+                RestType.LongRest,
+                RestActivityDefinition.ActivityCondition.CanUsePower,
+                FunctorDefinitions.FunctorUsePower,
+                AfterRestIdentifyName)
+            .AddToDB();
+
+        var afterRestIdentifyCondition = ConditionDefinitionBuilder
+            .Create("AfterRestIdentify")
+            .SetGuiPresentation(Category.Condition)
+            .SetConditionType(ConditionType.Beneficial)
+            .SetFeatures(FeatureDefinitionMagicAffinitys.MagicAffinityArcaneAppraiser)
+            .AddToDB();
+
+        FeatureDefinitionPowerAfterRestIdentify = FeatureDefinitionPowerBuilder
+            .Create(AfterRestIdentifyName)
+            .SetGuiPresentation(Category.Feature)
+            .SetUsesFixed(ActivationTime.Rest)
+            .SetEffectDescription(EffectDescriptionBuilder
+                .Create()
+                .SetTargetingData(
+                    Side.Ally,
+                    RangeType.Self,
+                    1,
+                    TargetType.Self)
+                .SetDurationData(
+                    DurationType.Minute,
+                    1)
+                .SetEffectForms(EffectFormBuilder
+                    .Create()
+                    .SetConditionForm(
+                        afterRestIdentifyCondition,
+                        ConditionForm.ConditionOperation.Add)
+                    .Build())
+                .Build())
+            .AddToDB();
+    }
+
+    internal static void SwitchIdentifyAfterRest()
+    {
+        var dbCharacterRaceDefinition = DatabaseRepository.GetDatabase<CharacterRaceDefinition>();
+        var subRaces = dbCharacterRaceDefinition
+            .SelectMany(x => x.SubRaces);
+        var races = dbCharacterRaceDefinition
+            .Where(x => !subRaces.Contains(x));
+
+        if (Main.Settings.IdentifyAfterRest)
+        {
+            foreach (var characterRaceDefinition in races
+                         .Where(a => !a.FeatureUnlocks.Exists(x =>
+                             x.Level == 1 && x.FeatureDefinition == FeatureDefinitionPowerAfterRestIdentify)))
+            {
+                characterRaceDefinition.FeatureUnlocks.Add(
+                    new FeatureUnlockByLevel(FeatureDefinitionPowerAfterRestIdentify, 1));
+            }
+        }
+        else
+        {
+            foreach (var characterRaceDefinition in races
+                         .Where(a => a.FeatureUnlocks.Exists(x =>
+                             x.Level == 1 && x.FeatureDefinition == FeatureDefinitionPowerAfterRestIdentify)))
+            {
+                characterRaceDefinition.FeatureUnlocks.RemoveAll(x =>
+                    x.Level == 1 && x.FeatureDefinition == FeatureDefinitionPowerAfterRestIdentify);
+            }
         }
     }
 }
