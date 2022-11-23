@@ -4,6 +4,7 @@
 
 - improved College of Life level 14 with Command Undead from Dead Master
 - improved Way of The Silhouette progression to be on par with Moonlit
+- promoted Gnomes after better QA
 
 1.4.28.C:
 
