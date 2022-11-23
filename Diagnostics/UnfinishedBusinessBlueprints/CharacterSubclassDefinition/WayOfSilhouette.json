@@ -3,6 +3,11 @@
   "featureUnlocks": [
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:LightAffinityWayOfSilhouetteCloakOfSilhouettesWeak:68d58944-d6dd-5e5b-b928-9c074351cb9f",
+      "level": 3
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:FeatureSetWayOfSilhouetteSilhouetteArts:2c6a6eca-0bd9-5ddf-9423-47b7b9a69eca",
       "level": 3
     },
@@ -13,7 +18,7 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:LightAffinityWayOfSilhouetteCloakOfSilhouettesWeak:68d58944-d6dd-5e5b-b928-9c074351cb9f",
+      "featureDefinition": "Definition:LightAffinityWayOfSilhouetteCloakOfSilhouettesStrong:11148dc3-2ce8-5793-a86b-1ed6f9aa4fc5",
       "level": 6
     },
     {
@@ -23,7 +28,7 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:LightAffinityWayOfSilhouetteCloakOfSilhouettesStrong:11148dc3-2ce8-5793-a86b-1ed6f9aa4fc5",
+      "featureDefinition": "Definition:PowerWayOfSilhouetteImprovedSilhouetteStep:a7a88fe6-bd6a-51d7-88c7-bd65acdf5dbb",
       "level": 11
     }
   ],

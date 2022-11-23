@@ -157,6 +157,12 @@ internal static class CharacterDisplay
         UI.Label(Gui.Localize("ModUi/&Visuals"));
         UI.Label();
 
+        toggle = Main.Settings.AllowBeardlessDwarves;
+        if (UI.Toggle(Gui.Localize("ModUi/&AllowBeardlessDwarves"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.AllowBeardlessDwarves = toggle;
+        }
+
         toggle = Main.Settings.OfferAdditionalLoreFriendlyNames;
         if (UI.Toggle(Gui.Localize("ModUi/&OfferAdditionalLoreFriendlyNames"), ref toggle, UI.AutoWidth()))
         {
@@ -167,12 +173,6 @@ internal static class CharacterDisplay
         if (UI.Toggle(Gui.Localize("ModUi/&UnlockAllNpcFaces"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.UnlockAllNpcFaces = toggle;
-        }
-
-        toggle = Main.Settings.AllowBeardlessDwarves;
-        if (UI.Toggle(Gui.Localize("ModUi/&AllowBeardlessDwarves"), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.AllowBeardlessDwarves = toggle;
         }
 
         UI.Label();

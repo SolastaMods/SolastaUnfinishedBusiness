@@ -3,6 +3,7 @@ using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.Models;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
 
 namespace SolastaUnfinishedBusiness.Subclasses;
 
@@ -54,10 +55,6 @@ internal sealed class WayOfTheSilhouette : AbstractSubclass
             .SetUsesFixed(ActivationTime.BonusAction)
             .SetEffectDescription(SpellDefinitions.MistyStep.EffectDescription)
             .SetShowCasting(true)
-            // .SetCustomSubFeatures(
-            //     new ValidatorsPowerUse(
-            //         ValidatorsCharacter
-            //             .HasAnyOfConditions(CustomConditionsContext.ConditionInvisibilityEveryRoundHidden)))
             .AddToDB();
 
         var lightAffinityWayOfSilhouetteCloakOfSilhouettesWeak = FeatureDefinitionLightAffinityBuilder
@@ -85,17 +82,27 @@ internal sealed class WayOfTheSilhouette : AbstractSubclass
             })
             .AddToDB();
 
+        var powerWayOfSilhouetteImprovedSilhouetteStep = FeatureDefinitionPowerBuilder
+            .Create("PowerWayOfSilhouetteImprovedSilhouetteStep")
+            .SetGuiPresentation(Category.Feature, DimensionDoor)
+            .SetOverriddenPower(powerWayOfSilhouetteSilhouetteStep)
+            .SetUsesProficiencyBonus(ActivationTime.BonusAction)
+            .SetEffectDescription(DimensionDoor.EffectDescription)
+            .SetUniqueInstance()
+            .AddToDB();
+        
         Subclass = CharacterSubclassDefinitionBuilder
             .Create("WayOfSilhouette")
             .SetOrUpdateGuiPresentation(Category.Subclass, CharacterSubclassDefinitions.RoguishShadowCaster)
             .AddFeaturesAtLevel(3,
                 featureSetWayOfSilhouetteSilhouetteArts,
+                lightAffinityWayOfSilhouetteCloakOfSilhouettesWeak,
                 FeatureDefinitionCastSpells.CastSpellTraditionLight)
             .AddFeaturesAtLevel(6,
-                lightAffinityWayOfSilhouetteCloakOfSilhouettesWeak,
+                lightAffinityWayOfSilhouetteStrong,
                 powerWayOfSilhouetteSilhouetteStep)
             .AddFeaturesAtLevel(11,
-                lightAffinityWayOfSilhouetteStrong)
+                powerWayOfSilhouetteImprovedSilhouetteStep)
             .AddToDB();
     }
 

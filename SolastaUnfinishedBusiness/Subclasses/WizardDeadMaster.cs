@@ -35,12 +35,13 @@ internal sealed class WizardDeadMaster : AbstractSubclass
             .SetPreparedSpellGroups(GetDeadSpellAutoPreparedGroups())
             .AddToDB();
 
-        var starkHarvest = FeatureDefinitionBuilder
+        var targetReducedToZeroHpDeadMasterStarkHarvest = FeatureDefinitionBuilder
             .Create("TargetReducedToZeroHpDeadMasterStarkHarvest")
             .SetGuiPresentation(Category.Feature)
             .AddToDB();
 
-        starkHarvest.SetCustomSubFeatures(new StarkHarvest(starkHarvest));
+        targetReducedToZeroHpDeadMasterStarkHarvest.SetCustomSubFeatures(
+            new StarkHarvest(targetReducedToZeroHpDeadMasterStarkHarvest));
 
         const string ChainsName = "SummoningAffinityDeadMasterUndeadChains";
 
@@ -79,39 +80,18 @@ internal sealed class WizardDeadMaster : AbstractSubclass
                     .AddToDB())
             .AddToDB();
 
-        var powerDeadMasterCommandUndead = FeatureDefinitionPowerBuilder
-            .Create("PowerDeadMasterCommandUndead")
-            .SetGuiPresentation(Category.Feature)
-            .SetUsesProficiencyBonus(ActivationTime.Action)
-            .SetEffectDescription(
-                EffectDescriptionBuilder
-                    .Create(DominateBeast.EffectDescription)
-                    .SetEffectAdvancement(EffectIncrementMethod.None)
-                    .SetRestrictedCreatureFamilies(Undead)
-                    .SetSavingThrowData(
-                        false,
-                        AttributeDefinitions.Charisma,
-                        false,
-                        EffectDifficultyClassComputation.AbilityScoreAndProficiency,
-                        AttributeDefinitions.Intelligence,
-                        8,
-                        true)
-                    .Build())
-            .AddToDB();
-
         Subclass = CharacterSubclassDefinitionBuilder
             .Create(WizardDeadMasterName)
             .SetGuiPresentation(Category.Subclass, SorcerousHauntedSoul)
             .AddFeaturesAtLevel(2,
                 autoPreparedSpellsDeadMaster,
-                deadMasterUndeadChains
-            )
+                deadMasterUndeadChains)
             .AddFeaturesAtLevel(6,
-                starkHarvest)
+                targetReducedToZeroHpDeadMasterStarkHarvest)
             .AddFeaturesAtLevel(10,
                 DamageAffinityGenericHardenToNecrotic)
             .AddFeaturesAtLevel(14,
-                powerDeadMasterCommandUndead)
+                PowerCasterCommandUndead)
             .AddToDB();
 
         EnableCommandAllUndead();
@@ -208,14 +188,15 @@ internal sealed class WizardDeadMaster : AbstractSubclass
             foreach (var (monsterDefinition, count, icon, attackSprites) in monsters)
             {
                 var monster = MakeSummonedMonster(monsterDefinition, attackSprites);
+                var title = Gui.Format("Spell/&SpellRaiseDeadFormatTitle",
+                    monster.FormatTitle());
+                var description = Gui.Format("Spell/&SpellRaiseDeadFormatDescription",
+                    monster.FormatTitle(),
+                    monster.FormatDescription());
 
                 spells.Add(SpellDefinitionBuilder
                     .Create($"CreateDead{monster.name}")
-                    .SetGuiPresentation(
-                        Gui.Format("Spell/&SpellRaiseDeadFormatTitle", monster.FormatTitle()),
-                        Gui.Format("Spell/&SpellRaiseDeadFormatDescription", monster.FormatTitle(),
-                            monster.FormatDescription()),
-                        icon)
+                    .SetGuiPresentation(title, description, icon)
                     .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolNecromancy)
                     .SetSpellLevel(spell)
                     .SetMaterialComponent(MaterialComponentType.Mundane)
@@ -303,6 +284,7 @@ internal sealed class WizardDeadMaster : AbstractSubclass
             }
 
             var usedSpecialFeatures = attacker.UsedSpecialFeatures;
+
             usedSpecialFeatures.TryAdd(feature.Name, 0);
 
             if (usedSpecialFeatures[feature.Name] > 0)

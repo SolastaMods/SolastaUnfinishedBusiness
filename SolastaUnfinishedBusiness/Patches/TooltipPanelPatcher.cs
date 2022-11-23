@@ -35,7 +35,8 @@ public static class TooltipPanelPatcher
             };
         }
 
-        public static IEnumerable<CodeInstruction> Transpiler([NotNull] IEnumerable<CodeInstruction> instructions)
+        //TODO: review non working transpiler
+        public static IEnumerable<CodeInstruction> Transpiler_DISABLED([NotNull] IEnumerable<CodeInstruction> instructions)
         {
             //PATCH: support All scope for tooltip
             var customMethod =
@@ -43,11 +44,13 @@ public static class TooltipPanelPatcher
 
             var codes = instructions.ToList();
             var found = false;
+
             for (var i = 2; i < codes.Count; i++)
             {
                 var before = codes[i - 2];
                 var prev = codes[i - 1];
                 var code = codes[i];
+
                 if (code.opcode == OpCodes.Ceq
                     && prev.opcode == OpCodes.Ldarg_1
                     && before.opcode == OpCodes.Ldfld

@@ -702,6 +702,16 @@ namespace SolastaUnfinishedBusiness.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
+        public static byte[] Gnome {
+            get {
+                object obj = ResourceManager.GetObject("Gnome", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
         public static byte[] GrayDwarf {
             get {
                 object obj = ResourceManager.GetObject("GrayDwarf", resourceCulture);
