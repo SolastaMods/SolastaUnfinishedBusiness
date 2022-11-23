@@ -1,5 +1,11 @@
 ﻿CHANGES:
 
+1.4.28.F:
+
+- added Water Elemental to Circle of The Night WS forms (based of Air)
+- improved conditions tooltip
+- shrunk shapes offering panel when too many shapes are offered
+
 1.4.28.E:
 
 - changed Silhouette Step recharge rate to PB over long rest
