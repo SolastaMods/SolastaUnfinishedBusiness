@@ -525,6 +525,14 @@ internal sealed class RangerWildMaster : AbstractSubclass
                     .SetFeatures(toDamage)
                     .AddToDB(),
                 ConditionDefinitionBuilder
+                    .Create("ConditionWildMasterSummonSpiritBeastCopyCharacterLevel")
+                    .SetGuiPresentationNoContent()
+                    .SetSilent(Silent.WhenAddedOrRemoved)
+                    .SetAmountOrigin(ExtraOriginOfAmount.SourceCopyAttributeFromSummoner)
+                    // set damage type to attribute name so `ExtraOriginOfAmount.SourceCopyAttributeFromSummoner` would know what attribute to use
+                    .SetAdditionalDamageWhenHit(damageType: AttributeDefinitions.CharacterLevel, active: false)
+                    .AddToDB(),
+                ConditionDefinitionBuilder
                     .Create("ConditionWildMasterSummonSpiritBeastLevel")
                     .SetGuiPresentationNoContent()
                     .SetSilent(Silent.WhenAddedOrRemoved)

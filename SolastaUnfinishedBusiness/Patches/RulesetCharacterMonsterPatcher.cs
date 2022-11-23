@@ -18,17 +18,6 @@ public static class RulesetCharacterMonsterPatcher
     {
         public static void Postfix(RulesetCharacterMonster __instance, bool keepMentalAbilityScores)
         {
-            //PATCH: sync char level (required for Wild Master beasts)
-            //TODO: use custom effects on beast monsters in the future to avoid this
-            var currentCharacter = Global.CurrentCharacter;
-
-            if (__instance.tags.Contains("SpiritBeast") &&
-                currentCharacter != null &&
-                currentCharacter.Attributes.TryGetValue(AttributeDefinitions.CharacterLevel, out var attribute))
-            {
-                __instance.Attributes.Add(AttributeDefinitions.CharacterLevel, attribute);
-            }
-
             //PATCH: Fixes AC calculation for MC shape-shifters
             //Instead of setting monster's AC as base it adds it as a Natural Armor value
             //And adds base 10 and dex AC modifiers too, so they can mix with unarmored defense if needed
