@@ -4,6 +4,7 @@ using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using HarmonyLib;
 using SolastaUnfinishedBusiness.Api;
+using SolastaUnfinishedBusiness.Api.Extensions;
 using SolastaUnfinishedBusiness.Models;
 using UnityEngine;
 
@@ -43,7 +44,7 @@ public static class RulesetSpellRepertoirePatcher
                 return true;
             }
 
-            var heroWithSpellRepertoire = SharedSpellsContext.GetHero(__instance.CharacterName);
+            var heroWithSpellRepertoire = __instance.GetCasterHero();
 
             if (heroWithSpellRepertoire == null)
             {
@@ -164,7 +165,7 @@ public static class RulesetSpellRepertoirePatcher
                 return;
             }
 
-            var heroWithSpellRepertoire = SharedSpellsContext.GetHero(__instance.CharacterName);
+            var heroWithSpellRepertoire = __instance.GetCasterHero();
 
             if (heroWithSpellRepertoire == null || !SharedSpellsContext.IsMulticaster(heroWithSpellRepertoire))
             {
@@ -191,7 +192,7 @@ public static class RulesetSpellRepertoirePatcher
                 return true;
             }
 
-            var heroWithSpellRepertoire = SharedSpellsContext.GetHero(__instance.CharacterName);
+            var heroWithSpellRepertoire = __instance.GetCasterHero();
 
             if (heroWithSpellRepertoire == null)
             {
@@ -244,7 +245,7 @@ public static class RulesetSpellRepertoirePatcher
                 return;
             }
 
-            var heroWithSpellRepertoire = SharedSpellsContext.GetHero(__instance.CharacterName);
+            var heroWithSpellRepertoire = __instance.GetCasterHero();
 
             if (heroWithSpellRepertoire == null || !SharedSpellsContext.IsMulticaster(heroWithSpellRepertoire))
             {

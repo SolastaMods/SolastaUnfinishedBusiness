@@ -4,6 +4,7 @@ using System.Diagnostics.CodeAnalysis;
 using System.Reflection.Emit;
 using HarmonyLib;
 using JetBrains.Annotations;
+using SolastaUnfinishedBusiness.Api.Extensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Models;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterClassDefinitions;
@@ -20,7 +21,7 @@ public static class SlotStatusTablePatcher
             FeatureDefinitionCastSpell featureDefinitionCastSpell,
             RulesetSpellRepertoire rulesetSpellRepertoire)
         {
-            var hero = SharedSpellsContext.GetHero(rulesetSpellRepertoire.CharacterName);
+            var hero = rulesetSpellRepertoire.GetCasterHero();
 
             //PATCH: displays slots on any multicaster hero so Warlocks can see their spell slots
             return featureDefinitionCastSpell.UniqueLevelSlots &&
@@ -50,7 +51,7 @@ public static class SlotStatusTablePatcher
                 return;
             }
 
-            var heroWithSpellRepertoire = SharedSpellsContext.GetHero(spellRepertoire.CharacterName);
+            var heroWithSpellRepertoire = spellRepertoire.GetCasterHero();
 
             if (heroWithSpellRepertoire is null)
             {
