@@ -381,6 +381,7 @@ ConditionAffinityElfFeyAncestryCharmedByHypnoticPattern { get; } = GetDefinition
         internal static FeatureDefinitionConditionAffinity ConditionAffinityPoisonImmunity { get; } = GetDefinition<FeatureDefinitionConditionAffinity>("ConditionAffinityPoisonImmunity");
         internal static FeatureDefinitionConditionAffinity ConditionAffinityProneImmunity { get; } = GetDefinition<FeatureDefinitionConditionAffinity>("ConditionAffinityProneImmunity");
         internal static FeatureDefinitionConditionAffinity ConditionAffinityRestrainedmmunity { get; } = GetDefinition<FeatureDefinitionConditionAffinity>("ConditionAffinityRestrainedmmunity");
+        internal static FeatureDefinitionConditionAffinity ConditionAffinityUnconsciousImmunity { get; } = GetDefinition<FeatureDefinitionConditionAffinity>("ConditionAffinityUnconsciousImmunity");
     }
     internal static class FeatureDefinitionDamageAffinitys
     {
@@ -458,6 +459,7 @@ ConditionAffinityElfFeyAncestryCharmedByHypnoticPattern { get; } = GetDefinition
     {
         internal static FeatureDefinitionMoveMode MoveModeFly10 { get; } = GetDefinition<FeatureDefinitionMoveMode>("MoveModeFly10");
         internal static FeatureDefinitionMoveMode MoveModeFly2 { get; } = GetDefinition<FeatureDefinitionMoveMode>("MoveModeFly2");
+        internal static FeatureDefinitionMoveMode MoveModeFly6 { get; } = GetDefinition<FeatureDefinitionMoveMode>("MoveModeFly6");
         internal static FeatureDefinitionMoveMode MoveModeMove10 { get; } = GetDefinition<FeatureDefinitionMoveMode>("MoveModeMove10");
         internal static FeatureDefinitionMoveMode MoveModeMove5 { get; } = GetDefinition<FeatureDefinitionMoveMode>("MoveModeMove5");
         internal static FeatureDefinitionMoveMode MoveModeMove6 { get; } = GetDefinition<FeatureDefinitionMoveMode>("MoveModeMove6");
