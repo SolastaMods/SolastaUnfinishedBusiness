@@ -1,9 +1,10 @@
-﻿#if false
-using System.Collections;
+﻿using System.Collections;
+using JetBrains.Annotations;
 using TA;
 
 //This should have default namespace so that it can be properly created by `CharacterActionPatcher`
 // ReSharper disable once CheckNamespace
+[UsedImplicitly]
 public class CharacterActionPushedCustom : CharacterAction
 {
     private readonly bool forceFallProne;
@@ -149,4 +150,3 @@ public class CharacterActionPushedCustom : CharacterAction
         // Main.Log2($"CharacterActionPushedCustom [{ActionParams.ActingCharacter.Name}] ExecuteImpl FINISH", true);
     }
 }
-#endif
