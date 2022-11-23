@@ -2,13 +2,13 @@
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
+using SolastaUnfinishedBusiness.CustomInterfaces;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterSubclassDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPowers;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.MonsterDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.MonsterAttackDefinitions;
-using static EffectForm;
 
 namespace SolastaUnfinishedBusiness.Subclasses;
 
@@ -16,23 +16,54 @@ internal sealed class CircleOfTheNight : AbstractSubclass
 {
     private const string CircleOfTheNightName = "CircleOfTheNight";
 
+    private sealed class ChangeShapeOptionsCircleOfTheNightWildShapeCombat : IChangeShapeOptions
+    {
+        private readonly List<ShapeOptionDescription> _shapeOptionDescriptions;
+
+        public ChangeShapeOptionsCircleOfTheNightWildShapeCombat(
+            List<ShapeOptionDescription> shapeOptionDescriptions)
+        {
+            _shapeOptionDescriptions = shapeOptionDescriptions;
+        }
+
+        public ConditionDefinition SpecialSubstituteCondition => ConditionDefinitions.ConditionWildShapeSubstituteForm;
+        public List<ShapeOptionDescription> ShapeOptions => _shapeOptionDescriptions;
+    }
     internal CircleOfTheNight()
     {
+        var shapeOptions = new List<ShapeOptionDescription>
+        {
+            ShapeBuilder(2, WildShapeBadlandsSpider),
+            ShapeBuilder(2, WildshapeDirewolf),
+            ShapeBuilder(2, WildShapeBrownBear),
+            ShapeBuilder(4, WildshapeDeepSpider),
+            ShapeBuilder(4, HBWildShapeDireBear()),
+            ShapeBuilder(6, WildShapeApe),
+            // flying
+            ShapeBuilder(8, WildshapeTiger_Drake),
+            ShapeBuilder(8, WildShapeGiant_Eagle),
+            // don't use future features
+            // ShapeBuilder(10, WildShapeTundraTiger),
+            // elementals
+            // According to the rules, transforming into an elemental should cost 2 Wild Shape Charges
+            // However elementals in this game are nerfed, since they don't have special attacks, such as Whirlwind
+            //TODO: Create a new feature for elemental transformation.
+            //TODO: Add special attacks to elemental forms (whirlwind, Whelm, Earth Glide maybe)
+            ShapeBuilder(10, HBWildShapeAirElemental()),
+            ShapeBuilder(10, HBWildShapeFireElemental()),
+            ShapeBuilder(10, HBWildShapeEarthElemental()),
+            // don't use future features
+            // ShapeBuilder(10, HBWildShapeWaterElemental())
+        };
+        
         // 3rd level
+        
         // Combat Wildshape 
         // Official rules are CR = 1/3 of druid level. However in solasta the selection of beasts is greatly reduced
-        var powerCircleOfTheNightWildShapeCombat = FeatureDefinitionPowerSharedPoolBuilder
+        var powerCircleOfTheNightWildShapeCombat = FeatureDefinitionBuilder
             .Create("PowerCircleOfTheNightWildShapeCombat")
-            .SetGuiPresentationNoContent(true)
-            .SetOverriddenPower(PowerDruidWildShape)
-            .SetSharedPool(ActivationTime.Action, PowerDruidWildShape)
-            .SetEffectDescription(BuildCombatWildShapeEffectDescription())
-            .AddToDB();
-
-        var featureSetCircleOfTheNightWildShapeCombat = FeatureDefinitionFeatureSetBuilder
-            .Create("FeatureSetCircleOfTheNightWildShapeCombat")
             .SetGuiPresentation(Category.Feature)
-            .AddFeatureSet(powerCircleOfTheNightWildShapeCombat)
+            .SetCustomSubFeatures(new ChangeShapeOptionsCircleOfTheNightWildShapeCombat(shapeOptions))
             .AddToDB();
 
         // Combat Wild Shape Healing
@@ -47,6 +78,7 @@ internal sealed class CircleOfTheNight : AbstractSubclass
             .AddToDB();
 
         // 6th Level
+        
         // Primal Strike
         // Starting at 6th level, your attacks in beast form count as magical for the purpose of overcoming resistance
         // and immunity to non magical attacks and damage.
@@ -70,6 +102,7 @@ internal sealed class CircleOfTheNight : AbstractSubclass
             .AddToDB();
 
         // 10th Level
+        
         // Superior Combat Healing
         // At 10th level, your combat healing improves to 3d8 + 6
         var powerCircleOfTheNightWildShapeSuperiorHealing = FeatureDefinitionPowerBuilder
@@ -91,7 +124,7 @@ internal sealed class CircleOfTheNight : AbstractSubclass
             .Create(CircleOfTheNightName)
             .SetGuiPresentation(Category.Subclass, PathClaw)
             .AddFeaturesAtLevel(2,
-                featureSetCircleOfTheNightWildShapeCombat,
+                powerCircleOfTheNightWildShapeCombat,
                 powerCircleOfTheNightWildShapeHealing)
             .AddFeaturesAtLevel(6,
                 powerCircleOfTheNightPrimalStrike,
@@ -106,7 +139,6 @@ internal sealed class CircleOfTheNight : AbstractSubclass
 
     internal override FeatureDefinitionSubclassChoice SubclassChoice =>
         FeatureDefinitionSubclassChoices.SubclassChoiceDruidCircle;
-
 
     // custom wild shapes
 
@@ -192,69 +224,6 @@ internal sealed class CircleOfTheNight : AbstractSubclass
     {
         var shape = new ShapeOptionDescription { requiredLevel = level, substituteMonster = monster };
         return shape;
-    }
-
-    private static EffectDescription BuildCombatWildShapeEffectDescription()
-    {
-        var shapeOptions = new List<ShapeOptionDescription>
-        {
-            ShapeBuilder(2, WildShapeBadlandsSpider),
-            ShapeBuilder(2, WildshapeDirewolf),
-            ShapeBuilder(2, WildShapeBrownBear),
-            ShapeBuilder(4, WildshapeDeepSpider),
-            ShapeBuilder(4, HBWildShapeDireBear()),
-            ShapeBuilder(6, WildShapeApe),
-            // flying
-            ShapeBuilder(8, WildshapeTiger_Drake),
-            ShapeBuilder(8, WildShapeGiant_Eagle),
-            // don't use future features
-            // ShapeBuilder(10, WildShapeTundraTiger),
-            // elementals
-            // According to the rules, transforming into an elemental should cost 2 Wild Shape Charges
-            // However elementals in this game are nerfed, since they don't have special attacks, such as Whirlwind
-            //TODO: Create a new feature for elemental transformation.
-            //TODO: Add special attacks to elemental forms (whirlwind, Whelm, Earth Glide maybe)
-            ShapeBuilder(10, HBWildShapeAirElemental()),
-            ShapeBuilder(10, HBWildShapeFireElemental()),
-            ShapeBuilder(10, HBWildShapeEarthElemental()),
-            // don't use future features
-            // ShapeBuilder(10, HBWildShapeWaterElemental())
-        };
-
-        var effectForm = new EffectForm
-        {
-            formType = EffectFormType.ShapeChange,
-            addBonusMode = AddBonusMode.None,
-            applyLevel = LevelApplianceType.No,
-            levelType = LevelSourceType.ClassLevel,
-            levelMultiplier = 0,
-            createdByCharacter = true,
-            createdByCondition = false,
-            hasSavingThrow = false,
-            savingThrowAffinity = EffectSavingThrowType.None,
-            dcModifier = 0,
-            canSaveToCancel = false,
-            saveOccurence = TurnOccurenceType.StartOfTurn,
-            hasFilterId = false,
-            filterId = 0,
-            shapeChangeForm = new ShapeChangeForm
-            {
-                shapeChangeType = ShapeChangeForm.Type.ClassLevelListSelection,
-                keepMentalAbilityScores = true,
-                specialSubstituteCondition = ConditionDefinitions.ConditionWildShapeSubstituteForm,
-                shapeOptions = shapeOptions
-            }
-        };
-
-        var wildShapeEffect = EffectDescriptionBuilder
-            .Create()
-            .SetDurationData(DurationType.HalfClassLevelHours)
-            .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
-            .SetEffectForms(effectForm)
-            .SetCanBePlacedOnCharacter(true)
-            .Build();
-
-        return wildShapeEffect;
     }
 
     private static EffectDescription CombatHealing(
