@@ -310,6 +310,21 @@ internal sealed class RangerWildMaster : AbstractSubclass
             powerKindredSpiritEagle15,
             powerKindredSpiritWolf15);
 
+        // required to avoid beast duplicates when they get upgraded from 6 to 7, 10 to 11, 14 to 15
+        GlobalUniqueEffects.AddToGroup(GlobalUniqueEffects.Group.WildMasterBeast,
+            powerKindredSpiritBear03,
+            powerKindredSpiritEagle03,
+            powerKindredSpiritWolf03,
+            powerKindredSpiritBear07,
+            powerKindredSpiritEagle07,
+            powerKindredSpiritWolf07,
+            powerKindredSpiritBear11,
+            powerKindredSpiritEagle11,
+            powerKindredSpiritWolf11,
+            powerKindredSpiritBear15,
+            powerKindredSpiritEagle15,
+            powerKindredSpiritWolf15);
+
         //
         // required for a better UI presentation on level 15
         //
