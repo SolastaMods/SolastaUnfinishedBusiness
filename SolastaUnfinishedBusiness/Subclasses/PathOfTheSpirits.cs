@@ -9,6 +9,8 @@ using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionActio
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionCombatAffinitys;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionAbilityCheckAffinitys;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionSenses;
+using SolastaUnfinishedBusiness.CustomBehaviors;
+using SolastaUnfinishedBusiness.Api.Extensions;
 
 namespace SolastaUnfinishedBusiness.Subclasses;
 
@@ -35,21 +37,16 @@ internal sealed class PathOfTheSpirits : AbstractSubclass
         // Animal Spirit
         // At 3rd level, when you adopt this path, you choose an animal spirit as a guide and gain its feature.
         var featureSetPathOfTheSpiritsAnimalSpirit = FeatureDefinitionFeatureSetBuilder
-            .Create(FeatureDefinitionFeatureSets.FeatureSetSorcererDraconicChoice,
-                "FeatureSetPathOfTheSpiritsAnimalSpiritChoices")
+            .Create(FeatureDefinitionFeatureSets.FeatureSetSorcererDraconicChoice, "FeatureSetPathOfTheSpiritsAnimalSpiritChoices")
             .SetGuiPresentation(Category.Feature)
             .ClearFeatureSet()
             .AddFeatureSet(
                 // Bear: While raging, you have resistance to all damage except psychic damage. The spirit of the bear makes you tough enough to stand up to any punishment.
-                BuildAnimalSpiritChoice("Bear",
-                    PowerPathOfTheSpiritsBearResistance()),
+                BuildAnimalSpiritChoice("Bear", PowerBearResistance()),
                 // Eagle: (rogue's cunning action) The spirit of the eagle makes you into a nimble predator who can weave through the fray with ease. You can take the Dash, Disengage, or Hide action as a Bonus Action.
-                BuildAnimalSpiritChoice("Eagle",
-                    ActionAffinityRogueCunningAction),
+                BuildAnimalSpiritChoice("Eagle", ActionAffinityRogueCunningAction),
                 // Wolf: The spirit of the wolf makes you a leader of hunters. While you're raging, your friends have advantage on melee attack rolls against any creature within 5 feet of you that is hostile to you.
-                BuildAnimalSpiritChoice("Wolf",
-                    CombatAffinityPackTactics) // Needs to be implemented, right now gives advantage to self instead of friends
-            )
+                BuildAnimalSpiritChoice("Wolf", PowerWolfLeadership()))
             .AddToDB();
 
         #endregion
@@ -188,41 +185,39 @@ internal sealed class PathOfTheSpirits : AbstractSubclass
             .AddToDB();
     }
 
-#if false
     private static FeatureDefinition PowerWolfLeadership()
     {
-        var wolfLeadershipCondition = ConditionDefinitionBuilder
-            .Create("ConditionPathOfTheSpiritsWolfLeadershipAura")
-            .SetGuiPresentationNoContent(true)
-            .SetConditionType(ConditionType.Beneficial)
-            .SetSilent(Silent.WhenAddedOrRemoved)
-            .SetFeatures(CombatAffinityReckless)
-            .AddToDB();
-
-        var wolfLeadershipEffect = EffectFormBuilder
-            .Create()
-            .SetBonusMode(AddBonusMode.None)
-            .SetLevelAdvancement(EffectForm.LevelApplianceType.No, LevelSourceType.ClassLevel)
-            .CreatedByCharacter()
-            .SetConditionForm(wolfLeadershipCondition, ConditionForm.ConditionOperation.Add)
-            .Build();
-
         return FeatureDefinitionPowerBuilder
-            .Create("PathOfTheSpiritsWolfLeadershipAura")
+            .Create("PowerPathOfTheSpiritsWolfLeadership")
             .SetGuiPresentation(Category.Feature)
+            .SetCustomSubFeatures(PowerVisibilityModifier.Hidden)
             .SetUsesFixed(ActivationTime.OnRageStartAutomatic)
-            .SetEffectDescription(EffectDescriptionBuilder
-                .Create()
-                .SetDurationData(DurationType.Permanent, 0, TurnOccurenceType.EndOfTurn)
-                .SetTargetingData(Side.Ally, RangeType.Self, 2, TargetType.Cube, 5, 2)
-                .SetTargetProximityData(true, 10)
+            .SetEffectDescription(EffectDescriptionBuilder.Create()
+                .SetTargetingData(Side.Ally, RangeType.Self, 1, TargetType.Sphere, 6)
                 .ExcludeCaster()
-                .SetRecurrentEffect(RecurrentEffect.OnActivation | RecurrentEffect.OnEnter | RecurrentEffect.OnTurnStart)
-                .SetEffectForms(wolfLeadershipEffect)
+                .SetRecurrentEffect(
+                    RecurrentEffect.OnActivation | RecurrentEffect.OnEnter | RecurrentEffect.OnTurnStart)
+                .SetDurationData(DurationType.Round, 1, TurnOccurenceType.StartOfTurn)
+                .SetEffectForms(EffectFormBuilder.Create()
+                    .SetConditionForm(ConditionDefinitionBuilder
+                        .Create("ConditionPathOfTheSpiritsWolfLeadership")
+                        .SetGuiPresentationNoContent(true)
+                        .SetSilent(Silent.WhenAddedOrRemoved)
+                        .SetFeatures(CombatAffinityRousingShout)
+                        .AddToDB(), ConditionForm.ConditionOperation.Add)
+                    .Build())
                 .Build())
             .AddToDB();
     }
-#endif
+
+    private static FeatureDefinition PowerBearMight()
+    {
+        return FeatureDefinitionAbilityCheckAffinityBuilder
+            .Create("PowerPathOfTheSpiritsBearMight")
+            .SetGuiPresentation(Category.Feature)
+            .BuildAndSetAffinityGroups(CharacterAbilityCheckAffinity.Advantage, DieType.D1, 0, (AttributeDefinitions.Strength, string.Empty))
+            .AddToDB();
+    }
 
     private static FeatureDefinition AbilityCheckAffinityPathOfTheSpiritsBearMight()
     {
