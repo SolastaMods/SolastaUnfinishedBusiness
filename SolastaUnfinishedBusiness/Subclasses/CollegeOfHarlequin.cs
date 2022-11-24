@@ -13,6 +13,8 @@ namespace SolastaUnfinishedBusiness.Subclasses;
 
 internal sealed class CollegeOfHarlequin : AbstractSubclass
 {
+    private const string CombatInspirationCondition = "ConditionCollegeOfHarlequinFightingAbilityEnhanced";
+    
     private static readonly FeatureDefinitionPower PowerTerrificPerformance = FeatureDefinitionPowerBuilder
         .Create("PowerCollegeOfHarlequinTerrificPerformance")
         .SetGuiPresentation(Category.Feature)
@@ -48,7 +50,7 @@ internal sealed class CollegeOfHarlequin : AbstractSubclass
         var powerCombatInspiration = FeatureDefinitionPowerBuilder
             .Create("PowerCollegeOfHarlequinCombatInspiration")
             .SetGuiPresentation(Category.Feature, SpellDefinitions.MagicWeapon)
-            //TODO: hide outside of combat or when already affected by Combat Inspiration
+            .SetCustomSubFeatures(ValidatorsPowerUse.HasNoCondition(CombatInspirationCondition))
             .SetUsesFixed(ActivationTime.NoCost, RechargeRate.BardicInspiration)
             .SetEffectDescription(EffectDescriptionBuilder.Create()
                 .SetDurationData(DurationType.Round, 1, TurnOccurenceType.StartOfTurn)
@@ -56,7 +58,7 @@ internal sealed class CollegeOfHarlequin : AbstractSubclass
                 .SetTargetingData(Side.Ally, RangeType.Self, 1, TargetType.Self)
                 .SetEffectForms(EffectFormBuilder.Create()
                     .SetConditionForm(ConditionDefinitionBuilder
-                            .Create("ConditionCollegeOfHarlequinFightingAbilityEnhanced")
+                            .Create(CombatInspirationCondition)
                             .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionHeraldOfBattle)
                             .AddFeatures(
                                 FeatureDefinitionAttributeModifierBuilder
@@ -108,8 +110,7 @@ internal sealed class CollegeOfHarlequin : AbstractSubclass
                         .SetCustomSubFeatures(new ConditionRegainBardicInspirationDieOnKill())
                         .AddToDB(), ConditionForm.ConditionOperation.Add)
                     .Build())
-                .SetParticleEffectParameters(
-                    FeatureDefinitionPowers.PowerBardGiveBardicInspiration.EffectDescription.effectParticleParameters)
+                .SetParticleEffectParameters(FeatureDefinitionPowers.PowerBardGiveBardicInspiration)
                 .Build())
             .SetUsesFixed(ActivationTime.OnReduceCreatureToZeroHPAuto)
             .AddToDB();
