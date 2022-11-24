@@ -1,7 +1,6 @@
 ﻿CHANGES:
 
-1.4.28.G:
+1.4.28.H:
 
-- added Path of The Spirits
-- added SRD rule option to identify items over rest activities
-- improved behind the scenes code
+- fixed Path of The Spirits minor issues
+- improved Path of The Spirits wolf friendship

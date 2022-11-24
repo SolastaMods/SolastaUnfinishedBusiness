@@ -1,5 +1,10 @@
 ﻿CHANGES:
 
+1.4.28.H:
+
+- fixed Path of The Spirits minor issues
+- improved Path of The Spirits wolf friendship
+
 1.4.28.G:
 
 - added Path of The Spirits

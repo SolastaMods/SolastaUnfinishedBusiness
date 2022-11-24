@@ -3,18 +3,18 @@
   "effectDescription": {
     "$type": "EffectDescription, Assembly-CSharp",
     "rangeType": "Self",
-    "rangeParameter": 0,
+    "rangeParameter": 1,
     "halfDamageOnAMiss": false,
     "hitAffinitiesByTargetTag": [],
-    "targetType": "Self",
-    "itemSelectionType": "Equiped",
-    "targetParameter": 1,
+    "targetType": "Sphere",
+    "itemSelectionType": "None",
+    "targetParameter": 6,
     "targetParameter2": 2,
     "emissiveBorder": "None",
     "emissiveParameter": 1,
     "requiresTargetProximity": false,
     "targetProximityDistance": 6,
-    "targetExcludeCaster": false,
+    "targetExcludeCaster": true,
     "canBePlacedOnCharacter": true,
     "affectOnlyGround": false,
     "targetFilteringMethod": "AllCharacterAndGadgets",
@@ -22,7 +22,7 @@
     "requiresVisibilityForPosition": true,
     "inviteOptionalAlly": false,
     "slotTypes": [],
-    "recurrentEffect": "No",
+    "recurrentEffect": "OnActivation, OnTurnStart, OnEnter",
     "retargetAfterDeath": false,
     "retargetActionType": "Bonus",
     "poolFilterDiceNumber": 5,
@@ -30,10 +30,10 @@
     "trapRangeType": "Triggerer",
     "targetConditionName": "",
     "targetConditionAsset": null,
-    "targetSide": "Enemy",
-    "durationType": "Permanent",
-    "durationParameter": 0,
-    "endOfEffect": "EndOfTurn",
+    "targetSide": "Ally",
+    "durationType": "Round",
+    "durationParameter": 1,
+    "endOfEffect": "StartOfTurn",
     "hasSavingThrow": false,
     "disableSavingThrowOnAllies": false,
     "savingThrowAbility": "Dexterity",
@@ -77,11 +77,11 @@
         "saveOccurence": "EndOfTurn",
         "conditionForm": {
           "$type": "ConditionForm, Assembly-CSharp",
-          "conditionDefinitionName": "ConditionPathOfTheSpiritsBearResistance",
-          "conditionDefinition": "Definition:ConditionPathOfTheSpiritsBearResistance:8257873c-04a1-5df1-9d65-3888968dc126",
+          "conditionDefinitionName": "ConditionPathOfTheSpiritsWolfLeadership",
+          "conditionDefinition": "Definition:ConditionPathOfTheSpiritsWolfLeadership:1ae78c51-be15-5d65-a05c-d2ef7f786a44",
           "operation": "Add",
           "conditionsList": [
-            "Definition:ConditionPathOfTheSpiritsBearResistance:8257873c-04a1-5df1-9d65-3888968dc126"
+            "Definition:ConditionPathOfTheSpiritsWolfLeadership:1ae78c51-be15-5d65-a05c-d2ef7f786a44"
           ],
           "applyToSelf": false,
           "forceOnSelf": false
@@ -326,8 +326,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&PowerPathOfTheSpiritsBearResistanceTitle",
-    "description": "Feature/&PowerPathOfTheSpiritsBearResistanceDescription",
+    "title": "Feature/&PowerPathOfTheSpiritsWolfLeadershipTitle",
+    "description": "Feature/&PowerPathOfTheSpiritsWolfLeadershipDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -347,7 +347,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "6108c7a0-185a-5217-9deb-3ce576514705",
+  "guid": "e47c29ae-454d-5117-9da9-2c107c6e7e6a",
   "contentPack": 9999,
-  "name": "PowerPathOfTheSpiritsBearResistance"
+  "name": "PowerPathOfTheSpiritsWolfLeadership"
 }

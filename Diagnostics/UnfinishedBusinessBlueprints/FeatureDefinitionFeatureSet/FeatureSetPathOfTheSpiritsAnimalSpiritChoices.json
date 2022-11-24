@@ -1,9 +1,9 @@
 {
   "$type": "FeatureDefinitionFeatureSet, Assembly-CSharp",
   "featureSet": [
-    "Definition:FeatureSetPathOfTheSpiritsAnimalSpiritChoiceBear:4bd1fd43-8d86-5a14-88bf-79ef2f3e20bd",
-    "Definition:FeatureSetPathOfTheSpiritsAnimalSpiritChoiceEagle:e74a05c6-b0e7-57f0-b1d2-824171039cb8",
-    "Definition:FeatureSetPathOfTheSpiritsAnimalSpiritChoiceWolf:f3b42412-9c73-5401-aa42-c7bce9629b42"
+    "Definition:PowerPathOfTheSpiritsBearResistance:6108c7a0-185a-5217-9deb-3ce576514705",
+    "Definition:ActionAffinityPathOfTheSpiritsCunningAction:ea43e6ee-4530-5abd-81c4-0b3cb5fc0289",
+    "Definition:PowerPathOfTheSpiritsWolfLeadership:e47c29ae-454d-5117-9da9-2c107c6e7e6a"
   ],
   "mode": "Exclusion",
   "ancestryDamageTypeMap": [],
