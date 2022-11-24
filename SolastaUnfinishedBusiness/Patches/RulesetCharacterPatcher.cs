@@ -13,7 +13,6 @@ using SolastaUnfinishedBusiness.Api.Infrastructure;
 using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.Models;
-using SolastaUnfinishedBusiness.Subclasses;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
@@ -1032,9 +1031,10 @@ public static class RulesetCharacterPatcher
         {
             if (provider is not FeatureDefinition feature) { return; }
 
-            if (feature.HasSubFeatureOfType<CollegeOfHarlequin.UseBardicDieRollForSpeedModifier>())
+            var modifier = feature.GetFirstSubFeatureOfType<IModifyMovementSpeedAddition>();
+            if (modifier != null)
             {
-                __result += CollegeOfHarlequin.GetBardicRoll(__instance.guid);
+                __result += modifier.ModifySpeedAddition(__instance, provider);
             }
         }
     }
