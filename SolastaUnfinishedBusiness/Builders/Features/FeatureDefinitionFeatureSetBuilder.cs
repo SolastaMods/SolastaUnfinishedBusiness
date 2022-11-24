@@ -20,6 +20,12 @@ internal class FeatureDefinitionFeatureSetBuilder
         return this;
     }
 
+    internal FeatureDefinitionFeatureSetBuilder HasUniqueChoices()
+    {
+        Definition.uniqueChoices = true;
+        return this;
+    }
+
 #if false
     internal FeatureDefinitionFeatureSetBuilder SetEnumerateInDescription(bool value)
     {
