@@ -20,20 +20,6 @@ internal class FeatureDefinitionFeatureSetBuilder
         return this;
     }
 
-    internal FeatureDefinitionFeatureSetBuilder HasUniqueChoices()
-    {
-        Definition.uniqueChoices = true;
-        return this;
-    }
-
-#if false
-    internal FeatureDefinitionFeatureSetBuilder SetEnumerateInDescription(bool value)
-    {
-        Definition.enumerateInDescription = value;
-        return this;
-    }
-#endif
-
     #region Constructors
 
     protected FeatureDefinitionFeatureSetBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)
