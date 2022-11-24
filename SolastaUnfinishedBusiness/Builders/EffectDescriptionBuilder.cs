@@ -194,6 +194,12 @@ internal class EffectDescriptionBuilder
         return this;
     }
 
+    internal EffectDescriptionBuilder SetRequiresVisibilityForPosition()
+    {
+        effect.requiresVisibilityForPosition = true;
+        return this;
+    }
+
     internal EffectDescriptionBuilder SetHasSavingThrow(
         string savingThrowAbility,
         EffectDifficultyClassComputation difficultyClassComputation,

@@ -60,7 +60,6 @@ internal sealed class MartialRoyalKnight : AbstractSubclass
             .SetUsesFixed(ActivationTime.BonusAction, RechargeRate.LongRest)
             .SetEffectDescription(EffectDescriptionBuilder
                 .Create(PowerDomainLifePreserveLife.EffectDescription)
-                .SetCanBePlacedOnCharacter()
                 .SetTargetingData(Side.Ally, RangeType.Distance, 20, TargetType.Individuals)
                 .SetTargetFiltering(
                     TargetFilteringMethod.CharacterOnly,
@@ -68,7 +67,7 @@ internal sealed class MartialRoyalKnight : AbstractSubclass
                     5,
                     DieType.D8)
                 .SetDurationData(DurationType.Round, 1)
-                .SetRequiresVisibilityForPosition(true)
+                .SetRequiresVisibilityForPosition()
                 .SetEffectForms(PowerFighterActionSurge.EffectDescription.EffectForms.ToArray())
                 .Build())
             .AddToDB();
