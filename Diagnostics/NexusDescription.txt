@@ -386,11 +386,11 @@ When you cast this spell using a spell slot of 4th level or higher, the damage i
 [*][b]SilverGriffon[/b]: gameplay, visuals, spells, Dark Elf, Draconic Kobold, Grey Dwarf, Divine Heart
 [*][b]Nd[/b]: College of Harlequin, Marshal, Opportunist, Raven, Spell Shield
 [*][b]DubhHerder[/b]: gameplay, spells, original Warlock subclasses
+[*][b]tivie[/b]: Circle of The Night, Path of The Spirits
 [*][b]ElAntonious[/b]: feats, Arcanist
 [*][b]Holic75[/b]: spells, Bolgrif, Gnome
 [*][b]RedOrca[/b]: Path of The Light
 [*][b]DreadMaker[/b]: Forest Guardian
 [*][b]Bazou[/b]: fighting styles, rules, spells
-[*][b]tivie[/b]: Circle of The Night
 [/list]
 
