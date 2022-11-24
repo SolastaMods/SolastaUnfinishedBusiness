@@ -132,7 +132,7 @@ internal static class DelegatesContext
         // gameLocationCharacter.ClimbStarted += ClimbStarted;
         // gameLocationCharacter.ClimbFinished += ClimbFinished;
         // gameLocationCharacter.ChangeSurfaceStarted += ChangeSurfaceStarted;
-        gameLocationCharacter.AttackStart += AttackStart;
+        // gameLocationCharacter.AttackStart += AttackStart;
         gameLocationCharacter.AttackImpactStart += AttackImpactStart;
         // gameLocationCharacter.DeflectAttackStart += DeflectAttackStart;
         // gameLocationCharacter.ManipulateStart += ManipulateStart;
@@ -238,7 +238,7 @@ internal static class DelegatesContext
         // gameLocationCharacter.ClimbStarted -= ClimbStarted;
         // gameLocationCharacter.ClimbFinished -= ClimbFinished;
         // gameLocationCharacter.ChangeSurfaceStarted -= ChangeSurfaceStarted;
-        gameLocationCharacter.AttackStart -= AttackStart;
+        // gameLocationCharacter.AttackStart -= AttackStart;
         gameLocationCharacter.AttackImpactStart -= AttackImpactStart;
         // gameLocationCharacter.DeflectAttackStart -= DeflectAttackStart;
         // gameLocationCharacter.ManipulateStart -= ManipulateStart;
@@ -428,7 +428,7 @@ internal static class DelegatesContext
         CharacterActionParams actionParams,
         ActionDefinition actionDefinition)
     {
-        Main.Info($"{actingCharacter?.Name} -> {actionDefinition.Name} FINISHED");
+        Main.Info($"{actingCharacter.Name} -> {actionDefinition.Name} FINISHED");
     }
 
     private static void ShoveActionUsed(
@@ -609,6 +609,7 @@ internal static class DelegatesContext
     }
 #endif
 
+#if false
     private static void AttackStart(
         GameLocationCharacter attacker,
         GameLocationCharacter defender,
@@ -618,7 +619,7 @@ internal static class DelegatesContext
         ActionModifier attackModifier)
     {
         Main.Info($"{attacker.Name},{defender.Name} Attack Start");
-#if false
+
         //PATCH: support for `IOnAttackHitEffect` - calls before attack handlers
         var character = attacker.RulesetCharacter;
 
@@ -633,8 +634,8 @@ internal static class DelegatesContext
         {
             effect.BeforeOnAttackHit(attacker, defender, outcome, actionParams, attackMode, attackModifier);
         }
-#endif
     }
+#endif
 
     private static void AttackImpactStart(
         GameLocationCharacter attacker,
