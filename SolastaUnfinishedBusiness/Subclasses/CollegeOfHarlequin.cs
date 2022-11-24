@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Linq;
 using SolastaUnfinishedBusiness.Api.Extensions;
+using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
@@ -14,39 +15,37 @@ namespace SolastaUnfinishedBusiness.Subclasses;
 internal sealed class CollegeOfHarlequin : AbstractSubclass
 {
     private const string CombatInspirationCondition = "ConditionCollegeOfHarlequinFightingAbilityEnhanced";
-    
-    private static readonly FeatureDefinitionPower PowerTerrificPerformance = FeatureDefinitionPowerBuilder
-        .Create("PowerCollegeOfHarlequinTerrificPerformance")
-        .SetGuiPresentation(Category.Feature)
-        .SetEffectDescription(EffectDescriptionBuilder
-            .Create()
-            .SetDurationData(DurationType.Round, 1)
-            .SetParticleEffectParameters(SpellDefinitions.Fear.effectDescription.effectParticleParameters)
-            .SetEffectForms(
-                new EffectForm
-                {
-                    FormType = EffectForm.EffectFormType.Condition,
-                    ConditionForm = new ConditionForm
-                    {
-                        ConditionDefinition = ConditionDefinitions.ConditionFrightened,
-                        operation = ConditionForm.ConditionOperation.Add
-                    }
-                },
-                new EffectForm
-                {
-                    FormType = EffectForm.EffectFormType.Condition,
-                    ConditionForm = new ConditionForm
-                    {
-                        ConditionDefinition =
-                            ConditionDefinitions.ConditionPatronHiveWeakeningPheromones,
-                        operation = ConditionForm.ConditionOperation.Add
-                    }
-                })
-            .Build())
-        .AddToDB();
 
     internal CollegeOfHarlequin()
     {
+        var powerTerrificPerformance = FeatureDefinitionPowerBuilder
+            .Create("PowerCollegeOfHarlequinTerrificPerformance")
+            .SetGuiPresentation(Category.Feature)
+            .SetEffectDescription(EffectDescriptionBuilder.Create()
+                .SetDurationData(DurationType.Round, 1)
+                //actual targeting is happening in sub-feature, this is for proper tooltip
+                .SetTargetingData(Side.Enemy, RangeType.Self, 0, TargetType.Sphere, 3)
+                .SetParticleEffectParameters(SpellDefinitions.Fear.effectDescription.effectParticleParameters)
+                .SetHasSavingThrow(AttributeDefinitions.Wisdom, EffectDifficultyClassComputation.SpellCastingFeature)
+                .SetEffectForms(
+                    EffectFormBuilder.Create()
+                        .HasSavingThrow(EffectSavingThrowType.Negates)
+                        .SetConditionForm(ConditionDefinitions.ConditionFrightened,
+                            ConditionForm.ConditionOperation.Add)
+                        .Build(),
+                    EffectFormBuilder.Create()
+                        .HasSavingThrow(EffectSavingThrowType.Negates)
+                        .SetConditionForm(ConditionDefinitions.ConditionPatronHiveWeakeningPheromones,
+                            ConditionForm.ConditionOperation.Add)
+                        .Build())
+                .Build())
+            .AddToDB();
+
+        powerTerrificPerformance.SetCustomSubFeatures(
+            new TerrificPerformance(powerTerrificPerformance),
+            PowerVisibilityModifier.Hidden
+        );
+
         var powerCombatInspiration = FeatureDefinitionPowerBuilder
             .Create("PowerCollegeOfHarlequinCombatInspiration")
             .SetGuiPresentation(Category.Feature, SpellDefinitions.MagicWeapon)
@@ -91,12 +90,6 @@ internal sealed class CollegeOfHarlequin : AbstractSubclass
                 EquipmentDefinitions.SimpleWeaponCategory, EquipmentDefinitions.MartialWeaponCategory)
             .AddToDB();
 
-        var featureTerrificPerformance = FeatureDefinitionBuilder
-            .Create("TargetReducedToZeroHpPowerCollegeOfHarlequinTerrificPerformance")
-            .SetGuiPresentation("PowerCollegeOfHarlequinTerrificPerformance", Category.Feature)
-            .SetCustomSubFeatures(new TargetReducedToZeroHpTerrificPerformance())
-            .AddToDB();
-
         var powerImprovedCombatInspiration = FeatureDefinitionPowerBuilder
             .Create("PowerCollegeOfHarlequinImprovedCombatInspiration")
             .SetGuiPresentation(Category.Feature)
@@ -120,7 +113,7 @@ internal sealed class CollegeOfHarlequin : AbstractSubclass
             .SetOrUpdateGuiPresentation(Category.Subclass, CharacterSubclassDefinitions.RoguishShadowCaster)
             .AddFeaturesAtLevel(3,
                 powerCombatInspiration,
-                featureTerrificPerformance,
+                powerTerrificPerformance,
                 proficiencyCollegeOfHarlequinMartialWeapon,
                 CommonBuilders.MagicAffinityCasterFightingCombatMagic)
             .AddFeaturesAtLevel(6,
@@ -183,8 +176,15 @@ internal sealed class CollegeOfHarlequin : AbstractSubclass
         }
     }
 
-    private sealed class TargetReducedToZeroHpTerrificPerformance : ITargetReducedToZeroHp
+    private sealed class TerrificPerformance : ITargetReducedToZeroHp
     {
+        private readonly FeatureDefinitionPower power;
+
+        public TerrificPerformance(FeatureDefinitionPower power)
+        {
+            this.power = power;
+        }
+
         public IEnumerator HandleCharacterReducedToZeroHp(
             GameLocationCharacter attacker,
             GameLocationCharacter downedCreature,
@@ -195,26 +195,22 @@ internal sealed class CollegeOfHarlequin : AbstractSubclass
                 yield break;
             }
 
-            var battle = ServiceRepository.GetService<IGameLocationBattleService>()?.Battle;
+            var battleService = ServiceRepository.GetService<IGameLocationBattleService>();
+            var battle = battleService?.Battle;
 
             if (battle == null)
             {
                 yield break;
             }
 
-            var proficiencyBonus =
-                attacker.RulesetCharacter.GetAttribute(AttributeDefinitions.ProficiencyBonus).CurrentValue;
-            var charisma = attacker.RulesetCharacter.GetAttribute(AttributeDefinitions.Charisma).CurrentValue;
             var rulesetAttacker = attacker.RulesetCharacter;
-            var usablePower = new RulesetUsablePower(PowerTerrificPerformance, null, null)
-            {
-                SaveDC = 8 + proficiencyBonus + charisma
-            };
+            var effectPower = new RulesetEffectPower(rulesetAttacker, UsablePowersProvider.Get(power, rulesetAttacker));
 
-            var effectPower = new RulesetEffectPower(rulesetAttacker, usablePower);
+            GameConsoleHelper.LogCharacterUsedPower(rulesetAttacker, power);
 
-            foreach (var enemy in battle.EnemyContenders
-                         .Where(enemy => attacker.RulesetActor.DistanceTo(enemy.RulesetActor) <= 3))
+            foreach (var enemy in battle.AllContenders
+                         .Where(unit => attacker.IsOppositeSide(unit.Side))
+                         .Where(enemy => battleService.IsWithinXCells(attacker, enemy, 3)))
             {
                 effectPower.ApplyEffectOnCharacter(enemy.RulesetCharacter, true, enemy.LocationPosition);
             }
