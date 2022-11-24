@@ -174,10 +174,17 @@ public static class GameLocationCharacterPatcher
             RulesetUsablePower power,
             ActionDefinitions.ActionType actionType)
         {
-            if (Gui.Battle == null) { return true; }
+            if (Gui.Battle == null)
+            {
+                return true;
+            }
 
             var time = power.powerDefinition.ActivationTime;
-            if (!ActionDefinitions.CastingTimeToActionDefinition.TryGetValue(time, out var type)) { return false; }
+
+            if (!ActionDefinitions.CastingTimeToActionDefinition.TryGetValue(time, out var type))
+            {
+                return false;
+            }
 
             return actionType == type && !PowerVisibilityModifier.IsPowerHidden(character, power, actionType);
         }

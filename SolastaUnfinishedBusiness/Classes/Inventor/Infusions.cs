@@ -118,7 +118,7 @@ internal static class Infusions
             .SetGuiPresentation(name, Category.Feature, ConditionDefinitions.ConditionRevealedByDetectGoodOrEvil)
             .SetCustomSubFeatures(ReturningWeapon.Instance)
             .SetAttackRollModifier()
-            .SetDamageRollModifier(0)
+            .SetDamageRollModifier()
             .AddToDB();
 
         var infuseNoBonus = BuildInfuseItemPower(name, name, sprite, new CustomItemFilter(IsThrownWeapon),
@@ -452,9 +452,15 @@ internal static class Infusions
     //Any armor that doesn't have +AC bonus - so that Enhanced Armor infusion won't stack for Armorer subclass, but will work on other types of magic armor
     private static bool IsNonEnhancedArmor(RulesetCharacter _, RulesetItem item)
     {
-        if (!item.ItemDefinition.IsArmor) { return false; }
+        if (!item.ItemDefinition.IsArmor)
+        {
+            return false;
+        }
 
-        if (!item.ItemDefinition.SlotsWhereActive.Contains(SlotTypeDefinitions.TorsoSlot.Name)) { return true; }
+        if (!item.ItemDefinition.SlotsWhereActive.Contains(SlotTypeDefinitions.TorsoSlot.Name))
+        {
+            return true;
+        }
 
         var features = new List<FeatureDefinition>();
 
