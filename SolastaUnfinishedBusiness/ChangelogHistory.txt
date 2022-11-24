@@ -2,6 +2,9 @@
 
 1.4.28.H:
 
+- fixed Path of The Spirits minor issues
+- improved Path of The Spirits wolf friendship
+
 * College of Harlequin:
 
 - made Combat Inspiration hide after use to avoid possibility of unnecessary uses and de-clutter action panel
