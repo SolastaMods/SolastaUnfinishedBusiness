@@ -125,13 +125,17 @@ internal static class MulticlassWildshapeContext
 
     internal static void RefreshWildShapeAcFeatures(RulesetCharacterMonster monster, RulesetAttribute ac)
     {
-        if (monster.OriginalFormCharacter is not RulesetCharacterHero hero) { return; }
+        if (monster.OriginalFormCharacter is not RulesetCharacterHero hero)
+        {
+            return;
+        }
 
         var ruleset = ServiceRepository.GetService<IRulesetImplementationService>();
 
         ac.RemoveModifiersByTags(TagWildShape);
 
         monster.FeaturesToBrowse.Clear();
+
         foreach (var pair in hero.ActiveFeatures)
         {
             //process only class and subclass features, feats are processed on base method

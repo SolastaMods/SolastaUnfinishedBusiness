@@ -1029,9 +1029,13 @@ public static class RulesetCharacterPatcher
     {
         public static void Postfix(RulesetCharacter __instance, IMovementAffinityProvider provider, ref int __result)
         {
-            if (provider is not FeatureDefinition feature) { return; }
+            if (provider is not FeatureDefinition feature)
+            {
+                return;
+            }
 
             var modifier = feature.GetFirstSubFeatureOfType<IModifyMovementSpeedAddition>();
+
             if (modifier != null)
             {
                 __result += modifier.ModifySpeedAddition(__instance, provider);
