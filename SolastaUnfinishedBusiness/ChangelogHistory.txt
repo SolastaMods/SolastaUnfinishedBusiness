@@ -2,7 +2,8 @@
 
 1.4.28.H:
 
-- improved Path of The Spirits wolf friendship power
+- fixed Path of The Spirits minor issues
+- improved Path of The Spirits wolf friendship
 
 1.4.28.G:
 
