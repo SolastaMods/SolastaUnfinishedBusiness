@@ -141,7 +141,7 @@ internal sealed class PathOfTheSpirits : AbstractSubclass
     {
         return FeatureDefinitionPowerBuilder
             .Create("PowerPathOfTheSpiritsBearResistance")
-            .SetGuiPresentationNoContent(true)
+            .SetGuiPresentation(Category.Feature)
             .SetUsesFixed(ActivationTime.OnRageStartAutomatic)
             .SetEffectDescription(EffectDescriptionBuilder
                 .Create()
