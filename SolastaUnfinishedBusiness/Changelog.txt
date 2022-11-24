@@ -1,12 +1,6 @@
 ﻿CHANGES:
 
-1.4.28.H:
+1.4.28.I:
 
-- fixed Path of The Spirits minor issues
-- improved Path of The Spirits wolf friendship
-
-* College of Harlequin:
-
-- made Combat Inspiration hide after use to avoid possibility of unnecessary uses and de-clutter action panel
-- refactored how Terrific Performance is applied to allow proper DC calculations
-- used condition amount instead of global storage for die rolls and modifying base values of features
+- fixed beast duplicates when they get upgraded from 6 to 7, 10 to 11, 14 to 15
+- promoted Royal Knight as requested on Discord
