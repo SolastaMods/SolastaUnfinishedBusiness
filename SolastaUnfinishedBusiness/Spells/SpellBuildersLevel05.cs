@@ -14,10 +14,8 @@ internal static partial class SpellBuilders
 
     internal static SpellDefinition BuildFarStep()
     {
-        const string ConditionName = "ConditionFarStep";
-
         var condition = ConditionDefinitionBuilder
-            .Create(ConditionName)
+            .Create("ConditionFarStep")
             .SetGuiPresentation(Category.Condition, ConditionJump)
             .SetCustomSubFeatures(AddUsablePowersFromCondition.Marker)
             .SetSilent(Silent.None)
