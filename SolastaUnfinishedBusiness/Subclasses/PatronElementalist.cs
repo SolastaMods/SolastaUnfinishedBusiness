@@ -98,7 +98,7 @@ internal sealed class PatronElementalist : AbstractSubclass
         var formRegular = Sprites.GetSprite(
             "ElementalForm", Resources.ElementalForm, 128, 64);
         var formEnhanced = Sprites.GetSprite(
-            "ElementalFormEnhanced", Resources.ElementalForm, 128, 64);
+            "ElementalFormEnhanced", Resources.ElementalFormEnhanced, 128, 64);
 
         var powerElementalistElementalFormPool = FeatureDefinitionPowerBuilder
             .Create("PowerElementalistElementalFormPool")

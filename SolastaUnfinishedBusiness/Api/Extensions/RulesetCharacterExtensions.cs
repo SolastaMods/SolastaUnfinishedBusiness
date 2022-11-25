@@ -31,13 +31,26 @@ internal static class RulesetCharacterExtensions
         return validators.All(v => v(instance));
     }
 
+    internal static bool HasPower(
+        this RulesetCharacter instance,
+        [CanBeNull] FeatureDefinitionPower power)
+    {
+        return instance.GetPowerFromDefinition(power) != null;
+    }
+
     /**Checks if power has enough uses and that all validators are OK*/
     internal static bool CanUsePower(
         this RulesetCharacter instance,
         [CanBeNull] FeatureDefinitionPower power,
-        bool considerUses = true)
+        bool considerUses = true,
+        bool considerHaving = false)
     {
         if (power == null)
+        {
+            return false;
+        }
+
+        if (considerHaving && !instance.HasPower(power))
         {
             return false;
         }

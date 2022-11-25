@@ -84,7 +84,7 @@ internal enum ExtraOriginOfAmount
     SourceProficiencyBonusNegative = 9004,
 
     SourceCopyAttributeFromSummoner =
-        9005, //Attribute name should be in the `additionalDamageType` field of the condition
+        9005 //Attribute name should be in the `additionalDamageType` field of the condition
 }
 
 internal enum ExtraAdditionalDamageTriggerCondition
@@ -161,6 +161,7 @@ internal enum ExtraActionId
     TacticianGambitBonus = 9006,
     TacticianGambitNoCost = 9007,
     PushedCustom = 9008,
+    FarStep = 9009
 }
 
 internal static class EnumImplementation

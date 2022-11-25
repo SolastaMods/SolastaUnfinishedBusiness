@@ -30,6 +30,25 @@ internal class ActionDefinitionBuilder : DefinitionBuilder<ActionDefinition, Act
         return this;
     }
 
+    internal ActionDefinitionBuilder SetFormType(ActionDefinitions.ActionFormType form)
+    {
+        Definition.formType = form;
+        return this;
+    }
+
+    public ActionDefinitionBuilder OverrideClassName(string name)
+    {
+        Definition.classNameOverride = name;
+        return this;
+    }
+
+    internal ActionDefinitionBuilder SetActivatedPower(FeatureDefinitionPower power, bool usePowerTooltip = true)
+    {
+        Definition.activatedPower = power;
+        Definition.displayPowerTooltip = usePowerTooltip;
+        return this;
+    }
+
     #region Constructors
 
     internal ActionDefinitionBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)

@@ -34,10 +34,7 @@ internal static class DiagnosticsContext
     private static BaseDefinition[] _ceBaseDefinitions;
     private static HashSet<BaseDefinition> _ceBaseDefinitions2;
     private static Dictionary<Type, BaseDefinition[]> _ceBaseDefinitionsMap;
-
-#if DEBUG
     internal static List<string> KnownDuplicateDefinitionNames { get; } = new() { "SummonProtectorConstruct" };
-#endif
 
     internal static void CacheTaDefinitions()
     {

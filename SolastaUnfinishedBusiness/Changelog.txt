@@ -1,7 +1,8 @@
 ﻿CHANGES:
 
-1.4.28.I:
+1.4.28.K:
 
-- fixed beast duplicates when they get upgraded from 6 to 7, 10 to 11, 14 to 15
-- fixed IAfterAttackEffect not triggering which broke Dual Flurry and others
-- promoted Royal Knight as requested on Discord
+- fixed original game issue with activators requiring double press after first use
+- fixed Patron Elementalist elemental form enhanced icon
+- fixed group feats enumerating non selected ones
+- made Far Step spell have dedicated action for repeated teleports

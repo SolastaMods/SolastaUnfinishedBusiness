@@ -1,18 +1,23 @@
 ﻿using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.Extensions;
 using SolastaUnfinishedBusiness.Builders;
+using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Subclasses;
 using static ActionDefinitions;
+using static RuleDefinitions;
 
 namespace SolastaUnfinishedBusiness.Models;
 
 public static class CustomActionIdContext
 {
+    internal static FeatureDefinitionPower FarStep { get; private set; }
+
     internal static void Load()
     {
         BuildCustomInvocationActions();
         BuildCustomPushedAction();
+        BuildFarStepAction();
     }
 
     private static void BuildCustomInvocationActions()
@@ -101,6 +106,42 @@ public static class CustomActionIdContext
             .AddToDB();
     }
 
+    private static void BuildFarStepAction()
+    {
+        if (!DatabaseHelper.TryGetDefinition<ActionDefinition>("ActionSurge", out var baseAction))
+        {
+            return;
+        }
+
+        const string NAME = "FarStep";
+
+        FarStep = FeatureDefinitionPowerBuilder
+            .Create($"Power{NAME}")
+            .SetGuiPresentation(NAME, Category.Action, Sprites.PowerFarStep)
+            .SetUsesFixed(ActivationTime.BonusAction)
+            .DelegatedToAction()
+            .SetEffectDescription(EffectDescriptionBuilder.Create()
+                .SetDurationData(DurationType.Instantaneous)
+                .SetTargetingData(Side.Ally, RangeType.Self, 12, TargetType.Position)
+                .SetEffectForms(EffectFormBuilder.Create()
+                    .SetMotionForm(MotionForm.MotionType.TeleportToDestination)
+                    .Build())
+                .SetParticleEffectParameters(DatabaseHelper.SpellDefinitions.MistyStep)
+                .Build())
+            .AddToDB();
+
+        ActionDefinitionBuilder
+            .Create(baseAction, $"Action{NAME}")
+            .SetGuiPresentation(NAME, Category.Action, Sprites.SpellFarStep, 71)
+            .SetActionId(ExtraActionId.FarStep)
+            .OverrideClassName("UsePower")
+            .SetActionScope(ActionScope.All)
+            .SetActionType(ActionType.Bonus)
+            .SetFormType(ActionFormType.Small)
+            .SetActivatedPower(FarStep)
+            .AddToDB();
+    }
+
     public static void ProcessCustomActionIds(
         GameLocationCharacter locationCharacter,
         ref ActionStatus result,
@@ -112,8 +153,9 @@ public static class CustomActionIdContext
         bool allowUsingDelegatedPowersAsPowers)
     {
         var isInvocationAction = IsInvocationActionId(actionId);
+        var isPoweUse = IsPowerUseActionId(actionId);
 
-        if (!isInvocationAction)
+        if (!isInvocationAction && !isPoweUse)
         {
             return;
         }
@@ -172,8 +214,17 @@ public static class CustomActionIdContext
         var canCastSpells = character.CanCastSpells();
         var canOnlyUseCantrips = scope == ActionScope.Battle && locationCharacter.CanOnlyUseCantrips;
 
-        // isInvocationAction is always true at this point
-        result = CanUseInvocationAction(actionId, scope, character, canCastSpells, canOnlyUseCantrips);
+        if (isInvocationAction)
+        {
+            result = CanUseInvocationAction(actionId, scope, character, canCastSpells, canOnlyUseCantrips);
+        }
+
+        if (isPoweUse)
+        {
+            result = character.CanUsePower(action.ActivatedPower, considerHaving: true)
+                ? ActionStatus.Available
+                : ActionStatus.Unavailable;
+        }
     }
 
     private static ActionStatus CanUseInvocationAction(Id actionId, ActionScope scope,
@@ -198,5 +249,12 @@ public static class CustomActionIdContext
                    or ExtraActionId.TacticianGambitNoCost
                    or ExtraActionId.CastPlaneMagicMain
                    or ExtraActionId.CastPlaneMagicBonus;
+    }
+
+    private static bool IsPowerUseActionId(Id id)
+    {
+        var extra = (ExtraActionId)id;
+
+        return extra is ExtraActionId.FarStep;
     }
 }

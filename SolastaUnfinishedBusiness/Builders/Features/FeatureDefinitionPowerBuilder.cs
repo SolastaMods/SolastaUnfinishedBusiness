@@ -34,6 +34,12 @@ internal abstract class
         Definition.effectDescription ??= new EffectDescription();
     }
 
+    internal TBuilder DelegatedToAction(bool value = true)
+    {
+        Definition.delegatedToAction = value;
+        return (TBuilder)this;
+    }
+
     internal TBuilder SetUsesFixed(
         ActivationTime activationTime,
         RechargeRate recharge = RechargeRate.AtWill,

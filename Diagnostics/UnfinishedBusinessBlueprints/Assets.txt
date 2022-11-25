@@ -1,4 +1,5 @@
 Name	Type	DatabaseType	GUID
+ActionFarStep	ActionDefinition	ActionDefinition	b50f2135-b4b7-523a-b72a-b21351b2c0df
 CastInvocationBonus	ActionDefinition	ActionDefinition	f2d189c0-5e0a-5a69-9ace-b447bbc1185a
 CastInvocationNoCost	ActionDefinition	ActionDefinition	0a4870d5-055f-5c2a-a6bd-e9529bb4a963
 CastPlaneMagicBonus	ActionDefinition	ActionDefinition	c02d5cad-8d69-5b88-8b98-790acbbca5b9
@@ -792,7 +793,6 @@ EquipmentAffinityBolgrifPowerfulBuild	FeatureDefinitionEquipmentAffinity	Feature
 EquipmentAffinityConditionMule	FeatureDefinitionEquipmentAffinity	FeatureDefinition	3ecce055-ebe1-5e17-8f27-48b2232ba905
 FeatureAdaptiveStrategy	FeatureDefinition	FeatureDefinition	233c2b1c-b40f-58b9-99dd-7ef75bd1159b
 FeatureDruidBeastSpells	FeatureDefinition	FeatureDefinition	a5f5e743-c777-5fb0-a3c4-0e62fc31724b
-FeatureFarStep	FeatureDefinition	FeatureDefinition	359fe183-0247-5ef9-a99c-9f59b1d08460
 FeatureFeatRangedExpert	FeatureDefinition	FeatureDefinition	bd17c938-af36-59bc-9a57-26f65e6a9297
 FeatureFightingStyleExecutioner	FeatureDefinition	FeatureDefinition	44cbdc12-60f2-546b-8b9a-2be9e29b7c23
 FeatureGambitBrace	FeatureDefinition	FeatureDefinition	658fc369-f155-5aea-aa29-b8b92f31c36f
