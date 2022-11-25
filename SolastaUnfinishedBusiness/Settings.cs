@@ -185,6 +185,7 @@ public class Settings : UnityModManager.ModSettings
     public bool ScaleMerchantPricesCorrectly { get; set; }
     public bool StockGorimStoreWithAllNonMagicalClothing { get; set; }
     public bool StockHugoStoreWithAdditionalFoci { get; set; }
+    public bool StockGorimStoreWithAllNonMagicalInstruments { get; set; }
     public bool EnableAdditionalFociInDungeonMaker { get; set; }
     public bool RestockAntiquarians { get; set; }
     public bool RestockArcaneum { get; set; }
