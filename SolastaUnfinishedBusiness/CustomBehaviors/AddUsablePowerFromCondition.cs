@@ -3,6 +3,7 @@ using SolastaUnfinishedBusiness.CustomInterfaces;
 
 namespace SolastaUnfinishedBusiness.CustomBehaviors;
 
+/**Adds power to character's usable powers when condition is applied and removes it when condition is removed*/
 public class AddUsablePowerFromCondition : ICustomConditionFeature
 {
     private readonly FeatureDefinitionPower power;
