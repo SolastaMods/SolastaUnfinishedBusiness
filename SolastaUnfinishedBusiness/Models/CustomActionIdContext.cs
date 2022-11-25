@@ -132,7 +132,7 @@ public static class CustomActionIdContext
 
         ActionDefinitionBuilder
             .Create(baseAction, $"Action{NAME}")
-            .SetGuiPresentation(Category.Action, Sprites.SpellFarStep, 71)
+            .SetGuiPresentation(NAME, Category.Action, Sprites.SpellFarStep, 71)
             .SetActionId(ExtraActionId.FarStep)
             .OverrideClassName("UsePower")
             .SetActionScope(ActionScope.All)
