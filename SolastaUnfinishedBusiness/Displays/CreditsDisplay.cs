@@ -25,7 +25,7 @@ internal static class CreditsDisplay
         ("SilverGriffon", "gameplay, visuals, spells, Dark Elf, Draconic Kobold, Grey Dwarf, Divine Heart"),
         ("Nd", "College of Harlequin, Marshal, Opportunist, Raven, Spell Shield"),
         ("DubhHerder", "gameplay, spells, original Warlock subclasses"),
-        ("ElAntonious", "feats, Arcanist"),
+        ("ElAntonius", "feats, Arcanist"),
         ("Holic75", "spells, Bolgrif, Gnome"),
         ("RedOrca", "Path of The Light"),
         ("DreadMaker", "Forest Guardian"),
