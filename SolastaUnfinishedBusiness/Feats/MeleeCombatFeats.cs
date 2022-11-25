@@ -165,7 +165,7 @@ internal static class MeleeCombatFeats
                 return;
             }
 
-            SrdAndHouseRulesContext.ModifyAttackModeAndDamage(character, "PowerAttack", attackMode);
+            SrdAndHouseRulesContext.ModifyAttackModeAndDamage(character, "Feat/&FeatPowerAttackTitle", attackMode);
         }
     }
 }

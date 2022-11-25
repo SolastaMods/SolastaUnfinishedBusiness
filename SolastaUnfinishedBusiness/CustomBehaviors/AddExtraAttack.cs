@@ -406,7 +406,8 @@ internal sealed class AddBonusShieldAttack : AddExtraAttackBase
         }
 
         var damage = attackMode.EffectDescription?.FindFirstDamageForm();
-        var trendInfo = new TrendInfo(bonus, FeatureSourceType.Equipment, offHandItem.Name, null);
+        var trendInfo = new TrendInfo(bonus, FeatureSourceType.Equipment,
+            offHandItem.ItemDefinition.GuiPresentation.Title, null);
 
         attackMode.ToHitBonus += bonus;
         attackMode.ToHitBonusTrends.Add(trendInfo);
@@ -421,7 +422,6 @@ internal sealed class AddBonusShieldAttack : AddExtraAttackBase
 
         return attackModes;
     }
-
 }
 
 internal sealed class AddBonusTorchAttack : AddExtraAttackBase
@@ -479,7 +479,8 @@ internal sealed class AddBonusTorchAttack : AddExtraAttackBase
         var proficiencyBonus = hero.GetAttribute(AttributeDefinitions.ProficiencyBonus).CurrentValue;
         var dexterity = hero.GetAttribute(AttributeDefinitions.Dexterity).CurrentValue;
 
-        attackMode.EffectDescription.fixedSavingThrowDifficultyClass = 8 + proficiencyBonus + AttributeDefinitions.ComputeAbilityScoreModifier(dexterity);
+        attackMode.EffectDescription.fixedSavingThrowDifficultyClass =
+            8 + proficiencyBonus + AttributeDefinitions.ComputeAbilityScoreModifier(dexterity);
 
         attackModes.Add(attackMode);
     }
