@@ -160,7 +160,7 @@ internal static class RangedCombatFeats
                 return;
             }
 
-            SrdAndHouseRulesContext.ModifyAttackModeAndDamage(character, "DeadEye", attackMode);
+            SrdAndHouseRulesContext.ModifyAttackModeAndDamage(character, "Feat/&FeatDeadEyeTitle", attackMode);
         }
     }
 }

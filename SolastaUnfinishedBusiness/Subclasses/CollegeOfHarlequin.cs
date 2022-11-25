@@ -141,7 +141,7 @@ internal sealed class CollegeOfHarlequin : AbstractSubclass
 
             var console = Gui.Game.GameConsole;
             var entry = new GameConsoleEntry("Feedback/&BardicInspirationUsedToBoostCombatAbility",
-                console.consoleTableDefinition) {indent = true};
+                console.consoleTableDefinition) { indent = true };
 
             console.AddCharacterEntry(target, entry);
             entry.AddParameter(ConsoleStyleDuplet.ParameterType.Positive, Gui.FormatDieTitle(dieType));

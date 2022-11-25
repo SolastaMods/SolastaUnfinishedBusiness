@@ -7,8 +7,8 @@
     "Definition:AdditionalActionDualFlurry:ed3da4a2-6ed5-58fd-b278-8d84d0ddc6f5"
   ],
   "allowMultipleInstances": false,
-  "silentWhenAdded": true,
-  "silentWhenRemoved": true,
+  "silentWhenAdded": false,
+  "silentWhenRemoved": false,
   "terminateWhenRemoved": false,
   "specialDuration": false,
   "durationType": "Round",

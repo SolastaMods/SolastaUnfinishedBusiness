@@ -456,7 +456,7 @@ internal sealed class MartialMarshal : AbstractSubclass
 
             attackModifier.attackRollModifier += knowledgeLevelOfEnemy;
             attackModifier.attackToHitTrends.Add(new TrendInfo(knowledgeLevelOfEnemy,
-                FeatureSourceType.CharacterFeature, FeatureSetMarshalKnowYourEnemyName, null));
+                FeatureSourceType.CharacterFeature, "Feature/&FeatureSetMarshalKnowYourEnemyTitle", null));
         }
     }
 

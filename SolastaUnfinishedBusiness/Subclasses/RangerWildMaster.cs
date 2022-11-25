@@ -543,7 +543,8 @@ internal sealed class RangerWildMaster : AbstractSubclass
                     .Create("ConditionWildMasterSummonSpiritBeastCopyCharacterLevel")
                     .SetGuiPresentationNoContent()
                     .SetSilent(Silent.WhenAddedOrRemoved)
-                    .SetAmountOrigin(ExtraOriginOfAmount.SourceCopyAttributeFromSummoner, AttributeDefinitions.CharacterLevel)
+                    .SetAmountOrigin(ExtraOriginOfAmount.SourceCopyAttributeFromSummoner,
+                        AttributeDefinitions.CharacterLevel)
                     .AddToDB(),
                 ConditionDefinitionBuilder
                     .Create("ConditionWildMasterSummonSpiritBeastLevel")

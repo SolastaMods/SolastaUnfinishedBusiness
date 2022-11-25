@@ -98,7 +98,8 @@ internal sealed class RoguishOpportunist : AbstractSubclass
             }
 
             attackModifier.attackAdvantageTrends.Add(new TrendInfo(1,
-                FeatureSourceType.CharacterFeature, "QuickStrike", null));
+                FeatureSourceType.CharacterFeature, "Feature/&OnComputeAttackModifierOpportunistQuickStrikeTitle",
+                null));
         }
     }
 }

@@ -68,6 +68,7 @@ public class Settings : UnityModManager.ModSettings
     // Progression
     public bool EnablesAsiAndFeat { get; set; }
     public bool EnableFeatsAtEvenLevels { get; set; }
+    public bool EnableFighterArmamentAdroitness { get; set; }
     public bool EnableLevel20 { get; set; }
 
     public bool EnableMulticlass { get; set; }
