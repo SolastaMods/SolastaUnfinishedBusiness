@@ -1,10 +1,7 @@
 ﻿using System.Collections.Generic;
-using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
-using SolastaUnfinishedBusiness.CustomInterfaces;
-using SolastaUnfinishedBusiness.Models;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionFightingStyleChoices;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPowers;
@@ -14,7 +11,6 @@ namespace SolastaUnfinishedBusiness.FightingStyles;
 
 internal sealed class Torchbearer : AbstractFightingStyle
 {
-
     private static readonly FeatureDefinitionPower PowerFightingStyleTorchbearer = FeatureDefinitionPowerBuilder
         .Create("PowerFightingStyleTorchbearer")
         .SetGuiPresentation(Category.Feature, PowerDragonbornBreathWeaponGold)
@@ -48,7 +44,7 @@ internal sealed class Torchbearer : AbstractFightingStyle
 
     internal override FightingStyleDefinition FightingStyle { get; } = FightingStyleBuilder
         .Create("Torchbearer")
-        .SetGuiPresentation(Category.FightingStyle, DatabaseHelper.CharacterSubclassDefinitions.DomainElementalFire)
+        .SetGuiPresentation(Category.FightingStyle, CharacterSubclassDefinitions.DomainElementalFire)
         .SetFeatures(
             FeatureDefinitionBuilder
                 .Create("AddExtraAttackTorchbearer")

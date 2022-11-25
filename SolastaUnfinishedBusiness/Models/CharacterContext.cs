@@ -7,7 +7,6 @@ using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomDefinitions;
 using SolastaUnfinishedBusiness.CustomInterfaces;
-using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Properties;
 using SolastaUnfinishedBusiness.Races;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
@@ -575,7 +574,7 @@ internal static class CharacterContext
 
     private sealed class ModifyAttackModeForWeaponFighterArmamentAdroitness : IModifyAttackModeForWeapon
     {
-        private const string SourceName = 
+        private const string SourceName =
             "Feature/&ModifyAttackModeForWeaponFighterArmamentAdroitnessTitle";
 
         private readonly WeaponTypeDefinition _weaponTypeDefinition;
