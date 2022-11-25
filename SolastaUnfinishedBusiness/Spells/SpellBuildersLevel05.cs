@@ -15,9 +15,11 @@ internal static partial class SpellBuilders
 
     internal static SpellDefinition BuildFarStep()
     {
+        const string ConditionName = "ConditionFarStep";
+
         var power = FeatureDefinitionPowerBuilder
             .Create("PowerFarStep")
-            .SetGuiPresentation("ConditionFarStep", Category.Condition, Sprites.PowerFarStep)
+            .SetGuiPresentation(ConditionName, Category.Condition, Sprites.PowerFarStep)
             .SetUsesFixed(ActivationTime.BonusAction)
             .SetEffectDescription(EffectDescriptionBuilder.Create()
                 .SetDurationData(DurationType.Instantaneous)
@@ -28,8 +30,6 @@ internal static partial class SpellBuilders
                 .SetParticleEffectParameters(MistyStep)
                 .Build())
             .AddToDB();
-
-        const string ConditionName = "ConditionFarStep";
 
         var condition = ConditionDefinitionBuilder
             .Create(ConditionName)
