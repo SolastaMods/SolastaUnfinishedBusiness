@@ -583,6 +583,13 @@ internal static class CharacterContext
             .Setup(InvocationPoolTypeCustom.Pools.ArmamentAdroitness)
             .AddToDB();
 
+        var attributeModifierFighterArmamentAdroitness = FeatureDefinitionAttackModifierBuilder
+            .Create("AttributeModifierFighterArmamentAdroitness")
+            .SetGuiPresentation(Category.Feature)
+            .SetAttackRollModifier(1)
+            .SetDamageRollModifier(1)
+            .AddToDB();
+        
         var db = DatabaseRepository.GetDatabase<WeaponTypeDefinition>()
             .Where(x => x != WeaponTypeDefinitions.UnarmedStrikeType &&
                         x != CustomWeaponsContext.ThunderGauntletType &&
@@ -594,13 +601,7 @@ internal static class CharacterContext
                 .Create($"CustomInvocationArmamentAdroitness{weaponTypeDefinition.name}")
                 .SetGuiPresentation(weaponTypeDefinition.GuiPresentation)
                 .SetPoolType(InvocationPoolTypeCustom.Pools.ArmamentAdroitness)
-                .SetGrantedFeature(
-                    FeatureDefinitionAttackModifierBuilder
-                        .Create("AttributeModifierFighterArmamentAdroitness")
-                        .SetGuiPresentation(Category.Feature)
-                        .SetAttackRollModifier(1)
-                        .SetDamageRollModifier(1)
-                        .AddToDB())
+                .SetGrantedFeature(attributeModifierFighterArmamentAdroitness)
                 .SetCustomSubFeatures(Hidden.Marker)
                 .AddToDB();
         }
