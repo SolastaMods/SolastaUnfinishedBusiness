@@ -421,4 +421,66 @@ internal sealed class AddBonusShieldAttack : AddExtraAttackBase
 
         return attackModes;
     }
+
+}
+
+internal sealed class AddBonusTorchAttack : AddExtraAttackBase
+{
+    private readonly FeatureDefinitionPower torchPower;
+
+    internal AddBonusTorchAttack(FeatureDefinitionPower torchPower) : base(ActionDefinitions.ActionType.Bonus, false)
+    {
+        this.torchPower = torchPower;
+    }
+
+    [NotNull]
+    protected override List<RulesetAttackMode> GetAttackModes([NotNull] RulesetCharacterHero hero)
+    {
+        var result = new List<RulesetAttackMode>();
+
+        AddItemAttack(result, EquipmentDefinitions.SlotTypeOffHand, hero);
+
+        return result;
+    }
+
+    private void AddItemAttack(
+        ICollection<RulesetAttackMode> attackModes,
+        [NotNull] string slot,
+        [NotNull] RulesetCharacterHero hero)
+    {
+        var item = hero.CharacterInventory.InventorySlotsByName[slot].EquipedItem;
+
+        if (item == null || !ValidatorsCharacter.OffHandHasLightSource(hero))
+        {
+            return;
+        }
+
+        var strikeDefinition = item.ItemDefinition;
+        var attackMode = hero.RefreshAttackMode(
+            ActionType,
+            strikeDefinition,
+            strikeDefinition.WeaponDescription,
+            ValidatorsCharacter.IsFreeOffhand(hero),
+            true,
+            slot,
+            hero.attackModifiers,
+            hero.FeaturesOrigin,
+            item
+        );
+
+        attackMode.Reach = false;
+        attackMode.Ranged = false;
+        attackMode.Thrown = false;
+        attackMode.AutomaticHit = true;
+
+        attackMode.EffectDescription.Clear();
+        attackMode.EffectDescription.Copy(torchPower.EffectDescription);
+
+        var proficiencyBonus = hero.GetAttribute(AttributeDefinitions.ProficiencyBonus).CurrentValue;
+        var dexterity = hero.GetAttribute(AttributeDefinitions.Dexterity).CurrentValue;
+
+        attackMode.EffectDescription.fixedSavingThrowDifficultyClass = 8 + proficiencyBonus + AttributeDefinitions.ComputeAbilityScoreModifier(dexterity);
+
+        attackModes.Add(attackMode);
+    }
 }

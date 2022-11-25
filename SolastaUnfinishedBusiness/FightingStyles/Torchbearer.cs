@@ -31,12 +31,14 @@ internal sealed class Torchbearer : AbstractFightingStyle
                     .SetConditionForm(
                         ConditionDefinitions.ConditionOnFire1D4,
                         ConditionForm.ConditionOperation.Add)
+                    .HasSavingThrow(EffectSavingThrowType.Negates, TurnOccurenceType.StartOfTurn)
+                    .CreatedByCharacter()
                     .Build())
             .SetSavingThrowData(
                 false,
                 AttributeDefinitions.Dexterity,
                 false,
-                EffectDifficultyClassComputation.AbilityScoreAndProficiency,
+                EffectDifficultyClassComputation.FixedValue,
                 AttributeDefinitions.Dexterity,
                 8)
             .Build())
@@ -46,37 +48,17 @@ internal sealed class Torchbearer : AbstractFightingStyle
 
     internal override FightingStyleDefinition FightingStyle { get; } = FightingStyleBuilder
         .Create("Torchbearer")
-        .SetGuiPresentation(Category.FightingStyle, DatabaseHelper.CharacterSubclassDefinitions.MartialMountaineer)
-        .SetCustomSubFeatures(new OnAttackEffectTorchbearer())
+        .SetGuiPresentation(Category.FightingStyle, DatabaseHelper.CharacterSubclassDefinitions.DomainElementalFire)
+        .SetFeatures(
+            FeatureDefinitionBuilder
+                .Create("AddExtraAttackTorchbearer")
+                .SetGuiPresentationNoContent(true)
+                .SetCustomSubFeatures(new AddBonusTorchAttack(PowerFightingStyleTorchbearer))
+                .AddToDB())
         .AddToDB();
 
     internal override List<FeatureDefinitionFightingStyleChoice> FightingStyleChoice => new()
     {
         FightingStyleChampionAdditional, FightingStyleFighter, FightingStyleRanger
     };
-
-    private sealed class OnAttackEffectTorchbearer : IAfterAttackEffect
-    {
-        public void AfterOnAttackHit(
-            GameLocationCharacter attacker,
-            GameLocationCharacter defender,
-            RuleDefinitions.RollOutcome outcome,
-            CharacterActionParams actionParams,
-            RulesetAttackMode attackMode,
-            ActionModifier attackModifier)
-        {
-            var rulesetAttacker = attacker.RulesetCharacter;
-
-            if (attackMode == null || !ValidatorsCharacter.OffHandHasLightSource(rulesetAttacker))
-            {
-                return;
-            }
-
-            var usablePower = new RulesetUsablePower(PowerFightingStyleTorchbearer, null, null);
-
-            usablePower.Recharge();
-            rulesetAttacker.UsablePowers.Add(usablePower);
-            rulesetAttacker.RefreshUsablePower(usablePower);
-        }
-    }
 }
