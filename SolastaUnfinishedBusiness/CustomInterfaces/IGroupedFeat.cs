@@ -26,7 +26,7 @@ public class GroupedFeat : IGroupedFeat
 
     public List<FeatDefinition> GetSubFeats()
     {
-        return feats;
+        return feats.Where(x => !x.GuiPresentation.hidden).ToList();
     }
 
     public bool HideSubFeats => true;
