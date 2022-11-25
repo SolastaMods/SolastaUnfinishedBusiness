@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
@@ -28,7 +29,6 @@ internal abstract class DefinitionBuilder
         return GuidHelper.Create(guid, name).ToString();
     }
 
-#if DEBUG
     private static Dictionary<string, (string typeName, bool isCeDef)> DefinitionNames { get; } =
         GetAllDefinitionNames();
 
@@ -84,7 +84,6 @@ internal abstract class DefinitionBuilder
 
         return definitions;
     }
-#endif
 }
 
 // Used to allow extension methods in other mods to set GuiPresentation 
