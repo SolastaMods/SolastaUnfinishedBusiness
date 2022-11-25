@@ -2,7 +2,6 @@
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomUI;
-using SolastaUnfinishedBusiness.Properties;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.ConditionDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
@@ -18,8 +17,7 @@ internal static partial class SpellBuilders
     {
         var power = FeatureDefinitionPowerBuilder
             .Create("PowerFarStep")
-            .SetGuiPresentation("ConditionFarStep", Category.Condition,
-                Sprites.GetSprite("PowerFarStep", Resources.PowerFarStep, 256, 128))
+            .SetGuiPresentation("ConditionFarStep", Category.Condition, Sprites.PowerFarStep)
             .SetUsesFixed(ActivationTime.BonusAction)
             .SetEffectDescription(EffectDescriptionBuilder.Create()
                 .SetDurationData(DurationType.Instantaneous)
@@ -47,7 +45,7 @@ internal static partial class SpellBuilders
 
         return SpellDefinitionBuilder
             .Create("FarStep")
-            .SetGuiPresentation(Category.Spell, Sprites.GetSprite("SpellFarStep", Resources.SpellFarStep, 128))
+            .SetGuiPresentation(Category.Spell, Sprites.SpellFarStep)
             .SetSpellLevel(5)
             .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolConjuration)
             .SetCastingTime(ActivationTime.BonusAction)
