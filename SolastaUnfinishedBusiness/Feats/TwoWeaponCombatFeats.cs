@@ -31,7 +31,7 @@ internal static class TwoWeaponCombatFeats
     {
         var conditionDualFlurryApply = ConditionDefinitionBuilder
             .Create("ConditionDualFlurryApply")
-            .SetGuiPresentation(Category.Condition)
+            .SetGuiPresentationNoContent()
             .SetDuration(DurationType.Round, 0, false)
             .SetTurnOccurence(TurnOccurenceType.EndOfTurn)
             .SetPossessive()
