@@ -5,6 +5,7 @@ using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.Infrastructure;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
+using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomDefinitions;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Properties;
@@ -578,24 +579,20 @@ internal static class CharacterContext
     {
         InvocationPoolFighterArmamentAdroitness = CustomInvocationPoolDefinitionBuilder
             .Create("InvocationPoolFighterArmamentAdroitness")
-            .SetGuiPresentation(Category.Feature)
+            .SetGuiPresentation(Category.Feature, Sprites.GambitResourceIcon)
             .Setup(InvocationPoolTypeCustom.Pools.ArmamentAdroitness)
             .AddToDB();
 
         var db = DatabaseRepository.GetDatabase<WeaponTypeDefinition>()
-            .Where(x => x.name != "UnarmedStrikeType");
+            .Where(x => x != WeaponTypeDefinitions.UnarmedStrikeType &&
+                        x != CustomWeaponsContext.ThunderGauntletType &&
+                        x != CustomWeaponsContext.LightningLauncherType);
 
         foreach (var weaponTypeDefinition in db)
         {
-            var name = weaponTypeDefinition.name;
-
-            var guiPresentation = weaponTypeDefinition.GuiPresentation.DeepCopy();
-
-            guiPresentation.spriteReference = Sprites.GambitResourceIcon;
-
             CustomInvocationDefinitionBuilder
-                .Create($"CustomInvocationArmamentAdroitness{name}")
-                .SetGuiPresentation(guiPresentation)
+                .Create($"CustomInvocationArmamentAdroitness{weaponTypeDefinition.name}")
+                .SetGuiPresentation(weaponTypeDefinition.GuiPresentation)
                 .SetPoolType(InvocationPoolTypeCustom.Pools.ArmamentAdroitness)
                 .SetGrantedFeature(
                     FeatureDefinitionAttackModifierBuilder
@@ -604,6 +601,7 @@ internal static class CharacterContext
                         .SetAttackRollModifier(1)
                         .SetDamageRollModifier(1)
                         .AddToDB())
+                .SetCustomSubFeatures(Hidden.Marker)
                 .AddToDB();
         }
     }
