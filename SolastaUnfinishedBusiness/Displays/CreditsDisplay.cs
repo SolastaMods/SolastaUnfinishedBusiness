@@ -2,7 +2,6 @@
 using System.IO;
 using SolastaUnfinishedBusiness.Api.Infrastructure;
 using SolastaUnfinishedBusiness.Api.ModKit;
-using SolastaUnfinishedBusiness.Models;
 using UnityExplorer;
 using static SolastaUnfinishedBusiness.Displays.PatchesDisplay;
 
@@ -16,12 +15,12 @@ internal static class CreditsDisplay
     internal static readonly List<(string, string)> CreditsTable = new()
     {
         ("Zappastuff",
-            "maintenance, infrastructure, gameplay, feats, fighting styles, invocations, rules, quality of life, Half-elf variants, Blade Dancer, Ancient Forest, College of Guts, College of Life, Dead Master, Field Manipulator, Way of The Silhouette, Wild Master, Multiclass"),
+            "maintenance, mod UI, infrastructure, gameplay, feats, fighting styles, invocations, rules, quality of life, Half-elf variants, Blade Dancer, Ancient Forest, College of Guts, College of Life, Dead Master, Field Manipulator, Way of The Silhouette, Wild Master, Multiclass"),
         ("TPABOBAP",
             "game UI, infrastructure, gameplay, feats, invocations, spells, Dead Master, Elementalist, Moonlit, RiftWalker, SoulBlade, Tactician, Way of The Distant Hand, Inventor"),
         ("ImpPhil", "api, builders, gameplay, rules, quality of life"),
         ("ChrisJohnDigital",
-            "gameplay, feats, fighting styles, original Wizard subclasses, Arcane Fighter, Spell Master, Spell Shield"),
+            "builders, gameplay, feats, fighting styles, original Wizard subclasses, Arcane Fighter, Spell Master, Spell Shield"),
         ("SilverGriffon", "gameplay, visuals, spells, Dark Elf, Draconic Kobold, Grey Dwarf, Divine Heart"),
         ("Nd", "College of Harlequin, Marshal, Opportunist, Raven, Spell Shield"),
         ("DubhHerder", "gameplay, spells, original Warlock subclasses"),
@@ -41,16 +40,11 @@ internal static class CreditsDisplay
 
     internal static void DisplayCredits()
     {
-        UI.Label();
-
-        using (UI.HorizontalScope())
+        if (IsUnityExplorerInstalled && !IsUnityExplorerEnabled)
         {
-            UI.ActionButton("Donate".Bold().Khaki(), BootContext.OpenDonate, UI.Width(150));
-            UI.ActionButton("Wiki".Bold().Khaki(), BootContext.OpenWiki, UI.Width(150));
+            UI.Label();
 
-            if (IsUnityExplorerInstalled && !IsUnityExplorerEnabled)
-            {
-                UI.ActionButton("Unity Explorer UI".Bold().Khaki(), () =>
+            UI.ActionButton("Unity Explorer UI".Bold().Khaki(), () =>
                 {
                     IsUnityExplorerEnabled = true;
 
@@ -62,8 +56,8 @@ internal static class CreditsDisplay
                     {
                         // ignored
                     }
-                }, UI.Width(150));
-            }
+                },
+                UI.Width(150));
         }
 
         UI.Label();

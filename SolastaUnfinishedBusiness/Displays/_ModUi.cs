@@ -50,9 +50,6 @@ namespace SolastaUnfinishedBusiness.Displays
 
         internal static void DisplaySubMenu(ref int selectedPane, params NamedAction[] actions)
         {
-            UI.Label("Bem-vindo / Welcome / 欢迎".Bold().Khaki());
-            UI.Div();
-
             if (Main.Enabled)
             {
                 UI.TabBar(ref selectedPane, null, actions);
