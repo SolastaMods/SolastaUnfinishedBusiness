@@ -1,7 +1,7 @@
 ﻿CHANGES:
 
-1.4.28.I:
+1.4.28.J:
 
-- fixed beast duplicates when they get upgraded from 6 to 7, 10 to 11, 14 to 15
-- fixed IAfterAttackEffect not triggering which broke Dual Flurry and others
-- promoted Royal Knight as requested on Discord
+- added Armament Adroitness progression option to Fighters
+- fixed weapon modifiers using internal name instead of translation term
+- made Torch Bearer a fighting style in addition to a feat
