@@ -1,7 +1,8 @@
 ﻿CHANGES:
 
-1.4.28.J:
+1.4.28.K:
 
-- added Armament Adroitness progression option to Fighters
-- fixed weapon modifiers using internal name instead of translation term
-- made Torch Bearer a fighting style in addition to a feat
+- fixed original game issue with activators requiring double press after first use
+- fixed Patron Elementalist elemental form enhanced icon
+- fixed group feats enumerating non selected ones
+- made Far Step spell have dedicated action for repeated teleports
