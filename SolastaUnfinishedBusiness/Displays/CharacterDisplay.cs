@@ -93,6 +93,13 @@ internal static class CharacterDisplay
             CharacterContext.SwitchEvenLevelFeats();
         }
 
+        toggle = Main.Settings.EnableFighterArmamentAdroitness;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableFighterArmamentAdroitness"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableFighterArmamentAdroitness = toggle;
+            CharacterContext.SwitchFighterArmamentAdroitness();
+        }
+
         toggle = Main.Settings.EnableLevel20;
         if (UI.Toggle(Gui.Localize("ModUi/&EnableLevel20"), ref toggle, UI.AutoWidth()))
         {
