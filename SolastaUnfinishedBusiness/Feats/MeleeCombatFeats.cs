@@ -55,12 +55,12 @@ internal static class MeleeCombatFeats
 
         var conditionPowerAttack = ConditionDefinitionBuilder
             .Create("ConditionPowerAttack")
-            .SetGuiPresentation("PowerAttack", Category.Feature, ConditionDefinitions.ConditionHeraldOfBattle)
+            .SetGuiPresentation("FeatPowerAttack", Category.Feat, ConditionDefinitions.ConditionHeraldOfBattle)
             .SetSilent(Silent.WhenAddedOrRemoved)
             .SetFeatures(
                 FeatureDefinitionBuilder
                     .Create("ModifyAttackModeForWeaponFeatPowerAttack")
-                    .SetGuiPresentation("PowerAttack", Category.Feature)
+                    .SetGuiPresentation("FeatPowerAttack", Category.Feat)
                     .SetCustomSubFeatures(new ModifyPowerAttackPower())
                     .AddToDB())
             .SetDuration(DurationType.Round, 1)
