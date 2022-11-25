@@ -1,4 +1,5 @@
-﻿using SolastaUnfinishedBusiness.Api.ModKit;
+﻿using SolastaUnfinishedBusiness.Api.Infrastructure;
+using SolastaUnfinishedBusiness.Api.ModKit;
 using SolastaUnfinishedBusiness.Models;
 
 namespace SolastaUnfinishedBusiness.Displays;
@@ -7,6 +8,15 @@ internal static class CharacterDisplay
 {
     internal static void DisplayCharacter()
     {
+        UI.Label();
+
+        using (UI.HorizontalScope())
+        {
+            UI.ActionButton("Donate".Bold().Khaki(), BootContext.OpenDonate, UI.Width(150));
+            UI.ActionButton("Discord".Bold().Khaki(), BootContext.OpenDiscord, UI.Width(150));
+            UI.ActionButton("Wiki".Bold().Khaki(), BootContext.OpenWiki, UI.Width(150));
+        }
+
         UI.Label();
         UI.Label(Gui.Localize("ModUi/&InitialChoices"));
         UI.Label();

@@ -4,6 +4,8 @@ using System.Linq;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.Infrastructure;
 using SolastaUnfinishedBusiness.Builders;
+using SolastaUnfinishedBusiness.CustomUI;
+using SolastaUnfinishedBusiness.Properties;
 using UnityEngine.AddressableAssets;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterClassDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FactionStatusDefinitions;
@@ -246,7 +248,7 @@ internal static class ItemCraftingMerchantContext
             "CELivewoodClub",
             Club,
             EquipmentDefinitions.FocusType.Druidic,
-            null);
+            Sprites.GetSprite("LivewoodClub", Resources.LivewoodClub, 128, 128));
 
         internal static readonly ItemDefinition LivewoodStaff = CreateAndAddToDB(
             "CELivewoodStaff",

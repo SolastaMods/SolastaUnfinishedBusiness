@@ -505,7 +505,7 @@
     "description": "Item/&CELivewoodClubDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "",
+      "m_AssetGUID": "c3850782-a807-577e-b745-050f287f7889",
       "m_SubObjectName": null,
       "m_SubObjectType": null
     },

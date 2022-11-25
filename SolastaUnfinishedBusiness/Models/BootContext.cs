@@ -345,6 +345,11 @@ internal static class BootContext
         OpenUrl("https://www.paypal.com/donate/?business=JG4FX47DNHQAG&item_name=Support+Solasta+Unfinished+Business");
     }
 
+    internal static void OpenDiscord()
+    {
+        OpenUrl("https://discord.com/invite/uu8utaF");
+    }
+
     private static void OpenUrl(string url)
     {
         try

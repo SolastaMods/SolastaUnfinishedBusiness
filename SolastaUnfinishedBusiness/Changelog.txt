@@ -1,8 +1,5 @@
 ﻿CHANGES:
 
-1.4.28.K:
+1.4.28.L:
 
-- fixed original game issue with activators requiring double press after first use
-- fixed Patron Elementalist elemental form enhanced icon
-- fixed group feats enumerating non selected ones
-- made Far Step spell have dedicated action for repeated teleports
+- added an icon to livewood club
