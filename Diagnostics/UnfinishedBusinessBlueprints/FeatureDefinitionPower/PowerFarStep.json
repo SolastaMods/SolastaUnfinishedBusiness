@@ -284,7 +284,7 @@
     "animationMagicEffect": "Animation0",
     "lightCounterDispellsEffect": false
   },
-  "delegatedToAction": false,
+  "delegatedToAction": true,
   "surrogateToSpell": null,
   "triggeredBySpecialMove": false,
   "activationTime": "BonusAction",
@@ -322,8 +322,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Condition/&ConditionFarStepTitle",
-    "description": "Condition/&ConditionFarStepDescription",
+    "title": "Action/&FarStepTitle",
+    "description": "Action/&FarStepDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "e21aecb3-b462-5d90-b389-d2ac12bddd26",

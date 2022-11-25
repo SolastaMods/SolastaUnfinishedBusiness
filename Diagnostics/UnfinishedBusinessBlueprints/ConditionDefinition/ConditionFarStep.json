@@ -4,7 +4,7 @@
   "parentCondition": null,
   "conditionType": "Beneficial",
   "features": [
-    "Definition:FeatureFarStep:359fe183-0247-5ef9-a99c-9f59b1d08460"
+    "Definition:PowerFarStep:2c991456-7ce7-5266-94a9-1ecc9d4848f3"
   ],
   "allowMultipleInstances": false,
   "silentWhenAdded": false,
