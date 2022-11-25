@@ -20,11 +20,10 @@ internal static class OtherFeats
         var featHealer = BuildHealer();
         var featInspiringLeader = BuildInspiringLeader();
         var featPickPocket = BuildPickPocket();
-        var featTorchbearer = BuildTorchbearer();
         var featTough = BuildTough();
         var featWarCaster = BuildWarcaster();
 
-        feats.AddRange(featHealer, featInspiringLeader, featPickPocket, featTorchbearer, featTough, featWarCaster);
+        feats.AddRange(featHealer, featInspiringLeader, featPickPocket, featTough, featWarCaster);
 
         GroupFeats.MakeGroup("FeatGroupBodyResilience", null,
             FeatDefinitions.BadlandsMarauder,
@@ -177,42 +176,6 @@ internal static class OtherFeats
             .Create(FeatDefinitions.Lockbreaker, "FeatPickPocket")
             .SetFeatures(abilityCheckAffinityFeatPickPocket, proficiencyFeatPickPocket)
             .SetGuiPresentation(Category.Feat)
-            .AddToDB();
-    }
-
-    private static FeatDefinition BuildTorchbearer()
-    {
-        return FeatDefinitionBuilder
-            .Create("FeatTorchbearer")
-            .SetGuiPresentation(Category.Feat)
-            .SetFeatures(FeatureDefinitionPowerBuilder
-                .Create("PowerTorchbearer")
-                .SetGuiPresentation(Category.Feature, PowerDragonbornBreathWeaponGold)
-                .SetUsesFixed(ActivationTime.BonusAction)
-                .SetEffectDescription(EffectDescriptionBuilder
-                    .Create(SpellDefinitions.Fireball.EffectDescription)
-                    .SetCanBePlacedOnCharacter(false)
-                    .SetDurationData(DurationType.Round, 3)
-                    .SetSpeed(SpeedType.Instant, 11f)
-                    .SetTargetingData(Side.Enemy, RangeType.Touch, 1, TargetType.Individuals)
-                    .SetEffectForms(
-                        EffectFormBuilder
-                            .Create()
-                            .SetConditionForm(
-                                ConditionDefinitions.ConditionOnFire1D4,
-                                ConditionForm.ConditionOperation.Add)
-                            .Build())
-                    .SetSavingThrowData(
-                        false,
-                        AttributeDefinitions.Dexterity,
-                        false,
-                        EffectDifficultyClassComputation.AbilityScoreAndProficiency,
-                        AttributeDefinitions.Dexterity,
-                        15)
-                    .Build())
-                .SetShowCasting(false)
-                .SetCustomSubFeatures(new ValidatorsPowerUse(ValidatorsCharacter.OffHandHasLightSource))
-                .AddToDB())
             .AddToDB();
     }
 
