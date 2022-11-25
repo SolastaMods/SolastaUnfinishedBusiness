@@ -3,7 +3,7 @@
   "requiredKnownSpell": null,
   "requiredLevel": 1,
   "requiredPact": null,
-  "grantedFeature": "Definition:AttributeModifierFighterArmamentAdroitness:6bd254c0-145a-50f9-8d2e-cd94fc6e1c0c",
+  "grantedFeature": "Definition:ModifyAttackModeForWeaponFighterArmamentAdroitnessSpearType:50ab5975-622d-5b94-9061-e9eeba85d4ae",
   "grantedSpell": null,
   "consumesSpellSlot": false,
   "longRestRecharge": false,

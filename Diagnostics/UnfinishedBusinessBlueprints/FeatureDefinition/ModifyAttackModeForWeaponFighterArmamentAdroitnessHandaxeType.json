@@ -3,8 +3,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feat/&FeatPowerAttackTitle",
-    "description": "Feat/&FeatPowerAttackDescription",
+    "title": "Feature/&ModifyAttackModeForWeaponFighterArmamentAdroitnessTitle",
+    "description": "Feature/&ModifyAttackModeForWeaponFighterArmamentAdroitnessDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -24,7 +24,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "8be3e7c4-08ae-53d4-b1f4-a742b66fd837",
+  "guid": "23f8c760-141f-5524-854f-75ca3268c8df",
   "contentPack": 9999,
-  "name": "ModifyAttackModeForWeaponFeatPowerAttack"
+  "name": "ModifyAttackModeForWeaponFighterArmamentAdroitnessHandaxeType"
 }
