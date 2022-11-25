@@ -8,6 +8,7 @@ internal static class GameGadgetExtensions
     private const string Invisible = "Invisible";
     internal const string Enabled = "Enabled";
     internal const string ParamEnabled = "Param_Enabled";
+    internal const string Triggered = "Triggered";
 
     /// <summary>
     ///     Returns state of Invisible parameter, or false if not present
