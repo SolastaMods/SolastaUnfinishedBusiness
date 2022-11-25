@@ -25,12 +25,12 @@ internal static class CreditsDisplay
         ("SilverGriffon", "gameplay, visuals, spells, Dark Elf, Draconic Kobold, Grey Dwarf, Divine Heart"),
         ("Nd", "College of Harlequin, Marshal, Opportunist, Raven, Spell Shield"),
         ("DubhHerder", "gameplay, spells, original Warlock subclasses"),
+        ("tivie", "Circle of The Night, Path of The Spirits"),
         ("ElAntonius", "feats, Arcanist"),
         ("Holic75", "spells, Bolgrif, Gnome"),
         ("RedOrca", "Path of The Light"),
         ("DreadMaker", "Forest Guardian"),
-        ("Bazou", "fighting styles, rules, spells"),
-        ("tivie", "Circle of The Night")
+        ("Bazou", "fighting styles, rules, spells")
     };
 
     private static readonly bool IsUnityExplorerInstalled =

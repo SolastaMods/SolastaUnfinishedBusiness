@@ -1,10 +1,17 @@
 {
-  "$type": "FeatureDefinition, Assembly-CSharp",
+  "$type": "FeatureDefinitionAttributeModifier, Assembly-CSharp",
+  "modifiedAttribute": "HitPointBonusPerLevel",
+  "modifierOperation": "Additive",
+  "modifierValue": 2,
+  "modifierAbilityScore": "Constitution",
+  "situationalContext": "None",
+  "minimum1": false,
+  "useBonusFromCaster": false,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
-    "hidden": false,
-    "title": "Feature/&PowerCollegeOfHarlequinTerrificPerformanceTitle",
-    "description": "Feature/&PowerCollegeOfHarlequinTerrificPerformanceDescription",
+    "hidden": true,
+    "title": "Feature/&NoContentTitle",
+    "description": "Feature/&NoContentTitle",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -24,7 +31,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "7c637a75-1093-551a-87e5-76573a64250c",
+  "guid": "944c063a-bae2-57cb-b112-7d34d06e4252",
   "contentPack": 9999,
-  "name": "TargetReducedToZeroHpPowerCollegeOfHarlequinTerrificPerformance"
+  "name": "AttributeModifierPathOfTheSpiritsBearDurability"
 }

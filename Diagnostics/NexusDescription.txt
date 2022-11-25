@@ -106,6 +106,7 @@ All settings start disabled by default.
 [list=1]
 
 [*][b]Path of The Light[/b]: Barbarians who follow the Path of The Light illuminate the darkness and protect their allies from dangers that lurk within it.
+[*][b]Path Of The Spirits[/b]: Barbarians who follow the Path of the Spirits accept a spirit animal as guide, protector, and inspiration, that fills them with supernatural might, adding magical fuel to the barbarian rage.
 [*][b]College of Guts[/b]: Bards of the College of Guts gather in mead halls or around great bonfires to sing the deeds of the mighty, both past and present. They travel the land to witness great events firsthand and to ensure that the memory of those events doesn't pass from the world. With their songs, they inspire others to reach the same heights of accomplishment as the heroes of old.
 [*][b]College of Harlequin[/b]: College of Harlequins bards see no distinction between art and war. They see it is their duty to keep the legend of the great battle of the Cataclysm alive through their terrific performance, either on stage or on the battle field.
 [*][b]College of Life[/b]: Masters of manipulating both matter and life energy.
@@ -385,11 +386,11 @@ When you cast this spell using a spell slot of 4th level or higher, the damage i
 [*][b]SilverGriffon[/b]: gameplay, visuals, spells, Dark Elf, Draconic Kobold, Grey Dwarf, Divine Heart
 [*][b]Nd[/b]: College of Harlequin, Marshal, Opportunist, Raven, Spell Shield
 [*][b]DubhHerder[/b]: gameplay, spells, original Warlock subclasses
+[*][b]tivie[/b]: Circle of The Night, Path of The Spirits
 [*][b]ElAntonious[/b]: feats, Arcanist
 [*][b]Holic75[/b]: spells, Bolgrif, Gnome
 [*][b]RedOrca[/b]: Path of The Light
 [*][b]DreadMaker[/b]: Forest Guardian
 [*][b]Bazou[/b]: fighting styles, rules, spells
-[*][b]tivie[/b]: Circle of The Night
 [/list]
 

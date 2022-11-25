@@ -48,10 +48,10 @@ internal static class DelegatesContext
 
         var gameLocationCharacterService = ServiceRepository.GetService<IGameLocationCharacterService>();
 
-        gameLocationCharacterService.CharacterCreated += CharacterCreated;
-        gameLocationCharacterService.CharacterRevealed += CharacterRevealed;
-        gameLocationCharacterService.CharacterKilled += CharacterKilled;
-        gameLocationCharacterService.CharacterDestroying += CharacterDestroying;
+        // gameLocationCharacterService.CharacterCreated += CharacterCreated;
+        // gameLocationCharacterService.CharacterRevealed += CharacterRevealed;
+        // gameLocationCharacterService.CharacterKilled += CharacterKilled;
+        // gameLocationCharacterService.CharacterDestroying += CharacterDestroying;
 
         var gameLocationActionService = ServiceRepository.GetService<IGameLocationActionService>();
 
@@ -70,6 +70,105 @@ internal static class DelegatesContext
         gameLocationActionService.ActionUsed += ActionUsed;
         gameLocationActionService.ShoveActionUsed += ShoveActionUsed;
         gameLocationActionService.ItemUsed += ItemUsed;
+
+        foreach (var gameLocationCharacter in gameLocationCharacterService.ValidCharacters)
+        {
+            // gameLocationCharacter.Placed += Placed;
+            // gameLocationCharacter.MoveStarted += MoveStarted;
+            // gameLocationCharacter.PrepareChargeStarted += PrepareChargeStarted;
+            // gameLocationCharacter.ChargeStarted += ChargeStarted;
+            // gameLocationCharacter.ChargeEnded += ChargeEnded;
+            // gameLocationCharacter.ChargeAborted += ChargeAborted;
+            // gameLocationCharacter.UpdateMotions += UpdateMotions;
+            // gameLocationCharacter.TeleportStarted += TeleportStarted;
+            // gameLocationCharacter.Moved += Moved;
+            // gameLocationCharacter.Rotated += Rotated;
+            // gameLocationCharacter.Stopped += Stopped;
+            // gameLocationCharacter.FallStarted += FallStarted;
+            // gameLocationCharacter.FallStopped += FallStopped;
+            // gameLocationCharacter.CrawlStarted += CrawlStarted;
+            // gameLocationCharacter.BurrowStarted += BurrowStarted;
+            // gameLocationCharacter.BurrowEnded += BurrowEnded;
+            // gameLocationCharacter.JumpStarted += JumpStarted;
+            // gameLocationCharacter.JumpFinished += JumpFinished;
+            // gameLocationCharacter.VaultStarted += VaultStarted;
+            // gameLocationCharacter.VaultFinished += VaultFinished;
+            // gameLocationCharacter.ClimbStarted += ClimbStarted;
+            // gameLocationCharacter.ClimbFinished += ClimbFinished;
+            // gameLocationCharacter.ChangeSurfaceStarted += ChangeSurfaceStarted;
+            // gameLocationCharacter.AttackStart += AttackStart;
+            gameLocationCharacter.AttackImpactStart += AttackImpactStart;
+            // gameLocationCharacter.DeflectAttackStart += DeflectAttackStart;
+            // gameLocationCharacter.ManipulateStart += ManipulateStart;
+            // gameLocationCharacter.ManipulateEnd += ManipulateEnd;
+            // gameLocationCharacter.ShoveStart += ShoveStart;
+            // gameLocationCharacter.CastingStart += CastingStart;
+            // gameLocationCharacter.HitStart += HitStart;
+            // gameLocationCharacter.PathFailed += PathFailed;
+            // gameLocationCharacter.DialogStarted += DialogStarted;
+            // gameLocationCharacter.DialogEnded += DialogEnded;
+            // gameLocationCharacter.DialogChoiceStarted += DialogChoiceStarted;
+            // gameLocationCharacter.DialogChoiceEnded += DialogChoiceEnded;
+            // gameLocationCharacter.SpeechStarted += SpeechStarted;
+            // gameLocationCharacter.SpeechEnded += SpeechEnded;
+            // gameLocationCharacter.ListenStarted += ListenStarted;
+            // gameLocationCharacter.ListenEnded += ListenEnded;
+            // gameLocationCharacter.AdditionalAnimationStarted += AdditionalAnimationStarted;
+            // gameLocationCharacter.TextFeedbackRequested += TextFeedbackRequested;
+            // gameLocationCharacter.InGameDialogLineRequested += InGameDialogLineRequested;
+            // gameLocationCharacter.AlreadySuccessful += AlreadySuccessful;
+            // gameLocationCharacter.AlreadyFailed += AlreadyFailed;
+            // gameLocationCharacter.ProneStatusChanged += ProneStatusChanged;
+            // gameLocationCharacter.IsAngryStatusChanged += IsAngryStatusChanged;
+            // gameLocationCharacter.UsedTacticalMovesChanged += UsedTacticalMovesChanged;
+            // gameLocationCharacter.CurrentMonsterAttackChanged += CurrentMonsterAttackChanged;
+            // gameLocationCharacter.DisolveStarted += DissolveStarted;
+
+            var rulesetCharacter = gameLocationCharacter.RulesetCharacter;
+
+            // rulesetCharacter.ConditionAdded += ConditionAdded;
+            // rulesetCharacter.ConditionRemoved += ConditionRemoved;
+            // rulesetCharacter.ConditionRemovedForVisual += ConditionRemovedForVisual;
+            // rulesetCharacter.ConditionOccurenceReached += ConditionOccurenceReached;
+            // rulesetCharacter.ConditionSaveRerollRequested += ConditionSaveRerollRequested;
+            // rulesetCharacter.ImmuneToSpell += ImmuneToSpell;
+            // rulesetCharacter.ImmuneToSpellLevel += ImmuneToSpellLevel;
+            // rulesetCharacter.ImmuneToDamage += ImmuneToDamage;
+            // rulesetCharacter.DamageAltered += DamageAltered;
+            // rulesetCharacter.ImmuneToCondition += ImmuneToCondition;
+            // rulesetCharacter.SaveRolled += SaveRolled;
+            // rulesetCharacter.DieRerolled += DieRerolled;
+            // rulesetCharacter.AttackInitiated += AttackInitiated;
+            // rulesetCharacter.AttackRolled += AttackRolled;
+            // rulesetCharacter.IncomingAttackRolled += IncomingAttackRolled;
+            // rulesetCharacter.AttackAutomaticHit += AttackAutomaticHit;
+            // rulesetCharacter.AttackAutomaticCritical += AttackAutomaticCritical;
+            // rulesetCharacter.DamageFormsTriggered += DamageFormsTriggered;
+            // rulesetCharacter.HealingFormsTriggered += HealingFormsTriggered;
+            // rulesetCharacter.IncomingDamageNotified += IncomingDamageNotified;
+            // rulesetCharacter.AbilityScoreIncreased += AbilityScoreIncreased;
+            // rulesetCharacter.DamageHalved += DamageHalved;
+            // rulesetCharacter.DamageReduced += DamageReduced;
+            // rulesetCharacter.ReplacedAbilityScoreForSave += ReplacedAbilityScoreForSave;
+            // rulesetCharacter.AdditionalSaveDieRolled += AdditionalSaveDieRolled;
+            // rulesetCharacter.DamageReceived += DamageReceived;
+            // rulesetCharacter.AlterationInflicted += AlterationInflicted;
+            // rulesetCharacter.SpellDissipated += SpellDissipated;
+            // rulesetCharacter.TagRevealed += TagRevealed;
+            // rulesetCharacter.ActorReplaced += ActorReplaced;
+
+            if (rulesetCharacter is not RulesetCharacterHero rulesetCharacterHero)
+            {
+                return;
+            }
+
+            rulesetCharacterHero.ItemEquipedCallback += ItemEquipped;
+
+            // rulesetCharacterHero.CharacterInventory.ItemEquiped += ItemEquiped;
+            // rulesetCharacterHero.CharacterInventory.ItemAltered += ItemAltered;
+            // rulesetCharacterHero.CharacterInventory.ItemUnequiped += ItemUnequiped;
+            // rulesetCharacterHero.CharacterInventory.ItemReleased += ItemReleased;      
+        }
     }
 
     private static void LocationUnloading(string locationDefinitionName, string userLocationTitle)
@@ -78,10 +177,10 @@ internal static class DelegatesContext
 
         var gameLocationCharacterService = ServiceRepository.GetService<IGameLocationCharacterService>();
 
-        gameLocationCharacterService.CharacterCreated -= CharacterCreated;
-        gameLocationCharacterService.CharacterRevealed -= CharacterRevealed;
-        gameLocationCharacterService.CharacterKilled -= CharacterKilled;
-        gameLocationCharacterService.CharacterDestroying -= CharacterDestroying;
+        // gameLocationCharacterService.CharacterCreated -= CharacterCreated;
+        // gameLocationCharacterService.CharacterRevealed -= CharacterRevealed;
+        // gameLocationCharacterService.CharacterKilled -= CharacterKilled;
+        // gameLocationCharacterService.CharacterDestroying -= CharacterDestroying;
 
         var gameLocationActionService = ServiceRepository.GetService<IGameLocationActionService>();
 
@@ -99,111 +198,114 @@ internal static class DelegatesContext
         gameLocationActionService.ActionUsed -= ActionUsed;
         gameLocationActionService.ShoveActionUsed -= ShoveActionUsed;
         gameLocationActionService.ItemUsed -= ItemUsed;
+
+        foreach (var gameLocationCharacter in gameLocationCharacterService.ValidCharacters)
+        {
+            // gameLocationCharacter.Placed -= Placed;
+            // gameLocationCharacter.MoveStarted -= MoveStarted;
+            // gameLocationCharacter.PrepareChargeStarted -= PrepareChargeStarted;
+            // gameLocationCharacter.ChargeStarted -= ChargeStarted;
+            // gameLocationCharacter.ChargeEnded -= ChargeEnded;
+            // gameLocationCharacter.ChargeAborted -= ChargeAborted;
+            // gameLocationCharacter.UpdateMotions -= UpdateMotions;
+            // gameLocationCharacter.TeleportStarted -= TeleportStarted;
+            // gameLocationCharacter.Moved -= Moved;
+            // gameLocationCharacter.Rotated -= Rotated;
+            // gameLocationCharacter.Stopped -= Stopped;
+            // gameLocationCharacter.FallStarted -= FallStarted;
+            // gameLocationCharacter.FallStopped -= FallStopped;
+            // gameLocationCharacter.CrawlStarted -= CrawlStarted;
+            // gameLocationCharacter.BurrowStarted -= BurrowStarted;
+            // gameLocationCharacter.BurrowEnded -= BurrowEnded;
+            // gameLocationCharacter.JumpStarted -= JumpStarted;
+            // gameLocationCharacter.JumpFinished -= JumpFinished;
+            // gameLocationCharacter.VaultStarted -= VaultStarted;
+            // gameLocationCharacter.VaultFinished -= VaultFinished;
+            // gameLocationCharacter.ClimbStarted -= ClimbStarted;
+            // gameLocationCharacter.ClimbFinished -= ClimbFinished;
+            // gameLocationCharacter.ChangeSurfaceStarted -= ChangeSurfaceStarted;
+            // gameLocationCharacter.AttackStart -= AttackStart;
+            gameLocationCharacter.AttackImpactStart -= AttackImpactStart;
+            // gameLocationCharacter.DeflectAttackStart -= DeflectAttackStart;
+            // gameLocationCharacter.ManipulateStart -= ManipulateStart;
+            // gameLocationCharacter.ManipulateEnd -= ManipulateEnd;
+            // gameLocationCharacter.ShoveStart -= ShoveStart;
+            // gameLocationCharacter.CastingStart -= CastingStart;
+            // gameLocationCharacter.HitStart -= HitStart;
+            // gameLocationCharacter.PathFailed -= PathFailed;
+            // gameLocationCharacter.DialogStarted -= DialogStarted;
+            // gameLocationCharacter.DialogEnded -= DialogEnded;
+            // gameLocationCharacter.DialogChoiceStarted -= DialogChoiceStarted;
+            // gameLocationCharacter.DialogChoiceEnded -= DialogChoiceEnded;
+            // gameLocationCharacter.SpeechStarted -= SpeechStarted;
+            // gameLocationCharacter.SpeechEnded -= SpeechEnded;
+            // gameLocationCharacter.ListenStarted -= ListenStarted;
+            // gameLocationCharacter.ListenEnded -= ListenEnded;
+            // gameLocationCharacter.AdditionalAnimationStarted -= AdditionalAnimationStarted;
+            // gameLocationCharacter.TextFeedbackRequested -= TextFeedbackRequested;
+            // gameLocationCharacter.InGameDialogLineRequested -= InGameDialogLineRequested;
+            // gameLocationCharacter.AlreadySuccessful -= AlreadySuccessful;
+            // gameLocationCharacter.AlreadyFailed -= AlreadyFailed;
+            // gameLocationCharacter.ProneStatusChanged -= ProneStatusChanged;
+            // gameLocationCharacter.IsAngryStatusChanged -= IsAngryStatusChanged;
+            // gameLocationCharacter.UsedTacticalMovesChanged -= UsedTacticalMovesChanged;
+            // gameLocationCharacter.CurrentMonsterAttackChanged -= CurrentMonsterAttackChanged;
+            // gameLocationCharacter.DisolveStarted -= DissolveStarted;
+
+            var rulesetCharacter = gameLocationCharacter.RulesetCharacter;
+
+            // rulesetCharacter.ConditionAdded -= ConditionAdded;
+            // rulesetCharacter.ConditionRemoved -= ConditionRemoved;
+            // rulesetCharacter.ConditionRemovedForVisual -= ConditionRemovedForVisual;
+            // rulesetCharacter.ConditionOccurenceReached -= ConditionOccurenceReached;
+            // rulesetCharacter.ConditionSaveRerollRequested -= ConditionSaveRerollRequested;
+            // rulesetCharacter.ImmuneToSpell -= ImmuneToSpell;
+            // rulesetCharacter.ImmuneToSpellLevel -= ImmuneToSpellLevel;
+            // rulesetCharacter.ImmuneToDamage -= ImmuneToDamage;
+            // rulesetCharacter.DamageAltered -= DamageAltered;
+            // rulesetCharacter.ImmuneToCondition -= ImmuneToCondition;
+            // rulesetCharacter.SaveRolled -= SaveRolled;
+            // rulesetCharacter.DieRerolled -= DieRerolled;
+            // rulesetCharacter.AttackInitiated -= AttackInitiated;
+            // rulesetCharacter.AttackRolled -= AttackRolled;
+            // rulesetCharacter.IncomingAttackRolled -= IncomingAttackRolled;
+            // rulesetCharacter.AttackAutomaticHit -= AttackAutomaticHit;
+            // rulesetCharacter.AttackAutomaticCritical -= AttackAutomaticCritical;
+            // rulesetCharacter.DamageFormsTriggered -= DamageFormsTriggered;
+            // rulesetCharacter.HealingFormsTriggered -= HealingFormsTriggered;
+            // rulesetCharacter.IncomingDamageNotified -= IncomingDamageNotified;
+            // rulesetCharacter.AbilityScoreIncreased -= AbilityScoreIncreased;
+            // rulesetCharacter.DamageHalved -= DamageHalved;
+            // rulesetCharacter.DamageReduced -= DamageReduced;
+            // rulesetCharacter.ReplacedAbilityScoreForSave -= ReplacedAbilityScoreForSave;
+            // rulesetCharacter.AdditionalSaveDieRolled -= AdditionalSaveDieRolled;
+            // rulesetCharacter.DamageReceived -= DamageReceived;
+            // rulesetCharacter.AlterationInflicted -= AlterationInflicted;
+            // rulesetCharacter.SpellDissipated -= SpellDissipated;
+            // rulesetCharacter.TagRevealed -= TagRevealed;
+            // rulesetCharacter.ActorReplaced -= ActorReplaced;
+
+            if (rulesetCharacter is not RulesetCharacterHero rulesetCharacterHero)
+            {
+                return;
+            }
+
+            rulesetCharacterHero.ItemEquipedCallback -= ItemEquipped;
+            // rulesetCharacterHero.CharacterInventory.ItemEquiped -= ItemEquiped;
+            // rulesetCharacterHero.CharacterInventory.ItemAltered -= ItemAltered;
+            // rulesetCharacterHero.CharacterInventory.ItemUnequiped -= ItemUnequiped;
+            // rulesetCharacterHero.CharacterInventory.ItemReleased -= ItemReleased;        
+        }
     }
 
     //
     // IGameLocationCharacterService
     //
 
+#if false
     private static void CharacterCreated(GameLocationCharacter gameLocationCharacter)
     {
         Main.Info($"{gameLocationCharacter.Name} Character Created");
-
-        // gameLocationCharacter.Placed += Placed;
-        // gameLocationCharacter.MoveStarted += MoveStarted;
-        // gameLocationCharacter.PrepareChargeStarted += PrepareChargeStarted;
-        // gameLocationCharacter.ChargeStarted += ChargeStarted;
-        // gameLocationCharacter.ChargeEnded += ChargeEnded;
-        // gameLocationCharacter.ChargeAborted += ChargeAborted;
-        // gameLocationCharacter.UpdateMotions += UpdateMotions;
-        // gameLocationCharacter.TeleportStarted += TeleportStarted;
-        // gameLocationCharacter.Moved += Moved;
-        // gameLocationCharacter.Rotated += Rotated;
-        // gameLocationCharacter.Stopped += Stopped;
-        // gameLocationCharacter.FallStarted += FallStarted;
-        // gameLocationCharacter.FallStopped += FallStopped;
-        // gameLocationCharacter.CrawlStarted += CrawlStarted;
-        // gameLocationCharacter.BurrowStarted += BurrowStarted;
-        // gameLocationCharacter.BurrowEnded += BurrowEnded;
-        // gameLocationCharacter.JumpStarted += JumpStarted;
-        // gameLocationCharacter.JumpFinished += JumpFinished;
-        // gameLocationCharacter.VaultStarted += VaultStarted;
-        // gameLocationCharacter.VaultFinished += VaultFinished;
-        // gameLocationCharacter.ClimbStarted += ClimbStarted;
-        // gameLocationCharacter.ClimbFinished += ClimbFinished;
-        // gameLocationCharacter.ChangeSurfaceStarted += ChangeSurfaceStarted;
-        gameLocationCharacter.AttackStart += AttackStart;
-        gameLocationCharacter.AttackImpactStart += AttackImpactStart;
-        // gameLocationCharacter.DeflectAttackStart += DeflectAttackStart;
-        // gameLocationCharacter.ManipulateStart += ManipulateStart;
-        // gameLocationCharacter.ManipulateEnd += ManipulateEnd;
-        // gameLocationCharacter.ShoveStart += ShoveStart;
-        // gameLocationCharacter.CastingStart += CastingStart;
-        // gameLocationCharacter.HitStart += HitStart;
-        // gameLocationCharacter.PathFailed += PathFailed;
-        // gameLocationCharacter.DialogStarted += DialogStarted;
-        // gameLocationCharacter.DialogEnded += DialogEnded;
-        // gameLocationCharacter.DialogChoiceStarted += DialogChoiceStarted;
-        // gameLocationCharacter.DialogChoiceEnded += DialogChoiceEnded;
-        // gameLocationCharacter.SpeechStarted += SpeechStarted;
-        // gameLocationCharacter.SpeechEnded += SpeechEnded;
-        // gameLocationCharacter.ListenStarted += ListenStarted;
-        // gameLocationCharacter.ListenEnded += ListenEnded;
-        // gameLocationCharacter.AdditionalAnimationStarted += AdditionalAnimationStarted;
-        // gameLocationCharacter.TextFeedbackRequested += TextFeedbackRequested;
-        // gameLocationCharacter.InGameDialogLineRequested += InGameDialogLineRequested;
-        // gameLocationCharacter.AlreadySuccessful += AlreadySuccessful;
-        // gameLocationCharacter.AlreadyFailed += AlreadyFailed;
-        // gameLocationCharacter.ProneStatusChanged += ProneStatusChanged;
-        // gameLocationCharacter.IsAngryStatusChanged += IsAngryStatusChanged;
-        // gameLocationCharacter.UsedTacticalMovesChanged += UsedTacticalMovesChanged;
-        // gameLocationCharacter.CurrentMonsterAttackChanged += CurrentMonsterAttackChanged;
-        // gameLocationCharacter.DisolveStarted += DissolveStarted;
-
-        var rulesetCharacter = gameLocationCharacter.RulesetCharacter;
-
-        // rulesetCharacter.ConditionAdded += ConditionAdded;
-        // rulesetCharacter.ConditionRemoved += ConditionRemoved;
-        // rulesetCharacter.ConditionRemovedForVisual += ConditionRemovedForVisual;
-        // rulesetCharacter.ConditionOccurenceReached += ConditionOccurenceReached;
-        // rulesetCharacter.ConditionSaveRerollRequested += ConditionSaveRerollRequested;
-        // rulesetCharacter.ImmuneToSpell += ImmuneToSpell;
-        // rulesetCharacter.ImmuneToSpellLevel += ImmuneToSpellLevel;
-        // rulesetCharacter.ImmuneToDamage += ImmuneToDamage;
-        // rulesetCharacter.DamageAltered += DamageAltered;
-        // rulesetCharacter.ImmuneToCondition += ImmuneToCondition;
-        // rulesetCharacter.SaveRolled += SaveRolled;
-        // rulesetCharacter.DieRerolled += DieRerolled;
-        // rulesetCharacter.AttackInitiated += AttackInitiated;
-        // rulesetCharacter.AttackRolled += AttackRolled;
-        // rulesetCharacter.IncomingAttackRolled += IncomingAttackRolled;
-        // rulesetCharacter.AttackAutomaticHit += AttackAutomaticHit;
-        // rulesetCharacter.AttackAutomaticCritical += AttackAutomaticCritical;
-        // rulesetCharacter.DamageFormsTriggered += DamageFormsTriggered;
-        // rulesetCharacter.HealingFormsTriggered += HealingFormsTriggered;
-        // rulesetCharacter.IncomingDamageNotified += IncomingDamageNotified;
-        // rulesetCharacter.AbilityScoreIncreased += AbilityScoreIncreased;
-        // rulesetCharacter.DamageHalved += DamageHalved;
-        // rulesetCharacter.DamageReduced += DamageReduced;
-        // rulesetCharacter.ReplacedAbilityScoreForSave += ReplacedAbilityScoreForSave;
-        // rulesetCharacter.AdditionalSaveDieRolled += AdditionalSaveDieRolled;
-        // rulesetCharacter.DamageReceived += DamageReceived;
-        // rulesetCharacter.AlterationInflicted += AlterationInflicted;
-        // rulesetCharacter.SpellDissipated += SpellDissipated;
-        // rulesetCharacter.TagRevealed += TagRevealed;
-        // rulesetCharacter.ActorReplaced += ActorReplaced;
-
-        if (rulesetCharacter is not RulesetCharacterHero rulesetCharacterHero)
-        {
-            return;
-        }
-
-        rulesetCharacterHero.ItemEquipedCallback += ItemEquipped;
-
-        // rulesetCharacterHero.CharacterInventory.ItemEquiped += ItemEquiped;
-        // rulesetCharacterHero.CharacterInventory.ItemAltered += ItemAltered;
-        // rulesetCharacterHero.CharacterInventory.ItemUnequiped += ItemUnequiped;
-        // rulesetCharacterHero.CharacterInventory.ItemReleased += ItemReleased;
     }
 
     private static void CharacterRevealed(GameLocationCharacter character)
@@ -214,107 +316,13 @@ internal static class DelegatesContext
     private static void CharacterDestroying(GameLocationCharacter gameLocationCharacter)
     {
         Main.Info($"{gameLocationCharacter.Name} Character Destroying");
-
-        // gameLocationCharacter.Placed -= Placed;
-        // gameLocationCharacter.MoveStarted -= MoveStarted;
-        // gameLocationCharacter.PrepareChargeStarted -= PrepareChargeStarted;
-        // gameLocationCharacter.ChargeStarted -= ChargeStarted;
-        // gameLocationCharacter.ChargeEnded -= ChargeEnded;
-        // gameLocationCharacter.ChargeAborted -= ChargeAborted;
-        // gameLocationCharacter.UpdateMotions -= UpdateMotions;
-        // gameLocationCharacter.TeleportStarted -= TeleportStarted;
-        // gameLocationCharacter.Moved -= Moved;
-        // gameLocationCharacter.Rotated -= Rotated;
-        // gameLocationCharacter.Stopped -= Stopped;
-        // gameLocationCharacter.FallStarted -= FallStarted;
-        // gameLocationCharacter.FallStopped -= FallStopped;
-        // gameLocationCharacter.CrawlStarted -= CrawlStarted;
-        // gameLocationCharacter.BurrowStarted -= BurrowStarted;
-        // gameLocationCharacter.BurrowEnded -= BurrowEnded;
-        // gameLocationCharacter.JumpStarted -= JumpStarted;
-        // gameLocationCharacter.JumpFinished -= JumpFinished;
-        // gameLocationCharacter.VaultStarted -= VaultStarted;
-        // gameLocationCharacter.VaultFinished -= VaultFinished;
-        // gameLocationCharacter.ClimbStarted -= ClimbStarted;
-        // gameLocationCharacter.ClimbFinished -= ClimbFinished;
-        // gameLocationCharacter.ChangeSurfaceStarted -= ChangeSurfaceStarted;
-        gameLocationCharacter.AttackStart -= AttackStart;
-        gameLocationCharacter.AttackImpactStart -= AttackImpactStart;
-        // gameLocationCharacter.DeflectAttackStart -= DeflectAttackStart;
-        // gameLocationCharacter.ManipulateStart -= ManipulateStart;
-        // gameLocationCharacter.ManipulateEnd -= ManipulateEnd;
-        // gameLocationCharacter.ShoveStart -= ShoveStart;
-        // gameLocationCharacter.CastingStart -= CastingStart;
-        // gameLocationCharacter.HitStart -= HitStart;
-        // gameLocationCharacter.PathFailed -= PathFailed;
-        // gameLocationCharacter.DialogStarted -= DialogStarted;
-        // gameLocationCharacter.DialogEnded -= DialogEnded;
-        // gameLocationCharacter.DialogChoiceStarted -= DialogChoiceStarted;
-        // gameLocationCharacter.DialogChoiceEnded -= DialogChoiceEnded;
-        // gameLocationCharacter.SpeechStarted -= SpeechStarted;
-        // gameLocationCharacter.SpeechEnded -= SpeechEnded;
-        // gameLocationCharacter.ListenStarted -= ListenStarted;
-        // gameLocationCharacter.ListenEnded -= ListenEnded;
-        // gameLocationCharacter.AdditionalAnimationStarted -= AdditionalAnimationStarted;
-        // gameLocationCharacter.TextFeedbackRequested -= TextFeedbackRequested;
-        // gameLocationCharacter.InGameDialogLineRequested -= InGameDialogLineRequested;
-        // gameLocationCharacter.AlreadySuccessful -= AlreadySuccessful;
-        // gameLocationCharacter.AlreadyFailed -= AlreadyFailed;
-        // gameLocationCharacter.ProneStatusChanged -= ProneStatusChanged;
-        // gameLocationCharacter.IsAngryStatusChanged -= IsAngryStatusChanged;
-        // gameLocationCharacter.UsedTacticalMovesChanged -= UsedTacticalMovesChanged;
-        // gameLocationCharacter.CurrentMonsterAttackChanged -= CurrentMonsterAttackChanged;
-        // gameLocationCharacter.DisolveStarted -= DissolveStarted;
-
-        var rulesetCharacter = gameLocationCharacter.RulesetCharacter;
-
-        // rulesetCharacter.ConditionAdded -= ConditionAdded;
-        // rulesetCharacter.ConditionRemoved -= ConditionRemoved;
-        // rulesetCharacter.ConditionRemovedForVisual -= ConditionRemovedForVisual;
-        // rulesetCharacter.ConditionOccurenceReached -= ConditionOccurenceReached;
-        // rulesetCharacter.ConditionSaveRerollRequested -= ConditionSaveRerollRequested;
-        // rulesetCharacter.ImmuneToSpell -= ImmuneToSpell;
-        // rulesetCharacter.ImmuneToSpellLevel -= ImmuneToSpellLevel;
-        // rulesetCharacter.ImmuneToDamage -= ImmuneToDamage;
-        // rulesetCharacter.DamageAltered -= DamageAltered;
-        // rulesetCharacter.ImmuneToCondition -= ImmuneToCondition;
-        // rulesetCharacter.SaveRolled -= SaveRolled;
-        // rulesetCharacter.DieRerolled -= DieRerolled;
-        // rulesetCharacter.AttackInitiated -= AttackInitiated;
-        // rulesetCharacter.AttackRolled -= AttackRolled;
-        // rulesetCharacter.IncomingAttackRolled -= IncomingAttackRolled;
-        // rulesetCharacter.AttackAutomaticHit -= AttackAutomaticHit;
-        // rulesetCharacter.AttackAutomaticCritical -= AttackAutomaticCritical;
-        // rulesetCharacter.DamageFormsTriggered -= DamageFormsTriggered;
-        // rulesetCharacter.HealingFormsTriggered -= HealingFormsTriggered;
-        // rulesetCharacter.IncomingDamageNotified -= IncomingDamageNotified;
-        // rulesetCharacter.AbilityScoreIncreased -= AbilityScoreIncreased;
-        // rulesetCharacter.DamageHalved -= DamageHalved;
-        // rulesetCharacter.DamageReduced -= DamageReduced;
-        // rulesetCharacter.ReplacedAbilityScoreForSave -= ReplacedAbilityScoreForSave;
-        // rulesetCharacter.AdditionalSaveDieRolled -= AdditionalSaveDieRolled;
-        // rulesetCharacter.DamageReceived -= DamageReceived;
-        // rulesetCharacter.AlterationInflicted -= AlterationInflicted;
-        // rulesetCharacter.SpellDissipated -= SpellDissipated;
-        // rulesetCharacter.TagRevealed -= TagRevealed;
-        // rulesetCharacter.ActorReplaced -= ActorReplaced;
-
-        if (rulesetCharacter is not RulesetCharacterHero rulesetCharacterHero)
-        {
-            return;
-        }
-
-        rulesetCharacterHero.ItemEquipedCallback -= ItemEquipped;
-        // rulesetCharacterHero.CharacterInventory.ItemEquiped -= ItemEquiped;
-        // rulesetCharacterHero.CharacterInventory.ItemAltered -= ItemAltered;
-        // rulesetCharacterHero.CharacterInventory.ItemUnequiped -= ItemUnequiped;
-        // rulesetCharacterHero.CharacterInventory.ItemReleased -= ItemReleased;        
     }
 
     private static void CharacterKilled(GameLocationCharacter character, bool considerDead)
     {
         Main.Info($"{character.Name} Character Killed");
     }
+#endif
 
     //
     // RulesetCharacterHero
@@ -428,7 +436,7 @@ internal static class DelegatesContext
         CharacterActionParams actionParams,
         ActionDefinition actionDefinition)
     {
-        Main.Info($"{actingCharacter?.Name} -> {actionDefinition.Name} FINISHED");
+        Main.Info($"{actingCharacter.Name} -> {actionDefinition.Name} FINISHED");
     }
 
     private static void ShoveActionUsed(
@@ -609,6 +617,7 @@ internal static class DelegatesContext
     }
 #endif
 
+#if false
     private static void AttackStart(
         GameLocationCharacter attacker,
         GameLocationCharacter defender,
@@ -634,6 +643,7 @@ internal static class DelegatesContext
             effect.BeforeOnAttackHit(attacker, defender, outcome, actionParams, attackMode, attackModifier);
         }
     }
+#endif
 
     private static void AttackImpactStart(
         GameLocationCharacter attacker,

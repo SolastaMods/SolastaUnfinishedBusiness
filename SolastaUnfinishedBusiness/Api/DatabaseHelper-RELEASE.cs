@@ -1,8 +1,6 @@
 // manually generated on 11/19/2022 07:00:00 PM
 using TA.AI;
-
 namespace SolastaUnfinishedBusiness.Api;
-
 internal static partial class DatabaseHelper
 {
     internal static class AlignmentDefinitions
@@ -77,6 +75,7 @@ internal static partial class DatabaseHelper
         internal static CharacterSubclassDefinition MartialCommander { get; } = GetDefinition<CharacterSubclassDefinition>("MartialCommander");
         internal static CharacterSubclassDefinition MartialMountaineer { get; } = GetDefinition<CharacterSubclassDefinition>("MartialMountaineer");
         internal static CharacterSubclassDefinition MartialSpellblade { get; } = GetDefinition<CharacterSubclassDefinition>("MartialSpellblade");
+        internal static CharacterSubclassDefinition OathOfDevotion { get; } = GetDefinition<CharacterSubclassDefinition>("OathOfDevotion");
         internal static CharacterSubclassDefinition OathOfJugement { get; } = GetDefinition<CharacterSubclassDefinition>("OathOfJugement");
         internal static CharacterSubclassDefinition OathOfTheMotherland { get; } = GetDefinition<CharacterSubclassDefinition>("OathOfTheMotherland");
         internal static CharacterSubclassDefinition PathClaw { get; } = GetDefinition<CharacterSubclassDefinition>("PathClaw");
@@ -250,6 +249,9 @@ internal static partial class DatabaseHelper
         internal static FeatureDefinitionAbilityCheckAffinity AbilityCheckAffinityConditionOwlsWisdom { get; } = GetDefinition<FeatureDefinitionAbilityCheckAffinity>("AbilityCheckAffinityConditionOwlsWisdom");
         internal static FeatureDefinitionAbilityCheckAffinity AbilityCheckAffinityFeatLockbreaker { get; } = GetDefinition<FeatureDefinitionAbilityCheckAffinity>("AbilityCheckAffinityFeatLockbreaker");
         internal static FeatureDefinitionAbilityCheckAffinity AbilityCheckAffinityIslandHalflingAcrobatics { get; } = GetDefinition<FeatureDefinitionAbilityCheckAffinity>("AbilityCheckAffinityIslandHalflingAcrobatics");
+        internal static FeatureDefinitionAbilityCheckAffinity AbilityCheckAffinityKeenSight { get; } = GetDefinition<FeatureDefinitionAbilityCheckAffinity>("AbilityCheckAffinityKeenSight");
+        internal static FeatureDefinitionAbilityCheckAffinity AbilityCheckAffinityKeenSmell { get; } = GetDefinition<FeatureDefinitionAbilityCheckAffinity>("AbilityCheckAffinityKeenSmell");
+        internal static FeatureDefinitionAbilityCheckAffinity AbilityCheckAffinityKeenHearing { get; } = GetDefinition<FeatureDefinitionAbilityCheckAffinity>("AbilityCheckAffinityKeenHearing");
         internal static FeatureDefinitionAbilityCheckAffinity AbilityCheckAffinityStealthDisadvantage { get; } = GetDefinition<FeatureDefinitionAbilityCheckAffinity>("AbilityCheckAffinityStealthDisadvantage");
     }
     internal static class FeatureDefinitionActionAffinitys
@@ -260,6 +262,7 @@ internal static partial class DatabaseHelper
         internal static FeatureDefinitionActionAffinity ActionAffinityFightingStyleProtection { get; } = GetDefinition<FeatureDefinitionActionAffinity>("ActionAffinityFightingStyleProtection");
         internal static FeatureDefinitionActionAffinity ActionAffinityMountaineerShieldCharge { get; } = GetDefinition<FeatureDefinitionActionAffinity>("ActionAffinityMountaineerShieldCharge");
         internal static FeatureDefinitionActionAffinity ActionAffinityRangerVanish { get; } = GetDefinition<FeatureDefinitionActionAffinity>("ActionAffinityRangerVanish");
+        internal static FeatureDefinitionActionAffinity ActionAffinityRogueCunningAction { get; } = GetDefinition<FeatureDefinitionActionAffinity>("ActionAffinityRogueCunningAction");
         internal static FeatureDefinitionActionAffinity ActionAffinitySorcererMetamagicToggle { get; } = GetDefinition<FeatureDefinitionActionAffinity>("ActionAffinitySorcererMetamagicToggle");
         internal static FeatureDefinitionActionAffinity ActionAffinityTraditionGreenMageLeafScales { get; } = GetDefinition<FeatureDefinitionActionAffinity>("ActionAffinityTraditionGreenMageLeafScales");
     }
@@ -357,6 +360,7 @@ internal static partial class DatabaseHelper
         internal static FeatureDefinitionCombatAffinity CombatAffinityPoisoned { get; } = GetDefinition<FeatureDefinitionCombatAffinity>("CombatAffinityPoisoned");
         internal static FeatureDefinitionCombatAffinity CombatAffinityProtectedFromEvil { get; } = GetDefinition<FeatureDefinitionCombatAffinity>("CombatAffinityProtectedFromEvil");
         internal static FeatureDefinitionCombatAffinity CombatAffinityReckless { get; } = GetDefinition<FeatureDefinitionCombatAffinity>("CombatAffinityReckless");
+        internal static FeatureDefinitionCombatAffinity CombatAffinityRousingShout { get; } = GetDefinition<FeatureDefinitionCombatAffinity>("CombatAffinityRousingShout");
         internal static FeatureDefinitionCombatAffinity CombatAffinitySensitiveToLight { get; } = GetDefinition<FeatureDefinitionCombatAffinity>("CombatAffinitySensitiveToLight");
         internal static FeatureDefinitionCombatAffinity CombatAffinityStealthy { get; } = GetDefinition<FeatureDefinitionCombatAffinity>("CombatAffinityStealthy");
     }
@@ -368,9 +372,7 @@ internal static partial class DatabaseHelper
         internal static FeatureDefinitionConditionAffinity ConditionAffinityCircleLandNaturesWardCharmed { get; } = GetDefinition<FeatureDefinitionConditionAffinity>("ConditionAffinityCircleLandNaturesWardCharmed");
         internal static FeatureDefinitionConditionAffinity ConditionAffinityCircleLandNaturesWardFrightened { get; } = GetDefinition<FeatureDefinitionConditionAffinity>("ConditionAffinityCircleLandNaturesWardFrightened");
         internal static FeatureDefinitionConditionAffinity ConditionAffinityElfFeyAncestryCharm { get; } = GetDefinition<FeatureDefinitionConditionAffinity>("ConditionAffinityElfFeyAncestryCharm");
-        internal static FeatureDefinitionConditionAffinity
-ConditionAffinityElfFeyAncestryCharmedByHypnoticPattern { get; } = GetDefinition<FeatureDefinitionConditionAffinity>(
-    "ConditionAffinityElfFeyAncestryCharmedByHypnoticPattern");
+        internal static FeatureDefinitionConditionAffinity ConditionAffinityElfFeyAncestryCharmedByHypnoticPattern { get; } = GetDefinition<FeatureDefinitionConditionAffinity>(     "ConditionAffinityElfFeyAncestryCharmedByHypnoticPattern");
         internal static FeatureDefinitionConditionAffinity ConditionAffinityExhaustionImmunity { get; } = GetDefinition<FeatureDefinitionConditionAffinity>("ConditionAffinityExhaustionImmunity");
         internal static FeatureDefinitionConditionAffinity ConditionAffinityFrightenedImmunity { get; } = GetDefinition<FeatureDefinitionConditionAffinity>("ConditionAffinityFrightenedImmunity");
         internal static FeatureDefinitionConditionAffinity ConditionAffinityGrappledImmunity { get; } = GetDefinition<FeatureDefinitionConditionAffinity>("ConditionAffinityGrappledImmunity");
@@ -600,6 +602,7 @@ ConditionAffinityElfFeyAncestryCharmedByHypnoticPattern { get; } = GetDefinition
         internal static FeatureDefinitionSavingThrowAffinity SavingThrowAffinityConditionBlessed { get; } = GetDefinition<FeatureDefinitionSavingThrowAffinity>("SavingThrowAffinityConditionBlessed");
         internal static FeatureDefinitionSavingThrowAffinity SavingThrowAffinityConditionRaging { get; } = GetDefinition<FeatureDefinitionSavingThrowAffinity>("SavingThrowAffinityConditionRaging");
         internal static FeatureDefinitionSavingThrowAffinity SavingThrowAffinityCreedOfArun { get; } = GetDefinition<FeatureDefinitionSavingThrowAffinity>("SavingThrowAffinityCreedOfArun");
+        internal static FeatureDefinitionSavingThrowAffinity SavingThrowAffinityCreedOfSolasta { get; } = GetDefinition<FeatureDefinitionSavingThrowAffinity>("SavingThrowAffinityCreedOfSolasta");
         internal static FeatureDefinitionSavingThrowAffinity SavingThrowAffinityGemIllusion { get; } = GetDefinition<FeatureDefinitionSavingThrowAffinity>("SavingThrowAffinityGemIllusion");
         internal static FeatureDefinitionSavingThrowAffinity SavingThrowAffinityShelteringBreeze { get; } = GetDefinition<FeatureDefinitionSavingThrowAffinity>("SavingThrowAffinityShelteringBreeze");
     }
@@ -1099,6 +1102,7 @@ ConditionAffinityElfFeyAncestryCharmedByHypnoticPattern { get; } = GetDefinition
     {
         internal static SpellDefinition AcidSplash { get; } = GetDefinition<SpellDefinition>("AcidSplash");
         internal static SpellDefinition Aid { get; } = GetDefinition<SpellDefinition>("Aid");
+        internal static SpellDefinition AnimalFriendship { get; } = GetDefinition<SpellDefinition>("AnimalFriendship");
         internal static SpellDefinition AnnoyingBee { get; } = GetDefinition<SpellDefinition>("AnnoyingBee");
         internal static SpellDefinition Bane { get; } = GetDefinition<SpellDefinition>("Bane");
         internal static SpellDefinition Banishment { get; } = GetDefinition<SpellDefinition>("Banishment");
@@ -1115,7 +1119,6 @@ ConditionAffinityElfFeyAncestryCharmedByHypnoticPattern { get; } = GetDefinition
         internal static SpellDefinition BurningHands_B { get; } = GetDefinition<SpellDefinition>("BurningHands_B");
         internal static SpellDefinition CallLightning { get; } = GetDefinition<SpellDefinition>("CallLightning");
         internal static SpellDefinition ChainLightning { get; } = GetDefinition<SpellDefinition>("ChainLightning");
-        internal static SpellDefinition CharmPerson { get; } = GetDefinition<SpellDefinition>("CharmPerson");
         internal static SpellDefinition ChillTouch { get; } = GetDefinition<SpellDefinition>("ChillTouch");
         internal static SpellDefinition CloudKill { get; } = GetDefinition<SpellDefinition>("CloudKill");
         internal static SpellDefinition Command { get; } = GetDefinition<SpellDefinition>("Command");
@@ -1156,6 +1159,7 @@ ConditionAffinityElfFeyAncestryCharmedByHypnoticPattern { get; } = GetDefinition
         internal static SpellDefinition FalseLife { get; } = GetDefinition<SpellDefinition>("FalseLife");
         internal static SpellDefinition Fear { get; } = GetDefinition<SpellDefinition>("Fear");
         internal static SpellDefinition FeatherFall { get; } = GetDefinition<SpellDefinition>("FeatherFall");
+        internal static SpellDefinition FindTraps { get; } = GetDefinition<SpellDefinition>("FindTraps");
         internal static SpellDefinition Fireball { get; } = GetDefinition<SpellDefinition>("Fireball");
         internal static SpellDefinition FireBolt { get; } = GetDefinition<SpellDefinition>("FireBolt");
         internal static SpellDefinition FireShield { get; } = GetDefinition<SpellDefinition>("FireShield");
@@ -1182,7 +1186,6 @@ ConditionAffinityElfFeyAncestryCharmedByHypnoticPattern { get; } = GetDefinition
         internal static SpellDefinition Heroism { get; } = GetDefinition<SpellDefinition>("Heroism");
         internal static SpellDefinition HideousLaughter { get; } = GetDefinition<SpellDefinition>("HideousLaughter");
         internal static SpellDefinition HoldMonster { get; } = GetDefinition<SpellDefinition>("HoldMonster");
-        internal static SpellDefinition HoldPerson { get; } = GetDefinition<SpellDefinition>("HoldPerson");
         internal static SpellDefinition HypnoticPattern { get; } = GetDefinition<SpellDefinition>("HypnoticPattern");
         internal static SpellDefinition IceStorm { get; } = GetDefinition<SpellDefinition>("IceStorm");
         internal static SpellDefinition Identify { get; } = GetDefinition<SpellDefinition>("Identify");

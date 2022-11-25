@@ -784,7 +784,7 @@ internal sealed class MartialTactician : AbstractSubclass
             .AddToDB();
     }
 
-    private class SpendPowerAfterAttack : IBeforeAttackEffect
+    private class SpendPowerAfterAttack : IAfterAttackEffect
     {
         private readonly FeatureDefinitionPower power;
 
@@ -793,7 +793,7 @@ internal sealed class MartialTactician : AbstractSubclass
             this.power = power;
         }
 
-        public void BeforeOnAttackHit(
+        public void AfterOnAttackHit(
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
             RollOutcome outcome,

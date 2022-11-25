@@ -59,7 +59,10 @@ public static class CharacterReactionItemPatcher
 
         private static void SetupResource(CharacterReactionItem item, ICustomReactionResource resource)
         {
-            if (resource == null) { return; }
+            if (resource == null)
+            {
+                return;
+            }
 
             Gui.ReleaseAddressableAsset(item.resourceCostSprite);
             item.resourceCostSprite = Gui.LoadAssetSync<Sprite>(resource.Icon);

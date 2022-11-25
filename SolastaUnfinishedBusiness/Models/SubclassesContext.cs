@@ -20,6 +20,7 @@ internal static class SubclassesContext
     {
         // Barbarian
         LoadSubclass(new PathOfTheLight());
+        LoadSubclass(new PathOfTheSpirits());
 
         // Bard
         LoadSubclass(new CollegeOfGuts());
@@ -33,6 +34,7 @@ internal static class SubclassesContext
 
         // Fighter
         LoadSubclass(new MartialMarshal());
+        LoadSubclass(new MartialRoyalKnight());
         LoadSubclass(new MartialSpellShield());
         LoadSubclass(new MartialTactician());
 

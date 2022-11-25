@@ -36,11 +36,20 @@ internal sealed class ValidatorsPowerUse : IPowerUseValidity
         return new ValidatorsPowerUse((character, power) =>
         {
             var user = GameLocationCharacter.GetFromActor(character);
-            if (user == null) { return false; }
+
+            if (user == null)
+            {
+                return false;
+            }
 
             user.UsedSpecialFeatures.TryGetValue(power.Name, out var uses);
             return uses < limit;
         });
+    }
+
+    internal static IPowerUseValidity HasNoCondition(params string[] types)
+    {
+        return new ValidatorsPowerUse(ValidatorsCharacter.HasNoCondition(types));
     }
 
     internal static bool IsPowerNotValid(RulesetCharacter character, RulesetUsablePower power)

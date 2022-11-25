@@ -1,5 +1,7 @@
 ﻿CHANGES:
 
-1.4.28.G:
+1.4.28.I:
 
-- added SRD rule option to identify items over rest activities
+- fixed beast duplicates when they get upgraded from 6 to 7, 10 to 11, 14 to 15
+- fixed IAfterAttackEffect not triggering which broke Dual Flurry and others
+- promoted Royal Knight as requested on Discord

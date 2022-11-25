@@ -69,7 +69,10 @@ public class MirrorImageLogic
         RulesetActor target,
         List<RuleDefinitions.TrendInfo> toHitTrends)
     {
-        if (!TargetsMirrorImage(toHitTrends)) { return attribute.CurrentValue; }
+        if (!TargetsMirrorImage(toHitTrends))
+        {
+            return attribute.CurrentValue;
+        }
 
         var dexterity = target.TryGetAttributeValue(AttributeDefinitions.Dexterity);
         return 10 + AttributeDefinitions.ComputeAbilityScoreModifier(dexterity);

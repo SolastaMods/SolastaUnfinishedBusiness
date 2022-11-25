@@ -35,7 +35,6 @@ internal static class TwoWeaponCombatFeats
             .SetDuration(DurationType.Round, 0, false)
             .SetTurnOccurence(TurnOccurenceType.EndOfTurn)
             .SetPossessive()
-            .SetSilent(Silent.WhenAddedOrRemoved)
             .SetConditionType(ConditionType.Beneficial)
             .SetSpecialInterruptions(ConditionInterruption.AnyBattleTurnEnd)
             .AddToDB();
@@ -46,7 +45,6 @@ internal static class TwoWeaponCombatFeats
             .SetDuration(DurationType.Round, 0, false)
             .SetTurnOccurence(TurnOccurenceType.EndOfTurn)
             .SetPossessive()
-            .SetSilent(Silent.WhenAddedOrRemoved)
             .SetConditionType(ConditionType.Beneficial)
             .SetSpecialInterruptions(ConditionInterruption.AnyBattleTurnEnd)
             .SetFeatures(

@@ -33,7 +33,11 @@ public static class RulesetCharacterHeroPatcher
             for (var index = 0; index < codes.Count; index++)
             {
                 var code = codes[index];
-                if (found) { continue; }
+
+                if (found)
+                {
+                    continue;
+                }
 
                 if (rulesetConditionVar == null && code.opcode == OpCodes.Ldloc_S &&
                     $"{code.operand}".Contains("RulesetCondition"))
