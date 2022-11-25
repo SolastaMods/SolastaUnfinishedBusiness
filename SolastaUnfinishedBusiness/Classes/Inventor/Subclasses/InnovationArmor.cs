@@ -258,7 +258,8 @@ public static class InnovationArmor
         TrendInfo trendInfo;
         if (hitBonus != 0)
         {
-            trendInfo = new TrendInfo(hitBonus, FeatureSourceType.Equipment, armor.Name, null);
+            trendInfo = new TrendInfo(hitBonus, FeatureSourceType.Equipment, armor.ItemDefinition.GuiPresentation.Title,
+                null);
 
             attackMode.ToHitBonus += hitBonus;
             attackMode.ToHitBonusTrends.Add(trendInfo);
@@ -272,7 +273,8 @@ public static class InnovationArmor
             return;
         }
 
-        trendInfo = new TrendInfo(damageBonus, FeatureSourceType.Equipment, armor.Name, null);
+        trendInfo = new TrendInfo(damageBonus, FeatureSourceType.Equipment, armor.ItemDefinition.GuiPresentation.Title,
+            null);
         damage.BonusDamage += damageBonus;
         damage.DamageBonusTrends.Add(trendInfo);
     }

@@ -42,9 +42,9 @@
     "rollSaveOnlyIfRelevantForms": false,
     "hasShoveRoll": false,
     "createdByCharacter": true,
-    "difficultyClassComputation": "AbilityScoreAndProficiency",
+    "difficultyClassComputation": "FixedValue",
     "savingThrowDifficultyAbility": "Dexterity",
-    "fixedSavingThrowDifficultyClass": 15,
+    "fixedSavingThrowDifficultyClass": 8,
     "savingThrowAffinitiesBySense": [],
     "savingThrowAffinitiesByFamily": [],
     "advantageForEnemies": false,
@@ -68,13 +68,13 @@
         "levelType": "ClassLevel",
         "levelMultiplier": 1,
         "diceByLevelTable": [],
-        "createdByCharacter": false,
+        "createdByCharacter": true,
         "createdByCondition": false,
-        "hasSavingThrow": false,
-        "savingThrowAffinity": "None",
+        "hasSavingThrow": true,
+        "savingThrowAffinity": "Negates",
         "dcModifier": 0,
         "canSaveToCancel": false,
-        "saveOccurence": "EndOfTurn",
+        "saveOccurence": "StartOfTurn",
         "conditionForm": {
           "$type": "ConditionForm, Assembly-CSharp",
           "conditionDefinitionName": "ConditionOnFire1D4",
@@ -326,8 +326,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&PowerTorchbearerTitle",
-    "description": "Feature/&PowerTorchbearerDescription",
+    "title": "Feature/&PowerFightingStyleTorchbearerTitle",
+    "description": "Feature/&PowerFightingStyleTorchbearerDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "3f9d7f1e19c5d0f4a9add3aedb41fcfc",
@@ -347,7 +347,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "7acd8210-3f93-52be-bdeb-1e8956d1115a",
+  "guid": "5cc54111-99a1-5bcc-b82b-732907f1bba7",
   "contentPack": 9999,
-  "name": "PowerTorchbearer"
+  "name": "PowerFightingStyleTorchbearer"
 }
