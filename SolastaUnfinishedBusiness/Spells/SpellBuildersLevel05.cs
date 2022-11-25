@@ -34,13 +34,10 @@ internal static partial class SpellBuilders
         var condition = ConditionDefinitionBuilder
             .Create(ConditionName)
             .SetGuiPresentation(Category.Condition, ConditionJump)
+            .SetCustomSubFeatures(AddUsablePowersFromCondition.Marker)
             .SetSilent(Silent.None)
             .SetPossessive()
-            .SetFeatures(FeatureDefinitionBuilder
-                .Create("FeatureFarStep")
-                .SetGuiPresentation(ConditionName, Category.Condition)
-                .SetCustomSubFeatures(new AddUsablePowerFromCondition(power))
-                .AddToDB())
+            .SetFeatures(power)
             .AddToDB();
 
         return SpellDefinitionBuilder
