@@ -2,8 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
+using SolastaUnfinishedBusiness.Api.Infrastructure;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
+using SolastaUnfinishedBusiness.CustomDefinitions;
+using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Properties;
 using SolastaUnfinishedBusiness.Races;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
@@ -49,6 +52,7 @@ internal static class CharacterContext
                 .AddToDB();
         }
 
+        LoadFighterArmamentAdroitness();
         LoadHelpPower();
         LoadEpicArray();
         LoadAdditionalNames();
@@ -63,6 +67,7 @@ internal static class CharacterContext
         SwitchFirstLevelTotalFeats(); // alternate human here as well
         SwitchAsiAndFeat();
         SwitchEvenLevelFeats();
+        SwitchFighterArmamentAdroitness();
     }
 
     private static void LoadHelpPower()
@@ -303,7 +308,6 @@ internal static class CharacterContext
     }
 #endif
 
-
     internal static void SwitchHelpPower()
     {
         var dbCharacterRaceDefinition = DatabaseRepository.GetDatabase<CharacterRaceDefinition>();
@@ -399,7 +403,9 @@ internal static class CharacterContext
         LoadRacesLevel1Feats(Main.Settings.TotalFeatsGrantedFirstLevel, Main.Settings.EnableAlternateHuman);
     }
 
-    private static void BuildFeatureUnlocks(int initialFeats, bool alternateHuman,
+    private static void BuildFeatureUnlocks(
+        int initialFeats,
+        bool alternateHuman,
         [CanBeNull] out FeatureUnlockByLevel featureUnlockByLevelNonHuman,
         [CanBeNull] out FeatureUnlockByLevel featureUnlockByLevelHuman)
     {
@@ -532,7 +538,9 @@ internal static class CharacterContext
         }
     }
 
-    private static void Remove([NotNull] CharacterRaceDefinition characterRaceDefinition, BaseDefinition toRemove)
+    private static void Remove(
+        [NotNull] CharacterRaceDefinition characterRaceDefinition,
+        BaseDefinition toRemove)
     {
         var ndx = -1;
 
@@ -551,7 +559,8 @@ internal static class CharacterContext
         }
     }
 
-    private static void Remove([NotNull] CharacterRaceDefinition characterRaceDefinition,
+    private static void Remove(
+        [NotNull] CharacterRaceDefinition characterRaceDefinition,
         [NotNull] FeatureUnlockByLevel featureUnlockByLevel)
     {
         Remove(characterRaceDefinition, featureUnlockByLevel.FeatureDefinition);
@@ -561,5 +570,69 @@ internal static class CharacterContext
     {
         return DatabaseRepository.GetDatabase<CharacterRaceDefinition>()
             .Any(crd => crd.SubRaces.Contains(raceDefinition));
+    }
+
+    private static FeatureDefinitionCustomInvocationPool InvocationPoolFighterArmamentAdroitness { get; set; }
+
+    private static void LoadFighterArmamentAdroitness()
+    {
+        InvocationPoolFighterArmamentAdroitness = CustomInvocationPoolDefinitionBuilder
+            .Create("InvocationPoolFighterArmamentAdroitness")
+            .SetGuiPresentation(Category.Feature)
+            .Setup(InvocationPoolTypeCustom.Pools.ArmamentAdroitness)
+            .AddToDB();
+
+        var db = DatabaseRepository.GetDatabase<WeaponTypeDefinition>()
+            .Where(x => x.name != "UnarmedStrikeType");
+
+        foreach (var weaponTypeDefinition in db)
+        {
+            var name = weaponTypeDefinition.name;
+
+            var guiPresentation = weaponTypeDefinition.GuiPresentation.DeepCopy();
+
+            guiPresentation.spriteReference = Sprites.GambitResourceIcon;
+
+            CustomInvocationDefinitionBuilder
+                .Create($"CustomInvocationArmamentAdroitness{name}")
+                .SetGuiPresentation(guiPresentation)
+                .SetPoolType(InvocationPoolTypeCustom.Pools.ArmamentAdroitness)
+                .SetGrantedFeature(
+                    FeatureDefinitionAttackModifierBuilder
+                        .Create("AttributeModifierFighterArmamentAdroitness")
+                        .SetGuiPresentation(Category.Feature)
+                        .SetAttackRollModifier(1)
+                        .SetDamageRollModifier(1)
+                        .AddToDB())
+                .AddToDB();
+        }
+    }
+
+    internal static void SwitchFighterArmamentAdroitness()
+    {
+        var levels = new[] { 4, 6, 8, 12, 14, 16, 19 };
+
+        if (Main.Settings.EnableFighterArmamentAdroitness)
+        {
+            foreach (var level in levels)
+            {
+                CharacterClassDefinitions.Fighter.FeatureUnlocks.TryAdd(
+                    new FeatureUnlockByLevel(InvocationPoolFighterArmamentAdroitness, level));
+            }
+        }
+        else
+        {
+            foreach (var level in levels)
+            {
+                CharacterClassDefinitions.Fighter.FeatureUnlocks
+                    .RemoveAll(x => x.level == level &&
+                                    x.FeatureDefinition == InvocationPoolFighterArmamentAdroitness);
+            }
+        }
+
+        if (Main.Settings.EnableSortingFutureFeatures)
+        {
+            CharacterClassDefinitions.Fighter.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
+        }
     }
 }

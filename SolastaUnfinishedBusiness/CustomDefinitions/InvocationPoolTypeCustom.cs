@@ -123,6 +123,9 @@ internal class InvocationPoolTypeCustom
 
     internal static class Pools
     {
+        internal static readonly InvocationPoolTypeCustom ArmamentAdroitness =
+            Register("ArmamentAdroitness", hidden: true);
+
         internal static readonly InvocationPoolTypeCustom Infusion =
             Register("Infusion", InventorClass.Pictogram, InventorClass.ClassName,
                 main: (Id)ExtraActionId.InventorInfusion);
