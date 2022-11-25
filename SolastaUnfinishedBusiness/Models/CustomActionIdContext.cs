@@ -116,7 +116,7 @@ public static class CustomActionIdContext
         const string NAME = "FarStep";
 
         FarStep = FeatureDefinitionPowerBuilder
-            .Create("PowerFarStep")
+            .Create($"Power{NAME}")
             .SetGuiPresentation(NAME, Category.Action, Sprites.PowerFarStep)
             .SetUsesFixed(ActivationTime.BonusAction)
             .DelegatedToAction()
@@ -131,7 +131,7 @@ public static class CustomActionIdContext
             .AddToDB();
 
         ActionDefinitionBuilder
-            .Create(baseAction, NAME)
+            .Create(baseAction, $"Action{NAME}")
             .SetGuiPresentation(Category.Action, Sprites.SpellFarStep, 71)
             .SetActionId(ExtraActionId.FarStep)
             .OverrideClassName("UsePower")
