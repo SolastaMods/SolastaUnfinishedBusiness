@@ -290,6 +290,13 @@ internal static class ItemsAndCraftingDisplay
                 }
             }
 
+            toggle = Main.Settings.StockGorimStoreWithAllNonMagicalInstruments;
+            if (UI.Toggle(Gui.Localize("ModUi/&StockGorimStoreWithAllNonMagicalInstruments"), ref toggle,
+                    UI.AutoWidth()))
+            {
+                Main.Settings.StockGorimStoreWithAllNonMagicalInstruments = toggle;
+            }
+
             toggle = Main.Settings.ScaleMerchantPricesCorrectly;
             if (UI.Toggle(Gui.Localize("ModUi/&ScaleMerchantPricesCorrectly"), ref toggle, UI.AutoWidth()))
             {

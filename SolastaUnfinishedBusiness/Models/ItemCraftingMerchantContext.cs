@@ -81,6 +81,37 @@ internal static class ItemCraftingMerchantContext
         valleyNoble.GuiPresentation.title = "Equipment/&Armor_Noble_ClothesTitle_Valley";
     }
 
+    private static void LoadInstrumentsGorimStock()
+    {
+        if (!Main.Settings.StockGorimStoreWithAllNonMagicalInstruments)
+        {
+            return;
+        }
+
+        foreach (var item in DatabaseRepository.GetDatabase<ItemDefinition>().Where(
+                     x => x.IsMusicalInstrument && !x.Magical))
+        {
+            item.merchantCategory = "Adventuring";
+            item.costs = ComponentPouch.Costs;
+
+            var stockInstruments = new StockUnitDescription
+            {
+                itemDefinition = item,
+                initialAmount = 2,
+                initialized = true,
+                factionStatus = Indifference.Name,
+                maxAmount = 4,
+                minAmount = 2,
+                stackCount = 1,
+                reassortAmount = 1,
+                reassortRateValue = 1,
+                reassortRateType = RuleDefinitions.DurationType.Day
+            };
+
+            Store_Merchant_Gorim_Ironsoot_Cyflen_GeneralStore.StockUnitDescriptions.Add(stockInstruments);
+        }
+    }
+
     internal static void SwitchSetBeltOfDwarvenKindBeardChances()
     {
         CharacterPresentationBeltOfDwarvenKind.occurencePercentage =
@@ -220,6 +251,7 @@ internal static class ItemCraftingMerchantContext
         SwitchAttuneArcaneShieldstaff();
         SwitchSetBeltOfDwarvenKindBeardChances();
         LoadClothingGorimStock();
+        LoadInstrumentsGorimStock();
         SwitchFociItems();
         SwitchFociItemsDungeonMaker();
         SwitchRestockAntiquarian();
