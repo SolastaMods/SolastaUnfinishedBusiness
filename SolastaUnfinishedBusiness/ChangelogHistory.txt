@@ -1,5 +1,9 @@
 ﻿CHANGES:
 
+1.4.28.M:
+
+- added musical instruments to Gorin's stock
+
 1.4.28.L:
 
 - added an icon to livewood club
