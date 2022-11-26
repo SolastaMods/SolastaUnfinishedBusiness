@@ -632,7 +632,10 @@ internal static class CharacterContext
 
             CustomInvocationDefinitionBuilder
                 .Create($"CustomInvocationArmamentAdroitness{weaponTypeDefinition.name}")
-                .SetGuiPresentation(weaponTypeDefinition.GuiPresentation)
+                .SetGuiPresentation(
+                    weaponTypeDefinition.GuiPresentation.Title,
+                    modifyAttackModeForWeaponFighterArmamentAdroitness.GuiPresentation.Description,
+                    CustomWeaponsContext.GetStandartWeaponOfType(weaponTypeDefinition.Name))
                 .SetPoolType(InvocationPoolTypeCustom.Pools.ArmamentAdroitness)
                 .SetGrantedFeature(modifyAttackModeForWeaponFighterArmamentAdroitness)
                 .SetCustomSubFeatures(Hidden.Marker)
