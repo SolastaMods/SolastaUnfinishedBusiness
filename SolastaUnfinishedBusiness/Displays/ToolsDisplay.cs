@@ -156,6 +156,11 @@ internal static class ToolsDisplay
                 ToolsContext.GamePartySize, string.Empty, UI.AutoWidth()))
         {
             Main.Settings.OverridePartySize = intValue;
+
+            while (Main.Settings.DefaultPartyHeroes.Count > intValue)
+            {
+                Main.Settings.DefaultPartyHeroes.RemoveAt(Main.Settings.DefaultPartyHeroes.Count - 1);
+            }
         }
 
         if (Main.Settings.OverridePartySize > ToolsContext.GamePartySize)
