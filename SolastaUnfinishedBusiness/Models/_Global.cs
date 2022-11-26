@@ -89,14 +89,12 @@ internal static class Global
         }
     }
 
-    internal static void ActionFinished(
-        GameLocationCharacter actingCharacter,
-        CharacterActionParams actionParams,
-        ActionDefinition actionDefinition)
+    internal static void ActionFinished(CharacterAction action)
     {
+        var actingCharacter = action.ActingCharacter;
         foreach (var feature in actingCharacter.RulesetCharacter.GetSubFeaturesByType<IOnAfterActionFeature>())
         {
-            feature.OnAfterAction(actingCharacter, actionParams, actionDefinition);
+            feature.OnAfterAction(action);
         }
     }
 }
