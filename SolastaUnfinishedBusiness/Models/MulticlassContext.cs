@@ -9,6 +9,7 @@ using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
+using SolastaUnfinishedBusiness.Classes.Inventor;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterClassDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterSubclassDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPointPools;
@@ -206,22 +207,24 @@ internal static class MulticlassContext
             .SetModifier(AttributeModifierOperation.ForceIfBetter, AttributeDefinitions.AttacksNumber, 3)
             .AddToDB();
 
-#if false
-        // leave here for now as we will need this on level 20...
-        _ = FeatureDefinitionAttributeModifierBuilder
+        Fighter.FeatureUnlocks.Add(new FeatureUnlockByLevel(attributeModifierExtraAttackForce3, 11));
+        RangerSwiftBlade.FeatureUnlocks.Add(new FeatureUnlockByLevel(attributeModifierExtraAttackForce3, 11));
+
+        // fix Fighter use case at level 20
+        var attributeModifierExtraAttackForce4 = FeatureDefinitionAttributeModifierBuilder
             .Create(AttributeModifierFighterExtraAttack, "AttributeModifierExtraAttackForce4")
             .SetGuiPresentationNoContent(true)
             .SetModifier(AttributeModifierOperation.ForceIfBetter, AttributeDefinitions.AttacksNumber, 4)
             .AddToDB();
-#endif
 
-        Fighter.FeatureUnlocks.Add(new FeatureUnlockByLevel(attributeModifierExtraAttackForce3, 11));
-        RangerSwiftBlade.FeatureUnlocks.Add(new FeatureUnlockByLevel(attributeModifierExtraAttackForce3, 11));
+        Fighter.FeatureUnlocks.Add(new FeatureUnlockByLevel(attributeModifierExtraAttackForce4, 20));
     }
 
     private static void AddNonOfficialBlueprintsToFeaturesCollections()
     {
-        if (!DatabaseHelper.TryGetDefinition<CharacterClassDefinition>("Inventor", out var inventorClass))
+        const string INVENTOR_NAME = InventorClass.ClassName;
+
+        if (!DatabaseHelper.TryGetDefinition<CharacterClassDefinition>(INVENTOR_NAME, out var inventorClass))
         {
             return;
         }
