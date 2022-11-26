@@ -71,6 +71,9 @@ public static class CharacterActionPanelPatcher
             var definition = invocation.InvocationDefinition;
             var power = definition.GetPower();
 
+            var actionDefinitions =
+                ServiceRepository.GetService<IGameLocationActionService>().AllActionDefinitions;
+
             if (power != null)
             {
                 var bundle = power.GetBundle();
@@ -87,9 +90,6 @@ public static class CharacterActionPanelPatcher
                     }
                 }
 
-                var actionDefinitions =
-                    ServiceRepository.GetService<IGameLocationActionService>().AllActionDefinitions;
-
                 __instance.actionId = power.BattleActionId;
                 __instance.actionParams.actionDefinition = actionDefinitions[__instance.actionId];
                 __instance.PowerEngaged(UsablePowersProvider.Get(power, __instance.GuiCharacter.RulesetCharacter));
@@ -99,7 +99,12 @@ public static class CharacterActionPanelPatcher
 
             if (definition.GrantedSpell != null)
             {
-                __instance.actionId = ActionDefinitions.Id.CastInvocation;
+                if (__instance.actionId != ActionDefinitions.Id.CastInvocation)
+                {
+                    __instance.actionId = definition.GrantedSpell.BattleActionId;
+                    __instance.actionParams.actionDefinition = actionDefinitions[__instance.actionId];
+                }
+
                 return true;
             }
 
