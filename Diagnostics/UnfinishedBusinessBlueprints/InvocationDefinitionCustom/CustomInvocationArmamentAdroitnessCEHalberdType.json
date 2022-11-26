@@ -12,10 +12,10 @@
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "Item/&CEHalberdTypeTitle",
-    "description": "Feature/&NoContentTitle",
+    "description": "Feature/&ModifyAttackModeForWeaponFighterArmamentAdroitnessDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "",
+      "m_AssetGUID": "bc55638e-923c-5cc1-aeaf-3d70d1eeaa5d",
       "m_SubObjectName": null,
       "m_SubObjectType": null
     },

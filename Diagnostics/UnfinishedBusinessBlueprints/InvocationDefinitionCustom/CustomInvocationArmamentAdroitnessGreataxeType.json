@@ -12,12 +12,12 @@
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "Equipment/&GreataxeTypeTitle",
-    "description": "Feature/&NoContentTitle",
+    "description": "Feature/&ModifyAttackModeForWeaponFighterArmamentAdroitnessDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "",
-      "m_SubObjectName": "",
-      "m_SubObjectType": ""
+      "m_AssetGUID": "3dab7e358bf41a6418ead8ce55ed11c3",
+      "m_SubObjectName": "StandardGreataxe",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
@@ -27,7 +27,7 @@
       "a": 1.0
     },
     "symbolChar": "221E",
-    "sortOrder": 18,
+    "sortOrder": 0,
     "unusedInSolastaCOTM": false,
     "usedInValleyDLC": false
   },

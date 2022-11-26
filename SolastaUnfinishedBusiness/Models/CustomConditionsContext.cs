@@ -136,11 +136,11 @@ internal static class CustomConditionsContext
             target.RemoveAllConditionsOfCategory(CategoryHidden, false);
         }
 
-        public void OnAfterAction(
-            GameLocationCharacter actingCharacter,
-            CharacterActionParams actionParams,
-            ActionDefinition actionDefinition)
+        public void OnAfterAction(CharacterAction action)
         {
+            var actingCharacter = action.ActingCharacter;
+            var actionDefinition = action.ActionDefinition;
+            var actionParams = action.ActionParams;
             var hero = actingCharacter.RulesetCharacter;
 
             if (!actionDefinition.Name.StartsWith("Attack")

@@ -1,5 +1,8 @@
 ﻿CHANGES:
 
-1.4.28.L:
+1.4.28.M:
 
-- added an icon to livewood club
+- added non-magical instruments to Gorin's stock
+- fixed Fighter extra attack at level 20
+- fixed issues on Tactician caused by a sloop maintainer
+- renamed Armament Adroitness to Weapon Training to keep developer mental health

@@ -19,7 +19,6 @@ public class AddUsablePowersFromCondition : ICustomConditionFeature
     {
         foreach (var power in rulesetCondition.ConditionDefinition.features.OfType<FeatureDefinitionPower>())
         {
-
             if (target.UsablePowers.Any(u => u.PowerDefinition == power))
             {
                 continue;

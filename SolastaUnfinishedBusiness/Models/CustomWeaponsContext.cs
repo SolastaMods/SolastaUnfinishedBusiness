@@ -670,6 +670,28 @@ internal static class CustomWeaponsContext
         }
     }
 
+    internal static ItemDefinition GetStandardWeaponOfType(string type)
+    {
+        //Darts for some reason are not marked as `Standard`, so return regular Dart for this type 
+        if (type == WeaponTypeDefinitions.DartType.Name)
+        {
+            return ItemDefinitions.Dart;
+        }
+
+        var allElements = DatabaseRepository.GetDatabase<ItemDefinition>().GetAllElements();
+        foreach (var item in allElements)
+        {
+            if (item.ItemTags.Contains(TagsDefinitions.ItemTagStandard)
+                && item.IsWeapon
+                && item.WeaponDescription.WeaponTypeDefinition.Name == type)
+            {
+                return item;
+            }
+        }
+
+        return null;
+    }
+
     #region Halberd Icons
 
     private static AssetReferenceSprite _halberdIcon,

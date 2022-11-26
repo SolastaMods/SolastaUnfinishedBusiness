@@ -381,10 +381,10 @@ When you cast this spell using a spell slot of 4th level or higher, the damage i
 
 [list]
 
-[*][b]Zappastuff[/b]: maintenance, infrastructure, gameplay, feats, fighting styles, invocations, rules, quality of life, Half-elf variants, Blade Dancer, Ancient Forest, College of Guts, College of Life, Dead Master, Field Manipulator, Way of The Silhouette, Wild Master, Multiclass
+[*][b]Zappastuff[/b]: maintenance, mod UI, infrastructure, gameplay, feats, fighting styles, invocations, rules, quality of life, Half-elf variants, Blade Dancer, Ancient Forest, College of Guts, College of Life, Dead Master, Field Manipulator, Way of The Silhouette, Wild Master, Multiclass
 [*][b]TPABOBAP[/b]: game UI, infrastructure, gameplay, feats, invocations, spells, Dead Master, Elementalist, Moonlit, RiftWalker, SoulBlade, Tactician, Way of The Distant Hand, Inventor
 [*][b]ImpPhil[/b]: api, builders, gameplay, rules, quality of life
-[*][b]ChrisJohnDigital[/b]: gameplay, feats, fighting styles, original Wizard subclasses, Arcane Fighter, Spell Master, Spell Shield
+[*][b]ChrisJohnDigital[/b]: builders, gameplay, feats, fighting styles, original Wizard subclasses, Arcane Fighter, Spell Master, Spell Shield
 [*][b]SilverGriffon[/b]: gameplay, visuals, spells, Dark Elf, Draconic Kobold, Grey Dwarf, Divine Heart
 [*][b]Nd[/b]: College of Harlequin, Marshal, Opportunist, Raven, Spell Shield
 [*][b]DubhHerder[/b]: gameplay, spells, original Warlock subclasses

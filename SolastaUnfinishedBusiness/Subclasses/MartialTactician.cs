@@ -1056,17 +1056,14 @@ internal sealed class MartialTactician : AbstractSubclass
             this.condition = condition;
         }
 
-        public void OnAfterAction(
-            GameLocationCharacter actingCharacter,
-            CharacterActionParams actionParams,
-            ActionDefinition actionDefinition)
+        public void OnAfterAction(CharacterAction action)
         {
-            if (actionParams.TargetAction is not CharacterActionActionSurge)
+            if (action is not CharacterActionActionSurge)
             {
                 return;
             }
 
-            var character = actingCharacter.RulesetCharacter;
+            var character = action.ActingCharacter.RulesetCharacter;
             var charges = character.GetRemainingPowerUses(power) - character.GetMaxUsesForPool(power);
             charges = Math.Max(charges, -2);
 

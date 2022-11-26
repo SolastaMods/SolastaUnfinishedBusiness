@@ -21,13 +21,13 @@ internal abstract class DefinitionBuilder
 
     internal static readonly Guid CeNamespaceGuid = new("b1ffaca74824486ea74a68d45e6b1925");
 
+    private static Dictionary<string, (string typeName, bool isCeDef)> DefinitionNames { get; } =
+        GetAllDefinitionNames();
+
     protected static string CreateGuid(Guid guid, string name)
     {
         return GuidHelper.Create(guid, name).ToString();
     }
-
-    private static Dictionary<string, (string typeName, bool isCeDef)> DefinitionNames { get; } =
-        GetAllDefinitionNames();
 
     protected static void LogDefinition(string message)
     {
@@ -378,9 +378,7 @@ internal abstract class DefinitionBuilder<TDefinition> : DefinitionBuilder, IDef
         Definition = ScriptableObject.CreateInstance<TDefinition>();
         Definition.name = name;
 
-#if DEBUG
         VerifyDefinitionNameIsNotInUse(Definition.GetType().Name, name);
-#endif
 
         InitializeCollectionFields();
 

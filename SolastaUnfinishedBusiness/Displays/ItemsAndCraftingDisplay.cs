@@ -265,11 +265,24 @@ internal static class ItemsAndCraftingDisplay
         {
             UI.Label();
 
+            toggle = Main.Settings.ScaleMerchantPricesCorrectly;
+            if (UI.Toggle(Gui.Localize("ModUi/&ScaleMerchantPricesCorrectly"), ref toggle, UI.AutoWidth()))
+            {
+                Main.Settings.ScaleMerchantPricesCorrectly = toggle;
+            }
+
             toggle = Main.Settings.StockGorimStoreWithAllNonMagicalClothing;
             if (UI.Toggle(Gui.Localize("ModUi/&StockGorimStoreWithAllNonMagicalClothing"), ref toggle,
                     UI.AutoWidth()))
             {
                 Main.Settings.StockGorimStoreWithAllNonMagicalClothing = toggle;
+            }
+
+            toggle = Main.Settings.StockGorimStoreWithAllNonMagicalInstruments;
+            if (UI.Toggle(Gui.Localize("ModUi/&StockGorimStoreWithAllNonMagicalInstruments"), ref toggle,
+                    UI.AutoWidth()))
+            {
+                Main.Settings.StockGorimStoreWithAllNonMagicalInstruments = toggle;
             }
 
             toggle = Main.Settings.StockHugoStoreWithAdditionalFoci;
@@ -288,12 +301,6 @@ internal static class ItemsAndCraftingDisplay
                     Main.Settings.EnableAdditionalFociInDungeonMaker = toggle;
                     ItemCraftingMerchantContext.SwitchFociItemsDungeonMaker();
                 }
-            }
-
-            toggle = Main.Settings.ScaleMerchantPricesCorrectly;
-            if (UI.Toggle(Gui.Localize("ModUi/&ScaleMerchantPricesCorrectly"), ref toggle, UI.AutoWidth()))
-            {
-                Main.Settings.ScaleMerchantPricesCorrectly = toggle;
             }
 
             UI.Label();

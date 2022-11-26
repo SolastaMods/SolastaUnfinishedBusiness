@@ -13,7 +13,7 @@ internal class EffectDescriptionBuilder
     {
         effect = new EffectDescription
         {
-            effectAdvancement = new EffectAdvancement {incrementMultiplier = 1},
+            effectAdvancement = new EffectAdvancement { incrementMultiplier = 1 },
             effectParticleParameters = MagicWeapon.EffectDescription.EffectParticleParameters
         };
     }

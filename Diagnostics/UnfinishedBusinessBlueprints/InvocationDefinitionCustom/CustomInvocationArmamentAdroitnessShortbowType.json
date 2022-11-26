@@ -12,12 +12,12 @@
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "Equipment/&ShortbowTypeTitle",
-    "description": "Feature/&NoContentTitle",
+    "description": "Feature/&ModifyAttackModeForWeaponFighterArmamentAdroitnessDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "",
-      "m_SubObjectName": "",
-      "m_SubObjectType": ""
+      "m_AssetGUID": "897d19c73cbdc8c4482dea01192136d3",
+      "m_SubObjectName": "StandardShortbow",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
@@ -27,7 +27,7 @@
       "a": 1.0
     },
     "symbolChar": "221E",
-    "sortOrder": 13,
+    "sortOrder": 0,
     "unusedInSolastaCOTM": false,
     "usedInValleyDLC": false
   },
