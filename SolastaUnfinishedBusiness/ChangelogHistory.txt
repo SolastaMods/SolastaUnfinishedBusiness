@@ -1,5 +1,10 @@
 ﻿CHANGES:
 
+1.4.28.N:
+
+- fixed targeting of custom invocations cast spell (mainly from Plane Magic feats)
+- fixed Dragonborn breath powers interaction with Multiclass
+
 1.4.28.M:
 
 - added non-magical instruments to Gorin's stock
