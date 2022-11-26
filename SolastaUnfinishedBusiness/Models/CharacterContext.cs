@@ -635,7 +635,7 @@ internal static class CharacterContext
                 .SetGuiPresentation(
                     weaponTypeDefinition.GuiPresentation.Title,
                     modifyAttackModeForWeaponFighterArmamentAdroitness.GuiPresentation.Description,
-                    CustomWeaponsContext.GetStandartWeaponOfType(weaponTypeDefinition.Name))
+                    CustomWeaponsContext.GetStandardWeaponOfType(weaponTypeDefinition.Name))
                 .SetPoolType(InvocationPoolTypeCustom.Pools.ArmamentAdroitness)
                 .SetGrantedFeature(modifyAttackModeForWeaponFighterArmamentAdroitness)
                 .SetCustomSubFeatures(Hidden.Marker)
