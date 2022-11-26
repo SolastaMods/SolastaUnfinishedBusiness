@@ -99,6 +99,7 @@ public static class CharacterActionPanelPatcher
 
             if (definition.GrantedSpell != null)
             {
+                __instance.actionId = ActionDefinitions.Id.CastInvocation;
                 return true;
             }
 
