@@ -1300,6 +1300,7 @@ internal static partial class DatabaseHelper
     internal static class WeaponTypeDefinitions
     {
         internal static WeaponTypeDefinition ClubType { get; } = GetDefinition<WeaponTypeDefinition>("ClubType");
+        internal static WeaponTypeDefinition DartType { get; } = GetDefinition<WeaponTypeDefinition>("DartType");
         internal static WeaponTypeDefinition GreataxeType { get; } = GetDefinition<WeaponTypeDefinition>("GreataxeType");
         internal static WeaponTypeDefinition HeavyCrossbowType { get; } = GetDefinition<WeaponTypeDefinition>("HeavyCrossbowType");
         internal static WeaponTypeDefinition LightCrossbowType { get; } = GetDefinition<WeaponTypeDefinition>("LightCrossbowType");

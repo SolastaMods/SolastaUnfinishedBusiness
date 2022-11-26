@@ -799,6 +799,28 @@ internal static class CustomWeaponsContext
         Sprites.GetSprite("ProducedFlameThrow", Resources.ProducedFlameThrow, 128);
 
     #endregion
+
+    internal static ItemDefinition GetStandartWeaponOfType(string type)
+    {
+        //Darts for some reason are not marked as `Standard`, so return regular Dart for this type 
+        if (type == WeaponTypeDefinitions.DartType.Name)
+        {
+            return ItemDefinitions.Dart;
+        }
+
+        ItemDefinition[] allElements = DatabaseRepository.GetDatabase<ItemDefinition>().GetAllElements();
+        foreach (ItemDefinition item in allElements)
+        {
+            if (item.ItemTags.Contains(TagsDefinitions.ItemTagStandard)
+                && item.IsWeapon
+                && item.WeaponDescription.WeaponTypeDefinition.Name == type)
+            {
+                return item;
+            }
+        }
+
+        return null;
+    }
 }
 
 internal sealed class ModifyProducedFlameDice : ModifyAttackModeForWeaponBase
