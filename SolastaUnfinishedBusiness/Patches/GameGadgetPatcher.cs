@@ -33,7 +33,6 @@ public static class GameGadgetPatcher
     {
         public static void Postfix(GameGadget __instance, int conditionIndex, bool state)
         {
-            
             //BUGFIX: fix issue where a button activator fires Triggered event with state=true first time and
             // correctly activates attached gadget, but fires Triggered event with state=false second time and
             // doesn't activate attached gadget.
@@ -43,13 +42,14 @@ public static class GameGadgetPatcher
 
                 // NOTE: only handling 'button activator'
                 // TODO: check other activators for same issue
-                if (param == GameGadgetExtensions.Triggered && !state && __instance.UniqueNameId.StartsWith("ActivatorButton"))
+                if (param == GameGadgetExtensions.Triggered && !state &&
+                    __instance.UniqueNameId.StartsWith("ActivatorButton"))
                 {
                     // Reset 'Triggered' to true otherwise we have to press the activator twice
                     __instance.SetCondition(conditionIndex, true, new List<GameLocationCharacter>());
                 }
             }
-            
+
             //PATCH: HideExitsAndTeleportersGizmosIfNotDiscovered
             if (!Main.Settings.HideExitsAndTeleportersGizmosIfNotDiscovered)
             {

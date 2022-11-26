@@ -128,7 +128,7 @@ public static class Sprites
 
     internal static AssetReferenceSprite SpellFarStep =>
         GetSprite("SpellFarStep", Resources.SpellFarStep, 128);
-    
+
     internal static AssetReferenceSprite SpellRaiseSkeleton =>
         GetSprite("SpellRaiseSkeleton", Resources.SpellRaiseSkeleton, 128);
 
@@ -165,7 +165,7 @@ public static class Sprites
 
     internal static AssetReferenceSprite PowerFarStep =>
         GetSprite("PowerFarStep", Resources.PowerFarStep, 256, 128);
-    
+
     internal static AssetReferenceSprite PowerGuardianMode =>
         GetSprite("PowerGuardianMode", Resources.PowerGuardianMode, 256, 128);
 

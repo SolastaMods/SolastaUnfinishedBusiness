@@ -92,6 +92,7 @@ internal static class Global
     internal static void ActionFinished(CharacterAction action)
     {
         var actingCharacter = action.ActingCharacter;
+
         foreach (var feature in actingCharacter.RulesetCharacter.GetSubFeaturesByType<IOnAfterActionFeature>())
         {
             feature.OnAfterAction(action);
