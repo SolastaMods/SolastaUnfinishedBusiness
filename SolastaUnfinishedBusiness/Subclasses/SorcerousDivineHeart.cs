@@ -104,6 +104,18 @@ internal sealed class SorcerousDivineHeart : AbstractSubclass
                 .Build())
             .AddToDB();
 
+        var powerDivineHeartDivineFont = FeatureDefinitionPowerBuilder
+            .Create("PowerDivineHeartDivineFont")
+            .SetGuiPresentation(Category.Feature, BeaconOfHope)
+            .SetEffectDescription(EffectDescriptionBuilder.Create()
+                .SetDurationData(DurationType.Instantaneous)
+                .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
+                .SetEffectForms(FeatureDefinitionPowers.PowerSorcererManaPainterDrain.EffectDescription.EffectForms[1])
+                .Build())
+            .SetUsesAbilityBonus(ActivationTime.BonusAction,
+                RechargeRate.LongRest, "Wisdom")
+            .AddToDB();
+
         var powerDivineHeartPlanarPortal = FeatureDefinitionPowerBuilder
             .Create("PowerDivineHeartPlanarPortal")
             .SetGuiPresentation(Category.Feature, DimensionDoor)
@@ -130,7 +142,8 @@ internal sealed class SorcerousDivineHeart : AbstractSubclass
                 attributeModifierDivineHeartDivineFortitude,
                 magicAffinityDivineHeartClericSpellsList)
             .AddFeaturesAtLevel(6,
-                powerDivineHeartEmpoweredHealing)
+                powerDivineHeartEmpoweredHealing,
+                powerDivineHeartDivineFont)
             .AddFeaturesAtLevel(14,
                 powerDivineHeartPlanarPortal)
             .AddFeaturesAtLevel(18,
