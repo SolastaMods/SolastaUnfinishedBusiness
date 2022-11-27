@@ -169,12 +169,6 @@ public static class CustomActionIdContext
             actionTypeStatus = locationCharacter.GetActionTypeStatus(action.ActionType, scope, ignoreMovePoints);
         }
 
-        if (actionTypeStatus != ActionStatus.Available)
-        {
-            result = actionTypeStatus == ActionStatus.Spent ? ActionStatus.Unavailable : actionTypeStatus;
-            return;
-        }
-
         if (action.ActionScope != ActionScope.All && action.ActionScope != scope)
         {
             result = ActionStatus.Unavailable;
@@ -224,6 +218,11 @@ public static class CustomActionIdContext
             result = character.CanUsePower(action.ActivatedPower, considerHaving: true)
                 ? ActionStatus.Available
                 : ActionStatus.Unavailable;
+        }
+        
+        if (result == ActionStatus.Available && actionTypeStatus != ActionStatus.Available)
+        {
+            result = actionTypeStatus == ActionStatus.Spent ? ActionStatus.Unavailable : actionTypeStatus;
         }
     }
 
