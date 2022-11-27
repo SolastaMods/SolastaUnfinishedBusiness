@@ -242,4 +242,35 @@ internal static class RulesetCharacterExtensions
 
         return false;
     }
+
+    internal static bool KnowsAnyInvocationOfActionId(this RulesetCharacter instance,
+        ActionDefinitions.Id actionId,
+        ActionDefinitions.ActionScope scope)
+    {
+        if (instance.Invocations.Empty())
+        {
+            return false;
+        }
+
+        foreach (var invocation in instance.Invocations)
+        {
+            bool isValid;
+            var definition = invocation.invocationDefinition;
+            if (scope == ActionDefinitions.ActionScope.Battle)
+            {
+                isValid = definition.GetActionId() == actionId;
+            }
+            else
+            {
+                isValid = definition.GetMainActionId() == actionId;
+            }
+
+            if (isValid)
+            {
+                return true;
+            }
+        }
+
+        return false;
+    }
 }

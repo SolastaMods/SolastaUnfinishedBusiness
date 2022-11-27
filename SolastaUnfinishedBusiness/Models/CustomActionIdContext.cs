@@ -2,6 +2,7 @@
 using SolastaUnfinishedBusiness.Api.Extensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
+using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Subclasses;
 using static ActionDefinitions;
@@ -229,6 +230,14 @@ public static class CustomActionIdContext
     private static ActionStatus CanUseInvocationAction(Id actionId, ActionScope scope,
         RulesetCharacter character, bool canCastSpells, bool canOnlyUseCantrips)
     {
+        if (IsGambitActionId(actionId)
+            && character.HasPower(MartialTactician.GambitPool)
+            && character.KnowsAnyInvocationOfActionId(actionId, scope)
+            && character.GetRemainingPowerCharges(MartialTactician.GambitPool) <= 0)
+        {
+            return ActionStatus.OutOfUses;
+        }
+
         return character.CanCastAnyInvocationOfActionId(actionId, scope, canCastSpells, canOnlyUseCantrips)
             ? ActionStatus.Available
             : ActionStatus.Unavailable;
@@ -243,11 +252,18 @@ public static class CustomActionIdContext
                || extra is ExtraActionId.CastInvocationBonus
                    or ExtraActionId.CastInvocationNoCost
                    or ExtraActionId.InventorInfusion
-                   or ExtraActionId.TacticianGambitMain
-                   or ExtraActionId.TacticianGambitBonus
-                   or ExtraActionId.TacticianGambitNoCost
                    or ExtraActionId.CastPlaneMagicMain
-                   or ExtraActionId.CastPlaneMagicBonus;
+                   or ExtraActionId.CastPlaneMagicBonus
+               || IsGambitActionId(id);
+    }
+
+    private static bool IsGambitActionId(Id id)
+    {
+        var extra = (ExtraActionId)id;
+
+        return extra is ExtraActionId.TacticianGambitMain
+            or ExtraActionId.TacticianGambitBonus
+            or ExtraActionId.TacticianGambitNoCost;
     }
 
     private static bool IsPowerUseActionId(Id id)
