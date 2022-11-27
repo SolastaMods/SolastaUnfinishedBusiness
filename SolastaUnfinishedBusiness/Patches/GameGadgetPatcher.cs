@@ -27,6 +27,25 @@ public static class GameGadgetPatcher
         }
     }
 
+    [HarmonyPatch(typeof(GameGadget), "CheckHasActiveDetectedTrap")]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    public static class CheckHasActiveDetectedTrap_Patch
+    {
+        public static bool Prefix(GameGadget __instance, out bool __result)
+        {
+            //PATCH: fixes plant traps being shown on map even after destroyed
+            //mostly copy of a base method with addded check
+            __result = __instance.CheckConditionName("Param_IsTrap", true, false) &&
+                       __instance.CheckConditionName("Param_Enabled", true, true) &&
+                       __instance.CheckConditionName("TrapDetected", true, true) &&
+                       __instance.CheckConditionName("TrapDisarmed", false, false) &&
+                       __instance.CheckConditionName("TrapTriggered", false, false) &&
+                       //this is new check - traps triggered by shooting have `Triggered`, not `TrapTriggered` set to true
+                       __instance.CheckConditionName("Triggered", false, false);
+            return false;
+        }
+    }
+
     [HarmonyPatch(typeof(GameGadget), "SetCondition")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     public static class SetCondition_Patch
