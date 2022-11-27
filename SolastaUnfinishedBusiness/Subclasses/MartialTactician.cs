@@ -282,6 +282,8 @@ internal sealed class MartialTactician : AbstractSubclass
             .SetFeatures(BuildGambitDieDamage("Reaction"))
             .AddToDB();
 
+        var hasGambitDice = new ValidatorsPowerUse(character => character.GetRemainingPowerCharges(GambitPool) > 0);
+
         #endregion
 
         #region Blind
@@ -312,7 +314,7 @@ internal sealed class MartialTactician : AbstractSubclass
             .Create($"Power{name}Activate")
             .SetGuiPresentation(name, Category.Feature, sprite)
             .SetShowCasting(false)
-            .SetCustomSubFeatures(PowerFromInvocation.Marker, GambitLimiter)
+            .SetCustomSubFeatures(PowerFromInvocation.Marker, GambitLimiter, hasGambitDice)
             .SetUniqueInstance()
             .SetUsesFixed(ActivationTime.NoCost)
             .SetEffectDescription(EffectDescriptionBuilder.Create()
@@ -364,7 +366,7 @@ internal sealed class MartialTactician : AbstractSubclass
             .Create($"Power{name}Activate")
             .SetGuiPresentation(name, Category.Feature, sprite)
             .SetShowCasting(false)
-            .SetCustomSubFeatures(PowerFromInvocation.Marker, GambitLimiter)
+            .SetCustomSubFeatures(PowerFromInvocation.Marker, GambitLimiter, hasGambitDice)
             .SetUniqueInstance()
             .SetUsesFixed(ActivationTime.NoCost)
             .SetEffectDescription(EffectDescriptionBuilder.Create()
@@ -421,7 +423,7 @@ internal sealed class MartialTactician : AbstractSubclass
             .Create($"Power{name}Activate")
             .SetGuiPresentation(name, Category.Feature, sprite)
             .SetShowCasting(false)
-            .SetCustomSubFeatures(PowerFromInvocation.Marker, GambitLimiter)
+            .SetCustomSubFeatures(PowerFromInvocation.Marker, GambitLimiter, hasGambitDice)
             .SetUniqueInstance()
             .SetUsesFixed(ActivationTime.NoCost)
             .SetEffectDescription(EffectDescriptionBuilder.Create()
@@ -474,7 +476,7 @@ internal sealed class MartialTactician : AbstractSubclass
             .Create($"Power{name}Activate")
             .SetGuiPresentation(name, Category.Feature, sprite)
             .SetShowCasting(false)
-            .SetCustomSubFeatures(PowerFromInvocation.Marker, GambitLimiter)
+            .SetCustomSubFeatures(PowerFromInvocation.Marker, GambitLimiter, hasGambitDice)
             .SetUniqueInstance()
             .SetUsesFixed(ActivationTime.NoCost)
             .SetEffectDescription(EffectDescriptionBuilder.Create()
@@ -537,7 +539,7 @@ internal sealed class MartialTactician : AbstractSubclass
             .Create($"Power{name}Activate")
             .SetGuiPresentation(name, Category.Feature, sprite)
             .SetShowCasting(false)
-            .SetCustomSubFeatures(PowerFromInvocation.Marker, GambitLimiter)
+            .SetCustomSubFeatures(PowerFromInvocation.Marker, GambitLimiter, hasGambitDice)
             .SetUniqueInstance()
             .SetUsesFixed(ActivationTime.NoCost)
             .SetEffectDescription(EffectDescriptionBuilder.Create()
@@ -571,7 +573,7 @@ internal sealed class MartialTactician : AbstractSubclass
             .Create($"Power{name}Activate")
             .SetGuiPresentation(name, Category.Feature, sprite)
             .SetShowCasting(false)
-            .SetCustomSubFeatures(PowerFromInvocation.Marker, GambitLimiter)
+            .SetCustomSubFeatures(PowerFromInvocation.Marker, GambitLimiter, hasGambitDice)
             .SetUniqueInstance()
             .SetUsesFixed(ActivationTime.NoCost)
             .SetEffectDescription(EffectDescriptionBuilder.Create()
@@ -608,7 +610,7 @@ internal sealed class MartialTactician : AbstractSubclass
             .Create($"Power{name}Activate")
             .SetGuiPresentation(name, Category.Feature, sprite)
             .SetShowCasting(false)
-            .SetCustomSubFeatures(PowerFromInvocation.Marker)
+            .SetCustomSubFeatures(PowerFromInvocation.Marker, hasGambitDice)
             .SetUniqueInstance()
             .SetSharedPool(ActivationTime.NoCost, GambitPool)
             .SetEffectDescription(EffectDescriptionBuilder.Create()
@@ -644,7 +646,7 @@ internal sealed class MartialTactician : AbstractSubclass
         power = FeatureDefinitionPowerSharedPoolBuilder
             .Create($"Power{name}Activate")
             .SetGuiPresentation(name, Category.Feature, sprite)
-            .SetCustomSubFeatures(PowerFromInvocation.Marker)
+            .SetCustomSubFeatures(PowerFromInvocation.Marker, hasGambitDice)
             .SetUniqueInstance()
             .SetSharedPool(ActivationTime.BonusAction, GambitPool)
             .SetEffectDescription(EffectDescriptionBuilder.Create()
@@ -705,7 +707,7 @@ internal sealed class MartialTactician : AbstractSubclass
         power = FeatureDefinitionPowerSharedPoolBuilder
             .Create($"Power{name}Activate")
             .SetGuiPresentation(name, Category.Feature, sprite)
-            .SetCustomSubFeatures(PowerFromInvocation.Marker)
+            .SetCustomSubFeatures(PowerFromInvocation.Marker, hasGambitDice)
             .SetUniqueInstance()
             .SetShowCasting(false)
             .SetSharedPool(ActivationTime.BonusAction, GambitPool)
@@ -889,6 +891,11 @@ internal sealed class MartialTactician : AbstractSubclass
                 yield break;
             }
 
+            if (me.RulesetCharacter.GetRemainingPowerCharges(pool) <= 0)
+            {
+                yield break;
+            }
+
             var manager = ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
             var battle = ServiceRepository.GetService<IGameLocationBattleService>() as GameLocationBattleManager;
 
@@ -992,6 +999,11 @@ internal sealed class MartialTactician : AbstractSubclass
             var manager = ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
 
             if (manager == null)
+            {
+                yield break;
+            }
+            
+            if (me.RulesetCharacter.GetRemainingPowerCharges(pool) <= 0)
             {
                 yield break;
             }
