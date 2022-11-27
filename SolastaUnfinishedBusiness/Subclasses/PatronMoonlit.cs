@@ -109,7 +109,7 @@ internal sealed class PatronMoonlit : AbstractSubclass
                 .SetDurationData(DurationType.Minute, 1)
                 .SetTargetingData(Side.All, RangeType.Distance, 12, TargetType.Cylinder, 10, 10)
                 .SetSavingThrowData(
-                    false,
+                    true,
                     AttributeDefinitions.Dexterity,
                     true,
                     EffectDifficultyClassComputation.AbilityScoreAndProficiency,
