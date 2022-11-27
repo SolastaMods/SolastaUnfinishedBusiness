@@ -3,7 +3,10 @@
 1.4.28.P:
 
 - added Divine Font at 6th to Sorcerous Divine Heart
+- fixed Grenadier items registration causing desync on MP
+- fixed plant traps shown on maps even after destroyed
 - improved glowing eye colors
+- improved maps with names of all exit locations
 
 1.4.28.N:
 
