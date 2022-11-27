@@ -1,7 +1,6 @@
 ﻿CHANGES:
 
-1.4.28.N:
+1.4.28.P:
 
-- fixed an interaction issue between PARTYSIZE and DEFAULT_PARTY features
-- fixed targeting of custom invocations cast spell (mainly from Plane Magic feats)
-- fixed Dragonborn breath powers interaction with Multiclass
+- added Divine Font at 6th to Sorcerous Divine Heart
+- improved glowing eye colors
