@@ -154,6 +154,11 @@ public static class RulesetSpellRepertoirePatcher
     {
         public static void Postfix(RulesetSpellRepertoire __instance, ref int __result)
         {
+            if (__instance.SpellCastingFeature == null)
+            {
+                return;
+            }
+
             if (__instance.SpellCastingFeature.SpellCastingOrigin is FeatureDefinitionCastSpell.CastingOrigin.Race
                 or FeatureDefinitionCastSpell.CastingOrigin.Monster)
             {
