@@ -46,7 +46,7 @@
     "durationParameter": 10,
     "endOfEffect": "EndOfTurn",
     "hasSavingThrow": true,
-    "disableSavingThrowOnAllies": true,
+    "disableSavingThrowOnAllies": false,
     "savingThrowAbility": "Dexterity",
     "ignoreCover": false,
     "grantedConditionOnSave": null,

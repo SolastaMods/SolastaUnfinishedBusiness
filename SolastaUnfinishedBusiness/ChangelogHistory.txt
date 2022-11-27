@@ -3,7 +3,10 @@
 1.4.28.P:
 
 - added Divine Font at 6th to Sorcerous Divine Heart
-- fixed Grenadier items registration causing desync on MP
+- disabled saving throw on allies for power Moonlit Moon Touched
+- enabled saving throw on allies for Burst of Radiance, Earth Tremor and Winter Breath
+- fixed all custom actions (even ones not available to character) being visible when incapacitated
+- fixed Grenadier items registration causing desyncs
 - fixed plant traps shown on maps even after destroyed
 - improved glowing eye colors
 - improved maps with names of all exit locations
