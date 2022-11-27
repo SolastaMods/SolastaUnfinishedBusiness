@@ -420,9 +420,9 @@ internal static class Morphotypes
             .SetCategory(MorphotypeElementDefinition.ElementCategory.EyeColor)
             .SetMainColor(new Color
             {
-                r = BodyDecorationColor_SorcererManaPainter_00.MainColor.r * 160,
-                g = BodyDecorationColor_SorcererManaPainter_00.MainColor.g * 160,
-                b = BodyDecorationColor_SorcererManaPainter_00.MainColor.b * 160,
+                r = BodyDecorationColor_SorcererManaPainter_00.MainColor.r * 240,
+                g = BodyDecorationColor_SorcererManaPainter_00.MainColor.g * 240,
+                b = BodyDecorationColor_SorcererManaPainter_00.MainColor.b * 240,
                 a = 1.0f
             })
             .SetSubClassFilterMask(GraphicsDefinitions.MorphotypeSubclassFilterTag.All)
@@ -434,9 +434,9 @@ internal static class Morphotypes
             .SetCategory(MorphotypeElementDefinition.ElementCategory.EyeColor)
             .SetMainColor(new Color
             {
-                r = BodyDecorationColor_SorcererManaPainter_01.MainColor.r * 160,
-                g = BodyDecorationColor_SorcererManaPainter_01.MainColor.g * 160,
-                b = BodyDecorationColor_SorcererManaPainter_01.MainColor.b * 160,
+                r = BodyDecorationColor_SorcererManaPainter_01.MainColor.r * 240,
+                g = BodyDecorationColor_SorcererManaPainter_01.MainColor.g * 240,
+                b = BodyDecorationColor_SorcererManaPainter_01.MainColor.b * 240,
                 a = 1.0f
             })
             .SetSubClassFilterMask(GraphicsDefinitions.MorphotypeSubclassFilterTag.All)
@@ -448,9 +448,9 @@ internal static class Morphotypes
             .SetCategory(MorphotypeElementDefinition.ElementCategory.EyeColor)
             .SetMainColor(new Color
             {
-                r = BodyDecorationColor_SorcererManaPainter_03.MainColor.r * 160,
-                g = BodyDecorationColor_SorcererManaPainter_03.MainColor.g * 160,
-                b = BodyDecorationColor_SorcererManaPainter_03.MainColor.b * 160,
+                r = BodyDecorationColor_SorcererManaPainter_03.MainColor.r * 240,
+                g = BodyDecorationColor_SorcererManaPainter_03.MainColor.g * 240,
+                b = BodyDecorationColor_SorcererManaPainter_03.MainColor.b * 240,
                 a = 1.0f
             })
             .SetSubClassFilterMask(GraphicsDefinitions.MorphotypeSubclassFilterTag.All)
@@ -462,9 +462,9 @@ internal static class Morphotypes
             .SetCategory(MorphotypeElementDefinition.ElementCategory.EyeColor)
             .SetMainColor(new Color
             {
-                r = BodyDecorationColor_SorcererManaPainter_06.MainColor.r * 160,
-                g = BodyDecorationColor_SorcererManaPainter_06.MainColor.g * 160,
-                b = BodyDecorationColor_SorcererManaPainter_06.MainColor.b * 160,
+                r = BodyDecorationColor_SorcererManaPainter_06.MainColor.r * 240,
+                g = BodyDecorationColor_SorcererManaPainter_06.MainColor.g * 240,
+                b = BodyDecorationColor_SorcererManaPainter_06.MainColor.b * 240,
                 a = 1.0f
             })
             .SetSubClassFilterMask(GraphicsDefinitions.MorphotypeSubclassFilterTag.All)
@@ -476,9 +476,9 @@ internal static class Morphotypes
             .SetCategory(MorphotypeElementDefinition.ElementCategory.EyeColor)
             .SetMainColor(new Color
             {
-                r = BodyDecorationColor_SorcererManaPainter_10.MainColor.r * 160,
-                g = BodyDecorationColor_SorcererManaPainter_10.MainColor.g * 160,
-                b = BodyDecorationColor_SorcererManaPainter_10.MainColor.b * 160,
+                r = BodyDecorationColor_SorcererManaPainter_10.MainColor.r * 240,
+                g = BodyDecorationColor_SorcererManaPainter_10.MainColor.g * 240,
+                b = BodyDecorationColor_SorcererManaPainter_10.MainColor.b * 240,
                 a = 1.0f
             })
             .SetSubClassFilterMask(GraphicsDefinitions.MorphotypeSubclassFilterTag.All)
@@ -490,14 +490,62 @@ internal static class Morphotypes
             .SetCategory(MorphotypeElementDefinition.ElementCategory.EyeColor)
             .SetMainColor(new Color
             {
-                r = BodyDecorationColor_SorcererManaPainter_12.MainColor.r * 160,
-                g = BodyDecorationColor_SorcererManaPainter_12.MainColor.g * 160,
-                b = BodyDecorationColor_SorcererManaPainter_12.MainColor.b * 160,
+                r = BodyDecorationColor_SorcererManaPainter_12.MainColor.r * 240,
+                g = BodyDecorationColor_SorcererManaPainter_12.MainColor.g * 240,
+                b = BodyDecorationColor_SorcererManaPainter_12.MainColor.b * 240,
                 a = 1.0f
             })
             .SetSubClassFilterMask(GraphicsDefinitions.MorphotypeSubclassFilterTag.All)
             .SetSortOrder(73)
             .AddToDB();
+
+        var glowingEyes18 = MorphotypeElementDefinitionBuilder
+            .Create(EyeColorDefiler, "CEGlowingEyeColor18")
+            .SetCategory(MorphotypeElementDefinition.ElementCategory.EyeColor)
+            .SetMainColor(new Color
+            {
+                r = EyeColorDefiler.MainColor.r,
+                g = EyeColorDefiler.MainColor.g,
+                b = EyeColorDefiler.MainColor.b,
+                a = 1.0f
+            })
+            .SetSubClassFilterMask(GraphicsDefinitions.MorphotypeSubclassFilterTag.All)
+            .SetSortOrder(74)
+            .AddToDB();
+
+        glowingEyes18.playerSelectable = true;
+
+        var glowingEyes19 = MorphotypeElementDefinitionBuilder
+            .Create(EyeColorInfiltrator, "CEGlowingEyeColor19")
+            .SetCategory(MorphotypeElementDefinition.ElementCategory.EyeColor)
+            .SetMainColor(new Color
+            {
+                r = EyeColorInfiltrator.MainColor.r,
+                g = EyeColorInfiltrator.MainColor.g,
+                b = EyeColorInfiltrator.MainColor.b,
+                a = 1.0f
+            })
+            .SetSubClassFilterMask(GraphicsDefinitions.MorphotypeSubclassFilterTag.All)
+            .SetSortOrder(75)
+            .AddToDB();
+
+        glowingEyes19.playerSelectable = true;
+
+        var glowingEyes20 = MorphotypeElementDefinitionBuilder
+            .Create(EyeColorNecromancer, "CEGlowingEyeColor20")
+            .SetCategory(MorphotypeElementDefinition.ElementCategory.EyeColor)
+            .SetMainColor(new Color
+            {
+                r = EyeColorNecromancer.MainColor.r,
+                g = EyeColorNecromancer.MainColor.g,
+                b = EyeColorNecromancer.MainColor.b,
+                a = 1.0f
+            })
+            .SetSubClassFilterMask(GraphicsDefinitions.MorphotypeSubclassFilterTag.All)
+            .SetSortOrder(76)
+            .AddToDB();
+
+        glowingEyes20.playerSelectable = true;
 
         glowingEyes.AddRange(
             glowingEyes00,
@@ -517,6 +565,9 @@ internal static class Morphotypes
             glowingEyes14,
             glowingEyes15,
             glowingEyes16,
-            glowingEyes17);
+            glowingEyes17,
+            glowingEyes18,
+            glowingEyes19,
+            glowingEyes20);
     }
 }
