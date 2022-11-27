@@ -353,10 +353,7 @@ internal static class GameUiContext
             return;
         }
 
-        var param = __instance.conditionNames[conditionIndex];
-
-        if ((param != GameGadgetExtensions.Enabled && param != GameGadgetExtensions.ParamEnabled) ||
-            !__instance.UniqueNameId.StartsWith(TagsDefinitions.Teleport))
+        if (!__instance.CheckIsEnabled() || !__instance.IsTeleport())
         {
             return;
         }
@@ -415,7 +412,7 @@ internal static class GameUiContext
             var worldGadget = worldGadgets.FirstOrDefault(wg => wg.GameGadget == __instance);
 
             var isInvisible = __instance.IsInvisible();
-            var isEnabled = __instance.IsEnabled();
+            var isEnabled = __instance.CheckIsEnabled();
 
             if (worldGadget != null)
             {

@@ -1,7 +1,12 @@
 ﻿CHANGES:
 
-1.4.28.N:
+1.4.28.P:
 
-- fixed an interaction issue between PARTYSIZE and DEFAULT_PARTY features
-- fixed targeting of custom invocations cast spell (mainly from Plane Magic feats)
-- fixed Dragonborn breath powers interaction with Multiclass
+- added Divine Font at 6th to Sorcerous Divine Heart
+- disabled saving throw on allies for power Moonlit Moon Touched
+- enabled saving throw on allies for Burst of Radiance, Earth Tremor and Winter Breath
+- fixed all custom actions (even ones not available to character) being visible when incapacitated
+- fixed Grenadier items registration causing desyncs
+- fixed plant traps shown on maps even after destroyed
+- improved glowing eye colors
+- improved maps with names of all exit locations

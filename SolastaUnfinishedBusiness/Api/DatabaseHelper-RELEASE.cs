@@ -540,6 +540,7 @@ internal static partial class DatabaseHelper
         internal static FeatureDefinitionPower PowerShadowTamerRopeGrapple { get; } = GetDefinition<FeatureDefinitionPower>("PowerShadowTamerRopeGrapple");
         internal static FeatureDefinitionPower PowerSorakShadowEscape { get; } = GetDefinition<FeatureDefinitionPower>("PowerSorakShadowEscape");
         internal static FeatureDefinitionPower PowerSorcererChildRiftDeflection { get; } = GetDefinition<FeatureDefinitionPower>("PowerSorcererChildRiftDeflection");
+        internal static FeatureDefinitionPower PowerSorcererManaPainterDrain { get; } = GetDefinition<FeatureDefinitionPower>("PowerSorcererManaPainterDrain");
         internal static FeatureDefinitionPower PowerSpiderQueenPoisonCloud { get; } = GetDefinition<FeatureDefinitionPower>("PowerSpiderQueenPoisonCloud");
         internal static FeatureDefinitionPower PowerTraditionShockArcanistArcaneFury { get; } = GetDefinition<FeatureDefinitionPower>("PowerTraditionShockArcanistArcaneFury");
         internal static FeatureDefinitionPower PowerWizardArcaneRecovery { get; } = GetDefinition<FeatureDefinitionPower>("PowerWizardArcaneRecovery");
@@ -1014,6 +1015,9 @@ internal static partial class DatabaseHelper
         internal static MorphotypeElementDefinition BodyDecorationColor_SorcererManaPainter_14 { get; } = GetDefinition<MorphotypeElementDefinition>("BodyDecorationColor_SorcererManaPainter_14");
         internal static MorphotypeElementDefinition BodyDecorationColor_SorcererManaPainter_15 { get; } = GetDefinition<MorphotypeElementDefinition>("BodyDecorationColor_SorcererManaPainter_15");
         internal static MorphotypeElementDefinition EyeColor_001 { get; } = GetDefinition<MorphotypeElementDefinition>("EyeColor_001");
+        internal static MorphotypeElementDefinition EyeColorDefiler { get; } = GetDefinition<MorphotypeElementDefinition>("EyeColorDefiler");
+        internal static MorphotypeElementDefinition EyeColorInfiltrator { get; } = GetDefinition<MorphotypeElementDefinition>("EyeColorInfiltrator");
+        internal static MorphotypeElementDefinition EyeColorNecromancer { get; } = GetDefinition<MorphotypeElementDefinition>("EyeColorNecromancer");
         internal static MorphotypeElementDefinition FaceAndSkin_01 { get; } = GetDefinition<MorphotypeElementDefinition>("FaceAndSkin_01");
         internal static MorphotypeElementDefinition FaceAndSkin_12 { get; } = GetDefinition<MorphotypeElementDefinition>("FaceAndSkin_12");
         internal static MorphotypeElementDefinition FaceAndSkin_13 { get; } = GetDefinition<MorphotypeElementDefinition>("FaceAndSkin_13");

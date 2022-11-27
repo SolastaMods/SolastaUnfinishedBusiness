@@ -30,7 +30,7 @@ internal static partial class SpellBuilders
             .Create()
             .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel, 1, 0, 1)
             .SetSavingThrowData(
-                true,
+                false,
                 AttributeDefinitions.Dexterity,
                 false,
                 EffectDifficultyClassComputation.AbilityScoreAndProficiency,
@@ -79,7 +79,7 @@ internal static partial class SpellBuilders
             .Create()
             .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel, 1, 0, 1)
             .SetSavingThrowData(
-                true,
+                false,
                 AttributeDefinitions.Dexterity,
                 false,
                 EffectDifficultyClassComputation.AbilityScoreAndProficiency,

@@ -265,8 +265,10 @@ public class Settings : UnityModManager.ModSettings
     public bool EnableHeroesControlledByComputer { get; set; }
 
     // Debug
+    public bool DebugDisableVerifyDefinitionNameIsNotInUse { get; set; }
+#if DEBUG
     public bool DebugLogDefinitionCreation { get; set; }
     public bool DebugLogFieldInitialization { get; set; }
-    public bool DebugDisableVerifyDefinitionNameIsNotInUse { get; set; }
     public bool DebugLogVariantMisuse { get; set; }
+#endif
 }

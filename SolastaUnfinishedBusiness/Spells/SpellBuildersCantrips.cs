@@ -128,7 +128,7 @@ internal static partial class SpellBuilders
             .Create()
             .SetEffectAdvancement(EffectIncrementMethod.CasterLevelTable, 1, 0, 1)
             .SetSavingThrowData(
-                true,
+                false,
                 AttributeDefinitions.Constitution,
                 false,
                 EffectDifficultyClassComputation.SpellCastingFeature,
@@ -435,7 +435,7 @@ internal static partial class SpellBuilders
             .SetEffectAdvancement(
                 EffectIncrementMethod.CasterLevelTable, 1, 0, 1)
             .SetSavingThrowData(
-                true,
+                false,
                 AttributeDefinitions.Constitution,
                 false,
                 EffectDifficultyClassComputation.SpellCastingFeature,

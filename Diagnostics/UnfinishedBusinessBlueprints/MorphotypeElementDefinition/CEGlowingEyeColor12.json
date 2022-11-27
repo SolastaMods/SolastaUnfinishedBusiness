@@ -4,9 +4,9 @@
   "category": "EyeColor",
   "mainColor": {
     "$type": "UnityEngine.Color, UnityEngine.CoreModule",
-    "r": 169.4838,
-    "g": 169.4838,
-    "b": 169.4838,
+    "r": 254.2257,
+    "g": 254.2257,
+    "b": 254.2257,
     "a": 1.0
   },
   "secondColor": {

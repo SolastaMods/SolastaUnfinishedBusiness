@@ -18,6 +18,11 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:PowerDivineHeartDivineFount:5af83a07-d177-5f4b-bb06-4a42fec99a34",
+      "level": 6
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:PowerDivineHeartEmpoweredHealing:8b3b0411-a9ea-5550-966a-c6f052345ef9",
       "level": 6
     },

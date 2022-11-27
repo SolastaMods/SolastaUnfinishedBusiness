@@ -26,27 +26,30 @@ public static class GameLocationScreenMapPatcher
             {
                 foreach (var gameGadget in gameSector.GameGadgets)
                 {
-                    Main.Log(
-                        $"{gameGadget.UniqueNameId}, Revealed={gameGadget.Revealed}, Enabled={gameGadget.IsEnabled()}, Invisible={gameGadget.IsInvisible()}");
+                    var isEnabled = gameGadget.CheckIsEnabled();
+                    var isInvisible = gameGadget.IsInvisible();
+                    var isRevealed = gameGadget.Revealed;
 
-                    if (!gameGadget.Revealed)
+                    Main.Log(
+                        $"{gameGadget.UniqueNameId}, Revealed={isRevealed}, Enabled={isEnabled}, Invisible={isInvisible}");
+
+                    if (!isRevealed || !isEnabled)
                     {
                         continue;
                     }
 
                     var itemType = (MapGadgetItem.ItemType)int.MinValue;
 
-                    if (gameGadget.UniqueNameId.StartsWith("Camp"))
+                    if (gameGadget.IsCamp())
                     {
                         itemType = (MapGadgetItem.ItemType)(-1);
                     }
-                    else if ((gameGadget.UniqueNameId.StartsWith("Exit") ||
-                              gameGadget.UniqueNameId.StartsWith("VirtualExit")) && gameGadget.IsEnabled())
+                    else if (gameGadget.IsExit())
                     {
                         itemType = (MapGadgetItem.ItemType)(-2);
                     }
-                    else if (gameGadget.UniqueNameId.StartsWith("Teleporter")
-                             && (Main.Settings.MarkInvisibleTeleportersOnLevelMap || !gameGadget.IsInvisible()))
+                    else if (gameGadget.IsTeleport()
+                             && (Main.Settings.MarkInvisibleTeleportersOnLevelMap || !isInvisible))
                     {
                         itemType = (MapGadgetItem.ItemType)(-3);
                     }
@@ -54,6 +57,7 @@ public static class GameLocationScreenMapPatcher
                     {
                         itemType = MapGadgetItem.ItemType.Lock;
                     }
+                    //TODO: check why triggered traps are shown on map
                     else if (gameGadget.CheckHasActiveDetectedTrap())
                     {
                         itemType = MapGadgetItem.ItemType.Trap;

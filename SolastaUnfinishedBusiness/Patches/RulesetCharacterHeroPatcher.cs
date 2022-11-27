@@ -6,6 +6,7 @@ using System.Reflection.Emit;
 using HarmonyLib;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.Extensions;
+using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Api.Infrastructure;
 using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomInterfaces;
@@ -180,6 +181,44 @@ public static class RulesetCharacterHeroPatcher
             {
                 modifier.ModifyAttribute(__instance, attackMode, attackMode.sourceObject as RulesetItem);
             }
+        }
+    }
+
+    [HarmonyPatch(typeof(RulesetCharacterHero), "RefreshAttackMode")]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    public static class RefreshAttackMode_Patch
+    {
+        public static IEnumerable<CodeInstruction> Transpiler([NotNull] IEnumerable<CodeInstruction> instructions)
+        {
+            //PATCH: enables `AttackRollModifierMethod` support for hero attack modification
+            //default implementation just gets flat value and ignores other methods
+            //replaces call to `AttackRollModifier` getter with ciustom method that returns proper values
+            var method = typeof(IAttackModificationProvider).GetMethod("get_AttackRollModifier");
+            var custom = new Func<IAttackModificationProvider, RulesetCharacterHero, int>(GetAttackRollModifier)
+                .Method;
+
+            return instructions.ReplaceCalls(method,
+                "RulesetCharacterHero.RefreshAttackMode",
+                new CodeInstruction(OpCodes.Ldarg_0),
+                new CodeInstruction(OpCodes.Call, custom));
+        }
+
+        private static int GetAttackRollModifier(IAttackModificationProvider provider, RulesetCharacterHero hero)
+        {
+            var num = provider.AttackRollModifier;
+
+            if (provider.AttackRollModifierMethod == RuleDefinitions.AttackModifierMethod.SourceConditionAmount)
+            {
+                num = hero.FindFirstConditionHoldingFeature(provider as FeatureDefinition).Amount;
+            }
+            else if (provider.AttackRollModifierMethod == RuleDefinitions.AttackModifierMethod.AddAbilityScoreBonus &&
+                     !string.IsNullOrEmpty(provider.AttackRollAbilityScore))
+            {
+                num += AttributeDefinitions.ComputeAbilityScoreModifier(
+                    hero.TryGetAttributeValue(provider.AttackRollAbilityScore));
+            }
+
+            return num;
         }
     }
 

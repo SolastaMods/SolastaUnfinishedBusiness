@@ -1,13 +1,10 @@
-﻿using System.Linq;
-using JetBrains.Annotations;
+﻿using JetBrains.Annotations;
 
 namespace SolastaUnfinishedBusiness.Api.Extensions;
 
 internal static class GameGadgetExtensions
 {
     private const string Invisible = "Invisible";
-    internal const string Enabled = "Enabled";
-    internal const string ParamEnabled = "Param_Enabled";
     internal const string Triggered = "Triggered";
 
     /// <summary>
@@ -18,21 +15,18 @@ internal static class GameGadgetExtensions
         return gadget.CheckConditionName(Invisible, true, false);
     }
 
-    internal static bool IsEnabled([NotNull] this GameGadget gadget, bool valueIfParamsNotPresent = false)
+    internal static bool IsExit([NotNull] this GameGadget gadget)
     {
-        // We need to know if both Enabled and ParamEnabled are missing
-        var names = gadget.conditionNames;
+        return gadget.HasFunctor(FunctorDefinitions.FunctorQuitLocation);
+    }
 
-        if (!names.Any(n => n is Enabled or ParamEnabled))
-        {
-            // if not present return supplied default value
-            return valueIfParamsNotPresent;
-        }
+    internal static bool IsCamp([NotNull] this GameGadget gadget)
+    {
+        return gadget.HasFunctor(FunctorDefinitions.FunctorStartLongRest);
+    }
 
-        // if at least one is present then return if either is true
-        var enabled = gadget.CheckConditionName(Enabled, true, false);
-        var paramEnabled = gadget.CheckConditionName(ParamEnabled, true, false);
-
-        return enabled || paramEnabled;
+    internal static bool IsTeleport([NotNull] this GameGadget gadget)
+    {
+        return gadget.HasFunctor(FunctorDefinitions.FunctorTeleport);
     }
 }

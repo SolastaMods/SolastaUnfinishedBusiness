@@ -29,6 +29,7 @@ internal abstract class DefinitionBuilder
         return GuidHelper.Create(guid, name).ToString();
     }
 
+#if DEBUG
     protected static void LogDefinition(string message)
     {
         if (Main.Settings.DebugLogDefinitionCreation)
@@ -36,6 +37,7 @@ internal abstract class DefinitionBuilder
             Main.Log(message);
         }
     }
+#endif
 
     protected static void VerifyDefinitionNameIsNotInUse(string definitionTypeName, string definitionName)
     {

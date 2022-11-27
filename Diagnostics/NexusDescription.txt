@@ -385,11 +385,11 @@ When you cast this spell using a spell slot of 4th level or higher, the damage i
 [*][b]TPABOBAP[/b]: game UI, infrastructure, gameplay, feats, invocations, spells, Dead Master, Elementalist, Moonlit, RiftWalker, SoulBlade, Tactician, Way of The Distant Hand, Inventor
 [*][b]ImpPhil[/b]: api, builders, gameplay, rules, quality of life
 [*][b]ChrisJohnDigital[/b]: builders, gameplay, feats, fighting styles, original Wizard subclasses, Arcane Fighter, Spell Master, Spell Shield
-[*][b]SilverGriffon[/b]: gameplay, visuals, spells, Dark Elf, Draconic Kobold, Grey Dwarf, Divine Heart
 [*][b]Nd[/b]: College of Harlequin, Marshal, Opportunist, Raven, Spell Shield
-[*][b]DubhHerder[/b]: gameplay, spells, original Warlock subclasses
+[*][b]SilverGriffon[/b]: gameplay, visuals, spells, Dark Elf, Draconic Kobold, Grey Dwarf, Divine Heart
 [*][b]tivie[/b]: Circle of The Night, Path of The Spirits
-[*][b]ElAntonius[/b]: feats, Arcanist
+[*][b]ElAntonius[/b]: feats, fighting styles, Arcanist
+[*][b]DubhHerder[/b]: replace spiders, spells, original Warlock subclasses
 [*][b]Holic75[/b]: spells, Bolgrif, Gnome
 [*][b]RedOrca[/b]: Path of The Light
 [*][b]DreadMaker[/b]: Forest Guardian
