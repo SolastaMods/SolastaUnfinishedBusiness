@@ -300,7 +300,7 @@ public class MirrorImageLogic
                     target.Guid, Condition, RuleDefinitions.DurationType.Minute, 1,
                     RuleDefinitions.TurnOccurenceType.EndOfTurn, target.Guid, target.CurrentFaction.Name);
 
-                target.AddConditionOfCategory(AttributeDefinitions.TagCombat, condition);
+                target.AddConditionOfCategory(AttributeDefinitions.TagEffect, condition);
             }
         }
 
