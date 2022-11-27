@@ -1,5 +1,5 @@
-﻿using System.Diagnostics.CodeAnalysis;
-using System.Linq;
+﻿using System.Linq;
+using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
 using SolastaUnfinishedBusiness.CustomUI;
 using UnityEngine;
@@ -64,14 +64,34 @@ public static class MapGadgetItemPatcher
             return false;
         }
 
+        private static string Destination(FunctorParametersDescription description)
+        {
+            if (!string.IsNullOrEmpty(description.StringParameter2))
+            {
+                return description.StringParameter2;
+            }
+
+            if (description.Destinations == null)
+            {
+                return null;
+            }
+
+            var exit = Gui.Localize("Tooltip/&CustomMapMarkerExit");
+            var destinations = string.Join("",
+                description.Destinations.Select(d => $"\n - {d.UserLocationName}"));
+
+            return $"{exit}:{destinations}";
+        }
+
         private static string GetGadgetDestinationLocation(GameGadget gameGadget)
         {
             return gameGadget.ActiveListeners
                 .SelectMany(x => x.FunctorParams)
                 .OfType<FunctorParametersDescription>()
-                .Where(x => x.LocationDefinition != null && !string.IsNullOrEmpty(x.StringParameter2))
-                .Select(p => p.StringParameter2)
-                .FirstOrDefault();
+                .Where(x => x.Type == FunctorDefinitions.FunctorQuitLocation)
+                .Where(x => x.locationDefinition != null)
+                .Select(Destination)
+                .FirstOrDefault(x => x != null);
         }
     }
 }

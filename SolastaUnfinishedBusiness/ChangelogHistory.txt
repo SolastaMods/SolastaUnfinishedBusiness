@@ -1,5 +1,10 @@
 ﻿CHANGES:
 
+1.4.28.P:
+
+- added Divine Font at 6th to Sorcerous Divine Heart
+- improved glowing eye colors
+
 1.4.28.N:
 
 - fixed an interaction issue between PARTYSIZE and DEFAULT_PARTY features

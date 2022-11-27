@@ -5,8 +5,8 @@
   "mainColor": {
     "$type": "UnityEngine.Color, UnityEngine.CoreModule",
     "r": 0.0,
-    "g": 68.32593,
-    "b": 169.4838,
+    "g": 102.488892,
+    "b": 254.2257,
     "a": 1.0
   },
   "secondColor": {
