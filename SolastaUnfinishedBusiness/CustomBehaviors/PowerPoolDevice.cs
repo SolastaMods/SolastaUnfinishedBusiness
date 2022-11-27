@@ -56,7 +56,7 @@ internal class PowerPoolDevice
         {
             var item = ServiceRepository
                 .GetService<IRulesetItemFactoryService>()
-                .CreateStandardItem(baseItem);
+                .CreateStandardItem(baseItem, false);
 
             device = item as RulesetItemDevice;
 
