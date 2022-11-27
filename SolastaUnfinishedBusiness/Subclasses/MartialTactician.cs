@@ -57,7 +57,7 @@ internal sealed class MartialTactician : AbstractSubclass
     internal override FeatureDefinitionSubclassChoice SubclassChoice =>
         FeatureDefinitionSubclassChoices.SubclassChoiceFighterMartialArchetypes;
 
-    private static FeatureDefinitionPower GambitPool { get; set; }
+    internal static FeatureDefinitionPower GambitPool { get; set; }
     private static FeatureDefinitionAdditionalDamage GambitDieDamage { get; set; }
     private static FeatureDefinitionAdditionalDamage GambitDieDamageOnce { get; set; }
     private static FeatureDefinition EverVigilant { get; set; }
