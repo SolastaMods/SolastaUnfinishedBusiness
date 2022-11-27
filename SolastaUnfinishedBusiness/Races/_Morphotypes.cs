@@ -498,9 +498,11 @@ internal static class Morphotypes
             .SetSubClassFilterMask(GraphicsDefinitions.MorphotypeSubclassFilterTag.All)
             .SetSortOrder(73)
             .AddToDB();
-
+      
         var glowingEyes18 = MorphotypeElementDefinitionBuilder
             .Create(EyeColorDefiler, "CEGlowingEyeColor18")
+            // don't use SetGuiPresentationNoContentHere as we need a different object for sort order
+            .SetGuiPresentation(GuiPresentationBuilder.NoContentTitle, GuiPresentationBuilder.NoContentTitle)
             .SetCategory(MorphotypeElementDefinition.ElementCategory.EyeColor)
             .SetMainColor(new Color
             {
@@ -517,6 +519,8 @@ internal static class Morphotypes
 
         var glowingEyes19 = MorphotypeElementDefinitionBuilder
             .Create(EyeColorInfiltrator, "CEGlowingEyeColor19")
+            // don't use SetGuiPresentationNoContentHere as we need a different object for sort order
+            .SetGuiPresentation(GuiPresentationBuilder.NoContentTitle, GuiPresentationBuilder.NoContentTitle)
             .SetCategory(MorphotypeElementDefinition.ElementCategory.EyeColor)
             .SetMainColor(new Color
             {
@@ -533,6 +537,8 @@ internal static class Morphotypes
 
         var glowingEyes20 = MorphotypeElementDefinitionBuilder
             .Create(EyeColorNecromancer, "CEGlowingEyeColor20")
+            // don't use SetGuiPresentationNoContentHere as we need a different object for sort order
+            .SetGuiPresentation(GuiPresentationBuilder.NoContentTitle, GuiPresentationBuilder.NoContentTitle)
             .SetCategory(MorphotypeElementDefinition.ElementCategory.EyeColor)
             .SetMainColor(new Color
             {
