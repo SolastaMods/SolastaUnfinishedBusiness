@@ -104,8 +104,8 @@ internal sealed class SorcerousDivineHeart : AbstractSubclass
                 .Build())
             .AddToDB();
 
-        var powerDivineHeartDivineFont = FeatureDefinitionPowerBuilder
-            .Create("PowerDivineHeartDivineFont")
+        var powerDivineHeartDivineFount = FeatureDefinitionPowerBuilder
+            .Create("PowerDivineHeartDivineFount")
             .SetGuiPresentation(Category.Feature, BeaconOfHope)
             .SetEffectDescription(EffectDescriptionBuilder.Create()
                 .SetDurationData(DurationType.Instantaneous)
@@ -143,7 +143,7 @@ internal sealed class SorcerousDivineHeart : AbstractSubclass
                 magicAffinityDivineHeartClericSpellsList)
             .AddFeaturesAtLevel(6,
                 powerDivineHeartEmpoweredHealing,
-                powerDivineHeartDivineFont)
+                powerDivineHeartDivineFount)
             .AddFeaturesAtLevel(14,
                 powerDivineHeartPlanarPortal)
             .AddFeaturesAtLevel(18,
