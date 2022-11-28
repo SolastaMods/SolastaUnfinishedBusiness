@@ -3,3 +3,13 @@
 1.4.28.R:
 
 - fixed quick wit reaction getting offered more than once on same action
+
+1.4.28.Q:
+
+- fixed a null exception with legendary actions
+- fixed bonus cantrips not getting offered in battle
+- fixed gambits getting offered when out of dice
+- fixed mirror image spell loosing effects after combat
+- fixed quick wit reaction not spending power
+- improved gambit selection buttons display when out of dice
+- refactored Bond Of The Talisman to behave like One With Shadows, UI wise
