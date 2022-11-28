@@ -35,9 +35,10 @@ internal class InvocationDefinitionBuilder<TDefinition, TBuilder> : DefinitionBu
         return (TBuilder)this;
     }
 
-    internal TBuilder SetGrantedFeature(FeatureDefinition feature)
+    internal TBuilder SetGrantedFeature(FeatureDefinition feature, bool longRestRecharge = false)
     {
         Definition.grantedFeature = feature;
+        Definition.longRestRecharge = longRestRecharge;
         return (TBuilder)this;
     }
 

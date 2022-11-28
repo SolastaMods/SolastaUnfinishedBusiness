@@ -169,6 +169,7 @@ internal static class InvocationsBuilders
             .AddToDB();
     }
 
+    //TODO: how can I make this be 1 fixed used per long rest?
     internal static InvocationDefinition BuildBondOfTheTalisman()
     {
         const string NAME = "InvocationBondOfTheTalisman";
@@ -184,14 +185,15 @@ internal static class InvocationsBuilders
             .SetFormType(ActionDefinitions.ActionFormType.Large)
             .SetActivatedPower(FeatureDefinitionPowerBuilder
                 .Create(FeatureDefinitionPowers.PowerSorakShadowEscape, $"Power{NAME}")
+                //.SetUsesFixed(RuleDefinitions.ActivationTime.Action, RuleDefinitions.RechargeRate.LongRest)
                 .SetGuiPresentationNoContent(true)
                 .AddToDB())
             .AddToDB();
 
         return InvocationDefinitionBuilder
             .Create(InvocationDefinitions.OneWithShadows, NAME)
-            .SetGuiPresentation(Category.Invocation)
-            .SetRequirements(2)
+            .SetGuiPresentation(Category.Invocation, FeatureDefinitionPowers.PowerSorakShadowEscape)
+            .SetRequirements(12)
             .SetGrantedFeature(
                 FeatureDefinitionActionAffinityBuilder
                     .Create(FeatureDefinitionActionAffinitys.ActionAffinityInvocationOneWithShadowsTurnInvisible,
