@@ -184,7 +184,7 @@ internal static class InvocationsBuilders
             .SetActionType(ActionDefinitions.ActionType.Main)
             .SetFormType(ActionDefinitions.ActionFormType.Large)
             .SetActivatedPower(FeatureDefinitionPowerBuilder
-                .Create(FeatureDefinitionPowers.PowerSorakShadowEscape, $"Power{NAME}")
+                .Create(FeatureDefinitionPowers.PowerSorakShadowEscape, $"Power{NAME}ShadowEscape")
                 //.SetUsesFixed(RuleDefinitions.ActivationTime.Action, RuleDefinitions.RechargeRate.LongRest)
                 .SetGuiPresentationNoContent(true)
                 .AddToDB())
