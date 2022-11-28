@@ -126,7 +126,6 @@ internal static partial class SpellBuilders
             .Create("ConditionMirrorImageMark")
             .SetGuiPresentation(MirrorImageLogic.Condition.Name, Category.Condition)
             .SetSilent(Silent.WhenAddedOrRemoved)
-            .SetAllowMultipleInstances(false)
             .CopyParticleReferences(ConditionBlurred)
             .SetFeatures(FeatureDefinitionBuilder
                 .Create("FeatureMirrorImage")
