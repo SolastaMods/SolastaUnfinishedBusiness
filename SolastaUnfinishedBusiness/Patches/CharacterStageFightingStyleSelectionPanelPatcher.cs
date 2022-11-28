@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Diagnostics.CodeAnalysis;
+using System.Linq;
 using HarmonyLib;
 using JetBrains.Annotations;
+using SolastaUnfinishedBusiness.Models;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -53,6 +55,41 @@ public static class CharacterStageFightingStyleSelectionPanelPatcher
             __instance.compatibleFightingStyles
                 .Sort((a, b) =>
                     String.Compare(a.FormatTitle(), b.FormatTitle(), StringComparison.CurrentCultureIgnoreCase));
+        }
+    }
+    
+    [HarmonyPatch(typeof(CharacterStageFightingStyleSelectionPanel), "TryGetFightingStyleChoiceFeature")]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    public static class TryGetFightingStyleChoiceFeature_Patch
+    {
+        public static void Postfix([NotNull] CharacterStageFightingStyleSelectionPanel __instance, ref bool __result, ref FeatureDefinitionFightingStyleChoice fightingStyleChoiceFeature)
+        {
+            //PATCH: allow fighting styles to be granted from subs
+            if (fightingStyleChoiceFeature != null)
+            {
+                return;
+            }
+
+            var hero = __instance.currentHero;
+            var lastGainedSubclass = LevelUpContext.GetSelectedSubclass(hero);
+
+            if (lastGainedSubclass == null)
+            {
+                return;
+            }
+
+            var tag = AttributeDefinitions.GetSubclassTag(
+                __instance.lastGainedClassDefinition,
+                __instance.lastGainedClassLevel, lastGainedSubclass);
+
+            if (hero.ActiveFeatures.ContainsKey(tag))
+            {
+                fightingStyleChoiceFeature = hero.ActiveFeatures[tag]
+                    .OfType<FeatureDefinitionFightingStyleChoice>()
+                    .First();
+            }
+
+            __result = fightingStyleChoiceFeature != null;
         }
     }
 }
