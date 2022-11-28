@@ -640,7 +640,7 @@ public static class GameLocationBattleManagerPatcher
                 var feature = condition.ConditionDefinition
                     .GetFirstSubFeatureOfType<ConditionSourceCanUsePowerToImproveFailedSaveRoll>();
 
-                if (Global.WasQuickWitUsed || feature == null)
+                if (feature == null)
                 {
                     continue;
                 }
@@ -688,8 +688,6 @@ public static class GameLocationBattleManagerPatcher
 
                 if (reactionParams.ReactionValidated)
                 {
-                    Global.WasQuickWitUsed = true;
-
                     GameConsoleHelper.LogCharacterUsedPower(helper, power, indent: true);
                     rulesetDefender.UsePower(usablePower);
 
