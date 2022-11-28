@@ -3,6 +3,7 @@ using SolastaUnfinishedBusiness.Api.Extensions;
 using SolastaUnfinishedBusiness.Api.Infrastructure;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
+using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionFeatureSets;
@@ -169,38 +170,36 @@ internal static class InvocationsBuilders
             .AddToDB();
     }
 
-    //TODO: how can I make this be 1 fixed used per long rest?
     internal static InvocationDefinition BuildBondOfTheTalisman()
     {
         const string NAME = "InvocationBondOfTheTalisman";
 
+        var power = FeatureDefinitionPowerBuilder
+            .Create(FeatureDefinitionPowers.PowerSorakShadowEscape, $"Power{NAME}")
+            .SetGuiPresentation(NAME, Category.Invocation)
+            .SetCustomSubFeatures(PowerVisibilityModifier.Hidden)
+            .DelegatedToAction()
+            .SetUsesFixed(RuleDefinitions.ActivationTime.BonusAction)
+            .AddToDB();
+
         _ = ActionDefinitionBuilder
             .Create(DatabaseHelper.ActionDefinitions.OneWithShadowsTurnInvisible, $"ActionDefinition{NAME}")
             //TODO: need a better icon here
-            .SetGuiPresentation(NAME, Category.Invocation, DatabaseHelper.ActionDefinitions.Sunbeam)
+            .SetGuiPresentation(NAME, Category.Invocation, DatabaseHelper.ActionDefinitions.Sunbeam, 71)
             .SetActionId(ExtraActionId.BondOfTheTalismanTeleport)
+            .RequiresAuthorization(false)
             .OverrideClassName("UsePower")
             .SetActionScope(ActionDefinitions.ActionScope.All)
-            .SetActionType(ActionDefinitions.ActionType.Main)
-            .SetFormType(ActionDefinitions.ActionFormType.Large)
-            .SetActivatedPower(FeatureDefinitionPowerBuilder
-                .Create(FeatureDefinitionPowers.PowerSorakShadowEscape, $"Power{NAME}ShadowEscape")
-                //.SetUsesFixed(RuleDefinitions.ActivationTime.Action, RuleDefinitions.RechargeRate.LongRest)
-                .SetGuiPresentationNoContent(true)
-                .AddToDB())
+            .SetActionType(ActionDefinitions.ActionType.Bonus)
+            .SetFormType(ActionDefinitions.ActionFormType.Small)
+            .SetActivatedPower(power)
             .AddToDB();
 
         return InvocationDefinitionBuilder
             .Create(InvocationDefinitions.OneWithShadows, NAME)
             .SetGuiPresentation(Category.Invocation, FeatureDefinitionPowers.PowerSorakShadowEscape)
             .SetRequirements(12)
-            .SetGrantedFeature(
-                FeatureDefinitionActionAffinityBuilder
-                    .Create(FeatureDefinitionActionAffinitys.ActionAffinityInvocationOneWithShadowsTurnInvisible,
-                        $"ActionAffinity{NAME}")
-                    .SetGuiPresentation(NAME, Category.Invocation)
-                    .SetAuthorizedActions((ActionDefinitions.Id)ExtraActionId.BondOfTheTalismanTeleport)
-                    .AddToDB())
+            .SetGrantedFeature(power)
             .AddToDB();
     }
 
