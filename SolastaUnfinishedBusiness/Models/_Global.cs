@@ -68,6 +68,7 @@ internal static class Global
     internal static void ActionStarted([NotNull] CharacterAction characterAction)
     {
         CurrentAction = characterAction;
+
         // ActionCharacter = characterAction.ActingCharacter;
 
         switch (characterAction)
@@ -97,5 +98,7 @@ internal static class Global
         {
             feature.OnAfterAction(action);
         }
+
+        CurrentAction = null;
     }
 }
