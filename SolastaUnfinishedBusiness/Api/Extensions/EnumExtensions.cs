@@ -161,7 +161,8 @@ internal enum ExtraActionId
     TacticianGambitBonus = 9006,
     TacticianGambitNoCost = 9007,
     PushedCustom = 9008,
-    FarStep = 9009
+    FarStep = 9009,
+    BondOfTheTalismanTeleport = 9010
 }
 
 internal static class EnumImplementation
