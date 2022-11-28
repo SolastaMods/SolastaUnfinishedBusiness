@@ -762,16 +762,19 @@ internal class InventorClassHolder : IClassHoldingFeature
     public CharacterClassDefinition Class => InventorClass.Class;
 }
 
-internal class FlashOfGenius : ConditionSourceCanUsePowerToImproveFailedSaveRoll
+internal class FlashOfGenius : ConditionSourceCanUsePowerToImproveFailedSaveRoll, IOnAfterActionFeature
 {
+    private bool AlreadyUsedOnThisAction { get; set; }
+
     public FlashOfGenius(FeatureDefinitionPower power, string reactionName) : base(power, reactionName)
     {
     }
 
-    private static int GetBonus(RulesetCharacter helper)
+    private static int GetBonus(RulesetEntity helper)
     {
-        var INT = helper.TryGetAttributeValue(AttributeDefinitions.Intelligence);
-        return Math.Max(AttributeDefinitions.ComputeAbilityScoreModifier(INT), 1);
+        var intelligence = helper.TryGetAttributeValue(AttributeDefinitions.Intelligence);
+
+        return Math.Max(AttributeDefinitions.ComputeAbilityScoreModifier(intelligence), 1);
     }
 
     internal override bool ShouldTrigger(
@@ -785,9 +788,8 @@ internal class FlashOfGenius : ConditionSourceCanUsePowerToImproveFailedSaveRoll
         RollOutcome saveOutcome,
         int saveOutcomeDelta)
     {
-        return action.RolledSaveThrow && saveOutcomeDelta + GetBonus(helper) >= 0;
+        return !AlreadyUsedOnThisAction && action.RolledSaveThrow && saveOutcomeDelta + GetBonus(helper) >= 0;
     }
-
 
     internal override bool TryModifyRoll(CharacterAction action,
         GameLocationCharacter attacker,
@@ -800,11 +802,12 @@ internal class FlashOfGenius : ConditionSourceCanUsePowerToImproveFailedSaveRoll
         ref int saveOutcomeDelta)
     {
         var bonus = GetBonus(helper);
+
         saveOutcomeDelta += bonus;
 
         //reuse DC modifier from previous checks, not 100% sure this is correct
-        var saveDC = action.GetSaveDC() + saveModifier.SaveDCModifier;
-        var rolled = saveDC + saveOutcomeDelta;
+        var saveDc = action.GetSaveDC() + saveModifier.SaveDCModifier;
+        var rolled = saveDc + saveOutcomeDelta;
         var success = saveOutcomeDelta >= 0;
 
         const string TEXT = "Feedback/&CharacterGivesBonusToSaveWithDCFormat";
@@ -829,9 +832,11 @@ internal class FlashOfGenius : ConditionSourceCanUsePowerToImproveFailedSaveRoll
         console.AddCharacterEntry(helper, entry);
         entry.AddParameter(ConsoleStyleDuplet.ParameterType.Positive, $"+{bonus}");
         entry.AddParameter(resultType, Gui.Format(result, rolled.ToString()));
-        entry.AddParameter(ConsoleStyleDuplet.ParameterType.AbilityInfo, saveDC.ToString());
+        entry.AddParameter(ConsoleStyleDuplet.ParameterType.AbilityInfo, saveDc.ToString());
 
         console.AddEntry(entry);
+
+        AlreadyUsedOnThisAction = true;
 
         return true;
     }
@@ -852,5 +857,10 @@ internal class FlashOfGenius : ConditionSourceCanUsePowerToImproveFailedSaveRoll
             : "Reaction/&SpendPowerInventorFlashOfGeniusReactAllyDescriptionAllyFormat";
 
         return Gui.Format(text, defender.Name, attacker.Name, action.FormatTitle());
+    }
+
+    public void OnAfterAction(CharacterAction action)
+    {
+        AlreadyUsedOnThisAction = false;
     }
 }
