@@ -86,7 +86,7 @@ public static class CharacterStageFightingStyleSelectionPanelPatcher
             {
                 fightingStyleChoiceFeature = hero.ActiveFeatures[tag]
                     .OfType<FeatureDefinitionFightingStyleChoice>()
-                    .First();
+                    .FirstOrDefault();
             }
 
             __result = fightingStyleChoiceFeature != null;
