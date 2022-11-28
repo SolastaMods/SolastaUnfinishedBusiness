@@ -1,6 +1,10 @@
 ﻿CHANGES:
 
-1.4.28.S:
+1.4.30.0:
 
-- fixed Wolf Leadership to be permanent until rage stop
+- added fighting style selection to College of Harlequin at level 3
+- changed Bond of Talisman, Combat Inspiration and Far Step casting animation
 - fixed Bear Resistance and Wolf Leadership conditions to be visible on UI
+- fixed Far Step spell level
+- refactored Bond of Talisman and renamed to Eldritch Step
+- updated to support game version 1.4.30
