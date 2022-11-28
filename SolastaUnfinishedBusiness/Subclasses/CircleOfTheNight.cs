@@ -270,7 +270,7 @@ internal sealed class CircleOfTheNight : AbstractSubclass
             .SetRequiredCondition(ConditionDefinitions.ConditionWildShapeSubstituteForm)
             .SetDurationData(DurationType.Instantaneous)
             .SetEffectForms(healingForm)
-            .SetTargetingData(Side.Ally, RangeType.Self, 1, TargetType.Self)
+            .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
             .Build();
 
         return effectDescription;
