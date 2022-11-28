@@ -1002,7 +1002,7 @@ internal sealed class MartialTactician : AbstractSubclass
             {
                 yield break;
             }
-            
+
             if (me.RulesetCharacter.GetRemainingPowerCharges(pool) <= 0)
             {
                 yield break;

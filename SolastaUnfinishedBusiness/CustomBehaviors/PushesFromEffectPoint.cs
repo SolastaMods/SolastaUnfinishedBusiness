@@ -59,7 +59,7 @@ internal sealed class PushesFromEffectPoint
             return true;
         }
 
-        if (formsParams.targetCharacter is not {CanReceiveMotion: true} ||
+        if (formsParams.targetCharacter is not { CanReceiveMotion: true } ||
             (formsParams.rolledSaveThrow &&
              effectForm.SavingThrowAffinity != RuleDefinitions.EffectSavingThrowType.None &&
              formsParams.saveOutcome != RuleDefinitions.RollOutcome.Failure &&

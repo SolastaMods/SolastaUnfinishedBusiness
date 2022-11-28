@@ -90,7 +90,7 @@ internal sealed class CollegeOfHarlequin : AbstractSubclass
             .SetProficiencies(ProficiencyType.Weapon,
                 EquipmentDefinitions.SimpleWeaponCategory, EquipmentDefinitions.MartialWeaponCategory)
             .AddToDB();
-        
+
         var proficiencyCollegeOfHarlequinFightingStyle = FeatureDefinitionProficiencyBuilder
             .Create("ProficiencyCollegeOfHarlequinFightingStyle")
             .SetGuiPresentation(Category.Feature)

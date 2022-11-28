@@ -833,7 +833,7 @@ internal class FlashOfGenius : ConditionSourceCanUsePowerToImproveFailedSaveRoll
         }
 
         var console = Gui.Game.GameConsole;
-        var entry = new GameConsoleEntry(TEXT, console.consoleTableDefinition) {Indent = true};
+        var entry = new GameConsoleEntry(TEXT, console.consoleTableDefinition) { Indent = true };
 
         console.AddCharacterEntry(helper.RulesetCharacter, entry);
         entry.AddParameter(ConsoleStyleDuplet.ParameterType.Positive, $"+{bonus}");

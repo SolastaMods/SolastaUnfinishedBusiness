@@ -221,7 +221,7 @@ public static class CustomActionIdContext
                 ? ActionStatus.Available
                 : ActionStatus.Unavailable;
         }
-        
+
         if (result == ActionStatus.Available && actionTypeStatus != ActionStatus.Available)
         {
             result = actionTypeStatus == ActionStatus.Spent ? ActionStatus.Unavailable : actionTypeStatus;

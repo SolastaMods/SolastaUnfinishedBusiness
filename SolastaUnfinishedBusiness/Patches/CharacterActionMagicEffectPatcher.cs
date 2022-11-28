@@ -102,7 +102,7 @@ public static class CharacterActionMagicEffectPatcher
             var attackOutcome = RuleDefinitions.RollOutcome.Neutral;
             var attacks = getAttackAfterUse?.Invoke(__instance);
 
-            if (attacks is {Count: > 0})
+            if (attacks is { Count: > 0 })
             {
                 void AttackImpactStartHandler(
                     GameLocationCharacter attacker,

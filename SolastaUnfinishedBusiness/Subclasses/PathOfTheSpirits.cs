@@ -155,7 +155,7 @@ internal sealed class PathOfTheSpirits : AbstractSubclass
                 DamageAffinityLightningResistance,
                 DamageAffinityNecroticResistance)
             .AddToDB();
-                
+
         // only reports condition on char panel
         Global.CharacterLabelEnabledConditions.Add(conditionPathOfTheSpiritsBearResistance);
 
@@ -195,7 +195,7 @@ internal sealed class PathOfTheSpirits : AbstractSubclass
                 .SetGuiPresentation(Category.Feature)
                 .AddToDB())
             .AddToDB();
-        
+
         // only reports condition on char panel
         Global.CharacterLabelEnabledConditions.Add(conditionPathOfTheSpiritsWolfLeadership);
 
@@ -205,7 +205,7 @@ internal sealed class PathOfTheSpirits : AbstractSubclass
             .SetCustomSubFeatures(PowerVisibilityModifier.Hidden)
             .SetUsesFixed(ActivationTime.OnRageStartAutomatic)
             .SetEffectDescription(EffectDescriptionBuilder.Create()
-                .SetTargetingData(Side.Ally, RangeType.Self, 1, TargetType.Sphere, 6)
+                .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Sphere, 6)
                 .ExcludeCaster()
                 .SetRecurrentEffect(
                     RecurrentEffect.OnActivation | RecurrentEffect.OnEnter | RecurrentEffect.OnTurnStart)
