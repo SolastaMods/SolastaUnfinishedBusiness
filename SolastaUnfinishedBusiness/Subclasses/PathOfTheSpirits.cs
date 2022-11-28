@@ -205,11 +205,11 @@ internal sealed class PathOfTheSpirits : AbstractSubclass
             .SetCustomSubFeatures(PowerVisibilityModifier.Hidden)
             .SetUsesFixed(ActivationTime.OnRageStartAutomatic)
             .SetEffectDescription(EffectDescriptionBuilder.Create()
-                .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Sphere, 6)
+                .SetTargetingData(Side.Ally, RangeType.Self, 1, TargetType.Sphere, 6)
                 .ExcludeCaster()
                 .SetRecurrentEffect(
                     RecurrentEffect.OnActivation | RecurrentEffect.OnEnter | RecurrentEffect.OnTurnStart)
-                .SetDurationData(DurationType.Permanent)
+                .SetDurationData(DurationType.Round, 1, TurnOccurenceType.StartOfTurn)
                 .SetEffectForms(EffectFormBuilder.Create()
                     .SetConditionForm(conditionPathOfTheSpiritsWolfLeadership, ConditionForm.ConditionOperation.Add)
                     .Build())
