@@ -321,9 +321,9 @@
   "includeBaseDescription": false,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
-    "hidden": false,
-    "title": "Invocation/&InvocationBondOfTheTalismanTitle",
-    "description": "Invocation/&InvocationBondOfTheTalismanDescription",
+    "hidden": true,
+    "title": "Feature/&NoContentTitle",
+    "description": "Feature/&NoContentTitle",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -343,7 +343,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "58e998a0-37b6-51f6-9da4-d9a50cc8c046",
+  "guid": "244c6991-b628-58d1-b401-b61d9218d128",
   "contentPack": 9999,
-  "name": "PowerInvocationBondOfTheTalismanShadowEscape"
+  "name": "PowerInvocationBondOfTheTalisman"
 }
