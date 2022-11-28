@@ -1,12 +1,12 @@
 ﻿CHANGES:
 
-1.4.28.P:
+1.4.28.Q:
 
-- added Divine Font at 6th to Sorcerous Divine Heart
-- disabled saving throw on allies for power Moonlit Moon Touched
-- enabled saving throw on allies for Burst of Radiance, Earth Tremor and Winter Breath
-- fixed all custom actions (even ones not available to character) being visible when incapacitated
-- fixed Grenadier items registration causing desyncs
-- fixed plant traps shown on maps even after destroyed
-- improved glowing eye colors
-- improved maps with names of all exit locations
+BEFORE UPDATE: RESPEC any level 12 Warlock that had acquired Bond of The Talisman
+
+- fixed a null exception with legendary actions
+- fixed bonus cantrips not getting offered in battle
+- fixed gambits getting offered when out of dice
+- fixed mirror image spell loosing effects after combat
+- improved gambit selection buttons display when out of dice
+- refactored Bond Of The Talisman to behave like One With Shadows, UI wise
