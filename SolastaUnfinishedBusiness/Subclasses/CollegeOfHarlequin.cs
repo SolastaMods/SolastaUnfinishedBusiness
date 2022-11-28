@@ -90,6 +90,13 @@ internal sealed class CollegeOfHarlequin : AbstractSubclass
                 EquipmentDefinitions.SimpleWeaponCategory, EquipmentDefinitions.MartialWeaponCategory)
             .AddToDB();
 
+        var fightingStyleCollegeOfHarlequin = FeatureDefinitionFightingStyleChoiceBuilder
+            .Create("FightingStyleCollegeOfHarlequin")
+            .SetGuiPresentation(Category.Feature)
+            .SetFightingStyles(FightingStyleDefinitions.Archery.Name, FightingStyleDefinitions.Dueling.Name,
+                FightingStyleDefinitions.TwoWeapon.Name)
+            .AddToDB();
+
         var powerImprovedCombatInspiration = FeatureDefinitionPowerBuilder
             .Create("PowerCollegeOfHarlequinImprovedCombatInspiration")
             .SetGuiPresentation(Category.Feature)
@@ -112,6 +119,7 @@ internal sealed class CollegeOfHarlequin : AbstractSubclass
             .Create("CollegeOfHarlequin")
             .SetOrUpdateGuiPresentation(Category.Subclass, CharacterSubclassDefinitions.RoguishShadowCaster)
             .AddFeaturesAtLevel(3,
+                fightingStyleCollegeOfHarlequin,
                 powerCombatInspiration,
                 powerTerrificPerformance,
                 proficiencyCollegeOfHarlequinMartialWeapon,
