@@ -1,5 +1,10 @@
 ﻿CHANGES:
 
+1.4.28.S:
+
+- fixed Wolf Leadership to be permanent until rage stop
+- fixed Bear Resistance and Wolf Leadership conditions to be visible on UI
+
 1.4.28.R:
 
 - fixed quick wit reaction getting offered more than once on same action
