@@ -5,6 +5,7 @@ using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomInterfaces;
+using SolastaUnfinishedBusiness.CustomUI;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionFeatureSets;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionDamageAffinitys;
@@ -176,7 +177,7 @@ internal static class InvocationsBuilders
 
         var power = FeatureDefinitionPowerBuilder
             .Create(FeatureDefinitionPowers.PowerSorakShadowEscape, $"Power{NAME}")
-            .SetGuiPresentation(NAME, Category.Invocation)
+            .SetGuiPresentation(NAME, Category.Invocation, FeatureDefinitionPowers.PowerSorakShadowEscape)
             .SetCustomSubFeatures(PowerVisibilityModifier.Hidden)
             .DelegatedToAction()
             .SetUsesFixed(RuleDefinitions.ActivationTime.BonusAction)
@@ -189,7 +190,7 @@ internal static class InvocationsBuilders
         _ = ActionDefinitionBuilder
             .Create(DatabaseHelper.ActionDefinitions.OneWithShadowsTurnInvisible, $"ActionDefinition{NAME}")
             //TODO: need a better icon here
-            .SetGuiPresentation(NAME, Category.Invocation, DatabaseHelper.ActionDefinitions.Sunbeam, 71)
+            .SetGuiPresentation(NAME, Category.Invocation, Sprites.Teleport, 71)
             .SetActionId(ExtraActionId.BondOfTheTalismanTeleport)
             .RequiresAuthorization(false)
             .OverrideClassName("UsePower")

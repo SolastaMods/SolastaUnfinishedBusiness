@@ -199,4 +199,11 @@ public static class Sprites
         GetSprite("ActionGambit", Resources.ActionGambit, 80);
 
     #endregion
+
+    #region Map Icons
+
+    internal static AssetReferenceSprite Teleport =>
+        GetSprite("Teleport", Resources.Teleport, 24);
+
+    #endregion
 }
