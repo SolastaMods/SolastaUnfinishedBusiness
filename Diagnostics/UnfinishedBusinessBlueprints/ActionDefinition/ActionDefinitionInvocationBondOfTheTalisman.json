@@ -20,7 +20,7 @@
   "removedConditionName": "",
   "preventsSerialization": false,
   "baseActionForFailureTooltips": null,
-  "activatedPower": "Definition:PowerInvocationBondOfTheTalisman:244c6991-b628-58d1-b401-b61d9218d128",
+  "activatedPower": "Definition:PowerInvocationBondOfTheTalismanShadowEscape:58e998a0-37b6-51f6-9da4-d9a50cc8c046",
   "displayPowerTooltip": true,
   "dieType": "D10",
   "abilityScore": "Dexterity",
