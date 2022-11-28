@@ -369,6 +369,7 @@ internal static class InventorClass
 
         #endregion
 
+
         for (var i = 3; i <= 20; i++)
         {
             builder.AddFeaturesAtLevel(i, _unlearn);
@@ -391,6 +392,9 @@ internal static class InventorClass
             .AddToDB());
 
         #endregion
+
+        // Inventor appears after Fighter
+        Class.GuiPresentation.sortOrder = Fighter.GuiPresentation.sortOrder + 1;
 
         return Class;
     }
@@ -635,14 +639,17 @@ internal static class InventorClass
                 RechargeRate.LongRest)
             .AddToDB();
 
-        var powers = SpellList
-            .GetSpellsOfLevels(1, 2)
-            .Where(x => x.castingTime == ActivationTime.Action)
-            .Select(spell => BuildCreateSpellStoringItemPower(BuildWandOfSpell(spell), spell, master))
-            .Cast<FeatureDefinitionPower>()
-            .ToArray();
+        var powers = new List<FeatureDefinitionPower>();
 
-        GlobalUniqueEffects.AddToGroup(GlobalUniqueEffects.Group.InventorSpellStoringItem, powers);
+        foreach (var spell in SpellList.GetSpellsOfLevels(1, 2)
+                     .Where(x => x.castingTime == ActivationTime.Action))
+        {
+            var power = BuildCreateSpellStoringItemPower(BuildWandOfSpell(spell), spell, master);
+
+            powers.Add(power);
+        }
+
+        GlobalUniqueEffects.AddToGroup(GlobalUniqueEffects.Group.InventorSpellStoringItem, powers.ToArray());
         PowerBundle.RegisterPowerBundle(master, true, powers);
 
         return master;
@@ -707,13 +714,13 @@ internal static class InventorClass
 
     private static FeatureDefinition BuildFlashOfGenius()
     {
-        const string TEXT = "PowerInventorFlashOfGenius";
+        var text = "PowerInventorFlashOfGenius";
         var sprite = Sprites.GetSprite("InventorQuickWit", Resources.InventorQuickWit, 256, 128);
 
         //ideally should be visible to player, but unusable, so remaining uses can be tracked
         var bonusPower = FeatureDefinitionPowerBuilder
             .Create("PowerInventorFlashOfGeniusBonus")
-            .SetGuiPresentation(TEXT, Category.Feature, sprite)
+            .SetGuiPresentation(text, Category.Feature, sprite)
             .SetUsesAbilityBonus(ActivationTime.Reaction, RechargeRate.LongRest, AttributeDefinitions.Intelligence)
             .SetCustomSubFeatures(PowerVisibilityModifier.Default)
             .SetReactionContext(ReactionTriggerContext.None)
@@ -722,7 +729,7 @@ internal static class InventorClass
         //should be hidden from user
         var auraPower = FeatureDefinitionPowerBuilder
             .Create("PowerInventorFlashOfGeniusAura")
-            .SetGuiPresentation(TEXT, Category.Feature, sprite)
+            .SetGuiPresentation(text, Category.Feature, sprite)
             .SetUsesFixed(ActivationTime.PermanentUnlessIncapacitated)
             .SetCustomSubFeatures(PowerVisibilityModifier.Hidden)
             .SetEffectDescription(EffectDescriptionBuilder
@@ -745,7 +752,7 @@ internal static class InventorClass
 
         return FeatureDefinitionFeatureSetBuilder
             .Create("FeatureSetInventorFlashOfGenius")
-            .SetGuiPresentation(TEXT, Category.Feature)
+            .SetGuiPresentation(text, Category.Feature)
             .AddFeatureSet(auraPower, bonusPower)
             .AddToDB();
     }
@@ -762,19 +769,16 @@ internal class InventorClassHolder : IClassHoldingFeature
     public CharacterClassDefinition Class => InventorClass.Class;
 }
 
-internal class FlashOfGenius : ConditionSourceCanUsePowerToImproveFailedSaveRoll, IOnAfterActionFeature
+internal class FlashOfGenius : ConditionSourceCanUsePowerToImproveFailedSaveRoll
 {
-    private bool AlreadyUsedOnThisAction { get; set; }
-
     public FlashOfGenius(FeatureDefinitionPower power, string reactionName) : base(power, reactionName)
     {
     }
 
-    private static int GetBonus(RulesetEntity helper)
+    private static int GetBonus(RulesetCharacter helper)
     {
-        var intelligence = helper.TryGetAttributeValue(AttributeDefinitions.Intelligence);
-
-        return Math.Max(AttributeDefinitions.ComputeAbilityScoreModifier(intelligence), 1);
+        var INT = helper.TryGetAttributeValue(AttributeDefinitions.Intelligence);
+        return Math.Max(AttributeDefinitions.ComputeAbilityScoreModifier(INT), 1);
     }
 
     internal override bool ShouldTrigger(
@@ -788,8 +792,9 @@ internal class FlashOfGenius : ConditionSourceCanUsePowerToImproveFailedSaveRoll
         RollOutcome saveOutcome,
         int saveOutcomeDelta)
     {
-        return !AlreadyUsedOnThisAction && action.RolledSaveThrow && saveOutcomeDelta + GetBonus(helper) >= 0;
+        return action.RolledSaveThrow && saveOutcomeDelta + GetBonus(helper) >= 0;
     }
+
 
     internal override bool TryModifyRoll(CharacterAction action,
         GameLocationCharacter attacker,
@@ -802,12 +807,11 @@ internal class FlashOfGenius : ConditionSourceCanUsePowerToImproveFailedSaveRoll
         ref int saveOutcomeDelta)
     {
         var bonus = GetBonus(helper);
-
         saveOutcomeDelta += bonus;
 
         //reuse DC modifier from previous checks, not 100% sure this is correct
-        var saveDc = action.GetSaveDC() + saveModifier.SaveDCModifier;
-        var rolled = saveDc + saveOutcomeDelta;
+        var saveDC = action.GetSaveDC() + saveModifier.SaveDCModifier;
+        var rolled = saveDC + saveOutcomeDelta;
         var success = saveOutcomeDelta >= 0;
 
         const string TEXT = "Feedback/&CharacterGivesBonusToSaveWithDCFormat";
@@ -832,11 +836,9 @@ internal class FlashOfGenius : ConditionSourceCanUsePowerToImproveFailedSaveRoll
         console.AddCharacterEntry(helper, entry);
         entry.AddParameter(ConsoleStyleDuplet.ParameterType.Positive, $"+{bonus}");
         entry.AddParameter(resultType, Gui.Format(result, rolled.ToString()));
-        entry.AddParameter(ConsoleStyleDuplet.ParameterType.AbilityInfo, saveDc.ToString());
+        entry.AddParameter(ConsoleStyleDuplet.ParameterType.AbilityInfo, saveDC.ToString());
 
         console.AddEntry(entry);
-
-        AlreadyUsedOnThisAction = true;
 
         return true;
     }
@@ -857,10 +859,5 @@ internal class FlashOfGenius : ConditionSourceCanUsePowerToImproveFailedSaveRoll
             : "Reaction/&SpendPowerInventorFlashOfGeniusReactAllyDescriptionAllyFormat";
 
         return Gui.Format(text, defender.Name, attacker.Name, action.FormatTitle());
-    }
-
-    public void OnAfterAction(CharacterAction action)
-    {
-        AlreadyUsedOnThisAction = false;
     }
 }
