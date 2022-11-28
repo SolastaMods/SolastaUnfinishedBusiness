@@ -19,6 +19,7 @@ internal sealed class PushesFromEffectPoint
         List<EffectForm> effectForms,
         RulesetImplementationDefinitions.ApplyFormsParams formsParams,
         List<string> effectiveDamageTypes,
+        out bool damageAbsorbedByTemporaryHitPoints,
         bool retargeting,
         bool proxyOnly,
         bool forceSelfConditionOnly,
@@ -35,7 +36,8 @@ internal sealed class PushesFromEffectPoint
             formsParams.position = positions[0];
         }
 
-        return service.ApplyEffectForms(effectForms, formsParams, effectiveDamageTypes, retargeting, proxyOnly,
+        return service.ApplyEffectForms(effectForms, formsParams, effectiveDamageTypes,
+            out damageAbsorbedByTemporaryHitPoints, retargeting, proxyOnly,
             forceSelfConditionOnly, effectApplication, filters);
     }
 
@@ -57,7 +59,7 @@ internal sealed class PushesFromEffectPoint
             return true;
         }
 
-        if (formsParams.targetCharacter is not { CanReceiveMotion: true } ||
+        if (formsParams.targetCharacter is not {CanReceiveMotion: true} ||
             (formsParams.rolledSaveThrow &&
              effectForm.SavingThrowAffinity != RuleDefinitions.EffectSavingThrowType.None &&
              formsParams.saveOutcome != RuleDefinitions.RollOutcome.Failure &&
