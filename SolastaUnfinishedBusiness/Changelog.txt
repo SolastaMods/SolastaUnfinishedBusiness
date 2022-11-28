@@ -2,4 +2,4 @@
 
 1.4.28.R:
 
-- fixed quick wit reaction getting offered more than once on same action (requires RESPEC)
+- fixed quick wit reaction getting offered more than once on same action
