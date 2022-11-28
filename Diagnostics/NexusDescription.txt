@@ -280,9 +280,9 @@ You can use a bonus action to select a weapon. Its attacks count as magical and 
 [list=1]
 
 [*][b]Aspect of The Moon[/b]: You no longer need to sleep and can keep watch, lowering the chances of attack and ensuring you are awake if camp is attacked.
-[*][b]Bond of The Talisman[/b]: Teleport up to 30 ft away.
 [*][b]Eldritch Mind[/b]: You have advantage on Constitution saving throws that you make to maintain your concentration on a spell.
 [*][b]Eldritch Smite[/b]: Once per turn when you hit a creature with your weapon, you can expend a Warlock spell slot to deal an extra 1d8 force damage to the target, plus another 1d8 per level of the spell slot.
+[*][b]Eldritch Step[/b]: You can use Bonus Action to teleport up to 30 ft away to an unoccupied space you can see.
 [*][b]Gift of the Ever-Living Ones[/b]: Regains the maximum number of hit points possible from any healing.
 [*][b]Gift of The Protectors[/b]: When you are reduced to 0 HP but not killed, you can drop to 1 HP instead.
 [*][b]Grasping Blast[/b]: When you hit a creature with Eldritch Blast, you can pull the creature up to 2 cells towards you in a straight line.

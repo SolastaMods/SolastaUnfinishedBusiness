@@ -104,7 +104,7 @@
       "alteredDuration": "None"
     },
     "speedType": "Instant",
-    "speedParameter": 10.0,
+    "speedParameter": -1.0,
     "offsetImpactTimeBasedOnDistance": false,
     "offsetImpactTimeBasedOnDistanceFactor": 0.1,
     "offsetImpactTimePerTarget": 0.0,
@@ -124,7 +124,7 @@
       },
       "casterQuickSpellParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "",
+        "m_AssetGUID": "a4e2a49f9e9efdc4998f511c26659989",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },

@@ -104,7 +104,7 @@
       "alteredDuration": "None"
     },
     "speedType": "Instant",
-    "speedParameter": 4.5,
+    "speedParameter": -1.0,
     "offsetImpactTimeBasedOnDistance": false,
     "offsetImpactTimeBasedOnDistanceFactor": 0.1,
     "offsetImpactTimePerTarget": 0.0,
@@ -124,7 +124,7 @@
       },
       "casterQuickSpellParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "",
+        "m_AssetGUID": "07ccabeca8df36045ad13b1247fd5555",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -284,7 +284,7 @@
     "animationMagicEffect": "Animation0",
     "lightCounterDispellsEffect": false
   },
-  "delegatedToAction": false,
+  "delegatedToAction": true,
   "surrogateToSpell": null,
   "triggeredBySpecialMove": false,
   "activationTime": "BonusAction",
@@ -302,7 +302,7 @@
   "canUseInDialog": false,
   "disableIfConditionIsOwned": null,
   "disableIfTargetConditionIsOwned": null,
-  "rechargeRate": "LongRest",
+  "rechargeRate": "AtWill",
   "costPerUse": 1,
   "spellcastingFeature": null,
   "usesDetermination": "Fixed",
@@ -321,14 +321,14 @@
   "includeBaseDescription": false,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
-    "hidden": true,
-    "title": "Feature/&NoContentTitle",
-    "description": "Feature/&NoContentTitle",
+    "hidden": false,
+    "title": "Invocation/&InvocationBondOfTheTalismanTitle",
+    "description": "Invocation/&InvocationBondOfTheTalismanDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "",
-      "m_SubObjectName": null,
-      "m_SubObjectType": null
+      "m_AssetGUID": "f2582a82a487aad49910c5263c7830ce",
+      "m_SubObjectName": "ShadowDodge",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
@@ -343,7 +343,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "58e998a0-37b6-51f6-9da4-d9a50cc8c046",
+  "guid": "244c6991-b628-58d1-b401-b61d9218d128",
   "contentPack": 9999,
-  "name": "PowerInvocationBondOfTheTalismanShadowEscape"
+  "name": "PowerInvocationBondOfTheTalisman"
 }
