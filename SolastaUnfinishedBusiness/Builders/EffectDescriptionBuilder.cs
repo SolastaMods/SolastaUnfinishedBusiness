@@ -13,7 +13,7 @@ internal class EffectDescriptionBuilder
     {
         effect = new EffectDescription
         {
-            effectAdvancement = new EffectAdvancement { incrementMultiplier = 1 },
+            effectAdvancement = new EffectAdvancement {incrementMultiplier = 1},
             effectParticleParameters = MagicWeapon.EffectDescription.EffectParticleParameters
         };
     }
@@ -76,6 +76,19 @@ internal class EffectDescriptionBuilder
     internal EffectDescriptionBuilder SetParticleEffectParameters(EffectParticleParameters parameters)
     {
         effect.effectParticleParameters = parameters;
+        return this;
+    }
+
+    internal EffectDescriptionBuilder UseQuickAnimations()
+    {
+        effect.speedParameter = -1;
+        var particles = effect.effectParticleParameters;
+        if (particles.casterQuickSpellParticleReference == null
+            || !particles.casterQuickSpellParticleReference.IsValid())
+        {
+            particles.casterQuickSpellParticleReference = particles.casterParticleReference;
+        }
+
         return this;
     }
 

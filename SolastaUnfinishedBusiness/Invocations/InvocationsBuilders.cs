@@ -180,6 +180,10 @@ internal static class InvocationsBuilders
             .SetCustomSubFeatures(PowerVisibilityModifier.Hidden)
             .DelegatedToAction()
             .SetUsesFixed(RuleDefinitions.ActivationTime.BonusAction)
+            .SetEffectDescription(EffectDescriptionBuilder
+                .Create(FeatureDefinitionPowers.PowerSorakShadowEscape)
+                .UseQuickAnimations()
+                .Build())
             .AddToDB();
 
         _ = ActionDefinitionBuilder

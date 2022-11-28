@@ -54,6 +54,7 @@ internal sealed class CollegeOfHarlequin : AbstractSubclass
             .SetEffectDescription(EffectDescriptionBuilder.Create()
                 .SetDurationData(DurationType.Round, 1, TurnOccurenceType.StartOfTurn)
                 .SetParticleEffectParameters(FeatureDefinitionPowers.PowerBardGiveBardicInspiration)
+                .UseQuickAnimations()
                 .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
                 .SetEffectForms(EffectFormBuilder.Create()
                     .SetConditionForm(ConditionDefinitionBuilder

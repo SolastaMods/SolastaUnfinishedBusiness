@@ -128,6 +128,7 @@ public static class CustomActionIdContext
                     .SetMotionForm(MotionForm.MotionType.TeleportToDestination)
                     .Build())
                 .SetParticleEffectParameters(DatabaseHelper.SpellDefinitions.MistyStep)
+                .UseQuickAnimations()
                 .Build())
             .AddToDB();
 
