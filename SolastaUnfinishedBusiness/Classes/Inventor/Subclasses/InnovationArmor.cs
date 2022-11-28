@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using SolastaUnfinishedBusiness.Api.Extensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
@@ -303,9 +304,15 @@ public static class InnovationArmor
                 hero.FeaturesOrigin
             );
 
+            if (hero.HasEmptyMainHand())
+            {
+                attackMode.attackTags.Add($"ORDER_33");
+            }
+
+
             AddArmorBonusesToBuiltinAttack(hero, attackMode);
 
-            return new List<RulesetAttackMode> { attackMode };
+            return new List<RulesetAttackMode> {attackMode};
         }
     }
 
@@ -347,7 +354,7 @@ public static class InnovationArmor
 
             AddArmorBonusesToBuiltinAttack(hero, attackMode);
 
-            return new List<RulesetAttackMode> { attackMode };
+            return new List<RulesetAttackMode> {attackMode};
         }
     }
 
