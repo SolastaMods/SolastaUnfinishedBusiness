@@ -1,6 +1,6 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
+using System.Reflection;
 using System.Reflection.Emit;
 using HarmonyLib;
 using JetBrains.Annotations;
@@ -57,8 +57,9 @@ public static class CharacterActionMagicEffectPatcher
                 formsParams.attackOutcome = RuleDefinitions.RollOutcome.Success;
             }
 
-            service.ApplyEffectForms(effectDescription.EffectForms, formsParams, null, forceSelfConditionOnly: true,
-                effectApplication: effectDescription.EffectApplication, filters: effectDescription.EffectFormFilters);
+            service.ApplyEffectForms(effectDescription.EffectForms, formsParams, null, out var _,
+                forceSelfConditionOnly: true, effectApplication: effectDescription.EffectApplication,
+                filters: effectDescription.EffectFormFilters);
 
             return false;
         }
@@ -101,7 +102,7 @@ public static class CharacterActionMagicEffectPatcher
             var attackOutcome = RuleDefinitions.RollOutcome.Neutral;
             var attacks = getAttackAfterUse?.Invoke(__instance);
 
-            if (attacks is { Count: > 0 })
+            if (attacks is {Count: > 0})
             {
                 void AttackImpactStartHandler(
                     GameLocationCharacter attacker,
@@ -176,7 +177,8 @@ public static class CharacterActionMagicEffectPatcher
         typeof(int), // totalTargetsNumber,
         typeof(RulesetItem), // targetITem,
         typeof(RuleDefinitions.EffectSourceType), // sourceType,
-        typeof(int) // ref damageReceive
+        typeof(int), // ref damageReceive
+        typeof(bool) //out damageAbsorbedByTemporaryHitPoints
     }, new[]
     {
         ArgumentType.Normal, // caster
@@ -196,7 +198,8 @@ public static class CharacterActionMagicEffectPatcher
         ArgumentType.Normal, // totalTargetsNumber,
         ArgumentType.Normal, // targetITem,
         ArgumentType.Normal, // sourceType,
-        ArgumentType.Ref //ref damageReceive
+        ArgumentType.Ref, //ref damageReceive
+        ArgumentType.Out, //out damageAbsorbedByTemporaryHitPoints
     })]
     public static class ApplyForms_Patch
     {
@@ -208,10 +211,8 @@ public static class CharacterActionMagicEffectPatcher
             // used for Grenadier's force grenades
             // sets position of the formsParams to the first position from ActionParams, when applicable
             var method =
-                new Func<IRulesetImplementationService, List<EffectForm>,
-                    RulesetImplementationDefinitions.ApplyFormsParams,
-                    List<string>, bool, bool, bool, RuleDefinitions.EffectApplication, List<EffectFormFilter>,
-                    CharacterActionMagicEffect, int>(PushesFromEffectPoint.SetPositionAndApplyForms).Method;
+                typeof(PushesFromEffectPoint).GetMethod(nameof(PushesFromEffectPoint.SetPositionAndApplyForms),
+                    BindingFlags.Static | BindingFlags.NonPublic);
 
             return instructions.ReplaceCall(
                 "ApplyEffectForms",
