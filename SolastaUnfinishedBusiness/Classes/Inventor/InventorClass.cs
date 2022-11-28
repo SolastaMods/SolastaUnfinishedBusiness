@@ -369,7 +369,6 @@ internal static class InventorClass
 
         #endregion
 
-
         for (var i = 3; i <= 20; i++)
         {
             builder.AddFeaturesAtLevel(i, _unlearn);
@@ -392,9 +391,6 @@ internal static class InventorClass
             .AddToDB());
 
         #endregion
-
-        // Inventor appears after Fighter
-        Class.GuiPresentation.sortOrder = Fighter.GuiPresentation.sortOrder + 1;
 
         return Class;
     }
@@ -639,17 +635,14 @@ internal static class InventorClass
                 RechargeRate.LongRest)
             .AddToDB();
 
-        var powers = new List<FeatureDefinitionPower>();
+        var powers = SpellList
+            .GetSpellsOfLevels(1, 2)
+            .Where(x => x.castingTime == ActivationTime.Action)
+            .Select(spell => BuildCreateSpellStoringItemPower(BuildWandOfSpell(spell), spell, master))
+            .Cast<FeatureDefinitionPower>()
+            .ToArray();
 
-        foreach (var spell in SpellList.GetSpellsOfLevels(1, 2)
-                     .Where(x => x.castingTime == ActivationTime.Action))
-        {
-            var power = BuildCreateSpellStoringItemPower(BuildWandOfSpell(spell), spell, master);
-
-            powers.Add(power);
-        }
-
-        GlobalUniqueEffects.AddToGroup(GlobalUniqueEffects.Group.InventorSpellStoringItem, powers.ToArray());
+        GlobalUniqueEffects.AddToGroup(GlobalUniqueEffects.Group.InventorSpellStoringItem, powers);
         PowerBundle.RegisterPowerBundle(master, true, powers);
 
         return master;
@@ -714,13 +707,13 @@ internal static class InventorClass
 
     private static FeatureDefinition BuildFlashOfGenius()
     {
-        var text = "PowerInventorFlashOfGenius";
+        const string TEXT = "PowerInventorFlashOfGenius";
         var sprite = Sprites.GetSprite("InventorQuickWit", Resources.InventorQuickWit, 256, 128);
 
         //ideally should be visible to player, but unusable, so remaining uses can be tracked
         var bonusPower = FeatureDefinitionPowerBuilder
             .Create("PowerInventorFlashOfGeniusBonus")
-            .SetGuiPresentation(text, Category.Feature, sprite)
+            .SetGuiPresentation(TEXT, Category.Feature, sprite)
             .SetUsesAbilityBonus(ActivationTime.Reaction, RechargeRate.LongRest, AttributeDefinitions.Intelligence)
             .SetCustomSubFeatures(PowerVisibilityModifier.Default)
             .SetReactionContext(ReactionTriggerContext.None)
@@ -729,7 +722,7 @@ internal static class InventorClass
         //should be hidden from user
         var auraPower = FeatureDefinitionPowerBuilder
             .Create("PowerInventorFlashOfGeniusAura")
-            .SetGuiPresentation(text, Category.Feature, sprite)
+            .SetGuiPresentation(TEXT, Category.Feature, sprite)
             .SetUsesFixed(ActivationTime.PermanentUnlessIncapacitated)
             .SetCustomSubFeatures(PowerVisibilityModifier.Hidden)
             .SetEffectDescription(EffectDescriptionBuilder
@@ -752,7 +745,7 @@ internal static class InventorClass
 
         return FeatureDefinitionFeatureSetBuilder
             .Create("FeatureSetInventorFlashOfGenius")
-            .SetGuiPresentation(text, Category.Feature)
+            .SetGuiPresentation(TEXT, Category.Feature)
             .AddFeatureSet(auraPower, bonusPower)
             .AddToDB();
     }
