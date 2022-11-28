@@ -60,7 +60,6 @@ internal sealed class WizardBladeDancer : AbstractSubclass
                         4,
                         (AttributeDefinitions.Constitution, string.Empty))
                     .AddToDB())
-            .SetConditionType(ConditionType.Beneficial)
             .SetTerminateWhenRemoved()
             .AddToDB();
 

@@ -1,6 +1,7 @@
 ﻿using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
+using SolastaUnfinishedBusiness.Models;
 using static FeatureDefinitionAttributeModifier;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
@@ -29,8 +30,7 @@ internal sealed class PathOfTheSpirits : AbstractSubclass
             .SetGuiPresentation(Category.Feature)
             .AddFeatureSet(
                 BuildSpiritSeekerSpell(SpellDefinitions.AnimalFriendship),
-                BuildSpiritSeekerSpell(SpellDefinitions.FindTraps)
-            )
+                BuildSpiritSeekerSpell(SpellDefinitions.FindTraps))
             .AddToDB();
 
         // Animal Spirit
@@ -76,8 +76,7 @@ internal sealed class PathOfTheSpirits : AbstractSubclass
                 BuildAnimalAspectChoice("Wolf",
                     BuildSpiritSeekerSpell(SpellDefinitions.IdentifyCreatures),
                     AbilityCheckAffinityKeenSmell,
-                    AbilityCheckAffinityKeenHearing)
-            )
+                    AbilityCheckAffinityKeenHearing))
             .AddToDB();
 
         #endregion
@@ -140,34 +139,35 @@ internal sealed class PathOfTheSpirits : AbstractSubclass
 
     private static FeatureDefinition PowerPathOfTheSpiritsBearResistance()
     {
+        var conditionPathOfTheSpiritsBearResistance = ConditionDefinitionBuilder
+            .Create("ConditionPathOfTheSpiritsBearResistance")
+            .SetGuiPresentation("PowerPathOfTheSpiritsBearResistance", Category.Feature)
+            .SetDuration(DurationType.Permanent)
+            .SetTerminateWhenRemoved()
+            .SetSilent(Silent.WhenAddedOrRemoved)
+            .SetSpecialInterruptions(ConditionInterruption.RageStop)
+            .SetFeatures(
+                DamageAffinityPoisonResistance,
+                DamageAffinityAcidResistance,
+                DamageAffinityColdResistance,
+                DamageAffinityFireResistance,
+                DamageAffinityThunderResistance,
+                DamageAffinityLightningResistance,
+                DamageAffinityNecroticResistance)
+            .AddToDB();
+                
+        // only reports condition on char panel
+        Global.CharacterLabelEnabledConditions.Add(conditionPathOfTheSpiritsBearResistance);
+
         return FeatureDefinitionPowerBuilder
             .Create("PowerPathOfTheSpiritsBearResistance")
             .SetGuiPresentation(Category.Feature)
             .SetUsesFixed(ActivationTime.OnRageStartAutomatic)
-            .SetEffectDescription(EffectDescriptionBuilder
-                .Create()
+            .SetEffectDescription(EffectDescriptionBuilder.Create()
                 .SetDurationData(DurationType.Permanent)
                 .SetEffectForms(EffectFormBuilder
                     .Create()
-                    .SetConditionForm(ConditionDefinitionBuilder
-                            .Create("ConditionPathOfTheSpiritsBearResistance")
-                            .SetGuiPresentationNoContent(true)
-                            .SetConditionType(ConditionType.Beneficial)
-                            .SetDuration(DurationType.Permanent)
-                            .SetTerminateWhenRemoved()
-                            .SetSilent(Silent.WhenAddedOrRemoved)
-                            .SetSpecialInterruptions(ConditionInterruption.RageStop)
-                            .SetFeatures(
-                                DamageAffinityPoisonResistance,
-                                DamageAffinityAcidResistance,
-                                DamageAffinityColdResistance,
-                                DamageAffinityFireResistance,
-                                DamageAffinityThunderResistance,
-                                DamageAffinityLightningResistance,
-                                DamageAffinityNecroticResistance)
-                            .SetAllowMultipleInstances(false)
-                            .AddToDB(),
-                        ConditionForm.ConditionOperation.Add)
+                    .SetConditionForm(conditionPathOfTheSpiritsBearResistance, ConditionForm.ConditionOperation.Add)
                     .Build())
                 .Build())
             .AddToDB();
@@ -184,24 +184,34 @@ internal sealed class PathOfTheSpirits : AbstractSubclass
 
     private static FeatureDefinition PowerPathOfTheSpiritsWolfLeadership()
     {
+        var conditionPathOfTheSpiritsWolfLeadership = ConditionDefinitionBuilder
+            .Create("ConditionPathOfTheSpiritsWolfLeadership")
+            .SetGuiPresentation("PowerPathOfTheSpiritsWolfLeadership", Category.Feature)
+            .SetTerminateWhenRemoved()
+            .SetSilent(Silent.WhenAddedOrRemoved)
+            .SetSpecialInterruptions(ConditionInterruption.RageStop)
+            .SetFeatures(FeatureDefinitionCombatAffinityBuilder
+                .Create(CombatAffinityRousingShout, "CombatAffinityPathOfTheSpiritsWolfLeadership")
+                .SetGuiPresentation(Category.Feature)
+                .AddToDB())
+            .AddToDB();
+        
+        // only reports condition on char panel
+        Global.CharacterLabelEnabledConditions.Add(conditionPathOfTheSpiritsWolfLeadership);
+
         return FeatureDefinitionPowerBuilder
             .Create("PowerPathOfTheSpiritsWolfLeadership")
             .SetGuiPresentation(Category.Feature)
             .SetCustomSubFeatures(PowerVisibilityModifier.Hidden)
             .SetUsesFixed(ActivationTime.OnRageStartAutomatic)
             .SetEffectDescription(EffectDescriptionBuilder.Create()
-                .SetTargetingData(Side.Ally, RangeType.Self, 1, TargetType.Sphere, 6)
+                .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Sphere, 6)
                 .ExcludeCaster()
                 .SetRecurrentEffect(
                     RecurrentEffect.OnActivation | RecurrentEffect.OnEnter | RecurrentEffect.OnTurnStart)
-                .SetDurationData(DurationType.Round, 1, TurnOccurenceType.StartOfTurn)
+                .SetDurationData(DurationType.Permanent)
                 .SetEffectForms(EffectFormBuilder.Create()
-                    .SetConditionForm(ConditionDefinitionBuilder
-                        .Create("ConditionPathOfTheSpiritsWolfLeadership")
-                        .SetGuiPresentationNoContent(true)
-                        .SetSilent(Silent.WhenAddedOrRemoved)
-                        .SetFeatures(CombatAffinityRousingShout)
-                        .AddToDB(), ConditionForm.ConditionOperation.Add)
+                    .SetConditionForm(conditionPathOfTheSpiritsWolfLeadership, ConditionForm.ConditionOperation.Add)
                     .Build())
                 .Build())
             .AddToDB();

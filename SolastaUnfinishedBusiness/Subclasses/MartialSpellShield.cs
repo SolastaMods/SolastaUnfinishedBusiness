@@ -54,7 +54,6 @@ internal sealed class MartialSpellShield : AbstractSubclass
                     AttributeDefinitions.ArmorClass,
                     3)
                 .AddToDB())
-            .SetConditionType(ConditionType.Beneficial)
             .SetDuration(DurationType.Round, 1)
             .AddToDB();
 

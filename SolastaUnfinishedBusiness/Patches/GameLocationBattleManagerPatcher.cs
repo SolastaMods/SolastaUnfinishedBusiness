@@ -594,6 +594,8 @@ public static class GameLocationBattleManagerPatcher
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     internal static class HandleFailedSavingThrow_Patch
     {
+        internal static bool QuickWitReactionValidated { get; set; }
+
         internal static IEnumerator Postfix(
             IEnumerator values,
             GameLocationBattleManager __instance,
@@ -687,6 +689,7 @@ public static class GameLocationBattleManagerPatcher
                 if (reactionParams.ReactionValidated)
                 {
                     GameConsoleHelper.LogCharacterUsedPower(helper, power, indent: true);
+                    rulesetDefender.UsePower(usablePower);
 
                     action.RolledSaveThrow = feature.TryModifyRoll(action, attacker, defender, helper, saveModifier,
                         hasHitVisual, hasBorrowedLuck, ref saveOutcome, ref action.saveOutcomeDelta);

@@ -131,7 +131,7 @@ internal sealed class CircleOfTheAncientForest : AbstractSubclass
                                 true)
                             .Build())
                     .SetDurationData(DurationType.Minute, 1)
-                    .SetTargetingData(Side.Ally, RangeType.Self, 1, TargetType.Self)
+                    .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
                     .Build())
             .SetUniqueInstance()
             .AddToDB();
@@ -238,7 +238,7 @@ internal sealed class CircleOfTheAncientForest : AbstractSubclass
             .Create()
             .SetEffectForms(brewForm)
             .SetDurationData(DurationType.UntilLongRest)
-            .SetTargetingData(Side.Ally, RangeType.Self, 1, TargetType.Self)
+            .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
             .Build();
 
         return FeatureDefinitionPowerSharedPoolBuilder
@@ -291,7 +291,7 @@ internal sealed class CircleOfTheAncientForest : AbstractSubclass
                                 true)
                             .Build())
                     .SetDurationData(DurationType.Hour, 1)
-                    .SetTargetingData(Side.Ally, RangeType.Self, 1, TargetType.Self)
+                    .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
                     .Build())
             .SetUniqueInstance()
             .AddToDB();
@@ -319,7 +319,7 @@ internal sealed class CircleOfTheAncientForest : AbstractSubclass
             .Create()
             .SetEffectForms(brewForm)
             .SetDurationData(DurationType.UntilLongRest)
-            .SetTargetingData(Side.Ally, RangeType.Self, 1, TargetType.Self)
+            .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
             .Build();
 
         return FeatureDefinitionPowerSharedPoolBuilder
