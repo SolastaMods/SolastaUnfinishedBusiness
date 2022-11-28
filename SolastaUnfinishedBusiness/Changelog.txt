@@ -1,15 +1,5 @@
 ﻿CHANGES:
 
-1.4.28.Q:
+1.4.28.R:
 
-- fixed a null exception with legendary actions
-- fixed bonus cantrips not getting offered in battle
-- fixed gambits getting offered when out of dice
-- fixed mirror image spell loosing effects after combat
-- fixed quick wit reaction not spending power
-- improved gambit selection buttons display when out of dice
-- refactored Bond Of The Talisman to behave like One With Shadows, UI wise
-
-KNOWN ISSUES:
-
-- quick wit reaction is still offered more often than it should
+- fixed quick wit reaction getting offered more than once on same action (requires RESPEC)
