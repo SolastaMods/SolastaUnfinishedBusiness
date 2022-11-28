@@ -715,7 +715,7 @@ internal static class InventorClass
             .Create("PowerInventorFlashOfGeniusBonus")
             .SetGuiPresentation(TEXT, Category.Feature, sprite)
             .SetUsesAbilityBonus(ActivationTime.Reaction, RechargeRate.LongRest, AttributeDefinitions.Intelligence)
-            .SetCustomSubFeatures(PowerVisibilityModifier.Default)
+            .SetCustomSubFeatures(PowerVisibilityModifier.Visible)
             .SetReactionContext(ReactionTriggerContext.None)
             .AddToDB();
 
@@ -726,7 +726,7 @@ internal static class InventorClass
             .Create("PowerInventorFlashOfGeniusAura")
             .SetGuiPresentation(TEXT, Category.Feature, sprite)
             .SetUsesFixed(ActivationTime.PermanentUnlessIncapacitated)
-            .SetCustomSubFeatures(PowerVisibilityModifier.Hidden, new ResetFlashOfGenius(flashOfGenius))
+            .SetCustomSubFeatures(PowerVisibilityModifier.Hidden)
             .SetEffectDescription(EffectDescriptionBuilder
                 .Create()
                 .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Sphere, 6)
@@ -766,8 +766,6 @@ internal class InventorClassHolder : IClassHoldingFeature
 
 internal class FlashOfGenius : ConditionSourceCanUsePowerToImproveFailedSaveRoll
 {
-    internal bool AlreadyUsedOnThisAction { get; set; }
-
     internal FlashOfGenius(FeatureDefinitionPower power, string reactionName) : base(power, reactionName)
     {
     }
@@ -783,27 +781,33 @@ internal class FlashOfGenius : ConditionSourceCanUsePowerToImproveFailedSaveRoll
         CharacterAction action,
         GameLocationCharacter attacker,
         GameLocationCharacter defender,
-        RulesetCharacter helper,
+        GameLocationCharacter helper,
         ActionModifier saveModifier,
         bool hasHitVisual,
         bool hasBorrowedLuck,
         RollOutcome saveOutcome,
         int saveOutcomeDelta)
     {
-        return !AlreadyUsedOnThisAction && action.RolledSaveThrow && saveOutcomeDelta + GetBonus(helper) >= 0;
+        if (helper.GetActionTypeStatus(ActionDefinitions.ActionType.Reaction) !=
+            ActionDefinitions.ActionStatus.Available)
+        {
+            return false;
+        }
+
+        return action.RolledSaveThrow && saveOutcomeDelta + GetBonus(helper.RulesetActor) >= 0;
     }
 
     internal override bool TryModifyRoll(CharacterAction action,
         GameLocationCharacter attacker,
         GameLocationCharacter defender,
-        RulesetCharacter helper,
+        GameLocationCharacter helper,
         ActionModifier saveModifier,
         bool hasHitVisual,
         bool hasBorrowedLuck,
         ref RollOutcome saveOutcome,
         ref int saveOutcomeDelta)
     {
-        var bonus = GetBonus(helper);
+        var bonus = GetBonus(helper.RulesetActor);
 
         saveOutcomeDelta += bonus;
 
@@ -829,16 +833,14 @@ internal class FlashOfGenius : ConditionSourceCanUsePowerToImproveFailedSaveRoll
         }
 
         var console = Gui.Game.GameConsole;
-        var entry = new GameConsoleEntry(TEXT, console.consoleTableDefinition) { Indent = true };
+        var entry = new GameConsoleEntry(TEXT, console.consoleTableDefinition) {Indent = true};
 
-        console.AddCharacterEntry(helper, entry);
+        console.AddCharacterEntry(helper.RulesetCharacter, entry);
         entry.AddParameter(ConsoleStyleDuplet.ParameterType.Positive, $"+{bonus}");
         entry.AddParameter(resultType, Gui.Format(result, rolled.ToString()));
         entry.AddParameter(ConsoleStyleDuplet.ParameterType.AbilityInfo, saveDc.ToString());
 
         console.AddEntry(entry);
-
-        AlreadyUsedOnThisAction = true;
 
         return true;
     }
@@ -847,32 +849,17 @@ internal class FlashOfGenius : ConditionSourceCanUsePowerToImproveFailedSaveRoll
         CharacterAction action,
         GameLocationCharacter attacker,
         GameLocationCharacter defender,
-        RulesetCharacter helper,
+        GameLocationCharacter helper,
         ActionModifier saveModifier,
         bool hasHitVisual,
         bool hasBorrowedLuck,
         RollOutcome saveOutcome,
         int saveOutcomeDelta)
     {
-        var text = defender.RulesetCharacter == helper
+        var text = defender == helper
             ? "Reaction/&SpendPowerInventorFlashOfGeniusReactDescriptionSelfFormat"
             : "Reaction/&SpendPowerInventorFlashOfGeniusReactAllyDescriptionAllyFormat";
 
         return Gui.Format(text, defender.Name, attacker.Name, action.FormatTitle());
     }
-}
-
-internal class ResetFlashOfGenius : IOnAfterActionFeature
-{
-    private readonly FlashOfGenius _flashOfGenius;
-
-    public ResetFlashOfGenius(FlashOfGenius flashOfGenius)
-    {
-        _flashOfGenius = flashOfGenius;
-    }
-
-    public void OnAfterAction(CharacterAction action)
-    {
-        _flashOfGenius.AlreadyUsedOnThisAction = false;
-    } 
 }

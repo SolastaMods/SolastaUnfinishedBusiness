@@ -128,6 +128,7 @@ public static class CustomActionIdContext
                     .SetMotionForm(MotionForm.MotionType.TeleportToDestination)
                     .Build())
                 .SetParticleEffectParameters(DatabaseHelper.SpellDefinitions.MistyStep)
+                .UseQuickAnimations()
                 .Build())
             .AddToDB();
 
@@ -270,6 +271,7 @@ public static class CustomActionIdContext
     {
         var extra = (ExtraActionId)id;
 
-        return extra is ExtraActionId.FarStep;
+        return extra is ExtraActionId.FarStep
+            or ExtraActionId.BondOfTheTalismanTeleport;
     }
 }
