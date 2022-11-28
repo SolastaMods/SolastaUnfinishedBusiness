@@ -189,7 +189,6 @@ internal static class InvocationsBuilders
 
         _ = ActionDefinitionBuilder
             .Create(DatabaseHelper.ActionDefinitions.OneWithShadowsTurnInvisible, $"ActionDefinition{NAME}")
-            //TODO: need a better icon here
             .SetGuiPresentation(NAME, Category.Invocation, Sprites.Teleport, 71)
             .SetActionId(ExtraActionId.BondOfTheTalismanTeleport)
             .RequiresAuthorization(false)
@@ -202,7 +201,7 @@ internal static class InvocationsBuilders
 
         return InvocationDefinitionBuilder
             .Create(InvocationDefinitions.OneWithShadows, NAME)
-            .SetGuiPresentation(Category.Invocation, FeatureDefinitionPowers.PowerSorakShadowEscape)
+            .SetGuiPresentation(Category.Invocation, InvocationDefinitions.EldritchSpear)
             .SetRequirements(12)
             .SetGrantedFeature(power)
             .AddToDB();
