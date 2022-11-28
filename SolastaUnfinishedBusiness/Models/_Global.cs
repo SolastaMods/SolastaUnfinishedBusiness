@@ -9,6 +9,9 @@ namespace SolastaUnfinishedBusiness.Models;
 
 internal static class Global
 {
+    // was quick wit used in this action sequence?
+    internal static bool WasQuickWitUsed { get; set; }
+
     // true if in a multiplayer game
     internal static bool IsMultiplayer => IsSettingUpMultiplayer
                                           || ServiceRepository.GetService<INetworkingService>().IsMultiplayerGame;
@@ -68,6 +71,8 @@ internal static class Global
     internal static void ActionStarted([NotNull] CharacterAction characterAction)
     {
         CurrentAction = characterAction;
+        WasQuickWitUsed = false;
+
         // ActionCharacter = characterAction.ActingCharacter;
 
         switch (characterAction)
@@ -97,5 +102,8 @@ internal static class Global
         {
             feature.OnAfterAction(action);
         }
+
+        CurrentAction = null;
+        WasQuickWitUsed = false;
     }
 }
