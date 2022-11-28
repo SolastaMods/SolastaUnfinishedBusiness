@@ -4,19 +4,21 @@
   "parentCondition": null,
   "conditionType": "Beneficial",
   "features": [
-    "Definition:CombatAffinityRousingShout:ac23119748402f24abb24423179d3932"
+    "Definition:CombatAffinityPathOfTheSpiritsWolfLeadership:197fda3f-cfd5-5b17-b921-59a922cad08c"
   ],
   "allowMultipleInstances": false,
   "silentWhenAdded": true,
   "silentWhenRemoved": true,
-  "terminateWhenRemoved": false,
+  "terminateWhenRemoved": true,
   "specialDuration": false,
   "durationType": "Hour",
   "durationParameterDie": "D4",
   "durationParameter": 1,
   "forceTurnOccurence": false,
   "turnOccurence": "EndOfTurn",
-  "specialInterruptions": [],
+  "specialInterruptions": [
+    "RageStop"
+  ],
   "interruptionRequiresSavingThrow": false,
   "interruptionSavingThrowComputationMethod": "SaveOverride",
   "interruptionSavingThrowAbility": "",
@@ -127,9 +129,9 @@
   },
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
-    "hidden": true,
-    "title": "Feature/&NoContentTitle",
-    "description": "Feature/&NoContentTitle",
+    "hidden": false,
+    "title": "Feature/&PowerPathOfTheSpiritsWolfLeadershipTitle",
+    "description": "Feature/&PowerPathOfTheSpiritsWolfLeadershipDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
