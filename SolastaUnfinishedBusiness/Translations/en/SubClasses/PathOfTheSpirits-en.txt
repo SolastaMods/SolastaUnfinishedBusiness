@@ -1,5 +1,3 @@
-Condition/&ConditionPathOfTheSpiritsBearResistanceDescription=Resistance to all damage except psychic damage.
-Condition/&ConditionPathOfTheSpiritsBearResistanceTitle=Bear Resistance
 Feature/&ActionAffinityPathOfTheSpiritsCunningActionDescription=The spirit of the eagle makes you into a nimble predator who can weave through the fray with ease. You can take the Dash, Disengage, or Hide action as a Bonus Action.
 Feature/&ActionAffinityPathOfTheSpiritsCunningActionTitle=Eagle Spirit
 Feature/&FeatureSetPathOfTheSpiritsAnimalAspectChoiceBearDescription=You gain the might of a bear. Your HP increases by 2 points for every level you take in this class and have advantage on Strength Checks.
@@ -18,7 +16,7 @@ Feature/&FeatureSetPathOfTheSpiritsSpiritWalkerDescription=At 10th level you can
 Feature/&FeatureSetPathOfTheSpiritsSpiritWalkerTitle=Spirit Walker
 Feature/&PowerPathOfTheSpiritsBearResistanceDescription=The spirit of the bear makes you tough enough to stand up to any punishment. While raging, you have resistance to all damage except psychic damage.
 Feature/&PowerPathOfTheSpiritsBearResistanceTitle=Bear
-Feature/&PowerPathOfTheSpiritsWolfLeadershipDescription=The spirit of the wolf makes you a leader of hunters. While you're raging, your friends have advantage on melee attack rolls against any creature within 5 feet of you that is hostile to you.
+Feature/&PowerPathOfTheSpiritsWolfLeadershipDescription=The spirit of the wolf makes you a leader of hunters. While you're raging, your friends have advantage on melee attack rolls against any creature within 15 feet of you that is hostile to you.
 Feature/&PowerPathOfTheSpiritsWolfLeadershipTitle=Wolf Spirit
 Subclass/&PathOfTheSpiritsDescription=Barbarians who follow the Path of the Spirits accept a spirit animal as guide, protector, and inspiration, that fills them with supernatural might, adding magical fuel to the barbarian rage.
 Subclass/&PathOfTheSpiritsTitle=Path Of The Spirits
