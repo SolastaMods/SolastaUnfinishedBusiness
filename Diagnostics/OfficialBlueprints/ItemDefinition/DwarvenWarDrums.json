@@ -133,7 +133,20 @@
     },
     "startSwitch": {
       "$type": "AK.Wwise.Switch, AK.Wwise.Unity.API.WwiseTypes",
-      "WwiseObjectReference": null,
+      "WwiseObjectReference": {
+        "$type": "WwiseSwitchReference, AK.Wwise.Unity.API.WwiseTypes",
+        "WwiseSwitchGroupReference": {
+          "$type": "WwiseSwitchGroupReference, AK.Wwise.Unity.API.WwiseTypes",
+          "objectName": "Switch_MusicalInstruments",
+          "id": 4116248476,
+          "guid": "5FCBDCDE-A350-4265-831C-7EF02F26DC76",
+          "name": "5FCBDCDE-A350-4265-831C-7EF02F26DC76"
+        },
+        "objectName": "Perc_Drum",
+        "id": 3386592744,
+        "guid": "5B45B76D-3702-4B38-B395-BA1E4572FC18",
+        "name": "5B45B76D-3702-4B38-B395-BA1E4572FC18"
+      },
       "groupIdInternal": 0,
       "groupGuidInternal": {
         "$type": "System.Byte[], mscorlib",

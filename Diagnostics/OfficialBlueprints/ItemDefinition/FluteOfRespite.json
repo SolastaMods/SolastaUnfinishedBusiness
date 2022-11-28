@@ -121,7 +121,20 @@
     },
     "startSwitch": {
       "$type": "AK.Wwise.Switch, AK.Wwise.Unity.API.WwiseTypes",
-      "WwiseObjectReference": null,
+      "WwiseObjectReference": {
+        "$type": "WwiseSwitchReference, AK.Wwise.Unity.API.WwiseTypes",
+        "WwiseSwitchGroupReference": {
+          "$type": "WwiseSwitchGroupReference, AK.Wwise.Unity.API.WwiseTypes",
+          "objectName": "Switch_MusicalInstruments",
+          "id": 4116248476,
+          "guid": "5FCBDCDE-A350-4265-831C-7EF02F26DC76",
+          "name": "5FCBDCDE-A350-4265-831C-7EF02F26DC76"
+        },
+        "objectName": "WW_Flute",
+        "id": 2999278480,
+        "guid": "7FEB4C5C-702C-4610-9ABD-D10F7113F5A5",
+        "name": "7FEB4C5C-702C-4610-9ABD-D10F7113F5A5"
+      },
       "groupIdInternal": 0,
       "groupGuidInternal": {
         "$type": "System.Byte[], mscorlib",
