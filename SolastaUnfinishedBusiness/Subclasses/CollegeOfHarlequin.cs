@@ -89,12 +89,12 @@ internal sealed class CollegeOfHarlequin : AbstractSubclass
             .SetProficiencies(ProficiencyType.Weapon,
                 EquipmentDefinitions.SimpleWeaponCategory, EquipmentDefinitions.MartialWeaponCategory)
             .AddToDB();
-
-        var fightingStyleCollegeOfHarlequin = FeatureDefinitionFightingStyleChoiceBuilder
-            .Create("FightingStyleCollegeOfHarlequin")
+        
+        var proficiencyCollegeOfHarlequinFightingStyle = FeatureDefinitionProficiencyBuilder
+            .Create("ProficiencyCollegeOfHarlequinFightingStyle")
             .SetGuiPresentation(Category.Feature)
-            .SetFightingStyles(FightingStyleDefinitions.Archery.Name, FightingStyleDefinitions.Dueling.Name,
-                FightingStyleDefinitions.TwoWeapon.Name)
+            .SetProficiencies(ProficiencyType.FightingStyle,
+                FightingStyleDefinitions.Archery.Name, FightingStyleDefinitions.TwoWeapon.Name)
             .AddToDB();
 
         var powerImprovedCombatInspiration = FeatureDefinitionPowerBuilder
@@ -119,11 +119,11 @@ internal sealed class CollegeOfHarlequin : AbstractSubclass
             .Create("CollegeOfHarlequin")
             .SetOrUpdateGuiPresentation(Category.Subclass, CharacterSubclassDefinitions.RoguishShadowCaster)
             .AddFeaturesAtLevel(3,
-                fightingStyleCollegeOfHarlequin,
                 powerCombatInspiration,
                 powerTerrificPerformance,
                 proficiencyCollegeOfHarlequinMartialWeapon,
-                CommonBuilders.MagicAffinityCasterFightingCombatMagic)
+                CommonBuilders.MagicAffinityCasterFightingCombatMagic,
+                proficiencyCollegeOfHarlequinFightingStyle)
             .AddFeaturesAtLevel(6,
                 CommonBuilders.AttributeModifierCasterFightingExtraAttack,
                 powerImprovedCombatInspiration)
