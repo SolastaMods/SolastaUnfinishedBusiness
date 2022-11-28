@@ -1,5 +1,7 @@
 Feature/&ActionAffinityPathOfTheSpiritsCunningActionDescription=The spirit of the eagle makes you into a nimble predator who can weave through the fray with ease. You can take the Dash, Disengage, or Hide action as a Bonus Action.
 Feature/&ActionAffinityPathOfTheSpiritsCunningActionTitle=Eagle Spirit
+Feature/&CombatAffinityPathOfTheSpiritsWolfLeadershipDescription=The Path of The Spirits Barbarian grants you advantage.
+Feature/&CombatAffinityPathOfTheSpiritsWolfLeadershipTitle=Wolf Spirit
 Feature/&FeatureSetPathOfTheSpiritsAnimalAspectChoiceBearDescription=You gain the might of a bear. Your HP increases by 2 points for every level you take in this class and have advantage on Strength Checks.
 Feature/&FeatureSetPathOfTheSpiritsAnimalAspectChoiceBearTitle=Bear Aspect
 Feature/&FeatureSetPathOfTheSpiritsAnimalAspectChoiceEagleDescription=You gain the eyesight of an eagle. You gain superior darkvision and Keen Sight.

@@ -192,7 +192,7 @@ internal sealed class PathOfTheSpirits : AbstractSubclass
             .SetSpecialInterruptions(ConditionInterruption.RageStop)
             .SetFeatures(FeatureDefinitionCombatAffinityBuilder
                 .Create(CombatAffinityRousingShout, "CombatAffinityPathOfTheSpiritsWolfLeadership")
-                .SetGuiPresentation("ConditionPathOfTheSpiritsWolfLeadership", Category.Condition)
+                .SetGuiPresentation(Category.Feature)
                 .AddToDB())
             .AddToDB();
         
