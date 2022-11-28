@@ -91,9 +91,6 @@ internal static class ItemCraftingMerchantContext
         foreach (var item in DatabaseRepository.GetDatabase<ItemDefinition>().Where(
                      x => x.IsMusicalInstrument && !x.Magical))
         {
-            item.merchantCategory = "Adventuring";
-            item.costs = ComponentPouch.Costs;
-
             var stockInstruments = new StockUnitDescription
             {
                 itemDefinition = item,
