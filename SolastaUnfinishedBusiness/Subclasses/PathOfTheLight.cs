@@ -122,7 +122,6 @@ internal sealed class PathOfTheLight : AbstractSubclass
                                         ConditionDefinitionBuilder
                                             .Create("ConditionPathOfTheLightIlluminatingStrikeInitiator")
                                             .SetGuiPresentationNoContent(true)
-                                            .SetConditionType(ConditionType.Beneficial)
                                             .SetDuration(DurationType.Minute, 1)
                                             .SetTerminateWhenRemoved()
                                             .SetSilent(Silent.WhenAddedOrRemoved)
@@ -172,7 +171,6 @@ internal sealed class PathOfTheLight : AbstractSubclass
                             ConditionDefinitionBuilder
                                 .Create("ConditionPathOfTheLightEyesOfTruth")
                                 .SetGuiPresentation(Category.Condition, ConditionSeeInvisibility)
-                                .SetConditionType(ConditionType.Beneficial)
                                 .SetDuration(DurationType.Permanent)
                                 .SetSilent(Silent.WhenAddedOrRemoved)
                                 .AddFeatures(FeatureDefinitionSenses.SenseSeeInvisible16)

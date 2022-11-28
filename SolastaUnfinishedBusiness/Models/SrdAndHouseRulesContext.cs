@@ -522,7 +522,6 @@ internal static class SrdAndHouseRulesContext
         var afterRestIdentifyCondition = ConditionDefinitionBuilder
             .Create("AfterRestIdentify")
             .SetGuiPresentation(Category.Condition)
-            .SetConditionType(ConditionType.Beneficial)
             .SetFeatures(FeatureDefinitionMagicAffinitys.MagicAffinityArcaneAppraiser)
             .AddToDB();
 

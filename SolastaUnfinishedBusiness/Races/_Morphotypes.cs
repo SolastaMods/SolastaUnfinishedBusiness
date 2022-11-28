@@ -498,7 +498,7 @@ internal static class Morphotypes
             .SetSubClassFilterMask(GraphicsDefinitions.MorphotypeSubclassFilterTag.All)
             .SetSortOrder(73)
             .AddToDB();
-      
+
         var glowingEyes18 = MorphotypeElementDefinitionBuilder
             .Create(EyeColorDefiler, "CEGlowingEyeColor18")
             // don't use SetGuiPresentationNoContentHere as we need a different object for sort order

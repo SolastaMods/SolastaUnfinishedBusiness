@@ -7,6 +7,12 @@ namespace SolastaUnfinishedBusiness.Builders;
 [UsedImplicitly]
 internal class ActionDefinitionBuilder : DefinitionBuilder<ActionDefinition, ActionDefinitionBuilder>
 {
+    internal ActionDefinitionBuilder RequiresAuthorization(bool value = true)
+    {
+        Definition.requiresAuthorization = value;
+        return this;
+    }
+
     internal ActionDefinitionBuilder SetActionId(ActionDefinitions.Id id)
     {
         Definition.id = id;

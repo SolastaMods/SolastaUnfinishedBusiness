@@ -44,13 +44,13 @@
   "isUsableDevice": true,
   "usableDeviceDescription": {
     "$type": "UsableDeviceDescription, Assembly-CSharp",
-    "usage": "ByFunction",
+    "usage": "Charges",
     "chargesCapital": "Fixed",
-    "chargesCapitalNumber": 1,
+    "chargesCapitalNumber": 2,
     "chargesCapitalDie": "D1",
     "chargesCapitalBonus": 0,
-    "rechargeRate": "Dawn",
-    "rechargeNumber": 1,
+    "rechargeRate": "ShortRest",
+    "rechargeNumber": 2,
     "rechargeDie": "D1",
     "rechargeBonus": 0,
     "outOfChargesConsequence": "Persist",
@@ -59,11 +59,11 @@
     "deviceFunctions": [
       {
         "$type": "DeviceFunctionDescription, Assembly-CSharp",
-        "parentUsage": "ByFunction",
-        "useAffinity": "AtWill",
+        "parentUsage": "Charges",
+        "useAffinity": "ChargeCost",
         "useAmount": 1,
-        "rechargeRate": "KiPoints",
-        "durationType": "Instantaneous",
+        "rechargeRate": "ShortRest",
+        "durationType": "Day",
         "canOverchargeSpell": false,
         "type": "Power",
         "spellDefinition": null,
@@ -229,8 +229,8 @@
     "description": "Equipment/&PenitentBeltDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "9ecf4545286631c448d87b0d833346ca",
-      "m_SubObjectName": "DLC2.5-NecklaceOfGrounding",
+      "m_AssetGUID": "b1a89a8ed9c369944a34a652a8a77b7c",
+      "m_SubObjectName": "DLC2.5-PenitentBelt",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {

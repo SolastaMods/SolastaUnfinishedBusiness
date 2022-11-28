@@ -79,6 +79,19 @@ internal class EffectDescriptionBuilder
         return this;
     }
 
+    internal EffectDescriptionBuilder UseQuickAnimations()
+    {
+        effect.speedParameter = -1;
+        var particles = effect.effectParticleParameters;
+        if (particles.casterQuickSpellParticleReference == null
+            || !particles.casterQuickSpellParticleReference.IsValid())
+        {
+            particles.casterQuickSpellParticleReference = particles.casterParticleReference;
+        }
+
+        return this;
+    }
+
     internal EffectDescriptionBuilder SetNoSavingThrow()
     {
         effect.hasSavingThrow = false;

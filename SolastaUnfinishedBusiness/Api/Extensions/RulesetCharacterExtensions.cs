@@ -35,7 +35,7 @@ internal static class RulesetCharacterExtensions
         this RulesetCharacter instance,
         [CanBeNull] FeatureDefinitionPower power)
     {
-        return instance.GetPowerFromDefinition(power) != null;
+        return instance.GetPowerFromDefinition(power) != null && instance.HasAnyFeature(power);
     }
 
     /**Checks if power has enough uses and that all validators are OK*/

@@ -100,7 +100,6 @@ internal static partial class SpellBuilders
                         ConditionDefinitionBuilder
                             .Create("ConditionMule")
                             .SetGuiPresentation(Category.Condition, Longstrider)
-                            .SetConditionType(ConditionType.Beneficial)
                             .SetFeatures(
                                 FeatureDefinitionMovementAffinityBuilder
                                     .Create("MovementAffinityConditionMule")

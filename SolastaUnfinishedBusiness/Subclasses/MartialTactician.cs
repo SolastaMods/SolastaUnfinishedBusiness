@@ -122,7 +122,7 @@ internal sealed class MartialTactician : AbstractSubclass
             .SetCustomSubFeatures(PowerVisibilityModifier.Hidden)
             .SetUsesFixed(ActivationTime.PermanentUnlessIncapacitated)
             .SetEffectDescription(EffectDescriptionBuilder.Create()
-                .SetTargetingData(Side.Ally, RangeType.Self, 1, TargetType.Sphere, 6)
+                .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Sphere, 6)
                 .ExcludeCaster()
                 .SetRecurrentEffect(
                     RecurrentEffect.OnActivation | RecurrentEffect.OnEnter | RecurrentEffect.OnTurnStart)
@@ -1002,7 +1002,7 @@ internal sealed class MartialTactician : AbstractSubclass
             {
                 yield break;
             }
-            
+
             if (me.RulesetCharacter.GetRemainingPowerCharges(pool) <= 0)
             {
                 yield break;

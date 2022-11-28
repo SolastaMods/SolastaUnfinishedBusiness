@@ -1,6 +1,6 @@
 {
   "$type": "MonsterDefinition, Assembly-CSharp",
-  "dungeonMakerPresence": "None",
+  "dungeonMakerPresence": "NPC",
   "overrideSpawnDecision": null,
   "characterFamily": "Humanoid",
   "creatureTags": [],

@@ -32,7 +32,7 @@
   "activeTags": [],
   "inactiveTags": [],
   "magical": true,
-  "requiresAttunement": true,
+  "requiresAttunement": false,
   "requiresIdentification": false,
   "requiredAttunementClasses": [
     "Definition:Bard:8d8eb73e8e6c7d24789c3381ab0acccb"

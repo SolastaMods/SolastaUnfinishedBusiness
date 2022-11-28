@@ -59,7 +59,7 @@
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "Feature/&NoContentTitle",
-    "description": "Feature/&NoContentTitle",
+    "description": "Equipment/&WandOfTheWarMage+1_Effect",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",

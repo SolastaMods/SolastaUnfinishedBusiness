@@ -18,6 +18,13 @@ public static class Sprites
 
     #endregion
 
+    #region Map Icons
+
+    internal static AssetReferenceSprite Teleport =>
+        GetSprite("Teleport", Resources.Teleport, 24);
+
+    #endregion
+
     #region CustomSprites
 
     private static readonly Dictionary<string, Sprite> SpritesByGuid = new();

@@ -657,7 +657,7 @@ public static class GameLocationBattleManagerPatcher
                     continue;
                 }
 
-                if (!feature.ShouldTrigger(action, attacker, defender, helper, saveModifier, hasHitVisual,
+                if (!feature.ShouldTrigger(action, attacker, defender, locHelper, saveModifier, hasHitVisual,
                         hasBorrowedLuck, saveOutcome, action.saveOutcomeDelta))
                 {
                     continue;
@@ -675,7 +675,7 @@ public static class GameLocationBattleManagerPatcher
                 var reactionParams = new CharacterActionParams(locHelper, ActionDefinitions.Id.SpendPower)
                 {
                     StringParameter = feature.ReactionName,
-                    StringParameter2 = feature.FormatReactionDescription(action, attacker, defender, helper,
+                    StringParameter2 = feature.FormatReactionDescription(action, attacker, defender, locHelper,
                         saveModifier, hasHitVisual, hasBorrowedLuck, saveOutcome, action.saveOutcomeDelta),
                     RulesetEffect = rulesService.InstantiateEffectPower(helper, usablePower, false)
                 };
@@ -691,7 +691,7 @@ public static class GameLocationBattleManagerPatcher
                     GameConsoleHelper.LogCharacterUsedPower(helper, power, indent: true);
                     rulesetDefender.UsePower(usablePower);
 
-                    action.RolledSaveThrow = feature.TryModifyRoll(action, attacker, defender, helper, saveModifier,
+                    action.RolledSaveThrow = feature.TryModifyRoll(action, attacker, defender, locHelper, saveModifier,
                         hasHitVisual, hasBorrowedLuck, ref saveOutcome, ref action.saveOutcomeDelta);
                     action.SaveOutcome = saveOutcome;
                 }

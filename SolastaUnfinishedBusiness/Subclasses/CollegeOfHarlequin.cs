@@ -54,7 +54,8 @@ internal sealed class CollegeOfHarlequin : AbstractSubclass
             .SetEffectDescription(EffectDescriptionBuilder.Create()
                 .SetDurationData(DurationType.Round, 1, TurnOccurenceType.StartOfTurn)
                 .SetParticleEffectParameters(FeatureDefinitionPowers.PowerBardGiveBardicInspiration)
-                .SetTargetingData(Side.Ally, RangeType.Self, 1, TargetType.Self)
+                .UseQuickAnimations()
+                .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
                 .SetEffectForms(EffectFormBuilder.Create()
                     .SetConditionForm(ConditionDefinitionBuilder
                             .Create(CombatInspirationCondition)
@@ -90,6 +91,13 @@ internal sealed class CollegeOfHarlequin : AbstractSubclass
                 EquipmentDefinitions.SimpleWeaponCategory, EquipmentDefinitions.MartialWeaponCategory)
             .AddToDB();
 
+        var proficiencyCollegeOfHarlequinFightingStyle = FeatureDefinitionProficiencyBuilder
+            .Create("ProficiencyCollegeOfHarlequinFightingStyle")
+            .SetGuiPresentation(Category.Feature)
+            .SetProficiencies(ProficiencyType.FightingStyle,
+                FightingStyleDefinitions.Archery.Name, FightingStyleDefinitions.TwoWeapon.Name)
+            .AddToDB();
+
         var powerImprovedCombatInspiration = FeatureDefinitionPowerBuilder
             .Create("PowerCollegeOfHarlequinImprovedCombatInspiration")
             .SetGuiPresentation(Category.Feature)
@@ -115,7 +123,8 @@ internal sealed class CollegeOfHarlequin : AbstractSubclass
                 powerCombatInspiration,
                 powerTerrificPerformance,
                 proficiencyCollegeOfHarlequinMartialWeapon,
-                CommonBuilders.MagicAffinityCasterFightingCombatMagic)
+                CommonBuilders.MagicAffinityCasterFightingCombatMagic,
+                proficiencyCollegeOfHarlequinFightingStyle)
             .AddFeaturesAtLevel(6,
                 CommonBuilders.AttributeModifierCasterFightingExtraAttack,
                 powerImprovedCombatInspiration)
