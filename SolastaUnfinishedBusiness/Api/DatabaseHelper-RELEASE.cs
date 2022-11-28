@@ -3,6 +3,11 @@ using TA.AI;
 namespace SolastaUnfinishedBusiness.Api;
 internal static partial class DatabaseHelper
 {
+    internal static class ActionDefinitions
+    { 
+        internal static ActionDefinition OneWithShadowsTurnInvisible { get; } = GetDefinition<ActionDefinition>("OneWithShadowsTurnInvisible");
+        internal static ActionDefinition Sunbeam { get; } = GetDefinition<ActionDefinition>("Sunbeam");
+    }    
     internal static class AlignmentDefinitions
     {
         internal static AlignmentDefinition Neutral { get; } = GetDefinition<AlignmentDefinition>("Neutral");
@@ -260,6 +265,7 @@ internal static partial class DatabaseHelper
         internal static FeatureDefinitionActionAffinity ActionAffinityConditionRestrained { get; } = GetDefinition<FeatureDefinitionActionAffinity>("ActionAffinityConditionRestrained");
         internal static FeatureDefinitionActionAffinity ActionAffinityConditionShocked { get; } = GetDefinition<FeatureDefinitionActionAffinity>("ActionAffinityConditionShocked");
         internal static FeatureDefinitionActionAffinity ActionAffinityFightingStyleProtection { get; } = GetDefinition<FeatureDefinitionActionAffinity>("ActionAffinityFightingStyleProtection");
+        internal static FeatureDefinitionActionAffinity ActionAffinityInvocationOneWithShadowsTurnInvisible { get; } = GetDefinition<FeatureDefinitionActionAffinity>("ActionAffinityInvocationOneWithShadowsTurnInvisible");
         internal static FeatureDefinitionActionAffinity ActionAffinityMountaineerShieldCharge { get; } = GetDefinition<FeatureDefinitionActionAffinity>("ActionAffinityMountaineerShieldCharge");
         internal static FeatureDefinitionActionAffinity ActionAffinityRangerVanish { get; } = GetDefinition<FeatureDefinitionActionAffinity>("ActionAffinityRangerVanish");
         internal static FeatureDefinitionActionAffinity ActionAffinityRogueCunningAction { get; } = GetDefinition<FeatureDefinitionActionAffinity>("ActionAffinityRogueCunningAction");
@@ -661,6 +667,7 @@ internal static partial class DatabaseHelper
     internal static class InvocationDefinitions
     {
         internal static InvocationDefinition EldritchSpear { get; } = GetDefinition<InvocationDefinition>("EldritchSpear");
+        internal static InvocationDefinition OneWithShadows { get; } = GetDefinition<InvocationDefinition>("OneWithShadows");
         internal static InvocationDefinition RepellingBlast { get; } = GetDefinition<InvocationDefinition>("RepellingBlast");
     }
     internal static class ItemDefinitions

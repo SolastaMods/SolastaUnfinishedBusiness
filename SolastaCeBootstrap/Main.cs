@@ -161,7 +161,6 @@ namespace SolastaCeBootstrap
         {
             var ignore = new HashSet<string>
             {
-                "Action",
                 "ActionType",
                 "AdventureLog",
                 "AmmunitionType",
