@@ -102,7 +102,8 @@
       "Backstory",
       "Pronoun",
       "BodyDecorationColor",
-      "Scars"
+      "Scars",
+      "Musculature"
     ],
     "needBeard": false,
     "defaultMusculature": 0,
