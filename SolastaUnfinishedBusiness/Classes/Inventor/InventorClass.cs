@@ -720,11 +720,13 @@ internal static class InventorClass
             .AddToDB();
 
         //should be hidden from user
+        var flashOfGenius = new FlashOfGenius(bonusPower, "InventorFlashOfGenius");
+
         var auraPower = FeatureDefinitionPowerBuilder
             .Create("PowerInventorFlashOfGeniusAura")
             .SetGuiPresentation(TEXT, Category.Feature, sprite)
             .SetUsesFixed(ActivationTime.PermanentUnlessIncapacitated)
-            .SetCustomSubFeatures(PowerVisibilityModifier.Hidden)
+            .SetCustomSubFeatures(PowerVisibilityModifier.Hidden, new ResetFlashOfGenius(flashOfGenius))
             .SetEffectDescription(EffectDescriptionBuilder
                 .Create()
                 .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Sphere, 6)
@@ -737,7 +739,7 @@ internal static class InventorClass
                         .Create("ConditionInventorFlashOfGeniusAura")
                         .SetGuiPresentationNoContent(true)
                         .SetSilent(Silent.WhenAddedOrRemoved)
-                        .SetCustomSubFeatures(new FlashOfGenius(bonusPower, "InventorFlashOfGenius"))
+                        .SetCustomSubFeatures(flashOfGenius)
                         .AddToDB(), ConditionForm.ConditionOperation.Add)
                     .Build())
                 .Build())
@@ -762,11 +764,11 @@ internal class InventorClassHolder : IClassHoldingFeature
     public CharacterClassDefinition Class => InventorClass.Class;
 }
 
-internal class FlashOfGenius : ConditionSourceCanUsePowerToImproveFailedSaveRoll, IOnAfterActionFeature
+internal class FlashOfGenius : ConditionSourceCanUsePowerToImproveFailedSaveRoll
 {
-    private bool AlreadyUsedOnThisAction { get; set; }
+    internal bool AlreadyUsedOnThisAction { get; set; }
 
-    public FlashOfGenius(FeatureDefinitionPower power, string reactionName) : base(power, reactionName)
+    internal FlashOfGenius(FeatureDefinitionPower power, string reactionName) : base(power, reactionName)
     {
     }
 
@@ -858,9 +860,19 @@ internal class FlashOfGenius : ConditionSourceCanUsePowerToImproveFailedSaveRoll
 
         return Gui.Format(text, defender.Name, attacker.Name, action.FormatTitle());
     }
+}
+
+internal class ResetFlashOfGenius : IOnAfterActionFeature
+{
+    private readonly FlashOfGenius _flashOfGenius;
+
+    public ResetFlashOfGenius(FlashOfGenius flashOfGenius)
+    {
+        _flashOfGenius = flashOfGenius;
+    }
 
     public void OnAfterAction(CharacterAction action)
     {
-        AlreadyUsedOnThisAction = false;
-    }
+        _flashOfGenius.AlreadyUsedOnThisAction = false;
+    } 
 }
