@@ -1,5 +1,13 @@
 ﻿CHANGES:
 
+1.4.30.2:
+
+- fixed Dual Flurry to only work if one handed
+- fixed Level 20 to be future-proof resilient
+- fixed RESPEC to prohibit duplicate names to be chosen
+- fixed Wild Master beast to-hit and to-damage bonuses
+- fixed wrong Particle Params in about 250+ blueprints
+
 1.4.30.1:
 
 - fixed a null exception in wild shaping
