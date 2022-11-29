@@ -96,6 +96,19 @@ public static class RulesetActorPatcher
                     }
 
                     break;
+                case (ConditionDefinition.OriginOfAmount)ExtraOriginOfAmount.SourceProficiencyAndAbilityBonus:
+                    sourceAmount =
+                        sourceCharacter.TryGetAttributeValue(AttributeDefinitions.ProficiencyBonus);
+                    
+                    // Find a better place to put this in?
+                    var attributeName3 = addedCondition.AdditionalDamageType;
+
+                    if (sourceCharacter.TryGetAttribute(attributeName3, out var attribute3))
+                    {
+                        sourceAmount += AttributeDefinitions.ComputeAbilityScoreModifier(attribute3.CurrentValue);
+                    }
+
+                    break;
             }
         }
     }
