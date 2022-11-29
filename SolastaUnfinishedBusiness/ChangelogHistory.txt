@@ -1,5 +1,9 @@
 ﻿CHANGES:
 
+1.4.30.1:
+
+- made Thunder Gauntlet first attack if main hand is empty
+
 1.4.30.0:
 
 - added fighting style selection to College of Harlequin at level 3
