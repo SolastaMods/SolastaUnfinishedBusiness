@@ -146,7 +146,7 @@ You gain proficiency with herbalism kit and Arcana, or expertise if already prof
 [*][b]Apothecary [Wis][/b]: Increase your Wisdom by 1, to a maximum of 20.
 You gain proficiency with herbalism kit and Arcana, or expertise if already proficient.
 [*][b]Arcane Defense[/b]: Increase your Intelligence by 1, to a maximum of 20.
-While you are not wearing any armor, your AC equals 10 + your Dexterity modifier + your Intelligence modifier.
+While you are not wearing any armor or shield, your AC equals 10 + your Dexterity modifier + your Intelligence modifier.
 [*][b]Arcane Precision[/b]: Increase your Intelligence by 1, to a maximum of 20.
 You can use a bonus action to select a weapon. Its attacks count as magical and you use your Intelligence for your attack and damage rolls for 1 minute. This feature can be used Proficiency Bonus times per long rest.
 [*][b]Archery[/b]: You gain a +2 bonus to attack rolls with ranged weapons.
@@ -158,7 +158,7 @@ You gain the ability to cast the healing word, cure wounds and lesser restoratio
 [*][b]Celestial Touched [Wis][/b]: Increase your Wisdom attribute by 1, to a maximum of 20.
 You gain the ability to cast the healing word, cure wounds and lesser restoration spells once per long rest and you can cast these spells with your spell slots.
 [*][b]Charismatic Defense[/b]: Increase your Charisma by 1, to a maximum of 20.
-While you are not wearing any armor, your AC equals 10 + your Dexterity modifier + your Charisma modifier.
+While you are not wearing any armor or shield, your AC equals 10 + your Dexterity modifier + your Charisma modifier.
 [*][b]Charismatic Precision[/b]: Increase your Charisma by 1, to a maximum of 20.
 You can use a bonus action to select a weapon. Its attacks count as magical and you use your Charisma for your attack and damage rolls for 1 minute. This feature can be used Proficiency Bonus times per long rest.
 [*][b]Crippling[/b]: Upon hitting with a melee attack, you can reduce the speed of your opponents by 10 ft and reduce their Armor Class by 1 for 2 turns.
@@ -249,7 +249,7 @@ You gain proficiency with poisoner's kit and Medicine, or expertise if already p
 You gain the ability to perform the somatic component of spells even with both hands full.
 When a hostile creature's movement provokes an opportunity attack from you, you can use your reaction to cast a cantrip at the creature, rather than making an opportunity attack. The cantrip must have a casting time of 1 action or bonus action and must target only that creature.
 [*][b]Wise Defense[/b]: Increase your Wisdom by 1, to a maximum of 20.
-While you are not wearing any armor, your AC equals 10 + your Dexterity modifier + your Wisdom modifier.
+While you are not wearing any armor or shield, your AC equals 10 + your Dexterity modifier + your Wisdom modifier.
 [*][b]Wise Precision[/b]: Increase your Wisdom by 1, to a maximum of 20.
 You can use a bonus action to select a weapon. Its attacks count as magical and you use your Wisdom for your attack and damage rolls for 1 minute. This feature can be used Proficiency Bonus times per long rest.
 [/list]

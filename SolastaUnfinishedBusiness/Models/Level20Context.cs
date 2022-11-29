@@ -35,10 +35,10 @@ internal static class Level20Context
     internal const string PowerWarlockEldritchMasterName = "PowerWarlockEldritchMaster";
 
     internal const int ModMaxLevel = 20;
-    internal const int GameMaxLevel = 12;
 
     internal const int ModMaxExperience = 355000;
     internal const int GameMaxExperience = 100000;
+    internal static readonly int GameMaxLevel = Main.IsDebugBuild ? 16 : 12;
 
     internal static void Load()
     {
@@ -187,11 +187,18 @@ internal static class Level20Context
             .SetCustomSubFeatures(new CustomCodeBarbarianPrimalChampion())
             .AddToDB();
 
+        if (!Main.IsDebugBuild)
+        {
+            Barbarian.FeatureUnlocks.AddRange(new List<FeatureUnlockByLevel>
+            {
+                new(AttributeModifierBarbarianBrutalCriticalAdd, 13),
+                new(PowerBarbarianPersistentRageStart, 15),
+                new(AttributeModifierBarbarianRageDamageAdd, 16)
+            });
+        }
+
         Barbarian.FeatureUnlocks.AddRange(new List<FeatureUnlockByLevel>
         {
-            new(AttributeModifierBarbarianBrutalCriticalAdd, 13),
-            new(PowerBarbarianPersistentRageStart, 15),
-            new(AttributeModifierBarbarianRageDamageAdd, 16),
             new(AttributeModifierBarbarianBrutalCriticalAdd, 17),
             new(AttributeModifierBarbarianRagePointsAdd, 17),
             new(changeAbilityCheckBarbarianIndomitableMight, 18),
@@ -206,13 +213,19 @@ internal static class Level20Context
             .Create(PointPoolBardMagicalSecrets14, "PointPoolBardMagicalSecrets18")
             .AddToDB();
 
+        if (!Main.IsDebugBuild)
+        {
+            Bard.FeatureUnlocks.AddRange(new List<FeatureUnlockByLevel>
+            {
+                new(PointPoolBardMagicalSecrets14, 14),
+                new(AttributeModifierBardicInspirationDieD12, 15),
+                new(FeatureSetAbilityScoreChoice, 16)
+            });
+        }
+
         Bard.FeatureUnlocks.AddRange(new List<FeatureUnlockByLevel>
         {
-            new(PointPoolBardMagicalSecrets14, 14),
-            new(AttributeModifierBardicInspirationDieD12, 15),
-            new(FeatureSetAbilityScoreChoice, 16),
-            new(pointPoolBardMagicalSecrets18, 18),
-            new(FeatureSetAbilityScoreChoice, 19)
+            new(pointPoolBardMagicalSecrets18, 18), new(FeatureSetAbilityScoreChoice, 19)
             // TODO 20: Bard Superior Inspiration
         });
 
@@ -243,10 +256,16 @@ internal static class Level20Context
             .SetEffectDescription(effectPowerClericTurnUndead17)
             .AddToDB();
 
+        if (!Main.IsDebugBuild)
+        {
+            Cleric.FeatureUnlocks.AddRange(new List<FeatureUnlockByLevel>
+            {
+                new(PowerClericTurnUndead14, 14), new(FeatureSetAbilityScoreChoice, 16)
+            });
+        }
+
         Cleric.FeatureUnlocks.AddRange(new List<FeatureUnlockByLevel>
         {
-            new(PowerClericTurnUndead14, 14),
-            new(FeatureSetAbilityScoreChoice, 16),
             new(powerClericTurnUndead17, 17),
             new(AttributeModifierClericChannelDivinityAdd, 18),
             new(FeatureSetAbilityScoreChoice, 19)
@@ -309,9 +328,14 @@ internal static class Level20Context
             .SetGuiPresentation(Category.Feature)
             .AddToDB();
 
+        if (!Main.IsDebugBuild)
+        {
+            Druid.FeatureUnlocks.AddRange(new List<FeatureUnlockByLevel> { new(FeatureSetAbilityScoreChoice, 16) });
+        }
+
         Druid.FeatureUnlocks.AddRange(new List<FeatureUnlockByLevel>
         {
-            new(FeatureSetAbilityScoreChoice, 16), new(druidBeastSpells, 18), new(FeatureSetAbilityScoreChoice, 19)
+            new(druidBeastSpells, 18), new(FeatureSetAbilityScoreChoice, 19)
             // TODO 20: Druid Arch Druid
         });
 
@@ -330,11 +354,18 @@ internal static class Level20Context
             .SetOverriddenPower(PowerFighterActionSurge)
             .AddToDB();
 
+        if (!Main.IsDebugBuild)
+        {
+            Fighter.FeatureUnlocks.AddRange(new List<FeatureUnlockByLevel>
+            {
+                new(AttributeModifierFighterIndomitableAdd1, 13),
+                new(FeatureSetAbilityScoreChoice, 14),
+                new(FeatureSetAbilityScoreChoice, 16)
+            });
+        }
+
         Fighter.FeatureUnlocks.AddRange(new List<FeatureUnlockByLevel>
         {
-            new(AttributeModifierFighterIndomitableAdd1, 13),
-            new(FeatureSetAbilityScoreChoice, 14),
-            new(FeatureSetAbilityScoreChoice, 16),
             new(powerFighterActionSurge2, 17),
             new(AttributeModifierFighterIndomitableAdd1, 17),
             new(FeatureSetAbilityScoreChoice, 19),
@@ -408,12 +439,19 @@ internal static class Level20Context
             .SetCustomSubFeatures(new BattleStartedListenerMonkPerfectSelf())
             .AddToDB();
 
+        if (!Main.IsDebugBuild)
+        {
+            Monk.FeatureUnlocks.AddRange(new List<FeatureUnlockByLevel>
+            {
+                new(FeatureSetMonkTongueSunMoon, 13),
+                new(FeatureSetMonkDiamondSoul, 14),
+                new(FeatureSetMonkTimelessBody, 15),
+                new(FeatureSetAbilityScoreChoice, 16)
+            });
+        }
+
         Monk.FeatureUnlocks.AddRange(new List<FeatureUnlockByLevel>
         {
-            new(FeatureSetMonkTongueSunMoon, 13),
-            new(FeatureSetMonkDiamondSoul, 14),
-            new(FeatureSetMonkTimelessBody, 15),
-            new(FeatureSetAbilityScoreChoice, 16),
             // TODO 17: Monastic Tradition Feature
             new(powerMonkEmptyBody, 18),
             new(FeatureSetAbilityScoreChoice, 19),
@@ -451,9 +489,15 @@ internal static class Level20Context
             .SetOverriddenPower(PowerPaladinAuraOfCourage)
             .AddToDB();
 
+        if (!Main.IsDebugBuild)
+        {
+            Paladin.FeatureUnlocks.AddRange(
+                new FeatureUnlockByLevel(PowerPaladinCleansingTouch, 14),
+                new FeatureUnlockByLevel(FeatureSetAbilityScoreChoice, 16)
+            );
+        }
+
         Paladin.FeatureUnlocks.AddRange(
-            new FeatureUnlockByLevel(PowerPaladinCleansingTouch, 14),
-            new FeatureUnlockByLevel(FeatureSetAbilityScoreChoice, 16),
             new FeatureUnlockByLevel(powerPaladinAuraOfCourage18, 18),
             new FeatureUnlockByLevel(powerPaladinAuraOfProtection18, 18),
             new FeatureUnlockByLevel(FeatureSetAbilityScoreChoice, 19)
@@ -475,13 +519,19 @@ internal static class Level20Context
             .SetSense(SenseMode.Type.DetectInvisibility, 6)
             .AddToDB();
 
+        if (!Main.IsDebugBuild)
+        {
+            Ranger.FeatureUnlocks.AddRange(new List<FeatureUnlockByLevel>
+            {
+                new(AdditionalDamageRangerFavoredEnemyChoice, 14),
+                new(ActionAffinityRangerVanish, 14),
+                new(FeatureSetAbilityScoreChoice, 16)
+            });
+        }
+
         Ranger.FeatureUnlocks.AddRange(new List<FeatureUnlockByLevel>
         {
-            new(AdditionalDamageRangerFavoredEnemyChoice, 14),
-            new(ActionAffinityRangerVanish, 14),
-            new(FeatureSetAbilityScoreChoice, 16),
-            new(senseRangerFeralSenses, 18),
-            new(FeatureSetAbilityScoreChoice, 19)
+            new(senseRangerFeralSenses, 18), new(FeatureSetAbilityScoreChoice, 19)
             // TODO 20: Ranger Foe Slayer
         });
 
@@ -502,11 +552,18 @@ internal static class Level20Context
 
     private static void RogueLoad()
     {
+        if (!Main.IsDebugBuild)
+        {
+            Rogue.FeatureUnlocks.AddRange(new List<FeatureUnlockByLevel>
+            {
+                new(SenseRogueBlindsense, 14),
+                new(ProficiencyRogueSlipperyMind, 15),
+                new(FeatureSetAbilityScoreChoice, 16)
+            });
+        }
+
         Rogue.FeatureUnlocks.AddRange(new List<FeatureUnlockByLevel>
         {
-            new(SenseRogueBlindsense, 14),
-            new(ProficiencyRogueSlipperyMind, 15),
-            new(FeatureSetAbilityScoreChoice, 16),
             // TODO 18: Rogue Elusive
             new(FeatureSetAbilityScoreChoice, 19)
             // TODO 20: Rogue Stroke of Luck
@@ -554,9 +611,13 @@ internal static class Level20Context
                 .Build())
             .AddToDB();
 
+        if (!Main.IsDebugBuild)
+        {
+            Sorcerer.FeatureUnlocks.AddRange(new List<FeatureUnlockByLevel> { new(FeatureSetAbilityScoreChoice, 16) });
+        }
+
         Sorcerer.FeatureUnlocks.AddRange(new List<FeatureUnlockByLevel>
         {
-            new(FeatureSetAbilityScoreChoice, 16),
             new(PointPoolSorcererAdditionalMetamagic, 17),
             new(FeatureSetAbilityScoreChoice, 19),
             new(powerSorcerousRestoration, 20)
@@ -592,12 +653,19 @@ internal static class Level20Context
             .SetUsesFixed(ActivationTime.Minute1, RechargeRate.LongRest)
             .AddToDB();
 
+        if (!Main.IsDebugBuild)
+        {
+            Warlock.FeatureUnlocks.AddRange(new List<FeatureUnlockByLevel>
+            {
+                new(PointPoolWarlockMysticArcanum7, 13),
+                new(PointPoolWarlockInvocation15, 15),
+                new(PointPoolWarlockMysticArcanum8, 15),
+                new(FeatureSetAbilityScoreChoice, 16)
+            });
+        }
+
         Warlock.FeatureUnlocks.AddRange(new List<FeatureUnlockByLevel>
         {
-            new(PointPoolWarlockMysticArcanum7, 13),
-            new(PointPoolWarlockInvocation15, 15),
-            new(PointPoolWarlockMysticArcanum8, 15),
-            new(FeatureSetAbilityScoreChoice, 16),
             new(pointPoolWarlockMysticArcanum9, 18),
             new(FeatureSetAbilityScoreChoice, 19),
             new(powerWarlockEldritchMaster, 20)

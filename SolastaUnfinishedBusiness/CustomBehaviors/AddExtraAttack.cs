@@ -115,7 +115,11 @@ internal abstract class AddExtraAttackBase : IAddExtraAttack
 #endif
 
     protected abstract List<RulesetAttackMode> GetAttackModes(RulesetCharacterHero hero);
-    protected virtual AttackModeOrder GetOrder(RulesetCharacterHero hero) => AttackModeOrder.End;
+
+    protected virtual AttackModeOrder GetOrder(RulesetCharacterHero hero)
+    {
+        return AttackModeOrder.End;
+    }
 
     //Copied from RulesetAttackMode.IsComparableForNetwork, but not checking for attack number
     private static bool ModesEqual([NotNull] RulesetAttackMode a, RulesetAttackMode b)

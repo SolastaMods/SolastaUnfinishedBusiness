@@ -6,9 +6,7 @@
     "Definition:ConditionWildMasterSummonSpiritBeastCopyCharacterLevel:f752eddf-632d-504e-b7e3-e3ded632926e",
     "Definition:ConditionWildMasterSummonSpiritBeastLevel:2b5618ad-8ed2-5ebc-aa0e-702f31b08b51",
     "Definition:ConditionWildMasterSummonSpiritBeastProficiencyBonusToDamage:0a08ea75-15ef-570d-8704-980dc2dde62c",
-    "Definition:ConditionWildMasterSummonSpiritBeastSourceProficiencyBonusToHit:6d36925d-c704-5361-9a46-a9d7fef97b5b",
-    "Definition:ConditionWildMasterSummonSpiritBeastSourceSpellCastingAbilityBonusToDamage:fcef4eb1-e876-50bc-9a8e-91289c51f16f",
-    "Definition:ConditionWildMasterSummonSpiritBeastSourceSpellCastingAbilityBonusToHit:1e33886d-b059-5ac3-b366-26d2fffd63b6"
+    "Definition:ConditionWildMasterSummonSpiritBeastSourceProficiencyBonusToHit:6d36925d-c704-5361-9a46-a9d7fef97b5b"
   ],
   "effectOnConjuredDeath": false,
   "effectForms": [],

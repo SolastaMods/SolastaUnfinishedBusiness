@@ -53,6 +53,10 @@ public static class RulesetActorPatcher
                 return;
             }
 
+            // Find a better place to put this in?
+            var source = addedCondition.AdditionalDamageType;
+            RulesetAttribute attribute;
+
             switch (addedCondition.AmountOrigin)
             {
                 case (ConditionDefinition.OriginOfAmount)ExtraOriginOfAmount.SourceProficiencyBonus:
@@ -71,28 +75,29 @@ public static class RulesetActorPatcher
                     break;
 
                 case (ConditionDefinition.OriginOfAmount)ExtraOriginOfAmount.SourceClassLevel:
-                    // Find a better place to put this in?
-                    var classType = addedCondition.AdditionalDamageType;
-
-                    sourceAmount = sourceCharacter.GetClassLevel(classType);
+                    sourceAmount = sourceCharacter.GetClassLevel(source);
                     break;
                 case (ConditionDefinition.OriginOfAmount)ExtraOriginOfAmount.SourceAbilityBonus:
-                    // Find a better place to put this in?
-                    var attributeName1 = addedCondition.AdditionalDamageType;
-
-                    if (sourceCharacter.TryGetAttribute(attributeName1, out var attribute1))
+                    if (sourceCharacter.TryGetAttribute(source, out attribute))
                     {
-                        sourceAmount = AttributeDefinitions.ComputeAbilityScoreModifier(attribute1.CurrentValue);
+                        sourceAmount = AttributeDefinitions.ComputeAbilityScoreModifier(attribute.CurrentValue);
                     }
 
                     break;
                 case (ConditionDefinition.OriginOfAmount)ExtraOriginOfAmount.SourceCopyAttributeFromSummoner:
-                    // Find a better place to put this in?
-                    var attributeName2 = addedCondition.AdditionalDamageType;
-
-                    if (sourceCharacter.TryGetAttribute(attributeName2, out var attribute2))
+                    if (sourceCharacter.TryGetAttribute(source, out attribute))
                     {
-                        __instance.Attributes.Add(attributeName2, attribute2);
+                        __instance.Attributes.Add(source, attribute);
+                    }
+
+                    break;
+                case (ConditionDefinition.OriginOfAmount)ExtraOriginOfAmount.SourceProficiencyAndAbilityBonus:
+                    sourceAmount =
+                        sourceCharacter.TryGetAttributeValue(AttributeDefinitions.ProficiencyBonus);
+
+                    if (sourceCharacter.TryGetAttribute(source, out attribute))
+                    {
+                        sourceAmount += AttributeDefinitions.ComputeAbilityScoreModifier(attribute.CurrentValue);
                     }
 
                     break;

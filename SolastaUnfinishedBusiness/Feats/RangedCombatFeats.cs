@@ -32,7 +32,7 @@ internal static class RangedCombatFeats
     private static FeatDefinition BuildDeadEye()
     {
         const string FEAT_NAME = "FeatDeadeye";
-        
+
         var conditionDeadeye = ConditionDefinitionBuilder
             .Create("ConditionDeadeye")
             .SetGuiPresentation(FEAT_NAME, Category.Feat)

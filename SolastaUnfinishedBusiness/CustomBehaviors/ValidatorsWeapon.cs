@@ -54,6 +54,16 @@ internal static class ValidatorsWeapon
         return HasAnyWeaponTag(weapon, TagsDefinitions.WeaponTagRange, TagsDefinitions.WeaponTagThrown);
     }
 
+    internal static bool IsOneHanded(RulesetAttackMode attackMode)
+    {
+        if (attackMode is not { SourceDefinition: ItemDefinition weapon })
+        {
+            return false;
+        }
+
+        return !HasAnyWeaponTag(weapon, TagsDefinitions.WeaponTagTwoHanded);
+    }
+    
     internal static bool IsOneHanded(RulesetItem weapon)
     {
         return !HasAnyWeaponTag(weapon, TagsDefinitions.WeaponTagTwoHanded);
