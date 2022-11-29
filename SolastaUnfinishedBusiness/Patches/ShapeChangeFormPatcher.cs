@@ -21,15 +21,12 @@ public static class ShapeChangeFormPatcher
             ShapeChangeForm shapeChangeForm,
             RulesetCharacter shifter)
         {
-            var changeShapeOptions = shifter.GetSubFeaturesByType<IChangeShapeOptions>().First();
+            var shapeOptions = shifter.GetSubFeaturesByType<IChangeShapeOptions>()
+                .Where(x => x.SpecialSubstituteCondition == shapeChangeForm.specialSubstituteCondition)
+                .SelectMany(y => y.ShapeOptions)
+                .ToList();
 
-            if (changeShapeOptions == null ||
-                changeShapeOptions.SpecialSubstituteCondition != shapeChangeForm.specialSubstituteCondition)
-            {
-                return shapeChangeForm.ShapeOptions;
-            }
-
-            return changeShapeOptions.ShapeOptions;
+            return shapeOptions.Count == 0 ? shapeChangeForm.ShapeOptions : shapeOptions;
         }
 
         public static IEnumerable<CodeInstruction> Transpiler([NotNull] IEnumerable<CodeInstruction> instructions)
