@@ -304,15 +304,14 @@ public static class InnovationArmor
                 hero.FeaturesOrigin
             );
 
-            if (hero.HasEmptyMainHand())
-            {
-                attackMode.attackTags.Add($"ORDER_33");
-            }
-
-
             AddArmorBonusesToBuiltinAttack(hero, attackMode);
 
             return new List<RulesetAttackMode> {attackMode};
+        }
+
+        protected override AttackModeOrder GetOrder(RulesetCharacterHero hero)
+        {
+            return hero.HasEmptyMainHand() ? AttackModeOrder.Start : base.GetOrder(hero);
         }
     }
 

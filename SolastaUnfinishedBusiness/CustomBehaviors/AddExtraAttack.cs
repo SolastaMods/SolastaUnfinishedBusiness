@@ -8,6 +8,12 @@ using static RuleDefinitions;
 
 namespace SolastaUnfinishedBusiness.CustomBehaviors;
 
+internal enum AttackModeOrder
+{
+    Start,
+    End,
+}
+
 internal abstract class AddExtraAttackBase : IAddExtraAttack
 {
     protected readonly ActionDefinitions.ActionType ActionType;
@@ -83,7 +89,17 @@ internal abstract class AddExtraAttackBase : IAddExtraAttack
             }
             else
             {
-                attackModes.Add(attackMode);
+                switch (GetOrder(hero))
+                {
+                    case AttackModeOrder.Start:
+                        attackModes.Insert(0, attackMode);
+                        break;
+                    case AttackModeOrder.End:
+                        attackModes.Add(attackMode);
+                        break;
+                    default:
+                        throw new ArgumentOutOfRangeException();
+                }
             }
         }
     }
@@ -99,6 +115,7 @@ internal abstract class AddExtraAttackBase : IAddExtraAttack
 #endif
 
     protected abstract List<RulesetAttackMode> GetAttackModes(RulesetCharacterHero hero);
+    protected virtual AttackModeOrder GetOrder(RulesetCharacterHero hero) => AttackModeOrder.End;
 
     //Copied from RulesetAttackMode.IsComparableForNetwork, but not checking for attack number
     private static bool ModesEqual([NotNull] RulesetAttackMode a, RulesetAttackMode b)

@@ -260,23 +260,11 @@ public static class RulesetCharacterHeroPatcher
                 }
             }
 
-            //PATCH: sort attack modes according to their tags
-            //Note: Sort is not stable, find better method for improvement
-            __instance.AttackModes.Sort((modeA, modeB) =>
-            {
-                return string.CompareOrdinal(Order(modeA), Order((modeB)));
-            });
-
             //refresh character if needed after postfix
             if (_callRefresh && __instance.CharacterRefreshed != null)
             {
                 __instance.CharacterRefreshed(__instance);
             }
-        }
-
-        private static string Order(RulesetAttackMode mode)
-        {
-            return mode.AttackTags.FirstOrDefault(s => s.StartsWith("ORDER_")) ?? "ORDER_55";
         }
     }
 
