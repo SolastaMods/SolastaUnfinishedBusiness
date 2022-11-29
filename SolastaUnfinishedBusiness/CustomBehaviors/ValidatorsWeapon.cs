@@ -34,6 +34,16 @@ internal static class ValidatorsWeapon
                && weapon.IsWeapon
                && CustomWeaponsContext.PolearmWeaponTypes.Contains(weapon.WeaponDescription?.WeaponType);
     }
+    
+    internal static bool IsHandXBow([CanBeNull] RulesetAttackMode attackMode)
+    {
+        if (attackMode is not { SourceDefinition: ItemDefinition weapon })
+        {
+            return false;
+        }
+        
+        return weapon.IsWeapon && weapon.WeaponDescription?.WeaponType == CustomWeaponsContext.CeHandXbowType;
+    }
 
     internal static bool IsMelee([CanBeNull] RulesetItem weapon)
     {
