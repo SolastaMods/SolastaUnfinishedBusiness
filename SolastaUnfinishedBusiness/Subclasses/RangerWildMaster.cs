@@ -509,34 +509,19 @@ internal sealed class RangerWildMaster : AbstractSubclass
                     .SetFeatures(acBonus)
                     .AddToDB(),
                 ConditionDefinitionBuilder
-                    .Create("ConditionWildMasterSummonSpiritBeastSourceSpellCastingAbilityBonusToHit")
-                    .SetGuiPresentation("Condition/&ConditionWildMasterSummonSpiritBeastBonusTitle", Gui.NoLocalization)
-                    .SetSilent(Silent.WhenAddedOrRemoved)
-                    .SetPossessive()
-                    .SetAmountOrigin(ConditionDefinition.OriginOfAmount.SourceSpellCastingAbility)
-                    .SetFeatures(toHit)
-                    .AddToDB(),
-                ConditionDefinitionBuilder
                     .Create("ConditionWildMasterSummonSpiritBeastSourceProficiencyBonusToHit")
                     .SetGuiPresentation("Condition/&ConditionWildMasterSummonSpiritBeastBonusTitle", Gui.NoLocalization)
                     .SetSilent(Silent.WhenAddedOrRemoved)
                     .SetPossessive()
-                    .SetAmountOrigin(ExtraOriginOfAmount.SourceProficiencyBonus)
+                    .SetAmountOrigin(ExtraOriginOfAmount.SourceProficiencyAndAbilityBonus, AttributeDefinitions.Wisdom)
                     .SetFeatures(toHit)
-                    .AddToDB(),
-                ConditionDefinitionBuilder
-                    .Create("ConditionWildMasterSummonSpiritBeastSourceSpellCastingAbilityBonusToDamage")
-                    .SetGuiPresentation("Condition/&ConditionWildMasterSummonSpiritBeastBonusTitle", Gui.NoLocalization)
-                    .SetSilent(Silent.WhenAddedOrRemoved)
-                    .SetAmountOrigin(ConditionDefinition.OriginOfAmount.SourceSpellCastingAbility)
-                    .SetFeatures(toDamage)
                     .AddToDB(),
                 ConditionDefinitionBuilder
                     .Create("ConditionWildMasterSummonSpiritBeastProficiencyBonusToDamage")
                     .SetGuiPresentation("Condition/&ConditionWildMasterSummonSpiritBeastBonusTitle", Gui.NoLocalization)
                     .SetSilent(Silent.WhenAddedOrRemoved)
                     .SetPossessive()
-                    .SetAmountOrigin(ExtraOriginOfAmount.SourceProficiencyBonus)
+                    .SetAmountOrigin(ExtraOriginOfAmount.SourceProficiencyAndAbilityBonus, AttributeDefinitions.Wisdom)
                     .SetFeatures(toDamage)
                     .AddToDB(),
                 ConditionDefinitionBuilder
