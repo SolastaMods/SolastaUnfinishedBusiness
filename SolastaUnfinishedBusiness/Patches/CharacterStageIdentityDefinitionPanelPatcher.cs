@@ -13,11 +13,15 @@ public static class CharacterStageIdentityDefinitionPanelPatcher
     {
         public static void Postfix(CharacterStageIdentityDefinitionPanel __instance, ref bool __result)
         {
-            if (Main.Settings.EnableRespec && ToolsContext.FunctorRespec.IsRespecing &&
-                !string.IsNullOrEmpty(__instance.currentHero.Name))
+            var name = __instance.currentHero.Name;
+
+            if (!Main.Settings.EnableRespec || !ToolsContext.FunctorRespec.IsRespecing ||
+                string.IsNullOrEmpty(name))
             {
-                __result = true;
+                return;
             }
+
+            __result = Gui.GameCampaign == null || !Gui.GameCampaign.Party.CharactersList.Exists(x => x.Name == name);
         }
     }
 }
