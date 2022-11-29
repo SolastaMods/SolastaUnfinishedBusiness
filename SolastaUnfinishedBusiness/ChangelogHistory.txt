@@ -2,10 +2,12 @@
 
 1.4.30.1:
 
-- fixed a null exception when wild shaping
-- fixed a copy issue on Effect Parameters
+- fixed a null exception in wild shaping
+- fixed a copy issue on Effect Parameters causing undesired changes in other blueprints
 - fixed invocations offering under MC scenarios
+- fixed main attacks stopping working if extra action on kill feature is triggered after Action Surge
 - made Thunder Gauntlet first attack if main hand is empty
+- removed Extra Attack from Merciless fighting style
 - reworked how Thunder Gauntlet is added with an empty main hand
 - updated defense feats to mention they don't work with shields
 
