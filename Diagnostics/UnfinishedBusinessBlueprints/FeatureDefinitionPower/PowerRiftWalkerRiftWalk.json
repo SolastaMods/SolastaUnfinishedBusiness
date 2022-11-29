@@ -124,7 +124,7 @@
       },
       "casterQuickSpellParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "a4e2a49f9e9efdc4998f511c26659989",
+        "m_AssetGUID": "",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
