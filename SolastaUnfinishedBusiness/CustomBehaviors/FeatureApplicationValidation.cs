@@ -33,6 +33,19 @@ internal static class FeatureApplicationValidation
     {
         actor.EnumerateFeaturesToBrowse<IAdditionalActionsProvider>(features);
 
+        //PATCH: move on `HasDownedAnEnemy` bonus actions to the end of the list, preserving order
+        //fixes main attacks stopping working if Horde Breaker's extra action on kill is triggered after Action Surge
+        var onKill = features.FindAll(x => x is IAdditionalActionsProvider
+        {
+            TriggerCondition: RuleDefinitions.AdditionalActionTriggerCondition.HasDownedAnEnemy
+        });
+
+        if (!onKill.Empty())
+        {
+            features.RemoveAll(x => onKill.Contains(x));
+            features.AddRange(onKill);
+        }
+
         if (actor is not RulesetCharacter character)
         {
             return;
