@@ -2,7 +2,12 @@
 
 1.4.30.1:
 
+- fixed a null exception when wild shaping
+- fixed a copy issue on Effect Parameters
+- fixed invocations offering under MC scenarios
 - made Thunder Gauntlet first attack if main hand is empty
+- reworked how Thunder Gauntlet is added with an empty main hand
+- updated defense feats to mention they don't work with shields
 
 1.4.30.0:
 
