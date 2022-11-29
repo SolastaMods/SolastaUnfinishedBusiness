@@ -100,7 +100,7 @@ internal static class TwoWeaponCombatFeats
             RulesetAttackMode attackMode,
             ActionModifier attackModifier)
         {
-            if (attackMode == null || !ValidatorsWeapon.IsMelee(attackMode) || !ValidatorsWeapon.IsHandXBow(attackMode) ||
+            if (attackMode == null || !ValidatorsWeapon.IsOneHanded(attackMode) ||
                 outcome is RollOutcome.Failure or RollOutcome.CriticalFailure)
             {
                 return;
