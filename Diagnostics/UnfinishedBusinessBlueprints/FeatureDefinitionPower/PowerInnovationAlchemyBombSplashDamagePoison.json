@@ -152,8 +152,8 @@
       "casterParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
         "m_AssetGUID": "",
-        "m_SubObjectName": "",
-        "m_SubObjectType": ""
+        "m_SubObjectName": null,
+        "m_SubObjectType": null
       },
       "casterSelfParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
@@ -169,7 +169,7 @@
       },
       "targetParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "511002d2ecb0e4a49903dbe731487e3e",
+        "m_AssetGUID": "",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -199,7 +199,7 @@
       },
       "impactParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "",
+        "m_AssetGUID": "34f67bfd0b273d74a8ce8e4ef929fd6c",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
