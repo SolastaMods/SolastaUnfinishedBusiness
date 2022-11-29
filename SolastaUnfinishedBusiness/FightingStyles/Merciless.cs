@@ -28,10 +28,10 @@ internal sealed class Merciless : AbstractFightingStyle
         .Create("Merciless")
         .SetGuiPresentation(Category.FightingStyle, DatabaseHelper.CharacterSubclassDefinitions.SorcerousHauntedSoul)
         .SetFeatures(
-            FeatureDefinitionAdditionalActionBuilder
-                .Create(AdditionalActionHunterHordeBreaker, "AdditionalActionFightingStyleMerciless")
-                .SetGuiPresentationNoContent(true)
-                .AddToDB(),
+            // FeatureDefinitionAdditionalActionBuilder
+            //     .Create(AdditionalActionHunterHordeBreaker, "AdditionalActionFightingStyleMerciless")
+            //     .SetGuiPresentationNoContent(true)
+            //     .AddToDB(),
             FeatureDefinitionBuilder
                 .Create("TargetReducedToZeroHpFightingStyleMerciless")
                 .SetGuiPresentationNoContent(true)

@@ -31,15 +31,17 @@ internal static class RangedCombatFeats
 
     private static FeatDefinition BuildDeadEye()
     {
+        const string FEAT_NAME = "FeatDeadeye";
+        
         var conditionDeadeye = ConditionDefinitionBuilder
             .Create("ConditionDeadeye")
-            .SetGuiPresentation("FeatDeadeye", Category.Feat)
+            .SetGuiPresentation(FEAT_NAME, Category.Feat)
             .SetDuration(DurationType.Round, 1)
             .SetSilent(Silent.WhenAddedOrRemoved)
             .SetFeatures(
                 FeatureDefinitionBuilder
                     .Create("ModifyAttackModeForWeaponFeatDeadeye")
-                    .SetGuiPresentation("FeatDeadeye", Category.Feat)
+                    .SetGuiPresentation(FEAT_NAME, Category.Feat)
                     .SetCustomSubFeatures(new ModifyDeadeyeAttackPower())
                     .AddToDB())
             .AddToDB();
@@ -64,7 +66,7 @@ internal static class RangedCombatFeats
 
         var powerDeadeye = FeatureDefinitionPowerBuilder
             .Create("PowerDeadeye")
-            .SetGuiPresentation("FeatDeadeye", Category.Feat,
+            .SetGuiPresentation(FEAT_NAME, Category.Feat,
                 Sprites.GetSprite("DeadeyeIcon", Resources.DeadeyeIcon, 128, 64))
             .SetUsesFixed(ActivationTime.NoCost)
             .SetEffectDescription(
@@ -111,7 +113,7 @@ internal static class RangedCombatFeats
         concentrationProvider.StopPower = powerTurnOffDeadeye;
 
         return FeatDefinitionBuilder
-            .Create("FeatDeadeye")
+            .Create(FEAT_NAME)
             .SetGuiPresentation(Category.Feat,
                 Gui.Format("Feat/&FeatDeadeyeDescription", Main.Settings.DeadEyeAndPowerAttackBaseValue.ToString()))
             .SetFeatures(
@@ -119,7 +121,7 @@ internal static class RangedCombatFeats
                 powerTurnOffDeadeye,
                 FeatureDefinitionCombatAffinityBuilder
                     .Create("CombatAffinityDeadeyeIgnoreDefender")
-                    .SetGuiPresentation("FeatDeadeye", Category.Feat)
+                    .SetGuiPresentation(FEAT_NAME, Category.Feat)
                     .SetIgnoreCover()
                     .SetCustomSubFeatures(new BumpWeaponAttackRangeToMax(ValidatorsWeapon.AlwaysValid))
                     .AddToDB())

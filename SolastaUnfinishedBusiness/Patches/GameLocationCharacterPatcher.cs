@@ -264,6 +264,8 @@ public static class GameLocationCharacterPatcher
                     -1, "GameLocationCharacter.RefreshActionPerformances.ValidateActionPerformanceProviders",
                     new CodeInstruction(OpCodes.Call, enumerate1))
                 //PATCH: Support for `IDefinitionApplicationValidator`
+                //PATCH: also moves on `HasDownedAnEnemy` bonus actions to the end of the list, preserving order
+                //fixes main attacks stopping working if Horde Breaker's extra action on kill is triggered after Action Surge
                 .ReplaceEnumerateFeaturesToBrowse("IAdditionalActionsProvider",
                     -1, "GameLocationCharacter.RefreshActionPerformances.ValidateAdditionalActionProviders",
                     new CodeInstruction(OpCodes.Call, enumerate2));

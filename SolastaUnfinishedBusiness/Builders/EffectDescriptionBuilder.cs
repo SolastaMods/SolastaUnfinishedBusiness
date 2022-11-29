@@ -75,7 +75,7 @@ internal class EffectDescriptionBuilder
 
     internal EffectDescriptionBuilder SetParticleEffectParameters(EffectParticleParameters parameters)
     {
-        effect.effectParticleParameters = parameters;
+        effect.effectParticleParameters.Copy(parameters);
         return this;
     }
 
