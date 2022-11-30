@@ -787,6 +787,21 @@ internal sealed class MartialTactician : AbstractSubclass
 
         #endregion
 
+        #region Precise
+
+        name = "GambitPrecise";
+        //TODO: add proper icon
+        sprite = Sprites.ActionGambit;
+
+        feature = FeatureDefinitionBuilder
+            .Create($"Feature{name}")
+            .SetGuiPresentation(name, Category.Feature, sprite)
+            .SetCustomSubFeatures(new Precise(GambitPool))
+            .AddToDB();
+
+        BuildFeatureInvocation(name, sprite, feature);
+
+        #endregion
     }
 
     private static void BuildFeatureInvocation(
@@ -1083,6 +1098,31 @@ internal sealed class MartialTactician : AbstractSubclass
         public bool CanReact(GameLocationCharacter me)
         {
             return me.CanReactNoMatterUses();
+        }
+    }
+
+    private class Precise : IAlterAttackOutcome
+    {
+        private readonly FeatureDefinitionPower pool;
+
+        public Precise(FeatureDefinitionPower pool)
+        {
+            this.pool = pool;
+            throw new NotImplementedException();
+        }
+
+        public IEnumerator TryAlterAttackOutcome(GameLocationBattleManager instance, CharacterAction action,
+            GameLocationCharacter me, GameLocationCharacter target, ActionModifier attackModifier)
+        {
+            var character = me.RulesetCharacter;
+
+            if (character.GetRemainingPowerCharges(pool) <= 0)
+            {
+                yield break;
+            }
+
+            var max = RuleDefinitions.DiceMaxValue[(int)GetGambitDieSize(character)];
+            
         }
     }
 

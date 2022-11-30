@@ -142,6 +142,42 @@ public static class GameLocationBattleManagerPatcher
         }
     }
 
+    [HarmonyPatch(typeof(GameLocationBattleManager),
+        nameof(GameLocationBattleManager.HandleBardicInspirationForAttack))]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    public static class HandleBardicInspirationForAttack_Patch
+    {
+        public static IEnumerator Postfix(
+            IEnumerator values,
+            GameLocationBattleManager __instance,
+            CharacterAction action,
+            GameLocationCharacter attacker,
+            GameLocationCharacter target,
+            ActionModifier attackModifier)
+        {
+            //PATCH: support for IAlterAttackOutcome
+            while (values.MoveNext())
+            {
+                yield return values.Current;
+            }
+
+            foreach (var feature in attacker.RulesetActor.GetSubFeaturesByType<IAlterAttackOutcome>())
+            {
+                if (action.AttackRollOutcome != RuleDefinitions.RollOutcome.Failure)
+                {
+                    break;
+                }
+
+                var extraEvents = feature.TryAlterAttackOutcome(__instance, action, attacker, target, attackModifier);
+
+                while (extraEvents.MoveNext())
+                {
+                    yield return extraEvents.Current;
+                }
+            }
+        }
+    }
+
     [HarmonyPatch(typeof(GameLocationBattleManager), "HandleCharacterAttackFinished")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     public static class HandleCharacterAttackFinished_Patch
