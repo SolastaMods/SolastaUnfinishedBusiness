@@ -1,9 +1,10 @@
 ﻿CHANGES:
 
-1.4.30.2:
+1.4.30.3:
 
-- fixed Dual Flurry to only work if one handed
-- fixed Level 20 to be future-proof resilient
-- fixed RESPEC to prohibit duplicate names to be chosen
-- fixed Wild Master beast to-hit and to-damage bonuses
-- fixed wrong Particle Params in about 250+ blueprints
+- added Enable Beta toggle under Gameplay > Tools
+- added Return Fire gambit to Tactician
+- changed Wolf Leadership to work within engine limitations
+- made Brace and Counter Attack gambits not use reactions
+- marked Counter Attack and Return Fire gambits non-AoO
+- tagged College of Harlequin beta per author request

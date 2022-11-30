@@ -1,5 +1,14 @@
 ﻿CHANGES:
 
+1.4.30.3:
+
+- added Enable Beta toggle under Gameplay > Tools
+- added Return Fire gambit to Tactician
+- changed Wolf Leadership to work within engine limitations
+- made Brace and Counter Attack gambits not use reactions
+- marked Counter Attack and Return Fire gambits non-AoO
+- tagged College of Harlequin beta per author request
+
 1.4.30.2:
 
 - fixed Dual Flurry to only work if one handed
