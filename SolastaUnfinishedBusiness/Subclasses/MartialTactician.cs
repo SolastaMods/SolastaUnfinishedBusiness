@@ -936,6 +936,8 @@ internal sealed class MartialTactician : AbstractSubclass
             {
                 yield break;
             }
+            
+            retaliationMode.AddAttackTagAsNeeded(AttacksOfOpportunity.NotAoOTag);
 
             var reactionParams = new CharacterActionParams(me, Id.AttackOpportunity);
 
