@@ -937,7 +937,7 @@ internal sealed class MartialTactician : AbstractSubclass
             
             retaliationMode.AddAttackTagAsNeeded(AttacksOfOpportunity.NotAoOTag);
 
-            var reactionParams = new CharacterActionParams(me, Id.AttackOpportunity);
+            var reactionParams = new CharacterActionParams(me, Id.AttackFree);
 
             reactionParams.TargetCharacters.Add(attacker);
             reactionParams.ActionModifiers.Add(retaliationModifier);
@@ -955,7 +955,6 @@ internal sealed class MartialTactician : AbstractSubclass
 
             character.AddConditionOfCategory(AttributeDefinitions.TagCombat, rulesetCondition);
 
-            var reactions = me.GetActionTypeRank(ActionType.Reaction);
             var previousReactionCount = manager.PendingReactionRequestGroups.Count;
             var tag = melee ? "GambitRiposte" : "GambitReturnFire";
             var reactionRequest = new ReactionRequestReactionAttack(tag, reactionParams)
@@ -974,12 +973,6 @@ internal sealed class MartialTactician : AbstractSubclass
             }
 
             character.RemoveCondition(rulesetCondition);
-
-            //refund Reaction only if we actually spent it
-            if (me.GetActionTypeRank(ActionType.Reaction) > reactions)
-            {
-                me.RefundActionUse(ActionType.Reaction);
-            }
         }
     }
 
@@ -1050,7 +1043,7 @@ internal sealed class MartialTactician : AbstractSubclass
 
             var reactionParams = new CharacterActionParams(
                 me,
-                Id.AttackOpportunity,
+                Id.AttackFree,
                 retaliationMode,
                 mover,
                 retaliationModifier);
@@ -1068,7 +1061,6 @@ internal sealed class MartialTactician : AbstractSubclass
 
             character.AddConditionOfCategory(AttributeDefinitions.TagCombat, rulesetCondition);
 
-            var reactions = me.GetActionTypeRank(ActionType.Reaction);
             var previousReactionCount = manager.PendingReactionRequestGroups.Count;
             var reactionRequest = new ReactionRequestReactionAttack("GambitBrace", reactionParams)
             {
@@ -1086,12 +1078,6 @@ internal sealed class MartialTactician : AbstractSubclass
             }
 
             character.RemoveCondition(rulesetCondition);
-
-            //refund Reaction only if we actually spent it
-            if (me.GetActionTypeRank(ActionType.Reaction) > reactions)
-            {
-                me.RefundActionUse(ActionType.Reaction);
-            }
         }
 
         public bool CanReact(GameLocationCharacter me)
