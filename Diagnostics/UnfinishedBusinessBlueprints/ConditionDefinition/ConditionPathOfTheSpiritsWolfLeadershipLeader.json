@@ -3,9 +3,7 @@
   "inDungeonEditor": false,
   "parentCondition": null,
   "conditionType": "Beneficial",
-  "features": [
-    "Definition:CombatAffinityPathOfTheSpiritsWolfLeadership:197fda3f-cfd5-5b17-b921-59a922cad08c"
-  ],
+  "features": [],
   "allowMultipleInstances": false,
   "silentWhenAdded": true,
   "silentWhenRemoved": true,
@@ -129,9 +127,9 @@
   },
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
-    "hidden": false,
-    "title": "Feature/&PowerPathOfTheSpiritsWolfLeadershipTitle",
-    "description": "Feature/&PowerPathOfTheSpiritsWolfLeadershipDescription",
+    "hidden": true,
+    "title": "Feature/&NoContentTitle",
+    "description": "Feature/&NoContentTitle",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -151,7 +149,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "1ae78c51-be15-5d65-a05c-d2ef7f786a44",
+  "guid": "40f49eb4-4f31-5d0d-8d42-b13b1acc67cc",
   "contentPack": 9999,
-  "name": "ConditionPathOfTheSpiritsWolfLeadership"
+  "name": "ConditionPathOfTheSpiritsWolfLeadershipLeader"
 }

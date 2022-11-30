@@ -195,6 +195,7 @@ internal sealed class PathOfTheSpirits : AbstractSubclass
             .SetTerminateWhenRemoved()
             .SetSilent(Silent.WhenAddedOrRemoved)
             .SetSpecialInterruptions(ConditionInterruption.RageStop)
+            // notify all allies to remove wolf spirit condition
             .SetCustomSubFeatures(new NotifyRemoval())
             .AddToDB();
 
@@ -213,7 +214,7 @@ internal sealed class PathOfTheSpirits : AbstractSubclass
             .SetUsesFixed(ActivationTime.OnRageStartAutomatic)
             .SetEffectDescription(EffectDescriptionBuilder.Create()
                 .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
-                .SetDurationData(DurationType.Hour, 1)
+                .SetDurationData(DurationType.Day, 1)
                 .SetEffectForms(EffectFormBuilder
                     .Create()
                     .SetConditionForm(conditionPathOfTheSpiritsWolfLeadershipLeader,
@@ -227,16 +228,15 @@ internal sealed class PathOfTheSpirits : AbstractSubclass
             .SetGuiPresentationNoContent(true)
             .SetUsesFixed(ActivationTime.OnRageStartAutomatic)
             .SetEffectDescription(EffectDescriptionBuilder.Create()
-                .SetTargetingData(Side.Ally, RangeType.Self, 1, TargetType.Sphere, 6)
+                .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Sphere, 6)
                 .SetRecurrentEffect(
                     RecurrentEffect.OnActivation | RecurrentEffect.OnEnter | RecurrentEffect.OnTurnStart)
                 .SetDurationData(DurationType.Day, 1)
-                .SetEffectForms(
-                    EffectFormBuilder
-                        .Create()
-                        .SetConditionForm(conditionPathOfTheSpiritsWolfLeadershipPack,
-                            ConditionForm.ConditionOperation.Add)
-                        .Build())
+                .SetEffectForms(EffectFormBuilder
+                    .Create()
+                    .SetConditionForm(conditionPathOfTheSpiritsWolfLeadershipPack,
+                        ConditionForm.ConditionOperation.Add)
+                    .Build())
                 .Build())
             .AddToDB();
 
@@ -303,8 +303,8 @@ internal sealed class PathOfTheSpirits : AbstractSubclass
             }
 
             foreach (var rulesetCharacter in gameLocationCharacterService.ValidCharacters
-                         .Where(x => x.RulesetCharacter.CurrentFaction == FactionDefinitions.Party)
-                         .Select(x => x.RulesetCharacter))
+                         .Select(x => x.RulesetCharacter)
+                         .Where(x => x.CurrentFaction == FactionDefinitions.Party))
             {
                 if (rulesetCharacter.TryGetConditionOfCategoryAndType(AttributeDefinitions.TagEffect,
                         PathOfTheSpiritsWolfLeadershipPackName, out var condition) &&

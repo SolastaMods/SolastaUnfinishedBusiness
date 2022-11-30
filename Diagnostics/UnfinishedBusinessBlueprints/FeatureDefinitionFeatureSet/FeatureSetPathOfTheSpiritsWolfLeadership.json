@@ -1,22 +1,22 @@
 {
   "$type": "FeatureDefinitionFeatureSet, Assembly-CSharp",
   "featureSet": [
-    "Definition:PowerPathOfTheSpiritsBearResistance:6108c7a0-185a-5217-9deb-3ce576514705",
-    "Definition:ActionAffinityPathOfTheSpiritsCunningAction:ea43e6ee-4530-5abd-81c4-0b3cb5fc0289",
-    "Definition:FeatureSetPathOfTheSpiritsWolfLeadership:e52f727e-7414-5123-b199-f3afc2aa42c2"
+    "Definition:ConditionAffinityPathOfTheSpiritsWolfLeadershipPack:56bca621-33a9-53f3-b952-a2c14dc55a8e",
+    "Definition:PowerPathOfTheSpiritsWolfLeadershipLeader:8e49b770-f761-5aed-9c7b-3d2b69432816",
+    "Definition:PowerPathOfTheSpiritsWolfLeadershipPack:dfbff25f-e9fa-5b68-b182-3f4aee9c4a94"
   ],
-  "mode": "Exclusion",
+  "mode": "Union",
   "ancestryDamageTypeMap": [],
   "ancestryType": "Sorcerer",
-  "defaultSelection": 1,
+  "defaultSelection": 0,
   "uniqueChoices": false,
   "enumerateInDescription": false,
   "hasRacialAffinity": false,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&FeatureSetPathOfTheSpiritsAnimalSpiritChoicesTitle",
-    "description": "Feature/&FeatureSetPathOfTheSpiritsAnimalSpiritChoicesDescription",
+    "title": "Feature/&FeatureSetPathOfTheSpiritsWolfLeadershipTitle",
+    "description": "Feature/&FeatureSetPathOfTheSpiritsWolfLeadershipDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -36,7 +36,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "93bed31c-3308-5982-8540-4062e40039fe",
+  "guid": "e52f727e-7414-5123-b199-f3afc2aa42c2",
   "contentPack": 9999,
-  "name": "FeatureSetPathOfTheSpiritsAnimalSpiritChoices"
+  "name": "FeatureSetPathOfTheSpiritsWolfLeadership"
 }
