@@ -31,8 +31,6 @@ internal sealed class MartialTactician : AbstractSubclass
         BuildGambitPool();
 
         GambitDieDamage = BuildGambitDieDamage("");
-
-        //make sure that if we add any custom sub-features to base one we add them to this one too
         GambitDieDamageOnce = BuildGambitDieDamage("Once", FeatureLimitedUsage.OncePerTurn);
 
         var learn2Gambits = BuildLearn(2);
@@ -468,7 +466,7 @@ internal sealed class MartialTactician : AbstractSubclass
                 .SetEffectForms(EffectFormBuilder.Create()
                     .SetConditionForm(ConditionDefinitions.ConditionFrightenedFear,
                         ConditionForm.ConditionOperation.Add)
-                    .HasSavingThrow(EffectSavingThrowType.Negates, TurnOccurenceType.EndOfTurnNoPerceptionOfSource)
+                    .HasSavingThrow(EffectSavingThrowType.Negates)
                     .Build())
                 .Build())
             .AddToDB());
