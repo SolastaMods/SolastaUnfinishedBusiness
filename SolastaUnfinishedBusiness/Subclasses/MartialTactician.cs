@@ -11,6 +11,7 @@ using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Models;
 using TA;
 using UnityEngine.AddressableAssets;
+using static ActionDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterSubclassDefinitions;
 using static RuleDefinitions;
@@ -749,7 +750,23 @@ internal sealed class MartialTactician : AbstractSubclass
         feature = FeatureDefinitionBuilder
             .Create($"Feature{name}")
             .SetGuiPresentation(name, Category.Feature, sprite)
-            .SetCustomSubFeatures(new Retaliate(spendDiePower, conditionGambitDieDamage))
+            .SetCustomSubFeatures(new Retaliate(spendDiePower, conditionGambitDieDamage, true))
+            .AddToDB();
+
+        BuildFeatureInvocation(name, sprite, feature);
+
+        #endregion
+        
+        #region Return Fire
+
+        name = "GambitReturnFire";
+        //TODO: add proper icon
+        sprite = Sprites.ActionGambit;
+
+        feature = FeatureDefinitionBuilder
+            .Create($"Feature{name}")
+            .SetGuiPresentation(name, Category.Feature, sprite)
+            .SetCustomSubFeatures(new Retaliate(spendDiePower, conditionGambitDieDamage, false))
             .AddToDB();
 
         BuildFeatureInvocation(name, sprite, feature);
@@ -771,6 +788,7 @@ internal sealed class MartialTactician : AbstractSubclass
         BuildFeatureInvocation(name, sprite, feature);
 
         #endregion
+
     }
 
     private static void BuildFeatureInvocation(
@@ -864,10 +882,12 @@ internal sealed class MartialTactician : AbstractSubclass
     {
         private readonly ConditionDefinition condition;
         private readonly FeatureDefinitionPower pool;
+        private readonly bool melee;
 
-        public Retaliate(FeatureDefinitionPower pool, ConditionDefinition condition)
+        public Retaliate(FeatureDefinitionPower pool, ConditionDefinition condition, bool melee)
         {
             this.condition = condition;
+            this.melee = melee;
             this.pool = pool;
         }
 
@@ -885,8 +905,7 @@ internal sealed class MartialTactician : AbstractSubclass
                 yield break;
             }
 
-            if (me.GetActionTypeStatus(ActionDefinitions.ActionType.Reaction) !=
-                ActionDefinitions.ActionStatus.Available)
+            if (!me.CanReactNoMatterUses())
             {
                 yield break;
             }
@@ -904,14 +923,23 @@ internal sealed class MartialTactician : AbstractSubclass
                 yield break;
             }
 
-            var (retaliationMode, retaliationModifier) = me.GetFirstMeleeAttackThatCanAttack(attacker);
+            if (!melee && battle.IsWithin1Cell(me, attacker))
+            {
+                yield break;
+            }
+
+            var (retaliationMode, retaliationModifier) = melee
+                ? me.GetFirstMeleeModeThatCanAttack(attacker)
+                : me.GetFirstRangedModeThatCanAttack(attacker);
 
             if (retaliationMode == null)
             {
                 yield break;
             }
+            
+            retaliationMode.AddAttackTagAsNeeded(AttacksOfOpportunity.NotAoOTag);
 
-            var reactionParams = new CharacterActionParams(me, ActionDefinitions.Id.AttackOpportunity);
+            var reactionParams = new CharacterActionParams(me, Id.AttackOpportunity);
 
             reactionParams.TargetCharacters.Add(attacker);
             reactionParams.ActionModifiers.Add(retaliationModifier);
@@ -929,8 +957,10 @@ internal sealed class MartialTactician : AbstractSubclass
 
             character.AddConditionOfCategory(AttributeDefinitions.TagCombat, rulesetCondition);
 
+            var reactions = me.GetActionTypeRank(ActionType.Reaction);
             var previousReactionCount = manager.PendingReactionRequestGroups.Count;
-            var reactionRequest = new ReactionRequestReactionAttack("GambitRiposte", reactionParams)
+            var tag = melee ? "GambitRiposte" : "GambitReturnFire";
+            var reactionRequest = new ReactionRequestReactionAttack(tag, reactionParams)
             {
                 Resource = new ReactionResourcePowerPool(pool, Sprites.GambitResourceIcon)
             };
@@ -946,6 +976,12 @@ internal sealed class MartialTactician : AbstractSubclass
             }
 
             character.RemoveCondition(rulesetCondition);
+
+            //refund Reaction only if we actually spent it
+            if (me.GetActionTypeRank(ActionType.Reaction) > reactions)
+            {
+                me.RefundActionUse(ActionType.Reaction);
+            }
         }
     }
 
@@ -1016,7 +1052,7 @@ internal sealed class MartialTactician : AbstractSubclass
 
             var reactionParams = new CharacterActionParams(
                 me,
-                ActionDefinitions.Id.AttackOpportunity,
+                Id.AttackOpportunity,
                 retaliationMode,
                 mover,
                 retaliationModifier);
@@ -1034,6 +1070,7 @@ internal sealed class MartialTactician : AbstractSubclass
 
             character.AddConditionOfCategory(AttributeDefinitions.TagCombat, rulesetCondition);
 
+            var reactions = me.GetActionTypeRank(ActionType.Reaction);
             var previousReactionCount = manager.PendingReactionRequestGroups.Count;
             var reactionRequest = new ReactionRequestReactionAttack("GambitBrace", reactionParams)
             {
@@ -1051,6 +1088,17 @@ internal sealed class MartialTactician : AbstractSubclass
             }
 
             character.RemoveCondition(rulesetCondition);
+
+            //refund Reaction only if we actually spent it
+            if (me.GetActionTypeRank(ActionType.Reaction) > reactions)
+            {
+                me.RefundActionUse(ActionType.Reaction);
+            }
+        }
+
+        public bool CanReact(GameLocationCharacter me)
+        {
+            return me.CanReactNoMatterUses();
         }
     }
 
