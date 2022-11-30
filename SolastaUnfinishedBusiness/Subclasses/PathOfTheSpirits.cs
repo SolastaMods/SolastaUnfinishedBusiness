@@ -1,6 +1,7 @@
 ﻿using System.Linq;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
+using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.Models;
 using static FeatureDefinitionAttributeModifier;
@@ -185,6 +186,7 @@ internal sealed class PathOfTheSpirits : AbstractSubclass
             .AddToDB();
     }
 
+
     private static FeatureDefinition PowerPathOfTheSpiritsWolfLeadership()
     {
         const string NAME = "FeatureSetPathOfTheSpiritsWolfLeadership";
@@ -192,7 +194,6 @@ internal sealed class PathOfTheSpirits : AbstractSubclass
         var conditionPathOfTheSpiritsWolfLeadershipLeader = ConditionDefinitionBuilder
             .Create(PathOfTheSpiritsWolfLeadershipLeaderName)
             .SetGuiPresentationNoContent(true)
-            .SetTerminateWhenRemoved()
             .SetSilent(Silent.WhenAddedOrRemoved)
             .SetSpecialInterruptions(ConditionInterruption.RageStop)
             // notify all allies to remove wolf spirit condition
@@ -206,6 +207,9 @@ internal sealed class PathOfTheSpirits : AbstractSubclass
             .SetFeatures(FeatureDefinitionCombatAffinityBuilder
                 .Create(CombatAffinityRousingShout, "CombatAffinityPathOfTheSpiritsWolfLeadership")
                 .SetGuiPresentation(Category.Feature)
+                .SetCustomSubFeatures(
+                    new ValidatorsPowerUse(
+                        ValidatorsCharacter.HasAnyOfConditions(ConditionDefinitions.ConditionRaging)))
                 .AddToDB())
             .AddToDB();
 
@@ -215,7 +219,7 @@ internal sealed class PathOfTheSpirits : AbstractSubclass
             .SetUsesFixed(ActivationTime.OnRageStartAutomatic)
             .SetEffectDescription(EffectDescriptionBuilder.Create()
                 .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
-                .SetDurationData(DurationType.Day, 1)
+                .SetDurationData(DurationType.Minute, 1)
                 .SetEffectForms(EffectFormBuilder
                     .Create()
                     .SetConditionForm(conditionPathOfTheSpiritsWolfLeadershipLeader,
@@ -232,7 +236,8 @@ internal sealed class PathOfTheSpirits : AbstractSubclass
                 .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Sphere, 6)
                 .SetRecurrentEffect(
                     RecurrentEffect.OnActivation | RecurrentEffect.OnEnter | RecurrentEffect.OnTurnStart)
-                .SetDurationData(DurationType.Day, 1)
+                // only during the round Barbarian started raging
+                .SetDurationData(DurationType.Round, 1)
                 .SetEffectForms(EffectFormBuilder
                     .Create()
                     .SetConditionForm(conditionPathOfTheSpiritsWolfLeadershipPack,
