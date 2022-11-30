@@ -750,6 +750,22 @@ internal sealed class MartialTactician : AbstractSubclass
         feature = FeatureDefinitionBuilder
             .Create($"Feature{name}")
             .SetGuiPresentation(name, Category.Feature, sprite)
+            .SetCustomSubFeatures(new Retaliate(spendDiePower, conditionGambitDieDamage, true))
+            .AddToDB();
+
+        BuildFeatureInvocation(name, sprite, feature);
+
+        #endregion
+        
+        #region Return Fire
+
+        name = "GambitReturnFire";
+        //TODO: add proper icon
+        sprite = Sprites.ActionGambit;
+
+        feature = FeatureDefinitionBuilder
+            .Create($"Feature{name}")
+            .SetGuiPresentation(name, Category.Feature, sprite)
             .SetCustomSubFeatures(new Retaliate(spendDiePower, conditionGambitDieDamage, false))
             .AddToDB();
 
