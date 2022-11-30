@@ -112,18 +112,16 @@ internal static class AttacksOfOpportunity
                 && mover.IsOppositeSide(unit.Side)
                 && MovingCharactersCache.TryGetValue(mover.Guid, out var movement))
             {
-                if (unit.GetActionTypeStatus(ActionType.Reaction) != ActionStatus.Available)
+                if (unit.GetActionTypeStatus(ActionType.Reaction) == ActionStatus.Available)
                 {
-                    break;
+                    yield return ProcessPolearmExpert(unit, mover, movement, battleManager);
                 }
-
-                yield return ProcessPolearmExpert(unit, mover, movement, battleManager);
 
                 foreach (var brace in unit.RulesetActor.GetSubFeaturesByType<MartialTactician.Brace>())
                 {
-                    if (unit.GetActionTypeStatus(ActionType.Reaction) != ActionStatus.Available)
+                    if (!brace.CanReact(unit))
                     {
-                        break;
+                        continue;
                     }
 
                     yield return brace.Process(unit, mover, movement, battleManager);

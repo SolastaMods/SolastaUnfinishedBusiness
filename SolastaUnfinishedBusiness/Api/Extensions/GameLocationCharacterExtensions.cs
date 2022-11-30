@@ -1,4 +1,7 @@
-﻿using TA;
+﻿using System;
+using System.Collections.Generic;
+using TA;
+using static ActionDefinitions;
 
 namespace SolastaUnfinishedBusiness.Api.Extensions;
 
@@ -83,5 +86,29 @@ public static class GameLocationCharacterExtensions
         }
 
         return false;
+    }
+
+    internal static bool CanReactNoMatterUses(this GameLocationCharacter instance)
+    {
+        var wasUsed = instance.currentActionRankByType[ActionType.Reaction] > 0;
+        if (wasUsed)
+        {
+            instance.currentActionRankByType[ActionType.Reaction]--;
+        }
+
+        var canReact = instance.GetActionTypeStatus(ActionType.Reaction) == ActionStatus.Available;
+
+        if (wasUsed)
+        {
+            instance.currentActionRankByType[ActionType.Reaction]++;
+        }
+
+        return canReact;
+    }
+
+    internal static int GetActionTypeRank(this GameLocationCharacter instance, ActionType type)
+    {
+        var ranks = instance.currentActionRankByType;
+        return ranks.TryGetValue(type, out var value) ? value : 0;
     }
 }
