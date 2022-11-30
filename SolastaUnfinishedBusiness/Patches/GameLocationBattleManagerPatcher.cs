@@ -161,6 +161,11 @@ public static class GameLocationBattleManagerPatcher
                 yield return values.Current;
             }
 
+            if (action.BardicDieRoll > 0)
+            {
+                action.AttackRollOutcome += action.BardicDieRoll;
+            }
+
             foreach (var feature in attacker.RulesetActor.GetSubFeaturesByType<IAlterAttackOutcome>())
             {
                 if (action.AttackRollOutcome != RuleDefinitions.RollOutcome.Failure)
