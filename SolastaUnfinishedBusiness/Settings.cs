@@ -197,6 +197,7 @@ public class Settings : UnityModManager.ModSettings
     //
 
     // General
+    public bool EnableBetaContent { get; set; }
     public bool EnableSaveByLocation { get; set; }
     public bool EnableRespec { get; set; }
     public bool EnableCheatMenu { get; set; }

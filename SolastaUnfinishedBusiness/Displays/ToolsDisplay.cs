@@ -88,6 +88,12 @@ internal static class ToolsDisplay
         UI.Label(Gui.Localize("ModUi/&General"));
         UI.Label();
 
+        toggle = Main.Settings.EnableBetaContent;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableBetaContent"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableBetaContent = toggle;
+        }
+
         toggle = Main.Settings.EnableSaveByLocation;
         if (UI.Toggle(Gui.Localize("ModUi/&EnableSaveByLocation"), ref toggle, UI.AutoWidth()))
         {
