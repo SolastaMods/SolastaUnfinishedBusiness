@@ -6,7 +6,7 @@
   "features": [
     "Definition:CombatAffinityPathOfTheSpiritsWolfLeadership:197fda3f-cfd5-5b17-b921-59a922cad08c"
   ],
-  "allowMultipleInstances": false,
+  "allowMultipleInstances": true,
   "silentWhenAdded": false,
   "silentWhenRemoved": false,
   "terminateWhenRemoved": false,
