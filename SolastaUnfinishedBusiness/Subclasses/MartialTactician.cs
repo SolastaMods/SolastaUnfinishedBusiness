@@ -750,7 +750,7 @@ internal sealed class MartialTactician : AbstractSubclass
         feature = FeatureDefinitionBuilder
             .Create($"Feature{name}")
             .SetGuiPresentation(name, Category.Feature, sprite)
-            .SetCustomSubFeatures(new Retaliate(spendDiePower, conditionGambitDieDamage))
+            .SetCustomSubFeatures(new Retaliate(spendDiePower, conditionGambitDieDamage, false))
             .AddToDB();
 
         BuildFeatureInvocation(name, sprite, feature);
@@ -866,10 +866,12 @@ internal sealed class MartialTactician : AbstractSubclass
     {
         private readonly ConditionDefinition condition;
         private readonly FeatureDefinitionPower pool;
+        private readonly bool melee;
 
-        public Retaliate(FeatureDefinitionPower pool, ConditionDefinition condition)
+        public Retaliate(FeatureDefinitionPower pool, ConditionDefinition condition, bool melee)
         {
             this.condition = condition;
+            this.melee = melee;
             this.pool = pool;
         }
 
@@ -905,7 +907,14 @@ internal sealed class MartialTactician : AbstractSubclass
                 yield break;
             }
 
-            var (retaliationMode, retaliationModifier) = me.GetFirstMeleeAttackThatCanAttack(attacker);
+            if (!melee && battle.IsWithin1Cell(me, attacker))
+            {
+                yield break;
+            }
+
+            var (retaliationMode, retaliationModifier) = melee
+                ? me.GetFirstMeleeModeThatCanAttack(attacker)
+                : me.GetFirstRangedModeThatCanAttack(attacker);
 
             if (retaliationMode == null)
             {
@@ -932,7 +941,8 @@ internal sealed class MartialTactician : AbstractSubclass
 
             var reactions = me.GetActionTypeRank(ActionType.Reaction);
             var previousReactionCount = manager.PendingReactionRequestGroups.Count;
-            var reactionRequest = new ReactionRequestReactionAttack("GambitRiposte", reactionParams)
+            var tag = melee ? "GambitRiposte" : "GambitReturnFire";
+            var reactionRequest = new ReactionRequestReactionAttack(tag, reactionParams)
             {
                 Resource = new ReactionResourcePowerPool(pool, Sprites.GambitResourceIcon)
             };

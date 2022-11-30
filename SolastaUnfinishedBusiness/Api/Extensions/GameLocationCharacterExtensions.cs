@@ -1,13 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using TA;
+﻿using TA;
 using static ActionDefinitions;
 
 namespace SolastaUnfinishedBusiness.Api.Extensions;
 
 public static class GameLocationCharacterExtensions
 {
-    internal static (RulesetAttackMode mode, ActionModifier modifier) GetFirstMeleeAttackThatCanAttack(
+    internal static (RulesetAttackMode mode, ActionModifier modifier) GetFirstMeleeModeThatCanAttack(
         this GameLocationCharacter instance,
         GameLocationCharacter target,
         IGameLocationBattleService service = null)
@@ -26,6 +24,37 @@ public static class GameLocationCharacterExtensions
             var modifier = new ActionModifier();
 
             attackParams.FillForPhysicalReachAttack(instance, instance.LocationPosition, mode,
+                target, target.LocationPosition, modifier);
+
+            // Check if the attack is possible and collect the attack modifier inside the attackParams
+            if (service.CanAttack(attackParams))
+            {
+                return (mode, modifier);
+            }
+        }
+
+        return (null, null);
+    }
+    
+    internal static (RulesetAttackMode mode, ActionModifier modifier) GetFirstRangedModeThatCanAttack(
+        this GameLocationCharacter instance,
+        GameLocationCharacter target,
+        IGameLocationBattleService service = null)
+    {
+        service ??= ServiceRepository.GetService<IGameLocationBattleService>();
+
+        foreach (var mode in instance.RulesetCharacter.AttackModes)
+        {
+            if (mode.Reach)
+            {
+                continue;
+            }
+
+            // Prepare attack evaluation params
+            var attackParams = new BattleDefinitions.AttackEvaluationParams();
+            var modifier = new ActionModifier();
+
+            attackParams.FillForPhysicalRangeAttack(instance, instance.LocationPosition, mode,
                 target, target.LocationPosition, modifier);
 
             // Check if the attack is possible and collect the attack modifier inside the attackParams
