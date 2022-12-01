@@ -34,14 +34,14 @@ internal sealed class MartialTactician : AbstractSubclass
         GambitDieDamageOnce = BuildGambitDieDamage("Once", FeatureLimitedUsage.OncePerTurn);
 
         var learn2Gambits = BuildLearn(2);
-        var learn3Gambits = BuildLearn(3);
+        var learnInitial = BuildLearn(4);
         var unlearn = BuildUnlearn();
 
         EverVigilant = BuildEverVigilant();
         Subclass = CharacterSubclassDefinitionBuilder
             .Create("MartialTactician")
             .SetGuiPresentation(Category.Subclass, RoguishShadowCaster)
-            .AddFeaturesAtLevel(3, BuildSharpMind(), GambitPool, learn3Gambits, EverVigilant)
+            .AddFeaturesAtLevel(3, BuildSharpMind(), GambitPool, learnInitial, EverVigilant)
             .AddFeaturesAtLevel(5, BuildGambitDieSize(DieType.D8))
             .AddFeaturesAtLevel(7, BuildGambitPoolIncrease(), learn2Gambits, unlearn, BuildSharedVigilance())
             .AddFeaturesAtLevel(10, BuildAdaptiveStrategy(), BuildTacticalSurge(), BuildGambitDieSize(DieType.D10))
