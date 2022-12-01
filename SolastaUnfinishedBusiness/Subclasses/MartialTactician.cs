@@ -26,6 +26,7 @@ internal sealed class MartialTactician : AbstractSubclass
     private static readonly DamageDieProvider UpgradeDice = (character, _) => GetGambitDieSize(character);
 
     private static int _gambitPoolIncreases;
+    private const string MarkCondition = "ConditionTacticianDamagedByGambit";
 
     internal MartialTactician()
     {
@@ -45,7 +46,8 @@ internal sealed class MartialTactician : AbstractSubclass
             .SetMode(FeatureDefinitionFeatureSet.FeatureSetMode.Exclusion)
             .AddFeatureSetNoSort(
                 BuildTacticalSurge(),
-                BuildAdaptiveStrategy()
+                BuildAdaptiveStrategy(),
+                BuildOvercomingStrategy()
             )
             .AddToDB();
 
@@ -177,6 +179,32 @@ internal sealed class MartialTactician : AbstractSubclass
         return feature;
     }
 
+    private static FeatureDefinition BuildOvercomingStrategy()
+    {
+        var feature = FeatureDefinitionBuilder
+            .Create("FeatureOvercomingStrategy")
+            .SetGuiPresentation(Category.Feature)
+            .AddToDB();
+
+        feature.SetCustomSubFeatures(new RefundPowerUseAfterKill(GambitPool, feature));
+
+        ConditionDefinitionBuilder
+            .Create(MarkCondition)
+            .SetGuiPresentationNoContent(true)
+            .SetSilent(Silent.WhenAddedOrRemoved)
+            .SetCustomSubFeatures(
+                new RefundPowerUseWhenTargetWithConditionDies(GambitPool, feature),
+                RemoveConditionOnSourceTurnStart.Mark,
+                //by default this condition is applied under Effects tag, whuch is removed right at death - too early for us to detect
+                //this feature will add this effect under Combat tag, which is not removed
+                new ForceConditionCategory(AttributeDefinitions.TagCombat))
+            .SetSpecialDuration(DurationType.Round, 1)
+            .SetTurnOccurence(TurnOccurenceType.StartOfTurn)
+            .AddToDB();
+
+        return feature;
+    }
+
     private static FeatureDefinitionCustomInvocationPool BuildLearn(int points)
     {
         return CustomInvocationPoolDefinitionBuilder
@@ -214,6 +242,10 @@ internal sealed class MartialTactician : AbstractSubclass
             .SetDamageDice(DieType.D6, 1)
             .SetAdditionalDamageType(AdditionalDamageType.SameAsBaseDamage)
             .SetNotificationTag("GambitDie")
+            .SetConditionOperations(new ConditionOperationDescription
+            {
+                operation = ConditionOperationDescription.ConditionOperation.Add, conditionName = MarkCondition
+            })
             .SetFrequencyLimit(limit)
             .AddToDB();
     }
@@ -976,6 +1008,90 @@ internal sealed class MartialTactician : AbstractSubclass
 
             GameConsoleHelper.LogCharacterUsedFeature(character, feature, indent: true);
             character.UpdateUsageForPower(power, -1);
+        }
+    }
+
+    private class RefundPowerUseAfterKill : ITargetReducedToZeroHp
+    {
+        private readonly FeatureDefinition feature;
+        private readonly FeatureDefinitionPower power;
+
+        public RefundPowerUseAfterKill(FeatureDefinitionPower power, FeatureDefinition feature)
+        {
+            this.power = power;
+            this.feature = feature;
+        }
+
+        public IEnumerator HandleCharacterReducedToZeroHp(
+            GameLocationCharacter attacker,
+            GameLocationCharacter downedCreature,
+            RulesetAttackMode attackMode,
+            RulesetEffect activeEffect)
+        {
+            if (downedCreature.RulesetCharacter.HasConditionOfType(MarkCondition))
+            {
+                yield break;
+            }
+
+            if (attackMode == null)
+            {
+                yield break;
+            }
+
+            var character = attacker.RulesetCharacter;
+
+            if (character == null)
+            {
+                yield break;
+            }
+
+            if (character.GetRemainingPowerUses(power) >= character.GetMaxUsesForPool(power))
+            {
+                yield break;
+            }
+
+            GameConsoleHelper.LogCharacterUsedFeature(character, feature, indent: true);
+            character.UpdateUsageForPower(power, -1);
+        }
+    }
+
+    private class RefundPowerUseWhenTargetWithConditionDies : INotifyConditionRemoval
+    {
+        private readonly FeatureDefinition feature;
+        private readonly FeatureDefinitionPower power;
+
+        public RefundPowerUseWhenTargetWithConditionDies(FeatureDefinitionPower power, FeatureDefinition feature)
+        {
+            this.power = power;
+            this.feature = feature;
+        }
+
+        public void BeforeDyingWithCondition(RulesetActor rulesetActor, RulesetCondition rulesetCondition)
+        {
+            var character = EffectHelpers.GetCharacterByGuid(rulesetCondition.sourceGuid);
+
+
+            if (character == null)
+            {
+                return;
+            }
+
+            if (!character.HasAnyFeature(feature))
+            {
+                return;
+            }
+
+            if (character.GetRemainingPowerUses(power) >= character.GetMaxUsesForPool(power))
+            {
+                return;
+            }
+
+            GameConsoleHelper.LogCharacterUsedFeature(character, feature, indent: true);
+            character.UpdateUsageForPower(power, -1);
+        }
+
+        public void AfterConditionRemoved(RulesetActor removedFrom, RulesetCondition rulesetCondition)
+        {
         }
     }
 
