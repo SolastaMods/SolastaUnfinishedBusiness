@@ -21,12 +21,12 @@ namespace SolastaUnfinishedBusiness.Subclasses;
 
 internal sealed class MartialTactician : AbstractSubclass
 {
+    private const string MarkCondition = "ConditionTacticianDamagedByGambit";
     private static readonly LimitEffectInstances GambitLimiter = new("Gambit", _ => 1);
 
     private static readonly DamageDieProvider UpgradeDice = (character, _) => GetGambitDieSize(character);
 
     private static int _gambitPoolIncreases;
-    private const string MarkCondition = "ConditionTacticianDamagedByGambit";
 
     internal MartialTactician()
     {
@@ -40,7 +40,7 @@ internal sealed class MartialTactician : AbstractSubclass
         var learnInitial = BuildLearn(4);
         var unlearn = BuildUnlearn();
 
-        var stratecicPlan = FeatureDefinitionFeatureSetBuilder
+        var strategicPlan = FeatureDefinitionFeatureSetBuilder
             .Create("FeatureSefTacticianStrategicPlan")
             .SetGuiPresentation(Category.Feature)
             .SetMode(FeatureDefinitionFeatureSet.FeatureSetMode.Exclusion)
@@ -58,8 +58,8 @@ internal sealed class MartialTactician : AbstractSubclass
             .AddFeaturesAtLevel(3, BuildSharpMind(), GambitPool, learnInitial, EverVigilant)
             .AddFeaturesAtLevel(5, BuildGambitDieSize(DieType.D8), learn1Gambit)
             .AddFeaturesAtLevel(7, BuildGambitPoolIncrease(), learn1Gambit, unlearn, BuildSharedVigilance())
-            .AddFeaturesAtLevel(10, stratecicPlan, BuildGambitDieSize(DieType.D10))
-            .AddFeaturesAtLevel(15, stratecicPlan, BuildGambitPoolIncrease(), learn2Gambits, unlearn,
+            .AddFeaturesAtLevel(10, strategicPlan, BuildGambitDieSize(DieType.D10))
+            .AddFeaturesAtLevel(15, strategicPlan, BuildGambitPoolIncrease(), learn2Gambits, unlearn,
                 BuildGambitDieSize(DieType.D12))
             .AddToDB();
 
@@ -71,7 +71,7 @@ internal sealed class MartialTactician : AbstractSubclass
     internal override FeatureDefinitionSubclassChoice SubclassChoice =>
         FeatureDefinitionSubclassChoices.SubclassChoiceFighterMartialArchetypes;
 
-    internal static FeatureDefinitionPower GambitPool { get; set; }
+    internal static FeatureDefinitionPower GambitPool { get; private set; }
     private static FeatureDefinitionAdditionalDamage GambitDieDamage { get; set; }
     private static FeatureDefinitionAdditionalDamage GambitDieDamageOnce { get; set; }
     private static FeatureDefinition EverVigilant { get; set; }
@@ -195,7 +195,7 @@ internal sealed class MartialTactician : AbstractSubclass
             .SetCustomSubFeatures(
                 new RefundPowerUseWhenTargetWithConditionDies(GambitPool, feature),
                 RemoveConditionOnSourceTurnStart.Mark,
-                //by default this condition is applied under Effects tag, whuch is removed right at death - too early for us to detect
+                //by default this condition is applied under Effects tag, which is removed right at death - too early for us to detect
                 //this feature will add this effect under Combat tag, which is not removed
                 new ForceConditionCategory(AttributeDefinitions.TagCombat))
             .SetSpecialDuration(DurationType.Round, 1)
@@ -1352,7 +1352,7 @@ internal sealed class MartialTactician : AbstractSubclass
             var description = Gui.Format(Format, guiMe.Name, guiTarget.Name, delta.ToString(),
                 Gui.FormatDieTitle(dieType));
             var reactionParams =
-                new CharacterActionParams(me, (Id)ExtraActionId.DoNothingFree) {StringParameter = description};
+                new CharacterActionParams(me, (Id)ExtraActionId.DoNothingFree) { StringParameter = description };
 
             var previousReactionCount = manager.PendingReactionRequestGroups.Count;
             var reactionRequest = new ReactionRequestCustom("GambitPrecise", reactionParams)
@@ -1464,7 +1464,7 @@ internal sealed class MartialTactician : AbstractSubclass
 
             var description = Gui.Format(Format, guiMe.Name, guiTarget.Name, Gui.FormatDieTitle(dieType));
             var reactionParams =
-                new CharacterActionParams(me, (Id)ExtraActionId.DoNothingReaction) {StringParameter = description};
+                new CharacterActionParams(me, (Id)ExtraActionId.DoNothingReaction) { StringParameter = description };
 
             var previousReactionCount = manager.PendingReactionRequestGroups.Count;
             var reactionRequest = new ReactionRequestCustom("GambitParry", reactionParams)
