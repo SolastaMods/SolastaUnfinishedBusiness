@@ -24,7 +24,7 @@ internal static class SubclassesContext
 
         // Bard
         LoadSubclass(new CollegeOfGuts());
-        LoadSubclass(new CollegeOfHarlequin());
+        LoadSubclass(new CollegeOfHarlequin(), true);
         LoadSubclass(new CollegeOfLife());
 
         // Druid
@@ -36,7 +36,7 @@ internal static class SubclassesContext
         LoadSubclass(new MartialMarshal());
         LoadSubclass(new MartialRoyalKnight());
         LoadSubclass(new MartialSpellShield());
-        LoadSubclass(new MartialTactician());
+        LoadSubclass(new MartialTactician(), true);
 
         // Ranger
         LoadSubclass(new RangerArcanist());
@@ -81,13 +81,19 @@ internal static class SubclassesContext
         }
     }
 
-    private static void LoadSubclass([NotNull] AbstractSubclass subclassBuilder)
+    private static void LoadSubclass([NotNull] AbstractSubclass subclassBuilder, bool isBetaContent = false)
     {
         var subclass = subclassBuilder.Subclass;
 
+        SubclassesChoiceList.Add(subclass, subclassBuilder.SubclassChoice);
+
+        if (isBetaContent && !Main.Settings.EnableBetaContent)
+        {
+            return;
+        }
+
         if (!Subclasses.Contains(subclass))
         {
-            SubclassesChoiceList.Add(subclass, subclassBuilder.SubclassChoice);
             Subclasses.Add(subclass);
         }
 

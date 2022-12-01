@@ -14,7 +14,7 @@
     "emissiveParameter": 1,
     "requiresTargetProximity": false,
     "targetProximityDistance": 6,
-    "targetExcludeCaster": true,
+    "targetExcludeCaster": false,
     "canBePlacedOnCharacter": true,
     "affectOnlyGround": false,
     "targetFilteringMethod": "AllCharacterAndGadgets",
@@ -33,7 +33,7 @@
     "targetSide": "Ally",
     "durationType": "Round",
     "durationParameter": 1,
-    "endOfEffect": "StartOfTurn",
+    "endOfEffect": "EndOfTurn",
     "hasSavingThrow": false,
     "disableSavingThrowOnAllies": false,
     "savingThrowAbility": "Dexterity",
@@ -77,11 +77,11 @@
         "saveOccurence": "EndOfTurn",
         "conditionForm": {
           "$type": "ConditionForm, Assembly-CSharp",
-          "conditionDefinitionName": "ConditionPathOfTheSpiritsWolfLeadership",
-          "conditionDefinition": "Definition:ConditionPathOfTheSpiritsWolfLeadership:1ae78c51-be15-5d65-a05c-d2ef7f786a44",
+          "conditionDefinitionName": "ConditionPathOfTheSpiritsWolfLeadershipPack",
+          "conditionDefinition": "Definition:ConditionPathOfTheSpiritsWolfLeadershipPack:2f96be3e-93f0-5bab-9a3f-38b0d2522b17",
           "operation": "Add",
           "conditionsList": [
-            "Definition:ConditionPathOfTheSpiritsWolfLeadership:1ae78c51-be15-5d65-a05c-d2ef7f786a44"
+            "Definition:ConditionPathOfTheSpiritsWolfLeadershipPack:2f96be3e-93f0-5bab-9a3f-38b0d2522b17"
           ],
           "applyToSelf": false,
           "forceOnSelf": false
@@ -116,7 +116,7 @@
       "$type": "EffectParticleParameters, Assembly-CSharp",
       "casterParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "a4e2a49f9e9efdc4998f511c26659989",
+        "m_AssetGUID": "81560ac3813217d4d9fd281d5e73c234",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -128,7 +128,7 @@
       },
       "casterQuickSpellParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "a4e2a49f9e9efdc4998f511c26659989",
+        "m_AssetGUID": "",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -164,7 +164,7 @@
       },
       "impactParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "a60bb83d8b65ca84481f1b4f7d53f5c5",
+        "m_AssetGUID": "",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -325,9 +325,9 @@
   "includeBaseDescription": false,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
-    "hidden": false,
-    "title": "Feature/&PowerPathOfTheSpiritsWolfLeadershipTitle",
-    "description": "Feature/&PowerPathOfTheSpiritsWolfLeadershipDescription",
+    "hidden": true,
+    "title": "Feature/&NoContentTitle",
+    "description": "Feature/&NoContentTitle",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -347,7 +347,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "e47c29ae-454d-5117-9da9-2c107c6e7e6a",
+  "guid": "dfbff25f-e9fa-5b68-b182-3f4aee9c4a94",
   "contentPack": 9999,
-  "name": "PowerPathOfTheSpiritsWolfLeadership"
+  "name": "PowerPathOfTheSpiritsWolfLeadershipPack"
 }

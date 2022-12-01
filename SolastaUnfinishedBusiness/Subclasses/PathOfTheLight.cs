@@ -59,9 +59,8 @@ internal sealed class PathOfTheLight : AbstractSubclass
             .SetGuiPresentation(Category.Condition, ConditionBranded)
             .SetAllowMultipleInstances(true)
             .SetConditionType(ConditionType.Detrimental)
-            .SetDuration(DurationType.Irrelevant)
+            .SetSpecialDuration(DurationType.Irrelevant)
             .SetSilent(Silent.WhenAdded)
-            .SetSpecialDuration()
             .AddFeatures(
                 attackDisadvantageAgainstNonSourcePathOfTheLightIlluminated,
                 featureSetPathOfTheLightIlluminatedPreventInvisibility)
@@ -122,7 +121,6 @@ internal sealed class PathOfTheLight : AbstractSubclass
                                         ConditionDefinitionBuilder
                                             .Create("ConditionPathOfTheLightIlluminatingStrikeInitiator")
                                             .SetGuiPresentationNoContent(true)
-                                            .SetDuration(DurationType.Minute, 1)
                                             .SetTerminateWhenRemoved()
                                             .SetSilent(Silent.WhenAddedOrRemoved)
                                             .SetSpecialInterruptions(ConditionInterruption.RageStop)
@@ -171,7 +169,6 @@ internal sealed class PathOfTheLight : AbstractSubclass
                             ConditionDefinitionBuilder
                                 .Create("ConditionPathOfTheLightEyesOfTruth")
                                 .SetGuiPresentation(Category.Condition, ConditionSeeInvisibility)
-                                .SetDuration(DurationType.Permanent)
                                 .SetSilent(Silent.WhenAddedOrRemoved)
                                 .AddFeatures(FeatureDefinitionSenses.SenseSeeInvisible16)
                                 .AddToDB(),
@@ -189,7 +186,6 @@ internal sealed class PathOfTheLight : AbstractSubclass
             .Create("ConditionPathOfTheLightSuppressedIlluminatingBurst")
             .SetGuiPresentationNoContent(true)
             .SetConditionType(ConditionType.Neutral)
-            .SetDuration(DurationType.Permanent)
             .SetSilent(Silent.WhenAddedOrRemoved)
             .AddToDB();
 
@@ -240,7 +236,6 @@ internal sealed class PathOfTheLight : AbstractSubclass
                                 ConditionBranded)
                             .SetAllowMultipleInstances(true)
                             .SetConditionType(ConditionType.Detrimental)
-                            .SetDuration(DurationType.Minute, 1)
                             .SetParentCondition(conditionPathOfTheLightIlluminated)
                             .SetSilent(Silent.WhenAdded)
                             .SetCustomSubFeatures(new ConditionIlluminatedByBurst())

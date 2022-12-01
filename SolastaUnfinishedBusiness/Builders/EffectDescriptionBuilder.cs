@@ -24,7 +24,7 @@ internal class EffectDescriptionBuilder
         this.effect = new EffectDescription
         {
             effectAdvancement = new EffectAdvancement { incrementMultiplier = 1 },
-            effectParticleParameters = MagicWeapon.EffectDescription.EffectParticleParameters
+            effectParticleParameters = new EffectParticleParameters()
         };
         this.effect.Copy(effect);
     }

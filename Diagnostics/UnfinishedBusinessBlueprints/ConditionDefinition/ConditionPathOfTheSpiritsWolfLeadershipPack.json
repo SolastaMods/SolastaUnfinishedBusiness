@@ -6,19 +6,17 @@
   "features": [
     "Definition:CombatAffinityPathOfTheSpiritsWolfLeadership:197fda3f-cfd5-5b17-b921-59a922cad08c"
   ],
-  "allowMultipleInstances": false,
-  "silentWhenAdded": true,
-  "silentWhenRemoved": true,
-  "terminateWhenRemoved": true,
+  "allowMultipleInstances": true,
+  "silentWhenAdded": false,
+  "silentWhenRemoved": false,
+  "terminateWhenRemoved": false,
   "specialDuration": false,
   "durationType": "Hour",
   "durationParameterDie": "D4",
   "durationParameter": 1,
   "forceTurnOccurence": false,
   "turnOccurence": "EndOfTurn",
-  "specialInterruptions": [
-    "RageStop"
-  ],
+  "specialInterruptions": [],
   "interruptionRequiresSavingThrow": false,
   "interruptionSavingThrowComputationMethod": "SaveOverride",
   "interruptionSavingThrowAbility": "",
@@ -130,8 +128,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&PowerPathOfTheSpiritsWolfLeadershipTitle",
-    "description": "Feature/&PowerPathOfTheSpiritsWolfLeadershipDescription",
+    "title": "Feature/&FeatureSetPathOfTheSpiritsWolfLeadershipTitle",
+    "description": "Feature/&FeatureSetPathOfTheSpiritsWolfLeadershipDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -151,7 +149,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "1ae78c51-be15-5d65-a05c-d2ef7f786a44",
+  "guid": "2f96be3e-93f0-5bab-9a3f-38b0d2522b17",
   "contentPack": 9999,
-  "name": "ConditionPathOfTheSpiritsWolfLeadership"
+  "name": "ConditionPathOfTheSpiritsWolfLeadershipPack"
 }

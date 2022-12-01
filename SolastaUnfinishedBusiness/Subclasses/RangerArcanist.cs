@@ -20,10 +20,9 @@ internal sealed class RangerArcanist : AbstractSubclass
         var conditionMarkedByArcanist = ConditionDefinitionBuilder
             .Create(ConditionDefinitions.ConditionMarkedByBrandingSmite, "ConditionMarkedByArcanist")
             .SetOrUpdateGuiPresentation(Category.Condition)
-            .SetDuration(DurationType.Permanent)
+            .SetSpecialDuration(DurationType.Permanent)
             .SetTurnOccurence(TurnOccurenceType.EndOfTurn)
             .SetPossessive()
-            .SetSpecialDuration()
             .AddToDB();
 
         //

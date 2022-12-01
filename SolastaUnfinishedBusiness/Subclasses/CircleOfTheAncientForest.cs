@@ -266,7 +266,6 @@ internal sealed class CircleOfTheAncientForest : AbstractSubclass
 
         var conditionAncientForestHerbalBrew = ConditionDefinitionBuilder
             .Create($"ConditionAncientForestHerbalBrew{name}")
-            .SetDuration(DurationType.Hour, 1)
             .SetSilent(Silent.None)
             .SetGuiPresentation(guiPresentation)
             .AddFeatures(featureDefinitionDamageAffinity)

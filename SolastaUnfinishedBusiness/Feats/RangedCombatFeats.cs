@@ -36,7 +36,7 @@ internal static class RangedCombatFeats
         var conditionDeadeye = ConditionDefinitionBuilder
             .Create("ConditionDeadeye")
             .SetGuiPresentation(FEAT_NAME, Category.Feat)
-            .SetDuration(DurationType.Round, 1)
+            .SetSpecialDuration(DurationType.Round, 1)
             .SetSilent(Silent.WhenAddedOrRemoved)
             .SetFeatures(
                 FeatureDefinitionBuilder
@@ -55,7 +55,6 @@ internal static class RangedCombatFeats
             .Create("ConditionDeadeyeTrigger")
             .SetGuiPresentationNoContent(true)
             .SetSilent(Silent.WhenAddedOrRemoved)
-            .SetDuration(DurationType.Permanent)
             .SetFeatures(
                 FeatureDefinitionBuilder
                     .Create("TriggerFeatureDeadeye")
