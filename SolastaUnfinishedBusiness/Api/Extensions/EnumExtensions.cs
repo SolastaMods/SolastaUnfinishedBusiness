@@ -164,6 +164,7 @@ internal enum ExtraActionId
     FarStep = 9009,
     BondOfTheTalismanTeleport = 9010,
     DoNothingFree = 9011,
+    DoNothingReaction = 9012,
 }
 
 internal static class EnumImplementation

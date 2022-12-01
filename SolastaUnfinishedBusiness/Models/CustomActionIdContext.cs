@@ -159,6 +159,14 @@ public static class CustomActionIdContext
             .SetActionScope(ActionScope.All)
             .OverrideClassName("DoNothing")
             .AddToDB();
+        
+        ActionDefinitionBuilder
+            .Create(baseAction, "DoNothingReaction")
+            .SetActionId(ExtraActionId.DoNothingReaction)
+            .SetActionType(ActionType.Reaction)
+            .SetActionScope(ActionScope.All)
+            .OverrideClassName("DoNothing")
+            .AddToDB();
     }
 
     public static void ProcessCustomActionIds(
