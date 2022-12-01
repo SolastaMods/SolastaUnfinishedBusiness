@@ -54,7 +54,6 @@ internal sealed class MartialSpellShield : AbstractSubclass
                     AttributeDefinitions.ArmorClass,
                     3)
                 .AddToDB())
-            .SetDuration(DurationType.Round, 1)
             .AddToDB();
 
         var powerSpellShieldArcaneDeflection = FeatureDefinitionPowerBuilder
@@ -64,6 +63,7 @@ internal sealed class MartialSpellShield : AbstractSubclass
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
+                    .SetDurationData(DurationType.Round, 1)
                     .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
                     .SetEffectForms(EffectFormBuilder
                         .Create()
