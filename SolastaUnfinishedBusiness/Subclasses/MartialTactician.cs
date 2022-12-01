@@ -751,7 +751,7 @@ internal sealed class MartialTactician : AbstractSubclass
         BuildFeatureInvocation(name, sprite, feature);
 
         #endregion
-        
+
         #region Return Fire
 
         name = "GambitReturnFire";
@@ -801,6 +801,7 @@ internal sealed class MartialTactician : AbstractSubclass
         BuildFeatureInvocation(name, sprite, feature);
 
         #endregion
+
     }
 
     private static void BuildFeatureInvocation(
@@ -948,7 +949,7 @@ internal sealed class MartialTactician : AbstractSubclass
             {
                 yield break;
             }
-            
+
             retaliationMode.AddAttackTagAsNeeded(AttacksOfOpportunity.NotAoOTag);
 
             var reactionParams = new CharacterActionParams(me, Id.AttackFree);
