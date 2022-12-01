@@ -793,8 +793,10 @@ internal sealed class MartialTactician : AbstractSubclass
         feature = FeatureDefinitionBuilder
             .Create($"Feature{name}")
             .SetGuiPresentation(name, Category.Feature, sprite)
-            .SetCustomSubFeatures(new Precise(GambitPool))
             .AddToDB();
+
+        feature.SetCustomSubFeatures(new Precise(GambitPool, feature));
+
 
         BuildFeatureInvocation(name, sprite, feature);
 
@@ -891,8 +893,8 @@ internal sealed class MartialTactician : AbstractSubclass
     private class Retaliate : IReactToAttackOnMeFinished
     {
         private readonly ConditionDefinition condition;
-        private readonly FeatureDefinitionPower pool;
         private readonly bool melee;
+        private readonly FeatureDefinitionPower pool;
 
         public Retaliate(FeatureDefinitionPower pool, ConditionDefinition condition, bool melee)
         {
@@ -1100,12 +1102,15 @@ internal sealed class MartialTactician : AbstractSubclass
 
     private class Precise : IAlterAttackOutcome
     {
-        private readonly FeatureDefinitionPower pool;
         private const string Format = "Reaction/&CustomReactionGambitPreciseDescription";
+        private const string Line = "Feedback/&GambitPreciseToHitRoll";
+        private readonly FeatureDefinition feature;
+        private readonly FeatureDefinitionPower pool;
 
-        public Precise(FeatureDefinitionPower pool)
+        public Precise(FeatureDefinitionPower pool, FeatureDefinition feature)
         {
             this.pool = pool;
+            this.feature = feature;
         }
 
         public IEnumerator TryAlterAttackOutcome(GameLocationBattleManager battle, CharacterAction action,
@@ -1135,8 +1140,9 @@ internal sealed class MartialTactician : AbstractSubclass
 
             var guiMe = new GuiCharacter(me);
             var guiTarget = new GuiCharacter(target);
-            
-            var description = Gui.Format(Format, guiMe.Name, guiTarget.Name, delta.ToString(), dieType.ToString());
+
+            var description = Gui.Format(Format, guiMe.Name, guiTarget.Name, delta.ToString(),
+                Gui.FormatDieTitle(dieType));
             var reactionParams = new CharacterActionParams(me, Id.UseBardicInspiration) {StringParameter = description};
 
             var previousReactionCount = manager.PendingReactionRequestGroups.Count;
@@ -1154,7 +1160,7 @@ internal sealed class MartialTactician : AbstractSubclass
                 yield break;
             }
 
-            character.UsePower(UsablePowersProvider.Get(pool, character));
+            character.UpdateUsageForPower(pool, 1);
 
             var dieRoll = RollDie(dieType, AdvantageType.None, out _, out _);
 
@@ -1176,10 +1182,18 @@ internal sealed class MartialTactician : AbstractSubclass
             }
 
             character.ShowDieRoll(dieType, dieRoll,
-                title: "Reaction/&CustomReactionGambitPreciseTitle",
+                title: feature.GuiPresentation.Title,
                 outcome: success ? RollOutcome.Success : RollOutcome.Failure,
                 displayOutcome: true
             );
+
+
+            GameConsoleHelper.LogCharacterUsedFeature(character, feature, Line,
+                extra: new[]
+                {
+                    (ConsoleStyleDuplet.ParameterType.AbilityInfo, Gui.FormatDieTitle(dieType)),
+                    (ConsoleStyleDuplet.ParameterType.Positive, dieRoll.ToString())
+                });
         }
     }
 

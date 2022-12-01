@@ -61,6 +61,7 @@ Feature/&PowerUseModifierTacticianGambitPoolDescription=You gain additional Gamb
 Feature/&PowerUseModifierTacticianGambitPoolTitle=Additional Gambit Die
 Feedback/&AdditionalDamageGambitDieFormat=Gambit!
 Feedback/&AdditionalDamageGambitDieLine={0} rolls Gambit Die and deals +{2} extra damage!
+Feedback/&GambitPreciseToHitRoll={0} uses {1} to roll Gambit Die ({2}) and adds +{3} to attack roll!
 Reaction/&CustomReactionGambitPreciseDescription={0} have missed {1} by {2} and can spend Gambit Die to roll {3} and add result to attack roll.
 Reaction/&CustomReactionGambitPreciseReactDescription=Spend Gambit Die to add Gambit Die roll to attack roll.
 Reaction/&CustomReactionGambitPreciseReactTitle=Spend Die
