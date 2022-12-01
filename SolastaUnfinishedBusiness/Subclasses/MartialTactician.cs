@@ -1144,7 +1144,8 @@ internal sealed class MartialTactician : AbstractSubclass
 
             var description = Gui.Format(Format, guiMe.Name, guiTarget.Name, delta.ToString(),
                 Gui.FormatDieTitle(dieType));
-            var reactionParams = new CharacterActionParams(me, Id.UseBardicInspiration) {StringParameter = description};
+            var reactionParams =
+                new CharacterActionParams(me, (Id)ExtraActionId.DoNothingFree) {StringParameter = description};
 
             var previousReactionCount = manager.PendingReactionRequestGroups.Count;
             var reactionRequest = new ReactionRequestCustom("GambitPrecise", reactionParams)
