@@ -39,6 +39,16 @@ internal sealed class MartialTactician : AbstractSubclass
         var learnInitial = BuildLearn(4);
         var unlearn = BuildUnlearn();
 
+        var stratecicPlan = FeatureDefinitionFeatureSetBuilder
+            .Create("FeatureSefTacticianStrategicPlan")
+            .SetGuiPresentation(Category.Feature)
+            .SetMode(FeatureDefinitionFeatureSet.FeatureSetMode.Exclusion)
+            .AddFeatureSetNoSort(
+                BuildTacticalSurge(),
+                BuildAdaptiveStrategy()
+            )
+            .AddToDB();
+
         EverVigilant = BuildEverVigilant();
         Subclass = CharacterSubclassDefinitionBuilder
             .Create("MartialTactician")
@@ -46,8 +56,9 @@ internal sealed class MartialTactician : AbstractSubclass
             .AddFeaturesAtLevel(3, BuildSharpMind(), GambitPool, learnInitial, EverVigilant)
             .AddFeaturesAtLevel(5, BuildGambitDieSize(DieType.D8), learn1Gambit)
             .AddFeaturesAtLevel(7, BuildGambitPoolIncrease(), learn1Gambit, unlearn, BuildSharedVigilance())
-            .AddFeaturesAtLevel(10, BuildAdaptiveStrategy(), BuildTacticalSurge(), BuildGambitDieSize(DieType.D10))
-            .AddFeaturesAtLevel(15, BuildGambitPoolIncrease(), learn2Gambits, unlearn, BuildGambitDieSize(DieType.D12))
+            .AddFeaturesAtLevel(10, stratecicPlan, BuildGambitDieSize(DieType.D10))
+            .AddFeaturesAtLevel(15, stratecicPlan, BuildGambitPoolIncrease(), learn2Gambits, unlearn,
+                BuildGambitDieSize(DieType.D12))
             .AddToDB();
 
         BuildGambits();
@@ -1222,7 +1233,7 @@ internal sealed class MartialTactician : AbstractSubclass
             var description = Gui.Format(Format, guiMe.Name, guiTarget.Name, delta.ToString(),
                 Gui.FormatDieTitle(dieType));
             var reactionParams =
-                new CharacterActionParams(me, (Id)ExtraActionId.DoNothingFree) { StringParameter = description };
+                new CharacterActionParams(me, (Id)ExtraActionId.DoNothingFree) {StringParameter = description};
 
             var previousReactionCount = manager.PendingReactionRequestGroups.Count;
             var reactionRequest = new ReactionRequestCustom("GambitPrecise", reactionParams)
@@ -1334,7 +1345,7 @@ internal sealed class MartialTactician : AbstractSubclass
 
             var description = Gui.Format(Format, guiMe.Name, guiTarget.Name, Gui.FormatDieTitle(dieType));
             var reactionParams =
-                new CharacterActionParams(me, (Id)ExtraActionId.DoNothingReaction) { StringParameter = description };
+                new CharacterActionParams(me, (Id)ExtraActionId.DoNothingReaction) {StringParameter = description};
 
             var previousReactionCount = manager.PendingReactionRequestGroups.Count;
             var reactionRequest = new ReactionRequestCustom("GambitParry", reactionParams)
