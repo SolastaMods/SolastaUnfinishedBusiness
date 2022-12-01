@@ -16,6 +16,6 @@ Feature/&ProficiencyCollegeOfHarlequinMartialWeaponDescription=Proficient with a
 Feature/&ProficiencyCollegeOfHarlequinMartialWeaponTitle=Martial Art Training
 Feature/&ProficiencyCollegeOfHarlequinFightingStyleDescription=Deadly dual weapon wielder and shooter.
 Feature/&ProficiencyCollegeOfHarlequinFightingStyleTitle=Fighting Style Training 
-Feedback/&BardicInspirationUsedToBoostCombatAbility={0} spends a {1} inspiration die to increase attack bonus, attack damage, AC and movement speed by {2}
+Feedback/&BardicInspirationUsedToBoostCombatAbility={0} spends a {2} Bardic Inspiration die to increase attack bonus, attack damage, AC and movement speed by {3}
 Subclass/&CollegeOfHarlequinDescription=College of Harlequins bards see no distinction between art and war. They see it is their duty to keep the legend of the great battle of the Cataclysm alive through their terrific performance, either on stage or on the battle field.
 Subclass/&CollegeOfHarlequinTitle=College of Harlequin

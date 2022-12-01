@@ -2,7 +2,7 @@
 
 namespace SolastaUnfinishedBusiness.CustomUI;
 
-internal class ReactionRequestReactionAttack : ReactionRequest
+internal class ReactionRequestReactionAttack : ReactionRequest, IReactionRequestWithResource
 {
     private readonly GuiCharacter target;
     private readonly string type;
@@ -14,8 +14,6 @@ internal class ReactionRequestReactionAttack : ReactionRequest
         target = new GuiCharacter(reactionParams.TargetCharacters[0]);
     }
 
-    public ICustomReactionResource Resource { get; set; }
-
     public override bool IsStillValid
     {
         get
@@ -26,6 +24,8 @@ internal class ReactionRequestReactionAttack : ReactionRequest
                 .Contains(targetCharacter) && !targetCharacter.RulesetCharacter.IsDeadOrDyingOrUnconscious;
         }
     }
+
+    public ICustomReactionResource Resource { get; set; }
 
     internal static string Name(string type)
     {

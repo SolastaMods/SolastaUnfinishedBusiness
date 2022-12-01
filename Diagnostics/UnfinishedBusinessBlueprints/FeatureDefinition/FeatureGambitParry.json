@@ -1,13 +1,13 @@
 {
-  "$type": "SolastaUnfinishedBusiness.CustomDefinitions.FeatureDefinitionCustomInvocationPool, SolastaUnfinishedBusiness",
+  "$type": "FeatureDefinition, Assembly-CSharp",
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&InvocationPoolGambitLearn3Title",
-    "description": "Feature/&InvocationPoolGambitLearn3Description",
+    "title": "Feature/&GambitParryTitle",
+    "description": "Feature/&GambitParryDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "",
+      "m_AssetGUID": "3c393f45-7080-584f-a036-482930f84a74",
       "m_SubObjectName": null,
       "m_SubObjectType": null
     },
@@ -24,7 +24,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "016a9085-9826-5765-a020-75d99911988a",
+  "guid": "a7b0af78-bde3-5abd-a988-ad3226730cbb",
   "contentPack": 9999,
-  "name": "InvocationPoolGambitLearn3"
+  "name": "FeatureGambitParry"
 }

@@ -82,6 +82,7 @@ internal enum ExtraOriginOfAmount
     SourceClassLevel = 9002, //Class name should be in the `additionalDamageType` field of the condition
     SourceAbilityBonus = 9003, //Attribute name should be in the `additionalDamageType` field of the condition
     SourceProficiencyBonusNegative = 9004,
+
     SourceCopyAttributeFromSummoner =
         9005, //Attribute name should be in the `additionalDamageType` field of the condition
     SourceProficiencyAndAbilityBonus = 9006
@@ -162,7 +163,9 @@ internal enum ExtraActionId
     TacticianGambitNoCost = 9007,
     PushedCustom = 9008,
     FarStep = 9009,
-    BondOfTheTalismanTeleport = 9010
+    BondOfTheTalismanTeleport = 9010,
+    DoNothingFree = 9011,
+    DoNothingReaction = 9012,
 }
 
 internal static class EnumImplementation

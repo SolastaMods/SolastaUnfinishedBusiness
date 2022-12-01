@@ -19,6 +19,7 @@ public static class CustomActionIdContext
         BuildCustomInvocationActions();
         BuildCustomPushedAction();
         BuildFarStepAction();
+        BuildDoNothingActions();
     }
 
     private static void BuildCustomInvocationActions()
@@ -141,6 +142,30 @@ public static class CustomActionIdContext
             .SetActionType(ActionType.Bonus)
             .SetFormType(ActionFormType.Small)
             .SetActivatedPower(FarStep)
+            .AddToDB();
+    }
+
+    private static void BuildDoNothingActions()
+    {
+        if (!DatabaseHelper.TryGetDefinition<ActionDefinition>("UseBardicInspiration", out var baseAction))
+        {
+            return;
+        }
+
+        ActionDefinitionBuilder
+            .Create(baseAction, "DoNothingFree")
+            .SetActionId(ExtraActionId.DoNothingFree)
+            .SetActionType(ActionType.NoCost)
+            .SetActionScope(ActionScope.All)
+            .OverrideClassName("DoNothing")
+            .AddToDB();
+
+        ActionDefinitionBuilder
+            .Create(baseAction, "DoNothingReaction")
+            .SetActionId(ExtraActionId.DoNothingReaction)
+            .SetActionType(ActionType.Reaction)
+            .SetActionScope(ActionScope.All)
+            .OverrideClassName("DoNothing")
             .AddToDB();
     }
 

@@ -63,7 +63,7 @@ internal static class ValidatorsWeapon
 
         return !HasAnyWeaponTag(weapon, TagsDefinitions.WeaponTagTwoHanded);
     }
-    
+
     internal static bool IsOneHanded(RulesetItem weapon)
     {
         return !HasAnyWeaponTag(weapon, TagsDefinitions.WeaponTagTwoHanded);

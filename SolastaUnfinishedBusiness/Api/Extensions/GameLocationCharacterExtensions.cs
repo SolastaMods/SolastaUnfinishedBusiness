@@ -35,7 +35,7 @@ public static class GameLocationCharacterExtensions
 
         return (null, null);
     }
-    
+
     internal static (RulesetAttackMode mode, ActionModifier modifier) GetFirstRangedModeThatCanAttack(
         this GameLocationCharacter instance,
         GameLocationCharacter target,
