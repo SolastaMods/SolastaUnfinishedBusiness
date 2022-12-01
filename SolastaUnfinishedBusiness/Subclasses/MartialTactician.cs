@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections;
+using System.Collections.Generic;
 using SolastaUnfinishedBusiness.Api.Extensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Builders;
@@ -802,6 +803,24 @@ internal sealed class MartialTactician : AbstractSubclass
 
         #endregion
 
+        #region Parry
+
+        name = "GambitParry";
+        //TODO: add proper icon
+        sprite = Sprites.ActionGambit;
+
+        feature = FeatureDefinitionBuilder
+            .Create($"Feature{name}")
+            .SetGuiPresentation(name, Category.Feature, sprite)
+            .AddToDB();
+
+        feature.SetCustomSubFeatures(new Parry(GambitPool, feature));
+
+
+        BuildFeatureInvocation(name, sprite, feature);
+
+        #endregion
+
     }
 
     private static void BuildFeatureInvocation(
@@ -1195,6 +1214,106 @@ internal sealed class MartialTactician : AbstractSubclass
                 {
                     (ConsoleStyleDuplet.ParameterType.AbilityInfo, Gui.FormatDieTitle(dieType)),
                     (ConsoleStyleDuplet.ParameterType.Positive, dieRoll.ToString())
+                });
+        }
+    }
+
+    private class Parry : IDefenderBeforeAttackHitConfirmed
+    {
+        private const string Format = "Reaction/&CustomReactionGambitParryDescription";
+        private const string Line = "Feedback/&GambitParryDamageReduction";
+        private readonly FeatureDefinition feature;
+        private readonly FeatureDefinitionPower pool;
+
+        public Parry(FeatureDefinitionPower pool, FeatureDefinition feature)
+        {
+            this.pool = pool;
+            this.feature = feature;
+        }
+
+        public IEnumerator DefenderBeforeAttackHitConfirmed(
+            GameLocationBattleManager battle,
+            GameLocationCharacter attacker,
+            GameLocationCharacter me,
+            ActionModifier attackModifier,
+            RulesetAttackMode attackMode,
+            bool rangedAttack,
+            AdvantageType advantageType,
+            List<EffectForm> actualEffectForms,
+            RulesetEffect rulesetEffect,
+            bool criticalHit,
+            bool firstTarget)
+        {
+            var manager = ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
+
+            if (manager == null)
+            {
+                yield break;
+            }
+
+            if (me.GetActionTypeStatus(ActionType.Reaction) != ActionStatus.Available)
+            {
+                yield break;
+            }
+
+            var character = me.RulesetCharacter;
+
+
+            if (character.GetRemainingPowerCharges(pool) <= 0)
+            {
+                yield break;
+            }
+
+            var dieType = GetGambitDieSize(character);
+
+            var guiMe = new GuiCharacter(me);
+            var guiTarget = new GuiCharacter(attacker);
+
+            var description = Gui.Format(Format, guiMe.Name, guiTarget.Name, Gui.FormatDieTitle(dieType));
+            var reactionParams =
+                new CharacterActionParams(me, (Id)ExtraActionId.DoNothingReaction) {StringParameter = description};
+
+            var previousReactionCount = manager.PendingReactionRequestGroups.Count;
+            var reactionRequest = new ReactionRequestCustom("GambitParry", reactionParams)
+            {
+                Resource = new ReactionResourcePowerPool(pool, Sprites.GambitResourceIcon)
+            };
+
+            manager.AddInterruptRequest(reactionRequest);
+
+            yield return battle.WaitForReactions(me, manager, previousReactionCount);
+
+            if (!reactionParams.ReactionValidated)
+            {
+                yield break;
+            }
+
+            character.UpdateUsageForPower(pool, 1);
+
+            var dieRoll = RollDie(dieType, AdvantageType.None, out _, out _);
+
+            var hitTrends = attackModifier.AttacktoHitTrends;
+            if (hitTrends != null)
+            {
+                hitTrends.Add(new TrendInfo(dieRoll, FeatureSourceType.Power, pool.Name, null)
+                {
+                    dieType = dieType, dieFlag = TrendInfoDieFlag.None
+                });
+            }
+
+            var pb = 2 * character.TryGetAttributeValue(AttributeDefinitions.ProficiencyBonus);
+            var reduction = dieRoll + pb;
+            attackModifier.damageRollReduction += reduction;
+
+            character.ShowDieRoll(dieType, dieRoll,
+                title: feature.GuiPresentation.Title,
+                displayModifier: true, modifier: pb);
+
+            GameConsoleHelper.LogCharacterUsedFeature(character, feature, Line,
+                extra: new[]
+                {
+                    (ConsoleStyleDuplet.ParameterType.AbilityInfo, Gui.FormatDieTitle(dieType)),
+                    (ConsoleStyleDuplet.ParameterType.Positive, reduction.ToString())
                 });
         }
     }
