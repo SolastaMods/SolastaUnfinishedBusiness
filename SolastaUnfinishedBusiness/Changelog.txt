@@ -7,4 +7,4 @@
 - changed Wolf Leadership to work within engine limitations
 - made Brace and Counter Attack gambits not use reactions
 - marked Counter Attack and Return Fire gambits non-AoO
-- tagged College of Harlequin beta per author request
+- tagged College of Harlequin and Martial Tactician beta
