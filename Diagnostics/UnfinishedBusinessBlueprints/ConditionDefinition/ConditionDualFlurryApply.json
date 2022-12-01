@@ -8,7 +8,7 @@
   "silentWhenAdded": true,
   "silentWhenRemoved": true,
   "terminateWhenRemoved": false,
-  "specialDuration": false,
+  "specialDuration": true,
   "durationType": "Round",
   "durationParameterDie": "D4",
   "durationParameter": 0,

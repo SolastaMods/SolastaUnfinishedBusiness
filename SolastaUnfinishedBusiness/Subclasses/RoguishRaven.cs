@@ -88,7 +88,6 @@ internal sealed class RoguishRaven : AbstractSubclass
             .Create("ConditionRavenHeartSeekingShotTrigger")
             .SetGuiPresentationNoContent(true)
             .SetSilent(Silent.WhenAddedOrRemoved)
-            .SetDuration(DurationType.Permanent)
             .SetFeatures(
                 FeatureDefinitionBuilder
                     .Create("TriggerFeatureRavenHeartSeekingShot")

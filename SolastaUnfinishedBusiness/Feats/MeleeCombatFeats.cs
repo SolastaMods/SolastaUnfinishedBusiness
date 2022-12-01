@@ -45,7 +45,6 @@ internal static class MeleeCombatFeats
             .Create("ConditionPowerAttackTrigger")
             .SetGuiPresentationNoContent(true)
             .SetSilent(Silent.WhenAddedOrRemoved)
-            .SetDuration(DurationType.Permanent)
             .SetFeatures(FeatureDefinitionBuilder
                 .Create("TriggerFeaturePowerAttack")
                 .SetGuiPresentationNoContent(true)
@@ -63,7 +62,7 @@ internal static class MeleeCombatFeats
                     .SetGuiPresentation("FeatPowerAttack", Category.Feat)
                     .SetCustomSubFeatures(new ModifyPowerAttackPower())
                     .AddToDB())
-            .SetDuration(DurationType.Round, 1)
+            .SetSpecialDuration(DurationType.Round, 1)
             .AddToDB();
 
         var powerAttack = FeatureDefinitionPowerBuilder

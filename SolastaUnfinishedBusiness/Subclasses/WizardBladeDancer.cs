@@ -37,7 +37,6 @@ internal sealed class WizardBladeDancer : AbstractSubclass
         ConditionBladeDancerBladeDance = ConditionDefinitionBuilder
             .Create("ConditionBladeDancerBladeDance")
             .SetGuiPresentation(Category.Condition, ConditionHeroism)
-            .SetDuration(DurationType.Minute, 1)
             .SetFeatures(
                 FeatureDefinitionMovementAffinitys.MovementAffinityBarbarianFastMovement,
                 FeatureDefinitionAttributeModifierBuilder
