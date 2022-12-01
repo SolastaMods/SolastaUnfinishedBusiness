@@ -1,11 +1,14 @@
-﻿CHANGES:
+﻿ATTENTION:
 
-1.4.30.4:
+- beta content can be enabled under GAMEPLAY > TOOLS
+- remember to delete all your old CE2 saves and heroes
 
-- added new Debilitate, Parry and Precise gambits to Tactician
-- changed Tactician to learn 4 gambits at 3
-- changed Parry gambit to only work with melee attacks
-- changed Threaten gambit to last until end of turn
-- fixed Fey Teleportation feat to correctly recharge on short rest
-- improved College of Harlequin to show dice rolls on combat inspiration
-- tweaked Gambit titles a bit
+CHANGES:
+
+1.4.30.5:
+
+- added Strategy: Overcome gambit
+- changed Blind, Feint, Threaten and Urgent Orders to require level 7
+- changed Switch gambit to target DEX save
+- changed gambit learning progression to 4 at 3, 1 at 5, 1 at 7, 2 at 15
+- changed Strategy Plan to be an exclusive choice between Tactical, Adaptive and Overcoming
