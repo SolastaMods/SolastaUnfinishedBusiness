@@ -96,7 +96,7 @@ internal static class CasterFeats
             FeatDefinitionBuilder
                 .Create("FeatFeyTeleportationInt")
                 .SetFeatures(autoPreparedSpells, AttributeModifierCreed_Of_Pakri, learnTirmarian)
-                .AddFeatures(MakeSpellFeatureAndInvocations(spells, FEY_TELEPORT, AttributeDefinitions.Intelligence))
+                .AddFeatures(MakeSpellFeatureAndInvocations(spells, FEY_TELEPORT, AttributeDefinitions.Intelligence, longRest: false))
                 .SetGuiPresentation(Category.Feat)
                 .SetFeatFamily(FEY_TELEPORT)
                 .AddToDB(),
@@ -104,7 +104,7 @@ internal static class CasterFeats
             FeatDefinitionBuilder
                 .Create("FeatFeyTeleportationCha")
                 .SetFeatures(autoPreparedSpells, AttributeModifierCreed_Of_Solasta, learnTirmarian)
-                .AddFeatures(MakeSpellFeatureAndInvocations(spells, FEY_TELEPORT, AttributeDefinitions.Charisma))
+                .AddFeatures(MakeSpellFeatureAndInvocations(spells, FEY_TELEPORT, AttributeDefinitions.Charisma, longRest: false))
                 .SetGuiPresentation(Category.Feat)
                 .SetFeatFamily(FEY_TELEPORT)
                 .AddToDB(),
@@ -112,7 +112,7 @@ internal static class CasterFeats
             FeatDefinitionBuilder
                 .Create("FeatFeyTeleportationWis")
                 .SetFeatures(autoPreparedSpells, AttributeModifierCreed_Of_Maraike, learnTirmarian)
-                .AddFeatures(MakeSpellFeatureAndInvocations(spells, FEY_TELEPORT, AttributeDefinitions.Wisdom))
+                .AddFeatures(MakeSpellFeatureAndInvocations(spells, FEY_TELEPORT, AttributeDefinitions.Wisdom, longRest: false))
                 .SetGuiPresentation(Category.Feat)
                 .SetFeatFamily(FEY_TELEPORT)
                 .AddToDB()
@@ -271,7 +271,7 @@ internal static class CasterFeats
     private static FeatureDefinition[] MakeSpellFeatureAndInvocations(
         FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup spellGroup,
         string name,
-        string castingAttribute)
+        string castingAttribute, bool longRest = true)
     {
         var featureName = $"CastSpell{name}{castingAttribute}";
         var spellFeature = FeatureDefinitionCastSpellBuilder
@@ -296,7 +296,7 @@ internal static class CasterFeats
                 .SetGuiPresentation(spell.GuiPresentation) //TODO: auto-generate based on spell
                 .SetCustomSubFeatures(ValidateRepertoireForAutoprepared.HasSpellCastingFeature(featureName))
                 .SetPoolType(InvocationPoolTypeCustom.Pools.PlaneMagic)
-                .SetGrantedSpell(spell, longRestRecharge: true)
+                .SetGrantedSpell(spell, longRestRecharge: longRest)
                 .AddToDB());
         }
 

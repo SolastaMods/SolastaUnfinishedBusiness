@@ -2,7 +2,7 @@
 
 namespace SolastaUnfinishedBusiness.CustomUI;
 
-internal class ReactionRequestReactionAttack : ReactionRequest
+internal class ReactionRequestReactionAttack : ReactionRequest, IReactionRequestWithResource
 {
     private readonly GuiCharacter target;
     private readonly string type;
