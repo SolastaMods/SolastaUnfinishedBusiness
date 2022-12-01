@@ -500,6 +500,63 @@ internal sealed class MartialTactician : AbstractSubclass
 
         #endregion
 
+        #region Debilitate
+
+        name = "GambitDebilitate";
+        //TODO: add proper icon
+        sprite = Sprites.ActionGambit;
+
+        reaction = new AddUsablePowerFromCondition(FeatureDefinitionPowerBuilder
+            .Create($"Power{name}React")
+            .SetGuiPresentation(name, Category.Feature, sprite)
+            .SetCustomSubFeatures(PowerVisibilityModifier.Hidden)
+            .SetUsesFixed(ActivationTime.OnAttackHitAuto)
+            .SetEffectDescription(EffectDescriptionBuilder.Create()
+                .SetTargetingData(Side.Enemy, RangeType.MeleeHit, 1, TargetType.Individuals)
+                .SetDurationData(DurationType.Round, 1)
+                .SetHasSavingThrow(AttributeDefinitions.Constitution,
+                    EffectDifficultyClassComputation.AbilityScoreAndProficiency,
+                    AttributeDefinitions.Intelligence)
+                .SetEffectForms(EffectFormBuilder.Create()
+                    .SetConditionForm(ConditionDefinitionBuilder
+                        .Create($"Condition{name}")
+                        .SetGuiPresentation(Category.Condition,
+                            ConditionDefinitions.ConditionPatronHiveWeakeningPheromones)
+                        .SetFeatures(FeatureDefinitionSavingThrowAffinitys.SavingThrowAffinityPatronHiveWeakeningPheromones)
+                        .AddToDB(), ConditionForm.ConditionOperation.Add)
+                    .HasSavingThrow(EffectSavingThrowType.Negates)
+                    .Build())
+                .Build())
+            .AddToDB());
+
+        power = FeatureDefinitionPowerBuilder
+            .Create($"Power{name}Activate")
+            .SetGuiPresentation(name, Category.Feature, sprite)
+            .SetShowCasting(false)
+            .SetCustomSubFeatures(PowerFromInvocation.Marker, GambitLimiter, hasGambitDice)
+            .SetUniqueInstance()
+            .SetUsesFixed(ActivationTime.NoCost)
+            .SetEffectDescription(EffectDescriptionBuilder.Create()
+                .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
+                .SetDurationData(DurationType.Round, 1, TurnOccurenceType.StartOfTurn)
+                .SetEffectForms(EffectFormBuilder.Create()
+                    .SetConditionForm(ConditionDefinitionBuilder
+                        .Create($"Condition{name}Trigger")
+                        .SetGuiPresentation(name, Category.Feature, Sprites.ConditionGambit)
+                        .SetCustomSubFeatures(reaction, spendDieOnMeleeHit)
+                        .SetSilent(Silent.None)
+                        .SetPossessive()
+                        .SetSpecialInterruptions(ConditionInterruption.Attacks)
+                        .SetFeatures(GambitDieDamage)
+                        .AddToDB(), ConditionForm.ConditionOperation.Add)
+                    .Build())
+                .Build())
+            .AddToDB();
+
+        BuildFeatureInvocation(name, sprite, power);
+
+        #endregion
+
         #region Goading
 
         name = "GambitGoading";
