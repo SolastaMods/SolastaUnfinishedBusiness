@@ -770,7 +770,7 @@ internal sealed class MartialTactician : AbstractSubclass
                 .SetTargetFiltering(TargetFilteringMethod.CharacterOnly)
                 .SetTargetingData(Side.All, RangeType.Touch, 1, TargetType.Individuals)
                 .ExcludeCaster()
-                .SetHasSavingThrow(AttributeDefinitions.Wisdom,
+                .SetHasSavingThrow(AttributeDefinitions.Dexterity,
                     EffectDifficultyClassComputation.AbilityScoreAndProficiency,
                     AttributeDefinitions.Intelligence,
                     disableSavingThrowOnAllies: true)
