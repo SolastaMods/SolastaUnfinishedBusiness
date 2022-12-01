@@ -281,9 +281,12 @@ internal static class RulesetCharacterExtensions
         int roll1,
         int roll2 = 0,
         string title = "",
+        bool displayOutcome = false,
         RuleDefinitions.RollOutcome outcome = RuleDefinitions.RollOutcome.Neutral,
-        RuleDefinitions.AdvantageType advantage = RuleDefinitions.AdvantageType.None,
-        bool displayOutcome = false)
+        bool displayModifier = false,
+        int modifier = 0,
+        RuleDefinitions.AdvantageType advantage = RuleDefinitions.AdvantageType.None
+    )
     {
         if (Gui.GameLocation.FiniteStateMachine.CurrentState is (LocationState_NarrativeSequence or LocationState_Map))
         {
@@ -323,12 +326,12 @@ internal static class RulesetCharacterExtensions
             roll,
             advantage,
             roll1,
-            0,
+            modifier,
             roll2,
             outcome,
             displayOutcome: displayOutcome,
             side: character.Side,
-            displayModifier: false) {rollImmediatly = false};
+            displayModifier: displayModifier) {rollImmediatly = false};
 
         label.dieRollModule.RollDie(info);
     }
