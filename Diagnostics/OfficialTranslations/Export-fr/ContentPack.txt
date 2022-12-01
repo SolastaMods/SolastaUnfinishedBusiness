@@ -1,0 +1,16 @@
+ContentPack/&BackerItemsTitle	Pack d'objets du contributeur
+ContentPack/&BackerItemsDescription	Déverrouille les objets suivants : Anneau unique, pain nain, bottes de six lieues, cuillère de la discorde, et lève-tôt. Ces récompenses se trouvent dans un coffre, à proximité du monument attenant au Conseil.
+ContentPack/&DigitalBackerContentTitle	Pack Édition digitale
+ContentPack/&DigitalBackerContentDescription	Déverrouille la torche éternelle, et des effets spéciaux incroyables pour « mains brûlantes » et « flamme sacrée ». Ces récompenses se trouvent dans un coffre, à proximité du monument attenant au Conseil.
+ContentPack/&LoadedDiceTitle	Pack Dés pipés
+ContentPack/&LoadedDiceDescription	Déverrouille les dés pipés. Cette récompense se trouve dans un coffre, à proximité du monument attenant au Conseil.
+ContentPack/&SorcererUpdateTitle	Mise à jour Ensorceleur
+ContentPack/&SorcererUpdateDescription	Déverrouille la classe ensorceleur et ses 3 sous-classes, le mode Iron Man, et des nouveautés dans le Créateur de donjon.
+ContentPack/&SupporterPackTitle	Pack de contributeur
+ContentPack/&SupporterPackDescription	Déverrouille des dés exclusifs, de nombreux concept arts en haute résolution et, bien évidemment, la reconnaissance éternelle de l'équipe Tactical Adventures.
+ContentPack/&PrimalCallingTitle	Primal Calling
+ContentPack/&PrimalCallingDescription	Déverrouillez les classes de personnage barbare et druide, l'ascendance demi-orque et l'historique de vagabond pour toutes les aventures dans Solasta.
+ContentPack/&LostValleyTitle	La Vallée perdue
+ContentPack/&LostValleyDescription	Une nouvelle aventure dans le monde de Solasta.
+ContentPack/&InnerStrengthTitle	Inner Strength
+ContentPack/&InnerStrengthDescription	De nouveaux aventuriers rejoignent la partie : voici les classes occultiste, barde et moine, ainsi que l'ascendance drakéide.

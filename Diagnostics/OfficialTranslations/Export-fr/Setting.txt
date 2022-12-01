@@ -1,0 +1,446 @@
+Setting/&ApplyDescription	Appliquez les changements sélectionnés.
+Setting/&ApplyNoChangeDescription	Les paramètres n'ont pas été modifiés.
+Setting/&ApplyTitle	Appliquer
+Setting/&AutosaveCountDescription	Le nombre de sauvegardes automatiques conservées.
+Setting/&AutosaveCountTitle	Nombre de sauvegardes automatiques
+Setting/&CameraModeDescription	Sélectionne le mode de caméra d'exploration.
+Setting/&CameraModeElasticDescription	La caméra d'exploration peut s'éloigner de votre groupe, mais reviendra automatiquement en mode Suivi après quelques secondes.
+Setting/&CameraModeElasticTitle	Retour automatique
+Setting/&CameraModeFollowDescription	La caméra d'exploration est verrouillée sur votre groupe.
+Setting/&CameraModeFollowTitle	Suivi
+Setting/&CameraModeFreeDescription	Vous pouvez déplacer la caméra d'exploration comme vous l'entendez, en dehors du brouillard.
+Setting/&CameraModeFreeTitle	Libre
+Setting/&CameraModeTitle	Type de caméra
+Setting/&ConfineCursorToWindowDescription	Si cette option est activée, le curseur ne peut pas quitter la fenêtre de jeu, à moins qu'un autre écran ne soit sélectionné.
+Setting/&ConfineCursorToWindowTitle	Verrouillage du curseur dans la fenêtre de jeu
+Setting/&ContextualCameraFrequencyLevelDescription	Paramétrez la fréquence à laquelle la caméra se rapproche pour se focaliser sur des actions importantes.
+Setting/&ContextualCameraFrequencyLevelTitle	Fréquence de la caméra contextuelle
+Setting/&DamageAcidStyleDescription	Style de dé utilisé pour infliger ce type de dégâts.
+Setting/&DamageAcidStyleTitle	Style : dégâts acides
+Setting/&DamageBludgeoningStyleDescription	Style de dé utilisé pour infliger ce type de dégâts.
+Setting/&DamageBludgeoningStyleTitle	Style : dégâts contondants
+Setting/&DamageColdStyleDescription	Style de dé utilisé pour infliger ce type de dégâts.
+Setting/&DamageColdStyleTitle	Style : dégâts de froid
+Setting/&DamageFireStyleDescription	Style de dé utilisé pour infliger ce type de dégâts.
+Setting/&DamageFireStyleTitle	Style : dégâts de feu
+Setting/&DamageForceStyleDescription	Style de dé utilisé pour infliger ce type de dégâts.
+Setting/&DamageForceStyleTitle	Style : dégâts de force
+Setting/&DamageLightningStyleDescription	Style de dé utilisé pour infliger ce type de dégâts.
+Setting/&DamageLightningStyleTitle	Style : dégâts de foudre
+Setting/&DamageNecroticStyleDescription	Style de dé utilisé pour infliger ce type de dégâts.
+Setting/&DamageNecroticStyleTitle	Style : dégâts nécrotiques
+Setting/&DamagePiercingStyleDescription	Style de dé utilisé pour infliger ce type de dégâts.
+Setting/&DamagePiercingStyleTitle	Style : dégâts perforants
+Setting/&DamagePoisonStyleDescription	Style de dé utilisé pour infliger ce type de dégâts.
+Setting/&DamagePoisonStyleTitle	Style : dégâts de poison
+Setting/&DamagePsychicStyleDescription	Style de dé utilisé pour infliger ce type de dégâts.
+Setting/&DamagePsychicStyleTitle	Style : dégâts psychiques
+Setting/&DamageRadiantStyleDescription	Style de dé utilisé pour infliger ce type de dégâts.
+Setting/&DamageRadiantStyleTitle	Style : dégâts radiants
+Setting/&DamageSlashingStyleDescription	Style de dé utilisé pour infliger ce type de dégâts.
+Setting/&DamageSlashingStyleTitle	Style : dégâts tranchants
+Setting/&DamageThunderStyleDescription	Style de dé utilisé pour infliger ce type de dégâts.
+Setting/&DamageThunderStyleTitle	Style : dégâts de tonnerre
+Setting/&DisplayBanterTextAboveCharactersDescription	Cochez cette case pour afficher/masquer les plaisanteries apparaissant en jeu au-dessus des personnages.
+Setting/&DisplayBanterTextAboveCharactersTitle	Affichage des plaisanteries au-dessus des personnages
+Setting/&DisplayTutorialDescription	Affichez ou masquez les fenêtres de tutoriel pendant la partie.
+Setting/&DisplayTutorialTitle	Affichage des tutoriels
+Setting/&EffectsVolumeDescription	Réglez le volume des effets sonores.
+Setting/&EffectsVolumeTitle	Effets sonores
+Setting/&FocusCameraOnBattleActionsDescription	Avec ce type de caméra activé, la caméra se focalise automatiquement sur les actions de combats importantes, comme les attaques, les lancements de sort, etc.
+Setting/&FocusCameraOnBattleActionsTitle	Caméra focalisée sur les actions de combat
+Setting/&FramerateDescription	Taux de rafraîchissement de l'écran en jeu.
+Setting/&FramerateTitle	Images par seconde
+Setting/&FullscreenDescription	Affichez le jeu en plein écran ou en mode fenêtré.
+Setting/&FullscreenTitle	Plein écran
+Setting/&GroupedMonsterInitiativesDescription	Au moment d'effectuer un jet d'initiative, tous les monstres du même type possèdent la même initiative.
+Setting/&GroupedMonsterInitiativesTitle	Initiatives des groupes de monstres
+Setting/&HealingStyleDescription	Style de dé utilisé pour les effets de guérison.
+Setting/&HealingStyleTitle	Style : guérison
+Setting/&MainD20StyleDescription	
+Setting/&MainD20StyleTitle	
+Setting/&MainTitle	Paramètres
+Setting/&MasterEnabledDescription	Active ou désactive l'ensemble des paramètres audio.
+Setting/&MasterEnabledTitle	Volume principal activé
+Setting/&MasterVolumeDescription	Volume global.
+Setting/&MasterVolumeTitle	Volume principal
+Setting/&MoveWithRightClickDescription	Déplacez vos personnages, interagissez avec un objet ou attaquez un adversaire.
+Setting/&MoveWithRightClickTitle	Déplacement et actions contextuelles avec le clic droit
+Setting/&MusicVolumeDescription	Ajustez le volume de la musique en arrière-plan.
+Setting/&MusicVolumeTitle	Volume de la musique
+Setting/&OnlyShowNPCIconOnHoverDescription	Affiche les icônes représentant les types de PNJ (marchand, donneur de quête, etc.) uniquement lorsque le curseur est placé sur un PNJ.
+Setting/&OnlyShowNPCIconOnHoverTitle	Affichage des icônes de PNJ : souris sur PNJ uniquement
+Setting/&OrbitalCameraCorrectionDescription	La caméra se déplace vers le haut lorsque vous atteignez les limites d'un niveau.
+Setting/&OrbitalCameraCorrectionTitle	Correction orbitale de la caméra
+Setting/&PartyReactionTrapDetectedDescription	Définit la réaction adoptée par le groupe lorsqu'un piège est détecté.
+Setting/&PartyReactionTrapDetectedNoReactionDescription	Le groupe poursuit ses actions actuelles.
+Setting/&PartyReactionTrapDetectedNoReactionTitle	Pas de réaction
+Setting/&PartyReactionTrapDetectedStopMovementDescription	Le groupe arrête de bouger.
+Setting/&PartyReactionTrapDetectedStopMovementTitle	Déplacement stoppé
+Setting/&PartyReactionTrapDetectedTitle	Réaction suite à la détection d'un piège
+Setting/&PrepareSpellsLongRestDescription	Un repos long est nécessaire pour changer les sorts préparés par un personnage.
+Setting/&PrepareSpellsLongRestTitle	Préparation de sorts et repos long
+Setting/&QualityLevelDescription	Qualité graphique. Une qualité élevée nécessite une ou des cartes graphiques plus puissantes.
+Setting/&QualityLevelHighDescription	Qualité adaptée aux systèmes haut de gamme
+Setting/&QualityLevelHighTitle	Élevé
+Setting/&QualityLevelLowDescription	Qualité adaptée aux systèmes présentant des performances moins élevées
+Setting/&QualityLevelLowTitle	Bas
+Setting/&QualityLevelMediumDescription	Qualité adaptée aux systèmes présentant des performances moyennes
+Setting/&QualityLevelMediumTitle	Moyenne
+Setting/&QualityLevelTitle	Niveau de qualité
+Setting/&QualityLevelUltraDescription	Qualité utilisable uniquement sur les systèmes les plus performants
+Setting/&QualityLevelUltraTitle	Ultra
+Setting/&QualityLevelVery HighDescription	Qualité adaptée aux systèmes performants
+Setting/&QualityLevelVery HighTitle	Très élevé
+Setting/&QualityLevelVery LowDescription	Qualité adaptée à tous les systèmes, même les plus anciens
+Setting/&QualityLevelVery LowTitle	Très bas
+Setting/&QuicksaveCountDescription	Le nombre de sauvegardes rapides conservées.
+Setting/&QuicksaveCountTitle	Nombre de sauvegardes rapides
+Setting/&ReactionTimerDescription	Cette option ne vous laisse qu'un temps limité pour décider d'utiliser ou non une réaction.
+Setting/&ReactionTimerTitle	Temps de réaction limité
+Setting/&ResolutionDescription	La résolution de la fenêtre de jeu.
+Setting/&ResolutionTitle	Résolution
+Setting/&RollAbilityCheckDieDescription	Affiche/masque le dé lorsqu'un jet de caractéristique est lancé pendant l'exploration ou en combat.
+Setting/&RollAbilityCheckDieTitle	Affichage du dé : jets de caractéristique
+Setting/&RollAttackDieDescription	Affiche/masque le dé pendant les jets d'attaque.
+Setting/&RollAttackDieTitle	Affichage du dé : jets d'attaque
+Setting/&RollDamageDiceDescription	Affiche/masque le dé quand une attaque inflige des dégâts.
+Setting/&RollDamageDiceTitle	Affichage du dé : dégâts
+Setting/&RollDialogsDieDescription	Affiche/masque le dé lorsque d'un jet de caractéristique est lancé au cours d'une conversation.
+Setting/&RollDialogsDieTitle	Affichage du dé : dialogues
+Setting/&RollDieAlwaysDescription	Toujours lancer le dé.
+Setting/&RollDieAlwaysTitle	Toujours
+Setting/&RollDieHeroOnlyDescription	Lance le dé uniquement pour les héros et héroïnes.
+Setting/&RollDieHeroOnlyTitle	Héros uniquement
+Setting/&RollDieNeverDescription	Ne jamais lancer le dé.
+Setting/&RollDieNeverTitle	Jamais
+Setting/&RollHealingDiceDescription	Affiche/masque le dé lorsqu'un sort ou un pouvoir soigne des dégâts.
+Setting/&RollHealingDiceTitle	Affichage du dé : guérisons
+Setting/&RollInitiativeDieDescription	Affiche/masque le dé pendant les jets d'initiative.
+Setting/&RollInitiativeDieTitle	Affichage du dé : jets d'initiative
+Setting/&RollSavingThrowDieDescription	Affiche/masque le dé lorsqu'un jet de sauvegarde est lancé.
+Setting/&RollSavingThrowDieTitle	Affichage du dé : jets de sauvegarde
+Setting/&SecondaryD20StyleDescription	
+Setting/&SecondaryD20StyleTitle	
+Setting/&ShowHelmetInPortraitDescription	Cochez cette case pour afficher/masquer les casques sur les portraits des personnages.
+Setting/&ShowHelmetInPortraitTitle	Affichage des casques : portraits
+Setting/&TargetFramerateDescription	Vous permet de limiter le nombre d'images par seconde à un nombre défini, réduisant ainsi les coûts de calcul et les risques de surchauffe.
+Setting/&TargetFramerateTitle	Limite d'images par seconde
+Setting/&TextLanguagedeDescription	Deutsch
+Setting/&TextLanguageDescription	La langue utilisée pour le contenu en jeu.
+Setting/&TextLanguagedeTitle	Deutsch
+Setting/&TextLanguageenDescription	English
+Setting/&TextLanguageenTitle	English
+Setting/&TextLanguagefrDescription	Français
+Setting/&TextLanguagefrTitle	Français
+Setting/&TextLanguageTitle	Langue du contenu
+Setting/&TextLanguagezh-CNDescription	简体中文
+Setting/&TextLanguagezh-CNTitle	简体中文
+Setting/&TimeDisplayMode24Description	Le système horaire sur 24 heures est affiché.
+Setting/&TimeDisplayMode24Title	24 heures
+Setting/&TimeDisplayModeAMPMDescription	Le système horaire sur 12 heures est affiché.
+Setting/&TimeDisplayModeAMPMTitle	12 heures (AM/PM)
+Setting/&TimeDisplayModeDescription	Change le mode d'affichage de l'heure en jeu (12 heures/24 heures)
+Setting/&TimeDisplayModeTitle	Mode d'affichage de l'heure
+Setting/&ToggleAudioDescription	Cliquez sur cet onglet pour modifier les paramètres audio.
+Setting/&ToggleAudioTitle	Audio
+Setting/&ToggleDiceDescription	Cliquez sur cet onglet pour modifier les paramètres d'affichage des dés.
+Setting/&ToggleDiceTitle	Dés
+Setting/&ToggleGameDescription	Cliquez sur cet onglet pour modifier les paramètres de jouabilité.
+Setting/&ToggleGameTitle	Jeu
+Setting/&ToggleGraphicsDescription	Cliquez sur cet onglet pour modifier les paramètres graphiques et d'affichage.
+Setting/&ToggleGraphicsTitle	Graphismes
+Setting/&ToggleGuiDescription	Cliquez sur cet onglet pour modifier les paramètres de l'interface utilisateur.
+Setting/&ToggleGuiTitle	Interface
+Setting/&VoicesVolumeDescription	Réglez le volume des voix.
+Setting/&VoicesVolumeTitle	Volume des voix
+Setting/&VSyncDescription	Règle la synchronisation verticale en fonction de l'affichage de l'écran.
+Setting/&VSyncDoubleDescription	La fréquence de rendu se synchronise à la moitié de la fréquence de rafraîchissement de votre écran. Cette option est adaptée pour les écrans avec une fréquence élevée (120 Hz).
+Setting/&VSyncDoubleTitle	Double
+Setting/&VSyncNoneDescription	La fréquence de rendu ne se synchronise pas avec l'affichage de votre écran, permettant de ne pas limiter le nombre d'images par seconde.
+Setting/&VSyncNoneTitle	Aucun
+Setting/&VSyncSingleDescription	La fréquence de rendu se synchronise avec la fréquence de rafraîchissement de l'écran, ou avec un diviseur entier de 60 (par exemple, 30, 20, 15).
+Setting/&VSyncSingleTitle	Simple
+Setting/&VSyncTitle	V-Sync
+Setting/&FullScreenModeTitle	Mode plein écran
+Setting/&FullScreenModeDescription	Définit le type de fenêtre de l'application.
+Setting/&FullScreenModeExclusiveFullScreenTitle	Plein écran exclusif
+Setting/&FullScreenModeExclusiveFullScreenDescription	L'application modifie la résolution de l'écran et revendique l'utilisation exclusive de l'affichage cible.
+Setting/&FullScreenModeFullScreenWindowTitle	Fenêtre plein écran
+Setting/&FullScreenModeFullScreenWindowDescription	Dans ce mode, l'application se retrouve dans une fenêtre couvrant l'écran entier. Elle s'exécute à la résolution du bureau, et les autres résolutions demandées sont ajustées en conséquence.
+Setting/&FullScreenModeMaximizedWindowTitle	Fenêtre agrandie
+Setting/&FullScreenModeMaximizedWindowDescription	Dans ce mode, l'application crée une fenêtre agrandie.
+Setting/&FullScreenModeWindowedTitle	Fenêtré
+Setting/&FullScreenModeWindowedDescription	Dans ce mode, Unity crée une fenêtre standard sans plein écran.
+Setting/&CustomQualityTitle	Qualité personnalisée
+Setting/&CustomQualityDescription	Vous permet de changer les paramètres de qualité par défaut.
+Setting/&ShadowQualityTitle	Qualité des ombres
+Setting/&ShadowQualityDescription	Choisissez la résolution des ombres. Plus la résolution est élevée, plus le surdébit de traitement est grand.
+Setting/&ShadowQualityLowTitle	Bas
+Setting/&ShadowQualityLowDescription	Basse résolution des ombres de la carte.
+Setting/&ShadowQualityMediumTitle	Moyenne
+Setting/&ShadowQualityMediumDescription	Résolution moyenne des ombres de la carte.
+Setting/&ShadowQualityHighTitle	Élevé
+Setting/&ShadowQualityHighDescription	Résolution élevée des ombres de la carte.
+Setting/&ShadowQualityVeryHighTitle	Très élevé
+Setting/&ShadowQualityVeryHighDescription	Résolution très élevée des ombres de la carte.
+Setting/&ShadowDistanceTitle	Distance des ombres
+Setting/&ShadowDistanceDescription	Définissez la distance maximale de la caméra à laquelle les ombres sont visibles. Les ombres se trouvant au-delà de cette distance ne seront pas affichées.
+Setting/&ShadowDistanceLowTitle	Bas
+Setting/&ShadowDistanceLowDescription	Basse distance de rendu des ombres.
+Setting/&ShadowDistanceMediumTitle	Moyenne
+Setting/&ShadowDistanceMediumDescription	Distance moyenne de rendu des ombres.
+Setting/&ShadowDistanceHighTitle	Élevé
+Setting/&ShadowDistanceHighDescription	Distance élevée de rendu des ombres.
+Setting/&ShadowDistanceVeryHighTitle	Très élevé
+Setting/&ShadowDistanceVeryHighDescription	Distance très élevée de rendu des ombres.
+Setting/&ShadowDistanceUltraTitle	Ultra
+Setting/&ShadowDistanceUltraDescription	Distance maximale de rendu des ombres.
+Setting/&TextureQualityTitle	Qualité des textures
+Setting/&TextureQualityDescription	Choisissez une résolution d'affichage des textures. Une résolution plus basse implique un surdébit de traitement moindre.
+Setting/&TextureQualityQuarterResTitle	Résolution très basse
+Setting/&TextureQualityQuarterResDescription	Utilisez des textures très basse résolution.
+Setting/&TextureQualityHalfResTitle	Résolution basse
+Setting/&TextureQualityHalfResDescription	Utilisez des textures basse résolution.
+Setting/&TextureQualityFullResTitle	Résolution d'origine
+Setting/&TextureQualityFullResDescription	Utilisez des textures en résolution d'origine.
+Setting/&VolumetricLightingQualityTitle	Qualité de l'éclairage volumétrique
+Setting/&VolumetricLightingQualityDescription	Choisissez la résolution de rendu des effets d'éclairage volumétrique. Vous pouvez également les désactiver. Notez que certaines fonctionnalités sont désactivées pour des niveaux de qualité plus bas. Un paramètre plus élevé offre une meilleure qualité de rendu, au détriment du surdébit de traitement.
+Setting/&VolumetricLightingQualityDisabledTitle	Désactivé
+Setting/&VolumetricLightingQualityDisabledDescription	Désactive complètement l'éclairage volumétrique.
+Setting/&VolumetricLightingQualityLowTitle	Bas
+Setting/&VolumetricLightingQualityLowDescription	Choisissez un paramètre basse résolution et désactivez la plupart des fonctionnalités d'éclairage volumétrique.
+Setting/&VolumetricLightingQualityMediumTitle	Moyenne
+Setting/&VolumetricLightingQualityMediumDescription	Choisissez un paramètre de résolution moyenne et désactivez certaines fonctionnalités d'éclairage volumétrique.
+Setting/&VolumetricLightingQualityHighTitle	Élevé
+Setting/&VolumetricLightingQualityHighDescription	Choisissez un paramètre de résolution élevée et activez toutes les fonctionnalités d'éclairage volumétrique.
+Setting/&ClothesSimulationQualityTitle	Qualité de simulation des vêtements
+Setting/&ClothesSimulationQualityDescription	Choisissez la qualité de simulation physique des vêtements des personnages. Vous pouvez également désactiver cet effet. Un paramètre de qualité plus élevé permet la simulation de vêtement sur plus de personnages à l'écran, au détriment du surdébit de traitement.
+Setting/&ClothesSimulationQualityDisabledTitle	Désactivée
+Setting/&ClothesSimulationQualityDisabledDescription	Désactive complètement la simulation des vêtements.
+Setting/&ClothesSimulationQualityImportantTitle	Que les personnages importants
+Setting/&ClothesSimulationQualityImportantDescription	Active la simulation des vêtements uniquement pour les personnages importants.
+Setting/&DepthOfFieldTitle	Profondeur de champ
+Setting/&DepthOfFieldDescription	Active ou désactive l'effet simulant les propriétés focales d'une lentille de caméra.
+Setting/&AmbientOcclusionTitle	Occlusion ambiante
+Setting/&AmbientOcclusionDescription	Active ou désactive l'occlusion ambiante en tant qu'effet post-traitement en plein écran. Cela assombrit les plis, trous, intersections, et surfaces se trouvant à proximité les unes des autres.
+Setting/&AntiAliasingTitle	Anti-Aliasing
+Setting/&AntiAliasingDescription	Choisissez la solution que vous souhaitez utiliser pour éviter l'aliasing et donner une apparence plus fluide aux graphismes. Vous pouvez aussi désactiver cet effet.
+Setting/&AntiAliasingNoneTitle	Aucun
+Setting/&AntiAliasingNoneDescription	Désactivez complètement l'effet d'Anti-Aliasing.
+Setting/&AntiAliasingFastApproximateAntialiasingTitle	FXAA
+Setting/&AntiAliasingFastApproximateAntialiasingDescription	L'Anti-Aliasing Rapide et Approximatif est la technique la moins gourmande en performance et est recommandé pour les ordinateurs les plus lents.
+Setting/&AntiAliasingTemporalAntialiasingTitle	TAA
+Setting/&AntiAliasingTemporalAntialiasingDescription	L'Anti-Aliasing Temporel est une technique plus avancée d'anticrénelage. Elle est nettement plus efficace dans l'adoucissement des bords en mouvement, mais le surdébit de traitement est plus élevé qu'avec le FXAA.
+Setting/&BrightnessTitle	Luminosité
+Setting/&BrightnessDescription	Ajustez la luminosité du jeu pour votre affichage.
+Setting/&ContrastTitle	Contraste
+Setting/&ContrastDescription	Ajustez le contraste du jeu pour votre affichage.
+Setting/&DiceVisibilityTitle	Visibilité des dés
+Setting/&DiceStyleTitle	Style de dés
+Setting/&PartyD20StyleDescription	Style de dé pour les d20 du groupe
+Setting/&PartyD20StyleTitle	Style de d20 du groupe
+Setting/&PartySecondaryD20StyleDescription	Style de dé pour le second dé du groupe lors d'un jet avec avantage ou désavantage
+Setting/&PartySecondaryD20StyleTitle	Style de d20 du groupe avec av./désav.
+Setting/&EnemyD20StyleDescription	Style de dé pour les d20 des adversaires
+Setting/&EnemyD20StyleTitle	Style de d20 des adversaires
+Setting/&EnemySecondaryD20StyleDescription	Style de dé pour le second dé de l'adversaire lors d'un jet avec avantage ou désavantage
+Setting/&EnemySecondaryD20StyleTitle	Style de d20 de l'adversaire avec av./désav.
+Setting/&ToggleKeyboardDescription	Vous permet de personnaliser la configuration du clavier pour les commandes du jeu
+Setting/&ToggleKeyboardTitle	Clavier
+Setting/&GeneralHeaderTitle	Général
+Setting/&CancelTitle	Annuler
+Setting/&PlayPauseTitle	Lecture/Pause/Accélérer le tour du combat
+Setting/&QuickSaveTitle	Sauvegarde rapide
+Setting/&QuickLoadTitle	Chargement rapide
+Setting/&ToggleMapTitle	Afficher la carte
+Setting/&PartyJournalTitle	Journal du groupe
+Setting/&BestiaryTitle	Bestiaire
+Setting/&ShowDetailedInformationTitle	Mettre les éléments interactifs en surbrillance
+Setting/&CharacterControlHeaderTitle	Contrôle du personnage
+Setting/&InspectCharacterTitle	Inspecter le personnage
+Setting/&CastSpellTitle	Lancer un sort
+Setting/&EndTurnTitle	Finir le tour
+Setting/&SelectNextCharacterTitle	Sélectionner le personnage suivant
+Setting/&SelectAllCharactersTitle	Sélectionner tous les personnages
+Setting/&SelectCharacter1Title	Sélectionner le personnage 1
+Setting/&SelectCharacter2Title	Sélectionner le personnage 2
+Setting/&SelectCharacter3Title	Sélectionner le personnage 3
+Setting/&SelectCharacter4Title	Sélectionner le personnage 4
+Setting/&EnablePlanarTargettingDescription	Vous permet de restreindre la sélection de destination/cible à un plan horizontal, au lieu de la 3D complète.
+Setting/&EnablePlanarTargettingTitle	Activer le ciblage planaire
+Setting/&CameraControlHeaderTitle	Commande de la caméra
+Setting/&LeftTitle	Déplacement à gauche
+Setting/&RightTitle	Déplacement à droite
+Setting/&ForwardTitle	Déplacement en avant
+Setting/&BackwardTitle	Déplacement en arrière
+Setting/&RotateCCWTitle	Rotation dans le sens contraire des aiguilles d'une montre
+Setting/&RotateCWTitle	Rotation dans le sens des aiguilles d'une montre
+Setting/&HeldZoomTitle	Maintenir pour zoomer sur le personnage
+Setting/&ZoomInTitle	Zoom avant
+Setting/&ZoomOutTitle	Zoom arrière
+Setting/&KeyMappingUnboundTitle	Dissociée
+Setting/&KeyMappingImmutableDescription	La configuration du clavier ne peut pas être modifiée par l'utilisateur.
+Setting/&InputKeyTitle	Appuyer sur une touche
+Setting/&DefaultDescription	Réinitialise les valeurs par défaut de cette catégorie de paramètres
+Setting/&DefaultTitle	Défaut
+Setting/&PreserveRandomSeedDescription	Préserve la génération aléatoire de nombres lors du chargement d'une partie sauvegardée afin d'obtenir les mêmes résultats au combat. La génération aléatoire est recalculée systématiquement à chaque cycle de dialogues, même si cette option est activée.
+Setting/&PreserveRandomSeedTitle	Préserver le germe aléatoire
+Setting/&ClothesSimulationQualityAlwaysTitle	TBC
+Setting/&RefreshRateDescription	La fréquence de rafraîchissement (Hz) de la résolution sélectionnée
+Setting/&RefreshRateTitle	Taux de rafraîchissement
+Setting/&DisplayHeaderTitle	Affichage
+Setting/&GameplayHeaderTitle	Gameplay
+Setting/&CameraHeaderTitle	Caméra
+Setting/&SpellComponentsHeaderTitle	Composantes de sorts
+Setting/&VerbalComponentDescription	Détermine votre manière de simuler les conditions nécessaires pour lancer des sorts à composante verbale
+Setting/&VerbalComponentTitle	Composantes verbales
+Setting/&VerbalComponentDisabledDescription	Les héros n'ont pas besoin d'être en capacité de parler pour lancer des sorts à composante verbale
+Setting/&VerbalComponentDisabledTitle	Désactivée
+Setting/&VerbalComponentFullDescription	Les héros doivent être en capacité de parler pour lancer des sorts à composante verbale
+Setting/&VerbalComponentFullTitle	Total
+Setting/&SomaticComponentDescription	Détermine votre manière de simuler les conditions nécessaires pour lancer des sorts à composante somatique
+Setting/&SomaticComponentTitle	Composantes somatiques
+Setting/&SomaticComponentDisabledDescription	Les héros n'ont pas besoin d'une main libre pour lancer des sorts à composante somatique.
+Setting/&SomaticComponentDisabledTitle	Désactivée
+Setting/&SomaticComponentBasicDescription	
+Setting/&SomaticComponentBasicTitle	
+Setting/&SomaticComponentFullTitle	Total
+Setting/&MaterialComponentDescription	Détermine votre manière de simuler les conditions nécessaires pour lancer des sorts à composante matérielle
+Setting/&MaterialComponentTitle	Composantes matérielles
+Setting/&MaterialComponentDisabledDescription	Aucune composante matérielle requise
+Setting/&MaterialComponentDisabledTitle	Désactivée
+Setting/&MaterialComponentBasicDescription	Les sorts à composante matérielle nécessitent un focaliseur de sorts ou une sacoche à composantes
+Setting/&MaterialComponentBasicTitle	Basique
+Setting/&MaterialComponentFullDescription	Les sorts à composante matérielle basique nécessitent un focaliseur de sorts ou une sacoche à composantes. Les sorts à composante spécifique nécessitent cette composante
+Setting/&MaterialComponentFullTitle	Total
+Setting/&OtherHeaderTitle	Autre
+Setting/&DifficultySettingsHeaderTitle	Les paramètres de difficultés peuvent être modifiés en jeu
+Setting/&DifficultyPresetTitle	Difficulté
+Setting/&DifficultyPresetDescription	Choisissez parmi une liste de paramètres de difficulté prédéfinis.
+Setting/&DifficultyPresetPreset1Title	Mode histoire
+Setting/&DifficultyPresetPreset1Description	Pour les joueurs qui préfèrent se concentrer sur l'histoire. L'exploration et le combat seront simplifiés. 
+Setting/&DifficultyPresetPreset2Title	Mode explorateur
+Setting/&DifficultyPresetPreset2Description	Pour les joueurs qui n'ont l'habitude ni des RPG tactiques ni des règles du jeu.
+Setting/&DifficultyPresetPreset3Title	Mode authentique
+Setting/&DifficultyPresetPreset3Description	Pour les joueurs qui veulent suivre les règles authentiques du jeu de rôle sur table.
+Setting/&DifficultyPresetPreset4Title	Mode ferrailleur
+Setting/&DifficultyPresetPreset4Description	Pour les joueurs prêts à relever un défi plus difficile.
+Setting/&DifficultyPresetPreset5Title	Mode Cataclysme
+Setting/&DifficultyPresetPreset5Description	Pour les joueurs qui veulent braver l'impossible. Vous allez souffrir. Beaucoup.
+Setting/&CustomDifficultyTitle	Personnalisation de la difficulté
+Setting/&CustomDifficultyDescription	Vous permet de choisir les paramètres que vous souhaitez.
+Setting/&BattleSettingsHeaderTitle	Combat
+Setting/&DamageTakenAllyMultiplierTitle	Dégâts subis
+Setting/&DamageTakenAllyMultiplierDescription	Modifie les dégâts subis par les personnages jouables et les PNJ les plus importants.
+Setting/&DisableEnemyCritsTitle	Désactiver les coups critiques des adversaires
+Setting/&DisableEnemyCritsDescription	Les coups critiques des adversaires infligent des dégâts ordinaires.
+Setting/&AiUsesPowerfulMovesMoreOftenTitle	Des IA plus mortelles
+Setting/&AiUsesPowerfulMovesMoreOftenDescription	Les monstres utiliseront de puissants déplacements (dont des sorts mineurs) plus souvent et pousseront les personnages vers leurs morts.
+Setting/&AiTargetsHelplessCharactersTitle	Des IA sans merci
+Setting/&AiTargetsHelplessCharactersDescription	Les monstres attaqueront les personnages inconscients ou mourants dans le but de les achever.
+Setting/&EnemyHpMultiplierTitle	Multiplicateur de santé des adversaires
+Setting/&EnemyHpMultiplierDescription	Modifie les points de santé des adversaires en fonction de la valeur sélectionnée.
+Setting/&SavingThrowAllyModifierTitle	Jet de sauvegarde de l'allié
+Setting/&SavingThrowAllyModifierDescription	Tous les jets de sauvegarde effectués par des personnages amicaux bénéficieront de ce modificateur.
+Setting/&SavingThrowEnemyModifierTitle	Jet de sauvegarde de l'adversaire
+Setting/&SavingThrowEnemyModifierDescription	Tous les jets de sauvegarde effectués par des adversaires bénéficieront de ce modificateur.
+Setting/&AttackRollAllyModifierTitle	Jet d'attaque de l'allié
+Setting/&AttackRollAllyModifierDescription	Tous les jets d'attaque effectués par des personnages amicaux bénéficieront de ce modificateur.
+Setting/&AttackRollEnemyModifierTitle	Jet d'attaque de l'adversaire
+Setting/&AttackRollEnemyModifierDescription	Tous les jets d'attaque effectués par des adversaires bénéficieront de ce modificateur.
+Setting/&AbilityCheckAllyModifierTitle	Jet de caractéristique de l'allié
+Setting/&AbilityCheckAllyModifierDescription	Tous les jets de caractéristique effectués par des personnages amicaux bénéficieront de ce modificateur.
+Setting/&AbilityCheckEnemyModifierTitle	Jet de caractéristique de l'adversaire
+Setting/&AbilityCheckEnemyModifierDescription	Tous les jets de caractéristique effectués par des adversaires bénéficieront de ce modificateur.
+Setting/&AutoreviveTitle	Réanimation automatique
+Setting/&AutoreviveDescription	Les personnages sont automatiquement réanimés à la fin d'une bataille tant que l'un d'eux a survécu.
+Setting/&HeatlhAndRestSettingsHeaderTitle	Santé et Repos
+Setting/&CompanionsRestTitle	Repos des compagnons
+Setting/&CompanionsRestDescription	Les PNJ les plus importants et les compagnons récupèrent pleinement pendant les repos courts.
+Setting/&NoFoodNeededTitle	Nourriture non nécessaire
+Setting/&NoFoodNeededDescription	Les personnages peuvent prendre un repos long, même s'ils n'ont pas de nourriture.
+Setting/&MaxHpOnHitDiceTitle	Santé maximum grâce aux dés de vie
+Setting/&MaxHpOnHitDiceDescription	L'utilisation d'un dé de vie lors d'un repos court octroie la quantité maximum de santé.
+Setting/&MaxHpOnLevelUpTitle	Santé maximum à l'obtention d'un niveau
+Setting/&MaxHpOnLevelUpDescription	La santé d'un personnage atteint la valeur maximum lors de l'obtention d'un niveau.
+Setting/&InventorySettingsHeaderTitle	Inventaire
+Setting/&EncumbranceRuleTypeTitle	Règle de l'encombrement
+Setting/&EncumbranceRuleTypeDescription	Choisissez la règle de l'encombrement avec laquelle vous souhaitez jouer.
+Setting/&EncumbranceRuleTypeDefaultTitle	Jeu de rôle sur table
+Setting/&EncumbranceRuleTypeDefaultDescription	Vos personnages peuvent porter jusqu'à 15x leur FOR.
+Setting/&EncumbranceRuleTypeVariantTitle	Solasta (variante)
+Setting/&EncumbranceRuleTypeVariantDescription	Vos personnages peuvent porter jusqu'à 15x leur FOR, mais seront encombrés au-delà de 5x leur FOR et lourdement encombrés au-delà de 10x leur FOR.
+Setting/&EncumbranceRuleTypeEasyTitle	Simplifié
+Setting/&EncumbranceRuleTypeEasyDescription	Vos personnages peuvent porter jusqu'à 150x leur FOR.
+Setting/&SpellcastingSettingsHeaderTitle	Lancement de sort
+Setting/&NeverLoseConcentrationOnSpellsTitle	Ne jamais perdre sa concentration
+Setting/&NeverLoseConcentrationOnSpellsDescription	Un lanceur qui se concentre sur un sort n'aura pas besoin d'un jet de sauvegarde de Constitution s'il subit des dégâts.
+Setting/&ScrollsCanBeUsedByAnyCharacterTitle	Parchemins universels
+Setting/&ScrollsCanBeUsedByAnyCharacterDescription	Tous les personnages peuvent utiliser un parchemin, même si le sort n'appartient pas à leur liste de sorts.
+Setting/&RandomnessSettingsHeaderTitle	Jets de dés
+Setting/&RandomnessModeTitle	Mode aléatoire
+Setting/&RandomnessModeDescription	Choisissez le mode aléatoire utilisé lorsque vous jetez les dés.
+Setting/&RandomnessModeTrueRandomTitle	Véritablement aléatoire
+Setting/&RandomnessModeTrueRandomDescription	Votre sort sera entre les mains du dieu des dés.
+Setting/&RandomnessModeNiceDiceTitle	Dés karmiques
+Setting/&RandomnessModeNiceDiceDescription	Un joueur obtenant un mauvais résultat lors d'un jet de dés aura plus de chances d'en obtenir de bons la fois suivante.
+Setting/&ForceCritEveryFewRollsTitle	Coup critique garanti
+Setting/&ForceCritEveryFewRollsDescription	Garantit au joueur d'obtenir un coup critique au moins une fois tous les 15 jets de dés.
+Setting/&StorySettingsHeaderTitle	Histoire
+Setting/&ForceSuccessOnDialogRollsTitle	Succès garanti durant un cycle de dialogue
+Setting/&ForceSuccessOnDialogRollsDescription	Tous les jets de compétence lancés lors d'un dialogue aboutiront.
+Setting/&AlwaysDisplayDialogChancesTitle	Toujours afficher les chances de succès durant un dialogue
+Setting/&AlwaysDisplayDialogChancesDescription	Les chances de succès d'un jet de compétence seront toujours affichées, plutôt que seulement en fonction du succès d'un jet de Perspicacité.
+Setting/&UnlockAllBestiaryContentTitle	Afficher les informations du bestiaire
+Setting/&UnlockAllBestiaryContentDescription	Toutes les informations relatives aux créatures sont affichées dans le bestiaire. Cela ne remplace pas les jets de survie pour les attributs de jeu comme ennemi juré du rôdeur.
+Setting/&DisableRandomEncountersTitle	Désactiver les rencontres fortuites
+Setting/&DisableRandomEncountersDescription	Supprime toutes les rencontres fortuites lors de votre exploration de la carte du monde, à l'exception des rencontres scénarisées.
+Setting/&ExplorationSettingsHeaderTitle	Exploration
+Setting/&AuthorizeRetryOnGadgetsTitle	Jets supplémentaires lors de l'exploration
+Setting/&AuthorizeRetryOnGadgetsDescription	Vous permet de réessayer de crocheter une serrure ou de désarmer un piège même lorsque le personnage a préalablement échoué.
+Setting/&AutoDetectTrapsTitle	Détection automatique des pièges
+Setting/&AutoDetectTrapsDescription	Les pièges alentour seront automatiquement détectés même s'ils nécessitaient normalement un jet de compétence.
+Setting/&ForceCraftingRollSuccessTitle	Succès garanti du jet de fabrication
+Setting/&ForceCraftingRollSuccessDescription	Chaque jet de fabrication aboutira automatiquement.
+Setting/&NoToolRequirementTitle	Aucun outil nécessaire
+Setting/&NoToolRequirementDescription	Les personnages peuvent fabriquer et déverrouiller des coffres ou des portes sans avoir besoin d'outils.
+Setting/&SomaticComponentFullDescription	Les personnages doivent avoir une main libre.
+Setting/&QualityHeaderTitle	Qualité
+Setting/&ColorCalibrationHeaderTitle	Calibrage des couleurs
+Setting/&FasterTravelOnWorldMapTitle	Voyage accéléré sur la carte du monde
+Setting/&FasterTravelOnWorldMapDescription	Augmente la vitesse de voyage lorsque vous explorez la carte du monde.
+Setting/&ScrollSensitivityDescription	Définit la vitesse de défilement avec la molette de la souris dans les zones concernées.
+Setting/&ScrollSensitivityTitle	Sensibilité du défilement
+Setting/&ShadowsTitle	Ombres
+Setting/&ShadowsDescription	Active ou désactive les ombres.
+Setting/&SubtitlesHeaderTitle	Sous-titres
+Setting/&SubtitlesEnabledDescription	Active ou désactive les sous-titres pendant les cinématiques
+Setting/&SubtitlesEnabledTitle	Activés
+Setting/&SubtitlesDisplaySpeakerNameDescription	Affiche le nom du locuteur pendant les cinématiques
+Setting/&SubtitlesDisplaySpeakerNameTitle	Affichage du nom du locuteur
+Setting/&SubtitlesBlackBackgroundDescription	Affiche un arrière-plan noir derrière les sous-titres
+Setting/&SubtitlesBlackBackgroundTitle	Arrière-plan noir
+Setting/&AllowAttuningUnknownItemsTitle	Autoriser la création d'un lien avec des objets inconnus
+Setting/&AllowAttuningUnknownItemsDescription	Un personnage sera capable de créer un lien avec un objet magique même si ses propriétés magiques sont inconnues.
+Setting/&MoveCameraWithScreenBordersTitle	Déplacement de la caméra via les bordures d'écran
+Setting/&SpellbookPagesConstraintTitle	Restriction de pages dans le grimoire
+Setting/&SpellbookPagesConstraintDescription	Lorsque cette option est activée, les grimoires ne peuvent contenir qu'un nombre de sorts dans la limite de pages disponibles (habituellement 100 pages). Chaque sort retranscrit (qu'il provienne d'un parchemin ou que vous l'ayez acquis en montant de niveau) occupe un nombre de pages équivalant à son niveau dans le grimoire. Un magicien pourrait bien avoir à acheter un autre grimoire avant la fin de la campagne de Solasta s'il veut pouvoir passer au niveau supérieur
+Setting/&FadingFogOfWarTitle	Brouillard de guerre animé
+Setting/&TextLanguageruTitle	Русский
+Setting/&TextLanguageruDescription	Русский
+Setting/&TextLanguagept-BRTitle	Português (Brasil)
+Setting/&TextLanguagept-BRDescription	Português (Brasil)
+Setting/&VocalSpellIncantationTitle	Activez la vocalisation des composantes de sorts verbales.
+Setting/&FSRTitle	AMD FidelityFX Super Resolution
+Setting/&FSRDescription	Utilisez une technologie de mise à l'échelle temporelle pour améliorer les performances de votre carte graphique. Vous pouvez choisir entre des paramètres de qualité très élevés avec des améliorations de performances faibles ou un mode axé sur les performances avec un crénelage plus visible.
+Setting/&FSRDisabledTitle	Désactivée
+Setting/&FSRDisabledDescription	Utilisez la résolution native (100 %).
+Setting/&FSRUltraQualityTitle	Qualité ultra
+Setting/&FSRUltraQualityDescription	Utilisez une résolution proche de la résolution native (77 %).
+Setting/&FSRQualityTitle	Qualité
+Setting/&FSRQualityDescription	Utilisez une résolution plus basse (67 %).
+Setting/&FSRBalancedTitle	Équilibrée
+Setting/&FSRBalancedDescription	Utilisez une résolution encore plus basse (59 %).
+Setting/&FSRPerformanceTitle	Représentation
+Setting/&FSRPerformanceDescription	Utilisez une résolution très basse (50 %).

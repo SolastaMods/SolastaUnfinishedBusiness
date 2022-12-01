@@ -1,0 +1,6 @@
+Size/&GargantuanTitle	
+Size/&HugeTitle	
+Size/&LargeTitle	
+Size/&MediumTitle	
+Size/&SmallTitle	
+Size/&TinyTitle	

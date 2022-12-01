@@ -1,0 +1,13 @@
+TutorialSubsection/&Basics_CameraTitle	
+TutorialSubsection/&Basics_MovingTitle	
+TutorialSubsection/&Basics_PartyMngtTitle	
+TutorialSubsection/&Basics_QuestTitle	
+TutorialSubsection/&CombatMovementTitle	
+TutorialSubsection/&CombatShoveTitle	
+TutorialSubsection/&Exploration_LocationMapTitle	
+TutorialSubsection/&Exploration_MiscTitle	
+TutorialSubsection/&Exploration_PointsOfInterestTitle	
+TutorialSubsection/&ExplorationJumpingClimbingTitle	
+TutorialSubsection/&Inventory_LootingTitle	
+TutorialSubsection/&Inventory_SpecialTitle	
+TutorialSubsection/&Exploration_MagicTitle	

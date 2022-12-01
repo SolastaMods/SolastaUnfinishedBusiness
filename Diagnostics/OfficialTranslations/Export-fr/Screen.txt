@@ -1,0 +1,1127 @@
+Screen/&AbilityScoreBonusDescription	Le bonus appliqué à cette valeur de caractéristique, basé sur vos choix actuels.
+Screen/&AbilityScoreBonusEditableDescription	Le bonus appliqué à cette valeur de caractéristique. Vous pouvez l'ajuster avec vos points restants.
+Screen/&AbilityScoresAssignTitle	Glissez-déposez vos jets sur les cases de valeur de caractéristique, ou assignez-les automatiquement.
+Screen/&AbilityScoresEditPointsTitle	Modifiez vos jets en utilisant vos points restants.
+Screen/&AbilityScoresMethodTitle	Sélectionner la méthode de génération de la valeur de caractéristique
+Screen/&AbortCreationDescription	Annule le processus de création du personnage.
+Screen/&AbortLevelUpDescription	Annule le processus d'obtention d'un niveau du personnage.
+Screen/&AbortTitle	Annuler
+Screen/&ActiveQuestsFormatPlural	Votre équipe a {0} quêtes actives.
+Screen/&ActiveQuestsFormatSingle	Votre équipe a une quête active.
+Screen/&AddCharacterDescription	Ajoute un personnage depuis votre réserve locale de personnages.
+Screen/&AddCharacterTitle	Ajouter un personnage
+Screen/&AddNewClassTitle	Ajouter une nouvelle classe
+Screen/&AnswerChoiceTitle	Sélectionner une réponse
+Screen/&AscendDescription	Élevez le plan horizontal d'une case.
+Screen/&AttackCaptionBonusDescription	
+Screen/&AttackCaptionBonusTitle	
+Screen/&AttackCaptionMainDescription	
+Screen/&AttackCaptionMainTitle	
+Screen/&AttackDamageDescription	Les dégâts causés par cette attaque suite à un coup réussi.
+Screen/&AttackDamageTitle	dég.
+Screen/&AttackRollFooterTitle	Attaquer
+Screen/&AttackToHitDescription	Le bonus ajouté aux jets d'attaque en lançant un d20 avec cette attaque.
+Screen/&AttackToHitTitle	att.
+Screen/&AttunableItemsTitle	Objets pouvant être liés.
+Screen/&AttunableItemsWarningFormat	{0} a atteint la limite de {1} objets pouvant être liés.
+Screen/&AttunementExecutedWarningDescription	Retirez le lien avec cet objet afin de pouvoir vous lier avec un objet différent.
+Screen/&AttunementExecutedWarningTitle	{0} a atteint la limite de liens pour ce repos.
+Screen/&AttunementRemoveTitle	Retirer
+Screen/&AvailableSlotsDescription	Le nombre de sorts de ce niveau que vous pouvez lancer. Vous pouvez utiliser l'un de ces emplacements pour lancer un sort de niveau inférieur, ce qui pourrait augmenter son effet.
+Screen/&AvailableSlotsTitle	Emplacements disponibles :
+Screen/&BackgroundFeaturesTitle	Attributs historiques
+Screen/&BackgroundHeaderTitle	Historique
+Screen/&BackTitle	Retour
+Screen/&BattleIntroTitle	Un combat commence !
+Screen/&BattleVictoryTitle	Victoire !
+Screen/&BonusAttackTitle	Att. bonus
+Screen/&CancelTitle	Annuler
+Screen/&CaptionProceedDescription	Effectuez votre action même si elle est incomplète.
+Screen/&CaptionProceedTitle	Continuer
+Screen/&CastLightButtonDescription	Lancez un sort mineur de lumière (ou un sort mineur équivalent, comme Tenir la flamme) sur l'un de vos objets portatifs, ou, à défaut, sur votre armure de buste.
+Screen/&ChanelDivinityRecoveredDescription	Toutes les utilisations de Canalisation d'énergie divine sont restaurées.
+Screen/&CharacterInformationTitle	Personnage
+Screen/&CharacterInfoTitle	Infos sur le personnage
+Screen/&CharacterInspectionModeBattleAvailableTitle	Le personnage peut effectuer une action gratuite/d'inventaire par round de combat.
+Screen/&CharacterInspectionModeBattleSpentTitle	Le personnage a dépensé son action gratuite/d'inventaire pour ce round de combat.
+Screen/&CharacterInspectionModeSelectCarriedItemTitle	Sélectionnez n'importe quel objet pour appliquer cet effet.
+Screen/&CharacterInspectionModeSelectEquipedItemTitle	Sélectionnez un objet équipé pour appliquer cet effet.
+Screen/&CharacterInspectionModeSelectMagicalUnidentifiedItemTitle	Sélectionnez un objet magique non identifié pour en déceler les propriétés.
+Screen/&CharacterInspectionModeSelectSpellbookTitle	Sélectionnez un grimoire contenant au moins {0} page(s) blanche(s).
+Screen/&CharacterInspectionModeSelectWeaponNonMagicalTitle	Sélectionnez une arme non magique pour appliquer cet effet.
+Screen/&CharacterInspectionModeSelectWeaponTitle	Sélectionnez une arme pour appliquer cet effet.
+Screen/&CharacterPersonalityDescriptionTitle	La personnalité d'un personnage détermine de quelle manière ce.tte dernier.ère agira durant les séquences narratives. Certains traits de narration offriront des variations aux dialogues, tandis que d'autres permettront d'accéder à différentes branches de dialogue laissant le personnage jouer un rôle correspondant plus à sa personnalité.
+Screen/&CharacterPersonalityBackgroundAlignementDescription	Pendant la phase de création du personnage, l'historique et l'alignement choisis mènent à la sélection de traits de personnalité spécifiques, vous permettant de personnaliser la façon dont votre personnage agit au cours des séquences narratives.
+Screen/&CharactersManagementTitle	Gestion du personnage
+Screen/&ChooseFeatureDescription	Vous devez sélectionner une option.
+Screen/&ChooseFeatureTitle	Choisissez :
+Screen/&ClassDeityDescription	La divinité que votre personnage va vénérer. Cette décision aura des répercussions sur vos choix.
+Screen/&ClassDeityTitle	Divinité
+Screen/&ClassFeaturesTitle	Attributs de classe
+Screen/&ClassHeaderTitle	Classe
+Screen/&ClassHitDiceDescription	Le dé est lancé à chaque niveau pour déterminer vos points de vie, mais également pour récupérer vos points de vie perdus.
+Screen/&ClassHitDiceTitle	Dés de vie
+Screen/&ClassOrMarkerTitle	OU 
+Screen/&ClassSelectionTitle	Sélectionnez une classe
+Screen/&ClearFiltersTitle	Effacer les filtres
+Screen/&CloseTitle	Fermer
+Screen/&CompletedQuestsListTitle	Quêtes terminées
+Screen/&ConfigurationHeaderTitle	Configuration des objets équipés
+Screen/&ContainerSpaceDescription	Les objets prennent une certaine place. Par conséquent, seul un nombre limité d'objets peut être rangé dans un contenant (sacs à dos, sacoches).
+Screen/&ContainerWeightDescription	Les objets ont tous un poids défini et les contenants possèdent une limite de poids qu'ils peuvent supporter.
+Screen/&CraftingAbilityCheckTitle	Jet de caractéristique
+Screen/&CraftingAbortButtonDescription	Arrête l'opération de fabrication. Votre progression et les ingrédients utilisés seront perdus.
+Screen/&CraftingBonusTitle	Bonus de fabrication : {0}
+Screen/&CraftingDifficultyTitle	Difficulté de fabrication
+Screen/&CraftingEstimatedHoursFormat	Au moins {0} heure(s) requise(s) pour fabriquer cet objet.
+Screen/&CraftingIngredientsDescription	Les ingrédients sont consommés au début de la fabrication.
+Screen/&CraftingIngredientsTitle	Ingrédients
+Screen/&CraftingInProgressTitle	Le type de jet de caractéristique réalisé par ce personnage.
+Screen/&CraftingItemEffectTitle	Effets de l'objet
+Screen/&CraftingNoOptionSelectedTitle	Vous devez sélectionner une des options de fabrication.
+Screen/&CraftingNoSuitableToolTypeDescription	Aucun membre de votre groupe ne possède le type d'outils {0}.
+Screen/&CraftingNoSuitableToolTypeTitle	Pas dans l'inventaire
+Screen/&CraftingNotProficientDescription	{0} ne maîtrise pas ce qui suit :{1}.
+Screen/&CraftingNotProficientTitle	Maîtrise insuffisante
+Screen/&CraftingOptionsTitle	Options de fabrication
+Screen/&CraftingRemainingHoursFormat	Au moins {0} heure(s) supplémentaire(s) requise(s) pour terminer cette opération de fabrication.
+Screen/&CraftingRemainingSuccessesTitle	Jets de caractéristiques réussis restants
+Screen/&CraftingRequiredSuccessesDescription	La durée de fabrication actuelle dépend du nombre de jets de caractéristique réussis par le personnage pour cette fabrication. Les jets sont répétés toutes les heures jusqu'à ce que la fabrication soit terminée.
+Screen/&CraftingRequiredSuccessesTitle	Succès requis
+Screen/&CraftingStartButtonDescription	Commence l'opération de fabrication et consomme les ingrédients.
+Screen/&CraftingStartButtonTitle	Commencer la fabrication
+Screen/&CraftingTitle	Fabrication
+Screen/&CraftingUnknownRecipeDescription	Vous n'avez pas encore appris cette option de fabrication.
+Screen/&CutscenePauseDescription	Met la cinématique en pause (raccourci : retour).
+Screen/&CutscenePlayDescription	Reprend la lecture de la cinématique (raccourci : retour).
+Screen/&CutsceneShutdownDescription	Ferme cette fenêtre et reprend la lecture.
+Screen/&CutsceneStepbackDescription	Revient à l'étape narrative précédente et met la lecture en pause (raccourci : retour arrière).
+Screen/&DeathSavesFailuresTitle	Échecs
+Screen/&DeathSavesFormat	{0} est en train de mourir et doit effectuer un jet de sauvegarde contre la mort.
+Screen/&DeathSavesSuccessesTitle	Succès
+Screen/&DeathSavesTitle	Jets de sauvegarde contre la mort
+Screen/&DeathTimerFormat	{0} a succombé, mais peut se faire ranimer par un membre du groupe. 
+Screen/&DeathTimerLargeExpirationNumberDescription	10+
+Screen/&DeathTimerReviveOptionsFormat	Options de réanimation de {0} :
+Screen/&DeathTimerUnavailableDescription	(indisponible)
+Screen/&DeathTimerWithExpirationFormat	{0} a succombé, mais peut se faire ranimer par un membre du groupe.\n{1} expire dans {2} rounds.
+Screen/&DefaultSessionNameFormat	Partie de {0}
+Screen/&DescendDescription	Abaissez le plan horizontal d'une case.
+Screen/&DestinyQuestsListTitle	Quêtes de destinée
+Screen/&DestinyQuestTypeTitle	Quête de destinée
+Screen/&DeviceOverchargeDescription	Ajoute plus de charges à cet effet.
+Screen/&DisabledSlotAutoConfigDescription	Cet emplacement est désactivé puisque son contenu est déterminé automatiquement.
+Screen/&DisabledSlotNoneDescription	Cet emplacement est désactivé.
+Screen/&DisabledSlotTwoHandedEquipedDescription	Cet emplacement est désactivé car un objet à deux mains est équipé sur l'emplacement principal.
+Screen/&DismissCharacterDescription	Retirez ce personnage de votre équipe.
+Screen/&DismissCharacterTitle	Renvoyer
+Screen/&DomainSpellDescription	Ce sort de domaine est toujours considéré comme étant préparé.\nIl ne compte pas dans votre limite de préparation de sorts. 
+Screen/&DomainSpellTitle	Domaine
+Screen/&DoneTitle	Terminé
+Screen/&DropItemDescription	Jetez l'objet par terre.
+Screen/&DropItemTitle	Jeter
+Screen/&DungeonMasterTitle	[À supprimer] Maître de donjon
+Screen/&EffectFormRollFooterDamageTitle	Dégâts
+Screen/&EffectFormRollFooterHealingTitle	Guérison
+Screen/&EncounterAvoidButtonDescription	Éviter totalement le combat
+Screen/&EncounterAvoidButtonTitle	Se cacher
+Screen/&EncounterCombatAwareDescription	Des créatures hostiles se trouvent à proximité, mais {0} a réussi à les repérer. Qu'allez-vous faire ?
+Screen/&EncounterCombatSurprisedDescription	Un groupe de créatures hostiles vous a pris par surprise !
+Screen/&EncounterCombatTitle	Confrontation
+Screen/&EncounterEventTitle	Événement en jeu
+Screen/&EncounterFightButtonDescription	Commence la bataille contre le groupe ennemi.
+Screen/&EncounterFightButtonTitle	Combattre
+Screen/&EncounterHeroStatusAsleepDescription	{0} dort et ne peut pas agir jusqu'à son réveil.
+Screen/&EncounterHeroStatusAsleepTitle	Endormi
+Screen/&EncounterHeroStatusAwareDescription	{0} est au courant que des adversaires approchent.
+Screen/&EncounterHeroStatusAwareTitle	En alerte
+Screen/&EncounterHeroStatusDeadDescription	{0} a succombé à la fin du combat.
+Screen/&EncounterHeroStatusDeadTitle	Mort
+Screen/&EncounterHeroStatusHealthyDescription	{0} était en bonne santé à la fin du combat.
+Screen/&EncounterHeroStatusHealthyTitle	En bonne santé
+Screen/&EncounterHeroStatusSeverelyWoundedDescription	{0} a reçu une blessure grave à la fin du combat.
+Screen/&EncounterHeroStatusSeverelyWoundedTitle	Grièvement blessé
+Screen/&EncounterHeroStatusSpotterDescription	{0} a repéré des adversaires en approche.
+Screen/&EncounterHeroStatusSpotterTitle	De garde
+Screen/&EncounterHeroStatusSurprisedDescription	{0} se fait surprendre et ne peut pas agir durant le premier round du combat.
+Screen/&EncounterHeroStatusSurprisedTitle	Surpris
+Screen/&EncounterHeroStatusUnconsciousDescription	{0} a perdu connaissance à la fin du combat.
+Screen/&EncounterHeroStatusUnconsciousTitle	Inconscient
+Screen/&EncounterHeroStatusWoundedDescription	{0} a reçu une blessure à la fin du combat.
+Screen/&EncounterHeroStatusWoundedTitle	Blessé
+Screen/&EncounterProceedButtonDescription	Commencez l'interaction.
+Screen/&EncounterProceedButtonTitle	Continuer
+Screen/&EncounterSurpriseHeaderTitle	Résultats des jets de surprise
+Screen/&EncumbranceHeavyTitle	Important
+Screen/&EncumbranceLightTitle	Léger
+Screen/&EncumbranceNoneTitle	Aucun
+Screen/&EncumbranceTitle	Encombrement
+Screen/&EndTurnDescription	Terminez le tour de ce personnage et passez à celui de la prochaine créature.
+Screen/&EndTurnTitle	Finir le tour
+Screen/&EquipmentConfigurationSetupTitle	Faites glisser les objets ci-dessous pour changer leur configuration.
+Screen/&EquipmentTitle	Équipement
+Screen/&EthnicGroupSelectionTitle	Sélectionnez une l'origine.
+Screen/&ExamineDocumentDescription	Lisez ce document.
+Screen/&ExamineDocumentTitle	Lire
+Screen/&ExistingClassSelectionTitle	Sélectionnez une classe existante pour obtenir un niveau.
+Screen/&ExpertiseSuffix	(spécialiste)
+Screen/&ExpertSkillTooltipSuffix	Vous maîtrisez cette compétence comme un spécialiste (multiplie votre bonus de maîtrise par 2).
+Screen/&ExpertToolTypeTooltipSuffix	Vous maîtrisez ce type d'outil comme un spécialiste (multiplie votre bonus de maîtrise par 2).
+Screen/&ExplorationActionsTitle	Actions de personnage
+Screen/&FailedQuestsListTitle	Quêtes échouées
+Screen/&FeatAutoSelectButtonTitle	Choisir automatiquement
+Screen/&FeatBackButtonTitle	Revenir une étape en arrière
+Screen/&FeatureListingProficienciesTitle	Maîtrises
+Screen/&FocusCharacterDescription	Centrez la vue sur ce personnage.
+Screen/&GameContentButtonDescription	Afficher le document détaillant le contenu du jeu utilisant le DRS, et celui utilisant du contenu original.
+Screen/&GameContentButtonTitle	Contenu du jeu
+Screen/&GameMenuButtonDescription	Ouvrez le menu du jeu.
+Screen/&GameMenuTitle	Menu
+Screen/&GamePausedTitle	En pause
+Screen/&HitDiceItemStatusDeadTitle	Mort
+Screen/&HitDiceItemStatusFullHPTitle	Pv au maximum
+Screen/&HitDiceItemStatusOutofHDTitle	Vide
+Screen/&HitDiceItemStatusRollTitle	Jet
+Screen/&HitDiceItemStatusUnconsciousTitle	Inconscient
+Screen/&InBattleDescription	Votre groupe est au milieu d'un combat au tour par tour.
+Screen/&InBattleTitle	En combat
+Screen/&InspectDescription	Ouvre l'écran visualisation du personnage, à partir duquel vous pouvez accéder à l'inventaire, aux informations du personnage, aux maîtrises, aux sorts et à la fabrication de potions.
+Screen/&InspectInventoryDescription	Ouvrez l'onglet d'inventaire du personnage.
+Screen/&InspectInventoryTitle	Inventaire
+Screen/&InspectionGiveItemToCharacterDescription	Donnez cet objet à {0}.
+Screen/&InspectionSelectCharacterDescription	Sélectionnez ce personnage.
+Screen/&InspectTitle	Inspecter
+Screen/&InventoryCannotDropQuestItemDescription	Vous ne pouvez pas retirer un objet de quête de l'inventaire de votre groupe.
+Screen/&InventoryCannotLootAllDescription	Un ou plusieurs objets ne rentrent pas dans votre inventaire.
+Screen/&InventoryCannotSellQuestItemDescription	Vous ne pouvez pas vendre un objet de quête.
+Screen/&InventoryDescription	Ouvre l'écran inventaire du personnage, à partir duquel vous pouvez également accéder aux informations du personnage, aux maîtrises, aux sorts et à la fabrication de potions.
+Screen/&InventoryForceEquipDescription	Cet objet empêche d'équiper tout autre objet.
+Screen/&InventoryMaxWeightCapacityDescription	Vous ne pouvez pas transporter plus de poids.
+Screen/&InventorySlotAlwaysLockedDescription	Cet emplacement est verrouillé : vous ne pouvez rien équiper ou retirer de cet emplacement.
+Screen/&InventorySlotLockedInBattleDescription	Cet emplacement est verrouillé en combat.
+Screen/&InventoryTitle	Inventaire
+Screen/&JournalAdventureDescription	Affichez le journal d'aventure. Il contient tous les événements qui se sont déroulés pendant la campagne.
+Screen/&JournalAdventureTitle	<#F5B486>J</color>ournal d'<#F5B486>a</color>venture
+Screen/&JournalBattleOutcomeTitle	Victoire
+Screen/&JournalBattleTitle	Confrontation
+Screen/&JournalBattleVersusTitle	Contre
+Screen/&JournalBestiaryAttacksTitle	Attaques
+Screen/&JournalBestiaryBackToBestiaryTitle	Revenir au bestiaire
+Screen/&JournalBestiaryChallengeAndXPFormat	{0} ({1} PX)
+Screen/&JournalBestiaryChallengeDescription	Le niveau moyen requis pour que le groupe puisse se mesurer à l'une de ces créatures dans un combat équilibré.
+Screen/&JournalBestiaryDescription	Répertorie les adversaires affrontés et les connaissances emmagasinées.
+Screen/&JournalBestiaryDifficultyTitle	Difficulté
+Screen/&JournalBestiaryImmunitiesTitle	Immunités
+Screen/&JournalBestiaryKnowledgeTitle	Savoir
+Screen/&JournalBestiaryLanguagesTitle	Langues
+Screen/&JournalBestiaryLootOptionsTitle	Trésor
+Screen/&JournalBestiaryMonsterIndexFormat	Créature {0} sur {1}
+Screen/&JournalBestiaryNoneTitle	Aucun(e)
+Screen/&JournalBestiaryProficienciesTitle	Maîtrises
+Screen/&JournalBestiaryResistancesTitle	Résistances
+Screen/&JournalBestiarySavingThrowsTitle	Jets de sauvegarde
+Screen/&JournalBestiarySensesTitle	Sens
+Screen/&JournalBestiarySizeAndTypeFormat	{0} {1}
+Screen/&JournalBestiarySizeTitle	Taille
+Screen/&JournalBestiarySortAlphabeticalTitle	Ordre alphabétique
+Screen/&JournalBestiarySortChallengeRatingTitle	Difficulté du défi
+Screen/&JournalBestiarySortKnowledgeLevelTitle	Niveau de savoir
+Screen/&JournalBestiarySortOrderTitle	Ordre de tri
+Screen/&JournalBestiarySortSizeTitle	Taille
+Screen/&JournalBestiarySortUpdateDateTitle	Dernière mise à jour
+Screen/&JournalBestiaryStandardTitle	Classique
+Screen/&JournalBestiaryTitle	<#F5B486>B</color>estiaire
+Screen/&JournalBestiaryTotalUnlockedTitle	Déverrouillée(s)
+Screen/&JournalBestiaryUnknownDescription	Votre niveau de savoir est insuffisant pour accéder à ce type d'information.
+Screen/&JournalBestiaryUnknownTitle	Créature inconnue
+Screen/&JournalBestiaryVulnerabilitiesTitle	Vulnérabilités
+Screen/&JournalCampaignStartTitle	L'aventure commence !
+Screen/&JournalConversationTitle	Conversation :
+Screen/&JournalFactionIntroduction	Tout au long de vos aventures, vous rencontrerez de nombreuses personnes issues de différentes factions. Entretenir de bonnes relations avec une faction peut vous apporter de nombreux avantages. Remplissez des missions pour une faction ou promouvez ses intérêts afin d'améliorer vos relations avec elle.
+Screen/&JournalFactionProminentMembersTitle	Membres éminents
+Screen/&JournalFactionStatusDescription	Affiche la réputation du groupe auprès des différentes factions composant le Conseil des legs.
+Screen/&JournalFactionStatusTitle	<#F5B486>F</color>actions
+Screen/&JournalNewDayColorTitle	<#F5B486>J</color>our
+Screen/&JournalNewDayTitle	Jour
+Screen/&JournalQuestCompletedTitle	Quête terminée :
+Screen/&JournalQuestFailedTitle	Échec de la quête :
+Screen/&JournalQuestLogDescription	Répertorie les quêtes actives et terminées, ainsi que vos objectifs actuels.
+Screen/&JournalQuestLogTitle	<#F5B486>J</color>ournal des <#F5B486>q</color>uêtes
+Screen/&JournalQuestStartedTitle	Quête débutée :
+Screen/&JournalQuestUpdatedSummaryFormat	{0} (suite)
+Screen/&JournalQuestUpdatedTitle	Quête mise à jour :
+Screen/&JournalRelationDecreasedFormat	Les relations avec {1} se sont dégradées et sont désormais de {0}. 
+Screen/&JournalRelationDecreasedTitle	Relations dégradées :
+Screen/&JournalRelationIncreasedFormat	Les relations avec {1} se sont améliorées et sont désormais de {0}. 
+Screen/&JournalRelationIncreasedTitle	Relations améliorées :
+Screen/&JournalRelationStatusChangedFormat	Statut actuel : {0}
+Screen/&JournalTimecodeDayFormat	Jour {0}
+Screen/&JournalTimecodeHourMinute24Format	{0} h {1}
+Screen/&JournalTimecodeHourMinuteAMFormat	{0}:{1} AM
+Screen/&JournalTimecodeHourMinutePMFormat	{0}:{1} PM
+Screen/&JournalTitle	Journal du groupe
+Screen/&JournalTravelContinuedTitle	Voyage (suite)
+Screen/&JournalTravelTitle	Voyage
+Screen/&JournalTutorialDescription	Permet de revoir les informations du tutoriel affichées précédemment dans le jeu.
+Screen/&JournalTutorialForumsAddress	https://forums.solasta-game.com/
+Screen/&JournalTutorialForumsDescription	Consultez nos forums pour en apprendre plus sur Solasta.
+Screen/&JournalTutorialForumsTitle	Forums de Solasta
+Screen/&JournalTutorialSRDAddress	https://media.wizards.com/2016/downloads/DND/SRD-OGL_V5.1.pdf
+Screen/&JournalTutorialSRDDescription	Consultez les règles utilisées dans Solasta.
+Screen/&JournalTutorialSRDTitle	Document de référence du système
+Screen/&JournalTutorialTitle	<#F5B486>T</color>utoriel
+Screen/&JournalTutorialWikiAddress	https://forums.solasta-game.com/
+Screen/&JournalTutorialWikiDescription	Consultez le wiki dédié à Solasta pour en apprendre plus sur son univers et sur son contenu unique\n[Disponible bientôt].
+Screen/&JournalTutorialWikiTitle	Wiki dédié à Solasta
+Screen/&KnownCantripsTitle	Sorts mineurs connus
+Screen/&KnownSpellDescription	Ce sort est connu ou écrit dans un grimoire.
+Screen/&KnownSpellTitle	Connu
+Screen/&LegalAgreeDescription	En cliquant sur le bouton 'J'accepte', vous acceptez les termes mentionnés ci-dessus.
+Screen/&LegalAgreeTitle	J'accepte
+Screen/&LegalDisagreeDescription	En cliquant sur le bouton 'Je refuse', vous refusez les termes mentionnés ci-dessus. Vous ne pourrez donc pas jouer au jeu.
+Screen/&LegalDisagreeTitle	Je refuse
+Screen/&LegalProceedDescription	Passer à l'étape suivante
+Screen/&LegalProceedTitle	Continuer
+Screen/&LevelGainsTitle	Vos gains de niveau
+Screen/&LoadGameDescription	Sélectionnez et chargez une partie sauvegardée.
+Screen/&LoadGameTitle	Charger une partie
+Screen/&LocationIntroductionActiveQuestsFormat	Quêtes actives : {0}
+Screen/&LocationIntroductionHeaderTitle	Nouveau lieu
+Screen/&LongRestCompleteTitle	Repos long terminé
+Screen/&LongRestDescription	Prenez au moins huit heures pour manger, boire et vous reposer. Vous serez en pleine forme pour reprendre vos aventures.
+Screen/&LongRestTitle	Repos long
+Screen/&LootAllDescription	Pille l'ensemble des éléments d'un contenant pouvant être ajoutés à votre inventaire sans augmenter votre encombrement.
+Screen/&LootAllTitle	Tout piller
+Screen/&MagicalTagDescription	Cette attaque est considérée comme une attaque magique et peut blesser les créatures résistant aux dégâts non magiques.
+Screen/&MagicRevealedPluralFormat	De nouveaux objets ont montré des propriétés magiques sur {0}.
+Screen/&MagicRevealedSingleFormat	Un nouvel objet a montré des propriétés magiques sur {0}.
+Screen/&MainAttackTitle	Att. principale
+Screen/&MainQuestsListTitle	Quêtes principales
+Screen/&MainQuestTypeTitle	Quête principale
+Screen/&MapToggleDescription	Ouvrez la carte du lieu.
+Screen/&MerchantDetectMagicDescription	Détecte les auras magiques de tous les objets portés par les membres du groupe, mais ne révèle pas leurs fonctions.
+Screen/&MerchantDetectMagicTitle	Détection de la magie
+Screen/&MerchantFactionRelationEffectDescription	La réputation de votre groupe envers la faction marchande a un impact sur les rabais comme sur les majorations.
+Screen/&MerchantIdentifyDescription	Révèle toutes les informations d'un objet sélectionné, notamment ses propriétés magiques.
+Screen/&MerchantIdentifyTitle	Identification
+Screen/&NewClassSelectionTitle	Ou ajoutez une nouvelle classe à ce personnage.
+Screen/&NewGameScreenTitle	Nouvelle partie
+Screen/&NewRecipeTitle	Nouvelle option de fabrication !
+Screen/&NextClassFeaturesTitle	Prochains attributs de classe
+Screen/&NextPageTitle	Suivant
+Screen/&NextTutorialStepDescription	Afficher la prochaine étape du tutoriel.
+Screen/&NextTutorialStepTitle	Suivant
+Screen/&NoContainerTitle	L'emplacement 'dos' de ce personnage ne contient pas de sac à dos ou de contenant d'objets.
+Screen/&NoCraftingOptionsTitle	Votre groupe ne possède aucune option de fabrication pour le moment.
+Screen/&OpenGamingLicenseButtonDescription	Afficher l'intégralité de la Licence ludique libre et du document de référence du système
+Screen/&OpenGamingLicenseButtonTitle	Ouvrir la licence de jeu
+Screen/&OpenGamingLicenseDescription	Le texte suivant est la propriété de Wizards of the Coast, Inc., protégé par Copyright 2000 Wizards of the Coast, Inc ('Wizards'). Tous droits réservés. \n1. Définitions :\na) Par 'Contributeurs', nous entendons tous les titulaires de droits d'auteur et/ou de marques déposées ayant contribué au contenu ludique libre ;\nb) Par 'Matériaux dérivés', nous entendons tous le contenu protégé par des droits d'auteur, y compris les œuvres dérivées et les traductions (y compris celles en langage informatique), les portages, les modifications, les corrections, les ajouts, les extensions, les mises à jour, les améliorations, les compilations, les abréviations ou toute autre forme de contenu pouvant être recréé, transformé ou adapté ; c) Par 'Distribution', nous entendons toute reproduction, licence, prêt, location, vente, diffusion, exposition publique, transmission ou toute autre forme de distribution ; d) Par 'Contenu ludique libre', nous entendons les mécaniques du jeu, y compris les méthodes, les procédures, les processus et les tâches quotidiennes, dans la mesure où de tels contenus n'incarnent pas l'Identité du produit et constituent une amélioration au regard de l'état de la technique ainsi que tout contenu additionnel clairement identifié comme étant du Contenu ludique libre par le Contributeur, et signifie tout travail couvert par cette Licence, y compris les traductions et les travaux dérivés en vertu de la loi sur les droits d'auteur, mais exclut spécifiquement l'Identité du produit ; e) Par 'Identité du produit', nous entendons : tous les noms de produits et de gammes de produits, les logos et marques de fabrique incluant l'habillage commercial, les artefacts, les créatures, les personnages, les récits, la trame narrative, les intrigues, les éléments thématiques, les dialogues, les incidents, les langues, les œuvres d'art, les symboles, les designs, les représentations, les portraits, les formats, les poses, les concepts, les motifs et les graphismes, les représentations photographiques, visuelles ou audio, les noms et descriptions des personnages, les sorts, les enchantements, les personnalités, les équipes, les personnages, les ressemblances et les caractéristiques spéciales, les endroits, les lieux, les environnements, les créatures, les équipements, les caractéristiques ou effets magiques ou surnaturels, les logos, les symboles, ou les créations graphiques, et toute autre marque de fabrique ou marque déposée clairement identifiée comme faisant partie de l'Identité du produit par le titulaire de l'Identité du produit, et exclut donc spécifiquement le Contenu ludique libre ; f) Par 'Marque déposée', nous entendons les logos, les noms, les marques, les signes, les slogans et les designs utilisés par un Contributeur pour s'identifier lui-même, ses produits ou les produits associés du Contributeur ayant contribués au Contenu ludique libre ; g) Par 'Utiliser', 'Utilisé' ou 'Utilisation', nous entendons l'utilisation, la distribution, la copie, la correction, la rédaction, la modification, la traduction et toute autre création de Matériaux dérivés du Contenu ludique libre ; h) Par 'Vous' ou 'Votre', nous entendons l'acceptation aux termes de cet accord.\n2. La Licence : cette Licence s'applique à tout Contenu ludique libre contenant une notification indiquant que ce Contenu ludique libre ne peut être Utilisé que selon les termes de cette Licence. Vous devez accepter les termes d'une telle notification pour tous les Contenus ludiques libres que vous Utilisez. Aucun terme ne peut être ajouté ou retiré de cette Licence, sauf indications contraires dans la Licence. Aucun autre terme ou condition ne peut être appliqué à aucun Contenu ludique libre distribué sous cette Licence.\n3. Offre et acceptation : en utilisant le Contenu ludique libre, vous confirmez votre acceptation des termes de cette Licence. \n4. Octroi de licence : sous réserve de votre acceptation des termes et conditions de cette Licence, les Contributeurs vous accordent une licence permanente, mondiale, libre de droits et non exclusive d'utilisation de ce Contenu ludique libre.\n5. Représentation de l'autorité de contribution : si Vous contribuez au contenu original en tant Contenu ludique libre, Vous déclarez que Vos contributions représentent Votre création originale et/ou que Vous avez les droits suffisants pour accorder les droits conférés par la présente Licence. \n6. Notice de droit d'auteur : Vous devez mettre à jour la section NOTICE DE DROIT D'AUTEUR de la présente Licence pour inclure le texte exact de cette notice pour tout Contenu ludique libre que Vous copiez, modifiez ou distribuez. Vous devez également y ajouter le titre, la date des droits d'auteur et le nom du titulaire de ces droits d'auteur pour tout Contenu ludique libre que vous distribuez.\n7. Utilisation de l'Identité du produit : Vous vous engagez à ne pas Utiliser l'Identité du produit, y compris comme indication de compatibilité, sauf si son utilisation est expressément autorisée selon un autre accord indépendant, avec le titulaire de chaque élément de l'Identité du produit. Vous acceptez de ne pas indiquer la compatibilité ou la co-adaptabilité avec toute marque de fabrique ou marque déposée conjointement avec une œuvre contenant du Contenu ludique libre, sauf si son indication est expressément autorisée selon un autre accord indépendant, avec le titulaire d'une telle marque de fabrique ou marque déposée. L'utilisation de toute Identité du produit dans le Contenu ludique libre ne constitue pas une remise en cause du titulaire de l'Identité du produit. Le titulaire de toute Identité du produit utilisée dans le Contenu ludique libre conserve tous les droits, titres et intérêts liés à l'Identité du produit.\n8. Identification : Si vous distribuez du Contenu ludique libre, Vous devez clairement indiquer quelles parties de l'œuvre que vous distribuez sont du Contenu ludique libre.\n9. Mise à jour de la licence : Wizards ou ses agents désignés peuvent publier des versions mises à jour de cette Licence. Vous pouvez utiliser toute version autorisée de cette licence pour copier, modifier et distribuer tout Contenu ludique libre distribué sous toute version de cette Licence.\n10. Copie de la Licence : vous DEVEZ inclure une copie de cette Licence avec toutes les copies du Contenu ludique libre que vous distribuez. \n11. Utilisation des crédits des contributeurs : Vous ne pouvez pas commercialiser ou faire de la publicité pour le Contenu ludique libre en utilisant le nom d'un Contributeur, sauf si vous avez la permission écrite du Contributeur pour le faire.\n12. Incapacité à se conformer : s'il Vous est impossible de vous conformer à l'un des termes de la présente Licence en ce qui concerne tout ou partie du Contenu ludique libre en raison d'une loi, d'une ordonnance juridique, ou d'une réglementation gouvernementale, Vous ne pouvez Utiliser aucun Contenu ludique libre affecté. \n13. Résiliation : la présente Licence sera automatiquement résiliée si Vous ne vous conformez pas à toutes les conditions présentes et ne remédiez pas à cette violation dans les 30 jours suivant la date à laquelle vous en avez eu connaissance. Toutes les sous-licences resteront effectives après la résiliation de la présente Licence.\n14. Correction : si une disposition de la présente Licence est jugée inapplicable, cette disposition ne sera supprimée que dans la mesure nécessaire pour la rendre applicable.\n15. NOTICE DE DROIT D'AUTEUR Licence ludique libre v 1.0a Copyright 2000, Wizards of the Coast, LLC. Document de référence du système 5.1 Copyright 2016, Wizards of the Coast, Inc. ; Auteurs : Mike Mearls, Jeremy Crawford, Chris Perkins, Rodney Thompson, Peter Lee, James Wyatt, Robert J. Schwalb, Bruce R. Cordell, Chris Sims, et Steve Townshend; Basée sur un contenu original de E. Gary Gygax et Dave Arneson. \nFIN DE LA LICENCE
+Screen/&OpenGamingLicenseTitle	OUVRIR LA LICENCE DE JEU version 1.0a
+Screen/&OpentRestButtonDescription	Prendre un repos court.
+Screen/&ParticipantNameFormat	Joueur : {0}
+Screen/&ParticipantsTitle	Participants
+Screen/&PartyJournalButtonDescription	Ouvre l'écran journal, à partir duquel vous pouvez accéder à votre journal d'aventure, à votre journal des quêtes, à vos relations avec les différentes factions, aux entrées du bestiaire, et à d'autres informations relatives à la progression de votre groupe.
+Screen/&PartyJournalButtonTitle	Journal
+Screen/&PassTitle	Passer
+Screen/&PauseDescription	Interrompt le cours du temps.
+Screen/&PauseTitle	Pause
+Screen/&PersonalityHeaderTitle	Personnalité
+Screen/&PersonalityValueFormat	Score de personnalité de '{0}' : {1}.
+Screen/&PlanarToggleDescription	Afficher/masquer le plan horizontal pour sélectionner la destination du mouvement.
+Screen/&PlayDescription	Reprend le cours du temps.
+Screen/&PlayTitle	Jouer
+Screen/&PoolPointsToSpendPluralTitle	Points à assigner : {0}/{1}
+Screen/&PoolPointsToSpendSingleTitle	Point à assigner : {0}/{1}
+Screen/&PowerRemainingHealingPoolDescription	Votre réserve de points de guérison restants.
+Screen/&PowerUsedAllDescription	Vous avez épuisé toutes les utilisations de ce pouvoir.
+Screen/&PowerUsedNoneDescription	Vous n'avez pas utilisé ce pouvoir.
+Screen/&PowerUsedSomeDescription	Vous avez dépensé {0} utilisation(s) de ce pouvoir.
+Screen/&PrepareAutoDescription	Prépare automatiquement des sorts en fonction de leurs pertinences globales.
+Screen/&PrepareAutoTitle	Préparation automatique
+Screen/&PrepareClearDescription	Retire tous les sorts préparés.
+Screen/&PrepareClearTitle	Retirer
+Screen/&PreparedSpellDescription	Ce sort a été préparé et peut être lancé en utilisant un emplacement de sort.
+Screen/&PreparedSpellTitle	Préparé
+Screen/&PreparePanelDescription	Action possible une fois par repos long.
+Screen/&PreparePanelInstruction	Sélectionnez {0} sorts à préparer.
+Screen/&PreparePanelTitle	Préparation de sorts
+Screen/&PrepareRevertDescription	Revenez aux sorts qui étaient préparés avant d'ouvrir cette fenêtre.
+Screen/&PrepareRevertTitle	Retour
+Screen/&PrepareSpellsDescription	Sélectionnez un ensemble différent de sorts préparés.
+Screen/&PrepareSpellsTitle	Préparation
+Screen/&PrepareValidateDescription	Validez les sorts préparés que vous avez sélectionnés.
+Screen/&PrepareValidateTitle	Valider
+Screen/&PreviousPageTitle	Précédent
+Screen/&PreviousTutorialStepDescription	Afficher les instructions précédentes du tutoriel.
+Screen/&PreviousTutorialStepTitle	Précédent
+Screen/&ProficienciesTitle	Maîtrises
+Screen/&ProficiencyArmorCategoryDescription	Vous connaissez bien cette catégorie d'armure et pouvez donc vous en équiper.
+Screen/&ProficiencyArmorTypeDescription	Vous connaissez bien ce type d'armure spécifique et pouvez donc vous en équiper.
+Screen/&ProficiencyBonusTitle	Bonus\nde maîtrise
+Screen/&ProficiencyLanguageDescription	Vous parlez bien cette langue.
+Screen/&ProficiencyMarkerDoubleSkillDescription	Vous êtes spécialiste (double maîtrise) des jets de compétences {0} ({1}).
+Screen/&ProficiencyMarkerDoubleToolDescription	Vous êtes spécialiste (double maîtrise) de l'utilisation de ce type d'outil.
+Screen/&ProficiencyMarkerSavingThrowDescription	Vous maîtrisez les jets de sauvegarde {0}.
+Screen/&ProficiencyMarkerSingleSkillDescription	Vous maîtrisez les jets de compétences {0} ({1}).
+Screen/&ProficiencyMarkerSingleToolDescription	Vous maîtrisez l'utilisation de ce type d'outil.
+Screen/&ProficiencyToggleFeatTitle	Dons
+Screen/&ProficiencyToggleLanguageTitle	Langues
+Screen/&ProficiencyToggleSavingThrowTitle	Jets de sauvegarde
+Screen/&ProficiencyToggleSkillTitle	Compétences
+Screen/&ProficiencyToggleToolTitle	Outils
+Screen/&ProficiencyToggleWeaponAndArmorTitle	Armes et armures
+Screen/&ProficiencyWeaponCategoryDescription	Vous connaissez bien cette catégorie d'armes et gagnez donc un bonus de maîtrise aux jets d'attaque.
+Screen/&ProficiencyWeaponTypeDescription	Vous connaissez bien ce type d'armes spécifiques et gagnez donc un bonus de maîtrise aux jets d'attaque.
+Screen/&PurchaseClearAllDescription	Effacez la liste de tous les objets achetés.
+Screen/&PurchaseOrderTitle	Vous achetez
+Screen/&QuestChoiceStatusTitle	Choix :
+Screen/&QuestCompletedDescription	Quête terminée
+Screen/&QuestFailedDescription	Échec de la quête
+Screen/&QuestLogTitle	Quêtes
+Screen/&QuestObjectivesTitle	Objectifs
+Screen/&QuestOptionalStatusTitle	(option)
+Screen/&QuitGameDescription	Quittez la partie en cours et retournez au menu principal.
+Screen/&QuitGameTitle	Quitter le jeu
+Screen/&QuitLocationDescription	Quittez l'emplacement actuel et retournez au menu de campagne.
+Screen/&QuitLocationTitle	Quitter l'emplacement
+Screen/&RaceHeaderTitle	Ascendance
+Screen/&RacialFeaturesTitle	Attributs d'ascendance
+Screen/&ReadyCantripAttackDescription	Utilisez un sort mineur d'attaque sur le premier adversaire à portée. Les attaques avec un désavantage ne déclencheront pas cette réaction.
+Screen/&ReadyCantripAttackTitle	Sort mineur
+Screen/&ReadyMeleeAttackDescription	Utilisez votre arme équipée pour infliger une attaque au corps à corps au premier adversaire à portée.
+Screen/&ReadyMeleeAttackTitle	Corps à corps
+Screen/&ReadyOptionsTitle	Options disponibles
+Screen/&ReadyRangedAttackDescription	Utilisez votre arme équipée pour infliger une attaque au premier adversaire à portée. Les attaques avec un désavantage ne déclencheront pas cette réaction.
+Screen/&ReadyRangedAttackTitle	Attaque à distance
+Screen/&ReadyToLevelUpLongRestDescription	Ce personnage est prêt à obtenir un niveau. Prenez un repos long pour commencer la séquence d'obtention de niveau.
+Screen/&RemainingPointsFormat	{0} points restants
+Screen/&RepertoireHeaderFormat	Sorts de {0}
+Screen/&RepertoirePreparedSpellsDescription	Le nombre de sorts que vous avez préparé en fonction de vos emplacements de sorts.
+Screen/&RepertoirePreparedSpellsTitle	Sorts préparés
+Screen/&RepertoireSpellsTitle	Sorts
+Screen/&RequiredFactionInvalidTitle	Relation avec la faction
+Screen/&RequiredFactionStatusFormat	Votre relation auprès de la faction {0} est {1}. Vous avez besoin de {2} pour acheter cet objet.
+Screen/&RequiresCharacterLevelDescription	Niveau du personnage requis : {0}
+Screen/&RequiresCharacterLevelTitle	({0})
+Screen/&RequiresClassLevelDescription	Niveau de classe requis : {0}
+Screen/&RequiresClassLevelTitle	({0})
+Screen/&RestingTitle	Repos en cours…
+Screen/&RestModuleHitDiceHeaderTitle	Récupération de points de vie
+Screen/&RestModuleHitDiceInstructionAfterRestLongRestTitle	Vous avez récupéré l'intégralité de vos points de vie et la moitié de vos dés de vie maximum.
+Screen/&RestModuleHitDiceInstructionAfterRestShortRestTitle	Dépensez des dés de vie pour récupérer des points de vie.
+Screen/&RestModuleHitDiceInstructionBeforeRestLongRestTitle	En fin de repos vous regagnez tous vos PV et la moitié de vos DV.
+Screen/&RestModuleHitDiceInstructionBeforeRestShortRestTitle	À la fin du repos, dépensez des dés de vie pour récupérer les points de vie manquants.
+Screen/&RestModulePostRestActivitiesAfterDescription	Sélectionnez des actions.
+Screen/&RestModulePostRestActivitiesBeforeDescription	Les actions de votre personnage à la fin du repos.
+Screen/&RestModulePostRestActivitiesHeaderTitle	Actions après le repos
+Screen/&RestModuleRecoveredFeaturesHeaderTitle	Récupération d'attributs et de caractéristiques
+Screen/&RestModuleRecoveredFeaturesInstructionAfterRestTitle	Vous avez récupéré les attributs suivants :
+Screen/&RestModuleRecoveredFeaturesInstructionBeforeRestTitle	Vous récupérerez les attributs suivants à la fin du repos :
+Screen/&RestModuleRecoveredFeaturesNoneTitle	Aucun
+Screen/&ResumeDescription	Fermez cette fenêtre et reprenez la partie.
+Screen/&ResumeTitle	Reprendre
+Screen/&ReviveCastSpellFormat	Lancez {0}
+Screen/&ReviveItemSpellSubtitlePluralFormat	({0} {1} emplacements restants)
+Screen/&ReviveItemSpellSubtitleSingleFormat	({0} {1} emplacement restant)
+Screen/&ReviveItemSubtitlePluralFormat	({0} utilisations restantes)
+Screen/&ReviveItemSubtitleSingleFormat	({0} utilisation restante)
+Screen/&ReviveUpcastSubtitleDescription	Additionner : 
+Screen/&ReviveUsePowerFormat	Utiliser {0}
+Screen/&RitualsListTitle	Rituels
+Screen/&RitualSpellDescription	Ce sort rituel peut être lancé sans dépenser un emplacement de sort. Dans ce cas, le lancement de ce sort prendra 10 minutes.
+Screen/&RollHitDiceButtonDescription	Lance un dé de vie. Le résultat de ce lancer sera additionné à votre bonus de Constitution pour augmenter vos points de vie.
+Screen/&RollHitDiceButtonTitle	Jet
+Screen/&RotateCCWDescription	Faites tourner la caméra dans le sens contraire des aiguilles d'une montre.
+Screen/&RotateCWDescription	Faites tourner la caméra dans le sens des aiguilles d'une montre.
+Screen/&RoundStartTitle	Round {0}
+Screen/&SaleClearAllDescription	Effacez la liste de tous les objets vendus.
+Screen/&SaleOrderTitle	Vous vendez
+Screen/&SaveGameDescription	Sauvegardez la partie en cours.
+Screen/&SaveGameTitle	Sauvegarder
+Screen/&ScoreAutoAssignButtonTitle	Assigner automatiquement
+Screen/&ScoreMethodFreeEditionDescription	Utilisez cette option pour recréer l'un de vos personnages préférés de jeu de rôle sur table. Alors, pas de triche !
+Screen/&ScoreMethodFreeEditionTitle	Choix libre
+Screen/&ScoreMethodPointSystemDescription	Définissez vos caractéristiques en utilisant un système de points. Au départ, vos valeurs de caractéristiques sont toutes fixées à 8. Vous n'aurez besoin que d'un point pour améliorer ces valeurs à la valeur supérieure, et ce jusqu'à la valeur 13. Vous aurez besoin de deux points supplémentaires pour passer à 14 et de deux autres pour passer à 15, la valeur maximale.
+Screen/&ScoreMethodPointSystemTitle	Système de points
+Screen/&ScoreMethodPredeterminedDescription	Vos valeurs de caractéristiques sont un ensemble de valeurs prédéterminées : 15, 14, 13, 12, 10, 8
+Screen/&ScoreMethodPredeterminedTitle	Prédéterminées
+Screen/&ScoreMethodRoll4d6Description	Lancez 4d6 pour chacune de vos valeurs de caractéristiques et additionnez les trois meilleurs résultats.
+Screen/&ScoreMethodRoll4d6Title	Jet de 4d6
+Screen/&ScoreModifierDescription	Le bonus appliqué aux actions et aux effets en fonction de cette valeur de caractéristique.
+Screen/&ScoreOptimizeForTitle	Optimiser :
+Screen/&ScoreOptimizeNoneDescription	Vous n'avez pas sélectionné de classe à optimiser.
+Screen/&ScoreOptimizeNoneTitle	Aucune classe sélectionnée
+Screen/&ScoreRerollButtonTitle	Relancer
+Screen/&ScoreResetButtonTitle	Réinitialiser
+Screen/&ScribeScrollDescription	Copiez le sort dans un de vos grimoires.
+Screen/&ScribeScrollTitle	Retranscrire
+Screen/&SearchByCastingTimeTitle	Temps lancement
+Screen/&SearchByDamageTypeTitle	Type de dégâts
+Screen/&SearchByNameTitle	Rechercher par nom
+Screen/&SearchBySchoolTitle	École
+Screen/&SearchByTagsTitle	Propriétés
+Screen/&SecondaryQuestsListTitle	Quêtes secondaires
+Screen/&SecondaryQuestTypeTitle	Quête secondaire
+Screen/&SelectAllCharactersDescription	Sélectionnez tous les personnages du groupe.
+Screen/&SelectionNoneTitle	Tous
+Screen/&SessionInviteDescription	Invitez un membre de votre liste d'amis à rejoindre la partie.
+Screen/&SessionInviteTitle	Inviter des amis
+Screen/&SessionModePrivateDescription	Cette session multijoueur n'est pas visible par les autres joueurs. Cependant, vous pouvez quand même inviter vos amis à la rejoindre.
+Screen/&SessionModePrivateTitle	Privée
+Screen/&SessionModePublicDescription	Cette session multijoueur est visible par tous les autres joueurs.
+Screen/&SessionModePublicTitle	Publique
+Screen/&SessionModeSingleDescription	En solo.
+Screen/&SessionModeSingleTitle	Solo
+Screen/&SessionModeTitle	Mode
+Screen/&SessionNameTitle	Nom
+Screen/&SessionTitle	Session de jeu
+Screen/&ShortRestCompleteTitle	Repos court terminé
+Screen/&ShortRestDescription	Prenez une heure de repos pour récupérer certains pouvoirs et des points de vie.
+Screen/&ShortRestTitle	Repos court
+Screen/&ShoveModeKnockProneDescription	Faites tomber une créature à terre.
+Screen/&ShoveModeKnockProneTitle	Faire tomber
+Screen/&ShoveModePushAwayDescription	Poussez une créature face à vous.
+Screen/&ShoveModePushAwayTitle	Repousser
+Screen/&ShoveOptionsTitle	Options pour pousser
+Screen/&SkipButtonDescription	Passez jusqu'au prochain choix de dialogues, si cette séquence en contient.
+Screen/&SkipButtonTitle	Passer
+Screen/&SpellAdvancementCloseDescription	Fermez l'option de progression des sorts.
+Screen/&SpellAdvancementOpenDescription	Lancez ce sort avec un emplacement de sort de niveau supérieur.
+Screen/&SpellAttackBonusDescription	Le bonus ajouté aux jets d'attaque avec un sort.
+Screen/&SpellAttackBonusTitle	Attaque magique
+Screen/&SpellAutoSelectButtonTitle	Choisir automatiquement
+Screen/&SpellcastingAbilityDescription	Cette valeur de caractéristique est utilisée pour lancer vos sorts et détermine leurs efficacités.
+Screen/&SpellcastingAbilityTitle	Caractéristique magie
+Screen/&SpellcastingClassTitle	Classe de lanceur de sort
+Screen/&SpellLevelCantripShortTitle	S Min
+Screen/&SpellResetButtonTitle	Réinitialiser
+Screen/&SpellSaveDCDescription	Le degré de difficulté de vos sorts. Plus ce DD est élevé, plus le jet de sauvegarde de la cible sera difficile.
+Screen/&SpellSaveDCTitle	DD Sauvegarde
+Screen/&SpellsGroupCantripsTitle	À volonté
+Screen/&SpellsGroupSlotsTitle	Emplacements
+Screen/&SpellSlotInfiniteDescription	Ce type de sort peut être utilisé indéfiniment.
+Screen/&SpellSlotsRecoveredDescription	Tous les emplacements de sorts ont été récupérés.
+Screen/&SpellSlotsRecoveredTitle	Emplacements de sorts
+Screen/&SpellSlotsUsedAllDescription	Vous avez dépensé tous les emplacements de sorts de ce niveau.
+Screen/&SpellSlotsUsedAllLevelsDescription	Vous n'avez aucun emplacement disponible pour lancer ce sort.
+Screen/&SpellSlotsUsedNoneDescription	Vous n'avez dépensé aucun emplacement de sort de ce niveau.
+Screen/&SpellSlotsUsedSomeDescription	Vous avez dépensé {0} emplacement(s) de sort(s) de ce niveau.
+Screen/&StageFinishButtonCreationDescription	Terminez le processus de création du personnage.
+Screen/&StageFinishButtonLevelUpDescription	Terminez le processus d'obtention de niveau du personnage.
+Screen/&StageFinishButtonTitle	Terminer
+Screen/&StageNextButtonCreationDescription	Passez à l'étape suivante de création du personnage.
+Screen/&StageNextButtonLevelUpDescription	Passez à l'étape suivante d'obtention d'un niveau du personnage.
+Screen/&StageNextButtonTitle	Suivant
+Screen/&StagePreviousButtonCreationDescription	Retournez à l'étape précédente de création du personnage.
+Screen/&StagePreviousButtonLevelUpDescription	Retournez à l'étape précédente d'obtention de niveau du personnage.
+Screen/&StagePreviousButtonTitle	Précédent
+Screen/&StartGameButtonDescription	Lancez la partie avec les paramètres sélectionnés.
+Screen/&StartGameButtonTitle	Jouer
+Screen/&StartLongRestTitle	Activer le repos long
+Screen/&StartShortRestTitle	Activer le repos court
+Screen/&SubclassFeaturesTitle	Attributs
+Screen/&SubclassPreviewFormat	Afficher les choix de sous-classes octroyés au niveau {0}.
+Screen/&SubclassPreviewHeaderFormat	Ces sous-classes sont octroyées au niveau {0}.
+Screen/&SubRaceSelectionTitle	Sélection d'une lignée
+Screen/&SubRacialFeaturesTitle	Attributs de lignée
+Screen/&SwitchConfiguration0Title	Principale
+Screen/&SwitchConfiguration1Title	Secondaire
+Screen/&SwitchConfiguration2Title	Source de lumière
+Screen/&SwitchConfigurationDescription	Faites passer vos objets équipés en configuration : {0}.
+Screen/&SwitchConfigurationDualItemFormat	{0} + {1}
+Screen/&SwitchConfigurationNoItemFormat	aucun objet équipé
+Screen/&ToolTypeInspectionTitle	Maîtrise des outils
+Screen/&ToolTypeSelectionTitle	Sélection des outils
+Screen/&TotalBalanceClearAllDescription	Efface l'ensemble de la transaction.
+Screen/&TotalBalanceClearAllTitle	Tout effacer
+Screen/&TotalBalanceConcludeDescription	Terminez la transaction et payez ou récupérez les montants correspondants.
+Screen/&TotalBalanceConcludeTitle	Finaliser
+Screen/&TotalBalanceCostTitle	Vous payez :
+Screen/&TotalBalanceGainTitle	Vous obtenez :
+Screen/&TotalBalanceTitle	Total
+Screen/&TotalCostTitle	Coût total
+Screen/&TotalRevenueTitle	Recettes totales
+Screen/&TrackedQuestDescription	Cette quête est suivie actuellement et est affichée sur l'écran principal du jeu. 
+Screen/&TrackQuestDescription	Suivez ou arrêtez de suivre cette quête. Consultez la progression de la quête sur l'écran principal.
+Screen/&TrackQuestTitle	Suivre la quête
+Screen/&TrainedSkillTooltipSuffix	Vous êtes entraîné à utiliser cette compétence (ajoute votre bonus de maîtrise).
+Screen/&TrainedToolTypeTooltipSuffix	Vous êtes entraîné à utiliser ce type d'outils (ajoute votre bonus de maîtrise).
+Screen/&TravelFatigueDescription	Le groupe accumule de la fatigue au cours de ses voyages. Un repos long lui permettra de récupérer des points de fatigue.
+Screen/&TravelFatigueTitle	Fatigue
+Screen/&TravelFoodDescription	La quantité de nourriture transportée par votre groupe. Vous avez besoin d'une unité de nourriture par personnage par repos long.
+Screen/&TravelFoodMultipleFormat	{0} unités
+Screen/&TravelFoodSingleFormat	{0} unité
+Screen/&TravelFoodTitle	Nourriture
+Screen/&TravelInterruptDescription	Interrompt le voyage en cours.
+Screen/&TravelInterruptTitle	Interrompre
+Screen/&TravelJournalDescription	Ouvre le journal de voyage pour afficher les événements s'étant déroulés au cours du voyage.
+Screen/&TravelJournalTitle	Journal de voyage
+Screen/&TravelResumeDescription	Reprend le voyage en cours.
+Screen/&TravelResumeTitle	Reprendre
+Screen/&TreasuryPoolDescription	
+Screen/&TreasuryPoolTitle	
+Screen/&TreasuryShareDescription	
+Screen/&TreasuryShareTitle	
+Screen/&TreasuryTitle	Richesse personnelle
+Screen/&TutorialTitleFormat	Tutoriel : {0}
+Screen/&TutorialUnderstoodDescription	Fermez cette fenêtre si vous avez compris.
+Screen/&TutorialUnderstoodTitle	Compris
+Screen/&UnlockedClassFeaturesTitle	Attributs de classe déverrouillés
+Screen/&UntrackQuestTitle	Ne pas suivre
+Screen/&UsablePowerPermanentTitle	Ce pouvoir est toujours activé.
+Screen/&UsablePowerPermanentUnlessIncapacitatedTitle	Ce pouvoir est toujours activé, sauf si la créature est neutralisée.
+Screen/&UsablePowersTitle	Pouvoirs\nutilisables
+Screen/&WorldMapTitle	Carte du monde
+Screen/&ReorderContainerButtonDescription	Réordonner le contenu de l'inventaire
+Screen/&FastTravelInterruptedDescription	Voyage interrompu
+Screen/&DialogChoiceBackgroundDescription	L'historique de ce personnage permet une réponse spécifique
+Screen/&GamePausedTopTitle	Jeu en pause
+Screen/&GamePausedTopDescription	Appuyez sur le bouton Jouer ou sur la touche Espace pour reprendre.
+Screen/&GameSettingsTitle	Paramètres du jeu
+Screen/&GroupLeaderDescription	Plus utilisé
+Screen/&JournalBestiaryChallengeTitle	Défi
+Screen/&InventoryMagicalUnidentifiedDescription	Cet objet possède des propriétés magiques nécessitant une identification (sort ou marchand) pour être entièrement révélées
+Screen/&MerchantDetectMagicNothingNewDescription	Aucun nouvel objet magique n'a été détecté
+Screen/&ReviewGameDescription	Merci de jouer à Solasta ! Cliquez ici pour ouvrir l'interface et nous laisser un avis. Merci beaucoup !
+Screen/&ReviewGameTitle	Évaluer le jeu
+Screen/&DashModeDescriptionMainLabelTitle	Vous bénéficiez désormais d'une plus grande portée de déplacement, au détriment de votre action principale. Si vous cliquez dans votre portée normale, l'action Foncer ne sera pas utilisée et vous conserverez votre action principale.
+Screen/&DashModeDescriptionBonusLabelTitle	Vous bénéficiez désormais d'une moins grande portée de déplacement, au détriment de votre action bonus. Si vous cliquez dans votre portée normale, l'action Foncer ne sera pas utilisée et vous conserverez votre action bonus.
+Screen/&DashModeTitle	Foncer
+Screen/&DataCorruptionTitle	Erreur : Échec du chargement
+Screen/&DataCorruptionDescription	Le jeu n'a pas pu se lancer correctement. Veuillez vérifier l'intégrité de vos fichiers de jeu.\nPlus d'informations sur nos forums :
+Screen/&AutoLootInstructionDoubleClickDescription	Cliquez deux fois sur un objet pour le prendre automatiquement.
+Screen/&ProximityLootInstructionDescription	Cliquez sur un objet pour le placer dans l'inventaire du personnage sélectionné.
+Screen/&SplitItemTitle	Partage
+Screen/&SplitItemDescription	Sélectionnez plusieurs unités pour cette pile d'objets.
+Screen/&PartyTreasuryTitle	Richesse du groupe
+Screen/&ProximityLootHeaderFormat	Pille les objets au sol dans un rayon de {0} cases.
+Screen/&ReorderContainerButtonTitle	Réordonner
+Screen/&PartyTeleportationDescription	Sélectionnez une destination pour téléporter immédiatement votre groupe.
+Screen/&PartyTeleportationTitle	Téléportation du groupe
+Screen/&TeleportTitle	Téléporter
+Screen/&NoScavengerBusinessCurrentlyTitle	Aucune affaire en cours avec les ferrailleurs.
+Screen/&EnemyTurnTitle	Tour de l'adversaire
+Screen/&BreakFreeModeChoiceTitle	Choisissez comment vous libérer :
+Screen/&BreakFreeModeAthleticsFormat	FOR (Athlétisme) {0}
+Screen/&BreakFreeModeAthleticsDescription	Lancez un jet de caractéristique FOR (Athlétisme) pour vous libérer.
+Screen/&BreakFreeModeAcrobaticsFormat	DEX (Acrobaties) {0}
+Screen/&BreakFreeModeAcrobaticsDescription	Lancez un jet de caractéristique DEX (Acrobaties) pour vous libérer.
+Screen/&ColorCalibrationInstructionsDescription	Ajustez la luminosité et le contraste jusqu'à ce que les deux lignes des cinq sceaux soient visibles, et que le sceau le plus à gauche soit à peine discernable.
+Screen/&LegendaryActionTitle	Action légendaire
+Screen/&EditorLocationVisualMoodTitle	Ambiance visuelle
+Screen/&JournalBestiaryPowersTitle	Attributs spéciaux
+Screen/&CraftDescription	Ouvrez l'interface de fabrication
+Screen/&CraftTitle	Fabrication
+Screen/&AttunementRemoveDescription	Retirez le lien de cet objet pour que le personnage puisse se lier avec d'autres objets
+Screen/&NewQuestContentDescription	Le journal de quête a été mis à jour
+Screen/&NewBestiaryContentDescription	Le bestiaire a été mis à jour
+Screen/&InventoryCannotDropPersonalSpellbookDescription	Vous ne pouvez pas retirer un grimoire personnel de l'inventaire de votre groupe.
+Screen/&InventoryCannotTransferPersonalSpellbookDescription	Vous ne pouvez pas transférer un grimoire personnel à un autre personnage.
+Screen/&InventoryCannotSellPersonalSpellbookDescription	Vous ne pouvez pas vendre votre grimoire personnel.
+Screen/&PreferredCantripNoneTitle	Aucun
+Screen/&PreferredCantripNoneDescription	Aucun sort mineur sélectionné. Le premier sort mineur d'attaque valide sera par conséquent utilisé
+Screen/&PreferredCantripTitle	Sort mineur favori
+Screen/&PreferredCantripDescription	Permet de sélectionner votre sort mineur d'attaque favori pour l'action Sort mineur prêt. Si ce sort mineur ne peut pas être utilisé au moment où cette action est déclenchée (hors de portée, par exemple), un autre sort mineur valide sera alors sélectionné
+Screen/&AbortTravelButtonDescription	Au lieu de voyager en direction de la toute dernière destination, le groupe s'arrêtera au prochain lieu afin que vous puissiez prévoir un itinéraire alternatif
+Screen/&EditorSaveTitle	Sauvegarde
+Screen/&EditorUndoTitle	Restaurer
+Screen/&EditorCategoryLocationTitle	
+Screen/&EditorCategoryRoomDescription	Plans de salle disponibles
+Screen/&EditorCategoryPropDescription	Plans de décors disponibles
+Screen/&EditorCategoryGadgetDescription	Plans de gadget disponibles
+Screen/&EditorLocationTitleTitle	Titre
+Screen/&EditorLocationDescriptionTitle	Description
+Screen/&EditorLocationAuthorTitle	Auteur
+Screen/&EditorLocationMinCharLevelTitle	Niveau min. du personnage
+Screen/&EditorLocationMaxCharLevelTitle	Niveau max. du personnage
+Screen/&EditorLocationEnvironmentTitle	Environnement
+Screen/&EditorLocationSizeTitle	Taille
+Screen/&EditorLocationSizeSmallTitle	Petite
+Screen/&EditorLocationSizeMediumTitle	Moyenne
+Screen/&EditorLocationSizeLargeTitle	Grande
+Screen/&EditorLocationMusicTitle	Musique d'ambiance
+Screen/&EditorCaptionXTitle	X
+Screen/&EditorCaptionYTitle	Y
+Screen/&EditorCaptionOrientationTitle	Orientation
+Screen/&EditorCaptionCancelButtonTitle	Annuler
+Screen/&EditorCaptionCancelButtonDescription	Annule la sélection de l'élément en cours
+Screen/&EditorCaptionMoveButtonTitle	Déplacement
+Screen/&EditorCaptionMoveButtonDescription	Déplace l'élément en faisait glisser le curseur de la souris
+Screen/&EditorCaptionRotateButtonTitle	Rotation
+Screen/&EditorCaptionRotateButtonDescription	Fait pivoter l'élément sélectionné de 90° vers la droite
+Screen/&EditorCaptionDeleteButtonTitle	Supprimer
+Screen/&EditorCaptionDeleteButtonDescription	Supprime l'élément sélectionné
+Screen/&MonsterSelectionTitle	Sélectionner une créature
+Screen/&MonsterSortAlphabeticalTitle	Nom
+Screen/&MonsterSortAlphabeticalDescription	Trier par nom de monstre
+Screen/&MonsterSortCRTitle	Défi
+Screen/&MonsterSortCRDescription	Trier par difficulté du défi de monstre
+Screen/&ItemSortAlphabeticalTitle	Nom
+Screen/&ItemSortAlphabeticalDescription	Trier par nom d'objet
+Screen/&ItemSortValueTitle	Prix
+Screen/&ItemSortValueDescription	Trier par prix d'objet
+Screen/&LootPackSelectionTitle	Sélectionner un pack de butin
+Screen/&ItemSelectionTitle	Sélectionner un objet
+Screen/&TrapEffectSelectionTitle	Sélectionner un effet de piège
+Screen/&LocationSavedDescription	Contenu sauvegardé
+Screen/&ClearElementTitle	Retirer
+Screen/&ClearElementDescription	Efface l'entrée de la base de données sélectionnée
+Screen/&FeatureUnavailableTitle	Bientôt disponible
+Screen/&EditorSettingsTitle	Paramètres
+Screen/&EditorSettingsDescription	Modifier les paramètres du lieu utilisateur (nome, description, etc.)
+Screen/&EditorSaveDescription	Sauvegarder ce lieu utilisateur sur le disque ({0})
+Screen/&EditorUndoDescription	Annuler la dernière modification ({0})
+Screen/&EditorPrevisTitle	Aperçu
+Screen/&EditorPrevisDescription	Prévisualisation du rendu du lieu dans une autre fenêtre (bientôt disponible)
+Screen/&MoveShortcutFormat	Déplacer ({0})
+Screen/&RotateShortcutFormat	Pivoter ({0})
+Screen/&CopyShortcutFormat	Copier ({0})
+Screen/&DeleteShortcutFormat	Supprimer ({0})
+Screen/&EditorLibraryTitle	Bibliothèque
+Screen/&EditorCategoryRoomTitle	Salles
+Screen/&EditorCategoryPropTitle	Décors
+Screen/&EditorCategoryGadgetTitle	Gadgets
+Screen/&EditorCaptionPositionTitle	Emplacement
+Screen/&EditorCaptionCopyButtonTitle	Dupliquer
+Screen/&EditorCaptionCopyButtonDescription	Duplique l'élément sélectionné
+Screen/&BackDungeonMakerTitle	Créateur de donjon
+Screen/&BackDungeonMakerDescription	Ouvre le Créateur de donjon pour reprendre la conception de ce lieu
+Screen/&EditorLocationSwitchDescription	Passez à ce lieu utilisateur.
+Screen/&EditorLocationAuthorVersionTitle	Version
+Screen/&UserLocationsPublishButtonDescription	Publiez votre lieu sur le Workshop Steam
+Screen/&UserLocationsPublishingWorshopLegalLabel	En envoyant cet objet, vous acceptez les conditions d'utilisation du Workshop.
+Screen/&UserLocationsPublishingWorshopLegalLinkLabel	Consultez les conditions d'utilisation ici.
+Screen/&UserLocationsPublishedItemLinkLabel	Regardez l'objet publié.
+Screen/&UserLocationsPublishHeaderTitle	Publier le contenu
+Screen/&CheatsButtonTitle	Options de triche
+Screen/&CheatsButtonDescription	Ouvre les options de triche du test de Créateur de donjon. {0}
+Screen/&EditorFoldAllButtonTitle	Tout réduire
+Screen/&EditorFoldAllButtonDescription	Réduit tous les dossiers de cette bibliothèque
+Screen/&EditorUnfoldAllButtonTitle	Tout agrandir
+Screen/&EditorUnfoldAllButtonDescription	Ouvre tous les dossiers de cette bibliothèque
+Screen/&EditorCustomDimensionsTitle	Dimensions personnalisées
+Screen/&EditorCustomDimensionsDescription	Les dimensions de ce gadget peuvent être personnalisées. Choisissez les valeurs que vous souhaitez
+Screen/&EditorCustomDimensionsWidthTitle	Largeur
+Screen/&EditorCustomDimensionsHeightTitle	Hauteur
+Screen/&KnudgeNorthShortcutFormat	Décaler vers le nord ({0})
+Screen/&KnudgeEastShortcutFormat	Décaler vers l'est ({0})
+Screen/&KnudgeSouthShortcutFormat	Décaler vers le sud ({0})
+Screen/&KnudgeWestShortcutFormat	Décaler vers l'ouest ({0})
+Screen/&EditorCaptionPositionFormat	X : {0}, Y : {1}
+Screen/&UserLocationsPublishWaitingLabel	Le nouveau contenu sera publié.
+Screen/&EditorPlacementInstructionDescription	Cet élément peut être placé sur les types de cases suivants : {0}
+Screen/&EditorPlacementWallTitle	Mur
+Screen/&EditorPlacementOpeningTitle	Ouverture
+Screen/&EditorPlacementGroundLowTitle	Terrain inférieur
+Screen/&EditorPlacementGroundHighTitle	Terrain surélevé
+Screen/&EditorPlacementGroundTitle	Terrain
+Screen/&EditorGroundLowSuffix	(inférieur)
+Screen/&EditorGroundHighSuffix	(surélevé)
+Screen/&ContentToggleLocationTitle	Lieux
+Screen/&ContentToggleCampaignTitle	Campagnes
+Screen/&CampaignCreatorTitle	Créateur de campagne
+Screen/&CampaignSettingsTitle	Paramètres de campagne
+Screen/&CampaignContentTitle	Contenu intégré
+Screen/&CampaignContentDescrition	Le contenu suivant est enregistré dans le fichier de campagne utilisateur
+Screen/&CampaignEditorLocationHeaderTitle	Lieux
+Screen/&CampaignEditorItemHeaderTitle	Objets personnalisés
+Screen/&CampaignEditorMonsterHeaderTitle	Monstres personnalisés
+Screen/&CampaignEditorImportContentTitle	Importer
+Screen/&CampaignEditorImportLocationDescrition	Importez un lieu de votre banque commune de lieux pour l'enregistrer dans le fichier JSON de cette campagne. Le lieu original sera conservé.
+Screen/&CampaignEditorExportContentTitle	Exporter
+Screen/&CampaignEditorExportLocationDescrition	Exportez un lieu de votre fichier de campagne vers votre banque commune de lieux. Cette action peut effacer un lieu existant dans la banque commune. Des valeurs par défaut seront assignées pour les niveaux d'auteur/requis.
+Screen/&CampaignEditorUpTitle	Haut
+Screen/&CampaignEditorUpDescrition	Déplace ce contenu d'une ligne vers le haut
+Screen/&CampaignEditorDownTitle	Bas
+Screen/&CampaignEditorDownDescrition	Déplace ce contenu d'une ligne vers le bas
+Screen/&CampaignEditorSetStartTitle	Définir comme point de départ
+Screen/&CampaignEditorSetStartDescrition	Cliquez pour définir ce lieu comme point de départ (index d'entrée 0) pour la campagne
+Screen/&CampaignEditorCampaignStartTitle	Début de la campagne
+Screen/&CampaignEditorCampaignStartDescrition	La campagne commencera à cet endroit
+Screen/&CampaignMustSaveDescription	Vous devez commencer par sauvegarder votre campagne
+Screen/&CampaignReferenceImageTitle	Image de référence
+Screen/&CampaignReferenceImageDescrition	L'arrière-plan par défaut pour cette campagne lorsqu'il est affiché en jeu
+Screen/&CampaignEditorImportItemDescrition	Importez un objet de votre banque commune d'objets pour l'enregistrer dans le fichier JSON de cette campagne. L'objet original sera conservé.
+Screen/&CampaignEditorExportItemDescrition	Exportez un objet de votre fichier de campagne vers votre banque commune d'objets. Cette action peut effacer un objet existant dans la banque commune.
+Screen/&EditorCampaignSaveDescription	Sauvegarder cette campagne utilisateur sur le disque ({0})
+Screen/&CampaignEditorImportMonsterDescrition	Importez un monstre de votre banque commune de monstres pour l'enregistrer dans le fichier JSON de cette campagne. Le monstre original sera conservé.
+Screen/&CampaignEditorExportMonsterDescrition	Exportez un inventaire de marchand de ce fichier de campagne vers votre banque commune d'inventaires. Cette action peut effacer un inventaire de marchand existant dans la banque commune.
+Screen/&NpcSelectionTitle	Sélectionnez un personnage non jouable
+Screen/&CampaignEditorNpcHeaderTitle	PNJ personnalisés
+Screen/&CampaignEditorImportNpcDescrition	Importez un inventaire de marchand de votre banque commune d'inventaires pour l'enregistrer dans le fichier JSON de cette campagne. L'inventaire de marchand original sera conservé.
+Screen/&MerchantSelectionTitle	Sélectionner un inventaire de marchand
+Screen/&CampaignEditorMerchantInventoryHeaderTitle	Inventaires de marchand personnalisés
+Screen/&EditorPlacementOpeningHighTitle	Ouverture sur une zone surélevée
+Screen/&ConditionSelectionTitle	Choisir une condition
+Screen/&EditorPlacementOpeningLowTitle	Ouverture sur une zone basse
+Screen/&AddDestinationTitle	Ajouter une destination
+Screen/&AddDestinationDescription	Ajouter un nouveau lieu de destination à cette sortie
+Screen/&DestinationLocationUpButtonDescription	Faire monter le lieu dans la liste
+Screen/&DestinationLocationDownButtonDescription	Faire descendre le lieu dans la liste
+Screen/&DestinationLocationDeleteButtonDescription	Supprime le lieu de la liste
+Screen/&NavigateTitle	Naviguer
+Screen/&DestinationSelectionTitle	Sélection de la destination
+Screen/&DestinationSelectionDescription	Sélectionnez une destination vers laquelle se déplacer
+Screen/&GadgetTagRestrictionFormat	Vous devez sélectionner des gadgets de ce type : {0}
+Screen/&UserLocationsPublishingLabel	Publication du contenu commencée. Veuillez patienter.
+Screen/&UserLocationsUpdateWaitingLabel	Le contenu existant sera mis à jour.
+Screen/&UserLocationsPublishingFailedLabel	Impossible de publier le contenu.
+Screen/&UserLocationsPublishingFailedReasonLabelFormat	Impossible de publier le nouveau contenu.\nErreur {0}.
+Screen/&UserLocationsUpdatingFailedReasonLabelFormat	Échec de la mise à jour des données du contenu existant.\nErreur {0}.
+Screen/&UserLocationsItemPublishedLabelFormat	Le contenu utilisateur a été créé dans le Workshop. Mise à jour du contenu. Veuillez patienter.
+Screen/&UserLocationsItemUpdatedLabelFormat	Félicitations, votre contenu utilisateur a été publié avec succès !
+Screen/&CampaignEditorQuestHeaderTitle	Quêtes
+Screen/&CampaignEditorQuestsNewTitle	Nouvelle quête
+Screen/&CampaignEditorQuestsNewDescription	Crée une nouvelle quête d'utilisateur pour cette campagne
+Screen/&CampaignEditorQuestsEditDescription	Modifie la quête sélectionnée
+Screen/&CampaignEditorQuestsDeleteDescription	Supprime la quête sélectionnée
+Screen/&QuestSavedDescription	Quête sauvegardée
+Screen/&QuestEditorSettingsDescription	Modifier les paramètres de la quête (titre, description, etc.)
+Screen/&QuestEditorSaveDescription	Sauvegarder cette quête dans la campagne ({0})
+Screen/&QuestEditorUndoDescription	Annuler la dernière modification ({0})
+Screen/&EditorQuestCategoryTitle	Catégorie de la quête
+Screen/&EditorQuestAutoStartTitle	Début automatique
+Screen/&EditorQuestAutoStartDescription	Détermine si la quête est débutée automatiquement au début de la campagne. Utile pour les quêtes de scénario et les quêtes secrètes
+Screen/&HiddenQuestTypeTitle	Secret
+Screen/&HiddenQuestTypeDescription	Ce type de quête est caché au joueur, mais peut-être utile pour faire avancer un scénario en secret
+Screen/&QuestEditorQuestStepTitle	Étape de quête
+Screen/&QuestEditorQuestEndTitle	Fin de quête
+Screen/&QuestEditorQuestStepDescription	Une étape de quête est un nœud du chemin qu'une quête peut suivre lorsqu'elle est résolue par le joueur
+Screen/&QuestStepDisplayTypeTitle	Affichage
+Screen/&QuestStepDisplayTypeDescription	Détermine si cette étape est affichée d'une certaine façon dans le Journal du groupe
+Screen/&QuestStepDisplayTypeStandardTitle	Classique
+Screen/&QuestStepDisplayTypeStandardDescription	L'étape est affichée normalement
+Screen/&QuestStepDisplayTypeChoiceTitle	Choix
+Screen/&QuestStepDisplayTypeChoiceDescription	L'étape est affichée en tant que choix entre plusieurs étapes
+Screen/&QuestStepDisplayTypeOptionalTitle	Optionnelle
+Screen/&QuestStepDisplayTypeOptionalDescription	L'étape est affichée en tant qu'optionnelle
+Screen/&QuestStepNeededParentsTitle	Parents requis
+Screen/&QuestStepNeededParentsDescription	Lorsqu'une étape a plusieurs parents, ceci détermine quels parents doivent être terminés pour atteindre cette étape
+Screen/&QuestStepNeededParentsAnyTitle	N'importe
+Screen/&QuestStepNeededParentsAnyDescription	Terminer n'importe quelle étape parent commencera cette étape
+Screen/&QuestStepNeededParentsAllTitle	Toutes
+Screen/&QuestStepNeededParentsAllDescription	Terminer toutes les étapes parents est requis pour commencer cette étape
+Screen/&QuestEditorQuestStepOutcomesTitle	Issues de l'étape
+Screen/&QuestEditorQuestStepOutcomesDescription	Les différentes façons de réussir/échouer cette étape, et de faire avancer la quête vers une étape liée
+Screen/&QuestEditorQuestStepAddOutcomeTitle	Ajouter
+Screen/&QuestEditorQuestStepAddOutcomeDescription	Ajouter une nouvelle issue à cette étape de quête, ce qui permet d'avancer à une autre étape
+Screen/&QuestEditorQuestStepDeleteOutcomeDescription	Supprimer cette issue de l'étape de quête
+Screen/&QuestEditorQuestStepOutcomeTypeTitle	Type d'issue
+Screen/&QuestEditorQuestStepOutcomeTypeDescription	Détermine si la complétion de cette étape est un succès ou un échec
+Screen/&QuestStepOutcomeTypeSuccessTitle	Succès
+Screen/&QuestStepOutcomeTypeFailureTitle	Échec
+Screen/&QuestEditorQuestStepValidatorTitle	Valideur
+Screen/&QuestEditorQuestStepValidatorDescription	Détermine la validation de cette étape, s'il s'agit d'un succès ou non
+Screen/&QuestStepValidatorDelegatedTitle	Déléguée
+Screen/&QuestStepValidatorDelegatedDescription	Cette étape de quête est déléguée à autre chose, par exemple, un gadget d'opération de quête
+Screen/&QuestStepValidatorKillCreaturesTitle	Tuer des créatures
+Screen/&QuestStepValidatorKillCreaturesDescription	Le groupe doit tuer X créatures du type spécifié
+Screen/&QuestStepValidatorOwnItemsTitle	Posséder des objets
+Screen/&QuestStepValidatorOwnItemsDescription	Le groupe doit posséder X objets du type spécifié
+Screen/&QuestStepValidatorEnterLocationTitle	Entrer dans un lieu
+Screen/&QuestStepValidatorEnterLocationDescription	Le groupe doit entrer dans le lieu spécifié
+Screen/&QuestStepValidatorLeaveLocationTitle	Quitter le lieu
+Screen/&QuestStepValidatorLeaveLocationDescription	Le groupe doit quitter le lieu spécifié
+Screen/&QuestStepValidatorItemEquipedTitle	Objet équipé
+Screen/&QuestStepValidatorItemEquipedDescription	L'objet spécifié doit être équipé par l'un des membres du groupe
+Screen/&QuestStepValidatorItemUsedTitle	Objet utilisé
+Screen/&QuestStepValidatorItemUsedDescription	L'objet spécifié doit être utilisé par l'un des membres du groupe
+Screen/&QuestStepValidatorRestCompletedTitle	Repos terminé
+Screen/&QuestStepValidatorRestCompletedDescription	Le groupe vient de terminer un repos court ou long
+Screen/&QuestEditorQuestStepOutcomeDescriptionDescription	La description de l'issue lors de sa complétion
+Screen/&QuestEditorQuestStepNameTitle	Nom de l'étape
+Screen/&QuestEditorDefaultQuestTitle	Titre de ma quête
+Screen/&QuestEditorDefaultQuestStepTitle	Titre de mon étape de quête
+Screen/&QuestEditorDefaultQuestStepDescription	Description de mon étape de quête
+Screen/&QuestEditorDefaultQuestStepOutcomeDescription	Description de l'issue de mon étape de quête
+Screen/&QuestEditorQuestStartTitle	Début de quête
+Screen/&QuestEditorDeleteLinkButtonDescription	Cliquez pour supprimer ce lien
+Screen/&QuestEditorNewQuestStepTitle	Nouvelle étape de quête
+Screen/&QuestEditorNewQuestStepDescription	Cliquez pour ajouter une nouvelle étape à cette quête
+Screen/&QuestEditorNewQuestEndTitle	Nouvelle fin de quête
+Screen/&QuestEditorNewQuestEndDescription	Cliquez pour ajouter une fin à cette quête, ce qui mettra fin à un enchaînement d'étapes
+Screen/&QuestEditorDeleteQuestStepTitle	Supprimer l'étape de quête
+Screen/&QuestEditorDeleteQuestStepDescription	Cliquez pour supprimer la ou les étapes de quête sélectionnées
+Screen/&QuestEditorInConnectorTitle	IN
+Screen/&QuestEditorInConnectorDescription	Ce connecteur est utilisé pour recevoir un lien d'attache d'une boîte parent
+Screen/&QuestEditorOutConnectorDescription	Cliquez sur ce connecteur pour faire glisser un lien jusqu'à une autre boîte
+Screen/&PasteShortcutFormat	Coller ({0})
+Screen/&DragSelectFormat	Maintenez le clic gauche de la souris et glissez pour sélectionner des étapes de quête
+Screen/&PanViewFormat	Maintenez la molette ou le clic droit de la souris et glissez pour la vue panoramique
+Screen/&QuestEditorCenterViewTitle	Centrer la vue
+Screen/&QuestEditorCenterViewDescription	Centre la vue sur le début de la quête
+Screen/&QuestSelectionTitle	Sélectionner une quête
+Screen/&StepStartFunctorsTitle	Foncteurs de départ
+Screen/&StepStartFunctorsDescription	La liste des foncteurs exécutés au début de l'étape de quête
+Screen/&AddFunctorButtonTitle	Ajouter
+Screen/&AddFunctorButtonDescription	Ajoute un nouveau foncteur à la liste
+Screen/&DeleteFunctorButtonDescription	Retire le foncteur de la liste
+Screen/&StepOutcomeFunctorsTitle	Foncteurs d'issue
+Screen/&StepOutcomeFunctorsDescription	La liste de foncteurs exécutés à l'issue d'une étape (qu'il s'agisse d'un succès ou d'un échec)
+Screen/&CampaignEditorVariableHeaderTitle	Variables
+Screen/&CampaignEditorVariablesNewTitle	Nouvelle variable
+Screen/&CampaignEditorVariablesNewDescription	Crée une nouvelle variable qui peut être utilisée pour stocker/transférer des informations à travers cette campagne
+Screen/&CampaignEditorVariablesEditDescription	Modifie la variable sélectionnée
+Screen/&CampaignEditorVariablesDeleteDescription	Supprime la variable sélectionnée
+Screen/&VariableSavedDescription	Variable sauvegardée
+Screen/&QuestStepValidatorSpellCastTitle	Sort lancé
+Screen/&QuestStepValidatorSpellCastDescription	Le sort spécifié a été lancé
+Screen/&QuestStepValidatorAutomaticCompletionTitle	Achèvement automatique
+Screen/&QuestStepValidatorAutomaticCompletionDescription	Cette étape est achevée automatiquement, éventuellement après un délai. Utile pour les quêtes secrètes/quêtes de scénario qui font avancer un script
+Screen/&QuestStepValidatorVariableChangedTitle	Variable modifiée
+Screen/&QuestStepValidatorVariableChangedDescription	Le valideur est complété si la variable a la valeur spécifiée
+Screen/&EditorTechnicalInfoTitle	Infos techniques
+Screen/&CampaignEditorDialogsHeaderTitle	Dialogues
+Screen/&CampaignEditorDialogsNewTitle	Nouveau dialogue
+Screen/&CampaignEditorDialogsNewDescription	Crée une boîte de dialogue utilisée pour des discussions avec des PNJ
+Screen/&CampaignEditorDialogsEditDescription	Modifier le dialogue sélectionné
+Screen/&CampaignEditorDialogsDeleteDescription	Supprimer le dialogue sélectionné
+Screen/&DialogEditorSaveDescription	Sauvegarder ce dialogue dans la campagne ({0})
+Screen/&DialogEditorUndoDescription	Annuler la dernière modification ({0})
+Screen/&DialogSavedDescription	Dialogue sauvegardé
+Screen/&DialogEditorNewStateTitle	Nouvelle étape
+Screen/&DialogEditorNewStateDescription	Cliquez pour ajouter une nouvelle étape à ce dialogue
+Screen/&DialogEditorStateTypeTitle	Type d'étape :
+Screen/&DialogEditorStateTypeDescription	Permet de sélectionner le type de l'étape de dialogue
+Screen/&DialogEditorDeleteStateTitle	Supprimer l'étape
+Screen/&DialogEditorDeleteStateDescription	Cliquez pour supprimer la ou les étapes de dialogue sélectionnées
+Screen/&DialogEditorDialogStartTitle	Début du dialogue
+Screen/&DialogEditorSettingsDescription	Modifier les paramètres du dialogue (nom interne, titre, etc.)
+Screen/&DialogEditorRoleTitle	Rôle :
+Screen/&DialogEditorRoleDescription	Dans Solasta, vous ne faites pas parler un personnage spécifique. À la place, vous assignez des « rôles » aux personnages et spécifiez quel rôle va dire quoi. Vous pouvez créer des rôles personnalisés avec des traits de personnalité afin que les personnages du groupe parlent avec des phrases adaptées à eux.
+Screen/&DialogEditorStateFunctorsTitle	Foncteurs
+Screen/&DialogEditorStateFunctorsDescription	La liste des foncteurs exécutés lorsque cette étape de dialogue est jouée
+Screen/&DialogEditorDefaultCharacterSpeechTitle	Bonjour !
+Screen/&DialogEditorDefaultNpcSpeechTitle	Bienvenue !
+Screen/&DialogEditorDefaultDialogTitle	Mon dialogue
+Screen/&DialogEditorStateCharacterSpeechTitle	Réplique de personnage
+Screen/&DialogEditorStateCharacterSpeechDescription	Fait prononcer le texte du dialogue par le personnage du groupe portant le rôle spécifié
+Screen/&DialogEditorStateNpcSpeechTitle	Réplique de PNJ
+Screen/&DialogEditorStateNpcSpeechDescription	Fait prononcer le texte du dialogue par le personnage non jouable
+Screen/&DialogEditorStateFinishTitle	Terminer
+Screen/&DialogEditorStateFinishDescription	Termine la séquence de dialogue
+Screen/&DialogEditorStatePlayerRoleAssignmentTitle	Assignation de rôle aux joueurs
+Screen/&DialogEditorStatePlayerRoleAssignmentDescription	Permet l'assignation de tous les rôles aux personnages jouables
+Screen/&DialogEditorStateAnswerChoiceTitle	Choix de réponse
+Screen/&DialogEditorStateAnswerChoiceDescription	Fait office de répartiteur déterminant les réponses possibles au dialogue, ce qui conduit à différentes branches du dialogue
+Screen/&DialogEditorStateVariableTestTitle	Test de variable
+Screen/&DialogEditorStateVariableTestDescription	Selon le résultat du test, l'étape mènera à deux branches de dialogue différentes
+Screen/&DialogEditorStateAbilityCheckTitle	Jet de caractéristique
+Screen/&DialogEditorStateAbilityCheckDescription	Selon le résultat du jet de caractéristique effectué par le rôle de personnage qui l'effectue, l'étape mènera à deux branches de dialogue différentes
+Screen/&DialogEditorRoleStarterTitle	Initiateur
+Screen/&DialogEditorRoleStarterDescription	Un rôle prédéfini pouvant être utilisé par le personnage jouable qui débute la conversation avec le PNJ
+Screen/&DialogEditorRolePartnerTitle	Partenaire
+Screen/&DialogEditorRolePartnerDescription	Un rôle prédéfini pouvant être utilisé par le personnage jouable pour parler aux côtés du rôle d'initiateur
+Screen/&DialogEditorRoleCommentatorTitle	Commentateur
+Screen/&DialogEditorRoleCommentatorDescription	Un rôle prédéfini pouvant être utilisé pour commenter le personnage initiateur
+Screen/&DialogEditorRoleReactorTitle	Réagisseur
+Screen/&DialogEditorRoleReactorDescription	Un rôle prédéfini pouvant être utilisé pour réagir à un autre personnage
+Screen/&DialogSelectionTitle	Sélectionnez un dialogue
+Screen/&QuestEditorOutConnectorTitle	OUT
+Screen/&DragSelectDialogFormat	Maintenez le clic gauche de la souris et glissez pour sélectionner des étapes de dialogue.
+Screen/&DialogEditorStateAnswerChoicesTitle	Choix de réponse
+Screen/&AddAnswerChoiceButtonDescription	Ajoute un nouveau choix de réponse (maximum : {0}).
+Screen/&DeleteAnswerChoiceButtonDescription	Retire ce choix de réponse de la liste. Il doit rester au moins une réponse.
+Screen/&AbilityCheckSuccessTitle	Succès
+Screen/&AbilityCheckFailureTitle	Échec
+Screen/&AddPlayerRoleAssignmentButtonDescription	Ajoute un nouveau rôle (maximum : {0}).
+Screen/&DeletePlayerRoleAssignmentButtonDescription	Retire ce rôle de la liste. Il doit rester au moins un rôle.
+Screen/&AddRollFlagButtonDescription	Ajoute un nouveau marqueur pour définir ce rôle. Le membre du groupe possédant les plus hauts scores dans la liste des marqueurs sera sélectionné pour ce rôle.
+Screen/&PersonalityFlagSelectionTitle	Sélectionner un trait de personnalité
+Screen/&DialogEditorDefaultNewRoleTitle	MonRôle
+Screen/&DialogFlagPersonalityTitle	Ce marqueur filtre les personnages en fonction des traits de personnalité sélectionnés lors de la création de personnage.
+Screen/&DialogFlagBackgroundTitle	Ce marqueur filtre les personnages ayant un historique spécifique. Le personnage DOIT avoir cet historique pour être sélectionné pour ce rôle.
+Screen/&DialogFlagDeityTitle	Ce marqueur filtre les clercs vénérant une divinité spécifique. Le personnage DOIT vénérer cette divinité pour être sélectionné pour ce rôle.
+Screen/&DialogFlagAncestryTitle	Ce marqueur filtre les personnages ayant une ascendance spécifique. Le personnage DOIT avoir cette ascendance pour être sélectionné pour ce rôle.
+Screen/&DialogFlagSkillTitle	Ce marqueur filtre les personnages en fonction de leur bonus dans les jets de compétence. Le personnage ayant le bonus de compétence le plus élevé (bonus de caractéristique + bonus de maîtrise) sera sélectionné.
+Screen/&DialogFlagClassTitle	Ce marqueur filtre les personnages d'une classe spécifique. Le personnage DOIT être de cette classe pour être sélectionné pour ce rôle.
+Screen/&DialogCustomPlayerRoleDescription	Ce rôle a été créé dans ce dialogue avec une boîte « AssignationDeRôleAuxJoueurs ».
+Screen/&DialogClearPreviousRolesToggleTitle	Retirer les anciens rôles
+Screen/&DialogClearPreviousRolesToggleDescription	Retire tous les rôles définis dans le dialogue avant cette boîte, y compris les quatre rôles par défaut. Cela vous permet de modifier les rôles de personnages auxquels un rôle a déjà été assigné.
+Screen/&UserCampaignExportContentsTitle	Exporter le contenu vers une campagne
+Screen/&UserCampaignExportContentsDescription	Ouvre un sélecteur pour sélectionner le contenu de cette campagne à exporter vers une autre campagne.
+Screen/&UserCampaignImportContentsTitle	Importer le contenu d'une campagne
+Screen/&UserCampaignImportContentsDescription	Ouvre un sélecteur pour sélectionner le contenu d'une autre campagne à importer dans cette campagne.
+Screen/&CampaignEditorLootPacksHeaderTitle	Packs de butin
+Screen/&CampaignEditorLootPacksNewTitle	Nouveau pack de butin
+Screen/&CampaignEditorLootPacksNewDescription	Crée un pack de butin (objets, quantité et probabilité) pouvant être assigné à des monstres en tant que butin lâché, ou à des coffres en tant que contenu.
+Screen/&CampaignEditorLootPacksEditDescription	Modifie le pack de butin sélectionné.
+Screen/&CampaignEditorLootPacksDeleteDescription	Supprime le pack de butin sélectionné.
+Screen/&DialogMainNpcTitle	PNJ principal
+Screen/&DialogMainNpcDescription	Le personnage non jouable principal généré par le gadget connecté à ce dialogue.
+Screen/&DialogAdditionalNpcDescription	Permet à ce PNJ supplémentaire de parler avec ce rôle, à condition qu'il soit généré par un autre gadget et soit présent avant le début de ce dialogue.
+Screen/&AllyChoosingPositionTitleFormat	{0} choisit une position
+Screen/&AllyChoosingTargetTitleFormat	{0} choisit une cible
+Screen/&AllyPlaningAttackTitleFormat	{0} prépare une attaque
+Screen/&AllyPlaningMagicEffectTitleFormat	{0} prépare un effet magique
+Screen/&AllyPlaningReactionTitleFormat	{0} est en train de choisir une réaction
+Screen/&AllyCheckingInventoryTitleFormat	{0} inspecte l'inventaire
+Screen/&FactionQuestTypeTitle	Quête de faction
+Screen/&FactionQuestTypeDescription	Une quête assignée par une faction spécifique
+Screen/&FactionQuestsListTitle	Quêtes de faction
+Screen/&QuestGiverStepDescription	Le personnage impliqué dans cet objectif de quête
+Screen/&QuestLocationStepDescription	Le lieu (ville, donjon) où cet objectif de quête doit être rempli
+Screen/&MapWaypointNavigateDescription	Déplacez le groupe vers ce point de repère.
+Screen/&MapWaypointNavigateMultiplayerHostDescription	Le déplacement du groupe nécessite l'accord des autres joueurs.
+Screen/&MapWaypointNavigateMultiplayerClientDescription	Seul l'hôte de la partie multijoueur peut demander ce déplacement, avec votre accord.
+Screen/&IdentifySpellTitle	Identification (sort)
+Screen/&IdentifySpellDescription	Identifiez un objet en lançant le sort d'Identification et en utilisant un emplacement de sort.
+Screen/&IdentifyRitualTitle	Identification (rituel)
+Screen/&IdentifyRitualDescription	Identifiez un objet en lançant le sort en tant que rituel, sans dépenser d'emplacement de sort.
+Screen/&UnknownFactionProminentMembersDescription	Inconnu
+Screen/&EncounterCombatNoSurpriseDescription	Le groupe est tombé sur une bande de créatures. Le combat est inévitable.
+Screen/&EncounterAmbushButtonTitle	Embuscade
+Screen/&EncounterAmbushButtonDescription	Attaquez avec l'avantage d'un round surprise.
+Screen/&UnavailableContentPackInSessionDescription	Ce contenu n'est pas disponible dans la session actuelle.
+Screen/&MapWaypointNavigateNotInSameSectorDescription	Impossible de faire un voyage rapide jusqu'à ce point depuis un autre secteur.
+Screen/&RevealPasswordDescription	Révéler le mot de passe
+Screen/&MaskPasswordDescription	Cacher le mot de passe
+Screen/&CopyPasswordDescription	Copier le mot de passe dans le presse-papier
+Screen/&PasswordNoneTitle	Aucun
+Screen/&NetworkTooManyPingsTitle	Il y a trop de pings. Veuillez patienter…
+Screen/&DashModeConfirmTitle	Confirmer
+Screen/&KickButtonTitle	Exclure des joueurs
+Screen/&KickButtonDescription	Excluez un joueur de votre session
+Screen/&PlacePingDescription	Placez un marqueur ping à l'écran pour indiquer aux autres joueurs ce que vous allez faire.
+Screen/&AutoRegionTitle	Auto.
+Screen/&RepertoireKnownSpellsTitle	Sorts connus
+Screen/&MetamagicOptionsTitle	Sélectionner une option de métamagie
+Screen/&MetamagicIgnoreTitle	Ignorer
+Screen/&MetamagicIgnoreDescription	Ignorer les options de métamagie et procéder au lancement de sort.
+Screen/&ProficiencyToggleMetamagicTitle	Métamagie
+Screen/&ProficiencyMetamagicDescription	La métamagie vous permet d'altérer les sorts que vous lancez.
+Screen/&OathSpellTitle	Serment
+Screen/&OathSpellDescription	Ce sort de serment est toujours considéré comme étant préparé et ne compte pas dans votre limite de préparation de sorts.
+Screen/&TraditionSpellTitle	Tradition
+Screen/&TraditionSpellDescription	Ce sort de tradition est toujours considéré comme étant préparé et ne compte pas dans votre limite de préparation de sorts.
+Screen/&OriginSpellTitle	Origine
+Screen/&OriginSpellDescription	Ce sort d'origine est toujours considéré comme étant connu et ne compte pas dans votre limite de préparation de sorts.
+Screen/&IronManModeTitle	Mode Iron Man
+Screen/&IronManSaveCosmeticName	Campagne en Iron Man
+Screen/&UnavailableContentPackDescription	Vous ne possédez pas ce contenu. Allez sur la page de la boutique.
+Screen/&MetamagicSelectionDescription	Vous pouvez dépenser des points de sorcellerie pour altérer cette option de métamagie.
+Screen/&ConvertTitle	Convertir
+Screen/&ConvertCreateTitle	Vous créez :
+Screen/&ConvertSpendTitle	Vous dépensez :
+Screen/&PowerRemainingSlotsDescription	Votre réserve d'emplacements de sorts restants.
+Screen/&NewContendersTitle	Nouveaux participants
+Screen/&ShapeSelectionDescription	Choisissez une forme en laquelle vous transformer :
+Screen/&ClassLevelFormat	Niveau {0}
+Screen/&ClassLevelDescription	Le niveau de classe requis pour cette option.
+Screen/&CircleSpellTitle	Cercle
+Screen/&CircleSpellDescription	Ce sort de cercle est toujours considéré comme prêt.\nIl ne compte pas dans votre limite de préparation de sorts. 
+Screen/&CharacterInspectionModeSelectWieldedClubOrQuarterstaffTitle	Sélectionnez un gourdin ou un bâton pour appliquer cet effet.
+Screen/&InventoryCannotSellConjuredItemDescription	Vous ne pouvez pas vendre un objet invoqué.
+Screen/&InsufficientRevenue	Insuffisant
+Screen/&SkipIntroTitle	Passer l'intro
+Screen/&SkipIntroDescription	Passez les cinématiques d'introduction et les quatre tutoriels pour commencer directement l'aventure.
+Screen/&AttacksNumberDescription	Le nombre de fois où la créature utilise cette attaque pendant chacun de ses tours.
+Screen/&DataOrModCorruptionDescription	Échec du lancement de Solasta en raison de données ou d'un mod corrompus. Veuillez désinstaller tous les mods et redémarrer le jeu.
+Screen/&DefaultRoomNameFormat	Partie de {0}
+Screen/&AllyTurnTitleFormat	{0} joue
+Screen/&ChooseFromMultipleEntrancesTitle	Entrées multiples
+Screen/&ChooseFromMultipleEntrancesDescription	Choisissez l'entrée par laquelle le groupe arrivera.
+Screen/&HostIsAnsweringChoiceTitle	{0} choisit une réponse
+Screen/&LeaveGameSessionTitle	Quitter
+Screen/&LeaveGameSessionDescription	Quittez la session de jeu en ligne.
+Screen/&AttractStartMouseKeyboardTitle	Appuyez sur une touche pour commencer
+Screen/&AttractStartGamepadTitle	Appuyez sur <sprite index={0}> pour commencer
+Screen/&GamepadHintNavigate	Parcourir
+Screen/&GamepadHintSubmit	Sélectionner
+Screen/&GamepadHintCancel	Annuler
+Screen/&GamepadHintVerticalScroll	Faire défiler
+Screen/&GamepadHintInventoryShortcuts	Raccourcis d'équipement
+Screen/&GamepadHintInspect	Inspecter le personnage
+Screen/&GamepadHintShowInteractions	Afficher les interactions
+Screen/&GamepadHintSelectCharacter	Personnages
+Screen/&GamepadHintSelectOption	Accès rapide
+Screen/&GamepadHintCursorMode	Mode curseur
+Screen/&GamepadHintUpcast	Augmentation d'intensité
+Screen/&GamepadHintOvercharge	Surcharger
+Screen/&GamepadHintBlueprintMap	Carte
+Screen/&GamepadHintViewPan	Déplacer
+Screen/&GamepadHintViewRotate	Caméra
+Screen/&GamepadHintViewZoom	Zoomer
+Screen/&GamepadHintViewInteract	Interagir
+Screen/&GamepadHintItemMenu	Menu d'objets
+Screen/&GamepadHintRotateCharacter	Faire pivoter le personnage
+Screen/&GamepadHintPreviousCharacter	Personnage précédent
+Screen/&GamepadHintNextCharacter	Personnage suivant
+Screen/&GamepadHintIncreaseSpellSlot	Étendre l'emplacement de sort
+Screen/&GamepadHintDecreaseSpellSlot	Réduire l'emplacement de sort
+Screen/&GamepadHintJournal	Journal du groupe
+Screen/&GamepadHintBack	Retour
+Screen/&GamepadHintValidate	Valider
+Screen/&GamepadHintMoveCursor	Curseur de déplacement
+Screen/&GamepadHintScrollConsole	Faire défiler la console
+Screen/&GamepadHintFastForward	Passer
+Screen/&GamepadHintEngageDetail	Infobulle détaillée
+Screen/&GamepadHintGameMenu	Menu du jeu
+Screen/&GamepadHintSelectAction	Sélectionnez une action
+Screen/&GamepadHintPlanarToggle	Mode planaire
+Screen/&GamepadHintPassTurn	Passer le tour
+Screen/&GamepadHintTabLeft	Onglet gauche
+Screen/&GamepadHintTabRight	Onglet droit
+Screen/&GamepadHintGamepadSelector	Changer le paramètre
+Screen/&GamepadHintAction2	Modifier/Supprimer
+Screen/&GamepadHintAction3	Action spéciale
+Screen/&SkipLineTitle	Passer la réplique
+Screen/&SkipSequenceTitle	Passer le dialogue
+Screen/&GamepadOptionInspectTitle	Inspecter\n le personnage
+Screen/&GamepadOptionJournalTitle	Journal\n (groupe)
+Screen/&GamepadOptionShortRestTitle	Repos\n court
+Screen/&GamepadOptionBlueprintMapTitle	Carte\n du lieu
+Screen/&QuickSaveGameTitle	Sauvegarde rapide
+Screen/&QuickSaveGameDescription	Sauvegarde la partie en cours sous un nom de fichier généré automatiquement
+Screen/&QuickLoadGameTitle	Chargement rapide
+Screen/&QuickLoadGameDescription	Charge la sauvegarde rapide la plus récente
+Screen/&EditFlagsGamepadTitle	Modifier
+Screen/&RandomFlagsGamepadTitle	Aléatoire
+Screen/&ResetFlagsTitle	Réinitialiser
+Screen/&ValidateFlagsTitle	Valider
+Screen/&GamepadHintCycleTarget	Sélectionner la cible
+Screen/&GamepadHintInviteFriend	Inviter un ami
+Screen/&GiveItemTitle	Donner un objet
+Screen/&GiveItemDescription	Transférez cet objet à un autre membre du groupe.
+Screen/&GamepadHintSwitchCharacter	Changer de personnage
+Screen/&GamepadHintCycleLocation	Sélectionner une destination
+Screen/&GamepadHintCycleMapItem	Sélectionner un élément de la carte
+Screen/&PactTomeExtraSpellTitle	Grimoire
+Screen/&PactTomeExtraSpellDescription	Ce sort a été octroyé par le pacte du grimoire et est considéré comme connu par vous
+Screen/&PactTomeRitualExtraSpellTitle	Grimoire
+Screen/&PactTomeRitualExtraSpellDescription	Ce rituel a été octroyé par le pacte du grimoire et ne peut être utilisé qu'en tant que rituel
+Screen/&MysticArcanumExtraSpellTitle	Mystique
+Screen/&MysticArcanumExtraSpellDescription	Ce sort a été défini comme arcanum par l'attribut Arcanum mystique, et peut être lancé sans utiliser d'emplacement de sort une fois par repos long.
+Screen/&SpellsGroupMysticArcanumTitle	Arcanum mystique
+Screen/&SpellsGroupMysticArcanumAvailableDescription	Vous pouvez lancer cet arcanum une fois par repos long.
+Screen/&SpellsGroupMysticArcanumUsedDescription	Cet arcanum a été utilisé et ne peut pas être lancé à nouveau avant d'avoir terminé un repos long.
+Screen/&LearnRitualTitle	Apprentissage de rituel
+Screen/&LearnRitualDescription	Apprenez à lancer ce sort seulement en tant que rituel. Cela détruira le parchemin.
+Screen/&ProficiencyToggleInvocationTitle	Invocations
+Screen/&BardicInspirationDieDescription	Votre dé d'Inspiration bardique est un {0} et vous disposez encore de {1} utilisations.
+Screen/&BonusCantripsExtraSpellTitle	Bonus
+Screen/&BonusCantripsExtraSpellDescription	Ce sort mineur bonus ne compte pas dans votre limite de sorts mineurs connus.
+Screen/&MagicalSecretsExtraSpellTitle	Secret
+Screen/&MagicalSecretsExtraSpellDescription	Ce sort a été accordé par l'attribut Secrets magiques.
+Screen/&FlurryOfBlowsModeSelectionDescription	Sélectionnez une technique de la main ouverte à appliquer à votre prochaine attaque Déluge de coups :
+Screen/&CollegeSpellTitle	Collège
+Screen/&CollegeSpellDescription	Ce sort a été octroyé par votre collège bardique et est considéré comme connu par vous.
+Screen/&UniqueLevelSlotsTitle	Emplacements de sorts d'occultiste
+Screen/&UniqueLevelSlotsDescription	Un occultiste utilise des emplacements de sorts lançant des sorts de niveau 1 et plus. Un même ensemble d'emplacements de sorts est partagé entre tous les sorts. Lorsque l'occultiste gagne l'accès à de nouveaux niveaux de sorts, les emplacements de sorts gagnent en puissance et tous les sorts inférieurs sont améliorés à ce nouveau niveau de sort.\nLes sorts de niveau 6 et plus s'obtiennent avec Arcanum mystique.
+Screen/&GamepadHintMultiplayerPing	Pause en jeu (solo)/Ping (multi)
+Screen/&MarkDeityTitle	Inscrire une divinité
+Screen/&MarkDeityDescription	Peignez ou gravez votre symbole de divinité sur cet objet afin qu'il puisse servir de composante matérielle pour des sorts. Cela peut même permettre de supprimer la condition « main libre » pour lancer des sorts à composante somatique à l'aide d'une composante matérielle.
+Screen/&InvocationActiveTitle	bonus actif
+Screen/&InvocationInactiveTitle	inactif
+Screen/&StopLightButtonDescription	Mettez fin à un sort mineur de lumière (ou à un sort mineur équivalent, comme Tenir la flamme).
+Screen/&KiPointsRecoveredDescription	Toutes les utilisations de points de Ki sont restaurées.
+Screen/&SorceryPointsRecoveredDescription	Toutes les utilisations de points de sorcellerie sont restaurées.
+Screen/&RagePointsRecoveredDescription	Toutes les utilisations de rage sont restaurées.
+Screen/&ContainerLootHeaderFormat	Piller - {0}
+Screen/&GamepadHintClearAll	Tout effacer
+Screen/&CaptionAbortDescription	Annulez cette action.
+Screen/&CaptionAbortTitle	Annuler
+Screen/&CraftingAbortButtonTitle	Annuler la fabrication
+Screen/&AbortTravelButtonTitle	S'arrêter au prochain lieu
+Screen/&EditorXCoordinateTitle	
+Screen/&EditorYCoordinateTitle	

@@ -1,0 +1,14 @@
+EnvironmentEffect/&CollapsingRoofTitle	
+EnvironmentEffect/&CollapsingRoofDescription	
+EnvironmentEffect/&DisturbingRunesTitle	
+EnvironmentEffect/&DisturbingRunesDescription	
+EnvironmentEffect/&DeathGlyphTitle	
+EnvironmentEffect/&DeathGlyphDescription	
+EnvironmentEffect/&FireBurstTitle	
+EnvironmentEffect/&FireBurstDescription	
+EnvironmentEffect/&GroundSpikesTitle	
+EnvironmentEffect/&GroundSpikesDescription	
+EnvironmentEffect/&LightningDischargeTitle	
+EnvironmentEffect/&LightningDischargeDescription	
+EnvironmentEffect/&PoisonCloudTitle	
+EnvironmentEffect/&PoisonCloudDescription	

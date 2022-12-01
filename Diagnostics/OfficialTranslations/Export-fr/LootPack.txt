@@ -1,0 +1,17 @@
+LootPack/&CR0_Loot_PackTitle	Butin FP0
+LootPack/&CR1_Loot_PackTitle	Butin FP1
+LootPack/&CR2_Loot_PackTitle	Butin FP2
+LootPack/&CR3_Loot_PackTitle	Butin FP3
+LootPack/&CR4_Loot_PackTitle	Butin FP4
+LootPack/&CR5_Loot_PackTitle	Butin FP5
+LootPack/&1D2Scrolls	Parchemins 1d2
+LootPack/&1Potion1Poison	1 potion + 1 poison
+LootPack/&1WondrousItem	1 objet merveilleux
+LootPack/&1Recipe1Ingredient	1 recette + 1 ingrédient
+LootPack/&1D3Food1D3MundaneItems	Nourriture 1d3 + objets ordinaires 1d3
+LootPack/&1LegendaryItem	1 objet légendaire
+LootPack/&1MagicArmorPlus1	1 armure magique +1
+LootPack/&1MagicArmorPlus2	1 armure magique +2
+LootPack/&1MagicWeaponPlus1	1 arme magique +1
+LootPack/&1MagicWeaponPlus2	1 arme magique +2
+LootPack/&RandomAmmo	Munition aléatoire

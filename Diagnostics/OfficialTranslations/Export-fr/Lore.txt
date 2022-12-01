@@ -1,0 +1,20 @@
+Lore/&ObservableText_Wanderer_01	Il vous faut un levier pour activer l'aiguillage.
+Lore/&ObservableText_Wanderer_02	Vous avez placé le levier. Ça devrait fonctionner maintenant.
+Lore/&ObservableText_Wanderer_03	Cette porte est lourdement renforcée et il vous faudra une force prodigieuse pour l'enfoncer.
+Lore/&ObservableText_Wanderer_04	Le repos éternel n'existe pas.
+Lore/&ObservableText_Wanderer_05	Apportez la lumière seulement à ceux dont les âmes ne se reposent pas.
+Lore/&ObservableText_Wanderer_06	Laissez les autres dans les ténèbres de la mort.
+Lore/&Wanderer_Tomb01	Lasoriath Cœur-Vaillant\nCapitaine de la première Centurie de la deuxième Légion\nIllustre défunt tombé pour l'Empire
+Lore/&Wanderer_Tomb02	Kerathir Preste-Sort\nCommandant de la première Compagnie d'arcanistes de choc de la deuxième Légion\nIllustre défunt tombé pour l'Empire
+Lore/&ObservableText_DLC1_Complex_01	Selon ce document, le bâtiment possède un niveau souterrain !
+Lore/&ObservableText_DLC1_Complex_02	On dirait que le complexe entier se sert d'espèces de prismes imprégnés de mana comme clés.
+Lore/&ObservableText_DLC1_Complex_03	Une pile de notes de recherche.
+Lore/&ObservableText_DLC1_Complex_04	Bureau de biologie avancée
+Lore/&ObservableText_DLC1_Complex_05	Le mana et les principes des éléments alimentés par la magie
+Lore/&ObservableText_DLC1_Complex_06	Une petite note où est écrit : « L'accès aux tunnels est actuellement bloqué. Utilisez l'ascenseur si vous devez atteindre les niveaux inférieurs ».
+Lore/&ObservableText_DLC1_Marches_01	TBC
+Lore/&ObservableText_DLC1_Marches_02	TBC
+Lore/&ObservableText_DLC1_Marches_03	TBC
+Lore/&ObservableText_DLC1_Marches_04	TBC
+Lore/&ObservableText_DLC1_Marches_05	TBC
+Lore/&ObservableText_DLC1_Marches_06	TBC

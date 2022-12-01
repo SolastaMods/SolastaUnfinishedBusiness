@@ -1,0 +1,51 @@
+Tip/&LoadingTip01	Lancer des sorts consomme des emplacements de sorts. La plupart des classes récupèrent des emplacements de sorts après un repos long.
+Tip/&LoadingTip02	Lors d'un jet d'attaque ou d'un jet de caractéristique avec avantage, deux d20 sont lancés et le meilleur résultat est compté. Lors d'un jet avec désavantage, le plus mauvais résultat est conservé.
+Tip/&LoadingTip03	Ouvrez l'écran du Journal ($Shortcut[PartyJournal]) pour consulter la progression de votre groupe, ses objectifs, et ses accomplissements.
+Tip/&LoadingTip04	Vous pouvez personnaliser vos dés 3D dans les paramètres du jeu.
+Tip/&LoadingTip05	Les sorts consomment des emplacements de sorts lorsqu'ils sont lancés, à l'inverse des sorts mineurs pouvant être utilisés à volonté.
+Tip/&LoadingTip06	Prendre un repos long est le meilleur moyen de récupérer tous vos emplacements de sorts, les magiciens peuvent aussi utiliser le Regain Arcanique pour récupérer quelques emplacements de bas niveau pendant les repos courts.
+Tip/&LoadingTip07	La plupart des lanceurs de sorts ne peuvent pas utiliser tous les sorts qu'ils connaissent. Il leur faut en préparer un nombre déterminé puis prendre un repos long.
+Tip/&LoadingTip08	Les magiciens doivent apprendre de nouveaux sorts et les inscrire dans leur grimoire avant de pouvoir les préparer et les lancer.
+Tip/&LoadingTip09	Les clercs et les paladins connaissent tous les sorts qu'ils peuvent lancer à leur niveau, mais ils doivent tout de même préparer ceux qu'ils souhaitent utiliser.
+Tip/&LoadingTip10	Les parchemins de sort de magiciens sont détruits après utilisation. Les magiciens peuvent également copier un sort de parchemin dans leur grimoire pour les obtenir, ce qui détruit également le parchemin.
+Tip/&LoadingTip13	Certaines créatures craignent la lumière qui peut même les blesser. Cela vous permet d'utiliser la lumière comme arme.
+Tip/&LoadingTip14	Pour prendre un repos long, il vous faut trouver un emplacement adéquat : soit une auberge telle que le Fût du Fossoyeur, ou un feu de camp lorsque vous êtes en exploration.
+Tip/&LoadingTip15	À chaque tour de combat, un personnage a une action principale et une action bonus. L'action principale permet, par exemple, de se déplacer ou d'attaquer, et l'action bonus dépend des attributs de classe spécifiques, des sorts ou des pouvoirs.
+Tip/&LoadingTip16	Les réactions permettent aux personnages d'interrompre l'action de quelqu'un d'autre en lançant une attaque d'opportunité, par exemple. Chaque personnage peut utiliser une réaction par tour. Il la récupérera ensuite au début du tour suivant.
+Tip/&LoadingTip17	Certains monstres ou personnages peuvent attaquer plus d'une fois par tour et peuvent se déplacer entre leurs attaques.
+Tip/&LoadingTip18	La Poussée permet de pousser un adversaire d'une case ou de le mettre à terre jusqu'à ce qu'il se relève. Les adversaires peuvent aussi pousser.
+Tip/&LoadingTip19	L'Esquive est une puissante technique de défense même si cela utilise votre action principale : les adversaires ont un désavantage pour vous toucher jusqu'au début de votre prochain tour.
+Tip/&LoadingTip20	Passez en mode Prudence lorsque vous explorez. Vous avancerez plus lentement, mais vous pourrez voir les pièges et les traces de pas.
+Tip/&LoadingTip21	En combat, vous pouvez vous déplacer normalement puis foncer pour votre action principale afin d'aller deux fois plus loin.
+Tip/&LoadingTip22	La plupart des personnages peuvent facilement sauter jusqu'à deux cases. Les sauts plus longs demandent de la Force et la maîtrise de l'Athlétisme peut être d'une grande aide. Vous avez une chance de tomber à terre en atterrissant si vous sautez loin.
+Tip/&LoadingTip23	La plupart des personnages peuvent facilement escalader jusqu'à deux cases. Escalader plus haut demande de la Force et la maîtrise de l'Athlétisme peut être d'une grande aide. Certains personnages, comme les voleurs ou les tisserands du crépuscule, ont une meilleure capacité d'escalade.
+Tip/&LoadingTip25	Après avoir déplacé la caméra pour examiner votre environnement, vous pouvez la centrer sur un personnage et le suivre. Il suffit soit de double-cliquer sur le portrait du personnage ou d'appuyer sur Tab lorsque vous contrôlez ce personnage.
+Tip/&LoadingTip26	Afin de mieux vous déplacer en trois dimensions, activez/désactivez le mode isométrique avec le bouton au centre de la boussole (en bas à droite de l'écran).
+Tip/&LoadingTip27	Les sorts et artefacts de vol permettent de vous déplacer presque n'importe où. Mais perdre sa concentration est synonyme de chute, potentiellement fatale.
+Tip/&LoadingTip28	Lorsqu'un combat commence, toutes les créatures participantes font des jets d'initiatives afin de déterminer l'ordre des tours. Une Dextérité élevée améliore l'initiative.
+Tip/&LoadingTip29	Les combats débutent parfois avec un camp surpris. Les créatures ou personnages surpris ne peuvent pas agir pendant le premier tour du combat.
+Tip/&LoadingTip30	Vous pouvez déterminer des emplacements d'armes pour passer rapidement de l'épée et bouclier à l'arc, par exemple, ou pour brandir une torche avec une arme à une main. Créez le combo que vous souhaitez.
+Tip/&LoadingTip31	Plusieurs consommables peuvent être placés dans l'emplacement utilitaire, ils peuvent ainsi être utilisés plus rapidement que dans l'inventaire.
+Tip/&LoadingTip32	Lorsque vous découvrez un objet mystérieux, utilisez d'abord détection de la magie pour déterminer s'il possède des propriétés magiques. Si tel est le cas, utilisez identification pour apprendre à vous en servir.
+Tip/&LoadingTip33	Les ingrédients sont des éléments variés : des fleurs, des poudres ou des gemmes magiques, vous permettant de fabriquer divers objets, des potions de soin jusqu'à de puissantes épées magiques.
+Tip/&LoadingTip34	Pour la fabrication il vous faut la maîtrise correspondante. Votre valeur de caractéristique est également importante. Par exemple, pour fabriquer un parchemin, il vous faut maîtriser le kit de parchemin, et les Arcanes vous seront aussi d'une grande aide.
+Tip/&LoadingTip35	La fabrication peut se faire pendant les périodes de temps mort lors des voyages. Un personnage ayant une opération de fabrication en cours travaillera sur sa tâche avant de dormir.
+Tip/&LoadingTip36	Les traits de personnalité influencent les lignes de dialogue d'un personnage. Ils ne font pas les choix à votre place, mais rajoutent simplement du piment à votre expérience.
+Tip/&LoadingTip37	Lorsque vous abordez un PNJ, le personnage le plus approprié du groupe utilisera automatiquement Perspicacité afin de déterminer quelle approche aura le plus de chance d'être efficace.
+Tip/&LoadingTip38	Votre groupe a des niveaux spécifiques de relation avec chacune des factions du jeu. Plus ces dernières vous apprécient, plus elles vous vendront d'objets et feront baisser leurs prix.
+Tip/&LoadingTip39	Lorsque vous rapportez des objets des Badlands, choisissez à quelle faction vous souhaitez les vendre. Cela affectera vos relations.
+Tip/&LoadingTip40	Se désengager peut être utilisé comme action principale, vous permettant de vous déplacer hors de la portée de l'adversaire tout en évitant de potentielles attaques d'opportunité.
+Tip/&LoadingTip41	Lorsqu'un adversaire se trouve dans une case voisine, vous êtes en position engagée. Si vous vous éloignez de cet adversaire, vous risquez de subir une attaque d'opportunité.
+Tip/&LoadingTip42	Les roublards peuvent utiliser des attaques sournoises pour augmenter leurs dégâts lorsqu'ils attaquent un adversaire situé sur une case à côté d'un allié. Cela ne fonctionne pas s'ils ont un désavantage sur leur jet d'attaque.
+Tip/&LoadingTip43	Manier deux armes légères vous permet d'effectuer une seconde attaque avec vos actions bonus. Les deux armes doivent avoir l'étiquette « Légère ».
+Tip/&LoadingTip44	Manier une arme de finesse vous permet d'utiliser la Dextérité comme valeur de caractéristique principale pour attaquer, si celle-ci est plus élevée que la Force. Recherchez l'étiquette « Finesse ».
+Tip/&LoadingTip45	Une arme dotée d'une étiquette « Polyvalent » peut être maniée à une main comme à deux mains. Vous pouvez laisser l'emplacement de la deuxième main vide pour infliger davantage de dégâts avec ce type d'arme. Exemple : l'épée longue.
+Tip/&LoadingTip47	Pour passer au niveau supérieur, vos personnages doivent prendre un repos long. Ils obtiendront leur nouveau pouvoir à leur réveil.
+Tip/&LoadingTip12	À la limite de vos sources de lumière, l'environnement est baigné dans une lumière faible. La vision dans le noir est inutile pour voir dans la lumière faible.
+Tip/&LoadingTip11	La lumière est un élément essentiel du jeu. Les personnages sans vision dans le noir attaqueront un ennemi non éclairé avec un désavantage. Utilisez des torches et des sorts de lumière pour illuminer votre environnement.
+Tip/&LoadingTip46	Pour diviser une pile d'objets, cliquez-glissez la pile sur une case vide tout en maintenant la touche CTRL enfoncée. Cela retirera une unité de la pile.
+Tip/&LoadingTip24	Les sorts et les artefacts de lévitation vous permettent de flotter vers le haut ou le bas au lieu d'escalader. Vous pouvez aussi forcer un adversaire de taille moyenne à petite à flotter dans les airs plutôt que de se précipiter vers vous.
+Tip/&LoadingTip48	Vous pouvez facilement modifier les paramètres de difficulté du jeu à tout moment.
+Tip/&LoadingTip49	En cas de latence (lag) en multijoueur, diminuez le niveau de qualité des graphismes sur les machines les moins performantes.
+Tip/&LoadingTip25Gamepad	Maintenez <sprite index={10}> et sélectionnez deux fois le même personnage ou appuyez sur <sprite index={3}> pour centrer la caméra sur le premier personnage du groupe.
+Tip/&LoadingTip46Gamepad	Pour diviser une pile d'objets, appuyez deux fois sur <sprite index={0}> ou ouvrez le menu d'objets en appuyant sur <sprite index={7}>.

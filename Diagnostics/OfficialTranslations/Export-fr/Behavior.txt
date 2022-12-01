@@ -1,0 +1,22 @@
+Behavior/&AttackingDescription	La créature attaque sa cible.
+Behavior/&AttackingTitle	Attaque
+Behavior/&IdleDescription	La créature ne fait rien de spécial.
+Behavior/&IdleTitle	Inactivité
+Behavior/&InterceptingDescription	La créature a repéré une cible et avance vers elle.
+Behavior/&InterceptingTitle	Interception
+Behavior/&InvestigatingDescription	La créature examine une source de perturbation (bruit, lumière).
+Behavior/&InvestigatingTitle	Observation
+Behavior/&MovingDescription	La créature va quelque part.
+Behavior/&MovingTitle	En mouvement
+Behavior/&NoBehaviorDescription	La créature ne fait rien ou son statut initial n'a pas été activé.
+Behavior/&NoBehaviorTitle	Aucun comportement
+Behavior/&PlanningDescription	La créature prépare sa prochaine action.
+Behavior/&PlanningTitle	Préparation
+Behavior/&SneakingDescription	Le personnage essaie d'être discret.
+Behavior/&SneakingTitle	Discrétion
+Behavior/&TalkingDescription	La créature parle.
+Behavior/&TalkingTitle	Parole
+Behavior/&WaitingDescription	La créature attend.
+Behavior/&WaitingTitle	Attente
+Behavior/&WatchingDescription	La créature cherche des ennemis.
+Behavior/&WatchingTitle	Recherche

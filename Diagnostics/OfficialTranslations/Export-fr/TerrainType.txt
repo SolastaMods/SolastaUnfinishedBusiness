@@ -1,0 +1,16 @@
+TerrainType/&ArcticDescription	Les zones de neige ou de permafrost sont considérées comme terrain arctique. Attention, ce type de terrain n'est pas utilisé dans la campagne La Couronne du Magistère.
+TerrainType/&ArcticTitle	Arctique
+TerrainType/&BadlandsDescription	La plupart des zones couvrant les anciennes provinces intérieures de l'Empire manacalon, à présent un mélange de différents types de terrain agrémentés de manifestations chaotiques de magie post-Cataclysme, sont des terrains des Badlands.
+TerrainType/&CoastDescription	Les zones comprenant un littoral sont considérées comme terrain côtier. Attention, ce type de terrain n'est pas utilisé dans la campagne La Couronne du Magistère.
+TerrainType/&CoastTitle	Côte
+TerrainType/&DablandsTitle	Badlands
+TerrainType/&DesertDescription	Les zones arides sans pluie ou presque et où la végétation est rare sont considérées comme terrain désertique.
+TerrainType/&DesertTitle	Désert
+TerrainType/&ForestDescription	Les zones à la végétation luxuriante et les larges zones de forêts sont considérées comme terrain forestier.
+TerrainType/&ForestTitle	Forêt
+TerrainType/&GrasslandDescription	Les zones aux forêts rares et les vastes zones de plaines vertes sont considérées comme terrain de prairie.
+TerrainType/&GrasslandTitle	Prairie
+TerrainType/&MountainDescription	Les zones au sol rocailleux, les collines, et les montagnes sont considérées comme terrain montagneux.
+TerrainType/&MountainTitle	Montagne
+TerrainType/&SwampDescription	Les zones comprenant des marécages et des étangs où règne une atmosphère humide, sont considérées comme terrain marécageux.
+TerrainType/&SwampTitle	Marécage
