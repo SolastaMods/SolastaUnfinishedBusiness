@@ -25,8 +25,7 @@ internal static partial class SpellBuilders
             .Create("ConditionAcidClaws")
             .SetGuiPresentation(Category.Condition, ConditionAcidSpit)
             .SetConditionType(ConditionType.Detrimental)
-            .SetDuration(DurationType.Round, 1)
-            .SetSpecialDuration()
+            .SetSpecialDuration(DurationType.Round, 1)
             .SetFeatures(FeatureDefinitionAttributeModifierBuilder
                 .Create("AttributeModifierAcidClawsACDebuff")
                 .SetGuiPresentation("ConditionAcidClaws", Category.Condition)
@@ -278,7 +277,6 @@ internal static partial class SpellBuilders
                             .SetSpecialInterruptions(ConditionInterruption.Attacks)
                             .SetSilent(Silent.WhenAddedOrRemoved)
                             .SetTurnOccurence(TurnOccurenceType.EndOfTurn)
-                            .SetDuration(DurationType.Round, 1)
                             .SetFeatures(FeatureDefinitionAdditionalDamageBuilder
                                 .Create("AdditionalDamageResonatingStrike")
                                 .SetGuiPresentationNoContent(true)
@@ -309,9 +307,8 @@ internal static partial class SpellBuilders
             conditionDefinition = ConditionDefinitionBuilder
                 .Create(ConditionHighlighted, "ConditionSunlightBladeHighlighted")
                 .SetSpecialInterruptions(ConditionInterruption.Attacked)
-                .SetDuration(DurationType.Round, 1)
+                .SetSpecialDuration(DurationType.Round, 1)
                 .SetTurnOccurence(TurnOccurenceType.StartOfTurn)
-                .SetSpecialDuration()
                 .AddToDB()
         };
 
@@ -332,7 +329,6 @@ internal static partial class SpellBuilders
             .AddSpecialInterruptions(ConditionInterruption.AnyBattleTurnEnd)
             .SetSilent(Silent.WhenAddedOrRemoved)
             .SetTurnOccurence(TurnOccurenceType.EndOfTurn)
-            .SetDuration(DurationType.Round, 1)
             .AddToDB();
 
         return SpellDefinitionBuilder
@@ -364,7 +360,6 @@ internal static partial class SpellBuilders
                                 .SetSpecialInterruptions(ConditionInterruption.AnyBattleTurnEnd)
                                 .SetSilent(Silent.WhenAddedOrRemoved)
                                 .SetTurnOccurence(TurnOccurenceType.EndOfTurn)
-                                .SetDuration(DurationType.Round, 1)
                                 .SetFeatures(FeatureDefinitionAdditionalDamageBuilder
                                     .Create("AdditionalDamageSunlightBlade")
                                     .SetGuiPresentationNoContent(true)

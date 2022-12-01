@@ -527,9 +527,8 @@ internal sealed class MartialTactician : AbstractSubclass
                             .SetMyAttackAdvantage(AdvantageType.Disadvantage)
                             .SetSituationalContext(ExtraSituationalContext.TargetIsNotEffectSource)
                             .AddToDB())
-                        .SetSpecialDuration()
                         //Lasts until the end of the target's turn
-                        .SetDuration(DurationType.Round, 0, false)
+                        .SetSpecialDuration(DurationType.Round, 0, false)
                         .SetTurnOccurence(TurnOccurenceType.EndOfTurn)
                         .AddToDB(), ConditionForm.ConditionOperation.Add)
                     .Build())
@@ -686,8 +685,7 @@ internal sealed class MartialTactician : AbstractSubclass
                 .SetGuiPresentation($"Condition{name}Good", Category.Condition)
                 .SetAddConditionAmount(AttributeDefinitions.ArmorClass)
                 .AddToDB())
-            .SetSpecialDuration()
-            .SetDuration(DurationType.Round, 1)
+            .SetSpecialDuration(DurationType.Round, 1)
             .AddToDB();
 
         var bad = ConditionDefinitionBuilder
@@ -701,8 +699,7 @@ internal sealed class MartialTactician : AbstractSubclass
                 .SetGuiPresentation($"Condition{name}Bad", Category.Condition)
                 .SetAddConditionAmount(AttributeDefinitions.ArmorClass)
                 .AddToDB())
-            .SetSpecialDuration()
-            .SetDuration(DurationType.Round, 1)
+            .SetSpecialDuration(DurationType.Round, 1)
             .AddToDB();
 
         power = FeatureDefinitionPowerSharedPoolBuilder

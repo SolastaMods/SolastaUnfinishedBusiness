@@ -118,7 +118,6 @@ internal sealed class WayOfTheDistantHand : AbstractSubclass
                     .SetConditionForm(ConditionDefinitionBuilder
                             .Create("ConditionWayOfTheDistantHandDistract")
                             .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionDazzled)
-                            .SetDuration(DurationType.Round, 1)
                             .SetTurnOccurence(TurnOccurenceType.EndOfTurn)
                             .SetConditionType(ConditionType.Detrimental)
                             .SetSpecialInterruptions(ConditionInterruption.Attacks)
@@ -176,7 +175,7 @@ internal sealed class WayOfTheDistantHand : AbstractSubclass
                     .Create("ConditionWayOfTheDistantHandAttackedWithMonkWeapon")
                     .SetGuiPresentationNoContent(true)
                     .SetSilent(Silent.WhenAddedOrRemoved)
-                    .SetDuration(DurationType.Round, 1)
+                    .SetSpecialDuration(DurationType.Round, 1)
                     .SetTurnOccurence(TurnOccurenceType.StartOfTurn)
                     .SetSpecialInterruptions(
                         ConditionInterruption.BattleEnd,
@@ -190,8 +189,7 @@ internal sealed class WayOfTheDistantHand : AbstractSubclass
                             .Create("ConditionWayOfTheDistantHandZenArcherFlurryOfArrows")
                             .SetGuiPresentationNoContent(true)
                             .SetSilent(Silent.WhenAddedOrRemoved)
-                            .SetDuration(DurationType.Round, 0, false)
-                            .SetSpecialDuration()
+                            .SetSpecialDuration(DurationType.Round, 0, false)
                             .SetTurnOccurence(TurnOccurenceType.EndOfTurn)
                             .SetSpecialInterruptions(
                                 ConditionInterruption.BattleEnd,
@@ -258,7 +256,6 @@ internal sealed class WayOfTheDistantHand : AbstractSubclass
                         .SetConditionForm(ConditionDefinitionBuilder
                             .Create("ConditionWayOfTheDistantHandZenArrowUpgradedSlow")
                             .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionEncumbered)
-                            .SetDuration(DurationType.Round, 1)
                             .SetTurnOccurence(TurnOccurenceType.EndOfTurn)
                             .SetConditionType(ConditionType.Detrimental)
                             .SetFeatures(FeatureDefinitionMovementAffinityBuilder
@@ -312,7 +309,6 @@ internal sealed class WayOfTheDistantHand : AbstractSubclass
                         .SetConditionForm(ConditionDefinitionBuilder
                             .Create("ConditionWayOfTheDistantHandUpgradedDistract")
                             .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionDazzled)
-                            .SetDuration(DurationType.Round, 1)
                             .SetTurnOccurence(TurnOccurenceType.EndOfTurn)
                             .SetConditionType(ConditionType.Detrimental)
                             .SetFeatures(FeatureDefinitionCombatAffinityBuilder
