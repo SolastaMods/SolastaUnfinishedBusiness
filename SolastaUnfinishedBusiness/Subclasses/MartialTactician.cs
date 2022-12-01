@@ -1301,6 +1301,11 @@ internal sealed class MartialTactician : AbstractSubclass
             bool criticalHit,
             bool firstTarget)
         {
+            if (rangedAttack)
+            {
+                yield break;
+            }
+
             var manager = ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
 
             if (manager == null)
