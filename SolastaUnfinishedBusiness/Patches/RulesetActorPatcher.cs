@@ -9,6 +9,7 @@ using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.Extensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
+using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.Feats;
 using SolastaUnfinishedBusiness.Subclasses;
@@ -21,6 +22,34 @@ namespace SolastaUnfinishedBusiness.Patches;
 
 public static class RulesetActorPatcher
 {
+    [HarmonyPatch(typeof(RulesetActor), "AddConditionOfCategory")]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    public static class AddConditionOfCategory_Patch
+    {
+        public static void Prefix(RulesetActor __instance,
+            ref string category,
+            RulesetCondition newCondition,
+            bool refresh,
+            bool registerCondition)
+        {
+            //PATCH: allow conditions to force specific category
+            IForceConditionCategory feature;
+            if (newCondition.conditionDefinition == null)
+            {
+                return;
+            }
+
+            feature = newCondition.conditionDefinition.GetFirstSubFeatureOfType<IForceConditionCategory>();
+
+            if (feature == null)
+            {
+                return;
+            }
+
+            category = feature.GetForcedCategory(__instance, newCondition, category);
+        }
+    }
+
     [HarmonyPatch(typeof(RulesetActor), "InflictCondition")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     public static class InflictCondition_Patch

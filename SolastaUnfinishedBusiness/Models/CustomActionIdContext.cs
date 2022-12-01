@@ -154,6 +154,7 @@ public static class CustomActionIdContext
 
         ActionDefinitionBuilder
             .Create(baseAction, "DoNothingFree")
+            .SetGuiPresentationNoContent()
             .SetActionId(ExtraActionId.DoNothingFree)
             .SetActionType(ActionType.NoCost)
             .SetActionScope(ActionScope.All)
@@ -162,6 +163,7 @@ public static class CustomActionIdContext
 
         ActionDefinitionBuilder
             .Create(baseAction, "DoNothingReaction")
+            .SetGuiPresentationNoContent()
             .SetActionId(ExtraActionId.DoNothingReaction)
             .SetActionType(ActionType.Reaction)
             .SetActionScope(ActionScope.All)
