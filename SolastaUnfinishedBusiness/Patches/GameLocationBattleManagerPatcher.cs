@@ -163,12 +163,12 @@ public static class GameLocationBattleManagerPatcher
 
             if (action.BardicDieRoll > 0)
             {
-                action.AttackRollOutcome += action.BardicDieRoll;
+                action.AttackSuccessDelta += action.BardicDieRoll;
             }
 
             foreach (var feature in attacker.RulesetActor.GetSubFeaturesByType<IAlterAttackOutcome>())
             {
-                if (action.AttackRollOutcome != RuleDefinitions.RollOutcome.Failure)
+                if (action.AttackRollOutcome != RuleDefinitions.RollOutcome.Failure || action.AttackSuccessDelta >= 0)
                 {
                     break;
                 }
