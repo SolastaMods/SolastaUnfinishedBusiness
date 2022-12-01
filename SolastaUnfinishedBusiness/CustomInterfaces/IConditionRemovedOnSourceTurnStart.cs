@@ -11,6 +11,16 @@ public interface IConditionRemovedOnSourceTurnStart
 {
 }
 
+//TODO: get rid of interface and add this as sub feature to conditions that implemented interface
+internal class RemoveConditionOnSourceTurnStart : IConditionRemovedOnSourceTurnStart
+{
+    public static IConditionRemovedOnSourceTurnStart Mark { get; } = new RemoveConditionOnSourceTurnStart();
+    private RemoveConditionOnSourceTurnStart()
+    {
+    }
+
+}
+
 public static class ConditionRemovedOnSourceTurnStartPatch
 {
     public static void RemoveConditionIfNeeded(RulesetActor __instance,

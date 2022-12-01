@@ -26,6 +26,7 @@ internal sealed class MartialTactician : AbstractSubclass
     private static readonly DamageDieProvider UpgradeDice = (character, _) => GetGambitDieSize(character);
 
     private static int _gambitPoolIncreases;
+    private const string MarkCondition = "ConditionTacticianDamagedByGambit";
 
     internal MartialTactician()
     {
@@ -34,19 +35,32 @@ internal sealed class MartialTactician : AbstractSubclass
         GambitDieDamage = BuildGambitDieDamage("");
         GambitDieDamageOnce = BuildGambitDieDamage("Once", FeatureLimitedUsage.OncePerTurn);
 
+        var learn1Gambit = BuildLearn(1);
         var learn2Gambits = BuildLearn(2);
         var learnInitial = BuildLearn(4);
         var unlearn = BuildUnlearn();
+
+        var stratecicPlan = FeatureDefinitionFeatureSetBuilder
+            .Create("FeatureSefTacticianStrategicPlan")
+            .SetGuiPresentation(Category.Feature)
+            .SetMode(FeatureDefinitionFeatureSet.FeatureSetMode.Exclusion)
+            .AddFeatureSetNoSort(
+                BuildTacticalSurge(),
+                BuildAdaptiveStrategy(),
+                BuildOvercomingStrategy()
+            )
+            .AddToDB();
 
         EverVigilant = BuildEverVigilant();
         Subclass = CharacterSubclassDefinitionBuilder
             .Create("MartialTactician")
             .SetGuiPresentation(Category.Subclass, RoguishShadowCaster)
             .AddFeaturesAtLevel(3, BuildSharpMind(), GambitPool, learnInitial, EverVigilant)
-            .AddFeaturesAtLevel(5, BuildGambitDieSize(DieType.D8))
-            .AddFeaturesAtLevel(7, BuildGambitPoolIncrease(), learn2Gambits, unlearn, BuildSharedVigilance())
-            .AddFeaturesAtLevel(10, BuildAdaptiveStrategy(), BuildTacticalSurge(), BuildGambitDieSize(DieType.D10))
-            .AddFeaturesAtLevel(15, BuildGambitPoolIncrease(), learn2Gambits, unlearn, BuildGambitDieSize(DieType.D12))
+            .AddFeaturesAtLevel(5, BuildGambitDieSize(DieType.D8), learn1Gambit)
+            .AddFeaturesAtLevel(7, BuildGambitPoolIncrease(), learn1Gambit, unlearn, BuildSharedVigilance())
+            .AddFeaturesAtLevel(10, stratecicPlan, BuildGambitDieSize(DieType.D10))
+            .AddFeaturesAtLevel(15, stratecicPlan, BuildGambitPoolIncrease(), learn2Gambits, unlearn,
+                BuildGambitDieSize(DieType.D12))
             .AddToDB();
 
         BuildGambits();
@@ -165,6 +179,32 @@ internal sealed class MartialTactician : AbstractSubclass
         return feature;
     }
 
+    private static FeatureDefinition BuildOvercomingStrategy()
+    {
+        var feature = FeatureDefinitionBuilder
+            .Create("FeatureOvercomingStrategy")
+            .SetGuiPresentation(Category.Feature)
+            .AddToDB();
+
+        feature.SetCustomSubFeatures(new RefundPowerUseAfterKill(GambitPool, feature));
+
+        ConditionDefinitionBuilder
+            .Create(MarkCondition)
+            .SetGuiPresentationNoContent(true)
+            .SetSilent(Silent.WhenAddedOrRemoved)
+            .SetCustomSubFeatures(
+                new RefundPowerUseWhenTargetWithConditionDies(GambitPool, feature),
+                RemoveConditionOnSourceTurnStart.Mark,
+                //by default this condition is applied under Effects tag, whuch is removed right at death - too early for us to detect
+                //this feature will add this effect under Combat tag, which is not removed
+                new ForceConditionCategory(AttributeDefinitions.TagCombat))
+            .SetSpecialDuration(DurationType.Round, 1)
+            .SetTurnOccurence(TurnOccurenceType.StartOfTurn)
+            .AddToDB();
+
+        return feature;
+    }
+
     private static FeatureDefinitionCustomInvocationPool BuildLearn(int points)
     {
         return CustomInvocationPoolDefinitionBuilder
@@ -202,6 +242,10 @@ internal sealed class MartialTactician : AbstractSubclass
             .SetDamageDice(DieType.D6, 1)
             .SetAdditionalDamageType(AdditionalDamageType.SameAsBaseDamage)
             .SetNotificationTag("GambitDie")
+            .SetConditionOperations(new ConditionOperationDescription
+            {
+                operation = ConditionOperationDescription.ConditionOperation.Add, conditionName = MarkCondition
+            })
             .SetFrequencyLimit(limit)
             .AddToDB();
     }
@@ -240,6 +284,7 @@ internal sealed class MartialTactician : AbstractSubclass
         FeatureDefinition feature;
         FeatureDefinitionPower power;
         ICustomConditionFeature reaction;
+        const int HIGH_LEVEL = 7;
 
         #region Helpers
 
@@ -334,7 +379,7 @@ internal sealed class MartialTactician : AbstractSubclass
                 .Build())
             .AddToDB();
 
-        BuildFeatureInvocation(name, sprite, power);
+        BuildFeatureInvocation(name, sprite, power, HIGH_LEVEL);
 
         #endregion
 
@@ -496,7 +541,7 @@ internal sealed class MartialTactician : AbstractSubclass
                 .Build())
             .AddToDB();
 
-        BuildFeatureInvocation(name, sprite, power);
+        BuildFeatureInvocation(name, sprite, power, HIGH_LEVEL);
 
         #endregion
 
@@ -653,7 +698,7 @@ internal sealed class MartialTactician : AbstractSubclass
                 .Build())
             .AddToDB();
 
-        BuildFeatureInvocation(name, sprite, power);
+        BuildFeatureInvocation(name, sprite, power, HIGH_LEVEL);
 
         #endregion
 
@@ -722,7 +767,7 @@ internal sealed class MartialTactician : AbstractSubclass
                 .Build())
             .AddToDB();
 
-        BuildFeatureInvocation(name, sprite, power);
+        BuildFeatureInvocation(name, sprite, power, HIGH_LEVEL);
 
         #endregion
 
@@ -770,7 +815,7 @@ internal sealed class MartialTactician : AbstractSubclass
                 .SetTargetFiltering(TargetFilteringMethod.CharacterOnly)
                 .SetTargetingData(Side.All, RangeType.Touch, 1, TargetType.Individuals)
                 .ExcludeCaster()
-                .SetHasSavingThrow(AttributeDefinitions.Wisdom,
+                .SetHasSavingThrow(AttributeDefinitions.Dexterity,
                     EffectDifficultyClassComputation.AbilityScoreAndProficiency,
                     AttributeDefinitions.Intelligence,
                     disableSavingThrowOnAllies: true)
@@ -883,13 +928,15 @@ internal sealed class MartialTactician : AbstractSubclass
     private static void BuildFeatureInvocation(
         string name,
         AssetReferenceSprite sprite,
-        FeatureDefinition feature)
+        FeatureDefinition feature,
+        int level = 1)
     {
         CustomInvocationDefinitionBuilder
             .Create($"CustomInvocation{name}")
             .SetGuiPresentation(name, Category.Feature, sprite)
             .SetPoolType(InvocationPoolTypeCustom.Pools.Gambit)
             .SetGrantedFeature(feature)
+            .SetRequirements(level)
             .AddToDB();
     }
 
@@ -964,6 +1011,90 @@ internal sealed class MartialTactician : AbstractSubclass
 
             GameConsoleHelper.LogCharacterUsedFeature(character, feature, indent: true);
             character.UpdateUsageForPower(power, -1);
+        }
+    }
+
+    private class RefundPowerUseAfterKill : ITargetReducedToZeroHp
+    {
+        private readonly FeatureDefinition feature;
+        private readonly FeatureDefinitionPower power;
+
+        public RefundPowerUseAfterKill(FeatureDefinitionPower power, FeatureDefinition feature)
+        {
+            this.power = power;
+            this.feature = feature;
+        }
+
+        public IEnumerator HandleCharacterReducedToZeroHp(
+            GameLocationCharacter attacker,
+            GameLocationCharacter downedCreature,
+            RulesetAttackMode attackMode,
+            RulesetEffect activeEffect)
+        {
+            if (downedCreature.RulesetCharacter.HasConditionOfType(MarkCondition))
+            {
+                yield break;
+            }
+
+            if (attackMode == null)
+            {
+                yield break;
+            }
+
+            var character = attacker.RulesetCharacter;
+
+            if (character == null)
+            {
+                yield break;
+            }
+
+            if (character.GetRemainingPowerUses(power) >= character.GetMaxUsesForPool(power))
+            {
+                yield break;
+            }
+
+            GameConsoleHelper.LogCharacterUsedFeature(character, feature, indent: true);
+            character.UpdateUsageForPower(power, -1);
+        }
+    }
+
+    private class RefundPowerUseWhenTargetWithConditionDies : INotifyConditionRemoval
+    {
+        private readonly FeatureDefinition feature;
+        private readonly FeatureDefinitionPower power;
+
+        public RefundPowerUseWhenTargetWithConditionDies(FeatureDefinitionPower power, FeatureDefinition feature)
+        {
+            this.power = power;
+            this.feature = feature;
+        }
+
+        public void BeforeDyingWithCondition(RulesetActor rulesetActor, RulesetCondition rulesetCondition)
+        {
+            var character = EffectHelpers.GetCharacterByGuid(rulesetCondition.sourceGuid);
+
+
+            if (character == null)
+            {
+                return;
+            }
+
+            if (!character.HasAnyFeature(feature))
+            {
+                return;
+            }
+
+            if (character.GetRemainingPowerUses(power) >= character.GetMaxUsesForPool(power))
+            {
+                return;
+            }
+
+            GameConsoleHelper.LogCharacterUsedFeature(character, feature, indent: true);
+            character.UpdateUsageForPower(power, -1);
+        }
+
+        public void AfterConditionRemoved(RulesetActor removedFrom, RulesetCondition rulesetCondition)
+        {
         }
     }
 
@@ -1221,7 +1352,7 @@ internal sealed class MartialTactician : AbstractSubclass
             var description = Gui.Format(Format, guiMe.Name, guiTarget.Name, delta.ToString(),
                 Gui.FormatDieTitle(dieType));
             var reactionParams =
-                new CharacterActionParams(me, (Id)ExtraActionId.DoNothingFree) { StringParameter = description };
+                new CharacterActionParams(me, (Id)ExtraActionId.DoNothingFree) {StringParameter = description};
 
             var previousReactionCount = manager.PendingReactionRequestGroups.Count;
             var reactionRequest = new ReactionRequestCustom("GambitPrecise", reactionParams)
@@ -1333,7 +1464,7 @@ internal sealed class MartialTactician : AbstractSubclass
 
             var description = Gui.Format(Format, guiMe.Name, guiTarget.Name, Gui.FormatDieTitle(dieType));
             var reactionParams =
-                new CharacterActionParams(me, (Id)ExtraActionId.DoNothingReaction) { StringParameter = description };
+                new CharacterActionParams(me, (Id)ExtraActionId.DoNothingReaction) {StringParameter = description};
 
             var previousReactionCount = manager.PendingReactionRequestGroups.Count;
             var reactionRequest = new ReactionRequestCustom("GambitParry", reactionParams)
