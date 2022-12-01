@@ -284,6 +284,7 @@ internal sealed class MartialTactician : AbstractSubclass
         FeatureDefinition feature;
         FeatureDefinitionPower power;
         ICustomConditionFeature reaction;
+        const int HIGH_LEVEL = 7;
 
         #region Helpers
 
@@ -378,7 +379,7 @@ internal sealed class MartialTactician : AbstractSubclass
                 .Build())
             .AddToDB();
 
-        BuildFeatureInvocation(name, sprite, power);
+        BuildFeatureInvocation(name, sprite, power, HIGH_LEVEL);
 
         #endregion
 
@@ -540,7 +541,7 @@ internal sealed class MartialTactician : AbstractSubclass
                 .Build())
             .AddToDB();
 
-        BuildFeatureInvocation(name, sprite, power);
+        BuildFeatureInvocation(name, sprite, power, HIGH_LEVEL);
 
         #endregion
 
@@ -697,7 +698,7 @@ internal sealed class MartialTactician : AbstractSubclass
                 .Build())
             .AddToDB();
 
-        BuildFeatureInvocation(name, sprite, power);
+        BuildFeatureInvocation(name, sprite, power, HIGH_LEVEL);
 
         #endregion
 
@@ -766,7 +767,7 @@ internal sealed class MartialTactician : AbstractSubclass
                 .Build())
             .AddToDB();
 
-        BuildFeatureInvocation(name, sprite, power);
+        BuildFeatureInvocation(name, sprite, power, HIGH_LEVEL);
 
         #endregion
 
@@ -927,13 +928,15 @@ internal sealed class MartialTactician : AbstractSubclass
     private static void BuildFeatureInvocation(
         string name,
         AssetReferenceSprite sprite,
-        FeatureDefinition feature)
+        FeatureDefinition feature,
+        int level = 1)
     {
         CustomInvocationDefinitionBuilder
             .Create($"CustomInvocation{name}")
             .SetGuiPresentation(name, Category.Feature, sprite)
             .SetPoolType(InvocationPoolTypeCustom.Pools.Gambit)
             .SetGrantedFeature(feature)
+            .SetRequirements(level)
             .AddToDB();
     }
 
