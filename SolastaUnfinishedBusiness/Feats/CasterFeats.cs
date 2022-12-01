@@ -96,7 +96,8 @@ internal static class CasterFeats
             FeatDefinitionBuilder
                 .Create("FeatFeyTeleportationInt")
                 .SetFeatures(autoPreparedSpells, AttributeModifierCreed_Of_Pakri, learnTirmarian)
-                .AddFeatures(MakeSpellFeatureAndInvocations(spells, FEY_TELEPORT, AttributeDefinitions.Intelligence, longRest: false))
+                .AddFeatures(MakeSpellFeatureAndInvocations(spells, FEY_TELEPORT, AttributeDefinitions.Intelligence,
+                    false))
                 .SetGuiPresentation(Category.Feat)
                 .SetFeatFamily(FEY_TELEPORT)
                 .AddToDB(),
@@ -104,7 +105,7 @@ internal static class CasterFeats
             FeatDefinitionBuilder
                 .Create("FeatFeyTeleportationCha")
                 .SetFeatures(autoPreparedSpells, AttributeModifierCreed_Of_Solasta, learnTirmarian)
-                .AddFeatures(MakeSpellFeatureAndInvocations(spells, FEY_TELEPORT, AttributeDefinitions.Charisma, longRest: false))
+                .AddFeatures(MakeSpellFeatureAndInvocations(spells, FEY_TELEPORT, AttributeDefinitions.Charisma, false))
                 .SetGuiPresentation(Category.Feat)
                 .SetFeatFamily(FEY_TELEPORT)
                 .AddToDB(),
@@ -112,7 +113,7 @@ internal static class CasterFeats
             FeatDefinitionBuilder
                 .Create("FeatFeyTeleportationWis")
                 .SetFeatures(autoPreparedSpells, AttributeModifierCreed_Of_Maraike, learnTirmarian)
-                .AddFeatures(MakeSpellFeatureAndInvocations(spells, FEY_TELEPORT, AttributeDefinitions.Wisdom, longRest: false))
+                .AddFeatures(MakeSpellFeatureAndInvocations(spells, FEY_TELEPORT, AttributeDefinitions.Wisdom, false))
                 .SetGuiPresentation(Category.Feat)
                 .SetFeatFamily(FEY_TELEPORT)
                 .AddToDB()

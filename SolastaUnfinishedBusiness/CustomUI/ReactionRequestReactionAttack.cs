@@ -14,8 +14,6 @@ internal class ReactionRequestReactionAttack : ReactionRequest, IReactionRequest
         target = new GuiCharacter(reactionParams.TargetCharacters[0]);
     }
 
-    public ICustomReactionResource Resource { get; set; }
-
     public override bool IsStillValid
     {
         get
@@ -26,6 +24,8 @@ internal class ReactionRequestReactionAttack : ReactionRequest, IReactionRequest
                 .Contains(targetCharacter) && !targetCharacter.RulesetCharacter.IsDeadOrDyingOrUnconscious;
         }
     }
+
+    public ICustomReactionResource Resource { get; set; }
 
     internal static string Name(string type)
     {

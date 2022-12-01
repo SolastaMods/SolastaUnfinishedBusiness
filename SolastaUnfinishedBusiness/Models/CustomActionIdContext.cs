@@ -151,7 +151,7 @@ public static class CustomActionIdContext
         {
             return;
         }
-        
+
         ActionDefinitionBuilder
             .Create(baseAction, "DoNothingFree")
             .SetActionId(ExtraActionId.DoNothingFree)
@@ -159,7 +159,7 @@ public static class CustomActionIdContext
             .SetActionScope(ActionScope.All)
             .OverrideClassName("DoNothing")
             .AddToDB();
-        
+
         ActionDefinitionBuilder
             .Create(baseAction, "DoNothingReaction")
             .SetActionId(ExtraActionId.DoNothingReaction)

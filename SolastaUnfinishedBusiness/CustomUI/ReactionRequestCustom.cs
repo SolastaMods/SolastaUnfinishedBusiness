@@ -11,7 +11,7 @@ public class ReactionRequestCustom : ReactionRequest, IReactionRequestWithResour
     {
         this.type = type;
     }
-    
+
     public ICustomReactionResource Resource { get; set; }
 
     internal static string Name(string type)

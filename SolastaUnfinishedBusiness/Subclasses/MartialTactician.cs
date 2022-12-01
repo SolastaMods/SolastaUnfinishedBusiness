@@ -522,7 +522,8 @@ internal sealed class MartialTactician : AbstractSubclass
                         .Create($"Condition{name}")
                         .SetGuiPresentation(Category.Condition,
                             ConditionDefinitions.ConditionPatronHiveWeakeningPheromones)
-                        .SetFeatures(FeatureDefinitionSavingThrowAffinitys.SavingThrowAffinityPatronHiveWeakeningPheromones)
+                        .SetFeatures(FeatureDefinitionSavingThrowAffinitys
+                            .SavingThrowAffinityPatronHiveWeakeningPheromones)
                         .AddToDB(), ConditionForm.ConditionOperation.Add)
                     .HasSavingThrow(EffectSavingThrowType.Negates)
                     .Build())
@@ -877,7 +878,6 @@ internal sealed class MartialTactician : AbstractSubclass
         BuildFeatureInvocation(name, sprite, feature);
 
         #endregion
-
     }
 
     private static void BuildFeatureInvocation(
@@ -1221,7 +1221,7 @@ internal sealed class MartialTactician : AbstractSubclass
             var description = Gui.Format(Format, guiMe.Name, guiTarget.Name, delta.ToString(),
                 Gui.FormatDieTitle(dieType));
             var reactionParams =
-                new CharacterActionParams(me, (Id)ExtraActionId.DoNothingFree) {StringParameter = description};
+                new CharacterActionParams(me, (Id)ExtraActionId.DoNothingFree) { StringParameter = description };
 
             var previousReactionCount = manager.PendingReactionRequestGroups.Count;
             var reactionRequest = new ReactionRequestCustom("GambitPrecise", reactionParams)
@@ -1333,7 +1333,7 @@ internal sealed class MartialTactician : AbstractSubclass
 
             var description = Gui.Format(Format, guiMe.Name, guiTarget.Name, Gui.FormatDieTitle(dieType));
             var reactionParams =
-                new CharacterActionParams(me, (Id)ExtraActionId.DoNothingReaction) {StringParameter = description};
+                new CharacterActionParams(me, (Id)ExtraActionId.DoNothingReaction) { StringParameter = description };
 
             var previousReactionCount = manager.PendingReactionRequestGroups.Count;
             var reactionRequest = new ReactionRequestCustom("GambitParry", reactionParams)

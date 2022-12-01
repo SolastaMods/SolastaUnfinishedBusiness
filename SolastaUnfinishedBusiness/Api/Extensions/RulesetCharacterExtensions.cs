@@ -314,7 +314,6 @@ internal static class RulesetCharacterExtensions
         else if (advantage == RuleDefinitions.AdvantageType.Disadvantage)
         {
             roll = Math.Min(roll1, roll2);
-
         }
 
         var label = labelScreen.characterLabelsMap[worldChar];
@@ -331,7 +330,7 @@ internal static class RulesetCharacterExtensions
             outcome,
             displayOutcome: displayOutcome,
             side: character.Side,
-            displayModifier: displayModifier) {rollImmediatly = false};
+            displayModifier: displayModifier) { rollImmediatly = false };
 
         label.dieRollModule.RollDie(info);
     }

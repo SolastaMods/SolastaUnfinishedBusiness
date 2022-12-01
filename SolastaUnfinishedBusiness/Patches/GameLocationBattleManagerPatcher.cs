@@ -237,7 +237,8 @@ public static class GameLocationBattleManagerPatcher
             {
                 foreach (var feature in character.GetSubFeaturesByType<IDefenderBeforeAttackHitConfirmed>())
                 {
-                    var extra = feature.DefenderBeforeAttackHitConfirmed(__instance, attacker, defender, attackModifier, attackMode,
+                    var extra = feature.DefenderBeforeAttackHitConfirmed(__instance, attacker, defender, attackModifier,
+                        attackMode,
                         rangedAttack, advantageType, actualEffectForms, rulesetEffect, criticalHit, firstTarget);
 
                     while (extra.MoveNext())

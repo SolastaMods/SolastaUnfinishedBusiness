@@ -160,7 +160,7 @@ internal sealed class CollegeOfHarlequin : AbstractSubclass
             var title = GuiPresentationBuilder.CreateTitleKey(feature, Category.Feature);
             var description = GuiPresentationBuilder.CreateDescriptionKey(feature, Category.Feature);
 
-            hero.ShowDieRoll(dieType, r1, roll2: r2, advantage: AdvantageType.Advantage, title: title);
+            hero.ShowDieRoll(dieType, r1, r2, advantage: AdvantageType.Advantage, title: title);
 
             GameConsoleHelper.LogCharacterActivatesAbility(hero, title, Line, tooltipContent: description,
                 indent: true,
