@@ -1163,16 +1163,23 @@ internal sealed class MartialTactician : AbstractSubclass
             {
                 hitTrends.Add(new TrendInfo(dieRoll, FeatureSourceType.Power, pool.Name, null)
                 {
-                    dieType = dieType, dieFlag = TrendInfoDieFlag.AddDie
+                    dieType = dieType, dieFlag = TrendInfoDieFlag.None
                 });
             }
 
             action.AttackSuccessDelta += dieRoll;
             attackModifier.attackRollModifier += dieRoll;
-            if (action.AttackSuccessDelta >= 0)
+            var success = action.AttackSuccessDelta >= 0;
+            if (success)
             {
                 action.AttackRollOutcome = RollOutcome.Success;
             }
+
+            character.ShowDieRoll(dieType, dieRoll,
+                title: "Reaction/&CustomReactionGambitPreciseTitle",
+                outcome: success ? RollOutcome.Success : RollOutcome.Failure,
+                displayOutcome: true
+            );
         }
     }
 
