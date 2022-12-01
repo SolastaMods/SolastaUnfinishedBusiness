@@ -36,7 +36,7 @@
     "endOfEffect": "EndOfTurn",
     "hasSavingThrow": true,
     "disableSavingThrowOnAllies": false,
-    "savingThrowAbility": "Wisdom",
+    "savingThrowAbility": "Constitution",
     "ignoreCover": false,
     "grantedConditionOnSave": null,
     "rollSaveOnlyIfRelevantForms": false,
@@ -77,11 +77,11 @@
         "saveOccurence": "EndOfTurn",
         "conditionForm": {
           "$type": "ConditionForm, Assembly-CSharp",
-          "conditionDefinitionName": "ConditionFrightenedFear",
-          "conditionDefinition": "Definition:ConditionFrightenedFear:d4b01db5ba28522458248ba9859cbe84",
+          "conditionDefinitionName": "ConditionGambitDebilitate",
+          "conditionDefinition": "Definition:ConditionGambitDebilitate:264569bd-843a-5d33-9716-8283554315a4",
           "operation": "Add",
           "conditionsList": [
-            "Definition:ConditionFrightenedFear:d4b01db5ba28522458248ba9859cbe84"
+            "Definition:ConditionGambitDebilitate:264569bd-843a-5d33-9716-8283554315a4"
           ],
           "applyToSelf": false,
           "forceOnSelf": false
@@ -291,7 +291,7 @@
   "delegatedToAction": false,
   "surrogateToSpell": null,
   "triggeredBySpecialMove": false,
-  "activationTime": "OnAttackHitMeleeAuto",
+  "activationTime": "OnAttackHitAuto",
   "autoActivationRequiredTargetSenseType": "None",
   "autoActivationRequiredTargetCreatureTag": "",
   "autoActivationPowerTag": "",
@@ -326,8 +326,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&GambitThreatenTitle",
-    "description": "Feature/&GambitThreatenDescription",
+    "title": "Feature/&GambitDebilitateTitle",
+    "description": "Feature/&GambitDebilitateDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "3c393f45-7080-584f-a036-482930f84a74",
@@ -347,7 +347,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "80e20d99-a5f1-5e01-8ce3-97d4243e40e8",
+  "guid": "6314b54e-7811-5516-a284-9166f5de1ae8",
   "contentPack": 9999,
-  "name": "PowerGambitThreatenReact"
+  "name": "PowerGambitDebilitateReact"
 }

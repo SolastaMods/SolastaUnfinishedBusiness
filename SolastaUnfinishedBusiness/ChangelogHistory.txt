@@ -1,5 +1,15 @@
 ﻿CHANGES:
 
+1.4.30.4:
+
+- added new Debilitate, Parry and Precise gambits to Tactician
+- changed Tactician to learn 4 gambits at 3
+- changed Parry gambit to only work with melee attacks
+- changed Threaten gambit to last until end of turn
+- fixed Fey Teleportation feat to correctly recharge on short rest
+- improved College of Harlequin to show dice rolls on combat inspiration
+- tweaked Gambit titles a bit
+
 1.4.30.3:
 
 - added Enable Beta toggle under Gameplay > Tools

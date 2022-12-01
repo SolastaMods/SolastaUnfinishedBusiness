@@ -169,17 +169,6 @@ internal static class ToolsDisplay
             }
         }
 
-        if (Main.Settings.OverridePartySize > ToolsContext.GamePartySize)
-        {
-            UI.Label();
-
-            toggle = Main.Settings.AllowAllPlayersOnNarrativeSequences;
-            if (UI.Toggle(Gui.Localize("ModUi/&AllowAllPlayersOnNarrativeSequences"), ref toggle))
-            {
-                Main.Settings.AllowAllPlayersOnNarrativeSequences = toggle;
-            }
-        }
-
         UI.Label();
 
         var floatValue = Main.Settings.FasterTimeModifier;

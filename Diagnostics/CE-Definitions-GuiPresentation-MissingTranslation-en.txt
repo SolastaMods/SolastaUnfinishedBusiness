@@ -1,0 +1,4 @@
+DoNothingFree	Title='Action/&UseBardicInspirationTitle'.
+DoNothingFree	Description='Action/&UseBardicInspirationDescription'.
+DoNothingReaction	Title='Action/&UseBardicInspirationTitle'.
+DoNothingReaction	Description='Action/&UseBardicInspirationDescription'.

@@ -169,7 +169,7 @@ internal class ConditionDefinitionBuilder
         return this;
     }
 
-    internal ConditionDefinitionBuilder SetSpecialDuration(        
+    internal ConditionDefinitionBuilder SetSpecialDuration(
         RuleDefinitions.DurationType type,
         int duration = 0,
         bool validateDuration = true)

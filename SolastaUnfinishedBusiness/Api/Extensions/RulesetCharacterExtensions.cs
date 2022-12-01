@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Classes.Inventor;
@@ -272,5 +273,65 @@ internal static class RulesetCharacterExtensions
         }
 
         return false;
+    }
+
+    internal static void ShowDieRoll(
+        this RulesetCharacter character,
+        RuleDefinitions.DieType dieType,
+        int roll1,
+        int roll2 = 0,
+        string title = "",
+        bool displayOutcome = false,
+        RuleDefinitions.RollOutcome outcome = RuleDefinitions.RollOutcome.Neutral,
+        bool displayModifier = false,
+        int modifier = 0,
+        RuleDefinitions.AdvantageType advantage = RuleDefinitions.AdvantageType.None
+    )
+    {
+        if (Gui.GameLocation.FiniteStateMachine.CurrentState is (LocationState_NarrativeSequence or LocationState_Map))
+        {
+            return;
+        }
+
+        var labelScreen = Gui.GuiService.GetScreen<GameLocationLabelScreen>();
+        if (labelScreen == null)
+        {
+            return;
+        }
+
+        var worldChar = labelScreen.characterLabelsMap.Keys
+            .FirstOrDefault(x => x.gameCharacter.RulesetCharacter == character);
+        if (worldChar == null)
+        {
+            return;
+        }
+
+        var roll = roll1;
+        if (advantage == RuleDefinitions.AdvantageType.Advantage)
+        {
+            roll = Math.Max(roll1, roll2);
+        }
+        else if (advantage == RuleDefinitions.AdvantageType.Disadvantage)
+        {
+            roll = Math.Min(roll1, roll2);
+        }
+
+        var label = labelScreen.characterLabelsMap[worldChar];
+
+        var info = new DieRollModule.RollInfo(
+            title,
+            dieType,
+            DieRollModule.RollType.Attack,
+            roll,
+            advantage,
+            roll1,
+            modifier,
+            roll2,
+            outcome,
+            displayOutcome: displayOutcome,
+            side: character.Side,
+            displayModifier: displayModifier) { rollImmediatly = false };
+
+        label.dieRollModule.RollDie(info);
     }
 }

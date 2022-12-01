@@ -46,8 +46,9 @@ internal sealed class CollegeOfHarlequin : AbstractSubclass
             PowerVisibilityModifier.Hidden
         );
 
+        const string FeatureName = "PowerCollegeOfHarlequinCombatInspiration";
         var powerCombatInspiration = FeatureDefinitionPowerBuilder
-            .Create("PowerCollegeOfHarlequinCombatInspiration")
+            .Create(FeatureName)
             .SetGuiPresentation(Category.Feature, SpellDefinitions.MagicWeapon)
             .SetCustomSubFeatures(ValidatorsPowerUse.HasNoCondition(CombatInspirationCondition))
             .SetUsesFixed(ActivationTime.NoCost, RechargeRate.BardicInspiration)
@@ -77,7 +78,7 @@ internal sealed class CollegeOfHarlequin : AbstractSubclass
                                     .SetAttackRollModifier(method: AttackModifierMethod.SourceConditionAmount)
                                     .SetDamageRollModifier(method: AttackModifierMethod.SourceConditionAmount)
                                     .AddToDB())
-                            .SetCustomSubFeatures(new ConditionCombatInspired())
+                            .SetCustomSubFeatures(new ConditionCombatInspired(FeatureName))
                             .AddToDB(),
                         ConditionForm.ConditionOperation.Add)
                     .Build())
@@ -138,6 +139,14 @@ internal sealed class CollegeOfHarlequin : AbstractSubclass
 
     private sealed class ConditionCombatInspired : ICustomConditionFeature
     {
+        private const string Line = "Feedback/&BardicInspirationUsedToBoostCombatAbility";
+        private readonly string feature;
+
+        public ConditionCombatInspired(string feature)
+        {
+            this.feature = feature;
+        }
+
         public void ApplyFeature(RulesetCharacter target, RulesetCondition rulesetCondition)
         {
             if (target is not RulesetCharacterHero hero || hero.GetBardicInspirationDieValue() == DieType.D1)
@@ -146,16 +155,20 @@ internal sealed class CollegeOfHarlequin : AbstractSubclass
             }
 
             var dieType = hero.GetBardicInspirationDieValue();
-            var dieRoll = RollDie(dieType, AdvantageType.Advantage, out var _, out var _);
+            var dieRoll = RollDie(dieType, AdvantageType.Advantage, out var r1, out var r2);
 
-            var console = Gui.Game.GameConsole;
-            var entry = new GameConsoleEntry("Feedback/&BardicInspirationUsedToBoostCombatAbility",
-                console.consoleTableDefinition) { indent = true };
+            var title = GuiPresentationBuilder.CreateTitleKey(feature, Category.Feature);
+            var description = GuiPresentationBuilder.CreateDescriptionKey(feature, Category.Feature);
 
-            console.AddCharacterEntry(target, entry);
-            entry.AddParameter(ConsoleStyleDuplet.ParameterType.Positive, Gui.FormatDieTitle(dieType));
-            entry.AddParameter(ConsoleStyleDuplet.ParameterType.Positive, dieRoll.ToString());
-            console.AddEntry(entry);
+            hero.ShowDieRoll(dieType, r1, r2, advantage: AdvantageType.Advantage, title: title);
+
+            GameConsoleHelper.LogCharacterActivatesAbility(hero, title, Line, tooltipContent: description,
+                indent: true,
+                extra: new[]
+                {
+                    (ConsoleStyleDuplet.ParameterType.AbilityInfo, Gui.FormatDieTitle(dieType)),
+                    (ConsoleStyleDuplet.ParameterType.Positive, dieRoll.ToString())
+                });
 
             rulesetCondition.amount = dieRoll;
         }
