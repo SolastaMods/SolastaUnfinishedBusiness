@@ -179,6 +179,11 @@ internal class ConditionDefinitionBuilder
             PreConditions.IsValidDuration(type, duration);
         }
 
+        if (duration != 0)
+        {
+            Definition.durationParameterDie = RuleDefinitions.DieType.D1;
+        }
+
         Definition.specialDuration = true;
         Definition.durationParameter = duration;
         Definition.durationType = type;
