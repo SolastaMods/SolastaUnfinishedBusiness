@@ -1101,16 +1101,23 @@ internal sealed class MartialTactician : AbstractSubclass
     private class Precise : IAlterAttackOutcome
     {
         private readonly FeatureDefinitionPower pool;
+        private const string Format = "Reaction/&CustomReactionGambitPreciseDescription";
 
         public Precise(FeatureDefinitionPower pool)
         {
             this.pool = pool;
-            throw new NotImplementedException();
         }
 
-        public IEnumerator TryAlterAttackOutcome(GameLocationBattleManager instance, CharacterAction action,
+        public IEnumerator TryAlterAttackOutcome(GameLocationBattleManager battle, CharacterAction action,
             GameLocationCharacter me, GameLocationCharacter target, ActionModifier attackModifier)
         {
+            var manager = ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
+
+            if (manager == null)
+            {
+                yield break;
+            }
+
             var character = me.RulesetCharacter;
 
             if (character.GetRemainingPowerCharges(pool) <= 0)
@@ -1118,8 +1125,54 @@ internal sealed class MartialTactician : AbstractSubclass
                 yield break;
             }
 
-            var max = RuleDefinitions.DiceMaxValue[(int)GetGambitDieSize(character)];
+            var dieType = GetGambitDieSize(character);
+            var max = DiceMaxValue[(int)dieType];
+            var delta = Math.Abs(action.AttackSuccessDelta);
+            if (max < delta)
+            {
+                yield break;
+            }
+
+            var guiMe = new GuiCharacter(me);
+            var guiTarget = new GuiCharacter(target);
             
+            var description = Gui.Format(Format, guiMe.Name, guiTarget.Name, delta.ToString(), dieType.ToString());
+            var reactionParams = new CharacterActionParams(me, Id.UseBardicInspiration) {StringParameter = description};
+
+            var previousReactionCount = manager.PendingReactionRequestGroups.Count;
+            var reactionRequest = new ReactionRequestCustom("GambitPrecise", reactionParams)
+            {
+                Resource = new ReactionResourcePowerPool(pool, Sprites.GambitResourceIcon)
+            };
+
+            manager.AddInterruptRequest(reactionRequest);
+
+            yield return battle.WaitForReactions(me, manager, previousReactionCount);
+
+            if (!reactionParams.ReactionValidated)
+            {
+                yield break;
+            }
+
+            character.UsePower(UsablePowersProvider.Get(pool, character));
+
+            var dieRoll = RollDie(dieType, AdvantageType.None, out _, out _);
+
+            var hitTrends = attackModifier.AttacktoHitTrends;
+            if (hitTrends != null)
+            {
+                hitTrends.Add(new TrendInfo(dieRoll, FeatureSourceType.Power, pool.Name, null)
+                {
+                    dieType = dieType, dieFlag = TrendInfoDieFlag.AddDie
+                });
+            }
+
+            action.AttackSuccessDelta += dieRoll;
+            attackModifier.attackRollModifier += dieRoll;
+            if (action.AttackSuccessDelta >= 0)
+            {
+                action.AttackRollOutcome = RollOutcome.Success;
+            }
         }
     }
 
