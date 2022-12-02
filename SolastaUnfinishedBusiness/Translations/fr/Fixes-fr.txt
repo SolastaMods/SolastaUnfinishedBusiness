@@ -1,3 +1,7 @@
+ContentPack/&SupporterPackTitle=Supporter Pack
+ContentPack/&SorcererUpdateTitle=Sorcerer Update
+ContentPack/&InnerStrengthTitle=Inner Strength DLC
+ContentPack/&PrimalCallingTitle=Primal Calling DLC
 Screen/&CraftingNoOptionSelectedTitle=Sélectionner une des options de fabrication.
 Tooltip/&StackSizeTitle=Pile
 Screen/&PersonalityValueFormat=Score de la personnalité '{0}' : {1}.
@@ -132,7 +136,7 @@ Tooltip/&IronManModeDescription=En Mode Iron Man, seule la dernière sauvegarde 
 Screen/&SkipIntroDescription=Passe les cinématiques d'introduction et les quatre tutoriels pour commencer directement l'aventure.
 MainMenu/&CampaignHeaderTitle=Campagnes
 Campaign/&DLC1_Title=Lost Valley
-ContentPack/&LostValleyTitle=Lost Valley
+ContentPack/&LostValleyTitle=Lost Valley DLC
 MainMenu/&SelectCharacterSlotDescription=Sélectionner un personnage depuis la réserve de personnages.
 MainMenu/&NewCharacterDescription=Créer un nouveau personnage et choisir son ascendance, sa classe, son historique…
 Modal/&SelectCharacterSingleTitle=Sélectionner un personnage
