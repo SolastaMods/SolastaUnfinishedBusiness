@@ -19,7 +19,7 @@ namespace SolastaUnfinishedBusiness.Models;
 
 internal static class BootContext
 {
-    internal static readonly HashSet<string> SupportedLanguages = new() { "none" };
+    internal static readonly HashSet<string> SupportedLanguages = new() { "fr" };
 
     internal static void Startup()
     {
