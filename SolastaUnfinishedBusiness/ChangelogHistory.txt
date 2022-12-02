@@ -3,8 +3,12 @@
 1.4.30.6:
 
 - enabled cancel action with right mouse click
-- fixed Deadeye and Power Attack requiring to be enabled on every round
-- fixed a Multiclass spell learning scenario when dipping on casters with auto prepared spells
+- changed Inventor to ignore Somatic component of spells when holding any infused item in hands
+- fixed a Multiclass spell learning scenario when dipping casters with auto prepared spells
+- fixed Deadeye and Power Attack wrong activation duration
+- fixed Metamagic feat not checking if already learned
+- fixed recipes not getting offered on crafting screen
+- reworked Distant Hand's Flurry of Arrows to trigger off Flurry of Blows activation
 
 1.4.30.5:
 

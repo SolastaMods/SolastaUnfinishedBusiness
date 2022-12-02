@@ -94,7 +94,7 @@ internal static class CraftingContext
             UpdateCraftingRecipesInDmState(key);
         }
 
-        LoadFilteringAndSorting();
+        // LoadFilteringAndSorting();
     }
 
     internal static void UpdateRecipeCost()
@@ -159,6 +159,7 @@ internal static class CraftingContext
         }
     }
 
+#if false
     private static void LoadFilteringAndSorting()
     {
         var characterInspectionScreen = Gui.GuiService.GetScreen<CharacterInspectionScreen>();
@@ -224,6 +225,7 @@ internal static class CraftingContext
 
         LayoutRebuilder.ForceRebuildLayoutImmediate(craftingPanel.craftingOptionLinesTable);
     }
+#endif
 
 #if DEBUG
     internal static string GenerateItemsDescription()

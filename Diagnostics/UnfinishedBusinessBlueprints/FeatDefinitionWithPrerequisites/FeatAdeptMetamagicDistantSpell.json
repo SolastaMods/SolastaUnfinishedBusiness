@@ -1,5 +1,5 @@
 {
-  "$type": "FeatDefinition, Assembly-CSharp",
+  "$type": "SolastaUnfinishedBusiness.CustomDefinitions.FeatDefinitionWithPrerequisites, SolastaUnfinishedBusiness",
   "compatibleClassesPrerequisite": [],
   "mustCastSpellsPrerequisite": true,
   "compatibleRacesPrerequisite": [],
@@ -14,13 +14,13 @@
   "features": [
     "Definition:ActionAffinitySorcererMetamagicToggle:04a952fbc7800154cab7f4994e3ac481",
     "Definition:AttributeModifierSorcererSorceryPointsBonus3:62adbaa6-4099-5d5b-a0fc-584f03eef4c2",
-    "Definition:CustomCodeFeatAdeptMetamagicTwinnedSpell:c85a1d97-0d72-5867-9a2a-fc4a358c137b"
+    "Definition:CustomCodeFeatAdeptMetamagicDistantSpell:03043435-67c9-5bb8-83f5-28debf1faa98"
   ],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
-    "title": "Metamagic: Twinned Spell",
-    "description": "You gain 3 sorcery points and learn the Twinned Spell metamagic: If the source spell targets one creature only, this adds another target ",
+    "title": "Metamagic: Distant Spell",
+    "description": "You gain 3 sorcery points and learn the Distant Spell metamagic: Doubles the range of a spell or change the range of a touch spell to 30 feet ",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -40,7 +40,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "b1c1aad1-a413-5fd7-99ca-8082919bd8a3",
+  "guid": "10d3d858-c315-5886-be8c-adaa039f22bf",
   "contentPack": 9999,
-  "name": "FeatAdeptMetamagicTwinnedSpell"
+  "name": "FeatAdeptMetamagicDistantSpell"
 }
