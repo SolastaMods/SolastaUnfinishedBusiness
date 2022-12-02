@@ -691,7 +691,7 @@ internal static class MulticlassGameUiContext
         {
             var spellCastingClass = autoPreparedSpells.SpellcastingClass;
             var spellRepertoire = hero.SpellRepertoires.Find(x => x.SpellCastingClass == spellCastingClass);
-            var maxLevel = spellRepertoire.MaxSpellLevelOfSpellCastingLevel;
+            var maxLevel = spellRepertoire?.MaxSpellLevelOfSpellCastingLevel ?? 1;
 
             foreach (var spell in from preparedSpellsGroup in autoPreparedSpells.AutoPreparedSpellsGroups
                      from spell in preparedSpellsGroup.SpellsList
