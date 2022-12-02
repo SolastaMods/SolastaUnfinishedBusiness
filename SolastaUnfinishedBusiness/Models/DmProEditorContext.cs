@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using HarmonyLib;
 using JetBrains.Annotations;
+using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Api.Infrastructure;
 using UnityEngine;
@@ -19,6 +21,7 @@ internal static class DmProEditorContext
 
     internal static void Load()
     {
+        FixCustomCampaignsInitialRecipes();
         UpdateAvailableDungeonSizes();
         UpdateCategories();
         LoadFlatRooms();
@@ -88,6 +91,15 @@ internal static class DmProEditorContext
         }
 
         return result;
+    }
+
+    private static void FixCustomCampaignsInitialRecipes()
+    {
+        DatabaseRepository.GetDatabase<CampaignDefinition>()
+            .Do(x => x.knownRecipes.TryAdd(DatabaseHelper.RecipeDefinitions.RecipeBasic_Arrows));
+
+        DatabaseRepository.GetDatabase<CampaignDefinition>()
+            .Do(x => x.knownRecipes.TryAdd(DatabaseHelper.RecipeDefinitions.RecipeBasic_Bolts));
     }
 
     private static void UpdateAvailableDungeonSizes()
