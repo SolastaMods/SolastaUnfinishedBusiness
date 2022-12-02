@@ -1,0 +1,79 @@
+Caption/&JumpFromCaption	Sélectionnez un point d'origine d'où sauter.
+Caption/&JumpToCaption	Sélectionnez un point d'arrivée où sauter.
+Caption/&LandingPositionCaption	Sélectionnez un endroit à escalader.
+Caption/&LevitateDestinationCaption	Sélectionnez une destination de lévitation pour votre cible.
+Caption/&OutOfRangeCaption	Vous êtes hors de portée !
+Caption/&ProxyActionTitle	Contrôle des effets magiques
+Caption/&ProxyAttackCaption	Sélectionnez une cible à attaquer avec l'effet magique.
+Caption/&ProxyMoveAndAttackCaption	Sélectionnez la destination où déplacer l'effet magique ou une cible à attaquer.
+Caption/&ProxyMoveCaption	Sélectionnez une destination où déplacer l'effet magique.
+Caption/&SelectPositionMultipleCaption	Sélectionnez {0} positions
+Caption/&SelectPositionSingleCaption	Sélectionnez une position
+Caption/&ShapeConeDirectionCaption	Sélectionnez une direction pour le cône d'effet.
+Caption/&ShapeCubePositionCaption	Sélectionnez une position pour le cube d'effet.
+Caption/&ShapeCylinderPositionCaption	Sélectionnez une position pour le cylindre d'effet.
+Caption/&ShapeLineDirectionCaption	Sélectionnez une direction pour la ligne d'effet.
+Caption/&ShapeSpherePositionCaption	Sélectionnez une position pour la sphère d'effet.
+Caption/&ShapeWallLineExtremityCaption	Sélectionnez une fin pour l'effet de mur.
+Caption/&ShapeWallLineInvalid	La ligne d'effet ne peut pas être insérée ici.
+Caption/&ShapeWallLineOriginCaption	Sélectionnez une origine pour l'effet de mur.
+Caption/&ShapeWallLineOutOfLengthCaption	La ligne d'effet est trop longue !
+Caption/&ShapeWallRingPositionCaption	Sélectionnez une position pour le cercle d'effet.
+Caption/&ShoveSelectDestinationCaption	Repousser une créature ou la faire tomber ?
+Caption/&ShoveSelectTargetCaption	Sélectionnez une cible à pousser.
+Caption/&ShoveTargetCannotPushAwayCaption	Il n'y a pas assez de place pour repousser la cible.
+Caption/&ShoveTargetImmuneCaption	La cible est insensible à Bousculade.
+Caption/&ShoveTargetOutOfReachCaption	La cible est hors de portée.
+Caption/&ShoveTargetProneCaption	Vous ne pouvez pas pousser une cible à terre !
+Caption/&ShoveTargetTooBigCaption	Cette créature ne peut pas pousser une cible de cette taille
+Caption/&TargetAwakenDescription	Réveillez ce personnage endormi.
+Caption/&TargetFilteringAllyCreature	Créature alliée
+Caption/&TargetFilteringCreature	Créature
+Caption/&TargetFilteringEffectProxy	Effet magique
+Caption/&TargetFilteringEnemyCreature	Créature ennemie
+Caption/&TargetFilteringGadget	Objet
+Caption/&TargetMultipleCaption	Sélectionnez {1} cibles ({0}).\n\n<#B0B0B0>Vous pouvez sélectionner chaque cible plusieurs fois.</color>
+Caption/&TargetMultipleUniqueCaption	Sélectionnez {1} cibles ({0}).\n<#B0B0B0>Vous pouvez sélectionner chaque cible une seule fois.</color>
+Caption/&TargetProximityMultipleCaption	<#B0B0B0>Les cibles doivent se trouver dans un rayon de {0} cases l'une de l'autre.</color>
+Caption/&TargetProximitySingleCaption	<#B0B0B0>Les cibles doivent se trouver l'une à côté de l'autre.</color>
+Caption/&TargetRequiredConditionCaption	<#B0B0B0>La cible doit être '{0}'.</color>
+Caption/&TargetRequiredCreatureTypeCaption	<#B0B0B0>Les cibles doivent être {0}
+Caption/&TargetRequiredUnarmoredCaption	<#B0B0B0>Les cibles doivent être sans armure.
+Caption/&TargetShareUniqueCaption	Sélectionnez des cibles ({0}) pour partager l'effet ({1}).\n\n<#B0B0B0>Vous pouvez sélectionner chaque cible une seule fois.</color>
+Caption/&TargetSingleCaption	Sélectionnez une cible ({0}).\n
+Caption/&TargetStabilizeDescription	Essayez de stabiliser ce personnage mourant avec un jet de caractéristique SAG (Médecine).
+Caption/&CannotBePlacedOnCharacterCaption	Vous ne pouvez pas lancer ce sort directement sur un personnage.
+Caption/&TargetsMustPerceiveCasterCaption	Les cibles doivent percevoir la source de l'effet.
+Caption/&PositionMustBePerceivedCaption	La position n'est pas perceptible.
+Caption/&TargetRequiredSizeCaption	La taille des cibles doit être : {0}
+Caption/&InviteOptionalAllyCaption	Touchez un allié optionnel pour l'emmener avec vous.
+Caption/&TelekinesisSelectDirection	Sélectionnez une direction vers laquelle déplacer cette créature.
+Caption/&EditorNewPropPlacementCaption	Sélectionnez un emplacement valide pour positionner ce nouveau décor\nMaintenez la touche « MAJ » enfoncée pour positionner plusieurs décors du même type
+Caption/&EditorExistingPropPlacementCaption	Sélectionnez un nouvel emplacement pour ce décor
+Caption/&EditorNewGadgetPlacementCaption	Sélectionnez un emplacement valide pour positionner ce nouveau gadget\nMaintenez la touche « MAJ » enfoncée pour positionner plusieurs gadgets du même type
+Caption/&EditorExistingGadgetPlacementCaption	Sélectionnez un nouvel emplacement pour ce gadget
+Caption/&EditorSelectedRoomCaption	Salle sélectionnée : {0}
+Caption/&EditorSelectedPropCaption	Décor sélectionné : {0}
+Caption/&EditorSelectedGadgetCaption	Gadget sélectionné : {0}
+Caption/&GadgetParametersHeaderTitle	Paramètres du gadget :
+Caption/&GadgetParametersSelectorTitle	Choisir
+Caption/&GadgetParametersSelectorDescription	Cliquez pour sélectionner un élément correspondant (monstre, objet, pack de butin) dans la base de données
+Caption/&GadgetParametersAddTitle	Ajouter l'élément
+Caption/&GadgetParametersAddDescription	Ajouter un élément correspondant (monstre, objet, pack de butin) à la liste
+Caption/&GadgetParametersRemoveDescription	Retirer l'élément sélectionné
+Caption/&GadgetParametersNoneTitle	<Vide>
+Caption/&EditorNewRoomPlacementCaption	Sélectionnez un emplacement valide pour positionner cette nouvelle salle\nMaintenez la touche « MAJ » enfoncée pour positionner plusieurs salles du même type
+Caption/&EditorExistingRoomPlacementCaption	Sélectionnez un nouvel emplacement pour cette salle
+Caption/&GadgetParametersLocationSelectorDescription	Cliquez pour sélectionner un lieu de destination parmi la liste
+Caption/&GadgetListAddTitle	Ajouter un gadget
+Caption/&GadgetListAddDescription	Vous permet de cliquer et de sélectionner un gadget cible
+Caption/&EditorSelectTargetGadgetDescription	Sélectionne un gadget cible
+Caption/&GadgetParametersOccurenceClickDescription	Clic gauche : augmenter la quantité. Clic droit : réduire la quantité. Clic milieu : retirer l'objet.
+Caption/&EditableGraphNewStatePlacementQuestCaption	Sélectionnez une position pour cette nouvelle étape de quête
+Caption/&QuestEditorLinkingCaption	Sélectionnez un nœud « IN » (au-dessus de la boîte) d'une étape de quête sortante
+Caption/&EditableGraphNewStatePlacementDialogCaption	Sélectionnez une position pour cette nouvelle étape de dialogue
+Caption/&TargetArcSubtargetSingleCaption	<#B0B0B0>L'effet décrira un arc électrique qui touchera {0} cible secondaire supplémentaire dans un rayon de {1} cases.</color>
+Caption/&TargetArcSubtargetMultipleCaption	<#B0B0B0>L'effet décrira un arc électrique qui touchera {0} cibles secondaires supplémentaires dans un rayon de {1} cases.</color>
+Caption/&ShapeWallLineInvalidCaption	Le début et la fin du mur doivent être au même niveau.
+Caption/&PositionMustBeOnSolidSurfaceCaption	Ce sort ne peut être lancé que sur une surface solide.
+Caption/&TargetRequiredMetalArmorCaption	La cible doit porter une armure de métal

@@ -1,0 +1,6 @@
+Tag/&PactTomeCantripSpecialTagTitle	Sorts mineurs de pacte
+Tag/&PactTomeSpellSpecialTagTitle	Sorts de pacte
+Tag/&PactTomeRitualSpellSpecialTagTitle	Rituels de pacte
+Tag/&MysticArcanumSpellSpecialTagTitle	Arcanum mystique
+Tag/&MagicalSecretsCantripOrSpellSpecialTagTitle	Sort ou sort mineur de Secrets magiques
+Tag/&BonusCantripsCantripSpecialTagTitle	Sorts mineurs bonus

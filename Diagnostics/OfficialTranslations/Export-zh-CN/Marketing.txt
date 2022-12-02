@@ -1,0 +1,8 @@
+Marketing/&DisclaimerSteamFestivalDescription	
+Marketing/&DisclaimerSteamFestivalTitle	
+Marketing/&JoinCommunityAddress	
+Marketing/&JoinCommunityTitle	
+Marketing/&SteamWishlistAddress	
+Marketing/&SteamWishlistTitle	
+Marketing/&YoutubeAddress	
+Marketing/&YoutubeTitle	

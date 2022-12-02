@@ -1,0 +1,26 @@
+Class/&CharacterClassSubTitle	Classe du personnage
+Class/&CharacterRaceSubTitle	Ascendance du personnage
+Class/&ClericDescription	Les clercs sont les serviteurs de leur divinité. En échange de leur foi et de leur service, on leur accorde des pouvoirs miraculeux, à condition qu'ils se contraignent à suivre les convictions de leur dieu et à accomplir les rituels de leur religion.
+Class/&ClericTitle	Clerc
+Class/&FighterDescription	Les guerriers sont formés à tous les styles de combat. Ils sont habiles avec la plupart des armes, mais choisissent souvent de se spécialiser. Tous les guerriers savent utiliser des armures, des boucliers et des armes à distance.
+Class/&FighterTitle	Guerrier
+Class/&PaladinDescription	Les paladins sont des guerriers d'élite qui ont juré solennellement de combattre le mal. En plus de leurs armes et armures, ils manient des pouvoirs divins et des sorts cléricaux.
+Class/&PaladinTitle	Paladin
+Class/&RangerDescription	Vagabonds des contrées sauvages de Solasta, les rôdeurs sont des survivalistes expérimentés, des combattants redoutables et des chasseurs furtifs. Excellents traqueurs et archers, ils ont également une certaine maîtrise du lancement de sort.
+Class/&RangerTitle	Rôdeur
+Class/&RogueDescription	Les roublards sont avant tout polyvalents. Ils utilisent leurs talents naturels pour maîtriser diverses compétences et trouver leur propre façon de s'épanouir. Généralement débrouillards, ils sont connus pour leur ruse et leur capacité à lancer des attaques sournoises mortelles.
+Class/&RogueTitle	Roublard
+Class/&WizardDescription	Les magiciens passent leur vie à étudier la magie, à apprendre des sorts de plus en plus puissants et extraordinaires. Malgré leur faiblesse dans les combats physiques, leurs caractéristiques magiques en font des ennemis dangereux.
+Class/&WizardTitle	Magicien
+Class/&SorcererDescription	Les ensorceleurs ont la caractéristique innée de canaliser de la magie arcanique qui émane généralement d'une origine surnaturelle. Ils sont également capables d'altérer la toile de la magie à l'aide de points de sorcellerie.
+Class/&SorcererTitle	Ensorceleur
+Class/&BarbarianDescription	Les barbares sont des guerriers redoutables aux limites de la civilisation. Leur rage de vaincre en fait des combattants dangereux.
+Class/&BarbarianTitle	Barbare
+Class/&DruidDescription	Les druides font partie d'un ancien ordre voué à la nature. Leurs pouvoirs et leurs sorts sont liés aux animaux, aux plantes et aux forces élémentaires.
+Class/&DruidTitle	Druide
+Class/&WarlockTitle	Occultiste
+Class/&WarlockDescription	Alors que les magiciens tirent leur pouvoir magique de leurs études et les ensorceleurs de leur lignée magique, les occultistes acquièrent leur pouvoir grâce à un pacte avec un patron : un fiélon, peut-être, ou une autre puissante entité. La nature des pouvoirs d'un occultiste dépend de la nature du patron et des détails du pacte.
+Class/&BardTitle	Barde
+Class/&BardDescription	Bien qu'ils puissent se défendre au combat, le véritable pouvoir des bardes réside dans leurs paroles et leur musique. Elles peuvent inspirer celles et ceux qui les écoutent, les galvaniser, et influencer leurs esprits d'autres manières. Les bardes possèdent aussi de grandes connaissances en histoire et magie.
+Class/&MonkTitle	Moine
+Class/&MonkDescription	Malgré leur nom, tous les moines ne vivent pas une vie religieuse et méditative. Néanmoins, ils se sont tous consacrés à entraîner leur esprit et leur corps jusqu'à atteindre la perfection, ce qui leur permet d'accomplir des prouesses qui laissent les autres pantois.

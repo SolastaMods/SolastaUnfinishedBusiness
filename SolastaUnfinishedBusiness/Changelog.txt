@@ -1,11 +1,12 @@
-﻿CHANGES:
+﻿ATTENTION:
 
-1.4.30.4:
+- beta content can be enabled under GAMEPLAY > TOOLS
+- remember to delete all your old CE2 saves and heroes
 
-- added new Debilitate, Parry and Precise gambits to Tactician
-- changed Tactician to learn 4 gambits at 3
-- changed Parry gambit to only work with melee attacks
-- changed Threaten gambit to last until end of turn
-- fixed Fey Teleportation feat to correctly recharge on short rest
-- improved College of Harlequin to show dice rolls on combat inspiration
-- tweaked Gambit titles a bit
+CHANGES:
+
+1.4.30.6:
+
+- enabled cancel action with right mouse click
+- fixed Deadeye and Power Attack requiring to be enabled on every round
+- fixed a Multiclass spell learning scenario when dipping on casters with auto prepared spells

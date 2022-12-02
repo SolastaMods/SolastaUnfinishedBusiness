@@ -1,0 +1,10 @@
+DieStyle/&DieStyleEbonyTitle	Ébène
+DieStyle/&DieStyleGreenTitle	Green
+DieStyle/&DieStyleIvoryTitle	Ivoire
+DieStyle/&DieStyleRubyTitle	Rubis
+DieStyle/&DieStyleStandardTitle	Classique
+DieStyle/&DieStyleYellowTitle	Jaune
+DieStyle/&DieStyleGoldSupporterTitle	Or
+DieStyle/&DieStyleSilverSupporterTitle	Argent
+DieStyle/&DieStyleBronzeSupporterTitle	Bronze
+DieStyle/&DieStyleDiamondSupporterTitle	Diamant

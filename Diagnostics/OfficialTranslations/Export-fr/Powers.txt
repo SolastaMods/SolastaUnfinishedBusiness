@@ -1,0 +1,17 @@
+Powers/&Power_Deady_Leap_Title	Bond mortel
+Powers/&Power_Deady_Leap_Description	Ce monstre peut effectuer un saut en courant et atterrir sur ses adversaires avec une force écrasante.
+Powers/&Orenetis_DraconicRegen_Title	Régénération draconique
+Powers/&Orenetis_DraconicRegen_Description	Orenetis est doté de pouvoirs mutants lui venant de ses origines draconiques, qui ont été modifiés par la première tempête de mana. Il régénère 10 pv au début de son tour.
+Powers/&ActioneStopTitle	Sortir de la rage
+Powers/&Mummy_Lord_BlasphemousWords_Title	Paroles blasphématoires
+Powers/&Mummy_Lord_BlasphemousWords_Description	Chaque créature dans un rayon de 2 cases du seigneur momie doit réussir un jet de sauvegarde de CON DD 16 pour ne pas être étourdie jusqu'à la fin de son prochain tour.
+Powers/&Mummy_Lord_ChannelNegativeEnergy_Title	Canalisation d'énergie négative
+Powers/&Mummy_Lord_ChannelNegativeEnergy_Description	Chaque créature dans un rayon de 12 cases du seigneur momie ne peut pas récupérer de points de vie jusqu'à la fin de son prochain tour.
+Powers/&Mummy_Lord_BlindingDust_Title	Poussière aveuglante
+Powers/&Mummy_Lord_BlindingDust_Description	Chaque créature dans un rayon d'une case du seigneur momie doit réussir un jet de sauvegarde de CON DD 16 pour ne pas être aveuglée jusqu'à la fin de son prochain tour.
+Powers/&Mummy_Lord_WhirlwindOfSand_Title	Tourbillon de sable
+Powers/&Mummy_Lord_WhirlwindOfSand_Description	Le seigneur momie peut se déplacer de 12 cases sous la forme d'un tourbillon de sable. Il est insensible à toutes les attaques.
+Powers/&Item_PenitentBelt_Title	Guérison
+Powers/&Item_PenitentBelt_Description	Dépensez une charge pour récupérer 1d8+2 points de vie.
+Powers/&Power_Ghast_Stench_Title	Puanteur
+Powers/&Power_Ghast_Stench_Description	Les blêmes émettent dans les cases voisines une puanteur insupportable pouvant vous empoisonner.

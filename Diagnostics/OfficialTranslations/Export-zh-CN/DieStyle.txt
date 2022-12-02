@@ -1,0 +1,10 @@
+DieStyle/&DieStyleEbonyTitle	
+DieStyle/&DieStyleGreenTitle	
+DieStyle/&DieStyleIvoryTitle	
+DieStyle/&DieStyleRubyTitle	
+DieStyle/&DieStyleStandardTitle	
+DieStyle/&DieStyleYellowTitle	
+DieStyle/&DieStyleGoldSupporterTitle	
+DieStyle/&DieStyleSilverSupporterTitle	
+DieStyle/&DieStyleBronzeSupporterTitle	
+DieStyle/&DieStyleDiamondSupporterTitle	

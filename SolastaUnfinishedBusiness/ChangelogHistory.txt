@@ -1,5 +1,19 @@
 ﻿CHANGES:
 
+1.4.30.6:
+
+- enabled cancel action with right mouse click
+- fixed Deadeye and Power Attack requiring to be enabled on every round
+- fixed a Multiclass spell learning scenario when dipping on casters with auto prepared spells
+
+1.4.30.5:
+
+- added Strategy: Overcome gambit
+- changed Blind, Feint, Threaten and Urgent Orders to require level 7
+- changed Switch gambit to target DEX save
+- changed gambit learning progression to 4 at 3, 1 at 5, 1 at 7, 2 at 15
+- changed Strategy Plan to be an exclusive choice between Tactical, Adaptive and Overcoming
+
 1.4.30.4:
 
 - added new Debilitate, Parry and Precise gambits to Tactician

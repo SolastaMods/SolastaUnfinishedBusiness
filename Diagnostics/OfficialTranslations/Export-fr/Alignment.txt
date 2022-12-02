@@ -1,0 +1,30 @@
+Alignment/&ChaoticEvilDescription	Chaotique mauvais (CM). Ces créatures font preuve de violence arbitraire, stimulées par la cupidité, la haine ou la soif de sang. Les démons, les dragons rouges et les orques sont d'alignement chaotique mauvais.
+Alignment/&ChaoticEvilTitle	Chaotique mauvais
+Alignment/&ChaoticEvilTitleShort	CM
+Alignment/&ChaoticGoodDescription	Chaotique bon (CB). Ces créatures agissent selon leur conscience, et ont peu d'égard pour les attentes d'autrui. Les dragons de cuivre, de nombreux elfes et les licornes sont d'alignement chaotique bon.
+Alignment/&ChaoticGoodTitle	Chaotique bon
+Alignment/&ChaoticGoodTitleShort	CB
+Alignment/&ChaoticNeutralDescription	Chaotique neutre (CN). Ces créatures suivent leurs caprices, pensant à leur liberté personnelle avant tout. De nombreux barbares, roublards et bardes sont d'alignement chaotique neutre.
+Alignment/&ChaoticNeutralTitle	Chaotique neutre
+Alignment/&ChaoticNeutralTitleShort	CN
+Alignment/&LawfulEvilDescription	Loyal mauvais (LM). Ces créatures font méthodiquement ce qu'elles veulent, dans les limites d'un code de tradition, de la loyauté ou d'un ordre. Les diables, les dragons bleus et les hobgobelins sont d'alignement loyal mauvais.
+Alignment/&LawfulEvilTitle	Loyal mauvais
+Alignment/&LawfulEvilTitleShort	LM
+Alignment/&LawfulGoodDescription	Loyal bon (LB). On peut compter sur ces créatures pour faire le bien dans le sens où la société l'entend. Les dragons d'or, les paladins et la plupart des nains sont d'alignement loyal bon.
+Alignment/&LawfulGoodTitle	Loyal bon
+Alignment/&LawfulGoodTitleShort	LB
+Alignment/&LawfulNeutralDescription	Loyal neutre (LN). Ces individus agissent conformément à la loi, aux traditions ou suivant des codes personnels. De nombreux moines et quelques magiciens sont d'alignement loyal neutre.
+Alignment/&LawfulNeutralTitle	Loyal neutre
+Alignment/&LawfulNeutralTitleShort	LN
+Alignment/&NeutralDescription	Neutre (N) est l'alignement de ceux qui préfèrent rester à l'écart des questions morales et ne prennent pas parti, faisant ce qui leur semble le mieux à un moment T. Les hommes-lézards, la plupart des druides et de nombreux humains sont neutres.
+Alignment/&NeutralEvilDescription	Neutre mauvais (NM) est l'alignement de ceux qui font ce qu'ils veulent, sans compassion ni scrupule. De nombreux drows, certains géants des nuages et les yugoloths sont d'alignement neutre mauvais.
+Alignment/&NeutralEvilTitle	Neutre mauvais
+Alignment/&NeutralEvilTitleShort	NM
+Alignment/&NeutralGoodDescription	Neutre bon (NB). Ces personnes font du mieux qu'elles peuvent pour aider les autres, en fonction de leurs besoins. De nombreuses créatures célestes, certains géants des nuages et la plupart des gnomes sont d'alignement neutre bon.
+Alignment/&NeutralGoodTitle	Neutre bon
+Alignment/&NeutralGoodTitleShort	NB
+Alignment/&NeutralTitle	Neutre
+Alignment/&NeutralTitleShort	N
+Alignment/&UnalignedDescription	La plupart des créatures qui n'ont pas une capacité de pensée rationnelle n'ont pas d'alignement, elles sont sans alignement. De telles créatures sont incapables de faire un choix moral ou éthique et agissent selon leur nature bestiale. Les requins sont des prédateurs sauvages, par exemple, mais ils ne sont pas mauvais ; ils sont sans alignement.
+Alignment/&UnalignedTitle	Sans alignement
+Alignment/&UnalignedTitleShort	SA

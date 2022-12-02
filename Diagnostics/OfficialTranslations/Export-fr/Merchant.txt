@@ -1,0 +1,28 @@
+Merchant/&CaerCyflen_Annie_Bagmordah_Store_ScavengersTitle	QG des ferrailleurs
+Merchant/&CaerCyflen_Dalon_Lark_Store_EinarTitle	Émissaire du temple d'Einar
+Merchant/&CaerCyflen_Gorim_Ironsoot_StoreTitle	Boutique des aventuriers
+Merchant/&CaerCyflen_Halman_Summer_Store_AntiquariansTitle	Émissaire des Antiquaires
+Merchant/&CaerCyflen_Heddlon_Surespell_Store_ArcaneumTitle	Émissaire de l'Arcaneum
+Merchant/&CaerCyflen_Hugo_Requer_StoreTitle	Magie et curiosités
+Merchant/&CaerCyflen_Joriel_Foxeye_Store_CircleOfDanantarTitle	Émissaire du Cercle de Danantar
+Merchant/&CaerCyflen_Karel_Martel_Store_BartenderTitle	Services de l'auberge
+Merchant/&CaerCyflen_Maddy_Greenisle_Store_ToKTitle	Émissaire de la Tour du savoir
+Merchant/&CaerCyflenWeaponsmith2Description	non utilisé
+Merchant/&CaerCyflenWeaponsmith2Title	Forgeron générique
+Merchant/&CaerCyflenWeaponsmithDescription	non utilisé
+Merchant/&CaerCyflenWeaponsmithTitle	Forgeron générique
+Merchant/&Telema_Merchant_Wanderer_TelemaTitle	Marchand ambulant
+Merchant/&Coparann_Atima_StoreTitle	Clerc local d'Arun
+Merchant/&CC_PriestessPakri	Prêtresse de Pakri
+Merchant/&CC_PriestMaraike	Prêtre de Maraike
+Merchant/&CC_PriestArun	Rogar Feuardent
+Merchant/&Circe_Title	Marchande de manuels d'enchantement
+Merchant/&DungeonMakerGeneralStoreTitle	Boutique
+Merchant/&DungeonMakerMagicalDevicesTitle	Dispositifs magiques
+Merchant/&DungeonMakerWeaponsmithTitle	Forgeron
+Merchant/&DungeonMakerArmorerTitle	Armurier
+Merchant/&DungeonMakerCrafterTitle	Fabricant
+Merchant/&DLC1_GiantTrader_StoreTitle	Marchand géant
+Merchant/&DLC_Armorer_Title	Armurerie
+Merchant/&Yasmin_Mask_Title	Marchande secrète du Masque
+Merchant/&DLC1_Hanno_StoreTitle	Marchand de la Forge

@@ -1,0 +1,4 @@
+Document/&Lightfiller_01_Title	Code du coffre-fort des Vivesource
+Document/&Lightfiller_01_Content	À ne pas communiquer en dehors de la famille
+Document/&Lightfiller_02_Title	Clé de la cellule des invités
+Document/&Lightfiller_02_Content	À communiquer à la discrétion du gardien

@@ -1,0 +1,4 @@
+Power/&PowerStoneGolemSlow_Title	Lenteur
+Power/&PowerStoneGolemSlow_Description	Les golems de pierre peuvent ralentir les adversaires proches.
+Power/&WightLifeDrain_Description	Les nécrophages peuvent drainer l'essence vitale après un coup au corps à corps réussi.
+Power/&WightLordCircleofDeath_Description	Un seigneur nécrophage peut drainer l'essence vitale des adversaires proches.

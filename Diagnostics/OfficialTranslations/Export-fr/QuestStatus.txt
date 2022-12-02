@@ -1,0 +1,3 @@
+QuestStatus/&HeaderQuestCompletedTitle	Quête terminée
+QuestStatus/&HeaderQuestFailedTitle	Échec de la quête !
+QuestStatus/&HeaderQuestNewTitle	Nouvelle quête commencée

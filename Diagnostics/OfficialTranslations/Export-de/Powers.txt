@@ -1,0 +1,17 @@
+Powers/&Power_Deady_Leap_Title	
+Powers/&Power_Deady_Leap_Description	
+Powers/&Orenetis_DraconicRegen_Title	
+Powers/&Orenetis_DraconicRegen_Description	
+Powers/&ActioneStopTitle	
+Powers/&Mummy_Lord_BlasphemousWords_Title	
+Powers/&Mummy_Lord_BlasphemousWords_Description	
+Powers/&Mummy_Lord_ChannelNegativeEnergy_Title	
+Powers/&Mummy_Lord_ChannelNegativeEnergy_Description	
+Powers/&Mummy_Lord_BlindingDust_Title	
+Powers/&Mummy_Lord_BlindingDust_Description	
+Powers/&Mummy_Lord_WhirlwindOfSand_Title	
+Powers/&Mummy_Lord_WhirlwindOfSand_Description	
+Powers/&Item_PenitentBelt_Title	
+Powers/&Item_PenitentBelt_Description	
+Powers/&Power_Ghast_Stench_Title	
+Powers/&Power_Ghast_Stench_Description	

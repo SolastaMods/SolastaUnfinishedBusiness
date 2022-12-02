@@ -1,0 +1,5 @@
+TutorialSection/&BasicsTitle	
+TutorialSection/&CombatTitle	
+TutorialSection/&ExplorationTitle	
+TutorialSection/&InventoryTitle	
+TutorialSection/&TravelTitle	

@@ -1,0 +1,9 @@
+SpellList/&SpellListClericTitle	Sorts de clerc
+SpellList/&SpellListPaladinTitle	Sorts de paladin
+SpellList/&SpellListRangerTitle	Sorts de rôdeur
+SpellList/&SpellListSpellbladeTitle	Sorts de magelame
+SpellList/&SpellListWizardTitle	Sorts de magicien
+SpellList/&SpellListSorcererTitle	Sorts d'ensorceleur
+SpellList/&SpellListDruidTitle	Sorts de druide
+SpellList/&SpellListWarlockTitle	Sorts d'occultiste
+SpellList/&SpellListTraditionLightTitle	Sorts de moine (voie de la lumière)

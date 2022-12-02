@@ -1,0 +1,36 @@
+Skill/&AcrobaticsDescription	Votre jet de Dextérité (Acrobaties) vous permet de rester debout dans une situation difficile, comme lorsque vous essayez de courir sur une couche de glace, que vous êtes en équilibre sur une corde raide, ou que vous vous tenez debout sur le pont d'un bateau secoué par les vagues.
+Skill/&AcrobaticsTitle	Acrobaties
+Skill/&AnimalHandlingDescription	Votre jet de Sagesse (Dressage) vous permet de calmer un animal domestique, d'empêcher une monture d'être effrayée, ou de découvrir les intentions d'un animal de manière intuitive. Vous pouvez également effectuer ce jet pour contrôler votre monture en cas de manœuvre risquée.
+Skill/&AnimalHandlingTitle	Dressage
+Skill/&ArcanaDescription	Votre jet d'Intelligence (Arcanes) mesure votre capacité à vous souvenir de connaissances liées aux sorts, aux objets magiques, aux symboles occultes, aux traditions magiques, aux plans d'existence et aux habitants de ces plans.
+Skill/&ArcanaTitle	Arcanes
+Skill/&AthleticsDescription	Votre jet de Force (Athlétisme) vous protège dans les situations difficiles : escalade, saut ou nage.
+Skill/&AthleticsTitle	Athlétisme
+Skill/&DeceptionDescription	Votre jet de Charisme (Tromperie) détermine votre capacité à cacher la vérité de manière convaincante au cours de vos discussions ou de vos actions.
+Skill/&DeceptionTitle	Tromperie
+Skill/&HistoryDescription	Votre jet d'Intelligence (Histoire) mesure votre capacité à vous souvenir d'événements historiques, de personnages légendaires, d'anciens royaumes, de conflits passés, de guerres récentes et de civilisations oubliées.
+Skill/&HistoryTitle	Histoire
+Skill/&InsightDescription	Votre jet de Sagesse (Perspicacité) détermine votre capacité à découvrir les intentions d'une créature. Par exemple, il vous permet de déceler un mensonge ou de prédire la prochaine action de quelqu'un. Il peut également s'avérer utile au cours des dialogues, notamment pour connaître la bonne technique de négociation à adopter.
+Skill/&InsightTitle	Perspicacité
+Skill/&IntimidationDescription	Vous pouvez lancer un jet de Charisme (Intimidation) pour tenter d'influencer une autre personne par la menace, des actions hostiles ou directement par la violence.
+Skill/&IntimidationTitle	Intimidation
+Skill/&InvestigationDescription	Votre jet d'Intelligence (Investigation) vous permet de découvrir des indices et de faire des déductions à partir de ceux-ci.
+Skill/&InvestigationTitle	Investigation
+Skill/&MedecineDescription	Votre jet de Sagesse (Médecine) vous permet d'essayer de stabiliser un compagnon mourant, de diagnostiquer une maladie ou encore de fabriquer des potions de soin et des antidotes.
+Skill/&MedecineTitle	Médecine
+Skill/&NatureDescription	Votre jet d'Intelligence (Nature) mesure votre capacité à vous souvenir de connaissances liées aux terrains, aux plantes, aux animaux, à la météo et aux cycles naturels.
+Skill/&NatureTitle	Nature
+Skill/&PerceptionDescription	Votre jet de Sagesse (Perception) vous permet de repérer, d'entendre ou de détecter les présences alentour. Il mesure la connaissance globale que vous possédez sur votre environnement ainsi que votre acuité sensorielle.	
+Skill/&PerceptionTitle	Perception
+Skill/&PerformanceDescription	Votre jet de Charisme (Spectacle) détermine votre capacité à éblouir votre public grâce à vos talents artistiques : musique, danse, jeu d'acteur, éloquence et toute autre forme de divertissement.
+Skill/&PerformanceTitle	Spectacle
+Skill/&PersuasionDescription	Votre jet de Charisme (Persuasion) peut vous permettre d'influencer une personne ou un groupe de personnes avec diplomatie, élégance ou bonté. Vous utilisez généralement la persuasion pour agir de bonne foi, pour entretenir vos liens d'amitié, pour faire des demandes cordiales ou pour montrer votre respect de la bienséance.
+Skill/&PersuasionTitle	Persuasion
+Skill/&ReligionDescription	Votre jet d'Intelligence (Religion) mesure votre capacité à vous souvenir de connaissances liées aux divinités, aux rites et aux prières, aux hiérarchies religieuses, aux symboles sacrés, et aux pratiques des cultes secrets.
+Skill/&ReligionTitle	Religion
+Skill/&SleightOfHandDescription	Vous pouvez lancer un jet de Dextérité (Escamotage) pour tenter de réaliser des actes rusés ou des tours de passe-passe, comme tendre un piège à quelqu'un ou dissimuler un objet sur vous.
+Skill/&SleightOfHandTitle	Escamotage
+Skill/&StealthDescription	Vous pouvez lancer un jet de Dextérité (Discrétion) pour tenter des actions contre des adversaires à proximité sans être repéré. La valeur de votre jet sert également à déterminer la vitesse de remplissage de la jauge de détection lorsque vous vous faufilez à proximité de vos adversaires.
+Skill/&StealthTitle	Discrétion
+Skill/&SurvivalDescription	Vous pouvez lancer un jet de Sagesse (Survie) pour suivre des pistes, chasser du gibier sauvage, guider votre groupe sur un terrain gelé, identifier les signes indiquant la présence d'un ours-hibou à proximité, prévoir le temps, ou éviter les sables mouvants et autres dangers naturels.
+Skill/&SurvivalTitle	Survie

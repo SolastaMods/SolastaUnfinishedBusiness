@@ -1,0 +1,104 @@
+Feat/&AcuteSensesDescription	
+Feat/&AcuteSensesTitle	
+Feat/&AlertDescription	L'entraînement que vous avez suivi vous permet de rester à l'affût dans toutes les situations. Vous bénéficiez des avantages suivants :
+Feat/&AlertTitle	Vigilance
+Feat/&ArmorMasterDescription	Vous excellez dans l'utilisation des armures au combat. Vous gagnez +1 CA supplémentaire pour toute armure que vous portez.
+Feat/&ArmorMasterTitle	Maître des armures
+Feat/&Creed_Of_ArunTitle	Foi d'Arun
+Feat/&Creed_Of_EinarTitle	Foi d'Einar
+Feat/&Creed_Of_MaraikeTitle	Foi de Maraike
+Feat/&Creed_Of_MisayeTitle	Foi de Misaye
+Feat/&Creed_Of_PakriTitle	Foi de Pakri
+Feat/&Creed_Of_SolastaTitle	Foi de Solasta
+Feat/&EnduringBodyDescription	Votre Constitution augmente de 1 (max 20) et vos points de vie augmentent de +1 supplémentaire chaque fois que vous gagnez un niveau.
+Feat/&EnduringBodyTitle	Corps endurant
+Feat/&FlawlessConcentrationDescription	Vous êtes capable de garder votre concentration dans les conditions les plus extrêmes.\nSi vous réussissez à supporter jusqu'à dix points de dégâts, vous n'avez pas besoin de lancer un jet de sauvegarde de Constitution pour garder votre concentration. \nAu-delà de cette valeur, vous avez l'avantage quand vous lancez un jet de sauvegarde.
+Feat/&FlawlessConcentrationTitle	Concentration parfaite
+Feat/&FocusedSleeperDescription	Un peu de repos vous suffit pour récupérer. Votre Constitution augmente de 1 (max 20) et vous n'avez besoin que de quatre heures de sommeil par nuit.
+Feat/&FocusedSleeperTitle	Sommeil profond
+Feat/&HardToKillTitle	Dur à tuer
+Feat/&HaulerTitle	Transporteur
+Feat/&LockbreakerDescription	Vous avez passé beaucoup de temps à étudier les serrures : comment les fabriquer et les crocheter. Vous gagnez la maîtrise des outils de voleur, ou doublez votre maîtrise si vous l'avez déjà. Vous avez l'avantage lorsque vous utilisez les outils de voleur pour crocheter des serrures.
+Feat/&LockbreakerTitle	Brise-serrure
+Feat/&LocksmithDescription	n/a
+Feat/&LocksmithTitle	n/a
+Feat/&ManipulatorTitle	Maître de la manipulation
+Feat/&MasterAlchemistDescription	Vous maîtrisez l'art de la création de potions. Vous mettez deux fois moins de temps que la normale pour fabriquer une potion et votre bonus de maîtrise est doublé lorsque vous effectuez un lancer pour déterminer si votre fabrication progresse.\nVous connaissez parfaitement toutes les potions et vous pouvez les identifier automatiquement.
+Feat/&MasterAlchemistTitle	Maître alchimiste
+Feat/&MasterEnchanterDescription	Vous maîtrisez l'art de l'enchantement d'objets. Vous mettez deux fois moins de temps que la normale pour enchanter un objet et votre bonus de maîtrise est doublé lorsque vous effectuez un lancer pour déterminer si votre fabrication progresse.
+Feat/&MasterEnchanterTitle	Maître enchanteur
+Feat/&MightOfTheIronLegionDescription	+1 de FOR, jusqu'à un maximum de 20\nVous gagnez la maîtrise des armures lourdes.\nVous gagnez la maîtrise des épées longues, des épées à deux mains et des haches d'armes.
+Feat/&MightOfTheIronLegionTitle	Puissance de la Légion de fer
+Feat/&RobustDescription	Robuste et coriace, vous augmentez votre valeur de Constitution de 1 (max 20) et lorsque vous utilisez un dé de vie pour récupérer des points de vie, vous effectuez deux lancers et gardez le résultat le plus élevé.
+Feat/&RobustTitle	Robuste
+Feat/&SylvanArcherDescription	
+Feat/&SylvanArcherTitle	
+Feat/&Creed_Of_EinarDescription	+1 de FOR, jusqu'à un maximum de 20\nMaîtrise des jets de FOR si ce n'est pas déjà le cas ; sinon +1
+Feat/&Creed_Of_MaraikeDescription	+1 de SAG, jusqu'à un maximum de 20\nMaîtrise des jets de SAG si ce n'est pas déjà le cas ; sinon +1
+Feat/&Creed_Of_MisayeDescription	+1 de DEX, jusqu'à un maximum de 20\nMaîtrise des jets de DEX si ce n'est pas déjà le cas ; sinon +1
+Feat/&Creed_Of_PakriDescription	+1 de INT, jusqu'à un maximum de 20\nMaîtrise des jets de INT si ce n'est pas déjà le cas ; sinon +1
+Feat/&Creed_Of_SolastaDescription	+1 de CHA, jusqu'à un maximum de 20\nMaîtrise des jets de CHA si ce n'est pas déjà le cas ; sinon +1
+Feat/&PowerfulCantripTitle	Sort mineur puissant
+Feat/&PowerfulCantripDescription	Quand une créature réussit un jet de sauvegarde contre votre sort mineur ou l'esquive, elle subit la moitié des dégâts, mais reste insensible à ses autres effets.
+Feat/&UncannyAccuracyDescription	+1 de DEX, jusqu'à un maximum de 20\nVous ignorez les obstacles protégeant de moitié ou aux trois quarts grâce à vos attaques à distance.
+Feat/&UncannyAccuracyTitle	Précision instinctive
+Feat/&HardToKillDescription	 +1 de CON, jusqu'à un maximum de 20\nVous avez l'avantage sur les jets de sauvegarde contre la mort. Si vous réussissez trois fois, votre stabilité est assurée et vous récupérez immédiatement un dé de vie. Lors d'un lancer critique, vous récupérez deux dés de vie à la place.
+Feat/&HaulerDescription	Vous avez l'habitude de porter des charges lourdes. Votre Force augmente de 1 (max 20) et votre capacité de charge double.
+Feat/&ManipulatorDescription	Vous gagnez la maîtrise en Intimidation, Persuasion et Tromperie. Si vous l'avez déjà, vous obtenez à la place de l'expertise dans la compétence correspondante.
+Feat/&EagerForBattleDescription	+1 de DEX, jusqu'à un maximum de 20 \nVous avez l'avantage sur vos jets d'initiative.
+Feat/&EagerForBattleTitle	Avide de batailles
+Feat/&SturdinessOfTheTundraDescription	 +1 de CON, jusqu'à un maximum de 20 \nVous gagnez la maîtrise des armures intermédiaires.\nVous gagnez la maîtrise des marteaux de guerre, ainsi que des arbalètes légères et lourdes.
+Feat/&SturdinessOfTheTundraTitle	Solidité de la toundra
+Feat/&DiscretionOfTheCoedymwarthDescription	+1 de DEX, jusqu'à un maximum de 20 \nVous gagnez la maîtrise des armures légères.\nVous gagnez la maîtrise des épées courtes, ainsi que des arcs longs et courts.
+Feat/&DiscretionOfTheCoedymwarthTitle	Discrétion de Coedymwarth
+Feat/&AmbidextrousDescription	+1 de DEX, jusqu'à un maximum de 20\nVous êtes capable de vous battre à l'aide de deux armes, même lorsque les armes à une main de corps à corps ne sont pas légères.
+Feat/&AmbidextrousTitle	Ambidextre
+Feat/&RaiseShieldDescription	Lorsqu'une attaque à distance s'apprête à vous toucher alors que vous portez un bouclier, vous pouvez utiliser votre réaction pour obtenir +3 de CA jusqu'à la fin du tour de votre assaillant. Vous gagnez également la maîtrise des boucliers.
+Feat/&RaiseShieldTitle	Levée de boucliers
+Feat/&TwinBladeDescription	Lorsqu'une attaque au corps à corps s'apprête à vous toucher alors que maniez deux armes (pas une épée et un bouclier), vous pouvez utiliser votre réaction pour obtenir +3 de CA jusqu'à la fin du tour de votre assaillant.
+Feat/&TwinBladeTitle	Double lame 
+Feat/&TakeAimDescription	Vous pouvez utiliser votre action bonus pour viser. Jusqu'à la fin de votre tour, vos attaques avec une arme à distance n'ont ni un désavantage ni un avantage, quelles que soient les conditions.
+Feat/&TakeAimTitle	Viser
+Feat/&RushToBattleDescription	Vous pouvez utiliser votre action bonus pour augmenter votre vitesse de mouvement de 3 cases jusqu'à la fin de votre tour, et pour diminuer votre CA de -2, jusqu'au début de votre prochain tour.
+Feat/&RushToBattleTitle	Se précipiter au combat 
+Feat/&FollowUpStrikeDescription	Quand vous lancez l'action Attaquer avec une arme à deux mains, vous pouvez utiliser une action bonus pour ensuite enchaîner rapidement avec une attaque au corps à corps et infliger 1d4 + dégâts de FOR bonus de même type. 
+Feat/&FollowUpStrikeTitle	Enchaînement de frappes
+Feat/&Creed_Of_ArunDescription	+1 de CON, jusqu'à un maximum de 20\nMaîtrise des jets de CON si ce n'est pas déjà le cas ; sinon +1
+Feat/&InitiateEnchanterTitle	Enchanteur initié
+Feat/&InitiateEnchanterDescription	Vous gagnez la maîtrise du rosaire de Manacalon, qui est nécessaire à l'enchantement d'objets.\n Vous gagnez la maîtrise en Arcanes. Si vous l'avez déjà, vous obtenez à la place de l'expertise en Arcanes.
+Feat/&InitiateAlchemistTitle	Alchimiste initié
+Feat/&InitiateAlchemistDescription	Vous gagnez la maîtrise du kit d'herboriste et du kit d'empoisonnement.\nVous gagnez la maîtrise en Nature. Si vous l'avez déjà, vous obtenez à la place de l'expertise en Nature.
+Feat/&BurningTouchTitle	Contact brûlant
+Feat/&BurningTouchDescription	La première fois de chaque tour que vous infligez des dégâts avec une attaque désarmée ou une arme, vous infligez une quantité de dégâts de feu supplémentaires égale à votre bonus de maîtrise.
+Feat/&ElectrifyingTouchTitle	Contact électrique
+Feat/&ElectrifyingTouchDescription	La première fois de chaque tour que vous infligez des dégâts avec une attaque désarmée ou une arme, vous infligez une quantité de dégâts de foudre supplémentaires égale à votre bonus de maîtrise.
+Feat/&IcyTouchTitle	Contact glacial
+Feat/&IcyTouchDescription	La première fois de chaque tour que vous infligez des dégâts avec une attaque désarmée ou une arme, vous infligez une quantité de dégâts de froid supplémentaires égale à votre bonus de maîtrise.
+Feat/&MeltingTouchTitle	Contact corrosif
+Feat/&MeltingTouchDescription	La première fois de chaque tour que vous infligez des dégâts avec une attaque désarmée ou une arme, vous infligez une quantité de dégâts acides supplémentaires égale à votre bonus de maîtrise.
+Feat/&ToxicTouchTitle	Contact toxique
+Feat/&ToxicTouchDescription	La première fois de chaque tour que vous infligez des dégâts avec une attaque désarmée ou une arme, vous infligez une quantité de dégâts de poison supplémentaires égale à votre bonus de maîtrise.
+Feat/&BadlandsMarauderTitle	Maraudeur des Badlands
+Feat/&BadlandsMarauderDescription	Vous bénéficiez d'une résistance aux dégâts de poison, d'un avantage sur les lancers contre les effets de poison et de +1 de CON (jusqu'à un maximum de 20).
+Feat/&CloakAndDaggerTitle	Assaillant discret
+Feat/&CloakAndDaggerDescription	Lorsque vous touchez un adversaire avec une arme légère, vous obtenez +2 CA jusqu'au début de votre prochain tour (non cumulable).
+Feat/&DistractingGambitTitle	Tactique de distraction
+Feat/&DistractingGambitDescription	Lorsque vous touchez un adversaire avec une arme à une main, celui-ci perd -1 CA pendant 1 minute (non cumulable).
+Feat/&ForestRunnerTitle	Coureur de la forêt
+Feat/&ForestRunnerDescription	Vous gagnez +2 cases de vitesse de mouvement et +1 DEX (jusqu'à un maximum de 20).
+Feat/&ForestallingStrengthTitle	Force protectrice
+Feat/&ForestallingStrengthDescription	Lorsque vous maniez une arme à deux mains, vous gagnez +1 CA.
+Feat/&MightyBlowTitle	Coup puissant
+Feat/&MightyBlowDescription	Lorsque vous attaquez avec une arme de corps à corps à deux mains, vous infligez une quantité de dégâts supplémentaires égale à votre modificateur de Force (arrondi à l'entier supérieur).
+Feat/&ReadyOrNotTitle	Paré à l'attaque
+Feat/&ReadyOrNotDescription	Vous avez l'avantage sur vos jets d'attaque lorsque vous utilisez l'action Se tenir prêt.
+Feat/&TripAttackTitle	Attaque vacillante
+Feat/&TripAttackDescription	Lorsque vous touchez un adversaire avec une arme de corps à corps, celui-ci doit également faire un jet contesté, comme si vous aviez utilisé l'action Pousser, sans quoi il tombera à terre.
+Feat/&MenderTitle	Raccommodeur
+Feat/&MenderDescription	Lorsque vous stabilisez un allié avec un jet de Médecine, celui-ci récupère 1 pv.
+Feat/&DauntingPushTitle	Poussée redoutable
+Feat/&DauntingPushDescription	Lorsque vous parvenez à pousser un adversaire, celui-ci perd la moitié de sa vitesse de mouvement (arrondie à l'entier inférieur) à son prochain tour.
+Feat/&BlessingOfTheElementsTitle	Bénédiction des éléments
+Feat/&BlessingOfTheElementsDescription	Lorsque vous subissez des dégâts de foudre, de feu ou de froid, vous pouvez utiliser votre réaction pour obtenir une résistance à ces types de dégâts jusqu'au début de votre prochain tour. Cet attribut se recharge après un repos court.
+Feat/&ArcaneAppraiserTitle	Expert arcanique
+Feat/&ArcaneAppraiserDescription	Les objets magiques sont automatiquement identifiés lorsqu'ils sont mis dans l'inventaire.

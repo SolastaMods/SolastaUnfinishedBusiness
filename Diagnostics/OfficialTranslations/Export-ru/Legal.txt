@@ -1,0 +1,8 @@
+Legal/&GdprDescription	
+Legal/&GdprTitle	
+Legal/&KickstarterDemoDisclaimerDescription	
+Legal/&KickstarterDemoDisclaimerTitle	
+Legal/&KickstarterDemoDisclaimerTitle2	
+Legal/&KickstarterDemoDisclaimerDescription2	
+Legal/&EarlyAccessDisclaimerDescription	
+Legal/&EarlyAccessDisclaimerTitle	

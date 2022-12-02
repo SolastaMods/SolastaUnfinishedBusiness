@@ -62,7 +62,6 @@ internal static class MeleeCombatFeats
                     .SetGuiPresentation("FeatPowerAttack", Category.Feat)
                     .SetCustomSubFeatures(new ModifyPowerAttackPower())
                     .AddToDB())
-            .SetSpecialDuration(DurationType.Round, 1)
             .AddToDB();
 
         var powerAttack = FeatureDefinitionPowerBuilder

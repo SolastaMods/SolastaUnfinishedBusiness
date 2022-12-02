@@ -1,0 +1,8 @@
+MerchantCategory/&AdventuringTitle	Matériel d'aventurier
+MerchantCategory/&AllTitle	Tous les objets
+MerchantCategory/&ArmorTitle	Armures
+MerchantCategory/&CraftingTitle	Fabrication
+MerchantCategory/&IngredientTitle	Ingrédients
+MerchantCategory/&MagicDeviceTitle	Dispositifs magiques
+MerchantCategory/&WeaponTitle	Armes
+MerchantCategory/&DocumentTitle	Documents
