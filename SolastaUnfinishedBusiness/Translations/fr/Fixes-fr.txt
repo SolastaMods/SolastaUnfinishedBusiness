@@ -1,3 +1,7 @@
+Setting/&AiUsesPowerfulMovesMoreOftenTitle=IA plus mortelles
+Setting/&AiUsesPowerfulMovesMoreOftenDescription=Les ennemis utilisent des actions puissantes (comme des sorts à zone d’effet) plus souvent et pousseront les personnages vers une mort certaine.
+Setting/&AiTargetsHelplessCharactersTitle	IA sans merci
+Setting/&AiTargetsHelplessCharactersDescription=Les ennemis attaquent les personnages inconscients ou mourants dans le but de les achever.
 Screen/&ReviewGameDescription=Cliquer ici pour ouvrir l'interface et nous laisser un avis. Merci de jouer à Solasta !
 ContentPack/&SupporterPackTitle=Supporter Pack
 ContentPack/&SorcererUpdateTitle=Sorcerer Update
