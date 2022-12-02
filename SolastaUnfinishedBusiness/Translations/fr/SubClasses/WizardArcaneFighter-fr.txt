@@ -1,0 +1,12 @@
+Feature/&AdditionalActionArcaneFighterDescription=You can cast a spell after defeating an enemy with your weapon attacks.
+Feature/&AdditionalActionArcaneFighterTitle=Spell Fighting
+Feature/&AdditionalDamageArcaneFighterBonusWeaponDescription=Once per turn, your weapon attacks deal an extra 1d8 damage.
+Feature/&AdditionalDamageArcaneFighterBonusWeaponTitle=Magically Powered Attacks
+Feature/&PowerArcaneFighterEnchantWeaponDescription=When active on a weapon, its attacks count as magical and you use your Intelligence for your attack and damage rolls.
+Feature/&PowerArcaneFighterEnchantWeaponTitle=Arcane Weapon
+Feature/&MagicAffinityArcaneFighterConcentrationAdvantageDescription=Due to experience in the chaos of combat, gain advantage on concentration checks.
+Feature/&MagicAffinityArcaneFighterConcentrationAdvantageTitle=Improved Concentration
+Feedback/&AdditionalDamageArcaneFighterFormat=Arcane Fighter!
+Feedback/&AdditionalDamageArcaneFighterLine=Arcane Fighter deals extra +{2} damage!
+Subclass/&WizardArcaneFighterDescription=Channel your magic into weapon attacks.
+Subclass/&WizardArcaneFighterTitle=Arcane Fighter

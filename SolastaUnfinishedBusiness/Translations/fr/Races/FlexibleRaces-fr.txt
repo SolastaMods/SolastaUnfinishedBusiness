@@ -1,0 +1,6 @@
+Feature/&PointPoolAbilityScore3Description=Use three boosts on ability scores in any combination of your choosing.
+Feature/&PointPoolAbilityScore3Title=Ability Score Increase
+Feature/&PointPoolAbilityScore4Description=Use four boosts on ability scores in any combination of your choosing.
+Feature/&PointPoolAbilityScore4Title=Ability Score Increase
+Feature/&PointPoolSelectBonusFeatsDescription=Select {0} additional feats for your character.
+Feature/&PointPoolSelectBonusFeatsTitle={0} Bonus Feats
