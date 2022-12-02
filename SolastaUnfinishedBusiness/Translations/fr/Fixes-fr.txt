@@ -44,3 +44,11 @@ Setting/&ReactionTimerDescription=Donne un temps limité pour décider d'utilise
 Setting/&ShowHelmetInPortraitTitle=Affichage des casques
 Setting/&ShowHelmetInPortraitDescription=Affiche les casques sur les portraits des personnages.
 Setting/&VocalSpellIncantationTitle=Vocalisation des sorts à composantes verbales
+Setting/&DifficultySettingsHeaderTitle=Paramètres de difficultés
+Setting/&DifficultyPresetDescription=Permet de choisir parmi une liste de paramètres de difficulté prédéfinis. Les paramètres de difficultés peuvent être modifiés en jeu.
+Setting/&OnlyShowNPCIconOnHoverTitle=Affichage des icônes de PNJ avec la souris
+Setting/&SubtitlesEnabledTitle=Affichage des sous-titres
+Setting/&SubtitlesEnabledDescription=Active les sous-titres pendant les cinématiques.
+Setting/&SubtitlesDisplaySpeakerNameDescription=Affiche le nom du locuteur pendant les cinématiques.
+Setting/&SubtitlesBlackBackgroundDescription=Affiche un arrière-plan noir derrière les sous-titres.
+
