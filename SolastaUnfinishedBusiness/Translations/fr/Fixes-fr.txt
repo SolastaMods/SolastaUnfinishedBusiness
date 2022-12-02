@@ -1,1 +1,7 @@
-
+Modal/&LoadLastSaveDescription=Reprendre votre partie à partir de la dernière sauvegarde.
+MainMenu/&LoadGameDescription=Charger une partie sauvegardée.
+MainMenu/&ManageCharactersDescription=Créer/consulter/modifier la réserve de personnages.
+MainMenu/&NewAdventureDescription=Lancer une nouvelle partie avec un groupe d'aventuriers.
+MainMenu/&UserLocationsDescription=Sélectionner les donjons et lieux créés par la communauté que vous souhaitez expérimenter ou modifier, ou bien donnez vie à vos propres créations.
+MainMenu/&MultiplayerDescription=Créer ou rejoindre une session de jeu multijoueur.
+MainMenu/&SettingsDescription=Modifier les paramètres de l'application.
