@@ -119,6 +119,17 @@ public static class GameLocationCharacterExtensions
 
     internal static bool CanReactNoMatterUses(this GameLocationCharacter instance)
     {
+        var character = instance.RulesetCharacter;
+        if (character == null)
+        {
+            return false;
+        }
+
+        if (character.HasConditionOfType(RuleDefinitions.ConditionProne))
+        {
+            return false;
+        }
+
         var wasUsed = instance.currentActionRankByType[ActionType.Reaction] > 0;
         if (wasUsed)
         {
