@@ -33,7 +33,6 @@ internal static class TwoWeaponCombatFeats
         var conditionDualFlurryApply = ConditionDefinitionBuilder
             .Create("ConditionDualFlurryApply")
             .SetGuiPresentationNoContent()
-            .SetSpecialDuration(DurationType.Round, 0, false)
             .SetTurnOccurence(TurnOccurenceType.EndOfTurn)
             .SetPossessive()
             .SetSpecialInterruptions(ConditionInterruption.AnyBattleTurnEnd)
@@ -43,7 +42,6 @@ internal static class TwoWeaponCombatFeats
         var conditionDualFlurryGrant = ConditionDefinitionBuilder
             .Create("ConditionDualFlurryGrant")
             .SetGuiPresentation(Category.Condition)
-            .SetSpecialDuration(DurationType.Round, 0, false)
             .SetTurnOccurence(TurnOccurenceType.EndOfTurn)
             .SetPossessive()
             .SetSpecialInterruptions(ConditionInterruption.AnyBattleTurnEnd)

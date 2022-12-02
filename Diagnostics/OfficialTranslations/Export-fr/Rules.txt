@@ -1,0 +1,707 @@
+Rules/&AbilityAndSkillFormat	{0} ({1})
+Rules/&AbilityCheckFormat	{0} d20 {1}
+Rules/&AbilityCheckVersusDcFormat	{0} d20 {1} contre DD {2}
+Rules/&ActivationTypeActionTitle	Action
+Rules/&ActivationTypeBonusActionTitle	Act. bonus
+Rules/&ActivationTypeHours1Title	1 heure
+Rules/&ActivationTypeHours24Title	24 heures
+Rules/&ActivationTypeMinute10Title	10 minutes
+Rules/&ActivationTypeMinute1Title	1 minute
+Rules/&ActivationTypeNoCostTitle	Act. gratuite
+Rules/&ActivationTypeOnAttackHitTitle	À l'impact
+Rules/&ActivationTypeOnAttackHitWithBowTitle	À l'impact (arc)
+Rules/&ActivationTypePermanentUnlessIncapacitatedTitle	Permanente
+Rules/&ActivationTypeReactionTitle	Réaction
+Rules/&ActivationTypeRestDescription	Ce pouvoir peut être activé durant un repos
+Rules/&ActivationTypeRestTitle	Repos
+Rules/&AlignmentDescription	Une créature typique dans le monde du jeu possède un alignement qui décrit de façon générale ses attitudes morales et personnelles. L'alignement est une combinaison de deux facteurs : l'un identifie la morale (bien, mal, ou neutre), et l'autre décrit les attitudes envers la société et l'ordre (loyal, chaotique, ou neutre).
+Rules/&AlignmentTitle	Alignement
+Rules/&AlterationFormExtinguishFireFormat	Éteint le feu
+Rules/&AlterationFormExtinguishLightFormat	Éteint les lumières
+Rules/&AlterationFormRemoveDarknessFormat	Dissipe les ténèbres
+Rules/&AlterationFormRevealTrapFormat	Révèle les pièges
+Rules/&AlterationFormUnlockFormat	Déverrouille un objet ciblé
+Rules/&ChallengeDifficultyDeadlyTitle	Mortel
+Rules/&ChallengeDifficultyEasyTitle	Facile
+Rules/&ChallengeDifficultyHardTitle	Difficile
+Rules/&ChallengeDifficultyMediumTitle	Intermédiaire
+Rules/&ConditionAcidifiedDescription	Subit des dégâts acides à chaque tour jusqu'à ce que l'effet prenne fin.
+Rules/&ConditionAcidifiedTitle	Acidifié
+Rules/&ConditionAidedDescription	Les points de vie (max/actuels) augmentent de 5 + progression.
+Rules/&ConditionAidedTitle	Aidé
+Rules/&ConditionAntitoxin	Avantage lors des jets de sauvegarde de Constitution contre le poison.
+Rules/&ConditionAsleepDescription	Incapable d'agir jusqu'à son réveil
+Rules/&ConditionAsleepTitle	Endormi
+Rules/&ConditionAuraOfCourageDescription	Insensible à la condition 'effrayé'.
+Rules/&ConditionAuraOfCourageTitle	Aura de courage
+Rules/&ConditionAuraOfProtectionDescription	Octroie un bonus de modificateur +CHA aux jets de sauvegarde d'une créature.
+Rules/&ConditionAuraOfProtectionTitle	Aura de protection
+Rules/&ConditionBackFromTheDead1Description	-1 de pénalité sur les jets d'attaque, les jets de sauvegarde et les jets de caractéristique. Effectuez un repos long pour réduire la pénalité.
+Rules/&ConditionBackFromTheDead2Description	-2 de pénalité sur les jets d'attaque, les jets de sauvegarde et les jets de caractéristique. Effectuez un repos long pour réduire la pénalité.
+Rules/&ConditionBackFromTheDead3Description	-3 de pénalité sur les jets d'attaque, les jets de sauvegarde et les jets de caractéristique. Effectuez un repos long pour réduire la pénalité.
+Rules/&ConditionBackFromTheDead4Description	-4 de pénalité sur les jets d'attaque, les jets de sauvegarde et les jets de caractéristique. Effectuez un repos long pour réduire la pénalité.
+Rules/&ConditionBackFromTheDeadTitle	De retour d'entre les morts
+Rules/&ConditionBanedDescription	-1d4 aux attaques, -1d4 aux jets de sauvegarde.
+Rules/&ConditionBanedTitle	Victime de fléau
+Rules/&ConditionBarkskinDescription	La classe d'armure de la créature passe à 16 minimum.
+Rules/&ConditionBarkskinTitle	Peau d'écorce
+Rules/&ConditionBeaconOfHopeDescription	Avantage sur les jets de sauvegarde contre la mort et de Sagesse, ce qui restaure le maximum de points de vie possible.
+Rules/&ConditionBeaconOfHopeTitle	Lueur d'espoir
+Rules/&ConditionBearsEnduranceDescription	Avantage sur les jets de sauvegarde de Constitution.
+Rules/&ConditionBlessedDescription	+1d4 aux attaques, 1d4 aux jets de sauvegarde.
+Rules/&ConditionBlessedTitle	Béni
+Rules/&ConditionBlessingSorr-TarrTitle	Bénédiction du Sorr-Tarr
+Rules/&ConditionBlindedDescription	Ne peut plus rien voir, désavantage sur les attaques, les attaques contre les créatures ont un avantage.
+Rules/&ConditionBlindedTitle	Aveuglé
+Rules/&ConditionBlurredDescription	Les attaques sur les créatures ont un désavantage.
+Rules/&ConditionBlurredTitle	Flou
+Rules/&ConditionBrandedDescription	Émet de la lumière, ne peut pas devenir invisible.
+Rules/&ConditionBrandedTitle	Marqué
+Rules/&ConditionBullsStrengthDescription	Avantage sur les jets de sauvegarde de Force.
+Rules/&ConditionCatsGraceDescription	Avantages sur les jets de sauvegarde de Dextérité et dégâts de chute réduits.
+Rules/&ConditionCharmedByHypnoticPatternDescription	Neutralisé et vitesse à 0, jusqu'à une blessure ou un réveil.
+Rules/&ConditionCharmedByHypnoticPatternTitle	Charmé par hypnose
+Rules/&ConditionCharmedDescription	Considère le lanceur comme un allié.
+Rules/&ConditionCharmedTitle	Charmé
+Rules/&ConditionChilledDescription	Ne peut pas gagner de points de vie. Si mort-vivant, désavantage des attaques sur le lanceur.
+Rules/&ConditionChilledTitle	Glacé
+Rules/&ConditionCriticalCharacterDescription	Si le personnage meurt, la partie est finie.
+Rules/&ConditionCriticalCharacterTitle	Personnage crucial
+Rules/&ConditionCursedActionDescription	Doit faire un jet de sauvegarde de SAG pour agir.
+Rules/&ConditionCursedActionTitle	Maudit (action)
+Rules/&ConditionCursedAttackRollDescription	Désavantages pour les jets d'attaque contre le lanceur.
+Rules/&ConditionCursedAttackRollTitle	Maudit (jet d'attaque)
+Rules/&ConditionCursedCharismaDescription	Désavantage sur les jets de sauvegarde et les jets de caractéristique de CHA.
+Rules/&ConditionCursedCharismaTitle	Maudit (Charisme)
+Rules/&ConditionCursedConstitutionDescription	Désavantage sur les jets de sauvegarde et les jets de caractéristique de CON.
+Rules/&ConditionCursedConstitutionTitle	Maudit (Constitution)
+Rules/&ConditionCursedDamageDescription	Les attaques et les sorts du lanceur contre la cible infligent 1d8 dégâts nécrotiques supplémentaires.
+Rules/&ConditionCursedDamageTitle	Maudit (dégâts)
+Rules/&ConditionCursedDexterityDescription	Désavantage sur les jets de sauvegarde et les jets de caractéristique de DEX.
+Rules/&ConditionCursedDexterityTitle	Maudit (Dextérité)
+Rules/&ConditionCursedIntelligenceDescription	Désavantage sur les jets de sauvegarde et les jets de caractéristique d'INT.
+Rules/&ConditionCursedIntelligenceTitle	Maudit (Intelligence)
+Rules/&ConditionCursedStrengthDescription	Désavantage sur les jets de sauvegarde et les jets de caractéristique de FOR.
+Rules/&ConditionCursedStrengthTitle	Maudit (Force)
+Rules/&ConditionCursedTitle	Maudit
+Rules/&ConditionCursedWisdomDescription	Désavantage sur les jets de sauvegarde et les jets de caractéristique de SAG.
+Rules/&ConditionCursedWisdomTitle	Maudit (Sagesse)
+Rules/&ConditionDarkvisionDescription	Vous voyez normalement même par lumière faible. Dans l'obscurité, vous voyez comme s'il y avait une lumière faible.
+Rules/&ConditionDarkvisionTitle	Vision dans le noir
+Rules/&ConditionDazzledDescription	Ne peut pas prendre de réactions et a -2 de pénalité de classe d'armure.
+Rules/&ConditionDazzledTitle	Ébloui
+Rules/&ConditionDeadDescription	Doit être réanimé ou ressuscité pour agir.
+Rules/&ConditionDeadTitle	Mort
+Rules/&ConditionDeafenedDescription	Ne peut rien entendre.
+Rules/&ConditionDeafenedTitle	Assourdi
+Rules/&ConditionDetectEvilandGoodDescription	Détection en tant qu'aberration, céleste, élémentaire, fée, fiélon ou mort-vivant.
+Rules/&ConditionDetectEvilandGoodTitle	Détecté (bien/mal)
+Rules/&ConditionDetectMagicDescription	Capable de détecter la magie à proximité.
+Rules/&ConditionDetectMagicTitle	Détection de la magie
+Rules/&ConditionDiscipleImmuneColdDescription	Insensible aux dégâts de froid et récupération de pv grâce au froid.
+Rules/&ConditionDiscipleImmuneColdTitle	Érudit des éléments (froid)
+Rules/&ConditionDiscipleImmuneFireDescription	Insensible aux dégâts de foudre et récupération de pv grâce à la foudre.
+Rules/&ConditionDiscipleImmuneFireTitle	Érudit des éléments (feu)
+Rules/&ConditionDiscipleImmuneLightningDescription	Insensible aux dégâts de feu et récupération de pv grâce au feu.
+Rules/&ConditionDiscipleImmuneLightningTitle	Érudit des éléments (foudre)
+Rules/&ConditionDiseasedDescription	La créature est atteinte d'une maladie.
+Rules/&ConditionDiseasedTitle	Malade
+Rules/&ConditionDisengagingDescription	Insensible aux attaques d'opportunité.
+Rules/&ConditionDisengagingTitle	En désengagement
+Rules/&ConditionDivineFavorDescription	Inflige 1d4 dégâts radiants supplémentaires.
+Rules/&ConditionDivineFavorTitle	Faveur divine
+Rules/&ConditionDivinelyRevealedDescription	Le type et la position de la créature sont révélés au lanceur de cet effet.
+Rules/&ConditionDivinelyRevealedTitle	Révélé divinement
+Rules/&ConditionDodgingDescription	Les attaques sur les créatures ont un désavantage.
+Rules/&ConditionDodgingTitle	En esquive
+Rules/&ConditionDyingDescription	Seule une stabilisation peut sauver d'une mort prochaine.
+Rules/&ConditionDyingTitle	Mourant
+Rules/&ConditionEncumberedDescription	La vitesse est réduite de 2.
+Rules/&ConditionEncumberedTitle	Encombré
+Rules/&ConditionEnfeebledDescription	Dégâts diminués de moitié lors d'attaques de FOR.
+Rules/&ConditionEnfeebledTitle	Affaibli
+Rules/&ConditionEntangledTitle	Enchevêtré
+Rules/&ConditionExhaustedDescription	Affaibli par l'épuisement.
+Rules/&ConditionExhaustedTitle	Épuisé
+Rules/&ConditionExpeditiousRetreatDescription	Peut foncer en tant qu'action bonus.
+Rules/&ConditionExpeditiousRetreatTitle	Repli expéditif
+Rules/&ConditionFalseLifeDescription	Points de vie temporaires supplémentaires.
+Rules/&ConditionFalseLifeTitle	Simulacre de vie
+Rules/&ConditionFeatherFallingDescription	Les chutes ne blessent pas.
+Rules/&ConditionFeatherFallingTitle	En chute ralentie
+Rules/&ConditionFlyingDescription	La créature ciblé gagne une vitesse de vol de 12 cases par action de déplacement.
+Rules/&ConditionFlyingTitle	En vol
+Rules/&ConditionForceOfLawDescription	Impose un désavantage sur le prochain jet de sauvegarde de la cible.
+Rules/&ConditionForceOfLawTitle	Force de la loi
+Rules/&ConditionFormAddBeneficialFormat	Octroie : {0}
+Rules/&ConditionFormAddDetrimentalFormat	Inflige : {0}
+Rules/&ConditionFormAddNeutralFormat	Devient : {0}
+Rules/&ConditionFormRemoveDetrimentalAllFormat	Annule toutes les occurrences de ces conditions : {0}.
+Rules/&ConditionFormRemoveDetrimentalRandomFormat	Annule une occurrence aléatoire de ces conditions : {0}.
+Rules/&ConditionFormRemoveFormat	Annule : {0}
+Rules/&ConditionFrightenedDescription	Incapable d'approcher l'origine de la peur, désavantage sur les jets d'attaque et les jets de caractéristique.
+Rules/&ConditionFrightenedFearDescription	Doit fuir l'origine de la peur.
+Rules/&ConditionFrightenedFearTitle	Effrayé (peur)
+Rules/&ConditionFrightenedTitle	Effrayé
+Rules/&ConditionGateKeeperDescription	Avantage aux jets de sauvegarde contre la mort.
+Rules/&ConditionGateKeeperTitle	Gardien du portail
+Rules/&ConditionGiantStrengthCloudDescription	La Force passe à 27
+Rules/&ConditionGiantStrengthCloudTitle	Force de Géant (Nuage)
+Rules/&ConditionGiantStrengthFireDescription	La Force passe à 25
+Rules/&ConditionGiantStrengthFireTitle	Force de Géant (Feu)
+Rules/&ConditionGiantStrengthFrostDescription	La Force passe à 23
+Rules/&ConditionGiantStrengthFrostTitle	Force de Géant (Givre)
+Rules/&ConditionGiantStrengthHillDescription	La Force passe à 21
+Rules/&ConditionGiantStrengthHillTitle	Force de Géant (Colline)
+Rules/&ConditionGrappledDescription	Incapable de bouger.
+Rules/&ConditionGrappledTitle	Agrippé
+Rules/&ConditionGuidedDescription	Ajoute 1d4 à un jet de caractéristique.
+Rules/&ConditionGuidedTitle	Guidé
+Rules/&ConditionHastedDescription	La vitesse est doublée. CA +2. Les jets de sauvegarde de Dextérité ont un avantage. Capable d'effectuer une action de plus par tour (Attaquer, Foncer, Esquiver, Se désengager, Se cacher, Utiliser un objet).
+Rules/&ConditionHastedTitle	Accéléré
+Rules/&ConditionHealthyDescription	Indemne.
+Rules/&ConditionHealthyTitle	En bonne santé
+Rules/&ConditionHeavilyEncumberedDescription	La vitesse est réduite de 4.\nDésavantage pour les jets d'attaque.
+Rules/&ConditionHeavilyEncumberedTitle	Lourdement encombré
+Rules/&ConditionHeavilyObscuredTitle	Dans l'obscurité totale
+Rules/&ConditionHeraldOfBattleDescription	+1 de CA. +1 aux attaques et dégâts. +1 à tous les jets de sauvegarde.
+Rules/&ConditionHeraldOfBattleTitle	Béni par le Héraut du combat
+Rules/&ConditionHeroismTitle	Héroïsme
+Rules/&ConditionHighlightedDescription	La créature ne peut pas être invisible ; les assaillants ont un avantage.
+Rules/&ConditionHighlightedTitle	Luminescent
+Rules/&ConditionHinderedDescription	Vitesse de déplacement -2.
+Rules/&ConditionHinderedTitle	Ralenti
+Rules/&ConditionIncapacitatedDescription	Incapable d'effectuer des actions ou réactions.
+Rules/&ConditionIncapacitatedTitle	Neutralisé
+Rules/&ConditionInStinkingCloudDescription	La créature doit réussir un jet de CON pour agir durant son tour.\nLa visibilité est nulle.
+Rules/&ConditionInStinkingCloudTitle	Dans le nuage puant
+Rules/&ConditionInvisibleDescription	Indétectable sans magie, la créature a un avantage lors des attaques. Les assaillants ont un désavantage.
+Rules/&ConditionInvisibleTitle	Invisible
+Rules/&ConditionJumpDescription	Distance de saut augmentée.
+Rules/&ConditionJumpTitle	Saut
+Rules/&ConditionLethargicDescription	La créature ne peut pas bouger ou effectuer d'action avant son prochain tour.
+Rules/&ConditionLethargicTitle	Léthargique
+Rules/&ConditionLevitateDescription	La créature ciblée flotte, le lanceur peut la déplacer vers le haut ou vers le bas.
+Rules/&ConditionLevitateTitle	En lévitation
+Rules/&ConditionLifeDrainedDescription	Les points de vie maximum sont réduits tant qu'il n'y a pas de repos long.
+Rules/&ConditionLifeDrainedTitle	Drainé
+Rules/&ConditionLightHypersensitiveDescription	Blessé par la lumière.
+Rules/&ConditionLightHypersensitiveTitle	Hypersensible à la lumière
+Rules/&ConditionLightSensitiveDescription	Désavantagé par la lumière.
+Rules/&ConditionLightSensitiveTitle	Sensible à la lumière
+Rules/&ConditionLongstriderDescription	La vitesse de déplacement augmente de 2 cases.
+Rules/&ConditionLongstriderTitle	Grande foulée
+Rules/&ConditionMagicallyArmoredDescription	La classe d'armure de base est définie sur 13.
+Rules/&ConditionMagicallyArmoredTitle	En armure de mage
+Rules/&ConditionMagicallyAsleepDescription	Incapable d'agir jusqu'à son réveil.
+Rules/&ConditionMagicallyAsleepTitle	Endormi par magie
+Rules/&ConditionMagicalWeaponDescription	L'arme peut blesser les ennemis insensibles aux attaques non magiques.
+Rules/&ConditionMagicalWeaponTitle	Arme magique
+Rules/&ConditionMarkedByBrandingSmiteDescription	Émet de la lumière, ne peut pas devenir invisible, révélé si invisible.
+Rules/&ConditionMarkedByBrandingSmiteTitle	Châtiment lumineux
+Rules/&ConditionMarkedByHunterDescription	Reçoit 1d6 dégâts quand touché par le lanceur.
+Rules/&ConditionMarkedByHunterTitle	Marque du chasseur
+Rules/&ConditionMindControlledTitle	Sous contrôle de l'esprit
+Rules/&ConditionOnFireDescription	Subit des dégâts de feu continus sauf si le feu est éteint par une action.
+Rules/&ConditionOnFireTitle	En feu
+Rules/&ConditionParalyzedDescription	Incapable d'agir. Les attaques contre la créature ont un avantage, coup critique automatique si l'attaque provient d'une case voisine.
+Rules/&ConditionParalyzedTitle	Paralysé
+Rules/&ConditionPetrifiedDescription	Transformé en pierre ; peut difficilement être blessé.
+Rules/&ConditionPetrifiedTitle	Pétrifié
+Rules/&ConditionPoisonedDescription	Désavantage sur les attaques et les jets de caractéristique.
+Rules/&ConditionPoisonedTitle	Empoisonné
+Rules/&ConditionPossessedDescription	Sous le contrôle d'un être surnaturel.
+Rules/&ConditionPossessedTitle	Possédé
+Rules/&ConditionProneDescription	Peut uniquement se déplacer en rampant. Vulnérable aux attaques rapprochées.
+Rules/&ConditionProneTitle	À terre
+Rules/&ConditionProtectedFromEvilTitle	Protégé contre le mal et le bien
+Rules/&ConditionResistingDescription	Ajoute +1d4 à un jet de sauvegarde.
+Rules/&ConditionResistingTitle	Résistant
+Rules/&ConditionRestrainedDescription	Incapable de bouger. Les attaques des créatures et les jets de sauvegarde de Dextérité ont un désavantage. Les attaques contre les créatures ont un avantage.
+Rules/&ConditionRestrainedTitle	Entravé
+Rules/&ConditionSeeInvisibilityDescription	Permet de voir les créatures invisibles.
+Rules/&ConditionSeeInvisibilityTitle	Perception de l'invisible
+Rules/&ConditionSeverelyWoundedDescription	Va bientôt mourir.
+Rules/&ConditionSeverelyWoundedTitle	Grièvement blessé
+Rules/&ConditionShieldedByFaithDescription	Classe d'armure +2.
+Rules/&ConditionShieldedByFaithTitle	Protégé par la foi
+Rules/&ConditionShieldedDescription	Classe d'armure augmentée de +5 et rend insensible à Projectile magique.
+Rules/&ConditionShieldedTitle	Protégé
+Rules/&ConditionShockedDescription	Incapable de réagir.
+Rules/&ConditionShockedTitle	Choqué
+Rules/&ConditionSleetStormDescription	Terrain difficile. Peut tomber à terre. Visibilité nulle. Doit lancer un jet de concentration.
+Rules/&ConditionSleetStormTitle	Sous une tempête de neige
+Rules/&ConditionSlowedDescription	Vitesse diminuée de moitié. -2 à la CA et aux jets de DEX. Une action ou une action bonus max. Pas de réaction. Une attaque max par tour. Les lancements de sort peuvent échouer.
+Rules/&ConditionSlowedTitle	Ralenti
+Rules/&ConditionSpiderClimbDescription	Permet à la cible de grimper comme une araignée.
+Rules/&ConditionSpiderClimbTitle	Pattes d'araignée
+Rules/&ConditionSpiritGuardiansDescription	Vitesse diminuée de moitié. Peut subir des dégâts au début de chaque tour.
+Rules/&ConditionSpiritGuardiansSelfDescription	Le personnage est actuellement sous la protection des esprits gardiens.
+Rules/&ConditionSpiritGuardiansSelfTitle	Protégé par les esprits
+Rules/&ConditionSpiritGuardiansTitle	Ciblé par les esprits
+Rules/&ConditionStealthyDescription	Se cache activement.
+Rules/&ConditionStealthyTitle	Furtif
+Rules/&ConditionStunnedDescription	Incapable d'agir ou de bouger. Les attaques contre les créatures ont un avantage. Échoue automatiquement aux jets de sauvegarde de Force et de Dextérité.
+Rules/&ConditionStunnedTitle	Étourdi
+Rules/&ConditionSurprisedDescription	Incapable d'agir pendant un round.
+Rules/&ConditionSurprisedTitle	Surpris
+Rules/&ConditionTargetedByGuidingBoltDescription	La première attaque contre cette créature a un avantage.
+Rules/&ConditionTargetedByGuidingBoltTitle	Ciblé par éclair traçant
+Rules/&ConditionTemporaryHitPointsDescription	La créature gagne des points de vie temporaires.
+Rules/&ConditionTemporaryHitPointsTitle	Pv temporaires
+Rules/&ConditionTraditionShockArcanistArcaneFuryDescription	Les dégâts infligés par les sorts d'évocation augmentent par bonus de maîtrise et d'INT.
+Rules/&ConditionTraditionShockArcanistArcaneFuryTitle	Fureur arcanique
+Rules/&ConditionTrueStrikeDescription	Le lanceur du sort a un avantage lors de sa première attaque contre la cible.
+Rules/&ConditionTrueStrikeTitle	Visée juste
+Rules/&ConditionTurnedDescription	La cible doit s'éloigner du lanceur.
+Rules/&ConditionTurnedTitle	Renvoyé
+Rules/&ConditionTypeBeneficialFormat	Condition avantageuse
+Rules/&ConditionTypeDetrimentalFormat	Condition pénalisante
+Rules/&ConditionTypeNeutralFormat	Condition neutre
+Rules/&ConditionUnconsciousDescription	Incapable d'agir jusqu'à son réveil.
+Rules/&ConditionUnconsciousTitle	Inconscient
+Rules/&ConditionVampiricTouchDescription	Permet d'effectuer une attaque vampirique au corps à corps avec un sort à chaque tour.
+Rules/&ConditionVampiricTouchTitle	Toucher du vampire
+Rules/&ConditionWoundedDescription	Perd des points de vie.
+Rules/&ConditionWoundedTitle	Blessé
+Rules/&CostFormat	{0} {1}
+Rules/&CounterFormBreakConcentrationFormat	Provoque un jet de concentration.
+Rules/&CounterFormDisperseCloudFormat	Disperse les nuages dans la zone.
+Rules/&CounterFormDissipateSpellsFormat	Les sorts jusqu'au niveau {0} sont dissipés automatiquement, sinon DD {1} + sort de niveau supérieur.
+Rules/&CounterFormExtinguishLightFormat	Éteint les sources de lumière dans la zone.
+Rules/&CounterFormInterruptSpellcastingFormat	Les sorts jusqu'au niveau {0} sont contrés automatiquement, sinon DD {1} + sort de niveau supérieur.
+Rules/&CounterFormRemoveDarknessFormat	Élimine les ténèbres.
+Rules/&DamageAcidDescription	Le jet corrosif du souffle d'un dragon noir et les enzymes dissolvantes sécrétées par une gelée noire infligent des dégâts acides.
+Rules/&DamageAcidTitle	Acide
+Rules/&DamageBludgeoningDescription	Les attaques de force brute (marteaux, chute, constriction et effets similaires) infligent des dégâts contondants.
+Rules/&DamageBludgeoningTitle	Contondant
+Rules/&DamageColdDescription	La froideur mortelle irradiant de la lance de glace d'un diable et le souffle glacial d'un dragon blanc infligent des dégâts de froid.
+Rules/&DamageColdTitle	Froid
+Rules/&DamageFireDescription	Le souffle brûlant des dragons rouges et les nombreux sorts permettant d'invoquer des flammes infligent des dégâts de feu.
+Rules/&DamageFireTitle	Feu
+Rules/&DamageForceDescription	La force est une énergie magique à l'état pur, canalisée pour infliger des dégâts. Les sorts, dont projectile magique et arme spirituelle, sont les principaux effets infligeant des dégâts de force.
+Rules/&DamageForceTitle	Force
+Rules/&DamageFormFormat	{0}{1} {2} {3} dégâts {4}
+Rules/&DamageFormTightFormat	{0}{1} {2} {3} dég. {4}
+Rules/&DamageLightningDescription	Le sort éclair et le souffle d'un dragon bleu infligent des dégâts de foudre.
+Rules/&DamageLightningTitle	Foudre
+Rules/&DamageNecroticDescription	Les dégâts nécrotiques infligés par certains morts-vivants et par certains sorts, tels que contact glacial, corrompent l'âme et la matière.
+Rules/&DamageNecroticTitle	Nécrotique
+Rules/&DamagePiercingDescription	Les attaques visant à transpercer et à empaler une cible, telles que les attaques à la lance ou les morsures de monstres, infligent des dégâts perforants.
+Rules/&DamagePiercingTitle	Perforant
+Rules/&DamagePoisonDescription	Les dards venimeux et le souffle toxique d'un dragon vert infligent des dégâts de poison.
+Rules/&DamagePoisonTitle	Poison
+Rules/&DamagePsychicDescription	Les capacités mentales infligent des dégâts psychiques.
+Rules/&DamagePsychicTitle	Psychique
+Rules/&DamageRadiantDescription	Les dégâts radiants, infligés par le sort colonne de flamme d'un clerc ou par le châtiment angélique d'une arme, brûlent la chair d'un feu sacré et surchargent l'esprit de pouvoir.
+Rules/&DamageRadiantTitle	Radiant
+Rules/&DamageSlashingDescription	Les épées, les haches et les griffes des monstres infligent des dégâts tranchants.
+Rules/&DamageSlashingTitle	Tranchant
+Rules/&DamageThunderDescription	Une explosion sonore assourdissante, provoquée par des sorts comme onde de choc, inflige des dégâts de tonnerre.
+Rules/&DamageThunderTitle	Tonnerre
+Rules/&DamageTitle	Dégâts : 
+Rules/&DcFormat	DD {0}
+Rules/&DieD10Title	d10
+Rules/&DieD12Title	d12
+Rules/&DieD1Title	d1
+Rules/&DieD20Title	d20
+Rules/&DieD2Title	d2
+Rules/&DieD3Title	d3
+Rules/&DieD4Title	d4
+Rules/&DieD6Title	d6
+Rules/&DieD8Title	d8
+Rules/&DivinationFormFormatIdentifyItem	Révèle toutes les propriétés d'un objet.
+Rules/&DivinationFormFormatListCreatureFamilyInLocation	Sent la présence des créatures de type : {0}.
+Rules/&DivinationFormFormatRevealEntitiesBearingTags	Révèle les créatures et les objets qui sont {0}.
+Rules/&DurationAnyRestFormat	Jusqu'au prochain repos
+Rules/&DurationDayPluralFormat	{0} jours
+Rules/&DurationDaySingleFormat	{0} jour
+Rules/&DurationHourPluralFormat	{0} heures 
+Rules/&DurationHourSingleFormat	{0} heure 
+Rules/&DurationInstantaneousFormat	Instantanée
+Rules/&DurationLessMinuteFormat	<1 min
+Rules/&DurationLongRestFormat	Jusqu'au repos long
+Rules/&DurationMinutePluralFormat	{0} minutes 
+Rules/&DurationMinuteSingleFormat	{0} minute 
+Rules/&DurationNoneFormat	{0} round 
+Rules/&DurationPermanentFormat	Permanente
+Rules/&DurationRoundPluralFormat	{0} rounds 
+Rules/&DurationRoundSingleFormat	{0} round 
+Rules/&DurationShortRestFormat	Jusqu'au repos court
+Rules/&DurationUntilEndOfSourceTurnFormat	Jusqu'à la fin du tour du personnage source.
+Rules/&DurationUntilEndOfTargetTurnFormat	Jusqu'à la fin du tour de ce personnage.
+Rules/&DurationUntilStartOfSourceTurnFormat	Jusqu'au début du tour du personnage source.
+Rules/&DurationUntilStartOfTargetTurnFormat	Jusqu'au début du tour de ce personnage.
+Rules/&EffectRangeDistanceTitle	{0}
+Rules/&EffectRangeMeleeHitTitle	Coup au corps à corps
+Rules/&EffectRangeRangeHitTitle	Coup à distance {0}
+Rules/&EffectRangeSelfTitle	Soi-même
+Rules/&EffectRangeTouchTitle	Toucher
+Rules/&EffectTargetConeTitle	{0} {1}
+Rules/&EffectTargetCubeTitle	{0} {1}
+Rules/&EffectTargetCylinderTitle	{0} {1} x {2}
+Rules/&EffectTargetIndividualsTitle	{0}{1}
+Rules/&EffectTargetIndividualsUniqueTitle	{0} {1}
+Rules/&EffectTargetInLineOfSightWithinDistanceTitle	En vue : {0}
+Rules/&EffectTargetItemTitle	Objet
+Rules/&EffectTargetLineTitle	{0} {1}
+Rules/&EffectTargetPerceivingWithinDistanceTitle	{0} {1}
+Rules/&EffectTargetPositionTitle	Sol
+Rules/&EffectTargetSelfTitle	Soi-même
+Rules/&EffectTargetSharedAmongIndividualsTitle	{0} <> {1}
+Rules/&EffectTargetSphereTitle	{0} {1}
+Rules/&EffectTargetWallLineTitle	{0} {1} x {2}
+Rules/&EffectTargetWallRingTitle	{0} {1} x {2}
+Rules/&HealingFormFormat	Guérison {0}{1} {2}
+Rules/&HealingStabilize	Stabilise une créature mourante.
+Rules/&HeightFormatFeet	{0}'
+Rules/&HeightFormatFeetInches	{0}英尺{1}英寸
+Rules/&ItemPropertyFormFormat	Sur l'objet ciblé :\n{0}
+Rules/&LightSourceFormFormat	source de lumière : luminosité {0} + lumière faible {1} 
+Rules/&MaterialComponentTitle	M
+Rules/&MotionFormLevitateFormat	Léviter {0}
+Rules/&MotionFormPullFormat	S'arrêter {0}
+Rules/&MotionFormPushFormat	Repousser {0}
+Rules/&MotionFormTeleportFormat	Téléporter {0}
+Rules/&RateAtWillFormatTitle	à volonté
+Rules/&RateChannelDivinityFormatTitle	repos court
+Rules/&Rated6FormatTitle	avec 5 ou 6 avec un 1d6
+Rules/&RateDawnFormatTitle	aube
+Rules/&RateHealingPoolFormatTitle	réserve de guérison
+Rules/&RateLongRestFormatTitle	repos long
+Rules/&RateNoneFormatTitle	aucun(e)
+Rules/&RateOneMinuteFormatTitle	chaque minute
+Rules/&RateShortRestFormatTitle	repos court
+Rules/&RateSpellSlotFormatTitle	emplacements de sorts
+Rules/&RecipeRequiredIngredientMultipleFormat	{0} x {1}
+Rules/&RecipeRequiredIngredientSingleFormat	{0}
+Rules/&RecipeRequiredSpellFormat	Capacité à lancer le sort : {0}.
+Rules/&RecipeRequiredTooltypeFormat	Maîtrise : {0}
+Rules/&SaveAffinityHalfDamageTitle	(jet de sauvegarde pour : {0})
+Rules/&SaveAffinityNegateAndCancelEachTurnTitle	(un jet de sauvegarde disponible par tour pour annuler cet effet)
+Rules/&SaveAffinityNegateTitle	(jet de sauvegarde pour annuler cet effet)
+Rules/&SituationalContextAttackerAwayFromTargetFormat	Si l'assaillant est loin de la cible :
+Rules/&SituationalContextAttackerNextToTargetFormat	Si l'assaillant est à côté de la cible :
+Rules/&SituationalContextAttackerOnHigherGroundThanTargetFormat	Si l'assaillant est surélevé :
+Rules/&SituationalContextConsciousAllyNextToTargetFormat	si l'assaillant a un allié conscient à côté de la cible :
+Rules/&SituationalContextNextToWallFormat	si la créature est à côté d'un mur :
+Rules/&SituationalContextTargetIsEffectSourceFormat	si la créature attaque la source de l'effet :
+Rules/&SomaticComponentTitle	S
+Rules/&SpellLevel0FormatTitle	Sort mineur
+Rules/&SpellLevel1FormatTitle	Niveau 1
+Rules/&SpellLevel2FormatTitle	Niveau 2
+Rules/&SpellLevel3FormatTitle	Niveau 3
+Rules/&SpellLevel4FormatTitle	Niveau 4
+Rules/&SpellLevel5FormatTitle	Niveau 5
+Rules/&SpellLevel6FormatTitle	Niveau 6
+Rules/&SpellLevel7FormatTitle	Niveau 7
+Rules/&SpellLevel8FormatTitle	Niveau 8
+Rules/&SpellLevel9FormatTitle	Niveau 9
+Rules/&SpellSlotFormRecoverHalfLevelUpFormat	Récupérez la moitié du niveau de classe (arrondi) de vos emplacements de sorts dépensés jusqu'au niveau {0}.
+Rules/&SummonFormCreaturesMultipleFormat	Invoquez {0} (x{1}).
+Rules/&SummonFormCreaturesSingleFormat	Invoquez {0}.
+Rules/&SummonFormEffectProxyFormat	Invoquez '{0}' pour pouvoir prendre son contrôle 
+Rules/&SummonFormInventoryItemsMultipleFormat	Invoquez {0} (x {1}) dans l'inventaire
+Rules/&SummonFormInventoryItemsSingleFormat	Invoquez {0} dans l'inventaire
+Rules/&TemporaryHitPointsFormFormat	Points de vie temporaires {0}{1} {2}
+Rules/&TopologyFormProjectileBlockerFormat	Bloque les projectiles ordinaires (flèches, carreaux, etc.)
+Rules/&TopologyFormSightBlockerFormat	Obstrue le champ de vision
+Rules/&TurnOccurenceEndOfTurnFormat	Fin du round
+Rules/&TurnOccurenceEndOfTurnNoPerceptionOfSourceFormat	Fin du tour
+Rules/&TurnOccurenceStartOfTurnFormat	Début du tour
+Rules/&VerboseComponentTitle	V
+Rules/&VersatileDamageFormFormat	\nPolyvalent : {0}{1}{2}{3}
+Rules/&VersatileTwoHandedTitle	À deux mains : 
+Rules/&WeightFormat	{0} {1}
+Rules/&WeightRatioFormat	{0}/{1} {2}
+Rules/&TopologyFormDifficultThroughFormat	Cette zone ralentit ceux qui la traversent.
+Rules/&TopologyFormSightImpairedFormat	Les créatures dans cette zone ne voient rien.
+Rules/&TopologyFormDangerousZoneFormat	Cette zone blesse ceux qui la traversent.
+Rules/&EffectTargetCubeWithOffsetTitle	Un cube de 3x3 cases autour de vous
+Rules/&ConditionBlessingSorrtarrTitle	Bénédiction du Sorr-Tarr
+Rules/&ConditionBlessingSorrtarrDescription	Semble soulager les Soraks de leur vulnérabilité à la lumière.
+Rules/&ConditionAnnoyedByBeeTitle	Distrait par une abeille agaçante
+Rules/&ConditionAnnoyedByBeeDescription	Désavantage en concentration jusqu'au tour suivant.
+Rules/&ConditionDetectPoisonAndDiseaseTitle	Détection du poison et des maladies
+Rules/&ConditionDetectPoisonAndDiseaseDescription	Vous pouvez détecter les créatures venimeuses et la maladie dans un rayon de 6 cases autour de vous pendant toute la durée du sort.
+Rules/&ConditionCharmedByAnimalFrienshipTitle	Charmée par amitié avec les animaux
+Rules/&ConditionCharmedByAnimalFrienshipDescription	Cette bête sera charmée pendant la durée du sort ou jusqu'à ce que vous ou un membre de votre groupe la blessiez.
+Rules/&ConditionSanctuaryTitle	Sanctuaire
+Rules/&ConditionSanctuaryDescription	Vous protégez une créature à votre portée contre les attaques. Pendant toute la durée du sort, toute créature ciblant la créature protégée avec une attaque ou un sort nocif doit effectuer un jet de sauvegarde de Sagesse ou choisir une autre cible.
+Rules/&ConditionWardedBySanctuaryTitle	Protégé par sanctuaire
+Rules/&ConditionWardedBySanctuaryDescription	Vous êtes protégé jusqu'à la fin du sort ou jusqu'à ce que vous lanciez un sort ou une attaque.
+Rules/&ConditionProtectedFromEnergyAcidTitle	Protégé contre l'acide
+Rules/&ConditionProtectedFromEnergyAcidDescription	Résistance aux dégâts acides
+Rules/&ConditionProtectedFromEnergyColdTitle	Protégé contre le froid
+Rules/&ConditionProtectedFromEnergyColdDescription	Résistance aux dégâts de froid
+Rules/&ConditionProtectedFromEnergyFireTitle	Protégé contre le feu
+Rules/&ConditionProtectedFromEnergyFireDescription	Résistance aux dégâts de feu
+Rules/&ConditionProtectedFromEnergyLightningTitle	Protégé contre la foudre
+Rules/&ConditionProtectedFromEnergyLightningDescription	Résistance aux dégâts de foudre
+Rules/&ConditionProtectedFromEnergyThunderTitle	Protégé contre le tonnerre
+Rules/&ConditionProtectedFromEnergyThunderDescription	Résistance aux dégâts de tonnerre
+Rules/&AlterationFormDissipateSpellFormat	Dissipe les sorts appliqués aux objets
+Rules/&ConditionMindControlledByConjureAnimalTitle	Animal invoqué
+Rules/&ConditionMindControlledByConjureAnimalDescription	Cet animal a été invoqué par une autre créature.
+Rules/&ConditionSilencedTitle	Réduit au silence
+Rules/&ConditionWardedByWardingBondTitle	Protégé par le lien de protection
+Rules/&ConditionWardedByWardingBondDescription	Temp
+Rules/&ConditionWaterWalkTitle	Marche sur l'eau
+Rules/&ConditionWaterWalkDescription	Temp
+Rules/&ConditionWaterBreathingTitle	Respiration aquatique
+Rules/&ConditionWaterBreathingDescription	Temp
+Rules/&ConditionRestrictedInsideMagicCircleDescription	Temp
+Rules/&ConditionProtectedInsideMagicCircleDescription	Temp
+Rules/&ConditionComprehendLanguagesTitle	Compréhension des langues
+Rules/&ConditionComprehendLanguagesDescription	Peut lire et parler toutes les langues.
+Rules/&ConditionStaffOfMetisTitle	Resistance aux éléments
+Rules/&ConditionStaffOfMetisDescription	Résistance aux dégâts de froid, de feu et de foudre.
+Rules/&ConditionFlying6Description	La créature ciblée gagne une vitesse de vol de 6 cases par action de déplacement.
+Rules/&AlterationFormAbilityScoreIncreaseValueFormat	Augmente la valeur {0} de {1}.
+Rules/&AlterationFormAbilityScoreIncreaseMaximumFormat	Augmente le maximum de {0} de {1}.
+Rules/&ConditionHeavyArmorOverloadDescription	FOR insuffisante pour cette armure lourde. La vitesse est réduite de 2.
+Rules/&ConditionHeavyArmorOverloadTitle	Surcharge de l'armure lourde
+Rules/&MoveModeWalkTitle	Marcher
+Rules/&MoveModeClimbTitle	Escalader
+Rules/&MoveModeFlyTitle	Voler
+Rules/&MoveModeIncorporealTitle	Incorporel
+Rules/&MoveModeSwimTitle	Nager
+Rules/&MoveModeBurrowTitle	Creuser
+Rules/&ConditionCloakOfDisplacementDescription	Les attaques sur cette créature ont un désavantage tant qu'elle est consciente et capable de se déplacer. Cesse de fonctionner jusqu'au prochain tour si la créature subit des dégâts.
+Rules/&ConditionCloakOfDisplacementTitle	Intangible
+Rules/&ConditionHeavilyObscuredDescription	La créature a une visibilité nulle. Un désavantage sur les jets d'attaque. Les jets d'attaque contre la créature ont un désavantage.
+Rules/&ConditionConjuredCreatureDescription	Cette créature a été invoquée par un effet magique
+Rules/&ConditionConjuredCreatureTitle	Créature invoquée
+Rules/&ConditionBleedingDescription	La créature subit 1d6 dégâts nécrotiques au début de son tour
+Rules/&ConditionBleedingTitle	Entaille dévastatrice
+Rules/&ConditionSilencedDescription	La créature n'émet aucun bruit et ne peut ni parler ni lancer de sorts à composante verbale
+Rules/&ConditionProtectedFromEvilDescription	Les aberrations, les célestes, les élémentaires, les fées, les fiélons et les morts-vivants ont un désavantage pour attaquer la cible et ne peuvent ni la charmer, ni l'effrayer, ni la posséder. Si la cible est déjà charmée, effrayée ou possédée par une telle créature, elle dispose d'un avantage pour chaque nouveau jet de sauvegarde effectué contre l'effet concerné.
+Rules/&ConditionMarkedByFateDescription	Subit des dégâts supplémentaires lors de la frappe.
+Rules/&ConditionMarkedByFateTitle	Marque du destin
+Rules/&ConditionStepbackDescription	Avantage lors de la prochaine attaque avec un arc durant ce tour.
+Rules/&ConditionStepbackTitle	Avantage en recul
+Rules/&ConditionInvisibleGreaterDescription	Indétectable sans magie ; la créature a un avantage lors des attaques. Les assaillants ont un désavantage. La créature reste invisible même lorsqu'elle attaque ou lance des sorts.
+Rules/&ConditionInvisibleGreaterTitle	Invisible (supérieure)
+Rules/&ConditionStoneskinDescription	Résistance aux dégâts contondants, tranchants et perforants non magiques.
+Rules/&ConditionStoneskinTitle	Peau de pierre
+Rules/&ConditionFrightenedPhantasmalKillerDescription	La créature est effrayée et subit des dégâts psychiques à chaque tour jusqu'à ce qu'elle réussisse un jet de sauvegarde.
+Rules/&ConditionFrightenedPhantasmalKillerTitle	Effrayée par un fantasme
+Rules/&ConditionFireShieldWarmDescription	Résiste au froid et riposte contre les assaillants au corps à corps au moyen de dégâts de feu.
+Rules/&ConditionFireShieldColdDescription	Résiste au feu et riposte contre les assaillants au corps à corps au moyen de dégâts de froid.
+Rules/&ConditionDeathWardedTitle	Protégée contre la mort
+Rules/&ConditionDeathWardedDescription	Lorsque la mort instantanée atteint 0 point de vie, les PV sont ramenés à 1, et elle est ainsi protégée contre des dégâts ou effets considérables.
+Rules/&ConditionConfusedTitle	Victime de confusion
+Rules/&ConditionConfusedDescription	Au début de ce tour, la créature peut s'éloigner, ne pas agir du tout, attaquer au corps à corps une cible à sa portée ou agir normalement.
+Rules/&ConditionBanishedTitle	Banni
+Rules/&ConditionBanishedDescription	La créature est retirée du jeu pendant toute la durée du sort, à moins que celui-ci ne soit rompu avant. Dans le cas où il n'est rompu à aucun moment pendant cette durée, la créature est bannie de manière permanente si elle est extraplanaire (céleste, fiélon, élémentaire).
+Rules/&SpecialBehaviourConditionDuringTurnFormat	{3} souffre pendant ce tour.
+Rules/&SpecialBehaviourNoneFormat	{3} agit normalement.
+Rules/&ConditionConfusedAttackTitle	en ciblage aléatoire
+Rules/&ConditionConfusedAttackDescription	La créature doit utiliser ses actions pour attaquer de manière aléatoire une créature à sa portée, si possible.
+Rules/&ConditionConfusedMoveTitle	En  déplacement aléatoire
+Rules/&ConditionConfusedMoveDescription	La créature doit se déplacer dans une direction aléatoire.
+Rules/&ConditionConfusedIncapacitatedTitle	Neutralisé
+Rules/&ConditionConfusedIncapacitatedDescription	La créature ne peut rien faire du fait de sa confusion.
+Rules/&ConditionFeatRaiseShieldDescription	Vous obtenez +3 de CA jusqu'à la fin du tour de l'assaillant.
+Rules/&ConditionFeatRaiseShieldTitle	Bouclier levé
+Rules/&ConditionFeatTwinBladeDescription	Vous obtenez +3 de CA jusqu'à la fin du tour de l'assaillant.
+Rules/&ConditionFeatTwinBladeTitle	Blocage de double lame
+Rules/&DurationTurnSingleFormat	{0} tour
+Rules/&DurationTurnPluralFormat	{0} tours
+Rules/&ConditionFeatTakeAimDescription	Vos attaques avec une arme à distance n'ont ni un désavantage ni un avantage, quelles que soient les conditions.
+Rules/&ConditionFeatTakeAimTitle	En train de viser
+Rules/&ConditionFeatRushToBattleDescription	Votre vitesse de mouvement est augmentée de 3 cases et votre CA est diminuée de 2 jusqu'au début de votre tour. 
+Rules/&ConditionFeatRushToBattleTitle	Fonçant au combat
+Rules/&ConditionDispellingEvilAndGoodTitle	En dissipation du mal et du bien
+Rules/&ConditionDispellingEvilAndGoodDescription	Les célestes, les élémentaires, les fées, les fiélons et les morts-vivants ont un désavantage lorsqu'ils vous attaquent. Ce sort vous permet également d'annuler les enchantements hostiles ou de renvoyer les créatures extraplanaires touchées par l'une de vos attaques.
+Rules/&ConditionMindControlledDescription	La créature rejoint le lanceur qui la contrôle.
+Rules/&ConditionMindDominatedDescription	Les actions de la créature sont totalement sous le contrôle du lanceur.
+Rules/&ConditionMindDominatedTitle	Sous domination de l'esprit
+Rules/&ConditionOnAcidTitle	Brûlure par acide
+Rules/&ConditionPheromonedTitle	Phéromone nauséabonde
+Rules/&ConditionPheromonedDescription	-3 sur les jets de caractéristique de Charisme.
+Rules/&ConditionOnAcidDescription	Subissez 1d3 dégâts acides à la fin de votre tour pendant 3 tours.
+Rules/&ActivationTypePermanentTitle	Permanente
+Rules/&MonsterSpellcastingTitle	Lancement de sort
+Rules/&MonsterSpellcastingDescription	La créature a la capacité de lancer des sorts.
+Rules/&ConditionCalmedByCalmEmotionsEnemyTitle	Adversaire apaisé
+Rules/&ConditionCalmedByCalmEmotionsEnemyDescription	La créature est indifférente aux adversaires, sauf si celle-ci est blessée.
+Rules/&ConditionCalmedByCalmEmotionsAllyTitle	Allié apaisé
+Rules/&ConditionCalmedByCalmEmotionsAllyDescription	La créature ne peut être ni charmée ni effrayée.
+Rules/&ConditionArcaneShockedTitle	Victime d'un choc arcanique
+Rules/&ConditionArcaneShockedDescription	Vos dés d'attaque avec un sort infligent au moins des dégâts moyens.
+Rules/&ConditionHidingInPlainSightTitle	En camouflage naturel
+Rules/&ConditionHidingInPlainSightDescription	+10 de DEX (Discrétion) lorsque vous êtes contre un mur.
+Rules/&KillFormAlwaysFormat	La créature ciblée est tuée.
+Rules/&KillFormUnderChallengeRatingFormat	La créature ciblée est tuée si sa difficulté du défi est égale ou inférieure à {0}.
+Rules/&KillFormUnderHitPointsFormat	La créature ciblée est tuée si ses points de vie restants sont égaux ou inférieurs à {0}.
+Rules/&ConditionSwallowedTitle	Avalé
+Rules/&ConditionSwallowedRemorhazDescription	Toute action est rendue impossible, et la créature avalée subit 6d6 dégâts acides à chaque tour. Une simple attaque infligeant 30 points de dégâts peut forcer le rémorhaz à régurgiter.
+Rules/&AlterationFormLightUpFormat	Allume les sources de lumière
+Rules/&RateD6_56FormatTitle	avec 5 ou 6 sur un 1d6
+Rules/&OrientationNorthTitle	Nord
+Rules/&OrientationEastTitle	Est
+Rules/&OrientationSouthTitle	Sud
+Rules/&OrientationWestTitle	Ouest
+Rules/&ConditionSwallowedShamblingMoundDescription	Toute action est rendue impossible, et la créature avalée subit 2d6+8 de dégâts contondants à chaque tour. Une simple attaque infligeant 15 points de dégâts peut forcer la créature engloutisseuse à régurgiter.
+Rules/&ApplySelfFormat	{0} (soi-même)
+Rules/&OnSpecificCreatureTriggerFormat	Sur {0} :
+Rules/&ConditionLifeDrainedClayGolemDescription	Les points de vie sont réduits jusqu'à ce que le sort de restauration supérieure d'un clerc vous soigne.
+Rules/&ConditionSlowedStoneGolemTitle	Ralenti
+Rules/&ConditionSlowedStoneGolemDescription	Les golems de pierre peuvent ralentir les adversaires proches.
+Rules/&ConditionParalyzedGhoulTitle	Paralysé(e) par le contact d'une goule ou d'un blême.
+Rules/&SpellSlotFormCreateSpellSlotFormat	Créez un emplacement de sort.
+Rules/&SpellSlotFormCreateSorceryPointFormat	Crée des points de sorcellerie.
+Rules/&MetamagicOptionCarefulSpellTitle	Sort prudent
+Rules/&MetamagicOptionCarefulSpellDescription	Les créatures alliées affectées par le sort réussissent automatiquement leur jet de sauvegarde.
+Rules/&MetamagicOptionDistantSpellTitle	Sort distant
+Rules/&MetamagicOptionDistantSpellDescription	Double la portée d'un sort ou modifie la portée d'un sort de contact de 6 cases.
+Rules/&MetamagicOptionEmpoweredSpellTitle	Sort puissant
+Rules/&MetamagicOptionEmpoweredSpellDescription	Tous les jets de dés de dégâts égaux à 1 ou à 2 sont relancés, et le nouveau résultat est conservé.
+Rules/&MetamagicOptionExtendedSpellTitle	Sort étendu
+Rules/&MetamagicOptionExtendedSpellDescription	Double la durée des sorts d'une minute ou plus, jusqu'à un maximum de 24 heures.
+Rules/&MetamagicOptionHeightenedSpellTitle	Sort intense
+Rules/&MetamagicOptionHeightenedSpellDescription	Oblige une créature à faire un jet de sauvegarde avec un désavantage.
+Rules/&MetamagicOptionQuickenedSpellTitle	Sort accéléré
+Rules/&MetamagicOptionQuickenedSpellDescription	Permet de lancer un sort d'action principale en tant que sort d'action bonus à la place. Cependant, à l'exception de sorts mineurs, vous ne pouvez pas lancer d'autres sorts pendant votre tour.
+Rules/&MetamagicOptionTwinnedSpellTitle	Sort jumeau
+Rules/&MetamagicOptionTwinnedSpellDescription	Si le sort d'origine ne cible qu'une seule créature, alors une cible supplémentaire sera également visée.
+Rules/&RateSorceryPointsFormatTitle	points de sorcellerie
+Rules/&SpellSlotFormRecoverSorceryHalfLevelUpFormat	Récupérez des points de sorcellerie à hauteur de la moitié du niveau de votre ensorceleur (arrondi à l'entier supérieur).
+Rules/&ConditionSorcererChildRiftDeflectionTitle	Déflexion de la Faille
+Rules/&ConditionSorcererChildRiftDeflectionDescription	Les adversaires ont un désavantage sur les jets d'attaque lancés à votre encontre, et vous avez un avantage sur vos jets de sauvegarde jusqu'au début de votre prochain tour.
+Rules/&RateHitPointsFormatTitle	Maximum de pv sacrifiés
+Rules/&ConditionDisintegratedTitle	Désintégré
+Rules/&ConditionDisintegratedDescription	La créature peut être ramenée à la vie uniquement avec résurrection ou avec un effet similaire.
+Rules/&ConditionDiseasedHarmTitle	Contaminé
+Rules/&ConditionDiseasedHarmDescription	Les points de vie maximums sont réduits pendant une heure ou jusqu'à ce que la cible affectée soit guérie par un effet curatif.
+Rules/&AlterationFormFeastFormatSingle	Le groupe festoie pendant {0} heure.
+Rules/&AlterationFormFeastFormatPlural	Le groupe festoie pendant {0} heures.
+Rules/&ConditionHeroesFeastTitle	Bien nourri
+Rules/&ConditionHeroesFeastDescription	Insensible au poison et à la condition « effrayé », avantage aux jets de sauvegarde de SAG, et points de vie augmentés de 10.
+Rules/&EffectTargetArcFromIndividualTitle	1 {0}+ {1}{2}({3}{4})
+Rules/&ConditionEyebiteSickenedTitle	Fièvre
+Rules/&ConditionEyebiteSickenedDescription	Désavantage aux jets d'attaque et aux jets de caractéristique.
+Rules/&ConditionFrightenedEyebitePanickedTitle	Panique
+Rules/&ConditionFrightenedEyebitePanickedDescription	Doit fuir l'origine de l'effet.
+Rules/&ConditionHeroismDescription	Récupère des points de vie temporaires à chaque tour et devient impossible à effrayer.
+Rules/&ConditionRagingTitle	Enragé
+Rules/&RateRagePointsFormatTitle	points de rage
+Rules/&DurationHourHalfClassLevelFormat	½ niveau de classe (heures)
+Rules/&ConditionSpiritBearTitle	Lié à l'esprit de l'ours
+Rules/&ConditionSpiritBearDescription	+ 1 pv par niveau
+Rules/&ConditionSpiritWolfTitle	Lié à l'esprit du loup
+Rules/&ConditionSpiritWolfDescription	+1 de CA
+Rules/&ConditionSpiritApeTitle	Lié à l'esprit du singe
+Rules/&ConditionSpiritApeDescription	Maîtrise des jets de sauvegarde de DEX
+Rules/&ConditionSpiritViperTitle	Lié à l'esprit de la vipère
+Rules/&ConditionSpiritViperDescription	+1 de mouvement de case
+Rules/&ConditionSpiritSpiderTitle	Lié à l'esprit de l'araignée
+Rules/&ConditionSpiritSpiderDescription	Pattes d'araignée
+Rules/&ConditionSpiritEagleTitle	Lié à l'esprit de l'aigle
+Rules/&ConditionSpiritEagleDescription	Initiative +3
+Rules/&EffectTargetFreeSlotTitle	Emplacement libre
+Rules/&ConditionHeatMetalDescription	Désavantage sur les jets d'attaque et les jets de caractéristique et peut recevoir des dégâts de feu supplémentaires.
+Rules/&ConditionShapeChangedTitle	Forme changée
+Rules/&ConditionMindControlledByCasterDescription	Cette créature est contrôlée par le lanceur du sort par lequel elle a été invoquée.
+Rules/&ConditionRagingDescription	Vous obtenez de la résistance et augmentez vos dégâts en vous battant avec une férocité primitive.
+Rules/&ProficiencyBonusDoubleFormat	+ Bonus de maîtrise x2
+Rules/&ConditionGuidingWindsDescription	La prochaine attaque sur la cible a l'avantage.
+Rules/&ConditionRecklessTitle	Téméraire
+Rules/&ConditionRecklessDescription	Cette créature a un avantage sur les attaques au corps à corps pendant son tour.
+Rules/&ConditionRecklessVulnerabilityTitle	Vulnérabilité téméraire
+Rules/&ConditionRecklessVulnerabilityDescription	Les attaques contre cette créature auront un avantage jusqu'au début de son prochain tour.
+Rules/&ConditionDreadfulGlareImmunityTitle	Insensible aux Regards d'épouvante des momies
+Rules/&ConditionDreadfulGlareImmunityDescription	Vous êtes insensible aux Regards d'épouvante des momies et de seigneurs momies pendant 24 heures.
+Rules/&ConditionNegativeEnergyTitle	Touché par l'énergie négative
+Rules/&ConditionNegativeEnergyDescription	Ne peut pas récupérer de points de vie.
+Rules/&ConditionRousingShoutTitle	Motivés par Cri exaltant
+Rules/&ConditionRousingShoutDescription	Avantage lors de votre prochaine attaque.
+Rules/&ConditionMenacedTargetTitle	Menacé
+Rules/&ConditionMenacedTargetDescription	La cible a un désavantage lorsqu'elle attaque la source de la menace.
+Rules/&ConditionBorrowedLuckTitle	Chance forcée
+Rules/&ConditionBorrowedLuckDescription	Vous avez un désavantage sur votre prochain jet de sauvegarde.
+Rules/&ConditionFormAddRandomFormat	Inflige l'une des conditions aléatoires suivantes : {0}
+Rules/&ConditionFormNothingTitle	Rien
+Rules/&ConditionRangerSwiftBladeBattleFocusTitle	Focus sur le combat
+Rules/&ConditionRangerSwiftBladeBattleFocusDescription	Toutes vos attaques avec une arme de corps à corps infligent 1d8 de dégâts d'arme supplémentaires selon le type de dégâts de l'arme jusqu'au début de votre prochain tour.
+Rules/&ConditionOathOfJugementWeightOfJusticeTitle	Poids de la justice
+Rules/&ConditionOathOfJugementWeightOfJusticeDescription	La prochaine fois que vous toucherez une créature avec une arme de corps à corps, celle-ci devra effectuer un jet de sauvegarde de Charisme pour ne pas être entravée pendant une minute.
+Rules/&ConditionOathOfJugementAuraOfRighteousnessTitle	Aura de vertu
+Rules/&ConditionOathOfJugementAuraOfRighteousnessDescription	Vous ajoutez des dégâts à vos attaques équivalents au bonus de maîtrise du paladin dégageant l'aura.
+Rules/&SpellSlotFormRechargePowerFormat	Recharge le pouvoir de {0}.
+Rules/&ConditionCircleBalanceGiftOfLifeTitle	Don de la vie
+Rules/&ConditionCircleBalanceGiftOfLifeDescription	Récupérez des points de vie au début du prochain tour du lanceur.
+Rules/&ConditionCircleBalanceEmbracedByColdTitle	Étreint par le froid
+Rules/&ConditionCircleBalanceEmbracedByColdDescription	La créature ne peut pas récupérer de points de vie.
+Rules/&ConditionDistractedTitle	Distrait
+Rules/&ConditionDistractedDescription	Désavantage sur les jets de sauvegarde de concentration.
+Rules/&ConditionPactChainImpTitle	Lien avec un diablotin
+Rules/&ConditionPactChainImpDescription	La créature obtient la vision dans le noir et la résistance aux dégâts de feu et de poison
+Rules/&ConditionPactChainPseudodragonTitle	Lien avec un pseudodragon
+Rules/&ConditionPactChainPseudodragonDescription	La créature obtient un avantage sur les jets de sauvegarde contre les sorts et autres effets magiques.
+Rules/&ConditionPactChainQuasitTitle	Lien avec un quasit
+Rules/&ConditionPactChainQuasitDescription	La créature obtient la résistance contre les dégâts contondants, perforants et tranchants non magiques.
+Rules/&ConditionPactChainSpriteTitle	Lien avec un esprit follet
+Rules/&ConditionPactChainSpriteDescription	La créature obtient +2 cases de vitesse de mouvement et une immunité aux attaques d'opportunité.
+Rules/&RateBindChainFormatTitle	Repos long
+Rules/&ConditionMaledictionDescription	La créature subit des dégâts supplémentaires lorsqu'elle est attaquée par la source du sort de maléfice.
+Rules/&ConditionFiendDarkOnesOwnLuckDescription	Lancez un 1d10 supplémentaire sur tous vos jets de caractéristique et jets de sauvegarde.
+Rules/&ConditionPatronHiveWeakeningPheromonesDescription	La créature a un désavantage sur son prochain jet de sauvegarde.
+Rules/&ConditionPatronTimekeeperCurseOfTimeDescription	La créature subit des dégâts de force équivalents à la moitié du bonus de maîtrise de la source (arrondi à l'entier supérieur).
+Rules/&ConditionCollegeLoreCuttingWordsTitle	Démoralisation ({0})
+Rules/&ConditionCollegeLoreCuttingWordsDescription	La valeur du dé d'Inspiration bardique est soustraite aux jets de caractéristique, d'attaque et de dégâts de la créature.
+Rules/&RateBardicInspirationFormatTitle	Repos long
+Rules/&ConditionBardicInspirationTitle	Inspiration ({0})
+Rules/&ConditionBardicInspirationDescription	La créature a reçu un dé d'inspiration {0} qui sera ajouté à un jet d'attaque, un jet de sauvegarde ou un jet de caractéristique et pourra potentiellement transformer un échec en succès.
+Rules/&ConditionTraditionSurvivalDefensiveStanceTitle	Posture défensive
+Rules/&ConditionTraditionSurvivalDefensiveStanceDescription	Vous obtenez un avantage sur vos jets d'attaque jusqu'au début de votre prochain tour.
+Rules/&ConditionTraditionSurvivalUnbreakableBodyTitle	Corps indestructible (régénération)
+Rules/&ProficiencyBonusFormat	+ Bonus de maîtrise
+Rules/&ConditionTraditionSurvivalUnbreakableBodyDescription	Vous récupérez un nombre de points de vie égal à votre bonus de maîtrise au début de votre prochain tour.
+Rules/&ConditionTraditionSurvivalUnbreakableBodyPatientDefenseImprovedTitle	Corps indestructible (résistance)
+Rules/&ConditionTraditionSurvivalUnbreakableBodyPatientDefenseImprovedDescription	Vous obtenez une résistance à tous les types de dégâts jusqu'au début de votre prochain tour.
+Rules/&ConditionIncapacitatedByHilarityTitle	Neutralisation par hilarité
+Rules/&ConditionIncapacitatedByHilarityDescription	À terre et neutralisée, la cible subit des dégâts psychiques jusqu'à ce qu'elle réalise une sauvegarde à la fin de l'un de ses tours ou jusqu'à ce que le sort prenne fin.
+Rules/&ConditionOpenHandTechniqueDazzledTitle	Déluge de coups - éblouissement
+Rules/&ConditionOpenHandTechniqueDazzledDescription	Utilisation des réactions impossible jusqu'à la fin du tour de l'assaillant.
+Rules/&ActivationTypeOnReduceCreatureToZeroHPTitle	Auto
+Rules/&ActivationTypeRestSubpowerTitle	Repos
+Rules/&CondiitonFeatDistractingGambitDescription	-1 CA
+Rules/&ConditionFeatDauntingPushDescription	La vitesse de mouvement est diminuée de moitié.
+Rules/&ConditionFeatBlessingOfTheElementsDescription	Résistance aux dégâts de foudre, de froid et de feu.
+Rules/&ConditionTraditionFreedomSwiftStepsAttackAdvantageTitle	Pas agiles
+Rules/&ConditionTraditionFreedomSwiftStepsAttackAdvantageDescription	Vous avez l'avantage pour votre prochaine attaque.
+Rules/&ConditionLuminousKiTitle	Ki lumineux
+Rules/&ConditionLuminousKiDescription	Cette créature est affectée par Ki lumineux.
+Rules/&ConditionShineTitle	Briller
+Rules/&ConditionShineDescription	Cette créature est affectée par brillance.
+Rules/&ConditionMockedTitle	Raillé
+Rules/&ConditionMockedDescription	La créature a un désavantage sur son prochain jet d'attaque.
+Rules/&ConditionBolsteredMoraleTitle	Motivation renforcée
+Rules/&ConditionBolsteredMoraleDescription	La prochaine fois que vous utiliserez un dé d'Inspiration bardique, faites 2 lancers et gardez le meilleur résultat.
+Rules/&ConditionBolsteredByHeroicTaleTitle	Motivé par Conte héroïque
+Rules/&ConditionBolsteredByHeroicTaleDescription	Immunité contre les effets effrayé/peur et avantage pour tous les jets de sauvegarde.
+Rules/&ConditionHitByThunderingVoiceTitle	Atteint par Voix tonitruante
+Rules/&ConditionHitByThunderingVoiceDescription	Cette créature aura un désavantage sur son prochain jet d'attaque.
+Rules/&ConditionCountercharmedTitle	Contrecharmé
+Rules/&ConditionCountercharmedDescription	Avantage lors des jets de sauvegarde contre effrayé ou charmé.
+Rules/&ConditionCastingCountercharmTitle	Lancer Contre charme
+Rules/&ConditionCastingCountercharmDescription	Vous et une créature alliée située dans un rayon de 6 cases bénéficiez d'un avantage lors des jets de sauvegarde contre effrayé ou charmé.
+Rules/&RateKiPointsFormatTitle	Points de Ki
+Rules/&ConditionChainsCarceriImmunityTitle	Insensible aux chaînes des Carcères
+Rules/&ConditionChainsCarceriImmunityDescription	Cette créature ne peut être affectée à nouveau par les chaînes des Carcères pendant 24 heures.
+Rules/&AbilityScoreBonusFormat	+ Bonus de Carac.
+Rules/&ReviveFormFormat	Ramène à la vie un personnage mort
+Rules/&ConditionOnFire_Elemental_Title	En feu (Elementaire de feu)
+Rules/&ConditionOnFire_Spider_Title	En feu (Araigne de feu)
+Rules/&ConditionOnFire_Osprey_Title	En feu (Balbuzard de feu)
+Rules/&ConditionFrightenedByDragonImmunity_Title	Insensible à Présence effrayante
+Rules/&EffectTargetClosestWithinDistanceTitle	Cible la plus proche ({0})
+Rules/&MotionFormFallProneFormat	Faire tomber à terre
+Rules/&RateTurnStartFormatTitle	Début du tour
+Rules/&ConditionFlyingAdaptiveDescription	Vous bénéficiez d'une vitesse de vol égale à votre vitesse de marche.
+Rules/&ActivationTypeOnAttackHitMeleeAuto	
+Rules/&ConditionInsaneTitle	
+Rules/&ConditionInsaneDescription	
+Rules/&SituationalContextAttackingWithRangedWeaponOrEffectFormat	

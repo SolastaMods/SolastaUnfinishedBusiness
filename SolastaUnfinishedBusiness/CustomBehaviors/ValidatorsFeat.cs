@@ -11,13 +11,26 @@ internal static class ValidatorsFeat
     //
 
     [NotNull]
+    internal static Func<FeatDefinition, RulesetCharacterHero, (bool result, string output)> ValidateNotMetamagic(
+        [NotNull] BaseDefinition baseDefinition)
+    {
+        return (_, hero) =>
+        {
+            var hasMetamagic = hero.TrainedMetamagicOptions.Any(x => x.Name == baseDefinition.Name);
+            var guiFormat = Gui.Format("Tooltip/&PreReqDoesNotKnow", baseDefinition.FormatTitle());
+
+            return hasMetamagic ? (false, Gui.Colorize(guiFormat, Gui.ColorFailure)) : (true, guiFormat);
+        };
+    }
+
+    [NotNull]
     internal static Func<FeatDefinition, RulesetCharacterHero, (bool result, string output)> ValidateNotFightingStyle(
         [NotNull] BaseDefinition baseDefinition)
     {
         return (_, hero) =>
         {
             var hasFightingStyle = hero.TrainedFightingStyles.Any(x => x.Name == baseDefinition.Name);
-            var guiFormat = Gui.Format("Tooltip/&PreReqDoesNotHaveFightingStyle", baseDefinition.FormatTitle());
+            var guiFormat = Gui.Format("Tooltip/&PreReqDoesNotKnow", baseDefinition.FormatTitle());
 
             return hasFightingStyle ? (false, Gui.Colorize(guiFormat, Gui.ColorFailure)) : (true, guiFormat);
         };

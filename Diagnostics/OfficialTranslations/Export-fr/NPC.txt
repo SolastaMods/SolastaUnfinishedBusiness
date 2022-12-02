@@ -1,0 +1,253 @@
+NPC/&Kaseinax_Magister_Title	Le Magister
+NPC/&MasterOfMagic_Title	Maître de la magie
+NPC/&Merchant	Marchand
+NPC/&NPC_Adam_the_twelfth_Title	Adam XII
+NPC/&NPC_AkshaTitle	Aksha
+NPC/&NPC_AlenaSwiftTitle	Alena Swift
+NPC/&NPC_Angbi_Title	Angbi Kramsson
+NPC/&NPC_AnnieBagmordahTitle	Annie Bagmordah
+NPC/&NPC_ArwinMertonTitle	Arwin Merton
+NPC/&NPC_ArwinMertonUnknownTitle	Ivrogne sans nom
+NPC/&NPC_AtimaBladeburnTitle	Atima Brûlame
+NPC/&NPC_BanditCrossbowDescription	Ce bandit se tient en retrait pour tirer avec une arbalète.
+NPC/&NPC_BanditCrossbowTitle	Tirailleur bandit
+NPC/&NPC_BanditDescription	Un guerrier malveillant utilisant un cimeterre.
+NPC/&NPC_BanditDwarfDescription	Ce bandit, petit et costaud, manie un cimeterre.
+NPC/&NPC_BanditDwarfTitle	Bandit nain
+NPC/&NPC_BanditHalflingDescription	Ce bandit, court sur pattes et agile, porte une arbalète.
+NPC/&NPC_BanditHalflingTitle	Bandit nain
+NPC/&NPC_BanditLoanSharkDescription	Usurier
+NPC/&NPC_BanditLoanSharkTitle	Usurier
+NPC/&NPC_BanditQuartermasterTitle	Quartier-maître bandit
+NPC/&NPC_BanditSwordsmanDescription	Ce bandit, grand et fort, manie une épée à deux mains.
+NPC/&NPC_BanditSwordsmanTitle	Brigand
+NPC/&NPC_BanditTitle	Bandit
+NPC/&NPC_BericSunblazeTitle	Maréchal Beric Solembrase
+NPC/&NPC_BerylStonebeardTitle	Beryl Barbepierre
+NPC/&NPC_BradfordRavensworthTitle	Bradford Valcorbeaux
+NPC/&NPC_CeiwadSilverflowerTitle	Princesse Ceiwad Fleur d'Argent
+NPC/&NPC_CitizenTitle	Citoyen
+NPC/&NPC_CityGuardTitle	Garde de la ville
+NPC/&NPC_CoparannGuardTitle	Garde de Coparann
+NPC/&NPC_DalonLarkTitle	Aumônier Dalon Lark
+NPC/&NPC_DarikSunbirdTitle	Daliat Aiglardant
+NPC/&NPC_DekTitle	Dek
+NPC/&NPC_EdvanDanantarTitle	Grand maître Edvan Danantar
+NPC/&NPC_Galar_Title	Galar Langdoré
+NPC/&NPC_GorimIronsootTitle	Gorim Suiefer
+NPC/&NPC_Gromnir_Title	Baron Gromnir Poinrocheux
+NPC/&NPC_HalmanGormsdottirTitle	Chancelière Hertha Gormsdottir
+NPC/&NPC_HalmanSummerTitle	Halman Summer
+NPC/&NPC_HeatherMerranTitle	Capitaine Heather Merran
+NPC/&NPC_HectorTitle	Hector
+NPC/&NPC_HeddlonSurespellTitle	Heddlon Finsorcier
+NPC/&NPC_Hieronymus	Héros sans nom
+NPC/&NPC_HugoRequerTitle	Hugo Requer
+NPC/&NPC_IdrielFairbrowTitle	Idriel Justefront
+NPC/&NPC_IlastarKeenmindAirgetineDescription	Ilastar fait partie de la noble maison Airgetine, dont les ancêtres étaient des magiciens de l'Arcaneum. Chose courante pour de nombreuses lignées impériales de l'époque, sa famille était à l'origine une branche mineure du clan. Elle a commencé à prendre de l'importance après le Cataclysme, grâce au soutien apporté au premier empereur (dit 'l'empereur gémissant') qui a pris les décisions difficiles ayant permis la survie de la Civilisation et l'ascension du Nouvel Empire. Plus que toute autre personne de sa génération, Ilastar est conscient de ce qui a été perdu. Il s'est alors beaucoup investi dans le Conseil, dans l'espoir de rassembler des documents et des écrits magiques pour élargir sa connaissance de la magie et ainsi donner à l'empire un avantage dans les conflits futurs. Son principal souci est que certains documents historiques contiennent des vérités qu'il aurait mieux valu laisser enfouies. 
+NPC/&NPC_IlastarKeenmindAirgetineTitle	Maître Ilastar Vifesprit Airgetine
+NPC/&NPC_IolairFaisechTitle	Doyen Iolair Faisech
+NPC/&NPC_JorielFoxeyeTitle	Joriel Goupilœil
+NPC/&NPC_KarelMartelTitle	Karel Martel
+NPC/&NPC_Kiaradth_Bright_SparkTitle	Maire Kiaradth Brillétincelle
+NPC/&NPC_Kythaela_Title	Kythaela
+NPC/&NPC_LeiraKeanDescription	Leira Kean est née et a grandi à Cœur Vaillant, la ville construite autour de l'Einareum. Einar est entré très tôt dans sa vie et beaucoup pensaient qu'elle ferait une bonne prêtresse. Mais c'est la voie de paladin qu'elle a choisie, consacrant ainsi sa vie à protéger Solasta de tous les dangers liés aux Sorr-Akkath. Il suffit de voir son visage pour comprendre que Leira est une paladin dévouée et sérieuse. Elle connaît parfaitement l'histoire et parle couramment l'ancien tirmarian. C'est une guerrière éprouvée qui cerne vite les gens. Elle est juste, elle sait écouter et prendre ses décisions à partir de faits concrets et non de ouï-dire ou rumeurs. Ces traits de caractère lui ont permis d'être nommée gardienne des serments au Conseil. 
+NPC/&NPC_LeiraKeanTitle	Protectrice Leira Kean
+NPC/&NPC_LenaTitle	Lena
+NPC/&NPC_LiamTitle	Liam
+NPC/&NPC_LisbathTownsendTitle	Lisbath Faubourg
+NPC/&NPC_Lizzaria_Title	Lizarria de Tristemain
+NPC/&NPC_LordCarranTitle	Seigneur Carran
+NPC/&NPC_MaddyGreenisleTitle	Maddy Vertîle
+NPC/&NPC_Mardracht_Title	Maître Mardracht
+NPC/&NPC_MedwalStrongfireTitle	Medwal Feufort
+NPC/&NPC_MordenKyreTitle	Morden Kyre
+NPC/&NPC_NecromancerAcolyteTitle	Acolyte nécromancien
+NPC/&NPC_NecromancerTitle	Nécromancien
+NPC/&NPC_Nikannen_Title	Joris Nikannen
+NPC/&NPC_Priest_Of_ArunTitle	Prêtre d'Arun
+NPC/&NPC_Priest_Of_EinarTitle	Prêtre d'Einar
+NPC/&NPC_Priest_Of_MaraikeTitle	Prêtre de Maraike
+NPC/&NPC_Priest_Of_PakriTitle	Prêtresse de Pakri
+NPC/&NPC_RazanTitle	Razan
+NPC/&NPC_RobarSharpTitle	Robar Sharp
+NPC/&NPC_Talbut_Title	Talbut le Gris
+NPC/&NPC_TEMP_Quest_GiverTitle	TEMP_Donneur_De_Quête
+NPC/&NPC_VerissaIronshellTitle	Capitaine Verissa Coquifer
+NPC/&NPC_Wilf_Title	Wilf Atrechaud
+NPC/&NPC_NecromancerBoneKeepTitle	Apprenti sombre
+NPC/&NPC_NecromancerBoneKeepDescription	Un nécromancien dangereux, mais pas encore expérimenté, probablement l'élève d'un grand maître résidant à proximité.
+NPC/&Milan_ScavengersTitle	Milan
+NPC/&NPC_Ceannard_Title	Gouverneur
+NPC/&NPC_Kebra_Title	Kebra
+NPC/&NPC_Brok_Title	Brok
+NPC/&NPC_Arbal_Title	Arbal
+NPC/&NPC_Mildred_Title	Mildred Atrechaud
+NPC/&NPC_Maid_Title	Domestique
+NPC/&NPC_CoparannGuardSorakAgentTitle	Garde corrompu
+NPC/&NPC_Gromnir_SorakTitle	Infiltrateur sorak
+NPC/&NPC_Spectral_Servant_Title	Serviteur spectral
+NPC/&NPC_Bitterroot_Title	Irascine
+NPC/&NPC_Dackin_Title	Maître Dackin
+NPC/&NPC_Adria_Title	Adria
+NPC/&NPC_Lyria_Title	Lyria
+NPC/&NPC_Drew_Title	Drew
+NPC/&NPC_Notary_Title	Notaire
+NPC/&NPC_MajorGateOfficer_Title	Officier du portail majeur
+NPC/&NPC_MajorGateOfficer_Description	Interagissez pour utiliser le portail majeur.
+NPC/&NPC_SpeakRavensworth_Description	Parlez pour entrer dans la résidence.
+NPC/&NPC_Edrof_Title	Edrof
+NPC/&NPC_Radulf_Title	Radulf
+NPC/&NPC_Urka_Title	Urka
+NPC/&NPC_Galaefin	Maître Galaefin
+NPC/&NPC_GalaefinsButler	Majordome
+NPC/&NPC_Illoreth	Illoreth
+NPC/&NPC_Stig_Title	Stig
+NPC/&NPC_CaporalDan_Title	Caporal Dann
+NPC/&NPC_PrivateGarth_Title	Soldat Garth
+NPC/&NPC_ShieldguardTradtsson_Title	Garde-bouclier Tradtsson
+NPC/&NPC_PrivateRodric_Title	Rodric
+NPC/&NPC_Bertram	Bertram
+NPC/&NPC_CaerLemGarrison	Soldat du Conseil
+NPC/&NPC_Priest_Of_MisayeTitle	Nel
+NPC/&NPC_Coparann_Archivist_Title	Archiviste
+NPC/&NPC_Arrok_Title	Arrok
+NPC/&NPC_Joran_Title	Joran Crawley
+NPC/&NPC_GenericSorakInfiltrator_Title	Infiltrateur sorak
+NPC/&NPC_Belmont_Title	Seigneur Belmont
+NPC/&NPC_CityGuard_Embassy_Empire_Title	Garde de l'ambassade du Nouvel Empire
+NPC/&NPC_CityGuard_Embassy_Gallivan_Title	Garde de l'ambassade de Gallivan
+NPC/&NPC_Priest_Of_MisayeDescription	Prêtre de Misaye
+NPC/&NPC_Scavenger_TOM_Title	Ramin Blake
+NPC/&NPC_Council_Trooper_Title	Soldat du Conseil des legs
+NPC/&GunnarElderen_Title	Gunnar Elderen
+NPC/&NPC_Galaefin_Plaque_Title	Maître Galaefin, philosophe et pair du royaume.
+NPC/&AllanMiller_Title	Allan Miller
+NPC/&NPC_Backer_Ron_Title	Ron
+NPC/&NPC_Backer_Zhoron_Title	Zhoron
+NPC/&NPC_Estalla_Title	Estalla Mertvykh
+NPC/&NPC_Rogrok_Title	Rogrok
+NPC/&NPC_Rogrok_Description	Un chef qui a décidé de ranger sa hache et d'arrêter de se battre pour devenir marchand.
+NPC/&NPC_Circe_Title	Circé Gerardoirin
+NPC/&NPC_Circe_Description	Cette dame espiègle est venue ici pour trouver et étudier autant de livres que possible.
+NPC/&NPC_Mogo_Title	Mogo sans le sou
+NPC/&NPC_Laethar_Title	Empereur Laethar
+NPC/&NPC_Magister_Title	Kaseinax
+NPC/&NPC_DLC_Mask_Fighter_Title	Guerrier du Masque
+NPC/&NPC_DLC_Mask_Fighter_Description	Un combattant au service d'une mystérieuse organisation connue sous le nom du Masque.
+NPC/&NPC_DLC_Mask_Cleric_Title	Clerc du Masque
+NPC/&NPC_DLC_Mask_Cleric_Description	Un clerc au service d'une mystérieuse organisation connue sous le nom du Masque.
+NPC/&NPC_DLC_Mask_Spy_Title	Espion du Masque
+NPC/&NPC_DLC_Mask_Spy_Description	Un espion au service d'une mystérieuse organisation connue sous le nom du Masque.
+NPC/&NPC_DLC_Rebellion_Marksman_Title	Tireur d'élite rebelle
+NPC/&NPC_DLC_Rebellion_Marksman_Description	Un archer de l'armée rebelle.
+NPC/&NPC_DLC_Tower_Watchman_Title	Sentinelle
+NPC/&NPC_DLC_Tower_Watchman_Description	Un soldat chargé d'arrêter les intrus.
+NPC/&NPC_DLC_Praetorian_Title	Prétorien
+NPC/&NPC_DLC_Praetorian_Description	Un soldat d'élite au service d'Orenetis en tant que garde personnel.
+NPC/&NPC_DLC_ShoutingStone	Pierre hurlante
+NPC/&NPC_DLC_ShoutingStone_Description	Crois-moi, tu n'as pas envie de le savoir.
+NPC/&NPC_DLC_TownCrier	Crieur public
+NPC/&NPC_DLC_TownCrier_Description	Un porte-parole officiel du Dominion qui annonce les dernières nouvelles.
+NPC/&NPC_Hendeolas_Title	Hendeolas Anfarel
+NPC/&NPC_Hendeolas_Description	Le chef de la Rébellion est en fait… un seigneur momie !
+NPC/&NPC_Orenetis_RealName	Periphanos l'Esprit Inquisiteur
+NPC/&Guard_Captain_Title	Capitaine des gardes
+NPC/&Guard_Captain_Description	Un officier dans le complexe des gardes.
+NPC/&Guard_Elite_Title	Garde d'élite
+NPC/&Guard_Elite_Description	Un garde de qualité supérieure.
+NPC/&Guard_Recruit_Title	Garde
+NPC/&Guard_Recruit_Description	Un garde.
+NPC/&Guard_Trainer_Title	Entraîneur des gardes
+NPC/&Guard_Trainer_Description	Un entraîneur compétent qui sert la garde du complexe.
+NPC/&Guard_Watcher_Title	Surveillant garde
+NPC/&Guard_Watcher_Description	Une sentinelle qui sert la garde du complexe.
+NPC/&Mana_Crafter_Title	Fabricant de mana
+NPC/&Mana_Scholar_Title	Érudit du mana
+NPC/&Mana_Scientist_Title	Scientifique du mana
+NPC/&NPC_Auroc	Auroc
+NPC/&NPC_Lorson	Lorson
+NPC/&NPC_Sima_Temple	Sima Temple
+NPC/&NPC_Ellaria_Anfarel	Ellaria Anfarel
+NPC/&NPC_Renno_Highwater	Renno Highwater
+NPC/&NPC_Store_Reya	Services cléricaux
+NPC/&NPC_Marches_01_Title	Seigneur Hammond
+NPC/&NPC_Marches_02_Title	Helia Justelame
+NPC/&NPC_Marches_03_Title	Leyrin Pattedechat
+NPC/&NPC_Marches_04_Title	Krim Astrevogue
+NPC/&NPC_Valley_Telerien_Purevoice_Title	Telerien Purevoix
+NPC/&NPC_Valley_Samko_Flint_Title	Samko Taillepierre
+NPC/&NPC_Forge_Hasdrubal_Title	Hasdrubal
+NPC/&NPC_Forge_Ravener_Title	Rapineuse
+NPC/&NPC_Forge_Charmer_Title	Charmeur
+NPC/&NPC_Forge_Cook_Title	Badri
+NPC/&NPC_Swamp_HillGiant_Title	Rugan
+NPC/&NPC_Swamp_Apprentice_Title	Lysantir
+NPC/&NPC_ThePeople_Henrik	Henrik Mainrouge
+NPC/&NPC_ThePeople_Rose	Rose Vendoux
+NPC/&NPC_ThePeople_Reya	Reya Schildberg
+NPC/&NPC_ThePeople_Karelia	Karelia Vulpeneige
+NPC/&NPC_Orenetis	Orenetis
+NPC/&NPC_Orenetis_Malariel	Malariel Brogarad
+NPC/&NPC_MarinVing	Marin Ving
+NPC/&NPC_VandoKlarn	Vando Klarn
+NPC/&NPC_Mask_CafrainShadow	Cafrain Lombre
+NPC/&NPC_Orenetis_Finaliel	Finaliel Affûtesprit
+NPC/&NPC_DLC_City_Guard_Title	Garde de la ville
+NPC/&NPC_DLC_City_Guard_Description	Garde haut-elfe portant les armoiries d'Orenetis.
+NPC/&NPC_DLC1_Anfarel_Noble	Elerien Anfarel
+NPC/&NPC_DLC1_ThePeople_Tortured	Prisonnier
+NPC/&NPC_Forge_Escorted_01	Badri
+NPC/&NPC_Forge_Escorted_02	Gerta
+NPC/&NPC_Tuznut_Title	Tuznan Anfarel
+NPC/&NPC_Tuznut_Description	Un aventurier peu expérimenté.
+NPC/&NPC_Forge_Guard_Title	Garde
+NPC/&NPC_Forge_Guard_Description	Garde typique du camp de la Forge.
+NPC/&NPC_Forge_Charmer_Description	Un membre du camp de la Forge.
+NPC/&NPC_Forge_Hasdrubal_Description	Chef de la Forge.
+NPC/&NPC_Forge_Ravener_Description	La maîtresse chasseuse de la Forge.
+NPC/&NPC_Forge_Cook_Description	Le maître cuisinier de la Forge.
+NPC/&NPC_Forge_Merchant_Description	Le marchand du camp de la Forge.
+NPC/&NPC_Forge_Escorted_01_Description	Badri, émissaire de la Forge.
+NPC/&NPC_Forge_Escorted_02_Description	Gerta, garde du corps de la Forge.
+NPC/&NPC_Forge_Merchant_Title	Hanno Fouleboue
+NPC/&NPC_Swamp_HillGiant_Description	Un géant amical.
+NPC/&NPC_Swamp_Apprentice_Description	Un elfe magicien à l'air étrange.
+NPC/&DLC1_NPC_Jakson_Title	Hannik
+NPC/&DLC1_NPC_Jakson_Description	Hannik est un musicien en vogue dans la capitale.
+NPC/&Mana_Scholar_Description	Cet elfe ressemble exactement à Orenetis…
+NPC/&Sitinero_Title	Sitenero
+NPC/&DLC1_NPC_Marin_Ving	Marin Ving
+NPC/&DLC1_NPC_Vando_Klarn	Vando Klarn
+NPC/&DLC1_NPC_CityGuard_Captain_Sharp	Lieutenante Œil-Vif
+NPC/&DLC1_NPC_Nobleman_ThePeople03_Title	Noble
+NPC/&DLC1_NPC_Nobleman_ThePeople03_Description	Brute ivre
+NPC/&NPC_Red	Rouge
+NPC/&NPC_Valley_Telerien_Purevoice_Speak	Quartier-maître de la Forge
+NPC/&Prisoner_Title	Prisonnier
+NPC/&NPC_DLC_Armorer	Gail Hunt
+NPC/&NPC_Dominion_Soldier_Title	Soldat du Dominion
+NPC/&NPC_Dominion_Soldier_Description	Un soldat des forces militaires du Dominion.
+NPC/&NPC_Dominion_Archer_Title	Archer du Dominion
+NPC/&NPC_Dominion_Archer_Description	Un archer des forces militaires du Dominion.
+NPC/&NPC_Dominion_Arcanist_Title	Arcaniste du Dominion
+NPC/&NPC_Dominion_Arcanist_Description	Un mage de combat des forces militaires du Dominion.
+NPC/&NPC_Dominion_Praetorian_Title	Prétorien du Dominion
+NPC/&NPC_Dominion_Praetorian_Description	Un guerrier d'élite de la garde personnelle du seigneur protecteur.
+NPC/&NPC_Rebellion_Blue	Bleu
+NPC/&NPC_Rebellion_Blue_Description	Négociateur de la Rébellion
+NPC/&NPC_Dominion_Rookie_Title	Recrue du Dominion
+NPC/&NPC_Dominion_Rookie_Description	Néophyte sans expérience combattant au service du Dominion.
+NPC/&MaskMerchant_Yasmin_Title	Yasmin
+NPC/&MaskMerchant_Yasmin_Description	La quartier-maître du Masque
+NPC/&NPC_DLC_Rebellion_Soldier_Title	Rebelle
+NPC/&NPC_DLC_Rebellion_Soldier_Description	Membre de la Rébellion qui n'hésitera pas à donner sa vie pour combattre le Dominion.
+NPC/&NPC_DLC1_Drooly_Title	Baveur
+NPC/&NPC_DLC1_Drooly_Description	Une sorte de loup domestiqué. Il ressemble à un gentil petit toutou, mais avec de gros crocs.
+NPC/&NPC_Forge_Guard_HalflingScout_Title	Éclaireur de la Forge
+NPC/&NPC_Forge_Guard_HalflingScout_Description	Un membre typique de la Forge : petit, fourbe et costaud.
+NPC/&NPC_Forge_Guard_HalfElfRanger_Title	Rôdeur de la Forge
+NPC/&NPC_Forge_Guard_HalfElfRanger_Description	Un membre typique de la Forge : un excellent combattant et archer.
+NPC/&NPC_Forge_Guard_HumanDruid_Title	Druide de la Forge
+NPC/&NPC_Forge_Guard_HumanDruid_Description	Un membre typique de la Forge, incarnant le lien de la faction avec la nature.
+NPC/&NPC_Adrasteia_Title	Adrastée

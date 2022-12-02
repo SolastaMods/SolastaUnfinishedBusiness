@@ -1,0 +1,86 @@
+Functor/&GrantExperienceTitle	Octroyer de l'expérience
+Functor/&GrantExperienceDescription	Octroie des points d'expérience aux membres du groupe
+Functor/&ParameterGrantExperienceModeTitle	Mode de gain
+Functor/&ParameterGrantExperienceModeDescription	Le mode utilisé pour le gain d'expérience
+Functor/&ParameterGrantExperienceModeFlatTitle	Fixe
+Functor/&ParameterGrantExperienceModeFlatDescription	Une valeur fixe de points d'expérience est octroyée à chaque membre du groupe
+Functor/&ParameterGrantExperienceModeReachLevelTitle	Atteindre le niveau
+Functor/&ParameterGrantExperienceModeReachLevelDescription	Suffisamment d'expérience est octroyée à chaque membre du groupe. Le personnage ne gagne rien s'il est déjà à ce niveau
+Functor/&ParameterExperienceAmountTitle	Montant d'expérience
+Functor/&ParameterExperienceAmountDescription	Le montant d'expérience gagné
+Functor/&ParameterWantedLevelTitle	Niveau requis
+Functor/&ParameterWantedLevelDescription	Le niveau que le groupe doit atteindre
+Functor/&InventoryOperationTitle	Opération d'inventaire
+Functor/&InventoryOperationDescription	Permet d'effectuer diverses opérations concernant les objets et le trésor
+Functor/&ParameterInventoryOperationTitle	Type d'opération
+Functor/&ParameterInventoryOperationDescription	Le type d'opération d'inventaire à effectuer
+Functor/&ParameterInventoryOperationGrantItemTitle	Octroie un objet
+Functor/&ParameterInventoryOperationGrantItemDescription	Octroie l'objet sélectionné aux personnages cibles
+Functor/&ParameterInventoryOperationLoseItemTitle	Enlève un objet
+Functor/&ParameterInventoryOperationLoseItemDescription	Retire l'objet sélectionné aux personnages cibles
+Functor/&ParameterInventoryOperationStashAllTitle	Tout stocker
+Functor/&ParameterInventoryOperationStashAllDescription	Stocke toutes les affaires du personnage dans une réserve spéciale
+Functor/&ParameterInventoryOperationRecoverStashTitle	Récupérer le magot
+Functor/&ParameterInventoryOperationRecoverStashDescription	Récupère tous les objets stockés dans le magot en plus des objets possédés depuis que l'inventaire précédent a été stocké
+Functor/&ParameterInventoryOperationTargetTitle	Cible
+Functor/&ParameterInventoryOperationTargetDescription	La cible de cette opération
+Functor/&ParameterInventoryOperationTargetFirstConsciousCharacterTitle	Premier personnage conscient
+Functor/&ParameterInventoryOperationTargetFirstConsciousCharacterDescription	Le premier personnage conscient du groupe sera sélectionné
+Functor/&ParameterInventoryOperationTargetAllPartyMembersTitle	Tous les membres du groupe
+Functor/&ParameterInventoryOperationTargetAllPartyMembersDescription	Tous les membres du groupe seront ciblés par cette opération
+Functor/&ParameterInventoryOperationOverrideQuantityTitle	Écraser la quantité ?
+Functor/&ParameterInventoryOperationOverrideQuantityDescription	Permet de spécifier la quantité d'un objet
+Functor/&ParameterInventoryOperationQuantityValueTitle	Valeur de la quantité
+Functor/&ParameterInventoryOperationQuantityValueDescription	Le nombre d'objets de ce type
+Functor/&ParameterInventoryOperationItemTitle	Objet
+Functor/&ParameterInventoryOperationItemDescription	L'objet à utiliser pour cette opération
+Functor/&QuestOperationTitle	Opération de quête
+Functor/&QuestOperationDescription	Effectue une opération sur la quête spécifiée
+Functor/&VariableOperationTitle	Opération de variable
+Functor/&VariableOperationDescription	Permet de modifier la valeur d'une variable de campagne
+Functor/&ParameterVariableOperationVariableTitle	Variable
+Functor/&ParameterVariableOperationVariableDescription	La variable sur laquelle l'opération est effectuée
+Functor/&ParameterVariableOperationTypeTitle	Type
+Functor/&ParameterVariableOperationTypeDescription	Le type d'opération effectuée. Certains types de variables ne permettent que de définir la valeur
+Functor/&ParameterVariableOperationTypeSetTitle	Définir
+Functor/&ParameterVariableOperationTypeSetDescription	La variable est fixée à la valeur spécifiée
+Functor/&ParameterVariableOperationTypeAddTitle	Ajouter
+Functor/&ParameterVariableOperationTypeAddDescription	La valeur spécifiée est ajoutée à la variable
+Functor/&ParameterVariableOperationTypeSubstractTitle	Soustraire
+Functor/&ParameterVariableOperationTypeSubstractDescription	La valeur spécifiée est soustraite à la variable
+Functor/&ParameterVariableOperationTypeIncrementTitle	Incrémenter
+Functor/&ParameterVariableOperationTypeIncrementDescription	La valeur augmente de 1
+Functor/&ParameterVariableOperationTypeDecrementTitle	Décrémenter
+Functor/&ParameterVariableOperationTypeDecrementDescription	La valeur baisse de 1
+Functor/&ParameterVariableOperationTypeMultiplyTitle	Multiplier
+Functor/&ParameterVariableOperationTypeMultiplyDescription	La variable est multipliée par la valeur spécifiée
+Functor/&ParameterVariableOperationTypeDivideTitle	Diviser
+Functor/&ParameterVariableOperationTypeDivideDescription	La variable est divisée par la valeur spécifiée
+Functor/&ParameterVariableOperationValueIntTitle	Valeur
+Functor/&ParameterVariableOperationValueIntDescription	La valeur entière utilisée pour l'opération
+Functor/&ParameterVariableOperationValueBoolTitle	Valeur
+Functor/&ParameterVariableOperationValueBoolDescription	La valeur booléenne utilisée pour l'opération
+Functor/&ParameterVariableOperationValueStringTitle	Valeur
+Functor/&ParameterVariableOperationValueStringDescription	La valeur en chaîne de caractères utilisée pour l'opération
+Functor/&ParameterVariableOperationTypeRollTitle	Jet
+Functor/&ParameterVariableOperationTypeRollDescription	La variable est définie par le résultat d'un jet de dés.
+Functor/&ParameterVariableOperationValueDieTitle	Type de dé
+Functor/&ParameterVariableOperationValueDieDescription	Le type de dé utilisé pour le jet.
+Functor/&SetLocationStatusTitle	Définir le statut du lieu
+Functor/&SetLocationStatusDescription	Modifie le statut d'un lieu pour le rendre caché/verrouillé ou disponible. Ce statut est reflété par plusieurs gadgets de sortie.
+Functor/&ParameterLocationTitle	Lieu
+Functor/&ParameterLocationDescription	Le nom du lieu cible
+Functor/&ParameterLocationStatusTitle	Statut du lieu
+Functor/&ParameterLocationStatusDescription	Le statut du lieu spécifié.
+Functor/&ParameterLocationStatusHiddenTitle	Secret
+Functor/&ParameterLocationStatusHiddenDescription	Le lieu sera caché dans plusieurs fenêtres de sortie.
+Functor/&ParameterLocationStatusLockedTitle	Verrouillé
+Functor/&ParameterLocationStatusLockedDescription	Le lieu est visible mais ne peut pas être utilisé dans plusieurs fenêtres de sortie.
+Functor/&ParameterLocationStatusAvailableTitle	Disponible
+Functor/&ParameterLocationStatusAvailableDescription	Le lieu est disponible et peut être utilisé dans plusieurs fenêtres de sortie.
+Functor/&ParameterInventoryOperationGrantTreasuryTitle	Octroie du trésor
+Functor/&ParameterInventoryOperationGrantTreasuryDescription	Le type d'opération d'inventaire à effectuer
+Functor/&ParameterInventoryOperationLoseTreasuryTitle	Enlève du trésor
+Functor/&ParameterInventoryOperationLoseTreasuryDescription	Le type d'opération d'inventaire à effectuer. Si la quantité n'est pas spécifiée, tous les objets de ce type sont retirés de la cible
+Functor/&ParameterInventoryOperationTreasuryTitle	Trésor
+Functor/&ParameterInventoryOperationTreasuryDescription	La quantité de trésor pour cette opération

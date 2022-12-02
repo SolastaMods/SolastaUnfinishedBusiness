@@ -1,0 +1,14 @@
+EnvironmentEffect/&CollapsingRoofTitle	Effondrement du toit
+EnvironmentEffect/&CollapsingRoofDescription	Plusieurs roches et blocs de pierre tombent au sol
+EnvironmentEffect/&DisturbingRunesTitle	Runes déstabilisantes
+EnvironmentEffect/&DisturbingRunesDescription	Runes affectant l'esprit qui endommagent l'âme et provoquent des troubles du comportement
+EnvironmentEffect/&DeathGlyphTitle	Glyphe mortel
+EnvironmentEffect/&DeathGlyphDescription	Marcher sur ce glyphe entraîne des dégâts nécrotiques et cause un sentiment de terreur
+EnvironmentEffect/&FireBurstTitle	Explosion de feu
+EnvironmentEffect/&FireBurstDescription	Une éruption provoquant des dégâts de feu
+EnvironmentEffect/&GroundSpikesTitle	Piques terrestres
+EnvironmentEffect/&GroundSpikesDescription	Des piques sortent du sol, provoquant des dégâts perforants
+EnvironmentEffect/&LightningDischargeTitle	Décharge de foudre
+EnvironmentEffect/&LightningDischargeDescription	Libère une décharge électrique à proximité, provoquant des dégâts électriques
+EnvironmentEffect/&PoisonCloudTitle	Nuage de poison
+EnvironmentEffect/&PoisonCloudDescription	Un nuage toxique provoquant des dégâts de poison ainsi que la condition empoisonnée

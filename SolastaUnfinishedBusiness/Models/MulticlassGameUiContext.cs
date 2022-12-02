@@ -514,11 +514,17 @@ internal static class MulticlassGameUiContext
 
             foreach (var feature in group.features.OfType<FeatureDefinitionAutoPreparedSpells>())
             {
+                var spellCastingClass = feature.SpellcastingClass;
+                var spellRepertoire =
+                    localHeroCharacter.SpellRepertoires.Find(x => x.SpellCastingClass == spellCastingClass);
+                var maxLevel = spellRepertoire.MaxSpellLevelOfSpellCastingLevel;
+
                 autoPrepareTag = feature.AutoPreparedTag;
 
                 foreach (var spells in feature.AutoPreparedSpellsGroups
                              .SelectMany(preparedSpellsGroup => preparedSpellsGroup.SpellsList
-                                 .Where(spells => spells.SpellLevel == group.SpellLevel)))
+                                 .Where(spell => spell.SpellLevel <= maxLevel)
+                                 .Where(spell => spell.SpellLevel == group.SpellLevel)))
                 {
                     group.autoPreparedSpells.Add(spells);
                 }
@@ -673,7 +679,7 @@ internal static class MulticlassGameUiContext
 
     private static void CollectAllAutoPreparedSpells(
         [NotNull] SpellsByLevelGroup __instance,
-        [NotNull] RulesetActor hero,
+        [NotNull] RulesetCharacter hero,
         [NotNull] List<SpellDefinition> allSpells,
         [NotNull] ICollection<SpellDefinition> auToPreparedSpells)
     {
@@ -683,9 +689,14 @@ internal static class MulticlassGameUiContext
 
         foreach (var autoPreparedSpells in hero.FeaturesToBrowse.OfType<FeatureDefinitionAutoPreparedSpells>())
         {
+            var spellCastingClass = autoPreparedSpells.SpellcastingClass;
+            var spellRepertoire = hero.SpellRepertoires.Find(x => x.SpellCastingClass == spellCastingClass);
+            var maxLevel = spellRepertoire.MaxSpellLevelOfSpellCastingLevel;
+
             foreach (var spell in from preparedSpellsGroup in autoPreparedSpells.AutoPreparedSpellsGroups
                      from spell in preparedSpellsGroup.SpellsList
-                     let flag = !auToPreparedSpells.Contains(spell) && __instance.SpellLevel == spell.SpellLevel
+                     let flag = !auToPreparedSpells.Contains(spell) && __instance.SpellLevel == spell.SpellLevel &&
+                                spell.SpellLevel <= maxLevel
                      where flag
                      select spell)
             {

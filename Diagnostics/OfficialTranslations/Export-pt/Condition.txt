@@ -1,0 +1,10 @@
+Condition/&ChildOfDarkness_Title	
+Condition/&ChildOfDarkness_Description	
+Condition/&ChildOfDarkness_ACGain_Title	
+Condition/&ChildOfDarkness_AdditionalDamage2_Title	
+Condition/&ChildOfDarkness_AdditionalDamage3_Title	
+Condition/&ChildOfDarkness2_Title	
+Condition/&ChildOfDarkness2_Description	
+Condition/&ChildOfDarkness3_Title	
+Condition/&ChildOfDarkness3_Description	
+Condition/&ChildOfDarkness0_Description	

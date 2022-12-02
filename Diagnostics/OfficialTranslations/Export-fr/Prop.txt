@@ -1,0 +1,265 @@
+Prop/&CandelabraTitle	Candélabre
+Prop/&CandelabraDescription	Un candélabre décoratif
+Prop/&ColumnATitle	Colonne A
+Prop/&ColumnADescription	Une colonne décorative
+Prop/&ColumnBTitle	Colonne B
+Prop/&ColumnBDescription	Une colonne décorative
+Prop/&FireBasinTitle	Bassin de feu
+Prop/&FireBasinDescription	Un bassin ardent, qui éclaire son environnement
+Prop/&BenchTitle	Banc
+Prop/&BenchDescription	Un banc décoratif
+Prop/&GuardrailsATitle	Rambardes
+Prop/&GuardrailsADescription	Un muret pouvant faire office d'abri lourd
+Prop/&DebrisATitle	Décombres
+Prop/&DebrisADescription	Un tas de pierres empêchant tout mouvement
+Prop/&GuardrailsBrokenATitle	Rambarde cassée A
+Prop/&GuardrailsBrokenADescription	Un court muret brisé pouvant faire office d'abri lourd
+Prop/&GuardrailsBrokenBTitle	Rambarde cassée B
+Prop/&GuardrailsBrokenBDescription	Un long muret brisé pouvant faire office d'abri lourd
+Prop/&GuardrailsLinkTitle	Pilier
+Prop/&GuardrailsLinkDescription	Un pilier de muret
+Prop/&GuardrailsStraightATitle	Rambarde droite A
+Prop/&GuardrailsStraightADescription	Un court muret brisé pouvant faire office d'abri lourd
+Prop/&GuardrailsStraightBTitle	Rambarde droite B
+Prop/&GuardrailsStraightBDescription	Un long muret pouvant faire office d'abri lourd
+Prop/&MausoleumTitle	Mausolée
+Prop/&MausoleumDescription	Un monument funéraire inaccessible
+Prop/&StatueTitle	Statue
+Prop/&StatueDescription	Une statue décorative
+Prop/&TombATitle	Tombe A
+Prop/&TombADescription	Une tombe avec accès
+Prop/&TombBTitle	Tombe B
+Prop/&TombBDescription	Une tombe décorative empêchant tout mouvement
+Prop/&TombCTitle	Tombe C
+Prop/&VaseTitle	Vase
+Prop/&VaseDescription	Une urne funéraire décorative
+Prop/&WallBlockerATitle	Mur obstacle
+Prop/&WallBlockerADescription	Un large mur bloquant un passage
+Prop/&WallBlockerBTitle	Mur obstacle
+Prop/&WallBlockerBDescription	Un large mur bloquant un passage
+Prop/&WallChainTitle	Chaîne
+Prop/&WallChainDescription	Une pièce de métal pendue au mur
+Prop/&WallCrawl	Mur avec trou de souris
+Prop/&WallCrawlDescription	Un large mur avec un grand trou par lequel il est possible de se faufiler
+Prop/&WallTorchTitle	Torche murale
+Prop/&WallTorchDescription	Une torche éternelle pouvant être accrochée à un mur
+Prop/&BlockTitle	Bloc
+Prop/&BlockDescription	Une structure solide pouvant être utilisée pour diviser une pièce en plusieurs parties
+Prop/&AltarTitle	Autel
+Prop/&AltarDescription	Une structure votive utilisée pour prier une divinité
+Prop/&AlchemyTableTitle	Table d'alchimie
+Prop/&ArmorStandTitle	Support d'armure
+Prop/&BannerTitle	Bannière
+Prop/&BarrelsTitle	Tonneaux
+Prop/&BarrelStackTitle	Pile de tonneaux
+Prop/&BedTitle	Lit
+Prop/&BirdCageTitle	Volière
+Prop/&BookShelfTitle	Bibliothèque
+Prop/&BookStackTitle	Pile de livres
+Prop/&CabinetTitle	Armoire
+Prop/&CarpetTitle	Tapis
+Prop/&ChairTitle	Chaise
+Prop/&CorpseTitle	Cadavre
+Prop/&CouchTitle	Canapé
+Prop/&CrateTitle	Caisse
+Prop/&CrateStackTitle	Pile de caisses
+Prop/&CushionsTitle	Coussins
+Prop/&FakeDoorTitle	Fausse porte
+Prop/&FakeDoorDescription	Une fausse porte utilisée pour représenter l'entrée ou la sortie d'un donjon. À combiner avec un gadget d'entrée ou de sortie
+Prop/&FakeStairsTitle	Faux escaliers
+Prop/&FakeStairsDescription	De faux escaliers utilisés pour représenter l'entrée ou la sortie d'un donjon. À combiner avec un gadget d'entrée ou de sortie
+Prop/&FireplaceTitle	Cheminée
+Prop/&GlobeTitle	Globe
+Prop/&GreenHouseTitle	Serre
+Prop/&HarpTitle	Harpe
+Prop/&MirrorTitle	Miroir
+Prop/&PaintingTitle	Tableau
+Prop/&PlantTitle	Plante
+Prop/&PrisonFenceTitle	Clôture de prison
+Prop/&ShelvesTitle	Étagères
+Prop/&StillTitle	Alambic
+Prop/&StoolTitle	Tabouret
+Prop/&StoveTitle	Poêle à bois
+Prop/&TableTitle	Table
+Prop/&TelescopeTitle	Télescope
+Prop/&TreasurePedestalTitle	Piédestal du trésor
+Prop/&WindowTitle	Fenêtre
+Prop/&WorkTableTitle	Table de travail
+Prop/&WallSimpleTitle	Mur simple
+Prop/&WallThinTitle	Mur fin
+Prop/&ReadingDeskTitle	Pupitre de lecture
+Prop/&SpinningWheelTitle	Rouet
+Prop/&DeskTitle	Bureau
+Prop/&SpiderWebsTitle	Toiles d'araignée
+Prop/&BasketTitle	Panier
+Prop/&BedrollTitle	Sac de couchage
+Prop/&BraseroTitle	Brasero
+Prop/&CageTitle	Cage
+Prop/&CartTitle	Chariot
+Prop/&CocoonTitle	Cocon
+Prop/&HutTitle	Abri
+Prop/&LavaBasinTitle	Bassin de lave
+Prop/&MarketBoothTitle	Étal de marché
+Prop/&MushroomsTitle	Champignons
+Prop/&RocksTitle	Rochers
+Prop/&SkinsTitle	Peaux
+Prop/&SpiderEggsTitle	Œufs d'araignées
+Prop/&RockTitle	Rocher
+Prop/&StalagmiteTitle	Stalagmite
+Prop/&StoneTitle	Pierre
+Prop/&StrawTitle	Paille
+Prop/&StructureTitle	Structure
+Prop/&TotemTitle	Totem
+Prop/&WoodenPlatformTitle	Plateforme en bois
+Prop/&FakeStairsUpTitle	Faux escaliers (montants)
+Prop/&FakeStairsDownTitle	Faux escaliers (descendants)
+Prop/&MonumentTitle	Monument
+Prop/&ThicketTitle	Fourré
+Prop/&TentTitle	Tente
+Prop/&BushesTitle	Buissons
+Prop/&DoubleThinDoorTitle	Porte double étroite
+Prop/&DoubleThinDoorDescription	Une porte double étroite à ouvrir
+Prop/&TombstoneTitle	Pierre tombale
+Prop/&TombstonePackTitle	Ensemble de pierres tombales
+Prop/&FieldTitle	Champ
+Prop/&FieldBlockedDescription	Un champ de cultures
+Prop/&FieldDifficultDescription	Un champ ouvert sur un terrain difficile
+Prop/&HayStackTitle	Meule de foin
+Prop/&LogsTitle	Rondins de bois
+Prop/&CaveEntranceTitle	Entrée de grotte
+Prop/&DrainGrateTitle	Grille d'évacuation
+Prop/&Path_StraightTitle	Chemin droit
+Prop/&Path_TurnTitle	Chemin incurvé
+Prop/&Path_YjunctionTitle	Carrefour en Y
+Prop/&Path_SjunctionTitle	Carrefour en S
+Prop/&Path_EndTitle	Impasse
+Prop/&Path_CrossRoadTitle	Carrefour en X
+Prop/&PlanksTitle	Planches de bois
+Prop/&StumpTitle	Souche d'arbre
+Prop/&LadderTitle	Échelle
+Prop/&FakeLadderUpTitle	Fausse échelle
+Prop/&FakeLadderUpDescription	Une fausse échelle utilisée pour représenter l'entrée ou la sortie d'un donjon. À combiner avec un gadget d'entrée ou de sortie
+Prop/&ArchTitle	Arche
+Prop/&CellTitle	Case
+Prop/&ColumnDestroyedTitle	Colonne détruite
+Prop/&ColumnLowgroundTitle	Colonne de terrain inférieur
+Prop/&ColumnLowgroundDescription	Une colonne décorative pouvant être placée uniquement sur un terrain inférieur
+Prop/&CreeperTitle	Plante grimpante/lierre
+Prop/&RootTitle	Racines
+Prop/&ScaffoldingTitle	Échafaudage
+Prop/&StairsTitle	Escaliers
+Prop/&StairsDestoyedTitle	Escaliers détruits
+Prop/&WallDestoyedTitle	Mur détruit
+Prop/&WallLinkTitle	Lien intermurs
+Prop/&SlopeTitle	Pente
+Prop/&TrunkTitle	Souche
+Prop/&WoodLogTitle	Rondin de bois
+Prop/&CookingStuffTitle	Marmite
+Prop/&ArchEndTitle	Arche détruite
+Prop/&ColumnTitle	Colonne
+Prop/&RuinedKioskTitle	Kiosque en ruine
+Prop/&RuinedWallTitle	Mur en ruine
+Prop/&CaravanTitle	Caravane
+Prop/&BridgeTitle	Pont
+Prop/&RitualStoneTitle	Pierre rituelle
+Prop/&SkullPileTitle	Tas de crânes
+Prop/&Beam_ScreenTitle	Paravent
+Prop/&Tavern_CounterTitle	Comptoir de taverne
+Prop/&Walls_LowTitle	Mur bas
+Prop/&PennantTitle	Fanion
+Prop/&HousePatchTitle	Marché
+Prop/&Drying_ClothesTitle	Étendoir à linge
+Prop/&WoodFenceTitle	Clôtures en bois
+Prop/&FountainTitle	Fontaine
+Prop/&GallowTitle	Potence
+Prop/&Flowers_PatchTitle	Buisson de fleurs
+Prop/&Flowerbed_LineTitle	Chemin de fleurs
+Prop/&Garden_GroundTitle	Sol de jardin
+Prop/&Garden_HedgeTitle	Haie de jardin
+Prop/&KioskTitle	Kiosque de jardin
+Prop/&Wall_CreeperTitle	Plante grimpante
+Prop/&Wall_CreeperDescription	Morceau de végétation à placer sur les murs
+Prop/&HouseTitle	Maison
+Prop/&Paved_Road_StraightTitle	Route pavée droite
+Prop/&Paved_Road_SquareTitle	Route pavée rectangulaire
+Prop/&Paved_Road_TurnTitle	Route pavée (virage)
+Prop/&Paved_Road_TShapeTitle	Route pavée (intersection)
+Prop/&Paved_Road_CrossTitle	Route pavée (intersection en croix)
+Prop/&Paved_Road_DeadEndTitle	Route pavée (impasse)
+Prop/&Information_BoardTitle	Panneau d'informations
+Prop/&SeparatorTitle	Brise-vue
+Prop/&SeparatorDescription	Paravent en bois à placer entre des murs fins
+Prop/&JuniperGroundTitle	Genévrier (parcelle de sol)
+Prop/&ManholeCoverTitle	Plaque d'égout
+Prop/&Merchant_BannerTitle	Bannière de marchand
+Prop/&Merchant_SignTitle	Pancarte de marchand
+Prop/&NightStandTitle	Table de chevet
+Prop/&ShopStructureTitle	Structure de la boutique
+Prop/&ShopBookStandTitle	Stand de librairie
+Prop/&ShopFoodStandTitle	Stand de nourriture
+Prop/&ShopGeneralStoreTitle	Stand de boutique
+Prop/&GenericShopTitle	Stand de magasin
+Prop/&ShopMagicTitle	Stand de boutique de magie
+Prop/&ShopBookCounterTitle	Comptoir de librairie
+Prop/&ShopFoodCounterTitle	Comptoir de boutique de nourriture
+Prop/&ShopGeneralCounterTitle	Comptoir de boutique
+Prop/&Shop_WoodenShedTitle	Cabane en bois
+Prop/&TownSeparationWallsTitle	Murs intérieurs de la ville
+Prop/&TownSeparationButressTitle	Contrefort intérieur de la ville
+Prop/&SmallWallsLadderTitle	Lierre facile à escalader
+Prop/&SmallWallsLadderDescription	À placer sur des murs obstacles ou des murs simples. Ne fonctionne pas sur les murs intérieurs (murs fins).
+Prop/&StableTitle	Écurie
+Prop/&Statue_Little_EmperorTitle	Statue d'un jeune empereur
+Prop/&Statue_Maisy_JadeTitle	Statue de Maisy (en jade)
+Prop/&Statue_Maisy_StoneTitle	Statue de Maisy (en pierre)
+Prop/&Statue_Maisy_MarbleTitle	Statue de Maisy (en marbre)
+Prop/&Statue_MisayeTitle	Statue de Misaye
+Prop/&StreetLampostTitle	Lampadaire
+Prop/&StairsConnectorTitle	Escalier
+Prop/&StairsConnectorDescription	Un escalier qui permet de relier les salles du bas aux salles du haut
+Prop/&WallButressTitle	Contrefort
+Prop/&WoodPalissadeTitle	Palissade en bois
+Prop/&WoodPalissadeDescription	Fournit un abri lourd
+Prop/&House_ExtensionTitle	Extension (maison)
+Prop/&House_ExtensionDescription	À placer le long des murs d'une maison
+Prop/&Wooden_BeamTitle	Poutre en bois
+Prop/&Y_SeparatorTitle	Poutre en bois en forme de Y
+Prop/&Y_SeparatorDescription	À placer sur des murs (pas sur des murs fins)
+Prop/&BurningDebrisTitle	Débris brûlants
+Prop/&CastleInnerWallTitle	Mur intérieur de château
+Prop/&CastleWallFillerTitle	Remplisseur de mur intérieur de château
+Prop/&CastleWallDoorwayTitle	Embrasures de porte de mur intérieur de château
+Prop/&CastleWallObstacleTitle	Obstacle de mur intérieur de château
+Prop/&CastleTowerTitle	Tour de château
+Prop/&CastleWallTitle	Mur de château
+Prop/&BrokenFurnituresTitle	Mobilier cassé
+Prop/&PalaceTitle	Palais elfique
+Prop/&BarraksTitle	Caserne
+Prop/&TreeTitle	Arbre simple
+Prop/&CaveWallDoorwaysTitle	Mur simple - Embrasure de porte
+Prop/&TrophyTitle	Trophée de chasse
+Prop/&TrophyDescription	À placer sur des murs (pas sur des murs fins)
+Prop/&BoatTitle	Bateau
+Prop/&DresserTitle	Commode
+Prop/&HutWitchTitle	Sorcière de la hutte
+Prop/&LakeTitle	Petit lac
+Prop/&PuddleTitle	Flaque
+Prop/&Trunk_CrawlingTitle	Arbres tombés
+Prop/&Trunk_CrawlingDescription	Vous pouvez ramper sous les arbres tombés.
+Prop/&WoodenHouseTitle	Maison en bois
+Prop/&SuspendingLanternTitle	Lanterne suspendue
+Prop/&NestGiantTitle	Un nid géant
+Prop/&SquarePlantTitle	Jardin avec globe terrestre
+Prop/&ThroneTitle	Trône
+Prop/&SuspendingPlanterTitle	Plante suspendue
+Prop/&MagicRuneTitle	Rune Magique
+Prop/&BenchDestroyedTitle	Banc détruit
+Prop/&CorpseClericTitle	Armure de clerc
+Prop/&CorpseFullPlateTitle	Harnois complet
+Prop/&CorpseScaleMailTitle	Armure d'écailles
+Prop/&CorpseSorcererTitle	Cadavre d'ensorceleur
+Prop/&OutpostTitle	Avant-poste en ruine
+Prop/&PlateauTitle	Plateau
+Prop/&BannerHighTitle	Bannière haute
+Prop/&BannerHighDescription	Une bannière à placer en hauteur.
+Prop/&HouseDoorsTitle	Maison avec portes

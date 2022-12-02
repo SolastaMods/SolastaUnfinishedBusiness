@@ -1,0 +1,10 @@
+Deity/&ArunDescription	
+Deity/&ArunTitle	
+Deity/&EinarDescription	
+Deity/&EinarTitle	
+Deity/&MaraikeDescription	
+Deity/&MaraikeTitle	
+Deity/&MisayeDescription	
+Deity/&MisayeTitle	
+Deity/&PakriDescription	
+Deity/&PakriTitle	

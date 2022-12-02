@@ -1,0 +1,431 @@
+Map/&Location_AbjurationRiverPass_Description	En suivant les empreintes de Kythaela, vous tombez sur une forteresse en ruine au bord d'une rivière. Une caravane semble y avoir installé son campement, chose rare sur ces terres désolées.
+Map/&Location_AbjurationRiverPass_Title	Col de la rivière
+Map/&Location_AbjurationRiverPass_UnchartedDescription	n/a
+Map/&Location_AbjurationRiverPass_UnchartedTitle	n/a
+Map/&Location_AbjurationRiverPass_UnvisitedDescription	En suivant les empreintes de Kythaela, vous tombez sur une forteresse en ruine au bord d'une rivière. Une caravane semble y avoir installé son campement, chose rare sur ces terres désolées.
+Map/&Location_AbjurationRiverPass_UnvisitedTitle	Col de la rivière
+Map/&Location_AbjurationRuinedKeep_Description	Près des ruines de ce monastère tirmarian, dans un mausolée de Manacalon, vous trouvez une magicienne elfe, apparemment en transe depuis le Cataclysme.
+Map/&Location_AbjurationRuinedKeep_Title	Ruines tirmariannes
+Map/&Location_AbjurationRuinedKeep_UnchartedDescription	Notre garde de la Couronne a eu une vision de cet endroit. Il est possible que la Couronne ait envoyé un indice pour indiquer où chercher une de ses gemmes. Explorez les lieux.
+Map/&Location_AbjurationRuinedKeep_UnchartedTitle	Cachette d'une gemme ?
+Map/&Location_AbjurationRuinedKeep_UnvisitedDescription	Ce lit de rivière asséché abrite un ancien monastère tirmarian et un bâtiment solastan.
+Map/&Location_AbjurationRuinedKeep_UnvisitedTitle	Ruines tirmariannes
+Map/&Location_AerElai_Description	Ici, près de l'ancienne capitale de Manacalon, la Faille qui a presque détruit Solasta s'est ouverte, avant d'être finalement fermée. La terre porte les cicatrices du Cataclysme.
+Map/&Location_AerElai_Title	Aer-Elai
+Map/&Location_AerElai_UnchartedDescription	n/a
+Map/&Location_AerElai_UnchartedTitle	n/a
+Map/&Location_AerElai_UnvisitedDescription	n/a
+Map/&Location_AerElai_UnvisitedTitle	n/a
+Map/&Location_BoneKeep_Castle_Title	Entrée de la forteresse
+Map/&Location_BoneKeep_Cemetery_Title	Cimetière
+Map/&Location_BoneKeep_Courtyard_Title	Cour intérieure
+Map/&Location_BoneKeep_Description	L'ancien maître de la nécromancie se cachait avec sa gemme dans cette forteresse massive et interdite d'accès, entourée de morts-vivants et d'autres dangers.
+Map/&Location_BoneKeep_DrainPipe_Title	Canalisations
+Map/&Location_BoneKeep_DrainPipeCourtyard_Title	Accès à la canalisation de la cour intérieure
+Map/&Location_BoneKeep_DrainPipeStoreHouse_Title	Accès à la canalisation depuis l'entrepôt
+Map/&Location_BoneKeep_DrainPipeWell_Title	Accès à la canalisation du puits
+Map/&Location_BoneKeep_Laboratory_Access_Title	Entrée du sous-sol
+Map/&Location_BoneKeep_Laboratory_Title	Laboratoire
+Map/&Location_BoneKeep_Lair_Title	Tanière du profanateur
+Map/&Location_BoneKeep_Pond_Title	Étang
+Map/&Location_BoneKeep_Sewers_Title	Égouts
+Map/&Location_BoneKeep_Solar_Access_Title	Entrée du deuxième étage
+Map/&Location_BoneKeep_Solar_Title	Quartiers privés
+Map/&Location_BoneKeep_Solar_Tower_Title	Tour privée
+Map/&Location_BoneKeep_Title	Château des ossements
+Map/&Location_BoneKeep_UnchartedDescription	Notre garde de la Couronne a eu une vision de cet endroit. Il est possible que la Couronne ait envoyé un indice pour indiquer où chercher une de ses gemmes. Explorez les lieux.
+Map/&Location_BoneKeep_UnchartedTitle	Cachette d'une gemme ?
+Map/&Location_BoneKeep_UnvisitedDescription	Une forteresse gigantesque domine les bois. L'une des gemmes de la Couronne se trouve peut-être à l'intérieur.
+Map/&Location_BoneKeep_UnvisitedTitle	Château sombre
+Map/&Location_CaerLem_BridgeTitle	Pont tournant
+Map/&Location_CaerLem_Exit_Title	Sortie
+Map/&Location_CaerLem_GoblinCave_Title	Grotte de gobelins
+Map/&Location_CaerLem_InnerFort_Title	Fort intérieur
+Map/&Location_CaerLem_LibraryTitle	Ancienne bibliothèque
+Map/&Location_CaerLem_MushroomsTitle	Champigrotte
+Map/&Location_CaerLem_SecretCavesTitle	Grottes secrètes
+Map/&Location_CaerLem_SoraksCampTitle	Camp sorak
+Map/&Location_CaerLem_Tower_Title	Tour
+Map/&Location_CaerLem_Title	Avant-poste de Caer Lem
+Map/&Location_CaerLem_Description	Les Soraks ont décimé la garnison du capitaine Henrik. Vous avez réussi à vous échapper in extremis avec quelques survivants. Il n'est pas trop tard pour reprendre l'avant-poste et poursuivre l'exploration des Badlands.
+Map/&Location_CaerLem_UnchartedDescription	Les troupes du Conseil des legs ont réinvesti ce vieux fort impérial pour en faire un avant-poste des Badlands, mais le commandant de la garnison, le capitaine Henrik, n'a pas envoyé de rapports depuis un certain temps.
+Map/&Location_CaerLem_UnchartedTitle	Avant-poste de Caer Lem
+Map/&Location_CaerLem_UnvisitedDescription	Les troupes du Conseil des legs ont réinvesti ce vieux fort impérial pour en faire un avant-poste des Badlands, mais le commandant de la garnison, le capitaine Henrik, n'a pas envoyé de rapports depuis un certain temps.
+Map/&Location_CaerLem_UnvisitedTitle	Avant-poste de Caer Lem
+Map/&Location_CapitalCity_Description	Caer Cyflen, magnifique capitale de la Principauté de Masgarth, était une ville impériale majeure et une base stratégique de l'Empire manacalon bien avant le Cataclysme.
+Map/&Location_CapitalCity_Title	Caer Cyflen
+Map/&Location_CapitalCity_UnchartedDescription	n/a
+Map/&Location_CapitalCity_UnchartedTitle	n/a
+Map/&Location_CapitalCity_UnvisitedDescription	n/a
+Map/&Location_CapitalCity_UnvisitedTitle	n/a
+Map/&Location_TowerOfMagic_Description	Vous apprenez que cette vieille tour était probablement la demeure d'un puissant magicien de Manacalon… peut-être même d'un maître de l'Arcaneum. Dans une pièce dissimulée, vous trouvez une mystérieuse Couronne gardée par un groupe de Soraks.
+Map/&Location_TowerOfMagic_Title	Ruine de Manacalon
+Map/&Location_TowerOfMagic_UnchartedDescription	Selon les survivants de Caer Lem, c'est là que leurs éclaireurs étaient partis en reconnaissance avant l'attaque des Soraks. Vous y trouverez peut-être des traces de ces monstres tirmarians légendaires.
+Map/&Location_TowerOfMagic_UnchartedTitle	Une possible base sorak
+Map/&Location_TowerOfMagic_UnvisitedDescription	Une ancienne tour qui date de l'époque impériale.
+Map/&Location_TowerOfMagic_UnvisitedTitle	Ruines de la tour
+Map/&Location_CCyflen_Council_Title	Conseil des legs
+Map/&Location_CCyflen_DeadEnd_Title	Rue des brasseurs
+Map/&Location_CCyflen_Exit_Title	Sortie de la partie haute de la ville
+Map/&Location_CCyflen_MarketStreet_Title	Rue marchande
+Map/&Location_CCyflen_Plaza_Title	Place de Solembrase
+Map/&Location_CCyflen_Promontory_Title	Promontoire
+Map/&Location_CCyflen_SnowAllianceEmbassy_Title	Ambassade de l'Alliance des neiges
+Map/&Location_CCyflen_Tavern_Title	Le Fût du Fossoyeur
+Map/&Location_CCyflen_TemplesQuarter_Title	Quartier du temple
+Map/&Location_Coparann_Entrance_Title	Entrée
+Map/&Location_Coparann_Keep_Title	Forteresse
+Map/&Location_Coparann_MineEntrance_Title	Mine
+Map/&Location_Coparann_Prison_Title	Prison
+Map/&Location_Coparann_Tavern_Title	Taverne
+Map/&Location_Coparann_Teleporter_Title	Portail supérieur
+Map/&Location_Coparann_Description	Cette ville minière des Marches a été infiltrée par les Soraks, mais est à présent libre de leur influence.
+Map/&Location_Coparann_Title	Coparann
+Map/&Location_Coparann_UnchartedDescription	n/a
+Map/&Location_Coparann_UnchartedTitle	n/a
+Map/&Location_Coparann_UnvisitedDescription	Selon Kythaela, cette ville minière est importante. Vous n'avez pas d'autre choix que de la suivre, espérant trouver l'une des gemmes de la Couronne.
+Map/&Location_Coparann_UnvisitedTitle	Coparann
+Map/&Location_CradleOfFire_Description	Des clans d'orques belliqueux sont partis en guerre aux confins du volcan quand un chaman a trouvé la gemme de l'Évocation dans les ruines d'une ancienne ville de Manacalon enterrée sous la lave.
+Map/&Location_CradleOfFire_Title	Berceau de feu
+Map/&Location_CradleOfFire_UnchartedDescription	La Couronne a donné une vision de cet endroit… peut-être un indice de la Couronne. Explorez les lieux.
+Map/&Location_CradleOfFire_UnchartedTitle	Cachette d'une gemme ?
+Map/&Location_CradleOfFire_UnvisitedDescription	Ce grand volcan est toujours en activité. Il se peut que l'une des gemmes de la Couronne se trouve dans les coulées de lave.
+Map/&Location_CradleOfFire_UnvisitedTitle	Volcan
+Map/&Location_Generic_Door_Title	Porte verrouillée
+Map/&Location_Generic_Long_Rest_Area_Title	Zone sûre de repos long
+Map/&Location_Generic_Trap_Title	Piège activé
+Map/&Location_Illusion_Description	The Master of Illusion has created himself an invisible shelter… TBC
+Map/&Location_Illusion_Title	La forteresse invisible
+Map/&Location_Illusion_UnchartedDescription	La Couronne réagit fortement. L'une de ses gemmes se trouve peut-être à proximité !
+Map/&Location_Illusion_UnchartedTitle	Cachette d'une gemme ?
+Map/&Location_Illusion_UnvisitedDescription	n/a
+Map/&Location_Illusion_UnvisitedTitle	n/a
+Map/&Location_Lair_Access_Title	Entrée du rez-de-chaussée
+Map/&Location_Lair_AkshasRoom_Title	Tanière d'Aksha
+Map/&Location_Monastery_Cliff_Title	Falaise
+Map/&Location_Monastery_Mausoleum_Title	Mausolée
+Map/&Location_Telema_OrcCamp_Title	Camp orque
+Map/&Location_Telema_Outdoor_Title	Campement des ferrailleurs
+Map/&Location_Telema_SpiderNest_Title	Nid d'araignées
+Map/&Location_TowerOfMagic_CrownRoom_Title	Salle de la Couronne
+Map/&Location_TowerOfMagic_Excavation_Title	Site de fouilles
+Map/&Location_TowerOfMagic_Library_Title	Bibliothèque
+Map/&Location_WizardTower_Downhill_Title	Descente
+Map/&Location_WizardTower_MainAlley_Title	Allée centrale
+Map/&Location_BoneKeep_Teleporter_Title	Téléporteur
+Map/&Location_BoneKeep_Laboratory_ToLair	Vers le niveau suivant
+Map/&Location_CradleOfFire_Outside	Extérieur du volcan
+Map/&Location_CradleOfFire_Entrance	Entrée souterraine
+Map/&Location_CradleOfFire_Market	Marché
+Map/&Location_WizardTower_Basement_Title	Entrée de la tour
+Map/&Location_WizardTower_Camp_Title	Camp
+Map/&Location_WizardTower_Hall_Title	Hall
+Map/&Location_WizardTower_MastersChamber_Title	Chambre de la maîtresse
+Map/&Location_Generic_Mechanism_Title	Mécanisme
+Map/&Location_AbjurationWizardTower_Description	Vous avez fini par suivre Kythaela jusque dans cette tour du magicien de Manacalon, apparemment parfaitement préservée et protégée par la magie, alors que les alentours ont été ravagés par le Cataclysme.
+Map/&Location_AbjurationWizardTower_Title	Forteresse du bouclier
+Map/&Location_AbjurationWizardTower_UnchartedDescription	n/a
+Map/&Location_AbjurationWizardTower_UnchartedTitle	n/a
+Map/&Location_AbjurationWizardTower_UnvisitedDescription	Kythaela est désormais certaine de savoir où se trouve le maître. Espérons que cela vous mènera à une autre gemme de la Couronne.
+Map/&Location_AbjurationWizardTower_UnvisitedTitle	Forteresse du maître
+Map/&Location_WizardTower_LandingPad_Title	Plateforme
+Map/&Location_LavaForest_Forest_Title	Forêt
+Map/&Location_LavaForest_Clearing_Title	Cabane
+Map/&Location_LavaForest_LavaRiver_Title	Rivière de lave
+Map/&Location_AbjurationWizardTower_Teleport_Title	Tour d'Adrasteia
+Map/&Location_VIPResidence_Description	Un lieu de repos pour les plénipotentiaires et les invités de la Couronne.
+Map/&Location_VIPResidence_Title	Résidence du Palais
+Map/&Location_NotaryMansion_Description	Le manoir de l'honorable Joan Tannerson.
+Map/&Location_NotaryMansion_Title	Domaine des Tannerson
+Map/&Location_NotaryMansion_Known_Description	Le manoir et ses jardins représentent la plus grande partie de l'héritage de Tannerson. La finalisation du testament se déroulera à cet endroit.
+Map/&Location_TheID_TheGate_Title	Le portail
+Map/&Location_TheID_TheArena_Title	L'arène
+Map/&Location_TheID_TheBeast_Title	La bête
+Map/&Location_CradleOfFire_Bladefang	Tribu des Lamecrocs
+Map/&Location_CradleOfFire_Bloodspear	Tribu des Lance-de-sang
+Map/&Location_CradleOfFire_SandRaven	Tribu des Sable-de-jais
+Map/&Location_CradleOfFire_RedscarGate	Portail Balafrouge
+Map/&Location_CradleOfFire_Crossroads	Croisée des chemins
+Map/&Location_CradleOfFire_Necropolis	Nécropole
+Map/&Location_CradleOfFire_To_Crossroads	À la croisée des chemins
+Map/&Location_CradleOfFire_Burrows	Terriers
+Map/&Location_RodricHideout_Title	Cachette
+Map/&Location_RodricHideout_Description	C'est dans cette ancienne section d'égout de Caer Cyflen que Rodric se terrait avec ses sbires.
+Map/&Location_TimarianTower_Title	Tour tirmarianne
+Map/&Location_TimarianTower_Description	Un endroit bien étrange.
+Map/&Location_Earcorn_Description	Un petit village rural non loin de Caer Cyflen.
+Map/&Location_Earcorn_Title	Graineville
+Map/&Location_Earcorn_UnchartedDescription	N/A
+Map/&Location_Earcorn_UnchartedTitle	N/A
+Map/&Location_Earcorn_UnvisitedDescription	Vous devez enquêter ici sur les membres potentiels d'une secte d'Arivad.
+Map/&Location_Earcorn_UnvisitedTitle	Graineville
+Map/&Location_MindOfTheMaster_Description	Dans cette région typique des Badlands, la nature la plus verdoyante côtoie les rivières de lave et les fosses de soufre. L'une des gemmes de la Couronne s'y cache peut-être.
+Map/&Location_MindOfTheMaster_Title	Forêt de lave
+Map/&Location_MindOfTheMaster_UnchartedDescription	Dans cette région typique des Badlands, la nature la plus verdoyante côtoie les rivières de lave et les fosses de soufre.
+Map/&Location_MindOfTheMaster_UnchartedTitle	Forêt de lave
+Map/&Location_MindOfTheMaster_VisitedDescription	Le maître de l'invocation y trouva refuge et son esprit malade y construisit une forteresse enchantée.
+Map/&Location_MindOfTheMaster_VisitedTitle	Forêt de lave
+Map/&Location_TheSuperEgo_TheBridge_Title	Pont
+Map/&Location_TheSuperEgo_TheHall_Title	Entrée
+Map/&Location_TheSuperEgo_TheLandingPad_Title	Plateforme
+Map/&Location_TheSuperEgo_TheMastersRoom_Title	Chambre du maître
+Map/&Location_TempleOfMisaye_Title	Temple de Misaye
+Map/&Location_CradleOfFire_RedscarGateHall	Hall du portail Balafrouge
+Map/&Location_CradleOfFire_NecropolisHall	Hall de la nécropole
+Map/&Location_Farmhouse_Title	Ferme
+Map/&Location_Farmhouse_Description	Une ferme située dans la vallée de Coparann et appartenant à votre famille.
+Map/&Location_ImperialOutpostDescription	Votre route a croisé ces ruines lors de votre périple avec Kythaela vers Coparann.
+Map/&Location_ImperialOutpostTitle	Ruines d'avant-poste impérial
+Map/&Location_HalmanSummersHouse_Title	Maison d'Halman Summer
+Map/&Location_HalmanSummersHouse2_Title	Ordre d'Arivad
+Map/&Location_AerElaiFinal_ImperialGate	Portail impérial
+Map/&Location_AerElaiFinal_BoneYard	Ossuaire
+Map/&Location_AerElaiFinal_AcidLake	Le lac d'acide
+Map/&Location_AerElaiFinal_MistyPath	Le chemin brumeux
+Map/&Location_AerElaiFinal_BentPalace	Le Palais tordu
+Map/&Location_AerElaiFinal_TheRift	La Faille
+Map/&Location_AerElaiFinal_LaveFall	Les chutes de lave
+Map/&Location_TempleHospital_Title	Dispensaire principal
+Map/&Location_Temple_SafeRoom_Title	Salle sécurisée
+Map/&Location_CCyflen_Temple_Exit_Title	Sortie vers la partie haute de la ville
+Map/&Location_CCyflen_Temple_Misaye_Title	Temple secret de Misaye
+Map/&Location_Spy_SmallFort_Title	Avant-poste d'espionnage
+Map/&Location_Spy_SmallFort_Description	Selon Daliat, cet endroit était une planque fortifiée où se cachaient les traîtres aux Murmureurs silencieux. 
+Map/&Location_ScavengerCamp_Title	Campement des ferrailleurs
+Map/&Location_CCyflen_PhilosopherHouse_Title	Maison de Galeafin
+Map/&Location_Legendary_UnvisitedTitle	Caer Elis
+Map/&Location_Legendary_UnvisitedDescription	Selon Arwin Merton, c'est ici que le temple du dieu perdu est censé se trouver, mais lui seul sait se repérer au milieu de la brume.
+Map/&Location_Legendary_visitedDescription	C'est ici que vous avez trouvé le temple du dieu perdu et vaincu le rémorhaz qui gardait ses secrets.
+Map/&Location_Legendary_Camp_Title	Camp de Caer Elis
+Map/&Location_Legendary_Temple_Title	Temple du dieu perdu
+Map/&Location_Legendary_CliffAccess_Title	Falaises
+Map/&Location_CovenOfArivad_Description	Vous avez suivi Illoreth jusqu'à cet endroit dans l'espoir de surprendre des membres de la secte d'Arivad au beau milieu de leurs méfaits.
+Map/&Location_Gallivan_Embassy_Title	Ambassade de Gallivan
+Map/&Location_Galaefin_House_Title	Bureau de maître Galeafin
+Map/&Location_Canyon_Title	Canyon
+Map/&Location_Canyon_Description	Un canyon sablonneux dans une terre désolée.
+Map/&Location_Swamp_Title	Marécage
+Map/&Location_Swamp_Description	Un marécage lugubre et nauséabond au milieu des Badlands.
+Map/&Location_ElvenRuins_Title	Ruines elfiques
+Map/&Location_ElvenRuins_Description	Un bâtiment en ruine qui faisait autrefois partie d'une ville elfique.
+Map/&Location_Waterfall_Title	Cascade
+Map/&Location_Waterfall_Description	Un paysage rafraîchissant, une rivière ondoyante, et des monstres prêts à attaquer.
+Map/&Location_TempleOfEinar_Title	Temple d'Einar
+Map/&Location_Cemetery_Title	Cimetière
+Map/&Location_Cemetery_Description	Un vieux cimetière probablement hanté au beau milieu du chemin.
+Map/&Location_TheMindoftheMaster_Ego_Title	Le Moi
+Map/&Location_TheMindoftheMaster_SuperEgo_Title	Le Surmoi
+Map/&Location_TheMindoftheMaster_ID_Title	Le Ça
+Map/&Location_TheMindoftheMaster_Description	Un endroit mystérieux où se côtoient la magie… et l'irrationalité !
+Map/&Location_Desert_Title	Colline aride
+Map/&Location_Desert_Description	Une énième colline stérile des Badlands qui ne fut pas épargnée par l'impitoyable soleil.
+Map/&Location_Marsh_Title	Marais
+Map/&Location_Marsh_Description	Une cabane de chasse isolée au milieu d'un marais sinistre.
+Map/&Location_Known_Title_Mysterious	Ruine mystérieuse
+Map/&Location_Known_Description_Mysterious	Hanno Fouleboue vous a demandé de fouiller cet endroit à la recherche de son cousin disparu.
+Map/&Location_Explored_Title_Mysterious	Palais des illusions
+Map/&Location_Explored_Description_Mysterious	Empli de magie et de supercheries, cet endroit était probablement un palais de Manacalon.
+Map/&Location_Presentation_Title_Mysterious	Palais mystérieux
+Map/&Location_Presentation_Description_Mysterious	Hanno Fouleboue vous a demandé de fouiller cet endroit à la recherche de son cousin disparu.
+Map/&Location_Generic_Moveable_Title	Objet mobile
+Map/&Waypoint_DLC1_Entrance_Valley_Forge_Title	Avant-poste de la Forge
+Map/&Waypoint_DLC1_Entrance_Valley_Forge_Description	Entrez dans la vallée directement vers l'avant-poste de la Forge.
+Map/&Waypoint_DLC1_City_Temple	Temple
+Map/&Waypoint_DLC1_Entrance_Valley_Giant_Title	Enclave géante
+Map/&Waypoint_DLC1_Entrance_Valley_Giant_Description	Entrez dans la vallée directement par le camp du géant.
+Map/&Waypoint_DLC1_Entrance_Swamp_Forge_Title	Camp de la Forge
+Map/&Waypoint_DLC1_Entrance_Swamp_Forge_Description	Entrez dans le marécage juste à côté du camp de la Forge.
+Map/&Waypoint_DLC1_Entrance_Valley_River_Title	Entrée des ruines
+Map/&Waypoint_DLC1_Entrance_Valley_River_Entrance_Description	Un raccourci vers les ruines près de la rivière.
+Map/&Waypoint_DLC1_Entrance_City_PeopleHideout_Title	Cachette du peuple
+Map/&Waypoint_DLC1_Entrance_City_PeopleHideout_Description	Un raccourci à l'intérieur qui mène à la cachette du peuple, dans la ville intermédiaire.
+Map/&Waypoint_DLC1_Valley_Adventurers_Camp	Feu de camp
+Map/&Location_Uncharted_Title_Marches	Marches
+Map/&Location_Uncharted_Description_Marches	Un campement situé dans les Marches, au sommet d'une montagne.
+Map/&Location_Known_Title_Marches	Campement de marchands
+Map/&Location_Known_Description_Marches	Un lieu couramment utilisé par les marchands itinérants pour passer la nuit.
+Map/&Location_Explored_Title_Marches	Campement de marchands
+Map/&Location_Explored_Description_Marches	Un lieu où les marchands itinérants, y compris Galar Langdoré, passent souvent la nuit. Cependant, l'accès en est bloqué par un nid de rédempteurs.
+Map/&Location_Presentation_Title_Marches	Marches
+Map/&Location_Presentation_Description_Marches	Un campement situé dans les Marches, au sommet d'une montagne.
+Map/&Location_Uncharted_Title_City	Ville
+Map/&Location_Uncharted_Description_City	Une ville située sur un plateau, au beau milieu de la jungle.
+Map/&Location_Known_Title_City	La ville
+Map/&Location_Known_Description_City	Le cœur de la vallée.
+Map/&Location_Explored_Title_City	Caer Hyfryd
+Map/&Location_Explored_Description_City	La capitale de la vallée, gouvernée par le seigneur protecteur Orenetis, est l'endroit idéal pour rencontrer des gens et se renseigner sur la situation locale.
+Map/&Location_Presentation_Title_City	Ville
+Map/&Location_Presentation_Description_City	Un aperçu de la ville.
+Map/&Waypoint_Coparran_Mines_Entrance	Entrée de la mine
+Map/&Waypoint_Coparran_Mines_Switcher	Aiguillage
+Map/&Waypoint_Coparran_Mines_ChariotWest	Chargeur de chariots ouest
+Map/&Waypoint_Coparran_Mines_ChariotEast	Chargeur de chariots est
+Map/&Waypoint_Coparran_Mines_DeadEnd	Impasse
+Map/&Waypoint_Coparran_Mines_Hideout	Planque des bandits
+Map/&Waypoint_Coparran_Mines_Tomb	Entrée de la nécropole
+Map/&Waypoint_Coparran_Mines_Puzzle	Tombeau
+Map/&Waypoint_Coparran_Mines_MinersCamp	Campement des mineurs
+Map/&Waypoint_Coparran_Mines_NecroDoor	Porte de la nécropole
+Map/&Waypoint_DLC1_Marches_Camp	Campement de marchands
+Map/&Waypoint_DLC1_Marches_GrottoEntrance	Entrée de grotte
+Map/&Waypoint_DLC1_City_Entrance	Entrée de la ville
+Map/&Waypoint_DLC1_City_MiddleGate	Portail de la basse ville
+Map/&Waypoint_DLC1_City_MaskHQ_Low	Bellevue
+Map/&Waypoint_DLC1_City_ThePeople_Low	Marché
+Map/&Location_Uncharted_Title_Complex	Complexe secret
+Map/&Location_Uncharted_Description_Complex	Un bâtiment secret au cœur de la jungle.
+Map/&Location_Known_Title_Complex	Complexe secret
+Map/&Location_Known_Description_Complex	Un complexe secret au cœur de la jungle.
+Map/&Location_Explored_Title_Complex	Complexe de recherche magique
+Map/&Location_Explored_Description_Complex	C'est le petit secret d'Orenetis : un complexe secret consacré à la recherche sur l'hybridation des monstres.
+Map/&Location_Presentation_Title_Complex	Complexe de recherche magique
+Map/&Location_Presentation_Description_Complex	C'est le petit secret d'Orenetis : un complexe secret consacré à la recherche sur l'hybridation des monstres.
+Map/&Location_Uncharted_Title_Valley	Vallée
+Map/&Location_Uncharted_Description_Valley	Vallée
+Map/&Location_Known_Title_Valley	Vallée verdoyante
+Map/&Location_Known_Description_Valley	Vallée verdoyante
+Map/&Location_Explored_Title_Valley	La Vallée verdoyante
+Map/&Location_Explored_Description_Valley	La Vallée verdoyante
+Map/&Location_Presentation_Title_Valley	Vallée verdoyante
+Map/&Location_Presentation_Description_Valley	Vallée verdoyante
+Map/&Location_Uncharted_Title_Complex_Indoor	Site inconnu
+Map/&Location_Uncharted_Description_Complex_Indoor	Un ensemble de bâtiments secrets situé au cœur de la jungle.
+Map/&Location_Known_Title_Complex_Indoor	Complexe secret
+Map/&Location_Known_Description_Complex_Indoor	Un ensemble de bâtiments secrets situé au cœur de la jungle.
+Map/&Location_Explored_Title_Complex_Indoor	Complexe secret d'Orenetis
+Map/&Location_Explored_Description_Complex_Indoor	Un lieu secret qu'Orenetis tient vraiment à protéger.
+Map/&Location_Presentation_Title_Complex_Indoor	Complexe secret d'Orenetis
+Map/&Location_Presentation_Description_Complex_Indoor	Un lieu secret qu'Orenetis tient vraiment à protéger.
+Map/&Location_Uncharted_Title_Complex_Underground	Complexe souterrain
+Map/&Location_Uncharted_Description_Complex_Underground	Un niveau inférieur du complexe secret.
+Map/&Location_Known_Title_Complex_Underground	Complexe souterrain
+Map/&Location_Known_Description_Complex_Underground	Un niveau inférieur du complexe secret où des monstres sont soumis à des expériences.
+Map/&Location_Explored_Title_Complex_Underground	Complexe souterrain
+Map/&Location_Explored_Description_Complex_Underground	Un lieu secret où Orenetis se livre à des expériences magiques.
+Map/&Location_Presentation_Title_Complex_Underground	Complexe souterrain
+Map/&Location_Presentation_Description_Complex_Underground	Un lieu secret où Orenetis effectue des expériences sur les monstres de la vallée, ce qui les rend encore plus dangereux et répugnants.
+Map/&Waypoint_DLC1_Marches_Vip_Camp	Campement abandonné
+Map/&Waypoint_DLC1_Marches_Nest	Nid de rédempteurs
+Map/&Waypoint_DLC1_Marches_MapExit	Sortie de la vallée
+Map/&Waypoint_DLC1_Marches_RuinEntrance	Entrée des ruines
+Map/&Waypoint_DLC1_Marches_GrottoExit	Sortie de la grotte
+Map/&Waypoint_DLC1_Marches_NestExit	Sortie du nid
+Map/&Location_Presentation_Title_BuriedCity_Tomb	Marches
+Map/&Location_Presentation_Description_BuriedCity_Tomb	Un campement situé dans les Marches, au sommet d'une montagne.
+Map/&Location_Presentation_Title_BuriedCity_Palace	Palais du magicien
+Map/&Location_Presentation_Description_BuriedCity_Palace	Un palais manacalon abandonné, protégé par des gardiens magiques.
+Map/&Waypoint_DLC1_Valley_CampFire	Camp de la rivière
+Map/&Waypoint_DLC1_Valley_Ruins	Vieilles ruines
+Map/&Waypoint_DLC1_Valley_GiantCamp	Enclave des géants
+Map/&Waypoint_DLC1_Valley_Waterfall	Grotte de la cascade
+Map/&Waypoint_DLC1_Valley_PlateauExit	Sortie vers la vallée
+Map/&Waypoint_DLC1_Valley_GrottoExit	Sortir de la grotte
+Map/&Waypoint_DLC1_Valley_BrokenBridge	Le pont cassé
+Map/&Waypoint_DLC1_Valley_Outpost	L'avant-poste
+Map/&Waypoint_DLC1_Valley_Plateau	Les hauteurs
+Map/&Waypoint_DLC1_Complex_DarkLab	Laboratoire secret
+Map/&Waypoint_DLC1_Complex_Elevator	Ascenseur
+Map/&Waypoint_DLC1_Complex_Facilities	Complexe souterrain
+Map/&Waypoint_DLC1_Complex_GroundFloor	Premier étage
+Map/&Waypoint_DLC1_Complex_MainEntrance	Entrée principale
+Map/&Waypoint_DLC1_Complex_OutdoorExit	Sortie vers l'extérieur
+Map/&Waypoint_DLC1_Complex_SecondFloor	Deuxième étage
+Map/&Waypoint_DLC1_Complex_ServiceTunnels	Tunnels de service
+Map/&Waypoint_DLC1_Complex_Trapdoor	Trappe
+Map/&Waypoint_DLC1_Swamp_River	Rivière
+Map/&Waypoint_DLC1_Swamp_Forge	Camp de la Forge
+Map/&Waypoint_DLC1_Swamp_Entrance	Entrée du marécage
+Map/&Waypoint_DLC1_Swamp_OldHut	Hutte abandonnée
+Map/&Waypoint_DLC1_Swamp_SpiderCave	Entrée de caverne
+Map/&Waypoint_DLC1_Swamp_GiantTree	Arbre géant
+Map/&Waypoint_DLC1_Swamp_Temple	Temple en ruine
+Map/&Waypoint_DLC1_Swamp_Fort	Fort en ruine
+Map/&Waypoint_DLC1_Swamp_WitchHouse	Maison étrange
+Map/&Waypoint_DLC1_Swamp_Exit_South	Sortie sud
+Map/&Waypoint_DLC1_Swamp_Exit_East	Sortie est
+Map/&Waypoint_DLC1_Complex_LivingRoom	Salon
+Map/&Waypoint_DLC1_Complex_GuardQuarters	Quartiers des gardes
+Map/&Waypoint_DLC1_Complex_StudyRoom	Salle d'étude
+Map/&Waypoint_DLC1_Complex_TestLaboratory	Laboratoire de test
+Map/&Waypoint_DLC1_Complex_GuardRoom	Salle de sécurité
+Map/&Waypoint_DLC1_Complex_RearLobby	Vestibule arrière
+Map/&Location_Presentation_Title_Swamp	Marécage
+Map/&Location_Presentation_Description_Swamp	Une vaste et mystérieuse zone marécageuse dans la vallée.
+Map/&Waypoint_DLC1_City_PeoplesShelter	Abri du peuple
+Map/&Waypoint_DLC1_City_MaskShelter	Abri du Masque
+Map/&Waypoint_DLC1_City_MaskOutpost	Avant-poste du Masque
+Map/&Waypoint_DLC1_City_Inn	Auberge
+Map/&Waypoint_DLC1_City_Palace	Portail du palais
+Map/&Waypoint_DLC1_City_Lab	Laboratoire
+Map/&Waypoint_DLC1_City_SecretEntrance	Entrée secrète
+Map/&Waypoint_DLC1_City_PeopleHideout	Cachette du peuple
+Map/&Waypoint_DLC1_City_HighGate	Portail haut
+Map/&Waypoint_DLC1_City_ThroneRoom	Salle du trône
+Map/&Waypoint_DLC1_Complex_Workshop	Atelier
+Map/&Waypoint_DLC1_Complex_Test_Arena	Arène des sujets de test
+Map/&Waypoint_DLC1_Complex_ServiceTunnelsSouth	Section sud
+Map/&Waypoint_DLC1_Complex_ServiceTunnelsNorth	Section nord
+Map/&Waypoint_DLC1_Complex_Minor_Gate	Salle du portail majeur
+Map/&Waypoint_DLC1_Complex_Mana_Generator	Générateur de mana
+Map/&Waypoint_DLC1_Complex_Captivity_Quarters	Prison
+Map/&Waypoint_DLC1_Complex_Isolation_Unit	Cellule d'isolation
+Map/&Waypoint_DLC1_Complex_Major_Gate	Portail supérieur
+Map/&Waypoint_DLC1_BuriedCity_Entrance	Entrée
+Map/&Waypoint_DLC1_BuriedCity_Crossroad	Croisée des chemins
+Map/&Waypoint_DLC1_BuriedCity_Windroom	Salle du vent
+Map/&Waypoint_DLC1_BuriedCity_Puzzle	Puzzle
+Map/&Waypoint_DLC1_BuriedCity_RebelHQ	QG de la Rébellion
+Map/&Waypoint_DLC1_BuriedCity_DangerCorridor	Couloir dangereux
+Map/&Waypoint_DLC1_BuriedCity_Town	Ville rebelle
+Map/&Waypoint_DLC1_BuriedCity_MinorGate	Portail inférieur
+Map/&Waypoint_DLC1_BuriedCity_Palace_Lab	Laboratoire
+Map/&Waypoint_DLC1_BuriedCity_Palace_Gate	Portail vers le marécage
+Map/&Waypoint_DLC1_BuriedCity_Palace_Door	Escaliers vers la ville rebelle
+Map/&Waypoint_DLC1_Valley_Waterfall_Entrance	Entrée de la cascade
+Map/&Waypoint_DLC1_Valley_The_Nest	Le nid
+Map/&Waypoint_DLC1_Valley_The_Walled_Camp	Le camp fortifié
+Map/&Waypoint_DLC1_Valley_Adventurer_Camp	Campement des aventuriers
+Map/&Waypoint_DLC1_Valley_Bears_Den	Croisement du minotaure
+Map/&Waypoint_DLC1_Valley_Deserted_Refuge	Refuge désert
+Map/&Waypoint_DLC1_Valley_GiantCamp_Entrance	Entrée du camp des géants
+Map/&Waypoint_DLC1_Valley_Mining_Vein	Veine minière
+Map/&Waypoint_DLC1_Valley_Ruins_Entrance	Entrée des ruines
+Map/&Waypoint_DLC1_Valley_Treasure_Room	Salle des trésors
+Map/&Waypoint_DLC1_Valley_Lost_Temple	Temple perdu
+Map/&Waypoint_DLC1_Valley_Old_Jail	La vieille prison
+Map/&Waypoint_DLC1_Valley_Living_Quarters	Quartiers d'habitation
+Map/&Waypoint_DLC1_Valley_Mausoleum	Le mausolée
+Map/&Waypoint_DLC1_Valley_Warden_Quarters	Quartiers des geôliers
+Map/&Waypoint_DLC1_Tomb	Crypte des Anfarel
+Map/&Location_Uncharted_Title_BuriedCity	La cité enfouie
+Map/&Location_Uncharted_Description_BuriedCity	Une cité enfouie sous la jungle.
+Map/&Location_Known_Title_BuriedCity	Dinas Gessa
+Map/&Location_Known_Description_BuriedCity	Une cité manacalonne ancienne enfouie sous terre lors du Cataclysme.
+Map/&Location_Explored_Title_BuriedCity	Dinas Gessa
+Map/&Location_Explored_Description_BuriedCity	Le repaire de la Rébellion se trouve dans une ville manacalonne ancienne qui a été enfouie sous terre lors du Cataclysme.
+Map/&Location_Presentation_Title_BuriedCity	Dinas Gessa
+Map/&Location_Presentation_Description_BuriedCity	Une cité manacalonne ancienne enfouie sous terre lors du Cataclysme.
+Map/&Waypoint_DLC1_Swamp_Exit_West	Sortie ouest
+Map/&Waypoint_DLC1_Entrance_Valley_Jungle_Title	Jungle
+Map/&Waypoint_DLC1_Entrance_Valley_Jungle_Description	Une piste dans la jungle, entre la vallée et les Marches.
+Map/&Waypoint_DLC1_Entrance_Valley_Plateau_Title	Plateau
+Map/&Waypoint_DLC1_Entrance_Valley_Plateau_Description	Une grande zone ouverte, entre les cascades et la route menant à la capitale.
+Map/&Waypoint_DLC1_Entrance_City_Entrance_Title	Entrée de la ville
+Map/&Waypoint_DLC1_Entrance_City_Entrance_Description	Les portails de la capitale.
+Map/&Waypoint_DLC1_Entrance_City_Secret_Title	Entrée secrète du palais
+Map/&Waypoint_DLC1_Entrance_City_Secret_Description	Une entrée secrète pour s'infiltrer dans le palais.
+Map/&Waypoint_DLC1_Entrance_City_MinorGate_Title	Entrée du Portail magique
+Map/&Waypoint_DLC1_Entrance_City_MinorGate_Description	Un raccourci pour entrer dans le palais, réservé aux serviteurs fidèles d'Orenetis.
+Map/&Waypoint_DLC1_Entrance_Buried_Entrance_Title	Entrée des ruines
+Map/&Waypoint_DLC1_Entrance_Buried_Entrance_Description	Le passage le plus difficile pour entrer dans la cité enfouie.
+Map/&Waypoint_DLC1_Entrance_Buried_RebelEntrance_Title	Entrée des rebelles
+Map/&Waypoint_DLC1_Entrance_Buried_RebelEntrance_Description	Un raccourci pour entrer dans le QG de la Rébellion, depuis une caverne sombre à proximité.
+Map/&Waypoint_DLC1_Entrance_City_Hideout_Title	Entrée secrète de la cachette du peuple
+Map/&Waypoint_DLC1_Entrance_City_Hideout_Description	Une entrée secrète passant sous la ville et menant à la cachette secrète du peuple.
+Map/&Waypoint_DLC1_Valley_Minotaur	Coin du minotaure
+Map/&Waypoint_DLC1_Entrance_Swamp_01_Title	Chemin sud
+Map/&Waypoint_DLC1_Entrance_Swamp_01_Description	Une route boueuse menant au marécage.
+Map/&Waypoint_DLC1_Entrance_Swamp_02_Title	Chemin ouest
+Map/&Waypoint_DLC1_Entrance_Swamp_02_Description	Un raccourci vers le camp de la Forge.
+Map/&Waypoint_DLC1_Entrance_Swamp_03_Title	Chemin est
+Map/&Waypoint_DLC1_Entrance_Swamp_03_Description	Un raccourci vers le camp orque.

@@ -1,0 +1,465 @@
+Modal/&AssertionFailedTtitle	Échec de la confirmation
+Modal/&CampaignSelectionButtonTitle	Choisir
+Modal/&CampaignSelectionTitle	Campagne
+Modal/&CampCaptionMultipleHoursFormat	Le groupe installe son campement pour {0} heures.
+Modal/&CampCaptionSingleHourFormat	Le groupe installe son campement pour une heure.
+Modal/&CancelButtonTitle	Annuler
+Modal/&CancelPrepareDescription	Annulez les modifications sur cet écran.
+Modal/&CancelPrepareTitle	Annuler
+Modal/&CharacterReviveMessageCancel	Annuler
+Modal/&CharacterReviveMessageContent	L'activation de cette option prend du temps et peut désactiver les autres options de durée. Voulez-vous continuer ?
+Modal/&CharacterReviveMessageTitle	Avertissement
+Modal/&CharacterReviveMessageValidate	Accepter
+Modal/&CharacterReviveModalHeaderPluralTitle	Réanimer tous les personnages morts
+Modal/&CharacterReviveModalHeaderSingularTitle	Réanimer le personnage mort
+Modal/&CharacterReviveModalSubTitle	Vous ne pouvez pas poursuivre l'aventure avec un ou plusieurs personnages morts. Sélectionnez une option.
+Modal/&CharacterReviveModalTooLateFormat	Il est trop tard pour utiliser cette option sur {0}.
+Modal/&DefeatDescription	Le groupe ne peut plus réanimer ses morts… fin de la partie ! Essayez de donner des parchemins de réanimation aux personnages pouvant les utiliser.
+Modal/&DefeatTitle	Fin de partie
+Modal/&DeleteButtonTitle	Supprimer
+Modal/&EquipementSelectionDescription	Sélectionnez vos options d'équipement préféré.
+Modal/&EquipementSelectionTitle	Choix d'équipement
+Modal/&ErrorModalContinuePlayingTitle	Continuer à jouer
+Modal/&ErrorModalCopyToClipboardTitle	Copier dans le presse-papier
+Modal/&ErrorModalIgnoreErrorTitle	Ignorer cette erreur
+Modal/&ErrorModalQuitTitle	Quitter le jeu
+Modal/&ErrorModalTitle	Une erreur grave est survenue.
+Modal/&ExceptionModalTitle	Une exception critique est survenue.
+Modal/&FactionRedeemCostDescription	Échanger un objet est souvent plus avantageux que de le vendre à un marchand
+Modal/&FactionRedeemInstructionsDescription	Échanger des objets avec la faction '{0}' vous fera gagner de l'argent et améliorera vos relations avec cette faction.
+Modal/&FactionRedeemRelationDescription	Vos relations avec cette faction s'améliorent
+Modal/&FactionRedeemRelationGainFormat	Relation : {0}
+Modal/&FactionRedeemSelectTitle	Sélectionnez un objet à échanger
+Modal/&HigherLevelFeaturesTitle	Attributs des niveaux supérieurs
+Modal/&InterruptCraftingCompleteTitle	Interruption quand un objet a été fabriqué.
+Modal/&InterruptLevelUpAvailableTitle	Interruption quand un personnage peut obtenir un niveau.
+Modal/&InterruptLongRestCompleteTitle	Interruption à la fin du repos long.
+Modal/&LoadButtonTitle	Charger
+Modal/&LoadGameHeader	Chargement
+Modal/&LoadGamePlaceholder	Sélectionnez une sauvegarde.
+Modal/&LoadingProceedButtonTitle	Cliquez ou appuyez sur une touche pour commencer.
+Modal/&LoadingTitle	Chargement… veuillez patienter
+Modal/&LoadLastSaveDescription	Reprenez votre partie à partir de la dernière sauvegarde
+Modal/&LoadLastSaveTitle	Dernière sauvegarde
+Modal/&MonsterListingCaption	{0} se concentre pour repérer la présence de monstres dans la zone… 
+Modal/&MonsterListingFavoredEnemyTitle	Ennemi juré
+Modal/&MonsterListingNotPerceivedTitle	Aucun
+Modal/&MonsterListingPerceivedTitle	Présence
+Modal/&NumberSelectionInstructionTitle	Combien de points ?
+Modal/&NumberSelectionValidateTitle	Valider
+Modal/&PartyWaitMinutesPluralFormat	Le groupe attend {0} minutes.
+Modal/&PartyWaitMinutesSingleFormat	Le groupe attend {0} minute.
+Modal/&RequiredRestsMultipleFormat	{0} repos longs
+Modal/&RequiredRestsNoneFormat	Aucun
+Modal/&RequiredRestsSingleFormat	1 repos long
+Modal/&RequiredRestsTitle	Repos requis
+Modal/&ResetDefaultsDescription	Réinitialisez les paramètres de voyage par défaut.
+Modal/&ResetDefaultsTitle	Réinitialiser
+Modal/&SaveButtonTitle	Sauvegarder
+Modal/&SaveGameHeader	Sauvegarde
+Modal/&SaveGamePlaceholder	Entrez un nom ou choisissez un fichier
+Modal/&SelectCharacterMultipleTitle	Sélectionnez un ou plusieurs personnages.
+Modal/&SelectCharacterSingleTitle	Sélectionnez un personnage
+Modal/&SelectTitle	Choisir
+Modal/&StartTravelDescription	Initiez le voyage vers la destination sélectionnée.
+Modal/&StartTravelTitle	Voyager
+Modal/&TravelDurationLessThanADayFormat	Moins d'un jour
+Modal/&TravelDurationMultipleFormat	{0} jours
+Modal/&TravelDurationSingleFormat	1 jour
+Modal/&TravelDurationTitle	Durée
+Modal/&TravelFromTitle	De
+Modal/&TravelPaceNormalTitle	Normal
+Modal/&TravelPaceTitle	Rythme de voyage
+Modal/&TravelSettingsButtonDescriptionTitle	Modifiez les paramètres de voyage et de repos.
+Modal/&TravelSettingsCustomTitle	Personnaliser
+Modal/&TravelSettingsDefaultTitle	Défaut
+Modal/&TravelSettingsTitle	Paramètres de voyage
+Modal/&TravelToTitle	Vers
+Modal/&ValidateButtonTitle	Valider
+Modal/&LoadingShortTitle	Chargement
+Modal/&LoadingTipTitle	Conseil
+Modal/&UnitsSelectionInstructionTitle	Combien d'unités voulez-vous ?
+Modal/&CastSpellBeforeLongRestTitle	Lancez le sort de {0} quand le repos long commence.
+Modal/&ScavengerMissionsModalTitle	Expéditions des ferrailleurs
+Modal/&ScavengerMissionsModalDescription	Les ferrailleurs partent en expédition pour récupérer et rapporter les butins abandonnés.
+Modal/&ScavengerMissionLineEncounterTitle	Quelque part sur la route
+Modal/&ScavengerMissionLineNewMissionFormat	Nouv. : {0} restant(s)
+Modal/&ScavengerMissionLineOngoingMissionFormat	En cours : {0} restant(s)
+Modal/&ScavengerMissionLineFinishedMissionDescription	Terminée
+Modal/&ScavengerMissionModalToggleTitle	Afficher les expéditions associées à des rencontres
+Modal/&ScavengerLootModalTitle	Objets récupérés durant les expéditions
+Modal/&ScavengerLootModalInstructionsDescription	Cliquez sur un objet pour le récupérer au lieu de le vendre.
+Modal/&ScavengerLootModalSellAllButton	Tout vendre
+Modal/&ScavengerLootModalSellInstructionsDescription	Vous obtenez :
+Modal/&DefeatStealthDescription	Vous avez été détecté·e lors d'une étape de furtivité critique ! Utilisez le mode Prudence et déplacez-vous discrètement.
+Modal/&QuestBoardTitle	Missions disponibles
+Modal/&QuestBoardDescription	Sélectionnez la mission que vous souhaitez accepter et appuyez sur Commencer.
+Modal/&QuestBoardStartTitle	Commencer
+Modal/&QuestBoardStartDescription	Accepter et commencer la mission sélectionnée.
+Modal/&QuestInProgressTitle	En cours
+Modal/&SolastaBackers	Contributeurs de Solasta
+Modal/&EternalHeroesTitle	À nos héros éternels
+Modal/&TeleportButtonTitle	Téléporter
+Modal/&TeleportButtonDescription	Téléporte instantanément le groupe vers une destination près du Portrail Majeur
+Modal/&VictoryTitle	Le groupe est victorieux !
+Modal/&StatHitAccuracyTitle	Précision du coup
+Modal/&StatHitAccuracyDescription	Le pourcentage de jets d'attaque magiques ou avec une arme réussis
+Modal/&StatCriticalHitsTitle	Coups critiques
+Modal/&StatCriticalHitsDescription	Le nombre de coups critiques effectués par ce personnage lors de jets d'attaque (magiques et avec une arme)
+Modal/&StatCriticalFailuresTitle	Échecs critiques
+Modal/&StatCriticalFailuresDescription	Le nombre d'échecs critiques subis par ce personnage lors de jets d'attaque (magiques et avec une arme)
+Modal/&StatInflictedDamageTitle	Dégâts infligés
+Modal/&StatInflictedDamageDescription	Le nombre total de points de dégâts infligés par des personnages
+Modal/&StatSlainEnemiesTitle	Adversaires tués
+Modal/&StatSlainEnemiesDescription	Le nombre d'adversaires achevés par ce personnage
+Modal/&StatSustainedInjuriesTitle	Blessures subies
+Modal/&StatSustainedInjuriesDescription	Le nombre total de points de vie perdus par ce personnage
+Modal/&StatRestoredHealthTitle	Santé restaurée
+Modal/&StatRestoredHealthDescription	Le nombre total de points de vie récupérés par ce personnage
+Modal/&StatUsedMagicAndPowersTitle	Magie et pouvoirs utilisés
+Modal/&StatUsedMagicAndPowersDescription	Le nombre total d'emplacements de sort et de charges de pouvoir utilisés par le personnage
+Modal/&StatTravelledCellsTitle	Cases parcourues
+Modal/&StatTravelledCellsDescription	Le nombre de cases, dans les 3 dimensions, sur lesquelles votre personnage a marché. Cela représente en quelque sorte le « kilométrage » du personnage
+Modal/&StatKnockOutsTitle	KO
+Modal/&StatKnockOutsDescription	Le nombre de fois où votre personnage est devenu mourant ou a perdu la vie
+Modal/&StatEarnedXPTitle	PX gagnés
+Modal/&StatEarnedXPDescription	Le nombre de points d'expérience gagnés par le personnage
+Modal/&StatGameTimeTitle	Durée de la partie :
+Modal/&StatGameTimeDescription	La durée totale (repos compris) que le groupe a passée dans la partie
+Modal/&StatShortRestsTitle	Repos courts :
+Modal/&StatShortRestsDescription	Le nombre de repos courts terminés par le groupe
+Modal/&StatLongRestsTitle	Repos longs :
+Modal/&StatLongRestsDescription	Le nombre de repos longs terminés par le groupe
+Modal/&StatGameTimeFormat	{0} j {1} h {2} min {3} s
+Modal/&UpdateFileTitle	Mettre à jour le fichier
+Modal/&UpdateFileDescription	Mettez à jour le fichier de personnage de ce personnage afin que la progression et le butin puissent être sauvegardés en vue de nouvelles aventures. De tels personnages ne pourront être utilisés dans la campagne principale de Solasta.
+Modal/&PregenCharacterCannotUpdateTitle	Personnage prégénéré
+Modal/&PregenCharacterCannotUpdateDescription	Ce personnage est prégénéré par le jeu et ne peut pas être mis à jour.
+Modal/&ContinueTitle	Continuer
+Modal/&ContinueDescription	Retournez au menu principal
+Modal/&SelectUserLocationTitle	Sélectionnez un lieu
+Modal/&UserLocationSettingsTitle	Paramètres du lieu
+Modal/&UserLocationSettingsApplyTitle	Appliquer
+Modal/&CheatsTitle	Options de triche du test
+Modal/&IdleMonstersToggleTitle	Monstres inactifs
+Modal/&IdleMonstersToggleDescription	Les monstres n'engagent pas le combat lorsqu'ils vous repèrent. {0}
+Modal/&InviciblePartyToggleTitle	Groupe invincible
+Modal/&InviciblePartyToggleDescription	Les personnages du groupe sont invincibles en combat. {0}
+Modal/&RevealFogOfWarButtonTitle	Dissiper le brouillard de guerre
+Modal/&RevealFogOfWarButtonDescription	Désactive le brouillard de guerre dans l'ensemble du lieu, vous permettant ainsi de voir dans chaque pièce. {0}
+Modal/&KIllBattleEnemiesButtonTitle	Tuer les adversaires en combat
+Modal/&KIllBattleEnemiesButtonDescription	Tue tous les adversaires en combat. {0}
+Modal/&IdleMonstersOnDescription	Les monstres sont maintenant inactifs
+Modal/&IdleMonstersOffDescription	Les monstres sont de nouveau actifs
+Modal/&InviciblePartyOnDescription	Le groupe est maintenant invincible
+Modal/&InviciblePartyOffDescription	Le groupe n'est plus invincible
+Modal/&RevealFogOfWarOnDescription	Le brouillard de guerre est désormais totalement dissipé
+Modal/&RevealFogOfWarOffDescription	Le brouillard de guerre est de nouveau actif
+Modal/&MonsterFilterAllTitle	Tous les monstres
+Modal/&FilterKeywordTitle	Filtrer
+Modal/&FilterKeywordDescription	Filtre la liste avec des éléments qui correspondent au mot clé spécifié
+Modal/&ClearKeywordDescription	Efface le mot clé sélectionné et annule le filtrage
+Modal/&InputKeywordTitle	Saisir un mot clé :
+Modal/&UserItemEditionTitle	Modification d'objet utilisateur
+Modal/&UserContentReferenceTitle	Référence
+Modal/&UserContentReferenceDescription	Le contenu de référence (issu de Solasta) à partir duquel est créé le contenu personnalisé.
+Modal/&UserContentInternalNameTitle	Nom interne
+Modal/&UserContentInternalNameDescription	Le nom utilisé en interne pour faire référence à ce contenu personnalisé. Il n'est pas montré au joueur final, qui lira à la place le Titre et la Description. Le nom interne est utilisé par les gadgets pour faire référence au contenu utilisateur. Vous pouvez conserver le nom interne généré automatiquement ou en choisir un nouveau (il doit être unique).
+Modal/&UserContentOverridesTitle	Écraser le contenu
+Modal/&UserContentOverridesDescription	Permet de modifier la valeur du contenu de référence par des valeurs personnalisées.
+Modal/&UserContentOverrideToggleDescription	Cliquez pour écraser la valeur par défaut ou pour la restaurer.
+Modal/&ProcessingContentTitle	Traitement du contenu en cours...
+Modal/&ContentPropertyTitleTitle	Titre
+Modal/&ContentPropertyTitleDescription	Le nom de cet élément de contenu, tel qu'il sera affiché pour le joueur final
+Modal/&ContentPropertyDescriptionTitle	Description
+Modal/&ContentPropertyDescriptionDescription	La description de ce contenu, tel qu'il sera affiché pour le joueur final dans les infobulles en jeu
+Modal/&ContentPropertyCostsTitle	Prix
+Modal/&ContentPropertyCostsDescription	Le tableau des prix bruts (dans chaque monnaie) pour ce contenu. Les paramètres de marchand peuvent modifier les prix affichés dans la boutique.
+Modal/&ContentPropertyDocumentFragmentsTitle	Fragments de document
+Modal/&ContentPropertyDocumentFragmentsDescription	Uniquement disponibles pendant l'inspection d'un document (parchemin, livre, plaque), ils vous permettent d'écrire vos propres textes qui s'afficheront dans l'interface d'étude du document.
+Modal/&CustomContentTitle	Personnaliser
+Modal/&ContentPropertyAbilityScoresTitle	Valeurs de caractéristique
+Modal/&ContentPropertyAbilityScoresDescription	Entrez vos valeurs de caractéristique personnalisées ici.\n Remarque : modifier ces valeurs ne change pas les jets d'attaque, de caractéristique, ou de sauvegarde des monstres pour lesquels ce monstre possède une maîtrise explicite. La classe d'armure et les points de vie ne sont pas non plus modifiés par les valeurs de caractéristique personnalisées.
+Modal/&ContentPropertyHitPointsTitle	Points de vie
+Modal/&ContentPropertyHitPointsDescription	Vous pouvez écraser le nombre de points de vie maximum de cette créature lors de son apparition.
+Modal/&ContentPropertyArmorClassTitle	Classe d'armure
+Modal/&ContentPropertyArmorClassDescription	Vous pouvez écraser la classe d'armure de cette créature lors de son apparition.
+Modal/&UserMonsterEditionTitle	Modification de monstre utilisateur
+Modal/&UserNpcEditionTitle	Modification du PNJ personnalisé
+Modal/&ContentPropertyBooleanTrueTitle	Vrai
+Modal/&ContentPropertyBooleanFalseTitle	Faux
+Modal/&UserMerchantInventoryEditionTitle	Inventaire de marchand personnalisé
+Modal/&UserContentValuesTitle	Valeur du contenu
+Modal/&UserContentValuesDescription	Permet de modifier la valeur du contenu personnalisé.
+Modal/&ContentPropertyOverchargePercentTitle	Prix majoré
+Modal/&ContentPropertyOverchargePercentDescription	Le coût supplémentaire (en pourcentage) lorsque vous achetez un objet à ce marchand.
+Modal/&ContentPropertyBuyBackPercentTitle	Prix de revente
+Modal/&ContentPropertyBuyBackPercentDescription	Le pourcentage du prix brut que ce marchand vous donnera lorsque vous lui vendrez un objet.
+Modal/&ContentPropertyCanDetectMagicTitle	Peut détecter la magie
+Modal/&ContentPropertyCanDetectMagicDescription	Ce marchand peut-il détecter les objets magiques dans l'inventaire du groupe ?
+Modal/&ContentPropertyDetectMagicCostGpTitle	Coût de détection de la magie (PO)
+Modal/&ContentPropertyDetectMagicCostGpDescription	Le coût de détection des objets magiques
+Modal/&ContentPropertyCanIdentifyTitle	Peut identifier les objets
+Modal/&ContentPropertyCanIdentifyDescription	Ce marchand peut-il identifier la fonction d'un objet magique ?
+Modal/&ContentPropertyIdentifyCostGpTitle	Coût d'identification (PO)
+Modal/&ContentPropertyIdentifyCostGpDescription	Le coût d'identification d'un objet magique
+Modal/&ContentPropertyStockUnitsTitle	Objets en stock
+Modal/&ContentPropertyStockUnitsDescription	Ceci est la liste des objets fournis par le marchand et leurs paramètres de restockage.
+Modal/&UserContentStockUnitsDescription	Elle vous permet de compléter la liste des objets en stock disponibles dans un inventaire de marchand.
+Modal/&UserContentStockUnitItemTitle	Objet
+Modal/&UserContentStockUnitItemSelectTitle	Choisir
+Modal/&UserContentStockUnitItemSelectDescription	Cliquez pour choisir l'objet de cet emplacement d'inventaire de marchand.
+Modal/&UserContentStockUnitStackCountTitle	Nombre d'exemplaires
+Modal/&UserContentStockUnitStackCountDescription	Quand un objet peut être cumulé (comme les rations de nourriture), cela définit le nombre d'exemplaires de cet objet en stock.
+Modal/&UserContentStockStockLineTitle	Stock
+Modal/&UserContentStockInitialTitle	Initial
+Modal/&UserContentStockInitialDescription	Le nombre initial d'exemplaires de cet objet que possède le marchand à son apparition.
+Modal/&UserContentStockMinTitle	Min
+Modal/&UserContentStockMinDescription	La quantité minimale d'objets disponibles de ce type, si vous voulez qu'il y en ait toujours.
+Modal/&UserContentStockMaxTitle	Max
+Modal/&UserContentStockMaxDescription	La quantité maximale d'objets disponibles de ce type.
+Modal/&UserContentStockReassortLineTitle	Restockage
+Modal/&UserContentStockReassortAmountTitle	Quantité
+Modal/&UserContentStockReassortAmountDescription	Le nombre d'exemplaires qui sont ajoutés lors du restockage du marchand.
+Modal/&UserContentStockReassortHoursTitle	Heures
+Modal/&UserContentStockReassortHoursDescription	Le nombre d'heures requis avant le restockage du marchand.
+Modal/&UserContentStockUnitUpButtonDescription	Fait monter l'objet en stock dans la liste
+Modal/&UserContentStockUnitDownButtonDescription	Fait descendre l'objet en stock dans la liste
+Modal/&UserContentStockUnitDeleteButtonDescription	Supprime l'objet en stock de la liste
+Modal/&UserContentAddStockUnitButtonTitle	Ajouter un objet en stock
+Modal/&UserContentAddStockUnitButtonDescription	Ajoute un nouvel objet en stock à cet inventaire de marchand, pour spécifier qu'un objet peut être acheté chez ce marchand.
+Modal/&UserContentProficiencyUpButtonDescription	Fait monter la maîtrise dans la liste
+Modal/&UserContentProficiencyDownButtonDescription	Fait descendre la maîtrise dans la liste
+Modal/&UserContentProficiencyDeleteButtonDescription	Supprime la maîtrise de la liste
+Modal/&UserContentAddProficiencyButtonTitle	Ajouter une maîtrise
+Modal/&UserContentAddProficiencyButtonDescription	Ajoute une nouvelle information de maîtrise pour cet acteur
+Modal/&ContentPropertySavingThrowsTitle	Jets de sauvegarde
+Modal/&ContentPropertySavingThrowsDescription	Ceci est la liste des maîtrises de jets de sauvegarde (et leur bonus ajouté au lancer de sauvegarde du d20) que ce personnage possède.
+Modal/&ContentPropertySkillsTitle	Compétences
+Modal/&ContentPropertySkillsDescription	Ceci est la liste des maîtrises de compétences (et leur bonus ajouté au jet de caractéristique du d20) que ce personnage possède.
+Modal/&ContentPropertyInformationIndividualAttacksTitle	Attaques solo
+Modal/&ContentPropertyInformationIndividualAttacksDescription	Cette créature choisira une attaque et n'utilisera que celle-ci pendant ce tour de combat.
+Modal/&ContentPropertyInformationGroupedAttacksTitle	Attaques groupées
+Modal/&ContentPropertyInformationGroupedAttacksDescription	Cette créature peut utiliser toutes les attaques de la liste dans un round de combat.
+Modal/&UserContentAddEffectFormButtonTitle	Ajouter un format d'effet
+Modal/&UserContentAddEffectFormButtonDescription	Ajoute un nouveau format d'effet pour définir les effets de ce contenu (dégâts, condition, etc).
+Modal/&ContentPropertyAttackToHitTitle	Pour attaquer
+Modal/&ContentPropertyAttackToHitDescription	Le bonus d'attaque du lancer du d20 détermine la réussite de cette attaque.
+Modal/&ContentPropertyAttackIterationsTitle	Itérations
+Modal/&ContentPropertyAttackIterationsDescription	Le nombre de fois que cette attaque peut être utilisée par tour.
+Modal/&ContentPropertyAttack1Title	Attaque 1 :
+Modal/&ContentPropertyAttack1Description	Les paramètres de la première attaque de cette créature.
+Modal/&ContentPropertyAttack2Title	Attaque 2 :
+Modal/&ContentPropertyAttack2Description	Les paramètres de la deuxième attaque de cette créature.
+Modal/&ContentPropertyAttack3Title	Attaque 3 :
+Modal/&ContentPropertyAttack3Description	Les paramètres de la troisième attaque de cette créature.
+Modal/&ContentPropertyHasSavingThrowTitle	Possède un jet de sauvegarde ?
+Modal/&ContentPropertyHasSavingThrowDescription	Détermine si cet effet donne lieu à un jet de sauvegarde.
+Modal/&ContentPropertyDifficultyClassTitle	DD
+Modal/&ContentPropertyDifficultyClassDescription	Le degré de difficulté pour réussir le jet de sauvegarde de cet effet.
+Modal/&ContentPropertyDurationTitle	Durée
+Modal/&ContentPropertyDurationDescription	La durée des conditions supplémentaires.
+Modal/&ContentPropertyEffectFormsTitle	Formats d'effet
+Modal/&ContentPropertyEffectFormsDescription	La liste des effets appliqués à la cible, tels que les dégâts ou les conditions.
+Modal/&ContentPropertyFormTypeTitle	Type de format
+Modal/&ContentPropertyFormTypeDescription	Le type de ce format d'effet, comme les dégâts ou les conditions.
+Modal/&ContentPropertyFormTypeDamageTitle	Dégâts
+Modal/&ContentPropertyFormTypeDamageDescription	Ce type de format d'effet applique des dégâts à la cible.
+Modal/&ContentPropertyFormTypeConditionTitle	Condition
+Modal/&ContentPropertyFormTypeConditionDescription	Ce type de format d'effet applique une condition à la cible.
+Modal/&ContentPropertySaveAffinityTitle	Affinité de sauvegarde
+Modal/&ContentPropertySaveAffinityDescription	Définit comment ce format d'effet réagit à un jet de sauvegarde réussi.
+Modal/&ContentPropertySaveAffinityNoneTitle	Aucune
+Modal/&ContentPropertySaveAffinityNoneDescription	Un jet de sauvegarde réussi n'a pas d'impact sur cet effet.
+Modal/&ContentPropertySaveAffinityHalfDamageTitle	Divise par deux
+Modal/&ContentPropertySaveAffinityHalfDamageDescription	Un jet de sauvegarde réussi réduira de moitié les dégâts de cet effet.
+Modal/&ContentPropertySaveAffinityNegatesTitle	Annule
+Modal/&ContentPropertySaveAffinityNegatesDescription	Un jet de sauvegarde réussi annulera complètement cet effet.
+Modal/&ContentPropertyDamageDiceNumberDescription	Le nombre de dés lancés pour ces dégâts
+Modal/&ContentPropertyDamageDieTypeDescription	Le type de dés lancés pour ces dégâts
+Modal/&ContentPropertyDamageBonusDescription	Les dégâts bonus ajoutés au dé lancé
+Modal/&ContentPropertyDamageTypeDescription	Le type de dégâts infligés
+Modal/&UserContentEffectFormUpButtonDescription	Fait monter le format d'effet dans la liste
+Modal/&UserContentEffectFormDownButtonDescription	Fait descendre le format d'effet dans la liste
+Modal/&UserContentEffectFormDeleteButtonDescription	Supprime le format d'effet de la liste
+Modal/&UserContentEffectFormConditionSelectDescription	Cliquez pour choisir une condition ajoutée par ce format d'effet.
+Modal/&ContentPropertyDurationRoundTitle	Round
+Modal/&ContentPropertyDurationMinuteTitle	Minute
+Modal/&ContentPropertyDurationHourTitle	Heure
+Modal/&ContentPropertyDurationDayTitle	Jour
+Modal/&ContentPropertyEndOfEffectTitle	Fin de l'effet
+Modal/&ContentPropertyEndOfEffectDescription	Le moment du tour où cet effet prendra fin, mais aussi celui où un jet de sauvegarde pourra être tenté à nouveau, le cas échéant.
+Modal/&ContentPropertyEndOfEffectStartOfTurnTitle	Début du tour
+Modal/&ContentPropertyEndOfEffectEndOfTurnTitle	Fin du tour
+Modal/&ContentPropertyCanSaveToCancelTitle	Sauvegarde pour annuler possible ?
+Modal/&ContentPropertyCanSaveToCancelDescription	Détermine si la cible affectée par cet effet peut sauvegarder à chaque tour pour annuler cet effet. Le moment du jet de sauvegarde est défini par le champ Fin de l'effet.
+Modal/&ContentPropertyChallengeRatingTitle	Difficulté du défi
+Modal/&ContentPropertyChallengeRatingDescription	Vous pouvez écraser la classe d'armure de cette créature lors de son apparition. Les valeurs 0, 0,125, 0,25 et 0,5 sont valides, le reste doit être un entier supérieur à 1 (pas une valeur décimale)
+Modal/&ContentPropertyWeaponEffectsTitle	Effets de l'arme
+Modal/&ContentPropertyWeaponEffectsDescription	Utilisez ceci pour écraser les dégâts ou les effets spéciaux de cette arme
+Modal/&UserQuestSettingsTitle	Paramètres de la quête
+Modal/&UserVariableEditionTitle	Modification de variable de campagne
+Modal/&ContentPropertyVariableTypeTitle	Type de variable
+Modal/&ContentPropertyVariableTypeDescription	Le type de données stockées dans cette variable
+Modal/&ContentPropertyVariableTypeIntTitle	Entier
+Modal/&ContentPropertyVariableTypeIntDescription	Une valeur entière qui peut être modifiée par des opérations mathématiques
+Modal/&ContentPropertyVariableTypeBoolTitle	Booléen
+Modal/&ContentPropertyVariableTypeBoolDescription	Une valeur qui peut être vraie ou fausse
+Modal/&ContentPropertyVariableTypeStringTitle	Chaîne de caractères
+Modal/&ContentPropertyVariableTypeStringDescription	Une simple chaîne de caractères
+Modal/&ContentPropertyVariableDefaultValueIntTitle	Valeur par défaut
+Modal/&ContentPropertyVariableDefaultValueIntDescription	La valeur entière par défaut de cette variable au début de la campagne
+Modal/&ContentPropertyVariableDefaultValueBoolTitle	Valeur par défaut
+Modal/&ContentPropertyVariableDefaultValueBoolDescription	La valeur booléenne par défaut de cette variable au début de la campagne
+Modal/&ContentPropertyVariableDefaultValueStringTitle	Valeur par défaut
+Modal/&ContentPropertyVariableDefaultValueStringDescription	La valeur en chaîne de caractères par défaut de cette variable au début de la campagne
+Modal/&ContentPropertyVariableBoolFalseTitle	Faux
+Modal/&ContentPropertyVariableBoolTrueTitle	Vrai
+Modal/&SelectUserVariableTitle	Sélectionner une variable
+Modal/&UserDialogSettingsTitle	Paramètres du dialogue
+Modal/&ContentPropertyDamageAffinitiesTitle	Affinités de dégâts
+Modal/&ContentPropertyDamageAffinitiesDescription	Ceci vous permet d'ajouter des affinités spécifiques (résistance, immunité, vulnérabilité) à un type de dégâts.
+Modal/&DamageAffinityDamageTypeTitle	Dégâts
+Modal/&DamageAffinityDamageTypeDescription	Le type de dégâts pour lequel s'applique l'affinité.
+Modal/&DamageAffinityTypeTitle	Affinité
+Modal/&DamageAffinityTypeDescription	Le type d'affinité aux dégâts ayant un impact sur la quantité de dégâts subis.
+Modal/&DamageAffinityTypeNoneTitle	Aucune
+Modal/&DamageAffinityTypeNoneDescription	Aucune affinité spécifique aux dégâts.
+Modal/&DamageAffinityTypeResistanceTitle	Résistance
+Modal/&DamageAffinityTypeResistanceDescription	Les dégâts sont diminués de moitié.
+Modal/&DamageAffinityTypeVulnerabilityTitle	Vulnérabilité
+Modal/&DamageAffinityTypeVulnerabilityDescription	Les dégâts sont doublés.
+Modal/&DamageAffinityTypeImmunityTitle	Immunité
+Modal/&DamageAffinityTypeImmunityDescription	Tous les dégâts sont ignorés.
+Modal/&SavingThrowAdvantageTitle	Avantage de sauvegarde
+Modal/&SavingThrowAdvantageDescription	Le type d'avantage/de désavantage pour les jets de sauvegarde contre ce type de dégâts.
+Modal/&SavingThrowAdvantageNoneTitle	Aucun
+Modal/&SavingThrowAdvantageNoneDescription	Aucun avantage/désavantage spécifique.
+Modal/&SavingThrowAdvantageAdvantageTitle	Avantage
+Modal/&SavingThrowAdvantageAdvantageDescription	Avantage sur les jets de sauvegarde.
+Modal/&SavingThrowAdvantageDisadvantageTitle	Désavantage
+Modal/&SavingThrowAdvantageDisadvantageDescription	Désavantage sur les jets de sauvegarde.
+Modal/&UserContentSelectionTitle	Sélection de contenu utilisateur
+Modal/&UserContentSelectAllButtonTitle	Tout sélectionner
+Modal/&UserContentSelectAllButtonDescription	Sélectionne tout le contenu utilisateur de cette campagne.
+Modal/&UserContentDeselectAllButtonTitle	Tout désélectionner
+Modal/&UserContentDeselectAllButtonDescription	Désélectionne tout le contenu utilisateur de cette campagne.
+Modal/&UserContentImportButtonTitle	Importer
+Modal/&UserContentImportButtonDescription	Importe le contenu sélectionné dans la campagne actuelle.
+Modal/&UserContentExportButtonTitle	Exporter
+Modal/&UserContentExportButtonDescription	Exporte le contenu sélectionné de la campagne actuelle vers une autre campagne, que vous choisirez dans le prochain panneau.
+Modal/&UserContentOverwriteToggleTitle	Écraser les doublons
+Modal/&UserContentOverwriteToggleDescription	Si cette case est cochée, tout le contenu portant le même nom sera écrasé dans la campagne cible.
+Modal/&ContentPropertyDroppedLootTitle	Butin lâché
+Modal/&ContentPropertyDroppedLootDescription	Ceci vous permet de définir le pack de butin lâché par un monstre utilisateur. Certains packs de butin de monstre par défaut sont internes aux données du jeu et il n'est pas possible d'y accéder, mais des packs de butin utilisateur peuvent être créés.
+Modal/&UserLootPackEditionTitle	Modifier le pack de butin
+Modal/&ContentPropertyItemOccurencesTitle	Fréquence des objets
+Modal/&ContentPropertyItemOccurencesDescription	Ceci vous permet de modifier le contenu de ce pack de butin, y compris sa quantité et sa probabilité.
+Modal/&UserContentAddItemOccurenceButtonTitle	Ajouter un objet
+Modal/&UserContentAddItemOccurenceButtonDescription	Ajoute un objet au pack de butin, ainsi que sa quantité et sa probabilité.
+Modal/&UserContentItemOccurenceDiceNumberDescription	Le nombre de dés lancés pour déterminer la quantité de cet objet.
+Modal/&UserContentItemOccurenceDiceTypeDescription	Le type de dé lancé pour déterminer la quantité de cet objet.
+Modal/&UserContentItemOccurenceAdditiveModifierDescription	Le modificateur appliqué au jet de dés pour déterminer la quantité de cet objet. Les valeurs négatives sont autorisées : par exemple, 1d4-3 aura 25 % de chance de faire apparaître cet objet.
+Modal/&DialogSettingsAdditionalNpcsTitle	PNJ supplémentaires
+Modal/&DialogSettingsAdditionalNpcsDescription	En plus du PNJ principal avec lequel le groupe parle, vous pouvez choisir d'autres PNJ qui ajouteront de nouvelles options de rôle aux boîtes de dialogue du PNJ. Assurez-vous que ces PNJ soient déjà générés quand le dialogue commence.
+Modal/&ContentPropertyMagicOvercomesTitle	La magie l'emporte ?
+Modal/&ContentPropertyMagicOvercomesDescription	Si vous sélectionnez cette option, l'affinité des dégâts sera annulée par un effet ou une attaque magique.
+Modal/&MapWaypointNavigateVoteTitle	Vote de déplacement vers un point de repère
+Modal/&MapWaypointNavigateVoteHostDescription	Vous avez suggéré un déplacement vers :
+Modal/&MapWaypointNavigateVoteClientDescription	{0} a suggéré un déplacement vers le point de repère {1}. Cela nécessite votre accord.
+Modal/&MultiplayerVotePlayerAnswersTitle	En attente de la réponse des autres joueurs
+Modal/&MultiplayerVoteCancelTitle	Annuler le vote
+Modal/&MultiplayerVoteCancelDescription	Annule le vote en cours.
+Modal/&MultiplayerVoteAcceptTitle	Accepter
+Modal/&MultiplayerVoteRejectTitle	Rejeter
+Modal/&MultiplayerVoteClientStatusPendingTitle	En attente…
+Modal/&MultiplayerVoteClientStatusPendingDescription	En attente de l'acceptation de cette demande par le joueur.
+Modal/&MultiplayerVoteClientStatusAcceptedTitle	Acceptée
+Modal/&MultiplayerVoteClientStatusAcceptedDescription	Le joueur a accepté la demande.
+Modal/&MultiplayerWaitNotifyTitle	Notifier
+Modal/&MultiplayerWaitNotifyDescription	Notifie ce joueur que vous l'attendez.
+Modal/&MultiplayerWaitKickTitle	Exclure
+Modal/&MultiplayerWaitKickDescription	Exclut ce joueur de la partie.
+Modal/&MultiplayerWaitYouTitle	Vous êtes prêt·e
+Modal/&PostRestWaitTitle	Synchronisation post-repos
+Modal/&PostRestWaitDescription	En attente des autres joueurs terminant leur séquence de repos :
+Modal/&MultiplayerWaitClientStatusPendingTitle	En attente…
+Modal/&MultiplayerWaitClientStatusPendingDescription	En attente de l'acceptation de cette demande par le joueur.
+Modal/&MultiplayerWaitClientStatusReadyTitle	Prêt
+Modal/&MultiplayerWaitClientStatusReadyDescription	Le joueur est prêt à continuer.
+Modal/&MultiplayerWaitQuitGameTitle	Quitter le jeu
+Modal/&MultiplayerWaitQuitGameDescription	Dans le cas où quelque chose empêcherait la partie multijoueurs de se poursuivre, vous pouvez toujours quitter le jeu à partir d'ici.
+Modal/&DefaultTextInputTitle	Entrez du texte
+Modal/&DefaultPasswordInputTitle	Entrez un mot de passe
+Modal/&ClearTitle	Retirer
+Modal/&PostRestReadyPlayersDescription	Joueurs prêts :
+Modal/&KickTitle	Exclure un joueur
+Modal/&KickDescription	Excluez un joueur de votre session :
+Modal/&ModioLoginTitle	Connectez-vous pour gérer vos mods
+Modal/&ModioLoginEmail	Entrez votre adresse e-mail
+Modal/&ModioLoginSecurityCode	Entrez le code de sécurité
+Modal/&ModioLoginRequest	Demander un code de sécurité
+Modal/&ModioLoginAuthenticate	S'authentifier
+Modal/&ModioLoginPoweredModio	Généré par mod.io
+Modal/&ModioLoginAbout	À propos
+Modal/&ModioLoginPrivacy	Confidentialité
+Modal/&MissingDLCMultiplayerStoreWarningTitle	Avertissement
+Modal/&MissingDLCMultiplayerStoreWarningDescription	En achetant ce DLC, vous ne le rendrez pas disponible dans cette session multijoueur. Seuls les DLC de l'hôte sont disponibles dans une session multijoueur.
+Modal/&MissingDLCMultiplayerAlreadyOwnedDescription	Vous possédez déjà ce DLC, mais seuls les DLC de l'hôte sont disponibles dans les sessions multijoueurs. Continuer quand même ?
+Modal/&CreateSpellSlotTitle	Création d'emplacements de sort
+Modal/&CreateSpellSlotDescription	Sélectionnez un emplacement de sort à créer contre des points de sorcellerie :
+Modal/&CreateSpellSlotCostTitle	Coût en points de sorcellerie
+Modal/&CreateSorceryPointsTitle	Création de points de sorcellerie
+Modal/&CreateSorceryPointsDescription	Sélectionnez un emplacement de sort à dépenser pour le convertir en points de sorcellerie :
+Modal/&CreateSorceryPointsGainTitle	Points de sorcellerie obtenus
+Modal/&DefeatIronManAdditionalDescription	Votre aventure s'arrête ici. Rassemblez vos forces et trouvez le courage de relever le défi du mode Iron Man une nouvelle fois !
+Modal/&CharacterReviveModalDisintegratedFormat	Cette option ne peut pas être utilisée sur {0} car ce personnage est désintégré.
+Modal/&SpellSlotRecoveryTitle	Récupération d'emplacement de sort
+Modal/&SpellSlotRecoveryDescription	Sélectionnez les emplacements de sort dépensés à récupérer :
+Modal/&SpellSlotCapitalFormat	Capital total : {0}
+Modal/&SpellSlotCapitalDescription	Votre capital de récupération est déterminé par la moitié de votre niveau de lanceur arrondi à l'entier supérieur. Chaque emplacement de sort récupéré coûte du capital de récupération égal à son niveau de sort : par exemple, un emplacement de sort de niveau 3 coûte 3 points de récupération.
+Modal/&SpellSlotRecoverLevelButtonTitle	Récupérer ({0})
+Modal/&SpellSlotRecoverLevelButtonDescription	Récupérez un emplacement de sort de ce niveau pour un coût de {0} de votre capital total.
+Modal/&SpellSlotCancelButtonTitle	Annuler
+Modal/&SpellSlotCancelButtonDescription	Annule la récupération d'emplacement de sort. Aucun capital de récupération n'est dépensé.
+Modal/&SpellSlotClearButtonTitle	Retirer
+Modal/&SpellSlotClearButtonDescription	Retire tous les emplacements de sorts récupérés pour recommencer le processus de sélection.
+Modal/&SpellSlotAutoButtonTitle	Sélection automatique
+Modal/&SpellSlotAutoButtonDescription	Sélectionne automatiquement les emplacements de sort à récupérer. Vous pouvez vérifier les choix automatiques avant de confirmer.
+Modal/&SpellSlotRecoverButtonTitle	Récupérer
+Modal/&SpellSlotRecoverButtonDescription	Confirmez pour récupérer les emplacements de sorts sélectionnés.
+Modal/&MultiplayerRoomCreationErrorTitle	Erreur lors de la création de la salle
+Modal/&MultiplayerRoomCreationErrorDuplicateDescription	Il existe déjà une salle à ce nom. Veuillez en essayer un autre.
+Modal/&MultiplayerRoomCreationErrorUnknownDescriptionFormat	La salle n'a pas pu être créée : code {0}.
+Modal/&MultiplayerConnexionErrorTitle	Échec de la connexion
+Modal/&MultiplayerConnexionErrorDescription	Impossible de se connecter aux services multijoueurs de Photon. Assurez-vous que vous disposez d'une connexion stable et réessayez.
+Modal/&MultiplayerRoomJoinErrorTitle	Échec de l'accès à la salle
+Modal/&MultiplayerRoomJoinErrorFullDescription	La salle est complète.
+Modal/&MultiplayerRoomJoinErrorClosedDescription	La salle est close.
+Modal/&MultiplayerRoomJoinErrorInexistantDescription	La salle n'existe pas.
+Modal/&MultiplayerRoomJoinErrorUnknownDescriptionFormat	Vous n'avez pas pu rejoindre la salle : code {0}.
+Modal/&MultiplayerRoomJoinErrorNotFoundDescription	La salle n'a pas pu être trouvée. Vérifiez le nom et réessayez.
+Modal/&MultiplayerRoomJoinErrorWrongPasswordDescription	Le mot de passe est incorrect.
+Modal/&MultiplayerDisconnectedTitle	Connexion au Photon impossible
+Modal/&MultiplayerDisconnectedDescription	Nous sommes désolés, le Photon Cloud est actuellement indisponible. Vérifiez votre connexion à Internet et réessayez plus tard.
+Modal/&MultiplayerDisconnectedReturnToMenuDescription	Le Photon Cloud est actuellement indisponible. Veuillez accepter nos excuses. Vous pouvez continuer de jouer hors ligne ou retourner au menu principal pour réessayer plus tard.
+Modal/&SessionPasswordInputTitle	Mot de passe de la session de jeu
+Modal/&SessionPasswordInputDescription	Vous devez saisir un mot de passe valide pour accéder à la session de jeu {0}.
+Modal/&MultiplayerRoomJoinErrorGameAlreadyStartedDescription	La session a déjà commencé et ne peut être rejointe.
+Modal/&NewSavedGameTitle	Nouvelle sauvegarde
+Modal/&ShortcutConfigATitle	Passer en config A
+Modal/&ShortcutConfigBTitle	Passer en config B
+Modal/&ShortcutConfigCTitle	Passer en config C
+Modal/&ShortcutCastLightingSpellTitle	Lancer un sort de lumière
+Modal/&ShortcutStopConcentratingTitle	Mettre fin à la concentration
+Modal/&LoadingProceedButtonConsoleTitle	Appuyer sur une touche pour continuer
+Modal/&GamepadControlsTitle	Configuration des touches
+Modal/&GamepadControlsShortTitle	Manette
+Modal/&GamepadControlsDescription	Affiche un écran qui indique à quelles actions en jeu correspondent les touches de la manette.
+Modal/&GamepadControlsToggleExplorationTitle	Exploration
+Modal/&GamepadControlsToggleBattleTitle	Combat
+Modal/&GamepadControlsToggleMenusTitle	Menus
+Modal/&AccessStoreTitle	Accéder à la boutique
+Modal/&AccessStoreMicrosoftTitle	Microsoft Store
+Modal/&MultiplayerRoomJoinErrorCrossplayCheckFailedDescription	Le cross-play n'est pas activé pour cette session de jeu, et votre plateforme ne correspond pas à la plateforme de la session.
+Modal/&ShortcutStopLightingSpellTitle	Stopper un sort de lumière

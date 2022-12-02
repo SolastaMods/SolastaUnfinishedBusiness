@@ -1,0 +1,10 @@
+Condition/&ChildOfDarkness_Title	Enfant des ténèbres
+Condition/&ChildOfDarkness_Description	Ce Sorak plus puissant se régénère dans les ténèbres.
+Condition/&ChildOfDarkness_ACGain_Title	Les Soraks gagnent une CA supplémentaire dans la lumière faible ou dans les ténèbres.
+Condition/&ChildOfDarkness_AdditionalDamage2_Title	Cette créature gagne +2 de dégâts dans la lumière faible
+Condition/&ChildOfDarkness_AdditionalDamage3_Title	Cette créature gagne +3 de dégâts dans la lumière faible
+Condition/&ChildOfDarkness2_Title	Apôtre des ténèbres
+Condition/&ChildOfDarkness2_Description	Ce Sorak plus puissant se régénère dans la lumière faible et à plus forte raison dans les ténèbres.
+Condition/&ChildOfDarkness3_Title	Prophète des ténèbres
+Condition/&ChildOfDarkness3_Description	Ce Sorak plus puissant se régénère dans la lumière faible et à plus forte raison dans les ténèbres.
+Condition/&ChildOfDarkness0_Description	Ce Sorak plus puissant se régénère dans les ténèbres.

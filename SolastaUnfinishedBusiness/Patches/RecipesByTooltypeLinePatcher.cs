@@ -21,6 +21,7 @@ public static class RecipesByTooltypeLinePatcher
         }
     }
 
+#if false
     [HarmonyPatch(typeof(RecipesByTooltypeLine), "Refresh")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     public static class Refresh_Patch
@@ -31,4 +32,5 @@ public static class RecipesByTooltypeLinePatcher
             CraftingContext.FilterRecipes(ref knownRecipes);
         }
     }
+#endif
 }
