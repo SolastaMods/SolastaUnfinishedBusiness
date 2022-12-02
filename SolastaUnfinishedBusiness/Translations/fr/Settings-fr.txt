@@ -34,7 +34,7 @@ ModUi/&Character=Personnage
 ModUi/&CharactersPool=Réserve de personnages
 ModUi/&Classes=<color=#F0DAA0>Classes</color>
 ModUi/&Crafting=<color=#F0DAA0>Fabrication :</color>
-ModUi/&CraftingHelp=. AppuyeR sur le bouton pour apprendre des recettes instantanément sur la partie active\n. Les articles ajoutés aux magasins peuvent nécessiter que le groupe s'éloigne de l'emplacement et y revienne.
+ModUi/&CraftingHelp=. Appuyer sur le bouton pour apprendre des recettes instantanément sur la partie active\n. Les articles ajoutés aux magasins peuvent nécessiter que le groupe s'éloigne de l'emplacement et y revienne.
 ModUi/&Credits=Crédits
 ModUi/&CreditsAndDiagnostics=Crédits & diagnostics
 ModUi/&DeadEyeAndPowerAttackBaseBaseValue=<color=white>Set Deadeye and Power Attack base modifier value</color>\n<i><color=#F0DAA0>[formula is -mod to hit / mod + PB to damage]</color></i>
@@ -63,19 +63,19 @@ ModUi/&EnableFlexibleRaces=Activer les races flexibles <i><color=#F0DAA0>[attrib
 ModUi/&EnableHotkeyDebugOverlay=Activer <color=#1E81B0>CTRL-SHIFT-(D)</color> pour afficher la fenêtre de débogage
 ModUi/&EnableHotkeyToggleHud=Activer <color=#1E81B0>CTRL-SHIFT-(H)</color> pour basculer l'affichage du HUD
 ModUi/&EnableInventoryFilteringAndSorting=Activer le filtrage et le tri de l'inventaire
-ModUi/&EnableInventoryTaintNonProficientItemsRed=<i>+ Taint in red any item the hero isn't proficient with</i>
+ModUi/&EnableInventoryTaintNonProficientItemsRed=<i>+ Affiche en rouge tout objet avec lequel le héros n'est pas compétent.</i>
 ModUi/&EnableInvisibleCrownOfTheMagister=Cacher <color=#D89555>Crown of the Magister</color> de l'interface de jeu
 ModUi/&EnableLevel20=Activer le niveau 20 <b><i><color=#C04040E0>[Nécessite un redémarrage]</color></i></b>
-ModUi/&EnableLogDialoguesToConsole=Enable log dialogues to game console during narrative sequences
-ModUi/&EnableMinInOutAttributes=<i>+ Enforce ability scores minimum in & out pre-requisites</i>
-ModUi/&EnableMulticlass=Enable multiclass <b><i><color=#C04040E0>[Nécessite un redémarrage]</color></i></b>
-ModUi/&EnableRelearnSpells=<i>+ Can select cantrips or spells already learned from other classes</i>
-ModUi/&EnableRespec=Enable the RESPEC after rest action
-ModUi/&EnablesAsiAndFeat=Enable both attribute scores increase and feat selection <i><color=#F0DAA0>[instead of an exclusive choice]</color></i>
-ModUi/&EnableSaveByLocation=Enable save by campaigns / locations
-ModUi/&EnableSortingDungeonMakerAssets=Enable assets sorting on Dungeon Maker editor
-ModUi/&EnableStatsOnHeroTooltip=Display stats on hero's tooltip <i><color=#F0DAA0>[i.e.: critical hits, critical failures, etc.]</color></i>
-ModUi/&EnableTeleportParty=Enable <color=#1E81B0>CTRL-SHIFT-(T)</color> to teleport the party <i><color=#F0DAA0>[you might break quests if you teleport to an undiscovered place]</color></i>
+ModUi/&EnableLogDialoguesToConsole=Afficher les dialogues de journal dans la console pendant les séquences narratives
+ModUi/&EnableMinInOutAttributes=<i>+ Appliquer les scores de capacité minimums des pré-requis d'entrée et de sortie.</i>
+ModUi/&EnableMulticlass=Activer le multiclassage <b><i><color=#C04040E0>[Nécessite un redémarrage]</color></i></b>
+ModUi/&EnableRelearnSpells=<i>+ Autoriser la sélection des sorts mineurs ou des sorts déjà connus par d'autres classes.</i>
+ModUi/&EnableRespec=Activez l'action de respécialisation après le repos
+ModUi/&EnablesAsiAndFeat=Activer à la fois l'augmentation des scores d'attributs et la sélection des dons. <i><color=#F0DAA0>[à la place d'un choix exclusif]</color></i>
+ModUi/&EnableSaveByLocation=Activer la sauvegarde par campagnes / lieux
+ModUi/&EnableSortingDungeonMakerAssets=Activer le tri des actifs dans le Créateur de Donjons
+ModUi/&EnableStatsOnHeroTooltip=Affichage les statistiques dans l'infobulle du héros <i><color=#F0DAA0>[i.e.: coups critiques, échecs critiques etc.]</color></i>
+ModUi/&EnableTeleportParty=Activer <color=#1E81B0>CTRL-SHIFT-(T)</color> pour téléporter l''équipe <i><color=#F0DAA0>[you might break quests if you teleport to an undiscovered place]</color></i>
 ModUi/&EnableTogglesToOverwriteDefaultTestParty=Enable toggles on character pool to set your default play and test party
 ModUi/&EnableUpcastConjureElementalAndFey=Enable upcast of <color=#D89555>Conjure Elemental</color> and <color=#D89555>Conjure Fey</color>
 ModUi/&Encounters=Encounters
