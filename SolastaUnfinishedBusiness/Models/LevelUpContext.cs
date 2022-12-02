@@ -331,11 +331,14 @@ internal static class LevelUpContext
         var selectedRepertoire = GetSelectedClassOrSubclassRepertoire(hero);
         var knownSpells = new Dictionary<SpellDefinition, string>();
 
+
         foreach (var spellRepertoire in hero.SpellRepertoires
                      .Where(x => x != selectedRepertoire))
         {
+            var maxSpellLevel = spellRepertoire.MaxSpellLevelOfSpellCastingLevel;
             var castingFeature = spellRepertoire.SpellCastingFeature;
             var tag = "Multiclass";
+
             if (spellRepertoire.spellCastingClass != null)
             {
                 tag = $"{ExtraClassTag}|{spellRepertoire.spellCastingClass.Name}";
@@ -352,19 +355,18 @@ internal static class LevelUpContext
             switch (castingFeature.spellKnowledge)
             {
                 case RuleDefinitions.SpellKnowledge.Selection:
-                    knownSpells.TryAddRange(spellRepertoire.AutoPreparedSpells, tag);
+                    knownSpells.TryAddRange(spellRepertoire.AutoPreparedSpells.Where(x => x.SpellLevel <= maxSpellLevel), tag);
                     knownSpells.TryAddRange(spellRepertoire.KnownCantrips, tag);
                     knownSpells.TryAddRange(spellRepertoire.KnownSpells, tag);
                     break;
                 case RuleDefinitions.SpellKnowledge.Spellbook:
-                    knownSpells.TryAddRange(spellRepertoire.AutoPreparedSpells, tag);
+                    knownSpells.TryAddRange(spellRepertoire.AutoPreparedSpells.Where(x => x.SpellLevel <= maxSpellLevel), tag);
                     knownSpells.TryAddRange(spellRepertoire.KnownCantrips, tag);
                     knownSpells.TryAddRange(spellRepertoire.KnownSpells, tag);
                     knownSpells.TryAddRange(spellRepertoire.EnumerateAvailableScribedSpells(), tag);
                     break;
                 case RuleDefinitions.SpellKnowledge.WholeList:
-                    knownSpells.TryAddRange(castingFeature.SpellListDefinition.SpellsByLevel.SelectMany(s => s.Spells),
-                        tag);
+                    knownSpells.TryAddRange(castingFeature.SpellListDefinition.SpellsByLevel.SelectMany(s => s.Spells).Where(x => x.SpellLevel <= maxSpellLevel), tag);
                     break;
             }
         }
