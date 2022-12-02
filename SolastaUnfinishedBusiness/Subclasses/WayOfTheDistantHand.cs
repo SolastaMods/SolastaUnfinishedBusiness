@@ -3,6 +3,7 @@ using SolastaUnfinishedBusiness.Api.Extensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
+using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Properties;
 using static RuleDefinitions;
@@ -143,35 +144,14 @@ internal sealed class WayOfTheDistantHand : AbstractSubclass
         // LEVEL 06
         //
 
-        var additionalActionWayOfTheDistantHandExtraAttack1 = FeatureDefinitionAdditionalActionBuilder
-            .Create("AdditionalActionWayOfTheDistantHandExtraAttack1")
-            .SetGuiPresentationNoContent(true)
-            .SetCustomSubFeatures(
-                new AddExtraMainHandAttack(ActionDefinitions.ActionType.Bonus, true,
-                    ValidatorsCharacter.NoArmor, ValidatorsCharacter.NoShield, WieldsZenArcherWeapon))
-            .SetActionType(ActionDefinitions.ActionType.Bonus)
-            .SetRestrictedActions(ActionDefinitions.Id.AttackOff)
-            .AddToDB();
-
-        var additionalActionWayOfTheDistantHandExtraAttack2 = FeatureDefinitionAdditionalActionBuilder
-            .Create("AdditionalActionWayOfTheDistantHandExtraAttack2")
-            .SetGuiPresentationNoContent(true)
-            .SetActionType(ActionDefinitions.ActionType.Bonus)
-            .SetRestrictedActions(ActionDefinitions.Id.AttackOff)
-            .AddToDB();
-
-        //
-        // LEVEL 06
-        //
-
-        var flurryOfArrowsSprite = Sprites.GetSprite("FlurryOfArrows", Resources.FlurryOfArrows, 128, 64);
-
+        //ideally this should be simple feature, but leaving as Power for compatibility
         var powerWayOfTheDistantHandZenArcherFlurryOfArrows = FeatureDefinitionPowerBuilder
             .Create("PowerWayOfTheDistantHandZenArcherFlurryOfArrows")
-            .SetGuiPresentation(Category.Feature, flurryOfArrowsSprite)
+            .SetGuiPresentation(Category.Feature)
             .SetUsesFixed(ActivationTime.BonusAction, RechargeRate.KiPoints, 2)
-            .SetCustomSubFeatures(new ValidatorsPowerUse(
-                ValidatorsCharacter.HasAnyOfConditions(ConditionDefinitionBuilder
+            .SetCustomSubFeatures(
+                PowerVisibilityModifier.Hidden,
+                new UpgradeFlurry(ConditionDefinitionBuilder
                     .Create("ConditionWayOfTheDistantHandAttackedWithMonkWeapon")
                     .SetGuiPresentationNoContent(true)
                     .SetSilent(Silent.WhenAddedOrRemoved)
@@ -180,27 +160,12 @@ internal sealed class WayOfTheDistantHand : AbstractSubclass
                     .SetSpecialInterruptions(
                         ConditionInterruption.BattleEnd,
                         ConditionInterruption.AnyBattleTurnEnd)
-                    .AddToDB()),
-                ValidatorsCharacter.NoShield,
-                ValidatorsCharacter.NoArmor))
-            .SetEffectDescription(EffectDescriptionBuilder.Create()
-                .SetEffectForms(EffectFormBuilder.Create()
-                    .SetConditionForm(ConditionDefinitionBuilder
-                            .Create("ConditionWayOfTheDistantHandZenArcherFlurryOfArrows")
-                            .SetGuiPresentationNoContent(true)
-                            .SetSilent(Silent.WhenAddedOrRemoved)
-                            .SetSpecialDuration(DurationType.Round, 0, false)
-                            .SetTurnOccurence(TurnOccurenceType.EndOfTurn)
-                            .SetSpecialInterruptions(
-                                ConditionInterruption.BattleEnd,
-                                ConditionInterruption.AnyBattleTurnEnd)
-                            .SetFeatures(
-                                additionalActionWayOfTheDistantHandExtraAttack1,
-                                additionalActionWayOfTheDistantHandExtraAttack2)
-                            .AddToDB(),
-                        ConditionForm.ConditionOperation.Add, true, true)
-                    .Build())
-                .Build())
+                    .SetFeatures(FeatureDefinitionBuilder
+                        .Create("FeatureWayOfTheDistantHandFlurry")
+                        .SetGuiPresentationNoContent(true)
+                        .SetCustomSubFeatures(AddFlurryOfArrowsAttacks.Mark)
+                        .AddToDB())
+                    .AddToDB()))
             .SetShowCasting(false)
             .AddToDB();
 
@@ -446,5 +411,80 @@ internal sealed class WayOfTheDistantHand : AbstractSubclass
     private sealed class ZenArcherStunningArrows
     {
         // used for easier detection of Zen Archer characters to allow stunning strike on arrows
+    }
+
+    private sealed class UpgradeFlurry : IOnAfterActionFeature
+    {
+        private readonly ConditionDefinition condition;
+
+        public UpgradeFlurry(ConditionDefinition condition)
+        {
+            this.condition = condition;
+        }
+
+        public void OnAfterAction(CharacterAction action)
+        {
+            if (action is not CharacterActionFlurryOfBlows)
+            {
+                return;
+            }
+
+            var character = action.ActingCharacter?.RulesetCharacter;
+            if (character == null)
+            {
+                return;
+            }
+
+            var rulesetCondition = RulesetCondition.CreateActiveCondition(character.Guid,
+                condition,
+                DurationType.Round,
+                1,
+                TurnOccurenceType.StartOfTurn,
+                character.Guid,
+                string.Empty
+            );
+
+            character.AddConditionOfCategory(AttributeDefinitions.TagCombat, rulesetCondition);
+
+        }
+    }
+
+    private sealed class AddFlurryOfArrowsAttacks : AddExtraAttackBase
+    {
+        public static AddFlurryOfArrowsAttacks Mark { get; } = new();
+
+        private AddFlurryOfArrowsAttacks() : base(ActionDefinitions.ActionType.Bonus, ValidatorsCharacter.NoArmor,
+            ValidatorsCharacter.NoShield, WieldsZenArcherWeapon)
+        {
+        }
+
+        protected override AttackModeOrder GetOrder(RulesetCharacterHero hero)
+        {
+            return AttackModeOrder.Start;
+        }
+
+        protected override List<RulesetAttackMode> GetAttackModes(RulesetCharacterHero hero)
+        {
+            var mainHandItem = hero.CharacterInventory.InventorySlotsByName[EquipmentDefinitions.SlotTypeMainHand]
+                .EquipedItem;
+
+            var strikeDefinition = mainHandItem.itemDefinition;
+
+            var attackModifiers = hero.attackModifiers;
+
+            var attackMode = hero.RefreshAttackMode(
+                ActionType,
+                strikeDefinition,
+                strikeDefinition.WeaponDescription,
+                ValidatorsCharacter.IsFreeOffhandForUnarmedTa(hero),
+                true,
+                EquipmentDefinitions.SlotTypeMainHand,
+                attackModifiers,
+                hero.FeaturesOrigin,
+                mainHandItem
+            );
+            attackMode.attacksNumber = 2;
+            return new List<RulesetAttackMode> {attackMode};
+        }
     }
 }
