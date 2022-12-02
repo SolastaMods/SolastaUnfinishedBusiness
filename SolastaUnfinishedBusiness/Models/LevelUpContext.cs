@@ -399,6 +399,16 @@ internal static class LevelUpContext
             : levelUpData.OtherClassesKnownSpells;
     }
 
+    internal static int GetMaxAutoPrepSpellsLevel(
+        RulesetCharacter rulesetCharacter,
+        FeatureDefinitionAutoPreparedSpells featureDefinitionAutoPreparedSpells)
+    {
+        var spellCastingClass = featureDefinitionAutoPreparedSpells.SpellcastingClass;
+        var spellRepertoire = rulesetCharacter.SpellRepertoires
+            .Find(x => x.SpellCastingClass == spellCastingClass);
+        return spellRepertoire?.MaxSpellLevelOfSpellCastingLevel ?? 1;
+    }
+
     internal static void EnumerateExtraSpells(
         Dictionary<SpellDefinition, string> extraSpells,
         RulesetCharacterHero hero)
@@ -410,9 +420,7 @@ internal static class LevelUpContext
 
         foreach (var feature in hero.GetFeaturesByType<FeatureDefinitionAutoPreparedSpells>())
         {
-            var spellCastingClass = feature.SpellcastingClass;
-            var spellRepertoire = hero.SpellRepertoires.Find(x => x.SpellCastingClass == spellCastingClass);
-            var maxLevel = spellRepertoire.MaxSpellLevelOfSpellCastingLevel;
+            var maxLevel = GetMaxAutoPrepSpellsLevel(hero, feature);
 
             foreach (var spell in feature.AutoPreparedSpellsGroups
                          .SelectMany(x => x.SpellsList)
@@ -434,9 +442,7 @@ internal static class LevelUpContext
 
         foreach (var feature in features)
         {
-            var spellCastingClass = feature.SpellcastingClass;
-            var spellRepertoire = hero.SpellRepertoires.Find(x => x.SpellCastingClass == spellCastingClass);
-            var maxLevel = spellRepertoire.MaxSpellLevelOfSpellCastingLevel;
+            var maxLevel = GetMaxAutoPrepSpellsLevel(hero, feature);
 
             foreach (var spell in feature.AutoPreparedSpellsGroups
                          .SelectMany(x => x.SpellsList)

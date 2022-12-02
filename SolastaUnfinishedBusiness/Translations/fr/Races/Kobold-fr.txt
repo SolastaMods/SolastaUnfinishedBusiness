@@ -1,0 +1,8 @@
+Feature/&CastSpellDraconicKoboldMagicDescription=You know one cantrip of your choice from the Sorcerer spell list. Charisma is your spellcasting ability for it.
+Feature/&CastSpellDraconicKoboldMagicTitle=Kobold Magic
+Feature/&PowerDraconicKoboldDraconicCryDescription=As a bonus action, you let out a cry at your enemies within 10 feet of you. Until the start of your next turn, you and your allies have advantage on attack rolls against any of those enemies who could hear you. You can use this trait a number of times equal to your proficiency bonus, and you regain all expended uses when you finish a long rest.
+Feature/&PowerDraconicKoboldDraconicCryTitle=Draconic Cry
+Feature/&ProficiencyKoboldLanguagesDescription=Common, Draconic.
+Feature/&ProficiencyKoboldLanguagesTitle=Languages
+Race/&RaceKoboldDescription=Kobolds are small reclusive creatures. Recently, some of the more advanced tribes of kobolds have chosen to reveal themselves and interact with other races. It is not a coincidence that this is happening at the same time as the dragonborn making themselves known, as the most advanced kobolds seem to in many ways mimic the dragonborn, even naming themselves in a similar style. They may even be more advanced than other kobolds due to intermingling with the dragonborn.
+Race/&RaceKoboldTitle=Kobold

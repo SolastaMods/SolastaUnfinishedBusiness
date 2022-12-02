@@ -1047,6 +1047,8 @@ internal static partial class DatabaseHelper
     }
     internal static class RecipeDefinitions
     {
+        internal static RecipeDefinition RecipeBasic_Arrows { get; } = GetDefinition<RecipeDefinition>("RecipeBasic_Arrows");
+        internal static RecipeDefinition RecipeBasic_Bolts { get; } = GetDefinition<RecipeDefinition>("RecipeBasic_Bolts");
         internal static RecipeDefinition Recipe_Enchantment_BattleaxePunisher { get; } = GetDefinition<RecipeDefinition>("Recipe_Enchantment_BattleaxePunisher");
         internal static RecipeDefinition Recipe_Enchantment_BreastplateOfDeflection { get; } = GetDefinition<RecipeDefinition>("Recipe_Enchantment_BreastplateOfDeflection");
         internal static RecipeDefinition Recipe_Enchantment_DaggerFrostburn { get; } = GetDefinition<RecipeDefinition>("Recipe_Enchantment_DaggerFrostburn");

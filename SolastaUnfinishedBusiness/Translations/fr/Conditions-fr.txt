@@ -1,0 +1,8 @@
+Condition/&AfterRestIdentifyDescription=Identification des objets magiques
+Condition/&AfterRestIdentifyTitle=Identifier
+Condition/&ConditionDistractedByAllyDescription=Cette créature a été distraite.
+Condition/&ConditionDistractedByAllyTitle=Distrait
+Condition/&ConditionLightSensitivityDescription=Vous avez un désavantage sur les tests de Sagesse (Perception) dans la lumière vive et subissez une pénalité de -1d4 aux jets d'attaque.
+Condition/&ConditionLightSensitivityTitle=Sensibilité à la lumière
+Condition/&ConditionStopMovementDescription=Impossible de se déplacer. Vitesse réduite à 0.
+Condition/&ConditionStopMovementTitle=Arrêté

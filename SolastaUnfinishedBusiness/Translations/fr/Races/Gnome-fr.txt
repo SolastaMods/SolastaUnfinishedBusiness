@@ -1,0 +1,14 @@
+Feature/&AttributeModifierForestGnomeAbilityScoreIncreaseDescription=Dexterity +1
+Feature/&AttributeModifierForestGnomeAbilityScoreIncreaseTitle=Forest Gnome Attribute Increase
+Feature/&AttributeModifierGnomeAbilityScoreIncreaseDescription=Intelligence +2
+Feature/&AttributeModifierGnomeAbilityScoreIncreaseTitle=Gnome Attribute Increase
+Feature/&SavingThrowAffinityGnomeCunningFeatureDescription=You have advantage on all Intelligence, Wisdom, and Charisma saves against magic.
+Feature/&SavingThrowAffinityGnomeCunningFeatureTitle=Cunning
+Feature/&CastSpellGnomeNaturalIllusionistDescription=You know the Annoying Bee cantrip. Intelligence is your spellcasting modifier for it.
+Feature/&CastSpellGnomeNaturalIllusionistTitle=Natural Illusionist
+Feature/&ProficiencyGnomeLanguagesDescription=Common, Gnomish.
+Feature/&ProficiencyGnomeLanguagesTitle=Languages
+Language/&LanguageGnomishDescription=An old Solastan language, preserved by gnomes living in deep forests of Solasta, it has survived the Cataclysm.
+Language/&LanguageGnomishTitle=Gnomish
+Race/&RaceGnomeDescription=A constant hum of busy activity pervades the warrens and neighborhoods where gnomes form their close-knit communities. Louder sounds punctuate the hum: a crunch of grinding gears here, a minor explosion there, a yelp of surprise or triumph, and especially bursts of laughter. Gnomes take delight in life, enjoying every moment of invention, exploration, investigation, creation, and play.
+Race/&RaceGnomeTitle=Gnome

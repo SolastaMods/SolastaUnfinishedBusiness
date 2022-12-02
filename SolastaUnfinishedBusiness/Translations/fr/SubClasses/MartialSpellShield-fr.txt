@@ -1,0 +1,12 @@
+Feature/&CastSpellSpellShieldDescription=Cast Wizard spells and cantrips.
+Feature/&CastSpellSpellShieldTitle=Spellcasting
+Feature/&MagicAffinitySpellShieldCombatMagicVigorDescription=Add your strength or dexterity modifier, whichever is higher, to your spell saving throw DC and spell attack roll.
+Feature/&MagicAffinitySpellShieldCombatMagicVigorTitle=Vigor
+Feature/&PowerSpellShieldArcaneDeflectionDescription=You can use your arcane powers to shield yourself as a reaction. This gives you +3 to your AC until your next turn.
+Feature/&PowerSpellShieldArcaneDeflectionTitle=Arcane Deflection
+Feature/&PowerSpellShieldRangedDeflectionDescription=When an attacker that you can see hits you with a ranged attack or spell, you can use your reaction to halve the attack's damage against you.
+Feature/&PowerSpellShieldRangedDeflectionTitle=Ranged Deflection
+Reaction/&SpendPowerPowerSpellShieldArcaneDeflectionDescription=You can use your arcane powers to shield yourself as a reaction.
+Reaction/&SpendPowerPowerSpellShieldArcaneDeflectionTitle=Spell Shield
+Subclass/&MartialSpellShieldDescription=Spell Shields are fighters that specialize in defense and protection. They use magic to aid their natural abilities.
+Subclass/&MartialSpellShieldTitle=Spell Shield

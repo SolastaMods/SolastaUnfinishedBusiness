@@ -1,5 +1,12 @@
 ﻿CHANGES:
 
+1.4.30.7:
+
+- added initial support for French
+- fixed custom campaigns initial recipes
+- fixed reaction gambits to not trigger when knocked prone
+- fixed warning on level 1 spells selection
+
 1.4.30.6:
 
 - enabled cancel action with right mouse click
