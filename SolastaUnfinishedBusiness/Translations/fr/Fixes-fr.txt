@@ -1,3 +1,4 @@
+Screen/&ReviewGameDescription=Cliquer ici pour ouvrir l'interface et nous laisser un avis. Merci de jouer à Solasta !
 ContentPack/&SupporterPackTitle=Supporter Pack
 ContentPack/&SorcererUpdateTitle=Sorcerer Update
 ContentPack/&InnerStrengthTitle=Inner Strength DLC
