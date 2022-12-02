@@ -1,3 +1,6 @@
+Screen/&CraftingNoOptionSelectedTitle=Sélectionner une des options de fabrication.
+Tooltip/&StackSizeTitle=Pile
+Screen/&PersonalityValueFormat=Score de la personnalité '{0}' : {1}.
 DialogFlags/&Authority_Description=Ce personnage a tendance à appliquer les règles et les croyances avec autorité et leadership.
 DialogFlags/&Authority_Title=Autoritaire
 DialogFlags/&Cynicism_Description=Ce personnage a tendance à se moquer des principes et des valeurs.
