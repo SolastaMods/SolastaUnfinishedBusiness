@@ -3,8 +3,8 @@
 1.4.30.6:
 
 - enabled cancel action with right mouse click
-- fixed Deadeye and Power Attack requiring reenable on every round
-- fixed a Multiclass spell learning scenario with dips on casters with auto prepared spells
+- fixed Deadeye and Power Attack requiring to be enabled on every round
+- fixed a Multiclass spell learning scenario when dipping on casters with auto prepared spells
 
 1.4.30.5:
 
