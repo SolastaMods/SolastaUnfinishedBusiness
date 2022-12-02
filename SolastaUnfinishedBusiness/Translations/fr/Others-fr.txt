@@ -1,6 +1,6 @@
 Action/&CastPlaneMagicDescription=Lancez l'un des sorts que vous avez obtenus grâce aux exploits Plane Touched.
 Action/&CastPlaneMagicTitle=Canaliser la magie de plan
-Action/&FarStepDescription=Téléportation jusqu'à 60 cases sur une case inoccupée que vous pouvez voir.
+Action/&FarStepDescription=Téléportation jusqu'à 60 cases sur une case inoccupée visible.
 Action/&FarStepTitle=Pas loin
 Action/&InventorInfusionDescription=Infuser un objet ou créer une réplique
 Action/&InventorInfusionTitle=Infusions
