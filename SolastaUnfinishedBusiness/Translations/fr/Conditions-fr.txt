@@ -1,8 +1,8 @@
-Condition/&AfterRestIdentifyDescription=Identifying magic items
-Condition/&AfterRestIdentifyTitle=Identifying
-Condition/&ConditionDistractedByAllyDescription=This creature has been distracted.
-Condition/&ConditionDistractedByAllyTitle=Distracted
-Condition/&ConditionLightSensitivityDescription=You have Disadvantage on Wisdom (Perception) checks in bright light and suffers a -1d4 penalty on attack rolls.
-Condition/&ConditionLightSensitivityTitle=Light Sensitivity
-Condition/&ConditionStopMovementDescription=Unable to move. Speed set to 0.
-Condition/&ConditionStopMovementTitle=Stopped
+Condition/&AfterRestIdentifyDescription=Identification des objets magiques
+Condition/&AfterRestIdentifyTitle=Identifier
+Condition/&ConditionDistractedByAllyDescription=Cette créature a été distraite.
+Condition/&ConditionDistractedByAllyTitle=Distrait
+Condition/&ConditionLightSensitivityDescription=Vous avez un désavantage sur les tests de Sagesse (Perception) dans la lumière vive et subissez une pénalité de -1d4 aux jets d'attaque.
+Condition/&ConditionLightSensitivityTitle=Sensibilité à la lumière
+Condition/&ConditionStopMovementDescription=Impossible de se déplacer. Vitesse réduite à 0.
+Condition/&ConditionStopMovementTitle=Arrêté
