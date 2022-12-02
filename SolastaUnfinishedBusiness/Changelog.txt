@@ -13,3 +13,7 @@ CHANGES:
 - fixed Deadeye and Power Attack wrong activation duration
 - fixed Metamagic feat not checking if already learned
 - reworked Distant Hand's Flurry of Arrows to trigger off Flurry of Blows activation
+
+KNOWN ISSUES:
+
+- cannot craft basic arrows or bolts

@@ -1,13 +1,5 @@
 {
-  "$type": "FeatureDefinitionAdditionalAction, Assembly-CSharp",
-  "actionType": "Bonus",
-  "forbiddenActions": [],
-  "authorizedActions": [],
-  "restrictedActions": [
-    "AttackOff"
-  ],
-  "maxAttacksNumber": -1,
-  "triggerCondition": "None",
+  "$type": "FeatureDefinition, Assembly-CSharp",
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
@@ -32,7 +24,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "5f17da75-904c-50fc-abe3-8aaf3fac7eba",
+  "guid": "26f67b2f-3d78-5031-b01d-e6075b425016",
   "contentPack": 9999,
-  "name": "AdditionalActionWayOfTheDistantHandExtraAttack2"
+  "name": "FeatureWayOfTheDistantHandFlurry"
 }

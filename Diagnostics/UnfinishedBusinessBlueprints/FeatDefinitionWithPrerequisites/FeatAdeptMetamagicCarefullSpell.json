@@ -1,5 +1,5 @@
 {
-  "$type": "FeatDefinition, Assembly-CSharp",
+  "$type": "SolastaUnfinishedBusiness.CustomDefinitions.FeatDefinitionWithPrerequisites, SolastaUnfinishedBusiness",
   "compatibleClassesPrerequisite": [],
   "mustCastSpellsPrerequisite": true,
   "compatibleRacesPrerequisite": [],
@@ -14,13 +14,13 @@
   "features": [
     "Definition:ActionAffinitySorcererMetamagicToggle:04a952fbc7800154cab7f4994e3ac481",
     "Definition:AttributeModifierSorcererSorceryPointsBonus3:62adbaa6-4099-5d5b-a0fc-584f03eef4c2",
-    "Definition:CustomCodeFeatAdeptMetamagicExtendedSpell:88261d1d-d150-554b-8d8d-e88547fc01ae"
+    "Definition:CustomCodeFeatAdeptMetamagicCarefullSpell:ca9bce43-9e8a-5f2a-a99d-f0653b5f9988"
   ],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
-    "title": "Metamagic: Extended Spell",
-    "description": "You gain 3 sorcery points and learn the Extended Spell metamagic: Doubles the duration of spell lasting 1 minute or more, to a maximum of 24 hours ",
+    "title": "Metamagic: Careful Spell",
+    "description": "You gain 3 sorcery points and learn the Careful Spell metamagic: Allied creatures affected by the spell automatically succeed their saving throw ",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -40,7 +40,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "fdbab52a-0c7d-5f7d-a7d0-67716ac95a11",
+  "guid": "cc6dbc8a-e73c-58c8-83e5-ad0f371c6f6e",
   "contentPack": 9999,
-  "name": "FeatAdeptMetamagicExtendedSpell"
+  "name": "FeatAdeptMetamagicCarefullSpell"
 }
