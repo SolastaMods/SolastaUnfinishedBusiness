@@ -1,3 +1,26 @@
+Attribute/&ProficiencyBonusDescription=Le bonus de maîtrise est un bonus qui vient s'ajouter aux jets dans les domaines maîtrisés : les jets d'attaque avec des armes maîtrisées, de compétence, d'outil, les jets de sauvegarde, le bonus d'attaque et la difficulté de sauvegarde de vos attaques magiques. Le bonus de maîtrise est augmenté aux niveaux 5, 9, 13 et 17, représentant l'évolution de l'expertise du personnage pour ces attaques, compétences/outils, jets de sauvegarde et capacités magiques.
+Stage/&BackgroundPersonalityFlagsTitle=Traits de personnalité liés à l'historique (2)
+Stage/&AlignementPersonalityFlagsTitle=Traits de personnalité supplémentaires (2)
+Feature/&SkillGainChoicesPluralDescription=Choisit {0} de ces compétences : {1}
+Feature/&SkillGainChoicesSingleDescription	Choisit l'une de ces compétences : {0}
+Feature/&ElfHighCastSpellDescription=Choisit un sort mineur de magicien faisant appel à la caractéristique de lancement de sort Intelligence.
+Feature/&VisionDarkvisionDescription=Voit normalement même par lumière faible. Dans l'obscurité, voit comme s'il y avait une lumière faible.
+Feature/&HalflingLuckyDescription=Lorsqu'un 1 est lancé sur un jet d'attaque, jet de caractéristique ou jet de sauvegarde, relance et utilise le nouveau lancer.
+Feature/&HalflingNimblenessDescription=Peut se déplacer dans la zone de n'importe quelle créature plus grande que soi.
+Attribute/&IntelligenceDescription=L'Intelligence détermine l'acuité mentale, la précision de la mémoire et la capacité à raisonner d'un personnage.\nImportant pour les magiciens.
+Feature/&DragonbornDamageResistanceDescription=Résistance contre le type de dégâts lié à son ascendance draconique.
+Feature/&FeatureSetDragonbornBreathWeaponDescription=Peut utiliser son action pour souffler une énergie destructrice basée sur son ascendance draconique.
+Feature/&ProficiencyHalfOrcMenacingDescription=Maîtrise de la compétence Intimidation.
+Feature/&MartialCommanderBonusProficienciesDescription=Maîtrise des compétences Intimidation et Perspicacité.
+Attribute/&ConstitutionDescription=La Constitution mesure la santé, l'endurance et la force vitale d'un personnage.\nImportant pour toutes les classes.
+Attribute/&CharismaDescription=Le Charisme détermine la capacité qu'a un personnage à interagir efficacement avec les autres. Il comprend des facteurs comme la confiance et l'éloquence et peut incarner une personnalité charmante ou dominante.\nImportant pour les paladins, ensorceleurs, bardes et occultistes.
+Attribute/&WisdomDescription=La Sagesse reflète la façon dont un personnage est à l'écoute du monde qui l'entoure ainsi que sa perspicacité et son intuition.\n Important pour les clercs, rôdeurs, druides et moines.
+Attribute/&DexterityDescription=La Dextérité mesure l'agilité, les réflexes et l'équilibre d'un personnage.\nImportant pour les rôdeurs, roublards et moines.
+Attribute/&StrengthDescription=La Force détermine la puissance physique, l'entraînement sportif et jusqu'à quel point un personnage peut exercer une force physique brute.\nImportant pour les guerriers, paladins et barbares.
+Attribute/&HitPointsDescription=Le nombre maximal de points de vie qu'un personnage peut perdre avant de tomber inconsciente ou mourir.
+Attribute/&MovePointsDescription=Le nombre de cases sur lesquelles un personnage peut se déplacer durant un round de combat.
+Attribute/&ArmorClassDescription=La classe d'armure (CA) représente l'aptitude d'un personnage à éviter les coups en combat.
+Attribute/&InitiativeDescription=L'Initiative détermine l'ordre des tours des personnages en combat.
 Setting/&AiUsesPowerfulMovesMoreOftenTitle=IA plus mortelles
 Setting/&AiUsesPowerfulMovesMoreOftenDescription=Les ennemis utilisent des actions puissantes (comme des sorts à zone d’effet) plus souvent et pousseront les personnages vers une mort certaine.
 Setting/&AiTargetsHelplessCharactersTitle	IA sans merci
