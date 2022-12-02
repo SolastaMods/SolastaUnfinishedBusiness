@@ -5,12 +5,9 @@
 
 CHANGES:
 
-1.4.30.6:
+1.4.30.7:
 
-- enabled cancel action with right mouse click
-- changed Inventor to ignore Somatic component of spells when holding any infused item in hands
-- fixed a Multiclass spell learning scenario when dipping casters with auto prepared spells
-- fixed Deadeye and Power Attack wrong activation duration
-- fixed Metamagic feat not checking if already learned
-- fixed recipes not getting offered on crafting screen
-- reworked Distant Hand's Flurry of Arrows to trigger off Flurry of Blows activation
+- added initial support for French
+- fixed custom campaigns initial recipes
+- fixed reaction gambits to not trigger when knocked prone
+- fixed warning on level 1 spells selection
