@@ -1,8 +1,8 @@
 ModUi/&AddAllToStore=Ajouter tout au magasin
-ModUi/&AddBleedingToLesserRestoration=Add the <color=#D89555>Bleeding</color> condition to the ones removed by <color=#D89555>Greater</color> and <color=#D89555>Lesser Restoration</color>
-ModUi/&AddHelpActionToAllRaces=Add the <color=#D89555>Help</color> action to all playable races <i><color=#F0DAA0>[you can aid a friendly creature in attacking a creature within 5 feet of you]</color></i>
+ModUi/&AddBleedingToLesserRestoration=Ajouter l'état <color=#D89555>Saignement</color> à ceux retirés par <color=#D89555>Restauration supérieure</color> et <color=#D89555>Restauration partielle</color>
+ModUi/&AddHelpActionToAllRaces=Ajouter l'action <color=#D89555>Aider</color> à toutes les races jouables <i><color=#F0DAA0>[vous pouvez aider une créature amie à attaquer une créature située à moins de 5 cases de vous.]</color></i>
 ModUi/&AddNewBrightEyeColors=Ajouter de nouvelles couleurs vives pour les yeux
-ModUi/&AddNewWeaponsAndRecipesToShops=Add new weapons and recipes to shops <i><color=#F0DAA0>[hand wraps, halberds, pikes, long maces, hand crossbows]</color></i> <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
+ModUi/&AddNewWeaponsAndRecipesToShops=Ajouter de nouvelles armes et recettes dans les magasins <i><color=#F0DAA0>[hand wraps, hallebardes, piques, masses longues, arbalètes de poing]</color></i> <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
 ModUi/&AddPickPocketableLoot=Add pickpocketable loot <i><color=#F0DAA0>[suggested if <color=#D89555>Pickpocket</color> feat is enabled]</color></i>
 ModUi/&AddToStore=Ajouter au magasin
 ModUi/&Advanced=<color=#F0DAA0>Advanced:</color> <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
