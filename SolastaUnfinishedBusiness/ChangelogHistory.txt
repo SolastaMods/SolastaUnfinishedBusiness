@@ -1,5 +1,7 @@
 ﻿CHANGES:
 
+1.4.30.8:
+
 1.4.30.7:
 
 - added initial support for French
