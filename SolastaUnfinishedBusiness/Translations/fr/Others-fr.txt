@@ -1,10 +1,10 @@
-Action/&CastPlaneMagicDescription=Lancez l'un des sorts que vous avez obtenus grâce aux exploits Plane Touched.
+Action/&CastPlaneMagicDescription=Lancez l'un des sorts que vous avez obtenus grâce aux dons de Plane Touched.
 Action/&CastPlaneMagicTitle=Canaliser la magie de plan
-Action/&FarStepDescription=Téléportation jusqu'à 60 cases sur une case inoccupée visible.
+Action/&FarStepDescription=Téléporter jusqu'à 60 cases sur une case inoccupée visible.
 Action/&FarStepTitle=Pas loin
 Action/&InventorInfusionDescription=Infuser un objet ou créer une réplique
 Action/&InventorInfusionTitle=Infusions
-Action/&TacticianGambitDescription=Sélectionner une manœuvre spéciale
+Action/&TacticianGambitDescription=Choisir une manœuvre spéciale
 Action/&TacticianGambitTitle=Tactiques
 BlueprintCategory/&FlatRoomsTitle=Chambres à coucher
 ContentPack/&9999Description=Ajoute le multiclassage, des races, des sous-classes, des exploits, des styles de combat et des sorts. La limite de niveau est plus élevée, des caractéristiques de qualité de vie, des corrections et bien plus encore. Une véritable corne d'abondance...
