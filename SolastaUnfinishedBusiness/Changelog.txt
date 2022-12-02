@@ -12,8 +12,5 @@ CHANGES:
 - fixed a Multiclass spell learning scenario when dipping casters with auto prepared spells
 - fixed Deadeye and Power Attack wrong activation duration
 - fixed Metamagic feat not checking if already learned
+- fixed recipes not getting offered on crafting screen
 - reworked Distant Hand's Flurry of Arrows to trigger off Flurry of Blows activation
-
-KNOWN ISSUES:
-
-- cannot craft basic arrows or bolts
