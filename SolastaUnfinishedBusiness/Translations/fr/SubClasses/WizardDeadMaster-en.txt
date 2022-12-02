@@ -1,0 +1,12 @@
+﻿Feature/&AutoPreparedSpellsDeadMasterDescription={0}.
+Feature/&AutoPreparedSpellsDeadMasterTitle=Dead Master Spells
+Feature/&TargetReducedToZeroHpDeadMasterStarkHarvestDescription=Once per turn when you kill creature with a spell of 1st level or higher, you regain hit points equal to twice the spell's level, or three times its level if the spell belongs to the School of Necromancy. If your health is full you gain temporary hitpoints instead. You don't gain this benefit for killing constructs or undead.
+Feature/&TargetReducedToZeroHpDeadMasterStarkHarvestTitle=Stark Harvest
+Feature/&SummoningAffinityDeadMasterUndeadChainsDescription=Undead created by you have hit point maximum increased by 2 HP per your wizard level and add your proficiency bonus to attack rolls.
+Feature/&SummoningAffinityDeadMasterUndeadChainsTitle=Undead Chains
+Subclass/&WizardDeadMasterDescription=Dead Masters learn to manipulate the energy that animates all living things. As you progress, you learn to sap the life force from a creature as your magic destroys its body, transforming that vital energy into magical power you can manipulate.
+Subclass/&WizardDeadMasterTitle=Dead Master
+Spell/&SpellRaiseDeadFormatDescription=Summons <b>{0}</b>:\n{1}
+Spell/&SpellRaiseDeadFormatTitle=Raise {0}
+Screen/&DeadMasterSpellDescription=This Dead Master spell is always prepared.
+Screen/&DeadMasterSpellTitle=Undead

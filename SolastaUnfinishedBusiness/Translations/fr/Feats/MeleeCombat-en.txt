@@ -1,0 +1,6 @@
+Feat/&FeatPowerAttackDescription=You have learned to trade accuracy to land deadlier blows. When attacking with melee weapons, you can choose to take a -{0} penalty to your to hit in order to do additional damage equal to {0} + your proficiency bonus.
+Feat/&FeatPowerAttackTitle=Power Attack
+Feat/&FeatSavageAttackDescription=Reroll weapon and spell damage dice when you roll a 1 (Not all damage sources re-roll dice. For example, sneak attack and smite damage are not re-rolled).
+Feat/&FeatSavageAttackReroll=Due to being a Savage Attacker {0} re-rolls the {1} die from a {2} to a {3}
+Feat/&FeatSavageAttackTitle=Savage Attack
+Tooltip/&PowerAttackConcentration=Disable Power Attack.
