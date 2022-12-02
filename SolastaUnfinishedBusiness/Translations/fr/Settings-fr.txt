@@ -42,30 +42,30 @@ ModUi/&DisableAutoEquip=Désactiver l'équipement automatique des objets dans l'
 ModUi/&DisplayAllKnownSpellsDuringLevelUp=<i>+ Afficher tous les sorts connus des autres classes lors de la montée de niveau.</i>
 ModUi/&DisplayPactSlotsOnSpellSelectionPanel=<i>+ Afficher les emplacements de pacte de l'<color=#D89555>occultiste</color> sur la sélection des sorts au lieu du panneau des personnages</i>
 ModUi/&DontFollowCharacterInBattle=La caméra de combat ne suit pas lorsque le personnage est déjà à l'écran.
-ModUi/&DontFollowMargin=<i><color=white>+ Unless hero is off or within % of screen edge</color></i>
+ModUi/&DontFollowMargin=<i><color=white>+ Sauf si le héros est en dehors ou à moins de % du bord de l'écran.</color></i>
 ModUi/&DungeonMakerBasicHelp=. Ces paramètres ne nécessitent pas que le joueur ait installé ce mod.
 ModUi/&DungeonMakerMenu=Créateur de donjon
 ModUi/&EmpressGarbAppearance=Apparence de la <color=#D89555>Chemise de mailles de l'impératrice</color>
-ModUi/&EnableAdditionalBackstoryDisplay=Enable additional backstory display on background inspection
-ModUi/&EnableAdditionalIconsOnLevelMap=Enable additional icons for camps, exits and teleporters on level map
-ModUi/&EnableAdditionalItemsInDungeonMaker=<i>+ Add new items to Dungeon Maker</i>
-ModUi/&EnableAlternateHuman=Enable the alternate human <i><color=#F0DAA0>[+1 feat / +2 attribute choices / +1 skill]</color></i>
-ModUi/&EnableBetaContent=Enable beta content <b><i><color=#C04040E0>[Nécessite un redémarrage]</color></i></b>
-ModUi/&EnableCancelEditOnRightMouseClick=Enable cancel actions with right mouse click
-ModUi/&EnableCharacterExport=Enable <color=#1E81B0>CTRL-SHIFT-(E)</color> to export the character
+ModUi/&EnableAdditionalBackstoryDisplay=Activer l'affichage de l'historique supplémentaire lors de l'inspection de l'arrière-plan
+ModUi/&EnableAdditionalIconsOnLevelMap=Activer des icônes supplémentaires pour les camps, les sorties et les téléporteurs sur les cartes de niveau.
+ModUi/&EnableAdditionalItemsInDungeonMaker=<i>+ Ajouter de nouveaux objets au Créateur de Donjons</i>
+ModUi/&EnableAlternateHuman=Activer l'humain alternatif <i><color=#F0DAA0>[+1 don / +2 choix d'attributs / +1 compétence]</color></i>
+ModUi/&EnableBetaContent=Activer le contenu beta <b><i><color=#C04040E0>[Nécessite un redémarrage]</color></i></b>
+ModUi/&EnableCancelEditOnRightMouseClick=Activer les actions d'annulation avec le clic droit de la souris
+ModUi/&EnableCharacterExport=Activer <color=#1E81B0>CTRL-SHIFT-(E)</color> pour exporter un personnage
 ModUi/&EnableCheatMenu=Activer le menu de triche
-ModUi/&EnableDungeonMakerModdedContent=Enable Dungeon Maker Pro\n<i><color=#F0DAA0>[include flat rooms, 150x150 & 200x200 dungeon sizes and no frills mixing assets from all environments]</color></i>
-ModUi/&EnableEpicPointsAndArray=Enable an epic 35 points buy system and array <i><color=#F0DAA0>[17,15,13,12,10,8]</color></i> <b><i><color=#C04040E0>[Nécessite un redémarrage]</color></i></b>
-ModUi/&EnableFeatsAtEvenLevels=Enable feats selection at class levels 2, 6, 10 and 14
-ModUi/&EnableFighterArmamentAdroitness=Enable <color=#D89555>Fighter</color> <b>Weapon Training</b> at class levels 2, 6, 10 and 14 <i><color=#F0DAA0>[pick a weapon type to get +1 to hit and to damage]</color></i>
-ModUi/&EnableFlexibleBackgrounds=Enable flexible backgrounds <i><color=#F0DAA0>[select skill and tool proficiencies from backgrounds]</color></i>
-ModUi/&EnableFlexibleRaces=Enable flexible races <i><color=#F0DAA0>[assign ability score points instead of the racial defaults]</color></i>
-ModUi/&EnableHotkeyDebugOverlay=Enable <color=#1E81B0>CTRL-SHIFT-(D)</color> to display the debug overlay
-ModUi/&EnableHotkeyToggleHud=Enable <color=#1E81B0>CTRL-SHIFT-(H)</color> to toggle the HUD display
-ModUi/&EnableInventoryFilteringAndSorting=Enable inventory filtering and sorting
+ModUi/&EnableDungeonMakerModdedContent=Activer la version Pro du Créateur de Donjons\n<i><color=#F0DAA0>[inclut des pièces plates, des donjons de 150x150 et 200x200 et un mélange d'éléments provenant de tous les environnements.]</color></i>
+ModUi/&EnableEpicPointsAndArray=Active un système épique d'achat de 35 points et un évantail de <i><color=#F0DAA0>[17,15,13,12,10,8]</color></i> <b><i><color=#C04040E0>[Nécessite un redémarrage]</color></i></b>
+ModUi/&EnableFeatsAtEvenLevels=Active la sélection des dons aux niveaux de classe 2, 6, 10 et 14
+ModUi/&EnableFighterArmamentAdroitness=Active l'<b>Entraînement aux armes</b> du <color=#D89555>Guerrier</color> aux niveaux de classe 2, 6, 10 et 14 <i><color=#F0DAA0>[choisissez un type d'arme pour obtenir +1 au toucher et aux dégâts]</color></i>
+ModUi/&EnableFlexibleBackgrounds=Active les backgrounds flexibles <i><color=#F0DAA0>[sélectionner les maîtrises de compétences et d'outils à partir du background]</color></i>
+ModUi/&EnableFlexibleRaces=Activer les races flexibles <i><color=#F0DAA0>[attribuer des points d'aptitude au lieu des valeurs raciales par défaut]</color></i>
+ModUi/&EnableHotkeyDebugOverlay=Activer <color=#1E81B0>CTRL-SHIFT-(D)</color> pour afficher la fenêtre de débogage
+ModUi/&EnableHotkeyToggleHud=Activer <color=#1E81B0>CTRL-SHIFT-(H)</color> pour basculer l'affichage du HUD
+ModUi/&EnableInventoryFilteringAndSorting=Activer le filtrage et le tri de l'inventaire
 ModUi/&EnableInventoryTaintNonProficientItemsRed=<i>+ Taint in red any item the hero isn't proficient with</i>
-ModUi/&EnableInvisibleCrownOfTheMagister=Hide the <color=#D89555>Crown of the Magister</color> on game UI
-ModUi/&EnableLevel20=Enable level 20 <b><i><color=#C04040E0>[Nécessite un redémarrage]</color></i></b>
+ModUi/&EnableInvisibleCrownOfTheMagister=Cacher <color=#D89555>Crown of the Magister</color> de l'interface de jeu
+ModUi/&EnableLevel20=Activer le niveau 20 <b><i><color=#C04040E0>[Nécessite un redémarrage]</color></i></b>
 ModUi/&EnableLogDialoguesToConsole=Enable log dialogues to game console during narrative sequences
 ModUi/&EnableMinInOutAttributes=<i>+ Enforce ability scores minimum in & out pre-requisites</i>
 ModUi/&EnableMulticlass=Enable multiclass <b><i><color=#C04040E0>[Nécessite un redémarrage]</color></i></b>
