@@ -692,6 +692,7 @@ internal static partial class DatabaseHelper
         internal static ItemDefinition Art_Item_25_GP_EngraveBoneDice { get; } = GetDefinition<ItemDefinition>("Art_Item_25_GP_EngraveBoneDice");
         internal static ItemDefinition Art_Item_25_GP_SilverChalice { get; } = GetDefinition<ItemDefinition>("Art_Item_25_GP_SilverChalice");
         internal static ItemDefinition Art_Item_50_GP_JadePendant { get; } = GetDefinition<ItemDefinition>("Art_Item_50_GP_JadePendant");
+        internal static ItemDefinition Bard_Armor { get; } = GetDefinition<ItemDefinition>("Bard_Armor");
         internal static ItemDefinition Backpack_Bag_Of_Holding { get; } = GetDefinition<ItemDefinition>("Backpack_Bag_Of_Holding");
         internal static ItemDefinition BarbarianClothes { get; } = GetDefinition<ItemDefinition>("BarbarianClothes");
         internal static ItemDefinition Battleaxe { get; } = GetDefinition<ItemDefinition>("Battleaxe");
@@ -727,6 +728,8 @@ internal static partial class DatabaseHelper
         internal static ItemDefinition ClothesNoble_Valley_Purple { get; } = GetDefinition<ItemDefinition>("ClothesNoble_Valley_Purple");
         internal static ItemDefinition ClothesNoble_Valley_Red { get; } = GetDefinition<ItemDefinition>("ClothesNoble_Valley_Red");
         internal static ItemDefinition ClothesNoble_Valley_Silver { get; } = GetDefinition<ItemDefinition>("ClothesNoble_Valley_Silver");
+        internal static ItemDefinition ClothesScavenger_A { get; } = GetDefinition<ItemDefinition>("ClothesScavenger_A");
+        internal static ItemDefinition ClothesScavenger_B { get; } = GetDefinition<ItemDefinition>("ClothesScavenger_B");
         internal static ItemDefinition ClothesWizard { get; } = GetDefinition<ItemDefinition>("ClothesWizard");
         internal static ItemDefinition ClothesWizard_B { get; } = GetDefinition<ItemDefinition>("ClothesWizard_B");
         internal static ItemDefinition Club { get; } = GetDefinition<ItemDefinition>("Club");
@@ -911,6 +914,7 @@ internal static partial class DatabaseHelper
         internal static ItemDefinition WandOfIdentify { get; } = GetDefinition<ItemDefinition>("WandOfIdentify");
         internal static ItemDefinition WandOfMagicDetection { get; } = GetDefinition<ItemDefinition>("WandOfMagicDetection");
         internal static ItemDefinition Warhammer { get; } = GetDefinition<ItemDefinition>("Warhammer");
+        internal static ItemDefinition Warlock_Armor { get; } = GetDefinition<ItemDefinition>("Warlock_Armor");
         internal static ItemDefinition WizardClothes_Alternate { get; } = GetDefinition<ItemDefinition>("WizardClothes_Alternate");
     }
     internal static class ItemFlagDefinitions

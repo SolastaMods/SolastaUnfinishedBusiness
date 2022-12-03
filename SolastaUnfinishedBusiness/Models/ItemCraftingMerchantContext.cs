@@ -19,11 +19,17 @@ internal static class ItemCraftingMerchantContext
 {
     internal static string[] EmpressGarbAppearances { get; } =
     {
-        Gui.Localize("Modal/&TravelPaceNormalTitle"), Gui.Localize("Equipment/&Barbarian_Clothes_Title"),
-        Gui.Localize("Equipment/&Druid_Leather_Title"), Gui.Localize("Equipment/&ElvenChain_Unidentified_Title"),
+        Gui.Localize("Modal/&TravelPaceNormalTitle"),
+        Gui.Localize("Equipment/&Barbarian_Clothes_Title"),
+        Gui.Localize("Equipment/&Druid_Leather_Title"),
+        Gui.Localize("Equipment/&ElvenChain_Unidentified_Title"),
         CultureInfo.CurrentCulture.TextInfo.ToTitleCase(Gui.Localize("Equipment/&Armor_Sorcerer_Outfit_Title")),
         Gui.Localize("Equipment/&Armor_StuddedLeatherTitle"), Gui.Localize("Equipment/&GreenmageArmor_Title"),
-        Gui.Localize("Equipment/&Armor_Adventuring_Wizard_OutfitTitle")
+        Gui.Localize("Equipment/&Armor_Adventuring_Wizard_OutfitTitle"),
+        Gui.Localize("Equipment/&Armor_Scavenger_Outfit_01_Title"),
+        Gui.Localize("Equipment/&Armor_Scavenger_Outfit_02_Title"),
+        Gui.Localize("Equipment/&Armor_Bard_Title"),
+        Gui.Localize("Equipment/&Armor_Warlock_Title")
     };
 
     private static void LoadClothingGorimStock()
