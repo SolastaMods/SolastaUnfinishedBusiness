@@ -85,7 +85,7 @@ internal sealed class CollegeOfHarlequin : AbstractSubclass
                                     .SetAttackRollModifier(method: AttackModifierMethod.SourceConditionAmount)
                                     .SetDamageRollModifier(method: AttackModifierMethod.SourceConditionAmount)
                                     .AddToDB())
-                            .SetCustomSubFeatures( new CombatInspiredExtraAttack(), new ConditionCombatInspired())
+                            .SetCustomSubFeatures(new ConditionCombatInspired())
                             .AddToDB(),
                         ConditionForm.ConditionOperation.Add)
                     .Build())
@@ -191,7 +191,10 @@ internal sealed class CollegeOfHarlequin : AbstractSubclass
     {
         public void ModifyAttackMode(RulesetCharacter character, RulesetAttackMode attackMode)
         {
-            attackMode.AttacksNumber += 1;
+            if (attackMode != null)
+            {
+                attackMode.AttacksNumber += 1;   
+            }
         }
     }
 }
