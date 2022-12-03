@@ -1,0 +1,28 @@
+CharacterFamily/&AberrationDescription	Les aberrations sont des êtres d'origine inconnue. La plupart d'entre elles ont des caractéristiques magiques innées qui proviennent de l'esprit de la créature plutôt que des forces mystiques du monde.
+CharacterFamily/&AberrationTitle	Aberration
+CharacterFamily/&BeastDescription	Les bêtes sont des créatures non-humanoïdes qui font naturellement partie de l'écologie fantastique. Certaines ont des pouvoirs magiques, mais la plupart sont dénuées d'intelligence et ne possèdent ni société ni langue parlée.
+CharacterFamily/&BeastTitle	Bête
+CharacterFamily/&CelestialDescription	Les célestes sont natifs des plans supérieurs. Beaucoup d'entre eux servent les divinités, employés comme messagers ou agents divins dans le royaume mortel et à travers les plans. Les célestes sont bons par nature et un céleste qui diverge de l'alignement bon est d'une rareté exceptionnelle.
+CharacterFamily/&CelestialTitle	Céleste
+CharacterFamily/&ConstructDescription	Les créatures artificielles sont créées, elles ne naissent pas. Certaines sont programmées par leur créateur pour suivre des règles simples tandis que d'autres sont pourvues de sentiments et capables de penser librement.
+CharacterFamily/&ConstructTitle	Artificiels
+CharacterFamily/&DragonDescription	Les dragons sont de gigantesques créatures reptiliennes aux origines anciennes et aux pouvoirs prodigieux. Les vrais dragons, comme les dragons métalliques (bons) et les dragons chromatiques (mauvais), sont extrêmement intelligents et possèdent des pouvoirs magiques innés.
+CharacterFamily/&DragonTitle	Dragon
+CharacterFamily/&ElementalDescription	Les élémentaires sont natifs des plans élémentaires. Une partie des créatures de ce type ne sont guère plus que des masses animées de leurs éléments respectifs, communément nommées élémentaires. Les autres sont des formes biologiques imprégnées d'énergie élémentaire.
+CharacterFamily/&ElementalTitle	Élémentaire
+CharacterFamily/&FeyDescription	Les fées sont des créatures magiques fortement liées aux forces de la nature. Elles habitent dans les bosquets ombreux et les forêts brumeuses.
+CharacterFamily/&FeyTitle	Fée
+CharacterFamily/&FiendDescription	Les fiélons sont des créatures cruelles natives des plans inférieurs. Quelques-uns sont les serviteurs de divinités, mais la plupart travaillent sous la direction d'archidiables et de princes démons. Clercs et magiciens maléfiques invoquent parfois des fiélons dans le monde matériel pour tenter de les soumettre. Si un céleste mauvais est très rare, un fiélon bon est presque inconcevable.
+CharacterFamily/&FiendTitle	Fiélon
+CharacterFamily/&GiantDescription	Les géants sont plus grands que les humains et leurs semblables. Ils sont de forme humanoïde, même si certains ont plusieurs têtes ou des malformations. Les six variétés de véritables géants sont les géants des collines, les géants des pierres, les géants du givre, les géants du feu, les géants des nuages et les géants des tempêtes. Des créatures telles que les ogres et les trolls sont également des géants.
+CharacterFamily/&GiantTitle	Géant
+CharacterFamily/&HumanoidDescription	Les humanoïdes sont les principaux habitants du monde des jeux fantastiques, à la fois civilisés et sauvages. Ils incluent les humains et une grande variété d'autres espèces. Ils possèdent leur langage et leur propre culture, peu ou pas de caractéristiques magiques innées (bien que la plupart des humanoïdes puissent apprendre le lancement de sort) et sont bipèdes. Les races humanoïdes les plus courantes sont les plus appropriées en tant que personnages jouables : humains, nains, elfes et halfelins. Ils sont presque aussi nombreux que les gobelinoïdes (gobelins, hobgobelins et gobelours), les orques, les gnolls, les hommes-lézards et les kobolds.
+CharacterFamily/&HumanoidTitle	Humanoïde
+CharacterFamily/&MonstrosityDescription	Les créatures monstrueuses sont des monstres au sens strict. D'effroyables créatures qui ne sont pas ordinaires ni vraiment naturelles et presque jamais bienveillantes. Certaines sont le résultat d'expérimentations magiques qui ont mal tourné et d'autres sont le produit de terribles malédictions. Ils défient la catégorisation, et dans un certain sens servent de catégorie fourre-tout pour les créatures qui ne rentrent dans aucun autre type.
+CharacterFamily/&MonstrosityTitle	Monstruosité
+CharacterFamily/&OozeDescription	Les vases sont des créatures gélatineuses ayant rarement une forme fixe. Elles sont presque toutes cavernicoles, vivant dans des grottes et des donjons, et se nourrissant de déchets, de charognes ou des créatures qui ont le malheur de croiser leur route.
+CharacterFamily/&OozeTitle	Vase
+CharacterFamily/&PlantDescription	Les plantes sont dans ce contexte des créatures végétales et non la flore ordinaire. La majorité peut se mouvoir et certaines sont carnivores. Le tertre errant et les sylvaniens sont la quintessence de ce type de créature. Les créatures fongiques font aussi partie de cette catégorie.
+CharacterFamily/&PlantTitle	Plante
+CharacterFamily/&UndeadDescription	Les morts-vivants sont des créatures ayant vécu autrefois, ramenées au statut de morts animés par la nécromancie ou certaines malédictions impies.
+CharacterFamily/&UndeadTitle	Mort-vivant

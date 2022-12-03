@@ -41,7 +41,6 @@ internal static class CustomConditionsContext
         Distracted = ConditionDefinitionBuilder
             .Create(ConditionDefinitions.ConditionTrueStrike, "ConditionDistractedByAlly")
             .SetOrUpdateGuiPresentation(Category.Condition)
-            .SetDuration(DurationType.Round, 1)
             .AddToDB();
     }
 
@@ -50,7 +49,6 @@ internal static class CustomConditionsContext
         ConditionInvisibilityEveryRoundRevealed = ConditionDefinitionBuilder
             .Create("ConditionInvisibilityEveryRoundRevealed")
             .SetGuiPresentationNoContent()
-            .SetDuration(DurationType.Round, 1)
             .SetSilent(Silent.WhenAddedOrRemoved)
             .AddToDB();
 

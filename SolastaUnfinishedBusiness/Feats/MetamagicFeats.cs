@@ -4,6 +4,7 @@ using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.Infrastructure;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
+using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionActionAffinitys;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionAttributeModifiers;
@@ -40,7 +41,7 @@ internal static class MetamagicFeats
         var dbMetamagicOptionDefinition = DatabaseRepository.GetDatabase<MetamagicOptionDefinition>();
 
         metaMagicFeats.SetRange(dbMetamagicOptionDefinition
-            .Select(metamagicOptionDefinition => FeatDefinitionBuilder
+            .Select(metamagicOptionDefinition => FeatDefinitionWithPrerequisitesBuilder
                 .Create($"FeatAdept{metamagicOptionDefinition.Name}")
                 .SetGuiPresentation(
                     Gui.Format("Feat/&FeatAdeptMetamagicTitle", metamagicOptionDefinition.FormatTitle()),
@@ -57,6 +58,7 @@ internal static class MetamagicFeats
                         .AddToDB())
                 .SetAbilityScorePrerequisite(AttributeDefinitions.Charisma, 13)
                 .SetMustCastSpellsPrerequisite()
+                .SetValidators(ValidatorsFeat.ValidateNotMetamagic(metamagicOptionDefinition))
                 .AddToDB()));
 
         return metaMagicFeats;

@@ -6,7 +6,7 @@
   "grantedFeature": null,
   "grantedSpell": "Definition:MistyStep:f4619f117544fe148aae6952202da5e3",
   "consumesSpellSlot": false,
-  "longRestRecharge": true,
+  "longRestRecharge": false,
   "overrideMaterialComponent": true,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",

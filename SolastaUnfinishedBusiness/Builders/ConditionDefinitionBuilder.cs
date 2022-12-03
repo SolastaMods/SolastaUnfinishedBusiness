@@ -169,9 +169,24 @@ internal class ConditionDefinitionBuilder
         return this;
     }
 
-    internal ConditionDefinitionBuilder SetSpecialDuration()
+    internal ConditionDefinitionBuilder SetSpecialDuration(
+        RuleDefinitions.DurationType type,
+        int duration = 0,
+        bool validateDuration = true)
     {
+        if (validateDuration)
+        {
+            PreConditions.IsValidDuration(type, duration);
+        }
+
+        if (duration != 0)
+        {
+            Definition.durationParameterDie = RuleDefinitions.DieType.D1;
+        }
+
         Definition.specialDuration = true;
+        Definition.durationParameter = duration;
+        Definition.durationType = type;
         return this;
     }
 
@@ -216,21 +231,6 @@ internal class ConditionDefinitionBuilder
     internal ConditionDefinitionBuilder SetInterruptionDamageThreshold(int value)
     {
         Definition.interruptionDamageThreshold = value;
-        return this;
-    }
-
-    internal ConditionDefinitionBuilder SetDuration(
-        RuleDefinitions.DurationType type,
-        int duration = 0,
-        bool validateDuration = true)
-    {
-        if (validateDuration)
-        {
-            PreConditions.IsValidDuration(type, duration);
-        }
-
-        Definition.durationParameter = duration;
-        Definition.durationType = type;
         return this;
     }
 

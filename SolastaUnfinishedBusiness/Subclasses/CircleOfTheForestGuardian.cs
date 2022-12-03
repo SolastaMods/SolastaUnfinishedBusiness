@@ -100,7 +100,6 @@ internal sealed class CircleOfTheForestGuardian : AbstractSubclass
                                     .Create(ConditionDefinitions.ConditionBarkskin, "ConditionForestGuardianBarkWard")
                                     .SetOrUpdateGuiPresentation(Category.Condition)
                                     .ClearFeatures()
-                                    .SetDuration(DurationType.Minute, 10)
                                     .SetTurnOccurence(TurnOccurenceType.EndOfTurn)
                                     .AddToDB(),
                                 ConditionForm.ConditionOperation.Add, true, true)
@@ -127,7 +126,6 @@ internal sealed class CircleOfTheForestGuardian : AbstractSubclass
                                     .Create(ConditionDefinitions.ConditionBarkskin,
                                         "ConditionForestGuardianImprovedBarkWard")
                                     .SetOrUpdateGuiPresentation(Category.Condition)
-                                    .SetDuration(DurationType.Minute, 10)
                                     .SetTurnOccurence(TurnOccurenceType.EndOfTurn)
                                     .SetFeatures(
                                         FeatureDefinitionDamageAffinityBuilder
@@ -173,7 +171,6 @@ internal sealed class CircleOfTheForestGuardian : AbstractSubclass
                                             .SetDamageType(DamageTypePoison)
                                             .SetRetaliate(powerForestGuardianSuperiorBarkWard, 1, true)
                                             .AddToDB())
-                                    .SetDuration(DurationType.Minute, 10)
                                     .SetTurnOccurence(TurnOccurenceType.EndOfTurn)
                                     .AddToDB(),
                                 ConditionForm.ConditionOperation.Add,

@@ -1,5 +1,51 @@
 ﻿CHANGES:
 
+1.4.30.8:
+
+1.4.30.7:
+
+- added initial support for French
+- fixed custom campaigns initial recipes
+- fixed reaction gambits to not trigger when knocked prone
+- fixed warning on level 1 spells selection
+
+1.4.30.6:
+
+- enabled cancel action with right mouse click
+- changed Inventor to ignore Somatic component of spells when holding any infused item in hands
+- fixed a Multiclass spell learning scenario when dipping casters with auto prepared spells
+- fixed Deadeye and Power Attack wrong activation duration
+- fixed Metamagic feat not checking if already learned
+- fixed recipes not getting offered on crafting screen
+- reworked Distant Hand's Flurry of Arrows to trigger off Flurry of Blows activation
+
+1.4.30.5:
+
+- added Strategy: Overcome gambit
+- changed Blind, Feint, Threaten and Urgent Orders to require level 7
+- changed Switch gambit to target DEX save
+- changed gambit learning progression to 4 at 3, 1 at 5, 1 at 7, 2 at 15
+- changed Strategy Plan to be an exclusive choice between Tactical, Adaptive and Overcoming
+
+1.4.30.4:
+
+- added new Debilitate, Parry and Precise gambits to Tactician
+- changed Tactician to learn 4 gambits at 3
+- changed Parry gambit to only work with melee attacks
+- changed Threaten gambit to last until end of turn
+- fixed Fey Teleportation feat to correctly recharge on short rest
+- improved College of Harlequin to show dice rolls on combat inspiration
+- tweaked Gambit titles a bit
+
+1.4.30.3:
+
+- added Enable Beta toggle under Gameplay > Tools
+- added Return Fire gambit to Tactician
+- changed Wolf Leadership to work within engine limitations
+- made Brace and Counter Attack gambits not use reactions
+- marked Counter Attack and Return Fire gambits non-AoO
+- tagged College of Harlequin and Martial Tactician beta
+
 1.4.30.2:
 
 - fixed Dual Flurry to only work if one handed

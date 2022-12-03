@@ -1,0 +1,252 @@
+Stage/&AbilityScoreIncreaseRemainingFormat	Point(s) restant(s) : {0}/{1}
+Stage/&AbilityScoreIncreaseTitle	Augmentation de caractéristiques
+Stage/&AbilityScoresAssignmentDragTitle	Glissez-déposez vos jets sur les cases de valeur de caractéristique,\nou optimisez-les pour la classe de votre personnage.
+Stage/&AbilityScoresAssignmentEditTitle	Ajustez vos valeurs de caractéristique depuis votre cumul de points.
+Stage/&AbilityScoresAssignmentEditUnlimitedTitle	Ajustez vos valeurs de caractéristique selon ce que vous désirez.
+Stage/&AbilityScoresAvailableValuesTitle	Vos valeurs disponibles.
+Stage/&AbilityScoresBonusFromRaceTitle	Provenant de l'ascendance
+Stage/&AbilityScoresCurrentTitle	Valeurs de caractéristique actuelles
+Stage/&AbilityScoresDecreaseCannotDescription	Vous ne pouvez plus baisser cette valeur.
+Stage/&AbilityScoresDecreaseDescription	Baisser cette valeur de caractéristique.
+Stage/&AbilityScoresFreeEditionDescription	Recréez un personnage existant avec précision.
+Stage/&AbilityScoresFreeEditionTitle	Modification gratuite
+Stage/&AbilityScoresIncreaseCannotDescription	Plus aucune augmentation n'est possible.
+Stage/&AbilityScoresIncreaseCapitalDescription	Augmentez cette valeur de caractéristique pour {0} point(s).
+Stage/&AbilityScoresIncreaseFreeDescription	Augmentez cette valeur de caractéristique (gratuit).
+Stage/&AbilityScoresMethodPointsTitle	Achat de points
+Stage/&AbilityScoresMethodRollTitle	Jets de dés
+Stage/&AbilityScoresMethodTitle	Choisissez un système de génération de caractéristiques et définissez les statistiques de votre personnage.
+Stage/&AbilityScoresOptimizeDescription	Optimisez vos assignations de valeurs de caractéristique pour la classe de personnage sélectionnée.
+Stage/&AbilityScoresOptimizeTitle	Optimiser
+Stage/&AbilityScoresPointsCapitalInfiniteTitle	Points illimités
+Stage/&AbilityScoresPointsCapitalTitle	Cumul de points
+Stage/&AbilityScoresPredeterminedDescription	Faites 6 nouveaux jets de valeurs de caractéristique, en utilisant 4d6 et en gardant les trois meilleurs jets.
+Stage/&AbilityScoresPredeterminedTitle	Éventail standard
+Stage/&AbilityScoresRemainingPointsDescription	Il vous reste encore tous ces points à dépenser.
+Stage/&AbilityScoresRemainingPointsTitle	Restants
+Stage/&AbilityScoresRerollDescription	Faites 6 nouveaux jets de valeurs de caractéristique, en utilisant 4d6 et en gardant les trois meilleurs jets.
+Stage/&AbilityScoresRerollTitle	Relancer les dés
+Stage/&AbilityScoresResetDescription	Réinitialisez toutes les assignations de valeur de caractéristique.
+Stage/&AbilityScoresResetTitle	Réinitialiser
+Stage/&AbilityScoresStageDescription	Générez les six principales valeurs de caractéristique du personnage.
+Stage/&AbilityScoresStageFailNotAllAssignedDescription	Vous devez assigner 6 valeurs de caractéristique à gauche de l'écran.
+Stage/&AbilityScoresStageFailRemainingPointsDescription	Vous devez dépenser tous vos points avant de continuer.
+Stage/&AbilityScoresStageFailSpendAllLevelUpPointsDescription	Vous devez dépenser tous les points de valeur de caractéristique après l'obtention d'un niveau.
+Stage/&AbilityScoresStageFailSpendAllRacePointsDescription	Vous devez dépenser tous les points de valeur de caractéristique de l'ascendance choisie.
+Stage/&AbilityScoresStageTitle	Caracs.
+Stage/&AbilityTipDescription	En tant que '{0}', vos valeurs de caractéristique les plus importantes sont {1}, {2}, et {3}.
+Stage/&AbilityTipTitle	Conseil
+Stage/&AllSpellsFormat	En tant que membre de la classe '{0}', vous avez accès à tous les sorts (sauf sorts mineurs) de votre liste de sorts.\n\nUne autre interface vous laissera choisir les sorts du jour à préparer.
+Stage/&AtHigherLevelsDescription	Révélez les attributs octroyés aux niveaux supérieurs.
+Stage/&AtHigherLevelsTitle	niveaux suivants
+Stage/&BackgroundAlignmentTitle	Choisir un alignement :
+Stage/&BackgroundChose2FlagsTitle	Traits de personnalité (prenez-en 2)
+Stage/&BackgroundEquipmentTitle	Équipement historique
+Stage/&BackgroundFeaturesTitle	Attributs historiques
+Stage/&BackgroundPredefinedFlagsTitle	Traits de propriété prédéfinis
+Stage/&BackgroundSelectionStageDescription	Cette étape crée un historique pour le personnage.
+Stage/&BackgroundSelectionStageMissingAlignmentDescription	Vous devez sélectionner un alignement.
+Stage/&BackgroundSelectionStageMissingAlignmentFlagsDescription	Vous devez choisir 2 traits de personnalité supplémentaires dans le tableau éthique (Justice/Chaos/Bien/Mal)
+Stage/&BackgroundSelectionStageMissingBackgroundFlagsDescription	Vous devez choisir des traits de personnalité pour l'historique sélectionné.
+Stage/&BackgroundSelectionStageNoneSelectedDescription	Vous devez sélectionner un historique.
+Stage/&BackgroundSelectionStageTitle	Historique
+Stage/&CantripLearnPluralTitle	Sélectionnez {0} sorts mineurs à apprendre.
+Stage/&CantripLearnSingleTitle	Sélectionnez un sort mineur à apprendre.
+Stage/&ChangeEquipementDescription	Choisissez entre différentes configurations d'équipement.
+Stage/&ChangeEquipementTitle	Changer equip.
+Stage/&ClassAdvancementStageDescription	Cette étape vous permet d'obtenir un niveau de classe ou d'ajouter une nouvelle classe.
+Stage/&ClassAdvancementStageTitle	Progression \nde classe
+Stage/&ClassEquipmentTitle	Équipement de classe
+Stage/&ClassFeaturesTitle	Attributs de classe
+Stage/&ClassSelectionStageDescription	Cette étape vous permet de choisir les attributs de classe de votre personnage.
+Stage/&ClassSelectionStageNoneSelectedDescription	Vous devez sélectionner une classe.
+Stage/&ClassSelectionStageTitle	Classe 
+Stage/&DeitySelectionDeityChoiceTitle	Sélectionner une divinité
+Stage/&DeitySelectionDomainChoiceTitle	Sélectionner un domaine divin
+Stage/&DeitySelectionSelectedDeityDomainsHeader	Domaines divins
+Stage/&DeitySelectionSelectedDeityHeader	Divinité
+Stage/&DeitySelectionSelectedDomainFeaturesTitle	Attributs de domaine
+Stage/&DeitySelectionSelectedDomainHeader	Domaine
+Stage/&DeitySelectionStageDescription	Cette étape vous permet de choisir la divinité que le personnage vénérera, et de sélectionner les avantages de votre foi.
+Stage/&DeitySelectionStageNoDeitySelectedDescription	Vous devez sélectionner une divinité.
+Stage/&DeitySelectionStageNoDomainSelectedDescription	Vous devez sélectionner un domaine divin.
+Stage/&DeitySelectionStageTitle	Divinité
+Stage/&FightingStyleEffectsHeaderTitle	Effets de style
+Stage/&FightingStyleSelectedFightingStyleHeader	Style de combat
+Stage/&FightingStyleSelectionStageDescription	Cette étape vous permet de choisir un style de combat pour le personnage.
+Stage/&FightingStyleSelectionStageNoFightingStyleSelectedDescription	Vous devez sélectionner un style de combat.
+Stage/&FightingStyleSelectionStageTitle	Style\nde combat
+Stage/&FightingStyleSelectionTitle	Sélectionner un style de combat
+Stage/&HigherLevelFeaturesTitle	Attributs des niveaux supérieurs
+Stage/&HitPointsGainFormatPlural	Vous avez obtenu {0} points de vie\n\nVous avez obtenu un dé de vie supplémentaire
+Stage/&HitPointsGainFormatSingle	Vous avez obtenu {0} point de vie\n\nVous avez obtenu un dé de vie supplémentaire
+Stage/&HitPointsGainTitle	Points de vie
+Stage/&IdentityAdditionalBackstoryHeader	Histoire supplémentaire
+Stage/&IdentityAdditionalBackstoryTemporaryInput	< Input your backstory here >
+Stage/&IdentityDefinitionDescription	Cette étape développe l'historique du personnage.
+Stage/&IdentityDefinitionStageFailDuplicateName	Un autre personnage utilise déjà ce nom.
+Stage/&IdentityDefinitionStageFailEmptyName	Vous devez entrer un nom.
+Stage/&IdentityDefinitionTitle	Identité
+Stage/&IdentityFirstNameTitle	Prénom
+Stage/&IdentityLastNameTitle	Nom de famille
+Stage/&IdentityModifiersHeader	Modificateurs
+Stage/&IdentityMorphotypeBeardShapeHeader	Forme de la barbe
+Stage/&IdentityMorphotypeBodyDecorationHeader	Décorations corporelles
+Stage/&IdentityMorphotypeEyeColorHeader	Couleur des yeux
+Stage/&IdentityMorphotypeFaceAndSkinHeader	Visage et peau
+Stage/&IdentityMorphotypeFaceShapeHeader	Visage
+Stage/&IdentityMorphotypeHairColorHeader	Couleur des cheveux
+Stage/&IdentityMorphotypeHairShapeHeader	Coiffure
+Stage/&IdentityMorphotypeMusculatureHeader	Forme physique
+Stage/&IdentityMorphotypeOriginHeader	Origine
+Stage/&IdentityMorphotypeSkinHeader	Couleur de peau
+Stage/&IdentityRandomRollDescription	Crée un nom aléatoire basé sur l'ascendance du personnage.
+Stage/&IdentityRandomRollTitle	Aléatoire
+Stage/&IdentityVoiceTitle	Voix
+Stage/&LevelGainsCantripSelectionMultiple	{0} sorts mineurs à sélectionner
+Stage/&LevelGainsCantripSelectionSingle	Un sort mineur à sélectionner
+Stage/&LevelGainsSaveDcFormat	DD de sauvegarde augmenté à {0}
+Stage/&LevelGainsSpellAttackFormat	Attaque avec un sort augmentée à {0}
+Stage/&LevelGainsSpellSelectionMultiple	{0} sorts à sélectionner
+Stage/&LevelGainsSpellSelectionSingle	Un sort à sélectionner
+Stage/&LevelGainsSpellSlotsTile	Emplacements de sorts :
+Stage/&LevelGainsStageDescription	Cette étape récapitule ce que vous avez obtenu grâce à votre nouveau niveau.
+Stage/&LevelGainsStageTitle	Gains du niveau
+Stage/&LevelUpCaptionTitle	{0} est maintenant {2} de niveau {1}
+Stage/&LevelUpHeader	Niveau supérieur !
+Stage/&NeedADeityDescription	Vous devez choisir une divinité.
+Stage/&ProficiencyAutoSelectButtonDescription	Laissez l'ordinateur choisir, pour l'instant.
+Stage/&ProficiencyAutoSelectButtonTitle	Auto.
+Stage/&ProficiencyBonusGainFormat	Augmentation à {0}\nAffecte toutes les attaques, tous les jets de sauvegarde, tous les jets de compétence et d'outil, et tous les DD de sort.
+Stage/&ProficiencyBonusGainTitle	Bonus de maîtrise
+Stage/&ProficiencyEditButtonDescription	Retournez à l'étape de maîtrise et effectuez des modifications.
+Stage/&ProficiencyEditButtonTitle	Modifier
+Stage/&ProficiencyEffectsDescription	La maîtrise lors d'un jet de sauvegarde, de compétence, d'outil, ou d'arme vous permet d'additionner votre bonus de maîtrise au jet de caractéristique correspondant. La maîtrise de dons, langues, et armures vous permet de les utiliser. L'expertise en compétences et en outils double le bonus de maîtrise. 
+Stage/&ProficiencyExpertiseChoicesPluralFormat	Choisissez {0} compétences apprises ou {1} dans laquelle devenir spécialiste (double maîtrise)
+Stage/&ProficiencyExpertiseChoicesSingleFormat	Choisissez {0} compétences apprises ou {1} dans laquelle devenir spécialiste (double maîtrise)
+Stage/&ProficiencyFeatChoicesPluralFormat	Choisissez {0} dons
+Stage/&ProficiencyFeatChoicesSingleFormat	Choisissez {0} don
+Stage/&ProficiencyIntroductionCreationDescription	Votre ascendance, votre classe et votre historique vous permettent de choisir des maîtrises de compétences, d'outils, de dons, et de langues.
+Stage/&ProficiencyIntroductionLevelUpDescription	En gagnant un niveau, vous pouvez choisir de nouvelles maîtrises.
+Stage/&ProficiencyLanguageChoicesPluralFormat	Choisissez {0} langues
+Stage/&ProficiencyLanguageChoicesSingleFormat	Choisissez {0} langue
+Stage/&ProficiencyResetAllButtonDescription	Réinitialisez tous les points de maîtrise attribués.
+Stage/&ProficiencyResetAllButtonTitle	Tout réinitialiser
+Stage/&ProficiencyResetButtonDescription	Réinitialisez les points de maîtrise attribués pour cette étape.
+Stage/&ProficiencyResetButtonTitle	Réinit.
+Stage/&ProficiencySelectionStageDescription	Cette étape choisit les maîtrises du personnage : compétences, expertise, langues, et plus encore.
+Stage/&ProficiencySelectionStageFailSpendAllPointsDescription	Vous devez dépenser tous vos points de maîtrise avant de continuer.
+Stage/&ProficiencySelectionStageTitle	Maîtrises
+Stage/&ProficiencySkillChoicesPluralFormat	Choisissez {0} compétences
+Stage/&ProficiencySkillChoicesPluralListFormat	Choisissez {0} compétences dans {1}
+Stage/&ProficiencySkillChoicesSingleFormat	Choisissez {0} compétence
+Stage/&ProficiencySkillChoicesSingleListFormat	Choisissez {0} compétences dans {1}
+Stage/&ProficiencyToolTypeChoicesPluralFormat	Choisissez {0} outils
+Stage/&ProficiencyToolTypeChoicesPluralListFormat	Choisissez {0} outils parmi {1}
+Stage/&ProficiencyToolTypeChoicesSingleFormat	Choisissez {0} outil
+Stage/&ProficiencyToolTypeChoicesSingleListFormat	Choisissez {0} outil parmi {1}
+Stage/&RaceSelectionStageDescription	Cette étape détermine l'ascendance du personnage et ses attributs.
+Stage/&RaceSelectionStageNoneSelectedDescription	Vous devez sélectionner une ascendance.
+Stage/&RaceSelectionStageTitle	Ascendance
+Stage/&RaceSubraceCountDescription	{0} sur {1} lignées
+Stage/&SexFemaleTitle	Féminin
+Stage/&SexMaleTitle	Masculin
+Stage/&SpellLearnPluralTitle	Sélectionnez {0} sorts à apprendre.
+Stage/&SpellLearnSingleTitle	Sélectionnez un sort à apprendre.
+Stage/&SpellScribePluralTitle	Sélectionnez {0} sorts à retranscrire dans votre grimoire.
+Stage/&SpellScribeSingleTitle	Sélectionnez un sort à retranscrire dans votre grimoire.
+Stage/&SpellSelectionStageDescription	Cette étape vous permet de choisir les sorts du personnage.
+Stage/&SpellSelectionStageFailLearnSpellsDescription	Vous devez apprendre tous vos sorts avant de continuer.
+Stage/&SpellSelectionStageTitle	Sorts
+Stage/&SubclassSelectionStageDomainTitle	Domaine\ndivin
+Stage/&SubclassSelectionStageMartialDescription	Cette étape vous permet de choisir un archétype martial pour le personnage.
+Stage/&SubclassSelectionStageMartialFeatures	Attributs d'archétype martial
+Stage/&SubclassSelectionStageMartialHeader	Sélectionner un archétype martial
+Stage/&SubclassSelectionStageMartialNoneDescription	Vous devez sélectionner un archétype martial.
+Stage/&SubclassSelectionStageMartialTitle	Archétype\nmartial
+Stage/&SubclassSelectionStageOathDescription	Cette étape choisit le serment sacré du personnage.
+Stage/&SubclassSelectionStageOathFeatures	Attributs de serment sacré
+Stage/&SubclassSelectionStageOathHeader	Sélectionner un serment sacré
+Stage/&SubclassSelectionStageOathNoneDescription	Vous devez sélectionner un serment sacré.
+Stage/&SubclassSelectionStageOathTitle	Serment\nsacré
+Stage/&SubclassSelectionStageRangerDescription	Cette étape sélectionne l'archétype de rôdeur du personnage.
+Stage/&SubclassSelectionStageRangerFeatures	Attributs d'archétype de rôdeur
+Stage/&SubclassSelectionStageRangerHeader	Sélectionner un archétype de rôdeur
+Stage/&SubclassSelectionStageRangerNoneDescription	Vous devez sélectionner un archétype de rôdeur.
+Stage/&SubclassSelectionStageRangerTitle	Archétype\nde rôdeur
+Stage/&SubclassSelectionStageRoguishDescription	Cette étape sélectionne l'archétype de roublard du personnage.
+Stage/&SubclassSelectionStageRoguishFeatures	Attributs d'archétype de roublard
+Stage/&SubclassSelectionStageRoguishHeader	Sélectionner un archétype de roublard
+Stage/&SubclassSelectionStageRoguishNoneDescription	Vous devez sélectionner un archétype de roublard.
+Stage/&SubclassSelectionStageRoguishTitle	Archétype\nde roublard
+Stage/&SubclassSelectionStageSubclassDescription	Cette étape sélectionne la sous-classe du personnage.
+Stage/&SubclassSelectionStageSubclassFeatures	Attributs de sous-classe
+Stage/&SubclassSelectionStageSubclassHeader	Sélectionner une sous-classe
+Stage/&SubclassSelectionStageSubclassTitle	Sous-classe
+Stage/&SubclassSelectionStageTraditionDescription	Cette étape sélectionne la tradition arcanique du personnage.
+Stage/&SubclassSelectionStageTraditionFeatures	Attributs de tradition arcanique
+Stage/&SubclassSelectionStageTraditionHeader	Sélectionner une tradition arcanique
+Stage/&SubclassSelectionStageTraditionNoneDescription	Vous devez sélectionner une tradition arcanique.
+Stage/&SubclassSelectionStageTraditionTitle	Tradition\narcanique
+Stage/&UnlockedClassFeaturesTitle	Attributs de classe déverrouillés
+Stage/&UnlockedRaceFeaturesTitle	Attributs d'ascendance déverrouillés
+Stage/&SpellIntroductionCreationDescription	Sélectionnez de nouveaux sorts ou sorts mineurs à apprendre.
+Stage/&SpellSelectionHeaderTitle	Sélectionner les sorts
+Stage/&AbilityScoresStageFailMinimalStrengthDescription	Un personnage doit avoir un minimum de {0} en Force pour partir à l'aventure.
+Stage/&IdentityMorphotypeAgeHeader	Âge
+Stage/&IdentityPronounTitle	Pronom
+Stage/&PronounMaleTitle	Il
+Stage/&PronounFemaleTitle	Elle
+Stage/&PronounNonBinaryTitle	Iel
+Stage/&BackgroundPersonalityFlagsTitle	Traits de personnalité liés à l'historique (choisissez-en 2)
+Stage/&AlignementPersonalityFlagsTitle	Traits de personnalité supplémentaires (prenez-en 2)
+Stage/&AlignementLawAxisTitle	Justice
+Stage/&AlignementChaosAxisTitle	Chaos
+Stage/&AlignementGoodAxisTitle	Bien
+Stage/&AlignementEvilAxisTitle	Mal
+Stage/&SpellSelectionStageFailNotEnoughPagesDescription	Aucun de vos grimoires ne contient suffisamment de place pour y retranscrire ces sorts. Vous devez vous procurer un nouveau grimoire afin de terminer la séquence d'obtention de niveau.
+Stage/&SubclassSelectionStageSorcerousDescription	Cette étape vous permet de choisir une origine magique pour le personnage.
+Stage/&SubclassSelectionStageSorcerousFeatures	Attributs de l'origine magique
+Stage/&SubclassSelectionStageSorcerousHeader	Sélectionner une origine magique
+Stage/&SubclassSelectionStageSorcerousTitle	Origine magique
+Stage/&ProficiencyIgnoreButtonTitle	Ignorer
+Stage/&ProficiencyIgnoreButtonDescription	Ignorez cette étape.
+Stage/&SpellUnlearnPluralTitle	Sélectionnez {0} sorts à désapprendre.
+Stage/&SpellUnlearnSingleTitle	Sélectionnez un sort à désapprendre.
+Stage/&ProficiencyMetamagicChoicesSingleFormat	Choisissez {0} option de métamagie
+Stage/&ProficiencyMetamagicChoicesPluralFormat	Choisissez {0} option de métamagie
+Stage/&SubclassSelectionStageSorcerousNoneDescription	Vous devez sélectionner une origine magique.
+Stage/&SubclassSelectionStagePathDescription	Vous pouvez choisir une voie primitive pour le personnage à cette étape.
+Stage/&SubclassSelectionStagePathFeatures	Attributs de voie primitive
+Stage/&SubclassSelectionStagePathHeader	Sélectionnez une voie primitive
+Stage/&SubclassSelectionStagePathTitle	Voie primitive
+Stage/&SubclassSelectionStagePathNoneDescription	Choisissez une voie primitive.
+Stage/&SubclassSelectionStageCircleDescription	Cette étape vous permet de choisir un cercle druidique pour le personnage.
+Stage/&SubclassSelectionStageCircleFeatures	Attributs de cercle druidique
+Stage/&SubclassSelectionStageCircleHeader	Sélectionner un cercle druidique
+Stage/&SubclassSelectionStageCircleTitle	Cercle druidique
+Stage/&SubclassSelectionStageCircleNoneDescription	Vous devez choisir un cercle druidique.
+Stage/&IdentityScarsHeader	Cicatrices
+Stage/&AbilityScoresAssignmentGamepadNormalTitle	Sélectionnez une valeur de jet ou une valeur de caractéristique
+Stage/&AbilityScoresAssignmentGamepadMovingTitle	Sélectionnez une valeur de caractéristique cible
+Stage/&SubclassSelectionStagePatronHeader	Sélectionner un patron d'Outremonde
+Stage/&SubclassSelectionStagePatronTitle	Patron \n d'Outremonde
+Stage/&ProficiencyInvocationChoicesSingleFormat	Choisissez {0} invocation
+Stage/&ProficiencyInvocationChoicesPluralFormat	Choisissez {0} invocations
+Stage/&ProficiencyInvocationUnlearnChoicesSingleFormat	Choisissez {0} invocation connue
+Stage/&ProficiencyInvocationUnlearnChoicesPluralFormat	Choisissez {0} invocations connues
+Stage/&SubclassSelectionStagePatronFeatures	Attributs de patron
+Stage/&SubclassSelectionStageCollegeHeader	Sélectionnez un collège bardique
+Stage/&SubclassSelectionStageCollegeTitle	Collège\n bardique
+Stage/&SubclassSelectionStageCollegeFeatures	Attributs de collège
+Stage/&CantripOrSpellLearnPluralTitle	Sélectionnez {0} sorts ou sorts mineurs à apprendre.
+Stage/&CantripOrSpellLearnSingleTitle	Sélectionnez un sort ou un sort mineur à apprendre.
+Stage/&IdentityMorphotypeTailHeader	Queue
+Stage/&IdentityMorphotypeHornsHeader	Cornes
+Stage/&SubclassSelectionStageMonasticTraditionDescription	Cette étape vous permet de choisir une tradition monastique pour le personnage.
+Stage/&SubclassSelectionStageMonasticTraditionFeatures	Attributs de tradition monastique
+Stage/&SubclassSelectionStageMonasticTraditionHeader	Choisir une tradition monastique
+Stage/&SubclassSelectionStageMonasticTraditionTitle	Tradition monastique
+Stage/&SubclassSelectionStageMonasticTraditionNoneDescription	Vous devez choisir une tradition monastique.
+Stage/&SubclassSelectionStagePatronDescription	Sélectionnez un patron d'Outremonde.
+Stage/&IdentityMorphotypeTailLengthHeader	Longueur de la queue

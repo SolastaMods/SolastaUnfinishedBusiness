@@ -1,0 +1,16 @@
+Feature/&MagicAffinitySpellMasterExtraPreparedDescription=Prepare Intelligence modifier additional spells so you always have what you need.
+Feature/&MagicAffinitySpellMasterExtraPreparedTitle=Extra Prepared
+Feature/&MagicAffinitySpellMasterKnowledgeDescription=Scribe an additional spell at each level up.
+Feature/&MagicAffinitySpellMasterKnowledgeTitle=Breadth of Knowledge
+Feature/&MagicAffinitySpellMasterPreparedDescription=Prepare proficiency bonus additional spells so you always have what you need.
+Feature/&MagicAffinitySpellMasterPreparedTitle=Be Prepared
+Feature/&MagicAffinitySpellMasterRecoveryDescription=Once per long rest, you can recover spell slots (in addition to Arcane Recovery).
+Feature/&MagicAffinitySpellMasterRecoveryTitle=Arcane Depth
+Feature/&MagicAffinitySpellMasterScriberDescription=Scribing spells takes 1/4 the time and cost, and you have advantage.
+Feature/&MagicAffinitySpellMasterScriberTitle=Master Scriber
+Feature/&PointPoolSpellMasterBonusCantripsDescription=Gain 2 extra cantrips known.
+Feature/&PointPoolSpellMasterBonusCantripsTitle=Bonus Cantrips
+Feature/&SavingThrowAffinitySpellMasterSpellResistanceDescription=Your training with magic gives you advantage on saving throws against spells.
+Feature/&SavingThrowAffinitySpellMasterSpellResistanceTitle=Spell Resistance
+Subclass/&WizardSpellMasterDescription=Spell Masters immerse themselves in magic and try to learn every spell they can get their hands on. They are unmatched in their spell knowledge.
+Subclass/&WizardSpellMasterTitle=Spell Master

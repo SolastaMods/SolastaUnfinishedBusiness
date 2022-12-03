@@ -1,0 +1,26 @@
+DialogFlags/&Authority_Description	Tendance à appliquer les règles et les croyances avec autorité et leadership.
+DialogFlags/&Authority_Title	Autorité
+DialogFlags/&Cynicism_Description	Tendance à se moquer des principes et des valeurs.
+DialogFlags/&Cynicism_Title	Cynisme
+DialogFlags/&Formal_Description	Ce personnage utilise des phrases complètes, avec un vocabulaire technique ou académique.
+DialogFlags/&Formal_Title	Soutenu
+DialogFlags/&Friendliness_Description	Tendance à se soucier des autres, préférant se faire des amis plutôt que des ennemis.
+DialogFlags/&Friendliness_Title	Bonté
+DialogFlags/&Greed_Description	Tendance à privilégier la richesse et le confort avant tout.
+DialogFlags/&Greed_Title	Cupidité
+DialogFlags/&Helpfulness_Description	Tendance à toujours essayer d'aider ceux qui en ont besoin.
+DialogFlags/&Helpfulness_Title	Altruisme
+DialogFlags/&Lawfulness_Description	Tendance à suivre les règles, les lois et l'ordre plutôt que le chaos.
+DialogFlags/&Lawfulness_Title	Légalité
+DialogFlags/&Normal_Description	Ce personnage parle comme la plupart des gens, de manière ni trop formelle ni trop familière.
+DialogFlags/&Normal_Title	Désinvolte
+DialogFlags/&Pragmatism_Description	Tendance à privilégier l'aspect pratique plutôt que les principes.
+DialogFlags/&Pragmatism_Title	Pragmatisme
+DialogFlags/&Selfishness_Description	Tendance à privilégier son intérêt propre, celui de ses amis et de sa famille, au détriment de celui des autres.
+DialogFlags/&Selfishness_Title	Égoïsme
+DialogFlags/&SelfPreservation_Description	Tendance à privilégier sa propre sécurité avant tout.
+DialogFlags/&SelfPreservation_Title	Prudence
+DialogFlags/&Slang_Description	Ce personnage emploie beaucoup d'argot, parfois même des mots grossiers et vulgaires.
+DialogFlags/&Slang_Title	Argot
+DialogFlags/&Violence_Description	Tendance à résoudre les problèmes par la violence, même quand il existe d'autres options.
+DialogFlags/&Violence_Title	Violence

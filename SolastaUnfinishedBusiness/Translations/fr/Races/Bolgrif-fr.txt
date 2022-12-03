@@ -1,0 +1,14 @@
+Feature/&AttributeModifierBolgrifStrengthAbilityScoreIncreaseDescription=Strength +1
+Feature/&AttributeModifierBolgrifStrengthAbilityScoreIncreaseTitle=Attribute Increase
+Feature/&AttributeModifierBolgrifWisdomAbilityScoreIncreaseDescription=Wisdom +2
+Feature/&AttributeModifierBolgrifWisdomAbilityScoreIncreaseTitle=Attribute Increase
+Feature/&CastSpellBolgrifMagicDescription=You know one cantrip of your choice from the Druid spell list. Wisdom is your spellcasting ability for it.
+Feature/&CastSpellBolgrifMagicTitle=Druidic Magic
+Feature/&EquipmentAffinityBolgrifPowerfulBuildDescription=You count your size as Large when determining your carrying capacity.
+Feature/&EquipmentAffinityBolgrifPowerfulBuildTitle=Powerful Build
+Feature/&PowerBolgrifInvisibilityDescription=As a bonus action, you can magically turn invisible for 1 round. This invisibility breaks if you take any offensive action. Once you use this ability, you can't use it again until you finish a short or long rest.
+Feature/&PowerBolgrifInvisibilityTitle=Vanish
+Feature/&ProficiencyBolgrifLanguagesDescription=Common, Elvish and Giant.
+Feature/&ProficiencyBolgrifLanguagesTitle=Language
+Race/&RaceBolgrifDescription=Bolgrifs are half-giants living in the frozen highlands of Solasta. They are crafty, cautious, reclusive, distrust most humanoids except elves and prefer to live far from civilization in tight-knit clans. If pressed into battle, bolgrifs demonstrate formidable skills with weapons and nature magic.
+Race/&RaceBolgrifTitle=Bolgrif

@@ -1,0 +1,13 @@
+TutorialSubsection/&Basics_CameraTitle	Caméra
+TutorialSubsection/&Basics_MovingTitle	Se déplacer
+TutorialSubsection/&Basics_PartyMngtTitle	Gestion du groupe
+TutorialSubsection/&Basics_QuestTitle	Journal de quête
+TutorialSubsection/&CombatMovementTitle	Déplacement
+TutorialSubsection/&CombatShoveTitle	Pousser
+TutorialSubsection/&Exploration_LocationMapTitle	Carte du lieu
+TutorialSubsection/&Exploration_MiscTitle	Divers
+TutorialSubsection/&Exploration_PointsOfInterestTitle	Points d'intérêt
+TutorialSubsection/&ExplorationJumpingClimbingTitle	Sauter et escalader
+TutorialSubsection/&Inventory_LootingTitle	Piller
+TutorialSubsection/&Inventory_SpecialTitle	Emplacements spéciaux
+TutorialSubsection/&Exploration_MagicTitle	Magie

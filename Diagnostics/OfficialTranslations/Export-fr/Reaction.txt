@@ -1,0 +1,193 @@
+Reaction/&AlterAttackSpellDescription	{0} attaque {1} ! Vous pouvez lancer {2} pour bloquer l'attaque.
+Reaction/&AlterAttackSpellReactDescription	Lancez {0} et bloquez l'attaque.
+Reaction/&AlterAttackSpellReactTitle	Lancer un sort
+Reaction/&AlterAttackSpellTitle	Prévenez l'attaque.
+Reaction/&BlockAttackDescription	{0} attaque {1} ! Vous pouvez réagir en imposant un désavantage à l'adversaire.
+Reaction/&BlockAttackReactDescription	Bloquez le personnage qui attaque et imposez-lui un désavantage. Votre réaction sera utilisée jusqu'au prochain tour.
+Reaction/&BlockAttackReactTitle	Bloquer
+Reaction/&BlockAttackTitle	Attaque d'un allié
+Reaction/&CastFallPreventionSpellDescriptionPlural	{0} sont sur le point de tomber dangereusement ! Vous pouvez lancer {1} pour prévenir tout dégât.
+Reaction/&CastFallPreventionSpellDescriptionSingle	{0} est sur le point de tomber dangereusement ! Vous pouvez lancer {1} pour prévenir tout dégât.
+Reaction/&CastFallPreventionSpellReactDescription	Lancez le sort {0} pour prévenir les dégâts de la chute.
+Reaction/&CastFallPreventionSpellReactTitle	Lancer un sort
+Reaction/&CastFallPreventionSpellTitle	Chute douloureuse
+Reaction/&CastImmunityToSpellDescription	{0} lance {3} sur {1} ! Vous pouvez lancer {2} pour contrer le sort.
+Reaction/&CastImmunityToSpellReactDescription	Lancez {0} pour bloquer l'attaque avec un sort.
+Reaction/&CastImmunityToSpellReactTitle	Lancer un sort
+Reaction/&CastImmunityToSpellTitle	Attaque avec un sort
+Reaction/&ChooseAReactionTitle	Choisir une réaction
+Reaction/&ChooseAnOptionTitle	Choisir une option
+Reaction/&CounterAttackWithPowerDescription	{0} a touché {1} ! Vous pouvez contre-attaquer avec {2}.
+Reaction/&CounterAttackWithPowerReactDescription	Utilisez {0} pour riposter.
+Reaction/&CounterAttackWithPowerReactTitle	Frappe
+Reaction/&CounterAttackWithPowerTitle	Attaque ennemie
+Reaction/&CounterSpellDescription	{0} lance un sort ! Vous pouvez réagir pour contrer le sort.
+Reaction/&CounterSpellReactDescription	Lancez un contresort pour contrer le sort de l'adversaire.
+Reaction/&CounterSpellReactTitle	Contre
+Reaction/&CounterSpellTitle	Lancement de sort hostile
+Reaction/&GiantKillerDescription	{0}, une créature {2}, a attaqué {1}, qui peut utiliser une réaction pour riposter.
+Reaction/&GiantKillerReactDescription	Contre-attaquez. Votre réaction sera utilisée jusqu'au prochain tour.
+Reaction/&GiantKillerReactTitle	Attaquer
+Reaction/&GiantKillerTitle	Tueur de Géants
+Reaction/&MainTitle	Réaction
+Reaction/&OpportunityAttackDescription	{0} quitte une zone menacée par un ou plusieurs personnages.
+Reaction/&OpportunityAttackReactDescription	Attaquez le personnage/la créature en repli. Votre réaction sera utilisée jusqu'au prochain tour.
+Reaction/&OpportunityAttackReactTitle	Attaquer
+Reaction/&OpportunityAttackTitle	Attaque d'opportunité
+Reaction/&PassDescription	Vous ne réagissez pas à cet événement et conservez votre réaction pour plus tard.
+Reaction/&PassTitle	Passer
+Reaction/&ReactionShotDescription	{0} a attaqué {1}, qui peut utiliser une réaction pour riposter avec une attaque à distance.
+Reaction/&ReactionShotReactDescription	Contre-attaquez. Votre réaction sera utilisée jusqu'au prochain tour.
+Reaction/&ReactionShotReactTitle	Attaquer
+Reaction/&ReactionShotTitle	Tir de réaction
+Reaction/&SecondsTitle	sec
+Reaction/&SpendPowerPowerDomainBattleDecisiveStrikeDescription	{0} peut frapper en infligeant des dégâts supplémentaires grâce à une Canalisation d'énergie divine.
+Reaction/&SpendPowerPowerDomainBattleDecisiveStrikeReactDescription	Augmentez les dégâts grâce à la Canalisation d'énergie divine : Frappe décisive.
+Reaction/&SpendPowerPowerDomainBattleDecisiveStrikeReactTitle	Frappe
+Reaction/&SpendPowerPowerDomainBattleDecisiveStrikeTitle	Attaque réussie
+Reaction/&SpendPowerPowerTraditionGreenmageMagicalArrowDescription	{0} peut essayer d'enchevêtrer la cible en dépensant une utilisation de Tir d'enchevêtrement.
+Reaction/&SpendPowerPowerTraditionGreenmageMagicalArrowReactDescription	Essayez d'enchevêtrer la cible.
+Reaction/&SpendPowerPowerTraditionGreenmageMagicalArrowReactTitle	Enchevêtrement
+Reaction/&SpendPowerPowerTraditionGreenmageMagicalArrowTitle	Attaque réussie
+Reaction/&SpendSpellSlotDivineSmiteDescription	{0} peut châtier sa cible en infligeant des dégâts supplémentaires grâce à un emplacement de sorts.
+Reaction/&SpendSpellSlotDivineSmiteReactDescription	Dépensez un emplacement de sort pour augmenter les dégâts de la cible.
+Reaction/&SpendSpellSlotDivineSmiteReactTitle	Châtiment
+Reaction/&SpendSpellSlotDivineSmiteTitle	Châtiment divin
+Reaction/&SubitemSelectCounterspellDescription	Sélectionnez un niveau d'emplacement à dépenser pour lancer un contresort
+Reaction/&SubitemSelectCounterspellTitle	Niveau d'emplacement
+Reaction/&SubitemSelectDivineSmiteDescription	Sélectionnez un niveau d'emplacement à consommer pour votre Châtiment divin
+Reaction/&SubitemSelectDivineSmiteTitle	Niveau d'emplacement
+Reaction/&SubitemSelectFeatherFallDescription	Sélectionnez un niveau d'emplacement à dépenser pour lancer Feuille morte
+Reaction/&SubitemSelectFeatherFallTitle	Niveau d'emplacement
+Reaction/&SubitemSelectShieldDescription	Sélectionnez un niveau d'emplacement à dépenser pour lancer Bouclier
+Reaction/&SubitemSelectShieldTitle	Niveau d'emplacement
+Reaction/&UncannyDodgeDescription	{0} attaque {1} qui peut réagir pour diminuer de moitié les dégâts subis.
+Reaction/&UncannyDodgeReactDescription	Utilisez votre réaction pour diminuer de moitié les dégâts de l'attaque.
+Reaction/&UncannyDodgeReactTitle	Diviser
+Reaction/&UncannyDodgeTitle	Esquive instinctive
+Reaction/&UsePowerDomainElementalDiscipleOfTheElementsColdDescription	{0} peut devenir temporairement insensible au froid et récupérer des points de vie.
+Reaction/&UsePowerDomainElementalDiscipleOfTheElementsColdReactDescription	Devenez insensible au froid et récupérez des points de vie.
+Reaction/&UsePowerDomainElementalDiscipleOfTheElementsColdReactTitle	Étreinte
+Reaction/&UsePowerDomainElementalDiscipleOfTheElementsColdTitle	Érudit des éléments (froid)
+Reaction/&UsePowerDomainElementalDiscipleOfTheElementsFireDescription	{0} peut devenir temporairement insensible au feu et récupérer des points de vie.
+Reaction/&UsePowerDomainElementalDiscipleOfTheElementsFireReactDescription	Devenez insensible au feu et récupérez des points de vie.
+Reaction/&UsePowerDomainElementalDiscipleOfTheElementsFireReactTitle	Étreinte
+Reaction/&UsePowerDomainElementalDiscipleOfTheElementsFireTitle	Érudit des éléments (feu)
+Reaction/&UsePowerDomainElementalDiscipleOfTheElementsLightningDescription	{0} peut devenir temporairement insensible à la foudre et récupérer des points de vie.
+Reaction/&UsePowerDomainElementalDiscipleOfTheElementsLightningReactDescription	Devenez insensible à la foudre et récupérez des points de vie.
+Reaction/&UsePowerDomainElementalDiscipleOfTheElementsLightningReactTitle	Étreinte
+Reaction/&UsePowerDomainElementalDiscipleOfTheElementsLightningTitle	Érudit des éléments (foudre)
+Reaction/&DeflectMissileDescription	{0} attaque {1} qui peut réagir pour réduire les dégâts subis de 1D10 + modificateur de DEX.
+Reaction/&DeflectMissileReactDescription	Utilisez votre réaction pour réduire les dégâts de l'attaque.
+Reaction/&DeflectMissileReactTitle	Dévier
+Reaction/&DeflectMissileTitle	Attaque de projectile
+Reaction/&AlterAttackPowerDescription	{0} attaque {1} ! Vous pouvez utiliser {2} pour augmenter la classe d'armure du défenseur jusqu'à la fin du tour de l'assaillant.
+Reaction/&AlterAttackPowerReactDescription	Utilisez {0} pour bloquer l'attaque.
+Reaction/&AlterAttackPowerReactTitle	Bloquer
+Reaction/&AlterAttackPowerTitle	Prévenez l'attaque.
+Reaction/&IndomitableResistanceReactTitle	Relancer
+Reaction/&IndomitableResistanceReactDescription	Relancez pour essayer de réussir le jet de sauvegarde.
+Reaction/&IndomitableResistanceTitle	Indomptable
+Reaction/&IndomitableResistanceDescription	{0} a raté un jet de sauvegarde contre {1}, mais il lui est possible d'essayer de le relancer.
+Reaction/&ShadowRetributionReactTitle	Lancer un sort mineur
+Reaction/&ShadowRetributionReactDescription	Lancez le sort mineur sur un lanceur de sorts hostile.
+Reaction/&ShadowRetributionDescription	{0} se fait cibler par un sort hostile de {1} et peut contre-attaquer avec le sort de {2}.
+Reaction/&SwiftRetaliationReactTitle	Attaquer
+Reaction/&SwiftRetaliationReactDescription	Cliquez pour contre-attaquer avec une attaque au corps à corps.
+Reaction/&SwiftRetaliationTitle	Riposte rapide
+Reaction/&SwiftRetaliationDescription	{0} a attaqué {1}, qui peut utiliser une réaction pour riposter avec une attaque au corps à corps.
+Reaction/&RageVersusSurpriseDescription	{0} est surpris et ne peut pas agir durant ce round à moins que vous décidiez d'entrer en rage.
+Reaction/&RageVersusSurpriseReactDescription	Cliquez pour utiliser une rage (il vous en reste {0}).
+Reaction/&RageVersusSurpriseReactTitle	Rage ({0})
+Reaction/&SpendPowerPowerBerserkerFrenzyDescription	En entrant en rage, vous pouvez déclencher une frénésie, ce qui vous octroie une attaque bonus avec votre arme de corps à corps durant la rage, au prix d'un niveau d'épuisement à la fin de la rage.
+Reaction/&SpendPowerPowerBerserkerFrenzyTitle	Frénésie
+Reaction/&SpendPowerPowerBerserkerFrenzyReactDescription	Déclenchez une frénésie avec votre rage.
+Reaction/&SpendPowerPowerBerserkerFrenzyReactTitle	Frénésie
+Reaction/&WarCryDescription	{0} subit des dégâts de sort ou d'effet magique en étant enragé et peut infliger des dégâts à tous les adversaires dans un rayon de 6 cases.
+Reaction/&WarCryReactDescription	Infligez des dégâts aux adversaires alentour.
+Reaction/&WarCryReactTitle	Cri de guerre
+Reaction/&WarCryTitle	En réaction aux dégâts magiques
+Reaction/&SharedPainDescription	{0} subit des dégâts, qui peuvent être partagés équitablement avec {1}
+Reaction/&SharedPainReactDescription	Divisez les dégâts équitablement entre le druide et l'esprit lié.
+Reaction/&SharedPainReactTitle	Partage
+Reaction/&SharedPainTitle	Douleur partagée
+Reaction/&SpendPowerPowerDomainMischiefStrikeOfChaosTitle	Frappe du chaos
+Reaction/&SpendPowerPowerDomainMischiefStrikeOfChaosDescription	{0} peut utiliser Canalisation d'énergie divine pour infliger Frappe du chaos.
+Reaction/&BorrowLuckReactTitle	Relancer
+Reaction/&BorrowLuckReactDescription	Relancez pour essayer de réussir le jet de sauvegarde.
+Reaction/&BorrowLuckTitle	Forcer la chance
+Reaction/&BorrowLuckDescription	{0} a raté un jet de sauvegarde contre {1}, mais il lui est possible d'essayer de le relancer ; en échange, son prochain jet de sauvegarde subira un désavantage.
+Reaction/&SpendPowerPowerDomainMischiefStrikeOfChaosReactTitle	Frappe
+Reaction/&SpendPowerPowerDomainMischiefStrikeOfChaosReactDescription	Utilisez Canalisation d'énergie divine pour ajouter des dégâts psychiques et infliger une condition aléatoire à la cible.
+Reaction/&SpendPowerPowerDomainMischiefElusiveTargetTitle	Cible insaisissable
+Reaction/&SpendPowerPowerDomainMischiefElusiveTargetDescription	Une attaque au corps à corps a atteint {0}, qui peut utiliser sa réaction pour profiter des avantages Esquiver et Se désengager jusqu'à la fin de son prochain tour.​​​​​​
+Reaction/&SpendPowerPowerDomainMischiefElusiveTargetReactTitle	Évitement
+Reaction/&SpendPowerPowerDomainMischiefElusiveTargetReactDescription	Obtient Esquiver et Se désengager
+Reaction/&SpendPowerPowerInvocationRepellingBlastTitle	Décharge répulsive
+Reaction/&SpendPowerPowerInvocationRepellingBlastDescription	Toucher la créature vous permet de la repousser de 2 cases.
+Reaction/&SpendPowerPowerInvocationRepellingBlastReactTitle	Repoussée
+Reaction/&SpendPowerPowerInvocationRepellingBlastReactDescription	Repousse la créature de 2 cases.
+Reaction/&HellishRebukeReactTitle	Lancer
+Reaction/&HellishRebukeReactDescription	Lance le sort de représailles infernales sur l'assaillant.
+Reaction/&SubitemSelectCounterAttackWithSpellDescription	Sélectionnez un niveau d'emplacement pour contre-attaquer.
+Reaction/&SubitemSelectCounterAttackWithSpellTitle	Niveau d'emplacement
+Reaction/&SpendPowerPowerPatronHiveMagicCounterTitle	Lancement de sort hostile
+Reaction/&SpendPowerPowerPatronHiveMagicCounterDescription	{0} peut utiliser le pouvoir de Contre magique pour contrer un sort hostile.
+Reaction/&SpendPowerPowerPatronHiveMagicCounterReactTitle	Contre
+Reaction/&SpendPowerPowerPatronHiveMagicCounterReactDescription	Dépensez le pouvoir pour contrer le sort.
+Reaction/&ReactiveCarapaceTitle	En réaction aux dégâts magiques
+Reaction/&ReactiveCarapaceDescription	{0} a subi des dégâts d'un sort ou d'un effet magique et peut activer une carapace de points de vie temporaires.
+Reaction/&ReactiveCarapaceReactTitle	Carapace
+Reaction/&ReactiveCarapaceReactDescription	Gagnez des points de vie temporaires jusqu'au début de votre prochain tour.
+Reaction/&UsePowerPatronTimekeeperTimeShiftTitle	Décalage temporel
+Reaction/&UsePowerPatronTimekeeperTimeShiftDescription	{0} a subi des dégâts et peut utiliser une réaction pour voyager brièvement dans le passé, annuler les dégâts et disparaître jusqu'au début du prochain tour.
+Reaction/&UsePowerPatronTimekeeperTimeShiftReactTitle	Décalage
+Reaction/&UsePowerPatronTimekeeperTimeShiftReactDescription	Annulez les dégâts et disparaissez.
+Reaction/&SlowFallReactTitle	Chute ralentie
+Reaction/&SlowFallReactDescription	Utilisez votre réaction pour réduire les dégâts de la chute et vous empêcher de tomber à terre.
+Reaction/&SlowFallTitle	Chute ralentie
+Reaction/&SlowFallDescription	À partir du niveau 4, vous pouvez utiliser votre réaction lorsque vous tombez pour réduire les dégâts de la chute d'un montant équivalent à cinq fois votre niveau de moine. De plus, vous ne serez pas à terre lors de l'atterrissage.
+Reaction/&DeflectMissileMonkTitle	Attaque de projectile
+Reaction/&DeflectMissileMonkDescription	{0} attaque {1} qui peut réagir pour réduire les dégâts subis de 1d10 + modificateur de DEX + niveau de moine.
+Reaction/&ReturnMissileReactTitle	Renvoyer
+Reaction/&ReturnMissileReactDescription	Dépensez 1 point de Ki pour renvoyer le projectile.
+Reaction/&ReturnMissileTitle	Projectile dévié
+Reaction/&ReturnMissileDescription	{1} a complètement dévié le projectile envoyé par {0} ! Vous pouvez dépenser 1 point de Ki pour le renvoyer.
+Reaction/&BardicInspirationReactTitle	Dépenser un dé
+Reaction/&BardicInspirationReactDescription	Dépensez le dé d'inspiration pour tenter de réussir le lancer.
+Reaction/&BardicInspirationTitle	Inspiration bardique
+Reaction/&BardicInspirationAttackRollDescription	{0} a raté son jet d'attaque, mais peut tenter de lancer un {1} pour réussir son jet.
+Reaction/&BardicInspirationSavingThrowDescription	{0} a raté son jet de sauvegarde, mais peut tenter de lancer un {1} pour réussir son jet.
+Reaction/&BardicInspirationAbilityCheckDescription	{0} a raté son jet de caractéristique, mais peut tenter de lancer un {1} pour réussir son jet.
+Reaction/&SwirlingDanceReactTitle	Attaquer
+Reaction/&SwirlingDanceReactDescription	Choisissez de contre-attaquer avec une attaque au corps à corps.
+Reaction/&SwirlingDanceTitle	Danse tournoyante
+Reaction/&SwirlingDanceDescription	{0} a attaqué et raté {1}, qui peut utiliser une réaction pour riposter avec une attaque au corps à corps.
+Reaction/&DiamondSoulReactTitle	Relancer
+Reaction/&DiamondSoulReactDescription	Relancez le jet de sauvegarde raté.
+Reaction/&DiamondSoulTitle	Âme de diamant
+Reaction/&DiamondSoulDescription	{0} a raté un jet de sauvegarde contre {1}, mais peut essayer de le relancer pour 1 point de Ki.
+Reaction/&SpendPowerPowerPatronFiendHurlThroughHellTitle	Traversée des enfers
+Reaction/&SpendPowerPowerPatronFiendHurlThroughHellDescription	{0} a atteint sa cible et peut l'envoyer en enfer pendant 1 round.
+Reaction/&SpendPowerPowerPatronFiendHurlThroughHellReactTitle	Envoyer
+Reaction/&SpendPowerPowerPatronFiendHurlThroughHellReactDescription	Envoyez la créature en enfer.
+Reaction/&UsePowerPowerFeatBlessingOfTheElementsDescription	{0} a subi des dégâts de foudre, de feu ou de froid, et peut utiliser une réaction pour obtenir une résistance à ces types de dégâts jusqu'au début de son prochain tour.
+Reaction/&UsePowerPowerFeatBlessingOfTheElementsReactTitle	Résister
+Reaction/&UsePowerPowerFeatBlessingOfTheElementsReactDescription	Activez la résistance à ces types de dégâts pendant 1 round.
+Reaction/&SpendPowerPowerMonkStunningStrikeTitle	Frappe étourdissante
+Reaction/&SpendPowerPowerMonkStunningStrikeDescription	{0} a atteint sa cible et peut dépenser 1 point de Ki pour tenter une frappe étourdissante.
+Reaction/&SpendPowerPowerMonkStunningStrikeReactTitle	Étourdir
+Reaction/&SpendPowerPowerMonkStunningStrikeReactDescription	Tentez d'étourdir la créature.
+Reaction/&UsePowerBardTraditionVerbalOnslaughtTitle	Assaut verbal
+Reaction/&UsePowerBardTraditionVerbalOnslaughtDescription	Dépensez un dé d'Inspiration bardique pour infliger des dégâts psychiques à votre adversaire et l'étourdir jusqu'à la fin de son prochain tour si son jet de sauvegarde est un échec.
+Reaction/&UsePowerBardTraditionVerbalOnslaughtReactTitle	Assaut
+Reaction/&UsePowerBardTraditionVerbalOnslaughtReactDescription	Infligez des dégâts psychiques à votre adversaire et étourdissez-le jusqu'à la fin de son prochain tour si son jet de sauvegarde est un échec.
+Reaction/&DeflectMissileMonkReactTitle	Dévier
+Reaction/&DeflectMissileMonkReactDescription	Utilisez votre réaction pour réduire les dégâts de l'attaque.
+Reaction/&UsePowerBardHeroismAtRoadsEndTitle	Au bout du chemin
+Reaction/&UsePowerBardHeroismAtRoadsEndDescription	Un allié a désormais 0 point de vie. Vous pouvez utiliser votre réaction pour qu'il ait 1 point de vie.
+Reaction/&UsePowerBardHeroismAtRoadsEndReactTitle	Sauver
+Reaction/&UsePowerBardHeroismAtRoadsEndReactDescription	Guérissez votre allié tombé afin qu'il ait 1 point de vie.
+Reaction/&SpendPowerPowerDomainLawHolyRetributionTitle	Punition divine
+Reaction/&SpendPowerPowerDomainLawHolyRetributionDescription	La canalisation d'énergie divine permet de riposter en utilisant une arme de corps à corps
+Reaction/&SpendPowerPowerDomainLawHolyRetributionReactTitle	Punir

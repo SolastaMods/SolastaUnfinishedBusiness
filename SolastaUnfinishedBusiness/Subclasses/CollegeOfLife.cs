@@ -51,7 +51,6 @@ internal sealed class CollegeOfLife : AbstractSubclass
             .Create("ConditionCollegeOfLifeDarkvision")
             .SetGuiPresentation("PowerSharedPoolCollegeOfLifeDarkvision", Category.Feature, ConditionDarkvision)
             .SetFeatures(FeatureDefinitionSenses.SenseSuperiorDarkvision)
-            .SetDuration(DurationType.UntilLongRest)
             .AddToDB();
 
         var powerSharedPoolCollegeOfLifeDarkvision = FeatureDefinitionPowerSharedPoolBuilder
@@ -84,7 +83,6 @@ internal sealed class CollegeOfLife : AbstractSubclass
                 DamageAffinityNecroticResistance,
                 DamageAffinityPoisonResistance,
                 DamageAffinityThunderResistance)
-            .SetDuration(DurationType.UntilLongRest)
             .AddToDB();
 
         var powerSharedPoolCollegeOfLifePoison = FeatureDefinitionPowerSharedPoolBuilder
@@ -110,7 +108,6 @@ internal sealed class CollegeOfLife : AbstractSubclass
             .Create("ConditionCollegeOfLifeConstitution")
             .SetGuiPresentation(Category.Condition, ConditionBearsEndurance)
             .SetFeatures(FeatureDefinitionSavingThrowAffinitys.SavingThrowAffinityCreedOfArun)
-            .SetDuration(DurationType.UntilLongRest)
             .AddToDB();
 
         var powerSharedPoolCollegeOfLifeConstitution = FeatureDefinitionPowerSharedPoolBuilder

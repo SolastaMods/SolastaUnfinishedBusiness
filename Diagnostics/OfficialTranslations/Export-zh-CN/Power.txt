@@ -1,0 +1,4 @@
+Power/&PowerStoneGolemSlow_Title	
+Power/&PowerStoneGolemSlow_Description	
+Power/&WightLifeDrain_Description	
+Power/&WightLordCircleofDeath_Description	

@@ -205,7 +205,6 @@ public class Settings : UnityModManager.ModSettings
     public bool NoExperienceOnLevelUp { get; set; }
     public int MultiplyTheExperienceGainedBy { get; set; } = 100;
     public int OverridePartySize { get; set; } = ToolsContext.GamePartySize;
-    public bool AllowAllPlayersOnNarrativeSequences { get; set; }
     public float FasterTimeModifier { get; set; } = ToolsDisplay.DefaultFastTimeModifier;
     public bool EnableTogglesToOverwriteDefaultTestParty { get; set; }
     public List<string> DefaultPartyHeroes { get; } = new();
@@ -230,6 +229,7 @@ public class Settings : UnityModManager.ModSettings
     public bool EnableHotkeyToggleHud { get; set; }
     public bool EnableCharacterExport { get; set; }
     public bool EnableTeleportParty { get; set; }
+    public bool EnableCancelEditOnRightMouseClick { get; set; }
 
     // Inventory and Items
     public bool DisableAutoEquip { get; set; }

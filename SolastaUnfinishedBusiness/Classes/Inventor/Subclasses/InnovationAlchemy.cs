@@ -195,8 +195,7 @@ public static class InnovationAlchemy
                 .SetFeatures(FeatureDefinitionActionAffinitys.ActionAffinityConditionShocked)
                 .SetGuiPresentation(ConditionDefinitions.ConditionShocked.GuiPresentation)
                 .SetConditionType(ConditionType.Detrimental)
-                .SetSpecialDuration()
-                .SetDuration(DurationType.Round, 1)
+                .SetSpecialDuration(DurationType.Round, 1)
                 .AddToDB(), ConditionForm.ConditionOperation.Add)
             .Build();
 
@@ -232,8 +231,7 @@ public static class InnovationAlchemy
                     poisoned.SpriteReference)
                 .SetConditionType(ConditionType.Detrimental)
                 .SetFeatures(FeatureDefinitionCombatAffinitys.CombatAffinityPoisoned)
-                .SetSpecialDuration()
-                .SetDuration(DurationType.Round, 1)
+                .SetSpecialDuration(DurationType.Round, 1)
                 .SetSpecialInterruptions(ConditionInterruption.Attacks)
                 .AddToDB(), ConditionForm.ConditionOperation.Add)
             .Build();
@@ -335,8 +333,7 @@ public static class InnovationAlchemy
                 .SetGuiPresentation(branded)
                 .SetConditionType(ConditionType.Detrimental)
                 .SetFeatures(FeatureDefinitionCombatAffinitys.CombatAffinityParalyzedAdvantage)
-                .SetSpecialDuration()
-                .SetDuration(DurationType.Round, 1)
+                .SetSpecialDuration(DurationType.Round, 1)
                 .SetSpecialInterruptions(ConditionInterruption.Attacked)
                 .AddToDB(), ConditionForm.ConditionOperation.Add)
             .Build();
@@ -379,8 +376,7 @@ public static class InnovationAlchemy
                 .SetRecurrentEffectForms(EffectFormBuilder.Create()
                     .SetDamageForm(damage, dieType: dieType, diceNumber: 2)
                     .Build())
-                .SetSpecialDuration()
-                .SetDuration(DurationType.Round, 1)
+                .SetSpecialDuration(DurationType.Round, 1)
                 // .SetTurnOccurence(TurnOccurenceType.StartOfTurn)
                 // .SetSpecialInterruptions(ExtraConditionInterruption.)
                 .AddToDB(), ConditionForm.ConditionOperation.Add)
@@ -424,8 +420,7 @@ public static class InnovationAlchemy
                     .SetModifiers(FeatureDefinitionSavingThrowAffinity.ModifierType.RemoveDice, DieType.D4, 1, false,
                         AttributeDefinitions.Intelligence, AttributeDefinitions.Wisdom, AttributeDefinitions.Charisma)
                     .AddToDB())
-                .SetSpecialDuration()
-                .SetDuration(DurationType.Round, 1)
+                .SetSpecialDuration(DurationType.Round, 1)
                 .AddToDB(), ConditionForm.ConditionOperation.Add)
             .Build();
 
@@ -468,8 +463,7 @@ public static class InnovationAlchemy
                         AttributeDefinitions.Strength, AttributeDefinitions.Dexterity,
                         AttributeDefinitions.Constitution)
                     .AddToDB())
-                .SetSpecialDuration()
-                .SetDuration(DurationType.Round, 1)
+                .SetSpecialDuration(DurationType.Round, 1)
                 .AddToDB(), ConditionForm.ConditionOperation.Add)
             .Build();
 
@@ -589,6 +583,8 @@ public static class InnovationAlchemy
                     .SetDamageForm(damageType, 3, dieType)
                     .Build())
                 .AddEffectForms(effects)
+                .SetSpeed(SpeedType.CellsPerSeconds, 12)
+                .SetupImpactOffsets(offsetImpactTimePerTarget: 0.3f)
                 .Build())
             .SetUseSpellAttack()
             .SetCustomSubFeatures(PowerVisibilityModifier.Visible, new AddPBToDamage(), new Overcharge(), validator)
@@ -662,6 +658,7 @@ public static class InnovationAlchemy
                     .SetDamageForm(damageType, 2, dieType)
                     .Build())
                 .AddEffectForms(effects)
+                .SetSpeed(SpeedType.CellsPerSeconds, 8)
                 .Build())
             .AddToDB();
     }

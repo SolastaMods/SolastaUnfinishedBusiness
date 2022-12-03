@@ -51,7 +51,7 @@ public static class CharacterReactionItemPatcher
                 .SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, size);
 
             //PATCH: support for displaying custom resources on reaction popup
-            if (__instance.ReactionRequest is ReactionRequestReactionAttack attack)
+            if (__instance.ReactionRequest is IReactionRequestWithResource attack)
             {
                 SetupResource(__instance, attack.Resource);
             }

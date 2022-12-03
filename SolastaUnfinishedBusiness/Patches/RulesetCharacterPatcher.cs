@@ -173,11 +173,6 @@ public static class RulesetCharacterPatcher
         private static void ValidateIfInfusedInHand(RulesetCharacter caster, SpellDefinition spell,
             ref bool result, ref string failure)
         {
-            if (spell.MaterialComponentType != RuleDefinitions.MaterialComponentType.Mundane)
-            {
-                return;
-            }
-
             var mainHand = caster.GetItemInSlot(EquipmentDefinitions.SlotTypeMainHand);
             var offHand = caster.GetItemInSlot(EquipmentDefinitions.SlotTypeOffHand);
 

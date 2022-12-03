@@ -117,6 +117,12 @@ internal static class GameUiDisplay
             Main.Settings.EnableTeleportParty = toggle;
         }
 
+        toggle = Main.Settings.EnableCancelEditOnRightMouseClick;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableCancelEditOnRightMouseClick"), ref toggle))
+        {
+            Main.Settings.EnableCancelEditOnRightMouseClick = toggle;
+        }
+
         #endregion
 
         #region Item

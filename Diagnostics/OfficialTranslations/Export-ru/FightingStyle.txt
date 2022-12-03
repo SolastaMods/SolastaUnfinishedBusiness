@@ -1,0 +1,12 @@
+FightingStyle/&ArcheryDescription	
+FightingStyle/&ArcheryTitle	
+FightingStyle/&DefenseDescription	
+FightingStyle/&DefenseTitle	
+FightingStyle/&DuelingDescription	
+FightingStyle/&DuelingTitle	
+FightingStyle/&GreatWeaponDescription	
+FightingStyle/&GreatWeaponTitle	
+FightingStyle/&ProtectionDescription	
+FightingStyle/&ProtectionTitle	
+FightingStyle/&TwoWeaponDescription	
+FightingStyle/&TwoWeaponTitle	

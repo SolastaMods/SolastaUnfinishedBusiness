@@ -1,0 +1,42 @@
+{
+  "$type": "FeatureDefinitionFeatureSet, Assembly-CSharp",
+  "featureSet": [
+    "Definition:ConditionAffinityPathOfTheSpiritsWolfLeadershipPack:56bca621-33a9-53f3-b952-a2c14dc55a8e",
+    "Definition:PowerPathOfTheSpiritsWolfLeadershipLeader:8e49b770-f761-5aed-9c7b-3d2b69432816",
+    "Definition:PowerPathOfTheSpiritsWolfLeadershipPack:dfbff25f-e9fa-5b68-b182-3f4aee9c4a94"
+  ],
+  "mode": "Union",
+  "ancestryDamageTypeMap": [],
+  "ancestryType": "Sorcerer",
+  "defaultSelection": 0,
+  "uniqueChoices": false,
+  "enumerateInDescription": false,
+  "hasRacialAffinity": false,
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feature/&FeatureSetPathOfTheSpiritsWolfLeadershipTitle",
+    "description": "Feature/&FeatureSetPathOfTheSpiritsWolfLeadershipDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "e52f727e-7414-5123-b199-f3afc2aa42c2",
+  "contentPack": 9999,
+  "name": "FeatureSetPathOfTheSpiritsWolfLeadership"
+}

@@ -1,0 +1,324 @@
+Monster/&Acolyte_Description	Un clerc errant à la recherche de gloire et de combat.
+Monster/&Acolyte_Title	Acolyte
+Monster/&Archmage_Description	Un mage maléfique s'étant retiré dans un lieu reclus afin d'y mener d'effroyables expériences sans risque d'interruption.
+Monster/&Archmage_Title	Archimage
+Monster/&Badlands Hunter_Description	Un rôdeur errant à la recherche de gloire et de combat.
+Monster/&Badlands Hunter_Title	Chasseur des Badlands
+Monster/&BanditCaptain_Description	Un bandit expérimenté, aux talents bien plus affûtés que ses comparses.
+Monster/&BanditCaptain_Title	Capitaine bandit
+Monster/&Berserker_Description	Sortis tout droit des terres barbares, les berserkers se rassemblent en meutes à la recherche de combats.
+Monster/&Berserker_Title	Berserker
+Monster/&BroodOfBloodDescription	Engendrée par un profanateur, cette créature est sanguinaire.
+Monster/&BroodOfBloodTitle	Vassal de sang
+Monster/&BroodOfDreadDescription	Engendrée par un profanateur, cette créature est sanguinaire.
+Monster/&BroodOfDreadTitle	Vassal d'effroi
+Monster/&BroodOfFleshDescription	Engendrée par un profanateur, cette créature est sanguinaire.
+Monster/&BroodOfFleshTitle	Vassal de chair
+Monster/&CultFanatic_Description	Membres dévoués d'un culte, ces fanatiques usent de leur dogme et de leur charisme pour endoctriner et manipuler les plus faibles.
+Monster/&CultFanatic_Title	Fanatique de culte
+Monster/&Darkweaver_Description	Un roublard errant à la recherche de gloire et de combat.
+Monster/&Darkweaver_Title	Tisserand du crépuscule
+Monster/&DireWolf_Description	Un loup particulièrement imposant.
+Monster/&DireWolf_Title	Loup sanguinaire
+Monster/&EagleMatriarchDescription	Un aigle immense trouvé dans les Marches.
+Monster/&EagleMatriarchTitle	Matriarche des aigles
+Monster/&FireSpider_Description	Une araignée géante fusionnée avec un petit élémentaire de feu par l'étrange influence magique des Badlands.
+Monster/&FireSpider_Title	Araignée de feu
+Monster/&FlyingSnakeDescription	Un serpent ailé nichant dans les Badlands.
+Monster/&FlyingSnakeTitle	Vipère de l'enfer
+Monster/&GargoyleDescription	[TEMP] TBD
+Monster/&GargoyleTitle	Gargouille
+Monster/&Generic_ShockArcanist_Description	Un puissant magicien de combat à la recherche de défis à relever.
+Monster/&Generic_ShockArcanist_Title	Arcaniste du choc
+Monster/&Generic_Warlord_Description	Un puissant guerrier expérimenté ayant rassemblé des disciples et conquis des territoires.
+Monster/&Generic_Warlord_Title	Seigneur de guerre
+Monster/&GhastDescription	Une goule plus puissante, réputée pour sa terrible pestilence.
+Monster/&GhastTitle	Blême des Badlands
+Monster/&Ghost_Description	Un puissant mort-vivant éthéré.
+Monster/&Ghost_Title	Vengeur spectral
+Monster/&GhostWolf_Description	Un loup défunt, rappelé à la vie par des pouvoirs nécromantiques.
+Monster/&GhostWolf_Title	Loup fantomatique
+Monster/&GhoulDescription	Un mort-vivant vorace, en quête permanente de chair à dévorer.
+Monster/&GhoulTitle	Goule
+Monster/&GiantEagle_Description	Un aigle géant corrompu par les flux magiques des Badlands.
+Monster/&GiantEagle_Title	Aigle des Badlands
+Monster/&GiantSpiderDescription	De très grandes araignées, vivant dans les profondeurs des Badlands et sensibles à la lumière.
+Monster/&GiantSpiderTitle	Araignée des profondeurs
+Monster/&GoblinDescription	Une petite créature verte et maléfique.
+Monster/&GoblinShaman_Description	Un gobelin possédant des pouvoirs s'apparentant à ceux des clercs.
+Monster/&GoblinShamanTitle	Chaman gobelin
+Monster/&GoblinSkirmisherDescription	Un archer gobelin.
+Monster/&GoblinSkirmisherTitle	Tirailleur gobelin
+Monster/&GoblinTitle	Gobelin
+Monster/&Guard_Description	Un soldat de grade subalterne habitué à effectuer de simples tâches de sécurité.
+Monster/&Guard_Title	Garde
+Monster/&Highpriest_Description	Un puissant clerc parcourant les terres pour partager sa foi à coups de douces paroles et d'actes brutaux.
+Monster/&Highpriest_Title	Grand prêtre
+Monster/&MinotaurDescription	Cette monstruosité est le fruit des efforts déployés par les magiciens de Manacalon pour créer une énième race de créatures esclaves.
+Monster/&MinotaurTitle	Minotaure
+Monster/&MummyDescription	Un mort-vivant puissant, préservé pour l'au-delà.
+Monster/&MummyTitle	Momie
+Monster/&Necromancer_Description	Un magicien maléfique, spécialisé dans la nécromancie.
+Monster/&Necromancer_Title	Nécromancien
+Monster/&OgreDescription	Les ogres sont énormes et puissants, mais stupides. Ils vivent pour tuer, piller et pour des plaisirs simples.
+Monster/&OgreTitle	Ogre
+Monster/&OgreZombie_Description	Un ogre rappelé à la vie par des pouvoirs nécromantiques.
+Monster/&OgreZombie_Title	Ogre zombi
+Monster/&OrcArcherDescription	Les orques comptent des archers dans leurs troupes. Malgré leur efficacité, ils sont perçus comme des lâches et sont généralement des guerriers de second rang.
+Monster/&OrcArcherTitle	Archer orque
+Monster/&OrcBerserkerDescription	Les berserkers sont des guerriers fous qui ignorent tous les dangers quand ils sont en transe. Rapides et agressifs, ils ne ressentent ni douleur ni peur.
+Monster/&OrcBerserkerTitle	Berserker orque
+Monster/&OrcChieftainDescription	Les chefs sont les orques les plus forts qui ont survécu aux batailles et aux défis des autres orques pour s'emparer du pouvoir.
+Monster/&OrcChieftainTitle	Chef orque
+Monster/&OrcDescription	Les orques sont des guerriers tribaux violents, connus pour leurs habitudes barbares. Ils vivent des raids et des pillages.
+Monster/&OrcShaman_Description	Être se rapprochant le plus d'un clerc chez les orques, possédant des pouvoirs mystiques.
+Monster/&OrcShaman_Title	Chaman orque
+Monster/&OrcTitle	Orque
+Monster/&PhaseSpider_Description	Une araignée monstrueuse capable de se rendre dans le plan éthéré à sa guise.
+Monster/&PhaseSpider_Title	Araignée de phase
+Monster/&PoisonousSnakeDescription	[TEMP] TBD
+Monster/&PoisonousSnakeTitle	Serpent venimeux
+Monster/&Priest_Description	Un prêtre maléfique à la tête d'une secte religieuse s'attelant à mener des rites malveillants dans l'ombre de la bonne société.
+Monster/&Priest_Title	Prêtre maléfique
+Monster/&Scout_Description	Les éclaireurs sont de talentueux traqueurs offrant leur service pour une certaine somme.
+Monster/&Scout_Title	Éclaireur
+Monster/&SkeletonArcherDescription	Les squelettes sont animés par la magie noire. Ces créatures, autrefois vivantes, sont désormais des coquilles vides et haineuses, qui s'élèvent des tombes ou des champs de bataille en quête de vies… à tuer.
+Monster/&SkeletonArcherTitle	Archer squelette
+Monster/&SkeletonDescription	Les squelettes sont animés par la magie noire. Ces créatures, autrefois vivantes, sont désormais des coquilles vides et haineuses, qui s'élèvent des tombes ou des champs de bataille en quête de vies… à tuer.
+Monster/&SkeletonEnforcer_Description	Un mort-vivant puissant armé d'une hache et d'un bouclier.
+Monster/&SkeletonEnforcer_Title	Exécuteur squelettique
+Monster/&SkeletonKnight_Description	Un mort-vivant puissant créé en rappelant à la vie un chevalier défunt.
+Monster/&SkeletonKnight_Title	Chevalier squelettique
+Monster/&SkeletonSorcerer_Description	Un mort-vivant puissant possédant des pouvoirs nécromantiques.
+Monster/&SkeletonSorcerer_Title	Ensorceleur squelettique
+Monster/&SkeletonTitle	Squelette
+Monster/&SorakAbominationDescription	Un très grand type de Sorr-Akkath, beaucoup plus fort et mortel que ses petits camarades, et apparemment moins intelligent.
+Monster/&SorakAbominationTitle	Abomination Sorr-Akkath
+Monster/&SorakAcolyteOfSorr-TarrDescription	Ces lanceurs de sorts semblent être des clercs de Sorr-Tarr.
+Monster/&SorakAcolyteOfSorr-TarrTitle	Acolyte Sorr-Akkath de Sorr-Tarr
+Monster/&SorakAntipaladinDescription	Un puissant guerrier en armure, doté de résistances supérieures et de caractéristiques magiques.
+Monster/&SorakAntipaladinTitle	Shikkath Sorr-Akkath
+Monster/&SorakAssassinDescription	Un tueur mortel qui rôde dans l'ombre.
+Monster/&SorakAssassinTitle	Assassin Sorr-Akkath
+Monster/&SorakGruntDescription	Un guerrier Sorr-Akkath classique, à la fois agressif et impitoyable.
+Monster/&SorakGruntTitle	Guerrier Sorr-Akkath
+Monster/&SorakSaboteurDescription	Un guerrier de soutien, à la fois rapide, rusé et vicieux.
+Monster/&SorakSaboteurTitle	Saboteur Sorr-Akkath
+Monster/&SorakSkirmisherDescription	Un guerrier Sorr-Akkath à distance.
+Monster/&SorakSkirmisherTitle	Tirailleur Sorr-Akkath
+Monster/&SpectralSpiderDescription	Les araignées mortes des Badlands se changent en morts-vivants.
+Monster/&SpectralSpiderTitle	Araignée spectrale
+Monster/&SpiderDescription	Plus grande qu'une simple araignée et beaucoup plus dangereuse.
+Monster/&SpiderTitle	Araignée des Badlands
+Monster/&Spy_Description	Un roublard sans foi ni loi spécialisé dans l'art de l'espionnage et du meurtre pour des maîtres fortunés.
+Monster/&Spy_Title	Espion
+Monster/&Thug_Description	Les malfrats sont des exécuteurs sans pitié maîtrisant l'art de la violence et de l'intimidation. Ils travaillent contre de belles sommes et n'ont que peu de scrupules.
+Monster/&Thug_Title	Malfrat
+Monster/&TigerDrake_Description	Un grand serpent volant dont les crochets regorgent d'un terrible venin.
+Monster/&TigerDrake_Title	Dragon tigre
+Monster/&TutoAlphaWolfDescription	Un loup adulte qui semble particulièrement agressif.
+Monster/&TutoAlphaWolfTitle	Loup cendré
+Monster/&TutoWolfDescription	Un loup errant, maigre et faible, et surtout affamé.
+Monster/&TutoWolfTitle	Loup affamé
+Monster/&VeteranDescription	Les vétérans sont des guerriers professionnels qui prennent les armes contre rémunération ou pour défendre quelque chose qui leur tient à cœur ou auquel ils croient. Il s'agit de soldats à la retraite et de mercenaires qui n'ont jamais servi les intérêts de qui que ce soit, sauf les leurs.
+Monster/&VeteranTitle	Vétéran
+Monster/&WightDescription	Un nécrophage
+Monster/&WightTitle	Nécrophage
+Monster/&WinterWolf_Description	Un grand loup arctique possédant un souffle froid en guise d'attaque.
+Monster/&WinterWolf_Title	Loup blanc
+Monster/&WolfDescription	Une bête sauvage que l'on trouve typiquement dans les prairies et les forêts de Solasta.
+Monster/&WolfTitle	Loup
+Monster/&WorkerDescription	Humain travaillant dans les Badlands. Son affiliation est inconnue.
+Monster/&WorkerTitle	Humain sans nom
+Monster/&ZombieDescription	Un mort-vivant vorace, en quête permanente de chair à dévorer.
+Monster/&ZombieTitle	Zombi
+Monster/&Werewolf_Title	Loup-garou
+Monster/&Werewolf_Description	Un métamorphe à forme humaine, il garde certains de ses pouvoirs contre nature, dont une fantastique résistance à toutes les armes qui ne sont pas en argent.
+Monster/&ConjuredBeast_Title	Bête invoquée
+Monster/&ConjuredBeast_Description	Cette créature a été invoquée.
+Monster/&Redscar_Orc_Grunt_Title	Orque de la Balafrouge
+Monster/&Redscar_Orc_Grunt_Description	Cet orque, un des sbires d'Arrok, a été béni avec le pouvoir du feu.
+Monster/&Redscar_Orc_Beastmaster_Title	Maître des bêtes orque
+Monster/&Redscar_Orc_Beastmaster_Description	Cet orque, moins agressif que la plupart de ses semblables, envoie les bêtes qu'il a domptées se battre à sa place.
+Monster/&GoblinCutthroatTitle	Égorgeur gobelin
+Monster/&GoblinCutthroatDescription	Un vétéran gobelin devenu un tueur expérimenté.
+Monster/&Veteran_Agent_Description	Ce mercenaire vétéran semble habité d'une fureur fanatique.
+Monster/&Veteran_Agent_Title	Assaillant mystérieux
+Monster/&Darkweaver_Agent_Description	Ce tisserand du crépuscule semble habité d'une fureur fanatique.
+Monster/&Darkweaver_Agent_Title	Assaillant mystérieux
+Monster/&CaravanMerchant_Title	Marchand itinérant
+Monster/&SpiderQueenTitle	Reine-araignée
+Monster/&SpiderQueenDescription	Une araignée géante qui a probablement vécu des siècles durant dans l'obscurité.
+Monster/&FireOsprey_Title	Balbuzard de feu
+Monster/&FireOsprey_Description	Un élémentaire de feu ressemblant à une chauve-souris. On le trouve seulement au fin fond des Badlands.
+Monster/&OrcMerchantTitle	Marchand orque
+Monster/&FireElemental_Title	Élémentaire de feu
+Monster/&SkeletonMarksman_Title	Tireur d'élite squelettique
+Monster/&SkeletonMarksman_Description	Un archer squelettique puissant tirant des flèches magiques imprégnées de magie nécrotique.
+Monster/&Wraith_Title	Âme en peine des Badlands
+Monster/&Wraith_Description	Un mort-vivant incorporel pouvant drainer votre vie et haïssant la lumière.
+Monster/&MinorFireElemental_Title	Bouffon de feu
+Monster/&MinorFireElemental_Description	Un petit élémentaire de feu pyromane.
+Monster/&Orc_Grimblade_Title	Orque Sombrelame
+Monster/&Orc_Grimblade_Description	Un orque sournois capable d'utiliser les ombres pour poignarder ses adversaires dans le dos.
+Monster/&CrimsonSpider_Title	Araignée d'écarlate
+Monster/&CrimsonSpider_Description	Une araignée géante vivant dans les lacs acides souterrains des Badlands.
+Monster/&AirElemental_Title	Élémentaire d'air
+Monster/&AirElemental_Description	Un courant d'air tourbillonnant animé par des forces élémentaires magiques.
+Monster/&FireElemental_Description	Une créature de feu animée par des forces élémentaires magiques.
+Monster/&EarthElemental_Title	Élémentaire de terre
+Monster/&EarthElemental_Description	Une imposante créature de pierre animée par des forces élémentaires magiques.
+Monster/&WindSnake_Title	Serpent de vent
+Monster/&WindSnake_Description	Un petit élémentaire d'air qui peut vous geler jusqu'à la mort.
+Monster/&SkarnGhoul_Title	Goule de skarn
+Monster/&SkarnGhoul_Description	Un petit élémentaire de terre fait de roche de skarn qui peut vous écraser les pieds jusqu'à ce que vous ayez mal.
+Monster/&Redeemer_PilgrimTitle	Pèlerin
+Monster/&Redeemer_PilgrimDescription	Gros insecte appartenant à la famille des rédempteurs. Sa morsure est acide et il est capable de pulvériser des phéromones qui déclenchent une frénésie parmi ses rangs.
+Monster/&Redeemer_ZealotTitle	Zélote
+Monster/&Redeemer_ZealotDescription	Un très gros insecte appartenant à la famille des rédempteurs qui a la capacité d'infliger des chocs électriques.
+Monster/&Highpriest_Infiltrator_Title	Prêtre d'Arivad
+Monster/&CubeOfLightTitle	Cube de lumière
+Monster/&CubeOfLightDescription	Une étrange créature faite de lumière et de magie dont l'origine est inconnue.
+Monster/&GreenDragon_Title	Dragon vert
+Monster/&GreenDragon_Description	Ce dragon semble être le maître de l'invocation de l'ancien Arcaneum impérial !
+Monster/&Remorhaz_Title	Rémorhaz
+Monster/&Remorhaz_Description	Un monstrueux insecte capable d'avaler un aventurier d'une seule traite !
+Monster/&Sorak_Tshar_Boss_Title	Tshar Sorr-Akkath
+Monster/&Sorak_Tshar_Boss_Description	Le chef des Soraks à Solasta, un ancien acolyte puissant de Sorr-Tarr.
+Monster/&Divine_Avatar_01_Title	Avatar divin
+Monster/&Divine_Avatar_01_Description	Une puissante créature envoyée par une divinité afin de soutenir un croyant dans le besoin.
+Monster/&BlackDragon_Title	Dragon noir
+Monster/&BlackDragon_Description	Ce dragon noir serait vraisemblablement Mardracht, le maître de la nécromancie de l'Arcaneum de Manacalon !
+Monster/&Spiderling_Title	Araignées juvéniles
+Monster/&Spiderling_Description	Progéniture de la vieille reine. Elle les aime tellement qu'elle en mange certaines de temps en temps.
+Monster/&YoungRemorhaz_Title	Progéniture Rémorhaz
+Monster/&YoungRemorhaz_Description	La progéniture de ce prédateur au sommet de la chaîne alimentaire est un petit monstre vraiment terrifiant.
+Monster/&BlackYoungDragon_Title	Jeune dragon noir
+Monster/&BlackYoungDragon_Description	Un dragon de petite taille, perverti par la magie chaotique des Badlands.
+Monster/&GreenYoungDragon_Title	Jeune dragon vert
+Monster/&GreenYoungDragon_Description	Un dragon de petite taille, perverti par la magie chaotique des Badlands.
+Monster/&GoldDragon_Title	Dragon d'or
+Monster/&GoldDragon_Description	Ce dragon d'or serait vraisemblablement Adrastée, la maîtresse de l'abjuration de l'Arcaneum de Manacalon !
+Monster/&TigerDrake_Mutant_Title	Dragon tigre mutant
+Monster/&TigerDrake_Mutant_Description	Un hybride de dragon tigre et d'autres monstres des Badlands.
+Monster/&Generic_DLC_Barbarian_Title	Barbare
+Monster/&Generic_DLC_Barbarian_Description	Un barbare errant.
+Monster/&Generic_DLC_Sorcerer_Title	Ensorceleur
+Monster/&Generic_DLC_Sorcerer_Description	Un ensorceleur errant.
+Monster/&BrownBear_Title	Ours brun
+Monster/&BrownBear_Description	Une bête sauvage commune que l'on trouve partout dans le monde connu.
+Monster/&BlackBear_Title	Ours noir
+Monster/&BlackBear_Description	Une bête dangereuse que l'on trouve notamment dans les grottes et les forêts.
+Monster/&WereBear_Title	Ours-garou
+Monster/&WereBear_Description	Un lycanthrope monstrueux s'étant transformé en un ours impressionnant et quasiment impossible à blesser.
+Monster/&BadlandsBear_Title	Ours des Badlands
+Monster/&BadlandsBear_Description	Une autre bête qui, en raison de la magie des Badlands, a subi d'horribles mutations au fil des générations et s'est transformée en créature monstrueuse.
+Monster/&MutatedBear_Title	Ours mutant
+Monster/&MutatedBear_Description	Cet ours des Badlands a été modifié intentionnellement avec de la magie pour devenir plus violent et dangereux que ce qu'il était autrefois.
+Monster/&MinotaurElite_Description	Les rangs des puissants minotaures recèlent de guerriers d'exception. Ces derniers reçoivent un entraînement intensif leur permettant d'acquérir plus de force et de puissance que leurs frères, mais également de maîtriser des compétences mortelles.
+Monster/&SpectralMinotaur_Title	Minotaure spectral
+Monster/&SpectralMinotaur_Description	Des créatures aussi effroyables ont forcément été créées par des nécromanciens complètement dérangés, dont le seul désir est de réduire le minotaure en esclavage pour l'éternité... même dans la mort.
+Monster/&FrostGiant_Title	Géant du givre
+Monster/&FrostGiant_Description	Ces géants ont le cœur aussi froid que leurs corps, faits de glace et de neige. Le combat et la destruction sont les seules raisons de vivre de ces créatures.
+Monster/&FireGiant_Title	Géant du feu
+Monster/&FireGiant_Description	Ces créatures impressionnantes ayant vu le jour dans les flammes des volcans souterrains des Badlands se sont entraînées au combat et à l'art de la forge et sont, en règle générale, des plus hostiles.
+Monster/&StoneGiant_Title	Géant de pierre
+Monster/&StoneGiant_Description	Ces immenses créatures issues de la terre de Solasta demeurent dans de gigantesques grottes et ne se sentent pas chez elles à l'extérieur.
+Monster/&HillGiant_Title	Géant des collines
+Monster/&HillGiant_Description	Ces créatures voraces et stupides sont en permanence à la recherche de leur prochain repas... et il pourrait très bien s'agir de vos camarades et vous !
+Monster/&Troll_Title	Troll
+Monster/&Troll_Description	Des géants verts voraces avec un pouvoir de régénération extraordinaire.
+Monster/&Troll_Regeneration_Title	Régénération
+Monster/&Troll_Regeneration_Description	Les trolls régénèrent 10 pv par round sauf s'ils subissent des dégâts acides ou de feu.
+Monster/&GiantBeetle_Title	Punaise géante
+Monster/&GiantBeetle_Description	Un insecte gigantesque provenant des Badlands. Il s'agit peut-être d'un ancêtre des redoutables rédempteurs.
+Monster/&SpiritDescription	Une créature spirituelle liée à un druide.
+Monster/&CrimsonSpiderling_Title	Araignée juvénile écarlate
+Monster/&CrimsonSpiderling_Description	Une petite (tout est relatif) araignée écarlate.
+Monster/&FeyWolf_Title	Loup fée
+Monster/&FeyWolf_Description	Un loup énorme et puissant, qu'on ne trouve que dans les forêts les plus anciennes et les plus profondes de Solasta.
+Monster/&FeyEagle_Title	Aigle fée
+Monster/&FeyEagle_Description	Un aigle énorme et puissant, qu'on ne trouve que dans les forêts les plus anciennes et les plus profondes de Solasta.
+Monster/&FeyBear_Title	Ours fée
+Monster/&FeyBear_Description	Un vieil ours puissant, qu'on ne trouve que dans les forêts les plus anciennes et les plus profondes de Solasta.
+Monster/&MutatedMonster_Generic_Description	Cette créature a été transformée au moyen de la magie, ce qui la rend plus brutale et plus dangereuse qu'elle ne l'était auparavant.
+Monster/&Ape_Title	Gorille
+Monster/&Ape_Description	Un grand singe puissant, typique des jungles de l'Ancien Empire.
+Monster/&GiantApe_Title	Singe géant
+Monster/&GiantApe_Description	Ce singe monstrueux est d'une taille et d'une endurance supérieures à la normale.
+Monster/&MutatedGiantApe_Title	Singe géant mutant
+Monster/&MutatedGiantApe_Description	Une version mutante du singe géant, incroyablement puissante et capable de se régénérer.
+Monster/&Dryad_Title	Dryade
+Monster/&Dryad_Description	Une fée typique des forêts et jungles de Solasta.
+Monster/&BadlandsDryad_Title	Dryade des Badlands
+Monster/&BadlandsDryad_Description	Une dryade puissante et mystérieuse, probablement transformée par la magie chaotique des Badlands.
+Monster/&MutatedDryad_Title	Dryade mutante
+Monster/&MutatedDryad_Description	Cette dryade semble avoir subi des mutations monstrueuses.
+Monster/&StoneGolem_Title	Golem de pierre
+Monster/&StoneGolem_Description	Une créature artificielle magique d'une force et d'une résistance phénoménales.
+Monster/&ClayGolem_Title	Golem d'argile
+Monster/&ClayGolem_Description	Une créature artificielle magique d'une force et d'une résistance phénoménales.
+Monster/&IronGolem_Title	Golem de fer
+Monster/&IronGolem_Description	Une créature artificielle magique d'une force et d'une résistance phénoménales.
+Monster/&Roc_Title	Roc
+Monster/&Roc_Description	Un oiseau gigantesque capable d'avaler un humanoïde de taille moyenne - sans doute une autre monstruosité née du Cataclysme.
+Monster/&WightLord_Title	Seigneur nécrophage
+Monster/&WightLord_Description	Un nécrophage puissant, capable de supporter la lumière du jour.
+Monster/&MinotaurElite_Title	Minotaure d'élite
+Monster/&Bulette_Title	Bulette
+Monster/&Bulette_Description	Aussi appelé requin des sables, ce monstre peut se frayer un chemin sous terre jusque sous vos pieds. C'est d'ailleurs de là que vient l'expression « avoir les talons dans l'estomac »..
+Monster/&Mummy_Title	Momie
+Monster/&Mummy_Description	Anciens soldats ou prêtres d'une civilisation perdue, ces morts-vivants encore enveloppés dans leurs linceuls protègent les lieux sacrés et sont parfois au service d'un maître nécromancien.
+Monster/&MummyLord_Title	Seigneur momie
+Monster/&MummyLord_Description	Ces momies extrêmement puissantes étaient autrefois des rois et des grands prêtres, et elles ont gardé de leur vie passée un pouvoir et une conscience supérieurs à ceux des momies communes.
+Monster/&MummyLordTitle	Seigneur momie
+Monster/&MummyLordDescription	Un puissant lanceur de sorts mort-vivant - très difficile à tuer.
+Monster/&GiantCrow_Title	Corbeau géant
+Monster/&GiantCrow_Description	Un oiseau gigantesque qui semble assez agressif pour s'attaquer à des ennemis de taille humaine.
+Monster/&GiantMerchantTitle	Gartok
+Monster/&DLC1_Complex_Trained_Wolf_Title	Loup entraîné
+Monster/&DLC1_Complex_Trained_Wolf_Description	Un loup de combat entraîné par les gardes du complexe.
+Monster/&DLC1_Complex_Trained_Direwolf_Title	Loup sanguinaire entraîné
+Monster/&DLC1_Complex_Trained_Direwolf_Description	Un loup sanguinaire entraîné par les gardes du complexe.
+Monster/&Mutated_Direwolf_Title	Loup sanguinaire mutant
+Monster/&Mutated_Direwolf_Description	Un loup sanguinaire ayant subi des mutations magiques, plus agressif et plus dangereux que la normale.
+Monster/&Mutated_Bulette_Title	Bulette mutante
+Monster/&Mutated_Bulette_Description	Cette bulette est un autre hybride né des affreuses expériences menées dans le complexe secret. Elle est bien évidemment pire qu'une bulette normale.
+Monster/&Oni_Regeneration_Title	Régénération
+Monster/&Oni_Regeneration_Description	Les onis régénèrent 10 pv par round lorsqu'ils disposent de 1 pv ou plus.
+Monster/&Mutated_Zombie_Title	Zombi mutant
+Monster/&Mutated_Zombie_Description	On dirait que les morts-vivants aussi peuvent muter.
+Monster/&MutatedGiantApe_Regeneration_Title	Régénération du singe géant mutant
+Monster/&MutatedGiantApe_Regeneration_Description	Les singes géants mutants régénèrent 5 pv par tour sauf s'ils subissent des dégâts acides.
+Monster/&MutatedBear_Regeneration_Title	Régénération de l'ours mutant
+Monster/&MutatedBear_Regeneration_Description	Les ours mutants régénèrent 2 pv par tour.
+Monster/&ShamblingMound_Title	Tertre errant
+Monster/&ShamblingMound_Description	Une gigantesque plante vivante.
+Monster/&FeyApe_Title	Singe fée
+Monster/&FeyApe_Description	Un singe énorme et puissant, qu'on ne trouve que dans les forêts les plus anciennes et les plus profondes de Solasta.
+Monster/&GreenHag_Title	Sorcière verte
+Monster/&GreenHag_Description	Une sorcière fée qui peut changer d'apparence et disparaître dans l'obscurité de la nuit.
+Monster/&DryadQueen_Title	Reine dryade
+Monster/&DryadQueen_Description	Une grande dryade puissante, qui semble mener une meute de dryades subalternes.
+Monster/&Werebear_Title	Reine dryade
+Monster/&Werebear_Description	Une grande dryade puissante, qui semble mener une meute de dryades subalternes.
+Monster/&Golem_Description	Les golems sont des créatures artificielles fabriquées par de puissants magiciens pour servir de gardes et de serviteurs. Ils résistent à la magie et aux armes les plus banales.
+Monster/&InvisibleStalker_Title	Traqueur invisible
+Monster/&InvisibleStalker_Description	Un élémentaire qui peut être invoqué pour servir un maître, souvent dans le but de tuer quelqu'un.
+Monster/&Mutated_Troll_Title	Troll mutant
+Monster/&Mutated_Troll_Description	Ce mutant est clairement différent des trolls ordinaires, et sans aucun doute plus dangereux.
+Monster/&Redeemer_Juggernaut_Title	Juggernaut
+Monster/&Redeemer_Juggernaut_Description	Ce gigantesque rédempteur est clairement au sommet de la chaîne alimentaire de sa famille.
+Monster/&Swamp_Hag_Title	Sorcière des marécages
+Monster/&Swamp_Hag_Description	Une fée dégénérée qui a appris l'art de la magie arcanique dans l'obscurité des marécages.
+Monster/&SmartGiant_Description	Ce géant des collines semble plus intelligent que la moyenne. Bien plus intelligent même.
+Monster/&BadlandsApe_Title	Grand singe des Badlands
+Monster/&BadlandsApe_Description	Un très grand singe, bien plus dangereux après des générations passées dans les Badlands.
+Monster/&Oni_Title	Oni
+Monster/&Oni_Description	NotUsed_DoNotTranslate
+Monster/&BadlandsOni_Title	Oni des Badlands
+Monster/&BadlandsOni_Description	NotUsed_DoNotTranslate
+Monster/&MutatedMinotaur_Regeneration_Title	Régénération
+Monster/&MutatedMinotaur_Regeneration_Description	Le minotaure mutant régénère 10 points de vie par tour.
+Monster/&MutatedMinotaur_Title	Minotaure mutant
+Monster/&MutatedMinotaur_Description	Un énorme minotaure, transformé suite à des expérimentations indicibles.

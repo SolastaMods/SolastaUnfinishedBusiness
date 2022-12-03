@@ -584,8 +584,7 @@ internal sealed class RangerWildMaster : AbstractSubclass
             .Create(CommandSpiritBeastCondition)
             .SetGuiPresentationNoContent()
             .SetSilent(Silent.WhenAddedOrRemoved)
-            .SetDuration(DurationType.Round, 1)
-            .SetSpecialDuration()
+            .SetSpecialDuration(DurationType.Round, 1)
             .SetTurnOccurence(TurnOccurenceType.StartOfTurn)
             .AddToDB();
 

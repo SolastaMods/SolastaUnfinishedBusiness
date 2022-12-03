@@ -11,24 +11,26 @@ internal static class GameConsoleHelper
         [NotNull] RulesetCharacter character,
         [NotNull] FeatureDefinitionPower power,
         string text = DefaultUseText,
-        bool indent = false)
+        bool indent = false,
+        params (ConsoleStyleDuplet.ParameterType type, string value)[] extra)
     {
         var abilityName = string.IsNullOrEmpty(power.ShortTitleOverride)
             ? power.GuiPresentation.Title
             : power.ShortTitleOverride;
 
-        LogCharacterActivatesAbility(character, abilityName, text, indent, power.Name, "PowerDefinition");
+        LogCharacterActivatesAbility(character, abilityName, text, indent, power.Name, "PowerDefinition", extra);
     }
 
     internal static void LogCharacterUsedFeature(
         [NotNull] RulesetCharacter character,
         [NotNull] FeatureDefinition feature,
         string text = TriggerFeature,
-        bool indent = false)
+        bool indent = false,
+        params (ConsoleStyleDuplet.ParameterType type, string value)[] extra)
     {
         var abilityName = feature.GuiPresentation.Title;
 
-        LogCharacterActivatesAbility(character, abilityName, text, indent, feature.FormatDescription());
+        LogCharacterActivatesAbility(character, abilityName, text, indent, feature.FormatDescription(), extra: extra);
     }
 
     internal static void LogCharacterActivatesAbility(
@@ -37,7 +39,8 @@ internal static class GameConsoleHelper
         string text = DefaultUseText,
         bool indent = false,
         string tooltipContent = null,
-        string tooltipClass = null)
+        string tooltipClass = null,
+        params (ConsoleStyleDuplet.ParameterType type, string value)[] extra)
     {
         var console = Gui.Game.GameConsole;
         var characterName = character is RulesetCharacterHero hero ? hero.DisplayName : character.Name;
@@ -46,6 +49,11 @@ internal static class GameConsoleHelper
         entry.AddParameter(ConsoleStyleDuplet.ParameterType.Player, characterName);
         entry.AddParameter(ConsoleStyleDuplet.ParameterType.AttackSpellPower, abilityName,
             tooltipContent: tooltipContent, tooltipClass: tooltipClass);
+        foreach (var (type, value) in extra)
+        {
+            entry.AddParameter(type, value);
+        }
+
         console.AddEntry(entry);
     }
 

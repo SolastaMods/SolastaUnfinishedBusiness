@@ -214,7 +214,6 @@ internal sealed class PatronElementalist : AbstractSubclass
         var conditionElementalistNormal = ConditionDefinitionBuilder
             .Create("ConditionElementalistNormal" + text)
             .SetGuiPresentation(GuiPresentation("ElementalCondition", text, elementalFormConfig, iconRegular))
-            .SetDuration(DurationType.Minute, 1)
             .SetSilent(Silent.None)
             .AddFeatures(elementalFormConfig.Resistance, additionalDamageElementalist)
             .SetConditionParticleReference(elementalFormConfig.Particles)
@@ -245,7 +244,6 @@ internal sealed class PatronElementalist : AbstractSubclass
         var conditionElementalistEnhanced = ConditionDefinitionBuilder
             .Create("ConditionElementalistEnhanced" + text)
             .SetGuiPresentation(GuiPresentation("ElementalCondition", text, elementalFormConfig, iconEnhanced))
-            .SetDuration(DurationType.Minute, 1)
             .SetSilent(Silent.None)
             .AddFeatures(elementalFormConfig.Immunity, additionalDamageElementalist)
             .SetConditionParticleReference(elementalFormConfig.Particles)

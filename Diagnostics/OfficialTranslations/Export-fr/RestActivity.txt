@@ -1,0 +1,12 @@
+RestActivity/&ArcaneRecoveryDescription	Une fois par jour, lorsque vous terminez un repos court, vous pouvez récupérer un certain nombre d'emplacements de sorts dépensés (max niveau 5) jusqu'à la moitié de votre niveau de magicien, à l'arrondi supérieur.
+RestActivity/&ArcaneRecoveryTitle	Regain Arcanique
+RestActivity/&AttuneItemDescription	Créer un lien avec un objet vous permet d'accéder à ses propriétés et fonctions avancées.
+RestActivity/&AttuneItemTitle	Lier un objet
+RestActivity/&LevelUpDescription	Commencez la séquence d'obtention de niveau pour ce personnage.
+RestActivity/&LevelUpTitle	Niveau supérieur
+RestActivity/&PrepareSpellsDescription	Vous pouvez changer votre liste de sorts préparés après un repos long.
+RestActivity/&PrepareSpellsTitle	Préparer sorts
+RestActivity/&ArcaneRecoveryExecutedDescription	Activer le <b>Regain Arcanique</b> a permis à {0} de regagner les emplacements de sort suivants :
+RestActivity/&NaturalRecoveryTitle	Récupération naturelle
+RestActivity/&NaturalRecoveryDescription	Une fois par jour, lorsque vous terminez un repos court, vous pouvez récupérer un certain nombre d'emplacements de sorts dépensés (niveau 5 max) jusqu'à la moitié de votre niveau de druide, à l'arrondi supérieur.
+RestActivity/&FiendishResilienceDescription	Sélectionnez un nouveau type de résistance aux dégâts. Cela remplacera votre précédent choix de résistance fiélonne.

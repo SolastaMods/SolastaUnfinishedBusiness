@@ -1,0 +1,27 @@
+BodyColor/&EyesBlackTitle	Noir
+BodyColor/&EyesBlueTitle	Bleu
+BodyColor/&EyesBrownTitle	Marron
+BodyColor/&EyesGoldenTitle	Doré
+BodyColor/&EyesGreenTitle	Vert
+BodyColor/&EyesHazelTitle	Noisette
+BodyColor/&EyesLavenderTitle	Lavande
+BodyColor/&EyesRedTitle	Rouge
+BodyColor/&EyesSilverTitle	Gris
+BodyColor/&HairBlackTitle	Brun
+BodyColor/&HairBlondTitle	Blond
+BodyColor/&HairBlueTitle	Bleu
+BodyColor/&HairBrownTitle	Marron
+BodyColor/&HairCopperTitle	Cuivré
+BodyColor/&HairOliveTitle	Olive
+BodyColor/&HairRedTitle	Rouge
+BodyColor/&HairRoseTitle	Rose
+BodyColor/&HairSandyBrownTitle	Châtain clair
+BodyColor/&HairSilverTitle	Gris
+BodyColor/&HairWhiteTitle	Blanc
+BodyColor/&SkinAlabasterBlueTitle	Albâtre bleu
+BodyColor/&SkinBronzeTitle	Bronze
+BodyColor/&SkinCopperishTitle	Cuivre
+BodyColor/&SkinFairTitle	Clair
+BodyColor/&SkinObsidianTitle	Obsidienne
+BodyColor/&SkinPaleTitle	Pâle
+BodyColor/&SkinTanTitle	Mat

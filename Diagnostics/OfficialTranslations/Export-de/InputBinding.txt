@@ -1,0 +1,8 @@
+InputBinding/&LeftAlt	
+InputBinding/&LeftControl	
+InputBinding/&LeftShift	
+InputBinding/&MainFormat	
+InputBinding/&OrFormat	
+InputBinding/&RightAlt	
+InputBinding/&RightControl	
+InputBinding/&RightShift	

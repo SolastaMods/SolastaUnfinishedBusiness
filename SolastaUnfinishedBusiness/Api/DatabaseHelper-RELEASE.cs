@@ -611,6 +611,7 @@ internal static partial class DatabaseHelper
         internal static FeatureDefinitionSavingThrowAffinity SavingThrowAffinityCreedOfArun { get; } = GetDefinition<FeatureDefinitionSavingThrowAffinity>("SavingThrowAffinityCreedOfArun");
         internal static FeatureDefinitionSavingThrowAffinity SavingThrowAffinityCreedOfSolasta { get; } = GetDefinition<FeatureDefinitionSavingThrowAffinity>("SavingThrowAffinityCreedOfSolasta");
         internal static FeatureDefinitionSavingThrowAffinity SavingThrowAffinityGemIllusion { get; } = GetDefinition<FeatureDefinitionSavingThrowAffinity>("SavingThrowAffinityGemIllusion");
+        internal static FeatureDefinitionSavingThrowAffinity SavingThrowAffinityPatronHiveWeakeningPheromones { get; } = GetDefinition<FeatureDefinitionSavingThrowAffinity>("SavingThrowAffinityPatronHiveWeakeningPheromones");
         internal static FeatureDefinitionSavingThrowAffinity SavingThrowAffinityShelteringBreeze { get; } = GetDefinition<FeatureDefinitionSavingThrowAffinity>("SavingThrowAffinityShelteringBreeze");
     }
     internal static class FeatureDefinitionSenses
@@ -1046,6 +1047,8 @@ internal static partial class DatabaseHelper
     }
     internal static class RecipeDefinitions
     {
+        internal static RecipeDefinition RecipeBasic_Arrows { get; } = GetDefinition<RecipeDefinition>("RecipeBasic_Arrows");
+        internal static RecipeDefinition RecipeBasic_Bolts { get; } = GetDefinition<RecipeDefinition>("RecipeBasic_Bolts");
         internal static RecipeDefinition Recipe_Enchantment_BattleaxePunisher { get; } = GetDefinition<RecipeDefinition>("Recipe_Enchantment_BattleaxePunisher");
         internal static RecipeDefinition Recipe_Enchantment_BreastplateOfDeflection { get; } = GetDefinition<RecipeDefinition>("Recipe_Enchantment_BreastplateOfDeflection");
         internal static RecipeDefinition Recipe_Enchantment_DaggerFrostburn { get; } = GetDefinition<RecipeDefinition>("Recipe_Enchantment_DaggerFrostburn");

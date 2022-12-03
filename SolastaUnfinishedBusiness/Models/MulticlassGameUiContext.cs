@@ -512,13 +512,18 @@ internal static class MulticlassGameUiContext
             localHeroCharacter
                 .EnumerateFeaturesToBrowse<FeatureDefinitionAutoPreparedSpells>(group.features);
 
-            foreach (var feature in group.features.OfType<FeatureDefinitionAutoPreparedSpells>())
+            foreach (var featureDefinitionAutoPreparedSpells in group.features
+                         .OfType<FeatureDefinitionAutoPreparedSpells>())
             {
-                autoPrepareTag = feature.AutoPreparedTag;
+                var maxLevel =
+                    LevelUpContext.GetMaxAutoPrepSpellsLevel(localHeroCharacter, featureDefinitionAutoPreparedSpells);
 
-                foreach (var spells in feature.AutoPreparedSpellsGroups
+                autoPrepareTag = featureDefinitionAutoPreparedSpells.AutoPreparedTag;
+
+                foreach (var spells in featureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroups
                              .SelectMany(preparedSpellsGroup => preparedSpellsGroup.SpellsList
-                                 .Where(spells => spells.SpellLevel == group.SpellLevel)))
+                                 .Where(spell => spell.SpellLevel <= maxLevel)
+                                 .Where(spell => spell.SpellLevel == group.SpellLevel)))
                 {
                     group.autoPreparedSpells.Add(spells);
                 }
@@ -673,7 +678,7 @@ internal static class MulticlassGameUiContext
 
     private static void CollectAllAutoPreparedSpells(
         [NotNull] SpellsByLevelGroup __instance,
-        [NotNull] RulesetActor hero,
+        [NotNull] RulesetCharacter hero,
         [NotNull] List<SpellDefinition> allSpells,
         [NotNull] ICollection<SpellDefinition> auToPreparedSpells)
     {
@@ -681,11 +686,16 @@ internal static class MulticlassGameUiContext
         // Also filter the prepped spells by level this group is displaying.
         hero.EnumerateFeaturesToBrowse<FeatureDefinitionAutoPreparedSpells>(hero.FeaturesToBrowse);
 
-        foreach (var autoPreparedSpells in hero.FeaturesToBrowse.OfType<FeatureDefinitionAutoPreparedSpells>())
+        foreach (var featureDefinitionAutoPreparedSpells in hero.FeaturesToBrowse
+                     .OfType<FeatureDefinitionAutoPreparedSpells>())
         {
-            foreach (var spell in from preparedSpellsGroup in autoPreparedSpells.AutoPreparedSpellsGroups
+            var maxLevel = LevelUpContext.GetMaxAutoPrepSpellsLevel(hero, featureDefinitionAutoPreparedSpells);
+
+            foreach (var spell in from preparedSpellsGroup in featureDefinitionAutoPreparedSpells
+                         .AutoPreparedSpellsGroups
                      from spell in preparedSpellsGroup.SpellsList
-                     let flag = !auToPreparedSpells.Contains(spell) && __instance.SpellLevel == spell.SpellLevel
+                     let flag = !auToPreparedSpells.Contains(spell) && __instance.SpellLevel == spell.SpellLevel &&
+                                spell.SpellLevel <= maxLevel
                      where flag
                      select spell)
             {

@@ -24,8 +24,7 @@ public static class NarrativeDirectionManagerPatcher
             }
 
             //PATCH: Only offer the first 4 players on dialogue sequences (PARTYSIZE)
-            if (Main.Settings.OverridePartySize <= ToolsContext.GamePartySize
-                || Main.Settings.AllowAllPlayersOnNarrativeSequences)
+            if (Main.Settings.OverridePartySize <= ToolsContext.GamePartySize)
             {
                 return;
             }

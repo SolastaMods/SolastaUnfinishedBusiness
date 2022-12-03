@@ -1,0 +1,5 @@
+﻿Feat/&FeatDeadeyeDescription=You have learned to trade accuracy to land deadlier shots. When attacking with ranged weapons, you can choose to take a -{0} penalty to your to hit in order to do additional damage equal to {0} + your proficiency bonus. Attacking at long range doesn't impose disadvantage and your ranged weapon attacks ignore half cover and three-quarters cover.
+Feat/&FeatDeadeyeTitle=Deadeye
+Feat/&FeatRangedExpertDescription=Your expert training with ranged weapons grants you these benefits:\n• You no longer have disadvantage on ranged attacks when there is an enemy within 5 feet of you.\n• If you take the Attack action on your turn, you can use a bonus action to make an attack with a one-handed ranged or thrown weapon.
+Feat/&FeatRangedExpertTitle=Ranged Expert
+Tooltip/&DeadeyeConcentration=Disable Deadeye.

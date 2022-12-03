@@ -1,0 +1,1234 @@
+Feature/&AbilityCheckAdvantageFormat	Avantage sur les jets de caractéristique de {0}.
+Feature/&AbilityCheckAutomaticallyFailedFormat	Échec automatique des jets de caractéristique de {0}
+Feature/&AbilityCheckBonusFormat	{0} sur les jets de caractéristique {1}.
+Feature/&AbilityCheckBonusWithDiceFormat	{0}{1} sur les jets de caractéristique {2}.
+Feature/&AbilityCheckDisadvantageFormat	Désavantage sur les jets de caractéristique de {0}.
+Feature/&AbilityScoreChoiceDescription	Vous devez choisir entre augmenter vos valeurs de caractéristique et obtenir un don bonus.
+Feature/&AbilityScoreChoiceTitle	Choix de valeurs de caractéristique
+Feature/&AbilityScoreImprovementDescription	Augmentez deux valeurs de caractéristique de votre choix d'un point chacune ou une seule valeur de deux points.
+Feature/&AbilityScoreImprovementTitle	Valeur de carac.
+Feature/&AbilityScoreIncreaseAdvancedTitle	Valeur de caractéristique + compétence + don
+Feature/&AbilityScoreIncreaseTitle	Augmentation de caractéristiques
+Feature/&AcademicFeatureDescription	Vous avez gardé contact avec les Antiquaires et vous entretenez déjà de bonnes relations.
+Feature/&AcademicFeatureTitle	Antiquaire en fuite
+Feature/&AcademicSkillsDescription	Maîtrise des Arcanes, de la Nature et de la Perspicacité.
+Feature/&AcademicSkillsTitle	Rat de bibliothèque
+Feature/&AcademicToolsDescription	Maîtrise le rosaire de Manacalon, qui serait utile pour enchanter des objets.
+Feature/&AcademicToolsTitle	Enchanteur
+Feature/&AcolyteFeatureDescription	Vous commencez avec une bonne réputation auprès des clercs de votre foi, et bénéficiez de réductions au temple principal de la capitale de la Principauté.
+Feature/&AcolyteFeatureTitle	Abri du fidèle
+Feature/&AcolyteSkillsDescription	Maîtrise de la Religion, de la Nature et de la Perspicacité.
+Feature/&AcolyteSkillsTitle	Formation religieuse
+Feature/&AcolyteSkillsToolsDescription	Maîtrise du kit d'herboriste.
+Feature/&AcolyteSkillsToolsTitle	Création de potions
+Feature/&ActionAffinityHunterGiantKillerDescription	Lorsqu'une grande ou une immense créature située dans un rayon d'une case vous frappe ou rate son attaque, vous pouvez utiliser votre réaction pour attaquer cette créature immédiatement après, à condition que vous puissiez voir la créature.
+Feature/&ActionAffinityHunterGiantKillerTitle	Tueur géant
+Feature/&ActionAffinityMarksmanReactionShotDescription	Lorsqu'un adversaire est visible à deux cases ou plus de vous et qu'il vous attaque avec une arme à distance ou un sort, vous pouvez utiliser votre réaction pour riposter juste après.
+Feature/&ActionAffinityMarksmanReactionShotTitle	Tir de réaction
+Feature/&AdditionalActionHunterHordeBreakerDescription	Une fois par tour, lorsque vous abattez un adversaire, vous pouvez effectuer une autre attaque avec la même arme contre une autre créature.
+Feature/&AdditionalActionHunterHordeBreakerTitle	Brise-horde
+Feature/&AdditionalDamageDomainOblivionStrikeOblivionDescription	+1d6 dégâts nécrotiques lors de votre première attaque durant votre tour.
+Feature/&AdditionalDamageDomainOblivionStrikeOblivionTitle	Frappe de l'oubli
+Feature/&AdditionalDamageHunterColossusSlayerDescription	Votre ténacité peut épuiser les ennemis les plus puissants. Lorsque vous attaquez une créature avec une arme, la créature subit 1d8 dégâts supplémentaires si ses points de vie ne sont pas au maximum. Vous ne pouvez infliger ces dégâts supplémentaires qu'une fois par tour.
+Feature/&AdditionalDamageHunterColossusSlayerTitle	Tueur de Colosses
+Feature/&AdditionalFallThreshold	Peut tomber sans se blesser de {0} cases.
+Feature/&AffectedSpellsFormat	Fonctionne sur les sorts suivants : {0}.
+Feature/&AndLine	ET
+Feature/&AristocratFeatureDescription	Les nobles vous reconnaissent comme faisant partie des leurs, ce qui peut être utile dans certaines situations.
+Feature/&AristocratFeatureTitle	Sang bleu
+Feature/&AristocratSkillsDescription	Maîtrise de l'Histoire, de la Persuasion et de l'Intimidation
+Feature/&AristocratSkillsTitle	Enseignement supérieur
+Feature/&ArmorTrainingDescription	Maîtrise : {0}
+Feature/&ArmorTrainingShortDescription	{0}
+Feature/&AttackModifierAdditionalTagFormat	Attaque : {0}
+Feature/&AttackModifierAttackRollFormat	{0} pour les jets d'attaque
+Feature/&AttackModifierDamageRollFormat	{0} pour les jets de dégâts
+Feature/&AttributeIncreaseAllDescription	+{0} pour toutes les valeurs de caractéristique
+Feature/&AttributeIncreaseAny1Description	Augmente une valeur de caractéristique
+Feature/&AttributeIncreaseAnyNDescription	Augmente {0} valeurs de caractéristique
+Feature/&AttributeIncreaseDescription	{0} + {1}
+Feature/&AttributeModifierAdditiveDescription	{0} + {1}
+Feature/&AttributeModifierMultiplicativeDescription	{0} x {1}
+Feature/&AttributeModifierSetDescription	{0} sur {1}
+Feature/&AttributeSetDescription	{0} sur {1}
+Feature/&AuraOfCourageTitle	Aura de courage
+Feature/&AuraOfProtectionDescription	Octroie un jet de sauvegarde bonus aux alliés alentour, égal à votre modificateur de CHA (min 1).
+Feature/&AuraOfProtectionTitle	Aura de protection
+Feature/&AutoPreparedSpellsFormat	Niveau {0} : {1}
+Feature/&AutoPreparedSpellsOathOfDevotionTitle	Sorts : Serment de Dévotion
+Feature/&AutoPreparedSpellsOathOfMotherlandTitle	Sorts : Serment de la Terre Mère
+Feature/&AutoPreparedSpellsOathOfTirmarTitle	Sorts : Serment de Tirmar
+Feature/&Background01LanguagesTitle	Choisissez une langue supplémentaire.
+Feature/&Background02LanguagesTitle	Choisissez deux langues supplémentaires.
+Feature/&BackgroundLanguages	Langues supplémentaires
+Feature/&BonusFeatDescription	Choisissez un don supplémentaire pour votre personnage.
+Feature/&BonusFeatTitle	Don bonus
+Feature/&CampAffinityElfTranceDescription	Quatre heures de méditation suffisent pour se reposer.
+Feature/&CampAffinityElfTranceTitle	Transe
+Feature/&CantTakeActionFormat	Action impossible : {0}
+Feature/&ClericArmorProficiencyTitle	Maîtrises des armures de clerc
+Feature/&ClericChannelDivinityAddDescription	+1 utilisation de Canalisation d'énergie divine entre deux repos.
+Feature/&ClericChannelDivinityAddTitle	Canalisation d'énergie divine (augmentée)
+Feature/&ClericChannelDivinityDescription	Vous pouvez utiliser des actions de Canalisation d'énergie divine une fois entre deux repos.
+Feature/&ClericChannelDivinityTitle	Canalisation d'énergie divine
+Feature/&ClericDivineDomainsDescription	Choisissez un des domaines divins octroyés par votre divinité.
+Feature/&ClericDivineDomainsTitle	Domaines divins
+Feature/&ClericSkillPointsTitle	Compétences de clerc
+Feature/&ClericSpellcastingTitle	Lancement de sort de clerc
+Feature/&ClericToolsDescription	Vous avez appris à retranscrire des parchemins magiques.
+Feature/&ClericToolsTitle	Rédaction de parchemin
+Feature/&ClericTurnUndeadShortTitle	Renvoi des morts-vivants
+Feature/&ClericTurnUndeadTitle	Canalisation d'énergie divine : renvoi des morts-vivants
+Feature/&ClericTurnUndeadDescription	La Canalisation d'énergie divine fait fuir les morts-vivants en mesure de vous voir dans un rayon de 6 cases, sauf s'ils réussissent un jet de sauvegarde de Sagesse.
+Feature/&ClericWeaponProficiencyTitle	Maîtrises des armes de clerc
+Feature/&ConditionAttackOfOpportunityImmunityTitle	Insensible aux attaques d'opportunité
+Feature/&ConditionAttackOnMeAdvantageTitle	Les jets d'attaque contre cette créature ont un avantage
+Feature/&ConditionAttackOnMeDisadvantageTitle	Les jets d'attaque contre cette créature ont un désavantage
+Feature/&ConditionExpertClimberFormat	Les surfaces difficiles à escalader vous semblent normales
+Feature/&ConditionFastClimberFormat	Escalader ne vous coûte aucun mouvement supplémentaire 
+Feature/&ConditionImmunityFormat	Insensible au type de condition '{0}'
+Feature/&ConditionMovementAddBaseFormat	Vitesse de base doublée
+Feature/&ConditionMovementAddBaseFormatSingle	Vitesse de base doublée ({0})
+Feature/&ConditionMovementAdditiveModifierFormat	{0} pour la vitesse
+Feature/&ConditionMovementAdditiveModifierFormatSingle	{0} pour la vitesse ({1})
+Feature/&ConditionMovementCanMoveOnWallsFormat	Peut se déplacer sur les murs
+Feature/&ConditionMovementEnhancedJumpFormat	Peut sauter à une distance maximale sans risque.
+Feature/&ConditionMyAttackAddDiceFormat	+{0}{1} pour les jets d'attaque
+Feature/&ConditionMyAttackAddFormat	+{0} pour les jets d'attaque
+Feature/&ConditionMyAttackAdvantageTitle	Les jets d'attaque de cette créature ont un avantage
+Feature/&ConditionMyAttackDisadvantageTitle	Les jets d'attaque de cette créature ont un désavantage
+Feature/&ConditionMyAttackSubstractDiceFormat	-{0}{1} pour les jets d'attaque
+Feature/&ConditionMyAttackSubstractFormat	-{0} pour les jets d'attaque
+Feature/&ConditionSavingThrowAdvantageFormat	Avantage lors des jets de sauvegarde contre {0}
+Feature/&ConditionSavingThrowDisadvantageFormat	Désavantage lors des jets de sauvegarde contre {0}
+Feature/&DamageImmunityFormat	Insensible à {0} : tous les dégâts sont annulés
+Feature/&DamageResistanceFormat	Résistance à {0} : les dégâts sont diminués de moitié
+Feature/&DamageSavingThrowAdvantageFormat	Avantage lors des jets de sauvegarde contre {0}
+Feature/&DamageSavingThrowDisadvantageFormat	Désavantage lors des jets de sauvegarde contre {0}
+Feature/&DamageTagsIgnoringFormat	sauf pour les attaques {0}
+Feature/&DamageVulnerabilityFormat	Vulnérabilité à {0} : les dégâts sont doublés
+Feature/&DiceGamerDescription	Maîtrise de l'équipement des jeux
+Feature/&DiceGamerTitle	Joueur de dés
+Feature/&DomainBattleBonusProficiencyDescription	Armes martiales
+Feature/&DomainBattleBonusProficiencyTitle	Maîtrise bonus
+Feature/&DomainBattleDecisiveStrikeDescription	Quand une attaque réussit, la Canalisation d'énergie divine ajoute 1d6 à vos dégâts et étourdit votre cible (un jet de sauvegarde l'annule). Augmente de 1d6 tous les trois niveaux à partir du niveau 2.
+Feature/&DomainBattleDecisiveStrikeShortTitle	Frappe décisive
+Feature/&DomainBattleDecisiveStrikeTitle	Frappe décisive
+Feature/&DomainBattleDivineWrathDescription	En tant qu'action, vous obtenez 3 pv temporaires par niveau de clerc. Récupération après un repos long.
+Feature/&DomainBattleDivineWrathTitle	Ténacité divine
+Feature/&DomainBattleDomainSpellsTitle	Sorts de domaine : combat
+Feature/&DomainBattleHeraldOfBattleDescription	Les alliés des cases adjacentes obtiennent +1 sur les jets d'attaque, dégâts, CA et jets de sauvegarde.
+Feature/&DomainBattleHeraldOfBattleTitle	Héraut du combat
+Feature/&DomainElementalBonusCantripDescriptionPlural	{0}
+Feature/&DomainElementalBonusCantripDescriptionSingle	{0}
+Feature/&DomainElementalColdBonusCantripTitle	Sort mineur bonus (froid)
+Feature/&DomainElementalColdPrimalHarmonyTitle	Harmonie primale (froid)
+Feature/&DomainElementalDiscipleOfTheElementsDescription	Utilisez votre réaction pour devenir insensible à l'élément de votre domaine. Ainsi, il vous soignera au lieu de vous blesser.
+Feature/&DomainElementalDiscipleOfTheElementsTitle	Érudit des éléments
+Feature/&DomainElementalDomainSpellsTitle	Sorts de domaine : élémentaire
+Feature/&DomainElementalFireBonusCantripTitle	Sort mineur bonus (feu)
+Feature/&DomainElementalFireBurstDescription	La Canalisation d'énergie divine inflige 3d8 dégâts de feu à une cible dans un rayon de 12 cases. Un jet de sauvegarde de Dextérité réussi diminue les dégâts de moitié.
+Feature/&DomainElementalFireBurstShortTitle	Explosion de feu
+Feature/&DomainElementalFireBurstTitle	Canalisation d'énergie divine : explosion de feu
+Feature/&DomainElementalFirePrimalHarmonyTitle	Harmonie primale (feu)
+Feature/&DomainElementalIceLanceDescription	Utilisez la Canalisation d'énergie divine sur une cible dans un rayon de 12 cases. La cible doit effectuer un jet de sauvegarde de Dextérité ou être repoussée de 2 cases et subir 2d8 dégâts de froid.
+Feature/&DomainElementalIceLanceShortTitle	Lance de glace
+Feature/&DomainElementalIceLanceTitle	Canalisation d'énergie divine : lance de glace
+Feature/&DomainElementalLightningBladeDescription	La Canalisation d'énergie divine inflige 1d8 dégâts de foudre à une cible dans un rayon de 12 cases. Si le jet de sauvegarde de Dextérité échoue, la cible est également étourdie jusqu'à la fin de son prochain tour.
+Feature/&DomainElementalLightningBladeShortTitle	Lame de foudre
+Feature/&DomainElementalLightningBladeTitle	Canalisation d'énergie divine : lame de foudre
+Feature/&DomainElementalLightningBonusCantripTitle	Sort mineur bonus (foudre)
+Feature/&DomainElementalLightningPrimalHarmonyTitle	Harmonie primale (foudre)
+Feature/&DomainInsightDivineEyeDescription	Avantage pour détecter les pièges, les portes cachées et les objets
+Feature/&DomainInsightDivineEyeTitle	Œil divin
+Feature/&DomainInsightDivineIntuitionDescription	Avantage sur les jets de caractéristique utilisant les Arcanes, l'Histoire et la Nature
+Feature/&DomainInsightDivineIntuitionTitle	Intuition divine
+Feature/&DomainInsightForeknowledgeDescription	La Canalisation d'énergie divine permet de voir le futur immédiat et de mieux esquiver les attaques ennemies. Pendant une minute, la première attaque (sauf Pousser) que vous subissez après votre tour a un désavantage.
+Feature/&DomainInsightForeknowledgeShortTitle	Prescience
+Feature/&DomainInsightForeknowledgeTitle	Canalisation d'énergie divine : prescience
+Feature/&DomainInsightInspiredDiplomatDescription	Vous connaissez toujours les conséquences d'un choix de dialogue comprenant un jet de caractéristique (Persuasion, Tromperie ou Intimidation).
+Feature/&DomainInsightInspiredDiplomatTitle	Diplomate inspiré
+Feature/&DomainLawCommandingPresenceDescription	Maîtrise de l'Intimidation.\nAvantage sur les jets d'Intimidation
+Feature/&DomainLawCommandingPresenceTitle	Présence imposante
+Feature/&DomainLawDomainSpellsTitle	Sorts de domaine : légal
+Feature/&DomainLawForceOfLawDescription	Quand vous lancez un sort d'attaque, la Canalisation d'énergie divine impose un désavantage au jet de sauvegarde de votre cible.
+Feature/&DomainLawForceOfLawShortTitle	Force de la loi
+Feature/&DomainLawForceOfLawTitle	Canalisation d'énergie divine : force de la loi
+Feature/&DomainLawHolyRetributionDescription	Lorsque vous subissez une attaque au corps à corps, vous pouvez utiliser votre réaction de Canalisation d'énergie divine et riposter avec une arme de corps à corps, ce qui ajoute des dégâts psychiques (2d6 + niveau de clerc).
+Feature/&DomainLawHolyRetributionShortTitle	Punition divine
+Feature/&DomainLawHolyRetributionTitle	Canalisation d'énergie divine : punition divine
+Feature/&DomainLawUnyieldingEnforcerDescription	Avantage sur les jets de résistance aux actions Pousser et Déplacer par des moyens magiques
+Feature/&DomainLawUnyieldingEnforcerTitle	Exécuteur inflexible
+Feature/&DomainLawWordOfLawDescription	Vous brisez la concentration de l'adversaire lors d'un lancement de sort
+Feature/&DomainLawWordOfLawTitle	Parole de la loi
+Feature/&DomainLifeBlessedHealerDescription	Quand vous lancez un sort de premier niveau ou supérieur qui restaure des points de vie à une autre créature que vous, vous récupérez des points de vie correspondant à (2 + le niveau de sort).
+Feature/&DomainLifeBlessedHealerTitle	Soigneur béni
+Feature/&DomainLifeBonusProficiencyDescription	Maîtrise des armures lourdes.
+Feature/&DomainLifeBonusProficiencyTitle	Maîtrise bonus
+Feature/&DomainLifeDiscipleOfLifeDescription	Lorsque vous lancez un sort de guérison, la cible récupère des pv supplémentaires correspondant à (2 x le niveau de sort).
+Feature/&DomainLifeDiscipleOfLifeTitle	Disciple de la vie
+Feature/&DomainLifeDomainSpellsTitle	Sorts de domaine : vital
+Feature/&DomainLifePreserveLifeDescription	Restaure des points de vie (5 x le niveau de clerc) d'un ou plusieurs alliés dans un rayon de 6 cases, dans la limite de la moitié de leurs points de vie maximum.
+Feature/&DomainLifePreserveLifeShortTitle	Vie préservée
+Feature/&DomainLifePreserveLifeTitle	Canalisation d'énergie divine : vie préservée
+Feature/&DomainOblivionBonusCantripDescription	{0}
+Feature/&DomainOblivionBonusCantripTitle	Sort mineur bonus
+Feature/&DomainOblivionDomainSpellsTitle	Sorts de domaine : l'oubli
+Feature/&DomainOblivionGateKeeperDescription	Tant que vous ne perdez pas connaissance, vous et les membres de votre groupe dans un rayon de 6 cases avez un avantage sur les jets de sauvegarde contre la mort.
+Feature/&DomainOblivionGateKeeperTitle	Gardien du portail
+Feature/&DomainOblivionHeraldOfPainDescription	La Canalisation d'énergie divine fait souffrir les ennemis dans un rayon de 6 cases. Les ennemis qui manquent de Sagesse subissent 1d8 dégâts nécrotiques et sont empoisonnés.
+Feature/&DomainOblivionHeraldOfPainShortTitle	Héraut de la souffrance
+Feature/&DomainOblivionHeraldOfPainTitle	Canalisation d'énergie divine : héraut de la souffrance
+Feature/&DomainOblivionPeacefulRestDescription	Alors que vous campez, les risques d'attaques ou d'actions inattendues sont amoindris.
+Feature/&DomainOblivionPeacefulRestTitle	Repos paisible
+Feature/&DomainSpellsDescription	Dans votre liste et toujours disponible : \n{0}
+Feature/&DomainSunBonusCantripDescription	Lumière
+Feature/&DomainSunBonusCantripTitle	Sort mineur bonus
+Feature/&DomainSunDomainSpellsTitle	Sorts de domaine : solaire
+Feature/&DomainSunHeraldOfTheSunDescription	La Canalisation d'énergie divine inonde d'une lumière radiante un ennemi visible dans un rayon de 6 cases, ce qui lui inflige 1d8 dégâts radiants +2 par niveau de clerc (diminue de moitié les dégâts en cas de jet de sauvegarde de Constitution réussi) et inflige la condition Aveuglé pendant une minute (annulée si le jet de sauvegarde a réussi).
+Feature/&DomainSunHeraldOfTheSunShortTitle	Héraut du soleil
+Feature/&DomainSunHeraldOfTheSunTitle	Canalisation d'énergie divine : héraut du soleil
+Feature/&DomainSunHolyRadianceDescription	Lorsque vous lancez Flamme sacrée, votre cible a un désavantage sur le jet de sauvegarde.
+Feature/&DomainSunHolyRadianceTitle	Radiance sacrée
+Feature/&DomainSunIndomitableLightDescription	La Canalisation d'énergie divine invoque une sphère de lumière qui nuit aux créatures sensibles à la lumière et annule les ténèbres.
+Feature/&DomainSunIndomitableLightShortTitle	Lumière indomptable
+Feature/&DomainSunIndomitableLightTitle	Canalisation d'énergie divine : lumière indomptable
+Feature/&DomainSunSoothingHandDescription	Vous soignez un allié et supprimez une condition néfaste.
+Feature/&DomainSunSoothingHandTitle	Main apaisante
+Feature/&DwarfHillToughnessDescription	+1 point de vie par niveau
+Feature/&DwarfHillToughnessTitle	Robustesse naine
+Feature/&DwarfLanguagesDescription	Commun, nain
+Feature/&DwarfLanguagesTitle	Langues
+Feature/&DwarfResilienceDescription	Avantage des jets de sauvegarde contre le poison\nRésistance aux dégâts de poison
+Feature/&DwarfResilienceTitle	Résistance naine
+Feature/&DwarfSnowEnduranceDescription	+2 aux jets de sauvegarde de Constitution
+Feature/&DwarfSnowEnduranceTitle	Endurance des nains des neiges
+Feature/&DwarfSnowWeaponTrainingDescription	Vous maîtrisez tout type d'arbalètes.
+Feature/&DwarfSnowWeaponTrainingTitle	Maître-arbalétrier
+Feature/&DwarfWeaponTrainingTitle	Entraînement aux armes naines
+Feature/&ElfFeyAncestryDescription	Avantage des jets de sauvegarde contre l'envoûtement\nInsensible au sommeil magique
+Feature/&ElfFeyAncestryTitle	Ascendance féerique
+Feature/&ElfHighCastSpellDescription	Choisissez un sort mineur de magicien, faisant appel à la caractéristique de lancement de sort Intelligence.
+Feature/&ElfHighCastSpellTitle	Sort mineur de haut-elfe
+Feature/&ElfKeenSensesDescription	Maîtrise de la Perception.
+Feature/&ElfKeenSensesTitle	Sens aiguisés
+Feature/&ElfSylvanLanguagesDescription	Commun, elfe, nain et halfelin
+Feature/&ElfSylvanLanguagesTitle	Langues
+Feature/&ElfSylvanSurvivalDescription	Maîtrise de la Survie et de l'Athlétisme.\nAvantage sur la Survie durant une chasse
+Feature/&ElfSylvanSurvivalTitle	Adaptabilité sylvaine
+Feature/&ElfWeaponTrainingTitle	Entraînement aux armes elfiques
+Feature/&Emptystring	 
+Feature/&EquipmentAffinityDoubleCarryingCapacity	La capacité de charge est doublée.
+Feature/&FeatGainSingleDescription	Maîtrise d'un don de votre choix
+Feature/&FeatGainSingleTitle	Don bonus
+Feature/&FeatureSetHunterHuntersPreyDescription	Choisissez l'une des spécialités de chasse suivantes :
+Feature/&FeatureSetHunterHuntersPreyTitle	Proie du chasseur
+Feature/&FighterActionSurgeDescription	Vous regagnez immédiatement une action principale. Prenez un repos long ou court pour récupérer ce pouvoir.
+Feature/&FighterActionSurgeTitle	Sursaut d'activité
+Feature/&FighterArmorProficiencyTitle	Maîtrises des armures de guerrier
+Feature/&FighterExtraAttackDescription	Vous pouvez attaquer une fois de plus par tour de combat, quand vous utilisez les actions Attaquer ou Pousser.
+Feature/&FighterExtraAttackTitle	Attaque supplémentaire
+Feature/&FighterFightingStyleDescription	Choisissez un style de combat comme spécialité.
+Feature/&FighterFightingStyleTitle	Style de combat
+Feature/&FighterMartialArchetypesDescription	Sélectionnez un archétype martial.
+Feature/&FighterMartialArchetypesTitle	Archétypes martiaux
+Feature/&FighterSecondWindDescription	Regagnez (1d10 + niveau) pv en tant qu'action bonus.
+Feature/&FighterSecondWindTitle	Second souffle
+Feature/&FighterSkillPointsTitle	Compétences de guerrier
+Feature/&FighterWeaponProficiencyTitle	Maîtrises des armes de guerrier
+Feature/&FightingStyleGreatWeaponRerollDescription	{0} utilise le style de combat Armes à deux mains pour relancer un dé de dégâts {1} entre {2} et {3}.
+Feature/&GenericCastSpellDescription	Peut lancer des sorts de la liste {0}
+Feature/&GenericCastSpellTitle	Lancement de sort
+Feature/&HalfElfAbilityScoreIncreaseDescription	Charisme +2, augmente deux autres valeurs d'un point chacune.
+Feature/&HalfElfLanguagesDescription	Commun, elfe et une langue de votre choix
+Feature/&HalfElfLanguagesTitle	Langues
+Feature/&HalflingBraveTitle	Vaillant
+Feature/&HalflingIslandLanguagesDescription	Commun, halfelin et une langue de votre choix
+Feature/&HalflingIslandLanguagesTitle	Langues
+Feature/&HalflingLuckyDescription	Lorsque vous lancez un 1 sur un jet d'attaque, jet de caractéristique ou jet de sauvegarde, relancez et utilisez le nouveau lancer.
+Feature/&HalflingLuckyRerollDescription	{0} fait partie de ses halfelins qui ont de la chance et relance un horrible jet de {1} de {2} à {3}.
+Feature/&HalflingLuckyTitle	Chanceux
+Feature/&HalflingMarshHidingTitle	Détection des halfelins des marais
+Feature/&HalflingMarshLanguagesDescription	Commun, halfelin
+Feature/&HalflingMarshLanguagesTitle	Langues
+Feature/&HalflingMarshTerrainDescription	Vous êtes adepte des voyages en milieu marécageux.
+Feature/&HalflingMarshTerrainTitle	Originaire des marais
+Feature/&HalflingNimblenessDescription	Vous pouvez vous déplacer dans la zone de n'importe quelle créature plus grande que vous.
+Feature/&HalflingNimblenessTitle	Agilité halfeline
+Feature/&HalflingRopedancingDescription	Avantage sur les jets de Dextérité (Acrobaties)
+Feature/&HalflingRopedancingTitle	Funambulisme
+Feature/&HealBackFormat	Tous les dégâts '{0}' subis guérissent la créature.
+Feature/&HealBackUpToFormat	Tous les dégâts '{0}' subis guérissent la créature à hauteur de {1} points de vie.
+Feature/&HealingModifierNotHitPointGainDescription	Vous ne pouvez pas obtenir de points de vie.
+Feature/&HighElfLanguagesDescription	Commun, elfe et une langue de votre choix
+Feature/&HighElfLanguagesTitle	Langues
+Feature/&HumanAbilityScoreChoiceDescription	Vous augmentez toutes vos valeurs de caractéristique d'un point ou augmentez deux valeurs d'un point chacune et obtenez une compétence et un don bonus.
+Feature/&HumanAbilityScoreChoiceTitle	Choix d'augmentation de caractéristiques
+Feature/&HumanLanguagesDescription	Commun et une langue de votre choix.
+Feature/&HumanLanguagesTitle	Langues
+Feature/&ImmuneSpellsPluralFormat	Insensible aux sorts : {0}
+Feature/&ImmuneSpellsSingleFormat	Insensible au sort : {0}
+Feature/&LawkeeperFeatureDescription	Vous obtenez plus facilement accès aux informations et aux personnes occupant des postes officiels.
+Feature/&LawkeeperFeatureTitle	Bouclier de la Principauté
+Feature/&LawkeeperSkillsDescription	Maîtrise de la Perception et de l'Intimidation.
+Feature/&LawkeeperSkillsMartialDescription	Maîtrise des armes martiales.
+Feature/&LawkeeperSkillsMartialTitle	Exécuteur
+Feature/&LawkeeperSkillsTitle	Détective
+Feature/&ListSeparatorFinalOrTitle	 ou 
+Feature/&ListSeparatorFinalTitle	 et 
+Feature/&ListSeparatorTitle	, 
+Feature/&LowlifeFeatureDescription	Vous pouvez connaître les quêtes secondaires impliquant des activités criminelles.
+Feature/&LowlifeFeatureTitle	Réseau clandestin
+Feature/&LowlifeSkillsDescription	Maîtrise de l'Escamotage, de la Discrétion et de la Tromperie.
+Feature/&LowlifeSkillsTitle	Coupe-bourse
+Feature/&LowlifeSkillsToolsDescription	Maîtrise des outils de voleur.
+Feature/&LowlifeSkillsToolsTitle	Cambriolage
+Feature/&MagicAffinityTraditionLoreMasterSpellAcademicDescription	Vous apprenez un sort supplémentaire chaque fois que vous gagnez un niveau.
+Feature/&MagicAffinityTraditionLoreMasterSpellAcademicTitle	Étude des sorts
+Feature/&MagicWeapon2Description	Attaque magique, +2 aux jets d'attaque et de dégâts
+Feature/&MagicWeapon3Description	Attaque magique, +3 aux jets d'attaque et de dégâts
+Feature/&MagicWeaponDescription	Attaque magique, +1 aux jets d'attaque et de dégâts
+Feature/&MartialChampionImprovedCriticalDescription	Vos attaques avec une arme se concluent par un coup critique sur un lancer de 19 ou 20.
+Feature/&MartialChampionImprovedCriticalTitle	Coups critiques améliorés
+Feature/&MartialMountainerShieldBashDescription	Avantage pour Pousser quand vous utilisez un bouclier.
+Feature/&MartialMountainerShieldBashTitle	Coup de bouclier
+Feature/&MartialMountainerTunnelFighterDescription	Lorsque vous utilisez un bouclier, vous gagnez +2 CA si vous avez un mur sur un de vos quatre côtés (hors diagonales).
+Feature/&MartialMountainerTunnelFighterTitle	Guerrier souterrain
+Feature/&MartialSpellBladeMagicWeaponDescription	Vos attaques avec arme sont considérées comme magiques contre des créatures résistantes ou insensibles aux attaques non magiques.
+Feature/&MartialSpellBladeMagicWeaponTitle	Arme magique
+Feature/&MartialSpellbladeSpellcastingDescription	Vous lancez des sorts de magicien et des sorts mineurs issus des écoles d'invocation, d'évocation, de transmutation et d'enchantement.
+Feature/&MartialSpellbladeSpellcastingTitle	Lancement de sort
+Feature/&MoveBurrowDescription	Creuser {0}
+Feature/&MoveClimbDescription	Escalader {0}
+Feature/&MoveDescription	Vitesse de marche de base dans les cases.
+Feature/&MoveFlyDescription	Voler {0}
+Feature/&MoveIncorporealDescription	Incorporel {0}
+Feature/&MoveSwimDescription	Nager {0}
+Feature/&MoveTitle	Déplacement
+Feature/&MoveWalkDescription	{0}
+Feature/&MyselfFamilyRestrictionsFormat	Si la créature est : {0}
+Feature/&NoContentTitle	Vide
+Feature/&NullifiedByFormat	Sauf si l'assaillant a : {0}
+Feature/&PaladinArmorProficiencyTitle	Maîtrises des armures de paladin
+Feature/&PaladinCureDiseaseDescription	Dépensez 5 points de votre réserve de guérison pour guérir une maladie.
+Feature/&PaladinCureDiseaseTitle	Soins de la maladie
+Feature/&PaladinDivineSenseDescription	Révèle les célestes, les fiélons et les morts-vivants.
+Feature/&PaladinDivineSenseTitle	Sens divin
+Feature/&PaladinDivineSmiteDescription	Lorsque vous touchez une créature avec une arme de corps à corps, vous pouvez dépenser un emplacement de sorts pour infliger 2d8 dégâts radiants supplémentaires. +1d8 par niveau d'emplacement après le 1er, +1d8 quand vous touchez un mort-vivant ou un fiélon.
+Feature/&PaladinDivineSmiteTitle	Châtiment divin
+Feature/&PaladinHealingPoolDescription	Une réserve de pouvoir divin – 5 points par niveau de paladin.
+Feature/&PaladinHealingPoolTitle	Réserve de guérison
+Feature/&PaladinLayonHandsDescription	Dépensez des points de votre réserve de guérison pour restaurer des pv perdus.
+Feature/&PaladinLayonHandsHyeronimusDescription	Restaure un grand nombre de pv perdus.
+Feature/&PaladinLayonHandsTitle	Imposition des mains
+Feature/&PaladinNeutralizePoisonDescription	Dépensez 5 points de votre réserve de guérison « Imposition des mains » pour neutraliser un poison.
+Feature/&PaladinNeutralizePoisonTitle	Neutralisation des poisons
+Feature/&PaladinSacredOathDescription	Sélectionnez un serment sacré et jurez votre fidélité éternelle en tant que paladin !
+Feature/&PaladinSacredOathTitle	Serments sacrés
+Feature/&PaladinSkillsTitle	Compétences de paladin
+Feature/&PaladinSpellcastingTitle	Lancement de sort de paladin
+Feature/&PaladinWeaponProficiencyTitle	Maîtrises des armes de paladin
+Feature/&PerceptionAffinityDivinelyRevealedDescription	Le type et la position de cette créature sont révélés.
+Feature/&PhilosopherFeatureDescription	Vous ramassez des herbes et fabriquez des potions plus vite que quiconque n'ayant jamais mis les pieds en dehors d'un atelier.
+Feature/&PhilosopherFeatureTitle	Herboriste
+Feature/&PhilosopherSkillsDescription	Maîtrise de la Médecine et de la Persuasion.
+Feature/&PhilosopherSkillsTitle	Physicien
+Feature/&PhilosopherToolsDescription	Maîtrise du kit d'herboriste.
+Feature/&PhilosopherToolsTitle	Alchimiste
+Feature/&PowerChannelDivinitySubtitle	Canalisation d'énergie divine
+Feature/&PowerOathOfDevotionSacredWeaponDescription	La Canalisation d'énergie divine bénit une arme. Pendant une minute, ajoutez votre modificateur de Charisme pour frapper avec cette arme (minimum +1). L'arme émet également une lumière vive sur 4 cases et une lumière faible sur 4 de plus. Les attaques sont considérées comme magiques.
+Feature/&PowerOathOfDevotionSacredWeaponShortTitle	Arme sacrée
+Feature/&PowerOathOfDevotionSacredWeaponTitle	Canalisation d'énergie divine : arme sacrée
+Feature/&PowerOathOfDevotionTurnUnholyDescription	La Canalisation d'énergie divine fait fuir les fiélons et les morts-vivants en mesure de vous voir dans un rayon de 6 cases, sauf s'ils réussissent un jet de sauvegarde de Sagesse.
+Feature/&PowerOathOfDevotionTurnUnholyShortTitle	Renvoi des impies
+Feature/&PowerOathOfDevotionTurnUnholyTitle	Canalisation d'énergie divine : renvoi des impies
+Feature/&PowerOathOfMotherlandFieryPresenceDescription	La Canalisation d'énergie divine aveugle les adversaires dans un rayon de 12 cases qui ratent un jet de sauvegarde de Dextérité. Les créatures dotées de la vision dans le noir ou d'une bonne vision dans l'obscurité ont un désavantage. La Cécité dure 1d4 tours.
+Feature/&PowerOathOfMotherlandFieryPresenceShortTitle	Présence flamboyante
+Feature/&PowerOathOfMotherlandFieryPresenceTitle	Canalisation d'énergie divine : présence flamboyante
+Feature/&PowerOathOfMotherlandFieryWrathDescription	La Canalisation d'énergie divine cible une créature dans un rayon de 12 cases, infligeant (2d6 + niveau de paladin) dégâts de feu et enflammant la cible. Elle peut lancer un jet de caractéristique de Dextérité (DD 10) pour éteindre le feu, ou subir 1d6 dégâts de feu supplémentaires par tour pendant une minute.
+Feature/&PowerOathOfMotherlandFieryWrathShortTitle	Colère flamboyante
+Feature/&PowerOathOfMotherlandFieryWrathTitle	Canalisation d'énergie divine : colère flamboyante
+Feature/&PowerOathOfTirmarGoldenSpeechDescription	La Canalisation d'énergie divine ajoute un avantage sur les jets de caractéristique de Persuasion et d'Intimidation pendant une heure.
+Feature/&PowerOathOfTirmarGoldenSpeechShortTitle	Discours doré
+Feature/&PowerOathOfTirmarGoldenSpeechTitle	Canalisation d'énergie divine : discours doré
+Feature/&PowerOathOfTirmarSmiteTheHiddenDescription	La Canalisation d'énergie divine inflige 1d6 dégâts radiants supplémentaires quand les attaques touchent des adversaires naturellement métamorphes ou dotés de la vision dans le noir (2d6 s'ils possèdent les deux). L'effet dure 1 minutes.
+Feature/&PowerOathOfTirmarSmiteTheHiddenShortTitle	Fléau de l'occulte
+Feature/&PowerOathOfTirmarSmiteTheHiddenTitle	Canalisation d'énergie divine : Fléau de l'occulte
+Feature/&PowerReckless_Description	Avantage sur les jets d'attaque au corps à corps, mais les adversaires ont aussi un avantage sur les jets d'attaque face à une créature téméraire.
+Feature/&PowerReckless_Title	Téméraire
+Feature/&PowerStandardSubtitle	Pouvoir
+Feature/&PowerTraditionGreenmageMagicalArrowDescription	Votre flèche peut se transformer en lierre à l'impact. La cible doit faire un jet de sauvegarde de Force ou rester entravée jusqu'à la fin de votre prochain tour. Vous pouvez utiliser cette fonction un nombre de fois égal à votre modificateur d'Intelligence (minimum 1). Toutes les utilisations se rechargent à la fin d'un repos long.
+Feature/&PowerTraditionGreenmageMagicalArrowTitle	Tir d'enchevêtrement
+Feature/&PowerTraditionShockArcanistArcaneFuryDescription	Ajoutez votre bonus de maîtrise et votre bonus d'INT à vos dégâts de sort d'évocation pendant une minute. Recharge après un repos long.
+Feature/&PowerTraditionShockArcanistArcaneFuryTitle	Fureur arcanique
+Feature/&ProficiencyMarksmanToolChoiceDescription	Kit d'herboriste ou kit de poison.
+Feature/&ProficiencyMarksmanToolChoiceTitle	Maîtrises supplémentaires
+Feature/&ProficiencyOathOfTirmarBonusLanguageDescription	Lorsque vous prêtez le serment de Tirmar, vous obtenez la langue tirmarianne.
+Feature/&ProficiencyOathOfTirmarBonusLanguageTitle	Langue bonus
+Feature/&RangerArchetypeDescription	Sélectionnez un archétype de rôdeur qui vous guidera durant vos voyages.
+Feature/&RangerArchetypeTitle	Archétypes de rôdeur
+Feature/&RangerArmorProficiencyTitle	Maîtrises des armures de rôdeur
+Feature/&RangerFavoredEnemyDescription	Obtenez un avantage sur les jets de caractéristique contre ce type de créature, ainsi que des dégâts supplémentaires à son encontre correspondant à votre niveau de connaissance.
+Feature/&RangerFavoredEnemyTitle	Ennemi juré
+Feature/&RangerNaturalExplorerByTypeDescription	Vous aimez vivre et voyager dans certains types de terrain : {0}.
+Feature/&RangerNaturalExplorerByTypeTitle	Explorateur-né ({0})
+Feature/&RangerNaturalExplorerDescription	Vous aimez vivre et voyager dans certains types de terrain.
+Feature/&RangerNaturalExplorerTitle	Explorateur-né
+Feature/&RangerPrimevalAwarenessDescription	Détecte la présence de certains types de créatures autour de vous.
+Feature/&RangerPrimevalAwarenessTitle	Sens primitifs
+Feature/&RangerShadowTamerDarkSlayerDescription	Lorsque vous attaquez une créature dotée d'une vision dans le noir supérieure avec une arme, vous ajoutez un bonus de maîtrise à vos dégâts.
+Feature/&RangerShadowTamerDarkSlayerTitle	Tueur sombre
+Feature/&RangerShadowTamerTunnelWisdomDescription	Lorsque vous vous trouvez dans le noir ou avec une lumière faible, vous avez un avantage sur les jets de sauvegarde de Dextérité.
+Feature/&RangerShadowTamerTunnelWisdomTitle	Sagesse souterraine
+Feature/&RangerSkillsTitle	Compétences de rôdeur
+Feature/&RangerSpellcastingTitle	Lancement de sort de rôdeur
+Feature/&RangerWeaponProficiencyTitle	Maîtrises des armes de rôdeur
+Feature/&RitualCastingPreparedDescription	Vous pouvez lancer un sort en tant que rituel si ce sort dispose du tag rituel et si vous l'avez préparé.
+Feature/&RitualCastingPreparedTitle	Lancement de sort pour rituel
+Feature/&RitualCastingSpellbookDescription	Vous pouvez lancer un sort en tant que rituel si ce sort dispose du tag rituel et si vous l'avez dans votre grimoire. Vous n'avez pas à préparer le sort.
+Feature/&RitualCastingSpellbookTitle	Lancement de sort pour rituel
+Feature/&RogueArmorProficiencyTitle	Maîtrises des armures de roublard
+Feature/&RogueCunningActionDescription	Vous pouvez effectuer une action bonus à chacun de vos tours en combat. Cette action ne peut être utilisée que pour Foncer, Se désengager ou Se cacher.
+Feature/&RogueCunningActionTitle	Ruse
+Feature/&RogueEvasionTitle	Dérobade
+Feature/&RogueExpertiseDescription	Sélectionnez deux compétences de maîtrise ou outils pour doubler le bonus de maîtrise.
+Feature/&RogueExpertiseTitle	Expertise
+Feature/&RogueRoguishArchetypesDescription	Sélectionnez un archétype de roublard qui orientera vos talents dans plusieurs directions.
+Feature/&RogueRoguishArchetypesTitle	Archétypes de roublard
+Feature/&RogueSkillPointsTitle	Compétences de roublard
+Feature/&RogueSneakAttackDescription	1d6 dégâts supplémentaires (+1d6 tous les 2 niveaux) à une créature que vous touchez si vous avez l'avantage. L'attaque doit utiliser une arme de finesse ou une arme à distance, une fois par tour. Pas besoin d'avantage si un allié actif se trouve près de la cible.
+Feature/&RogueSneakAttackTitle	Attaque sournoise
+Feature/&RogueToolsTitle	Outils de roublard
+Feature/&RogueWeaponProficiencyTitle	Maîtrises des armes de roublard
+Feature/&RoguishDarkweaverBonusProficiencyDescription	Maîtrise du kit de poison.
+Feature/&RoguishDarkweaverBonusProficiencyTitle	Maîtrise bonus
+Feature/&RoguishDarkweaverPredatorDescription	Lorsque vous frappez un ennemi au sol avec une arme à distance, votre bonus de maîtrise s'ajoute aux dégâts.
+Feature/&RoguishDarkweaverPredatorTitle	Prédateur
+Feature/&RoguishDarkweaverSpiderOnWallDescription	Escalader ne coûte plus de déplacement supplémentaire, et les surfaces difficiles à escalader vous semblent normales.
+Feature/&RoguishDarkweaverSpiderOnWallTitle	Araignée au mur
+Feature/&RoguishShadowcasterShadowDodgeDescription	En tant qu'action bonus, téléportez-vous dans une case visible dans un rayon de 5 cases. Recharge après un repos.
+Feature/&RoguishShadowcasterShadowDodgeTitle	Esquive de l'ombre
+Feature/&RoguishShadowcasterSpellcastingDescription	Lancez des sorts de magicien et des sorts mineurs issus des écoles de divination, d'illusion, de nécromancie et d'abjuration.
+Feature/&RoguishShadowcasterSpellcastingTitle	Lancement de sort
+Feature/&RoguishThiefFastHandsDescription	La Ruse vous permet de prendre l'action Utiliser un objet.
+Feature/&RoguishThiefFastHandsTitle	Mains lestes
+Feature/&RoguishThiefSecondStoryDescription	Escalader ne coûte plus de déplacement supplémentaire, et les surfaces difficiles à escalader vous semblent normales. Vous pouvez aussi sauter sur de plus longues distances.
+Feature/&RoguishThiefSecondStoryTitle	Monte-en-l'air
+Feature/&SavingThrowAdvantageFormat	Avantage sur les jets de sauvegarde de {0}
+Feature/&SavingThrowAutomaticallyFailedFormat	Échec automatique des jets de sauvegarde de {0}
+Feature/&SavingThrowBonusFormat	Jets de sauvegarde de {0} sur {1}
+Feature/&SavingThrowBonusWithDiceFormat	Jets de sauvegarde de {0}{1} sur {2}
+Feature/&SavingThrowDisadvantageFormat	Désavantage sur les jets de sauvegarde de {0}
+Feature/&SavingThrowProficiencyDescription	{0}
+Feature/&SavingThrowProficiencyTitle	Maîtrises des jets de sauvegarde
+Feature/&SavingThrowSpecialHalfDamageFormat	Lorsque vous effectuez un jet de sauvegarde de {0} pour diminuer de moitié les dégâts d'un effet, à la place vous ne subissez plus de dégâts si vous réussissez le jet de sauvegarde, et seulement la moitié des dégâts si vous échouez.
+Feature/&SellswordFeatureDescription	Avantage lorsque vous parlez à des gardes, soldats et officiers
+Feature/&SellswordFeatureTitle	Guerrier
+Feature/&SellswordSkillsArmorDescription	Maîtrise des armures intermédiaires.
+Feature/&SellswordSkillsArmorTitle	Amateur d'armures
+Feature/&SellswordSkillsDescription	Maîtrise de l'Athlétisme et de l'Intimidation.
+Feature/&SellswordSkillsTitle	Service militaire
+Feature/&SkillGainChoicesPluralDescription	Choisissez {0} de ces compétences : {1}
+Feature/&SkillGainChoicesSingleDescription	Choisissez l'une de ces compétences : {0}
+Feature/&SkillGainDoubleDescription	Choisissez 2 compétences.
+Feature/&SkillGainDoubleTitle	Compétences bonus
+Feature/&SkillGainSingleDescription	Choisissez une compétence
+Feature/&SkillGainSingleTitle	Compétence bonus
+Feature/&SkillProficiencyPluralDescription	Maîtrise de ces compétences : {0}
+Feature/&SkillProficiencySingleDescription	Maîtrise de cette compétence : {0}
+Feature/&SkillProficiencyTitle	Compétences : {0}
+Feature/&SocialAffinityAdvantageFormat	Avantage sur les jets de caractéristiques '{0}' contre les organisations '{1}'
+Feature/&SocialAffinityDisadvantageFormat	Désavantage sur les jets de caractéristiques '{0}' contre les organisations '{1}'
+Feature/&Sorak_Saboteur_Immunity_Description	Ce type de Sorr-Akkath semble capable d'ignorer sa sensibilité à la lumière.
+Feature/&Sorak_Saboteur_Immunity_Title	Insensible à la lumière
+Feature/&SorakCallOfTheNight_Description	Récupération instantanée de 2d8 points de vie
+Feature/&SorakCallOfTheNight_Title	Appel de la nuit
+Feature/&SorakCursedBreath_Description	Retire une condition avantageuse d'un adversaire.
+Feature/&SorakCursedBreath_Title	Souffle maudit
+Feature/&SorakDoomLaughter_Condition_Description	Vulnérable au poison et aux dégâts perforants jusqu'à la fin du tour suivant.
+Feature/&SorakDoomLaughter_Condition_Title	sous l'effet de Rire Hideux
+Feature/&SorakDoomLaughter_Description	Maudit tous les adversaires des cases voisines afin qu'ils subissent plus de dégâts.
+Feature/&SorakDoomLaughter_Title	Rire hideux
+Feature/&SorakShadowEscape_Description	Téléportation dans un rayon de 5 cases.
+Feature/&SorakShadowEscape_Title	Fuite de l'ombre
+Feature/&SorakShadowMurder_Condition_Description	Invisible et préparant une attaque mortelle.
+Feature/&SorakShadowMurder_Condition_Title	Meurtre de l'ombre
+Feature/&SorakShadowMurder_Description	Utilisez meurtre de l'ombre.
+Feature/&SorakShadowMurder_Title	Meurtre de l'ombre
+Feature/&SorakShriek_Description	Un cri terrifiant qui instille la peur dans le cœur des hommes.
+Feature/&SorakShriek_Title	Cri
+Feature/&SorakTouchOfDarkness_Description	Le toucher de ce Sorak inflige des dégâts nécrotiques !
+Feature/&SorakTouchOfDarkness_Title	Caresse des ténèbres
+Feature/&SorakTranceOfSorrtarr_Condition_Description	Insensible à la lumière.
+Feature/&SorakTranceOfSorrtarr_Condition_Title	Transe de Sorr-Tarr
+Feature/&SorakTranceOfSorrtarr_Description	Utilisez transe de Sorr-Tarr.
+Feature/&SorakTranceOfSorrtarr_Title	Transe de Sorr-Tarr
+Feature/&SpellPowerDescription	Peut lancer le sort {0} {1}
+Feature/&SpyFeatureDescription	Vous avez vu assez de faits d'espionnage pour reconnaître d'autres espions quand vous en voyez.\nVous pouvez communiquer secrètement avec d'autres espions.
+Feature/&SpyFeatureTitle	Techniques d'espionnage
+Feature/&SpyLanguageDescription	Vous avez appris un certain nombre de codes utilisés par les organismes de renseignements dans les Royaumes orientaux, et vous êtes en mesure de déchiffrer la plupart d'entre eux.
+Feature/&SpyLanguageTitle	Décrypteur
+Feature/&SpySkillsDescription	Maîtrise de la Discrétion et de la Tromperie.
+Feature/&SpySkillsTitle	Espionnage
+Feature/&SpySkillsToolsDescription	Maîtrise de la Nature et du kit de poison.
+Feature/&SpySkillsToolsTitle	Diplomatie brutale
+Feature/&SylvanMoveSpeedDescription	Votre vitesse de marche de base est de 7 cases.
+Feature/&SylvanMoveSpeedTitle	Rapidité sylvaine
+Feature/&ToolProficiencyPluralDescription	Maîtrise de ces outils : {0}
+Feature/&ToolProficiencyPluralShortDescription	{0}
+Feature/&ToolProficiencySingleDescription	Maîtrise de cet outil: {0}
+Feature/&ToolProficiencySingleShortDescription	{0}
+Feature/&ToolProficiencyTitle	Outils : {0}
+Feature/&TraditionGreenmageGreenMagicDescription	Les sorts de la liste de magie verte correspondent à vos sorts de magicien : {0}
+Feature/&TraditionGreenmageGreenMagicTitle	Magie verte
+Feature/&TraditionGreenmageWardenOfTheForestDescription	Maîtrise : armure légère\n\nMaîtrise : arc court\nStyle de combat : archerie\n\nExplorateur-né : vous bénéficiez des mêmes avantages que les rôdeurs dans les forêts.
+Feature/&TraditionGreenmageWardenOfTheForestTitle	Garde de la forêt
+Feature/&TraditionLoremasterKeenMindDescription	Avantage sur les jets de caractéristique Arcanes, l'Histoire et l'Investigation\nAvantage pour copier des parchemins dans votre grimoire\nLe coût et la durée de fabrication des parchemins et des potions sont diminués de moitié
+Feature/&TraditionLoremasterKeenMindTitle	Esprit affûté
+Feature/&TraditionPotentCantripDescription	
+Feature/&TraditionPotentCantripTitle	
+Feature/&TraditionSavantDescription	Quand vous sélectionnez cette école au niveau 2, l'or et le temps requis pour copier un sort de l'école {0} dans votre grimoire sont diminués de moitié. De plus, vous passez deux fois moins de temps à fabriquer des potions, des parchemins ou d'autres objets.
+Feature/&TraditionSavantTitle	Érudit de {0}
+Feature/&TraditionSavantVoyelDescription	Quand vous sélectionnez cette école au niveau 2, l'or et le temps que vous devez dépenser pour copier les sorts {0} dans votre grimoire sont diminués de moitié.
+Feature/&TraditionShockArcanistArcaneWarfareDescription	Quand vous lancez des sorts de la liste de guerre, ils sont considérés comme des sorts d'un niveau d'emplacement plus élevé que celui que vous utilisez : {0}.
+Feature/&TraditionShockArcanistArcaneWarfareTitle	Guerre arcanique
+Feature/&UncannyDodgeDescription	Lorsqu'un assaillant que vous pouvez voir vous attaque, vous pouvez utiliser votre réaction pour diminuer de moitié les dégâts de l'attaque.
+Feature/&UncannyDodgeTitle	Esquive instinctive
+Feature/&VisionBlindsightDescription	TBD
+Feature/&VisionBlindsightTitle	Vision aveugle
+Feature/&VisionDarkvisionDescription	Vous voyez normalement même par lumière faible. Dans l'obscurité, vous voyez comme s'il y avait une lumière faible.
+Feature/&VisionDarkvisionTitle	Vision dans le noir
+Feature/&VisionDetectInvisibilityDescription	La créature peut voir les créatures et les objets invisibles.
+Feature/&VisionDetectInvisibilityTitle	Voir l'invisible
+Feature/&VisionNormalVisionDescription	La vision est normale et soumise aux conditions de luminosité classiques.
+Feature/&VisionNormalVisionTitle	Vision normale
+Feature/&VisionSuperiorDarkvisionDescription	Dans la portée spécifiée, une créature dotée d'une vision dans le noir supérieure peut voir parfaitement dans toutes les conditions de luminosité.
+Feature/&VisionSuperiorDarkvisionTitle	Vision dans le noir supérieure
+Feature/&VisionTremorsenseDescription	La créature peut sentir les vibrations.
+Feature/&VisionTremorsenseTitle	Perception des vibrations
+Feature/&VisionTruesightTitle	Vision véritable
+Feature/&WarListSpellFormat	Liste de guerre : {0}
+Feature/&WeaponTrainingDescription	Maîtrise : {0}.
+Feature/&WeaponTrainingShortDescription	{0}
+Feature/&WizardArcaneTraditionsDescription	Vous bénéficiez d'une spécialisation avec un certain type de magie.
+Feature/&WizardArcaneTraditionsTitle	Traditions arcaniques
+Feature/&WizardSkillPointsTitle	Compétences de magicien
+Feature/&WizardSpellcastingTitle	Lancement de sort de magicien
+Feature/&WizardToolsDescription	Vous avez appris à retranscrire des parchemins magiques et à utiliser des équipements enchantés.
+Feature/&WizardToolsTitle	Fabrication magique
+Feature/&WizardWeaponProficiencyTitle	Maîtrises des armes de magicien
+Feature/&CombatAffinityPackTacticsTitle	Tactiques de meute
+Feature/&AttributeModifierACPlus1Description	+1 de CA.
+Feature/&SavingThrowModifierRingOfProtectionPlusOneDescription	+1 à tous les jets de sauvegarde.
+Feature/&AdditionalDamagePoisonTitle	Empoisonné·e
+Feature/&PowerFunctionApplyPoisonDescription	Appliquez ce poison à une arme ciblée.
+Feature/&PowerFunctionApplyPoisonTitle	Appliquer
+Feature/&RegenerationLapseFormat	Régénère {0} points de vie par cycle de {1}.
+Feature/&RegenerationChildOfDarknessTitle	Régénération
+Feature/&RegenerationChildOfDarknessDescription	Les Soraks régénèrent leurs points de vie dans la lumière faible ou dans les ténèbres.
+Feature/&RegenerationDefilerTitle	Régénération
+Feature/&RegenerationDefilerDescription	Les profanateurs régénèrent 10 pv par round quand ils sont dans les ténèbres.
+Feature/&Cutthroat_Finisher_Title	Charognard
+Feature/&Cutthroat_Predator_Title	Prédateur
+Feature/&Cutthroat_Predator_Description	Les égorgeurs infligent 2 points de dégâts en plus quand ils attaquent des cibles à distance sur un terrain en contrebas.
+Feature/&AttributeModifierBracersDefenseDescription	+2 de CA quand il n'y a pas d'armure ou de bouclier équipé.
+Feature/&VisionTruesightDescription	Cette créature peut voir dans les ténèbres normales et magiques. Elle peut aussi voir ce qui est invisible et percer les illusions.
+Feature/&PowerFunctionManualStudyTitle	Étudier
+Feature/&MinimalBaseSpeedFormat	Vitesse minimale : {0}
+Feature/&MinimalBaseSpeedFormatSingle	Vitesse minimale : {0} ({1})
+Feature/&EncumbranceImmunityFormat	Insensible aux pénalités d'encombrement.
+Feature/&HeavyArmorImmunityFormat	Insensible aux pénalités d'armure lourde.
+Feature/&CharacterPresentationBeltOfDwarvenKindDescription	50 % de chances d'avoir une barbe.
+Feature/&AttributeModifierBeltOfDwarvenkindDescription	+2 de CON, jusqu'à un maximum de 20.
+Feature/&ProficiencyBeltOfDwarvenKindDescription	Peut parler, lire et écrire le nain.
+Feature/&DeflectMissileDescription	Peut utiliser une réaction pour réduire les dégâts d'un projectile en approche.
+Feature/&DeflectMissileTitle	Déviation de projectile
+Feature/&PowerFunctionDustDisappearanceTitle	Lancer
+Feature/&PowerFunctionDustDisappearanceDescription	Lancez de la poussière dans l'air pour rendre invisibles toutes les créatures dans un rayon de 2 cases pendant quelques minutes.
+Feature/&EscapingPerceptionSuffix	après repérage du porteur
+Feature/&ResistingShoveSuffix	après poussée du porteur
+Feature/&ConditionAffinityCloakOfArachnidaDescription	Ne peut être entravée par des toiles.
+Feature/&MovementAffinityCloakOfArachnidaDescription	Peut se déplacer le long des murs.
+Feature/&SavingThrowAffinityGemNecromancyTitle	+2 aux jets de sauvegarde contre les sorts de nécromancie
+Feature/&SavingThrowAffinityGemAbjurationTitle	+2 aux jets de sauvegarde contre les sorts d'abjuration
+Feature/&SavingThrowAffinityGemEvocationTitle	+2 aux jets de sauvegarde contre les sorts d'évocation
+Feature/&SavingThrowAffinityGemIllusionTitle	+2 aux jets de sauvegarde contre les sorts d'illusion
+Feature/&SavingThrowAffinityGemConjurationTitle	+2 aux jets de sauvegarde contre les sorts d'invocation
+Feature/&SavingThrowAffinityGemEnchantmentTitle	+2 aux jets de sauvegarde contre les sorts d'enchantement
+Feature/&SavingThrowAffinityGemDivinationTitle	+2 aux jets de sauvegarde contre les sorts de divination
+Feature/&SavingThrowAffinityGemTransmutationTitle	+2 aux jets de sauvegarde contre les sorts de transmutation
+Feature/&SavingThrowAffinityCrownOfTheMagisterTitle	+1 aux jets de sauvegarde
+Feature/&AbilityCheckAffinityCrownOfTheMagisterTitle	+2 aux jets d'Intimidation et de Persuasion
+Feature/&StoneOfGoodLuckAbilityCheckAffinity_Description	+1 aux jets de caractéristique.
+Feature/&RingOfAllWordsDescription	Maîtrise de toutes les langues.
+Feature/&AttributeModifierACPlus2Description	+2 de CA.
+Feature/&PowerFunctionApplyOilOfSharpnessDescription	Appliquez cette huile à une arme ciblée.
+Feature/&MantleOfSpellResistance_Function_Description	Avantage sur les jets de sauvegarde contre les sorts
+Feature/&HalflingBraveDescription	Avantage lors des jets de sauvegarde contre Effrayé
+Feature/&PowerWinterWolfBreathTitle	Souffle froid
+Feature/&PowerWinterWolfBreathDescription	Un vent glacé soufflé par le Loup blanc infligeant des dégâts de froid.
+Feature/&SavingThrowRestrictedSchoolFormat	Sorts de {0}
+Feature/&Fire_Osprey_Blast_Title	Souffle
+Feature/&Fire_Osprey_Blast_Description	Le balbuzard de feu libère un souffle enflammé qui endommage toutes les cases alentour.
+Feature/&AttributeModifierACPlus3Description	+3 de CA.
+Feature/&MagicAffinityBattleMagicTitle	Magie de combat
+Feature/&MagicAffinityBattleMagicDescription	Permet de lancer des sorts à composante somatique sans avoir besoin d'une main libre, à condition de porter une arme ou un bouclier
+Feature/&Cutthroat_Finisher_Description	Une fois par tour, les égorgeurs infligent 1d6 dégâts supplémentaires aux adversaires déjà blessés.
+Feature/&AttackModifierAttackRollIncreasedDescription	Jet d'attaque augmenté.
+Feature/&AttackModifierDamageRollIncreasedDescription	Jet de dégâts augmenté.
+Feature/&ConditionAutoCriticalFormat	Toutes les attaques subies infligent des coups critiques
+Feature/&SavingThrowByAbilityScoreBonus	[caractéristique] sur les jets de sauvegarde de {0}
+Feature/&DomainBattleExtraAttackTitle	Érudit du combat
+Feature/&AdditionalDamageDomainLifeDivineStrikeDescription	+1D8 dégâts radiants pour les attaques avec les armes, une fois par tour.
+Feature/&AdditionalDamageDomainLifeDivineStrikeTitle	Frappe divine
+Feature/&DomainElementalHeraldOfTheElementsFireShortTitle	Appel du feu
+Feature/&DomainElementalHeraldOfTheElementsFireTitle	Héraut des éléments :\nAppel du feu
+Feature/&DomainElementalHeraldOfTheElementsColdDescription	La cible subit des dégâts de froid et doit réussir grâce à une sauvegarde de FOR ou rester entravée jusqu'à la fin de son prochain tour. Peut être utilisée un nombre de fois égal à votre bonus de SAG jusqu'à un repos long.
+Feature/&DomainElementalHeraldOfTheElementsColdShortTitle	Appel du froid
+Feature/&DomainElementalHeraldOfTheElementsColdTitle	Héraut des éléments :\nAppel du froid
+Feature/&DomainElementalHeraldOfTheElementsThunderDescription	Les créatures situées dans la zone d'effet doivent réussir leur sauvegarde de CON ou subir des dégâts de tonnerre égaux à 2d8 + votre bonus de SAG et rester entravées jusqu'à la fin de leur prochain tour. Peut être utilisée un nombre de fois équivalent à votre bonus de SAG entre deux repos longs.
+Feature/&DomainElementalHeraldOfTheElementsThunderShortTitle	Appel du tonnerre
+Feature/&DomainElementalHeraldOfTheElementsThunderTitle	Héraut des éléments :\nAppel du tonnerre
+Feature/&DomainInsightDivineLoreDescription	Vous maîtrisez toutes les langues, à l'écrit comme à l'oral. En outre, vous pouvez identifier un objet magique une fois par repos long.
+Feature/&DomainInsightDivineLoreTitle	Savoir divin
+Feature/&DomainInsightDivineLoreIdentifyDescription	Révèle les propriétés magiques et les fonctions d'un objet.
+Feature/&DomainInsightDivineLoreIdentifyTitle	Identification divine
+Feature/&DomainInsightDomainSpellsTitle	Sorts de domaine : Perspicacité
+Feature/&DomainOblivionMarkOfFateDescription	Marque une créature que vous voyez pour qu'elle subisse des dégâts supplémentaires lors de chaque attaque. Peut être réorientée après la mort de la créature.
+Feature/&DomainOblivionMarkOfFateTitle	Marque du destin
+Feature/&DomainLawAnathemaDescription	Entrave une créature et inflige des dégâts de force à chaque tour jusqu'à ce qu'elle réussisse grâce à une sauvegarde de SAG ou qu'une minute se soit écoulée.
+Feature/&DomainLawAnathemaTitle	Anathème
+Feature/&PowerOathOfMotherlandVolcanicAuraDescription	Octroie aux créatures amicales de l'aura une résistance au feu et +1 de CA.
+Feature/&PowerOathOfMotherlandVolcanicAuraTitle	Aura volcanique
+Feature/&PowerOathOfDevotionAuraDevotionDescription	Les créatures amicales de l'aura ne peuvent pas être charmées tant que vous êtes conscient.
+Feature/&PowerOathOfDevotionAuraDevotionTitle	Aura de dévotion
+Feature/&PowerOathOfTirmarAuraTruthDescription	Octroie aux créatures amicales de l'aura une vision dans le noir supérieure et +2 de perception.
+Feature/&PowerOathOfTirmarAuraTruthTitle	Aura de vérité
+Feature/&FeatureSetHunterDefensiveTacticsDescription	Choisissez l'une des options suivantes :
+Feature/&FeatureSetHunterDefensiveTacticsTitle	Tactiques défensives
+Feature/&HunterEscapeTheHordeDescription	Les attaques d'opportunité que vous subissez ont un désavantage.
+Feature/&tHunterEscapeTheHordeTitle	Échapper à la horde
+Feature/&HunterMultiattackDefenseDescription	Lorsqu'une créature vous attaque, vous gagnez +4 bonus de CA contre toutes ses autres attaques pour le reste du tour.
+Feature/&HunterMultiattackDefenseTitle	Défense contre les attaques multiples
+Feature/&HunterSteelWillDescription	Avantage lors des jets de sauvegarde contre Effrayé
+Feature/&HunterSteelWillTitle	Volonté de fer
+Feature/&ShadowTamerRopeGrappleDescription	Ciblez une créature et tirez-la vers vous si elle échoue lors d'un combat de FOR.
+Feature/&ShadowTamerRopeGrappleTitle	Lasso
+Feature/&ShadowTamerKnowDarknessDescription	Dans la lumière faible ou l'obscurité, vous avez l'avantage sur les jets de discrétion, d'investigation et de perception et vous obtenez la perception des vibrations.
+Feature/&ShadowTamerKnowDarknessTitle	Connaissance des ténèbres
+Feature/&MarksmanRecyclerDescription	Vous pouvez fabriquer des flèches à chaque fois que vous prenez un repos long ou court.
+Feature/&MarksmanRecyclerTitle	Recycleur
+Feature/&MarksmanStepbackDescription	Lorsque vous vous trouvez à portée de corps à corps d'une créature ennemie, vous pouvez utiliser votre action bonus pour vous déplacer d'une case sans provoquer d'attaques d'opportunité, et avoir un avantage lors de votre prochaine attaque avec une arme à distance durant ce tour.
+Feature/&MarksmanStepbackTitle	Recul
+Feature/&MoutaineerCloseQuartersDescription	Dans le cadre de cette action bonus, vous pouvez forcer un adversaire à portée de corps à corps à changer de position au moyen d'un défi de FOR contre FOR ou DEX, comme c'est le cas pour Poussée. Ce faisant, vous n'êtes pas ouvert aux attaques d'opportunité. En cas de réussite, vous avez l'avantage pour attaquer cette créature jusqu'à la fin de votre tour.
+Feature/&MoutaineerCloseQuartersTitle	Combat rapproché
+Feature/&ChampionRemarkableAthleteDescription	Ajoutez la moitié de votre bonus de maîtrise (arrondi) à tous vos jets de Force, Dextérité ou Constitution qui ne l'utilisent pas déjà. En outre, votre distance de saut et votre capacité d'escalade augmentent également.
+Feature/&ChampionRemarkableAthleteTitle	Athlète remarquable
+Feature/&SpellbladeIntoTheFrayDescription	Vous pouvez utiliser toutes les armes de corps à corps que vous maîtrisez comme focaliseur de sorts pour vos sorts de magicien et utiliser votre arme plutôt que votre main pour leurs composantes somatiques. En outre, vos jets d'attaque à distance avec un sort ne subissent pas de désavantage lorsque vous vous trouvez à côté d'une créature hostile.
+Feature/&SpellbladeIntoTheFrayTitle	Dans la mêlée
+Feature/&Smith_Title	Forge
+Feature/&Smith_Description	Vous êtes capable de fabriquer des munitions basiques à l'aide d'outils de forgeron : des flèches et des carreaux.
+Feature/&PowerVeil_Title	Voile sombre
+Feature/&PowerVeil_Description	Un voile de ténèbres et de désespoir couvre une zone entourant le profanateur. Toutes les créatures, à l'exception des Profanateurs et de leurs Vassaux, ont un désavantage sur les attaques.
+Feature/&Power_Grimblade_Soulscape_Title	Paysage animique
+Feature/&DomainElementalHeraldOfTheElementsFireDescription	La cible subit des dégâts de feu et doit réussir un jet de FOR si elle ne veut pas être renversée. Peut être utilisée un nombre de fois égal à votre bonus de SAG jusqu'à un repos long.
+Feature/&PowerBloodFealty_Title	Allégeance sanguine
+Feature/&PowerBloodFealty_Description	Un profanateur peut drainer l'énergie vitale des Vassaux qu'ils ont créés.
+Feature/&RogueEvasionDescription	Lorsque vous vous trouvez dans une zone d'effet permettant d'effectuer un jet de sauvegarde de Dextérité pour diminuer de moitié les dégâts subis, vous ne subissez, à la place, plus de dégâts si vous réussissez le jet de sauvegarde, et seulement la moitié des dégâts si vous échouez.
+Feature/&SorakImmunity_MindEffects_Title	Esprit des ténèbres
+Feature/&SorakImmunity_MindEffects_Description	Les Sorr-Akkaths ont un pur esprit des ténèbres. Protégés par les dons de leur dieu, ils sont immunisés contre les tentatives de charme et de domination.
+Feature/&ShockArcanistWarcastingTitle	Lancement de sorts de guerre
+Feature/&ShockArcanistWarcastingDescription	Après avoir travaillé d'arrache-pied pour supporter le contrecoup du choc arcanique, vous excellez désormais en matière de jets de sauvegarde de Constitution.
+Feature/&ShockArcanistArcaneShockTitle	Choc arcanique
+Feature/&ShockArcanistArcaneShockDescription	À partir du niveau 10, vous pouvez utiliser votre action bonus pour déclencher Choc arcanique et faire un jet de sauvegarde de CON DD 14 en premier, mais vous subirez 2d6 de dégâts psychiques en cas d'échec. Jusqu'à la fin de votre tour, vous subissez la condition entravé, mais les sorts que vous lancerez auront tous au moins une valeur de jet de dé moyenne.\nVous pouvez utiliser ce pouvoir un nombre de fois égal à votre bonus de maîtrise, mais vous devrez prendre un long repos par la suite pour en recharger les utilisations.
+Feature/&GreenMageLeafScalesTitle	Écailles feuillues
+Feature/&GreenMageLeafScalesDescription	Lorsqu'un assaillant que vous pouvez voir vous touche avec une attaque à distance ou un sort, vous pouvez utiliser votre réaction pour diminuer de moitié les dégâts de l'attaque.
+Feature/&LoreMasterArcaneLoreTitle	Savoir arcanique
+Feature/&LoreMasterArcaneLoreDescription	Il est possible d'ajouter votre bonus de maîtrise au nombre de sorts que vous pouvez mémoriser. Vous apprenez également deux sorts mineurs supplémentaires de la liste du magicien.
+Feature/&SpellBladeSpellTyrantTitle	Tyran des sorts
+Feature/&SpellBladeSpellTyrantDescription	Ciblez une créature et déplacez-la sur une case dans n'importe quelle direction si elle rate un jet de sauvegarde de FOR.
+Feature/&ChampionAdditionalFightingStyleTitle	Style de combat supplémentaire
+Feature/&ChampionAdditionalFightingStyleDescription	Choisissez une nouvelle option de style de combat.
+Feature/&MountaineerShieldChargeTitle	Poussée de bouclier
+Feature/&MountaineerShieldChargeDescription	Vous bénéficiez d'une action bonus consistant à pousser un adversaire, à condition de porter un bouclier.
+Feature/&IndomitableResistanceTitle	Indomptable
+Feature/&IndomitableResistanceDescription	Vous pouvez relancer un jet de sauvegarde raté. Si tel est le cas, vous devez utiliser le nouveau jet, et vous ne pourrez plus vous servir de cet attribut tant que vous n'aurez pas terminé un repos long.
+Feature/&PowerRangerHideInPlainSightTitle	Camouflage naturel
+Feature/&PowerRangerHideInPlainSightDescription	Vous pouvez passer 1 minute à vous créer un camouflage. Une fois camouflé, vous bénéficiez de +10 de DEX (Discrétion) aussi longtemps que vous restez contre un mur. Chaque fois que vous vous déplacez ou que vous vous reposez, vous devez à nouveau créer un camouflage.
+Feature/&PowerClericDivineInterventionTitle	Intervention divine
+Feature/&PowerClericDivineInterventionDescription	Vous essayez de faire appel à votre divinité afin qu'elle vous vienne en aide. Les chances de réussites dépendent de votre niveau de clerc. Chaque niveau équivaut à 1 % de chance de réussite.
+Feature/&ThiefSupremeSneakTitle	Discrétion suprême
+Feature/&ThiefSupremeSneakDescription	Vous avez l'avantage sur vos jets de caractéristique de DEX (Discrétion).
+Feature/&ClericTurnUndeadAdvancedTitle	Renvoi des morts-vivants (anéantissement)
+Feature/&ClericTurnUndeadAdvancedDescription	La Canalisation d'énergie divine fait fuir les morts-vivants en mesure de vous voir dans un rayon de 6 cases, sauf s'ils réussissent un jet de sauvegarde de Sagesse.Les morts-vivants dont la difficulté du défi est égale ou inférieure à {0} et qui ratent leur jet de sauvegarde sont immédiatement anéantis.
+Feature/&ShadowRetributionTitle	Punition de l'ombre
+Feature/&ShadowRetributionDescription	Si vous vous faites cibler par un sort infligeant des dégâts, vous pouvez lancer un sort mineur en réaction sur le lanceur, peu importe s'il vous touche ou non.
+Feature/&DarkweaverPoisonousTitle	Venimeux
+Feature/&DarkweaverPoisonousDescription	Lorsque vous frappez avec une arme de corps à corps et infligez au moins 1 point de dégâts, votre cible doit faire un jet de sauvegarde de CON DD 13 sinon, elle sera empoisonnée pendant une heure et subira 2d6 dégâts supplémentaires.
+Feature/&PowerRemorazSwallowTitle	Engloutissement
+Feature/&PowerRemorazSwallowDescription	Le rémorhaz peut avaler une créature qu'il a réussi à agripper et lui infligera des dégâts acides à chaque tour jusqu'à ce qu'elle subisse suffisamment de dégâts pour la forcer à régurgiter.
+Feature/&PowerDragonBreath_Poison_Title	Souffle empoisonné
+Feature/&PowerDragonBreath_Poison_Description	Ce dragon peut exhaler un cône de poison dévastateur.
+Feature/&DragonFrightfulPresence_Title	Présence effrayante
+Feature/&DragonFrightfulPresence_Description	Les dragons sont si puissants que leur simple présence peut terroriser les plus couards.
+Feature/&DragonWingAttack_Title	Attaque ailée
+Feature/&DragonWingAttack_Description	Le dragon peut battre des ailes pour produire suffisamment de vent et propulser ainsi la plupart des humanoïdes, les faisant tomber à terre.
+Feature/&PowerDragonBreath_Fire_Title	Souffle de feu
+Feature/&PowerDragonBreath_Fire_Description	Ce dragon peut exhaler un cône de feu dévastateur.
+Feature/&PowerDragonBreath_Acid_Title	Souffle d'acide
+Feature/&PowerDragonBreath_Acid_Description	Ce dragon peut exhaler un cône d'acide dévastateur.
+Feature/&DefilerShadowEscape_Title	Forme brumeuse
+Feature/&DefilerShadowEscape_Description	Les profanateurs sont capables de se transformer en brume et de se téléporter à volonté.
+Feature/&HeartOfFireTitle	Cœur de feu
+Feature/&HeartOfDescriptionTitle	Arrok ne fait plus qu'un avec le volcan. Il inflige des dégâts de feu à tous ceux qui se tiennent derrière lui.
+Feature/&LaetharParalyzingGaze_Title	Regard paralysant
+Feature/&LaetharParalyzingGaze_Description	Le regard de l'empereur paralyse les faibles.
+Feature/&LaetharShadowEscape_Title	Déplacements fantomatiques
+Feature/&LaetharShadowEscape_Description	Laethar est capable de se transformer en brume et de se téléporter à volonté.
+Feature/&SpiderQueenEatFriends_Title	Cannibalisme
+Feature/&SpiderQueenEatFriends_Description	La reine-araignée dévore l'un de ses petits pour récupérer des pv.
+Feature/&SpiderQueenPoisonCloud_Title	Nuage de poison
+Feature/&SpiderQueenPoisonCloud_Description	La reine-araignée projette une salve de petites pointes empoisonnées tout autour d'elle.
+Feature/&Power_Phase_Spider_Teleport_Title	Saut éthéré
+Feature/&Power_Phase_Spider_Teleport_Description	Les araignées de phase peuvent passer d'un plan à l'autre à volonté.
+Feature/&CriticalHitImmunityTitle	Immunité aux coups critiques
+Feature/&CriticalHitImmunityDescription	La créature considère les coups critiques comme des coups normaux
+Feature/&SavingThrowAffinityArmorOfSurvival	+2 aux jets de sauvegarde
+Feature/&PowerShambingMoundSwallowTitle	Engloutir
+Feature/&PowerShambingMoundSwallowDescription	Cette créature peut engloutir une créature de taille moyenne ou inférieure lorsqu'elle est agrippée. La cible engloutie est aveuglée, entravée et incapable de respirer, et elle doit réussir un jet de sauvegarde de Constitution DD 14 au début de chaque tour du tertre, ou subir 13 (2d8+4) points de dégâts contondants.
+Feature/&DLC1_AdditionalDamage_HolyWeapon_Title	Dommages Divins
+Feature/&DLC1_AdditionalDamage_HolyWeapon_Description	Cette arme divine inflige des dommages supplémentaires à certains types d'ennemis spécifiques.
+Feature/&TraditionCourtMageImprovedSpellShieldDescription	Les créatures sous l'effet du sort de bouclier obtiennent désormais aussi l'avantage sur tous les jets de sauvegarde contre les sorts et les effets magiques. Lorsque le sort de bouclier a 0 pv, il ne peut absorber de dégâts. En revanche, sa magie reste intacte.
+Feature/&SorcererWeaponProficiencyTitle	Maîtrises des armes d'ensorceleur
+Feature/&SorcererSkillPointsTitle	Compétences d'ensorceleur
+Feature/&SorcererSpellcastingTitle	Lancement de sort d'ensorceleur
+Feature/&SorcererSorcerousOriginDescription	Les différents ensorceleurs revendiquent différentes origines en ce qui concerne leur magie innée.
+Feature/&SorcererSorcerousOriginTitle	Origine magique
+Feature/&SorcererToolsDescription	Vous avez appris à concocter des remèdes à base d'herbes et à utiliser des équipements enchantés.
+Feature/&SorcererToolsTitle	Fabrication magique
+Feature/&PowerSorcererFlexibleCastingTitle	Flexibilité des sorts
+Feature/&PowerSorcererFlexibleCastingDescription	Permet de convertir des emplacements de sort en points de sorcellerie et inversement en tant qu'action bonus.
+Feature/&PowerSorcererFlexibleCastingCreateSpellSlotTitle	Créer un emplacement de sort
+Feature/&PowerSorcererFlexibleCastingCreateSpellSlotDescription	Dépensez des points de sorcellerie pour créer un nouvel emplacement de sort d'un niveau potentiellement plus élevé que votre niveau de sort maximum.
+Feature/&PowerSorcererFlexibleCastingCreateSorceryPointsTitle	Créer des points de sorcellerie
+Feature/&PowerSorcererFlexibleCastingCreateSorceryPointsDescription	Dépensez un emplacement de sort pour générer un nombre de points de sorcellerie correspondant.
+Feature/&PointPoolSorcererMetamagicTitle	Métamagie
+Feature/&PointPoolSorcererMetamagicDescription	Vous êtes désormais capable d'altérer vos sorts en fonction de vos besoins. Vous obtenez deux options de métamagie au choix.
+Feature/&PointPoolSorcererAdditionalMetamagicTitle	Métamagie supplémentaire
+Feature/&PointPoolSorcererAdditionalMetamagicDescription	Apprenez une autre option de métamagie.
+Feature/&MetamagicOptionEmpoweredSpellRerollDescription	{0} utilise Sort puissant pour relancer un dé de dégâts {1} entre {2} et {3}.
+Feature/&FeatureSetSorcererDraconicChoiceTitle	Choix d'Ancêtre dragon
+Feature/&FeatureSetSorcererDraconicChoiceDescription	Sélectionnez le type de dragon (et le type de dégâts associé) de votre ancêtre.
+Feature/&AncestrySorcererDraconicDescription	Votre ascendance draconique vous octroie une affinité à un type de dégâts spécifique.
+Feature/&FeatureSetSorcererDraconicResilienceTitle	Résistance draconique
+Feature/&FeatureSetSorcererDraconicResilienceDescription	Vous gagnez un point de vie supplémentaire par niveau et votre classe d'armure est égale à 13 + votre bonus de Dextérité lorsque vous ne portez pas d'armure.
+Feature/&ProficiencySorcererDraconicKnowledgeTitle	Savoir draconique
+Feature/&ProficiencySorcererDraconicKnowledgeDescription	Vous parlez le draconique.
+Feature/&AutoPreparedSpellsSorcererDraconicBloodlineTitle	Sorts d'origine de la lignée draconique
+Feature/&AdditionalDamageSorcererDraconicElementalAffinityTitle	Affinité élémentaire
+Feature/&AdditionalDamageSorcererDraconicElementalAffinityDescription	Lorsque votre sort inflige des dégâts du type correspondant à votre ascendance draconique, vous ajoutez votre modificateur de Charisme à ces dégâts.
+Feature/&PowerSorcererDraconicElementalResistanceTitle	Résistance draconique aux éléments
+Feature/&PowerSorcererDraconicElementalResistanceDescription	Vous pouvez obtenir une résistance au type de dégâts de votre ascendance draconique pendant une heure en dépensant un point de sorcellerie.
+Feature/&AutoPreparedSpellsSorcererManaPainterTitle	Sorts d'origine de Manaturge
+Feature/&PowerSorcererManaPainterDrainTitle	Drain de mana
+Feature/&PowerSorcererManaPainterDrainDescription	Effectuez une attaque avec un sort au corps à corps. En cas de réussite, la créature ciblée subit 1d10 + votre modificateur de Charisme en dégâts de force, et vous récupérez 1 point de sorcellerie. Vous devez prendre un repos court pour récupérer ce pouvoir.
+Feature/&SavingThrowAffinityManaPainterAbsorbtionTitle	Absorption du mana
+Feature/&SavingThrowAffinityManaPainterAbsorbtionDescription	Votre modificateur de Charisme est utilisé à la place de vos autres modificateurs de caractéristique (s'il est supérieur à eux) pour vos jets de sauvegarde contre les sorts et autres effets magiques.
+Feature/&PowerSorcererManaPainterTapTitle	Flot de mana
+Feature/&PowerSorcererManaPainterTapDescription	Vous pouvez récupérer un nombre de points de sorcellerie équivalent à la moitié du niveau de votre ensorceleur (arrondi à l'entier supérieur) suite à un repos court. Vous devez prendre un repos long pour pouvoir réutiliser cette caractéristique.
+Feature/&AutoPreparedSpellsSorcererChildRiftTitle	Sorts d'origines de l'enfant de la Faille
+Feature/&MagicAffinitySorcererChildRiftMagicTitle	Magie de la Faille
+Feature/&MagicAffinitySorcererChildRiftMagicDescription	Lancez 1d20 immédiatement après avoir lancé un sort d'ensorceleur de niveau 1 à 5. Votre emplacement de sort ne sera pas dépensé si vous faites un 20.
+Feature/&PowerSorcererChildRiftDeflectionTitle	Déflexion
+Feature/&PowerSorcererChildRiftDeflectionDescription	Vous pouvez utiliser votre action bonus pour devenir plus difficile à toucher en dépensant 1 point de sorcellerie. Ainsi, vous réussirez de meilleurs jets de sauvegarde jusqu'au début du tour suivant.
+Feature/&PowerSorcererChildRiftOfferingTitle	Offrande à la Faille
+Feature/&PowerSorcererChildRiftOfferingDescription	Vous pouvez utiliser votre action bonus pour récupérer un point de sorcellerie en sacrifiant 5 points de vie. Un repos long vous permettra de récupérer les points de vie ainsi sacrifiés.
+Feature/&ConditionTrueSeeingTitle	Vision véritable
+Feature/&ConditionTrueSeeingDescription	Permet de voir les portes cachées et invisibles.
+Feature/&DieRollModifierRogueReliableTalentTitle	Talent
+Feature/&DieRollModifierRogueReliableTalentDescription	Chaque fois que vous faites un jet de caractéristique qui vous permet d'ajouter votre bonus de maîtrise, vous pouvez traiter un résultat au dé de 9 ou moins avec un d20 comme un 10.
+Feature/&ActionAffinityShadowTamerSwiftRetaliationTitle	Riposte rapide
+Feature/&ActionAffinityShadowTamerSwiftRetaliationDescription	Lorsqu'un adversaire vous attaque depuis une case à proximité, vous pouvez riposter immédiatement avec une attaque au corps à corps.
+Feature/&PaladinImprovedDivineSmiteTitle	Châtiment divin amélioré
+Feature/&PaladinImprovedDivineSmiteDescription	Lorsque vous touchez une créature avec une arme de corps à corps, la créature subit 1d8 dégâts radiants supplémentaires, que vous dépensiez un emplacement de sort ou non.
+Feature/&FeatureSetRangerHunterMultiattackChoiceTitle	Attaques multiples
+Feature/&FeatureSetRangerHunterMultiattackChoiceDescription	Sélectionnez l'une des options d'attaques multiples suivantes : Salve ou Attaque tourbillonnante.
+Feature/&ActionAffinityRangerHunterVolleyTitle	Salve
+Feature/&ActionAffinityRangerHunterWhirlwindAttackTitle	Attaque tourbillonnante
+Feature/&ActionAffinityRangerMarksmanFastAimTitle	Visée rapide
+Feature/&ActionAffinityRangerMarksmanFastAimDescription	Si vous attaquez un adversaire avec une arme à distance, vous pouvez utiliser votre action bonus pour effectuer une attaque à distance supplémentaire contre cette même cible.
+Feature/&MovementAffinityHeavyArmorImmunityTitle	Entraînement aux armures lourdes
+Feature/&AncestrySorcererDraconicBlackTitle	Noir - Acide
+Feature/&AncestrySorcererDraconicGoldTitle	Or - Feu
+Feature/&AncestrySorcererDraconicGreenTitle	Vert - Poison
+Feature/&AncestrySorcererDraconicSilverTitle	Argent - Froid
+Feature/&BarbarianWeaponProficiencyTitle	Maîtrises des armes barbares
+Feature/&BarbarianArmorProficiencyTitle	Maîtrises des armures de barbare
+Feature/&BarbarianSkillPointsTitle	Compétences de barbare
+Feature/&PrimalPathDescription	Au niveau 3, vous choisissez une voie qui influencera la nature de votre rage.
+Feature/&PrimalPathTitle	Voie primitive
+Feature/&FeatureSetRageDescription	En combat, vous faites preuve d'une férocité primitive. Lors de votre tour, vous pouvez entrer en rage en guise d'action bonus. Cela vous octroie l'avantage sur les jets de sauvegarde et les jets de caractéristique Force, un bonus initial de +2 sur les dégâts d'attaque au corps à corps, et une résistance aux dégâts tranchants, contondants et perforants. Vous n'obtenez ces avantages que si vous portez actuellement une armure lourde. Dure 1 minute ou prend fin si vous n'avez pas attaqué ou subi de dégâts depuis votre dernier tour.\n Vous commencez avec 2 rages, qui sont renouvelées après un repos long.
+Feature/&FeatureSetRageTitle	Rage
+Feature/&AdditionalRageDamageDescription	Augmente vos dégâts de rage de +1
+Feature/&AdditionalRageDamageTitle	Dégâts de rage supplémentaires
+Feature/&AdditionalRageCountDescription	Vous pouvez entrer en rage une fois de plus par repos long.
+Feature/&AdditionalRageCountTitle	Utilisation de rage supplémentaire
+Feature/&UnarmoredDefenseDescription	Quand vous ne portez pas d'armure, votre classe d'armure est égale à 10 + votre modificateur de Dextérité + votre modificateur de Constitution. Vous pouvez utiliser un bouclier et toujours profiter de cet avantage.
+Feature/&UnarmoredDefenseTitle	Défense sans armure
+Feature/&DangerSenseDescription	Vous avez l'avantage sur les jets de sauvegarde de Dextérité pour les effets et les sorts tant que vous n'êtes ni aveuglé, ni neutralisé.
+Feature/&DangerSenseTitle	Sens du danger
+Feature/&FastMovementTitle	Déplacement rapide
+Feature/&FeralInstinctDescription	Vos instincts sont si aiguisés que vous avez l'avantage sur les jets d'initiative. De plus, si vous êtes surpris au début d'un combat et que vous n'êtes pas neutralisé, vous pouvez agir normalement lors de votre premier tour, mais seulement si vous entrez en rage avant de faire quoi que ce soit d'autre durant ce tour.
+Feature/&FeralInstinctTitle	Instinct sauvage
+Feature/&BrutalCriticalDescription	Vous pouvez jeter un dé de dégâts d'armes supplémentaire en déterminant les dégâts supplémentaires pour un coup critique avec une attaque au corps à corps.
+Feature/&BrutalCriticalTitle	Critique brutal
+Feature/&BrutalCriticalAdvancedDescription	Ajoutez un autre dé de dégâts aux coups critiques.
+Feature/&BrutalCriticalAdvancedTitle	Critique brutal (avancé)
+Feature/&RelentlessRageDescription	Si vous tombez à 0 point de vie en étant enragé et que vous ne mourez pas sur le coup, vous pouvez faire un jet de sauvegarde de Constitution DD 10. Si vous réussissez, vous tombez à 1 point de vie à la place. À chaque nouvelle fois que vous utilisez cet attribut, le DD augmente de 5. Après un repos court ou long, le DD est réinitialisé à 10.
+Feature/&RelentlessRageTitle	Rage implacable
+Feature/&PowerBerserkerFrenzyTitle	Frénésie
+Feature/&ConditionBerserkerFrenzyDescription	Tant que dure votre rage, vous pouvez lancer une attaque d'arme de corps à corps en guise d'action bonus à la fin de chacun de vos tours après celui-ci. Quand votre rage prend fin, vous subissez un niveau d'épuisement.
+Feature/&ConditionBerserkerFrenzyTitle	Frénétique
+Feature/&PowerBerserkerMindlessRageDescription	Vous ne pouvez pas être charmé ou effrayé une fois enragé.
+Feature/&PowerBerserkerMindlessRageTitle	Rage inébranlable
+Feature/&PowerBerserkerIntimidatingPresenceDescription	Effrayez une créature jusqu'à la fin de votre prochain tour si elle ne réussit pas un jet SAG imposé par votre CHA. 
+Feature/&PowerBerserkerIntimidatingPresenceTitle	Présence intimidante
+Feature/&PowerMagebaneWarCryDescription	En étant enragé, un antimage qui subit des dégâts de sorts ou d'autres attaques magiques peut utiliser sa réaction pour déchaîner un cri de guerre puissant qui inflige des dégâts psychiques équivalents à 1d6 + modificateur de CON à tous les adversaires dans un rayon de 6 cases.
+Feature/&PowerMagebaneWarCryTitle	Cri de guerre
+Feature/&EnemyOfMagicTitle	Ennemi de la magie
+Feature/&RejectMagicTitle	Rejeter la magie
+Feature/&EnemyOfMagicDescription	En étant enragé, les antimages jettent un dé de dégâts d'arme supplémentaire en réussissant une attaque au corps à corps contre une créature capable de lancer des sorts.
+Feature/&DruidWeaponProficiencyTitle	Maîtrises des armes de druide
+Feature/&DruidArmorProficiencyTitle	Maîtrises des armures de druide
+Feature/&DruidSkillPointsTitle	Compétences de druide
+Feature/&DruidCircleTitle	Cercle druidique
+Feature/&DruidCircleDescription	Au niveau 2, vous choisissez un cercle druidique qui exprime plus profondément votre relation à la nature.
+Feature/&PowerDruidWildShapeTitle	Forme sauvage
+Feature/&PowerDruidWildShapeDescription	Vous pouvez utiliser votre action pour revêtir magiquement la forme d'une bête définie par votre niveau de druide. Les niveaux supérieurs donnent accès à des formes plus fortes ou en mouvement. Vous pouvez utiliser cet attribut deux fois. Vous récupérez les utilisations perdues après un repos court ou long.
+Feature/&ForbiddenArmorFormat	Vous ne pouvez pas porter une armure fabriquée à base de : {0}
+Feature/&LanguageProficiencyTitle	Druidique
+Feature/&LanguageProficiencyDescription	Vous connaissez la langue druidique.
+Feature/&DruidSpellcastingTitle	Lancement de sort de druide
+Feature/&PointPoolCircleLandBonusCantripTitle	Sort mineur bonus
+Feature/&PointPoolCircleLandBonusCantripDescription	Apprenez le sort mineur de druide de votre choix.
+Feature/&FeatureSetCircleLandCircleSpellsTitle	Sorts de cercle
+Feature/&FeatureSetCircleLandCircleSpellsDescription	Sélectionnez un type de terrain qui octroie une variété de sorts qui seront toujours considérés comme prêts.
+Feature/&FeatureSetCircleLandLandsStrideTitle	Traversée des terrains
+Feature/&FeatureSetCircleLandLandsStrideDescription	Vous déplacer sur un terrain difficile ne vous coûte pas de mouvement supplémentaire et vous êtes insensible aux plantes magiques qui entravent le mouvement tels que les sorts enchevêtrement et croissance d'épines.
+Feature/&FeatureSetCircleLandNaturesWardTitle	Protection de la nature
+Feature/&FeatureSetCircleLandNaturesWardDescription	Vous êtes insensible aux effets de charme et de peur causés par les élémentaires ou les fées, ainsi qu'au poison et aux maladies.
+Feature/&FeatureSetSpiritChoiceTitle	Choix d'esprit
+Feature/&FeatureSetSpiritChoiceDescription	Choisissez un esprit auquel vous lier. Octroie un bonus au druide lié.
+Feature/&PowerSpiritBearTitle	Esprit de l'ours
+Feature/&PowerSpiritWolfTitle	Esprit du loup
+Feature/&PowerSpiritApeTitle	Esprit du singe
+Feature/&PowerSpiritViperTitle	Esprit de la vipère
+Feature/&PowerSpiritSpiderTitle	Esprit de l'araignée
+Feature/&PowerSpiritEagleTitle	Esprit de l'aigle
+Feature/&FeatureSetSpiritCallTitle	Appel spirituel
+Feature/&FeatureSetSpiritCallDescription	Utilisez une action pour appeler votre esprit lié sur un emplacement dans un rayon de 6 cases. Si l'esprit meurt, vous devrez attendre la fin d'un repos long avant de l'appeler de nouveau.
+Feature/&FeatureSetSpiritBondTitle	Lien spirituel
+Feature/&FeatureSetSpiritBondDescription	Votre esprit lié a les attributs suivants :\nBonus de maîtrise : bonus de maîtrise de druide\nJet d'attaque : attaque au corps à corps avec un sort de druide\nJets de sauvegarde : jets de sauvegarde de druide\nINT est toujours égale à 8\nAvantage sur les attaques contre les adversaires en position engagée avec le druide ou ses alliés\nSi l'esprit lié meurt, le druide subit 3d6 de dégâts psychiques et est étourdi pour le restant du tour à moins d'être inconscient.\nAprès un repos court, l'esprit lié récupère le même nombre de pv que le druide après avoir dépensé des dés de vie.
+Feature/&FeatureSetMagicalSpiritTitle	Esprit magique
+Feature/&FeatureSetMagicalSpiritDescription	Les attaques de l'esprit lié sont considérées comme magiques.\nDe plus, à chaque fois que vous vous soignez, la guérison bénéficie aussi à votre esprit lié, ce qui lui permet de récupérer un nombre de pv égal à votre modificateur de caractéristique de lancement de sort.
+Feature/&FeatureSetSharedPainTitle	Douleur partagée
+Feature/&FeatureSetSharedPainDescription	En réaction, les dégâts infligés au druide ou à l'esprit lié peuvent être partagés équitablement entre les deux.
+Feature/&AttackModifierShillelaghDescription	Les dégâts d'arme deviennent 1d8 et magiques et les attaques sont lancées en utilisant la caractéristique de lancement de sort.
+Feature/&AncestrySorcererDraconicBlueTitle	Bleu - Foudre
+Feature/&HalfOrcAbilityScoreIncreaseDescription	Force +2, Constitution +1
+Feature/&ProficiencyHalfOrcMenacingTitle	Menaçant
+Feature/&ProficiencyHalfOrcMenacingDescription	Vous obtenez la maîtrise de la compétence Intimidation.
+Feature/&RelentlessEnduranceTitle	Endurance implacable
+Feature/&RelentlessEnduranceDescription	Quand vous tombez à 0 point de vie sans mourir sur le coup, vous tombez à 1 point de vie à la place. Vous ne pouvez pas profiter à nouveau de cet attribut avant de finir un repos long.
+Feature/&SavageAttacksTitle	Attaques sauvages
+Feature/&SavageAttacksDescription	En réalisant un coup critique avec une attaque d'arme de corps à corps, vous pouvez jeter un des dés de dégâts d'arme une fois supplémentaire et ajouter le résultat aux dégâts supplémentaires du coup critique.
+Feature/&PowerStoneResilienceTitle	Résistance de la pierre
+Feature/&PowerStoneResilienceDescription	En étant enragé, vous gagnez des pv temporaires équivalents au double de votre bonus de maîtrise à la fin de votre tour.
+Feature/&SavingThrowAffinityStoneStrengthWithinTitle	Force intérieure
+Feature/&SavingThrowAffinityStoneStrengthWithinDescription	Votre modificateur de Constitution est utilisé pour chaque jet de sauvegarde s'il est supérieur au modificateur de caractéristique que vous utilisez normalement.
+Feature/&AttributeModifierStoneRockSolidTitle	Solide comme un roc
+Feature/&AttributeModifierStoneRockSolidDescription	En étant enragé, vous obtenez +1 de CA par adversaire hostile qui se trouve dans un rayon d'une case autour de vous, jusqu'à un maximum de +4.
+Feature/&PowerWindCarriedByWindTitle	Porté par le vent
+Feature/&PowerWindShelteringBreezeTitle	Brise protectrice
+Feature/&PowerWindShelteringBreezeDescription	Vous pouvez utiliser une action bonus pour que la brise protectrice souffle sur tous les alliés qui se trouvent dans un rayon de 6 cases autour de vous. Toutes les créatures affectées (vous y compris) ont l'avantage sur tous les jets de sauvegarde jusqu'au début de votre tour. Pour chaque repos long, vous pouvez utiliser cet attribut autant de fois que votre bonus de SAG.
+Feature/&PowerWindGuidingWindsTitle	Direction du vent
+Feature/&PowerWindGuidingWindsDescription	Dès que vous touchez un adversaire avec un jet d'attaque, le prochain jet d'attaque que vous faites contre lui avant la fin de votre prochain tour a l'avantage.
+Feature/&PowerBerserkerFrenzyDescription	Vous pouvez vous plonger dans une frénésie quand vous êtes en rage. À ce moment-là, vous pouvez lancer une attaque d'arme de corps à corps comme action bonus à la fin de chacun de vos tours après celui-ci et pendant toute la durée de votre rage. Quand votre rage prend fin, vous subissez un niveau d'épuisement, à moins de réussir un jet de sauvegarde CON DD 10. Le DD augmente de 5 à chaque fois jusqu'à la fin d'un repos court ou long.
+Feature/&SummoningAffinitySpiritBondTitle	Lien spirituel
+Feature/&WandererSkillsLoneWolfTitle	Loup solitaire
+Feature/&WandererSkillsLoneWolfDescription	Maîtrise de la Survie et de la Nature.
+Feature/&WandererSkillsCrafterTitle	Fabricant
+Feature/&WandererSkillsCrafterDescription	Maîtrise des outils de forgeron et du kit d'herboriste.
+Feature/&MovementAffinitySpiritGuardiansDescription	Si une créature entre dans la zone ou termine son tour ici, elle doit effectuer un jet de sauvegarde de Sagesse. Si le jet de sauvegarde échoue, la créature subit 3d8 dégâts radiants (si elle est bonne ou neutre) ou 3d8 dégâts nécrotiques (si elle est maléfique). En cas de jet de sauvegarde réussi, la créature subit la moitié de ces dégâts.
+Feature/&PowerMummyDreadfulGlareTitle	Regard d'épouvante
+Feature/&PowerMummyDreadfulGlareDescription	La victime doit réussir un jet de sauvegarde de CON DD 11 pour ne pas rester effrayée jusqu'à la fin du prochain tour de la momie. Si le jet de sauvegarde échoue de 5 points ou plus, la victime est également paralysée. Un jet de sauvegarde réussi rend la cible insensible aux Regards d'épouvante de toutes les momies pendant 24 heures.
+Feature/&PowerMummyLordDreadfulGlareDescription	La victime doit réussir un jet de sauvegarde de CON DD 11 pour ne pas rester effrayée jusqu'à la fin du prochain tour du seigneur momie. Si le jet de sauvegarde échoue de 5 points ou plus, la victime est également paralysée. Un jet de sauvegarde réussi rend la cible insensible aux Regards d'épouvante de toutes les momies pendant 24 heures.
+Feature/&DomainMischiefMisayeSmileTitle	Sourire de Misaye
+Feature/&DomainMischiefMisayeSmileDescription	TBC
+Feature/&MartialCommanderBonusProficienciesTitle	Maîtrises supplémentaires
+Feature/&MartialCommanderBonusProficienciesDescription	Vous obtenez la maîtrise des compétences Intimidation et Perspicacité.
+Feature/&MartialCommanderRousingShoutTitle	Cri exaltant
+Feature/&MartialCommanderRousingShoutDescription	Vous pouvez utiliser une action bonus pour que tous les alliés qui se trouvent dans un rayon de 3 cases autour de vous (vous y compris) aient l'avantage durant leur prochaine attaque jusqu'au début de votre prochain tour. Vous pouvez utiliser cette capacité un nombre de fois égal à votre bonus de Maîtrise, ensuite vous devez effectuer un repos Court ou Long.
+Feature/&MartialCommanderCoordinatedDefenseTitle	Défense coordonnée​​​​​​​
+Feature/&MartialCommanderCoordinatedDefenseDescription	Lorsque vous utilisez l'action Attaquer, vous pouvez renoncer à une de vos attaques pour accorder Esquiver à un allié dans un rayon de 3 cases autour de vous (vous y compris) jusqu'au début de votre prochain tour.
+Feature/&MartialCommanderInvigoratingShoutTitle	Cri revigorant​​​​​​​
+Feature/&MartialCommanderInvigoratingShoutDescription	La portée du Cri exaltant augmente de 3 à 6 cases. Les alliés affectés par Cri exaltant peuvent également obtenir des points de vie temporaires équivalents à votre niveau pendant une minute.
+Feature/&PowerIronGolem_Poison_Breath_Description	Le golem de fer souffle un cône de poison dans un rayon de 3 cases.
+Feature/&RoguishHoodlumMeanMugTitle	Sale tronche
+Feature/&RoguishHoodlumMeanMugDescription	Vous obtenez la maîtrise de la compétence Intimidation, si vous ne l'avez pas déjà, ou de l'expertise dans le cas contraire.
+Feature/&RoguishHoodlumTheRightToolsTitle	Les bons outils
+Feature/&RoguishHoodlumTheRightToolsDescription	Vous obtenez la maîtrise des armes de guerre, des armures intermédiaires et des boucliers.
+Feature/&RoguishHoodlumHeavyBeatingTitle	Bourrin
+Feature/&RoguishHoodlumHeavyBeatingDescription	Vous pouvez désormais recourir à Attaque sournoise lorsque vous utilisez des armes de corps à corps non dotées de finesse.
+Feature/&RoguishHoodlumMenacingTitle	Menaçant
+Feature/&RoguishHoodlumMenacingDescription	Lorsque vous touchez un adversaire avec une Attaque sournoise, il a un désavantage sur les attaques à votre encontre jusqu'au début de votre prochain tour.
+Feature/&TraditionCourtMageAlwaysPreparedTitle	Toujours prêts
+Feature/&TraditionCourtMageAlwaysPreparedDescription	Vous obtenez la maîtrise des boucliers et du style de combat de protection, ce qui vous permet d'utiliser votre réaction pour imposer un désavantage sur le jet d'attaque lancé contre un allié à proximité, sous réserve que vous maniiez un bouclier.
+Feature/&TraditionCourtMageSpellShieldTitle	Bouclier Arcanique
+Feature/&TraditionCourtMageSpellShieldDescription	Vous pouvez utiliser une action pour créer un bouclier puissant autour de vous et d'un allié visible dans un rayon de 6 cases autour de vous. Ce sort octroie des points de vie temporaires équivalents à 5 fois votre niveau pendant une heure.
+Feature/&TraditionCourtMageCounterspellMasteryTitle	Maîtrise des contresorts
+Feature/&TraditionCourtMageCounterspellMasteryDescription	Vous obtenez l'avantage sur vos jets de lancement de sort lorsque vous lancez un contresort contre des sorts de niveau 4 ou plus. En outre, les adversaires ont le désavantage sur leurs jets de lancement de sort lorsqu'ils lancent un contresort contre n'importe lequel de vos sorts.
+Feature/&TraditionCourtMageImprovedSpellShieldTitle	Bouclier Arcanique Amélioré
+Feature/&DomainMischiefDomainSpellsTitle	Sorts de domaine : Malice
+Feature/&DomainMischiefBonusProficiencyTitle	Entourloupeur
+Feature/&DomainMischiefBonusProficiencyDescription	Maîtrise de la Discrétion et de la Tromperie
+Feature/&DomainMischiefBorrowedLuckTitle	Chance forcée
+Feature/&DomainMischiefBorrowedLuckDescription	Lorsque vous échouez un jet de sauvegarde non soumis à un désavantage, vous pouvez utiliser votre réaction pour relancer. Si vous réussissez, vous aurez un désavantage sur votre prochain jet de sauvegarde.​​​​​​​
+Feature/&DomainMischiefStrikeOfChaosTitle	Canalisation d'énergie divine : Frappe du chaos
+Feature/&DomainMischiefStrikeOfChaosShortTitle	Frappe du chaos
+Feature/&DomainMischiefStrikeOfChaosDescription	Lorsque vous touchez une créature via une attaque avec une arme à distance ou au corps à corps, vous pouvez utiliser une Canalisation d'énergie divine pour ajouter 1d6 points de dégâts psychiques, et imposer une condition aléatoire si la cible échoue un jet de sauvegarde de sagesse. Il peut s'agir d'une des conditions suivantes : avantage sur les jets d'attaque, désavantage sur les jets d'attaque, aveuglé, entravé, paralysé ou rien.\n Les dégâts supplémentaires augmentent de 1d6 tous les 3 niveaux à partir du niveau 2 (niveau 5 : 2d6, niveau 8 : 3d6…)\nLa cible doit effectuer un jet de sauvegarde de Sagesse contre votre DD de sauvegarde du sort à la fin de chacun de ses tours. Quand un jet de sauvegarde réussi, l'effet prend fin. Dans le cas contraire, il dure encore une minute maximum.
+Feature/&DomainMischiefStrikeOfChaosAdvancedTitle	Frappe du chaos (avancée)
+Feature/&DomainMischiefStrikeOfChaosAdvancedDescription	Ajoutez 1d6 supplémentaires aux dégâts de Frappe du chaos.
+Feature/&DomainMischiefStrikeOfChaosAttackAdvantageTitle	Avantage d'attaque
+Feature/&DomainMischiefStrikeOfChaosAttackAdvantageDescription	Frappe du chaos octroie un avantage d'attaque à cette créature pendant toute sa durée.
+Feature/&DomainMischiefStrikeOfChaosAttackDisadvantageTitle	Désavantage d'attaque
+Feature/&DomainMischiefStrikeOfChaosAttackDisadvantageDescription	Frappe du chaos octroie un désavantage d'attaque à cette créature pendant toute sa durée.
+Feature/&DomainMischiefElusiveTargetTitle	Insaisissable
+Feature/&DomainMischiefElusiveTargetDescription	À partir du niveau 8, vous devenez extrêmement difficile à acculer en combat rapproché. Lorsqu'une attaque au corps à corps vous atteint, vous pouvez utiliser votre réaction pour profiter des avantages Esquiver et Se désengager jusqu'à la fin de votre prochain tour.​​​​​​
+Feature/&DomainMischiefDivineStrikeTitle	Frappe divine
+Feature/&DomainMischiefDivineStrikeDescription	Une fois durant chacun de vos tours, lorsque vous atteignez une créature avec une attaque d'arme, vous pouvez infliger 1d8 de dégâts psychiques supplémentaires à la cible.
+Feature/&RangerSwiftBladeQuickStepTitle	Rapidité
+Feature/&RangerSwiftBladeQuickStepDescription	Votre vitesse augmente de 2 cases. De plus, lorsque vous utilisez l'action Foncer, les attaques d'opportunité que vous subissez ont un désavantage.
+Feature/&RangerSwiftBladeBladeDanceTitle	Danse des lames
+Feature/&RangerSwiftBladeBladeDanceDescription	Lorsque vous attaquez avec une arme de corps à corps dans chaque main, vous obtenez un bonus de +2 de CA.
+Feature/&RangerSwiftBladeBattleFocusTitle	Focus de combat
+Feature/&RangerSwiftBladeBattleFocusDescription	Vous pouvez choisir l'action gratuite d'entrer dans un état intense de focus de combat. Toutes vos attaques avec une arme de corps à corps infligent 1d8 de dégâts d'arme supplémentaires selon le type de dégâts de l'arme jusqu'au début de votre prochain tour.
+Feature/&AutoPreparedSpellsOathOfJugementTitle	Sorts : Serment du Jugement
+Feature/&OathOfJugementWeightOfJusticeTitle	Canalisation d'énergie divine : poids de la justice
+Feature/&OathOfJugementWeightOfJusticeShortTitle	Poids de la justice
+Feature/&OathOfJugementWeightOfJusticeDescription	En tant qu'action bonus, vous pouvez utiliser une canalisation d'énergie divine pour imprégner votre arme de détermination. La prochaine fois que vous toucherez une créature avec une arme de corps à corps, celle-ci devra effectuer un jet de sauvegarde de Charisme pour ne pas être entravée pendant une minute. La cible peut effectuer un jet de sauvegarde de Charisme à la fin de chacun de ses tours pour annuler l'effet.
+Feature/&OathOfJugementPurgeCorruptionTitle	Canalisation d'énergie divine : purger la corruption
+Feature/&OathOfJugementPurgeCorruptionShortTitle	Purger la corruption
+Feature/&OathOfJugementPurgeCorruptionDescription	En tant qu'action bonus, vous pouvez utiliser une canalisation d'énergie divine pour annuler une condition négative (aveuglé, assourdi, paralysé, empoisonné) d'un allié se trouvant dans un rayon de 6 cases.
+Feature/&OathOfJugementAuraOfRighteousnessTitle	Aura de vertu
+Feature/&OathOfJugementAuraOfRighteousnessDescription	Vous dégagez en permanence une aura de 2 cases autour de vous, tant qu'on ne vous inflige pas la condition neutralisé. Les alliés (vous y compris) se trouvant dans l'aura ajoutent des dégâts équivalents à votre bonus de maîtrise.
+Feature/&AutoPreparedSpellsSorcerousHauntedSoulTitle	Sorts d'origine de l'âme hantée
+Feature/&SorcerousHauntedSoulSpiritVisageTitle	Visage spirituel
+Feature/&SorcerousHauntedSoulSpiritVisageDescription	Vous pouvez utiliser une action bonus pour tenter d'effrayer un adversaire visible dans un rayon de 6 cases autour de vous. La cible doit effectuer un jet de sauvegarde de Sagesse pour ne pas avoir le désavantage dans les jets de caractéristique et les jets d'attaque jusqu'au début de votre prochain tour.
+Feature/&SorcerousHauntedSoulVengefulSpiritsTitle	Esprits vengeurs
+Feature/&SorcerousHauntedSoulVengefulSpiritsDescription	Vous pouvez utiliser une action bonus pour appeler les esprits en vous pendant une minute. Vous pouvez cibler une zone de 3x3 cases visible dans un rayon de 18 cellules. Tout adversaire qui entre dans la zone pour la première fois durant un tour ou commence son tour ici doit effectuer un jet de sauvegarde de Charisme ou subir 2d6 + votre modificateur de Charisme de dégâts nécrotiques (la moitié si le jet de sauvegarde réussit). À chaque tour, vous pouvez utiliser votre action bonus pour déplacer cette zone de 6 cases. Lorsque vous aurez utilisé Esprits vengeurs, vous devrez attendre de finir un repos long avant de pouvoir les utiliser à nouveau, sauf si vous choisissez de dépenser 4 points de sorcellerie pour l'utiliser à nouveau.
+Feature/&SorcerousHauntedSoulRechargeVengefulSpiritsTitle	Recharger Esprits vengeurs
+Feature/&SorcerousHauntedSoulRechargeVengefulSpiritsDescription	Dépensez 4 points de sorcellerie pour recharger le pouvoir de vos Esprits vengeurs.
+Feature/&PathClawDragonAncestryTitle	Ascendance draconique
+Feature/&PathClawDragonAncestryDescription	Vous choisissez un type de dragon comme ancêtre. Le type de dégâts associé à votre choix sert aux attributs que vous obtenez par la suite.
+Feature/&PathClawDragonScalesTitle	Écailles de dragon
+Feature/&PathClawDragonScalesDescription	Lorsque vous êtes enragé, vous obtenez un bonus de +1 de CA et la résistance au type de dégâts de votre ancêtre draconique.
+Feature/&PathClawDragonicWrathTitle	Colère draconique
+Feature/&PathClawDragonicWrathDescription	Vous pouvez utiliser une action bonus pour souffler un cône de 3 cases infligeant des dégâts élémentaires équivalents à la moitié de votre niveau (arrondi à l'entier supérieur) en d8. Chaque créature dans la zone doit effectuer un jet de sauvegarde de Dextérité égal à 8 + votre bonus de maîtrise + votre modificateur de Constitution ; en cas de réussite, elle ne subit que la moitié des dégâts).
+Feature/&PathClawDragonsBlessingTitle	Bénédiction du dragon
+Feature/&PathClawDragonsBlessingDescription	Lorsque vous êtes enragé, vos attaques avec une arme de corps à corps infligent 1d8 de dégâts élémentaires supplémentaires.
+Feature/&AutoPreparedSpellsCircleBalanceTitle	Sorts : Cercle de l'équilibre
+Feature/&CircleBalanceGiftOfLifeTitle	Don de la vie
+Feature/&CircleBalanceGiftOfLifeDescription	Lorsque vous utilisez un sort de niveau 1 ou plus pour régénérer les points de vie d'une créature, elle récupère également un nombre supplémentaire de points de vie équivalent à votre niveau au début de votre prochain tour.
+Feature/&CircleBalanceColdEmbraceTitle	Froide étreinte
+Feature/&CircleBalanceColdEmbraceDescription	Lorsque vous infligez des dégâts de sort à un adversaire, il ne peut plus récupérer de PV jusqu'au début de votre prochain tour.
+Feature/&SurvivalOfTheWisestTitle	Survie du plus sage
+Feature/&SurvivalOfTheWisestDescription	Vos sorts sont plus efficaces contre des créatures que vous avez déjà affrontées. Vous obtenez un bonus égal à la moitié de votre niveau de savoir (arrondi à l'entier supérieur) pour vos DD de sort et un modificateur d'attaque avec un sort à leur encontre.
+Feature/&MindControlledByCasterDescription	Cette créature a été invoquée par un lanceur de sorts.
+Feature/&DLC1_AdditionalDamage_Dragonblade_Title	Dégâts draconiques
+Feature/&DLC1_AdditionalDamage_Dragonblade_Description	Cette arme a été fabriquée par un maître manacalon pour blesser les métamorphes.
+Feature/&WarlockWeaponProficiencyTitle	Maîtrises des armes d'occultiste
+Feature/&WarlockArmorProficiencyTitle	Maîtrises des armures d'occultiste
+Feature/&WarlockSkillPointsTitle	Compétences d'occultiste
+Feature/&WarlockOtherworldlyPatronsTitle	Patrons d'Outremonde
+Feature/&WarlockOtherworldlyPatronsDescription	Détermine le patron avec qui vous avez signé un pacte.
+Feature/&WarlockSpellcastingTitle	Magie de pacte
+Feature/&PointPoolWarlockInvocationInitialTitle	Invocations occultes
+Feature/&PointPoolWarlockInvocationInitialDescription	Apprenez des invocations occultes pour obtenir de nouvelles caractéristiques ou sorts octroyés par votre patron. Certaines invocations ont des prérequis pour être apprises.
+Feature/&PointPoolWarlockInvocationAdditionalTitle	Invocation occulte
+Feature/&PointPoolWarlockInvocationAdditionalDescription	Apprenez une invocation occulte supplémentaire
+Feature/&FeatureSetPactSelectionTitle	Faveur de pacte
+Feature/&FeatureSetPactSelectionDescription	Au niveau 3, votre patron vous gratifie d'une aptitude pour votre loyauté. Vous gagnez un des attributs suivants de votre choix.
+Feature/&FeatureSetPactTomeTitle	Pacte du grimoire
+Feature/&FeatureSetPactTomeDescription	Sélectionnez 3 sorts mineurs dans n'importe quelle liste de sorts
+Feature/&FeatureSetPactChainTitle	Pacte de la chaîne
+Feature/&FeatureSetPactChainDescription	Permet à votre occultiste de se lier à des créatures surnaturelles, ce qui lui octroie des attributs spéciaux tels qu'une résistance ou un bonus aux jets de sauvegarde pendant une courte période.
+Feature/&PowerPactChainImpTitle	Lien de diablotin
+Feature/&PowerPactChainImpDescription	Lie un diablotin à votre occultiste, ce qui lui octroie la vision dans le noir et la résistance aux dégâts de feu et de poison
+Feature/&PowerPactChainPseudodragonTitle	Lien de pseudodragon
+Feature/&PowerPactChainPseudodragonDescription	Lie un pseudodragon à votre occultiste, ce qui lui octroie un avantage sur les jets de sauvegarde contre les sorts et autres effets magiques.
+Feature/&PowerPactChainQuasitTitle	Lien de quasit
+Feature/&PowerPactChainQuasitDescription	Lie un quasit à votre occultiste, ce qui lui octroie la résistance contre les dégâts contondants, perforants et tranchants non magiques.
+Feature/&PowerPactChainSpriteTitle	Lien d'esprit follet
+Feature/&PowerPactChainSpriteDescription	Lie un esprit follet à votre occultiste, ce qui lui octroie +2 cases de vitesse de mouvement et une immunité aux attaques d'opportunité.
+Feature/&FeatureSetPactBladeTitle	Pacte de la lame
+Feature/&FeatureSetPactBladeDescription	L'occultiste obtient la maîtrise des armes de guerre et imprègne les armes de la capacité d'ignorer la résistance ou l'immunité aux dégâts des armes non magiques
+Feature/&PointPoolWarlockMysticArcanum6Title	Arcanum mystique (niveau 6)
+Feature/&PointPoolWarlockMysticArcanum7Title	Arcanum mystique (niveau 7)
+Feature/&PointPoolWarlockMysticArcanum8Title	Arcanum mystique (niveau 8)
+Feature/&PointPoolWarlockMysticArcanum9Title	Arcanum mystique (niveau 9)
+Feature/&PointPoolWarlockMysticArcanumDescription	Choisissez un sort du niveau spécifié dans la liste de sorts de l'occultiste, il deviendra votre arcanum. Vous pouvez lancer votre arcanum sans utiliser d'emplacement de sort. Vous ne pouvez pas le lancer à nouveau avant d'avoir terminé un repos long.
+Feature/&MagicAffinityPatronExpandedSpellsTitle	Liste de sorts étendue
+Feature/&MagicAffinityPatronExpandedSpellsDescription	Vous pouvez choisir parmi cette liste de sorts supplémentaires lorsque vous apprenez un nouveau sort : {0}
+Feature/&PowerPatronFiendDarkOnesBlessingTitle	Bénédiction du ténébreux
+Feature/&PowerPatronFiendDarkOnesBlessingDescription	À partir du niveau 1, lorsque vous réduisez une créature hostile à 0 point de vie, vous gagnez un nombre de points de vie temporaires équivalents à votre modificateur de Charisme + votre niveau d'occultiste (minimum 1).
+Feature/&PowerPatronFiendDarkOnesOwnLuckTitle	Chance du ténébreux
+Feature/&PowerPatronFiendDarkOnesOwnLuckDescription	Vous pouvez utiliser une action pour provoquer un coup de chance démoniaque. Pendant la prochaine minute, vous lancez un 1d10 supplémentaire sur tous vos jets de caractéristique et jets de sauvegarde. Après avoir utilisé cet attribut, vous devez attendre de finir un repos long.
+Feature/&FeatureSetPatronFiendFiendishResilienceTitle	Résistance fiélonne
+Feature/&FeatureSetPatronFiendFiendishResilienceDescription	À partir du niveau 10, vous pouvez choisir un type de dégâts lorsque vous terminez un repos court ou long. Vous gagnez alors la résistance à ce type de dégâts jusqu'à ce que vous en choisissiez un autre grâce à cet attribut. Les dégâts causés par des armes magiques ou des armes en argent ignorent cette résistance.
+Feature/&PowerFiendishResilienceDescription	Gagnez la résistance à ce type de dégâts, sauf pour les armes magiques ou les armes en argent.
+Feature/&PowerFiendishResilienceAcidTitle	Résistance fiélonne (acide)
+Feature/&PowerFiendishResilienceBludgeoningTitle	Résistance fiélonne (contondant)
+Feature/&PowerFiendishResilienceColdTitle	Résistance fiélonne (froid)
+Feature/&PowerFiendishResilienceFireTitle	Résistance fiélonne (feu)
+Feature/&PowerFiendishResilienceForceTitle	Résistance fiélonne (force)
+Feature/&PowerFiendishResilienceLightningTitle	Résistance fiélonne (foudre)
+Feature/&PowerFiendishResilienceNecroticTitle	Résistance fiélonne (nécrotique)
+Feature/&PowerFiendishResiliencePiercingTitle	Résistance fiélonne (perforant)
+Feature/&PowerFiendishResiliencePoisonTitle	Résistance fiélonne (poison)
+Feature/&PowerFiendishResiliencePsychicTitle	Résistance fiélonne (psychique)
+Feature/&PowerFiendishResilienceRadiantTitle	Résistance fiélonne (radiant)
+Feature/&PowerFiendishResilienceSlashingTitle	Résistance fiélonne (tranchant)
+Feature/&PowerFiendishResilienceThunderTitle	Résistance fiélonne (tonnerre)
+Feature/&AdditionalDamagePatronHiveWeakeningPheromonesTitle	Phéromones affaiblissantes
+Feature/&AdditionalDamagePatronHiveWeakeningPheromonesDescription	À partir du niveau 1, à chaque tour, la première créature à qui vous infligez des dégâts avec un sort reçoit un désavantage sur son prochain jet de sauvegarde. Cet état expire automatiquement après 1 minute.
+Feature/&PowerPatronHiveMagicCounterTitle	Contre magique
+Feature/&PowerPatronHiveMagicCounterDescription	À partir du niveau 6, vous pouvez lancer le sort de contresort une fois par repos court en tant qu'attribut. Cela n'utilise pas d'emplacement de lancement de sort, et vous ajoutez votre bonus de maîtrise lorsque vous contrez des sorts de niveau 4 ou plus.
+Feature/&PowerPatronHiveReactiveCarapaceTitle	Carapace réactive
+Feature/&PowerPatronHiveReactiveCarapaceDescription	À partir du niveau 10, chaque fois que vous subissez des dégâts d'un sort ou d'un effet magique, vous pouvez utiliser votre réaction pour obtenir immédiatement un nombre de points de vie temporaires équivalent à 1d8 + modificateur de CHA. Ces points de vie temporaires expirent au début de votre prochain tour.
+Feature/&DamageAffinityPatronTreePiercingBranchTitle	Branche perforante
+Feature/&DamageAffinityPatronTreePiercingBranchDescription	À partir du niveau 1, de petites branches perforantes poussent sur votre peau. Chaque fois qu'un adversaire vous touche avec une attaque au corps à corps, il subit 1d6 de dégâts perforants.
+Feature/&FeatureSetPatronTreeBlessingOfTheTreeTitle	Bénédiction de l'arbre
+Feature/&FeatureSetPatronTreeBlessingOfTheTreeDescription	À partir du niveau 6, votre sang et votre peau commencent à changer de couleur très légèrement. Vous obtenez une immunité au poison et une résistance aux dégâts nécrotiques et aux dégâts de poison.
+Feature/&PowerPatronTreeExplosiveGrowthTitle	Croissance explosive
+Feature/&PowerPatronTreeExplosiveGrowthDescription	À partir du niveau 10, une fois par repos court, vous pouvez exploser et infliger 1d4 par niveau de dégâts perforants, repousser, et entraver toutes les créatures qui vous entourent sur un échec de jet de sauvegarde de Dextérité.
+Feature/&AdditionalDamagePatronTimekeeperCurseOfTimeTitle	Malédiction temporelle
+Feature/&AdditionalDamagePatronTimekeeperCurseOfTimeDescription	À partir du niveau 1, chaque fois qu'un adversaire vous inflige des dégâts avec un sort, il est atteint de la Malédiction temporelle.\n Les adversaires atteints par la Malédiction temporelle subissent la moitié de votre bonus de maîtrise (arrondi à l'entier supérieur) en tant que dégâts de force au début de leur tour pendant la prochaine minute.
+Feature/&PowerPatronTimekeeperTimeWarpTitle	Distorsion temporelle
+Feature/&PowerPatronTimekeeperTimeWarpDescription	À partir du niveau 14, pendant votre tour, vous pouvez utiliser une action supplémentaire en plus de votre action normale et d'une possible action bonus.\n Une fois que vous avez utilisé cet attribut, vous devez finir un repos long avant de l'utiliser à nouveau.
+Feature/&PowerPatronTimekeeperAccelerateTitle	Accélération
+Feature/&PowerPatronTimekeeperAccelerateDescription	À partir du niveau 10, pendant votre tour, vous pouvez utiliser une action bonus pour brièvement accélérer un allié dans un rayon de 6 cases. Il obtient les effets du sort de hâte jusqu'au début de votre prochain tour ; cependant, il ne subit pas les effets de léthargie à la fin d'Accélération.\n Vous pouvez utiliser cet attribut un nombre de fois équivalent à votre bonus de maîtrise par repos long.
+Feature/&PowerPatronTimekeeperTimeShiftTitle	Décalage temporel
+Feature/&PowerPatronTimekeeperTimeShiftDescription	À partir du niveau 6, lorsque vous vous apprêtez à subir des dégâts, vous pouvez utiliser votre réaction pour projeter votre corps quelques secondes dans le futur, ce qui annule tout dégât et effet. Vous êtes considéré comme banni jusqu'au début de votre prochain tour.\n Après avoir utilisé cet attribut, vous devez finir un repos long avant de l'utiliser à nouveau.
+Feature/&BardArmorProficiencyTitle	Maîtrises des armures de barde
+Feature/&BardWeaponProficiencyTitle	Maîtrises des armes de barde
+Feature/&BardToolsTitle	Outils de barde
+Feature/&BardSkillPointsTitle	Compétences de barde
+Feature/&BardExpertiseTitle	Expertise de barde
+Feature/&BardExpertiseDescription	Au niveau 3, choisissez deux de vos maîtrises de compétence. Votre bonus de maîtrise est doublé pour n'importe quel jet de caractéristique qui utilise une des maîtrises choisies. Au niveau 10, vous pouvez choisir deux autres maîtrises de compétence qui bénéficieront de cet effet.
+Feature/&BardCollegesTitle	Collèges bardiques
+Feature/&BardCollegesDescription	Au niveau 3, vous plongez dans les techniques avancées d'un collège bardique de votre choix, ce qui vous octroie des attributs aux niveaux 3 et 6.
+Feature/&PointPoolCollegeLoreBonusSkillsTitle	Maîtrises supplémentaires
+Feature/&PointPoolCollegeLoreBonusSkillsDescription	Lorsque vous rejoignez le collège du savoir au niveau 3, vous gagnez la maîtrise de trois compétences de votre choix.
+Feature/&PowerCollegeLoreCuttingWordsTitle	Mots cinglants
+Feature/&PowerCollegeLoreCuttingWordsDescription	En action bonus, vous pouvez dépenser une utilisation d'Inspiration bardique et cibler une créature que vous pouvez voir dans un rayon de 12 cases. Lancez un dé d'Inspiration bardique. Jusqu'au début de votre prochain tour, la valeur du dé d'Inspiration bardique est soustraite aux jets de caractéristique, d'attaque et de dégâts de la créature ciblée.
+Feature/&PointPoolCollegeLoreAdditionalMagicalSecretsTitle	Secrets magiques supplémentaires
+Feature/&MagicAffinityCollegeLorePeerlessSkillTitle	Compétence hors pair
+Feature/&MagicAffinityCollegeLorePeerlessSkillDescription	Vous pouvez désormais lancer Inspiration bardique sur vous-même.
+Feature/&SkillGainAnyPluralDescription	Choisissez {0} compétences
+Feature/&ArtistSkillsTitle	Compétences d'artiste
+Feature/&ArtistSkillsDescription	Maîtrise de la Persuasion, de la Tromperie et de la Représentation.
+Feature/&AesceticSkillsTitle	Discipline
+Feature/&AesceticSkillsDescription	Maîtrise de la Survie et de la Perspicacité.
+Feature/&AesceticSkillsToolsTitle	Cuistot
+Feature/&AesceticSkillsToolsDescription	Maîtrise de l'Herboristerie.
+Feature/&OccultistSkillsTitle	Arts cabalistiques
+Feature/&OccultistSkillsDescription	Maîtrise des Arcanes et de la Tromperie.
+Feature/&OccultistSkillsToolsTitle	Savoir occulte
+Feature/&OccultistSkillsToolsDescription	Maîtrise du kit de parchemins.
+Feature/&MonkWeaponProficiencyTitle	Maîtrises des armes de moine
+Feature/&MonkArmorProficiencyTitle	Maîtrises des armures de moine
+Feature/&MonkSkillPointsTitle	Compétences de moine
+Feature/&MonkMonasticTraditionsTitle	Traditions monastiques
+Feature/&MonkOtherworldlyPatronsDescription	Détermine la tradition que vous avez choisie.
+Feature/&MonkToolsTitle	Outils de moine
+Feature/&SlowFallTitle	Chute ralentie
+Feature/&SlowFallDescription	À partir du niveau 4, vous pouvez utiliser votre réaction lorsque vous tombez pour réduire les dégâts de la chute d'un montant équivalent à cinq fois votre niveau de moine. De plus, vous ne serez pas à terre lors de l'atterrissage.
+Feature/&MonkUnarmoredDefenseDescription	Quand vous ne portez pas d'armure, votre classe d'armure est égale à 10 + votre modificateur de Dextérité + votre modificateur de Sagesse. Vous ne pouvez pas utiliser un bouclier pour profiter de cet avantage.
+Feature/&AdditionalActionMonkMartialArtsTitle	Arts martiaux - frappe désarmée bonus
+Feature/&AdditionalActionMonkMartialArtsDescription	Quand vous utilisez l'action Attaquer avec une frappe désarmée ou une arme de moine à votre tour, vous pouvez effectuer une frappe désarmée en action bonus.
+Feature/&AttackModifierMonkMartialArtsTitle	Arts martiaux
+Feature/&AttackModifierMonkMartialArtsDescription	Vous pouvez lancer un d4 à la place des dégâts normaux de votre frappe désarmée ou de votre arme de moine. Ce dé change lorsque vous gagnez des niveaux de moine (d6 au niveau 5, d8 au niveau 11). Vous pouvez utiliser la Dextérité au lieu de la Force pour les jets d'attaque et de dégâts de vos frappes désarmées et de vos armes de moine.
+Feature/&UnarmoredMovementTitle	Déplacement sans armure
+Feature/&UnarmoredMovementDescription	À partir du niveau 2, votre vitesse augmente de 2 cases tant que vous n'êtes équipé ni d'une armure, ni d'un bouclier. Ce bonus augmente à 3 cases au niveau 6, 4 cases au niveau 10.
+Feature/&BardSongOfRestTitle	Berceuse
+Feature/&BardSongOfRestDescription	Lors d'un repos court, chaque allié lance un dé de vie supplémentaire au moment de dépenser un dé de vie pour récupérer des points de vie.
+Feature/&PointPoolMagicalSecretsTitle	Secrets magiques
+Feature/&PointPoolMagicalSecretsDescription	Choisissez deux sorts de n'importe quelle classe et ajoutez-les à votre liste de sorts.
+Feature/&FeatureSetMonkStillnessOfMindTitle	Tranquillité de l'esprit
+Feature/&FeatureSetMonkStillnessOfMindDescription	À partir du niveau 7, vous devenez insensible au charme et à la peur.
+Feature/&FeatureSetMonkPurityOfBodyTitle	Pureté du corps
+Feature/&FeatureSetMonkPurityOfBodyDescription	Au niveau 10, votre maîtrise du flux de Ki qui vous parcourt vous rend insensible aux maladies et aux poisons.
+Feature/&MonkUnarmoredMovementImprovedTitle	Déplacement sans armure - amélioration
+Feature/&MonkUnarmoredMovementImprovedDescription	À partir du niveau 9, l'escalade devient une seconde nature. Escalader ne vous coûte plus aucun mouvement supplémentaire.
+Feature/&PatientDefenseTitle	Défense patiente
+Feature/&PatientDefenseDescription	Vous pouvez dépenser 1 point de Ki pour choisir l'action Esquiver en tant qu'action bonus pendant votre tour.
+Feature/&StepOfTheWindDisengageTitle	Déplacement aérien - Se désengager
+Feature/&StepOfTheWindDisengageDescription	Vous pouvez dépenser 1 point de Ki pour utiliser l'action Se désengager en tant qu'action bonus pendant votre tour, et votre distance de saut est augmentée pour le tour.
+Feature/&StepOfTheWindDashTitle	Déplacement aérien - Foncer
+Feature/&StepOfTheWindDashDescription	Vous pouvez dépenser 1 point de Ki pour utiliser l'action Foncer en tant qu'action bonus pendant votre tour, et votre distance de saut est augmentée pour le tour.
+Feature/&MonkKiEmpoweredStrikesTitle	Frappes de Ki
+Feature/&MonkKiEmpoweredStrikesDescription	À partir du niveau 6, vos frappes désarmées sont considérées comme magiques pour ce qui est de vaincre la résistance et l'immunité aux attaques et dégâts non magiques.
+Feature/&MonkStunningStrikeShortTitle	Frappe étourdissante
+Feature/&MonkStunningStrikeTitle	Frappe étourdissante
+Feature/&MonkStunningStrikeDescription	À partir du niveau 5, vous pouvez perturber le flux de Ki dans le corps d'un adversaire. Lorsque vous touchez une autre créature avec une arme de corps à corps, vous pouvez dépenser 1 point de Ki pour tenter d'effectuer une frappe étourdissante. La cible doit réussir un jet de sauvegarde de Constitution ou elle sera étourdie jusqu'à la fin de votre prochain tour.
+Feature/&MonkEvasionTitle	Dérobade
+Feature/&MonkEvasionDescription	Au niveau 7, votre agilité instinctive vous permet d'esquiver certains effets de zone, comme le souffle foudroyant d'un dragon bleu ou le sort de boule de feu. Lorsque vous êtes sujet à un effet qui vous autorise à effectuer un jet de sauvegarde de Dextérité pour diminuer de moitié les dégâts subis, vous ne subissez, à la place, plus de dégâts si vous réussissez le jet de sauvegarde, et seulement la moitié des dégâts si vous échouez.
+Feature/&FeatureSetMonkDeflectMissilesTitle	Parade de projectiles
+Feature/&FeatureSetMonkDeflectMissilesDescription	À partir du niveau 3, vous pouvez utiliser votre réaction pour dévier ou attraper le projectile lorsque vous êtes touché par une attaque à distance avec une arme. Lorsque vous utilisez cet attribut, les dégâts que vous subissez de l'attaque sont réduits de 1d10 + votre modificateur de Dextérité + votre niveau de moine.\n Si vous réduisez les dégâts à 0, vous pouvez attraper le projectile s'il est assez petit pour que vous puissiez le tenir dans une main et si vous avez une main de libre. Si vous attrapez un projectile de cette façon, vous pouvez dépenser 1 point de Ki pour effectuer une attaque à distance avec l'arme ou la munition que vous venez d'attraper (cette attaque fait partie de votre réaction). Vous effectuez cette attaque avec votre bonus de maîtrise, que vous maîtrisiez ou non l'arme, et le projectile compte comme une arme de moine pour l'attaque, qui a une portée normale de 4 cases et une portée longue de 12 cases.
+Feature/&FeatureSetMonkTimelessBodyTitle	Jeunesse éternelle
+Feature/&FeatureSetMonkTimelessBodyDescription	Au niveau 15, vous gagnez les avantages suivants :\n - Résistance aux dégâts nécrotiques\n - Avantage sur les jets de sauvegarde contre le drain de vie\n - Vous n'avez plus besoin de ration de nourriture pour prendre un repos long
+Feature/&TraditionOpenHandWholenessOfBodyTitle	Intégrité physique
+Feature/&TraditionOpenHandWholenessOfBodyDescription	Au niveau 6, vous obtenez la capacité de vous soigner. En tant qu'action, vous pouvez récupérer un nombre de points de vie égal à trois fois votre niveau de moine. Vous devez terminer un repos long pour utiliser à nouveau cet attribut.
+Feature/&BardSpellcastingTitle	Lancement de sort de barde
+Feature/&CastSpellBardDescription	Lancez des sorts de barde.
+Feature/&BardJackOfAllTradesTitle	Touche-à-tout
+Feature/&BardJackOfAllTradesDescription	Ajoutez la moitié de votre bonus de maîtrise à tout jet de caractéristique effectué n'incluant pas déjà votre bonus de maîtrise.
+Feature/&PowerBardGiveBardicInspirationTitle	Inspiration bardique
+Feature/&PowerBardGiveBardicInspirationDescription	Utilisez une action bonus pour accorder un dé d'Inspiration bardique à une créature. Celui-ci peut être utilisé dans les 10 minutes suivantes afin de changer l'issue d'une attaque, d'un jet de sauvegarde ou d'un jet de caractéristique. La valeur du dé augmente aux niveaux supérieurs. Peut être utilisé un nombre de fois égal à votre modificateur de CHA par repos long.
+Feature/&AttributeModifierBardicInspirationDieD6Title	Inspiration bardique (d6)
+Feature/&AttributeModifierBardicInspirationDieD6Description	Votre dé d'Inspiration bardique initial est un d6.
+Feature/&AttributeModifierBardicInspirationDieD8Title	Inspiration bardique (d8)
+Feature/&AttributeModifierBardicInspirationDieD8Description	Votre dé d'Inspiration bardique est désormais un d8.
+Feature/&AttributeModifierBardicInspirationDieD10Title	Inspiration bardique (d10)
+Feature/&AttributeModifierBardicInspirationDieD10Description	Votre dé d'Inspiration bardique est désormais un d10.
+Feature/&AttributeModifierBardicInspirationDieD12Title	Inspiration bardique (d12)
+Feature/&AttributeModifierBardicInspirationDieD12Description	Votre dé d'Inspiration bardique est désormais un d12.
+Feature/&PowerBardCountercharmTitle	Contre charme
+Feature/&PowerBardCountercharmDescription	Amorcez une performance qui durera jusqu'à la fin de votre prochain tour. Pendant cette période, tous les alliés dans un rayon de 6 cases auront un avantage sur les jets de sauvegarde contre les ennemis effrayés ou charmés.
+Feature/&FeatureSetTraditionSurvivalDefensiveStanceTitle	Posture défensive
+Feature/&FeatureSetTraditionSurvivalDefensiveStanceDescription	À partir du niveau 3, vous gagnez un bonus de +2 de CA lorsque vous ne portez pas d'armure et n'êtes pas incapable d'agir. Lorsque vous utilisez Défense patiente, vous obtenez un avantage sur vos jets d'attaque jusqu'au début de votre prochain tour.
+Feature/&TraditionSurvivalPatientDefenseTitle	Défense patiente - amélioration
+Feature/&TraditionSurvivalPatientDefenseDescription	De plus, vous obtenez un avantage sur vos jets d'attaque jusqu'au début de votre prochain tour.
+Feature/&AttackModifierTraditionSurvivalUnmovingStrengthTitle	Force inébranlable
+Feature/&AttackModifierTraditionSurvivalUnmovingStrengthDescription	À partir du niveau 11, vous ajoutez désormais votre modificateur de CON aux jets de dégâts de vos frappes désarmées et de vos armes de moine.
+Feature/&PowerFlurryOfBlowsFreedomTitle	Frappes infinies
+Feature/&PowerFlurryOfBlowsFreedomDescription	Lorsque vous utilisez Déluge de coups, votre vitesse sans égale vous donne un coup supplémentaire, pour un total de 3 coups.
+Feature/&FeatureSetTraditionSurvivalUnbreakableBodyTitle	Corps indestructible
+Feature/&FeatureSetTraditionSurvivalUnbreakableBodyDescription	À partir du niveau 6, lorsque vous subissez des dégâts, quelle qu'en soit l'origine, vous récupérez un nombre de points de vie égal à votre bonus de maîtrise au début de votre prochain tour. Lorsque vous utilisez Défense patiente, vous gagnez également une résistance à tous les types de dégâts jusqu'au début de votre prochain tour.
+Feature/&TraditionSurvivalPatientDefenseImprovedTitle	Défense patiente - amélioration II
+Feature/&TraditionSurvivalPatientDefenseImprovedDescription	Vous pouvez dépenser 1 point de Ki pour choisir l'action Esquiver en tant qu'action bonus pendant votre tour. Vous obtenez alors un avantage sur vos jets d'attaque et votre résistance contre tous les types de dégâts jusqu'au début de votre prochain tour.
+Feature/&BardFontOfInspirationTitle	Source d'inspiration
+Feature/&BardFontOfInspirationDescription	Vous récupérez toutes les utilisations d'Inspiration bardique à l'issue d'un repos court ou long.
+Feature/&RitualCastingSelectedTitle	Lancement de rituel
+Feature/&RitualCastingSelectedDescription	Vous pouvez lancer un sort sélectionné en tant que rituel si ce sort dispose du tag rituel.
+Feature/&FeatureSetMonkFlurryOfBlowsTitle	Déluge de coups
+Feature/&FeatureSetMonkFlurryOfBlowsDescription	Une fois l'action d'attaque utilisée à votre tour, vous pouvez dépenser 1 point de Ki pour effectuer deux frappes désarmées en tant qu'action bonus.
+Feature/&FeatureSetTraditionFreedomFlurryOfBlowsSwiftStepsTitle	Déluge de coups - amélioration I
+Feature/&FeatureSetTraditionFreedomFlurryOfBlowsSwiftStepsDescription	À partir du niveau 3, chaque fois que vous utilisez Déluge de coups, vous obtenez un avantage sur votre prochaine attaque et vous bénéficiez de l'action Foncer jusqu'à la fin de votre tour.
+Feature/&FeatureSetTraditionFreedomFlurryOfBlowsUnendingStrikesTitle	Déluge de coups - amélioration II
+Feature/&FeatureSetTraditionFreedomFlurryOfBlowsUnendingStrikesDescription	À partir du niveau 11, lorsque vous utilisez Déluge de coups, vous pouvez réaliser jusqu'à une attaque supplémentaire avec (pour un total de 3 attaques Déluge de coups maximum).
+Feature/&FeatureSetMonkStepOfTheWindTitle	
+Feature/&FeatureSetMonkStepOfTheWindDescription	
+Feature/&ActionAffinityTraditionFreedomSwirlingDanceTitle	Danse tournoyante
+Feature/&ActionAffinityTraditionFreedomSwirlingDanceDescription	À partir du niveau 6, lorsqu'une créature vous manque avec un jet d'attaque au corps à corps, vous pouvez utiliser votre réaction pour réaliser une attaque immédiate sur cette créature.
+Feature/&PowerTraditionOpenHandTranquilityTitle	Tranquillité
+Feature/&PowerTraditionOpenHandTranquilityDescription	Au niveau 11, lorsque vous êtes sur le point de subir une attaque ou un sort à cible unique, vous pouvez dépenser 1 point de Ki pour obtenir les avantages du sort de bouclier.
+Feature/&FeatureSetTraditionOpenHandOpenHandTechniqueTitle	Technique de la main ouverte
+Feature/&FeatureSetTraditionOpenHandOpenHandTechniqueDescription	À partir du moment où vous choisissez cette tradition au niveau 3, vous pouvez manipuler le Ki de votre adversaire quand vous exploitez le vôtre. Lorsque vous touchez une créature avec l'une des attaques accordées par Déluge de coups, vous pouvez appliquer l'un des effets suivants à cette cible :\n * Si elle ne réussit pas un jet de sauvegarde de Dextérité, elle est envoyée à terre.\n * Elle doit effectuer un jet de sauvegarde de Force. En cas d'échec, vous pouvez la repousser à 3 cases de vous au maximum.\n * Elle ne peut pas utiliser de réaction jusqu'à la fin de votre prochain tour.
+Feature/&PowerTraditionOpenHandOpenHandTechniqueDazzleTitle	Éblouissement
+Feature/&PowerTraditionOpenHandOpenHandTechniqueDazzleDescription	Votre cible ne peut utiliser de réaction jusqu'à la fin de votre prochain tour.
+Feature/&PowerTraditionOpenHandOpenHandTechniqueKnockProneTitle	Faire tomber à terre
+Feature/&PowerTraditionOpenHandOpenHandTechniqueKnockProneDescription	Votre cible doit réussir un jet de sauvegarde de Dextérité, sans quoi elle tombera à terre.
+Feature/&PowerTraditionOpenHandOpenHandTechniquePushAwayTitle	Repousser
+Feature/&PowerTraditionOpenHandOpenHandTechniquePushAwayDescription	Votre cible doit effectuer un jet de sauvegarde de Force. En cas d'échec, vous pouvez la pousser à 3 cases de vous au maximum.
+Feature/&CollegeHopeWanderingHealerSpellsTitle	Soigneur errant
+Feature/&CollegeHopeWanderingHealerSpellsDescription	Sur votre liste : {0}
+Feature/&PowerHornOfBlastingTitle	Faire sonner le cor
+Feature/&PowerHornOfBlastingDescription	Provoque une explosion tonitruante dans un cône de 6 cases. Toutes les créatures dans le cône subissent des dégâts et peuvent être assourdies.
+Feature/&DragonbornLanguagesTitle	Langues
+Feature/&DragonbornLanguagesDescription	Commune, draconique
+Feature/&DragonbornDamageResistanceTitle	Résistance aux dégâts
+Feature/&DragonbornDamageResistanceDescription	Vous bénéficiez d'une résistance contre le type de dégâts lié à votre ascendance draconique.
+Feature/&FeatureSetDragonbornDraconicChoiceTitle	Ascendance draconique
+Feature/&FeatureSetDragonbornDraconicChoiceDescription	Sélectionnez le type de votre ascendance draconique (et le type de dégâts associé).
+Feature/&DragonbornAbilityScoreIncreaseDescription	Force +2, Charisme +1
+Feature/&SpellAttackModifierPlusOneDescription	Augmente l'attaque avec un sort de 1
+Feature/&SpellAttackModifierPlusTwoDescription	Augmente l'attaque avec un sort de 2
+Feature/&AncestryDragonbornDraconicDescription	Votre ascendance draconique vous donne une affinité à un type de dégâts spécifique.
+Feature/&AncestryDragonbornDraconicBlackTitle	Noir - Acide
+Feature/&AncestryDragonbornDraconicBlueTitle	Bleu - Foudre
+Feature/&AncestryDragonbornDraconicGoldTitle	Or - Feu
+Feature/&AncestryDragonbornDraconicGreenTitle	Vert - Poison
+Feature/&AncestryDragonbornDraconicSilverTitle	Argent - Froid
+Feature/&FeatureSetDragonbornBreathWeaponTitle	Souffle
+Feature/&FeatureSetDragonbornBreathWeaponDescription	Vous pouvez utiliser votre action pour souffler une énergie destructrice basée sur votre ascendance draconique.
+Feature/&PowerDragonbornBreathWeaponBlackTitle	Souffle - Ligne d'acide
+Feature/&PowerDragonbornBreathWeaponBlueTitle	Souffle - Ligne de foudre
+Feature/&PowerDragonbornBreathWeaponGoldTitle	Souffle - Cône de feu
+Feature/&PowerDragonbornBreathWeaponGreenTitle	Souffle - Cône de poison
+Feature/&PowerDragonbornBreathWeaponSilverTitle	Souffle - Cône de froid
+Feature/&PowerDragonbornBreathWeaponBlackDescription	Projette de l'acide sur une ligne de 1 case de large et de 6 cases de long. Les créatures situées sur cette ligne doivent réaliser un jet de sauvegarde de CON pour réduire de moitié les dégâts acides. Les dégâts sont de 2d6 aux niveaux 1 à 5, 3d6 aux niveaux 11 à 15 et 4d6 aux niveaux supérieurs.
+Feature/&PowerDragonbornBreathWeaponBlueDescription	Projette de la foudre sur une ligne de 1 case de large et de 6 cases de long. Les créatures situées sur cette ligne doivent réaliser un jet de sauvegarde de CON pour réduire de moitié les dégâts de foudre. Les dégâts sont de 2d6 jusqu'au niveau 5 et passent à 3d6 au niveau 6, puis à 4d6 au niveau 11 et 5d6 au niveau 16.
+Feature/&PowerDragonbornBreathWeaponGoldDescription	Projette du feu dans un cône de 3 cases de large. Les créatures situées dans ce cône doivent réaliser un jet de sauvegarde de DEX pour réduire de moitié les dégâts de feu. Les dégâts sont de 2d6 jusqu'au niveau 5 et passent à 3d6 au niveau 6, puis à 4d6 au niveau 11 et 5d6 au niveau 16.
+Feature/&PowerDragonbornBreathWeaponGreenDescription	Projette du poison dans un cône de 3 cases de large. Les créatures situées dans ce cône doivent réaliser un jet de sauvegarde de DEX pour réduire de moitié les dégâts de poison. Les dégâts sont de 2d6 jusqu'au niveau 5 et passent à 3d6 au niveau 6, puis à 4d6 au niveau 11 et 5d6 au niveau 16.
+Feature/&PowerDragonbornBreathWeaponSilverDescription	Projette de la glace dans un cône de 3 cases de large. Les créatures situées dans ce cône doivent réaliser un jet de sauvegarde de DEX pour réduire de moitié les dégâts de froid. Les dégâts sont de 2d6 jusqu'au niveau 5 et passent à 3d6 au niveau 6, puis à 4d6 au niveau 11 et 5d6 au niveau 16.
+Feature/&DieRollModifierAuraOfPreeminenceTitle	Aura de prééminence
+Feature/&DieRollModifierAuraOfPreeminenceDescription	Lorsque vous faites un jet d'Intimidation ou de Perspicacité, vous pouvez considérer un résultat au dé de 9 ou moins comme un 10.
+Feature/&PowerBardWordsOfHopeTitle	Paroles d'espoir
+Feature/&PowerBardWordsOfHopeDescription	Lorsque vous accordez un dé d'Inspiration bardique à un allié, celui-ci lance également un dé de Berceuse afin de récupérer la moitié de sa santé maximale.
+Feature/&BardHopeHealingBalladTitle	Ballade de guérison
+Feature/&BardHopeHealingBalladDescription	Berceuse régénère un nombre de points de vie supplémentaires égal à votre modificateur de Charisme. À l'issue d'un repos court, elle accorde également aux alliés un nombre de points de vie temporaires égal à un dé d'Inspiration bardique + votre modificateur de Charisme.
+Feature/&BardTraditionVerbalOnslaughtTitle	Assaut verbal
+Feature/&BardTraditionVerbalOnslaughtDescription	En tant que réaction, après avoir subi des dégâts d'une créature que vous pouvez voir située dans un rayon de 12 cases, vous pouvez dépenser une Inspiration bardique. En cas de jet de sauvegarde d'Intelligence raté, la créature subit un nombre de dégâts psychiques égal à 2x votre dé d'Inspiration bardique + votre modificateur de Charisme et sera étourdie jusqu'à la fin de son prochain tour. Les dégâts sont divisés par deux en cas de jet de sauvegarde réussi.
+Feature/&PowerTraditionLightLuminousKiTitle	Ki lumineux
+Feature/&PowerTraditionLightLuminousKiDescription	À partir du niveau 3, vous apprenez les sorts mineurs de lumière et de brillance (sagesse pour le lancement de sorts).\n Lorsque vous atteignez une créature avec l'une des attaques accordées par Déluge de coups, celle-ci émet automatiquement une lumière vive jusqu'à la fin de votre prochain tour.
+Feature/&TraditionLightSpellcastingTitle	Lancement de sort de moine (voie de la lumière)
+Feature/&TraditionLightSpellcastingDescription	Peut lancer les sorts mineurs de brillance et de lumière.
+Feature/&FeatureSetTraditionLightRadiantStrikesTitle	Frappes radiantes
+Feature/&FeatureSetTraditionLightRadiantStrikesDescription	À partir du niveau 6, chaque fois que vous atteignez une cible affectée par brillance ou Ki lumineux, vous infligez 1d4 de dégâts radiants supplémentaires.
+Feature/&PowerTraditionLightBlindingFlashTitle	Rayon aveuglant
+Feature/&PowerTraditionLightBlindingFlashDescription	À partir du niveau 11, en tant qu'action bonus, vous pouvez dépenser 2 points de Ki pour générer un éclair lumineux aveuglant. Toutes les créatures situées dans un rayon de 3 cases doivent lancer un jet de sauvegarde de CON, sans quoi elles subissent 3d6 de dégâts radiants et sont aveuglées jusqu'à la fin de votre prochain tour (dégâts diminués de moitié en cas de succès).
+Feature/&AuraOfCourageDescription	Vous et vos alliés à moins de 2 cases ne pouvez pas être effrayés tant que vous êtes conscients. À partir du niveau 18, la portée passe à 6 cases.
+Feature/&CombatAffinityPackTacticsDescription	Une créature dotée de Tactiques de meute a l'avantage lors d'un jet d'attaque contre une créature si au moins un allié se trouve à moins de 1 case de la créature et si l'allié n'est pas neutralisé.
+Feature/&ActionAffinityRangerHunterVolleyDescription	Vous pouvez utiliser votre action pour réaliser une attaque à distance contre toutes les créatures se trouvant dans un rayon de 2 cases autour d'un point que vous pouvez voir, et à portée de votre arme. Bien entendu, vous devez avoir assez de munitions pour chaque cible, et vous devez faire un jet d'attaque distinct pour chacune d'elles.
+Feature/&ActionAffinityRangerHunterWhirlwindAttackDescription	Vous pouvez utiliser votre action pour réaliser une attaque au corps à corps contre toutes les créatures se trouvant dans un rayon de 1 case autour de vous, avec un jet d'attaque distinct pour chaque cible.
+Feature/&FastMovementDescription	Votre vitesse augmente de 2 cases si vous ne portez pas d'armure lourde.
+Feature/&PowerWindCarriedByWindDescription	Lancer un sort de niveau 1 ou supérieur déclenche automatiquement et gratuitement l'action Se désengager et vous obtenez +2 cases de vitesse de mouvement jusqu'à la fin de votre tour.
+Feature/&PowerBardHeroismBolsterMoraleTitle	Renforcer la motivation
+Feature/&PowerBardHeroismBolsterMoraleDescription	Lorsqu'un allié utilise l'un de vos dés d'Inspiration bardique, il fait 2 lancers et choisit le meilleur résultat.
+Feature/&PowerBardHeroismHeroicTaleTitle	Conte héroïque
+Feature/&PowerBardHeroismHeroicTaleDescription	Vous pouvez utiliser une action pour renforcer un allié que vous pouvez voir situé dans un rayon de 6 cases pendant 1 minute. Celui-ci obtient une immunité contre les effets effrayé/peur et un avantage pour tous les jets de sauvegarde. Vous ne pourrez réutiliser cet attribut qu'après un repos court ou long.
+Feature/&PowerBardHeroismThunderingVoiceTitle	Voix tonitruante
+Feature/&PowerBardHeroismThunderingVoiceDescription	Lorsque vous accordez une Inspiration bardique à un allié, l'adversaire le plus proche situé dans un rayon de 12 cases doit faire un jet de sauvegarde de SAG réussi ou subir des dégâts de tonnerre équivalents à 1d8 + votre modificateur de CHA et un désavantage lors de son prochain jet d'attaque (dégâts diminués de moitié en cas de sauvegarde).
+Feature/&PowerBardHeroismAtRoadsEndTitle	Au bout du chemin
+Feature/&PowerBardHeroismAtRoadsEndDescription	Lorsqu'un allié que vous pouvez voir situé dans un rayon de 12 cases a 0 point de vie, vous pouvez utiliser votre réaction pour qu'il ait 1 point de vie. Vous pouvez utiliser cet attribut une fois par repos court ou long.
+Feature/&ReturnMissileTitle	Renvoyer le projectile
+Feature/&MonkStunningStrikeToggleTitle	Frappe étourdissante
+Feature/&MonkStunningStrikeToggleDescription	Activez/Désactivez la frappe étourdissante pour la prochaine attaque. La frappe étourdissante ne sera pas déclenchée sur les créatures étourdies, et une frappe étourdissante réussie désactivera cette option.
+Feature/&SorcererMetamagicToggleDescription	Activez/Désactivez le choix d'options métamagiques pour le lancement de sort suivant.
+Feature/&FeatureSetMonkTimelessBodyLifeDrainedAdvantageDescription	Avantage lors des jets de sauvegarde contre le drain de vie.
+Feature/&ActionAffinityReactiveTitle	Réactiver
+Feature/&ActionAffinityReactiveDescription	Peut obtenir une réaction à chaque tour en combat.
+Feature/&AncestryPathClawDraconicDescription	Votre ascendance draconique vous octroie une affinité à un type de dégâts spécifique.
+Feature/&AncestryPathClawDraconicBlueTitle	Bleu - Foudre
+Feature/&AncestryPathClawDraconicBlackTitle	Noir - Acide
+Feature/&AncestryPathClawDraconicGoldTitle	Or - Feu
+Feature/&AncestryPathClawDraconicGreenTitle	Vert - Poison
+Feature/&AncestryPathClawDraconicSilverTitle	Argent - Froid
+Feature/&PowerBardTraditionAncientTraditionTitle	Tradition ancienne
+Feature/&PowerBardTraditionAncientTraditionDescription	Lancez le sort d'armure de mage sur vous-même à volonté : votre CA passe à 13 + modificateur de DEX si vous n'avez pas d'armure.
+Feature/&StunningStrikeBracersDescription	Lorsque vous portez ces bracelets, vous obtenez un bonus +1 aux DD de votre frappe étourdissante.
+Feature/&MonsterPower_GhastStench_ConditionImmunity_Title	Immunité à Puanteur
+Feature/&MonsterPower_GhastStench_ConditionImmunity_Description	Insensible à Puanteur des blêmes pendant 24 heures.
+Feature/&PowerSpiritBearDescription	Bonus druidique : +1 pv par niveau\n Déplacement 5\n Griffe : dégâts d'attaque : 2d4 + 2 + modificateur de SAG de druide, dégâts tranchants\nMorsure : 1d10 + 2 + modificateur de SAG de druide, dégâts perforants\nCA : 8 + modificateur de SAG de druide\n Pv : 12 + moitié des pv du druide
+Feature/&PowerSpiritWolfDescription	Bonus druidique : +1 de CA\nDéplacement 8\nDégâts d'attaque : 1d6 + modificateur de SAG de druide, dégâts perforants\nCA : 10 + modificateur de SAG de druide\nPv : 8 + moitié des pv du druide
+Feature/&PowerSpiritApeDescription	Bonus druidique : maîtrise des jets de sauvegarde de DEX\n Déplacement 7\n Poing : dégâts d'attaque : 1d8 + 2 + modificateur de SAG de druide, dégâts contondants\n CA : 10 + modificateur de SAG de druide\n Pv : 11 + moitié des pv du druide
+Feature/&PowerSpiritViperDescription	Bonus druidique : +1 de mouvement de case\nVol 12\nDégâts d'attaque : 1d4 + modificateur de SAG de druide, dégâts de poison\nCA : 12 + modificateur de SAG de druide\nPv : 1 + moitié des pv du druide
+Feature/&PowerSpiritSpiderDescription	Bonus druidique : pattes d'araignée\n Déplacement 6\n Dégâts d'attaque : 2d4 + 1 + modificateur de SAG de druide, dégâts de poison\nCA : 12 + modificateur de SAG de druide\n Pv : 10 + moitié des pv du druide
+Feature/&PowerSpiritEagleDescription	Bonus druidique : initiative + 3\n Vol 10\n Bec : dégâts d'attaque : 1d6 + 2 + modificateur de SAG de druide, dégâts perforants\n Serres : dégâts d'attaque : 2d4 + 2 + modificateur de SAG de druide, dégâts tranchants\n CA : 12 + modificateur de SAG de druide\n Pv : 8 + moitié des pv du druide
+Feature/&FluteOfRespiteSootheTitle	
+Feature/&FluteOfRespiteSootheActionDescription	
+Feature/&DomainLawConditionAnathemaDescription	
+Feature/&AttackModifierScimitarOfSpeedTitle	
+Feature/&AttackModifierScimitarOfSpeedDescription	

@@ -1,0 +1,453 @@
+Encounter/&Abjuration_Caravan_EncounterDescription	Vous avez croisé une caravane, chose rare dans ces contrées désolées.
+Encounter/&Abjuration_Caravan_EncounterTitle	Rencontre fortuite
+Encounter/&Abjuration_Ruins01_EncounterDescription	Alors que vous parcouriez les Badlands en direction de Coparann, Kythaela vous a demandé de vous arrêter près d'une vieille ruine…
+Encounter/&Abjuration_Ruins01_EncounterTitle	Décombres de Manacalon
+Encounter/&Abjuration_Ruins02_EncounterDescription	Kythaela s'est arrêtée à nouveau et vous a demandé d'entrer dans ce qui semble être une ancienne prison impériale.
+Encounter/&Abjuration_Ruins02_EncounterTitle	Donjons de Manacalon
+Encounter/&BadlandsSpidersEncounterDescription	Vous avez dû vous approcher d'un nid : une poignée de ces petits monstres veut votre mort.
+Encounter/&BadlandsSpidersEncounterTitle	Araignées des Badlands
+Encounter/&BanditsEncounterDescription	Des voleurs à la recherche de proies faciles, de préférence riches.
+Encounter/&BanditsEncounterTitle	Bandits
+Encounter/&CrownAttunementEncounterDescription	Votre groupe est contraint de s'arrêter pour un repos court imprévu. Quelque chose ne va pas.
+Encounter/&CrownAttunementEncounterTitle	Une nuit agitée
+Encounter/&DeepSpidersEncounterTitle	Araignées des profondeurs
+Encounter/&EagleNestEncounterDescription	Vous avez approché un nid de trop près ! Les aigles se battront à mort pour protéger leurs petits !
+Encounter/&EagleNestEncounterTitle	Nid d'aigle
+Encounter/&FlyingSnakesEncounterDescription	Un essaim de serpents volants qui veulent vous éloigner de leurs œufs.
+Encounter/&FlyingSnakesEncounterTitle	Vipères de l'enfer
+Encounter/&GoblinCrusadersDescription	Un chaman gobelin et ses disciples en quête de gloire.
+Encounter/&GoblinCrusadersTitle	Croisade des gobelins
+Encounter/&GoblinhuntingpartyEncounterDescription	Des gobelins qui chassent avec leurs loups apprivoisés.
+Encounter/&GoblinhuntingpartyEncounterTitle	Groupe de chasseurs gobelins
+Encounter/&GoblinWarPartyDescription	Un groupe de tirailleurs gobelins qui cherchent les ennuis.
+Encounter/&GoblinWarPartyTitle	Expédition guerrière de gobelins
+Encounter/&OrcMaraudersTitle	Maraudeurs orques
+Encounter/&OrcRaidersDescription	Un chef orque menant un groupe de guerriers en quête de cicatrices et de gloire.
+Encounter/&OrcRaidersTitle	Aventuriers orques
+Encounter/&WinterWolfpackEncounterDescription	Un loup blanc redoutable, en chasse avec quelques loups ordinaires.
+Encounter/&WinterWolfpackEncounterTitle	Loup blanc et sa meute
+Encounter/&WolfpackEncounterDescription	Une meute de loups voraces, en quête désespérée d'une proie.
+Encounter/&WolfpackEncounterTitle	Meute de loups
+Encounter/&DeepSpidersEncounterDescription	Un très grand groupe d'araignées des profondeurs cherchant à nourrir leurs progénitures.
+Encounter/&DeathGangTitle	Horde de la mort
+Encounter/&DeathGangDescription	Des squelettes errants, échappés d'une tombe profanée.
+Encounter/&DeathSquadTitle	Escadron de la mort
+Encounter/&RoamingFanaticsTitle	Fanatiques itinérants
+Encounter/&RoamingFanaticsDescription	Un groupe d'acolytes dirigé par un chef charismatique.
+Encounter/&ApprenticeNecromancerTitle	Apprenti nécromancien
+Encounter/&ApprenticeNecromancerDescription	Un étudiant en magie avec un groupe de ses créations en décomposition.
+Encounter/&SpiesOnTheRunTitle	Espions en fuite
+Encounter/&SpiesOnTheRunDescription	Des espions tentant d'échapper aux services secrets ennemis... à tout prix.
+Encounter/&GlorySeekerTitle	Chercheur de gloire
+Encounter/&GlorySeekerDescription	Un ancien soldat parcourant les routes à la recherche de la mort sur le champ de bataille.
+Encounter/&BerserkerBrothersTitle	Frères Berserker
+Encounter/&BerserkerBrothersDescription	Des combattants assoiffés de sang. Avec une préférence pour le vôtre.
+Encounter/&StainedHunterTitle	Chasseur souillé
+Encounter/&StainedHunterDescription	Un vagabond solitaire des Badlands qui a été corrompu par une magie chaotique.
+Encounter/&HungryWolvesTitle	Loups affamés
+Encounter/&HungryWolvesDescription	Une petite meute de loups, affamée et affaiblie.
+Encounter/&GoblinScoutsTitle	Éclaireurs gobelins
+Encounter/&GoblinScoutsDescription	Un petit groupe de gobelins accompagné de son loup de compagnie.
+Encounter/&LoneOgreTitle	Ogre solitaire
+Encounter/&LoneOgreDescription	Un ogre errant probablement perdu, mais certainement à la recherche de quelque chose à manger… ou de quelqu'un.
+Encounter/&OrcBandTitle	Bande d'orques
+Encounter/&OrcBandDescription	Un petit groupe d'orques, à la recherche de quelque chose à tuer.
+Encounter/&RoamingUndeadsTitle	Morts-vivants itinérants
+Encounter/&RoamingUndeadsDescription	Un groupe de morts-vivants errant et en quête de quelques vies à exterminer.
+Encounter/&EvilEvangelistsTitle	Évangélistes maléfiques
+Encounter/&EvilEvangelistsDescription	Un clerc et ses sbires, parcourant le pays pour répandre leur culte maléfique.
+Encounter/&GhoulCoupleTitle	Goules
+Encounter/&GhoulCoupleDescription	Une bande de goules horriblement affamées.
+Encounter/&GiantEaglesTitle	Aigles géants
+Encounter/&GiantEaglesDescription	Des aigles géants qui semblent menacés par votre présence.
+Encounter/&WolfSquadTitle	Meute de gobelins
+Encounter/&WolfSquadDescription	Un groupe de gobelins mené par un maître des bêtes et son loup sanguinaire.
+Encounter/&EscapedMinotaurTitle	Minotaure en fuite
+Encounter/&EscapedMinotaurDescription	Créature rare de Solasta, cette aberration gardienne est prise d'une folie meurtrière.
+Encounter/&LoneWightTitle	Nécrophage
+Encounter/&LoneWightDescription	Un nécrophage solitaire errant à la recherche de quelqu'un à tuer.
+Encounter/&ScoutingPartyTitle	Éclaireur et loup
+Encounter/&ScoutingPartyDescription	Un éclaireur sournois et son loup de compagnie.
+Encounter/&DireWolfPackTitle	Meute de loups sanguinaires
+Encounter/&DireWolfPackDescription	Un loup sanguinaire et sa meute de chasseurs ordinaires.
+Encounter/&DireWolfPack2Title	Loups sanguinaires
+Encounter/&DireWolfPack2Description	Une meute de loups sanguinaires.
+Encounter/&FanaticDuoTitle	Duo fanatique
+Encounter/&FanaticDuoDescription	Des fanatiques en route pour un pèlerinage brutal.
+Encounter/&MisayeEvangelistsTitle	Évangélistes de Misaye
+Encounter/&MisayeEvangelistsDescription	Un groupe de disciples fanatiques de Misaye qui ont leurs propres interprétations des convictions de leur divinité.
+Encounter/&OgreZombiesTitle	Ogres zombis
+Encounter/&OgreZombiesDescription	Un groupe d'ogres morts, encore pires que leur version vivante.
+Encounter/&OrcPartyTitle	Expédition guerrière d'orques
+Encounter/&OrcPartyDescription	Une bande d'orques en quête de cicatrices et de gloire.
+Encounter/&WightEscortTitle	Escouade de nécrophage
+Encounter/&WightEscortDescription	Un nécrophage et ses soldats à la chasse aux vivants.
+Encounter/&BeastmasterTitle	Maître des bêtes en haillons
+Encounter/&BeastmasterDescription	Un homme fou et ses compagnons loups affamés.
+Encounter/&GhastsTitle	Blêmes
+Encounter/&GhastsDescription	Une bande de blêmes à la recherche d'âmes à récolter et de corps à dévorer.
+Encounter/&GhoulPackTitle	Meute de goules
+Encounter/&GhoulPackDescription	Un blême et ses goules à la recherche d'âmes à récolter et de corps à dévorer.
+Encounter/&WolfShamanTitle	Chaman loup
+Encounter/&WolfShamanDescription	Un chaman gobelin et son loup sanguinaire de compagnie.
+Encounter/&OgreBandTitle	Bande d'ogres
+Encounter/&OgreBandDescription	Un groupe d'ogres en colère.
+Encounter/&LeatherskinsTitle	Peaux de cuir
+Encounter/&LeatherskinsDescription	Un groupe hétéroclite de gobelins accompagnés d'un loup sanguinaire et d'un ogre.
+Encounter/&CultFanaticsTitle	Fanatiques de culte
+Encounter/&CultFanaticsDescription	Une bande de fanatiques fous qui croient aux épées plus qu'aux mots.
+Encounter/&WinterWolfPackTitle	Meute de loup blanc
+Encounter/&WinterWolfPackDescription	Une meute menée par un monstrueux loup blanc.
+Encounter/&ZombiePartyTitle	Zombis
+Encounter/&ZombiePartyDescription	En gros, une bande de zombis errants en quête de chair vivante.
+Encounter/&SlaversTitle	Esclavagistes
+Encounter/&SlaversDescription	Des fanatiques à la recherche de proies à asservir.
+Encounter/&NecromancerTitle	Escouade de nécromancien
+Encounter/&NecromancerDescription	Un nécromancien et ses créations sur le pied de guerre.
+Encounter/&Leatherskins2Title	Peaux de cuir
+Encounter/&Leatherskins2Description	Une bande d'orques dirigée par un ogre.
+Encounter/&FireNestTitle	Nid de feu
+Encounter/&FireNestDescription	Une bande d'araignées de feu errant hors de leur zone de confort.
+Encounter/&WarlordTitle	Seigneur de guerre
+Encounter/&WarlordDescription	Un puissant seigneur de guerre et son aumônier en quête d'une glorieuse bataille.
+Encounter/&ImperialsTitle	Hors-la-loi impériaux
+Encounter/&ImperialsDescription	Des combattants du Nouvel Empire qui se sont donné pour mission d'appliquer la loi de l'Ancien Empire.
+Encounter/&MinotaursTitle	Minotaures
+Encounter/&MinotaursDescription	Des minotaures errants en quête de liberté et d'effusion de sang.
+Encounter/&ShadowPartyTitle	Groupe de l'ombre
+Encounter/&ShadowPartyDescription	Un groupe d'individus sournois avec de grandes compétences et des lames aiguisées.
+Encounter/&FallenBeastmasterTitle	Maître des bêtes souillé
+Encounter/&FallenBeastmasterDescription	Un rôdeur qui a passé trop de temps dans les Badlands, et qui est devenu un monstre de plus.
+Encounter/&SharpshootersTitle	Escouade de tireurs d'élite
+Encounter/&SharpshootersDescription	Une bande d'archers mortels qui cherchent à affiner leurs compétences sur des cibles réelles.
+Encounter/&ApostatesTitle	Apostats
+Encounter/&ApostatesDescription	Une bande de croisés qui ont perdu la foi après avoir été corrompus par une magie maléfique.
+Encounter/&OrcConquerorTitle	Conquérants orques
+Encounter/&OrcConquerorDescription	Un autre groupe de chefs de guerre orques essayant de devenir les rois des Badlands.
+Encounter/&BattleMageTitle	Mage de combat
+Encounter/&BattleMageDescription	Un puissant magicien et son escorte, à la recherche d'ennemis à réduire en cendres.
+Encounter/&WarlordsTitle	Bellicistes
+Encounter/&WarlordsDescription	Des guerriers puissants qui cherchent à tuer pour gagner en expérience.
+Encounter/&CultLeaderTitle	Chef de culte
+Encounter/&CultLeaderDescription	Un puissant clerc avec son escorte personnelle, en mission meurtrière.
+Encounter/&SpectralSpidersTitle	Araignées spectrales
+Encounter/&SpectralSpidersDescription	Un groupe d'araignées géantes mortes-vivantes.
+Encounter/&PhaseSpiderTitle	Araignée de phase
+Encounter/&PhaseSpiderDescription	Une énorme araignée répugnante qui se téléporte.
+Encounter/&PhaseSpidersTitle	Araignées de phase
+Encounter/&PhaseSpidersDescription	Un groupe d'énormes araignées répugnantes qui se téléportent.
+Encounter/&SpectralHunterTitle	Chasseur spectral
+Encounter/&SpectralHunterDescription	Un chasseur mort-vivant et son loup de compagnie mort-vivant.
+Encounter/&TigerDrakesTitle	Dragons tigres
+Encounter/&TigerDrakesDescription	D'énormes serpents volants ressemblant à de petits dragons.
+Encounter/&CR10_YoungRemorhazes_Title	Rémorhaz
+Encounter/&CR12_Redeemers_x3_Title	Groupe de rédempteurs
+Encounter/&CR15_Redeemers_x1_x2_Title	Zélote et pèlerins
+Encounter/&CR9_Minor_Fire_Elementals_Title	Élémentaires de feu mineurs
+Encounter/&CR14_Fire_Elementals_Title	Élémentaires de feu
+Encounter/&CR18_Major_Fire_Elementals_Title	Élémentaires de feu majeurs
+Encounter/&CR6_Minor_Air_Elementals_Title	Élémentaires d'air mineurs
+Encounter/&CR12_Air_Elementals_Title	Élémentaires d'air
+Encounter/&CR7_Young_Black_Dragon_Title	Jeune dragon noir
+Encounter/&CR10_PoisonousPests_Title	Nuisibles venimeux
+Encounter/&CR20_CrimsonSpiders_x4_Title	Araignées écarlates
+Encounter/&CR16_Major_Earth_Elementals_Title	Élémentaires de terre majeurs
+Encounter/&CR15_Elementals_x3_Title	Trio d'élémentaires
+Encounter/&CR10_Skeleton_Enforcers_x2_x2_Title	Exécuteurs squelettiques
+Encounter/&CR17_Skeleton_Sorcerer_x1_x2x_2_Title	Ensorceleur squelettique et son escorte
+Encounter/&CR22_Skeletal_Devastators_x1_x2_x3_Title	Ravageurs squelettiques
+Encounter/&CR10_CrimsonSpiders_x2_Title	Duo d'araignées écarlates
+Encounter/&CR5_Goblin_Cutthroats_Title	Égorgeurs gobelins
+Encounter/&CR8_Goblin_Ravagers_Title	Ravageurs gobelins
+Encounter/&CR11_OrcGrimblade_x1_x2_x1_Title	Aventurier orque Sombrelame
+Encounter/&CR9_Orc_Hunters_Title	Groupe de chasseurs orques
+Encounter/&CR10_Wraiths_Title	Âme en peine errante
+Encounter/&CR12_Necromancer_Gang_Title	Gang du nécromancien
+Encounter/&CR13_Brood_Couple_Title	Duo de couvées errantes
+Encounter/&CR21_Brood_Horde_Title	Horde de couvées errantes
+Encounter/&CR10_YoungRemorhazes_Description	Un duo de jeunes rémorhaz… Même jeunes, ces créatures restent meurtrières !
+Encounter/&CR12_Redeemers_x3_Description	Un trio d'insectes géants meurtriers à la recherche de leur prochain repas.
+Encounter/&CR15_Redeemers_x1_x2_Description	Un immense zélote et deux rédempteurs inférieurs à la recherche de magie pour se nourrir.
+Encounter/&CR9_Minor_Fire_Elementals_Description	De petits élémentaires de feu issus d'une magie chaotique des Badlands.
+Encounter/&CR14_Fire_Elementals_Description	Des élémentaires de feu issus d'une magie chaotique des Badlands.
+Encounter/&CR18_Major_Fire_Elementals_Description	Des élémentaires de feu d'une puissance phénoménale issus d'une magie chaotique des Badlands.
+Encounter/&CR6_Minor_Air_Elementals_Description	De petits élémentaires d'air issus d'une magie chaotique des Badlands.
+Encounter/&CR12_Air_Elementals_Description	Des élémentaires d'air issus d'une magie chaotique des Badlands.
+Encounter/&CR7_Young_Black_Dragon_Description	Ce dragon dégénéré est né dans les Badlands. Et maintenant, il est à la recherche d'une victime à tuer.
+Encounter/&CR10_PoisonousPests_Description	Un groupe de créatures venimeuses des Badlands.
+Encounter/&CR20_CrimsonSpiders_x4_Description	Un groupe d'araignées géantes nées dans les lacs souterrains acides des Badlands.
+Encounter/&CR16_Major_Earth_Elementals_Description	De petits élémentaires issus des souterrains chaotiques des Badlands.
+Encounter/&CR15_Elementals_x3_Description	Des élémentaires de terre issus des souterrains chaotiques des Badlands.
+Encounter/&CR10_Skeleton_Enforcers_x2_x2_Description	Un groupe de puissants squelettes invoqués par un nécromancien expérimenté.
+Encounter/&CR5_Goblin_Cutthroats_Description	Une bande d'assassins gobelins animés par leur soif de sang.
+Encounter/&CR8_Goblin_Ravagers_Description	Un grand groupe de gobelins expérimentés en quête de sang.
+Encounter/&CR11_OrcGrimblade_x1_x2_x1_Description	Un groupe de pillards orques mené par un puissant orque Sombrelame.
+Encounter/&CR9_Orc_Hunters_Description	Accompagné de leurs animaux, ce duo de maîtres des bêtes orques est à la recherche d'une proie facile.
+Encounter/&CR10_Wraiths_Description	Une bande d'âmes en peine errantes et mortelles des Badlands à la recherche de victimes à torturer.
+Encounter/&CR12_Necromancer_Gang_Description	Ce puissant nécromancien, accompagné de créatures invoquées, est à la recherche de défis à relever.
+Encounter/&CR13_Brood_Couple_Description	Des couvées errantes en quête de sang.
+Encounter/&CR14_Arctic_Monsters_x3x1_Title	Monstres arctiques
+Encounter/&CR9_Arctic_Pack_x3_Title	Meute arctique
+Encounter/&CR6_Arctic_Duo_x2_Title	Duo arctique
+Encounter/&CR16_Undead_Pack_x4_Title	Meute de morts-vivants
+Encounter/&CR6_Wraith_Master_x1x4_Title	Maître des âmes en peine
+Encounter/&CR16_Wraith_Hunters_x3x2_Title	Âmes en peine chasseuses
+Encounter/&CR4_Undead_Knight_x1x2x2_Title	Chevalier mort-vivant
+Encounter/&CR8_Undead_Knight_x1x1x4_Title	Chasseur mort-vivant
+Encounter/&CR8_Undead_hunt_pack_x3_Title	Meute de morts-vivants
+Encounter/&CR2_Wind_Snakes_x4_Title	Serpents de vent
+Encounter/&CR6_Flying_Snakes_x6_Title	Serpents volants
+Encounter/&CR4_Skarn_Ghouls_x2_Title	Goules de skarn
+Encounter/&CR7_Grimblade_Title	Sombrelame
+Encounter/&CR8_Tamed_Minotaur_Title	Minotaure dompté
+Encounter/&CR14_Arctic_Monsters_x3x1_Description	Un jeune rémorhaz terrifiant accompagné d'une bande de prédateurs arctiques pillards
+Encounter/&CR9_Arctic_Pack_x3_Description	Une petite meute de loups arctiques en pleine chasse
+Encounter/&CR6_Arctic_Duo_x2_Description	Deux loups arctiques en pleine chasse
+Encounter/&CR16_Undead_Pack_x4_Description	Des loups morts-vivants se comportant comme s'ils étaient encore en vie et continuant de chasser
+Encounter/&CR6_Wraith_Master_x1x4_Description	Un chasseur mort-vivant accompagné de sa créature
+Encounter/&CR16_Wraith_Hunters_x3x2_Description	Un puissant groupe de guerriers morts-vivants
+Encounter/&CR2_Wind_Snakes_x4_Description	Petits élémentaires d'air dotés d'un penchant pour le meurtre
+Encounter/&CR6_Flying_Snakes_x6_Description	Divers reptiles volants et venimeux
+Encounter/&CR4_Skarn_Ghouls_x2_Description	Petits élémentaires de terre de très mauvaise humeur
+Encounter/&CR7_Grimblade_Description	Un redoutable assassin orque accompagné de son escorte
+Encounter/&CR8_Tamed_Minotaur_Description	Une bande de gobelins ayant dompté un puissant minotaure
+Encounter/&CR4_WanderingHag_Title	Guenaude errante
+Encounter/&CR3_LoneBeastermaster_Title	Orque ermite
+Encounter/&CR5_RedeemerScout_Title	Éclaireur rédempteur
+Encounter/&CR7_RedeemerDuo_Title	Rédempteurs itinérants
+Encounter/&CR3_LoneBulette_Title	Bulette solitaire
+Encounter/&CR10_BuletteAndFlyers_Title	Bande de bulettes
+Encounter/&CR4_GiantAndWolves_Huge_Title	Géant solitaire
+Encounter/&CR10_ElementalTrio_Title	Trio d'élémentaires
+Encounter/&CR9_GiantsAndWinterWolves_Huge_Title	Duo de géants
+Encounter/&CR10_FeyIncursion_Title	Incursion féerique
+Encounter/&CR4_LoneShambling_Title	Tertre errant itinérant
+Encounter/&CR6_ShamblingDuo_Title	Tertres errants
+Encounter/&CR10_ShamblingTrio_Title	Meute de tertres errants
+Encounter/&CR7_StalkerDuo_Title	Traqueurs invisibles
+Encounter/&CR7_HagWithGuards_Title	Guenaude en chasse
+Encounter/&CR8_HagDuoWithGuards_Title	Guenaudes itinérantes
+Encounter/&CR11_HagCircleWithBulette_Title	Cercle de guenaudes
+Encounter/&CR8_GiantAndOrcs_Huge_Title	Orques et géant
+Encounter/&CR6_LoneGiant_Huge_Title	Géant colérique
+Encounter/&CR11_IronGolem_Title	Golem de fer sans maître
+Encounter/&CR8_Remorhaz_Huge_Title	Rémorhaz itinérant
+Encounter/&CR7_StoneGolem_Title	Golem de pierre errant
+Encounter/&CR6_ClayGolem_Title	Golem d'argile
+Encounter/&CR10_DragonDuo_Huge_Title	Duo draconique
+Encounter/&CR4_WanderingHag_Description	Une vieille femme flâne avec son assistante et deux chiens… À moins que vos yeux ne vous jouent des tours ?
+Encounter/&CR3_LoneBeastermaster_Description	Un vieil orque bande son arc tandis que vous approchez, son loup géant de compagnie prêt à se jeter sur vous.
+Encounter/&CR5_RedeemerScout_Description	Des scarabées géants, menés par un pèlerin. Si vous vous faites repérer, il n'y a plus d'échappatoire.
+Encounter/&CR7_RedeemerDuo_Description	La chance n'est pas de votre côté. Tomber sur deux rédempteurs n'est définitivement pas une bonne chose. Préparez-vous !
+Encounter/&CR3_LoneBulette_Description	La terre gronde alors que vous repérez une bulette émergeant du sol, sa grande gueule prête à vous mordre.
+Encounter/&CR10_BuletteAndFlyers_Description	La terre tremble alors que plusieurs bulettes surgissent du sol, suivies par des corbeaux géants attendant leur part du festin.
+Encounter/&CR4_GiantAndWolves_Huge_Description	Une très grande silhouette marche au loin, avec deux loups à ses côtés. Est-ce que ce géant promène ses animaux ?
+Encounter/&CR10_ElementalTrio_Description	Tempête, terre et feu, entendez mon appel ! Si je dois mourir aujourd'hui, c'est au combat que je tomberai !
+Encounter/&CR9_GiantsAndWinterWolves_Huge_Description	Deux géants vagabondent avec leurs loups arctiques et ils n'ont pas l'air ravis de vous voir.
+Encounter/&CR10_FeyIncursion_Description	Des fées sont apparues sous les traits d'animaux et semblent désireuses de « jouer » avec vous. Malheureusement, elles n'ont l'air d'avoir aucune retenue !
+Encounter/&CR4_LoneShambling_Description	Un grand tas de vigne et de boue s'approche lentement de vous. Vous réalisez avec horreur qu'il s'agit d'un tertre errant !
+Encounter/&CR6_ShamblingDuo_Description	Deux grandes masses sortent des bois et des marais et se dirigent droit sur vous !
+Encounter/&CR10_ShamblingTrio_Description	Est… Est-ce que ces vignes bougent ? On dirait bien, préparez-vous à vous battre !
+Encounter/&CR7_StalkerDuo_Description	Vos cheveux se dressent sur votre tête. On vous observe. Non, pire, on vous traque. Mais qui ?
+Encounter/&CR7_HagWithGuards_Description	Une affreuse guenaude rôde dans les environs à la recherche de nourriture. Malheureusement, elle a l'air de vous trouver à son goût !
+Encounter/&CR8_HagDuoWithGuards_Description	Deux silhouettes décrépites sont accompagnées par quelques dryades. Et elles ont l'air très hostiles !
+Encounter/&CR11_HagCircleWithBulette_Description	Il y a un proverbe qui dit « tout ce qui vient par trois est parfait. » Les guenaudes sont l'exception qui confirme la règle.
+Encounter/&CR8_GiantAndOrcs_Huge_Description	Vous ne savez pas si c'est l'amitié ou la peur qui pousse ces orques à suivre le géant, mais c'est le dernier de vos soucis pour le moment !
+Encounter/&CR6_LoneGiant_Huge_Description	Ce géant a l'air très mécontent… et très intéressé à l'idée de passer ses nerfs sur vous.
+Encounter/&CR11_IronGolem_Description	Un golem solitaire se balade, programmé pour attaquer tout ce qui croise son regard.
+Encounter/&CR8_Remorhaz_Huge_Description	Les rémorhaz sont des créatures de légende. Beaucoup se considéreraient comme chanceux d'en rencontrer un - si tant est qu'ils y survivent.
+Encounter/&CR7_StoneGolem_Description	Sans maître de qui recevoir des instructions, ce golem de pierre semble attaquer tout ce qui bouge.
+Encounter/&CR6_ClayGolem_Description	On ne s'attendrait pas à ce qu'une statue d'argile représente un tel défi. Mais on aurait tort.
+Encounter/&CR10_DragonDuo_Huge_Description	Qui y a-t-il de plus dangereux qu'un dragon ? Deux dragons.
+Encounter/&CR3_Woodland_Creatures_Title	Créatures des bois
+Encounter/&CR3_Woodland_Creatures_Description	Des animaux sauvages, poussés par la faim ou l'instinct territorial.
+Encounter/&CR3_GiantCrows_Title	Corbeaux géants
+Encounter/&CR3_GiantCrows_Description	Ces énormes charognards sont trop affamés pour attendre votre mort.
+Encounter/&CR3_AgressiveGorillas_Title	Gorilles agressifs
+Encounter/&CR3_AgressiveGorillas_Description	Ces animaux à l'instinct territorial exacerbé ne sont pas rares dans la vallée.
+Encounter/&CR4_BerserkerAndBeasts_Title	Maître des bêtes berserker
+Encounter/&CR4_BerserkerAndBeasts_Description	Un maître des bêtes fou et ses animaux sont en chasse !
+Encounter/&CR4_GiantBettles_Title	Scarabées géants
+Encounter/&CR4_GiantBettles_Description	Des insectes surdimensionnés et affamés, qui plus est.
+Encounter/&CR4_MutantHorde_Title	Horde mutante
+Encounter/&CR4_MutantHorde_Description	Un groupe de bêtes locales, composé de spécimens étranges et surnaturels.
+Encounter/&CR4_TigerDrakes_Title	Dragons tigres
+Encounter/&CR4_TigerDrakes_Description	Un groupe de nuisibles volants.
+Encounter/&CR4_Werewolf_Title	Loup-garou et animal
+Encounter/&CR4_Werewolf_Description	Un loup-garou sous sa forme humaine et son animal.
+Encounter/&CR4_MummyAndPawnsTitle	Momie et sbires
+Encounter/&CR4_MummyAndPawnsDescription	Une momie errante et ses disciples.
+Encounter/&CR5_OrcsBear_Title	Orques et ours
+Encounter/&CR5_OrcsBear_Description	Un duo de berserkers orques et leur animal totem.
+Encounter/&CR5_Mummies_Title	Momies
+Encounter/&CR5_Mummies_Description	Un duo de momies errantes.
+Encounter/&CR5_UndeadHorde_Title	Horde de morts-vivants
+Encounter/&CR5_UndeadHorde_Description	Un groupe hétéroclite de morts-vivants à la recherche de victimes.
+Encounter/&DLC_CR4_MinorElementals_Description	Deux serpents de vent aux aguets.
+Encounter/&DLC_CR4_MinorElementals_Title	Élémentaires d'air mineurs
+Encounter/&DLC_CR1_BlackBears_Description	Deux ours noirs colériques.
+Encounter/&DLC_CR1_BlackBears_Title	Ours noir
+Encounter/&DLC_CR3_BrownBears_Description	Un vieil ours solitaire.
+Encounter/&DLC_CR3_BrownBears_Title	Ours bruns
+Encounter/&DLC_CR3_AngryBears_Description	Un groupe d'ours en colère.
+Encounter/&DLC_CR3_AngryBears_Title	Ours colériques
+Encounter/&DLC_CR5_HunterAndBearPet_Description	Un chasseur solitaire et son ours.
+Encounter/&DLC_CR5_HunterAndBearPet_Title	Chasseur et ours
+Encounter/&DLC_CR6_HunterAndDireWolfPet_Description	Un chasseur solitaire et son loup sanguinaire.
+Encounter/&DLC_CR6_HunterAndDireWolfPet_Title	Chasseur et loup sanguinaire
+Encounter/&DLC_CR6_AngryFeys_Description	Un groupe de dryades, dont certaines très étranges.
+Encounter/&DLC_CR6_AngryFeys_Title	Fée colérique
+Encounter/&DLC_CR3_WildApes_Description	Un groupe de grands singes agressifs.
+Encounter/&DLC_CR3_WildApes_Title	Grands singes
+Encounter/&DLC_CR10_ApeKing_Description	Un singe d'une taille incroyable et sa cohorte de disciples.
+Encounter/&DLC_CR10_ApeKing_Title	Roi des grands singes
+Encounter/&DLC_CR3_Fliers_Description	Un groupe de bêtes volantes venimeuses.
+Encounter/&DLC_CR3_Fliers_Title	Insectes
+Encounter/&DLC_CR6_PoisonousPests_Description	Un groupe de monstres volants et rampants.
+Encounter/&DLC_CR6_PoisonousPests_Title	Nuisibles venimeux
+Encounter/&DLC_CR6_FlyingArmada_Description	Trois dragons tigres dangereux.
+Encounter/&DLC_CR6_FlyingArmada_Title	Armada volante
+Encounter/&DLC_CR3_AngryDryads_Description	Un groupe de dryades, prêtes à défendre leur territoire.
+Encounter/&DLC_CR3_AngryDryads_Title	Dryades colériques
+Encounter/&DLC_CR3_CreepingPests_Description	Une bande de monstres rampants horribles.
+Encounter/&DLC_CR3_CreepingPests_Title	Nuisibles rampants
+Encounter/&DLC_CR6_GiantBeetles_Description	Un groupe d'insectes de grande taille.
+Encounter/&DLC_CR6_GiantBeetles_Title	Scarabées géants
+Encounter/&DLC_CR2_EightLeggedFreaks_Description	Des araignées et encore des araignées.
+Encounter/&DLC_CR2_EightLeggedFreaks_Title	Monstres à huit pattes
+Encounter/&DLC_CR5_CrimsonSpider_Description	Une araignée écarlate redoutable chassant sa proie.
+Encounter/&DLC_CR5_CrimsonSpider_Title	Araignée d'écarlate
+Encounter/&DLC_CR10_CrimsonSpiders_Description	Deux araignées écarlates mortelles.
+Encounter/&DLC_CR10_CrimsonSpiders_Title	Araignées écarlates
+Encounter/&DLC_CR14_CrimsonInvasion_Description	Une araignée écarlate redoutable et sa répugnante progéniture.
+Encounter/&DLC_CR14_CrimsonInvasion_Title	Invasion écarlate
+Encounter/&DLC_CR10_MutantDryads_Description	Un groupe de dryades mené par des individus étranges.
+Encounter/&DLC_CR10_MutantDryads_Title	Dryades mutantes
+Encounter/&DLC_CR5_WeirdDryad_Description	Deux dryades étranges protégeant leur foyer.
+Encounter/&DLC_CR5_WeirdDryad_Title	Dryades bizarres
+Encounter/&DLC_CR5_Werebear_Description	Un lycanthrope solitaire sous sa forme préférée.
+Encounter/&DLC_CR5_Werebear_Title	Ours-garou
+Encounter/&DLC_CR4_BadlandsBear_Description	Un ours mortel qui s'est adapté aux Badlands.
+Encounter/&DLC_CR4_BadlandsBear_Title	Ours des Badlands
+Encounter/&DLC_CR12_BadlandsBears_Description	Un groupe d'ours dangereux qui se sont adaptés aux Badlands.
+Encounter/&DLC_CR12_BadlandsBears_Title	Ours des Badlands
+Encounter/&DLC_CR6_MutantBear_Description	Un ours mutant monstrueux et répugnant en quête de nourriture.
+Encounter/&DLC_CR6_MutantBear_Title	Ours mutant
+Encounter/&DLC_CR13_MutantHoard_Description	Un groupe étrange de monstres mutants.
+Encounter/&DLC_CR13_MutantHoard_Title	Horde mutante
+Encounter/&DLC_CR3_MutantDirewolf_Description	Un loup sanguinaire en chasse et étrangement muté.
+Encounter/&DLC_CR3_MutantDirewolf_Title	Loup sanguinaire mutant
+Encounter/&DLC_CR3_Winterwolf_Description	Un loup arctique solitaire en chasse.
+Encounter/&DLC_CR3_Winterwolf_Title	Loup blanc
+Encounter/&DLC_CR6_WinterWolfpackleader_Description	Une meute de loups menée par un loup arctique mortel.
+Encounter/&DLC_CR6_WinterWolfpackleader_Title	Chef de meute de loups arctiques
+Encounter/&DLC_CR10_WightLordTroop_Description	Un seigneur mort-vivant et son escorte en quête de vies à achever.
+Encounter/&DLC_CR10_WightLordTroop_Title	Troupe de seigneur nécrophage
+Encounter/&DLC_CR12_WightSquad_Description	Un seigneur nécrophage et ses disciples en quête de proies vivantes.
+Encounter/&DLC_CR12_WightSquad_Title	Escouade de nécrophage
+Encounter/&DLC_CR5_DeathSquad_Description	Un groupe de morts-vivants en quête de vies à achever.
+Encounter/&DLC_CR5_DeathSquad_Title	Escadron de la mort
+Encounter/&DLC_CR8_DeathTroop_Description	Un groupe de squelettes puissants chassant les vivants.
+Encounter/&DLC_CR8_DeathTroop_Title	Troupe de la mort
+Encounter/&DLC_CR12_DeathArmy_Description	Un groupe de squelettes puissants chassant les vivants.
+Encounter/&DLC_CR12_DeathArmy_Title	Armée de la mort
+Encounter/&DLC_CR5_Roaming Zombies_Description	Un groupe de zombis lents mais agités en quête de chair.
+Encounter/&DLC_CR5_Roaming Zombies_Title	Zombis itinérants
+Encounter/&DLC_CR4_Roaming Ghouls_Description	Des goules en quête de chair à dévorer.
+Encounter/&DLC_CR4_Roaming Ghouls_Title	Goules itinérantes
+Encounter/&DLC_CR6_Ghoul Squad_Description	Des cannibales à la recherche de leur prochain repas.
+Encounter/&DLC_CR6_Ghoul Squad_Title	Escouade de goules
+Encounter/&DLC_CR9_Flesh Eaters_Description	Des cannibales à la recherche de leur prochain repas.
+Encounter/&DLC_CR9_Flesh Eaters_Title	Cannibales
+Encounter/&DLC_CR8_AngryGhosts_Description	Des fantômes errants cherchant à se venger des vivants.
+Encounter/&DLC_CR8_AngryGhosts_Title	Fantômes colériques
+Encounter/&DLC_CR9_GhostlyAvengers_Description	Des fantômes errants cherchant à se venger des vivants.
+Encounter/&DLC_CR9_GhostlyAvengers_Title	Vengeurs fantomatiques
+Encounter/&DLC_CR10_GhostlyCouple_Description	Des fantômes errants cherchant à se venger des vivants.
+Encounter/&DLC_CR10_GhostlyCouple_Title	Duo fantomatique
+Encounter/&DLC_CR12_GhostSlaver_Description	Un fantôme d'esclavagiste et son serviteur minotaure.
+Encounter/&DLC_CR12_GhostSlaver_Title	Esclavagiste fantomatique
+Encounter/&DLC_CR5_RoamingGiant_Description	Un géant vagabond qui a soif de sang.
+Encounter/&DLC_CR5_RoamingGiant_Title	Géant vagabond
+Encounter/&DLC_CR9_FireGiant_Description	Un géant vagabond qui a soif de sang.
+Encounter/&DLC_CR9_FireGiant_Title	Géant du feu
+Encounter/&DLC_CR8_FrostGiant_Description	Un géant vagabond qui a soif de sang.
+Encounter/&DLC_CR8_FrostGiant_Title	Géant du givre
+Encounter/&DLC_CR14_GiantBand_Description	Un groupe terrifiant de géants prêts à tout écraser sur leur chemin.
+Encounter/&DLC_CR14_GiantBand_Title	Bande de géants
+Encounter/&DLC_CR10_MasterlessGolem_Description	Un golem sans maître, prêt à tout détruire sur son chemin.
+Encounter/&DLC_CR10_MasterlessGolem_Title	Golem sans maître
+Encounter/&DLC_CR6_WanderingMummies_Description	Momies errantes, avides de répandre la mort.
+Encounter/&DLC_CR6_WanderingMummies_Title	Momies errantes
+Encounter/&DLC_CR12_Mummified Avengers_Description	Un ensorceleur mort-vivant et ses serviteurs
+Encounter/&DLC_CR12_Mummified Avengers_Title	Vengeurs momifiés
+Encounter/&DLC_CR5_Bulette_Description	Un requin des sables affamé à l'estomac vide.
+Encounter/&DLC_CR5_Bulette_Title	Bulette
+Encounter/&DLC_CR6_InvisibleStalker_Description	Un assassin magique sans cible.
+Encounter/&DLC_CR6_InvisibleStalker_Title	Traqueur invisible
+Encounter/&DLC_CR4_Giant Crows_Description	Des charognards volants en quête d'os putréfiés à dévorer.
+Encounter/&DLC_CR4_Giant Crows_Title	Corbeaux géants
+Encounter/&DLC_CR5_Troll_Description	Un troll errant qui cherche querelle.
+Encounter/&DLC_CR5_Troll_Title	Troll
+Encounter/&DLC_CR15_TrollBand_Description	Trois trolls mortels.
+Encounter/&DLC_CR15_TrollBand_Title	Bande de trolls
+Encounter/&DLC_CR8_MutantTroll_Description	Un troll mutant bizarre et effrayant en chasse.
+Encounter/&DLC_CR8_MutantTroll_Title	Troll mutant
+Encounter/&DLC_CR4,25_BadlandEagles_Description	Un groupe de prédateurs des Badlands en chasse.
+Encounter/&DLC_CR4,25_BadlandEagles_Title	Aigles des Badlands
+Encounter/&DLC_CR10_HagAndEscort_Description	Une sorcière maléfique préparant des méfaits avec son serviteur ogre.
+Encounter/&DLC_CR10_HagAndEscort_Title	Sorcière et escorte
+Encounter/&DLC_CR9_GiantLord_Description	Un géant et son serviteur ogre.
+Encounter/&DLC_CR9_GiantLord_Title	Seigneur géant
+Encounter/&DLC_CR7_Specters_Description	Des fantômes à l'affût des vivants.
+Encounter/&DLC_CR7_Specters_Title	Spectres
+Encounter/&DLC_CR6_PhaseSpiders_Description	Des araignées de phase défendant leur territoire.
+Encounter/&DLC_CR6_PhaseSpiders_Title	Araignées de phase
+Encounter/&DLC_CR9_PhaseSpidersTrio_Description	Des araignées de phase défendant leur territoire.
+Encounter/&DLC_CR9_PhaseSpidersTrio_Title	Trois araignées de phase
+Encounter/&DLC_CR8_FireSpiders_Description	Des élémentaires de feu cherchant à embraser le monde.
+Encounter/&DLC_CR8_FireSpiders_Title	Araignées de feu
+Encounter/&DLC_CR9_FireElementals_Description	Des élémentaires de feu cherchant à embraser le monde.
+Encounter/&DLC_CR9_FireElementals_Title	Élémentaires de feu
+Encounter/&DLC_CR9_EarthElementals_Description	Des élémentaires de la terre cherchant querelle.
+Encounter/&DLC_CR9_EarthElementals_Title	Élémentaires de la terre
+Encounter/&DLC_CR9_AirElementals_Description	Des élémentaires de l'air cherchant querelle.
+Encounter/&DLC_CR9_AirElementals_Title	Élémentaires d'air
+Encounter/&DLC_CR4_FireSpider_Description	Un élémentaire de feu agressif cherchant quelque chose à brûler.
+Encounter/&DLC_CR4_FireSpider_Title	Araignée de feu
+Encounter/&DLC_CR2_SkarnGhoul_Description	Un élémentaire de la terre solitaire en quête d'une proie.
+Encounter/&DLC_CR2_SkarnGhoul_Title	Goule de skarn
+Encounter/&DLC_CR3_FireJesters_Description	Des élémentaires de feu mineurs cherchant quelque chose à brûler.
+Encounter/&DLC_CR3_FireJesters_Title	Bouffons de feu
+Encounter/&DLC_CR3_FireOsprey_Description	Des élémentaires de feu cherchant quelque chose à brûler.
+Encounter/&DLC_CR3_FireOsprey_Title	Balbuzard de feu
+Encounter/&DLC_CR2_OrcBand_Description	Un groupe d'orques errant en quête de sang.
+Encounter/&DLC_CR2_OrcBand_Title	Bande d'orques
+Encounter/&DLC_CR4_OrcHuntingParty_Description	Un groupe d'orques errant en quête de sang.
+Encounter/&DLC_CR4_OrcHuntingParty_Title	Groupe de chasseurs orques
+Encounter/&DLC_CR6_OrcWarParty_Description	Un groupe d'orques errant en quête de sang.
+Encounter/&DLC_CR6_OrcWarParty_Title	Expédition guerrière d'orques
+Encounter/&DLC_CR4_OrcRaiders_Description	Un groupe d'orques errant en quête de sang.
+Encounter/&DLC_CR4_OrcRaiders_Title	Aventuriers orques
+Encounter/&DLC_CR8_OrcCrusaders_Description	Un groupe d'orques errant en quête de sang.
+Encounter/&DLC_CR8_OrcCrusaders_Title	Croisés orques
+Encounter/&DLC_CR9_OrcHorde_Description	Un groupe d'orques errant en quête de sang.
+Encounter/&DLC_CR9_OrcHorde_Title	Horde d'orques
+Encounter/&DLC_CR9_GoblinRaiders_Description	Un groupe de gobelins cherchant des adversaires à tuer.
+Encounter/&DLC_CR9_GoblinRaiders_Title	Aventuriers gobelins
+Encounter/&DLC_CR1_GoblinMarauders_Description	Un groupe de gobelins cherchant des adversaires à tuer.
+Encounter/&DLC_CR1_GoblinMarauders_Title	Maraudeurs gobelins
+Encounter/&DLC_CR3_GoblinCrusaders_Description	Un groupe de gobelins cherchant des adversaires à tuer.
+Encounter/&DLC_CR3_GoblinCrusaders_Title	Croisés gobelins
+Encounter/&DLC_CR5_GoblinAssassins_Description	Un groupe de gobelins cherchant des adversaires à tuer.
+Encounter/&DLC_CR5_GoblinAssassins_Title	Assassins gobelins
+Encounter/&DLC_CR3_WanderingBroodDread_Description	Une couvée maudite errante animée par sa soif de sang.
+Encounter/&DLC_CR3_WanderingBroodDread_Title	Couvée d'effroi errante
+Encounter/&DLC_CR5_WanderingBroodFlesh_Description	Une couvée maudite errante animée par sa soif de sang.
+Encounter/&DLC_CR5_WanderingBroodFlesh_Title	Couvée de chair errante
+Encounter/&DLC_CR5_WanderingBroodBlood_Description	Une couvée maudite errante animée par sa soif de sang.
+Encounter/&DLC_CR5_WanderingBroodBlood_Title	Couvée de sang errante
+Encounter/&DLC_CR13_BroodBand_Description	Une bande de couvées maudites errantes animées par leur soif de sang.
+Encounter/&DLC_CR13_BroodBand_Title	Bande de couvées
+Encounter/&DLC_CR11_Minotaur Lord_Description	Un minotaure expérimenté et son escorte en quête de batailles et de gloire.
+Encounter/&DLC_CR11_Minotaur Lord_Title	Seigneur minotaure

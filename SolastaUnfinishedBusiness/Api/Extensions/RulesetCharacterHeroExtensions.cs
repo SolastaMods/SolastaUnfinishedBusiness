@@ -92,7 +92,7 @@ internal static class RulesetCharacterHeroExtensions
         return false;
     }
 #endif
-    
+
     internal static bool HasEmptyMainHand([NotNull] this RulesetCharacterHero hero)
     {
         return hero.characterInventory.InventorySlotsByName[EquipmentDefinitions.SlotTypeMainHand]
