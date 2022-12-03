@@ -1,6 +1,9 @@
 {
   "$type": "FeatureDefinitionFeatureSet, Assembly-CSharp",
-  "featureSet": [],
+  "featureSet": [
+    "Definition:MagicAffinitySpellBladeIntoTheFray:dcbc028742c7af3479f0c56e3146d286",
+    "Definition:AttackModifierHitAndDamagePlus1:2eed7189-3361-51e6-8a60-6e3cc117a0f0"
+  ],
   "mode": "Union",
   "ancestryDamageTypeMap": [],
   "ancestryType": "Sorcerer",

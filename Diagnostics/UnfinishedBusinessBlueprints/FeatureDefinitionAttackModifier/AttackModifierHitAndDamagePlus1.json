@@ -4,7 +4,7 @@
   "requiredProperty": "None",
   "attackRollModifierMethod": "FlatValue",
   "attackRollUseCasterBonus": false,
-  "attackRollModifier": 2,
+  "attackRollModifier": 1,
   "attackRollAbilityScore": "",
   "damageRollModifierMethod": "FlatValue",
   "damageRollUseCasterBonus": false,
@@ -13,14 +13,14 @@
   "additionalDamageDice": 0,
   "canDualWieldNonLight": false,
   "canAddAbilityBonusToSecondary": false,
-  "magicalWeapon": true,
+  "magicalWeapon": false,
   "followUpStrike": false,
   "followUpDamageDie": "D4",
   "followUpAddAbilityBonus": true,
   "additionalBonusAttackFromMain": false,
   "additionalBonusUnarmedStrikeAttacksFromMain": false,
   "additionalBonusUnarmedStrikeAttacksCount": 0,
-  "additionalBonusUnarmedStrikeAttacksTag": "",
+  "additionalBonusUnarmedStrikeAttacksTag": null,
   "additionalReturnMissileReactionAttack": false,
   "additionalBonusSoraksBaneAttack": false,
   "additionalMonsterAttack": false,
@@ -30,24 +30,19 @@
   "dieTypeByRankTable": [],
   "replacedDieType": "D8",
   "additionalEffectForms": [],
-  "impactParticleReference": {
-    "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-    "m_AssetGUID": "6fcf765c409e1b7438f7bee47ae581a5",
-    "m_SubObjectName": "",
-    "m_SubObjectType": ""
-  },
+  "impactParticleReference": null,
   "myselfFamilyRestrictions": [],
   "otherCharacterFamilyRestrictions": [],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Spell/&MagicWeaponTitle",
-    "description": "Feature/&MagicWeaponDescription",
+    "title": "Feature/&AttackModifierHitAndDamagePlus1Title",
+    "description": "Feature/&AttackModifierHitAndDamagePlus1Description",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "7e8c5d4d891953345b54b82e51c6d884",
-      "m_SubObjectName": "ConditionPositive",
-      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+      "m_AssetGUID": "",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
@@ -62,7 +57,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "1d4931e1-ecb5-5eda-85bb-c14c100efac2",
+  "guid": "2eed7189-3361-51e6-8a60-6e3cc117a0f0",
   "contentPack": 9999,
-  "name": "AttackModifierInvocationSuperiorPactWeaponPlus2"
+  "name": "AttackModifierHitAndDamagePlus1"
 }

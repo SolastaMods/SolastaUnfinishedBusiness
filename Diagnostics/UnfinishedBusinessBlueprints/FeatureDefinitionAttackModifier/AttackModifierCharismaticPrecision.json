@@ -25,7 +25,7 @@
   "additionalBonusSoraksBaneAttack": false,
   "additionalMonsterAttack": false,
   "additionalMonsterAttacksCount": 0,
-  "abilityScoreReplacement": "SpellcastingAbility",
+  "abilityScoreReplacement": "None",
   "damageDieReplacement": "None",
   "dieTypeByRankTable": [],
   "replacedDieType": "D8",

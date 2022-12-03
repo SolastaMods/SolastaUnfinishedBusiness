@@ -1,7 +1,7 @@
 
 [size=5][b][i]Solasta Unfinished Business[/i][/b][/size]
 
-Please [url=https://www.paypal.com/donate/?business=JG4FX47DNHQAG&item_name=Support+Solasta+Community+Expansion]DONATE[/url] to this work to pay for our software licenses and cloud services!!!
+[url=https://www.paypal.com/donate/?business=JG4FX47DNHQAG&item_name=Support+Solasta+Community+Expansion]DONATE[/url]
 
 This is a collection of work from the Solasta modding community. It includes multiclass, races, classes, subclasses, feats, fighting styles, spells, items, crafting recipes, gameplay options, UI improvements, Dungeon Maker improvements and more. The general philosophy is everything is optional to enable, so you can install the mod and then enable the pieces you want. There are some minor bug fixes that are enabled by default.
 
@@ -99,6 +99,8 @@ All settings start disabled by default.
 [*][b]Armorer[/b]: Armorers focus their studies on magical armors and how to use them effectively.
 [*][b]Grenadier[/b]: Grenadiers study unstable substances and their use in creating explosions of various types.
 [*][b]Weaponsmith[/b]: Weaponsmiths focus their studies on magical weapons and how to use them effectively.
+[*][b]College of Harlequin[/b]: College of Harlequins bards see no distinction between art and war. They see it is their duty to keep the legend of the great battle of the Cataclysm alive through their terrific performance, either on stage or on the battle field.
+[*][b]Tactician[/b]: The Tactician uses their knowledge and might on the battlefield to perform different gambits as they are needed. They can knock down foes, inspire their allies and get in deadly counter-strikes against their foes.
 [/list]
 
 [size=3][b]Subclasses[/b][/size]
@@ -131,13 +133,6 @@ All settings start disabled by default.
 [*][b]Blade Dancer[/b]: Blade Dancers use a series of intricate, elegant maneuvers that fend off harm and allow the blade dancer to channel magic into devastating attacks and a cunning defense. Many who have observed a blade dancer at work remember the display as one of the more beautiful experiences in their life, a glorious dance accompanied by a blade.
 [*][b]Dead Master[/b]: Dead Masters learn to manipulate the energy that animates all living things. As you progress, you learn to sap the life force from a creature as your magic destroys its body, transforming that vital energy into magical power you can manipulate.
 [*][b]Spell Master[/b]: Spell Masters immerse themselves in magic and try to learn every spell they can get their hands on. They are unmatched in their spell knowledge.
-[/list]
-
-[size=3][b]Beta Subclasses[/b][/size]
-
-[list=1]
-[*][b]College of Harlequin[/b]: College of Harlequins bards see no distinction between art and war. They see it is their duty to keep the legend of the great battle of the Cataclysm alive through their terrific performance, either on stage or on the battle field.
-[*][b]Tactician[/b]: The Tactician uses their knowledge and might on the battlefield to perform different gambits as they are needed. They can knock down foes, inspire their allies and get in deadly counter-strikes against their foes.
 [/list]
 
 [size=3][b]Feats[/b][/size]
@@ -294,9 +289,9 @@ You can use a bonus action to select a weapon. Its attacks count as magical and 
 [*][b]Hindering Blast[/b]: When you hit a creature with your eldritch blast, you can reduce that creature's speed by 10 feet until the end of your next turn.
 [*][b]Improved Pact Weapon[/b]: You can use any weapon as a spellcasting focus for your Warlock spells. In addition, the weapon gains a +1 bonus to its attack and damage rolls.
 [*][b]Shroud of Shadow[/b]: You can cast invisibility at will, without expending a spell slot.
-[*][b]Superior Pact Weapon[/b]: You can use any weapon as a spellcasting focus for your Warlock spells. In addition, the weapon gains a +2 bonus to its attack and damage rolls.
+[*][b]Superior Pact Weapon[/b]: You can use any weapon as a spellcasting focus for your Warlock spells. In addition, the weapon gains a +1 bonus to its attack and damage rolls.
 [*][b]Trickster's Escape[/b]: You can cast freedom of movement once on yourself without expending a spell slot. You regain the ability to do so when you finish a long rest.
-[*][b]Ultimate Pact Weapon[/b]: You can use any weapon as a spellcasting focus for your Warlock spells. In addition, the weapon gains a +3 bonus to its attack and damage rolls.
+[*][b]Ultimate Pact Weapon[/b]: You can use any weapon as a spellcasting focus for your Warlock spells. In addition, the weapon gains a +1 bonus to its attack and damage rolls.
 [*][b]Undying Servitude[/b]: You can cast <b>Raise Skeletal Enforcer</b> without using a spell slot. Once you do so, you can't cast it in this way again until you finish a long rest.
 [/list]
 
