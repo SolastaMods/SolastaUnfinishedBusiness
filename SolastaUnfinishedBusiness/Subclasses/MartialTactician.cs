@@ -288,14 +288,6 @@ internal sealed class MartialTactician : AbstractSubclass
 
         #region Helpers
 
-        //sub-feature that spends gambit die when melee attack hits
-        var spendDieOnMeleeHit = new AddUsablePowerFromCondition(FeatureDefinitionPowerSharedPoolBuilder
-            .Create("PowerReactionSpendGambitDieOnMeleeHit")
-            .SetGuiPresentationNoContent(true)
-            .SetCustomSubFeatures(PowerVisibilityModifier.Hidden, ForcePowerUseInSpendPowerAction.Marker)
-            .SetSharedPool(ActivationTime.OnAttackHitMeleeAuto, GambitPool)
-            .AddToDB());
-
         var spendDieOnAttackHit = new AddUsablePowerFromCondition(FeatureDefinitionPowerSharedPoolBuilder
             .Create("PowerReactionSpendGambitDieOnAttackHit")
             .SetGuiPresentationNoContent(true)
@@ -502,7 +494,7 @@ internal sealed class MartialTactician : AbstractSubclass
             .Create($"Power{name}React")
             .SetGuiPresentation(name, Category.Feature, sprite)
             .SetCustomSubFeatures(PowerVisibilityModifier.Hidden)
-            .SetUsesFixed(ActivationTime.OnAttackHitMeleeAuto)
+            .SetUsesFixed(ActivationTime.OnAttackHitAuto)
             .SetEffectDescription(EffectDescriptionBuilder.Create()
                 .SetTargetingData(Side.Enemy, RangeType.MeleeHit, 1, TargetType.Individuals)
                 .SetDurationData(DurationType.Round, 1, TurnOccurenceType.StartOfTurn)
@@ -531,7 +523,7 @@ internal sealed class MartialTactician : AbstractSubclass
                     .SetConditionForm(ConditionDefinitionBuilder
                         .Create($"Condition{name}")
                         .SetGuiPresentation(name, Category.Feature, Sprites.ConditionGambit)
-                        .SetCustomSubFeatures(reaction, spendDieOnMeleeHit)
+                        .SetCustomSubFeatures(reaction, spendDieOnAttackHit)
                         .SetSilent(Silent.None)
                         .SetPossessive()
                         .SetSpecialInterruptions(ConditionInterruption.Attacks)
@@ -589,7 +581,7 @@ internal sealed class MartialTactician : AbstractSubclass
                     .SetConditionForm(ConditionDefinitionBuilder
                         .Create($"Condition{name}Trigger")
                         .SetGuiPresentation(name, Category.Feature, Sprites.ConditionGambit)
-                        .SetCustomSubFeatures(reaction, spendDieOnMeleeHit)
+                        .SetCustomSubFeatures(reaction, spendDieOnAttackHit)
                         .SetSilent(Silent.None)
                         .SetPossessive()
                         .SetSpecialInterruptions(ConditionInterruption.Attacks)
@@ -613,7 +605,7 @@ internal sealed class MartialTactician : AbstractSubclass
             .Create($"Power{name}React")
             .SetGuiPresentation(name, Category.Feature, sprite)
             .SetCustomSubFeatures(PowerVisibilityModifier.Hidden, ForcePowerUseInSpendPowerAction.Marker)
-            .SetUsesFixed(ActivationTime.OnAttackHitMeleeAuto)
+            .SetUsesFixed(ActivationTime.OnAttackHitAuto)
             .SetEffectDescription(EffectDescriptionBuilder.Create()
                 .SetTargetingData(Side.Enemy, RangeType.MeleeHit, 1, TargetType.Individuals)
                 .SetDurationData(DurationType.Round, 1, TurnOccurenceType.StartOfTurn)
@@ -651,7 +643,7 @@ internal sealed class MartialTactician : AbstractSubclass
                     .SetConditionForm(ConditionDefinitionBuilder
                         .Create($"Condition{name}")
                         .SetGuiPresentation(name, Category.Feature, Sprites.ConditionGambit)
-                        .SetCustomSubFeatures(reaction, spendDieOnMeleeHit)
+                        .SetCustomSubFeatures(reaction, spendDieOnAttackHit)
                         .SetSilent(Silent.None)
                         .SetPossessive()
                         .SetSpecialInterruptions(ConditionInterruption.Attacks)
