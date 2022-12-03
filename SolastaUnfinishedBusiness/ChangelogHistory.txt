@@ -2,6 +2,8 @@
 
 1.4.30.8:
 
+- fixed RESPEC not allowing same hero name
+
 1.4.30.7:
 
 - added initial support for French
