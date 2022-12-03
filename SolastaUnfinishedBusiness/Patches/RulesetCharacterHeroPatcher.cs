@@ -160,30 +160,6 @@ public static class RulesetCharacterHeroPatcher
         }
     }
 
-    [HarmonyPatch(typeof(RulesetCharacterHero), "ComputeAttackModeAbilityScoreReplacement")]
-    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class ComputeAttackModeAbilityScoreReplacement_Patch
-    {
-        internal static void Postfix(RulesetCharacterHero __instance, RulesetAttackMode attackMode, RulesetItem weapon)
-        {
-            //PATCH: Allows changing what attribute is used for weapon's attack and damage rolls
-            var modifiers = __instance.GetSubFeaturesByType<IModifyAttackAttributeForWeapon>();
-
-            var mods = modifiers;
-
-            if (attackMode.sourceObject is RulesetItem item)
-            {
-                mods = item.GetSubFeaturesByType<IModifyAttackAttributeForWeapon>();
-                mods.AddRange(modifiers);
-            }
-
-            foreach (var modifier in mods)
-            {
-                modifier.ModifyAttribute(__instance, attackMode, attackMode.sourceObject as RulesetItem);
-            }
-        }
-    }
-
     [HarmonyPatch(typeof(RulesetCharacterHero), "RefreshAttackMode")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     public static class RefreshAttackMode_Patch
@@ -219,6 +195,37 @@ public static class RulesetCharacterHeroPatcher
             }
 
             return num;
+        }
+
+        public static void Postfix(RulesetCharacterHero __instance,
+            RulesetAttackMode __result,
+            ActionDefinitions.ActionType actionType,
+            ItemDefinition itemDefinition,
+            WeaponDescription weaponDescription,
+            bool freeOffHand,
+            bool canAddAbilityDamageBonus,
+            string slotName,
+            List<IAttackModificationProvider> attackModifiers,
+            Dictionary<FeatureDefinition, RuleDefinitions.FeatureOrigin> featuresOrigin,
+            RulesetItem weapon
+        )
+        {
+            //PATCH: Allows changing what attribute is used for weapon's attack and damage rolls
+            var modifiers = __instance.GetSubFeaturesByType<IModifyAttackAttributeForWeapon>();
+
+            var mods = modifiers;
+            var attackMode = __result;
+            
+            if (attackMode.sourceObject is RulesetItem item)
+            {
+                mods = item.GetSubFeaturesByType<IModifyAttackAttributeForWeapon>();
+                mods.AddRange(modifiers);
+            }
+
+            foreach (var modifier in mods)
+            {
+                modifier.ModifyAttribute(__instance, attackMode, weapon, canAddAbilityDamageBonus);
+            }
         }
     }
 

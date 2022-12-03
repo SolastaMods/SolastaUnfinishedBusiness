@@ -12,7 +12,7 @@ internal class CanUseAttributeForWeapon : IModifyAttackAttributeForWeapon
 
     internal CanUseAttributeForWeapon(
         string attribute,
-        IsWeaponValidHandler isWeaponValid,
+        IsWeaponValidHandler isWeaponValid = null,
         params IsCharacterValidHandler[] validators)
     {
         this.attribute = attribute;
@@ -20,10 +20,9 @@ internal class CanUseAttributeForWeapon : IModifyAttackAttributeForWeapon
         _validators = validators;
     }
 
-    public void ModifyAttribute(
-        RulesetCharacter character,
+    public void ModifyAttribute(RulesetCharacter character,
         [CanBeNull] RulesetAttackMode attackMode,
-        RulesetItem weapon)
+        RulesetItem weapon, bool canAddAbilityDamageBonus)
     {
         if (attackMode == null)
         {
@@ -35,15 +34,63 @@ internal class CanUseAttributeForWeapon : IModifyAttackAttributeForWeapon
             return;
         }
 
-        if (!isWeaponValid(attackMode, weapon, character))
+        if (isWeaponValid != null && !isWeaponValid(attackMode, weapon, character))
         {
             return;
         }
 
-        if (character.GetAttribute(attribute).CurrentValue >
-            character.GetAttribute(attackMode.AbilityScore).CurrentValue)
+        var oldAttribute = attackMode.AbilityScore;
+        var oldValue = character.GetAttribute(oldAttribute).CurrentValue;
+        oldValue = AttributeDefinitions.ComputeAbilityScoreModifier(oldValue);
+        
+        var newValue = character.GetAttribute(attribute).CurrentValue;
+        newValue = AttributeDefinitions.ComputeAbilityScoreModifier(newValue);
+
+        if (newValue <= oldValue)
         {
-            attackMode.AbilityScore = attribute;
+            return;
+        }
+
+        attackMode.AbilityScore = attribute;
+        attackMode.toHitBonus -= oldValue;
+        attackMode.toHitBonus += newValue;
+
+        var info = new RuleDefinitions.TrendInfo(newValue, RuleDefinitions.FeatureSourceType.AbilityScore,
+            attackMode.AbilityScore, null);
+
+        var i = attackMode.toHitBonusTrends
+            .FindIndex(x => x.value == oldValue
+                            && x.sourceType == RuleDefinitions.FeatureSourceType.AbilityScore
+                            && x.sourceName == oldAttribute);
+
+        if (i >= 0)
+        {
+            attackMode.toHitBonusTrends.RemoveAt(i);
+            attackMode.toHitBonusTrends.Insert(i, info);
+        }
+
+        if (!canAddAbilityDamageBonus)
+        {
+            return;
+        }
+
+        var damage = attackMode.EffectDescription.FindFirstDamageForm();
+        if (damage == null)
+        {
+            return;
+        }
+
+        damage.BonusDamage -= oldValue;
+        damage.BonusDamage += newValue;
+
+        i = damage.DamageBonusTrends
+            .FindIndex(x => x.value == oldValue
+                            && x.sourceType == RuleDefinitions.FeatureSourceType.AbilityScore
+                            && x.sourceName == oldAttribute);
+        if (i >= 0)
+        {
+            damage.DamageBonusTrends.RemoveAt(i);
+            damage.DamageBonusTrends.Insert(i, info);
         }
     }
 }
@@ -162,7 +209,8 @@ internal sealed class AddTagToWeaponAttack : ModifyAttackModeForWeaponBase
 
 internal sealed class BumpWeaponAttackRangeToMax : ModifyAttackModeForWeaponBase
 {
-    internal BumpWeaponAttackRangeToMax(IsWeaponValidHandler isWeaponValid, params IsCharacterValidHandler[] validators)
+    internal BumpWeaponAttackRangeToMax(IsWeaponValidHandler isWeaponValid,
+        params IsCharacterValidHandler[] validators)
         : base(isWeaponValid, validators)
     {
     }

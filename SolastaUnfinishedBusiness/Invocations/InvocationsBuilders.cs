@@ -219,7 +219,7 @@ internal static class InvocationsBuilders
                 FeatureDefinitionFeatureSetBuilder
                     .Create("FeatureSetInvocationAspectOfTheMoon")
                     .SetGuiPresentation(NAME, Category.Invocation)
-                    .SetCustomSubFeatures(
+                    .AddFeatureSet(
                         FeatureDefinitionCampAffinityBuilder
                             .Create(
                                 FeatureDefinitionCampAffinitys.CampAffinityElfTrance,
@@ -248,7 +248,7 @@ internal static class InvocationsBuilders
                 FeatureDefinitionFeatureSetBuilder
                     .Create("FeatureSetInvocationImprovedPactWeapon")
                     .SetGuiPresentation(NAME, Category.Invocation)
-                    .SetCustomSubFeatures(
+                    .AddFeatureSet(
                         FeatureDefinitionAttackModifierBuilder
                             .Create(FeatureDefinitionAttackModifiers.AttackModifierMagicWeapon,
                                 "AttackModifierInvocationImprovedPactWeaponPlus1")
@@ -270,7 +270,7 @@ internal static class InvocationsBuilders
                 FeatureDefinitionFeatureSetBuilder
                     .Create("FeatureSetInvocationSuperiorPactWeapon")
                     .SetGuiPresentation(NAME, Category.Invocation)
-                    .SetCustomSubFeatures(
+                    .AddFeatureSet(
                         FeatureDefinitionAttackModifierBuilder
                             .Create(FeatureDefinitionAttackModifiers.AttackModifierMagicWeapon,
                                 "AttackModifierInvocationSuperiorPactWeaponPlus2")
@@ -293,7 +293,7 @@ internal static class InvocationsBuilders
                 FeatureDefinitionFeatureSetBuilder
                     .Create("FeatureSetInvocationUltimatePactWeapon")
                     .SetGuiPresentation(NAME, Category.Invocation)
-                    .SetCustomSubFeatures(
+                    .AddFeatureSet(
                         FeatureDefinitionAttackModifierBuilder
                             .Create(FeatureDefinitionAttackModifiers.AttackModifierMagicWeapon,
                                 "AttackModifierInvocationUltimatePactWeaponPlus3")
