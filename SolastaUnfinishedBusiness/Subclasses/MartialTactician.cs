@@ -344,7 +344,7 @@ internal sealed class MartialTactician : AbstractSubclass
             .SetUsesFixed(ActivationTime.OnAttackHitAuto)
             .SetEffectDescription(EffectDescriptionBuilder.Create()
                 .SetTargetingData(Side.Enemy, RangeType.MeleeHit, 1, TargetType.Individuals)
-                .SetDurationData(DurationType.Round, 1)
+                .SetDurationData(DurationType.Round, 1, TurnOccurenceType.StartOfTurn)
                 .SetHasSavingThrow(AttributeDefinitions.Constitution,
                     EffectDifficultyClassComputation.AbilityScoreAndProficiency,
                     AttributeDefinitions.Intelligence)
@@ -396,7 +396,7 @@ internal sealed class MartialTactician : AbstractSubclass
             .SetUsesFixed(ActivationTime.OnAttackHitAuto)
             .SetEffectDescription(EffectDescriptionBuilder.Create()
                 .SetTargetingData(Side.Enemy, RangeType.MeleeHit, 1, TargetType.Individuals)
-                .SetDurationData(DurationType.Round, 1)
+                .SetDurationData(DurationType.Round, 1, TurnOccurenceType.StartOfTurn)
                 .SetHasSavingThrow(AttributeDefinitions.Strength,
                     EffectDifficultyClassComputation.AbilityScoreAndProficiency,
                     AttributeDefinitions.Intelligence)
@@ -448,7 +448,7 @@ internal sealed class MartialTactician : AbstractSubclass
             .SetUsesFixed(ActivationTime.OnAttackHitAuto)
             .SetEffectDescription(EffectDescriptionBuilder.Create()
                 .SetTargetingData(Side.Enemy, RangeType.MeleeHit, 1, TargetType.Individuals)
-                .SetDurationData(DurationType.Round, 1)
+                .SetDurationData(DurationType.Round, 1, TurnOccurenceType.StartOfTurn)
                 .SetHasSavingThrow(AttributeDefinitions.Strength,
                     EffectDifficultyClassComputation.AbilityScoreAndProficiency,
                     AttributeDefinitions.Intelligence)
@@ -505,7 +505,7 @@ internal sealed class MartialTactician : AbstractSubclass
             .SetUsesFixed(ActivationTime.OnAttackHitMeleeAuto)
             .SetEffectDescription(EffectDescriptionBuilder.Create()
                 .SetTargetingData(Side.Enemy, RangeType.MeleeHit, 1, TargetType.Individuals)
-                .SetDurationData(DurationType.Round, 1)
+                .SetDurationData(DurationType.Round, 1, TurnOccurenceType.StartOfTurn)
                 .SetHasSavingThrow(AttributeDefinitions.Wisdom,
                     EffectDifficultyClassComputation.AbilityScoreAndProficiency,
                     AttributeDefinitions.Intelligence)
@@ -558,7 +558,7 @@ internal sealed class MartialTactician : AbstractSubclass
             .SetUsesFixed(ActivationTime.OnAttackHitAuto)
             .SetEffectDescription(EffectDescriptionBuilder.Create()
                 .SetTargetingData(Side.Enemy, RangeType.MeleeHit, 1, TargetType.Individuals)
-                .SetDurationData(DurationType.Round, 1)
+                .SetDurationData(DurationType.Round, 1, TurnOccurenceType.StartOfTurn)
                 .SetHasSavingThrow(AttributeDefinitions.Constitution,
                     EffectDifficultyClassComputation.AbilityScoreAndProficiency,
                     AttributeDefinitions.Intelligence)
@@ -616,7 +616,7 @@ internal sealed class MartialTactician : AbstractSubclass
             .SetUsesFixed(ActivationTime.OnAttackHitMeleeAuto)
             .SetEffectDescription(EffectDescriptionBuilder.Create()
                 .SetTargetingData(Side.Enemy, RangeType.MeleeHit, 1, TargetType.Individuals)
-                .SetDurationData(DurationType.Round, 1)
+                .SetDurationData(DurationType.Round, 1, TurnOccurenceType.StartOfTurn)
                 .SetEffectForms(EffectFormBuilder.Create()
                     .SetConditionForm(ConditionDefinitionBuilder
                         .Create($"Condition{name}Effect")
