@@ -1,22 +1,3 @@
-﻿ATTENTION:
+﻿CHANGES:
 
-- RESPEC any Warlock that took Improved, Superior or Ultimate pact weapon invocations before accepting this update!
-
-CHANGES:
-
-1.4.30.8:
-
-- added Ranger Scout, Rogue Scout, Bard Armor and Warlock armor appearances to Empress Garb
-- changed all Gambits' effects to last until the start of your next turn
-- changed Counter Attack to trigger on its own turn to avoid it to be triggered by missed AoO
-- changed Debilitate, Goading and Threaten gambits to work with all attacks
-- changed Earth Tremor, Protect Threshold, Winter's Breath to use DC 15 + spell casting attribute modifier
-- changed remaining higher level spells to use DC 20 + spell casting attribute modifier whenever applicable
-- decreased Grenadier's projectiles speed to improve visibility
-- fixed Aspect of The Moon, Improved, Superior and Ultimate Pact Weapon to correctly apply effects
-- fixed Precision feats interaction with Monks
-- fixed Precision feats interaction with non-casters
-- fixed RESPEC not allowing same hero name (why anyone would do that, lol?)
-- removed Monk weapon tag from Pikes
-- reverted removal of Allow All Players on Narrative Sequences feature
-- updated Strategy: Overcome description
+1.4.30.9:

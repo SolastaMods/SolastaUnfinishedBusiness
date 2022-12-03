@@ -1,5 +1,7 @@
 ﻿CHANGES:
 
+1.4.30.9:
+
 1.4.30.8:
 
 - added Ranger Scout, Rogue Scout, Bard Armor and Warlock armor appearances to Empress Garb
