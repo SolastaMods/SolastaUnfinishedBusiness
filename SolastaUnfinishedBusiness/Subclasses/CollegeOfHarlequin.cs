@@ -18,24 +18,27 @@ internal sealed class CollegeOfHarlequin : AbstractSubclass
 
     internal CollegeOfHarlequin()
     {
+        var conditionTerrifiedByHarlequinPerformance = ConditionDefinitionBuilder
+            .Create(ConditionDefinitions.ConditionFrightened, "ConditionTerrifiedByHarlequinPerformance")
+            .SetGuiPresentation("ConditionTerrifiedByHarlequinPerformance", Category.Condition,
+                ConditionDefinitions.ConditionFrightened)
+            .AddFeatures(ConditionDefinitions.ConditionPatronHiveWeakeningPheromones.Features.ToArray())
+            .AddToDB();
+
         var powerTerrificPerformance = FeatureDefinitionPowerBuilder
             .Create("PowerCollegeOfHarlequinTerrificPerformance")
             .SetGuiPresentation(Category.Feature)
+            .SetShowCasting(false)
             .SetEffectDescription(EffectDescriptionBuilder.Create()
                 .SetDurationData(DurationType.Round, 1)
                 //actual targeting is happening in sub-feature, this is for proper tooltip
-                .SetTargetingData(Side.Enemy, RangeType.Self, 0, TargetType.Sphere, 3)
+                .SetTargetingData(Side.Enemy, RangeType.Self, 0, TargetType.Sphere, 6)
                 .SetParticleEffectParameters(SpellDefinitions.Fear.effectDescription.effectParticleParameters)
                 .SetHasSavingThrow(AttributeDefinitions.Wisdom, EffectDifficultyClassComputation.SpellCastingFeature)
                 .SetEffectForms(
                     EffectFormBuilder.Create()
                         .HasSavingThrow(EffectSavingThrowType.Negates)
-                        .SetConditionForm(ConditionDefinitions.ConditionFrightened,
-                            ConditionForm.ConditionOperation.Add)
-                        .Build(),
-                    EffectFormBuilder.Create()
-                        .HasSavingThrow(EffectSavingThrowType.Negates)
-                        .SetConditionForm(ConditionDefinitions.ConditionPatronHiveWeakeningPheromones,
+                        .SetConditionForm(conditionTerrifiedByHarlequinPerformance,
                             ConditionForm.ConditionOperation.Add)
                         .Build())
                 .Build())
@@ -45,7 +48,7 @@ internal sealed class CollegeOfHarlequin : AbstractSubclass
             new TerrificPerformance(powerTerrificPerformance),
             PowerVisibilityModifier.Hidden
         );
-
+        
         var powerCombatInspiration = FeatureDefinitionPowerBuilder
             .Create("PowerCollegeOfHarlequinCombatInspiration")
             .SetGuiPresentation(Category.Feature, SpellDefinitions.MagicWeapon)
@@ -61,6 +64,11 @@ internal sealed class CollegeOfHarlequin : AbstractSubclass
                             .Create(CombatInspirationCondition)
                             .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionHeraldOfBattle)
                             .AddFeatures(
+                                FeatureDefinitionBuilder
+                                    .Create("AttributeModifierCollegeOfHarlequinCombatInspirationExtraAttack")
+                                    .SetGuiPresentation(Category.Feature)
+                                    .SetCustomSubFeatures(new CombatInspiredExtraAttack())
+                                    .AddToDB(),
                                 FeatureDefinitionAttributeModifierBuilder
                                     .Create("AttributeModifierCollegeOfHarlequinCombatInspirationArmorClassEnhancement")
                                     .SetGuiPresentation(Category.Feature)
@@ -77,7 +85,7 @@ internal sealed class CollegeOfHarlequin : AbstractSubclass
                                     .SetAttackRollModifier(method: AttackModifierMethod.SourceConditionAmount)
                                     .SetDamageRollModifier(method: AttackModifierMethod.SourceConditionAmount)
                                     .AddToDB())
-                            .SetCustomSubFeatures(new ConditionCombatInspired())
+                            .SetCustomSubFeatures( new CombatInspiredExtraAttack(), new ConditionCombatInspired())
                             .AddToDB(),
                         ConditionForm.ConditionOperation.Add)
                     .Build())
@@ -91,43 +99,16 @@ internal sealed class CollegeOfHarlequin : AbstractSubclass
                 EquipmentDefinitions.SimpleWeaponCategory, EquipmentDefinitions.MartialWeaponCategory)
             .AddToDB();
 
-        var proficiencyCollegeOfHarlequinFightingStyle = FeatureDefinitionProficiencyBuilder
-            .Create("ProficiencyCollegeOfHarlequinFightingStyle")
-            .SetGuiPresentation(Category.Feature)
-            .SetProficiencies(ProficiencyType.FightingStyle,
-                FightingStyleDefinitions.Archery.Name, FightingStyleDefinitions.TwoWeapon.Name)
-            .AddToDB();
-
-        var powerImprovedCombatInspiration = FeatureDefinitionPowerBuilder
-            .Create("PowerCollegeOfHarlequinImprovedCombatInspiration")
-            .SetGuiPresentation(Category.Feature)
-            .SetEffectDescription(EffectDescriptionBuilder.Create()
-                .SetDurationData(DurationType.Instantaneous)
-                .SetEffectForms(EffectFormBuilder.Create()
-                    .SetConditionForm(ConditionDefinitionBuilder
-                        .Create("ConditionCollegeOfHarlequinRegainBardicInspirationOnKill")
-                        .SetGuiPresentationNoContent(true)
-                        .SetSilent(Silent.WhenAddedOrRemoved)
-                        .SetCustomSubFeatures(new ConditionRegainBardicInspirationDieOnKill())
-                        .AddToDB(), ConditionForm.ConditionOperation.Add)
-                    .Build())
-                .SetParticleEffectParameters(FeatureDefinitionPowers.PowerBardGiveBardicInspiration)
-                .Build())
-            .SetUsesFixed(ActivationTime.OnReduceCreatureToZeroHPAuto)
-            .AddToDB();
-
         Subclass = CharacterSubclassDefinitionBuilder
             .Create("CollegeOfHarlequin")
             .SetOrUpdateGuiPresentation(Category.Subclass, CharacterSubclassDefinitions.RoguishShadowCaster)
             .AddFeaturesAtLevel(3,
                 powerCombatInspiration,
-                powerTerrificPerformance,
                 proficiencyCollegeOfHarlequinMartialWeapon,
-                CommonBuilders.MagicAffinityCasterFightingCombatMagic,
-                proficiencyCollegeOfHarlequinFightingStyle)
+                CommonBuilders.MagicAffinityCasterFightingCombatMagic)
             .AddFeaturesAtLevel(6,
                 CommonBuilders.AttributeModifierCasterFightingExtraAttack,
-                powerImprovedCombatInspiration)
+                powerTerrificPerformance)
             .AddToDB();
     }
 
@@ -158,26 +139,6 @@ internal sealed class CollegeOfHarlequin : AbstractSubclass
             console.AddEntry(entry);
 
             rulesetCondition.amount = dieRoll;
-        }
-
-        public void RemoveFeature(RulesetCharacter target, RulesetCondition rulesetCondition)
-        {
-        }
-    }
-
-    private sealed class ConditionRegainBardicInspirationDieOnKill : ICustomConditionFeature
-    {
-        public void ApplyFeature(RulesetCharacter target, RulesetCondition rulesetCondition)
-        {
-            if (target is not RulesetCharacterHero hero)
-            {
-                return;
-            }
-
-            if (hero.usedBardicInspiration > 0)
-            {
-                hero.usedBardicInspiration -= 1;
-            }
         }
 
         public void RemoveFeature(RulesetCharacter target, RulesetCondition rulesetCondition)
@@ -223,6 +184,14 @@ internal sealed class CollegeOfHarlequin : AbstractSubclass
             {
                 effectPower.ApplyEffectOnCharacter(enemy.RulesetCharacter, true, enemy.LocationPosition);
             }
+        }
+    }
+
+    private sealed class CombatInspiredExtraAttack : IModifyAttackModeForWeapon
+    {
+        public void ModifyAttackMode(RulesetCharacter character, RulesetAttackMode attackMode)
+        {
+            attackMode.AttacksNumber += 1;
         }
     }
 }
