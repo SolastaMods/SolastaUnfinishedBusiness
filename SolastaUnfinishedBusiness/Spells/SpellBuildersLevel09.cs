@@ -107,7 +107,7 @@ internal static partial class SpellBuilders
                 false,
                 AttributeDefinitions.Dexterity,
                 true,
-                EffectDifficultyClassComputation.AbilityScoreAndProficiency,
+                EffectDifficultyClassComputation.SpellCastingFeature,
                 AttributeDefinitions.Dexterity,
                 20)
             .SetParticleEffectParameters(FlameStrike)
@@ -301,7 +301,7 @@ internal static partial class SpellBuilders
                 false,
                 AttributeDefinitions.Wisdom,
                 true,
-                EffectDifficultyClassComputation.AbilityScoreAndProficiency,
+                EffectDifficultyClassComputation.SpellCastingFeature,
                 AttributeDefinitions.Constitution,
                 20)
             .SetEffectForms(EffectFormBuilder

@@ -305,12 +305,14 @@ internal static class CustomWeaponsContext
         Pike = BuildWeapon("CEPike", baseItem,
             20, true, Common, basePresentation, baseDescription, PikeIcon);
         Pike.SetCustomSubFeatures(scale);
+        Pike.ItemTags.Remove(TagsDefinitions.ItemTagMonk);
         MerchantContext.AddItem(Pike, ShopItemType.ShopGenericMelee);
 
         PikePrimed = BuildWeapon("CEPikePrimed", baseItem,
             40, true, Uncommon, basePresentation, baseDescription, PikePrimedIcon);
         PikePrimed.ItemTags.Add(TagsDefinitions.ItemTagIngredient);
         PikePrimed.ItemTags.Remove(TagsDefinitions.ItemTagStandard);
+        PikePrimed.ItemTags.Remove(TagsDefinitions.ItemTagMonk);
         PikePrimed.SetCustomSubFeatures(scale);
         MerchantContext.AddItem(PikePrimed, ShopItemType.ShopPrimedMelee);
         MerchantContext.AddItem(RecipeHelper.BuildPrimeManual(Pike, PikePrimed), ShopItemType.ShopCrafting);
@@ -318,6 +320,7 @@ internal static class CustomWeaponsContext
         PikePlus1 = BuildWeapon("CEPike+1", Pike,
             950, true, Rare, icon: PikeP1Icon, properties: new[] { WeaponPlus1 });
         PikePlus1.SetCustomSubFeatures(scale);
+        PikePlus1.ItemTags.Remove(TagsDefinitions.ItemTagMonk);
         MerchantContext.AddItem(PikePlus1, ShopItemType.ShopMeleePlus1);
         MerchantContext.AddItem(RecipeHelper.BuildRecipeManual(PikePlus1, 24, 10,
             PikePrimed,
@@ -331,6 +334,7 @@ internal static class CustomWeaponsContext
             icon: PikeP2Icon,
             properties: new[] { WeaponPlus2 });
         PikePlus2.SetCustomSubFeatures(scale);
+        PikePlus2.ItemTags.Remove(TagsDefinitions.ItemTagMonk);
         MerchantContext.AddItem(PikePlus2, ShopItemType.ShopMeleePlus2);
         MerchantContext.AddItem(RecipeHelper.BuildRecipeManual(PikePlus2, 48, 16,
             PikePrimed,
@@ -342,6 +346,7 @@ internal static class CustomWeaponsContext
             icon: PikePsychicIcon, needId: false,
             properties: new[] { PsychicImpactVFX, WeaponPlus1AttackOnly });
         PikePsychic.SetCustomSubFeatures(scale);
+        PikePsychic.ItemTags.Remove(TagsDefinitions.ItemTagMonk);
         PikePsychic.WeaponDescription.EffectDescription.effectForms.Add(EffectFormBuilder
             .Create()
             .SetDamageForm(DamageTypePsychic, 1, DieType.D8)

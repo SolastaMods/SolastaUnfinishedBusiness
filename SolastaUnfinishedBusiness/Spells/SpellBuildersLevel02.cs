@@ -91,7 +91,7 @@ internal static partial class SpellBuilders
         //TODO: move this into a builder
         var effectDescription = spell.EffectDescription;
 
-        effectDescription.difficultyClassComputation = EffectDifficultyClassComputation.AbilityScoreAndProficiency;
+        effectDescription.difficultyClassComputation = EffectDifficultyClassComputation.SpellCastingFeature;
         effectDescription.durationParameter = 10;
         effectDescription.durationType = DurationType.Minute;
         effectDescription.hasSavingThrow = true;
@@ -99,6 +99,7 @@ internal static partial class SpellBuilders
         effectDescription.rangeType = RangeType.Distance;
         effectDescription.recurrentEffect = RecurrentEffect.OnEnter;
         effectDescription.savingThrowAbility = AttributeDefinitions.Wisdom;
+        effectDescription.fixedSavingThrowDifficultyClass = 15;
         effectDescription.targetParameter = 0;
         effectDescription.targetType = TargetType.Sphere;
 

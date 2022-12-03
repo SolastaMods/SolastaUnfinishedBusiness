@@ -33,9 +33,9 @@ internal static partial class SpellBuilders
                 false,
                 AttributeDefinitions.Dexterity,
                 false,
-                EffectDifficultyClassComputation.AbilityScoreAndProficiency,
+                EffectDifficultyClassComputation.SpellCastingFeature,
                 AttributeDefinitions.Wisdom,
-                12)
+                15)
             .SetDurationData(DurationType.Minute, 10)
             .SetParticleEffectParameters(Grease)
             .SetTargetingData(Side.All, RangeType.Distance, 24, TargetType.Cylinder, 2, 1)
@@ -82,9 +82,9 @@ internal static partial class SpellBuilders
                 false,
                 AttributeDefinitions.Dexterity,
                 false,
-                EffectDifficultyClassComputation.AbilityScoreAndProficiency,
+                EffectDifficultyClassComputation.SpellCastingFeature,
                 AttributeDefinitions.Wisdom,
-                12)
+                15)
             .SetDurationData(DurationType.Instantaneous)
             .SetParticleEffectParameters(ConeOfCold)
             .SetTargetingData(Side.All, RangeType.Self, 0, TargetType.Cone, 3)

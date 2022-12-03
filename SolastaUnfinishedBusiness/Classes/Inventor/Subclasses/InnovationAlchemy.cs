@@ -583,6 +583,8 @@ public static class InnovationAlchemy
                     .SetDamageForm(damageType, 3, dieType)
                     .Build())
                 .AddEffectForms(effects)
+                .SetSpeed(SpeedType.CellsPerSeconds, 12)
+                .SetupImpactOffsets(offsetImpactTimePerTarget: 0.3f)
                 .Build())
             .SetUseSpellAttack()
             .SetCustomSubFeatures(PowerVisibilityModifier.Visible, new AddPBToDamage(), new Overcharge(), validator)
@@ -656,6 +658,7 @@ public static class InnovationAlchemy
                     .SetDamageForm(damageType, 2, dieType)
                     .Build())
                 .AddEffectForms(effects)
+                .SetSpeed(SpeedType.CellsPerSeconds, 8)
                 .Build())
             .AddToDB();
     }

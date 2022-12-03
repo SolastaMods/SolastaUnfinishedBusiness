@@ -113,11 +113,11 @@
       "additionalWeaponDie": 0,
       "alteredDuration": "None"
     },
-    "speedType": "Instant",
-    "speedParameter": 10.0,
+    "speedType": "CellsPerSeconds",
+    "speedParameter": 12.0,
     "offsetImpactTimeBasedOnDistance": false,
     "offsetImpactTimeBasedOnDistanceFactor": 0.1,
-    "offsetImpactTimePerTarget": 0.0,
+    "offsetImpactTimePerTarget": 0.3,
     "effectParticleParameters": {
       "$type": "EffectParticleParameters, Assembly-CSharp",
       "casterParticleReference": {

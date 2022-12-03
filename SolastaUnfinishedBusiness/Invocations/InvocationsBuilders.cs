@@ -219,7 +219,7 @@ internal static class InvocationsBuilders
                 FeatureDefinitionFeatureSetBuilder
                     .Create("FeatureSetInvocationAspectOfTheMoon")
                     .SetGuiPresentation(NAME, Category.Invocation)
-                    .SetCustomSubFeatures(
+                    .AddFeatureSet(
                         FeatureDefinitionCampAffinityBuilder
                             .Create(
                                 FeatureDefinitionCampAffinitys.CampAffinityElfTrance,
@@ -243,16 +243,13 @@ internal static class InvocationsBuilders
         return InvocationDefinitionBuilder
             .Create(NAME)
             .SetGuiPresentation(Category.Invocation, FeatureDefinitionMagicAffinitys.MagicAffinitySpellBladeIntoTheFray)
-            .SetRequirements(pact: FeatureSetPactBlade)
+            .SetRequirements(level: 5, pact: FeatureSetPactBlade)
             .SetGrantedFeature(
                 FeatureDefinitionFeatureSetBuilder
                     .Create("FeatureSetInvocationImprovedPactWeapon")
                     .SetGuiPresentation(NAME, Category.Invocation)
-                    .SetCustomSubFeatures(
-                        FeatureDefinitionAttackModifierBuilder
-                            .Create(FeatureDefinitionAttackModifiers.AttackModifierMagicWeapon,
-                                "AttackModifierInvocationImprovedPactWeaponPlus1")
-                            .AddToDB(),
+                    .AddFeatureSet(
+                        Subclasses.CommonBuilders.AttackModifierHitAndDamagePlus1,
                         FeatureDefinitionMagicAffinitys.MagicAffinitySpellBladeIntoTheFray)
                     .AddToDB())
             .AddToDB();
@@ -270,12 +267,8 @@ internal static class InvocationsBuilders
                 FeatureDefinitionFeatureSetBuilder
                     .Create("FeatureSetInvocationSuperiorPactWeapon")
                     .SetGuiPresentation(NAME, Category.Invocation)
-                    .SetCustomSubFeatures(
-                        FeatureDefinitionAttackModifierBuilder
-                            .Create(FeatureDefinitionAttackModifiers.AttackModifierMagicWeapon,
-                                "AttackModifierInvocationSuperiorPactWeaponPlus2")
-                            .SetAttackRollModifier(2)
-                            .AddToDB(),
+                    .AddFeatureSet(
+                        Subclasses.CommonBuilders.AttackModifierHitAndDamagePlus1,
                         FeatureDefinitionMagicAffinitys.MagicAffinitySpellBladeIntoTheFray)
                     .AddToDB())
             .AddToDB();
@@ -293,12 +286,8 @@ internal static class InvocationsBuilders
                 FeatureDefinitionFeatureSetBuilder
                     .Create("FeatureSetInvocationUltimatePactWeapon")
                     .SetGuiPresentation(NAME, Category.Invocation)
-                    .SetCustomSubFeatures(
-                        FeatureDefinitionAttackModifierBuilder
-                            .Create(FeatureDefinitionAttackModifiers.AttackModifierMagicWeapon,
-                                "AttackModifierInvocationUltimatePactWeaponPlus3")
-                            .SetAttackRollModifier(3)
-                            .AddToDB(),
+                    .AddFeatureSet(
+                        Subclasses.CommonBuilders.AttackModifierHitAndDamagePlus1,
                         FeatureDefinitionMagicAffinitys.MagicAffinitySpellBladeIntoTheFray)
                     .AddToDB())
             .AddToDB();

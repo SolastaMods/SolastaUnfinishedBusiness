@@ -21,7 +21,8 @@ public static class CharacterStageIdentityDefinitionPanelPatcher
                 return;
             }
 
-            __result = Gui.GameCampaign == null || !Gui.GameCampaign.Party.CharactersList.Exists(x => x.Name == name);
+            __result = Gui.GameCampaign == null || ToolsContext.FunctorRespec.OldHeroName == name ||
+                       !Gui.GameCampaign.Party.CharactersList.Exists(x => x.Name == name);
         }
     }
 }

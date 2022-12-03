@@ -3,6 +3,7 @@ using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.Infrastructure;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
+using SolastaUnfinishedBusiness.CustomBehaviors;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionAttackModifiers;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionAttributeModifiers;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPowers;
@@ -20,7 +21,7 @@ internal static class PrecisionFocusedFeats
         var attackModifierArcanePrecision = FeatureDefinitionAttackModifierBuilder
             .Create("AttackModifierArcanePrecision")
             .SetGuiPresentation("FeatArcanePrecision", Category.Feat, AttackModifierMagicWeapon)
-            .SetAbilityScoreReplacement(AbilityScoreReplacement.SpellcastingAbility)
+            .SetCustomSubFeatures(new CanUseAttributeForWeapon(AttributeDefinitions.Intelligence))
             .SetAdditionalAttackTag(TagsDefinitions.Magical)
             .AddToDB();
 
@@ -57,7 +58,7 @@ internal static class PrecisionFocusedFeats
         var attackModifierCharismaticPrecision = FeatureDefinitionAttackModifierBuilder
             .Create("AttackModifierCharismaticPrecision")
             .SetGuiPresentation("FeatCharismaticPrecision", Category.Feat, AttackModifierMagicWeapon)
-            .SetAbilityScoreReplacement(AbilityScoreReplacement.SpellcastingAbility)
+            .SetCustomSubFeatures(new CanUseAttributeForWeapon(AttributeDefinitions.Charisma))
             .SetAdditionalAttackTag(TagsDefinitions.Magical)
             .AddToDB();
 
@@ -94,7 +95,7 @@ internal static class PrecisionFocusedFeats
         var attackModifierWisePrecision = FeatureDefinitionAttackModifierBuilder
             .Create("AttackModifierWisePrecision")
             .SetGuiPresentation("FeatWisePrecision", Category.Feat, AttackModifierMagicWeapon)
-            .SetAbilityScoreReplacement(AbilityScoreReplacement.SpellcastingAbility)
+            .SetCustomSubFeatures(new CanUseAttributeForWeapon(AttributeDefinitions.Wisdom))
             .SetAdditionalAttackTag(TagsDefinitions.Magical)
             .AddToDB();
 

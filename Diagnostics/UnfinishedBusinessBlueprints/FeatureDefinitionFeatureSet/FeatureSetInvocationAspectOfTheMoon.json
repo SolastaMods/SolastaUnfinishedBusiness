@@ -1,6 +1,9 @@
 {
   "$type": "FeatureDefinitionFeatureSet, Assembly-CSharp",
-  "featureSet": [],
+  "featureSet": [
+    "Definition:CampAffinityInvocationAspectOfTheMoonTrance:ae828ac9-74a2-536f-9c96-4de829749b6f",
+    "Definition:CampAffinityInvocationAspectOfTheMoonRest:a8764a2e-62c3-5966-90ce-712b7e84a7d6"
+  ],
   "mode": "Union",
   "ancestryDamageTypeMap": [],
   "ancestryType": "Sorcerer",
