@@ -11,6 +11,13 @@ namespace SolastaUnfinishedBusiness.Subclasses;
 
 internal static class CommonBuilders
 {
+    internal static readonly FeatureDefinitionAttackModifier AttackModifierHitAndDamagePlus1 = FeatureDefinitionAttackModifierBuilder
+        .Create("AttackModifierHitAndDamagePlus1")
+        .SetGuiPresentation(Category.Feature)
+        .SetAttackRollModifier(1)
+        .SetDamageRollModifier(1)
+        .AddToDB();
+
     internal static readonly FeatureDefinitionAttributeModifier AttributeModifierCasterFightingExtraAttack =
         FeatureDefinitionAttributeModifierBuilder
             .Create("AttributeModifierCasterFightingExtraAttack")
