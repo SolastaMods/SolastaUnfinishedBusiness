@@ -6,3 +6,5 @@
 CHANGES:
 
 1.4.30.8:
+
+- fixed RESPEC not allowing same hero name

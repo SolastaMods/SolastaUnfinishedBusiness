@@ -114,6 +114,7 @@ internal static class ToolsContext
     internal sealed class FunctorRespec : Functor
     {
         internal static bool IsRespecing { get; private set; }
+        internal static string OldHeroName { get; private set; }
 
         public override IEnumerator Execute(FunctorParametersDescription functorParameters,
             FunctorExecutionContext context)
@@ -139,6 +140,8 @@ internal static class ToolsContext
             var characterBuildingService = ServiceRepository.GetService<ICharacterBuildingService>();
             var oldHero = functorParameters.RestingHero;
             var newHero = characterBuildingService.CreateNewCharacter().HeroCharacter;
+
+            OldHeroName = oldHero.Name;
 
             guiConsoleScreen.Hide(true);
             gameLocationScreenExploration.Hide(true);
