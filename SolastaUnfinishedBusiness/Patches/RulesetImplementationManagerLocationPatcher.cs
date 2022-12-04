@@ -9,6 +9,23 @@ namespace SolastaUnfinishedBusiness.Patches;
 
 public static class RulesetImplementationManagerLocationPatcher
 {
+    [HarmonyPatch(typeof(RulesetImplementationManagerLocation), "InstantiateEffectInvocation")]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    public static class InstantiateEffectInvocation_Patch
+    {
+        public static void Postfix(
+            RulesetImplementationManagerLocation __instance,
+            RulesetEffectSpell __result,
+            RulesetCharacter caster,
+            RulesetInvocation invocation,
+            bool delayRegistration,
+            int subspellIndex)
+        {
+            //PATCH: setup repertoire for spells cast through invocation 
+            __result.spellRepertoire ??= invocation.invocationRepertoire;
+        }
+    }
+    
     [HarmonyPatch(typeof(RulesetImplementationManagerLocation), "IsMetamagicOptionAvailable")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     public static class IsMetamagicOptionAvailable_Patch
