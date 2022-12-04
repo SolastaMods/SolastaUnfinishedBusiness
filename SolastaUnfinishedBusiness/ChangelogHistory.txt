@@ -5,6 +5,7 @@
 - added Eldritch Blast as pre-req for Hindering and Grasping blast invocations
 - added unofficial Spanish support to the game
 - added Portuguese and Spanish support to the mod
+- changed Earth Tremor Protect Threshold, and Winter's Breath saving thrown to 12 + ability bonus modifier
 - fixed being able to use main/bonus action invocation spells/powers after using attack
 - fixed Resonating strike dice progression
 - fixed Plane Magic feats not considering the caster ability bonus
