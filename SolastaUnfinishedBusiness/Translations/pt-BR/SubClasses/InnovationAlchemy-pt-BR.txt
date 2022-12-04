@@ -49,5 +49,5 @@ Feature/&PowerInnovationAlchemyPoolDescription=Você ganha 6 pontos de Alquimia 
 Feature/&PowerInnovationAlchemyPoolTitle=Pontos de Alquimia
 Screen/&InventorGrenadierSpellDescription=Este feitiço de Granadeiro é sempre considerado preparado. \nNão conta para o seu limite de preparação de feitiços.
 Screen/&InventorGrenadierSpellTitle=Granadeiro
-Subclass/&InnovationAlchemyDescription=Granadeiros estudam substâncias instáveis ​​e seu uso na criação de explosões de vários tipos.
+Subclass/&InnovationAlchemyDescription=Granadeiros estudam substâncias instáveis e seu uso na criação de explosões de vários tipos.
 Subclass/&InnovationAlchemyTitle=Granadeiro
