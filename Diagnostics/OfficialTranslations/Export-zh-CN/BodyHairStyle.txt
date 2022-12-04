@@ -1,5 +1,0 @@
-BodyHairStyle/&Hairstyle_A	
-BodyHairStyle/&Hairstyle_B	
-BodyHairStyle/&Hairstyle_C	
-BodyHairStyle/&Hairstyle_D	
-BodyHairStyle/&Hairstyle_E	

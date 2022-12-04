@@ -1,8 +1,0 @@
-SchoolOfMagic/&AbjurationTitle	Abjuration
-SchoolOfMagic/&ConjurationTitle	Invocation
-SchoolOfMagic/&DivinationTitle	Divination
-SchoolOfMagic/&EnchantmentTitle	Enchantement
-SchoolOfMagic/&EvocationTitle	Évocation
-SchoolOfMagic/&IllusionTitle	Illusion
-SchoolOfMagic/&NecromancyTitle	Nécromancie
-SchoolOfMagic/&TransmutationTitle	Transmutation

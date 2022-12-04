@@ -1,9 +1,0 @@
-SpellList/&SpellListClericTitle	
-SpellList/&SpellListPaladinTitle	
-SpellList/&SpellListRangerTitle	
-SpellList/&SpellListSpellbladeTitle	
-SpellList/&SpellListWizardTitle	
-SpellList/&SpellListSorcererTitle	
-SpellList/&SpellListDruidTitle	
-SpellList/&SpellListWarlockTitle	
-SpellList/&SpellListTraditionLightTitle	

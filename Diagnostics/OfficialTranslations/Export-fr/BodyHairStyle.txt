@@ -1,5 +1,0 @@
-BodyHairStyle/&Hairstyle_A	Coupe pixie
-BodyHairStyle/&Hairstyle_B	Carré
-BodyHairStyle/&Hairstyle_C	Court
-BodyHairStyle/&Hairstyle_D	Chignon
-BodyHairStyle/&Hairstyle_E	Tresse

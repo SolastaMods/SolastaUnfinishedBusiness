@@ -1,8 +1,0 @@
-MerchantCategory/&AdventuringTitle	
-MerchantCategory/&AllTitle	
-MerchantCategory/&ArmorTitle	
-MerchantCategory/&CraftingTitle	
-MerchantCategory/&IngredientTitle	
-MerchantCategory/&MagicDeviceTitle	
-MerchantCategory/&WeaponTitle	
-MerchantCategory/&DocumentTitle	
