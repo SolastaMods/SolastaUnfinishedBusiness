@@ -66,6 +66,7 @@ internal static class OtherFeats
                             1,
                             false,
                             HealingCap.MaximumHitPoints)
+                        //TODO: for some unknown reason TA code is only granting half character level
                         .SetLevelAdvancement(EffectForm.LevelApplianceType.AddBonus, LevelSourceType.CharacterLevel)
                         .CreatedByCharacter()
                         .Build())
@@ -137,6 +138,7 @@ internal static class OtherFeats
                     EffectFormBuilder
                         .Create()
                         .SetTempHpForm()
+                        //TODO: for some unknown reason TA code is only granting half character level
                         .SetLevelAdvancement(EffectForm.LevelApplianceType.AddBonus, LevelSourceType.CharacterLevel)
                         .CreatedByCharacter()
                         .SetBonusMode(AddBonusMode.AbilityBonus)
