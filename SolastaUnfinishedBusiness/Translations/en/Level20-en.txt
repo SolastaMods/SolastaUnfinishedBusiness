@@ -33,5 +33,5 @@ Feature/&RogueBlindsenseDescription=You are aware of the location of any hidden 
 Feature/&RogueBlindsenseTitle=Blindsense
 Feature/&RogueSlipperyMindDescription=You have acquired greater mental strength. You gain proficiency in Wisdom saving throws.
 Feature/&RogueSlipperyMindTitle=Slippery Mind
-Feature/&SenseRangerFeralSensesDescription=You gain preternatural senses that help you fight creatures you can't see. When you attack a creature you can't see, your inability to see it doesn't impose disadvantage on your attack rolls against it.
+Feature/&SenseRangerFeralSensesDescription=You gain preternatural senses that help you fight creatures you can't see. When you attack a creature you cannot see, your inability to see it doesn't impose disadvantage on your attack rolls against it.
 Feature/&SenseRangerFeralSensesTitle=Feral Senses
