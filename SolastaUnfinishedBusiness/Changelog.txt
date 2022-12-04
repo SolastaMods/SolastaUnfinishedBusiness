@@ -2,5 +2,8 @@
 
 1.4.30.9:
 
-- fixed Inspiring Leader and Healer descriptions
+- added unofficial Spanish support to game
+- added Portuguese and Spanish support to mod terms
+- fixed some Plane Magic feat spells to correctly consider the caster ability bonus
+- improved Inspiring Leader to grant temp HP in AoE
 - improved Power Attack to work with unarmed
