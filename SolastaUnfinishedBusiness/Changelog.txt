@@ -1,3 +1,6 @@
 ﻿CHANGES:
 
 1.4.30.9:
+
+- fixed Inspiring Leader and Healer descriptions
+- improved Power Attack to work with unarmed
