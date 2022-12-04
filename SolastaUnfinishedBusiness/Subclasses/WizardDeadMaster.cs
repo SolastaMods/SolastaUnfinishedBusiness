@@ -194,7 +194,7 @@ internal sealed class WizardDeadMaster : AbstractSubclass
                     monster.FormatTitle(),
                     monster.FormatDescription());
 
-                spells.Add(SpellDefinitionBuilder
+                var createDeadSpell = SpellDefinitionBuilder
                     .Create($"CreateDead{monster.name}")
                     .SetGuiPresentation(title, description, icon)
                     .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolNecromancy)
@@ -211,7 +211,14 @@ internal sealed class WizardDeadMaster : AbstractSubclass
                             .SetSummonCreatureForm(1, monster.Name)
                             .Build())
                         .Build())
-                    .AddToDB());
+                    .AddToDB();
+
+                if (Main.Settings.EnableRegisteringUndeadSpells)
+                {
+                    Models.SpellsContext.RegisterSpell(createDeadSpell);
+                }
+
+                spells.Add(createDeadSpell);
             }
 
             result.Add(new FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup
