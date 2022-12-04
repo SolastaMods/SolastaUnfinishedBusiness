@@ -130,13 +130,10 @@ internal static class OtherFeats
             .Create("PowerFeatInspiringLeader")
             .SetGuiPresentation("FeatInspiringLeader", Category.Feat, PowerOathOfTirmarGoldenSpeech)
             .SetUsesFixed(ActivationTime.Minute10, RechargeRate.ShortRest)
-            .SetEffectDescription(EffectDescriptionBuilder
-                .Create()
-                .SetTargetingData(Side.Ally, RangeType.Distance, 6, TargetType.Individuals, 6)
+            .SetEffectDescription(EffectDescriptionBuilder.Create()
+                .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Sphere, 6)
                 .SetDurationData(DurationType.Permanent)
-                .SetEffectForms(
-                    EffectFormBuilder
-                        .Create()
+                .SetEffectForms(EffectFormBuilder.Create()
                         .SetTempHpForm()
                         //TODO: for some unknown reason TA code is only granting half character level
                         .SetLevelAdvancement(EffectForm.LevelApplianceType.AddBonus, LevelSourceType.CharacterLevel)
