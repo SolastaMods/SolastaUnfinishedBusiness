@@ -21,17 +21,6 @@ public static class PartyControlPanelPatcher
             parentRectTransform.localScale = partyCount > ToolsContext.GamePartySize
                 ? new Vector3(0.8f, 0.8f, 0.8f)
                 : new Vector3(1, 1, 1);
-        }
-    }
-
-    [HarmonyPatch(typeof(PartyControlPanel), "Refresh")]
-    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    public static class Refresh_Patch
-    {
-        public static void Postfix(PartyControlPanel __instance)
-        {
-            //PATCH: scales down the party control panel whenever the party size is bigger than 4 (PARTYSIZE)
-            var partyCount = Gui.GameCampaign.Party.CharactersList.Count;
 
             if (partyCount <= ToolsContext.GamePartySize)
             {
