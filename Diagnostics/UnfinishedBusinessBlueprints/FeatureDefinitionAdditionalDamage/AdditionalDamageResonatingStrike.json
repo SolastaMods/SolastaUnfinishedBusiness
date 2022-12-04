@@ -18,7 +18,7 @@
   "damageValueDetermination": "Die",
   "flatBonus": 0,
   "damageDieType": "D8",
-  "damageDiceNumber": 1,
+  "damageDiceNumber": 0,
   "additionalDamageType": "Specific",
   "specificDamageType": "DamageThunder",
   "ancestryTypeForDamageType": "Sorcerer",
@@ -47,7 +47,7 @@
     {
       "$type": "DiceByRank, Assembly-CSharp",
       "rank": 5,
-      "diceNumber": 1
+      "diceNumber": 0
     },
     {
       "$type": "DiceByRank, Assembly-CSharp",
@@ -67,12 +67,12 @@
     {
       "$type": "DiceByRank, Assembly-CSharp",
       "rank": 9,
-      "diceNumber": 2
+      "diceNumber": 1
     },
     {
       "$type": "DiceByRank, Assembly-CSharp",
       "rank": 10,
-      "diceNumber": 2
+      "diceNumber": 1
     },
     {
       "$type": "DiceByRank, Assembly-CSharp",
@@ -87,17 +87,17 @@
     {
       "$type": "DiceByRank, Assembly-CSharp",
       "rank": 13,
-      "diceNumber": 3
+      "diceNumber": 2
     },
     {
       "$type": "DiceByRank, Assembly-CSharp",
       "rank": 14,
-      "diceNumber": 3
+      "diceNumber": 2
     },
     {
       "$type": "DiceByRank, Assembly-CSharp",
       "rank": 15,
-      "diceNumber": 3
+      "diceNumber": 2
     },
     {
       "$type": "DiceByRank, Assembly-CSharp",
@@ -107,22 +107,22 @@
     {
       "$type": "DiceByRank, Assembly-CSharp",
       "rank": 17,
-      "diceNumber": 4
+      "diceNumber": 3
     },
     {
       "$type": "DiceByRank, Assembly-CSharp",
       "rank": 18,
-      "diceNumber": 4
+      "diceNumber": 3
     },
     {
       "$type": "DiceByRank, Assembly-CSharp",
       "rank": 19,
-      "diceNumber": 4
+      "diceNumber": 3
     },
     {
       "$type": "DiceByRank, Assembly-CSharp",
       "rank": 20,
-      "diceNumber": 4
+      "diceNumber": 3
     }
   ],
   "familiesWithAdditionalDice": [],

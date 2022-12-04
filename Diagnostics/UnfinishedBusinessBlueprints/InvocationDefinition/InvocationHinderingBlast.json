@@ -1,6 +1,6 @@
 {
   "$type": "InvocationDefinition, Assembly-CSharp",
-  "requiredKnownSpell": null,
+  "requiredKnownSpell": "Definition:EldritchBlast:1bc808c50803d9841be7af7314327d6d",
   "requiredLevel": 1,
   "requiredPact": null,
   "grantedFeature": "Definition:AdditionalDamageInvocationHinderingBlast:41aa3d93-ca68-58fd-8fd1-7afbb2865bb9",

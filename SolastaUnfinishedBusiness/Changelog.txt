@@ -1,9 +1,16 @@
-﻿CHANGES:
+﻿ATTENTION:
+
+- ¿Hablas español? ¿Quieres apoyar en la mejoría de las traducciones? Buscame en Discord
+
+CHANGES:
 
 1.4.30.9:
 
-- added unofficial Spanish support to game
-- added Portuguese and Spanish support to mod terms
-- fixed some Plane Magic feat spells to correctly consider the caster ability bonus
+- added Eldritch Blast as pre-req for Hindering and Grasping blast invocations
+- added unofficial Spanish support to the game
+- added Portuguese and Spanish support to the mod
+- fixed being able to use main/bonus action invocation spells/powers after using attack
+- fixed Resonating strike dice progression
+- fixed Plane Magic feats not considering the caster ability bonus
 - improved Inspiring Leader to grant temp HP in AoE
 - improved Power Attack to work with unarmed
