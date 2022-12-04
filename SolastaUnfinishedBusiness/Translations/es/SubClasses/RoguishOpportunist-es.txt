@@ -1,0 +1,8 @@
+Condition/&ConditionOpportunistDebilitatedDescription=Debilitado.
+Condition/&ConditionOpportunistDebilitatedTitle=Debilitado
+Feature/&OnComputeAttackModifierOpportunistQuickStrikeDescription=Tienes ventaja atacando a enemigos cuya iniciativa es menor que la tuya. Además, también tienes ventaja al realizar ataques de oportunidad.
+Feature/&OnComputeAttackModifierOpportunistQuickStrikeTitle=Ataque rápido
+Feature/&PowerOpportunistDebilitatingStrikeDescription=Tu ataque furtivo hace que el objetivo realice una tirada de salvación de Constitución (CD 8 + tu bonificador de competencia + tu modificador de Destreza) o sufra una de las siguientes condiciones: cegado, perdición, sangrado o aturdido.
+Feature/&PowerOpportunistDebilitatingStrikeTitle=Golpe debilitante
+Subclass/&RoguishOpportunistDescription=Los oportunistas son aquellos que nunca dejan pasar la oportunidad de acabar con sus enemigos. Apuñalan rápido y apuñalan donde importa. No muchos de los que se enfrentan a ellos pueden escapar sin un rasguño.
+Subclass/&RoguishOpportunistTitle=Oportunista

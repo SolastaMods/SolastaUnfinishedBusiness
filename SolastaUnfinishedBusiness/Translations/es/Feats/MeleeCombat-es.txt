@@ -1,0 +1,6 @@
+Feat/&FeatPowerAttackDescription=Has aprendido a cambiar la precisión para asestar golpes más letales. Cuando atacas con armas cuerpo a cuerpo, puedes optar por recibir una penalización de -{0} a tu golpe para infligir un daño adicional igual a {0} + tu bonificación de competencia.
+Feat/&FeatPowerAttackTitle=Ataque de poder
+Feat/&FeatSavageAttackDescription=Vuelve a tirar los dados de daño con armas y hechizos cuando saques un 1 (no todas las fuentes de daño vuelven a tirar los dados. Por ejemplo, el ataque furtivo y el daño por castigo no se vuelven a tirar).
+Feat/&FeatSavageAttackReroll=Debido a que es un atacante salvaje, {0} vuelve a tirar el dado {1} de {2} a {3}
+Feat/&FeatSavageAttackTitle=ataque salvaje
+Tooltip/&PowerAttackConcentration=Desactiva el ataque de poder.
