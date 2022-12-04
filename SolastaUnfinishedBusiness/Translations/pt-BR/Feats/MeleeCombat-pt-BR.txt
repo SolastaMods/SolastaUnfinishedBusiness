@@ -1,0 +1,6 @@
+Feat/&FeatPowerAttackDescription=Você aprendeu a trocar precisão para acertar golpes mais mortais. Ao atacar com armas corpo a corpo, você pode optar por aplicar uma penalidade de -{0} em seu acerto para causar dano adicional igual a {0} + seu bônus de proficiência.
+Feat/&FeatPowerAttackTitle=Ataque Poderoso
+Feat/&FeatSavageAttackDescription=Role novamente os dados de dano de feitiço e arma quando rolar um 1 (nem todas as fontes de dano rerrolam os dados. Por exemplo, ataque furtivo e dano de destruição não são rerrolados).
+Feat/&FeatSavageAttackReroll=Por ser um Atacante Selvagem, {0} rola novamente o dado {1} de um {2} para um {3}
+Feat/&FeatSavageAttackTitle=Ataque selvagem
+Tooltip/&PowerAttackConcentration=Desabilitar Ataque de Poder.
