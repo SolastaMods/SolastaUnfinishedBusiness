@@ -215,7 +215,7 @@ public static class RulesetCharacterHeroPatcher
 
             var mods = modifiers;
             var attackMode = __result;
-            
+
             if (attackMode.sourceObject is RulesetItem item)
             {
                 mods = item.GetSubFeaturesByType<IModifyAttackAttributeForWeapon>();

@@ -1116,7 +1116,7 @@ internal sealed class MartialTactician : AbstractSubclass
             {
                 yield break;
             }
-            
+
             //do not trigger on my own turn, so won't retaliate on AoO
             if (Gui.Battle?.ActiveContenderIgnoringLegendary == me)
             {
