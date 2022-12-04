@@ -95,7 +95,7 @@ internal static class TranslatorContext
                 {
                     try
                     {
-                        var split = line.Split(new[] { '\t', ' ' }, 2);
+                        var split = line.Split(new[] { '=' }, 2);
                         var term = split[0];
                         var text = split[1];
 

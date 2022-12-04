@@ -35,7 +35,7 @@ def display_progress(count, total, status=''):
     percents = round(100.0 * count / float(total), 1)
     bar = '=' * filled_len + '-' * (bar_len - filled_len)
 
-    sys.stdout.write('[%s] %s%s (%s)\r' % (bar, percents, '%', status))
+    sys.stdout.write('[%s] %s%s (%s) (%i)\r' % (bar, percents, '%', status, count))
     sys.stdout.flush() 
 
 
@@ -70,7 +70,7 @@ def get_records(filename):
 
 def translate_text(text, code):
     text = text.replace("\\n", "{99}")
-    if len(text) <= CHARS_MAX:
+    if len(text) > 3 and len(text) <= CHARS_MAX:
         translated = GoogleTranslator(source="auto", target=code).translate(text) 
     else:
         translated = text
@@ -97,8 +97,6 @@ def translate_file(input_file, output_file, code):
     with open(output_file, "wt", encoding="utf-8") as f:
 
         for term, text in get_records(input_file):
-            if len(text) > 4500:
-                continue
             translated = translate_text(text, code)
             fixed = fix_translated_format(translated)
             f.write(f"{term}={fixed}\n")
