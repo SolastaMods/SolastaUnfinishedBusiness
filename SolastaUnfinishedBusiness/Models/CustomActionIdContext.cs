@@ -249,6 +249,19 @@ public static class CustomActionIdContext
                 : ActionStatus.Unavailable;
         }
 
+        if (result == ActionStatus.Available)
+        {
+            if (actionType == ActionType.Bonus && (
+                    locationCharacter.UsedBonusAttacks > 0
+                    || character.HasConditionOfType(RuleDefinitions.ConditionFlurryOfBlows)
+                    || character.HasConditionOfType(RuleDefinitions
+                        .ConditionTraditionFreedomFlurryOfBlowsUnarmedStrikeBonusUnendingStrikes))
+                || actionType == ActionType.Main && locationCharacter.UsedMainAttacks > 0)
+            {
+                result = ActionStatus.NoLongerAvailable;
+            }
+        }
+
         if (result == ActionStatus.Available && actionTypeStatus != ActionStatus.Available)
         {
             result = actionTypeStatus == ActionStatus.Spent ? ActionStatus.Unavailable : actionTypeStatus;

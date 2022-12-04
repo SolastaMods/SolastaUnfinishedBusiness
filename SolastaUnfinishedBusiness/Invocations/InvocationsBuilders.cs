@@ -122,6 +122,7 @@ internal static class InvocationsBuilders
             .Create(NAME)
             .SetGuiPresentation(Category.Invocation, InvocationDefinitions.RepellingBlast)
             .SetGrantedFeature(powerInvocationGraspingBlast)
+            .SetRequirements(spell: SpellDefinitions.EldritchBlast)
             .AddToDB();
     }
 
@@ -140,6 +141,7 @@ internal static class InvocationsBuilders
                 .AddConditionOperation(ConditionOperationDescription.ConditionOperation.Add,
                     ConditionDefinitions.ConditionHindered_By_Frost)
                 .AddToDB())
+            .SetRequirements(spell: SpellDefinitions.EldritchBlast)
             .AddToDB();
     }
 
