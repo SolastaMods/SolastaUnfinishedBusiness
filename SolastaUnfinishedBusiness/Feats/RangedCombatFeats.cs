@@ -26,7 +26,8 @@ internal static class RangedCombatFeats
             FeatDefinitions.TakeAim,
             FeatDefinitions.UncannyAccuracy,
             featDeadEye,
-            featRangedExpert);
+            featRangedExpert,
+            MeleeCombatFeats.FeatGroupPiercer);
     }
 
     private static FeatDefinition BuildDeadEye()
