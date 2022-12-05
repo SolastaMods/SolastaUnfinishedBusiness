@@ -1,5 +1,5 @@
 {
-  "$type": "SolastaUnfinishedBusiness.CustomDefinitions.FeatureDefinitionReduceDamage, SolastaUnfinishedBusiness",
+  "$type": "FeatureDefinition, Assembly-CSharp",
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
@@ -24,7 +24,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "e0936926-8b1a-5ce2-bf39-bf93ab12d609",
+  "guid": "124b3f77-8087-58f2-9586-b99dc003c77a",
   "contentPack": 9999,
-  "name": "ReduceDamageFeatHeavyArmorMaster"
+  "name": "OnAttackHitEffectFeatMobile"
 }
