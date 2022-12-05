@@ -83,6 +83,9 @@ internal static class Main
                 new MenuManager().Enable(modEntry, assembly);
                 Logger.Log("enabled.");
             };
+
+            TranslatorContext.LoadCustomLanguages();
+            TranslatorContext.LoadCustomTerms();
         }
         catch (Exception ex)
         {

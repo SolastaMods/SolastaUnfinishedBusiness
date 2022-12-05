@@ -445,18 +445,17 @@ internal sealed class WayOfTheDistantHand : AbstractSubclass
             );
 
             character.AddConditionOfCategory(AttributeDefinitions.TagCombat, rulesetCondition);
-
         }
     }
 
     private sealed class AddFlurryOfArrowsAttacks : AddExtraAttackBase
     {
-        public static AddFlurryOfArrowsAttacks Mark { get; } = new();
-
         private AddFlurryOfArrowsAttacks() : base(ActionDefinitions.ActionType.Bonus, ValidatorsCharacter.NoArmor,
             ValidatorsCharacter.NoShield, WieldsZenArcherWeapon)
         {
         }
+
+        public static AddFlurryOfArrowsAttacks Mark { get; } = new();
 
         protected override AttackModeOrder GetOrder(RulesetCharacterHero hero)
         {
@@ -484,7 +483,7 @@ internal sealed class WayOfTheDistantHand : AbstractSubclass
                 mainHandItem
             );
             attackMode.attacksNumber = 2;
-            return new List<RulesetAttackMode> {attackMode};
+            return new List<RulesetAttackMode> { attackMode };
         }
     }
 }

@@ -1,8 +1,0 @@
-Label/&CampfireLocationRestDescription	
-Label/&CampfireLocationRestTitle	
-Label/&CampfireResumeTravelRestDescription	
-Label/&CampfireResumeTravelRestTitle	
-Label/&EnterLocationDescription	Faites entrer votre équipe dans ce lieu.
-Label/&EnterLocationTitle	Entrer
-Label/&TravelToLocationDescription	Préparez votre voyage en ce lieu.
-Label/&TravelToLocationTitle	Voyager

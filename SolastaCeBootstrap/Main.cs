@@ -100,44 +100,39 @@ namespace SolastaCeBootstrap
                     DatabaseHelpersExporter.Dump();
 
                 if (GUILayout.Button("dump translations"))
-                    ExportTerms();
+                {
+                    var languageSourceData = LocalizationManager.Sources[0];
+                    
+                    languageSourceData.LoadAllLanguages();
+                    
+                    ExportTerms(languageSourceData, 0, "en");
+                    ExportTerms(languageSourceData, 1, "fr");
+                    ExportTerms(languageSourceData, 2, "de");
+                    ExportTerms(languageSourceData, 3, "cn-ZN");
+                    ExportTerms(languageSourceData, 4, "ru");
+                    ExportTerms(languageSourceData, 5, "pt-BR");
+                }
+
                 //ExtensionsExporter.Dump();
             }
 
             GUILayout.Label("");
         }
 
-        internal static string FixCategory(string category)
+        internal static void ExportTerms(LanguageSourceData languageSourceData, int languageIndex, string code)
         {
-            switch (category)
-            {
-                case "MonsterAttack":
-                    return "MonsterAttacks";
-                case "Environment Effect":
-                    return "EnvironmentEffect";
-                case "Equipement":
-                    return "Equipment";
-                default:
-                    return category;
-            }
-        }
+            var outputFilename = $@"{UnityModManager.modsPath}/../OfficialTranslations-{code}.txt";
 
-        internal static void ExportTerms()
-        {
-            var languageSourceData = LocalizationManager.Sources[0];
-            var outputFilename = $@"{UnityModManager.modsPath}/../OfficialTranslations-en.txt";
             using (var sw = new StreamWriter(outputFilename, true, Encoding.UTF8))
             {
                 foreach (var category in languageSourceData.GetCategories())
                 {
                     if (!category.Contains(":"))
                     {
-                        var fixedCategory = FixCategory(category);
-
                         foreach (var termName in languageSourceData.GetTermsList(category))
                         {
                             var term = languageSourceData.GetTermData(termName);
-                            sw.WriteLine($"{term.Term}={term.Languages[0].Replace("\n", @"\n")}");
+                            sw.WriteLine($"{term.Term}\t{term.Languages[languageIndex]?.Replace("\n", @"\n")}");
                         }
                     }
                 }

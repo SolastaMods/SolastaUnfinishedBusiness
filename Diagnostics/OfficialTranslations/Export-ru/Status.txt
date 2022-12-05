@@ -1,6 +1,0 @@
-Status/&ConcentrationFormat	
-Status/&ConcentrationStopDescription	
-Status/&HealthStatusFormat	
-Status/&ReadiedCantripAttackFormat	
-Status/&ReadiedMeleeAttackFormat	
-Status/&ReadiedRangedAttackFormat	

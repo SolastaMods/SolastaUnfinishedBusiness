@@ -1,4 +1,5 @@
 ﻿using System.Diagnostics.CodeAnalysis;
+using System.Linq;
 using HarmonyLib;
 using SolastaUnfinishedBusiness.Models;
 
@@ -14,6 +15,27 @@ public static class GameManagerPatcher
         {
             //PATCH: loads all mod contexts
             BootContext.Startup();
+        }
+    }
+
+    [HarmonyPatch(typeof(GameManager), "BindServiceSettings")]
+    internal static class BindServiceSettings_Patch
+    {
+        public static void Prefix(GameManager __instance)
+        {
+            //PATCH: add unofficial languages before game tries to load the game settings xml
+            var languageByCode = __instance.languageByCode;
+
+            if (languageByCode == null)
+            {
+                return;
+            }
+
+            foreach (var language in TranslatorContext.Languages
+                         .Where(language => !languageByCode.ContainsKey(language.Code)))
+            {
+                languageByCode.Add(language.Code, language.Text);
+            }
         }
     }
 }

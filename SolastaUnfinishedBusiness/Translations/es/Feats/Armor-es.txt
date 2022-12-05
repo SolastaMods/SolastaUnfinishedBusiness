@@ -1,0 +1,4 @@
+Feat/&FeatMediumArmorDexDescription=Aumenta tu Destreza en 1, hasta un máximo de 20.\nObtienes competencia con armaduras y escudos medianos.
+Feat/&FeatMediumArmorDexTitle=Armadura mediana [Des]
+Feat/&FeatMediumArmorStrDescription=Aumenta tu Fuerza en 1, hasta un máximo de 20.\nObtienes competencia con armaduras y escudos medianos.
+Feat/&FeatMediumArmorStrTitle=Armadura mediana [Str]

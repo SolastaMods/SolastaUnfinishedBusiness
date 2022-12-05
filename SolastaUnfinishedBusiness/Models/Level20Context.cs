@@ -217,7 +217,7 @@ internal static class Level20Context
         {
             Bard.FeatureUnlocks.AddRange(new List<FeatureUnlockByLevel>
             {
-                new(PointPoolBardMagicalSecrets14, 14),
+                // new(PointPoolBardMagicalSecrets14, 14),
                 new(AttributeModifierBardicInspirationDieD12, 15),
                 new(FeatureSetAbilityScoreChoice, 16)
             });
@@ -225,7 +225,8 @@ internal static class Level20Context
 
         Bard.FeatureUnlocks.AddRange(new List<FeatureUnlockByLevel>
         {
-            new(pointPoolBardMagicalSecrets18, 18), new(FeatureSetAbilityScoreChoice, 19)
+            // new(pointPoolBardMagicalSecrets18, 18),
+            new(FeatureSetAbilityScoreChoice, 19),
             // TODO 20: Bard Superior Inspiration
         });
 

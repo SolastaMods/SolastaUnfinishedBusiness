@@ -10,10 +10,12 @@ internal sealed class PerformAttackAfterMagicEffectUse : IPerformAttackAfterMagi
 {
     private const RuleDefinitions.RollOutcome MinOutcomeToAttack = RuleDefinitions.RollOutcome.Success;
     private const RuleDefinitions.RollOutcome MinSaveOutcomeToAttack = RuleDefinitions.RollOutcome.Failure;
-    internal static readonly IPerformAttackAfterMagicEffectUse MeleeAttack = new PerformAttackAfterMagicEffectUse();
+    internal static readonly IPerformAttackAfterMagicEffectUse MeleeAttack = new PerformAttackAfterMagicEffectUse(1);
+    private readonly int maxAttacks;
 
-    private PerformAttackAfterMagicEffectUse()
+    private PerformAttackAfterMagicEffectUse(int maxAttacks)
     {
+        this.maxAttacks = maxAttacks;
         CanAttack = CanMeleeAttack;
         CanBeUsedToAttack = DefaultCanUseHandler;
         PerformAttackAfterUse = DefaultAttackHandler;
@@ -49,7 +51,7 @@ internal sealed class PerformAttackAfterMagicEffectUse : IPerformAttackAfterMagi
     }
 
     [NotNull]
-    private static List<CharacterActionParams> DefaultAttackHandler([CanBeNull] CharacterActionMagicEffect effect)
+    private List<CharacterActionParams> DefaultAttackHandler([CanBeNull] CharacterActionMagicEffect effect)
     {
         var attacks = new List<CharacterActionParams>();
         var actionParams = effect?.ActionParams;
@@ -102,6 +104,10 @@ internal sealed class PerformAttackAfterMagicEffectUse : IPerformAttackAfterMagi
             attackActionParams.TargetCharacters.Add(target);
             attackActionParams.ActionModifiers.Add(attackModifier);
             attacks.Add(attackActionParams);
+            if (targets.Count >= maxAttacks)
+            {
+                break;
+            }
         }
 
         return attacks;

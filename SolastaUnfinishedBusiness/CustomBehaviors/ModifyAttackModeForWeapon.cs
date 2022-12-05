@@ -42,7 +42,7 @@ internal class CanUseAttributeForWeapon : IModifyAttackAttributeForWeapon
         var oldAttribute = attackMode.AbilityScore;
         var oldValue = character.GetAttribute(oldAttribute).CurrentValue;
         oldValue = AttributeDefinitions.ComputeAbilityScoreModifier(oldValue);
-        
+
         var newValue = character.GetAttribute(attribute).CurrentValue;
         newValue = AttributeDefinitions.ComputeAbilityScoreModifier(newValue);
 

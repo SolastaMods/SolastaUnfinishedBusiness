@@ -6,6 +6,7 @@ using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomUI;
+using SolastaUnfinishedBusiness.Subclasses;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionFeatureSets;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionDamageAffinitys;
@@ -121,6 +122,7 @@ internal static class InvocationsBuilders
             .Create(NAME)
             .SetGuiPresentation(Category.Invocation, InvocationDefinitions.RepellingBlast)
             .SetGrantedFeature(powerInvocationGraspingBlast)
+            .SetRequirements(spell: SpellDefinitions.EldritchBlast)
             .AddToDB();
     }
 
@@ -139,6 +141,7 @@ internal static class InvocationsBuilders
                 .AddConditionOperation(ConditionOperationDescription.ConditionOperation.Add,
                     ConditionDefinitions.ConditionHindered_By_Frost)
                 .AddToDB())
+            .SetRequirements(spell: SpellDefinitions.EldritchBlast)
             .AddToDB();
     }
 
@@ -243,13 +246,13 @@ internal static class InvocationsBuilders
         return InvocationDefinitionBuilder
             .Create(NAME)
             .SetGuiPresentation(Category.Invocation, FeatureDefinitionMagicAffinitys.MagicAffinitySpellBladeIntoTheFray)
-            .SetRequirements(level: 5, pact: FeatureSetPactBlade)
+            .SetRequirements(5, pact: FeatureSetPactBlade)
             .SetGrantedFeature(
                 FeatureDefinitionFeatureSetBuilder
                     .Create("FeatureSetInvocationImprovedPactWeapon")
                     .SetGuiPresentation(NAME, Category.Invocation)
                     .AddFeatureSet(
-                        Subclasses.CommonBuilders.AttackModifierHitAndDamagePlus1,
+                        CommonBuilders.AttackModifierHitAndDamagePlus1,
                         FeatureDefinitionMagicAffinitys.MagicAffinitySpellBladeIntoTheFray)
                     .AddToDB())
             .AddToDB();
@@ -268,7 +271,7 @@ internal static class InvocationsBuilders
                     .Create("FeatureSetInvocationSuperiorPactWeapon")
                     .SetGuiPresentation(NAME, Category.Invocation)
                     .AddFeatureSet(
-                        Subclasses.CommonBuilders.AttackModifierHitAndDamagePlus1,
+                        CommonBuilders.AttackModifierHitAndDamagePlus1,
                         FeatureDefinitionMagicAffinitys.MagicAffinitySpellBladeIntoTheFray)
                     .AddToDB())
             .AddToDB();
@@ -287,7 +290,7 @@ internal static class InvocationsBuilders
                     .Create("FeatureSetInvocationUltimatePactWeapon")
                     .SetGuiPresentation(NAME, Category.Invocation)
                     .AddFeatureSet(
-                        Subclasses.CommonBuilders.AttackModifierHitAndDamagePlus1,
+                        CommonBuilders.AttackModifierHitAndDamagePlus1,
                         FeatureDefinitionMagicAffinitys.MagicAffinitySpellBladeIntoTheFray)
                     .AddToDB())
             .AddToDB();

@@ -1,8 +1,0 @@
-InputBinding/&LeftAlt	Alt gauche + 
-InputBinding/&LeftControl	Ctrl gauche + 
-InputBinding/&LeftShift	Maj gauche + 
-InputBinding/&MainFormat	Raccourci : {0}
-InputBinding/&OrFormat	 ou 
-InputBinding/&RightAlt	Alt gr + 
-InputBinding/&RightControl	Ctrl droite + 
-InputBinding/&RightShift	Maj droite + 

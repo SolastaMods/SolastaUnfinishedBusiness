@@ -617,19 +617,19 @@ internal static class GameUiContext
             case 7: // Wizard Clothes
                 Enchanted_ChainShirt_Empress_war_garb.itemPresentation = WizardClothes_Alternate.ItemPresentation;
                 break;
-            
+
             case 8: // Scavenger Ranger
                 Enchanted_ChainShirt_Empress_war_garb.itemPresentation = ClothesScavenger_A.ItemPresentation;
                 break;
-            
+
             case 9: // Scavenger Rogue
                 Enchanted_ChainShirt_Empress_war_garb.itemPresentation = ClothesScavenger_B.ItemPresentation;
                 break;
-            
+
             case 10: // Bard Armor
                 Enchanted_ChainShirt_Empress_war_garb.itemPresentation = Bard_Armor.ItemPresentation;
                 break;
-            
+
             case 11: // Warlock Armor
                 Enchanted_ChainShirt_Empress_war_garb.itemPresentation = Warlock_Armor.ItemPresentation;
                 break;

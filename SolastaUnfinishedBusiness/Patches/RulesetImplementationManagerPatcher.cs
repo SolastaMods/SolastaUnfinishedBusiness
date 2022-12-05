@@ -14,6 +14,23 @@ namespace SolastaUnfinishedBusiness.Patches;
 
 public static class RulesetImplementationManagerPatcher
 {
+    [HarmonyPatch(typeof(RulesetImplementationManager), "InstantiateEffectInvocation")]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    public static class InstantiateEffectInvocation_Patch
+    {
+        public static void Postfix(
+            RulesetImplementationManager __instance,
+            RulesetEffectSpell __result,
+            RulesetCharacter caster,
+            RulesetInvocation invocation,
+            bool delayRegistration,
+            int subspellIndex)
+        {
+            //PATCH: setup repertoire for spells cast through invocation
+            __result.spellRepertoire ??= invocation.invocationRepertoire;
+        }
+    }
+
     [HarmonyPatch(typeof(RulesetImplementationManager), "ApplySummonForm")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     public static class ApplySummonForm_Patch
@@ -75,7 +92,7 @@ public static class RulesetImplementationManagerPatcher
                 return;
             }
 
-            if (activeEffect is { TrackedLightSourceGuids.Count: > 0 })
+            if (activeEffect is {TrackedLightSourceGuids.Count: > 0})
             {
                 var service = ServiceRepository.GetService<IGameLocationVisibilityService>();
 
@@ -97,7 +114,7 @@ public static class RulesetImplementationManagerPatcher
                         RulesetEntity.TryGetEntity(rulesetLightSource.TargetItemGuid, out RulesetItem rulesetItem))
                     {
                         if (RulesetEntity.TryGetEntity(rulesetItem.BearerGuid, out bearer) &&
-                            bearer is { CharacterInventory: { } })
+                            bearer is {CharacterInventory: { }})
                         {
                             bearer.CharacterInventory.ItemAltered?.Invoke(bearer.CharacterInventory,
                                 bearer.CharacterInventory.FindSlotHoldingItem(rulesetItem), rulesetItem);
@@ -133,7 +150,7 @@ public static class RulesetImplementationManagerPatcher
                 activeEffect.TrackedLightSourceGuids.Clear();
             }
 
-            if (activeEffect is not { TrackedItemPropertyGuids.Count: > 0 })
+            if (activeEffect is not {TrackedItemPropertyGuids.Count: > 0})
             {
                 return;
             }

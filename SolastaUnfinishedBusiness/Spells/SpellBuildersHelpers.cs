@@ -107,27 +107,8 @@ internal static partial class SpellBuilders
     {
         public int GetBonusSlotLevels([NotNull] RulesetCharacter caster)
         {
-            return caster.GetAttribute(AttributeDefinitions.CharacterLevel).CurrentValue;
-        }
-    }
-
-    private sealed class UpgradeEffectFromLevel : ICustomMagicEffectBasedOnCaster
-    {
-        private readonly int _level;
-        private readonly EffectDescription _upgraded;
-
-        internal UpgradeEffectFromLevel(EffectDescription upgraded, int level)
-        {
-            _upgraded = upgraded;
-            _level = level;
-        }
-
-        [CanBeNull]
-        public EffectDescription GetCustomEffect([NotNull] RulesetCharacter caster)
-        {
-            var casterLevel = caster.GetAttribute(AttributeDefinitions.CharacterLevel).CurrentValue;
-
-            return casterLevel < _level ? null : _upgraded;
+            var level = caster.GetAttribute(AttributeDefinitions.CharacterLevel).CurrentValue;
+            return RuleDefinitions.SpellAdvancementByCasterLevel[level - 1];
         }
     }
 

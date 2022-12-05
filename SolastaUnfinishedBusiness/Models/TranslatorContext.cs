@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Globalization;
 using System.IO;
 using System.IO.Compression;
 using System.Linq;
@@ -14,19 +15,100 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using SolastaUnfinishedBusiness.Api.Infrastructure;
 using UnityEngine;
+using UnityModManagerNet;
 using Resources = SolastaUnfinishedBusiness.Properties.Resources;
 
 namespace SolastaUnfinishedBusiness.Models;
 
+internal struct LanguageEntry
+{
+    public string Code, Text, Directory;
+}
+
 internal static class TranslatorContext
 {
+    private const string UnofficialLanguagesFolderPrefix = "Translations-";
+
     internal const string English = "en";
 
     private static readonly Dictionary<string, string> TranslationsCache = new();
 
-    internal static readonly string[] AvailableLanguages = { "de", "en", "fr", "pt", "ru", "zh-CN" };
-
     private static readonly Dictionary<string, string> Glossary = GetWordsDictionary();
+
+    internal static readonly string[] AvailableLanguages = { "de", "en", "es", "fr", "pt", "ru", "zh-CN" };
+
+    internal static readonly List<LanguageEntry> Languages = new();
+
+    internal static void LoadCustomLanguages()
+    {
+        var cultureInfos = CultureInfo.GetCultures(CultureTypes.AllCultures);
+        var directoryInfo = new DirectoryInfo($@"{UnityModManager.modsPath}/{typeof(Main).Namespace}");
+        var directories = directoryInfo.GetDirectories($"{UnofficialLanguagesFolderPrefix}??");
+
+        foreach (var directory in directories)
+        {
+            var code = directory.Name.Substring(UnofficialLanguagesFolderPrefix.Length,
+                directory.Name.Length - UnofficialLanguagesFolderPrefix.Length);
+            var cultureInfo = cultureInfos.First(o => o.Name == code);
+
+            if (LocalizationManager.HasLanguage(cultureInfo.DisplayName))
+            {
+                Main.Error($"Language {code} from {directory.Name} already in game");
+            }
+            else
+            {
+                Languages.Add(new LanguageEntry
+                {
+                    Code = code,
+                    Text = cultureInfo.TextInfo.ToTitleCase(cultureInfo.NativeName),
+                    Directory = directory.Name
+                });
+
+                Main.Info($"Language {code} detected.");
+            }
+        }
+    }
+
+    internal static void LoadCustomTerms()
+    {
+        var languageSourceData = LocalizationManager.Sources[0];
+
+        // load new language terms
+        foreach (var language in Languages)
+        {
+            // add language
+            languageSourceData.AddLanguage(language.Text, language.Code);
+
+            var languageIndex = languageSourceData.GetLanguageIndex(language.Text);
+
+            // add terms
+            var directoryInfo =
+                new DirectoryInfo($@"{UnityModManager.modsPath}/{typeof(Main).Namespace}/{language.Directory}");
+            var files = directoryInfo.GetFiles("*.txt");
+
+            foreach (var file in files)
+            {
+                var filename = $@"{Main.ModFolder}/{language.Directory}/{file.Name}";
+                using var sr = new StreamReader(filename);
+
+                while (sr.ReadLine() is { } line)
+                {
+                    try
+                    {
+                        var split = line.Split(new[] { '=' }, 2);
+                        var term = split[0];
+                        var text = split[1];
+
+                        languageSourceData.AddTerm(term).Languages[languageIndex] = text;
+                    }
+                    catch
+                    {
+                        Main.Error($"Skipping line [{line}] in file [{filename}]");
+                    }
+                }
+            }
+        }
+    }
 
     [NotNull]
     private static string GetPayload([NotNull] string url)

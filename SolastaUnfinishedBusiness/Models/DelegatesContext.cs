@@ -52,12 +52,12 @@ internal static class DelegatesContext
 
         if (!gameLoreService.KnownRecipes.Contains(RecipeBasic_Arrows))
         {
-            gameLoreService.LearnRecipe(RecipeBasic_Arrows); 
+            gameLoreService.LearnRecipe(RecipeBasic_Arrows);
         }
 
         if (!gameLoreService.KnownRecipes.Contains(RecipeBasic_Bolts))
         {
-            gameLoreService.LearnRecipe(RecipeBasic_Bolts); 
+            gameLoreService.LearnRecipe(RecipeBasic_Bolts);
         }
         //END BUGFIX
 

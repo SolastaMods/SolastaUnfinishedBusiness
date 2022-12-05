@@ -1,0 +1,4 @@
+﻿Feat/&FeatImprovedCriticalDescription=Seus ataques são acertos críticos em uma rolagem de 19 ou 20.
+Feat/&FeatImprovedCriticalTitle=Crítico Aprimorado
+Feat/&FeatSuperiorCriticalDescription=Seus ataques são acertos críticos em uma rolagem de 18, 19 ou 20.
+Feat/&FeatSuperiorCriticalTitle=Crítico Superior

@@ -99,7 +99,7 @@ internal static partial class SpellBuilders
         effectDescription.rangeType = RangeType.Distance;
         effectDescription.recurrentEffect = RecurrentEffect.OnEnter;
         effectDescription.savingThrowAbility = AttributeDefinitions.Wisdom;
-        effectDescription.fixedSavingThrowDifficultyClass = 15;
+        effectDescription.fixedSavingThrowDifficultyClass = 12;
         effectDescription.targetParameter = 0;
         effectDescription.targetType = TargetType.Sphere;
 

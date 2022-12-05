@@ -22,7 +22,7 @@ internal static partial class SpellBuilders
                 true,
                 EffectDifficultyClassComputation.SpellCastingFeature,
                 AttributeDefinitions.Dexterity,
-                20)
+                13)
             .SetEffectForms(
                 EffectFormBuilder
                     .Create()

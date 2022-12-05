@@ -1,6 +1,0 @@
-Size/&GargantuanTitle	Gigantesque
-Size/&HugeTitle	Très grande
-Size/&LargeTitle	Grande
-Size/&MediumTitle	Moyenne
-Size/&SmallTitle	Petite
-Size/&TinyTitle	Très petite

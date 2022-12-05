@@ -1,8 +1,0 @@
-Label/&CampfireLocationRestDescription	
-Label/&CampfireLocationRestTitle	
-Label/&CampfireResumeTravelRestDescription	
-Label/&CampfireResumeTravelRestTitle	
-Label/&EnterLocationDescription	
-Label/&EnterLocationTitle	
-Label/&TravelToLocationDescription	
-Label/&TravelToLocationTitle	

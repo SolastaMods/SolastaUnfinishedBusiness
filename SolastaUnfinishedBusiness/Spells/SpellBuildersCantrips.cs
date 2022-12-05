@@ -212,17 +212,6 @@ internal static partial class SpellBuilders
 
     internal static SpellDefinition BuildResonatingStrike()
     {
-        var resonanceHighLevel = EffectDescriptionBuilder.Create()
-            .SetParticleEffectParameters(AcidSplash)
-            .SetTargetFiltering(TargetFilteringMethod.CharacterOnly)
-            .SetTargetingData(Side.Enemy, RangeType.Touch, 1, TargetType.Individuals)
-            .SetEffectForms(EffectFormBuilder.Create()
-                .SetBonusMode(AddBonusMode.AbilityBonus)
-                .SetDamageForm(DamageTypeThunder, 1, DieType.D8)
-                .Build())
-            .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel, 5, additionalDicePerIncrement: 1)
-            .Build();
-
         var resonanceLeap = SpellDefinitionBuilder
             .Create("ResonatingStrikeLeap")
             .SetGuiPresentationNoContent()
@@ -230,19 +219,17 @@ internal static partial class SpellBuilders
             .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolEvocation)
             .SetSomaticComponent(false)
             .SetVerboseComponent(false)
-            .SetCustomSubFeatures(
-                new BonusSlotLevelsByClassLevel(),
-                new UpgradeEffectFromLevel(resonanceHighLevel, 5)
-            )
+            .SetCustomSubFeatures(new BonusSlotLevelsByClassLevel())
             .SetCastingTime(ActivationTime.Action)
             .SetEffectDescription(EffectDescriptionBuilder.Create()
-                .SetParticleEffectParameters(AcidSplash)
+                .SetParticleEffectParameters(Thunderwave)
                 .SetTargetFiltering(TargetFilteringMethod.CharacterOnly)
                 .SetTargetingData(Side.Enemy, RangeType.Touch, 1, TargetType.Individuals)
                 .SetEffectForms(EffectFormBuilder.Create()
                     .SetBonusMode(AddBonusMode.AbilityBonus)
-                    .SetDamageForm(DamageTypeThunder)
+                    .SetDamageForm(DamageTypeThunder, diceNumber: 0, dieType: DieType.D8)
                     .Build())
+                .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel, 1, additionalDicePerIncrement: 1)
                 .Build())
             .AddToDB();
 
@@ -262,7 +249,7 @@ internal static partial class SpellBuilders
             )
             .SetCastingTime(ActivationTime.Action)
             .SetEffectDescription(EffectDescriptionBuilder.Create()
-                .SetParticleEffectParameters(ScorchingRay)
+                .SetParticleEffectParameters(Thunderwave)
                 .SetTargetProximityData(true, 1)
                 .SetTargetingData(Side.Enemy, RangeType.Distance, 5, TargetType.IndividualsUnique, 2)
                 .SetIgnoreCover()
@@ -281,11 +268,11 @@ internal static partial class SpellBuilders
                                 .Create("AdditionalDamageResonatingStrike")
                                 .SetGuiPresentationNoContent(true)
                                 .SetNotificationTag("ResonatingStrike")
-                                .SetDamageDice(DieType.D8, 1)
+                                .SetDamageDice(DieType.D8, 0)
                                 .SetRequiredProperty(RestrictedContextRequiredProperty.MeleeWeapon)
                                 .SetAttackModeOnly()
                                 .SetSpecificDamageType(DamageTypeThunder)
-                                .SetAdvancement(ExtraAdditionalDamageAdvancement.CharacterLevel, 0, 1, 4)
+                                .SetAdvancement(ExtraAdditionalDamageAdvancement.CharacterLevel, 0, 1, 5)
                                 .SetIgnoreCriticalDoubleDice(true)
                                 .AddToDB()
                             )

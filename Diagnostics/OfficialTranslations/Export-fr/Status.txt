@@ -1,6 +1,0 @@
-Status/&ConcentrationFormat	{0} se concentre pour maintenir le sort '{1}'.
-Status/&ConcentrationStopDescription	Arrêtez la concentration.
-Status/&HealthStatusFormat	Santé : {0}
-Status/&ReadiedCantripAttackFormat	{0} est prêt à utiliser un sort mineur d'attaque si l'occasion se présente.
-Status/&ReadiedMeleeAttackFormat	{0} est prêt à utiliser une attaque au corps à corps si l'occasion se présente.
-Status/&ReadiedRangedAttackFormat	{0} est prêt à utiliser une attaque à distance si l'occasion se présente.

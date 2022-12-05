@@ -1,6 +1,0 @@
-Tag/&PactTomeCantripSpecialTagTitle	
-Tag/&PactTomeSpellSpecialTagTitle	
-Tag/&PactTomeRitualSpellSpecialTagTitle	
-Tag/&MysticArcanumSpellSpecialTagTitle	
-Tag/&MagicalSecretsCantripOrSpellSpecialTagTitle	
-Tag/&BonusCantripsCantripSpecialTagTitle	

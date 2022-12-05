@@ -9,6 +9,7 @@ using SolastaUnfinishedBusiness.Api.Extensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Api.Infrastructure;
 using SolastaUnfinishedBusiness.CustomBehaviors;
+using SolastaUnfinishedBusiness.CustomDefinitions;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.Models;
 
@@ -95,6 +96,21 @@ public static class RulesetCharacterHeroPatcher
             {
                 __result = classHolder;
             }
+        }
+    }
+
+    [HarmonyPatch(typeof(RulesetCharacterHero), "CanCastAnyInvocation")]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    public static class CanCastAnyInvocation_Patch
+    {
+        public static bool Prefix(RulesetCharacterHero __instance, out bool __result)
+        {
+            //PATCH: Make sure availablity of custom invocations doesn't affect defaukt ones
+            __result = __instance.Invocations
+                .Where(x => x.InvocationDefinition is not InvocationDefinitionCustom)
+                .Any(x => __instance.CanCastInvocation(x));
+
+            return false;
         }
     }
 
@@ -215,7 +231,7 @@ public static class RulesetCharacterHeroPatcher
 
             var mods = modifiers;
             var attackMode = __result;
-            
+
             if (attackMode.sourceObject is RulesetItem item)
             {
                 mods = item.GetSubFeaturesByType<IModifyAttackAttributeForWeapon>();

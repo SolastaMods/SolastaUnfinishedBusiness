@@ -158,7 +158,8 @@ internal static class MeleeCombatFeats
     {
         public void ModifyAttackMode(RulesetCharacter character, RulesetAttackMode attackMode)
         {
-            if (attackMode == null || !ValidatorsWeapon.IsMelee(attackMode))
+            if (attackMode == null ||
+                !(ValidatorsWeapon.IsMelee(attackMode) || ValidatorsWeapon.IsUnarmedWeapon(attackMode)))
             {
                 return;
             }

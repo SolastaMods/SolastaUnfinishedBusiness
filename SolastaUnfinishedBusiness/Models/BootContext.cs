@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.IO.Compression;
@@ -19,7 +20,7 @@ namespace SolastaUnfinishedBusiness.Models;
 
 internal static class BootContext
 {
-    internal static readonly HashSet<string> SupportedLanguages = new() { "fr" };
+    internal static readonly HashSet<string> SupportedLanguages = new() { "es", "fr", "pt-BR" };
 
     internal static void Startup()
     {
@@ -231,13 +232,25 @@ internal static class BootContext
 
         try
         {
+            var installedVersion = GetInstalledVersion();
             var infoPayload = wc.DownloadString($"{BASE_URL}/Info.json");
             var infoJson = JsonConvert.DeserializeObject<JObject>(infoPayload);
 
             // ReSharper disable once AssignNullToNotNullAttribute
             version = infoJson["Version"].Value<string>();
-            // ReSharper disable once StringCompareToIsCultureSpecific
-            hasUpdate = version.CompareTo(GetInstalledVersion()) > 0;
+
+            var a1 = installedVersion.Split('.');
+            var a2 = version.Split('.');
+
+            for (var i = 0; i < 4; i++)
+            {
+                hasUpdate = Int32.Parse(a2[i]) > Int32.Parse(a1[i]);
+
+                if (hasUpdate)
+                {
+                    break;
+                }
+            }
 
             changeLog = wc.DownloadString($"{BASE_URL}/Changelog.txt");
         }

@@ -406,7 +406,8 @@ internal static class LevelUpContext
         var spellCastingClass = featureDefinitionAutoPreparedSpells.SpellcastingClass;
         var spellRepertoire = rulesetCharacter.SpellRepertoires
             .Find(x => x.SpellCastingClass == spellCastingClass);
-        return spellRepertoire?.MaxSpellLevelOfSpellCastingLevel ?? 1;
+
+        return spellRepertoire != null ? SharedSpellsContext.MaxSpellLevelOfSpellCastingLevel(spellRepertoire) : 1;
     }
 
     internal static void EnumerateExtraSpells(

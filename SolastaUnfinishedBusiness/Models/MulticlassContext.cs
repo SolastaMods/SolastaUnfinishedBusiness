@@ -183,7 +183,7 @@ internal static class MulticlassContext
     internal static void LateLoad()
     {
         FixExtraAttacksScenarios();
-        FixDrabonbornBreathPowers();
+        FixDragonbornBreathPowers();
         AddNonOfficialBlueprintsToFeaturesCollections();
         PatchClassLevel();
         PatchEquipmentAssignment();
@@ -221,7 +221,7 @@ internal static class MulticlassContext
         Fighter.FeatureUnlocks.Add(new FeatureUnlockByLevel(attributeModifierExtraAttackForce4, 20));
     }
 
-    private static void FixDrabonbornBreathPowers()
+    private static void FixDragonbornBreathPowers()
     {
         var dragonbornBreathPowers = DatabaseRepository.GetDatabase<FeatureDefinitionPower>()
             .Where(x => x.name.StartsWith("PowerDragonbornBreath"));

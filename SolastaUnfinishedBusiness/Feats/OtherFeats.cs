@@ -52,23 +52,20 @@ internal static class OtherFeats
             .Create("PowerFeatHealerMedKit")
             .SetGuiPresentation(Category.Feature, PowerFunctionGoodberryHealingOther)
             .SetUsesAbilityBonus(ActivationTime.Action, RechargeRate.ShortRest, AttributeDefinitions.Wisdom)
-            .SetEffectDescription(EffectDescriptionBuilder
-                .Create()
+            .SetEffectDescription(EffectDescriptionBuilder.Create()
                 .SetTargetingData(Side.Ally, RangeType.Touch, 1, TargetType.Individuals)
-                .SetDurationData(DurationType.Permanent)
-                .SetEffectForms(
-                    EffectFormBuilder
-                        .Create()
-                        .SetHealingForm(
-                            HealingComputation.Dice,
-                            4,
-                            DieType.D6,
-                            1,
-                            false,
-                            HealingCap.MaximumHitPoints)
-                        .SetLevelAdvancement(EffectForm.LevelApplianceType.AddBonus, LevelSourceType.CharacterLevel)
-                        .CreatedByCharacter()
-                        .Build())
+                .SetDurationData(DurationType.Instantaneous)
+                .SetEffectForms(EffectFormBuilder.Create()
+                    .SetHealingForm(
+                        HealingComputation.Dice,
+                        4,
+                        DieType.D6,
+                        1,
+                        false,
+                        HealingCap.MaximumHitPoints)
+                    .SetLevelAdvancement(EffectForm.LevelApplianceType.AddBonus, LevelSourceType.CharacterLevel)
+                    .CreatedByCharacter()
+                    .Build())
                 .SetEffectAdvancement(EffectIncrementMethod.None)
                 .SetParticleEffectParameters(SpellDefinitions.MagicWeapon)
                 .Build())
@@ -78,8 +75,7 @@ internal static class OtherFeats
             .Create("PowerFeatHealerResuscitate")
             .SetGuiPresentation(Category.Feature, PowerDomainLifePreserveLife)
             .SetUsesFixed(ActivationTime.Action, RechargeRate.LongRest)
-            .SetEffectDescription(EffectDescriptionBuilder
-                .Create()
+            .SetEffectDescription(EffectDescriptionBuilder.Create()
                 .SetTargetingData(Side.Ally, RangeType.Touch, 1, TargetType.Individuals)
                 .SetTargetFiltering(
                     TargetFilteringMethod.CharacterOnly,
@@ -88,12 +84,10 @@ internal static class OtherFeats
                     DieType.D8)
                 .SetDurationData(DurationType.Permanent)
                 .SetRequiredCondition(ConditionDefinitions.ConditionDead)
-                .SetEffectForms(
-                    EffectFormBuilder
-                        .Create()
-                        .SetReviveForm(12, ReviveHitPoints.One)
-                        .CreatedByCharacter()
-                        .Build())
+                .SetEffectForms(EffectFormBuilder.Create()
+                    .SetReviveForm(12, ReviveHitPoints.One)
+                    .CreatedByCharacter()
+                    .Build())
                 .SetEffectAdvancement(EffectIncrementMethod.None)
                 .SetParticleEffectParameters(SpellDefinitions.MagicWeapon)
                 .Build())
@@ -129,18 +123,15 @@ internal static class OtherFeats
             .Create("PowerFeatInspiringLeader")
             .SetGuiPresentation("FeatInspiringLeader", Category.Feat, PowerOathOfTirmarGoldenSpeech)
             .SetUsesFixed(ActivationTime.Minute10, RechargeRate.ShortRest)
-            .SetEffectDescription(EffectDescriptionBuilder
-                .Create()
-                .SetTargetingData(Side.Ally, RangeType.Distance, 6, TargetType.Individuals, 6)
+            .SetEffectDescription(EffectDescriptionBuilder.Create()
+                .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Sphere, 6)
                 .SetDurationData(DurationType.Permanent)
-                .SetEffectForms(
-                    EffectFormBuilder
-                        .Create()
-                        .SetTempHpForm()
-                        .SetLevelAdvancement(EffectForm.LevelApplianceType.AddBonus, LevelSourceType.CharacterLevel)
-                        .CreatedByCharacter()
-                        .SetBonusMode(AddBonusMode.AbilityBonus)
-                        .Build())
+                .SetEffectForms(EffectFormBuilder.Create()
+                    .SetTempHpForm()
+                    .SetLevelAdvancement(EffectForm.LevelApplianceType.AddBonus, LevelSourceType.CharacterLevel)
+                    .CreatedByCharacter()
+                    .SetBonusMode(AddBonusMode.AbilityBonus)
+                    .Build())
                 .SetEffectAdvancement(EffectIncrementMethod.None)
                 .SetParticleEffectParameters(SpellDefinitions.MagicWeapon)
                 .Build())
@@ -182,13 +173,12 @@ internal static class OtherFeats
     {
         return FeatDefinitionBuilder
             .Create("FeatTough")
-            .SetFeatures(
-                FeatureDefinitionAttributeModifierBuilder
-                    .Create("AttributeModifierFeatTough")
-                    .SetGuiPresentationNoContent(true)
-                    .SetModifier(FeatureDefinitionAttributeModifier.AttributeModifierOperation.Additive,
-                        AttributeDefinitions.HitPointBonusPerLevel, 2)
-                    .AddToDB())
+            .SetFeatures(FeatureDefinitionAttributeModifierBuilder
+                .Create("AttributeModifierFeatTough")
+                .SetGuiPresentationNoContent(true)
+                .SetModifier(FeatureDefinitionAttributeModifier.AttributeModifierOperation.Additive,
+                    AttributeDefinitions.HitPointBonusPerLevel, 2)
+                .AddToDB())
             .SetGuiPresentation(Category.Feat)
             .AddToDB();
     }
@@ -198,15 +188,14 @@ internal static class OtherFeats
         return FeatDefinitionBuilder
             .Create(FeatWarCaster)
             .SetGuiPresentation(Category.Feat)
-            .SetFeatures(
-                FeatureDefinitionMagicAffinityBuilder
-                    .Create(MagicAffinityFeatWarCaster)
-                    .SetGuiPresentation(FeatWarCaster, Category.Feat)
-                    .SetCastingModifiers(0, SpellParamsModifierType.FlatValue, 0,
-                        SpellParamsModifierType.None)
-                    .SetConcentrationModifiers(ConcentrationAffinity.Advantage, 0)
-                    .SetHandsFullCastingModifiers(true, true, true)
-                    .AddToDB())
+            .SetFeatures(FeatureDefinitionMagicAffinityBuilder
+                .Create(MagicAffinityFeatWarCaster)
+                .SetGuiPresentation(FeatWarCaster, Category.Feat)
+                .SetCastingModifiers(0, SpellParamsModifierType.FlatValue, 0,
+                    SpellParamsModifierType.None)
+                .SetConcentrationModifiers(ConcentrationAffinity.Advantage, 0)
+                .SetHandsFullCastingModifiers(true, true, true)
+                .AddToDB())
             .SetMustCastSpellsPrerequisite()
             .AddToDB();
     }

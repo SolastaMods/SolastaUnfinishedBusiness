@@ -1,22 +1,18 @@
 ﻿ATTENTION:
 
-- RESPEC any Warlock that took Improved, Superior or Ultimate pact weapon invocations before accepting this update!
+- ¿Hablas español? ¿Quieres apoyar en la mejoría de las traducciones? Buscame en Discord
 
 CHANGES:
 
-1.4.30.8:
+1.4.30.9:
 
-- added Ranger Scout, Rogue Scout, Bard Armor and Warlock armor appearances to Empress Garb
-- changed all Gambits' effects to last until the start of your next turn
-- changed Counter Attack to trigger on its own turn to avoid it to be triggered by missed AoO
-- changed Debilitate, Goading and Threaten gambits to work with all attacks
-- changed Earth Tremor, Protect Threshold, Winter's Breath to use DC 15 + spell casting attribute modifier
-- changed remaining higher level spells to use DC 20 + spell casting attribute modifier whenever applicable
-- decreased Grenadier's projectiles speed to improve visibility
-- fixed Aspect of The Moon, Improved, Superior and Ultimate Pact Weapon to correctly apply effects
-- fixed Precision feats interaction with Monks
-- fixed Precision feats interaction with non-casters
-- fixed RESPEC not allowing same hero name (why anyone would do that, lol?)
-- removed Monk weapon tag from Pikes
-- reverted removal of Allow All Players on Narrative Sequences feature
-- updated Strategy: Overcome description
+- added Eldritch Blast as a pre-req for Hindering and Grasping Blast invocations
+- added unofficial Spanish support to the game
+- added Portuguese and Spanish support to the mod
+- changed Earth Tremor Protect Threshold, and Winter's Breath saving thrown to 12 + ability bonus modifier
+- changed Reverse Gravity, Meteor Swarm and Weird saving thrown to 13 + ability bonus modifier
+- fixed being able to use main/bonus action invocation spells/powers after using attack
+- fixed Resonating strike dice progression
+- fixed Plane Magic feats not considering the caster ability bonus
+- improved Inspiring Leader to grant temp HP in AoE
+- removed broken Magical Secrets from Bard at 14 and 18

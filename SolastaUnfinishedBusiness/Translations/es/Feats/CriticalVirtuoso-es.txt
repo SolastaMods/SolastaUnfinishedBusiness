@@ -1,0 +1,4 @@
+﻿Feat/&FeatImprovedCriticalDescription=Tus ataques son golpes críticos con una tirada de 19 o 20.
+Feat/&FeatImprovedCriticalTitle=Crítico mejorado
+Feat/&FeatSuperiorCriticalDescription=Tus ataques son golpes críticos con una tirada de 18, 19 o 20.
+Feat/&FeatSuperiorCriticalTitle=Crítico Superior

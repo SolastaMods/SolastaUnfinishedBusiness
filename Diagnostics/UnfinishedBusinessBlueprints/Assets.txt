@@ -3139,6 +3139,8 @@ DarkelfSkin3	MorphotypeElementDefinition	MorphotypeElementDefinition	642cdba9-23
 DarkelfSkin4	MorphotypeElementDefinition	MorphotypeElementDefinition	4ca7b339-28f4-5e79-bc25-74bea2986b07
 DarkelfSkin5	MorphotypeElementDefinition	MorphotypeElementDefinition	7c7a648d-fe3e-5ec7-93b2-989533272f88
 DarkelfSkin6	MorphotypeElementDefinition	MorphotypeElementDefinition	3bba39c9-4d70-5cf0-b4a5-3570796cc152
+GpPlayer5	PersonalityFlagDefinition	PersonalityFlagDefinition	567d1bb0-61f1-5ac3-9432-ee4ca442b2e4
+GpPlayer6	PersonalityFlagDefinition	PersonalityFlagDefinition	80d3f41d-7f35-5a43-a460-8152b8e15f00
 AlchemyTable~ElvenPalace~MOD	PropBlueprint	PropBlueprint	aa16d0e7-ef70-5ba7-b71a-c887404e4d0a
 AlchemyTable~Stronghold~MOD	PropBlueprint	PropBlueprint	f9358b5e-4d02-56ee-a9f7-bd4f2d000256
 Altar_A~Catacombs~MOD	PropBlueprint	PropBlueprint	60dca508-deff-5eba-ba9d-90a76110fd89
