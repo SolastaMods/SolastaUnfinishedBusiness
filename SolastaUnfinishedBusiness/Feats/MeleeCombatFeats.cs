@@ -187,6 +187,7 @@ internal static class MeleeCombatFeats
                 FeatureDefinitionAttributeModifiers.AttributeModifierCreed_Of_Misaye,
                 DieRollModifierFeatPiercerNonMagic,
                 FeatureFeatPiercer)
+            .SetAbilityScorePrerequisite(AttributeDefinitions.Dexterity, 13)
             .AddToDB();
     }
 
@@ -199,6 +200,7 @@ internal static class MeleeCombatFeats
                 FeatureDefinitionAttributeModifiers.AttributeModifierCreed_Of_Einar,
                 DieRollModifierFeatPiercerNonMagic,
                 FeatureFeatPiercer)
+            .SetAbilityScorePrerequisite(AttributeDefinitions.Strength, 13)
             .AddToDB();
     }
 

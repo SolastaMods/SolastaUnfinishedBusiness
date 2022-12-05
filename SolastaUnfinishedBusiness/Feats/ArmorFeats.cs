@@ -48,6 +48,7 @@ internal static class ArmorFeats
                     .SetFixedReducedDamage(3, DamageTypeBludgeoning, DamageTypePiercing, DamageTypeSlashing)
                     .SetCustomSubFeatures(ValidatorsCharacter.HeavyArmor)
                     .AddToDB())
+            .SetArmorProficiencyPrerequisite(EquipmentDefinitions.HeavyArmorCategory)
             .AddToDB();
 
         feats.AddRange(featMediumArmorDex, featMediumArmorStr, featHeavyArmorMaster);
