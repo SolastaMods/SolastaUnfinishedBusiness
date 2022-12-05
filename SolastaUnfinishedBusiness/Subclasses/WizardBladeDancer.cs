@@ -93,7 +93,7 @@ internal sealed class WizardBladeDancer : AbstractSubclass
                     .Create("ReduceDamageBladeDancerDanceOfDefense")
                     .SetGuiPresentation(Category.Feature)
                     .SetNotificationTag("DanceOfDefense")
-                    .SetReducedDamage(5)
+                    .SetConsumeSpellSlotsReducedDamage(CharacterClassDefinitions.Wizard, 5)
                     .AddToDB())
             .AddToDB();
 

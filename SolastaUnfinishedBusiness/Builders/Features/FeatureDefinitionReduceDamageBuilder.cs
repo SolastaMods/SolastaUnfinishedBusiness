@@ -17,8 +17,20 @@ internal class FeatureDefinitionReduceDamageBuilder
     }
 
     [NotNull]
-    internal FeatureDefinitionReduceDamageBuilder SetReducedDamage(int reducedDamage)
+    internal FeatureDefinitionReduceDamageBuilder SetFixedReducedDamage(int reducedDamage, string damageType = "")
     {
+        Definition.DamageType = damageType;
+        Definition.TriggerCondition = RuleDefinitions.AdditionalDamageTriggerCondition.AlwaysActive;
+        Definition.ReducedDamage = reducedDamage;
+        return this;
+    }
+
+    [NotNull]
+    internal FeatureDefinitionReduceDamageBuilder SetConsumeSpellSlotsReducedDamage(
+        CharacterClassDefinition spellCastingClass, int reducedDamage)
+    {
+        Definition.SpellCastingClass = spellCastingClass;
+        Definition.TriggerCondition = RuleDefinitions.AdditionalDamageTriggerCondition.SpendSpellSlot;
         Definition.ReducedDamage = reducedDamage;
         return this;
     }

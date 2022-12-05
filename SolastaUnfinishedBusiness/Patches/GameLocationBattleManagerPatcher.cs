@@ -303,7 +303,29 @@ public static class GameLocationBattleManagerPatcher
             var defenderCharacter = defender.RulesetCharacter;
 
             // Don't proceed if the damaged character cannot act
-            if (defenderCharacter == null || defenderCharacter.IsDeadOrDyingOrUnconscious) { yield break; }
+            if (defenderCharacter == null || defenderCharacter.IsDeadOrDyingOrUnconscious)
+            {
+                yield break;
+            }
+
+            // Can I always reduce a fixed damage amount (i.e.: Heavy Armor Feat)
+            foreach (var feature in defenderCharacter
+                         .GetFeaturesByType<FeatureDefinitionReduceDamage>()
+                         .Where(x => x.TriggerCondition ==
+                                     RuleDefinitions.AdditionalDamageTriggerCondition.AlwaysActive))
+            {
+                var damage = attackMode?.EffectDescription?.FindFirstDamageForm();
+
+                if (damage != null && feature.DamageType != String.Empty && feature.DamageType != damage.DamageType)
+                {
+                    continue;
+                }
+
+                var totalReducedDamage = feature.ReducedDamage;
+
+                attackModifier.damageRollReduction += totalReducedDamage;
+                defenderCharacter.DamageReduced(defenderCharacter, feature, totalReducedDamage);
+            }
 
             // Can the defender reduce incoming damage using their reaction?
             if (defender.GetActionTypeStatus(ActionDefinitions.ActionType.Reaction) !=
@@ -354,18 +376,20 @@ public static class GameLocationBattleManagerPatcher
                 yield break;
             }
 
-            // Can I reduce the damage consuming slots? (i.e: Blade Dancer)
-            //TODO: check if this properly works under MC
-            var repertoire = defenderCharacter.GetClassSpellRepertoire();
-
-            if (repertoire == null)
-            {
-                yield break;
-            }
-
+            // Can I reduce the damage consuming slots? (i.e.: Blade Dancer)
             foreach (var feature in defenderCharacter
-                         .GetFeaturesByType<FeatureDefinitionReduceDamage>())
+                         .GetFeaturesByType<FeatureDefinitionReduceDamage>()
+                         .Where(x => x.TriggerCondition ==
+                                     RuleDefinitions.AdditionalDamageTriggerCondition.SpendSpellSlot))
             {
+                var repertoire = defenderCharacter.SpellRepertoires
+                    .Find(x => x.spellCastingClass == feature.SpellCastingClass);
+                    
+                if (repertoire == null)
+                {
+                    yield break;
+                }
+
                 var atLeastOneSpellSlotAvailable = false;
 
                 for (var spellLevel = 1;
