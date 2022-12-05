@@ -217,7 +217,7 @@ internal static class Level20Context
         {
             Bard.FeatureUnlocks.AddRange(new List<FeatureUnlockByLevel>
             {
-                new(PointPoolBardMagicalSecrets14, 14),
+                // new(PointPoolBardMagicalSecrets14, 14),
                 new(AttributeModifierBardicInspirationDieD12, 15),
                 new(FeatureSetAbilityScoreChoice, 16)
             });
