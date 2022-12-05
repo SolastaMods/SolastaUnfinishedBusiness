@@ -158,6 +158,23 @@ internal static class ValidatorsCharacter
             .IsPhysicalArmor && element.ArmorCategory == EquipmentDefinitions.LightArmorCategory;
     };
 
+    internal static readonly IsCharacterValidHandler HeavyArmor = character =>
+    {
+        var equipedItem = character.CharacterInventory.InventorySlotsByName[EquipmentDefinitions.SlotTypeTorso]
+            .EquipedItem;
+
+        if (equipedItem == null || !equipedItem.ItemDefinition.IsArmor)
+        {
+            return false;
+        }
+
+        var armorDescription = equipedItem.ItemDefinition.ArmorDescription;
+        var element = DatabaseRepository.GetDatabase<ArmorTypeDefinition>().GetElement(armorDescription.ArmorType);
+
+        return DatabaseRepository.GetDatabase<ArmorCategoryDefinition>().GetElement(element.ArmorCategory)
+            .IsPhysicalArmor && element.ArmorCategory == EquipmentDefinitions.HeavyArmorCategory;
+    };
+
     internal static readonly IsCharacterValidHandler OffHandHasLightSource = character =>
     {
         switch (character)

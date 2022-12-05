@@ -3,6 +3,7 @@ using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.Infrastructure;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
+using SolastaUnfinishedBusiness.CustomBehaviors;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionAttributeModifiers;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatDefinitions;
@@ -35,12 +36,27 @@ internal static class ArmorFeats
             .SetArmorProficiencyPrerequisite(EquipmentDefinitions.LightArmorCategory)
             .AddToDB();
 
-        feats.AddRange(featMediumArmorDex, featMediumArmorStr);
+        var featHeavyArmorMaster = FeatDefinitionBuilder
+            .Create("FeatHeavyArmorMaster")
+            .SetGuiPresentation(Category.Feat)
+            .SetFeatures(
+                AttributeModifierCreed_Of_Einar,
+                FeatureDefinitionReduceDamageBuilder
+                    .Create("ReduceDamageFeatHeavyArmorMaster")
+                    .SetGuiPresentationNoContent(true)
+                    .SetNotificationTag("HeavyArmorMaster")
+                    .SetFixedReducedDamage(3, DamageTypeBludgeoning, DamageTypePiercing, DamageTypeSlashing)
+                    .SetCustomSubFeatures(ValidatorsCharacter.HeavyArmor)
+                    .AddToDB())
+            .AddToDB();
+
+        feats.AddRange(featMediumArmorDex, featMediumArmorStr, featHeavyArmorMaster);
 
         GroupFeats.MakeGroup("FeatGroupArmor", null,
             GroupFeats.MakeGroup("FeatGroupMediumArmor", "MediumArmor",
                 featMediumArmorDex,
                 featMediumArmorStr),
+            featHeavyArmorMaster,
             ArmorMaster,
             DiscretionOfTheCoedymwarth,
             MightOfTheIronLegion,

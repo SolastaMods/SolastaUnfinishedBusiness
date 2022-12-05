@@ -1,5 +1,6 @@
 ﻿using System;
 using JetBrains.Annotations;
+using SolastaUnfinishedBusiness.Api.Infrastructure;
 using SolastaUnfinishedBusiness.CustomDefinitions;
 
 namespace SolastaUnfinishedBusiness.Builders.Features;
@@ -17,9 +18,9 @@ internal class FeatureDefinitionReduceDamageBuilder
     }
 
     [NotNull]
-    internal FeatureDefinitionReduceDamageBuilder SetFixedReducedDamage(int reducedDamage, string damageType = "")
+    internal FeatureDefinitionReduceDamageBuilder SetFixedReducedDamage(int reducedDamage, params string[] damageTypes)
     {
-        Definition.DamageType = damageType;
+        Definition.DamageTypes.SetRange(damageTypes);
         Definition.TriggerCondition = RuleDefinitions.AdditionalDamageTriggerCondition.AlwaysActive;
         Definition.ReducedDamage = reducedDamage;
         return this;

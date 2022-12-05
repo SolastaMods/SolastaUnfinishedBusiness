@@ -316,7 +316,8 @@ public static class GameLocationBattleManagerPatcher
             {
                 var damage = attackMode?.EffectDescription?.FindFirstDamageForm();
 
-                if (damage != null && feature.DamageType != String.Empty && feature.DamageType != damage.DamageType)
+                if (damage != null && feature.DamageTypes.Count != 0 &&
+                    !feature.DamageTypes.Contains(damage.damageType))
                 {
                     continue;
                 }
@@ -384,7 +385,7 @@ public static class GameLocationBattleManagerPatcher
             {
                 var repertoire = defenderCharacter.SpellRepertoires
                     .Find(x => x.spellCastingClass == feature.SpellCastingClass);
-                    
+
                 if (repertoire == null)
                 {
                     yield break;
