@@ -1,0 +1,30 @@
+{
+  "$type": "SolastaUnfinishedBusiness.CustomDefinitions.FeatureDefinitionReduceDamage, SolastaUnfinishedBusiness",
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feature/&ReduceDamageFeatHeavyArmorMasterTitle",
+    "description": "Feature/&ReduceDamageFeatHeavyArmorMasterDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "e0936926-8b1a-5ce2-bf39-bf93ab12d609",
+  "contentPack": 9999,
+  "name": "ReduceDamageFeatHeavyArmorMaster"
+}
