@@ -8,6 +8,7 @@ using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomUI;
+using SolastaUnfinishedBusiness.Models;
 using UnityEngine.AddressableAssets;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
@@ -215,7 +216,7 @@ internal sealed class WizardDeadMaster : AbstractSubclass
 
                 if (Main.Settings.EnableRegisteringUndeadSpells)
                 {
-                    Models.SpellsContext.RegisterSpell(createDeadSpell);
+                    SpellsContext.RegisterSpell(createDeadSpell);
                 }
 
                 spells.Add(createDeadSpell);

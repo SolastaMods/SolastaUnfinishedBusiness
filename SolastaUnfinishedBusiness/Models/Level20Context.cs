@@ -143,12 +143,13 @@ internal static class Level20Context
         {
             spells.RemoveAll(x => x == null);
         }
-        
+
         //
         // BUGFIX: this future Race has a wrong cast spell knowledge
         //
 
-        if (DatabaseRepository.GetDatabase<FeatureDefinitionCastSpell>().TryGetElement("CastSpellTiefling", out var featureDefinitionCastSpell))
+        if (DatabaseRepository.GetDatabase<FeatureDefinitionCastSpell>()
+            .TryGetElement("CastSpellTiefling", out var featureDefinitionCastSpell))
         {
             featureDefinitionCastSpell.spellKnowledge = SpellKnowledge.Selection;
         }
@@ -350,7 +351,7 @@ internal static class Level20Context
             SpellListCleric.SpellsByLevel.Add(new SpellListDefinition.SpellsByLevelDuplet
             {
                 level = 7, Spells = new List<SpellDefinition> { Resurrection }
-            }); 
+            });
         }
     }
 

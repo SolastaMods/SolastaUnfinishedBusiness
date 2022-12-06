@@ -108,7 +108,7 @@ internal static partial class SpellBuilders
         public int GetBonusSlotLevels([NotNull] RulesetCharacter caster)
         {
             var level = caster.GetAttribute(AttributeDefinitions.CharacterLevel).CurrentValue;
-            return RuleDefinitions.SpellAdvancementByCasterLevel[level - 1];
+            return SpellAdvancementByCasterLevel[level - 1];
         }
     }
 

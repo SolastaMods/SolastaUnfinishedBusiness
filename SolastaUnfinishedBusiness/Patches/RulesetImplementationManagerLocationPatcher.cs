@@ -25,7 +25,7 @@ public static class RulesetImplementationManagerLocationPatcher
             __result.spellRepertoire ??= invocation.invocationRepertoire;
         }
     }
-    
+
     [HarmonyPatch(typeof(RulesetImplementationManagerLocation), "IsMetamagicOptionAvailable")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     public static class IsMetamagicOptionAvailable_Patch
