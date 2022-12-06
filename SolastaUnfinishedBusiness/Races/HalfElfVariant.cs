@@ -27,10 +27,6 @@ internal static class RaceHalfElfVariantRaceBuilder
             .SetFeaturesAtLevel(1,
                 CastSpellDarkelfMagic,
                 MoveModeMove6)
-            .AddFeaturesAtLevel(3,
-                PowerDarkelfFaerieFire)
-            .AddFeaturesAtLevel(5,
-                PowerDarkelfDarkness)
             .AddToDB();
 
         var halfHighSpriteReference = Sprites.GetSprite("HalfHighElf", Resources.HalfHighElf, 1024, 512);

@@ -1,5 +1,13 @@
 ﻿CHANGES:
 
+1.4.30.11:
+
+- fixed AoO to use Thunder Gauntlet if main hand is free
+- fixed Bard Magical secrets at 14 and 18
+- fixed missing +1 CHA on Metamagic feats
+- fixed Path of The Spirits' Animal Friendship saving thrown DC
+- updated French translations
+
 1.4.30.10:
 
 - added Heavy Armor Master, Mobile and Piercer feats

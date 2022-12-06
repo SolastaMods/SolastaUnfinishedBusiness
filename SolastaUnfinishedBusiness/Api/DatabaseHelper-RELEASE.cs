@@ -6,7 +6,6 @@ internal static partial class DatabaseHelper
     internal static class ActionDefinitions
     { 
         internal static ActionDefinition OneWithShadowsTurnInvisible { get; } = GetDefinition<ActionDefinition>("OneWithShadowsTurnInvisible");
-        internal static ActionDefinition Sunbeam { get; } = GetDefinition<ActionDefinition>("Sunbeam");
     }    
     internal static class AlignmentDefinitions
     {
@@ -275,7 +274,6 @@ internal static partial class DatabaseHelper
     }
     internal static class FeatureDefinitionAdditionalActions
     {
-        internal static FeatureDefinitionAdditionalAction AdditionalActionHunterHordeBreaker { get; } = GetDefinition<FeatureDefinitionAdditionalAction>("AdditionalActionHunterHordeBreaker");
         internal static FeatureDefinitionAdditionalAction AdditionalActionSurgedMain { get; } = GetDefinition<FeatureDefinitionAdditionalAction>("AdditionalActionSurgedMain");
     }
     internal static class FeatureDefinitionAdditionalDamages
@@ -648,7 +646,6 @@ internal static partial class DatabaseHelper
     {
         internal static FightingStyleDefinition Archery { get; } = GetDefinition<FightingStyleDefinition>("Archery");
         internal static FightingStyleDefinition Defense { get; } = GetDefinition<FightingStyleDefinition>("Defense");
-        internal static FightingStyleDefinition Dueling { get; } = GetDefinition<FightingStyleDefinition>("Dueling");
         internal static FightingStyleDefinition TwoWeapon { get; } = GetDefinition<FightingStyleDefinition>("TwoWeapon");
     }
     internal static class FormationDefinitions
@@ -1246,6 +1243,7 @@ internal static partial class DatabaseHelper
         internal static SpellDefinition RayOfFrost { get; } = GetDefinition<SpellDefinition>("RayOfFrost");
         internal static SpellDefinition RemoveCurse { get; } = GetDefinition<SpellDefinition>("RemoveCurse");
         internal static SpellDefinition Resistance { get; } = GetDefinition<SpellDefinition>("Resistance");
+        internal static SpellDefinition Resurrection { get; } = GetDefinition<SpellDefinition>("Resurrection");
         internal static SpellDefinition Revivify { get; } = GetDefinition<SpellDefinition>("Revivify");
         internal static SpellDefinition SacredFlame_B { get; } = GetDefinition<SpellDefinition>("SacredFlame_B");
         internal static SpellDefinition ScorchingRay { get; } = GetDefinition<SpellDefinition>("ScorchingRay");

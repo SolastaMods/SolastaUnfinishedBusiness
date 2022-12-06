@@ -53,18 +53,14 @@ internal static class RaceBolgrifBuilder
                 .Build())
             .AddToDB();
 
-        var druidCantrips = SpellListDefinitions.SpellListDruid.SpellsByLevel[0].Spells;
-
         var spellListBolgrif = SpellListDefinitionBuilder
-            .Create(SpellListDefinitions.SpellListDruid, "SpellListBolgrif")
-            .SetGuiPresentationNoContent()
-            .ClearSpells()
-            .SetSpellsAtLevel(0, druidCantrips.ToArray())
-            .FinalizeSpells()
+            .Create("SpellListBolgrif")
+            .SetGuiPresentationNoContent(true)
+            .FinalizeSpells(true, -1)
             .AddToDB();
 
         //explicitly re-use druid spell list, so custom cantrips selected for druid will show here 
-        spellListBolgrif.SpellsByLevel[0].Spells = druidCantrips;
+        spellListBolgrif.SpellsByLevel[0].Spells = SpellListDefinitions.SpellListDruid.SpellsByLevel[0].Spells;
 
         var castSpellBolgrifMagic = FeatureDefinitionCastSpellBuilder
             .Create(FeatureDefinitionCastSpells.CastSpellElfHigh, "CastSpellBolgrifMagic")

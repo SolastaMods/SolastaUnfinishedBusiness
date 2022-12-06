@@ -251,12 +251,12 @@ public static class CustomActionIdContext
 
         if (result == ActionStatus.Available)
         {
-            if (actionType == ActionType.Bonus && (
+            if ((actionType == ActionType.Bonus && (
                     locationCharacter.UsedBonusAttacks > 0
-                    || character.HasConditionOfType(RuleDefinitions.ConditionFlurryOfBlows)
-                    || character.HasConditionOfType(RuleDefinitions
-                        .ConditionTraditionFreedomFlurryOfBlowsUnarmedStrikeBonusUnendingStrikes))
-                || actionType == ActionType.Main && locationCharacter.UsedMainAttacks > 0)
+                    || character.HasConditionOfType(ConditionFlurryOfBlows)
+                    || character.HasConditionOfType(
+                        ConditionTraditionFreedomFlurryOfBlowsUnarmedStrikeBonusUnendingStrikes)))
+                || (actionType == ActionType.Main && locationCharacter.UsedMainAttacks > 0))
             {
                 result = ActionStatus.NoLongerAvailable;
             }

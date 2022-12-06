@@ -6,6 +6,7 @@ using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Properties;
 using TA;
+using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionSenses;
 using static FeatureDefinitionAttributeModifier;
@@ -37,7 +38,7 @@ internal static class GnomeRaceBuilder
             .Create("SavingThrowAffinityGnomeCunningFeature")
             .SetGuiPresentation(Category.Feature)
             .SetAffinities(
-                RuleDefinitions.CharacterSavingThrowAffinity.Advantage,
+                CharacterSavingThrowAffinity.Advantage,
                 true,
                 AttributeDefinitions.Intelligence,
                 AttributeDefinitions.Wisdom,
@@ -45,15 +46,23 @@ internal static class GnomeRaceBuilder
             .AddToDB();
 
         var spellListGnome = SpellListDefinitionBuilder
-            .Create(SpellListDefinitions.SpellListWizard, "SpellListGnome")
-            .SetGuiPresentationNoContent()
+            .Create("SpellListGnome")
+            .SetGuiPresentationNoContent(true)
+            .ClearSpells()
             .SetSpellsAtLevel(0, SpellDefinitions.AnnoyingBee)
-            .FinalizeSpells()
+            .FinalizeSpells(maxLevel: -1)
             .AddToDB();
 
         var castSpellGnomeNaturalIllusionist = FeatureDefinitionCastSpellBuilder
-            .Create(FeatureDefinitionCastSpells.CastSpellElfHigh, "CastSpellGnomeNaturalIllusionist")
+            .Create("CastSpellGnomeNaturalIllusionist")
             .SetGuiPresentation(Category.Feature)
+            .SetSpellCastingOrigin(FeatureDefinitionCastSpell.CastingOrigin.Race)
+            .SetSpellCastingAbility(AttributeDefinitions.Charisma)
+            .SetSpellKnowledge(SpellKnowledge.Selection)
+            .SetSpellReadyness(SpellReadyness.AllKnown)
+            .SetSlotsRecharge(RechargeRate.LongRest)
+            .SetSlotsPerLevel(SharedSpellsContext.RaceCastingSlots)
+            .SetKnownCantrips(1, 1, FeatureDefinitionCastSpellBuilder.CasterProgression.Flat)
             .SetSpellList(spellListGnome)
             .SetSpellCastingAbility(AttributeDefinitions.Intelligence)
             .AddToDB();
@@ -66,7 +75,7 @@ internal static class GnomeRaceBuilder
         var proficiencyGnomeLanguages = FeatureDefinitionProficiencyBuilder
             .Create("ProficiencyGnomeLanguages")
             .SetGuiPresentation(Category.Feature)
-            .SetProficiencies(RuleDefinitions.ProficiencyType.Language, "Language_Common", languageGnomish.Name)
+            .SetProficiencies(ProficiencyType.Language, "Language_Common", languageGnomish.Name)
             .AddToDB();
 
         var gnomeRacePresentation = CharacterRaceDefinitions.HalfElf.RacePresentation.DeepCopy();

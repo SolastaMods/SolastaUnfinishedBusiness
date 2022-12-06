@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.Diagnostics;
+using SolastaUnfinishedBusiness.Api.Infrastructure;
 
 namespace SolastaUnfinishedBusiness.Builders.Features;
 
@@ -337,6 +338,13 @@ internal class FeatureDefinitionCastSpellBuilder
                 }
 
                 break;
+            case CasterProgression.Flat:
+                for (; level < 21; level++)
+                {
+                    Definition.KnownCantrips.Add(startingAmount);
+                }
+
+                break;
             default:
                 throw new SolastaUnfinishedBusinessException($"Unknown CasterProgression: {progression}");
         }
@@ -430,13 +438,21 @@ internal class FeatureDefinitionCastSpellBuilder
         return this;
     }
 
+    internal FeatureDefinitionCastSpellBuilder SetSlotsPerLevel(
+        IEnumerable<FeatureDefinitionCastSpell.SlotsByLevelDuplet> slotsByLevelDuplets)
+    {
+        Definition.SlotsPerLevels.SetRange(slotsByLevelDuplets);
+        return this;
+    }
+
     internal enum CasterProgression
     {
         None = 0,
         Full = 1,
         Half = 2,
         OneThird = 3,
-        HalfRoundUp = 4
+        HalfRoundUp = 4,
+        Flat = 5
     }
 
     #region SpellSlots

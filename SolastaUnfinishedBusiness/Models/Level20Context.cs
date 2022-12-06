@@ -26,6 +26,7 @@ using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPower
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionProficiencys;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionSenses;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellListDefinitions;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
 using static SolastaUnfinishedBusiness.Builders.Features.FeatureDefinitionCastSpellBuilder;
 
 namespace SolastaUnfinishedBusiness.Models;
@@ -133,6 +134,31 @@ internal static class Level20Context
                 });
             }
         }
+
+        //
+        // BUGFIX: fix Race Repertoires
+        //
+        
+        CastSpellElfHigh.SlotsPerLevels.Do(x => x.slots = new List<int>() {0});
+
+        //
+        // BUGFIX: these null shouldn't be there as it breaks Bard Magical Secrets
+        //
+
+        foreach (var spells in SpellListAllSpells.SpellsByLevel.Select(x => x.Spells))
+        {
+            spells.RemoveAll(x => x == null);
+        }
+
+        //
+        // BUGFIX: this future Race has a wrong cast spell knowledge
+        //
+
+        if (DatabaseRepository.GetDatabase<FeatureDefinitionCastSpell>()
+            .TryGetElement("CastSpellTiefling", out var featureDefinitionCastSpell))
+        {
+            featureDefinitionCastSpell.spellKnowledge = SpellKnowledge.Selection;
+        }
     }
 
     internal static void LateLoad()
@@ -217,7 +243,7 @@ internal static class Level20Context
         {
             Bard.FeatureUnlocks.AddRange(new List<FeatureUnlockByLevel>
             {
-                // new(PointPoolBardMagicalSecrets14, 14),
+                new(PointPoolBardMagicalSecrets14, 14),
                 new(AttributeModifierBardicInspirationDieD12, 15),
                 new(FeatureSetAbilityScoreChoice, 16)
             });
@@ -225,8 +251,7 @@ internal static class Level20Context
 
         Bard.FeatureUnlocks.AddRange(new List<FeatureUnlockByLevel>
         {
-            // new(pointPoolBardMagicalSecrets18, 18),
-            new(FeatureSetAbilityScoreChoice, 19),
+            new(pointPoolBardMagicalSecrets18, 18), new(FeatureSetAbilityScoreChoice, 19),
             // TODO 20: Bard Superior Inspiration
         });
 
@@ -243,6 +268,14 @@ internal static class Level20Context
             2, 1, CastSpellBard.ReplacedSpells);
 
         SpellListBard.maxSpellLevel = 9;
+
+        if (!Main.IsDebugBuild)
+        {
+            SpellListBard.SpellsByLevel.Add(new SpellListDefinition.SpellsByLevelDuplet
+            {
+                level = 7, Spells = new List<SpellDefinition> { Resurrection }
+            });
+        }
     }
 
     private static void ClericLoad()
@@ -318,6 +351,14 @@ internal static class Level20Context
             new FeatureUnlockByLevel(powerClericDivineInterventionImprovementCleric, 20));
         DomainSun.FeatureUnlocks.Add(
             new FeatureUnlockByLevel(powerClericDivineInterventionImprovementWizard, 20));
+
+        if (!Main.IsDebugBuild)
+        {
+            SpellListCleric.SpellsByLevel.Add(new SpellListDefinition.SpellsByLevelDuplet
+            {
+                level = 7, Spells = new List<SpellDefinition> { Resurrection }
+            });
+        }
     }
 
     private static void DruidLoad()
@@ -345,6 +386,14 @@ internal static class Level20Context
             CastSpellDruid.SlotsPerLevels);
 
         SpellListDruid.maxSpellLevel = 9;
+
+        if (!Main.IsDebugBuild)
+        {
+            SpellListDruid.SpellsByLevel.Add(new SpellListDefinition.SpellsByLevelDuplet
+            {
+                level = 7, Spells = new List<SpellDefinition> { Resurrection }
+            });
+        }
     }
 
     private static void FighterLoad()
