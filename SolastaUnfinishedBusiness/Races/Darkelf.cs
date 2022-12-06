@@ -18,32 +18,30 @@ internal static class DarkelfSubraceBuilder
 {
     internal static CharacterRaceDefinition SubraceDarkelf { get; } = BuildDarkelf();
 
-    internal static FeatureDefinitionCastSpell CastSpellDarkelfMagic { get; private set; }
+    internal static readonly FeatureDefinitionCastSpell CastSpellDarkelfMagic = FeatureDefinitionCastSpellBuilder
+        .Create("CastSpellDarkelfMagic")
+        .SetGuiPresentation(Category.Feature)
+        .SetSpellCastingOrigin(FeatureDefinitionCastSpell.CastingOrigin.Race)
+        .SetSpellCastingAbility(AttributeDefinitions.Charisma)
+        .SetSpellKnowledge(SpellKnowledge.Selection)
+        .SetSpellReadyness(SpellReadyness.AllKnown)
+        .SetSlotsRecharge(RechargeRate.LongRest)
+        .SetSlotsPerLevel(SharedSpellsContext.RaceCastingSlots)
+        .SetKnownCantrips(1, 1, FeatureDefinitionCastSpellBuilder.CasterProgression.Flat)
+        .SetSpellList(SpellListDefinitionBuilder
+            .Create("SpellListDarkelf")
+            .SetGuiPresentationNoContent(true)
+            .ClearSpells()
+            .SetSpellsAtLevel(0, SpellDefinitions.DancingLights)
+            .SetSpellsAtLevel(1, SpellDefinitions.FaerieFire)
+            .SetSpellsAtLevel(2, SpellDefinitions.Darkness)
+            .FinalizeSpells(true, -1)
+            .AddToDB())
+        .AddToDB();
 
     [NotNull]
     private static CharacterRaceDefinition BuildDarkelf()
     {
-        CastSpellDarkelfMagic = FeatureDefinitionCastSpellBuilder
-            .Create("CastSpellDarkelfMagic")
-            .SetGuiPresentation(Category.Feature)
-            .SetSpellCastingOrigin(FeatureDefinitionCastSpell.CastingOrigin.Race)
-            .SetSpellCastingAbility(AttributeDefinitions.Charisma)
-            .SetSpellKnowledge(SpellKnowledge.Selection)
-            .SetSpellReadyness(SpellReadyness.AllKnown)
-            .SetSlotsRecharge(RechargeRate.LongRest)
-            .SetSlotsPerLevel(SharedSpellsContext.RaceCastingSlots)
-            .SetKnownCantrips(1, 1, FeatureDefinitionCastSpellBuilder.CasterProgression.Flat)
-            .SetSpellList(SpellListDefinitionBuilder
-                .Create("SpellListDarkelf")
-                .SetGuiPresentationNoContent(true)
-                .ClearSpells()
-                .SetSpellsAtLevel(0, SpellDefinitions.DancingLights)
-                .SetSpellsAtLevel(1, SpellDefinitions.FaerieFire)
-                .SetSpellsAtLevel(2, SpellDefinitions.Darkness)
-                .FinalizeSpells(true, -1)
-                .AddToDB())
-            .AddToDB();
-
         var darkelfSpriteReference = Sprites.GetSprite("Darkelf", Resources.Darkelf, 1024, 512);
 
         var attributeModifierDarkelfCharismaAbilityScoreIncrease = FeatureDefinitionAttributeModifierBuilder

@@ -59,8 +59,12 @@ internal static class Sorting
             return -1;
         }
 
-        return String.Compare(a.FeatureDefinition.FormatTitle(), b.FeatureDefinition.FormatTitle(),
-            StringComparison.CurrentCulture);
+        if (a.FeatureDefinition == null || b.FeatureDefinition == null)
+        {
+            return 0;
+        }
+
+        return CompareTitle(a.FeatureDefinition, b.FeatureDefinition);
     }
 
     internal static int CompareTitle(BaseDefinition x, BaseDefinition y)
