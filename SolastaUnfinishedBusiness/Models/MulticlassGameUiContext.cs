@@ -81,7 +81,7 @@ internal static class MulticlassGameUiContext
         var sharedSpellLevel = SharedSpellsContext.GetSharedSpellLevel(hero);
         var warlockSpellLevel = SharedSpellsContext.GetWarlockSpellLevel(hero);
         var classSpellLevel = spellRepertoire.spellCastingRace != null
-            ? 0
+            ? spellRepertoire.MaxSpellLevelOfSpellCastingLevel
             : SharedSpellsContext.MaxSpellLevelOfSpellCastingLevel(spellRepertoire);
 
         SharedSpellsContext.FactorMysticArcanum(hero, spellRepertoire, ref classSpellLevel);

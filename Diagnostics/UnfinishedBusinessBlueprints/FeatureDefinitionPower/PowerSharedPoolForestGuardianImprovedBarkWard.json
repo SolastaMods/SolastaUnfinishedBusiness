@@ -1,5 +1,5 @@
 {
-  "$type": "SolastaUnfinishedBusiness.CustomDefinitions.FeatureDefinitionPowerSharedPool, SolastaUnfinishedBusiness",
+  "$type": "FeatureDefinitionPower, Assembly-CSharp",
   "effectDescription": {
     "$type": "EffectDescription, Assembly-CSharp",
     "rangeType": "Self",
@@ -102,8 +102,8 @@
         "saveOccurence": "EndOfTurn",
         "conditionForm": {
           "$type": "ConditionForm, Assembly-CSharp",
-          "conditionDefinitionName": "ConditionForestGuardianBarkWard",
-          "conditionDefinition": "Definition:ConditionForestGuardianBarkWard:90bd0c90-d42e-585e-b1be-6e909289bb81",
+          "conditionDefinitionName": "ConditionForestGuardianImprovedBarkWard",
+          "conditionDefinition": "Definition:ConditionForestGuardianImprovedBarkWard:60711996-d1a6-54ba-81cc-68a92f856c2e",
           "operation": "Add",
           "conditionsList": [],
           "applyToSelf": true,
@@ -332,10 +332,10 @@
   "rechargeRate": "LongRest",
   "costPerUse": 1,
   "spellcastingFeature": null,
-  "usesDetermination": "Fixed",
+  "usesDetermination": "ProficiencyBonus",
   "abilityScoreDetermination": "Explicit",
   "usesAbilityScoreName": "Charisma",
-  "fixedUsesPerRecharge": 1,
+  "fixedUsesPerRecharge": 0,
   "abilityScore": "Intelligence",
   "attackHitComputation": "AbilityScore",
   "fixedAttackHit": 0,
@@ -344,13 +344,13 @@
   "uniqueInstance": false,
   "showCasting": true,
   "shortTitleOverride": "",
-  "overriddenPower": null,
+  "overriddenPower": "Definition:PowerSharedPoolForestGuardianBarkWard:9e840509-63ba-5093-863a-aacb24745e79",
   "includeBaseDescription": false,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&PowerSharedPoolForestGuardianBarkWardTitle",
-    "description": "Feature/&PowerSharedPoolForestGuardianBarkWardDescription",
+    "title": "Feature/&PowerSharedPoolForestGuardianImprovedBarkWardTitle",
+    "description": "Feature/&PowerSharedPoolForestGuardianImprovedBarkWardDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "957eec7a8104a44469ea221963733af8",
@@ -370,7 +370,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "9e840509-63ba-5093-863a-aacb24745e79",
+  "guid": "1e5f493c-3342-55c4-bed6-85423d8a53e0",
   "contentPack": 9999,
-  "name": "PowerSharedPoolForestGuardianBarkWard"
+  "name": "PowerSharedPoolForestGuardianImprovedBarkWard"
 }

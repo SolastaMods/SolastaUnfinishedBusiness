@@ -1,9 +1,7 @@
-﻿ATTENTION:
+﻿CHANGES:
 
-- ¿Hablas español? ¿Quieres apoyar en la mejoría de las traducciones? Buscame en Discord
+1.4.30.11:
 
-CHANGES:
-
-1.4.30.10:
-
-- added Heavy Armor Master and Piercer feats
+- added Resurrection to Bard, Cleric and Druid at 7
+- fixed Bard Magical secrets at 14 and 18
+- fixed Path of The Spirits' Animal Friendship saving thrown DC

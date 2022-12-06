@@ -1,5 +1,5 @@
 {
-  "$type": "SolastaUnfinishedBusiness.CustomDefinitions.FeatureDefinitionReduceDamage, SolastaUnfinishedBusiness",
+  "$type": "FeatureDefinition, Assembly-CSharp",
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
@@ -24,7 +24,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "e0936926-8b1a-5ce2-bf39-bf93ab12d609",
+  "guid": "f5f589f6-0d77-5668-9ac1-a52873157ece",
   "contentPack": 9999,
-  "name": "ReduceDamageFeatHeavyArmorMaster"
+  "name": "OnAfterActionFeatMobileDash"
 }

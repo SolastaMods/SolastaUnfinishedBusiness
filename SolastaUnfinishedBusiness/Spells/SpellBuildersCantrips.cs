@@ -227,11 +227,26 @@ internal static partial class SpellBuilders
                 .SetTargetingData(Side.Enemy, RangeType.Touch, 1, TargetType.Individuals)
                 .SetEffectForms(EffectFormBuilder.Create()
                     .SetBonusMode(AddBonusMode.AbilityBonus)
-                    .SetDamageForm(DamageTypeThunder, diceNumber: 0, dieType: DieType.D8)
+                    .SetDamageForm(DamageTypeThunder, 0, DieType.D8)
                     .Build())
                 .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel, 1, additionalDicePerIncrement: 1)
                 .Build())
             .AddToDB();
+
+        var additionalDamageResonatingStrike = FeatureDefinitionAdditionalDamageBuilder
+            .Create("AdditionalDamageResonatingStrike")
+            .SetGuiPresentationNoContent(true)
+            .SetNotificationTag("ResonatingStrike")
+            .SetDamageDice(DieType.D8, 0)
+            .SetRequiredProperty(RestrictedContextRequiredProperty.MeleeWeapon)
+            .SetAttackModeOnly()
+            .SetSpecificDamageType(DamageTypeThunder)
+            .SetAdvancement(ExtraAdditionalDamageAdvancement.CharacterLevel, 1, 1, 5, 5)
+            .SetIgnoreCriticalDoubleDice(true)
+            .AddToDB();
+
+        // hack as the ResonatingStrike damage distribution is odd (4,6,5,5) and SetAdv doesn't cover that
+        additionalDamageResonatingStrike.diceByRankTable[4].diceNumber = 1;
 
         return SpellDefinitionBuilder
             .Create("ResonatingStrike")
@@ -264,18 +279,7 @@ internal static partial class SpellBuilders
                             .SetSpecialInterruptions(ConditionInterruption.Attacks)
                             .SetSilent(Silent.WhenAddedOrRemoved)
                             .SetTurnOccurence(TurnOccurenceType.EndOfTurn)
-                            .SetFeatures(FeatureDefinitionAdditionalDamageBuilder
-                                .Create("AdditionalDamageResonatingStrike")
-                                .SetGuiPresentationNoContent(true)
-                                .SetNotificationTag("ResonatingStrike")
-                                .SetDamageDice(DieType.D8, 0)
-                                .SetRequiredProperty(RestrictedContextRequiredProperty.MeleeWeapon)
-                                .SetAttackModeOnly()
-                                .SetSpecificDamageType(DamageTypeThunder)
-                                .SetAdvancement(ExtraAdditionalDamageAdvancement.CharacterLevel, 0, 1, 5)
-                                .SetIgnoreCriticalDoubleDice(true)
-                                .AddToDB()
-                            )
+                            .SetFeatures(additionalDamageResonatingStrike)
                             .AddToDB(),
                         ConditionForm.ConditionOperation.Add,
                         true,

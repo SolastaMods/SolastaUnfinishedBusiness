@@ -1,2 +1,0 @@
-ReduceDamageFeatHeavyArmorMaster	Title='Feature/&ReduceDamageFeatHeavyArmorMasterTitle'.
-ReduceDamageFeatHeavyArmorMaster	Description='Feature/&ReduceDamageFeatHeavyArmorMasterDescription'.
