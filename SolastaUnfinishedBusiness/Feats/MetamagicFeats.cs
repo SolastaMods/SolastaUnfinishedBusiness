@@ -50,6 +50,7 @@ internal static class MetamagicFeats
                         metamagicOptionDefinition.FormatDescription()))
                 .SetFeatures(
                     ActionAffinitySorcererMetamagicToggle,
+                    AttributeModifierCreed_Of_Solasta,
                     attributeModifierSorcererSorceryPointsBonus3,
                     FeatureDefinitionBuilder
                         .Create($"CustomCodeFeatAdept{metamagicOptionDefinition.Name}")
