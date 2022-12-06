@@ -306,7 +306,17 @@ public static class InnovationArmor
 
             AddArmorBonusesToBuiltinAttack(hero, attackMode);
 
-            return new List<RulesetAttackMode> { attackMode };
+            var modes = new List<RulesetAttackMode> {attackMode};
+            
+            if (hero.HasEmptyMainHand())
+            {
+                var reaction = RulesetAttackMode.AttackModesPool.Get();
+                reaction.Copy(attackMode);
+                reaction.ActionType = ActionDefinitions.ActionType.Reaction;
+                modes.Add(reaction);
+            }
+
+            return modes;
         }
 
         protected override AttackModeOrder GetOrder(RulesetCharacterHero hero)
@@ -353,7 +363,7 @@ public static class InnovationArmor
 
             AddArmorBonusesToBuiltinAttack(hero, attackMode);
 
-            return new List<RulesetAttackMode> { attackMode };
+            return new List<RulesetAttackMode> {attackMode};
         }
     }
 
