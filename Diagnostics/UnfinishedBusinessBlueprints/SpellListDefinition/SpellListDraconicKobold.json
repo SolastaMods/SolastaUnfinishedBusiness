@@ -1,27 +1,20 @@
 {
   "$type": "SpellListDefinition, Assembly-CSharp",
   "hasCantrips": true,
-  "maxSpellLevel": 0,
+  "maxSpellLevel": -1,
   "spellsByLevel": [
     {
       "$type": "SpellListDefinition+SpellsByLevelDuplet, Assembly-CSharp",
       "level": 0,
       "spells": [
-        "Definition:AcidSplash:98ea9fff39f7c054ba171c32b00a90e6",
         "Definition:AnnoyingBee:d380ed36cd287394d8ddc88115fd8fa1",
-        "Definition:ChillTouch:2dffe98ad497e4b418abc947f6077fb7",
-        "Definition:DancingLights:ca63de70121df1b46ae3c1f8c183f941",
-        "Definition:Dazzle:dc9e69f2397e0d541a8821fe4e4cf6ba",
-        "Definition:FireBolt:fac7c06d87f301d4ca3798b4c18d86c8",
-        "Definition:Light:c1d0bf7d6cd76e543a665bd1cb3aa01c",
+        "Definition:Guidance:94ed96edd24acbe4f87e72375221868a",
         "Definition:PoisonSpray:d3aec91794deb6646b41c246e57a1f1e",
-        "Definition:RayOfFrost:637a3697f05a4614e8200abfa5daaaff",
-        "Definition:ShadowArmor:2542a6717952164479079fcad2ed60f9",
-        "Definition:ShadowDagger:3402c51b9ccb99b48bb7cb62eaa5dcab",
-        "Definition:Shine:5581bdee6e264364cb9b10558010dddf",
-        "Definition:ShockingGrasp:0bcfc5c29da450c4bb0f27df027616eb",
+        "Definition:ProduceFlame:99a59d41bc8a00a458199a4c2e7d9571",
+        "Definition:Resistance:384dce9da39ad4e4b82106fa7829c17c",
+        "Definition:Shillelagh:2143d3cd84db2c540b80fe022d0adf1d",
         "Definition:Sparkle:ac43e07871656cd4db792bdbdc77ac44",
-        "Definition:TrueStrike:8adca77af0c221445af40629f3743ec8"
+        "Definition:VenomousSpike:804bffd98d2384c4b9c01ebb30f3cbee"
       ]
     },
     {
@@ -74,7 +67,7 @@
   "sourceSpellLists": [],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
-    "hidden": false,
+    "hidden": true,
     "title": "Feature/&NoContentTitle",
     "description": "Feature/&NoContentTitle",
     "spriteReference": {

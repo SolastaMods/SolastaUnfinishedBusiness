@@ -7,10 +7,10 @@
   "staticToHitValue": 4,
   "spellListDefinition": "Definition:SpellListGnome:e8e1158e-2db5-551a-ae22-edeb39507b4c",
   "restrictedSchools": [],
-  "spellKnowledge": "Selection",
+  "spellKnowledge": "FixedList",
   "spellReadyness": "AllKnown",
   "spellPreparationCount": "AbilityBonusPlusLevel",
-  "slotsRecharge": "AtWill",
+  "slotsRecharge": "LongRest",
   "uniqueLevelSlots": false,
   "spellCastingLevel": -1,
   "knownCantrips": [
@@ -79,35 +79,12 @@
     0,
     0
   ],
-  "replacedSpells": [
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0
-  ],
+  "replacedSpells": [],
   "slotsPerLevels": [
     {
       "$type": "FeatureDefinitionCastSpell+SlotsByLevelDuplet, Assembly-CSharp",
       "level": 1,
       "slots": [
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
         0,
         0,
         0
@@ -119,12 +96,6 @@
       "slots": [
         0,
         0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
         0
       ]
     },
@@ -132,13 +103,7 @@
       "$type": "FeatureDefinitionCastSpell+SlotsByLevelDuplet, Assembly-CSharp",
       "level": 3,
       "slots": [
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
+        1,
         0,
         0
       ]
@@ -147,13 +112,7 @@
       "$type": "FeatureDefinitionCastSpell+SlotsByLevelDuplet, Assembly-CSharp",
       "level": 4,
       "slots": [
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
+        1,
         0,
         0
       ]
@@ -162,14 +121,8 @@
       "$type": "FeatureDefinitionCastSpell+SlotsByLevelDuplet, Assembly-CSharp",
       "level": 5,
       "slots": [
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
+        1,
+        1,
         0
       ]
     },
@@ -177,14 +130,8 @@
       "$type": "FeatureDefinitionCastSpell+SlotsByLevelDuplet, Assembly-CSharp",
       "level": 6,
       "slots": [
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
+        1,
+        1,
         0
       ]
     },
@@ -192,14 +139,8 @@
       "$type": "FeatureDefinitionCastSpell+SlotsByLevelDuplet, Assembly-CSharp",
       "level": 7,
       "slots": [
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
+        1,
+        1,
         0
       ]
     },
@@ -207,14 +148,8 @@
       "$type": "FeatureDefinitionCastSpell+SlotsByLevelDuplet, Assembly-CSharp",
       "level": 8,
       "slots": [
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
+        1,
+        1,
         0
       ]
     },
@@ -222,14 +157,8 @@
       "$type": "FeatureDefinitionCastSpell+SlotsByLevelDuplet, Assembly-CSharp",
       "level": 9,
       "slots": [
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
+        1,
+        1,
         0
       ]
     },
@@ -237,14 +166,8 @@
       "$type": "FeatureDefinitionCastSpell+SlotsByLevelDuplet, Assembly-CSharp",
       "level": 10,
       "slots": [
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
+        1,
+        1,
         0
       ]
     },
@@ -252,14 +175,8 @@
       "$type": "FeatureDefinitionCastSpell+SlotsByLevelDuplet, Assembly-CSharp",
       "level": 11,
       "slots": [
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
+        1,
+        1,
         0
       ]
     },
@@ -267,14 +184,8 @@
       "$type": "FeatureDefinitionCastSpell+SlotsByLevelDuplet, Assembly-CSharp",
       "level": 12,
       "slots": [
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
+        1,
+        1,
         0
       ]
     },
@@ -282,14 +193,8 @@
       "$type": "FeatureDefinitionCastSpell+SlotsByLevelDuplet, Assembly-CSharp",
       "level": 13,
       "slots": [
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
+        1,
+        1,
         0
       ]
     },
@@ -297,14 +202,8 @@
       "$type": "FeatureDefinitionCastSpell+SlotsByLevelDuplet, Assembly-CSharp",
       "level": 14,
       "slots": [
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
+        1,
+        1,
         0
       ]
     },
@@ -312,14 +211,8 @@
       "$type": "FeatureDefinitionCastSpell+SlotsByLevelDuplet, Assembly-CSharp",
       "level": 15,
       "slots": [
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
+        1,
+        1,
         0
       ]
     },
@@ -327,14 +220,8 @@
       "$type": "FeatureDefinitionCastSpell+SlotsByLevelDuplet, Assembly-CSharp",
       "level": 16,
       "slots": [
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
+        1,
+        1,
         0
       ]
     },
@@ -342,14 +229,8 @@
       "$type": "FeatureDefinitionCastSpell+SlotsByLevelDuplet, Assembly-CSharp",
       "level": 17,
       "slots": [
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
+        1,
+        1,
         0
       ]
     },
@@ -357,14 +238,8 @@
       "$type": "FeatureDefinitionCastSpell+SlotsByLevelDuplet, Assembly-CSharp",
       "level": 18,
       "slots": [
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
+        1,
+        1,
         0
       ]
     },
@@ -372,14 +247,8 @@
       "$type": "FeatureDefinitionCastSpell+SlotsByLevelDuplet, Assembly-CSharp",
       "level": 19,
       "slots": [
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
+        1,
+        1,
         0
       ]
     },
@@ -387,14 +256,8 @@
       "$type": "FeatureDefinitionCastSpell+SlotsByLevelDuplet, Assembly-CSharp",
       "level": 20,
       "slots": [
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
+        1,
+        1,
         0
       ]
     }
