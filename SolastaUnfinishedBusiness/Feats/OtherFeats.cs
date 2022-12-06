@@ -225,7 +225,14 @@ internal static class OtherFeats
                 FeatureDefinitionBuilder
                     .Create("OnAfterActionFeatMobileDash")
                     .SetGuiPresentationNoContent(true)
-                    .SetCustomSubFeatures(new OnAfterActionFeatMobileDash())
+                    .SetCustomSubFeatures(
+                        new OnAfterActionFeatMobileDash(ConditionDefinitionBuilder
+                            .Create(ConditionDefinitions.ConditionFreedomOfMovement, "ConditionFeatMobileFreedom")
+                            .SetOrUpdateGuiPresentation(Category.Condition)
+                            .SetFeatures(
+                                FeatureDefinitionConditionAffinitys.ConditionAffinityFreedomOfMovementRestrained,
+                                FeatureDefinitionMovementAffinitys.MovementAffinityFreedomOfMovement)
+                            .AddToDB()))
                     .AddToDB(),
                 FeatureDefinitionBuilder
                     .Create("OnAttackHitEffectFeatMobile")
@@ -238,6 +245,13 @@ internal static class OtherFeats
 
     private sealed class OnAfterActionFeatMobileDash : IOnAfterActionFeature
     {
+        private readonly ConditionDefinition _conditionDefinition;
+
+        public OnAfterActionFeatMobileDash(ConditionDefinition conditionDefinition)
+        {
+            _conditionDefinition = conditionDefinition;
+        }
+
         public void OnAfterAction(CharacterAction action)
         {
             if (action is not CharacterActionDash)
@@ -249,7 +263,7 @@ internal static class OtherFeats
 
             var rulesetCondition = RulesetCondition.CreateActiveCondition(
                 attacker.RulesetCharacter.Guid,
-                ConditionDefinitions.ConditionFreedomOfMovement,
+                _conditionDefinition,
                 DurationType.Round,
                 0,
                 TurnOccurenceType.EndOfTurn,
@@ -277,6 +291,11 @@ internal static class OtherFeats
             RulesetAttackMode attackMode,
             ActionModifier attackModifier)
         {
+            if (attackMode == null || outcome is RollOutcome.Failure or RollOutcome.CriticalFailure)
+            {
+                return;
+            }
+
             var rulesetCondition = RulesetCondition.CreateActiveCondition(
                 attacker.RulesetCharacter.Guid,
                 _conditionFeatMobileAfterAttack,

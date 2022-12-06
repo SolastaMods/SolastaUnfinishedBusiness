@@ -1,10 +1,12 @@
-Condition/&ConditionFeatMobileAfterAttackDescription=Você ganhou uma ação Desengajar.
-Condition/&ConditionFeatMobileAfterAttackTitle=Mobilidade
+Condition/&ConditionFeatMobileAfterDash=Concede imunidade a restrições de movimento, além de ser contido.
+Condition/&ConditionFeatMobileAfterDashTitle=Liberdade
+Condition/&ConditionFeatMobileAfterAttackDescription=Concede uma ação Desengajar.
+Condition/&ConditionFeatMobileAfterAttackTitle=Ágil
 Feat/&FeatHealerDescription=Você ganha proficiência ou perícia em testes de Medicina. Você ganha a habilidade de estabilizar uma criatura moribunda, bem como reviver uma criatura que morreu nos últimos 12 segundos uma vez por descanso longo. Você pode usar uma ação para restaurar 1d6 + 4 + pontos de vida de nível de personagem um número de vezes por descanso curto igual ao seu modificador de Sabedoria.
 Feat/&FeatHealerTitle=Curador
 Feat/&FeatInspiringLeaderDescription=Você pode gastar 10 minutos para inspirar todas as criaturas amigáveis ​​(incluindo você) a até 9 metros de você. Cada criatura ganha pontos de vida temporários iguais ao seu nível + seu modificador de Carisma.
 Feat/&FeatInspiringLeaderTitle=Líder inspirador
-Feat/&FeatMobileDescription=Você é excepcionalmente rápido e ágil. Sua velocidade aumenta em 3 metros. Quando você usa a ação Dash, você ganha Liberdade de Movimento naquele turno. Quando você faz um ataque corpo a corpo contra uma criatura, você ganha uma ação Desengajar, quer acerte ou não.
+Feat/&FeatMobileDescription=Você é excepcionalmente rápido e ágil. Sua velocidade aumenta em 3 metros. Ao usar a ação Dash, você ganha imunidade a restrições de movimento, além de ser impedido naquele turno. Quando você faz um ataque corpo a corpo contra uma criatura, você ganha uma ação Desengajar sempre que acertar.
 Feat/&FeatMobileTitle=Móvel
 Feat/&FeatPickPocketDescription=Você ganha proficiência com Prestidigitação, ou perícia se já for proficiente. Você também tem vantagem em testes de Prestidigitação.
 Feat/&FeatPickPocketTitle=batedor de carteira
