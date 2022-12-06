@@ -2,6 +2,7 @@
 
 1.4.30.11:
 
+- added Resurrection to Bard, Cleric and Druid at 7
 - fixed Bard Magical secrets at 14 and 18
 - fixed Path of The Spirits' Animal Friendship saving thrown DC
 
