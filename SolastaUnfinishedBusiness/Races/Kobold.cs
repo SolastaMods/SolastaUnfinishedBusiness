@@ -46,17 +46,25 @@ internal static class KoboldRaceBuilder
             .AddToDB();
 
         var spellListDraconicKobold = SpellListDefinitionBuilder
-            .Create(SpellListDefinitions.SpellListSorcerer, "SpellListDraconicKobold")
-            .SetGuiPresentationNoContent()
+            .Create("SpellListDraconicKobold")
+            .SetGuiPresentationNoContent(true)
             .ClearSpells()
-            .SetSpellsAtLevel(0, SpellListDefinitions.SpellListSorcerer.SpellsByLevel[0].Spells.ToArray())
-            .FinalizeSpells()
+            .FinalizeSpells(true, -1)
             .AddToDB();
 
+        //explicitly re-use sorcerer spell list, so custom cantrips selected for druid will show here 
+        spellListDraconicKobold.SpellsByLevel[0].Spells = SpellListDefinitions.SpellListDruid.SpellsByLevel[0].Spells;
+
         var castSpellDraconicKoboldMagic = FeatureDefinitionCastSpellBuilder
-            .Create(FeatureDefinitionCastSpells.CastSpellElfHigh, "CastSpellDraconicKoboldMagic")
-            .SetOrUpdateGuiPresentation(Category.Feature)
+            .Create("CastSpellDraconicKoboldMagic")
+            .SetGuiPresentation(Category.Feature)
+            .SetSpellCastingOrigin(FeatureDefinitionCastSpell.CastingOrigin.Race)
             .SetSpellCastingAbility(AttributeDefinitions.Charisma)
+            .SetSpellKnowledge(SpellKnowledge.FixedList)
+            .SetSpellReadyness(SpellReadyness.AllKnown)
+            .SetSlotsRecharge(RechargeRate.LongRest)
+            .SetSlotsPerLevel(SharedSpellsContext.RaceCastingSlots)
+            .SetKnownCantrips(1, 1, FeatureDefinitionCastSpellBuilder.CasterProgression.Flat)
             .SetSpellList(spellListDraconicKobold)
             .AddToDB();
 

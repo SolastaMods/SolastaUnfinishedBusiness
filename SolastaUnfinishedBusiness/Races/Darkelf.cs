@@ -16,29 +16,6 @@ namespace SolastaUnfinishedBusiness.Races;
 
 internal static class DarkelfSubraceBuilder
 {
-    internal static readonly FeatureDefinitionPower PowerDarkelfFaerieFire = FeatureDefinitionPowerBuilder
-        .Create("PowerDarkelfFaerieFire")
-        .SetGuiPresentation(Category.Feature, SpellDefinitions.FaerieFire)
-        .SetUsesFixed(ActivationTime.Action, RechargeRate.LongRest)
-        .SetEffectDescription(EffectDescriptionBuilder
-            .Create(SpellDefinitions.FaerieFire.EffectDescription)
-            .SetSavingThrowData(
-                false,
-                AttributeDefinitions.Dexterity,
-                false,
-                EffectDifficultyClassComputation.AbilityScoreAndProficiency,
-                AttributeDefinitions.Charisma,
-                8)
-            .Build())
-        .AddToDB();
-
-    internal static readonly FeatureDefinitionPower PowerDarkelfDarkness = FeatureDefinitionPowerBuilder
-        .Create("PowerDarkelfDarkness")
-        .SetGuiPresentation(Category.Feature, SpellDefinitions.Darkness)
-        .SetUsesFixed(ActivationTime.Action, RechargeRate.LongRest)
-        .SetEffectDescription(SpellDefinitions.Darkness.EffectDescription)
-        .AddToDB();
-
     internal static CharacterRaceDefinition SubraceDarkelf { get; } = BuildDarkelf();
 
     internal static FeatureDefinitionCastSpell CastSpellDarkelfMagic { get; private set; }
@@ -47,15 +24,24 @@ internal static class DarkelfSubraceBuilder
     private static CharacterRaceDefinition BuildDarkelf()
     {
         CastSpellDarkelfMagic = FeatureDefinitionCastSpellBuilder
-            .Create(FeatureDefinitionCastSpells.CastSpellElfHigh, "CastSpellDarkelfMagic")
-            .SetOrUpdateGuiPresentation(Category.Feature)
-            .SetSpellList(SpellListDefinitionBuilder
-                .Create(SpellListDefinitions.SpellListWizard, "SpellListDarkelf")
-                .SetGuiPresentationNoContent()
-                .SetSpellsAtLevel(0, SpellDefinitions.DancingLights)
-                .FinalizeSpells()
-                .AddToDB())
+            .Create("CastSpellDarkelfMagic")
+            .SetGuiPresentation(Category.Feature)
+            .SetSpellCastingOrigin(FeatureDefinitionCastSpell.CastingOrigin.Race)
             .SetSpellCastingAbility(AttributeDefinitions.Charisma)
+            .SetSpellKnowledge(SpellKnowledge.FixedList)
+            .SetSpellReadyness(SpellReadyness.AllKnown)
+            .SetSlotsRecharge(RechargeRate.LongRest)
+            .SetSlotsPerLevel(SharedSpellsContext.RaceCastingSlots)
+            .SetKnownCantrips(1, 1, FeatureDefinitionCastSpellBuilder.CasterProgression.Flat)
+            .SetSpellList(SpellListDefinitionBuilder
+                .Create("SpellListDarkelf")
+                .SetGuiPresentationNoContent(true)
+                .ClearSpells()
+                .SetSpellsAtLevel(0, SpellDefinitions.DancingLights)
+                .SetSpellsAtLevel(1, SpellDefinitions.FaerieFire)
+                .SetSpellsAtLevel(2, SpellDefinitions.Darkness)
+                .FinalizeSpells(true, -1)
+                .AddToDB())
             .AddToDB();
 
         var darkelfSpriteReference = Sprites.GetSprite("Darkelf", Resources.Darkelf, 1024, 512);
@@ -113,10 +99,6 @@ internal static class DarkelfSubraceBuilder
                 proficiencyDarkelfWeaponTraining,
                 CastSpellDarkelfMagic,
                 lightAffinityDarkelfLightSensitivity)
-            .AddFeaturesAtLevel(3,
-                PowerDarkelfFaerieFire)
-            .AddFeaturesAtLevel(5,
-                PowerDarkelfDarkness)
             .AddToDB();
 
         raceDarkelf.subRaces.Clear();

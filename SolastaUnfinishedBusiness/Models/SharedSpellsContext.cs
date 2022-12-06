@@ -307,6 +307,31 @@ internal static class SharedSpellsContext
     #region Slots Definitions
 
     // game uses IndexOf(0) on these sub lists reason why the last 0 there
+    internal static List<SlotsByLevelDuplet> RaceCastingSlots { get; } = new()
+    {
+        new SlotsByLevelDuplet { Slots = new List<int> { 0, 0 }, Level = 01 },
+        new SlotsByLevelDuplet { Slots = new List<int> { 0, 0 }, Level = 02 },
+        new SlotsByLevelDuplet { Slots = new List<int> { 1, 0 }, Level = 03 },
+        new SlotsByLevelDuplet { Slots = new List<int> { 1, 0 }, Level = 04 },
+        new SlotsByLevelDuplet { Slots = new List<int> { 1, 1 }, Level = 05 },
+        new SlotsByLevelDuplet { Slots = new List<int> { 1, 1 }, Level = 06 },
+        new SlotsByLevelDuplet { Slots = new List<int> { 1, 1 }, Level = 07 },
+        new SlotsByLevelDuplet { Slots = new List<int> { 1, 1 }, Level = 08 },
+        new SlotsByLevelDuplet { Slots = new List<int> { 1, 1 }, Level = 09 },
+        new SlotsByLevelDuplet { Slots = new List<int> { 1, 1 }, Level = 10 },
+        new SlotsByLevelDuplet { Slots = new List<int> { 1, 1 }, Level = 11 },
+        new SlotsByLevelDuplet { Slots = new List<int> { 1, 1 }, Level = 12 },
+        new SlotsByLevelDuplet { Slots = new List<int> { 1, 1 }, Level = 13 },
+        new SlotsByLevelDuplet { Slots = new List<int> { 1, 1 }, Level = 14 },
+        new SlotsByLevelDuplet { Slots = new List<int> { 1, 1 }, Level = 15 },
+        new SlotsByLevelDuplet { Slots = new List<int> { 1, 1 }, Level = 16 },
+        new SlotsByLevelDuplet { Slots = new List<int> { 1, 1 }, Level = 17 },
+        new SlotsByLevelDuplet { Slots = new List<int> { 1, 1 }, Level = 18 },
+        new SlotsByLevelDuplet { Slots = new List<int> { 1, 1 }, Level = 19 },
+        new SlotsByLevelDuplet { Slots = new List<int> { 1, 1 }, Level = 20 }
+    };
+
+    // game uses IndexOf(0) on these sub lists reason why the last 0 there
     internal static List<SlotsByLevelDuplet> WarlockCastingSlots { get; } = new()
     {
         new SlotsByLevelDuplet
