@@ -4,4 +4,9 @@
 
 - added Resurrection to Bard, Cleric and Druid at 7
 - fixed Bard Magical secrets at 14 and 18
+- fixed missing +1 CHA on Metamagic feats
 - fixed Path of The Spirits' Animal Friendship saving thrown DC
+
+KNOWN ISSUES:
+
+- Cannot take Races that can cast spells with Caster classes
