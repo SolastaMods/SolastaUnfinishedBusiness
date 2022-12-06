@@ -122,11 +122,18 @@ internal sealed class PathOfTheSpirits : AbstractSubclass
 
     private static FeatureDefinition BuildSpiritSeekerSpell(SpellDefinition spellDefinition)
     {
+        var effectDescription = EffectDescriptionBuilder
+            .Create(spellDefinition.EffectDescription)
+            .Build();
+
+        // hack as Barbs don't have repertoires to get DC from spell casting feature (easier than recreate effect)
+        effectDescription.difficultyClassComputation = EffectDifficultyClassComputation.AbilityScoreAndProficiency;
+
         return FeatureDefinitionPowerBuilder
             .Create($"PowerPathOfTheSpirits{spellDefinition.name}")
             .SetGuiPresentation(spellDefinition.GuiPresentation)
             .SetUsesFixed(ActivationTime.Action)
-            .SetEffectDescription(spellDefinition.EffectDescription)
+            .SetEffectDescription(effectDescription)
             .AddToDB();
     }
 
