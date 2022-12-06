@@ -22,6 +22,7 @@ internal static class MeleeCombatFeats
             .Create("DieRollModifierFeatPiercerNonMagic")
             .SetGuiPresentationNoContent(true)
             .SetModifiers(AttackDamageValueRoll, 1, 1, 1, "Feat/&FeatPiercerReroll")
+            .SetCustomSubFeatures(ValidatorsCharacter.MainHandIsPiercingWeapon)
             .AddToDB();
 
     private static readonly FeatureDefinition FeatureFeatPiercer = FeatureDefinitionBuilder

@@ -38,9 +38,17 @@ internal static class ValidatorsWeapon
     internal static bool IsMelee([CanBeNull] RulesetItem weapon)
     {
         return weapon == null // for unarmed
+               || weapon.ItemDefinition.IsArmor // for shields
                || weapon.ItemDefinition.WeaponDescription?.WeaponTypeDefinition.WeaponProximity ==
-               RuleDefinitions.AttackProximity.Melee
-               || weapon.ItemDefinition.IsArmor;
+               RuleDefinitions.AttackProximity.Melee;
+    }
+    
+    internal static bool IsPiercingDamage([CanBeNull] RulesetItem weapon)
+    {
+        return weapon != null && weapon.ItemDefinition.IsWeapon &&
+               weapon.ItemDefinition.WeaponDescription.EffectDescription
+                   .GetFirstFormOfType(EffectForm.EffectFormType.Damage).DamageForm.DamageType ==
+               RuleDefinitions.DamageTypePiercing;
     }
 
     internal static bool IsMelee([NotNull] RulesetAttackMode attack)
