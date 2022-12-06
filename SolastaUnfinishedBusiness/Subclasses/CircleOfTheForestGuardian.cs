@@ -76,16 +76,16 @@ internal sealed class CircleOfTheForestGuardian : AbstractSubclass
             .SetUniqueInstance()
             .AddToDB();
 
-        var powerForestGuardianBarkWardPool = FeatureDefinitionPowerBuilder
+        //TODO: this was kept for backward compatibility. remove on next major game version
+        _ = FeatureDefinitionPowerBuilder
             .Create("PowerForestGuardianBarkWardPool")
-            .SetGuiPresentation(Category.Feature, hidden: true)
-            .SetUsesProficiencyBonus(ActivationTime.BonusAction)
+            .SetGuiPresentationNoContent(true)
             .AddToDB();
 
-        var powerSharedPoolForestGuardianBarkWard = FeatureDefinitionPowerSharedPoolBuilder
+        var powerSharedPoolForestGuardianBarkWard = FeatureDefinitionPowerBuilder
             .Create("PowerSharedPoolForestGuardianBarkWard")
             .SetGuiPresentation(Category.Feature, PowerDruidWildShape)
-            .SetSharedPool(ActivationTime.BonusAction, powerForestGuardianBarkWardPool)
+            .SetUsesProficiencyBonus(ActivationTime.BonusAction)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
@@ -108,10 +108,10 @@ internal sealed class CircleOfTheForestGuardian : AbstractSubclass
                     .Build())
             .AddToDB();
 
-        var powerSharedPoolForestGuardianImprovedBarkWard = FeatureDefinitionPowerSharedPoolBuilder
+        var powerSharedPoolForestGuardianImprovedBarkWard = FeatureDefinitionPowerBuilder
             .Create("PowerSharedPoolForestGuardianImprovedBarkWard")
             .SetGuiPresentation(Category.Feature, PowerDruidWildShape)
-            .SetSharedPool(ActivationTime.BonusAction, powerForestGuardianBarkWardPool)
+            .SetUsesProficiencyBonus(ActivationTime.BonusAction)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
@@ -145,10 +145,10 @@ internal sealed class CircleOfTheForestGuardian : AbstractSubclass
             .SetOverriddenPower(powerSharedPoolForestGuardianBarkWard)
             .AddToDB();
 
-        var powerSharedPoolForestGuardianSuperiorBarkWard = FeatureDefinitionPowerSharedPoolBuilder
+        var powerSharedPoolForestGuardianSuperiorBarkWard = FeatureDefinitionPowerBuilder
             .Create("PowerSharedPoolForestGuardianSuperiorBarkWard")
             .SetGuiPresentation(Category.Feature, PowerDruidWildShape)
-            .SetSharedPool(ActivationTime.BonusAction, powerForestGuardianBarkWardPool)
+            .SetUsesProficiencyBonus(ActivationTime.BonusAction)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
