@@ -1,9 +1,12 @@
 ﻿ATTENTION:
 
-- ¿Hablas español? ¿Quieres apoyar en la mejoría de las traducciones? Buscame en Discord
+- Fala Português? Quer apoiar na melhoria das traduções? Busque-me no Discord
+- ¿Hablas español? ¿Quieres apoyar en la mejoría de las traducciones? Buscame en el Discord
 
 CHANGES:
 
 1.4.30.10:
 
-- added Heavy Armor Master and Piercer feats
+- added Heavy Armor Master, Mobile and Piercer feats
+- fixed missing damage dice on Resonating Strike at 5
+- fixed Circle of The Forest Night Bark Ward max pool

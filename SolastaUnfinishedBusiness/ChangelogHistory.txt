@@ -2,7 +2,9 @@
 
 1.4.30.10:
 
-- added Heavy Armor Master and Piercer feats
+- added Heavy Armor Master, Mobile and Piercer feats
+- fixed missing damage dice on Resonating Strike at 5
+- fixed Circle of The Forest Night Bark Ward max pool
 
 1.4.30.9:
 
