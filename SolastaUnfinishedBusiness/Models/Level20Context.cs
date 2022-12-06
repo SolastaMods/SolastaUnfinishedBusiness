@@ -253,10 +253,13 @@ internal static class Level20Context
 
         SpellListBard.maxSpellLevel = 9;
 
-        SpellListBard.SpellsByLevel.Add(new SpellListDefinition.SpellsByLevelDuplet
+        if (!Main.IsDebugBuild)
         {
-            level = 7, Spells = new List<SpellDefinition> { Resurrection }
-        });
+            SpellListBard.SpellsByLevel.Add(new SpellListDefinition.SpellsByLevelDuplet
+            {
+                level = 7, Spells = new List<SpellDefinition> { Resurrection }
+            });
+        }
     }
 
     private static void ClericLoad()
@@ -333,10 +336,13 @@ internal static class Level20Context
         DomainSun.FeatureUnlocks.Add(
             new FeatureUnlockByLevel(powerClericDivineInterventionImprovementWizard, 20));
 
-        SpellListCleric.SpellsByLevel.Add(new SpellListDefinition.SpellsByLevelDuplet
+        if (!Main.IsDebugBuild)
         {
-            level = 7, Spells = new List<SpellDefinition> { Resurrection }
-        });
+            SpellListCleric.SpellsByLevel.Add(new SpellListDefinition.SpellsByLevelDuplet
+            {
+                level = 7, Spells = new List<SpellDefinition> { Resurrection }
+            }); 
+        }
     }
 
     private static void DruidLoad()
@@ -365,10 +371,13 @@ internal static class Level20Context
 
         SpellListDruid.maxSpellLevel = 9;
 
-        SpellListDruid.SpellsByLevel.Add(new SpellListDefinition.SpellsByLevelDuplet
+        if (!Main.IsDebugBuild)
         {
-            level = 7, Spells = new List<SpellDefinition> { Resurrection }
-        });
+            SpellListDruid.SpellsByLevel.Add(new SpellListDefinition.SpellsByLevelDuplet
+            {
+                level = 7, Spells = new List<SpellDefinition> { Resurrection }
+            });
+        }
     }
 
     private static void FighterLoad()
