@@ -1,18 +1,12 @@
 ﻿ATTENTION:
 
-- ¿Hablas español? ¿Quieres apoyar en la mejoría de las traducciones? Buscame en Discord
+- Fala Português? Quer apoiar na melhoria das traduções? Busque-me no Discord
+- ¿Hablas español? ¿Quieres apoyar en la mejoría de las traducciones? Buscame en el Discord
 
 CHANGES:
 
-1.4.30.9:
+1.4.30.10:
 
-- added Eldritch Blast as a pre-req for Hindering and Grasping Blast invocations
-- added unofficial Spanish support to the game
-- added Portuguese and Spanish support to the mod
-- changed Earth Tremor Protect Threshold, and Winter's Breath saving thrown to 12 + ability bonus modifier
-- changed Reverse Gravity, Meteor Swarm and Weird saving thrown to 13 + ability bonus modifier
-- fixed being able to use main/bonus action invocation spells/powers after using attack
-- fixed Resonating strike dice progression
-- fixed Plane Magic feats not considering the caster ability bonus
-- improved Inspiring Leader to grant temp HP in AoE
-- removed broken Magical Secrets from Bard at 14 and 18
+- added Heavy Armor Master, Mobile and Piercer feats
+- fixed missing damage dice on Resonating Strike at 5
+- fixed Circle of The Forest Night Bark Ward max pool

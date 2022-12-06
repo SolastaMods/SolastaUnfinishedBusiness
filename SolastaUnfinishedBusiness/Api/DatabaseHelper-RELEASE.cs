@@ -127,6 +127,7 @@ internal static partial class DatabaseHelper
         internal static ConditionDefinition ConditionDummy { get; } = GetDefinition<ConditionDefinition>("ConditionDummy");
         internal static ConditionDefinition ConditionEncumbered { get; } = GetDefinition<ConditionDefinition>("ConditionEncumbered");
         internal static ConditionDefinition ConditionFlying12 { get; } = GetDefinition<ConditionDefinition>("ConditionFlying12");
+        internal static ConditionDefinition ConditionFreedomOfMovement { get; } = GetDefinition<ConditionDefinition>("ConditionFreedomOfMovement");
         internal static ConditionDefinition ConditionFrightened { get; } = GetDefinition<ConditionDefinition>("ConditionFrightened");
         internal static ConditionDefinition ConditionFrightenedFear { get; } = GetDefinition<ConditionDefinition>("ConditionFrightenedFear");
         internal static ConditionDefinition ConditionFrightenedPhantasmalKiller { get; } = GetDefinition<ConditionDefinition>("ConditionFrightenedPhantasmalKiller");
@@ -265,8 +266,8 @@ internal static partial class DatabaseHelper
         internal static FeatureDefinitionActionAffinity ActionAffinityConditionRestrained { get; } = GetDefinition<FeatureDefinitionActionAffinity>("ActionAffinityConditionRestrained");
         internal static FeatureDefinitionActionAffinity ActionAffinityConditionShocked { get; } = GetDefinition<FeatureDefinitionActionAffinity>("ActionAffinityConditionShocked");
         internal static FeatureDefinitionActionAffinity ActionAffinityFightingStyleProtection { get; } = GetDefinition<FeatureDefinitionActionAffinity>("ActionAffinityFightingStyleProtection");
-        internal static FeatureDefinitionActionAffinity ActionAffinityInvocationOneWithShadowsTurnInvisible { get; } = GetDefinition<FeatureDefinitionActionAffinity>("ActionAffinityInvocationOneWithShadowsTurnInvisible");
         internal static FeatureDefinitionActionAffinity ActionAffinityMountaineerShieldCharge { get; } = GetDefinition<FeatureDefinitionActionAffinity>("ActionAffinityMountaineerShieldCharge");
+        internal static FeatureDefinitionActionAffinity ActionAffinityNimbleEscape { get; } = GetDefinition<FeatureDefinitionActionAffinity>("ActionAffinityNimbleEscape");
         internal static FeatureDefinitionActionAffinity ActionAffinityRangerVanish { get; } = GetDefinition<FeatureDefinitionActionAffinity>("ActionAffinityRangerVanish");
         internal static FeatureDefinitionActionAffinity ActionAffinityRogueCunningAction { get; } = GetDefinition<FeatureDefinitionActionAffinity>("ActionAffinityRogueCunningAction");
         internal static FeatureDefinitionActionAffinity ActionAffinitySorcererMetamagicToggle { get; } = GetDefinition<FeatureDefinitionActionAffinity>("ActionAffinitySorcererMetamagicToggle");

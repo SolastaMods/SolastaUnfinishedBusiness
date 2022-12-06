@@ -3,6 +3,7 @@ using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.Infrastructure;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
+using SolastaUnfinishedBusiness.CustomInterfaces;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPowers;
@@ -21,8 +22,9 @@ internal static class OtherFeats
         var featPickPocket = BuildPickPocket();
         var featTough = BuildTough();
         var featWarCaster = BuildWarcaster();
+        var featMobile = BuildMobile();
 
-        feats.AddRange(featHealer, featInspiringLeader, featPickPocket, featTough, featWarCaster);
+        feats.AddRange(featHealer, featInspiringLeader, featPickPocket, featTough, featWarCaster, featMobile);
 
         GroupFeats.MakeGroup("FeatGroupBodyResilience", null,
             FeatDefinitions.BadlandsMarauder,
@@ -198,5 +200,93 @@ internal static class OtherFeats
                 .AddToDB())
             .SetMustCastSpellsPrerequisite()
             .AddToDB();
+    }
+
+    private static FeatDefinition BuildMobile()
+    {
+        var conditionFeatMobileAfterAttack = ConditionDefinitionBuilder
+            .Create("ConditionFeatMobileAfterAttack")
+            .SetGuiPresentation(Category.Condition)
+            .SetTurnOccurence(TurnOccurenceType.EndOfTurn)
+            .SetPossessive()
+            .SetSpecialInterruptions(ConditionInterruption.AnyBattleTurnEnd)
+            .SetFeatures(FeatureDefinitionActionAffinitys.ActionAffinityNimbleEscape)
+            .AddToDB();
+
+        return FeatDefinitionBuilder
+            .Create("FeatMobile")
+            .SetGuiPresentation(Category.Feat)
+            .SetFeatures(
+                FeatureDefinitionMovementAffinityBuilder
+                    .Create("MovementAffinityFeatMobile")
+                    .SetGuiPresentationNoContent(true)
+                    .SetBaseSpeedAdditiveModifier(2)
+                    .AddToDB(),
+                FeatureDefinitionBuilder
+                    .Create("OnAfterActionFeatMobileDash")
+                    .SetGuiPresentationNoContent(true)
+                    .SetCustomSubFeatures(new OnAfterActionFeatMobileDash())
+                    .AddToDB(),
+                FeatureDefinitionBuilder
+                    .Create("OnAttackHitEffectFeatMobile")
+                    .SetGuiPresentationNoContent(true)
+                    .SetCustomSubFeatures(new OnAttackHitEffectFeatMobile(conditionFeatMobileAfterAttack))
+                    .AddToDB())
+            .SetAbilityScorePrerequisite(AttributeDefinitions.Dexterity, 13)
+            .AddToDB();
+    }
+
+    private sealed class OnAfterActionFeatMobileDash : IOnAfterActionFeature
+    {
+        public void OnAfterAction(CharacterAction action)
+        {
+            if (action is not CharacterActionDash)
+            {
+                return;
+            }
+
+            var attacker = action.ActingCharacter;
+
+            var rulesetCondition = RulesetCondition.CreateActiveCondition(
+                attacker.RulesetCharacter.Guid,
+                ConditionDefinitions.ConditionFreedomOfMovement,
+                DurationType.Round,
+                0,
+                TurnOccurenceType.EndOfTurn,
+                attacker.RulesetCharacter.Guid,
+                attacker.RulesetCharacter.CurrentFaction.Name);
+
+            attacker.RulesetCharacter.AddConditionOfCategory(AttributeDefinitions.TagCombat, rulesetCondition);
+        }
+    }
+
+    private sealed class OnAttackHitEffectFeatMobile : IAfterAttackEffect
+    {
+        private readonly ConditionDefinition _conditionFeatMobileAfterAttack;
+
+        internal OnAttackHitEffectFeatMobile(ConditionDefinition conditionFeatMobileAfterAttack)
+        {
+            _conditionFeatMobileAfterAttack = conditionFeatMobileAfterAttack;
+        }
+
+        public void AfterOnAttackHit(
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            RollOutcome outcome,
+            CharacterActionParams actionParams,
+            RulesetAttackMode attackMode,
+            ActionModifier attackModifier)
+        {
+            var rulesetCondition = RulesetCondition.CreateActiveCondition(
+                attacker.RulesetCharacter.Guid,
+                _conditionFeatMobileAfterAttack,
+                DurationType.Round,
+                0,
+                TurnOccurenceType.EndOfTurn,
+                attacker.RulesetCharacter.Guid,
+                attacker.RulesetCharacter.CurrentFaction.Name);
+
+            attacker.RulesetCharacter.AddConditionOfCategory(AttributeDefinitions.TagCombat, rulesetCondition);
+        }
     }
 }

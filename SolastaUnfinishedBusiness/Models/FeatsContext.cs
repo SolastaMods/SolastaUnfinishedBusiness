@@ -36,7 +36,7 @@ internal static class FeatsContext
         MeleeCombatFeats.CreateFeats(feats);
         MetamagicFeats.CreateFeats(feats);
         PrecisionFocusedFeats.CreateFeats(feats);
-        RangedCombatFeats.CreateFeats(feats);
+        RangedCombatFeats.CreateFeats(feats); // depends on a group in MeleeCombatFeats
         TwoWeaponCombatFeats.CreateFeats(feats);
 
         OtherFeats.CreateFeats(feats);

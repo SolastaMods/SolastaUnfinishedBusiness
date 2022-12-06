@@ -1,5 +1,11 @@
 ﻿CHANGES:
 
+1.4.30.10:
+
+- added Heavy Armor Master, Mobile and Piercer feats
+- fixed missing damage dice on Resonating Strike at 5
+- fixed Circle of The Forest Night Bark Ward max pool
+
 1.4.30.9:
 
 - added Eldritch Blast as pre-req for Hindering and Grasping blast invocations

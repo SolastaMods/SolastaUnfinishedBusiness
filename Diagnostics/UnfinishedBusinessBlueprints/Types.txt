@@ -42,7 +42,6 @@ LanguageDefinition
 MonsterAttackDefinition
 MonsterDefinition
 MorphotypeElementDefinition
-PersonalityFlagDefinition
 ReactionDefinition
 RecipeDefinition
 RestActivityDefinition

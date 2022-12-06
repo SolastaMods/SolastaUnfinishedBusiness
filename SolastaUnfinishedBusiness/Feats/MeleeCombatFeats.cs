@@ -17,13 +17,40 @@ namespace SolastaUnfinishedBusiness.Feats;
 
 internal static class MeleeCombatFeats
 {
+    private static readonly FeatureDefinitionDieRollModifier DieRollModifierFeatPiercerNonMagic =
+        FeatureDefinitionDieRollModifierBuilder
+            .Create("DieRollModifierFeatPiercerNonMagic")
+            .SetGuiPresentationNoContent(true)
+            .SetModifiers(AttackDamageValueRoll, 1, 1, 1, "Feat/&FeatPiercerReroll")
+            .AddToDB();
+
+    private static readonly FeatureDefinition FeatureFeatPiercer = FeatureDefinitionBuilder
+        .Create("FeatureFeatPiercer")
+        .SetGuiPresentationNoContent(true)
+        .SetCustomSubFeatures(new IsCriticalAndSpecificDamageType(FeatureDefinitionAdditionalDamageBuilder
+                .Create("AdditionalDamageFeatPiercer")
+                .SetGuiPresentationNoContent(true)
+                .SetNotificationTag("Piercer")
+                .SetDamageValueDetermination(AdditionalDamageValueDetermination.SameAsBaseWeaponDie)
+                .AddToDB(),
+            DamageTypePiercing))
+        .AddToDB();
+
+    internal static FeatDefinition FeatGroupPiercer { get; private set; }
+
     internal static void CreateFeats([NotNull] List<FeatDefinition> feats)
     {
         var featPowerAttack = BuildPowerAttack();
         var featRecklessAttack = BuildRecklessAttack();
         var featSavageAttack = BuildSavageAttack();
+        var featPiercerDex = BuildPiercerDex();
+        var featPiercerStr = BuildPiercerStr();
 
-        feats.AddRange(featPowerAttack, featRecklessAttack, featSavageAttack);
+        feats.AddRange(featPowerAttack, featRecklessAttack, featSavageAttack, featPiercerDex, featPiercerStr);
+
+        FeatGroupPiercer = GroupFeats.MakeGroup("FeatGroupPiercer", "Piercer",
+            featPiercerDex,
+            featPiercerStr);
 
         GroupFeats.MakeGroup("FeatGroupMeleeCombat", null,
             FeatDefinitions.CloakAndDagger,
@@ -32,7 +59,8 @@ internal static class MeleeCombatFeats
             FeatDefinitions.TripAttack,
             featPowerAttack,
             featRecklessAttack,
-            featSavageAttack);
+            featSavageAttack,
+            FeatGroupPiercer);
     }
 
     private static FeatDefinition BuildPowerAttack()
@@ -135,6 +163,7 @@ internal static class MeleeCombatFeats
     {
         return FeatDefinitionBuilder
             .Create("FeatSavageAttack")
+            .SetGuiPresentation(Category.Feat)
             .SetFeatures(
                 FeatureDefinitionDieRollModifierBuilder
                     .Create("DieRollModifierFeatSavageAttackNonMagic")
@@ -146,7 +175,32 @@ internal static class MeleeCombatFeats
                     .SetGuiPresentationNoContent(true)
                     .SetModifiers(MagicDamageValueRoll, 1, 1, 1, "Feat/&FeatSavageAttackReroll")
                     .AddToDB())
+            .AddToDB();
+    }
+
+    private static FeatDefinition BuildPiercerDex()
+    {
+        return FeatDefinitionBuilder
+            .Create("FeatPiercerDex")
             .SetGuiPresentation(Category.Feat)
+            .SetFeatures(
+                FeatureDefinitionAttributeModifiers.AttributeModifierCreed_Of_Misaye,
+                DieRollModifierFeatPiercerNonMagic,
+                FeatureFeatPiercer)
+            .SetAbilityScorePrerequisite(AttributeDefinitions.Dexterity, 13)
+            .AddToDB();
+    }
+
+    private static FeatDefinition BuildPiercerStr()
+    {
+        return FeatDefinitionBuilder
+            .Create("FeatPiercerStr")
+            .SetGuiPresentation(Category.Feat)
+            .SetFeatures(
+                FeatureDefinitionAttributeModifiers.AttributeModifierCreed_Of_Einar,
+                DieRollModifierFeatPiercerNonMagic,
+                FeatureFeatPiercer)
+            .SetAbilityScorePrerequisite(AttributeDefinitions.Strength, 13)
             .AddToDB();
     }
 
@@ -165,6 +219,37 @@ internal static class MeleeCombatFeats
             }
 
             SrdAndHouseRulesContext.ModifyAttackModeAndDamage(character, "Feat/&FeatPowerAttackTitle", attackMode);
+        }
+    }
+
+    private sealed class IsCriticalAndSpecificDamageType : CustomAdditionalDamage
+    {
+        private readonly string _damageType;
+
+        public IsCriticalAndSpecificDamageType(IAdditionalDamageProvider provider, string damageType) : base(provider)
+        {
+            _damageType = damageType;
+        }
+
+        internal override bool IsValid(
+            GameLocationBattleManager battleManager,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            ActionModifier attackModifier,
+            RulesetAttackMode attackMode,
+            bool rangedAttack,
+            AdvantageType advantageType,
+            List<EffectForm> actualEffectForms,
+            RulesetEffect rulesetEffect,
+            bool criticalHit,
+            bool firstTarget,
+            out CharacterActionParams reactionParams)
+        {
+            reactionParams = null;
+
+            var damage = attackMode?.EffectDescription?.FindFirstDamageForm();
+
+            return criticalHit && damage != null && damage.DamageType == _damageType;
         }
     }
 }

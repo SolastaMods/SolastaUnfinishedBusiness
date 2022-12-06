@@ -1,5 +1,6 @@
 ﻿using System;
 using JetBrains.Annotations;
+using SolastaUnfinishedBusiness.Api.Infrastructure;
 using SolastaUnfinishedBusiness.CustomDefinitions;
 
 namespace SolastaUnfinishedBusiness.Builders.Features;
@@ -17,8 +18,20 @@ internal class FeatureDefinitionReduceDamageBuilder
     }
 
     [NotNull]
-    internal FeatureDefinitionReduceDamageBuilder SetReducedDamage(int reducedDamage)
+    internal FeatureDefinitionReduceDamageBuilder SetFixedReducedDamage(int reducedDamage, params string[] damageTypes)
     {
+        Definition.DamageTypes.SetRange(damageTypes);
+        Definition.TriggerCondition = RuleDefinitions.AdditionalDamageTriggerCondition.AlwaysActive;
+        Definition.ReducedDamage = reducedDamage;
+        return this;
+    }
+
+    [NotNull]
+    internal FeatureDefinitionReduceDamageBuilder SetConsumeSpellSlotsReducedDamage(
+        CharacterClassDefinition spellCastingClass, int reducedDamage)
+    {
+        Definition.SpellCastingClass = spellCastingClass;
+        Definition.TriggerCondition = RuleDefinitions.AdditionalDamageTriggerCondition.SpendSpellSlot;
         Definition.ReducedDamage = reducedDamage;
         return this;
     }
