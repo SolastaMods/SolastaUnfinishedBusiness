@@ -227,8 +227,9 @@ internal static class OtherFeats
                     .SetGuiPresentationNoContent(true)
                     .SetCustomSubFeatures(
                         new OnAfterActionFeatMobileDash(ConditionDefinitionBuilder
-                            .Create(ConditionDefinitions.ConditionFreedomOfMovement, "ConditionFeatMobileFreedom")
+                            .Create(ConditionDefinitions.ConditionFreedomOfMovement, "ConditionFeatMobileAfterDash")
                             .SetOrUpdateGuiPresentation(Category.Condition)
+                            .SetSpecialInterruptions(ConditionInterruption.AnyBattleTurnEnd)
                             .SetFeatures(
                                 FeatureDefinitionConditionAffinitys.ConditionAffinityFreedomOfMovementRestrained,
                                 FeatureDefinitionMovementAffinitys.MovementAffinityFreedomOfMovement)

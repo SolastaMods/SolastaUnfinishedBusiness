@@ -1,4 +1,4 @@
-Condition/&ConditionFeatMobileAfterDash=Grants immunity to movement restrictions as well as being restrained.
+Condition/&ConditionFeatMobileAfterDashDescription=Grants immunity to movement restrictions as well as being restrained.
 Condition/&ConditionFeatMobileAfterDashTitle=Freedom
 Condition/&ConditionFeatMobileAfterAttackDescription=Grants a Disengage action.
 Condition/&ConditionFeatMobileAfterAttackTitle=Nimble
