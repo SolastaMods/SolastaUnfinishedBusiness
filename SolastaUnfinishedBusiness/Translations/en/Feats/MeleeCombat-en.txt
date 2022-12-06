@@ -9,5 +9,5 @@ Feat/&FeatSavageAttackDescription=Reroll weapon and spell damage dice when you r
 Feat/&FeatSavageAttackReroll=Due to being a Savage Attacker {0} re-rolls the {1} die from a {2} to a {3}
 Feat/&FeatSavageAttackTitle=Savage Attack
 Feedback/&AdditionalDamagePiercerFormat=Piercer!
-Feedback/&AdditionalDamagePiercerLine={0} pierces {1} for +{2} extra damage!
+Feedback/&AdditionalDamagePiercerLine={0} performs a piercing attack on {1} (+{2})
 Tooltip/&PowerAttackConcentration=Disable Power Attack.

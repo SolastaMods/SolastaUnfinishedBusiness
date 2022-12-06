@@ -17,24 +17,32 @@ namespace SolastaUnfinishedBusiness.Feats;
 
 internal static class MeleeCombatFeats
 {
-    private static readonly FeatureDefinitionDieRollModifier DieRollModifierFeatPiercerNonMagic =
-        FeatureDefinitionDieRollModifierBuilder
-            .Create("DieRollModifierFeatPiercerNonMagic")
-            .SetGuiPresentationNoContent(true)
-            .SetModifiers(AttackDamageValueRoll, 1, 1, 1, "Feat/&FeatPiercerReroll")
-            .SetCustomSubFeatures(ValidatorsCharacter.MainHandIsPiercingWeapon)
-            .AddToDB();
-
     private static readonly FeatureDefinition FeatureFeatPiercer = FeatureDefinitionBuilder
         .Create("FeatureFeatPiercer")
         .SetGuiPresentationNoContent(true)
-        .SetCustomSubFeatures(new IsCriticalAndSpecificDamageType(FeatureDefinitionAdditionalDamageBuilder
-                .Create("AdditionalDamageFeatPiercer")
+        .SetCustomSubFeatures(
+            new AfterAttackEffectFeatPiercer(ConditionDefinitionBuilder
+                .Create("ConditionFeatPiercerNonMagic")
                 .SetGuiPresentationNoContent(true)
-                .SetNotificationTag("Piercer")
-                .SetDamageValueDetermination(AdditionalDamageValueDetermination.SameAsBaseWeaponDie)
-                .AddToDB(),
-            DamageTypePiercing))
+                .SetTurnOccurence(TurnOccurenceType.EndOfTurn)
+                .SetPossessive()
+                .SetSpecialInterruptions(ConditionInterruption.Attacked)
+                .SetFeatures(
+                    FeatureDefinitionDieRollModifierBuilder
+                        .Create("DieRollModifierFeatPiercerNonMagic")
+                        .SetGuiPresentationNoContent(true)
+                        .SetModifiers(AttackDamageValueRoll, 1, 1, 1, "Feat/&FeatPiercerReroll")
+                        .AddToDB())
+                .AddToDB()),
+            new CustomAdditionalDamageFeatPiercer(
+                FeatureDefinitionAdditionalDamageBuilder
+                    .Create("AdditionalDamageFeatPiercer")
+                    .SetGuiPresentationNoContent(true)
+                    .SetNotificationTag("Piercer")
+                    .SetDamageValueDetermination(AdditionalDamageValueDetermination.SameAsBaseWeaponDie)
+                    .SetIgnoreCriticalDoubleDice(true)
+                    .AddToDB(),
+                DamageTypePiercing))
         .AddToDB();
 
     internal static FeatDefinition FeatGroupPiercer { get; private set; }
@@ -186,7 +194,6 @@ internal static class MeleeCombatFeats
             .SetGuiPresentation(Category.Feat)
             .SetFeatures(
                 FeatureDefinitionAttributeModifiers.AttributeModifierCreed_Of_Misaye,
-                DieRollModifierFeatPiercerNonMagic,
                 FeatureFeatPiercer)
             .SetAbilityScorePrerequisite(AttributeDefinitions.Dexterity, 13)
             .AddToDB();
@@ -199,7 +206,6 @@ internal static class MeleeCombatFeats
             .SetGuiPresentation(Category.Feat)
             .SetFeatures(
                 FeatureDefinitionAttributeModifiers.AttributeModifierCreed_Of_Einar,
-                DieRollModifierFeatPiercerNonMagic,
                 FeatureFeatPiercer)
             .SetAbilityScorePrerequisite(AttributeDefinitions.Strength, 13)
             .AddToDB();
@@ -223,11 +229,46 @@ internal static class MeleeCombatFeats
         }
     }
 
-    private sealed class IsCriticalAndSpecificDamageType : CustomAdditionalDamage
+    private sealed class AfterAttackEffectFeatPiercer : IAfterAttackEffect
+    {
+        private readonly ConditionDefinition _conditionDefinition;
+
+        internal AfterAttackEffectFeatPiercer(ConditionDefinition conditionDefinition)
+        {
+            _conditionDefinition = conditionDefinition;
+        }
+
+        public void AfterOnAttackHit(
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            RollOutcome outcome,
+            CharacterActionParams actionParams,
+            RulesetAttackMode attackMode,
+            ActionModifier attackModifier)
+        {
+            if (attackMode == null || outcome is RollOutcome.Failure or RollOutcome.CriticalFailure)
+            {
+                return;
+            }
+
+            var rulesetCondition = RulesetCondition.CreateActiveCondition(
+                attacker.RulesetCharacter.Guid,
+                _conditionDefinition,
+                DurationType.Round,
+                0,
+                TurnOccurenceType.EndOfTurn,
+                attacker.RulesetCharacter.Guid,
+                attacker.RulesetCharacter.CurrentFaction.Name);
+
+            attacker.RulesetCharacter.AddConditionOfCategory(AttributeDefinitions.TagCombat, rulesetCondition);
+        }
+    }
+    
+    private sealed class CustomAdditionalDamageFeatPiercer : CustomAdditionalDamage
     {
         private readonly string _damageType;
 
-        public IsCriticalAndSpecificDamageType(IAdditionalDamageProvider provider, string damageType) : base(provider)
+        public CustomAdditionalDamageFeatPiercer(IAdditionalDamageProvider provider, string damageType) : base(provider)
         {
             _damageType = damageType;
         }

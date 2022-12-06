@@ -42,14 +42,6 @@ internal static class ValidatorsWeapon
                || weapon.ItemDefinition.WeaponDescription?.WeaponTypeDefinition.WeaponProximity ==
                RuleDefinitions.AttackProximity.Melee;
     }
-    
-    internal static bool IsPiercingDamage([CanBeNull] RulesetItem weapon)
-    {
-        return weapon != null && weapon.ItemDefinition.IsWeapon &&
-               weapon.ItemDefinition.WeaponDescription.EffectDescription
-                   .GetFirstFormOfType(EffectForm.EffectFormType.Damage).DamageForm.DamageType ==
-               RuleDefinitions.DamageTypePiercing;
-    }
 
     internal static bool IsMelee([NotNull] RulesetAttackMode attack)
     {
