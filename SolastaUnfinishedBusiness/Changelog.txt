@@ -1,12 +1,6 @@
-﻿ATTENTION:
+﻿CHANGES:
 
-- Fala Português? Quer apoiar na melhoria das traduções? Busque-me no Discord
-- ¿Hablas español? ¿Quieres apoyar en la mejoría de las traducciones? Buscame en el Discord
+1.4.30.11:
 
-CHANGES:
-
-1.4.30.10:
-
-- added Heavy Armor Master, Mobile and Piercer feats
-- fixed missing damage dice on Resonating Strike at 5
-- fixed Circle of The Forest Night Bark Ward max pool
+- fixed Bard Magical secrets at 14 and 18
+- fixed Path of The Spirits' Animal Friendship saving thrown DC

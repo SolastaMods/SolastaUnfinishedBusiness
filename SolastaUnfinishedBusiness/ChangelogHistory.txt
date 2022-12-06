@@ -1,5 +1,10 @@
 ﻿CHANGES:
 
+1.4.30.11:
+
+- fixed Bard Magical secrets at 14 and 18
+- fixed Path of The Spirits' Animal Friendship saving thrown DC
+
 1.4.30.10:
 
 - added Heavy Armor Master, Mobile and Piercer feats
