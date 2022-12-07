@@ -101,10 +101,7 @@ internal static class GameUiContext
             spellRepertoireLinesTable.SetParent(spellLineHolder.transform);
         }
 
-        var spellRepertoires = __instance.Caster.RulesetCharacter.SpellRepertoires
-            .Where(r => !r.spellCastingFeature.GuiPresentation.Hidden)
-            .ToList();
-
+        var spellRepertoires = __instance.Caster.RulesetCharacter.SpellRepertoires;
         var needNewLine = true;
         var lineIndex = 0;
         var indexOfLine = 0;
@@ -206,6 +203,7 @@ internal static class GameUiContext
         if (needNewLine)
         {
             var previousTable = spellRepertoireLinesTable;
+
             LayoutRebuilder.ForceRebuildLayoutImmediate(previousTable);
 
             if (lineIndex > 0)
