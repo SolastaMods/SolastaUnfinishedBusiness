@@ -2,6 +2,7 @@
   "$type": "FeatureDefinitionFeatureSet, Assembly-CSharp",
   "featureSet": [
     "Definition:SenseBlindSight16:9c1d39576cf623546956edf147f1c916",
+    "Definition:SenseSeeInvisible16:9a94a1b657b56fd419fc6eec656de1fe",
     "Definition:ConditionAffinityInvocationDevilsSight:5dec704c4dfe6f7438ccdb8401584f67"
   ],
   "mode": "Union",

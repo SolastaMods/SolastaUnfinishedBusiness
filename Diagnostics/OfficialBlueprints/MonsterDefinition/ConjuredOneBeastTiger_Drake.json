@@ -59,7 +59,7 @@
   "audioRaceRTPCValue": 13.0,
   "challengeRating": 2.0,
   "noExperienceGain": false,
-  "droppedLootDefinition": "Definition:TigerDrake_loot_drop:5902f3a42bc959648aac777dbb785d83",
+  "droppedLootDefinition": null,
   "stealableLootDefinition": null,
   "bestiaryLootOptions": [],
   "features": [

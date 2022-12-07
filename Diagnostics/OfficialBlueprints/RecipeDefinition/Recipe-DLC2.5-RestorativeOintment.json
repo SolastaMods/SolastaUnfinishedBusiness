@@ -23,11 +23,6 @@
     },
     {
       "$type": "IngredientOccurenceDescription, Assembly-CSharp",
-      "amount": 2,
-      "itemDefinition": "Definition:Ingredient_Magnesium:d1429eb37322a9141b93c6d4aef14376"
-    },
-    {
-      "$type": "IngredientOccurenceDescription, Assembly-CSharp",
       "amount": 1,
       "itemDefinition": "Definition:Ingredient_ManacalonOrchid:06ea1158f6b388e43ac4c6e84e6baa3c"
     }

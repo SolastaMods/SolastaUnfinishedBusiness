@@ -6,7 +6,7 @@
   "pairedActionId": "NoAction",
   "usesPerTurn": -1,
   "classNameOverride": "",
-  "requiresAuthorization": true,
+  "requiresAuthorization": false,
   "stealthBreakerBehavior": "None",
   "feedbackOnHoverType": "None",
   "iterativeTargeting": false,

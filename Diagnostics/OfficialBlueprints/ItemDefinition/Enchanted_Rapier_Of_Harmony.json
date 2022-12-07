@@ -32,7 +32,7 @@
   "activeTags": [],
   "inactiveTags": [],
   "magical": true,
-  "requiresAttunement": false,
+  "requiresAttunement": true,
   "requiresIdentification": false,
   "requiredAttunementClasses": [
     "Definition:Bard:8d8eb73e8e6c7d24789c3381ab0acccb"
@@ -524,7 +524,10 @@
     },
     "scaleFactorWhileWielded": 1.0,
     "useArmorAddressableName": false,
+    "isArmorAddressableNameGenderSpecific": false,
     "armorAddressableName": "",
+    "maleArmorAddressableName": "",
+    "femaleArmorAddressableName": "",
     "useCustomArmorMaterial": false,
     "customArmorMaterial": "",
     "hasCrownVariationMask": false,
