@@ -1,10 +1,5 @@
 ﻿CHANGES:
 
-1.4.31.0:
+1.4.31.1:
 
-- updated to game version 1.4.31
-- fixed not being able to switch bombs to fire element sometimes
-- fixed Piercer not checking for damage type on re-rolls
-- fixed Way of The Light not offering cantrips
-- changed Mobile to only trigger disengage on attack hits
-- changed Mobile to only grant affinity to difficult terrains and immunity to restrained
+- fixed Gnome and Kobold wrong spell slots offering at 3rd and 5th

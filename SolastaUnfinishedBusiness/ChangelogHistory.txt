@@ -1,5 +1,9 @@
 ﻿CHANGES:
 
+1.4.31.1:
+
+- fixed Gnome and Kobold wrong spell slots offering at 3rd and 5th
+
 1.4.31.0:
 
 - updated to game version 1.4.31
