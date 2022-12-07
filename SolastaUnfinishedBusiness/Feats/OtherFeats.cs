@@ -204,15 +204,6 @@ internal static class OtherFeats
 
     private static FeatDefinition BuildMobile()
     {
-        var conditionFeatMobileAfterAttack = ConditionDefinitionBuilder
-            .Create("ConditionFeatMobileAfterAttack")
-            .SetGuiPresentation(Category.Condition)
-            .SetTurnOccurence(TurnOccurenceType.EndOfTurn)
-            .SetPossessive()
-            .SetSpecialInterruptions(ConditionInterruption.AnyBattleTurnEnd)
-            .SetFeatures(FeatureDefinitionActionAffinitys.ActionAffinityNimbleEscape)
-            .AddToDB();
-
         return FeatDefinitionBuilder
             .Create("FeatMobile")
             .SetGuiPresentation(Category.Feat)
@@ -226,19 +217,30 @@ internal static class OtherFeats
                     .Create("OnAfterActionFeatMobileDash")
                     .SetGuiPresentationNoContent(true)
                     .SetCustomSubFeatures(
-                        new OnAfterActionFeatMobileDash(ConditionDefinitionBuilder
-                            .Create(ConditionDefinitions.ConditionFreedomOfMovement, "ConditionFeatMobileAfterDash")
-                            .SetOrUpdateGuiPresentation(Category.Condition)
-                            .SetSpecialInterruptions(ConditionInterruption.AnyBattleTurnEnd)
-                            .SetFeatures(
-                                FeatureDefinitionConditionAffinitys.ConditionAffinityFreedomOfMovementRestrained,
-                                FeatureDefinitionMovementAffinitys.MovementAffinityFreedomOfMovement)
-                            .AddToDB()))
+                        new OnAfterActionFeatMobileDash(
+                            ConditionDefinitionBuilder
+                                .Create(ConditionDefinitions.ConditionFreedomOfMovement, "ConditionFeatMobileAfterDash")
+                                .SetOrUpdateGuiPresentation(Category.Condition)
+                                .SetTurnOccurence(TurnOccurenceType.StartOfTurn)
+                                .SetPossessive()
+                                .SetSpecialInterruptions(ConditionInterruption.AnyBattleTurnEnd)
+                                .SetFeatures(
+                                    FeatureDefinitionConditionAffinitys.ConditionAffinityFreedomOfMovementRestrained,
+                                    FeatureDefinitionMovementAffinitys.MovementAffinityFreedomOfMovement)
+                                .AddToDB()))
                     .AddToDB(),
                 FeatureDefinitionBuilder
                     .Create("OnAttackHitEffectFeatMobile")
                     .SetGuiPresentationNoContent(true)
-                    .SetCustomSubFeatures(new OnAttackHitEffectFeatMobile(conditionFeatMobileAfterAttack))
+                    .SetCustomSubFeatures(new OnAttackHitEffectFeatMobile(
+                        ConditionDefinitionBuilder
+                            .Create("ConditionFeatMobileAfterAttack")
+                            .SetGuiPresentation(Category.Condition)
+                            .SetTurnOccurence(TurnOccurenceType.StartOfTurn)
+                            .SetPossessive()
+                            .SetSpecialInterruptions(ConditionInterruption.AnyBattleTurnEnd)
+                            .SetFeatures(FeatureDefinitionActionAffinitys.ActionAffinityNimbleEscape)
+                            .AddToDB()))
                     .AddToDB())
             .SetAbilityScorePrerequisite(AttributeDefinitions.Dexterity, 13)
             .AddToDB();
