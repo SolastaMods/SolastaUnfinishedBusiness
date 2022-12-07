@@ -20,6 +20,7 @@ internal sealed class PushesFromEffectPoint
         RulesetImplementationDefinitions.ApplyFormsParams formsParams,
         List<string> effectiveDamageTypes,
         out bool damageAbsorbedByTemporaryHitPoints,
+        out bool terminateEffectOnTarget,
         bool retargeting,
         bool proxyOnly,
         bool forceSelfConditionOnly,
@@ -36,9 +37,16 @@ internal sealed class PushesFromEffectPoint
             formsParams.position = positions[0];
         }
 
-        return service.ApplyEffectForms(effectForms, formsParams, effectiveDamageTypes,
-            out damageAbsorbedByTemporaryHitPoints, retargeting, proxyOnly,
-            forceSelfConditionOnly, effectApplication, filters);
+        return service.ApplyEffectForms(effectForms: effectForms,
+                                        formsParams: formsParams,
+                                        effectiveDamageTypes: effectiveDamageTypes,
+                                        damageAbsorbedByTemporaryHitPoints: out damageAbsorbedByTemporaryHitPoints,
+                                        terminateEffectOnTarget: out terminateEffectOnTarget,
+                                        retargeting: retargeting,
+                                        proxyOnly: proxyOnly,
+                                        forceSelfConditionOnly: forceSelfConditionOnly,
+                                        effectApplication: effectApplication,
+                                        filters: filters);
     }
 
     public static bool TryPushFromEffectTargetPoint(EffectForm effectForm,

@@ -18,14 +18,31 @@ public static class CharacterActionCastSpellPatcher
     [HarmonyPatch(
         new[]
         {
-            typeof(GameLocationCharacter), typeof(ActionModifier), typeof(int), typeof(int),
-            typeof(RuleDefinitions.RollOutcome), typeof(bool), typeof(RuleDefinitions.RollOutcome), typeof(int),
-            typeof(int), typeof(bool)
+            typeof(GameLocationCharacter), 
+            typeof(ActionModifier), 
+            typeof(int), 
+            typeof(int),
+            typeof(RuleDefinitions.RollOutcome), 
+            typeof(bool), 
+            typeof(RuleDefinitions.RollOutcome), 
+            typeof(int),
+            typeof(int), 
+            typeof(bool), 
+            typeof(bool)
         },
         new[]
         {
-            ArgumentType.Normal, ArgumentType.Normal, ArgumentType.Normal, ArgumentType.Normal, ArgumentType.Normal,
-            ArgumentType.Normal, ArgumentType.Normal, ArgumentType.Normal, ArgumentType.Ref, ArgumentType.Out
+            ArgumentType.Normal, 
+            ArgumentType.Normal, 
+            ArgumentType.Normal, 
+            ArgumentType.Normal, 
+            ArgumentType.Normal,
+            ArgumentType.Normal, 
+            ArgumentType.Normal, 
+            ArgumentType.Normal, 
+            ArgumentType.Ref, 
+            ArgumentType.Out, 
+            ArgumentType.Out
         })]
     public static class ApplyMagicEffect_Patch
     {
@@ -39,7 +56,8 @@ public static class CharacterActionCastSpellPatcher
             RuleDefinitions.RollOutcome saveOutcome,
             int saveOutcomeDelta,
             ref int damageReceived,
-            ref bool damageAbsorbedByTemporaryHitPoints
+            ref bool damageAbsorbedByTemporaryHitPoints,
+            ref bool terminateEffectOnTarget
         )
         {
             //PATCH: re-implements base method to allow `ICustomSpellEffectLevel` to provide customized spell effect level
@@ -88,9 +106,13 @@ public static class CharacterActionCastSpellPatcher
             var actualEffectForms = __instance.actualEffectForms;
 
             damageReceived = ServiceRepository.GetService<IRulesetImplementationService>()
-                .ApplyEffectForms(actualEffectForms[targetIndex], formsParams, __instance.effectiveDamageTypes,
-                    out damageAbsorbedByTemporaryHitPoints, effectApplication: spellEffectDescription.EffectApplication,
-                    filters: spellEffectDescription.EffectFormFilters);
+                .ApplyEffectForms(effectForms: actualEffectForms[targetIndex],
+                                  formsParams: formsParams,
+                                  effectiveDamageTypes: __instance.effectiveDamageTypes,
+                                  damageAbsorbedByTemporaryHitPoints: out damageAbsorbedByTemporaryHitPoints,
+                                  effectApplication: spellEffectDescription.EffectApplication,
+                                  filters: spellEffectDescription.EffectFormFilters,
+                                  terminateEffectOnTarget: out terminateEffectOnTarget);
 
             return false;
         }

@@ -57,9 +57,14 @@ public static class CharacterActionMagicEffectPatcher
                 formsParams.attackOutcome = RuleDefinitions.RollOutcome.Success;
             }
 
-            service.ApplyEffectForms(effectDescription.EffectForms, formsParams, null, out var _,
-                forceSelfConditionOnly: true, effectApplication: effectDescription.EffectApplication,
-                filters: effectDescription.EffectFormFilters);
+            service.ApplyEffectForms(effectForms: effectDescription.EffectForms,
+                                     formsParams: formsParams,
+                                     effectiveDamageTypes: null,
+                                     damageAbsorbedByTemporaryHitPoints: out var _,
+                                     forceSelfConditionOnly: true,
+                                     effectApplication: effectDescription.EffectApplication,
+                                     filters: effectDescription.EffectFormFilters,
+                                     terminateEffectOnTarget: out var _);
 
             return false;
         }
