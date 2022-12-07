@@ -105,10 +105,10 @@ public static class RulesetCharacterHeroPatcher
     {
         public static bool Prefix(RulesetCharacterHero __instance, out bool __result)
         {
-            //PATCH: Make sure availablity of custom invocations doesn't affect defaukt ones
+            //PATCH: Make sure availability of custom invocations doesn't affect default ones
             __result = __instance.Invocations
                 .Where(x => x.InvocationDefinition is not InvocationDefinitionCustom)
-                .Any(x => __instance.CanCastInvocation(x));
+                .Any(__instance.CanCastInvocation);
 
             return false;
         }
@@ -161,13 +161,9 @@ public static class RulesetCharacterHeroPatcher
                     continue;
                 }
 
-                foreach (var repertoire in __instance.SpellRepertoires)
+                foreach (var repertoire in __instance.SpellRepertoires
+                             .Where(repertoire => matcher(repertoire, __instance)))
                 {
-                    if (!matcher(repertoire, __instance))
-                    {
-                        continue;
-                    }
-
                     invocation.invocationRepertoire = repertoire;
                     invocation.spellCastingFeature = repertoire.spellCastingFeature;
                     break;
@@ -223,16 +219,14 @@ public static class RulesetCharacterHeroPatcher
             string slotName,
             List<IAttackModificationProvider> attackModifiers,
             Dictionary<FeatureDefinition, RuleDefinitions.FeatureOrigin> featuresOrigin,
-            RulesetItem weapon
-        )
+            RulesetItem weapon)
         {
             //PATCH: Allows changing what attribute is used for weapon's attack and damage rolls
             var modifiers = __instance.GetSubFeaturesByType<IModifyAttackAttributeForWeapon>();
 
             var mods = modifiers;
-            var attackMode = __result;
 
-            if (attackMode.sourceObject is RulesetItem item)
+            if (__result.sourceObject is RulesetItem item)
             {
                 mods = item.GetSubFeaturesByType<IModifyAttackAttributeForWeapon>();
                 mods.AddRange(modifiers);
@@ -240,7 +234,7 @@ public static class RulesetCharacterHeroPatcher
 
             foreach (var modifier in mods)
             {
-                modifier.ModifyAttribute(__instance, attackMode, weapon, canAddAbilityDamageBonus);
+                modifier.ModifyAttribute(__instance, __result, weapon, canAddAbilityDamageBonus);
             }
         }
     }
@@ -271,6 +265,7 @@ public static class RulesetCharacterHeroPatcher
             foreach (var attackMode in __instance.AttackModes)
             {
                 var mods = modifiers;
+
                 if (attackMode.sourceObject is RulesetItem item)
                 {
                     mods = item.GetSubFeaturesByType<IModifyAttackModeForWeapon>();
@@ -324,7 +319,8 @@ public static class RulesetCharacterHeroPatcher
     public static class AcknowledgeAttackUse_Patch
     {
         // ReSharper disable once RedundantAssignment
-        public static void Prefix(RulesetCharacterHero __instance,
+        public static void Prefix(
+            RulesetCharacterHero __instance,
             RulesetAttackMode mode,
             ref RuleDefinitions.AttackProximity proximity)
         {
@@ -601,6 +597,7 @@ public static class RulesetCharacterHeroPatcher
             }
 
             var providers = __instance.GetSubFeaturesByType<PowerPoolDevice>();
+
             if (providers.Empty())
             {
                 return;
@@ -608,10 +605,7 @@ public static class RulesetCharacterHeroPatcher
 
             var tmp = __result.ToList();
 
-            foreach (var provider in providers)
-            {
-                tmp.Add(provider.GetDevice(__instance));
-            }
+            tmp.AddRange(providers.Select(provider => provider.GetDevice(__instance)));
 
             __result = tmp;
         }
@@ -628,12 +622,14 @@ public static class RulesetCharacterHeroPatcher
         {
             //PATCH: enables `PowerPoolDevice` to consume usage for power pool
             var feature = PowerPoolDevice.GetFromRulesetItem(__instance, usableDevice);
+
             if (feature == null)
             {
                 return;
             }
 
             var useAmount = function.DeviceFunctionDescription.UseAmount + additionalCharges;
+            
             __instance.UpdateUsageForPower(feature.Pool, useAmount);
         }
     }
