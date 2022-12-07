@@ -1,5 +1,10 @@
 ﻿CHANGES:
 
+1.4.30.12:
+
+- fixed Piercer not checking for damage type on re-rolls
+- changed Mobile to only trigger disengage on attack hits
+
 1.4.30.11:
 
 - fixed AoO to use Thunder Gauntlet if main hand is free
