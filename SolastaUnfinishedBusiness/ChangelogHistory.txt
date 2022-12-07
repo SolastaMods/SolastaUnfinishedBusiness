@@ -3,6 +3,7 @@
 1.4.30.12:
 
 - fixed Piercer not checking for damage type on re-rolls
+- fixed Way of The Light not offering cantrips with this mod
 - changed Mobile to only trigger disengage on attack hits
 
 1.4.30.11:
