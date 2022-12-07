@@ -1,7 +1,9 @@
 ﻿CHANGES:
 
-1.4.30.12:
+1.4.31.0:
 
+- updated to game version 1.4.31
 - fixed Piercer not checking for damage type on re-rolls
-- fixed Way of The Light not offering cantrips with this mod
+- fixed Way of The Light not offering cantrips
 - changed Mobile to only trigger disengage on attack hits
+- changed Mobile to only grant affinity to difficult terrains and immunity to restrained
