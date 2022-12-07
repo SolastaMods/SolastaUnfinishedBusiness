@@ -3,6 +3,7 @@
 1.4.31.0:
 
 - updated to game version 1.4.31
+- fixed not being able to switch bombs to fire element sometimes
 - fixed Piercer not checking for damage type on re-rolls
 - fixed Way of The Light not offering cantrips
 - changed Mobile to only trigger disengage on attack hits
