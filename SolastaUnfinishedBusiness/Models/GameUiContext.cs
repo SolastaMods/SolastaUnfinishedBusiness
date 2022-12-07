@@ -102,7 +102,7 @@ internal static class GameUiContext
         }
 
         var spellRepertoires = __instance.Caster.RulesetCharacter.SpellRepertoires
-            .Where(r => !r.spellCastingFeature.GuiPresentation.Hidden)
+            .Where(r => r.SpellCastingFeature.SpellListDefinition != SpellsContext.EmptySpellList)
             .ToList();
 
         var needNewLine = true;
@@ -206,6 +206,7 @@ internal static class GameUiContext
         if (needNewLine)
         {
             var previousTable = spellRepertoireLinesTable;
+
             LayoutRebuilder.ForceRebuildLayoutImmediate(previousTable);
 
             if (lineIndex > 0)

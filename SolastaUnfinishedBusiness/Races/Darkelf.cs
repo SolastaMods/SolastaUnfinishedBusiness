@@ -18,7 +18,7 @@ internal static class DarkelfSubraceBuilder
 {
     internal static CharacterRaceDefinition SubraceDarkelf { get; } = BuildDarkelf();
 
-    internal static FeatureDefinitionCastSpell CastSpellDarkelfMagic { get; private set; }
+    internal static FeatureDefinitionCastSpell CastSpellDarkelfMagic { get; set; }
 
     [NotNull]
     private static CharacterRaceDefinition BuildDarkelf()

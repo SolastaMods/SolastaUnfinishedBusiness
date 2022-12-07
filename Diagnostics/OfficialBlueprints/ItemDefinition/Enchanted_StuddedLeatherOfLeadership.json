@@ -198,9 +198,12 @@
     },
     "scaleFactorWhileWielded": 1.0,
     "useArmorAddressableName": true,
+    "isArmorAddressableNameGenderSpecific": false,
     "armorAddressableName": "LeatherStudded",
-    "useCustomArmorMaterial": false,
-    "customArmorMaterial": "",
+    "maleArmorAddressableName": "",
+    "femaleArmorAddressableName": "",
+    "useCustomArmorMaterial": true,
+    "customArmorMaterial": "LeatherStudded_Red",
     "hasCrownVariationMask": false,
     "crownVariationMask": 0,
     "sameBehavioursForMaleAndFemale": true,
@@ -214,6 +217,8 @@
       "Armor",
       "Shape",
       "Armor",
+      "Shape",
+      "Shape",
       "Shape"
     ],
     "femaleBodyPartBehaviours": [],
@@ -229,8 +234,8 @@
     "description": "Equipment/&Armor_StuddedLeatherDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "df184baca0ffa054785046693c04fa8a",
-      "m_SubObjectName": "StandardStuddedLeather",
+      "m_AssetGUID": "8c666e84a9a0b2f448c94aa7fd5a0007",
+      "m_SubObjectName": "DLC1_StuddedArmor+2_Male",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {

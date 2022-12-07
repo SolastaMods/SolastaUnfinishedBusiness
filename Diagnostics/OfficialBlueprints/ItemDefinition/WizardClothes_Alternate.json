@@ -53,13 +53,21 @@
       "featureDefinition": "Definition:DamageAffinityNecroticResistance:ee5f1fbda4f516844b493f08fdd4fb5a",
       "conditionDefinition": null,
       "knowledgeAffinity": "InactiveAndHidden"
+    },
+    {
+      "$type": "ItemPropertyDescription, Assembly-CSharp",
+      "appliesOnItemOnly": true,
+      "type": "Feature",
+      "featureDefinition": "Definition:AttributeModifierArmor+3:edd596eacd0b2d4478007136598ddf38",
+      "conditionDefinition": null,
+      "knowledgeAffinity": "ActiveAndHidden"
     }
   ],
   "isArmor": true,
   "armorDefinition": {
     "$type": "ArmorDescription, Assembly-CSharp",
     "armorType": "ClothesType",
-    "armorClassValue": 14,
+    "armorClassValue": 10,
     "isBaseArmorClass": true,
     "maxDexterityBonus": -1,
     "requiresMinimalStrength": false,
@@ -199,7 +207,10 @@
     },
     "scaleFactorWhileWielded": 1.0,
     "useArmorAddressableName": true,
+    "isArmorAddressableNameGenderSpecific": false,
     "armorAddressableName": "ClothesWizard",
+    "maleArmorAddressableName": "",
+    "femaleArmorAddressableName": "",
     "useCustomArmorMaterial": true,
     "customArmorMaterial": "ClothesWizardlvl2",
     "hasCrownVariationMask": false,
@@ -215,6 +226,8 @@
       "Armor",
       "Armor",
       "Armor",
+      "Armor",
+      "Armor",
       "Armor"
     ],
     "femaleBodyPartBehaviours": [
@@ -225,6 +238,8 @@
       "Both",
       "Both",
       "Both",
+      "Armor",
+      "Armor",
       "Armor",
       "Armor",
       "Armor"

@@ -57,9 +57,14 @@ public static class CharacterActionMagicEffectPatcher
                 formsParams.attackOutcome = RuleDefinitions.RollOutcome.Success;
             }
 
-            service.ApplyEffectForms(effectDescription.EffectForms, formsParams, null, out var _,
-                forceSelfConditionOnly: true, effectApplication: effectDescription.EffectApplication,
-                filters: effectDescription.EffectFormFilters);
+            service.ApplyEffectForms(effectForms: effectDescription.EffectForms,
+                                     formsParams: formsParams,
+                                     effectiveDamageTypes: null,
+                                     damageAbsorbedByTemporaryHitPoints: out var _,
+                                     forceSelfConditionOnly: true,
+                                     effectApplication: effectDescription.EffectApplication,
+                                     filters: effectDescription.EffectFormFilters,
+                                     terminateEffectOnTarget: out var _);
 
             return false;
         }
@@ -178,7 +183,8 @@ public static class CharacterActionMagicEffectPatcher
         typeof(RulesetItem), // targetITem,
         typeof(RuleDefinitions.EffectSourceType), // sourceType,
         typeof(int), // ref damageReceive
-        typeof(bool) //out damageAbsorbedByTemporaryHitPoints
+        typeof(bool), //out damageAbsorbedByTemporaryHitPoints
+        typeof(bool) //out terminateEffectOnTarget
     }, new[]
     {
         ArgumentType.Normal, // caster
@@ -200,6 +206,7 @@ public static class CharacterActionMagicEffectPatcher
         ArgumentType.Normal, // sourceType,
         ArgumentType.Ref, //ref damageReceive
         ArgumentType.Out, //out damageAbsorbedByTemporaryHitPoints
+        ArgumentType.Out, //out terminateEffectOnTarget
     })]
     public static class ApplyForms_Patch
     {

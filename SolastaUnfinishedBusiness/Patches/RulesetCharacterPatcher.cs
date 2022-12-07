@@ -53,8 +53,7 @@ public static class RulesetCharacterPatcher
 
             definition.Features
                 .SelectMany(f => f.GetAllSubFeaturesOfType<ICustomConditionFeature>())
-                .ToList()
-                .ForEach(c => c.ApplyFeature(__instance, activeCondition));
+                .Do(c => c.ApplyFeature(__instance, activeCondition));
         }
     }
 
@@ -71,8 +70,7 @@ public static class RulesetCharacterPatcher
 
             definition.Features
                 .SelectMany(f => f.GetAllSubFeaturesOfType<ICustomConditionFeature>())
-                .ToList()
-                .ForEach(c => c.RemoveFeature(__instance, activeCondition));
+                .Do(c => c.RemoveFeature(__instance, activeCondition));
         }
     }
 
@@ -232,8 +230,8 @@ public static class RulesetCharacterPatcher
 
             var materialTag = spell.SpecificMaterialComponentTag;
             var requiredCost = spell.SpecificMaterialComponentCostGp;
+            var items = new List<RulesetItem>();
 
-            List<RulesetItem> items = new();
             caster.CharacterInventory.EnumerateAllItems(items);
 
             var tagsMap = new Dictionary<string, TagsDefinitions.Criticity>();
@@ -268,7 +266,8 @@ public static class RulesetCharacterPatcher
                 return;
             }
 
-            List<RulesetItem> items = new();
+            var items = new List<RulesetItem>();
+
             caster.CharacterInventory.EnumerateAllItems(items);
 
             if (!items.Any(caster.HoldsMyInfusion))
@@ -914,7 +913,9 @@ public static class RulesetCharacterPatcher
             // this includes all the logic for the base function
             spellRepertoire.AutoPreparedSpells.Clear();
             __instance.EnumerateFeaturesToBrowse<FeatureDefinitionAutoPreparedSpells>(__instance.FeaturesToBrowse);
+            
             var features = __instance.FeaturesToBrowse.OfType<FeatureDefinitionAutoPreparedSpells>();
+            
             foreach (var autoPreparedSpells in features)
             {
                 var matcher = autoPreparedSpells.GetFirstSubFeatureOfType<RepertoireValidForAutoPreparedFeature>();
@@ -922,7 +923,7 @@ public static class RulesetCharacterPatcher
 
                 if (matcher == null)
                 {
-                    matches = autoPreparedSpells.SpellcastingClass == spellRepertoire.spellCastingClass;
+                    matches = autoPreparedSpells.SpellcastingClass == spellcastingClass;
                 }
                 else
                 {

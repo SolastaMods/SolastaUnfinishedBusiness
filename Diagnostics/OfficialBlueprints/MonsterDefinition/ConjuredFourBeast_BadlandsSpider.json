@@ -65,7 +65,7 @@
   "audioRaceRTPCValue": 7.0,
   "challengeRating": 0.5,
   "noExperienceGain": false,
-  "droppedLootDefinition": "Definition:BadlandsSpider_loot_drop:9f4f4eb635a5ded4293f15733e1d6d34",
+  "droppedLootDefinition": null,
   "stealableLootDefinition": null,
   "bestiaryLootOptions": [],
   "features": [

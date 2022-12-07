@@ -4,10 +4,7 @@
   "limitedUsage": "None",
   "firstTargetOnly": true,
   "targetSide": "Enemy",
-  "otherSimilarAdditionalDamages": [
-    "Definition:AdditionalDamageOathOfTirmarSmiteTheHiddenDarkvision:be0b60397da143a449351695d8a944e5",
-    "Definition:AdditionalDamageOathOfTirmarSmiteTheHiddenSuperiorDarkvision:5b75a61a854822447b51387ab6f266cd"
-  ],
+  "otherSimilarAdditionalDamages": [],
   "triggerCondition": "TargetHasCreatureTag",
   "requiredProperty": "None",
   "attackModeOnly": false,

@@ -505,8 +505,7 @@ public static class InnovationAlchemy
             .SetShowCasting(false)
             .SetUniqueInstance()
             .SetUsesFixed(ActivationTime.NoCost)
-            .SetEffectDescription(EffectDescriptionBuilder
-                .Create()
+            .SetEffectDescription(EffectDescriptionBuilder.Create()
                 .SetDurationData(DurationType.Permanent)
                 .SetEffectForms(EffectFormBuilder.Create()
                     .SetConditionForm(marker, ConditionForm.ConditionOperation.Add)
@@ -521,14 +520,13 @@ public static class InnovationAlchemy
 
     private static FeatureDefinitionPower MakeBombFireDamageToggle()
     {
-        return FeatureDefinitionPowerBuilder
+        var power = FeatureDefinitionPowerBuilder
             .Create($"PowerInnovationAlchemyMarker{DamageTypeFire}")
             .SetGuiPresentation(Category.Feature)
             .SetShowCasting(false)
             .SetUniqueInstance()
             .SetUsesFixed(ActivationTime.NoCost)
-            .SetEffectDescription(EffectDescriptionBuilder
-                .Create()
+            .SetEffectDescription(EffectDescriptionBuilder.Create()
                 .SetDurationData(DurationType.Permanent)
                 .SetEffectForms(EffectFormBuilder.Create()
                     .SetConditionForm(ConditionDefinitionBuilder
@@ -539,6 +537,10 @@ public static class InnovationAlchemy
                     .Build())
                 .Build())
             .AddToDB();
+        
+        GlobalUniqueEffects.AddToGroup(GlobalUniqueEffects.Group.GrenadierGrenadeMode, power);
+        
+        return power;
     }
 
     private static void AddBombFunctions(UsableDeviceDescriptionBuilder device, FeatureDefinitionPower precise,

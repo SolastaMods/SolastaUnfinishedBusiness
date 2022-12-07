@@ -22,7 +22,8 @@
     0
   ],
   "itemTags": [
-    "Paper"
+    "Paper",
+    "Quest"
   ],
   "activeTags": [],
   "inactiveTags": [],
@@ -193,7 +194,10 @@
     },
     "scaleFactorWhileWielded": 1.0,
     "useArmorAddressableName": false,
+    "isArmorAddressableNameGenderSpecific": false,
     "armorAddressableName": "",
+    "maleArmorAddressableName": "",
+    "femaleArmorAddressableName": "",
     "useCustomArmorMaterial": false,
     "customArmorMaterial": "",
     "hasCrownVariationMask": false,

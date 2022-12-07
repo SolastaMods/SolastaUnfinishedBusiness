@@ -71,7 +71,7 @@
   "audioRaceRTPCValue": 8.0,
   "challengeRating": 2.0,
   "noExperienceGain": false,
-  "droppedLootDefinition": "Definition:DeepSpider_loot_drop:de65e45ddcd4e1e4ab40c4e62ad82c81",
+  "droppedLootDefinition": null,
   "stealableLootDefinition": null,
   "bestiaryLootOptions": [],
   "features": [

@@ -204,15 +204,6 @@ internal static class OtherFeats
 
     private static FeatDefinition BuildMobile()
     {
-        var conditionFeatMobileAfterAttack = ConditionDefinitionBuilder
-            .Create("ConditionFeatMobileAfterAttack")
-            .SetGuiPresentation(Category.Condition)
-            .SetTurnOccurence(TurnOccurenceType.EndOfTurn)
-            .SetPossessive()
-            .SetSpecialInterruptions(ConditionInterruption.AnyBattleTurnEnd)
-            .SetFeatures(FeatureDefinitionActionAffinitys.ActionAffinityNimbleEscape)
-            .AddToDB();
-
         return FeatDefinitionBuilder
             .Create("FeatMobile")
             .SetGuiPresentation(Category.Feat)
@@ -225,12 +216,31 @@ internal static class OtherFeats
                 FeatureDefinitionBuilder
                     .Create("OnAfterActionFeatMobileDash")
                     .SetGuiPresentationNoContent(true)
-                    .SetCustomSubFeatures(new OnAfterActionFeatMobileDash())
+                    .SetCustomSubFeatures(
+                        new OnAfterActionFeatMobileDash(
+                            ConditionDefinitionBuilder
+                                .Create(ConditionDefinitions.ConditionFreedomOfMovement, "ConditionFeatMobileAfterDash")
+                                .SetOrUpdateGuiPresentation(Category.Condition)
+                                .SetTurnOccurence(TurnOccurenceType.StartOfTurn)
+                                .SetPossessive()
+                                .SetSpecialInterruptions(ConditionInterruption.AnyBattleTurnEnd)
+                                .SetFeatures(
+                                    FeatureDefinitionConditionAffinitys.ConditionAffinityFreedomOfMovementRestrained,
+                                    FeatureDefinitionMovementAffinitys.MovementAffinityFreedomOfMovement)
+                                .AddToDB()))
                     .AddToDB(),
                 FeatureDefinitionBuilder
                     .Create("OnAttackHitEffectFeatMobile")
                     .SetGuiPresentationNoContent(true)
-                    .SetCustomSubFeatures(new OnAttackHitEffectFeatMobile(conditionFeatMobileAfterAttack))
+                    .SetCustomSubFeatures(new OnAttackHitEffectFeatMobile(
+                        ConditionDefinitionBuilder
+                            .Create("ConditionFeatMobileAfterAttack")
+                            .SetGuiPresentation(Category.Condition)
+                            .SetTurnOccurence(TurnOccurenceType.StartOfTurn)
+                            .SetPossessive()
+                            .SetSpecialInterruptions(ConditionInterruption.AnyBattleTurnEnd)
+                            .SetFeatures(FeatureDefinitionActionAffinitys.ActionAffinityNimbleEscape)
+                            .AddToDB()))
                     .AddToDB())
             .SetAbilityScorePrerequisite(AttributeDefinitions.Dexterity, 13)
             .AddToDB();
@@ -238,6 +248,13 @@ internal static class OtherFeats
 
     private sealed class OnAfterActionFeatMobileDash : IOnAfterActionFeature
     {
+        private readonly ConditionDefinition _conditionDefinition;
+
+        public OnAfterActionFeatMobileDash(ConditionDefinition conditionDefinition)
+        {
+            _conditionDefinition = conditionDefinition;
+        }
+
         public void OnAfterAction(CharacterAction action)
         {
             if (action is not CharacterActionDash)
@@ -249,7 +266,7 @@ internal static class OtherFeats
 
             var rulesetCondition = RulesetCondition.CreateActiveCondition(
                 attacker.RulesetCharacter.Guid,
-                ConditionDefinitions.ConditionFreedomOfMovement,
+                _conditionDefinition,
                 DurationType.Round,
                 0,
                 TurnOccurenceType.EndOfTurn,
@@ -277,6 +294,11 @@ internal static class OtherFeats
             RulesetAttackMode attackMode,
             ActionModifier attackModifier)
         {
+            if (attackMode == null || outcome is RollOutcome.Failure or RollOutcome.CriticalFailure)
+            {
+                return;
+            }
+
             var rulesetCondition = RulesetCondition.CreateActiveCondition(
                 attacker.RulesetCharacter.Guid,
                 _conditionFeatMobileAfterAttack,

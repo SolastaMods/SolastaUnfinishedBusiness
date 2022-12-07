@@ -33,13 +33,12 @@ public static class RulesetActorPatcher
             bool registerCondition)
         {
             //PATCH: allow conditions to force specific category
-            IForceConditionCategory feature;
             if (newCondition.conditionDefinition == null)
             {
                 return;
             }
 
-            feature = newCondition.conditionDefinition.GetFirstSubFeatureOfType<IForceConditionCategory>();
+            var feature = newCondition.conditionDefinition.GetFirstSubFeatureOfType<IForceConditionCategory>();
 
             if (feature == null)
             {
@@ -227,16 +226,9 @@ public static class RulesetActorPatcher
 
                 var equipedItem = slot.EquipedItem;
 
-                foreach (var dynamicItemProperty in equipedItem.DynamicItemProperties)
-                {
-                    var definition = dynamicItemProperty.FeatureDefinition;
-                    if (definition == null || definition is not IDamageAffinityProvider)
-                    {
-                        continue;
-                    }
-
-                    featuresToBrowse.Add(definition);
-                }
+                featuresToBrowse.AddRange(equipedItem.DynamicItemProperties
+                    .Select(dynamicItemProperty => dynamicItemProperty.FeatureDefinition)
+                    .Where(definition => definition is IDamageAffinityProvider));
             }
         }
     }
