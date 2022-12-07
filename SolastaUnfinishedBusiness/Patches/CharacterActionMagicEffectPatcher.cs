@@ -183,7 +183,8 @@ public static class CharacterActionMagicEffectPatcher
         typeof(RulesetItem), // targetITem,
         typeof(RuleDefinitions.EffectSourceType), // sourceType,
         typeof(int), // ref damageReceive
-        typeof(bool) //out damageAbsorbedByTemporaryHitPoints
+        typeof(bool), //out damageAbsorbedByTemporaryHitPoints,
+        typeof(bool) // out terminateEffectOnTarget
     }, new[]
     {
         ArgumentType.Normal, // caster
@@ -205,6 +206,7 @@ public static class CharacterActionMagicEffectPatcher
         ArgumentType.Normal, // sourceType,
         ArgumentType.Ref, //ref damageReceive
         ArgumentType.Out, //out damageAbsorbedByTemporaryHitPoints
+        ArgumentType.Out, //out terminateEffectOnTarget
     })]
     public static class ApplyForms_Patch
     {
