@@ -102,7 +102,7 @@ internal static class GameUiContext
         }
 
         var spellRepertoires = __instance.Caster.RulesetCharacter.SpellRepertoires
-            .Where(r => r.SpellCastingFeature != SpellsContext.EmptySpellList)
+            .Where(r => r.SpellCastingFeature.SpellListDefinition != SpellsContext.EmptySpellList)
             .ToList();
 
         var needNewLine = true;
