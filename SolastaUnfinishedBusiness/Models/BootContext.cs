@@ -241,17 +241,10 @@ internal static class BootContext
 
             var a1 = installedVersion.Split('.');
             var a2 = version.Split('.');
+            var v1 = a1[0] + a1[1] + a1[2] + Int32.Parse(a1[3]).ToString("D3");
+            var v2 = a2[0] + a2[1] + a2[2] + Int32.Parse(a2[3]).ToString("D3");
 
-            for (var i = 0; i < 4; i++)
-            {
-                hasUpdate = Int32.Parse(a2[i]) > Int32.Parse(a1[i]);
-
-                if (hasUpdate)
-                {
-                    break;
-                }
-            }
-
+            hasUpdate = String.Compare(v2, v1, StringComparison.Ordinal) > 0;
             changeLog = wc.DownloadString($"{BASE_URL}/Changelog.txt");
         }
         catch
