@@ -138,8 +138,8 @@ internal static class Level20Context
         //
         // BUGFIX: fix Race Repertoires
         //
-        
-        CastSpellElfHigh.SlotsPerLevels.Do(x => x.slots = new List<int>() {0});
+
+        CastSpellElfHigh.slotsPerLevels = SharedSpellsContext.RaceEmptyCastingSlots;
 
         //
         // BUGFIX: these null shouldn't be there as it breaks Bard Magical Secrets
