@@ -91,7 +91,7 @@
   "isFocusItem": true,
   "focusItemDefinition": {
     "$type": "FocusItemDescription, Assembly-CSharp",
-    "focusType": "Arcane",
+    "focusType": "MusicalInstrument",
     "shownAsFocus": true
   },
   "isWealthPile": false,
@@ -228,7 +228,10 @@
     },
     "scaleFactorWhileWielded": 1.0,
     "useArmorAddressableName": false,
+    "isArmorAddressableNameGenderSpecific": false,
     "armorAddressableName": "",
+    "maleArmorAddressableName": "",
+    "femaleArmorAddressableName": "",
     "useCustomArmorMaterial": false,
     "customArmorMaterial": "",
     "hasCrownVariationMask": false,
