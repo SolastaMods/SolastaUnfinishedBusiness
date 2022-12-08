@@ -319,9 +319,9 @@
     "description": "Spell/&ForesightDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "e16ad5fcefcd1e845919ad10bced7f08",
-      "m_SubObjectName": "TrueSeeing",
-      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+      "m_AssetGUID": "76682ffa-094d-58fc-9ef1-30cdf1f85c72",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",

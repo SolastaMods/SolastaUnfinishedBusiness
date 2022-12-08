@@ -8,3 +8,5 @@
 - fixed Gnome and Kobold wrong spell slots offering at 3rd and 5th
 - fixed Kobold offering Druid cantrips instead of Sorcerer ones
 - fixed Way of Distant Hand techniques at 11th
+- fixed Way of Distant Hand prompting their zen arrow technique on melee attacks
+- fixed Way of Distant Hand not getting a bonus unarmed attack after shooting a bow

@@ -362,9 +362,9 @@
     "description": "Spell/&MeteorSwarmSingleTargetDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "398e0f6c137bf0744b61dd6c3481be86",
-      "m_SubObjectName": "FlamingSphere",
-      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+      "m_AssetGUID": "0b0aad9d-ea7d-5579-9fae-ebc9438fefa7",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",

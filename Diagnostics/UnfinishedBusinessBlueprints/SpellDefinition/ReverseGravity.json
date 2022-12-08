@@ -344,9 +344,9 @@
     "description": "Spell/&ReverseGravityDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "49c8e733b3ce8db46a74d4c417077576",
-      "m_SubObjectName": "Thunderwave",
-      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+      "m_AssetGUID": "6d9458a2-e4ae-522a-94be-a07a56349505",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
