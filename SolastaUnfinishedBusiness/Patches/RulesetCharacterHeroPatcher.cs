@@ -12,6 +12,7 @@ using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomDefinitions;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.Models;
+using SolastaUnfinishedBusiness.Subclasses;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
@@ -343,6 +344,27 @@ public static class RulesetCharacterHeroPatcher
         {
             //PATCH: reduces the total crafting time by a given percentage
             __result = (int)((100f - Main.Settings.TotalCraftingTimeModifier) / 100 * __result);
+        }
+    }
+
+    [HarmonyPatch(typeof(RulesetCharacterHero), nameof(RulesetCharacterHero.IsWieldingMonkWeapon))]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    public static class IsWieldingMonkWeapon_Patch
+    {
+        public static void Postfix(RulesetCharacterHero __instance, ref bool __result)
+        {
+            //PATCH: consider bow monk weapon for Way of the Distant Hand
+
+            if (__result)
+            {
+                return;
+            }
+
+            var inventorySlots = __instance.characterInventory.InventorySlotsByName;
+            var main = inventorySlots[EquipmentDefinitions.SlotTypeMainHand].EquipedItem;
+            var off = inventorySlots[EquipmentDefinitions.SlotTypeOffHand].EquipedItem;
+            __result = WayOfTheDistantHand.IsMonkWeapon(__instance, main)
+                       || WayOfTheDistantHand.IsMonkWeapon(__instance, off);
         }
     }
 
