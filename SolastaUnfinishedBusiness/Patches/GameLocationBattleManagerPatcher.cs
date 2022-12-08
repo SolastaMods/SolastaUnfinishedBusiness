@@ -279,7 +279,7 @@ public static class GameLocationBattleManagerPatcher
             {
                 yield return values.Current;
             }
-            
+
             RestrictReactionAttackMode.ReactionContext = (null, null, null);
         }
     }
@@ -322,8 +322,7 @@ public static class GameLocationBattleManagerPatcher
             {
                 var damage = attackMode?.EffectDescription?.FindFirstDamageForm();
 
-                if (damage != null && feature.DamageTypes.Count != 0 &&
-                    !feature.DamageTypes.Contains(damage.damageType))
+                if (damage == null || !feature.DamageTypes.Contains(damage.damageType))
                 {
                     continue;
                 }
