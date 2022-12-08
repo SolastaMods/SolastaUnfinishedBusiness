@@ -40,8 +40,7 @@ internal sealed class WayOfTheDistantHand : AbstractSubclass
                 new ZenArcherMarker(),
                 new RangedAttackInMeleeDisadvantageRemover(
                     IsMonkWeapon, ValidatorsCharacter.NoArmor, ValidatorsCharacter.NoShield),
-                new AddTagToWeaponAttack(ZenArrowTag, IsZenArrowAttack)
-            )
+                new AddTagToWeaponAttack(ZenArrowTag, IsZenArrowAttack))
             .AddToDB();
 
         // ZEN ARROW
@@ -53,84 +52,95 @@ internal sealed class WayOfTheDistantHand : AbstractSubclass
             .SetCustomSubFeatures(
                 new RestrictReactionAttackMode((mode, _, _) =>
                     mode != null && mode.AttackTags.Contains(ZenArrowTag)))
-            .SetEffectDescription(EffectDescriptionBuilder.Create()
-                .SetTargetingData(Side.Enemy, RangeType.Distance, 1, TargetType.Individuals)
-                .Build())
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetTargetingData(Side.Enemy, RangeType.Distance, 1, TargetType.Individuals)
+                    .Build())
             .AddToDB();
 
         var powerWayOfTheDistantHandZenArrowProne = FeatureDefinitionPowerBuilder
             .Create("PowerWayOfTheDistantHandZenArrowProne")
             .SetGuiPresentation(Category.Feature)
             .SetUsesFixed(ActivationTime.NoCost, RechargeRate.KiPoints)
-            .SetEffectDescription(EffectDescriptionBuilder.Create()
-                .SetDurationData(DurationType.Round, 1)
-                .SetTargetingData(Side.Enemy, RangeType.Touch, 1, TargetType.Individuals)
-                .SetTargetFiltering(TargetFilteringMethod.CharacterOnly)
-                .SetSavingThrowData(
-                    true,
-                    AttributeDefinitions.Dexterity,
-                    true,
-                    EffectDifficultyClassComputation.AbilityScoreAndProficiency)
-                .SetEffectForms(EffectFormBuilder.Create()
-                    .HasSavingThrow(EffectSavingThrowType.Negates)
-                    .SetLevelAdvancement(EffectForm.LevelApplianceType.No, LevelSourceType.ClassLevel)
-                    .SetMotionForm(MotionForm.MotionType.FallProne)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetDurationData(DurationType.Round, 1)
+                    .SetTargetingData(Side.Enemy, RangeType.Touch, 1, TargetType.Individuals)
+                    .SetTargetFiltering(TargetFilteringMethod.CharacterOnly)
+                    .SetSavingThrowData(
+                        true,
+                        AttributeDefinitions.Dexterity,
+                        true,
+                        EffectDifficultyClassComputation.AbilityScoreAndProficiency)
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .HasSavingThrow(EffectSavingThrowType.Negates)
+                            .SetMotionForm(MotionForm.MotionType.FallProne)
+                            .Build())
                     .Build())
-                .Build())
             .AddToDB();
 
         var powerWayOfTheDistantHandZenArrowPush = FeatureDefinitionPowerBuilder
             .Create("PowerWayOfTheDistantHandZenArrowPush")
             .SetGuiPresentation(Category.Feature)
             .SetUsesFixed(ActivationTime.NoCost, RechargeRate.KiPoints)
-            .SetEffectDescription(EffectDescriptionBuilder.Create()
-                .SetDurationData(DurationType.Round, 1)
-                .SetTargetingData(Side.Enemy, RangeType.Touch, 1, TargetType.Individuals)
-                .SetTargetFiltering(TargetFilteringMethod.CharacterOnly)
-                .SetSavingThrowData(
-                    true,
-                    AttributeDefinitions.Strength,
-                    true,
-                    EffectDifficultyClassComputation.AbilityScoreAndProficiency)
-                .SetEffectForms(EffectFormBuilder.Create()
-                    .HasSavingThrow(EffectSavingThrowType.Negates)
-                    .SetLevelAdvancement(EffectForm.LevelApplianceType.No, LevelSourceType.ClassLevel)
-                    .SetMotionForm(MotionForm.MotionType.PushFromOrigin, 2)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetDurationData(DurationType.Round, 1)
+                    .SetTargetingData(Side.Enemy, RangeType.Touch, 1, TargetType.Individuals)
+                    .SetTargetFiltering(TargetFilteringMethod.CharacterOnly)
+                    .SetSavingThrowData(
+                        true,
+                        AttributeDefinitions.Strength,
+                        true,
+                        EffectDifficultyClassComputation.AbilityScoreAndProficiency)
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .HasSavingThrow(EffectSavingThrowType.Negates)
+                            .SetMotionForm(MotionForm.MotionType.PushFromOrigin, 2)
+                            .Build())
                     .Build())
-                .Build())
             .AddToDB();
 
         var powerWayOfTheDistantHandZenArrowDistract = FeatureDefinitionPowerBuilder
             .Create("PowerWayOfTheDistantHandZenArrowDistract")
             .SetGuiPresentation(Category.Feature)
             .SetUsesFixed(ActivationTime.NoCost, RechargeRate.KiPoints)
-            .SetEffectDescription(EffectDescriptionBuilder.Create()
-                .SetDurationData(DurationType.Round, 1)
-                .SetTargetingData(Side.Enemy, RangeType.Touch, 1, TargetType.Individuals)
-                .SetTargetFiltering(TargetFilteringMethod.CharacterOnly)
-                .SetSavingThrowData(
-                    true,
-                    AttributeDefinitions.Wisdom,
-                    true,
-                    EffectDifficultyClassComputation.AbilityScoreAndProficiency)
-                .SetEffectForms(EffectFormBuilder.Create()
-                    .SetLevelAdvancement(EffectForm.LevelApplianceType.No, LevelSourceType.ClassLevel)
-                    .HasSavingThrow(EffectSavingThrowType.Negates)
-                    .SetConditionForm(ConditionDefinitionBuilder
-                            .Create("ConditionWayOfTheDistantHandDistract")
-                            .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionDazzled)
-                            .SetTurnOccurence(TurnOccurenceType.EndOfTurn)
-                            .SetConditionType(ConditionType.Detrimental)
-                            .SetSpecialInterruptions(ConditionInterruption.Attacks)
-                            .SetFeatures(FeatureDefinitionCombatAffinityBuilder
-                                .Create("CombatAffinityWayOfTheDistantHandDistract")
-                                .SetGuiPresentationNoContent(true)
-                                .SetMyAttackAdvantage(AdvantageType.Disadvantage)
-                                .AddToDB())
-                            .AddToDB(),
-                        ConditionForm.ConditionOperation.Add)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetDurationData(DurationType.Round, 1)
+                    .SetTargetingData(Side.Enemy, RangeType.Touch, 1, TargetType.Individuals)
+                    .SetTargetFiltering(TargetFilteringMethod.CharacterOnly)
+                    .SetSavingThrowData(
+                        true,
+                        AttributeDefinitions.Wisdom,
+                        true,
+                        EffectDifficultyClassComputation.AbilityScoreAndProficiency)
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .HasSavingThrow(EffectSavingThrowType.Negates)
+                            .SetConditionForm(ConditionDefinitionBuilder
+                                    .Create("ConditionWayOfTheDistantHandDistract")
+                                    .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionDazzled)
+                                    .SetTurnOccurence(TurnOccurenceType.EndOfTurn)
+                                    .SetConditionType(ConditionType.Detrimental)
+                                    .SetSpecialInterruptions(ConditionInterruption.Attacks)
+                                    .SetFeatures(FeatureDefinitionCombatAffinityBuilder
+                                        .Create("CombatAffinityWayOfTheDistantHandDistract")
+                                        .SetGuiPresentationNoContent(true)
+                                        .SetMyAttackAdvantage(AdvantageType.Disadvantage)
+                                        .AddToDB())
+                                    .AddToDB(),
+                                ConditionForm.ConditionOperation.Add)
+                            .Build())
                     .Build())
-                .Build())
             .AddToDB();
 
         PowerBundle.RegisterPowerBundle(
@@ -151,21 +161,23 @@ internal sealed class WayOfTheDistantHand : AbstractSubclass
             .SetUsesFixed(ActivationTime.BonusAction, RechargeRate.KiPoints, 2)
             .SetCustomSubFeatures(
                 PowerVisibilityModifier.Hidden,
-                new UpgradeFlurry(ConditionDefinitionBuilder
-                    .Create("ConditionWayOfTheDistantHandAttackedWithMonkWeapon")
-                    .SetGuiPresentationNoContent(true)
-                    .SetSilent(Silent.WhenAddedOrRemoved)
-                    .SetSpecialDuration(DurationType.Round, 1)
-                    .SetTurnOccurence(TurnOccurenceType.StartOfTurn)
-                    .SetSpecialInterruptions(
-                        ConditionInterruption.BattleEnd,
-                        ConditionInterruption.AnyBattleTurnEnd)
-                    .SetFeatures(FeatureDefinitionBuilder
-                        .Create("FeatureWayOfTheDistantHandFlurry")
+                new UpgradeFlurry(
+                    ConditionDefinitionBuilder
+                        .Create("ConditionWayOfTheDistantHandAttackedWithMonkWeapon")
                         .SetGuiPresentationNoContent(true)
-                        .SetCustomSubFeatures(AddFlurryOfArrowsAttacks.Mark)
-                        .AddToDB())
-                    .AddToDB()))
+                        .SetSilent(Silent.WhenAddedOrRemoved)
+                        .SetSpecialDuration(DurationType.Round, 1)
+                        .SetTurnOccurence(TurnOccurenceType.StartOfTurn)
+                        .SetSpecialInterruptions(
+                            ConditionInterruption.BattleEnd,
+                            ConditionInterruption.AnyBattleTurnEnd)
+                        .SetFeatures(
+                            FeatureDefinitionBuilder
+                                .Create("FeatureWayOfTheDistantHandFlurry")
+                                .SetGuiPresentationNoContent(true)
+                                .SetCustomSubFeatures(AddFlurryOfArrowsAttacks.Mark)
+                                .AddToDB())
+                        .AddToDB()))
             .SetShowCasting(false)
             .AddToDB();
 
@@ -194,99 +206,109 @@ internal sealed class WayOfTheDistantHand : AbstractSubclass
             .SetGuiPresentation(Category.Feature, zenArrow)
             .SetUsesFixed(ActivationTime.OnAttackHit, RechargeRate.KiPoints)
             .SetOverriddenPower(powerWayOfTheDistantHandZenArrowTechnique)
-            .SetCustomSubFeatures(new RestrictReactionAttackMode((mode, _, _) =>
-                mode != null && mode.AttackTags.Contains(ZenArrowTag)))
-            .SetEffectDescription(EffectDescriptionBuilder.Create()
-                .SetTargetingData(Side.Enemy, RangeType.Distance, 1, TargetType.Individuals)
-                .Build())
+            .SetCustomSubFeatures(
+                new RestrictReactionAttackMode((mode, _, _) => 
+                    mode != null && mode.AttackTags.Contains(ZenArrowTag)))
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetTargetingData(Side.Enemy, RangeType.Distance, 1, TargetType.Individuals)
+                    .Build())
             .AddToDB();
 
         var powerWayOfTheDistantHandZenArrowUpgradedProne = FeatureDefinitionPowerBuilder
             .Create("PowerWayOfTheDistantHandZenArrowUpgradedProne")
             .SetGuiPresentation(Category.Feature)
             .SetUsesFixed(ActivationTime.NoCost, RechargeRate.KiPoints)
-            .SetEffectDescription(EffectDescriptionBuilder.Create()
-                .SetDurationData(DurationType.Round, 1)
-                .SetTargetingData(Side.Enemy, RangeType.Touch, 1, TargetType.Individuals)
-                .SetTargetFiltering(TargetFilteringMethod.CharacterOnly)
-                .SetSavingThrowData(
-                    true,
-                    AttributeDefinitions.Dexterity,
-                    true,
-                    EffectDifficultyClassComputation.AbilityScoreAndProficiency)
-                .SetEffectForms(EffectFormBuilder.Create()
-                        .HasSavingThrow(EffectSavingThrowType.Negates)
-                        .SetLevelAdvancement(EffectForm.LevelApplianceType.No, LevelSourceType.ClassLevel)
-                        .SetMotionForm(MotionForm.MotionType.FallProne)
-                        .Build(),
-                    EffectFormBuilder.Create()
-                        .HasSavingThrow(EffectSavingThrowType.Negates)
-                        .SetConditionForm(ConditionDefinitionBuilder
-                            .Create("ConditionWayOfTheDistantHandZenArrowUpgradedSlow")
-                            .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionEncumbered)
-                            .SetTurnOccurence(TurnOccurenceType.EndOfTurn)
-                            .SetConditionType(ConditionType.Detrimental)
-                            .SetFeatures(FeatureDefinitionMovementAffinityBuilder
-                                .Create("MovementAffinityWayOfTheDistantHandUpgradedSlow")
-                                .SetGuiPresentationNoContent(true)
-                                .SetBaseSpeedMultiplicativeModifier(0)
-                                .AddToDB())
-                            .AddToDB(), ConditionForm.ConditionOperation.Add)
-                        .Build())
-                .Build())
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetDurationData(DurationType.Round, 1)
+                    .SetTargetingData(Side.Enemy, RangeType.Touch, 1, TargetType.Individuals)
+                    .SetTargetFiltering(TargetFilteringMethod.CharacterOnly)
+                    .SetSavingThrowData(
+                        true,
+                        AttributeDefinitions.Dexterity,
+                        true,
+                        EffectDifficultyClassComputation.AbilityScoreAndProficiency)
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .HasSavingThrow(EffectSavingThrowType.Negates)
+                            .SetMotionForm(MotionForm.MotionType.FallProne)
+                            .Build(),
+                        EffectFormBuilder
+                            .Create()
+                            .HasSavingThrow(EffectSavingThrowType.Negates)
+                            .SetConditionForm(ConditionDefinitionBuilder
+                                .Create("ConditionWayOfTheDistantHandZenArrowUpgradedSlow")
+                                .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionEncumbered)
+                                .SetTurnOccurence(TurnOccurenceType.EndOfTurn)
+                                .SetConditionType(ConditionType.Detrimental)
+                                .SetFeatures(FeatureDefinitionMovementAffinityBuilder
+                                    .Create("MovementAffinityWayOfTheDistantHandUpgradedSlow")
+                                    .SetGuiPresentationNoContent(true)
+                                    .SetBaseSpeedMultiplicativeModifier(0)
+                                    .AddToDB())
+                                .AddToDB(), ConditionForm.ConditionOperation.Add)
+                            .Build())
+                    .Build())
             .AddToDB();
 
         var powerWayOfTheDistantHandUpgradedPush = FeatureDefinitionPowerBuilder
             .Create("PowerWayOfTheDistantHandUpgradedPush")
             .SetGuiPresentation(Category.Feature)
             .SetUsesFixed(ActivationTime.NoCost, RechargeRate.KiPoints)
-            .SetEffectDescription(EffectDescriptionBuilder.Create()
-                .SetDurationData(DurationType.Round, 1)
-                .SetTargetingData(Side.Enemy, RangeType.Touch, 1, TargetType.Individuals)
-                .SetTargetFiltering(TargetFilteringMethod.CharacterOnly)
-                .SetSavingThrowData(
-                    true,
-                    AttributeDefinitions.Strength,
-                    true,
-                    EffectDifficultyClassComputation.AbilityScoreAndProficiency)
-                .SetEffectForms(EffectFormBuilder.Create()
-                    .HasSavingThrow(EffectSavingThrowType.Negates)
-                    .SetLevelAdvancement(EffectForm.LevelApplianceType.No, LevelSourceType.ClassLevel)
-                    .SetMotionForm(MotionForm.MotionType.PushFromOrigin, 4)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetDurationData(DurationType.Round, 1)
+                    .SetTargetingData(Side.Enemy, RangeType.Touch, 1, TargetType.Individuals)
+                    .SetTargetFiltering(TargetFilteringMethod.CharacterOnly)
+                    .SetSavingThrowData(
+                        true,
+                        AttributeDefinitions.Strength,
+                        true,
+                        EffectDifficultyClassComputation.AbilityScoreAndProficiency)
+                    .SetEffectForms(EffectFormBuilder.Create()
+                        .HasSavingThrow(EffectSavingThrowType.Negates)
+                        .SetMotionForm(MotionForm.MotionType.PushFromOrigin, 4)
+                        .Build())
                     .Build())
-                .Build())
             .AddToDB();
 
         var powerWayOfTheDistantHandUpgradedDistract = FeatureDefinitionPowerBuilder
             .Create("PowerWayOfTheDistantHandUpgradedDistract")
             .SetGuiPresentation(Category.Feature)
             .SetUsesFixed(ActivationTime.NoCost, RechargeRate.KiPoints)
-            .SetEffectDescription(EffectDescriptionBuilder.Create()
-                .SetDurationData(DurationType.Round, 1)
-                .SetTargetingData(Side.Enemy, RangeType.Touch, 1, TargetType.Individuals)
-                .SetTargetFiltering(TargetFilteringMethod.CharacterOnly)
-                .SetSavingThrowData(
-                    true,
-                    AttributeDefinitions.Wisdom,
-                    true,
-                    EffectDifficultyClassComputation.AbilityScoreAndProficiency)
-                .SetEffectForms(
-                    EffectFormBuilder.Create()
-                        .SetLevelAdvancement(EffectForm.LevelApplianceType.No, LevelSourceType.ClassLevel)
-                        .HasSavingThrow(EffectSavingThrowType.Negates)
-                        .SetConditionForm(ConditionDefinitionBuilder
-                            .Create("ConditionWayOfTheDistantHandUpgradedDistract")
-                            .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionDazzled)
-                            .SetTurnOccurence(TurnOccurenceType.EndOfTurn)
-                            .SetConditionType(ConditionType.Detrimental)
-                            .SetFeatures(FeatureDefinitionCombatAffinityBuilder
-                                .Create("CombatAffinityWayOfTheDistantHandUpgradedDistract")
-                                .SetGuiPresentationNoContent(true)
-                                .SetMyAttackAdvantage(AdvantageType.Disadvantage)
-                                .AddToDB())
-                            .AddToDB(), ConditionForm.ConditionOperation.Add)
-                        .Build())
-                .Build())
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetDurationData(DurationType.Round, 1)
+                    .SetTargetingData(Side.Enemy, RangeType.Touch, 1, TargetType.Individuals)
+                    .SetTargetFiltering(TargetFilteringMethod.CharacterOnly)
+                    .SetSavingThrowData(
+                        true,
+                        AttributeDefinitions.Wisdom,
+                        true,
+                        EffectDifficultyClassComputation.AbilityScoreAndProficiency)
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .HasSavingThrow(EffectSavingThrowType.Negates)
+                            .SetConditionForm(ConditionDefinitionBuilder
+                                .Create("ConditionWayOfTheDistantHandUpgradedDistract")
+                                .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionDazzled)
+                                .SetTurnOccurence(TurnOccurenceType.EndOfTurn)
+                                .SetConditionType(ConditionType.Detrimental)
+                                .SetFeatures(FeatureDefinitionCombatAffinityBuilder
+                                    .Create("CombatAffinityWayOfTheDistantHandUpgradedDistract")
+                                    .SetGuiPresentationNoContent(true)
+                                    .SetMyAttackAdvantage(AdvantageType.Disadvantage)
+                                    .AddToDB())
+                                .AddToDB(), ConditionForm.ConditionOperation.Add)
+                            .Build())
+                    .Build())
             .AddToDB();
 
         PowerBundle.RegisterPowerBundle(
