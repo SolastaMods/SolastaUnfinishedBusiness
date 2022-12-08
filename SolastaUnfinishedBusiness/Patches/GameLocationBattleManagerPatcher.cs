@@ -322,7 +322,8 @@ public static class GameLocationBattleManagerPatcher
             {
                 var damage = attackMode?.EffectDescription?.FindFirstDamageForm();
 
-                if (damage == null || !feature.DamageTypes.Contains(damage.damageType))
+                if (damage == null ||
+                    (!feature.DamageTypes.Contains(damage.damageType) && feature.DamageTypes.Count > 0))
                 {
                     continue;
                 }
