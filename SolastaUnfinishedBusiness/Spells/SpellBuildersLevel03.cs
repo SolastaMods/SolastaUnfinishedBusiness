@@ -96,7 +96,7 @@ internal static partial class SpellBuilders
                     .Build(),
                 EffectFormBuilder
                     .Create()
-                    .SetDamageForm(DamageTypeCold, dieType: DieType.D8, diceNumber: 4)
+                    .SetDamageForm(DamageTypeCold, 4, DieType.D8)
                     .HasSavingThrow(EffectSavingThrowType.HalfDamage)
                     .Build())
             .Build();

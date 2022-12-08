@@ -100,7 +100,7 @@ internal static partial class SpellBuilders
                     .Build(),
                 EffectFormBuilder
                     .Create()
-                    .SetDamageForm(DamageTypeBludgeoning, 0, DieType.D6)
+                    .SetDamageForm(DamageTypeBludgeoning, 20, DieType.D6)
                     .HasSavingThrow(EffectSavingThrowType.HalfDamage)
                     .Build())
             .SetSavingThrowData(
@@ -188,7 +188,6 @@ internal static partial class SpellBuilders
                 EffectFormBuilder
                     .Create()
                     .SetKillForm(KillCondition.UnderHitPoints, 0F, 100)
-                    .SetLevelAdvancement(LevelApplianceType.No, LevelSourceType.ClassLevel)
                     .CreatedByCharacter()
                     .Build())
             .Build();
