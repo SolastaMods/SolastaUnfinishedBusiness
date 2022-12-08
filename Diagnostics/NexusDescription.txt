@@ -99,6 +99,8 @@ All settings start disabled by default.
 [*][b]Armorer[/b]: Armorers focus their studies on magical armors and how to use them effectively.
 [*][b]Grenadier[/b]: Grenadiers study unstable substances and their use in creating explosions of various types.
 [*][b]Weaponsmith[/b]: Weaponsmiths focus their studies on magical weapons and how to use them effectively.
+[*][b]College of Harlequin[/b]: College of Harlequins bards see no distinction between art and war. They see it is their duty to keep the legend of the great battle of the Cataclysm alive through their terrific performance, either on stage or on the battle field.
+[*][b]Tactician[/b]: The Tactician uses their knowledge and might on the battlefield to perform different gambits as they are needed. They can knock down foes, inspire their allies and get in deadly counter-strikes against their foes.
 [/list]
 
 [size=3][b]Subclasses[/b][/size]
@@ -131,8 +133,6 @@ All settings start disabled by default.
 [*][b]Blade Dancer[/b]: Blade Dancers use a series of intricate, elegant maneuvers that fend off harm and allow the blade dancer to channel magic into devastating attacks and a cunning defense. Many who have observed a blade dancer at work remember the display as one of the more beautiful experiences in their life, a glorious dance accompanied by a blade.
 [*][b]Dead Master[/b]: Dead Masters learn to manipulate the energy that animates all living things. As you progress, you learn to sap the life force from a creature as your magic destroys its body, transforming that vital energy into magical power you can manipulate.
 [*][b]Spell Master[/b]: Spell Masters immerse themselves in magic and try to learn every spell they can get their hands on. They are unmatched in their spell knowledge.
-[*][b]College of Harlequin[/b]: College of Harlequins bards see no distinction between art and war. They see it is their duty to keep the legend of the great battle of the Cataclysm alive through their terrific performance, either on stage or on the battle field.
-[*][b]Tactician[/b]: The Tactician uses their knowledge and might on the battlefield to perform different gambits as they are needed. They can knock down foes, inspire their allies and get in deadly counter-strikes against their foes.
 [/list]
 
 [size=3][b]Feats[/b][/size]
@@ -305,7 +305,9 @@ You can use a bonus action to select a weapon. Its attacks count as magical and 
 
 [*][b]Acid Claws[/b]: Your fingernails sharpen, ready to deliver a corrosive attack. Make a melee spell attack against one creature within 5 feet of you. On a hit, the target takes 1d8 acid damage and has Armor Class lowered by 1 for 1 round (not stacking).
 [*][b]Air Blast[/b]: Fire a blast of focused air at your target.
+[*][b]Blade Ward[/b]: You extend your hand and trace a sigil of warding in the air. Until the end of your next turn, you have resistance against bludgeoning, piercing, and slashing damage dealt by weapon attacks.
 [*][b]Burst of Radiance[/b]: Create a brilliant flash of shimmering light, damaging all enemies around you.
+[*][b]Enduring Sting[/b]: You sap the vitality of one creature you can see in range. The target must succeed on a Constitution saving throw or take 1d4 necrotic damage and fall prone.
 [*][b]Illuminating Sphere[/b]: Causes light sources such as torches and mana lamps in the area of effect to light up.
 [*][b]Minor Lifesteal[/b]: You drain life energy from a hostile creature you can see within range. Deal 1d8 Necrotic damage to target on hit, heal amount of HP equal to half of damage dealt and gain 1d4 temporary hit points. This spell has no effect on undead or constructs. Both damage and temporary HP gain additional die at levels 5, 11 and 17.
 [*][b]Resonating Strike[/b]: Select one creature within melee range of you and a different creature that you can see within 5 feet of main target. You make a melee attack with current weapon against first creature. On a hit, the target suffers the weapon attack's normal effects, and resonating sound leaps to second target, dealing thunder damage equal to your spellcasting ability modifier.

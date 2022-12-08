@@ -55,7 +55,7 @@
     "createdByCharacter": false,
     "difficultyClassComputation": "SpellCastingFeature",
     "savingThrowDifficultyAbility": "Wisdom",
-    "fixedSavingThrowDifficultyClass": 13,
+    "fixedSavingThrowDifficultyClass": 12,
     "savingThrowAffinitiesBySense": [],
     "savingThrowAffinitiesByFamily": [],
     "advantageForEnemies": false,
