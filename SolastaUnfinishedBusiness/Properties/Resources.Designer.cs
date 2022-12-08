@@ -442,6 +442,16 @@ namespace SolastaUnfinishedBusiness.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
+        public static byte[] BladeWard {
+            get {
+                object obj = ResourceManager.GetObject("BladeWard", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
         public static byte[] BlindFighting {
             get {
                 object obj = ResourceManager.GetObject("BlindFighting", resourceCulture);
@@ -615,6 +625,16 @@ namespace SolastaUnfinishedBusiness.Properties {
         public static byte[] EmptyBody {
             get {
                 object obj = ResourceManager.GetObject("EmptyBody", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        public static byte[] EnduringSting {
+            get {
+                object obj = ResourceManager.GetObject("EnduringSting", resourceCulture);
                 return ((byte[])(obj));
             }
         }
@@ -908,8 +928,8 @@ namespace SolastaUnfinishedBusiness.Properties {
                 return ((byte[])(obj));
             }
         }
-		
-		/// <summary>
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
         public static byte[] LivewoodClub {

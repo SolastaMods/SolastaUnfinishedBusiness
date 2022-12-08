@@ -6,6 +6,7 @@ using SolastaUnfinishedBusiness.CustomUI;
 using UnityEngine;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.ConditionDefinitions;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionDamageAffinitys;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
 using static RuleDefinitions;
 using Resources = SolastaUnfinishedBusiness.Properties.Resources;
@@ -49,7 +50,7 @@ internal static partial class SpellBuilders
             .SetEffectForms(
                 EffectFormBuilder
                     .Create()
-                    .SetDamageForm(dieType: DieType.D8, diceNumber: 1, damageType: DamageTypeAcid)
+                    .SetDamageForm(DamageTypeAcid, 1, DieType.D8)
                     .HasSavingThrow(EffectSavingThrowType.None)
                     .Build(),
                 EffectFormBuilder
@@ -88,14 +89,15 @@ internal static partial class SpellBuilders
                 false,
                 EffectDifficultyClassComputation.SpellCastingFeature,
                 AttributeDefinitions.Wisdom,
-                15)
+                12)
             .SetDurationData(DurationType.Instantaneous)
             .SetTargetingData(Side.Enemy, RangeType.Distance, 6, TargetType.Individuals)
             .SetEffectForms(
                 EffectFormBuilder
                     .Create()
                     .SetMotionForm(MotionForm.MotionType.PushFromOrigin, 1)
-                    .HasSavingThrow(EffectSavingThrowType.Negates).Build(),
+                    .HasSavingThrow(EffectSavingThrowType.Negates)
+                    .Build(),
                 EffectFormBuilder
                     .Create()
                     .SetDamageForm(DamageTypeBludgeoning, 1, DieType.D6)
@@ -117,6 +119,46 @@ internal static partial class SpellBuilders
         return spell;
     }
 
+    internal static SpellDefinition BuildBladeWard()
+    {
+        const string NAME = "BladeWard";
+
+        var spriteReference = Sprites.GetSprite(NAME, Resources.BladeWard, 128, 128);
+
+        var effectDescription = EffectDescriptionBuilder
+            .Create()
+            .SetDurationData(DurationType.Round, 1)
+            .SetTargetingData(Side.Ally, RangeType.Touch, 0, TargetType.Self)
+            .SetEffectForms(
+                EffectFormBuilder
+                    .Create()
+                    .SetConditionForm(
+                        ConditionDefinitionBuilder
+                            .Create("ConditionBladeWard")
+                            .SetGuiPresentation(NAME, Category.Spell, ConditionShielded)
+                            .SetConditionType(ConditionType.Beneficial)
+                            .SetFeatures(
+                                DamageAffinityBludgeoningResistance,
+                                DamageAffinitySlashingResistance,
+                                DamageAffinityPiercingResistance)
+                            .AddToDB(),
+                        ConditionForm.ConditionOperation.Add)
+                    .Build())
+            .Build();
+
+        var spell = SpellDefinitionBuilder
+            .Create(NAME)
+            .SetGuiPresentation(Category.Spell, spriteReference)
+            .SetEffectDescription(effectDescription)
+            .SetCastingTime(ActivationTime.Action)
+            .SetSpellLevel(0)
+            .SetVocalSpellSameType(VocalSpellSemeType.Defense)
+            .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolAbjuration)
+            .AddToDB();
+
+        return spell;
+    }
+
     internal static SpellDefinition BuildBurstOfRadiance()
     {
         const string NAME = "BurstOfRadiance";
@@ -132,7 +174,7 @@ internal static partial class SpellBuilders
                 false,
                 EffectDifficultyClassComputation.SpellCastingFeature,
                 AttributeDefinitions.Wisdom,
-                13)
+                12)
             .SetDurationData(DurationType.Instantaneous)
             .SetParticleEffectParameters(BurningHands)
             .SetTargetingData(Side.Enemy, RangeType.Self, 0, TargetType.Sphere)
@@ -159,6 +201,51 @@ internal static partial class SpellBuilders
         return spell;
     }
 
+    internal static SpellDefinition BuildEnduringSting()
+    {
+        const string NAME = "EnduringSting";
+
+        var spriteReference = Sprites.GetSprite(NAME, Resources.EnduringSting, 128, 128);
+
+        var effectDescription = EffectDescriptionBuilder
+            .Create()
+            .SetDurationData(DurationType.Instantaneous)
+            .SetTargetingData(Side.Enemy, RangeType.Distance, 6, TargetType.Individuals)
+            .SetTargetFiltering(TargetFilteringMethod.CharacterOnly)
+            .SetEffectAdvancement(EffectIncrementMethod.CasterLevelTable, 5, additionalDicePerIncrement: 1)
+            .SetSavingThrowData(
+                false,
+                AttributeDefinitions.Constitution,
+                true,
+                EffectDifficultyClassComputation.SpellCastingFeature,
+                AttributeDefinitions.Wisdom,
+                12)
+            .SetEffectForms(
+                EffectFormBuilder
+                    .Create()
+                    .HasSavingThrow(EffectSavingThrowType.Negates)
+                    .SetMotionForm(MotionForm.MotionType.FallProne)
+                    .Build(),
+                EffectFormBuilder
+                    .Create()
+                    .HasSavingThrow(EffectSavingThrowType.Negates)
+                    .SetDamageForm(DamageTypeNecrotic, 1, DieType.D4)
+                    .Build())
+            .Build();
+
+        var spell = SpellDefinitionBuilder
+            .Create(NAME)
+            .SetGuiPresentation(Category.Spell, spriteReference)
+            .SetEffectDescription(effectDescription)
+            .SetCastingTime(ActivationTime.Action)
+            .SetSpellLevel(0)
+            .SetVocalSpellSameType(VocalSpellSemeType.Defense)
+            .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolNecromancy)
+            .AddToDB();
+
+        return spell;
+    }
+    
     internal static SpellDefinition BuildIlluminatingSphere()
     {
         const string NAME = "IlluminatingSphere";
@@ -345,7 +432,8 @@ internal static partial class SpellBuilders
                 .SetDurationData(DurationType.Round, 1)
                 .SetEffectForms(EffectFormBuilder.Create()
                         .HasSavingThrow(EffectSavingThrowType.None)
-                        .SetConditionForm(ConditionDefinitionBuilder
+                        .SetConditionForm(
+                            ConditionDefinitionBuilder
                                 .Create("ConditionSunlightBlade")
                                 .SetGuiPresentation(Category.Condition)
                                 .SetSpecialInterruptions(ConditionInterruption.AnyBattleTurnEnd)
@@ -371,8 +459,8 @@ internal static partial class SpellBuilders
                             true,
                             false)
                         .Build(),
-                    EffectFormBuilder.Create()
-                        .HasSavingThrow(EffectSavingThrowType.None)
+                    EffectFormBuilder
+                        .Create()
                         .SetConditionForm(sunlitMark, ConditionForm.ConditionOperation.Add)
                         .Build())
                 .Build())
@@ -400,7 +488,7 @@ internal static partial class SpellBuilders
                 .SetEffectForms(
                     EffectFormBuilder
                         .Create()
-                        .SetDamageForm(diceNumber: 1, dieType: DieType.D6, damageType: DamageTypePiercing)
+                        .SetDamageForm(DamageTypePiercing, 1, dieType: DieType.D6)
                         .Build(),
                     EffectFormBuilder
                         .Create()
@@ -426,7 +514,7 @@ internal static partial class SpellBuilders
                 false,
                 EffectDifficultyClassComputation.SpellCastingFeature,
                 AttributeDefinitions.Wisdom,
-                15)
+                12)
             .SetDurationData(DurationType.Instantaneous)
             .SetTargetingData(Side.All, RangeType.Self, 0, TargetType.Sphere)
             .ExcludeCaster()
