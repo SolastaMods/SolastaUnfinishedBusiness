@@ -375,6 +375,7 @@ internal static class CharacterContext
                 {
                     if (characterClassDefinition.FeatureUnlocks.Contains(featureUnlockPointPool2))
                     {
+                        characterClassDefinition.FeatureUnlocks.Remove(featureUnlockPointPool2);
                         characterClassDefinition.FeatureUnlocks.Add(featureUnlockPointPool1);
                     }
                     else if (characterClassDefinition.FeatureUnlocks.Contains(featureUnlockPointPool1))
