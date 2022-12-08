@@ -352,6 +352,7 @@ ConditionAncientForestRooted	ConditionDefinition	ConditionDefinition	bceeaabc-76
 ConditionBladeDancerBladeDance	ConditionDefinition	ConditionDefinition	3034268e-3881-5845-ac11-11481d2d4155
 ConditionBladeDancerDanceOfDefense	ConditionDefinition	ConditionDefinition	43e4f784-80ef-51cf-b304-a42848b862a9
 ConditionBladeDancerDanceOfVictory	ConditionDefinition	ConditionDefinition	a8c93a65-5c51-5bc2-91e9-b733f19dfd43
+ConditionBladeWard	ConditionDefinition	ConditionDefinition	8d3d76d9-b5f0-5d86-9b8e-a06f55ce639d
 ConditionCasterFightingWarMagic	ConditionDefinition	ConditionDefinition	7673ca94-a0c8-5086-9d9e-cf632937cff6
 ConditionCollegeOfHarlequinFightingAbilityEnhanced	ConditionDefinition	ConditionDefinition	d1e823fe-ae98-5788-9bf3-85e0f2ab2ee3
 ConditionCollegeOfHarlequinRegainBardicInspirationOnKill	ConditionDefinition	ConditionDefinition	c7ef688a-05fa-5e68-b1a0-5e1b17c80c0d
@@ -5702,6 +5703,7 @@ AtWillConjureMinorElemental	SpellDefinition	SpellDefinition	a06757f6-0179-54ad-8
 AtWillFaerieFire	SpellDefinition	SpellDefinition	34525fb8-5a60-5868-9be9-16dcb71965bd
 AtWillMoonbeam	SpellDefinition	SpellDefinition	2425d934-12c1-581a-81d3-90935d89fefd
 AtWillWardingBond	SpellDefinition	SpellDefinition	f9cf5a06-1274-5606-8762-f726ee8ec761
+BladeWard	SpellDefinition	SpellDefinition	5d04caa2-64a0-587e-a0d2-6c9ab52a56ca
 BurstOfRadiance	SpellDefinition	SpellDefinition	1e699378-f73c-564a-a7d8-b5b90931ae27
 ConjureElementalInvisibleStalker	SpellDefinition	SpellDefinition	4f4b45b0-1a32-55c5-ab58-66d105a6f07f
 CreateDeadRisenGhost	SpellDefinition	SpellDefinition	02a12317-e3e2-5833-9611-eeaaead7c151
@@ -5714,6 +5716,7 @@ CreateDeadRisenSkeleton_Marksman	SpellDefinition	SpellDefinition	9ecad24a-5902-5
 CreateDeadRisenWight	SpellDefinition	SpellDefinition	59a6741c-52cc-5859-9f99-d96b02217b72
 CreateDeadRisenWightLord	SpellDefinition	SpellDefinition	1e533ed6-cae9-5e1d-9cd9-4a70c62f9d69
 EarthTremor	SpellDefinition	SpellDefinition	f72bca83-705a-52f8-bd8d-c774e4c80671
+EnduringSting	SpellDefinition	SpellDefinition	2c6213d1-b9cd-5488-86cf-237326e79bbf
 FarStep	SpellDefinition	SpellDefinition	1adf1412-2248-5b36-805b-5076ef23ea04
 Foresight	SpellDefinition	SpellDefinition	7e0b6dac-dd42-59de-8216-2a15d6b05693
 IlluminatingSphere	SpellDefinition	SpellDefinition	e7fc59b8-93d9-53aa-86f7-659ac0d16fcf

@@ -152,7 +152,7 @@ internal static partial class SpellBuilders
                 .SetTargetingData(Side.Enemy, RangeType.RangeHit, 12, TargetType.Individuals, 4)
                 .SetDurationData(DurationType.Minute, 1)
                 .SetEffectForms(EffectFormBuilder.Create()
-                    .SetDamageForm(dieType: DieType.D4, diceNumber: 1, damageType: DamageTypeRadiant)
+                    .SetDamageForm(DamageTypeRadiant, 1, DieType.D4)
                     .Build())
                 .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel, 1, 1)
                 .SetParticleEffectParameters(Sparkle)

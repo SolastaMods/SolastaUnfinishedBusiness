@@ -319,9 +319,9 @@
     "description": "Spell/&TimeStopDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "d3db6dabf02f425468982fff3e1030e9",
-      "m_SubObjectName": "WordOfLaw",
-      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+      "m_AssetGUID": "51364cef-b045-5a42-bbf3-2aa21a38afe2",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",

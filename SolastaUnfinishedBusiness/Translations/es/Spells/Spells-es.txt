@@ -78,3 +78,7 @@ Spell/&ThunderStrikeDescription=Crea un estallido de sonido atronador que obliga
 Spell/&ThunderStrikeTitle=Ráfaga de sonido
 Spell/&WinterBreathDescription=Crea una ráfaga de viento frío para congelar a tus enemigos y derribarlos.
 Spell/&WinterBreathTitle=Aliento de invierno
+Spell/&BladeWardDescription=You extend your hand and trace a sigil of warding in the air. Until the end of your next turn, you have resistance against bludgeoning, piercing, and slashing damage dealt by weapon attacks.
+Spell/&BladeWardTitle=Blade Ward
+Spell/&EnduringStingDescription=You sap the vitality of one creature you can see in range. The target must succeed on a Constitution saving throw or take 1d4 necrotic damage and fall prone.
+Spell/&EnduringStingTitle=Enduring Sting

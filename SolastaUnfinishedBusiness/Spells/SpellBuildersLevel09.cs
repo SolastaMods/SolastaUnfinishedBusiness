@@ -1,5 +1,7 @@
 ﻿using System.Collections.Generic;
 using SolastaUnfinishedBusiness.Builders;
+using SolastaUnfinishedBusiness.CustomUI;
+using SolastaUnfinishedBusiness.Properties;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPowers;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.MonsterDefinitions;
@@ -15,6 +17,10 @@ internal static partial class SpellBuilders
 
     internal static SpellDefinition BuildForesight()
     {
+        const string NAME = "Foresight";
+        
+        var spriteReference = Sprites.GetSprite(NAME, Resources.MindBlank, 128, 128);
+        
         var effectDescription = EffectDescriptionBuilder
             .Create()
             .SetDurationData(DurationType.Hour, 8)
@@ -42,8 +48,8 @@ internal static partial class SpellBuilders
             .Build();
 
         return SpellDefinitionBuilder
-            .Create("Foresight")
-            .SetGuiPresentation(Category.Spell, TrueSeeing)
+            .Create(NAME)
+            .SetGuiPresentation(Category.Spell, spriteReference)
             .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolTransmutation)
             .SetSpellLevel(9)
             .SetCastingTime(ActivationTime.Minute1)
@@ -87,6 +93,10 @@ internal static partial class SpellBuilders
 
     internal static SpellDefinition BuildMeteorSwarmSingleTarget()
     {
+        const string NAME = "MeteorSwarmSingleTarget";
+        
+        var spriteReference = Sprites.GetSprite(NAME, Resources.MeteorSwarm, 128, 128);
+        
         var effectDescription = EffectDescriptionBuilder
             .Create()
             .SetDurationData(DurationType.Instantaneous)
@@ -100,7 +110,7 @@ internal static partial class SpellBuilders
                     .Build(),
                 EffectFormBuilder
                     .Create()
-                    .SetDamageForm(DamageTypeBludgeoning, 0, DieType.D6)
+                    .SetDamageForm(DamageTypeBludgeoning, 20, DieType.D6)
                     .HasSavingThrow(EffectSavingThrowType.HalfDamage)
                     .Build())
             .SetSavingThrowData(
@@ -114,8 +124,8 @@ internal static partial class SpellBuilders
             .Build();
 
         return SpellDefinitionBuilder
-            .Create("MeteorSwarmSingleTarget")
-            .SetGuiPresentation(Category.Spell, FlamingSphere)
+            .Create(NAME)
+            .SetGuiPresentation(Category.Spell, spriteReference)
             .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolTransmutation)
             .SetSpellLevel(9)
             .SetCastingTime(ActivationTime.Action)
@@ -188,7 +198,6 @@ internal static partial class SpellBuilders
                 EffectFormBuilder
                     .Create()
                     .SetKillForm(KillCondition.UnderHitPoints, 0F, 100)
-                    .SetLevelAdvancement(LevelApplianceType.No, LevelSourceType.ClassLevel)
                     .CreatedByCharacter()
                     .Build())
             .Build();
@@ -258,6 +267,10 @@ internal static partial class SpellBuilders
 
     internal static SpellDefinition BuildTimeStop()
     {
+        const string NAME = "TimeStop";
+        
+        var spriteReference = Sprites.GetSprite(NAME, Resources.TimeStop, 128, 128);
+
         var effectDescription = EffectDescriptionBuilder
             .Create()
             .SetDurationData(DurationType.Round, 3)
@@ -279,8 +292,8 @@ internal static partial class SpellBuilders
             .Build();
 
         return SpellDefinitionBuilder
-            .Create("TimeStop")
-            .SetGuiPresentation(Category.Spell, PowerDomainLawWordOfLaw)
+            .Create(NAME)
+            .SetGuiPresentation(Category.Spell, spriteReference)
             .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolTransmutation)
             .SetSpellLevel(9)
             .SetCastingTime(ActivationTime.Action)

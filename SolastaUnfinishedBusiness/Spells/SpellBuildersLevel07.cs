@@ -1,4 +1,6 @@
 ﻿using SolastaUnfinishedBusiness.Builders;
+using SolastaUnfinishedBusiness.CustomUI;
+using SolastaUnfinishedBusiness.Properties;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
 using static RuleDefinitions;
@@ -11,7 +13,9 @@ internal static partial class SpellBuilders
 
     internal static SpellDefinition BuildReverseGravity()
     {
-        const string ReverseGravityName = "ReverseGravity";
+        const string NAME = "ReverseGravity";
+
+        var spriteReference = Sprites.GetSprite(NAME, Resources.ReverseGravity, 128, 128);
 
         var effectDescription = EffectDescriptionBuilder.Create()
             .SetDurationData(DurationType.Minute, 1)
@@ -52,8 +56,8 @@ internal static partial class SpellBuilders
             .Build();
 
         return SpellDefinitionBuilder
-            .Create(ReverseGravityName)
-            .SetGuiPresentation(Category.Spell, Thunderwave)
+            .Create(NAME)
+            .SetGuiPresentation(Category.Spell, spriteReference)
             .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolTransmutation)
             .SetSpellLevel(7)
             .SetCastingTime(ActivationTime.Action)

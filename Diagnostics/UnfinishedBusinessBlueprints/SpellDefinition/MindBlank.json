@@ -319,9 +319,9 @@
     "description": "Spell/&MindBlankDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "103b7a580be6c5a4fa005c983245afcb",
-      "m_SubObjectName": "MindTwist",
-      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+      "m_AssetGUID": "29ef1712-b9a1-59c9-b75f-1754ecb37801",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
