@@ -196,6 +196,9 @@ internal sealed class WayOfTheDistantHand : AbstractSubclass
             .SetOverriddenPower(powerWayOfTheDistantHandZenArrowTechnique)
             .SetCustomSubFeatures(new RestrictReactionAttackMode((mode, _, _) =>
                 mode != null && mode.AttackTags.Contains(ZenArrowTag)))
+            .SetEffectDescription(EffectDescriptionBuilder.Create()
+                .SetTargetingData(Side.Enemy, RangeType.Distance, 1, TargetType.Individuals)
+                .Build())
             .AddToDB();
 
         var powerWayOfTheDistantHandZenArrowUpgradedProne = FeatureDefinitionPowerBuilder
