@@ -527,7 +527,7 @@ internal static class SrdAndHouseRulesContext
 
         FeatureDefinitionPowerAfterRestIdentify = FeatureDefinitionPowerBuilder
             .Create(AfterRestIdentifyName)
-            .SetGuiPresentation(Category.Feature)
+            .SetGuiPresentation(Category.Feature, hidden: true)
             .SetUsesFixed(ActivationTime.Rest)
             .SetEffectDescription(EffectDescriptionBuilder
                 .Create()
@@ -549,7 +549,7 @@ internal static class SrdAndHouseRulesContext
             .AddToDB();
     }
 
-    internal static void SwitchIdentifyAfterRest()
+    private static void SwitchIdentifyAfterRest()
     {
         var dbCharacterRaceDefinition = DatabaseRepository.GetDatabase<CharacterRaceDefinition>();
         var subRaces = dbCharacterRaceDefinition
