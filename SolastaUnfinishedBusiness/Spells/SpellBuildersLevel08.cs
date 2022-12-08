@@ -1,4 +1,6 @@
 ﻿using SolastaUnfinishedBusiness.Builders;
+using SolastaUnfinishedBusiness.CustomUI;
+using SolastaUnfinishedBusiness.Properties;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.ConditionDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
@@ -12,6 +14,10 @@ internal static partial class SpellBuilders
 
     internal static SpellDefinition BuildMindBlank()
     {
+        const string NAME = "MindBlank";
+        
+        var spriteReference = Sprites.GetSprite(NAME, Resources.MindBlank, 128, 128);
+
         var effectDescription = EffectDescriptionBuilder
             .Create()
             .SetDurationData(DurationType.Hour, 24)
@@ -35,8 +41,8 @@ internal static partial class SpellBuilders
             .Build();
 
         return SpellDefinitionBuilder
-            .Create("MindBlank")
-            .SetGuiPresentation(Category.Spell, MindTwist)
+            .Create(NAME)
+            .SetGuiPresentation(Category.Spell, spriteReference)
             .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolTransmutation)
             .SetSpellLevel(8)
             .SetCastingTime(ActivationTime.Action)

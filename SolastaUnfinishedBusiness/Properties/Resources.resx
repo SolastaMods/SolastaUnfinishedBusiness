@@ -536,4 +536,22 @@
   <data name="BladeWard" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Spells/BladeWard.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="TimeStop" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>../Resources/Spells/TimeStop.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ReverseGravity" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>../Resources/Spells/ReverseGravity.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Resurrection" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>../Resources/Spells/Resurrection.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="MindBlank" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>../Resources/Spells/MindBlank.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="MeteorSwarm" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>../Resources/Spells/MeteorSwarm.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Foresight" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>../Resources/Spells/Foresight.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
 </root>
