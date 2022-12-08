@@ -268,12 +268,18 @@ public static class GameLocationBattleManagerPatcher
             RestrictReactionAttackMode.ReactionContext = (attacker, defender, attackMode);
         }
 
-        public static void Postfix(
+        public static IEnumerator Postfix(
+            IEnumerator values,
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
             RulesetAttackMode attackMode)
         {
             //PATCH: support for `IReactionAttackModeRestriction`
+            while (values.MoveNext())
+            {
+                yield return values.Current;
+            }
+            
             RestrictReactionAttackMode.ReactionContext = (null, null, null);
         }
     }
