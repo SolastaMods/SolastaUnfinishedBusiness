@@ -3,8 +3,10 @@
 1.4.31.1:
 
 - added Blade Ward and Enduring Sting cantrips
+- added icons to Foresight, Meteor Swarm, Mind Blank, Resurrection, Reverse Gravity and Time Stop
 - fixed removal of even level feats feature
 - fixed Gnome and Kobold wrong spell slots offering at 3rd and 5th
+- fixed Kobold offering Druid cantrips instead of Sorcerer ones
 - fixed Way of Distant Hand techniques at 11th
 
 1.4.31.0:
