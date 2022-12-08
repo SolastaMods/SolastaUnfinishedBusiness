@@ -61,7 +61,7 @@ internal static class GnomeRaceBuilder
             .SetSpellKnowledge(SpellKnowledge.Selection)
             .SetSpellReadyness(SpellReadyness.AllKnown)
             .SetSlotsRecharge(RechargeRate.LongRest)
-            .SetSlotsPerLevel(SharedSpellsContext.RaceCastingSlots)
+            .SetSlotsPerLevel(SharedSpellsContext.RaceEmptyCastingSlots)
             .SetKnownCantrips(1, 1, FeatureDefinitionCastSpellBuilder.CasterProgression.Flat)
             .SetSpellList(spellListGnome)
             .SetSpellCastingAbility(AttributeDefinitions.Intelligence)
