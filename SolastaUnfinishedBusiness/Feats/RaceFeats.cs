@@ -86,7 +86,7 @@ internal static class RaceFeats
                 .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
                 .SetDurationData(DurationType.Round, 1)
                 .Build())
-            .SetReactionContext(ReactionTriggerContext.HitByMelee)
+            .SetReactionContext(ReactionTriggerContext.DamagedByAnySource)
             .AddToDB();
 
         // Fade Away (Dexterity)
