@@ -109,6 +109,26 @@ internal static class CommonBuilders
                     true)
                 .Build())
         .AddToDB();
+    
+    internal static readonly FeatureDefinitionPower PowerCasterCommandUndeadCharisma = FeatureDefinitionPowerBuilder
+        .Create("PowerCasterCommandUndeadCharisma")
+        .SetGuiPresentation("PowerCasterCommandUndead", Category.Feature)
+        .SetUsesProficiencyBonus(ActivationTime.Action)
+        .SetEffectDescription(
+            EffectDescriptionBuilder
+                .Create(DominateBeast.EffectDescription)
+                .SetEffectAdvancement(EffectIncrementMethod.None)
+                .SetRestrictedCreatureFamilies(Undead)
+                .SetSavingThrowData(
+                    false,
+                    AttributeDefinitions.Charisma,
+                    false,
+                    EffectDifficultyClassComputation.AbilityScoreAndProficiency,
+                    AttributeDefinitions.Charisma,
+                    8,
+                    true)
+                .Build())
+        .AddToDB();
 
     internal static readonly FeatureDefinitionReplaceAttackWithCantrip ReplaceAttackWithCantripCasterFighting =
         FeatureDefinitionReplaceAttackWithCantripBuilder
