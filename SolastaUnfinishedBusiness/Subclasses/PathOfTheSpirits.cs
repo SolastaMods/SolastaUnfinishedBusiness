@@ -153,7 +153,6 @@ internal sealed class PathOfTheSpirits : AbstractSubclass
         var conditionPathOfTheSpiritsBearResistance = ConditionDefinitionBuilder
             .Create("ConditionPathOfTheSpiritsBearResistance")
             .SetGuiPresentation("PowerPathOfTheSpiritsBearResistance", Category.Feature)
-            .SetTerminateWhenRemoved()
             .SetSilent(Silent.WhenAddedOrRemoved)
             .SetSpecialInterruptions(ConditionInterruption.RageStop)
             .SetFeatures(
