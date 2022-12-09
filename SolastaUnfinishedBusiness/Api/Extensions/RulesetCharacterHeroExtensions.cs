@@ -137,4 +137,15 @@ internal static class RulesetCharacterHeroExtensions
 
         return limit;
     }
+
+    internal static bool HasNonIdentifiedItems([CanBeNull] this RulesetCharacterHero hero)
+    {
+        if (hero == null)
+        {
+            return false;
+        }
+
+        hero.CharacterInventory.EnumerateAllItems(hero.Items);
+        return hero.Items.Any(item => item.NeedsIdentification());
+    }
 }
