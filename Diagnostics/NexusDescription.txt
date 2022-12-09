@@ -221,6 +221,8 @@ You gain proficiency with medium armor and shields.
 • You no longer have disadvantage on ranged attacks when there is an enemy within 5 feet of you.
 • If you take the Attack action on your turn, you can use a bonus action to make an attack with a one-handed ranged or thrown weapon.
 [*][b]Reckless Attack[/b]: Before you make your first attack on your turn, you can decide to attack recklessly. Doing so gives you advantage on melee weapon attack rolls using Strength during this turn, but attack rolls against you have advantage until your next turn.
+[*][b]Revenant Great Sword [Dex][/b]: Increase your Dexterity score by 1, to a maximum of 20. While you are holding a great sword,  you gain a +1 bonus to Armor Class and you can use your Dexterity on to hit and to damage bonuses.
+[*][b]Revenant Great Sword [Str][/b]: Increase your Strength score by 1, to a maximum of 20. While you are holding a great sword,  you gain a +1 bonus to Armor Class and you can use your Dexterity on to hit and to damage bonuses.
 [*][b]Savage Attack[/b]: Reroll weapon and spell damage dice when you roll a 1 (Not all damage sources re-roll dice. For example, sneak attack and smite damage are not re-rolled).
 [*][b]Scriber[/b]: Increase your Intelligence by 1, to a maximum of 20.
 You gain proficiency with scroll kit and Arcana, or expertise if already proficient.
