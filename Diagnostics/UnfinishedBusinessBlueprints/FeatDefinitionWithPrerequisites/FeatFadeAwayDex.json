@@ -1,5 +1,5 @@
 {
-  "$type": "FeatDefinition, Assembly-CSharp",
+  "$type": "SolastaUnfinishedBusiness.CustomDefinitions.FeatDefinitionWithPrerequisites, SolastaUnfinishedBusiness",
   "compatibleClassesPrerequisite": [],
   "mustCastSpellsPrerequisite": false,
   "compatibleRacesPrerequisite": [],
@@ -9,16 +9,17 @@
   "armorProficiencyPrerequisite": false,
   "armorProficiencyCategory": "",
   "hasFamilyTag": true,
-  "familyTag": "ElvenPrecision",
+  "familyTag": "FadeAway",
   "knownFeatsPrerequisite": [],
   "features": [
-    "Definition:AttributeModifierCreed_Of_Solasta:330246532ae609848887c37e44b7f7e4"
+    "Definition:AttributeModifierCreed_Of_Misaye:74d55f601f8ad8246b18a19766524280",
+    "Definition:PowerFeatFadeAwayInvisible:8de79a66-fafc-5582-b685-fd05c2bc61e6"
   ],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
-    "title": "Feat/&FeatElvenAccuracyCharismaTitle",
-    "description": "Feat/&FeatElvenAccuracyCharismaDescription",
+    "title": "Feat/&FeatFadeAwayDexTitle",
+    "description": "Feat/&FeatFadeAwayDexDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -38,7 +39,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "0d784c05-c59c-5303-90a4-d988b393aa83",
+  "guid": "8ef096e6-363b-5d2c-ada9-2831d71224ce",
   "contentPack": 9999,
-  "name": "FeatElvenAccuracyCharisma"
+  "name": "FeatFadeAwayDex"
 }

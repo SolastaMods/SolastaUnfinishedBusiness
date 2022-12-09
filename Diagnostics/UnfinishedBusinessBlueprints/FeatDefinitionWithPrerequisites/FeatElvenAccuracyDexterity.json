@@ -1,5 +1,5 @@
 {
-  "$type": "FeatDefinition, Assembly-CSharp",
+  "$type": "SolastaUnfinishedBusiness.CustomDefinitions.FeatDefinitionWithPrerequisites, SolastaUnfinishedBusiness",
   "compatibleClassesPrerequisite": [],
   "mustCastSpellsPrerequisite": false,
   "compatibleRacesPrerequisite": [],
@@ -8,19 +8,17 @@
   "minimalAbilityScoreName": "Strength",
   "armorProficiencyPrerequisite": false,
   "armorProficiencyCategory": "",
-  "hasFamilyTag": false,
-  "familyTag": "",
-  "knownFeatsPrerequisite": [
-    "FeatImprovedCritical"
-  ],
+  "hasFamilyTag": true,
+  "familyTag": "ElvenPrecision",
+  "knownFeatsPrerequisite": [],
   "features": [
-    "Definition:AttributeModifierMartialChampionSuperiorCritical:be5054cc67fc986468ff9c0ca4b6cd5b"
+    "Definition:AttributeModifierCreed_Of_Misaye:74d55f601f8ad8246b18a19766524280"
   ],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
-    "title": "Feat/&FeatSuperiorCriticalTitle",
-    "description": "Feat/&FeatSuperiorCriticalDescription",
+    "title": "Feat/&FeatElvenAccuracyDexterityTitle",
+    "description": "Feat/&FeatElvenAccuracyDexterityDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -40,7 +38,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "0692ff14-3a3b-5996-93b5-7c3286665e60",
+  "guid": "e22b633e-abba-560d-b642-47d8e9cc7280",
   "contentPack": 9999,
-  "name": "FeatSuperiorCritical"
+  "name": "FeatElvenAccuracyDexterity"
 }

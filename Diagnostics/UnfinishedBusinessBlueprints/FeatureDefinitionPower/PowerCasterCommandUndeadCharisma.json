@@ -2,12 +2,12 @@
   "$type": "FeatureDefinitionPower, Assembly-CSharp",
   "effectDescription": {
     "$type": "EffectDescription, Assembly-CSharp",
-    "rangeType": "Self",
-    "rangeParameter": 0,
+    "rangeType": "Distance",
+    "rangeParameter": 12,
     "halfDamageOnAMiss": false,
     "hitAffinitiesByTargetTag": [],
-    "targetType": "Self",
-    "itemSelectionType": "None",
+    "targetType": "IndividualsUnique",
+    "itemSelectionType": "Equiped",
     "targetParameter": 1,
     "targetParameter2": 2,
     "emissiveBorder": "None",
@@ -17,7 +17,7 @@
     "targetExcludeCaster": false,
     "canBePlacedOnCharacter": true,
     "affectOnlyGround": false,
-    "targetFilteringMethod": "CharacterOnly",
+    "targetFilteringMethod": "AllCharacterAndGadgets",
     "targetFilteringTag": "No",
     "requiresVisibilityForPosition": true,
     "inviteOptionalAlly": false,
@@ -30,11 +30,11 @@
     "trapRangeType": "Triggerer",
     "targetConditionName": "",
     "targetConditionAsset": null,
-    "targetSide": "Ally",
-    "durationType": "Round",
+    "targetSide": "Enemy",
+    "durationType": "Minute",
     "durationParameter": 1,
     "endOfEffect": "EndOfTurn",
-    "hasSavingThrow": false,
+    "hasSavingThrow": true,
     "disableSavingThrowOnAllies": false,
     "savingThrowAbility": "Charisma",
     "ignoreCover": false,
@@ -42,17 +42,19 @@
     "rollSaveOnlyIfRelevantForms": false,
     "hasShoveRoll": false,
     "createdByCharacter": true,
-    "difficultyClassComputation": "SpellCastingFeature",
-    "savingThrowDifficultyAbility": "Wisdom",
-    "fixedSavingThrowDifficultyClass": 15,
+    "difficultyClassComputation": "AbilityScoreAndProficiency",
+    "savingThrowDifficultyAbility": "Charisma",
+    "fixedSavingThrowDifficultyClass": 8,
     "savingThrowAffinitiesBySense": [],
     "savingThrowAffinitiesByFamily": [],
-    "advantageForEnemies": false,
+    "advantageForEnemies": true,
     "canBeDispersed": false,
     "hasVelocity": false,
     "velocityCellsPerRound": 2,
     "velocityType": "AwayFromSourceOriginalPosition",
-    "restrictedCreatureFamilies": [],
+    "restrictedCreatureFamilies": [
+      "Undead"
+    ],
     "immuneCreatureFamilies": [],
     "restrictedCharacterSizes": [],
     "hasLimitedEffectPool": false,
@@ -78,7 +80,7 @@
         "conditionForm": {
           "$type": "ConditionForm, Assembly-CSharp",
           "conditionDefinitionName": "",
-          "conditionDefinition": "Definition:ConditionBanished:e618d09f3dc242e41b23ee9db638058a",
+          "conditionDefinition": "Definition:ConditionMindDominatedByCaster:913de2c4edaa29949a2981ffd5de2072",
           "operation": "Add",
           "conditionsList": [],
           "applyToSelf": false,
@@ -91,9 +93,9 @@
     "specialFormsDescription": "",
     "effectAdvancement": {
       "$type": "EffectAdvancement, Assembly-CSharp",
-      "effectIncrementMethod": "PerAdditionalSlotLevel",
+      "effectIncrementMethod": "None",
       "incrementMultiplier": 1,
-      "additionalTargetsPerIncrement": 1,
+      "additionalTargetsPerIncrement": 0,
       "additionalSubtargetsPerIncrement": 0,
       "additionalDicePerIncrement": 0,
       "additionalSpellLevelPerIncrement": 0,
@@ -105,8 +107,8 @@
       "additionalWeaponDie": 0,
       "alteredDuration": "None"
     },
-    "speedType": "Fixed",
-    "speedParameter": 1.0,
+    "speedType": "Instant",
+    "speedParameter": 10.0,
     "offsetImpactTimeBasedOnDistance": false,
     "offsetImpactTimeBasedOnDistanceFactor": 0.1,
     "offsetImpactTimePerTarget": 0.0,
@@ -114,7 +116,7 @@
       "$type": "EffectParticleParameters, Assembly-CSharp",
       "casterParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "c026523a36850c64db1eaffac31c3875",
+        "m_AssetGUID": "cfdd90724f8ab4944a9ac23ada9f3109",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -138,7 +140,7 @@
       },
       "effectParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "aeab2c9b72fb5a449973fac61efe50b3",
+        "m_AssetGUID": "cc55fb31dbc2c82479e121bb18a126f2",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -253,13 +255,13 @@
       },
       "conditionParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "",
+        "m_AssetGUID": "876a397905fd63a43ae7963b339a4012",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
       "conditionEndParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "38120d2f5dc9ce34ca01fc3a6b422130",
+        "m_AssetGUID": "97339939e0d41f94f8f9ae0fb9049fb6",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -289,7 +291,7 @@
   "delegatedToAction": false,
   "surrogateToSpell": null,
   "triggeredBySpecialMove": false,
-  "activationTime": "BonusAction",
+  "activationTime": "Action",
   "autoActivationRequiredTargetSenseType": "None",
   "autoActivationRequiredTargetCreatureTag": "",
   "autoActivationPowerTag": "",
@@ -316,7 +318,7 @@
   "fixedAttackHit": 0,
   "abilityScoreBonusToAttack": false,
   "proficiencyBonusToAttack": false,
-  "uniqueInstance": true,
+  "uniqueInstance": false,
   "showCasting": true,
   "shortTitleOverride": "",
   "overriddenPower": null,
@@ -324,13 +326,13 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&PowerRiftWalkerBlinkTitle",
-    "description": "Feature/&PowerRiftWalkerBlinkDescription",
+    "title": "Feature/&PowerCasterCommandUndeadTitle",
+    "description": "Feature/&PowerCasterCommandUndeadDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "f2582a82a487aad49910c5263c7830ce",
-      "m_SubObjectName": "ShadowDodge",
-      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+      "m_AssetGUID": "",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
@@ -345,7 +347,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "0ddfb64d-6da6-55fa-9944-4ec5a337effa",
+  "guid": "c8b6e41f-5176-5718-860b-1066fc8b18c8",
   "contentPack": 9999,
-  "name": "PowerRiftWalkerBlink"
+  "name": "PowerCasterCommandUndeadCharisma"
 }
