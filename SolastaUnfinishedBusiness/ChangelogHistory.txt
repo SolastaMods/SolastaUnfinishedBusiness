@@ -2,10 +2,14 @@
 
 1.4.31.2:
 
+- added Fade Away Dex and Fade Away Int feats to Gnomes
+- added setting to disable pre-requisites on race bound feats
+- changed Elven Accuracy feat to require Elf or High-Elf
 - fixed additional issues with 6 players under MP [might still be broken]
-- fixed Heavy Armor Master reduce damage triggering more often than expected
-- fixed Study Your Enemy causing a null exception if enemy fully known
-- refactored critical virtuoso feats to better integrate with Martial Champion
+- fixed College of Life Command Undead feature to use Cha on saving throws
+- fixed Heavy Armor Master feat triggering more often than expected
+- fixed Study Your Enemy feature causing a null exception if enemy fully known
+- refactored critical virtuoso feats to better integrate with Martial Champion ones
 
 1.4.31.1:
 
