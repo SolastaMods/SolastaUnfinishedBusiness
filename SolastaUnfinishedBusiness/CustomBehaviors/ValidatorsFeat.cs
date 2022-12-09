@@ -76,7 +76,7 @@ internal static class ValidatorsFeat
         return (_, hero) =>
         {
             var hasFeature = !hero.HasAnyFeature(featureDefinition);
-            var guiFormat = Gui.Format("Tooltip/&PreReqDoesNotKnow", featureDefinition.FormatTitle());
+            var guiFormat = Gui.Format("Tooltip/&PreReqMustKnow", featureDefinition.FormatTitle());
 
             return hasFeature ? (false, Gui.Colorize(guiFormat, Gui.ColorFailure)) : (true, guiFormat);
         };

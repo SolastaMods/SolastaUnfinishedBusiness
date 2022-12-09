@@ -14,7 +14,7 @@ internal static class CriticalVirtuosoFeats
         // Improved Critical
         var featImprovedCritical = FeatDefinitionWithPrerequisitesBuilder
             .Create("FeatImprovedCritical")
-            .SetGuiPresentation(Category.Feat)
+            .SetGuiPresentation("MartialChampionImprovedCritical", Category.Feature)
             .SetFeatures(AttributeModifierMartialChampionImprovedCritical)
             .SetValidators(
                 ValidatorsFeat.ValidateNotFeature(AttributeModifierMartialChampionImprovedCritical))
@@ -23,7 +23,7 @@ internal static class CriticalVirtuosoFeats
         // Superior Critical
         var featSuperiorCritical = FeatDefinitionWithPrerequisitesBuilder
             .Create("FeatSuperiorCritical")
-            .SetGuiPresentation(Category.Feat)
+            .SetGuiPresentation("MartialChampionSuperiorCritical", Category.Feature)
             .SetFeatures(AttributeModifierMartialChampionSuperiorCritical)
             .SetValidators(
                 ValidatorsFeat.ValidateHasFeature(AttributeModifierMartialChampionImprovedCritical),

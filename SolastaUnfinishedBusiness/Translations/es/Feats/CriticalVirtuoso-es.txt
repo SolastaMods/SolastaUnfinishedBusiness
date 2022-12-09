@@ -1,4 +1,2 @@
-﻿Feat/&FeatImprovedCriticalDescription=Tus ataques son golpes críticos con una tirada de 19 o 20.
-Feat/&FeatImprovedCriticalTitle=Crítico mejorado
-Feat/&FeatSuperiorCriticalDescription=Tus ataques son golpes críticos con una tirada de 18, 19 o 20.
-Feat/&FeatSuperiorCriticalTitle=Crítico Superior
+﻿Feature/&MartialChampionSuperiorCriticalDescription=Your weapon attacks score a critical hit on a roll of 18, 19 or 20.
+Feature/&MartialChampionSuperiorCriticalTitle=Superior Critical
