@@ -50,6 +50,7 @@ internal static class RaceFeats
             .SetUsesFixed(ActivationTime.Reaction, RechargeRate.ShortRest)
             .SetEffectDescription(EffectDescriptionBuilder
                 .Create(Invisibility.EffectDescription)
+                .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
                 .SetDurationData(DurationType.Round, 1)
                 .Build())
             .SetReactionContext(ReactionTriggerContext.HitByMelee)
