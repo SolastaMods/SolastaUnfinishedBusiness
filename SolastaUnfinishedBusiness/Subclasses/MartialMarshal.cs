@@ -473,6 +473,7 @@ internal sealed class MartialMarshal : AbstractSubclass
             }
 
             var sourceCharacter = EffectHelpers.GetCharacterByGuid(rulesetCondition.sourceGuid);
+
             if (sourceCharacter == null)
             {
                 return;
@@ -500,19 +501,31 @@ internal sealed class MartialMarshal : AbstractSubclass
                 10 + Mathf.FloorToInt(entry.MonsterDefinition.ChallengeRating), AdvantageType.None, checkModifier,
                 false, -1, out var outcome, out _, true);
 
+            const int MAX_KNOWLEDGE_LEVEL = 4;
+            
             var level = entry.KnowledgeLevelDefinition.Level;
-            var num = level;
+
+            // rollback one level to at least get a nice message on UI and not get a null after we call Invoke
+            if (level == MAX_KNOWLEDGE_LEVEL)
+            {
+                level--;
+                entry.KnowledgeLevelDefinition.level--;
+            }
+
+            var newLevel = level;
 
             if (outcome is RollOutcome.Success or RollOutcome.CriticalSuccess)
             {
-                var num2 = outcome == RollOutcome.Success ? 1 : 2;
+                var learned = outcome == RollOutcome.Success ? 1 : 2;
 
-                num = Mathf.Min(entry.KnowledgeLevelDefinition.Level + num2, 4);
-                manager.LearnMonsterKnowledge(entry.MonsterDefinition, manager.Bestiary.SortedKnowledgeLevels[num]);
+                newLevel = Mathf.Min(entry.KnowledgeLevelDefinition.Level + learned, 4);
+
+                manager.LearnMonsterKnowledge(entry.MonsterDefinition,
+                    manager.Bestiary.SortedKnowledgeLevels[newLevel]);
             }
 
             gameLocationCharacter.RulesetCharacter.MonsterIdentificationRolled?.Invoke(
-                gameLocationCharacter.RulesetCharacter, entry.MonsterDefinition, outcome, level, num);
+                gameLocationCharacter.RulesetCharacter, entry.MonsterDefinition, outcome, level, newLevel);
         }
 
         public void RemoveFeature(RulesetCharacter target, RulesetCondition rulesetCondition)
