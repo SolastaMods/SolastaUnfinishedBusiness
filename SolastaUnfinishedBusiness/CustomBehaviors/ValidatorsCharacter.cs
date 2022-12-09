@@ -160,6 +160,8 @@ internal static class ValidatorsCharacter
             .IsPhysicalArmor && element.ArmorCategory == EquipmentDefinitions.LightArmorCategory;
     };
 
+    internal static readonly IsCharacterValidHandler NotHeavyArmor = character => !HeavyArmor(character);
+
     internal static readonly IsCharacterValidHandler HeavyArmor = character =>
     {
         var equipedItem = character.CharacterInventory.InventorySlotsByName[EquipmentDefinitions.SlotTypeTorso]
@@ -232,7 +234,7 @@ internal static class ValidatorsCharacter
     [NotNull]
     internal static IsCharacterValidHandler HasNoCondition(params string[] conditions)
     {
-        return character => !conditions.Any(c => character.HasConditionOfType(c));
+        return character => !conditions.Any(character.HasConditionOfType);
     }
 
     internal static bool HasConditionWithSubFeatureOfType<T>(this RulesetCharacter character) where T : class

@@ -9,6 +9,7 @@ using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionAttributeModifiers;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionMoveModes;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
 
 namespace SolastaUnfinishedBusiness.Feats;
@@ -46,6 +47,36 @@ internal static class RaceFeats
 
     internal static void CreateFeats([NotNull] List<FeatDefinition> feats)
     {
+        // Dragon Wings
+        var featDragonWings = FeatDefinitionWithPrerequisitesBuilder
+            .Create("FeatDragonWings")
+            .SetGuiPresentation(Category.Feat)
+            .SetFeatures(
+                FeatureDefinitionPowerBuilder
+                    .Create("PowerFeatDragonWings")
+                    .SetGuiPresentationNoContent(true)
+                    .SetUsesFixed(ActivationTime.PermanentUnlessIncapacitated)
+                    .SetCustomSubFeatures(new ValidatorsPowerUse(ValidatorsCharacter.NotHeavyArmor))
+                    .SetEffectDescription(
+                        EffectDescriptionBuilder
+                            .Create()
+                            .SetEffectForms(
+                                EffectFormBuilder
+                                    .Create()
+                                    .SetConditionForm(
+                                        ConditionDefinitionBuilder
+                                            .Create("ConditionFeatDragonWings")
+                                            .SetGuiPresentationNoContent(true)
+                                            .SetSilent(Silent.WhenAddedOrRemoved)
+                                            .SetFeatures(MoveModeFly2)
+                                            .AddToDB(),
+                                        ConditionForm.ConditionOperation.Add)
+                                    .Build())
+                            .Build())
+                    .AddToDB())
+            .SetValidators(ValidatorsFeat.IsDragonborn)
+            .AddToDB();
+
         var powerFeatFadeAwayInvisible = FeatureDefinitionPowerBuilder
             .Create("PowerFeatFadeAwayInvisible")
             .SetGuiPresentationNoContent(true)
@@ -133,7 +164,7 @@ internal static class RaceFeats
             .SetGuiPresentationNoContent(true)
             .SetCustomSubFeatures(new CanUseAttributeForWeapon(AttributeDefinitions.Dexterity))
             .AddToDB();
-        
+
         // Revenant Great Sword (Dexterity)
         var featRevenantGreatSwordDex = FeatDefinitionWithPrerequisitesBuilder
             .Create("FeatRevenantGreatSwordDex")
@@ -145,7 +176,7 @@ internal static class RaceFeats
             .SetValidators(ValidatorsFeat.IsElfOfHalfElf)
             .SetFeatFamily(RevenantGreatSword)
             .AddToDB();
-        
+
         // Revenant Great Sword (Strength)
         var featRevenantGreatSwordStr = FeatDefinitionWithPrerequisitesBuilder
             .Create("FeatRevenantGreatSwordStr")
@@ -163,6 +194,7 @@ internal static class RaceFeats
         //
 
         feats.AddRange(
+            featDragonWings,
             featFadeAwayDex,
             featFadeAwayInt,
             featElvenAccuracyDexterity,
@@ -181,12 +213,13 @@ internal static class RaceFeats
         var featGroupFadeAway = GroupFeats.MakeGroup("FeatGroupFadeAway", FadeAway,
             featFadeAwayDex,
             featFadeAwayInt);
-        
+
         var featGroupRevenantGreatSword = GroupFeats.MakeGroup("FeatGroupRevenantGreatSword", RevenantGreatSword,
             featRevenantGreatSwordDex,
             featRevenantGreatSwordStr);
 
         GroupFeats.MakeGroup("FeatGroupRaceBound", null,
+            featDragonWings,
             featGroupsElvenAccuracy,
             featGroupFadeAway,
             featGroupRevenantGreatSword);
