@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Linq;
 using JetBrains.Annotations;
+using SolastaUnfinishedBusiness.Api.Extensions;
 
 namespace SolastaUnfinishedBusiness.CustomBehaviors;
 
@@ -33,6 +34,32 @@ internal static class ValidatorsFeat
             var guiFormat = Gui.Format("Tooltip/&PreReqDoesNotKnow", baseDefinition.FormatTitle());
 
             return hasFightingStyle ? (false, Gui.Colorize(guiFormat, Gui.ColorFailure)) : (true, guiFormat);
+        };
+    }
+
+    [NotNull]
+    internal static Func<FeatDefinition, RulesetCharacterHero, (bool result, string output)> ValidateNotFeature(
+        [NotNull] FeatureDefinition featureDefinition)
+    {
+        return (_, hero) =>
+        {
+            var hasFeature = hero.HasAnyFeature(featureDefinition);
+            var guiFormat = Gui.Format("Tooltip/&PreReqDoesNotKnow", featureDefinition.FormatTitle());
+
+            return hasFeature ? (false, Gui.Colorize(guiFormat, Gui.ColorFailure)) : (true, guiFormat);
+        };
+    }
+
+    [NotNull]
+    internal static Func<FeatDefinition, RulesetCharacterHero, (bool result, string output)> ValidateHasFeature(
+        [NotNull] FeatureDefinition featureDefinition)
+    {
+        return (_, hero) =>
+        {
+            var hasFeature = !hero.HasAnyFeature(featureDefinition);
+            var guiFormat = Gui.Format("Tooltip/&PreReqDoesNotKnow", featureDefinition.FormatTitle());
+
+            return hasFeature ? (false, Gui.Colorize(guiFormat, Gui.ColorFailure)) : (true, guiFormat);
         };
     }
 
