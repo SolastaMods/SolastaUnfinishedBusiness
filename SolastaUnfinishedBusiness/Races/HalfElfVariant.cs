@@ -15,13 +15,16 @@ namespace SolastaUnfinishedBusiness.Races;
 internal static class RaceHalfElfVariantRaceBuilder
 {
     internal static CharacterRaceDefinition RaceHalfElfVariant { get; } = BuildRaceHalfElfVariant();
+    internal static CharacterRaceDefinition RaceHalfElfHighVariant { get; private set; }
+    internal static CharacterRaceDefinition RaceHalfElfSylvanVariant { get; private set; }
+    internal static CharacterRaceDefinition RaceHalfElfDarkVariant { get; private set; }
 
     [NotNull]
     private static CharacterRaceDefinition BuildRaceHalfElfVariant()
     {
         var halfDarkelfSpriteReference = Sprites.GetSprite("HalfDarkelf", Resources.HalfDarkelf, 1024, 512);
 
-        var raceHalfElfDark = CharacterRaceDefinitionBuilder
+        RaceHalfElfDarkVariant = CharacterRaceDefinitionBuilder
             .Create(SubraceDarkelf, "RaceHalfElfDark")
             .SetGuiPresentation(Category.Race, halfDarkelfSpriteReference)
             .SetFeaturesAtLevel(1,
@@ -31,7 +34,7 @@ internal static class RaceHalfElfVariantRaceBuilder
 
         var halfHighSpriteReference = Sprites.GetSprite("HalfHighElf", Resources.HalfHighElf, 1024, 512);
 
-        var raceHalfElfHigh = CharacterRaceDefinitionBuilder
+        RaceHalfElfHighVariant = CharacterRaceDefinitionBuilder
             .Create(ElfHigh, "RaceHalfElfHigh")
             .SetGuiPresentation(Category.Race, halfHighSpriteReference)
             .SetFeaturesAtLevel(1,
@@ -42,7 +45,7 @@ internal static class RaceHalfElfVariantRaceBuilder
         var halfSylvanSpriteReference =
             Sprites.GetSprite("HalfSylvanElf", Resources.HalfSylvanElf, 1024, 512);
 
-        var raceHalfElfSylvan = CharacterRaceDefinitionBuilder
+        RaceHalfElfSylvanVariant = CharacterRaceDefinitionBuilder
             .Create(ElfSylvan, "RaceHalfElfSylvan")
             .SetGuiPresentation(Category.Race, halfSylvanSpriteReference)
             .SetFeaturesAtLevel(1,
@@ -56,12 +59,12 @@ internal static class RaceHalfElfVariantRaceBuilder
 
         raceHalfElfVariant.SubRaces.SetRange(new List<CharacterRaceDefinition>
         {
-            raceHalfElfHigh, raceHalfElfSylvan, raceHalfElfDark
+            RaceHalfElfHighVariant, RaceHalfElfSylvanVariant, RaceHalfElfDarkVariant
         });
 
-        raceHalfElfHigh.GuiPresentation.sortOrder = 0;
-        raceHalfElfSylvan.GuiPresentation.sortOrder = 1;
-        raceHalfElfDark.GuiPresentation.sortOrder = 2;
+        RaceHalfElfHighVariant.GuiPresentation.sortOrder = 0;
+        RaceHalfElfSylvanVariant.GuiPresentation.sortOrder = 1;
+        RaceHalfElfDarkVariant.GuiPresentation.sortOrder = 2;
 
         raceHalfElfVariant.FeatureUnlocks
             .RemoveAll(x =>

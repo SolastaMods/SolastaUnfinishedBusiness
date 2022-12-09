@@ -45,8 +45,8 @@ internal sealed class PatronRiftWalker : AbstractSubclass
             .SetUsesProficiencyBonus(ActivationTime.BonusAction)
             .SetEffectDescription(EffectDescriptionBuilder
                 .Create(Banishment.EffectDescription)
-                .SetTargetingData(Side.Ally, RangeType.Distance, 12, TargetType.Self)
-                .SetDurationData(DurationType.Round, 1, TurnOccurenceType.StartOfTurn)
+                .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
+                .SetDurationData(DurationType.Round, 1)
                 .SetNoSavingThrow()
                 .Build())
             .SetUniqueInstance()
@@ -63,10 +63,9 @@ internal sealed class PatronRiftWalker : AbstractSubclass
             .SetUsesProficiencyBonus(ActivationTime.Reaction)
             .SetEffectDescription(EffectDescriptionBuilder
                 .Create(Banishment.EffectDescription)
-                .SetDurationData(DurationType.Round, 1, TurnOccurenceType.StartOfTurn)
+                .SetDurationData(DurationType.Round, 1)
                 .SetNoSavingThrow()
                 .Build())
-            .SetUniqueInstance()
             .SetReactionContext(ReactionTriggerContext.HitByMelee)
             .AddToDB();
 
