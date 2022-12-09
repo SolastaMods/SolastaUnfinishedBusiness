@@ -2,13 +2,11 @@
 
 1.4.31.2:
 
-- added Dragon Wings feat to Dragonborn
-- added Fade Away Dex and Int feats to Gnome
-- added Revenant Great Sword Str and Dex to Elf or Half-Elf
+- added Dragon Wings, Fade Away and Revenant Great Sword feats
 - added setting to disable pre-requisites on race bound feats
 - changed critical virtuoso feats to better integrate with Martial Champion ones
 - changed Elven Accuracy feat to require Elf or Half-Elf
 - fixed additional issues with 6 players under MP [might still be broken]
 - fixed College of Life Command Undead feature to use Cha on saving throws
 - fixed Heavy Armor Master feat triggering more often than expected
-- fixed Study Your Enemy feature causing a null exception if enemy fully known
+- fixed Study Your Enemy feature causing a mod warning if enemy fully known

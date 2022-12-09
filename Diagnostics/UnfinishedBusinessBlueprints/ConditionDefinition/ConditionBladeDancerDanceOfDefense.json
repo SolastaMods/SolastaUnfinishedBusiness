@@ -13,7 +13,7 @@
   "allowMultipleInstances": false,
   "silentWhenAdded": false,
   "silentWhenRemoved": false,
-  "terminateWhenRemoved": true,
+  "terminateWhenRemoved": false,
   "specialDuration": false,
   "durationType": "Hour",
   "durationParameterDie": "D4",
