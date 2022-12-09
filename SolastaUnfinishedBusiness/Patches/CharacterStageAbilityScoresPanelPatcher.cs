@@ -39,7 +39,7 @@ public static class CharacterStageAbilityScoresPanelPatcher
         [NotNull]
         public static IEnumerable<CodeInstruction> Transpiler([NotNull] IEnumerable<CodeInstruction> instructions)
         {
-            if (Main.Settings.EnableEpicPointsAndArray)
+            if (!Main.Settings.EnableEpicPointsAndArray)
             {
                 return instructions;
             }
