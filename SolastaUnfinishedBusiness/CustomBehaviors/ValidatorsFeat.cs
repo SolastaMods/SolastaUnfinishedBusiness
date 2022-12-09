@@ -80,6 +80,28 @@ internal static class ValidatorsFeat
         };
     }
 
+    [NotNull]
+    internal static Func<FeatDefinition, RulesetCharacterHero, (bool result, string output)> ValidateIsRace(
+        params CharacterRaceDefinition[] characterRaceDefinition)
+    {
+        var races = string.Join(",", characterRaceDefinition.Select(x => x.FormatTitle()));
+
+        return (_, hero) =>
+        {
+            if (Main.Settings.DisableRacePrerequisitesOnModFeats)
+            {
+                return (true, string.Empty);
+            }
+
+            var isRace = characterRaceDefinition.Contains(hero.RaceDefinition);
+            var guiFormat = Gui.Format("Tooltip/&PreReqIs", races);
+
+            return isRace
+                ? (true, guiFormat)
+                : (false, Gui.Colorize(guiFormat, Gui.ColorFailure));
+        };
+    }
+
 #if false
     // Tooltip/&FeatPreReqIs=Is {0}
     internal static (bool, string) IsElfOrHalfElf(
