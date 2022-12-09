@@ -1,5 +1,5 @@
 {
-  "$type": "FeatDefinition, Assembly-CSharp",
+  "$type": "SolastaUnfinishedBusiness.CustomDefinitions.FeatDefinitionWithPrerequisites, SolastaUnfinishedBusiness",
   "compatibleClassesPrerequisite": [],
   "mustCastSpellsPrerequisite": false,
   "compatibleRacesPrerequisite": [],
@@ -9,16 +9,18 @@
   "armorProficiencyPrerequisite": false,
   "armorProficiencyCategory": "",
   "hasFamilyTag": true,
-  "familyTag": "ElvenPrecision",
+  "familyTag": "RevenantGreatSword",
   "knownFeatsPrerequisite": [],
   "features": [
-    "Definition:AttributeModifierCreed_Of_Maraike:7fd526d5e743c6f48bad92aac9b1738d"
+    "Definition:AttributeModifierCreed_Of_Misaye:74d55f601f8ad8246b18a19766524280",
+    "Definition:AttributeModifierFeatRevenantGreatSwordArmorClass:01a02766-f2c4-53a4-a33a-4fc3db3988d3",
+    "Definition:ModifyAttackModeFeatRevenantGreatSword:3e71c1b7-4ab2-526c-acec-a9a5f1df99fd"
   ],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
-    "title": "Feat/&FeatElvenAccuracyWisdomTitle",
-    "description": "Feat/&FeatElvenAccuracyWisdomDescription",
+    "title": "Feat/&FeatRevenantGreatSwordDexTitle",
+    "description": "Feat/&FeatRevenantGreatSwordDexDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -38,7 +40,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "f1b08180-1554-543a-b464-539a8a971a2f",
+  "guid": "ec489b38-d0ef-5db6-a6c8-374091a91353",
   "contentPack": 9999,
-  "name": "FeatElvenAccuracyWisdom"
+  "name": "FeatRevenantGreatSwordDex"
 }

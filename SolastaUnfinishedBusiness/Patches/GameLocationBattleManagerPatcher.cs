@@ -279,7 +279,7 @@ public static class GameLocationBattleManagerPatcher
             {
                 yield return values.Current;
             }
-            
+
             RestrictReactionAttackMode.ReactionContext = (null, null, null);
         }
     }
@@ -322,8 +322,8 @@ public static class GameLocationBattleManagerPatcher
             {
                 var damage = attackMode?.EffectDescription?.FindFirstDamageForm();
 
-                if (damage != null && feature.DamageTypes.Count != 0 &&
-                    !feature.DamageTypes.Contains(damage.damageType))
+                if (damage == null ||
+                    (!feature.DamageTypes.Contains(damage.damageType) && feature.DamageTypes.Count > 0))
                 {
                     continue;
                 }
@@ -461,7 +461,7 @@ public static class GameLocationBattleManagerPatcher
 
             //PATCH: Support elven precision feat
             // should come last as adv / dis make diff here
-            ElvenAccuracyFeats.CheckElvenPrecisionContext(__result, attackParams.attacker.RulesetCharacter,
+            RaceFeats.CheckElvenPrecisionContext(__result, attackParams.attacker.RulesetCharacter,
                 attackParams.attackMode);
         }
 

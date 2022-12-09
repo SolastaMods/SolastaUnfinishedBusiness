@@ -49,6 +49,12 @@ internal static class CharacterDisplay
             CharacterContext.SwitchFirstLevelTotalFeats();
         }
 
+        toggle = Main.Settings.DisableRacePrerequisitesOnModFeats;
+        if (UI.Toggle(Gui.Localize("ModUi/&DisableRacePrerequisitesOnModFeats"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.DisableRacePrerequisitesOnModFeats = toggle;
+        }
+     
         UI.Label();
 
         toggle = Main.Settings.EnableEpicPointsAndArray;

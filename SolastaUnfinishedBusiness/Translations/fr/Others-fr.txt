@@ -90,6 +90,7 @@ Tooltip/&CustomMapMarkerTeleport=Téléporter
 Tooltip/&FeatGroupTitle=Don de groupe
 Tooltip/&MonsterNaturalArmorTitle=Armure naturelle
 Tooltip/&PreReqDoesNotKnow=Ne connaît pas {0}
+Tooltip/&PreReqMustKnow=Doit savoir {0}
 Tooltip/&PreReqIsNot=N'est pas {0}
 Tooltip/&Tag9000Title=Effet personnalisé
 Tooltip/&TagUnfinishedBusinessTitle=Unfinished Business

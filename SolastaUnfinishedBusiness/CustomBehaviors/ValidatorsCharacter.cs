@@ -88,6 +88,8 @@ internal static class ValidatorsCharacter
         ValidatorsWeapon.HasAnyWeaponTag(character.GetItemInSlot(EquipmentDefinitions.SlotTypeMainHand),
             TagsDefinitions.WeaponTagFinesse);
 #endif
+    internal static readonly IsCharacterValidHandler MainHandIsGreatSword = character =>
+        ValidatorsWeapon.IsGreatSword(character.GetItemInSlot(EquipmentDefinitions.SlotTypeMainHand));
 
     internal static readonly IsCharacterValidHandler MainHandIsVersatileWeapon = character =>
         ValidatorsWeapon.HasAnyWeaponTag(character.GetItemInSlot(EquipmentDefinitions.SlotTypeMainHand),
@@ -157,6 +159,8 @@ internal static class ValidatorsCharacter
         return DatabaseRepository.GetDatabase<ArmorCategoryDefinition>().GetElement(element.ArmorCategory)
             .IsPhysicalArmor && element.ArmorCategory == EquipmentDefinitions.LightArmorCategory;
     };
+
+    internal static readonly IsCharacterValidHandler NotHeavyArmor = character => !HeavyArmor(character);
 
     internal static readonly IsCharacterValidHandler HeavyArmor = character =>
     {
@@ -230,7 +234,7 @@ internal static class ValidatorsCharacter
     [NotNull]
     internal static IsCharacterValidHandler HasNoCondition(params string[] conditions)
     {
-        return character => !conditions.Any(c => character.HasConditionOfType(c));
+        return character => !conditions.Any(character.HasConditionOfType);
     }
 
     internal static bool HasConditionWithSubFeatureOfType<T>(this RulesetCharacter character) where T : class

@@ -21,9 +21,7 @@ public static class NetworkSessionFileSyncHandlerPatcher
 
             session.ClearAssignedCharacters();
 
-            var maxValue = Math.Max(ToolsContext.GamePartySize, Main.Settings.OverridePartySize);
-
-            for (var optionalIndex = 0; optionalIndex < maxValue; ++optionalIndex)
+            for (var optionalIndex = 0; optionalIndex < Main.Settings.OverridePartySize; ++optionalIndex)
             {
                 NetworkingDefinitions.GetFileTypeInformation(NetworkingDefinitions.FileType.Character, optionalIndex,
                     out var characterFilename, out _);

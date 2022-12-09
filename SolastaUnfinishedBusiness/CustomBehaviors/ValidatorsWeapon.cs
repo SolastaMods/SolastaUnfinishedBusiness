@@ -35,6 +35,11 @@ internal static class ValidatorsWeapon
                && CustomWeaponsContext.PolearmWeaponTypes.Contains(weapon.WeaponDescription?.WeaponType);
     }
 
+    internal static bool IsGreatSword([CanBeNull] RulesetItem weapon)
+    {
+        return weapon != null && weapon.ItemDefinition.IsWeapon && weapon.ItemDefinition.Name.Contains("Greatsword");
+    }
+
     internal static bool IsMelee([CanBeNull] RulesetItem weapon)
     {
         return weapon == null // for unarmed

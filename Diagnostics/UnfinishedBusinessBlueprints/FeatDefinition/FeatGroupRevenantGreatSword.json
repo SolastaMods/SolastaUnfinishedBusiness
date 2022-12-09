@@ -8,17 +8,15 @@
   "minimalAbilityScoreName": "Strength",
   "armorProficiencyPrerequisite": false,
   "armorProficiencyCategory": "",
-  "hasFamilyTag": false,
-  "familyTag": "",
+  "hasFamilyTag": true,
+  "familyTag": "RevenantGreatSword",
   "knownFeatsPrerequisite": [],
-  "features": [
-    "Definition:AttributeModifierMartialChampionImprovedCritical:6e6f489cef90d6b4ebe16357f17daa56"
-  ],
+  "features": [],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
-    "title": "Feat/&FeatImprovedCriticalTitle",
-    "description": "Feat/&FeatImprovedCriticalDescription",
+    "title": "Feat/&FeatGroupRevenantGreatSwordTitle",
+    "description": "Feat/&FeatGroupRevenantGreatSwordDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -38,7 +36,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "597848f3-18fb-5372-a54b-994c4bc9b65f",
+  "guid": "2b9de6a3-d310-5ee6-a680-de822e84a7d7",
   "contentPack": 9999,
-  "name": "FeatImprovedCritical"
+  "name": "FeatGroupRevenantGreatSword"
 }

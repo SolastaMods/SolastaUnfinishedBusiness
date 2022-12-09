@@ -31,11 +31,11 @@ internal static class FeatsContext
         CraftyFeats.CreateFeats(feats);
         CriticalVirtuosoFeats.CreateFeats(feats);
         DefenseExpertFeats.CreateFeats(feats);
-        ElvenAccuracyFeats.CreateFeats(feats);
         FightingStyleFeats.CreateFeats(feats);
         MeleeCombatFeats.CreateFeats(feats);
         MetamagicFeats.CreateFeats(feats);
         PrecisionFocusedFeats.CreateFeats(feats);
+        RaceFeats.CreateFeats(feats);
         RangedCombatFeats.CreateFeats(feats); // depends on a group in MeleeCombatFeats
         TwoWeaponCombatFeats.CreateFeats(feats);
 

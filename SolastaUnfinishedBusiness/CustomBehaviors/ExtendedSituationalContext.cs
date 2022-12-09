@@ -44,6 +44,9 @@ internal static class CustomSituationalContext
             ExtraSituationalContext.SummonerIsNextToBeast =>
                 IsConsciousSummonerNextToBeast(GameLocationCharacter.GetFromActor(contextParams.source)),
 
+            ExtraSituationalContext.MainWeaponIsGreatSword =>
+                ValidatorsCharacter.MainHandIsGreatSword(contextParams.source),
+
             _ => def
         };
     }

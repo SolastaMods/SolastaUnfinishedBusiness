@@ -177,7 +177,7 @@ internal sealed class CollegeOfLife : AbstractSubclass
                 powerSharedPoolCollegeOfLifeRevive)
             .AddFeaturesAtLevel(14,
                 DamageAffinityGenericHardenToNecrotic,
-                PowerCasterCommandUndead)
+                PowerCasterCommandUndeadCharisma)
             .AddToDB();
     }
 

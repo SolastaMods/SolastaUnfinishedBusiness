@@ -1,6 +1,10 @@
 ﻿using System;
 using System.Linq;
 using JetBrains.Annotations;
+using SolastaUnfinishedBusiness.Api;
+using SolastaUnfinishedBusiness.Api.Extensions;
+using SolastaUnfinishedBusiness.Races;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterRaceDefinitions;
 
 namespace SolastaUnfinishedBusiness.CustomBehaviors;
 
@@ -9,6 +13,22 @@ internal static class ValidatorsFeat
     //
     // validation routines for FeatDefinitionWithPrerequisites
     //
+
+    internal static readonly Func<FeatDefinition, RulesetCharacterHero, (bool result, string output)> IsDragonborn =
+        ValidateIsRace(Dragonborn.FormatTitle(), Dragonborn);
+    
+    internal static readonly Func<FeatDefinition, RulesetCharacterHero, (bool result, string output)> IsElfOfHalfElf =
+        ValidateIsRace(
+            $"{Elf.FormatTitle()}, {HalfElf.FormatTitle()}",
+            Elf, ElfHigh, ElfSylvan, HalfElf,
+            DarkelfSubraceBuilder.SubraceDarkelf,
+            RaceHalfElfVariantRaceBuilder.RaceHalfElfVariant,
+            RaceHalfElfVariantRaceBuilder.RaceHalfElfDarkVariant,
+            RaceHalfElfVariantRaceBuilder.RaceHalfElfHighVariant,
+            RaceHalfElfVariantRaceBuilder.RaceHalfElfSylvanVariant);
+
+    internal static readonly Func<FeatDefinition, RulesetCharacterHero, (bool result, string output)> IsGnome =
+        ValidateIsRace(GnomeRaceBuilder.RaceGnome.FormatTitle(), GnomeRaceBuilder.RaceGnome);
 
     [NotNull]
     internal static Func<FeatDefinition, RulesetCharacterHero, (bool result, string output)> ValidateNotMetamagic(
@@ -37,6 +57,32 @@ internal static class ValidatorsFeat
     }
 
     [NotNull]
+    internal static Func<FeatDefinition, RulesetCharacterHero, (bool result, string output)> ValidateNotFeature(
+        [NotNull] FeatureDefinition featureDefinition)
+    {
+        return (_, hero) =>
+        {
+            var hasFeature = hero.HasAnyFeature(featureDefinition);
+            var guiFormat = Gui.Format("Tooltip/&PreReqDoesNotKnow", featureDefinition.FormatTitle());
+
+            return hasFeature ? (false, Gui.Colorize(guiFormat, Gui.ColorFailure)) : (true, guiFormat);
+        };
+    }
+
+    [NotNull]
+    internal static Func<FeatDefinition, RulesetCharacterHero, (bool result, string output)> ValidateHasFeature(
+        [NotNull] FeatureDefinition featureDefinition)
+    {
+        return (_, hero) =>
+        {
+            var hasFeature = !hero.HasAnyFeature(featureDefinition);
+            var guiFormat = Gui.Format("Tooltip/&PreReqDoesNotKnow", featureDefinition.FormatTitle());
+
+            return hasFeature ? (false, Gui.Colorize(guiFormat, Gui.ColorFailure)) : (true, guiFormat);
+        };
+    }
+
+    [NotNull]
     internal static Func<FeatDefinition, RulesetCharacterHero, (bool result, string output)> ValidateNotClass(
         [NotNull] CharacterClassDefinition characterClassDefinition)
     {
@@ -53,23 +99,27 @@ internal static class ValidatorsFeat
         };
     }
 
-#if false
-    // Tooltip/&FeatPreReqIs=Is {0}
-    internal static (bool, string) IsElfOrHalfElf(
-        FeatDefinitionWithPrerequisites _,
-        [NotNull] RulesetCharacterHero hero)
+    [NotNull]
+    private static Func<FeatDefinition, RulesetCharacterHero, (bool result, string output)> ValidateIsRace(
+        string description, params CharacterRaceDefinition[] characterRaceDefinition)
     {
-        var isElf = hero.RaceDefinition.Name.Contains(DatabaseHelper.CharacterRaceDefinitions.Elf.Name);
-        var elfTitle = DatabaseHelper.CharacterRaceDefinitions.Elf.FormatTitle();
-        var halfElfTitle = DatabaseHelper.CharacterRaceDefinitions.HalfElf.FormatTitle();
-        var param = $"{elfTitle}, {halfElfTitle}";
-        var guiFormat = Gui.Format("Tooltip/&FeatPreReqIs", param);
+        return (_, hero) =>
+        {
+            if (Main.Settings.DisableRacePrerequisitesOnModFeats)
+            {
+                return (true, string.Empty);
+            }
 
-        return isElf
-            ? (true, guiFormat)
-            : (false, Gui.Colorize(guiFormat, Gui.ColorFailure));
+            var isRace = characterRaceDefinition.Contains(hero.RaceDefinition);
+            var guiFormat = Gui.Format("Tooltip/&PreReqIs", description);
+
+            return isRace
+                ? (true, guiFormat)
+                : (false, Gui.Colorize(guiFormat, Gui.ColorFailure));
+        };
     }
 
+#if false
     [NotNull]
     // Tooltip/&FeatPreReqLevelFormat=Min Character Level {0}
     internal static Func<FeatDefinition, RulesetCharacterHero, (bool result, string output)> ValidateMinCharLevel(

@@ -43,7 +43,7 @@ internal static class ArmorFeats
                 AttributeModifierCreed_Of_Einar,
                 FeatureDefinitionReduceDamageBuilder
                     .Create("ReduceDamageFeatHeavyArmorMaster")
-                    .SetGuiPresentationNoContent(true)
+                    .SetGuiPresentation("FeatHeavyArmorMaster", Category.Feat)
                     .SetNotificationTag("HeavyArmorMaster")
                     .SetFixedReducedDamage(3, DamageTypeBludgeoning, DamageTypePiercing, DamageTypeSlashing)
                     .SetCustomSubFeatures(ValidatorsCharacter.HeavyArmor)

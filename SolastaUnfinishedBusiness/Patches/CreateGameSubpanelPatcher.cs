@@ -16,9 +16,7 @@ public static class CreateGameSubpanelPatcher
         public static void Prefix([NotNull] CreateGameSubpanel __instance)
         {
             //PATCH: allows up to 6 players to join the game if there are enough heroes available (PARTYSIZE)
-            var value = Math.Max(ToolsContext.GamePartySize, Main.Settings.OverridePartySize);
-
-            __instance.maxPlayersSlider.maxValue = value;
+            __instance.maxPlayersSlider.maxValue = Main.Settings.OverridePartySize;
         }
     }
 }

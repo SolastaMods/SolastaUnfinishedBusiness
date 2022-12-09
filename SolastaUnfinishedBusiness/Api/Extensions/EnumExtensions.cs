@@ -11,7 +11,8 @@ internal enum ExtraSituationalContext
     // MainWeaponIsFinesseOrLightRange = 1002,
     // MainWeaponIsVersatileWithoutShield = 1003,
     TargetIsNotEffectSource = 1004,
-    SummonerIsNextToBeast = 1005
+    SummonerIsNextToBeast = 1005,
+    MainWeaponIsGreatSword = 1006,
 }
 
 internal enum ExtraEffectFormType
