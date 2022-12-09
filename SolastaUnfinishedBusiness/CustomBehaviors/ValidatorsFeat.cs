@@ -14,11 +14,15 @@ internal static class ValidatorsFeat
     // validation routines for FeatDefinitionWithPrerequisites
     //
 
+    private static readonly Func<FeatDefinition, RulesetCharacterHero, (bool result, string output)> _isDragonborn;
+    
     internal static readonly Func<FeatDefinition, RulesetCharacterHero, (bool result, string output)> IsDragonborn =
-        ValidateIsRace(Dragonborn.FormatTitle(), Dragonborn);
+        _isDragonborn ??= ValidateIsRace(Dragonborn.FormatTitle(), Dragonborn);
+
+    private static readonly Func<FeatDefinition, RulesetCharacterHero, (bool result, string output)> _isElfOfHalfElf;
     
     internal static readonly Func<FeatDefinition, RulesetCharacterHero, (bool result, string output)> IsElfOfHalfElf =
-        ValidateIsRace(
+        _isElfOfHalfElf ??= ValidateIsRace(
             $"{Elf.FormatTitle()}, {HalfElf.FormatTitle()}",
             Elf, ElfHigh, ElfSylvan, HalfElf,
             DarkelfSubraceBuilder.SubraceDarkelf,
