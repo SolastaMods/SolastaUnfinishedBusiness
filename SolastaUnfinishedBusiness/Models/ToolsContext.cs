@@ -57,6 +57,7 @@ internal static class ToolsContext
 
         ServiceRepository.GetService<IFunctorService>().RegisterFunctor(RespecName, new FunctorRespec());
         SwitchRespec();
+        SwitchEncounterPercentageChance();
     }
 
     internal static void SwitchRespec()
@@ -64,6 +65,16 @@ internal static class ToolsContext
         RestActivityRespec.condition = Main.Settings.EnableRespec
             ? RestActivityDefinition.ActivityCondition.None
             : ActivityConditionDisabled;
+    }
+
+    internal static void SwitchEncounterPercentageChance()
+    {
+        foreach (var travelEventProbabilityDescription in DatabaseRepository.GetDatabase<TravelActivityDefinition>()
+                     .SelectMany(x => x.RandomEvents)
+                     .Where(x => x.EventDefinition.Name == "TravelEventEncounter"))
+        {
+            travelEventProbabilityDescription.basePercent = Main.Settings.EncounterPercentageChance;
+        }
     }
 
     public static void Rebase(Transform parent, int max)

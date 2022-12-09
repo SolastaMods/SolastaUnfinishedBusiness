@@ -177,3 +177,4 @@ ModUi/&UseHeightOneCylinderEffect=Usa un efecto de cilindro de altura 1 al lanza
 ModUi/&UseOfficialAdvantageDisadvantageRules=Usar reglas oficiales de ventaja/desventaja
 ModUi/&Visuals=<color=#F0DAA0>Imágenes:</color> <b><i><color=#C04040E0>[Requiere reiniciar]</color></i></b>
 ModUi/&DisableRacePrerequisitesOnModFeats=Disable Race pre-requisites on feats provided by this mod
+ModUi/&EncounterPercentageChance=<color=white>Set random encounters percentage chances</color>

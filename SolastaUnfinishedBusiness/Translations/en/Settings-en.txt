@@ -177,3 +177,4 @@ ModUi/&UseHeightOneCylinderEffect=Use a height 1 cylinder effect when casting <c
 ModUi/&UseOfficialAdvantageDisadvantageRules=Use official advantage / disadvantage rules
 ModUi/&Visuals=<color=#F0DAA0>Visuals:</color> <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
 ModUi/&DisableRacePrerequisitesOnModFeats=Disable Race pre-requisites on feats provided by this mod
+ModUi/&EncounterPercentageChance=<color=white>Set random encounters percentage chances</color>

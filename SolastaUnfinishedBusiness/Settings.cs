@@ -203,13 +203,14 @@ public class Settings : UnityModManager.ModSettings
     public bool EnableSaveByLocation { get; set; }
     public bool EnableRespec { get; set; }
     public bool EnableCheatMenu { get; set; }
-    public bool OverrideMinMaxLevel { get; set; }
+    public bool EnableTogglesToOverwriteDefaultTestParty { get; set; }
     public bool NoExperienceOnLevelUp { get; set; }
+    public bool OverrideMinMaxLevel { get; set; }
     public int MultiplyTheExperienceGainedBy { get; set; } = 100;
     public int OverridePartySize { get; set; } = ToolsContext.GamePartySize;
     public bool AllowAllPlayersOnNarrativeSequences { get; set; }
     public float FasterTimeModifier { get; set; } = ToolsDisplay.DefaultFastTimeModifier;
-    public bool EnableTogglesToOverwriteDefaultTestParty { get; set; }
+    public int EncounterPercentageChance { get; set; } = 5;
     public List<string> DefaultPartyHeroes { get; } = new();
 
     //
