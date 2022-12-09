@@ -6,6 +6,7 @@ using SolastaUnfinishedBusiness.Api.Infrastructure;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
+using SolastaUnfinishedBusiness.CustomInterfaces;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionAttributeModifiers;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
@@ -16,6 +17,7 @@ internal static class RaceFeats
 {
     private const string ElvenPrecision = "ElvenPrecision";
     private const string FadeAway = "FadeAway";
+    private const string RevenantGreatSword = "RevenantGreatSword";
 
     internal const string ElvenAccuracyTag = "ElvenAccuracy";
 
@@ -118,6 +120,44 @@ internal static class RaceFeats
             .SetCustomSubFeatures(new ElvenPrecisionContext())
             .AddToDB();
 
+        var attributeModifierFeatRevenantGreatSwordArmorClass = FeatureDefinitionAttributeModifierBuilder
+            .Create("AttributeModifierFeatRevenantGreatSwordArmorClass")
+            .SetGuiPresentation(Category.Feature)
+            .SetModifier(FeatureDefinitionAttributeModifier.AttributeModifierOperation.Additive,
+                AttributeDefinitions.ArmorClass, 1)
+            .SetSituationalContext((SituationalContext)ExtraSituationalContext.MainWeaponIsGreatSword)
+            .AddToDB();
+
+        var modifyAttackModeFeatRevenantGreatSword = FeatureDefinitionBuilder
+            .Create("ModifyAttackModeFeatRevenantGreatSword")
+            .SetGuiPresentationNoContent(true)
+            .SetCustomSubFeatures(new CanUseAttributeForWeapon(AttributeDefinitions.Dexterity))
+            .AddToDB();
+        
+        // Revenant Great Sword (Dexterity)
+        var featRevenantGreatSwordDex = FeatDefinitionWithPrerequisitesBuilder
+            .Create("FeatRevenantGreatSwordDex")
+            .SetGuiPresentation(Category.Feat)
+            .SetFeatures(
+                AttributeModifierCreed_Of_Misaye,
+                attributeModifierFeatRevenantGreatSwordArmorClass,
+                modifyAttackModeFeatRevenantGreatSword)
+            .SetValidators(ValidatorsFeat.IsElfOfHalfElf)
+            .SetFeatFamily(RevenantGreatSword)
+            .AddToDB();
+        
+        // Revenant Great Sword (Strength)
+        var featRevenantGreatSwordStr = FeatDefinitionWithPrerequisitesBuilder
+            .Create("FeatRevenantGreatSwordStr")
+            .SetGuiPresentation(Category.Feat)
+            .SetFeatures(
+                AttributeModifierCreed_Of_Einar,
+                attributeModifierFeatRevenantGreatSwordArmorClass,
+                modifyAttackModeFeatRevenantGreatSword)
+            .SetValidators(ValidatorsFeat.IsElfOfHalfElf)
+            .SetFeatFamily(RevenantGreatSword)
+            .AddToDB();
+
         //
         // set feats to be registered in mod settings
         //
@@ -128,7 +168,9 @@ internal static class RaceFeats
             featElvenAccuracyDexterity,
             featElvenAccuracyIntelligence,
             featElvenAccuracyWisdom,
-            featElvenAccuracyCharisma);
+            featElvenAccuracyCharisma,
+            featRevenantGreatSwordDex,
+            featRevenantGreatSwordStr);
 
         var featGroupsElvenAccuracy = GroupFeats.MakeGroup("FeatGroupElvenAccuracy", ElvenPrecision,
             featElvenAccuracyCharisma,
@@ -136,17 +178,30 @@ internal static class RaceFeats
             featElvenAccuracyIntelligence,
             featElvenAccuracyWisdom);
 
-        var featGroupsFadeAway = GroupFeats.MakeGroup("FeatGroupFadeAway", FadeAway,
+        var featGroupFadeAway = GroupFeats.MakeGroup("FeatGroupFadeAway", FadeAway,
             featFadeAwayDex,
             featFadeAwayInt);
+        
+        var featGroupRevenantGreatSword = GroupFeats.MakeGroup("FeatGroupRevenantGreatSword", RevenantGreatSword,
+            featRevenantGreatSwordDex,
+            featRevenantGreatSwordStr);
 
         GroupFeats.MakeGroup("FeatGroupRaceBound", null,
             featGroupsElvenAccuracy,
-            featGroupsFadeAway);
+            featGroupFadeAway,
+            featGroupRevenantGreatSword);
     }
 
     internal sealed class ElvenPrecisionContext
     {
         internal bool Qualified { get; set; }
+    }
+
+    internal sealed class ModifyAttackModeFeatRevenantGreatSword : IModifyAttackModeForWeapon
+    {
+        public void ModifyAttackMode(RulesetCharacter character, RulesetAttackMode attackMode)
+        {
+            attackMode.attackTags.TryAdd(TagsDefinitions.WeaponTagFinesse);
+        }
     }
 }

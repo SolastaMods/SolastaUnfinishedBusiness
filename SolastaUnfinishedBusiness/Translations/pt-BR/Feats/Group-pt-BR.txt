@@ -60,3 +60,5 @@ Feat/&FeatGroupFadeAwayDescription=You have learned a magical trick for fading a
 Feat/&FeatGroupFadeAwayTitle=Fade Away
 Feat/&FeatGroupRaceBoundDescription=Race bound feats.
 Feat/&FeatGroupRaceBoundTitle=Race Bound
+Feat/&FeatGroupRevenantGreatSwordDescription=Increase your Dexterity or Strength score by 1, to a maximum of 20. While you are holding a great sword,  you gain a +1 bonus to Armor Class and you can use your Dexterity on to hit and to damage bonuses.
+Feat/&FeatGroupRevenantGreatSwordTitle=Revenant Great Sword

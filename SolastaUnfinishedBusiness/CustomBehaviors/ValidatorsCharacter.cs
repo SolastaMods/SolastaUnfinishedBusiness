@@ -88,6 +88,8 @@ internal static class ValidatorsCharacter
         ValidatorsWeapon.HasAnyWeaponTag(character.GetItemInSlot(EquipmentDefinitions.SlotTypeMainHand),
             TagsDefinitions.WeaponTagFinesse);
 #endif
+    internal static readonly IsCharacterValidHandler MainHandIsGreatSword = character =>
+        ValidatorsWeapon.IsGreatSword(character.GetItemInSlot(EquipmentDefinitions.SlotTypeMainHand));
 
     internal static readonly IsCharacterValidHandler MainHandIsVersatileWeapon = character =>
         ValidatorsWeapon.HasAnyWeaponTag(character.GetItemInSlot(EquipmentDefinitions.SlotTypeMainHand),
