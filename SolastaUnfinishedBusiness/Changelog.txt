@@ -1,12 +1,8 @@
 ﻿CHANGES:
 
-1.4.31.1:
+1.4.31.2:
 
-- added Blade Ward and Enduring Sting cantrips
-- added icons to Foresight, Meteor Swarm, Mind Blank, Resurrection, Reverse Gravity and Time Stop
-- fixed removal of even level feats feature
-- fixed Gnome and Kobold wrong spell slots offering at 3rd and 5th
-- fixed Kobold offering Druid cantrips instead of Sorcerer ones
-- fixed Way of Distant Hand techniques at 11th
-- fixed Way of Distant Hand prompting their zen arrow technique on melee attacks
-- fixed Way of Distant Hand not getting a bonus unarmed attack after shooting a bow
+- fixed additional issues with 6 players under MP [might still be broken]
+- fixed Heavy Armor Master reduce damage triggering more often than expected
+- fixed Study Your Enemy causing a null exception if enemy fully known
+- refactored critical virtuoso feats to better integrate with Martial Champion
