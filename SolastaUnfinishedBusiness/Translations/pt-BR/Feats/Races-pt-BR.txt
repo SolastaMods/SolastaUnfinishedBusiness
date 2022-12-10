@@ -8,3 +8,5 @@ Feat/&FeatRevenantGreatSwordStrDescription=Increase your Strength score by 1, to
 Feat/&FeatRevenantGreatSwordStrTitle=Revenant Great Sword [Str]
 Feature/&AttributeModifierFeatRevenantGreatSwordArmorClassDescription=While you are holding a great sword, you gain a +1 bonus to Armor Class.
 Feature/&AttributeModifierFeatRevenantGreatSwordArmorClassTitle=Revenant Great Sword
+Feat/&FeatDragonWingsDescription=You sprout draconic wings. You gain the ability to fly for a limited time if you aren't wearing heavy armor.
+Feat/&FeatDragonWingsTitle=Dragon Wings

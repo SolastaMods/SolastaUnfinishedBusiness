@@ -5,6 +5,7 @@ using System.Linq;
 using System.Reflection.Emit;
 using HarmonyLib;
 using JetBrains.Annotations;
+using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.Extensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Api.Infrastructure;
@@ -680,15 +681,15 @@ public static class RulesetCharacterHeroPatcher
                     return false;
                 }
 
-                var power = __instance.UsablePowers.FirstOrDefault(usablePower =>
-                    usablePower.PowerDefinition.Name == activity.StringParameter);
-
-                if (power == null)
+                if (!DatabaseHelper.TryGetDefinition<FeatureDefinitionPower>(activity.StringParameter, out var power))
                 {
                     return false;
                 }
 
-                return !__instance.CanUsePower(power.PowerDefinition);
+                var p = activity.GetFirstSubFeatureOfType<RestActivityValidationParams>()
+                        ?? new RestActivityValidationParams(true, true);
+
+                return !__instance.CanUsePower(power,p.ConsiderUses, p.ConsiderHaving);
             });
         }
     }

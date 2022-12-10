@@ -14,11 +14,15 @@ internal static class ValidatorsFeat
     // validation routines for FeatDefinitionWithPrerequisites
     //
 
+    private static readonly Func<FeatDefinition, RulesetCharacterHero, (bool result, string output)> _isDragonborn;
+    
     internal static readonly Func<FeatDefinition, RulesetCharacterHero, (bool result, string output)> IsDragonborn =
-        ValidateIsRace(Dragonborn.FormatTitle(), Dragonborn);
+        _isDragonborn ??= ValidateIsRace(Dragonborn.FormatTitle(), Dragonborn);
+
+    private static readonly Func<FeatDefinition, RulesetCharacterHero, (bool result, string output)> _isElfOfHalfElf;
     
     internal static readonly Func<FeatDefinition, RulesetCharacterHero, (bool result, string output)> IsElfOfHalfElf =
-        ValidateIsRace(
+        _isElfOfHalfElf ??= ValidateIsRace(
             $"{Elf.FormatTitle()}, {HalfElf.FormatTitle()}",
             Elf, ElfHigh, ElfSylvan, HalfElf,
             DarkelfSubraceBuilder.SubraceDarkelf,
@@ -76,7 +80,7 @@ internal static class ValidatorsFeat
         return (_, hero) =>
         {
             var hasFeature = !hero.HasAnyFeature(featureDefinition);
-            var guiFormat = Gui.Format("Tooltip/&PreReqDoesNotKnow", featureDefinition.FormatTitle());
+            var guiFormat = Gui.Format("Tooltip/&PreReqMustKnow", featureDefinition.FormatTitle());
 
             return hasFeature ? (false, Gui.Colorize(guiFormat, Gui.ColorFailure)) : (true, guiFormat);
         };

@@ -22,7 +22,7 @@ Feature/&InvocationPoolFighterArmamentAdroitnessTitle=Weapon Training
 Feature/&MagicAffinityPatronExpandedSpellsDescription={0}\n\n
 Feature/&ModifyAttackModeForWeaponFighterArmamentAdroitnessDescription=You gain +1 to hit and damage rolls from your weapon training.
 Feature/&ModifyAttackModeForWeaponFighterArmamentAdroitnessTitle=Weapon Training
-Feature/&PowerAfterRestIdentifyDescription=Identify magic items. To use this power take a short or long rest and click Identify. Then, within the next minute move an item in your inventory to identify it.
+Feature/&PowerAfterRestIdentifyDescription=Identify all magic items in inventory.
 Feature/&PowerAfterRestIdentifyTitle=Identify
 Feature/&PowerHelpDescription=You can aid a friendly creature in attacking a creature within 5 feet of you. You feint, distract the target, or in some other way team up to make your ally's attack more effective. If your ally attacks the target before your next turn, the first attack roll is made with advantage.
 Feature/&PowerHelpTitle=Help
@@ -40,6 +40,7 @@ Message/&CharacterExportModalTitleDescription=Export {0}
 Message/&MessageModWelcomeDescription=The Unfinished Business Mod is packed full of exciting features, but by default none are enabled. Press <color=#F0DAA0>Ctrl-F10</color> to open the Unity Mod Manager UI [UMM], then click on the settings icon next to 'Unfinished Business' to open the settings pages. Explore the options and select the ones you like.
 Message/&MessageModWelcomeTitle=Unfinished Business Mod
 Message/&RespecMultiplayerAbortDescription=Cannot respec on a multiplayer game or map...
+Message/&RespecSuccessfulDescription=RESPEC was successful. Don't forget to pick up your items on the ground.
 Message/&SpawnCustomEncounterDescription=Spawn encounter at coordinates ({0}, {1})?
 Message/&SpawnCustomEncounterErrorDescription=Cannot spawn encounters on a multiplayer game...
 Message/&SpawnCustomEncounterTitle=Encounter

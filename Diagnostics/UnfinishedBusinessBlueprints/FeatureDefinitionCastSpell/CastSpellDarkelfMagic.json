@@ -7,7 +7,7 @@
   "staticToHitValue": 4,
   "spellListDefinition": "Definition:SpellListDarkelf:8145b021-dc93-598a-be91-978e71d0732f",
   "restrictedSchools": [],
-  "spellKnowledge": "Selection",
+  "spellKnowledge": "FixedList",
   "spellReadyness": "AllKnown",
   "spellPreparationCount": "AbilityBonusPlusLevel",
   "slotsRecharge": "LongRest",

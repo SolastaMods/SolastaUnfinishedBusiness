@@ -152,6 +152,7 @@ internal static class ToolsDisplay
                 UI.Width(100)))
         {
             Main.Settings.MultiplyTheExperienceGainedBy = intValue;
+            ToolsContext.SwitchEncounterPercentageChance();
         }
 
         UI.Label();
@@ -187,6 +188,15 @@ internal static class ToolsDisplay
                 DefaultFastTimeModifier, 10f, DefaultFastTimeModifier, 1, string.Empty, UI.AutoWidth()))
         {
             Main.Settings.FasterTimeModifier = floatValue;
+        }
+
+        UI.Label();
+
+        intValue = Main.Settings.EncounterPercentageChance;
+        if (UI.Slider(Gui.Localize("ModUi/&EncounterPercentageChance"), ref intValue, 0, 100, 5, string.Empty,
+                UI.Width(100)))
+        {
+            Main.Settings.EncounterPercentageChance = intValue;
         }
     }
 

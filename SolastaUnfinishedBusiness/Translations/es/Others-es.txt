@@ -40,6 +40,7 @@ Message/&CharacterExportModalTitleDescription=Exportar {0}
 Message/&MessageModWelcomeDescription=El Unfinished Business Mod está repleto de funciones interesantes, pero de forma predeterminada, ninguna está habilitada. Presiona <color=#F0DAA0>Ctrl-F10</color> para abrir la interfaz de usuario de Unity Mod Manager [UMM], luego haz clic en el ícono de configuración junto a "Asuntos pendientes" para abrir las páginas de configuración. Explora las opciones y selecciona las que más te gusten.
 Message/&MessageModWelcomeTitle=Mod de negocios inacabados
 Message/&RespecMultiplayerAbortDescription=No se puede respetar en un juego o mapa multijugador...
+Message/&RespecSuccessfulDescription=RESPEC was successful. Don't forget to pick up your items on the ground.
 Message/&SpawnCustomEncounterDescription=¿Encuentro de aparición en las coordenadas ({0}, {1})?
 Message/&SpawnCustomEncounterErrorDescription=No se pueden generar encuentros en un juego multijugador...
 Message/&SpawnCustomEncounterTitle=Encontrar

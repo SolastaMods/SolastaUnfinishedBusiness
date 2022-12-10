@@ -1,4 +1,2 @@
-﻿Feat/&FeatImprovedCriticalDescription=Your attacks are critical hits on a roll of 19 or 20.
-Feat/&FeatImprovedCriticalTitle=Improved Critical
-Feat/&FeatSuperiorCriticalDescription=Your attacks are critical hits on a roll of 18, 19 or 20.
-Feat/&FeatSuperiorCriticalTitle=Superior Critical
+﻿Feature/&MartialChampionSuperiorCriticalDescription=Your weapon attacks score a critical hit on a roll of 18, 19 or 20.
+Feature/&MartialChampionSuperiorCriticalTitle=Superior Critical

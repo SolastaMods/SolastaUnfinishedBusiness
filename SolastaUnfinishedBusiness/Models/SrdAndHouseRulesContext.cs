@@ -6,6 +6,7 @@ using SolastaUnfinishedBusiness.Api.Extensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
+using SolastaUnfinishedBusiness.CustomInterfaces;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.ConditionDefinitions;
@@ -56,8 +57,6 @@ internal static class SrdAndHouseRulesContext
         FeyDriad // CR 1
     };
 
-    internal static FeatureDefinitionPower FeatureDefinitionPowerAfterRestIdentify { get; set; }
-
     private static SpellDefinition ConjureElementalInvisibleStalker { get; set; }
 
     internal static void Load()
@@ -87,7 +86,6 @@ internal static class SrdAndHouseRulesContext
         SwitchMagicStaffFoci();
         SwitchEnableUpcastConjureElementalAndFey();
         SwitchFullyControlConjurations();
-        SwitchIdentifyAfterRest();
     }
 
     internal static void ModifyAttackModeAndDamage(
@@ -500,11 +498,12 @@ internal static class SrdAndHouseRulesContext
         RestActivityDefinitionBuilder
             .Create("RestActivityShortRestIdentify")
             .SetGuiPresentation(AfterRestIdentifyName, Category.Feature)
+            .SetCustomSubFeatures(new RestActivityValidationParams(false, false))
             .SetRestData(
                 RestDefinitions.RestStage.AfterRest,
                 RestType.ShortRest,
-                RestActivityDefinition.ActivityCondition.CanUsePower,
-                FunctorDefinitions.FunctorUsePower,
+                RestActivityDefinition.ActivityCondition.None,
+                PowerBundleContext.UseCustomRestPowerFunctorName,
                 AfterRestIdentifyName)
             .AddToDB();
 
@@ -514,23 +513,23 @@ internal static class SrdAndHouseRulesContext
             .SetRestData(
                 RestDefinitions.RestStage.AfterRest,
                 RestType.LongRest,
-                RestActivityDefinition.ActivityCondition.CanUsePower,
-                FunctorDefinitions.FunctorUsePower,
+                RestActivityDefinition.ActivityCondition.None,
+                PowerBundleContext.UseCustomRestPowerFunctorName,
                 AfterRestIdentifyName)
             .AddToDB();
 
         var afterRestIdentifyCondition = ConditionDefinitionBuilder
             .Create("AfterRestIdentify")
             .SetGuiPresentation(Category.Condition)
-            .SetFeatures(FeatureDefinitionMagicAffinitys.MagicAffinityArcaneAppraiser)
+            .SetCustomSubFeatures(IdentifyItems.Mark)
             .AddToDB();
 
-        FeatureDefinitionPowerAfterRestIdentify = FeatureDefinitionPowerBuilder
+        FeatureDefinitionPowerBuilder
             .Create(AfterRestIdentifyName)
             .SetGuiPresentation(Category.Feature, hidden: true)
+            .SetCustomSubFeatures(CanIdentifyOnRest.Mark)
             .SetUsesFixed(ActivationTime.Rest)
-            .SetEffectDescription(EffectDescriptionBuilder
-                .Create()
+            .SetEffectDescription(EffectDescriptionBuilder.Create()
                 .SetTargetingData(
                     Side.Ally,
                     RangeType.Self,
@@ -539,8 +538,7 @@ internal static class SrdAndHouseRulesContext
                 .SetDurationData(
                     DurationType.Minute,
                     1)
-                .SetEffectForms(EffectFormBuilder
-                    .Create()
+                .SetEffectForms(EffectFormBuilder.Create()
                     .SetConditionForm(
                         afterRestIdentifyCondition,
                         ConditionForm.ConditionOperation.Add)
@@ -549,33 +547,45 @@ internal static class SrdAndHouseRulesContext
             .AddToDB();
     }
 
-    private static void SwitchIdentifyAfterRest()
+    private sealed class CanIdentifyOnRest : IPowerUseValidity
     {
-        var dbCharacterRaceDefinition = DatabaseRepository.GetDatabase<CharacterRaceDefinition>();
-        var subRaces = dbCharacterRaceDefinition
-            .SelectMany(x => x.SubRaces);
-        var races = dbCharacterRaceDefinition
-            .Where(x => !subRaces.Contains(x));
+        public static CanIdentifyOnRest Mark { get; } = new();
 
-        if (Main.Settings.IdentifyAfterRest)
+        private CanIdentifyOnRest()
         {
-            foreach (var characterRaceDefinition in races
-                         .Where(a => !a.FeatureUnlocks.Exists(x =>
-                             x.Level == 1 && x.FeatureDefinition == FeatureDefinitionPowerAfterRestIdentify)))
-            {
-                characterRaceDefinition.FeatureUnlocks.Add(
-                    new FeatureUnlockByLevel(FeatureDefinitionPowerAfterRestIdentify, 1));
-            }
         }
-        else
+
+        public bool CanUsePower(RulesetCharacter character, FeatureDefinitionPower power)
         {
-            foreach (var characterRaceDefinition in races
-                         .Where(a => a.FeatureUnlocks.Exists(x =>
-                             x.Level == 1 && x.FeatureDefinition == FeatureDefinitionPowerAfterRestIdentify)))
+            //does this work properly for wild-shaped heroes?
+            var hero = character as RulesetCharacterHero;
+            if (hero == null)
             {
-                characterRaceDefinition.FeatureUnlocks.RemoveAll(x =>
-                    x.Level == 1 && x.FeatureDefinition == FeatureDefinitionPowerAfterRestIdentify);
+                return false;
             }
+
+            //TODO: show only if has detected unidentified items
+            //TODO: show only if anyone in party has identify (optional)
+            return Main.Settings.IdentifyAfterRest
+                   && hero.HasNonIdentifiedItems();
+        }
+    }
+
+    private sealed class IdentifyItems : ICustomConditionFeature
+    {
+        public static IdentifyItems Mark { get; } = new();
+
+        private IdentifyItems()
+        {
+        }
+
+        public void ApplyFeature(RulesetCharacter target, RulesetCondition rulesetCondition)
+        {
+            (target as RulesetCharacterHero)?.AutoIdentifyInventoryItems();
+        }
+
+        public void RemoveFeature(RulesetCharacter target, RulesetCondition rulesetCondition)
+        {
         }
     }
 }

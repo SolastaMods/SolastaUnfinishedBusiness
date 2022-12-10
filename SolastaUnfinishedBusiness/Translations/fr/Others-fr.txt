@@ -40,6 +40,7 @@ Message/&CharacterExportModalTitleDescription=Exporter {0}
 Message/&MessageModWelcomeDescription=Le Unfinished Business Pack est rempli de fonctionnalités passionnantes mais par défaut, aucune n'est activée. Appuyez sur <color=#F0DAA0>Ctrl-F10</color> pour ouvrir l'interface d'Unity Mod Manager [UMM] puis cliquez sur l'icône des paramètres du Unfinished Business Pack pour accéder aux paramètres. Vous pourrez ensuite explorer les options et sélectionner celles qui vous plaisent.
 Message/&MessageModWelcomeTitle=Pack Unfinished Business
 Message/&RespecMultiplayerAbortDescription=Impossible de respécialiser dans une partie ou une carte multijoueur...
+Message/&RespecSuccessfulDescription=RESPEC was successful. Don't forget to pick up your items on the ground.
 Message/&SpawnCustomEncounterDescription=Voulez-vous générer une confrontation aux coordonnées ({0}, {1})?
 Message/&SpawnCustomEncounterErrorDescription=Impossible de générer des confrontations dans une partie multijoueur....
 Message/&SpawnCustomEncounterTitle=Confrontation

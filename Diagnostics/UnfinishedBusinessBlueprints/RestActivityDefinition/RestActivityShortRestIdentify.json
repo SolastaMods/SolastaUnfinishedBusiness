@@ -2,8 +2,8 @@
   "$type": "RestActivityDefinition, Assembly-CSharp",
   "restStage": "AfterRest",
   "restType": "ShortRest",
-  "condition": "CanUsePower",
-  "functor": "UsePower",
+  "condition": "None",
+  "functor": "UseCustomRestPower",
   "stringParameter": "PowerAfterRestIdentify",
   "checkConsciousness": false,
   "guiPresentation": {

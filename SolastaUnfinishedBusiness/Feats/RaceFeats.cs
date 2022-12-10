@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
+using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.Extensions;
 using SolastaUnfinishedBusiness.Api.Infrastructure;
 using SolastaUnfinishedBusiness.Builders;
@@ -9,7 +10,6 @@ using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionAttributeModifiers;
-using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionMoveModes;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
 
 namespace SolastaUnfinishedBusiness.Feats;
@@ -54,22 +54,19 @@ internal static class RaceFeats
             .SetFeatures(
                 FeatureDefinitionPowerBuilder
                     .Create("PowerFeatDragonWings")
-                    .SetGuiPresentationNoContent(true)
-                    .SetUsesFixed(ActivationTime.PermanentUnlessIncapacitated)
+                    .SetGuiPresentation("FeatDragonWings", Category.Feat)
+                    .SetUsesProficiencyBonus(ActivationTime.BonusAction)
                     .SetCustomSubFeatures(new ValidatorsPowerUse(ValidatorsCharacter.NotHeavyArmor))
                     .SetEffectDescription(
                         EffectDescriptionBuilder
                             .Create()
+                            .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
+                            .SetDurationData(DurationType.Minute, 1)
                             .SetEffectForms(
                                 EffectFormBuilder
                                     .Create()
                                     .SetConditionForm(
-                                        ConditionDefinitionBuilder
-                                            .Create("ConditionFeatDragonWings")
-                                            .SetGuiPresentationNoContent(true)
-                                            .SetSilent(Silent.WhenAddedOrRemoved)
-                                            .SetFeatures(MoveModeFly2)
-                                            .AddToDB(),
+                                        DatabaseHelper.ConditionDefinitions.ConditionFlying12,
                                         ConditionForm.ConditionOperation.Add)
                                     .Build())
                             .Build())
@@ -86,7 +83,7 @@ internal static class RaceFeats
                 .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
                 .SetDurationData(DurationType.Round, 1)
                 .Build())
-            .SetReactionContext(ReactionTriggerContext.HitByMelee)
+            .SetReactionContext(ReactionTriggerContext.DamagedByAnySource)
             .AddToDB();
 
         // Fade Away (Dexterity)

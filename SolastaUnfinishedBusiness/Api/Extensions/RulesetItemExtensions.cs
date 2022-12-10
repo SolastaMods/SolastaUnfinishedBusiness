@@ -32,4 +32,10 @@ internal static class RulesetItemExtensions
             .SelectMany(f => f.GetAllSubFeaturesOfType<T>())
             .FirstOrDefault() != null;
     }
+
+    internal static bool NeedsIdentification(this RulesetItem item)
+    {
+        var definition = item.itemDefinition;
+        return definition.Magical && definition.RequiresIdentification && !item.Identified;
+    }
 }
