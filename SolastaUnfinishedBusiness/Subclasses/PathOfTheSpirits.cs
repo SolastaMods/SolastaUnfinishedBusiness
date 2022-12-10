@@ -283,7 +283,11 @@ internal sealed class PathOfTheSpirits : AbstractSubclass
             .Create("PowerPathOfTheSpiritsSpiritGuardians")
             .SetGuiPresentation(SpellDefinitions.SpiritGuardians.guiPresentation)
             .SetUsesProficiencyBonus(ActivationTime.BonusAction)
-            .SetEffectDescription(SpellDefinitions.SpiritGuardians.EffectDescription)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create(SpellDefinitions.SpiritGuardians.EffectDescription)
+                    .SetHasSavingThrow(AttributeDefinitions.Wisdom, EffectDifficultyClassComputation.AbilityScoreAndProficiency)
+                    .Build())
             .AddToDB();
     }
 
