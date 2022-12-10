@@ -1,2 +1,0 @@
-﻿Feat/&FeatAdeptMetamagicDescription=Ganas 3 puntos de hechicería y aprendes la {0} metamagia: {1}
-Feat/&FeatAdeptMetamagicTitle=Metamagia: {0}
