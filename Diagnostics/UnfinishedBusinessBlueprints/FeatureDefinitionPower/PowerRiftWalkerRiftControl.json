@@ -316,7 +316,7 @@
   "fixedAttackHit": 0,
   "abilityScoreBonusToAttack": false,
   "proficiencyBonusToAttack": false,
-  "uniqueInstance": true,
+  "uniqueInstance": false,
   "showCasting": true,
   "shortTitleOverride": "",
   "overriddenPower": "Definition:PowerRiftWalkerRiftWalk:79992dc4-649e-567e-8623-6d6c64cdba9a",

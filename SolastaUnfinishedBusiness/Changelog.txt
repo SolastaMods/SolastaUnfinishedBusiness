@@ -1,15 +1,20 @@
-﻿CHANGES:
+﻿ATTENTION BEFORE YOU ACCEPT THIS UPDATE:
 
-1.4.31.3:
+- RESPEC any hero that took Improved, Superior or Ultimate pact weapon
+- STOP any Spirit Guardian effect on your saves
 
-- added "Random encounters percentage chances" under gameplay > tools [Zappa]
-- added remind pop up to pick up your items after RESPEC [Zappa]
-- fixed Epic Points array in point buy mode [WolffHobbitStomper]
-- fixed Fade Away feat to trigger on any damage source [Zappa]
-- fixed Darkelf and Half-Darkelf not learning spells at 1st and 3rd [Zappa]
-- fixed Half-Elf variants not getting considered on class feat pre-requisites [Zappa]
-- fixed locked dialogue choices when party has less than 4 heroes [Zappa]
-- fixed missing translation term on Superior Critical feat [Zappa]
-- fixed Warlock getting offered double invocation pools when MC [Zappa]
-- improved Dragon Wings feat to give Flying spell like effect for 1 minute, PB times per long rest
-- improved "Identify on rest" to work with pre-existing heroes, identify all at once and only be offered to characters with unidentified items [TPA]
+CHANGES:
+
+- added Brazilian Portuguese translation fixes by @Itomon
+- added custom sprites from @Balmz to all 3 powers in Healer feat
+- added Kinesis and Stasis invocations at 7th based on Timelord sub class by @Taco
+- added level 13th feature to Roguish Opportunist
+- added level 15th feature to Martial Marshal
+- fixed an issue introduced on last release preventing main campaign from advance
+- fixed Circle of The Night to also offer Wildshape as a bonus action during combat
+- fixed Improved, Superior and Ultimate pact weapon not summing up as they should
+- fixed missing translation terms on Noble Clothes
+- fixed Path of The Spirits spirit guardian DC
+- fixed Patron Elementalist elemental form to have PB per long rest max usage
+- fixed spell registration to ensure mod spells are correctly offered during level up
+- improved Patron Rift Walker to keep spells concentration when using it's powers

@@ -6,7 +6,6 @@ using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomUI;
-using SolastaUnfinishedBusiness.Subclasses;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionFeatureSets;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionDamageAffinitys;
@@ -79,7 +78,7 @@ internal static class InvocationsBuilders
             .Create(SpellDefinitions.FreedomOfMovement, "TrickstersEscape")
             .AddToDB();
 
-        spellTrickstersEscape.EffectDescription.TargetType = RuleDefinitions.TargetType.Self;
+        spellTrickstersEscape.EffectDescription.targetType = RuleDefinitions.TargetType.Self;
 
         return InvocationDefinitionBuilder
             .Create(NAME)
@@ -241,61 +240,72 @@ internal static class InvocationsBuilders
 
     internal static InvocationDefinition BuildImprovedPactWeapon()
     {
-        const string NAME = "InvocationImprovedPactWeapon";
-
-        return InvocationDefinitionBuilder
-            .Create(NAME)
-            .SetGuiPresentation(Category.Invocation, FeatureDefinitionMagicAffinitys.MagicAffinitySpellBladeIntoTheFray)
-            .SetRequirements(5, pact: FeatureSetPactBlade)
-            .SetGrantedFeature(
-                FeatureDefinitionFeatureSetBuilder
-                    .Create("FeatureSetInvocationImprovedPactWeapon")
-                    .SetGuiPresentation(NAME, Category.Invocation)
-                    .AddFeatureSet(
-                        CommonBuilders.AttackModifierHitAndDamagePlus1,
-                        FeatureDefinitionMagicAffinitys.MagicAffinitySpellBladeIntoTheFray)
-                    .AddToDB())
-            .AddToDB();
+        return BuildPactWeapon("InvocationImprovedPactWeapon", 5);
     }
 
     internal static InvocationDefinition BuildSuperiorPactWeapon()
     {
-        const string NAME = "InvocationSuperiorPactWeapon";
-
-        return InvocationDefinitionBuilder
-            .Create(NAME)
-            .SetGuiPresentation(Category.Invocation, FeatureDefinitionMagicAffinitys.MagicAffinitySpellBladeIntoTheFray)
-            .SetRequirements(9, pact: FeatureSetPactBlade)
-            .SetGrantedFeature(
-                FeatureDefinitionFeatureSetBuilder
-                    .Create("FeatureSetInvocationSuperiorPactWeapon")
-                    .SetGuiPresentation(NAME, Category.Invocation)
-                    .AddFeatureSet(
-                        CommonBuilders.AttackModifierHitAndDamagePlus1,
-                        FeatureDefinitionMagicAffinitys.MagicAffinitySpellBladeIntoTheFray)
-                    .AddToDB())
-            .AddToDB();
+        return BuildPactWeapon("InvocationSuperiorPactWeapon", 9);
     }
 
     internal static InvocationDefinition BuildUltimatePactWeapon()
     {
-        const string NAME = "InvocationUltimatePactWeapon";
+        return BuildPactWeapon("InvocationUltimatePactWeapon", 15);
+    }
 
+    private static InvocationDefinition BuildPactWeapon(string name, int level)
+    {
         return InvocationDefinitionBuilder
-            .Create(NAME)
+            .Create(name)
             .SetGuiPresentation(Category.Invocation, FeatureDefinitionMagicAffinitys.MagicAffinitySpellBladeIntoTheFray)
-            .SetRequirements(15, pact: FeatureSetPactBlade)
+            .SetRequirements(level, pact: FeatureSetPactBlade)
             .SetGrantedFeature(
-                FeatureDefinitionFeatureSetBuilder
-                    .Create("FeatureSetInvocationUltimatePactWeapon")
-                    .SetGuiPresentation(NAME, Category.Invocation)
-                    .AddFeatureSet(
-                        CommonBuilders.AttackModifierHitAndDamagePlus1,
-                        FeatureDefinitionMagicAffinitys.MagicAffinitySpellBladeIntoTheFray)
+                FeatureDefinitionAttackModifierBuilder
+                    .Create($"AttackModifier{name}")
+                    .SetGuiPresentation(name, Category.Invocation)
+                    .SetAttackRollModifier(1)
+                    .SetDamageRollModifier(1)
                     .AddToDB())
             .AddToDB();
     }
 
+    internal static InvocationDefinition BuildKinesis()
+    {
+        const string NAME = "InvocationKinesis";
+
+        var spellKinesis = SpellDefinitionBuilder
+            .Create(SpellDefinitions.Haste, "Kinesis")
+            .AddToDB();
+
+        spellKinesis.EffectDescription.targetType = RuleDefinitions.TargetType.Individuals;
+        spellKinesis.EffectDescription.targetParameter = 2;
+
+        return InvocationDefinitionBuilder
+            .Create(NAME)
+            .SetGuiPresentation(Category.Invocation, spellKinesis)
+            .SetRequirements(7)
+            .SetGrantedSpell(spellKinesis, false, true)
+            .AddToDB();
+    }
+    
+    internal static InvocationDefinition BuildStasis()
+    {
+        const string NAME = "InvocationStasis";
+
+        var spellStasis = SpellDefinitionBuilder
+            .Create(SpellDefinitions.Slow, "Stasis")
+            .AddToDB();
+
+        spellStasis.requiresConcentration = false;
+
+        return InvocationDefinitionBuilder
+            .Create(NAME)
+            .SetGuiPresentation(Category.Invocation, spellStasis)
+            .SetRequirements(7)
+            .SetGrantedSpell(spellStasis, false, true)
+            .AddToDB();
+    }
+    
     private class WarlockHolder : IClassHoldingFeature
     {
         private WarlockHolder()

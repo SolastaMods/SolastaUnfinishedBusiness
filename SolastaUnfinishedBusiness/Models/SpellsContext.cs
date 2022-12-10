@@ -231,11 +231,15 @@ internal static class SpellsContext
             }
             else
             {
-                var enable = Main.Settings.SpellListSpellEnabled[spellList.Name].Contains(spellDefinition.Name);
-
-                SpellListContextTab[spellList].Switch(spellDefinition, enable);
                 SpellListContextTab[spellList].SuggestedSpells.Add(spellDefinition);
             }
+        }
+        
+        foreach (var spellList in SpellLists.Values)
+        {
+            var enable = Main.Settings.SpellListSpellEnabled[spellList.Name].Contains(spellDefinition.Name);
+
+            SpellListContextTab[spellList].Switch(spellDefinition, enable);
         }
     }
 
@@ -302,16 +306,22 @@ internal static class SpellsContext
         {
             var spellListName = SpellList.Name;
             var spellName = spellDefinition.Name;
-            var spellList = SpellList.SpellsByLevel.Find(x => x.Level == spellDefinition.SpellLevel).Spells;
+            var spells = SpellList.SpellsByLevel.Find(x => x.Level == spellDefinition.SpellLevel)?.Spells;
+
+            // this happens on spell lists without cantrips
+            if (spells == null)
+            {
+                return;
+            }
 
             if (active)
             {
-                spellList.TryAdd(spellDefinition);
+                spells.TryAdd(spellDefinition);
                 Main.Settings.SpellListSpellEnabled[spellListName].TryAdd(spellName);
             }
             else
             {
-                spellList.Remove(spellDefinition);
+                spells.Remove(spellDefinition);
                 Main.Settings.SpellListSpellEnabled[spellListName].Remove(spellName);
             }
         }

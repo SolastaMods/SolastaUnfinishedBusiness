@@ -106,13 +106,13 @@ public static class CharacterActionCastSpellPatcher
             var actualEffectForms = __instance.actualEffectForms;
 
             damageReceived = ServiceRepository.GetService<IRulesetImplementationService>()
-                .ApplyEffectForms(effectForms: actualEffectForms[targetIndex],
-                                  formsParams: formsParams,
-                                  effectiveDamageTypes: __instance.effectiveDamageTypes,
-                                  damageAbsorbedByTemporaryHitPoints: out damageAbsorbedByTemporaryHitPoints,
-                                  effectApplication: spellEffectDescription.EffectApplication,
-                                  filters: spellEffectDescription.EffectFormFilters,
-                                  terminateEffectOnTarget: out terminateEffectOnTarget);
+                .ApplyEffectForms(actualEffectForms[targetIndex],
+                    formsParams,
+                    __instance.effectiveDamageTypes,
+                    out damageAbsorbedByTemporaryHitPoints,
+                    effectApplication: spellEffectDescription.EffectApplication,
+                    filters: spellEffectDescription.EffectFormFilters,
+                    terminateEffectOnTarget: out terminateEffectOnTarget);
 
             return false;
         }
@@ -156,6 +156,20 @@ public static class CharacterActionCastSpellPatcher
             return
                 !__instance.ActiveSpell.SpellDefinition.IsSubSpellOf(DatabaseHelper.SpellDefinitions.BestowCurse)
                 || __instance.ActiveSpell.SlotLevel < 5;
+        }
+    }
+
+    //PATCH: implement IPreventRemoveConcentrationWithPowerUse
+    [HarmonyPatch(typeof(CharacterActionCastSpell), "RemoveConcentrationAsNeeded")]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    public static class RemoveConcentrationAsNeeded_Patch
+    {
+        public static bool Prefix(CharacterActionCastSpell __instance)
+        {
+            var currentAction = Global.CurrentAction;
+
+            return currentAction is not CharacterActionUsePower characterActionUsePower || characterActionUsePower
+                .activePower.PowerDefinition.GetFirstSubFeatureOfType<IPreventRemoveConcentrationWithPowerUse>() == null;
         }
     }
 }

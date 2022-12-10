@@ -61,6 +61,7 @@ internal static class ItemBuilder
         var builder = ItemDefinitionBuilder
             .Create(original, itemName)
             .SetOrUpdateGuiPresentation(itemName + "_", Category.Item)
+            .SetItemPresentation(original.ItemPresentation)
             // Set is magical
             // Remove "Standard" from item tags
             .MakeMagical()
