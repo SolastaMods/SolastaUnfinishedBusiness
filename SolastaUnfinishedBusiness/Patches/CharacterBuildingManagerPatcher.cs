@@ -363,6 +363,47 @@ public static class CharacterBuildingManagerPatcher
         }
     }
 
+    //PATCH: ensures the level up process don't get stuck if race uses fixed list and hero is a caster on level 1
+    [HarmonyPatch(typeof(CharacterBuildingManager), "SetupSpellPointPools")]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    public static class SetupSpellPointPools_Patch
+    {
+        public static bool Prefix(
+            CharacterBuildingManager __instance,
+            CharacterHeroBuildingData heroBuildingData,
+            FeatureDefinitionCastSpell featureDefinitionCastSpell,
+            string tag)
+        {
+            heroBuildingData.TempAcquiredCantripsNumber = 0;
+            heroBuildingData.TempAcquiredSpellsNumber = 0;
+            heroBuildingData.TempUnlearnedSpellsNumber = 0;
+            heroBuildingData.TempAcquiredAnyCantripOrSpellNumber = 0;
+
+            __instance.ApplyFeatureCastSpell(heroBuildingData, featureDefinitionCastSpell);
+
+            // this IF is only difference from original game code (in original block is always executed)
+            if (tag != AttributeDefinitions.TagRace ||
+                featureDefinitionCastSpell.SpellKnowledge != RuleDefinitions.SpellKnowledge.FixedList)
+            {
+                __instance.SetPointPool(heroBuildingData, HeroDefinitions.PointsPoolType.Cantrip, tag,
+                    heroBuildingData.TempAcquiredCantripsNumber);
+                __instance.SetPointPool(heroBuildingData, HeroDefinitions.PointsPoolType.Spell, tag,
+                    heroBuildingData.TempAcquiredSpellsNumber);
+                __instance.SetPointPool(heroBuildingData, HeroDefinitions.PointsPoolType.CantripOrSpell, tag,
+                    heroBuildingData.TempAcquiredAnyCantripOrSpellNumber);
+            }
+
+            if (heroBuildingData.HeroCharacter.ActiveFeatures.ContainsKey(tag))
+            {
+                heroBuildingData.HeroCharacter.BrowseFeaturesOfType<FeatureDefinitionCastSpell>(
+                    heroBuildingData.HeroCharacter.ActiveFeatures[tag],
+                    (feature, s) => __instance.LearnFixedSpells(heroBuildingData, feature, s), tag);
+            }
+
+            return false;
+        }
+    }
+
     //PATCH: ensures the level up process only offers slots from the leveling up class
     [HarmonyPatch(typeof(CharacterBuildingManager), "UpgradeSpellPointPools")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
@@ -373,13 +414,6 @@ public static class CharacterBuildingManagerPatcher
             [NotNull] CharacterHeroBuildingData heroBuildingData)
         {
             var hero = heroBuildingData.HeroCharacter;
-            var isMulticlass = LevelUpContext.IsMulticlass(hero);
-
-            if (!isMulticlass)
-            {
-                return true;
-            }
-
             var selectedClass = LevelUpContext.GetSelectedClass(hero);
             var selectedSubclass = LevelUpContext.GetSelectedSubclass(hero);
             var selectedClassLevel = LevelUpContext.GetSelectedClassLevel(hero);
@@ -391,13 +425,13 @@ public static class CharacterBuildingManagerPatcher
 
                 switch (spellRepertoire.SpellCastingFeature.SpellCastingOrigin)
                 {
-                    // PATCH: short circuit if the feature is for another class (change from native code)
+                    // short circuit if the feature is for another class (change from native code)
                     case CastingOrigin.Class when spellRepertoire.SpellCastingClass != selectedClass:
                         continue;
                     case CastingOrigin.Class:
                         poolName = AttributeDefinitions.GetClassTag(selectedClass, selectedClassLevel);
                         break;
-                    // PATCH: short circuit if the feature is for another subclass (change from native code)
+                    // short circuit if the feature is for another subclass (change from native code)
                     case CastingOrigin.Subclass when spellRepertoire.SpellCastingSubclass != selectedSubclass:
                         continue;
                     case CastingOrigin.Subclass:
@@ -428,6 +462,13 @@ public static class CharacterBuildingManagerPatcher
                     heroBuildingData.TempAcquiredSpellsNumber);
                 __instance.SetPointPool(heroBuildingData, HeroDefinitions.PointsPoolType.SpellUnlearn, poolName,
                     heroBuildingData.TempUnlearnedSpellsNumber);
+
+                if (heroBuildingData.HeroCharacter.ActiveFeatures.ContainsKey(poolName))
+                {
+                    heroBuildingData.HeroCharacter.BrowseFeaturesOfType<FeatureDefinitionCastSpell>(
+                        heroBuildingData.HeroCharacter.ActiveFeatures[poolName],
+                        (feature, s) => __instance.LearnFixedSpells(heroBuildingData, feature, s), poolName);
+                }
             }
 
             return false;

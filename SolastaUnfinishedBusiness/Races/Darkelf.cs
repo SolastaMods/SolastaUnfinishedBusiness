@@ -28,7 +28,7 @@ internal static class DarkelfSubraceBuilder
             .SetGuiPresentation(Category.Feature)
             .SetSpellCastingOrigin(FeatureDefinitionCastSpell.CastingOrigin.Race)
             .SetSpellCastingAbility(AttributeDefinitions.Charisma)
-            .SetSpellKnowledge(SpellKnowledge.Selection)
+            .SetSpellKnowledge(SpellKnowledge.FixedList)
             .SetSpellReadyness(SpellReadyness.AllKnown)
             .SetSlotsRecharge(RechargeRate.LongRest)
             .SetSlotsPerLevel(SharedSpellsContext.RaceCastingSlots)
