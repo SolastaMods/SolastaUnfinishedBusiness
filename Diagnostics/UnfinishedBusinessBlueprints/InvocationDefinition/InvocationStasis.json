@@ -1,23 +1,23 @@
 {
   "$type": "InvocationDefinition, Assembly-CSharp",
   "requiredKnownSpell": null,
-  "requiredLevel": 5,
-  "requiredPact": "Definition:FeatureSetPactBlade:a29909bbaef089a4392c12fdee2db8fc",
-  "grantedFeature": "Definition:AttackModifierInvocationImprovedPactWeapon:80912c1a-c7d9-5e08-aaad-66f8538e1ef7",
-  "grantedSpell": null,
+  "requiredLevel": 7,
+  "requiredPact": null,
+  "grantedFeature": null,
+  "grantedSpell": "Definition:Stasis:634b3230-ece9-5a13-acb7-a1d1fd24b943",
   "consumesSpellSlot": false,
-  "longRestRecharge": false,
+  "longRestRecharge": true,
   "overrideMaterialComponent": true,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
-    "title": "Invocation/&InvocationImprovedPactWeaponTitle",
-    "description": "Invocation/&InvocationImprovedPactWeaponDescription",
+    "title": "Invocation/&InvocationStasisTitle",
+    "description": "Invocation/&InvocationStasisDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "",
-      "m_SubObjectName": "",
-      "m_SubObjectType": ""
+      "m_AssetGUID": "15b3b9ebce8c9534f8816eebc12179fe",
+      "m_SubObjectName": "Slow",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
@@ -32,7 +32,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "29559951-626e-5c70-9ca2-4002555a0c10",
+  "guid": "6b862984-d231-5789-8643-bcc3172b22d7",
   "contentPack": 9999,
-  "name": "InvocationImprovedPactWeapon"
+  "name": "InvocationStasis"
 }

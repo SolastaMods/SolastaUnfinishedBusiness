@@ -331,9 +331,9 @@
     "description": "Feature/&PowerFeatHealerStabilizeDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "728aea75c81bfe549bb0c942cbf174cf",
-      "m_SubObjectName": "PreserveLife",
-      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+      "m_AssetGUID": "a169fdca-abd5-5af5-ab47-f15256a2e2ea",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",

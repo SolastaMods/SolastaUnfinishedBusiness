@@ -328,9 +328,9 @@
     "description": "Feature/&PowerFeatHealerMedKitDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "f1bdcecf239f83b43950f6ebed06e530",
-      "m_SubObjectName": "UseGoodBerries",
-      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+      "m_AssetGUID": "87119124-0f25-5339-b937-0645d8be26b2",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",

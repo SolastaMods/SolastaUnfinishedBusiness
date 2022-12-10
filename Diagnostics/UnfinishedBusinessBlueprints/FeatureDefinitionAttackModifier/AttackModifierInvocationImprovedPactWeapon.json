@@ -36,8 +36,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&AttackModifierHitAndDamagePlus1Title",
-    "description": "Feature/&AttackModifierHitAndDamagePlus1Description",
+    "title": "Invocation/&InvocationImprovedPactWeaponTitle",
+    "description": "Invocation/&InvocationImprovedPactWeaponDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -57,7 +57,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "9bd11ed5-70b6-57b4-b89b-e5763c3cb6e6",
+  "guid": "80912c1a-c7d9-5e08-aaad-66f8538e1ef7",
   "contentPack": 9999,
-  "name": "AttackModifierHitAndDamagePlus1Superior"
+  "name": "AttackModifierInvocationImprovedPactWeapon"
 }
