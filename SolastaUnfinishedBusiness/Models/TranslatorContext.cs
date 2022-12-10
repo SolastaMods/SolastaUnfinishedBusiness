@@ -275,7 +275,7 @@ internal static class TranslatorContext
         var languageIndex = languageSourceData.GetLanguageIndex(LocalizationManager.CurrentLanguage);
         var lineCount = 0;
         var defaultTerms = GetDefaultTerms(English);
-        var finalTerms = languageCode != English ? GetDefaultTerms(English) : defaultTerms;
+        var finalTerms = languageCode != English ? GetDefaultTerms(languageCode) : defaultTerms;
 
         // we loop on default EN terms collection as this is the one to be trusted but ensure we consider Fixes-*
         foreach (var kvp in defaultTerms.Union(finalTerms.Except(defaultTerms)))
