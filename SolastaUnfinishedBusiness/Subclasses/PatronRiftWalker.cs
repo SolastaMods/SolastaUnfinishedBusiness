@@ -46,7 +46,7 @@ internal sealed class PatronRiftWalker : AbstractSubclass
             .SetEffectDescription(EffectDescriptionBuilder
                 .Create(Banishment.EffectDescription)
                 .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
-                .SetDurationData(DurationType.Round, 1)
+                .SetDurationData(DurationType.Round, 1, TurnOccurenceType.StartOfTurn)
                 .SetNoSavingThrow()
                 .Build())
             .SetUniqueInstance()
