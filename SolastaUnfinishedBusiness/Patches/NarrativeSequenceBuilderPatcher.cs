@@ -17,8 +17,8 @@ public static class NarrativeSequenceBuilderPatcher
             var top = narrativeSequence.PlayerActors.Count - 1;
             var i = 0;
 
-            // this should never happen
-            if (top == 0)
+            // this should never happen on custom campaigns
+            if (top < 0)
             {
                 return;
             }
