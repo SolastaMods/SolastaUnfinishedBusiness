@@ -239,14 +239,9 @@ internal static class TranslatorContext
         }
     }
 
-    internal static void Load()
+    private static Dictionary<string, string> GetDefaultTerms(string languageCode)
     {
-        var languageCode = !BootContext.SupportedLanguages.Contains(LocalizationManager.CurrentLanguageCode)
-            ? English
-            : LocalizationManager.CurrentLanguageCode;
-        var languageSourceData = LocalizationManager.Sources[0];
-        var languageIndex = languageSourceData.GetLanguageIndex(LocalizationManager.CurrentLanguage);
-        var lineCount = 0;
+        var result = new Dictionary<string, string>();
 
         foreach (var line in GetTranslations(languageCode))
         {
@@ -265,14 +260,34 @@ internal static class TranslatorContext
             var term = split[0];
             var text = split[1];
 
-            if (term == string.Empty)
-            {
-                continue;
-            }
-
             text = Glossary.Aggregate(text, (current, kvp) => current.Replace(kvp.Key, kvp.Value));
 
+            result.TryAdd(term, text);
+        }
+
+        return result;
+    }
+
+    internal static void Load()
+    {
+        var languageCode = LocalizationManager.CurrentLanguageCode;
+        var languageSourceData = LocalizationManager.Sources[0];
+        var languageIndex = languageSourceData.GetLanguageIndex(LocalizationManager.CurrentLanguage);
+        var lineCount = 0;
+        var defaultTerms = GetDefaultTerms(English);
+        var finalTerms = languageCode != English ? GetDefaultTerms(English) : defaultTerms;
+
+        // we loop on default EN terms collection as this is the one to be trusted but ensure we consider Fixes-*
+        foreach (var kvp in defaultTerms.Union(finalTerms.Except(defaultTerms)))
+        {
+            var term = kvp.Key;
             var termData = languageSourceData.GetTermData(term);
+
+            // if we find a translated term them we use it otherwise fall back to EN default
+            if (!finalTerms.TryGetValue(term, out var text))
+            {
+                text = kvp.Value;
+            }
 
             if (termData?.Languages[languageIndex] != null)
             {
