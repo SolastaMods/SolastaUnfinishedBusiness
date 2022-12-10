@@ -3,7 +3,7 @@
   "displayedInEditor": true,
   "methodName": "",
   "actionType": "Main",
-  "toHitBonus": 3,
+  "toHitBonus": 5,
   "afterChargeOnly": false,
   "limitedUse": false,
   "maxUses": -1,

@@ -1,5 +1,14 @@
 ﻿CHANGES:
 
+1.4.31.4:
+
+- added level 15th feature to Martial Marshal
+- added level 13th feature to Roguish Opportunist
+- fixed Improved, Superior and Ultimate pact weapon not summing up as they should
+- fixed missing translation terms on Noble Clothes
+- fixed Patron Elementalist elemental form to have PB per long rest max usage
+- fixed spell registration to ensure mod spells are correctly offered during level up
+
 1.4.31.3:
 
 - added "Random encounters percentage chances" setting under gameplay > tools [Zappa]

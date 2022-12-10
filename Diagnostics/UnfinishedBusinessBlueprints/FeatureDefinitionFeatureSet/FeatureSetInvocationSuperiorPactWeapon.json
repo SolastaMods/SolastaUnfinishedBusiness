@@ -2,7 +2,7 @@
   "$type": "FeatureDefinitionFeatureSet, Assembly-CSharp",
   "featureSet": [
     "Definition:MagicAffinitySpellBladeIntoTheFray:dcbc028742c7af3479f0c56e3146d286",
-    "Definition:AttackModifierHitAndDamagePlus1:2eed7189-3361-51e6-8a60-6e3cc117a0f0"
+    "Definition:AttackModifierHitAndDamagePlus1Superior:9bd11ed5-70b6-57b4-b89b-e5763c3cb6e6"
   ],
   "mode": "Union",
   "ancestryDamageTypeMap": [],

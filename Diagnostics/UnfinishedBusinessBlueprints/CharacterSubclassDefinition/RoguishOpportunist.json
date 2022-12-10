@@ -10,6 +10,11 @@
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:PowerOpportunistDebilitatingStrike:7c726a61-63b4-5500-a812-dc188a9b93be",
       "level": 9
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:FeatureRoguishOpportunistSeizeTheChance:cca88ecc-0956-5fa4-88fa-8ad0b2bcf610",
+      "level": 13
     }
   ],
   "personalityFlagOccurences": [],
