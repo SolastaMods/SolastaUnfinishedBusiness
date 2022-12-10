@@ -1,0 +1,8 @@
+Feature/&MagicAffinityFieldManipulatorDCDescription=It is harder for opponents to resist your spells. The save DC increases by 2.
+Feature/&MagicAffinityFieldManipulatorDCTitle=Arcane Force
+Feature/&PowerFieldManipulatorDominatePersonDescription=You can use Dominate Person a number of times per long rest equal to your Charisma modifier.
+Feature/&PowerFieldManipulatorDominatePersonTitle=Dominate Person
+Feature/&ProficiencyFieldManipulatorMentalSavingThrowsDescription=Gain proficiency in saving throws with Intelligence and Wisdom.
+Feature/&ProficiencyFieldManipulatorMentalSavingThrowsTitle=Mental Resistance
+Subclass/&FieldManipulatorDescription=Field Manipulators excel at controlling the battlefield and preventing their enemies from being able to attack them.
+Subclass/&FieldManipulatorTitle=Field Manipulator

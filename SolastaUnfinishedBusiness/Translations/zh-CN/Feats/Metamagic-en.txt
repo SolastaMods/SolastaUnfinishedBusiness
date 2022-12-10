@@ -1,0 +1,2 @@
+﻿Feat/&FeatAdeptMetamagicDescription=Increase your Charisma by 1, to a maximum of 20. You gain 3 sorcery points and learn the {0} metamagic: {1} 
+Feat/&FeatAdeptMetamagicTitle=Metamagic: {0}

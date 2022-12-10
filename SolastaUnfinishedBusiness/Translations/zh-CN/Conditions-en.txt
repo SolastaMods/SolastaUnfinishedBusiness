@@ -1,0 +1,8 @@
+﻿Condition/&AfterRestIdentifyDescription=Identifying magic items
+Condition/&AfterRestIdentifyTitle=Identifying
+Condition/&ConditionDistractedByAllyDescription=This creature has been distracted.
+Condition/&ConditionDistractedByAllyTitle=Distracted
+Condition/&ConditionLightSensitivityDescription=You have Disadvantage on Wisdom (Perception) checks in bright light and suffers a -1d4 penalty on attack rolls.
+Condition/&ConditionLightSensitivityTitle=Light Sensitivity
+Condition/&ConditionStopMovementDescription=Unable to move. Speed set to 0.
+Condition/&ConditionStopMovementTitle=Stopped

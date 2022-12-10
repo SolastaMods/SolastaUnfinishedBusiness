@@ -1,0 +1,14 @@
+Feature/&AttributeModifierCasterFightingExtraAttackDescription=You gain an extra attack and can now attack up to 2 times in your turn.
+Feature/&AttributeModifierCasterFightingExtraAttackTitle=Extra Attack
+Feature/&FeatureSetCasterFightingProficiencyDescription=You can wear Light Armor, Medium Armor and Shield and also gain proficiency with martial weapons.
+Feature/&FeatureSetCasterFightingProficiencyTitle=Armor and Weapons
+Feature/&MagicAffinityCasterFightingCombatMagicDescription=Advantage on concentration checks as well as the ability to perform somatic components of spells while holding items.
+Feature/&MagicAffinityCasterFightingCombatMagicTitle=War Casting
+Feature/&PowerCasterFightingWarMagicDescription=You can use your bonus action to attack using the weapon in your main hand after casting a spell.
+Feature/&PowerCasterFightingWarMagicTitle=War Magic
+Feature/&PowerCasterCommandUndeadDescription=You can use your action a number of times a day equal to your proficiency bonus, to bring undead under your control. The undead must make a Charisma save (DC equals to 8 + PB + your INT modifier) or be controlled for 1 minute.
+Feature/&PowerCasterCommandUndeadTitle=Command Undead
+Feature/&ReplaceAttackWithCantripCasterFightingDescription=You can replace one of your attacks with a cantrip.
+Feature/&ReplaceAttackWithCantripCasterFightingTitle=Cantrip Attack
+Feature/&DamageAffinityGenericHardenToNecroticDescription=You have immunity to necrotic damage, and your hit point maximum can't be reduced.
+Feature/&DamageAffinityGenericHardenToNecroticTitle=Harden to Necrotic

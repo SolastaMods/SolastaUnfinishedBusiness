@@ -1,0 +1,12 @@
+Feat/&FeatFadeAwayDexDescription=You have learned a magical trick for fading away when you suffer harm. Increase your Dexterity score by 1, to a maximum of 20. Immediately after you take damage, you can use a reaction to magically become invisible until the end of your next turn or until you attack, deal damage, or force someone to make a saving throw. Once you use this ability, you can't do so again until you finish a short or long rest.
+Feat/&FeatFadeAwayDexTitle=Fade Away [Dex]
+Feat/&FeatFadeAwayIntDescription=You have learned a magical trick for fading away when you suffer harm. Increase your Intelligence score by 1, to a maximum of 20. Immediately after you take damage, you can use a reaction to magically become invisible until the end of your next turn or until you attack, deal damage, or force someone to make a saving throw. Once you use this ability, you can't do so again until you finish a short or long rest.
+Feat/&FeatFadeAwayIntTitle=Fade Away [Int]
+Feat/&FeatRevenantGreatSwordDexDescription=Increase your Dexterity score by 1, to a maximum of 20. While you are holding a great sword,  you gain a +1 bonus to Armor Class and you can use your Dexterity on to hit and to damage bonuses.
+Feat/&FeatRevenantGreatSwordDexTitle=Revenant Great Sword [Dex]
+Feat/&FeatRevenantGreatSwordStrDescription=Increase your Strength score by 1, to a maximum of 20. While you are holding a great sword,  you gain a +1 bonus to Armor Class and you can use your Dexterity on to hit and to damage bonuses.
+Feat/&FeatRevenantGreatSwordStrTitle=Revenant Great Sword [Str]
+Feature/&AttributeModifierFeatRevenantGreatSwordArmorClassDescription=While you are holding a great sword, you gain a +1 bonus to Armor Class.
+Feature/&AttributeModifierFeatRevenantGreatSwordArmorClassTitle=Revenant Great Sword
+Feat/&FeatDragonWingsDescription=You sprout draconic wings. You gain the ability to fly for a limited time if you aren't wearing heavy armor.
+Feat/&FeatDragonWingsTitle=Dragon Wings

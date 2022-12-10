@@ -1,0 +1,6 @@
+Race/&RaceHalfElfDarkDescription=Half-Dark elves are descendants of elves that have been changed over time by living in the inhospitable Badlands. Their human heritage made them adaptable to bright light.
+Race/&RaceHalfElfDarkTitle=Half-Dark Elf
+Race/&RaceHalfElfHighDescription=Half-High elves are trained to use magic very early.
+Race/&RaceHalfElfHighTitle=Half-High Elf
+Race/&RaceHalfElfSylvanDescription=Half-Sylvan elves are trained to survive in the wilds and are particularly apt to survival. As their sylvan elf heritage, they are trained to fight with swords and bows since childhood.
+Race/&RaceHalfElfSylvanTitle=Half-Sylvan Elf

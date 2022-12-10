@@ -1,0 +1,16 @@
+Condition/&ConditionMarkedByArcanistDescription=When hit by the caster with a weapon attack, the mark detonates, dealing 1d6 force damage to the afflicted and destroying the mark. Starting at 11th level, the damage from your Arcane Detonation increases to 2d6.
+Condition/&ConditionMarkedByArcanistTitle=Arcanist's Mark
+Feature/&AdditionalDamageArcanistArcaneDetonationDescription=Starting at 3rd level, you imbue your weapons with arcane power. Creatures that are hit by your attacks are afflicted by the Arcanist's Mark.
+Feature/&AdditionalDamageArcanistArcaneDetonationTitle=Arcane Detonation
+Feature/&AdditionalDamageArcanistArcaneDetonationUpgradeDescription=Starting at 11th level, the damage from your Arcane Detonation increases to 2d6.
+Feature/&AdditionalDamageArcanistArcaneDetonationUpgradeTitle=Greater Arcane Detonation
+Feature/&AutoPreparedSpellsArcanistDescription=You gain bonus spells that are considered Ranger spells for you, they are always prepared and don't count against the number of Ranger spells you know: \n{0}\n\n
+Feature/&AutoPreparedSpellsArcanistTitle=Arcanist Bonus Spells
+Feature/&MagicAffinityRangerArcanistDescription=You are proficient at casting spells in battle, and may cast spells that require a somatic component even if both of your hands are holding a weapon or shield.
+Feature/&MagicAffinityRangerArcanistTitle=Arcane Combat Training 
+Feature/&PowerArcanistArcanePulseDescription=Starting at 7th level, you can cause an eruption of arcane energy at a range of 30 feet. Hostile creatures within 15 feet of the point of impact take 4d8 damage and gain an Arcanist's Mark. You may use this ability a number of times equal to your Wisdom modifier per long rest. At 15th level, the damage of your Arcane Pulse increases to 8d8.
+Feature/&PowerArcanistArcanePulseTitle=Arcane Pulse
+Feedback/&AdditionalDamageArcanistMarkFormat=Arcanist's Mark!
+Feedback/&AdditionalDamageArcanistMarkLine=Arcanist's Mark detonates and deals extra damage to the target!
+Subclass/&RangerArcanistDescription=The Arcanist melds their Ranger skills with arcane abilities. Their weapons can afflict their opponents with the Arcanist's Mark, and have learned how to cast some Wizard spells as part of their Ranger spell repertoire.
+Subclass/&RangerArcanistTitle=Arcanist

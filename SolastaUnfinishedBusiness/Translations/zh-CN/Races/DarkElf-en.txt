@@ -1,0 +1,13 @@
+Feature/&AttributeModifierDarkelfCharismaAbilityScoreIncreaseDescription=Charisma +1
+Feature/&AttributeModifierDarkelfCharismaAbilityScoreIncreaseTitle=Ability Score Increase
+Feature/&CastSpellDarkelfMagicDescription=You know the Dancing Lights cantrip. At 3rd level you learn Faerie Fire and at 5th level, Darkness. Both can be used once per long rest.
+Feature/&CastSpellDarkelfMagicTitle=Dark Elf Magic
+Feature/&ProficiencyDarkelfWeaponTrainingDescription=You have proficiency with rapiers, shortswords, and hand crossbows.
+Feature/&ProficiencyDarkelfWeaponTrainingTitle=Dark Elf Weapon Training
+Race/&DarkelfSurName1Title=Za'Moryra
+Race/&DarkelfSurName2Title=DhalNeridthas
+Race/&DarkelfSurName3Title=DhalNerwenys
+Race/&DarkelfSurName4Title=Zo'Sonta
+Race/&DarkelfSurName5Title=Zo'Remon
+Race/&RaceDarkelfDescription=Dark elves are descendants of elves that have been changed over time by living in the inhospitable Badlands. Dark elves are largely nocturnal and have become adapted to living in ancient Badlands ruins, especially buried underground ruins. They tend to have dark skin and pale hair.
+Race/&RaceDarkelfTitle=Dark Elf
