@@ -36,6 +36,11 @@ internal sealed class MartialMarshal : AbstractSubclass
 
     private const string EternalComradeName = "MarshalEternalComrade";
 
+    private static readonly ConditionDefinition ConditionEncourage = BuildEncourageCondition();
+
+    private static readonly FeatureDefinitionPower PowerMarshalEncouragement = BuildEncourage();
+    
+    private static readonly FeatureDefinitionPower PowerMarshalImproveEncouragement = BuildImprovedEncourage();
     internal MartialMarshal()
     {
         BuildEternalComradeMonster();
@@ -51,7 +56,9 @@ internal sealed class MartialMarshal : AbstractSubclass
                 BuildFeatureSetMarshalEternalComrade())
             .AddFeaturesAtLevel(10,
                 BuildFeatureSetMarshalFearlessCommander(),
-                BuildEncourage())
+                PowerMarshalEncouragement)
+            .AddFeaturesAtLevel(15,
+                PowerMarshalImproveEncouragement)
             .AddToDB();
     }
 
@@ -176,6 +183,7 @@ internal sealed class MartialMarshal : AbstractSubclass
                 MonsterAttackDefinitionBuilder
                     .Create(MonsterAttackDefinitions.Attack_Generic_Guard_Longsword,
                         "MonsterAttackMarshalEternalComrade")
+                    .SetToHitBonus(5)
                     .SetEffectDescription(EffectDescriptionBuilder
                         .Create()
                         .SetAnimationMagicEffect(AnimationDefinitions.AnimationMagicEffect.Count)
@@ -281,9 +289,9 @@ internal sealed class MartialMarshal : AbstractSubclass
             .AddToDB();
     }
 
-    private static FeatureDefinitionPower BuildEncourage()
+    private static ConditionDefinition BuildEncourageCondition()
     {
-        var conditionMarshalEncouraged = ConditionDefinitionBuilder
+        return ConditionDefinitionBuilder
             .Create("ConditionMarshalEncouraged")
             .SetGuiPresentation("PowerMarshalEncouragement", Category.Feature, ConditionBlessed)
             .SetSilent(Silent.WhenAddedOrRemoved)
@@ -293,9 +301,12 @@ internal sealed class MartialMarshal : AbstractSubclass
             .SetTurnOccurence(TurnOccurenceType.StartOfTurn)
             .AddConditionTags("Buff")
             .AddToDB();
-
+    }
+    
+    private static FeatureDefinitionPower BuildEncourage()
+    {
         // this allows the condition to still display as a label on character panel
-        Global.CharacterLabelEnabledConditions.Add(conditionMarshalEncouraged);
+        Global.CharacterLabelEnabledConditions.Add(ConditionEncourage);
 
         return FeatureDefinitionPowerBuilder
             .Create("PowerMarshalEncouragement")
@@ -311,7 +322,35 @@ internal sealed class MartialMarshal : AbstractSubclass
                     EffectFormBuilder
                         .Create()
                         .CreatedByCharacter()
-                        .SetConditionForm(conditionMarshalEncouraged, ConditionForm.ConditionOperation.Add, false,
+                        .SetConditionForm(ConditionEncourage, ConditionForm.ConditionOperation.Add, false,
+                            false)
+                        .Build())
+                .Build())
+            .SetShowCasting(false)
+            .AddToDB();
+    }
+    
+    private static FeatureDefinitionPower BuildImprovedEncourage()
+    {
+        // this allows the condition to still display as a label on character panel
+        Global.CharacterLabelEnabledConditions.Add(ConditionEncourage);
+
+        return FeatureDefinitionPowerBuilder
+            .Create("PowerMarshalImprovedEncouragement")
+            .SetOverriddenPower(PowerMarshalEncouragement)
+            .SetGuiPresentation(Category.Feature, Bless)
+            .SetUsesFixed(ActivationTime.PermanentUnlessIncapacitated)
+            .SetEffectDescription(EffectDescriptionBuilder
+                .Create()
+                .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Cube, 13)
+                .SetDurationData(DurationType.Permanent)
+                .SetRecurrentEffect(
+                    RecurrentEffect.OnActivation | RecurrentEffect.OnEnter | RecurrentEffect.OnTurnStart)
+                .SetEffectForms(
+                    EffectFormBuilder
+                        .Create()
+                        .CreatedByCharacter()
+                        .SetConditionForm(ConditionEncourage, ConditionForm.ConditionOperation.Add, false,
                             false)
                         .Build())
                 .Build())
