@@ -226,6 +226,12 @@ internal static class ToolsContext
                 gameLocationCharacterService.RefreshAllCharacters();
             }
 
+            Gui.GuiService.ShowMessage(
+                MessageModal.Severity.Informative1,
+                "RestActivity/&RestActivityRespecTitle", "Message/&RespecSuccessfulDescription",
+                "Message/&MessageOkTitle", string.Empty,
+                null, null);
+
             IsRespecing = false;
         }
 
