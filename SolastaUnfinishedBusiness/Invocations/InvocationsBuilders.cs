@@ -78,7 +78,7 @@ internal static class InvocationsBuilders
             .Create(SpellDefinitions.FreedomOfMovement, "TrickstersEscape")
             .AddToDB();
 
-        spellTrickstersEscape.EffectDescription.TargetType = RuleDefinitions.TargetType.Self;
+        spellTrickstersEscape.EffectDescription.targetType = RuleDefinitions.TargetType.Self;
 
         return InvocationDefinitionBuilder
             .Create(NAME)
@@ -269,6 +269,43 @@ internal static class InvocationsBuilders
             .AddToDB();
     }
 
+    internal static InvocationDefinition BuildKinesis()
+    {
+        const string NAME = "InvocationKinesis";
+
+        var spellKinesis = SpellDefinitionBuilder
+            .Create(SpellDefinitions.Haste, "Kinesis")
+            .AddToDB();
+
+        spellKinesis.EffectDescription.targetType = RuleDefinitions.TargetType.Individuals;
+        spellKinesis.EffectDescription.targetParameter = 2;
+
+        return InvocationDefinitionBuilder
+            .Create(NAME)
+            .SetGuiPresentation(Category.Invocation, spellKinesis)
+            .SetRequirements(7)
+            .SetGrantedSpell(spellKinesis, false, true)
+            .AddToDB();
+    }
+    
+    internal static InvocationDefinition BuildStasis()
+    {
+        const string NAME = "InvocationStasis";
+
+        var spellStasis = SpellDefinitionBuilder
+            .Create(SpellDefinitions.Slow, "Stasis")
+            .AddToDB();
+
+        spellStasis.requiresConcentration = false;
+
+        return InvocationDefinitionBuilder
+            .Create(NAME)
+            .SetGuiPresentation(Category.Invocation, spellStasis)
+            .SetRequirements(7)
+            .SetGrantedSpell(spellStasis, false, true)
+            .AddToDB();
+    }
+    
     private class WarlockHolder : IClassHoldingFeature
     {
         private WarlockHolder()
