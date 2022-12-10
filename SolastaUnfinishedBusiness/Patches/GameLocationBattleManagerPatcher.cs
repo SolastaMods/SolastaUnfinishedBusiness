@@ -14,7 +14,9 @@ using SolastaUnfinishedBusiness.CustomDefinitions;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.Feats;
 using SolastaUnfinishedBusiness.Models;
+using SolastaUnfinishedBusiness.Subclasses;
 using TA;
+using TA.AI.Considerations;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
@@ -769,6 +771,26 @@ public static class GameLocationBattleManagerPatcher
                 if (!IsFailed(saveOutcome))
                 {
                     yield break;
+                }
+            }
+
+            // PATCH: Allow attack of opportunity on target that failed saving throw
+            var units = __instance.Battle.AllContenders
+                .Where(u => !u.RulesetCharacter.IsDeadOrDyingOrUnconscious)
+                .ToArray();
+
+            //Process other participants of the battle
+            foreach (var unit in units)
+            {
+                if (unit == defender)
+                {
+                    continue;
+                }
+
+                foreach (var feature in unit.RulesetCharacter.GetSubFeaturesByType<IOnDefenderFailedSavingThrow>())
+                {
+                    yield return feature.OnDefenderFailedSavingThrow(__instance, action, unit, defender, saveModifier,
+                        hasHitVisual, hasBorrowedLuck);
                 }
             }
         }
