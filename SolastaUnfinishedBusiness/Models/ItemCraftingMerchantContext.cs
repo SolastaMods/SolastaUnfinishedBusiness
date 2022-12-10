@@ -60,28 +60,28 @@ internal static class ItemCraftingMerchantContext
 
         //rename valley noble's clothes by color to avoid confusion
         var silverNoble = ClothesNoble_Valley_Silver;
-        silverNoble.GuiPresentation.title = "Equipment/&Armor_Noble_ClothesTitle_Silver";
+        silverNoble.GuiPresentation.title = "Item/&Armor_Noble_ClothesTitle_Silver";
 
         var redNoble = ClothesNoble_Valley_Red;
-        redNoble.GuiPresentation.title = "Equipment/&Armor_Noble_ClothesTitle_Red";
+        redNoble.GuiPresentation.title = "Item/&Armor_Noble_ClothesTitle_Red";
 
         var purpleNoble = ClothesNoble_Valley_Purple;
-        purpleNoble.GuiPresentation.title = "Equipment/&Armor_Noble_ClothesTitle_Purple";
+        purpleNoble.GuiPresentation.title = "Item/&Armor_Noble_ClothesTitle_Purple";
 
         var pinkNoble = ClothesNoble_Valley_Pink;
-        pinkNoble.GuiPresentation.title = "Equipment/&Armor_Noble_ClothesTitle_Pink";
+        pinkNoble.GuiPresentation.title = "Item/&Armor_Noble_ClothesTitle_Pink";
 
         var orangeNoble = ClothesNoble_Valley_Orange;
-        orangeNoble.GuiPresentation.title = "Equipment/&Armor_Noble_ClothesTitle_Orange";
+        orangeNoble.GuiPresentation.title = "Item/&Armor_Noble_ClothesTitle_Orange";
 
         var greenNoble = ClothesNoble_Valley_Green;
-        greenNoble.GuiPresentation.title = "Equipment/&Armor_Noble_ClothesTitle_Green";
+        greenNoble.GuiPresentation.title = "Item/&Armor_Noble_ClothesTitle_Green";
 
         var cherryNoble = ClothesNoble_Valley_Cherry;
-        cherryNoble.GuiPresentation.title = "Equipment/&Armor_Noble_ClothesTitle_Cherry";
+        cherryNoble.GuiPresentation.title = "Item/&Armor_Noble_ClothesTitle_Cherry";
 
         var valleyNoble = ClothesNoble_Valley;
-        valleyNoble.GuiPresentation.title = "Equipment/&Armor_Noble_ClothesTitle_Valley";
+        valleyNoble.GuiPresentation.title = "Item/&Armor_Noble_ClothesTitle_Valley";
     }
 
     private static void LoadInstrumentsGorimStock()
