@@ -1,8 +1,8 @@
-﻿Feature/&FeatureSetRoyalKnightRoyalEnvoyDescription=Add half of your proficiency bonus (round up) to any Charisma check you make that doesn't already use your proficiency bonus. In addition, you become proficient with Charisma saving throws.
-Feature/&FeatureSetRoyalKnightRoyalEnvoyTitle=Royal Envoy
-Feature/&PowerRoyalKnightInspiringSurgeDescription=Grant an ally an additional main action for 1 round. Does not stack with Action Surge.
-Feature/&PowerRoyalKnightInspiringSurgeTitle=Inspiring Surge
-Feature/&PowerRoyalKnightRallyingCryDescription=Replaces Second Wind with a power to restore 4x Fighter Levels hit points to one or more allies within 6 cells, up to their hit point maximum.
-Feature/&PowerRoyalKnightRallyingCryTitle=Rallying Cry
-Subclass/&MartialRoyalKnightDescription=A knight who inspires greatness in others by committing brave deeds in battle. A Royal Knight is a skilled warrior, but one leading a band of allies can transform even the most poorly equipped militia into a ferocious war band.
-Subclass/&MartialRoyalKnightTitle=Royal Knight
+﻿Feature/&FeatureSetRoyalKnightRoyalEnvoyDescription=将你的熟练加值的一半（向上取整）加至任何没有添加你的熟练度加值的魅力检定中。额外的，你获得魅力豁免的熟练项
+Feature/&FeatureSetRoyalKnightRoyalEnvoyTitle=皇室特使
+Feature/&PowerRoyalKnightInspiringSurgeDescription=赋予盟友一个额外的动作，持续1回合。不与"动作如潮"叠加
+Feature/&PowerRoyalKnightInspiringSurgeTitle=激励如潮
+Feature/&PowerRoyalKnightRallyingCryDescription=以新的能力取代“回气”，当你使用时为6格内的一位或多位盟友恢复4倍于战士等级的生命值，最高至其生命值上限
+Feature/&PowerRoyalKnightRallyingCryTitle=集结战吼
+Subclass/&MartialRoyalKnightDescription=一位通过战斗中的英勇行径激励他人的伟大骑士。一位落单的骑士仅仅是个熟练的战士，但一位带领着盟友的骑士能将最羸弱民兵变成凶猛的战队
+Subclass/&MartialRoyalKnightTitle=皇家骑士
