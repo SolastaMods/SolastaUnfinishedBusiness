@@ -159,6 +159,7 @@ public static class CharacterActionCastSpellPatcher
         }
     }
 
+    //PATCH: implement IPreventRemoveConcentrationWithPowerUse
     [HarmonyPatch(typeof(CharacterActionCastSpell), "RemoveConcentrationAsNeeded")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     public static class RemoveConcentrationAsNeeded_Patch

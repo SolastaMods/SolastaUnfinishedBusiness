@@ -1039,6 +1039,7 @@ public static class RulesetCharacterPatcher
         }
     }
 
+    //PATCH: implement IPreventRemoveConcentrationWithPowerUse
     [HarmonyPatch(typeof(RulesetCharacter), "TerminateSpell")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     public static class TerminateSpell_Patch
@@ -1052,6 +1053,7 @@ public static class RulesetCharacterPatcher
         }
     }
 
+    //PATCH: implement IPreventRemoveConcentrationWithPowerUse
     [HarmonyPatch(typeof(RulesetCharacter), "TerminatePower")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     public static class TerminatePower_Patch
