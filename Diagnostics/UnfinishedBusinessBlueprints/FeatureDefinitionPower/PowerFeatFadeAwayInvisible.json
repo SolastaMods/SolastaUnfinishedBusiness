@@ -295,7 +295,7 @@
   "autoActivationPowerTag": "",
   "triggeringPower": null,
   "copyTargetingFromTriggeringPower": false,
-  "reactionContext": "HitByMelee",
+  "reactionContext": "DamagedByAnySource",
   "reactionName": "",
   "reactionActingCharacterParamIdx": 0,
   "reactionAttackerParamIdx": -1,

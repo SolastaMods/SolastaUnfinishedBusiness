@@ -17,8 +17,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
-    "title": "Feat/&FeatSuperiorCriticalTitle",
-    "description": "Feat/&FeatSuperiorCriticalDescription",
+    "title": "Feature/&MartialChampionSuperiorCriticalTitle",
+    "description": "Feature/&MartialChampionSuperiorCriticalDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
