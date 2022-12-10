@@ -17,5 +17,5 @@ Feature/&ProficiencyCollegeOfHarlequinMartialWeaponTitle=Martial Art Training
 Feature/&ProficiencyCollegeOfHarlequinFightingStyleDescription=Deadly dual weapon wielder and shooter.
 Feature/&ProficiencyCollegeOfHarlequinFightingStyleTitle=Fighting Style Training 
 Feedback/&BardicInspirationUsedToBoostCombatAbility={0} spends a {2} Bardic Inspiration die to increase attack bonus, attack damage, AC and movement speed by {3}
-Subclass/&CollegeOfHarlequinDescription=College of Harlequins bards see no distinction between art and war. They see it is their duty to keep the legend of the great battle of the Cataclysm alive through their terrific performance, either on stage or on the battle field.
-Subclass/&CollegeOfHarlequinTitle=College of Harlequin
+Subclass/&CollegeOfHarlequinDescription=丑角学院的吟游诗人认为艺术与战争没有区别。 他们认为，无论是在舞台上还是在战场上，他们都有责任通过出色的表演让大灾变伟大战役的传奇永存。
+Subclass/&CollegeOfHarlequinTitle=丑角学院
