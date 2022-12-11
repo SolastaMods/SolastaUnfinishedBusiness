@@ -1,5 +1,7 @@
-﻿using SolastaUnfinishedBusiness.Builders;
+﻿using SolastaUnfinishedBusiness.Api;
+using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
+using SolastaUnfinishedBusiness.CustomDefinitions;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Properties;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
@@ -126,7 +128,6 @@ internal static partial class SpellBuilders
             .SetSpellLevel(1)
             .SetCastingTime(ActivationTime.Action)
             .SetConcentrationAction(ActionDefinitions.ActionParameter.None)
-            .SetMaterialComponent(MaterialComponentType.Mundane)
             .SetEffectDescription(effectDescription)
             .AddToDB();
 

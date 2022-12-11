@@ -194,7 +194,6 @@ internal static partial class SpellBuilders
             .SetSpellLevel(0)
             .SetSomaticComponent(false)
             .SetVocalSpellSameType(VocalSpellSemeType.Attack)
-            .SetMaterialComponent(MaterialComponentType.Mundane)
             .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolEvocation)
             .AddToDB();
 
@@ -272,7 +271,6 @@ internal static partial class SpellBuilders
             .Create("MinorLifesteal")
             .SetGuiPresentation(Category.Spell, spriteReference)
             .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolNecromancy)
-            .SetMaterialComponent(MaterialComponentType.Mundane)
             .SetVerboseComponent(false)
             .SetVocalSpellSameType(VocalSpellSemeType.Attack)
             .SetSpellLevel(0)
@@ -477,7 +475,6 @@ internal static partial class SpellBuilders
             .SetSpellLevel(0)
             .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolTransmutation)
             .SetVocalSpellSameType(VocalSpellSemeType.Attack)
-            .SetMaterialComponent(MaterialComponentType.Mundane)
             .SetCastingTime(ActivationTime.Action)
             .SetEffectDescription(EffectDescriptionBuilder
                 .Create()
