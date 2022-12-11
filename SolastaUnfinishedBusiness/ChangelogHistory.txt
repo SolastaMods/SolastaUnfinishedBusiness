@@ -1,5 +1,12 @@
 ﻿CHANGES:
 
+1.4.31.5:
+
+- added Chilling Blast, Corrosive Blast, Fiery Blast and Fulminate Blast invocations at 2nd
+- added Discerning Gaze, Gift of The Hunter and Spectral Shield invocations at 5th
+- added Breaker and Banisher at 9th
+- fixed Wildshape bonus action bleeding into other classes
+
 1.4.31.4:
 
 - added Brazilian Portuguese translation fixes by @Itomon
