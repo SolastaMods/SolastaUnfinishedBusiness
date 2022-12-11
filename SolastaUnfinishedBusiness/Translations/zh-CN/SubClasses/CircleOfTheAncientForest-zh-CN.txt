@@ -39,5 +39,5 @@ Feedback/&AncientForestHerbalBrewDamageAffinityPoisonResistancePowerUsedWhileTra
 Feedback/&AncientForestHerbalBrewDamageAffinityRadiantResistancePowerUsedWhileTravellingFormat={0} 创造 {1}
 Feedback/&AncientForestHerbalBrewHealingPowerUsedWhileTravellingFormat={0} 创造 {1}
 Feedback/&AncientForestHerbalBrewToxifyingPowerUsedWhileTravellingFormat={0} 创造 {1}
-Subclass/&CircleOfTheAncientForestDescription=你已经与一个强大的自然实体建立了关系。古老的树妖、大德鲁伊、在物质位面显现的荒野精灵、原始时代的被遗忘之神。它可能希望您保护自然世界，前往它无法到达的遥远国度旅行，或者它可能有另一个对短命凡人来说难以理解的动机。
+Subclass/&CircleOfTheAncientForestDescription=你已经与一个强大的自然实体建立了关系。古老的树妖、大德鲁伊、在物质位面显现的荒野精灵、原始时代的被遗忘之神。它可能希望你保护自然世界，前往它无法到达的遥远国度旅行，或者它可能有另一个对短命凡人来说难以理解的动机。
 Subclass/&CircleOfTheAncientForestTitle=远古森林结社
