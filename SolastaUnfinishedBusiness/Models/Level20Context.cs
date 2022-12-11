@@ -189,7 +189,8 @@ internal static class Level20Context
             typeof(UserCampaignEditorScreen).GetMethod("OnMaxLevelEndEdit"), // 12
             typeof(UserCampaignEditorScreen).GetMethod("OnMinLevelEndEdit"), // 12
             typeof(UserLocationSettingsModal).GetMethod("OnMaxLevelEndEdit"), // 12
-            typeof(UserLocationSettingsModal).GetMethod("OnMinLevelEndEdit") // 12
+            typeof(UserLocationSettingsModal).GetMethod("OnMinLevelEndEdit"), // 12
+            typeof(GameCampaignParty).GetMethod("UpdateLevelCaps") // 12
         };
 
         foreach (var method in methods)
