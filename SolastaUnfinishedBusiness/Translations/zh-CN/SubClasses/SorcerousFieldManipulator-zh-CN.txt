@@ -1,8 +1,8 @@
-Feature/&MagicAffinityFieldManipulatorDCDescription=It is harder for opponents to resist your spells. The save DC increases by 2.
-Feature/&MagicAffinityFieldManipulatorDCTitle=Arcane Force
-Feature/&PowerFieldManipulatorDominatePersonDescription=You can use Dominate Person a number of times per long rest equal to your Charisma modifier.
-Feature/&PowerFieldManipulatorDominatePersonTitle=Dominate Person
-Feature/&ProficiencyFieldManipulatorMentalSavingThrowsDescription=Gain proficiency in saving throws with Intelligence and Wisdom.
-Feature/&ProficiencyFieldManipulatorMentalSavingThrowsTitle=Mental Resistance
-Subclass/&FieldManipulatorDescription=Field Manipulators excel at controlling the battlefield and preventing their enemies from being able to attack them.
-Subclass/&FieldManipulatorTitle=Field Manipulator
+Feature/&MagicAffinityFieldManipulatorDCDescription=对手更难抵抗你的法术。豁免DC提高2点
+Feature/&MagicAffinityFieldManipulatorDCTitle=奥术之力
+Feature/&PowerFieldManipulatorDominatePersonDescription=你能施放支配人类，每次长休可使用等同于你的魅力调整值的次数
+Feature/&PowerFieldManipulatorDominatePersonTitle=支配人类
+Feature/&ProficiencyFieldManipulatorMentalSavingThrowsDescription=你获得智力和感知豁免的熟练项
+Feature/&ProficiencyFieldManipulatorMentalSavingThrowsTitle=意志抗力
+Subclass/&FieldManipulatorDescription=战场操纵者擅长控制战场，阻止敌人攻击他们。
+Subclass/&FieldManipulatorTitle=战场操纵者

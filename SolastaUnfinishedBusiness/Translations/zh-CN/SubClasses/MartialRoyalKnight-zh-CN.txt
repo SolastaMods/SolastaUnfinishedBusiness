@@ -1,4 +1,4 @@
-﻿Feature/&FeatureSetRoyalKnightRoyalEnvoyDescription=将你的熟练加值的一半（向上取整）加至任何没有添加你的熟练度加值的魅力检定中。额外的，你获得魅力豁免的熟练项
+﻿Feature/&FeatureSetRoyalKnightRoyalEnvoyDescription=将你的熟练加值的一半（向上取整）加至任何没有添加你的熟练加值的魅力检定中。额外的，你获得魅力豁免的熟练项
 Feature/&FeatureSetRoyalKnightRoyalEnvoyTitle=皇室特使
 Feature/&PowerRoyalKnightInspiringSurgeDescription=赋予盟友一个额外的动作，持续1回合。不与"动作如潮"叠加
 Feature/&PowerRoyalKnightInspiringSurgeTitle=激励如潮

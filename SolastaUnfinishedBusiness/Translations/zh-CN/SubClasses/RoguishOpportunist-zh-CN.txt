@@ -1,8 +1,8 @@
-Condition/&ConditionOpportunistDebilitatedDescription=Debilitated.
-Condition/&ConditionOpportunistDebilitatedTitle=Debilitated
-Feature/&OnComputeAttackModifierOpportunistQuickStrikeDescription=You have advantage attacking enemies whose initiative is lower than yours. In addition, you also have advantage when performing attacks of opportunity.
-Feature/&OnComputeAttackModifierOpportunistQuickStrikeTitle=Quick Strike
-Feature/&PowerOpportunistDebilitatingStrikeDescription=Your sneak attack causes the target to make a Constitution saving throw (DC 8 + your proficiency bonus + your Dexterity modifier) or suffer one of the following conditions: blinded, bane, bleeding or stunned.
-Feature/&PowerOpportunistDebilitatingStrikeTitle=Debilitating Strike
-Subclass/&RoguishOpportunistDescription=Opportunist are those who never let a chance to finish their enemies slide. They stab fast and stab where it matters. Not many facing them can escape unscratched.
-Subclass/&RoguishOpportunistTitle=Opportunist
+Condition/&ConditionOpportunistDebilitatedDescription=衰弱
+Condition/&ConditionOpportunistDebilitatedTitle=衰弱
+Feature/&OnComputeAttackModifierOpportunistQuickStrikeDescription=在攻击先攻权低于你的敌人时，你具有优势。此外，你在进行借机攻击时也有优势
+Feature/&OnComputeAttackModifierOpportunistQuickStrikeTitle=迅捷打击
+Feature/&PowerOpportunistDebilitatingStrikeDescription=若受到偷袭的敌人无法通过体质豁免（DC=8+敏捷加值+熟练度加值），会受到以下状态之一（失明/灾祸/流血/眩晕）
+Feature/&PowerOpportunistDebilitatingStrikeTitle=衰弱打击
+Subclass/&RoguishOpportunistDescription=投机者从不放过任何机会去终结他们的敌人。他们的刺杀快准狠。没有多少人能在面对他们时毫发无损地逃脱
+Subclass/&RoguishOpportunistTitle=投机者
