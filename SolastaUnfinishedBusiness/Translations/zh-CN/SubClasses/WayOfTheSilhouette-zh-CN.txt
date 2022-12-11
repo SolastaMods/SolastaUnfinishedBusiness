@@ -1,4 +1,4 @@
-﻿Feature/&FeatureSetWayOfSilhouetteSilhouetteArtsDescription=当你在第 3 级选择此宗门时，你可以花费 2 点气来施展黑暗术、黑暗视觉、行动无踪或沉默术，而无需提供材料成分。 此外，你还会获得光亮术戏法。
+﻿Feature/&FeatureSetWayOfSilhouetteSilhouetteArtsDescription=当你在第 3 级选择此宗门时，你可以消耗 2 点气来施展黑暗术、黑暗视觉、行动无踪或沉默术，而无需提供材料成分。 此外，你还会获得光亮术戏法。
 Feature/&FeatureSetWayOfSilhouetteSilhouetteArtsTitle=黯影技艺
 Feature/&LightAffinityWayOfSilhouetteCloakOfSilhouettesStrongDescription=除了自然黑暗之外，黯影斗篷现在还可以在昏暗的光线和魔法黑暗中工作。
 Feature/&LightAffinityWayOfSilhouetteCloakOfSilhouettesStrongTitle=高等黯影斗篷

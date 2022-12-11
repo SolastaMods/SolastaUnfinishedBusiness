@@ -1,4 +1,4 @@
-Feature/&FeatureSetCircleOfTheNightElementalFormsDescription=从第10级起，你可以花费1次荒野形态次数来转变为风元素、土元素或火元素。
+Feature/&FeatureSetCircleOfTheNightElementalFormsDescription=从第10级起，你可以消耗1次荒野形态次数来转变为风元素、土元素或火元素。
 Feature/&FeatureSetCircleOfTheNightElementalFormsTitle=元素形态
 Feature/&PowerCircleOfTheNightWildShapeCombatDescription=结社的力量让你可以变成更危险的动物形态。第2级起，你用荒野形态特性变身的野兽其挑战等级至高为1，你所变身野兽的挑战等级最高等于你的德鲁伊等级除以3（向下取整）。
 Feature/&PowerCircleOfTheNightWildShapeCombatTitle=战斗荒野形态
