@@ -122,10 +122,12 @@ internal sealed class RoguishRaven : AbstractSubclass
                     .SetGuiPresentationNoContent(true)
                     .SetNotificationTag("HeartSeekingShot")
                     .SetFrequencyLimit(FeatureLimitedUsage.None)
+                    .SetIgnoreCriticalDoubleDice(true)
                     .SetTriggerCondition(AdditionalDamageTriggerCondition.CriticalHit)
                     .SetAdditionalDamageType(AdditionalDamageType.SameAsBaseDamage)
                     .SetCustomSubFeatures(
-                        new RestrictedContextValidator(OperationType.Set, ValidatorsCharacter.HasTwoHandedRangeWeapon))
+                        new RestrictedContextValidator(OperationType.Set, ValidatorsCharacter.HasTwoHandedRangeWeapon),
+                        new HeartSeekingShotAdditionalDamageOnCritMarker(CharacterClassDefinitions.Rogue))
                     .SetRequiredProperty(RestrictedContextRequiredProperty.RangeWeapon)
                     .SetDamageDice(DieType.D6, 1)
                     .SetAdvancement(AdditionalDamageAdvancement.ClassLevel, 2, 1, 4, 3)
@@ -211,5 +213,15 @@ internal sealed class RoguishRaven : AbstractSubclass
 
             yield break;
         }
+    }
+
+    private sealed class HeartSeekingShotAdditionalDamageOnCritMarker : IClassHoldingFeature
+    {
+        public HeartSeekingShotAdditionalDamageOnCritMarker(CharacterClassDefinition @class)
+        {
+            Class = @class;
+        }
+
+        public CharacterClassDefinition Class { get; }
     }
 }
