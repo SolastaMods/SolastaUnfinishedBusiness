@@ -13,6 +13,11 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:ActionAffinityWildshapeBonus:3073d03c-5298-5deb-ad31-14e3bba07dc7",
+      "level": 2
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:PowerCircleOfTheNightWildShapeImprovedHealing:6ba5156a-7b15-53e3-b0c7-44ffd76d0af5",
       "level": 6
     },
