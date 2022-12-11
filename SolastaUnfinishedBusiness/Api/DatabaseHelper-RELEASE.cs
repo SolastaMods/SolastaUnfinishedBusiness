@@ -1162,6 +1162,7 @@ internal static partial class DatabaseHelper
         internal static SpellDefinition Daylight { get; } = GetDefinition<SpellDefinition>("Daylight");
         internal static SpellDefinition Dazzle { get; } = GetDefinition<SpellDefinition>("Dazzle");
         internal static SpellDefinition DeathWard { get; } = GetDefinition<SpellDefinition>("DeathWard");
+        internal static SpellDefinition DetectEvilAndGood { get; } = GetDefinition<SpellDefinition>("DetectEvilAndGood");
         internal static SpellDefinition DetectMagic { get; } = GetDefinition<SpellDefinition>("DetectMagic");
         internal static SpellDefinition DimensionDoor { get; } = GetDefinition<SpellDefinition>("DimensionDoor");
         internal static SpellDefinition Disintegrate { get; } = GetDefinition<SpellDefinition>("Disintegrate");
@@ -1253,6 +1254,7 @@ internal static partial class DatabaseHelper
         internal static SpellDefinition SeeInvisibility { get; } = GetDefinition<SpellDefinition>("SeeInvisibility");
         internal static SpellDefinition Shatter { get; } = GetDefinition<SpellDefinition>("Shatter");
         internal static SpellDefinition Shield { get; } = GetDefinition<SpellDefinition>("Shield");
+        internal static SpellDefinition ShieldOfFaith { get; } = GetDefinition<SpellDefinition>("ShieldOfFaith");
         internal static SpellDefinition Shillelagh { get; } = GetDefinition<SpellDefinition>("Shillelagh");
         internal static SpellDefinition Shine { get; } = GetDefinition<SpellDefinition>("Shine");
         internal static SpellDefinition ShockingGrasp { get; } = GetDefinition<SpellDefinition>("ShockingGrasp");
