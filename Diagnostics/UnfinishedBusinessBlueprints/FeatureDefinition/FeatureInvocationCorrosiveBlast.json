@@ -1,16 +1,10 @@
 {
-  "$type": "RestActivityDefinition, Assembly-CSharp",
-  "restStage": "AfterRest",
-  "restType": "LongRest",
-  "condition": "None",
-  "functor": "RestActivityRespec",
-  "stringParameter": "",
-  "checkConsciousness": false,
+  "$type": "FeatureDefinition, Assembly-CSharp",
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
-    "hidden": false,
-    "title": "RestActivity/&RestActivityRespecTitle",
-    "description": "RestActivity/&RestActivityRespecDescription",
+    "hidden": true,
+    "title": "Feature/&NoContentTitle",
+    "description": "Feature/&NoContentTitle",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -30,7 +24,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "9adcaf86-4f2d-516c-8690-e4e3995db82b",
+  "guid": "5784739c-f116-5091-8135-aaa52e647a91",
   "contentPack": 9999,
-  "name": "RestActivityRespec"
+  "name": "FeatureInvocationCorrosiveBlast"
 }
