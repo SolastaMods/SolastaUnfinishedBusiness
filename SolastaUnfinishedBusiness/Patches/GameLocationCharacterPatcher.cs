@@ -193,8 +193,12 @@ public static class GameLocationCharacterPatcher
             bool accountDelegatedPowers)
         {
             var power = usablePower.PowerDefinition;
+            // reactive power is always hidden by blue print so to check if a power is hidden
+            // intentionally its activation time should not be Reaction
+            var hidden = power.GuiPresentation.Hidden &&
+                         power.activationTime != RuleDefinitions.ActivationTime.Reaction;
             return (accountDelegatedPowers || !power.DelegatedToAction)
-                   && !power.GuiPresentation.Hidden
+                   && !hidden
                    && character.CanUsePower(power, false);
         }
     }
