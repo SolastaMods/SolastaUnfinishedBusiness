@@ -1484,17 +1484,24 @@ internal sealed class MartialTactician : AbstractSubclass
             var dieRoll = RollDie(dieType, AdvantageType.None, out _, out _);
 
             var hitTrends = attackModifier.AttacktoHitTrends;
-            if (hitTrends != null)
+
+            hitTrends?.Add(new TrendInfo(dieRoll, FeatureSourceType.Power, pool.Name, null)
             {
-                hitTrends.Add(new TrendInfo(dieRoll, FeatureSourceType.Power, pool.Name, null)
-                {
-                    dieType = dieType, dieFlag = TrendInfoDieFlag.None
-                });
-            }
+                dieType = dieType, dieFlag = TrendInfoDieFlag.None
+            });
 
             var pb = 2 * character.TryGetAttributeValue(AttributeDefinitions.ProficiencyBonus);
             var reduction = dieRoll + pb;
-            attackModifier.damageRollReduction += reduction;
+
+            // attackModifier.damageRollReduction += reduction;
+            var damage = attackMode.EffectDescription?.FindFirstDamageForm();
+            var trendInfo = new TrendInfo(reduction, FeatureSourceType.CharacterFeature, feature.FormatTitle(), feature);
+
+            if (damage != null)
+            {
+                damage.bonusDamage -= reduction;
+                damage.DamageBonusTrends.Add(trendInfo);
+            }
 
             character.ShowDieRoll(dieType, dieRoll,
                 title: feature.GuiPresentation.Title,
