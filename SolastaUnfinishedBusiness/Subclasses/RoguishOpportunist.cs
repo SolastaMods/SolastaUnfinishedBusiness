@@ -32,7 +32,7 @@ internal sealed class RoguishOpportunist : AbstractSubclass
                 EffectDescriptionBuilder
                     .Create()
                     .SetDurationData(DurationType.Round, 1)
-                    .SetTargetingData(Side.Enemy, RangeType.MeleeHit, 0, TargetType.Individuals)
+                    .SetTargetingData(Side.Enemy, RangeType.MeleeHit, 1, TargetType.Individuals)
                     .SetSavingThrowData(
                         false,
                         AttributeDefinitions.Constitution,
