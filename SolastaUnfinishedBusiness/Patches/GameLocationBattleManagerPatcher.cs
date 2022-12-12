@@ -314,23 +314,30 @@ public static class GameLocationBattleManagerPatcher
                 yield break;
             }
 
+            var damage = attackMode?.EffectDescription?.FindFirstDamageForm();
+
+            if (damage == null)
+            {
+                yield break;
+            }
+
             // Can I always reduce a fixed damage amount (i.e.: Heavy Armor Feat)
             foreach (var feature in defenderCharacter
                          .GetFeaturesByType<FeatureDefinitionReduceDamage>()
                          .Where(x => x.TriggerCondition ==
                                      RuleDefinitions.AdditionalDamageTriggerCondition.AlwaysActive))
             {
-                var damage = attackMode?.EffectDescription?.FindFirstDamageForm();
-
-                if (damage == null ||
-                    (!feature.DamageTypes.Contains(damage.damageType) && feature.DamageTypes.Count > 0))
+                if (!feature.DamageTypes.Contains(damage.damageType) && feature.DamageTypes.Count > 0)
                 {
                     continue;
                 }
 
                 var totalReducedDamage = feature.ReducedDamage;
+                var trendInfo = new RuleDefinitions.TrendInfo(totalReducedDamage, RuleDefinitions.FeatureSourceType.CharacterFeature, feature.FormatTitle(), feature);
+                
+                damage.bonusDamage -= totalReducedDamage;
+                damage.DamageBonusTrends.Add(trendInfo);
 
-                attackModifier.damageRollReduction += totalReducedDamage;
                 defenderCharacter.DamageReduced(defenderCharacter, feature, totalReducedDamage);
             }
 
@@ -436,8 +443,10 @@ public static class GameLocationBattleManagerPatcher
 
                 var slot = reactionParams.IntParameter;
                 var totalReducedDamage = feature.ReducedDamage * slot;
-
-                attackModifier.damageRollReduction += totalReducedDamage;
+                var trendInfo = new RuleDefinitions.TrendInfo(totalReducedDamage, RuleDefinitions.FeatureSourceType.CharacterFeature, feature.FormatTitle(), feature);
+                
+                damage.bonusDamage -= totalReducedDamage;
+                damage.DamageBonusTrends.Add(trendInfo);
                 defenderCharacter.DamageReduced(defenderCharacter, feature, totalReducedDamage);
             }
         }
