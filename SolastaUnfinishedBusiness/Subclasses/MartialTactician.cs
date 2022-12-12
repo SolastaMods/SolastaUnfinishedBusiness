@@ -1493,15 +1493,7 @@ internal sealed class MartialTactician : AbstractSubclass
             var pb = 2 * character.TryGetAttributeValue(AttributeDefinitions.ProficiencyBonus);
             var reduction = dieRoll + pb;
 
-            // attackModifier.damageRollReduction += reduction;
-            var damage = attackMode.EffectDescription?.FindFirstDamageForm();
-            var trendInfo = new TrendInfo(reduction, FeatureSourceType.CharacterFeature, feature.FormatTitle(), feature);
-
-            if (damage != null)
-            {
-                damage.bonusDamage -= reduction;
-                damage.DamageBonusTrends.Add(trendInfo);
-            }
+            attackModifier.damageRollReduction += reduction;
 
             character.ShowDieRoll(dieType, dieRoll,
                 title: feature.GuiPresentation.Title,
