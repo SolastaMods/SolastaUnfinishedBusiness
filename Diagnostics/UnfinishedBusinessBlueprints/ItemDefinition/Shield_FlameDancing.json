@@ -194,9 +194,9 @@
       "m_SubObjectType": ""
     },
     "scaleFactorWhileWielded": 1.0,
-    "useArmorAddressableName": false,
+    "useArmorAddressableName": true,
     "isArmorAddressableNameGenderSpecific": false,
-    "armorAddressableName": "",
+    "armorAddressableName": "Shield",
     "maleArmorAddressableName": "",
     "femaleArmorAddressableName": "",
     "useCustomArmorMaterial": false,

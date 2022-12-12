@@ -108,7 +108,6 @@ internal static partial class SpellBuilders
             .SetCastingTime(ActivationTime.Action)
             .SetSpellLevel(3)
             .SetVocalSpellSameType(VocalSpellSemeType.Attack)
-            .SetMaterialComponent(MaterialComponentType.Mundane)
             .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolConjuration)
             .AddToDB();
 

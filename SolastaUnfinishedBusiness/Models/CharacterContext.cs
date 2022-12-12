@@ -363,7 +363,8 @@ internal static class CharacterContext
                 {
                     if (characterClassDefinition.FeatureUnlocks.Contains(featureUnlockPointPool1))
                     {
-                        characterClassDefinition.FeatureUnlocks.RemoveAll(x => x.FeatureDefinition == PointPoolBonusFeat);
+                        characterClassDefinition.FeatureUnlocks.RemoveAll(
+                            x => x.FeatureDefinition == PointPoolBonusFeat);
                         characterClassDefinition.FeatureUnlocks.Add(featureUnlockPointPool2);
                     }
                     else
@@ -375,12 +376,14 @@ internal static class CharacterContext
                 {
                     if (characterClassDefinition.FeatureUnlocks.Contains(featureUnlockPointPool2))
                     {
-                        characterClassDefinition.FeatureUnlocks.RemoveAll(x => x.FeatureDefinition == pointPool2BonusFeats);
+                        characterClassDefinition.FeatureUnlocks.RemoveAll(x =>
+                            x.FeatureDefinition == pointPool2BonusFeats);
                         characterClassDefinition.FeatureUnlocks.Add(featureUnlockPointPool1);
                     }
                     else
                     {
-                        characterClassDefinition.FeatureUnlocks.RemoveAll(x => x.FeatureDefinition == PointPoolBonusFeat);
+                        characterClassDefinition.FeatureUnlocks.RemoveAll(
+                            x => x.FeatureDefinition == PointPoolBonusFeat);
                     }
                 }
             }

@@ -329,13 +329,13 @@ internal static class SharedSpellsContext
         new SlotsByLevelDuplet { Slots = new List<int> { 1, 1 }, Level = 19 },
         new SlotsByLevelDuplet { Slots = new List<int> { 1, 1 }, Level = 20 }
     };
-    
+
     internal static List<SlotsByLevelDuplet> RaceEmptyCastingSlots { get; } = new()
     {
         new SlotsByLevelDuplet { Slots = new List<int> { 0 }, Level = 01 },
         new SlotsByLevelDuplet { Slots = new List<int> { 0 }, Level = 02 },
         new SlotsByLevelDuplet { Slots = new List<int> { 0 }, Level = 03 },
-        new SlotsByLevelDuplet { Slots = new List<int> { 0 } , Level = 04 },
+        new SlotsByLevelDuplet { Slots = new List<int> { 0 }, Level = 04 },
         new SlotsByLevelDuplet { Slots = new List<int> { 0 }, Level = 05 },
         new SlotsByLevelDuplet { Slots = new List<int> { 0 }, Level = 06 },
         new SlotsByLevelDuplet { Slots = new List<int> { 0 }, Level = 07 },

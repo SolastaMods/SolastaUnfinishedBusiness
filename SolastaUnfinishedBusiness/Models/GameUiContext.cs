@@ -597,6 +597,8 @@ internal static class GameUiContext
 
             case 2: // Druid Leather
                 Enchanted_ChainShirt_Empress_war_garb.itemPresentation = LeatherDruid.ItemPresentation;
+                Enchanted_ChainShirt_Empress_war_garb.ItemPresentation.useArmorAddressableName = true;
+                Enchanted_ChainShirt_Empress_war_garb.ItemPresentation.armorAddressableName = LeatherDruid.Name;
                 break;
 
             case 3: // Elven Chain
@@ -621,6 +623,8 @@ internal static class GameUiContext
 
             case 8: // Scavenger Ranger
                 Enchanted_ChainShirt_Empress_war_garb.itemPresentation = ClothesScavenger_A.ItemPresentation;
+                Enchanted_ChainShirt_Empress_war_garb.ItemPresentation.useArmorAddressableName = true;
+                Enchanted_ChainShirt_Empress_war_garb.ItemPresentation.armorAddressableName = ClothesScavenger_A.Name;
                 break;
 
             case 9: // Scavenger Rogue
@@ -629,10 +633,14 @@ internal static class GameUiContext
 
             case 10: // Bard Armor
                 Enchanted_ChainShirt_Empress_war_garb.itemPresentation = Bard_Armor.ItemPresentation;
+                Enchanted_ChainShirt_Empress_war_garb.ItemPresentation.useArmorAddressableName = true;
+                Enchanted_ChainShirt_Empress_war_garb.ItemPresentation.armorAddressableName = Bard_Armor.Name;
                 break;
 
             case 11: // Warlock Armor
                 Enchanted_ChainShirt_Empress_war_garb.itemPresentation = Warlock_Armor.ItemPresentation;
+                Enchanted_ChainShirt_Empress_war_garb.ItemPresentation.useArmorAddressableName = true;
+                Enchanted_ChainShirt_Empress_war_garb.ItemPresentation.armorAddressableName = Warlock_Armor.Name;
                 break;
         }
     }

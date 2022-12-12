@@ -537,9 +537,9 @@ public static class InnovationAlchemy
                     .Build())
                 .Build())
             .AddToDB();
-        
+
         GlobalUniqueEffects.AddToGroup(GlobalUniqueEffects.Group.GrenadierGrenadeMode, power);
-        
+
         return power;
     }
 

@@ -18,9 +18,9 @@ internal static partial class SpellBuilders
     internal static SpellDefinition BuildForesight()
     {
         const string NAME = "Foresight";
-        
+
         var spriteReference = Sprites.GetSprite(NAME, Resources.MindBlank, 128, 128);
-        
+
         var effectDescription = EffectDescriptionBuilder
             .Create()
             .SetDurationData(DurationType.Hour, 8)
@@ -94,9 +94,9 @@ internal static partial class SpellBuilders
     internal static SpellDefinition BuildMeteorSwarmSingleTarget()
     {
         const string NAME = "MeteorSwarmSingleTarget";
-        
+
         var spriteReference = Sprites.GetSprite(NAME, Resources.MeteorSwarm, 128, 128);
-        
+
         var effectDescription = EffectDescriptionBuilder
             .Create()
             .SetDurationData(DurationType.Instantaneous)
@@ -268,7 +268,7 @@ internal static partial class SpellBuilders
     internal static SpellDefinition BuildTimeStop()
     {
         const string NAME = "TimeStop";
-        
+
         var spriteReference = Sprites.GetSprite(NAME, Resources.TimeStop, 128, 128);
 
         var effectDescription = EffectDescriptionBuilder

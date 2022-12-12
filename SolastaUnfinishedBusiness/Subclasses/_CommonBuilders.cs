@@ -101,7 +101,7 @@ internal static class CommonBuilders
                     true)
                 .Build())
         .AddToDB();
-    
+
     internal static readonly FeatureDefinitionPower PowerCasterCommandUndeadCharisma = FeatureDefinitionPowerBuilder
         .Create("PowerCasterCommandUndeadCharisma")
         .SetGuiPresentation("PowerCasterCommandUndead", Category.Feature)

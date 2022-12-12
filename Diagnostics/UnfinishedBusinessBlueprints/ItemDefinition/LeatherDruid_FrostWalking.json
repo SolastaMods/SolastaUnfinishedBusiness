@@ -193,9 +193,9 @@
       "m_SubObjectType": ""
     },
     "scaleFactorWhileWielded": 1.0,
-    "useArmorAddressableName": false,
+    "useArmorAddressableName": true,
     "isArmorAddressableNameGenderSpecific": false,
-    "armorAddressableName": "",
+    "armorAddressableName": "LeatherDruid",
     "maleArmorAddressableName": "",
     "femaleArmorAddressableName": "",
     "useCustomArmorMaterial": false,

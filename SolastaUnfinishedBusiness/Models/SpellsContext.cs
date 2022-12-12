@@ -234,7 +234,7 @@ internal static class SpellsContext
                 SpellListContextTab[spellList].SuggestedSpells.Add(spellDefinition);
             }
         }
-        
+
         foreach (var spellList in SpellLists.Values)
         {
             var enable = Main.Settings.SpellListSpellEnabled[spellList.Name].Contains(spellDefinition.Name);

@@ -1,8 +1,6 @@
-﻿using System;
-using System.Diagnostics.CodeAnalysis;
+﻿using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
 using JetBrains.Annotations;
-using SolastaUnfinishedBusiness.Models;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
@@ -11,7 +9,7 @@ public static class CreateGameSubpanelPatcher
 {
     [HarmonyPatch(typeof(CreateGameSubpanel), "OnBeginShow")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    public static class UpdateRelevance_Patch
+    public static class OnBeginShow_Patch
     {
         public static void Prefix([NotNull] CreateGameSubpanel __instance)
         {

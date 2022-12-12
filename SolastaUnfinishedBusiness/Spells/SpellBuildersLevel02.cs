@@ -81,7 +81,6 @@ internal static partial class SpellBuilders
             .Create(SpikeGrowth, "ProtectThreshold")
             .SetGuiPresentation(Category.Spell, Bane)
             .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolAbjuration)
-            .SetMaterialComponent(MaterialComponentType.Mundane)
             .SetVocalSpellSameType(VocalSpellSemeType.Defense)
             .SetSpellLevel(2)
             .SetRequiresConcentration(false)

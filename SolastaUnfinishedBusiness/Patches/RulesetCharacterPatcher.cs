@@ -1049,7 +1049,8 @@ public static class RulesetCharacterPatcher
             var currentAction = Global.CurrentAction;
 
             return currentAction is not CharacterActionUsePower characterActionUsePower || characterActionUsePower
-                .activePower.PowerDefinition.GetFirstSubFeatureOfType<IPreventRemoveConcentrationWithPowerUse>() == null;
+                    .activePower.PowerDefinition.GetFirstSubFeatureOfType<IPreventRemoveConcentrationWithPowerUse>() ==
+                null;
         }
     }
 
@@ -1063,7 +1064,8 @@ public static class RulesetCharacterPatcher
             var currentAction = Global.CurrentAction;
 
             return currentAction is not CharacterActionUsePower characterActionUsePower || characterActionUsePower
-                .activePower.PowerDefinition.GetFirstSubFeatureOfType<IPreventRemoveConcentrationWithPowerUse>() == null;
+                    .activePower.PowerDefinition.GetFirstSubFeatureOfType<IPreventRemoveConcentrationWithPowerUse>() ==
+                null;
         }
     }
 }

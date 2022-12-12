@@ -201,9 +201,9 @@
       "m_SubObjectType": ""
     },
     "scaleFactorWhileWielded": 1.0,
-    "useArmorAddressableName": false,
+    "useArmorAddressableName": true,
     "isArmorAddressableNameGenderSpecific": false,
-    "armorAddressableName": "",
+    "armorAddressableName": "HalfPlate",
     "maleArmorAddressableName": "",
     "femaleArmorAddressableName": "",
     "useCustomArmorMaterial": false,

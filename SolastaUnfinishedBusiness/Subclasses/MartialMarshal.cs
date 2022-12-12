@@ -39,8 +39,9 @@ internal sealed class MartialMarshal : AbstractSubclass
     private static readonly ConditionDefinition ConditionEncourage = BuildEncourageCondition();
 
     private static readonly FeatureDefinitionPower PowerMarshalEncouragement = BuildEncourage();
-    
+
     private static readonly FeatureDefinitionPower PowerMarshalImproveEncouragement = BuildImprovedEncourage();
+
     internal MartialMarshal()
     {
         BuildEternalComradeMonster();
@@ -302,7 +303,7 @@ internal sealed class MartialMarshal : AbstractSubclass
             .AddConditionTags("Buff")
             .AddToDB();
     }
-    
+
     private static FeatureDefinitionPower BuildEncourage()
     {
         // this allows the condition to still display as a label on character panel
@@ -329,7 +330,7 @@ internal sealed class MartialMarshal : AbstractSubclass
             .SetShowCasting(false)
             .AddToDB();
     }
-    
+
     private static FeatureDefinitionPower BuildImprovedEncourage()
     {
         // this allows the condition to still display as a label on character panel
@@ -541,7 +542,7 @@ internal sealed class MartialMarshal : AbstractSubclass
                 false, -1, out var outcome, out _, true);
 
             const int MAX_KNOWLEDGE_LEVEL = 4;
-            
+
             var level = entry.KnowledgeLevelDefinition.Level;
 
             // rollback one level to at least get a nice message on UI and not get a null after we call Invoke

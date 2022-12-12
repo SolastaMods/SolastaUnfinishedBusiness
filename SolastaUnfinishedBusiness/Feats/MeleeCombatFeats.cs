@@ -263,7 +263,7 @@ internal static class MeleeCombatFeats
             attacker.RulesetCharacter.AddConditionOfCategory(AttributeDefinitions.TagCombat, rulesetCondition);
         }
     }
-    
+
     private sealed class CustomAdditionalDamageFeatPiercer : CustomAdditionalDamage
     {
         private readonly string _damageType;

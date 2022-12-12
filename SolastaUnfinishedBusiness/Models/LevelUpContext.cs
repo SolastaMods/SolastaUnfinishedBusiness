@@ -368,9 +368,10 @@ internal static class LevelUpContext
                     knownSpells.TryAddRange(spellRepertoire.EnumerateAvailableScribedSpells(), tag);
                     break;
                 case RuleDefinitions.SpellKnowledge.WholeList:
+                    knownSpells.TryAddRange(spellRepertoire.KnownCantrips, tag);
                     knownSpells.TryAddRange(
                         castingFeature.SpellListDefinition.SpellsByLevel.SelectMany(s => s.Spells)
-                            .Where(x => x.SpellLevel <= maxSpellLevel), tag);
+                            .Where(x => x.SpellLevel > 0 && x.SpellLevel <= maxSpellLevel), tag);
                     break;
             }
         }
@@ -464,6 +465,19 @@ internal static class LevelUpContext
         foreach (var grantedItem in levelUpData.GrantedItems)
         {
             hero.GrantItem(grantedItem, false);
+        }
+    }
+
+    internal static void RemoveItemsIfRequired([NotNull] RulesetCharacterHero hero)
+    {
+        if (!LevelUpTab.TryGetValue(hero, out var levelUpData) || !levelUpData.IsLevelingUp)
+        {
+            return;
+        }
+
+        foreach (var grantedItem in levelUpData.GrantedItems)
+        {
+            hero.LoseItem(grantedItem, false);
         }
     }
 
@@ -708,7 +722,7 @@ internal static class LevelUpContext
 
         // ReSharper disable once MemberHidesStaticFromOuterClass
         internal bool RequiresDeity { get; set; }
-        internal HashSet<ItemDefinition> GrantedItems { get; set; }
+        internal HashSet<ItemDefinition> GrantedItems { get; set; } = new();
 
         private IEnumerable<FeatureDefinition> SelectedClassFeatures => Hero.ActiveFeatures
             .Where(x => x.Key.Contains(SelectedClass.Name))

@@ -14,9 +14,7 @@ using SolastaUnfinishedBusiness.CustomDefinitions;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.Feats;
 using SolastaUnfinishedBusiness.Models;
-using SolastaUnfinishedBusiness.Subclasses;
 using TA;
-using TA.AI.Considerations;
 
 namespace SolastaUnfinishedBusiness.Patches;
 

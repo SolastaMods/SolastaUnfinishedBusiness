@@ -126,7 +126,6 @@ internal static partial class SpellBuilders
             .SetSpellLevel(1)
             .SetCastingTime(ActivationTime.Action)
             .SetConcentrationAction(ActionDefinitions.ActionParameter.None)
-            .SetMaterialComponent(MaterialComponentType.Mundane)
             .SetEffectDescription(effectDescription)
             .AddToDB();
 

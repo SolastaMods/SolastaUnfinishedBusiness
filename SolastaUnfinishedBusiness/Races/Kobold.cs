@@ -53,7 +53,8 @@ internal static class KoboldRaceBuilder
             .AddToDB();
 
         //explicitly re-use sorcerer spell list, so custom cantrips selected for sorcerer will show here 
-        spellListDraconicKobold.SpellsByLevel[0].Spells = SpellListDefinitions.SpellListSorcerer.SpellsByLevel[0].Spells;
+        spellListDraconicKobold.SpellsByLevel[0].Spells =
+            SpellListDefinitions.SpellListSorcerer.SpellsByLevel[0].Spells;
 
         var castSpellDraconicKoboldMagic = FeatureDefinitionCastSpellBuilder
             .Create("CastSpellDraconicKoboldMagic")

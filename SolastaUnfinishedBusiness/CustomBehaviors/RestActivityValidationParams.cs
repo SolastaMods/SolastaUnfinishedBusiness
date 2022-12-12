@@ -2,8 +2,8 @@
 
 public class RestActivityValidationParams
 {
-    public readonly bool ConsiderUses;
     public readonly bool ConsiderHaving;
+    public readonly bool ConsiderUses;
 
     public RestActivityValidationParams(bool considerUses, bool considerHaving)
     {
