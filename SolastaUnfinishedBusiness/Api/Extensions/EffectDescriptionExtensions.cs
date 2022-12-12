@@ -12,12 +12,14 @@ internal static class EffectDescriptionExtensions
             return null;
         }
 
-        foreach (EffectForm effectForm in effect.effectForms)
+        foreach (var effectForm in effect.effectForms)
         {
             if (effectForm.FormType == EffectForm.EffectFormType.Damage &&
-                effectForm.SavingThrowAffinity != RuleDefinitions.EffectSavingThrowType.Negates | canForceHalfDamage
+                (effectForm.SavingThrowAffinity != RuleDefinitions.EffectSavingThrowType.Negates) | canForceHalfDamage
                 && (types == null || types.Empty() || types.Contains(effectForm.damageForm.damageType)))
+            {
                 return effectForm.damageForm;
+            }
         }
 
         return null;
@@ -30,11 +32,13 @@ internal static class EffectDescriptionExtensions
             return null;
         }
 
-        foreach (EffectForm effectForm in effect.effectForms)
+        foreach (var effectForm in effect.effectForms)
         {
             if (effectForm.FormType == EffectForm.EffectFormType.Damage
                 && (types == null || types.Empty() || types.Contains(effectForm.damageForm.damageType)))
+            {
                 return effectForm.damageForm;
+            }
         }
 
         return null;

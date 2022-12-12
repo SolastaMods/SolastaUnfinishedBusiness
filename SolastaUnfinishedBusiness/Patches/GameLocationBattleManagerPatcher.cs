@@ -408,8 +408,9 @@ public static class GameLocationBattleManagerPatcher
                         totalReducedDamage = feature.ReducedDamage * reactionParams.IntParameter;
                         break;
                 }
-                
-                var trendInfo = new RuleDefinitions.TrendInfo(totalReducedDamage, RuleDefinitions.FeatureSourceType.CharacterFeature, feature.FormatTitle(), feature);
+
+                var trendInfo = new RuleDefinitions.TrendInfo(totalReducedDamage,
+                    RuleDefinitions.FeatureSourceType.CharacterFeature, feature.FormatTitle(), feature);
                 damage.bonusDamage -= totalReducedDamage;
                 damage.DamageBonusTrends.Add(trendInfo);
                 defenderCharacter.DamageReduced(defenderCharacter, feature, totalReducedDamage);

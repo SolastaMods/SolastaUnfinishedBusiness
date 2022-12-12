@@ -71,7 +71,7 @@ internal static class EffectHelpers
 
         return entity as RulesetCharacter;
     }
-    
+
     internal static RulesetEffect GetEffectByGuid(ulong guid)
     {
         if (guid == 0)
