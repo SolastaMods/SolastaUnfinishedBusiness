@@ -468,6 +468,19 @@ internal static class LevelUpContext
         }
     }
 
+    internal static void RemoveItemsIfRequired([NotNull] RulesetCharacterHero hero)
+    {
+        if (!LevelUpTab.TryGetValue(hero, out var levelUpData) || !levelUpData.IsLevelingUp)
+        {
+            return;
+        }
+
+        foreach (var grantedItem in levelUpData.GrantedItems)
+        {
+            hero.LoseItem(grantedItem, false);
+        }
+    }
+
     internal static void GrantRaceFeatures(
         CharacterBuildingManager characterBuildingManager,
         RulesetCharacterHero hero)
@@ -709,7 +722,7 @@ internal static class LevelUpContext
 
         // ReSharper disable once MemberHidesStaticFromOuterClass
         internal bool RequiresDeity { get; set; }
-        internal HashSet<ItemDefinition> GrantedItems { get; set; }
+        internal HashSet<ItemDefinition> GrantedItems { get; set; } = new();
 
         private IEnumerable<FeatureDefinition> SelectedClassFeatures => Hero.ActiveFeatures
             .Where(x => x.Key.Contains(SelectedClass.Name))
