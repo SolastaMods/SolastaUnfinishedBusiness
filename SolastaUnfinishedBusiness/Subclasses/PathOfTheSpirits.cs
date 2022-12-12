@@ -156,13 +156,17 @@ internal sealed class PathOfTheSpirits : AbstractSubclass
             .SetSilent(Silent.WhenAddedOrRemoved)
             .SetSpecialInterruptions(ConditionInterruption.RageStop)
             .SetFeatures(
-                DamageAffinityPoisonResistance,
                 DamageAffinityAcidResistance,
+                DamageAffinityBludgeoningResistance,
                 DamageAffinityColdResistance,
                 DamageAffinityFireResistance,
-                DamageAffinityThunderResistance,
                 DamageAffinityLightningResistance,
-                DamageAffinityNecroticResistance)
+                DamageAffinityNecroticResistance,
+                DamageAffinityPiercingResistance,
+                DamageAffinityPoisonResistance,
+                DamageAffinityRadiantResistance,
+                DamageAffinitySlashingResistance,
+                DamageAffinityThunderResistance)
             .AddToDB();
 
         // only reports condition on char panel
