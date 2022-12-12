@@ -416,7 +416,7 @@ internal static partial class SpellBuilders
             .SetMaterialComponent(MaterialComponentType.Specific)
             .SetSpecificMaterialComponent(TagsDefinitions.WeaponTagMelee, 0, false)
             .SetCustomSubFeatures(
-                PerformAttackAfterMagicEffectUse.MeleeAttack,
+                PerformAttackAfterMagicEffectUse.MeleeAttackCanTwin,
                 new UpgradeRangeBasedOnWeaponReach())
             .SetCastingTime(ActivationTime.Action)
             .SetEffectDescription(EffectDescriptionBuilder.Create()

@@ -4,7 +4,7 @@ namespace SolastaUnfinishedBusiness.CustomBehaviors;
 
 internal interface ICustomItemFilter
 {
-    public bool IsValid(RulesetCharacter character, RulesetItem rulesetItem);
+    public bool IsValid(RulesetCharacter character, RulesetItem rulesetItem, RulesetEffect rulesetEffect);
 }
 
 internal delegate bool IsValidItemHandler(RulesetCharacter character, RulesetItem rulesetItem);
@@ -18,7 +18,7 @@ internal class CustomItemFilter : ICustomItemFilter
         _handler = handler;
     }
 
-    public virtual bool IsValid(RulesetCharacter character, RulesetItem rulesetItem)
+    public virtual bool IsValid(RulesetCharacter character, RulesetItem rulesetItem, RulesetEffect rulesetEffect)
     {
         return _handler(character, rulesetItem);
     }
@@ -50,7 +50,8 @@ internal class CustomItemFilter : ICustomItemFilter
                 continue;
             }
 
-            box.ValidForItemSelection = filter.IsValid(actionParams.ActingCharacter.RulesetCharacter, item);
+            box.ValidForItemSelection = filter.IsValid(actionParams.ActingCharacter.RulesetCharacter, item,
+                actionParams.RulesetEffect);
         }
     }
 }

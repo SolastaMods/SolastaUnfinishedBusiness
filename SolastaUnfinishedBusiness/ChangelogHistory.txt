@@ -1,5 +1,13 @@
 ﻿CHANGES:
 
+1.4.31.7:
+
+- fixed Heavy Armor Master and Dance of Defense to correctly apply damage reduction
+- fixed Raise Shield not triggering
+- fixed Sunlit Blade to work with Twinned Spell metamagic
+- fixed Path of The Spirit Bear Resistance to include missing damage types
+- removed most limitations on infusions applications
+
 1.4.31.6:
 
 - fixed any official spell or power set to melee hit that were allowed range hit by one of our patches
