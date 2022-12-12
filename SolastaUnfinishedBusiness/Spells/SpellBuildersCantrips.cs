@@ -244,7 +244,7 @@ internal static partial class SpellBuilders
 
         return spell;
     }
-    
+
     internal static SpellDefinition BuildIlluminatingSphere()
     {
         const string NAME = "IlluminatingSphere";
@@ -485,7 +485,7 @@ internal static partial class SpellBuilders
                 .SetEffectForms(
                     EffectFormBuilder
                         .Create()
-                        .SetDamageForm(DamageTypePiercing, 1, dieType: DieType.D6)
+                        .SetDamageForm(DamageTypePiercing, 1, DieType.D6)
                         .Build(),
                     EffectFormBuilder
                         .Create()

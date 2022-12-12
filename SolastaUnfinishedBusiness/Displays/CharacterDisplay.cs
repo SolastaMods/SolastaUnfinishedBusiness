@@ -54,7 +54,7 @@ internal static class CharacterDisplay
         {
             Main.Settings.DisableRacePrerequisitesOnModFeats = toggle;
         }
-     
+
         UI.Label();
 
         toggle = Main.Settings.EnableEpicPointsAndArray;

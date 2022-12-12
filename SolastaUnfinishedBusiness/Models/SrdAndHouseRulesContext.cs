@@ -549,11 +549,11 @@ internal static class SrdAndHouseRulesContext
 
     private sealed class CanIdentifyOnRest : IPowerUseValidity
     {
-        public static CanIdentifyOnRest Mark { get; } = new();
-
         private CanIdentifyOnRest()
         {
         }
+
+        public static CanIdentifyOnRest Mark { get; } = new();
 
         public bool CanUsePower(RulesetCharacter character, FeatureDefinitionPower power)
         {
@@ -573,11 +573,11 @@ internal static class SrdAndHouseRulesContext
 
     private sealed class IdentifyItems : ICustomConditionFeature
     {
-        public static IdentifyItems Mark { get; } = new();
-
         private IdentifyItems()
         {
         }
+
+        public static IdentifyItems Mark { get; } = new();
 
         public void ApplyFeature(RulesetCharacter target, RulesetCondition rulesetCondition)
         {

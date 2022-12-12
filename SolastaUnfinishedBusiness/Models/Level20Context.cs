@@ -159,12 +159,13 @@ internal static class Level20Context
         {
             featureDefinitionCastSpell.spellKnowledge = SpellKnowledge.Selection;
         }
-        
+
         //
         // BUGFIX: add a sprite reference to Resurrection
         //
-        
-        Resurrection.GuiPresentation.spriteReference = Sprites.GetSprite("Resurrection", Resources.Resurrection, 128, 128);
+
+        Resurrection.GuiPresentation.spriteReference =
+            Sprites.GetSprite("Resurrection", Resources.Resurrection, 128, 128);
     }
 
     internal static void LateLoad()

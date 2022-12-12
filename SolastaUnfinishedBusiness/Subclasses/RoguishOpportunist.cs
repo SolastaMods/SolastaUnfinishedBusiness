@@ -1,5 +1,4 @@
 ﻿using System.Collections;
-using SolastaUnfinishedBusiness.Api.Extensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomInterfaces;
@@ -71,7 +70,7 @@ internal sealed class RoguishOpportunist : AbstractSubclass
                 onComputeAttackModifierOpportunistQuickStrike)
             .AddFeaturesAtLevel(9,
                 powerOpportunistDebilitatingStrike)
-            .AddFeaturesAtLevel( 13, followupStrikeOnTargetFailedSavingThrow)
+            .AddFeaturesAtLevel(13, followupStrikeOnTargetFailedSavingThrow)
             .AddToDB();
     }
 
@@ -92,7 +91,7 @@ internal sealed class RoguishOpportunist : AbstractSubclass
             {
                 return;
             }
-            
+
             var hero = GameLocationCharacter.GetFromActor(myself);
             var target = GameLocationCharacter.GetFromActor(defender);
 
@@ -109,14 +108,14 @@ internal sealed class RoguishOpportunist : AbstractSubclass
             {
                 return;
             }
-            
+
             attackModifier.attackAdvantageTrends.Add(new TrendInfo(1,
                 FeatureSourceType.CharacterFeature, "Feature/&OnComputeAttackModifierOpportunistQuickStrikeTitle",
                 null));
         }
     }
 
-    private sealed class FollowUpStrikeWhenFoesFailedSavingThrow: IOnDefenderFailedSavingThrow
+    private sealed class FollowUpStrikeWhenFoesFailedSavingThrow : IOnDefenderFailedSavingThrow
     {
         public IEnumerator OnDefenderFailedSavingThrow(GameLocationBattleManager __instance, CharacterAction action,
             GameLocationCharacter me, GameLocationCharacter target, ActionModifier saveModifier, bool hasHitVisual,
@@ -131,8 +130,8 @@ internal sealed class RoguishOpportunist : AbstractSubclass
 
             var attackMode = me.FindActionAttackMode(ActionDefinitions.Id.AttackMain);
             attackMode.AttackTags.Add("RefreshSneakAttack");
-                
-            BattleDefinitions.AttackEvaluationParams attackParam = new BattleDefinitions.AttackEvaluationParams();
+
+            var attackParam = new BattleDefinitions.AttackEvaluationParams();
             if (attackMode.Ranged)
             {
                 attackParam.FillForPhysicalRangeAttack(me, me.LocationPosition, attackMode,
@@ -141,9 +140,9 @@ internal sealed class RoguishOpportunist : AbstractSubclass
             else
             {
                 attackParam.FillForPhysicalReachAttack(me, me.LocationPosition, attackMode,
-                    target, target.LocationPosition, new ActionModifier());    
+                    target, target.LocationPosition, new ActionModifier());
             }
-                
+
             if (!__instance.CanAttack(attackParam))
             {
                 yield break;
@@ -152,7 +151,7 @@ internal sealed class RoguishOpportunist : AbstractSubclass
             var actionService = ServiceRepository.GetService<IGameLocationActionService>();
             var count = actionService.PendingReactionRequestGroups.Count;
 
-            CharacterActionParams reactionParams = new CharacterActionParams(me,
+            var reactionParams = new CharacterActionParams(me,
                 ActionDefinitions.Id.AttackOpportunity,
                 me.RulesetCharacter.AttackModes[0], target, new ActionModifier());
             actionService.ReactForOpportunityAttack(reactionParams);
