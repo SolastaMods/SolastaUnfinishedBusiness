@@ -7,65 +7,61 @@ namespace SolastaUnfinishedBusiness.Patches;
 [UsedImplicitly]
 public static class MultiplayerStatusModalPatcher
 {
-    [HarmonyPatch(typeof(MultiplayerWaitModal), "OnBeginShow")]
+    [HarmonyPatch(typeof(MultiplayerStatusModal), "OnBeginShow")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     public static class OnBeginShow1_Patch
     {
-        public static void Prefix([NotNull] MultiplayerWaitModal __instance)
+        public static void Prefix([NotNull] MultiplayerStatusModal __instance)
         {
             //PATCH: allows up to 6 players to join the game if there are enough heroes available (PARTYSIZE)
-            if (__instance.notReadyPlayerInfoGroups.Count > 0)
+            switch (__instance)
             {
-                while (__instance.notReadyPlayerInfoGroups.Count < Main.Settings.OverridePartySize)
+                case MultiplayerWaitModal multiplayerStatusModal:
                 {
-                    __instance.notReadyPlayerInfoGroups.Add(__instance.notReadyPlayerInfoGroups[0]);
-                }
-            }
+                    if (multiplayerStatusModal.notReadyPlayerInfoGroups.Count > 0)
+                    {
+                        while (multiplayerStatusModal.notReadyPlayerInfoGroups.Count < Main.Settings.OverridePartySize)
+                        {
+                            multiplayerStatusModal.notReadyPlayerInfoGroups.Add(multiplayerStatusModal
+                                .notReadyPlayerInfoGroups[0]);
+                        }
+                    }
 
-            if (__instance.readyPlayerInfoGroups.Count > 0)
-            {
-                while (__instance.readyPlayerInfoGroups.Count < Main.Settings.OverridePartySize)
+                    if (multiplayerStatusModal.readyPlayerInfoGroups.Count > 0)
+                    {
+                        while (multiplayerStatusModal.readyPlayerInfoGroups.Count < Main.Settings.OverridePartySize)
+                        {
+                            multiplayerStatusModal.readyPlayerInfoGroups.Add(multiplayerStatusModal
+                                .readyPlayerInfoGroups[0]);
+                        }
+                    }
+
+                    break;
+                }
+                case MultiplayerKickModal multiplayerKickModal:
                 {
-                    __instance.readyPlayerInfoGroups.Add(__instance.readyPlayerInfoGroups[0]);
+                    if (multiplayerKickModal.playerInfoGroups.Count > 0)
+                    {
+                        while (multiplayerKickModal.playerInfoGroups.Count < Main.Settings.OverridePartySize)
+                        {
+                            multiplayerKickModal.playerInfoGroups.Add(multiplayerKickModal.playerInfoGroups[0]);
+                        }
+                    }
+
+                    break;
                 }
-            }
-        }
-    }
+                case MultiplayerVoteModal multiplayerVoteModal:
+                {
+                    if (multiplayerVoteModal.playerInfoGroups.Count > 0)
+                    {
+                        while (multiplayerVoteModal.playerInfoGroups.Count < Main.Settings.OverridePartySize)
+                        {
+                            multiplayerVoteModal.playerInfoGroups.Add(multiplayerVoteModal.playerInfoGroups[0]);
+                        }
+                    }
 
-    [HarmonyPatch(typeof(MultiplayerKickModal), "OnBeginShow")]
-    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    public static class OnBeginShow2_Patch
-    {
-        public static void Prefix([NotNull] MultiplayerKickModal __instance)
-        {
-            //PATCH: allows up to 6 players to join the game if there are enough heroes available (PARTYSIZE)
-            if (__instance.playerInfoGroups.Count <= 0)
-            {
-                return;
-            }
-
-            while (__instance.playerInfoGroups.Count < Main.Settings.OverridePartySize)
-            {
-                __instance.playerInfoGroups.Add(__instance.playerInfoGroups[0]);
-            }
-        }
-    }
-
-    [HarmonyPatch(typeof(MultiplayerVoteModal), "OnBeginShow")]
-    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    public static class OnBeginShow3_Patch
-    {
-        public static void Prefix([NotNull] MultiplayerVoteModal __instance)
-        {
-            //PATCH: allows up to 6 players to join the game if there are enough heroes available (PARTYSIZE)
-            if (__instance.playerInfoGroups.Count <= 0)
-            {
-                return;
-            }
-
-            while (__instance.playerInfoGroups.Count < Main.Settings.OverridePartySize)
-            {
-                __instance.playerInfoGroups.Add(__instance.playerInfoGroups[0]);
+                    break;
+                }
             }
         }
     }
