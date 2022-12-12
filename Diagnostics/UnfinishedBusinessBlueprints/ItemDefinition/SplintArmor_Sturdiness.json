@@ -184,9 +184,9 @@
       "m_SubObjectType": ""
     },
     "scaleFactorWhileWielded": 1.0,
-    "useArmorAddressableName": false,
+    "useArmorAddressableName": true,
     "isArmorAddressableNameGenderSpecific": false,
-    "armorAddressableName": "",
+    "armorAddressableName": "SplintArmor",
     "maleArmorAddressableName": "",
     "femaleArmorAddressableName": "",
     "useCustomArmorMaterial": false,

@@ -1,5 +1,16 @@
 ﻿CHANGES:
 
+1.4.31.6:
+
+- fixed broken Empress Garb re-skins
+- fixed cantrips not getting offered under MC if one of the previous classes had full spells knowledge
+- fixed Heart Seeking Shot damage advancement 
+- fixed Level 20 allowing level up past 12
+- fixed multiclass into Wizard not acquiring a spellbook before the spell learning step
+- fixed Revenant feats not filtering on Great Sword
+- fixed some crafted armors not having a model assigned
+- fixed translation typos on recently added feats
+
 1.4.31.5:
 
 - added Chilling Blast, Corrosive Blast, Fiery Blast and Fulminate Blast invocations at 2nd

@@ -1,25 +1,14 @@
-﻿ATTENTION BEFORE YOU ACCEPT THIS UPDATE:
+﻿KNOWN ISSUES:
 
-- RESPEC any hero that took Improved, Superior or Ultimate pact weapon
-- STOP any Spirit Guardian effect on your saves
+- Heavy Armor Master and Dance of Defense not applying damage reduction
 
-1.4.31.5:
-- added Chilling Blast, Corrosive Blast, Fiery Blast and Fulminate Blast invocations at 2nd
-- added Discerning Gaze, Gift of The Hunter and Spectral Shield invocations at 5th
-- added Breaker and Banisher at 9th
-- fixed Wildshape bonus action bleeding into other classes
+CHANGES:
 
-1.4.31.4:
-- added Brazilian Portuguese translation fixes by @Itomon
-- added custom sprites from @Balmz to all 3 powers in Healer feat
-- added Kinesis and Stasis invocations at 7th based on Timelord sub class by @Taco
-- added level 13th feature to Roguish Opportunist
-- added level 15th feature to Martial Marshal
-- fixed an issue introduced on last release preventing main campaign from advance
-- fixed Circle of The Night to also offer Wildshape as a bonus action during combat
-- fixed Improved, Superior and Ultimate pact weapon not summing up as they should
-- fixed missing translation terms on Noble Clothes
-- fixed Path of The Spirits spirit guardian DC
-- fixed Patron Elementalist elemental form to have PB per long rest max usage
-- fixed spell registration to ensure mod spells are correctly offered during level up
-- improved Patron Rift Walker to keep spells concentration when using it's powers
+- fixed broken Empress Garb re-skins
+- fixed cantrips not getting offered under MC if one of the previous classes had full spells knowledge
+- fixed Heart Seeking Shot damage advancement 
+- fixed Level 20 allowing level up past 12
+- fixed multiclass into Wizard not acquiring a spellbook before the spell learning step
+- fixed Revenant feats not filtering on Great Sword
+- fixed some crafted armors not having a model assigned
+- fixed translation typos on recently added feats
