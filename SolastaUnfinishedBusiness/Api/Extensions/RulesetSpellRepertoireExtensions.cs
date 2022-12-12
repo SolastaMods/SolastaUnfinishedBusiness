@@ -8,4 +8,23 @@ public static class RulesetSpellRepertoireExtensions
     {
         return EffectHelpers.GetCharacterByGuid(repertoire.CharacterInventory?.BearerGuid ?? 0) as RulesetCharacterHero;
     }
+
+    public static bool AtLeastOneSpellSlotAvailable(this RulesetSpellRepertoire repertoire)
+    {
+        for (var spellLevel = 1;
+             spellLevel <= repertoire.MaxSpellLevelOfSpellCastingLevel;
+             spellLevel++)
+        {
+            repertoire.GetSlotsNumber(spellLevel, out var remaining, out _);
+
+            if (remaining <= 0)
+            {
+                continue;
+            }
+
+            return true;
+        }
+
+        return false;
+    }
 }
