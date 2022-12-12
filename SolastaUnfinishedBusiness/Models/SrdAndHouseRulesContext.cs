@@ -73,6 +73,7 @@ internal static class SrdAndHouseRulesContext
     {
         FixDivineSmiteRestrictions();
         FixDivineSmiteDiceNumberWhenUsingHighLevelSlots();
+        FixMeleeHitEffectsRange();
         FixMountaineerBonusShoveRestrictions();
         FixRecklessAttackForReachWeapons();
         MinorFixes();
@@ -182,6 +183,27 @@ internal static class SrdAndHouseRulesContext
     {
         FeatureDefinitionAdditionalDamages.AdditionalDamagePaladinDivineSmite.diceByRankTable =
             DiceByRankBuilder.BuildDiceByRankTable(2);
+    }
+
+    /**
+     * Ensures any spell or power effect in game that uses MeleeHit has a correct range of 1.
+     * Otherwise our AttackEvaluationParams.FillForMagicReachAttack will use incorrect data.
+     */
+    private static void FixMeleeHitEffectsRange()
+    {
+        foreach (var effectDescription in DatabaseRepository.GetDatabase<SpellDefinition>()
+                     .Select(x => x.EffectDescription)
+                     .Where(x => x.rangeType == RangeType.MeleeHit))
+        {
+            effectDescription.rangeParameter = 1;
+        }
+
+        foreach (var effectDescription in DatabaseRepository.GetDatabase<FeatureDefinitionPower>()
+                     .Select(x => x.EffectDescription)
+                     .Where(x => x.rangeType == RangeType.MeleeHit))
+        {
+            effectDescription.rangeParameter = 1;
+        }
     }
 
     /**
