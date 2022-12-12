@@ -1,9 +1,13 @@
 ﻿KNOWN ISSUES:
 
 - Heavy Armor Master and Dance of Defense not applying damage reduction
+- Official Raise Shield feat is broken but not us, on TA
+- Sunlit Blade not working with Twinned Spell metamagic
+- Twin Blade not triggering
 
 CHANGES:
 
+- fixed any official spell or power set to melee hit that were allowed range hit by one of our patches
 - fixed broken Empress Garb re-skins
 - fixed cantrips not getting offered under MC if one of the previous classes had full spells knowledge
 - fixed Heart Seeking Shot damage advancement 

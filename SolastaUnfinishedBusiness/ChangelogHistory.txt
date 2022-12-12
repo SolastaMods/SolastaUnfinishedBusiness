@@ -2,6 +2,7 @@
 
 1.4.31.6:
 
+- fixed any official spell or power set to melee hit that were allowed range hit by one of our patches
 - fixed broken Empress Garb re-skins
 - fixed cantrips not getting offered under MC if one of the previous classes had full spells knowledge
 - fixed Heart Seeking Shot damage advancement 
