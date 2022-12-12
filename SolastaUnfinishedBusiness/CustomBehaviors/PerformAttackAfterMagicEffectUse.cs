@@ -11,6 +11,7 @@ internal sealed class PerformAttackAfterMagicEffectUse : IPerformAttackAfterMagi
     private const RuleDefinitions.RollOutcome MinOutcomeToAttack = RuleDefinitions.RollOutcome.Success;
     private const RuleDefinitions.RollOutcome MinSaveOutcomeToAttack = RuleDefinitions.RollOutcome.Failure;
     internal static readonly IPerformAttackAfterMagicEffectUse MeleeAttack = new PerformAttackAfterMagicEffectUse(1);
+    internal static readonly IPerformAttackAfterMagicEffectUse MeleeAttackCanTwin = new PerformAttackAfterMagicEffectUse(2);
     private readonly int maxAttacks;
 
     private PerformAttackAfterMagicEffectUse(int maxAttacks)

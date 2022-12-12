@@ -71,6 +71,21 @@ internal static class EffectHelpers
 
         return entity as RulesetCharacter;
     }
+    
+    internal static RulesetEffect GetEffectByGuid(ulong guid)
+    {
+        if (guid == 0)
+        {
+            return null;
+        }
+
+        if (!RulesetEntity.TryGetEntity<RulesetEffect>(guid, out var entity))
+        {
+            return null;
+        }
+
+        return entity;
+    }
 
     internal static List<RulesetCharacter> GetSummonedCreatures(RulesetEffect effect)
     {
@@ -101,17 +116,7 @@ internal static class EffectHelpers
 
     internal static RulesetCharacter GetCharacterByEffectGuid(ulong guid)
     {
-        if (guid == 0)
-        {
-            return null;
-        }
-
-        if (!RulesetEntity.TryGetEntity<RulesetEffect>(guid, out var effect))
-        {
-            return null;
-        }
-
-        return effect switch
+        return GetEffectByGuid(guid) switch
         {
             RulesetEffectSpell spell => spell.Caster,
             RulesetEffectPower power => power.User,
