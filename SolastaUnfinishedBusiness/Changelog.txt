@@ -11,5 +11,3 @@ CHANGES:
 - fixed Draconic Cry range from 5ft to 10ft
 - fixed even level feats for Fighter at 6 / 14 and Rogues at 10
 - fixed precision feats not set to magical
-- improved Deadeye to trigger on throwing weapons when used as Range
-- improved Power Attack to trigger on throwing weapons when used as Melee
