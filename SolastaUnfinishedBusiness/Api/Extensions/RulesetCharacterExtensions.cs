@@ -280,7 +280,7 @@ internal static class RulesetCharacterExtensions
                 }
             }
 
-            if (isValid && instance.CanCastInvocation(invocation))
+            if (isValid)
             {
                 return true;
             }
