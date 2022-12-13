@@ -1,8 +1,15 @@
 ﻿KNOWN ISSUES:
 
+- You might need to RESPEC Inventors with any existing infusions
 - Grenadier bombs have DC 0 under MP [please share a log after you use a bomb if you face this]
 
 CHANGES:
 
 - added Gameplay > Rules > SRD setting to Change Eldritch Blast range from 16 to 24
+- added Protect Threshold icon by @balmz
+- disabled Inventory Filtering and Sorting feature under MP
 - fixed Draconic Cry range from 5ft to 10ft
+- fixed even level feats for Fighter at 6 / 14 and Rogues at 10
+- fixed precision feats not set to magical
+- improved Deadeye to trigger on throwing weapons when used as Range
+- improved Power Attack to trigger on throwing weapons when used as Melee
