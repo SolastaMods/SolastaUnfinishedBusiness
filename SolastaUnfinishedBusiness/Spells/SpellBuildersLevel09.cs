@@ -198,7 +198,6 @@ internal static partial class SpellBuilders
                 EffectFormBuilder
                     .Create()
                     .SetKillForm(KillCondition.UnderHitPoints, 0F, 100)
-                    .CreatedByCharacter()
                     .Build())
             .Build();
 

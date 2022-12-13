@@ -47,7 +47,6 @@ internal static partial class SpellBuilders
                 EffectFormBuilder
                     .Create()
                     .SetMotionForm(MotionForm.MotionType.FallProne, 1)
-                    .CreatedByCharacter()
                     .HasSavingThrow(EffectSavingThrowType.Negates).Build(),
                 EffectFormBuilder
                     .Create()

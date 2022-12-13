@@ -222,7 +222,6 @@ internal sealed class MartialMarshal : AbstractSubclass
                     EffectFormBuilder
                         .Create()
                         .SetSummonCreatureForm(1, EternalComradeName)
-                        .CreatedByCharacter()
                         .Build())
                 .Build())
             .AddToDB();
@@ -322,7 +321,7 @@ internal sealed class MartialMarshal : AbstractSubclass
                 .SetEffectForms(
                     EffectFormBuilder
                         .Create()
-                        .CreatedByCharacter()
+
                         .SetConditionForm(ConditionEncourage, ConditionForm.ConditionOperation.Add, false,
                             false)
                         .Build())
@@ -350,7 +349,6 @@ internal sealed class MartialMarshal : AbstractSubclass
                 .SetEffectForms(
                     EffectFormBuilder
                         .Create()
-                        .CreatedByCharacter()
                         .SetConditionForm(ConditionEncourage, ConditionForm.ConditionOperation.Add, false,
                             false)
                         .Build())

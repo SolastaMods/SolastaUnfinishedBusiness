@@ -33,7 +33,6 @@ internal sealed class MartialRoyalKnight : AbstractSubclass
             .SetEffectForms(
                 EffectFormBuilder
                     .Create()
-                    .CreatedByCharacter()
                     .SetHealingForm(
                         HealingComputation.Dice,
                         0,

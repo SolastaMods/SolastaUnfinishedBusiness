@@ -70,7 +70,6 @@ internal static class OtherFeats
                         false,
                         HealingCap.MaximumHitPoints)
                     .SetLevelAdvancement(EffectForm.LevelApplianceType.AddBonus, LevelSourceType.CharacterLevel)
-                    .CreatedByCharacter()
                     .Build())
                 .SetEffectAdvancement(EffectIncrementMethod.None)
                 .SetParticleEffectParameters(SpellDefinitions.MagicWeapon)
@@ -94,7 +93,6 @@ internal static class OtherFeats
                 .SetRequiredCondition(ConditionDefinitions.ConditionDead)
                 .SetEffectForms(EffectFormBuilder.Create()
                     .SetReviveForm(12, ReviveHitPoints.One)
-                    .CreatedByCharacter()
                     .Build())
                 .SetEffectAdvancement(EffectIncrementMethod.None)
                 .SetParticleEffectParameters(SpellDefinitions.MagicWeapon)
