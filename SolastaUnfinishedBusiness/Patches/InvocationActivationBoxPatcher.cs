@@ -64,27 +64,33 @@ public static class InvocationActivationBoxPatcher
                 UpdatePowerSlots(__instance, invocation, activator);
 
                 //PATCH: support for invocations that recharge on short rest (like Fey Teleportation feat)
-                if (invocation.InvocationDefinition.HasSubFeatureOfType<InvocationShortRestRecharge>())
+                UpdateUsedState(__instance, invocation, activator);
+            }
+        }
+
+        private static void UpdateUsedState(InvocationActivationBox box, RulesetInvocation invocation,
+            RulesetCharacter activator)
+        {
+
+            if (invocation.InvocationDefinition.HasSubFeatureOfType<InvocationShortRestRecharge>())
+            {
+                var restSymbol = box.restSymbol;
+                restSymbol.gameObject.SetActive(true);
+                box.infinitySymbol.gameObject.SetActive(false);
+
+                if (restSymbol.gameObject.activeSelf)
                 {
-                    var restSymbol = __instance.restSymbol;
-                    restSymbol.gameObject.SetActive(true);
-                    __instance.infinitySymbol.gameObject.SetActive(false);
-
-                    if (restSymbol.gameObject.activeSelf)
-                    {
-                        restSymbol.color = !invocation.Used ? __instance.availableColor : __instance.unavailableColor;
-                        __instance.restSymbolTooltip.Content = !invocation.Used
-                            ? "Tooltip/&InvocationUsageShortRestAvailableDescription"
-                            : "Tooltip/&InvocationUsageShortRestUsedDescription";
-                    }
-
-                    var available = !invocation.Used && activator.CanCastInvocation(invocation);
-                    __instance.button.interactable = available;
-                    __instance.canvasGroup.interactable = available;
-                    __instance.icon.material = available ? __instance.availableMaterial : __instance.unavailableMaterial;
-                    __instance.icon.color = available ? Color.white : new Color(0.5f, 0.5f, 0.5f, 1f);
+                    restSymbol.color = !invocation.Used ? box.availableColor : box.unavailableColor;
+                    box.restSymbolTooltip.Content = !invocation.Used
+                        ? "Tooltip/&InvocationUsageShortRestAvailableDescription"
+                        : "Tooltip/&InvocationUsageShortRestUsedDescription";
                 }
 
+                var available = !invocation.Used && activator.CanCastInvocation(invocation);
+                box.button.interactable = available;
+                box.canvasGroup.interactable = available;
+                box.icon.material = available ? box.availableMaterial : box.unavailableMaterial;
+                box.icon.color = available ? Color.white : new Color(0.5f, 0.5f, 0.5f, 1f);
             }
         }
 
