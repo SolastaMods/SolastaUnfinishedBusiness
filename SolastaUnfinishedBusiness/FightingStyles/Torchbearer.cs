@@ -28,7 +28,6 @@ internal sealed class Torchbearer : AbstractFightingStyle
                         ConditionDefinitions.ConditionOnFire1D4,
                         ConditionForm.ConditionOperation.Add)
                     .HasSavingThrow(EffectSavingThrowType.Negates, TurnOccurenceType.StartOfTurn)
-                    .CreatedByCharacter()
                     .Build())
             .SetSavingThrowData(
                 false,

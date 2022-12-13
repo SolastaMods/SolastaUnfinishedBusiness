@@ -644,7 +644,6 @@ internal static class Level20Context
 
         var effectFormRestoration = EffectFormBuilder
             .Create()
-            .CreatedByCharacter()
             .SetSpellForm(9)
             .Build();
 
