@@ -39,7 +39,7 @@ internal static class CharacterContext
     {
         // +1 here as need to count the Alternate Human Feat
         // + 20 here to allow it to be set directly on XML file
-        for (var i = 2; i <= MaxInitialFeats + 1 + 20; i++)
+        for (var i = 1; i <= MaxInitialFeats + 1 + 20; i++)
         {
             var s = i.ToString();
 
@@ -349,41 +349,39 @@ internal static class CharacterContext
     {
         var levels = new[] { 2, 6, 10, 14 };
         var dbCharacterClassDefinition = DatabaseRepository.GetDatabase<CharacterClassDefinition>();
-        var dbFeatureDefinitionPointPool = DatabaseRepository.GetDatabase<FeatureDefinitionPointPool>();
-        var pointPool2BonusFeats = dbFeatureDefinitionPointPool.GetElement("PointPool2BonusFeats");
+        var pointPool1BonusFeats = GetDefinition<FeatureDefinitionPointPool>("PointPool1BonusFeats");
+        var pointPool2BonusFeats = GetDefinition<FeatureDefinitionPointPool>("PointPool2BonusFeats");
 
         foreach (var characterClassDefinition in dbCharacterClassDefinition)
         {
             foreach (var level in levels)
             {
-                var featureUnlockPointPool1 = new FeatureUnlockByLevel(PointPoolBonusFeat, level);
+                var featureUnlockPointPool1 = new FeatureUnlockByLevel(pointPool1BonusFeats, level);
                 var featureUnlockPointPool2 = new FeatureUnlockByLevel(pointPool2BonusFeats, level);
+
+                bool ShouldBe2Points()
+                {
+                    return (characterClassDefinition == CharacterClassDefinitions.Rogue && level is 10) ||
+                           (characterClassDefinition == CharacterClassDefinitions.Fighter && level is 6 or 14);
+                }
 
                 if (Main.Settings.EnableFeatsAtEvenLevels)
                 {
-                    if (characterClassDefinition.FeatureUnlocks.Contains(featureUnlockPointPool1))
-                    {
-                        characterClassDefinition.FeatureUnlocks.RemoveAll(
-                            x => x.FeatureDefinition == PointPoolBonusFeat);
-                        characterClassDefinition.FeatureUnlocks.Add(featureUnlockPointPool2);
-                    }
-                    else
-                    {
-                        characterClassDefinition.FeatureUnlocks.Add(featureUnlockPointPool1);
-                    }
+                    characterClassDefinition.FeatureUnlocks.Add(ShouldBe2Points()
+                        ? featureUnlockPointPool2
+                        : featureUnlockPointPool1);
                 }
                 else
                 {
-                    if (characterClassDefinition.FeatureUnlocks.Contains(featureUnlockPointPool2))
+                    if (ShouldBe2Points())
                     {
                         characterClassDefinition.FeatureUnlocks.RemoveAll(x =>
-                            x.FeatureDefinition == pointPool2BonusFeats);
-                        characterClassDefinition.FeatureUnlocks.Add(featureUnlockPointPool1);
+                            x.FeatureDefinition == pointPool2BonusFeats && x.level == level);
                     }
                     else
                     {
-                        characterClassDefinition.FeatureUnlocks.RemoveAll(
-                            x => x.FeatureDefinition == PointPoolBonusFeat);
+                        characterClassDefinition.FeatureUnlocks.RemoveAll(x =>
+                            x.FeatureDefinition == pointPool1BonusFeats && x.level == level);
                     }
                 }
             }
