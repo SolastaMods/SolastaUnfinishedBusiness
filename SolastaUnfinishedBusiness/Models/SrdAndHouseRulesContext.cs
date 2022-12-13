@@ -81,6 +81,7 @@ internal static class SrdAndHouseRulesContext
         SwitchFilterOnHideousLaughter();
         SwitchRecurringEffectOnEntangle();
         UseCubeOnSleetStorm();
+        SwitchEldritchBlastRange();
         UseHeightOneCylinderEffect();
         SwitchUniversalSylvanArmorAndLightbringer();
         SwitchDruidAllowMetalArmor();
@@ -356,6 +357,11 @@ internal static class SrdAndHouseRulesContext
             sleetStormEffect.targetParameter = 4;
             sleetStormEffect.targetParameter2 = 3;
         }
+    }
+
+    internal static void SwitchEldritchBlastRange()
+    {
+        EldritchBlast.effectDescription.rangeParameter = Main.Settings.FixEldritchBlastRange ? 24 : 16;
     }
 
     internal static void UseHeightOneCylinderEffect()

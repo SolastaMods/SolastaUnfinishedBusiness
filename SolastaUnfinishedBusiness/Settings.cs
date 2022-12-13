@@ -147,6 +147,7 @@ public class Settings : UnityModManager.ModSettings
     public bool RemoveRecurringEffectOnEntangle { get; set; }
 
     public bool ChangeSleetStormToCube { get; set; }
+    public bool FixEldritchBlastRange { get; set; }
     public bool UseHeightOneCylinderEffect { get; set; }
 
     // House

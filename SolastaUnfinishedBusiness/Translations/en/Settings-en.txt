@@ -178,3 +178,4 @@ ModUi/&UseOfficialAdvantageDisadvantageRules=Use official advantage / disadvanta
 ModUi/&Visuals=<color=#F0DAA0>Visuals:</color> <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
 ModUi/&DisableRacePrerequisitesOnModFeats=Disable Race pre-requisites on feats provided by this mod
 ModUi/&EncounterPercentageChance=<color=white>Set random encounters percentage chances</color>
+ModUi/&FixEldritchBlastRange=Change <color=#D89555>Eldritch Blast</color> range to 24 <i><color=#F0DAA0>[instead of 16]</color></i>

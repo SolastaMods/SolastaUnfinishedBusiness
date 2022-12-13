@@ -102,13 +102,18 @@ internal static class RulesDisplay
             SrdAndHouseRulesContext.SwitchRecurringEffectOnEntangle();
         }
 
-        UI.Label();
-
         toggle = Main.Settings.ChangeSleetStormToCube;
         if (UI.Toggle(Gui.Localize("ModUi/&ChangeSleetStormToCube"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.ChangeSleetStormToCube = toggle;
             SrdAndHouseRulesContext.UseCubeOnSleetStorm();
+        }
+
+        toggle = Main.Settings.FixEldritchBlastRange;
+        if (UI.Toggle(Gui.Localize("ModUi/&FixEldritchBlastRange"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.FixEldritchBlastRange = toggle;
+            SrdAndHouseRulesContext.SwitchEldritchBlastRange();
         }
 
         toggle = Main.Settings.UseHeightOneCylinderEffect;
