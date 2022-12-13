@@ -37,6 +37,50 @@ public static class CharacterActionPanelPatcher
         }
     }
 
+    [HarmonyPatch(typeof(CharacterActionPanel), nameof(CharacterActionPanel.RefreshActions))]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    public static class RefreshActions_Patch
+    {
+        public static IEnumerable<CodeInstruction> Transpiler([NotNull] IEnumerable<CodeInstruction> instructions)
+        {
+            //PATCH: hide power button on action panel if no valid powers to use or see
+            var method = new Func<
+                List<ActionDefinitions.Id>,
+                CharacterActionPanel,
+                int
+            >(FilterActions).Method;
+
+            //TODO: it replaces first call to get_Count, find a better way to find proper place
+            return instructions.ReplaceCode(
+                code => code.opcode == OpCodes.Callvirt && $"{code.operand}".Contains("get_Count"), 1,
+                "CharacterActionPanel.RefreshActions",
+                new CodeInstruction(OpCodes.Ldarg_0),
+                new CodeInstruction(OpCodes.Call, method));
+        }
+
+        private static int FilterActions(List<ActionDefinitions.Id> actions, CharacterActionPanel panel)
+        {
+            var character = panel.GuiCharacter.RulesetCharacter;
+            var battle = Gui.Battle != null;
+            actions.RemoveAll(id => ActionIsInvalid(id, character, battle));
+            return actions.Count;
+        }
+
+        private static bool ActionIsInvalid(ActionDefinitions.Id id, RulesetCharacter character, bool battle)
+        {
+            return id switch
+            {
+                ActionDefinitions.Id.PowerMain => !character.CanSeeAndUseAtLeastOnePower(
+                    ActionDefinitions.ActionType.Main, battle),
+                ActionDefinitions.Id.PowerBonus => !character.CanSeeAndUseAtLeastOnePower(
+                    ActionDefinitions.ActionType.Bonus, battle),
+                ActionDefinitions.Id.PowerNoCost => !character.CanSeeAndUseAtLeastOnePower(
+                    ActionDefinitions.ActionType.NoCost, battle),
+                _ => false
+            };
+        }
+    }
+
     [HarmonyPatch(typeof(CharacterActionPanel), "OnActivateAction")]
     [HarmonyPatch(new[] { typeof(ActionDefinitions.Id), typeof(GuiCharacterAction) })]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]

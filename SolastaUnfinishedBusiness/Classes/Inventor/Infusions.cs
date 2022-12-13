@@ -21,7 +21,7 @@ internal static class Infusions
 {
     private const string ReplicaItemTitleFormat = "Item/&ReplicaItemFormatTitle";
     private const string ReplicaItemTitleDescription = "Item/&ReplicaItemFormatDescription";
-    private const int UngradeLevel = 10;
+    private const int UpgradeLevel = 10;
 
     public static void Build()
     {
@@ -37,7 +37,7 @@ internal static class Infusions
                 .SetCastingModifiers(1, dcModifier: 1)
                 .AddToDB());
 
-        UpgradeInfusionPower(power, UngradeLevel, FeatureDefinitionMagicAffinityBuilder
+        UpgradeInfusionPower(power, UpgradeLevel, FeatureDefinitionMagicAffinityBuilder
             //TODO: RAW needs to require attunement
             .Create($"MagicAffinity{name}Upgraded")
             .SetGuiPresentation(name, Category.Feature, FeatureDefinitionAttackModifiers.AttackModifierMagicWeapon3)
@@ -56,7 +56,7 @@ internal static class Infusions
                 .SetModifier(AttributeModifierOperation.Additive, AttributeDefinitions.ArmorClass, 1)
                 .AddToDB());
 
-        UpgradeInfusionPower(power, UngradeLevel, FeatureDefinitionAttributeModifierBuilder
+        UpgradeInfusionPower(power, UpgradeLevel, FeatureDefinitionAttributeModifierBuilder
             .Create($"AttributeModifier{name}Upgraded")
             .SetGuiPresentation(name, Category.Feature, ConditionDefinitions.ConditionShielded)
             .SetModifier(AttributeModifierOperation.Additive, AttributeDefinitions.ArmorClass, 2)
@@ -76,7 +76,7 @@ internal static class Infusions
             .SetMagicalWeapon()
             .AddToDB());
 
-        UpgradeInfusionPower(power, UngradeLevel, FeatureDefinitionAttackModifierBuilder
+        UpgradeInfusionPower(power, UpgradeLevel, FeatureDefinitionAttackModifierBuilder
             .Create($"AttackModifier{name}Upgraded")
             .SetGuiPresentation(name, Category.Feature, FeatureDefinitionAttackModifiers.AttackModifierMagicWeapon3)
             .SetAttackRollModifier(2)

@@ -39,6 +39,51 @@ internal static class RulesetCharacterExtensions
         return instance.GetPowerFromDefinition(power) != null && instance.HasAnyFeature(power);
     }
 
+    internal static bool CanSeeAndUseAtLeastOnePower(this RulesetCharacter character, ActionDefinitions.ActionType type, bool battle)
+    {
+        foreach (RulesetUsablePower usablePower in character.UsablePowers)
+        {
+            var power = usablePower.PowerDefinition;
+            if (power.DelegatedToAction)
+            {
+                continue;
+            }
+
+            if (battle)
+            {
+                if (!ActionDefinitions.CastingTimeToActionDefinition.ContainsKey(power.ActivationTime))
+                {
+                    continue;
+                }
+
+                var activation = ActionDefinitions.CastingTimeToActionDefinition[power.ActivationTime];
+
+                if (activation != type)
+                {
+                    continue;
+                }
+            }
+
+            if (PowerVisibilityModifier.IsPowerHidden(character, power, type))
+            {
+                continue;
+            }
+
+            if (power.GuiPresentation.Hidden)
+            {
+                continue;
+            }
+
+            if (!character.CanUsePower(power, true, true))
+            {
+                continue;
+            }
+
+            return true;
+        }
+        return false;
+    }
+
     /**Checks if power has enough uses and that all validators are OK*/
     internal static bool CanUsePower(
         this RulesetCharacter instance,
@@ -214,6 +259,12 @@ internal static class RulesetCharacterExtensions
         {
             bool isValid;
             var definition = invocation.invocationDefinition;
+
+            if (definition.HasSubFeatureOfType<Hidden>())
+            {
+                continue;
+            }
+
             if (scope == ActionDefinitions.ActionScope.Battle)
             {
                 isValid = definition.GetActionId() == actionId;
@@ -235,7 +286,7 @@ internal static class RulesetCharacterExtensions
                 }
             }
 
-            if (isValid && instance.CanCastInvocation(invocation))
+            if (isValid)
             {
                 return true;
             }

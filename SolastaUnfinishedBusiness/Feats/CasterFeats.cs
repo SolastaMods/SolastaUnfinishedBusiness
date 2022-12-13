@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
+using SolastaUnfinishedBusiness.Api.Extensions;
 using SolastaUnfinishedBusiness.Api.Infrastructure;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
@@ -292,13 +293,20 @@ internal static class CasterFeats
         foreach (var spell in spellGroup.SpellsList
                      .Where(x => x.castingTime is not ActivationTime.Reaction))
         {
-            invocations.Add(CustomInvocationDefinitionBuilder
+            var invocation = CustomInvocationDefinitionBuilder
                 .Create($"CustomInvocation{name}{spell.Name}{castingAttribute}")
                 .SetGuiPresentation(spell.GuiPresentation) //TODO: auto-generate based on spell
                 .SetCustomSubFeatures(ValidateRepertoireForAutoprepared.HasSpellCastingFeature(featureName))
                 .SetPoolType(InvocationPoolTypeCustom.Pools.PlaneMagic)
                 .SetGrantedSpell(spell, longRestRecharge: longRest)
-                .AddToDB());
+                .AddToDB();
+
+            if (!longRest)
+            {
+                invocation.AddCustomSubFeatures(InvocationShortRestRecharge.Marker);
+            }
+
+            invocations.Add(invocation);
         }
 
         var grant = FeatureDefinitionGrantInvocationsBuilder

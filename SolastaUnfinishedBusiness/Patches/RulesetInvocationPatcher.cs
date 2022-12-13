@@ -1,6 +1,7 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
 using SolastaUnfinishedBusiness.Api.Extensions;
+using SolastaUnfinishedBusiness.CustomBehaviors;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
@@ -15,6 +16,20 @@ public static class RulesetInvocationPatcher
             //PATCH: do not count power granting invocations as permanent, so we can activate them
             __result = __instance.InvocationDefinition.IsPermanent();
             return false;
+        }
+    }
+
+    [HarmonyPatch(typeof(RulesetInvocation), nameof(RulesetInvocation.Consume))]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    public static class Consume_Patch
+    {
+        public static void Postfix(RulesetInvocation __instance)
+        {
+            //PATCH: support for invocations that recharge on short rest (like Fey Teleportation feat)
+            if (__instance.invocationDefinition.HasSubFeatureOfType<InvocationShortRestRecharge>())
+            {
+                __instance.used = true;
+            }
         }
     }
 }

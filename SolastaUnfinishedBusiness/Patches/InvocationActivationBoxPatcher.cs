@@ -62,6 +62,32 @@ public static class InvocationActivationBoxPatcher
 
                 //PATCH: Show power use slots for invocations that grant powers
                 UpdatePowerSlots(__instance, invocation, activator);
+
+                //PATCH: support for invocations that recharge on short rest (like Fey Teleportation feat)
+                UpdateUsedState(__instance, invocation, activator);
+            }
+        }
+
+        private static void UpdateUsedState(InvocationActivationBox box, RulesetInvocation invocation,
+            RulesetCharacter activator)
+        {
+
+            if (invocation.InvocationDefinition.HasSubFeatureOfType<InvocationShortRestRecharge>())
+            {
+                var restSymbol = box.restSymbol;
+                restSymbol.gameObject.SetActive(true);
+                box.infinitySymbol.gameObject.SetActive(false);
+
+                restSymbol.color = invocation.Used ? box.unavailableColor : box.availableColor;
+                box.restSymbolTooltip.Content = invocation.Used
+                    ? "Tooltip/&InvocationUsageShortRestUsedDescription"
+                    : "Tooltip/&InvocationUsageShortRestAvailableDescription";
+
+                var available = !invocation.Used && activator.CanCastInvocation(invocation);
+                box.button.interactable = available;
+                box.canvasGroup.interactable = available;
+                box.icon.material = available ? box.availableMaterial : box.unavailableMaterial;
+                box.icon.color = available ? Color.white : new Color(0.5f, 0.5f, 0.5f, 1f);
             }
         }
 
@@ -133,7 +159,7 @@ public static class InvocationActivationBoxPatcher
                 var rect = table.GetComponent<RectTransform>();
                 var position = box.infinitySymbol.transform.position;
 
-                rect.position = new Vector3(position.x + 130, position.y - 5, 0);
+                rect.position = new Vector3(rect.position.x, position.y, 0);
                 tableTransform = rect;
 
                 highTransform = powerBox.transform.Find("Header/HighSlotNumber");
@@ -143,7 +169,7 @@ public static class InvocationActivationBoxPatcher
                 high.name = HighSlotsName;
                 rect = high.GetComponent<RectTransform>();
                 // ReSharper disable once Unity.InefficientPropertyAccess
-                rect.position = new Vector3(position.x - 60, position.y - 5, 0);
+                rect.position = new Vector3(rect.position.x, position.y, 0);
                 highSlots = high.GetComponent<GuiLabel>();
             }
             else
