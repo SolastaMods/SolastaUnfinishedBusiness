@@ -1175,29 +1175,9 @@ namespace SolastaUnfinishedBusiness.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        public static byte[] PowerResuscitate {
-            get {
-                object obj = ResourceManager.GetObject("PowerResuscitate", resourceCulture);
-                return ((byte[])(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Byte[].
-        /// </summary>
         public static byte[] PowerInfiltratorMode {
             get {
                 object obj = ResourceManager.GetObject("PowerInfiltratorMode", resourceCulture);
-                return ((byte[])(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Byte[].
-        /// </summary>
-        public static byte[] PowerStabilize {
-            get {
-                object obj = ResourceManager.GetObject("PowerStabilize", resourceCulture);
                 return ((byte[])(obj));
             }
         }
@@ -1215,9 +1195,39 @@ namespace SolastaUnfinishedBusiness.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
+        public static byte[] PowerResuscitate {
+            get {
+                object obj = ResourceManager.GetObject("PowerResuscitate", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        public static byte[] PowerStabilize {
+            get {
+                object obj = ResourceManager.GetObject("PowerStabilize", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
         public static byte[] ProducedFlameThrow {
             get {
                 object obj = ResourceManager.GetObject("ProducedFlameThrow", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        public static byte[] ProtectThreshold {
+            get {
+                object obj = ResourceManager.GetObject("ProtectThreshold", resourceCulture);
                 return ((byte[])(obj));
             }
         }
