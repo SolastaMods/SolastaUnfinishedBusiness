@@ -62,6 +62,23 @@ public static class InvocationActivationBoxPatcher
 
                 //PATCH: Show power use slots for invocations that grant powers
                 UpdatePowerSlots(__instance, invocation, activator);
+
+                //PATCH: support for invocations that recharge on short rest (like Fey Teleportation feat)
+                if (invocation.InvocationDefinition.HasSubFeatureOfType<InvocationShortRestRecharge>())
+                {
+                    var restSymbol = __instance.restSymbol;
+                    restSymbol.gameObject.SetActive(true);
+                    __instance.infinitySymbol.gameObject.SetActive(false);
+
+                    if (restSymbol.gameObject.activeSelf)
+                    {
+                        restSymbol.color = !invocation.Used ? __instance.availableColor : __instance.unavailableColor;
+                        __instance.restSymbolTooltip.Content = !invocation.Used
+                            ? "Tooltip/&InvocationUsageShortRestAvailableDescription"
+                            : "Tooltip/&InvocationUsageShortRestUsedDescription";
+                    }
+                }
+
             }
         }
 
