@@ -80,10 +80,10 @@ public static class InvocationActivationBoxPatcher
 
                 if (restSymbol.gameObject.activeSelf)
                 {
-                    restSymbol.color = !invocation.Used ? box.availableColor : box.unavailableColor;
-                    box.restSymbolTooltip.Content = !invocation.Used
-                        ? "Tooltip/&InvocationUsageShortRestAvailableDescription"
-                        : "Tooltip/&InvocationUsageShortRestUsedDescription";
+                    restSymbol.color = invocation.Used ? box.unavailableColor : box.availableColor;
+                    box.restSymbolTooltip.Content = invocation.Used
+                        ? "Tooltip/&InvocationUsageShortRestUsedDescription"
+                        : "Tooltip/&InvocationUsageShortRestAvailableDescription";
                 }
 
                 var available = !invocation.Used && activator.CanCastInvocation(invocation);
