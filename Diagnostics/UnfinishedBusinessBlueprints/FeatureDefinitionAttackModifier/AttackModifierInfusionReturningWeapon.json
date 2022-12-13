@@ -4,16 +4,16 @@
   "requiredProperty": "None",
   "attackRollModifierMethod": "FlatValue",
   "attackRollUseCasterBonus": false,
-  "attackRollModifier": 0,
+  "attackRollModifier": 1,
   "attackRollAbilityScore": "",
   "damageRollModifierMethod": "FlatValue",
   "damageRollUseCasterBonus": false,
-  "damageRollModifier": 0,
+  "damageRollModifier": 1,
   "damageRollAbilityScore": "",
   "additionalDamageDice": 0,
   "canDualWieldNonLight": false,
   "canAddAbilityBonusToSecondary": false,
-  "magicalWeapon": false,
+  "magicalWeapon": true,
   "followUpStrike": false,
   "followUpDamageDie": "D4",
   "followUpAddAbilityBonus": true,
@@ -36,8 +36,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&InfusionReturningWeaponNoBonusTitle",
-    "description": "Feature/&InfusionReturningWeaponNoBonusDescription",
+    "title": "Feature/&InfusionReturningWeaponTitle",
+    "description": "Feature/&InfusionReturningWeaponDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "f25123c998b81d245b388da50debb82d",
@@ -57,7 +57,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "2017fdd1-562d-5584-b027-8841cea15c8a",
+  "guid": "e3e41e3f-043c-5e97-8ccb-79084a364feb",
   "contentPack": 9999,
-  "name": "AttackModifierInfusionReturningWeaponNoBonus"
+  "name": "AttackModifierInfusionReturningWeapon"
 }

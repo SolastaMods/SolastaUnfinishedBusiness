@@ -77,9 +77,9 @@
         "saveOccurence": "EndOfTurn",
         "temporaryHitPointsForm": {
           "$type": "TemporaryHitPointsForm, Assembly-CSharp",
-          "diceNumber": 1,
+          "diceNumber": 0,
           "dieType": "D1",
-          "bonusHitPoints": -1,
+          "bonusHitPoints": 0,
           "applyToSelf": false
         },
         "hasFilterId": false,
@@ -309,7 +309,7 @@
   "abilityScoreDetermination": "Explicit",
   "usesAbilityScoreName": "Charisma",
   "fixedUsesPerRecharge": 1,
-  "abilityScore": "Intelligence",
+  "abilityScore": "Charisma",
   "attackHitComputation": "AbilityScore",
   "fixedAttackHit": 0,
   "abilityScoreBonusToAttack": false,
