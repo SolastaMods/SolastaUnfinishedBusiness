@@ -1,180 +1,180 @@
-ModUi/&AddAllToStore=Add all to store
-ModUi/&AddBleedingToLesserRestoration=Add the <color=#D89555>Bleeding</color> condition to the ones removed by <color=#D89555>Greater</color> and <color=#D89555>Lesser Restoration</color>
-ModUi/&AddHelpActionToAllRaces=Add the <color=#D89555>Help</color> action to all playable races <i><color=#F0DAA0>[you can aid a friendly creature in attacking a creature within 5 feet of you]</color></i>
-ModUi/&AddNewBrightEyeColors=Add new bright eye colors
-ModUi/&AddNewWeaponsAndRecipesToShops=Add new weapons and recipes to shops <i><color=#F0DAA0>[hand wraps, halberds, pikes, long maces, hand crossbows]</color></i> <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
-ModUi/&AddPickPocketableLoot=Add pickpocketable loot <i><color=#F0DAA0>[suggested if <color=#D89555>Pickpocket</color> feat is enabled]</color></i>
-ModUi/&AddToStore=Add to store
-ModUi/&Advanced=<color=#F0DAA0>Advanced:</color> <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
-ModUi/&AdvancedHelp=. <b><color=#C04040E0>ATTENTION:</color></b> These settings will require the player to have this mod installed
-ModUi/&Adventure=<color=#F0DAA0>Adventure:</color>
-ModUi/&AllItemInDm=All items in DM
-ModUi/&AllowAllPlayersOnNarrativeSequences=<i>+ Allow all players on narrative sequences</i>
-ModUi/&AllowAnyClassToWearSylvanArmor=Allow any class to wear <color=#D89555>Sylvan Armor</color> or <color=#D89555>Lightbringer Clothes</color>
-ModUi/&AllowBeardlessDwarves=Allow beardless <color=#D89555>Dwarves</color>
-ModUi/&AllowDruidToWearMetalArmor=Allow <color=#D89555>Druid</color> to wear metal armor
-ModUi/&AllowDungeonsMaxLevel20=Allow dungeons with max level 20
-ModUi/&AllowGadgetsAndPropsToBePlacedAnywhere=Enable <color=#1E81B0>CTRL</color> click to bypass any check when placing gadgets or props
-ModUi/&AllowStackedMaterialComponent=Allow stacked material component <i><color=#F0DAA0>[e.g. 2x500gp diamond is equivalent to 1000gp diamond]</color></i>
-ModUi/&AllowTargetingSelectionWhenCastingChainLightningSpell=Allow target selection when casting the <color=#D89555>Chain Lightning</color> spell
-ModUi/&AllowUnmarkedSorcerers=Allow <color=#D89555>Sorcerer</color> without origin markings and tattoos
-ModUi/&AllRecipesInDm=All recipes in DM
-ModUi/&AltOnlyHighlightItemsInPartyFieldOfView=<color=#1E81B0>ALT</color> key only highlights gadgets in party field of view <i><color=#F0DAA0>[custom dungeons only]</color></i>
-ModUi/&ApplySRDWeightToFoodRations=Reduce the weight of food ration to 2 pounds
-ModUi/&ArcaneShieldstaffOptions=Allow <color=#D89555>Arcane Shieldstaff</color> to be attuned by any class
-ModUi/&Basic=<color=#F0DAA0>Basic:</color>
-ModUi/&Bestiary=Bestiary
-ModUi/&BestowCurseNoConcentrationRequiredForSlotLevel5OrAbove=<color=#D89555>Bestow Curse</color> does not require concentration when cast with a L5+ spell slot
-ModUi/&BlindedConditionDontAllowAttackOfOpportunity=The <color=#D89555>Blinded</color> condition doesn't allow attack of opportunity
-ModUi/&Blueprints=Blueprints
-ModUi/&Campaigns=<color=#F0DAA0>Campaigns:</color>
-ModUi/&CampaignsAndLocations=<color=#F0DAA0>Campaigns and locations:</color>
-ModUi/&Category=Category
-ModUi/&ChangeSleetStormToCube=Change <color=#D89555>Sleet Storm</color> to use a cube instead of a cylinder
-ModUi/&Character=Character
-ModUi/&CharactersPool=Characters Pool
-ModUi/&Classes=<color=#F0DAA0>Classes</color>
-ModUi/&Crafting=<color=#F0DAA0>Crafting:</color>
-ModUi/&CraftingHelp=. Press the button to learn recipes instantly on the active party\n. Items added to stores might need the party to travel away from the location and come back
-ModUi/&Credits=Credits
-ModUi/&CreditsAndDiagnostics=Credits & Diagnostics
-ModUi/&DeadEyeAndPowerAttackBaseBaseValue=<color=white>Set Deadeye and Power Attack base modifier value</color>\n<i><color=#F0DAA0>[formula is -mod to hit / mod + PB to damage]</color></i>
-ModUi/&DisableAutoEquip=Disable auto-equip of items in inventory
-ModUi/&DisplayAllKnownSpellsDuringLevelUp=<i>+ Display all known spells from other classes during level up</i>
-ModUi/&DisplayPactSlotsOnSpellSelectionPanel=<i>+ Display <color=#D89555>Warlock</color> pact slots on spell selection instead of character panel</i>
-ModUi/&DontFollowCharacterInBattle=Battle camera doesn't follow when character is already on screen
-ModUi/&DontFollowMargin=<i><color=white>+ Unless hero is off or within % of screen edge</color></i>
-ModUi/&DungeonMakerBasicHelp=. These settings won't require the player to have this mod installed
-ModUi/&DungeonMakerMenu=Dungeon Maker
-ModUi/&EmpressGarbAppearance=<color=#D89555>Empress Garb</color> appearance
-ModUi/&EnableAdditionalBackstoryDisplay=Enable additional backstory display on background inspection
-ModUi/&EnableAdditionalIconsOnLevelMap=Enable additional icons for camps, exits and teleporters on level map
-ModUi/&EnableAdditionalItemsInDungeonMaker=<i>+ Add new items to Dungeon Maker</i>
-ModUi/&EnableAlternateHuman=Enable the alternate human <i><color=#F0DAA0>[+1 feat / +2 attribute choices / +1 skill]</color></i>
-ModUi/&EnableBetaContent=Enable beta content <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
-ModUi/&EnableCancelEditOnRightMouseClick=Enable cancel actions with right mouse click
-ModUi/&EnableCharacterExport=Enable <color=#1E81B0>CTRL-SHIFT-(E)</color> to export the character
-ModUi/&EnableCheatMenu=Enable the cheats menu
-ModUi/&EnableDungeonMakerModdedContent=Enable Dungeon Maker Pro\n<i><color=#F0DAA0>[include flat rooms, 150x150 & 200x200 dungeon sizes and no frills mixing assets from all environments]</color></i>
-ModUi/&EnableEpicPointsAndArray=Enable an epic 35 points buy system and array <i><color=#F0DAA0>[17,15,13,12,10,8]</color></i> <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
-ModUi/&EnableFeatsAtEvenLevels=Enable feats selection at class levels 2, 6, 10 and 14
-ModUi/&EnableFighterArmamentAdroitness=Enable <color=#D89555>Fighter</color> <b>Weapon Training</b> at class levels 2, 6, 10 and 14 <i><color=#F0DAA0>[pick a weapon type to get +1 to hit and to damage]</color></i>
-ModUi/&EnableFlexibleBackgrounds=Enable flexible backgrounds <i><color=#F0DAA0>[select skill and tool proficiencies from backgrounds]</color></i>
-ModUi/&EnableFlexibleRaces=Enable flexible races <i><color=#F0DAA0>[assign ability score points instead of the racial defaults]</color></i>
-ModUi/&EnableHotkeyDebugOverlay=Enable <color=#1E81B0>CTRL-SHIFT-(D)</color> to display the debug overlay
-ModUi/&EnableHotkeyToggleHud=Enable <color=#1E81B0>CTRL-SHIFT-(H)</color> to toggle the HUD display
-ModUi/&EnableInventoryFilteringAndSorting=Enable inventory filtering and sorting
-ModUi/&EnableInventoryTaintNonProficientItemsRed=<i>+ Taint in red any item the hero isn't proficient with</i>
-ModUi/&EnableInvisibleCrownOfTheMagister=Hide the <color=#D89555>Crown of the Magister</color> on game UI
-ModUi/&EnableLevel20=Enable level 20 <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
-ModUi/&EnableLogDialoguesToConsole=Enable log dialogues to game console during narrative sequences
-ModUi/&EnableMinInOutAttributes=<i>+ Enforce ability scores minimum in & out pre-requisites</i>
-ModUi/&EnableMulticlass=Enable multiclass <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
-ModUi/&EnableRelearnSpells=<i>+ Can select cantrips or spells already learned from other classes</i>
-ModUi/&EnableRespec=Enable the RESPEC after rest action
-ModUi/&EnablesAsiAndFeat=Enable both attribute scores increase and feat selection <i><color=#F0DAA0>[instead of an exclusive choice]</color></i>
-ModUi/&EnableSaveByLocation=Enable save by campaigns / locations
-ModUi/&EnableSortingDungeonMakerAssets=Enable assets sorting on Dungeon Maker editor
-ModUi/&EnableStatsOnHeroTooltip=Display stats on hero's tooltip <i><color=#F0DAA0>[i.e.: critical hits, critical failures, etc.]</color></i>
-ModUi/&EnableTeleportParty=Enable <color=#1E81B0>CTRL-SHIFT-(T)</color> to teleport the party <i><color=#F0DAA0>[you might break quests if you teleport to an undiscovered place]</color></i>
-ModUi/&EnableTogglesToOverwriteDefaultTestParty=Enable toggles on character pool to set your default play and test party
-ModUi/&EnableUpcastConjureElementalAndFey=Enable upcast of <color=#D89555>Conjure Elemental</color> and <color=#D89555>Conjure Fey</color>
-ModUi/&Encounters=Encounters
-ModUi/&ExpandAll=Expand All
-ModUi/&FactionHelp=<color=#C04040E0>Load an official campaign game to modify faction relations...</color>
-ModUi/&FactionRelations=<color=#F0DAA0>Factions:</color>
-ModUi/&FasterTimeModifier=<color=white>Game time modifier when pressing space bar</color>
-ModUi/&FeatGroups=<color=#F0DAA0>Feat Groups</color>
-ModUi/&FeatGroupsHelp=. Each group is a consolidation of similar feats <i><color=#F0DAA0>[i.e.: creeds, fighting styles, metamagic, etc]</color></i>\n. Feats in these groups won't be directly visible anymore on the proficiency selection stage\n. The group, when selected, offers them on a dropdown list to de-clutter the game screen
-ModUi/&Feats=<color=#F0DAA0>Feats</color>
-ModUi/&FeatsFightingStylesInvocations=Feats, Fighting Styles & Invocations
-ModUi/&FightingStyles=<color=#F0DAA0>Fighting Styles</color>
-ModUi/&FixSorcererTwinnedLogic=Fix <color=#D89555>Sorcerer</color> twinned metamagic use <i><color=#F0DAA0>[must be incapable of targeting more than one creature at spell's current level]</color></i>
-ModUi/&FullyControlConjurations=Fully control conjurations <i><color=#F0DAA0>[animals, elementals, etc]</color></i>
-ModUi/&Gameplay=Gameplay
-ModUi/&GameUi=Game UI
-ModUi/&General=<color=#F0DAA0>General:</color>
-ModUi/&GeneralMenu=General
-ModUi/&HideExitAndTeleporterGizmosIfNotDiscovered=Hide exits and teleporters visual effects if not discovered yet
-ModUi/&HideMonsterHitPoints=Display Monsters' health in steps of 25% / 50% / 75% / 100% instead of exact hit points
-ModUi/&House=<color=#F0DAA0>House:</color>
-ModUi/&IdentifyAfterRest=Add a power to identify magic items over a short or long rest
-ModUi/&IncreaseSenseNormalVision=<color=white>Increase <color=#D89555>Sense Normal Vision</color> range to enable long range attacks</color> <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
-ModUi/&IncreaseSenseNormalVisionHelp=<i><color=#F0DAA0>[40 is ideal to avoid enemies joining from too far]</color></i>
-ModUi/&InitialChoices=<color=#F0DAA0>Creation:</color>
-ModUi/&Input=<color=#F0DAA0>Input:</color>
-ModUi/&Interface=Interface
-ModUi/&InventoryAndItems=<color=#F0DAA0>Inventory and items:</color>
-ModUi/&InvertAltBehaviorOnTooltips=Invert <color=#1E81B0>ALT</color> key behavior on tooltips
-ModUi/&Invocations=<color=#F0DAA0>Invocations</color>
-ModUi/&ItemInDm=Items in DM
-ModUi/&Items=<color=#F0DAA0>Items:</color>
-ModUi/&ItemsCraftingMerchants=Items, Crafting & Merchants
-ModUi/&ItemsHelp1=<color=#C04040E0>Open the character inspection screen to add items to heroes...</color>
-ModUi/&ItemsHelp2=<b>Press + to add items to the ground container</b>
-ModUi/&MakeAllMagicStaveArcaneFoci=Make all magic staves arcane foci <i><color=#F0DAA0>[except for <color=#D89555>Staff of Healing</color> which is Universal]</color></i>
-ModUi/&MarkInvisibleTeleportersOnLevelMap=<i>+ Also mark the location of invisible teleporters on level map after discovery</i>
-ModUi/&MaxAllowedClasses=<color=white>Max allowed classes</color>
-ModUi/&Merchants=<color=#F0DAA0>Merchants:</color>
-ModUi/&Monsters=<color=#F0DAA0>Monsters:</color>
-ModUi/&MulticlassKeyHelp=<color=#1E81B0>SHIFT</color> click on a spell inverts the default repertoire slot type consumed\n<i><color=#F0DAA0>[<color=#D89555>Warlock</color> spends white spell slots and others spend pact green ones]</color></i>
-ModUi/&MultiplyTheExperienceGainedBy=<color=white>Multiply the experience gained by</color> <color=#C04040E0>[%]</color>
-ModUi/&NoExperienceOnLevelUp=No experience is required to level up
-ModUi/&OfferAdditionalLoreFriendlyNames=Offer additional lore friendly names on character creation
-ModUi/&OnlyShowMostPowerfulUpcastConjuredElementalOrFey=<i>+ Only show the most powerful creatures in the conjuration list</i>
-ModUi/&OverrideMinMaxLevel=Override the required min and max levels when starting new adventures
-ModUi/&OverridePartySize=<color=white>Override the party size</color>
-ModUi/&Patches=<color=#F0DAA0>Patches:</color>
-ModUi/&PrimedItems=Primed Items
-ModUi/&Progression=<color=#F0DAA0>Progression:</color>
-ModUi/&Races=<color=#F0DAA0>Races</color>
-ModUi/&RacesClassesSubclasses=Races, Classes & Subclasses
-ModUi/&RecipeCost=<color=white>Recipe's cost</color>
-ModUi/&RecipesInDm=Recipes in DM
-ModUi/&RelicForgeries=Relic Forgeries
-ModUi/&RemoveAttunementRequirements=Remove attunement requirements <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
-ModUi/&RemoveBugVisualModels=Replace spider like models with alternative visuals in the game <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
-ModUi/&RemoveHumanoidFilterOnHideousLaughter=Remove humanoid filter on <color=#D89555>Hideous Laughter</color>
-ModUi/&RemoveIdentificationRequirements=Remove identification requirements <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
-ModUi/&RemoveRecurringEffectOnEntangle=Only apply <color=#D89555>Entangle</color> effect at casting time <i><color=#F0DAA0>[i.e.: no recurring effect]</color></i>
-ModUi/&RestockAntiquarians=Restock Antiquarians <i><color=#F0DAA0>[Halman Summer]</color></i>
-ModUi/&RestockArcaneum=Restock Arcaneum <i><color=#F0DAA0>[Heddlon Surespell]</color></i>
-ModUi/&RestockCircleOfDanantar=Restock Circle of Danantar <i><color=#F0DAA0>[Joriel Foxeye]</color></i>
-ModUi/&RestockHelp=. Override defaults to force all merchant's stock to restock over time <i><color=#F0DAA0>[excluding Manuals and Tomes]</color></i>\n. Note that some items can take up to 7 game days to restock
-ModUi/&RestockTowerOfKnowledge=Restock Tower of Knowledge <i><color=#F0DAA0>[Maddy Greenisle]</color></i>
-ModUi/&Rules=Rules
-ModUi/&ScaleMerchantPricesCorrectly=Scale merchant prices correctly / exactly <i><color=#F0DAA0>[no more rounding errors when converting coin values]</color></i>
-ModUi/&SelectAll=Select All
-ModUi/&SelectSuggested=Select Suggested
-ModUi/&Services=Services
-ModUi/&SetBeltOfDwarvenKindBeardChances=<color=#D89555>Belt of Dwarvenkind</color> <color=white>beard appearing chances</color>
-ModUi/&ShowCraftingRecipeInDetailedTooltips=Show crafting recipe in detailed tooltips
-ModUi/&ShowDescriptions=Show Descriptions
-ModUi/&SpellInstructions=. You can individually assign each spell to any spell list or simply select the suggested set
-ModUi/&SpellLevelFilter=<b><i><color=white>spell level filter</color> <color=#F0DAA0>[-1 displays all]</color></i></b>
-ModUi/&SpellsMenu=Spells
+ModUi/&AddAllToStore=全部加入商店
+ModUi/&AddBleedingToLesserRestoration=添加<color=#D89555>流血</color>状态至<color=#D89555>次级/高等复原术</color>的移除效果范围
+ModUi/&AddHelpActionToAllRaces=添加<color=#D89555>协助</color>动作至全部种族
+ModUi/&AddNewBrightEyeColors=添加一种全新的明亮眼睛颜色
+ModUi/&AddNewWeaponsAndRecipesToShops=添加新的武器和配方至商店<color=#F0DAA0>【裹手，戟，长矛，长钉头锤，手弩】</color> <color=#C04040E0>【需要重启游戏】</color>
+ModUi/&AddPickPocketableLoot=添加可扒窃的战利品<color=#F0DAA0>【建议在<color=#D89555>扒窃</color>专长被启用时启用】</color>
+ModUi/&AddToStore=加入商店
+ModUi/&Advanced=<color=#F0DAA0>进阶选项：</color> <b><i><color=#C04040E0>【需要重启游戏】</color></i></b>
+ModUi/&AdvancedHelp=. <b><color=#C04040E0>注意：</color></b>此项设置将要求玩家安装此Mod
+ModUi/&Adventure=<color=#F0DAA0>冒险：</color>
+ModUi/&AllItemInDm=全部物品加入地城制作
+ModUi/&AllowAllPlayersOnNarrativeSequences=<i>+ 允许全部玩家加入叙事序列</i>
+ModUi/&AllowAnyClassToWearSylvanArmor=允许任何职业装备<color=#D89555>木族护甲</color> or <color=#D89555>光明使者服饰</color>
+ModUi/&AllowBeardlessDwarves=允许不长胡子的<color=#D89555>矮人</color>
+ModUi/&AllowDruidToWearMetalArmor=允许<color=#D89555>德鲁伊</color>装备金属护甲
+ModUi/&AllowDungeonsMaxLevel20=允许自定义地城最大等级达到20级
+ModUi/&AllowGadgetsAndPropsToBePlacedAnywhere=允许在地图上任何地方放置互动物件和装饰物<color=#F0DAA0>【在放置时按<color=#1E81B0>CTRL</color>跳过任何检定】</color>
+ModUi/&AllowStackedMaterialComponent=允许材料成分叠加计算<color=#F0DAA0>【e.g. 2个500gp的钻石等同于1000gp的钻石】</color>
+ModUi/&AllowTargetingSelectionWhenCastingChainLightningSpell=允许在施放<color=#D89555>连锁闪电</color>法术时选择目标
+ModUi/&AllowUnmarkedSorcerers=允许<color=#D89555>术士</color>没有脸部印记
+ModUi/&AllRecipesInDm=所有配方加入地城制作
+ModUi/&AltOnlyHighlightItemsInPartyFieldOfView=<color=#1E81B0>ALT</color>键只高亮队伍可见视野范围内的互动物件<color=#F0DAA0>【仅限自定义地牢】</color>
+ModUi/&ApplySRDWeightToFoodRations=将口粮的重量减少至2磅
+ModUi/&ArcaneShieldstaffOptions=允许<color=#D89555>奥术盾杖</color>被任意职业同调
+ModUi/&Basic=<color=#F0DAA0>基础：</color>
+ModUi/&Bestiary=生物手册
+ModUi/&BestowCurseNoConcentrationRequiredForSlotLevel5OrAbove=<color=#D89555>降咒</color>在以5环或更高法术位施放时无需专注
+ModUi/&BlindedConditionDontAllowAttackOfOpportunity=<color=#D89555>目盲</color>状态禁止借机攻击
+ModUi/&Blueprints=蓝图
+ModUi/&Campaigns=<color=#F0DAA0>战役：</color>
+ModUi/&CampaignsAndLocations=<color=#F0DAA0>战役和地点：</color>
+ModUi/&Category=类别
+ModUi/&ChangeSleetStormToCube=将<color=#D89555>雪风暴</color>范围从圆柱体替换为立方体
+ModUi/&Character=角色
+ModUi/&CharactersPool=角色池
+ModUi/&Classes=<color=#F0DAA0>职业</color>
+ModUi/&Crafting=<color=#F0DAA0>制作：</color>
+ModUi/&CraftingHelp=. 点击按钮立即学习可活动队伍的配方\n. 添加到商店的物品可能需要队伍从该地点离开后再回来
+ModUi/&Credits=致敬
+ModUi/&CreditsAndDiagnostics=致敬与诊断
+ModUi/&DeadEyeAndPowerAttackBaseBaseValue=<color=white>设置神枪手与猛力攻击的基础修正值</color>\n<i><color=#F0DAA0>[公式是 -mod 命中/mod + 熟练加值伤害]</color></i>
+ModUi/&DisableAutoEquip=禁止自动装备物品栏的物品
+ModUi/&DisplayAllKnownSpellsDuringLevelUp=<i>+ 在升级过程中显示其他职业的所有已知法术</i>
+ModUi/&DisplayPactSlotsOnSpellSelectionPanel=<i>+ 在选择法术时而非角色面板上显示<color=#D89555>邪术师</color> 契约槽位</i>
+ModUi/&DontFollowCharacterInBattle=摄像机不再跟随已出现在屏幕上的角色
+ModUi/&DontFollowMargin=<color=white>+ 除非角色靠近于%的屏幕边缘</color>
+ModUi/&DungeonMakerBasicHelp=. 这些设置不要求玩家安装此Mod
+ModUi/&DungeonMakerMenu=地城制作
+ModUi/&EmpressGarbAppearance=<color=#D89555>女皇装束链甲衫</color>外形
+ModUi/&EnableAdditionalBackstoryDisplay=启用在背景故事检视时显示额外的背景故事
+ModUi/&EnableAdditionalIconsOnLevelMap=在地图上给营地、出口和传送点添加额外的图标
+ModUi/&EnableAdditionalItemsInDungeonMaker=+ 添加新的法器至地城制作
+ModUi/&EnableAlternateHuman=启用变种人类<color=#F0DAA0>【+1专长/+2属性值选择/+1技能】</color>
+ModUi/&EnableBetaContent=启用Beta内容<color=#F0DAA0>【牢记你的存档或英雄在未来有崩溃风险】</color><color=#C04040E0>【需要重启游戏】</color>
+ModUi/&EnableCancelEditOnRightMouseClick=启用右键取消动作
+ModUi/&EnableCharacterExport=启用<color=#1E81B0>CTRL-SHIFT-E</color>导出角色<color=#F0DAA0>【仅限角色检查界面】</color>
+ModUi/&EnableCheatMenu=启用作弊菜单
+ModUi/&EnableDungeonMakerModdedContent=启用地城制作Pro<color=#C04040E0>【需要重启游戏】</color>\n\n包括平房，150x150和200x200的地牢尺寸和没有任何装饰的各种环境\n若你选择一个户外环境，你必须有至少一个户外房间
+ModUi/&EnableEpicPointsAndArray=启用总计35点的传奇购点和默认排列<color=#F0DAA0>【17,15,13,12,10,8】</color><color=#C04040E0>【需要重启游戏】</color>
+ModUi/&EnableFeatsAtEvenLevels=启用在第2、6、10、14级时获得专长
+ModUi/&EnableFighterArmamentAdroitness=在等级 2、6、10 和 14 启用<color=#D89555>战士</color><b>武器训练</b><i><color=#F0DAA0>[选择一种武器类型以获得 +1 AB与+1伤害]</color></i>
+ModUi/&EnableFlexibleBackgrounds=启用灵活背景<color=#F0DAA0>【从背景中自由选择技能和工具熟练项】</color>
+ModUi/&EnableFlexibleRaces=启用灵活种族<color=#F0DAA0>【自由配置属性值而非使用种族的默认加值】</color>
+ModUi/&EnableHotkeyDebugOverlay=启用<color=#1E81B0>CTRL-SHIFT-D</color>开启Debug界面
+ModUi/&EnableHotkeyToggleHud=启用<color=#1E81B0>CTRL-SHIFT-H</color>控制所有UI界面的显示
+ModUi/&EnableInventoryFilteringAndSorting=启用物品栏筛选和排序功能
+ModUi/&EnableInventoryTaintNonProficientItemsRed=+ 将角色不熟练的物品染为红色
+ModUi/&EnableInvisibleCrownOfTheMagister=将<color=#D89555>大法师之冠</color>于游戏UI隐藏
+ModUi/&EnableLevel20=启用20级<color=#C04040E0>【需要重启游戏】</color>
+ModUi/&EnableLogDialoguesToConsole=在对话日志中启用记录对话到游戏控制台的功能
+ModUi/&EnableMinInOutAttributes=<i>+ 强制兼职时的属性前置要求</i>
+ModUi/&EnableMulticlass=启用兼职 <b><i><color=#C04040E0>【需要重启游戏】</color></i></b>
+ModUi/&EnableRelearnSpells=<i>+ 能学习已从其它职业习得的戏法和法术</i>
+ModUi/&EnableRespec=启用在休息后重置角色和降级的功能
+ModUi/&EnablesAsiAndFeat=启用属性和专长的同时选择<i><color=#F0DAA0>【而非二选一】</color></i>
+ModUi/&EnableSaveByLocation=启用分战役/地点存档
+ModUi/&EnableSortingDungeonMakerAssets=启用地下城编辑器排序功能
+ModUi/&EnableStatsOnHeroTooltip=在英雄的工具提示上显示统计数据<i><color=#F0DAA0>【例如：致命成功、致命失败等】</color></i>
+ModUi/&EnableTeleportParty=启用<color=#1E81B0>CTRL-SHIFT-(T)</color> 传送队伍<i><color=#F0DAA0>【如果你传送到一个未发现的地点，你可能会破坏任务或地图】</color></i>
+ModUi/&EnableTogglesToOverwriteDefaultTestParty=启用角色池切换键设置你的默认的游戏/测试队伍
+ModUi/&EnableUpcastConjureElementalAndFey=启用<color=#D89555>召唤元素</color>，<color=#D89555>召唤精类生物</color>的升环施法
+ModUi/&Encounters=遭遇战
+ModUi/&ExpandAll=全部展开
+ModUi/&FactionHelp=<color=#C04040E0>加载官方战役修改派系关系……</color>
+ModUi/&FactionRelations=<color=#F0DAA0>派系关系：</color>
+ModUi/&FasterTimeModifier=<color=white>按空格键时可调整游戏速度</color>
+ModUi/&FeatGroups=<color=#F0DAA0>专长组 </color>
+ModUi/&FeatGroupsHelp=. 每个专长组都是一组相似的专长组合<i><color=#F0DAA0>[即: 信条, 战斗风格, 超魔法等]</color></i>\n.  这些专长组中的专长将不再直接显示在熟练项选择阶段\n。 该组专长在被选中后会在下拉列表中进行显示，以减少游戏画面的凌乱程度。
+ModUi/&Feats=<color=#F0DAA0>专长</color>
+ModUi/&FeatsFightingStylesInvocations=专长, 战斗风格与魔能祈唤
+ModUi/&FightingStyles=<color=#F0DAA0>战斗风格</color>
+ModUi/&FixSorcererTwinnedLogic=修复<color=#D89555>术士</color>孪生法术<i><color=#F0DAA0>【该法术在其当前环阶时不能同时指定多个生物为目标】</color></i>
+ModUi/&FullyControlConjurations=完全控制召唤生物<i><color=#F0DAA0>【动物，元素等】</color></i>
+ModUi/&Gameplay=游戏内容
+ModUi/&GameUi=游戏界面
+ModUi/&General=<color=#F0DAA0>通常:</color>
+ModUi/&GeneralMenu=通常
+ModUi/&HideExitAndTeleporterGizmosIfNotDiscovered=在未发现前隐藏出口和传送点的视觉效果
+ModUi/&HideMonsterHitPoints=以25%/50%/75%/100%为单位显示怪物的生命值状态，而非精确的生命值
+ModUi/&House=<color=#F0DAA0>房屋:</color>
+ModUi/&IdentifyAfterRest=添加短休或长休后鉴定魔法物品的能力
+ModUi/&IncreaseSenseNormalVision<color=white>提高<color=#D89555>正常视觉</color>距离以允许长距离攻击</color><color=#F0DAA0>【需要重新启动游戏】</color>
+ModUi/&IncreaseSenseNormalVisionHelp=<i><color=#F0DAA0>【40是一个相对理想的距离，以避免敌人从过远的距离加入战斗】</color></i>
+ModUi/&InitialChoices=<color=#F0DAA0>初始选择：</color>
+ModUi/&Input=<color=#F0DAA0>键盘与鼠标:</color>
+ModUi/&Interface=界面
+ModUi/&InventoryAndItems=<color=#F0DAA0>物品栏和物品：</color>
+ModUi/&InvertAltBehaviorOnTooltips=颠倒<color=#1E81B0>ALT</color>键在工具提示时的效果
+ModUi/&Invocations=<color=#F0DAA0>魔能祈唤</color>
+ModUi/&ItemInDm=物品加入地城制作
+ModUi/&Items=<color=#F0DAA0>物品:</color>
+ModUi/&ItemsCraftingMerchants=物品，制作和商人
+ModUi/&ItemsHelp1=<color=#C04040E0>你必须打开人物检查界面才能为英雄添加物品……</color>
+ModUi/&ItemsHelp2=<b>按+将物品添加至地面容器</b>
+ModUi/&MakeAllMagicStaveArcaneFoci=使所有魔杖视为奥术法器<i><color=#F0DAA0>【全职业通用的<color=#D89555>治疗法杖</color>除外】</color><color=#C04040E0>【需要重启游戏】</color></i>
+ModUi/&MarkInvisibleTeleportersOnLevelMap=<i>+ 在关卡地图上标记已发现的隐形传送点的位置</i>
+ModUi/&MaxAllowedClasses=<color=white>最高职业数量</color>
+ModUi/&Merchants=<color=#F0DAA0>商人：</color>
+ModUi/&Monsters=<color=#F0DAA0>怪物:</color>
+ModUi/&MulticlassKeyHelp=<color=#1E81B0>SHIFT</color>点击一个法术会消耗一个法术位，而非默认的契约法术位\n<i><color=#F0DAA0>【<color=#D89555>邪术师</color> 消耗白色法术位，其他职业消耗绿色法术位】</color></i>
+ModUi/&MultiplyTheExperienceGainedBy=<color=white>获得的经验倍率</color> <color=#C04040E0>【%】</color>
+ModUi/&NoExperienceOnLevelUp=无需经验即可升级
+ModUi/&OfferAdditionalLoreFriendlyNames=在创建角色时提供更多有利于传闻的名字
+ModUi/&OnlyShowMostPowerfulUpcastConjuredElementalOrFey=<i>+ 只显示召唤列表中最强大的生物</i>
+ModUi/&OverrideMinMaxLevel=在开启新的冒险时覆盖其最低/最高等级
+ModUi/&OverridePartySize=<color=white>覆盖自定义冒险的队伍大小</color>
+ModUi/&Patches=<color=#F0DAA0>补丁:</color>
+ModUi/&PrimedItems=制备好的物品
+ModUi/&Progression=<color=#F0DAA0>进展:</color>
+ModUi/&Races=<color=#F0DAA0>种族&亚种</color>
+ModUi/&RacesClassesSubclasses=种族，职业与子职
+ModUi/&RecipeCost=<color=white>>配方消耗</color>
+ModUi/&RecipesInDm=配方加入地城制作
+ModUi/&RelicForgeries=遗物赝品
+ModUi/&RemoveAttunementRequirements=移除同调的先决条件<b><i><color=#C04040E0>【需要重启游戏】</color></i></b>
+ModUi/&RemoveBugVisualModels=以其它模型替代蜘蛛模型 <b><i><color=#C04040E0>【需要重启游戏】</color></i></b>
+ModUi/&RemoveHumanoidFilterOnHideousLaughter=移除<color=#D89555>塔莎狂笑术</color>的类人生物的要求<color=#C04040E0>【需要重启游戏】</color>
+ModUi/&RemoveIdentificationRequirements=移除鉴定的先决条件<b><i><color=#C04040E0>【需要重启游戏】</color></i></b>
+ModUi/&RemoveRecurringEffectOnEntangle=仅在施法时应用<color=#D89555>纠缠术</color>法术效果<i><color=#F0DAA0>【不会反复生效】</color></i>
+ModUi/&RestockAntiquarians=古文物研究者补货<i><color=#F0DAA0>【哈尔曼·夏日】</color></i>
+ModUi/&RestockArcaneum=奥术协会补货<i><color=#F0DAA0>【赫德伦·确法】</color></i>
+ModUi/&RestockCircleOfDanantar=丹南塔尔之环补货<i><color=#F0DAA0>【乔瑞尔·狐眼】</color></i>
+ModUi/&RestockHelp=. 覆盖默认，强制所有商人的库存在一段时间内重新补货（不包括手册和书卷）\n. 注意，一些商品可能需要长达7个游戏日的时间来补货
+ModUi/&RestockTowerOfKnowledge=知识之塔补货<i><color=#F0DAA0>【麦迪·绿岛】</color></i>
+ModUi/&Rules=规则
+ModUi/&ScaleMerchantPricesCorrectly=正确调整商家价格<i><color=#F0DAA0>【转换硬币价值时不再出现舍入错误】</color></i>
+ModUi/&SelectAll=选择全部
+ModUi/&SelectSuggested=选择推荐
+ModUi/&Services=服务
+ModUi/&SetBeltOfDwarvenKindBeardChances=<color=white>设置使用<color=#D89555>矮人腰带</color>时长出胡子的概率</color>
+ModUi/&ShowCraftingRecipeInDetailedTooltips=在详细工具提示中显示制作配方
+ModUi/&ShowDescriptions=显示说明
+ModUi/&SpellInstructions=. 你能将每个法术单独分配到任何法术列表中，或者简单地选择建议的配置
+ModUi/&SpellLevelFilter=<b><i><color=white>以法术等级筛选</color> <color=#F0DAA0>【设为-1以显示所有法术】</color></i></b>
+ModUi/&SpellsMenu=法术
 ModUi/&SRD=<color=#F0DAA0>SRD:</color>
-ModUi/&StockGorimStoreWithAllNonMagicalClothing=Stock Gorim's store with all non-magical clothing <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
-ModUi/&StockGorimStoreWithAllNonMagicalInstruments=Stock Gorim's store with all non-magical musical instruments <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
-ModUi/&StockHugoStoreWithAdditionalFoci=Stock Hugo's store with <color=#D89555>Arcane Staff</color>, <color=#D89555>Druid Neck</color>, <color=#D89555>Staff</color> and <color=#D89555>Club</color> set as foci items
-ModUi/&Subclasses=<color=#F0DAA0>Subclasses</color>
-ModUi/&TargetLanguage=Target Language
-ModUi/&Tools=Tools
-ModUi/&TotalCraftingTimeModifier=<color=white>Reduce crafting time by</color>
-ModUi/&TotalFeatsGrantedFirstLevel=<color=white>Total feats granted at first level</color>
-ModUi/&Translate=Translate
-ModUi/&TranslateCancel=Cancel {0} at {1}
-ModUi/&Translations=Translations
-ModUi/&UnleashEnemyAsNpc=Allow monsters to be selected on NPC gadgets
-ModUi/&UnleashNpcAsEnemy=Unlock monsters selection
-ModUi/&UnlockAllNpcFaces=Unlock NPC faces
-ModUi/&UnlockEyeStyles=Unlock eye styles
-ModUi/&UnlockGlowingColorsForAllMarksAndTattoos=Unlock glowing colors for all markings and tattoos
-ModUi/&UnlockGlowingEyeColors=Add glowing eye colors
-ModUi/&UnlockMarkAndTattoosForAllCharacters=Unlock <color=#D89555>Sorcerer</color> origin markings and tattoos for all characters
-ModUi/&UnlockSkinColors=Unlock skin colors
-ModUi/&UseHeightOneCylinderEffect=Use a height 1 cylinder effect when casting <color=#D89555>Black Tentacles, Entangle, Grease</color> <i><color=#F0DAA0>[square]</color></i> or <color=#D89555>Spike Growth</color> <i><color=#F0DAA0>[round]</color></i>
-ModUi/&UseOfficialAdvantageDisadvantageRules=Use official advantage / disadvantage rules
-ModUi/&Visuals=<color=#F0DAA0>Visuals:</color> <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
-ModUi/&DisableRacePrerequisitesOnModFeats=Disable Race pre-requisites on feats provided by this mod
-ModUi/&EncounterPercentageChance=<color=white>Set random encounters percentage chances</color>
+ModUi/&StockGorimStoreWithAllNonMagicalClothing=在格里姆的商店里销售所有非魔法服装<b><i><color=#C04040E0>【需要重启游戏】</color></i></b>
+ModUi/&StockGorimStoreWithAllNonMagicalInstruments=在格里姆的商店里销售所有非魔法乐器<b><i><color=#C04040E0>【需要重启游戏】</color></i></b>
+ModUi/&StockHugoStoreWithAdditionalFoci=在雨果的商店里销售<color=#D89555>鉴定魔杖</color>，<color=#D89555>奥术法杖</color>，<color=#D89555>德鲁伊项链</color>，<color=#D89555>法杖</color>和<color=#D89555>短棒</color>，并且设置为法器
+ModUi/&Subclasses=<color=#F0DAA0>子职</color>
+ModUi/&TargetLanguage=目标语言
+ModUi/&Tools=工具
+ModUi/&TotalCraftingTimeModifier=<color=white>制作耗时降低倍率</color>
+ModUi/&TotalFeatsGrantedFirstLevel=<color=white>在第1级时赋予额外专长数量</color>
+ModUi/&Translate=翻译
+ModUi/&TranslateCancel=从{1}取消{0}
+ModUi/&Translations=翻译
+ModUi/&UnleashEnemyAsNpc=允许在NPC互动物件上选择怪物
+ModUi/&UnleashNpcAsEnemy=开放怪物的选择
+ModUi/&UnlockAllNpcFaces=解锁全部NPC脸型
+ModUi/&UnlockEyeStyles=解锁眼部样式
+ModUi/&UnlockGlowingColorsForAllMarksAndTattoos=解锁所有标记和纹身的发光颜色
+ModUi/&UnlockGlowingEyeColors=解锁眼睛发光颜色
+ModUi/&UnlockMarkAndTattoosForAllCharacters=为所有角色解锁 <color=#D89555>术士</color> 起源纹身与标记 
+ModUi/&UnlockSkinColors=解锁全部皮肤颜色
+ModUi/&UseHeightOneCylinderEffect=施放<color=#D89555>艾伐黑触手、纠缠术、油腻术</color> <i><color=#F0DAA0>【方形】</color></i> or <color=#D89555>荆棘丛生</color> <i><color=#F0DAA0>【圆形】</color></i>时，显示高度为1的圆柱效果范围
+ModUi/&UseOfficialAdvantageDisadvantageRules=应用官方的优势/劣势规则
+ModUi/&Visuals=<color=#F0DAA0>视效：</color> <b><i><color=#C04040E0>【需要重启游戏】</color></i></b>
+ModUi/&DisableRacePrerequisitesOnModFeats=无视此MOD提供的部分专长所需要的种族先决条件
+ModUi/&EncounterPercentageChance=<color=white>设置随机遭遇的几率</color>

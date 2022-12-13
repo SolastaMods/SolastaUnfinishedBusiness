@@ -389,6 +389,6 @@ Item/&Warhammer_Lightbringer_Title=Lightbringer Warhammer
 Item/&Warhammer_Power_Description=This enchanted weapon was forged using the ancient knowledge of Manacalon's master smiths. Some creatures only respect physical strengths. Manacalon arcanists created this Warhammer to give champions of the Iron Legions the strength their elven bodies didn't provide.
 Item/&Warhammer_Power_Title=Warhammer of Power
 Item/&Warhammer_Punisher_Description=This enchanted weapon was created using the ancient knowledge of Manacalon's master smiths. The combination of the best metal and Slavestone gave this axe incredible piercing power.
-Item/&Warhammer_Punisher_Title=Punisher Warhammer
+Item/&Warhammer_Punisher_Title=惩罚者战锤
 Tooltip/&TagPolearmWeaponTitle=Polearm
 Tooltip/&TagReturningWeaponTitle=Returning
