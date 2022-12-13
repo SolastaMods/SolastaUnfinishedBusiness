@@ -156,7 +156,7 @@ internal static class RangedCombatFeats
     {
         public void ModifyAttackMode(RulesetCharacter character, [CanBeNull] RulesetAttackMode attackMode)
         {
-            if (attackMode is not ({Ranged: true} and {Thrown: true}))
+            if (attackMode is not { Reach: false, Ranged: true })
             {
                 return;
             }
