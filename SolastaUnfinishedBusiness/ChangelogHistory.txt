@@ -1,5 +1,10 @@
 ﻿CHANGES:
 
+1.4.31.8:
+
+- added Gameplay > Rules > SRD setting to Change Eldritch Blast range from 16 to 24
+- fixed Draconic Cry range from 5ft to 10ft
+
 1.4.31.7:
 
 - fixed Heavy Armor Master and Dance of Defense to correctly apply damage reduction

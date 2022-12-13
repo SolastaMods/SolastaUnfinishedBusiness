@@ -4,8 +4,5 @@
 
 CHANGES:
 
-- fixed Heavy Armor Master and Dance of Defense to correctly apply damage reduction
-- fixed Raise Shield not triggering
-- fixed Sunlit Blade to work with Twinned Spell metamagic
-- fixed Path of The Spirit Bear Resistance to include missing damage types
-- removed most limitations on infusions applications
+- added Gameplay > Rules > SRD setting to Change Eldritch Blast range from 16 to 24
+- fixed Draconic Cry range from 5ft to 10ft
