@@ -144,19 +144,8 @@ public static class GameLocationCharacterPatcher
 
             var battleInProgress = Gui.Battle != null;
 
-            if (__result)
-            {
-                //PATCH: hide use power button if character has no valid powers
-                if (!rulesetCharacter.UsablePowers.Any(rulesetUsablePower =>
-                        IsActionValid(rulesetCharacter, rulesetUsablePower, actionType)
-                        && CanUsePower(rulesetCharacter, rulesetUsablePower, accountDelegatedPowers)
-                    ))
-                {
-                    __result = false;
-                }
-            }
             //PATCH: force show power use button during exploration if it has at least one usable power
-            else
+            if (!__result)
             {
                 if (!battleInProgress
                     && actionType == ActionDefinitions.ActionType.Main
@@ -169,36 +158,11 @@ public static class GameLocationCharacterPatcher
             }
         }
 
-        private static bool IsActionValid(
-            RulesetCharacter character,
-            RulesetUsablePower power,
-            ActionDefinitions.ActionType actionType)
-        {
-            if (Gui.Battle == null)
-            {
-                return true;
-            }
-
-            var time = power.powerDefinition.ActivationTime;
-
-            if (!ActionDefinitions.CastingTimeToActionDefinition.TryGetValue(time, out var type))
-            {
-                return false;
-            }
-
-            return actionType == type && !PowerVisibilityModifier.IsPowerHidden(character, power, actionType);
-        }
-
         private static bool CanUsePower(RulesetCharacter character, RulesetUsablePower usablePower,
             bool accountDelegatedPowers)
         {
             var power = usablePower.PowerDefinition;
-            // reactive power is always hidden by blue print so to check if a power is hidden
-            // intentionally its activation time should not be Reaction
-            var hidden = power.GuiPresentation.Hidden &&
-                         power.activationTime != RuleDefinitions.ActivationTime.Reaction;
             return (accountDelegatedPowers || !power.DelegatedToAction)
-                   && !hidden
                    && character.CanUsePower(power, false);
         }
     }
