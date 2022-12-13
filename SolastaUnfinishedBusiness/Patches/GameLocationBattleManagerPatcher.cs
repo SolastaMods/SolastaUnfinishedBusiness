@@ -748,11 +748,16 @@ public static class GameLocationBattleManagerPatcher
             }
 
             // PATCH: Allow attack of opportunity on target that failed saving throw
-            var units = __instance.Battle.AllContenders
+            var units = __instance.Battle?.AllContenders
                 .Where(u => !u.RulesetCharacter.IsDeadOrDyingOrUnconscious)
                 .ToArray();
 
             //Process other participants of the battle
+            if (units == null)
+            {
+                yield break;
+            }
+            
             foreach (var unit in units)
             {
                 if (unit == defender)
@@ -762,7 +767,8 @@ public static class GameLocationBattleManagerPatcher
 
                 foreach (var feature in unit.RulesetCharacter.GetSubFeaturesByType<IOnDefenderFailedSavingThrow>())
                 {
-                    yield return feature.OnDefenderFailedSavingThrow(__instance, action, unit, defender, saveModifier,
+                    yield return feature.OnDefenderFailedSavingThrow(__instance, action, unit, defender,
+                        saveModifier,
                         hasHitVisual, hasBorrowedLuck);
                 }
             }

@@ -174,6 +174,11 @@ internal static class SrdAndHouseRulesContext
         FeatureDefinitionAdditionalDamages.AdditionalDamagePaladinDivineSmite.attackModeOnly = true;
         FeatureDefinitionAdditionalDamages.AdditionalDamagePaladinDivineSmite.requiredProperty =
             RestrictedContextRequiredProperty.MeleeWeapon;
+        var feature = ConditionFeatRaiseShield.Features[0] as FeatureDefinitionAttributeModifier;
+        if (feature != null)
+        {
+            feature.modifierValue = 10;
+        }
     }
 
     /**
