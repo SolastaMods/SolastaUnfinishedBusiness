@@ -127,8 +127,6 @@ public static class GameLocationCharacterPatcher
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     public static class CanUseAtLeastOnPower_Patch
     {
-        // This makes it so that if a character only has powers that take longer than an action to activate the "Use Power" button is available.
-        // But only not during a battle.
         public static void Postfix(
             GameLocationCharacter __instance,
             ActionDefinitions.ActionType actionType,
@@ -145,10 +143,10 @@ public static class GameLocationCharacterPatcher
             var battleInProgress = Gui.Battle != null;
 
             //PATCH: force show power use button during exploration if it has at least one usable power
-            if (!__result)
+            //This makes it so that if a character only has powers that take longer than an action to activate the "Use Power" button is available.
+            if (!__result && !battleInProgress)
             {
-                if (!battleInProgress
-                    && actionType == ActionDefinitions.ActionType.Main
+                if (actionType == ActionDefinitions.ActionType.Main
                     && rulesetCharacter.UsablePowers.Any(rulesetUsablePower =>
                         CanUsePower(rulesetCharacter, rulesetUsablePower, accountDelegatedPowers)))
 
