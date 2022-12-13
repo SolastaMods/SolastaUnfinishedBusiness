@@ -77,6 +77,12 @@ public static class InvocationActivationBoxPatcher
                             ? "Tooltip/&InvocationUsageShortRestAvailableDescription"
                             : "Tooltip/&InvocationUsageShortRestUsedDescription";
                     }
+
+                    var available = !invocation.Used && activator.CanCastInvocation(invocation);
+                    __instance.button.interactable = available;
+                    __instance.canvasGroup.interactable = available;
+                    __instance.icon.material = available ? __instance.availableMaterial : __instance.unavailableMaterial;
+                    __instance.icon.color = available ? Color.white : new Color(0.5f, 0.5f, 0.5f, 1f);
                 }
 
             }
