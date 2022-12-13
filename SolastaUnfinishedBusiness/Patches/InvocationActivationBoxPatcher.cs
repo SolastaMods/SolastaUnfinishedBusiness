@@ -133,7 +133,7 @@ public static class InvocationActivationBoxPatcher
                 var rect = table.GetComponent<RectTransform>();
                 var position = box.infinitySymbol.transform.position;
 
-                rect.position = new Vector3(position.x + 130, position.y - 5, 0);
+                rect.position = new Vector3(rect.position.x, position.y, 0);
                 tableTransform = rect;
 
                 highTransform = powerBox.transform.Find("Header/HighSlotNumber");
@@ -143,7 +143,7 @@ public static class InvocationActivationBoxPatcher
                 high.name = HighSlotsName;
                 rect = high.GetComponent<RectTransform>();
                 // ReSharper disable once Unity.InefficientPropertyAccess
-                rect.position = new Vector3(position.x - 60, position.y - 5, 0);
+                rect.position = new Vector3(rect.position.x, position.y, 0);
                 highSlots = high.GetComponent<GuiLabel>();
             }
             else
