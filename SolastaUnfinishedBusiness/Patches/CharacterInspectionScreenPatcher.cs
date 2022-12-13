@@ -55,7 +55,7 @@ public static class CharacterInspectionScreenPatcher
             Global.InspectedHero = null;
 
             //PATCH: enables Inventory Filtering and Sorting
-            if (Main.Settings.EnableInventoryFilteringAndSorting)
+            if (Main.Settings.EnableInventoryFilteringAndSorting && !Global.IsMultiplayer)
             {
                 InventoryManagementContext.ResetControls();
             }
