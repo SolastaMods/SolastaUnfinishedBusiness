@@ -78,13 +78,10 @@ public static class InvocationActivationBoxPatcher
                 restSymbol.gameObject.SetActive(true);
                 box.infinitySymbol.gameObject.SetActive(false);
 
-                if (restSymbol.gameObject.activeSelf)
-                {
-                    restSymbol.color = invocation.Used ? box.unavailableColor : box.availableColor;
-                    box.restSymbolTooltip.Content = invocation.Used
-                        ? "Tooltip/&InvocationUsageShortRestUsedDescription"
-                        : "Tooltip/&InvocationUsageShortRestAvailableDescription";
-                }
+                restSymbol.color = invocation.Used ? box.unavailableColor : box.availableColor;
+                box.restSymbolTooltip.Content = invocation.Used
+                    ? "Tooltip/&InvocationUsageShortRestUsedDescription"
+                    : "Tooltip/&InvocationUsageShortRestAvailableDescription";
 
                 var available = !invocation.Used && activator.CanCastInvocation(invocation);
                 box.button.interactable = available;
