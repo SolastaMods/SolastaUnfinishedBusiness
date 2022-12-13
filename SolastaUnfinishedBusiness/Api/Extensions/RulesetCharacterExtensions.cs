@@ -259,6 +259,12 @@ internal static class RulesetCharacterExtensions
         {
             bool isValid;
             var definition = invocation.invocationDefinition;
+
+            if (definition.HasSubFeatureOfType<Hidden>())
+            {
+                continue;
+            }
+
             if (scope == ActionDefinitions.ActionScope.Battle)
             {
                 isValid = definition.GetActionId() == actionId;
