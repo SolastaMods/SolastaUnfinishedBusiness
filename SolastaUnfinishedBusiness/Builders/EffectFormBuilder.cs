@@ -41,6 +41,7 @@ internal class EffectFormBuilder
         effectForm.SaveOccurence = saveOccurence;
         return this;
     }
+
     internal EffectFormBuilder SetBonusMode(AddBonusMode bonusMode)
     {
         effectForm.AddBonusMode = bonusMode;

@@ -747,6 +747,11 @@ public static class GameLocationBattleManagerPatcher
                 }
             }
 
+            if (__instance.Battle == null)
+            {
+                yield break;
+            }
+
             // PATCH: Allow attack of opportunity on target that failed saving throw
             var units = __instance.Battle.AllContenders
                 .Where(u => !u.RulesetCharacter.IsDeadOrDyingOrUnconscious)

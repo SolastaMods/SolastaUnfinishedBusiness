@@ -1,14 +1,13 @@
 ﻿KNOWN ISSUES:
 
-- You need to drop any returning weapon before this upgrade [Inventor]
 - Grenadier bombs have DC 0 under MP [please share a log after you use a bomb if you face this]
 
 CHANGES:
 
-- added Gameplay > Rules > SRD setting to Change Eldritch Blast range from 16 to 24
-- added Protect Threshold icon by @balmz
-- disabled Inventory Filtering and Sorting feature under MP
-- fixed Draconic Cry range from 5ft to 10ft
-- fixed even level feats exceptions for Fighter at 6 / 14 and Rogues at 10 as they should get 2
-- fixed Inspiring Leader and Soul Shield to correctly consider Charisma as their bonus to HP
-- fixed precision feats not set to magical
+- added Interface > Game UI > setting to allow more real state on rest panel [useful when hero has too many actions]
+- added support for invocations that recharge on short rest [i.e.: Fey Teleportation]
+- fixed a null exception on wildshape interactions with pugilist
+- fixed a null exception on off battle saving thrown handling
+- fixed Gray Dwarf Stone Strength additional damage to only consider melee strength weapons
+- fixed plane magic button to display even if you can't cast any of the spells
+- fixed power use slots positioning for custom invocations on different screen resolutions

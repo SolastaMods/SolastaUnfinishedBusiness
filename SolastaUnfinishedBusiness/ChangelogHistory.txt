@@ -1,5 +1,15 @@
 ﻿CHANGES:
 
+1.4.31.9:
+
+- added Interface > Game UI > setting to allow more real state on rest panel [useful when hero has too many actions]
+- added support for invocations that recharge on short rest [i.e.: Fey Teleportation]
+- fixed a null exception on wildshape interactions with pugilist
+- fixed a null exception on off battle saving thrown handling
+- fixed Gray Dwarf Stone Strength additional damage to only consider melee strength weapons
+- fixed plane magic button to display even if you can't cast any of the spells
+- fixed power use slots positioning for custom invocations on different screen resolutions
+
 1.4.31.8:
 
 - added Gameplay > Rules > SRD setting to Change Eldritch Blast range from 16 to 24

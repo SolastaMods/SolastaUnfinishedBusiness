@@ -227,6 +227,7 @@ public class Settings : UnityModManager.ModSettings
     public bool EnableAdditionalIconsOnLevelMap { get; set; }
     public bool MarkInvisibleTeleportersOnLevelMap { get; set; }
     public bool HideExitsAndTeleportersGizmosIfNotDiscovered { get; set; }
+    public bool AllowMoreRealStateOnRestPanel { get; set; }
 
     // Input
     public bool AltOnlyHighlightItemsInPartyFieldOfView { get; set; }

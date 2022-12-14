@@ -832,6 +832,14 @@ public static class RulesetCharacterPatcher
             {
                 __instance.RecoveredFeatures.Remove(feature);
             }
+
+            //PATCH: support for invocations that recharge on short rest (like Fey Teleportation feat)
+            foreach (var invocation in __instance.Invocations
+                         .Where(invocation =>
+                             invocation.InvocationDefinition.HasSubFeatureOfType<InvocationShortRestRecharge>()))
+            {
+                invocation.Recharge();
+            }
         }
 
         public static IEnumerable<CodeInstruction> Transpiler([NotNull] IEnumerable<CodeInstruction> instructions)
