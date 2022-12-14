@@ -321,7 +321,6 @@ internal sealed class MartialMarshal : AbstractSubclass
                 .SetEffectForms(
                     EffectFormBuilder
                         .Create()
-
                         .SetConditionForm(ConditionEncourage, ConditionForm.ConditionOperation.Add, false,
                             false)
                         .Build())

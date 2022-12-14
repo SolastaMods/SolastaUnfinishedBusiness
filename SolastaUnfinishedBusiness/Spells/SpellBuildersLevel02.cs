@@ -3,11 +3,11 @@ using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomUI;
+using SolastaUnfinishedBusiness.Properties;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.ConditionDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
 using static RuleDefinitions;
-using Resources = SolastaUnfinishedBusiness.Properties.Resources;
 
 namespace SolastaUnfinishedBusiness.Spells;
 
@@ -73,7 +73,6 @@ internal static partial class SpellBuilders
     internal static SpellDefinition BuildProtectThreshold()
     {
         const string NAME = "ProtectThreshold";
-        
         const string ProxyPetalStormName = "ProxyProtectThreshold";
 
         EffectProxyDefinitionBuilder

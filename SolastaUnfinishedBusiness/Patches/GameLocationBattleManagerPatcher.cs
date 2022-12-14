@@ -635,7 +635,7 @@ public static class GameLocationBattleManagerPatcher
 
     [HarmonyPatch(typeof(GameLocationBattleManager), "HandleFailedSavingThrow")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class  HandleFailedSavingThrow_Patch
+    internal static class HandleFailedSavingThrow_Patch
     {
         internal static bool QuickWitReactionValidated { get; set; }
 
@@ -750,7 +750,6 @@ public static class GameLocationBattleManagerPatcher
             if (__instance.Battle == null)
             {
                 yield break;
-                
             }
 
             // PATCH: Allow attack of opportunity on target that failed saving throw

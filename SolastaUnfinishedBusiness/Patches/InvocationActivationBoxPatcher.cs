@@ -71,24 +71,27 @@ public static class InvocationActivationBoxPatcher
         private static void UpdateUsedState(InvocationActivationBox box, RulesetInvocation invocation,
             RulesetCharacter activator)
         {
-
-            if (invocation.InvocationDefinition.HasSubFeatureOfType<InvocationShortRestRecharge>())
+            if (!invocation.InvocationDefinition.HasSubFeatureOfType<InvocationShortRestRecharge>())
             {
-                var restSymbol = box.restSymbol;
-                restSymbol.gameObject.SetActive(true);
-                box.infinitySymbol.gameObject.SetActive(false);
-
-                restSymbol.color = invocation.Used ? box.unavailableColor : box.availableColor;
-                box.restSymbolTooltip.Content = invocation.Used
-                    ? "Tooltip/&InvocationUsageShortRestUsedDescription"
-                    : "Tooltip/&InvocationUsageShortRestAvailableDescription";
-
-                var available = !invocation.Used && activator.CanCastInvocation(invocation);
-                box.button.interactable = available;
-                box.canvasGroup.interactable = available;
-                box.icon.material = available ? box.availableMaterial : box.unavailableMaterial;
-                box.icon.color = available ? Color.white : new Color(0.5f, 0.5f, 0.5f, 1f);
+                return;
             }
+
+            var restSymbol = box.restSymbol;
+
+            restSymbol.gameObject.SetActive(true);
+            box.infinitySymbol.gameObject.SetActive(false);
+
+            restSymbol.color = invocation.Used ? box.unavailableColor : box.availableColor;
+            box.restSymbolTooltip.Content = invocation.Used
+                ? "Tooltip/&InvocationUsageShortRestUsedDescription"
+                : "Tooltip/&InvocationUsageShortRestAvailableDescription";
+
+            var available = !invocation.Used && activator.CanCastInvocation(invocation);
+
+            box.button.interactable = available;
+            box.canvasGroup.interactable = available;
+            box.icon.material = available ? box.availableMaterial : box.unavailableMaterial;
+            box.icon.color = available ? Color.white : new Color(0.5f, 0.5f, 0.5f, 1f);
         }
 
         private static void SetupCustomTooltip(
