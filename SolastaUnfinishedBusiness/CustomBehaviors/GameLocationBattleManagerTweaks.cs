@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.Extensions;
 using SolastaUnfinishedBusiness.Invocations;
 using SolastaUnfinishedBusiness.Models;
@@ -607,10 +608,10 @@ internal static class GameLocationBattleManagerTweaks
             }
 
             ItemDefinition itemDefinition = null;
+
             if (attackMode != null)
             {
-                itemDefinition = DatabaseRepository.GetDatabase<ItemDefinition>()
-                    .GetElement(attackMode.SourceDefinition.Name, true);
+                DatabaseHelper.TryGetDefinition(attackMode.SourceDefinition.Name, out itemDefinition);
             }
 
             CharacterActionParams reactionParams = null;
@@ -861,11 +862,12 @@ internal static class GameLocationBattleManagerTweaks
 
                         if (attacker.LocationPosition.y > defender.LocationPosition.y)
                         {
-                            if (itemDefinition != null
-                                && itemDefinition.IsWeapon)
+                            if (itemDefinition != null && itemDefinition.IsWeapon)
                             {
-                                var weaponTypeDefinition = DatabaseRepository.GetDatabase<WeaponTypeDefinition>()
-                                    .GetElement(itemDefinition.WeaponDescription.WeaponType);
+                                var weaponTypeDefinition =
+                                    DatabaseHelper.GetDefinition<WeaponTypeDefinition>(itemDefinition.WeaponDescription
+                                        .WeaponType);
+
                                 if (weaponTypeDefinition.WeaponProximity == RuleDefinitions.AttackProximity.Range)
                                 {
                                     validTrigger = true;

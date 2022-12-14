@@ -241,14 +241,11 @@ internal static class MulticlassContext
             return;
         }
 
-        var dbFeatureDefinitionPointPool = DatabaseRepository.GetDatabase<FeatureDefinitionPointPool>();
-        var dbFeatureDefinitionProficiency = DatabaseRepository.GetDatabase<FeatureDefinitionProficiency>();
-
         FeaturesToExclude.Add(inventorClass,
             new List<FeatureDefinition>
             {
-                dbFeatureDefinitionPointPool.GetElement("PointPoolInventorSkills"),
-                dbFeatureDefinitionProficiency.GetElement("ProficiencyInventorSavingThrow")
+                DatabaseHelper.GetDefinition<FeatureDefinitionPointPool>("PointPoolInventorSkills"),
+                DatabaseHelper.GetDefinition<FeatureDefinitionProficiency>("ProficiencyInventorSavingThrow")
             });
     }
 

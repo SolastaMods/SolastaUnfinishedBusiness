@@ -2,6 +2,7 @@
 using System.Text;
 using HarmonyLib;
 using JetBrains.Annotations;
+using SolastaUnfinishedBusiness.Api;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
@@ -30,7 +31,7 @@ public static class FeatureDefinitionPointPoolPatcher
                     builder.Append(separator);
                 }
 
-                var tool = DatabaseRepository.GetDatabase<ToolTypeDefinition>().GetElement(restrictedChoice);
+                var tool = DatabaseHelper.GetDefinition<ToolTypeDefinition>(restrictedChoice);
 
                 builder.Append(Gui.Localize(tool.GuiPresentation.Title));
             }

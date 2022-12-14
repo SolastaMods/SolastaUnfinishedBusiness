@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using JetBrains.Annotations;
+using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 
@@ -85,7 +86,6 @@ internal static class FlexibleRacesContext
     {
         var enabled = Main.Settings.EnableFlexibleRaces;
         var dbCharacterRaceDefinition = DatabaseRepository.GetDatabase<CharacterRaceDefinition>();
-        var dbFeatureDefinition = DatabaseRepository.GetDatabase<FeatureDefinition>();
 
         foreach (var keyValuePair in AddedFeatures)
         {
@@ -121,9 +121,8 @@ internal static class FlexibleRacesContext
 
             foreach (var featureDefinitionName in keyValuePair.Value)
             {
-                var featureDefinition = dbFeatureDefinition.GetElement(featureDefinitionName, true);
-
-                if (featureDefinition == null)
+                if (DatabaseHelper.TryGetDefinition<FeatureDefinition>(featureDefinitionName,
+                        out var featureDefinition))
                 {
                     continue;
                 }

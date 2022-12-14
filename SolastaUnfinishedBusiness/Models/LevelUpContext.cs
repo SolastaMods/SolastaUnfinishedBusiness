@@ -607,8 +607,7 @@ internal static class LevelUpContext
                     featureDefinitionProficiency.Proficiencies
                         .ForEach(prof =>
                             hero.TrainedFightingStyles
-                                .Add(DatabaseRepository.GetDatabase<FightingStyleDefinition>()
-                                    .GetElement(prof)));
+                                .Add(DatabaseHelper.GetDefinition<FightingStyleDefinition>(prof)));
                     break;
             }
         }

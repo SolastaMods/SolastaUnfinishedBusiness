@@ -69,7 +69,7 @@ internal static class ValidatorsCharacter
         {
             return false;
         }
-        
+
         var slotsByName = character.CharacterInventory.InventorySlotsByName;
         var equipedItem = slotsByName[EquipmentDefinitions.SlotTypeMainHand];
 
@@ -164,7 +164,8 @@ internal static class ValidatorsCharacter
     internal static readonly IsCharacterValidHandler LightArmor = character =>
     {
         // null check required for wildshape scenarios
-        var equipedItem = character.CharacterInventory?.InventorySlotsByName[EquipmentDefinitions.SlotTypeTorso].EquipedItem;
+        var equipedItem = character.CharacterInventory?.InventorySlotsByName[EquipmentDefinitions.SlotTypeTorso]
+            .EquipedItem;
 
         if (equipedItem == null || !equipedItem.ItemDefinition.IsArmor)
         {
@@ -172,9 +173,9 @@ internal static class ValidatorsCharacter
         }
 
         var armorDescription = equipedItem.ItemDefinition.ArmorDescription;
-        var element = DatabaseRepository.GetDatabase<ArmorTypeDefinition>().GetElement(armorDescription.ArmorType);
+        var element = DatabaseHelper.GetDefinition<ArmorTypeDefinition>(armorDescription.ArmorType);
 
-        return DatabaseRepository.GetDatabase<ArmorCategoryDefinition>().GetElement(element.ArmorCategory)
+        return DatabaseHelper.GetDefinition<ArmorCategoryDefinition>(element.ArmorCategory)
             .IsPhysicalArmor && element.ArmorCategory == EquipmentDefinitions.LightArmorCategory;
     };
 
@@ -183,7 +184,8 @@ internal static class ValidatorsCharacter
     internal static readonly IsCharacterValidHandler HeavyArmor = character =>
     {
         // null check required for wildshape scenarios
-        var equipedItem = character.CharacterInventory?.InventorySlotsByName[EquipmentDefinitions.SlotTypeTorso].EquipedItem;
+        var equipedItem = character.CharacterInventory?.InventorySlotsByName[EquipmentDefinitions.SlotTypeTorso]
+            .EquipedItem;
 
         if (equipedItem == null || !equipedItem.ItemDefinition.IsArmor)
         {
@@ -191,9 +193,9 @@ internal static class ValidatorsCharacter
         }
 
         var armorDescription = equipedItem.ItemDefinition.ArmorDescription;
-        var element = DatabaseRepository.GetDatabase<ArmorTypeDefinition>().GetElement(armorDescription.ArmorType);
+        var element = DatabaseHelper.GetDefinition<ArmorTypeDefinition>(armorDescription.ArmorType);
 
-        return DatabaseRepository.GetDatabase<ArmorCategoryDefinition>().GetElement(element.ArmorCategory)
+        return DatabaseHelper.GetDefinition<ArmorCategoryDefinition>(element.ArmorCategory)
             .IsPhysicalArmor && element.ArmorCategory == EquipmentDefinitions.HeavyArmorCategory;
     };
 
