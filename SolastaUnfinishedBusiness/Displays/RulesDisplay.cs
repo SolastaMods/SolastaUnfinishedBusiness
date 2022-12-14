@@ -70,6 +70,22 @@ internal static class RulesDisplay
             Main.Settings.BestowCurseNoConcentrationRequiredForSlotLevel5OrAbove = toggle;
         }
 
+        toggle = Main.Settings.ChangeSleetStormToCube;
+        if (UI.Toggle(Gui.Localize("ModUi/&ChangeSleetStormToCube"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.ChangeSleetStormToCube = toggle;
+            SrdAndHouseRulesContext.UseCubeOnSleetStorm();
+        }
+
+        UI.Label();
+
+        toggle = Main.Settings.FixEldritchBlastRange;
+        if (UI.Toggle(Gui.Localize("ModUi/&FixEldritchBlastRange"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.FixEldritchBlastRange = toggle;
+            SrdAndHouseRulesContext.SwitchEldritchBlastRange();
+        }
+
         toggle = Main.Settings.EnableUpcastConjureElementalAndFey;
         if (UI.Toggle(Gui.Localize("ModUi/&EnableUpcastConjureElementalAndFey"), ref toggle, UI.AutoWidth()))
         {
@@ -88,12 +104,7 @@ internal static class RulesDisplay
             }
         }
 
-        toggle = Main.Settings.RemoveHumanoidFilterOnHideousLaughter;
-        if (UI.Toggle(Gui.Localize("ModUi/&RemoveHumanoidFilterOnHideousLaughter"), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.RemoveHumanoidFilterOnHideousLaughter = toggle;
-            SrdAndHouseRulesContext.SwitchFilterOnHideousLaughter();
-        }
+        UI.Label();
 
         toggle = Main.Settings.RemoveRecurringEffectOnEntangle;
         if (UI.Toggle(Gui.Localize("ModUi/&RemoveRecurringEffectOnEntangle"), ref toggle, UI.AutoWidth()))
@@ -102,18 +113,11 @@ internal static class RulesDisplay
             SrdAndHouseRulesContext.SwitchRecurringEffectOnEntangle();
         }
 
-        toggle = Main.Settings.ChangeSleetStormToCube;
-        if (UI.Toggle(Gui.Localize("ModUi/&ChangeSleetStormToCube"), ref toggle, UI.AutoWidth()))
+        toggle = Main.Settings.RemoveHumanoidFilterOnHideousLaughter;
+        if (UI.Toggle(Gui.Localize("ModUi/&RemoveHumanoidFilterOnHideousLaughter"), ref toggle, UI.AutoWidth()))
         {
-            Main.Settings.ChangeSleetStormToCube = toggle;
-            SrdAndHouseRulesContext.UseCubeOnSleetStorm();
-        }
-
-        toggle = Main.Settings.FixEldritchBlastRange;
-        if (UI.Toggle(Gui.Localize("ModUi/&FixEldritchBlastRange"), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.FixEldritchBlastRange = toggle;
-            SrdAndHouseRulesContext.SwitchEldritchBlastRange();
+            Main.Settings.RemoveHumanoidFilterOnHideousLaughter = toggle;
+            SrdAndHouseRulesContext.SwitchFilterOnHideousLaughter();
         }
 
         toggle = Main.Settings.UseHeightOneCylinderEffect;

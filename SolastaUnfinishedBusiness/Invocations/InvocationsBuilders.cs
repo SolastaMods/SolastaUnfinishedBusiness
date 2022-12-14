@@ -55,8 +55,7 @@ internal static class InvocationsBuilders
     {
         const string NAME = "InvocationUndyingServitude";
 
-        var spell = DatabaseRepository.GetDatabase<SpellDefinition>()
-            .GetElement("CreateDeadRisenSkeleton_Enforcer");
+        var spell = GetDefinition<SpellDefinition>("CreateDeadRisenSkeleton_Enforcer");
 
         return InvocationDefinitionBuilder
             .Create(NAME)

@@ -1,5 +1,11 @@
 ﻿CHANGES:
 
+1.4.31.10:
+
+- fixed level up allowing heritage spells to be unlearned
+- fixed Sunlit Blade spell and Twinned metamagic interaction
+- improved UI patches to support more than 4 players co-op
+
 1.4.31.9:
 
 - added Interface > Game UI > setting to allow more real state on rest panel [useful when hero has too many actions]

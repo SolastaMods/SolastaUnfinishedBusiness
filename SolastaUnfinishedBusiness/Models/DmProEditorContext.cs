@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using JetBrains.Annotations;
+using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Api.Infrastructure;
 using UnityEngine;
@@ -70,8 +71,8 @@ internal static class DmProEditorContext
 
     internal static int Compare([NotNull] BaseBlueprint left, [NotNull] BaseBlueprint right)
     {
-        var leftCategory = DatabaseRepository.GetDatabase<BlueprintCategory>().GetElement(left.Category);
-        var rightCategory = DatabaseRepository.GetDatabase<BlueprintCategory>().GetElement(right.Category);
+        var leftCategory = DatabaseHelper.GetDefinition<BlueprintCategory>(left.Category);
+        var rightCategory = DatabaseHelper.GetDefinition<BlueprintCategory>(right.Category);
         var result = String.Compare(leftCategory.FormatTitle(), rightCategory.FormatTitle(),
             StringComparison.CurrentCultureIgnoreCase);
 

@@ -1,13 +1,9 @@
 ﻿KNOWN ISSUES:
 
-- Grenadier bombs have DC 0 under MP [please share a log after you use a bomb if you face this]
+- Grenadier bombs have DC 0 under MP [please share a log]
 
 CHANGES:
 
-- added Interface > Game UI > setting to allow more real state on rest panel [useful when hero has too many actions]
-- added support for invocations that recharge on short rest [i.e.: Fey Teleportation]
-- fixed a null exception on wildshape interactions with pugilist
-- fixed a null exception on off battle saving thrown handling
-- fixed Gray Dwarf Stone Strength additional damage to only consider melee strength weapons
-- fixed plane magic button to display even if you can't cast any of the spells
-- fixed power use slots positioning for custom invocations on different screen resolutions
+- fixed level up allowing heritage spells to be unlearned
+- fixed Sunlit Blade spell and Twinned metamagic interaction
+- improved UI patches to support more than 4 players co-op

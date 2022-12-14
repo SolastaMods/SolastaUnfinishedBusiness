@@ -108,7 +108,7 @@ internal sealed class PerformAttackAfterMagicEffectUse : IPerformAttackAfterMagi
             attackActionParams.TargetCharacters.Add(target);
             attackActionParams.ActionModifiers.Add(attackModifier);
             attacks.Add(attackActionParams);
-            if (targets.Count >= maxAttacks)
+            if (attackActionParams.TargetCharacters.Count >= maxAttacks)
             {
                 break;
             }

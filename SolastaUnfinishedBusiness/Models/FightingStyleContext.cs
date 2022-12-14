@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
+using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.FightingStyles;
 
@@ -141,10 +142,9 @@ internal static class FightingStyleContext
                         && mainHandSlot.EquipedItem != null
                         && mainHandSlot.EquipedItem.ItemDefinition.IsWeapon)
                     {
-                        var dbWeaponTypeDefinition = DatabaseRepository.GetDatabase<WeaponTypeDefinition>();
                         var weaponType = mainHandSlot.EquipedItem.ItemDefinition.WeaponDescription.WeaponType;
 
-                        if (dbWeaponTypeDefinition.GetElement(weaponType).WeaponProximity ==
+                        if (DatabaseHelper.GetDefinition<WeaponTypeDefinition>(weaponType).WeaponProximity ==
                             RuleDefinitions.AttackProximity.Melee
                             && offHandSlot.EquipedItem != null
                             && offHandSlot.EquipedItem.ItemDefinition.IsArmor)
