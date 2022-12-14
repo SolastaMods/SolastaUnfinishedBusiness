@@ -40,23 +40,31 @@ internal static class ValidatorsWeapon
         return weapon != null && weapon.ItemDefinition.IsWeapon && weapon.ItemDefinition.Name.Contains("Greatsword");
     }
 
-    internal static bool IsMelee([CanBeNull] RulesetItem weapon)
+    private static bool IsMelee([CanBeNull] ItemDefinition itemDefinition)
     {
-        return weapon == null // for unarmed
-               || weapon.ItemDefinition.IsArmor // for shields
-               || weapon.ItemDefinition.WeaponDescription?.WeaponTypeDefinition.WeaponProximity ==
-               RuleDefinitions.AttackProximity.Melee;
+        return itemDefinition != null &&
+               (itemDefinition.WeaponDescription?.WeaponTypeDefinition.WeaponProximity ==
+                   RuleDefinitions.AttackProximity.Melee || itemDefinition.IsArmor /* for shields */);
     }
 
-    internal static bool IsMelee([NotNull] RulesetAttackMode attack)
+    internal static bool IsMelee([CanBeNull] RulesetItem weapon)
     {
-        //TODO: test if this is enough, or we need to check SourceDefinition too
-        return !attack.ranged;
+        return weapon != null && IsMelee(weapon.ItemDefinition);
+    }
+
+    internal static bool IsMelee([CanBeNull] RulesetAttackMode attack)
+    {
+        return attack is { SourceDefinition: ItemDefinition itemDefinition } && IsMelee(itemDefinition);
     }
 
     internal static bool IsRanged(RulesetItem weapon)
     {
         return HasAnyWeaponTag(weapon, TagsDefinitions.WeaponTagRange, TagsDefinitions.WeaponTagThrown);
+    }
+    
+    internal static bool IsRanged([CanBeNull] RulesetAttackMode attack)
+    {
+        return attack is { Reach: false, Ranged: true } or { Reach: false, Thrown: true };
     }
 
     internal static bool IsOneHanded(RulesetAttackMode attackMode)

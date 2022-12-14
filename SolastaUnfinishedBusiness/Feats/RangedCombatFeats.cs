@@ -147,7 +147,7 @@ internal static class RangedCombatFeats
     // HELPERS
     //
 
-    private static bool IsOneHandedRanged(RulesetAttackMode mode, RulesetItem weapon, RulesetCharacter character)
+    private static bool IsOneHandedRanged(RulesetAttackMode mode, RulesetItem weapon, RulesetCharacter _)
     {
         return ValidatorsWeapon.IsRanged(weapon) && ValidatorsWeapon.IsOneHanded(weapon);
     }
@@ -156,7 +156,7 @@ internal static class RangedCombatFeats
     {
         public void ModifyAttackMode(RulesetCharacter character, [CanBeNull] RulesetAttackMode attackMode)
         {
-            if (attackMode is not { Reach: false, Ranged: true })
+            if (!ValidatorsWeapon.IsRanged(attackMode))
             {
                 return;
             }
