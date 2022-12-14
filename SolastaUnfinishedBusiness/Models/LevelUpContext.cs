@@ -367,12 +367,15 @@ internal static class LevelUpContext
                     knownSpells.TryAddRange(spellRepertoire.KnownSpells, tag);
                     knownSpells.TryAddRange(spellRepertoire.EnumerateAvailableScribedSpells(), tag);
                     break;
+                case RuleDefinitions.SpellKnowledge.FixedList:
                 case RuleDefinitions.SpellKnowledge.WholeList:
                     knownSpells.TryAddRange(spellRepertoire.KnownCantrips, tag);
                     knownSpells.TryAddRange(
                         castingFeature.SpellListDefinition.SpellsByLevel.SelectMany(s => s.Spells)
                             .Where(x => x.SpellLevel > 0 && x.SpellLevel <= maxSpellLevel), tag);
                     break;
+                default:
+                    continue;
             }
         }
 
