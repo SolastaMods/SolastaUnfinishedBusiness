@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
+using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.FightingStyles;
 
 namespace SolastaUnfinishedBusiness.Models;
@@ -123,9 +124,9 @@ internal static class FightingStyleContext
                     break;
                 }
 
-                // Make Shield Expert benefit from Two Weapon Fighting Style
                 case FightingStyleDefinition.TriggerCondition.TwoMeleeWeaponsWielded:
                 {
+                    // Make Shield Expert benefit from Two Weapon Fighting Style
                     var hasShieldExpert = hero.TrainedFeats.Any(x =>
                                               x.Name.Contains(ShieldExpert.ShieldExpertName)) ||
                                           hero.TrainedFightingStyles.Any(x =>
@@ -150,6 +151,19 @@ internal static class FightingStyleContext
                         {
                             isActive = true;
                         }
+                    }
+
+                    // Make One Handed Crossbow not benefit from Two Weapon Fighting Style
+                    if (mainHandSlot.EquipedItem != null && ValidatorsWeapon.IsRanged(mainHandSlot.EquipedItem) &&
+                        ValidatorsWeapon.IsOneHanded(mainHandSlot.EquipedItem))
+                    {
+                        isActive = false;
+                    }
+
+                    if (offHandSlot.EquipedItem != null && ValidatorsWeapon.IsRanged(offHandSlot.EquipedItem) &&
+                        ValidatorsWeapon.IsOneHanded(offHandSlot.EquipedItem))
+                    {
+                        isActive = false;
                     }
 
                     break;
