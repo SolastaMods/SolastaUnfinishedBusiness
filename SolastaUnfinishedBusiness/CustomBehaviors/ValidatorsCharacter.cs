@@ -23,6 +23,12 @@ internal static class ValidatorsCharacter
 
     internal static readonly IsCharacterValidHandler HasPolearm = character =>
     {
+        // required for wildshape scenarios
+        if (character is not RulesetCharacterHero)
+        {
+            return false;
+        }
+
         var slotsByName = character.CharacterInventory.InventorySlotsByName;
 
         return ValidatorsWeapon.IsPolearm(slotsByName[EquipmentDefinitions.SlotTypeMainHand].EquipedItem)
@@ -58,6 +64,12 @@ internal static class ValidatorsCharacter
 
     internal static readonly IsCharacterValidHandler HasTwoHandedRangeWeapon = character =>
     {
+        // required for wildshape scenarios
+        if (character is not RulesetCharacterHero)
+        {
+            return false;
+        }
+        
         var slotsByName = character.CharacterInventory.InventorySlotsByName;
         var equipedItem = slotsByName[EquipmentDefinitions.SlotTypeMainHand];
 
@@ -133,6 +145,12 @@ internal static class ValidatorsCharacter
 
     internal static readonly IsCharacterValidHandler HasUnarmedHand = character =>
     {
+        // required for wildshape scenarios
+        if (character is not RulesetCharacterHero)
+        {
+            return false;
+        }
+
         var slotsByName = character.CharacterInventory.InventorySlotsByName;
         var main = slotsByName[EquipmentDefinitions.SlotTypeMainHand].EquipedItem;
         var off = slotsByName[EquipmentDefinitions.SlotTypeOffHand].EquipedItem;
@@ -145,8 +163,8 @@ internal static class ValidatorsCharacter
 
     internal static readonly IsCharacterValidHandler LightArmor = character =>
     {
-        var equipedItem = character.CharacterInventory.InventorySlotsByName[EquipmentDefinitions.SlotTypeTorso]
-            .EquipedItem;
+        // null check required for wildshape scenarios
+        var equipedItem = character.CharacterInventory?.InventorySlotsByName[EquipmentDefinitions.SlotTypeTorso].EquipedItem;
 
         if (equipedItem == null || !equipedItem.ItemDefinition.IsArmor)
         {
@@ -164,8 +182,8 @@ internal static class ValidatorsCharacter
 
     internal static readonly IsCharacterValidHandler HeavyArmor = character =>
     {
-        var equipedItem = character.CharacterInventory.InventorySlotsByName[EquipmentDefinitions.SlotTypeTorso]
-            .EquipedItem;
+        // null check required for wildshape scenarios
+        var equipedItem = character.CharacterInventory?.InventorySlotsByName[EquipmentDefinitions.SlotTypeTorso].EquipedItem;
 
         if (equipedItem == null || !equipedItem.ItemDefinition.IsArmor)
         {
