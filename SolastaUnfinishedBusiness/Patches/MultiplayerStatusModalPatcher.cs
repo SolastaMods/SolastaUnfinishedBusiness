@@ -1,6 +1,8 @@
-﻿using System.Diagnostics.CodeAnalysis;
+﻿
+using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
 using JetBrains.Annotations;
+using UnityEngine;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
@@ -16,23 +18,33 @@ public static class MultiplayerStatusModalPatcher
             //PATCH: allows up to 6 players to join the game if there are enough heroes available (PARTYSIZE)
             switch (__instance)
             {
-                case MultiplayerWaitModal multiplayerStatusModal:
+                case MultiplayerWaitModal multiplayerWaitModal:
                 {
-                    if (multiplayerStatusModal.notReadyPlayerInfoGroups.Count > 0)
+                    if (multiplayerWaitModal.notReadyPlayerInfoGroups.Count > 0)
                     {
-                        while (multiplayerStatusModal.notReadyPlayerInfoGroups.Count < Main.Settings.OverridePartySize)
+                        while (multiplayerWaitModal.notReadyPlayerInfoGroups.Count < Main.Settings.OverridePartySize)
                         {
-                            multiplayerStatusModal.notReadyPlayerInfoGroups.Add(multiplayerStatusModal
-                                .notReadyPlayerInfoGroups[0]);
+                            var newItem = Object.Instantiate(
+                                multiplayerWaitModal.notReadyPlayerInfoGroups[0].gameObject,
+                                multiplayerWaitModal.notReadyPlayerInfoGroups[0].transform.parent);
+
+                            var playerInfoGroup = newItem.GetComponent<PlayerInfoGroup>();
+                            
+                            multiplayerWaitModal.notReadyPlayerInfoGroups.Add(playerInfoGroup);
                         }
                     }
 
-                    if (multiplayerStatusModal.readyPlayerInfoGroups.Count > 0)
+                    if (multiplayerWaitModal.readyPlayerInfoGroups.Count > 0)
                     {
-                        while (multiplayerStatusModal.readyPlayerInfoGroups.Count < Main.Settings.OverridePartySize)
+                        while (multiplayerWaitModal.readyPlayerInfoGroups.Count < Main.Settings.OverridePartySize)
                         {
-                            multiplayerStatusModal.readyPlayerInfoGroups.Add(multiplayerStatusModal
-                                .readyPlayerInfoGroups[0]);
+                            var newItem = Object.Instantiate(
+                                multiplayerWaitModal.readyPlayerInfoGroups[0].gameObject,
+                                multiplayerWaitModal.readyPlayerInfoGroups[0].transform.parent);
+
+                            var playerInfoGroup = newItem.GetComponent<PlayerInfoGroup>();
+                            
+                            multiplayerWaitModal.readyPlayerInfoGroups.Add(playerInfoGroup);
                         }
                     }
 
@@ -44,7 +56,13 @@ public static class MultiplayerStatusModalPatcher
                     {
                         while (multiplayerKickModal.playerInfoGroups.Count < Main.Settings.OverridePartySize)
                         {
-                            multiplayerKickModal.playerInfoGroups.Add(multiplayerKickModal.playerInfoGroups[0]);
+                            var newItem = Object.Instantiate(
+                                multiplayerKickModal.playerInfoGroups[0].gameObject,
+                                multiplayerKickModal.playerInfoGroups[0].transform.parent);
+
+                            var playerInfoGroup = newItem.GetComponent<PlayerInfoGroup>();
+
+                            multiplayerKickModal.playerInfoGroups.Add(playerInfoGroup);
                         }
                     }
 
@@ -56,7 +74,13 @@ public static class MultiplayerStatusModalPatcher
                     {
                         while (multiplayerVoteModal.playerInfoGroups.Count < Main.Settings.OverridePartySize)
                         {
-                            multiplayerVoteModal.playerInfoGroups.Add(multiplayerVoteModal.playerInfoGroups[0]);
+                            var newItem = Object.Instantiate(
+                                multiplayerVoteModal.playerInfoGroups[0].gameObject,
+                                multiplayerVoteModal.playerInfoGroups[0].transform.parent);
+
+                            var playerInfoGroup = newItem.GetComponent<PlayerInfoGroup>();
+
+                            multiplayerVoteModal.playerInfoGroups.Add(playerInfoGroup);
                         }
                     }
 
