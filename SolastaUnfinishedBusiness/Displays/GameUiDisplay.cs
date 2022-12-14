@@ -77,6 +77,13 @@ internal static class GameUiDisplay
             Main.Settings.HideExitsAndTeleportersGizmosIfNotDiscovered = toggle;
         }
 
+        UI.Label();
+        toggle = Main.Settings.AllowMoreRealStateOnRestPanel;
+        if (UI.Toggle(Gui.Localize("ModUi/&AllowMoreRealStateOnRestPanel"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.AllowMoreRealStateOnRestPanel = toggle;
+        }
+
         #endregion
 
         #region Input

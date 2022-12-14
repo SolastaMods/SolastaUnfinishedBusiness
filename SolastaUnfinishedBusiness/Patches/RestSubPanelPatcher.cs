@@ -2,6 +2,7 @@
 using HarmonyLib;
 using JetBrains.Annotations;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
@@ -34,6 +35,16 @@ public static class RestSubPanelPatcher
                     __instance.restModulesTable.anchoredPosition = new Vector2(0, y2);
                     break;
             }
+
+            //PATCH: Allow More Real State On Rest Panel
+            if (!Main.Settings.AllowMoreRealStateOnRestPanel)
+            {
+                return;
+            }
+
+            // this is after rest actions which we hide in Rest Before Panel
+            __instance.restModules[2].gameObject.SetActive(__instance is not RestBeforePanel);
+            LayoutRebuilder.ForceRebuildLayoutImmediate(__instance.RestModulesTable);
         }
     }
 }
