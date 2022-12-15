@@ -29,7 +29,8 @@ internal static class CreditsDisplay
         ("Holic75", "spells, Bolgrif, Gnome"),
         ("RedOrca", "Path of The Light"),
         ("DreadMaker", "Forest Guardian"),
-        ("Bazou", "fighting styles, rules, spells")
+        ("Bazou", "fighting styles, rules, spells"),
+        ("Balmz", "some powers and spells icons")
     };
 
     private static readonly bool IsUnityExplorerInstalled =
