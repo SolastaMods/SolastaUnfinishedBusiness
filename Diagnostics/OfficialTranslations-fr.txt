@@ -3800,7 +3800,7 @@ Equipment/&DLC1_Item_CloakOfTheAncientKing_Description	Fabriquée à partir de p
 Equipment/&DLC1_Item_BeltOfTheBarbarianKing_Title	Ceinture du roi barbare
 Equipment/&DLC1_Item_BeltOfTheBarbarianKing_Description	Une relique des anciennes contrées sauvages de Tirmar. Cette ceinture magique octroie CON 19 à son porteur.
 Equipment/&DLC1_Item_PeriaptOfTheMasterEnchanter_Title	Amulette du maître enchanteur
-Equipment/&DLC1_Item_PeriaptOfTheMasterEnchanter_Description	Elle appartenait autrefois au maître forgeron Firceidith de Manacalon. Cette amulette magique augmente la vitesse de fabrication de son porteur.
+Equipment/&DLC1_Item_PeriaptOfTheMasterEnchanter_Description	Elle appartenait autrefois au maître forgeron Firceidith de Manacalon. Cette amulette magique augmente la vitesse de fabrication de son porteur, mais accorde aussi la maîtrise du rosaire de Manacalon et le remplace si vous portez l'amulette autour du cou.
 Equipment/&DLC1_Item_RingOfTheAmbassador_Title	Anneau de l'ambassadeur
 Equipment/&DLC1_Item_RingOfTheAmbassador_Description	Fabriqué sur ordre de la princesse Galoreth Fleur d'Argent de Masgarth, cet anneau permet à son porteur de parler et de comprendre les langues des gobelins, géants, orques et terreux, et octroie un bonus de +2 aux jets de Persuasion.
 Equipment/&DLC1_Item_PendantOfTheHealer_Title	Pendentif du soigneur
@@ -4066,10 +4066,10 @@ Equipment/&ChargedRedCorundum_Description	Cette gemme chaude renferme un éléme
 Equipment/&BeltOfTheBarbarianKing_Function_Description	Votre Constitution s'élève à 19 tant que vous portez cette ceinture et qu'elle vous est liée.
 Equipment/&BoltplusOne	Carreau +1
 Equipment/&ItemTypeSpellFocusSubtypeNoneTitle	Tous
-Equipment/&WandOfTheWarMage+1_Effect	
-Equipment/&WandOfTheWarMage+2_Effect	
-Equipment/&NecklaceOfGrounding_Power_Description	
-Equipment/&ChitinousBoon_Power_Description	
+Equipment/&WandOfTheWarMage+1_Effect	+1 à l'attaque avec un sort
+Equipment/&WandOfTheWarMage+2_Effect	+2 à l'attaque avec un sort
+Equipment/&NecklaceOfGrounding_Power_Description	+1 aux points de Ki maximum, +1 de C'
+Equipment/&ChitinousBoon_Power_Description	Ajoute un emplacement de sort supplémentaire à l'occultiste qui l'utilise, peut aussi être utilisé comme focaliseur magique
 Faction/&AntiquariansDescription	La Guilde des antiquaires était à l'origine un réseau informel de partage d'informations au sein de l'Alliance des neiges. Elle se compose d'explorateurs et d'érudits assez intrépides pour étudier les Marches. Au cours des deux derniers siècles, elle a évolué en une organisation plus ou moins formelle reprenant la structure d'une université.
 Faction/&AntiquariansTitle	Antiquaires
 Faction/&ArcaniumDescription	L'Arcaneum est l'entité magique du Nouvel Empire, issu d'une organisation de l'Ancien Empire du même nom. Il est dirigé par de puissants magiciens qui perpétuent les traditions de l'ancienne magie impériale et aspirent à en acquérir davantage.
@@ -4298,7 +4298,7 @@ Failure/&FailureFlagDeityMarkAreadyPresent	La marque de la divinité de ce perso
 Failure/&FailureFlagHardLockedDoor_Key	Il vous faut la bonne clé pour pouvoir ouvrir cette porte.
 Failure/&FailureFlagCraftingItemTooHeavy	L'objet fabriqué est trop lourd pour rentrer dans l'inventaire du personnage qui l'a conçu.
 Failure/&FailureFlagTransferTooFarAwayConcise	Trop loin
-Failure/&FailureNotEnoughRemainingUses	
+Failure/&FailureNotEnoughRemainingUses	À court de munitions/d'utilisations
 Feat/&AcuteSensesDescription	
 Feat/&AcuteSensesTitle	
 Feat/&AlertDescription	L'entraînement que vous avez suivi vous permet de rester à l'affût dans toutes les situations. Vous bénéficiez des avantages suivants :
@@ -4999,7 +4999,7 @@ Feature/&DomainInsightDivineLoreTitle	Savoir divin
 Feature/&DomainInsightDivineLoreIdentifyDescription	Révèle les propriétés magiques et les fonctions d'un objet.
 Feature/&DomainInsightDivineLoreIdentifyTitle	Identification divine
 Feature/&DomainInsightDomainSpellsTitle	Sorts de domaine : Perspicacité
-Feature/&DomainOblivionMarkOfFateDescription	Marque une créature que vous voyez pour qu'elle subisse des dégâts supplémentaires lors de chaque attaque. Peut être réorientée après la mort de la créature.
+Feature/&DomainOblivionMarkOfFateDescription	Marque une créature que vous voyez pour qu'elle subisse des dégâts nécrotiques supplémentaires égaux à votre bonus de SAG lors de chaque attaque. Peut être réorientée après la mort de la créature. Vous devrez prendre un repos court ou un repos long pour récupérer ce pouvoir.
 Feature/&DomainOblivionMarkOfFateTitle	Marque du destin
 Feature/&DomainLawAnathemaDescription	Entrave une créature et inflige des dégâts de force à chaque tour jusqu'à ce qu'elle réussisse grâce à une sauvegarde de SAG ou qu'une minute se soit écoulée.
 Feature/&DomainLawAnathemaTitle	Anathème
@@ -5363,7 +5363,7 @@ Feature/&PointPoolWarlockInvocationInitialDescription	Apprenez des invocations o
 Feature/&PointPoolWarlockInvocationAdditionalTitle	Invocation occulte
 Feature/&PointPoolWarlockInvocationAdditionalDescription	Apprenez une invocation occulte supplémentaire
 Feature/&FeatureSetPactSelectionTitle	Faveur de pacte
-Feature/&FeatureSetPactSelectionDescription	Au niveau 3, votre patron vous gratifie d'une aptitude pour votre loyauté. Vous gagnez un des attributs suivants de votre choix.
+Feature/&FeatureSetPactSelectionDescription	Au niveau 3, votre patron vous gratifie d'une aptitude pour votre loyauté. Vous gagnez un des attributs suivants de votre choix : pacte du grimoire, pacte de la chaîne, pacte de la lame.
 Feature/&FeatureSetPactTomeTitle	Pacte du grimoire
 Feature/&FeatureSetPactTomeDescription	Sélectionnez 3 sorts mineurs dans n'importe quelle liste de sorts
 Feature/&FeatureSetPactChainTitle	Pacte de la chaîne
@@ -5446,7 +5446,7 @@ Feature/&ArtistSkillsDescription	Maîtrise de la Persuasion, de la Tromperie et 
 Feature/&AesceticSkillsTitle	Discipline
 Feature/&AesceticSkillsDescription	Maîtrise de la Survie et de la Perspicacité.
 Feature/&AesceticSkillsToolsTitle	Cuistot
-Feature/&AesceticSkillsToolsDescription	Maîtrise de l'Herboristerie.
+Feature/&AesceticSkillsToolsDescription	Maîtrise du kit d'herboriste
 Feature/&OccultistSkillsTitle	Arts cabalistiques
 Feature/&OccultistSkillsDescription	Maîtrise des Arcanes et de la Tromperie.
 Feature/&OccultistSkillsToolsTitle	Savoir occulte
@@ -5627,16 +5627,16 @@ Feature/&StunningStrikeBracersDescription	Lorsque vous portez ces bracelets, vou
 Feature/&MonsterPower_GhastStench_ConditionImmunity_Title	Immunité à Puanteur
 Feature/&MonsterPower_GhastStench_ConditionImmunity_Description	Insensible à Puanteur des blêmes pendant 24 heures.
 Feature/&PowerSpiritBearDescription	Bonus druidique : +1 pv par niveau\n Déplacement 5\n Griffe : dégâts d'attaque : 2d4 + 2 + modificateur de SAG de druide, dégâts tranchants\nMorsure : 1d10 + 2 + modificateur de SAG de druide, dégâts perforants\nCA : 8 + modificateur de SAG de druide\n Pv : 12 + moitié des pv du druide
-Feature/&PowerSpiritWolfDescription	Bonus druidique : +1 de CA\nDéplacement 8\nDégâts d'attaque : 1d6 + modificateur de SAG de druide, dégâts perforants\nCA : 10 + modificateur de SAG de druide\nPv : 8 + moitié des pv du druide
+Feature/&PowerSpiritWolfDescription	Bonus druidique : +1 CA\n Déplacement 8\n Dégâts d'attaque : 1d8 + +3 + modificateur de SAG de druide, dégâts perforants\n CA : 11 + modificateur de SAG de druide\n Pv : 10 + moitié des pv du druide
 Feature/&PowerSpiritApeDescription	Bonus druidique : maîtrise des jets de sauvegarde de DEX\n Déplacement 7\n Poing : dégâts d'attaque : 1d8 + 2 + modificateur de SAG de druide, dégâts contondants\n CA : 10 + modificateur de SAG de druide\n Pv : 11 + moitié des pv du druide
-Feature/&PowerSpiritViperDescription	Bonus druidique : +1 de mouvement de case\nVol 12\nDégâts d'attaque : 1d4 + modificateur de SAG de druide, dégâts de poison\nCA : 12 + modificateur de SAG de druide\nPv : 1 + moitié des pv du druide
+Feature/&PowerSpiritViperDescription	Bonus druidique : +1 de mouvement de case\n Vol 12\n Dégâts d'attaque : 1d4 + +3 + modificateur de SAG de druide, dégâts de poison\n CA : 13 + modificateur de SAG de druide\n Pv : 8 + moitié des pv du druide
 Feature/&PowerSpiritSpiderDescription	Bonus druidique : pattes d'araignée\n Déplacement 6\n Dégâts d'attaque : 2d4 + 1 + modificateur de SAG de druide, dégâts de poison\nCA : 12 + modificateur de SAG de druide\n Pv : 10 + moitié des pv du druide
 Feature/&PowerSpiritEagleDescription	Bonus druidique : initiative + 3\n Vol 10\n Bec : dégâts d'attaque : 1d6 + 2 + modificateur de SAG de druide, dégâts perforants\n Serres : dégâts d'attaque : 2d4 + 2 + modificateur de SAG de druide, dégâts tranchants\n CA : 12 + modificateur de SAG de druide\n Pv : 8 + moitié des pv du druide
-Feature/&FluteOfRespiteSootheTitle	
-Feature/&FluteOfRespiteSootheActionDescription	
-Feature/&DomainLawConditionAnathemaDescription	
-Feature/&AttackModifierScimitarOfSpeedTitle	
-Feature/&AttackModifierScimitarOfSpeedDescription	
+Feature/&FluteOfRespiteSootheTitle	Notes apaisantes
+Feature/&FluteOfRespiteSootheActionDescription	Guérison d'un allié pour 3d4. L'allié gagne aussi 2d4 + votre modificateur de Charisme en points de vie temporaires.
+Feature/&DomainLawConditionAnathemaDescription	La créature est entravée jusqu'à ce qu'elle réussisse un jet de sauvegarde de SAG à la fin de son tour. De plus, elle prend des dégâts de force à chaque tour, égaux au modificateur de caractéristique du lanceur.
+Feature/&AttackModifierScimitarOfSpeedTitle	Double frappe
+Feature/&AttackModifierScimitarOfSpeedDescription	Une fois par tour, vous pouvez utiliser votre action bonus pour effectuer une autre attaque avec cette arme.
 Feedback/&AbilityCheckConsoleAnyAdvantageLine	{0} lance un jet de caractéristique de {1} contre DD {2}, lance {3} {4}, {5}
 Feedback/&AbilityCheckConsoleAnyAdvantageNoModifierLine	{0} lance un jet de caractéristique de {1} contre DD {2}, lance {3} {4}
 Feedback/&AbilityCheckConsoleLine	{0} lance un jet de caractéristique de {1} contre DD {2}, lance {3} = {4}
@@ -6024,9 +6024,11 @@ Feedback/&ProxyCounteredLine	L'effet {0} a été contré par {1}.
 Feedback/&ProxyCounteredSimpleLine	L'effet {0} a été contré.
 Feedback/&ReductionToDamageLine	{0} réduit les dégâts de {1} de {2}.
 Feedback/&NoDetrimentalSpellLine	{0} est insensible à un sort pénalisant.
-Feedback/&SaveFailureOutcome	Échecs de {0}
-Feedback/&HeatedBody_Feedback	
-Feedback/&NecroticAura_Feedback	
+Feedback/&SaveFailureOutcome	{0} (échec)
+Feedback/&HeatedBody_Feedback	Coup de chaud
+Feedback/&NecroticAura_Feedback	Aura nécrotique
+Feedback/&AdditionalDamageSmiteTheHiddenLine	
+Feedback/&AdditionalDamageSmiteTheHiddenFormat	
 FightingStyle/&ArcheryDescription	Vous obtenez un bonus de +2 aux jets d'attaque avec une arme à distance.
 FightingStyle/&ArcheryTitle	Archerie
 FightingStyle/&DefenseDescription	Si vous portez une armure, vous obtenez un bonus de +1 à la CA.
@@ -22288,10 +22290,10 @@ Rules/&EffectTargetClosestWithinDistanceTitle	Cible la plus proche ({0})
 Rules/&MotionFormFallProneFormat	Faire tomber à terre
 Rules/&RateTurnStartFormatTitle	Début du tour
 Rules/&ConditionFlyingAdaptiveDescription	Vous bénéficiez d'une vitesse de vol égale à votre vitesse de marche.
-Rules/&ActivationTypeOnAttackHitMeleeAuto	
-Rules/&ConditionInsaneTitle	
-Rules/&ConditionInsaneDescription	
-Rules/&SituationalContextAttackingWithRangedWeaponOrEffectFormat	
+Rules/&ActivationTypeOnAttackHitMeleeAuto	À l'impact (corps à corps)
+Rules/&ConditionInsaneTitle	Démence
+Rules/&ConditionInsaneDescription	Incapable d'effectuer des actions et se déplace de façon erratique.
+Rules/&SituationalContextAttackingWithRangedWeaponOrEffectFormat	Vous ignorez l'abri partiel quand vous faites une attaque avec un sort.
 SchoolOfMagic/&AbjurationTitle	Abjuration
 SchoolOfMagic/&ConjurationTitle	Invocation
 SchoolOfMagic/&DivinationTitle	Divination
@@ -23397,7 +23399,7 @@ Screen/&MysticArcanumExtraSpellDescription	Ce sort a été défini comme arcanum
 Screen/&SpellsGroupMysticArcanumTitle	Arcanum mystique
 Screen/&SpellsGroupMysticArcanumAvailableDescription	Vous pouvez lancer cet arcanum une fois par repos long.
 Screen/&SpellsGroupMysticArcanumUsedDescription	Cet arcanum a été utilisé et ne peut pas être lancé à nouveau avant d'avoir terminé un repos long.
-Screen/&LearnRitualTitle	Apprentissage de rituel
+Screen/&LearnRitualTitle	Apprendre un sort
 Screen/&LearnRitualDescription	Apprenez à lancer ce sort seulement en tant que rituel. Cela détruira le parchemin.
 Screen/&ProficiencyToggleInvocationTitle	Invocations
 Screen/&BardicInspirationDieDescription	Votre dé d'Inspiration bardique est un {0} et vous disposez encore de {1} utilisations.
@@ -23425,8 +23427,8 @@ Screen/&CaptionAbortDescription	Annulez cette action.
 Screen/&CaptionAbortTitle	Annuler
 Screen/&CraftingAbortButtonTitle	Annuler la fabrication
 Screen/&AbortTravelButtonTitle	S'arrêter au prochain lieu
-Screen/&EditorXCoordinateTitle	
-Screen/&EditorYCoordinateTitle	
+Screen/&EditorXCoordinateTitle	X
+Screen/&EditorYCoordinateTitle	Y
 Setting/&ApplyDescription	Appliquez les changements sélectionnés.
 Setting/&ApplyNoChangeDescription	Les paramètres n'ont pas été modifiés.
 Setting/&ApplyTitle	Appliquer
@@ -24346,7 +24348,7 @@ Spell/&WallOfForceTitle	Mur de force
 Spell/&WallOfForceDescription	Invoque un mur invisible bloquant les mouvements et les attaques.
 Spell/&MindTwistTitle	Entorse mentale
 Spell/&MindTwistDescription	Inflige des dégâts psychiques considérables aux créatures hostiles autour de vous, et les neutralise si elles ratent leur jet de sauvegarde d'INT.
-Spell/&CalmEmotionsDescription	Empêche les alliés d'être charmés ou effrayés, ou rend les adversaires indifférents.
+Spell/&CalmEmotionsDescription	Empêche les alliés d'être charmés ou effrayés et rend les humanoïdes hostiles indifférents.
 Spell/&CalmEmotionsOnEnemyDescription	Rend les adversaires indifférents à vos alliés. L'indifférence prend fin quand les adversaires se font blesser.
 Spell/&Spell_Flameblade_Title	Lame de feu
 Spell/&Spell_Flameblade_Description	Évoque une lame enflammée que vous pouvez utiliser au combat pendant dix minutes.
@@ -24470,7 +24472,7 @@ Stage/&AbilityScoresOptimizeDescription	Optimisez vos assignations de valeurs de
 Stage/&AbilityScoresOptimizeTitle	Optimiser
 Stage/&AbilityScoresPointsCapitalInfiniteTitle	Points illimités
 Stage/&AbilityScoresPointsCapitalTitle	Cumul de points
-Stage/&AbilityScoresPredeterminedDescription	Faites 6 nouveaux jets de valeurs de caractéristique, en utilisant 4d6 et en gardant les trois meilleurs jets.
+Stage/&AbilityScoresPredeterminedDescription	Sélectionnez un ensemble prédéterminé de 6 valeurs : 15, 14, 13, 12, 10 et 8
 Stage/&AbilityScoresPredeterminedTitle	Éventail standard
 Stage/&AbilityScoresRemainingPointsDescription	Il vous reste encore tous ces points à dépenser.
 Stage/&AbilityScoresRemainingPointsTitle	Restants

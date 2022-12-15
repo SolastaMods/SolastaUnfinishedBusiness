@@ -3800,7 +3800,7 @@ Equipment/&DLC1_Item_CloakOfTheAncientKing_Description	Esta capa de um antigo An
 Equipment/&DLC1_Item_BeltOfTheBarbarianKing_Title	Cinto do Rei dos Bárbaros
 Equipment/&DLC1_Item_BeltOfTheBarbarianKing_Description	Este cinto mágico, relíquia das antigas selvas de Tirmar, dá ao portador 19 de CON.
 Equipment/&DLC1_Item_PeriaptOfTheMasterEnchanter_Title	Periapto de Mestre em Encantamentos
-Equipment/&DLC1_Item_PeriaptOfTheMasterEnchanter_Description	Este artefato mágico, outrora pertencente ao mestre ferreiro Firceidith de Manacalon, aumenta a velocidade de criação do portador.
+Equipment/&DLC1_Item_PeriaptOfTheMasterEnchanter_Description	Este artefato mágico, outrora pertencente ao mestre ferreiro Firceidith de Manacalon, aumenta a velocidade de criação do portador, mas também concede proficiência com o Rosário Manacalense e o substitui caso você vista o periapto no pescoço.
 Equipment/&DLC1_Item_RingOfTheAmbassador_Title	Anel do Embaixador
 Equipment/&DLC1_Item_RingOfTheAmbassador_Description	Este anel, feito às ordens da princesa Galoreth Florargêntea de Masgarth, dá ao portador compreensão dos idiomas de goblins, gigantes, orcs e terrans. Ademais, confere +2 em testes de persuasão.
 Equipment/&DLC1_Item_PendantOfTheHealer_Title	Pingente do Curandeiro
@@ -4065,11 +4065,11 @@ Equipment/&ChargedRedCorundum_Title	Corindo Vermelho Carregado
 Equipment/&ChargedRedCorundum_Description	Essa joia cálida abriga um elemental de fogo que pode ser invocado quebrando-a.
 Equipment/&BeltOfTheBarbarianKing_Function_Description	Ao equipar e vincular este cinto, você terá 19 de constituição.
 Equipment/&BoltplusOne	Virote +1
-Equipment/&ItemTypeSpellFocusSubtypeNoneTitle	
-Equipment/&WandOfTheWarMage+1_Effect	
-Equipment/&WandOfTheWarMage+2_Effect	
-Equipment/&NecklaceOfGrounding_Power_Description	
-Equipment/&ChitinousBoon_Power_Description	
+Equipment/&ItemTypeSpellFocusSubtypeNoneTitle	Tudo
+Equipment/&WandOfTheWarMage+1_Effect	#ERROR!
+Equipment/&WandOfTheWarMage+2_Effect	#ERROR!
+Equipment/&NecklaceOfGrounding_Power_Description	+1 de pontos de Ki máximos, +1 de CA
+Equipment/&ChitinousBoon_Power_Description	Adiciona um espaço de magia adicional a qualquer Bruxo que esteja vinculado a este item. Funciona como um foco arcano.
 Faction/&AntiquariansDescription	A Guilda de Antiquaristas surgiu como uma rede informal de compartilhamento de informações dentro da Aliança da Neve, composta por exploradores e acadêmicos intrépidos o bastante para estudar as Fronteiras. Ao longo dos últimos dois séculos, ela foi se tornando uma organização razoavelmente formal que imita a estrutura de uma universidade.
 Faction/&AntiquariansTitle	Antiquaristas
 Faction/&ArcaniumDescription	O Arcaneum é o setor de assuntos mágicos do Novo Império, derivado de uma organização homônima do Antigo Império. É comandado por magos poderosos que seguem as tradições da antiga magia imperial e desejam recuperar mais.
@@ -4120,7 +4120,7 @@ Faction/&DLC1_ThePeople_Title	O Povo
 Faction/&DLC1_ThePeople_Description	Cidadãos da capital do vale.
 Faction/&DLC1_Rebellion_Title	A Rebelião
 Faction/&DLC1_Rebellion_Description	Inimigos do Domínio que anseiam por derrubar o governo.
-Factions/&Faction_Orc_COTM_Suncloud	
+Factions/&Faction_Orc_COTM_Suncloud	Tribo Nuvem do Sol
 FactionStatus/&AllianceDescription	A facção ajudará você.
 FactionStatus/&AllianceTitle	Aliança
 FactionStatus/&AnimosityDescription	A facção tentará atrapalhar você.
@@ -4298,7 +4298,7 @@ Failure/&FailureFlagDeityMarkAreadyPresent	A marca da divindade escolhida por es
 Failure/&FailureFlagHardLockedDoor_Key	Você precisa da chave certa para abrir esta porta.
 Failure/&FailureFlagCraftingItemTooHeavy	O item criado é pesado demais para caber no inventário do personagem que o criou.
 Failure/&FailureFlagTransferTooFarAwayConcise	Longe demais
-Failure/&FailureNotEnoughRemainingUses	
+Failure/&FailureNotEnoughRemainingUses	Munições ou usos esgotados
 Feat/&AcuteSensesDescription	
 Feat/&AcuteSensesTitle	
 Feat/&AlertDescription	Capaz de se manter alerta em qualquer situação, você ganha os seguintes benefícios:
@@ -4999,7 +4999,7 @@ Feature/&DomainInsightDivineLoreTitle	Conhecimento Divino
 Feature/&DomainInsightDivineLoreIdentifyDescription	Revela as funções e propriedades mágicas de um item.
 Feature/&DomainInsightDivineLoreIdentifyTitle	Identificação Divina
 Feature/&DomainInsightDomainSpellsTitle	Magias do Domínio da Intuição
-Feature/&DomainOblivionMarkOfFateDescription	Marca uma criatura dentro do seu campo de visão para que sofra dano adicional de cada ataque. Você também pode mudar o alvo para outra criatura quando a anterior morrer.
+Feature/&DomainOblivionMarkOfFateDescription	Marca uma criatura dentro do seu campo de visão para que sofra dano necrótico igual ao seu bônus de SAB de cada ataque. Você pode mudar o alvo para outra criatura quando a anterior morrer. Requer um descanso rápido ou um descanso longo entre usos do poder.
 Feature/&DomainOblivionMarkOfFateTitle	Marca do Destino
 Feature/&DomainLawAnathemaDescription	Contém o avanço de uma criatura e causa dano de força a cada turno até que ela passe em um teste de SAB ou após 1 minuto.
 Feature/&DomainLawAnathemaTitle	Anátema
@@ -5311,7 +5311,7 @@ Feature/&DomainMischiefStrikeOfChaosAttackDisadvantageDescription	O Golpe do Cao
 Feature/&DomainMischiefElusiveTargetTitle	Alvo Elusivo
 Feature/&DomainMischiefElusiveTargetDescription	A partir do nível 8, você ganha altíssima resistência em curta distância. Ao sofrer um ataque corpo a corpo, você pode usar uma reação para ganhar os benefícios de Esquiva e Desengajamento até o fim do próximo turno.​​​​​​
 Feature/&DomainMischiefDivineStrikeTitle	Golpe Divino
-Feature/&DomainMischiefDivineStrikeDescription	Uma vez por turno, ao acertar um ataque armado em uma criatura, você pode causar +1d8 de dano psíquico ao alvo. Quando você chega ao nível 14, o dano aumenta para 2d8.
+Feature/&DomainMischiefDivineStrikeDescription	Uma vez por turno, ao acertar um ataque armado em uma criatura, você pode causar +1d8 de dano psíquico ao alvo. 
 Feature/&RangerSwiftBladeQuickStepTitle	Passo Rápido
 Feature/&RangerSwiftBladeQuickStepDescription	Sua velocidade aumenta em 2 espaços. Ademais, ao usar a ação Disparada, os ataques de oportunidade contra você sofrem desvantagem.
 Feature/&RangerSwiftBladeBladeDanceTitle	Dança da Lâmina
@@ -5363,7 +5363,7 @@ Feature/&PointPoolWarlockInvocationInitialDescription	Aprenda Invocações Míst
 Feature/&PointPoolWarlockInvocationAdditionalTitle	Invocação Mística
 Feature/&PointPoolWarlockInvocationAdditionalDescription	Aprenda uma Invocação Mística extra.
 Feature/&FeatureSetPactSelectionTitle	Benesse do Pacto
-Feature/&FeatureSetPactSelectionDescription	No nível 3, seu patrono extramundano te dá um presente pelos serviços leais. Você ganha um dos seguintes recursos conforme sua escolha.
+Feature/&FeatureSetPactSelectionDescription	No nível 3, seu patrono extramundano te dá um presente pelos serviços leais. Você ganha um dos seguintes recursos conforme sua escolha: Pacto do Tomo, Pacto da Corrente ou Pacto da Lâmina.
 Feature/&FeatureSetPactTomeTitle	Pacto do Tomo
 Feature/&FeatureSetPactTomeDescription	Selecione 3 truques de qualquer lista de magias.
 Feature/&FeatureSetPactChainTitle	Pacto da Corrente
@@ -5412,7 +5412,7 @@ Feature/&PowerPatronHiveMagicCounterDescription	A partir do nível 6, conjure Co
 Feature/&PowerPatronHiveReactiveCarapaceTitle	Carapaça Reativa
 Feature/&PowerPatronHiveReactiveCarapaceDescription	A partir do nível 10, sempre que você sofrer dano de magia ou efeito mágico, use sua reação para ganhar de imediato uma quantidade de pontos de vida temporários equivalente a 1d8 + modificador de CAR. Tais pontos duram até o início do seu próximo turno.
 Feature/&DamageAffinityPatronTreePiercingBranchTitle	Galho Perfurante
-Feature/&DamageAffinityPatronTreePiercingBranchDescription	A partir do nível 1, pequenos galhos perfurantes surgem na sua pele. Ao sofrer um ataque corpo a corpo, você aplica 1d4 de dano perfurante no agressor.
+Feature/&DamageAffinityPatronTreePiercingBranchDescription	A partir do nível 1, pequenos galhos perfurantes surgem na sua pele. Ao sofrer um ataque corpo a corpo, você aplica 1d6 de dano perfurante no agressor.
 Feature/&FeatureSetPatronTreeBlessingOfTheTreeTitle	Bênção da Árvore
 Feature/&FeatureSetPatronTreeBlessingOfTheTreeDescription	A partir do nível 6, seu sangue e sua pele começam a mudar de cor sutilmente. Você não pode sofrer envenenamento e ganha resistência a veneno e dano necrótico.
 Feature/&PowerPatronTreeExplosiveGrowthTitle	Crescimento Explosivo
@@ -5420,7 +5420,7 @@ Feature/&PowerPatronTreeExplosiveGrowthDescription	A partir do nível 10, uma ve
 Feature/&AdditionalDamagePatronTimekeeperCurseOfTimeTitle	Maldição do Tempo
 Feature/&AdditionalDamagePatronTimekeeperCurseOfTimeDescription	A partir do nível 1, ao causar dano em um oponente por meio de magia, você aplica a Maldição do Tempo.\n Ao longo do próximo minuto, os inimigos sob efeito da Maldição do Tempo sofrem dano de energia (arredondado para cima) equivalente a metade do seu bônus de proficiência no início do turno deles.
 Feature/&PowerPatronTimekeeperTimeWarpTitle	Distorção Temporal
-Feature/&PowerPatronTimekeeperTimeWarpDescription	A partir do nível 14, no seu turno, realize mais uma ação além da ação regular e de uma possível ação bônus.\n Para reutilizar tal recurso, conclua um descanso longo.
+Feature/&PowerPatronTimekeeperTimeWarpDescription	A partir do nível 14, no seu turno, realize mais uma ação além da ação regular e de uma possível ação bônus.\n  Para reutilizar tal recurso, conclua um descanso longo.
 Feature/&PowerPatronTimekeeperAccelerateTitle	Acelerar
 Feature/&PowerPatronTimekeeperAccelerateDescription	A partir do nível 10, no seu turno, use uma ação bônus para acelerar sutilmente um aliado em um raio de 6 espaços. Ele ganha o efeito Celeridade até o início do próximo turno, mas não sofre letargia ao término do recurso Acelerar.\n O limite de usos entre cada descanso longo é determinado pelo seu bônus de proficiência.
 Feature/&PowerPatronTimekeeperTimeShiftTitle	Alteração Temporal
@@ -5432,7 +5432,7 @@ Feature/&BardSkillPointsTitle	Perícias de Bardo
 Feature/&BardExpertiseTitle	Especialização de Bardo
 Feature/&BardExpertiseDescription	No nível 3, escolha duas proficiências de perícia e receba o dobro de bônus de proficiência em testes de habilidade que usam umas das proficiências selecionadas. No nível 10, escolha outras duas proficiências de perícia para ganhar tal benefício.
 Feature/&BardCollegesTitle	Colégios de Bardos
-Feature/&BardCollegesDescription	No nível 3, aprofunde-se nas técnicas avançadas de um colégio de bardos à sua escolha. Ao fazê-lo, você aprenderá recursos nos níveis 3, 6 e 14.
+Feature/&BardCollegesDescription	No nível 3, aprofunde-se nas técnicas avançadas de um colégio de bardos à sua escolha. Ao fazê-lo, você aprenderá recursos nos níveis 3 e 6.
 Feature/&PointPoolCollegeLoreBonusSkillsTitle	Proficiências Bônus
 Feature/&PointPoolCollegeLoreBonusSkillsDescription	No nível 3, ao entrar no Colégio do Conhecimento, ganhe proficiência em três perícias à sua escolha.
 Feature/&PowerCollegeLoreCuttingWordsTitle	Palavras Incisivas
@@ -5446,7 +5446,7 @@ Feature/&ArtistSkillsDescription	Proficiente com Persuasão, Manipulação e Apr
 Feature/&AesceticSkillsTitle	Autodisciplina
 Feature/&AesceticSkillsDescription	Proficiente com Sobrevivência e Intuição.
 Feature/&AesceticSkillsToolsTitle	Mestre das Sopas
-Feature/&AesceticSkillsToolsDescription	Proficiente em Herbalismo.
+Feature/&AesceticSkillsToolsDescription	Proficiente com kit de Herbalismo
 Feature/&OccultistSkillsTitle	Artes Cabalísticas
 Feature/&OccultistSkillsDescription	Proficiente com Arcanismo e Manipulação.
 Feature/&OccultistSkillsToolsTitle	Conhecimento Oculto
@@ -5465,7 +5465,7 @@ Feature/&AdditionalActionMonkMartialArtsDescription	Ao usar a ação Atacar com 
 Feature/&AttackModifierMonkMartialArtsTitle	Artes Marciais
 Feature/&AttackModifierMonkMartialArtsDescription	Role um d4 em substituição ao dano normal do ataque desarmado ou da arma de monge. O dado muda conforme você ganha níveis de monge (d6 no nível 5, d8 no nivel 11). Você pode usar a destreza em vez da força para as jogadas de ataque e dano de seus ataques desarmados e armas de monge.
 Feature/&UnarmoredMovementTitle	Movimento sem Armadura
-Feature/&UnarmoredMovementDescription	A partir do nível 2, sua velocidade aumenta em 2 espaços enquanto você não está usando armadura ou portando escudo. O bônus aumenta para 3 espaços no nível 6, 4 espaços no nível 10 e 5 espaços no nível 14.
+Feature/&UnarmoredMovementDescription	A partir do nível 2, sua velocidade aumenta em 2 espaços enquanto você não está usando armadura ou portando escudo. O bônus aumenta para 3 espaços no nível 6, 4 espaços no nível 10
 Feature/&BardSongOfRestTitle	Canção do Descanso
 Feature/&BardSongOfRestDescription	Durante um descanso rápido, cada aliado rola um dado de vida extra ao gastar dados para recuperar pontos de vida.
 Feature/&PointPoolMagicalSecretsTitle	Segredos Mágicos
@@ -5624,19 +5624,19 @@ Feature/&AncestryPathClawDraconicSilverTitle	Prata - Frio
 Feature/&PowerBardTraditionAncientTraditionTitle	Tradição Antiga
 Feature/&PowerBardTraditionAncientTraditionDescription	Conjure Armadura Arcana em si mesmo à vontade: sua CA torna-se 13 + modificador de DES, caso esteja sem armadura.
 Feature/&StunningStrikeBracersDescription	Ao usar essas braçadeiras, você ganha +1 de bônus para a CD do seu Ataque Atordoante.
-Feature/&MonsterPower_GhastStench_ConditionImmunity_Title	
-Feature/&MonsterPower_GhastStench_ConditionImmunity_Description	
-Feature/&PowerSpiritBearDescription	Bônus de druida: +1 PV por nível\nMovimentação 5\nDano de ataque: 1d8 + modificador de SAB do druida (dano cortante)\nCA: 8 + modificador de SAB do druida\nPV: 12 + metade dos PV do druida
-Feature/&PowerSpiritWolfDescription	Bônus de druida: +1 de CA\nMovimentação 8\nDano de ataque: 1d6 + modificador de SAB do druida (dano perfurante)\nCA: 10 + modificador de SAB do druida\nPV: 8 + metade dos PV do druida
-Feature/&PowerSpiritApeDescription	Bônus de druida: Proficiência em testes de resistência de DES\nMovimentação 7\nDano de ataque: 1d8 + modificador de SAB do druida (dano de concussão)\nCA: 9 + modificador de SAB do druida\nPV: 10 + metade dos PV do druida
-Feature/&PowerSpiritViperDescription	Bônus de druida: +1 espaço (movimentação)\nVoar 12\nDano de ataque: 1d4 + modificador de SAB do druida (dano de veneno)\nCA: 12 + modificador de SAB do druida\nPV: 1 + metade dos PV do druida
-Feature/&PowerSpiritSpiderDescription	Bônus de druida: Escalada de Aranha\nMovimentação 6\nDano de ataque: 2D4 + modificador de SAB do druida (dano de veneno)\nCA: 11 + modificador de SAB do druida\nPV: 4 + metade dos PV do druida
-Feature/&PowerSpiritEagleDescription	Bônus de druida: +3 de iniciativa\nVoar 10\nDano de ataque: 1d6 + modificador de SAB do druida (dano cortante)\nCA: 11 + modificador de SAB do druida\nPV: 2 + metade dos PV do druida
-Feature/&FluteOfRespiteSootheTitle	
-Feature/&FluteOfRespiteSootheActionDescription	
-Feature/&DomainLawConditionAnathemaDescription	
-Feature/&AttackModifierScimitarOfSpeedTitle	
-Feature/&AttackModifierScimitarOfSpeedDescription	
+Feature/&MonsterPower_GhastStench_ConditionImmunity_Title	Imunidade a Fedor
+Feature/&MonsterPower_GhastStench_ConditionImmunity_Description	Imune a Fedor de Ghast por 24 horas.
+Feature/&PowerSpiritBearDescription	Bônus do druida: +1 PV por nível\n Movimento 5\n Garra: Dano de ataque: 2d4 + 2 + modificador de SAB do druida, dano cortante\n Mordida: Dano de ataque: 1d10 + 2 + modificador de SAB do druida, dano perfurante\n CA: 8 + modificador de SAB do druida \n PV: 12 + metade dos PV do druida
+Feature/&PowerSpiritWolfDescription	Bônus do druida: +1 CA\n Movimento 8\n Dano de ataque: 1d8+3 + modificador de SAB do druida, dano perfurante\n CA: 11 + modificador de SAB do druida\nPV: 10 + metade dos PV do druida
+Feature/&PowerSpiritApeDescription	Bônus do druida: Proficiência com testes de resistência de DES\nMovimento 7\n Punho: Dano de ataque: 1d8 + 2 + modificador de SAB do druida, dano de concussão\n CA: 10 + modificador de SAB do druida\n PV: 11 + metade dos PV do druida
+Feature/&PowerSpiritViperDescription	Bônus do druida: +1 espaço (movimentação)\n Voar 12\n Dano de ataque: 1D4+3 + modificador de SAB do druida, dano de veneno\n CA: 13 + modificador de SAB do druida\n PV: 8 + metade dos PV do druida
+Feature/&PowerSpiritSpiderDescription	Bônus do druida: Escalada de Aranha\n Movimento 6\n Dano de ataque: 2d4 + 1 + modificador de SAB do druida, dano de veneno\n CA: 12 + modificador de SAB do druida\n PV: 10 + metade dos PV do druida
+Feature/&PowerSpiritEagleDescription	Bônus do druida: iniciativa +3\n Voo 10\n Bico: Dano de ataque: 1d6 + 2 + modificador de SAB do druida, dano perfurante\n Garras: Dano de ataque: 2d4+ 2 + modificador de SAB do druida, dano cortante\n CA: 12 + modificador de SAB do druida\n PV: 8 + metade dos PV do druida
+Feature/&FluteOfRespiteSootheTitle	Notas Tranquilizadoras
+Feature/&FluteOfRespiteSootheActionDescription	Cure 3d4 de um aliado. Também concede 2d4 + seu modificador de carisma como pontos de vida temporários.
+Feature/&DomainLawConditionAnathemaDescription	A criatura fica contida até que tenha sucesso em um teste de resistência de SAB no final do turno dela. Além disso, ela sofre dano de energia igual ao modificador de habilidade do conjurador a cada turno.
+Feature/&AttackModifierScimitarOfSpeedTitle	Golpe Duplo
+Feature/&AttackModifierScimitarOfSpeedDescription	Uma vez por turno, você pode usar sua ação bônus para fazer outro ataque com esta arma.
 Feedback/&AbilityCheckConsoleAnyAdvantageLine	{0} rola um teste de habilidade de {1} contra CD {2}, rola {3} {4}, {5}
 Feedback/&AbilityCheckConsoleAnyAdvantageNoModifierLine	{0} rola um teste de habilidade de {1} contra CD {2}, rola {3} {4}
 Feedback/&AbilityCheckConsoleLine	{0} rola um teste de habilidade de {1} contra CD {2}, rola {3} = {4}
@@ -6012,21 +6012,23 @@ Feedback/&Unlock_Door_With_Key	Você abriu a porta com a chave certa.
 Feedback/&ImmuneToConditionLine	{0} é imune à condição: {1}
 Feedback/&ItemLostLine	{0} perdeu um item: {1}
 Feedback/&ConditionRefreshedLine	A condição {1} foi redefinida para {0}
-Feedback/&ItemStackLostFormat	Perdeu: {0} (x{1})
-Feedback/&AdditionalAttackD1Line	
-Feedback/&SubstractedAttackD1Line	
-Feedback/&AdditionalSaveD1Line	
-Feedback/&SubstractedSaveD1Line	
-Feedback/&AdditionalAbilityCheckD1Line	
-Feedback/&SubstractedAbilityCheckD1Line	
-Feedback/&ItemLostFormat	
-Feedback/&ProxyCounteredLine	
-Feedback/&ProxyCounteredSimpleLine	
-Feedback/&ReductionToDamageLine	
-Feedback/&NoDetrimentalSpellLine	
-Feedback/&SaveFailureOutcome	{0} falha
-Feedback/&HeatedBody_Feedback	
-Feedback/&NecroticAura_Feedback	
+Feedback/&ItemStackLostFormat	Perdeu: {0} x{1}
+Feedback/&AdditionalAttackD1Line	{0}: {1} adiciona {2} ao ataque
+Feedback/&SubstractedAttackD1Line	{0}: {1} subtrai {2} do ataque
+Feedback/&AdditionalSaveD1Line	{0}: {1} adiciona {2} ao teste de resistência
+Feedback/&SubstractedSaveD1Line	{0}: {1} subtrai {2} do teste de resistência
+Feedback/&AdditionalAbilityCheckD1Line	{0}: {1} adiciona {2} ao teste de habilidade
+Feedback/&SubstractedAbilityCheckD1Line	{0}: {1} subtrai {2} do teste de habilidade
+Feedback/&ItemLostFormat	Perdeu: {0}
+Feedback/&ProxyCounteredLine	{0} sofreu contrataque de {1}.
+Feedback/&ProxyCounteredSimpleLine	{0} sofreu contrataque.
+Feedback/&ReductionToDamageLine	{0} reduz o dano de {1} em {2}
+Feedback/&NoDetrimentalSpellLine	{0} não é afetado por uma magia danosa
+Feedback/&SaveFailureOutcome	{0} (Falha)
+Feedback/&HeatedBody_Feedback	Corpo Aquecido
+Feedback/&NecroticAura_Feedback	Aura Necrótica
+Feedback/&AdditionalDamageSmiteTheHiddenLine	
+Feedback/&AdditionalDamageSmiteTheHiddenFormat	
 FightingStyle/&ArcheryDescription	Você ganha +2 de bônus em rolagens de ataque com armas de combate à distância.
 FightingStyle/&ArcheryTitle	Arquearia
 FightingStyle/&DefenseDescription	Enquanto estiver usando armadura, você ganha +1 de bônus de CA.
@@ -18287,10 +18289,10 @@ Powers/&Mummy_Lord_BlindingDust_Title	Poeira Cegante
 Powers/&Mummy_Lord_BlindingDust_Description	Criaturas dentro do raio de um espaço têm de passar em um teste de resistência de CON (CD 16), ou sofrerão cegueira até o fim do próximo turno.
 Powers/&Mummy_Lord_WhirlwindOfSand_Title	Redemoinho de Areia
 Powers/&Mummy_Lord_WhirlwindOfSand_Description	O senhor das múmias se move por até 12 espaços na forma de um redemoinho de areia, imune a todos os ataques.
-Powers/&Item_PenitentBelt_Title	Cura de Ki
-Powers/&Item_PenitentBelt_Description	Consuma 2 pontos de Ki para recuperar 1d8+2 pontos de vida.
-Powers/&Power_Ghast_Stench_Title	
-Powers/&Power_Ghast_Stench_Description	
+Powers/&Item_PenitentBelt_Title	Cura
+Powers/&Item_PenitentBelt_Description	Use uma carga para recuperar 1d8+2 pontos de vida.
+Powers/&Power_Ghast_Stench_Title	Fedor
+Powers/&Power_Ghast_Stench_Description	Ghasts emitem um fedor insuportável nos espaços mais próximos, o que pode deixá-lo envenenado.
 Prop/&CandelabraTitle	Candelabro
 Prop/&CandelabraDescription	Um candelabro decorativo.
 Prop/&ColumnATitle	Coluna A
@@ -22286,12 +22288,12 @@ Rules/&ConditionOnFire_Osprey_Title	Em Chamas por Aranha Ígnea
 Rules/&ConditionFrightenedByDragonImmunity_Title	Imune à Presença Amedrontadora
 Rules/&EffectTargetClosestWithinDistanceTitle	Mais próximo ({0})
 Rules/&MotionFormFallProneFormat	Causar Prostração
-Rules/&RateTurnStartFormatTitle	
-Rules/&ConditionFlyingAdaptiveDescription	
-Rules/&ActivationTypeOnAttackHitMeleeAuto	
-Rules/&ConditionInsaneTitle	
-Rules/&ConditionInsaneDescription	
-Rules/&SituationalContextAttackingWithRangedWeaponOrEffectFormat	
+Rules/&RateTurnStartFormatTitle	Iniciar Turno
+Rules/&ConditionFlyingAdaptiveDescription	Você ganha velocidade de voo equivalente à sua velocidade de caminhada
+Rules/&ActivationTypeOnAttackHitMeleeAuto	Ao acertar (corpo a corpo)
+Rules/&ConditionInsaneTitle	Insanidade
+Rules/&ConditionInsaneDescription	Não pode realizar ações e se move de forma errática.
+Rules/&SituationalContextAttackingWithRangedWeaponOrEffectFormat	Você ignora a cobertura parcial ao executar um ataque com magia.
 SchoolOfMagic/&AbjurationTitle	Abjuração
 SchoolOfMagic/&ConjurationTitle	Conjuração
 SchoolOfMagic/&DivinationTitle	Adivinhação
@@ -23397,7 +23399,7 @@ Screen/&MysticArcanumExtraSpellDescription	Esta magia foi concedida pelo recurso
 Screen/&SpellsGroupMysticArcanumTitle	Arcanum Místico
 Screen/&SpellsGroupMysticArcanumAvailableDescription	Conjure esta magia do Arcanum Místico uma vez por descanso longo.
 Screen/&SpellsGroupMysticArcanumUsedDescription	O Arcanum Místico foi usado e não pode ser reativado até você concluir um descanso longo.
-Screen/&LearnRitualTitle	Aprender Ritual
+Screen/&LearnRitualTitle	Aprender magia
 Screen/&LearnRitualDescription	Aprenda a conjurar esta magia como um ritual. Tal ação destruirá o pergaminho.
 Screen/&ProficiencyToggleInvocationTitle	Invocações
 Screen/&BardicInspirationDieDescription	Seu dado Inspiração de Bardo é {0} e você tem {1} usos restantes.
@@ -23425,8 +23427,8 @@ Screen/&CaptionAbortDescription	Cancelar esta ação.
 Screen/&CaptionAbortTitle	Cancelar
 Screen/&CraftingAbortButtonTitle	Cancelar criação
 Screen/&AbortTravelButtonTitle	Interrompe a Viagem no Próximo Local
-Screen/&EditorXCoordinateTitle	
-Screen/&EditorYCoordinateTitle	
+Screen/&EditorXCoordinateTitle	X
+Screen/&EditorYCoordinateTitle	Y
 Setting/&ApplyDescription	Aplique as alterações escolhidas.
 Setting/&ApplyNoChangeDescription	As configurações não mudaram.
 Setting/&ApplyTitle	Aplicar
@@ -24346,7 +24348,7 @@ Spell/&WallOfForceTitle	Parede de Força
 Spell/&WallOfForceDescription	Conjura uma parede de força invisível capaz de bloquear movimentação e ataques.
 Spell/&MindTwistTitle	Torção Mental
 Spell/&MindTwistDescription	Causa muito dano psíquico a criaturas hostis ao seu redor, incapacitando-as se não passarem em um teste de resistência de INT.
-Spell/&CalmEmotionsDescription	Impede que os aliados sejam enfeitiçados ou amedrontados, ou torna os inimigos indiferentes.
+Spell/&CalmEmotionsDescription	Impede que os aliados sejam enfeitiçados ou amedrontados e torna os humanoides hostis indiferentes.
 Spell/&CalmEmotionsOnEnemyDescription	Torna inimigos indiferentes aos seus aliados, a menos que sejam feridos.
 Spell/&Spell_Flameblade_Title	Lâmina Flamejante
 Spell/&Spell_Flameblade_Description	Evoca uma lâmina flamejante que você pode empunhar em combate por 10 minutos.
@@ -24470,7 +24472,7 @@ Stage/&AbilityScoresOptimizeDescription	Otimize a atribuição de pontos de habi
 Stage/&AbilityScoresOptimizeTitle	Otimizar
 Stage/&AbilityScoresPointsCapitalInfiniteTitle	Pontos Ilimitados
 Stage/&AbilityScoresPointsCapitalTitle	Reserva de Pontos
-Stage/&AbilityScoresPredeterminedDescription	Repita a rolagem de 6 pontos de habilidade, usando 4d6 e mantendo as três melhores rolagens.
+Stage/&AbilityScoresPredeterminedDescription	Selecione um conjunto predeterminado de 6 pontuações: 15, 14, 13, 12, 10 e 8.
 Stage/&AbilityScoresPredeterminedTitle	Gama Padrão
 Stage/&AbilityScoresRemainingPointsDescription	Quantidade de pontos disponíveis para gastar.
 Stage/&AbilityScoresRemainingPointsTitle	Restante
@@ -25197,7 +25199,7 @@ Tooltip/&TagBleedingTitle	Sangramento
 Tooltip/&InvocationUsagePermanentInactiveDescription	O efeito desta invocação está atualmente desativado.\n Clique para reativar esta invocação.
 Tooltip/&TagMusicalInstrumentTitle	Instrumento Musical
 Tooltip/&FeatSameFamilyUnavailableWarningDescription	Aviso: você só pode aprender um talento desse tipo
-Tooltip/&FeatPrerequisiteFeatFamilyFormat	
+Tooltip/&FeatPrerequisiteFeatFamilyFormat	Já conhecido: {0}
 Travel/&FactionRelicInterestedFactionsTitle	Facções Interessadas
 Travel/&FatigueExhaustedDescription	O grupo está completamente exausto e precisa descansar.
 Travel/&FatigueExhaustedTitle	Exaustão
