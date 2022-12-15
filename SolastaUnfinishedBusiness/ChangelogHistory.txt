@@ -1,5 +1,11 @@
 ﻿CHANGES:
 
+1.4.32.0:
+
+- added new icons to Command Undead, Help and Study your Enemy by @balmz
+- fixed flexible races
+- updated to game version 1.4.32
+
 1.4.31.10:
 
 - fixed level up allowing heritage spells to be unlearned

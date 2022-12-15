@@ -1,9 +1,9 @@
 ﻿KNOWN ISSUES:
 
-- Grenadier bombs have DC 0 under MP [please share a log]
+- Grenadier bombs have DC 0 under MP [please share a log and help us fix it]
 
 CHANGES:
 
-- fixed level up allowing heritage spells to be unlearned
-- fixed Sunlit Blade spell and Twinned metamagic interaction
-- improved UI patches to support more than 4 players co-op
+- added new icons to Command Undead, Help and Study your Enemy by @balmz
+- fixed flexible races
+- updated to game version 1.4.32

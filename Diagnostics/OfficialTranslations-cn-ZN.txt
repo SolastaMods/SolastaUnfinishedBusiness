@@ -3800,7 +3800,7 @@ Equipment/&DLC1_Item_CloakOfTheAncientKing_Description	以山地熊皮为材料,
 Equipment/&DLC1_Item_BeltOfTheBarbarianKing_Title	野蛮人之王腰带
 Equipment/&DLC1_Item_BeltOfTheBarbarianKing_Description	这是来自 Tirmar 古老荒野的遗物, 身着这条魔法腰带的人体质变为 19。
 Equipment/&DLC1_Item_PeriaptOfTheMasterEnchanter_Title	附魔大师护身符
-Equipment/&DLC1_Item_PeriaptOfTheMasterEnchanter_Description	曾经为 Manacalon 铁匠大师菲塞迪斯所拥有, 佩戴这枚魔法护身符可以提高制作速度。
+Equipment/&DLC1_Item_PeriaptOfTheMasterEnchanter_Description	曾经为 Manacalon 铁匠大师菲塞迪斯所拥有, 佩戴这枚魔法护身符可以提高制作速度, 同时提供 Manacalon 念珠的熟练项, 并取而代之。
 Equipment/&DLC1_Item_RingOfTheAmbassador_Title	大使之戒
 Equipment/&DLC1_Item_RingOfTheAmbassador_Description	由 Masgarth 的加洛瑞斯·秘银花公主下令打造, 这枚戒指能让佩戴者听懂并言说地精、巨人、 兽人和土族语, 并在游说检定上获得 +2 加值。
 Equipment/&DLC1_Item_PendantOfTheHealer_Title	疗愈者挂饰
@@ -4065,11 +4065,11 @@ Equipment/&ChargedRedCorundum_Title	火元素红色刚玉
 Equipment/&ChargedRedCorundum_Description	这枚温暖的宝石包含一个火元素, 破坏宝石即可将其召唤出来。
 Equipment/&BeltOfTheBarbarianKing_Function_Description	只要身着这条腰带并与之同调, 你的体质即为 19。
 Equipment/&BoltplusOne	箭矢 +1
-Equipment/&ItemTypeSpellFocusSubtypeNoneTitle	
-Equipment/&WandOfTheWarMage+1_Effect	
-Equipment/&WandOfTheWarMage+2_Effect	
-Equipment/&NecklaceOfGrounding_Power_Description	
-Equipment/&ChitinousBoon_Power_Description	
+Equipment/&ItemTypeSpellFocusSubtypeNoneTitle	任意
+Equipment/&WandOfTheWarMage+1_Effect	法术攻击 +1
+Equipment/&WandOfTheWarMage+2_Effect	法术攻击 +2
+Equipment/&NecklaceOfGrounding_Power_Description	最大气点 +1, AC+1
+Equipment/&ChitinousBoon_Power_Description	为与之同调的邪术师增加一个额外的法术位, 也可用作法器。
 Faction/&AntiquariansDescription	古文物研究者协会是冰雪联盟内, 以一个非正式信息共享网络而成长 起来的组织, 主要成员为那些探索 者, 以及足够勇敢无畏去研究 Marches 的学者们。在过去的 好几个世纪内, 它合并成了一个还 算正式的, 效仿大学架构的组织。
 Faction/&AntiquariansTitle	古文物研究者
 Faction/&ArcaniumDescription	奥术协会是新帝国的魔法之臂, 起源于旧帝国的一个同名组织。它 由强大的法师们统御, 这些法师遵 循着古帝国魔法的传统, 并且渴望 恢复更多过去的秩序。
@@ -4120,7 +4120,7 @@ Faction/&DLC1_ThePeople_Title	民众
 Faction/&DLC1_ThePeople_Description	谷地首府的民众。
 Faction/&DLC1_Rebellion_Title	反抗军
 Faction/&DLC1_Rebellion_Description	自治领的敌对势力, 决心推翻其统治。
-Factions/&Faction_Orc_COTM_Suncloud	
+Factions/&Faction_Orc_COTM_Suncloud	烈阳青云部落
 FactionStatus/&AllianceDescription	此派别会积极地帮助你。
 FactionStatus/&AllianceTitle	联盟
 FactionStatus/&AnimosityDescription	此派别会试图阻碍你。
@@ -4298,7 +4298,7 @@ Failure/&FailureFlagDeityMarkAreadyPresent	此角色的神祇标记仅呈现于�
 Failure/&FailureFlagHardLockedDoor_Key	你需要正确的钥匙才能开门。
 Failure/&FailureFlagCraftingItemTooHeavy	制作的物品太过沉重, 无法放入该角色的物品栏。
 Failure/&FailureFlagTransferTooFarAwayConcise	距离太远
-Failure/&FailureNotEnoughRemainingUses	
+Failure/&FailureNotEnoughRemainingUses	弹药/使用次数已耗尽
 Feat/&AcuteSensesDescription	您无法被突袭，且如果您的营地在 您睡觉时遭到袭击，您会立刻惊醒。
 Feat/&AcuteSensesTitle	敏锐感知
 Feat/&AlertDescription	你受过训练, 能够在所有情况下 保持高度警惕, 你将获得以下收益：
@@ -4984,7 +4984,7 @@ Feature/&AttackModifierDamageRollIncreasedDescription	伤害掷骰已提升。
 Feature/&ConditionAutoCriticalFormat	所有受到的攻击均为重击。
 Feature/&SavingThrowByAbilityScoreBonus	具有{0}豁免检定的[属性]
 Feature/&DomainBattleExtraAttackTitle	战斗学者
-Feature/&AdditionalDamageDomainLifeDivineStrikeDescription	武器攻击造成 +1D8 光耀伤 害, 每回合可以使用一次。
+Feature/&AdditionalDamageDomainLifeDivineStrikeDescription	武器攻击造成 +1D8 光耀伤害, 每回合可以使用一次。
 Feature/&AdditionalDamageDomainLifeDivineStrikeTitle	神圣打击
 Feature/&DomainElementalHeraldOfTheElementsFireShortTitle	召唤火焰
 Feature/&DomainElementalHeraldOfTheElementsFireTitle	元素预兆：\n召唤火焰
@@ -4999,7 +4999,7 @@ Feature/&DomainInsightDivineLoreTitle	神圣学识
 Feature/&DomainInsightDivineLoreIdentifyDescription	揭示物品的魔法属性和功能。
 Feature/&DomainInsightDivineLoreIdentifyTitle	神圣鉴定
 Feature/&DomainInsightDomainSpellsTitle	洞悉领域法术
-Feature/&DomainOblivionMarkOfFateDescription	标记一名你视野范围内的生物, 如此一来, 在每次攻击时目标都会 受到额外伤害。目标死亡后, 你可 以重新选定目标。
+Feature/&DomainOblivionMarkOfFateDescription	标记一名你视野范围内的生物, 每次攻击时, 目标将受到等同于你感知加值的额外黯蚀伤害。 目标死亡后, 你可以重新选定目标。你需要进行一次短休 或长休才可再次使用此能力。
 Feature/&DomainOblivionMarkOfFateTitle	命运标记
 Feature/&DomainLawAnathemaDescription	束缚生物并且每回合对其造成力场 伤害, 直到目标进行感知豁免检定 且成功, 或者超过 1 分钟。
 Feature/&DomainLawAnathemaTitle	诅咒缠身
@@ -5311,7 +5311,7 @@ Feature/&DomainMischiefStrikeOfChaosAttackDisadvantageDescription	混乱打击�
 Feature/&DomainMischiefElusiveTargetTitle	飘忽不定
 Feature/&DomainMischiefElusiveTargetDescription	从第 8 级开始, 你的身形在近身战斗中飘忽不定。 当近战攻击命中你时, 你可以利用你的反应获得闪避和撤离的好处, 直到你的下一回合结束。​​​​​​
 Feature/&DomainMischiefDivineStrikeTitle	神圣打击
-Feature/&DomainMischiefDivineStrikeDescription	每回合一次, 在你的回合中, 当你使用武器攻击命中一个生物时, 可对目标造成额外 1d8 点心灵伤害。当你到达 14 级时, 额外伤害增加至 2d8。
+Feature/&DomainMischiefDivineStrikeDescription	每回合一次, 在你的回合中, 当你使用武器攻击命中一个生物时, 可对目标造成额外 1d8 点心灵伤害。
 Feature/&RangerSwiftBladeQuickStepTitle	快步
 Feature/&RangerSwiftBladeQuickStepDescription	你的速度增加 2 单位格。此外, 当你使用疾走动作时, 针对你的借机攻击将具有劣势。
 Feature/&RangerSwiftBladeBladeDanceTitle	利刃之舞
@@ -5363,7 +5363,7 @@ Feature/&PointPoolWarlockInvocationInitialDescription	学习魔能祈唤以从�
 Feature/&PointPoolWarlockInvocationAdditionalTitle	魔能祈唤
 Feature/&PointPoolWarlockInvocationAdditionalDescription	学习一个额外的魔能祈唤
 Feature/&FeatureSetPactSelectionTitle	魔契恩泽
-Feature/&FeatureSetPactSelectionDescription	第 3 级时, 你的异界宗主赋予你一份馈赠作为你忠诚服务 的回馈。你可以从下列特性中自选其一。
+Feature/&FeatureSetPactSelectionDescription	第 3 级时, 你的异界宗主赋予你一份馈赠作为 你忠诚服务的回馈。 你可以从下列特性中自选其一： 书之魔契、链之魔契、刃之魔契。
 Feature/&FeatureSetPactTomeTitle	书之魔契
 Feature/&FeatureSetPactTomeDescription	从任意职业法术列表中选择 3 个戏法
 Feature/&FeatureSetPactChainTitle	链之魔契
@@ -5412,7 +5412,7 @@ Feature/&PowerPatronHiveMagicCounterDescription	第 6 级起, 作为特性, 你�
 Feature/&PowerPatronHiveReactiveCarapaceTitle	应激甲壳
 Feature/&PowerPatronHiveReactiveCarapaceDescription	第 10 级起, 每当受到法术或魔法效应的伤害, 你可以使用你的反应立即获得等同于 1d8 + 魅力调整值的临时生命值。 这些临时生命值将持续至你的下一回合开始。
 Feature/&DamageAffinityPatronTreePiercingBranchTitle	穿刺枝条
-Feature/&DamageAffinityPatronTreePiercingBranchDescription	从第 1 级起, 细小的穿刺枝条会从你的皮肤上长出。 每当敌人以近战攻击命中你时, 他们会受到 1d4 穿刺伤害。
+Feature/&DamageAffinityPatronTreePiercingBranchDescription	从第 1 级起, 细小的穿刺枝条会从你的皮肤上长出。 每当敌人以近战攻击命中你时, 他们会受到 1d6 穿刺伤害。
 Feature/&FeatureSetPatronTreeBlessingOfTheTreeTitle	古树祝福
 Feature/&FeatureSetPatronTreeBlessingOfTheTreeDescription	第 6 级起, 你的血液和皮肤会开始轻微变色。你百毒不侵, 获得对毒素和黯蚀伤害的抗性。
 Feature/&PowerPatronTreeExplosiveGrowthTitle	爆发生长
@@ -5432,7 +5432,7 @@ Feature/&BardSkillPointsTitle	吟游诗人技能
 Feature/&BardExpertiseTitle	吟游诗人专精
 Feature/&BardExpertiseDescription	第 3 级起, 你选择两个已有的技能熟练项。 此后你进行所选技能的属性检定时, 可以使用双倍的熟练加值。第 10 级后, 你可以再选择另外两个已有的技能熟练项从 该特性中获益。
 Feature/&BardCollegesTitle	吟游诗人学院
-Feature/&BardCollegesDescription	第 3 级时, 你将选择加入一个吟游诗人学院, 以探寻更精深的技艺。随后, 你将在第 3、第 6 和第 14 级时获得相应的特性。
+Feature/&BardCollegesDescription	第 3 级时, 你将选择加入一个吟游诗人学院, 以探寻更精深的技艺。随后, 你将在第 3和第 6  级时获得相应的特性。
 Feature/&PointPoolCollegeLoreBonusSkillsTitle	附赠熟练项
 Feature/&PointPoolCollegeLoreBonusSkillsDescription	第 3 级选择逸闻学院时, 你获得三个自选技能的熟练项。
 Feature/&PowerCollegeLoreCuttingWordsTitle	语出惊人
@@ -5446,7 +5446,7 @@ Feature/&ArtistSkillsDescription	具备游说、欺瞒和表演的熟练项。
 Feature/&AesceticSkillsTitle	自律
 Feature/&AesceticSkillsDescription	具备求生和洞悉的熟练项。
 Feature/&AesceticSkillsToolsTitle	制汤者
-Feature/&AesceticSkillsToolsDescription	具备草药的熟练项。
+Feature/&AesceticSkillsToolsDescription	具备草药工具的熟练项
 Feature/&OccultistSkillsTitle	神妙艺术
 Feature/&OccultistSkillsDescription	具备奥秘和欺瞒的熟练项。
 Feature/&OccultistSkillsToolsTitle	隐秘知识
@@ -5465,7 +5465,7 @@ Feature/&AdditionalActionMonkMartialArtsDescription	你使用徒手打击或武�
 Feature/&AttackModifierMonkMartialArtsTitle	武艺
 Feature/&AttackModifierMonkMartialArtsDescription	你使用徒手打击或武僧武器进行攻击时, 可以选择用 d4 骰代替原本的伤害掷骰。该骰子将随武僧 职业等级的提升而改变（5 级为 d6, 11 级为 d8）。 你可以在徒手打击及武僧武器攻击和伤害检 定中使用敏捷代替力量。
 Feature/&UnarmoredMovementTitle	无甲移动
-Feature/&UnarmoredMovementDescription	第 2 级起, 当未穿着任何护甲未持用盾牌时, 你的移动速度增加 2 单位格。该加值将随武僧职业等级的提升而改变（6 级 3 格, 10 级 4 格, 14 级 5 格）。
+Feature/&UnarmoredMovementDescription	第 2 级起, 当未穿着任何护甲未持用盾牌时, 你的移动速度增加 2 单位格。该加值将随武僧职业等级的提升而改变（6 级 3 格, 10 级 4 格）。
 Feature/&BardSongOfRestTitle	休憩曲
 Feature/&BardSongOfRestDescription	在短休时, 每位盟友在使用生命骰恢复生命值时, 掷一个额外的生命骰。
 Feature/&PointPoolMagicalSecretsTitle	魔法奥秘
@@ -5624,19 +5624,19 @@ Feature/&AncestryPathClawDraconicSilverTitle	银 - 冷冻
 Feature/&PowerBardTraditionAncientTraditionTitle	远古传承
 Feature/&PowerBardTraditionAncientTraditionDescription	随意对自身施展法师护甲：如果你未着甲, 你的 AC 变为 13 + 敏捷调整值。
 Feature/&StunningStrikeBracersDescription	穿戴这对护腕时, 你获得 +1 的震慑拳 DC 加值。
-Feature/&MonsterPower_GhastStench_ConditionImmunity_Title	
-Feature/&MonsterPower_GhastStench_ConditionImmunity_Description	
-Feature/&PowerSpiritBearDescription	德鲁伊加值：每等级 +1 生命值\n移动 5\n攻击伤害：1d8 + 德鲁伊感知调整值, 挥砍伤害\nAC：8+ 德鲁伊感知调整值\n生命值：12+ 德鲁伊生命值的一半
-Feature/&PowerSpiritWolfDescription	德鲁伊加值：+1 AC\n移动 8\n攻击伤害：1d6+ 德鲁伊感知调整值, 穿刺伤害\nAC：10+ 德鲁伊感知调整值\n生命值：8+ 德鲁伊生命值
-Feature/&PowerSpiritApeDescription	德鲁伊加值：敏捷豁免检定熟练项\n移动 7\n攻击伤害：1d8+ 德鲁伊感知调整值, 钝击伤害\nAC：9+ 德鲁伊感知调整值\n生命值：10+ 德鲁伊生命值的一半
-Feature/&PowerSpiritViperDescription	德鲁伊加值：+1 单位格移动\n飞行 12\n攻击伤害：1d4+ 德鲁伊感知调整值, 毒素伤害\nAC：12+ 德鲁伊感知调整值\n生命值：1+ 德鲁伊生命值的一半
-Feature/&PowerSpiritSpiderDescription	德鲁伊加值：蛛行术\n移动 6\n攻击伤害：2d4+ 德鲁伊感知调整值, 毒素伤害\nAC：11+ 德鲁伊感知调整值\n生命值：4+ 德鲁伊生命值的一半
-Feature/&PowerSpiritEagleDescription	德鲁伊加值：先攻 +3\n飞行 10\n攻击伤害：1d6+ 德鲁伊感知调整值, 挥砍伤害\nAC：11+ 德鲁伊感知调整值\n生命值：2+ 德鲁伊生命值的一半
-Feature/&FluteOfRespiteSootheTitle	
-Feature/&FluteOfRespiteSootheActionDescription	
-Feature/&DomainLawConditionAnathemaDescription	
-Feature/&AttackModifierScimitarOfSpeedTitle	
-Feature/&AttackModifierScimitarOfSpeedDescription	
+Feature/&MonsterPower_GhastStench_ConditionImmunity_Title	恶臭免疫
+Feature/&MonsterPower_GhastStench_ConditionImmunity_Description	免疫妖鬼恶臭 24 小时。
+Feature/&PowerSpiritBearDescription	德鲁伊加值：每等级+1生命值\n移动 5\n 爪击：攻击伤害：2D4+2+德鲁伊感知调整值, 挥砍伤害\n 啃咬：攻击伤害：1D10+2+德鲁伊感知调整值, 穿刺伤害\n AC：8 + 德鲁伊感知调整值\n生命值：12+德鲁伊生命值的一半
+Feature/&PowerSpiritWolfDescription	德鲁伊加值：+1 AC\n 移动 8\n 攻击伤害：1D8+3+德鲁伊感知调整值, 穿刺伤害\n AC：11+德鲁伊感知调整值\n生命值：10+德鲁伊生命值的一半
+Feature/&PowerSpiritApeDescription	德鲁伊加值：熟练项以敏捷进行豁免检定\n移动 7\n 拳：攻击伤害：1D8+2+德鲁伊感知调整值, 钝击伤害\n AC：10+德鲁伊感知调整值\n生命值：11+德鲁伊生命值的一半
+Feature/&PowerSpiritViperDescription	德鲁伊加值：+1 单位格移动\n飞行 12\n 攻击伤害：1D4+3+德鲁伊感知调整值, 毒素伤害\n AC：13+德鲁伊感知调整值\n生命值：8+德鲁伊生命值的一半
+Feature/&PowerSpiritSpiderDescription	德鲁伊加值：蛛行术\n 移动 6\n攻击伤害：2D4+1+德鲁伊感知调整值, 毒素伤害\n AC：12+德鲁伊感知调整值\n生命值：10+德鲁伊生命值的一半
+Feature/&PowerSpiritEagleDescription	德鲁伊加值：先攻 +3\n 飞行 10\n喙啄：攻击伤害：1D6+2+德鲁伊感知调整值, 穿刺伤害\n 禽爪：攻击伤害：2D4+2+德鲁伊感知调整值, 挥砍伤害\n AC：12+德鲁伊感知调整值\n生命值：8+德鲁伊生命值的一半
+Feature/&FluteOfRespiteSootheTitle	宽慰音符
+Feature/&FluteOfRespiteSootheActionDescription	治疗一位盟友, 使其恢复 3d4 点生命值。 受治疗者同时获得 2d4+ 你魅力调整值的临时生命值。
+Feature/&DomainLawConditionAnathemaDescription	该生物受到束缚, 直至其回合结束时感知豁免 检定成功。此外, 该生物每回合受到等同于施 法者属性调整值的力场伤害。
+Feature/&AttackModifierScimitarOfSpeedTitle	双重打击
+Feature/&AttackModifierScimitarOfSpeedDescription	每回合一次, 你可以使用附赠动作以该武器进行另一次攻击。
 Feedback/&AbilityCheckConsoleAnyAdvantageLine	{0}掷骰一次{1} 属性检定对 抗 DC{2}, 掷骰{3}{4}, {5}
 Feedback/&AbilityCheckConsoleAnyAdvantageNoModifierLine	{0}掷骰一次{1} 属性检定对 抗 DC {2}, 掷骰{3} {4}
 Feedback/&AbilityCheckConsoleLine	{0}掷骰一次{1} 属性检定对 抗 DC{2}, 掷骰{3} = {4}
@@ -6013,20 +6013,22 @@ Feedback/&ImmuneToConditionLine	{0}免疫{1}状态
 Feedback/&ItemLostLine	{0}失去一件物品：{1}
 Feedback/&ConditionRefreshedLine	{0}的{1}状态被刷新
 Feedback/&ItemStackLostFormat	失去：{0} x{1}
-Feedback/&AdditionalAttackD1Line	
-Feedback/&SubstractedAttackD1Line	
-Feedback/&AdditionalSaveD1Line	
-Feedback/&SubstractedSaveD1Line	
-Feedback/&AdditionalAbilityCheckD1Line	
-Feedback/&SubstractedAbilityCheckD1Line	
-Feedback/&ItemLostFormat	
-Feedback/&ProxyCounteredLine	
-Feedback/&ProxyCounteredSimpleLine	
-Feedback/&ReductionToDamageLine	
-Feedback/&NoDetrimentalSpellLine	
-Feedback/&SaveFailureOutcome	{0}豁免失败
-Feedback/&HeatedBody_Feedback	
-Feedback/&NecroticAura_Feedback	
+Feedback/&AdditionalAttackD1Line	{0}：{1}在攻击骰上增加 {2}
+Feedback/&SubstractedAttackD1Line	{0}：{1}从攻击骰上减去 {2}
+Feedback/&AdditionalSaveD1Line	{0}：{1}在豁免检定上增加 {2}
+Feedback/&SubstractedSaveD1Line	{0}：{1}从豁免检定上减去 {2}
+Feedback/&AdditionalAbilityCheckD1Line	{0}：{1}在属性检定上增加 {2}
+Feedback/&SubstractedAbilityCheckD1Line	{0}：{1}从属性检定上减去 {2}
+Feedback/&ItemLostFormat	失去：{0}
+Feedback/&ProxyCounteredLine	{0}被{1}反制了。
+Feedback/&ProxyCounteredSimpleLine	{0}被反制了。
+Feedback/&ReductionToDamageLine	{0}将{1}的伤害减少 {2}
+Feedback/&NoDetrimentalSpellLine	{0}免受不利法术的影响
+Feedback/&SaveFailureOutcome	{0}（失败）
+Feedback/&HeatedBody_Feedback	灼热身躯
+Feedback/&NecroticAura_Feedback	黯蚀灵光
+Feedback/&AdditionalDamageSmiteTheHiddenLine	
+Feedback/&AdditionalDamageSmiteTheHiddenFormat	
 FightingStyle/&ArcheryDescription	在使用远程武器时, 你的攻击掷 骰可获得 +2 加值。
 FightingStyle/&ArcheryTitle	箭术
 FightingStyle/&DefenseDescription	穿着护甲时, 你会获得 AC +1。
@@ -18287,10 +18289,10 @@ Powers/&Mummy_Lord_BlindingDust_Title	致盲粉
 Powers/&Mummy_Lord_BlindingDust_Description	1 格内的生物必须成功通过一次 DC 16 的体质豁免检定, 否则将目盲直到其下一回合结束。
 Powers/&Mummy_Lord_WhirlwindOfSand_Title	沙暴旋风
 Powers/&Mummy_Lord_WhirlwindOfSand_Description	木乃伊领主以沙暴旋风的形式移动至多 12 单位格, 免疫所有攻击。
-Powers/&Item_PenitentBelt_Title	气之治疗
-Powers/&Item_PenitentBelt_Description	消耗 2 点气来恢复 1d8+2 点生命值。
-Powers/&Power_Ghast_Stench_Title	
-Powers/&Power_Ghast_Stench_Description	
+Powers/&Item_PenitentBelt_Title	治疗
+Powers/&Item_PenitentBelt_Description	使用一次充能恢复 1d8+2 点生命值。
+Powers/&Power_Ghast_Stench_Title	恶臭
+Powers/&Power_Ghast_Stench_Description	妖鬼在邻近的单位格中散发出难以忍受的恶臭, 会使你中毒。
 Prop/&CandelabraTitle	枝状大烛台
 Prop/&CandelabraDescription	装饰用大烛台
 Prop/&ColumnATitle	圆柱 A
@@ -22286,12 +22288,12 @@ Rules/&ConditionOnFire_Osprey_Title	火焰鹗导致的着火
 Rules/&ConditionFrightenedByDragonImmunity_Title	免疫可怕存在
 Rules/&EffectTargetClosestWithinDistanceTitle	最近（{0}）
 Rules/&MotionFormFallProneFormat	击打倒地
-Rules/&RateTurnStartFormatTitle	
-Rules/&ConditionFlyingAdaptiveDescription	
-Rules/&ActivationTypeOnAttackHitMeleeAuto	
-Rules/&ConditionInsaneTitle	
-Rules/&ConditionInsaneDescription	
-Rules/&SituationalContextAttackingWithRangedWeaponOrEffectFormat	
+Rules/&RateTurnStartFormatTitle	回合开始
+Rules/&ConditionFlyingAdaptiveDescription	你获得等同于你步行速度的飞行速度
+Rules/&ActivationTypeOnAttackHitMeleeAuto	命中时（近战）
+Rules/&ConditionInsaneTitle	狂乱
+Rules/&ConditionInsaneDescription	无法采取任何行动, 无法稳定移动。
+Rules/&SituationalContextAttackingWithRangedWeaponOrEffectFormat	你在进行法术攻击时忽略半身掩护。
 SchoolOfMagic/&AbjurationTitle	防护
 SchoolOfMagic/&ConjurationTitle	咒法
 SchoolOfMagic/&DivinationTitle	预言
@@ -23397,7 +23399,7 @@ Screen/&MysticArcanumExtraSpellDescription	该法术由玄奥秘法的特性赋�
 Screen/&SpellsGroupMysticArcanumTitle	玄奥秘法
 Screen/&SpellsGroupMysticArcanumAvailableDescription	每次长休可施展一次玄奥秘法。
 Screen/&SpellsGroupMysticArcanumUsedDescription	玄奥秘法已使用, 完成一次长休才可再次启用。
-Screen/&LearnRitualTitle	学习仪式
+Screen/&LearnRitualTitle	学习法术
 Screen/&LearnRitualDescription	学习仅以仪式的方式施展此法术。 此举将摧毁卷轴。
 Screen/&ProficiencyToggleInvocationTitle	祈唤
 Screen/&BardicInspirationDieDescription	你的诗人激励骰为 {0}, 还可使用 {1} 次。
@@ -23425,8 +23427,8 @@ Screen/&CaptionAbortDescription	取消此动作。
 Screen/&CaptionAbortTitle	取消
 Screen/&CraftingAbortButtonTitle	取消制作
 Screen/&AbortTravelButtonTitle	在下一个地点中止移动
-Screen/&EditorXCoordinateTitle	
-Screen/&EditorYCoordinateTitle	
+Screen/&EditorXCoordinateTitle	X
+Screen/&EditorYCoordinateTitle	Y
 Setting/&ApplyDescription	应用你做出的变更。
 Setting/&ApplyNoChangeDescription	设置未变更。
 Setting/&ApplyTitle	应用
@@ -24346,7 +24348,7 @@ Spell/&WallOfForceTitle	力场墙
 Spell/&WallOfForceDescription	召唤出一道隐形的墙来阻挡敌人的移动和攻击。
 Spell/&MindTwistTitle	心灵扭曲
 Spell/&MindTwistDescription	对你周围的敌对生物造成巨大的心 灵伤害, 如果他们未能通过智力豁 免检定, 则会丧失行动能力。
-Spell/&CalmEmotionsDescription	阻止被魅惑和恐慌的盟友, 或使敌人丧失兴趣。
+Spell/&CalmEmotionsDescription	阻止遭受魅惑或恐慌的盟友, 并使敌对类人生物丧失兴趣。
 Spell/&CalmEmotionsOnEnemyDescription	使敌人对你的盟友丧失兴趣, 直 到这些敌人受伤。
 Spell/&Spell_Flameblade_Title	火焰刀
 Spell/&Spell_Flameblade_Description	召唤出一把炽热的刀刃, 持续十 分钟。你可以在战斗中尽情挥舞它。
@@ -24470,7 +24472,7 @@ Stage/&AbilityScoresOptimizeDescription	为选中的角色职业优化属性值�
 Stage/&AbilityScoresOptimizeTitle	优化
 Stage/&AbilityScoresPointsCapitalInfiniteTitle	无限点数
 Stage/&AbilityScoresPointsCapitalTitle	点数池
-Stage/&AbilityScoresPredeterminedDescription	使用 4d6 重掷 6 个属性 值, 保留三个最佳分值。
+Stage/&AbilityScoresPredeterminedDescription	选择一组 6 个数的预定属性值：15, 14, 13, 12, 10, 8
 Stage/&AbilityScoresPredeterminedTitle	标准序列
 Stage/&AbilityScoresRemainingPointsDescription	你还有剩余的点数未使用。
 Stage/&AbilityScoresRemainingPointsTitle	剩余：
@@ -25197,7 +25199,7 @@ Tooltip/&TagBleedingTitle	流血
 Tooltip/&InvocationUsagePermanentInactiveDescription	此祈唤的效果已暂时终止。\n点击以重启祈唤。
 Tooltip/&TagMusicalInstrumentTitle	乐器
 Tooltip/&FeatSameFamilyUnavailableWarningDescription	警告：该类型你仅可学习一个专长
-Tooltip/&FeatPrerequisiteFeatFamilyFormat	
+Tooltip/&FeatPrerequisiteFeatFamilyFormat	已知：{0}
 Travel/&FactionRelicInterestedFactionsTitle	有意阵营
 Travel/&FatigueExhaustedDescription	小队已精疲力竭, 必须休整。
 Travel/&FatigueExhaustedTitle	力竭

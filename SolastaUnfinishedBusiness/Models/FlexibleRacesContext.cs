@@ -121,7 +121,7 @@ internal static class FlexibleRacesContext
 
             foreach (var featureDefinitionName in keyValuePair.Value)
             {
-                if (DatabaseHelper.TryGetDefinition<FeatureDefinition>(featureDefinitionName,
+                if (!DatabaseHelper.TryGetDefinition<FeatureDefinition>(featureDefinitionName,
                         out var featureDefinition))
                 {
                     continue;

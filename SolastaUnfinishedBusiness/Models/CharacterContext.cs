@@ -7,6 +7,7 @@ using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomDefinitions;
 using SolastaUnfinishedBusiness.CustomInterfaces;
+using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Properties;
 using SolastaUnfinishedBusiness.Races;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
@@ -33,7 +34,7 @@ internal static class CharacterContext
 
     private static int PreviousTotalFeatsGrantedFirstLevel { get; set; } = -1;
     private static bool PreviousAlternateHuman { get; set; }
-    internal static FeatureDefinitionPower FeatureDefinitionPowerHelpAction { get; set; }
+    internal static FeatureDefinitionPower FeatureDefinitionPowerHelpAction { get; private set; }
 
     internal static void Load()
     {
@@ -72,6 +73,7 @@ internal static class CharacterContext
 
     private static void LoadHelpPower()
     {
+        var sprite = Sprites.GetSprite("PowerHelp", Resources.PowerHelp, 128);
         var effectDescription = EffectDescriptionBuilder
             .Create(TrueStrike.EffectDescription)
             .SetTargetingData(Side.Enemy, RangeType.Touch, 1, TargetType.Individuals)
@@ -84,7 +86,7 @@ internal static class CharacterContext
 
         FeatureDefinitionPowerHelpAction = FeatureDefinitionPowerBuilder
             .Create("PowerHelp")
-            .SetGuiPresentation(Category.Feature, Aid)
+            .SetGuiPresentation(Category.Feature, sprite)
             .SetUsesFixed(ActivationTime.Action)
             .SetEffectDescription(effectDescription)
             .SetUniqueInstance()
