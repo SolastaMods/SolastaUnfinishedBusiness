@@ -25,6 +25,7 @@ using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionSense
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionSummoningAffinitys;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.MonsterDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
+using Resources = SolastaUnfinishedBusiness.Properties.Resources;
 
 namespace SolastaUnfinishedBusiness.Subclasses;
 
@@ -118,9 +119,11 @@ internal sealed class MartialMarshal : AbstractSubclass
 
     private static FeatureDefinitionPower BuildStudyEnemyPower()
     {
+        var sprite = Sprites.GetSprite("PowerHelp", Resources.PowerHelp, 128);
+
         return FeatureDefinitionPowerBuilder
             .Create("PowerMarshalStudyYourEnemy")
-            .SetGuiPresentation(Category.Feature, IdentifyCreatures)
+            .SetGuiPresentation(Category.Feature, sprite)
             .SetUsesFixed(ActivationTime.BonusAction, RechargeRate.ShortRest, 1, 2)
             .SetEffectDescription(EffectDescriptionBuilder
                 .Create(IdentifyCreatures.EffectDescription)

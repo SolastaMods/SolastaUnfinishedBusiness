@@ -2,6 +2,8 @@
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomDefinitions;
+using SolastaUnfinishedBusiness.CustomUI;
+using SolastaUnfinishedBusiness.Properties;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterFamilyDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionDamageAffinitys;
@@ -84,7 +86,7 @@ internal static class CommonBuilders
 
     internal static readonly FeatureDefinitionPower PowerCasterCommandUndead = FeatureDefinitionPowerBuilder
         .Create("PowerCasterCommandUndead")
-        .SetGuiPresentation(Category.Feature)
+        .SetGuiPresentation(Category.Feature, Sprites.GetSprite("PowerHelp", Resources.PowerCommandUndead, 128))
         .SetUsesProficiencyBonus(ActivationTime.Action)
         .SetEffectDescription(
             EffectDescriptionBuilder
