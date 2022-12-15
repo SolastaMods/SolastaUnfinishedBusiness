@@ -1,8 +1,8 @@
-Feature/&CastSpellDraconicKoboldMagicDescription=You know one cantrip of your choice from the Sorcerer spell list. Charisma is your spellcasting ability for it.
-Feature/&CastSpellDraconicKoboldMagicTitle=Kobold Magic
-Feature/&PowerDraconicKoboldDraconicCryDescription=As a bonus action, you let out a cry at your enemies within 10 feet of you. Until the start of your next turn, you and your allies have advantage on attack rolls against any of those enemies who could hear you. You can use this trait a number of times equal to your proficiency bonus, and you regain all expended uses when you finish a long rest.
-Feature/&PowerDraconicKoboldDraconicCryTitle=Draconic Cry
-Feature/&ProficiencyKoboldLanguagesDescription=Common, Draconic.
-Feature/&ProficiencyKoboldLanguagesTitle=Languages
-Race/&RaceKoboldDescription=Kobolds are small reclusive creatures. Recently, some of the more advanced tribes of kobolds have chosen to reveal themselves and interact with other races. It is not a coincidence that this is happening at the same time as the dragonborn making themselves known, as the most advanced kobolds seem to in many ways mimic the dragonborn, even naming themselves in a similar style. They may even be more advanced than other kobolds due to intermingling with the dragonborn.
-Race/&RaceKoboldTitle=Kobold
+Feature/&CastSpellDraconicKoboldMagicDescription=你知道你从术士法术列表中选择的一个戏法。 魅力是你对它的关键施法属性。
+Feature/&CastSpellDraconicKoboldMagicTitle=狗头人魔法
+Feature/&PowerDraconicKoboldDraconicCryDescription=以一个附赠动作，你对 10 尺范围内的敌人大吼一声。 在你的下一轮开始之前，你和你的盟友在对任何能听到你吼声的敌人的攻击检定上具有优势。 你可以使用此特性的次数等于你的熟练加值，并且在你完成长休后恢复所有消耗的使用次数。
+Feature/&PowerDraconicKoboldDraconicCryTitle=龙之怒吼
+Feature/&ProficiencyKoboldLanguagesDescription=通用语、龙语
+Feature/&ProficiencyKoboldLanguagesTitle=语言
+Race/&RaceKoboldDescription=狗头人是小型隐居生物。 最近，一些更高级的狗头人部落选择了现身并与其他种族互动。 这与龙裔出名同时发生并非巧合，因为最先进的狗头人似乎在许多方面模仿龙裔，甚至以类似的风格命名自己。 由于与龙裔混居，他们甚至可能比其他狗头人更先进。
+Race/&RaceKoboldTitle=狗头人
