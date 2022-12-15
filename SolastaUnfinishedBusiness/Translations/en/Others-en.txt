@@ -119,3 +119,4 @@ UI/&RecipeFilterAmmunition=Ammunition
 UI/&RecipeFilterArmor=Armor
 UI/&RecipeFilterUsableDevices=Usable Devices
 UI/&RecipeFilterWeapons=Weapons
+Feature/&AdditionalDamageDomainLifeDivineStrikeDescription=+1d8 radiant damage on weapon attacks, once per turn.
