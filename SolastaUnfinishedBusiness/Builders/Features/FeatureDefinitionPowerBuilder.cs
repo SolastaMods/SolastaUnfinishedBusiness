@@ -155,6 +155,16 @@ internal abstract class
         return (TBuilder)this;
     }
 
+    internal TBuilder SetTriggeringPower(FeatureDefinitionPower triggerPower, bool copyTarget = false,
+        RechargeRate rechargeRate = RechargeRate.AtWill)
+    {
+        Definition.triggeringPower = triggerPower;
+        Definition.activationTime = ActivationTime.OnPowerActivatedAuto;
+        Definition.copyTargetingFromTriggeringPower = copyTarget;
+        Definition.rechargeRate = rechargeRate;
+        return (TBuilder)this;
+    }
+
     #region Constructors
 
     protected FeatureDefinitionPowerBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)
