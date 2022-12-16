@@ -23,11 +23,11 @@
     <ItemGroup>
       <PubliciseInputAssemblies Include="$(SolastaInstallDir)/Solasta_Data/Managed/Assembly-CSharp.dll" />
     </ItemGroup>
-    <Publicise InputAssemblies="@(PubliciseInputAssemblies)" OutputPath="$(SolutionDir)lib/" PubliciseCompilerGenerated="true" />
+    <Publicise AssemblyPath="@(PubliciseInputAssemblies)" OutputPath="$(SolutionDir)lib/" />
   </Target>
 
   <ItemGroup>
-    <PackageReference Include="Aze.Publicise.MSBuild.Task" Version="1.1.0">
+    <PackageReference Include="Publicise.MSBuild.Task" Version="1.6.0">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
     </PackageReference>
