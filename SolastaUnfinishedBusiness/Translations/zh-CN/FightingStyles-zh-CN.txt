@@ -8,7 +8,7 @@ Feedback/&AdditionalDamageExecutionerFormat=处刑!
 Feedback/&AdditionalDamageExecutionerLine={0} 处刑 {1} 造成+{2} 额外伤害！
 FightingStyle/&BlindFightingDescription=你获得 10 尺范围内的盲视。 在10尺范围内，即使你失明或处于黑暗中，你也可以有效地看到任何不在完全掩护后面的东西。 此外，你可以看到该范围内的隐形生物，除非该生物成功通过躲藏检定。
 FightingStyle/&BlindFightingTitle=盲斗
-FightingStyle/&CripplingDescription=近战攻击命中后，您可以将对手的速度降低 10 尺，并将他们的AC等级降低 1，持续 2 回合。
+FightingStyle/&CripplingDescription=近战攻击命中后，你可以将对手的速度降低 10 尺，并将他们的AC等级降低 1，持续 2 回合。
 FightingStyle/&CripplingTitle=致残
 FightingStyle/&ExecutionerDescription=你将你的熟练加值添加到对目盲、恐惧、束缚、失能、麻痹、倒地或震慑的生物的伤害上。
 FightingStyle/&ExecutionerTitle=处刑人
@@ -16,7 +16,7 @@ FightingStyle/&HandAndAHalfDescription=当你用两只手使用两用武器时�
 FightingStyle/&HandAndAHalfTitle=手半
 FightingStyle/&MercilessDescription=当你在你的回合使用近战武器攻击将目标的 HP 降低到 0 时，被击倒目标半径等于你的熟练加值一半（四舍五入）x5尺内可以看到目标的敌人必须进行感知豁免（DC = 8 + 你的熟练加值 + 你的力量调整值）或者在他们下一轮结束之前对你感到恐惧。如果触发效果的攻击是重击，则半径等于你的熟练加值x5尺。
 FightingStyle/&MercilessTitle=无情
-FightingStyle/&PolearmExpertDescription=你的长柄武器专家训练赋予你以下好处：\n• 当你采取攻击动作并仅使用长柄武器进行攻击时，你可以使用附赠动作用武器的另一端进行近战攻击。 该攻击使用与主要攻击相同的能力调整值并造成 1d4 钝击伤害。\n• 其他生物进入您挥舞长柄武器的范围时会引发您的借机攻击。
+FightingStyle/&PolearmExpertDescription=你的长柄武器专家训练赋予你以下好处：\n• 当你采取攻击动作并仅使用长柄武器进行攻击时，你可以使用附赠动作用武器的另一端进行近战攻击。 该攻击使用与主要攻击相同的能力调整值并造成 1d4 钝击伤害。\n• 其他生物进入你挥舞长柄武器的范围时会引发你的借机攻击。
 FightingStyle/&PolearmExpertTitle=长柄武器专家
 FightingStyle/&PugilistDescription=你的徒手攻击造成额外的 1d4 钝击伤害，并且你可以以一个附赠动作使用你的副手进行攻击。 如果你有一只空余的手，你可以用附赠动作进行推撞。
 FightingStyle/&PugilistTitle=拳师
