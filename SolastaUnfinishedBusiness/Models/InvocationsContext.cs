@@ -22,14 +22,24 @@ internal static class InvocationsContext
     {
         LoadInvocation(BuildAspectOfTheMoon());
         LoadInvocation(BuildBondOfTheTalisman());
+        LoadInvocation(BuildBreakerAndBanisher());
+        LoadInvocation(BuildChillingBlast());
+        LoadInvocation(BuildCorrosiveBlast());
+        LoadInvocation(BuildDiscerningGaze());
         LoadInvocation(BuildEldritchMind());
         LoadInvocation(BuildEldritchSmite());
+        LoadInvocation(BuildFieryBlast());
+        LoadInvocation(BuildFulminateBlast());
         LoadInvocation(BuildGiftOfTheEverLivingOnes());
+        LoadInvocation(BuildGiftOfTheHunter());
         LoadInvocation(BuildGiftOfTheProtectors());
         LoadInvocation(BuildGraspingBlast());
         LoadInvocation(BuildHinderingBlast());
         LoadInvocation(BuildImprovedPactWeapon());
+        LoadInvocation(BuildKinesis());
         LoadInvocation(BuildShroudOfShadow());
+        LoadInvocation(BuildSpectralShield());
+        LoadInvocation(BuildStasis());
         LoadInvocation(BuildSuperiorPactWeapon());
         LoadInvocation(BuildTrickstersEscape());
         LoadInvocation(BuildUltimatePactWeapon());

@@ -1,0 +1,38 @@
+{
+  "$type": "InvocationDefinition, Assembly-CSharp",
+  "requiredKnownSpell": null,
+  "requiredLevel": 5,
+  "requiredPact": null,
+  "grantedFeature": null,
+  "grantedSpell": "Definition:GiftOfTheHunter:27583e9b-9f86-5822-93eb-ad03499c60e3",
+  "consumesSpellSlot": false,
+  "longRestRecharge": true,
+  "overrideMaterialComponent": true,
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": true,
+    "title": "Invocation/&InvocationGiftOfTheHunterTitle",
+    "description": "Invocation/&InvocationGiftOfTheHunterDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "687eef905bf70114fa9f5c18bae3f048",
+      "m_SubObjectName": "PassWithoutTrace",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "70c1e561-4c01-5c22-8dcb-8d763909757b",
+  "contentPack": 9999,
+  "name": "InvocationGiftOfTheHunter"
+}

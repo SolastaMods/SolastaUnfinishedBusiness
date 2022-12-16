@@ -4,6 +4,8 @@ using SolastaUnfinishedBusiness.Api.Infrastructure;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomInterfaces;
+using SolastaUnfinishedBusiness.CustomUI;
+using SolastaUnfinishedBusiness.Properties;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPowers;
@@ -50,9 +52,11 @@ internal static class OtherFeats
 
     private static FeatDefinition BuildHealer()
     {
+        var spriteMedKit = Sprites.GetSprite("PowerMedKit", Resources.PowerMedKit, 128);
+
         var powerFeatHealerMedKit = FeatureDefinitionPowerBuilder
             .Create("PowerFeatHealerMedKit")
-            .SetGuiPresentation(Category.Feature, PowerFunctionGoodberryHealingOther)
+            .SetGuiPresentation(Category.Feature, spriteMedKit)
             .SetUsesAbilityBonus(ActivationTime.Action, RechargeRate.ShortRest, AttributeDefinitions.Wisdom)
             .SetEffectDescription(EffectDescriptionBuilder.Create()
                 .SetTargetingData(Side.Ally, RangeType.Touch, 1, TargetType.Individuals)
@@ -66,16 +70,17 @@ internal static class OtherFeats
                         false,
                         HealingCap.MaximumHitPoints)
                     .SetLevelAdvancement(EffectForm.LevelApplianceType.AddBonus, LevelSourceType.CharacterLevel)
-                    .CreatedByCharacter()
                     .Build())
                 .SetEffectAdvancement(EffectIncrementMethod.None)
                 .SetParticleEffectParameters(SpellDefinitions.MagicWeapon)
                 .Build())
             .AddToDB();
 
+        var spriteResuscitate = Sprites.GetSprite("PowerResuscitate", Resources.PowerResuscitate, 128);
+
         var powerFeatHealerResuscitate = FeatureDefinitionPowerBuilder
             .Create("PowerFeatHealerResuscitate")
-            .SetGuiPresentation(Category.Feature, PowerDomainLifePreserveLife)
+            .SetGuiPresentation(Category.Feature, spriteResuscitate)
             .SetUsesFixed(ActivationTime.Action, RechargeRate.LongRest)
             .SetEffectDescription(EffectDescriptionBuilder.Create()
                 .SetTargetingData(Side.Ally, RangeType.Touch, 1, TargetType.Individuals)
@@ -88,16 +93,17 @@ internal static class OtherFeats
                 .SetRequiredCondition(ConditionDefinitions.ConditionDead)
                 .SetEffectForms(EffectFormBuilder.Create()
                     .SetReviveForm(12, ReviveHitPoints.One)
-                    .CreatedByCharacter()
                     .Build())
                 .SetEffectAdvancement(EffectIncrementMethod.None)
                 .SetParticleEffectParameters(SpellDefinitions.MagicWeapon)
                 .Build())
             .AddToDB();
 
+        var spriteStabilize = Sprites.GetSprite("PowerStabilize", Resources.PowerStabilize, 128);
+
         var powerFeatHealerStabilize = FeatureDefinitionPowerBuilder
             .Create("PowerFeatHealerStabilize")
-            .SetGuiPresentation(Category.Feature, PowerDomainLifePreserveLife)
+            .SetGuiPresentation(Category.Feature, spriteStabilize)
             .SetUsesAbilityBonus(ActivationTime.Action, RechargeRate.ShortRest, AttributeDefinitions.Wisdom)
             .SetEffectDescription(SpellDefinitions.SpareTheDying.EffectDescription)
             .AddToDB();
@@ -125,13 +131,13 @@ internal static class OtherFeats
             .Create("PowerFeatInspiringLeader")
             .SetGuiPresentation("FeatInspiringLeader", Category.Feat, PowerOathOfTirmarGoldenSpeech)
             .SetUsesFixed(ActivationTime.Minute10, RechargeRate.ShortRest)
+            .SetExplicitAbilityScore(AttributeDefinitions.Charisma)
             .SetEffectDescription(EffectDescriptionBuilder.Create()
                 .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Sphere, 6)
                 .SetDurationData(DurationType.Permanent)
                 .SetEffectForms(EffectFormBuilder.Create()
                     .SetTempHpForm()
                     .SetLevelAdvancement(EffectForm.LevelApplianceType.AddBonus, LevelSourceType.CharacterLevel)
-                    .CreatedByCharacter()
                     .SetBonusMode(AddBonusMode.AbilityBonus)
                     .Build())
                 .SetEffectAdvancement(EffectIncrementMethod.None)

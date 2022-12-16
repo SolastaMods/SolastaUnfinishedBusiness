@@ -2,6 +2,9 @@
 
 This is a [collection of work](https://github.com/SolastaMods/SolastaUnfinishedBusiness/wiki) from the Solasta modding community. It includes multiclass, feats, classes, subclasses, items, crafting recipes, gameplay options, UI improvements, and more. The general philosophy is everything is optional to enable, so you can install the mod and then enable the pieces you want. There are some minor bug fixes that are enabled by default.
 
+# How to install
+
+Download the first ZIP file from latest releases [here](https://github.com/SolastaMods/SolastaUnfinishedBusiness/releases) and follow the installation guide [here](https://github.com/SolastaMods/SolastaUnfinishedBusiness/wiki/Install).
 # How to contribute
 
 Do you have a mod you want to see included here? We are happy to take new contributions! The best way to get involved is to:

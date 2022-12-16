@@ -2,6 +2,8 @@
 using SolastaUnfinishedBusiness.Api.Infrastructure;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
+using SolastaUnfinishedBusiness.CustomBehaviors;
+using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Properties;
@@ -88,15 +90,10 @@ internal static class GrayDwarfSubraceBuilder
             .Create(SavingThrowAffinityConditionRaging, "SavingThrowAffinityGrayDwarfStoneStrength")
             .AddToDB();
 
-        var additionalDamageGrayDwarfStoneStrength = FeatureDefinitionAdditionalDamageBuilder
+        var additionalDamageGrayDwarfStoneStrength = FeatureDefinitionBuilder
             .Create("AdditionalDamageGrayDwarfStoneStrength")
-            .SetGuiPresentationNoContent()
-            .SetNotificationTag("StoneStrength")
-            .SetTriggerCondition(AdditionalDamageTriggerCondition.AlwaysActive)
-            .SetRequiredProperty(RestrictedContextRequiredProperty.MeleeStrengthWeapon)
-            .SetDamageDice(DieType.D4, 1)
-            .SetAdditionalDamageType(AdditionalDamageType.SameAsBaseDamage)
-            .SetFrequencyLimit(FeatureLimitedUsage.None)
+            .SetGuiPresentationNoContent(true)
+            .SetCustomSubFeatures(new AdditionalDamageGrayDwarfStoneStrength())
             .AddToDB();
 
         var conditionGrayDwarfStoneStrength = ConditionDefinitionBuilder
@@ -165,5 +162,33 @@ internal static class GrayDwarfSubraceBuilder
         Dwarf.SubRaces.Add(raceGrayDwarf);
 
         return raceGrayDwarf;
+    }
+
+    private sealed class AdditionalDamageGrayDwarfStoneStrength : IModifyAttackModeForWeapon
+    {
+        public void ModifyAttackMode(RulesetCharacter character, RulesetAttackMode attackMode)
+        {
+            if (attackMode?.abilityScore != AttributeDefinitions.Strength || !ValidatorsWeapon.IsMelee(attackMode) ||
+                ValidatorsWeapon.IsUnarmedWeapon(attackMode))
+            {
+                return;
+            }
+
+            var effectDescription = attackMode.EffectDescription;
+            var damage = effectDescription.FindFirstDamageForm();
+            var k = effectDescription.EffectForms.FindIndex(form => form.damageForm == damage);
+
+            if (k < 0 || damage == null)
+            {
+                return;
+            }
+
+            var additionalDice = EffectFormBuilder
+                .Create()
+                .SetDamageForm(damage.damageType, 1, DieType.D4)
+                .Build();
+
+            effectDescription.EffectForms.Insert(k + 1, additionalDice);
+        }
     }
 }

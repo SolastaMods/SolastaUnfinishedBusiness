@@ -3,7 +3,7 @@
   "effectDescription": {
     "$type": "EffectDescription, Assembly-CSharp",
     "rangeType": "MeleeHit",
-    "rangeParameter": 0,
+    "rangeParameter": 1,
     "halfDamageOnAMiss": false,
     "hitAffinitiesByTargetTag": [],
     "targetType": "Individuals",
@@ -70,10 +70,10 @@
         "diceByLevelTable": [],
         "createdByCharacter": false,
         "createdByCondition": false,
-        "hasSavingThrow": true,
-        "savingThrowAffinity": "Negates",
+        "hasSavingThrow": false,
+        "savingThrowAffinity": "None",
         "dcModifier": 0,
-        "canSaveToCancel": true,
+        "canSaveToCancel": false,
         "saveOccurence": "EndOfTurn",
         "conditionForm": {
           "$type": "ConditionForm, Assembly-CSharp",

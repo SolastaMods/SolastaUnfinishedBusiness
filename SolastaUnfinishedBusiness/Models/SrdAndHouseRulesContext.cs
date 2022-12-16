@@ -73,6 +73,7 @@ internal static class SrdAndHouseRulesContext
     {
         FixDivineSmiteRestrictions();
         FixDivineSmiteDiceNumberWhenUsingHighLevelSlots();
+        FixMeleeHitEffectsRange();
         FixMountaineerBonusShoveRestrictions();
         FixRecklessAttackForReachWeapons();
         MinorFixes();
@@ -80,6 +81,7 @@ internal static class SrdAndHouseRulesContext
         SwitchFilterOnHideousLaughter();
         SwitchRecurringEffectOnEntangle();
         UseCubeOnSleetStorm();
+        SwitchEldritchBlastRange();
         UseHeightOneCylinderEffect();
         SwitchUniversalSylvanArmorAndLightbringer();
         SwitchDruidAllowMetalArmor();
@@ -182,6 +184,27 @@ internal static class SrdAndHouseRulesContext
     {
         FeatureDefinitionAdditionalDamages.AdditionalDamagePaladinDivineSmite.diceByRankTable =
             DiceByRankBuilder.BuildDiceByRankTable(2);
+    }
+
+    /**
+     * Ensures any spell or power effect in game that uses MeleeHit has a correct range of 1.
+     * Otherwise our AttackEvaluationParams.FillForMagicReachAttack will use incorrect data.
+     */
+    private static void FixMeleeHitEffectsRange()
+    {
+        foreach (var effectDescription in DatabaseRepository.GetDatabase<SpellDefinition>()
+                     .Select(x => x.EffectDescription)
+                     .Where(x => x.rangeType == RangeType.MeleeHit))
+        {
+            effectDescription.rangeParameter = 1;
+        }
+
+        foreach (var effectDescription in DatabaseRepository.GetDatabase<FeatureDefinitionPower>()
+                     .Select(x => x.EffectDescription)
+                     .Where(x => x.rangeType == RangeType.MeleeHit))
+        {
+            effectDescription.rangeParameter = 1;
+        }
     }
 
     /**
@@ -334,6 +357,11 @@ internal static class SrdAndHouseRulesContext
             sleetStormEffect.targetParameter = 4;
             sleetStormEffect.targetParameter2 = 3;
         }
+    }
+
+    internal static void SwitchEldritchBlastRange()
+    {
+        EldritchBlast.effectDescription.rangeParameter = Main.Settings.FixEldritchBlastRange ? 24 : 16;
     }
 
     internal static void UseHeightOneCylinderEffect()
@@ -549,11 +577,11 @@ internal static class SrdAndHouseRulesContext
 
     private sealed class CanIdentifyOnRest : IPowerUseValidity
     {
-        public static CanIdentifyOnRest Mark { get; } = new();
-
         private CanIdentifyOnRest()
         {
         }
+
+        public static CanIdentifyOnRest Mark { get; } = new();
 
         public bool CanUsePower(RulesetCharacter character, FeatureDefinitionPower power)
         {
@@ -573,11 +601,11 @@ internal static class SrdAndHouseRulesContext
 
     private sealed class IdentifyItems : ICustomConditionFeature
     {
-        public static IdentifyItems Mark { get; } = new();
-
         private IdentifyItems()
         {
         }
+
+        public static IdentifyItems Mark { get; } = new();
 
         public void ApplyFeature(RulesetCharacter target, RulesetCondition rulesetCondition)
         {

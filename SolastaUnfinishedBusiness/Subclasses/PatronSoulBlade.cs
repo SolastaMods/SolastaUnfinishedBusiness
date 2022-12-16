@@ -74,6 +74,7 @@ internal sealed class PatronSoulBlade : AbstractSubclass
             .Create("PowerSoulBladeSoulShield")
             .SetGuiPresentation(Category.Feature, PowerFighterSecondWind)
             .SetUsesFixed(ActivationTime.BonusAction, RechargeRate.ShortRest)
+            .SetExplicitAbilityScore(AttributeDefinitions.Charisma)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create(PowerFighterSecondWind.EffectDescription)
@@ -81,9 +82,9 @@ internal sealed class PatronSoulBlade : AbstractSubclass
                     .SetEffectForms(
                         EffectFormBuilder
                             .Create()
-                            .SetTempHpForm(-1, DieType.D1, 1)
-                            .SetBonusMode(AddBonusMode.AbilityBonus)
+                            .SetTempHpForm()
                             .SetLevelAdvancement(EffectForm.LevelApplianceType.AddBonus, LevelSourceType.ClassLevel)
+                            .SetBonusMode(AddBonusMode.AbilityBonus)
                             .Build())
                     .Build())
             .AddToDB();

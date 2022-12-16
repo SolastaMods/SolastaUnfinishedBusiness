@@ -1,5 +1,6 @@
 ﻿using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
+using SolastaUnfinishedBusiness.CustomInterfaces;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionConditionAffinitys;
@@ -49,7 +50,7 @@ internal sealed class PatronRiftWalker : AbstractSubclass
                 .SetDurationData(DurationType.Round, 1, TurnOccurenceType.StartOfTurn)
                 .SetNoSavingThrow()
                 .Build())
-            .SetUniqueInstance()
+            .SetCustomSubFeatures(new PreventRemoveConcentrationRiftwalker())
             .AddToDB();
 
         var conditionAffinityRiftWalkerRestrainedImmunity = FeatureDefinitionConditionAffinityBuilder
@@ -66,6 +67,7 @@ internal sealed class PatronRiftWalker : AbstractSubclass
                 .SetDurationData(DurationType.Round, 1)
                 .SetNoSavingThrow()
                 .Build())
+            .SetCustomSubFeatures(new PreventRemoveConcentrationRiftwalker())
             .SetReactionContext(ReactionTriggerContext.HitByMelee)
             .AddToDB();
 
@@ -75,7 +77,7 @@ internal sealed class PatronRiftWalker : AbstractSubclass
             .SetOverriddenPower(powerRiftWalkerRiftWalk)
             .SetUsesProficiencyBonus(ActivationTime.BonusAction)
             .SetEffectDescription(DimensionDoor.EffectDescription)
-            .SetUniqueInstance()
+            .SetCustomSubFeatures(new PreventRemoveConcentrationRiftwalker())
             .AddToDB();
 
         var damageAffinityRiftWalkerFadeIntoTheVoid = FeatureDefinitionDamageAffinityBuilder
@@ -116,4 +118,8 @@ internal sealed class PatronRiftWalker : AbstractSubclass
 
     internal override FeatureDefinitionSubclassChoice SubclassChoice =>
         FeatureDefinitionSubclassChoices.SubclassChoiceWarlockOtherworldlyPatrons;
+
+    private sealed class PreventRemoveConcentrationRiftwalker : IPreventRemoveConcentrationWithPowerUse
+    {
+    }
 }

@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Linq;
 using JetBrains.Annotations;
-using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.Extensions;
 using SolastaUnfinishedBusiness.Races;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterRaceDefinitions;
@@ -15,12 +14,12 @@ internal static class ValidatorsFeat
     //
 
     private static readonly Func<FeatDefinition, RulesetCharacterHero, (bool result, string output)> _isDragonborn;
-    
+
     internal static readonly Func<FeatDefinition, RulesetCharacterHero, (bool result, string output)> IsDragonborn =
         _isDragonborn ??= ValidateIsRace(Dragonborn.FormatTitle(), Dragonborn);
 
     private static readonly Func<FeatDefinition, RulesetCharacterHero, (bool result, string output)> _isElfOfHalfElf;
-    
+
     internal static readonly Func<FeatDefinition, RulesetCharacterHero, (bool result, string output)> IsElfOfHalfElf =
         _isElfOfHalfElf ??= ValidateIsRace(
             $"{Elf.FormatTitle()}, {HalfElf.FormatTitle()}",

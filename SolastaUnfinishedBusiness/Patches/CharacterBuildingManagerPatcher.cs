@@ -5,7 +5,6 @@ using System.Linq;
 using System.Reflection.Emit;
 using HarmonyLib;
 using JetBrains.Annotations;
-using Microsoft.Build.Framework.XamlTypes;
 using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.CustomDefinitions;
@@ -139,9 +138,6 @@ public static class CharacterBuildingManagerPatcher
 
             //PATCH: grants custom features
             LevelUpContext.GrantCustomFeatures(hero);
-
-            //PATCH: grants items from new classes if required
-            LevelUpContext.GrantItemsIfRequired(hero);
         }
 
         public static void Postfix([NotNull] RulesetCharacterHero hero)
@@ -169,8 +165,15 @@ public static class CharacterBuildingManagerPatcher
             //PATCH: ensures this doesn't get executed in the class panel level up screen
             var isLevelingUp = LevelUpContext.IsLevelingUp(hero);
             var isClassSelectionStage = LevelUpContext.IsClassSelectionStage(hero);
+            var result = isLevelingUp && isClassSelectionStage;
 
-            return !(isLevelingUp && isClassSelectionStage);
+            if (result)
+            {
+                //PATCH: grants items for new class if required
+                LevelUpContext.GrantItemsIfRequired(hero);
+            }
+
+            return !result;
         }
     }
 
@@ -208,7 +211,7 @@ public static class CharacterBuildingManagerPatcher
             {
                 return;
             }
-            
+
             //TODO: check this as it's a hack
             //PATCH: this is a hack as I have no idea why this is happening to begin with...
             //it fixes the particular case where we get double invocation pools if hero is MC
@@ -219,7 +222,8 @@ public static class CharacterBuildingManagerPatcher
                 hero.ClassesAndLevels
                     .TryGetValue(DatabaseHelper.CharacterClassDefinitions.Warlock, out var levels))
             {
-                var goodTag = AttributeDefinitions.GetClassTag(DatabaseHelper.CharacterClassDefinitions.Warlock, levels);
+                var goodTag =
+                    AttributeDefinitions.GetClassTag(DatabaseHelper.CharacterClassDefinitions.Warlock, levels);
 
                 foreach (var badKey in pointPoolStack.ActivePools.Keys.Where(x => x != goodTag).ToList())
                 {
@@ -292,8 +296,15 @@ public static class CharacterBuildingManagerPatcher
             //PATCH: ensures this doesn't get executed in the class panel level up screen
             var isLevelingUp = LevelUpContext.IsLevelingUp(hero);
             var isClassSelectionStage = LevelUpContext.IsClassSelectionStage(hero);
+            var result = isLevelingUp && isClassSelectionStage;
 
-            return !(isLevelingUp && isClassSelectionStage);
+            if (result)
+            {
+                //PATCH: removes items from new class if required
+                LevelUpContext.RemoveItemsIfRequired(hero);
+            }
+
+            return !result;
         }
     }
 

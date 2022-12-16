@@ -2,6 +2,8 @@
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
+using SolastaUnfinishedBusiness.CustomUI;
+using SolastaUnfinishedBusiness.Properties;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.ConditionDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
@@ -70,18 +72,20 @@ internal static partial class SpellBuilders
     [NotNull]
     internal static SpellDefinition BuildProtectThreshold()
     {
+        const string NAME = "ProtectThreshold";
         const string ProxyPetalStormName = "ProxyProtectThreshold";
 
         EffectProxyDefinitionBuilder
             .Create(EffectProxyDefinitions.ProxySpikeGrowth, ProxyPetalStormName)
-            .SetOrUpdateGuiPresentation("ProtectThreshold", Category.Spell)
+            .SetOrUpdateGuiPresentation(NAME, Category.Spell)
             .AddToDB();
+
+        var spriteReference = Sprites.GetSprite(NAME, Resources.ProtectThreshold, 128);
 
         var spell = SpellDefinitionBuilder
             .Create(SpikeGrowth, "ProtectThreshold")
-            .SetGuiPresentation(Category.Spell, Bane)
+            .SetGuiPresentation(Category.Spell, spriteReference)
             .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolAbjuration)
-            .SetMaterialComponent(MaterialComponentType.Mundane)
             .SetVocalSpellSameType(VocalSpellSemeType.Defense)
             .SetSpellLevel(2)
             .SetRequiresConcentration(false)

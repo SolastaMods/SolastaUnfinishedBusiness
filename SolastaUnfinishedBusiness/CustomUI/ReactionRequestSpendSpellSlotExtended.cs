@@ -1,4 +1,5 @@
 ﻿using System.Linq;
+using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Invocations;
 using SolastaUnfinishedBusiness.Models;
 
@@ -46,7 +47,7 @@ internal sealed class ReactionRequestSpendSpellSlotExtended : ReactionRequest
     {
         return Gui.Format(
             string.Format(
-                DatabaseRepository.GetDatabase<ReactionDefinition>().GetElement(DefinitionName).GuiPresentation
+                DatabaseHelper.GetDefinition<ReactionDefinition>(DefinitionName).GuiPresentation
                     .Description, ReactionParams.StringParameter), _guiCharacter.Name);
     }
 
@@ -54,7 +55,7 @@ internal sealed class ReactionRequestSpendSpellSlotExtended : ReactionRequest
     {
         return Gui.Format(
             string.Format(
-                DatabaseRepository.GetDatabase<ReactionDefinition>().GetElement(DefinitionName).ReactDescription,
+                DatabaseHelper.GetDefinition<ReactionDefinition>(DefinitionName).ReactDescription,
                 ReactionParams.StringParameter), _guiCharacter.Name);
     }
 
@@ -62,14 +63,14 @@ internal sealed class ReactionRequestSpendSpellSlotExtended : ReactionRequest
     {
         return Gui.Format(
             string.Format(
-                DatabaseRepository.GetDatabase<ReactionDefinition>().GetElement(DefinitionName).ReactTitle,
+                DatabaseHelper.GetDefinition<ReactionDefinition>(DefinitionName).ReactTitle,
                 ReactionParams.StringParameter), _guiCharacter.Name);
     }
 
     public override string FormatTitle()
     {
         return Gui.Localize(string.Format(
-            DatabaseRepository.GetDatabase<ReactionDefinition>().GetElement(DefinitionName).GuiPresentation.Title,
+            DatabaseHelper.GetDefinition<ReactionDefinition>(DefinitionName).GuiPresentation.Title,
             ReactionParams.StringParameter));
     }
 

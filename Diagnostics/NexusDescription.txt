@@ -289,18 +289,28 @@ You can use a bonus action to select a weapon. Its attacks count as magical and 
 [list=1]
 
 [*][b]Aspect of The Moon[/b]: You no longer need to sleep and can keep watch, lowering the chances of attack and ensuring you are awake if camp is attacked.
+[*][b]Breaker and Banisher[/b]: You can cast <b>Dispel Evil and Good</b> using your pact slot once per long rest.
+[*][b]Chilling Blast[/b]: You can change the damage type of the eldritch blast to cold damage instead of force damage.
+[*][b]Corrosive Blast[/b]: You can change the damage type of the eldritch blast to acid damage instead of force damage.
+[*][b]Discerning Gaze[/b]: You can cast <b>Detect Evil and Good</b> without using a spell slot. Once you do so, you can't cast it in this way again until you finish a long rest.
 [*][b]Eldritch Mind[/b]: You have advantage on Constitution saving throws that you make to maintain your concentration on a spell.
 [*][b]Eldritch Smite[/b]: Once per turn when you hit a creature with your weapon, you can expend a Warlock spell slot to deal an extra 1d8 force damage to the target, plus another 1d8 per level of the spell slot.
 [*][b]Eldritch Step[/b]: You can use Bonus Action to teleport up to 30 ft away to an unoccupied space you can see.
+[*][b]Fiery Blast[/b]: You can change the damage type of the eldritch blast to fire damage instead of force damage.
+[*][b]Fulminate Blast[/b]: You can change the damage type of the eldritch blast to lightning damage instead of force damage.
 [*][b]Gift of the Ever-Living Ones[/b]: Regains the maximum number of hit points possible from any healing.
+[*][b]Gift of The Hunter[/b]: You can cast <b>Pass Without Trace</b> without using a spell slot. Once you do so, you can't cast it in this way again until you finish a long rest.
 [*][b]Gift of The Protectors[/b]: When you are reduced to 0 HP but not killed, you can drop to 1 HP instead.
 [*][b]Grasping Blast[/b]: When you hit a creature with Eldritch Blast, you can pull the creature up to 2 cells towards you in a straight line.
 [*][b]Hindering Blast[/b]: When you hit a creature with your eldritch blast, you can reduce that creature's speed by 10 feet until the end of your next turn.
-[*][b]Improved Pact Weapon[/b]: You can use any weapon as a spellcasting focus for your Warlock spells. In addition, the weapon gains a +1 bonus to its attack and damage rolls.
-[*][b]Shroud of Shadow[/b]: You can cast invisibility at will, without expending a spell slot.
-[*][b]Superior Pact Weapon[/b]: You can use any weapon as a spellcasting focus for your Warlock spells. In addition, the weapon gains a +1 bonus to its attack and damage rolls.
-[*][b]Trickster's Escape[/b]: You can cast freedom of movement once on yourself without expending a spell slot. You regain the ability to do so when you finish a long rest.
-[*][b]Ultimate Pact Weapon[/b]: You can use any weapon as a spellcasting focus for your Warlock spells. In addition, the weapon gains a +1 bonus to its attack and damage rolls.
+[*][b]Improved Pact Weapon[/b]: Your weapon gains a +1 bonus to its attack and damage rolls.
+[*][b]Kinesis[/b]: You can cast <b>Haste</b> without using a spell slot. When casting using this ability you can target one additional creature. Once you do so, you can't cast it in this way again until you finish a long rest.
+[*][b]Shroud of Shadow[/b]: You can cast <b>Invisibility</b> at will, without expending a spell slot.
+[*][b]Spectral Shield[/b]: You can cast <b>Shield of Faith</b> without using a spell slot. Once you do so, you can't cast it in this way again until you finish a long rest.
+[*][b]Stasis[/b]: You can cast <b>Slow</b> without using a spell slot. When casting using this ability you don't need to maintain concentration. Once you do so, you can't cast it in this way again until you finish a long rest.
+[*][b]Superior Pact Weapon[/b]: Your weapon gains a +1 bonus to its attack and damage rolls.
+[*][b]Trickster's Escape[/b]: You can cast <b>Freedom of Movement</b> without using a spell slot. Once you do so, you can't cast it in this way again until you finish a long rest.
+[*][b]Ultimate Pact Weapon[/b]: Your weapon gains a +1 bonus to its attack and damage rolls.
 [*][b]Undying Servitude[/b]: You can cast <b>Raise Skeletal Enforcer</b> without using a spell slot. Once you do so, you can't cast it in this way again until you finish a long rest.
 [/list]
 

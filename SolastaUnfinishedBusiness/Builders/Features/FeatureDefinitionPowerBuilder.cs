@@ -148,6 +148,13 @@ internal abstract class
         return (TBuilder)this;
     }
 
+    internal TBuilder SetExplicitAbilityScore(string abilityScore)
+    {
+        Definition.abilityScoreDetermination = AbilityScoreDetermination.Explicit;
+        Definition.abilityScore = abilityScore;
+        return (TBuilder)this;
+    }
+
     #region Constructors
 
     protected FeatureDefinitionPowerBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)

@@ -1,0 +1,38 @@
+{
+  "$type": "InvocationDefinition, Assembly-CSharp",
+  "requiredKnownSpell": null,
+  "requiredLevel": 9,
+  "requiredPact": null,
+  "grantedFeature": null,
+  "grantedSpell": "Definition:BreakerAndBanisher:471a96f8-d46e-5317-9be7-cc6f520ee0c9",
+  "consumesSpellSlot": true,
+  "longRestRecharge": true,
+  "overrideMaterialComponent": true,
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": true,
+    "title": "Invocation/&InvocationBreakerAndBanisherTitle",
+    "description": "Invocation/&InvocationBreakerAndBanisherDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "b6574b180b5d9ba41b32ab556d1f9c4a",
+      "m_SubObjectName": "DispelEvilAndGood",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "da9909a7-987b-50e2-b411-e93321e91a67",
+  "contentPack": 9999,
+  "name": "InvocationBreakerAndBanisher"
+}

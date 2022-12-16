@@ -25,6 +25,7 @@ using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionSense
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionSummoningAffinitys;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.MonsterDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
+using Resources = SolastaUnfinishedBusiness.Properties.Resources;
 
 namespace SolastaUnfinishedBusiness.Subclasses;
 
@@ -35,6 +36,12 @@ internal sealed class MartialMarshal : AbstractSubclass
     private const string MarshalCoordinatedAttackName = "ReactToAttackFinishedMarshalCoordinatedAttack";
 
     private const string EternalComradeName = "MarshalEternalComrade";
+
+    private static readonly ConditionDefinition ConditionEncourage = BuildEncourageCondition();
+
+    private static readonly FeatureDefinitionPower PowerMarshalEncouragement = BuildEncourage();
+
+    private static readonly FeatureDefinitionPower PowerMarshalImproveEncouragement = BuildImprovedEncourage();
 
     internal MartialMarshal()
     {
@@ -51,7 +58,9 @@ internal sealed class MartialMarshal : AbstractSubclass
                 BuildFeatureSetMarshalEternalComrade())
             .AddFeaturesAtLevel(10,
                 BuildFeatureSetMarshalFearlessCommander(),
-                BuildEncourage())
+                PowerMarshalEncouragement)
+            .AddFeaturesAtLevel(15,
+                PowerMarshalImproveEncouragement)
             .AddToDB();
     }
 
@@ -110,9 +119,11 @@ internal sealed class MartialMarshal : AbstractSubclass
 
     private static FeatureDefinitionPower BuildStudyEnemyPower()
     {
+        var sprite = Sprites.GetSprite("PowerHelp", Resources.PowerHelp, 128);
+
         return FeatureDefinitionPowerBuilder
             .Create("PowerMarshalStudyYourEnemy")
-            .SetGuiPresentation(Category.Feature, IdentifyCreatures)
+            .SetGuiPresentation(Category.Feature, sprite)
             .SetUsesFixed(ActivationTime.BonusAction, RechargeRate.ShortRest, 1, 2)
             .SetEffectDescription(EffectDescriptionBuilder
                 .Create(IdentifyCreatures.EffectDescription)
@@ -176,6 +187,7 @@ internal sealed class MartialMarshal : AbstractSubclass
                 MonsterAttackDefinitionBuilder
                     .Create(MonsterAttackDefinitions.Attack_Generic_Guard_Longsword,
                         "MonsterAttackMarshalEternalComrade")
+                    .SetToHitBonus(5)
                     .SetEffectDescription(EffectDescriptionBuilder
                         .Create()
                         .SetAnimationMagicEffect(AnimationDefinitions.AnimationMagicEffect.Count)
@@ -213,7 +225,6 @@ internal sealed class MartialMarshal : AbstractSubclass
                     EffectFormBuilder
                         .Create()
                         .SetSummonCreatureForm(1, EternalComradeName)
-                        .CreatedByCharacter()
                         .Build())
                 .Build())
             .AddToDB();
@@ -281,9 +292,9 @@ internal sealed class MartialMarshal : AbstractSubclass
             .AddToDB();
     }
 
-    private static FeatureDefinitionPower BuildEncourage()
+    private static ConditionDefinition BuildEncourageCondition()
     {
-        var conditionMarshalEncouraged = ConditionDefinitionBuilder
+        return ConditionDefinitionBuilder
             .Create("ConditionMarshalEncouraged")
             .SetGuiPresentation("PowerMarshalEncouragement", Category.Feature, ConditionBlessed)
             .SetSilent(Silent.WhenAddedOrRemoved)
@@ -293,9 +304,12 @@ internal sealed class MartialMarshal : AbstractSubclass
             .SetTurnOccurence(TurnOccurenceType.StartOfTurn)
             .AddConditionTags("Buff")
             .AddToDB();
+    }
 
+    private static FeatureDefinitionPower BuildEncourage()
+    {
         // this allows the condition to still display as a label on character panel
-        Global.CharacterLabelEnabledConditions.Add(conditionMarshalEncouraged);
+        Global.CharacterLabelEnabledConditions.Add(ConditionEncourage);
 
         return FeatureDefinitionPowerBuilder
             .Create("PowerMarshalEncouragement")
@@ -310,8 +324,34 @@ internal sealed class MartialMarshal : AbstractSubclass
                 .SetEffectForms(
                     EffectFormBuilder
                         .Create()
-                        .CreatedByCharacter()
-                        .SetConditionForm(conditionMarshalEncouraged, ConditionForm.ConditionOperation.Add, false,
+                        .SetConditionForm(ConditionEncourage, ConditionForm.ConditionOperation.Add, false,
+                            false)
+                        .Build())
+                .Build())
+            .SetShowCasting(false)
+            .AddToDB();
+    }
+
+    private static FeatureDefinitionPower BuildImprovedEncourage()
+    {
+        // this allows the condition to still display as a label on character panel
+        Global.CharacterLabelEnabledConditions.Add(ConditionEncourage);
+
+        return FeatureDefinitionPowerBuilder
+            .Create("PowerMarshalImprovedEncouragement")
+            .SetOverriddenPower(PowerMarshalEncouragement)
+            .SetGuiPresentation(Category.Feature, Bless)
+            .SetUsesFixed(ActivationTime.PermanentUnlessIncapacitated)
+            .SetEffectDescription(EffectDescriptionBuilder
+                .Create()
+                .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Cube, 13)
+                .SetDurationData(DurationType.Permanent)
+                .SetRecurrentEffect(
+                    RecurrentEffect.OnActivation | RecurrentEffect.OnEnter | RecurrentEffect.OnTurnStart)
+                .SetEffectForms(
+                    EffectFormBuilder
+                        .Create()
+                        .SetConditionForm(ConditionEncourage, ConditionForm.ConditionOperation.Add, false,
                             false)
                         .Build())
                 .Build())
@@ -502,7 +542,7 @@ internal sealed class MartialMarshal : AbstractSubclass
                 false, -1, out var outcome, out _, true);
 
             const int MAX_KNOWLEDGE_LEVEL = 4;
-            
+
             var level = entry.KnowledgeLevelDefinition.Level;
 
             // rollback one level to at least get a nice message on UI and not get a null after we call Invoke

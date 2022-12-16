@@ -1,6 +1,8 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
+using SolastaUnfinishedBusiness.Api.Infrastructure;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 
 namespace SolastaUnfinishedBusiness.Builders;
@@ -61,6 +63,7 @@ internal static class ItemBuilder
         var builder = ItemDefinitionBuilder
             .Create(original, itemName)
             .SetOrUpdateGuiPresentation(itemName + "_", Category.Item)
+            .SetItemPresentation(original.ItemPresentation.DeepCopy())
             // Set is magical
             // Remove "Standard" from item tags
             .MakeMagical()
@@ -75,7 +78,17 @@ internal static class ItemBuilder
             builder.SetUsableDeviceDescription(magicalExample.UsableDeviceDescription);
         }
 
-        return builder.AddToDB();
+        var newItem = builder.AddToDB();
+
+        if (newItem.ItemPresentation.armorAddressableName != String.Empty)
+        {
+            return newItem;
+        }
+
+        newItem.ItemPresentation.armorAddressableName = original.Name;
+        newItem.ItemPresentation.useArmorAddressableName = true;
+
+        return newItem;
     }
 
     [NotNull]

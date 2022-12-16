@@ -68,7 +68,7 @@
         "levelType": "ClassLevel",
         "levelMultiplier": 1,
         "diceByLevelTable": [],
-        "createdByCharacter": true,
+        "createdByCharacter": false,
         "createdByCondition": false,
         "hasSavingThrow": false,
         "savingThrowAffinity": "None",
@@ -325,9 +325,9 @@
     "description": "Feature/&PowerFeatHealerResuscitateDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "728aea75c81bfe549bb0c942cbf174cf",
-      "m_SubObjectName": "PreserveLife",
-      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+      "m_AssetGUID": "5097dc49-47b1-5018-8dbd-a8c96719d808",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",

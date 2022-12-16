@@ -2,6 +2,8 @@
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomDefinitions;
+using SolastaUnfinishedBusiness.CustomUI;
+using SolastaUnfinishedBusiness.Properties;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterFamilyDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionDamageAffinitys;
@@ -11,14 +13,6 @@ namespace SolastaUnfinishedBusiness.Subclasses;
 
 internal static class CommonBuilders
 {
-    internal static readonly FeatureDefinitionAttackModifier AttackModifierHitAndDamagePlus1 =
-        FeatureDefinitionAttackModifierBuilder
-            .Create("AttackModifierHitAndDamagePlus1")
-            .SetGuiPresentation(Category.Feature)
-            .SetAttackRollModifier(1)
-            .SetDamageRollModifier(1)
-            .AddToDB();
-
     internal static readonly FeatureDefinitionAttributeModifier AttributeModifierCasterFightingExtraAttack =
         FeatureDefinitionAttributeModifierBuilder
             .Create("AttributeModifierCasterFightingExtraAttack")
@@ -92,7 +86,7 @@ internal static class CommonBuilders
 
     internal static readonly FeatureDefinitionPower PowerCasterCommandUndead = FeatureDefinitionPowerBuilder
         .Create("PowerCasterCommandUndead")
-        .SetGuiPresentation(Category.Feature)
+        .SetGuiPresentation(Category.Feature, Sprites.GetSprite("PowerHelp", Resources.PowerCommandUndead, 128))
         .SetUsesProficiencyBonus(ActivationTime.Action)
         .SetEffectDescription(
             EffectDescriptionBuilder
@@ -109,7 +103,7 @@ internal static class CommonBuilders
                     true)
                 .Build())
         .AddToDB();
-    
+
     internal static readonly FeatureDefinitionPower PowerCasterCommandUndeadCharisma = FeatureDefinitionPowerBuilder
         .Create("PowerCasterCommandUndeadCharisma")
         .SetGuiPresentation("PowerCasterCommandUndead", Category.Feature)

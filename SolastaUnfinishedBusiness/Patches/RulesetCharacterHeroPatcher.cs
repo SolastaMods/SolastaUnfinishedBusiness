@@ -652,7 +652,7 @@ public static class RulesetCharacterHeroPatcher
             }
 
             var useAmount = function.DeviceFunctionDescription.UseAmount + additionalCharges;
-            
+
             __instance.UpdateUsageForPower(feature.Pool, useAmount);
         }
     }
@@ -689,7 +689,7 @@ public static class RulesetCharacterHeroPatcher
                 var p = activity.GetFirstSubFeatureOfType<RestActivityValidationParams>()
                         ?? new RestActivityValidationParams(true, true);
 
-                return !__instance.CanUsePower(power,p.ConsiderUses, p.ConsiderHaving);
+                return !__instance.CanUsePower(power, p.ConsiderUses, p.ConsiderHaving);
             });
         }
     }

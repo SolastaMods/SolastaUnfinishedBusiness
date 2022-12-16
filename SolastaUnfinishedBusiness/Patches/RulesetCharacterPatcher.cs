@@ -832,6 +832,14 @@ public static class RulesetCharacterPatcher
             {
                 __instance.RecoveredFeatures.Remove(feature);
             }
+
+            //PATCH: support for invocations that recharge on short rest (like Fey Teleportation feat)
+            foreach (var invocation in __instance.Invocations
+                         .Where(invocation =>
+                             invocation.InvocationDefinition.HasSubFeatureOfType<InvocationShortRestRecharge>()))
+            {
+                invocation.Recharge();
+            }
         }
 
         public static IEnumerable<CodeInstruction> Transpiler([NotNull] IEnumerable<CodeInstruction> instructions)
@@ -913,9 +921,9 @@ public static class RulesetCharacterPatcher
             // this includes all the logic for the base function
             spellRepertoire.AutoPreparedSpells.Clear();
             __instance.EnumerateFeaturesToBrowse<FeatureDefinitionAutoPreparedSpells>(__instance.FeaturesToBrowse);
-            
+
             var features = __instance.FeaturesToBrowse.OfType<FeatureDefinitionAutoPreparedSpells>();
-            
+
             foreach (var autoPreparedSpells in features)
             {
                 var matcher = autoPreparedSpells.GetFirstSubFeatureOfType<RepertoireValidForAutoPreparedFeature>();
@@ -1036,6 +1044,36 @@ public static class RulesetCharacterPatcher
             {
                 __result += modifier.ModifySpeedAddition(__instance, provider);
             }
+        }
+    }
+
+    //PATCH: implement IPreventRemoveConcentrationWithPowerUse
+    [HarmonyPatch(typeof(RulesetCharacter), "TerminateSpell")]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    public static class TerminateSpell_Patch
+    {
+        public static bool Prefix()
+        {
+            var currentAction = Global.CurrentAction;
+
+            return currentAction is not CharacterActionUsePower characterActionUsePower || characterActionUsePower
+                    .activePower.PowerDefinition.GetFirstSubFeatureOfType<IPreventRemoveConcentrationWithPowerUse>() ==
+                null;
+        }
+    }
+
+    //PATCH: implement IPreventRemoveConcentrationWithPowerUse
+    [HarmonyPatch(typeof(RulesetCharacter), "TerminatePower")]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    public static class TerminatePower_Patch
+    {
+        public static bool Prefix()
+        {
+            var currentAction = Global.CurrentAction;
+
+            return currentAction is not CharacterActionUsePower characterActionUsePower || characterActionUsePower
+                    .activePower.PowerDefinition.GetFirstSubFeatureOfType<IPreventRemoveConcentrationWithPowerUse>() ==
+                null;
         }
     }
 }

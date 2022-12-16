@@ -42,18 +42,6 @@ internal class EffectFormBuilder
         return this;
     }
 
-    internal EffectFormBuilder CreatedByCharacter()
-    {
-        effectForm.createdByCharacter = true;
-        return this;
-    }
-
-    internal EffectFormBuilder CreatedByCondition()
-    {
-        effectForm.createdByCondition = true;
-        return this;
-    }
-
     internal EffectFormBuilder SetBonusMode(AddBonusMode bonusMode)
     {
         effectForm.AddBonusMode = bonusMode;

@@ -22,6 +22,7 @@ internal static class PrecisionFocusedFeats
             .Create("AttackModifierArcanePrecision")
             .SetGuiPresentation("FeatArcanePrecision", Category.Feat, AttackModifierMagicWeapon)
             .SetCustomSubFeatures(new CanUseAttributeForWeapon(AttributeDefinitions.Intelligence))
+            .SetMagicalWeapon()
             .SetAdditionalAttackTag(TagsDefinitions.Magical)
             .AddToDB();
 
@@ -59,6 +60,7 @@ internal static class PrecisionFocusedFeats
             .Create("AttackModifierCharismaticPrecision")
             .SetGuiPresentation("FeatCharismaticPrecision", Category.Feat, AttackModifierMagicWeapon)
             .SetCustomSubFeatures(new CanUseAttributeForWeapon(AttributeDefinitions.Charisma))
+            .SetMagicalWeapon()
             .SetAdditionalAttackTag(TagsDefinitions.Magical)
             .AddToDB();
 
@@ -96,6 +98,7 @@ internal static class PrecisionFocusedFeats
             .Create("AttackModifierWisePrecision")
             .SetGuiPresentation("FeatWisePrecision", Category.Feat, AttackModifierMagicWeapon)
             .SetCustomSubFeatures(new CanUseAttributeForWeapon(AttributeDefinitions.Wisdom))
+            .SetMagicalWeapon()
             .SetAdditionalAttackTag(TagsDefinitions.Magical)
             .AddToDB();
 

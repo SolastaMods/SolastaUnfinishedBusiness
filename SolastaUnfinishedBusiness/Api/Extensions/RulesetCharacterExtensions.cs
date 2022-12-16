@@ -1,10 +1,13 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Classes.Inventor;
 using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomInterfaces;
+using static ActionDefinitions;
+using static RuleDefinitions;
 
 namespace SolastaUnfinishedBusiness.Api.Extensions;
 
@@ -37,6 +40,81 @@ internal static class RulesetCharacterExtensions
         [CanBeNull] FeatureDefinitionPower power)
     {
         return instance.GetPowerFromDefinition(power) != null && instance.HasAnyFeature(power);
+    }
+
+    internal static bool CanSeeAndUseAtLeastOnePower(this RulesetCharacter character, ActionType type, bool battle)
+    {
+        var usablePowers = character.UsablePowers;
+        var overridenPowers = new List<FeatureDefinitionPower>();
+
+        foreach (var power in usablePowers.Where(x => x.PowerDefinition.OverriddenPower != null))
+        {
+            overridenPowers.TryAdd(power.PowerDefinition.OverriddenPower);
+        }
+
+        foreach (RulesetUsablePower usablePower in usablePowers)
+        {
+            var power = usablePower.PowerDefinition;
+            if (power.DelegatedToAction)
+            {
+                continue;
+            }
+
+            if (overridenPowers.Contains(power))
+            {
+                continue;
+            }
+
+            var activationTime = power.ActivationTime;
+
+            if (activationTime is not (ActivationTime.Action
+                or ActivationTime.BonusAction 
+                or ActivationTime.NoCost
+                or ActivationTime.Reaction 
+                or ActivationTime.Minute1 
+                or ActivationTime.Minute10 
+                or ActivationTime.Hours1 
+                or ActivationTime.Hours24 
+                or ActivationTime.Rest
+                or ActivationTime.Permanent
+                or ActivationTime.PermanentUnlessIncapacitated))
+            {
+                continue;
+            }
+
+            if (battle)
+            {
+                if (!CastingTimeToActionDefinition.ContainsKey(activationTime))
+                {
+                    continue;
+                }
+
+                var activation = CastingTimeToActionDefinition[activationTime];
+
+                if (activation != type)
+                {
+                    continue;
+                }
+            }
+
+            if (PowerVisibilityModifier.IsPowerHidden(character, power, type))
+            {
+                continue;
+            }
+
+            if (power.GuiPresentation.Hidden)
+            {
+                continue;
+            }
+
+            if (!character.CanUsePower(power, true, true))
+            {
+                continue;
+            }
+
+            return true;
+        }
+        return false;
     }
 
     /**Checks if power has enough uses and that all validators are OK*/
@@ -179,7 +257,7 @@ internal static class RulesetCharacterExtensions
         }
 
         if (!instance.TryGetConditionOfCategoryAndType(AttributeDefinitions.TagConjure,
-                RuleDefinitions.ConditionConjuredCreature, out var conjured))
+                ConditionConjuredCreature, out var conjured))
         {
             return null;
         }
@@ -200,8 +278,8 @@ internal static class RulesetCharacterExtensions
     }
 
     internal static bool CanCastAnyInvocationOfActionId(this RulesetCharacter instance,
-        ActionDefinitions.Id actionId,
-        ActionDefinitions.ActionScope scope,
+        Id actionId,
+        ActionScope scope,
         bool canCastSpells,
         bool canOnlyUseCantrips)
     {
@@ -214,7 +292,13 @@ internal static class RulesetCharacterExtensions
         {
             bool isValid;
             var definition = invocation.invocationDefinition;
-            if (scope == ActionDefinitions.ActionScope.Battle)
+
+            if (definition.HasSubFeatureOfType<Hidden>())
+            {
+                continue;
+            }
+
+            if (scope == ActionScope.Battle)
             {
                 isValid = definition.GetActionId() == actionId;
             }
@@ -235,7 +319,7 @@ internal static class RulesetCharacterExtensions
                 }
             }
 
-            if (isValid && instance.CanCastInvocation(invocation))
+            if (isValid)
             {
                 return true;
             }
@@ -245,8 +329,8 @@ internal static class RulesetCharacterExtensions
     }
 
     internal static bool KnowsAnyInvocationOfActionId(this RulesetCharacter instance,
-        ActionDefinitions.Id actionId,
-        ActionDefinitions.ActionScope scope)
+        Id actionId,
+        ActionScope scope)
     {
         if (instance.Invocations.Empty())
         {
@@ -257,7 +341,7 @@ internal static class RulesetCharacterExtensions
         {
             bool isValid;
             var definition = invocation.invocationDefinition;
-            if (scope == ActionDefinitions.ActionScope.Battle)
+            if (scope == ActionScope.Battle)
             {
                 isValid = definition.GetActionId() == actionId;
             }
@@ -277,15 +361,15 @@ internal static class RulesetCharacterExtensions
 
     internal static void ShowDieRoll(
         this RulesetCharacter character,
-        RuleDefinitions.DieType dieType,
+        DieType dieType,
         int roll1,
         int roll2 = 0,
         string title = "",
         bool displayOutcome = false,
-        RuleDefinitions.RollOutcome outcome = RuleDefinitions.RollOutcome.Neutral,
+        RollOutcome outcome = RollOutcome.Neutral,
         bool displayModifier = false,
         int modifier = 0,
-        RuleDefinitions.AdvantageType advantage = RuleDefinitions.AdvantageType.None
+        AdvantageType advantage = AdvantageType.None
     )
     {
         if (Gui.GameLocation.FiniteStateMachine.CurrentState is (LocationState_NarrativeSequence or LocationState_Map))
@@ -307,11 +391,11 @@ internal static class RulesetCharacterExtensions
         }
 
         var roll = roll1;
-        if (advantage == RuleDefinitions.AdvantageType.Advantage)
+        if (advantage == AdvantageType.Advantage)
         {
             roll = Math.Max(roll1, roll2);
         }
-        else if (advantage == RuleDefinitions.AdvantageType.Disadvantage)
+        else if (advantage == AdvantageType.Disadvantage)
         {
             roll = Math.Min(roll1, roll2);
         }
@@ -330,7 +414,7 @@ internal static class RulesetCharacterExtensions
             outcome,
             displayOutcome: displayOutcome,
             side: character.Side,
-            displayModifier: displayModifier) { rollImmediatly = false };
+            displayModifier: displayModifier) {rollImmediatly = false};
 
         label.dieRollModule.RollDie(info);
     }

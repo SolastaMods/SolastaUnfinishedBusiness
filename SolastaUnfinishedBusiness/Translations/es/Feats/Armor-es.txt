@@ -1,8 +1,0 @@
-Feat/&FeatHeavyArmorMasterDescription=Puedes usar tu armadura para desviar golpes que matarían a otros. Aumenta tu puntuación de Fuerza en 1, hasta un máximo de 20. Mientras llevas una armadura pesada, el daño contundente, perforante y cortante que recibes de los ataques se reduce en 3.
-Feat/&FeatHeavyArmorMasterTitle=Maestro de armaduras pesadas
-Feat/&FeatMediumArmorDexDescription=Aumenta tu Destreza en 1, hasta un máximo de 20.\nObtienes competencia con armaduras y escudos medianos.
-Feat/&FeatMediumArmorDexTitle=Armadura mediana [Des]
-Feat/&FeatMediumArmorStrDescription=Aumenta tu Fuerza en 1, hasta un máximo de 20.\nObtienes competencia con armaduras y escudos medianos.
-Feat/&FeatMediumArmorStrTitle=Armadura mediana [Str]
-Feedback/&HeavyArmorMasterFormat=¡Maestro de armadura pesada!
-Feedback/&HeavyArmorMasterLine=¡Heavy Armor Master reduce el daño del objetivo!

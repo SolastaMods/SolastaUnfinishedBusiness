@@ -67,7 +67,6 @@ internal sealed class MartialSpellShield : AbstractSubclass
                     .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
                     .SetEffectForms(EffectFormBuilder
                         .Create()
-                        .CreatedByCharacter()
                         .SetConditionForm(
                             conditionSpellShieldArcaneDeflection,
                             ConditionForm.ConditionOperation.Add,

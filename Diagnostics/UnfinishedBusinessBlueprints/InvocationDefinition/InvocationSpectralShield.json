@@ -1,0 +1,38 @@
+{
+  "$type": "InvocationDefinition, Assembly-CSharp",
+  "requiredKnownSpell": null,
+  "requiredLevel": 9,
+  "requiredPact": null,
+  "grantedFeature": null,
+  "grantedSpell": "Definition:SpectralShield:89a37e11-e933-5dba-bac5-e46fbfa1b509",
+  "consumesSpellSlot": false,
+  "longRestRecharge": true,
+  "overrideMaterialComponent": true,
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": true,
+    "title": "Invocation/&InvocationSpectralShieldTitle",
+    "description": "Invocation/&InvocationSpectralShieldDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "42d9d312013d64043a49b3d3e82a0ba3",
+      "m_SubObjectName": "ShieldOfFaith",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "1c92e382-0625-5ebc-ac42-c7b95019b0eb",
+  "contentPack": 9999,
+  "name": "InvocationSpectralShield"
+}

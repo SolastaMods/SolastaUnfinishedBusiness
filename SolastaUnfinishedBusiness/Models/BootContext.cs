@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.IO.Compression;
@@ -20,8 +19,6 @@ namespace SolastaUnfinishedBusiness.Models;
 
 internal static class BootContext
 {
-    internal static readonly HashSet<string> SupportedLanguages = new() { "es", "fr", "pt-BR" };
-
     internal static void Startup()
     {
 #if DEBUG

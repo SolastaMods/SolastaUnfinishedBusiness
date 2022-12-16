@@ -7,7 +7,6 @@ using SolastaUnfinishedBusiness.Api.Infrastructure;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
-using SolastaUnfinishedBusiness.CustomInterfaces;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionAttributeModifiers;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
@@ -73,6 +72,10 @@ internal static class RaceFeats
                     .AddToDB())
             .SetValidators(ValidatorsFeat.IsDragonborn)
             .AddToDB();
+
+        //
+        // Fade Away support
+        //
 
         var powerFeatFadeAwayInvisible = FeatureDefinitionPowerBuilder
             .Create("PowerFeatFadeAwayInvisible")
@@ -148,6 +151,10 @@ internal static class RaceFeats
             .SetCustomSubFeatures(new ElvenPrecisionContext())
             .AddToDB();
 
+        //
+        // Revenant support
+        //
+
         var attributeModifierFeatRevenantGreatSwordArmorClass = FeatureDefinitionAttributeModifierBuilder
             .Create("AttributeModifierFeatRevenantGreatSwordArmorClass")
             .SetGuiPresentation(Category.Feature)
@@ -159,7 +166,7 @@ internal static class RaceFeats
         var modifyAttackModeFeatRevenantGreatSword = FeatureDefinitionBuilder
             .Create("ModifyAttackModeFeatRevenantGreatSword")
             .SetGuiPresentationNoContent(true)
-            .SetCustomSubFeatures(new CanUseAttributeForWeapon(AttributeDefinitions.Dexterity))
+            .SetCustomSubFeatures(new CanUseAttributeForWeapon(AttributeDefinitions.Dexterity, IsGreatSword))
             .AddToDB();
 
         // Revenant Great Sword (Dexterity)
@@ -222,16 +229,13 @@ internal static class RaceFeats
             featGroupRevenantGreatSword);
     }
 
+    private static bool IsGreatSword(RulesetAttackMode mode, RulesetItem weapon, RulesetCharacter character)
+    {
+        return ValidatorsCharacter.MainHandIsGreatSword(character);
+    }
+
     internal sealed class ElvenPrecisionContext
     {
         internal bool Qualified { get; set; }
-    }
-
-    internal sealed class ModifyAttackModeFeatRevenantGreatSword : IModifyAttackModeForWeapon
-    {
-        public void ModifyAttackMode(RulesetCharacter character, RulesetAttackMode attackMode)
-        {
-            attackMode.attackTags.TryAdd(TagsDefinitions.WeaponTagFinesse);
-        }
     }
 }

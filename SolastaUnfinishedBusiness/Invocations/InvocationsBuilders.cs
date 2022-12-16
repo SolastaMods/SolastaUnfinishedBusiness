@@ -6,7 +6,6 @@ using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomUI;
-using SolastaUnfinishedBusiness.Subclasses;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionFeatureSets;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionDamageAffinitys;
@@ -56,8 +55,7 @@ internal static class InvocationsBuilders
     {
         const string NAME = "InvocationUndyingServitude";
 
-        var spell = DatabaseRepository.GetDatabase<SpellDefinition>()
-            .GetElement("CreateDeadRisenSkeleton_Enforcer");
+        var spell = GetDefinition<SpellDefinition>("CreateDeadRisenSkeleton_Enforcer");
 
         return InvocationDefinitionBuilder
             .Create(NAME)
@@ -79,7 +77,7 @@ internal static class InvocationsBuilders
             .Create(SpellDefinitions.FreedomOfMovement, "TrickstersEscape")
             .AddToDB();
 
-        spellTrickstersEscape.EffectDescription.TargetType = RuleDefinitions.TargetType.Self;
+        spellTrickstersEscape.EffectDescription.targetType = RuleDefinitions.TargetType.Self;
 
         return InvocationDefinitionBuilder
             .Create(NAME)
@@ -241,62 +239,228 @@ internal static class InvocationsBuilders
 
     internal static InvocationDefinition BuildImprovedPactWeapon()
     {
-        const string NAME = "InvocationImprovedPactWeapon";
-
-        return InvocationDefinitionBuilder
-            .Create(NAME)
-            .SetGuiPresentation(Category.Invocation, FeatureDefinitionMagicAffinitys.MagicAffinitySpellBladeIntoTheFray)
-            .SetRequirements(5, pact: FeatureSetPactBlade)
-            .SetGrantedFeature(
-                FeatureDefinitionFeatureSetBuilder
-                    .Create("FeatureSetInvocationImprovedPactWeapon")
-                    .SetGuiPresentation(NAME, Category.Invocation)
-                    .AddFeatureSet(
-                        CommonBuilders.AttackModifierHitAndDamagePlus1,
-                        FeatureDefinitionMagicAffinitys.MagicAffinitySpellBladeIntoTheFray)
-                    .AddToDB())
-            .AddToDB();
+        return BuildPactWeapon("InvocationImprovedPactWeapon", 5);
     }
 
     internal static InvocationDefinition BuildSuperiorPactWeapon()
     {
-        const string NAME = "InvocationSuperiorPactWeapon";
-
-        return InvocationDefinitionBuilder
-            .Create(NAME)
-            .SetGuiPresentation(Category.Invocation, FeatureDefinitionMagicAffinitys.MagicAffinitySpellBladeIntoTheFray)
-            .SetRequirements(9, pact: FeatureSetPactBlade)
-            .SetGrantedFeature(
-                FeatureDefinitionFeatureSetBuilder
-                    .Create("FeatureSetInvocationSuperiorPactWeapon")
-                    .SetGuiPresentation(NAME, Category.Invocation)
-                    .AddFeatureSet(
-                        CommonBuilders.AttackModifierHitAndDamagePlus1,
-                        FeatureDefinitionMagicAffinitys.MagicAffinitySpellBladeIntoTheFray)
-                    .AddToDB())
-            .AddToDB();
+        return BuildPactWeapon("InvocationSuperiorPactWeapon", 9);
     }
 
     internal static InvocationDefinition BuildUltimatePactWeapon()
     {
-        const string NAME = "InvocationUltimatePactWeapon";
+        return BuildPactWeapon("InvocationUltimatePactWeapon", 15);
+    }
 
+    private static InvocationDefinition BuildPactWeapon(string name, int level)
+    {
         return InvocationDefinitionBuilder
-            .Create(NAME)
+            .Create(name)
             .SetGuiPresentation(Category.Invocation, FeatureDefinitionMagicAffinitys.MagicAffinitySpellBladeIntoTheFray)
-            .SetRequirements(15, pact: FeatureSetPactBlade)
+            .SetRequirements(level, pact: FeatureSetPactBlade)
             .SetGrantedFeature(
-                FeatureDefinitionFeatureSetBuilder
-                    .Create("FeatureSetInvocationUltimatePactWeapon")
-                    .SetGuiPresentation(NAME, Category.Invocation)
-                    .AddFeatureSet(
-                        CommonBuilders.AttackModifierHitAndDamagePlus1,
-                        FeatureDefinitionMagicAffinitys.MagicAffinitySpellBladeIntoTheFray)
+                FeatureDefinitionAttackModifierBuilder
+                    .Create($"AttackModifier{name}")
+                    .SetGuiPresentation(name, Category.Invocation)
+                    .SetAttackRollModifier(1)
+                    .SetDamageRollModifier(1)
                     .AddToDB())
             .AddToDB();
     }
 
-    private class WarlockHolder : IClassHoldingFeature
+    internal static InvocationDefinition BuildKinesis()
+    {
+        const string NAME = "InvocationKinesis";
+
+        var spellKinesis = SpellDefinitionBuilder
+            .Create(SpellDefinitions.Haste, "Kinesis")
+            .AddToDB();
+
+        spellKinesis.EffectDescription.targetType = RuleDefinitions.TargetType.Individuals;
+        spellKinesis.EffectDescription.targetParameter = 2;
+
+        return InvocationDefinitionBuilder
+            .Create(NAME)
+            .SetGuiPresentation(Category.Invocation, spellKinesis)
+            .SetRequirements(7)
+            .SetGrantedSpell(spellKinesis, false, true)
+            .AddToDB();
+    }
+
+    internal static InvocationDefinition BuildStasis()
+    {
+        const string NAME = "InvocationStasis";
+
+        var spellStasis = SpellDefinitionBuilder
+            .Create(SpellDefinitions.Slow, "Stasis")
+            .AddToDB();
+
+        spellStasis.requiresConcentration = false;
+
+        return InvocationDefinitionBuilder
+            .Create(NAME)
+            .SetGuiPresentation(Category.Invocation, spellStasis)
+            .SetRequirements(7)
+            .SetGrantedSpell(spellStasis, false, true)
+            .AddToDB();
+    }
+
+    internal static InvocationDefinition BuildChillingBlast()
+    {
+        const string NAME = "InvocationChillingBlast";
+
+        return InvocationDefinitionBuilder
+            .Create(InvocationDefinitions.RepellingBlast, NAME)
+            .SetOrUpdateGuiPresentation(Category.Invocation)
+            .SetGrantedFeature(
+                FeatureDefinitionBuilder
+                    .Create($"Feature{NAME}")
+                    .SetGuiPresentationNoContent(true)
+                    .SetCustomSubFeatures(new ModifyMagicEffectEldritchBlast(RuleDefinitions.DamageTypeCold))
+                    .AddToDB())
+            .AddToDB();
+    }
+
+    internal static InvocationDefinition BuildCorrosiveBlast()
+    {
+        const string NAME = "InvocationCorrosiveBlast";
+
+        return InvocationDefinitionBuilder
+            .Create(InvocationDefinitions.RepellingBlast, NAME)
+            .SetOrUpdateGuiPresentation(Category.Invocation)
+            .SetGrantedFeature(
+                FeatureDefinitionBuilder
+                    .Create($"Feature{NAME}")
+                    .SetGuiPresentationNoContent(true)
+                    .SetCustomSubFeatures(new ModifyMagicEffectEldritchBlast(RuleDefinitions.DamageTypeAcid))
+                    .AddToDB())
+            .AddToDB();
+    }
+
+    internal static InvocationDefinition BuildFieryBlast()
+    {
+        const string NAME = "InvocationFieryBlast";
+
+        return InvocationDefinitionBuilder
+            .Create(InvocationDefinitions.RepellingBlast, NAME)
+            .SetOrUpdateGuiPresentation(Category.Invocation)
+            .SetGrantedFeature(
+                FeatureDefinitionBuilder
+                    .Create($"Feature{NAME}")
+                    .SetGuiPresentationNoContent(true)
+                    .SetCustomSubFeatures(new ModifyMagicEffectEldritchBlast(RuleDefinitions.DamageTypeFire))
+                    .AddToDB())
+            .AddToDB();
+    }
+
+    internal static InvocationDefinition BuildFulminateBlast()
+    {
+        const string NAME = "InvocationFulminateBlast";
+
+        return InvocationDefinitionBuilder
+            .Create(InvocationDefinitions.RepellingBlast, NAME)
+            .SetOrUpdateGuiPresentation(Category.Invocation)
+            .SetGrantedFeature(
+                FeatureDefinitionBuilder
+                    .Create($"Feature{NAME}")
+                    .SetGuiPresentationNoContent(true)
+                    .SetCustomSubFeatures(new ModifyMagicEffectEldritchBlast(RuleDefinitions.DamageTypeLightning))
+                    .AddToDB())
+            .AddToDB();
+    }
+
+    internal static InvocationDefinition BuildSpectralShield()
+    {
+        const string NAME = "InvocationSpectralShield";
+
+        var spellSpectralShield = SpellDefinitionBuilder
+            .Create(SpellDefinitions.ShieldOfFaith, "SpectralShield")
+            .AddToDB();
+
+        return InvocationDefinitionBuilder
+            .Create(NAME)
+            .SetGuiPresentation(Category.Invocation, spellSpectralShield)
+            .SetRequirements(9)
+            .SetGrantedSpell(spellSpectralShield, false, true)
+            .AddToDB();
+    }
+
+    internal static InvocationDefinition BuildGiftOfTheHunter()
+    {
+        const string NAME = "InvocationGiftOfTheHunter";
+
+        var spellGiftOfTheHunter = SpellDefinitionBuilder
+            .Create(SpellDefinitions.PassWithoutTrace, "GiftOfTheHunter")
+            .AddToDB();
+
+        return InvocationDefinitionBuilder
+            .Create(NAME)
+            .SetGuiPresentation(Category.Invocation, spellGiftOfTheHunter)
+            .SetRequirements(5)
+            .SetGrantedSpell(spellGiftOfTheHunter, false, true)
+            .AddToDB();
+    }
+
+    internal static InvocationDefinition BuildDiscerningGaze()
+    {
+        const string NAME = "InvocationDiscerningGaze";
+
+        var spellDiscerningGaze = SpellDefinitionBuilder
+            .Create(SpellDefinitions.DetectEvilAndGood, "DiscerningGaze")
+            .AddToDB();
+
+        return InvocationDefinitionBuilder
+            .Create(NAME)
+            .SetGuiPresentation(Category.Invocation, spellDiscerningGaze)
+            .SetRequirements(9)
+            .SetGrantedSpell(spellDiscerningGaze, false, true)
+            .AddToDB();
+    }
+
+    internal static InvocationDefinition BuildBreakerAndBanisher()
+    {
+        const string NAME = "InvocationBreakerAndBanisher";
+
+        var spellBreakerAndBanisher = SpellDefinitionBuilder
+            .Create(SpellDefinitions.DispelEvilAndGood, "BreakerAndBanisher")
+            .AddToDB();
+
+        return InvocationDefinitionBuilder
+            .Create(NAME)
+            .SetGuiPresentation(Category.Invocation, spellBreakerAndBanisher)
+            .SetRequirements(9)
+            .SetGrantedSpell(spellBreakerAndBanisher, true, true)
+            .AddToDB();
+    }
+
+    /*
+     
+    Celestial Blessing
+
+        Prerequisites: Celestial Subclass, 9th level
+
+        You can cast Bless as a 1st level spell at will without maintaining concentration. You can use this feature a number of times equal to your charisma modifier. You regain any extended uses after completing a long rest. 
+
+    Ally of Nature
+
+        Prerequisite: 9th level
+
+        You can cast awaken once using a warlock spell slot. You can’t do so again until you finish a long rest.
+         
+    Witching Blade
+
+        Prerequisite: Pact of the Blade
+
+        You can use your Charisma modifier instead of your Strength or Dexterity modifiers for attack and damage rolls made with your pact weapon.
+
+    Witching Plate
+
+        Prerequisite: Pact of the Blade
+
+        As an action, you can conjure a suit of magical armor onto your body that grants you an AC equal to 14 + your Charisma modifier. (edited)
+     */
+
+    private sealed class WarlockHolder : IClassHoldingFeature
     {
         private WarlockHolder()
         {
@@ -305,5 +469,35 @@ internal static class InvocationsBuilders
         public static IClassHoldingFeature Instance { get; } = new WarlockHolder();
 
         public CharacterClassDefinition Class => CharacterClassDefinitions.Warlock;
+    }
+
+    private sealed class ModifyMagicEffectEldritchBlast : IModifyMagicEffect
+    {
+        private readonly string _damageType;
+
+        public ModifyMagicEffectEldritchBlast(string damageType)
+        {
+            _damageType = damageType;
+        }
+
+        public EffectDescription ModifyEffect(
+            BaseDefinition definition,
+            EffectDescription effect,
+            RulesetCharacter caster)
+        {
+            if (definition != SpellDefinitions.EldritchBlast)
+            {
+                return effect;
+            }
+
+            var damage = effect.FindFirstDamageForm();
+
+            if (damage != null)
+            {
+                damage.DamageType = _damageType;
+            }
+
+            return effect;
+        }
     }
 }

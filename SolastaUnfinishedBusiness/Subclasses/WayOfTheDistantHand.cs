@@ -207,7 +207,7 @@ internal sealed class WayOfTheDistantHand : AbstractSubclass
             .SetUsesFixed(ActivationTime.OnAttackHit, RechargeRate.KiPoints)
             .SetOverriddenPower(powerWayOfTheDistantHandZenArrowTechnique)
             .SetCustomSubFeatures(
-                new RestrictReactionAttackMode((mode, _, _) => 
+                new RestrictReactionAttackMode((mode, _, _) =>
                     mode != null && mode.AttackTags.Contains(ZenArrowTag)))
             .SetEffectDescription(
                 EffectDescriptionBuilder

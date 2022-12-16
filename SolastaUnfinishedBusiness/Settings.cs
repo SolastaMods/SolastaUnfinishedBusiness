@@ -147,6 +147,7 @@ public class Settings : UnityModManager.ModSettings
     public bool RemoveRecurringEffectOnEntangle { get; set; }
 
     public bool ChangeSleetStormToCube { get; set; }
+    public bool FixEldritchBlastRange { get; set; }
     public bool UseHeightOneCylinderEffect { get; set; }
 
     // House
@@ -226,6 +227,7 @@ public class Settings : UnityModManager.ModSettings
     public bool EnableAdditionalIconsOnLevelMap { get; set; }
     public bool MarkInvisibleTeleportersOnLevelMap { get; set; }
     public bool HideExitsAndTeleportersGizmosIfNotDiscovered { get; set; }
+    public bool AllowMoreRealStateOnRestPanel { get; set; }
 
     // Input
     public bool AltOnlyHighlightItemsInPartyFieldOfView { get; set; }

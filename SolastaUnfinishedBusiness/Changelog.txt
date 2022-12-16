@@ -1,15 +1,9 @@
-﻿CHANGES:
+﻿KNOWN ISSUES:
 
-1.4.31.3:
+- Grenadier bombs have DC 0 under MP [please share a log and help us fix it]
 
-- added "Random encounters percentage chances" under gameplay > tools [Zappa]
-- added remind pop up to pick up your items after RESPEC [Zappa]
-- fixed Epic Points array in point buy mode [WolffHobbitStomper]
-- fixed Fade Away feat to trigger on any damage source [Zappa]
-- fixed Darkelf and Half-Darkelf not learning spells at 1st and 3rd [Zappa]
-- fixed Half-Elf variants not getting considered on class feat pre-requisites [Zappa]
-- fixed locked dialogue choices when party has less than 4 heroes [Zappa]
-- fixed missing translation term on Superior Critical feat [Zappa]
-- fixed Warlock getting offered double invocation pools when MC [Zappa]
-- improved Dragon Wings feat to give Flying spell like effect for 1 minute, PB times per long rest
-- improved "Identify on rest" to work with pre-existing heroes, identify all at once and only be offered to characters with unidentified items [TPA]
+CHANGES:
+
+- added new icons to Command Undead, Help and Study your Enemy by @balmz
+- fixed flexible races
+- updated to game version 1.4.32

@@ -4,6 +4,7 @@ using System.Diagnostics.CodeAnalysis;
 using System.Reflection.Emit;
 using HarmonyLib;
 using JetBrains.Annotations;
+using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Models;
 
@@ -71,12 +72,10 @@ public static class ArchetypesPreviewModalPatcher
             }
 
             //PATCH: sort subclasses
-            var dbCharacterSubclassDefinition = DatabaseRepository.GetDatabase<CharacterSubclassDefinition>();
-
             subclasses.Sort((left, right) =>
                 string.Compare(
-                    dbCharacterSubclassDefinition.GetElement(left).FormatTitle(),
-                    dbCharacterSubclassDefinition.GetElement(right).FormatTitle(),
+                    DatabaseHelper.GetDefinition<CharacterSubclassDefinition>(left).FormatTitle(),
+                    DatabaseHelper.GetDefinition<CharacterSubclassDefinition>(right).FormatTitle(),
                     StringComparison.CurrentCultureIgnoreCase));
         }
     }

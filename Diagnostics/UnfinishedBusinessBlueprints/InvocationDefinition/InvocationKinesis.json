@@ -1,0 +1,38 @@
+{
+  "$type": "InvocationDefinition, Assembly-CSharp",
+  "requiredKnownSpell": null,
+  "requiredLevel": 7,
+  "requiredPact": null,
+  "grantedFeature": null,
+  "grantedSpell": "Definition:Kinesis:d6b949e6-4587-5b35-b961-5dc55a88ce06",
+  "consumesSpellSlot": false,
+  "longRestRecharge": true,
+  "overrideMaterialComponent": true,
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": true,
+    "title": "Invocation/&InvocationKinesisTitle",
+    "description": "Invocation/&InvocationKinesisDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "ee4ceed49fd95824eb29d79b3e409385",
+      "m_SubObjectName": "Haste",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "d45460d1-dd03-5bfa-8dc8-c69f135119da",
+  "contentPack": 9999,
+  "name": "InvocationKinesis"
+}

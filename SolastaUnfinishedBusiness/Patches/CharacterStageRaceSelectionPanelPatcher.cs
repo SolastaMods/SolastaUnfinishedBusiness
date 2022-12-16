@@ -77,8 +77,6 @@ public static class CharacterStageRaceSelectionPanelPatcher
             {
                 __instance.selectedSubRace[key] = 0;
             }
-
-            __instance.eligibleRaces.Sort(__instance);
         }
     }
 }

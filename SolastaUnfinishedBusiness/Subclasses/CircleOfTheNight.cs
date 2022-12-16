@@ -1,4 +1,6 @@
 ﻿using System.Collections.Generic;
+using SolastaUnfinishedBusiness.Api;
+using SolastaUnfinishedBusiness.Api.Extensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
@@ -22,6 +24,17 @@ internal sealed class CircleOfTheNight : AbstractSubclass
 
     internal CircleOfTheNight()
     {
+        _ = ActionDefinitionBuilder
+            .Create(DatabaseHelper.ActionDefinitions.WildShape, "ActionDefinitionWildshapeBonusAction")
+            .SetActionId(ExtraActionId.WildshapeBonusAction)
+            .RequiresAuthorization()
+            .OverrideClassName("UsePower")
+            .SetActionScope(ActionDefinitions.ActionScope.Battle)
+            .SetActionType(ActionDefinitions.ActionType.Bonus)
+            .SetFormType(ActionDefinitions.ActionFormType.Large)
+            .SetActivatedPower(PowerDruidWildShape)
+            .AddToDB();
+
         var shapeOptions = new List<ShapeOptionDescription>
         {
             ShapeBuilder(2, WildShapeBadlandsSpider),
@@ -46,7 +59,15 @@ internal sealed class CircleOfTheNight : AbstractSubclass
             ShapeBuilder(10, HBWildShapeWaterElemental())
         };
 
-        // 3rd level
+        // 2nd level
+
+        // Wildshape Bonus Action affinity
+        var actionAffinityWildshapeBonus = FeatureDefinitionActionAffinityBuilder
+            .Create("ActionAffinityWildshapeBonus")
+            .SetGuiPresentationNoContent(true)
+            .SetDefaultAllowedActionTypes()
+            .SetAuthorizedActions((ActionDefinitions.Id)ExtraActionId.WildshapeBonusAction)
+            .AddToDB();
 
         // Combat Wildshape 
         // Official rules are CR = 1/3 of druid level. However in solasta the selection of beasts is greatly reduced
@@ -114,6 +135,7 @@ internal sealed class CircleOfTheNight : AbstractSubclass
             .Create(CircleOfTheNightName)
             .SetGuiPresentation(Category.Subclass, PathClaw)
             .AddFeaturesAtLevel(2,
+                actionAffinityWildshapeBonus,
                 powerCircleOfTheNightWildShapeCombat,
                 powerCircleOfTheNightWildShapeHealing)
             .AddFeaturesAtLevel(6,

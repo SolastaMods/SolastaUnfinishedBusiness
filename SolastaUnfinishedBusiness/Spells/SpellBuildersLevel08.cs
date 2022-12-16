@@ -3,7 +3,6 @@ using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Properties;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.ConditionDefinitions;
-using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
 using static RuleDefinitions;
 
 namespace SolastaUnfinishedBusiness.Spells;
@@ -15,7 +14,7 @@ internal static partial class SpellBuilders
     internal static SpellDefinition BuildMindBlank()
     {
         const string NAME = "MindBlank";
-        
+
         var spriteReference = Sprites.GetSprite(NAME, Resources.MindBlank, 128, 128);
 
         var effectDescription = EffectDescriptionBuilder

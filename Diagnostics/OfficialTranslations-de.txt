@@ -3800,7 +3800,7 @@ Equipment/&DLC1_Item_CloakOfTheAncientKing_Description	Dieser Umhang wurde für 
 Equipment/&DLC1_Item_BeltOfTheBarbarianKing_Title	Gürtel des Barbarenkönigs
 Equipment/&DLC1_Item_BeltOfTheBarbarianKing_Description	Dieser magische Gürtel ist ein Relikt aus den uralten Wildlanden Tirmars und verleiht KON 19.
 Equipment/&DLC1_Item_PeriaptOfTheMasterEnchanter_Title	Amulett des Meisterverzauberers
-Equipment/&DLC1_Item_PeriaptOfTheMasterEnchanter_Description	Dieses magische Amulett gehörte einst der manacalonischen Meisterschmiedin Firceidith und erhöht die Herstellungsgeschwindigkeit.
+Equipment/&DLC1_Item_PeriaptOfTheMasterEnchanter_Description	Dieses magische Amulett gehörte einst der manacalonischen Meisterschmiedin Firceidith und erhöht die Herstellungsgeschwindigkeit des Trägers. Zudem verleiht es Übung mit dem Manacalon-Rosenkranz und ersetzt ihn, wenn du das Amulett um den Hals trägst.
 Equipment/&DLC1_Item_RingOfTheAmbassador_Title	Ring der Gesandten
 Equipment/&DLC1_Item_RingOfTheAmbassador_Description	Dieser Ring wurde auf Geheiß der Prinzessin von Masgarth, Galoreth Silberblume, angefertigt. Er verleiht die Fähigkeit, die Sprachen der Goblins, der Riesen und der Orks sowie Terral zu sprechen und zu verstehen und gewährt einen +2 Bonus auf Überzeugungsproben.
 Equipment/&DLC1_Item_PendantOfTheHealer_Title	Anhänger des Heilers
@@ -4065,11 +4065,11 @@ Equipment/&ChargedRedCorundum_Title	Aufgeladener roter Korund
 Equipment/&ChargedRedCorundum_Description	Diesem warmen Juwel wohnt ein Feuerelementar inne, der beschworen wird, wenn das Juwel zerbricht.
 Equipment/&BeltOfTheBarbarianKing_Function_Description	Solange du diesen Gürtel trägst und mit ihm im Einklang bist, ist deine Konstitution 19.
 Equipment/&BoltplusOne	Bolzen +1
-Equipment/&ItemTypeSpellFocusSubtypeNoneTitle	
-Equipment/&WandOfTheWarMage+1_Effect	
-Equipment/&WandOfTheWarMage+2_Effect	
-Equipment/&NecklaceOfGrounding_Power_Description	
-Equipment/&ChitinousBoon_Power_Description	
+Equipment/&ItemTypeSpellFocusSubtypeNoneTitle	Beliebig
+Equipment/&WandOfTheWarMage+1_Effect	+1 auf Zauberangriff
+Equipment/&WandOfTheWarMage+2_Effect	2 auf Zauberangriff'
+Equipment/&NecklaceOfGrounding_Power_Description	+1 auf maximale Ki-Punkte, +1 auf die RK
+Equipment/&ChitinousBoon_Power_Description	Fügt dem Hexenmeister, der mit ihm im Einklang ist, einen zusätzlichen Zauberplatz hinzu und kann außerdem als magischer Fokus verwendet werden.
 Faction/&AntiquariansDescription	Die Gilde der Antiquare begann als informelles Informationsnetzwerk innerhalb der Schnee-Allianz und setzte sich damals aus jenen Entdeckern und Gelehrten zusammen, die furchtlos genug waren, die Grenzlande zu erforschen. In den letzten Jahrhunderten hat sie sich zu einer mehr oder weniger offiziellen Organisation gewandelt, deren Struktur an die einer Universität erinnert.
 Faction/&AntiquariansTitle	Antiquare
 Faction/&ArcaniumDescription	Das Arcaneum ist der magische Arm des Neuen Reiches und stammt von einer Organisation desselben Namens aus dem Alten Reich ab. Es wird von mächtigen Magiern geleitet, welche die magischen Traditionen des Alten Reiches fortführen – und danach trachten, weitere wieder ins Leben zu rufen.
@@ -4120,7 +4120,7 @@ Faction/&DLC1_ThePeople_Title	Das Volk
 Faction/&DLC1_ThePeople_Description	Bürgerinnen und Bürger der Hauptstadt des Tals.
 Faction/&DLC1_Rebellion_Title	Die Rebellion
 Faction/&DLC1_Rebellion_Description	Feinde des Supremats, entschlossen, es zu stürzen.
-Factions/&Faction_Orc_COTM_Suncloud	
+Factions/&Faction_Orc_COTM_Suncloud	Sonnwolkstamm
 FactionStatus/&AllianceDescription	Die Fraktion wird dir aktiv zur Seite stehen.
 FactionStatus/&AllianceTitle	Allianz
 FactionStatus/&AnimosityDescription	Diese Fraktion wird versuchen, deine Pläne zu durchkreuzen.
@@ -4298,7 +4298,7 @@ Failure/&FailureFlagDeityMarkAreadyPresent	Die Markierung der Gottheit dieses Ch
 Failure/&FailureFlagHardLockedDoor_Key	Ihr braucht den richtigen Schlüssel, um diese Tür zu öffnen.
 Failure/&FailureFlagCraftingItemTooHeavy	Der hergestellte Gegenstand ist zu schwer und passt nicht in das Inventar des Charakters, der ihn hergestellt hat.
 Failure/&FailureFlagTransferTooFarAwayConcise	Zu weit weg
-Failure/&FailureNotEnoughRemainingUses	
+Failure/&FailureNotEnoughRemainingUses	Keine Munition/Verwendungen mehr
 Feat/&AcuteSensesDescription	
 Feat/&AcuteSensesTitle	
 Feat/&AlertDescription	Darin geübt, in allen Situationen aufmerksam zu bleiben, erhältst du die folgenden Boni:
@@ -4999,7 +4999,7 @@ Feature/&DomainInsightDivineLoreTitle	Göttliche Lehre
 Feature/&DomainInsightDivineLoreIdentifyDescription	Offenbart die magischen Eigenschaften und Funktionen eines Gegenstands.
 Feature/&DomainInsightDivineLoreIdentifyTitle	Göttliche Identifikation
 Feature/&DomainInsightDomainSpellsTitle	„Motiv erkennen“-Domänenzauber
-Feature/&DomainOblivionMarkOfFateDescription	Markiere eine Kreatur, die du siehst, damit sie zusätzlichen Schaden bei jedem Angriff erleidet. Nach dem Tod der Kreatur kann ein neues Ziel gewählt werden.
+Feature/&DomainOblivionMarkOfFateDescription	Markiere eine Kreatur, die du siehst, damit sie bei jedem Angriff zusätzlichen nekrotischen Schaden entsprechend deinem WEI-Bonus erleidet. Nach dem Tod der Kreatur kann ein neues Ziel gewählt werden. Du musst eine kurze oder lange Rast einlegen, um diese Kraft wiederherzustellen.
 Feature/&DomainOblivionMarkOfFateTitle	Markierung des Schicksals
 Feature/&DomainLawAnathemaDescription	Setzt eine Kreatur fest und verursacht bei jedem Zug Stärkeschaden, bis ihr ein WEI-Rettungswurf gelingt oder 1 Minute vergangen ist.
 Feature/&DomainLawAnathemaTitle	Anathema
@@ -5311,7 +5311,7 @@ Feature/&DomainMischiefStrikeOfChaosAttackDisadvantageDescription	„Schlag des 
 Feature/&DomainMischiefElusiveTargetTitle	Schlüpfriges Ziel
 Feature/&DomainMischiefElusiveTargetDescription	Ab Stufe 8 kannst du im Nahkampf nur schwer in die Ecke getrieben werden. Wenn du von einem Nahkampfangriff getroffen wirst, kannst du deine Reaktion verwenden, um bis zum Ende deines nächsten Zuges die Vorteile von „Ausweichend“ und „Zurückziehend“ zu erhalten.​​​​​​
 Feature/&DomainMischiefDivineStrikeTitle	Göttlicher Schlag
-Feature/&DomainMischiefDivineStrikeDescription	Wenn du eine Kreatur mit einem Waffenangriff triffst, kannst du dem Ziel einmal in jedem deiner Züge zusätzlich 1W8 psychischen Schaden zufügen. Wenn du Stufe 14 erreichst, erhöht sich der zusätzliche Schaden auf 2W8.
+Feature/&DomainMischiefDivineStrikeDescription	Wenn du eine Kreatur mit einem Waffenangriff triffst, kannst du dem Ziel einmal in jedem deiner Züge zusätzlich 1W8 psychischen Schaden zufügen.
 Feature/&RangerSwiftBladeQuickStepTitle	Schneller Schritt
 Feature/&RangerSwiftBladeQuickStepDescription	Deine Bewegungsrate erhöht sich um 2 Felder. Zusätzlich sind Gelegenheitsangriffe gegen dich im Nachteil, wenn du „Spurten“ verwendest.
 Feature/&RangerSwiftBladeBladeDanceTitle	Klingentanz
@@ -5363,7 +5363,7 @@ Feature/&PointPoolWarlockInvocationInitialDescription	Erlerne Schauerliche Anruf
 Feature/&PointPoolWarlockInvocationAdditionalTitle	Schauerliche Anrufung
 Feature/&PointPoolWarlockInvocationAdditionalDescription	Erlerne eine zusätzliche Schauerliche Anrufung.
 Feature/&FeatureSetPactSelectionTitle	Segen des Pakts
-Feature/&FeatureSetPactSelectionDescription	Auf Stufe 3 gibt dein andersweltlicher Schutzherr dir ein Geschenk für deine treuen Dienste. Du erhältst eins der folgenden Merkmale deiner Wahl.
+Feature/&FeatureSetPactSelectionDescription	Auf Stufe 3 gibt dein andersweltlicher Schutzherr dir ein Geschenk für deine treuen Dienste. Du erhältst eins der folgenden Merkmale deiner Wahl: Pakt des Buches, Pakt der Kette, Pakt der Klinge.
 Feature/&FeatureSetPactTomeTitle	Pakt des Buches
 Feature/&FeatureSetPactTomeDescription	Wähle 3 Zaubertricks aus einer beliebigen Zauberliste.
 Feature/&FeatureSetPactChainTitle	Pakt der Kette
@@ -5412,7 +5412,7 @@ Feature/&PowerPatronHiveMagicCounterDescription	Ab Stufe 6 kannst du einmal pro 
 Feature/&PowerPatronHiveReactiveCarapaceTitle	Reaktiver Panzer
 Feature/&PowerPatronHiveReactiveCarapaceDescription	Ab Stufe 10 kannst du deine Reaktion verwenden, wenn du Schaden durch einen Zauber oder Magieeffekt nimmst, um sofort eine Anzahl an temporären Trefferpunkten zu erhalten, die dem 1W8 + CHA-Modifikator entsprechen. Diese temporären Trefferpunkte halten bis zu Beginn deines nächsten Zuges an.
 Feature/&DamageAffinityPatronTreePiercingBranchTitle	Stechender Ast
-Feature/&DamageAffinityPatronTreePiercingBranchDescription	Ab Stufe 1 wachsen kleine, stechende Äste aus deiner Haut. Verletzt dich ein Gegner mit einem Nahkampfangriff, nimmt dieser 1W4 Stichschaden.
+Feature/&DamageAffinityPatronTreePiercingBranchDescription	Ab Stufe 1 wachsen kleine, stechende Äste aus deiner Haut. Verletzt dich ein Gegner mit einem Nahkampfangriff, nimmt dieser 1W6 Stichschaden.
 Feature/&FeatureSetPatronTreeBlessingOfTheTreeTitle	Segen des Baums
 Feature/&FeatureSetPatronTreeBlessingOfTheTreeDescription	Ab Stufe 6 verändert sich die Farbe deines Blutes und deiner Haut ein wenig. Du kannst nicht vergiftet werden und du bist resistent gegen Gift und nekrotischen Schaden.
 Feature/&PowerPatronTreeExplosiveGrowthTitle	Explosives Wachstum
@@ -5432,7 +5432,7 @@ Feature/&BardSkillPointsTitle	Barden-Fertigkeiten
 Feature/&BardExpertiseTitle	Barden-Expertise
 Feature/&BardExpertiseDescription	In Stufe 3 wählst du zwei deiner Fertigkeitsübungen. Dein Übungsbonus wird für jede Attributsprobe verdoppelt, die eine der beiden Übungen verwendet. In Stufe 10 kannst du zwei weitere Fertigkeitsübungen auswählen, die diesen Vorteil erhalten sollen.
 Feature/&BardCollegesTitle	Bardenschulen
-Feature/&BardCollegesDescription	In Stufe 3 stürzt du dich in die fortgeschrittenen Techniken der Bardenschule deiner Wahl, wodurch du Merkmale der Stufe 3 erhältst. Das gleiche geschieht auf Stufe 6 und 14.
+Feature/&BardCollegesDescription	In Stufe 3 stürzt du dich in die fortgeschrittenen Techniken der Bardenschule deiner Wahl, wodurch du Merkmale der Stufe 3 erhältst. Das gleiche geschieht auf Stufe 6.
 Feature/&PointPoolCollegeLoreBonusSkillsTitle	Bonus-Übungen
 Feature/&PointPoolCollegeLoreBonusSkillsDescription	Wenn du der Schule des Wissens auf Stufe 3 beitrittst, erhältst du Übung in drei Fertigkeiten deiner Wahl.
 Feature/&PowerCollegeLoreCuttingWordsTitle	Schneidende Worte
@@ -5446,7 +5446,7 @@ Feature/&ArtistSkillsDescription	Übung in Überzeugen, Täuschen und Auftreten.
 Feature/&AesceticSkillsTitle	Selbstdisziplin
 Feature/&AesceticSkillsDescription	Übung in Überlebenskunst und Motiv erkennen.
 Feature/&AesceticSkillsToolsTitle	Suppenkoch
-Feature/&AesceticSkillsToolsDescription	Übung in Kräuterkunde.
+Feature/&AesceticSkillsToolsDescription	Geübt mit Kräuterkundeausrüstung
 Feature/&OccultistSkillsTitle	Geheimnisvolle Künste
 Feature/&OccultistSkillsDescription	Übung in Arkane Kunde und Täuschen.
 Feature/&OccultistSkillsToolsTitle	Verstecktes Wissen
@@ -5465,7 +5465,7 @@ Feature/&AdditionalActionMonkMartialArtsDescription	Setzt du die Angriffsaktion 
 Feature/&AttackModifierMonkMartialArtsTitle	Kampfkünste
 Feature/&AttackModifierMonkMartialArtsDescription	Du kannst anstelle des normalen Schadens deines unbewaffneten Schlags oder deiner Mönchswaffe einen W4 würfeln. Dieser Würfel verändert sich mit deiner Mönchsstufe (W6 ab Stufe 5, W8 ab Stufe 11). Anstelle von Stärke kannst du Geschicklichkeit für die Angriffs- und Schadenswürfe deiner unbewaffneten Schläge und Mönchswaffen verwenden.
 Feature/&UnarmoredMovementTitle	Ungerüstete Bewegung
-Feature/&UnarmoredMovementDescription	Ab Stufe 2 erhöht sich deine Bewegung um 2 Felder, wenn du keine Rüstung oder Schilde trägst. Dieser Bonus erhöht sich auf Stufe 6 um 3 Felder, auf Stufe 10 um 4 Felder und auf Stufe 14 um 5 Felder).
+Feature/&UnarmoredMovementDescription	Ab Stufe 2 erhöht sich deine Bewegung um 2 Felder, wenn du keine Rüstung oder Schilde trägst. Dieser Bonus erhöht sich auf Stufe 6 um 3 Felder, auf Stufe 10 um 4 Felder).
 Feature/&BardSongOfRestTitle	Lied der Rast
 Feature/&BardSongOfRestDescription	Während einer kurzen Rast wirft jeder Verbündete einen zusätzlichen Trefferwürfel, wenn Trefferwürfel verwendet wurden, um Trefferpunkte wiederherzustellen.
 Feature/&PointPoolMagicalSecretsTitle	Magische Geheimnisse
@@ -5624,19 +5624,19 @@ Feature/&AncestryPathClawDraconicSilverTitle	Silber – Kälte
 Feature/&PowerBardTraditionAncientTraditionTitle	Uralte Tradition
 Feature/&PowerBardTraditionAncientTraditionDescription	Wirke nach Belieben „Magierrüstung“ auf dich selbst: Deine RK steigt auf 13 + GES-Modifikator, wenn du keine Rüstung trägst.
 Feature/&StunningStrikeBracersDescription	Das Tragen dieser Armschienen verleiht dir einen Bonus von +1 auf den SG von Betäubender Schlag.
-Feature/&MonsterPower_GhastStench_ConditionImmunity_Title	
-Feature/&MonsterPower_GhastStench_ConditionImmunity_Description	
-Feature/&PowerSpiritBearDescription	Druidenbonus: +1 TP pro Stufe\nBewegung 5\nSchaden: 1W8 + WEI-Modifikator des Druiden (Hiebschaden)\nRK: 8 + WEI-Modifikator des Druiden\nTP: 12 + Hälfte der Druiden-TP
-Feature/&PowerSpiritWolfDescription	Druidenbonus: +1 RK\nBewegung 8\nSchaden: 1W6 + WEI-Modifikator des Druiden (Stichschaden)\nRK: 10 + WEI-Modifikator des Druiden\nTP: 8 + Hälfte der Druiden-TP
-Feature/&PowerSpiritApeDescription	Druidenbonus: Übung in GES-Rettungswürfen\nBewegung 7\nSchaden: 1W8 + WEI-Modifikator des Druiden (Wuchtschaden)\nRK: 9 + WEI-Modifikator des Druiden\nTP: 10 + Hälfte der Druiden-TP
-Feature/&PowerSpiritViperDescription	Druidenbonus: +1 Feld Bewegung\nFliegen 12\nSchaden: 1W4 + WEI-Modifikator des Druiden (Giftschaden)\nRK: 12 + WEI-Modifikator des Druiden\nTP: 1 + Hälfte der Druiden-TP
-Feature/&PowerSpiritSpiderDescription	Druidenbonus: Spinnenklettern\nBewegung 6\nSchaden: 2W4 + WEI-Modifikator des Druiden (Giftschaden)\nRK: 11 + WEI-Modifikator des Druiden\nTP: 4 + Hälfte der Druiden-TP
-Feature/&PowerSpiritEagleDescription	Druidenbonus: Initiative +3\nFliegen 10\nSchaden: 1W6 + WEI-Modifikator des Druiden (Hiebschaden)\nRK: 11 + WEI-Modifikator des Druiden\nTP: 2 + Hälfte der Druiden-TP
-Feature/&FluteOfRespiteSootheTitle	
-Feature/&FluteOfRespiteSootheActionDescription	
-Feature/&DomainLawConditionAnathemaDescription	
-Feature/&AttackModifierScimitarOfSpeedTitle	
-Feature/&AttackModifierScimitarOfSpeedDescription	
+Feature/&MonsterPower_GhastStench_ConditionImmunity_Title	Immunität gegen Gestank
+Feature/&MonsterPower_GhastStench_ConditionImmunity_Description	24 Stunden immun gegen Grul-Gestank.
+Feature/&PowerSpiritBearDescription	Druidenbonus: +1 TP pro Stufe\n Bewegung 5\n Klaue: Schaden: 2W4 + 2 + WEI-Modifikator des Druiden, Hiebschaden\n Biss: Schaden: 1W10 + 2 + WEI-Modifikator des Druiden, Stichschaden\n RK: 8 + WEI-Modifikator des Druiden \n TP: 12 + Hälfte der Druiden-TP
+Feature/&PowerSpiritWolfDescription	Druidenbonus: +1 RK\n Bewegung 8\n Schaden: 1W8 +3 + WEI-Modifikator des Druiden, Stichschaden\n RK: 11 + WEI-Modifikator des Druiden\n TP: 10 + Hälfte der Druiden-TP
+Feature/&PowerSpiritApeDescription	Druidenbonus: Übung in GES-Rettungswürfen\n Bewegung 7\n Faust: Schaden: 1W8 + 2 + WEI-Modifikator des Druiden, Wuchtschaden\n RK: 10 + WEI-Modifikator des Druiden\n TP: 11 + Hälfte der Druiden-TP
+Feature/&PowerSpiritViperDescription	Druidenbonus: +1 Feld Bewegung\n Fliegen 12\n Schaden: 1W4 +3 + WEI-Modifikator des Druiden, Giftschaden\n RK: 13 + WEI-Modifikator des Druiden\n TP: 8 + Hälfte der Druiden-TP
+Feature/&PowerSpiritSpiderDescription	Druidenbonus: Spinnenklettern\n Bewegung 6\n Schaden: 2W4 + 1 + WEI-Modifikator des Druiden, Giftschaden\n RK: 12 + WEI-Modifikator des Druiden\n TP: 10 + Hälfte der Druiden-TP
+Feature/&PowerSpiritEagleDescription	Druidenbonus: Initiative +3\n Fliegen 10\n Schnabel: Schaden: 1W6 + 2 + WEI-Modifikator des Druiden, Stichschaden\n Krallen: Schaden: 2W4 + 2 + WEI-Modifikator des Druiden, Hiebschaden\n RK: 12 + WEI-Modifikator des Druiden \n TP: 8 + Hälfte der Druiden-TP
+Feature/&FluteOfRespiteSootheTitle	Lindernde Noten
+Feature/&FluteOfRespiteSootheActionDescription	Heile einen Verbündeten um 3W4. Dein Verbündeter erhält zudem temporäre Trefferpunkte in Höhe von 2W4 + deinen Charisma-Modifikator.
+Feature/&DomainLawConditionAnathemaDescription	Die Kreatur wird festgesetzt, bis ihr ein WEI-Rettungswurf am Ende ihres Zugs gelingt. Zudem erleidet sie jede Runde Stärkeschaden in Höhe des Attributsmodifikators des Wirkenden.
+Feature/&AttackModifierScimitarOfSpeedTitle	Doppelschlag
+Feature/&AttackModifierScimitarOfSpeedDescription	Einmal pro Zug kannst du deine Bonusaktion verwenden, um einen weiteren Angriff mit dieser Waffe auszuführen.
 Feedback/&AbilityCheckConsoleAnyAdvantageLine	{0} macht eine {1}-Attributsprobe gegen SG {2} und würfelt {3} {4}, {5}
 Feedback/&AbilityCheckConsoleAnyAdvantageNoModifierLine	{0} macht eine {1}-Attributsprobe gegen SG {2} und würfelt {3} {4}
 Feedback/&AbilityCheckConsoleLine	{0} macht eine {1}-Attributsprobe gegen SG {2} und würfelt {3} = {4}
@@ -6013,20 +6013,22 @@ Feedback/&ImmuneToConditionLine	{0} ist gegen den Zustand {1} immun
 Feedback/&ItemLostLine	{0} verliert einen Gegenstand: {1}
 Feedback/&ConditionRefreshedLine	Zustand {1} wurde aktualisiert bei {0}
 Feedback/&ItemStackLostFormat	Verloren: {1}x {0}
-Feedback/&AdditionalAttackD1Line	
-Feedback/&SubstractedAttackD1Line	
-Feedback/&AdditionalSaveD1Line	
-Feedback/&SubstractedSaveD1Line	
-Feedback/&AdditionalAbilityCheckD1Line	
-Feedback/&SubstractedAbilityCheckD1Line	
-Feedback/&ItemLostFormat	
-Feedback/&ProxyCounteredLine	
-Feedback/&ProxyCounteredSimpleLine	
-Feedback/&ReductionToDamageLine	
-Feedback/&NoDetrimentalSpellLine	
-Feedback/&SaveFailureOutcome	{0}-Rettungswurf misslingt
-Feedback/&HeatedBody_Feedback	
-Feedback/&NecroticAura_Feedback	
+Feedback/&AdditionalAttackD1Line	{0}: {1} fügt dem Angriffswurf {2} hinzu
+Feedback/&SubstractedAttackD1Line	{0}: {1} zieht {2} vom Angriffswurf ab
+Feedback/&AdditionalSaveD1Line	{0}: {1} fügt dem Rettungswurf {2} hinzu
+Feedback/&SubstractedSaveD1Line	{0}: {1} zieht {2} vom Rettungswurf ab
+Feedback/&AdditionalAbilityCheckD1Line	{0}: {1} fügt der Attributsprobe {2} hinzu
+Feedback/&SubstractedAbilityCheckD1Line	{0}: {1} zieht {2} von der Attributsprobe ab
+Feedback/&ItemLostFormat	Verloren: {0}
+Feedback/&ProxyCounteredLine	{0} wurde von {1} gekontert.
+Feedback/&ProxyCounteredSimpleLine	{0} wurde gekontert.
+Feedback/&ReductionToDamageLine	{0} reduziert {1}schaden um {2}
+Feedback/&NoDetrimentalSpellLine	{0} wird nicht durch einen nachteiligen Zauber beeinflusst
+Feedback/&SaveFailureOutcome	{0} (Misserfolg)
+Feedback/&HeatedBody_Feedback	Erhitzter Körper
+Feedback/&NecroticAura_Feedback	Nekrotische Aura
+Feedback/&AdditionalDamageSmiteTheHiddenLine	
+Feedback/&AdditionalDamageSmiteTheHiddenFormat	
 FightingStyle/&ArcheryDescription	Du erhältst einen Bonus von +2 auf Angriffswürfe mit Fernkampfwaffe.
 FightingStyle/&ArcheryTitle	Bogenschießen
 FightingStyle/&DefenseDescription	Wenn du Rüstung trägst, erhältst du +1 auf deine RK.
@@ -18287,10 +18289,10 @@ Powers/&Mummy_Lord_BlindingDust_Title	Blendender Staub
 Powers/&Mummy_Lord_BlindingDust_Description	Kreaturen innerhalb eines Feldes benötigen einen erfolgreiche KON-Rettungswurf gegen SG 16 oder sie werden bis zum Ende ihres nächsten Zuges geblendet.
 Powers/&Mummy_Lord_WhirlwindOfSand_Title	Sandwirbel
 Powers/&Mummy_Lord_WhirlwindOfSand_Description	Der Mumienfürst bewegt sich bis zu 12 Felder in der Form eines Sandwirbels, wobei er gegen alle Angriffe immun ist.
-Powers/&Item_PenitentBelt_Title	Ki-Heilung
-Powers/&Item_PenitentBelt_Description	Verbrauche 2 Ki-Punkte, um 1W8+2 Trefferpunkte wiederherzustellen.
-Powers/&Power_Ghast_Stench_Title	
-Powers/&Power_Ghast_Stench_Description	
+Powers/&Item_PenitentBelt_Title	Heilung
+Powers/&Item_PenitentBelt_Description	Verwende eine Ladung, um 1W8+2 Trefferpunkte wiederherzustellen.
+Powers/&Power_Ghast_Stench_Title	Gestank
+Powers/&Power_Ghast_Stench_Description	Grule verströmen einen unerträglichen Gestank auf benachbarten Feldern, der dich vergiften kann.
 Prop/&CandelabraTitle	Kerzenleuchter
 Prop/&CandelabraDescription	Ein dekorativer Kerzenleuchter.
 Prop/&ColumnATitle	Säule A
@@ -22278,7 +22280,7 @@ Rules/&ConditionCastingCountercharmDescription	Du und jede befreundete Kreatur i
 Rules/&RateKiPointsFormatTitle	Ki-Punkte
 Rules/&ConditionChainsCarceriImmunityTitle	Immun gegen Ketten von Carceri
 Rules/&ConditionChainsCarceriImmunityDescription	Diese Kreatur kann nicht erneut von Ketten von Carceri betroffen sein, bis 24 Stunden vergangen sind.
-Rules/&AbilityScoreBonusFormat	+ Fähigkeitsbonus
+Rules/&AbilityScoreBonusFormat	+ Attributsmodifikator
 Rules/&ReviveFormFormat	Belebt einen toten Charakter wieder.
 Rules/&ConditionOnFire_Elemental_Title	In Brand durch Feuerelementar
 Rules/&ConditionOnFire_Spider_Title	In Brand durch Feuerspinne
@@ -22286,12 +22288,12 @@ Rules/&ConditionOnFire_Osprey_Title	In Brand durch Feuerflügler
 Rules/&ConditionFrightenedByDragonImmunity_Title	Immun gegen Schreckliche Präsenz
 Rules/&EffectTargetClosestWithinDistanceTitle	Am nächsten ({0})
 Rules/&MotionFormFallProneFormat	Zu Boden schlagen
-Rules/&RateTurnStartFormatTitle	
-Rules/&ConditionFlyingAdaptiveDescription	
-Rules/&ActivationTypeOnAttackHitMeleeAuto	
-Rules/&ConditionInsaneTitle	
-Rules/&ConditionInsaneDescription	
-Rules/&SituationalContextAttackingWithRangedWeaponOrEffectFormat	
+Rules/&RateTurnStartFormatTitle	Start des Zugs
+Rules/&ConditionFlyingAdaptiveDescription	Du erhältst eine Fluggeschwindigkeit, die deiner Laufbewegungsrate entspricht.
+Rules/&ActivationTypeOnAttackHitMeleeAuto	Bei Treffer (Nahkampf)
+Rules/&ConditionInsaneTitle	Wahnsinnig
+Rules/&ConditionInsaneDescription	Kann keine Aktionen durchführen und bewegt sich unberechenbar.
+Rules/&SituationalContextAttackingWithRangedWeaponOrEffectFormat	Du ignorierst Teildeckung bei einem Zauberangriff.
 SchoolOfMagic/&AbjurationTitle	Bannmagie
 SchoolOfMagic/&ConjurationTitle	Beschwörung
 SchoolOfMagic/&DivinationTitle	Erkenntnismagie
@@ -23397,7 +23399,7 @@ Screen/&MysticArcanumExtraSpellDescription	Diese Zauber wurde vom Merkmal „Mys
 Screen/&SpellsGroupMysticArcanumTitle	Mystisches Arkanum
 Screen/&SpellsGroupMysticArcanumAvailableDescription	Du kannst den Zauber „Mystisches Arkanum“ einmal pro langer Rast wirken.
 Screen/&SpellsGroupMysticArcanumUsedDescription	Dieses Mystische Arkanum wurde verwendet und kann erst wieder nach einer langen Rast aktiviert werden.
-Screen/&LearnRitualTitle	Ritual erlernen
+Screen/&LearnRitualTitle	Zauber lernen
 Screen/&LearnRitualDescription	Erlerne diesen Zauber nur als Ritual. Die Schriftrolle wird dabei zerstört.
 Screen/&ProficiencyToggleInvocationTitle	Anrufungen
 Screen/&BardicInspirationDieDescription	Dein „Bardische Inspiration“-Würfel ist ein {0} und du hast {1} verbleibende Verwendungen.
@@ -23425,8 +23427,8 @@ Screen/&CaptionAbortDescription	Diese Aktion abbrechen.
 Screen/&CaptionAbortTitle	Abbrechen
 Screen/&CraftingAbortButtonTitle	Herstellung abbrechen
 Screen/&AbortTravelButtonTitle	Reise am nächsten Ort unterbrechen
-Screen/&EditorXCoordinateTitle	
-Screen/&EditorYCoordinateTitle	
+Screen/&EditorXCoordinateTitle	X
+Screen/&EditorYCoordinateTitle	Y
 Setting/&ApplyDescription	Deine Änderungen übernehmen.
 Setting/&ApplyNoChangeDescription	Einstellungen wurden nicht geändert.
 Setting/&ApplyTitle	Übernehmen
@@ -24346,7 +24348,7 @@ Spell/&WallOfForceTitle	Energiewand
 Spell/&WallOfForceDescription	Beschwört eine unsichtbare Wand, die Bewegung und Angriffe blockiert.
 Spell/&MindTwistTitle	Verdrehter Geist
 Spell/&MindTwistDescription	Verursacht massiven psychischen Schaden bei feindlichen Kreaturen um dich herum und macht sie kampfunfähig, wenn ihr INT-Rettungswurf fehlschlägt.
-Spell/&CalmEmotionsDescription	Verhindert, dass Verbündete bezaubert oder verängstigt werden, oder macht Gegner gleichgültig.
+Spell/&CalmEmotionsDescription	Verhindert, dass Verbündete bezaubert oder verängstigt werden, und macht feindliche Humanoide gleichgültig.
 Spell/&CalmEmotionsOnEnemyDescription	Solange Gegner nicht verwundet sind, reagieren sie gleichgültig auf deine Verbündeten.
 Spell/&Spell_Flameblade_Title	Flammenklinge
 Spell/&Spell_Flameblade_Description	Beschwört zehn Minuten lang eine flammende Klinge, die du im Kampf führen kannst.
@@ -24470,7 +24472,7 @@ Stage/&AbilityScoresOptimizeDescription	Optimiere die zugewiesenen Attributswert
 Stage/&AbilityScoresOptimizeTitle	Optimieren
 Stage/&AbilityScoresPointsCapitalInfiniteTitle	Unbegrenzte Punkte
 Stage/&AbilityScoresPointsCapitalTitle	Punktevorrat
-Stage/&AbilityScoresPredeterminedDescription	Würfle erneut 6 Attributswerte mit 4W6 und übernimm die besten drei Ergebnisse.
+Stage/&AbilityScoresPredeterminedDescription	Wähle eine festgelegte Verteilung aus 6 Werten: 15, 14, 13, 12, 10 und 8.
 Stage/&AbilityScoresPredeterminedTitle	Standardverteilung
 Stage/&AbilityScoresRemainingPointsDescription	So viele Punkte kannst du noch ausgeben.
 Stage/&AbilityScoresRemainingPointsTitle	Verbleibend
@@ -25197,7 +25199,7 @@ Tooltip/&TagBleedingTitle	Bluten
 Tooltip/&InvocationUsagePermanentInactiveDescription	Der Effekt dieser Anrufung ist derzeit deaktiviert.\n Klicke, um die Anrufung zu reaktivieren.
 Tooltip/&TagMusicalInstrumentTitle	Musikinstrument
 Tooltip/&FeatSameFamilyUnavailableWarningDescription	Warnung: Du kannst nur ein Talent dieser Art lernen
-Tooltip/&FeatPrerequisiteFeatFamilyFormat	
+Tooltip/&FeatPrerequisiteFeatFamilyFormat	Bereits bekannt: {0}
 Travel/&FactionRelicInterestedFactionsTitle	Interessierte Fraktionen
 Travel/&FatigueExhaustedDescription	Die Gruppe ist völlig erschöpft und muss rasten.
 Travel/&FatigueExhaustedTitle	Erschöpft

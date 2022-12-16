@@ -3800,7 +3800,7 @@ Equipment/&DLC1_Item_CloakOfTheAncientKing_Description	Crafted from the hides of
 Equipment/&DLC1_Item_BeltOfTheBarbarianKing_Title	Belt of the Barbarian King
 Equipment/&DLC1_Item_BeltOfTheBarbarianKing_Description	A relic from the ancient wildlands of Tirmar, this magical belt gives the wearer CON 19.
 Equipment/&DLC1_Item_PeriaptOfTheMasterEnchanter_Title	Periapt of the Master Enchanter
-Equipment/&DLC1_Item_PeriaptOfTheMasterEnchanter_Description	Once owned by the Manacalon master smith Firceidith, this magical charm boosts the wearer's crafting speed, but also provides Proficiency with the Manacalon Rosary and replaces it if you wear the Periapt around the neck.
+Equipment/&DLC1_Item_PeriaptOfTheMasterEnchanter_Description	Once owned by the Manacalon master smith Firceidith, this magical charm boosts the wearer's crafting speed, but also provides Proficiency with the Manacalon Rosary and replaces it if you wear the Periapt around your neck.
 Equipment/&DLC1_Item_RingOfTheAmbassador_Title	Ring of the Ambassador
 Equipment/&DLC1_Item_RingOfTheAmbassador_Description	Made at the command of Princess Galoreth Silverflower of Masgarth, this ring lets its wearer speak and understand the goblin, giant, orc, and terran languages, and grants a +2 bonus to persuasion checks.
 Equipment/&DLC1_Item_PendantOfTheHealer_Title	Pendant of the Healer
@@ -4066,10 +4066,10 @@ Equipment/&ChargedRedCorundum_Description	This warm gem houses a fire elemental 
 Equipment/&BeltOfTheBarbarianKing_Function_Description	Your constitution is 19 as long as you are wearing this belt and are attuned to it.
 Equipment/&BoltplusOne	Bolt +1
 Equipment/&ItemTypeSpellFocusSubtypeNoneTitle	Any
-Equipment/&WandOfTheWarMage+1_Effect	+1 to Spell Attack
-Equipment/&WandOfTheWarMage+2_Effect	+2 to Spell Attack
+Equipment/&WandOfTheWarMage+1_Effect	+1 to spell attack
+Equipment/&WandOfTheWarMage+2_Effect	2 to spell attack'
 Equipment/&NecklaceOfGrounding_Power_Description	+1 to maximum Ki points, +1 to AC
-Equipment/&ChitinousBoon_Power_Description	Adds an additional Spell Slot to the Warlock attuned to it, and can also be used as Magic Focus
+Equipment/&ChitinousBoon_Power_Description	Adds an additional spell slot to the Warlock attuned to it, and can also be used as Magic Focus
 Faction/&AntiquariansDescription	The Guild of Antiquarians grew up as an informal information-sharing network within the Snow Alliance, composed of those explorers and scholars intrepid enough to study the Marches. Over the last couple of centuries it has coalesced into a more-or-less formal organization that mimics the structure of a university.
 Faction/&AntiquariansTitle	Antiquarians
 Faction/&ArcaniumDescription	The Arcaneum is the magical arm of the New Empire, descended from an Old Empire organization of the same name. It is run by powerful wizards who carry on the traditions of ancient Imperial magic - and long to recover more.
@@ -4298,7 +4298,7 @@ Failure/&FailureFlagDeityMarkAreadyPresent	The mark of this character's deity is
 Failure/&FailureFlagHardLockedDoor_Key	You need the correct key to open this door.
 Failure/&FailureFlagCraftingItemTooHeavy	The crafted item is too heavy to fit in the crafting character's inventory.
 Failure/&FailureFlagTransferTooFarAwayConcise	Too far
-Failure/&FailureNotEnoughRemainingUses	Out of ammunition / uses
+Failure/&FailureNotEnoughRemainingUses	Out of ammunition/uses
 Feat/&AcuteSensesDescription	
 Feat/&AcuteSensesTitle	
 Feat/&AlertDescription	Trained to maintain high awareness in all situations, you gain the following benefits:
@@ -4340,7 +4340,7 @@ Feat/&Creed_Of_MisayeDescription	+1 DEX to a maximum of 20\nProficiency in DEX s
 Feat/&Creed_Of_PakriDescription	+1 INT to a maximum of 20\nProficiency in INT saves if not already proficient; +1 otherwise
 Feat/&Creed_Of_SolastaDescription	+1 CHA to a maximum of 20 \nProficiency in CHA saves if not already proficient; +1 otherwise
 Feat/&PowerfulCantripTitle	Powerful Cantrip
-Feat/&PowerfulCantripDescription	When a creature succeeds on a saving throw against your cantrip or dodges your cantrip, the creature takes half damage but suffers no additional effect from the cantrip.
+Feat/&PowerfulCantripDescription	When a creature succeeds on a saving throw against your cantrip or dodges your cantrip, the creature takes half damage but suffers no additional effect from the cantrip nor from other sources like Agonizing Blast.
 Feat/&UncannyAccuracyDescription	+1 DEX to a maximum of 20\nYou ignore half and three-quarters cover with your ranged attacks.
 Feat/&UncannyAccuracyTitle	Uncanny Accuracy
 Feat/&HardToKillDescription	+1 CON to a maximum of 20\nYou have advantage on death saving throws. If you succeed three times, you are not only stabilized, but you regain one hit die immediately. On a critical roll, you regain two hit dice instead.
@@ -4984,7 +4984,7 @@ Feature/&AttackModifierDamageRollIncreasedDescription	Damage roll is increased.
 Feature/&ConditionAutoCriticalFormat	All attacks received are critical hits.
 Feature/&SavingThrowByAbilityScoreBonus	[ability] on {0} saving throws
 Feature/&DomainBattleExtraAttackTitle	Scholar of Battle
-Feature/&AdditionalDamageDomainLifeDivineStrikeDescription	+1d8 radiant damage on weapon attacks, once per turn.
+Feature/&AdditionalDamageDomainLifeDivineStrikeDescription	#ERROR!
 Feature/&AdditionalDamageDomainLifeDivineStrikeTitle	Divine Strike
 Feature/&DomainElementalHeraldOfTheElementsFireShortTitle	Call Upon Fire
 Feature/&DomainElementalHeraldOfTheElementsFireTitle	Herald of the Elements: \nCall Upon Fire
@@ -4999,7 +4999,7 @@ Feature/&DomainInsightDivineLoreTitle	Divine Lore
 Feature/&DomainInsightDivineLoreIdentifyDescription	Reveals the magic properties and functions of an item.
 Feature/&DomainInsightDivineLoreIdentifyTitle	Divine Identification
 Feature/&DomainInsightDomainSpellsTitle	Insight Domain Spells
-Feature/&DomainOblivionMarkOfFateDescription	Mark a creature you see so it receives additional necrotic damage equal to your WIS bonus from each attack. Can be retargeted upon the creature's death. You need to take a Short Rest or Long Rest to recover this power.
+Feature/&DomainOblivionMarkOfFateDescription	Mark a creature you see so it receives additional necrotic damage equal to your WIS bonus from each attack. Can be retargeted upon the creature's death. You need to take a short rest or long rest to recover this power.
 Feature/&DomainOblivionMarkOfFateTitle	Mark of Fate
 Feature/&DomainLawAnathemaDescription	Restrains a creature and inflicts force damage every turn until it succeeds with a WIS save or 1 minute has passed.
 Feature/&DomainLawAnathemaTitle	Anathema
@@ -5131,7 +5131,7 @@ Feature/&ProficiencySorcererDraconicKnowledgeTitle	Draconic Knowledge
 Feature/&ProficiencySorcererDraconicKnowledgeDescription	You speak draconic
 Feature/&AutoPreparedSpellsSorcererDraconicBloodlineTitle	Draconic Bloodline Origin Spells
 Feature/&AdditionalDamageSorcererDraconicElementalAffinityTitle	Elemental Affinity
-Feature/&AdditionalDamageSorcererDraconicElementalAffinityDescription	When dealing spell damage matching your draconic ancestor, you add your charisma modifier to the total
+Feature/&AdditionalDamageSorcererDraconicElementalAffinityDescription	When dealing spell damage matching your draconic ancestor, you add your charisma modifier to the total (on the first target)
 Feature/&PowerSorcererDraconicElementalResistanceTitle	Draconic Resistance
 Feature/&PowerSorcererDraconicElementalResistanceDescription	You gain resistance to the damage type of your ancestor for an hour, at the cost of one sorcery point.
 Feature/&AutoPreparedSpellsSorcererManaPainterTitle	Mana Painter Origin Spells
@@ -5420,7 +5420,7 @@ Feature/&PowerPatronTreeExplosiveGrowthDescription	Starting at the 10th level, o
 Feature/&AdditionalDamagePatronTimekeeperCurseOfTimeTitle	Curse of Time
 Feature/&AdditionalDamagePatronTimekeeperCurseOfTimeDescription	Starting at the 1st level, whenever you damage an opponent with a spell, they become afflicted with the Curse of Time.\n Enemies under the Curse of Time take half your proficiency bonus (rounded up) force damage at the start of their turn for the next minute.
 Feature/&PowerPatronTimekeeperTimeWarpTitle	Time Warp
-Feature/&PowerPatronTimekeeperTimeWarpDescription	Starting at the 14th level, on your turn, you can take one additional action on top of your regular action and a possible bonus action.\n Once you use this feature, you must finish a long rest before you can use it again.
+Feature/&PowerPatronTimekeeperTimeWarpDescription	Starting at the 14th level, on your turn, you can take one additional action on top of your regular action and a possible bonus action.\n  Once you use this feature, you must finish a long rest before you can use it again.
 Feature/&PowerPatronTimekeeperAccelerateTitle	Accelerate
 Feature/&PowerPatronTimekeeperAccelerateDescription	Starting at the 10th level, on your turn, you can use a bonus action to briefly accelerate an ally within 6 cells. They gain the effect of Haste until the start of your next turn; however, they do not suffer from lethargy when Accelerate ends.\n You can use this feature a number of times equal to your proficiency bonus per long rest.
 Feature/&PowerPatronTimekeeperTimeShiftTitle	Time Shift
@@ -5627,16 +5627,16 @@ Feature/&StunningStrikeBracersDescription	While wearing these bracers, you gain 
 Feature/&MonsterPower_GhastStench_ConditionImmunity_Title	Stench Immunity
 Feature/&MonsterPower_GhastStench_ConditionImmunity_Description	Immune to Ghast Stench for 24 hours.
 Feature/&PowerSpiritBearDescription	Druid bonus: +1 HP per level\n Move 5\n Claw: Attack damage: 2D4 + 2 + druid's WIS modifier, slashing damage\n Bite: Attack damage: 1D10 + 2 + druid's WIS modifier, piercing damage\n AC: 8 + druid's WIS modifier \n HP: 12 + half druid's HP
-Feature/&PowerSpiritWolfDescription	Druid bonus: +1 AC\nMove 8\nAttack damage: 1D8 +3 + druid's WIS modifier, piercing damage\nAC: 11 + druid's WIS modifier\nHP: 10 + half druid's HP
+Feature/&PowerSpiritWolfDescription	Druid bonus: +1 AC\n Move 8\n Attack damage: 1D8 +3 + druid's WIS modifier, piercing damage\n AC: 11 + druid's WIS modifier\n HP: 10 + half druid's HP
 Feature/&PowerSpiritApeDescription	Druid bonus: Proficiency with DEX saving throws\n Move 7\n Fist: Attack damage: 1D8 + 2 + druid's WIS modifier, bludgeoning damage\n AC: 10 + druid's WIS modifier\n HP: 11 + half druid's HP
-Feature/&PowerSpiritViperDescription	Druid bonus: +1 cell movement\nFly 12\nAttack damage: 1D4 +3 + druid's WIS modifier, poison damage\nAC: 13 + druid's WIS modifier\nHP: 8 + half druid's HP
+Feature/&PowerSpiritViperDescription	Druid bonus: +1 cell movement\n Fly 12\n Attack damage: 1D4 +3 + druid's WIS modifier, poison damage\n AC: 13 + druid's WIS modifier\n HP: 8 + half druid's HP
 Feature/&PowerSpiritSpiderDescription	Druid bonus: Spider Climb\n Move 6\n Attack damage: 2D4 + 1 + druid's WIS modifier, poison damage\n AC: 12 + druid's WIS modifier\n HP: 10 + half druid's HP
 Feature/&PowerSpiritEagleDescription	Druid bonus: initiative +3\n Fly 10\n Beak: Attack damage: 1D6 + 2 + druid's WIS modifier, piercing damage\n Talons: Attack damage: 2D4+2 + druid's WIS modifier, slashing damage\n AC: 12 + druid's WIS modifier\n HP: 8 + half druid's HP
 Feature/&FluteOfRespiteSootheTitle	Soothing Notes
-Feature/&FluteOfRespiteSootheActionDescription	Heal an ally for 3d4. They also gain 2d4 + your Charisma Modifier as temporary hitpoints.
-Feature/&DomainLawConditionAnathemaDescription	The creature is restrained until it makes a successful WIS saving throw at the end of its turn. In addition, it takes force damage each turn, equal to the ability modifier of the caster. 
+Feature/&FluteOfRespiteSootheActionDescription	Heal an ally for 3d4. They also gain 2d4 + your charisma modifier as temporary hit points.
+Feature/&DomainLawConditionAnathemaDescription	The creature is restrained until it makes a successful WIS saving throw at the end of its turn. In addition, it takes force damage each turn, equal to the ability modifier of the caster.
 Feature/&AttackModifierScimitarOfSpeedTitle	Double Strike
-Feature/&AttackModifierScimitarOfSpeedDescription	You can use your Bonus Action to make another attack with this weapon, once per turn.
+Feature/&AttackModifierScimitarOfSpeedDescription	Once per turn, you can use your bonus action to make another attack with this weapon.
 Feedback/&AbilityCheckConsoleAnyAdvantageLine	{0} rolls a {1} ability check against DC {2}, rolls {3} {4}, {5}
 Feedback/&AbilityCheckConsoleAnyAdvantageNoModifierLine	{0} rolls a {1} ability check against DC {2}, rolls {3} {4}
 Feedback/&AbilityCheckConsoleLine	{0} rolls a {1} ability check against DC {2}, rolls {3} = {4}
@@ -6026,7 +6026,9 @@ Feedback/&ReductionToDamageLine	{0} reduces {1} damage by {2}
 Feedback/&NoDetrimentalSpellLine	{0} is not affected by a detrimental spell
 Feedback/&SaveFailureOutcome	{0} (Failure)
 Feedback/&HeatedBody_Feedback	Heated Body
-Feedback/&NecroticAura_Feedback	Necrotic aura
+Feedback/&NecroticAura_Feedback	Necrotic Aura
+Feedback/&AdditionalDamageSmiteTheHiddenLine	Scourge of the Hidden!
+Feedback/&AdditionalDamageSmiteTheHiddenFormat	Scourge of the Hidden!
 FightingStyle/&ArcheryDescription	You gain a +2 bonus to attack rolls with ranged weapons.
 FightingStyle/&ArcheryTitle	Archery
 FightingStyle/&DefenseDescription	While you are wearing armor, you gain a +1 bonus to AC.
@@ -22288,7 +22290,7 @@ Rules/&EffectTargetClosestWithinDistanceTitle	Closest ({0})
 Rules/&MotionFormFallProneFormat	Knock Prone
 Rules/&RateTurnStartFormatTitle	Turn Start
 Rules/&ConditionFlyingAdaptiveDescription	You gain a flying speed equal to your walking speed
-Rules/&ActivationTypeOnAttackHitMeleeAuto	On hit (melee) 
+Rules/&ActivationTypeOnAttackHitMeleeAuto	On hit (melee)
 Rules/&ConditionInsaneTitle	Insane
 Rules/&ConditionInsaneDescription	Unable to take any actions and moving erratically.
 Rules/&SituationalContextAttackingWithRangedWeaponOrEffectFormat	You ignore half cover when making a spell attack.
@@ -23563,6 +23565,8 @@ Setting/&TextLanguageenTitle	English
 Setting/&TextLanguagefrDescription	Français
 Setting/&TextLanguagefrTitle	Français
 Setting/&TextLanguageTitle	Texts Language
+Setting/&TextLanguagezh-CNDescription	简体中文
+Setting/&TextLanguagezh-CNTitle	简体中文
 Setting/&TimeDisplayMode24Description	Time display uses the 24 hour clock.
 Setting/&TimeDisplayMode24Title	24 Hours
 Setting/&TimeDisplayModeAMPMDescription	Time display uses the AM/PM system.
@@ -23854,6 +23858,8 @@ Setting/&MoveCameraWithScreenBordersTitle	Move Camera with Screen Borders
 Setting/&SpellbookPagesConstraintTitle	Spellbook Page Limitation
 Setting/&SpellbookPagesConstraintDescription	When the option is activated, spellbooks can only contain spells fitting their pages limit (usually 100 pages). Each scribed spell (either from level up or scroll) takes a number of pages equal to its level in the spellbook. A wizard may have to purchase another spellbook before the end of the Solasta campaign, or be prevented from leveling up.
 Setting/&FadingFogOfWarTitle	Animated Fog of War
+Setting/&TextLanguageruTitle	Русский
+Setting/&TextLanguageruDescription	Русский
 Setting/&TextLanguagept-BRTitle	Português (Brasil)
 Setting/&TextLanguagept-BRDescription	Português (Brasil)
 Setting/&VocalSpellIncantationTitle	Enable vocalization for verbal spell components.
@@ -24466,7 +24472,7 @@ Stage/&AbilityScoresOptimizeDescription	Optimize ability score assignments for t
 Stage/&AbilityScoresOptimizeTitle	Optimize
 Stage/&AbilityScoresPointsCapitalInfiniteTitle	Unlimited Points
 Stage/&AbilityScoresPointsCapitalTitle	Points Pool
-Stage/&AbilityScoresPredeterminedDescription	Select a predetermined array of 6 scores: 15, 14, 13, 12, 10 and 8
+Stage/&AbilityScoresPredeterminedDescription	Select a predetermined array of 6 scores: 15, 14, 13, 12, 10, and 8
 Stage/&AbilityScoresPredeterminedTitle	Standard Array
 Stage/&AbilityScoresRemainingPointsDescription	You have this many points still to spend.
 Stage/&AbilityScoresRemainingPointsTitle	Remaining

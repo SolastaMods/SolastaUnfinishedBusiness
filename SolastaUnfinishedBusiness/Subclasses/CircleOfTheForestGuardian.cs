@@ -39,7 +39,6 @@ internal sealed class CircleOfTheForestGuardian : AbstractSubclass
             .Create()
             .SetTempHpForm(4)
             .SetLevelAdvancement(EffectForm.LevelApplianceType.MultiplyBonus, LevelSourceType.ClassLevel)
-            .CreatedByCharacter()
             .Build();
 
         var powerForestGuardianImprovedBarkWard = FeatureDefinitionPowerBuilder
@@ -53,7 +52,6 @@ internal sealed class CircleOfTheForestGuardian : AbstractSubclass
                         EffectFormBuilder
                             .Create()
                             .SetDamageForm(DamageTypePiercing, 2, DieType.D8)
-                            .CreatedByCondition()
                             .Build())
                     .Build())
             .SetUniqueInstance()
@@ -70,7 +68,6 @@ internal sealed class CircleOfTheForestGuardian : AbstractSubclass
                         EffectFormBuilder
                             .Create()
                             .SetDamageForm(DamageTypePiercing, 3, DieType.D8)
-                            .CreatedByCondition()
                             .Build())
                     .Build())
             .SetUniqueInstance()

@@ -3,7 +3,7 @@
   "requiredKnownSpell": null,
   "requiredLevel": 5,
   "requiredPact": "Definition:FeatureSetPactBlade:a29909bbaef089a4392c12fdee2db8fc",
-  "grantedFeature": "Definition:FeatureSetInvocationImprovedPactWeapon:49fd9be1-8bc9-5e32-b156-c7550fee9da0",
+  "grantedFeature": "Definition:AttackModifierInvocationImprovedPactWeapon:80912c1a-c7d9-5e08-aaad-66f8538e1ef7",
   "grantedSpell": null,
   "consumesSpellSlot": false,
   "longRestRecharge": false,

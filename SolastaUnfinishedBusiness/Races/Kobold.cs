@@ -35,7 +35,7 @@ internal static class KoboldRaceBuilder
             .SetEffectDescription(EffectDescriptionBuilder
                 .Create()
                 .SetDurationData(DurationType.Round, 1)
-                .SetTargetingData(Side.Enemy, RangeType.Self, 0, TargetType.Cube, 3)
+                .SetTargetingData(Side.Enemy, RangeType.Self, 0, TargetType.Cube, 5)
                 .SetEffectForms(EffectFormBuilder
                     .Create()
                     .SetConditionForm(CustomConditionsContext.Distracted, ConditionForm.ConditionOperation.Add,
@@ -53,7 +53,8 @@ internal static class KoboldRaceBuilder
             .AddToDB();
 
         //explicitly re-use sorcerer spell list, so custom cantrips selected for sorcerer will show here 
-        spellListDraconicKobold.SpellsByLevel[0].Spells = SpellListDefinitions.SpellListSorcerer.SpellsByLevel[0].Spells;
+        spellListDraconicKobold.SpellsByLevel[0].Spells =
+            SpellListDefinitions.SpellListSorcerer.SpellsByLevel[0].Spells;
 
         var castSpellDraconicKoboldMagic = FeatureDefinitionCastSpellBuilder
             .Create("CastSpellDraconicKoboldMagic")

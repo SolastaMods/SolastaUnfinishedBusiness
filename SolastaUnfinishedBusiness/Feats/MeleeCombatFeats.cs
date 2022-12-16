@@ -219,8 +219,7 @@ internal static class MeleeCombatFeats
     {
         public void ModifyAttackMode(RulesetCharacter character, RulesetAttackMode attackMode)
         {
-            if (attackMode == null ||
-                !(ValidatorsWeapon.IsMelee(attackMode) || ValidatorsWeapon.IsUnarmedWeapon(attackMode)))
+            if (!ValidatorsWeapon.IsMelee(attackMode))
             {
                 return;
             }
@@ -263,7 +262,7 @@ internal static class MeleeCombatFeats
             attacker.RulesetCharacter.AddConditionOfCategory(AttributeDefinitions.TagCombat, rulesetCondition);
         }
     }
-    
+
     private sealed class CustomAdditionalDamageFeatPiercer : CustomAdditionalDamage
     {
         private readonly string _damageType;

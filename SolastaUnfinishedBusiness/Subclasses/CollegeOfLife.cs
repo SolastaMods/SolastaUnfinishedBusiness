@@ -65,7 +65,6 @@ internal sealed class CollegeOfLife : AbstractSubclass
                     .SetEffectForms(
                         EffectFormBuilder
                             .Create()
-                            .CreatedByCharacter()
                             .SetConditionForm(conditionCollegeOfLifeDarkvision, ConditionForm.ConditionOperation.Add,
                                 false, false)
                             .Build())
@@ -97,7 +96,6 @@ internal sealed class CollegeOfLife : AbstractSubclass
                     .SetEffectForms(
                         EffectFormBuilder
                             .Create()
-                            .CreatedByCharacter()
                             .SetConditionForm(conditionCollegeOfLifePoison, ConditionForm.ConditionOperation.Add,
                                 false, false)
                             .Build())
@@ -122,7 +120,6 @@ internal sealed class CollegeOfLife : AbstractSubclass
                     .SetEffectForms(
                         EffectFormBuilder
                             .Create()
-                            .CreatedByCharacter()
                             .SetConditionForm(conditionCollegeOfLifeConstitution, ConditionForm.ConditionOperation.Add,
                                 false, false)
                             .Build())
@@ -141,7 +138,6 @@ internal sealed class CollegeOfLife : AbstractSubclass
                     .SetEffectForms(
                         EffectFormBuilder
                             .Create()
-                            .CreatedByCharacter()
                             .SetConditionForm(ConditionFlying12, ConditionForm.ConditionOperation.Add, false, false)
                             .Build())
                     .Build())

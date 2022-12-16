@@ -156,13 +156,17 @@ internal sealed class PathOfTheSpirits : AbstractSubclass
             .SetSilent(Silent.WhenAddedOrRemoved)
             .SetSpecialInterruptions(ConditionInterruption.RageStop)
             .SetFeatures(
-                DamageAffinityPoisonResistance,
                 DamageAffinityAcidResistance,
+                DamageAffinityBludgeoningResistance,
                 DamageAffinityColdResistance,
                 DamageAffinityFireResistance,
-                DamageAffinityThunderResistance,
                 DamageAffinityLightningResistance,
-                DamageAffinityNecroticResistance)
+                DamageAffinityNecroticResistance,
+                DamageAffinityPiercingResistance,
+                DamageAffinityPoisonResistance,
+                DamageAffinityRadiantResistance,
+                DamageAffinitySlashingResistance,
+                DamageAffinityThunderResistance)
             .AddToDB();
 
         // only reports condition on char panel
@@ -283,7 +287,12 @@ internal sealed class PathOfTheSpirits : AbstractSubclass
             .Create("PowerPathOfTheSpiritsSpiritGuardians")
             .SetGuiPresentation(SpellDefinitions.SpiritGuardians.guiPresentation)
             .SetUsesProficiencyBonus(ActivationTime.BonusAction)
-            .SetEffectDescription(SpellDefinitions.SpiritGuardians.EffectDescription)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create(SpellDefinitions.SpiritGuardians.EffectDescription)
+                    .SetHasSavingThrow(AttributeDefinitions.Wisdom,
+                        EffectDifficultyClassComputation.AbilityScoreAndProficiency)
+                    .Build())
             .AddToDB();
     }
 
