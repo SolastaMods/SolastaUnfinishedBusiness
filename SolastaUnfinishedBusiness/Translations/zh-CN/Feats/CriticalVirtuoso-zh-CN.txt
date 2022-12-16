@@ -1,2 +1,2 @@
-﻿Feature/&MartialChampionSuperiorCriticalDescription=Your weapon attacks score a critical hit on a roll of 18, 19 or 20.
-Feature/&MartialChampionSuperiorCriticalTitle=Superior Critical
+﻿Feature/&MartialChampionSuperiorCriticalDescription=你在攻击掷骰为18、19、20时造成重击
+Feature/&MartialChampionSuperiorCriticalTitle=高等重击

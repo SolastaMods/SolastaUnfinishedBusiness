@@ -1,6 +1,6 @@
-﻿Condition/&ConditionDualFlurryGrantDescription=Your foes are reeling!
-Condition/&ConditionDualFlurryGrantTitle=Dual Flurry!
-Feat/&FeatDualFlurryDescription=You are a master of fighting with paired weapons. On any turn where you hit twice with melee attacks while wielding a weapon in each hand, you may make an additional off-hand attack when attacking with your bonus action.
-Feat/&FeatDualFlurryTitle=Dual Flurry
-Feat/&FeatDualWeaponDefenseDescription=You gain a +1 bonus to AC while you are wielding a separate melee weapon in each hand.
-Feat/&FeatDualWeaponDefenseTitle=Dual Weapon Defense
+﻿Condition/&ConditionDualFlurryGrantDescription=气势如虹!
+Condition/&ConditionDualFlurryGrantTitle=剑刃成双舞狂澜!
+Feat/&FeatDualFlurryDescription=你是一个使用双武器作战的高手。在任何一轮中，若你在双手都持有武器的情况下用近战攻击击中两次，你能在以附赠动作攻击时额外进行一次副手攻击
+Feat/&FeatDualFlurryTitle=剑刃狂澜
+Feat/&FeatDualWeaponDefenseDescription=当你双手都持用单独的近战武器时，你的AC获得+1加值
+Feat/&FeatDualWeaponDefenseTitle=双武器防御
