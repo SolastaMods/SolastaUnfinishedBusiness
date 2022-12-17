@@ -4,5 +4,7 @@ Feature/&OnComputeAttackModifierOpportunistQuickStrikeDescription=在攻击先�
 Feature/&OnComputeAttackModifierOpportunistQuickStrikeTitle=迅捷打击
 Feature/&PowerOpportunistDebilitatingStrikeDescription=若受到偷袭的敌人无法通过体质豁免（DC=8+敏捷加值+熟练度加值），会受到以下状态之一（失明/灾祸/流血/眩晕）
 Feature/&PowerOpportunistDebilitatingStrikeTitle=衰弱打击
+Feature/&FeatureRoguishOpportunistSeizeTheChanceDescription=当敌人未能通过豁免检定时，你可以使用你的反应对其进行攻击。你可以利用此特性触发偷袭。
+Feature/&FeatureRoguishOpportunistSeizeTheChanceTitle=可乘之机
 Subclass/&RoguishOpportunistDescription=投机者从不放过任何机会去终结他们的敌人。他们的刺杀快准狠。没有多少人能在面对他们时毫发无损地逃脱
 Subclass/&RoguishOpportunistTitle=投机者
