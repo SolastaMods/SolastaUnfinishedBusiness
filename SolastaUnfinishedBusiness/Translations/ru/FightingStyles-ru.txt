@@ -1,3 +1,6 @@
+Condition/&ConditionFightingStyleCrippledDescription=КД -1 и скорость -2.
+Condition/&ConditionFightingStyleCrippledTitle=Покалечен
+Feature/&PowerFightingStyleTorchbearerDescription=Попытаться поджечь цель в ближнем бою!
 Feature/&PowerFightingStyleTorchbearerTitle=Факелоносец
 Feedback/&AdditionalDamageCripplingFormat=Калечащий Урон!
 Feedback/&AdditionalDamageCripplingLine={1} получает калечащий урон.
@@ -7,7 +10,7 @@ FightingStyle/&BlindFightingDescription=У вас есть слепое зрен
 FightingStyle/&BlindFightingTitle=Бой вслепую
 FightingStyle/&CripplingDescription=При попадании в ближнем бою, Вы можете снизить скорость врага на 10 футов , а также понизить их Класс Доспехана 1, эффект длится 2 хода.
 FightingStyle/&CripplingTitle=Покалечен
-FightingStyle/&ExecutionerDescription=Вы добавляете бонус мастерства к урону по существам, которые ослеплены. Напуганы, You add your proficiency bonus to damage against creatures that are blinded, frightened, обездвижены, недееспособны, парализованы, сбиты с ног или оглушены.
+FightingStyle/&ExecutionerDescription=Вы добавляете бонус мастерства к урону по существам, которые ослеплены, напуганы, обездвижены, недееспособны, парализованы, сбиты с ног или оглушены.
 FightingStyle/&ExecutionerTitle=Палач
 FightingStyle/&HandAndAHalfDescription=Получите +1 к броскам на попадание и урон, если используете  Универсальное оружие в двух руках.
 FightingStyle/&HandAndAHalfTitle=Полуторник
