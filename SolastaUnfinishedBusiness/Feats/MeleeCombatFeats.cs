@@ -24,7 +24,6 @@ internal static class MeleeCombatFeats
             new AfterAttackEffectFeatPiercer(ConditionDefinitionBuilder
                 .Create("ConditionFeatPiercerNonMagic")
                 .SetGuiPresentationNoContent(true)
-                .SetPossessive()
                 .SetSpecialDuration(DurationType.Round, 1)
                 .SetSpecialInterruptions(ConditionInterruption.Attacked)
                 .SetFeatures(
@@ -294,5 +293,6 @@ internal static class MeleeCombatFeats
         }
     }
 }
+
 
 

@@ -31,8 +31,7 @@ internal static class TwoWeaponCombatFeats
     {
         var conditionDualFlurryApply = ConditionDefinitionBuilder
             .Create("ConditionDualFlurryApply")
-            .SetGuiPresentationNoContent()
-            .SetPossessive()
+            .SetGuiPresentationNoContent(true)
             .SetSpecialDuration(DurationType.Round, 1)
             .SetSpecialInterruptions(ConditionInterruption.AnyBattleTurnEnd)
             .SetSilent(Silent.WhenAddedOrRemoved)
@@ -120,6 +119,7 @@ internal static class TwoWeaponCombatFeats
         }
     }
 }
+
 
 
 
