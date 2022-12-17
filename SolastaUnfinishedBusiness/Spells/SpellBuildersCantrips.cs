@@ -136,7 +136,6 @@ internal static partial class SpellBuilders
                         ConditionDefinitionBuilder
                             .Create("ConditionBladeWard")
                             .SetGuiPresentation(NAME, Category.Spell, ConditionShielded)
-                            .SetConditionType(ConditionType.Beneficial)
                             .SetFeatures(
                                 DamageAffinityBludgeoningResistance,
                                 DamageAffinitySlashingResistance,
@@ -535,6 +534,7 @@ internal static partial class SpellBuilders
 
     #endregion
 }
+
 
 
 
