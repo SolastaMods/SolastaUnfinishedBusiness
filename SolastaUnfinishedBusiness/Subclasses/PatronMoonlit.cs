@@ -166,13 +166,17 @@ internal sealed class PatronMoonlit : AbstractSubclass
             .AddFeaturesAtLevel(6,
                 lightAffinityMoonlitStrong,
                 powerMoonlitDarkMoon,
-                powerMoonlitFullMoon)
+                powerMoonlitFullMoon,
+                SenseBlindSight6)
             .AddFeaturesAtLevel(10,
                 powerMoonlitDanceOfTheNightSky,
                 powerMoonlitMoonTouched)
             .AddFeaturesAtLevel(14,
                 bonusCantripsMoonlit)
             .AddToDB();
+
+        //BUGFIX: we should display this on progression
+        SenseBlindSight6.GuiPresentation.hidden = false;
     }
 
     internal override CharacterSubclassDefinition Subclass { get; }
@@ -180,3 +184,4 @@ internal sealed class PatronMoonlit : AbstractSubclass
     internal override FeatureDefinitionSubclassChoice SubclassChoice => DatabaseHelper.FeatureDefinitionSubclassChoices
         .SubclassChoiceWarlockOtherworldlyPatrons;
 }
+

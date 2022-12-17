@@ -614,6 +614,7 @@ internal static partial class DatabaseHelper
     }
     internal static class FeatureDefinitionSenses
     {
+        internal static FeatureDefinitionSense SenseBlindSight6 { get; } = GetDefinition<FeatureDefinitionSense>("SenseBlindSight6");
         internal static FeatureDefinitionSense SenseDarkvision { get; } = GetDefinition<FeatureDefinitionSense>("SenseDarkvision");
         internal static FeatureDefinitionSense SenseDarkvision12 { get; } = GetDefinition<FeatureDefinitionSense>("SenseDarkvision12");
         internal static FeatureDefinitionSense SenseDarkvision24 { get; } = GetDefinition<FeatureDefinitionSense>("SenseDarkvision24");

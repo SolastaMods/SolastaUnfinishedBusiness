@@ -23,6 +23,11 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:SenseBlindSight6:f921cbab3188426468f0cd35e5f93fc5",
+      "level": 6
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:PowerMoonlitDarkMoon:1d03cf2d-7bdc-5489-babe-81bb5e3606a2",
       "level": 6
     },
