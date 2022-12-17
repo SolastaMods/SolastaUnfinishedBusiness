@@ -88,18 +88,7 @@ internal sealed class CircleOfTheForestGuardian : AbstractSubclass
                     .Create()
                     .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
                     .SetDurationData(DurationType.Minute, 10)
-                    .SetEffectForms(
-                        effectFormTemporaryHitPoints,
-                        EffectFormBuilder
-                            .Create()
-                            .SetConditionForm(
-                                ConditionDefinitionBuilder
-                                    .Create(ConditionDefinitions.ConditionBarkskin, "ConditionForestGuardianBarkWard")
-                                    .SetOrUpdateGuiPresentation(Category.Condition)
-                                    .ClearFeatures()
-                                    .AddToDB(),
-                                ConditionForm.ConditionOperation.Add, true, true)
-                            .Build())
+                    .SetEffectForms(effectFormTemporaryHitPoints)
                     .SetEffectAdvancement(EffectIncrementMethod.None)
                     .Build())
             .AddToDB();
@@ -198,5 +187,6 @@ internal sealed class CircleOfTheForestGuardian : AbstractSubclass
     internal override FeatureDefinitionSubclassChoice SubclassChoice =>
         FeatureDefinitionSubclassChoices.SubclassChoiceDruidCircle;
 }
+
 
 
