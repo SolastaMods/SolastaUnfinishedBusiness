@@ -1,6 +1,10 @@
-﻿CHANGES:
+﻿ATTENTION:
+
+- You should RESPEC any Patron Moonlit after this update to get new progression benefits
+
+CHANGES:
 
 - added Chinese and Russian translations
 - added new icon to Dracronic Cry
-- added Devil's Sight to Patron Moonlit at 1st
+- added Devil's Sight like features to Patron Moonlit at 1st
 - fixed Mobile feat to grant a disengage action only after a successful melee attack
