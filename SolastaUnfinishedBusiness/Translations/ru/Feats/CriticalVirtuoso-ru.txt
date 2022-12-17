@@ -1,4 +1,2 @@
-﻿Feat/&FeatImprovedCriticalDescription=Ваши атаки становятся критическими при броске 19 и 20.
-Feat/&FeatImprovedCriticalTitle=Улучшенные Критические
-Feat/&FeatSuperiorCriticalDescription=Ваши атаки становятся критическими при броске 18, 19 и 20.
-Feat/&FeatSuperiorCriticalTitle=Супер Критические
+﻿Feature/&MartialChampionSuperiorCriticalDescription=Your weapon attacks score a critical hit on a roll of 18, 19 or 20.
+Feature/&MartialChampionSuperiorCriticalTitle=Superior Critical

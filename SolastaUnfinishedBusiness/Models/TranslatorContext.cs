@@ -315,9 +315,18 @@ internal static class TranslatorContext
         }
 
         {
+            Main.Info("ADD THESE TERMS:");
+            
             foreach (var term in defaultTerms.Keys.Except(finalTerms.Keys))
             {
                 Main.Info($"{term} is missing from {languageCode} translation assets");
+            }
+            
+            Main.Info("DELETE THESE TERMS:");
+            
+            foreach (var term in finalTerms.Keys.Except(defaultTerms.Keys))
+            {
+                Main.Info($"{term} must be deleted from {languageCode} translation assets");
             }
         }
     }
