@@ -1,5 +1,11 @@
 ﻿CHANGES:
 
+1.4.32.1:
+
+- added Chinese translation
+- added new icon to Dracronic Cry
+- fixed Mobile feat to grant a disengage action only on melee attacks
+
 1.4.32.0:
 
 - added new icons to Command Undead, Help and Study your Enemy by @balmz

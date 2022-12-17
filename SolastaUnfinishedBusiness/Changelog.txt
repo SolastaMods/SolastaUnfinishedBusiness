@@ -1,9 +1,5 @@
-﻿KNOWN ISSUES:
+﻿CHANGES:
 
-- Grenadier bombs have DC 0 under MP [please share a log and help us fix it]
-
-CHANGES:
-
-- added new icons to Command Undead, Help and Study your Enemy by @balmz
-- fixed flexible races
-- updated to game version 1.4.32
+- added Chinese translation
+- added new icon to Dracronic Cry
+- fixed Mobile feat to grant a disengage action only on melee attacks
