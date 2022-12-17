@@ -178,9 +178,6 @@ internal sealed class PatronMoonlit : AbstractSubclass
             .AddFeaturesAtLevel(14,
                 bonusCantripsMoonlit)
             .AddToDB();
-
-        //BUGFIX: we should display this on progression
-        SenseBlindSight6.GuiPresentation.hidden = false;
     }
 
     internal override CharacterSubclassDefinition Subclass { get; }
