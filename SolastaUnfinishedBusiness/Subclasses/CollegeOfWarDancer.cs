@@ -14,10 +14,11 @@ namespace SolastaUnfinishedBusiness.Subclasses;
 
 internal sealed class CollegeOfWarDancer : AbstractSubclass
 {
+    private const string PowerWarDanceName = "CollegeOfWarDancerWarDance";
     internal CollegeOfWarDancer()
     {
         var warDance = FeatureDefinitionPowerBuilder
-            .Create("CollegeOfWarDancerWarDance")
+            .Create(PowerWarDanceName)
             .SetCustomSubFeatures(ValidatorsCharacter.HasMeleeWeaponInMainHand)
             .SetUsesFixed(ActivationTime.BonusAction, RechargeRate.BardicInspiration)
             .SetGuiPresentation(Category.Feature)
@@ -90,7 +91,7 @@ internal sealed class CollegeOfWarDancer : AbstractSubclass
                 .SetGuiPresentationNoContent(true)
                 .SetBaseSpeedAdditiveModifier(3)
                 .SetImmunities(false, false, true)
-                .SetCustomSubFeatures(new WarDanceFlurryAttack(), new RefundOneAttack())
+                .SetCustomSubFeatures(new WarDanceFlurryAttack(), new RefundOneAttack(), new ExtendedWarDanceDurationOnKill())
                 .AddToDB()
             )
             .SetCustomSubFeatures(new RemoveOnAttackMissOrAttackWithNonMeleeWeapon())
@@ -125,14 +126,19 @@ internal sealed class CollegeOfWarDancer : AbstractSubclass
             return ConditionDefinitionBuilder
                 .Create("WarDanceBane")
                 .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionBaned)
+                .SetSpecialInterruptions(ConditionInterruption.AnyBattleTurnEnd)
                 .SetFeatures(WarDanceFlurryBaneAttackModifier,
                     FeatureDefinitionActionAffinityBuilder
                         .Create("WarDanceBaneActionAffinity")
                         .SetDefaultAllowedActionTypes()
-                        .SetRestrictedActions(ActionDefinitions.Id.AttackMain)
+                        .SetForbiddenActions(ActionDefinitions.Id.CastMain, ActionDefinitions.Id.DashMain,
+                            ActionDefinitions.Id.Dodge, ActionDefinitions.Id.DisengageMain,
+                            ActionDefinitions.Id.PowerMain, ActionDefinitions.Id.UseItemMain,
+                            ActionDefinitions.Id.HideMain)
                         .AddToDB()
                 )
                 .SetCustomSubFeatures(new RemoveOnAttackMissOrAttackWithNonMeleeWeapon())
+                .SetCustomSubFeatures(ValidatorsPowerUse.HasNoCondition(ConditionWarDance.Name))
                 .AddToDB();
         }
 
@@ -174,6 +180,7 @@ internal sealed class CollegeOfWarDancer : AbstractSubclass
                 attacker.RulesetCharacter.FindFirstConditionHoldingFeature(WarDanceFlurryBaneAttackModifier);
             if (rulesetCondition == null)
             {
+                WarDanceFlurryBaneAttackModifier.attackRollModifier = -3;
                 rulesetCondition = RulesetCondition.CreateActiveCondition(
                     attacker.RulesetCharacter.Guid,
                     ConditionWarDanceFlurryBane,
@@ -230,6 +237,37 @@ internal sealed class CollegeOfWarDancer : AbstractSubclass
         if (character is RulesetCharacterHero hero && !ValidatorsWeapon.IsMelee(hero.GetMainWeapon()))
         {
             WarDanceFlurryAttack.RemoveConditionOnAttackMissOrAttackWithNonMeleeWeapon(character);
+        }
+    }
+
+    private sealed class ExtendedWarDanceDurationOnKill : ITargetReducedToZeroHp
+    {
+        public IEnumerator HandleCharacterReducedToZeroHp(
+            GameLocationCharacter attacker,
+            GameLocationCharacter downedCreature,
+            RulesetAttackMode attackMode, RulesetEffect activeEffect)
+        {
+            if (attackMode == null || activeEffect != null ||
+                !attacker.RulesetCharacter.HasConditionOfType(ConditionWarDance) ||
+                !ValidatorsWeapon.IsMelee(attackMode))
+            {
+                yield break;
+            }
+
+            if (!attacker.RulesetCharacter.TryGetConditionOfCategoryAndType(AttributeDefinitions.TagEffect,
+                    ConditionWarDance.Name, out var activeCondition))
+            {
+                yield break;
+            }
+            
+            activeCondition.remainingRounds += 1;
+            activeCondition.endOccurence =TurnOccurenceType.EndOfTurn;
+
+            foreach (var power in attacker.RulesetCharacter.powersUsedByMe.Where(power => power.Name == PowerWarDanceName))
+            {
+                power.remainingRounds += 1;
+                break;
+            }
         }
     }
 }
