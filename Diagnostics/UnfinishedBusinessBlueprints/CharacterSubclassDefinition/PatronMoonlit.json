@@ -8,23 +8,13 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:ConditionAffinityMoonlitDarknessImmunity:c833c983-1a0b-5953-8e2e-b8cb8d453bd6",
-      "level": 1
-    },
-    {
-      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:SenseSuperiorDarkvision:388ca3fa81ee8a84c831be14214fd1c0",
+      "featureDefinition": "Definition:FeatureSetMoonlitSuperiorSight:d7e7a5fb-ec38-5bb0-842a-40ef8a96440f",
       "level": 1
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:LightAffinityMoonlitWeak:c1d98666-29b4-5429-ad81-4284628b843d",
-      "level": 2
-    },
-    {
-      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:SenseBlindSight6:f921cbab3188426468f0cd35e5f93fc5",
-      "level": 6
+      "level": 1
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",

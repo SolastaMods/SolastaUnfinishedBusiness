@@ -4,7 +4,7 @@
 
 - added Chinese and Russian translations
 - added new icon to Dracronic Cry
-- added Sense Blind Sight to Patron Moonlit at 6th [should allow targeting within darkness]
+- added Devil's Sight to Patron Moonlit at 1st
 - fixed Mobile feat to grant a disengage action only after a successful melee attack
 
 1.4.32.0:

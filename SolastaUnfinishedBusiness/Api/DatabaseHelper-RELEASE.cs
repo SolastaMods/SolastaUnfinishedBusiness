@@ -1,4 +1,4 @@
-// manually generated on 11/19/2022 07:00:00 PM
+// manually generated on 12/17/2022
 using TA.AI;
 namespace SolastaUnfinishedBusiness.Api;
 internal static partial class DatabaseHelper
@@ -118,7 +118,6 @@ internal static partial class DatabaseHelper
         internal static ConditionDefinition ConditionChilledByTouch { get; } = GetDefinition<ConditionDefinition>("ConditionChilledByTouch");
         internal static ConditionDefinition ConditionConfused { get; } = GetDefinition<ConditionDefinition>("ConditionConfused");
         internal static ConditionDefinition ConditionConjuredCreature { get; } = GetDefinition<ConditionDefinition>("ConditionConjuredCreature");
-        internal static ConditionDefinition ConditionDarkness { get; } = GetDefinition<ConditionDefinition>("ConditionDarkness");
         internal static ConditionDefinition ConditionDarkvision { get; } = GetDefinition<ConditionDefinition>("ConditionDarkvision");
         internal static ConditionDefinition ConditionDazzled { get; } = GetDefinition<ConditionDefinition>("ConditionDazzled");
         internal static ConditionDefinition ConditionDead { get; } = GetDefinition<ConditionDefinition>("ConditionDead");
@@ -267,7 +266,6 @@ internal static partial class DatabaseHelper
         internal static FeatureDefinitionActionAffinity ActionAffinityConditionShocked { get; } = GetDefinition<FeatureDefinitionActionAffinity>("ActionAffinityConditionShocked");
         internal static FeatureDefinitionActionAffinity ActionAffinityFightingStyleProtection { get; } = GetDefinition<FeatureDefinitionActionAffinity>("ActionAffinityFightingStyleProtection");
         internal static FeatureDefinitionActionAffinity ActionAffinityMountaineerShieldCharge { get; } = GetDefinition<FeatureDefinitionActionAffinity>("ActionAffinityMountaineerShieldCharge");
-        internal static FeatureDefinitionActionAffinity ActionAffinityNimbleEscape { get; } = GetDefinition<FeatureDefinitionActionAffinity>("ActionAffinityNimbleEscape");
         internal static FeatureDefinitionActionAffinity ActionAffinityRangerVanish { get; } = GetDefinition<FeatureDefinitionActionAffinity>("ActionAffinityRangerVanish");
         internal static FeatureDefinitionActionAffinity ActionAffinityRogueCunningAction { get; } = GetDefinition<FeatureDefinitionActionAffinity>("ActionAffinityRogueCunningAction");
         internal static FeatureDefinitionActionAffinity ActionAffinitySorcererMetamagicToggle { get; } = GetDefinition<FeatureDefinitionActionAffinity>("ActionAffinitySorcererMetamagicToggle");
@@ -424,6 +422,7 @@ internal static partial class DatabaseHelper
         internal static FeatureDefinitionFeatureSet AdditionalDamageRangerFavoredEnemyChoice { get; } = GetDefinition<FeatureDefinitionFeatureSet>("AdditionalDamageRangerFavoredEnemyChoice");
         internal static FeatureDefinitionFeatureSet FeatureSetAbilityScoreChoice { get; } = GetDefinition<FeatureDefinitionFeatureSet>("FeatureSetAbilityScoreChoice");
         internal static FeatureDefinitionFeatureSet FeatureSetDragonbornBreathWeapon { get; } = GetDefinition<FeatureDefinitionFeatureSet>("FeatureSetDragonbornBreathWeapon");
+        internal static FeatureDefinitionFeatureSet FeatureSetInvocationDevilsSight { get; } = GetDefinition<FeatureDefinitionFeatureSet>("FeatureSetInvocationDevilsSight");
         internal static FeatureDefinitionFeatureSet FeatureSetElfFeyAncestry { get; } = GetDefinition<FeatureDefinitionFeatureSet>("FeatureSetElfFeyAncestry");
         internal static FeatureDefinitionFeatureSet FeatureSetElfHighLanguages { get; } = GetDefinition<FeatureDefinitionFeatureSet>("FeatureSetElfHighLanguages");
         internal static FeatureDefinitionFeatureSet FeatureSetGreenmageWardenOfTheForest { get; } = GetDefinition<FeatureDefinitionFeatureSet>("FeatureSetGreenmageWardenOfTheForest");
@@ -510,7 +509,6 @@ internal static partial class DatabaseHelper
         internal static FeatureDefinitionPower PowerDomainElementalFireBurst { get; } = GetDefinition<FeatureDefinitionPower>("PowerDomainElementalFireBurst");
         internal static FeatureDefinitionPower PowerDomainElementalHeraldOfTheElementsThunder { get; } = GetDefinition<FeatureDefinitionPower>("PowerDomainElementalHeraldOfTheElementsThunder");
         internal static FeatureDefinitionPower PowerDomainElementalLightningBlade { get; } = GetDefinition<FeatureDefinitionPower>("PowerDomainElementalLightningBlade");
-        internal static FeatureDefinitionPower PowerDomainLawWordOfLaw { get; } = GetDefinition<FeatureDefinitionPower>("PowerDomainLawWordOfLaw");
         internal static FeatureDefinitionPower PowerDomainLifePreserveLife { get; } = GetDefinition<FeatureDefinitionPower>("PowerDomainLifePreserveLife");
         internal static FeatureDefinitionPower PowerDomainSunHeraldOfTheSun { get; } = GetDefinition<FeatureDefinitionPower>("PowerDomainSunHeraldOfTheSun");
         internal static FeatureDefinitionPower PowerDragonbornBreathWeaponBlue { get; } = GetDefinition<FeatureDefinitionPower>("PowerDragonbornBreathWeaponBlue");
@@ -1268,7 +1266,6 @@ internal static partial class DatabaseHelper
         internal static SpellDefinition StinkingCloud { get; } = GetDefinition<SpellDefinition>("StinkingCloud");
         internal static SpellDefinition Stoneskin { get; } = GetDefinition<SpellDefinition>("Stoneskin");
         internal static SpellDefinition Thunderwave { get; } = GetDefinition<SpellDefinition>("Thunderwave");
-        internal static SpellDefinition TrueSeeing { get; } = GetDefinition<SpellDefinition>("TrueSeeing");
         internal static SpellDefinition TrueStrike { get; } = GetDefinition<SpellDefinition>("TrueStrike");
         internal static SpellDefinition VampiricTouch { get; } = GetDefinition<SpellDefinition>("VampiricTouch");
         internal static SpellDefinition VenomousSpike { get; } = GetDefinition<SpellDefinition>("VenomousSpike");
