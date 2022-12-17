@@ -128,7 +128,7 @@ ModUi/&Patches=<color=#F0DAA0>Patches:</color>
 ModUi/&PrimedItems=Primed Items
 ModUi/&Progression=<color=#F0DAA0>Progression:</color>
 ModUi/&Races=<color=#F0DAA0>Races</color>
-ModUi/&RacesClassesSubclasses=Races, Classes & Subclasses
+ModUi/&RacesClassesSubclasses=Races, Classes & Subs
 ModUi/&RecipeCost=<color=white>Recipe's cost</color>
 ModUi/&RecipesInDm=Recipes in DM
 ModUi/&RelicForgeries=Relic Forgeries
