@@ -56,23 +56,23 @@ internal static class CustomConditionsContext
             .Create(ConditionDefinitions.ConditionInvisible, "ConditionInvisibilityEveryRoundHidden")
             .SetCancellingConditions(ConditionInvisibilityEveryRoundRevealed)
             .SetSilent(Silent.WhenAddedOrRemoved)
+            .SetSpecialDuration(DurationType.Round, 1, TurnOccurenceType.StartOfTurn)
             .SetSpecialInterruptions(
                 ConditionInterruption.Attacks,
                 ConditionInterruption.CastSpell,
                 ConditionInterruption.UsePower)
-            .SetTurnOccurence(TurnOccurenceType.StartOfTurn)
             .AddToDB();
 
         var conditionInvisibilityEveryRound = ConditionDefinitionBuilder
             .Create("ConditionInvisibilityEveryRound")
             .SetGuiPresentationNoContent()
             .SetSilent(Silent.WhenAddedOrRemoved)
+            .SetSpecialDuration(DurationType.Round, 1, TurnOccurenceType.StartOfTurn)
             .SetFeatures(FeatureDefinitionBuilder
                 .Create("FeatureInvisibilityEveryRound")
                 .SetGuiPresentationNoContent()
                 .SetCustomSubFeatures(new InvisibilityEveryRoundBehavior())
                 .AddToDB())
-            .SetTurnOccurence(TurnOccurenceType.StartOfTurn)
             .AddToDB();
 
         // only reports condition on char panel
@@ -234,3 +234,5 @@ internal static class CustomConditionsContext
         }
     }
 }
+
+

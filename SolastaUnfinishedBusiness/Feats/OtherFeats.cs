@@ -229,8 +229,7 @@ internal static class OtherFeats
                                 .Create(ConditionDefinitions.ConditionFreedomOfMovement, "ConditionFeatMobileAfterDash")
                                 .SetOrUpdateGuiPresentation(Category.Condition)
                                 .SetPossessive()
-                                .SetSpecialDuration(DurationType.Round, 1)
-                                .SetTurnOccurence(TurnOccurenceType.StartOfTurn)
+                                .SetSpecialDuration(DurationType.Round, 1, TurnOccurenceType.StartOfTurn)
                                 .SetSpecialInterruptions(ConditionInterruption.AnyBattleTurnEnd)
                                 .SetFeatures(
                                     FeatureDefinitionConditionAffinitys.ConditionAffinityFreedomOfMovementRestrained,
@@ -246,8 +245,7 @@ internal static class OtherFeats
                                 .Create("ConditionFeatMobileAfterAttack")
                                 .SetGuiPresentation(Category.Condition)
                                 .SetPossessive()
-                                .SetSpecialDuration(DurationType.Round, 1)
-                                .SetTurnOccurence(TurnOccurenceType.StartOfTurn)
+                                .SetSpecialDuration(DurationType.Round, 1, TurnOccurenceType.StartOfTurn)
                                 .SetSpecialInterruptions(ConditionInterruption.AnyBattleTurnEnd)
                                 .SetFeatures(FeatureDefinitionAdditionalActionBuilder
                                     .Create("AdditionalActionFeatMobile")
@@ -327,4 +325,7 @@ internal static class OtherFeats
         }
     }
 }
+
+
+
 

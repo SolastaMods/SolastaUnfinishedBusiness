@@ -97,7 +97,6 @@ internal sealed class CircleOfTheForestGuardian : AbstractSubclass
                                     .Create(ConditionDefinitions.ConditionBarkskin, "ConditionForestGuardianBarkWard")
                                     .SetOrUpdateGuiPresentation(Category.Condition)
                                     .ClearFeatures()
-                                    .SetTurnOccurence(TurnOccurenceType.EndOfTurn)
                                     .AddToDB(),
                                 ConditionForm.ConditionOperation.Add, true, true)
                             .Build())
@@ -123,7 +122,6 @@ internal sealed class CircleOfTheForestGuardian : AbstractSubclass
                                     .Create(ConditionDefinitions.ConditionBarkskin,
                                         "ConditionForestGuardianImprovedBarkWard")
                                     .SetOrUpdateGuiPresentation(Category.Condition)
-                                    .SetTurnOccurence(TurnOccurenceType.EndOfTurn)
                                     .SetFeatures(
                                         FeatureDefinitionDamageAffinityBuilder
                                             .Create("DamageAffinityForestGuardianImprovedBarkWard")
@@ -168,7 +166,6 @@ internal sealed class CircleOfTheForestGuardian : AbstractSubclass
                                             .SetDamageType(DamageTypePoison)
                                             .SetRetaliate(powerForestGuardianSuperiorBarkWard, 1, true)
                                             .AddToDB())
-                                    .SetTurnOccurence(TurnOccurenceType.EndOfTurn)
                                     .AddToDB(),
                                 ConditionForm.ConditionOperation.Add,
                                 true,
@@ -201,3 +198,5 @@ internal sealed class CircleOfTheForestGuardian : AbstractSubclass
     internal override FeatureDefinitionSubclassChoice SubclassChoice =>
         FeatureDefinitionSubclassChoices.SubclassChoiceDruidCircle;
 }
+
+

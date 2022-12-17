@@ -624,8 +624,7 @@ internal static class CustomWeaponsContext
             .SetConditionForm(ConditionDefinitionBuilder
                 .Create(AttackedWithLauncherConditionName)
                 .SetGuiPresentationNoContent(true)
-                .SetSpecialDuration(DurationType.Round, 1)
-                .SetTurnOccurence(TurnOccurenceType.StartOfTurn)
+                .SetSpecialDuration(DurationType.Round, 1, TurnOccurenceType.StartOfTurn)
                 .AddToDB(), ConditionForm.ConditionOperation.Add, true, false)
             .Build());
 
@@ -924,3 +923,6 @@ internal sealed class CustomScale
         Z = z;
     }
 }
+
+
+

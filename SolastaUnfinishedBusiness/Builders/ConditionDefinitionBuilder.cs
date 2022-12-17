@@ -87,18 +87,6 @@ internal class ConditionDefinitionBuilder
         return this;
     }
 
-    internal ConditionDefinitionBuilder IsDetrimental()
-    {
-        Definition.conditionType = RuleDefinitions.ConditionType.Detrimental;
-        return this;
-    }
-
-    internal ConditionDefinitionBuilder SetTurnOccurence(RuleDefinitions.TurnOccurenceType value)
-    {
-        Definition.turnOccurence = value;
-        return this;
-    }
-
     internal ConditionDefinitionBuilder SetParentCondition(ConditionDefinition value)
     {
         Definition.parentCondition = value;
@@ -170,13 +158,14 @@ internal class ConditionDefinitionBuilder
     }
 
     internal ConditionDefinitionBuilder SetSpecialDuration(
-        RuleDefinitions.DurationType type,
+        RuleDefinitions.DurationType durationType = RuleDefinitions.DurationType.Round,
         int duration = 0,
+        RuleDefinitions.TurnOccurenceType turnOccurence = RuleDefinitions.TurnOccurenceType.EndOfTurn,
         bool validateDuration = true)
     {
         if (validateDuration)
         {
-            PreConditions.IsValidDuration(type, duration);
+            PreConditions.IsValidDuration(durationType, duration);
         }
 
         if (duration != 0)
@@ -186,7 +175,8 @@ internal class ConditionDefinitionBuilder
 
         Definition.specialDuration = true;
         Definition.durationParameter = duration;
-        Definition.durationType = type;
+        Definition.durationType = durationType;
+        Definition.turnOccurence = turnOccurence;
         return this;
     }
 
@@ -248,3 +238,6 @@ internal class ConditionDefinitionBuilder
 
     #endregion
 }
+
+
+
