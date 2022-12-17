@@ -581,7 +581,7 @@ internal static class CustomWeaponsContext
                 .Create(CONDITION_NAME)
                 .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionDistracted)
                 .SetConditionType(ConditionType.Detrimental)
-                .SetAllowMultipleInstances(true)
+                .AllowMultipleInstances()
                 .SetSpecialDuration(DurationType.Round, 1)
                 .SetFeatures(FeatureDefinitionCombatAffinityBuilder
                     .Create("CombatAffinityThunderGauntletDistract")
@@ -923,6 +923,7 @@ internal sealed class CustomScale
         Z = z;
     }
 }
+
 
 
 

@@ -57,7 +57,7 @@ internal sealed class PathOfTheLight : AbstractSubclass
         var conditionPathOfTheLightIlluminated = ConditionDefinitionBuilder
             .Create(ConditionPathOfTheLightIlluminatedName)
             .SetGuiPresentation(Category.Condition, ConditionBranded)
-            .SetAllowMultipleInstances(true)
+            .AllowMultipleInstances()
             .SetConditionType(ConditionType.Detrimental)
             .SetSpecialDuration(DurationType.Irrelevant)
             .SetSilent(Silent.WhenAdded)
@@ -234,7 +234,7 @@ internal sealed class PathOfTheLight : AbstractSubclass
                             .Create("ConditionPathOfTheLightIlluminatedByBurst")
                             .SetGuiPresentation("ConditionPathOfTheLightIlluminated", Category.Condition,
                                 ConditionBranded)
-                            .SetAllowMultipleInstances(true)
+                            .AllowMultipleInstances()
                             .SetConditionType(ConditionType.Detrimental)
                             .SetParentCondition(conditionPathOfTheLightIlluminated)
                             .SetSilent(Silent.WhenAdded)
@@ -392,6 +392,7 @@ internal sealed class PathOfTheLight : AbstractSubclass
         public CharacterClassDefinition Class => CharacterClassDefinitions.Barbarian;
     }
 }
+
 
 
 

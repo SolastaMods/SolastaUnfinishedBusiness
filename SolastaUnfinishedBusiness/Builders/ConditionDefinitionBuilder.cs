@@ -37,9 +37,9 @@ internal class ConditionDefinitionBuilder
         SetEmptyParticleReferencesWhereNull(Definition);
     }
 
-    internal ConditionDefinitionBuilder SetAllowMultipleInstances(bool value)
+    internal ConditionDefinitionBuilder AllowMultipleInstances()
     {
-        Definition.allowMultipleInstances = value;
+        Definition.allowMultipleInstances = true;
         return this;
     }
 
@@ -102,12 +102,6 @@ internal class ConditionDefinitionBuilder
     internal ConditionDefinitionBuilder SetCharacterShaderReference(AssetReference value)
     {
         Definition.characterShaderReference = value;
-        return this;
-    }
-
-    internal ConditionDefinitionBuilder ClearFeatures()
-    {
-        Definition.Features.Clear();
         return this;
     }
 
@@ -238,6 +232,7 @@ internal class ConditionDefinitionBuilder
 
     #endregion
 }
+
 
 
 

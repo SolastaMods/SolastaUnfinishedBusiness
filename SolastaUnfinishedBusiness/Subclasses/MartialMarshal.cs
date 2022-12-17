@@ -259,7 +259,7 @@ internal sealed class MartialMarshal : AbstractSubclass
             .Create(ConditionKindredSpiritBondHP, "ConditionMarshalEternalComradeHP")
             .SetGuiPresentationNoContent(true)
             .SetAmountOrigin(ExtraOriginOfAmount.SourceClassLevel)
-            .SetAllowMultipleInstances(true)
+            .AllowMultipleInstances()
             .SetAdditionalDamageType(FighterClass)
             .AddToDB();
 
@@ -573,5 +573,6 @@ internal sealed class MartialMarshal : AbstractSubclass
         }
     }
 }
+
 
 
