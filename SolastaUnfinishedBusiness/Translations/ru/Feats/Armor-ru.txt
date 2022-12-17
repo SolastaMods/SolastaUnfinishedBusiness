@@ -1,0 +1,4 @@
+Feat/&FeatMediumArmorDexDescription=Увеличьте свою Ловкость на 1, максимум до 20.\nВы получаете владение средней броней и щитами.
+Feat/&FeatMediumArmorDexTitle=Средняя броня (ЛВК)
+Feat/&FeatMediumArmorStrDescription=Увеличьте свою Силу на 1, максимум до 20.\nВы получаете владение средними доспехами и щитами.
+Feat/&FeatMediumArmorStrTitle=Средняя броня (СИЛА)

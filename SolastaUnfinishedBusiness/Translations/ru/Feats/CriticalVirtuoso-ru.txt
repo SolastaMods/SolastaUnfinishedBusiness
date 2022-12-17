@@ -1,0 +1,4 @@
+﻿Feat/&FeatImprovedCriticalDescription=Ваши атаки становятся критическими при броске 19 и 20.
+Feat/&FeatImprovedCriticalTitle=Улучшенные Критические
+Feat/&FeatSuperiorCriticalDescription=Ваши атаки становятся критическими при броске 18, 19 и 20.
+Feat/&FeatSuperiorCriticalTitle=Супер Критические

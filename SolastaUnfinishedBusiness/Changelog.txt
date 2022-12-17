@@ -1,5 +1,5 @@
 ﻿CHANGES:
 
-- added Chinese translation
+- added Chinese and Russian translations
 - added new icon to Dracronic Cry
-- fixed Mobile feat to grant a disengage action only on melee attacks
+- fixed Mobile feat to grant a disengage action only after a successful melee attack
