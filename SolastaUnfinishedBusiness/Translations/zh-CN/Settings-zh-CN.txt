@@ -178,3 +178,5 @@ ModUi/&UseOfficialAdvantageDisadvantageRules=应用官方的优势/劣势规则
 ModUi/&Visuals=<color=#F0DAA0>视效：</color> <b><i><color=#C04040E0>【需要重启游戏】</color></i></b>
 ModUi/&DisableRacePrerequisitesOnModFeats=无视此MOD提供的部分专长所需要的种族先决条件
 ModUi/&EncounterPercentageChance=<color=white>设置随机遭遇的几率</color>
+ModUi/&FixEldritchBlastRange=将 <color=#D89555>魔能爆</color> 的施法距离更改为 120 尺 <i><color=#F0DAA0>【而非 80 尺】</color></i>
+ModUi/&AllowMoreRealStateOnRestPanel=在休息面板上允许显示更多真实状态
