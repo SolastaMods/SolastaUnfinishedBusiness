@@ -221,7 +221,7 @@ internal static class TranslatorContext
 #else
     private
 #endif
-        static IEnumerable<string> GetTranslations(string languageCode)
+    static IEnumerable<string> GetTranslations(string languageCode)
     {
         using var zipStream = new MemoryStream(Resources.Translations);
         using var zip = new ZipArchive(zipStream, ZipArchiveMode.Read);
@@ -278,15 +278,14 @@ internal static class TranslatorContext
         var finalTerms = languageCode != English ? GetDefaultTerms(languageCode) : defaultTerms;
 
         // we loop on default EN terms collection as this is the one to be trusted but ensure we consider Fixes-*
-        foreach (var kvp in defaultTerms.Union(finalTerms.Except(defaultTerms)))
+        foreach (var term in defaultTerms.Keys.Union(finalTerms.Keys.Except(defaultTerms.Keys)))
         {
-            var term = kvp.Key;
             var termData = languageSourceData.GetTermData(term);
 
             // if we find a translated term them we use it otherwise fall back to EN default
             if (!finalTerms.TryGetValue(term, out var text))
             {
-                text = kvp.Value;
+                text = defaultTerms[term];
             }
 
             if (termData?.Languages[languageIndex] != null)
@@ -308,6 +307,19 @@ internal static class TranslatorContext
         }
 
         Main.Info($"{lineCount} {languageCode} translation terms loaded.");
+
+        // creates a report on missing terms
+        if (languageCode == English)
+        {
+            return;
+        }
+
+        {
+            foreach (var term in defaultTerms.Keys.Except(finalTerms.Keys))
+            {
+                Main.Info($"{term} is missing from {languageCode} translation assets");
+            }
+        }
     }
 
     internal static bool HasTranslation(string term)
