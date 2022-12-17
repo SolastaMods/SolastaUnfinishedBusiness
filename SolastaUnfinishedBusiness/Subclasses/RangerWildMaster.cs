@@ -584,8 +584,7 @@ internal sealed class RangerWildMaster : AbstractSubclass
             .Create(CommandSpiritBeastCondition)
             .SetGuiPresentationNoContent()
             .SetSilent(Silent.WhenAddedOrRemoved)
-            .SetSpecialDuration(DurationType.Round, 1)
-            .SetTurnOccurence(TurnOccurenceType.StartOfTurn)
+            .SetSpecialDuration(DurationType.Round, 1, TurnOccurenceType.StartOfTurn)
             .AddToDB();
 
         var powerWildMasterSpiritBeastCommand = FeatureDefinitionPowerBuilder
@@ -705,3 +704,6 @@ internal sealed class RangerWildMaster : AbstractSubclass
         }
     }
 }
+
+
+

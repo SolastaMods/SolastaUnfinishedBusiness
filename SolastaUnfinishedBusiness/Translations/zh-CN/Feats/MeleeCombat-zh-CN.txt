@@ -1,0 +1,13 @@
+Feat/&FeatPiercerDexDescription=你的敏捷+1，最高20。每回合一次，当你用造成穿刺伤害的攻击命中一个生物时，你可以重骰其中一个伤害骰。你必须使用重投的结果。当你用造成穿刺伤害的攻击命中一个生物并且造成重击时，你可以在计算重击伤害时投一个额外的伤害骰。
+Feat/&FeatPiercerDexTitle=穿刺者【敏捷】
+Feat/&FeatPiercerReroll=由于穿刺者专长， {0} 将 {1} 骰子从 {2} 重新掷到 {3}
+Feat/&FeatPiercerStrDescription=你的力量+1，最高20。每回合一次，当你用造成穿刺伤害的攻击命中一个生物时，你可以重骰其中一个伤害骰。你必须使用重投的结果。当你用造成穿刺伤害的攻击命中一个生物并且造成重击时，你可以在计算重击伤害时投一个额外的伤害骰。 
+Feat/&FeatPiercerStrTitle=穿刺者【力量】
+Feat/&FeatPowerAttackDescription=你已经学会了用准确性换取更致命的打击。 当使用近战武器攻击时，你可以选择对你的攻击进行 -{0} 惩罚，以便造成额外的伤害，该伤害等于 {0} + 你的熟练加值。
+Feat/&FeatPowerAttackTitle=猛力攻击
+Feat/&FeatSavageAttackDescription=骰出 1 时重掷武器和法术伤害骰子（并非所有伤害源都重掷骰子。例如，偷袭和重击伤害不会重掷）。
+Feat/&FeatSavageAttackReroll=由于凶蛮打击专长，{0} 将 {1} 骰子从 {2} 重掷为 {3}
+Feat/&FeatSavageAttackTitle=凶蛮打击
+Feedback/&AdditionalDamagePiercerFormat=穿刺者!
+Feedback/&AdditionalDamagePiercerLine={0} 对 {1} (+{2}) 进行穿刺攻击
+Tooltip/&PowerAttackConcentration=关闭猛力攻击

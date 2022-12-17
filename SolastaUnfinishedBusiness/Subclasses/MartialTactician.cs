@@ -198,8 +198,7 @@ internal sealed class MartialTactician : AbstractSubclass
                 //by default this condition is applied under Effects tag, which is removed right at death - too early for us to detect
                 //this feature will add this effect under Combat tag, which is not removed
                 new ForceConditionCategory(AttributeDefinitions.TagCombat))
-            .SetSpecialDuration(DurationType.Round, 1)
-            .SetTurnOccurence(TurnOccurenceType.StartOfTurn)
+            .SetSpecialDuration(DurationType.Round, 1, TurnOccurenceType.StartOfTurn)
             .AddToDB();
 
         return feature;
@@ -622,8 +621,7 @@ internal sealed class MartialTactician : AbstractSubclass
                             .SetSituationalContext(ExtraSituationalContext.TargetIsNotEffectSource)
                             .AddToDB())
                         //Lasts until the end of the target's turn
-                        .SetSpecialDuration(DurationType.Round, 0, false)
-                        .SetTurnOccurence(TurnOccurenceType.EndOfTurn)
+                        .SetSpecialDuration(DurationType.Round, 0, TurnOccurenceType.EndOfTurn, false)
                         .AddToDB(), ConditionForm.ConditionOperation.Add)
                     .Build())
                 .Build())
@@ -785,7 +783,7 @@ internal sealed class MartialTactician : AbstractSubclass
         var bad = ConditionDefinitionBuilder
             .Create($"Condition{name}Bad")
             .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionBranded)
-            .IsDetrimental()
+            .SetConditionType(ConditionType.Detrimental)
             .SetSilent(Silent.None)
             .SetAmountOrigin(ExtraOriginOfAmount.SourceProficiencyBonusNegative)
             .SetFeatures(FeatureDefinitionAttributeModifierBuilder
@@ -1581,3 +1579,6 @@ internal sealed class MartialTactician : AbstractSubclass
         }
     }
 }
+
+
+

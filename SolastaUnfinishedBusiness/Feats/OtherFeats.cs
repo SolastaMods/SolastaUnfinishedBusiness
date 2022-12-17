@@ -3,6 +3,7 @@ using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.Infrastructure;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
+using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Properties;
@@ -227,8 +228,8 @@ internal static class OtherFeats
                             ConditionDefinitionBuilder
                                 .Create(ConditionDefinitions.ConditionFreedomOfMovement, "ConditionFeatMobileAfterDash")
                                 .SetOrUpdateGuiPresentation(Category.Condition)
-                                .SetTurnOccurence(TurnOccurenceType.StartOfTurn)
                                 .SetPossessive()
+                                .SetSpecialDuration(DurationType.Round, 1, TurnOccurenceType.StartOfTurn)
                                 .SetSpecialInterruptions(ConditionInterruption.AnyBattleTurnEnd)
                                 .SetFeatures(
                                     FeatureDefinitionConditionAffinitys.ConditionAffinityFreedomOfMovementRestrained,
@@ -238,15 +239,21 @@ internal static class OtherFeats
                 FeatureDefinitionBuilder
                     .Create("OnAttackHitEffectFeatMobile")
                     .SetGuiPresentationNoContent(true)
-                    .SetCustomSubFeatures(new OnAttackHitEffectFeatMobile(
-                        ConditionDefinitionBuilder
-                            .Create("ConditionFeatMobileAfterAttack")
-                            .SetGuiPresentation(Category.Condition)
-                            .SetTurnOccurence(TurnOccurenceType.StartOfTurn)
-                            .SetPossessive()
-                            .SetSpecialInterruptions(ConditionInterruption.AnyBattleTurnEnd)
-                            .SetFeatures(FeatureDefinitionActionAffinitys.ActionAffinityNimbleEscape)
-                            .AddToDB()))
+                    .SetCustomSubFeatures(
+                        new OnAttackHitEffectFeatMobile(
+                            ConditionDefinitionBuilder
+                                .Create("ConditionFeatMobileAfterAttack")
+                                .SetGuiPresentation(Category.Condition)
+                                .SetPossessive()
+                                .SetSpecialDuration(DurationType.Round, 1, TurnOccurenceType.StartOfTurn)
+                                .SetSpecialInterruptions(ConditionInterruption.AnyBattleTurnEnd)
+                                .SetFeatures(FeatureDefinitionAdditionalActionBuilder
+                                    .Create("AdditionalActionFeatMobile")
+                                    .SetGuiPresentationNoContent(true)
+                                    .SetActionType(ActionDefinitions.ActionType.Main)
+                                    .SetRestrictedActions(ActionDefinitions.Id.DisengageMain)
+                                    .AddToDB())
+                                .AddToDB()))
                     .AddToDB())
             .SetAbilityScorePrerequisite(AttributeDefinitions.Dexterity, 13)
             .AddToDB();
@@ -300,7 +307,7 @@ internal static class OtherFeats
             RulesetAttackMode attackMode,
             ActionModifier attackModifier)
         {
-            if (attackMode == null || outcome is RollOutcome.Failure or RollOutcome.CriticalFailure)
+            if (!ValidatorsWeapon.IsMelee(attackMode) || outcome is RollOutcome.Failure or RollOutcome.CriticalFailure)
             {
                 return;
             }
@@ -318,3 +325,7 @@ internal static class OtherFeats
         }
     }
 }
+
+
+
+

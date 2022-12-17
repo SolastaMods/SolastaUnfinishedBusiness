@@ -24,8 +24,7 @@ internal static class MeleeCombatFeats
             new AfterAttackEffectFeatPiercer(ConditionDefinitionBuilder
                 .Create("ConditionFeatPiercerNonMagic")
                 .SetGuiPresentationNoContent(true)
-                .SetTurnOccurence(TurnOccurenceType.EndOfTurn)
-                .SetPossessive()
+                .SetSpecialDuration(DurationType.Round, 1)
                 .SetSpecialInterruptions(ConditionInterruption.Attacked)
                 .SetFeatures(
                     FeatureDefinitionDieRollModifierBuilder
@@ -294,3 +293,6 @@ internal static class MeleeCombatFeats
         }
     }
 }
+
+
+

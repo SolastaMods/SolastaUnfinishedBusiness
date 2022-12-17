@@ -30,6 +30,8 @@ internal static class CreditsDisplay
         ("RedOrca", "Path of The Light"),
         ("DreadMaker", "Forest Guardian"),
         ("Bazou", "fighting styles, rules, spells"),
+        ("Prioritizer", "Russian translations"),
+        ("xxy961216", "Chinese translations"),
         ("Balmz", "some powers and spells icons")
     };
 

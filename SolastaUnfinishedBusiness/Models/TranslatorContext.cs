@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
@@ -227,7 +228,7 @@ internal static class TranslatorContext
         using var zip = new ZipArchive(zipStream, ZipArchiveMode.Read);
 
         foreach (var entry in zip.Entries
-                     .Where(x => x.FullName.EndsWith($"{languageCode}.txt")))
+                     .Where(x => x.FullName.StartsWith(languageCode) && x.FullName.EndsWith($"{languageCode}.txt")))
         {
             using var dataStream = entry.Open();
             using var data = new StreamReader(dataStream);
@@ -239,11 +240,30 @@ internal static class TranslatorContext
         }
     }
 
-    private static Dictionary<string, string> GetDefaultTerms(string languageCode)
+    private static IEnumerable<string> GetTranslationsFixes(string languageCode)
+    {
+        using var zipStream = new MemoryStream(Resources.Translations);
+        using var zip = new ZipArchive(zipStream, ZipArchiveMode.Read);
+
+        foreach (var entry in zip.Entries
+                     .Where(x => x.FullName == $"Fixes-{languageCode}.txt"))
+        {
+            using var dataStream = entry.Open();
+            using var data = new StreamReader(dataStream);
+
+            while (!data.EndOfStream)
+            {
+                yield return data.ReadLine();
+            }
+        }
+    }
+
+    private static Dictionary<string, string> GetTermsDict(string languageCode,
+        Func<string, IEnumerable<string>> getTranslations)
     {
         var result = new Dictionary<string, string>();
 
-        foreach (var line in GetTranslations(languageCode))
+        foreach (var line in getTranslations(languageCode))
         {
             if (line == null)
             {
@@ -273,21 +293,13 @@ internal static class TranslatorContext
         var languageCode = LocalizationManager.CurrentLanguageCode;
         var languageSourceData = LocalizationManager.Sources[0];
         var languageIndex = languageSourceData.GetLanguageIndex(LocalizationManager.CurrentLanguage);
-        var lineCount = 0;
-        var defaultTerms = GetDefaultTerms(English);
-        var finalTerms = languageCode != English ? GetDefaultTerms(languageCode) : defaultTerms;
+        var englishTerms = GetTermsDict(English, GetTranslations);
+        var currentLanguageTerms = languageCode != English ? GetTermsDict(languageCode, GetTranslations) : englishTerms;
+        var fixedTerms = GetTermsDict(languageCode, GetTranslationsFixes);
 
-        // we loop on default EN terms collection as this is the one to be trusted but ensure we consider Fixes-*
-        foreach (var kvp in defaultTerms.Union(finalTerms.Except(defaultTerms)))
+        void AddTerm(string term, string text)
         {
-            var term = kvp.Key;
             var termData = languageSourceData.GetTermData(term);
-
-            // if we find a translated term them we use it otherwise fall back to EN default
-            if (!finalTerms.TryGetValue(term, out var text))
-            {
-                text = kvp.Value;
-            }
 
             if (termData?.Languages[languageIndex] != null)
             {
@@ -303,11 +315,62 @@ internal static class TranslatorContext
             {
                 languageSourceData.AddTerm(term).Languages[languageIndex] = text;
             }
+        }
+
+        // loads mod translations
+        // we loop on default EN terms collection as this is the one to be trusted
+        var lineCount = 0;
+        
+        foreach (var term in englishTerms.Keys)
+        {
+            // if we find a translated term them we use it otherwise fall back to EN default
+            if (!currentLanguageTerms.TryGetValue(term, out var text))
+            {
+                text = englishTerms[term];
+            }
+
+            AddTerm(term, text);
 
             lineCount++;
         }
 
         Main.Info($"{lineCount} {languageCode} translation terms loaded.");
+        
+        // loads official translations fixes
+        lineCount = 0;
+        
+        foreach (var term in fixedTerms.Keys)
+        {
+            var text = fixedTerms[term];
+
+            AddTerm(term, text);
+
+            lineCount++;
+        }
+
+        Main.Info($"{lineCount} {languageCode} translation fixes loaded.");
+
+        // creates a report on missing terms
+        if (languageCode == English)
+        {
+            return;
+        }
+
+        {
+            Main.Info("ADD THESE TERMS:");
+
+            foreach (var term in englishTerms.Keys.Except(currentLanguageTerms.Keys))
+            {
+                Main.Info($"{term} is missing from {languageCode} translation assets");
+            }
+
+            Main.Info("DELETE THESE TERMS:");
+
+            foreach (var term in currentLanguageTerms.Keys.Except(englishTerms.Keys))
+            {
+                Main.Info($"{term} must be deleted from {languageCode} translation assets");
+            }
+        }
     }
 
     internal static bool HasTranslation(string term)
@@ -553,3 +616,5 @@ internal static class TranslatorContext
         }
     }
 }
+
+

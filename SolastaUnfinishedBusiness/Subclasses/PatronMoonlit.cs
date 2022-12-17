@@ -4,6 +4,7 @@ using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.Models;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterSubclassDefinitions;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionFeatureSets;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionMovementAffinitys;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionMoveModes;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionSenses;
@@ -59,12 +60,17 @@ internal sealed class PatronMoonlit : AbstractSubclass
             })
             .AddToDB();
 
-        // should probably be expanded to include a magic affinity that has immunity to darkness spells as well
-        var conditionAffinityMoonlitDarknessImmunity = FeatureDefinitionConditionAffinityBuilder
-            .Create("ConditionAffinityMoonlitDarknessImmunity")
+        var featureSetMoonlitSuperiorSight = FeatureDefinitionFeatureSetBuilder
+            .Create(FeatureSetInvocationDevilsSight, "FeatureSetMoonlitSuperiorSight")
             .SetGuiPresentation(Category.Feature)
-            .SetConditionAffinityType(ConditionAffinityType.Immunity)
-            .SetConditionType(DatabaseHelper.ConditionDefinitions.ConditionDarkness)
+            .AddFeatureSet(SenseSuperiorDarkvision)
+            .AddToDB();
+        
+        //TODO: this was kept for backward compatibility. remove on next major game version
+        _ = FeatureDefinitionConditionAffinityBuilder
+            .Create("ConditionAffinityMoonlitDarknessImmunity")
+            .SetGuiPresentationNoContent(true)
+            .SetConditionAffinityType(ConditionAffinityType.None)
             .AddToDB();
 
         var powerMoonlitDarkMoon = FeatureDefinitionPowerBuilder
@@ -159,10 +165,9 @@ internal sealed class PatronMoonlit : AbstractSubclass
             .Create("PatronMoonlit")
             .SetGuiPresentation(Category.Subclass, RangerShadowTamer)
             .AddFeaturesAtLevel(1,
+                lightAffinityMoonlitWeak,
                 magicAffinityMoonlitExpandedSpells,
-                conditionAffinityMoonlitDarknessImmunity,
-                SenseSuperiorDarkvision)
-            .AddFeaturesAtLevel(2, lightAffinityMoonlitWeak)
+                featureSetMoonlitSuperiorSight)
             .AddFeaturesAtLevel(6,
                 lightAffinityMoonlitStrong,
                 powerMoonlitDarkMoon,
@@ -180,3 +185,4 @@ internal sealed class PatronMoonlit : AbstractSubclass
     internal override FeatureDefinitionSubclassChoice SubclassChoice => DatabaseHelper.FeatureDefinitionSubclassChoices
         .SubclassChoiceWarlockOtherworldlyPatrons;
 }
+

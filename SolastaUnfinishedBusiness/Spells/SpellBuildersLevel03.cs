@@ -121,8 +121,7 @@ internal static partial class SpellBuilders
             .Create(ConditionHindered_By_Frost, "ConditionSpiritShroudHinder")
             .SetSilent(Silent.None)
             .SetConditionType(ConditionType.Detrimental)
-            .SetSpecialDuration(DurationType.Round, 1)
-            .SetTurnOccurence(TurnOccurenceType.StartOfTurn)
+            .SetSpecialDuration(DurationType.Round, 1, TurnOccurenceType.StartOfTurn)
             .CopyParticleReferences(ConditionSpiritGuardians)
             .AddToDB();
 
@@ -131,8 +130,7 @@ internal static partial class SpellBuilders
             .SetGuiPresentation(Category.Condition, ConditionChilledByTouch.GuiPresentation.SpriteReference)
             .SetConditionType(ConditionType.Detrimental)
             .SetFeatures(FeatureDefinitionHealingModifiers.HealingModifierChilledByTouch)
-            .SetSpecialDuration(DurationType.Round, 1)
-            .SetTurnOccurence(TurnOccurenceType.StartOfTurn)
+            .SetSpecialDuration(DurationType.Round, 1, TurnOccurenceType.StartOfTurn)
             .AddToDB();
 
         var sprite = Sprites.GetSprite("SpiritShroud", Resources.SpiritShroud, 128);
@@ -217,3 +215,6 @@ internal static partial class SpellBuilders
 
     #endregion
 }
+
+
+
