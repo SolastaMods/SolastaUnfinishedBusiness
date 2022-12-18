@@ -48,6 +48,7 @@ internal static class OtherFeats
         var featWarCaster = BuildWarcaster();
         var featMobile = BuildMobile();
         var featPoisonousSkin = BuildPoisonousSkin();
+        var featAstralArms = BuildAstralArms();
 
         feats.AddRange(
             featHealer,
@@ -56,7 +57,8 @@ internal static class OtherFeats
             featTough,
             featWarCaster,
             featMobile,
-            featPoisonousSkin);
+            featPoisonousSkin,
+            featAstralArms);
 
         GroupFeats.MakeGroup("FeatGroupBodyResilience", null,
             FeatDefinitions.BadlandsMarauder,
@@ -302,6 +304,24 @@ internal static class OtherFeats
             .AddToDB();
     }
 
+    private static FeatDefinition BuildAstralArms()
+    {
+        return FeatDefinitionBuilder
+            .Create("FeatAstral Arms")
+            .SetGuiPresentation(Category.Feat)
+            .SetFeatures(
+                FeatureDefinitionBuilder
+                    .Create("ModifyAttackModeForWeaponFeatAstral Arms")
+                    .SetGuiPresentationNoContent(true)
+                    .SetCustomSubFeatures(new ModifyAttackModeForWeaponFeatAstralArms())
+                    .AddToDB())
+            .AddToDB();
+    }
+
+    //
+    // HELPERS
+    //
+
     private sealed class OnAfterActionFeatMobileDash : IOnAfterActionFeature
     {
         private readonly ConditionDefinition _conditionDefinition;
@@ -426,7 +446,22 @@ internal static class OtherFeats
             // empty
         }
     }
+
+    private sealed class ModifyAttackModeForWeaponFeatAstralArms : IModifyAttackModeForWeapon
+    {
+        public void ModifyAttackMode(RulesetCharacter character, RulesetAttackMode attackMode)
+        {
+            if (!ValidatorsWeapon.IsUnarmedWeapon(attackMode))
+            {
+                return;
+            }
+
+            attackMode.reach = true;
+            attackMode.reachRange = 2;
+        }
+    }
 }
+
 
 
 
