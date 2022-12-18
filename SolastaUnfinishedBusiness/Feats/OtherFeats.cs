@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.Infrastructure;
 using SolastaUnfinishedBusiness.Builders;
@@ -18,6 +19,26 @@ internal static class OtherFeats
     internal const string FeatWarCaster = "FeatWarCaster";
     internal const string MagicAffinityFeatWarCaster = "MagicAffinityFeatWarCaster";
 
+    private static readonly FeatureDefinitionPower PowerFeatPoisonousSkin = FeatureDefinitionPowerBuilder
+        .Create("PowerFeatPoisonousSkin")
+        .SetGuiPresentationNoContent(true)
+        .SetEffectDescription(EffectDescriptionBuilder
+            .Create()
+            .SetHasSavingThrow(
+                AttributeDefinitions.Constitution,
+                EffectDifficultyClassComputation.AbilityScoreAndProficiency,
+                AttributeDefinitions.Constitution)
+            .SetEffectForms(EffectFormBuilder
+                .Create()
+                .HasSavingThrow(EffectSavingThrowType.Negates, TurnOccurenceType.StartOfTurn)
+                .SetConditionForm(ConditionDefinitions.ConditionPoisoned, ConditionForm.ConditionOperation.Add)
+                .CanSaveToCancel(TurnOccurenceType.EndOfTurn)
+                .Build())
+            .SetDurationData(DurationType.Minute, 1)
+            .SetRecurrentEffect(RecurrentEffect.OnTurnStart | RecurrentEffect.OnActivation)
+            .Build())
+        .AddToDB();
+
     internal static void CreateFeats([NotNull] List<FeatDefinition> feats)
     {
         var featHealer = BuildHealer();
@@ -26,8 +47,16 @@ internal static class OtherFeats
         var featTough = BuildTough();
         var featWarCaster = BuildWarcaster();
         var featMobile = BuildMobile();
+        var featPoisonousSkin = BuildPoisonousSkin();
 
-        feats.AddRange(featHealer, featInspiringLeader, featPickPocket, featTough, featWarCaster, featMobile);
+        feats.AddRange(
+            featHealer,
+            featInspiringLeader,
+            featPickPocket,
+            featTough,
+            featWarCaster,
+            featMobile,
+            featPoisonousSkin);
 
         GroupFeats.MakeGroup("FeatGroupBodyResilience", null,
             FeatDefinitions.BadlandsMarauder,
@@ -48,13 +77,13 @@ internal static class OtherFeats
             FeatDefinitions.FlawlessConcentration,
             FeatDefinitions.PowerfulCantrip,
             featWarCaster);
+
         group.mustCastSpellsPrerequisite = true;
     }
 
     private static FeatDefinition BuildHealer()
     {
         var spriteMedKit = Sprites.GetSprite("PowerMedKit", Resources.PowerMedKit, 128);
-
         var powerFeatHealerMedKit = FeatureDefinitionPowerBuilder
             .Create("PowerFeatHealerMedKit")
             .SetGuiPresentation(Category.Feature, spriteMedKit)
@@ -78,7 +107,6 @@ internal static class OtherFeats
             .AddToDB();
 
         var spriteResuscitate = Sprites.GetSprite("PowerResuscitate", Resources.PowerResuscitate, 128);
-
         var powerFeatHealerResuscitate = FeatureDefinitionPowerBuilder
             .Create("PowerFeatHealerResuscitate")
             .SetGuiPresentation(Category.Feature, spriteResuscitate)
@@ -101,7 +129,6 @@ internal static class OtherFeats
             .AddToDB();
 
         var spriteStabilize = Sprites.GetSprite("PowerStabilize", Resources.PowerStabilize, 128);
-
         var powerFeatHealerStabilize = FeatureDefinitionPowerBuilder
             .Create("PowerFeatHealerStabilize")
             .SetGuiPresentation(Category.Feature, spriteStabilize)
@@ -259,6 +286,22 @@ internal static class OtherFeats
             .AddToDB();
     }
 
+    private static FeatDefinition BuildPoisonousSkin()
+    {
+        return FeatDefinitionBuilder
+            .Create("FeatPoisonousSkin")
+            .SetGuiPresentation(Category.Feat)
+            .SetFeatures(
+                FeatureDefinitionBuilder
+                    .Create("OnAttackHitEffectFeatPoisonousSkin")
+                    .SetGuiPresentationNoContent(true)
+                    .SetCustomSubFeatures(
+                        new OnAttackHitEffectFeatPoisonousSkin(),
+                        new CustomConditionFeatureFeatPoisonousSkin())
+                    .AddToDB())
+            .AddToDB();
+    }
+
     private sealed class OnAfterActionFeatMobileDash : IOnAfterActionFeature
     {
         private readonly ConditionDefinition _conditionDefinition;
@@ -324,7 +367,67 @@ internal static class OtherFeats
             attacker.RulesetCharacter.AddConditionOfCategory(AttributeDefinitions.TagCombat, rulesetCondition);
         }
     }
+
+    private sealed class OnAttackHitEffectFeatPoisonousSkin : IAfterAttackEffect
+    {
+        public void AfterOnAttackHit(
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            RollOutcome outcome,
+            CharacterActionParams actionParams,
+            RulesetAttackMode attackMode,
+            ActionModifier attackModifier)
+        {
+            if (!ValidatorsWeapon.IsUnarmedWeapon(attackMode) ||
+                outcome is RollOutcome.Failure or RollOutcome.CriticalFailure)
+            {
+                return;
+            }
+
+            var rulesetAttacker = attacker.RulesetCharacter;
+            var usablePower = new RulesetUsablePower(PowerFeatPoisonousSkin, null, null);
+            var effectPower = new RulesetEffectPower(rulesetAttacker, usablePower);
+            var hasEffect = defender.AffectingGlobalEffects.Any(x =>
+                x is RulesetEffectPower rulesetEffectPower &&
+                rulesetEffectPower.PowerDefinition != PowerFeatPoisonousSkin);
+
+            if (!hasEffect)
+            {
+                effectPower.ApplyEffectOnCharacter(defender.RulesetCharacter, true, defender.LocationPosition);
+            }
+        }
+    }
+
+    private class CustomConditionFeatureFeatPoisonousSkin : ICustomConditionFeature
+    {
+        public void ApplyFeature(RulesetCharacter target, RulesetCondition rulesetCondition)
+        {
+            var conditionDefinition = rulesetCondition.ConditionDefinition;
+
+            if (!conditionDefinition.Name.Contains("Grappled"))
+            {
+                return;
+            }
+
+            if (!RulesetEntity.TryGetEntity<RulesetCharacter>(rulesetCondition.SourceGuid, out var rulesetAttacker))
+            {
+                return;
+            }
+
+            var usablePower = new RulesetUsablePower(PowerFeatPoisonousSkin, null, null);
+            var effectPower = new RulesetEffectPower(rulesetAttacker, usablePower);
+            var targetLocationCharacter = GameLocationCharacter.GetFromActor(target);
+
+            effectPower.ApplyEffectOnCharacter(target, true, targetLocationCharacter.LocationPosition);
+        }
+
+        public void RemoveFeature(RulesetCharacter target, RulesetCondition rulesetCondition)
+        {
+            // empty
+        }
+    }
 }
+
 
 
 
