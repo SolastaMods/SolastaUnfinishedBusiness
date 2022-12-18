@@ -2,8 +2,8 @@
 
 1.4.32.2:
 
-- added Character > General > Visuals setting to allow horns on any race [chifrudo de uma égua, oxente!]
-- added Astral Arms and Poisonous Skin feats
+- added Character > General > Visuals setting to allow horns on any race
+- added Astral Arms, Bow Mastery and Poisonous Skin feats
 - changed College of Life fly power to endure until any rest
 
 1.4.32.1:
