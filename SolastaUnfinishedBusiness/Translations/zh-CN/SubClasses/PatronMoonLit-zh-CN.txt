@@ -2,9 +2,9 @@
 Condition/&ConditionMoonlitMoonTouchedTitle=月之亲和
 Feature/&BonusCantripsMoonlitDescription=你对月光的控制力已提高到新的境界。你能随意施放月光和精灵之火法术
 Feature/&BonusCantripsMoonlitTitle=月光掌控
-Feature/&ConditionAffinityMoonlitDarknessImmunityDescription=你对黑暗状态免疫
-Feature/&ConditionAffinityMoonlitDarknessImmunityTitle=月曜之暗
-Feature/&LightAffinityMoonlitStrongDescription=融身入影现在能在昏暗光照和魔法黑暗中生效
+Feature/&FeatureSetMoonlitSuperiorSightDescription=你在所有条件下都能完美看清对手，并且获得80尺盲感，允许你看清隐形和处在魔法黑暗中的敌人。
+Feature/&FeatureSetMoonlitSuperiorSightTitle=高等视觉
+Feature/&LightAffinityMoonlitStrongDescription=融身入影现在可以在微光和魔法黑暗环境中起效。
 Feature/&LightAffinityMoonlitStrongTitle=深度阴影
 Feature/&LightAffinityMoonlitWeakDescription=若你在自然黑暗中开始你的回合，你会进入隐形。移动、攻击或使用任何非传送或自我强化的能力或法术都会使隐形失效。
 Feature/&LightAffinityMoonlitWeakTitle=融身入影
