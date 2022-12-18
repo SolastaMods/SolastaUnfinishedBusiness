@@ -372,7 +372,7 @@ internal static class OtherFeats
             RulesetAttackMode attackMode,
             ActionModifier attackModifier)
         {
-            if (!ValidatorsWeapon.IsMelee(attackMode) || outcome is RollOutcome.Failure or RollOutcome.CriticalFailure)
+            if (!ValidatorsWeapon.IsMelee(attackMode))
             {
                 return;
             }

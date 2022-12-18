@@ -1,7 +1,11 @@
 ﻿CHANGES:
 
+- added Astral Arms feat
+- added Bow Mastery feat
+- added Poisonous Skin feat
 - added Character > General > Visuals setting to allow horns on any race
-- added Astral Arms, Bow Mastery and Poisonous Skin feats
-- changed College of Life fly power to endure until any rest [avoid soft lock on certain places]
-- fixed Minor Lifesteal extra HP duration
+- added German translations
+- changed College of Life fly power to endure until any rest
+- changed Mobile feat to trigger regardless of hit
+- fixed Minor Lifesteal extra HP duration to 1 hour
 - updated French, Portuguese and Russian translations
