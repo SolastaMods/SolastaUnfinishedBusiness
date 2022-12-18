@@ -10,6 +10,7 @@ Feature/&DieRollModifierRavenPainMakerTitle=苦痛之源
 Feature/&FeatureSetRavenHeartSeekingShotDescription=你瞄准敌人的要害部位。当你使用双手远程武器进行攻击时，你的攻击骰受到-4减值，但你的重击阈值降低2点。你的攻击造成2d6点额外伤害。此额外伤害每4级提高1d6
 Feature/&FeatureSetRavenHeartSeekingShotTitle=追心射击
 Feature/&FeatureSetRavenSharpShooterDescription=你熟练所有双手远程武器。此外，当你用双手武器进行远程攻击时，你能无视掩体和远距离劣势
+Feature/&FeatureSetRavenSharpShooterTitle=敏锐射手
 Feedback/&AdditionalDamageHeartSeekingShotFormat=敏锐射手
 Feedback/&AdditionalDamageHeartSeekingShotLine=追心射击造成额外 +{2} 伤害!
 Subclass/&RoguishRavenDescription=渡鸦是训练有素的远程专家，能迅速而高效地击倒敌人

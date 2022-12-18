@@ -1,6 +1,6 @@
 ﻿Feature/&BonusCantripElementalistMinorElementalDescription=你对元素能量的控制已经足以让你完全支配一些弱小的元素。 你可以随意施展召唤次级元素。
 Feature/&BonusCantripElementalistMinorElementalTitle=元素之仆
-Feature/&ElementalPatronAirPlane气位面
+Feature/&ElementalPatronAirPlane=气位面
 Feature/&ElementalPatronEarthPlane=土位面
 Feature/&ElementalPatronElementalConditionDescription=每轮首次命中造成额外 {1} 伤害，等同于你的熟练加值。
 Feature/&ElementalPatronElementalConditionTitle=引导 {0}
