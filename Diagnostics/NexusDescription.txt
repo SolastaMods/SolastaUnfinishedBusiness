@@ -99,8 +99,6 @@ All settings start disabled by default.
 [*][b]Armorer[/b]: Armorers focus their studies on magical armors and how to use them effectively.
 [*][b]Grenadier[/b]: Grenadiers study unstable substances and their use in creating explosions of various types.
 [*][b]Weaponsmith[/b]: Weaponsmiths focus their studies on magical weapons and how to use them effectively.
-[*][b]College of Harlequin[/b]: College of Harlequins bards see no distinction between art and war. They see it is their duty to keep the legend of the great battle of the Cataclysm alive through their terrific performance, either on stage or on the battle field.
-[*][b]Tactician[/b]: The Tactician uses their knowledge and might on the battlefield to perform different gambits as they are needed. They can knock down foes, inspire their allies and get in deadly counter-strikes against their foes.
 [/list]
 
 [size=3][b]Subclasses[/b][/size]
@@ -133,6 +131,8 @@ All settings start disabled by default.
 [*][b]Blade Dancer[/b]: Blade Dancers use a series of intricate, elegant maneuvers that fend off harm and allow the blade dancer to channel magic into devastating attacks and a cunning defense. Many who have observed a blade dancer at work remember the display as one of the more beautiful experiences in their life, a glorious dance accompanied by a blade.
 [*][b]Dead Master[/b]: Dead Masters learn to manipulate the energy that animates all living things. As you progress, you learn to sap the life force from a creature as your magic destroys its body, transforming that vital energy into magical power you can manipulate.
 [*][b]Spell Master[/b]: Spell Masters immerse themselves in magic and try to learn every spell they can get their hands on. They are unmatched in their spell knowledge.
+[*][b]College of Harlequin[/b]: College of Harlequins bards see no distinction between art and war. They see it is their duty to keep the legend of the great battle of the Cataclysm alive through their terrific performance, either on stage or on the battle field.
+[*][b]Tactician[/b]: The Tactician uses their knowledge and might on the battlefield to perform different gambits as they are needed. They can knock down foes, inspire their allies and get in deadly counter-strikes against their foes.
 [/list]
 
 [size=3][b]Feats[/b][/size]
@@ -415,5 +415,6 @@ When you cast this spell using a spell slot of 4th level or higher, the damage i
 [*][b]RedOrca[/b]: Path of The Light
 [*][b]DreadMaker[/b]: Forest Guardian
 [*][b]Bazou[/b]: fighting styles, rules, spells
+[*][b]Balmz[/b]: some powers and spells icons
 [/list]
 

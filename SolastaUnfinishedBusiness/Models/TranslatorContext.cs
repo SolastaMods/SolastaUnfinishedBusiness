@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
@@ -215,19 +216,23 @@ internal static class TranslatorContext
         return words;
     }
 
-    [ItemCanBeNull]
-#if DEBUG
-    internal
-#else
-    private
-#endif
-        static IEnumerable<string> GetTranslations(string languageCode)
+    private static bool IsModTerm(string fullName, string languageCode)
+    {
+        return fullName.StartsWith(languageCode) && fullName.EndsWith($"{languageCode}.txt");
+    }
+
+    private static bool IsFixedTerm(string fullName, string languageCode)
+    {
+        return fullName == $"Fixes-{languageCode}.txt";
+    }
+
+    [UsedImplicitly]
+    internal static IEnumerable<string> GetTranslations(string languageCode, Func<string, string, bool> validate)
     {
         using var zipStream = new MemoryStream(Resources.Translations);
         using var zip = new ZipArchive(zipStream, ZipArchiveMode.Read);
 
-        foreach (var entry in zip.Entries
-                     .Where(x => x.FullName.EndsWith($"{languageCode}.txt")))
+        foreach (var entry in zip.Entries.Where(x => validate(x.FullName, languageCode)))
         {
             using var dataStream = entry.Open();
             using var data = new StreamReader(dataStream);
@@ -239,11 +244,13 @@ internal static class TranslatorContext
         }
     }
 
-    private static Dictionary<string, string> GetDefaultTerms(string languageCode)
+    private static Dictionary<string, string> GetTermsDict(
+        string languageCode,
+        Func<string, string, bool> validate)
     {
         var result = new Dictionary<string, string>();
 
-        foreach (var line in GetTranslations(languageCode))
+        foreach (var line in GetTranslations(languageCode, validate))
         {
             if (line == null)
             {
@@ -254,6 +261,7 @@ internal static class TranslatorContext
 
             if (split.Length != 2)
             {
+                Main.Error($"cannot parse line {line}");
                 continue;
             }
 
@@ -271,43 +279,83 @@ internal static class TranslatorContext
     internal static void Load()
     {
         var languageCode = LocalizationManager.CurrentLanguageCode;
+
+        var englishTerms = GetTermsDict(English, IsModTerm);
+        var currentLanguageTerms = languageCode != English ? GetTermsDict(languageCode, IsModTerm) : englishTerms;
+        var fixedTerms = GetTermsDict(languageCode, IsFixedTerm);
+
         var languageSourceData = LocalizationManager.Sources[0];
         var languageIndex = languageSourceData.GetLanguageIndex(LocalizationManager.CurrentLanguage);
-        var lineCount = 0;
-        var defaultTerms = GetDefaultTerms(English);
-        var finalTerms = languageCode != English ? GetDefaultTerms(languageCode) : defaultTerms;
 
-        // we loop on default EN terms collection as this is the one to be trusted but ensure we consider Fixes-*
-        foreach (var kvp in defaultTerms.Union(finalTerms.Except(defaultTerms)))
+        void AddTerm(string term, string text)
         {
-            var term = kvp.Key;
             var termData = languageSourceData.GetTermData(term);
-
-            // if we find a translated term them we use it otherwise fall back to EN default
-            if (!finalTerms.TryGetValue(term, out var text))
-            {
-                text = kvp.Value;
-            }
 
             if (termData?.Languages[languageIndex] != null)
             {
-#if DEBUG
-                if (languageIndex == 0)
-                {
-                    Main.Log($"term {term} overwritten with text {text}");
-                }
-#endif
+                Main.Log($"term {term} overwritten with text {text}");
                 termData.Languages[languageIndex] = text;
             }
             else
             {
                 languageSourceData.AddTerm(term).Languages[languageIndex] = text;
             }
+        }
+
+        // loads mod translations
+        // we loop on default EN terms collection as this is the one to be trusted
+        var lineCount = 0;
+
+        foreach (var term in englishTerms.Keys)
+        {
+            // if we find a translated term them we use it otherwise fall back to EN default
+            if (!currentLanguageTerms.TryGetValue(term, out var text))
+            {
+                text = englishTerms[term];
+            }
+
+            AddTerm(term, text);
 
             lineCount++;
         }
 
         Main.Info($"{lineCount} {languageCode} translation terms loaded.");
+
+        // loads official translations fixes
+        lineCount = 0;
+
+        foreach (var term in fixedTerms.Keys)
+        {
+            var text = fixedTerms[term];
+
+            AddTerm(term, text);
+
+            lineCount++;
+        }
+
+        Main.Info($"{lineCount} {languageCode} translation fixes loaded.");
+
+        // creates a report on missing terms
+        if (languageCode == English)
+        {
+            return;
+        }
+
+        {
+            Main.Info("ADD THESE TERMS:");
+
+            foreach (var term in englishTerms.Keys.Except(currentLanguageTerms.Keys))
+            {
+                Main.Info($"{term} is missing from {languageCode} translation assets");
+            }
+
+            Main.Info("DELETE THESE TERMS:");
+
+            foreach (var term in currentLanguageTerms.Keys.Except(englishTerms.Keys))
+            {
+                Main.Info($"{term} must be deleted from {languageCode} translation assets");
+            }
+        }
     }
 
     internal static bool HasTranslation(string term)
@@ -553,3 +601,6 @@ internal static class TranslatorContext
         }
     }
 }
+
+
+

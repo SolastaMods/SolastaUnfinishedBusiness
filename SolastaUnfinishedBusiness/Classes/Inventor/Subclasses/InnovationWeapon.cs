@@ -378,8 +378,7 @@ public static class InnovationWeapon
             .Create(CommandSteelDefenderCondition)
             .SetGuiPresentationNoContent()
             .SetSilent(Silent.WhenAddedOrRemoved)
-            .SetSpecialDuration(DurationType.Round, 1)
-            .SetTurnOccurence(TurnOccurenceType.StartOfTurn)
+            .SetSpecialDuration(DurationType.Round, 1, TurnOccurenceType.StartOfTurn)
             .AddToDB();
 
         var power = FeatureDefinitionPowerBuilder
@@ -515,3 +514,6 @@ public static class InnovationWeapon
         }
     }
 }
+
+
+

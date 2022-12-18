@@ -1,5 +1,13 @@
 ﻿CHANGES:
 
+1.4.32.1:
+
+- added Chinese and Russian translations
+- added new icon to Dracronic Cry
+- added Devil's Sight like features to Patron Moonlit at 1st
+- fixed Mobile feat to grant a disengage action only after a successful melee attack
+- improved Translations logging to simplify work from foreign languages contributors
+
 1.4.32.0:
 
 - added new icons to Command Undead, Help and Study your Enemy by @balmz

@@ -1,9 +1,11 @@
-﻿KNOWN ISSUES:
+﻿ATTENTION:
 
-- Grenadier bombs have DC 0 under MP [please share a log and help us fix it]
+- You should RESPEC any Patron Moonlit after this update to get new progression benefits
 
 CHANGES:
 
-- added new icons to Command Undead, Help and Study your Enemy by @balmz
-- fixed flexible races
-- updated to game version 1.4.32
+- added Chinese and Russian translations
+- added new icon to Dracronic Cry
+- added Devil's Sight like features to Patron Moonlit at 1st
+- fixed Mobile feat to grant a disengage action only after a successful melee attack
+- improved Translations logging to simplify work from foreign languages contributors

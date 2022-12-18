@@ -328,9 +328,9 @@
     "description": "Feature/&PowerDraconicKoboldDraconicCryDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "f0b4ad7b83123234f94ca22704c686f6",
-      "m_SubObjectName": "Aid",
-      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+      "m_AssetGUID": "1c5c4b1b-e1e0-5d06-874d-7828276bc366",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
