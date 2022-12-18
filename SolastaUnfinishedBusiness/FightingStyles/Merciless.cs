@@ -17,9 +17,13 @@ internal sealed class Merciless : AbstractFightingStyle
 {
     private static readonly FeatureDefinitionPower PowerFightingStyleMerciless = FeatureDefinitionPowerBuilder
         .Create("PowerFightingStyleMerciless")
-        .SetGuiPresentation("Fear", Category.Spell)
+        .SetGuiPresentationNoContent(true)
         .SetEffectDescription(EffectDescriptionBuilder
             .Create(DatabaseHelper.SpellDefinitions.Fear.EffectDescription)
+            .SetHasSavingThrow(
+                AttributeDefinitions.Wisdom,
+                EffectDifficultyClassComputation.AbilityScoreAndProficiency,
+                AttributeDefinitions.Strength)
             .SetDurationData(DurationType.Round, 1)
             .Build())
         .AddToDB();
@@ -28,10 +32,6 @@ internal sealed class Merciless : AbstractFightingStyle
         .Create("Merciless")
         .SetGuiPresentation(Category.FightingStyle, DatabaseHelper.CharacterSubclassDefinitions.SorcerousHauntedSoul)
         .SetFeatures(
-            // FeatureDefinitionAdditionalActionBuilder
-            //     .Create(AdditionalActionHunterHordeBreaker, "AdditionalActionFightingStyleMerciless")
-            //     .SetGuiPresentationNoContent(true)
-            //     .AddToDB(),
             FeatureDefinitionBuilder
                 .Create("TargetReducedToZeroHpFightingStyleMerciless")
                 .SetGuiPresentationNoContent(true)
@@ -66,12 +66,7 @@ internal sealed class Merciless : AbstractFightingStyle
 
             var rulesetAttacker = attacker.RulesetCharacter;
             var proficiencyBonus = rulesetAttacker.GetAttribute(AttributeDefinitions.ProficiencyBonus).CurrentValue;
-            var strength = rulesetAttacker.GetAttribute(AttributeDefinitions.Strength).CurrentValue;
-            var usablePower = new RulesetUsablePower(PowerFightingStyleMerciless, null, null)
-            {
-                SaveDC = ComputeAbilityScoreBasedDC(strength, proficiencyBonus)
-            };
-
+            var usablePower = new RulesetUsablePower(PowerFightingStyleMerciless, null, null);
             var distance = Global.CriticalHit ? proficiencyBonus : (proficiencyBonus + 1) / 2;
             var effectPower = new RulesetEffectPower(rulesetAttacker, usablePower);
 
@@ -83,4 +78,5 @@ internal sealed class Merciless : AbstractFightingStyle
         }
     }
 }
+
 
