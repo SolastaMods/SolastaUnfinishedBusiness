@@ -38,8 +38,12 @@ public static class RulesetImplementationManagerLocationPatcher
             ref string failure)
         {
             //PATCH: fix twinned spells offering
-            //disables sunlight blade twinning, since it is not supported for now
             //plus fixes vanilla code not accounting for things possible in MC
+            if (!Main.Settings.FixSorcererTwinnedLogic)
+            {
+                return;
+            }
+
             if (metamagicOption != DatabaseHelper.MetamagicOptionDefinitions.MetamagicTwinnedSpell
                 || caster is not RulesetCharacterHero)
             {
@@ -47,12 +51,6 @@ public static class RulesetImplementationManagerLocationPatcher
             }
 
             var spellDefinition = rulesetEffectSpell.SpellDefinition;
-
-            if (!Main.Settings.FixSorcererTwinnedLogic)
-            {
-                return;
-            }
-
             var effectDescription = spellDefinition.effectDescription;
 
             if (effectDescription.TargetType is not (TargetType.Individuals or TargetType.IndividualsUnique) ||

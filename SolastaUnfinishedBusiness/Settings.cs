@@ -91,6 +91,7 @@ public class Settings : UnityModManager.ModSettings
     public bool UnlockGlowingColorsForAllMarksAndTattoos { get; set; }
     public bool UnlockSkinColors { get; set; }
     public bool AllowBeardlessDwarves { get; set; }
+    public bool AllowHornsOnAllRaces { get; set; }
 
     //
     // Characters - Races, Classes & Subclasses
@@ -279,3 +280,4 @@ public class Settings : UnityModManager.ModSettings
     public bool DebugLogVariantMisuse { get; set; }
 #endif
 }
+

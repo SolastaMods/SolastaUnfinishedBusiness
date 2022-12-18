@@ -1,0 +1,14 @@
+Feature/&AttributeModifierBolgrifStrengthAbilityScoreIncreaseDescription=Stärke +1
+Feature/&AttributeModifierBolgrifStrengthAbilityScoreIncreaseTitle=Attributerhöhung
+Feature/&AttributeModifierBolgrifWisdomAbilityScoreIncreaseDescription=Weisheit +2
+Feature/&AttributeModifierBolgrifWisdomAbilityScoreIncreaseTitle=Attributerhöhung
+Feature/&CastSpellBolgrifMagicDescription=Du kennst einen Cantrip deiner Wahl aus der Zauberliste der Druiden. Weisheit ist deine Zauberfähigkeit dafür.
+Feature/&CastSpellBolgrifMagicTitle=Druidische Magie
+Feature/&EquipmentAffinityBolgrifPowerfulBuildDescription=Sie zählen Ihre Größe als Large, wenn Sie Ihre Tragfähigkeit bestimmen.
+Feature/&EquipmentAffinityBolgrifPowerfulBuildTitle=Leistungsstarker Aufbau
+Feature/&PowerBolgrifInvisibilityDescription=Als Bonusaktion kannst du dich auf magische Weise für 1 Runde unsichtbar machen. Diese Unsichtbarkeit wird unterbrochen, wenn Sie anstößig handeln. Sobald Sie diese Fähigkeit verwendet haben, können Sie sie nicht erneut verwenden, bis Sie eine kurze oder lange Pause beendet haben.
+Feature/&PowerBolgrifInvisibilityTitle=Verschwinden
+Feature/&ProficiencyBolgrifLanguagesDescription=Gewöhnlich, Elbisch und Riese.
+Feature/&ProficiencyBolgrifLanguagesTitle=Sprache
+Race/&RaceBolgrifDescription=Bolgrifs sind Halbriesen, die im gefrorenen Hochland von Solasta leben. Sie sind schlau, vorsichtig, zurückgezogen, misstrauen den meisten Humanoiden außer den Elfen und ziehen es vor, fernab der Zivilisation in eng verbundenen Clans zu leben. Wenn sie in den Kampf gedrängt werden, demonstrieren Bolgrifs beeindruckende Fähigkeiten im Umgang mit Waffen und Naturmagie.
+Race/&RaceBolgrifTitle=Bolgriff

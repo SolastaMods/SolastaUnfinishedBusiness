@@ -1,0 +1,13 @@
+Feat/&FeatPiercerDexDescription=Du hast eine durchdringende Präzision im Kampf erreicht. Erhöhe deine Geschicklichkeit um 1 bis zu einem Maximum von 20. Wenn du eine Kreatur mit einem Angriff triffst, der Stichschaden verursacht, kannst du Würfel neu würfeln, wenn du eine 1 würfelst, und du musst den neuen Wurf verwenden. Wenn du einen kritischen Treffer erzielst, der einer Kreatur Stichschaden zufügt, kannst du einen zusätzlichen Schadenswürfel werfen, um den zusätzlichen Stichschaden zu bestimmen, den das Ziel erleidet.
+Feat/&FeatPiercerDexTitle=Piercer [Dex]
+Feat/&FeatPiercerReroll=Da er ein Piercer ist, würfelt {0} den {1}-Würfel von einer {2} zu einer {3} neu.
+Feat/&FeatPiercerStrDescription=Du hast eine durchdringende Präzision im Kampf erreicht. Erhöhe deine Stärke um 1 bis zu einem Maximum von 20. Wenn du eine Kreatur mit einem Angriff triffst, der Stichschaden verursacht, kannst du Würfel neu würfeln, wenn du eine 1 würfelst, und du musst den neuen Wurf verwenden. Wenn du einen kritischen Treffer erzielst, der einer Kreatur Stichschaden zufügt, kannst du einen zusätzlichen Schadenswürfel werfen, um den zusätzlichen Stichschaden zu bestimmen, den das Ziel erleidet.
+Feat/&FeatPiercerStrTitle=Piercer [Str]
+Feat/&FeatPowerAttackDescription=Du hast gelernt, Genauigkeit einzutauschen, um tödlichere Schläge zu landen. Wenn du mit Nahkampfwaffen angreifst, kannst du einen Malus von -{0} auf deinen Treffer erleiden, um zusätzlichen Schaden in Höhe von {0} + deinem Fertigkeitsbonus zu verursachen.
+Feat/&FeatPowerAttackTitle=Machtangriff
+Feat/&FeatSavageAttackDescription=Würfeln Sie Waffen- und Zauberschadenswürfel neu, wenn Sie eine 1 würfeln (Nicht alle Schadensquellen würfeln neu. Zum Beispiel werden Hinterhältiger Angriff und Schlagschaden nicht neu gewürfelt).
+Feat/&FeatSavageAttackReroll=Da er ein Wilder Angreifer ist, würfelt {0} den {1}-Würfel von einer {2} zu einer {3} neu.
+Feat/&FeatSavageAttackTitle=Wilder Angriff
+Feedback/&AdditionalDamagePiercerFormat=Piercer!
+Feedback/&AdditionalDamagePiercerLine={0} führt einen Stichangriff auf {1} (+{2}) durch
+Tooltip/&PowerAttackConcentration=Machtangriff deaktivieren.

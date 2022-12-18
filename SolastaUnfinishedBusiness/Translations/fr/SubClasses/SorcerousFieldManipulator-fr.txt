@@ -1,0 +1,8 @@
+Feature/&MagicAffinityFieldManipulatorDCDescription=Il est plus difficile pour les adversaires de résister à vos sorts. Le DD de sauvegarde augmente de 2.
+Feature/&MagicAffinityFieldManipulatorDCTitle=Force arcanique
+Feature/&PowerFieldManipulatorDominatePersonDescription=Vous pouvez utiliser Dominer une personne un nombre de fois par repos long égal à votre modificateur de Charisme.
+Feature/&PowerFieldManipulatorDominatePersonTitle=Dominer la personne
+Feature/&ProficiencyFieldManipulatorMentalSavingThrowsDescription=Maîtrisez les jets de sauvegarde avec Intelligence et Sagesse.
+Feature/&ProficiencyFieldManipulatorMentalSavingThrowsTitle=Résistance mentale
+Subclass/&FieldManipulatorDescription=Les manipulateurs de terrain excellent dans le contrôle du champ de bataille et empêchent leurs ennemis de les attaquer.
+Subclass/&FieldManipulatorTitle=Manipulateur de champ

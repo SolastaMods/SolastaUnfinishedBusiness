@@ -5,6 +5,7 @@ using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.Extensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
+using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.Models;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionFightingStyleChoices;
@@ -16,9 +17,13 @@ internal sealed class Merciless : AbstractFightingStyle
 {
     private static readonly FeatureDefinitionPower PowerFightingStyleMerciless = FeatureDefinitionPowerBuilder
         .Create("PowerFightingStyleMerciless")
-        .SetGuiPresentation("Fear", Category.Spell)
+        .SetGuiPresentationNoContent(true)
         .SetEffectDescription(EffectDescriptionBuilder
             .Create(DatabaseHelper.SpellDefinitions.Fear.EffectDescription)
+            .SetHasSavingThrow(
+                AttributeDefinitions.Wisdom,
+                EffectDifficultyClassComputation.AbilityScoreAndProficiency,
+                AttributeDefinitions.Strength)
             .SetDurationData(DurationType.Round, 1)
             .Build())
         .AddToDB();
@@ -27,10 +32,6 @@ internal sealed class Merciless : AbstractFightingStyle
         .Create("Merciless")
         .SetGuiPresentation(Category.FightingStyle, DatabaseHelper.CharacterSubclassDefinitions.SorcerousHauntedSoul)
         .SetFeatures(
-            // FeatureDefinitionAdditionalActionBuilder
-            //     .Create(AdditionalActionHunterHordeBreaker, "AdditionalActionFightingStyleMerciless")
-            //     .SetGuiPresentationNoContent(true)
-            //     .AddToDB(),
             FeatureDefinitionBuilder
                 .Create("TargetReducedToZeroHpFightingStyleMerciless")
                 .SetGuiPresentationNoContent(true)
@@ -51,7 +52,7 @@ internal sealed class Merciless : AbstractFightingStyle
             RulesetAttackMode attackMode,
             RulesetEffect activeEffect)
         {
-            if (attackMode == null || activeEffect != null)
+            if (!ValidatorsWeapon.IsMelee(attackMode) || activeEffect != null)
             {
                 yield break;
             }
@@ -64,19 +65,8 @@ internal sealed class Merciless : AbstractFightingStyle
             }
 
             var rulesetAttacker = attacker.RulesetCharacter;
-
-            if (rulesetAttacker.IsWieldingRangedWeapon())
-            {
-                yield break;
-            }
-
             var proficiencyBonus = rulesetAttacker.GetAttribute(AttributeDefinitions.ProficiencyBonus).CurrentValue;
-            var strength = rulesetAttacker.GetAttribute(AttributeDefinitions.Strength).CurrentValue;
-            var usablePower = new RulesetUsablePower(PowerFightingStyleMerciless, null, null)
-            {
-                SaveDC = 8 + proficiencyBonus + AttributeDefinitions.ComputeAbilityScoreModifier(strength)
-            };
-
+            var usablePower = new RulesetUsablePower(PowerFightingStyleMerciless, null, null);
             var distance = Global.CriticalHit ? proficiencyBonus : (proficiencyBonus + 1) / 2;
             var effectPower = new RulesetEffectPower(rulesetAttacker, usablePower);
 
@@ -88,3 +78,5 @@ internal sealed class Merciless : AbstractFightingStyle
         }
     }
 }
+
+

@@ -1,11 +1,11 @@
-﻿ATTENTION:
+﻿CHANGES:
 
-- You should RESPEC any Patron Moonlit after this update to get new progression benefits
-
-CHANGES:
-
-- added Chinese and Russian translations
-- added new icon to Dracronic Cry
-- added Devil's Sight like features to Patron Moonlit at 1st
-- fixed Mobile feat to grant a disengage action only after a successful melee attack
-- improved Translations logging to simplify work from foreign languages contributors
+- added Astral Arms feat
+- added Bow Mastery feat
+- added Poisonous Skin feat
+- added Character > General > Visuals setting to allow horns on any race
+- added German translations
+- changed College of Life fly power to endure until any rest
+- changed Mobile feat to trigger regardless of hit
+- fixed Minor Lifesteal extra HP duration to 1 hour
+- updated French, Portuguese and Russian translations

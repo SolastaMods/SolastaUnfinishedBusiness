@@ -1,3 +1,5 @@
+Feature/&AttackModifierHitAndDamagePlus1Description=Оружие получает бонус +1 к броскам атаки и урона.
+Feature/&AttackModifierHitAndDamagePlus1Title=Договор Улучшения Оружия
 Feedback/&AdditionalDamageEldritchSmiteFormat=Жуткий удар!
 Feedback/&AdditionalDamageEldritchSmiteLine={0} поражает {1} (+{2})
 Invocation/&InvocationAspectOfTheMoonDescription=Вам больше не нужно спать, и вы можете нести вахту, снижая вероятность нападения и гарантируя, что вы бодрствуете, если лагерь подвергнется нападению.
@@ -24,6 +26,8 @@ Invocation/&InvocationDiscerningGazeDescription=Вы можете использ
 Invocation/&InvocationDiscerningGazeTitle=Проницательный взгляд
 Invocation/&InvocationGiftOfTheProtectorsDescription=Когда Ваши жизни опустились до 0, но вы еще не убиты, то можете получить 1 очко здоровья.
 Invocation/&InvocationGiftOfTheProtectorsTitle=Дар защитников
+Invocation/&InvocationGiftOfTheHunterDescription=Вы можете кастовать <b>Пройти без следов</b>, не используя ячейку заклинания. Как только вы это сделаете, вы не сможете разыграть его таким образом снова, пока не закончите продолжительный отдых.
+Invocation/&InvocationGiftOfTheHunterTitle=Дар Охотника
 Invocation/&InvocationGraspingBlastDescription=Когда вы поражаете существо Жутким выстрелом, то можете подтолкнуть существо до 2 клеток к Вам по прямой линии.When you hit a creature with Eldritch Blast, you can pull the creature up to 2 cells towards you in a straight line.
 Invocation/&InvocationGraspingBlastTitle=Притягивающий выстрел
 Invocation/&InvocationHinderingBlastDescription=Когда вы поражаете существо своим жутким выстрелом, то можете уменьшить скорость этого существа на 10 футов до конца своего следующего хода.

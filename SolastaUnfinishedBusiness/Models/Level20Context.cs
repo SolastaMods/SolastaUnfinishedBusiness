@@ -151,16 +151,6 @@ internal static class Level20Context
         }
 
         //
-        // BUGFIX: this future Race has a wrong cast spell knowledge
-        //
-
-        if (DatabaseRepository.GetDatabase<FeatureDefinitionCastSpell>()
-            .TryGetElement("CastSpellTiefling", out var featureDefinitionCastSpell))
-        {
-            featureDefinitionCastSpell.spellKnowledge = SpellKnowledge.Selection;
-        }
-
-        //
         // BUGFIX: add a sprite reference to Resurrection
         //
 
@@ -258,7 +248,7 @@ internal static class Level20Context
 
         Bard.FeatureUnlocks.AddRange(new List<FeatureUnlockByLevel>
         {
-            new(pointPoolBardMagicalSecrets18, 18), new(FeatureSetAbilityScoreChoice, 19),
+            new(pointPoolBardMagicalSecrets18, 18), new(FeatureSetAbilityScoreChoice, 19)
             // TODO 20: Bard Superior Inspiration
         });
 
@@ -886,3 +876,4 @@ internal static class Level20Context
         }
     }
 }
+

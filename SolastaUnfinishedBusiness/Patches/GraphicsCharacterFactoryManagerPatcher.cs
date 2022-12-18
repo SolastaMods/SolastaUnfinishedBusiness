@@ -1,4 +1,5 @@
-﻿using System.Diagnostics.CodeAnalysis;
+﻿using System;
+using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
 using SolastaUnfinishedBusiness.Api.Extensions;
 using SolastaUnfinishedBusiness.Models;
@@ -75,4 +76,40 @@ public class GraphicsCharacterFactoryManagerPatcher
             transform.localScale = scale;
         }
     }
+
+    [HarmonyPatch(typeof(GraphicsCharacterFactoryManager), "CollectBodyPartsToLoadWherePossible_Morphotypes")]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    public static class CollectBodyPartsToLoadWherePossible_Morphotypes_Patch
+    {
+        public static void Postfix(GraphicsCharacterFactoryManager __instance)
+        {
+            //PATCH: support for horns on all races
+            var searchTermFemale = "_Female_" + MorphotypeElementDefinition.ElementCategory.Horns;
+            var searchTermMale = "_Male_" + MorphotypeElementDefinition.ElementCategory.Horns;
+
+            for (var i = 0; i < __instance.shapePartsToLoad.Length; i++)
+            {
+                var pos = __instance.shapePartsToLoad[i].IndexOf(searchTermFemale, StringComparison.InvariantCulture);
+
+                if (pos > 0)
+                {
+                    var raceName = __instance.shapePartsToLoad[i].Substring(0, pos);
+                    var newPartName = __instance.shapePartsToLoad[i].Replace(raceName, "Dragonborn");
+
+                    __instance.shapePartsToLoad[i] = newPartName;
+                }
+
+                pos = __instance.shapePartsToLoad[i].IndexOf(searchTermMale, StringComparison.InvariantCulture);
+
+                if (pos > 0)
+                {
+                    var raceName = __instance.shapePartsToLoad[i].Substring(0, pos);
+                    var newPartName = __instance.shapePartsToLoad[i].Replace(raceName, "Dragonborn");
+
+                    __instance.shapePartsToLoad[i] = newPartName;
+                }
+            }
+        }
+    }
 }
+

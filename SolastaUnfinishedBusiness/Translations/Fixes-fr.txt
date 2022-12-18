@@ -453,7 +453,6 @@ Screen/&CaptionProceedDescription=Effectue l'action même si elle est incomplèt
 Screen/&CastLightButtonDescription=Lance un sort mineur de lumière (ou un sort mineur équivalent comme Tenir la flamme) sur l'un des objets portatifs du personnage ou, à défaut, sur son armure de torse.
 Screen/&CharacterPersonalityDescriptionTitle=La personnalité du personnage détermine de quelle manière ce dernier agira durant les séquences narratives. Certains traits de narration offriront des variations aux dialogues tandis que d'autres permettront d'accéder à différentes branches de dialogue laissant le personnage jouer un rôle correspondant plus à sa personnalité.
 Screen/&ColorCalibrationInstructionsDescription=Ajuster la luminosité et le contraste jusqu'à ce que les deux lignes des cinq sceaux soient visibles et que le sceau le plus à gauche soit à peine discernable.
-Screen/&ContainerLootHeaderFormat	Pillage - {0}
 Screen/&CraftDescription=Ouvre l'interface de fabrication.
 Screen/&CraftDescription=Ouvre l'interface de fabrication.
 Screen/&CraftTitle=Fabriquer
@@ -647,7 +646,6 @@ Setting/&ShadowDistanceHighTitle=Élevée
 Setting/&ShadowDistanceLowDescription=Distance de rendu des ombres basse.
 Setting/&ShadowDistanceLowTitle=Basse
 Setting/&ShadowDistanceMediumDescription=Distance de rendu des ombres moyenne.
-Setting/&ShadowDistanceUltraDescription	Distance de rendu des ombres maximale.
 Setting/&ShadowDistanceUltraDescription=Distance de rendu des ombres maximale.
 Setting/&ShadowDistanceUltraTitle=Ultra
 Setting/&ShadowDistanceVeryHighDescription=Distance de rendu des ombres très élevée.
@@ -886,7 +884,7 @@ TutorialStep/&OutgameCharacterCreationFightingStyleDescription=Certaines classes
 TutorialStep/&OutgameCharacterCreationSubclassDescription=Les classes octroient une spécialisation à partir d'un certain niveau, sous forme d'archétypes de classe.\n\nLes archétypes ont des noms différents selon leur classe : tradition arcanique pour les magiciens, archétypes martiaux pour les guerriers ; les clercs sélectionnent leur domaine divin au niveau 1.\n\nChaque archétype dispose d'un ensemble d'attributs et de caractéristiques qui apporte son originalité au personnage et peut changer radicalement son style de jeu.
 TutorialStep/&OutgameMainMenuXBoxDescription=Bienvenue dans la version manette de Solasta.\n\nAppuyez sur <sprite index={0}> pour commencer.
 TutorialStep/&SelectionDescription=Sélectionnez vos personnages en cliquant dessus dans la vue 3D, ou étirez un rectangle pour sélectionner plus d'un personnage.\n\nDouble-cliquez sur un portrait pour verrouiller un personnage en particulier.\nVous pouvez aussi cliquer sur leurs portraits ou utiliser le bouton Tout sélectionner en bas de la liste de portraits.
-TutorialStep/&Tuto01_Climbing_and_jumping2_Description	En haut : Un personnage dont la Force est inférieure à 15 et qui n'a aucune maîtrise en Athlétisme ne peut pas sauter assez loin pour atteindre le coffre.\n\nEn bas : Un guerrier avec une Force comprise entre 15 et 20 peut sauter par-dessus 3 cases. Il en va de même pour un personnage possédant une Force allant de 11 à 14 en plus d'une maîtrise en Athlétisme.
+TutorialStep/&Tuto01_Climbing_and_jumping2_Description=En haut : Un personnage dont la Force est inférieure à 15 et qui n'a aucune maîtrise en Athlétisme ne peut pas sauter assez loin pour atteindre le coffre.\n\nEn bas : Un guerrier avec une Force comprise entre 15 et 20 peut sauter par-dessus 3 cases. Il en va de même pour un personnage possédant une Force allant de 11 à 14 en plus d'une maîtrise en Athlétisme.
 TutorialStep/&Tuto01_Climbing_and_jumpingXbox_Description=Pour sauter ou escalader, placez le curseur là où vous souhaitez vous rendre et appuyez sur <sprite index={0}>.\n\nEn fonction de la Force du personnage et de sa maîtrise de l'Athlétisme, vous pouvez sauter et escalader entre 2 et 5 cases.\n\nVous pouvez toujours sauter par-dessus 2 cases, vous laisser tomber de 3 cases, et escalader une case, ou escalader aisément des surfaces simples comme des échelles ou des cordes.
 TutorialStep/&Tuto01_CrawlingXbox_Description=Pour ramper dans un trou, placez votre curseur près de ce dernier puis appuyez sur <sprite index={0}>.\n\nVous pouvez obtenir une meilleure vue de l'autre côté en tournant la caméra. Utilisez <sprite index={23}> ou bien déplacez la caméra en utilisant <sprite index={4}>.\n\nVotre personnage s'agenouillera, rampera, et se relèvera automatiquement aux moments opportuns sur le chemin de sa destination.
 TutorialStep/&Tuto01_Crawling_Description=Pour ramper dans un trou, cliquez de l'autre côté.\n\nVous pouvez obtenir une meilleure vue de l'autre côté en tournant la caméra. Utilisez les touches A ou E ou bien déplacez la souris en maintenant le clic gauche enfoncé.\n\nVotre personnage s'agenouillera, rampera et se relèvera automatiquement aux moments opportuns sur le chemin de sa destination.
