@@ -42,7 +42,7 @@ internal static class RangedCombatFeats
                 FeatureDefinitionBuilder
                     .Create("ModifyAttackModeForWeaponFeatDeadeye")
                     .SetGuiPresentation(FEAT_NAME, Category.Feat)
-                    .SetCustomSubFeatures(new ModifyDeadeyeAttackPower())
+                    .SetCustomSubFeatures(new ModifyAttackModeForWeaponFeatDeadeye())
                     .AddToDB())
             .AddToDB();
 
@@ -152,7 +152,7 @@ internal static class RangedCombatFeats
         return ValidatorsWeapon.IsRanged(weapon) && ValidatorsWeapon.IsOneHanded(weapon);
     }
 
-    private sealed class ModifyDeadeyeAttackPower : IModifyAttackModeForWeapon
+    private sealed class ModifyAttackModeForWeaponFeatDeadeye : IModifyAttackModeForWeapon
     {
         public void ModifyAttackMode(RulesetCharacter character, [CanBeNull] RulesetAttackMode attackMode)
         {
@@ -165,3 +165,4 @@ internal static class RangedCombatFeats
         }
     }
 }
+

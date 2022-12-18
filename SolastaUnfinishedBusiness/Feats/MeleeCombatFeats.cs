@@ -96,7 +96,7 @@ internal static class MeleeCombatFeats
                 FeatureDefinitionBuilder
                     .Create("ModifyAttackModeForWeaponFeatPowerAttack")
                     .SetGuiPresentation("FeatPowerAttack", Category.Feat)
-                    .SetCustomSubFeatures(new ModifyPowerAttackPower())
+                    .SetCustomSubFeatures(new ModifyAttackModeForWeaponFeatPowerAttack())
                     .AddToDB())
             .AddToDB();
 
@@ -214,7 +214,7 @@ internal static class MeleeCombatFeats
     // HELPERS
     //
 
-    private sealed class ModifyPowerAttackPower : IModifyAttackModeForWeapon
+    private sealed class ModifyAttackModeForWeaponFeatPowerAttack : IModifyAttackModeForWeapon
     {
         public void ModifyAttackMode(RulesetCharacter character, RulesetAttackMode attackMode)
         {
