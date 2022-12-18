@@ -5,6 +5,7 @@ using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.Extensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
+using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.Models;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionFightingStyleChoices;
@@ -51,7 +52,7 @@ internal sealed class Merciless : AbstractFightingStyle
             RulesetAttackMode attackMode,
             RulesetEffect activeEffect)
         {
-            if (attackMode == null || activeEffect != null)
+            if (!ValidatorsWeapon.IsMelee(attackMode) || activeEffect != null)
             {
                 yield break;
             }
@@ -64,17 +65,11 @@ internal sealed class Merciless : AbstractFightingStyle
             }
 
             var rulesetAttacker = attacker.RulesetCharacter;
-
-            if (rulesetAttacker.IsWieldingRangedWeapon())
-            {
-                yield break;
-            }
-
             var proficiencyBonus = rulesetAttacker.GetAttribute(AttributeDefinitions.ProficiencyBonus).CurrentValue;
             var strength = rulesetAttacker.GetAttribute(AttributeDefinitions.Strength).CurrentValue;
             var usablePower = new RulesetUsablePower(PowerFightingStyleMerciless, null, null)
             {
-                SaveDC = 8 + proficiencyBonus + AttributeDefinitions.ComputeAbilityScoreModifier(strength)
+                SaveDC = ComputeAbilityScoreBasedDC(strength, proficiencyBonus)
             };
 
             var distance = Global.CriticalHit ? proficiencyBonus : (proficiencyBonus + 1) / 2;
@@ -88,3 +83,4 @@ internal sealed class Merciless : AbstractFightingStyle
         }
     }
 }
+

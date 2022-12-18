@@ -134,7 +134,7 @@ internal sealed class CollegeOfLife : AbstractSubclass
                 EffectDescriptionBuilder
                     .Create()
                     .SetTargetingData(Side.Ally, RangeType.Touch, 2, TargetType.IndividualsUnique)
-                    .SetDurationData(DurationType.UntilLongRest)
+                    .SetDurationData(DurationType.UntilAnyRest)
                     .SetEffectForms(
                         EffectFormBuilder
                             .Create()

@@ -15,6 +15,7 @@ ModUi/&AllowBeardlessDwarves=Allow beardless <color=#D89555>Dwarves</color>
 ModUi/&AllowDruidToWearMetalArmor=Allow <color=#D89555>Druid</color> to wear metal armor
 ModUi/&AllowDungeonsMaxLevel20=Allow dungeons with max level 20
 ModUi/&AllowGadgetsAndPropsToBePlacedAnywhere=Enable <color=#1E81B0>CTRL</color> click to bypass any check when placing gadgets or props
+ModUi/&AllowHornsOnAllRaces=Allow horns on all races
 ModUi/&AllowStackedMaterialComponent=Allow stacked material component <i><color=#F0DAA0>[e.g. 2x500gp diamond is equivalent to 1000gp diamond]</color></i>
 ModUi/&AllowTargetingSelectionWhenCastingChainLightningSpell=Allow target selection when casting the <color=#D89555>Chain Lightning</color> spell
 ModUi/&AllowUnmarkedSorcerers=Allow <color=#D89555>Sorcerer</color> without origin markings and tattoos
