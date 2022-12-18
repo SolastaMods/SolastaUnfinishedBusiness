@@ -277,6 +277,7 @@ internal static partial class SpellBuilders
                 .Create()
                 .SetTargetingData(Side.Enemy, RangeType.RangeHit, 12, TargetType.Individuals)
                 .AddImmuneCreatureFamilies(CharacterFamilyDefinitions.Construct, CharacterFamilyDefinitions.Undead)
+                .SetDurationData(DurationType.Hour, 1)
                 .SetEffectAdvancement(EffectIncrementMethod.CasterLevelTable, 5, additionalDicePerIncrement: 1)
                 .SetEffectForms(
                     EffectFormBuilder

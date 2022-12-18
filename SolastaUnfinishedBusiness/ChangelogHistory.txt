@@ -4,7 +4,8 @@
 
 - added Character > General > Visuals setting to allow horns on any race
 - added Astral Arms, Bow Mastery and Poisonous Skin feats
-- changed College of Life fly power to endure until any rest
+- changed College of Life fly power to endure until any rest [avoid soft lock on certain places]
+- fixed Minor Lifesteal extra HP duration
 
 1.4.32.1:
 
