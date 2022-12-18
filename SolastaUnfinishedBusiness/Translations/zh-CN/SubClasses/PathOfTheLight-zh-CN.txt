@@ -21,6 +21,6 @@ Feature/&PowerPathOfTheLightEyesOfTruthTitle=真实之眼
 Feature/&PowerPathOfTheLightIlluminatingBurstDescription=最多3名敌人受到须通过一次体质豁免，否则将受到4d6点光耀伤害，并被你的光耀一击所照亮
 Feature/&PowerPathOfTheLightIlluminatingBurstTitle=光耀爆发
 Feedback/&AdditionalDamageIlluminatingStrikeFormat=光耀一击！
-Feedback/&AdditionalDamageIlluminatingStrikeLine光耀一击对目标造成额外伤害!
+Feedback/&AdditionalDamageIlluminatingStrikeLine=光耀一击对目标造成额外伤害!
 Subclass/&PathOfTheLightDescription=遵循光明之路的野蛮人照亮了黑暗，并保护他们的盟友免遭潜伏于黑暗之中的危险
 Subclass/&PathOfTheLightTitle=光辉道途

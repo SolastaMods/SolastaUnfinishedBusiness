@@ -3,7 +3,7 @@ Condition/&ConditionBladeDancerBladeDanceTitle=剑舞
 Feature/&AttackModifierBladeDancerDanceOfVictoryDescription=当剑舞激活时，你的近战武器攻击伤害获得+5加值
 Feature/&AttackModifierBladeDancerDanceOfVictoryTitle=胜利之舞
 Feature/&AttributeModifierBladeDancerBladeDanceDescription=你获得等同于智力调整值的AC加值
-Feature/&AttributeModifierBladeDancerBladeDanceTitle剑舞
+Feature/&AttributeModifierBladeDancerBladeDanceTitle=剑舞
 Feature/&FeatureBladeDanceDescription=你能以附赠动作启动剑舞，持续1分钟。如果你陷入失能，或装备中甲、重甲或盾牌，或你用双手发动一次武器攻击，剑舞将提前结束。你获得以下增益：\n• 你获得等同于智力调整值的AC加值\n• 你的移动速度提高10尺\n• 你在敏捷（杂技）的检定上具有优势\n• 你在体质检定上获得+4加值\n每个长休内，你能使用此能力的次数等同于你的熟练加值
 Feature/&FeatureBladeDanceTitle=剑舞
 Feature/&FeatureSetCasterBladeDancerFightingDescription=你可以穿轻甲并熟练使用军用武器
