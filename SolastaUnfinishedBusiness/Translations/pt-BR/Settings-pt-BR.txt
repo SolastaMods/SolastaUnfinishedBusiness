@@ -16,6 +16,7 @@ ModUi/&AllowDruidToWearMetalArmor=Permitir que <color=#D89555>Druida</color> use
 ModUi/&AllowDungeonsMaxLevel20=Permitir masmorras com nível máximo 20
 ModUi/&AllowGadgetsAndPropsToBePlacedAnywhere=Habilite o clique <color=#1E81B0>CTRL</color> para ignorar qualquer verificação ao colocar gadgets ou adereços
 ModUi/&AllowHornsOnAllRaces=Permitir buzinas em todas as corridas <i><color=#F0DAA0>[os resultados podem parecer terríveis dependendo da raça, cabeça e buzina]</color></i>
+ModUi/&AllowMoreRealStateOnRestPanel=Permite mais estado real no painel de repouso <i><color=#F0DAA0>[ocultar ações após repouso no painel anterior e recursos de recuperação no painel posterior]</color></i>
 ModUi/&AllowStackedMaterialComponent=Permitir componente de material empilhado <i><color=#F0DAA0>[ex. 2x500gp de diamante é equivalente a 1000gp de diamante]</color></i>
 ModUi/&AllowTargetingSelectionWhenCastingChainLightningSpell=Permita a seleção do alvo ao lançar o feitiço <color=#D89555>Chain Lightning</color>
 ModUi/&AllowUnmarkedSorcerers=Permitir <color=#D89555>Sorcerer</color> sem marcas de origem e tatuagens
@@ -41,6 +42,7 @@ ModUi/&Credits=Créditos
 ModUi/&CreditsAndDiagnostics=Créditos e Diagnósticos
 ModUi/&DeadEyeAndPowerAttackBaseBaseValue=<color=white>Definir o valor do modificador base Deadeye e Power Attack</color>\n<i><color=#F0DAA0>[a fórmula é -mod para acertar / mod + PB para danificar]</color></i>
 ModUi/&DisableAutoEquip=Desativar o equipamento automático de itens no inventário
+ModUi/&DisableRacePrerequisitesOnModFeats=Desativar os pré-requisitos de raça nos talentos fornecidos por este mod
 ModUi/&DisplayAllKnownSpellsDuringLevelUp=<i>+ Exibe todos os feitiços conhecidos de outras classes durante a subida de nível</i>
 ModUi/&DisplayPactSlotsOnSpellSelectionPanel=<i>+ Exibir espaços de pacto <color=#D89555>Warlock</color> na seleção de feitiço em vez do painel de personagem</i>
 ModUi/&DontFollowCharacterInBattle=A câmera de batalha não segue quando o personagem já está na tela
@@ -80,6 +82,7 @@ ModUi/&EnableStatsOnHeroTooltip=Exibir estatísticas na dica de ferramenta do he
 ModUi/&EnableTeleportParty=Habilite <color=#1E81B0>CTRL-SHIFT-(T)</color> para teletransportar o grupo <i><color=#F0DAA0>[você pode interromper missões se teletransportar para um lugar desconhecido]</color></ eu>
 ModUi/&EnableTogglesToOverwriteDefaultTestParty=Ative a alternância no pool de personagens para definir seu jogo padrão e grupo de teste
 ModUi/&EnableUpcastConjureElementalAndFey=Habilitar upcast de <color=#D89555>Conjure Elemental</color> e <color=#D89555>Conjure Fey</color>
+ModUi/&EncounterPercentageChance=<color=white>Definir chances de porcentagem de encontros aleatórios</color>
 ModUi/&Encounters=Encontros
 ModUi/&ExpandAll=Expandir todos
 ModUi/&FactionHelp=<color=#C04040E0>Carregue um jogo de campanha oficial para modificar as relações entre as facções...</color>
@@ -90,6 +93,7 @@ ModUi/&FeatGroupsHelp=. Cada grupo é uma consolidação de talentos semelhantes
 ModUi/&Feats=<color=#F0DAA0>Feats</color>
 ModUi/&FeatsFightingStylesInvocations=Talentos, invocações e estilos F.
 ModUi/&FightingStyles=<color=#F0DAA0>Estilos de luta</color>
+ModUi/&FixEldritchBlastRange=Altere o intervalo de <color=#D89555>Eldritch Blast</color> para 24 <i><color=#F0DAA0>[em vez de 16]</color></i>
 ModUi/&FixSorcererTwinnedLogic=Corrigido <color=#D89555>Feiticeiro</color> uso de metamágica gêmea <i><color=#F0DAA0>[deve ser incapaz de atingir mais de uma criatura no nível atual do feitiço]</color></i>
 ModUi/&FullyControlConjurations=Controle totalmente as conjurações <i><color=#F0DAA0>[animais, elementais, etc]</color></i>
 ModUi/&Gameplay=Jogabilidade
@@ -177,7 +181,3 @@ ModUi/&UnlockSkinColors=Desbloquear cores de pele
 ModUi/&UseHeightOneCylinderEffect=Use um efeito de 1 cilindro de altura ao conjurar <color=#D89555>Tentáculos Negros, Enredar, Graxa</color> <i><color=#F0DAA0>[quadrado]</color></i> ou <color=#D89555>Crescimento do pico</color> <i><color=#F0DAA0>[rodada]</color></i>
 ModUi/&UseOfficialAdvantageDisadvantageRules=Use as regras oficiais de vantagem/desvantagem
 ModUi/&Visuals=<color=#F0DAA0>Visuais:</color> <b><i><color=#C04040E0>[Requer reinicialização]</color></i></b>
-ModUi/&DisableRacePrerequisitesOnModFeats=Desativar os pré-requisitos de raça nos talentos fornecidos por este mod
-ModUi/&EncounterPercentageChance=<color=white>Definir chances de porcentagem de encontros aleatórios</color>
-ModUi/&FixEldritchBlastRange=Altere o intervalo de <color=#D89555>Eldritch Blast</color> para 24 <i><color=#F0DAA0>[em vez de 16]</color></i>
-ModUi/&AllowMoreRealStateOnRestPanel=Permite mais estado real no painel de repouso <i><color=#F0DAA0>[ocultar ações após repouso no painel anterior e recursos de recuperação no painel posterior]</color></i>

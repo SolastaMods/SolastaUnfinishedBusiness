@@ -1,0 +1,8 @@
+Feature/&CastSpellDraconicKoboldMagicDescription=Vous connaissez un sort mineur de votre choix dans la liste des sorts de Sorcier. Le charisme est votre capacité d'incantation pour cela.
+Feature/&CastSpellDraconicKoboldMagicTitle=Magie des Kobolds
+Feature/&PowerDraconicKoboldDraconicCryDescription=Par une action bonus, vous poussez un cri vers vos ennemis à moins de 3 mètres de vous. Jusqu'au début de votre prochain tour, vous et vos alliés avez l'avantage aux jets d'attaque contre n'importe lequel de ces ennemis qui pourraient vous entendre. Vous pouvez utiliser ce trait un nombre de fois égal à votre bonus de compétence, et vous récupérez toutes les utilisations dépensées lorsque vous terminez un repos long.
+Feature/&PowerDraconicKoboldDraconicCryTitle=Cri draconique
+Feature/&ProficiencyKoboldLanguagesDescription=Commun, Draconique.
+Feature/&ProficiencyKoboldLanguagesTitle=Langues
+Race/&RaceKoboldDescription=Les Kobolds sont de petites créatures recluses. Récemment, certaines des tribus de kobolds les plus avancées ont choisi de se révéler et d'interagir avec d'autres races. Ce n'est pas une coïncidence si cela se produit en même temps que l'enfant de dragon se fait connaître, car les kobolds les plus avancés semblent à bien des égards imiter l'enfant de dragon, se nommant même dans un style similaire. Ils peuvent même être plus avancés que les autres kobolds en raison de leur mélange avec l'enfant de dragon.
+Race/&RaceKoboldTitle=Kobold

@@ -15,6 +15,8 @@ ModUi/&AllowBeardlessDwarves=Autoriser les <color=#D89555>Nains</color> imberbes
 ModUi/&AllowDruidToWearMetalArmor=Autoriser les <color=#D89555>Druides</color> à porter des armures de métal
 ModUi/&AllowDungeonsMaxLevel20=Autoriser les donjons de niveau 20 maximum
 ModUi/&AllowGadgetsAndPropsToBePlacedAnywhere=Activer <color=#1E81B0>CTRL</color> pour contourner le contrôle lors du placement de gadgets ou d'accessoires
+ModUi/&AllowHornsOnAllRaces=Autoriser les cornes sur toutes les courses <i><color=#F0DAA0>[les résultats peuvent sembler terribles selon la race, la tête et la corne]</color></i>
+ModUi/&AllowMoreRealStateOnRestPanel=Autoriser plus d'état réel sur le panneau de repos <i><color=#F0DAA0>[masquer après les actions de repos sur le panneau avant et les fonctionnalités de récupération sur le panneau après]</color></i>
 ModUi/&AllowStackedMaterialComponent=Autoriser l'empilement des composantes matérielles <i><color=#F0DAA0>[par ex. 2x500po diamant équivaut à 1000po diamant]</color></i>
 ModUi/&AllowTargetingSelectionWhenCastingChainLightningSpell=Autoriser la sélection de la cible au lancement du sort <color=#D89555>Chaîne d'éclairs</color>
 ModUi/&AllowUnmarkedSorcerers=Autoriser les <color=#D89555>Ensorceleur</color> sans marques d'origine et sans tatouages
@@ -40,6 +42,7 @@ ModUi/&Credits=Crédits
 ModUi/&CreditsAndDiagnostics=Crédits & diagnostics
 ModUi/&DeadEyeAndPowerAttackBaseBaseValue=<color=white>Régler la valeur du modificateur e base de Deadeye et Power Attack</color>\n<i><color=#F0DAA0>[la formule est -mod to hit / mod + PB to damage]</color></i>
 ModUi/&DisableAutoEquip=Désactiver l'équipement automatique des objets dans l'inventaire
+ModUi/&DisableRacePrerequisitesOnModFeats=Disable Race pre-requisites on feats provided by this mod
 ModUi/&DisplayAllKnownSpellsDuringLevelUp=<i>+ Afficher tous les sorts connus des autres classes lors de la montée de niveau.</i>
 ModUi/&DisplayPactSlotsOnSpellSelectionPanel=<i>+ Afficher les emplacements de pacte de l'<color=#D89555>occultiste</color> sur la sélection des sorts au lieu du panneau des personnages</i>
 ModUi/&DontFollowCharacterInBattle=La caméra de combat ne suit pas lorsque le personnage est déjà à l'écran.
@@ -79,6 +82,7 @@ ModUi/&EnableStatsOnHeroTooltip=Afficher les statistiques dans l'infobulle du pe
 ModUi/&EnableTeleportParty=Activer <color=#1E81B0>CTRL-SHIFT-(T)</color> pour téléporter l'équipe <i><color=#F0DAA0>[peut briser des quêtes si la téléportation s'effectue dans un endroit non découvert]</color></i>
 ModUi/&EnableTogglesToOverwriteDefaultTestParty=Activer les boutons de bascule dans la réserve de personnages pour définir un groupe de jeu et de test par défaut.
 ModUi/&EnableUpcastConjureElementalAndFey=Activer l'addition de l'<color=#D89555>Invocation élémentaire</color> et de l'<color=#D89555>Invocation d'une fée</color>
+ModUi/&EncounterPercentageChance=<color=white>Set random encounters percentage chances</color>
 ModUi/&Encounters=Rencontres
 ModUi/&ExpandAll=Tout développer
 ModUi/&FactionHelp=<color=#C04040E0>Charger une partie de campagne officielle pour modifier les relations entre les factions.</color>
@@ -89,6 +93,7 @@ ModUi/&FeatGroupsHelp=- Chaque groupe est une consolidation d'exploits similaire
 ModUi/&Feats=<color=#F0DAA0>Dons</color>
 ModUi/&FeatsFightingStylesInvocations=Dons, Style de combat & Invocations
 ModUi/&FightingStyles=<color=#F0DAA0>Style de combat</color>
+ModUi/&FixEldritchBlastRange=Changez la plage <color=#D89555>Eldritch Blast</color> à 24 <i><color=#F0DAA0>[au lieu de 16]</color></i>
 ModUi/&FixSorcererTwinnedLogic=Corrige l'utilisation de la métamagie jumelée de l'<color=#D89555>Ensorceleur</color> <i><color=#F0DAA0>[il doit être incapable de cibler plus d'une créature au niveau actuel du sort]</color></i>
 ModUi/&FullyControlConjurations=Contrôler totalement les conjurations <i><color=#F0DAA0>[animaux, élémentaires, etc]</color></i>
 ModUi/&Gameplay=Jouabilité
@@ -176,5 +181,3 @@ ModUi/&UnlockSkinColors=Débloquer les couleurs de peau
 ModUi/&UseHeightOneCylinderEffect=Utiliser un effet de cylindre de hauteur 1 lors du lancement de <color=#D89555>Tentacules noirs, Enchevêtrement, Graisse</color> <i><color=#F0DAA0>[square]</color></i> ou <color=#D89555>Croissance d'épines</color> <i><color=#F0DAA0>[round]</color></i>
 ModUi/&UseOfficialAdvantageDisadvantageRules=Utiliser les règles officielles d'avantages et de désavantages
 ModUi/&Visuals=<color=#F0DAA0>Visuels :</color> <b><i><color=#C04040E0>[Nécessite un redémarrage]</color></i></b>
-ModUi/&DisableRacePrerequisitesOnModFeats=Disable Race pre-requisites on feats provided by this mod
-ModUi/&EncounterPercentageChance=<color=white>Set random encounters percentage chances</color>

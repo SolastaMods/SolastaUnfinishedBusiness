@@ -14,6 +14,7 @@ ModUi/&AllowAnyClassToWearSylvanArmor=Позволить любому класс
 ModUi/&AllowBeardlessDwarves=Позволить исключить бороду у <color=#D89555>Дварфов</color>
 ModUi/&AllowDruidToWearMetalArmor=Позволить <color=#D89555>Друиду</color> носить металлический доспех
 ModUi/&AllowDungeonsMaxLevel20=Открыть доступ к подземельям с макс. уровнем 20
+ModUi/&AllowHornsOnAllRaces=Разрешить рога для всех расAllow horns on all races <i><color=#F0DAA0>[результаты могут выглядеть ужасно в зависимости от расы, головы и рога]</color></i>
 ModUi/&AllowGadgetsAndPropsToBePlacedAnywhere=Включить <color=#1E81B0>CTRL</color> нажатие для прохождения любой проверки при размещении гаджетов или реквизита
 ModUi/&AllowStackedMaterialComponent=Позволить складывать компоненты <i><color=#F0DAA0>[например 2x500gp Алмазы как эквивалент 1000gp Алмаз]</color></i>
 ModUi/&AllowTargetingSelectionWhenCastingChainLightningSpell=Включить выбор Целей при сотворении <color=#D89555>Цепная Молния</color> spell

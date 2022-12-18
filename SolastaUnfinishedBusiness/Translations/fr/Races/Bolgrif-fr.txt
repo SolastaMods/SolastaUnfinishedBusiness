@@ -1,0 +1,14 @@
+Feature/&AttributeModifierBolgrifStrengthAbilityScoreIncreaseDescription=Force +1
+Feature/&AttributeModifierBolgrifStrengthAbilityScoreIncreaseTitle=Augmentation d'attribut
+Feature/&AttributeModifierBolgrifWisdomAbilityScoreIncreaseDescription=Sagesse +2
+Feature/&AttributeModifierBolgrifWisdomAbilityScoreIncreaseTitle=Augmentation d'attribut
+Feature/&CastSpellBolgrifMagicDescription=Vous connaissez un sort mineur de votre choix dans la liste des sorts du druide. La sagesse est votre capacité d'incantation pour cela.
+Feature/&CastSpellBolgrifMagicTitle=Magie druidique
+Feature/&EquipmentAffinityBolgrifPowerfulBuildDescription=Vous comptez votre taille comme grande lors de la détermination de votre capacité de charge.
+Feature/&EquipmentAffinityBolgrifPowerfulBuildTitle=Construction puissante
+Feature/&PowerBolgrifInvisibilityDescription=Par une action bonus, vous pouvez devenir magiquement invisible pendant 1 round. Cette invisibilité se brise si vous entreprenez une action offensive. Une fois que vous avez utilisé cette capacité, vous ne pouvez plus l'utiliser tant que vous n'avez pas terminé un repos court ou long.
+Feature/&PowerBolgrifInvisibilityTitle=Disparaître
+Feature/&ProficiencyBolgrifLanguagesDescription=Commun, Elfique et Géant.
+Feature/&ProficiencyBolgrifLanguagesTitle=Langue
+Race/&RaceBolgrifDescription=Les bolgrifs sont des demi-géants vivant dans les hautes terres gelées de Solasta. Ils sont rusés, prudents, reclus, se méfient de la plupart des humanoïdes à l'exception des elfes et préfèrent vivre loin de la civilisation dans des clans soudés. S'ils sont poussés au combat, les bolgrifs font preuve de formidables compétences avec les armes et la magie de la nature.
+Race/&RaceBolgrifTitle=Bolgriff

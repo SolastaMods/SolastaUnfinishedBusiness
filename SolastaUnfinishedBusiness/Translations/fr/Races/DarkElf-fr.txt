@@ -1,0 +1,13 @@
+Feature/&AttributeModifierDarkelfCharismaAbilityScoreIncreaseDescription=Charisme +1
+Feature/&AttributeModifierDarkelfCharismaAbilityScoreIncreaseTitle=Augmentation du score de capacité
+Feature/&CastSpellDarkelfMagicDescription=Vous connaissez le sort mineur Dancing Lights. Au niveau 3, vous apprenez le feu féerique et au niveau 5, les ténèbres. Les deux peuvent être utilisés une fois par repos long.
+Feature/&CastSpellDarkelfMagicTitle=Magie des Elfes Noirs
+Feature/&ProficiencyDarkelfWeaponTrainingDescription=Vous maîtrisez les rapières, les épées courtes et les arbalètes à main.
+Feature/&ProficiencyDarkelfWeaponTrainingTitle=Entraînement aux armes des elfes noirs
+Race/&DarkelfSurName1Title=Za'Moryra
+Race/&DarkelfSurName2Title=DhalNeridthas
+Race/&DarkelfSurName3Title=DhalNerwenys
+Race/&DarkelfSurName4Title=Venez à Sonta
+Race/&DarkelfSurName5Title=Zo'Remon
+Race/&RaceDarkelfDescription=Les elfes noirs sont des descendants d'elfes qui ont changé au fil du temps en vivant dans les Badlands inhospitalières. Les elfes noirs sont en grande partie nocturnes et se sont adaptés à la vie dans les anciennes ruines des Badlands, en particulier les ruines souterraines enfouies. Ils ont tendance à avoir la peau foncée et les cheveux pâles.
+Race/&RaceDarkelfTitle=Elfe noir
