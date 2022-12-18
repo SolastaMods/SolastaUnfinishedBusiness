@@ -4,3 +4,4 @@
 - added Astral Arms, Bow Mastery and Poisonous Skin feats
 - changed College of Life fly power to endure until any rest [avoid soft lock on certain places]
 - fixed Minor Lifesteal extra HP duration
+- updated French, Portuguese and Russian translations
