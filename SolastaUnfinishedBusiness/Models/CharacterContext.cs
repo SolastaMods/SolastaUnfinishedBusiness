@@ -254,6 +254,31 @@ internal static class CharacterContext
             Dwarf.RacePresentation.MaleBeardShapeOptions.Add(BeardShape_None.Name);
         }
 
+        if (Main.Settings.AllowHornsOnAllRaces)
+        {
+            foreach (var race in DatabaseRepository.GetDatabase<CharacterRaceDefinition>())
+            {
+                var racePresentation = race.racePresentation;
+
+                if (racePresentation.availableMorphotypeCategories.Contains(MorphotypeElementDefinition.ElementCategory
+                        .Horns))
+                {
+                    continue;
+                }
+
+                racePresentation.maleHornsOptions = Dragonborn.RacePresentation.maleHornsOptions;
+                racePresentation.femaleHornsOptions = Dragonborn.RacePresentation.femaleHornsOptions;
+
+                var newMorphotypeCategories = new List<MorphotypeElementDefinition.ElementCategory>(
+                    racePresentation.availableMorphotypeCategories)
+                {
+                    MorphotypeElementDefinition.ElementCategory.Horns
+                };
+
+                racePresentation.availableMorphotypeCategories = newMorphotypeCategories.ToArray();
+            }
+        }
+
         if (Main.Settings.UnlockMarkAndTattoosForAllCharacters)
         {
             foreach (var morphotype in dbMorphotypeElementDefinition.Where(x =>
@@ -675,3 +700,4 @@ internal static class CharacterContext
         }
     }
 }
+

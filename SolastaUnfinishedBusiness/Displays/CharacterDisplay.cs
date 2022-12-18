@@ -186,6 +186,12 @@ internal static class CharacterDisplay
             Main.Settings.AllowBeardlessDwarves = toggle;
         }
 
+        toggle = Main.Settings.AllowHornsOnAllRaces;
+        if (UI.Toggle(Gui.Localize("ModUi/&AllowHornsOnAllRaces"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.AllowHornsOnAllRaces = toggle;
+        }
+
         toggle = Main.Settings.OfferAdditionalLoreFriendlyNames;
         if (UI.Toggle(Gui.Localize("ModUi/&OfferAdditionalLoreFriendlyNames"), ref toggle, UI.AutoWidth()))
         {
