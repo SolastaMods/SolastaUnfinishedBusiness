@@ -1,5 +1,5 @@
 ﻿CHANGES:
 
-- added Character > General > Visuals setting to allow horns on any race
-- added Poisonous feat
-- changed College of Life fly power to endure until any rest instead of long rest
+- added Character > General > Visuals setting to allow horns on any race [chifrudo de uma égua, oxente!]
+- added Astral Arms and Poisonous Skin feats
+- changed College of Life fly power to endure until any rest

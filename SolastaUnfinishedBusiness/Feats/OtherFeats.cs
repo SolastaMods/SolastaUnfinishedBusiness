@@ -10,6 +10,7 @@ using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Properties;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionAttributeModifiers;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPowers;
 
 namespace SolastaUnfinishedBusiness.Feats;
@@ -307,11 +308,12 @@ internal static class OtherFeats
     private static FeatDefinition BuildAstralArms()
     {
         return FeatDefinitionBuilder
-            .Create("FeatAstral Arms")
+            .Create("FeatAstralArms")
             .SetGuiPresentation(Category.Feat)
             .SetFeatures(
+                AttributeModifierCreed_Of_Maraike,
                 FeatureDefinitionBuilder
-                    .Create("ModifyAttackModeForWeaponFeatAstral Arms")
+                    .Create("ModifyAttackModeForWeaponFeatAstralArms")
                     .SetGuiPresentationNoContent(true)
                     .SetCustomSubFeatures(new ModifyAttackModeForWeaponFeatAstralArms())
                     .AddToDB())
