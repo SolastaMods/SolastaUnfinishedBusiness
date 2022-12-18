@@ -1,5 +1,11 @@
 ﻿CHANGES:
 
+1.4.32.2:
+
+- added Character > General > Visuals setting to allow horns on any race
+- added Poisonous feat
+- changed College of Life fly power to endure until any rest instead of long rest
+
 1.4.32.1:
 
 - added Chinese and Russian translations

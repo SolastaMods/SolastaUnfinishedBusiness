@@ -96,7 +96,7 @@ internal static class TwoWeaponCombatFeats
             RulesetAttackMode attackMode,
             ActionModifier attackModifier)
         {
-            if (attackMode == null || !ValidatorsWeapon.IsOneHanded(attackMode) ||
+            if (!ValidatorsWeapon.IsOneHanded(attackMode) ||
                 outcome is RollOutcome.Failure or RollOutcome.CriticalFailure)
             {
                 return;
@@ -119,6 +119,8 @@ internal static class TwoWeaponCombatFeats
         }
     }
 }
+
+
 
 
 
