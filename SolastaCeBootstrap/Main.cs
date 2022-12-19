@@ -111,6 +111,7 @@ namespace SolastaCeBootstrap
                     ExportTerms(languageSourceData, 3, "cn-ZN");
                     ExportTerms(languageSourceData, 4, "ru");
                     ExportTerms(languageSourceData, 5, "pt-BR");
+                    ExportTermsPerCategory(languageSourceData, 0, "en");
                 }
 
                 //ExtensionsExporter.Dump();
@@ -132,8 +133,47 @@ namespace SolastaCeBootstrap
                         foreach (var termName in languageSourceData.GetTermsList(category))
                         {
                             var term = languageSourceData.GetTermData(termName);
+
                             sw.WriteLine($"{term.Term}\t{term.Languages[languageIndex]?.Replace("\n", @"\n")}");
                         }
+                    }
+                }
+            }
+        }
+        
+        internal static string FixCategory(string category)
+        {
+            if (category == "MonsterAttack")
+                return "MonsterAttacks";
+            if (category == "Environment Effect")
+                return "EnvironmentEffect";
+            if (category == "Equipement")
+                return "Equipment";
+            
+            return category;
+        }
+        
+        internal static void ExportTermsPerCategory(LanguageSourceData languageSourceData, int languageIndex, String code)
+        {
+            Directory.CreateDirectory($@"{UnityModManager.modsPath}/{typeof(Main).Namespace}/Translations-{code}");
+
+            foreach (var category in languageSourceData.GetCategories())
+            {
+                if (category.Contains(":"))
+                {
+                    continue;
+                }
+
+                var fixedCategory = FixCategory(category);
+                var outputFilename = $@"{UnityModManager.modsPath}/{typeof(Main).Namespace}/Translations-{code}/{fixedCategory}.txt";
+
+                using (var sw = new StreamWriter(outputFilename))
+                {
+                    foreach (var termName in languageSourceData.GetTermsList(category))
+                    {
+                        var term = languageSourceData.GetTermData(termName);
+
+                        sw.WriteLine($"{term.Term}\t{term.Languages[languageIndex]?.Replace("\n", @"\n")}");
                     }
                 }
             }
