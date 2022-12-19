@@ -23,7 +23,7 @@ internal static class RacesContext
         LoadRace(RaceBolgrifBuilder.RaceBolgrif);
         LoadRace(RaceHalfElfVariantRaceBuilder.RaceHalfElfVariant);
         LoadRace(KoboldRaceBuilder.RaceKobold);
-        // LoadRace(TieflingRaceBuilder.RaceTiefling);
+        //LoadRace(TieflingRaceBuilder.RaceTiefling);
 
         // sorting
         Races = Races.OrderBy(x => x.FormatTitle()).ToHashSet();
@@ -45,18 +45,20 @@ internal static class RacesContext
 
     private static void LoadRace([NotNull] CharacterRaceDefinition characterRaceDefinition)
     {
-        if (characterRaceDefinition.SubRaces.Count > 0)
-        {
-            foreach (var subRace in characterRaceDefinition.SubRaces)
-            {
-                LoadRace(subRace);
-            }
-        }
-        else
-        {
-            Races.Add(characterRaceDefinition);
-            UpdateRaceVisibility(characterRaceDefinition);
-        }
+        Races.Add(characterRaceDefinition);
+        UpdateRaceVisibility(characterRaceDefinition);
+        // if (characterRaceDefinition.SubRaces.Count > 0)
+        // {
+        //     foreach (var subRace in characterRaceDefinition.SubRaces)
+        //     {
+        //         LoadRace(subRace);
+        //     }
+        // }
+        // else
+        // {
+        //     Races.Add(characterRaceDefinition);
+        //     UpdateRaceVisibility(characterRaceDefinition);
+        // }
     }
 
     private static void UpdateRaceVisibility([NotNull] CharacterRaceDefinition characterRaceDefinition)
@@ -64,16 +66,19 @@ internal static class RacesContext
         characterRaceDefinition.GuiPresentation.hidden =
             !Main.Settings.RaceEnabled.Contains(characterRaceDefinition.Name);
 
-        var dbCharacterRaceDefinition = DatabaseRepository.GetDatabase<CharacterRaceDefinition>();
-        var masterRace = dbCharacterRaceDefinition
-            .FirstOrDefault(x => x.SubRaces.Contains(characterRaceDefinition));
+        characterRaceDefinition.SubRaces.ForEach(x => x.GuiPresentation.hidden =
+            !Main.Settings.RaceEnabled.Contains(characterRaceDefinition.Name));
 
-        if (masterRace == null)
-        {
-            return;
-        }
-
-        masterRace.GuiPresentation.hidden = masterRace.SubRaces.All(x => x.GuiPresentation.Hidden);
+        // var dbCharacterRaceDefinition = DatabaseRepository.GetDatabase<CharacterRaceDefinition>();
+        // var masterRace = dbCharacterRaceDefinition
+        //     .FirstOrDefault(x => x.SubRaces.Contains(characterRaceDefinition));
+        //
+        // if (masterRace == null)
+        // {
+        //     return;
+        // }
+        //
+        // masterRace.GuiPresentation.hidden = masterRace.SubRaces.All(x => x.GuiPresentation.Hidden);
     }
 
     internal static void Switch(CharacterRaceDefinition characterRaceDefinition, bool active)

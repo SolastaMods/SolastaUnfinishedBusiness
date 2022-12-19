@@ -167,12 +167,12 @@ internal static class TieflingRaceBuilder
             MorphotypeElementDefinition.ElementCategory.Horns
         };
 
-        // tieflingRacePresentation.availableMorphotypeCategories = newMorphotypeCategories.ToArray();
+        tieflingRacePresentation.availableMorphotypeCategories = newMorphotypeCategories.ToArray();
         tieflingRacePresentation.femaleNameOptions = new List<string>();
         tieflingRacePresentation.maleNameOptions = new List<string>();
         tieflingRacePresentation.surNameOptions = new List<string>();
-        // tieflingRacePresentation.maleHornsOptions = Dragonborn.RacePresentation.maleHornsOptions;
-        // tieflingRacePresentation.femaleHornsOptions = Dragonborn.RacePresentation.femaleHornsOptions;
+        tieflingRacePresentation.maleHornsOptions = Dragonborn.RacePresentation.maleHornsOptions;
+        tieflingRacePresentation.femaleHornsOptions = Dragonborn.RacePresentation.femaleHornsOptions;
 
         #endregion
 
