@@ -1,11 +1,16 @@
-﻿CHANGES:
+﻿KNOWN ISSUES:
 
-- added Astral Arms feat
-- added Bow Mastery feat
-- added Poisonous Skin feat
-- added Character > General > Visuals setting to allow horns on any race
-- added German translations
-- changed College of Life fly power to endure until any rest
-- changed Mobile feat to trigger regardless of hit
-- fixed Minor Lifesteal extra HP duration to 1 hour
-- updated Chinese, French, Portuguese and Russian translations
+- Grenadier additional charges is freezing the game in multiplayer
+- Inventor intelligence based attacks aren't triggering Elven Accuracy
+- Tiefling images on class selection haven't been added yet
+
+CHANGES:
+
+- added Italian and Spanish unofficial game translations [check language dropdown on game settings]
+- added Oath of Hatred subclass
+- added Tiefling race [don't get too horny as models aren't the best]
+- fixed a null exception on Bow Mastery feat
+- fixed Monk's Martial Arts dice progression to use class level
+- fixed Piercer feat to only reroll dices on piercing damage
+- fixed Way of the Distant Hand to correctly work with Martial Dice progression
+- updated Summon Eternal Comrade icon

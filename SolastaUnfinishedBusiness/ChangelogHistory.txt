@@ -1,5 +1,16 @@
 ﻿CHANGES:
 
+1.4.32.3:
+
+- added Italian and Spanish unofficial game translations [check language dropdown on game settings]
+- added Oath of Hatred subclass
+- added Tiefling race [don't get too horny as models aren't the best]
+- fixed a null exception on Bow Mastery feat
+- fixed Monk's Martial Arts dice progression to use class level
+- fixed Piercer feat to only reroll dices on piercing damage
+- fixed Way of the Distant Hand to correctly work with Martial Dice progression
+- updated Summon Eternal Comrade icon
+
 1.4.32.2:
 
 - added Astral Arms feat
