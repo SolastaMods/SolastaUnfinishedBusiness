@@ -15,6 +15,7 @@ ModUi/&AllowBeardlessDwarves=允许不长胡子的<color=#D89555>矮人</color>
 ModUi/&AllowDruidToWearMetalArmor=允许<color=#D89555>德鲁伊</color>装备金属护甲
 ModUi/&AllowDungeonsMaxLevel20=允许自定义地城最大等级达到20级
 ModUi/&AllowGadgetsAndPropsToBePlacedAnywhere=允许在地图上任何地方放置互动物件和装饰物<color=#F0DAA0>【在放置时按<color=#1E81B0>CTRL</color>跳过任何检定】</color>
+ModUi/&AllowHornsOnAllRaces=允许所有种族长角
 ModUi/&AllowStackedMaterialComponent=允许材料成分叠加计算<color=#F0DAA0>【e.g. 2个500gp的钻石等同于1000gp的钻石】</color>
 ModUi/&AllowTargetingSelectionWhenCastingChainLightningSpell=允许在施放<color=#D89555>连锁闪电</color>法术时选择目标
 ModUi/&AllowUnmarkedSorcerers=允许<color=#D89555>术士</color>没有脸部印记

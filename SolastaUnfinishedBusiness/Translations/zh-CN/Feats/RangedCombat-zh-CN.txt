@@ -1,5 +1,7 @@
-﻿Feat/&FeatDeadeyeDescription=You have learned to trade accuracy to land deadlier shots. When attacking with ranged weapons, you can choose to take a -{0} penalty to your to hit in order to do additional damage equal to {0} + your proficiency bonus. Attacking at long range doesn't impose disadvantage and your ranged weapon attacks ignore half cover and three-quarters cover.
+﻿Feat/&FeatBowMasteryDescription=你用短弓和长弓进行的伤害检定获得+1 加值。 当你在你的回合使用短弓进行攻击时，你可以用附赠动作再进行一次远程武器攻击。 你可以使用力量而不是敏捷来进行长弓的攻击和伤害检定。
+Feat/&FeatBowMasteryTitle=弓箭掌控
+Feat/&FeatDeadeyeDescription=你已经学会了如何牺牲准确性来换取更致命的射击。当使用远程武器攻击时，你可以选择对你的攻击进行 -{0} 惩罚，以便造成额外的伤害，该伤害等于 {0} + 你的熟练加值。 你的远程武器攻击检定不会因攻击常规射程外的目标而具有劣势。你的远程武器攻击会忽略半掩护和四分之三掩护。
 Feat/&FeatDeadeyeTitle=神射手
-Feat/&FeatRangedExpertDescription=Your expert training with ranged weapons grants you these benefits:\n• You no longer have disadvantage on ranged attacks when there is an enemy within 5 feet of you.\n• If you take the Attack action on your turn, you can use a bonus action to make an attack with a one-handed ranged or thrown weapon.
+Feat/&FeatRangedExpertDescription=你对远程武器的专业训练赋予你以下好处：\n• 当你周围 5 英尺内有敌人时，你在远程攻击中不再处于劣势。\n• 如果你在你的回合内采取攻击行动时，你可以使用 用附赠动作进行单手远程或投掷武器攻击。
 Feat/&FeatRangedExpertTitle=远程专家
 Tooltip/&DeadeyeConcentration=禁用神射手
