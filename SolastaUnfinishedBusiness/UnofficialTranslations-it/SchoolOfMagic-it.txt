@@ -1,0 +1,8 @@
+SchoolOfMagic/&AbjurationTitle=Abiura
+SchoolOfMagic/&ConjurationTitle=Evocazione
+SchoolOfMagic/&DivinationTitle=Divinazione
+SchoolOfMagic/&EnchantmentTitle=Incanto
+SchoolOfMagic/&EvocationTitle=Evocazione
+SchoolOfMagic/&IllusionTitle=Illusione
+SchoolOfMagic/&NecromancyTitle=Negromanzia
+SchoolOfMagic/&TransmutationTitle=Trasmutazione
