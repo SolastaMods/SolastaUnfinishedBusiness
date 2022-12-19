@@ -1,0 +1,7 @@
+Voice/&Female1Title=VACÍO
+Voice/&Female2Title=VACÍO
+Voice/&Male1Title=VACÍO
+Voice/&Male2Title=VACÍO
+Voice/&Voice1Title=Voz 1
+Voice/&Voice2Title=Voz 2
+Voice/&Voice3Title=Voz 3
