@@ -8,4 +8,4 @@
 - changed College of Life fly power to endure until any rest
 - changed Mobile feat to trigger regardless of hit
 - fixed Minor Lifesteal extra HP duration to 1 hour
-- updated French, Portuguese and Russian translations
+- updated Chinese, French, Portuguese and Russian translations
