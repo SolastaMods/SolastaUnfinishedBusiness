@@ -505,3 +505,35 @@ Dragonborn	Sur	Shestendeliath
 Dragonborn	Sur	Turnuroth
 Dragonborn	Sur	Verthisathurgiesh
 Dragonborn	Sur	Yarjerit
+RaceTiefling	Female	Akta
+RaceTiefling	Female	Anakis
+RaceTiefling	Female	Bryseis
+RaceTiefling	Female	Criella
+RaceTiefling	Female	Damaia
+RaceTiefling	Female	Ea
+RaceTiefling	Female	Kallista
+RaceTiefling	Female	Lerissa
+RaceTiefling	Female	Makaria
+RaceTiefling	Female	Nemeia
+RaceTiefling	Female	Orianna
+RaceTiefling	Female	Phelaia
+RaceTiefling	Female	Rieta
+RaceTiefling	Male	Akmenos
+RaceTiefling	Male	Amnon
+RaceTiefling	Male	Barakas
+RaceTiefling	Male	Damakos
+RaceTiefling	Male	Ekemon
+RaceTiefling	Male	Iados
+RaceTiefling	Male	Kairon
+RaceTiefling	Male	Leucis
+RaceTiefling	Male	Melech
+RaceTiefling	Male	Mordai
+RaceTiefling	Male	Morthos
+RaceTiefling	Male	Pelaios
+RaceTiefling	Male	Skamos
+RaceTiefling	Male	Therai
+Darkelf	Sur	Za'Moryra
+Darkelf	Sur	Dhal Neridthas
+Darkelf	Sur	DhalNerwenys
+Darkelf	Sur	Kommen Sie nach Sonta
+Darkelf	Sur	Zo’Remon

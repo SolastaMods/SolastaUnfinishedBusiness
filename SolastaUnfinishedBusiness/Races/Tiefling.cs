@@ -26,41 +26,6 @@ internal static class TieflingRaceBuilder
     [NotNull]
     private static CharacterRaceDefinition BuildTiefling()
     {
-        var infernalFemaleNames = new List<string>()
-        {
-            "Akta",
-            "Anakis",
-            "Bryseis",
-            "Criella",
-            "Damaia",
-            "Ea",
-            "Kallista",
-            "Lerissa",
-            "Makaria",
-            "Nemeia",
-            "Orianna",
-            "Phelaia",
-            "Rieta"
-        };
-
-        var infernalMaleNames = new List<string>()
-        {
-            "Akmenos",
-            "Amnon",
-            "Barakas",
-            "Damakos",
-            "Ekemon",
-            "Iados",
-            "Kairon",
-            "Leucis",
-            "Melech",
-            "Mordai",
-            "Morthos",
-            "Pelaios",
-            "Skamos",
-            "Therai"
-        };
-
         var tieflingRacePresentation = Elf.RacePresentation.DeepCopy();
         var newMorphotypeCategories = new List<MorphotypeElementDefinition.ElementCategory>(
             tieflingRacePresentation.availableMorphotypeCategories)
@@ -69,8 +34,8 @@ internal static class TieflingRaceBuilder
         };
 
         tieflingRacePresentation.availableMorphotypeCategories = newMorphotypeCategories.ToArray();
-        tieflingRacePresentation.femaleNameOptions = infernalFemaleNames;
-        tieflingRacePresentation.maleNameOptions = infernalMaleNames;
+        tieflingRacePresentation.femaleNameOptions = new List<string>(); // names are added from names.txt resources
+        tieflingRacePresentation.maleNameOptions = new List<string>(); // names are added from names.txt resources
         tieflingRacePresentation.surNameOptions = Human.RacePresentation.surNameOptions;
         tieflingRacePresentation.maleHornsOptions = Dragonborn.RacePresentation.maleHornsOptions;
         tieflingRacePresentation.femaleHornsOptions = Dragonborn.RacePresentation.femaleHornsOptions;
