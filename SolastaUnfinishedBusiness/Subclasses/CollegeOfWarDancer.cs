@@ -110,6 +110,10 @@ internal sealed class CollegeOfWarDancer : AbstractSubclass
                     .SetDamageDice(DieType.D8, 1)
                     .SetSpecificDamageType(DamageTypePsychic)
                     .SetAttackOnly()
+                    .AddToDB(),
+                FeatureDefinitionBuilder
+                    .Create("WarDanceSwitchWeaponFreely")
+                    .SetCustomSubFeatures(new SwitchWeaponFreely())
                     .AddToDB()
             )
             .SetCustomSubFeatures(new RemoveOnAttackMissOrAttackWithNonMeleeWeapon())
@@ -344,5 +348,10 @@ internal sealed class CollegeOfWarDancer : AbstractSubclass
                 attackMode.ToHitBonusTrends[index] = trendInfo;
             }
         }
+    }
+
+    internal sealed class SwitchWeaponFreely
+    {
+        
     }
 }
