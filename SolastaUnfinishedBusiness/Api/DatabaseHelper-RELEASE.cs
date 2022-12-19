@@ -1,4 +1,4 @@
-// manually generated on 12/17/2022
+// manually generated on 12/19/2022
 using TA.AI;
 namespace SolastaUnfinishedBusiness.Api;
 internal static partial class DatabaseHelper
@@ -300,6 +300,10 @@ internal static partial class DatabaseHelper
         internal static FeatureDefinitionAttackModifier AttackModifierBerserkerFrenzy { get; } = GetDefinition<FeatureDefinitionAttackModifier>("AttackModifierBerserkerFrenzy");
         internal static FeatureDefinitionAttackModifier AttackModifierMagicWeapon { get; } = GetDefinition<FeatureDefinitionAttackModifier>("AttackModifierMagicWeapon");
         internal static FeatureDefinitionAttackModifier AttackModifierMagicWeapon3 { get; } = GetDefinition<FeatureDefinitionAttackModifier>("AttackModifierMagicWeapon3");
+        internal static FeatureDefinitionAttackModifier AttackModifierMonkFlurryOfBlowsUnarmedStrikeBonus { get; } = GetDefinition<FeatureDefinitionAttackModifier>("AttackModifierMonkFlurryOfBlowsUnarmedStrikeBonus");
+        internal static FeatureDefinitionAttackModifier AttackModifierMonkFlurryOfBlowsUnarmedStrikeBonusFreedom { get; } = GetDefinition<FeatureDefinitionAttackModifier>("AttackModifierMonkFlurryOfBlowsUnarmedStrikeBonusFreedom");
+        internal static FeatureDefinitionAttackModifier AttackModifierMonkMartialArtsImprovedDamage { get; } = GetDefinition<FeatureDefinitionAttackModifier>("AttackModifierMonkMartialArtsImprovedDamage");
+        internal static FeatureDefinitionAttackModifier AttackModifierMonkMartialArtsUnarmedStrikeBonus { get; } = GetDefinition<FeatureDefinitionAttackModifier>("AttackModifierMonkMartialArtsUnarmedStrikeBonus");
         internal static FeatureDefinitionAttackModifier AttackModifierWeaponPlus1 { get; } = GetDefinition<FeatureDefinitionAttackModifier>("AttackModifierWeapon+1");
         internal static FeatureDefinitionAttackModifier AttackModifierWeaponPlus1AT { get; } = GetDefinition<FeatureDefinitionAttackModifier>("AttackModifierWeapon+1AT");
         internal static FeatureDefinitionAttackModifier AttackModifierWeaponPlus2 { get; } = GetDefinition<FeatureDefinitionAttackModifier>("AttackModifierWeapon+2");
