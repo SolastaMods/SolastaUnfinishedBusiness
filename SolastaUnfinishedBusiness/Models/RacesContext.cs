@@ -23,6 +23,7 @@ internal static class RacesContext
         LoadRace(RaceBolgrifBuilder.RaceBolgrif);
         LoadRace(RaceHalfElfVariantRaceBuilder.RaceHalfElfVariant);
         LoadRace(KoboldRaceBuilder.RaceKobold);
+        // LoadRace(TieflingRaceBuilder.RaceTiefling);
 
         // sorting
         Races = Races.OrderBy(x => x.FormatTitle()).ToHashSet();

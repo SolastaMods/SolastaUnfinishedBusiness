@@ -80,6 +80,9 @@ All settings start disabled by default.
 
 [list=1]
 
+[*][b]Bloodline of Asmodeus[/b]: The tieflings connected to Nessus command the power of fire and darkness, guided by a keener than normal intellect, as befits those linked to Asmodeus himself.
+[*][b]Bloodline of Mephistopheles[/b]: Mephistopheles offers arcane power to those who entreat with him. Tieflings linked to him master some arcane magic.
+[*][b]Bloodline of Zariel[/b]: Tieflings with a blood tie to Zariel are stronger than the typical tiefling and receive magical abilities that aid them in battle.
 [*][b]Bolgrif[/b]: Bolgrifs are half-giants living in the frozen highlands of Solasta. They are crafty, cautious, reclusive, distrust most humanoids except elves and prefer to live far from civilization in tight-knit clans. If pressed into battle, bolgrifs demonstrate formidable skills with weapons and nature magic.
 [*][b]Dark Elf[/b]: Dark elves are descendants of elves that have been changed over time by living in the inhospitable Badlands. Dark elves are largely nocturnal and have become adapted to living in ancient Badlands ruins, especially buried underground ruins. They tend to have dark skin and pale hair.
 [*][b]Gnome[/b]: A constant hum of busy activity pervades the warrens and neighborhoods where gnomes form their close-knit communities. Louder sounds punctuate the hum: a crunch of grinding gears here, a minor explosion there, a yelp of surprise or triumph, and especially bursts of laughter. Gnomes take delight in life, enjoying every moment of invention, exploration, investigation, creation, and play.
@@ -99,6 +102,8 @@ All settings start disabled by default.
 [*][b]Armorer[/b]: Armorers focus their studies on magical armors and how to use them effectively.
 [*][b]Grenadier[/b]: Grenadiers study unstable substances and their use in creating explosions of various types.
 [*][b]Weaponsmith[/b]: Weaponsmiths focus their studies on magical weapons and how to use them effectively.
+[*][b]College of Harlequin[/b]: College of Harlequins bards see no distinction between art and war. They see it is their duty to keep the legend of the great battle of the Cataclysm alive through their terrific performance, either on stage or on the battle field.
+[*][b]Tactician[/b]: The Tactician uses their knowledge and might on the battlefield to perform different gambits as they are needed. They can knock down foes, inspire their allies and get in deadly counter-strikes against their foes.
 [/list]
 
 [size=3][b]Subclasses[/b][/size]
@@ -131,8 +136,6 @@ All settings start disabled by default.
 [*][b]Blade Dancer[/b]: Blade Dancers use a series of intricate, elegant maneuvers that fend off harm and allow the blade dancer to channel magic into devastating attacks and a cunning defense. Many who have observed a blade dancer at work remember the display as one of the more beautiful experiences in their life, a glorious dance accompanied by a blade.
 [*][b]Dead Master[/b]: Dead Masters learn to manipulate the energy that animates all living things. As you progress, you learn to sap the life force from a creature as your magic destroys its body, transforming that vital energy into magical power you can manipulate.
 [*][b]Spell Master[/b]: Spell Masters immerse themselves in magic and try to learn every spell they can get their hands on. They are unmatched in their spell knowledge.
-[*][b]College of Harlequin[/b]: College of Harlequins bards see no distinction between art and war. They see it is their duty to keep the legend of the great battle of the Cataclysm alive through their terrific performance, either on stage or on the battle field.
-[*][b]Tactician[/b]: The Tactician uses their knowledge and might on the battlefield to perform different gambits as they are needed. They can knock down foes, inspire their allies and get in deadly counter-strikes against their foes.
 [/list]
 
 [size=3][b]Feats[/b][/size]
@@ -211,7 +214,7 @@ You gain proficiency with medium armor and shields.
 [*][b]Metamagic: Heightened Spell[/b]: Increase your Charisma by 1, to a maximum of 20. You gain 3 sorcery points and learn the Heightened Spell metamagic: Can force a creature to roll the saving throw with disadvantage 
 [*][b]Metamagic: Quickened Spell[/b]: Increase your Charisma by 1, to a maximum of 20. You gain 3 sorcery points and learn the Quickened Spell metamagic: Can cast a main action spell with a bonus action instead, though you can't cast another spell during the same turn, except for cantrips. 
 [*][b]Metamagic: Twinned Spell[/b]: Increase your Charisma by 1, to a maximum of 20. You gain 3 sorcery points and learn the Twinned Spell metamagic: If the source spell targets one creature only, this adds another target 
-[*][b]Mobile[/b]: You are exceptionally speedy and agile. Your speed increases by 10 feet. When you use the Dash action, you gain immunity to movement restrictions as well as being restrained on that turn. When you make a melee attack against a creature, you gain a Disengage action whenever you hit.
+[*][b]Mobile[/b]: You are exceptionally speedy and agile. Your speed increases by 10 feet. When you use the Dash action, you gain immunity to movement restrictions as well as being restrained on that turn. When you make a melee attack against a creature, you gain a Disengage action whenever you hit or not.
 [*][b]Pickpocket[/b]: You gain proficiency with Sleight of Hand, or expertise if already proficient. You also have advantage on Sleight of Hand Dexterity checks.
 [*][b]Piercer [Dex][/b]: You have achieved a penetrating precision in combat. Increase your Dexterity by 1, to a maximum of 20. When you hit a creature with an attack that deals piercing damage, you can re-roll dice when you roll a 1 and you must use the new roll. When you score a critical hit that deals piercing damage to a creature, you can roll one additional damage die when determining the extra piercing damage the target takes.
 [*][b]Piercer [Str][/b]: You have achieved a penetrating precision in combat. Increase your Strength by 1, to a maximum of 20. When you hit a creature with an attack that deals piercing damage, you can re-roll dice when you roll a 1 and you must use the new roll. When you score a critical hit that deals piercing damage to a creature, you can roll one additional damage die when determining the extra piercing damage the target takes.
