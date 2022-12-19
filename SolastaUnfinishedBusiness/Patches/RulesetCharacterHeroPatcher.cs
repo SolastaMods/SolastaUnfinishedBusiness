@@ -288,6 +288,50 @@ public static class RulesetCharacterHeroPatcher
         }
     }
 
+    [HarmonyPatch(typeof(RulesetCharacterHero))]
+    [HarmonyPatch(nameof(RulesetCharacterHero.UpgradeAttackModeDieTypeWithAttackModifierByCharacterLevel))]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    public static class UpgradeAttackModeDieTypeWithAttackModifierByCharacterLevel_Patch
+    {
+        public static bool Prefix(RulesetCharacterHero __instance,
+            RulesetAttackMode attackMode,
+            IAttackModificationProvider attackModifier)
+        {
+            var feature = attackModifier as FeatureDefinition;
+            if (feature == null)
+            {
+                return true;
+            }
+
+            var provider = feature.GetFirstSubFeatureOfType<IRankProvider>();
+            if (provider == null)
+            {
+                return true;
+            }
+
+            var rank = provider.GetRank(__instance);
+            RuleDefinitions.DieType dieTypeOfRank = attackModifier.GetDieTypeOfRank(rank);
+            if (rank <= 0)
+            {
+                return false;
+            }
+
+            var damage = attackMode.EffectDescription.FindFirstDamageForm();
+            if (dieTypeOfRank > damage.DieType)
+            {
+                damage.DieType = dieTypeOfRank;
+            }
+
+            if (dieTypeOfRank > damage.VersatileDieType)
+            {
+                damage.VersatileDieType = dieTypeOfRank;
+            }
+
+
+            return false;
+        }
+    }
+
     [HarmonyPatch(typeof(RulesetCharacterHero), "RefreshAll")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     public static class RefreshAll_Patch

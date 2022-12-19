@@ -7,6 +7,7 @@ using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomInterfaces;
+using SolastaUnfinishedBusiness.Subclasses;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.ConditionDefinitions;
@@ -88,6 +89,8 @@ internal static class SrdAndHouseRulesContext
         SwitchMagicStaffFoci();
         SwitchEnableUpcastConjureElementalAndFey();
         SwitchFullyControlConjurations();
+        FixMartialArtsProgression();
+        DistantHandMartialArtsDie();
     }
 
     internal static void ModifyAttackModeAndDamage(
@@ -493,6 +496,32 @@ internal static class SrdAndHouseRulesContext
         {
             conjuredMonster.fullyControlledWhenAllied = Main.Settings.FullyControlConjurations;
         }
+    }
+
+    internal static void FixMartialArtsProgression()
+    {
+        //Fixes die progression of Monk's Martial Arts to use Monk level, not character level
+        var provider = new RankByClassLevel(Monk);
+
+        var features = new List<FeatureDefinition>
+        {
+            FeatureDefinitionAttackModifiers.AttackModifierMonkMartialArtsImprovedDamage,
+            FeatureDefinitionAttackModifiers.AttackModifierMonkMartialArtsUnarmedStrikeBonus,
+            FeatureDefinitionAttackModifiers.AttackModifierMonkFlurryOfBlowsUnarmedStrikeBonus,
+            FeatureDefinitionAttackModifiers.AttackModifierMonkFlurryOfBlowsUnarmedStrikeBonusFreedom,
+        };
+
+        foreach (var feature in features)
+        {
+            feature.AddCustomSubFeatures(provider);
+        }
+    }
+
+    internal static void DistantHandMartialArtsDie()
+    {
+        //Makes Martial Dice progression work on bows for Way of the Distant Hand
+        FeatureDefinitionAttackModifiers.AttackModifierMonkMartialArtsImprovedDamage
+            .AddCustomSubFeatures(WayOfTheDistantHand.ZenArcherDiceUpgrade.Marker);
     }
 
     internal static void SwitchEnableUpcastConjureElementalAndFey()
