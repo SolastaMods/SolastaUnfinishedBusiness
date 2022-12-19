@@ -7,6 +7,7 @@ using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomInterfaces;
+using SolastaUnfinishedBusiness.Subclasses;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.ConditionDefinitions;
@@ -89,6 +90,7 @@ internal static class SrdAndHouseRulesContext
         SwitchEnableUpcastConjureElementalAndFey();
         SwitchFullyControlConjurations();
         FixMartialArtsProgression();
+        DistantHandMartialArtsDie();
     }
 
     internal static void ModifyAttackModeAndDamage(
@@ -513,6 +515,13 @@ internal static class SrdAndHouseRulesContext
         {
             feature.AddCustomSubFeatures(provider);
         }
+    }
+
+    internal static void DistantHandMartialArtsDie()
+    {
+        //Makes Martial Dice progression work on bows for Way of the Distant Hand
+        FeatureDefinitionAttackModifiers.AttackModifierMonkMartialArtsImprovedDamage
+            .AddCustomSubFeatures(WayOfTheDistantHand.ZenArcherDiceUpgrade.Marker);
     }
 
     internal static void SwitchEnableUpcastConjureElementalAndFey()
