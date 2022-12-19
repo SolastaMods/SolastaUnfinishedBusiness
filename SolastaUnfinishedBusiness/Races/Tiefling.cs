@@ -1,9 +1,12 @@
 ﻿using System.Collections.Generic;
+using System.Threading;
 using JetBrains.Annotations;
+using Mono.CSharp.Linq;
 using SolastaUnfinishedBusiness.Api.Infrastructure;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomUI;
+using SolastaUnfinishedBusiness.Displays;
 using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Properties;
 using TA;
@@ -23,6 +26,56 @@ internal static class TieflingRaceBuilder
     [NotNull]
     private static CharacterRaceDefinition BuildTiefling()
     {
+        var infernalFemaleNames = new List<string>()
+        {
+            "Akta",
+            "Anakis",
+            "Bryseis",
+            "Criella",
+            "Damaia",
+            "Ea",
+            "Kallista",
+            "Lerissa",
+            "Makaria",
+            "Nemeia",
+            "Orianna",
+            "Phelaia",
+            "Rieta"
+        };
+
+        var infernalMaleNames = new List<string>()
+        {
+            "Akmenos",
+            "Amnon",
+            "Barakas",
+            "Damakos",
+            "Ekemon",
+            "Iados",
+            "Kairon",
+            "Leucis",
+            "Melech",
+            "Mordai",
+            "Morthos",
+            "Pelaios",
+            "Skamos",
+            "Therai"
+        };
+
+        var tieflingRacePresentation = Elf.RacePresentation.DeepCopy();
+        var newMorphotypeCategories = new List<MorphotypeElementDefinition.ElementCategory>(
+            tieflingRacePresentation.availableMorphotypeCategories)
+        {
+            MorphotypeElementDefinition.ElementCategory.Horns
+        };
+
+        tieflingRacePresentation.availableMorphotypeCategories = newMorphotypeCategories.ToArray();
+        tieflingRacePresentation.femaleNameOptions = infernalFemaleNames;
+        tieflingRacePresentation.maleNameOptions = infernalMaleNames;
+        tieflingRacePresentation.surNameOptions = Human.RacePresentation.surNameOptions;
+        tieflingRacePresentation.maleHornsOptions = Dragonborn.RacePresentation.maleHornsOptions;
+        tieflingRacePresentation.femaleHornsOptions = Dragonborn.RacePresentation.femaleHornsOptions;
+        tieflingRacePresentation.preferedSkinColors = new RangedInt(16, 19);
+
         #region subraces
 
         var tieflingSpriteReference = Sprites.GetSprite("Tiefling", Resources.HalfDarkelf, 1024, 512);
@@ -56,11 +109,13 @@ internal static class TieflingRaceBuilder
 
         var raceTieflingAsmodeus = CharacterRaceDefinitionBuilder
             .Create(SubraceDarkelf, "RaceTieflingAsmodeus")
+            .SetRacePresentation(tieflingRacePresentation)
             .SetGuiPresentation(Category.Race, tieflingSpriteReference)
             .SetFeaturesAtLevel(1,
                 attributeModifierTieflingIntelligenceAbilityScoreIncrease,
                 castSpellTieflingAsmodeus)
             .AddToDB();
+
 
         var attributeModifierTieflingDexterityAbilityScoreIncrease = FeatureDefinitionAttributeModifierBuilder
             .Create("AttributeModifierTieflingDexterityAbilityScoreIncrease")
@@ -91,6 +146,7 @@ internal static class TieflingRaceBuilder
 
         var raceTieflingMephistopheles = CharacterRaceDefinitionBuilder
             .Create(ElfHigh, "RaceTieflingMephistopheles")
+            .SetRacePresentation(tieflingRacePresentation)
             .SetGuiPresentation(Category.Race, tieflingSpriteReference)
             .SetFeaturesAtLevel(1,
                 attributeModifierTieflingDexterityAbilityScoreIncrease,
@@ -126,6 +182,7 @@ internal static class TieflingRaceBuilder
 
         var raceTieflingZariel = CharacterRaceDefinitionBuilder
             .Create(ElfSylvan, "RaceTieflingZariel")
+            .SetRacePresentation(tieflingRacePresentation)
             .SetGuiPresentation(Category.Race, tieflingSpriteReference)
             .SetFeaturesAtLevel(1,
                 attributeModifierTieflingStrengthAbilityScoreIncrease,
@@ -159,20 +216,6 @@ internal static class TieflingRaceBuilder
             .SetGuiPresentation(Category.Feature)
             .SetProficiencies(ProficiencyType.Language, "Language_Common", languageInfernal.Name)
             .AddToDB();
-
-        var tieflingRacePresentation = Elf.RacePresentation.DeepCopy();
-        var newMorphotypeCategories = new List<MorphotypeElementDefinition.ElementCategory>(
-            tieflingRacePresentation.availableMorphotypeCategories)
-        {
-            MorphotypeElementDefinition.ElementCategory.Horns
-        };
-
-        tieflingRacePresentation.availableMorphotypeCategories = newMorphotypeCategories.ToArray();
-        tieflingRacePresentation.femaleNameOptions = new List<string>();
-        tieflingRacePresentation.maleNameOptions = new List<string>();
-        tieflingRacePresentation.surNameOptions = new List<string>();
-        tieflingRacePresentation.maleHornsOptions = Dragonborn.RacePresentation.maleHornsOptions;
-        tieflingRacePresentation.femaleHornsOptions = Dragonborn.RacePresentation.femaleHornsOptions;
 
         #endregion
 
