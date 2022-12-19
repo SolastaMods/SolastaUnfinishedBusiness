@@ -1,0 +1,10 @@
+KnowledgeLevel/&KnownDescription=Conosci bene questa creatura.
+KnowledgeLevel/&KnownTitle=Conosciuto (3)
+KnowledgeLevel/&MasteredDescription=Sai tutto di questa creatura.
+KnowledgeLevel/&MasteredTitle=Masterizzato (4)
+KnowledgeLevel/&ObservedDescription=Hai osservato brevemente questa creatura.
+KnowledgeLevel/&ObservedTitle=Osservato (1)
+KnowledgeLevel/&StudiedDescription=Hai studiato questa creatura.
+KnowledgeLevel/&StudiedTitle=Studiato (2)
+KnowledgeLevel/&UnknownDescription=Non hai mai incontrato questa creatura.
+KnowledgeLevel/&UnknownTitle=Sconosciuto (0)

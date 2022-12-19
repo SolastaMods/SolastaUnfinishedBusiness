@@ -1,0 +1,12 @@
+FightingStyle/&ArcheryDescription=Ottieni un bonus di +2 ai tiri per colpire con le armi a distanza.
+FightingStyle/&ArcheryTitle=Tiro con l'arco
+FightingStyle/&DefenseDescription=Mentre indossi un'armatura, ottieni un bonus di +1 alla CA.
+FightingStyle/&DefenseTitle=Difesa
+FightingStyle/&DuelingDescription=Quando impugni un'arma da mischia in una mano e nessun'altra arma, ottieni un bonus di +2 ai tiri per i danni con quell'arma.
+FightingStyle/&DuelingTitle=Duello
+FightingStyle/&GreatWeaponDescription=Quando ottieni un 1 o 2 su un dado di danno per un attacco effettuato con un'arma da mischia che stai brandendo con due mani, puoi ritirare il dado. Devi usare il nuovo tiro, anche se è un 1 o un 2. L'arma deve avere la proprietà a due mani o versatile per ottenere questo beneficio.
+FightingStyle/&GreatWeaponTitle=Grande combattimento con le armi
+FightingStyle/&ProtectionDescription=Quando una creatura che puoi vedere attacca un bersaglio diverso da te che si trova entro una cella da te, puoi usare la tua reazione per imporre svantaggio al tiro per colpire. Devi brandire uno scudo.
+FightingStyle/&ProtectionTitle=Protezione
+FightingStyle/&TwoWeaponDescription=Quando ti impegni in un combattimento con due armi, puoi aggiungere il tuo modificatore di abilità al danno del secondo attacco.
+FightingStyle/&TwoWeaponTitle=Combattimento con due armi

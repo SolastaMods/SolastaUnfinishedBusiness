@@ -251,3 +251,4 @@ NPC/&NPC_Forge_Guard_HalfElfRanger_Description=Un miembro típico de la Forja: u
 NPC/&NPC_Forge_Guard_HumanDruid_Title=forjar druida
 NPC/&NPC_Forge_Guard_HumanDruid_Description=Un miembro típico de la Fragua, vinculando la facción con la naturaleza.
 NPC/&NPC_Adrasteia_Title=Adrasteia
+NCPC/&NPC_Esfalad_Graymas=Esfalad Graymas

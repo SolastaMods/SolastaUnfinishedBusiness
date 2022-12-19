@@ -308,3 +308,4 @@ Tooltip/&InvocationUsagePermanentInactiveDescription=El efecto de esta invocaci√
 Tooltip/&TagMusicalInstrumentTitle=Instrumento musical
 Tooltip/&FeatSameFamilyUnavailableWarningDescription=Advertencia: solo puedes aprender una haza√±a de este tipo
 Tooltip/&FeatPrerequisiteFeatFamilyFormat=Ya conocido: {0}
+Toolitp/&MultiplayerSessionSavedDescription=Este juego multijugador reanuda un juego guardado.
