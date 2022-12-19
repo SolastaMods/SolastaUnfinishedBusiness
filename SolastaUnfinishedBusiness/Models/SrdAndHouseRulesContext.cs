@@ -88,6 +88,7 @@ internal static class SrdAndHouseRulesContext
         SwitchMagicStaffFoci();
         SwitchEnableUpcastConjureElementalAndFey();
         SwitchFullyControlConjurations();
+        FixMartialArtsProgression();
     }
 
     internal static void ModifyAttackModeAndDamage(
@@ -492,6 +493,25 @@ internal static class SrdAndHouseRulesContext
         foreach (var conjuredMonster in ConjuredMonsters)
         {
             conjuredMonster.fullyControlledWhenAllied = Main.Settings.FullyControlConjurations;
+        }
+    }
+
+    internal static void FixMartialArtsProgression()
+    {
+        //Fixes die progression of Monk's Martial Arts to use Monk level, not character level
+        var provider = new RankByClassLevel(Monk);
+
+        var features = new List<FeatureDefinition>
+        {
+            FeatureDefinitionAttackModifiers.AttackModifierMonkMartialArtsImprovedDamage,
+            FeatureDefinitionAttackModifiers.AttackModifierMonkMartialArtsUnarmedStrikeBonus,
+            FeatureDefinitionAttackModifiers.AttackModifierMonkFlurryOfBlowsUnarmedStrikeBonus,
+            FeatureDefinitionAttackModifiers.AttackModifierMonkFlurryOfBlowsUnarmedStrikeBonusFreedom,
+        };
+
+        foreach (var feature in features)
+        {
+            feature.AddCustomSubFeatures(provider);
         }
     }
 
