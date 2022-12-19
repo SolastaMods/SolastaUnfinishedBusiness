@@ -134,7 +134,7 @@ namespace SolastaCeBootstrap
                         {
                             var term = languageSourceData.GetTermData(termName);
 
-                            sw.WriteLine($"{term.Term}\t{term.Languages[languageIndex]?.Replace("\n", @"\n")}");
+                            sw.WriteLine($"{term.Term}={term.Languages[languageIndex]?.Replace("\n", @"\n")}");
                         }
                     }
                 }
@@ -179,7 +179,7 @@ namespace SolastaCeBootstrap
                     {
                         var term = languageSourceData.GetTermData(termName);
 
-                        sw.WriteLine($"{term.Term}\t{term.Languages[languageIndex]?.Replace("\n", @"\n")}");
+                        sw.WriteLine($"{term.Term}={term.Languages[languageIndex]?.Replace("\n", @"\n")}");
                     }
                 }
             }
