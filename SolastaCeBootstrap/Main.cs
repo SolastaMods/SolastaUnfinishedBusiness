@@ -171,7 +171,7 @@ namespace SolastaCeBootstrap
                 }
 
                 var fixedCategory = FixCategory(category);
-                var outputFilename = $@"{UnityModManager.modsPath}/{typeof(Main).Namespace}/Translations-{code}/{fixedCategory}.txt";
+                var outputFilename = $@"{UnityModManager.modsPath}/{typeof(Main).Namespace}/Translations-{code}/{fixedCategory}-{code}.txt";
 
                 using (var sw = new StreamWriter(outputFilename))
                 {
