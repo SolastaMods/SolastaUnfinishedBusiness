@@ -45,7 +45,7 @@
     }
   ],
   "subRaces": [],
-  "inventoryDefinition": null,
+  "inventoryDefinition": "Definition:HumanoidInventory:2a836ff45f2eb274eb079425509421ac",
   "personalityFlagOccurences": [],
   "languageAutolearnPreference": [],
   "audioSwitches": [],

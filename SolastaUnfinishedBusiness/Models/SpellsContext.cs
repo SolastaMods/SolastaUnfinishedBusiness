@@ -24,6 +24,7 @@ internal static class SpellsContext
     // ReSharper disable once InconsistentNaming
     private static readonly SortedList<string, SpellListDefinition> spellLists = new();
     internal static readonly SpellDefinition FarStep = BuildFarStep();
+    internal static readonly SpellDefinition SunlightBlade = BuildSunlightBlade();
     internal static HashSet<SpellDefinition> Spells { get; private set; } = new();
 
     [NotNull]
@@ -139,7 +140,7 @@ internal static class SpellsContext
         RegisterSpell(BuildMinorLifesteal(), 0, SpellListBard, SpellListSorcerer, SpellListWizard, SpellListWarlock);
         RegisterSpell(BuildResonatingStrike(), 0, SpellListBard, SpellListSorcerer, SpellListWarlock, SpellListWizard,
             spellListInventorClass);
-        RegisterSpell(BuildSunlightBlade(), 0, SpellListBard, SpellListSorcerer, SpellListWarlock, SpellListWizard,
+        RegisterSpell(SunlightBlade, 0, SpellListBard, SpellListSorcerer, SpellListWarlock, SpellListWizard,
             spellListInventorClass);
         RegisterSpell(BuildThornyVines(), 0, SpellListDruid, spellListInventorClass);
         RegisterSpell(BuildThunderStrike(), 0, SpellListDruid, SpellListSorcerer, SpellListWizard,
@@ -327,3 +328,4 @@ internal static class SpellsContext
         }
     }
 }
+

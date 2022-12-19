@@ -1,0 +1,8 @@
+Feat/&FeatHeavyArmorMasterDescription=Puoi usare la tua armatura per deviare i colpi che ucciderebbero gli altri. Aumenta il tuo punteggio di Forza di 1, fino a un massimo di 20. Mentre indossi un'armatura pesante, i danni contundenti, perforanti e taglienti che subisci dagli attacchi sono ridotti di 3.
+Feat/&FeatHeavyArmorMasterTitle=Maestro di armature pesanti
+Feat/&FeatMediumArmorDexDescription=Aumenta la tua Destrezza di 1, fino a un massimo di 20.\nOttieni competenza con armature medie e scudi.
+Feat/&FeatMediumArmorDexTitle=Armatura media [Des]
+Feat/&FeatMediumArmorStrDescription=Aumenta la tua Forza di 1, fino a un massimo di 20.\nOttieni competenza con armature medie e scudi.
+Feat/&FeatMediumArmorStrTitle=Armatura media [For]
+Feedback/&HeavyArmorMasterFormat=Maestro di armature pesanti!
+Feedback/&HeavyArmorMasterLine=Heavy Armor Master riduce i danni del bersaglio!

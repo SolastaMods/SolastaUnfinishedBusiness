@@ -171,12 +171,12 @@ internal static class RangedCombatFeats
     
     private static bool IsShortbow(RulesetAttackMode mode, RulesetItem weapon, RulesetCharacter _)
     {
-        return weapon.ItemDefinition.Name.Contains("Shortbow");
+        return weapon?.ItemDefinition.WeaponDescription?.WeaponTypeDefinition == WeaponTypeDefinitions.ShortbowType;
     }
     
     private static bool IsLongbow(RulesetAttackMode mode, RulesetItem weapon, RulesetCharacter _)
     {
-        return weapon.ItemDefinition.Name.Contains("Longbow");
+        return weapon?.ItemDefinition.WeaponDescription?.WeaponTypeDefinition == WeaponTypeDefinitions.LongbowType;
     }
 
     private sealed class ModifyAttackModeForWeaponFeatDeadeye : IModifyAttackModeForWeapon

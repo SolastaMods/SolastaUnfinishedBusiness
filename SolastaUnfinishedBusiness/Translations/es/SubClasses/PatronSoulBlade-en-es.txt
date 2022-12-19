@@ -1,0 +1,10 @@
+﻿Feature/&AttackModifierSoulBladeEmpowerWeaponDescription=El arma usa el modificador Carisma para las tiradas de ataque y daño y cuenta como mágica hasta un descanso prolongado.
+Feature/&AttackModifierSoulBladeEmpowerWeaponTitle=alma empoderada
+Feature/&PowerSoulBladeEmpowerWeaponDescription=Una vez por descanso prolongado puedes potenciar un arma con el poder de las almas. El arma usa el modificador Carisma para las tiradas de ataque y daño y cuenta como mágica. Solo un arma puede estar bajo este efecto.
+Feature/&PowerSoulBladeEmpowerWeaponTitle=Empoderamiento del alma
+Feature/&PowerSoulBladeSoulShieldDescription=Una vez por breve descanso, usas el poder de las almas para defenderte. Usando una acción de bonificación, obtienes hp temporales iguales a tu nivel + modificador de Carisma.
+Feature/&PowerSoulBladeSoulShieldTitle=Escudo del alma
+Feature/&PowerSoulBladeSummonPactWeaponDescription=Una vez por breve descanso puedes invocar una forma espiritual de un arma de tu pacto como acción gratuita. Como acción adicional, puedes dirigir el arma como desees para atacar a tus enemigos. El arma se mueve hasta 20 pies cada vez antes de golpear.
+Feature/&PowerSoulBladeSummonPactWeaponTitle=Arma del Pacto Espiritual
+Subclass/&PatronSoulBladeDescription=Has llegado a un acuerdo con un arma sensible con la que alimentas almas a cambio de poder.
+Subclass/&PatronSoulBladeTitle=La espada del alma

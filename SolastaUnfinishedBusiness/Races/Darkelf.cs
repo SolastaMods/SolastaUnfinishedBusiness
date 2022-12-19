@@ -77,15 +77,9 @@ internal static class DarkelfSubraceBuilder
 
         darkelfRacePresentation.femaleNameOptions = ElfHigh.RacePresentation.FemaleNameOptions;
         darkelfRacePresentation.maleNameOptions = ElfHigh.RacePresentation.MaleNameOptions;
+        darkelfRacePresentation.surNameOptions = new List<string>(); // names are added from names.txt resources
         darkelfRacePresentation.preferedSkinColors = new RangedInt(48, 53);
         darkelfRacePresentation.preferedHairColors = new RangedInt(48, 53);
-
-        darkelfRacePresentation.surNameOptions = new List<string>();
-
-        for (var i = 1; i <= 5; i++)
-        {
-            darkelfRacePresentation.surNameOptions.Add($"Race/&DarkelfSurName{i}Title");
-        }
 
         var raceDarkelf = CharacterRaceDefinitionBuilder
             .Create(ElfHigh, "RaceDarkelf")

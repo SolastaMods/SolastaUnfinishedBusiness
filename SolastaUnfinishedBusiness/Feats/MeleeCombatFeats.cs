@@ -32,7 +32,8 @@ internal static class MeleeCombatFeats
                         .SetGuiPresentationNoContent(true)
                         .SetModifiers(AttackDamageValueRoll, 1, 1, 1, "Feat/&FeatPiercerReroll")
                         .AddToDB())
-                .AddToDB()),
+                .AddToDB(),
+                DamageTypePiercing),
             new CustomAdditionalDamageFeatPiercer(
                 FeatureDefinitionAdditionalDamageBuilder
                     .Create("AdditionalDamageFeatPiercer")
@@ -230,10 +231,12 @@ internal static class MeleeCombatFeats
     private sealed class AfterAttackEffectFeatPiercer : IAfterAttackEffect
     {
         private readonly ConditionDefinition _conditionDefinition;
+        private readonly string _damageType;
 
-        internal AfterAttackEffectFeatPiercer(ConditionDefinition conditionDefinition)
+        internal AfterAttackEffectFeatPiercer(ConditionDefinition conditionDefinition, string damageType)
         {
             _conditionDefinition = conditionDefinition;
+            _damageType = damageType;
         }
 
         public void AfterOnAttackHit(
@@ -245,6 +248,13 @@ internal static class MeleeCombatFeats
             ActionModifier attackModifier)
         {
             if (attackMode == null || outcome is RollOutcome.Failure or RollOutcome.CriticalFailure)
+            {
+                return;
+            }
+
+            var damage = attackMode?.EffectDescription?.FindFirstDamageForm();
+
+            if (damage == null || damage.DamageType != _damageType)
             {
                 return;
             }

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Linq;
 using JetBrains.Annotations;
+using SolastaUnfinishedBusiness.Api;
 
 namespace SolastaUnfinishedBusiness.Builders;
 
@@ -41,6 +42,7 @@ internal class CharacterRaceDefinitionBuilder
     internal CharacterRaceDefinitionBuilder SetRacePresentation(RacePresentation racePresentation)
     {
         Definition.racePresentation = racePresentation;
+        Definition.inventoryDefinition = DatabaseHelper.GetDefinition<InventoryDefinition>("HumanoidInventory");
         return this;
     }
 

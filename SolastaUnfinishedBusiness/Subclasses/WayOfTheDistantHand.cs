@@ -436,6 +436,22 @@ internal sealed class WayOfTheDistantHand : AbstractSubclass
     {
         // used for easier detection of Zen Archer characters to allow stunning strike on arrows
     }
+    
+    internal sealed class ZenArcherDiceUpgrade: IRestrictedContextValidator
+    {
+        public static IRestrictedContextValidator Marker { get; } = new ZenArcherDiceUpgrade();
+        private ZenArcherDiceUpgrade()
+        {
+        }
+
+
+        public (OperationType, bool) ValidateContext(BaseDefinition definition, IRestrictedContextProvider provider,
+            RulesetCharacter character, ItemDefinition itemDefinition, bool rangedAttack, RulesetAttackMode attackMode,
+            RulesetEffect rulesetEffect)
+        {
+            return (OperationType.Or, IsZenArcherWeapon(character, attackMode.sourceDefinition as ItemDefinition));
+        }
+    }
 
     private sealed class UpgradeFlurry : IOnAfterActionFeature
     {

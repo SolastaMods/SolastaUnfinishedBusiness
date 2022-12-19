@@ -57,10 +57,7 @@ internal static class RaceHalfElfVariantRaceBuilder
             .SetOrUpdateGuiPresentation("HalfElf", Category.Race)
             .AddToDB();
 
-        raceHalfElfVariant.SubRaces.SetRange(new List<CharacterRaceDefinition>
-        {
-            RaceHalfElfHighVariant, RaceHalfElfSylvanVariant, RaceHalfElfDarkVariant
-        });
+        raceHalfElfVariant.SubRaces.SetRange(RaceHalfElfHighVariant, RaceHalfElfSylvanVariant, RaceHalfElfDarkVariant);
 
         RaceHalfElfHighVariant.GuiPresentation.sortOrder = 0;
         RaceHalfElfSylvanVariant.GuiPresentation.sortOrder = 1;

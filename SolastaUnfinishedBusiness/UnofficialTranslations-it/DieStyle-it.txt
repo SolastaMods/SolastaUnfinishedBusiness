@@ -1,0 +1,10 @@
+DieStyle/&DieStyleEbonyTitle=Ebano
+DieStyle/&DieStyleGreenTitle=Verde
+DieStyle/&DieStyleIvoryTitle=Avorio
+DieStyle/&DieStyleRubyTitle=Rubino
+DieStyle/&DieStyleStandardTitle=Standard
+DieStyle/&DieStyleYellowTitle=Giallo
+DieStyle/&DieStyleGoldSupporterTitle=Oro
+DieStyle/&DieStyleSilverSupporterTitle=Argento
+DieStyle/&DieStyleBronzeSupporterTitle=Bronzo
+DieStyle/&DieStyleDiamondSupporterTitle=Diamante
