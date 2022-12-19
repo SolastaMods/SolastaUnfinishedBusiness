@@ -1,4 +1,4 @@
-﻿Condition/&ConditionScornfulPrayerDescription=La fuerza y ​​la voz se desvanecen a medida que la oración envuelve. Mientras está bajo los efectos, la oración hace que el enemigo sea maldecido en las tiradas de ataque y debilitado.
+﻿Condition/&ConditionScornfulPrayerDescription=La fuerza y la voz se desvanecen a medida que la oración envuelve. Mientras está bajo los efectos, la oración hace que el enemigo sea maldecido en las tiradas de ataque y debilitado.
 Condition/&ConditionScornfulPrayerTitle=despreciado
 Condition/&ConditionDauntlessPursuerDescription=2 celdas de movimiento adicionales e ignorar las reacciones del oponente.
 Condition/&ConditionDauntlessPursuerTitle=Perseguidor intrépido

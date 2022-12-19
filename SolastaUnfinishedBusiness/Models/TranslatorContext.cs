@@ -94,6 +94,11 @@ internal static class TranslatorContext
 
                 while (sr.ReadLine() is { } line)
                 {
+                    if (string.IsNullOrEmpty(line))
+                    {
+                        continue;
+                    }
+
                     try
                     {
                         var split = line.Split(new[] { '=' }, 2);
@@ -252,7 +257,7 @@ internal static class TranslatorContext
 
         foreach (var line in GetTranslations(languageCode, validate))
         {
-            if (line == null)
+            if (string.IsNullOrEmpty(line))
             {
                 continue;
             }
@@ -341,20 +346,18 @@ internal static class TranslatorContext
             return;
         }
 
+        Main.Info("ADD THESE TERMS:");
+
+        foreach (var term in englishTerms.Keys.Except(currentLanguageTerms.Keys))
         {
-            Main.Info("ADD THESE TERMS:");
+            Main.Info($"{term} is missing from {languageCode} translation assets");
+        }
 
-            foreach (var term in englishTerms.Keys.Except(currentLanguageTerms.Keys))
-            {
-                Main.Info($"{term} is missing from {languageCode} translation assets");
-            }
+        Main.Info("DELETE THESE TERMS:");
 
-            Main.Info("DELETE THESE TERMS:");
-
-            foreach (var term in currentLanguageTerms.Keys.Except(englishTerms.Keys))
-            {
-                Main.Info($"{term} must be deleted from {languageCode} translation assets");
-            }
+        foreach (var term in currentLanguageTerms.Keys.Except(englishTerms.Keys))
+        {
+            Main.Info($"{term} must be deleted from {languageCode} translation assets");
         }
     }
 
