@@ -308,3 +308,4 @@ Tooltip/&InvocationUsagePermanentInactiveDescription=The effect of this invocati
 Tooltip/&TagMusicalInstrumentTitle=Musical Instrument
 Tooltip/&FeatSameFamilyUnavailableWarningDescription=Warning: you can only learn one Feat of this type
 Tooltip/&FeatPrerequisiteFeatFamilyFormat=Already known: {0}
+Toolitp/&MultiplayerSessionSavedDescription=This multiplayer game resumes a saved game.

@@ -38,6 +38,9 @@ internal static class SubclassesContext
         LoadSubclass(new MartialSpellShield());
         LoadSubclass(new MartialTactician(), true);
 
+        // Paladin
+        LoadSubclass(new OathOfHatred(), true);
+
         // Ranger
         LoadSubclass(new RangerArcanist());
         LoadSubclass(new RangerWildMaster());

@@ -251,3 +251,4 @@ NPC/&NPC_Forge_Guard_HalfElfRanger_Description=A typical member of the Forge: an
 NPC/&NPC_Forge_Guard_HumanDruid_Title=Forge Druid
 NPC/&NPC_Forge_Guard_HumanDruid_Description=A typical member of the Forge, linking the faction with nature.
 NPC/&NPC_Adrasteia_Title=Adrasteia
+NCPC/&NPC_Esfalad_Graymas=Esfalad Graymas
