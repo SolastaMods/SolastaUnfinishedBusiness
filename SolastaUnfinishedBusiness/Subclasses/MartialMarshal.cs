@@ -212,11 +212,13 @@ internal sealed class MartialMarshal : AbstractSubclass
 
     private static FeatureDefinitionFeatureSet BuildFeatureSetMarshalEternalComrade()
     {
+        var sprite = Sprites.GetSprite("PowerMarshalSummonEternalComrade", Resources.PowerMarshalSummonEternalComrade, 128);
+        
         //TODO: make this use concentration and reduce the duration to may be 3 rounds
         //TODO: increase the number of use to 2 and recharge per long rest
         var powerMarshalSummonEternalComrade = FeatureDefinitionPowerBuilder
             .Create("PowerMarshalSummonEternalComrade")
-            .SetGuiPresentation(Category.Feature, Bane)
+            .SetGuiPresentation(Category.Feature, sprite)
             .SetUsesFixed(ActivationTime.BonusAction, RechargeRate.ShortRest)
             .SetEffectDescription(EffectDescriptionBuilder
                 .Create(ConjureAnimalsOneBeast.EffectDescription)

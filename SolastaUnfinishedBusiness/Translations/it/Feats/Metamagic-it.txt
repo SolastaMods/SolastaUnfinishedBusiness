@@ -1,0 +1,2 @@
+﻿Feat/&FeatAdeptMetamagicDescription=Aumenta il tuo Carisma di 1, fino a un massimo di 20. Guadagni 3 punti stregoneria e impari la metamagia {0}: {1}
+Feat/&FeatAdeptMetamagicTitle=Metamagia: {0}
