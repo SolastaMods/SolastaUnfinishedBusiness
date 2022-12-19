@@ -143,6 +143,12 @@ namespace SolastaCeBootstrap
         
         internal static string FixCategory(string category)
         {
+            if (category == "Tutorials")
+                return "Tutorial";
+            if (category == "Toolitp")
+                return "Tooltip";
+            if (category == "NCPC")
+                return "NPC";
             if (category == "MonsterAttack")
                 return "MonsterAttacks";
             if (category == "Environment Effect")

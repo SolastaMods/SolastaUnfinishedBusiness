@@ -28,7 +28,7 @@ internal struct LanguageEntry
 
 internal static class TranslatorContext
 {
-    private const string UnofficialLanguagesFolderPrefix = "Translations-";
+    private const string UnofficialLanguagesFolderPrefix = "UnofficialTranslations-";
 
     internal const string English = "en";
 
