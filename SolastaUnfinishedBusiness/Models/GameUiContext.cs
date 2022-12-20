@@ -30,6 +30,9 @@ internal static class GameUiContext
 
     // Teleport Party
     private const InputCommands.Id CtrlShiftT = (InputCommands.Id)44440008;
+    
+    // Rejoin Party
+    private const InputCommands.Id CtrlShiftR = (InputCommands.Id)44440009;
 
     private static readonly List<RectTransform> SpellLineTables = new();
     private static ItemPresentation EmpressGarbOriginalItemPresentation { get; set; }
@@ -676,6 +679,10 @@ internal static class GameUiContext
         // Teleport
         inputService.RegisterCommand(CtrlShiftT, (int)KeyCode.T, (int)KeyCode.LeftShift,
             (int)KeyCode.LeftControl);
+        
+        // Rejoin
+        inputService.RegisterCommand(CtrlShiftR, (int)KeyCode.R, (int)KeyCode.LeftShift,
+            (int)KeyCode.LeftControl);
     }
 
     internal static void HandleInput(GameLocationBaseScreen gameLocationBaseScreen, InputCommands.Id command)
@@ -695,7 +702,11 @@ internal static class GameUiContext
         }
         else if (Main.Settings.EnableTeleportParty && command == CtrlShiftT)
         {
-            Teleporter.ConfirmTeleportParty();
+            Teleporter.ConfirmTeleportParty(Teleporter.GetEncounterPosition);
+        }
+        else if (Main.Settings.EnableRejoinParty && command == CtrlShiftR)
+        {
+            Teleporter.ConfirmTeleportParty(Teleporter.GetLeaderPosition);
         }
         else if (EncountersSpawnContext.EncounterCharacters.Count > 0 && command == CtrlShiftS)
         {
@@ -796,9 +807,9 @@ internal static class GameUiContext
 
     private static class Teleporter
     {
-        internal static void ConfirmTeleportParty()
+        internal static void ConfirmTeleportParty(Func<int3> getPosition)
         {
-            var position = GetEncounterPosition();
+            var position = getPosition();
 
             Gui.GuiService.ShowMessage(
                 MessageModal.Severity.Attention2,
@@ -809,14 +820,21 @@ internal static class GameUiContext
                 null);
         }
 
-        private static int3 GetEncounterPosition()
+        internal static int3 GetEncounterPosition()
         {
             var gameLocationService = ServiceRepository.GetService<IGameLocationService>();
-
             var x = (int)gameLocationService.GameLocation.LastCameraPosition.x;
             var z = (int)gameLocationService.GameLocation.LastCameraPosition.z;
 
             return new int3(x, 0, z);
+        }
+        
+        internal static int3 GetLeaderPosition()
+        {
+            var gameLocationCharacterService = ServiceRepository.GetService<IGameLocationCharacterService>();
+            var position = gameLocationCharacterService.PartyCharacters[0].LocationPosition;
+
+            return position;
         }
 
         private static void TeleportParty(int3 position)

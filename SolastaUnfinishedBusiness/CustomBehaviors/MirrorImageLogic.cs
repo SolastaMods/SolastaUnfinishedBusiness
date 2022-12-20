@@ -38,7 +38,7 @@ public class MirrorImageLogic
                 Sprites.GetSprite("ConditionMirrorImage", Resources.ConditionMirrorImage, 32))
             .SetCustomSubFeatures(Marker)
             .SetSilent(Silent.WhenAdded)
-            .SetAllowMultipleInstances(true)
+            .AllowMultipleInstances()
             .SetPossessive()
             .SetFeatures(FeatureDefinitionBuilder
                 .Create("FeatureMirrorImageCounter")
@@ -315,3 +315,4 @@ public class MirrorImageLogic
         }
     }
 }
+

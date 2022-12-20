@@ -1,4 +1,4 @@
-// automatically generated on 11/28/2022 12:00:00 AM
+// automatically generated on 12/15/2022 12:00:00 AM
 
 using TA.AI;
 
@@ -2611,8 +2611,8 @@ internal static partial class DatabaseHelper
         internal static FactionDefinition Evocation_Suncloud_Clan { get; } =
             GetDefinition<FactionDefinition>("Evocation_Suncloud_Clan");
 
-        // internal static FactionDefinition Faction_Principality { get; } =
-        //     GetDefinition<FactionDefinition>("Faction_Principality");
+        internal static FactionDefinition Faction_Principality { get; } =
+            GetDefinition<FactionDefinition>("Faction_Principality");
 
         internal static FactionDefinition HostileMonsters { get; } =
             GetDefinition<FactionDefinition>("HostileMonsters");
@@ -4501,8 +4501,8 @@ internal static partial class DatabaseHelper
         internal static FeatureDefinitionCastSpell CastSpell_DLC1_Mask_Cleric { get; } =
             GetDefinition<FeatureDefinitionCastSpell>("CastSpell_DLC1_Mask_Cleric");
 
-        // internal static FeatureDefinitionCastSpell CastSpell_Kratshar { get; } =
-        //     GetDefinition<FeatureDefinitionCastSpell>("CastSpell_Kratshar");
+        internal static FeatureDefinitionCastSpell CastSpell_Kratshar { get; } =
+            GetDefinition<FeatureDefinitionCastSpell>("CastSpell_Kratshar");
 
         internal static FeatureDefinitionCastSpell CastSpell_Swamp_Hag { get; } =
             GetDefinition<FeatureDefinitionCastSpell>("CastSpell_Swamp_Hag");
@@ -6893,8 +6893,8 @@ internal static partial class DatabaseHelper
         internal static FeatureDefinitionPower PowerDragonBreath_Acid { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerDragonBreath_Acid");
 
-        // internal static FeatureDefinitionPower PowerDragonBreath_Acid_Spectral { get; } =
-        //     GetDefinition<FeatureDefinitionPower>("PowerDragonBreath_Acid_Spectral");
+        internal static FeatureDefinitionPower PowerDragonBreath_Acid_Spectral { get; } =
+            GetDefinition<FeatureDefinitionPower>("PowerDragonBreath_Acid_Spectral");
 
         internal static FeatureDefinitionPower PowerDragonBreath_Cold { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerDragonBreath_Cold");
@@ -6917,14 +6917,14 @@ internal static partial class DatabaseHelper
         internal static FeatureDefinitionPower PowerDragonFrightfulPresence { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerDragonFrightfulPresence");
 
-        // internal static FeatureDefinitionPower PowerDragonFrightfulPresence_Spectral { get; } =
-        //     GetDefinition<FeatureDefinitionPower>("PowerDragonFrightfulPresence_Spectral");
+        internal static FeatureDefinitionPower PowerDragonFrightfulPresence_Spectral { get; } =
+            GetDefinition<FeatureDefinitionPower>("PowerDragonFrightfulPresence_Spectral");
 
         internal static FeatureDefinitionPower PowerDragonWingAttack { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerDragonWingAttack");
 
-        // internal static FeatureDefinitionPower PowerDragonWingAttack_Spectral { get; } =
-        //     GetDefinition<FeatureDefinitionPower>("PowerDragonWingAttack_Spectral");
+        internal static FeatureDefinitionPower PowerDragonWingAttack_Spectral { get; } =
+            GetDefinition<FeatureDefinitionPower>("PowerDragonWingAttack_Spectral");
 
         internal static FeatureDefinitionPower PowerDruidCircleBalanceBalanceOfPower { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerDruidCircleBalanceBalanceOfPower");
@@ -7007,8 +7007,8 @@ internal static partial class DatabaseHelper
         internal static FeatureDefinitionPower PowerFighterSecondWind { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerFighterSecondWind");
 
-        // internal static FeatureDefinitionPower PowerFighterSecondWind_Ashdown { get; } =
-        //     GetDefinition<FeatureDefinitionPower>("PowerFighterSecondWind_Ashdown");
+        internal static FeatureDefinitionPower PowerFighterSecondWind_Ashdown { get; } =
+            GetDefinition<FeatureDefinitionPower>("PowerFighterSecondWind_Ashdown");
 
         internal static FeatureDefinitionPower PowerFighterSecondWind_DLC1_5 { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerFighterSecondWind_DLC1_5");
@@ -9418,8 +9418,8 @@ internal static partial class DatabaseHelper
         internal static ItemDefinition AmuletOfHealth { get; } =
             GetDefinition<ItemDefinition>("AmuletOfHealth");
 
-        // internal static ItemDefinition AmuletOfNonDetection { get; } =
-        //     GetDefinition<ItemDefinition>("AmuletOfNonDetection");
+        internal static ItemDefinition AmuletOfNonDetection { get; } =
+            GetDefinition<ItemDefinition>("AmuletOfNonDetection");
 
         internal static ItemDefinition AmuletOfPureSouls { get; } =
             GetDefinition<ItemDefinition>("AmuletOfPureSouls");
@@ -9814,8 +9814,8 @@ internal static partial class DatabaseHelper
         internal static ItemDefinition Candle { get; } =
             GetDefinition<ItemDefinition>("Candle");
 
-        // internal static ItemDefinition CaveIllnessDrug { get; } =
-        //     GetDefinition<ItemDefinition>("CaveIllnessDrug");
+        internal static ItemDefinition CaveIllnessDrug { get; } =
+            GetDefinition<ItemDefinition>("CaveIllnessDrug");
 
         internal static ItemDefinition ChainMail { get; } =
             GetDefinition<ItemDefinition>("ChainMail");
@@ -12964,8 +12964,8 @@ internal static partial class DatabaseHelper
         internal static ItemFlagDefinition ItemFlag_Corrosive { get; } =
             GetDefinition<ItemFlagDefinition>("ItemFlag_Corrosive");
 
-        // internal static ItemFlagDefinition ItemFlag_Dwarven_Weapon { get; } =
-        //     GetDefinition<ItemFlagDefinition>("ItemFlag_Dwarven_Weapon");
+        internal static ItemFlagDefinition ItemFlag_Dwarven_Weapon { get; } =
+            GetDefinition<ItemFlagDefinition>("ItemFlag_Dwarven_Weapon");
 
         internal static ItemFlagDefinition ItemFlag_Flaming { get; } =
             GetDefinition<ItemFlagDefinition>("ItemFlag_Flaming");
@@ -14359,8 +14359,8 @@ internal static partial class DatabaseHelper
         internal static LootPackDefinition Evocation_Loot_test { get; } =
             GetDefinition<LootPackDefinition>("Evocation_Loot_test");
 
-        // internal static LootPackDefinition Feral_Dragon_loot_drop { get; } =
-        //     GetDefinition<LootPackDefinition>("Feral_Dragon_loot_drop");
+        internal static LootPackDefinition Feral_Dragon_loot_drop { get; } =
+            GetDefinition<LootPackDefinition>("Feral_Dragon_loot_drop");
 
         internal static LootPackDefinition Fire_Elemental_loot_drop { get; } =
             GetDefinition<LootPackDefinition>("Fire_Elemental_loot_drop");
@@ -14386,8 +14386,8 @@ internal static partial class DatabaseHelper
         internal static LootPackDefinition Giant_Crow_loot_drop { get; } =
             GetDefinition<LootPackDefinition>("Giant_Crow_loot_drop");
 
-        // internal static LootPackDefinition Giant_Fire_Attacker_WhiteCity_1_loot_drop { get; } =
-        //     GetDefinition<LootPackDefinition>("Giant_Fire_Attacker_WhiteCity_1_loot_drop");
+        internal static LootPackDefinition Giant_Fire_Attacker_WhiteCity_1_loot_drop { get; } =
+            GetDefinition<LootPackDefinition>("Giant_Fire_Attacker_WhiteCity_1_loot_drop");
 
         internal static LootPackDefinition Giant_Fire_loot_drop { get; } =
             GetDefinition<LootPackDefinition>("Giant_Fire_loot_drop");
@@ -14701,8 +14701,8 @@ internal static partial class DatabaseHelper
         internal static LootPackDefinition NPC_Aksha_Loot_Drop { get; } =
             GetDefinition<LootPackDefinition>("NPC_Aksha_Loot_Drop");
 
-        // internal static LootPackDefinition NPC_GarradSoldier_Loot_Drop_nondetection { get; } =
-        //     GetDefinition<LootPackDefinition>("NPC_GarradSoldier_Loot_Drop_nondetection");
+        internal static LootPackDefinition NPC_GarradSoldier_Loot_Drop_nondetection { get; } =
+            GetDefinition<LootPackDefinition>("NPC_GarradSoldier_Loot_Drop_nondetection");
 
         internal static LootPackDefinition NPC_Highwayman_loot_drop { get; } =
             GetDefinition<LootPackDefinition>("NPC_Highwayman_loot_drop");
@@ -14719,8 +14719,8 @@ internal static partial class DatabaseHelper
         internal static LootPackDefinition Ogre_Zombie_loot_drop { get; } =
             GetDefinition<LootPackDefinition>("Ogre_Zombie_loot_drop");
 
-        // internal static LootPackDefinition Onereia_Spectral_Dragon_Loot_Drop { get; } =
-        //     GetDefinition<LootPackDefinition>("Onereia_Spectral_Dragon_Loot_Drop");
+        internal static LootPackDefinition Onereia_Spectral_Dragon_Loot_Drop { get; } =
+            GetDefinition<LootPackDefinition>("Onereia_Spectral_Dragon_Loot_Drop");
 
         internal static LootPackDefinition Orc_Archer_loot_drop { get; } =
             GetDefinition<LootPackDefinition>("Orc_Archer_loot_drop");
@@ -15892,8 +15892,8 @@ internal static partial class DatabaseHelper
         internal static MonsterAttackDefinition Attack_Marilith_Longsword { get; } =
             GetDefinition<MonsterAttackDefinition>("Attack_Marilith_Longsword");
 
-        // internal static MonsterAttackDefinition Attack_Marilith_Tail { get; } =
-        //     GetDefinition<MonsterAttackDefinition>("Attack_Marilith_Tail");
+        internal static MonsterAttackDefinition Attack_Marilith_Tail { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Marilith_Tail");
 
         internal static MonsterAttackDefinition Attack_Melek_Longbow { get; } =
             GetDefinition<MonsterAttackDefinition>("Attack_Melek_Longbow");
@@ -16219,14 +16219,14 @@ internal static partial class DatabaseHelper
         internal static MonsterAttackDefinition Attack_Sorr_Tarr_Avatar_Shrieker { get; } =
             GetDefinition<MonsterAttackDefinition>("Attack_Sorr-Tarr_Avatar_Shrieker");
 
-        // internal static MonsterAttackDefinition Attack_Spectral_Dragon_Bite { get; } =
-        //     GetDefinition<MonsterAttackDefinition>("Attack_Spectral_Dragon_Bite");
+        internal static MonsterAttackDefinition Attack_Spectral_Dragon_Bite { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Spectral_Dragon_Bite");
 
-        // internal static MonsterAttackDefinition Attack_Spectral_Dragon_Claw { get; } =
-        //     GetDefinition<MonsterAttackDefinition>("Attack_Spectral_Dragon_Claw");
+        internal static MonsterAttackDefinition Attack_Spectral_Dragon_Claw { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Spectral_Dragon_Claw");
 
-        // internal static MonsterAttackDefinition Attack_Spectral_Dragon_Tail { get; } =
-        //     GetDefinition<MonsterAttackDefinition>("Attack_Spectral_Dragon_Tail");
+        internal static MonsterAttackDefinition Attack_Spectral_Dragon_Tail { get; } =
+            GetDefinition<MonsterAttackDefinition>("Attack_Spectral_Dragon_Tail");
 
         internal static MonsterAttackDefinition Attack_Spectral_Spider_Bite { get; } =
             GetDefinition<MonsterAttackDefinition>("Attack_Spectral_Spider_Bite");
@@ -17317,8 +17317,8 @@ internal static partial class DatabaseHelper
         internal static MonsterDefinition Giant_Fire { get; } =
             GetDefinition<MonsterDefinition>("Giant_Fire");
 
-        // internal static MonsterDefinition Giant_Fire_Attacker_WhiteCity_1 { get; } =
-        //     GetDefinition<MonsterDefinition>("Giant_Fire_Attacker_WhiteCity_1");
+        internal static MonsterDefinition Giant_Fire_Attacker_WhiteCity_1 { get; } =
+            GetDefinition<MonsterDefinition>("Giant_Fire_Attacker_WhiteCity_1");
 
         internal static MonsterDefinition Giant_Frost { get; } =
             GetDefinition<MonsterDefinition>("Giant_Frost");
@@ -17683,14 +17683,14 @@ internal static partial class DatabaseHelper
         internal static MonsterDefinition Patron_Coparann2 { get; } =
             GetDefinition<MonsterDefinition>("Patron_Coparann2");
 
-        // internal static MonsterDefinition PeaksAbomination_Leader { get; } =
-        //     GetDefinition<MonsterDefinition>("PeaksAbomination_Leader");
+        internal static MonsterDefinition PeaksAbomination_Leader { get; } =
+            GetDefinition<MonsterDefinition>("PeaksAbomination_Leader");
 
-        // internal static MonsterDefinition PeaksAbomination_MonsterDefinition { get; } =
-        //     GetDefinition<MonsterDefinition>("PeaksAbomination_MonsterDefinition");
+        internal static MonsterDefinition PeaksAbomination_MonsterDefinition { get; } =
+            GetDefinition<MonsterDefinition>("PeaksAbomination_MonsterDefinition");
 
-        // internal static MonsterDefinition PeaksTerror_MonsterDefinition { get; } =
-        //     GetDefinition<MonsterDefinition>("PeaksTerror_MonsterDefinition");
+        internal static MonsterDefinition PeaksTerror_MonsterDefinition { get; } =
+            GetDefinition<MonsterDefinition>("PeaksTerror_MonsterDefinition");
 
         internal static MonsterDefinition PhaseSpider { get; } =
             GetDefinition<MonsterDefinition>("PhaseSpider");
@@ -17770,14 +17770,14 @@ internal static partial class DatabaseHelper
         internal static MonsterDefinition Sergeant_Coparann { get; } =
             GetDefinition<MonsterDefinition>("Sergeant_Coparann");
 
-        // internal static MonsterDefinition Sessroth_MonsterDefinition { get; } =
-        //     GetDefinition<MonsterDefinition>("Sessroth_MonsterDefinition");
+        internal static MonsterDefinition Sessroth_MonsterDefinition { get; } =
+            GetDefinition<MonsterDefinition>("Sessroth_MonsterDefinition");
 
-        // internal static MonsterDefinition Sessroth2_MonsterDefinition { get; } =
-        //     GetDefinition<MonsterDefinition>("Sessroth2_MonsterDefinition");
+        internal static MonsterDefinition Sessroth2_MonsterDefinition { get; } =
+            GetDefinition<MonsterDefinition>("Sessroth2_MonsterDefinition");
 
-        // internal static MonsterDefinition Sessroth3_MonsterDefinition { get; } =
-        //     GetDefinition<MonsterDefinition>("Sessroth3_MonsterDefinition");
+        internal static MonsterDefinition Sessroth3_MonsterDefinition { get; } =
+            GetDefinition<MonsterDefinition>("Sessroth3_MonsterDefinition");
 
         internal static MonsterDefinition ShamblingMound_MonsterDefinition { get; } =
             GetDefinition<MonsterDefinition>("ShamblingMound_MonsterDefinition");
@@ -17824,8 +17824,8 @@ internal static partial class DatabaseHelper
         internal static MonsterDefinition Sorr_Akkath_Acolyte_of_Sorr_Tarr { get; } =
             GetDefinition<MonsterDefinition>("Sorr-Akkath_Acolyte_of_Sorr-Tarr");
 
-        // internal static MonsterDefinition Sorr_Akkath_Archpriest_of_Sorr_Tarr { get; } =
-        //     GetDefinition<MonsterDefinition>("Sorr-Akkath_Archpriest_of_Sorr-Tarr");
+        internal static MonsterDefinition Sorr_Akkath_Archpriest_of_Sorr_Tarr { get; } =
+            GetDefinition<MonsterDefinition>("Sorr-Akkath_Archpriest_of_Sorr-Tarr");
 
         internal static MonsterDefinition Sorr_Akkath_Assassin { get; } =
             GetDefinition<MonsterDefinition>("Sorr-Akkath_Assassin");
@@ -17842,8 +17842,8 @@ internal static partial class DatabaseHelper
         internal static MonsterDefinition Sorr_Akkath_Kratshar_MonsterDefinition { get; } =
             GetDefinition<MonsterDefinition>("Sorr-Akkath_Kratshar_MonsterDefinition");
 
-        // internal static MonsterDefinition Sorr_Akkath_Priest_of_Sorr_Tarr { get; } =
-        //     GetDefinition<MonsterDefinition>("Sorr-Akkath_Priest_of_Sorr-Tarr");
+        internal static MonsterDefinition Sorr_Akkath_Priest_of_Sorr_Tarr { get; } =
+            GetDefinition<MonsterDefinition>("Sorr-Akkath_Priest_of_Sorr-Tarr");
 
         internal static MonsterDefinition Sorr_Akkath_Saboteur { get; } =
             GetDefinition<MonsterDefinition>("Sorr-Akkath_Saboteur");
@@ -17860,11 +17860,11 @@ internal static partial class DatabaseHelper
         internal static MonsterDefinition Sorr_Akkath_Skirmisher_Unique { get; } =
             GetDefinition<MonsterDefinition>("Sorr-Akkath_Skirmisher_Unique");
 
-        // internal static MonsterDefinition Sorr_Akkath_Slayer { get; } =
-        //     GetDefinition<MonsterDefinition>("Sorr-Akkath_Slayer");
+        internal static MonsterDefinition Sorr_Akkath_Slayer { get; } =
+            GetDefinition<MonsterDefinition>("Sorr-Akkath_Slayer");
 
-        // internal static MonsterDefinition Sorr_Akkath_Templar { get; } =
-        //     GetDefinition<MonsterDefinition>("Sorr-Akkath_Templar");
+        internal static MonsterDefinition Sorr_Akkath_Templar { get; } =
+            GetDefinition<MonsterDefinition>("Sorr-Akkath_Templar");
 
         internal static MonsterDefinition Sorr_Akkath_Tshar_Boss { get; } =
             GetDefinition<MonsterDefinition>("Sorr-Akkath_Tshar_Boss");
@@ -17884,8 +17884,8 @@ internal static partial class DatabaseHelper
         internal static MonsterDefinition SpectralDragon_Magister { get; } =
             GetDefinition<MonsterDefinition>("SpectralDragon_Magister");
 
-        // internal static MonsterDefinition SpectralDragon_Onereia { get; } =
-        //     GetDefinition<MonsterDefinition>("SpectralDragon_Onereia");
+        internal static MonsterDefinition SpectralDragon_Onereia { get; } =
+            GetDefinition<MonsterDefinition>("SpectralDragon_Onereia");
 
         internal static MonsterDefinition SpectralSpider { get; } =
             GetDefinition<MonsterDefinition>("SpectralSpider");
@@ -17983,8 +17983,8 @@ internal static partial class DatabaseHelper
         internal static MonsterDefinition Talbut_The_Grey { get; } =
             GetDefinition<MonsterDefinition>("Talbut_The_Grey");
 
-        // internal static MonsterDefinition Tamed_Winter_Wolf { get; } =
-        //     GetDefinition<MonsterDefinition>("Tamed_Winter_Wolf");
+        internal static MonsterDefinition Tamed_Winter_Wolf { get; } =
+            GetDefinition<MonsterDefinition>("Tamed_Winter_Wolf");
 
         internal static MonsterDefinition TEMP_Quest_Giver { get; } =
             GetDefinition<MonsterDefinition>("TEMP_Quest_Giver");
@@ -19849,8 +19849,8 @@ internal static partial class DatabaseHelper
         internal static RecipeDefinition Recipe_Enchantment_BreastplateOfSturdiness { get; } =
             GetDefinition<RecipeDefinition>("Recipe_Enchantment_BreastplateOfSturdiness");
 
-        // internal static RecipeDefinition Recipe_Enchantment_CaveIllnessDrug { get; } =
-        //     GetDefinition<RecipeDefinition>("Recipe_Enchantment_CaveIllnessDrug");
+        internal static RecipeDefinition Recipe_Enchantment_CaveIllnessDrug { get; } =
+            GetDefinition<RecipeDefinition>("Recipe_Enchantment_CaveIllnessDrug");
 
         internal static RecipeDefinition Recipe_Enchantment_ChainmailOfRobustness { get; } =
             GetDefinition<RecipeDefinition>("Recipe_Enchantment_ChainmailOfRobustness");
@@ -21461,20 +21461,20 @@ internal static partial class DatabaseHelper
         internal static SpellListDefinition SpellList_DLC1_ManaScientist { get; } =
             GetDefinition<SpellListDefinition>("SpellList_DLC1_ManaScientist");
 
-        // internal static SpellListDefinition SpellList_Gallivan_Druid { get; } =
-        //     GetDefinition<SpellListDefinition>("SpellList_Gallivan_Druid");
+        internal static SpellListDefinition SpellList_Gallivan_Druid { get; } =
+            GetDefinition<SpellListDefinition>("SpellList_Gallivan_Druid");
 
-        // internal static SpellListDefinition SpellList_Gallivan_RogueShadowCaster { get; } =
-        //     GetDefinition<SpellListDefinition>("SpellList_Gallivan_RogueShadowCaster");
+        internal static SpellListDefinition SpellList_Gallivan_RogueShadowCaster { get; } =
+            GetDefinition<SpellListDefinition>("SpellList_Gallivan_RogueShadowCaster");
 
-        // internal static SpellListDefinition SpellList_Kratshar { get; } =
-        //     GetDefinition<SpellListDefinition>("SpellList_Kratshar");
+        internal static SpellListDefinition SpellList_Kratshar { get; } =
+            GetDefinition<SpellListDefinition>("SpellList_Kratshar");
 
-        // internal static SpellListDefinition SpellList_Misouk { get; } =
-        //     GetDefinition<SpellListDefinition>("SpellList_Misouk");
+        internal static SpellListDefinition SpellList_Misouk { get; } =
+            GetDefinition<SpellListDefinition>("SpellList_Misouk");
 
-        // internal static SpellListDefinition SpellList_Vigdis { get; } =
-        //     GetDefinition<SpellListDefinition>("SpellList_Vigdis");
+        internal static SpellListDefinition SpellList_Vigdis { get; } =
+            GetDefinition<SpellListDefinition>("SpellList_Vigdis");
 
         internal static SpellListDefinition SpellListAcolyte { get; } =
             GetDefinition<SpellListDefinition>("SpellListAcolyte");
@@ -21497,8 +21497,8 @@ internal static partial class DatabaseHelper
         internal static SpellListDefinition SpellListBerylStonebeard { get; } =
             GetDefinition<SpellListDefinition>("SpellListBerylStonebeard");
 
-        // internal static SpellListDefinition SpellListBerylStonebeard_2 { get; } =
-        //     GetDefinition<SpellListDefinition>("SpellListBerylStonebeard_2");
+        internal static SpellListDefinition SpellListBerylStonebeard_2 { get; } =
+            GetDefinition<SpellListDefinition>("SpellListBerylStonebeard_2");
 
         internal static SpellListDefinition SpellListCleric { get; } =
             GetDefinition<SpellListDefinition>("SpellListCleric");

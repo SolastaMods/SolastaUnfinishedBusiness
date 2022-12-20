@@ -1,0 +1,6 @@
+Status/&ConcentrationFormat={0} se está concentrando para mantener el hechizo "{1}".
+Status/&ConcentrationStopDescription=Deja de concentrarte.
+Status/&HealthStatusFormat=Salud: {0}
+Status/&ReadiedCantripAttackFormat={0} está listo para usar un ataque cantrip si surge la oportunidad.
+Status/&ReadiedMeleeAttackFormat={0} está listo para usar un ataque cuerpo a cuerpo si surge la oportunidad.
+Status/&ReadiedRangedAttackFormat={0} está listo para usar un ataque a distancia si surge la oportunidad.

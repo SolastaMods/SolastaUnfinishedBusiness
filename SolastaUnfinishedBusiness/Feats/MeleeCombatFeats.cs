@@ -24,8 +24,7 @@ internal static class MeleeCombatFeats
             new AfterAttackEffectFeatPiercer(ConditionDefinitionBuilder
                 .Create("ConditionFeatPiercerNonMagic")
                 .SetGuiPresentationNoContent(true)
-                .SetTurnOccurence(TurnOccurenceType.EndOfTurn)
-                .SetPossessive()
+                .SetSpecialDuration(DurationType.Round, 1)
                 .SetSpecialInterruptions(ConditionInterruption.Attacked)
                 .SetFeatures(
                     FeatureDefinitionDieRollModifierBuilder
@@ -33,7 +32,8 @@ internal static class MeleeCombatFeats
                         .SetGuiPresentationNoContent(true)
                         .SetModifiers(AttackDamageValueRoll, 1, 1, 1, "Feat/&FeatPiercerReroll")
                         .AddToDB())
-                .AddToDB()),
+                .AddToDB(),
+                DamageTypePiercing),
             new CustomAdditionalDamageFeatPiercer(
                 FeatureDefinitionAdditionalDamageBuilder
                     .Create("AdditionalDamageFeatPiercer")
@@ -97,7 +97,7 @@ internal static class MeleeCombatFeats
                 FeatureDefinitionBuilder
                     .Create("ModifyAttackModeForWeaponFeatPowerAttack")
                     .SetGuiPresentation("FeatPowerAttack", Category.Feat)
-                    .SetCustomSubFeatures(new ModifyPowerAttackPower())
+                    .SetCustomSubFeatures(new ModifyAttackModeForWeaponFeatPowerAttack())
                     .AddToDB())
             .AddToDB();
 
@@ -215,7 +215,7 @@ internal static class MeleeCombatFeats
     // HELPERS
     //
 
-    private sealed class ModifyPowerAttackPower : IModifyAttackModeForWeapon
+    private sealed class ModifyAttackModeForWeaponFeatPowerAttack : IModifyAttackModeForWeapon
     {
         public void ModifyAttackMode(RulesetCharacter character, RulesetAttackMode attackMode)
         {
@@ -231,10 +231,12 @@ internal static class MeleeCombatFeats
     private sealed class AfterAttackEffectFeatPiercer : IAfterAttackEffect
     {
         private readonly ConditionDefinition _conditionDefinition;
+        private readonly string _damageType;
 
-        internal AfterAttackEffectFeatPiercer(ConditionDefinition conditionDefinition)
+        internal AfterAttackEffectFeatPiercer(ConditionDefinition conditionDefinition, string damageType)
         {
             _conditionDefinition = conditionDefinition;
+            _damageType = damageType;
         }
 
         public void AfterOnAttackHit(
@@ -246,6 +248,13 @@ internal static class MeleeCombatFeats
             ActionModifier attackModifier)
         {
             if (attackMode == null || outcome is RollOutcome.Failure or RollOutcome.CriticalFailure)
+            {
+                return;
+            }
+
+            var damage = attackMode?.EffectDescription?.FindFirstDamageForm();
+
+            if (damage == null || damage.DamageType != _damageType)
             {
                 return;
             }
@@ -294,3 +303,6 @@ internal static class MeleeCombatFeats
         }
     }
 }
+
+
+

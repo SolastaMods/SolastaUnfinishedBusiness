@@ -1,0 +1,16 @@
+Feature/&MagicAffinitySpellMasterExtraPreparedDescription=Bereiten Sie zusätzliche Intelligenzmodifikatorzauber vor, damit Sie immer das haben, was Sie brauchen.
+Feature/&MagicAffinitySpellMasterExtraPreparedTitle=Extra vorbereitet
+Feature/&MagicAffinitySpellMasterKnowledgeDescription=Schreiben Sie einen zusätzlichen Zauber bei jedem Levelaufstieg.
+Feature/&MagicAffinitySpellMasterKnowledgeTitle=Breite des Wissens
+Feature/&MagicAffinitySpellMasterPreparedDescription=Bereiten Sie zusätzliche Fertigkeitsbonuszauber vor, damit Sie immer das haben, was Sie brauchen.
+Feature/&MagicAffinitySpellMasterPreparedTitle=Sei vorbereitet
+Feature/&MagicAffinitySpellMasterRecoveryDescription=Einmal pro langer Rast kannst du Zauberslots wiederherstellen (zusätzlich zur Arkanen Erholung).
+Feature/&MagicAffinitySpellMasterRecoveryTitle=Arkane Tiefe
+Feature/&MagicAffinitySpellMasterScriberDescription=Das Schreiben von Zaubersprüchen dauert 1/4 der Zeit und Kosten, und Sie haben einen Vorteil.
+Feature/&MagicAffinitySpellMasterScriberTitle=Meister Schreiber
+Feature/&PointPoolSpellMasterBonusCantripsDescription=Erhalte 2 zusätzliche bekannte Cantrips.
+Feature/&PointPoolSpellMasterBonusCantripsTitle=Bonus-Cantrips
+Feature/&SavingThrowAffinitySpellMasterSpellResistanceDescription=Dein Training mit Magie verschafft dir einen Vorteil bei Rettungswürfen gegen Zauber.
+Feature/&SavingThrowAffinitySpellMasterSpellResistanceTitle=Zauberwiderstand
+Subclass/&WizardSpellMasterDescription=Zaubermeister tauchen in die Magie ein und versuchen, jeden Zauber zu lernen, den sie in die Finger bekommen können. Sie sind unübertroffen in ihrem Zauberwissen.
+Subclass/&WizardSpellMasterTitle=Zaubermeister

@@ -45,7 +45,7 @@
     }
   ],
   "subRaces": [],
-  "inventoryDefinition": null,
+  "inventoryDefinition": "Definition:HumanoidInventory:2a836ff45f2eb274eb079425509421ac",
   "personalityFlagOccurences": [
     {
       "$type": "PersonalityFlagOccurence, Assembly-CSharp",
@@ -95,13 +95,7 @@
     ],
     "hasSurName": true,
     "surNameTitle": "Race/&ElfSurNameTitle",
-    "surNameOptions": [
-      "Race/&DarkelfSurName1Title",
-      "Race/&DarkelfSurName2Title",
-      "Race/&DarkelfSurName3Title",
-      "Race/&DarkelfSurName4Title",
-      "Race/&DarkelfSurName5Title"
-    ],
+    "surNameOptions": [],
     "availableMorphotypeCategories": [
       "FaceShape",
       "Skin",

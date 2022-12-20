@@ -212,7 +212,7 @@ internal sealed class PathOfTheSpirits : AbstractSubclass
         var conditionPathOfTheSpiritsWolfLeadershipPack = ConditionDefinitionBuilder
             .Create(PathOfTheSpiritsWolfLeadershipPackName)
             .SetGuiPresentation(NAME, Category.Feature)
-            .SetAllowMultipleInstances(true)
+            .AllowMultipleInstances()
             .SetFeatures(FeatureDefinitionCombatAffinityBuilder
                 .Create(CombatAffinityRousingShout, "CombatAffinityPathOfTheSpiritsWolfLeadership")
                 .SetGuiPresentation(Category.Feature)
@@ -336,3 +336,4 @@ internal sealed class PathOfTheSpirits : AbstractSubclass
         }
     }
 }
+

@@ -1,0 +1,2 @@
+Subclass/&CollegeOfGutsDescription=I bardi del College of Guts si riuniscono nelle sale dell'idromele o attorno a grandi falò per cantare le gesta dei potenti, sia del passato che del presente. Percorrono la terra per assistere in prima persona a grandi eventi e per garantire che il ricordo di quegli eventi non scompaia dal mondo. Con le loro canzoni, ispirano gli altri a raggiungere le stesse vette di realizzazione degli eroi del passato.
+Subclass/&CollegeOfGutsTitle=Collegio dei Gusti

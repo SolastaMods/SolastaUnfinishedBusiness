@@ -136,7 +136,6 @@ internal static partial class SpellBuilders
                         ConditionDefinitionBuilder
                             .Create("ConditionBladeWard")
                             .SetGuiPresentation(NAME, Category.Spell, ConditionShielded)
-                            .SetConditionType(ConditionType.Beneficial)
                             .SetFeatures(
                                 DamageAffinityBludgeoningResistance,
                                 DamageAffinitySlashingResistance,
@@ -278,6 +277,7 @@ internal static partial class SpellBuilders
                 .Create()
                 .SetTargetingData(Side.Enemy, RangeType.RangeHit, 12, TargetType.Individuals)
                 .AddImmuneCreatureFamilies(CharacterFamilyDefinitions.Construct, CharacterFamilyDefinitions.Undead)
+                .SetDurationData(DurationType.Hour, 1)
                 .SetEffectAdvancement(EffectIncrementMethod.CasterLevelTable, 5, additionalDicePerIncrement: 1)
                 .SetEffectForms(
                     EffectFormBuilder
@@ -363,7 +363,6 @@ internal static partial class SpellBuilders
                             .SetGuiPresentation(Category.Condition)
                             .SetSpecialInterruptions(ConditionInterruption.Attacks)
                             .SetSilent(Silent.WhenAddedOrRemoved)
-                            .SetTurnOccurence(TurnOccurenceType.EndOfTurn)
                             .SetFeatures(additionalDamageResonatingStrike)
                             .AddToDB(),
                         ConditionForm.ConditionOperation.Add,
@@ -383,8 +382,7 @@ internal static partial class SpellBuilders
             conditionDefinition = ConditionDefinitionBuilder
                 .Create(ConditionHighlighted, "ConditionSunlightBladeHighlighted")
                 .SetSpecialInterruptions(ConditionInterruption.Attacked)
-                .SetSpecialDuration(DurationType.Round, 1)
-                .SetTurnOccurence(TurnOccurenceType.StartOfTurn)
+                .SetSpecialDuration(DurationType.Round, 1, TurnOccurenceType.StartOfTurn)
                 .AddToDB()
         };
 
@@ -404,7 +402,7 @@ internal static partial class SpellBuilders
             .SetSpecialInterruptions(ExtraConditionInterruption.AfterWasAttacked)
             .AddSpecialInterruptions(ConditionInterruption.AnyBattleTurnEnd)
             .SetSilent(Silent.WhenAddedOrRemoved)
-            .SetTurnOccurence(TurnOccurenceType.EndOfTurn)
+            .SetSpecialDuration(DurationType.Round, 1)
             .AddToDB();
 
         return SpellDefinitionBuilder
@@ -436,7 +434,6 @@ internal static partial class SpellBuilders
                                 .SetGuiPresentation(Category.Condition)
                                 .SetSpecialInterruptions(ConditionInterruption.AnyBattleTurnEnd)
                                 .SetSilent(Silent.WhenAddedOrRemoved)
-                                .SetTurnOccurence(TurnOccurenceType.EndOfTurn)
                                 .SetFeatures(FeatureDefinitionAdditionalDamageBuilder
                                     .Create("AdditionalDamageSunlightBlade")
                                     .SetGuiPresentationNoContent(true)
@@ -538,3 +535,7 @@ internal static partial class SpellBuilders
 
     #endregion
 }
+
+
+
+

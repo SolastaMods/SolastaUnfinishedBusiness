@@ -19,12 +19,14 @@ internal static class RangedCombatFeats
     {
         var featDeadEye = BuildDeadEye();
         var featRangedExpert = BuildRangedExpert();
-
-        feats.AddRange(featDeadEye, featRangedExpert);
+        var featBowMastery = BuildBowMastery();
+        
+        feats.AddRange(featDeadEye, featRangedExpert, featBowMastery);
 
         GroupFeats.MakeGroup("FeatGroupRangedCombat", null,
             FeatDefinitions.TakeAim,
             FeatDefinitions.UncannyAccuracy,
+            featBowMastery,
             featDeadEye,
             featRangedExpert,
             MeleeCombatFeats.FeatGroupPiercer);
@@ -42,7 +44,7 @@ internal static class RangedCombatFeats
                 FeatureDefinitionBuilder
                     .Create("ModifyAttackModeForWeaponFeatDeadeye")
                     .SetGuiPresentation(FEAT_NAME, Category.Feat)
-                    .SetCustomSubFeatures(new ModifyDeadeyeAttackPower())
+                    .SetCustomSubFeatures(new ModifyAttackModeForWeaponFeatDeadeye())
                     .AddToDB())
             .AddToDB();
 
@@ -142,6 +144,21 @@ internal static class RangedCombatFeats
                 .AddToDB())
             .AddToDB();
     }
+    
+    private static FeatDefinition BuildBowMastery()
+    {
+        return FeatDefinitionBuilder
+            .Create("FeatBowMastery")
+            .SetGuiPresentation(Category.Feat)
+            .SetFeatures(FeatureDefinitionBuilder
+                .Create($"CustomFeatBowMastery")
+                .SetGuiPresentationNoContent(true)
+                .SetCustomSubFeatures(
+                    new CanUseAttributeForWeapon(AttributeDefinitions.Strength, IsLongbow),
+                    new AddExtraRangedAttack(IsShortbow, ActionDefinitions.ActionType.Bonus, ValidatorsCharacter.HasAttacked))
+                .AddToDB())
+            .AddToDB();
+    }
 
     //
     // HELPERS
@@ -151,8 +168,18 @@ internal static class RangedCombatFeats
     {
         return ValidatorsWeapon.IsRanged(weapon) && ValidatorsWeapon.IsOneHanded(weapon);
     }
+    
+    private static bool IsShortbow(RulesetAttackMode mode, RulesetItem weapon, RulesetCharacter _)
+    {
+        return weapon?.ItemDefinition.WeaponDescription?.WeaponTypeDefinition == WeaponTypeDefinitions.ShortbowType;
+    }
+    
+    private static bool IsLongbow(RulesetAttackMode mode, RulesetItem weapon, RulesetCharacter _)
+    {
+        return weapon?.ItemDefinition.WeaponDescription?.WeaponTypeDefinition == WeaponTypeDefinitions.LongbowType;
+    }
 
-    private sealed class ModifyDeadeyeAttackPower : IModifyAttackModeForWeapon
+    private sealed class ModifyAttackModeForWeaponFeatDeadeye : IModifyAttackModeForWeapon
     {
         public void ModifyAttackMode(RulesetCharacter character, [CanBeNull] RulesetAttackMode attackMode)
         {
@@ -165,3 +192,4 @@ internal static class RangedCombatFeats
         }
     }
 }
+

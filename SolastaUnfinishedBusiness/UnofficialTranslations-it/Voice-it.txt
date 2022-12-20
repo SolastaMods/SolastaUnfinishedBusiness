@@ -1,0 +1,7 @@
+Voice/&Female1Title=VUOTO
+Voice/&Female2Title=VUOTO
+Voice/&Male1Title=VUOTO
+Voice/&Male2Title=VUOTO
+Voice/&Voice1Title=Voce 1
+Voice/&Voice2Title=Voce 2
+Voice/&Voice3Title=Voce 3

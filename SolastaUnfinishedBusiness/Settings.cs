@@ -64,6 +64,7 @@ public class Settings : UnityModManager.ModSettings
     public bool EnableFlexibleBackgrounds { get; set; }
     public bool EnableFlexibleRaces { get; set; }
     public bool DisableRacePrerequisitesOnModFeats { get; set; }
+    public bool EnableWarlockVariant { get; set; }
     public bool EnableEpicPointsAndArray { get; set; }
     public int TotalFeatsGrantedFirstLevel { get; set; }
 
@@ -91,6 +92,7 @@ public class Settings : UnityModManager.ModSettings
     public bool UnlockGlowingColorsForAllMarksAndTattoos { get; set; }
     public bool UnlockSkinColors { get; set; }
     public bool AllowBeardlessDwarves { get; set; }
+    public bool AllowHornsOnAllRaces { get; set; }
 
     //
     // Characters - Races, Classes & Subclasses
@@ -235,6 +237,7 @@ public class Settings : UnityModManager.ModSettings
     public bool EnableHotkeyToggleHud { get; set; }
     public bool EnableCharacterExport { get; set; }
     public bool EnableTeleportParty { get; set; }
+    public bool EnableRejoinParty { get; set; }
     public bool EnableCancelEditOnRightMouseClick { get; set; }
 
     // Inventory and Items
@@ -279,3 +282,4 @@ public class Settings : UnityModManager.ModSettings
     public bool DebugLogVariantMisuse { get; set; }
 #endif
 }
+

@@ -25,6 +25,7 @@ using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionSense
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionSummoningAffinitys;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.MonsterDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
+using Resources = SolastaUnfinishedBusiness.Properties.Resources;
 
 namespace SolastaUnfinishedBusiness.Subclasses;
 
@@ -118,9 +119,11 @@ internal sealed class MartialMarshal : AbstractSubclass
 
     private static FeatureDefinitionPower BuildStudyEnemyPower()
     {
+        var sprite = Sprites.GetSprite("PowerHelp", Resources.PowerHelp, 128);
+
         return FeatureDefinitionPowerBuilder
             .Create("PowerMarshalStudyYourEnemy")
-            .SetGuiPresentation(Category.Feature, IdentifyCreatures)
+            .SetGuiPresentation(Category.Feature, sprite)
             .SetUsesFixed(ActivationTime.BonusAction, RechargeRate.ShortRest, 1, 2)
             .SetEffectDescription(EffectDescriptionBuilder
                 .Create(IdentifyCreatures.EffectDescription)
@@ -209,11 +212,13 @@ internal sealed class MartialMarshal : AbstractSubclass
 
     private static FeatureDefinitionFeatureSet BuildFeatureSetMarshalEternalComrade()
     {
+        var sprite = Sprites.GetSprite("PowerMarshalSummonEternalComrade", Resources.PowerMarshalSummonEternalComrade, 128);
+        
         //TODO: make this use concentration and reduce the duration to may be 3 rounds
         //TODO: increase the number of use to 2 and recharge per long rest
         var powerMarshalSummonEternalComrade = FeatureDefinitionPowerBuilder
             .Create("PowerMarshalSummonEternalComrade")
-            .SetGuiPresentation(Category.Feature, Bane)
+            .SetGuiPresentation(Category.Feature, sprite)
             .SetUsesFixed(ActivationTime.BonusAction, RechargeRate.ShortRest)
             .SetEffectDescription(EffectDescriptionBuilder
                 .Create(ConjureAnimalsOneBeast.EffectDescription)
@@ -256,7 +261,7 @@ internal sealed class MartialMarshal : AbstractSubclass
             .Create(ConditionKindredSpiritBondHP, "ConditionMarshalEternalComradeHP")
             .SetGuiPresentationNoContent(true)
             .SetAmountOrigin(ExtraOriginOfAmount.SourceClassLevel)
-            .SetAllowMultipleInstances(true)
+            .AllowMultipleInstances()
             .SetAdditionalDamageType(FighterClass)
             .AddToDB();
 
@@ -298,7 +303,7 @@ internal sealed class MartialMarshal : AbstractSubclass
             .SetFeatures(
                 FeatureDefinitionCombatAffinitys.CombatAffinityBlessed,
                 FeatureDefinitionSavingThrowAffinitys.SavingThrowAffinityConditionBlessed)
-            .SetTurnOccurence(TurnOccurenceType.StartOfTurn)
+            .SetSpecialDuration(DurationType.Permanent, 0, TurnOccurenceType.StartOfTurn)
             .AddConditionTags("Buff")
             .AddToDB();
     }
@@ -570,3 +575,6 @@ internal sealed class MartialMarshal : AbstractSubclass
         }
     }
 }
+
+
+

@@ -1,9 +1,12 @@
 ﻿KNOWN ISSUES:
 
-- Grenadier bombs have DC 0 under MP [please share a log]
+- Grenadier additional charges is freezing the game in multiplayer
+- Inventor intelligence based attacks aren't triggering Elven Accuracy
+- Tiefling images on class selection haven't been added yet
 
 CHANGES:
 
-- fixed level up allowing heritage spells to be unlearned
-- fixed Sunlit Blade spell and Twinned metamagic interaction
-- improved UI patches to support more than 4 players co-op
+- added CTRL-SHIFT-R hotkey setting to allow party to rejoin [useful on parties of 5 or 6]
+- added Character > General setting to allow Warlocks to pick Charisma or Intelligence as their spell casting ability
+- fixed Tiefling lack of vision
+- improved DM Editor to allow loot packs export

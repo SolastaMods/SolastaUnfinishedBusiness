@@ -329,13 +329,14 @@ public static class InnovationAlchemy
         var effect = EffectFormBuilder.Create()
             .HasSavingThrow(EffectSavingThrowType.Negates)
             .SetConditionForm(ConditionDefinitionBuilder
-                .Create($"ConditionInnovationAlchemy{damage}")
-                .SetGuiPresentation(branded)
-                .SetConditionType(ConditionType.Detrimental)
-                .SetFeatures(FeatureDefinitionCombatAffinitys.CombatAffinityParalyzedAdvantage)
-                .SetSpecialDuration(DurationType.Round, 1)
-                .SetSpecialInterruptions(ConditionInterruption.Attacked)
-                .AddToDB(), ConditionForm.ConditionOperation.Add)
+                    .Create($"ConditionInnovationAlchemy{damage}")
+                    .SetGuiPresentation(branded)
+                    .SetConditionType(ConditionType.Detrimental)
+                    .SetFeatures(FeatureDefinitionCombatAffinitys.CombatAffinityParalyzedAdvantage)
+                    .SetSpecialDuration(DurationType.Round, 1)
+                    .SetSpecialInterruptions(ConditionInterruption.Attacked)
+                    .AddToDB(),
+                ConditionForm.ConditionOperation.Add)
             .Build();
 
         var splash = Sparkle.EffectDescription.effectParticleParameters;
@@ -370,15 +371,11 @@ public static class InnovationAlchemy
                 .Create($"ConditionInnovationAlchemy{damage}")
                 .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionDoomLaughter)
                 .SetConditionType(ConditionType.Detrimental)
-                .SetFeatures(
-                    FeatureDefinitionHealingModifiers.HealingModifierChilledByTouch
-                )
+                .SetFeatures(FeatureDefinitionHealingModifiers.HealingModifierChilledByTouch)
                 .SetRecurrentEffectForms(EffectFormBuilder.Create()
                     .SetDamageForm(damage, dieType: dieType, diceNumber: 2)
                     .Build())
                 .SetSpecialDuration(DurationType.Round, 1)
-                // .SetTurnOccurence(TurnOccurenceType.StartOfTurn)
-                // .SetSpecialInterruptions(ExtraConditionInterruption.)
                 .AddToDB(), ConditionForm.ConditionOperation.Add)
             .Build();
 
@@ -411,17 +408,20 @@ public static class InnovationAlchemy
         var effect = EffectFormBuilder.Create()
             .HasSavingThrow(EffectSavingThrowType.Negates)
             .SetConditionForm(ConditionDefinitionBuilder
-                .Create($"ConditionInnovationAlchemy{damage}")
-                .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionDazzled)
-                .SetConditionType(ConditionType.Detrimental)
-                .SetFeatures(FeatureDefinitionSavingThrowAffinityBuilder
-                    .Create($"SavingThrowAffinityInnovationAlchemy{damage}")
-                    .SetGuiPresentationNoContent()
-                    .SetModifiers(FeatureDefinitionSavingThrowAffinity.ModifierType.RemoveDice, DieType.D4, 1, false,
-                        AttributeDefinitions.Intelligence, AttributeDefinitions.Wisdom, AttributeDefinitions.Charisma)
-                    .AddToDB())
-                .SetSpecialDuration(DurationType.Round, 1)
-                .AddToDB(), ConditionForm.ConditionOperation.Add)
+                    .Create($"ConditionInnovationAlchemy{damage}")
+                    .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionDazzled)
+                    .SetConditionType(ConditionType.Detrimental)
+                    .SetFeatures(FeatureDefinitionSavingThrowAffinityBuilder
+                        .Create($"SavingThrowAffinityInnovationAlchemy{damage}")
+                        .SetGuiPresentationNoContent()
+                        .SetModifiers(FeatureDefinitionSavingThrowAffinity.ModifierType.RemoveDice, DieType.D4, 1,
+                            false,
+                            AttributeDefinitions.Intelligence, AttributeDefinitions.Wisdom,
+                            AttributeDefinitions.Charisma)
+                        .AddToDB())
+                    .SetSpecialDuration(DurationType.Round, 1)
+                    .AddToDB(),
+                ConditionForm.ConditionOperation.Add)
             .Build();
 
         var splash = Shatter.EffectDescription.effectParticleParameters;
@@ -453,18 +453,20 @@ public static class InnovationAlchemy
         var effect = EffectFormBuilder.Create()
             .HasSavingThrow(EffectSavingThrowType.Negates)
             .SetConditionForm(ConditionDefinitionBuilder
-                .Create($"ConditionInnovationAlchemy{damage}")
-                .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionConfused)
-                .SetConditionType(ConditionType.Detrimental)
-                .SetFeatures(FeatureDefinitionSavingThrowAffinityBuilder
-                    .Create($"SavingThrowAffinityInnovationAlchemy{damage}")
-                    .SetGuiPresentationNoContent()
-                    .SetModifiers(FeatureDefinitionSavingThrowAffinity.ModifierType.RemoveDice, DieType.D4, 1, false,
-                        AttributeDefinitions.Strength, AttributeDefinitions.Dexterity,
-                        AttributeDefinitions.Constitution)
-                    .AddToDB())
-                .SetSpecialDuration(DurationType.Round, 1)
-                .AddToDB(), ConditionForm.ConditionOperation.Add)
+                    .Create($"ConditionInnovationAlchemy{damage}")
+                    .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionConfused)
+                    .SetConditionType(ConditionType.Detrimental)
+                    .SetFeatures(FeatureDefinitionSavingThrowAffinityBuilder
+                        .Create($"SavingThrowAffinityInnovationAlchemy{damage}")
+                        .SetGuiPresentationNoContent()
+                        .SetModifiers(FeatureDefinitionSavingThrowAffinity.ModifierType.RemoveDice, DieType.D4, 1,
+                            false,
+                            AttributeDefinitions.Strength, AttributeDefinitions.Dexterity,
+                            AttributeDefinitions.Constitution)
+                        .AddToDB())
+                    .SetSpecialDuration(DurationType.Round, 1)
+                    .AddToDB(),
+                ConditionForm.ConditionOperation.Add)
             .Build();
 
         var splash = new EffectParticleParameters();
@@ -752,3 +754,6 @@ internal sealed class AddPBToDamage : IModifyMagicEffect
         return effect;
     }
 }
+
+
+

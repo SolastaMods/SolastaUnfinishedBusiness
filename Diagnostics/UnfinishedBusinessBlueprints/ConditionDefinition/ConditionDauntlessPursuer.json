@@ -3,11 +3,15 @@
   "inDungeonEditor": false,
   "parentCondition": null,
   "conditionType": "Beneficial",
-  "features": [],
+  "features": [
+    "Definition:CombatAffinityDisengaging:9dda4a1eb70c8f94d9fb16a802947a2a",
+    "Definition:MovementAffinityCarriedByWind:d72a9a1ca94e0da46918dac54c9d38f4",
+    "Definition:MovementAffinityCarriedByWind:d72a9a1ca94e0da46918dac54c9d38f4"
+  ],
   "allowMultipleInstances": false,
-  "silentWhenAdded": true,
-  "silentWhenRemoved": true,
-  "terminateWhenRemoved": false,
+  "silentWhenAdded": false,
+  "silentWhenRemoved": false,
+  "terminateWhenRemoved": true,
   "specialDuration": false,
   "durationType": "Hour",
   "durationParameterDie": "D4",
@@ -219,7 +223,7 @@
   },
   "timeToWaitBeforeApplyingShader": 0.5,
   "timeToWaitBeforeRemovingShader": 0.5,
-  "possessive": true,
+  "possessive": false,
   "amountOrigin": "None",
   "baseAmount": 0,
   "additiveAmount": false,
@@ -261,12 +265,12 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Condition/&ConditionForestGuardianBarkWardTitle",
-    "description": "Condition/&ConditionForestGuardianBarkWardDescription",
+    "title": "Condition/&ConditionDauntlessPursuerTitle",
+    "description": "Condition/&ConditionDauntlessPursuerDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "c0a83f49ec8b47a488c1237bb2c82415",
-      "m_SubObjectName": "ConditionMageArmor",
+      "m_AssetGUID": "0d141b75b2bd30943a5fdde92b747da3",
+      "m_SubObjectName": "ConditionDisengaging",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
@@ -282,7 +286,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "90bd0c90-d42e-585e-b1be-6e909289bb81",
+  "guid": "d3fdd040-03ce-5f8c-9ce0-f04a2edc00ad",
   "contentPack": 9999,
-  "name": "ConditionForestGuardianBarkWard"
+  "name": "ConditionDauntlessPursuer"
 }

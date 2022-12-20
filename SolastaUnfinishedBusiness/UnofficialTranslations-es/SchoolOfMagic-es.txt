@@ -1,0 +1,8 @@
+SchoolOfMagic/&AbjurationTitle=Abjuración
+SchoolOfMagic/&ConjurationTitle=Conjuración
+SchoolOfMagic/&DivinationTitle=Adivinación
+SchoolOfMagic/&EnchantmentTitle=Encantamiento
+SchoolOfMagic/&EvocationTitle=Evocación
+SchoolOfMagic/&IllusionTitle=Espejismo
+SchoolOfMagic/&NecromancyTitle=Nigromancia
+SchoolOfMagic/&TransmutationTitle=Transmutación

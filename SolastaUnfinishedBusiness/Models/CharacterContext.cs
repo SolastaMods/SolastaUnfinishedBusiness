@@ -7,13 +7,15 @@ using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomDefinitions;
 using SolastaUnfinishedBusiness.CustomInterfaces;
+using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Properties;
 using SolastaUnfinishedBusiness.Races;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
-using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionFeatureSets;
-using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPointPools;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterClassDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterRaceDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterSubclassDefinitions;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionFeatureSets;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPointPools;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.MorphotypeElementDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
 using static RuleDefinitions;
@@ -33,7 +35,26 @@ internal static class CharacterContext
 
     private static int PreviousTotalFeatsGrantedFirstLevel { get; set; } = -1;
     private static bool PreviousAlternateHuman { get; set; }
-    internal static FeatureDefinitionPower FeatureDefinitionPowerHelpAction { get; set; }
+
+    internal static readonly FeatureDefinitionProficiency ProficiencyWarlockSavingThrowCharisma =
+        FeatureDefinitionProficiencyBuilder
+            .Create("ProficiencyWarlockSavingThrowCharisma")
+            .SetGuiPresentation(Category.Feature)
+            .SetProficiencies(ProficiencyType.SavingThrow,
+                AttributeDefinitions.Charisma, AttributeDefinitions.Wisdom)
+            .AddToDB();
+
+    internal static readonly FeatureDefinitionProficiency ProficiencyWarlockSavingThrowIntelligence =
+        FeatureDefinitionProficiencyBuilder
+            .Create("ProficiencyWarlockSavingThrowIntelligence")
+            .SetGuiPresentation(Category.Feature)
+            .SetProficiencies(ProficiencyType.SavingThrow,
+                AttributeDefinitions.Intelligence, AttributeDefinitions.Wisdom)
+            .AddToDB();
+
+    internal static FeatureDefinitionPower FeatureDefinitionPowerHelpAction { get; private set; }
+    private static FeatureDefinitionFeatureSet FeatureSetWarlockCastSpell { get; set; }
+    private static FeatureDefinitionFeatureSet FeatureSetWarlockSavingThrow { get; set; }
 
     internal static void Load()
     {
@@ -54,6 +75,7 @@ internal static class CharacterContext
 
         LoadFighterArmamentAdroitness();
         LoadHelpPower();
+        LoadWarlockVariant();
         LoadEpicArray();
         LoadAdditionalNames();
         LoadVisuals();
@@ -65,6 +87,7 @@ internal static class CharacterContext
         FlexibleBackgroundsContext.SwitchFlexibleBackgrounds();
         FlexibleRacesContext.SwitchFlexibleRaces();
         SwitchFirstLevelTotalFeats(); // alternate human here as well
+        SwitchWarlockVariant();
         SwitchAsiAndFeat();
         SwitchEvenLevelFeats();
         SwitchFighterArmamentAdroitness();
@@ -72,6 +95,7 @@ internal static class CharacterContext
 
     private static void LoadHelpPower()
     {
+        var sprite = Sprites.GetSprite("PowerHelp", Resources.PowerHelp, 128);
         var effectDescription = EffectDescriptionBuilder
             .Create(TrueStrike.EffectDescription)
             .SetTargetingData(Side.Enemy, RangeType.Touch, 1, TargetType.Individuals)
@@ -84,7 +108,7 @@ internal static class CharacterContext
 
         FeatureDefinitionPowerHelpAction = FeatureDefinitionPowerBuilder
             .Create("PowerHelp")
-            .SetGuiPresentation(Category.Feature, Aid)
+            .SetGuiPresentation(Category.Feature, sprite)
             .SetUsesFixed(ActivationTime.Action)
             .SetEffectDescription(effectDescription)
             .SetUniqueInstance()
@@ -252,6 +276,31 @@ internal static class CharacterContext
             Dwarf.RacePresentation.MaleBeardShapeOptions.Add(BeardShape_None.Name);
         }
 
+        if (Main.Settings.AllowHornsOnAllRaces)
+        {
+            foreach (var race in DatabaseRepository.GetDatabase<CharacterRaceDefinition>())
+            {
+                var racePresentation = race.racePresentation;
+
+                if (racePresentation.availableMorphotypeCategories.Contains(MorphotypeElementDefinition.ElementCategory
+                        .Horns))
+                {
+                    continue;
+                }
+
+                racePresentation.maleHornsOptions = Dragonborn.RacePresentation.maleHornsOptions;
+                racePresentation.femaleHornsOptions = Dragonborn.RacePresentation.femaleHornsOptions;
+
+                var newMorphotypeCategories = new List<MorphotypeElementDefinition.ElementCategory>(
+                    racePresentation.availableMorphotypeCategories)
+                {
+                    MorphotypeElementDefinition.ElementCategory.Horns
+                };
+
+                racePresentation.availableMorphotypeCategories = newMorphotypeCategories.ToArray();
+            }
+        }
+
         if (Main.Settings.UnlockMarkAndTattoosForAllCharacters)
         {
             foreach (var morphotype in dbMorphotypeElementDefinition.Where(x =>
@@ -274,6 +323,39 @@ internal static class CharacterContext
             .Default;
         SorcerousHauntedSoul.morphotypeSubclassFilterTag = GraphicsDefinitions.MorphotypeSubclassFilterTag
             .Default;
+    }
+
+    private static void LoadWarlockVariant()
+    {
+        var castSpellWarlockCharisma = FeatureDefinitionCastSpellBuilder
+            .Create(FeatureDefinitionCastSpells.CastSpellWarlock, "CastSpellWarlockCharisma")
+            .SetOrUpdateGuiPresentation(Category.Feature)
+            .SetSpellCastingAbility(AttributeDefinitions.Charisma)
+            .AddToDB();
+
+        var castSpellWarlockIntelligence = FeatureDefinitionCastSpellBuilder
+            .Create(FeatureDefinitionCastSpells.CastSpellWarlock, "CastSpellWarlockIntelligence")
+            .SetOrUpdateGuiPresentation(Category.Feature)
+            .SetSpellCastingAbility(AttributeDefinitions.Intelligence)
+            .AddToDB();
+
+        FeatureSetWarlockCastSpell = FeatureDefinitionFeatureSetBuilder
+            .Create("FeatureSetWarlockCastSpell")
+            .SetGuiPresentation(Category.Feature)
+            .AddFeatureSet(
+                castSpellWarlockCharisma,
+                castSpellWarlockIntelligence)
+            .SetMode(FeatureDefinitionFeatureSet.FeatureSetMode.Exclusion)
+            .AddToDB();
+
+        FeatureSetWarlockSavingThrow = FeatureDefinitionFeatureSetBuilder
+            .Create("FeatureSetWarlockSavingThrow")
+            .SetGuiPresentation(Category.Feature)
+            .AddFeatureSet(
+                ProficiencyWarlockSavingThrowCharisma,
+                ProficiencyWarlockSavingThrowIntelligence)
+            .SetMode(FeatureDefinitionFeatureSet.FeatureSetMode.Exclusion)
+            .AddToDB();
     }
 
     private static void LoadEpicArray()
@@ -338,6 +420,47 @@ internal static class CharacterContext
         }
     }
 
+    internal static void SwitchWarlockVariant()
+    {
+        if (Main.Settings.EnableWarlockVariant)
+        {
+            Warlock.FeatureUnlocks.RemoveAll(x =>
+                x.FeatureDefinition == FeatureDefinitionCastSpells.CastSpellWarlock ||
+                x.FeatureDefinition == FeatureDefinitionProficiencys.ProficiencyWarlockSavingThrow);
+
+            Warlock.FeatureUnlocks.Add(new FeatureUnlockByLevel()
+            {
+                level = 1, featureDefinition = FeatureSetWarlockCastSpell
+            });
+
+            Warlock.FeatureUnlocks.Add(new FeatureUnlockByLevel()
+            {
+                level = 1, featureDefinition = FeatureSetWarlockSavingThrow
+            });
+        }
+        else
+        {
+            Warlock.FeatureUnlocks.RemoveAll(x =>
+                x.FeatureDefinition == FeatureSetWarlockCastSpell ||
+                x.FeatureDefinition == FeatureSetWarlockSavingThrow);
+
+            Warlock.FeatureUnlocks.Add(new FeatureUnlockByLevel()
+            {
+                level = 1, featureDefinition = FeatureDefinitionCastSpells.CastSpellWarlock
+            });
+
+            Warlock.FeatureUnlocks.Add(new FeatureUnlockByLevel()
+            {
+                level = 1, featureDefinition = FeatureDefinitionProficiencys.ProficiencyWarlockSavingThrow
+            });
+        }
+
+        if (Main.Settings.EnableSortingFutureFeatures)
+        {
+            Warlock.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
+        }
+    }
+
     internal static void SwitchAsiAndFeat()
     {
         FeatureSetAbilityScoreChoice.mode = Main.Settings.EnablesAsiAndFeat
@@ -361,8 +484,8 @@ internal static class CharacterContext
 
                 bool ShouldBe2Points()
                 {
-                    return (characterClassDefinition == CharacterClassDefinitions.Rogue && level is 10) ||
-                           (characterClassDefinition == CharacterClassDefinitions.Fighter && level is 6 or 14);
+                    return (characterClassDefinition == Rogue && level is 10) ||
+                           (characterClassDefinition == Fighter && level is 6 or 14);
                 }
 
                 if (Main.Settings.EnableFeatsAtEvenLevels)
@@ -653,7 +776,7 @@ internal static class CharacterContext
         {
             foreach (var level in levels)
             {
-                CharacterClassDefinitions.Fighter.FeatureUnlocks.TryAdd(
+                Fighter.FeatureUnlocks.TryAdd(
                     new FeatureUnlockByLevel(InvocationPoolFighterArmamentAdroitness, level));
             }
         }
@@ -661,7 +784,7 @@ internal static class CharacterContext
         {
             foreach (var level in levels)
             {
-                CharacterClassDefinitions.Fighter.FeatureUnlocks
+                Fighter.FeatureUnlocks
                     .RemoveAll(x => x.level == level &&
                                     x.FeatureDefinition == InvocationPoolFighterArmamentAdroitness);
             }
@@ -669,7 +792,7 @@ internal static class CharacterContext
 
         if (Main.Settings.EnableSortingFutureFeatures)
         {
-            CharacterClassDefinitions.Fighter.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
+            Fighter.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
         }
     }
 }

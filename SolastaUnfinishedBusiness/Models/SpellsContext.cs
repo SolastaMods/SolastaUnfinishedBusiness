@@ -24,6 +24,7 @@ internal static class SpellsContext
     // ReSharper disable once InconsistentNaming
     private static readonly SortedList<string, SpellListDefinition> spellLists = new();
     internal static readonly SpellDefinition FarStep = BuildFarStep();
+    internal static readonly SpellDefinition SunlightBlade = BuildSunlightBlade();
     internal static HashSet<SpellDefinition> Spells { get; private set; } = new();
 
     [NotNull]
@@ -72,13 +73,21 @@ internal static class SpellsContext
                     .Select(x => x.FeatureDefinition)
                     .OfType<FeatureDefinitionCastSpell>()
                     .FirstOrDefault();
+                
+                // this is an exception to comport Warlock Variant and force the original game one
+                if (characterClass == DatabaseHelper.CharacterClassDefinitions.Warlock)
+                {
+                    featureDefinitionCastSpell = DatabaseHelper.FeatureDefinitionCastSpells.CastSpellWarlock;
+                }
 
                 // NOTE: don't use featureDefinitionCastSpell?. which bypasses Unity object lifetime check
                 if (featureDefinitionCastSpell
                     && featureDefinitionCastSpell.SpellListDefinition
                     && !spellLists.ContainsValue(featureDefinitionCastSpell.SpellListDefinition))
                 {
-                    spellLists.Add(title, featureDefinitionCastSpell.SpellListDefinition);
+                    var subTitle = featureDefinitionCastSpell.FormatTitle();
+
+                    spellLists.Add($"{title}-{subTitle}", featureDefinitionCastSpell.SpellListDefinition);
                 }
             }
 
@@ -139,7 +148,7 @@ internal static class SpellsContext
         RegisterSpell(BuildMinorLifesteal(), 0, SpellListBard, SpellListSorcerer, SpellListWizard, SpellListWarlock);
         RegisterSpell(BuildResonatingStrike(), 0, SpellListBard, SpellListSorcerer, SpellListWarlock, SpellListWizard,
             spellListInventorClass);
-        RegisterSpell(BuildSunlightBlade(), 0, SpellListBard, SpellListSorcerer, SpellListWarlock, SpellListWizard,
+        RegisterSpell(SunlightBlade, 0, SpellListBard, SpellListSorcerer, SpellListWarlock, SpellListWizard,
             spellListInventorClass);
         RegisterSpell(BuildThornyVines(), 0, SpellListDruid, spellListInventorClass);
         RegisterSpell(BuildThunderStrike(), 0, SpellListDruid, SpellListSorcerer, SpellListWizard,
@@ -237,6 +246,11 @@ internal static class SpellsContext
 
         foreach (var spellList in SpellLists.Values)
         {
+            if (!Main.Settings.SpellListSpellEnabled.ContainsKey(spellList.Name))
+            {
+                continue;
+            }
+
             var enable = Main.Settings.SpellListSpellEnabled[spellList.Name].Contains(spellDefinition.Name);
 
             SpellListContextTab[spellList].Switch(spellDefinition, enable);
@@ -327,3 +341,4 @@ internal static class SpellsContext
         }
     }
 }
+

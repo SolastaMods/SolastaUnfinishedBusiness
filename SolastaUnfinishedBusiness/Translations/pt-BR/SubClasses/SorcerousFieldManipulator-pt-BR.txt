@@ -1,0 +1,8 @@
+Feature/&MagicAffinityFieldManipulatorDCDescription=É mais difícil para os oponentes resistirem aos seus feitiços. A CD de salvamento aumenta em 2.
+Feature/&MagicAffinityFieldManipulatorDCTitle=Força Arcana
+Feature/&PowerFieldManipulatorDominatePersonDescription=Você pode usar Dominar Pessoa um número de vezes por descanso longo igual ao seu modificador de Carisma.
+Feature/&PowerFieldManipulatorDominatePersonTitle=Dominar Pessoa
+Feature/&ProficiencyFieldManipulatorMentalSavingThrowsDescription=Ganhe proficiência em testes de resistência com Inteligência e Sabedoria.
+Feature/&ProficiencyFieldManipulatorMentalSavingThrowsTitle=resistência mental
+Subclass/&FieldManipulatorDescription=Os Manipuladores de Campo são excelentes em controlar o campo de batalha e impedir que seus inimigos possam atacá-los.
+Subclass/&FieldManipulatorTitle=Manipulador de campo

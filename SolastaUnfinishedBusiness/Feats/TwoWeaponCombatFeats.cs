@@ -7,7 +7,6 @@ using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
-using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionAdditionalActions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionAttributeModifiers;
 
 namespace SolastaUnfinishedBusiness.Feats;
@@ -32,9 +31,8 @@ internal static class TwoWeaponCombatFeats
     {
         var conditionDualFlurryApply = ConditionDefinitionBuilder
             .Create("ConditionDualFlurryApply")
-            .SetGuiPresentationNoContent()
-            .SetTurnOccurence(TurnOccurenceType.EndOfTurn)
-            .SetPossessive()
+            .SetGuiPresentationNoContent(true)
+            .SetSpecialDuration(DurationType.Round, 1)
             .SetSpecialInterruptions(ConditionInterruption.AnyBattleTurnEnd)
             .SetSilent(Silent.WhenAddedOrRemoved)
             .AddToDB();
@@ -42,12 +40,12 @@ internal static class TwoWeaponCombatFeats
         var conditionDualFlurryGrant = ConditionDefinitionBuilder
             .Create("ConditionDualFlurryGrant")
             .SetGuiPresentation(Category.Condition)
-            .SetTurnOccurence(TurnOccurenceType.EndOfTurn)
             .SetPossessive()
+            .SetSpecialDuration(DurationType.Round, 1)
             .SetSpecialInterruptions(ConditionInterruption.AnyBattleTurnEnd)
             .SetFeatures(
                 FeatureDefinitionAdditionalActionBuilder
-                    .Create(AdditionalActionSurgedMain, "AdditionalActionDualFlurry")
+                    .Create("AdditionalActionDualFlurry")
                     .SetGuiPresentationNoContent(true)
                     .SetActionType(ActionDefinitions.ActionType.Bonus)
                     .SetRestrictedActions(ActionDefinitions.Id.AttackOff)
@@ -98,7 +96,7 @@ internal static class TwoWeaponCombatFeats
             RulesetAttackMode attackMode,
             ActionModifier attackModifier)
         {
-            if (attackMode == null || !ValidatorsWeapon.IsOneHanded(attackMode) ||
+            if (!ValidatorsWeapon.IsOneHanded(attackMode) ||
                 outcome is RollOutcome.Failure or RollOutcome.CriticalFailure)
             {
                 return;
@@ -121,3 +119,9 @@ internal static class TwoWeaponCombatFeats
         }
     }
 }
+
+
+
+
+
+
