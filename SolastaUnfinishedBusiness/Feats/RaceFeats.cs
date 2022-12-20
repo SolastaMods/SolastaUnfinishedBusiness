@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.Linq;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.Extensions;
@@ -20,29 +19,6 @@ internal static class RaceFeats
     private const string RevenantGreatSword = "RevenantGreatSword";
 
     internal const string ElvenAccuracyTag = "ElvenAccuracy";
-
-    internal static void CheckElvenPrecisionContext(
-        bool result,
-        RulesetCharacter character,
-        RulesetAttackMode attackMode)
-    {
-        if (!result || character is not RulesetCharacterHero hero || attackMode == null)
-        {
-            return;
-        }
-
-        foreach (var feat in hero.TrainedFeats
-                     .Where(x => x.Name.Contains(ElvenAccuracyTag)))
-        {
-            var elvenPrecisionContext = feat.GetFirstSubFeatureOfType<ElvenPrecisionContext>();
-
-            if (elvenPrecisionContext != null)
-            {
-                elvenPrecisionContext.Qualified =
-                    attackMode.abilityScore is not AttributeDefinitions.Strength or AttributeDefinitions.Constitution;
-            }
-        }
-    }
 
     internal static void CreateFeats([NotNull] List<FeatDefinition> feats)
     {
@@ -118,7 +94,7 @@ internal static class RaceFeats
             .SetFeatures(AttributeModifierCreed_Of_Misaye) // accuracy roll is handled by patches
             .SetValidators(ValidatorsFeat.IsElfOfHalfElf)
             .SetFeatFamily(ElvenPrecision)
-            .SetCustomSubFeatures(new ElvenPrecisionContext())
+            .SetCustomSubFeatures(ElvenPrecisionLogic.ElvenPrecisionContext.Mark)
             .AddToDB();
 
         // Elven Accuracy (Intelligence)
@@ -128,7 +104,7 @@ internal static class RaceFeats
             .SetFeatures(AttributeModifierCreed_Of_Pakri) // accuracy roll is handled by patches
             .SetValidators(ValidatorsFeat.IsElfOfHalfElf)
             .SetFeatFamily(ElvenPrecision)
-            .SetCustomSubFeatures(new ElvenPrecisionContext())
+            .SetCustomSubFeatures(ElvenPrecisionLogic.ElvenPrecisionContext.Mark)
             .AddToDB();
 
         // Elven Accuracy (Wisdom)
@@ -138,7 +114,7 @@ internal static class RaceFeats
             .SetFeatures(AttributeModifierCreed_Of_Maraike) // accuracy roll is handled by patches
             .SetValidators(ValidatorsFeat.IsElfOfHalfElf)
             .SetFeatFamily(ElvenPrecision)
-            .SetCustomSubFeatures(new ElvenPrecisionContext())
+            .SetCustomSubFeatures(ElvenPrecisionLogic.ElvenPrecisionContext.Mark)
             .AddToDB();
 
         // Elven Accuracy (Charisma)
@@ -148,7 +124,7 @@ internal static class RaceFeats
             .SetFeatures(AttributeModifierCreed_Of_Solasta) // accuracy roll is handled by patches
             .SetValidators(ValidatorsFeat.IsElfOfHalfElf)
             .SetFeatFamily(ElvenPrecision)
-            .SetCustomSubFeatures(new ElvenPrecisionContext())
+            .SetCustomSubFeatures(ElvenPrecisionLogic.ElvenPrecisionContext.Mark)
             .AddToDB();
 
         //
@@ -232,10 +208,5 @@ internal static class RaceFeats
     private static bool IsGreatSword(RulesetAttackMode mode, RulesetItem weapon, RulesetCharacter character)
     {
         return ValidatorsCharacter.MainHandIsGreatSword(character);
-    }
-
-    internal sealed class ElvenPrecisionContext
-    {
-        internal bool Qualified { get; set; }
     }
 }
