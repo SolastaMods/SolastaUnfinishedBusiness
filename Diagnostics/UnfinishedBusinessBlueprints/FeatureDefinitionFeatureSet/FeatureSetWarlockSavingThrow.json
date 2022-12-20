@@ -1,10 +1,10 @@
 {
   "$type": "FeatureDefinitionFeatureSet, Assembly-CSharp",
   "featureSet": [
-    "Definition:CastSpellWarlockCharisma:3055fe15-32df-55b6-a725-9417f821514b",
-    "Definition:ProficiencyWarlockSavingThrowCharisma:8e9cd8e1-2941-5caa-8a3a-beadecbbd2a5"
+    "Definition:ProficiencyWarlockSavingThrowCharisma:8e9cd8e1-2941-5caa-8a3a-beadecbbd2a5",
+    "Definition:ProficiencyWarlockSavingThrowIntelligence:32c2f782-9787-5810-83f1-eda5c314527f"
   ],
-  "mode": "Union",
+  "mode": "Exclusion",
   "ancestryDamageTypeMap": [],
   "ancestryType": "Sorcerer",
   "defaultSelection": 0,
@@ -14,8 +14,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&FeatureSetWarlockCharismaTitle",
-    "description": "Feature/&FeatureSetWarlockCharismaDescription",
+    "title": "Feature/&FeatureSetWarlockSavingThrowTitle",
+    "description": "Feature/&FeatureSetWarlockSavingThrowDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -35,7 +35,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "09b2ab0e-401e-5e62-afed-05a2db2dfac9",
+  "guid": "8a878210-468b-5578-89f0-9e3f4e8cadcf",
   "contentPack": 9999,
-  "name": "FeatureSetWarlockCharisma"
+  "name": "FeatureSetWarlockSavingThrow"
 }

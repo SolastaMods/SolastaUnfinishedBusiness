@@ -404,8 +404,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&WarlockSpellcastingTitle",
-    "description": "Feature/&GenericCastSpellDescription",
+    "title": "Feature/&CastSpellWarlockIntelligenceTitle",
+    "description": "Feature/&CastSpellWarlockIntelligenceDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
