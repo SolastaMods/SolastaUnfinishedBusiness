@@ -57,6 +57,13 @@ internal static class CharacterDisplay
 
         UI.Label();
 
+        toggle = Main.Settings.AddHumanoidFavoredEnemyToRanger;
+        if (UI.Toggle(Gui.Localize("ModUi/&AddHumanoidFavoredEnemyToRanger"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.AddHumanoidFavoredEnemyToRanger = toggle;
+            CharacterContext.SwitchRangerHumanoidFavoredEnemy();
+        }
+
         toggle = Main.Settings.EnableWarlockVariant;
         if (UI.Toggle(Gui.Localize("ModUi/&EnableWarlockVariant"), ref toggle, UI.AutoWidth()))
         {

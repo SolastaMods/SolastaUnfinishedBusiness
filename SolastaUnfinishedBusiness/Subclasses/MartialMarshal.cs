@@ -84,16 +84,6 @@ internal sealed class MartialMarshal : AbstractSubclass
             .SetCustomSubFeatures(new OnComputeAttackModifierMarshalKnowYourEnemy())
             .AddToDB();
 
-        var additionalDamageMarshalFavoredEnemyHumanoid = FeatureDefinitionAdditionalDamageBuilder
-            .Create("AdditionalDamageMarshalFavoredEnemyHumanoid")
-            .SetGuiPresentationNoContent(true)
-            .SetNotificationTag("FavoredEnemy")
-            .SetTriggerCondition(AdditionalDamageTriggerCondition.SpecificCharacterFamily)
-            .SetDamageValueDetermination(AdditionalDamageValueDetermination.TargetKnowledgeLevel)
-            .SetAdditionalDamageType(AdditionalDamageType.SameAsBaseDamage)
-            .SetRequiredCharacterFamily(CharacterFamilyDefinitions.Humanoid)
-            .AddToDB();
-
         return FeatureDefinitionFeatureSetBuilder
             .Create(FeatureSetMarshalKnowYourEnemyName)
             .SetGuiPresentation(Category.Feature)
@@ -112,7 +102,7 @@ internal sealed class MartialMarshal : AbstractSubclass
                 AdditionalDamageRangerFavoredEnemyOoze,
                 AdditionalDamageRangerFavoredEnemyPlant,
                 AdditionalDamageRangerFavoredEnemyUndead,
-                additionalDamageMarshalFavoredEnemyHumanoid
+                CommonBuilders.AdditionalDamageMarshalFavoredEnemyHumanoid
             )
             .AddToDB();
     }
@@ -212,8 +202,9 @@ internal sealed class MartialMarshal : AbstractSubclass
 
     private static FeatureDefinitionFeatureSet BuildFeatureSetMarshalEternalComrade()
     {
-        var sprite = Sprites.GetSprite("PowerMarshalSummonEternalComrade", Resources.PowerMarshalSummonEternalComrade, 128);
-        
+        var sprite = Sprites.GetSprite("PowerMarshalSummonEternalComrade", Resources.PowerMarshalSummonEternalComrade,
+            128);
+
         //TODO: make this use concentration and reduce the duration to may be 3 rounds
         //TODO: increase the number of use to 2 and recharge per long rest
         var powerMarshalSummonEternalComrade = FeatureDefinitionPowerBuilder
@@ -575,6 +566,3 @@ internal sealed class MartialMarshal : AbstractSubclass
         }
     }
 }
-
-
-

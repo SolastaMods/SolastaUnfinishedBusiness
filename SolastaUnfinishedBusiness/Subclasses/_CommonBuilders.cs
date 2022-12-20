@@ -13,6 +13,18 @@ namespace SolastaUnfinishedBusiness.Subclasses;
 
 internal static class CommonBuilders
 {
+    // we have to keep this name to avoid breaking exising saves
+    internal static readonly FeatureDefinitionAdditionalDamage AdditionalDamageMarshalFavoredEnemyHumanoid =
+        FeatureDefinitionAdditionalDamageBuilder
+            .Create("AdditionalDamageMarshalFavoredEnemyHumanoid")
+            .SetGuiPresentationNoContent(true)
+            .SetNotificationTag("FavoredEnemy")
+            .SetTriggerCondition(AdditionalDamageTriggerCondition.SpecificCharacterFamily)
+            .SetDamageValueDetermination(AdditionalDamageValueDetermination.TargetKnowledgeLevel)
+            .SetAdditionalDamageType(AdditionalDamageType.SameAsBaseDamage)
+            .SetRequiredCharacterFamily(Humanoid)
+            .AddToDB();
+
     internal static readonly FeatureDefinitionAttributeModifier AttributeModifierCasterFightingExtraAttack =
         FeatureDefinitionAttributeModifierBuilder
             .Create("AttributeModifierCasterFightingExtraAttack")

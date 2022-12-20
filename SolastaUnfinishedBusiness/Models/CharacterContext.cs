@@ -10,6 +10,7 @@ using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Properties;
 using SolastaUnfinishedBusiness.Races;
+using SolastaUnfinishedBusiness.Subclasses;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterClassDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterRaceDefinitions;
@@ -87,6 +88,7 @@ internal static class CharacterContext
         FlexibleBackgroundsContext.SwitchFlexibleBackgrounds();
         FlexibleRacesContext.SwitchFlexibleRaces();
         SwitchFirstLevelTotalFeats(); // alternate human here as well
+        SwitchRangerHumanoidFavoredEnemy();
         SwitchWarlockVariant();
         SwitchAsiAndFeat();
         SwitchEvenLevelFeats();
@@ -417,6 +419,27 @@ internal static class CharacterContext
                 characterRaceDefinition.FeatureUnlocks.RemoveAll(x =>
                     x.Level == 1 && x.FeatureDefinition == FeatureDefinitionPowerHelpAction);
             }
+        }
+    }
+
+    internal static void SwitchRangerHumanoidFavoredEnemy()
+    {
+        if (Main.Settings.AddHumanoidFavoredEnemyToRanger)
+        {
+            AdditionalDamageRangerFavoredEnemyChoice.featureSet.Add(CommonBuilders
+                .AdditionalDamageMarshalFavoredEnemyHumanoid);
+        }
+        else
+        {
+            AdditionalDamageRangerFavoredEnemyChoice.featureSet.Remove(CommonBuilders
+                .AdditionalDamageMarshalFavoredEnemyHumanoid);
+        }
+
+
+        if (Main.Settings.EnableSortingFutureFeatures)
+        {
+            AdditionalDamageRangerFavoredEnemyChoice.FeatureSet.Sort((x, y) =>
+                String.Compare(x.FormatTitle(), y.FormatTitle(), StringComparison.CurrentCulture));
         }
     }
 
