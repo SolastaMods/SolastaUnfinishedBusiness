@@ -6,11 +6,7 @@
 
 CHANGES:
 
-- added Italian and Spanish unofficial game translations [check language dropdown on game settings]
-- added Oath of Hatred subclass
-- added Tiefling race [don't get too horny as models aren't the best]
-- fixed a null exception on Bow Mastery feat
-- fixed Monk's Martial Arts dice progression to use class level
-- fixed Piercer feat to only reroll dices on piercing damage
-- fixed Way of the Distant Hand to correctly work with Martial Dice progression
-- updated Summon Eternal Comrade icon
+- added CTRL-SHIFT-R hotkey setting to allow party to rejoin [useful on parties of 5 or 6]
+- added Character > General setting to allow Warlocks to pick Charisma or Intelligence as their spell casting ability
+- fixed Tiefling lack of vision
+- improved DM Editor to allow loot packs export

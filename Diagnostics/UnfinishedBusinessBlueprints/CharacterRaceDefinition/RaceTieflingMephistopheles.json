@@ -10,12 +10,12 @@
   "featureUnlocks": [
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:MoveModeMove6:6f358015fcdb8e147a7cfef7e2506430",
+      "featureDefinition": "Definition:AttributeModifierTieflingDexterityAbilityScoreIncrease:409c00e9-2d72-5c82-9c3f-ed0697291032",
       "level": 1
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:CastSpellDarkelfMagic:6e220b82-738f-5b16-a85a-0b60414bf155",
+      "featureDefinition": "Definition:CastSpellTieflingMephistopheles:49b905a0-8b58-5158-bc44-f1172aaa20f9",
       "level": 1
     }
   ],
@@ -37,40 +37,25 @@
     "armorAssetPrefix": "Elf",
     "helmetAssetPrefix": "Elf",
     "morphotypeAssetPrefix": "Elf",
-    "maleNameOptions": [
-      "Race/&ElfMaleName1Title",
-      "Race/&ElfMaleName2Title",
-      "Race/&ElfMaleName3Title",
-      "Race/&ElfMaleName4Title",
-      "Race/&ElfMaleName5Title",
-      "Race/&ElfMaleName6Title",
-      "Race/&ElfMaleName7Title",
-      "Race/&ElfMaleName8Title",
-      "Race/&ElfMaleName9Title",
-      "Race/&ElfMaleName10Title",
-      "Race/&ElfMaleName11Title",
-      "Race/&ElfMaleName12Title",
-      "Race/&ElfMaleName13Title"
-    ],
-    "femaleNameOptions": [
-      "Race/&ElfFemaleName1Title",
-      "Race/&ElfFemaleName2Title",
-      "Race/&ElfFemaleName3Title",
-      "Race/&ElfFemaleName4Title",
-      "Race/&ElfFemaleName5Title",
-      "Race/&ElfFemaleName6Title",
-      "Race/&ElfFemaleName7Title",
-      "Race/&ElfFemaleName8Title",
-      "Race/&ElfFemaleName9Title",
-      "Race/&ElfFemaleName10Title",
-      "Race/&ElfFemaleName11Title",
-      "Race/&ElfFemaleName12Title",
-      "Race/&ElfFemaleName13Title",
-      "Race/&ElfFemaleName14Title"
-    ],
+    "maleNameOptions": [],
+    "femaleNameOptions": [],
     "hasSurName": true,
     "surNameTitle": "Race/&ElfSurNameTitle",
-    "surNameOptions": [],
+    "surNameOptions": [
+      "Race/&HumanSurName1Title",
+      "Race/&HumanSurName2Title",
+      "Race/&HumanSurName3Title",
+      "Race/&HumanSurName4Title",
+      "Race/&HumanSurName5Title",
+      "Race/&HumanSurName6Title",
+      "Race/&HumanSurName7Title",
+      "Race/&HumanSurName8Title",
+      "Race/&HumanSurName9Title",
+      "Race/&HumanSurName10Title",
+      "Race/&HumanSurName11Title",
+      "Race/&HumanSurName12Title",
+      "Race/&HumanSurName13Title"
+    ],
     "availableMorphotypeCategories": [
       "FaceShape",
       "Skin",
@@ -85,7 +70,8 @@
       "Pronoun",
       "BodyDecorationColor",
       "Scars",
-      "Musculature"
+      "Musculature",
+      "Horns"
     ],
     "needBeard": false,
     "defaultMusculature": 0,
@@ -188,9 +174,19 @@
       "HairShape_None"
     ],
     "maleHornsOptions": [
+      "Horns_A",
+      "Horns_B",
+      "Horns_C",
+      "Horns_D",
+      "Horns_E",
       "Horns_None"
     ],
     "femaleHornsOptions": [
+      "Horns_A",
+      "Horns_B",
+      "Horns_C",
+      "Horns_D",
+      "Horns_E",
       "Horns_None"
     ],
     "maleTailOptions": [
@@ -215,24 +211,24 @@
     },
     "preferedSkinColors": {
       "$type": "TA.RangedInt, Assembly-CSharp",
-      "minValue": 48,
-      "maxValue": 53
+      "minValue": 16,
+      "maxValue": 19
     },
     "preferedHairColors": {
       "$type": "TA.RangedInt, Assembly-CSharp",
-      "minValue": 48,
-      "maxValue": 53
+      "minValue": 0,
+      "maxValue": 24
     },
     "musicalInstrumentScale": 1.0
   },
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
-    "title": "Race/&RaceHalfElfDarkTitle",
-    "description": "Race/&RaceHalfElfDarkDescription",
+    "title": "Race/&RaceTieflingMephistophelesTitle",
+    "description": "Race/&RaceTieflingMephistophelesDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "e4f5dcde-84f2-559c-8121-70d55fe6658c",
+      "m_AssetGUID": "38b252c7-61f1-5d56-b869-25905a60d95b",
       "m_SubObjectName": null,
       "m_SubObjectType": null
     },
@@ -244,12 +240,12 @@
       "a": 1.0
     },
     "symbolChar": "221E",
-    "sortOrder": 2,
+    "sortOrder": 0,
     "unusedInSolastaCOTM": false,
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "c1b0effd-683a-5a5b-a088-d7bcb4e5adfa",
+  "guid": "3510889d-228b-545d-b345-e2156da11282",
   "contentPack": 9999,
-  "name": "RaceHalfElfDark"
+  "name": "RaceTieflingMephistopheles"
 }
