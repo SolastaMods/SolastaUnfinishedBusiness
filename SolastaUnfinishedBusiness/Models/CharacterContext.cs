@@ -39,7 +39,7 @@ internal static class CharacterContext
     internal static readonly FeatureDefinitionProficiency ProficiencyWarlockSavingThrowCharisma =
         FeatureDefinitionProficiencyBuilder
             .Create("ProficiencyWarlockSavingThrowCharisma")
-            .SetGuiPresentationNoContent(true)
+            .SetGuiPresentation(Category.Feature)
             .SetProficiencies(ProficiencyType.SavingThrow,
                 AttributeDefinitions.Charisma, AttributeDefinitions.Wisdom)
             .AddToDB();
@@ -47,13 +47,14 @@ internal static class CharacterContext
     internal static readonly FeatureDefinitionProficiency ProficiencyWarlockSavingThrowIntelligence =
         FeatureDefinitionProficiencyBuilder
             .Create("ProficiencyWarlockSavingThrowIntelligence")
-            .SetGuiPresentationNoContent(true)
+            .SetGuiPresentation(Category.Feature)
             .SetProficiencies(ProficiencyType.SavingThrow,
                 AttributeDefinitions.Intelligence, AttributeDefinitions.Wisdom)
             .AddToDB();
 
     internal static FeatureDefinitionPower FeatureDefinitionPowerHelpAction { get; private set; }
-    private static FeatureDefinitionFeatureSet FeatureSetWarlockVariant { get; set; }
+    private static FeatureDefinitionFeatureSet FeatureSetWarlockCastSpell { get; set; }
+    private static FeatureDefinitionFeatureSet FeatureSetWarlockSavingThrow { get; set; }
 
     internal static void Load()
     {
@@ -328,39 +329,31 @@ internal static class CharacterContext
     {
         var castSpellWarlockCharisma = FeatureDefinitionCastSpellBuilder
             .Create(FeatureDefinitionCastSpells.CastSpellWarlock, "CastSpellWarlockCharisma")
-            .SetGuiPresentationNoContent(true)
+            .SetOrUpdateGuiPresentation(Category.Feature)
             .SetSpellCastingAbility(AttributeDefinitions.Charisma)
-            .AddToDB();
-
-        var featureSetWarlockCharisma = FeatureDefinitionFeatureSetBuilder
-            .Create("FeatureSetWarlockCharisma")
-            .SetGuiPresentation(Category.Feature)
-            .AddFeatureSet(
-                castSpellWarlockCharisma,
-                ProficiencyWarlockSavingThrowCharisma)
-            .SetMode(FeatureDefinitionFeatureSet.FeatureSetMode.Union)
             .AddToDB();
 
         var castSpellWarlockIntelligence = FeatureDefinitionCastSpellBuilder
             .Create(FeatureDefinitionCastSpells.CastSpellWarlock, "CastSpellWarlockIntelligence")
+            .SetOrUpdateGuiPresentation(Category.Feature)
             .SetSpellCastingAbility(AttributeDefinitions.Intelligence)
             .AddToDB();
 
-        var featureSetWarlockIntelligence = FeatureDefinitionFeatureSetBuilder
-            .Create("FeatureSetWarlockIntelligence")
+        FeatureSetWarlockCastSpell = FeatureDefinitionFeatureSetBuilder
+            .Create("FeatureSetWarlockCastSpell")
             .SetGuiPresentation(Category.Feature)
             .AddFeatureSet(
-                castSpellWarlockIntelligence,
-                ProficiencyWarlockSavingThrowIntelligence)
-            .SetMode(FeatureDefinitionFeatureSet.FeatureSetMode.Union)
+                castSpellWarlockCharisma,
+                castSpellWarlockIntelligence)
+            .SetMode(FeatureDefinitionFeatureSet.FeatureSetMode.Exclusion)
             .AddToDB();
 
-        FeatureSetWarlockVariant = FeatureDefinitionFeatureSetBuilder
-            .Create("FeatureSetWarlockVariant")
+        FeatureSetWarlockSavingThrow = FeatureDefinitionFeatureSetBuilder
+            .Create("FeatureSetWarlockSavingThrow")
             .SetGuiPresentation(Category.Feature)
             .AddFeatureSet(
-                featureSetWarlockCharisma,
-                featureSetWarlockIntelligence)
+                ProficiencyWarlockSavingThrowCharisma,
+                ProficiencyWarlockSavingThrowIntelligence)
             .SetMode(FeatureDefinitionFeatureSet.FeatureSetMode.Exclusion)
             .AddToDB();
     }
@@ -437,13 +430,19 @@ internal static class CharacterContext
 
             Warlock.FeatureUnlocks.Add(new FeatureUnlockByLevel()
             {
-                level = 1, featureDefinition = FeatureSetWarlockVariant
+                level = 1, featureDefinition = FeatureSetWarlockCastSpell
+            });
+
+            Warlock.FeatureUnlocks.Add(new FeatureUnlockByLevel()
+            {
+                level = 1, featureDefinition = FeatureSetWarlockSavingThrow
             });
         }
         else
         {
             Warlock.FeatureUnlocks.RemoveAll(x =>
-                x.FeatureDefinition == FeatureSetWarlockVariant);
+                x.FeatureDefinition == FeatureSetWarlockCastSpell ||
+                x.FeatureDefinition == FeatureSetWarlockSavingThrow);
 
             Warlock.FeatureUnlocks.Add(new FeatureUnlockByLevel()
             {
