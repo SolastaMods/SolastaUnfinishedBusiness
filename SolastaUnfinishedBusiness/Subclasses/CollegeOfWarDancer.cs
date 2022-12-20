@@ -15,15 +15,20 @@ namespace SolastaUnfinishedBusiness.Subclasses;
 
 internal sealed class CollegeOfWarDancer : AbstractSubclass
 {
-    private const string PowerWarDanceName = "CollegeOfWarDancerWarDance";
+    private const string PowerWarDanceName = "PowerCollegeOfWarDancerWarDance";
 
+    private static readonly FeatureDefinition ImproveWardDance = FeatureDefinitionBuilder
+        .Create("CollegeOfWarDancerImprovedWarDance")
+        .SetGuiPresentation(Category.Feature)
+        .AddToDB();
+    
     internal CollegeOfWarDancer()
     {
         var warDance = FeatureDefinitionPowerBuilder
             .Create(PowerWarDanceName)
             .SetCustomSubFeatures(ValidatorsCharacter.HasMeleeWeaponInMainHand)
             .SetUsesFixed(ActivationTime.BonusAction, RechargeRate.BardicInspiration)
-            .SetGuiPresentation(Category.Feature)
+            .SetGuiPresentation(Category.Feature, SpellDefinitions.MagicWeapon)
             .SetEffectDescription(EffectDescriptionBuilder
                 .Create()
                 .SetTargetingData(Side.All, RangeType.Self, 0, TargetType.Self)
@@ -43,40 +48,11 @@ internal sealed class CollegeOfWarDancer : AbstractSubclass
             .SetCustomSubFeatures(ValidatorsPowerUse.HasNoCondition(ConditionWarDance.Name))
             .AddToDB();
 
-        var improveWarDance = FeatureDefinitionPowerBuilder
-            .Create("CollegeOfWarDancerImprovedWarDance")
-            .SetGuiPresentation(Category.Feature)
-            .SetTriggeringPower(warDance)
-            .SetEffectDescription(EffectDescriptionBuilder
-                .Create()
-                .SetTargetingData(Side.Enemy, RangeType.Self, 0, TargetType.PerceivingWithinDistance, 6, 6)
-                .SetDurationData(DurationType.Minute, 1, TurnOccurenceType.StartOfTurn)
-                .SetSavingThrowData(false, AttributeDefinitions.Charisma, false,
-                    EffectDifficultyClassComputation.SpellCastingFeature)
-                .AddEffectForms(EffectFormBuilder
-                    .Create()
-                    .SetConditionForm(ConditionDefinitionBuilder
-                        .Create("ConditionCharmedByDanceOfWar")
-                        .SetGuiPresentation(Category.Feature, ConditionDefinitions.ConditionCharmedByHypnoticPattern)
-                        .SetFeatures(FeatureDefinitionAttributeModifierBuilder
-                            .Create("CharmedByDanceOfWarArmorModifier")
-                            .SetGuiPresentation(Category.Feature)
-                            .SetModifier(
-                                FeatureDefinitionAttributeModifier.AttributeModifierOperation.AddConditionAmount,
-                                AttributeDefinitions.ArmorClass)
-                            .AddToDB())
-                        .SetCustomSubFeatures(new ConditionCharmedByDanceOfWar())
-                        .AddToDB(), ConditionForm.ConditionOperation.Add)
-                    .Build())
-                .Build()
-            )
-            .AddToDB();
-
         Subclass = CharacterSubclassDefinitionBuilder
             .Create("CollegeOfWarDancer")
             .SetOrUpdateGuiPresentation(Category.Subclass, CharacterSubclassDefinitions.RangerSwiftBlade)
             .AddFeaturesAtLevel(3, warDance, CommonBuilders.FeatureSetCasterFightingProficiency)
-            .AddFeaturesAtLevel(6, improveWarDance, CommonBuilders.AttributeModifierCasterFightingExtraAttack)
+            .AddFeaturesAtLevel(6, ImproveWardDance)
             .AddToDB();
     }
 
@@ -88,31 +64,22 @@ internal sealed class CollegeOfWarDancer : AbstractSubclass
     {
         return ConditionDefinitionBuilder
             .Create("ConditionWarDance")
-            .SetGuiPresentation(Category.Condition)
+            .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionRaging)
             .AddFeatures(FeatureDefinitionMovementAffinityBuilder
                     .Create("ConditionWarDanceExtraMovement3")
-                    .SetGuiPresentation(Category.Feature)
+                    .SetGuiPresentationNoContent(true)
                     .SetBaseSpeedAdditiveModifier(3)
                     .SetImmunities(false, false, true)
                     .AddToDB(),
                 FeatureDefinitionBuilder
                     .Create("WarDanceCustomFeature")
-                    .SetGuiPresentation(Category.Feature)
+                    .SetGuiPresentationNoContent(true)
                     .SetCustomSubFeatures(new WarDanceFlurryAttack(), new WarDanceRefundOneAttackOfMainAction(),
                         new ExtendedWarDanceDurationOnKill())
                     .AddToDB(),
-                FeatureDefinitionAdditionalDamageBuilder
-                    .Create("WarDanceAdditionalDamage")
-                    .SetGuiPresentationNoContent(true)
-                    .SetDamageValueDetermination(AdditionalDamageValueDetermination.Die)
-                    .SetRequiredProperty(RestrictedContextRequiredProperty.MeleeWeapon)
-                    .SetTriggerCondition(AdditionalDamageTriggerCondition.AlwaysActive)
-                    .SetDamageDice(DieType.D8, 1)
-                    .SetSpecificDamageType(DamageTypePsychic)
-                    .SetAttackOnly()
-                    .AddToDB(),
                 FeatureDefinitionBuilder
                     .Create("WarDanceSwitchWeaponFreely")
+                    .SetGuiPresentationNoContent(true)
                     .SetCustomSubFeatures(new SwitchWeaponFreely())
                     .AddToDB()
             )
@@ -149,11 +116,13 @@ internal sealed class CollegeOfWarDancer : AbstractSubclass
         internal static void RemoveConditionOnAttackMissOrAttackWithNonMeleeWeapon(RulesetActor attacker)
         {
             var conditionsToRemove = new List<RulesetCondition>();
+
             conditionsToRemove.AddRange(
                 attacker.ConditionsByCategory
                     .SelectMany(x => x.Value)
                     .Where(x => x.ConditionDefinition
-                        .HasSubFeatureOfType<RemoveOnAttackMissOrAttackWithNonMeleeWeapon>()));
+                                    .HasSubFeatureOfType<RemoveOnAttackMissOrAttackWithNonMeleeWeapon>() ||
+                                x.conditionDefinition == ConditionDefinitions.ConditionBardicInspiration));
             foreach (var conditionToRemove in conditionsToRemove)
             {
                 attacker.RemoveCondition(conditionToRemove);
@@ -161,18 +130,86 @@ internal sealed class CollegeOfWarDancer : AbstractSubclass
         }
     }
 
-    private static readonly ConditionDefinition WarDanceFlurryAttackPenalty = ConditionDefinitionBuilder
-        .Create("WarDanceFlurryAttackModifier")
-        .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionBaned)
+    private static readonly DamageDieProvider UpgradeDice = (character, _) => GetMomentumDice(character);
+
+    private static DieType GetMomentumDice(RulesetCharacter character)
+    {
+        var slotsByName = character.CharacterInventory.InventorySlotsByName;
+        var item = slotsByName[EquipmentDefinitions.SlotTypeMainHand].EquipedItem;
+        if (item == null || !item.itemDefinition.isWeapon)
+        {
+            return DieType.D1;
+        }
+
+        var isLight = item.itemDefinition.WeaponDescription.WeaponTags.Contains("Light");
+        var isHeavy = item.itemDefinition.WeaponDescription.WeaponTags.Contains("Heavy");
+        if (isLight)
+        {
+            return DieType.D6;
+        }
+
+        return isHeavy ? DieType.D10 : DieType.D8;
+    }
+
+    private static readonly DieNumProvider UpgradeDieNum = (character, _) => GetMomentumDiceNum(character);
+
+    private static int GetMomentumDiceNum(RulesetCharacter character)
+    {
+        const int BASE_VALUE = 2;
+        var momentum = character.ConditionsByCategory
+            .SelectMany(x => x.Value)
+            .Count(x => x.ConditionDefinition == WarDanceMomentum);
+        if (momentum <= 1)
+        {
+            return BASE_VALUE;
+        }
+        
+        var slotsByName = character.CharacterInventory.InventorySlotsByName;
+        var item = slotsByName[EquipmentDefinitions.SlotTypeMainHand].EquipedItem;
+        if (item == null || !item.itemDefinition.isWeapon)
+        {
+            return BASE_VALUE;
+        }
+        
+        var isLight = item.itemDefinition.WeaponDescription.WeaponTags.Contains("Light");
+        var isHeavy = item.itemDefinition.WeaponDescription.WeaponTags.Contains("Heavy");
+        if (isLight)
+        {
+            return BASE_VALUE + (momentum - 1) / 2;
+        }
+
+        if (isHeavy)
+        {
+            return BASE_VALUE + 2 * (momentum - 1);
+        }
+
+        return BASE_VALUE + (momentum - 1);
+    }
+
+    private static readonly ConditionDefinition WarDanceMomentum = ConditionDefinitionBuilder
+        .Create("WarDanceMomentum")
+        .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionHeraldOfBattle)
         .SetAllowMultipleInstances(true)
+        .SetSilent(Silent.WhenAddedOrRemoved)
+        .SetFeatures(FeatureDefinitionAdditionalDamageBuilder
+            .Create("WarDanceMomentumAdditionalDamage")
+            .SetGuiPresentationNoContent(true)
+            .SetAdditionalDamageType(AdditionalDamageType.SameAsBaseDamage)
+            .SetDamageDice(DieType.D6, 2)
+            .SetRequiredProperty(RestrictedContextRequiredProperty.MeleeWeapon)
+            .SetAttackModeOnly()
+            .SetTriggerCondition(AdditionalDamageTriggerCondition.AlwaysActive)
+            .SetNotificationTag("Momentum")
+            .SetCustomSubFeatures(UpgradeDice, UpgradeDieNum)
+            .AddToDB())
         .SetSpecialInterruptions(ConditionInterruption.AnyBattleTurnEnd)
         .SetCustomSubFeatures(new RemoveOnAttackMissOrAttackWithNonMeleeWeapon())
         .AddToDB();
-    
+
     private sealed class WarDanceRefundOneAttackOfMainAction : IMightRefundOneAttackOfMainAction
     {
-        private static readonly ConditionDefinition WarDanceFlurry = ConditionDefinitionBuilder
-            .Create("WarDanceFlurry")
+        private static readonly ConditionDefinition WarDanceMomentumExtraAction = ConditionDefinitionBuilder
+            .Create("WarDanceMomentumExtraAction")
             .SetGuiPresentationNoContent(true)
             .SetFeatures(
                 FeatureDefinitionActionAffinityBuilder
@@ -180,7 +217,22 @@ internal sealed class CollegeOfWarDancer : AbstractSubclass
                     .SetGuiPresentationNoContent(true)
                     .SetDefaultAllowedActionTypes()
                     .SetForbiddenActions(ActionDefinitions.Id.CastMain, ActionDefinitions.Id.PowerMain,
-                        ActionDefinitions.Id.UseItemMain, ActionDefinitions.Id.HideMain)
+                        ActionDefinitions.Id.UseItemMain, ActionDefinitions.Id.HideMain, ActionDefinitions.Id.Ready)
+                    .SetCustomSubFeatures(new WarDanceFlurryAttackModifier())
+                    .AddToDB())
+            .SetCustomSubFeatures(new RemoveOnAttackMissOrAttackWithNonMeleeWeapon())
+            .AddToDB();
+
+        private static readonly ConditionDefinition ImprovedWarDanceMomentumExtraAction = ConditionDefinitionBuilder
+            .Create("ImprovedWarDanceMomentumExtraAction")
+            .SetGuiPresentationNoContent(true)
+            .SetFeatures(
+                FeatureDefinitionActionAffinityBuilder
+                    .Create("ImprovedWarDanceRefundedActionAffinity")
+                    .SetGuiPresentationNoContent(true)
+                    .SetDefaultAllowedActionTypes()
+                    .SetForbiddenActions(ActionDefinitions.Id.PowerMain,
+                        ActionDefinitions.Id.UseItemMain, ActionDefinitions.Id.HideMain, ActionDefinitions.Id.Ready)
                     .SetCustomSubFeatures(new WarDanceFlurryAttackModifier())
                     .AddToDB())
             .SetCustomSubFeatures(new RemoveOnAttackMissOrAttackWithNonMeleeWeapon())
@@ -188,7 +240,6 @@ internal sealed class CollegeOfWarDancer : AbstractSubclass
 
         public bool MightRefundOneAttackOfMainAction(GameLocationCharacter hero, CharacterActionParams actionParams)
         {
-            // spell cantrip is allowed
             if (actionParams.actionDefinition.Id != ActionDefinitions.Id.AttackMain)
             {
                 if (actionParams.actionDefinition.Id != ActionDefinitions.Id.CastMain)
@@ -196,6 +247,7 @@ internal sealed class CollegeOfWarDancer : AbstractSubclass
                     return false;
                 }
 
+                // blade cantrips are allowed
                 if (actionParams.RulesetEffect is not RulesetEffectSpell spellEffect ||
                     spellEffect.spellDefinition.spellLevel > 0 || !spellEffect.SpellDefinition
                         .HasSubFeatureOfType<IPerformAttackAfterMagicEffectUse>())
@@ -204,30 +256,12 @@ internal sealed class CollegeOfWarDancer : AbstractSubclass
                 }
             }
 
-            // apply action affinity through condition
-            if (!hero.RulesetCharacter.HasConditionOfType(WarDanceFlurry))
-            {
-                var actionAffinity = RulesetCondition.CreateActiveCondition(
-                    hero.RulesetCharacter.Guid,
-                    WarDanceFlurry,
-                    DurationType.Round,
-                    1,
-                    TurnOccurenceType.EndOfTurn,
-                    hero.RulesetCharacter.Guid,
-                    hero.RulesetCharacter.CurrentFaction.Name);
-                hero.RulesetCharacter.AddConditionOfCategory(AttributeDefinitions.TagCombat, actionAffinity);
-            }
-
-            // apply attack modifier
-            var attackModifier = RulesetCondition.CreateActiveCondition(
-                hero.RulesetCharacter.Guid,
-                WarDanceFlurryAttackPenalty,
-                DurationType.Round,
-                1,
-                TurnOccurenceType.EndOfTurn,
-                hero.RulesetCharacter.Guid,
-                hero.RulesetCharacter.CurrentFaction.Name);
-            hero.RulesetCharacter.AddConditionOfCategory(AttributeDefinitions.TagCombat, attackModifier);
+            // apply action affinity
+            hero.UsedMainSpell = true;
+            ApplyActionAffinity(hero.RulesetCharacter);
+            
+            // apply momentum
+            GrantWarDanceMomentum(hero);
 
             // Only refund one attack
             var num = actionParams.ActingCharacter.RulesetCharacter.AttackModes
@@ -237,29 +271,60 @@ internal sealed class CollegeOfWarDancer : AbstractSubclass
 
             return true;
         }
-    }
 
-    private sealed class ConditionCharmedByDanceOfWar : ICustomConditionFeature
-    {
-        public void ApplyFeature(RulesetCharacter target, RulesetCondition rulesetCondition)
+        void ApplyActionAffinity(RulesetCharacter character)
         {
-            Main.Log("ConditionCharmedByDanceOfWar applied", true);
-            GameLocationCharacter hero = null;
-            if (RulesetEntity.TryGetEntity(rulesetCondition.SourceGuid, out RulesetActor entity))
-                hero = GameLocationCharacter.GetFromActor(entity);
-
-            if (hero == null)
+            if (character is not RulesetCharacterHero)
+            {
+                return;
+            }
+            
+            var condition = WarDanceMomentumExtraAction;
+            if (character.HasAnyFeature(ImproveWardDance))
+            {
+                condition = ImprovedWarDanceMomentumExtraAction;
+            }
+            
+            if (character.HasConditionOfType(condition))
             {
                 return;
             }
 
-            rulesetCondition.amount = -AttributeDefinitions.ComputeAbilityScoreModifier(
-                hero.RulesetCharacter.TryGetAttributeValue(AttributeDefinitions.Charisma));
-            Main.Log($"ConditionCharmedByDanceOfWar applied {rulesetCondition.amount}", true);
+            var actionAffinity = RulesetCondition.CreateActiveCondition(
+                character.Guid,
+                condition,
+                DurationType.Round,
+                1,
+                TurnOccurenceType.EndOfTurn,
+                character.Guid,
+                character.CurrentFaction.Name);
+            character.AddConditionOfCategory(AttributeDefinitions.TagCombat, actionAffinity);
         }
 
-        public void RemoveFeature(RulesetCharacter target, RulesetCondition rulesetCondition)
+        void GrantWarDanceMomentum(GameLocationCharacter hero)
         {
+            // required for wildshape scenarios
+            if (hero.RulesetCharacter is not RulesetCharacterHero)
+            {
+                return;
+            }
+
+            var slotsByName = hero.RulesetCharacter.CharacterInventory.InventorySlotsByName;
+            var item = slotsByName[EquipmentDefinitions.SlotTypeMainHand].EquipedItem;
+            if (item == null || !item.itemDefinition.isWeapon)
+            {
+                return;
+            }
+
+            var attackModifier = RulesetCondition.CreateActiveCondition(
+                hero.RulesetCharacter.Guid,
+                WarDanceMomentum,
+                DurationType.Round,
+                1,
+                TurnOccurenceType.EndOfTurn,
+                hero.RulesetCharacter.Guid,
+                hero.RulesetCharacter.CurrentFaction.Name);
+            hero.RulesetCharacter.AddConditionOfCategory(AttributeDefinitions.TagCombat, attackModifier);
         }
     }
 
@@ -302,42 +367,65 @@ internal sealed class CollegeOfWarDancer : AbstractSubclass
             }
         }
     }
-    
-    private static readonly FeatureDefinition WarDanceFlurryAttackModifierMinus3 = FeatureDefinitionBuilder
-        .Create("WarDanceFlurryAttackModifierMinus3")
-        .SetGuiPresentation(Category.Feature)
-        .AddToDB();
 
     private sealed class WarDanceFlurryAttackModifier : IModifyAttackModeForWeapon
     {
-        private const int ToHitModifier = -3;
+        private const int LightMomentumModifier = -2;
+        private const int MomentumModifier = -3;
+        private const int HeavyMomentumModifier = -4;
+        private const string MomentumAttackModifier = "Momentum Attack";
 
         public void ModifyAttackMode(RulesetCharacter character, RulesetAttackMode attackMode)
         {
-            Main.Log($"ModifyAttackMode enter", true);
             if (attackMode == null || ValidatorsWeapon.IsRanged(attackMode))
             {
-                Main.Log($"ModifyAttackMode return 1", true);
                 return;
             }
 
-            var conditions = new List<RulesetCondition>();
-            conditions.AddRange(
-                character.ConditionsByCategory
-                    .SelectMany(x => x.Value)
-                    .Where(x => x.ConditionDefinition == WarDanceFlurryAttackPenalty));
-                
-            if (conditions.Count <= 0)
+            var momentum = character.ConditionsByCategory
+                .SelectMany(x => x.Value)
+                .Count(x => x.ConditionDefinition == WarDanceMomentum);
+            if (momentum == 0)
             {
-                Main.Log($"ModifyAttackMode return 2", true);
                 return;
             }
 
-            Main.Log($"{WarDanceFlurryAttackModifierMinus3} {conditions.Count}", true);
-            var toHit = conditions.Count * ToHitModifier;
-            attackMode.ToHitBonus += toHit;
-            var trendInfo = new TrendInfo(toHit, FeatureSourceType.Feat,
-                WarDanceFlurryAttackModifierMinus3.name, WarDanceFlurryAttackModifierMinus3);
+            ApplyMomentum(momentum, attackMode);
+        }
+
+        private static void ApplyMomentum(int momentum, RulesetAttackMode attackMode)
+        {
+            if (attackMode == null)
+            {
+                return;
+            }
+
+            //this.sourceDefinition is ItemDefinition sourceDefinition && sourceDefinition.IsWeapon && sourceDefinition.WeaponDescription.WeaponTags.Contains("Light");
+            var item = attackMode.sourceDefinition as ItemDefinition;
+            if (item == null || !item.IsWeapon)
+            {
+                return;
+            }
+
+            var isLight = item.WeaponDescription.WeaponTags.Contains("Light");
+            var isHeavy = item.WeaponDescription.WeaponTags.Contains("Heavy");
+            var toHit = -1;
+            if (isLight)
+            {
+                toHit += LightMomentumModifier*momentum;
+            }
+            else if (isHeavy)
+            {
+                toHit += HeavyMomentumModifier*momentum;
+            }
+            else
+            {
+                toHit += MomentumModifier*momentum;
+            }
+
+            attackMode.toHitBonus += toHit;
+            var trendInfo = new TrendInfo(toHit, FeatureSourceType.CharacterFeature,
+                MomentumAttackModifier, null);
             var index = attackMode.ToHitBonusTrends.IndexOf(trendInfo);
             if (index == -1)
             {
@@ -352,6 +440,5 @@ internal sealed class CollegeOfWarDancer : AbstractSubclass
 
     internal sealed class SwitchWeaponFreely
     {
-        
     }
 }

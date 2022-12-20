@@ -108,6 +108,12 @@ internal static class GameLocationBattleManagerTweaks
                 }
             }
 
+            var diceNumProvider = featureDefinition.GetFirstSubFeatureOfType<DieNumProvider>();
+            if (diceNumProvider != null)
+            {
+                diceNumber = diceNumProvider(attacker.RulesetCharacter, featureDefinition);
+            }
+
             // Some specific families may receive more dice (example paladin smiting undead/fiends)
             if (defender.RulesetCharacter != null && provider.FamiliesWithAdditionalDice.Count > 0 &&
                 provider.FamiliesWithAdditionalDice.Contains(defender.RulesetCharacter.CharacterFamily))
