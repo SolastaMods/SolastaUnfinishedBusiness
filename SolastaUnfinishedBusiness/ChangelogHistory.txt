@@ -1,5 +1,12 @@
 ﻿CHANGES:
 
+1.4.32.4:
+
+- added CTRL-SHIFT-R hotkey setting to allow party to rejoin [useful on parties of 5 or 6]
+- added Character > General setting to allow Warlocks to pick Charisma or Intelligence as their spell casting ability
+- fixed Tiefling lack of vision
+- improved DM Editor to allow loot packs export
+
 1.4.32.3:
 
 - added Italian and Spanish unofficial game translations [check language dropdown on game settings]

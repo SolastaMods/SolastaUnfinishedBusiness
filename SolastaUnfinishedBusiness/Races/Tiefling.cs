@@ -1,12 +1,9 @@
 ﻿using System.Collections.Generic;
-using System.Threading;
 using JetBrains.Annotations;
-using Mono.CSharp.Linq;
 using SolastaUnfinishedBusiness.Api.Infrastructure;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomUI;
-using SolastaUnfinishedBusiness.Displays;
 using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Properties;
 using TA;
@@ -15,6 +12,7 @@ using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterRaceDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionMoveModes;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionSenses;
 using static SolastaUnfinishedBusiness.Races.DarkelfSubraceBuilder;
 
 namespace SolastaUnfinishedBusiness.Races;
@@ -193,7 +191,8 @@ internal static class TieflingRaceBuilder
             .SetMaximalAge(120)
             .SetFeaturesAtLevel(1,
                 MoveModeMove6,
-                FeatureDefinitionSenses.SenseSuperiorDarkvision,
+                SenseNormalVision,
+                SenseDarkvision,
                 proficiencyTieflingLanguages,
                 attributeModifierTieflingCharismaAbilityScoreIncrease,
                 damageAffinityTieflingHellishResistance)
@@ -204,4 +203,3 @@ internal static class TieflingRaceBuilder
         return raceTiefling;
     }
 }
-

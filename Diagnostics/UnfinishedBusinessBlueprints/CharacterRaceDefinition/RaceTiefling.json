@@ -3,11 +3,26 @@
   "sizeDefinition": "Definition:Medium:eef4b35a8a6793147af905a8f26e4c60",
   "defaultAlignement": "ChaoticGood",
   "dualSex": true,
-  "minimalAge": 0,
+  "minimalAge": 120,
   "maximalAge": 0,
   "baseHeight": 63,
   "baseWeight": 90,
   "featureUnlocks": [
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:SenseDarkvision:446f786482b07db45b6f4a0854be3056",
+      "level": 1
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:DamageAffinityTieflingHellishResistance:b327548a-c0d2-568b-a086-347672b98872",
+      "level": 1
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:ProficiencyTieflingLanguages:0292b37f-7697-5552-8eb3-ca6125a9944a",
+      "level": 1
+    },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:MoveModeMove6:6f358015fcdb8e147a7cfef7e2506430",
@@ -15,11 +30,20 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:CastSpellDarkelfMagic:6e220b82-738f-5b16-a85a-0b60414bf155",
+      "featureDefinition": "Definition:SenseNormalVision:222ef639393ed4e4bbd7152690597945",
+      "level": 1
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:AttributeModifierTieflingCharismaAbilityScoreIncrease:668e6c8b-a169-5c6b-aa49-a0735e0499d0",
       "level": 1
     }
   ],
-  "subRaces": [],
+  "subRaces": [
+    "Definition:RaceTieflingAsmodeus:c925d6c0-0613-5531-b380-727cca75a1ab",
+    "Definition:RaceTieflingMephistopheles:3510889d-228b-545d-b345-e2156da11282",
+    "Definition:RaceTieflingZariel:740e7892-8b56-5708-bee2-fd16b2b73bd8"
+  ],
   "inventoryDefinition": "Definition:HumanoidInventory:2a836ff45f2eb274eb079425509421ac",
   "personalityFlagOccurences": [
     {
@@ -37,40 +61,25 @@
     "armorAssetPrefix": "Elf",
     "helmetAssetPrefix": "Elf",
     "morphotypeAssetPrefix": "Elf",
-    "maleNameOptions": [
-      "Race/&ElfMaleName1Title",
-      "Race/&ElfMaleName2Title",
-      "Race/&ElfMaleName3Title",
-      "Race/&ElfMaleName4Title",
-      "Race/&ElfMaleName5Title",
-      "Race/&ElfMaleName6Title",
-      "Race/&ElfMaleName7Title",
-      "Race/&ElfMaleName8Title",
-      "Race/&ElfMaleName9Title",
-      "Race/&ElfMaleName10Title",
-      "Race/&ElfMaleName11Title",
-      "Race/&ElfMaleName12Title",
-      "Race/&ElfMaleName13Title"
-    ],
-    "femaleNameOptions": [
-      "Race/&ElfFemaleName1Title",
-      "Race/&ElfFemaleName2Title",
-      "Race/&ElfFemaleName3Title",
-      "Race/&ElfFemaleName4Title",
-      "Race/&ElfFemaleName5Title",
-      "Race/&ElfFemaleName6Title",
-      "Race/&ElfFemaleName7Title",
-      "Race/&ElfFemaleName8Title",
-      "Race/&ElfFemaleName9Title",
-      "Race/&ElfFemaleName10Title",
-      "Race/&ElfFemaleName11Title",
-      "Race/&ElfFemaleName12Title",
-      "Race/&ElfFemaleName13Title",
-      "Race/&ElfFemaleName14Title"
-    ],
+    "maleNameOptions": [],
+    "femaleNameOptions": [],
     "hasSurName": true,
     "surNameTitle": "Race/&ElfSurNameTitle",
-    "surNameOptions": [],
+    "surNameOptions": [
+      "Race/&HumanSurName1Title",
+      "Race/&HumanSurName2Title",
+      "Race/&HumanSurName3Title",
+      "Race/&HumanSurName4Title",
+      "Race/&HumanSurName5Title",
+      "Race/&HumanSurName6Title",
+      "Race/&HumanSurName7Title",
+      "Race/&HumanSurName8Title",
+      "Race/&HumanSurName9Title",
+      "Race/&HumanSurName10Title",
+      "Race/&HumanSurName11Title",
+      "Race/&HumanSurName12Title",
+      "Race/&HumanSurName13Title"
+    ],
     "availableMorphotypeCategories": [
       "FaceShape",
       "Skin",
@@ -85,7 +94,8 @@
       "Pronoun",
       "BodyDecorationColor",
       "Scars",
-      "Musculature"
+      "Musculature",
+      "Horns"
     ],
     "needBeard": false,
     "defaultMusculature": 0,
@@ -188,9 +198,19 @@
       "HairShape_None"
     ],
     "maleHornsOptions": [
+      "Horns_A",
+      "Horns_B",
+      "Horns_C",
+      "Horns_D",
+      "Horns_E",
       "Horns_None"
     ],
     "femaleHornsOptions": [
+      "Horns_A",
+      "Horns_B",
+      "Horns_C",
+      "Horns_D",
+      "Horns_E",
       "Horns_None"
     ],
     "maleTailOptions": [
@@ -215,24 +235,24 @@
     },
     "preferedSkinColors": {
       "$type": "TA.RangedInt, Assembly-CSharp",
-      "minValue": 48,
-      "maxValue": 53
+      "minValue": 16,
+      "maxValue": 19
     },
     "preferedHairColors": {
       "$type": "TA.RangedInt, Assembly-CSharp",
-      "minValue": 48,
-      "maxValue": 53
+      "minValue": 0,
+      "maxValue": 24
     },
     "musicalInstrumentScale": 1.0
   },
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
-    "title": "Race/&RaceHalfElfDarkTitle",
-    "description": "Race/&RaceHalfElfDarkDescription",
+    "title": "Race/&RaceTieflingTitle",
+    "description": "Race/&RaceTieflingDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "e4f5dcde-84f2-559c-8121-70d55fe6658c",
+      "m_AssetGUID": "38b252c7-61f1-5d56-b869-25905a60d95b",
       "m_SubObjectName": null,
       "m_SubObjectType": null
     },
@@ -244,12 +264,12 @@
       "a": 1.0
     },
     "symbolChar": "221E",
-    "sortOrder": 2,
+    "sortOrder": 0,
     "unusedInSolastaCOTM": false,
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "c1b0effd-683a-5a5b-a088-d7bcb4e5adfa",
+  "guid": "31027206-c934-50e9-a6c2-20b8d4f2f86c",
   "contentPack": 9999,
-  "name": "RaceHalfElfDark"
+  "name": "RaceTiefling"
 }
