@@ -520,12 +520,16 @@ public static class RulesetCharacterPatcher
     {
         public static void Prefix(
             [NotNull] RulesetCharacter __instance,
+            RulesetAttackMode attackMode,
             RulesetActor target,
             List<RuleDefinitions.TrendInfo> toHitTrends,
             bool testMode)
         {
             //PATCH: support for Mirror Image - checks if we have Mirror Images, rolls for it and adds proper to hit trend to mark this roll
             MirrorImageLogic.AttackRollPrefix(__instance, target, toHitTrends, testMode);
+            
+            //PATCH: support Elven Precision - sets up flag if this physical attack is valid 
+            ElvenPrecisionLogic.PhysicalAttackRollPrefix(__instance, attackMode);
         }
 
         public static void Postfix(
@@ -542,6 +546,9 @@ public static class RulesetCharacterPatcher
                 ref outcome,
                 ref successDelta,
                 testMode);
+
+            //PATCH: support for Elven Precision - reset flag after physical attack is finished
+            ElvenPrecisionLogic.Active = false;
         }
     }
 
@@ -551,12 +558,16 @@ public static class RulesetCharacterPatcher
     {
         public static void Prefix(
             [NotNull] RulesetCharacter __instance,
+            RulesetEffect activeEffect,
             RulesetActor target,
             List<RuleDefinitions.TrendInfo> toHitTrends,
             bool testMode)
         {
             //PATCH: support for Mirror Image - checks if we have Mirror Images, rolls for it and adds proper to hit trend to mark this roll
             MirrorImageLogic.AttackRollPrefix(__instance, target, toHitTrends, testMode);
+            
+            //PATCH: support Elven Precision - sets up flag if this physical attack is valid 
+            ElvenPrecisionLogic.MagicAttackRollPrefix(__instance, activeEffect);
         }
 
         public static void Postfix(
@@ -570,6 +581,9 @@ public static class RulesetCharacterPatcher
             //PATCH: support for Mirror Image - checks if we have Mirror Images, and makes attack miss target and removes 1 image if it was hit
             MirrorImageLogic.AttackRollPostfix(__instance, null, target, toHitTrends, ref outcome, ref successDelta,
                 testMode);
+            
+            //PATCH: support for Elven Precision - reset flag after magic attack is finished
+            ElvenPrecisionLogic.Active = false;
         }
     }
 

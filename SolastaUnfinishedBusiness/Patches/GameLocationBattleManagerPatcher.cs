@@ -433,11 +433,6 @@ public static class GameLocationBattleManagerPatcher
 
             //PATCH: add modifier or advantage/disadvantage for physical and spell attack
             ApplyCustomModifiers(attackParams, __result);
-
-            //PATCH: Support elven precision feat
-            // should come last as adv / dis make diff here
-            RaceFeats.CheckElvenPrecisionContext(__result, attackParams.attacker.RulesetCharacter,
-                attackParams.attackMode);
         }
 
         //TODO: move this somewhere else and maybe split?
