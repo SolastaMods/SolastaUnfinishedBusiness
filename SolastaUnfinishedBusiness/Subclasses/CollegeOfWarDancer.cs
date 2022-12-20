@@ -189,7 +189,7 @@ internal sealed class CollegeOfWarDancer : AbstractSubclass
     private static readonly ConditionDefinition WarDanceMomentum = ConditionDefinitionBuilder
         .Create("WarDanceMomentum")
         .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionHeraldOfBattle)
-        .SetAllowMultipleInstances(true)
+        .AllowMultipleInstances()
         .SetSilent(Silent.WhenAddedOrRemoved)
         .SetFeatures(FeatureDefinitionAdditionalDamageBuilder
             .Create("WarDanceMomentumAdditionalDamage")
