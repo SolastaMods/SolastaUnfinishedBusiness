@@ -11,10 +11,11 @@ using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Properties;
 using SolastaUnfinishedBusiness.Races;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
-using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionFeatureSets;
-using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPointPools;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterClassDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterRaceDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterSubclassDefinitions;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionFeatureSets;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPointPools;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.MorphotypeElementDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
 using static RuleDefinitions;
@@ -430,29 +431,34 @@ internal static class CharacterContext
     {
         if (Main.Settings.EnableWarlockVariant)
         {
-            CharacterClassDefinitions.Warlock.FeatureUnlocks.RemoveAll(x =>
+            Warlock.FeatureUnlocks.RemoveAll(x =>
                 x.FeatureDefinition == FeatureDefinitionCastSpells.CastSpellWarlock ||
                 x.FeatureDefinition == FeatureDefinitionProficiencys.ProficiencyWarlockSavingThrow);
 
-            CharacterClassDefinitions.Warlock.FeatureUnlocks.Add(new FeatureUnlockByLevel()
+            Warlock.FeatureUnlocks.Add(new FeatureUnlockByLevel()
             {
                 level = 1, featureDefinition = FeatureSetWarlockVariant
             });
         }
         else
         {
-            CharacterClassDefinitions.Warlock.FeatureUnlocks.RemoveAll(x =>
+            Warlock.FeatureUnlocks.RemoveAll(x =>
                 x.FeatureDefinition == FeatureSetWarlockVariant);
 
-            CharacterClassDefinitions.Warlock.FeatureUnlocks.Add(new FeatureUnlockByLevel()
+            Warlock.FeatureUnlocks.Add(new FeatureUnlockByLevel()
             {
                 level = 1, featureDefinition = FeatureDefinitionCastSpells.CastSpellWarlock
             });
 
-            CharacterClassDefinitions.Warlock.FeatureUnlocks.Add(new FeatureUnlockByLevel()
+            Warlock.FeatureUnlocks.Add(new FeatureUnlockByLevel()
             {
                 level = 1, featureDefinition = FeatureDefinitionProficiencys.ProficiencyWarlockSavingThrow
             });
+        }
+
+        if (Main.Settings.EnableSortingFutureFeatures)
+        {
+            Warlock.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
         }
     }
 
@@ -479,8 +485,8 @@ internal static class CharacterContext
 
                 bool ShouldBe2Points()
                 {
-                    return (characterClassDefinition == CharacterClassDefinitions.Rogue && level is 10) ||
-                           (characterClassDefinition == CharacterClassDefinitions.Fighter && level is 6 or 14);
+                    return (characterClassDefinition == Rogue && level is 10) ||
+                           (characterClassDefinition == Fighter && level is 6 or 14);
                 }
 
                 if (Main.Settings.EnableFeatsAtEvenLevels)
@@ -771,7 +777,7 @@ internal static class CharacterContext
         {
             foreach (var level in levels)
             {
-                CharacterClassDefinitions.Fighter.FeatureUnlocks.TryAdd(
+                Fighter.FeatureUnlocks.TryAdd(
                     new FeatureUnlockByLevel(InvocationPoolFighterArmamentAdroitness, level));
             }
         }
@@ -779,7 +785,7 @@ internal static class CharacterContext
         {
             foreach (var level in levels)
             {
-                CharacterClassDefinitions.Fighter.FeatureUnlocks
+                Fighter.FeatureUnlocks
                     .RemoveAll(x => x.level == level &&
                                     x.FeatureDefinition == InvocationPoolFighterArmamentAdroitness);
             }
@@ -787,7 +793,7 @@ internal static class CharacterContext
 
         if (Main.Settings.EnableSortingFutureFeatures)
         {
-            CharacterClassDefinitions.Fighter.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
+            Fighter.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
         }
     }
 }
