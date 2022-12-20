@@ -28,7 +28,6 @@ public static class InventoryShortcutsPanelPatcher
             if (gameLocationCharacter != null && gameLocationCharacter.RulesetCharacter
                     .HasSubFeatureOfType<CollegeOfWarDancer.SwitchWeaponFreely>())
             {
-                Main.Log($"freeonce {gameLocationCharacter.currentActionRankByType[ActionDefinitions.ActionType.FreeOnce]}", true);
                 if (gameLocationCharacter.currentActionRankByType[ActionDefinitions.ActionType.FreeOnce] > 0)
                 {
                     gameLocationCharacter.currentActionRankByType[ActionDefinitions.ActionType.FreeOnce]--;
