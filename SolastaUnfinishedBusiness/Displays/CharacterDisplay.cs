@@ -57,6 +57,15 @@ internal static class CharacterDisplay
 
         UI.Label();
 
+        toggle = Main.Settings.EnableWarlockVariant;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableWarlockVariant"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableWarlockVariant = toggle;
+            CharacterContext.SwitchWarlockVariant();
+        }
+
+        UI.Label();
+
         toggle = Main.Settings.EnableEpicPointsAndArray;
         if (UI.Toggle(Gui.Localize("ModUi/&EnableEpicPointsAndArray"), ref toggle, UI.AutoWidth()))
         {

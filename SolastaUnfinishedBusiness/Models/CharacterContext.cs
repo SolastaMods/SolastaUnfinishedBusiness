@@ -34,7 +34,25 @@ internal static class CharacterContext
 
     private static int PreviousTotalFeatsGrantedFirstLevel { get; set; } = -1;
     private static bool PreviousAlternateHuman { get; set; }
+
+    internal static readonly FeatureDefinitionProficiency ProficiencyWarlockSavingThrowCharisma =
+        FeatureDefinitionProficiencyBuilder
+            .Create("ProficiencyWarlockSavingThrowCharisma")
+            .SetGuiPresentationNoContent(true)
+            .SetProficiencies(ProficiencyType.SavingThrow,
+                AttributeDefinitions.Charisma, AttributeDefinitions.Wisdom)
+            .AddToDB();
+
+    internal static readonly FeatureDefinitionProficiency ProficiencyWarlockSavingThrowIntelligence =
+        FeatureDefinitionProficiencyBuilder
+            .Create("ProficiencyWarlockSavingThrowIntelligence")
+            .SetGuiPresentationNoContent(true)
+            .SetProficiencies(ProficiencyType.SavingThrow,
+                AttributeDefinitions.Intelligence, AttributeDefinitions.Wisdom)
+            .AddToDB();
+
     internal static FeatureDefinitionPower FeatureDefinitionPowerHelpAction { get; private set; }
+    private static FeatureDefinitionFeatureSet FeatureSetWarlockVariant { get; set; }
 
     internal static void Load()
     {
@@ -55,6 +73,7 @@ internal static class CharacterContext
 
         LoadFighterArmamentAdroitness();
         LoadHelpPower();
+        LoadWarlockVariant();
         LoadEpicArray();
         LoadAdditionalNames();
         LoadVisuals();
@@ -66,6 +85,7 @@ internal static class CharacterContext
         FlexibleBackgroundsContext.SwitchFlexibleBackgrounds();
         FlexibleRacesContext.SwitchFlexibleRaces();
         SwitchFirstLevelTotalFeats(); // alternate human here as well
+        SwitchWarlockVariant();
         SwitchAsiAndFeat();
         SwitchEvenLevelFeats();
         SwitchFighterArmamentAdroitness();
@@ -303,6 +323,47 @@ internal static class CharacterContext
             .Default;
     }
 
+    private static void LoadWarlockVariant()
+    {
+        var castSpellWarlockCharisma = FeatureDefinitionCastSpellBuilder
+            .Create(FeatureDefinitionCastSpells.CastSpellWarlock, "CastSpellWarlockCharisma")
+            .SetGuiPresentationNoContent(true)
+            .SetSpellCastingAbility(AttributeDefinitions.Charisma)
+            .AddToDB();
+
+        var featureSetWarlockCharisma = FeatureDefinitionFeatureSetBuilder
+            .Create("FeatureSetWarlockCharisma")
+            .SetGuiPresentation(Category.Feature)
+            .AddFeatureSet(
+                castSpellWarlockCharisma,
+                ProficiencyWarlockSavingThrowCharisma)
+            .SetMode(FeatureDefinitionFeatureSet.FeatureSetMode.Union)
+            .AddToDB();
+
+        var castSpellWarlockIntelligence = FeatureDefinitionCastSpellBuilder
+            .Create(FeatureDefinitionCastSpells.CastSpellWarlock, "CastSpellWarlockIntelligence")
+            .SetSpellCastingAbility(AttributeDefinitions.Intelligence)
+            .AddToDB();
+
+        var featureSetWarlockIntelligence = FeatureDefinitionFeatureSetBuilder
+            .Create("FeatureSetWarlockIntelligence")
+            .SetGuiPresentation(Category.Feature)
+            .AddFeatureSet(
+                castSpellWarlockIntelligence,
+                ProficiencyWarlockSavingThrowIntelligence)
+            .SetMode(FeatureDefinitionFeatureSet.FeatureSetMode.Union)
+            .AddToDB();
+
+        FeatureSetWarlockVariant = FeatureDefinitionFeatureSetBuilder
+            .Create("FeatureSetWarlockVariant")
+            .SetGuiPresentation(Category.Feature)
+            .AddFeatureSet(
+                featureSetWarlockCharisma,
+                featureSetWarlockIntelligence)
+            .SetMode(FeatureDefinitionFeatureSet.FeatureSetMode.Exclusion)
+            .AddToDB();
+    }
+
     private static void LoadEpicArray()
     {
         AttributeDefinitions.PredeterminedRollScores = Main.Settings.EnableEpicPointsAndArray
@@ -362,6 +423,36 @@ internal static class CharacterContext
                 characterRaceDefinition.FeatureUnlocks.RemoveAll(x =>
                     x.Level == 1 && x.FeatureDefinition == FeatureDefinitionPowerHelpAction);
             }
+        }
+    }
+
+    internal static void SwitchWarlockVariant()
+    {
+        if (Main.Settings.EnableWarlockVariant)
+        {
+            CharacterClassDefinitions.Warlock.FeatureUnlocks.RemoveAll(x =>
+                x.FeatureDefinition == FeatureDefinitionCastSpells.CastSpellWarlock ||
+                x.FeatureDefinition == FeatureDefinitionProficiencys.ProficiencyWarlockSavingThrow);
+
+            CharacterClassDefinitions.Warlock.FeatureUnlocks.Add(new FeatureUnlockByLevel()
+            {
+                level = 1, featureDefinition = FeatureSetWarlockVariant
+            });
+        }
+        else
+        {
+            CharacterClassDefinitions.Warlock.FeatureUnlocks.RemoveAll(x =>
+                x.FeatureDefinition == FeatureSetWarlockVariant);
+
+            CharacterClassDefinitions.Warlock.FeatureUnlocks.Add(new FeatureUnlockByLevel()
+            {
+                level = 1, featureDefinition = FeatureDefinitionCastSpells.CastSpellWarlock
+            });
+
+            CharacterClassDefinitions.Warlock.FeatureUnlocks.Add(new FeatureUnlockByLevel()
+            {
+                level = 1, featureDefinition = FeatureDefinitionProficiencys.ProficiencyWarlockSavingThrow
+            });
         }
     }
 
@@ -700,4 +791,3 @@ internal static class CharacterContext
         }
     }
 }
-

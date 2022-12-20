@@ -73,13 +73,21 @@ internal static class SpellsContext
                     .Select(x => x.FeatureDefinition)
                     .OfType<FeatureDefinitionCastSpell>()
                     .FirstOrDefault();
+                
+                // this is an exception to comport Warlock Variant and force the original game one
+                if (characterClass == DatabaseHelper.CharacterClassDefinitions.Warlock)
+                {
+                    featureDefinitionCastSpell = DatabaseHelper.FeatureDefinitionCastSpells.CastSpellWarlock;
+                }
 
                 // NOTE: don't use featureDefinitionCastSpell?. which bypasses Unity object lifetime check
                 if (featureDefinitionCastSpell
                     && featureDefinitionCastSpell.SpellListDefinition
                     && !spellLists.ContainsValue(featureDefinitionCastSpell.SpellListDefinition))
                 {
-                    spellLists.Add(title, featureDefinitionCastSpell.SpellListDefinition);
+                    var subTitle = featureDefinitionCastSpell.FormatTitle();
+
+                    spellLists.Add($"{title}-{subTitle}", featureDefinitionCastSpell.SpellListDefinition);
                 }
             }
 
@@ -238,6 +246,11 @@ internal static class SpellsContext
 
         foreach (var spellList in SpellLists.Values)
         {
+            if (!Main.Settings.SpellListSpellEnabled.ContainsKey(spellList.Name))
+            {
+                continue;
+            }
+
             var enable = Main.Settings.SpellListSpellEnabled[spellList.Name].Contains(spellDefinition.Name);
 
             SpellListContextTab[spellList].Switch(spellDefinition, enable);

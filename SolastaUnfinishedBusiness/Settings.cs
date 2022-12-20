@@ -64,6 +64,7 @@ public class Settings : UnityModManager.ModSettings
     public bool EnableFlexibleBackgrounds { get; set; }
     public bool EnableFlexibleRaces { get; set; }
     public bool DisableRacePrerequisitesOnModFeats { get; set; }
+    public bool EnableWarlockVariant { get; set; }
     public bool EnableEpicPointsAndArray { get; set; }
     public int TotalFeatsGrantedFirstLevel { get; set; }
 
