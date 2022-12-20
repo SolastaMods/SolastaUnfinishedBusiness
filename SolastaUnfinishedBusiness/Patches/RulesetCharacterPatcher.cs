@@ -86,6 +86,33 @@ public static class RulesetCharacterPatcher
         }
     }
 
+    [HarmonyPatch(typeof(RulesetCharacter), nameof(RulesetCharacter.GetAbilityScoreOfPower))]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    public static class GetAbilityScoreOfPower_Patch
+    {
+        public static void Postfix(RulesetCharacter __instance,
+            ref string __result,
+            FeatureDefinitionPower featureDefinitionPower)
+        {
+            //PATCH: allow powers have magic attack bonus based on spell attack
+            if (featureDefinitionPower.AttackHitComputation !=
+                (RuleDefinitions.PowerAttackHitComputation)ExtraPowerAttackHitComputation.SpellAttack)
+            {
+                return;
+            }
+
+            var repertoire =
+                __instance.GetClassSpellRepertoire(__instance.FindClassHoldingFeature(featureDefinitionPower));
+
+            if (repertoire == null)
+            {
+                return;
+            }
+
+            __result = repertoire.SpellCastingAbility;
+        }
+    }
+
     [HarmonyPatch(typeof(RulesetCharacter), "GetLowestSlotLevelAndRepertoireToCastSpell")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     public static class GetLowestSlotLevelAndRepertoireToCastSpell_Patch
