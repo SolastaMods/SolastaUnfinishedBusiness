@@ -13,6 +13,6 @@ Condition/&WarDanceLightMomentumDescription=Your attack has light momentum.
 Condition/&WarDanceMomentumTitle=Momentum
 Condition/&WarDanceMomentumDescription=Your attack deal more damage but less accurate.
 Feature/&CollegeOfWarDancerImprovedWarDanceTitle=Improved War Dance
-Feature/&CollegeOfWarDancerImprovedWarDanceDescription=You can cast a cantrip with using your momentum.
+Feature/&CollegeOfWarDancerImprovedWarDanceDescription=You can cast cantrip with your momentum.
 Feedback/&AdditionalDamageMomentumLine=Momentum Strike deals extra +{2} damage!
 Feedback/&AdditionalDamageMomentumFormat=Momentum Strike
