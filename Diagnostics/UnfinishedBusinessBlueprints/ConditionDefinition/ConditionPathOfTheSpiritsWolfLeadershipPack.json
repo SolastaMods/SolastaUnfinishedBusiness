@@ -4,18 +4,18 @@
   "parentCondition": null,
   "conditionType": "Beneficial",
   "features": [
-    "Definition:CombatAffinityPathOfTheSpiritsWolfLeadership:197fda3f-cfd5-5b17-b921-59a922cad08c"
+    "Definition:CombatAffinityPathOfTheSpiritsWolfLeadershipPack:6f352fd3-4444-5b6d-af92-b7778c902dae"
   ],
-  "allowMultipleInstances": true,
+  "allowMultipleInstances": false,
   "silentWhenAdded": false,
   "silentWhenRemoved": false,
   "terminateWhenRemoved": false,
-  "specialDuration": false,
-  "durationType": "Hour",
-  "durationParameterDie": "D4",
+  "specialDuration": true,
+  "durationType": "Round",
+  "durationParameterDie": "D1",
   "durationParameter": 1,
   "forceTurnOccurence": false,
-  "turnOccurence": "EndOfTurn",
+  "turnOccurence": "StartOfTurn",
   "specialInterruptions": [],
   "interruptionRequiresSavingThrow": false,
   "interruptionSavingThrowComputationMethod": "SaveOverride",
@@ -128,13 +128,13 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&FeatureSetPathOfTheSpiritsWolfLeadershipTitle",
-    "description": "Feature/&FeatureSetPathOfTheSpiritsWolfLeadershipDescription",
+    "title": "Feature/&ConditionPathOfTheSpiritsWolfLeadershipPackTitle",
+    "description": "Feature/&ConditionPathOfTheSpiritsWolfLeadershipPackDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "",
-      "m_SubObjectName": null,
-      "m_SubObjectType": null
+      "m_AssetGUID": "df79a8d92a082eb40a000919a6f5b27a",
+      "m_SubObjectName": "ConditionDivineFavor",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",

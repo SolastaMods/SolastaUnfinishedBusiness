@@ -301,7 +301,7 @@
   "isUsingMusicalInstrumentWhenCasting": false,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
-    "hidden": false,
+    "hidden": true,
     "title": "Class/&WarlockVariantTitle",
     "description": "Class/&WarlockVariantDescription",
     "spriteReference": {

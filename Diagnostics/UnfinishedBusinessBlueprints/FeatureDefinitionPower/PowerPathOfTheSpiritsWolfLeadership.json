@@ -6,9 +6,9 @@
     "rangeParameter": 0,
     "halfDamageOnAMiss": false,
     "hitAffinitiesByTargetTag": [],
-    "targetType": "Sphere",
+    "targetType": "Self",
     "itemSelectionType": "None",
-    "targetParameter": 6,
+    "targetParameter": 1,
     "targetParameter2": 2,
     "emissiveBorder": "None",
     "emissiveParameter": 1,
@@ -22,7 +22,7 @@
     "requiresVisibilityForPosition": true,
     "inviteOptionalAlly": false,
     "slotTypes": [],
-    "recurrentEffect": "OnActivation, OnTurnStart, OnEnter",
+    "recurrentEffect": "No",
     "retargetAfterDeath": false,
     "retargetActionType": "Bonus",
     "poolFilterDiceNumber": 5,
@@ -31,8 +31,8 @@
     "targetConditionName": "",
     "targetConditionAsset": null,
     "targetSide": "Ally",
-    "durationType": "Round",
-    "durationParameter": 1,
+    "durationType": "Permanent",
+    "durationParameter": 0,
     "endOfEffect": "EndOfTurn",
     "hasSavingThrow": false,
     "disableSavingThrowOnAllies": false,
@@ -77,11 +77,11 @@
         "saveOccurence": "EndOfTurn",
         "conditionForm": {
           "$type": "ConditionForm, Assembly-CSharp",
-          "conditionDefinitionName": "ConditionPathOfTheSpiritsWolfLeadershipPack",
-          "conditionDefinition": "Definition:ConditionPathOfTheSpiritsWolfLeadershipPack:2f96be3e-93f0-5bab-9a3f-38b0d2522b17",
+          "conditionDefinitionName": "ConditionPathOfTheSpiritsWolfLeadershipLeader",
+          "conditionDefinition": "Definition:ConditionPathOfTheSpiritsWolfLeadershipLeader:40f49eb4-4f31-5d0d-8d42-b13b1acc67cc",
           "operation": "Add",
           "conditionsList": [
-            "Definition:ConditionPathOfTheSpiritsWolfLeadershipPack:2f96be3e-93f0-5bab-9a3f-38b0d2522b17"
+            "Definition:ConditionPathOfTheSpiritsWolfLeadershipLeader:40f49eb4-4f31-5d0d-8d42-b13b1acc67cc"
           ],
           "applyToSelf": false,
           "forceOnSelf": false
@@ -325,9 +325,9 @@
   "includeBaseDescription": false,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
-    "hidden": true,
-    "title": "Feature/&NoContentTitle",
-    "description": "Feature/&NoContentTitle",
+    "hidden": false,
+    "title": "Feature/&PowerPathOfTheSpiritsWolfLeadershipTitle",
+    "description": "Feature/&PowerPathOfTheSpiritsWolfLeadershipDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -347,7 +347,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "dfbff25f-e9fa-5b68-b182-3f4aee9c4a94",
+  "guid": "e47c29ae-454d-5117-9da9-2c107c6e7e6a",
   "contentPack": 9999,
-  "name": "PowerPathOfTheSpiritsWolfLeadershipPack"
+  "name": "PowerPathOfTheSpiritsWolfLeadership"
 }
