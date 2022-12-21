@@ -120,3 +120,5 @@ UI/&RecipeFilterArmor=Rüstung
 UI/&RecipeFilterUsableDevices=Verwendbare Geräte
 UI/&RecipeFilterWeapons=Waffen
 Feature/&AdditionalDamageDomainLifeDivineStrikeDescription=+1W8 Strahlungsschaden bei Waffenangriffen, einmal pro Runde.
+Class/&WarlockVariantDescription=Wo Zauberer ihre magische Kraft aus dem Studium und Zauberer aus magischen Blutlinien schöpfen, erlangen Hexenmeister Macht durch einen Pakt mit einem mächtigen Gönner: einem Unhold vielleicht oder einer anderen mächtigen Entität. Die Art der Kräfte eines Hexenmeisters hängt von der Art des Patrons und den Einzelheiten des Pakts ab.
+Class/&WarlockVariantTitle=Smartlock

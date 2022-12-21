@@ -181,3 +181,5 @@ ModUi/&DisableRacePrerequisitesOnModFeats=Deaktivieren Sie die Rennvoraussetzung
 ModUi/&EncounterPercentageChance=<color=white>Stellen Sie die prozentualen Chancen für zufällige Begegnungen ein</color>
 ModUi/&FixEldritchBlastRange=Ändere die Reichweite von <color=#D89555>Eldritch Blast</color> auf 24 <i><color=#F0DAA0>[statt 16]</color></i>
 ModUi/&AllowMoreRealStateOnRestPanel=Erlauben Sie mehr realen Status im Ruhebereich <i><color=#F0DAA0>[Aktionen nach der Ruhe im Bereich „Vorher“ und Wiederherstellungsfunktionen im Bereich „Nachher“ ausblenden]</color></i>
+ModUi/&AddHumanoidFavoredEnemyToRanger=Füge <color=#D89555>Waldläufern</color> humanoiden bevorzugten Feind hinzu
+ModUi/&EnableRejoinParty=Aktiviere <color=#1E81B0>STRG-UMSCHALT-(R)</color>, um der Gruppe wieder beizutreten <i><color=#F0DAA0>[nützlich bei Gruppen mit 5 oder 6 Personen]</color></i>

@@ -120,3 +120,5 @@ UI/&RecipeFilterAmmunition=Munitions
 UI/&RecipeFilterArmor=Armure
 UI/&RecipeFilterUsableDevices=Dispositifs utilisables
 UI/&RecipeFilterWeapons=Armes
+Class/&WarlockVariantDescription=Là où les sorciers tirent leur pouvoir magique de l'étude et les sorciers de lignées magiques, les sorciers acquièrent du pouvoir grâce à un pacte avec un puissant patron : un démon, peut-être, ou une autre entité puissante. La nature des pouvoirs d'un démoniste varie en fonction de la nature du mécène et des détails du pacte.
+Class/&WarlockVariantTitle=Smarlock

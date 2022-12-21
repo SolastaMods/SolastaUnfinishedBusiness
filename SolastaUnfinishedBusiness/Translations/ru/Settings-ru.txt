@@ -181,3 +181,5 @@ ModUi/&DisableRacePrerequisitesOnModFeats=Отключить Расовые пр
 ModUi/&EncounterPercentageChance=<color=white>Установить шанс на случайные встречи</color>
 ModUi/&FixEldritchBlastRange=Сменить дальность <color=#D89555>Жуткого Взрыва</color> на 24 <i><color=#F0DAA0>[вместо 16]</color></i>
 ModUi/&AllowMoreRealStateOnRestPanel=Разрешить больше информации и состояний на панели отдыха <i><color=#F0DAA0>[скрыть действия после отдыха на панели До и функции восстановления на панели После]</color></i>
+ModUi/&AddHumanoidFavoredEnemyToRanger=Добавить предпочитаемого врага-гуманоида к <color=#D89555>Рейнджерам</color>
+ModUi/&EnableRejoinParty=Включите <color=#1E81B0>CTRL-SHIFT-(R)</color>, чтобы присоединиться к группе <i><color=#F0DAA0>[полезно для групп из 5 или 6 человек]</color></i>
