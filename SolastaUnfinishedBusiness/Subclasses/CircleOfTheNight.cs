@@ -50,12 +50,6 @@ internal sealed class CircleOfTheNight : AbstractSubclass
 
         // 2nd level
 
-        //TODO: this was kept for backward compatibility. remove on next major game version
-        _ = FeatureDefinitionActionAffinityBuilder
-            .Create("ActionAffinityWildshapeBonus")
-            .SetGuiPresentationNoContent(true)
-            .AddToDB();
-
         // Combat Wildshape 
         // Official rules are CR = 1/3 of druid level. However in solasta the selection of beasts is greatly reduced
         var powerCircleOfTheNightWildShapeCombat = FeatureDefinitionBuilder

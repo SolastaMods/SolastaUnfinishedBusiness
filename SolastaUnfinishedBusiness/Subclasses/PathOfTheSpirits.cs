@@ -200,8 +200,8 @@ internal sealed class PathOfTheSpirits : AbstractSubclass
             .SetGuiPresentation(Category.Feature, ConditionDefinitions.ConditionHeraldOfBattle)
             .SetSpecialDuration(DurationType.Round, 1, TurnOccurenceType.StartOfTurn)
             .SetFeatures(FeatureDefinitionCombatAffinityBuilder
-                .Create(CombatAffinityRousingShout, "ConditionPathOfTheSpiritsWolfLeadershipPack")
-                .SetGuiPresentation(Category.Feature)
+                .Create(CombatAffinityRousingShout, "CombatAffinityPathOfTheSpiritsWolfLeadershipPack")
+                .SetGuiPresentation("ConditionPathOfTheSpiritsWolfLeadershipPack", Category.Feature)
                 .AddToDB())
             .AddToDB();
 
