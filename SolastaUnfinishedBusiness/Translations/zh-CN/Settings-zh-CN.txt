@@ -48,6 +48,7 @@ ModUi/&DontFollowMargin=<color=white>+ 除非角色靠近于%的屏幕边缘</co
 ModUi/&DungeonMakerBasicHelp=. 这些设置不要求玩家安装此Mod
 ModUi/&DungeonMakerMenu=地城制作
 ModUi/&EmpressGarbAppearance=<color=#D89555>女皇装束链甲衫</color>外形
+ModUi/&EnableRejoinParty=Enable <color=#1E81B0>CTRL-SHIFT-(R)</color> to rejoin the party <i><color=#F0DAA0>[useful with parties of 5 or 6]</color></i>
 ModUi/&EnableAdditionalBackstoryDisplay=启用在背景故事检视时显示额外的背景故事
 ModUi/&EnableAdditionalIconsOnLevelMap=在地图上给营地、出口和传送点添加额外的图标
 ModUi/&EnableAdditionalItemsInDungeonMaker=+ 添加新的法器至地城制作
