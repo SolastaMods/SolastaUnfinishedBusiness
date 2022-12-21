@@ -923,7 +923,3 @@ internal sealed class CustomScale
         Z = z;
     }
 }
-
-
-
-

@@ -52,7 +52,7 @@ internal static class RulesetCharacterExtensions
             overridenPowers.TryAdd(power.PowerDefinition.OverriddenPower);
         }
 
-        foreach (RulesetUsablePower usablePower in usablePowers)
+        foreach (var usablePower in usablePowers)
         {
             var power = usablePower.PowerDefinition;
             if (power.DelegatedToAction)
@@ -68,13 +68,13 @@ internal static class RulesetCharacterExtensions
             var activationTime = power.ActivationTime;
 
             if (activationTime is not (ActivationTime.Action
-                or ActivationTime.BonusAction 
+                or ActivationTime.BonusAction
                 or ActivationTime.NoCost
-                or ActivationTime.Reaction 
-                or ActivationTime.Minute1 
-                or ActivationTime.Minute10 
-                or ActivationTime.Hours1 
-                or ActivationTime.Hours24 
+                or ActivationTime.Reaction
+                or ActivationTime.Minute1
+                or ActivationTime.Minute10
+                or ActivationTime.Hours1
+                or ActivationTime.Hours24
                 or ActivationTime.Rest
                 or ActivationTime.Permanent
                 or ActivationTime.PermanentUnlessIncapacitated))
@@ -114,6 +114,7 @@ internal static class RulesetCharacterExtensions
 
             return true;
         }
+
         return false;
     }
 
@@ -414,7 +415,7 @@ internal static class RulesetCharacterExtensions
             outcome,
             displayOutcome: displayOutcome,
             side: character.Side,
-            displayModifier: displayModifier) {rollImmediatly = false};
+            displayModifier: displayModifier) { rollImmediatly = false };
 
         label.dieRollModule.RollDie(info);
     }

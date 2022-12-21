@@ -49,7 +49,7 @@ internal static class RulesetActorExtensions
     {
         return FeaturesByType<T>(actor);
     }
-    
+
     [NotNull]
     private static List<BaseDefinition> AllActiveDefinitions([CanBeNull] RulesetActor actor)
     {

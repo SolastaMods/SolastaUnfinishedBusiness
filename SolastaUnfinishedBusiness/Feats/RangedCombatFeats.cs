@@ -20,7 +20,7 @@ internal static class RangedCombatFeats
         var featDeadEye = BuildDeadEye();
         var featRangedExpert = BuildRangedExpert();
         var featBowMastery = BuildBowMastery();
-        
+
         feats.AddRange(featDeadEye, featRangedExpert, featBowMastery);
 
         GroupFeats.MakeGroup("FeatGroupRangedCombat", null,
@@ -144,18 +144,19 @@ internal static class RangedCombatFeats
                 .AddToDB())
             .AddToDB();
     }
-    
+
     private static FeatDefinition BuildBowMastery()
     {
         return FeatDefinitionBuilder
             .Create("FeatBowMastery")
             .SetGuiPresentation(Category.Feat)
             .SetFeatures(FeatureDefinitionBuilder
-                .Create($"CustomFeatBowMastery")
+                .Create("CustomFeatBowMastery")
                 .SetGuiPresentationNoContent(true)
                 .SetCustomSubFeatures(
                     new CanUseAttributeForWeapon(AttributeDefinitions.Strength, IsLongbow),
-                    new AddExtraRangedAttack(IsShortbow, ActionDefinitions.ActionType.Bonus, ValidatorsCharacter.HasAttacked))
+                    new AddExtraRangedAttack(IsShortbow, ActionDefinitions.ActionType.Bonus,
+                        ValidatorsCharacter.HasAttacked))
                 .AddToDB())
             .AddToDB();
     }
@@ -168,12 +169,12 @@ internal static class RangedCombatFeats
     {
         return ValidatorsWeapon.IsRanged(weapon) && ValidatorsWeapon.IsOneHanded(weapon);
     }
-    
+
     private static bool IsShortbow(RulesetAttackMode mode, RulesetItem weapon, RulesetCharacter _)
     {
         return weapon?.ItemDefinition.WeaponDescription?.WeaponTypeDefinition == WeaponTypeDefinitions.ShortbowType;
     }
-    
+
     private static bool IsLongbow(RulesetAttackMode mode, RulesetItem weapon, RulesetCharacter _)
     {
         return weapon?.ItemDefinition.WeaponDescription?.WeaponTypeDefinition == WeaponTypeDefinitions.LongbowType;
@@ -192,4 +193,3 @@ internal static class RangedCombatFeats
         }
     }
 }
-

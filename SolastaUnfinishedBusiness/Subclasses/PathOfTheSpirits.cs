@@ -336,4 +336,3 @@ internal sealed class PathOfTheSpirits : AbstractSubclass
         }
     }
 }
-

@@ -123,7 +123,7 @@ internal static class GameUiDisplay
         {
             Main.Settings.EnableTeleportParty = toggle;
         }
-        
+
         toggle = Main.Settings.EnableRejoinParty;
         if (UI.Toggle(Gui.Localize("ModUi/&EnableRejoinParty"), ref toggle))
         {

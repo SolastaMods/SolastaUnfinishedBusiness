@@ -704,6 +704,3 @@ internal sealed class RangerWildMaster : AbstractSubclass
         }
     }
 }
-
-
-

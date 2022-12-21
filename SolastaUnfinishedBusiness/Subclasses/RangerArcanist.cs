@@ -169,6 +169,3 @@ internal sealed class RangerArcanist : AbstractSubclass
             .AddToDB();
     }
 }
-
-
-

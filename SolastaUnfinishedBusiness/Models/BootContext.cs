@@ -72,7 +72,7 @@ internal static class BootContext
 
         // Subclasses may rely on spells and powers being in the DB before they can properly load.
         SubclassesContext.Load();
-        
+
         // Classes may rely on spells and powers being in the DB before they can properly load.
         ClassesContext.Load();
 

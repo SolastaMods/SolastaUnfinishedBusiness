@@ -30,7 +30,7 @@ internal static class GameUiContext
 
     // Teleport Party
     private const InputCommands.Id CtrlShiftT = (InputCommands.Id)44440008;
-    
+
     // Rejoin Party
     private const InputCommands.Id CtrlShiftR = (InputCommands.Id)44440009;
 
@@ -679,7 +679,7 @@ internal static class GameUiContext
         // Teleport
         inputService.RegisterCommand(CtrlShiftT, (int)KeyCode.T, (int)KeyCode.LeftShift,
             (int)KeyCode.LeftControl);
-        
+
         // Rejoin
         inputService.RegisterCommand(CtrlShiftR, (int)KeyCode.R, (int)KeyCode.LeftShift,
             (int)KeyCode.LeftControl);
@@ -828,7 +828,7 @@ internal static class GameUiContext
 
             return new int3(x, 0, z);
         }
-        
+
         internal static int3 GetLeaderPosition()
         {
             var gameLocationCharacterService = ServiceRepository.GetService<IGameLocationCharacterService>();

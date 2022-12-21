@@ -5,7 +5,7 @@ namespace SolastaUnfinishedBusiness.CustomBehaviors;
 
 public class RankByClassLevel : IRankProvider
 {
-    private string className;
+    private readonly string className;
 
     public RankByClassLevel(string className)
     {

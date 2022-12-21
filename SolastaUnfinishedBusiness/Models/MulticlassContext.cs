@@ -167,9 +167,7 @@ internal static class MulticlassContext
             Warlock,
             new List<FeatureDefinition>
             {
-                ProficiencyWarlockWeapon,
-                PointPoolWarlockSkillPoints,
-                ProficiencyWarlockSavingThrow
+                ProficiencyWarlockWeapon, PointPoolWarlockSkillPoints, ProficiencyWarlockSavingThrow
             }
         },
         {
@@ -249,15 +247,17 @@ internal static class MulticlassContext
                     DatabaseHelper.GetDefinition<FeatureDefinitionProficiency>("ProficiencyInventorSavingThrow")
                 });
         }
-        
-        if (DatabaseHelper.TryGetDefinition<CharacterClassDefinition>(WARLOCK_VARIANT_NAME, out var warlockVariantClass))
+
+        if (DatabaseHelper.TryGetDefinition<CharacterClassDefinition>(WARLOCK_VARIANT_NAME,
+                out var warlockVariantClass))
         {
             FeaturesToExclude.Add(warlockVariantClass,
                 new List<FeatureDefinition>
                 {
                     ProficiencyWarlockWeapon,
                     PointPoolWarlockSkillPoints,
-                    DatabaseHelper.GetDefinition<FeatureDefinitionProficiency>("ProficiencyWarlockVariantSavingThrow")
+                    DatabaseHelper.GetDefinition<FeatureDefinitionProficiency>(
+                        "ProficiencyWarlockVariantSavingThrow")
                 });
         }
     }

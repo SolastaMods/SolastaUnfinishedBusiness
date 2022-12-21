@@ -179,5 +179,3 @@ internal sealed class OathOfHatred : AbstractSubclass
         }
     }
 }
-
-

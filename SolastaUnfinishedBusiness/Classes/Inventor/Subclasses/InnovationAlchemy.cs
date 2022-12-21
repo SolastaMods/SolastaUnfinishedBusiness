@@ -754,6 +754,3 @@ internal sealed class AddPBToDamage : IModifyMagicEffect
         return effect;
     }
 }
-
-
-

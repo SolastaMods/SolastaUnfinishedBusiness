@@ -65,7 +65,7 @@ internal sealed class PatronMoonlit : AbstractSubclass
             .SetGuiPresentation(Category.Feature)
             .AddFeatureSet(SenseSuperiorDarkvision)
             .AddToDB();
-        
+
         //TODO: this was kept for backward compatibility. remove on next major game version
         _ = FeatureDefinitionConditionAffinityBuilder
             .Create("ConditionAffinityMoonlitDarknessImmunity")
@@ -185,4 +185,3 @@ internal sealed class PatronMoonlit : AbstractSubclass
     internal override FeatureDefinitionSubclassChoice SubclassChoice => DatabaseHelper.FeatureDefinitionSubclassChoices
         .SubclassChoiceWarlockOtherworldlyPatrons;
 }
-
