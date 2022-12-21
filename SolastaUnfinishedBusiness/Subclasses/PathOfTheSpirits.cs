@@ -195,7 +195,6 @@ internal sealed class PathOfTheSpirits : AbstractSubclass
             .AddToDB();
     }
 
-
     private static FeatureDefinition PowerPathOfTheSpiritsWolfLeadership()
     {
         const string NAME = "FeatureSetPathOfTheSpiritsWolfLeadership";
@@ -243,10 +242,7 @@ internal sealed class PathOfTheSpirits : AbstractSubclass
             .SetUsesFixed(ActivationTime.OnRageStartAutomatic)
             .SetEffectDescription(EffectDescriptionBuilder.Create()
                 .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Sphere, 6)
-                .SetRecurrentEffect(
-                    RecurrentEffect.OnActivation | RecurrentEffect.OnEnter | RecurrentEffect.OnTurnStart)
-                // only during the round Barbarian started raging
-                .SetDurationData(DurationType.Round, 1)
+                .SetDurationData(DurationType.Minute, 1)
                 .SetEffectForms(EffectFormBuilder
                     .Create()
                     .SetConditionForm(conditionPathOfTheSpiritsWolfLeadershipPack,
