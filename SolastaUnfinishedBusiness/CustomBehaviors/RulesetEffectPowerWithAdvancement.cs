@@ -1,9 +1,17 @@
-﻿using SolastaUnfinishedBusiness.Api.Extensions;
+﻿using JetBrains.Annotations;
+using SolastaUnfinishedBusiness.Api.Extensions;
 
 namespace SolastaUnfinishedBusiness.CustomBehaviors;
 
 internal class RulesetEffectPowerWithAdvancement : RulesetEffectPower
 {
+    private int _effectLevel;
+
+    [UsedImplicitly]
+    public RulesetEffectPowerWithAdvancement()
+    {
+    }
+
     private RulesetEffectPowerWithAdvancement(
         int extraCharges,
         RulesetCharacter user,
@@ -11,27 +19,40 @@ internal class RulesetEffectPowerWithAdvancement : RulesetEffectPower
         RulesetItemDevice originItem = null,
         RulesetDeviceFunction usableDeviceFunction = null) : base(user, usablePower, originItem, usableDeviceFunction)
     {
-        var effectLevel = 1 + extraCharges;
-
-        if (extraCharges > 0)
-        {
-            var provider = usablePower.PowerDefinition.GetFirstSubFeatureOfType<ICustomOverchargeProvider>();
-
-            if (provider != null)
-            {
-                var steps = provider.OverchargeSteps(user);
-
-                effectLevel = 1 + CustomOverchargeProvider.GetAdvancementFromOvercharge(extraCharges, steps);
-            }
-        }
-
-        EffectLevel = effectLevel;
         ExtraCharges = extraCharges;
-        RemainingRounds = PowerDefinition.EffectDescription.ComputeRoundsDuration(effectLevel);
+        UpdateEffectLevel();
+        RemainingRounds = PowerDefinition.EffectDescription.ComputeRoundsDuration(_effectLevel);
     }
 
-    public override int EffectLevel { get; }
-    internal int ExtraCharges { get; }
+    public override int EffectLevel => _effectLevel;
+
+    internal int ExtraCharges { get; private set; }
+
+    private void UpdateEffectLevel()
+    {
+        _effectLevel = 1 + ExtraCharges;
+
+        if (usablePower == null)
+        {
+            return;
+        }
+
+        if (ExtraCharges <= 0)
+        {
+            return;
+        }
+
+        var provider = usablePower.PowerDefinition.GetFirstSubFeatureOfType<ICustomOverchargeProvider>();
+
+        if (provider == null)
+        {
+            return;
+        }
+
+        var steps = provider.OverchargeSteps(user);
+
+        _effectLevel = 1 + CustomOverchargeProvider.GetAdvancementFromOvercharge(ExtraCharges, steps);
+    }
 
     public override int ComputeTargetParameter()
     {
@@ -64,6 +85,18 @@ internal class RulesetEffectPowerWithAdvancement : RulesetEffectPower
         }
 
         return targetParameter;
+    }
+
+    public override void SerializeAttributes(IAttributesSerializer serializer, IVersionProvider versionProvider)
+    {
+        base.SerializeAttributes(serializer, versionProvider);
+        ExtraCharges = serializer.SerializeAttribute("ExtraCharges", ExtraCharges);
+    }
+
+    public override void SerializeElements(IElementsSerializer serializer, IVersionProvider versionProvider)
+    {
+        base.SerializeElements(serializer, versionProvider);
+        UpdateEffectLevel();
     }
 
     internal static bool GetAdvancementData(CharacterActionUsePower action)
