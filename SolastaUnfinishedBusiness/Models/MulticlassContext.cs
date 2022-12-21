@@ -9,6 +9,7 @@ using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
+using SolastaUnfinishedBusiness.Classes;
 using SolastaUnfinishedBusiness.Classes.Inventor;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterClassDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterSubclassDefinitions;
@@ -168,9 +169,7 @@ internal static class MulticlassContext
             {
                 ProficiencyWarlockWeapon,
                 PointPoolWarlockSkillPoints,
-                ProficiencyWarlockSavingThrow,
-                CharacterContext.ProficiencyWarlockSavingThrowCharisma,
-                CharacterContext.ProficiencyWarlockSavingThrowIntelligence
+                ProficiencyWarlockSavingThrow
             }
         },
         {
@@ -239,18 +238,28 @@ internal static class MulticlassContext
     private static void AddNonOfficialBlueprintsToFeaturesCollections()
     {
         const string INVENTOR_NAME = InventorClass.ClassName;
+        const string WARLOCK_VARIANT_NAME = WarlockVariantClass.ClassName;
 
-        if (!DatabaseHelper.TryGetDefinition<CharacterClassDefinition>(INVENTOR_NAME, out var inventorClass))
+        if (DatabaseHelper.TryGetDefinition<CharacterClassDefinition>(INVENTOR_NAME, out var inventorClass))
         {
-            return;
+            FeaturesToExclude.Add(inventorClass,
+                new List<FeatureDefinition>
+                {
+                    DatabaseHelper.GetDefinition<FeatureDefinitionPointPool>("PointPoolInventorSkills"),
+                    DatabaseHelper.GetDefinition<FeatureDefinitionProficiency>("ProficiencyInventorSavingThrow")
+                });
         }
-
-        FeaturesToExclude.Add(inventorClass,
-            new List<FeatureDefinition>
-            {
-                DatabaseHelper.GetDefinition<FeatureDefinitionPointPool>("PointPoolInventorSkills"),
-                DatabaseHelper.GetDefinition<FeatureDefinitionProficiency>("ProficiencyInventorSavingThrow")
-            });
+        
+        if (DatabaseHelper.TryGetDefinition<CharacterClassDefinition>(WARLOCK_VARIANT_NAME, out var warlockVariantClass))
+        {
+            FeaturesToExclude.Add(warlockVariantClass,
+                new List<FeatureDefinition>
+                {
+                    ProficiencyWarlockWeapon,
+                    PointPoolWarlockSkillPoints,
+                    DatabaseHelper.GetDefinition<FeatureDefinitionProficiency>("ProficiencyWarlockVariantSavingThrow")
+                });
+        }
     }
 
     //

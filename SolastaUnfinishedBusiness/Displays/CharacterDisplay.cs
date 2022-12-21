@@ -64,13 +64,6 @@ internal static class CharacterDisplay
             CharacterContext.SwitchRangerHumanoidFavoredEnemy();
         }
 
-        toggle = Main.Settings.EnableWarlockVariant;
-        if (UI.Toggle(Gui.Localize("ModUi/&EnableWarlockVariant"), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.EnableWarlockVariant = toggle;
-            CharacterContext.SwitchWarlockVariant();
-        }
-
         UI.Label();
 
         toggle = Main.Settings.EnableEpicPointsAndArray;
