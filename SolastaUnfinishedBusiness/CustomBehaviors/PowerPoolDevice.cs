@@ -25,17 +25,7 @@ internal class PowerPoolDevice
 
     internal static void Clear(RulesetCharacterHero hero)
     {
-        if (!DeviceCache.TryGetValue(hero, out var devices))
-        {
-            return;
-        }
-
         DeviceCache.Remove(hero);
-
-        foreach (var device in devices.Values)
-        {
-            device.Unregister();
-        }
     }
 
     internal static PowerPoolDevice GetFromRulesetItem(RulesetCharacterHero hero, RulesetItemDevice device)
@@ -62,7 +52,6 @@ internal class PowerPoolDevice
 
             if (device == null)
             {
-                item.Unregister();
                 throw new ArgumentException($"Can't create RulesetItemDevice from '{baseItem.Name}'!");
             }
 
