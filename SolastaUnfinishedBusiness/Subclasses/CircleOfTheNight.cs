@@ -24,17 +24,6 @@ internal sealed class CircleOfTheNight : AbstractSubclass
 
     internal CircleOfTheNight()
     {
-        _ = ActionDefinitionBuilder
-            .Create(DatabaseHelper.ActionDefinitions.WildShape, "ActionDefinitionWildshapeBonusAction")
-            .SetActionId(ExtraActionId.WildshapeBonusAction)
-            .RequiresAuthorization()
-            .OverrideClassName("UsePower")
-            .SetActionScope(ActionDefinitions.ActionScope.Battle)
-            .SetActionType(ActionDefinitions.ActionType.Bonus)
-            .SetFormType(ActionDefinitions.ActionFormType.Large)
-            .SetActivatedPower(PowerDruidWildShape)
-            .AddToDB();
-
         var shapeOptions = new List<ShapeOptionDescription>
         {
             ShapeBuilder(2, WildShapeBadlandsSpider),
@@ -61,12 +50,10 @@ internal sealed class CircleOfTheNight : AbstractSubclass
 
         // 2nd level
 
-        // Wildshape Bonus Action affinity
-        var actionAffinityWildshapeBonus = FeatureDefinitionActionAffinityBuilder
+        //TODO: this was kept for backward compatibility. remove on next major game version
+        _ = FeatureDefinitionActionAffinityBuilder
             .Create("ActionAffinityWildshapeBonus")
             .SetGuiPresentationNoContent(true)
-            .SetDefaultAllowedActionTypes()
-            .SetAuthorizedActions((ActionDefinitions.Id)ExtraActionId.WildshapeBonusAction)
             .AddToDB();
 
         // Combat Wildshape 
@@ -135,7 +122,6 @@ internal sealed class CircleOfTheNight : AbstractSubclass
             .Create(CircleOfTheNightName)
             .SetGuiPresentation(Category.Subclass, PathClaw)
             .AddFeaturesAtLevel(2,
-                actionAffinityWildshapeBonus,
                 powerCircleOfTheNightWildShapeCombat,
                 powerCircleOfTheNightWildShapeHealing)
             .AddFeaturesAtLevel(6,
