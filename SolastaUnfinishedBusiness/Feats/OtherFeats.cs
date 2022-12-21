@@ -22,12 +22,12 @@ internal static class OtherFeats
 
     private static readonly FeatureDefinitionPower PowerFeatPoisonousSkin = FeatureDefinitionPowerBuilder
         .Create("PowerFeatPoisonousSkin")
-        .SetGuiPresentationNoContent(true)
+        .SetGuiPresentation("FeatPoisonousSkin", Category.Feat)
         .SetEffectDescription(EffectDescriptionBuilder
             .Create()
             .SetHasSavingThrow(
                 AttributeDefinitions.Constitution,
-                EffectDifficultyClassComputation.AbilityScoreAndProficiency,
+                EffectDifficultyClassComputation.CustomAbilityModifierAndProficiency,
                 AttributeDefinitions.Constitution)
             .SetEffectForms(EffectFormBuilder
                 .Create()
