@@ -316,7 +316,7 @@ public static class GuiCharacterPatcher
         public static void Prefix(CharacterPlateGame __instance)
         {
             //PATCH: EnableStatsOnHeroTooltip
-            var hero = __instance.GuiCharacter?.RulesetCharacterHero ?? __instance.GuiCharacter?.RulesetCharacterMonster.OriginalFormCharacter as RulesetCharacterHero;
+            var hero = __instance.GuiCharacter?.RulesetCharacterHero;
             var tooltip = __instance.GuiTooltip;
 
             if (tooltip == null)
