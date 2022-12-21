@@ -202,21 +202,21 @@ internal sealed class WizardBladeDancer : AbstractSubclass
         if (hero.HasConditionOfCategoryAndType(AttributeDefinitions.TagEffect, ConditionBladeDancerBladeDance.Name))
         {
             hero.RemoveConditionOfCategory(AttributeDefinitions.TagEffect,
-                new RulesetCondition { conditionDefinition = ConditionBladeDancerBladeDance });
+                RulesetCondition.CreateCondition(hero.guid, ConditionBladeDancerBladeDance));
         }
 
         if (hero.HasConditionOfCategoryAndType(AttributeDefinitions.TagEffect,
                 ConditionBladeDancerDanceOfDefense.Name))
         {
             hero.RemoveConditionOfCategory(AttributeDefinitions.TagEffect,
-                new RulesetCondition { conditionDefinition = ConditionBladeDancerDanceOfDefense });
+                RulesetCondition.CreateCondition(hero.guid, ConditionBladeDancerDanceOfDefense));
         }
 
         if (hero.HasConditionOfCategoryAndType(AttributeDefinitions.TagEffect,
                 ConditionBladeDancerDanceOfVictory.Name))
         {
             hero.RemoveConditionOfCategory(AttributeDefinitions.TagEffect,
-                new RulesetCondition { conditionDefinition = ConditionBladeDancerDanceOfVictory });
+                RulesetCondition.CreateCondition(hero.guid, ConditionBladeDancerDanceOfVictory));
         }
     }
 }
