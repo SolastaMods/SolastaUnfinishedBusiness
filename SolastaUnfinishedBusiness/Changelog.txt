@@ -1,10 +1,6 @@
-﻿ATTENTION:
+ATTENTION:
 
-- RESPEC ANY [CIRCLE OF THE NIGHT] or [PATH OF THE SPIRIT] subclasses before update!!!
-
-KNOWN ISSUES:
-
-- Tiefling images on class selection haven't been added yet
+- RESPEC ANY [CIRCLE OF THE NIGHT] or [PATH OF THE SPIRITS] subclasses before update!!!
 
 CHANGES:
 
@@ -16,6 +12,6 @@ CHANGES:
 - fixed multiclass spell display
 - fixed Path of The Spirits wolf leadership power
 - fixed Poisonous Skin feat DC calculation
-- fixed slots consumption logic if multiclass warlock is off spell slots
+- fixed slots consumption logic if mc warlock is off spell slots
 - fixed Tiefling integration with flexible races
-- removed support for wildshape as a bonus action on Circle of The Night due to engine limitations
+- removed support for wildshape as a bonus action on Circle of The Night
