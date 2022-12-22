@@ -35,10 +35,12 @@ internal class FeatureDefinitionMovementAffinityBuilder
 
     internal FeatureDefinitionMovementAffinityBuilder SetImmunities(
         bool encumbranceImmunity = false,
-        bool heavyArmorImmunity = false)
+        bool heavyArmorImmunity = false,
+        bool difficultTerrainImmunity = false)
     {
         Definition.encumbranceImmunity = encumbranceImmunity;
         Definition.heavyArmorImmunity = heavyArmorImmunity;
+        Definition.immuneDifficultTerrain = difficultTerrainImmunity;
         return this;
     }
 

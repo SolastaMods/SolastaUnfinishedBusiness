@@ -1,5 +1,7 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
+using SolastaUnfinishedBusiness.Api.Extensions;
+using SolastaUnfinishedBusiness.Subclasses;
 using UnityEngine;
 
 namespace SolastaUnfinishedBusiness.Patches;
@@ -22,6 +24,16 @@ public static class InventoryShortcutsPanelPatcher
 
         public static void Postfix(InventoryShortcutsPanel __instance, int rank)
         {
+            var gameLocationCharacter = __instance.GuiCharacter.gameLocationCharacter;
+            if (gameLocationCharacter != null && gameLocationCharacter.RulesetCharacter
+                    .HasSubFeatureOfType<CollegeOfWarDancer.SwitchWeaponFreely>())
+            {
+                if (gameLocationCharacter.currentActionRankByType[ActionDefinitions.ActionType.FreeOnce] > 0)
+                {
+                    gameLocationCharacter.currentActionRankByType[ActionDefinitions.ActionType.FreeOnce]--;
+                }
+            }
+            
             if (rank < 100)
             {
                 return;

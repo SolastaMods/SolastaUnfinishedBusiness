@@ -348,6 +348,7 @@ internal static class DelegatesContext
         Main.Info($"{hero.Name} Item Equipped Hero");
 
         WizardBladeDancer.OnItemEquipped(hero);
+        CollegeOfWarDancer.OnItemEquipped(hero);
     }
 
     //

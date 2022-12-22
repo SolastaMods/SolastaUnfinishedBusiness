@@ -34,6 +34,19 @@ internal static class ValidatorsCharacter
         return ValidatorsWeapon.IsPolearm(slotsByName[EquipmentDefinitions.SlotTypeMainHand].EquipedItem)
                || ValidatorsWeapon.IsPolearm(slotsByName[EquipmentDefinitions.SlotTypeOffHand].EquipedItem);
     };
+    
+    internal static readonly IsCharacterValidHandler HasMeleeWeaponInMainHand = character =>
+    {
+        // required for wildshape scenarios
+        if (character is not RulesetCharacterHero)
+        {
+            return false;
+        }
+
+        var slotsByName = character.CharacterInventory.InventorySlotsByName;
+        var weapon = slotsByName[EquipmentDefinitions.SlotTypeMainHand].EquipedItem;
+        return ValidatorsWeapon.IsMelee(weapon);
+    };
 
 #if false
     internal static readonly IsCharacterValidHandler HasLightRangeWeapon = character =>
