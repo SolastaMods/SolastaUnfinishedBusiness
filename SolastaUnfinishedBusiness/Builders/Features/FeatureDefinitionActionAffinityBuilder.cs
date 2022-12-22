@@ -43,6 +43,12 @@ internal class FeatureDefinitionActionAffinityBuilder
         Definition.AllowedActionTypes = new[] { true, true, true, true, true, true };
         return this;
     }
+    
+    internal FeatureDefinitionActionAffinityBuilder SetMaxAttackNumber(int maxAttack)
+    {
+        Definition.maxAttacksNumber = maxAttack;
+        return this;
+    }
 
     #region Constructors
 

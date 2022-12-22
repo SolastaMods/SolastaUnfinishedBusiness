@@ -92,13 +92,7 @@ internal static class ReplaceAttackWithCantrip
             return;
         }
 
-        // don't refund if still has unused attack
-        if (__instance.usedMainAttacks > 0)
-        {
-            return;
-        }
-
-        // if main action is not available then don't refund
+        // if main is still available then don't refund
         if (__instance.currentActionRankByType[ActionDefinitions.ActionType.Main] <= 0)
         {
             return;
@@ -109,9 +103,11 @@ internal static class ReplaceAttackWithCantrip
         var refund = features.Aggregate(false,
             (current, f) => current | f.MightRefundOneAttackOfMainAction(__instance, actionParams));
 
-        if (refund)
+        if (!refund)
         {
-            __instance.currentActionRankByType[ActionDefinitions.ActionType.Main]--;
+            return;
         }
+        
+        __instance.currentActionRankByType[ActionDefinitions.ActionType.Main]--;
     }
 }

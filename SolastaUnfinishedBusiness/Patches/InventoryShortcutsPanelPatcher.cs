@@ -1,6 +1,8 @@
 ﻿using System.Diagnostics.CodeAnalysis;
+using System.Security.Permissions;
 using HarmonyLib;
 using SolastaUnfinishedBusiness.Api.Extensions;
+using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.Subclasses;
 using UnityEngine;
 
@@ -27,7 +29,7 @@ public static class InventoryShortcutsPanelPatcher
             var gameLocationCharacter = __instance.GuiCharacter.gameLocationCharacter;
 
             if (gameLocationCharacter != null && gameLocationCharacter.RulesetCharacter
-                    .HasSubFeatureOfType<CollegeOfWarDancer.SwitchWeaponFreely>())
+                    .HasSubFeatureOfType<IUnlimitedFreeAction>())
             {
                 if (gameLocationCharacter.currentActionRankByType[ActionDefinitions.ActionType.FreeOnce] > 0)
                 {
