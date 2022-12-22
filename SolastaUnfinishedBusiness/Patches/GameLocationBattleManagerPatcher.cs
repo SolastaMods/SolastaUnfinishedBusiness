@@ -772,4 +772,33 @@ public static class GameLocationBattleManagerPatcher
             return outcome is RuleDefinitions.RollOutcome.Failure or RuleDefinitions.RollOutcome.CriticalFailure;
         }
     }
+
+    [HarmonyPatch(typeof(GameLocationBattleManager), "HandleCharacterPhysicalAttackFinished")]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    internal static class HandleCharacterPhysicalAttackFinished_Patch
+    {
+        internal static IEnumerator Postfix(
+            IEnumerator values,
+            GameLocationBattleManager __instance,
+            CharacterAction attackAction,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            RulesetAttackMode attackerAttackMode,
+            RuleDefinitions.RollOutcome attackRollOutcome,
+            int damageAmount)
+        {
+            while (values.MoveNext())
+            {
+                yield return values.Current;
+            }
+
+            //PATCH: allow custom behavior when physical attack finished
+            foreach (var feature in attacker.RulesetCharacter.GetSubFeaturesByType<IAttackFinished>())
+            {
+                yield return feature.OnAttackFinished(__instance, attackAction, attacker, defender, attackerAttackMode,
+                    attackRollOutcome,
+                    damageAmount);
+            }
+        }
+    }
 }

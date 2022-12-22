@@ -7,7 +7,6 @@ using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomInterfaces;
-using UnityEngine;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 
@@ -45,7 +44,8 @@ internal sealed class CollegeOfWarDancer : AbstractSubclass
                         .Build()
                 )
                 .Build())
-            .SetCustomSubFeatures(ValidatorsPowerUse.HasNoCondition(ConditionWarDance.Name))
+            .SetCustomSubFeatures(ValidatorsPowerUse.HasNoCondition(ConditionWarDance.Name),
+                new WarDanceRefundOneAttackOfMainAction())
             .AddToDB();
 
         Subclass = CharacterSubclassDefinitionBuilder
@@ -74,9 +74,7 @@ internal sealed class CollegeOfWarDancer : AbstractSubclass
                 FeatureDefinitionBuilder
                     .Create("FeatureConditionWarDanceCustom")
                     .SetGuiPresentationNoContent(true)
-                    .SetCustomSubFeatures(
-                        new WarDanceFlurryAttack(),
-                        new WarDanceRefundOneAttackOfMainAction(),
+                    .SetCustomSubFeatures(new WarDanceFlurryAttack(),
                         new ExtendedWarDanceDurationOnKill())
                     .AddToDB(),
                 FeatureDefinitionBuilder
@@ -96,28 +94,27 @@ internal sealed class CollegeOfWarDancer : AbstractSubclass
     internal override FeatureDefinitionSubclassChoice SubclassChoice =>
         FeatureDefinitionSubclassChoices.SubclassChoiceBardColleges;
 
-    private sealed class WarDanceFlurryAttack : IReactToMyAttackFinished
+    private sealed class WarDanceFlurryAttack : IAttackFinished
     {
-        public IEnumerator HandleReactToMyAttackFinished(
-            GameLocationCharacter me,
-            GameLocationCharacter defender,
-            RollOutcome outcome,
-            CharacterActionParams actionParams, RulesetAttackMode mode, ActionModifier modifier)
+        public IEnumerator OnAttackFinished(GameLocationBattleManager battleManager, CharacterAction action,
+            GameLocationCharacter attacker, GameLocationCharacter defender, RulesetAttackMode attackerAttackMode,
+            RollOutcome attackRollOutcome, int damageAmount)
         {
-            if (mode == null || !me.RulesetCharacter.HasConditionOfType(ConditionWarDance))
+            if (attackerAttackMode == null || !attacker.RulesetCharacter.HasConditionOfType(ConditionWarDance))
             {
                 yield break;
             }
 
-            if (outcome is not (RollOutcome.Failure or RollOutcome.CriticalFailure) && ValidatorsWeapon.IsMelee(mode))
+            if (attackRollOutcome is not (RollOutcome.Failure or RollOutcome.CriticalFailure) &&
+                ValidatorsWeapon.IsMelee(attackerAttackMode))
             {
                 yield break;
             }
 
-            RemoveConditionOnAttackMissOrAttackWithNonMeleeWeapon(me.RulesetActor);
+            RemoveConditionOnAttackMissOrAttackWithNonMeleeWeapon(attacker.RulesetCharacter);
         }
 
-        internal static void RemoveConditionOnAttackMissOrAttackWithNonMeleeWeapon(RulesetActor attacker)
+        internal static void RemoveConditionOnAttackMissOrAttackWithNonMeleeWeapon(RulesetCharacter attacker)
         {
             var conditionsToRemove = new List<RulesetCondition>();
 
@@ -229,11 +226,11 @@ internal sealed class CollegeOfWarDancer : AbstractSubclass
                     .Create("ActionAffinityWarDanceExtraAction")
                     .SetGuiPresentationNoContent(true)
                     .SetDefaultAllowedActionTypes()
+                    .SetMaxAttackNumber(1)
                     .SetForbiddenActions(ActionDefinitions.Id.CastMain, ActionDefinitions.Id.PowerMain,
                         ActionDefinitions.Id.UseItemMain, ActionDefinitions.Id.HideMain, ActionDefinitions.Id.Ready)
                     .SetCustomSubFeatures(new WarDanceFlurryAttackModifier())
                     .AddToDB())
-            .SetCustomSubFeatures(new RemoveOnAttackMissOrAttackWithNonMeleeWeapon())
             .AddToDB();
 
         private static readonly ConditionDefinition ImprovedWarDanceMomentumExtraAction = ConditionDefinitionBuilder
@@ -244,20 +241,21 @@ internal sealed class CollegeOfWarDancer : AbstractSubclass
                     .Create("ActionAffinityImprovedWarDanceExtraAction")
                     .SetGuiPresentationNoContent(true)
                     .SetDefaultAllowedActionTypes()
+                    .SetMaxAttackNumber(1)
                     .SetForbiddenActions(ActionDefinitions.Id.PowerMain,
                         ActionDefinitions.Id.UseItemMain, ActionDefinitions.Id.HideMain, ActionDefinitions.Id.Ready)
                     .SetCustomSubFeatures(new WarDanceFlurryAttackModifier())
                     .AddToDB())
-            .SetCustomSubFeatures(new RemoveOnAttackMissOrAttackWithNonMeleeWeapon())
             .AddToDB();
 
         public bool MightRefundOneAttackOfMainAction(GameLocationCharacter hero, CharacterActionParams actionParams)
         {
+            var flag = true;
             if (actionParams.actionDefinition.Id != ActionDefinitions.Id.AttackMain)
             {
                 if (actionParams.actionDefinition.Id != ActionDefinitions.Id.CastMain)
                 {
-                    return false;
+                    flag = false;
                 }
 
                 // blade cantrips are allowed
@@ -265,24 +263,40 @@ internal sealed class CollegeOfWarDancer : AbstractSubclass
                     spellEffect.spellDefinition.spellLevel > 0 || !spellEffect.SpellDefinition
                         .HasSubFeatureOfType<IPerformAttackAfterMagicEffectUse>())
                 {
-                    return false;
+                    flag = false;
                 }
+            }
+
+            // Only apply if the main action is spent
+            if (hero.usedMainAttacks != 0 || !hero.RulesetCharacter.HasConditionOfType(ConditionWarDance))
+            {
+                flag = false;
+            }
+
+            if (!flag)
+            {
+                var conditionsToRemove = new List<RulesetCondition>();
+
+                conditionsToRemove.AddRange(
+                    hero.RulesetCharacter.ConditionsByCategory
+                        .SelectMany(x => x.Value)
+                        .Where(x => x.conditionDefinition == WarDanceMomentumExtraAction ||
+                                    x.conditionDefinition == ImprovedWarDanceMomentumExtraAction));
+                foreach (var cond in conditionsToRemove)
+                {
+                    hero.RulesetCharacter.RemoveCondition(cond);
+                }
+
+                return false;
             }
 
             // apply action affinity
             hero.UsedMainSpell = true;
+            hero.UsedMainCantrip = false;
             ApplyActionAffinity(hero.RulesetCharacter);
 
             // apply momentum
             GrantWarDanceMomentum(hero);
-
-            // Only refund one attack
-            var num = actionParams.ActingCharacter.RulesetCharacter.AttackModes
-                .Where(attackMode => attackMode.ActionType == ActionDefinitions.ActionType.Main)
-                .Aggregate(0, (current, attackMode) => Mathf.Max(current, attackMode.AttacksNumber));
-
-            hero.usedMainAttacks = num - 1;
-
             return true;
         }
 
@@ -460,7 +474,7 @@ internal sealed class CollegeOfWarDancer : AbstractSubclass
         }
     }
 
-    internal sealed class SwitchWeaponFreely
+    private sealed class SwitchWeaponFreely : IUnlimitedFreeAction
     {
     }
 }
