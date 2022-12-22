@@ -26,7 +26,7 @@ internal static class SubclassesContext
         LoadSubclass(new CollegeOfGuts());
         LoadSubclass(new CollegeOfHarlequin());
         LoadSubclass(new CollegeOfLife());
-        LoadSubclass(new CollegeOfWarDancer());
+        LoadSubclass(new CollegeOfWarDancer(), true);
 
         // Druid
         LoadSubclass(new CircleOfTheAncientForest());
