@@ -25,6 +25,7 @@ public static class InventoryShortcutsPanelPatcher
         public static void Postfix(InventoryShortcutsPanel __instance, int rank)
         {
             var gameLocationCharacter = __instance.GuiCharacter.gameLocationCharacter;
+
             if (gameLocationCharacter != null && gameLocationCharacter.RulesetCharacter
                     .HasSubFeatureOfType<CollegeOfWarDancer.SwitchWeaponFreely>())
             {
@@ -33,7 +34,7 @@ public static class InventoryShortcutsPanelPatcher
                     gameLocationCharacter.currentActionRankByType[ActionDefinitions.ActionType.FreeOnce]--;
                 }
             }
-            
+
             if (rank < 100)
             {
                 return;

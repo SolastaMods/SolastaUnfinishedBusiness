@@ -21,7 +21,7 @@ internal sealed class CollegeOfWarDancer : AbstractSubclass
         .Create("CollegeOfWarDancerImprovedWarDance")
         .SetGuiPresentation(Category.Feature)
         .AddToDB();
-    
+
     internal CollegeOfWarDancer()
     {
         var warDance = FeatureDefinitionPowerBuilder
@@ -96,7 +96,9 @@ internal sealed class CollegeOfWarDancer : AbstractSubclass
 
     private sealed class WarDanceFlurryAttack : IReactToMyAttackFinished
     {
-        public IEnumerator HandleReactToMyAttackFinished(GameLocationCharacter me, GameLocationCharacter defender,
+        public IEnumerator HandleReactToMyAttackFinished(
+            GameLocationCharacter me,
+            GameLocationCharacter defender,
             RollOutcome outcome,
             CharacterActionParams actionParams, RulesetAttackMode mode, ActionModifier modifier)
         {
@@ -123,6 +125,7 @@ internal sealed class CollegeOfWarDancer : AbstractSubclass
                     .Where(x => x.ConditionDefinition
                                     .HasSubFeatureOfType<RemoveOnAttackMissOrAttackWithNonMeleeWeapon>() ||
                                 x.conditionDefinition == ConditionDefinitions.ConditionBardicInspiration));
+
             foreach (var conditionToRemove in conditionsToRemove)
             {
                 attacker.RemoveCondition(conditionToRemove);
@@ -136,17 +139,20 @@ internal sealed class CollegeOfWarDancer : AbstractSubclass
     {
         var slotsByName = character.CharacterInventory.InventorySlotsByName;
         var item = slotsByName[EquipmentDefinitions.SlotTypeMainHand].EquipedItem;
+
         if (item == null || !item.itemDefinition.isWeapon)
         {
             return DieType.D1;
         }
 
-        var isLight = item.itemDefinition.WeaponDescription.WeaponTags.Contains("Light");
-        var isHeavy = item.itemDefinition.WeaponDescription.WeaponTags.Contains("Heavy");
+        var isLight = item.itemDefinition.WeaponDescription.WeaponTags.Contains(TagsDefinitions.WeaponTagLight);
+
         if (isLight)
         {
             return DieType.D6;
         }
+
+        var isHeavy = item.itemDefinition.WeaponDescription.WeaponTags.Contains(TagsDefinitions.WeaponTagHeavy);
 
         return isHeavy ? DieType.D10 : DieType.D8;
     }
@@ -156,31 +162,36 @@ internal sealed class CollegeOfWarDancer : AbstractSubclass
     private static int GetMomentumDiceNum(RulesetCharacter character)
     {
         const int BASE_VALUE = 2;
+
         var momentum = character.ConditionsByCategory
             .SelectMany(x => x.Value)
             .Count(x => x.ConditionDefinition == WarDanceMomentum);
+
         if (momentum <= 1)
         {
             return BASE_VALUE;
         }
-        
+
         var slotsByName = character.CharacterInventory.InventorySlotsByName;
         var item = slotsByName[EquipmentDefinitions.SlotTypeMainHand].EquipedItem;
+
         if (item == null || !item.itemDefinition.isWeapon)
         {
             return BASE_VALUE;
         }
-        
-        var isLight = item.itemDefinition.WeaponDescription.WeaponTags.Contains("Light");
-        var isHeavy = item.itemDefinition.WeaponDescription.WeaponTags.Contains("Heavy");
+
+        var isLight = item.itemDefinition.WeaponDescription.WeaponTags.Contains(TagsDefinitions.WeaponTagLight);
+
         if (isLight)
         {
-            return BASE_VALUE + (momentum - 1) / 2;
+            return BASE_VALUE + ((momentum - 1) / 2);
         }
 
+        var isHeavy = item.itemDefinition.WeaponDescription.WeaponTags.Contains(TagsDefinitions.WeaponTagHeavy);
+        
         if (isHeavy)
         {
-            return BASE_VALUE + 2 * (momentum - 1);
+            return BASE_VALUE + (2 * (momentum - 1));
         }
 
         return BASE_VALUE + (momentum - 1);
@@ -259,7 +270,7 @@ internal sealed class CollegeOfWarDancer : AbstractSubclass
             // apply action affinity
             hero.UsedMainSpell = true;
             ApplyActionAffinity(hero.RulesetCharacter);
-            
+
             // apply momentum
             GrantWarDanceMomentum(hero);
 
@@ -267,24 +278,26 @@ internal sealed class CollegeOfWarDancer : AbstractSubclass
             var num = actionParams.ActingCharacter.RulesetCharacter.AttackModes
                 .Where(attackMode => attackMode.ActionType == ActionDefinitions.ActionType.Main)
                 .Aggregate(0, (current, attackMode) => Mathf.Max(current, attackMode.AttacksNumber));
+
             hero.usedMainAttacks = num - 1;
 
             return true;
         }
 
-        void ApplyActionAffinity(RulesetCharacter character)
+        private static void ApplyActionAffinity(RulesetCharacter character)
         {
             if (character is not RulesetCharacterHero)
             {
                 return;
             }
-            
+
             var condition = WarDanceMomentumExtraAction;
+
             if (character.HasAnyFeature(ImproveWardDance))
             {
                 condition = ImprovedWarDanceMomentumExtraAction;
             }
-            
+
             if (character.HasConditionOfType(condition))
             {
                 return;
@@ -298,10 +311,11 @@ internal sealed class CollegeOfWarDancer : AbstractSubclass
                 TurnOccurenceType.EndOfTurn,
                 character.Guid,
                 character.CurrentFaction.Name);
+
             character.AddConditionOfCategory(AttributeDefinitions.TagCombat, actionAffinity);
         }
 
-        void GrantWarDanceMomentum(GameLocationCharacter hero)
+        private static void GrantWarDanceMomentum(GameLocationCharacter hero)
         {
             // required for wildshape scenarios
             if (hero.RulesetCharacter is not RulesetCharacterHero)
@@ -311,6 +325,7 @@ internal sealed class CollegeOfWarDancer : AbstractSubclass
 
             var slotsByName = hero.RulesetCharacter.CharacterInventory.InventorySlotsByName;
             var item = slotsByName[EquipmentDefinitions.SlotTypeMainHand].EquipedItem;
+
             if (item == null || !item.itemDefinition.isWeapon)
             {
                 return;
@@ -324,6 +339,7 @@ internal sealed class CollegeOfWarDancer : AbstractSubclass
                 TurnOccurenceType.EndOfTurn,
                 hero.RulesetCharacter.Guid,
                 hero.RulesetCharacter.CurrentFaction.Name);
+
             hero.RulesetCharacter.AddConditionOfCategory(AttributeDefinitions.TagCombat, attackModifier);
         }
     }
@@ -385,6 +401,7 @@ internal sealed class CollegeOfWarDancer : AbstractSubclass
             var momentum = character.ConditionsByCategory
                 .SelectMany(x => x.Value)
                 .Count(x => x.ConditionDefinition == WarDanceMomentum);
+
             if (momentum == 0)
             {
                 return;
@@ -402,6 +419,7 @@ internal sealed class CollegeOfWarDancer : AbstractSubclass
 
             //this.sourceDefinition is ItemDefinition sourceDefinition && sourceDefinition.IsWeapon && sourceDefinition.WeaponDescription.WeaponTags.Contains("Light");
             var item = attackMode.sourceDefinition as ItemDefinition;
+
             if (item == null || !item.IsWeapon)
             {
                 return;
@@ -410,23 +428,26 @@ internal sealed class CollegeOfWarDancer : AbstractSubclass
             var isLight = item.WeaponDescription.WeaponTags.Contains("Light");
             var isHeavy = item.WeaponDescription.WeaponTags.Contains("Heavy");
             var toHit = -1;
+
             if (isLight)
             {
-                toHit += LightMomentumModifier*momentum;
+                toHit += LightMomentumModifier * momentum;
             }
             else if (isHeavy)
             {
-                toHit += HeavyMomentumModifier*momentum;
+                toHit += HeavyMomentumModifier * momentum;
             }
             else
             {
-                toHit += MomentumModifier*momentum;
+                toHit += MomentumModifier * momentum;
             }
 
             attackMode.toHitBonus += toHit;
+            
             var trendInfo = new TrendInfo(toHit, FeatureSourceType.CharacterFeature,
                 MomentumAttackModifier, null);
             var index = attackMode.ToHitBonusTrends.IndexOf(trendInfo);
+
             if (index == -1)
             {
                 attackMode.ToHitBonusTrends.Add(trendInfo);

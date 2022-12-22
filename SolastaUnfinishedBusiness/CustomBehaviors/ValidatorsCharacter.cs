@@ -34,7 +34,7 @@ internal static class ValidatorsCharacter
         return ValidatorsWeapon.IsPolearm(slotsByName[EquipmentDefinitions.SlotTypeMainHand].EquipedItem)
                || ValidatorsWeapon.IsPolearm(slotsByName[EquipmentDefinitions.SlotTypeOffHand].EquipedItem);
     };
-    
+
     internal static readonly IsCharacterValidHandler HasMeleeWeaponInMainHand = character =>
     {
         // required for wildshape scenarios

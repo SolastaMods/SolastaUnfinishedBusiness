@@ -81,7 +81,9 @@ internal static class ReplaceAttackWithCantrip
         }
     }
 
-    internal static void MightRefundOneAttackOfMainAction(GameLocationCharacter __instance, CharacterActionParams actionParams,
+    internal static void MightRefundOneAttackOfMainAction(
+        GameLocationCharacter __instance,
+        CharacterActionParams actionParams,
         ActionDefinitions.ActionScope scope)
     {
         // should be in battle only
@@ -102,7 +104,8 @@ internal static class ReplaceAttackWithCantrip
             return;
         }
 
-        var features = actionParams.actingCharacter.RulesetCharacter.GetSubFeaturesByType<IMightRefundOneAttackOfMainAction>();
+        var features = actionParams.actingCharacter.RulesetCharacter
+            .GetSubFeaturesByType<IMightRefundOneAttackOfMainAction>();
         var refund = features.Aggregate(false,
             (current, f) => current | f.MightRefundOneAttackOfMainAction(__instance, actionParams));
 
