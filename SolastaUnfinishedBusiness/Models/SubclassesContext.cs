@@ -24,7 +24,7 @@ internal static class SubclassesContext
 
         // Bard
         LoadSubclass(new CollegeOfGuts());
-        LoadSubclass(new CollegeOfHarlequin(), true);
+        LoadSubclass(new CollegeOfHarlequin());
         LoadSubclass(new CollegeOfLife());
         LoadSubclass(new CollegeOfWarDancer());
 
@@ -37,10 +37,10 @@ internal static class SubclassesContext
         LoadSubclass(new MartialMarshal());
         LoadSubclass(new MartialRoyalKnight());
         LoadSubclass(new MartialSpellShield());
-        LoadSubclass(new MartialTactician(), true);
+        LoadSubclass(new MartialTactician());
 
         // Paladin
-        LoadSubclass(new OathOfHatred(), true);
+        LoadSubclass(new OathOfHatred());
 
         // Ranger
         LoadSubclass(new RangerArcanist());

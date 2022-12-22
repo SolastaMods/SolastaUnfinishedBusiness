@@ -7,7 +7,7 @@
     "halfDamageOnAMiss": false,
     "hitAffinitiesByTargetTag": [],
     "targetType": "Self",
-    "itemSelectionType": "Equiped",
+    "itemSelectionType": "None",
     "targetParameter": 1,
     "targetParameter2": 2,
     "emissiveBorder": "None",
@@ -22,7 +22,7 @@
     "requiresVisibilityForPosition": true,
     "inviteOptionalAlly": false,
     "slotTypes": [],
-    "recurrentEffect": "OnActivation, OnTurnStart",
+    "recurrentEffect": "No",
     "retargetAfterDeath": false,
     "retargetActionType": "Bonus",
     "poolFilterDiceNumber": 5,
@@ -30,21 +30,21 @@
     "trapRangeType": "Triggerer",
     "targetConditionName": "",
     "targetConditionAsset": null,
-    "targetSide": "Enemy",
-    "durationType": "Minute",
+    "targetSide": "All",
+    "durationType": "Round",
     "durationParameter": 1,
-    "endOfEffect": "EndOfTurn",
-    "hasSavingThrow": true,
+    "endOfEffect": "StartOfTurn",
+    "hasSavingThrow": false,
     "disableSavingThrowOnAllies": false,
-    "savingThrowAbility": "Constitution",
+    "savingThrowAbility": "Dexterity",
     "ignoreCover": false,
     "grantedConditionOnSave": null,
     "rollSaveOnlyIfRelevantForms": false,
     "hasShoveRoll": false,
     "createdByCharacter": false,
-    "difficultyClassComputation": "AbilityScoreAndProficiency",
-    "savingThrowDifficultyAbility": "Constitution",
-    "fixedSavingThrowDifficultyClass": 10,
+    "difficultyClassComputation": "SpellCastingFeature",
+    "savingThrowDifficultyAbility": "Wisdom",
+    "fixedSavingThrowDifficultyClass": 15,
     "savingThrowAffinitiesBySense": [],
     "savingThrowAffinitiesByFamily": [],
     "advantageForEnemies": false,
@@ -70,18 +70,47 @@
         "diceByLevelTable": [],
         "createdByCharacter": false,
         "createdByCondition": false,
-        "hasSavingThrow": true,
-        "savingThrowAffinity": "Negates",
+        "hasSavingThrow": false,
+        "savingThrowAffinity": "None",
         "dcModifier": 0,
-        "canSaveToCancel": true,
+        "canSaveToCancel": false,
         "saveOccurence": "EndOfTurn",
         "conditionForm": {
           "$type": "ConditionForm, Assembly-CSharp",
-          "conditionDefinitionName": "ConditionPoisoned",
-          "conditionDefinition": "Definition:ConditionPoisoned:185ea6cfd1e758448bf574c4055af482",
+          "conditionDefinitionName": "ConditionWarDance",
+          "conditionDefinition": "Definition:ConditionWarDance:60cb6a58-0596-5844-b181-763b1badb445",
           "operation": "Add",
           "conditionsList": [
-            "Definition:ConditionPoisoned:185ea6cfd1e758448bf574c4055af482"
+            "Definition:ConditionWarDance:60cb6a58-0596-5844-b181-763b1badb445"
+          ],
+          "applyToSelf": false,
+          "forceOnSelf": false
+        },
+        "hasFilterId": false,
+        "filterId": 0
+      },
+      {
+        "$type": "EffectForm, Assembly-CSharp",
+        "formType": "Condition",
+        "addBonusMode": "None",
+        "applyLevel": "No",
+        "levelType": "ClassLevel",
+        "levelMultiplier": 1,
+        "diceByLevelTable": [],
+        "createdByCharacter": false,
+        "createdByCondition": false,
+        "hasSavingThrow": false,
+        "savingThrowAffinity": "None",
+        "dcModifier": 0,
+        "canSaveToCancel": false,
+        "saveOccurence": "EndOfTurn",
+        "conditionForm": {
+          "$type": "ConditionForm, Assembly-CSharp",
+          "conditionDefinitionName": "ConditionBardicInspiration",
+          "conditionDefinition": "Definition:ConditionBardicInspiration:e76c421c0a8f49046909673053aec5d6",
+          "operation": "Add",
+          "conditionsList": [
+            "Definition:ConditionBardicInspiration:e76c421c0a8f49046909673053aec5d6"
           ],
           "applyToSelf": false,
           "forceOnSelf": false
@@ -116,7 +145,7 @@
       "$type": "EffectParticleParameters, Assembly-CSharp",
       "casterParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "81560ac3813217d4d9fd281d5e73c234",
+        "m_AssetGUID": "9ea879c960a6f274690d1f20be3c104e",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -140,7 +169,7 @@
       },
       "effectParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "",
+        "m_AssetGUID": "9f986448e62358f4bac04e8fd2c64261",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -291,7 +320,7 @@
   "delegatedToAction": false,
   "surrogateToSpell": null,
   "triggeredBySpecialMove": false,
-  "activationTime": "Action",
+  "activationTime": "BonusAction",
   "autoActivationRequiredTargetSenseType": "None",
   "autoActivationRequiredTargetCreatureTag": "",
   "autoActivationPowerTag": "",
@@ -306,7 +335,7 @@
   "canUseInDialog": false,
   "disableIfConditionIsOwned": null,
   "disableIfTargetConditionIsOwned": null,
-  "rechargeRate": "AtWill",
+  "rechargeRate": "BardicInspiration",
   "costPerUse": 1,
   "spellcastingFeature": null,
   "usesDetermination": "Fixed",
@@ -326,13 +355,13 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&PowerFeatPoisonousSkinTitle",
-    "description": "Feature/&PowerFeatPoisonousSkinDescription",
+    "title": "Feature/&PowerCollegeOfWarDancerWarDanceTitle",
+    "description": "Feature/&PowerCollegeOfWarDancerWarDanceDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "",
-      "m_SubObjectName": null,
-      "m_SubObjectType": null
+      "m_AssetGUID": "cdbd83e68b3d8d44eb03f6852a7fd63b",
+      "m_SubObjectName": "MagicWeapon",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
@@ -347,7 +376,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "871e0c21-79b8-5137-85b2-ed91074185d7",
+  "guid": "4fdd575a-f1bd-570a-86ac-9389137cf642",
   "contentPack": 9999,
-  "name": "PowerFeatPoisonousSkin"
+  "name": "PowerCollegeOfWarDancerWarDance"
 }
