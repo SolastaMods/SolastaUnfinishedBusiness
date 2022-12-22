@@ -4,7 +4,7 @@
   "parentCondition": null,
   "conditionType": "Beneficial",
   "features": [
-    "Definition:ImprovedWarDanceRefundedActionAffinity:0a63d42a-671f-5a8e-8f16-9a51c921796c"
+    "Definition:ActionAffinityWarDanceExtraAction:8a25f39e-835d-5d69-a0d7-649a3a9a2a8b"
   ],
   "allowMultipleInstances": false,
   "silentWhenAdded": false,
@@ -149,7 +149,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "37f424a8-1849-5ba5-b940-ced1cf4f9f7e",
+  "guid": "aae59af7-b3e4-5a48-8601-05c0193d7895",
   "contentPack": 9999,
-  "name": "ImprovedWarDanceMomentumExtraAction"
+  "name": "ConditionWarDanceMomentumExtraAction"
 }

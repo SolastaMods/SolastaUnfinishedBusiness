@@ -15,10 +15,10 @@ namespace SolastaUnfinishedBusiness.Subclasses;
 
 internal sealed class CollegeOfWarDancer : AbstractSubclass
 {
-    private const string PowerWarDanceName = "PowerCollegeOfWarDancerWarDance";
+    private const string PowerWarDanceName = "PowerWarDancerWarDance";
 
-    private static readonly FeatureDefinition ImproveWardDance = FeatureDefinitionBuilder
-        .Create("CollegeOfWarDancerImprovedWarDance")
+    private static readonly FeatureDefinition ImproveWarDance = FeatureDefinitionBuilder
+        .Create("FeatureCollegeOfWarDancerImprovedWarDance")
         .SetGuiPresentation(Category.Feature)
         .AddToDB();
 
@@ -52,7 +52,7 @@ internal sealed class CollegeOfWarDancer : AbstractSubclass
             .Create("CollegeOfWarDancer")
             .SetOrUpdateGuiPresentation(Category.Subclass, CharacterSubclassDefinitions.RangerSwiftBlade)
             .AddFeaturesAtLevel(3, warDance, CommonBuilders.FeatureSetCasterFightingProficiency)
-            .AddFeaturesAtLevel(6, ImproveWardDance)
+            .AddFeaturesAtLevel(6, ImproveWarDance)
             .AddToDB();
     }
 
@@ -66,19 +66,21 @@ internal sealed class CollegeOfWarDancer : AbstractSubclass
             .Create("ConditionWarDance")
             .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionRaging)
             .AddFeatures(FeatureDefinitionMovementAffinityBuilder
-                    .Create("ConditionWarDanceExtraMovement3")
+                    .Create("MovementAffinityConditionWarDanceExtraMovement3")
                     .SetGuiPresentationNoContent(true)
                     .SetBaseSpeedAdditiveModifier(3)
                     .SetImmunities(false, false, true)
                     .AddToDB(),
                 FeatureDefinitionBuilder
-                    .Create("WarDanceCustomFeature")
+                    .Create("FeatureConditionWarDanceCustom")
                     .SetGuiPresentationNoContent(true)
-                    .SetCustomSubFeatures(new WarDanceFlurryAttack(), new WarDanceRefundOneAttackOfMainAction(),
+                    .SetCustomSubFeatures(
+                        new WarDanceFlurryAttack(),
+                        new WarDanceRefundOneAttackOfMainAction(),
                         new ExtendedWarDanceDurationOnKill())
                     .AddToDB(),
                 FeatureDefinitionBuilder
-                    .Create("WarDanceSwitchWeaponFreely")
+                    .Create("FeatureConditionWarDanceSwitchWeaponFreely")
                     .SetGuiPresentationNoContent(true)
                     .SetCustomSubFeatures(new SwitchWeaponFreely())
                     .AddToDB()
@@ -198,12 +200,12 @@ internal sealed class CollegeOfWarDancer : AbstractSubclass
     }
 
     private static readonly ConditionDefinition WarDanceMomentum = ConditionDefinitionBuilder
-        .Create("WarDanceMomentum")
+        .Create("ConditionWarDanceMomentum")
         .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionHeraldOfBattle)
         .AllowMultipleInstances()
         .SetSilent(Silent.WhenAddedOrRemoved)
         .SetFeatures(FeatureDefinitionAdditionalDamageBuilder
-            .Create("WarDanceMomentumAdditionalDamage")
+            .Create("AdditionalDamageWarDanceMomentum")
             .SetGuiPresentationNoContent(true)
             .SetAdditionalDamageType(AdditionalDamageType.SameAsBaseDamage)
             .SetDamageDice(DieType.D6, 2)
@@ -220,11 +222,11 @@ internal sealed class CollegeOfWarDancer : AbstractSubclass
     private sealed class WarDanceRefundOneAttackOfMainAction : IMightRefundOneAttackOfMainAction
     {
         private static readonly ConditionDefinition WarDanceMomentumExtraAction = ConditionDefinitionBuilder
-            .Create("WarDanceMomentumExtraAction")
+            .Create("ConditionWarDanceMomentumExtraAction")
             .SetGuiPresentationNoContent(true)
             .SetFeatures(
                 FeatureDefinitionActionAffinityBuilder
-                    .Create("WarDanceRefundedActionAffinity")
+                    .Create("ActionAffinityWarDanceExtraAction")
                     .SetGuiPresentationNoContent(true)
                     .SetDefaultAllowedActionTypes()
                     .SetForbiddenActions(ActionDefinitions.Id.CastMain, ActionDefinitions.Id.PowerMain,
@@ -235,11 +237,11 @@ internal sealed class CollegeOfWarDancer : AbstractSubclass
             .AddToDB();
 
         private static readonly ConditionDefinition ImprovedWarDanceMomentumExtraAction = ConditionDefinitionBuilder
-            .Create("ImprovedWarDanceMomentumExtraAction")
+            .Create("ConditionImprovedWarDanceMomentumExtraAction")
             .SetGuiPresentationNoContent(true)
             .SetFeatures(
                 FeatureDefinitionActionAffinityBuilder
-                    .Create("ImprovedWarDanceRefundedActionAffinity")
+                    .Create("ActionAffinityImprovedWarDanceExtraAction")
                     .SetGuiPresentationNoContent(true)
                     .SetDefaultAllowedActionTypes()
                     .SetForbiddenActions(ActionDefinitions.Id.PowerMain,
@@ -293,7 +295,7 @@ internal sealed class CollegeOfWarDancer : AbstractSubclass
 
             var condition = WarDanceMomentumExtraAction;
 
-            if (character.HasAnyFeature(ImproveWardDance))
+            if (character.HasAnyFeature(ImproveWarDance))
             {
                 condition = ImprovedWarDanceMomentumExtraAction;
             }
@@ -315,7 +317,7 @@ internal sealed class CollegeOfWarDancer : AbstractSubclass
             character.AddConditionOfCategory(AttributeDefinitions.TagCombat, actionAffinity);
         }
 
-        private static void GrantWarDanceMomentum(GameLocationCharacter hero)
+        private static void GrantWarDanceMomentum(IControllableCharacter hero)
         {
             // required for wildshape scenarios
             if (hero.RulesetCharacter is not RulesetCharacterHero)
@@ -389,7 +391,6 @@ internal sealed class CollegeOfWarDancer : AbstractSubclass
         private const int LightMomentumModifier = -2;
         private const int MomentumModifier = -3;
         private const int HeavyMomentumModifier = -4;
-        private const string MomentumAttackModifier = "Momentum Attack";
 
         public void ModifyAttackMode(RulesetCharacter character, RulesetAttackMode attackMode)
         {
@@ -445,7 +446,7 @@ internal sealed class CollegeOfWarDancer : AbstractSubclass
             attackMode.toHitBonus += toHit;
             
             var trendInfo = new TrendInfo(toHit, FeatureSourceType.CharacterFeature,
-                MomentumAttackModifier, null);
+                Gui.Localize("Feedback/&AdditionalDamageMomentumFormat"), null);
             var index = attackMode.ToHitBonusTrends.IndexOf(trendInfo);
 
             if (index == -1)

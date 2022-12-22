@@ -4,11 +4,11 @@
   "parentCondition": null,
   "conditionType": "Beneficial",
   "features": [
-    "Definition:WarDanceMomentumAdditionalDamage:b959feca-508c-5e6b-8fcc-70d7e19ac614"
+    "Definition:ActionAffinityImprovedWarDanceExtraAction:dadf1cd5-9522-54af-aff3-57b97b6bdac0"
   ],
-  "allowMultipleInstances": true,
-  "silentWhenAdded": true,
-  "silentWhenRemoved": true,
+  "allowMultipleInstances": false,
+  "silentWhenAdded": false,
+  "silentWhenRemoved": false,
   "terminateWhenRemoved": false,
   "specialDuration": false,
   "durationType": "Hour",
@@ -16,9 +16,7 @@
   "durationParameter": 1,
   "forceTurnOccurence": false,
   "turnOccurence": "EndOfTurn",
-  "specialInterruptions": [
-    "AnyBattleTurnEnd"
-  ],
+  "specialInterruptions": [],
   "interruptionRequiresSavingThrow": false,
   "interruptionSavingThrowComputationMethod": "SaveOverride",
   "interruptionSavingThrowAbility": "",
@@ -129,14 +127,14 @@
   },
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
-    "hidden": false,
-    "title": "Condition/&WarDanceMomentumTitle",
-    "description": "Condition/&WarDanceMomentumDescription",
+    "hidden": true,
+    "title": "Feature/&NoContentTitle",
+    "description": "Feature/&NoContentTitle",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "df79a8d92a082eb40a000919a6f5b27a",
-      "m_SubObjectName": "ConditionDivineFavor",
-      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+      "m_AssetGUID": "",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
@@ -151,7 +149,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "323d465e-f318-551e-b017-80c1d8468c3c",
+  "guid": "00b18930-bc36-56aa-b9a1-1569a30f53d9",
   "contentPack": 9999,
-  "name": "WarDanceMomentum"
+  "name": "ConditionImprovedWarDanceMomentumExtraAction"
 }

@@ -4,9 +4,9 @@
   "parentCondition": null,
   "conditionType": "Beneficial",
   "features": [
-    "Definition:ConditionWarDanceExtraMovement3:c51454da-b210-5cf8-b2bf-c717ff47dcdd",
-    "Definition:WarDanceCustomFeature:5abc8f35-6d45-5206-a997-9a3b7806ba42",
-    "Definition:WarDanceSwitchWeaponFreely:46f0f4a6-f430-56b5-9cf0-8c2bccfc9974"
+    "Definition:FeatureConditionWarDanceCustom:b414fa27-eb2f-51af-9afe-80868c30c28e",
+    "Definition:FeatureConditionWarDanceSwitchWeaponFreely:769a3fa5-1316-5778-94a4-df8522923016",
+    "Definition:MovementAffinityConditionWarDanceExtraMovement3:503c1064-5ed8-54ed-a4e2-ef24a73b0e82"
   ],
   "allowMultipleInstances": false,
   "silentWhenAdded": false,

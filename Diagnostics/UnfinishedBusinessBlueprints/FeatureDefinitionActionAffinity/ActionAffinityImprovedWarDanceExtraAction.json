@@ -11,7 +11,6 @@
   "eitherMainOrBonus": false,
   "maxAttacksNumber": -1,
   "forbiddenActions": [
-    "CastMain",
     "HideMain",
     "PowerMain",
     "UseItemMain",
@@ -48,7 +47,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "fd5b2425-f736-56ae-bb7d-1b134677f2e5",
+  "guid": "dadf1cd5-9522-54af-aff3-57b97b6bdac0",
   "contentPack": 9999,
-  "name": "WarDanceRefundedActionAffinity"
+  "name": "ActionAffinityImprovedWarDanceExtraAction"
 }

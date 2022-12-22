@@ -2,9 +2,9 @@
   "$type": "FeatureDefinition, Assembly-CSharp",
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
-    "hidden": false,
-    "title": "Feature/&CollegeOfWarDancerImprovedWarDanceTitle",
-    "description": "Feature/&CollegeOfWarDancerImprovedWarDanceDescription",
+    "hidden": true,
+    "title": "Feature/&NoContentTitle",
+    "description": "Feature/&NoContentTitle",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -24,7 +24,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "2820a9a4-909a-5ee1-a8b0-075b5f6aab7b",
+  "guid": "b414fa27-eb2f-51af-9afe-80868c30c28e",
   "contentPack": 9999,
-  "name": "CollegeOfWarDancerImprovedWarDance"
+  "name": "FeatureConditionWarDanceCustom"
 }

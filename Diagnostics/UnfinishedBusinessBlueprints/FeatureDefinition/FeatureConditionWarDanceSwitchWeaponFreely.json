@@ -1,28 +1,5 @@
 {
-  "$type": "FeatureDefinitionActionAffinity, Assembly-CSharp",
-  "allowedActionTypes": [
-    true,
-    true,
-    true,
-    true,
-    true,
-    true
-  ],
-  "eitherMainOrBonus": false,
-  "maxAttacksNumber": -1,
-  "forbiddenActions": [
-    "HideMain",
-    "PowerMain",
-    "UseItemMain",
-    "Ready"
-  ],
-  "authorizedActions": [],
-  "restrictedActions": [],
-  "actionExecutionModifiers": [],
-  "specialBehaviour": "None",
-  "randomBehaviorDie": "D10",
-  "randomBehaviourOptions": [],
-  "rechargeReactionsAtEveryTurn": false,
+  "$type": "FeatureDefinition, Assembly-CSharp",
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
@@ -47,7 +24,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "0a63d42a-671f-5a8e-8f16-9a51c921796c",
+  "guid": "769a3fa5-1316-5778-94a4-df8522923016",
   "contentPack": 9999,
-  "name": "ImprovedWarDanceRefundedActionAffinity"
+  "name": "FeatureConditionWarDanceSwitchWeaponFreely"
 }
