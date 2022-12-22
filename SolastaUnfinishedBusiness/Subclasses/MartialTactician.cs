@@ -1579,6 +1579,3 @@ internal sealed class MartialTactician : AbstractSubclass
         }
     }
 }
-
-
-

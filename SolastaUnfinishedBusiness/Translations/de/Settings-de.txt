@@ -1,6 +1,6 @@
 ModUi/&AddAllToStore=Alle zum Shop hinzufügen
 ModUi/&AddBleedingToLesserRestoration=Fügen Sie den Zustand <color=#D89555>Bluten</color> zu denjenigen hinzu, die durch <color=#D89555>Größere</color> und <color=#D89555>Geringere Wiederherstellung</color> entfernt wurden
-ModUi/&AddHelpActionToAllRaces=Füge allen spielbaren Völkern die Aktion <color=#D89555>Hilfe</color> hinzu <i><color=#F0DAA0>[du kannst einer freundlichen Kreatur dabei helfen, eine Kreatur innerhalb von 1,50 m von dir anzugreifen]</color></ ich>
+ModUi/&AddHelpActionToAllRaces=Füge allen spielbaren Völkern die Aktion <color=#D89555>Hilfe</color> hinzu <i><color=#F0DAA0>[du kannst einer freundlichen Kreatur dabei helfen, eine Kreatur innerhalb von 1,50 m von dir anzugreifen]</color></i>
 ModUi/&AddNewBrightEyeColors=Füge neue leuchtende Augenfarben hinzu
 ModUi/&AddNewWeaponsAndRecipesToShops=Füge den Geschäften neue Waffen und Rezepte hinzu <i><color=#F0DAA0>[Handbandagen, Hellebarden, Piken, lange Keulen, Handarmbrüste]</color></i> <b><i><color=#C04040E0> [Neustart erforderlich]</color></i></b>
 ModUi/&AddPickPocketableLoot=Taschendiebstahl-Beute hinzufügen <i><color=#F0DAA0>[empfohlen, wenn <color=#D89555>Taschendiebstahl</color>-Talent aktiviert ist]</color></i>
@@ -77,7 +77,7 @@ ModUi/&EnablesAsiAndFeat=Aktivieren Sie sowohl die Erhöhung der Attributwerte a
 ModUi/&EnableSaveByLocation=Speichern nach Kampagnen/Standorten aktivieren
 ModUi/&EnableSortingDungeonMakerAssets=Aktivieren Sie die Asset-Sortierung im Dungeon Maker-Editor
 ModUi/&EnableStatsOnHeroTooltip=Zeigen Sie Statistiken im Tooltip des Helden an <i><color=#F0DAA0>[d. h.: kritische Treffer, kritische Fehlschläge usw.]</color></i>
-ModUi/&EnableTeleportParty=Aktivieren Sie <color=#1E81B0>STRG-UMSCHALT-(T)</color>, um die Gruppe zu teleportieren <i><color=#F0DAA0>[Sie könnten Quests abbrechen, wenn Sie sich an einen unentdeckten Ort teleportieren]</color></ ich>
+ModUi/&EnableTeleportParty=Aktivieren Sie <color=#1E81B0>STRG-UMSCHALT-(T)</color>, um die Gruppe zu teleportieren <i><color=#F0DAA0>[Sie könnten Quests abbrechen, wenn Sie sich an einen unentdeckten Ort teleportieren]</color></i>
 ModUi/&EnableTogglesToOverwriteDefaultTestParty=Aktivieren Sie Umschalter im Charakterpool, um Ihre Standardspiel- und Testgruppe festzulegen
 ModUi/&EnableUpcastConjureElementalAndFey=Upcast von <color=#D89555>Elementar beschwören</color> und <color=#D89555>Feen beschwören</color> aktivieren
 ModUi/&Encounters=Begegnungen
@@ -181,3 +181,6 @@ ModUi/&DisableRacePrerequisitesOnModFeats=Deaktivieren Sie die Rennvoraussetzung
 ModUi/&EncounterPercentageChance=<color=white>Stellen Sie die prozentualen Chancen für zufällige Begegnungen ein</color>
 ModUi/&FixEldritchBlastRange=Ändere die Reichweite von <color=#D89555>Eldritch Blast</color> auf 24 <i><color=#F0DAA0>[statt 16]</color></i>
 ModUi/&AllowMoreRealStateOnRestPanel=Erlauben Sie mehr realen Status im Ruhebereich <i><color=#F0DAA0>[Aktionen nach der Ruhe im Bereich „Vorher“ und Wiederherstellungsfunktionen im Bereich „Nachher“ ausblenden]</color></i>
+ModUi/&AddHumanoidFavoredEnemyToRanger=Füge <color=#D89555>Waldläufern</color> humanoiden bevorzugten Feind hinzu
+ModUi/&EnableRejoinParty=Aktiviere <color=#1E81B0>STRG-UMSCHALT-(R)</color>, um der Gruppe wieder beizutreten <i><color=#F0DAA0>[nützlich bei Gruppen mit 5 oder 6 Personen]</color></i>
+ModUi/&AddCustomIconsToBolts=Füge benutzerdefinierte Symbole zu Ätzenden, Flammenden und Fläschchenbolzen und entsprechenden Rezepten hinzu <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>

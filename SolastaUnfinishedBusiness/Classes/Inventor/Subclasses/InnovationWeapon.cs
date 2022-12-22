@@ -514,6 +514,3 @@ public static class InnovationWeapon
         }
     }
 }
-
-
-

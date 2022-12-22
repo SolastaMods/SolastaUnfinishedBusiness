@@ -22,7 +22,7 @@ internal static class OtherFeats
 
     private static readonly FeatureDefinitionPower PowerFeatPoisonousSkin = FeatureDefinitionPowerBuilder
         .Create("PowerFeatPoisonousSkin")
-        .SetGuiPresentationNoContent(true)
+        .SetGuiPresentation(Category.Feature)
         .SetEffectDescription(EffectDescriptionBuilder
             .Create()
             .SetHasSavingThrow(
@@ -390,6 +390,18 @@ internal static class OtherFeats
         }
     }
 
+    private static RulesetEffectPower GetUsablePower(RulesetCharacter rulesetCharacter)
+    {
+        var constitution = rulesetCharacter.GetAttribute(AttributeDefinitions.Constitution).CurrentValue;
+        var proficiencyBonus = rulesetCharacter.GetAttribute(AttributeDefinitions.ProficiencyBonus).CurrentValue;
+        var usablePower = new RulesetUsablePower(PowerFeatPoisonousSkin, null, null)
+        {
+            saveDC = ComputeAbilityScoreBasedDC(constitution, proficiencyBonus)
+        };
+
+        return new RulesetEffectPower(rulesetCharacter, usablePower);
+    }
+
     private sealed class OnAttackHitEffectFeatPoisonousSkin : IAfterAttackEffect
     {
         public void AfterOnAttackHit(
@@ -407,16 +419,18 @@ internal static class OtherFeats
             }
 
             var rulesetAttacker = attacker.RulesetCharacter;
-            var usablePower = new RulesetUsablePower(PowerFeatPoisonousSkin, null, null);
-            var effectPower = new RulesetEffectPower(rulesetAttacker, usablePower);
             var hasEffect = defender.AffectingGlobalEffects.Any(x =>
                 x is RulesetEffectPower rulesetEffectPower &&
                 rulesetEffectPower.PowerDefinition != PowerFeatPoisonousSkin);
 
-            if (!hasEffect)
+            if (hasEffect)
             {
-                effectPower.ApplyEffectOnCharacter(defender.RulesetCharacter, true, defender.LocationPosition);
+                return;
             }
+
+            var effectPower = GetUsablePower(rulesetAttacker);
+
+            effectPower.ApplyEffectOnCharacter(defender.RulesetCharacter, true, defender.LocationPosition);
         }
     }
 
@@ -436,8 +450,7 @@ internal static class OtherFeats
                 return;
             }
 
-            var usablePower = new RulesetUsablePower(PowerFeatPoisonousSkin, null, null);
-            var effectPower = new RulesetEffectPower(rulesetAttacker, usablePower);
+            var effectPower = GetUsablePower(rulesetAttacker);
             var targetLocationCharacter = GameLocationCharacter.GetFromActor(target);
 
             effectPower.ApplyEffectOnCharacter(target, true, targetLocationCharacter.LocationPosition);
@@ -463,9 +476,3 @@ internal static class OtherFeats
         }
     }
 }
-
-
-
-
-
-

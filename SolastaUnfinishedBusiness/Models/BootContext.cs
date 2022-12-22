@@ -70,11 +70,11 @@ internal static class BootContext
         // Races may rely on spells and powers being in the DB before they can properly load.
         RacesContext.Load();
 
+        // Subclasses may rely on spells and powers being in the DB before they can properly load.
+        SubclassesContext.Load();
+
         // Classes may rely on spells and powers being in the DB before they can properly load.
         ClassesContext.Load();
-
-        // Subclasses may rely on classes being loaded (as well as spells and powers) in order to properly refer back to the class.
-        SubclassesContext.Load();
 
         // Load SRD and House rules towards the load phase end in case they change previous blueprints
         SrdAndHouseRulesContext.Load();

@@ -88,6 +88,9 @@ All settings start disabled by default.
 [*][b]Half-Sylvan Elf[/b]: Half-Sylvan elves are trained to survive in the wilds and are particularly apt to survival. As their sylvan elf heritage, they are trained to fight with swords and bows since childhood.
 [*][b]Half-Dark Elf[/b]: Half-Dark elves are descendants of elves that have been changed over time by living in the inhospitable Badlands. Their human heritage made them adaptable to bright light.
 [*][b]Kobold[/b]: Kobolds are small reclusive creatures. Recently, some of the more advanced tribes of kobolds have chosen to reveal themselves and interact with other races. It is not a coincidence that this is happening at the same time as the dragonborn making themselves known, as the most advanced kobolds seem to in many ways mimic the dragonborn, even naming themselves in a similar style. They may even be more advanced than other kobolds due to intermingling with the dragonborn.
+[*][b]Asmodeus[/b]: The tieflings connected to Nessus command the power of fire and darkness, guided by a keener than normal intellect, as befits those linked to Asmodeus himself.
+[*][b]Mephistopheles[/b]: Mephistopheles offers arcane power to those who entreat with him. Tieflings linked to him master some arcane magic.
+[*][b]Zariel[/b]: Tieflings with a blood tie to Zariel are stronger than the typical tiefling and receive magical abilities that aid them in battle.
 [/list]
 
 [size=3][b]Classes[/b][/size]
@@ -95,6 +98,7 @@ All settings start disabled by default.
 [list=1]
 
 [*][b]Inventor[/b]: Inventors are tinkerers, alchemists, and more. They bridge the space between magic and technology.
+[*][b]Smarlock[/b]: Where wizards draw their magical power from study and sorcerers from magical bloodlines, warlocks gain power through a pact with a powerful patron: a fiend, perhaps, or some other powerful entity. The nature of a warlock's powers varies depending on the nature of the patron and the details of the pact.
 
 [*][b]Armorer[/b]: Armorers focus their studies on magical armors and how to use them effectively.
 [*][b]Grenadier[/b]: Grenadiers study unstable substances and their use in creating explosions of various types.
@@ -108,13 +112,17 @@ All settings start disabled by default.
 [*][b]Path of The Light[/b]: Barbarians who follow the Path of The Light illuminate the darkness and protect their allies from dangers that lurk within it.
 [*][b]Path Of The Spirits[/b]: Barbarians who follow the Path of the Spirits accept a spirit animal as guide, protector, and inspiration, that fills them with supernatural might, adding magical fuel to the barbarian rage.
 [*][b]College of Guts[/b]: Bards of the College of Guts gather in mead halls or around great bonfires to sing the deeds of the mighty, both past and present. They travel the land to witness great events firsthand and to ensure that the memory of those events doesn't pass from the world. With their songs, they inspire others to reach the same heights of accomplishment as the heroes of old.
+[*][b]College of Harlequin[/b]: College of Harlequins bards see no distinction between art and war. They see it is their duty to keep the legend of the great battle of the Cataclysm alive through their terrific performance, either on stage or on the battle field.
 [*][b]College of Life[/b]: Masters of manipulating both matter and life energy.
+[*][b]College of War Dancer[/b]: College of War Dancer bards are master the art of fighting who considers the battle field is their stage and the weapon in their hand is the finest instrument. Their swift movement and endless attacks are usually the last beautiful memoire of those encountered them.
 [*][b]Circle of The Ancient Forest[/b]: You have forged a relationship with a powerful nature entity: Ancient Dryads, Archdruids, Manifestations of the Feywild bleeding into the material plane, Forgotten gods from a primal age. It may wish for you to protect the natural world, travel to far off lands that it cannot, or it may have another motive that seems inscrutable to short-lived mortals.
 [*][b]Circle of the Forest Guardian[/b]: Circle of the Forest Guardian Druids are sworn to protect the forests and all that dwell within them. Skilled in the use of Abjuration magic and martial combat, members of this druidic circle are fearsome opponents on the battlefield.
 [*][b]Circle of the Night[/b]: Druids of the Circle of the Night are fierce guardians of the wilds. Their order gathers under the full moon to share news and trade warnings. They haunt the deepest parts of the wilderness, where they might go for weeks on end before crossing paths with another humanoid creature, let alone another druid.
 [*][b]Marshal[/b]: Skilled in studying enemies' weaknesses and coordinating attacks of other party member to exploit them, fighters who trained in this martial part are famous orchestrators of the battle field.
 [*][b]Royal Knight[/b]: A knight who inspires greatness in others by committing brave deeds in battle. A Royal Knight is a skilled warrior, but one leading a band of allies can transform even the most poorly equipped militia into a ferocious war band.
 [*][b]Spell Shield[/b]: Spell Shields are fighters that specialize in defense and protection. They use magic to aid their natural abilities.
+[*][b]Tactician[/b]: The Tactician uses their knowledge and might on the battlefield to perform different gambits as they are needed. They can knock down foes, inspire their allies and get in deadly counter-strikes against their foes.
+[*][b]Oath of Hatred[/b]: An Oath of Hatred paladin has dedicated himself to the punishment of evil doers by channeling hate.
 [*][b]Arcanist[/b]: The Arcanist melds their Ranger skills with arcane abilities. Their weapons can afflict their opponents with the Arcanist's Mark, and have learned how to cast some Wizard spells as part of their Ranger spell repertoire.
 [*][b]Wild Master[/b]: The Wild Master archetype embodies a friendship between the civilized races and the beasts of the world. United in focus, spirit and ranger work as one to fight the monstrous foes that threaten civilization and the wilderness alike.
 [*][b]Opportunist[/b]: Opportunist are those who never let a chance to finish their enemies slide. They stab fast and stab where it matters. Not many facing them can escape unscratched.
@@ -131,9 +139,6 @@ All settings start disabled by default.
 [*][b]Blade Dancer[/b]: Blade Dancers use a series of intricate, elegant maneuvers that fend off harm and allow the blade dancer to channel magic into devastating attacks and a cunning defense. Many who have observed a blade dancer at work remember the display as one of the more beautiful experiences in their life, a glorious dance accompanied by a blade.
 [*][b]Dead Master[/b]: Dead Masters learn to manipulate the energy that animates all living things. As you progress, you learn to sap the life force from a creature as your magic destroys its body, transforming that vital energy into magical power you can manipulate.
 [*][b]Spell Master[/b]: Spell Masters immerse themselves in magic and try to learn every spell they can get their hands on. They are unmatched in their spell knowledge.
-[*][b]College of Harlequin[/b]: College of Harlequins bards see no distinction between art and war. They see it is their duty to keep the legend of the great battle of the Cataclysm alive through their terrific performance, either on stage or on the battle field.
-[*][b]Tactician[/b]: The Tactician uses their knowledge and might on the battlefield to perform different gambits as they are needed. They can knock down foes, inspire their allies and get in deadly counter-strikes against their foes.
-[*][b]Oath of Hatred[/b]: An Oath of Hatred paladin has dedicated himself to the punishment of evil doers by channeling hate.
 [/list]
 
 [size=3][b]Feats[/b][/size]
@@ -407,10 +412,10 @@ When you cast this spell using a spell slot of 4th level or higher, the damage i
 
 [list]
 
-[*][b]Zappastuff[/b]: maintenance, mod UI, infrastructure, gameplay, feats, fighting styles, invocations, rules, quality of life, Half-elf variants, Blade Dancer, Ancient Forest, College of Guts, College of Life, Dead Master, Field Manipulator, Way of The Silhouette, Wild Master, Multiclass
+[*][b]Zappastuff[/b]: maintenance, mod UI, infrastructure, gameplay, feats, fighting styles, invocations, rules, spells, quality of life, Half-elf variants, Blade Dancer, Ancient Forest, College of Guts, College of Life, Dead Master, Field Manipulator, Way of The Silhouette, Wild Master, Multiclass
 [*][b]TPABOBAP[/b]: game UI, infrastructure, gameplay, feats, invocations, spells, Dead Master, Elementalist, Moonlit, RiftWalker, SoulBlade, Tactician, Way of The Distant Hand, Inventor
 [*][b]ImpPhil[/b]: api, builders, gameplay, rules, quality of life
-[*][b]ChrisJohnDigital[/b]: builders, gameplay, feats, fighting styles, original Wizard subclasses, Arcane Fighter, Spell Master, Spell Shield
+[*][b]ChrisJohnDigital[/b]: builders, gameplay, feats, fighting styles, original Tinkerer, original Wizard subclasses, Arcane Fighter, Spell Master, Spell Shield
 [*][b]Nd[/b]: College of Harlequin, Marshal, Opportunist, Raven, Spell Shield
 [*][b]SilverGriffon[/b]: gameplay, visuals, spells, Dark Elf, Draconic Kobold, Grey Dwarf, Divine Heart
 [*][b]tivie[/b]: Circle of The Night, Path of The Spirits
@@ -419,9 +424,11 @@ When you cast this spell using a spell slot of 4th level or higher, the damage i
 [*][b]Holic75[/b]: spells, Bolgrif, Gnome
 [*][b]RedOrca[/b]: Path of The Light
 [*][b]DreadMaker[/b]: Forest Guardian
+[*][b]Haxermn[/b]: Oath of Hatred
 [*][b]Bazou[/b]: fighting styles, rules, spells
 [*][b]Prioritizer[/b]: Russian translations
 [*][b]xxy961216[/b]: Chinese translations
+[*][b]GoogleTranslator[/b]: French, German, Italian, Portuguese and Spanish translations
 [*][b]Balmz[/b]: some powers and spells icons
 [/list]
 

@@ -18,10 +18,10 @@ internal static class CreditsDisplay
             "maintenance, mod UI, infrastructure, gameplay, feats, fighting styles, invocations, rules, spells, quality of life, Half-elf variants, Blade Dancer, Ancient Forest, College of Guts, College of Life, Dead Master, Field Manipulator, Way of The Silhouette, Wild Master, Multiclass"),
         ("TPABOBAP",
             "game UI, infrastructure, gameplay, feats, invocations, spells, Dead Master, Elementalist, Moonlit, RiftWalker, SoulBlade, Tactician, Way of The Distant Hand, Inventor"),
+        ("Nd", "College of Harlequin, College of War Dancer, Marshal, Opportunist, Raven, Spell Shield"),
         ("ImpPhil", "api, builders, gameplay, rules, quality of life"),
         ("ChrisJohnDigital",
             "builders, gameplay, feats, fighting styles, original Tinkerer, original Wizard subclasses, Arcane Fighter, Spell Master, Spell Shield"),
-        ("Nd", "College of Harlequin, Marshal, Opportunist, Raven, Spell Shield"),
         ("SilverGriffon", "gameplay, visuals, spells, Dark Elf, Draconic Kobold, Grey Dwarf, Divine Heart"),
         ("tivie", "Circle of The Night, Path of The Spirits"),
         ("ElAntonius", "feats, fighting styles, Arcanist"),
@@ -34,7 +34,7 @@ internal static class CreditsDisplay
         ("Prioritizer", "Russian translations"),
         ("xxy961216", "Chinese translations"),
         ("GoogleTranslator", "French, German, Italian, Portuguese and Spanish translations"),
-        ("Balmz", "some powers and spells icons")
+        ("Balmz", "some powers and spells icons, icons improvements")
     };
 
     private static readonly bool IsUnityExplorerInstalled =

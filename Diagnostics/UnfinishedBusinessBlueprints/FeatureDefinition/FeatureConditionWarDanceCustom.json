@@ -1,25 +1,5 @@
 {
-  "$type": "FeatureDefinitionActionAffinity, Assembly-CSharp",
-  "allowedActionTypes": [
-    true,
-    true,
-    true,
-    true,
-    true,
-    true
-  ],
-  "eitherMainOrBonus": false,
-  "maxAttacksNumber": -1,
-  "forbiddenActions": [],
-  "authorizedActions": [
-    9013
-  ],
-  "restrictedActions": [],
-  "actionExecutionModifiers": [],
-  "specialBehaviour": "None",
-  "randomBehaviorDie": "D10",
-  "randomBehaviourOptions": [],
-  "rechargeReactionsAtEveryTurn": false,
+  "$type": "FeatureDefinition, Assembly-CSharp",
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
@@ -44,7 +24,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "3073d03c-5298-5deb-ad31-14e3bba07dc7",
+  "guid": "b414fa27-eb2f-51af-9afe-80868c30c28e",
   "contentPack": 9999,
-  "name": "ActionAffinityWildshapeBonus"
+  "name": "FeatureConditionWarDanceCustom"
 }

@@ -310,7 +310,7 @@ public static class RulesetCharacterHeroPatcher
             }
 
             var rank = provider.GetRank(__instance);
-            RuleDefinitions.DieType dieTypeOfRank = attackModifier.GetDieTypeOfRank(rank);
+            var dieTypeOfRank = attackModifier.GetDieTypeOfRank(rank);
             if (rank <= 0)
             {
                 return false;

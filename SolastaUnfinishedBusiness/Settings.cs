@@ -64,7 +64,7 @@ public class Settings : UnityModManager.ModSettings
     public bool EnableFlexibleBackgrounds { get; set; }
     public bool EnableFlexibleRaces { get; set; }
     public bool DisableRacePrerequisitesOnModFeats { get; set; }
-    public bool EnableWarlockVariant { get; set; }
+    public bool AddHumanoidFavoredEnemyToRanger { get; set; }
     public bool EnableEpicPointsAndArray { get; set; }
     public int TotalFeatsGrantedFirstLevel { get; set; }
 
@@ -169,6 +169,7 @@ public class Settings : UnityModManager.ModSettings
     //
 
     // General
+    public bool AddCustomIconsToBolts { get; set; }
     public bool AddNewWeaponsAndRecipesToShops { get; set; }
     public bool AddNewWeaponsAndRecipesToEditor { get; set; }
     public bool AddPickPocketableLoot { get; set; }
@@ -282,4 +283,3 @@ public class Settings : UnityModManager.ModSettings
     public bool DebugLogVariantMisuse { get; set; }
 #endif
 }
-

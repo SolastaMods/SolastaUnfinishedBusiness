@@ -52,6 +52,3 @@ internal sealed class Crippling : AbstractFightingStyle
         FightingStyleChampionAdditional, FightingStyleFighter, FightingStylePaladin, FightingStyleRanger
     };
 }
-
-
-

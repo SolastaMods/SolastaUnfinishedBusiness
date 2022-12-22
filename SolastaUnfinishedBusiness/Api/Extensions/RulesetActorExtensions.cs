@@ -50,6 +50,20 @@ internal static class RulesetActorExtensions
         return FeaturesByType<T>(actor);
     }
 
+    [NotNull]
+    private static List<BaseDefinition> AllActiveDefinitions([CanBeNull] RulesetActor actor)
+    {
+        var list = FeaturesByType<BaseDefinition>(actor);
+
+        //TODO: add other non-feature sources of sub-features like invocations, fighting styles or metamagic if necessary
+        if (actor is RulesetCharacterHero hero)
+        {
+            list.AddRange(hero.trainedFeats);
+        }
+
+        return list;
+    }
+
 #if false
     internal static List<T> GetFeaturesByTypeAndTag<T>(this RulesetCharacterHero hero, string tag) where T : class
     {
@@ -94,7 +108,7 @@ internal static class RulesetActorExtensions
     [NotNull]
     internal static List<T> GetSubFeaturesByType<T>(this RulesetActor actor, params Type[] typesToSkip) where T : class
     {
-        return FeaturesByType<FeatureDefinition>(actor)
+        return AllActiveDefinitions(actor)
             .Where(f => !typesToSkip.Contains(f.GetType()))
             .SelectMany(f => f.GetAllSubFeaturesOfType<T>())
             .ToList();
@@ -102,7 +116,7 @@ internal static class RulesetActorExtensions
 
     internal static bool HasSubFeatureOfType<T>(this RulesetActor actor, params Type[] typesToSkip) where T : class
     {
-        return FeaturesByType<FeatureDefinition>(actor)
+        return AllActiveDefinitions(actor)
             .Where(f => !typesToSkip.Contains(f.GetType()))
             .SelectMany(f => f.GetAllSubFeaturesOfType<T>())
             .FirstOrDefault() != null;

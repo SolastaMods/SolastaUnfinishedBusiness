@@ -29,8 +29,26 @@ internal static class MulticlassWildshapeContext
 
     internal static void FinalizeMonster(RulesetCharacterMonster monster, bool keepMentalAbilityScores)
     {
+        UpdateSenses(monster);
         UpdateAttributeModifiers(monster, keepMentalAbilityScores);
         FixShapeShiftedAc(monster);
+    }
+
+    private static void UpdateSenses(RulesetCharacterMonster monster)
+    {
+        if (monster.originalFormCharacter is not RulesetCharacterHero hero)
+        {
+            return;
+        }
+
+        hero.EnumerateFeaturesToBrowse<FeatureDefinitionSense>(hero.FeaturesToBrowse);
+
+        foreach (var feature in hero.FeaturesToBrowse
+                     .Cast<FeatureDefinitionSense>()
+                     .Where(feature => !monster.ActiveFeatures.Contains(feature)))
+        {
+            monster.ActiveFeatures.Add(feature);
+        }
     }
 
     private static void UpdateAttributeModifiers(RulesetCharacterMonster monster, bool keepMentalAbilityScores)

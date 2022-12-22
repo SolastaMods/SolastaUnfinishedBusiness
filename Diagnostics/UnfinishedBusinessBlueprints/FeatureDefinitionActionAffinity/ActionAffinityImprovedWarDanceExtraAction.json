@@ -1,11 +1,28 @@
 {
-  "$type": "FeatureDefinitionProficiency, Assembly-CSharp",
-  "proficiencyType": "SavingThrow",
-  "proficiencies": [
-    "Charisma",
-    "Wisdom"
+  "$type": "FeatureDefinitionActionAffinity, Assembly-CSharp",
+  "allowedActionTypes": [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
   ],
-  "forbiddenItemTags": [],
+  "eitherMainOrBonus": false,
+  "maxAttacksNumber": -1,
+  "forbiddenActions": [
+    "HideMain",
+    "PowerMain",
+    "UseItemMain",
+    "Ready"
+  ],
+  "authorizedActions": [],
+  "restrictedActions": [],
+  "actionExecutionModifiers": [],
+  "specialBehaviour": "None",
+  "randomBehaviorDie": "D10",
+  "randomBehaviourOptions": [],
+  "rechargeReactionsAtEveryTurn": false,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
@@ -30,7 +47,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "8e9cd8e1-2941-5caa-8a3a-beadecbbd2a5",
+  "guid": "dadf1cd5-9522-54af-aff3-57b97b6bdac0",
   "contentPack": 9999,
-  "name": "ProficiencyWarlockSavingThrowCharisma"
+  "name": "ActionAffinityImprovedWarDanceExtraAction"
 }

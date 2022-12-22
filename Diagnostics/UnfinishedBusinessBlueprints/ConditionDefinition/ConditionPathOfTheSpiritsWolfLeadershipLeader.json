@@ -3,7 +3,9 @@
   "inDungeonEditor": false,
   "parentCondition": null,
   "conditionType": "Beneficial",
-  "features": [],
+  "features": [
+    "Definition:OnAfterActionWolfLeadership:bf592162-2a39-5ce7-bab3-77f609df2c96"
+  ],
   "allowMultipleInstances": false,
   "silentWhenAdded": true,
   "silentWhenRemoved": true,

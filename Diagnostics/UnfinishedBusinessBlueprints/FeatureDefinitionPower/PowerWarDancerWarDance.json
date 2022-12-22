@@ -30,10 +30,10 @@
     "trapRangeType": "Triggerer",
     "targetConditionName": "",
     "targetConditionAsset": null,
-    "targetSide": "Ally",
-    "durationType": "Minute",
+    "targetSide": "All",
+    "durationType": "Round",
     "durationParameter": 1,
-    "endOfEffect": "EndOfTurn",
+    "endOfEffect": "StartOfTurn",
     "hasSavingThrow": false,
     "disableSavingThrowOnAllies": false,
     "savingThrowAbility": "Dexterity",
@@ -77,11 +77,40 @@
         "saveOccurence": "EndOfTurn",
         "conditionForm": {
           "$type": "ConditionForm, Assembly-CSharp",
-          "conditionDefinitionName": "ConditionPathOfTheSpiritsWolfLeadershipLeader",
-          "conditionDefinition": "Definition:ConditionPathOfTheSpiritsWolfLeadershipLeader:40f49eb4-4f31-5d0d-8d42-b13b1acc67cc",
+          "conditionDefinitionName": "ConditionWarDance",
+          "conditionDefinition": "Definition:ConditionWarDance:60cb6a58-0596-5844-b181-763b1badb445",
           "operation": "Add",
           "conditionsList": [
-            "Definition:ConditionPathOfTheSpiritsWolfLeadershipLeader:40f49eb4-4f31-5d0d-8d42-b13b1acc67cc"
+            "Definition:ConditionWarDance:60cb6a58-0596-5844-b181-763b1badb445"
+          ],
+          "applyToSelf": false,
+          "forceOnSelf": false
+        },
+        "hasFilterId": false,
+        "filterId": 0
+      },
+      {
+        "$type": "EffectForm, Assembly-CSharp",
+        "formType": "Condition",
+        "addBonusMode": "None",
+        "applyLevel": "No",
+        "levelType": "ClassLevel",
+        "levelMultiplier": 1,
+        "diceByLevelTable": [],
+        "createdByCharacter": false,
+        "createdByCondition": false,
+        "hasSavingThrow": false,
+        "savingThrowAffinity": "None",
+        "dcModifier": 0,
+        "canSaveToCancel": false,
+        "saveOccurence": "EndOfTurn",
+        "conditionForm": {
+          "$type": "ConditionForm, Assembly-CSharp",
+          "conditionDefinitionName": "ConditionBardicInspiration",
+          "conditionDefinition": "Definition:ConditionBardicInspiration:e76c421c0a8f49046909673053aec5d6",
+          "operation": "Add",
+          "conditionsList": [
+            "Definition:ConditionBardicInspiration:e76c421c0a8f49046909673053aec5d6"
           ],
           "applyToSelf": false,
           "forceOnSelf": false
@@ -116,7 +145,7 @@
       "$type": "EffectParticleParameters, Assembly-CSharp",
       "casterParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "81560ac3813217d4d9fd281d5e73c234",
+        "m_AssetGUID": "9ea879c960a6f274690d1f20be3c104e",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -140,7 +169,7 @@
       },
       "effectParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "",
+        "m_AssetGUID": "9f986448e62358f4bac04e8fd2c64261",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -291,7 +320,7 @@
   "delegatedToAction": false,
   "surrogateToSpell": null,
   "triggeredBySpecialMove": false,
-  "activationTime": "OnRageStartAutomatic",
+  "activationTime": "BonusAction",
   "autoActivationRequiredTargetSenseType": "None",
   "autoActivationRequiredTargetCreatureTag": "",
   "autoActivationPowerTag": "",
@@ -306,7 +335,7 @@
   "canUseInDialog": false,
   "disableIfConditionIsOwned": null,
   "disableIfTargetConditionIsOwned": null,
-  "rechargeRate": "AtWill",
+  "rechargeRate": "BardicInspiration",
   "costPerUse": 1,
   "spellcastingFeature": null,
   "usesDetermination": "Fixed",
@@ -325,14 +354,14 @@
   "includeBaseDescription": false,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
-    "hidden": true,
-    "title": "Feature/&NoContentTitle",
-    "description": "Feature/&NoContentTitle",
+    "hidden": false,
+    "title": "Feature/&PowerWarDancerWarDanceTitle",
+    "description": "Feature/&PowerWarDancerWarDanceDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "",
-      "m_SubObjectName": null,
-      "m_SubObjectType": null
+      "m_AssetGUID": "cdbd83e68b3d8d44eb03f6852a7fd63b",
+      "m_SubObjectName": "MagicWeapon",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
@@ -347,7 +376,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "8e49b770-f761-5aed-9c7b-3d2b69432816",
+  "guid": "a89352fc-4f22-586e-947c-2cd98120eacb",
   "contentPack": 9999,
-  "name": "PowerPathOfTheSpiritsWolfLeadershipLeader"
+  "name": "PowerWarDancerWarDance"
 }

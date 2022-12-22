@@ -92,7 +92,7 @@ ModUi/&FasterTimeModifier=<color=white>Game time modifier when pressing space ba
 ModUi/&FeatGroups=<color=#F0DAA0>Feat Groups</color>
 ModUi/&FeatGroupsHelp=. Each group is a consolidation of similar feats <i><color=#F0DAA0>[i.e.: creeds, fighting styles, metamagic, etc]</color></i>\n. Feats in these groups won't be directly visible anymore on the proficiency selection stage\n. The group, when selected, offers them on a dropdown list to de-clutter the game screen
 ModUi/&Feats=<color=#F0DAA0>Feats</color>
-ModUi/&FeatsFightingStylesInvocations=Feats, Invocations & F. Styles
+ModUi/&FeatsFightingStylesInvocations=Feats, Styles & Invocations
 ModUi/&FightingStyles=<color=#F0DAA0>Fighting Styles</color>
 ModUi/&FixEldritchBlastRange=Change <color=#D89555>Eldritch Blast</color> range to 24 <i><color=#F0DAA0>[instead of 16]</color></i>
 ModUi/&FixSorcererTwinnedLogic=Fix <color=#D89555>Sorcerer</color> twinned metamagic use <i><color=#F0DAA0>[must be incapable of targeting more than one creature at spell's current level]</color></i>
@@ -182,4 +182,5 @@ ModUi/&UnlockSkinColors=Unlock skin colors
 ModUi/&UseHeightOneCylinderEffect=Use a height 1 cylinder effect when casting <color=#D89555>Black Tentacles, Entangle, Grease</color> <i><color=#F0DAA0>[square]</color></i> or <color=#D89555>Spike Growth</color> <i><color=#F0DAA0>[round]</color></i>
 ModUi/&UseOfficialAdvantageDisadvantageRules=Use official advantage / disadvantage rules
 ModUi/&Visuals=<color=#F0DAA0>Visuals:</color> <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
-ModUi/&EnableWarlockVariant=Enable the <color=#D89555>Warlocks</color> to pick Intelligence or Charisma as their spell casting ability <i><color=#F0DAA0>[saving throw will change accordingly]</color></i>
+ModUi/&AddHumanoidFavoredEnemyToRanger=Add humanoid preferred enemy to <color=#D89555>Rangers</color>
+ModUi/&AddCustomIconsToBolts=Add custom icons to Corrosive, Flaming and Flask bolts and corresponding recipes <b><i><color=#C04040E0>[Requires Restart]</color></i></b>

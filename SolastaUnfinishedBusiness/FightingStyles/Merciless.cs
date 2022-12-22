@@ -78,5 +78,3 @@ internal sealed class Merciless : AbstractFightingStyle
         }
     }
 }
-
-

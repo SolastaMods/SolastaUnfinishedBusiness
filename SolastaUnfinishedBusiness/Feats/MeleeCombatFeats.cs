@@ -22,17 +22,17 @@ internal static class MeleeCombatFeats
         .SetGuiPresentationNoContent(true)
         .SetCustomSubFeatures(
             new AfterAttackEffectFeatPiercer(ConditionDefinitionBuilder
-                .Create("ConditionFeatPiercerNonMagic")
-                .SetGuiPresentationNoContent(true)
-                .SetSpecialDuration(DurationType.Round, 1)
-                .SetSpecialInterruptions(ConditionInterruption.Attacked)
-                .SetFeatures(
-                    FeatureDefinitionDieRollModifierBuilder
-                        .Create("DieRollModifierFeatPiercerNonMagic")
-                        .SetGuiPresentationNoContent(true)
-                        .SetModifiers(AttackDamageValueRoll, 1, 1, 1, "Feat/&FeatPiercerReroll")
-                        .AddToDB())
-                .AddToDB(),
+                    .Create("ConditionFeatPiercerNonMagic")
+                    .SetGuiPresentationNoContent(true)
+                    .SetSpecialDuration(DurationType.Round, 1)
+                    .SetSpecialInterruptions(ConditionInterruption.Attacked)
+                    .SetFeatures(
+                        FeatureDefinitionDieRollModifierBuilder
+                            .Create("DieRollModifierFeatPiercerNonMagic")
+                            .SetGuiPresentationNoContent(true)
+                            .SetModifiers(AttackDamageValueRoll, 1, 1, 1, "Feat/&FeatPiercerReroll")
+                            .AddToDB())
+                    .AddToDB(),
                 DamageTypePiercing),
             new CustomAdditionalDamageFeatPiercer(
                 FeatureDefinitionAdditionalDamageBuilder
@@ -303,6 +303,3 @@ internal static class MeleeCombatFeats
         }
     }
 }
-
-
-

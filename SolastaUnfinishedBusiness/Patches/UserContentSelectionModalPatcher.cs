@@ -81,7 +81,3 @@ public static class UserContentSelectionModalPatcher
         }
     }
 }
-
-
-
-

@@ -22,12 +22,12 @@ internal class FeatureDefinitionActionAffinityBuilder
         return this;
     }
 
-#if false
+#if false    
     internal FeatureDefinitionActionAffinityBuilder SetRestrictedActions(params ActionDefinitions.Id[] actions)
     {
         Definition.RestrictedActions.SetRange(actions);
         Definition.RestrictedActions.Sort();
-        return (TBuilder)this;
+        return this;
     }
 #endif
 

@@ -392,7 +392,3 @@ internal sealed class PathOfTheLight : AbstractSubclass
         public CharacterClassDefinition Class => CharacterClassDefinitions.Barbarian;
     }
 }
-
-
-
-

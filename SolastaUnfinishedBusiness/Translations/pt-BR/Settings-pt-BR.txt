@@ -1,6 +1,6 @@
 ModUi/&AddAllToStore=Adicionar tudo à loja
 ModUi/&AddBleedingToLesserRestoration=Adicione a condição <color=#D89555>Sangramento</color> àquelas removidas por <color=#D89555>Maior</color> e <color=#D89555>Menor Restauração</color>
-ModUi/&AddHelpActionToAllRaces=Adicione a ação <color=#D89555>Ajuda</color> a todas as raças jogáveis <i><color=#F0DAA0>[você pode ajudar uma criatura amiga a atacar uma criatura a até 1,5 metro de você]</color></ eu>
+ModUi/&AddHelpActionToAllRaces=Adicione a ação <color=#D89555>Ajuda</color> a todas as raças jogáveis <i><color=#F0DAA0>[você pode ajudar uma criatura amiga a atacar uma criatura a até 1,5 metro de você]</color></i>
 ModUi/&AddNewBrightEyeColors=Adicione novas cores de olhos brilhantes
 ModUi/&AddNewWeaponsAndRecipesToShops=Adicione novas armas e receitas às lojas <i><color=#F0DAA0>[bandagens de mão, alabardas, lanças, maças longas, bestas de mão]</color></i> <b><i><color=#C04040E0> [Requer reinicialização]</color></i></b>
 ModUi/&AddPickPocketableLoot=Adicionado pilhagem para furto <i><color=#F0DAA0>[sugerido se o talento <color=#D89555>Pickpocket</color> estiver ativado]</color></i>
@@ -79,7 +79,7 @@ ModUi/&EnablesAsiAndFeat=Ative o aumento de pontuação de atributos e a seleç�
 ModUi/&EnableSaveByLocation=Ativar salvar por campanhas / locais
 ModUi/&EnableSortingDungeonMakerAssets=Ativar classificação de recursos no editor do Dungeon Maker
 ModUi/&EnableStatsOnHeroTooltip=Exibir estatísticas na dica de ferramenta do herói <i><color=#F0DAA0>[ou seja: acertos críticos, falhas críticas, etc.]</color></i>
-ModUi/&EnableTeleportParty=Habilite <color=#1E81B0>CTRL-SHIFT-(T)</color> para teletransportar o grupo <i><color=#F0DAA0>[você pode interromper missões se teletransportar para um lugar desconhecido]</color></ eu>
+ModUi/&EnableTeleportParty=Habilite <color=#1E81B0>CTRL-SHIFT-(T)</color> para teletransportar o grupo <i><color=#F0DAA0>[você pode interromper missões se teletransportar para um lugar desconhecido]</color></i>
 ModUi/&EnableTogglesToOverwriteDefaultTestParty=Ative a alternância no pool de personagens para definir seu jogo padrão e grupo de teste
 ModUi/&EnableUpcastConjureElementalAndFey=Habilitar upcast de <color=#D89555>Conjure Elemental</color> e <color=#D89555>Conjure Fey</color>
 ModUi/&EncounterPercentageChance=<color=white>Definir chances de porcentagem de encontros aleatórios</color>
@@ -181,3 +181,6 @@ ModUi/&UnlockSkinColors=Desbloquear cores de pele
 ModUi/&UseHeightOneCylinderEffect=Use um efeito de 1 cilindro de altura ao conjurar <color=#D89555>Tentáculos Negros, Enredar, Graxa</color> <i><color=#F0DAA0>[quadrado]</color></i> ou <color=#D89555>Crescimento do pico</color> <i><color=#F0DAA0>[rodada]</color></i>
 ModUi/&UseOfficialAdvantageDisadvantageRules=Use as regras oficiais de vantagem/desvantagem
 ModUi/&Visuals=<color=#F0DAA0>Visuais:</color> <b><i><color=#C04040E0>[Requer reinicialização]</color></i></b>
+ModUi/&AddHumanoidFavoredEnemyToRanger=Adicione o inimigo preferencial humanóide a <color=#D89555>Rangers</color>
+ModUi/&EnableRejoinParty=Ative <color=#1E81B0>CTRL-SHIFT-(R)</color> para voltar ao grupo <i><color=#F0DAA0>[útil com grupos de 5 ou 6]</color></i>
+ModUi/&AddCustomIconsToBolts=Adicione ícones personalizados aos parafusos Corrosivo, Flamejante e Frasco e às receitas correspondentes <b><i><color=#C04040E0>[Requer reinicialização]</color></i></b>

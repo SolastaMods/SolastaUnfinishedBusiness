@@ -1,7 +1,7 @@
 ﻿using System.Linq;
+using SolastaUnfinishedBusiness.Api.Extensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
-using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.Models;
 using static FeatureDefinitionAttributeModifier;
@@ -19,8 +19,6 @@ namespace SolastaUnfinishedBusiness.Subclasses;
 internal sealed class PathOfTheSpirits : AbstractSubclass
 {
     private const string SubclassName = "PathOfTheSpirits";
-    private const string PathOfTheSpiritsWolfLeadershipPackName = "ConditionPathOfTheSpiritsWolfLeadershipPack";
-    private const string PathOfTheSpiritsWolfLeadershipLeaderName = "ConditionPathOfTheSpiritsWolfLeadershipLeader";
 
     internal PathOfTheSpirits()
     {
@@ -195,79 +193,45 @@ internal sealed class PathOfTheSpirits : AbstractSubclass
             .AddToDB();
     }
 
-
     private static FeatureDefinition PowerPathOfTheSpiritsWolfLeadership()
     {
-        const string NAME = "FeatureSetPathOfTheSpiritsWolfLeadership";
-
-        var conditionPathOfTheSpiritsWolfLeadershipLeader = ConditionDefinitionBuilder
-            .Create(PathOfTheSpiritsWolfLeadershipLeaderName)
-            .SetGuiPresentationNoContent(true)
-            .SetSilent(Silent.WhenAddedOrRemoved)
-            .SetSpecialInterruptions(ConditionInterruption.RageStop)
-            // notify all allies to remove wolf spirit condition
-            .SetCustomSubFeatures(new NotifyRemoval())
-            .AddToDB();
-
         var conditionPathOfTheSpiritsWolfLeadershipPack = ConditionDefinitionBuilder
-            .Create(PathOfTheSpiritsWolfLeadershipPackName)
-            .SetGuiPresentation(NAME, Category.Feature)
-            .AllowMultipleInstances()
+            .Create("ConditionPathOfTheSpiritsWolfLeadershipPack")
+            .SetGuiPresentation(Category.Feature, ConditionDefinitions.ConditionHeraldOfBattle)
+            .SetSpecialDuration(DurationType.Round, 1, TurnOccurenceType.StartOfTurn)
             .SetFeatures(FeatureDefinitionCombatAffinityBuilder
-                .Create(CombatAffinityRousingShout, "CombatAffinityPathOfTheSpiritsWolfLeadership")
-                .SetGuiPresentation(Category.Feature)
-                .SetCustomSubFeatures(
-                    new ValidatorsPowerUse(
-                        ValidatorsCharacter.HasAnyOfConditions(ConditionDefinitions.ConditionRaging)))
+                .Create(CombatAffinityRousingShout, "CombatAffinityPathOfTheSpiritsWolfLeadershipPack")
+                .SetGuiPresentation("ConditionPathOfTheSpiritsWolfLeadershipPack", Category.Feature)
                 .AddToDB())
             .AddToDB();
 
-        var powerPathOfTheSpiritsWolfLeadershipLeader = FeatureDefinitionPowerBuilder
-            .Create("PowerPathOfTheSpiritsWolfLeadershipLeader")
+        var conditionPathOfTheSpiritsWolfLeadershipLeader = ConditionDefinitionBuilder
+            .Create("ConditionPathOfTheSpiritsWolfLeadershipLeader")
             .SetGuiPresentationNoContent(true)
-            .SetUsesFixed(ActivationTime.OnRageStartAutomatic)
-            .SetEffectDescription(EffectDescriptionBuilder.Create()
-                .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
-                .SetDurationData(DurationType.Minute, 1)
-                .SetEffectForms(EffectFormBuilder
-                    .Create()
-                    .SetConditionForm(conditionPathOfTheSpiritsWolfLeadershipLeader,
-                        ConditionForm.ConditionOperation.Add)
-                    .Build())
-                .Build())
+            .SetSilent(Silent.WhenAddedOrRemoved)
+            .SetSpecialInterruptions(ConditionInterruption.RageStop)
+            .SetFeatures(FeatureDefinitionBuilder
+                .Create("OnAfterActionWolfLeadership")
+                .SetGuiPresentationNoContent(true)
+                .SetCustomSubFeatures(new OnAfterActionWolfLeadership(conditionPathOfTheSpiritsWolfLeadershipPack))
+                .AddToDB())
             .AddToDB();
 
-        var powerPathOfTheSpiritsWolfLeadershipPack = FeatureDefinitionPowerBuilder
-            .Create("PowerPathOfTheSpiritsWolfLeadershipPack")
-            .SetGuiPresentationNoContent(true)
-            .SetUsesFixed(ActivationTime.OnRageStartAutomatic)
-            .SetEffectDescription(EffectDescriptionBuilder.Create()
-                .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Sphere, 6)
-                .SetRecurrentEffect(
-                    RecurrentEffect.OnActivation | RecurrentEffect.OnEnter | RecurrentEffect.OnTurnStart)
-                // only during the round Barbarian started raging
-                .SetDurationData(DurationType.Round, 1)
-                .SetEffectForms(EffectFormBuilder
-                    .Create()
-                    .SetConditionForm(conditionPathOfTheSpiritsWolfLeadershipPack,
-                        ConditionForm.ConditionOperation.Add)
-                    .Build())
-                .Build())
-            .AddToDB();
-
-        return FeatureDefinitionFeatureSetBuilder
-            .Create(NAME)
+        return FeatureDefinitionPowerBuilder
+            .Create("PowerPathOfTheSpiritsWolfLeadership")
             .SetGuiPresentation(Category.Feature)
-            .AddFeatureSet(
-                // ExcludeCaster() doesn't work on Auras so need to make Barb immune to advantage
-                FeatureDefinitionConditionAffinityBuilder
-                    .Create("ConditionAffinityPathOfTheSpiritsWolfLeadershipPack")
-                    .SetGuiPresentationNoContent(true)
-                    .SetConditionType(conditionPathOfTheSpiritsWolfLeadershipPack)
-                    .SetConditionAffinityType(ConditionAffinityType.Immunity)
-                    .AddToDB(),
-                powerPathOfTheSpiritsWolfLeadershipLeader,
-                powerPathOfTheSpiritsWolfLeadershipPack)
+            .SetUsesFixed(ActivationTime.OnRageStartAutomatic)
+            .SetEffectDescription(EffectDescriptionBuilder
+                .Create()
+                .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
+                .SetDurationData(DurationType.Permanent)
+                .SetEffectForms(EffectFormBuilder
+                    .Create()
+                    .SetConditionForm(
+                        conditionPathOfTheSpiritsWolfLeadershipLeader,
+                        ConditionForm.ConditionOperation.Add)
+                    .Build())
+                .Build())
             .AddToDB();
     }
 
@@ -296,25 +260,17 @@ internal sealed class PathOfTheSpirits : AbstractSubclass
             .AddToDB();
     }
 
-    private class NotifyRemoval : INotifyConditionRemoval
+    private class OnAfterActionWolfLeadership : IOnAfterActionFeature
     {
-        public void AfterConditionRemoved(RulesetActor removedFrom, RulesetCondition rulesetCondition)
+        private readonly ConditionDefinition _conditionDefinition;
+
+        public OnAfterActionWolfLeadership(ConditionDefinition conditionDefinition)
         {
-            RemovePackCondition(removedFrom, rulesetCondition);
+            _conditionDefinition = conditionDefinition;
         }
 
-        public void BeforeDyingWithCondition(RulesetActor rulesetActor, RulesetCondition rulesetCondition)
+        public void OnAfterAction(CharacterAction action)
         {
-            RemovePackCondition(rulesetActor, rulesetCondition);
-        }
-
-        private static void RemovePackCondition(RulesetEntity rulesetActor, RulesetCondition rulesetCondition)
-        {
-            if (rulesetCondition.conditionDefinition.Name != PathOfTheSpiritsWolfLeadershipLeaderName)
-            {
-                return;
-            }
-
             var gameLocationCharacterService = ServiceRepository.GetService<IGameLocationCharacterService>();
 
             if (gameLocationCharacterService == null)
@@ -322,18 +278,31 @@ internal sealed class PathOfTheSpirits : AbstractSubclass
                 return;
             }
 
+            var myself = action.ActingCharacter.RulesetCharacter;
+
             foreach (var rulesetCharacter in gameLocationCharacterService.ValidCharacters
                          .Select(x => x.RulesetCharacter)
-                         .Where(x => x.CurrentFaction == FactionDefinitions.Party))
+                         .Where(x => x.CurrentFaction == FactionDefinitions.Party)
+                         .Where(x => x != myself)
+                         .Where(x => myself.DistanceTo(x) <= 3)) // 15 feet
             {
                 if (rulesetCharacter.TryGetConditionOfCategoryAndType(AttributeDefinitions.TagEffect,
-                        PathOfTheSpiritsWolfLeadershipPackName, out var condition) &&
-                    condition.sourceGuid == rulesetActor.guid)
+                        _conditionDefinition.Name, out _))
                 {
-                    rulesetCharacter.RemoveCondition(condition);
+                    continue;
                 }
+
+                var condition = RulesetCondition.CreateActiveCondition(
+                    rulesetCharacter.guid,
+                    _conditionDefinition,
+                    DurationType.Round,
+                    1,
+                    TurnOccurenceType.EndOfTurn,
+                    myself.guid,
+                    myself.CurrentFaction.Name);
+
+                rulesetCharacter.AddConditionOfCategory(AttributeDefinitions.TagEffect, condition);
             }
         }
     }
 }
-

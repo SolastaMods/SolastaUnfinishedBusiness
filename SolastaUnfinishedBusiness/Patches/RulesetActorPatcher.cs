@@ -11,7 +11,6 @@ using SolastaUnfinishedBusiness.Api.Extensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomInterfaces;
-using SolastaUnfinishedBusiness.Feats;
 using SolastaUnfinishedBusiness.Subclasses;
 using TA;
 using UnityEngine;
@@ -259,24 +258,13 @@ public static class RulesetActorPatcher
         )
         {
             if (rollContext == RuleDefinitions.RollContext.AttackRoll &&
-                advantageType == RuleDefinitions.AdvantageType.Advantage && IsElvenPrecisionContextQualified(actor))
+                advantageType == RuleDefinitions.AdvantageType.Advantage && ElvenPrecisionLogic.Active)
             {
                 return Roll3DicesAndKeepBest(actor.Name, dieType, out firstRoll, out secondRoll, rollAlterationScore);
             }
 
             return RuleDefinitions.RollDie(dieType, advantageType, out firstRoll, out secondRoll,
                 rollAlterationScore);
-        }
-
-        private static bool IsElvenPrecisionContextQualified(RulesetActor actor)
-        {
-            var character = GameLocationCharacter.GetFromActor(actor);
-
-            return character.RulesetCharacter is RulesetCharacterHero hero && hero.TrainedFeats
-                .Where(feat => feat.Name.Contains(RaceFeats.ElvenAccuracyTag))
-                .Select(feat => feat.GetFirstSubFeatureOfType<RaceFeats.ElvenPrecisionContext>())
-                .Where(context => context != null)
-                .Any(sub => sub.Qualified);
         }
 
         private static int Roll3DicesAndKeepBest(

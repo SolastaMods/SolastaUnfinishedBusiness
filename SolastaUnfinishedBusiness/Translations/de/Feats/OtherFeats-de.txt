@@ -31,3 +31,5 @@ Reaction/&ReactionWarcasterTitle=Angriff der Gelegenheit
 Reaction/&SubitemSelectReactionWarcasterTitle=Aktion auswählen
 Reaction/&WarcasterAttackDescription=Angriffsziel.
 Reaction/&WarcasterAttackTitle=Attacke
+Feature/&PowerFeatPoisonousSkinDescription=1 Minute lang vergiftet.
+Feature/&PowerFeatPoisonousSkinTitle=Giftige Haut

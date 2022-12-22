@@ -436,10 +436,11 @@ internal sealed class WayOfTheDistantHand : AbstractSubclass
     {
         // used for easier detection of Zen Archer characters to allow stunning strike on arrows
     }
-    
-    internal sealed class ZenArcherDiceUpgrade: IRestrictedContextValidator
+
+    internal sealed class ZenArcherDiceUpgrade : IRestrictedContextValidator
     {
         public static IRestrictedContextValidator Marker { get; } = new ZenArcherDiceUpgrade();
+
         private ZenArcherDiceUpgrade()
         {
         }
@@ -527,6 +528,3 @@ internal sealed class WayOfTheDistantHand : AbstractSubclass
         }
     }
 }
-
-
-

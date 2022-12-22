@@ -80,4 +80,38 @@ internal static class ReplaceAttackWithCantrip
             __instance.currentActionRankByType[ActionDefinitions.ActionType.Main]--;
         }
     }
+
+    internal static void MightRefundOneAttackOfMainAction(
+        GameLocationCharacter __instance,
+        CharacterActionParams actionParams,
+        ActionDefinitions.ActionScope scope)
+    {
+        // should be in battle only
+        if (scope != ActionDefinitions.ActionScope.Battle)
+        {
+            return;
+        }
+
+        // don't refund if still has unused attack
+        if (__instance.usedMainAttacks > 0)
+        {
+            return;
+        }
+
+        // if main action is not available then don't refund
+        if (__instance.currentActionRankByType[ActionDefinitions.ActionType.Main] <= 0)
+        {
+            return;
+        }
+
+        var features = actionParams.actingCharacter.RulesetCharacter
+            .GetSubFeaturesByType<IMightRefundOneAttackOfMainAction>();
+        var refund = features.Aggregate(false,
+            (current, f) => current | f.MightRefundOneAttackOfMainAction(__instance, actionParams));
+
+        if (refund)
+        {
+            __instance.currentActionRankByType[ActionDefinitions.ActionType.Main]--;
+        }
+    }
 }

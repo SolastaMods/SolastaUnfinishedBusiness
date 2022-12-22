@@ -3,6 +3,7 @@ using System.Linq;
 using HarmonyLib;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Builders;
+using SolastaUnfinishedBusiness.Classes;
 using SolastaUnfinishedBusiness.Classes.Inventor;
 
 namespace SolastaUnfinishedBusiness.Models;
@@ -14,6 +15,7 @@ internal static class ClassesContext
     internal static void Load()
     {
         LoadClass(InventorClass.Build());
+        LoadClass(WarlockVariantClass.Build());
 
         // sorting
         Classes = Classes.OrderBy(x => x.FormatTitle()).ToHashSet();

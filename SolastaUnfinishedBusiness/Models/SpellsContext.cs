@@ -73,7 +73,7 @@ internal static class SpellsContext
                     .Select(x => x.FeatureDefinition)
                     .OfType<FeatureDefinitionCastSpell>()
                     .FirstOrDefault();
-                
+
                 // this is an exception to comport Warlock Variant and force the original game one
                 if (characterClass == DatabaseHelper.CharacterClassDefinitions.Warlock)
                 {
@@ -341,4 +341,3 @@ internal static class SpellsContext
         }
     }
 }
-

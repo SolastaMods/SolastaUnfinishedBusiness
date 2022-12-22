@@ -1,5 +1,4 @@
-﻿
-using System.Diagnostics.CodeAnalysis;
+﻿using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
 using JetBrains.Annotations;
 using UnityEngine;
@@ -29,7 +28,7 @@ public static class MultiplayerStatusModalPatcher
                                 multiplayerWaitModal.notReadyPlayerInfoGroups[0].transform.parent);
 
                             var playerInfoGroup = newItem.GetComponent<PlayerInfoGroup>();
-                            
+
                             multiplayerWaitModal.notReadyPlayerInfoGroups.Add(playerInfoGroup);
                         }
                     }
@@ -43,7 +42,7 @@ public static class MultiplayerStatusModalPatcher
                                 multiplayerWaitModal.readyPlayerInfoGroups[0].transform.parent);
 
                             var playerInfoGroup = newItem.GetComponent<PlayerInfoGroup>();
-                            
+
                             multiplayerWaitModal.readyPlayerInfoGroups.Add(playerInfoGroup);
                         }
                     }

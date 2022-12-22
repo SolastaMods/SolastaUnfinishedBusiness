@@ -167,7 +167,6 @@ internal enum ExtraActionId
     BondOfTheTalismanTeleport = 9010,
     DoNothingFree = 9011,
     DoNothingReaction = 9012,
-    WildshapeBonusAction = 9013,
 }
 
 internal static class EnumImplementation

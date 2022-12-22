@@ -60,7 +60,7 @@ internal static class Level20Context
 
         //
         // required to avoid issues on how game calculates caster / spell levels and some trace error messages
-        // that might affect multiplayer sessions and prevent level up from 19 to 20
+        // that might affect multiplayer sessions, prevent level up from 19 to 20 and prevent some MC scenarios
         //
 
         var classesFeatures = DatabaseRepository.GetDatabase<CharacterClassDefinition>()
@@ -86,7 +86,7 @@ internal static class Level20Context
 
             var spellsByLevel = spellListDefinition.SpellsByLevel;
 
-            while (spellsByLevel.Count < spellListDefinition.MaxSpellLevel + (spellListDefinition.HasCantrips ? 1 : 0))
+            while (spellsByLevel.Count < 10)
             {
                 spellsByLevel.Add(new SpellListDefinition.SpellsByLevelDuplet
                 {
@@ -126,7 +126,7 @@ internal static class Level20Context
 
             var spellsByLevel = spellListDefinition.SpellsByLevel;
 
-            while (spellsByLevel.Count < spellListDefinition.MaxSpellLevel + (spellListDefinition.HasCantrips ? 1 : 0))
+            while (spellsByLevel.Count < 10)
             {
                 spellsByLevel.Add(new SpellListDefinition.SpellsByLevelDuplet
                 {
@@ -876,4 +876,3 @@ internal static class Level20Context
         }
     }
 }
-

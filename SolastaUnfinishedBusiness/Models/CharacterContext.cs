@@ -10,6 +10,7 @@ using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Properties;
 using SolastaUnfinishedBusiness.Races;
+using SolastaUnfinishedBusiness.Subclasses;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterClassDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterRaceDefinitions;
@@ -36,24 +37,7 @@ internal static class CharacterContext
     private static int PreviousTotalFeatsGrantedFirstLevel { get; set; } = -1;
     private static bool PreviousAlternateHuman { get; set; }
 
-    internal static readonly FeatureDefinitionProficiency ProficiencyWarlockSavingThrowCharisma =
-        FeatureDefinitionProficiencyBuilder
-            .Create("ProficiencyWarlockSavingThrowCharisma")
-            .SetGuiPresentationNoContent(true)
-            .SetProficiencies(ProficiencyType.SavingThrow,
-                AttributeDefinitions.Charisma, AttributeDefinitions.Wisdom)
-            .AddToDB();
-
-    internal static readonly FeatureDefinitionProficiency ProficiencyWarlockSavingThrowIntelligence =
-        FeatureDefinitionProficiencyBuilder
-            .Create("ProficiencyWarlockSavingThrowIntelligence")
-            .SetGuiPresentationNoContent(true)
-            .SetProficiencies(ProficiencyType.SavingThrow,
-                AttributeDefinitions.Intelligence, AttributeDefinitions.Wisdom)
-            .AddToDB();
-
     internal static FeatureDefinitionPower FeatureDefinitionPowerHelpAction { get; private set; }
-    private static FeatureDefinitionFeatureSet FeatureSetWarlockVariant { get; set; }
 
     internal static void Load()
     {
@@ -74,7 +58,6 @@ internal static class CharacterContext
 
         LoadFighterArmamentAdroitness();
         LoadHelpPower();
-        LoadWarlockVariant();
         LoadEpicArray();
         LoadAdditionalNames();
         LoadVisuals();
@@ -86,7 +69,7 @@ internal static class CharacterContext
         FlexibleBackgroundsContext.SwitchFlexibleBackgrounds();
         FlexibleRacesContext.SwitchFlexibleRaces();
         SwitchFirstLevelTotalFeats(); // alternate human here as well
-        SwitchWarlockVariant();
+        SwitchRangerHumanoidFavoredEnemy();
         SwitchAsiAndFeat();
         SwitchEvenLevelFeats();
         SwitchFighterArmamentAdroitness();
@@ -324,47 +307,6 @@ internal static class CharacterContext
             .Default;
     }
 
-    private static void LoadWarlockVariant()
-    {
-        var castSpellWarlockCharisma = FeatureDefinitionCastSpellBuilder
-            .Create(FeatureDefinitionCastSpells.CastSpellWarlock, "CastSpellWarlockCharisma")
-            .SetGuiPresentationNoContent(true)
-            .SetSpellCastingAbility(AttributeDefinitions.Charisma)
-            .AddToDB();
-
-        var featureSetWarlockCharisma = FeatureDefinitionFeatureSetBuilder
-            .Create("FeatureSetWarlockCharisma")
-            .SetGuiPresentation(Category.Feature)
-            .AddFeatureSet(
-                castSpellWarlockCharisma,
-                ProficiencyWarlockSavingThrowCharisma)
-            .SetMode(FeatureDefinitionFeatureSet.FeatureSetMode.Union)
-            .AddToDB();
-
-        var castSpellWarlockIntelligence = FeatureDefinitionCastSpellBuilder
-            .Create(FeatureDefinitionCastSpells.CastSpellWarlock, "CastSpellWarlockIntelligence")
-            .SetSpellCastingAbility(AttributeDefinitions.Intelligence)
-            .AddToDB();
-
-        var featureSetWarlockIntelligence = FeatureDefinitionFeatureSetBuilder
-            .Create("FeatureSetWarlockIntelligence")
-            .SetGuiPresentation(Category.Feature)
-            .AddFeatureSet(
-                castSpellWarlockIntelligence,
-                ProficiencyWarlockSavingThrowIntelligence)
-            .SetMode(FeatureDefinitionFeatureSet.FeatureSetMode.Union)
-            .AddToDB();
-
-        FeatureSetWarlockVariant = FeatureDefinitionFeatureSetBuilder
-            .Create("FeatureSetWarlockVariant")
-            .SetGuiPresentation(Category.Feature)
-            .AddFeatureSet(
-                featureSetWarlockCharisma,
-                featureSetWarlockIntelligence)
-            .SetMode(FeatureDefinitionFeatureSet.FeatureSetMode.Exclusion)
-            .AddToDB();
-    }
-
     private static void LoadEpicArray()
     {
         AttributeDefinitions.PredeterminedRollScores = Main.Settings.EnableEpicPointsAndArray
@@ -427,38 +369,24 @@ internal static class CharacterContext
         }
     }
 
-    internal static void SwitchWarlockVariant()
+    internal static void SwitchRangerHumanoidFavoredEnemy()
     {
-        if (Main.Settings.EnableWarlockVariant)
+        if (Main.Settings.AddHumanoidFavoredEnemyToRanger)
         {
-            Warlock.FeatureUnlocks.RemoveAll(x =>
-                x.FeatureDefinition == FeatureDefinitionCastSpells.CastSpellWarlock ||
-                x.FeatureDefinition == FeatureDefinitionProficiencys.ProficiencyWarlockSavingThrow);
-
-            Warlock.FeatureUnlocks.Add(new FeatureUnlockByLevel()
-            {
-                level = 1, featureDefinition = FeatureSetWarlockVariant
-            });
+            AdditionalDamageRangerFavoredEnemyChoice.featureSet.Add(CommonBuilders
+                .AdditionalDamageMarshalFavoredEnemyHumanoid);
         }
         else
         {
-            Warlock.FeatureUnlocks.RemoveAll(x =>
-                x.FeatureDefinition == FeatureSetWarlockVariant);
-
-            Warlock.FeatureUnlocks.Add(new FeatureUnlockByLevel()
-            {
-                level = 1, featureDefinition = FeatureDefinitionCastSpells.CastSpellWarlock
-            });
-
-            Warlock.FeatureUnlocks.Add(new FeatureUnlockByLevel()
-            {
-                level = 1, featureDefinition = FeatureDefinitionProficiencys.ProficiencyWarlockSavingThrow
-            });
+            AdditionalDamageRangerFavoredEnemyChoice.featureSet.Remove(CommonBuilders
+                .AdditionalDamageMarshalFavoredEnemyHumanoid);
         }
+
 
         if (Main.Settings.EnableSortingFutureFeatures)
         {
-            Warlock.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
+            AdditionalDamageRangerFavoredEnemyChoice.FeatureSet.Sort((x, y) =>
+                String.Compare(x.FormatTitle(), y.FormatTitle(), StringComparison.CurrentCulture));
         }
     }
 

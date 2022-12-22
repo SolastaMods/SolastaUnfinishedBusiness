@@ -62,6 +62,16 @@ namespace SolastaUnfinishedBusiness.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
+        public static byte[] AcidBolt {
+            get {
+                object obj = ResourceManager.GetObject("AcidBolt", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
         public static byte[] AcidClaws {
             get {
                 object obj = ResourceManager.GetObject("AcidClaws", resourceCulture);
@@ -702,6 +712,16 @@ namespace SolastaUnfinishedBusiness.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
+        public static byte[] FlamingBolt {
+            get {
+                object obj = ResourceManager.GetObject("FlamingBolt", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
         public static byte[] Foresight {
             get {
                 object obj = ResourceManager.GetObject("Foresight", resourceCulture);
@@ -1278,6 +1298,46 @@ namespace SolastaUnfinishedBusiness.Properties {
         public static byte[] ProtectThreshold {
             get {
                 object obj = ResourceManager.GetObject("ProtectThreshold", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        public static byte[] RadiantBolt {
+            get {
+                object obj = ResourceManager.GetObject("RadiantBolt", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        public static byte[] RecipeAcidBolt {
+            get {
+                object obj = ResourceManager.GetObject("RecipeAcidBolt", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        public static byte[] RecipeFlamingBolt {
+            get {
+                object obj = ResourceManager.GetObject("RecipeFlamingBolt", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        public static byte[] RecipeRadiantBolt {
+            get {
+                object obj = ResourceManager.GetObject("RecipeRadiantBolt", resourceCulture);
                 return ((byte[])(obj));
             }
         }

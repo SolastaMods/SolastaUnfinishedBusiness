@@ -1,12 +1,17 @@
 ﻿KNOWN ISSUES:
 
-- Grenadier additional charges is freezing the game in multiplayer
-- Inventor intelligence based attacks aren't triggering Elven Accuracy
 - Tiefling images on class selection haven't been added yet
 
 CHANGES:
 
-- added CTRL-SHIFT-R hotkey setting to allow party to rejoin [useful on parties of 5 or 6]
-- added Character > General setting to allow Warlocks to pick Charisma or Intelligence as their spell casting ability
-- fixed Tiefling lack of vision
-- improved DM Editor to allow loot packs export
+- added College of War Dancer
+- added setting to improve icons on some magical bolts and recipes
+- added setting to allow humanoid preferred enemy on Ranger
+- added Smarlock, an intelligence Warlock
+- fixed Elven Precision interaction with other patches
+- fixed multiclass spell display
+- fixed Path of The Spirits wolf leadership power
+- fixed Poisonous Skin feat DC calculation
+- fixed slots consumption logic if multiclass warlock is off spell slots
+- fixed Tiefling integration with flexible races
+- removed support for wildshape as a bonus action on Circle of The Night due to engine limitations
