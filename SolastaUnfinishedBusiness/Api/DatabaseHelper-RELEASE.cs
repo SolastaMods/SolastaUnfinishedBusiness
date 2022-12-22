@@ -4,9 +4,8 @@ namespace SolastaUnfinishedBusiness.Api;
 internal static partial class DatabaseHelper
 {
     internal static class ActionDefinitions
-    { 
+    {
         internal static ActionDefinition OneWithShadowsTurnInvisible { get; } = GetDefinition<ActionDefinition>("OneWithShadowsTurnInvisible");
-        internal static ActionDefinition WildShape { get; } = GetDefinition<ActionDefinition>("WildShape");
     }    
     internal static class AlignmentDefinitions
     {
@@ -623,7 +622,6 @@ internal static partial class DatabaseHelper
     }
     internal static class FeatureDefinitionSenses
     {
-        internal static FeatureDefinitionSense SenseBlindSight6 { get; } = GetDefinition<FeatureDefinitionSense>("SenseBlindSight6");
         internal static FeatureDefinitionSense SenseDarkvision { get; } = GetDefinition<FeatureDefinitionSense>("SenseDarkvision");
         internal static FeatureDefinitionSense SenseDarkvision12 { get; } = GetDefinition<FeatureDefinitionSense>("SenseDarkvision12");
         internal static FeatureDefinitionSense SenseDarkvision24 { get; } = GetDefinition<FeatureDefinitionSense>("SenseDarkvision24");
@@ -709,6 +707,9 @@ internal static partial class DatabaseHelper
         internal static ItemDefinition BeltOfRegeneration { get; } = GetDefinition<ItemDefinition>("BeltOfRegeneration");
         internal static ItemDefinition Berry_Ration { get; } = GetDefinition<ItemDefinition>("Berry_Ration");
         internal static ItemDefinition Bolt { get; } = GetDefinition<ItemDefinition>("Bolt");
+        internal static ItemDefinition Bolt_Alchemy_Corrosive { get; } = GetDefinition<ItemDefinition>("Bolt_Alchemy_Corrosive");
+        internal static ItemDefinition Bolt_Alchemy_Flaming { get; } = GetDefinition<ItemDefinition>("Bolt_Alchemy_Flaming");
+        internal static ItemDefinition Bolt_Alchemy_Flash { get; } = GetDefinition<ItemDefinition>("Bolt_Alchemy_Flash");
         internal static ItemDefinition BONEKEEP_AkshasJournal { get; } = GetDefinition<ItemDefinition>("BONEKEEP_AkshasJournal");
         internal static ItemDefinition BONEKEEP_MagicRune { get; } = GetDefinition<ItemDefinition>("BONEKEEP_MagicRune");
         internal static ItemDefinition BootsLevitation { get; } = GetDefinition<ItemDefinition>("BootsLevitation");
@@ -745,6 +746,9 @@ internal static partial class DatabaseHelper
         internal static ItemDefinition ComponentPouch_ArcaneAmulet { get; } = GetDefinition<ItemDefinition>("ComponentPouch_ArcaneAmulet");
         internal static ItemDefinition ComponentPouch_Belt { get; } = GetDefinition<ItemDefinition>("ComponentPouch_Belt");
         internal static ItemDefinition ComponentPouch_Bracers { get; } = GetDefinition<ItemDefinition>("ComponentPouch_Bracers");
+        internal static ItemDefinition CraftingManual_Alchemy_Corrosive_Bolts { get; } = GetDefinition<ItemDefinition>("CraftingManual_Alchemy_Corrosive_Bolts");
+        internal static ItemDefinition CraftingManual_Alchemy_Flaming_Bolts { get; } = GetDefinition<ItemDefinition>("CraftingManual_Alchemy_Flaming_Bolts");
+        internal static ItemDefinition CraftingManual_Alchemy_Flash_Bolts { get; } = GetDefinition<ItemDefinition>("CraftingManual_Alchemy_Flash_Bolts");
         internal static ItemDefinition CraftingManual_Enchant_Longsword_Warden { get; } = GetDefinition<ItemDefinition>("CraftingManual_Enchant_Longsword_Warden");
         internal static ItemDefinition CraftingManualRemedy { get; } = GetDefinition<ItemDefinition>("CraftingManualRemedy");
         internal static ItemDefinition CraftingManualScrollOfVampiricTouch { get; } = GetDefinition<ItemDefinition>("CraftingManualScrollOfVampiricTouch");

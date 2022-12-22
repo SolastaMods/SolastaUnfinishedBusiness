@@ -29,6 +29,51 @@ internal static class ItemCraftingMerchantContext
         Gui.Localize("Equipment/&Armor_Warlock_Title")
     };
 
+    internal static void Load()
+    {
+        // sort of same sequence as Mod UI
+        CraftingContext.Load();
+        PickPocketContext.Load();
+        LoadCustomBoltIcons();
+        LoadRemoveIdentification();
+        SwitchAttuneArcaneShieldstaff();
+        SwitchSetBeltOfDwarvenKindBeardChances();
+        LoadClothingGorimStock();
+        LoadInstrumentsGorimStock();
+        SwitchFociItems();
+        SwitchFociItemsDungeonMaker();
+        SwitchRestockAntiquarian();
+        SwitchRestockArcaneum();
+        SwitchRestockCircleOfDanantar();
+        SwitchRestockTowerOfKnowledge();
+    }
+
+    private static void LoadCustomBoltIcons()
+    {
+        if (!Main.Settings.AddCustomIconsToBolts)
+        {
+            return;
+        }
+
+        Bolt_Alchemy_Corrosive.GuiPresentation.spriteReference =
+            Sprites.GetSprite("AcidBolt", Resources.AcidBolt, 120, 125);
+
+        Bolt_Alchemy_Flaming.GuiPresentation.spriteReference =
+            Sprites.GetSprite("FlamingBolt", Resources.FlamingBolt, 120, 125);
+
+        Bolt_Alchemy_Flash.GuiPresentation.spriteReference =
+            Sprites.GetSprite("RadiantBolt", Resources.RadiantBolt, 120, 125);
+
+        CraftingManual_Alchemy_Corrosive_Bolts.GuiPresentation.spriteReference =
+            Sprites.GetSprite("RecipeAcidBolt", Resources.RecipeAcidBolt, 127, 125);
+
+        CraftingManual_Alchemy_Flaming_Bolts.GuiPresentation.spriteReference =
+            Sprites.GetSprite("RecipeFlamingBolt", Resources.RecipeFlamingBolt, 127, 125);
+
+        CraftingManual_Alchemy_Flash_Bolts.GuiPresentation.spriteReference =
+            Sprites.GetSprite("RecipeRadiantBolt", Resources.RecipeRadiantBolt, 127, 125);
+    }
+
     private static void LoadClothingGorimStock()
     {
         if (!Main.Settings.StockGorimStoreWithAllNonMagicalClothing)
@@ -240,24 +285,6 @@ internal static class ItemCraftingMerchantContext
                 item.requiresAttunement = false;
             }
         }
-    }
-
-    internal static void Load()
-    {
-        // sort of same sequence as Mod UI
-        CraftingContext.Load();
-        PickPocketContext.Load();
-        LoadRemoveIdentification();
-        SwitchAttuneArcaneShieldstaff();
-        SwitchSetBeltOfDwarvenKindBeardChances();
-        LoadClothingGorimStock();
-        LoadInstrumentsGorimStock();
-        SwitchFociItems();
-        SwitchFociItemsDungeonMaker();
-        SwitchRestockAntiquarian();
-        SwitchRestockArcaneum();
-        SwitchRestockCircleOfDanantar();
-        SwitchRestockTowerOfKnowledge();
     }
 
     private sealed class FocusDefinitionBuilder : ItemDefinitionBuilder

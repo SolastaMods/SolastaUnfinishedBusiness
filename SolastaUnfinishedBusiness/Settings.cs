@@ -169,6 +169,7 @@ public class Settings : UnityModManager.ModSettings
     //
 
     // General
+    public bool AddCustomIconsToBolts { get; set; }
     public bool AddNewWeaponsAndRecipesToShops { get; set; }
     public bool AddNewWeaponsAndRecipesToEditor { get; set; }
     public bool AddPickPocketableLoot { get; set; }
