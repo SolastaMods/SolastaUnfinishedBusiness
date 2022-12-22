@@ -1,4 +1,8 @@
-﻿KNOWN ISSUES:
+﻿ATTENTION:
+
+- RESPEC ANY [CIRCLE OF THE NIGHT] or [PATH OF THE SPIRIT] subclasses before update!!!
+
+KNOWN ISSUES:
 
 - Tiefling images on class selection haven't been added yet
 
