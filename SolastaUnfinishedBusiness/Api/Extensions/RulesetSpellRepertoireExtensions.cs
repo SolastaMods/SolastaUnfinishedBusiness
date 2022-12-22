@@ -1,4 +1,5 @@
 ﻿using SolastaUnfinishedBusiness.Api.Helpers;
+using SolastaUnfinishedBusiness.Models;
 
 namespace SolastaUnfinishedBusiness.Api.Extensions;
 
@@ -6,7 +7,8 @@ public static class RulesetSpellRepertoireExtensions
 {
     public static RulesetCharacterHero GetCasterHero(this RulesetSpellRepertoire repertoire)
     {
-        return EffectHelpers.GetCharacterByGuid(repertoire.CharacterInventory?.BearerGuid ?? 0) as RulesetCharacterHero;
+        return EffectHelpers.GetCharacterByGuid(repertoire.CharacterInventory?.BearerGuid ?? 0) as RulesetCharacterHero
+               ?? Global.InspectedHero;
     }
 
     public static bool AtLeastOneSpellSlotAvailable(this RulesetSpellRepertoire repertoire)
