@@ -111,16 +111,27 @@ public static class RulesetSpellRepertoirePatcher
         {
             var pactMaxSlots = SharedSpellsContext.GetWarlockMaxSlots(heroWithSpellRepertoire);
             var pactUsedSlots = SharedSpellsContext.GetWarlockUsedSlots(heroWithSpellRepertoire);
-            var isShiftPressed = Global.CurrentAction is (CharacterActionCastSpell or CharacterActionSpendSpellSlot)
-                                 && Global.CurrentAction.actionParams.BoolParameter5;
+
             var warlockSpellLevel = SharedSpellsContext.GetWarlockSpellLevel(heroWithSpellRepertoire);
             var canConsumePactSlot = pactMaxSlots - pactUsedSlots > 0 && slotLevel <= warlockSpellLevel;
 
+            __instance.GetSlotsNumber(slotLevel, out var totalRemainingSlots, out var totalMaxSlots);
+
+            var totalUsedSlots = totalMaxSlots - totalRemainingSlots;
+            var sharedMaxSlots = totalMaxSlots - pactMaxSlots;
+            var sharedUsedSlots = totalUsedSlots - pactUsedSlots;
+
+            var isShiftPressed = Global.CurrentAction is (CharacterActionCastSpell or CharacterActionSpendSpellSlot)
+                                 && Global.CurrentAction.actionParams.BoolParameter5;
+
+            var forceConsumePactSlot = sharedUsedSlots == sharedMaxSlots ||
+                                       (__instance.SpellCastingClass !=
+                                           DatabaseHelper.CharacterClassDefinitions.Warlock && isShiftPressed) ||
+                                       (__instance.SpellCastingClass ==
+                                           DatabaseHelper.CharacterClassDefinitions.Warlock && !isShiftPressed);
+
             // uses short rest slots across all non race repertoires
-            if (canConsumePactSlot &&
-                ((__instance.SpellCastingClass == DatabaseHelper.CharacterClassDefinitions.Warlock && !isShiftPressed)
-                 || (__instance.SpellCastingClass != DatabaseHelper.CharacterClassDefinitions.Warlock &&
-                     isShiftPressed)))
+            if (canConsumePactSlot && forceConsumePactSlot)
             {
                 foreach (var spellRepertoire in heroWithSpellRepertoire.SpellRepertoires
                              .Where(x => x.SpellCastingFeature.SpellCastingOrigin !=
