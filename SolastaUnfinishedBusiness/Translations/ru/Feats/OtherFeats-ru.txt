@@ -31,3 +31,5 @@ Reaction/&ReactionWarcasterTitle=Атака по возможности
 Reaction/&SubitemSelectReactionWarcasterTitle=Выберите действие
 Reaction/&WarcasterAttackDescription=Цель атаки
 Reaction/&WarcasterAttackTitle=Атака
+Feature/&PowerFeatPoisonousSkinDescription=Отравление на 1 минуту.
+Feature/&PowerFeatPoisonousSkinTitle=Ядовитая кожа

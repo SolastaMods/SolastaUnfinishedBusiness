@@ -31,3 +31,5 @@ Reaction/&ReactionWarcasterTitle=Ataque de oportunidade
 Reaction/&SubitemSelectReactionWarcasterTitle=Selecione a ação
 Reaction/&WarcasterAttackDescription=Alvo do ataque.
 Reaction/&WarcasterAttackTitle=Ataque
+Feature/&PowerFeatPoisonousSkinDescription=Envenenado por 1 minuto.
+Feature/&PowerFeatPoisonousSkinTitle=Pele Venenosa

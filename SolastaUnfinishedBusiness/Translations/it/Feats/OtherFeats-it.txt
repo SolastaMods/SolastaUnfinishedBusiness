@@ -31,3 +31,5 @@ Reaction/&ReactionWarcasterTitle=Attacco di opportunità
 Reaction/&SubitemSelectReactionWarcasterTitle=Seleziona azione
 Reaction/&WarcasterAttackDescription=Bersaglio di attacco.
 Reaction/&WarcasterAttackTitle=attacco
+Feature/&PowerFeatPoisonousSkinDescription=Avvelenato per 1 minuto.
+Feature/&PowerFeatPoisonousSkinTitle=Pelle velenosa

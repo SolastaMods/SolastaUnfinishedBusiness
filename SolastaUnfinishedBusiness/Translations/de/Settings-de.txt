@@ -183,3 +183,4 @@ ModUi/&FixEldritchBlastRange=Ändere die Reichweite von <color=#D89555>Eldritch 
 ModUi/&AllowMoreRealStateOnRestPanel=Erlauben Sie mehr realen Status im Ruhebereich <i><color=#F0DAA0>[Aktionen nach der Ruhe im Bereich „Vorher“ und Wiederherstellungsfunktionen im Bereich „Nachher“ ausblenden]</color></i>
 ModUi/&AddHumanoidFavoredEnemyToRanger=Füge <color=#D89555>Waldläufern</color> humanoiden bevorzugten Feind hinzu
 ModUi/&EnableRejoinParty=Aktiviere <color=#1E81B0>STRG-UMSCHALT-(R)</color>, um der Gruppe wieder beizutreten <i><color=#F0DAA0>[nützlich bei Gruppen mit 5 oder 6 Personen]</color></i>
+ModUi/&AddCustomIconsToBolts=Füge benutzerdefinierte Symbole zu Ätzenden, Flammenden und Fläschchenbolzen und entsprechenden Rezepten hinzu <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>

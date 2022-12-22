@@ -183,3 +183,4 @@ ModUi/&UseOfficialAdvantageDisadvantageRules=Usa le regole ufficiali di vantaggi
 ModUi/&Visuals=<color=#F0DAA0>Visuali:</color> <b><i><color=#C04040E0>[Richiede il riavvio]</color></i></b>
 ModUi/&AddHumanoidFavoredEnemyToRanger=Aggiungi il nemico preferito umanoide ai <color=#D89555>Ranger</color>
 ModUi/&EnableRejoinParty=Abilita <color=#1E81B0>CTRL-MAIUSC-(R)</color> per unirti nuovamente al gruppo <i><color=#F0DAA0>[utile con gruppi di 5 o 6]</color></i>
+ModUi/&AddCustomIconsToBolts=Aggiungi icone personalizzate ai bulloni corrosivi, fiammeggianti e fiaschi e alle ricette corrispondenti <b><i><color=#C04040E0>[Richiede il riavvio]</color></i></b>
