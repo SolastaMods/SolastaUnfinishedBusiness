@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
@@ -47,6 +48,11 @@ internal sealed class CircleOfTheNight : AbstractSubclass
         };
 
         // 2nd level
+        var onAfterActionWildShape = FeatureDefinitionBuilder
+            .Create("OnAfterActionWildShape")
+            .SetGuiPresentation(Category.Feature)
+            .SetCustomSubFeatures(new OnAfterActionWildShape())
+            .AddToDB();
 
         // Combat Wildshape 
         // Official rules are CR = 1/3 of druid level. However in solasta the selection of beasts is greatly reduced
@@ -114,6 +120,7 @@ internal sealed class CircleOfTheNight : AbstractSubclass
             .Create(CircleOfTheNightName)
             .SetGuiPresentation(Category.Subclass, PathClaw)
             .AddFeaturesAtLevel(2,
+                onAfterActionWildShape,
                 powerCircleOfTheNightWildShapeCombat,
                 powerCircleOfTheNightWildShapeHealing)
             .AddFeaturesAtLevel(6,
@@ -292,5 +299,28 @@ internal sealed class CircleOfTheNight : AbstractSubclass
 
         public ConditionDefinition SpecialSubstituteCondition => ConditionDefinitions.ConditionWildShapeSubstituteForm;
         public List<ShapeOptionDescription> ShapeOptions { get; }
+    }
+    
+    private class OnAfterActionWildShape : IOnAfterActionFeature
+    {
+        public void OnAfterAction(CharacterAction action)
+        {
+            if (action.ActionDefinition != DatabaseHelper.ActionDefinitions.WildShape)
+            {
+                return;
+            }
+
+            var actionStatus = action.ActingCharacter.GetActionTypeStatus(ActionDefinitions.ActionType.Bonus);
+
+            if (actionStatus != ActionDefinitions.ActionStatus.Available)
+            {
+                return;
+            }
+
+            action.ActingCharacter.SpendActionType(ActionDefinitions.ActionType.Bonus);
+            // cannot use RefundActionUseHere as still too early so decrement directly
+            action.ActingCharacter.currentActionRankByType[ActionDefinitions.ActionType.Main]--;
+            action.ActingCharacter.RefreshActionPerformances();
+        }
     }
 }
