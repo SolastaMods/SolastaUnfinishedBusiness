@@ -59,12 +59,12 @@ internal static class CharacterContext
         LoadFighterArmamentAdroitness();
         LoadHelpPower();
         LoadEpicArray();
-        LoadAdditionalNames();
         LoadVisuals();
     }
 
     internal static void LateLoad()
     {
+        LoadAdditionalNames();
         SwitchHelpPower();
         FlexibleBackgroundsContext.SwitchFlexibleBackgrounds();
         FlexibleRacesContext.SwitchFlexibleRaces();
