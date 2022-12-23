@@ -187,7 +187,7 @@ internal sealed class CollegeOfWarDancer : AbstractSubclass
         }
 
         var isHeavy = item.itemDefinition.WeaponDescription.WeaponTags.Contains(TagsDefinitions.WeaponTagHeavy);
-        
+
         if (isHeavy)
         {
             return BASE_VALUE + (2 * (momentum - 1));
@@ -458,7 +458,7 @@ internal sealed class CollegeOfWarDancer : AbstractSubclass
             }
 
             attackMode.toHitBonus += toHit;
-            
+
             var trendInfo = new TrendInfo(toHit, FeatureSourceType.CharacterFeature,
                 Gui.Localize("Feedback/&AdditionalDamageMomentumFormat"), null);
             var index = attackMode.ToHitBonusTrends.IndexOf(trendInfo);

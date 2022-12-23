@@ -107,7 +107,7 @@ internal static class ReplaceAttackWithCantrip
         {
             return;
         }
-        
+
         __instance.currentActionRankByType[ActionDefinitions.ActionType.Main]--;
     }
 }
