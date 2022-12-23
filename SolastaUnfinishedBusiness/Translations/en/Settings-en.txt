@@ -183,4 +183,4 @@ ModUi/&UseHeightOneCylinderEffect=Use a height 1 cylinder effect when casting <c
 ModUi/&UseOfficialAdvantageDisadvantageRules=Use official advantage / disadvantage rules
 ModUi/&Visuals=<color=#F0DAA0>Visuals:</color> <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
 ModUi/&AddHumanoidFavoredEnemyToRanger=Add humanoid preferred enemy to <color=#D89555>Rangers</color>
-ModUi/&AddCustomIconsToBolts=Add custom icons to Corrosive, Flaming and Flask bolts and corresponding recipes <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
+ModUi/&AddCustomIconsToOfficialItems=Add custom icons to official game items  <i><color=#F0DAA0>[ammunition, recipes, kits, etc.]</color></i> <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
