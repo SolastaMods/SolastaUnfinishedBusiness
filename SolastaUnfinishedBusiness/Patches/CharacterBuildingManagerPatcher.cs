@@ -293,6 +293,9 @@ public static class CharacterBuildingManagerPatcher
     {
         public static bool Prefix([NotNull] RulesetCharacterHero hero)
         {
+            //PATCH: un-captures the desired class
+            LevelUpContext.SetSelectedClass(hero, null);
+
             //PATCH: ensures this doesn't get executed in the class panel level up screen
             var isLevelingUp = LevelUpContext.IsLevelingUp(hero);
             var isClassSelectionStage = LevelUpContext.IsClassSelectionStage(hero);
@@ -303,6 +306,39 @@ public static class CharacterBuildingManagerPatcher
                 //PATCH: removes items from new class if required
                 LevelUpContext.RemoveItemsIfRequired(hero);
             }
+
+            return !result;
+        }
+    }
+
+    [HarmonyPatch(typeof(CharacterBuildingManager), "UnassignLastSubclass")]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    public static class UnassignLastSubclass_Patch
+    {
+        public static bool Prefix([NotNull] RulesetCharacterHero hero)
+        {
+            //PATCH: un-captures the desired subclass
+            LevelUpContext.SetSelectedSubclass(hero, null);
+
+            //PATCH: ensures this doesn't get executed in the class panel level up screen
+            var isLevelingUp = LevelUpContext.IsLevelingUp(hero);
+            var isClassSelectionStage = LevelUpContext.IsClassSelectionStage(hero);
+            var result = isLevelingUp && isClassSelectionStage;
+
+            return !result;
+        }
+    }
+
+    [HarmonyPatch(typeof(CharacterBuildingManager), "UntrainLastFightingStyle")]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    public static class UntrainLastFightingStyle_Patch
+    {
+        public static bool Prefix([NotNull] RulesetCharacterHero hero)
+        {
+            //PATCH: ensures this doesn't get executed in the class panel level up screen
+            var isLevelingUp = LevelUpContext.IsLevelingUp(hero);
+            var isClassSelectionStage = LevelUpContext.IsClassSelectionStage(hero);
+            var result = isLevelingUp && isClassSelectionStage;
 
             return !result;
         }
