@@ -1,17 +1,11 @@
-ATTENTION:
+ATTENTION [only if you version 1.4.32.4 or lower]:
 
-- RESPEC ANY [CIRCLE OF THE NIGHT] or [PATH OF THE SPIRITS] subclasses before update!!!
+- RESPEC [CIRCLE OF THE NIGHT] or [PATH OF THE SPIRITS] subclasses before update!!!
 
 CHANGES:
 
-- added College of War Dancer
-- added setting to improve icons on some magical bolts and recipes
-- added setting to allow humanoid preferred enemy on Ranger
-- added Smarlock, an intelligence Warlock
-- fixed Elven Precision interaction with other patches
-- fixed multiclass spell display
-- fixed Path of The Spirits wolf leadership power
-- fixed Poisonous Skin feat DC calculation
-- fixed slots consumption logic if mc warlock is off spell slots
-- fixed Tiefling integration with flexible races
-- removed support for wildshape as a bonus action on Circle of The Night
+- fixed level up getting hero to an invalid state if cancelled
+- fixed Smarlock, now Occultist, to be allowed for multiclass
+- improved wildshape interaction with features that require unarmed
+- improved College of War Dancer integration with multiclass
+- reworked support for wildshape as a bonus action on Circle of The Night
