@@ -120,7 +120,6 @@ internal static class MulticlassInOutRulesContext
             case RuleDefinitions.BardClass:
             case RuleDefinitions.SorcererClass:
             case RuleDefinitions.WarlockClass:
-            case WarlockVariantClass.ClassName:
                 return charisma >= 13;
 
             case RuleDefinitions.ClericClass:
@@ -144,6 +143,7 @@ internal static class MulticlassInOutRulesContext
 
             case RuleDefinitions.WizardClass:
             case InventorClass.ClassName:
+            case WarlockVariantClass.ClassName:
                 return intelligence >= 13;
 
             default:
