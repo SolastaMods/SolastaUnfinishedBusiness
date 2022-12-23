@@ -161,7 +161,7 @@ internal static class ValidatorsCharacter
         // required for wildshape scenarios
         if (character is not RulesetCharacterHero)
         {
-            return false;
+            return true;
         }
 
         var slotsByName = character.CharacterInventory.InventorySlotsByName;

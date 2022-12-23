@@ -412,13 +412,14 @@ internal static class OtherFeats
             RulesetAttackMode attackMode,
             ActionModifier attackModifier)
         {
-            if (!ValidatorsWeapon.IsUnarmedWeapon(attackMode) ||
+            var rulesetAttacker = attacker.RulesetCharacter;
+
+            if (!ValidatorsWeapon.IsUnarmedWeapon(rulesetAttacker, attackMode) ||
                 outcome is RollOutcome.Failure or RollOutcome.CriticalFailure)
             {
                 return;
             }
 
-            var rulesetAttacker = attacker.RulesetCharacter;
             var hasEffect = defender.AffectingGlobalEffects.Any(x =>
                 x is RulesetEffectPower rulesetEffectPower &&
                 rulesetEffectPower.PowerDefinition != PowerFeatPoisonousSkin);
@@ -466,7 +467,7 @@ internal static class OtherFeats
     {
         public void ModifyAttackMode(RulesetCharacter character, RulesetAttackMode attackMode)
         {
-            if (!ValidatorsWeapon.IsUnarmedWeapon(attackMode))
+            if (!ValidatorsWeapon.IsUnarmedWeapon(character, attackMode))
             {
                 return;
             }

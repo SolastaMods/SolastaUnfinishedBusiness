@@ -4,8 +4,10 @@ using System.Diagnostics.CodeAnalysis;
 using System.Reflection.Emit;
 using HarmonyLib;
 using JetBrains.Annotations;
+using SolastaUnfinishedBusiness.Api.Extensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.CustomBehaviors;
+using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.Models;
 
 namespace SolastaUnfinishedBusiness.Patches;
@@ -100,6 +102,42 @@ public static class RulesetCharacterMonsterPatcher
             //PATCH: allows `AddPBToSummonCheck` to add summoner's PB to the skill checks
             AddPBToSummonCheck.ModifyCheckBonus<IAbilityCheckPerformanceProvider>(__instance, ref __result,
                 proficiencyName, abilityCheckModifierTrends);
+        }
+    }
+
+    //PATCH: This is very similar to RulesetCharacterHero patch but it's here to support wildshape scenarios
+    [HarmonyPatch(typeof(RulesetCharacterMonster), "RefreshAttackModes")]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    public static class RefreshAttackModes_Patch
+    {
+        private static bool _callRefresh;
+
+        public static void Prefix(ref bool callRefresh)
+        {
+            //save refresh flag, so it can be used in postfix
+            _callRefresh = callRefresh;
+            //reset refresh flag, so default code won't do refresh before postfix
+            callRefresh = false;
+        }
+
+        public static void Postfix(RulesetCharacterMonster __instance)
+        {
+            //PATCH: Allows changing damage and other stats of an attack mode
+            var modifiers = __instance.GetSubFeaturesByType<IModifyAttackModeForWeapon>();
+
+            foreach (var attackMode in __instance.AttackModes)
+            {
+                foreach (var modifier in modifiers)
+                {
+                    modifier.ModifyAttackMode(__instance, attackMode);
+                }
+            }
+
+            //refresh character if needed after postfix
+            if (_callRefresh && __instance.CharacterRefreshed != null)
+            {
+                __instance.CharacterRefreshed(__instance);
+            }
         }
     }
 }
