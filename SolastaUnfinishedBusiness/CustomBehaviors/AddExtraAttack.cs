@@ -142,11 +142,11 @@ internal abstract class AddExtraAttackBase : IAddExtraAttack
         var automaticHit = a.automaticHit == b.automaticHit;
         var afterChargeOnly = a.afterChargeOnly == b.afterChargeOnly;
 
-        if (ValidatorsWeapon.IsUnarmedWeapon(a) && ValidatorsWeapon.IsUnarmedWeapon(b))
-        {
-            // Main.Log(
-            //     $"EQUAL actionType:{actionType}, sourceDefinition: {sourceDefinition}, sourceObject: {sourceObject}, slotName: {slotName}, ranged: {ranged}, thrown: {thrown}, reach: {reach}, reachRange: {reachRange}, closeRange: {closeRange}, maxRange: {maxRange}, toHitBonus: {toHitBonus}, attacksNumber: {attacksNumber}, useVersatileDamage: {useVersatileDamage}, freeOffHand: {freeOffHand}, automaticHit: {automaticHit}, afterChargeOnly: {afterChargeOnly}");
-        }
+        // if (ValidatorsWeapon.IsUnarmedWeapon(a) && ValidatorsWeapon.IsUnarmedWeapon(b))
+        // {
+        //     // Main.Log(
+        //     //     $"EQUAL actionType:{actionType}, sourceDefinition: {sourceDefinition}, sourceObject: {sourceObject}, slotName: {slotName}, ranged: {ranged}, thrown: {thrown}, reach: {reach}, reachRange: {reachRange}, closeRange: {closeRange}, maxRange: {maxRange}, toHitBonus: {toHitBonus}, attacksNumber: {attacksNumber}, useVersatileDamage: {useVersatileDamage}, freeOffHand: {freeOffHand}, automaticHit: {automaticHit}, afterChargeOnly: {afterChargeOnly}");
+        // }
 
         return actionType
                && sourceDefinition

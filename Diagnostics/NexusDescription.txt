@@ -98,11 +98,12 @@ All settings start disabled by default.
 [list=1]
 
 [*][b]Inventor[/b]: Inventors are tinkerers, alchemists, and more. They bridge the space between magic and technology.
-[*][b]Smarlock[/b]: Where wizards draw their magical power from study and sorcerers from magical bloodlines, warlocks gain power through a pact with a powerful patron: a fiend, perhaps, or some other powerful entity. The nature of a warlock's powers varies depending on the nature of the patron and the details of the pact.
 
-[*][b]Armorer[/b]: Armorers focus their studies on magical armors and how to use them effectively.
-[*][b]Grenadier[/b]: Grenadiers study unstable substances and their use in creating explosions of various types.
-[*][b]Weaponsmith[/b]: Weaponsmiths focus their studies on magical weapons and how to use them effectively.
+    [*][b]Armorer[/b]: Armorers focus their studies on magical armors and how to use them effectively.
+    [*][b]Grenadier[/b]: Grenadiers study unstable substances and their use in creating explosions of various types.
+    [*][b]Weaponsmith[/b]: Weaponsmiths focus their studies on magical weapons and how to use them effectively.
+
+[*][b]Occultist[/b]: Where wizards draw their magical power from study and sorcerers from magical bloodlines, occultists or better known as warlocks gain power through a pact with a powerful patron: a fiend, perhaps, or some other powerful entity. Different than a warlock, occultists invest a lot of time on their studies and prefer to develop their intelligence.
 [/list]
 
 [size=3][b]Subclasses[/b][/size]
@@ -114,7 +115,6 @@ All settings start disabled by default.
 [*][b]College of Guts[/b]: Bards of the College of Guts gather in mead halls or around great bonfires to sing the deeds of the mighty, both past and present. They travel the land to witness great events firsthand and to ensure that the memory of those events doesn't pass from the world. With their songs, they inspire others to reach the same heights of accomplishment as the heroes of old.
 [*][b]College of Harlequin[/b]: College of Harlequins bards see no distinction between art and war. They see it is their duty to keep the legend of the great battle of the Cataclysm alive through their terrific performance, either on stage or on the battle field.
 [*][b]College of Life[/b]: Masters of manipulating both matter and life energy.
-[*][b]College of War Dancer[/b]: College of War Dancer bards are master the art of fighting who considers the battle field is their stage and the weapon in their hand is the finest instrument. Their swift movement and endless attacks are usually the last beautiful memoire of those encountered them.
 [*][b]Circle of The Ancient Forest[/b]: You have forged a relationship with a powerful nature entity: Ancient Dryads, Archdruids, Manifestations of the Feywild bleeding into the material plane, Forgotten gods from a primal age. It may wish for you to protect the natural world, travel to far off lands that it cannot, or it may have another motive that seems inscrutable to short-lived mortals.
 [*][b]Circle of the Forest Guardian[/b]: Circle of the Forest Guardian Druids are sworn to protect the forests and all that dwell within them. Skilled in the use of Abjuration magic and martial combat, members of this druidic circle are fearsome opponents on the battlefield.
 [*][b]Circle of the Night[/b]: Druids of the Circle of the Night are fierce guardians of the wilds. Their order gathers under the full moon to share news and trade warnings. They haunt the deepest parts of the wilderness, where they might go for weeks on end before crossing paths with another humanoid creature, let alone another druid.
@@ -139,6 +139,7 @@ All settings start disabled by default.
 [*][b]Blade Dancer[/b]: Blade Dancers use a series of intricate, elegant maneuvers that fend off harm and allow the blade dancer to channel magic into devastating attacks and a cunning defense. Many who have observed a blade dancer at work remember the display as one of the more beautiful experiences in their life, a glorious dance accompanied by a blade.
 [*][b]Dead Master[/b]: Dead Masters learn to manipulate the energy that animates all living things. As you progress, you learn to sap the life force from a creature as your magic destroys its body, transforming that vital energy into magical power you can manipulate.
 [*][b]Spell Master[/b]: Spell Masters immerse themselves in magic and try to learn every spell they can get their hands on. They are unmatched in their spell knowledge.
+[*][b]College of War Dancer[/b]: College of War Dancer bards are master the art of fighting who considers the battle field is their stage and the weapon in their hand is the finest instrument. Their swift movement and endless attacks are usually the last beautiful memoire of those encountered them.
 [/list]
 
 [size=3][b]Feats[/b][/size]
@@ -414,9 +415,9 @@ When you cast this spell using a spell slot of 4th level or higher, the damage i
 
 [*][b]Zappastuff[/b]: maintenance, mod UI, infrastructure, gameplay, feats, fighting styles, invocations, rules, spells, quality of life, Half-elf variants, Blade Dancer, Ancient Forest, College of Guts, College of Life, Dead Master, Field Manipulator, Way of The Silhouette, Wild Master, Multiclass
 [*][b]TPABOBAP[/b]: game UI, infrastructure, gameplay, feats, invocations, spells, Dead Master, Elementalist, Moonlit, RiftWalker, SoulBlade, Tactician, Way of The Distant Hand, Inventor
+[*][b]Nd[/b]: College of Harlequin, College of War Dancer, Marshal, Opportunist, Raven, Spell Shield
 [*][b]ImpPhil[/b]: api, builders, gameplay, rules, quality of life
 [*][b]ChrisJohnDigital[/b]: builders, gameplay, feats, fighting styles, original Tinkerer, original Wizard subclasses, Arcane Fighter, Spell Master, Spell Shield
-[*][b]Nd[/b]: College of Harlequin, Marshal, Opportunist, Raven, Spell Shield
 [*][b]SilverGriffon[/b]: gameplay, visuals, spells, Dark Elf, Draconic Kobold, Grey Dwarf, Divine Heart
 [*][b]tivie[/b]: Circle of The Night, Path of The Spirits
 [*][b]ElAntonius[/b]: feats, fighting styles, Arcanist
@@ -429,6 +430,6 @@ When you cast this spell using a spell slot of 4th level or higher, the damage i
 [*][b]Prioritizer[/b]: Russian translations
 [*][b]xxy961216[/b]: Chinese translations
 [*][b]GoogleTranslator[/b]: French, German, Italian, Portuguese and Spanish translations
-[*][b]Balmz[/b]: some powers and spells icons
+[*][b]Balmz[/b]: some powers and spells icons, icons improvements
 [/list]
 

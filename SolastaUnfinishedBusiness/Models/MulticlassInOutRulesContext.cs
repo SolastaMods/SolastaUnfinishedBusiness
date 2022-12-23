@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using JetBrains.Annotations;
+using SolastaUnfinishedBusiness.Classes;
 using SolastaUnfinishedBusiness.Classes.Inventor;
 using UnityEngine;
 
@@ -119,6 +120,7 @@ internal static class MulticlassInOutRulesContext
             case RuleDefinitions.BardClass:
             case RuleDefinitions.SorcererClass:
             case RuleDefinitions.WarlockClass:
+            case WarlockVariantClass.ClassName:
                 return charisma >= 13;
 
             case RuleDefinitions.ClericClass:
@@ -142,7 +144,6 @@ internal static class MulticlassInOutRulesContext
 
             case RuleDefinitions.WizardClass:
             case InventorClass.ClassName:
-                // case IntegrationContext.ClassArtisan:
                 return intelligence >= 13;
 
             default:

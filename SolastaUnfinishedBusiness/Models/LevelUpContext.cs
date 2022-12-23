@@ -82,6 +82,13 @@ internal static class LevelUpContext
 
         levelUpData.SelectedClass = characterClassDefinition;
 
+        if (characterClassDefinition == null)
+        {
+            levelUpData.SelectedSubclass = null;
+
+            return;
+        }
+
         var classesAndLevels = rulesetCharacterHero.ClassesAndLevels;
 
         rulesetCharacterHero.ClassesAndSubclasses.TryGetValue(levelUpData.SelectedClass, out var subclass);

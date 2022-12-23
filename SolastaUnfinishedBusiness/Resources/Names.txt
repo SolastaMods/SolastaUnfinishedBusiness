@@ -532,8 +532,8 @@ RaceTiefling	Male	Morthos
 RaceTiefling	Male	Pelaios
 RaceTiefling	Male	Skamos
 RaceTiefling	Male	Therai
-Darkelf	Sur	Za'Moryra
-Darkelf	Sur	Dhal Neridthas
-Darkelf	Sur	DhalNerwenys
-Darkelf	Sur	Kommen Sie nach Sonta
-Darkelf	Sur	Zo’Remon
+DarkElf	Sur	Za'Moryra
+DarkElf	Sur	Dhal Neridthas
+DarkElf	Sur	DhalNerwenys
+DarkElf	Sur	Kommen Sie nach Sonta
+DarkElf	Sur	Zo’Remon

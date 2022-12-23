@@ -97,9 +97,9 @@ internal static class ValidatorsWeapon
         return weapon == null;
     }
 
-    internal static bool IsUnarmedWeapon(RulesetAttackMode attackMode)
+    internal static bool IsUnarmedWeapon(RulesetCharacter rulesetCharacter, RulesetAttackMode attackMode)
     {
-        return IsUnarmedWeapon(attackMode, null);
+        return rulesetCharacter is RulesetCharacterMonster || IsUnarmedWeapon(attackMode, null);
     }
 
     internal static bool IsUnarmedWeapon(RulesetItem weapon)

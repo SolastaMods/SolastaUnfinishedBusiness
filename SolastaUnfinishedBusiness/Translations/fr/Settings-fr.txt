@@ -183,4 +183,4 @@ ModUi/&UseOfficialAdvantageDisadvantageRules=Utiliser les règles officielles d'
 ModUi/&Visuals=<color=#F0DAA0>Visuels :</color> <b><i><color=#C04040E0>[Nécessite un redémarrage]</color></i></b>
 ModUi/&AddHumanoidFavoredEnemyToRanger=Ajouter un ennemi préféré humanoïde aux <color=#D89555>Rangers</color>
 ModUi/&EnableRejoinParty=Activez <color=#1E81B0>CTRL-SHIFT-(R)</color> pour rejoindre le groupe <i><color=#F0DAA0>[utile avec des groupes de 5 ou 6]</color></i>
-ModUi/&AddCustomIconsToBolts=Ajoutez des icônes personnalisées aux boulons corrosifs, enflammés et flacons et aux recettes correspondantes <b><i><color=#C04040E0>[Nécessite un redémarrage]</color></i></b>
+ModUi/&AddCustomIconsToOfficialItems=Ajoutez des icônes personnalisées aux boulons corrosifs, enflammés et flacons et aux recettes correspondantes <b><i><color=#C04040E0>[Nécessite un redémarrage]</color></i></b>

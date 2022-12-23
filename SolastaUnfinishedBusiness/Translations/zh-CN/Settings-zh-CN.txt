@@ -182,3 +182,5 @@ ModUi/&DisableRacePrerequisitesOnModFeats=无视此MOD提供的部分专长所�
 ModUi/&EncounterPercentageChance=<color=white>设置随机遭遇的几率</color>
 ModUi/&FixEldritchBlastRange=将 <color=#D89555>魔能爆</color> 的施法距离更改为 120 尺 <i><color=#F0DAA0>【而非 80 尺】</color></i>
 ModUi/&AllowMoreRealStateOnRestPanel=在休息面板上允许显示更多真实状态
+ModUi/&AddHumanoidFavoredEnemyToRanger=为<color=#D89555>巡林客</color>添加类人生物宿敌
+ModUi/&AddCustomIconsToOfficialItems=为黯蚀、火焰和闪电弩箭添加自定义图标和对应的配方<b><i><color=#C04040E0>【需要重启】</color></i></b>

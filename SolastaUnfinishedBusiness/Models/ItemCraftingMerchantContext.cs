@@ -34,7 +34,7 @@ internal static class ItemCraftingMerchantContext
         // sort of same sequence as Mod UI
         CraftingContext.Load();
         PickPocketContext.Load();
-        LoadCustomBoltIcons();
+        LoadCustomIcons();
         LoadRemoveIdentification();
         SwitchAttuneArcaneShieldstaff();
         SwitchSetBeltOfDwarvenKindBeardChances();
@@ -48,9 +48,9 @@ internal static class ItemCraftingMerchantContext
         SwitchRestockTowerOfKnowledge();
     }
 
-    private static void LoadCustomBoltIcons()
+    private static void LoadCustomIcons()
     {
-        if (!Main.Settings.AddCustomIconsToBolts)
+        if (!Main.Settings.AddCustomIconsToOfficialItems)
         {
             return;
         }
@@ -72,6 +72,12 @@ internal static class ItemCraftingMerchantContext
 
         CraftingManual_Alchemy_Flash_Bolts.GuiPresentation.spriteReference =
             Sprites.GetSprite("RecipeRadiantBolt", Resources.RecipeRadiantBolt, 127, 125);
+
+        ArtisanToolSmithTools.GuiPresentation.spriteReference =
+            Sprites.GetSprite("ArtisanToolSmithTools", Resources.ArtisanToolSmithTools, 118, 120);
+
+        HerbalismKit.GuiPresentation.spriteReference =
+            Sprites.GetSprite("RecipeRadiantBolt", Resources.HerbalismKit, 120, 121);
     }
 
     private static void LoadClothingGorimStock()

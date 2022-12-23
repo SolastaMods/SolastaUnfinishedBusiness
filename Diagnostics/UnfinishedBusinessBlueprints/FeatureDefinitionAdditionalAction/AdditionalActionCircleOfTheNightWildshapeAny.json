@@ -1,29 +1,13 @@
 {
-  "$type": "FeatureDefinitionActionAffinity, Assembly-CSharp",
-  "allowedActionTypes": [
-    true,
-    true,
-    true,
-    true,
-    true,
-    true
-  ],
-  "eitherMainOrBonus": false,
-  "maxAttacksNumber": 1,
+  "$type": "FeatureDefinitionAdditionalAction, Assembly-CSharp",
+  "actionType": "Main",
   "forbiddenActions": [
-    "CastMain",
-    "HideMain",
-    "PowerMain",
-    "UseItemMain",
-    "Ready"
+    "WildShape"
   ],
   "authorizedActions": [],
   "restrictedActions": [],
-  "actionExecutionModifiers": [],
-  "specialBehaviour": "None",
-  "randomBehaviorDie": "D10",
-  "randomBehaviourOptions": [],
-  "rechargeReactionsAtEveryTurn": false,
+  "maxAttacksNumber": -1,
+  "triggerCondition": "None",
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
@@ -48,7 +32,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "8a25f39e-835d-5d69-a0d7-649a3a9a2a8b",
+  "guid": "a6fb8de8-f474-50e8-9d3f-dcb7bcd7249d",
   "contentPack": 9999,
-  "name": "ActionAffinityWarDanceExtraAction"
+  "name": "AdditionalActionCircleOfTheNightWildshapeAny"
 }

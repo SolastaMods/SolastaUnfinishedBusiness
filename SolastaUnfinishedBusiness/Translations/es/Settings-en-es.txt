@@ -183,4 +183,4 @@ ModUi/&UseOfficialAdvantageDisadvantageRules=Usar reglas oficiales de ventaja/de
 ModUi/&Visuals=<color=#F0DAA0>Imágenes:</color> <b><i><color=#C04040E0>[Requiere reiniciar]</color></i></b>
 ModUi/&AddHumanoidFavoredEnemyToRanger=Añadir enemigo preferido humanoide a <color=#D89555>Rangers</color>
 ModUi/&EnableRejoinParty=Activa <color=#1E81B0>CTRL-SHIFT-(R)</color> para volver a unirte al grupo <i><color=#F0DAA0>[útil con grupos de 5 o 6]</color></i>
-ModUi/&AddCustomIconsToBolts=Agregue íconos personalizados a los pernos corrosivos, llameantes y de matraz y las recetas correspondientes <b><i><color=#C04040E0>[Requiere reinicio]</color></i></b>
+ModUi/&AddCustomIconsToOfficialItems=Agregue íconos personalizados a los pernos corrosivos, llameantes y de matraz y las recetas correspondientes <b><i><color=#C04040E0>[Requiere reinicio]</color></i></b>

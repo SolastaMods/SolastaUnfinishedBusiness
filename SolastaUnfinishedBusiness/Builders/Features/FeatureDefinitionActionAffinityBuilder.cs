@@ -22,7 +22,7 @@ internal class FeatureDefinitionActionAffinityBuilder
         return this;
     }
 
-#if false    
+#if false
     internal FeatureDefinitionActionAffinityBuilder SetRestrictedActions(params ActionDefinitions.Id[] actions)
     {
         Definition.RestrictedActions.SetRange(actions);
@@ -41,6 +41,12 @@ internal class FeatureDefinitionActionAffinityBuilder
     internal FeatureDefinitionActionAffinityBuilder SetDefaultAllowedActionTypes()
     {
         Definition.AllowedActionTypes = new[] { true, true, true, true, true, true };
+        return this;
+    }
+
+    internal FeatureDefinitionActionAffinityBuilder SetMaxAttackNumber(int maxAttack)
+    {
+        Definition.maxAttacksNumber = maxAttack;
         return this;
     }
 

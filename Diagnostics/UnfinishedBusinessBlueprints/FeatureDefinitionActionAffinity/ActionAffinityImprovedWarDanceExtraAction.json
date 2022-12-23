@@ -9,7 +9,7 @@
     true
   ],
   "eitherMainOrBonus": false,
-  "maxAttacksNumber": -1,
+  "maxAttacksNumber": 1,
   "forbiddenActions": [
     "HideMain",
     "PowerMain",
