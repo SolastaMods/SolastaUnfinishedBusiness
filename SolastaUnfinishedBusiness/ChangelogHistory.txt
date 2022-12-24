@@ -1,5 +1,11 @@
 ﻿CHANGES:
 
+1.4.32.8:
+
+- added Chromatic Orb spell
+- fixed multiclass level up spell selection when other class has full spells knowledge
+- reviewed some melee restriction scenarios to also allow unarmed
+
 1.4.32.7:
 
 CHANGES:
