@@ -120,5 +120,3 @@ UI/&RecipeFilterAmmunition=Ammunition
 UI/&RecipeFilterArmor=Armor
 UI/&RecipeFilterUsableDevices=Usable Devices
 UI/&RecipeFilterWeapons=Weapons
-Class/&WarlockVariantDescription=Where wizards draw their magical power from study and sorcerers from magical bloodlines, occultists or better known as warlocks gain power through a pact with a powerful patron: a fiend, perhaps, or some other powerful entity. Different than a warlock, occultists invest a lot of time on their studies and prefer to develop their intelligence instead of their charisma.
-Class/&WarlockVariantTitle=Occultist

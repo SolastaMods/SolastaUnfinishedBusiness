@@ -134,14 +134,29 @@
   "hitDice": "D8",
   "requiresDeity": false,
   "abilityScoresPriority": [
-    "Charisma",
+    "Intelligence",
     "Constitution",
     "Dexterity",
     "Wisdom",
-    "Intelligence",
+    "Charisma",
     "Strength"
   ],
   "featureUnlocks": [
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:ProficiencyWarlockVariantArmor:9ac86777-0cf9-586e-a616-a551fe57e723",
+      "level": 1
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:PointPoolWarlockVariantSkillPoints:c3f33221-c883-52ea-92dc-21e49c0a7f6a",
+      "level": 1
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:ProficiencyWarlockVariantWeapon:08fff67a-7bdb-503c-9f94-f997dce3e053",
+      "level": 1
+    },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:SubclassChoiceWarlockOtherworldlyPatrons:0c9dd88c2525932438eacf87f4b6dae9",
@@ -150,21 +165,6 @@
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:ProficiencyWarlockVariantSavingThrow:5b5bc4b6-1bcb-5fef-a7c0-caf146bcb6ef",
-      "level": 1
-    },
-    {
-      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:ProficiencyWarlockArmor:af89dc9ccfb2adc409e68b8982b36233",
-      "level": 1
-    },
-    {
-      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:PointPoolWarlockSkillPoints:16dd9f5d7cc44254c9284ad7d81e3db8",
-      "level": 1
-    },
-    {
-      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:ProficiencyWarlockWeapon:c13cf034567d0f24f90ae0e93bd0b120",
       "level": 1
     },
     {

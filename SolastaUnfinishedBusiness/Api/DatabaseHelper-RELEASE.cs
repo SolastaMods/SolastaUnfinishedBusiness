@@ -752,6 +752,9 @@ internal static partial class DatabaseHelper
 
         internal static FeatureDefinitionAttributeModifier AttributeModifierDwarfHillToughness { get; } =
             GetDefinition<FeatureDefinitionAttributeModifier>("AttributeModifierDwarfHillToughness");
+        
+        internal static FeatureDefinitionAttributeModifier AttributeModifierElfAbilityScoreIncrease { get; } =
+            GetDefinition<FeatureDefinitionAttributeModifier>("AttributeModifierElfAbilityScoreIncrease");
 
         internal static FeatureDefinitionAttributeModifier AttributeModifierFighterExtraAttack { get; } =
             GetDefinition<FeatureDefinitionAttributeModifier>("AttributeModifierFighterExtraAttack");
@@ -1489,6 +1492,9 @@ internal static partial class DatabaseHelper
 
         internal static FeatureDefinitionProficiency ProficiencyWandererTools { get; } =
             GetDefinition<FeatureDefinitionProficiency>("ProficiencyWandererTools");
+
+        internal static FeatureDefinitionProficiency ProficiencyWarlockArmor { get; } =
+            GetDefinition<FeatureDefinitionProficiency>("ProficiencyWarlockArmor");
 
         internal static FeatureDefinitionProficiency ProficiencyWarlockSavingThrow { get; } =
             GetDefinition<FeatureDefinitionProficiency>("ProficiencyWarlockSavingThrow");

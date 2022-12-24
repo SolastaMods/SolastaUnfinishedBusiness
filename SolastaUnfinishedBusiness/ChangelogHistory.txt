@@ -1,5 +1,13 @@
 ﻿CHANGES:
 
+1.4.32.7:
+
+CHANGES:
+
+- improved Kobold race
+- improved Mobile feat and Monk features interaction
+- improved Occultist presentation
+
 1.4.32.6:
 
 - fixed level up removing last assigned subclass under certain scenarios

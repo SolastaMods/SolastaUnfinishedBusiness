@@ -10,29 +10,26 @@
   "featureUnlocks": [
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:SenseDarkvision:446f786482b07db45b6f4a0854be3056",
+      "featureDefinition": "Definition:AttributeModifierElfAbilityScoreIncrease:122e862ec1d88c649b2d784db05233cd",
       "level": 1
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:ProficiencyKoboldLanguages:ab62c9cf-b492-5530-98c8-2650dfa4b9c4",
+      "featureDefinition": "Definition:PowerDarkKoboldGrovelCowerAndBeg:64232eff-49bf-5ab6-93ba-61e407210831",
       "level": 1
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:MoveModeMove6:6f358015fcdb8e147a7cfef7e2506430",
+      "featureDefinition": "Definition:LightAffinityDarkKoboldLightSensitivity:ef7792be-cce3-5545-a497-66e316dd5254",
       "level": 1
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:SenseNormalVision:222ef639393ed4e4bbd7152690597945",
+      "featureDefinition": "Definition:FeatureSetPackTactics:6e3ececb-7eb5-552a-a95f-a6363775fe8e",
       "level": 1
     }
   ],
-  "subRaces": [
-    "Definition:RaceDarkKobold:930f5725-69e5-5b90-86b6-5bef750addaf",
-    "Definition:RaceDraconicKobold:71f9a79f-d8fa-5d32-9514-2edc39725cfb"
-  ],
+  "subRaces": [],
   "inventoryDefinition": "Definition:HumanoidInventory:2a836ff45f2eb274eb079425509421ac",
   "personalityFlagOccurences": [],
   "languageAutolearnPreference": [
@@ -202,8 +199,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
-    "title": "Race/&RaceKoboldTitle",
-    "description": "Race/&RaceKoboldDescription",
+    "title": "Race/&RaceDarkKoboldTitle",
+    "description": "Race/&RaceDarkKoboldDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "170238d2-99d4-58bb-baa8-6112ecc4685d",
@@ -223,7 +220,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "62bcd5b6-3ccb-5656-aac7-bbf7172f2200",
+  "guid": "930f5725-69e5-5b90-86b6-5bef750addaf",
   "contentPack": 9999,
-  "name": "RaceKobold"
+  "name": "RaceDarkKobold"
 }

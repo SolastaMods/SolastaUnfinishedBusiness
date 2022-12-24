@@ -335,7 +335,9 @@ internal static class OtherFeats
 
         public void OnAfterAction(CharacterAction action)
         {
-            if (action is not CharacterActionDash)
+            if (action is not CharacterActionDash or CharacterActionFlurryOfBlowsSwiftSteps
+                or CharacterActionFlurryOfBlows or CharacterActionFlurryOfBlowsSwiftSteps
+                or CharacterActionFlurryOfBlowsUnendingStrikes)
             {
                 return;
             }

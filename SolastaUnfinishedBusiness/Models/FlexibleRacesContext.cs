@@ -8,7 +8,7 @@ namespace SolastaUnfinishedBusiness.Models;
 
 internal static class FlexibleRacesContext
 {
-    private static readonly FeatureUnlockByLevel AttributeChoiceThree = new(
+    internal static readonly FeatureUnlockByLevel AttributeChoiceThree = new(
         FeatureDefinitionPointPoolBuilder
             .Create("PointPoolAbilityScore3")
             .SetGuiPresentation(Category.Feature)
@@ -35,8 +35,7 @@ internal static class FlexibleRacesContext
         // unofficial races
         { "RaceBolgrif", AttributeChoiceThree },
         { "RaceHalfElfVariant", AttributeChoiceFour },
-        //{ "RaceDarkKobold", AttributeChoiceThree },
-        { "RaceKobold", AttributeChoiceFour },
+        { "RaceKobold", AttributeChoiceThree },
         { "RaceGnome", AttributeChoiceThree },
         { "RaceTiefling", AttributeChoiceThree }
     };
@@ -74,8 +73,8 @@ internal static class FlexibleRacesContext
         { "RaceDarkelf", new List<string> { "AttributeModifierDarkelfCharismaAbilityScoreIncrease" } },
         { "RaceHalfElfVariant", new List<string> { "FeatureSetHalfElfAbilityScoreIncrease" } },
         { "RaceGrayDwarf", new List<string> { "AttributeModifierGrayDwarfStrengthAbilityScoreIncrease" } },
-        //{ "RaceDarkKobold", new List<string> { "FeatureSetHalfOrcAbilityScoreIncrease" } },
-        { "RaceKobold", new List<string> { "FeatureSetHalfElfAbilityScoreIncrease" } },
+        { "RaceDarkKobold", new List<string> { "AttributeModifierElfAbilityScoreIncrease" } },
+        { "RaceDraconicKobold", new List<string> { "PointPoolDraconicKoboldAbilityScoreIncrease" } },
         { "RaceTiefling", new List<string> { "AttributeModifierTieflingCharismaAbilityScoreIncrease" } },
         { "RaceTieflingAsmodeus", new List<string> { "AttributeModifierTieflingIntelligenceAbilityScoreIncrease" } },
         { "RaceTieflingMephistopheles", new List<string> { "AttributeModifierTieflingDexterityAbilityScoreIncrease" } },

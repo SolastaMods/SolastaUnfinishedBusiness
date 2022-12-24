@@ -120,5 +120,3 @@ UI/&RecipeFilterArmor=armaduras
 UI/&RecipeFilterUsableDevices=Dispositivos utilizáveis
 UI/&RecipeFilterWeapons=armas
 Feature/&AdditionalDamageDomainLifeDivineStrikeDescription=+1d8 de dano radiante em ataques com armas, uma vez por turno.
-Class/&WarlockVariantDescription=Enquanto os magos extraem seu poder mágico do estudo e os feiticeiros de linhagens mágicas, os feiticeiros ganham poder por meio de um pacto com um patrono poderoso: um demônio, talvez, ou alguma outra entidade poderosa. A natureza dos poderes de um feiticeiro varia dependendo da natureza do patrono e dos detalhes do pacto.
-Class/&WarlockVariantTitle=Smarlock

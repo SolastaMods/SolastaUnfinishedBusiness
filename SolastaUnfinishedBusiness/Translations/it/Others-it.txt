@@ -120,5 +120,3 @@ UI/&RecipeFilterAmmunition=Munizioni
 UI/&RecipeFilterArmor=Armatura
 UI/&RecipeFilterUsableDevices=Dispositivi utilizzabili
 UI/&RecipeFilterWeapons=Armi
-Class/&WarlockVariantDescription=Laddove i maghi traggono il loro potere magico dallo studio e gli stregoni dalle stirpi magiche, gli stregoni ottengono potere attraverso un patto con un potente mecenate: un demone, forse, o qualche altra potente entità. La natura dei poteri di uno stregone varia a seconda della natura del patrono e dei dettagli del patto.
-Class/&WarlockVariantTitle=Smarlock
