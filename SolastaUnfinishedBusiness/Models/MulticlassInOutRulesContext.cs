@@ -148,7 +148,7 @@ internal static class MulticlassInOutRulesContext
 
             case RuleDefinitions.WarlockClass:
                 var hasOccultist =
-                    hero.ClassesHistory.Contains(DatabaseHelper.GetDefinition<CharacterClassDefinition>("Occultist"));
+                    hero.ClassesHistory.Contains(DatabaseHelper.GetDefinition<CharacterClassDefinition>("WarlockVariant"));
 
                 return charisma >= 13 && !hasOccultist;
 
