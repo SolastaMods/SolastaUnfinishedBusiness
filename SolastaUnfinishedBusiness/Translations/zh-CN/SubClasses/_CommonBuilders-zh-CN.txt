@@ -1,4 +1,4 @@
-Feature/&AttributeModifierCasterFightingExtraAttackDescription=你获得一次额外攻击，现在你最多可以在你的回合中攻击两次
+Feature/&AttributeModifierCasterFightingExtraAttackDescription=你在自己回合内执行攻击动作时可以发动的攻击次数增加一次。
 Feature/&AttributeModifierCasterFightingExtraAttackTitle=额外攻击
 Feature/&FeatureSetCasterFightingProficiencyDescription=你可以穿轻甲、中甲，还可以熟练使用盾牌与军用武器
 Feature/&FeatureSetCasterFightingProficiencyTitle=护甲与武器
