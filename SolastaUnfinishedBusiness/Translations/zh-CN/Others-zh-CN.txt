@@ -121,5 +121,3 @@ UI/&RecipeFilterAmmunition=弹药
 UI/&RecipeFilterArmor=护甲
 UI/&RecipeFilterUsableDevices=可设用备
 UI/&RecipeFilterWeapons=武器
-Class/&WarlockVariantDescription=法师从研究中汲取魔法力量，术士从魔法血统中汲取魔法力量，而邪术师则通过与强大守护神的契约获得力量：也许是恶魔，或者其他一些强大的实体。 邪术师力量的性质取决于宗主的性质和契约的细节。
-Class/&WarlockVariantTitle=智术师

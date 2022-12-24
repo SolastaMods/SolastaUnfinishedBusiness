@@ -120,5 +120,3 @@ UI/&RecipeFilterAmmunition=Munición
 UI/&RecipeFilterArmor=Armadura
 UI/&RecipeFilterUsableDevices=Dispositivos utilizables
 UI/&RecipeFilterWeapons=armas
-Class/&WarlockVariantDescription=Donde los magos obtienen su poder mágico del estudio y los hechiceros de las líneas de sangre mágicas, los brujos obtienen poder a través de un pacto con un patrón poderoso: un demonio, tal vez, o alguna otra entidad poderosa. La naturaleza de los poderes de un brujo varía según la naturaleza del patrón y los detalles del pacto.
-Class/&WarlockVariantTitle=Smarlock
