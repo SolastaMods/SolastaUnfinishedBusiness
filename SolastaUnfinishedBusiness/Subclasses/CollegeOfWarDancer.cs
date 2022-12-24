@@ -375,6 +375,7 @@ internal sealed class CollegeOfWarDancer : AbstractSubclass
             GameLocationCharacter downedCreature,
             RulesetAttackMode attackMode, RulesetEffect activeEffect)
         {
+            // activeEffect != null means a magical attack
             if (attackMode == null || activeEffect != null ||
                 !attacker.RulesetCharacter.HasConditionOfType(ConditionWarDance) ||
                 !ValidatorsWeapon.IsMelee(attackMode))

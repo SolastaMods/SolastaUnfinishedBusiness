@@ -212,6 +212,7 @@ internal sealed class CollegeOfHarlequin : AbstractSubclass
             GameLocationCharacter downedCreature,
             RulesetAttackMode attackMode, RulesetEffect activeEffect)
         {
+            // activeEffect != null means a magical attack
             if (attackMode == null || activeEffect != null)
             {
                 yield break;
