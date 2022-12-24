@@ -184,3 +184,4 @@ ModUi/&Visuals=<color=#F0DAA0>Visuais:</color> <b><i><color=#C04040E0>[Requer re
 ModUi/&AddHumanoidFavoredEnemyToRanger=Adicione o inimigo preferencial humanóide a <color=#D89555>Rangers</color>
 ModUi/&EnableRejoinParty=Ative <color=#1E81B0>CTRL-SHIFT-(R)</color> para voltar ao grupo <i><color=#F0DAA0>[útil com grupos de 5 ou 6]</color></i>
 ModUi/&AddCustomIconsToOfficialItems=Adicione ícones personalizados aos parafusos Corrosivo, Flamejante e Frasco e às receitas correspondentes <b><i><color=#C04040E0>[Requer reinicialização]</color></i></b>
+ModUi/&AllowAssigningOfficialSpells=Permitir que os feitiços oficiais sejam exibidos nestas listas <b><i><color=#C04040E0>[Requer reinicialização]</color></i></b>

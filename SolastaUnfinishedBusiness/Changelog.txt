@@ -6,5 +6,6 @@ KNOWN ISSUES:
 CHANGES:
 
 - added Chromatic Orb spell
+- added setting to allow assigning official spells as well to other classes
 - fixed multiclass level up spell selection when other class has full spells knowledge
 - reviewed some melee restriction scenarios to also allow unarmed

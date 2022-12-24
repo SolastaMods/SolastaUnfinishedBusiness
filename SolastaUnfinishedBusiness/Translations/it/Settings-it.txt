@@ -184,3 +184,4 @@ ModUi/&Visuals=<color=#F0DAA0>Visuali:</color> <b><i><color=#C04040E0>[Richiede 
 ModUi/&AddHumanoidFavoredEnemyToRanger=Aggiungi il nemico preferito umanoide ai <color=#D89555>Ranger</color>
 ModUi/&EnableRejoinParty=Abilita <color=#1E81B0>CTRL-MAIUSC-(R)</color> per unirti nuovamente al gruppo <i><color=#F0DAA0>[utile con gruppi di 5 o 6]</color></i>
 ModUi/&AddCustomIconsToOfficialItems=Aggiungi icone personalizzate ai bulloni corrosivi, fiammeggianti e fiaschi e alle ricette corrispondenti <b><i><color=#C04040E0>[Richiede il riavvio]</color></i></b>
+ModUi/&AllowAssigningOfficialSpells=ModUi/&AllowAssigningOfficialSpells=Consenti la visualizzazione degli incantesimi ufficiali in questi elenchi <b><i><color=#C04040E0>[Richiede il riavvio]</color></i></b>
