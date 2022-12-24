@@ -1,4 +1,5 @@
-﻿using SolastaUnfinishedBusiness.Builders;
+﻿using System.Collections.Generic;
+using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Properties;
@@ -161,6 +162,67 @@ internal static partial class SpellBuilders
             .AddToDB();
 
         return spell;
+    }
+    
+    internal static SpellDefinition BuildChromaticOrb()
+    {
+        const string NAME = "ChromaticOrb";
+
+        var sprite = Sprites.GetSprite("ChromaticOrb", Resources.ChromaticOrb, 128);
+        var subSpells = new SpellDefinition[6];
+        var particleTypes = new[] { AcidSplash, ConeOfCold, FireBolt, LightningBolt, PoisonSpray, Thunderwave };
+        var damageTypes = new[]
+        {
+            DamageTypeAcid, DamageTypeCold, DamageTypeFire, DamageTypeLightning, DamageTypePoison, DamageTypeThunder
+        };
+
+        for (var i = 0; i < subSpells.Length; i++)
+        {
+            var damageType = damageTypes[i];
+            var particleType = particleTypes[i];
+            var title = Gui.Localize($"Tooltip/&Tag{damageType}Title");
+            var spell = SpellDefinitionBuilder
+                .Create(NAME + damageType)
+                .SetGuiPresentation(
+                    title,
+                    Gui.Format("Spell/&SubSpellChromaticOrbDescription", title),
+                    sprite: sprite)
+                .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolEvocation)
+                .SetSpellLevel(1)
+                .SetMaterialComponent(MaterialComponentType.Specific)
+                .SetSpecificMaterialComponent(TagsDefinitions.ItemTagDiamond, 50, false)
+                .SetVocalSpellSameType(VocalSpellSemeType.Attack)
+                .SetCastingTime(ActivationTime.Action)
+                .SetEffectDescription(EffectDescriptionBuilder
+                    .Create()
+                    .SetTargetFiltering(TargetFilteringMethod.CharacterOnly)
+                    .SetTargetingData(Side.Enemy, RangeType.RangeHit, 12, TargetType.Individuals, 1)
+                    .SetDurationData(DurationType.Instantaneous)
+                    .SetEffectForms(EffectFormBuilder.Create()
+                        .SetDamageForm(damageType, 3, DieType.D8)
+                        .Build())
+                    .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel, 1, additionalDicePerIncrement: 1)
+                    .SetParticleEffectParameters(particleType)
+                    .SetSpeed(SpeedType.CellsPerSeconds, 8.5f)
+                    .SetupImpactOffsets(offsetImpactTimePerTarget: 0.1f)
+                    .Build())
+                .SetSubSpells()
+                .AddToDB();
+
+            subSpells[i] = spell;
+        }
+
+        return SpellDefinitionBuilder
+            .Create(NAME)
+            .SetGuiPresentation(Category.Spell, sprite)
+            .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolEvocation)
+            .SetSpellLevel(1)
+            .SetMaterialComponent(MaterialComponentType.Specific)
+            .SetSpecificMaterialComponent(TagsDefinitions.ItemTagDiamond, 50, false)
+            .SetVocalSpellSameType(VocalSpellSemeType.Attack)
+            .SetCastingTime(ActivationTime.Action)
+            .SetSubSpells(subSpells)
+            .AddToDB();
     }
 
     #endregion

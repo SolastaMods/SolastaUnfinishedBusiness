@@ -5,6 +5,5 @@ KNOWN ISSUES:
 
 CHANGES:
 
-- improved Kobold race
-- improved Mobile feat and Monk features interaction
-- improved Occultist presentation
+- fixed multiclass level up spell selection when other class has full spells knowledge
+- reviewed some melee restriction scenarios to also allow unarmed

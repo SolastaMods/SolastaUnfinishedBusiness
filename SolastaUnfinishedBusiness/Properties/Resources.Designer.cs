@@ -502,6 +502,16 @@ namespace SolastaUnfinishedBusiness.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
+        public static byte[] ChromaticOrb {
+            get {
+                object obj = ResourceManager.GetObject("ChromaticOrb", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
         public static byte[] ConditionGambit {
             get {
                 object obj = ResourceManager.GetObject("ConditionGambit", resourceCulture);

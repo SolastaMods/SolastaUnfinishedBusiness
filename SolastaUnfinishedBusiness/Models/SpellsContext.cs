@@ -156,6 +156,7 @@ internal static class SpellsContext
 
         // 1st level
         // RegisterSpell(BuildFindFamiliar(), 0, SpellListWizard);
+        RegisterSpell(BuildChromaticOrb(), 0, SpellListSorcerer, SpellListWizard);
         RegisterSpell(BuildMule(), 0, SpellListWizard);
         RegisterSpell(BuildRadiantMotes(), 0, SpellListWizard, spellListInventorClass);
 
