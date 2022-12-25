@@ -20,7 +20,7 @@ internal static partial class SpellBuilders
     {
         const string NAME = "BlindingSmite";
 
-        var additionalDamageSearingSmite = FeatureDefinitionAdditionalDamageBuilder
+        var additionalDamageBlindingSmite = FeatureDefinitionAdditionalDamageBuilder
             .Create($"AdditionalDamage{NAME}")
             .SetGuiPresentation(Category.Feature)
             .SetNotificationTag(NAME)
@@ -40,10 +40,10 @@ internal static partial class SpellBuilders
                 })
             .AddToDB();
 
-        var conditionBrandingSmite = ConditionDefinitionBuilder
+        var conditionBlindingSmite = ConditionDefinitionBuilder
             .Create($"Condition{NAME}")
             .SetGuiPresentation(NAME, Category.Spell, ConditionBrandingSmite)
-            .SetFeatures(additionalDamageSearingSmite)
+            .SetFeatures(additionalDamageBlindingSmite)
             .SetSpecialInterruptions(ConditionInterruption.AttacksAndDamages)
             .AddToDB();
 
@@ -60,7 +60,7 @@ internal static partial class SpellBuilders
                 .SetDurationData(DurationType.Minute, 1)
                 .SetEffectForms(EffectFormBuilder
                     .Create()
-                    .SetConditionForm(conditionBrandingSmite, ConditionForm.ConditionOperation.Add)
+                    .SetConditionForm(conditionBlindingSmite, ConditionForm.ConditionOperation.Add)
                     .Build())
                 .Build())
             .AddToDB();

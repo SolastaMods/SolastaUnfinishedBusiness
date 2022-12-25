@@ -157,8 +157,6 @@ internal static partial class SpellBuilders
     {
         const string NAME = "SearingSmite";
 
-        var sprite = Sprites.GetSprite(NAME, Resources.SearingSmite, 128);
-
         var additionalDamageSearingSmite = FeatureDefinitionAdditionalDamageBuilder
             .Create($"AdditionalDamage{NAME}")
             .SetGuiPresentation(Category.Feature)
@@ -179,7 +177,7 @@ internal static partial class SpellBuilders
                 })
             .AddToDB();
 
-        var conditionBrandingSmite = ConditionDefinitionBuilder
+        var conditionSearingSmite = ConditionDefinitionBuilder
             .Create($"Condition{NAME}")
             .SetGuiPresentation(NAME, Category.Spell, ConditionBrandingSmite)
             .SetFeatures(additionalDamageSearingSmite)
@@ -188,7 +186,7 @@ internal static partial class SpellBuilders
 
         var spell = SpellDefinitionBuilder
             .Create(BrandingSmite, NAME)
-            .SetGuiPresentation(Category.Spell, sprite)
+            .SetGuiPresentation(Category.Spell, Sprites.GetSprite(NAME, Resources.SearingSmite, 128))
             .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolEvocation)
             .SetSpellLevel(1)
             .SetCastingTime(ActivationTime.BonusAction)
@@ -199,7 +197,62 @@ internal static partial class SpellBuilders
                 .SetDurationData(DurationType.Minute, 1)
                 .SetEffectForms(EffectFormBuilder
                     .Create()
-                    .SetConditionForm(conditionBrandingSmite, ConditionForm.ConditionOperation.Add)
+                    .SetConditionForm(conditionSearingSmite, ConditionForm.ConditionOperation.Add)
+                    .Build())
+                .Build())
+            .AddToDB();
+
+        return spell;
+    }
+
+    internal static SpellDefinition BuildWrathfulSmite()
+    {
+        const string NAME = "WrathfulSmite";
+
+        var additionalDamageWrathfulSmite = FeatureDefinitionAdditionalDamageBuilder
+            .Create($"AdditionalDamage{NAME}")
+            .SetGuiPresentation(Category.Feature)
+            .SetNotificationTag(NAME)
+            .SetDamageDice(DieType.D6, 1)
+            .SetAdditionalDamageType(AdditionalDamageType.Specific)
+            .SetAdvancement(AdditionalDamageAdvancement.SlotLevel, 1)
+            .SetSpecificDamageType(DamageTypePsychic)
+            .SetConditionOperations(
+                new ConditionOperationDescription
+                {
+                    hasSavingThrow = true,
+                    canSaveToCancel = true,
+                    saveAffinity = EffectSavingThrowType.Negates,
+                    saveOccurence = TurnOccurenceType.StartOfTurn,
+                    conditionDefinition = ConditionDefinitionBuilder
+                        .Create(ConditionDefinitions.ConditionFrightened, "ConditionFrightened1minute")
+                        .SetSpecialDuration(DurationType.Minute, 1)
+                        .AddToDB(),
+                    operation = ConditionOperationDescription.ConditionOperation.Add
+                })
+            .AddToDB();
+
+        var conditionWrathfulSmite = ConditionDefinitionBuilder
+            .Create($"Condition{NAME}")
+            .SetGuiPresentation(NAME, Category.Spell, ConditionBrandingSmite)
+            .SetFeatures(additionalDamageWrathfulSmite)
+            .SetSpecialInterruptions(ConditionInterruption.AttacksAndDamages)
+            .AddToDB();
+
+        var spell = SpellDefinitionBuilder
+            .Create(BrandingSmite, NAME)
+            .SetGuiPresentation(Category.Spell, Sprites.GetSprite(NAME, Resources.WrathfulSmite, 128))
+            .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolEvocation)
+            .SetSpellLevel(1)
+            .SetCastingTime(ActivationTime.BonusAction)
+            .SetVerboseComponent(true)
+            .SetEffectDescription(EffectDescriptionBuilder
+                .Create()
+                .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
+                .SetDurationData(DurationType.Minute, 1)
+                .SetEffectForms(EffectFormBuilder
+                    .Create()
+                    .SetConditionForm(conditionWrathfulSmite, ConditionForm.ConditionOperation.Add)
                     .Build())
                 .Build())
             .AddToDB();
