@@ -1,10 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
+using System.Linq;
 using System.Reflection.Emit;
 using HarmonyLib;
 using JetBrains.Annotations;
+using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.Helpers;
+using UnityEngine;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
@@ -29,6 +32,39 @@ public static class UserGadgetPatcher
 
             return instructions.ReplaceCalls(dungeonMakerPresenceMethod, "UserGadget.PostLoadJson",
                 new CodeInstruction(OpCodes.Call, myDungeonMakerPresenceMethod));
+        }
+    }
+
+    //PATCH: Expands exits and exits multiple sense grids if party greater than 4 (PARTYSIZE)
+    [HarmonyPatch(typeof(UserGadget), "ApplySpecialDimensions")]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    public static class ApplySpecialDimensions_Patch
+    {
+        private static readonly GadgetBlueprint Exit = DatabaseHelper.GetDefinition<GadgetBlueprint>("Exit");
+
+        private static readonly GadgetBlueprint ExitMultiple =
+            DatabaseHelper.GetDefinition<GadgetBlueprint>("ExitMultiple");
+
+        public static void Postfix(UserGadget __instance, WorldGadget worldGadget)
+        {
+            var gadgetBlueprint = __instance.gadgetBlueprint;
+
+            if (gadgetBlueprint != Exit && gadgetBlueprint != ExitMultiple ||
+                __instance.gadgetBlueprint.CustomizableDimensions ||
+                Main.Settings.OverridePartySize <= 4)
+            {
+                return;
+            }
+
+            foreach (var gadgetFlowDescription in worldGadget.EnumerateFlowOfListenerType(
+                         "VolumetricTrigger"))
+            {
+                foreach (var boxCollider in gadgetFlowDescription.BoxColliders
+                             .Where(boxCollider => boxCollider != null))
+                {
+                    boxCollider.size = new Vector3(2, boxCollider.size.y, 2);
+                }
+            }
         }
     }
 }
