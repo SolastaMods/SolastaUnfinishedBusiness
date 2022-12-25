@@ -5,6 +5,7 @@
 - added Chromatic Orb, Searing Smite, Wrathful Smite and Blinding Smite spells
 - added patch to expand exits' sensors if party greater than 4 [blue box still 4x4 but sensor is now 8x8]
 - added setting to allow assigning official spells to other classes' repertoires
+- fixed Cloak of Elven Kind adding DIS to perception [original TA issue]
 - fixed missing extra situational context translation terms
 - fixed multiclass level up spell selection when other class has full knowledge
 - reviewed some melee restriction scenarios to also allow unarmed attacks
