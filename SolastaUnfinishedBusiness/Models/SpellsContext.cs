@@ -253,18 +253,16 @@ internal static class SpellsContext
         }
     }
 
-    internal static void AllowAssigningOfficialSpells()
+    private static void AllowAssigningOfficialSpells()
     {
+        if (!Main.Settings.AllowAssigningOfficialSpells)
+        {
+            return;
+        }
+
         foreach (var kvp in SpellSpellListMap)
         {
-            if (Main.Settings.AllowAssigningOfficialSpells)
-            {
-                RegisterSpell(kvp.Key, kvp.Value.Count, kvp.Value.ToArray());
-            }
-            else
-            {
-                Spells.Remove(kvp.Key);
-            }
+            RegisterSpell(kvp.Key, kvp.Value.Count, kvp.Value.ToArray());
         }
     }
 
@@ -281,12 +279,15 @@ internal static class SpellsContext
         Spells.Add(spellDefinition);
 
         //Add spells to `All Spells` list, so that Warlock's `Book of Ancient Secrets` and Bard's `Magic Secrets` would see them
-        SpellListAllSpells.AddSpell(spellDefinition);
-
-        //Add cantrips to `All Cantrips` list, so that Warlock's `Pact of the Tome` and Loremaster's `Arcane Professor` would see them
-        if (spellDefinition.SpellLevel == 0)
+        if (spellDefinition.contentPack == CeContentPackContext.CeContentPack)
         {
-            SpellListAllCantrips.AddSpell(spellDefinition);
+            SpellListAllSpells.AddSpell(spellDefinition);
+
+            //Add cantrips to `All Cantrips` list, so that Warlock's `Pact of the Tome` and Loremaster's `Arcane Professor` would see them
+            if (spellDefinition.SpellLevel == 0)
+            {
+                SpellListAllCantrips.AddSpell(spellDefinition);
+            }
         }
 
         for (var i = 0; i < registeredSpellLists.Length; i++)
