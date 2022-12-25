@@ -6,6 +6,7 @@ KNOWN ISSUES:
 CHANGES:
 
 - added Chromatic Orb, Searing Smite, Wrathful Smite and Blinding Smite spells
+- added patch to expand exits' sensors if party greater than 4 [blue box still 4x4 but sensor is now 8x8]
 - added setting to allow assigning official spells to other classes' repertoires
 - fixed missing extra situational context translation terms
 - fixed multiclass level up spell selection when other class has full knowledge
