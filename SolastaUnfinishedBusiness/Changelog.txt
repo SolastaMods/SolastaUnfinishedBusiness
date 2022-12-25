@@ -5,7 +5,7 @@ KNOWN ISSUES:
 
 CHANGES:
 
-- added Chromatic Orb and Searing Smite spells
+- added Chromatic Orb, Searing Smite and Blinding Smite spells
 - added missing extra situational context translation terms
 - added setting to allow assigning official spells to other classes' repertoires
 - fixed multiclass level up spell selection when other class has full knowledge

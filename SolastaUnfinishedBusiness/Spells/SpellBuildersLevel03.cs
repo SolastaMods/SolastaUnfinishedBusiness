@@ -16,6 +16,58 @@ internal static partial class SpellBuilders
 {
     #region LEVEL 03
 
+    internal static SpellDefinition BuildBlindingSmite()
+    {
+        const string NAME = "BlindingSmite";
+
+        var additionalDamageSearingSmite = FeatureDefinitionAdditionalDamageBuilder
+            .Create($"AdditionalDamage{NAME}")
+            .SetGuiPresentation(Category.Feature)
+            .SetNotificationTag(NAME)
+            .SetDamageDice(DieType.D8, 3)
+            .SetAdditionalDamageType(AdditionalDamageType.Specific)
+            .SetAdvancement(AdditionalDamageAdvancement.SlotLevel, 3, 1, 1, 3)
+            .SetSpecificDamageType(DamageTypeRadiant)
+            .SetConditionOperations(
+                new ConditionOperationDescription
+                {
+                    hasSavingThrow = true,
+                    canSaveToCancel = true,
+                    saveAffinity = EffectSavingThrowType.Negates,
+                    saveOccurence = TurnOccurenceType.StartOfTurn,
+                    conditionDefinition = ConditionBlinded1minute,
+                    operation = ConditionOperationDescription.ConditionOperation.Add
+                })
+            .AddToDB();
+
+        var conditionBrandingSmite = ConditionDefinitionBuilder
+            .Create($"Condition{NAME}")
+            .SetGuiPresentation(NAME, Category.Spell, ConditionBrandingSmite)
+            .SetFeatures(additionalDamageSearingSmite)
+            .SetSpecialInterruptions(ConditionInterruption.AttacksAndDamages)
+            .AddToDB();
+
+        var spell = SpellDefinitionBuilder
+            .Create(BrandingSmite, NAME)
+            .SetGuiPresentation(Category.Spell, Sprites.GetSprite(NAME, Resources.BlindingSmite, 128))
+            .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolEvocation)
+            .SetSpellLevel(3)
+            .SetCastingTime(ActivationTime.BonusAction)
+            .SetVerboseComponent(true)
+            .SetEffectDescription(EffectDescriptionBuilder
+                .Create()
+                .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
+                .SetDurationData(DurationType.Minute, 1)
+                .SetEffectForms(EffectFormBuilder
+                    .Create()
+                    .SetConditionForm(conditionBrandingSmite, ConditionForm.ConditionOperation.Add)
+                    .Build())
+                .Build())
+            .AddToDB();
+
+        return spell;
+    }
+
     internal static SpellDefinition BuildEarthTremor()
     {
         const string NAME = "EarthTremor";
