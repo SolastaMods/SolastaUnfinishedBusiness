@@ -375,7 +375,7 @@ internal static class OtherFeats
         {
             var rulesetCharacter = attacker.RulesetCharacter;
 
-            if (!ValidatorsWeapon.IsMelee(attackMode) ||
+            if (!ValidatorsWeapon.IsMelee(attackMode) &&
                 !ValidatorsWeapon.IsUnarmedWeapon(rulesetCharacter, attackMode))
             {
                 return;

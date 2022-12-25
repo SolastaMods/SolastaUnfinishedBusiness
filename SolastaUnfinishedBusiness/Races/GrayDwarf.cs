@@ -168,7 +168,7 @@ internal static class GrayDwarfSubraceBuilder
     {
         public void ModifyAttackMode(RulesetCharacter character, RulesetAttackMode attackMode)
         {
-            if (attackMode?.abilityScore != AttributeDefinitions.Strength || !ValidatorsWeapon.IsMelee(attackMode) ||
+            if (attackMode?.abilityScore != AttributeDefinitions.Strength || !ValidatorsWeapon.IsMelee(attackMode) &&
                 !ValidatorsWeapon.IsUnarmedWeapon(character, attackMode))
             {
                 return;
