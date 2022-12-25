@@ -254,8 +254,8 @@ internal sealed class PathOfTheSpirits : AbstractSubclass
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create(SpellDefinitions.SpiritGuardians.EffectDescription)
-                    .SetHasSavingThrow(AttributeDefinitions.Wisdom,
-                        EffectDifficultyClassComputation.AbilityScoreAndProficiency)
+                    .SetSavingThrowData(false,
+                        AttributeDefinitions.Wisdom, false, EffectDifficultyClassComputation.AbilityScoreAndProficiency)
                     .Build())
             .AddToDB();
     }

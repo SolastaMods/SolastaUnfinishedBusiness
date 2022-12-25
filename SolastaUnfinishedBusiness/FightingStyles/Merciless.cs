@@ -20,9 +20,8 @@ internal sealed class Merciless : AbstractFightingStyle
         .SetGuiPresentationNoContent(true)
         .SetEffectDescription(EffectDescriptionBuilder
             .Create(DatabaseHelper.SpellDefinitions.Fear.EffectDescription)
-            .SetHasSavingThrow(
-                AttributeDefinitions.Wisdom,
-                EffectDifficultyClassComputation.AbilityScoreAndProficiency,
+            .SetSavingThrowData(false,
+                AttributeDefinitions.Wisdom, false, EffectDifficultyClassComputation.AbilityScoreAndProficiency,
                 AttributeDefinitions.Strength)
             .SetDurationData(DurationType.Round, 1)
             .Build())

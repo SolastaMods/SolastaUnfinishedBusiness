@@ -25,9 +25,8 @@ internal static class OtherFeats
         .SetGuiPresentation(Category.Feature)
         .SetEffectDescription(EffectDescriptionBuilder
             .Create()
-            .SetHasSavingThrow(
-                AttributeDefinitions.Constitution,
-                EffectDifficultyClassComputation.AbilityScoreAndProficiency,
+            .SetSavingThrowData(false,
+                AttributeDefinitions.Constitution, false, EffectDifficultyClassComputation.AbilityScoreAndProficiency,
                 AttributeDefinitions.Constitution)
             .SetEffectForms(EffectFormBuilder
                 .Create()
