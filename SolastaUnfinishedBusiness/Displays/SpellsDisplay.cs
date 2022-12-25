@@ -19,7 +19,8 @@ internal static class SpellsDisplay
 
         var toggle = Main.Settings.AllowAssigningOfficialSpells;
 
-        if (UI.Toggle(Gui.Localize("ModUi/&ModUi/&AllowAssigningOfficialSpells"), ref toggle, UI.Width(ModUi.PixelsPerColumn)))
+        if (UI.Toggle(Gui.Localize("ModUi/&ModUi/&AllowAssigningOfficialSpells"), ref toggle,
+                UI.Width(ModUi.PixelsPerColumn)))
         {
             Main.Settings.AllowAssigningOfficialSpells = toggle;
         }

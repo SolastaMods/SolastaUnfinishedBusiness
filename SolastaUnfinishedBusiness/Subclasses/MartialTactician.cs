@@ -389,7 +389,8 @@ internal sealed class MartialTactician : AbstractSubclass
                 .SetTargetingData(Side.Enemy, RangeType.MeleeHit, 1, TargetType.Individuals)
                 .SetDurationData(DurationType.Round, 1, TurnOccurenceType.StartOfTurn)
                 .SetSavingThrowData(false,
-                    AttributeDefinitions.Strength, false, EffectDifficultyClassComputation.AbilityScoreAndProficiency, AttributeDefinitions.Intelligence)
+                    AttributeDefinitions.Strength, false, EffectDifficultyClassComputation.AbilityScoreAndProficiency,
+                    AttributeDefinitions.Intelligence)
                 .SetEffectForms(EffectFormBuilder.Create()
                     .SetMotionForm(MotionForm.MotionType.FallProne)
                     .HasSavingThrow(EffectSavingThrowType.Negates)
