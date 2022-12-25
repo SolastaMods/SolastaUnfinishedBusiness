@@ -2,9 +2,10 @@
 
 1.4.32.8:
 
-- added Chromatic Orb spell
-- added setting to allow assigning official spells as well to other classes
-- fixed multiclass level up spell selection when other class has full spells knowledge
+- added Chromatic Orb and Searing Smite spells
+- added missing extra situational context translation terms
+- added setting to allow assigning official spells to other classes' repertoires
+- fixed multiclass level up spell selection when other class has full knowledge
 - reviewed some melee restriction scenarios to also allow unarmed
 
 1.4.32.7:
