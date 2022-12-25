@@ -17,7 +17,7 @@ internal static partial class SpellBuilders
     {
         const string NAME = "ChromaticOrb";
 
-        var sprite = Sprites.GetSprite("ChromaticOrb", Resources.ChromaticOrb, 128);
+        var sprite = Sprites.GetSprite(NAME, Resources.ChromaticOrb, 128);
         var subSpells = new SpellDefinition[6];
         var particleTypes = new[] { AcidSplash, ConeOfCold, FireBolt, LightningBolt, PoisonSpray, Thunderwave };
         var damageTypes = new[]
@@ -75,77 +75,6 @@ internal static partial class SpellBuilders
             .AddToDB();
     }
 
-#if false
-// Monster/&OwlFamiliarDescription=Owl Familiar.
-// Monster/&OwlFamiliarTitle=Owl
-// Spell/&FindFamiliarDescription=You gain the service of a familiar.
-// Spell/&FindFamiliarTitle=Find Familiar
-    internal static SpellDefinition BuildFindFamiliar()
-    {
-        var owlFamiliar = MonsterDefinitionBuilder
-            .Create(Eagle_Matriarch, "OwlFamiliar")
-            .SetGuiPresentation("OwlFamiliar", Category.Monster, Eagle_Matriarch)
-            .SetFeatures(
-                FeatureDefinitionSenses.SenseNormalVision,
-                FeatureDefinitionSenses.SenseDarkvision24,
-                FeatureDefinitionMoveModes.MoveModeMove2,
-                FeatureDefinitionMoveModes.MoveModeFly12,
-                FeatureDefinitionAbilityCheckAffinitys.AbilityCheckAffinityKeenSight,
-                FeatureDefinitionAbilityCheckAffinitys.AbilityCheckAffinityKeenHearing,
-                FeatureDefinitionCombatAffinitys.CombatAffinityFlyby,
-                FeatureDefinitionMovementAffinitys.MovementAffinityNoClimb,
-                FeatureDefinitionMovementAffinitys.MovementAffinityNoSpecialMoves,
-                FeatureDefinitionConditionAffinitys.ConditionAffinityProneImmunity,
-                CharacterContext.FeatureDefinitionPowerHelpAction)
-            .ClearAttackIterations()
-            .SetSkillScores(
-                (DatabaseHelper.SkillDefinitions.Perception.Name, 3),
-                (DatabaseHelper.SkillDefinitions.Stealth.Name, 3))
-            .SetArmorClass(11)
-            .SetAbilityScores(3, 13, 8, 2, 12, 7)
-            .SetHitDiceNumber(1)
-            .SetHitDiceType(DieType.D4)
-            .SetHitPointsBonus(-1)
-            .SetStandardHitPoints(1)
-            .SetSizeDefinition(CharacterSizeDefinitions.Tiny)
-            .SetAlignment("Neutral")
-            .SetCharacterFamily(CharacterFamilyDefinitions.Fey)
-            .SetChallengeRating(0)
-            .SetDroppedLootDefinition(null)
-            .SetDefaultBattleDecisionPackage(DecisionPackageDefinitions.DefaultSupportCasterWithBackupAttacksDecisions)
-            .SetFullyControlledWhenAllied(true)
-            .SetDefaultFaction(FactionDefinitions.Party)
-            .SetBestiaryEntry(BestiaryDefinitions.BestiaryEntry.None)
-            .AddToDB();
-
-        var spell = SpellDefinitionBuilder.Create(Fireball, "FindFamiliar")
-            .SetGuiPresentation(Category.Spell, AnimalFriendship)
-            .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolConjuration)
-            .SetMaterialComponent(MaterialComponentType.Specific)
-            .SetVocalSpellSameType(VocalSpellSemeType.Buff)
-            .SetSpellLevel(1)
-            .SetUniqueInstance()
-            .SetCastingTime(ActivationTime.Minute10)
-            .SetRitualCasting(ActivationTime.Minute10)
-            .SetEffectDescription(EffectDescriptionBuilder
-                .Create(ConjureAnimalsOneBeast.EffectDescription)
-                .SetTargetingData(Side.Ally, RangeType.Distance, 2, TargetType.Position)
-                .SetDurationData(DurationType.Permanent)
-                .SetEffectForms(
-                    EffectFormBuilder
-                        .Create()
-                        .SetSummonCreatureForm(1, owlFamiliar.name)
-                        .CreatedByCharacter()
-                        .Build())
-                .Build())
-            .AddToDB();
-
-        GlobalUniqueEffects.AddToGroup(GlobalUniqueEffects.Group.Familiar, spell);
-
-        return spell;
-    }
-#endif
-
     internal static SpellDefinition BuildMule()
     {
         const string NAME = "Mule";
@@ -160,16 +89,16 @@ internal static partial class SpellBuilders
                     .Create()
                     .SetConditionForm(
                         ConditionDefinitionBuilder
-                            .Create("ConditionMule")
+                            .Create($"Condition{NAME}")
                             .SetGuiPresentation(Category.Condition, Longstrider)
                             .SetFeatures(
                                 FeatureDefinitionMovementAffinityBuilder
-                                    .Create("MovementAffinityConditionMule")
+                                    .Create($"MovementAffinity{NAME}")
                                     .SetGuiPresentationNoContent(true)
                                     .SetImmunities(true, true)
                                     .AddToDB(),
                                 FeatureDefinitionEquipmentAffinityBuilder
-                                    .Create("EquipmentAffinityConditionMule")
+                                    .Create($"EquipmentAffinity{NAME}")
                                     .SetGuiPresentationNoContent(true)
                                     .SetAdditionalCarryingCapacity(20)
                                     .AddToDB())
@@ -200,8 +129,7 @@ internal static partial class SpellBuilders
 
         var spell = SpellDefinitionBuilder
             .Create(NAME)
-            .SetGuiPresentation(Category.Spell,
-                Sprites.GetSprite("SpellRadiantMotes", Resources.SpellRadiantMotes, 128))
+            .SetGuiPresentation(Category.Spell, Sprites.GetSprite(NAME, Resources.SpellRadiantMotes, 128))
             .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolEvocation)
             .SetSpellLevel(1)
             .SetMaterialComponent(MaterialComponentType.None)
@@ -229,7 +157,7 @@ internal static partial class SpellBuilders
     {
         const string NAME = "SearingSmite";
 
-        var sprite = Sprites.GetSprite("SearingSmite", Resources.SearingSmite, 128);
+        var sprite = Sprites.GetSprite(NAME, Resources.SearingSmite, 128);
 
         var additionalDamageSearingSmite = FeatureDefinitionAdditionalDamageBuilder
             .Create($"AdditionalDamage{NAME}")
