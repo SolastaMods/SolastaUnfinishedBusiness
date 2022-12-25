@@ -4,8 +4,8 @@
   "parentCondition": null,
   "conditionType": "Beneficial",
   "features": [
-    "Definition:EquipmentAffinityConditionMule:3ecce055-ebe1-5e17-8f27-48b2232ba905",
-    "Definition:MovementAffinityConditionMule:6e463252-a1f3-53fe-9176-fa12e836bfb9"
+    "Definition:EquipmentAffinityMule:981abafb-20e8-5aef-a332-e6bbc171505b",
+    "Definition:MovementAffinityMule:973f4592-055b-5472-850d-ca9107ae16a5"
   ],
   "allowMultipleInstances": false,
   "silentWhenAdded": false,

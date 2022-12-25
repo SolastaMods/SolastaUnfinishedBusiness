@@ -336,9 +336,9 @@ internal sealed class MartialTactician : AbstractSubclass
             .SetEffectDescription(EffectDescriptionBuilder.Create()
                 .SetTargetingData(Side.Enemy, RangeType.MeleeHit, 1, TargetType.Individuals)
                 .SetDurationData(DurationType.Round, 1, TurnOccurenceType.StartOfTurn)
-                .SetHasSavingThrow(AttributeDefinitions.Constitution,
-                    EffectDifficultyClassComputation.AbilityScoreAndProficiency,
-                    AttributeDefinitions.Intelligence)
+                .SetSavingThrowData(false,
+                    AttributeDefinitions.Constitution, false,
+                    EffectDifficultyClassComputation.AbilityScoreAndProficiency, AttributeDefinitions.Intelligence)
                 .SetEffectForms(EffectFormBuilder.Create()
                     .SetConditionForm(ConditionDefinitions.ConditionBlinded, ConditionForm.ConditionOperation.Add)
                     .HasSavingThrow(EffectSavingThrowType.Negates)
@@ -388,8 +388,8 @@ internal sealed class MartialTactician : AbstractSubclass
             .SetEffectDescription(EffectDescriptionBuilder.Create()
                 .SetTargetingData(Side.Enemy, RangeType.MeleeHit, 1, TargetType.Individuals)
                 .SetDurationData(DurationType.Round, 1, TurnOccurenceType.StartOfTurn)
-                .SetHasSavingThrow(AttributeDefinitions.Strength,
-                    EffectDifficultyClassComputation.AbilityScoreAndProficiency,
+                .SetSavingThrowData(false,
+                    AttributeDefinitions.Strength, false, EffectDifficultyClassComputation.AbilityScoreAndProficiency,
                     AttributeDefinitions.Intelligence)
                 .SetEffectForms(EffectFormBuilder.Create()
                     .SetMotionForm(MotionForm.MotionType.FallProne)
@@ -440,8 +440,8 @@ internal sealed class MartialTactician : AbstractSubclass
             .SetEffectDescription(EffectDescriptionBuilder.Create()
                 .SetTargetingData(Side.Enemy, RangeType.MeleeHit, 1, TargetType.Individuals)
                 .SetDurationData(DurationType.Round, 1, TurnOccurenceType.StartOfTurn)
-                .SetHasSavingThrow(AttributeDefinitions.Strength,
-                    EffectDifficultyClassComputation.AbilityScoreAndProficiency,
+                .SetSavingThrowData(false,
+                    AttributeDefinitions.Strength, false, EffectDifficultyClassComputation.AbilityScoreAndProficiency,
                     AttributeDefinitions.Intelligence)
                 .SetEffectForms(
                     EffectFormBuilder.Create()
@@ -497,8 +497,8 @@ internal sealed class MartialTactician : AbstractSubclass
             .SetEffectDescription(EffectDescriptionBuilder.Create()
                 .SetTargetingData(Side.Enemy, RangeType.MeleeHit, 1, TargetType.Individuals)
                 .SetDurationData(DurationType.Round, 1, TurnOccurenceType.StartOfTurn)
-                .SetHasSavingThrow(AttributeDefinitions.Wisdom,
-                    EffectDifficultyClassComputation.AbilityScoreAndProficiency,
+                .SetSavingThrowData(false,
+                    AttributeDefinitions.Wisdom, false, EffectDifficultyClassComputation.AbilityScoreAndProficiency,
                     AttributeDefinitions.Intelligence)
                 .SetEffectForms(EffectFormBuilder.Create()
                     .SetConditionForm(ConditionDefinitions.ConditionFrightenedFear,
@@ -550,9 +550,9 @@ internal sealed class MartialTactician : AbstractSubclass
             .SetEffectDescription(EffectDescriptionBuilder.Create()
                 .SetTargetingData(Side.Enemy, RangeType.MeleeHit, 1, TargetType.Individuals)
                 .SetDurationData(DurationType.Round, 1, TurnOccurenceType.StartOfTurn)
-                .SetHasSavingThrow(AttributeDefinitions.Constitution,
-                    EffectDifficultyClassComputation.AbilityScoreAndProficiency,
-                    AttributeDefinitions.Intelligence)
+                .SetSavingThrowData(false,
+                    AttributeDefinitions.Constitution, false,
+                    EffectDifficultyClassComputation.AbilityScoreAndProficiency, AttributeDefinitions.Intelligence)
                 .SetEffectForms(EffectFormBuilder.Create()
                     .SetConditionForm(ConditionDefinitionBuilder
                         .Create($"Condition{name}")
@@ -805,10 +805,9 @@ internal sealed class MartialTactician : AbstractSubclass
                 .SetTargetFiltering(TargetFilteringMethod.CharacterOnly)
                 .SetTargetingData(Side.All, RangeType.Touch, 1, TargetType.Individuals)
                 .ExcludeCaster()
-                .SetHasSavingThrow(AttributeDefinitions.Dexterity,
-                    EffectDifficultyClassComputation.AbilityScoreAndProficiency,
-                    AttributeDefinitions.Intelligence,
-                    disableSavingThrowOnAllies: true)
+                .SetSavingThrowData(true,
+                    AttributeDefinitions.Dexterity, false, EffectDifficultyClassComputation.AbilityScoreAndProficiency,
+                    AttributeDefinitions.Intelligence)
                 .SetEffectForms(
                     EffectFormBuilder.Create()
                         .SetMotionForm(ExtraMotionType.CustomSwap, 1)

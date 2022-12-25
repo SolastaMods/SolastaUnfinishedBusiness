@@ -184,3 +184,4 @@ ModUi/&UseOfficialAdvantageDisadvantageRules=Use official advantage / disadvanta
 ModUi/&Visuals=<color=#F0DAA0>Visuals:</color> <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
 ModUi/&AddHumanoidFavoredEnemyToRanger=Add humanoid preferred enemy to <color=#D89555>Rangers</color>
 ModUi/&AddCustomIconsToOfficialItems=Add custom icons to official game items  <i><color=#F0DAA0>[ammunition, recipes, kits, etc.]</color></i> <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
+ModUi/&AllowAssigningOfficialSpells=Allow official spells to display on these lists <b><i><color=#C04040E0>[Requires Restart]</color></i></b>

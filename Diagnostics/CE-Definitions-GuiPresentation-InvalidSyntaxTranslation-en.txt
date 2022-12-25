@@ -1,3 +1,15 @@
+ChromaticOrbDamageAcid	Title='Acid Damage'.
+ChromaticOrbDamageAcid	Description='The creature takes 3d8 Acid Damage damage.'.
+ChromaticOrbDamageCold	Title='Cold Damage'.
+ChromaticOrbDamageCold	Description='The creature takes 3d8 Cold Damage damage.'.
+ChromaticOrbDamageFire	Title='Fire Damage'.
+ChromaticOrbDamageFire	Description='The creature takes 3d8 Fire Damage damage.'.
+ChromaticOrbDamageLightning	Title='Lightning Damage'.
+ChromaticOrbDamageLightning	Description='The creature takes 3d8 Lightning Damage damage.'.
+ChromaticOrbDamagePoison	Title='Poison Damage'.
+ChromaticOrbDamagePoison	Description='The creature takes 3d8 Poison Damage damage.'.
+ChromaticOrbDamageThunder	Title='Thunder Damage'.
+ChromaticOrbDamageThunder	Description='The creature takes 3d8 Thunder Damage damage.'.
 ConditionElementalistEnhancedAir	Title='Channeling Air Plane'.
 ConditionElementalistEnhancedAir	Description='Deal additional Thunder damage equal to your proficiency bonus on a first hit each round.'.
 ConditionElementalistEnhancedEarth	Title='Channeling Earth Plane'.

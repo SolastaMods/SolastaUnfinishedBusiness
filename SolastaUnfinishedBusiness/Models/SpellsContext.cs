@@ -23,6 +23,7 @@ internal static class SpellsContext
 
     // ReSharper disable once InconsistentNaming
     private static readonly SortedList<string, SpellListDefinition> spellLists = new();
+    private static readonly Dictionary<SpellDefinition, List<SpellListDefinition>> SpellSpellListMap = new();
     internal static readonly SpellDefinition FarStep = BuildFarStep();
     internal static readonly SpellDefinition SunlightBlade = BuildSunlightBlade();
     internal static HashSet<SpellDefinition> Spells { get; private set; } = new();
@@ -54,11 +55,35 @@ internal static class SpellsContext
                         when featureDefinitionMagicAffinity.ExtendedSpellList != null &&
                              !spellLists.ContainsValue(featureDefinitionMagicAffinity.ExtendedSpellList):
                         spellLists.Add(title, featureDefinitionMagicAffinity.ExtendedSpellList);
+
+                        foreach (var spell in featureDefinitionMagicAffinity.ExtendedSpellList.SpellsByLevel.SelectMany(
+                                     x => x.Spells))
+                        {
+                            if (!SpellSpellListMap.ContainsKey(spell))
+                            {
+                                SpellSpellListMap.Add(spell, new List<SpellListDefinition>());
+                            }
+
+                            SpellSpellListMap[spell].Add(featureDefinitionMagicAffinity.ExtendedSpellList);
+                        }
+
                         break;
                     case FeatureDefinitionCastSpell featureDefinitionCastSpell
                         when featureDefinitionCastSpell.SpellListDefinition != null &&
                              !spellLists.ContainsValue(featureDefinitionCastSpell.SpellListDefinition):
                         spellLists.Add(title, featureDefinitionCastSpell.SpellListDefinition);
+
+                        foreach (var spell in featureDefinitionCastSpell.SpellListDefinition.SpellsByLevel.SelectMany(
+                                     x => x.Spells))
+                        {
+                            if (!SpellSpellListMap.ContainsKey(spell))
+                            {
+                                SpellSpellListMap.Add(spell, new List<SpellListDefinition>());
+                            }
+
+                            SpellSpellListMap[spell].Add(featureDefinitionCastSpell.SpellListDefinition);
+                        }
+
                         break;
                 }
             }
@@ -81,13 +106,26 @@ internal static class SpellsContext
                 }
 
                 // NOTE: don't use featureDefinitionCastSpell?. which bypasses Unity object lifetime check
-                if (featureDefinitionCastSpell
-                    && featureDefinitionCastSpell.SpellListDefinition
-                    && !spellLists.ContainsValue(featureDefinitionCastSpell.SpellListDefinition))
+                if (!featureDefinitionCastSpell
+                    || !featureDefinitionCastSpell.SpellListDefinition
+                    || spellLists.ContainsValue(featureDefinitionCastSpell.SpellListDefinition))
                 {
-                    var subTitle = featureDefinitionCastSpell.FormatTitle();
+                    continue;
+                }
 
-                    spellLists.Add($"{title}-{subTitle}", featureDefinitionCastSpell.SpellListDefinition);
+                {
+                    spellLists.Add(title, featureDefinitionCastSpell.SpellListDefinition);
+
+                    foreach (var spell in featureDefinitionCastSpell.SpellListDefinition.SpellsByLevel.SelectMany(
+                                 x => x.Spells))
+                    {
+                        if (!SpellSpellListMap.ContainsKey(spell))
+                        {
+                            SpellSpellListMap.Add(spell, new List<SpellListDefinition>());
+                        }
+
+                        SpellSpellListMap[spell].Add(featureDefinitionCastSpell.SpellListDefinition);
+                    }
                 }
             }
 
@@ -137,6 +175,9 @@ internal static class SpellsContext
 
         var spellListInventorClass = InventorClass.SpellList;
 
+        // MUST COME BEFORE ANY MOD REGISTERED SPELL
+        AllowAssigningOfficialSpells();
+
         // cantrips
         RegisterSpell(BuildAcidClaw(), 0, SpellListDruid);
         RegisterSpell(BuildAirBlast(), 0, SpellListBard, SpellListCleric, SpellListDruid, SpellListSorcerer,
@@ -155,9 +196,11 @@ internal static class SpellsContext
             spellListInventorClass);
 
         // 1st level
-        // RegisterSpell(BuildFindFamiliar(), 0, SpellListWizard);
+        RegisterSpell(BuildChromaticOrb(), 0, SpellListSorcerer, SpellListWizard);
         RegisterSpell(BuildMule(), 0, SpellListWizard);
         RegisterSpell(BuildRadiantMotes(), 0, SpellListWizard, spellListInventorClass);
+        RegisterSpell(BuildSearingSmite(), 0, SpellListPaladin, SpellListRanger);
+        RegisterSpell(BuildWrathfulSmite(), 0, SpellListPaladin);
 
         // 2nd level
         RegisterSpell(BuildPetalStorm(), 0, SpellListDruid);
@@ -165,6 +208,7 @@ internal static class SpellsContext
         RegisterSpell(BuildMirrorImage(), 0, SpellListBard, SpellListSorcerer, SpellListWarlock, SpellListWizard);
 
         // 3rd level
+        RegisterSpell(BuildBlindingSmite(), 0, SpellListPaladin);
         RegisterSpell(BuildEarthTremor(), 0, SpellListDruid, SpellListSorcerer, SpellListWizard);
         RegisterSpell(BuildWinterBreath(), 0, SpellListDruid, SpellListSorcerer, SpellListWizard);
         RegisterSpell(BuildSpiritShroud(), 0, SpellListCleric, SpellListPaladin, SpellListWarlock, SpellListWizard);
@@ -205,6 +249,21 @@ internal static class SpellsContext
                          .ToList())
             {
                 Main.Settings.SpellListSpellEnabled[spellListName].Remove(name);
+            }
+        }
+    }
+
+    internal static void AllowAssigningOfficialSpells()
+    {
+        foreach (var kvp in SpellSpellListMap)
+        {
+            if (Main.Settings.AllowAssigningOfficialSpells)
+            {
+                RegisterSpell(kvp.Key, kvp.Value.Count, kvp.Value.ToArray());
+            }
+            else
+            {
+                Spells.Remove(kvp.Key);
             }
         }
     }

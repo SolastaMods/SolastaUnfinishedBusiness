@@ -327,7 +327,7 @@
     "description": "Spell/&RadiantMotesDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "2938e602-067e-56eb-9ce8-d6b2abe4499e",
+      "m_AssetGUID": "b57ffe37-339d-5203-929e-d3f8260db33e",
       "m_SubObjectName": null,
       "m_SubObjectType": null
     },

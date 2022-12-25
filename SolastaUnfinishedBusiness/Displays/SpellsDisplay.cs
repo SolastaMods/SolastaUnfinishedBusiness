@@ -13,10 +13,18 @@ internal static class SpellsDisplay
 
     internal static void DisplaySpells()
     {
-        bool toggle;
-
         UI.Label();
         UI.Label(Gui.Localize("ModUi/&SpellInstructions"));
+        UI.Label();
+
+        var toggle = Main.Settings.AllowAssigningOfficialSpells;
+
+        if (UI.Toggle(Gui.Localize("ModUi/&ModUi/&AllowAssigningOfficialSpells"), ref toggle,
+                UI.Width(ModUi.PixelsPerColumn)))
+        {
+            Main.Settings.AllowAssigningOfficialSpells = toggle;
+        }
+
         UI.Label();
 
         var intValue = SpellLevelFilter;

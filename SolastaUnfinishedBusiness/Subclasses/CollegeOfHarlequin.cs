@@ -26,7 +26,8 @@ internal sealed class CollegeOfHarlequin : AbstractSubclass
                 //actual targeting is happening in sub-feature, this is for proper tooltip
                 .SetTargetingData(Side.Enemy, RangeType.Self, 0, TargetType.Sphere, 3)
                 .SetParticleEffectParameters(SpellDefinitions.Fear.effectDescription.effectParticleParameters)
-                .SetHasSavingThrow(AttributeDefinitions.Wisdom, EffectDifficultyClassComputation.SpellCastingFeature)
+                .SetSavingThrowData(false,
+                    AttributeDefinitions.Wisdom, false, EffectDifficultyClassComputation.SpellCastingFeature)
                 .SetEffectForms(
                     EffectFormBuilder.Create()
                         .HasSavingThrow(EffectSavingThrowType.Negates)
@@ -212,6 +213,7 @@ internal sealed class CollegeOfHarlequin : AbstractSubclass
             GameLocationCharacter downedCreature,
             RulesetAttackMode attackMode, RulesetEffect activeEffect)
         {
+            // activeEffect != null means a magical attack
             if (attackMode == null || activeEffect != null)
             {
                 yield break;

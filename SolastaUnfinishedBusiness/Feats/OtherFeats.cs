@@ -25,9 +25,8 @@ internal static class OtherFeats
         .SetGuiPresentation(Category.Feature)
         .SetEffectDescription(EffectDescriptionBuilder
             .Create()
-            .SetHasSavingThrow(
-                AttributeDefinitions.Constitution,
-                EffectDifficultyClassComputation.AbilityScoreAndProficiency,
+            .SetSavingThrowData(false,
+                AttributeDefinitions.Constitution, false, EffectDifficultyClassComputation.AbilityScoreAndProficiency,
                 AttributeDefinitions.Constitution)
             .SetEffectForms(EffectFormBuilder
                 .Create()
@@ -374,21 +373,24 @@ internal static class OtherFeats
             RulesetAttackMode attackMode,
             ActionModifier attackModifier)
         {
-            if (!ValidatorsWeapon.IsMelee(attackMode))
+            var rulesetCharacter = attacker.RulesetCharacter;
+
+            if (!ValidatorsWeapon.IsMelee(attackMode) ||
+                !ValidatorsWeapon.IsUnarmedWeapon(rulesetCharacter, attackMode))
             {
                 return;
             }
 
             var rulesetCondition = RulesetCondition.CreateActiveCondition(
-                attacker.RulesetCharacter.Guid,
+                rulesetCharacter.Guid,
                 _conditionFeatMobileAfterAttack,
                 DurationType.Round,
                 0,
                 TurnOccurenceType.EndOfTurn,
-                attacker.RulesetCharacter.Guid,
-                attacker.RulesetCharacter.CurrentFaction.Name);
+                rulesetCharacter.Guid,
+                rulesetCharacter.CurrentFaction.Name);
 
-            attacker.RulesetCharacter.AddConditionOfCategory(AttributeDefinitions.TagCombat, rulesetCondition);
+            rulesetCharacter.AddConditionOfCategory(AttributeDefinitions.TagCombat, rulesetCondition);
         }
     }
 

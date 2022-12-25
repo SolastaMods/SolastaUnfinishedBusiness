@@ -20,9 +20,8 @@ internal sealed class Merciless : AbstractFightingStyle
         .SetGuiPresentationNoContent(true)
         .SetEffectDescription(EffectDescriptionBuilder
             .Create(DatabaseHelper.SpellDefinitions.Fear.EffectDescription)
-            .SetHasSavingThrow(
-                AttributeDefinitions.Wisdom,
-                EffectDifficultyClassComputation.AbilityScoreAndProficiency,
+            .SetSavingThrowData(false,
+                AttributeDefinitions.Wisdom, false, EffectDifficultyClassComputation.AbilityScoreAndProficiency,
                 AttributeDefinitions.Strength)
             .SetDurationData(DurationType.Round, 1)
             .Build())
@@ -52,7 +51,11 @@ internal sealed class Merciless : AbstractFightingStyle
             RulesetAttackMode attackMode,
             RulesetEffect activeEffect)
         {
-            if (!ValidatorsWeapon.IsMelee(attackMode) || activeEffect != null)
+            var rulesetCharacter = attacker.RulesetCharacter;
+
+            // activeEffect != null means a magical attack
+            if (activeEffect != null || !ValidatorsWeapon.IsMelee(attackMode) ||
+                !ValidatorsWeapon.IsUnarmedWeapon(rulesetCharacter, attackMode))
             {
                 yield break;
             }
@@ -64,11 +67,10 @@ internal sealed class Merciless : AbstractFightingStyle
                 yield break;
             }
 
-            var rulesetAttacker = attacker.RulesetCharacter;
-            var proficiencyBonus = rulesetAttacker.GetAttribute(AttributeDefinitions.ProficiencyBonus).CurrentValue;
+            var proficiencyBonus = rulesetCharacter.GetAttribute(AttributeDefinitions.ProficiencyBonus).CurrentValue;
             var usablePower = new RulesetUsablePower(PowerFightingStyleMerciless, null, null);
             var distance = Global.CriticalHit ? proficiencyBonus : (proficiencyBonus + 1) / 2;
-            var effectPower = new RulesetEffectPower(rulesetAttacker, usablePower);
+            var effectPower = new RulesetEffectPower(rulesetCharacter, usablePower);
 
             foreach (var enemy in battle.EnemyContenders
                          .Where(enemy => attacker.RulesetActor.DistanceTo(enemy.RulesetActor) <= distance))
