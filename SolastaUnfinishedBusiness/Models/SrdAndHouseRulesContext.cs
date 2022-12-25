@@ -73,7 +73,7 @@ internal static class SrdAndHouseRulesContext
     internal static void LateLoad()
     {
         FixDivineSmiteRestrictions();
-        FixDivineSmiteDiceNumberWhenUsingHighLevelSlots();
+        FixDivineSmiteDiceAndBrandingSmiteNumberWhenUsingHighLevelSlots();
         FixMeleeHitEffectsRange();
         FixMountaineerBonusShoveRestrictions();
         FixRecklessAttackForReachWeapons();
@@ -183,9 +183,12 @@ internal static class SrdAndHouseRulesContext
      * Makes Divine Smite use correct number of dice when spending slot level 5+.
      * Base game has config only up to level 4 slots, which leads to it using 1 die if level 5+ slot is spent.
      */
-    private static void FixDivineSmiteDiceNumberWhenUsingHighLevelSlots()
+    private static void FixDivineSmiteDiceAndBrandingSmiteNumberWhenUsingHighLevelSlots()
     {
         FeatureDefinitionAdditionalDamages.AdditionalDamagePaladinDivineSmite.diceByRankTable =
+            DiceByRankBuilder.BuildDiceByRankTable(2);
+        
+        FeatureDefinitionAdditionalDamages.AdditionalDamageBrandingSmite.diceByRankTable =
             DiceByRankBuilder.BuildDiceByRankTable(2);
     }
 
