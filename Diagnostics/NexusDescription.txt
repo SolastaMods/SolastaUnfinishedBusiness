@@ -348,6 +348,7 @@ At 5th level, the melee attack deals an extra 1d8 radiant damage to the target. 
 [*][b]Mule[/b]: The recipient of this spell is able to ignore the effects of heavy loads or armor on movement speed. They can also carry slightly more weight.
 [*][b]Radiant Motes[/b]: Unleashes a swarm of 4 radiant projectiles that deal 1d4 radiant damage each.
 When you cast this spell using a spell slot of 2nd level or higher, the spell creates 1 more projectile for each slot above 1st.
+[*][b]Searing Smite[/b]: Your next hit causes additional fire damage and your target ignites in flames.
 [*][b]Mirror Image[/b]: Three illusory duplicates of yourself appear in your space. Until the spell ends, each time a creature targets you with an attack, roll a d20 to determine whether the attack instead targets one of your duplicates.
 If you have 3 duplicates, you must roll a 6 or higher to change the attack's target to a duplicate. With 2 duplicates, you must roll an 8 or higher. With 1 duplicate, you must roll an 11 or higher.
 A duplicate's AC equals 10 + your Dexterity modifier. If an attack hits a duplicate, the duplicate is destroyed. A duplicate can be destroyed only by an attack that hits it. It ignores all other damage and effects. The spell ends when all three duplicates are destroyed.

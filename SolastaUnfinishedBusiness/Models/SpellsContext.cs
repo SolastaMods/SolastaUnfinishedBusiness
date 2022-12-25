@@ -200,6 +200,7 @@ internal static class SpellsContext
         RegisterSpell(BuildChromaticOrb(), 0, SpellListSorcerer, SpellListWizard);
         RegisterSpell(BuildMule(), 0, SpellListWizard);
         RegisterSpell(BuildRadiantMotes(), 0, SpellListWizard, spellListInventorClass);
+        RegisterSpell(BuildSearingSmite(), 0, SpellListPaladin, SpellListRanger);
 
         // 2nd level
         RegisterSpell(BuildPetalStorm(), 0, SpellListDruid);
