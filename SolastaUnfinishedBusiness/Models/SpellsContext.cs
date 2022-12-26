@@ -311,6 +311,11 @@ internal static class SpellsContext
                 continue;
             }
 
+            if (SpellListContextTab[spellList].MinimumSpells.Contains(spellDefinition))
+            {
+                continue;
+            }
+
             var enable = Main.Settings.SpellListSpellEnabled[spellList.Name].Contains(spellDefinition.Name);
 
             SpellListContextTab[spellList].Switch(spellDefinition, enable);
