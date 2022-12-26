@@ -1,4 +1,6 @@
-﻿using JetBrains.Annotations;
+﻿using System.Linq;
+using JetBrains.Annotations;
+using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.Extensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.CustomInterfaces;
@@ -140,6 +142,35 @@ internal static partial class SpellBuilders
 
             effect.rangeParameter = reach;
             return effect;
+        }
+    }
+
+    private sealed class OnAttackHitEffectThunderousSmite : IAfterAttackEffect
+    {
+        public void AfterOnAttackHit(
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            RollOutcome outcome,
+            CharacterActionParams actionParams,
+            RulesetAttackMode attackMode,
+            ActionModifier attackModifier)
+        {
+            var rulesetAttacker = attacker.RulesetCharacter;
+
+            if (outcome is RollOutcome.Failure or RollOutcome.CriticalFailure)
+            {
+                return;
+            }
+
+            var usablePower =
+                new RulesetUsablePower(DatabaseHelper.FeatureDefinitionPowers.PowerInvocationRepellingBlast, null, null)
+                {
+                    saveDC = rulesetAttacker.SpellRepertoires.Select(x => x.SaveDC).Max()
+                };
+
+            var effectPower = new RulesetEffectPower(rulesetAttacker, usablePower);
+
+            effectPower.ApplyEffectOnCharacter(defender.RulesetCharacter, true, defender.LocationPosition);
         }
     }
 

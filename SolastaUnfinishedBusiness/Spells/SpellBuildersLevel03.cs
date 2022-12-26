@@ -44,6 +44,7 @@ internal static partial class SpellBuilders
         var conditionBlindingSmite = ConditionDefinitionBuilder
             .Create($"Condition{NAME}")
             .SetGuiPresentation(NAME, Category.Spell, ConditionBrandingSmite)
+            .SetPossessive()
             .SetFeatures(additionalDamageBlindingSmite)
             .SetSpecialInterruptions(ConditionInterruption.AttacksAndDamages)
             .AddToDB();
