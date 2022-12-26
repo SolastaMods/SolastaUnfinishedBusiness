@@ -109,7 +109,6 @@ internal static partial class DatabaseHelper
         internal static ConditionDefinition ConditionBaned { get; } = GetDefinition<ConditionDefinition>("ConditionBaned");
         internal static ConditionDefinition ConditionBardicInspiration { get; } = GetDefinition<ConditionDefinition>("ConditionBardicInspiration");
         internal static ConditionDefinition ConditionBarkskin { get; } = GetDefinition<ConditionDefinition>("ConditionBarkskin");
-        
         internal static ConditionDefinition ConditionBrandingSmite { get; } = GetDefinition<ConditionDefinition>("ConditionBrandingSmite");
         internal static ConditionDefinition ConditionBearsEndurance { get; } = GetDefinition<ConditionDefinition>("ConditionBearsEndurance");
         internal static ConditionDefinition ConditionBleeding { get; } = GetDefinition<ConditionDefinition>("ConditionBleeding");
@@ -126,6 +125,7 @@ internal static partial class DatabaseHelper
         internal static ConditionDefinition ConditionChilledByTouch { get; } = GetDefinition<ConditionDefinition>("ConditionChilledByTouch");
         internal static ConditionDefinition ConditionConfused { get; } = GetDefinition<ConditionDefinition>("ConditionConfused");
         internal static ConditionDefinition ConditionConjuredCreature { get; } = GetDefinition<ConditionDefinition>("ConditionConjuredCreature");
+        internal static ConditionDefinition ConditionConjuredItemLink { get; } = GetDefinition<ConditionDefinition>("ConditionConjuredItemLink");
         internal static ConditionDefinition ConditionCursedByBestowCurseAttackRoll { get; } = GetDefinition<ConditionDefinition>("ConditionCursedByBestowCurseAttackRoll");
         internal static ConditionDefinition ConditionDarkvision { get; } = GetDefinition<ConditionDefinition>("ConditionDarkvision");
         internal static ConditionDefinition ConditionDazzled { get; } = GetDefinition<ConditionDefinition>("ConditionDazzled");
