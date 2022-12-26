@@ -185,4 +185,4 @@ ModUi/&UnlockSkinColors=Débloquer les couleurs de peau
 ModUi/&UseHeightOneCylinderEffect=Utiliser un effet de cylindre de hauteur 1 lors du lancement de <color=#D89555>Tentacules noirs, Enchevêtrement, Graisse</color> <i><color=#F0DAA0>[square]</color></i> ou <color=#D89555>Croissance d'épines</color> <i><color=#F0DAA0>[round]</color></i>
 ModUi/&UseOfficialAdvantageDisadvantageRules=Utiliser les règles officielles d'avantages et de désavantages
 ModUi/&Visuals=<color=#F0DAA0>Visuels :</color> <b><i><color=#C04040E0>[Nécessite un redémarrage]</color></i></b>
-ModUi/&IncreaseGameTimeBy=Increase game time by
+ModUi/&IncreaseGameTimeBy=Augmentez le temps de jeu de
