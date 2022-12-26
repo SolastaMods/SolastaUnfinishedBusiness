@@ -10,3 +10,7 @@ Spell/&PetalStormDescription=Scegli un cubo d'aria di 4,5 metri non occupato che
 Spell/&PetalStormTitle=Tempesta di petali
 Spell/&ProtectThresholdDescription=Tracciando sigilli arcani lungo il suo confine, puoi proteggere una porta, una finestra o un altro portale dall'ingresso. Per tutta la durata, un'invisibile creatura soprannaturale insegue il portale protetto. Qualsiasi creatura che tenti di passare attraverso il portale deve effettuare un tiro salvezza su Saggezza o subire 4d6 danni psichici, o la metà in caso di successo.
 Spell/&ProtectThresholdTitle=Proteggi soglia
+Spell/&ShadowBladeDescription=Intrecci fili d'ombra per creare una spada di oscurità solidificata nella tua mano.
+Spell/&ShadowBladeTitle=Lama d'ombra
+Item/&ItemShadowBladeDescription=Infligge 2d8 danni psichici se colpisce e ha le proprietà delicatezza, luce e lancio.
+Item/&ItemShadowBladeTitle=Lama d'ombra

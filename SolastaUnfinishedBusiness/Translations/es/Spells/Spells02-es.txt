@@ -10,3 +10,7 @@ Spell/&PetalStormDescription=Elija un cubo de aire de 15 pies desocupado que pue
 Spell/&PetalStormTitle=Tormenta de pétalos
 Spell/&ProtectThresholdDescription=Trazando sigilos arcanos a lo largo de su límite, puedes proteger una puerta, ventana u otro portal de entrada. Mientras dura, una criatura sobrenatural invisible acecha el portal protegido. Cualquier criatura que intente atravesar el portal debe hacer una tirada de salvación de Sabiduría o recibir 4d6 de daño psíquico, o la mitad si tiene éxito.
 Spell/&ProtectThresholdTitle=Umbral de protección
+Spell/&ShadowBladeDescription=Entretejes hilos de sombra para crear una espada de penumbra solidificada en tu mano.
+Spell/&ShadowBladeTitle=Espada oscura
+Item/&ItemShadowBladeDescription=Inflige 2d8 de daño psíquico con un golpe y tiene las propiedades de delicadeza, ligereza y lanzamiento.
+Item/&ItemShadowBladeTitle=Espada oscura

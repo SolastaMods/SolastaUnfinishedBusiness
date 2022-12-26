@@ -10,3 +10,7 @@ Spell/&PetalStormDescription=Wählen Sie einen unbesetzten 15-Fuß-Luftwürfel, 
 Spell/&PetalStormTitle=Blütensturm
 Spell/&ProtectThresholdDescription=Indem du arkane Siegel entlang seiner Grenze zeichnest, kannst du eine Tür, ein Fenster oder ein anderes Portal vor dem Eintritt schützen. Für die Dauer schleicht eine unsichtbare unheimliche Kreatur durch das geschützte Portal. Jede Kreatur, die versucht, durch das Portal zu gehen, muss einen Weisheitswurf ablegen oder 4W6 psychischen Schaden erleiden oder halb so viel bei einem erfolgreichen Rettungswurf.
 Spell/&ProtectThresholdTitle=Schwellenwert schützen
+Spell/&ShadowBladeDescription=Du webst Schattenfäden zusammen, um ein Schwert aus erstarrter Düsternis in deiner Hand zu erschaffen.
+Spell/&ShadowBladeTitle=Schattenklinge
+Item/&ItemShadowBladeDescription=Es verursacht bei einem Treffer 2W8 psychischen Schaden und hat die Eigenschaften Finesse, Licht und Wurf.
+Item/&ItemShadowBladeTitle=Schattenklinge

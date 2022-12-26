@@ -10,3 +10,7 @@ Spell/&PetalStormDescription=Escolha um cubo de ar desocupado de 4,5 metros que 
 Spell/&PetalStormTitle=Tempestade de Pétalas
 Spell/&ProtectThresholdDescription=Traçando sigilos arcanos ao longo de seus limites, você pode proteger uma porta, janela ou outro portal da entrada. Durante a duração, uma criatura mística invisível espreita o portal protegido. Qualquer criatura que tentar passar pelo portal deve fazer um teste de resistência de Sabedoria ou sofrerá 4d6 de dano psíquico, ou metade em caso de sucesso.
 Spell/&ProtectThresholdTitle=Limite de proteção
+Spell/&ShadowBladeDescription=Você entrelaça fios de sombra para criar uma espada de escuridão solidificada em sua mão.
+Spell/&ShadowBladeTitle=Lâmina Sombria
+Item/&ItemShadowBladeDescription=Ele causa 2d8 de dano psíquico em um acerto e tem as propriedades sutileza, luz e arremesso.
+Item/&ItemShadowBladeTitle=Lâmina Sombria
