@@ -1,4 +1,4 @@
-﻿Condition/&ConditionReverseGravityDescription=获得反重力效果
-Condition/&ConditionReverseGravityTitle=反重力
+﻿Condition/&ConditionMindBlankDescription=对心灵伤害和魅惑免疫
+Condition/&ConditionMindBlankTitle=心灵屏障
 Spell/&MindBlankDescription=直至法术终止前，你所触碰的一个自愿生物对下列项目具有免疫：心灵伤害；任何可以感知到其情绪或阅读其思想的效应；预言法术；魅惑状态。当目标受祈愿术 wish或者其他威力相当的法术或效应影响心智或窃获信息时，其也能以该法术进行阻挡。
 Spell/&MindBlankTitle=心灵屏障
