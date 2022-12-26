@@ -111,7 +111,7 @@ internal static class BootContext
 
             // Spells context need Level 20 and Multiclass to properly register spells
             SpellsContext.LateLoad();
-            
+
             // Shared Slots - patching and final configs
             SharedSpellsContext.LateLoad();
 
