@@ -199,6 +199,7 @@ internal sealed class CircleOfTheNight : AbstractSubclass
             // STR, DEX, CON, INT, WIS, CHA
             .SetAbilityScores(20, 10, 16, 2, 13, 7)
             .SetArmorClass(14)
+            .SetCreatureTags(TagsDefinitions.CreatureTagWildShape)
             .SetStandardHitPoints(42)
             .SetHitDice(DieType.D10, 5)
             .SetChallengeRating(2)
@@ -215,6 +216,7 @@ internal sealed class CircleOfTheNight : AbstractSubclass
             // STR, DEX, CON, INT, WIS, CHA
             .SetAbilityScores(14, 20, 14, 6, 10, 6)
             .SetArmorClass(15)
+            .SetCreatureTags(TagsDefinitions.CreatureTagWildShape)
             .SetStandardHitPoints(90)
             .SetHitDice(DieType.D10, 12)
             .AddToDB();
@@ -224,7 +226,9 @@ internal sealed class CircleOfTheNight : AbstractSubclass
 
     private static MonsterDefinition HBWildShapeFireElemental()
     {
-        var shape = MonsterDefinitionBuilder.Create(Fire_Elemental, "WildShapeFireElemental")
+        var shape = MonsterDefinitionBuilder
+            .Create(Fire_Elemental, "WildShapeFireElemental")
+            .SetCreatureTags(TagsDefinitions.CreatureTagWildShape)
             .AddToDB();
 
         return shape;
@@ -232,7 +236,9 @@ internal sealed class CircleOfTheNight : AbstractSubclass
 
     private static MonsterDefinition HBWildShapeEarthElemental()
     {
-        var shape = MonsterDefinitionBuilder.Create(Earth_Elemental, "WildShapeEarthElemental")
+        var shape = MonsterDefinitionBuilder
+            .Create(Earth_Elemental, "WildShapeEarthElemental")
+            .SetCreatureTags(TagsDefinitions.CreatureTagWildShape)
             .AddToDB();
 
         return shape;
@@ -252,6 +258,7 @@ internal sealed class CircleOfTheNight : AbstractSubclass
             .Create(Air_Elemental, "WildShapeWaterElemental")
             .SetAbilityScores(18, 14, 18, 5, 10, 8)
             .SetArmorClass(14)
+            .SetCreatureTags(TagsDefinitions.CreatureTagWildShape)
             .SetHitDice(DieType.D10, 12)
             .SetHitPointsBonus(48)
             .SetStandardHitPoints(114)
@@ -350,6 +357,11 @@ internal sealed class CircleOfTheNight : AbstractSubclass
 
         public void OnAfterAction(CharacterAction action)
         {
+            if (Gui.Battle == null)
+            {
+                return;
+            }
+
             var actingCharacter = action.ActingCharacter;
             var rulesetCharacter = actingCharacter.RulesetCharacter;
 
