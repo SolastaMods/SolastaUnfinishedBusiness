@@ -7,8 +7,8 @@
     "Definition:ActionAffinityImprovedWarDanceExtraAction:dadf1cd5-9522-54af-aff3-57b97b6bdac0"
   ],
   "allowMultipleInstances": false,
-  "silentWhenAdded": false,
-  "silentWhenRemoved": false,
+  "silentWhenAdded": true,
+  "silentWhenRemoved": true,
   "terminateWhenRemoved": false,
   "specialDuration": false,
   "durationType": "Hour",

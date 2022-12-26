@@ -346,18 +346,28 @@ internal static class TranslatorContext
             return;
         }
 
-        Main.Info("ADD THESE TERMS:");
+        var termsToAdd = englishTerms.Keys.Except(currentLanguageTerms.Keys);
 
-        foreach (var term in englishTerms.Keys.Except(currentLanguageTerms.Keys))
+        if (termsToAdd.Any())
         {
-            Main.Info($"{term} is missing from {languageCode} translation assets");
+            Main.Info("ADD THESE TERMS:");
+
+            foreach (var term in termsToAdd)
+            {
+                Main.Info($"{term} is missing from {languageCode} translation assets");
+            }
         }
 
-        Main.Info("DELETE THESE TERMS:");
+        var termsToDelete = currentLanguageTerms.Keys.Except(englishTerms.Keys);
 
-        foreach (var term in currentLanguageTerms.Keys.Except(englishTerms.Keys))
+        if (termsToDelete.Any())
         {
-            Main.Info($"{term} must be deleted from {languageCode} translation assets");
+            Main.Info("DELETE THESE TERMS:");
+
+            foreach (var term in currentLanguageTerms.Keys.Except(englishTerms.Keys))
+            {
+                Main.Info($"{term} must be deleted from {languageCode} translation assets");
+            }
         }
     }
 

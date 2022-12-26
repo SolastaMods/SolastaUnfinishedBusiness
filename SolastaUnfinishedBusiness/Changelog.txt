@@ -6,7 +6,9 @@ KNOWN ISSUES:
 CHANGES:
 
 - added Thunderous Smite and Shadow Dagger spells
-- fixed melee and unarmed logic
+- allowed cast spell with shields on War Dancer
+- fixed melee and unarmed logic validations
 - fixed saving thrown checks on smite spells
-- fixed spell DC calculation on heroes with more than one repertoire
+- fixed spell DC calculation on heroes with more than one repertoire [original game bug]
 - removed Occultist class as causing too much headaches [RESPEC out before update!]
+- reworked Heart Seeking Shot additional damage
