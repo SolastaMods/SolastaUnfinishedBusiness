@@ -1,5 +1,13 @@
 ﻿CHANGES:
 
+1.4.32.9:
+
+- added Thunderous Smite and Shadow Dagger spells
+- fixed melee and unarmed logic
+- fixed saving thrown checks on smite spells
+- fixed spell DC calculation on heroes with more than one repertoire
+- removed Occultist class as causing too much headaches [RESPEC out before update!]
+
 1.4.32.8:
 
 - added Chromatic Orb, Searing Smite, Wrathful Smite and Blinding Smite spells

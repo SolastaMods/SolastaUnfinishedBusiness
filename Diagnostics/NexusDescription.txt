@@ -100,11 +100,9 @@ All settings start disabled by default.
 
 [*][b]Inventor[/b]: Inventors are tinkerers, alchemists, and more. They bridge the space between magic and technology.
 
-    [*][b]Armorer[/b]: Armorers focus their studies on magical armors and how to use them effectively.
-    [*][b]Grenadier[/b]: Grenadiers study unstable substances and their use in creating explosions of various types.
-    [*][b]Weaponsmith[/b]: Weaponsmiths focus their studies on magical weapons and how to use them effectively.
-
-[*][b]Occultist[/b]: Where wizards draw their magical power from study and sorcerers from magical bloodlines, occultists or better known as warlocks gain power through a pact with a powerful patron: a fiend, perhaps, or some other powerful entity. Different than a warlock, occultists invest a lot of time on their studies and prefer to develop their intelligence instead of their charisma.
+[*][b]Armorer[/b]: Armorers focus their studies on magical armors and how to use them effectively.
+[*][b]Grenadier[/b]: Grenadiers study unstable substances and their use in creating explosions of various types.
+[*][b]Weaponsmith[/b]: Weaponsmiths focus their studies on magical weapons and how to use them effectively.
 [/list]
 
 [size=3][b]Subclasses[/b][/size]
@@ -357,6 +355,7 @@ A duplicate's AC equals 10 + your Dexterity modifier. If an attack hits a duplic
 A creature is unaffected by this spell if it is Blinded, or has Blindsight, Truesight or Tremorsense (doesn't apply if you don't touch ground).
 [*][b]Petal Storm[/b]: Choose an unoccupied 15-foot cube of air that you can see within range. An elemental force of swirling winds appears in the cube and lasts for the spell's duration. The cloud heavily obscures its area. Any creature that enters the storm for the first time on a turn or starts its turn there must make a Strength saving throw. On a failed save, the creature takes 3d4 slashing damage. As a bonus action, you can move the storm up to 30 feet in any direction.
 [*][b]Protect Threshold[/b]: Tracing arcane sigils along its boundary, you can ward a doorway, window, or other portal from entry. For the duration, an invisible eldritch creature stalks the warded portal. Any creature that attempts to pass through the portal must make a Wisdom saving throw or take 4d6 psychic damage, or half as much on a successful save.
+[*][b]Shadow Blade[/b]: You weave together threads of shadow to create a sword of solidified gloom in your hand.
 [*][b]Blinding Smite[/b]: Your next hit causes additional radiant damage with your weapon flaring with a bright light.
 [*][b]Earth Tremor[/b]: You strike the ground and unleash a tremor of seismic force, hurling up earth, rock, and sand.
 [*][b]Spirit Shroud[/b]: You call forth spirits of the dead, which flit around you for the spell's duration. The spirits are intangible and invulnerable.
