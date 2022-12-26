@@ -53,7 +53,7 @@ internal static partial class SpellBuilders
 
         return spell;
     }
- 
+
     [NotNull]
     internal static SpellDefinition BuildPetalStorm()
     {
@@ -178,7 +178,7 @@ internal static partial class SpellBuilders
         itemShadowBlade.isLightSourceItem = false;
 
         var weaponDescription = itemShadowBlade.WeaponDescription;
-        
+
         weaponDescription.closeRange = 4;
         weaponDescription.reachRange = 12;
         weaponDescription.weaponType = WeaponTypeDefinitions.DaggerType.Name;
@@ -189,16 +189,18 @@ internal static partial class SpellBuilders
         damageForm.damageType = DamageTypePsychic;
         damageForm.dieType = DieType.D8;
         damageForm.diceNumber = 2;
-        
+
         var conditionShadowBlade = ConditionDefinitionBuilder
             .Create($"Condition{NAME}")
             .SetGuiPresentationNoContent(true)
             .SetSilent(Silent.WhenAddedOrRemoved)
-            .SetFeatures(FeatureDefinitionCombatAffinityBuilder
-                .Create($"CombatAffinity{NAME}")
-                .SetGuiPresentation($"Item{NAME}", Category.Item)
-                .SetMyAttackAdvantage(AdvantageType.Advantage)
-                .AddToDB())
+            .SetFeatures(
+                FeatureDefinitionAttackModifiers.AttackModifierMagicWeapon,
+                FeatureDefinitionCombatAffinityBuilder
+                    .Create($"CombatAffinity{NAME}")
+                    .SetGuiPresentation($"Item{NAME}", Category.Item)
+                    .SetMyAttackAdvantage(AdvantageType.Advantage)
+                    .AddToDB())
             .AddToDB();
 
         var spell = SpellDefinitionBuilder
