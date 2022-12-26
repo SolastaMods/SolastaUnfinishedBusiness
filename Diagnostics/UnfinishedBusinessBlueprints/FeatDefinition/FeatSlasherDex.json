@@ -1,0 +1,45 @@
+{
+  "$type": "FeatDefinition, Assembly-CSharp",
+  "compatibleClassesPrerequisite": [],
+  "mustCastSpellsPrerequisite": false,
+  "compatibleRacesPrerequisite": [],
+  "minimalAbilityScorePrerequisite": true,
+  "minimalAbilityScoreValue": 13,
+  "minimalAbilityScoreName": "Dexterity",
+  "armorProficiencyPrerequisite": false,
+  "armorProficiencyCategory": "",
+  "hasFamilyTag": false,
+  "familyTag": "",
+  "knownFeatsPrerequisite": [],
+  "features": [
+    "Definition:AttributeModifierCreed_Of_Misaye:74d55f601f8ad8246b18a19766524280",
+    "Definition:FeatureFeatSlasher:de775d90-7155-534a-b21f-d8c00d22ae87"
+  ],
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": true,
+    "title": "Feat/&FeatSlasherDexTitle",
+    "description": "Feat/&FeatSlasherDexDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "2e921b1b-f659-5c0a-83f4-f0a64325017d",
+  "contentPack": 9999,
+  "name": "FeatSlasherDex"
+}

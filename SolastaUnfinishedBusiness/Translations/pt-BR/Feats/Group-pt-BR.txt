@@ -62,3 +62,7 @@ Feat/&FeatGroupRaceBoundDescription=Proezas vinculadas à raça.
 Feat/&FeatGroupRaceBoundTitle=Limite de corrida
 Feat/&FeatGroupRevenantGreatSwordDescription=Aumente seu valor de Destreza ou Força em 1, até um máximo de 20. Enquanto estiver empunhando uma grande espada, você ganha um bônus de +1 na Classe de Armadura e pode usar sua Destreza para acertar e danificar os bônus.
 Feat/&FeatGroupRevenantGreatSwordTitle=Grande Espada Revenant
+Feat/&FeatGroupCrusherDescription=Aumente sua Força ou Constituição em 1, até um máximo de 20.\nQuando você atinge uma criatura com um ataque que causa dano de concussão, uma vez por turno você empurra o inimigo 1,5m. Quando você obtém um acerto crítico que causa dano de concussão a uma criatura, as jogadas de ataque contra essa criatura são feitas com vantagem até o início do seu próximo turno.
+Feat/&FeatGroupCrusherTitle=Triturador
+Feat/&FeatGroupSlasherDescription=Aumente sua Força ou Destreza em 1, até um máximo de 20.\nAo atingir uma criatura com um ataque que causa dano perfurante, você pode jogar novamente os dados quando rolar um 1 e deve usar a nova jogada. Quando você obtém um acerto crítico que causa dano perfurante a uma criatura, você pode rolar um dado de dano adicional ao determinar o dano extra perfurante que o alvo recebe.
+Feat/&FeatGroupSlasherTitle=Slasher

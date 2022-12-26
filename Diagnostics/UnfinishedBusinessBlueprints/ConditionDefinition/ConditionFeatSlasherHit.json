@@ -4,16 +4,15 @@
   "parentCondition": null,
   "conditionType": "Beneficial",
   "features": [
-    "Definition:AttackModifierMagicWeapon:7a1aa2567ec34e849b50168e392d0c5d",
-    "Definition:CombatAffinityShadowBlade:af98c62e-f92d-53ef-b65f-ae5baaae14ad"
+    "Definition:MovementAffinityFeatSlasher:694aae13-baf4-59b2-90fe-0df3629aada0"
   ],
   "allowMultipleInstances": false,
-  "silentWhenAdded": true,
-  "silentWhenRemoved": true,
+  "silentWhenAdded": false,
+  "silentWhenRemoved": false,
   "terminateWhenRemoved": false,
-  "specialDuration": false,
-  "durationType": "Hour",
-  "durationParameterDie": "D4",
+  "specialDuration": true,
+  "durationType": "Round",
+  "durationParameterDie": "D1",
   "durationParameter": 1,
   "forceTurnOccurence": false,
   "turnOccurence": "EndOfTurn",
@@ -150,7 +149,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "7f7a5735-9143-5616-a6d5-659c5da3026d",
+  "guid": "05efc7df-fa62-579a-abcb-922c55e61c80",
   "contentPack": 9999,
-  "name": "ConditionShadowBlade"
+  "name": "ConditionFeatSlasherHit"
 }

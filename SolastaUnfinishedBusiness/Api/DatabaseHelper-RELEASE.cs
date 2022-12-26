@@ -324,6 +324,7 @@ internal static partial class DatabaseHelper
         internal static FeatureDefinitionAttributeModifier AttributeModifierBardicInspirationDieD12 { get; } = GetDefinition<FeatureDefinitionAttributeModifier>("AttributeModifierBardicInspirationDieD12");
         internal static FeatureDefinitionAttributeModifier AttributeModifierBarkskin { get; } = GetDefinition<FeatureDefinitionAttributeModifier>("AttributeModifierBarkskin");
         internal static FeatureDefinitionAttributeModifier AttributeModifierClericChannelDivinityAdd { get; } = GetDefinition<FeatureDefinitionAttributeModifier>("AttributeModifierClericChannelDivinityAdd");
+        internal static FeatureDefinitionAttributeModifier AttributeModifierCreed_Of_Arun { get; } = GetDefinition<FeatureDefinitionAttributeModifier>("AttributeModifierCreed_Of_Arun");
         internal static FeatureDefinitionAttributeModifier AttributeModifierCreed_Of_Einar { get; } = GetDefinition<FeatureDefinitionAttributeModifier>("AttributeModifierCreed_Of_Einar");
         internal static FeatureDefinitionAttributeModifier AttributeModifierCreed_Of_Maraike { get; } = GetDefinition<FeatureDefinitionAttributeModifier>("AttributeModifierCreed_Of_Maraike");
         internal static FeatureDefinitionAttributeModifier AttributeModifierCreed_Of_Misaye { get; } = GetDefinition<FeatureDefinitionAttributeModifier>("AttributeModifierCreed_Of_Misaye");
