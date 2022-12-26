@@ -46,7 +46,6 @@ public class Settings : UnityModManager.ModSettings
     public bool EnableDisplaySorceryPointBoxSorcererOnly { get; set; } = true;
     public bool EnableMultiLinePowerPanel { get; set; } = true;
     public bool EnableMultiLineSpellPanel { get; set; } = true;
-    public bool EnableRegisteringUndeadSpells { get; set; }
     public bool EnableSameWidthFeatSelection { get; set; } = true;
     public bool EnableSameWidthInvocationSelection { get; set; } = true;
     public bool EnableSortingFightingStyles { get; set; } = true;

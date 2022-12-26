@@ -214,11 +214,6 @@ internal sealed class WizardDeadMaster : AbstractSubclass
                         .Build())
                     .AddToDB();
 
-                if (Main.Settings.EnableRegisteringUndeadSpells)
-                {
-                    SpellsContext.RegisterSpell(createDeadSpell);
-                }
-
                 spells.Add(createDeadSpell);
             }
 

@@ -7,9 +7,9 @@ CHANGES:
 
 - added setting to increase game time by 1hr, 6hrs, 12hrs or 24hrs
 - added Thunderous Smite and Shadow Dagger spells
-- allowed cast spell with shields on War Dancer
+- added cast spell with shields on War Dancer
+- changed Heart Seeking Shot additional damage
 - fixed melee and unarmed logic validations
 - fixed saving thrown checks on smite spells
 - fixed spell DC calculation on heroes with more than one repertoire [original game bug]
 - removed Occultist class as causing too much headaches [RESPEC out before update!]
-- reworked Heart Seeking Shot additional damage
