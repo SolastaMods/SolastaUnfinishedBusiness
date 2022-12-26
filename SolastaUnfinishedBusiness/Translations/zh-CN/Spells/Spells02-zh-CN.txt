@@ -10,3 +10,7 @@ Spell/&PetalStormDescription=选择一个你能看到的范围内未被占据的
 Spell/&PetalStormTitle=花瓣风暴
 Spell/&ProtectThresholdDescription=沿着边界布置奥术符文，你能阻止从门、窗或其他入口的进入。在持续时间内，一个无形的魔能生物会守护此入口。任何试图通过入口的生物都必须通过一次感知豁免，否则会受到4d6点心灵伤害，豁免减半
 Spell/&ProtectThresholdTitle=守护结界
+Item/&ItemShadowBladeDescription=它在一次击中造成 2d8 精神伤害，并具有灵巧、轻盈和投掷属性。
+Item/&ItemShadowBladeTitle=影刃
+Spell/&ShadowBladeDescription=你将阴影的丝线编织在一起，在你的手中创造出一把凝固的黑暗之剑。
+Spell/&ShadowBladeTitle=影刃
