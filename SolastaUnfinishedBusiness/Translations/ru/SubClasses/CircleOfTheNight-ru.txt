@@ -1,5 +1,7 @@
 Feature/&FeatureSetCircleOfTheNightElementalFormsDescription=На уровне 10, вы можете потратить 1 очко Дикого Перевоплощения, чтобы превратиться в воздушного, земляного или огненного элементаля.
 Feature/&FeatureSetCircleOfTheNightElementalFormsTitle=Элементальные Формы
+Feature/&OnAfterActionWildShapeDescription=Вы восстанавливаете свое основное действие при переходе в дикую форму за счет бонусного, если вы его еще не использовали.
+Feature/&OnAfterActionWildShapeTitle=Бонусная дикая форма
 Feature/&PowerCircleOfTheNightWildShapeCombatDescription=Обряды вашего круга дают вам возможность превращаться в более опасные формы животных. Начиная со 2-го уровня, вы можете использовать свою дикую форму, чтобы превратиться в зверя с рейтингом опасности 1. Начиная с 6-го уровня, вы можете превратиться в зверя с рейтингом опасности, равным вашему уровню Друида, деленному на 3, с округлением вниз.
 Feature/&PowerCircleOfTheNightWildShapeCombatTitle=Бой Дикой Формы
 Feature/&PowerCircleOfTheNightPrimalStrikeDescription=Начиная с 6-го уровня, ваши атаки в форме зверя считаются магическими с точки зрения преодоления сопротивления и невосприимчивости к немагическим атакам и повреждениям.

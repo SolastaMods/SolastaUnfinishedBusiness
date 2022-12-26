@@ -334,7 +334,7 @@ Feature/&SavageAttacksDescription=Après un coup critique effectué avec une arm
 Feature/&SavingThrowProficiencyTitle=Maîtrise des jets de sauvegarde
 Feature/&SellswordSkillsArmorDescription=Maîtrise du port des armures intermédiaires.
 Feature/&SkillGainChoicesPluralDescription=Choisit {0} compétences parmi : {1}
-Feature/&SkillGainChoicesSingleDescription	Choisit l'une de ces compétences : {0}
+Feature/&SkillGainChoicesSingleDescription=Choisit l'une de ces compétences : {0}
 Feature/&SkillGainDoubleDescription=2 compétences bonus.
 Feature/&Smith_Description=Capable de fabriquer des munitions basiques comme des flèches et des carreaux à l'aide d'outils de forgeron.
 Feature/&SorcererWeaponProficiencyTitle=Maîtrise des armes d'ensorceleur

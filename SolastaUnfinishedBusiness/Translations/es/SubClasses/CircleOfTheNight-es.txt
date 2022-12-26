@@ -1,10 +1,12 @@
 Feature/&FeatureSetCircleOfTheNightElementalFormsDescription=En el nivel 10, puedes gastar un uso de Forma salvaje para transformarte en un elemental de aire, un elemental de tierra o un elemental de fuego.
 Feature/&FeatureSetCircleOfTheNightElementalFormsTitle=Formas elementales
-Feature/&PowerCircleOfTheNightWildShapeCombatDescription=Los ritos de tu círculo te otorgan la capacidad de transformarte en formas animales más peligrosas. A partir del segundo nivel, puedes usar tu forma salvaje para transformarte en una bestia con una calificación de desafío de hasta 1 y usar tu acción adicional para dar forma salvaje.
+Feature/&OnAfterActionWildShapeDescription=Recuperas tu acción principal cuando haces wildshape, a expensas de una bonificación, si aún no la has usado.
+Feature/&OnAfterActionWildShapeTitle=Bono de forma salvaje
+Feature/&PowerCircleOfTheNightWildShapeCombatDescription=Los ritos de tu círculo te otorgan la capacidad de transformarte en formas animales más peligrosas. A partir del segundo nivel, puedes usar tu forma salvaje para transformarte en una bestia con una calificación de desafío de hasta 1.
 Feature/&PowerCircleOfTheNightWildShapeCombatTitle=Forma salvaje de combate
 Feature/&PowerCircleOfTheNightPrimalStrikeDescription=A partir del nivel 6, tus ataques en forma de bestia cuentan como mágicos a efectos de superar la resistencia y la inmunidad a los ataques y daños no mágicos. También puedes transformarte en una bestia con una calificación de desafío tan alta como tu nivel de druida dividido por 3, redondeado hacia abajo.
 Feature/&PowerCircleOfTheNightPrimalStrikeTitle=Golpe primigenio
-Feature/&PowerCircleOfTheNightWildShapeHealingDescription=Mientras tiene forma salvaje, puede usar una acción adicional para curarse a sí mismo por 1d8 puntos de golpe. Puedes usar esta función un número de veces igual a tu modificador de competencia por forma que adoptes por descanso prolongado.
+Feature/&PowerCircleOfTheNightWildShapeHealingDescription=Mientras estás en forma salvaje, puedes usar una acción adicional para curarte por 1d8 puntos de golpe. Puedes usar esta función un número de veces igual a tu modificador de competencia por forma que adoptes por descanso prolongado.
 Feature/&PowerCircleOfTheNightWildShapeHealingTitle=Curación de combate
 Feature/&PowerCircleOfTheNightWildShapeImprovedHealingDescription=Tu curación de combate ahora te cura 2d8+3 puntos de golpe.
 Feature/&PowerCircleOfTheNightWildShapeImprovedHealingTitle=Curación de combate mejorada

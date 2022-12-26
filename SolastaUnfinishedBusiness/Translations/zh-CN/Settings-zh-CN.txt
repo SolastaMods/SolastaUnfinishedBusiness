@@ -1,6 +1,8 @@
 ModUi/&AddAllToStore=全部加入商店
 ModUi/&AddBleedingToLesserRestoration=添加<color=#D89555>流血</color>状态至<color=#D89555>次级/高等复原术</color>的移除效果范围
+ModUi/&AddCustomIconsToOfficialItems=为黯蚀、火焰和闪电弩箭添加自定义图标和对应的配方<b><i><color=#C04040E0>【需要重启】</color></i></b>
 ModUi/&AddHelpActionToAllRaces=添加<color=#D89555>协助</color>动作至全部种族
+ModUi/&AddHumanoidFavoredEnemyToRanger=为<color=#D89555>巡林客</color>添加类人生物宿敌
 ModUi/&AddNewBrightEyeColors=添加一种全新的明亮眼睛颜色
 ModUi/&AddNewWeaponsAndRecipesToShops=添加新的武器和配方至商店<color=#F0DAA0>【裹手，戟，长矛，长钉头锤，手弩】</color> <color=#C04040E0>【需要重启游戏】</color>
 ModUi/&AddPickPocketableLoot=添加可扒窃的战利品<color=#F0DAA0>【建议在<color=#D89555>扒窃</color>专长被启用时启用】</color>
@@ -16,6 +18,7 @@ ModUi/&AllowDruidToWearMetalArmor=允许<color=#D89555>德鲁伊</color>装备�
 ModUi/&AllowDungeonsMaxLevel20=允许自定义地城最大等级达到20级
 ModUi/&AllowGadgetsAndPropsToBePlacedAnywhere=允许在地图上任何地方放置互动物件和装饰物<color=#F0DAA0>【在放置时按<color=#1E81B0>CTRL</color>跳过任何检定】</color>
 ModUi/&AllowHornsOnAllRaces=允许所有种族长角
+ModUi/&AllowMoreRealStateOnRestPanel=在休息面板上允许显示更多真实状态
 ModUi/&AllowStackedMaterialComponent=允许材料成分叠加计算<color=#F0DAA0>【e.g. 2个500gp的钻石等同于1000gp的钻石】</color>
 ModUi/&AllowTargetingSelectionWhenCastingChainLightningSpell=允许在施放<color=#D89555>连锁闪电</color>法术时选择目标
 ModUi/&AllowUnmarkedSorcerers=允许<color=#D89555>术士</color>没有脸部印记
@@ -41,6 +44,7 @@ ModUi/&Credits=致敬
 ModUi/&CreditsAndDiagnostics=致敬与诊断
 ModUi/&DeadEyeAndPowerAttackBaseBaseValue=<color=white>设置神枪手与猛力攻击的基础修正值</color>\n<i><color=#F0DAA0>[公式是 -mod 命中/mod + 熟练加值伤害]</color></i>
 ModUi/&DisableAutoEquip=禁止自动装备物品栏的物品
+ModUi/&DisableRacePrerequisitesOnModFeats=无视此MOD提供的部分专长所需要的种族先决条件
 ModUi/&DisplayAllKnownSpellsDuringLevelUp=<i>+ 在升级过程中显示其他职业的所有已知法术</i>
 ModUi/&DisplayPactSlotsOnSpellSelectionPanel=<i>+ 在选择法术时而非角色面板上显示<color=#D89555>邪术师</color> 契约槽位</i>
 ModUi/&DontFollowCharacterInBattle=摄像机不再跟随已出现在屏幕上的角色
@@ -48,7 +52,6 @@ ModUi/&DontFollowMargin=<color=white>+ 除非角色靠近于%的屏幕边缘</co
 ModUi/&DungeonMakerBasicHelp=. 这些设置不要求玩家安装此Mod
 ModUi/&DungeonMakerMenu=地城制作
 ModUi/&EmpressGarbAppearance=<color=#D89555>女皇装束链甲衫</color>外形
-ModUi/&EnableRejoinParty=Enable <color=#1E81B0>CTRL-SHIFT-(R)</color> to rejoin the party <i><color=#F0DAA0>[useful with parties of 5 or 6]</color></i>
 ModUi/&EnableAdditionalBackstoryDisplay=启用在背景故事检视时显示额外的背景故事
 ModUi/&EnableAdditionalIconsOnLevelMap=在地图上给营地、出口和传送点添加额外的图标
 ModUi/&EnableAdditionalItemsInDungeonMaker=+ 添加新的法器至地城制作
@@ -72,6 +75,7 @@ ModUi/&EnableLevel20=启用20级<color=#C04040E0>【需要重启游戏】</color
 ModUi/&EnableLogDialoguesToConsole=在对话日志中启用记录对话到游戏控制台的功能
 ModUi/&EnableMinInOutAttributes=<i>+ 强制兼职时的属性前置要求</i>
 ModUi/&EnableMulticlass=启用兼职 <b><i><color=#C04040E0>【需要重启游戏】</color></i></b>
+ModUi/&EnableRejoinParty=Enable <color=#1E81B0>CTRL-SHIFT-(R)</color> to rejoin the party <i><color=#F0DAA0>[useful with parties of 5 or 6]</color></i>
 ModUi/&EnableRelearnSpells=<i>+ 能学习已从其它职业习得的戏法和法术</i>
 ModUi/&EnableRespec=启用在休息后重置角色和降级的功能
 ModUi/&EnablesAsiAndFeat=启用属性和专长的同时选择<i><color=#F0DAA0>【而非二选一】</color></i>
@@ -81,6 +85,7 @@ ModUi/&EnableStatsOnHeroTooltip=在英雄的工具提示上显示统计数据<i>
 ModUi/&EnableTeleportParty=启用<color=#1E81B0>CTRL-SHIFT-(T)</color> 传送队伍<i><color=#F0DAA0>【如果你传送到一个未发现的地点，你可能会破坏任务或地图】</color></i>
 ModUi/&EnableTogglesToOverwriteDefaultTestParty=启用角色池切换键设置你的默认的游戏/测试队伍
 ModUi/&EnableUpcastConjureElementalAndFey=启用<color=#D89555>召唤元素</color>，<color=#D89555>召唤精类生物</color>的升环施法
+ModUi/&EncounterPercentageChance=<color=white>设置随机遭遇的几率</color>
 ModUi/&Encounters=遭遇战
 ModUi/&ExpandAll=全部展开
 ModUi/&FactionHelp=<color=#C04040E0>加载官方战役修改派系关系……</color>
@@ -91,6 +96,7 @@ ModUi/&FeatGroupsHelp=. 每个专长组都是一组相似的专长组合<i><colo
 ModUi/&Feats=<color=#F0DAA0>专长</color>
 ModUi/&FeatsFightingStylesInvocations=专长, 战斗风格与魔能祈唤
 ModUi/&FightingStyles=<color=#F0DAA0>战斗风格</color>
+ModUi/&FixEldritchBlastRange=将 <color=#D89555>魔能爆</color> 的施法距离更改为 120 尺 <i><color=#F0DAA0>【而非 80 尺】</color></i>
 ModUi/&FixSorcererTwinnedLogic=修复<color=#D89555>术士</color>孪生法术<i><color=#F0DAA0>【该法术在其当前环阶时不能同时指定多个生物为目标】</color></i>
 ModUi/&FullyControlConjurations=完全控制召唤生物<i><color=#F0DAA0>【动物，元素等】</color></i>
 ModUi/&Gameplay=游戏内容
@@ -178,9 +184,3 @@ ModUi/&UnlockSkinColors=解锁全部皮肤颜色
 ModUi/&UseHeightOneCylinderEffect=施放<color=#D89555>艾伐黑触手、纠缠术、油腻术</color> <i><color=#F0DAA0>【方形】</color></i> or <color=#D89555>荆棘丛生</color> <i><color=#F0DAA0>【圆形】</color></i>时，显示高度为1的圆柱效果范围
 ModUi/&UseOfficialAdvantageDisadvantageRules=应用官方的优势/劣势规则
 ModUi/&Visuals=<color=#F0DAA0>视效：</color> <b><i><color=#C04040E0>【需要重启游戏】</color></i></b>
-ModUi/&DisableRacePrerequisitesOnModFeats=无视此MOD提供的部分专长所需要的种族先决条件
-ModUi/&EncounterPercentageChance=<color=white>设置随机遭遇的几率</color>
-ModUi/&FixEldritchBlastRange=将 <color=#D89555>魔能爆</color> 的施法距离更改为 120 尺 <i><color=#F0DAA0>【而非 80 尺】</color></i>
-ModUi/&AllowMoreRealStateOnRestPanel=在休息面板上允许显示更多真实状态
-ModUi/&AddHumanoidFavoredEnemyToRanger=为<color=#D89555>巡林客</color>添加类人生物宿敌
-ModUi/&AddCustomIconsToOfficialItems=为黯蚀、火焰和闪电弩箭添加自定义图标和对应的配方<b><i><color=#C04040E0>【需要重启】</color></i></b>

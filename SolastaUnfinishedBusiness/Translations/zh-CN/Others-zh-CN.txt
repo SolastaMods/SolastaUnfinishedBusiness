@@ -1,3 +1,4 @@
+
 Action/&CastPlaneMagicDescription=施展你从位面亲和专长中获得的法术之一
 Action/&CastPlaneMagicTitle=通道位面魔法
 Action/&FarStepDescription=传送最多 60 英尺到一个你能看到的未被占用的空间。
@@ -20,7 +21,6 @@ Feature/&InvocationPoolArmamentAdroitnessLearnDescription=选择新的武器类�
 Feature/&InvocationPoolArmamentAdroitnessLearnTitle=武器训练
 Feature/&InvocationPoolFighterArmamentAdroitnessDescription=你可以选择你投入时间训练的武器类型。 这种类型的武器在命中和伤害掷骰上获得+1。
 Feature/&InvocationPoolFighterArmamentAdroitnessTitle=武器训练
-
 Feature/&MagicAffinityPatronExpandedSpellsDescription={0}\n\n
 Feature/&ModifyAttackModeForWeaponFighterArmamentAdroitnessDescription=你从你的武器训练中获得 +1 命中和伤害检定。
 Feature/&ModifyAttackModeForWeaponFighterArmamentAdroitnessTitle=武器训练
@@ -95,9 +95,9 @@ Tooltip/&InvocationUsageShortRestAvailableDescription=一旦被使用，此魔�
 Tooltip/&InvocationUsageShortRestUsedDescription=此魔能祈唤需要短休或长休后才能再次使用。
 Tooltip/&MonsterNaturalArmorTitle=自然护甲
 Tooltip/&PreReqDoesNotKnow=没有已知 {0}
-Tooltip/&PreReqMustKnow=必须已知{0}
 Tooltip/&PreReqIs=Is {0}
 Tooltip/&PreReqIsNot=不是 {0}
+Tooltip/&PreReqMustKnow=必须已知{0}
 Tooltip/&Tag9000Title=自定义效果
 Tooltip/&TagUnfinishedBusinessTitle=未竟之业
 UI/&CustomFeatureSelectionStageDescription=为你的职业/子职业选择额外特性

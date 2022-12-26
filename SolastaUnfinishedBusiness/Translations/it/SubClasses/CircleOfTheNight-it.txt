@@ -1,10 +1,12 @@
 Feature/&FeatureSetCircleOfTheNightElementalFormsDescription=Al 10° livello, puoi spendere un uso di Forma Selvaggia per trasformarti in un Elementale dell'Aria, Elementale della Terra o Elementale del Fuoco.
 Feature/&FeatureSetCircleOfTheNightElementalFormsTitle=Forme elementali
-Feature/&PowerCircleOfTheNightWildShapeCombatDescription=I riti della tua cerchia ti garantiscono la capacità di trasformarti in forme animali più pericolose. A partire dal 2° livello, puoi usare la tua forma selvaggia per trasformarti in una bestia con un grado di sfida fino a 1 e usare la tua azione bonus per plasmare selvaggia.
+Feature/&OnAfterActionWildShapeDescription=Recuperi la tua azione principale quando esegui la forma selvaggia, a scapito di una bonus, se non l'hai ancora usata.
+Feature/&OnAfterActionWildShapeTitle=Forma selvaggia bonus
+Feature/&PowerCircleOfTheNightWildShapeCombatDescription=I riti della tua cerchia ti garantiscono la capacità di trasformarti in forme animali più pericolose. A partire dal 2° livello, puoi usare la tua Forma selvaggia per trasformarti in una bestia con un grado di sfida pari a 1.
 Feature/&PowerCircleOfTheNightWildShapeCombatTitle=Combatti la forma selvaggia
 Feature/&PowerCircleOfTheNightPrimalStrikeDescription=A partire dal 6° livello, i tuoi attacchi in forma bestiale contano come magici allo scopo di superare la resistenza e l'immunità agli attacchi e ai danni non magici. Puoi anche trasformarti in una bestia con un grado di sfida pari al tuo livello da druido diviso per 3, arrotondato per difetto.
 Feature/&PowerCircleOfTheNightPrimalStrikeTitle=Colpo primordiale
-Feature/&PowerCircleOfTheNightWildShapeHealingDescription=Mentre sei in forma selvaggia, puoi usare un'azione bonus per curarti di 1d8 punti ferita. Puoi usare questo privilegio un numero di volte pari al tuo modificatore di competenza per forma adottata per riposo lungo.
+Feature/&PowerCircleOfTheNightWildShapeHealingDescription=Mentre sei in forma selvatica, puoi usare un'azione bonus per curarti di 1d8 punti ferita. Puoi usare questo privilegio un numero di volte pari al tuo modificatore di competenza per forma adottata per riposo lungo.
 Feature/&PowerCircleOfTheNightWildShapeHealingTitle=Guarigione da combattimento
 Feature/&PowerCircleOfTheNightWildShapeImprovedHealingDescription=La tua cura da combattimento ora ti cura di 2d8+3 punti ferita.
 Feature/&PowerCircleOfTheNightWildShapeImprovedHealingTitle=Guarigione in combattimento migliorata

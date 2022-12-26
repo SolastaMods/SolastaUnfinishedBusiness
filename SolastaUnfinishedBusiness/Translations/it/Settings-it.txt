@@ -1,6 +1,8 @@
 ModUi/&AddAllToStore=Aggiungi tutto al negozio
 ModUi/&AddBleedingToLesserRestoration=Aggiungi la condizione <color=#D89555> Sanguinamento</color> a quelle rimosse da <color=#D89555> Maggiore</color> e <color=#D89555> Restauro minore</color>
+ModUi/&AddCustomIconsToOfficialItems=Aggiungi icone personalizzate ai bulloni corrosivi, fiammeggianti e fiaschi e alle ricette corrispondenti <b><i><color=#C04040E0>[Richiede il riavvio]</color></i></b>
 ModUi/&AddHelpActionToAllRaces=Aggiungi l'azione <color=#D89555>Aiuto</color> a tutte le razze giocabili <i><color=#F0DAA0>[puoi aiutare una creatura amica ad attaccare una creatura entro 1,5 metri da te]</color></i>
+ModUi/&AddHumanoidFavoredEnemyToRanger=Aggiungi il nemico preferito umanoide ai <color=#D89555>Ranger</color>
 ModUi/&AddNewBrightEyeColors=Aggiungi nuovi colori luminosi per gli occhi
 ModUi/&AddNewWeaponsAndRecipesToShops=Aggiungi nuove armi e ricette ai negozi <i><color=#F0DAA0>[fasce per le mani, alabarde, picche, lunghe mazze, balestre a mano]</color></i> <b><i><color=#C04040E0> [Richiede il riavvio]</color></i></b>
 ModUi/&AddPickPocketableLoot=Aggiungi bottino borseggiatore <i><color=#F0DAA0>[suggerito se il talento <color=#D89555> Borseggiatore</color> è abilitato]</color></i>
@@ -11,6 +13,7 @@ ModUi/&Adventure=<color=#F0DAA0>Avventura:</color>
 ModUi/&AllItemInDm=Tutti gli articoli in DM
 ModUi/&AllowAllPlayersOnNarrativeSequences=<i>+ Consenti a tutti i giocatori nelle sequenze narrative</i>
 ModUi/&AllowAnyClassToWearSylvanArmor=Consenti a qualsiasi classe di indossare l'<color=#D89555> Armatura Silvana</color> o <color=#D89555> Abiti dell'Araldo della Luce</color>
+ModUi/&AllowAssigningOfficialSpells=ModUi/&AllowAssigningOfficialSpells=Consenti la visualizzazione degli incantesimi ufficiali in questi elenchi <b><i><color=#C04040E0>[Richiede il riavvio]</color></i></b>
 ModUi/&AllowBeardlessDwarves=Consenti i <color=#D89555>Nani</color> senza barba
 ModUi/&AllowDruidToWearMetalArmor=Consenti al <color=#D89555>Druido</color> di indossare un'armatura di metallo
 ModUi/&AllowDungeonsMaxLevel20=Consenti dungeon con livello massimo 20
@@ -73,6 +76,7 @@ ModUi/&EnableLevel20=Abilita livello 20 <b><i><color=#C04040E0>[Richiede il riav
 ModUi/&EnableLogDialoguesToConsole=Abilita i dialoghi di registrazione sulla console di gioco durante le sequenze narrative
 ModUi/&EnableMinInOutAttributes=<i>+ Imponi i punteggi di abilità minimi pre-requisiti in entrata e in uscita</i>
 ModUi/&EnableMulticlass=Abilita multiclasse <b><i><color=#C04040E0>[Richiede il riavvio]</color></i></b>
+ModUi/&EnableRejoinParty=Abilita <color=#1E81B0>CTRL-MAIUSC-(R)</color> per unirti nuovamente al gruppo <i><color=#F0DAA0>[utile con gruppi di 5 o 6]</color></i>
 ModUi/&EnableRelearnSpells=<i>+ Può selezionare trucchetti o incantesimi già appresi da altre classi</i>
 ModUi/&EnableRespec=Abilita l'azione RESPEC dopo il riposo
 ModUi/&EnablesAsiAndFeat=Abilita sia l'aumento dei punteggi degli attributi che la selezione dei talenti <i><color=#F0DAA0>[invece di una scelta esclusiva]</color></i>
@@ -181,7 +185,3 @@ ModUi/&UnlockSkinColors=Sblocca i colori della pelle
 ModUi/&UseHeightOneCylinderEffect=Usa un effetto cilindro di altezza 1 quando lanci <color=#D89555>Tentacoli neri, Intralcio, Grasso</color> <i><color=#F0DAA0>[square]</color></i> o <color=#D89555>Picchi di Crescita</color> <i><color=#F0DAA0>[round]</color></i>
 ModUi/&UseOfficialAdvantageDisadvantageRules=Usa le regole ufficiali di vantaggio/svantaggio
 ModUi/&Visuals=<color=#F0DAA0>Visuali:</color> <b><i><color=#C04040E0>[Richiede il riavvio]</color></i></b>
-ModUi/&AddHumanoidFavoredEnemyToRanger=Aggiungi il nemico preferito umanoide ai <color=#D89555>Ranger</color>
-ModUi/&EnableRejoinParty=Abilita <color=#1E81B0>CTRL-MAIUSC-(R)</color> per unirti nuovamente al gruppo <i><color=#F0DAA0>[utile con gruppi di 5 o 6]</color></i>
-ModUi/&AddCustomIconsToOfficialItems=Aggiungi icone personalizzate ai bulloni corrosivi, fiammeggianti e fiaschi e alle ricette corrispondenti <b><i><color=#C04040E0>[Richiede il riavvio]</color></i></b>
-ModUi/&AllowAssigningOfficialSpells=ModUi/&AllowAssigningOfficialSpells=Consenti la visualizzazione degli incantesimi ufficiali in questi elenchi <b><i><color=#C04040E0>[Richiede il riavvio]</color></i></b>

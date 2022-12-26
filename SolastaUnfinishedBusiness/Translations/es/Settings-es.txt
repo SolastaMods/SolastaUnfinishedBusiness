@@ -1,6 +1,8 @@
 ModUi/&AddAllToStore=Agregar todo a la tienda
 ModUi/&AddBleedingToLesserRestoration=Agregue la condición <color=#D89555>Sangrado</color> a las eliminadas por <color=#D89555>Restauración mayor</color> y <color=#D89555>Restauración menor</color>
+ModUi/&AddCustomIconsToOfficialItems=Agregue íconos personalizados a los pernos corrosivos, llameantes y de matraz y las recetas correspondientes <b><i><color=#C04040E0>[Requiere reinicio]</color></i></b>
 ModUi/&AddHelpActionToAllRaces=Agrega la acción <color=#D89555>Ayuda</color> a todas las razas jugables <i><color=#F0DAA0>[puedes ayudar a una criatura amiga a atacar a una criatura a 5 pies de ti]</color></i>
+ModUi/&AddHumanoidFavoredEnemyToRanger=Añadir enemigo preferido humanoide a <color=#D89555>Rangers</color>
 ModUi/&AddNewBrightEyeColors=Añadir nuevos colores de ojos brillantes
 ModUi/&AddNewWeaponsAndRecipesToShops=Agregue nuevas armas y recetas a las tiendas <i><color=#F0DAA0>[atados de mano, alabardas, picas, mazas largas, ballestas de mano]</color></i> <b><i><color=#C04040E0> [Requiere reiniciar]</color></i></b>
 ModUi/&AddPickPocketableLoot=Agregar botín de carterista <i><color=#F0DAA0>[sugerido si la característica <color=#D89555>Carterista</color> está habilitada]</color></i>
@@ -11,6 +13,7 @@ ModUi/&Adventure=<color=#F0DAA0>Aventura:</color>
 ModUi/&AllItemInDm=Todos los artículos en DM
 ModUi/&AllowAllPlayersOnNarrativeSequences=<i>+ Permitir a todos los jugadores en secuencias narrativas</i>
 ModUi/&AllowAnyClassToWearSylvanArmor=Permitir que cualquier clase use <color=#D89555>Armadura Sylvan</color> o <color=#D89555>Ropa de Iluminado</color>
+ModUi/&AllowAssigningOfficialSpells=Permitir que los hechizos oficiales se muestren en estas listas <b><i><color=#C04040E0>[Requiere reiniciar]</color></i></b>
 ModUi/&AllowBeardlessDwarves=Permitir <color=#D89555>Enanos</color> sin barba
 ModUi/&AllowDruidToWearMetalArmor=Permitir que el <color=#D89555>druida</color> use una armadura de metal
 ModUi/&AllowDungeonsMaxLevel20=Permitir mazmorras con nivel máximo 20
@@ -73,6 +76,7 @@ ModUi/&EnableLevel20=Habilite el nivel 20 <b><i><color=#C04040E0>[Requiere reini
 ModUi/&EnableLogDialoguesToConsole=Habilite los diálogos de registro en la consola de juegos durante las secuencias narrativas
 ModUi/&EnableMinInOutAttributes=<i>+ Hacer cumplir los requisitos previos mínimos de entrada y salida de las puntuaciones de habilidad</i>
 ModUi/&EnableMulticlass=Habilitar multiclase <b><i><color=#C04040E0>[Requiere reiniciar]</color></i></b>
+ModUi/&EnableRejoinParty=Activa <color=#1E81B0>CTRL-SHIFT-(R)</color> para volver a unirte al grupo <i><color=#F0DAA0>[útil con grupos de 5 o 6]</color></i>
 ModUi/&EnableRelearnSpells=<i>+ Puede seleccionar cantrips o hechizos ya aprendidos de otras clases</i>
 ModUi/&EnableRespec=Habilite la acción RESPEC después del descanso
 ModUi/&EnablesAsiAndFeat=Habilite el aumento de puntajes de atributos y la selección de hazañas <i><color=#F0DAA0>[en lugar de una opción exclusiva]</color></i>
@@ -181,7 +185,3 @@ ModUi/&UnlockSkinColors=Desbloquear colores de piel
 ModUi/&UseHeightOneCylinderEffect=Usa un efecto de cilindro de altura 1 al lanzar <color=#D89555>Tentáculos negros, Enredar, Grasa</color> <i><color=#F0DAA0>[cuadrado]</color></i> o <color=#D89555>Crecimiento de picos</color> <i><color=#F0DAA0>[redondo]</color></i>
 ModUi/&UseOfficialAdvantageDisadvantageRules=Usar reglas oficiales de ventaja/desventaja
 ModUi/&Visuals=<color=#F0DAA0>Imágenes:</color> <b><i><color=#C04040E0>[Requiere reiniciar]</color></i></b>
-ModUi/&AddHumanoidFavoredEnemyToRanger=Añadir enemigo preferido humanoide a <color=#D89555>Rangers</color>
-ModUi/&EnableRejoinParty=Activa <color=#1E81B0>CTRL-SHIFT-(R)</color> para volver a unirte al grupo <i><color=#F0DAA0>[útil con grupos de 5 o 6]</color></i>
-ModUi/&AddCustomIconsToOfficialItems=Agregue íconos personalizados a los pernos corrosivos, llameantes y de matraz y las recetas correspondientes <b><i><color=#C04040E0>[Requiere reinicio]</color></i></b>
-ModUi/&AllowAssigningOfficialSpells=Permitir que los hechizos oficiales se muestren en estas listas <b><i><color=#C04040E0>[Requiere reiniciar]</color></i></b>
