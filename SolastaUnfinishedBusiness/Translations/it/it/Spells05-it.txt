@@ -1,0 +1,4 @@
+﻿Condition/&ConditionFarStepDescription=Puoi usare un'azione bonus per teletrasportarti fino a 18 metri in uno spazio non occupato che puoi vedere.
+Condition/&ConditionFarStepTitle=Passo lontano
+Spell/&FarStepDescription=Ti teletrasporti fino a 18 metri in uno spazio non occupato che puoi vedere. In ciascuno dei tuoi turni prima che l'incantesimo termini, puoi usare un'azione bonus per teletrasportarti di nuovo in questo modo.
+Spell/&FarStepTitle=Passo lontano

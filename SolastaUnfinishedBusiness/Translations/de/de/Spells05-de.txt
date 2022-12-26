@@ -1,0 +1,4 @@
+﻿Condition/&ConditionFarStepDescription=Sie können eine Bonusaktion verwenden, um sich bis zu 60 Fuß zu einem unbesetzten Feld zu teleportieren, das Sie sehen können.
+Condition/&ConditionFarStepTitle=Weiter Schritt
+Spell/&FarStepDescription=Sie teleportieren bis zu 60 Fuß zu einem unbesetzten Feld, das Sie sehen können. In jedem deiner Züge, bevor der Zauber endet, kannst du eine Bonusaktion nutzen, um dich erneut auf diese Weise zu teleportieren.
+Spell/&FarStepTitle=Weiter Schritt

@@ -1,0 +1,4 @@
+﻿Condition/&ConditionMindBlankDescription=Immunisé aux dégâts psychiques et à l'état charmé.
+Condition/&ConditionMindBlankTitle=Vide d'esprit
+Spell/&MindBlankDescription=Jusqu'à la fin du sort, une créature consentante que vous touchez est immunisée contre les dégâts psychiques, tout effet qui détecterait ses émotions ou lirait ses pensées, les sorts de divination et l'état charmé.
+Spell/&MindBlankTitle=Vide d'esprit

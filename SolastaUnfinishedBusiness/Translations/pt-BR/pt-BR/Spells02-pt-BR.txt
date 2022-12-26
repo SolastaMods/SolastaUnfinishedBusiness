@@ -1,0 +1,12 @@
+﻿Condition/&ConditionMirrorImageDescription=Inimigos podem mirar acidentalmente nessa duplicata em vez de você. Se a duplicata for atingida, ela desaparece.
+Condition/&ConditionMirrorImageTitle=Espelho Duplicado
+Feedback/&MirrorImageAttackerHasSense={0} tem {1} e ignora {2}
+Feedback/&MirrorImageAttackerIsBlind={0} é {1} e ignora {2}
+Feedback/&MirrorImageRetargetResult={0} segmentará {1}
+Feedback/&MirrorImageRetargetRoll={0} rola {2} dado chamariz: {1}
+Spell/&MirrorImageDescription=Três duplicatas ilusórias de você aparecem em seu espaço. Até que o feitiço termine, cada vez que uma criatura atingir você com um ataque, role um d20 para determinar se o ataque visa uma de suas duplicatas.\nSe você tiver 3 duplicatas, você deve rolar um 6 ou mais para alterar o ataque alvo para uma duplicata. Com 2 duplicatas, você deve rolar um 8 ou mais. Com 1 duplicata, você deve rolar um 11 ou mais.\nA CA de uma duplicata é igual a 10 + seu modificador de Destreza. Se um ataque atingir uma duplicata, a duplicata é destruída. Uma duplicata pode ser destruída apenas por um ataque que a atinja. Ele ignora todos os outros danos e efeitos. O feitiço termina quando todas as três duplicatas são destruídas.\nUma criatura não é afetada por este feitiço se estiver Cega ou tiver Visão Cega, Visão Verdadeira ou Sentido do Tremor (não se aplica se você não tocar o solo).
+Spell/&MirrorImageTitle=imagem espelhada
+Spell/&PetalStormDescription=Escolha um cubo de ar desocupado de 4,5 metros que você possa ver dentro do alcance. Uma força elemental de ventos rodopiantes aparece no cubo e dura a duração do feitiço. A nuvem obscurece fortemente sua área. Qualquer criatura que entrar na tempestade pela primeira vez em um turno ou começar seu turno lá deve fazer um teste de resistência de Força. Se falhar na resistência, a criatura sofre 3d4 de dano cortante. Com uma ação bônus, você pode mover a tempestade até 9 metros em qualquer direção.
+Spell/&PetalStormTitle=Tempestade de Pétalas
+Spell/&ProtectThresholdDescription=Traçando sigilos arcanos ao longo de seus limites, você pode proteger uma porta, janela ou outro portal da entrada. Durante a duração, uma criatura mística invisível espreita o portal protegido. Qualquer criatura que tentar passar pelo portal deve fazer um teste de resistência de Sabedoria ou sofrerá 4d6 de dano psíquico, ou metade em caso de sucesso.
+Spell/&ProtectThresholdTitle=Limite de proteção

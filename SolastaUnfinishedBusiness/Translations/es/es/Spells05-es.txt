@@ -1,0 +1,4 @@
+﻿Condition/&ConditionFarStepDescription=Puedes usar una acción adicional para teletransportarte hasta 60 pies a un espacio desocupado que puedas ver.
+Condition/&ConditionFarStepTitle=paso lejano
+Spell/&FarStepDescription=Te teletransportas hasta 60 pies a un espacio desocupado que puedas ver. En cada uno de tus turnos antes de que finalice el hechizo, puedes usar una acción adicional para teletransportarte de esta manera nuevamente.
+Spell/&FarStepTitle=paso lejano

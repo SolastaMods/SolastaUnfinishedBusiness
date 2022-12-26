@@ -200,12 +200,14 @@ internal static class SpellsContext
         RegisterSpell(BuildMule(), 0, SpellListWizard);
         RegisterSpell(BuildRadiantMotes(), 0, SpellListWizard, spellListInventorClass);
         RegisterSpell(BuildSearingSmite(), 0, SpellListPaladin, SpellListRanger);
+        RegisterSpell(BuildThunderousSmite(), 0, SpellListPaladin);
         RegisterSpell(BuildWrathfulSmite(), 0, SpellListPaladin);
 
         // 2nd level
         RegisterSpell(BuildPetalStorm(), 0, SpellListDruid);
         RegisterSpell(BuildProtectThreshold(), 0, SpellListCleric, SpellListDruid, SpellListPaladin);
         RegisterSpell(BuildMirrorImage(), 0, SpellListBard, SpellListSorcerer, SpellListWarlock, SpellListWizard);
+        RegisterSpell(BuildShadowBlade(), 0, SpellListSorcerer, SpellListWarlock, SpellListWizard);
 
         // 3rd level
         RegisterSpell(BuildBlindingSmite(), 0, SpellListPaladin);
