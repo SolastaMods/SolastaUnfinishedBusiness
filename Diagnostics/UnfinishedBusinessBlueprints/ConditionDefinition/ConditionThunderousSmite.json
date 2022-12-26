@@ -4,7 +4,7 @@
   "parentCondition": null,
   "conditionType": "Beneficial",
   "features": [
-    "Definition:AdditionalDamageWrathfulSmite:a4155f80-3b56-5bb3-93fd-5f38a7e23c3b"
+    "Definition:AdditionalDamageThunderousSmite:b4fa3128-3960-51dc-a77e-cf89fb08904b"
   ],
   "allowMultipleInstances": false,
   "silentWhenAdded": false,
@@ -130,8 +130,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Spell/&WrathfulSmiteTitle",
-    "description": "Spell/&WrathfulSmiteDescription",
+    "title": "Spell/&ThunderousSmiteTitle",
+    "description": "Spell/&ThunderousSmiteDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "8440ca8497e8ca64f811d09a9d4679d9",
@@ -151,7 +151,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "b551eee2-5f52-552d-a943-4fba57fea5cb",
+  "guid": "f8010331-f4a8-5f86-9ab2-682108bb7943",
   "contentPack": 9999,
-  "name": "ConditionWrathfulSmite"
+  "name": "ConditionThunderousSmite"
 }

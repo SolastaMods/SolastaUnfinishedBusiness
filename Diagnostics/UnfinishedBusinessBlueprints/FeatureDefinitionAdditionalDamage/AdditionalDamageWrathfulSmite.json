@@ -128,12 +128,12 @@
   "familiesWithAdditionalDice": [],
   "familiesDiceNumber": 1,
   "ignoreCriticalDoubleDice": false,
-  "hasSavingThrow": false,
-  "savingThrowAbility": "Dexterity",
-  "dcComputation": "FixedValue",
-  "savingThrowDC": 10,
-  "savingThrowDCAbilityModifier": "Dexterity",
-  "damageSaveAffinity": "None",
+  "hasSavingThrow": true,
+  "savingThrowAbility": "Constitution",
+  "dcComputation": "SpellCastingFeature",
+  "savingThrowDC": 12,
+  "savingThrowDCAbilityModifier": "Wisdom",
+  "damageSaveAffinity": "Negates",
   "conditionOperations": [
     {
       "$type": "ConditionOperationDescription, Assembly-CSharp",

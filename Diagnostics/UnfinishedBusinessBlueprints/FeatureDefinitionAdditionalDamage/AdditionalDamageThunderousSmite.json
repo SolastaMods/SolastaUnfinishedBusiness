@@ -1,6 +1,6 @@
 {
   "$type": "FeatureDefinitionAdditionalDamage, Assembly-CSharp",
-  "notificationTag": "SearingSmite",
+  "notificationTag": "ThunderousSmite",
   "limitedUsage": "None",
   "firstTargetOnly": true,
   "targetSide": "Enemy",
@@ -18,9 +18,9 @@
   "damageValueDetermination": "Die",
   "flatBonus": 0,
   "damageDieType": "D6",
-  "damageDiceNumber": 1,
+  "damageDiceNumber": 2,
   "additionalDamageType": "Specific",
-  "specificDamageType": "DamageFire",
+  "specificDamageType": "DamageThunder",
   "ancestryTypeForDamageType": "Sorcerer",
   "damageAdvancement": "SlotLevel",
   "diceByRankTable": [
@@ -128,24 +128,13 @@
   "familiesWithAdditionalDice": [],
   "familiesDiceNumber": 1,
   "ignoreCriticalDoubleDice": false,
-  "hasSavingThrow": true,
-  "savingThrowAbility": "Constitution",
-  "dcComputation": "SpellCastingFeature",
-  "savingThrowDC": 12,
-  "savingThrowDCAbilityModifier": "Wisdom",
-  "damageSaveAffinity": "Negates",
-  "conditionOperations": [
-    {
-      "$type": "ConditionOperationDescription, Assembly-CSharp",
-      "hasSavingThrow": true,
-      "operation": "Add",
-      "conditionName": "",
-      "conditionDefinition": "Definition:ConditionOnFire1D4:c832b5142b6541b40a0d925d502e0f9d",
-      "saveAffinity": "Negates",
-      "canSaveToCancel": true,
-      "saveOccurence": "StartOfTurn"
-    }
-  ],
+  "hasSavingThrow": false,
+  "savingThrowAbility": "Dexterity",
+  "dcComputation": "FixedValue",
+  "savingThrowDC": 10,
+  "savingThrowDCAbilityModifier": "Dexterity",
+  "damageSaveAffinity": "None",
+  "conditionOperations": [],
   "addLightSource": false,
   "lightSourceForm": null,
   "impactParticleReference": null,
@@ -160,8 +149,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&AdditionalDamageSearingSmiteTitle",
-    "description": "Feature/&AdditionalDamageSearingSmiteDescription",
+    "title": "Feature/&AdditionalDamageThunderousSmiteTitle",
+    "description": "Feature/&AdditionalDamageThunderousSmiteDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -181,7 +170,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "fdd3a816-0704-5d48-a633-402353b23d17",
+  "guid": "b4fa3128-3960-51dc-a77e-cf89fb08904b",
   "contentPack": 9999,
-  "name": "AdditionalDamageSearingSmite"
+  "name": "AdditionalDamageThunderousSmite"
 }
