@@ -51,7 +51,8 @@ internal sealed class CollegeOfWarDancer : AbstractSubclass
         Subclass = CharacterSubclassDefinitionBuilder
             .Create("CollegeOfWarDancer")
             .SetOrUpdateGuiPresentation(Category.Subclass, CharacterSubclassDefinitions.RangerSwiftBlade)
-            .AddFeaturesAtLevel(3, warDance, CommonBuilders.FeatureSetCasterFightingProficiency)
+            .AddFeaturesAtLevel(3, warDance, CommonBuilders.FeatureSetCasterFightingProficiency,
+                CommonBuilders.MagicAffinityCasterFightingCombatMagic)
             .AddFeaturesAtLevel(6, ImproveWarDance)
             .AddToDB();
     }
@@ -221,6 +222,7 @@ internal sealed class CollegeOfWarDancer : AbstractSubclass
         private static readonly ConditionDefinition WarDanceMomentumExtraAction = ConditionDefinitionBuilder
             .Create("ConditionWarDanceMomentumExtraAction")
             .SetGuiPresentationNoContent(true)
+            .SetSilent(Silent.WhenAddedOrRemoved)
             .SetFeatures(
                 FeatureDefinitionActionAffinityBuilder
                     .Create("ActionAffinityWarDanceExtraAction")
@@ -236,6 +238,7 @@ internal sealed class CollegeOfWarDancer : AbstractSubclass
         private static readonly ConditionDefinition ImprovedWarDanceMomentumExtraAction = ConditionDefinitionBuilder
             .Create("ConditionImprovedWarDanceMomentumExtraAction")
             .SetGuiPresentationNoContent(true)
+            .SetSilent(Silent.WhenAddedOrRemoved)
             .SetFeatures(
                 FeatureDefinitionActionAffinityBuilder
                     .Create("ActionAffinityImprovedWarDanceExtraAction")
@@ -324,7 +327,7 @@ internal sealed class CollegeOfWarDancer : AbstractSubclass
                 condition,
                 DurationType.Round,
                 1,
-                TurnOccurenceType.EndOfTurn,
+                TurnOccurenceType.StartOfTurn,
                 character.Guid,
                 character.CurrentFaction.Name);
 
