@@ -1,11 +1,17 @@
 ﻿Condition/&ConditionSpiritShroudNoHealDescription=Не может получать Очки Жизни. Нежить атакует со штрафом.
 Condition/&ConditionSpiritShroudNoHealTitle=Укрыт Покровом духов.
+Feature/&AdditionalDamageBlindingSmiteDescription=Вы поражены лучистым уроном.
+Feature/&AdditionalDamageBlindingSmiteTitle=Ослепляющая кара
+Feedback/&AdditionalDamageBlindingSmiteFormat=Обжигающий удар!
+Feedback/&AdditionalDamageBlindingSmiteLine={0} наносит больше урона {1} ослепляющим ударом (+{2})
 Feedback/&AdditionalDamageSpiritShroudDamageColdFormat=Покров Духа!
 Feedback/&AdditionalDamageSpiritShroudDamageColdLine={0} наносит {2} урон холодом {1} Покровом Духа.
 Feedback/&AdditionalDamageSpiritShroudDamageNecroticFormat=Покров Духа!
 Feedback/&AdditionalDamageSpiritShroudDamageNecroticLine={0} наносит {2} некротический урон {1} Покровом Духа.
 Feedback/&AdditionalDamageSpiritShroudDamageRadiantFormat=Покров Духа!
 Feedback/&AdditionalDamageSpiritShroudDamageRadiantLine={0} наносит {2} урон светом {1} Покровом Духа.
+Spell/&BlindingSmiteDescription=Ваш следующий удар наносит дополнительный урон излучением, когда ваше оружие вспыхивает ярким светом.
+Spell/&BlindingSmiteTitle=Ослепляющая кара
 Spell/&EarthTremorDescription=Вы ударяете по земле и вызываете дрожь сейсмической силы, подбрасывая землю, камни и песок.
 Spell/&EarthTremorTitle=Землетрясение
 Spell/&SpiritShroudDamageColdDescription=Наносит дополнительный урон холодом

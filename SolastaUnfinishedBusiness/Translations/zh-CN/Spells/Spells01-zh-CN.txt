@@ -1,0 +1,6 @@
+﻿Condition/&ConditionMuleDescription=你的速度不会因为负重或重甲而降低。你能额外携带20磅
+Condition/&ConditionMuleTitle=承重术
+Spell/&MuleDescription=此法术的受术者能忽略重物或盔甲对移动速度的影响。他们也能携带略高的重量
+Spell/&MuleTitle=承重术
+Spell/&RadiantMotesDescription=释放出由 4 个光耀射弹组成的集群，每个光耀射弹造成 1d4 光耀伤害。\n当你使用 2 级或更高法术位施展此法术时，该法术会为高于 1 级的每个法术位多制造 1 个射弹。
+Spell/&RadiantMotesTitle=光耀之斑

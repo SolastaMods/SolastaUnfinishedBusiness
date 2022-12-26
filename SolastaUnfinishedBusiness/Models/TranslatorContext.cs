@@ -324,7 +324,7 @@ internal static class TranslatorContext
             lineCount++;
         }
 
-        Main.Info($"{lineCount} {languageCode} translation terms loaded.");
+        Main.Info($"{lineCount} {languageCode} translation terms loaded of {currentLanguageTerms.Count} provided.");
 
         // loads official translations fixes
         lineCount = 0;
