@@ -176,6 +176,7 @@ internal static partial class SpellBuilders
         itemShadowBlade.itemTags.SetRange(TagsDefinitions.ItemTagConjured);
         itemShadowBlade.activeTags.Clear();
         itemShadowBlade.isLightSourceItem = false;
+        itemShadowBlade.itemPresentation.assetReference = ItemDefinitions.Scimitar.ItemPresentation.AssetReference;
 
         var weaponDescription = itemShadowBlade.WeaponDescription;
 
