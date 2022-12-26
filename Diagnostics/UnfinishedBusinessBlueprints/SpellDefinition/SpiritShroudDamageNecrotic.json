@@ -20,7 +20,7 @@
     "targetType": "Cube",
     "itemSelectionType": "None",
     "targetParameter": 5,
-    "targetParameter2": 0,
+    "targetParameter2": 2,
     "emissiveBorder": "None",
     "emissiveParameter": 1,
     "requiresTargetProximity": false,

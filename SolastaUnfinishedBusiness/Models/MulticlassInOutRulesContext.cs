@@ -3,8 +3,6 @@ using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using JetBrains.Annotations;
-using SolastaUnfinishedBusiness.Api;
-using SolastaUnfinishedBusiness.Classes;
 using SolastaUnfinishedBusiness.Classes.Inventor;
 using UnityEngine;
 
@@ -121,6 +119,7 @@ internal static class MulticlassInOutRulesContext
 
             case RuleDefinitions.BardClass:
             case RuleDefinitions.SorcererClass:
+            case RuleDefinitions.WarlockClass:
                 return charisma >= 13;
 
             case RuleDefinitions.ClericClass:
@@ -145,18 +144,6 @@ internal static class MulticlassInOutRulesContext
             case RuleDefinitions.WizardClass:
             case InventorClass.ClassName:
                 return intelligence >= 13;
-
-            case RuleDefinitions.WarlockClass:
-                var hasOccultist =
-                    hero.ClassesHistory.Contains(
-                        DatabaseHelper.GetDefinition<CharacterClassDefinition>("WarlockVariant"));
-
-                return charisma >= 13 && !hasOccultist;
-
-            case WarlockVariantClass.ClassName:
-                var hasWarlock = hero.ClassesHistory.Contains(DatabaseHelper.CharacterClassDefinitions.Warlock);
-
-                return intelligence >= 13 && !hasWarlock;
 
             default:
                 return false;

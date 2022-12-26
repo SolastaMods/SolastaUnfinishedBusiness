@@ -1,0 +1,4 @@
+﻿Condition/&ConditionReverseGravityDescription=Pris par gravité inverse.
+Condition/&ConditionReverseGravityTitle=Gravité inversée
+Spell/&ReverseGravityDescription=Ce sort inverse la gravité dans un cylindre de 15 mètres de rayon et 30 mètres de haut centré sur un point à portée.
+Spell/&ReverseGravityTitle=Gravité inversée

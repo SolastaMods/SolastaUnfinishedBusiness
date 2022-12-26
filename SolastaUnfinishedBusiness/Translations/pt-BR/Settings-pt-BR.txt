@@ -1,6 +1,8 @@
 ModUi/&AddAllToStore=Adicionar tudo à loja
 ModUi/&AddBleedingToLesserRestoration=Adicione a condição <color=#D89555>Sangramento</color> àquelas removidas por <color=#D89555>Maior</color> e <color=#D89555>Menor Restauração</color>
+ModUi/&AddCustomIconsToOfficialItems=Adicione ícones personalizados aos parafusos Corrosivo, Flamejante e Frasco e às receitas correspondentes <b><i><color=#C04040E0>[Requer reinicialização]</color></i></b>
 ModUi/&AddHelpActionToAllRaces=Adicione a ação <color=#D89555>Ajuda</color> a todas as raças jogáveis <i><color=#F0DAA0>[você pode ajudar uma criatura amiga a atacar uma criatura a até 1,5 metro de você]</color></i>
+ModUi/&AddHumanoidFavoredEnemyToRanger=Adicione o inimigo preferencial humanóide a <color=#D89555>Rangers</color>
 ModUi/&AddNewBrightEyeColors=Adicione novas cores de olhos brilhantes
 ModUi/&AddNewWeaponsAndRecipesToShops=Adicione novas armas e receitas às lojas <i><color=#F0DAA0>[bandagens de mão, alabardas, lanças, maças longas, bestas de mão]</color></i> <b><i><color=#C04040E0> [Requer reinicialização]</color></i></b>
 ModUi/&AddPickPocketableLoot=Adicionado pilhagem para furto <i><color=#F0DAA0>[sugerido se o talento <color=#D89555>Pickpocket</color> estiver ativado]</color></i>
@@ -11,6 +13,7 @@ ModUi/&Adventure=<color=#F0DAA0>Aventura:</color>
 ModUi/&AllItemInDm=Todos os itens na DM
 ModUi/&AllowAllPlayersOnNarrativeSequences=<i>+ Permitir todos os jogadores em sequências narrativas</i>
 ModUi/&AllowAnyClassToWearSylvanArmor=Permita que qualquer classe use <color=#D89555>Armadura Silvestre</color> ou <color=#D89555>Roupas Portadoras da Luz</color>
+ModUi/&AllowAssigningOfficialSpells=Permitir que os feitiços oficiais sejam exibidos nestas listas <b><i><color=#C04040E0>[Requer reinicialização]</color></i></b>
 ModUi/&AllowBeardlessDwarves=Permitir <color=#D89555>Anões</color> sem barba
 ModUi/&AllowDruidToWearMetalArmor=Permitir que <color=#D89555>Druida</color> use armadura de metal
 ModUi/&AllowDungeonsMaxLevel20=Permitir masmorras com nível máximo 20
@@ -73,6 +76,7 @@ ModUi/&EnableLevel20=Habilitar nível 20 <b><i><color=#C04040E0>[Requer reinicia
 ModUi/&EnableLogDialoguesToConsole=Ativar diálogos de registro no console do jogo durante as sequências narrativas
 ModUi/&EnableMinInOutAttributes=<i>+ Aplicar pontuações mínimas de habilidade dentro e fora dos pré-requisitos</i>
 ModUi/&EnableMulticlass=Ativar multiclasse <b><i><color=#C04040E0>[Requer reinicialização]</color></i></b>
+ModUi/&EnableRejoinParty=Ative <color=#1E81B0>CTRL-SHIFT-(R)</color> para voltar ao grupo <i><color=#F0DAA0>[útil com grupos de 5 ou 6]</color></i>
 ModUi/&EnableRelearnSpells=<i>+ Pode selecionar truques ou feitiços já aprendidos de outras classes</i>
 ModUi/&EnableRespec=Habilite o RESPEC após a ação de descanso
 ModUi/&EnablesAsiAndFeat=Ative o aumento de pontuação de atributos e a seleção de talentos <i><color=#F0DAA0>[em vez de uma escolha exclusiva]</color></i>
@@ -181,7 +185,4 @@ ModUi/&UnlockSkinColors=Desbloquear cores de pele
 ModUi/&UseHeightOneCylinderEffect=Use um efeito de 1 cilindro de altura ao conjurar <color=#D89555>Tentáculos Negros, Enredar, Graxa</color> <i><color=#F0DAA0>[quadrado]</color></i> ou <color=#D89555>Crescimento do pico</color> <i><color=#F0DAA0>[rodada]</color></i>
 ModUi/&UseOfficialAdvantageDisadvantageRules=Use as regras oficiais de vantagem/desvantagem
 ModUi/&Visuals=<color=#F0DAA0>Visuais:</color> <b><i><color=#C04040E0>[Requer reinicialização]</color></i></b>
-ModUi/&AddHumanoidFavoredEnemyToRanger=Adicione o inimigo preferencial humanóide a <color=#D89555>Rangers</color>
-ModUi/&EnableRejoinParty=Ative <color=#1E81B0>CTRL-SHIFT-(R)</color> para voltar ao grupo <i><color=#F0DAA0>[útil com grupos de 5 ou 6]</color></i>
-ModUi/&AddCustomIconsToOfficialItems=Adicione ícones personalizados aos parafusos Corrosivo, Flamejante e Frasco e às receitas correspondentes <b><i><color=#C04040E0>[Requer reinicialização]</color></i></b>
-ModUi/&AllowAssigningOfficialSpells=Permitir que os feitiços oficiais sejam exibidos nestas listas <b><i><color=#C04040E0>[Requer reinicialização]</color></i></b>
+ModUi/&IncreaseGameTimeBy=Aumente o tempo de jogo em

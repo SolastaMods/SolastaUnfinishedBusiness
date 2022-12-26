@@ -1,6 +1,8 @@
 ModUi/&AddAllToStore=Tout ajouter au magasin
 ModUi/&AddBleedingToLesserRestoration=Ajouter l'état <color=#D89555>Saignement</color> à ceux retirés par <color=#D89555>Restauration supérieure</color> et <color=#D89555>Restauration partielle</color>
+ModUi/&AddCustomIconsToOfficialItems=Ajoutez des icônes personnalisées aux boulons corrosifs, enflammés et flacons et aux recettes correspondantes <b><i><color=#C04040E0>[Nécessite un redémarrage]</color></i></b>
 ModUi/&AddHelpActionToAllRaces=Ajouter l'action <color=#D89555>Aider</color> à toutes les ascendances jouables <i><color=#F0DAA0>[vous pouvez aider une créature amie à attaquer une créature située à moins de 5 cases de vous]</color></i>
+ModUi/&AddHumanoidFavoredEnemyToRanger=Ajouter un ennemi préféré humanoïde aux <color=#D89555>Rangers</color>
 ModUi/&AddNewBrightEyeColors=Ajouter de nouvelles couleurs vives pour les yeux
 ModUi/&AddNewWeaponsAndRecipesToShops=Ajouter de nouvelles armes et recettes dans les magasins <i><color=#F0DAA0>[bandages de main, hallebardes, piques, masses longues, arbalètes de poing]</color></i> <b><i><color=#C04040E0>[Nécessite un redémarrage]</color></i></b>
 ModUi/&AddPickPocketableLoot=Ajouter le vol de butin <i><color=#F0DAA0>[conseillé si le don <color=#D89555>Pickpocket</color> est activé]</color></i>
@@ -11,6 +13,7 @@ ModUi/&Adventure=<color=#F0DAA0>Aventure :</color>
 ModUi/&AllItemInDm=Tous les objets dans le Créateur de donjon
 ModUi/&AllowAllPlayersOnNarrativeSequences=<i>+ Autoriser tous les joueurs sur les séquences narratives</i>
 ModUi/&AllowAnyClassToWearSylvanArmor=Autoriser toute les classes à porter l'<color=#D89555>Armure sylvaine</color> ou le <color=#D89555>Voile des porteurs de lumière</color>
+ModUi/&AllowAssigningOfficialSpells=Autoriser l'affichage des sorts officiels sur ces listes <b><i><color=#C04040E0>[Nécessite un redémarrage]</color></i></b>
 ModUi/&AllowBeardlessDwarves=Autoriser les <color=#D89555>Nains</color> imberbes
 ModUi/&AllowDruidToWearMetalArmor=Autoriser les <color=#D89555>Druides</color> à porter des armures de métal
 ModUi/&AllowDungeonsMaxLevel20=Autoriser les donjons de niveau 20 maximum
@@ -73,6 +76,7 @@ ModUi/&EnableLevel20=Activer le niveau 20 <b><i><color=#C04040E0>[Nécessite un 
 ModUi/&EnableLogDialoguesToConsole=Afficher les dialogues de journal dans la console pendant les séquences narratives
 ModUi/&EnableMinInOutAttributes=<i>+ Appliquer les scores de capacité minimums des pré-requis d'entrée et de sortie.</i>
 ModUi/&EnableMulticlass=Activer le multiclassage <b><i><color=#C04040E0>[Nécessite un redémarrage]</color></i></b>
+ModUi/&EnableRejoinParty=Activez <color=#1E81B0>CTRL-SHIFT-(R)</color> pour rejoindre le groupe <i><color=#F0DAA0>[utile avec des groupes de 5 ou 6]</color></i>
 ModUi/&EnableRelearnSpells=<i>+ Autoriser la sélection des sorts mineurs ou des sorts déjà connus par d'autres classes.</i>
 ModUi/&EnableRespec=Activer l'action de respécialisation après le repos
 ModUi/&EnablesAsiAndFeat=Activer à la fois l'augmentation des scores d'attributs et la sélection des dons <i><color=#F0DAA0>[à la place d'un choix exclusif]</color></i>
@@ -181,7 +185,4 @@ ModUi/&UnlockSkinColors=Débloquer les couleurs de peau
 ModUi/&UseHeightOneCylinderEffect=Utiliser un effet de cylindre de hauteur 1 lors du lancement de <color=#D89555>Tentacules noirs, Enchevêtrement, Graisse</color> <i><color=#F0DAA0>[square]</color></i> ou <color=#D89555>Croissance d'épines</color> <i><color=#F0DAA0>[round]</color></i>
 ModUi/&UseOfficialAdvantageDisadvantageRules=Utiliser les règles officielles d'avantages et de désavantages
 ModUi/&Visuals=<color=#F0DAA0>Visuels :</color> <b><i><color=#C04040E0>[Nécessite un redémarrage]</color></i></b>
-ModUi/&AddHumanoidFavoredEnemyToRanger=Ajouter un ennemi préféré humanoïde aux <color=#D89555>Rangers</color>
-ModUi/&EnableRejoinParty=Activez <color=#1E81B0>CTRL-SHIFT-(R)</color> pour rejoindre le groupe <i><color=#F0DAA0>[utile avec des groupes de 5 ou 6]</color></i>
-ModUi/&AddCustomIconsToOfficialItems=Ajoutez des icônes personnalisées aux boulons corrosifs, enflammés et flacons et aux recettes correspondantes <b><i><color=#C04040E0>[Nécessite un redémarrage]</color></i></b>
-ModUi/&AllowAssigningOfficialSpells=Autoriser l'affichage des sorts officiels sur ces listes <b><i><color=#C04040E0>[Nécessite un redémarrage]</color></i></b>
+ModUi/&IncreaseGameTimeBy=Augmentez le temps de jeu de

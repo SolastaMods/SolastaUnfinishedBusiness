@@ -1,4 +1,5 @@
 ﻿using JetBrains.Annotations;
+using SolastaUnfinishedBusiness.Api.Infrastructure;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
@@ -15,6 +16,45 @@ internal static partial class SpellBuilders
 {
     #region LEVEL 02
 
+    [NotNull]
+    internal static SpellDefinition BuildMirrorImage()
+    {
+        //Use Condition directly, instead of ConditionName to guarantee it gets built
+        var condition = ConditionDefinitionBuilder
+            .Create("ConditionMirrorImageMark")
+            .SetGuiPresentation(MirrorImageLogic.Condition.Name, Category.Condition)
+            .SetSilent(Silent.WhenAddedOrRemoved)
+            .CopyParticleReferences(ConditionBlurred)
+            .SetFeatures(FeatureDefinitionBuilder
+                .Create("FeatureMirrorImage")
+                .SetGuiPresentation(MirrorImageLogic.Condition.Name, Category.Condition)
+                .SetCustomSubFeatures(MirrorImageLogic.DuplicateProvider.Mark)
+                .AddToDB())
+            .AddToDB();
+
+        var spell = MirrorImage;
+
+        spell.implemented = true;
+        spell.uniqueInstance = true;
+        spell.schoolOfMagic = SchoolIllusion;
+        spell.verboseComponent = true;
+        spell.somaticComponent = true;
+        spell.vocalSpellSemeType = VocalSpellSemeType.Defense;
+        spell.materialComponentType = MaterialComponentType.None;
+        spell.castingTime = ActivationTime.Action;
+        spell.effectDescription = EffectDescriptionBuilder.Create()
+            .SetDurationData(DurationType.Minute, 1)
+            .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
+            .SetEffectForms(EffectFormBuilder.Create()
+                .SetConditionForm(condition, ConditionForm.ConditionOperation.Add, true, false)
+                .Build())
+            .SetParticleEffectParameters(Blur)
+            .Build();
+
+        return spell;
+    }
+ 
+    [NotNull]
     internal static SpellDefinition BuildPetalStorm()
     {
         const string ProxyPetalStormName = "ProxyPetalStorm";
@@ -124,39 +164,61 @@ internal static partial class SpellBuilders
     }
 
     [NotNull]
-    internal static SpellDefinition BuildMirrorImage()
+    internal static SpellDefinition BuildShadowBlade()
     {
-        //Use Condition directly, instead of ConditionName to guarantee it gets built
-        var condition = ConditionDefinitionBuilder
-            .Create("ConditionMirrorImageMark")
-            .SetGuiPresentation(MirrorImageLogic.Condition.Name, Category.Condition)
+        const string NAME = "ShadowBlade";
+
+        var itemShadowBlade = ItemDefinitionBuilder
+            .Create(ItemDefinitions.FlameBlade, $"Item{NAME}")
+            .SetOrUpdateGuiPresentation(Category.Item, ItemDefinitions.Enchanted_Dagger_Souldrinker)
+            .AddToDB();
+
+        itemShadowBlade.itemTags.SetRange(TagsDefinitions.ItemTagConjured);
+        itemShadowBlade.activeTags.Clear();
+        itemShadowBlade.isLightSourceItem = false;
+
+        var weaponDescription = itemShadowBlade.WeaponDescription;
+        
+        weaponDescription.closeRange = 4;
+        weaponDescription.reachRange = 12;
+        weaponDescription.weaponType = WeaponTypeDefinitions.DaggerType.Name;
+        weaponDescription.weaponTags.Add(TagsDefinitions.WeaponTagThrown);
+
+        var damageForm = weaponDescription.EffectDescription.FindFirstDamageForm();
+
+        damageForm.damageType = DamageTypePsychic;
+        damageForm.dieType = DieType.D8;
+        damageForm.diceNumber = 2;
+        
+        var conditionShadowBlade = ConditionDefinitionBuilder
+            .Create($"Condition{NAME}")
+            .SetGuiPresentationNoContent(true)
             .SetSilent(Silent.WhenAddedOrRemoved)
-            .CopyParticleReferences(ConditionBlurred)
-            .SetFeatures(FeatureDefinitionBuilder
-                .Create("FeatureMirrorImage")
-                .SetGuiPresentation(MirrorImageLogic.Condition.Name, Category.Condition)
-                .SetCustomSubFeatures(MirrorImageLogic.DuplicateProvider.Mark)
+            .SetFeatures(FeatureDefinitionCombatAffinityBuilder
+                .Create($"CombatAffinity{NAME}")
+                .SetGuiPresentation($"Item{NAME}", Category.Item)
+                .SetMyAttackAdvantage(AdvantageType.Advantage)
                 .AddToDB())
             .AddToDB();
 
-        var spell = MirrorImage;
+        var spell = SpellDefinitionBuilder
+            .Create(FlameBlade, NAME)
+            .SetOrUpdateGuiPresentation(Category.Spell, SpiritualWeapon)
+            .SetMaterialComponent(MaterialComponentType.None)
+            .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolIllusion)
+            .AddToDB();
 
-        spell.implemented = true;
-        spell.uniqueInstance = true;
-        spell.schoolOfMagic = SchoolIllusion;
-        spell.verboseComponent = true;
-        spell.somaticComponent = true;
-        spell.vocalSpellSemeType = VocalSpellSemeType.Defense;
-        spell.materialComponentType = MaterialComponentType.None;
-        spell.castingTime = ActivationTime.Action;
-        spell.effectDescription = EffectDescriptionBuilder.Create()
-            .SetDurationData(DurationType.Minute, 1)
-            .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
-            .SetEffectForms(EffectFormBuilder.Create()
-                .SetConditionForm(condition, ConditionForm.ConditionOperation.Add, true, false)
-                .Build())
-            .SetParticleEffectParameters(Blur)
-            .Build();
+        spell.EffectDescription.durationType = DurationType.Minute;
+        spell.EffectDescription.durationParameter = 1;
+        spell.EffectDescription.EffectForms.Add(EffectFormBuilder
+            .Create()
+            .SetConditionForm(conditionShadowBlade, ConditionForm.ConditionOperation.Add)
+            .Build());
+
+        var summonForm = spell.EffectDescription.EffectForms[0].SummonForm;
+
+        summonForm.itemDefinition = itemShadowBlade;
+        summonForm.effectProxyDefinitionName = "ProxySpiritualWeapon";
 
         return spell;
     }

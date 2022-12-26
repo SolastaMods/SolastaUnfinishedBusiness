@@ -612,7 +612,6 @@ internal static partial class DatabaseHelper
         internal static FeatureDefinitionProficiency ProficiencySpySkills { get; } = GetDefinition<FeatureDefinitionProficiency>("ProficiencySpySkills");
         internal static FeatureDefinitionProficiency ProficiencyWandererSkills { get; } = GetDefinition<FeatureDefinitionProficiency>("ProficiencyWandererSkills");
         internal static FeatureDefinitionProficiency ProficiencyWandererTools { get; } = GetDefinition<FeatureDefinitionProficiency>("ProficiencyWandererTools");
-        internal static FeatureDefinitionProficiency ProficiencyWarlockArmor { get; } = GetDefinition<FeatureDefinitionProficiency>("ProficiencyWarlockArmor");
         internal static FeatureDefinitionProficiency ProficiencyWarlockSavingThrow { get; } = GetDefinition<FeatureDefinitionProficiency>("ProficiencyWarlockSavingThrow");
         internal static FeatureDefinitionProficiency ProficiencyWarlockWeapon { get; } = GetDefinition<FeatureDefinitionProficiency>("ProficiencyWarlockWeapon");
         internal static FeatureDefinitionProficiency ProficiencyWizardSavingThrow { get; } = GetDefinition<FeatureDefinitionProficiency>("ProficiencyWizardSavingThrow");
@@ -815,6 +814,7 @@ internal static partial class DatabaseHelper
         internal static ItemDefinition Enchanted_Shortsword_of_Sharpness { get; } = GetDefinition<ItemDefinition>("Enchanted_Shortsword_of_Sharpness");
         internal static ItemDefinition Enchanted_Shortsword_Whiteburn { get; } = GetDefinition<ItemDefinition>("Enchanted_Shortsword_Whiteburn");
         internal static ItemDefinition ExplorerPack { get; } = GetDefinition<ItemDefinition>("ExplorerPack");
+        internal static ItemDefinition FlameBlade { get; } = GetDefinition<ItemDefinition>("FlameBlade");
         internal static ItemDefinition Flute { get; } = GetDefinition<ItemDefinition>("Flute");
         internal static ItemDefinition Food_Ration { get; } = GetDefinition<ItemDefinition>("Food_Ration");
         internal static ItemDefinition Food_Ration_Foraged { get; } = GetDefinition<ItemDefinition>("Food_Ration_Foraged");
@@ -1351,6 +1351,7 @@ internal static partial class DatabaseHelper
    internal static class WeaponTypeDefinitions
     { 
         internal static WeaponTypeDefinition ClubType { get; } = GetDefinition<WeaponTypeDefinition>("ClubType");
+        internal static WeaponTypeDefinition DaggerType { get; } = GetDefinition<WeaponTypeDefinition>("DaggerType");
         internal static WeaponTypeDefinition DartType { get; } = GetDefinition<WeaponTypeDefinition>("DartType");
         internal static WeaponTypeDefinition GreataxeType { get; } = GetDefinition<WeaponTypeDefinition>("GreataxeType");
         internal static WeaponTypeDefinition HeavyCrossbowType { get; } = GetDefinition<WeaponTypeDefinition>("HeavyCrossbowType");

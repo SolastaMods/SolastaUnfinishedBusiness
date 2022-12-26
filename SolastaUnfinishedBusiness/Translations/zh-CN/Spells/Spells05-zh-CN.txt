@@ -1,0 +1,4 @@
+﻿Condition/&ConditionFarStepDescription=你可以使用附赠动作传送至60尺内一处你可见且未被占据的空间。
+Condition/&ConditionFarStepTitle=渺远步
+Spell/&FarStepDescription=你传送至60尺内一处你可见且未被占据的空间。在法术结束之前你的每个回合，你都可以用附赠动作再次通过这个方法传送。
+Spell/&FarStepTitle=渺远步

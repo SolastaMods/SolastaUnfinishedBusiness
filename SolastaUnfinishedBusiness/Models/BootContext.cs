@@ -100,9 +100,6 @@ internal static class BootContext
             // Custom invocations
             InvocationsContext.LateLoad();
 
-            // Spells context needs character classes (specifically spell lists) in the db in order to do it's work.
-            SpellsContext.LateLoad();
-
             // Divine Smite fixes and final switches
             SrdAndHouseRulesContext.LateLoad();
 
@@ -111,6 +108,9 @@ internal static class BootContext
 
             // Multiclass - patching and final configs
             MulticlassContext.LateLoad();
+
+            // Spells context need Level 20 and Multiclass to properly register spells
+            SpellsContext.LateLoad();
 
             // Shared Slots - patching and final configs
             SharedSpellsContext.LateLoad();

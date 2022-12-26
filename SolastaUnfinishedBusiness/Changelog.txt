@@ -5,10 +5,11 @@ KNOWN ISSUES:
 
 CHANGES:
 
-- added Chromatic Orb, Searing Smite, Wrathful Smite and Blinding Smite spells
-- added patch to expand exits' sensors if party greater than 4 [blue box still 4x4 but sensor is now 8x8]
-- added setting to allow assigning official spells to other classes' repertoires
-- fixed Cloak of Elven Kind adding DIS to perception [original TA issue]
-- fixed missing extra situational context translation terms
-- fixed multiclass level up spell selection when other class has full knowledge
-- reviewed some melee restriction scenarios to also allow unarmed attacks
+- added setting to increase game time by 1hr, 6hrs, 12hrs or 24hrs
+- added Thunderous Smite and Shadow Dagger spells
+- added cast spell with shields on War Dancer
+- changed Heart Seeking Shot additional damage
+- fixed melee and unarmed logic validations
+- fixed saving thrown checks on smite spells
+- fixed spell DC calculation on heroes with more than one repertoire [original game bug]
+- removed Occultist class as causing too much headaches [RESPEC out before update!]

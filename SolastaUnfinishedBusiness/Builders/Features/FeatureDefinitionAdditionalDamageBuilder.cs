@@ -187,6 +187,24 @@ internal class FeatureDefinitionAdditionalDamageBuilder
         Definition.notificationTag = string.Empty;
     }
 
+    internal FeatureDefinitionAdditionalDamageBuilder SetSavingThrowData(
+        RuleDefinitions.EffectDifficultyClassComputation dcComputation =
+            RuleDefinitions.EffectDifficultyClassComputation.SpellCastingFeature,
+        RuleDefinitions.EffectSavingThrowType damageSaveAffinity = RuleDefinitions.EffectSavingThrowType.Negates,
+        string savingThrowAbility = AttributeDefinitions.Constitution,
+        string savingThrowDCAbilityModifier = AttributeDefinitions.Wisdom,
+        int savingThrowDC = 12)
+    {
+        Definition.hasSavingThrow = true;
+        Definition.dcComputation = dcComputation;
+        Definition.damageSaveAffinity = damageSaveAffinity;
+        Definition.savingThrowAbility = savingThrowAbility;
+        Definition.savingThrowDCAbilityModifier = savingThrowDCAbilityModifier;
+        Definition.savingThrowDC = savingThrowDC;
+
+        return this;
+    }
+
     #region Constructors
 
     protected FeatureDefinitionAdditionalDamageBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)

@@ -49,7 +49,7 @@ public static class UserGadgetPatcher
         {
             var gadgetBlueprint = __instance.gadgetBlueprint;
 
-            if (gadgetBlueprint != Exit && gadgetBlueprint != ExitMultiple ||
+            if ((gadgetBlueprint != Exit && gadgetBlueprint != ExitMultiple) ||
                 __instance.gadgetBlueprint.CustomizableDimensions ||
                 Main.Settings.OverridePartySize <= 4)
             {

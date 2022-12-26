@@ -10,6 +10,10 @@ namespace SolastaUnfinishedBusiness.Displays;
 
 internal static class ToolsDisplay
 {
+    private static bool DisplayItemsToggle { get; set; }
+
+    private static bool DisplayFactionRelationsToggle { get; set; }
+
     internal const float DefaultFastTimeModifier = 1.5f;
 
     private static readonly (string, Func<ItemDefinition, bool>)[] ItemsFilters =
@@ -77,6 +81,8 @@ internal static class ToolsDisplay
         DisplayGeneral();
         DisplayItems();
         DisplayFactionRelations();
+
+        UI.Label();
     }
 
     private static void DisplayGeneral()
@@ -194,16 +200,46 @@ internal static class ToolsDisplay
 
         intValue = Main.Settings.EncounterPercentageChance;
         if (UI.Slider(Gui.Localize("ModUi/&EncounterPercentageChance"), ref intValue, 0, 100, 5, string.Empty,
-                UI.Width(100)))
+                UI.AutoWidth()))
         {
             Main.Settings.EncounterPercentageChance = intValue;
+        }
+
+        var gameTime = Gui.GameCampaign?.GameTime;
+
+        if (gameTime == null)
+        {
+            return;
+        }
+
+        UI.Label();
+
+        using (UI.HorizontalScope())
+        {
+            UI.Label("ModUi/&IncreaseGameTimeBy", UI.Width(300));
+            UI.ActionButton("1 hour", () => gameTime.UpdateTime(60 * 60), UI.Width(100));
+            UI.ActionButton("6 hours", () => gameTime.UpdateTime(60 * 60 * 6), UI.Width(100));
+            UI.ActionButton("12 hours", () => gameTime.UpdateTime(60 * 60 * 12), UI.Width(100));
+            UI.ActionButton("24 hours", () => gameTime.UpdateTime(60 * 60 * 24), UI.Width(100));
         }
     }
 
     private static void DisplayFactionRelations()
     {
+        var toggle = DisplayFactionRelationsToggle;
+
         UI.Label();
-        UI.Label(Gui.Localize("ModUi/&FactionRelations"));
+
+        if (UI.DisclosureToggle(Gui.Localize("ModUi/&FactionRelations"), ref toggle, 200))
+        {
+            DisplayFactionRelationsToggle = toggle;
+        }
+
+        if (!DisplayFactionRelationsToggle)
+        {
+            return;
+        }
+
         UI.Label();
 
         var flip = true;
@@ -247,14 +283,24 @@ internal static class ToolsDisplay
         {
             UI.Label(Gui.Localize("ModUi/&FactionHelp"));
         }
-
-        UI.Label();
     }
 
     private static void DisplayItems()
     {
+        var toggle = DisplayItemsToggle;
+
         UI.Label();
-        UI.Label(Gui.Localize("ModUi/&Items"));
+
+        if (UI.DisclosureToggle(Gui.Localize("ModUi/&Items"), ref toggle, 200))
+        {
+            DisplayItemsToggle = toggle;
+        }
+
+        if (!DisplayItemsToggle)
+        {
+            return;
+        }
+
         UI.Label();
 
         var characterInspectionScreen = Gui.GuiService.GetScreen<CharacterInspectionScreen>();

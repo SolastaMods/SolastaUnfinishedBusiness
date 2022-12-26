@@ -1,6 +1,8 @@
 ModUi/&AddAllToStore=Alle zum Shop hinzufügen
 ModUi/&AddBleedingToLesserRestoration=Fügen Sie den Zustand <color=#D89555>Bluten</color> zu denjenigen hinzu, die durch <color=#D89555>Größere</color> und <color=#D89555>Geringere Wiederherstellung</color> entfernt wurden
+ModUi/&AddCustomIconsToOfficialItems=Füge benutzerdefinierte Symbole zu Ätzenden, Flammenden und Fläschchenbolzen und entsprechenden Rezepten hinzu <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>
 ModUi/&AddHelpActionToAllRaces=Füge allen spielbaren Völkern die Aktion <color=#D89555>Hilfe</color> hinzu <i><color=#F0DAA0>[du kannst einer freundlichen Kreatur dabei helfen, eine Kreatur innerhalb von 1,50 m von dir anzugreifen]</color></i>
+ModUi/&AddHumanoidFavoredEnemyToRanger=Füge <color=#D89555>Waldläufern</color> humanoiden bevorzugten Feind hinzu
 ModUi/&AddNewBrightEyeColors=Füge neue leuchtende Augenfarben hinzu
 ModUi/&AddNewWeaponsAndRecipesToShops=Füge den Geschäften neue Waffen und Rezepte hinzu <i><color=#F0DAA0>[Handbandagen, Hellebarden, Piken, lange Keulen, Handarmbrüste]</color></i> <b><i><color=#C04040E0> [Neustart erforderlich]</color></i></b>
 ModUi/&AddPickPocketableLoot=Taschendiebstahl-Beute hinzufügen <i><color=#F0DAA0>[empfohlen, wenn <color=#D89555>Taschendiebstahl</color>-Talent aktiviert ist]</color></i>
@@ -11,11 +13,13 @@ ModUi/&Adventure=<color=#F0DAA0>Abenteuer:</color>
 ModUi/&AllItemInDm=Alle Artikel in DM
 ModUi/&AllowAllPlayersOnNarrativeSequences=<i>+ Erlaube allen Spielern narrative Sequenzen</i>
 ModUi/&AllowAnyClassToWearSylvanArmor=Erlaube jeder Klasse, <color=#D89555>Waldrüstung</color> oder <color=#D89555>Lichtbringerkleidung</color> zu tragen
+ModUi/&AllowAssigningOfficialSpells=Anzeige offizieller Zauber auf diesen Listen zulassen <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>
 ModUi/&AllowBeardlessDwarves=Erlaube bartlose <color=#D89555>Zwerge</color>
 ModUi/&AllowDruidToWearMetalArmor=Erlaube dem <color=#D89555>Druiden</color>, Metallrüstungen zu tragen
 ModUi/&AllowDungeonsMaxLevel20=Erlaube Dungeons mit max. Stufe 20
 ModUi/&AllowGadgetsAndPropsToBePlacedAnywhere=Aktivieren Sie den <color=#1E81B0>CTRL</color>-Klick, um alle Überprüfungen beim Platzieren von Gadgets oder Requisiten zu umgehen
 ModUi/&AllowHornsOnAllRaces=Hörner für alle Rassen zulassen <i><color=#F0DAA0>[Ergebnisse können je nach Rasse, Kopf und Horn schrecklich aussehen]</color></i>
+ModUi/&AllowMoreRealStateOnRestPanel=Erlauben Sie mehr realen Status im Ruhebereich <i><color=#F0DAA0>[Aktionen nach der Ruhe im Bereich „Vorher“ und Wiederherstellungsfunktionen im Bereich „Nachher“ ausblenden]</color></i>
 ModUi/&AllowStackedMaterialComponent=Gestapelte Materialkomponente zulassen <i><color=#F0DAA0>[z.B. 2x500gp Diamant entspricht 1000gp Diamant]</color></i>
 ModUi/&AllowTargetingSelectionWhenCastingChainLightningSpell=Zielauswahl zulassen, wenn der Zauberspruch <color=#D89555>Kettenblitz</color> gewirkt wird
 ModUi/&AllowUnmarkedSorcerers=Erlaube <color=#D89555>Zauberer</color> ohne Ursprungsmarkierungen und Tätowierungen
@@ -41,6 +45,7 @@ ModUi/&Credits=Kredite
 ModUi/&CreditsAndDiagnostics=Kredite & Diagnostik
 ModUi/&DeadEyeAndPowerAttackBaseBaseValue=<color=white>Stellen Sie den Basismodifikatorwert für Deadeye und Power Attack ein</color>\n<i><color=#F0DAA0>[Formel ist -mod to hit / mod + PB to damage]</color></i>
 ModUi/&DisableAutoEquip=Deaktiviere das automatische Ausrüsten von Gegenständen im Inventar
+ModUi/&DisableRacePrerequisitesOnModFeats=Deaktivieren Sie die Rennvoraussetzungen für Leistungen, die von diesem Mod bereitgestellt werden
 ModUi/&DisplayAllKnownSpellsDuringLevelUp=<i>+ Alle bekannten Zauber aus anderen Klassen während des Levelaufstiegs anzeigen</i>
 ModUi/&DisplayPactSlotsOnSpellSelectionPanel=<i>+ Anzeige von <color=#D89555>Hexenmeister</color>-Paktplätzen bei der Zauberauswahl statt im Charakterbereich</i>
 ModUi/&DontFollowCharacterInBattle=Die Kampfkamera folgt nicht, wenn der Charakter bereits auf dem Bildschirm ist
@@ -71,6 +76,7 @@ ModUi/&EnableLevel20=Stufe 20 aktivieren <b><i><color=#C04040E0>[Neustart erford
 ModUi/&EnableLogDialoguesToConsole=Aktivieren Sie Protokolldialoge zur Spielkonsole während narrativer Sequenzen
 ModUi/&EnableMinInOutAttributes=<i>+ Mindestvoraussetzungen für Fähigkeitswerte erzwingen</i>
 ModUi/&EnableMulticlass=Aktivieren Sie mehrere Klassen <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>
+ModUi/&EnableRejoinParty=Aktiviere <color=#1E81B0>STRG-UMSCHALT-(R)</color>, um der Gruppe wieder beizutreten <i><color=#F0DAA0>[nützlich bei Gruppen mit 5 oder 6 Personen]</color></i>
 ModUi/&EnableRelearnSpells=<i>+ Kann Cantrips oder Zaubersprüche auswählen, die bereits von anderen Klassen erlernt wurden</i>
 ModUi/&EnableRespec=Aktivieren Sie die Aktion RESPEC nach Ruhe
 ModUi/&EnablesAsiAndFeat=Aktivieren Sie sowohl die Erhöhung der Attributwerte als auch die Talentauswahl <i><color=#F0DAA0>[statt einer exklusiven Auswahl]</color></i>
@@ -80,6 +86,7 @@ ModUi/&EnableStatsOnHeroTooltip=Zeigen Sie Statistiken im Tooltip des Helden an 
 ModUi/&EnableTeleportParty=Aktivieren Sie <color=#1E81B0>STRG-UMSCHALT-(T)</color>, um die Gruppe zu teleportieren <i><color=#F0DAA0>[Sie könnten Quests abbrechen, wenn Sie sich an einen unentdeckten Ort teleportieren]</color></i>
 ModUi/&EnableTogglesToOverwriteDefaultTestParty=Aktivieren Sie Umschalter im Charakterpool, um Ihre Standardspiel- und Testgruppe festzulegen
 ModUi/&EnableUpcastConjureElementalAndFey=Upcast von <color=#D89555>Elementar beschwören</color> und <color=#D89555>Feen beschwören</color> aktivieren
+ModUi/&EncounterPercentageChance=<color=white>Stellen Sie die prozentualen Chancen für zufällige Begegnungen ein</color>
 ModUi/&Encounters=Begegnungen
 ModUi/&ExpandAll=Alle erweitern
 ModUi/&FactionHelp=<color=#C04040E0>Laden Sie ein offizielles Kampagnenspiel, um die Fraktionsbeziehungen zu ändern...</color>
@@ -90,6 +97,7 @@ ModUi/&FeatGroupsHelp=. Jede Gruppe ist eine Konsolidierung ähnlicher Heldentat
 ModUi/&Feats=<color=#F0DAA0>Talente</color>
 ModUi/&FeatsFightingStylesInvocations=Kunststücke, Anrufungen & F. Styles
 ModUi/&FightingStyles=<color=#F0DAA0>Kampfstile</color>
+ModUi/&FixEldritchBlastRange=Ändere die Reichweite von <color=#D89555>Eldritch Blast</color> auf 24 <i><color=#F0DAA0>[statt 16]</color></i>
 ModUi/&FixSorcererTwinnedLogic=<color=#D89555>Zauberer</color>-Zwillings-Metamagie-Anwendung <i><color=#F0DAA0>[muss unfähig sein, mehr als eine Kreatur auf der aktuellen Stufe des Zaubers anzuvisieren]</color></i> behoben
 ModUi/&FullyControlConjurations=Volle Kontrolle über Beschwörungen <i><color=#F0DAA0>[Tiere, Elementare usw.]</color></i>
 ModUi/&Gameplay=Spielweise
@@ -177,11 +185,4 @@ ModUi/&UnlockSkinColors=Schalte Hautfarben frei
 ModUi/&UseHeightOneCylinderEffect=Verwenden Sie einen Zylindereffekt der Höhe 1, wenn Sie <color=#D89555>Schwarze Tentakel, Verstricken, Fett</color> <i><color=#F0DAA0>[Quadrat]</color></i> oder <color=#D89555 wirken>Stachelwachstum</color> <i><color=#F0DAA0>[Runde]</color></i>
 ModUi/&UseOfficialAdvantageDisadvantageRules=Verwenden Sie die offiziellen Vorteils- / Nachteilsregeln
 ModUi/&Visuals=<color=#F0DAA0>Visuals:</color> <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>
-ModUi/&DisableRacePrerequisitesOnModFeats=Deaktivieren Sie die Rennvoraussetzungen für Leistungen, die von diesem Mod bereitgestellt werden
-ModUi/&EncounterPercentageChance=<color=white>Stellen Sie die prozentualen Chancen für zufällige Begegnungen ein</color>
-ModUi/&FixEldritchBlastRange=Ändere die Reichweite von <color=#D89555>Eldritch Blast</color> auf 24 <i><color=#F0DAA0>[statt 16]</color></i>
-ModUi/&AllowMoreRealStateOnRestPanel=Erlauben Sie mehr realen Status im Ruhebereich <i><color=#F0DAA0>[Aktionen nach der Ruhe im Bereich „Vorher“ und Wiederherstellungsfunktionen im Bereich „Nachher“ ausblenden]</color></i>
-ModUi/&AddHumanoidFavoredEnemyToRanger=Füge <color=#D89555>Waldläufern</color> humanoiden bevorzugten Feind hinzu
-ModUi/&EnableRejoinParty=Aktiviere <color=#1E81B0>STRG-UMSCHALT-(R)</color>, um der Gruppe wieder beizutreten <i><color=#F0DAA0>[nützlich bei Gruppen mit 5 oder 6 Personen]</color></i>
-ModUi/&AddCustomIconsToOfficialItems=Füge benutzerdefinierte Symbole zu Ätzenden, Flammenden und Fläschchenbolzen und entsprechenden Rezepten hinzu <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>
-ModUi/&AllowAssigningOfficialSpells=Anzeige offizieller Zauber auf diesen Listen zulassen <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>
+ModUi/&IncreaseGameTimeBy=Erhöhen Sie die Spielzeit um

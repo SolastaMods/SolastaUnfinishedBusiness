@@ -18,30 +18,14 @@ public static class CharacterActionCastSpellPatcher
     [HarmonyPatch(
         new[]
         {
-            typeof(GameLocationCharacter), 
-            typeof(ActionModifier), 
-            typeof(int), 
-            typeof(int),
-            typeof(RuleDefinitions.RollOutcome), 
-            typeof(bool), 
-            typeof(RuleDefinitions.RollOutcome), 
-            typeof(int),
-            typeof(int), 
-            typeof(bool), 
-            typeof(bool)
+            typeof(GameLocationCharacter), typeof(ActionModifier), typeof(int), typeof(int),
+            typeof(RuleDefinitions.RollOutcome), typeof(bool), typeof(RuleDefinitions.RollOutcome), typeof(int),
+            typeof(int), typeof(bool), typeof(bool)
         },
         new[]
         {
-            ArgumentType.Normal, 
-            ArgumentType.Normal, 
-            ArgumentType.Normal, 
-            ArgumentType.Normal, 
-            ArgumentType.Normal,
-            ArgumentType.Normal, 
-            ArgumentType.Normal, 
-            ArgumentType.Normal, 
-            ArgumentType.Ref, 
-            ArgumentType.Out, 
+            ArgumentType.Normal, ArgumentType.Normal, ArgumentType.Normal, ArgumentType.Normal, ArgumentType.Normal,
+            ArgumentType.Normal, ArgumentType.Normal, ArgumentType.Normal, ArgumentType.Ref, ArgumentType.Out,
             ArgumentType.Out
         })]
     public static class ApplyMagicEffect_Patch
@@ -169,7 +153,8 @@ public static class CharacterActionCastSpellPatcher
             var currentAction = Global.CurrentAction;
 
             return currentAction is not CharacterActionUsePower characterActionUsePower || characterActionUsePower
-                .activePower.PowerDefinition.GetFirstSubFeatureOfType<IPreventRemoveConcentrationWithPowerUse>() == null;
+                    .activePower.PowerDefinition.GetFirstSubFeatureOfType<IPreventRemoveConcentrationWithPowerUse>() ==
+                null;
         }
     }
 }

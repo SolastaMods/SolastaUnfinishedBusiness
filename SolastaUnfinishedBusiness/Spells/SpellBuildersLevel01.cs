@@ -165,6 +165,7 @@ internal static partial class SpellBuilders
             .SetAdditionalDamageType(AdditionalDamageType.Specific)
             .SetAdvancement(AdditionalDamageAdvancement.SlotLevel, 1)
             .SetSpecificDamageType(DamageTypeFire)
+            .SetSavingThrowData()
             .SetConditionOperations(
                 new ConditionOperationDescription
                 {
@@ -180,6 +181,7 @@ internal static partial class SpellBuilders
         var conditionSearingSmite = ConditionDefinitionBuilder
             .Create($"Condition{NAME}")
             .SetGuiPresentation(NAME, Category.Spell, ConditionBrandingSmite)
+            .SetPossessive()
             .SetFeatures(additionalDamageSearingSmite)
             .SetSpecialInterruptions(ConditionInterruption.AttacksAndDamages)
             .AddToDB();
@@ -205,6 +207,51 @@ internal static partial class SpellBuilders
         return spell;
     }
 
+
+    internal static SpellDefinition BuildThunderousSmite()
+    {
+        const string NAME = "ThunderousSmite";
+
+        var additionalDamageThunderousSmite = FeatureDefinitionAdditionalDamageBuilder
+            .Create($"AdditionalDamage{NAME}")
+            .SetGuiPresentation(Category.Feature)
+            .SetNotificationTag(NAME)
+            .SetDamageDice(DieType.D6, 2)
+            .SetAdditionalDamageType(AdditionalDamageType.Specific)
+            .SetAdvancement(AdditionalDamageAdvancement.SlotLevel, 1)
+            .SetSpecificDamageType(DamageTypeThunder)
+            .SetCustomSubFeatures(new OnAttackHitEffectThunderousSmite())
+            .AddToDB();
+
+        var conditionThunderousSmite = ConditionDefinitionBuilder
+            .Create($"Condition{NAME}")
+            .SetGuiPresentation(NAME, Category.Spell, ConditionBrandingSmite)
+            .SetPossessive()
+            .SetFeatures(additionalDamageThunderousSmite)
+            .SetSpecialInterruptions(ConditionInterruption.AttacksAndDamages)
+            .AddToDB();
+
+        var spell = SpellDefinitionBuilder
+            .Create(BrandingSmite, NAME)
+            .SetGuiPresentation(Category.Spell, Sprites.GetSprite(NAME, Resources.ThunderousSmite, 128))
+            .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolEvocation)
+            .SetSpellLevel(1)
+            .SetCastingTime(ActivationTime.BonusAction)
+            .SetVerboseComponent(true)
+            .SetEffectDescription(EffectDescriptionBuilder
+                .Create()
+                .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
+                .SetDurationData(DurationType.Minute, 1)
+                .SetEffectForms(EffectFormBuilder
+                    .Create()
+                    .SetConditionForm(conditionThunderousSmite, ConditionForm.ConditionOperation.Add)
+                    .Build())
+                .Build())
+            .AddToDB();
+
+        return spell;
+    }
+
     internal static SpellDefinition BuildWrathfulSmite()
     {
         const string NAME = "WrathfulSmite";
@@ -217,6 +264,7 @@ internal static partial class SpellBuilders
             .SetAdditionalDamageType(AdditionalDamageType.Specific)
             .SetAdvancement(AdditionalDamageAdvancement.SlotLevel, 1)
             .SetSpecificDamageType(DamageTypePsychic)
+            .SetSavingThrowData()
             .SetConditionOperations(
                 new ConditionOperationDescription
                 {
@@ -235,6 +283,7 @@ internal static partial class SpellBuilders
         var conditionWrathfulSmite = ConditionDefinitionBuilder
             .Create($"Condition{NAME}")
             .SetGuiPresentation(NAME, Category.Spell, ConditionBrandingSmite)
+            .SetPossessive()
             .SetFeatures(additionalDamageWrathfulSmite)
             .SetSpecialInterruptions(ConditionInterruption.AttacksAndDamages)
             .AddToDB();

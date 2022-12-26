@@ -1,0 +1,4 @@
+﻿Condition/&ConditionMindBlankDescription=Immun gegen psychischen Schaden und den verzauberten Zustand.
+Condition/&ConditionMindBlankTitle=Verstand leer
+Spell/&MindBlankDescription=Bis der Zauber endet, ist eine willige Kreatur, die du berührst, immun gegen psychischen Schaden, jeden Effekt, der ihre Emotionen spüren oder ihre Gedanken lesen würde, Weissagungszauber und den verzauberten Zustand.
+Spell/&MindBlankTitle=Verstand leer

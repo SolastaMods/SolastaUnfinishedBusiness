@@ -1,3 +1,5 @@
+Feat/&FeatDragonWingsDescription=Dir wachsen drakonische Flügel. Sie erhalten die Fähigkeit, für eine begrenzte Zeit zu fliegen, wenn Sie keine schwere Rüstung tragen.
+Feat/&FeatDragonWingsTitle=Drachenflügel
 Feat/&FeatFadeAwayDexDescription=Du hast einen magischen Trick gelernt, um zu verschwinden, wenn du Schaden erleidest. Erhöhe deinen Geschicklichkeitswert um 1 bis zu einem Maximum von 20. Unmittelbar nachdem du Schaden erlitten hast, kannst du eine Reaktion verwenden, um bis zum Ende deines nächsten Zuges oder bis du angreifst, Schaden zufügst oder jemanden zum Sparen zwingst, auf magische Weise unsichtbar zu werden Wurf. Sobald Sie diese Fähigkeit verwenden, können Sie dies nicht erneut tun, bis Sie eine kurze oder lange Pause beendet haben.
 Feat/&FeatFadeAwayDexTitle=Verblassen [Ges]
 Feat/&FeatFadeAwayIntDescription=Du hast einen magischen Trick gelernt, um zu verschwinden, wenn du Schaden erleidest. Erhöhe deinen Intelligenzwert um 1 bis zu einem Maximum von 20. Unmittelbar nachdem du Schaden erlitten hast, kannst du eine Reaktion verwenden, um bis zum Ende deines nächsten Zuges oder bis du angreifst, Schaden zufügst oder jemanden zum Sparen zwingst, auf magische Weise unsichtbar zu werden Wurf. Sobald Sie diese Fähigkeit verwenden, können Sie dies nicht erneut tun, bis Sie eine kurze oder lange Pause beendet haben.
@@ -8,5 +10,3 @@ Feat/&FeatRevenantGreatSwordStrDescription=Erhöhen Sie Ihren Stärkewert um 1 b
 Feat/&FeatRevenantGreatSwordStrTitle=Wiedergänger-Großschwert [Str]
 Feature/&AttributeModifierFeatRevenantGreatSwordArmorClassDescription=Während Sie ein großes Schwert halten, erhalten Sie einen Bonus von +1 auf die Rüstungsklasse.
 Feature/&AttributeModifierFeatRevenantGreatSwordArmorClassTitle=Wiedergänger-Großschwert
-Feat/&FeatDragonWingsDescription=Dir wachsen drakonische Flügel. Sie erhalten die Fähigkeit, für eine begrenzte Zeit zu fliegen, wenn Sie keine schwere Rüstung tragen.
-Feat/&FeatDragonWingsTitle=Drachenflügel

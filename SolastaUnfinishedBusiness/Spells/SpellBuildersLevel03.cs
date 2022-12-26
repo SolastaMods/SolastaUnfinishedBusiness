@@ -28,6 +28,7 @@ internal static partial class SpellBuilders
             .SetAdditionalDamageType(AdditionalDamageType.Specific)
             .SetAdvancement(AdditionalDamageAdvancement.SlotLevel, 3, 1, 1, 3)
             .SetSpecificDamageType(DamageTypeRadiant)
+            .SetSavingThrowData()
             .SetConditionOperations(
                 new ConditionOperationDescription
                 {
@@ -43,6 +44,7 @@ internal static partial class SpellBuilders
         var conditionBlindingSmite = ConditionDefinitionBuilder
             .Create($"Condition{NAME}")
             .SetGuiPresentation(NAME, Category.Spell, ConditionBrandingSmite)
+            .SetPossessive()
             .SetFeatures(additionalDamageBlindingSmite)
             .SetSpecialInterruptions(ConditionInterruption.AttacksAndDamages)
             .AddToDB();

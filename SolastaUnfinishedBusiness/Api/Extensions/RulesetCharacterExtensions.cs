@@ -198,8 +198,9 @@ internal static class RulesetCharacterExtensions
             return instance.GetClassSpellRepertoire();
         }
 
-        return instance.SpellRepertoires.FirstOrDefault(r =>
-            r.SpellCastingClass != null && r.SpellCastingClass.Name == className);
+        var classDefinition = DatabaseHelper.GetDefinition<CharacterClassDefinition>(className);
+
+        return instance.GetClassSpellRepertoire(classDefinition);
     }
 
     [CanBeNull]
@@ -207,14 +208,20 @@ internal static class RulesetCharacterExtensions
         this RulesetCharacter instance,
         CharacterClassDefinition classDefinition)
     {
-        var name = string.Empty;
+        var className = classDefinition?.name;
 
-        if (classDefinition != null)
+        if (string.IsNullOrEmpty(className) || instance is not RulesetCharacterHero hero)
         {
-            name = classDefinition.Name;
+            return instance.GetClassSpellRepertoire();
         }
 
-        return instance.GetClassSpellRepertoire(name);
+        hero.ClassesAndSubclasses.TryGetValue(classDefinition, out var subclassDefinition);
+
+        return instance.SpellRepertoires.FirstOrDefault(r =>
+            (r.SpellCastingFeature.SpellCastingOrigin == FeatureDefinitionCastSpell.CastingOrigin.Class &&
+             r.SpellCastingClass == classDefinition) ||
+            (r.SpellCastingFeature.SpellCastingOrigin == FeatureDefinitionCastSpell.CastingOrigin.Subclass &&
+             r.SpellCastingSubclass == subclassDefinition));
     }
 
     /**@returns true if item holds an infusion created by this character*/

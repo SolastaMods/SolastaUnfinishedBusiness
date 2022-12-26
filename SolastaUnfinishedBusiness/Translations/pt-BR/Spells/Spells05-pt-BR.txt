@@ -1,0 +1,4 @@
+﻿Condition/&ConditionFarStepDescription=Você pode usar uma ação bônus para se teletransportar até 60 pés para um espaço desocupado que você possa ver.
+Condition/&ConditionFarStepTitle=passo distante
+Spell/&FarStepDescription=Você se teletransporta até 18 metros para um espaço desocupado que possa ver. Em cada um de seus turnos antes do feitiço terminar, você pode usar uma ação bônus para se teletransportar desta forma novamente.
+Spell/&FarStepTitle=passo distante
