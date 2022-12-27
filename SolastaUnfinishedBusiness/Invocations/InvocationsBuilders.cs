@@ -445,7 +445,7 @@ internal static class InvocationsBuilders
 
         Prerequisite: 9th level
 
-        You can cast awaken once using a warlock spell slot. You can’t do so again until you finish a long rest.
+        You can cast awaken once using a warlock spell slot. You can't do so again until you finish a long rest.
          
     Witching Blade
 
