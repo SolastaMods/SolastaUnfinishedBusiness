@@ -33,3 +33,5 @@ Reaction/&ReactionWarcasterTitle=Angriff der Gelegenheit
 Reaction/&SubitemSelectReactionWarcasterTitle=Aktion auswählen
 Reaction/&WarcasterAttackDescription=Angriffsziel.
 Reaction/&WarcasterAttackTitle=Attacke
+Feat/&FeatMonkInitiateDescription=Du hast einige der Wege des Mönchs gelernt. Deine waffenlosen Schläge verursachen 1W4 + deinen Stärke- oder Geschicklichkeitsmodifikator. Sie erhalten Ki-Punkte in Höhe Ihres Fertigkeitsbonus, die Sie ausgeben können, um Schlaghagel, Geduldige Verteidigung oder Schritt des Windes einzusetzen.
+Feat/&FeatMonkInitiateTitle=Eingeweihter Mönch

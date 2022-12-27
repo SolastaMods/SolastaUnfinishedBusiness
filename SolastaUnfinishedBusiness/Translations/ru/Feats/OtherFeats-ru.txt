@@ -33,3 +33,5 @@ Reaction/&WarcasterAttackDescription=Цель атаки
 Reaction/&WarcasterAttackTitle=Атака
 Feature/&PowerFeatPoisonousSkinDescription=Отравление на 1 минуту.
 Feature/&PowerFeatPoisonousSkinTitle=Ядовитая кожа
+Feat/&FeatMonkInitiateDescription=Вы узнали некоторые пути монаха. Ваши удары без оружия наносят 1d4 + ваш модификатор Силы или Ловкости. Вы получаете очки ци, равные вашему бонусу мастерства, которые вы можете потратить, чтобы использовать Шквал ударов, Терпеливую защиту или Шаг ветра.
+Feat/&FeatMonkInitiateTitle=Посвященный в монахи

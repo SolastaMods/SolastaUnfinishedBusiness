@@ -62,3 +62,7 @@ Feat/&FeatGroupRaceBoundDescription=Des exploits liés à la course.
 Feat/&FeatGroupRaceBoundTitle=Lié à la course
 Feat/&FeatGroupRevenantGreatSwordDescription=Augmentez votre score de Dextérité ou de Force de 1, jusqu'à un maximum de 20. Lorsque vous tenez une grande épée, vous gagnez un bonus de +1 à la classe d'armure et vous pouvez utiliser votre Dextérité pour toucher et infliger des bonus de dégâts.
 Feat/&FeatGroupRevenantGreatSwordTitle=Grande épée de revenant
+Feat/&FeatGroupCrusherDescription=Augmentez votre Force ou votre Constitution de 1, jusqu'à un maximum de 20.\nLorsque vous touchez une créature avec une attaque qui inflige des dégâts contondants, une fois par tour, vous repoussez l'ennemi de 1,5 mètre. Lorsque vous infligez un coup critique qui inflige des dégâts contondants à une créature, les jets d'attaque contre cette créature sont effectués avec avantage jusqu'au début de votre prochain tour.
+Feat/&FeatGroupCrusherTitle=Broyeur
+Feat/&FeatGroupSlasherDescription=Augmentez votre Force ou votre Dextérité de 1, jusqu'à un maximum de 20.\nLorsque vous touchez une créature avec une attaque qui inflige des dégâts perforants, vous pouvez relancer les dés lorsque vous obtenez un 1 et vous devez utiliser le nouveau jet. Lorsque vous infligez un coup critique qui inflige des dégâts perforants à une créature, vous pouvez lancer un dé de dégâts supplémentaire pour déterminer les dégâts perforants supplémentaires subis par la cible.
+Feat/&FeatGroupSlasherTitle=Slasher

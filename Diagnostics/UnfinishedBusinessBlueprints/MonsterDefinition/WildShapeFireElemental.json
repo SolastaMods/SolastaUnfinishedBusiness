@@ -3,7 +3,9 @@
   "dungeonMakerPresence": "Monster",
   "overrideSpawnDecision": null,
   "characterFamily": "Elemental",
-  "creatureTags": [],
+  "creatureTags": [
+    "WildShape"
+  ],
   "defaultFaction": "HostileMonsters",
   "fullyControlledWhenAllied": false,
   "sizeDefinition": "Definition:Large:6dde335b40d952b4ea82fa0b49a03c11",

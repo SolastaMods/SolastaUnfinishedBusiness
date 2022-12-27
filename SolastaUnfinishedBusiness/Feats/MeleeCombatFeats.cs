@@ -17,6 +17,38 @@ namespace SolastaUnfinishedBusiness.Feats;
 
 internal static class MeleeCombatFeats
 {
+    private static readonly FeatureDefinition FeatureFeatCrusher = FeatureDefinitionBuilder
+        .Create("FeatureFeatCrusher")
+        .SetGuiPresentationNoContent(true)
+        .SetCustomSubFeatures(
+            new AfterAttackEffectFeatCrusher(
+                FeatureDefinitionPowerBuilder
+                    .Create(FeatureDefinitionPowers.PowerInvocationRepellingBlast, "PowerFeatCrusherHit")
+                    .SetGuiPresentationNoContent(true)
+                    .SetEffectDescription(EffectDescriptionBuilder
+                        .Create()
+                        .SetTargetingData(Side.Enemy, RangeType.Self, 1, TargetType.IndividualsUnique)
+                        .SetDurationData(DurationType.Instantaneous)
+                        .SetEffectForms(EffectFormBuilder
+                            .Create()
+                            .SetMotionForm(MotionForm.MotionType.PushFromOrigin, 1)
+                            .Build())
+                        .Build())
+                    .AddToDB(),
+                ConditionDefinitionBuilder
+                    .Create("ConditionFeatCrusherCriticalHit")
+                    .SetGuiPresentationNoContent(true)
+                    .SetSpecialDuration(DurationType.Round, 1)
+                    .SetFeatures(
+                        FeatureDefinitionCombatAffinityBuilder
+                            .Create("CombatAffinityFeatCrusher")
+                            .SetGuiPresentation("FeatCrusherStr", Category.Feat)
+                            .SetAttackOnMeAdvantage(AdvantageType.Advantage)
+                            .AddToDB())
+                    .AddToDB(),
+                DamageTypeBludgeoning))
+        .AddToDB();
+
     private static readonly FeatureDefinition FeatureFeatPiercer = FeatureDefinitionBuilder
         .Create("FeatureFeatPiercer")
         .SetGuiPresentationNoContent(true)
@@ -45,6 +77,35 @@ internal static class MeleeCombatFeats
                 DamageTypePiercing))
         .AddToDB();
 
+    private static readonly FeatureDefinition FeatureFeatSlasher = FeatureDefinitionBuilder
+        .Create("FeatureFeatSlasher")
+        .SetGuiPresentationNoContent(true)
+        .SetCustomSubFeatures(
+            new AfterAttackEffectFeatSlasher(
+                ConditionDefinitionBuilder
+                    .Create("ConditionFeatSlasherHit")
+                    .SetGuiPresentationNoContent(true)
+                    .SetSpecialDuration(DurationType.Round, 1)
+                    .SetFeatures(
+                        FeatureDefinitionMovementAffinityBuilder
+                            .Create("MovementAffinityFeatSlasher")
+                            .SetBaseSpeedAdditiveModifier(-2)
+                            .AddToDB())
+                    .AddToDB(),
+                ConditionDefinitionBuilder
+                    .Create("ConditionFeatSlasherCriticalHit")
+                    .SetGuiPresentationNoContent(true)
+                    .SetSpecialDuration(DurationType.Round, 1)
+                    .SetFeatures(
+                        FeatureDefinitionCombatAffinityBuilder
+                            .Create("CombatAffinityFeatSlasher")
+                            .SetGuiPresentation("FeatSlasherStr", Category.Feat)
+                            .SetMyAttackAdvantage(AdvantageType.Disadvantage)
+                            .AddToDB())
+                    .AddToDB(),
+                DamageTypeSlashing))
+        .AddToDB();
+
     internal static FeatDefinition FeatGroupPiercer { get; private set; }
 
     internal static void CreateFeats([NotNull] List<FeatDefinition> feats)
@@ -52,14 +113,36 @@ internal static class MeleeCombatFeats
         var featPowerAttack = BuildPowerAttack();
         var featRecklessAttack = BuildRecklessAttack();
         var featSavageAttack = BuildSavageAttack();
+        var featCrusherStr = BuildCrusherStr();
+        var featCrusherCon = BuildCrusherCon();
         var featPiercerDex = BuildPiercerDex();
         var featPiercerStr = BuildPiercerStr();
+        var featSlasherStr = BuildSlasherStr();
+        var featSlasherDex = BuildSlasherDex();
 
-        feats.AddRange(featPowerAttack, featRecklessAttack, featSavageAttack, featPiercerDex, featPiercerStr);
+        feats.AddRange(
+            featCrusherStr,
+            featCrusherCon,
+            featPiercerDex,
+            featPiercerStr,
+            featSlasherDex,
+            featSlasherStr,
+            featPowerAttack,
+            featRecklessAttack,
+            featSavageAttack);
+
+
+        var featGroupCrusher = GroupFeats.MakeGroup("FeatGroupCrusher", "Crusher",
+            featCrusherStr,
+            featCrusherCon);
 
         FeatGroupPiercer = GroupFeats.MakeGroup("FeatGroupPiercer", "Piercer",
             featPiercerDex,
             featPiercerStr);
+
+        var featGroupSlasher = GroupFeats.MakeGroup("FeatGroupSlasher", "Slasher",
+            featCrusherStr,
+            featCrusherCon);
 
         GroupFeats.MakeGroup("FeatGroupMeleeCombat", null,
             FeatDefinitions.CloakAndDagger,
@@ -69,7 +152,9 @@ internal static class MeleeCombatFeats
             featPowerAttack,
             featRecklessAttack,
             featSavageAttack,
-            FeatGroupPiercer);
+            featGroupCrusher,
+            FeatGroupPiercer,
+            featGroupSlasher);
     }
 
     private static FeatDefinition BuildPowerAttack()
@@ -211,6 +296,54 @@ internal static class MeleeCombatFeats
             .AddToDB();
     }
 
+    private static FeatDefinition BuildCrusherStr()
+    {
+        return FeatDefinitionBuilder
+            .Create("FeatCrusherStr")
+            .SetGuiPresentation(Category.Feat)
+            .SetFeatures(
+                FeatureDefinitionAttributeModifiers.AttributeModifierCreed_Of_Einar,
+                FeatureFeatCrusher)
+            .SetAbilityScorePrerequisite(AttributeDefinitions.Strength, 13)
+            .AddToDB();
+    }
+
+    private static FeatDefinition BuildCrusherCon()
+    {
+        return FeatDefinitionBuilder
+            .Create("FeatCrusherCon")
+            .SetGuiPresentation(Category.Feat)
+            .SetFeatures(
+                FeatureDefinitionAttributeModifiers.AttributeModifierCreed_Of_Arun,
+                FeatureFeatCrusher)
+            .SetAbilityScorePrerequisite(AttributeDefinitions.Constitution, 13)
+            .AddToDB();
+    }
+
+    private static FeatDefinition BuildSlasherDex()
+    {
+        return FeatDefinitionBuilder
+            .Create("FeatSlasherDex")
+            .SetGuiPresentation(Category.Feat)
+            .SetFeatures(
+                FeatureDefinitionAttributeModifiers.AttributeModifierCreed_Of_Misaye,
+                FeatureFeatSlasher)
+            .SetAbilityScorePrerequisite(AttributeDefinitions.Dexterity, 13)
+            .AddToDB();
+    }
+
+    private static FeatDefinition BuildSlasherStr()
+    {
+        return FeatDefinitionBuilder
+            .Create("FeatSlasherStr")
+            .SetGuiPresentation(Category.Feat)
+            .SetFeatures(
+                FeatureDefinitionAttributeModifiers.AttributeModifierCreed_Of_Einar,
+                FeatureFeatSlasher)
+            .SetAbilityScorePrerequisite(AttributeDefinitions.Strength, 13)
+            .AddToDB();
+    }
+
     //
     // HELPERS
     //
@@ -252,7 +385,7 @@ internal static class MeleeCombatFeats
                 return;
             }
 
-            var damage = attackMode?.EffectDescription?.FindFirstDamageForm();
+            var damage = attackMode.EffectDescription?.FindFirstDamageForm();
 
             if (damage == null || damage.DamageType != _damageType)
             {
@@ -300,6 +433,123 @@ internal static class MeleeCombatFeats
             var damage = attackMode?.EffectDescription?.FindFirstDamageForm();
 
             return criticalHit && damage != null && damage.DamageType == _damageType;
+        }
+    }
+
+    private sealed class AfterAttackEffectFeatCrusher : IAfterAttackEffect
+    {
+        private readonly FeatureDefinitionPower _featureDefinitionPower;
+        private readonly ConditionDefinition _criticalConditionDefinition;
+        private readonly string _damageType;
+
+        internal AfterAttackEffectFeatCrusher(
+            FeatureDefinitionPower featureDefinitionPower,
+            ConditionDefinition criticalConditionDefinition,
+            string damageType)
+        {
+            _featureDefinitionPower = featureDefinitionPower;
+            _criticalConditionDefinition = criticalConditionDefinition;
+            _damageType = damageType;
+        }
+
+        public void AfterOnAttackHit(
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            RollOutcome outcome,
+            CharacterActionParams actionParams,
+            RulesetAttackMode attackMode,
+            ActionModifier attackModifier)
+        {
+            var damage = attackMode?.EffectDescription?.FindFirstDamageForm();
+
+            if (damage == null || damage.DamageType != _damageType)
+            {
+                return;
+            }
+
+            if (outcome is RollOutcome.Success or RollOutcome.CriticalSuccess &&
+                attacker.UsedSpecialFeatures.TryAdd(_damageType, 1))
+            {
+                var usablePower = new RulesetUsablePower(_featureDefinitionPower, null, null);
+                var effectPower = new RulesetEffectPower(attacker.RulesetCharacter, usablePower);
+
+                effectPower.ApplyEffectOnCharacter(defender.RulesetCharacter, true, defender.LocationPosition);
+            }
+
+            if (outcome is RollOutcome.CriticalSuccess)
+            {
+                var rulesetCondition = RulesetCondition.CreateActiveCondition(
+                    attacker.RulesetCharacter.Guid,
+                    _criticalConditionDefinition,
+                    DurationType.Round,
+                    1,
+                    TurnOccurenceType.StartOfTurn,
+                    attacker.RulesetCharacter.Guid,
+                    attacker.RulesetCharacter.CurrentFaction.Name);
+
+                attacker.RulesetCharacter.AddConditionOfCategory(AttributeDefinitions.TagCombat, rulesetCondition);
+            }
+        }
+    }
+
+    private sealed class AfterAttackEffectFeatSlasher : IAfterAttackEffect
+    {
+        private readonly ConditionDefinition _conditionDefinition;
+        private readonly ConditionDefinition _criticalConditionDefinition;
+        private readonly string _damageType;
+
+        internal AfterAttackEffectFeatSlasher(
+            ConditionDefinition conditionDefinition,
+            ConditionDefinition criticalConditionDefinition,
+            string damageType)
+        {
+            _conditionDefinition = conditionDefinition;
+            _criticalConditionDefinition = criticalConditionDefinition;
+            _damageType = damageType;
+        }
+
+        public void AfterOnAttackHit(
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            RollOutcome outcome,
+            CharacterActionParams actionParams,
+            RulesetAttackMode attackMode,
+            ActionModifier attackModifier)
+        {
+            var damage = attackMode?.EffectDescription?.FindFirstDamageForm();
+
+            if (damage == null || damage.DamageType != _damageType)
+            {
+                return;
+            }
+
+            if (outcome is RollOutcome.Success or RollOutcome.CriticalSuccess)
+            {
+                var rulesetCondition = RulesetCondition.CreateActiveCondition(
+                    attacker.RulesetCharacter.Guid,
+                    _conditionDefinition,
+                    DurationType.Round,
+                    1,
+                    TurnOccurenceType.StartOfTurn,
+                    attacker.RulesetCharacter.Guid,
+                    attacker.RulesetCharacter.CurrentFaction.Name);
+
+                attacker.RulesetCharacter.AddConditionOfCategory(AttributeDefinitions.TagCombat, rulesetCondition);
+            }
+
+            if (outcome is RollOutcome.CriticalSuccess)
+            {
+                var rulesetCondition = RulesetCondition.CreateActiveCondition(
+                    attacker.RulesetCharacter.Guid,
+                    _criticalConditionDefinition,
+                    DurationType.Round,
+                    0,
+                    TurnOccurenceType.StartOfTurn,
+                    attacker.RulesetCharacter.Guid,
+                    attacker.RulesetCharacter.CurrentFaction.Name);
+
+                attacker.RulesetCharacter.AddConditionOfCategory(AttributeDefinitions.TagCombat, rulesetCondition);
+            }
         }
     }
 }

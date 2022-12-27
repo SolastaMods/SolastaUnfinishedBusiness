@@ -1,5 +1,10 @@
 ﻿CHANGES:
 
+1.4.32.10:
+
+- added Crusher, Slasher and Monk Initiate feats
+- fixed Circle of The Night missing revert shape action if wildshape was taken off combat
+
 1.4.32.9:
 
 - added setting to increase game time by 1hr, 6hrs, 12hrs or 24hrs

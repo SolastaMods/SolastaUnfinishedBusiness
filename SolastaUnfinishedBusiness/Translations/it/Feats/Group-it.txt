@@ -62,3 +62,7 @@ Feat/&FeatGroupRaceBoundDescription=Talenti legati alla razza.
 Feat/&FeatGroupRaceBoundTitle=Legato alla razza
 Feat/&FeatGroupRevenantGreatSwordDescription=Aumenta il tuo punteggio di Destrezza o Forza di 1, fino a un massimo di 20. Mentre impugni una grande spada, ottieni un bonus di +1 alla Classe Armatura e puoi usare la tua Destrezza per colpire e per danneggiare i bonus.
 Feat/&FeatGroupRevenantGreatSwordTitle=Grande Spada Revenant
+Feat/&FeatGroupCrusherDescription=Aumenta la tua Forza o Costituzione di 1, fino a un massimo di 20.\nQuando colpisci una creatura con un attacco che infligge danni contundenti, una volta per turno spingi il nemico di 1,5 m. Quando si mette a segno un colpo critico che infligge danni contundenti a una creatura, i tiri per colpire contro quella creatura vengono effettuati con vantaggio fino all'inizio del proprio turno successivo.
+Feat/&FeatGroupCrusherTitle=Frantoio
+Feat/&FeatGroupSlasherDescription=Aumenta la tua Forza o Destrezza di 1, fino a un massimo di 20.\nQuando colpisci una creatura con un attacco che infligge danni perforanti, puoi ripetere il tiro dei dadi quando ottieni un 1 e devi usare il nuovo tiro. Quando metti a segno un colpo critico che infligge danni perforanti a una creatura, puoi tirare un dado di danno addizionale per determinare il danno perforante extra che subisce il bersaglio.
+Feat/&FeatGroupSlasherTitle=Tagliatore

@@ -62,6 +62,11 @@ internal static class SrdAndHouseRulesContext
 
     internal static void Load()
     {
+        //BUGFIX: this official condition doesn't have sprites or description
+        ConditionDefinitions.ConditionConjuredItemLink.silentWhenAdded = true;
+        ConditionDefinitions.ConditionConjuredItemLink.silentWhenRemoved = true;
+        ConditionDefinitions.ConditionConjuredItemLink.GuiPresentation.hidden = true;
+ 
         AllowTargetingSelectionWhenCastingChainLightningSpell();
         ApplyConditionBlindedShouldNotAllowOpportunityAttack();
         ApplySrdWeightToFoodRations();

@@ -62,3 +62,7 @@ Feat/&FeatGroupTwoHandedCombatDescription=Zweihand-Kampftalente der Gruppe: Folg
 Feat/&FeatGroupTwoHandedCombatTitle=Zweihändiger Kampf
 Feat/&FeatGroupTwoWeaponCombatDescription=Gruppe Zwei-Waffen-Kampftalente: Beidhändig, Dual Flurry, Dual Weapon Defense und Twin Blade.
 Feat/&FeatGroupTwoWeaponCombatTitle=Kampf mit zwei Waffen
+Feat/&FeatGroupCrusherDescription=Erhöhe deine Stärke oder Konstitution um 1 bis zu einem Maximum von 20.\nWenn du eine Kreatur mit einem Angriff triffst, der Knüppelschaden verursacht, stößt du den Feind einmal pro Zug um 1,50 m. Wenn du einen kritischen Treffer erzielst, der einer Kreatur Wuchtschaden zufügt, werden Angriffswürfe gegen diese Kreatur bis zum Beginn deines nächsten Zuges mit Vorteil durchgeführt.
+Feat/&FeatGroupCrusherTitle=Brecher
+Feat/&FeatGroupSlasherDescription=Erhöhe deine Stärke oder Geschicklichkeit um 1 bis zu einem Maximum von 20.\nWenn du eine Kreatur mit einem Angriff triffst, der Stichschaden verursacht, kannst du Würfel neu würfeln, wenn du eine 1 würfelst, und du musst den neuen Wurf verwenden. Wenn du einen kritischen Treffer erzielst, der einer Kreatur Stichschaden zufügt, kannst du einen zusätzlichen Schadenswürfel werfen, um den zusätzlichen Stichschaden zu bestimmen, den das Ziel erleidet.
+Feat/&FeatGroupSlasherTitle=Schlitzer

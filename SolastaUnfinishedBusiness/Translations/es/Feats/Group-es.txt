@@ -62,3 +62,7 @@ Feat/&FeatGroupRaceBoundDescription=Hazañas ligadas a la carrera.
 Feat/&FeatGroupRaceBoundTitle=Límite de carrera
 Feat/&FeatGroupRevenantGreatSwordDescription=Aumenta tu puntuación de Destreza o Fuerza en 1, hasta un máximo de 20. Mientras sostienes una gran espada, obtienes una bonificación de +1 a la Clase de armadura y puedes usar tu Destreza para golpear y dañar bonificaciones.
 Feat/&FeatGroupRevenantGreatSwordTitle=Gran espada de resucitado
+Feat/&FeatGroupCrusherDescription=Aumenta tu Fuerza o Constitución en 1, hasta un máximo de 20.\nCuando golpeas a una criatura con un ataque que inflige daño contundente, una vez por turno empujas al enemigo 5 pies. Cuando obtienes un golpe crítico que inflige daño contundente a una criatura, las tiradas de ataque contra esa criatura se realizan con ventaja hasta el comienzo de tu siguiente turno.
+Feat/&FeatGroupCrusherTitle=Trituradora
+Feat/&FeatGroupSlasherDescription=Aumenta tu Fuerza o Destreza en 1, hasta un máximo de 20.\nCuando golpeas a una criatura con un ataque que inflige daño perforante, puedes volver a tirar los dados cuando obtengas un 1 y debes usar la nueva tirada. Cuando obtienes un golpe crítico que inflige daño perforante a una criatura, puedes tirar un dado de daño adicional para determinar el daño perforante adicional que recibe el objetivo.
+Feat/&FeatGroupSlasherTitle=slasher

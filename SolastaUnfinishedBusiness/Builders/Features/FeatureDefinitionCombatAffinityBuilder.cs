@@ -28,6 +28,15 @@ internal class FeatureDefinitionCombatAffinityBuilder
         return this;
     }
 
+    internal FeatureDefinitionCombatAffinityBuilder SetAttackOnMeAdvantage(
+        RuleDefinitions.AdvantageType advantage,
+        int attackOnMeCountLimit = -1)
+    {
+        Definition.attackOnMeAdvantage = advantage;
+        Definition.attackOnMeCountLimit = attackOnMeCountLimit;
+        return this;
+    }
+
     internal FeatureDefinitionCombatAffinityBuilder SetIgnoreCover()
     {
         Definition.ignoreCover = true;
