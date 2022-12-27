@@ -11,6 +11,49 @@ namespace SolastaUnfinishedBusiness.CustomBehaviors;
 
 internal static class GameLocationBattleManagerTweaks
 {
+    private static int ComputeSavingThrowDC(RulesetCharacter character, IAdditionalDamageProvider provider)
+    {
+        switch (provider.DcComputation)
+        {
+            case RuleDefinitions.EffectDifficultyClassComputation.FixedValue:
+                return provider.SavingThrowDC;
+
+            case RuleDefinitions.EffectDifficultyClassComputation.SpellCastingFeature:
+            {
+                //BUGFIX: original game code considers first repertoire
+                return character.SpellRepertoires
+                    .Select(x => x.SaveDC)
+                    .Max();
+            }
+            case RuleDefinitions.EffectDifficultyClassComputation.AbilityScoreAndProficiency:
+            {
+                //BUGFIX: original game code considers first repertoire
+                return character.SpellRepertoires
+                    .Select(x => RuleDefinitions.ComputeAbilityScoreBasedDC(
+                        character.TryGetAttributeValue(x.SpellCastingFeature.SpellcastingAbility),
+                        character.TryGetAttributeValue(AttributeDefinitions.ProficiencyBonus)))
+                    .Max();
+            }
+            case RuleDefinitions.EffectDifficultyClassComputation.Ki:
+                return RuleDefinitions.ComputeAbilityScoreBasedDC(
+                    character.TryGetAttributeValue(AttributeDefinitions.Wisdom),
+                    character.TryGetAttributeValue(AttributeDefinitions.ProficiencyBonus));
+
+            case RuleDefinitions.EffectDifficultyClassComputation.BreathWeapon:
+                return RuleDefinitions.ComputeAbilityScoreBasedDC(
+                    character.TryGetAttributeValue(AttributeDefinitions.Constitution),
+                    character.TryGetAttributeValue(AttributeDefinitions.ProficiencyBonus));
+
+            case RuleDefinitions.EffectDifficultyClassComputation.CustomAbilityModifierAndProficiency:
+                return RuleDefinitions.ComputeAbilityScoreBasedDC(
+                    character.TryGetAttributeValue(provider.SavingThrowDCAbilityModifier),
+                    character.TryGetAttributeValue(AttributeDefinitions.ProficiencyBonus));
+
+            default:
+                return 10;
+        }
+    }
+
     /**
      * This method is almost completely original game source provided by TA (1.4.8)
      * All changes made by CE mod should be clearly marked for easy future updates
@@ -396,7 +439,7 @@ internal static class GameLocationBattleManagerTweaks
                     newEffectForm.SavingThrowAffinity = provider.DamageSaveAffinity;
                     var rulesetImplementationService =
                         ServiceRepository.GetService<IRulesetImplementationService>();
-                    var saveDC = rulesetImplementationService.ComputeSavingThrowDC(attacker.RulesetCharacter, provider);
+                    var saveDC = ComputeSavingThrowDC(attacker.RulesetCharacter, provider);
                     newEffectForm.OverrideSavingThrowInfo = new OverrideSavingThrowInfo(provider.SavingThrowAbility,
                         saveDC, provider.Name, RuleDefinitions.FeatureSourceType.ExplicitFeature);
                 }
@@ -451,7 +494,7 @@ internal static class GameLocationBattleManagerTweaks
                     newEffectForm.SavingThrowAffinity = conditionOperation.SaveAffinity;
                     var rulesetImplementationService =
                         ServiceRepository.GetService<IRulesetImplementationService>();
-                    var saveDC = rulesetImplementationService.ComputeSavingThrowDC(attacker.RulesetCharacter, provider);
+                    var saveDC = ComputeSavingThrowDC(attacker.RulesetCharacter, provider);
                     newEffectForm.OverrideSavingThrowInfo = new OverrideSavingThrowInfo(provider.SavingThrowAbility,
                         saveDC, provider.Name, RuleDefinitions.FeatureSourceType.ExplicitFeature);
                 }
