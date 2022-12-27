@@ -1,8 +1,8 @@
 {
   "$type": "FeatureDefinitionAttributeModifier, Assembly-CSharp",
   "modifiedAttribute": "SorceryPoints",
-  "modifierOperation": "Additive",
-  "modifierValue": 3,
+  "modifierOperation": "AddProficiencyBonus",
+  "modifierValue": 0,
   "modifierAbilityScore": "Constitution",
   "situationalContext": "None",
   "minimum1": false,

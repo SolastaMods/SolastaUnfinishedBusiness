@@ -137,7 +137,7 @@ internal static class TieflingRaceBuilder
                 .SetGuiPresentationNoContent(true)
                 .ClearSpells()
                 .SetSpellsAtLevel(0, SpellsContext.SunlightBlade)
-                .SetSpellsAtLevel(1, SpellDefinitions.FaerieFire)
+                .SetSpellsAtLevel(1, SpellsContext.SearingSmite)
                 .SetSpellsAtLevel(2, SpellDefinitions.BrandingSmite)
                 .FinalizeSpells(true, -1)
                 .AddToDB())

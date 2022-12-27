@@ -536,10 +536,16 @@ internal static class LevelUpContext
                 return -1;
             }
 
-            if (b.SpellCastingFeature.SpellCastingOrigin is FeatureDefinitionCastSpell.CastingOrigin.Race
+            if (a.SpellCastingFeature.SpellCastingOrigin is FeatureDefinitionCastSpell.CastingOrigin.Race
                 or FeatureDefinitionCastSpell.CastingOrigin.Monster)
             {
                 return -1;
+            }
+
+            if (b.SpellCastingFeature.SpellCastingOrigin is FeatureDefinitionCastSpell.CastingOrigin.Race
+                or FeatureDefinitionCastSpell.CastingOrigin.Monster)
+            {
+                return 1;
             }
 
             var title1 = a.SpellCastingClass != null
@@ -550,7 +556,9 @@ internal static class LevelUpContext
                 ? b.SpellCastingClass.FormatTitle()
                 : b.SpellCastingSubclass.FormatTitle();
 
-            return String.Compare(title1, title2, StringComparison.CurrentCultureIgnoreCase);
+            return a.SaveDC == b.SaveDC 
+                ? String.Compare(title1, title2, StringComparison.CurrentCultureIgnoreCase) 
+                : a.SaveDC.CompareTo(b.SaveDC);
         });
     }
 

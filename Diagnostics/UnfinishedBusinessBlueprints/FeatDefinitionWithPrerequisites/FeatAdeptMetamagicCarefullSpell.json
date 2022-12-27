@@ -21,7 +21,7 @@
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
     "title": "Metamagic: Careful Spell",
-    "description": "Increase your Charisma by 1, to a maximum of 20. You gain 3 sorcery points and learn the Careful Spell metamagic: Allied creatures affected by the spell automatically succeed their saving throw ",
+    "description": "Increase your Charisma by 1, to a maximum of 20. You gain sorcery points equals to your proficiency bonus and learn the Careful Spell metamagic: Allied creatures affected by the spell automatically succeed their saving throw",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",

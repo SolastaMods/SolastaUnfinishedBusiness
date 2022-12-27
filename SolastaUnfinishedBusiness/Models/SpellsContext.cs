@@ -25,6 +25,7 @@ internal static class SpellsContext
     private static readonly SortedList<string, SpellListDefinition> spellLists = new();
     private static readonly Dictionary<SpellDefinition, List<SpellListDefinition>> SpellSpellListMap = new();
     internal static readonly SpellDefinition FarStep = BuildFarStep();
+    internal static readonly SpellDefinition SearingSmite = BuildSearingSmite();
     internal static readonly SpellDefinition SunlightBlade = BuildSunlightBlade();
     internal static HashSet<SpellDefinition> Spells { get; private set; } = new();
 
@@ -199,7 +200,7 @@ internal static class SpellsContext
         RegisterSpell(BuildChromaticOrb(), 0, SpellListSorcerer, SpellListWizard);
         RegisterSpell(BuildMule(), 0, SpellListWizard);
         RegisterSpell(BuildRadiantMotes(), 0, SpellListWizard, spellListInventorClass);
-        RegisterSpell(BuildSearingSmite(), 0, SpellListPaladin, SpellListRanger);
+        RegisterSpell(SearingSmite, 0, SpellListPaladin, SpellListRanger);
         RegisterSpell(BuildThunderousSmite(), 0, SpellListPaladin);
         RegisterSpell(BuildWrathfulSmite(), 0, SpellListPaladin);
 

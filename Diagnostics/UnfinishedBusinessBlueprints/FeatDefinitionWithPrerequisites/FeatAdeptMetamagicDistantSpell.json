@@ -21,7 +21,7 @@
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
     "title": "Metamagic: Distant Spell",
-    "description": "Increase your Charisma by 1, to a maximum of 20. You gain 3 sorcery points and learn the Distant Spell metamagic: Doubles the range of a spell or change the range of a touch spell to 30 feet ",
+    "description": "Increase your Charisma by 1, to a maximum of 20. You gain sorcery points equals to your proficiency bonus and learn the Distant Spell metamagic: Doubles the range of a spell or change the range of a touch spell to 30 feet",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",

@@ -1,7 +1,7 @@
 {
   "$type": "FeatureDefinitionAdditionalDamage, Assembly-CSharp",
-  "notificationTag": "Piercer",
-  "limitedUsage": "None",
+  "notificationTag": "",
+  "limitedUsage": "OncePerTurn",
   "firstTargetOnly": true,
   "targetSide": "Enemy",
   "otherSimilarAdditionalDamages": [],
@@ -15,9 +15,9 @@
   "requiredCharacterFamily": null,
   "requiredSpecificSpell": null,
   "requiredAncestryType": "Sorcerer",
-  "damageValueDetermination": "SameAsBaseWeaponDie",
+  "damageValueDetermination": "Die",
   "flatBonus": 0,
-  "damageDieType": "D6",
+  "damageDieType": "D1",
   "damageDiceNumber": 0,
   "additionalDamageType": "SameAsBaseDamage",
   "specificDamageType": "Radiant",
@@ -26,7 +26,7 @@
   "diceByRankTable": [],
   "familiesWithAdditionalDice": [],
   "familiesDiceNumber": 1,
-  "ignoreCriticalDoubleDice": true,
+  "ignoreCriticalDoubleDice": false,
   "hasSavingThrow": false,
   "savingThrowAbility": "Dexterity",
   "dcComputation": "FixedValue",
@@ -47,9 +47,9 @@
   "computeDescription": false,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
-    "hidden": false,
-    "title": "Feat/&FeatPiercerStrTitle",
-    "description": "Feat/&FeatPiercerStrDescription",
+    "hidden": true,
+    "title": "Feature/&NoContentTitle",
+    "description": "Feature/&NoContentTitle",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -69,7 +69,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "81ab79ca-7744-58e9-b5dc-1049e170defc",
+  "guid": "64e6fea6-765a-5c24-ad0d-83be18d62d96",
   "contentPack": 9999,
-  "name": "AdditionalDamageFeatPiercer"
+  "name": "FeatureFeatCrusher"
 }

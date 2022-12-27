@@ -17,7 +17,8 @@ internal static class MetamagicFeats
     {
         var metaMagicFeats = BuildMetamagic();
 
-        var group = GroupFeats.MakeGroup("FeatGroupMetamagic", null, metaMagicFeats);
+        var group = GroupFeats.MakeGroup("FeatGroupMetamagic", "Metamagic", metaMagicFeats);
+
         group.mustCastSpellsPrerequisite = true;
         group.minimalAbilityScorePrerequisite = true;
         group.minimalAbilityScoreName = AttributeDefinitions.Charisma;
@@ -33,8 +34,8 @@ internal static class MetamagicFeats
             .Create(AttributeModifierSorcererSorceryPointsBase, "AttributeModifierSorcererSorceryPointsBonus3")
             .SetGuiPresentationNoContent(true)
             .SetModifier(
-                FeatureDefinitionAttributeModifier.AttributeModifierOperation.Additive,
-                AttributeDefinitions.SorceryPoints, 3)
+                FeatureDefinitionAttributeModifier.AttributeModifierOperation.AddProficiencyBonus,
+                AttributeDefinitions.SorceryPoints)
             .AddToDB();
 
         var metaMagicFeats = new List<FeatDefinition>();
