@@ -8,6 +8,7 @@ using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.Models;
+using TA;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionFightingStyleChoices;
 using static RuleDefinitions;
 
@@ -68,12 +69,16 @@ internal sealed class Merciless : AbstractFightingStyle
             }
 
             var proficiencyBonus = rulesetCharacter.GetAttribute(AttributeDefinitions.ProficiencyBonus).CurrentValue;
-            var usablePower = new RulesetUsablePower(PowerFightingStyleMerciless, null, null);
+            var strength = rulesetCharacter.GetAttribute(AttributeDefinitions.Strength).CurrentValue;
+            var usablePower = new RulesetUsablePower(PowerFightingStyleMerciless, null, null)
+            {
+                saveDC = ComputeAbilityScoreBasedDC(strength, proficiencyBonus)
+            };
             var distance = Global.CriticalHit ? proficiencyBonus : (proficiencyBonus + 1) / 2;
             var effectPower = new RulesetEffectPower(rulesetCharacter, usablePower);
 
             foreach (var enemy in battle.EnemyContenders
-                         .Where(enemy => attacker.RulesetActor.DistanceTo(enemy.RulesetActor) <= distance))
+                         .Where(enemy => downedCreature.RulesetActor.DistanceTo(enemy.RulesetActor) <= distance))
             {
                 effectPower.ApplyEffectOnCharacter(enemy.RulesetCharacter, true, enemy.LocationPosition);
             }
