@@ -1,5 +1,12 @@
 ﻿CHANGES:
 
+1.4.32.11:
+
+- added missing attribute pre-reqs to Poisonous Skin and Monk Initiate
+- changed Tiefling Zariel to learn Searing Smite instead of Faerie Fire at 3rd
+- improved Circle of The Night subclass and Shape Changer spell integration
+- improved Crusher and Slasher feats
+
 1.4.32.10:
 
 - added Crusher, Slasher and Monk Initiate feats
