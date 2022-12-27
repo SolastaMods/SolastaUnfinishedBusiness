@@ -33,3 +33,5 @@ Reaction/&WarcasterAttackDescription=Alvo do ataque.
 Reaction/&WarcasterAttackTitle=Ataque
 Feature/&PowerFeatPoisonousSkinDescription=Envenenado por 1 minuto.
 Feature/&PowerFeatPoisonousSkinTitle=Pele Venenosa
+Feat/&FeatMonkInitiateDescription=Você aprendeu alguns dos costumes do monge. Seus ataques desarmados causam 1d4 + seu modificador de Força ou Destreza. Você ganha pontos de ki iguais ao seu bônus de proficiência, que você pode gastar para usar Rajada de Golpes, Defesa do Paciente ou Passo do Vento.
+Feat/&FeatMonkInitiateTitle=Monge Iniciado

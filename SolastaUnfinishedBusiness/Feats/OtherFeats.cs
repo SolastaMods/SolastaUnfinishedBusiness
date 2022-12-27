@@ -10,7 +10,9 @@ using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Properties;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionAttackModifiers;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionAttributeModifiers;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionFeatureSets;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPowers;
 
 namespace SolastaUnfinishedBusiness.Feats;
@@ -49,6 +51,7 @@ internal static class OtherFeats
         var featMobile = BuildMobile();
         var featPoisonousSkin = BuildPoisonousSkin();
         var featAstralArms = BuildAstralArms();
+        var featMonkInititiate = BuildMonkInitiate();
 
         feats.AddRange(
             featHealer,
@@ -58,7 +61,8 @@ internal static class OtherFeats
             featWarCaster,
             featMobile,
             featPoisonousSkin,
-            featAstralArms);
+            featAstralArms,
+            featMonkInititiate);
 
         GroupFeats.MakeGroup("FeatGroupBodyResilience", null,
             FeatDefinitions.BadlandsMarauder,
@@ -315,6 +319,25 @@ internal static class OtherFeats
                     .Create("ModifyAttackModeForWeaponFeatAstralArms")
                     .SetGuiPresentationNoContent(true)
                     .SetCustomSubFeatures(new ModifyAttackModeForWeaponFeatAstralArms())
+                    .AddToDB())
+            .AddToDB();
+    }
+
+    private static FeatDefinition BuildMonkInitiate()
+    {
+        return FeatDefinitionBuilder
+            .Create("FeatMonkInitiate")
+            .SetGuiPresentation(Category.Feat)
+            .SetFeatures(
+                AttackModifierMonkMartialArtsImprovedDamage,
+                PowerMonkPatientDefense,
+                FeatureSetMonkStepOfTheWind,
+                FeatureSetMonkFlurryOfBlows,
+                FeatureDefinitionAttributeModifierBuilder
+                    .Create("AttributeModifierMonkKiPointsAddProficiencyBonus")
+                    .SetGuiPresentationNoContent(true)
+                    .SetModifier(FeatureDefinitionAttributeModifier.AttributeModifierOperation.AddProficiencyBonus,
+                        AttributeDefinitions.KiPoints)
                     .AddToDB())
             .AddToDB();
     }

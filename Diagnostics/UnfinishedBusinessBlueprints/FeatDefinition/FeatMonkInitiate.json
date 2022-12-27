@@ -1,0 +1,48 @@
+{
+  "$type": "FeatDefinition, Assembly-CSharp",
+  "compatibleClassesPrerequisite": [],
+  "mustCastSpellsPrerequisite": false,
+  "compatibleRacesPrerequisite": [],
+  "minimalAbilityScorePrerequisite": false,
+  "minimalAbilityScoreValue": 13,
+  "minimalAbilityScoreName": "Strength",
+  "armorProficiencyPrerequisite": false,
+  "armorProficiencyCategory": "",
+  "hasFamilyTag": false,
+  "familyTag": "",
+  "knownFeatsPrerequisite": [],
+  "features": [
+    "Definition:AttackModifierMonkMartialArtsImprovedDamage:4a6917adf817ad4448032a76e2a75e3d",
+    "Definition:AttributeModifierMonkKiPointsAddProficiencyBonus:87c4ce58-4094-57af-8437-1d1be2549977",
+    "Definition:FeatureSetMonkFlurryOfBlows:48a146e4b2069e14b82d8f51355fded3",
+    "Definition:FeatureSetMonkStepOfTheWind:8b9db5a4bcf83264d83077da21292574",
+    "Definition:PowerMonkPatientDefense:24fa05ec9f3efcf4d86e6a0833c6281b"
+  ],
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": true,
+    "title": "Feat/&FeatMonkInitiateTitle",
+    "description": "Feat/&FeatMonkInitiateDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "5eb46cdf-c9c5-56b7-a66d-a3e747fe80ab",
+  "contentPack": 9999,
+  "name": "FeatMonkInitiate"
+}

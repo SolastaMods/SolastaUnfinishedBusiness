@@ -33,3 +33,5 @@ Reaction/&WarcasterAttackDescription=Objetivo de ataque.
 Reaction/&WarcasterAttackTitle=Ataque
 Feature/&PowerFeatPoisonousSkinDescription=Envenenado durante 1 minuto.
 Feature/&PowerFeatPoisonousSkinTitle=Piel venenosa
+Feat/&FeatMonkInitiateDescription=Has aprendido algunas de las costumbres del monje. Tus golpes sin armas causan 1d4 + tu modificador de Fuerza o Destreza. Obtienes puntos de ki equivalentes a tu bonificación de competencia, que puedes gastar para usar Ráfaga de golpes, Defensa paciente o Paso del viento.
+Feat/&FeatMonkInitiateTitle=monje iniciado

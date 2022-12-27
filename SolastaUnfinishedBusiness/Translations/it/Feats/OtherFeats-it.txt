@@ -33,3 +33,5 @@ Reaction/&WarcasterAttackDescription=Bersaglio di attacco.
 Reaction/&WarcasterAttackTitle=attacco
 Feature/&PowerFeatPoisonousSkinDescription=Avvelenato per 1 minuto.
 Feature/&PowerFeatPoisonousSkinTitle=Pelle velenosa
+Feat/&FeatMonkInitiateDescription=Hai imparato alcune delle vie del monaco. I tuoi colpi senz'armi infliggono 1d4 + il tuo modificatore di Forza o Destrezza. Ottieni punti ki pari al tuo bonus di competenza, che puoi spendere per usare Raffica di Colpi, Difesa Paziente o Passo del Vento.
+Feat/&FeatMonkInitiateTitle=Monaco Iniziato

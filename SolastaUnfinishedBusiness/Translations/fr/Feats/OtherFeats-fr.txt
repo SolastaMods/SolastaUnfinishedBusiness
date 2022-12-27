@@ -33,3 +33,5 @@ Reaction/&WarcasterAttackDescription=Cible d'attaque.
 Reaction/&WarcasterAttackTitle=Attaque
 Feature/&PowerFeatPoisonousSkinDescription=Empoisonné pendant 1 minute.
 Feature/&PowerFeatPoisonousSkinTitle=Peau toxique
+Feat/&FeatMonkInitiateDescription=Vous avez appris certaines des voies du moine. Vos frappes à mains nues infligent 1d4 + votre modificateur de Force ou de Dextérité. Vous gagnez des points ki égaux à votre bonus de compétence, que vous pouvez dépenser pour utiliser Déluge de coups, Défense patiente ou Pas du vent.
+Feat/&FeatMonkInitiateTitle=Moine Initié
