@@ -8,8 +8,8 @@
   "minimalAbilityScoreName": "Charisma",
   "armorProficiencyPrerequisite": false,
   "armorProficiencyCategory": "",
-  "hasFamilyTag": false,
-  "familyTag": "",
+  "hasFamilyTag": true,
+  "familyTag": "Metamagic",
   "knownFeatsPrerequisite": [],
   "features": [],
   "guiPresentation": {

@@ -21,7 +21,7 @@
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
     "title": "Metamagic: Empowered Spell",
-    "description": "Increase your Charisma by 1, to a maximum of 20. You gain 3 sorcery points and learn the Empowered Spell metamagic: All damage dice rolls of 1 or 2 are rerolled, keeping the new result ",
+    "description": "Increase your Charisma by 1, to a maximum of 20. You gain sorcery points equals to your proficiency bonus and learn the Empowered Spell metamagic: All damage dice rolls of 1 or 2 are rerolled, keeping the new result",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",

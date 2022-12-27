@@ -21,7 +21,7 @@
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
     "title": "Metamagic: Twinned Spell",
-    "description": "Increase your Charisma by 1, to a maximum of 20. You gain 3 sorcery points and learn the Twinned Spell metamagic: If the source spell targets one creature only, this adds another target ",
+    "description": "Increase your Charisma by 1, to a maximum of 20. You gain sorcery points equals to your proficiency bonus and learn the Twinned Spell metamagic: If the source spell targets one creature only, this adds another target",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",

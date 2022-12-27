@@ -21,7 +21,7 @@
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
     "title": "Metamagic: Extended Spell",
-    "description": "Increase your Charisma by 1, to a maximum of 20. You gain 3 sorcery points and learn the Extended Spell metamagic: Doubles the duration of spell lasting 1 minute or more, to a maximum of 24 hours ",
+    "description": "Increase your Charisma by 1, to a maximum of 20. You gain sorcery points equals to your proficiency bonus and learn the Extended Spell metamagic: Doubles the duration of spell lasting 1 minute or more, to a maximum of 24 hours",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
