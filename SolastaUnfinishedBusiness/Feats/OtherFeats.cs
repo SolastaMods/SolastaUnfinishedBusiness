@@ -305,6 +305,7 @@ internal static class OtherFeats
                         new OnAttackHitEffectFeatPoisonousSkin(),
                         new CustomConditionFeatureFeatPoisonousSkin())
                     .AddToDB())
+            .SetAbilityScorePrerequisite(AttributeDefinitions.Constitution, 13)
             .AddToDB();
     }
 
@@ -339,6 +340,7 @@ internal static class OtherFeats
                     .SetModifier(FeatureDefinitionAttributeModifier.AttributeModifierOperation.AddProficiencyBonus,
                         AttributeDefinitions.KiPoints)
                     .AddToDB())
+            .SetAbilityScorePrerequisite(AttributeDefinitions.Wisdom, 13)
             .AddToDB();
     }
 
