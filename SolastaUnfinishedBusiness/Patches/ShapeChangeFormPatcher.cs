@@ -5,9 +5,11 @@ using System.Linq;
 using System.Reflection.Emit;
 using HarmonyLib;
 using JetBrains.Annotations;
+using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.Extensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.CustomInterfaces;
+using SolastaUnfinishedBusiness.Models;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
@@ -21,6 +23,11 @@ public static class ShapeChangeFormPatcher
             ShapeChangeForm shapeChangeForm,
             RulesetCharacter shifter)
         {
+            if (shapeChangeForm.shapeChangeType != ShapeChangeForm.Type.ClassLevelListSelection)
+            {
+                return shapeChangeForm.ShapeOptions;
+            }
+
             var shapeOptions = shifter.GetSubFeaturesByType<IChangeShapeOptions>()
                 .Where(x => x.SpecialSubstituteCondition == shapeChangeForm.specialSubstituteCondition)
                 .SelectMany(y => y.ShapeOptions)
