@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using HarmonyLib;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.Extensions;
@@ -178,6 +179,9 @@ internal static class SpellsContext
 
         // MUST COME BEFORE ANY MOD REGISTERED SPELL
         AllowAssigningOfficialSpells();
+        
+        // Dead Master Spells
+        Subclasses.WizardDeadMaster.DeadMasterSpells.Do(x => RegisterSpell(x));
 
         // cantrips
         RegisterSpell(BuildAcidClaw(), 0, SpellListDruid);

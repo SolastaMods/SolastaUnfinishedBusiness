@@ -25,6 +25,7 @@ internal sealed class WizardDeadMaster : AbstractSubclass
 {
     private const string WizardDeadMasterName = "WizardDeadMaster";
     private const string CreateDeadTag = "DeadMasterMinion";
+    internal static readonly List<SpellDefinition> DeadMasterSpells = new();
 
     internal WizardDeadMaster()
     {
@@ -184,7 +185,6 @@ internal sealed class WizardDeadMaster : AbstractSubclass
         {
             var (clazz, spell) = kvp.Key;
             var monsters = kvp.Value;
-            var spells = new List<SpellDefinition>();
 
             foreach (var (monsterDefinition, count, icon, attackSprites) in monsters)
             {
@@ -214,12 +214,12 @@ internal sealed class WizardDeadMaster : AbstractSubclass
                         .Build())
                     .AddToDB();
 
-                spells.Add(createDeadSpell);
+                DeadMasterSpells.Add(createDeadSpell);
             }
 
             result.Add(new FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup
             {
-                ClassLevel = clazz, SpellsList = spells
+                ClassLevel = clazz, SpellsList = DeadMasterSpells
             });
         }
 
