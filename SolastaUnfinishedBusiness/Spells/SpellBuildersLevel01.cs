@@ -313,5 +313,87 @@ internal static partial class SpellBuilders
         return spell;
     }
 
+    internal static SpellDefinition BuildEnsnaringStrike()
+    {
+        const string NAME = "EnsnaringStrike";
+
+        var recurrentEffectDamageEnsnaringStrike = EffectFormBuilder
+            .Create()
+            .SetDamageForm(DamageTypePiercing, 1, DieType.D6)
+            .SetLevelAdvancement(EffectForm.LevelApplianceType.MultiplyDice, LevelSourceType.EffectLevel)
+            .Build();
+
+        var additionalconditionEnsnaringStrike = ConditionDefinitionBuilder
+       .Create(ConditionDefinitions.ConditionRestrainedByEntangle, "AdditionalConditionEnsnaringStrike")
+       .SetGuiPresentation("AdditionalConditionEnsnaringStrike",Category.Condition, ConditionDefinitions.ConditionRestrainedByEntangle)
+       .SetSpecialDuration(DurationType.Round, 10, TurnOccurenceType.StartOfTurn)
+       .SetRecurrentEffectForms(recurrentEffectDamageEnsnaringStrike)
+       .SetConditionParticleReference(SpellDefinitions.Entangle.effectDescription.EffectParticleParameters.conditionParticleReference)
+       .AddToDB();
+
+        var conditionoperationEnsnaringStrike = new ConditionOperationDescription();
+
+        conditionoperationEnsnaringStrike.saveOccurence = TurnOccurenceType.EndOfTurn;
+        conditionoperationEnsnaringStrike.hasSavingThrow = true;
+        conditionoperationEnsnaringStrike.canSaveToCancel = true;
+        conditionoperationEnsnaringStrike.operation = ConditionOperationDescription.ConditionOperation.Add;
+        conditionoperationEnsnaringStrike.ConditionDefinition = additionalconditionEnsnaringStrike;
+        conditionoperationEnsnaringStrike.saveAffinity = EffectSavingThrowType.Negates;
+
+        //Additional damage which handles application of condition and saving throw
+        var additionalDamageEnsnaringStrike = FeatureDefinitionAdditionalDamageBuilder
+            .Create("AdditionalDamageEnsnaringStrike")
+            .SetGuiPresentation(Category.Feature)
+            .SetNotificationTag("EnsnaringStrike")
+            .SetAdditionalDamageType(AdditionalDamageType.Specific)
+            .SetAdvancement(AdditionalDamageAdvancement.SlotLevel)
+            .SetSpecificDamageType(DamageTypePiercing)
+            .SetConditionOperations(conditionoperationEnsnaringStrike)
+            .SetSavingThrowData(EffectDifficultyClassComputation.SpellCastingFeature,EffectSavingThrowType.Negates,AttributeDefinitions.Strength,AttributeDefinitions.Wisdom,20)
+            .AddToDB();
+
+        //Applying the Ensnaring Strike condition for later use
+        var conditionEnsnaringStrike = ConditionDefinitionBuilder
+        .Create("ConditionEnsnaringStrike")
+        .SetGuiPresentation("ConditionEnsnaringStrike",Category.Spell, ConditionBrandingSmite)
+        .AddFeatures(additionalDamageEnsnaringStrike)
+        .SetSpecialInterruptions(ConditionInterruption.AttacksAndDamages)
+        .SetPossessive()
+        .AddToDB();
+
+        //Spells Effects
+        var ensnaringstrikeeffectDescription = EffectDescriptionBuilder
+            .Create()
+            .SetEffectForms(
+                EffectFormBuilder
+                    .Create()
+                    .SetConditionForm(
+                    conditionEnsnaringStrike,
+                    ConditionForm.ConditionOperation.Add,
+                    true,
+                    false)
+                    .Build())
+            .SetDurationData(DurationType.Minute, 1)
+            .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
+            .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel, 1, 0, 0, 1)
+            .Build();
+
+
+        //Spell itself
+        var spell = SpellDefinitionBuilder
+            .Create(NAME)
+            .SetGuiPresentation(Category.Spell, Entangle)
+            .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolConjuration)
+            .SetSpellLevel(1)
+            .SetMaterialComponent(MaterialComponentType.None)
+            .SetVocalSpellSameType(VocalSpellSemeType.Buff)
+            .SetCastingTime(ActivationTime.BonusAction)
+            .SetEffectDescription(ensnaringstrikeeffectDescription)
+            .SetRequiresConcentration(true)
+            .AddToDB();
+
+        return spell;
+    }
+
     #endregion
 }

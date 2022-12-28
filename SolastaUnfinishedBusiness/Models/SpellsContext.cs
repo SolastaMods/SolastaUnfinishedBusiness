@@ -25,6 +25,7 @@ internal static class SpellsContext
     // ReSharper disable once InconsistentNaming
     private static readonly SortedList<string, SpellListDefinition> spellLists = new();
     private static readonly Dictionary<SpellDefinition, List<SpellListDefinition>> SpellSpellListMap = new();
+    internal static readonly SpellDefinition EnsnaringStrike = BuildEnsnaringStrike();
     internal static readonly SpellDefinition FarStep = BuildFarStep();
     internal static readonly SpellDefinition SearingSmite = BuildSearingSmite();
     internal static readonly SpellDefinition SunlightBlade = BuildSunlightBlade();
@@ -202,6 +203,7 @@ internal static class SpellsContext
 
         // 1st level
         RegisterSpell(BuildChromaticOrb(), 0, SpellListSorcerer, SpellListWizard);
+        RegisterSpell(EnsnaringStrike, 0, SpellListPaladin);
         RegisterSpell(BuildMule(), 0, SpellListWizard);
         RegisterSpell(BuildRadiantMotes(), 0, SpellListWizard, spellListInventorClass);
         RegisterSpell(SearingSmite, 0, SpellListPaladin, SpellListRanger);

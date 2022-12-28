@@ -84,6 +84,15 @@ internal static partial class DatabaseHelper
         internal static CharacterFamilyDefinition Construct { get; } =
             GetDefinition<CharacterFamilyDefinition>("Construct");
 
+        internal static CharacterFamilyDefinition Elemental { get; } =
+            GetDefinition<CharacterFamilyDefinition>("Elemental");
+        
+        internal static CharacterFamilyDefinition Fey { get; } =
+            GetDefinition<CharacterFamilyDefinition>("Fey");
+        
+        internal static CharacterFamilyDefinition Fiend { get; } =
+            GetDefinition<CharacterFamilyDefinition>("Fiend");
+
         internal static CharacterFamilyDefinition Humanoid { get; } =
             GetDefinition<CharacterFamilyDefinition>("Humanoid");
 
@@ -177,7 +186,10 @@ internal static partial class DatabaseHelper
 
         internal static CharacterSubclassDefinition PatronFiend { get; } =
             GetDefinition<CharacterSubclassDefinition>("PatronFiend");
-
+        
+        internal static CharacterSubclassDefinition PatronTree { get; } =
+            GetDefinition<CharacterSubclassDefinition>("PatronTree");
+        
         internal static CharacterSubclassDefinition RangerMarksman { get; } =
             GetDefinition<CharacterSubclassDefinition>("RangerMarksman");
 
@@ -222,7 +234,10 @@ internal static partial class DatabaseHelper
     {
         internal static ConditionDefinition ConditionAcidSpit { get; } =
             GetDefinition<ConditionDefinition>("ConditionAcidSpit");
-
+        
+        internal static ConditionDefinition ConditionAuraOfProtection { get; } =
+            GetDefinition<ConditionDefinition>("ConditionAuraOfProtection");
+        
         internal static ConditionDefinition ConditionBaned { get; } =
             GetDefinition<ConditionDefinition>("ConditionBaned");
 
@@ -414,7 +429,10 @@ internal static partial class DatabaseHelper
 
         internal static ConditionDefinition ConditionRestrained { get; } =
             GetDefinition<ConditionDefinition>("ConditionRestrained");
-
+        
+        internal static ConditionDefinition ConditionRestrainedByEntangle { get; } =
+            GetDefinition<ConditionDefinition>("ConditionRestrainedByEntangle");
+        
         internal static ConditionDefinition ConditionRevealedByDetectGoodOrEvil { get; } =
             GetDefinition<ConditionDefinition>("ConditionRevealedByDetectGoodOrEvil");
 
@@ -450,6 +468,9 @@ internal static partial class DatabaseHelper
 
         internal static ConditionDefinition ConditionSurprised { get; } =
             GetDefinition<ConditionDefinition>("ConditionSurprised");
+        
+        internal static ConditionDefinition ConditionTurned { get; } =
+            GetDefinition<ConditionDefinition>("ConditionTurned");
 
         internal static ConditionDefinition ConditionTrueStrike { get; } =
             GetDefinition<ConditionDefinition>("ConditionTrueStrike");
@@ -1385,6 +1406,9 @@ internal static partial class DatabaseHelper
         internal static FeatureDefinitionPower PowerTraditionShockArcanistArcaneFury { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerTraditionShockArcanistArcaneFury");
 
+        internal static FeatureDefinitionPower PowerWindShelteringBreeze { get; } =
+            GetDefinition<FeatureDefinitionPower>("PowerWindShelteringBreeze");
+        
         internal static FeatureDefinitionPower PowerWizardArcaneRecovery { get; } =
             GetDefinition<FeatureDefinitionPower>("PowerWizardArcaneRecovery");
     }
