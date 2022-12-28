@@ -37,7 +37,10 @@ internal static partial class SpellBuilders
                     canSaveToCancel = true,
                     saveAffinity = EffectSavingThrowType.Negates,
                     saveOccurence = TurnOccurenceType.StartOfTurn,
-                    conditionDefinition = ConditionBlinded1minute,
+                    conditionDefinition = ConditionDefinitionBuilder
+                        .Create(ConditionDefinitions.ConditionBlinded, $"Condition{NAME}Enemy")
+                        .SetSpecialDuration(DurationType.Minute, 1, TurnOccurenceType.StartOfTurn)
+                        .AddToDB(),
                     operation = ConditionOperationDescription.ConditionOperation.Add
                 })
             .AddToDB();

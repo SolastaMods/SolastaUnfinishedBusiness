@@ -556,8 +556,8 @@ internal static class LevelUpContext
                 ? b.SpellCastingClass.FormatTitle()
                 : b.SpellCastingSubclass.FormatTitle();
 
-            return a.SaveDC == b.SaveDC 
-                ? String.Compare(title1, title2, StringComparison.CurrentCultureIgnoreCase) 
+            return a.SaveDC == b.SaveDC
+                ? String.Compare(title1, title2, StringComparison.CurrentCultureIgnoreCase)
                 : a.SaveDC.CompareTo(b.SaveDC);
         });
     }

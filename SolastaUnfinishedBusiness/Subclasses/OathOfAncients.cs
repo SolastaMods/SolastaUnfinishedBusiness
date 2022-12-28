@@ -1,38 +1,29 @@
-﻿using System.Collections;
-
-using SolastaUnfinishedBusiness.Api;
-using SolastaUnfinishedBusiness.Api.Extensions;
-using SolastaUnfinishedBusiness.Builders;
+﻿using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
-using SolastaUnfinishedBusiness.CustomBehaviors;
-using SolastaUnfinishedBusiness.CustomInterfaces;
-using SolastaUnfinishedBusiness.CustomUI;
-using SolastaUnfinishedBusiness.Models;
-using SolastaUnfinishedBusiness.Properties;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterSubclassDefinitions;
-using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionAttributeModifiers;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionDamageAffinitys;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPowers;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
 using static SolastaUnfinishedBusiness.Builders.Features.AutoPreparedSpellsGroupBuilder;
 using static SolastaUnfinishedBusiness.Models.SpellsContext;
-using Resources = SolastaUnfinishedBusiness.Properties.Resources;
 
 namespace SolastaUnfinishedBusiness.Subclasses;
+
 internal sealed class OathOfAncients : AbstractSubclass
 {
-    //Somewhat Oath of the Ancients from 5e
     internal OathOfAncients()
     {
+        const string NAME = "OathOfAncients";
+
         //
         // LEVEL 03
         //
 
         //Based on Oath of the Ancients prepared spells though changed Planet Growth to Spirit Guardians.
         var autoPreparedSpellsOathAncients = FeatureDefinitionAutoPreparedSpellsBuilder
-            .Create("AutoPreparedSpellsOathForest")
+            .Create("AutoPreparedSpells{NAME}")
             .SetGuiPresentation("DomainSpells", Category.Feature)
             .SetPreparedSpellGroups(
                 BuildSpellGroup(3, EnsnaringStrike, AnimalFriendship),
@@ -42,13 +33,15 @@ internal sealed class OathOfAncients : AbstractSubclass
             .AddToDB();
 
         var conditionNaturesWrath = ConditionDefinitionBuilder
-            .Create(ConditionDefinitions.ConditionRestrainedByEntangle, "ConditionNaturesWrath")
+            .Create(ConditionDefinitions.ConditionRestrainedByEntangle, $"Condition{NAME}NaturesWrath")
             .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionRestrainedByEntangle)
-            .SetConditionParticleReference(Entangle.effectDescription.EffectParticleParameters.conditionParticleReference)
+            .SetConditionParticleReference(Entangle.effectDescription.EffectParticleParameters
+                .conditionParticleReference)
             .AddToDB();
+
         //Free single target entangle on Channel Divinity use
         var powerNaturesWrath = FeatureDefinitionPowerBuilder
-            .Create("PowerNaturesWrath")
+            .Create($"Power{NAME}NaturesWrath")
             .SetGuiPresentation(Category.Feature, Entangle)
             .SetUsesFixed(ActivationTime.Action, RechargeRate.ChannelDivinity)
             .SetEffectDescription(
@@ -59,13 +52,13 @@ internal sealed class OathOfAncients : AbstractSubclass
                     .SetEffectForms(
                         EffectFormBuilder
                             .Create()
-                            .HasSavingThrow(EffectSavingThrowType.Negates,TurnOccurenceType.EndOfTurn)
+                            .HasSavingThrow(EffectSavingThrowType.Negates)
                             .CanSaveToCancel(TurnOccurenceType.EndOfTurn)
                             .SetConditionForm(
-                            conditionNaturesWrath,
-                            ConditionForm.ConditionOperation.Add,
-                            false,
-                            false)
+                                conditionNaturesWrath,
+                                ConditionForm.ConditionOperation.Add,
+                                false,
+                                false)
                             .Build())
                     .SetSavingThrowData(
                         false,
@@ -79,7 +72,7 @@ internal sealed class OathOfAncients : AbstractSubclass
 
         //AoE Turned on failed Wisdom saving throw for Fey and the 0 Fiends in game.
         var powerTurnFaithless = FeatureDefinitionPowerBuilder
-            .Create("PowerTurnFaithless")
+            .Create($"Power{NAME}TurnFaithless")
             .SetGuiPresentation(Category.Feature, PowerWindShelteringBreeze)
             .SetUsesFixed(ActivationTime.Action, RechargeRate.ChannelDivinity)
             .SetEffectDescription(
@@ -88,8 +81,9 @@ internal sealed class OathOfAncients : AbstractSubclass
                     .SetParticleEffectParameters(PowerWindShelteringBreeze.EffectDescription.effectParticleParameters)
                     .SetTargetingData(Side.Enemy, RangeType.Self, 0, TargetType.Sphere, 6)
                     .SetTargetFiltering(TargetFilteringMethod.CharacterOnly)
-                    .SetDurationData(DurationType.Round, 5, TurnOccurenceType.EndOfTurn)
-                    .SetRestrictedCreatureFamilies(CharacterFamilyDefinitions.Fey, CharacterFamilyDefinitions.Fiend, CharacterFamilyDefinitions.Elemental)
+                    .SetDurationData(DurationType.Round, 5)
+                    .SetRestrictedCreatureFamilies(CharacterFamilyDefinitions.Fey, CharacterFamilyDefinitions.Fiend,
+                        CharacterFamilyDefinitions.Elemental)
                     .SetSavingThrowData(
                         false,
                         AttributeDefinitions.Wisdom,
@@ -101,10 +95,10 @@ internal sealed class OathOfAncients : AbstractSubclass
                         EffectFormBuilder
                             .Create()
                             .SetConditionForm(
-                            ConditionDefinitions.ConditionTurned,
-                            ConditionForm.ConditionOperation.Add)
+                                ConditionDefinitions.ConditionTurned,
+                                ConditionForm.ConditionOperation.Add)
                             .Build())
-                   .Build())
+                    .Build())
             .AddToDB();
 
         //
@@ -113,7 +107,7 @@ internal sealed class OathOfAncients : AbstractSubclass
 
         //Grants resistance against some elemental damage though I would like to change to resistance to spells eventually
         var conditionAuraWarding = ConditionDefinitionBuilder
-            .Create("ConditionAuraWarding")
+            .Create($"Condition{NAME}AuraWarding")
             .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionAuraOfProtection)
             .AddFeatures(DamageAffinityAcidResistance)
             .AddFeatures(DamageAffinityColdResistance)
@@ -124,7 +118,7 @@ internal sealed class OathOfAncients : AbstractSubclass
             .AddToDB();
 
         var powerAuraWarding = FeatureDefinitionPowerBuilder
-            .Create("PowerAuraWarding")
+            .Create($"Power{NAME}AuraWarding")
             .SetGuiPresentation(Category.Feature)
             .SetUsesFixed(ActivationTime.PermanentUnlessIncapacitated)
             .SetEffectDescription(
@@ -145,20 +139,18 @@ internal sealed class OathOfAncients : AbstractSubclass
             .AddToDB();
 
         Subclass = CharacterSubclassDefinitionBuilder
-            .Create("OathOfAncients")
+            .Create(NAME)
             .SetGuiPresentation(Category.Subclass, PatronTree)
             .AddFeaturesAtLevel(3,
-            autoPreparedSpellsOathAncients,
-            powerNaturesWrath,
-            powerTurnFaithless)
+                autoPreparedSpellsOathAncients,
+                powerNaturesWrath,
+                powerTurnFaithless)
             .AddFeaturesAtLevel(7, powerAuraWarding)
             .AddToDB();
-
     }
 
-    internal override CharacterSubclassDefinition Subclass { get;  }
+    internal override CharacterSubclassDefinition Subclass { get; }
 
     internal override FeatureDefinitionSubclassChoice SubclassChoice => FeatureDefinitionSubclassChoices
         .SubclassChoicePaladinSacredOaths;
-
 }

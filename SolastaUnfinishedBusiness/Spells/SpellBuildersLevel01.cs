@@ -75,6 +75,74 @@ internal static partial class SpellBuilders
             .AddToDB();
     }
 
+    internal static SpellDefinition BuildEnsnaringStrike()
+    {
+        const string NAME = "EnsnaringStrike";
+
+        var additionalDamageEnsnaringStrike = FeatureDefinitionAdditionalDamageBuilder
+            .Create($"AdditionalDamage{NAME}")
+            .SetGuiPresentation(Category.Feature)
+            .SetNotificationTag(NAME)
+            .SetAdditionalDamageType(AdditionalDamageType.Specific)
+            .SetAdvancement(AdditionalDamageAdvancement.SlotLevel)
+            .SetSpecificDamageType(DamageTypePiercing)
+            .SetSavingThrowData(
+                EffectDifficultyClassComputation.SpellCastingFeature,
+                EffectSavingThrowType.Negates,
+                AttributeDefinitions.Strength)
+            .SetIgnoreCriticalDoubleDice(true)
+            .SetConditionOperations(
+                new ConditionOperationDescription
+                {
+                    hasSavingThrow = true,
+                    canSaveToCancel = true,
+                    saveAffinity = EffectSavingThrowType.Negates,
+                    saveOccurence = TurnOccurenceType.StartOfTurn,
+                    ConditionDefinition = ConditionDefinitionBuilder
+                        .Create(ConditionRestrainedByEntangle, $"Condition{NAME}Enemy")
+                        .SetSpecialDuration(DurationType.Minute, 1, TurnOccurenceType.StartOfTurn)
+                        .AddToDB(),
+                    operation = ConditionOperationDescription.ConditionOperation.Add
+                })
+            .AddToDB();
+
+        var conditionEnsnaringStrike = ConditionDefinitionBuilder
+            .Create($"Condition{NAME}")
+            .SetGuiPresentation(NAME, Category.Spell, ConditionBrandingSmite)
+            .AddFeatures(additionalDamageEnsnaringStrike)
+            .SetSpecialInterruptions(ConditionInterruption.AttacksAndDamages)
+            .SetPossessive()
+            .AddToDB();
+
+        var spell = SpellDefinitionBuilder
+            .Create(NAME)
+            .SetGuiPresentation(Category.Spell, Entangle)
+            .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolConjuration)
+            .SetSpellLevel(1)
+            .SetMaterialComponent(MaterialComponentType.None)
+            .SetVocalSpellSameType(VocalSpellSemeType.Buff)
+            .SetCastingTime(ActivationTime.BonusAction)
+            .SetEffectDescription(EffectDescriptionBuilder
+                .Create()
+                .SetEffectForms(
+                    EffectFormBuilder
+                        .Create()
+                        .SetConditionForm(
+                            conditionEnsnaringStrike,
+                            ConditionForm.ConditionOperation.Add,
+                            true,
+                            false)
+                        .Build())
+                .SetDurationData(DurationType.Minute, 1)
+                .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
+                .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel, 1, 0, 0, 1)
+                .Build())
+            .SetRequiresConcentration(true)
+            .AddToDB();
+
+        return spell;
+    }
+
     internal static SpellDefinition BuildMule()
     {
         const string NAME = "Mule";
@@ -174,7 +242,9 @@ internal static partial class SpellBuilders
                     canSaveToCancel = true,
                     saveAffinity = EffectSavingThrowType.Negates,
                     saveOccurence = TurnOccurenceType.StartOfTurn,
-                    conditionDefinition = ConditionOnFire1D4,
+                    conditionDefinition = ConditionDefinitionBuilder
+                        .Create(ConditionOnFire1D4, $"Condition{NAME}Enemy")
+                        .AddToDB(),
                     operation = ConditionOperationDescription.ConditionOperation.Add
                 })
             .AddToDB();
@@ -278,7 +348,7 @@ internal static partial class SpellBuilders
                     saveAffinity = EffectSavingThrowType.Negates,
                     saveOccurence = TurnOccurenceType.StartOfTurn,
                     conditionDefinition = ConditionDefinitionBuilder
-                        .Create(ConditionDefinitions.ConditionFrightened, "ConditionFrightened1minute")
+                        .Create(ConditionDefinitions.ConditionFrightened, $"Condition{NAME}Enemy")
                         .SetSpecialDuration(DurationType.Minute, 1, TurnOccurenceType.StartOfTurn)
                         .AddToDB(),
                     operation = ConditionOperationDescription.ConditionOperation.Add
@@ -309,86 +379,6 @@ internal static partial class SpellBuilders
                     .SetConditionForm(conditionWrathfulSmite, ConditionForm.ConditionOperation.Add)
                     .Build())
                 .Build())
-            .AddToDB();
-
-        return spell;
-    }
-
-    internal static SpellDefinition BuildEnsnaringStrike()
-    {
-        const string NAME = "EnsnaringStrike";
-
-        var conditionEnsnaringStrikeEnemy = ConditionDefinitionBuilder
-           .Create(ConditionRestrainedByEntangle, $"Condition{NAME}Enemy")
-           .SetSpecialDuration(DurationType.Minute, 1, TurnOccurenceType.StartOfTurn)
-           // .SetRecurrentEffectForms(EffectFormBuilder
-           //     .Create()
-           //     .SetDamageForm(DamageTypePiercing, 1, DieType.D6)
-           //     .SetLevelAdvancement(EffectForm.LevelApplianceType.MultiplyDice, LevelSourceType.EffectLevel)
-           //     .Build())
-           // .SetConditionParticleReference(Entangle.effectDescription.EffectParticleParameters.conditionParticleReference)
-           .AddToDB();
-
-        //Additional damage which handles application of condition and saving throw
-        var additionalDamageEnsnaringStrike = FeatureDefinitionAdditionalDamageBuilder
-            .Create($"AdditionalDamage{NAME}")
-            .SetGuiPresentation(Category.Feature)
-            .SetNotificationTag(NAME)
-            .SetAdditionalDamageType(AdditionalDamageType.Specific)
-            .SetAdvancement(AdditionalDamageAdvancement.SlotLevel)
-            .SetSpecificDamageType(DamageTypePiercing)
-            .SetSavingThrowData(
-                EffectDifficultyClassComputation.SpellCastingFeature,
-                EffectSavingThrowType.Negates,
-                AttributeDefinitions.Strength)
-            .SetIgnoreCriticalDoubleDice(true)
-            .SetConditionOperations(
-                new ConditionOperationDescription
-                {
-                    hasSavingThrow = true,
-                    saveAffinity = EffectSavingThrowType.Negates,
-                    canSaveToCancel = true,
-                    saveOccurence = TurnOccurenceType.StartOfTurn,
-                    ConditionDefinition = conditionEnsnaringStrikeEnemy,
-                    operation = ConditionOperationDescription.ConditionOperation.Add
-                })
-            .SetSavingThrowData(EffectDifficultyClassComputation.SpellCastingFeature,EffectSavingThrowType.Negates,AttributeDefinitions.Strength,AttributeDefinitions.Wisdom,20)
-            .AddToDB();
-
-        //Applying the Ensnaring Strike condition for later use
-        var conditionEnsnaringStrike = ConditionDefinitionBuilder
-            .Create($"Condition{NAME}")
-            .SetGuiPresentation(NAME, Category.Spell, ConditionBrandingSmite)
-            .AddFeatures(additionalDamageEnsnaringStrike)
-            .SetSpecialInterruptions(ConditionInterruption.AttacksAndDamages)
-            .SetPossessive()
-            .AddToDB();
-
-        //Spell itself
-        var spell = SpellDefinitionBuilder
-            .Create(NAME)
-            .SetGuiPresentation(Category.Spell, Entangle)
-            .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolConjuration)
-            .SetSpellLevel(1)
-            .SetMaterialComponent(MaterialComponentType.None)
-            .SetVocalSpellSameType(VocalSpellSemeType.Buff)
-            .SetCastingTime(ActivationTime.BonusAction)
-            .SetEffectDescription(EffectDescriptionBuilder
-                .Create()
-                .SetEffectForms(
-                    EffectFormBuilder
-                        .Create()
-                        .SetConditionForm(
-                            conditionEnsnaringStrike,
-                            ConditionForm.ConditionOperation.Add,
-                            true,
-                            false)
-                        .Build())
-                .SetDurationData(DurationType.Minute, 1)
-                .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
-                .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel, 1, 0, 0, 1)
-                .Build())
-            .SetRequiresConcentration(true)
             .AddToDB();
 
         return spell;

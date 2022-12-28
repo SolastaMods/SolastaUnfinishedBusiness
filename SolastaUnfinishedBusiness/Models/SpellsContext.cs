@@ -6,6 +6,7 @@ using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.Extensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Classes.Inventor;
+using SolastaUnfinishedBusiness.Subclasses;
 using static SolastaUnfinishedBusiness.Spells.SpellBuilders;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellListDefinitions;
 
@@ -180,9 +181,9 @@ internal static class SpellsContext
 
         // MUST COME BEFORE ANY MOD REGISTERED SPELL
         AllowAssigningOfficialSpells();
-        
+
         // Dead Master Spells
-        Subclasses.WizardDeadMaster.DeadMasterSpells.Do(x => RegisterSpell(x));
+        WizardDeadMaster.DeadMasterSpells.Do(x => RegisterSpell(x));
 
         // cantrips
         RegisterSpell(BuildAcidClaw(), 0, SpellListDruid);
@@ -224,7 +225,7 @@ internal static class SpellsContext
 
         // 4th level
         RegisterSpell(BuildStaggeringSmite(), 0, SpellListPaladin);
-        
+
         //5th level
         RegisterSpell(BuildBanishingSmite(), 0, SpellListPaladin);
         RegisterSpell(FarStep, 0, SpellListSorcerer, SpellListWarlock, SpellListWizard);

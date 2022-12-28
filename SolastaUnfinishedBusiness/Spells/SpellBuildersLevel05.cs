@@ -18,7 +18,7 @@ internal static partial class SpellBuilders
     internal static SpellDefinition BuildBanishingSmite()
     {
         const string NAME = "BanishingSmite";
-    
+
         var conditionBanishingSmiteEnemy = ConditionDefinitionBuilder
             .Create(ConditionBanishedByPrismaticSpray, $"Condition{NAME}Enemy")
             .SetSpecialDuration(DurationType.Minute, 1)
@@ -36,7 +36,7 @@ internal static partial class SpellBuilders
             .SetCustomSubFeatures(new OnAttackHitEffectBanishingSmite(conditionBanishingSmiteEnemy))
             .AddToDB();
 
-        var conditionThunderousSmite = ConditionDefinitionBuilder
+        var conditionBanishingSmite = ConditionDefinitionBuilder
             .Create($"Condition{NAME}")
             .SetGuiPresentation(NAME, Category.Spell, ConditionBrandingSmite)
             .SetPossessive()
@@ -57,7 +57,7 @@ internal static partial class SpellBuilders
                 .SetDurationData(DurationType.Minute, 1)
                 .SetEffectForms(EffectFormBuilder
                     .Create()
-                    .SetConditionForm(conditionThunderousSmite, ConditionForm.ConditionOperation.Add)
+                    .SetConditionForm(conditionBanishingSmite, ConditionForm.ConditionOperation.Add)
                     .Build())
                 .Build())
             .AddToDB();
