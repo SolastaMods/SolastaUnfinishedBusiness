@@ -1,6 +1,6 @@
 {
   "$type": "FeatureDefinitionAdditionalDamage, Assembly-CSharp",
-  "notificationTag": "BlindingSmite",
+  "notificationTag": "StaggeringSmite",
   "limitedUsage": "None",
   "firstTargetOnly": true,
   "targetSide": "Enemy",
@@ -17,10 +17,10 @@
   "requiredAncestryType": "Sorcerer",
   "damageValueDetermination": "Die",
   "flatBonus": 0,
-  "damageDieType": "D8",
-  "damageDiceNumber": 3,
+  "damageDieType": "D6",
+  "damageDiceNumber": 4,
   "additionalDamageType": "Specific",
-  "specificDamageType": "DamageRadiant",
+  "specificDamageType": "DamagePsychic",
   "ancestryTypeForDamageType": "Sorcerer",
   "damageAdvancement": "SlotLevel",
   "diceByRankTable": [
@@ -37,7 +37,7 @@
     {
       "$type": "DiceByRank, Assembly-CSharp",
       "rank": 3,
-      "diceNumber": 3
+      "diceNumber": 0
     },
     {
       "$type": "DiceByRank, Assembly-CSharp",
@@ -129,7 +129,7 @@
   "familiesDiceNumber": 1,
   "ignoreCriticalDoubleDice": false,
   "hasSavingThrow": false,
-  "savingThrowAbility": "Constitution",
+  "savingThrowAbility": "Wisdom",
   "dcComputation": "SpellCastingFeature",
   "savingThrowDC": 12,
   "savingThrowDCAbilityModifier": "Wisdom",
@@ -140,7 +140,7 @@
       "hasSavingThrow": true,
       "operation": "Add",
       "conditionName": "",
-      "conditionDefinition": "Definition:ConditionBlinded1minute:89bc8542c1b8bba47919722774af38bd",
+      "conditionDefinition": "Definition:ConditionStaggeringSmiteEnemy:e1d48854-ca82-5bb9-b315-e97cc06721a4",
       "saveAffinity": "Negates",
       "canSaveToCancel": true,
       "saveOccurence": "StartOfTurn"
@@ -160,8 +160,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&AdditionalDamageBlindingSmiteTitle",
-    "description": "Feature/&AdditionalDamageBlindingSmiteDescription",
+    "title": "Feature/&AdditionalDamageStaggeringSmiteTitle",
+    "description": "Feature/&AdditionalDamageStaggeringSmiteDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -181,7 +181,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "0e4c8179-a105-50ff-9027-7a3cd4ad6089",
+  "guid": "35d131fc-dc6e-5c79-991d-dc00943f30ff",
   "contentPack": 9999,
-  "name": "AdditionalDamageBlindingSmite"
+  "name": "AdditionalDamageStaggeringSmite"
 }

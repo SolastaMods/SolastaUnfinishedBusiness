@@ -18,7 +18,7 @@ internal sealed class Merciless : AbstractFightingStyle
 {
     private static readonly FeatureDefinitionPower PowerFightingStyleMerciless = FeatureDefinitionPowerBuilder
         .Create("PowerFightingStyleMerciless")
-        .SetGuiPresentation(Category.FightingStyle, "Merciless")
+        .SetGuiPresentation("Merciless", Category.FightingStyle)
         .SetEffectDescription(EffectDescriptionBuilder
             .Create(DatabaseHelper.SpellDefinitions.Fear.EffectDescription)
             .SetTargetingData(Side.Enemy, RangeType.Touch, 1, TargetType.Cube)

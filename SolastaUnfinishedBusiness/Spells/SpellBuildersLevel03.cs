@@ -41,6 +41,9 @@ internal static partial class SpellBuilders
                 })
             .AddToDB();
 
+        // hack as I need to init the saving throw data above but only let the condition enforce it
+        additionalDamageBlindingSmite.hasSavingThrow = false;
+
         var conditionBlindingSmite = ConditionDefinitionBuilder
             .Create($"Condition{NAME}")
             .SetGuiPresentation(NAME, Category.Spell, ConditionBrandingSmite)

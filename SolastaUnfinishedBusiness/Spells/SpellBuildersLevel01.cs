@@ -264,7 +264,10 @@ internal static partial class SpellBuilders
             .SetAdditionalDamageType(AdditionalDamageType.Specific)
             .SetAdvancement(AdditionalDamageAdvancement.SlotLevel, 1)
             .SetSpecificDamageType(DamageTypePsychic)
-            .SetSavingThrowData()
+            .SetSavingThrowData(
+                EffectDifficultyClassComputation.SpellCastingFeature,
+                EffectSavingThrowType.Negates,
+                AttributeDefinitions.Wisdom)
             .SetConditionOperations(
                 new ConditionOperationDescription
                 {
@@ -279,6 +282,9 @@ internal static partial class SpellBuilders
                     operation = ConditionOperationDescription.ConditionOperation.Add
                 })
             .AddToDB();
+
+        // hack as I need to init the saving throw data above but only let the condition enforce it
+        additionalDamageWrathfulSmite.hasSavingThrow = false;
 
         var conditionWrathfulSmite = ConditionDefinitionBuilder
             .Create($"Condition{NAME}")

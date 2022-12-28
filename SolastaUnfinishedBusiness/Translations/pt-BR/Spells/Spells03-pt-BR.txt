@@ -2,7 +2,7 @@
 Condition/&ConditionSpiritShroudNoHealTitle=Sudário tocado
 Feature/&AdditionalDamageBlindingSmiteDescription=Você é atingido por dano radiante.
 Feature/&AdditionalDamageBlindingSmiteTitle=Golpe Cegante
-Feedback/&AdditionalDamageBlindingSmiteFormat=Golpear Selante!
+Feedback/&AdditionalDamageBlindingSmiteFormat=Punição Cega!
 Feedback/&AdditionalDamageBlindingSmiteLine={0} causa mais dano a {1} por meio de um golpe cegante (+{2})
 Feedback/&AdditionalDamageSpiritShroudDamageColdFormat=Mortalha Espiritual!
 Feedback/&AdditionalDamageSpiritShroudDamageColdLine={0} causa {2} de dano de frio a {1} de Spirit Shroud!
@@ -10,7 +10,7 @@ Feedback/&AdditionalDamageSpiritShroudDamageNecroticFormat=Mortalha Espiritual!
 Feedback/&AdditionalDamageSpiritShroudDamageNecroticLine={0} causa {2} de dano necrótico a {1} de Spirit Shroud!
 Feedback/&AdditionalDamageSpiritShroudDamageRadiantFormat=Mortalha Espiritual!
 Feedback/&AdditionalDamageSpiritShroudDamageRadiantLine={0} causa {2} de dano radiante a {1} de Spirit Shroud!
-Spell/&BlindingSmiteDescription=Seu próximo golpe causa dano radiante adicional com sua arma brilhando com uma luz brilhante.
+Spell/&BlindingSmiteDescription=Seu próximo golpe causa dano radiante adicional com sua arma brilhando com uma luz brilhante. Além disso, o alvo deve ter sucesso em um teste de resistência de Constituição ou ficará cego por 1 minuto.
 Spell/&BlindingSmiteTitle=Golpe Cegante
 Spell/&EarthTremorDescription=Você atinge o solo e desencadeia um tremor de força sísmica, arremessando terra, rocha e areia.
 Spell/&EarthTremorTitle=Tremor de terra
