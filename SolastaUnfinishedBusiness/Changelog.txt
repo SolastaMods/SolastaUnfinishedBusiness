@@ -5,7 +5,8 @@ KNOWN ISSUES:
 
 CHANGES:
 
-- added Banishment Smite and Staggering Smite spells
+- added Banishment, Ensnaring and Staggering Smite spells
+- added Oath of Ancient subclass
 - improved Merciless gui presentation
 - improved translation terms
 - included Raise Dead spells on selection lists
