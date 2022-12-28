@@ -131,7 +131,7 @@
   "hasSavingThrow": true,
   "savingThrowAbility": "Strength",
   "dcComputation": "SpellCastingFeature",
-  "savingThrowDC": 20,
+  "savingThrowDC": 12,
   "savingThrowDCAbilityModifier": "Wisdom",
   "damageSaveAffinity": "Negates",
   "conditionOperations": [

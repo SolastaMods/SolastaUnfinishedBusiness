@@ -9,4 +9,4 @@ Feature/&PowerOathOfAncientsTurnFaithlessTitle=Channel Divinity: Turn the Faithl
 Feature/&PowerOathOfAncientsAuraWardingDescription=Grant you and those around you an ancient ward reducing damage from spells.
 Feature/&PowerOathOfAncientsAuraWardingTitle=Aura of Warding
 Subclass/&OathOfAncientsDescription=An Oath from a more primitive time which one dedicates themself to utilizing nature for good.
-Subclass/&OathOfAncientsTitle=Oath of the Ancients
+Subclass/&OathOfAncientsTitle=Oath of Ancients

@@ -77,8 +77,8 @@
         "saveOccurence": "EndOfTurn",
         "conditionForm": {
           "$type": "ConditionForm, Assembly-CSharp",
-          "conditionDefinitionName": "ConditionNaturesWrath",
-          "conditionDefinition": "Definition:ConditionNaturesWrath:e84292a7-eaf4-55a8-8797-f5b5a6157bdb",
+          "conditionDefinitionName": "ConditionOathOfAncientsNaturesWrath",
+          "conditionDefinition": "Definition:ConditionOathOfAncientsNaturesWrath:51a0bdc0-311f-5227-9fa8-80fd5df4f7c3",
           "operation": "Add",
           "conditionsList": [],
           "applyToSelf": false,
@@ -324,8 +324,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&PowerNaturesWrathTitle",
-    "description": "Feature/&PowerNaturesWrathDescription",
+    "title": "Feature/&PowerOathOfAncientsNaturesWrathTitle",
+    "description": "Feature/&PowerOathOfAncientsNaturesWrathDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "3567ccebbdb2bc043a8e651701b16bbc",
@@ -345,7 +345,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "0c12c338-e8ef-5bbf-895e-c8f03501bddf",
+  "guid": "a94e7f5a-dceb-505c-9502-b85788c9fa78",
   "contentPack": 9999,
-  "name": "PowerNaturesWrath"
+  "name": "PowerOathOfAncientsNaturesWrath"
 }

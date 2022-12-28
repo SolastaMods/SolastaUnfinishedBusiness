@@ -140,7 +140,7 @@
       "hasSavingThrow": true,
       "operation": "Add",
       "conditionName": "",
-      "conditionDefinition": "Definition:ConditionOnFire1D4:c832b5142b6541b40a0d925d502e0f9d",
+      "conditionDefinition": "Definition:ConditionSearingSmiteEnemy:0ff9619d-461b-5294-9480-5da8d4aea7fb",
       "saveAffinity": "Negates",
       "canSaveToCancel": true,
       "saveOccurence": "StartOfTurn"

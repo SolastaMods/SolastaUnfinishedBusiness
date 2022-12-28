@@ -133,8 +133,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Condition/&ConditionAuraWardingTitle",
-    "description": "Condition/&ConditionAuraWardingDescription",
+    "title": "Condition/&ConditionOathOfAncientsAuraWardingTitle",
+    "description": "Condition/&ConditionOathOfAncientsAuraWardingDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "04f42c446dd0c5143bcc4d3b56edfbb2",
@@ -154,7 +154,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "b4f06c61-8612-5032-b989-90ae4872f0d7",
+  "guid": "bac3d48d-32a4-542e-9171-142f53c5272f",
   "contentPack": 9999,
-  "name": "ConditionAuraWarding"
+  "name": "ConditionOathOfAncientsAuraWarding"
 }

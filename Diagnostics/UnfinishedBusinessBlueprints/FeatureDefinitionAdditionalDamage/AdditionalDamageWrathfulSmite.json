@@ -140,7 +140,7 @@
       "hasSavingThrow": true,
       "operation": "Add",
       "conditionName": "",
-      "conditionDefinition": "Definition:ConditionFrightened1minute:1b247ded-7f2e-57f1-b89e-4e61bb57dd3f",
+      "conditionDefinition": "Definition:ConditionWrathfulSmiteEnemy:08ab37a6-23bc-59c3-ac2b-09f02170a996",
       "saveAffinity": "Negates",
       "canSaveToCancel": true,
       "saveOccurence": "StartOfTurn"

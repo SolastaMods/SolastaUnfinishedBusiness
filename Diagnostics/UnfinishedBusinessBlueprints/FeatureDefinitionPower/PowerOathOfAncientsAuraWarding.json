@@ -77,11 +77,11 @@
         "saveOccurence": "EndOfTurn",
         "conditionForm": {
           "$type": "ConditionForm, Assembly-CSharp",
-          "conditionDefinitionName": "ConditionAuraWarding",
-          "conditionDefinition": "Definition:ConditionAuraWarding:b4f06c61-8612-5032-b989-90ae4872f0d7",
+          "conditionDefinitionName": "ConditionOathOfAncientsAuraWarding",
+          "conditionDefinition": "Definition:ConditionOathOfAncientsAuraWarding:bac3d48d-32a4-542e-9171-142f53c5272f",
           "operation": "Add",
           "conditionsList": [
-            "Definition:ConditionAuraWarding:b4f06c61-8612-5032-b989-90ae4872f0d7"
+            "Definition:ConditionOathOfAncientsAuraWarding:bac3d48d-32a4-542e-9171-142f53c5272f"
           ],
           "applyToSelf": false,
           "forceOnSelf": false
@@ -326,8 +326,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&PowerAuraWardingTitle",
-    "description": "Feature/&PowerAuraWardingDescription",
+    "title": "Feature/&PowerOathOfAncientsAuraWardingTitle",
+    "description": "Feature/&PowerOathOfAncientsAuraWardingDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -347,7 +347,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "4cadf7aa-9772-5caf-8a20-9a73847b19e4",
+  "guid": "70e274f0-72af-57d7-8afb-1b757d7efabe",
   "contentPack": 9999,
-  "name": "PowerAuraWarding"
+  "name": "PowerOathOfAncientsAuraWarding"
 }

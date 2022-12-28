@@ -33,5 +33,3 @@ Spell/&WrathfulSmiteDescription=Your next hit causes additional psychic damage a
 Spell/&WrathfulSmiteTitle=Wrathful Smite
 Spell/&EnsnaringStrikeDescription=Your next hit causes additional piercing damage and your target is ensnared by vines.
 Spell/&EnsnaringStrikeTitle=Ensnaring Strike
-Spell/&ConditionEnsnaringStrikeDescription=Your next hit ensnares the foe in vine and causes additional piercing damage if failed a strength saving throw.
-Spell/&ConditionEnsnaringStrikeTitle=Ensnaring Strike

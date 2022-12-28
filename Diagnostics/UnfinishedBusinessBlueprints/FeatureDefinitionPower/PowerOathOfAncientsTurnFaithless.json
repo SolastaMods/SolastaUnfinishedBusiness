@@ -330,8 +330,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&PowerTurnFaithlessTitle",
-    "description": "Feature/&PowerTurnFaithlessDescription",
+    "title": "Feature/&PowerOathOfAncientsTurnFaithlessTitle",
+    "description": "Feature/&PowerOathOfAncientsTurnFaithlessDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "3a7d25a4dfb21da48a7ff226a7970d49",
@@ -351,7 +351,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "269f9544-67b1-5409-9056-58cce74bc8cb",
+  "guid": "e911dff6-d056-527c-8bb8-9c04012c2ac5",
   "contentPack": 9999,
-  "name": "PowerTurnFaithless"
+  "name": "PowerOathOfAncientsTurnFaithless"
 }
