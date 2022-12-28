@@ -4,11 +4,11 @@ using System.Linq;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.Extensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
+using SolastaUnfinishedBusiness.Api.Infrastructure;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomUI;
-using SolastaUnfinishedBusiness.Models;
 using UnityEngine.AddressableAssets;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
@@ -185,6 +185,7 @@ internal sealed class WizardDeadMaster : AbstractSubclass
         {
             var (clazz, spell) = kvp.Key;
             var monsters = kvp.Value;
+            var spells = new List<SpellDefinition>();
 
             foreach (var (monsterDefinition, count, icon, attackSprites) in monsters)
             {
@@ -214,14 +215,16 @@ internal sealed class WizardDeadMaster : AbstractSubclass
                         .Build())
                     .AddToDB();
 
-                DeadMasterSpells.Add(createDeadSpell);
+                spells.Add(createDeadSpell);
             }
 
             result.Add(new FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup
             {
-                ClassLevel = clazz, SpellsList = DeadMasterSpells
+                ClassLevel = clazz, SpellsList = spells
             });
         }
+
+        DeadMasterSpells.SetRange(result.SelectMany(x => x.SpellsList));
 
         return result.ToArray();
     }
