@@ -20,7 +20,7 @@ internal static partial class SpellBuilders
         const string NAME = "BanishingSmite";
     
         var conditionBanishingSmiteEnemy = ConditionDefinitionBuilder
-            .Create(ConditionBanishedByPrismaticSpray, "Condition${NAME}Enemy")
+            .Create(ConditionBanishedByPrismaticSpray, $"Condition{NAME}Enemy")
             .SetSpecialDuration(DurationType.Minute, 1)
             .AddToDB();
 

@@ -307,7 +307,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "e88b068a-b41f-5c00-a654-dce22191852c",
+  "guid": "301fbe3a-f1c3-5092-8392-5541f4cfccea",
   "contentPack": 9999,
-  "name": "Condition${NAME}Enemy"
+  "name": "Condition$BanishingSmiteEnemy"
 }
