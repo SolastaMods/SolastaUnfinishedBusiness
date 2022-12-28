@@ -1,5 +1,12 @@
 ﻿CHANGES:
 
+1.4.32.12:
+
+- added Banishment Smite and Staggering Smite spells
+- improved Merciless gui presentation
+- improved translation terms
+- included Raise Dead spells on selection lists
+
 1.4.32.11:
 
 - added missing attribute pre-reqs to Poisonous Skin and Monk Initiate
