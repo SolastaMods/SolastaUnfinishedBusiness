@@ -1,10 +1,10 @@
 Condition/&ConditionOpportunistDebilitatedDescription=Debilitado.
 Condition/&ConditionOpportunistDebilitatedTitle=debilitado
+Feature/&FeatureRoguishOpportunistSeizeTheChanceDescription=Quando um inimigo falha em um teste de resistência, você pode usar sua reação para fazer um ataque contra ele. Você pode ativar um ataque furtivo com esse recurso.
+Feature/&FeatureRoguishOpportunistSeizeTheChanceTitle=Aproveite a chance
 Feature/&OnComputeAttackModifierOpportunistQuickStrikeDescription=Você tem vantagem atacando inimigos cuja iniciativa é menor que a sua. Além disso, você também tem vantagem ao realizar ataques de oportunidade.
 Feature/&OnComputeAttackModifierOpportunistQuickStrikeTitle=Golpe Rápido
 Feature/&PowerOpportunistDebilitatingStrikeDescription=Seu ataque furtivo faz com que o alvo faça um teste de resistência de Constituição (CD 8 + seu bônus de proficiência + seu modificador de Destreza) ou sofra uma das seguintes condições: cego, banido, sangrando ou atordoado.
 Feature/&PowerOpportunistDebilitatingStrikeTitle=Golpe Debilitante
-Feature/&FeatureRoguishOpportunistSeizeTheChanceDescription=Quando um inimigo falha em um teste de resistência, você pode usar sua reação para fazer um ataque contra ele. Você pode ativar um ataque furtivo com esse recurso.
-Feature/&FeatureRoguishOpportunistSeizeTheChanceTitle=Aproveite a chance
 Subclass/&RoguishOpportunistDescription=Oportunistas são aqueles que nunca deixam escapar uma chance de acabar com seus inimigos. Eles apunhalam rápido e apunhalam onde importa. Não muitos que os enfrentam podem escapar sem arranhões.
 Subclass/&RoguishOpportunistTitle=Oportunista

@@ -1,6 +1,8 @@
-Feat/&FeatFadeAwayDexDescription=Hai imparato un trucco magico per svanire quando subisci un danno. Aumenta il tuo punteggio di Destrezza di 1, fino a un massimo di 20. Immediatamente dopo aver subito danni, puoi usare una reazione per diventare magicamente invisibile fino alla fine del tuo prossimo turno o finché non attacchi, infliggi danni o costringi qualcuno a effettuare un tiro salvezza gettare. Una volta che usi questa capacità, non puoi farlo di nuovo finché non finisci un riposo breve o lungo.
-Feat/&FeatFadeAwayDexTitle=Dissolvenza [Des]
-Feat/&FeatFadeAwayIntDescription=Hai imparato un trucco magico per svanire quando subisci un danno. Aumenta il tuo punteggio di Intelligenza di 1, fino a un massimo di 20. Immediatamente dopo aver subito danni, puoi usare una reazione per diventare magicamente invisibile fino alla fine del tuo prossimo turno o finché non attacchi, infliggi danni o costringi qualcuno a effettuare un tiro salvezza gettare. Una volta che usi questa capacità, non puoi farlo di nuovo finché non finisci un riposo breve o lungo.
+Feat/&FeatDragonWingsDescription=Ti spuntano ali draconiane. Ottieni la capacità di volare per un tempo limitato se non indossi armature pesanti.
+Feat/&FeatDragonWingsTitle=Ali di drago
+Feat/&FeatFadeAwayDexDescription=Hai imparato un trucco magico per svanire quando subisci un danno. Aumenta il tuo punteggio di Destrezza di 1, fino a un massimo di 20. Immediatamente dopo aver subito danni, puoi usare una reazione per diventare magicamente invisibile fino alla fine del tuo prossimo turno o finché non attacchi, infliggi danni o costringi qualcuno a effettuare un tiro salvezza gettare. Una volta che usi questa capacità, non puoi farlo di nuovo fino a quando non finisci un riposo breve o lungo.
+Feat/&FeatFadeAwayDexTitle=Dissolvenza [Destrezza]
+Feat/&FeatFadeAwayIntDescription=Hai imparato un trucco magico per svanire quando subisci un danno. Aumenta il tuo punteggio di Intelligenza di 1, fino a un massimo di 20. Immediatamente dopo aver subito danni, puoi usare una reazione per diventare magicamente invisibile fino alla fine del tuo prossimo turno o finché non attacchi, infliggi danni o costringi qualcuno a effettuare un tiro salvezza gettare. Una volta che usi questa capacità, non puoi farlo di nuovo fino a quando non finisci un riposo breve o lungo.
 Feat/&FeatFadeAwayIntTitle=Dissolvenza [Int]
 Feat/&FeatRevenantGreatSwordDexDescription=Aumenta il tuo punteggio di Destrezza di 1, fino a un massimo di 20. Mentre impugni una grande spada, ottieni un bonus di +1 alla Classe Armatura e puoi usare la tua Destrezza per colpire e per danneggiare i bonus.
 Feat/&FeatRevenantGreatSwordDexTitle=Spadone Revenant [Destrezza]
@@ -8,5 +10,3 @@ Feat/&FeatRevenantGreatSwordStrDescription=Aumenta il tuo punteggio di Forza di 
 Feat/&FeatRevenantGreatSwordStrTitle=Spadone Revenant [Str]
 Feature/&AttributeModifierFeatRevenantGreatSwordArmorClassDescription=Mentre impugni una grande spada, ottieni un bonus di +1 alla Classe Armatura.
 Feature/&AttributeModifierFeatRevenantGreatSwordArmorClassTitle=Grande Spada Revenant
-Feat/&FeatDragonWingsDescription=Ti spuntano ali draconiane. Ottieni la capacità di volare per un tempo limitato se non indossi armature pesanti.
-Feat/&FeatDragonWingsTitle=Ali di drago

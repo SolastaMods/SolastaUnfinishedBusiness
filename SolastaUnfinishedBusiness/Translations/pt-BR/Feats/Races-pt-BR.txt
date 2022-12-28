@@ -1,3 +1,5 @@
+Feat/&FeatDragonWingsDescription=Você cria asas dracônicas. Você ganha a habilidade de voar por um tempo limitado se não estiver usando uma armadura pesada.
+Feat/&FeatDragonWingsTitle=Asas de dragão
 Feat/&FeatFadeAwayDexDescription=Você aprendeu um truque mágico para desaparecer quando sofre algum dano. Aumente seu valor de Destreza em 1, até um máximo de 20. Imediatamente após receber dano, você pode usar uma reação para se tornar magicamente invisível até o final de seu próximo turno ou até atacar, causar dano ou forçar alguém a fazer um teste de resistência. lançar. Depois de usar essa habilidade, você não pode fazê-lo novamente até terminar um descanso curto ou longo.
 Feat/&FeatFadeAwayDexTitle=Desaparecer [Dex]
 Feat/&FeatFadeAwayIntDescription=Você aprendeu um truque mágico para desaparecer quando sofre algum dano. Aumente seu valor de Inteligência em 1, até um máximo de 20. Imediatamente após receber dano, você pode usar uma reação para se tornar magicamente invisível até o final de seu próximo turno ou até atacar, causar dano ou forçar alguém a fazer um teste de resistência. lançar. Depois de usar essa habilidade, você não pode fazê-lo novamente até terminar um descanso curto ou longo.
@@ -8,5 +10,3 @@ Feat/&FeatRevenantGreatSwordStrDescription=Aumente seu valor de Força em 1, at�
 Feat/&FeatRevenantGreatSwordStrTitle=Grande Espada Revenant [Str]
 Feature/&AttributeModifierFeatRevenantGreatSwordArmorClassDescription=Enquanto estiver empunhando uma grande espada, você ganha um bônus de +1 na Classe de Armadura.
 Feature/&AttributeModifierFeatRevenantGreatSwordArmorClassTitle=Grande Espada Revenant
-Feat/&FeatDragonWingsDescription=Você cria asas dracônicas. Você ganha a habilidade de voar por um tempo limitado se não estiver usando uma armadura pesada.
-Feat/&FeatDragonWingsTitle=Asas de dragão

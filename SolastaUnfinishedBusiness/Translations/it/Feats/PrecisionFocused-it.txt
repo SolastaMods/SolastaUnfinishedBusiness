@@ -1,4 +1,4 @@
-﻿Feat/&FeatArcanePrecisionDescription=Aumenta la tua Intelligenza di 1, fino a un massimo di 20.\nPuoi usare un'azione bonus per selezionare un'arma. I suoi attacchi contano come magici e usi la tua Intelligenza per i tiri per colpire e per i danni per 1 minuto. Questo privilegio può essere utilizzato più volte per ogni riposo lungo.
+﻿Feat/&FeatArcanePrecisionDescription=Aumenta la tua Intelligenza di 1, fino a un massimo di 20.\nPuoi usare un'azione bonus per selezionare un'arma. I suoi attacchi contano come magici e usi la tua Intelligenza per i tuoi tiri per colpire e per i danni per 1 minuto. Questo privilegio può essere utilizzato più volte per ogni riposo lungo.
 Feat/&FeatArcanePrecisionTitle=Precisione arcana
 Feat/&FeatCharismaticPrecisionDescription=Aumenta il tuo Carisma di 1, fino a un massimo di 20.\nPuoi usare un'azione bonus per selezionare un'arma. I suoi attacchi contano come magici e usi il tuo Carisma per i tiri per colpire e per i danni per 1 minuto. Questo privilegio può essere utilizzato più volte per ogni riposo lungo.
 Feat/&FeatCharismaticPrecisionTitle=Precisione carismatica

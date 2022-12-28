@@ -1,8 +1,8 @@
 ﻿Feature/&FeatureSetRoyalKnightRoyalEnvoyDescription=Aggiungi metà del tuo bonus di competenza (arrotondato per eccesso) a qualsiasi prova di Carisma che effettui che non utilizzi già il tuo bonus di competenza. Inoltre, diventi competente nei tiri salvezza di Carisma.
 Feature/&FeatureSetRoyalKnightRoyalEnvoyTitle=Inviato Reale
-Feature/&PowerRoyalKnightInspiringSurgeDescription=Concede a un alleato un'azione principale aggiuntiva per 1 round. Non si accumula con Action Surge.
+Feature/&PowerRoyalKnightInspiringSurgeDescription=Concede a un alleato un'azione principale aggiuntiva per 1 round. Non si cumula con Action Surge.
 Feature/&PowerRoyalKnightInspiringSurgeTitle=Impulso ispiratore
-Feature/&PowerRoyalKnightRallyingCryDescription=Sostituisce Second Wind con il potere di ripristinare 4x Punti Ferita del Livello Combattente a uno o più alleati entro 6 caselle, fino al loro massimo di Punti Ferita.
+Feature/&PowerRoyalKnightRallyingCryDescription=Sostituisce Second Wind con il potere di ripristinare 4x punti ferita di livello combattente a uno o più alleati entro 6 caselle, fino al loro massimo punto ferita.
 Feature/&PowerRoyalKnightRallyingCryTitle=Grido di battaglia
-Subclass/&MartialRoyalKnightDescription=Un cavaliere che ispira grandezza negli altri commettendo azioni coraggiose in battaglia. Un Cavaliere Reale è un abile guerriero, ma chi guida una banda di alleati può trasformare anche la milizia meno equipaggiata in una feroce banda da guerra.
+Subclass/&MartialRoyalKnightDescription=Un cavaliere che ispira grandezza negli altri commettendo azioni coraggiose in battaglia. Un Royal Knight è un abile guerriero, ma chi guida una banda di alleati può trasformare anche la milizia meno equipaggiata in una feroce banda da guerra.
 Subclass/&MartialRoyalKnightTitle=Cavaliere Reale

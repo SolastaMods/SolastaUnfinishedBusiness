@@ -1,4 +1,4 @@
-Feature/&MagicAffinitySpellMasterExtraPreparedDescription=Prepare feitiços modificadores de Inteligência adicionais para que você sempre tenha o que precisa.
+Feature/&MagicAffinitySpellMasterExtraPreparedDescription=Prepare feitiços adicionais modificadores de Inteligência para que você sempre tenha o que precisa.
 Feature/&MagicAffinitySpellMasterExtraPreparedTitle=Extra Preparado
 Feature/&MagicAffinitySpellMasterKnowledgeDescription=Escreva um feitiço adicional a cada nível acima.
 Feature/&MagicAffinitySpellMasterKnowledgeTitle=Amplitude do conhecimento
@@ -12,5 +12,5 @@ Feature/&PointPoolSpellMasterBonusCantripsDescription=Ganhe 2 truques extras con
 Feature/&PointPoolSpellMasterBonusCantripsTitle=Truques Bônus
 Feature/&SavingThrowAffinitySpellMasterSpellResistanceDescription=Seu treinamento com magia lhe dá vantagem em testes de resistência contra feitiços.
 Feature/&SavingThrowAffinitySpellMasterSpellResistanceTitle=Resistência ao Feitiço
-Subclass/&WizardSpellMasterDescription=Os Spell Masters mergulham na magia e tentam aprender todos os feitiços que conseguirem. Eles são inigualáveis em seu conhecimento de magia.
+Subclass/&WizardSpellMasterDescription=Os Spell Masters mergulham na magia e tentam aprender todos os feitiços que conseguem. Eles são inigualáveis ​​em seu conhecimento de magia.
 Subclass/&WizardSpellMasterTitle=Mestre de Feitiços
