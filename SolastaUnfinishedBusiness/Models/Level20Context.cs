@@ -27,6 +27,7 @@ using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionProfi
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionSenses;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellListDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
+using static SolastaUnfinishedBusiness.Builders.Features.AutoPreparedSpellsGroupBuilder;
 using static SolastaUnfinishedBusiness.Builders.Features.FeatureDefinitionCastSpellBuilder;
 
 namespace SolastaUnfinishedBusiness.Models;
@@ -542,6 +543,18 @@ internal static class Level20Context
                 new FeatureUnlockByLevel(PowerPaladinCleansingTouch, 14),
                 new FeatureUnlockByLevel(FeatureSetAbilityScoreChoice, 16)
             );
+            
+            DatabaseHelper.FeatureDefinitionAutoPreparedSpellss.AutoPreparedSpellsOathOfDevotion.AutoPreparedSpellsGroups.Add(
+                BuildSpellGroup(13, GuardianOfFaith, FreedomOfMovement));
+            
+            DatabaseHelper.FeatureDefinitionAutoPreparedSpellss.AutoPreparedSpellsOathOfJugement.AutoPreparedSpellsGroups.Add(
+                BuildSpellGroup(13, Banishment, Blight));
+            
+            DatabaseHelper.FeatureDefinitionAutoPreparedSpellss.AutoPreparedSpellsOathOfMotherland.AutoPreparedSpellsGroups.Add(
+                BuildSpellGroup(13, WallOfFire, FireShield));
+            
+            DatabaseHelper.FeatureDefinitionAutoPreparedSpellss.AutoPreparedSpellsOathOfTirmar.AutoPreparedSpellsGroups.Add(
+                BuildSpellGroup(13, DreadfulOmen, PhantasmalKiller));
         }
 
         Paladin.FeatureUnlocks.AddRange(
