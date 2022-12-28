@@ -1,4 +1,6 @@
 Condition/&ConditionInnovationWeaponSummonSteelDefenderSpellAttackTitle=其创造者的法术攻击加值
+Feature/&AttributeModifierInnovationWeaponExtraAttackDescription=你在自己回合内执行攻击动作时可以发动的攻击次数增加一次。
+Feature/&AttributeModifierInnovationWeaponExtraAttackTitle=额外攻击
 Feature/&AutoPreparedSpellsInnovationWeaponDescription=学习并总是准备着：\n{0}\n\n
 Feature/&AutoPreparedSpellsInnovationWeaponTitle=武器匠法术
 Feature/&FeatureSetInnovationWeaponSteelDefenderDescription=你对武器的实验为你带来了【守护者之剑】作为伙伴。它免疫毒素、力竭、魅惑或恐惧。 在战斗中，守护者之剑会共享你的先攻权并紧随其后。它可以移动并使用反应来对攻击守护者之剑5尺内盟友的敌人的攻击掷骰进行取劣，但它在回合开始时采取回避动作，除非你使用附赠动作命令它。 如果你失去行动能力，守护者之剑可以选择任何行动。
@@ -16,8 +18,6 @@ Feature/&PowerInventorWeaponSteelDefenderCommandDescription=为你的守护者�
 Feature/&PowerInventorWeaponSteelDefenderCommandTitle=命令守护者之剑
 Feature/&ProficiencyInnovationWeaponBattleReadyDescription=在对武器进行试验后，你意识到自己可以依靠智慧来使用它们：\n• 你熟练于所有军用武器\n• 你可以使用智力调整值来进行魔法武器的攻击和伤害掷骰
 Feature/&ProficiencyInnovationWeaponBattleReadyTitle=武器探究
-Feature/&AttributeModifierInnovationWeaponExtraAttackDescription=你在自己回合内执行攻击动作时可以发动的攻击次数增加一次。
-Feature/&AttributeModifierInnovationWeaponExtraAttackTitle=额外攻击
 Item/&MonsterAttackSteelDefenderTitle=力场切割
 Monster/&InnovationWeaponSteelDefenderDescription=武器匠的忠实捍卫者。
 Monster/&InnovationWeaponSteelDefenderTitle=守护者之剑

@@ -1,4 +1,6 @@
 Condition/&ConditionInnovationWeaponSummonSteelDefenderSpellAttackTitle=Bonus d'attaque des sorts de son créateur
+Feature/&AttributeModifierInnovationWeaponExtraAttackDescription=Vous pouvez attaquer deux fois au lieu d'une fois lorsque vous utilisez les actions d'attaque ou de bousculade.
+Feature/&AttributeModifierInnovationWeaponExtraAttackTitle=Attaque supplémentaire
 Feature/&AutoPreparedSpellsInnovationWeaponDescription=Apprenez et préparez-vous toujours :\n{0}\n\n
 Feature/&AutoPreparedSpellsInnovationWeaponTitle=Sorts de forgeron d'armes
 Feature/&FeatureSetInnovationWeaponSteelDefenderDescription=Vos expériences avec des armes vous ont donné un compagnon Defending Blade. Il est immunisé contre le poison, l'épuisement, le charme ou la surprise. En combat, la lame partage votre initiative et prend son tour immédiatement après vous. Il peut se déplacer et utiliser la réaction pour imposer un désavantage au jet d'attaque de l'ennemi qui attaque un allié à moins d'une cellule de la lame, mais il prend une action d'esquive au début du tour, à moins que vous n'utilisiez une action bonus pour le commander. Si vous êtes incapable d'agir, la lame peut entreprendre n'importe quelle action de son choix.
@@ -16,8 +18,6 @@ Feature/&PowerInventorWeaponSteelDefenderCommandDescription=Lancez une commande 
 Feature/&PowerInventorWeaponSteelDefenderCommandTitle=Lame de défense de commandement
 Feature/&ProficiencyInnovationWeaponBattleReadyDescription=Après avoir expérimenté sur des armes, vous avez appris que vous pouvez utiliser votre intelligence pour les manipuler :\n• Vous êtes devenu compétent avec toutes les armes martiales\n• Vous pouvez utiliser l'Intelligence pour les jets d'attaque et de dégâts avec des armes magiques
 Feature/&ProficiencyInnovationWeaponBattleReadyTitle=Utilisation inventive des armes
-Feature/&AttributeModifierInnovationWeaponExtraAttackDescription=Vous pouvez attaquer deux fois au lieu d'une fois lorsque vous utilisez les actions d'attaque ou de bousculade.
-Feature/&AttributeModifierInnovationWeaponExtraAttackTitle=Attaque supplémentaire
 Item/&MonsterAttackSteelDefenderTitle=Coup de force
 Monster/&InnovationWeaponSteelDefenderDescription=Fidèle défenseur de l'armurier.
 Monster/&InnovationWeaponSteelDefenderTitle=Lame défensive

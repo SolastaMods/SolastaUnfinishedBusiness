@@ -1,6 +1,6 @@
 Feature/&AttributeModifierDarkelfCharismaAbilityScoreIncreaseDescription=Charisma +1
 Feature/&AttributeModifierDarkelfCharismaAbilityScoreIncreaseTitle=Ability Score Increase
-Feature/&CastSpellDarkelfMagicDescription=You know the Dancing Lights cantrip. At 3rd level you learn Faerie Fire and at 5th level, Darkness. Both can be used once per long rest.
+Feature/&CastSpellDarkelfMagicDescription=You know the <b>Dancing Lights</b> cantrip. At 3rd level you learn <b>Faerie Fire</b> and at 5th level, <b>Darkness</b>. Both can be used once per long rest.
 Feature/&CastSpellDarkelfMagicTitle=Dark Elf Magic
 Feature/&ProficiencyDarkelfWeaponTrainingDescription=You have proficiency with rapiers, shortswords, and hand crossbows.
 Feature/&ProficiencyDarkelfWeaponTrainingTitle=Dark Elf Weapon Training

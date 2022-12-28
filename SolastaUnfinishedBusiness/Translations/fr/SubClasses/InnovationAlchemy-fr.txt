@@ -1,4 +1,4 @@
-﻿Condition/&ConditionInnovationAlchemyDamageNecroticDescription=La cible ne peut pas soigner et subit 2d6 dégâts nécrotiques à la fin de son tour.
+﻿Condition/&ConditionInnovationAlchemyDamageNecroticDescription=La cible ne peut pas se soigner et subit 2d6 dégâts nécrotiques à la fin de son tour.
 Condition/&ConditionInnovationAlchemyDamageNecroticTitle=Nécrose
 Condition/&ConditionInnovationAlchemyDamagePoisonDescription=La cible est désavantagée au prochain jet d'attaque.
 Condition/&ConditionInnovationAlchemyDamagePsychicDescription=Obtient -1d4 aux jets de sauvegarde STR, DEX et CON
@@ -37,9 +37,9 @@ Feature/&PowerInnovationAlchemyMarkerDamageLightningDescription=Faites en sorte 
 Feature/&PowerInnovationAlchemyMarkerDamageLightningTitle=Bombes éclair
 Feature/&PowerInnovationAlchemyMarkerDamageNecroticDescription=Faites en sorte que les bombes infligent des dégâts nécrotiques et les ennemis qui échouent au jet de sauvegarde CON ne pourront pas restaurer leurs points de vie pendant 1 round et subiront 2d6 dégâts nécrotiques à la fin de leur tour.
 Feature/&PowerInnovationAlchemyMarkerDamageNecroticTitle=Bombes nécrotiques
-Feature/&PowerInnovationAlchemyMarkerDamagePoisonDescription=Faire en sorte que les bombes infligent des dégâts de poison et empoisonnent les ennemis qui échouent au jet de sauvegarde de CON.
+Feature/&PowerInnovationAlchemyMarkerDamagePoisonDescription=Faire en sorte que les bombes infligent des dégâts de poison et empoisonnent les ennemis qui échouent au jet de sauvegarde CON.
 Feature/&PowerInnovationAlchemyMarkerDamagePoisonTitle=Bombes empoisonnées
-Feature/&PowerInnovationAlchemyMarkerDamagePsychicDescription=Faites en sorte que les bombes infligent des dégâts psychiques et que les ennemis qui échouent au jet de sauvegarde SIR reçoivent -1d4 aux jets de sauvegarde de FOR, DEX et CON pendant 1 round.
+Feature/&PowerInnovationAlchemyMarkerDamagePsychicDescription=Faites en sorte que les bombes infligent des dégâts psychiques et que les ennemis qui échouent au jet de sauvegarde WIS reçoivent -1d4 aux jets de sauvegarde STR, DEX et CON pendant 1 round.
 Feature/&PowerInnovationAlchemyMarkerDamagePsychicTitle=Bombes psychiques
 Feature/&PowerInnovationAlchemyMarkerDamageRadiantDescription=Faites en sorte que les bombes infligent des dégâts radiants et confèrent un avantage à la première attaque contre les ennemis qui échouent au jet de sauvegarde CHA.
 Feature/&PowerInnovationAlchemyMarkerDamageRadiantTitle=Bombes radieuses

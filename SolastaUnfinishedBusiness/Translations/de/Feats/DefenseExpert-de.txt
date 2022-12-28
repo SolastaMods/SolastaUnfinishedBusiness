@@ -2,5 +2,5 @@
 Feat/&FeatArcaneDefenseTitle=Arkane Verteidigung
 Feat/&FeatCharismaticDefenseDescription=Erhöhe dein Charisma um 1 bis zu einem Maximum von 20.\n Solange du keine Rüstung oder Schild trägst, entspricht deine RK 10 + deinem Geschicklichkeitsmodifikator + deinem Charismamodifikator.
 Feat/&FeatCharismaticDefenseTitle=Charismatische Verteidigung
-Feat/&FeatWiseDefenseDescription=Erhöhe deine Weisheit um 1 bis zu einem Maximum von 20.\n Solange du keine Rüstung oder Schild trägst, entspricht deine RK 10 + deinem Geschicklichkeitsmodifikator + deinem Weisheitsmodifikator.
+Feat/&FeatWiseDefenseDescription=Erhöhe deine Weisheit um 1 bis zu einem Maximum von 20.\n Solange du keine Rüstung oder Schild trägst, beträgt deine RK 10 + deinen Geschicklichkeitsmodifikator + deinen Weisheitsmodifikator.
 Feat/&FeatWiseDefenseTitle=Weise Verteidigung

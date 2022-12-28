@@ -1,4 +1,4 @@
-Condition/&ConditionDivineHeartEmpoweredHealingDescription=Si vous lancez un sort de soin ce tour-ci, vous relancez un résultat de 1 ou 2.
+Condition/&ConditionDivineHeartEmpoweredHealingDescription=Si vous lancez un sort de Soins ce tour-ci, vous relancez un résultat de 1 ou 2.
 Condition/&ConditionDivineHeartEmpoweredHealingTitle=Guérison renforcée
 Feature/&AttributeModifierDivineHeartDivineFortitudeDescription=+1 point de vie par niveau
 Feature/&AttributeModifierDivineHeartDivineFortitudeTitle=Courage divin

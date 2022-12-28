@@ -4,6 +4,8 @@ Condition/&ConditionPathOfTheLightIlluminatedDescription=被光耀一击分神
 Condition/&ConditionPathOfTheLightIlluminatedTitle=被照亮
 Feature/&AttackDisadvantageAgainstNonSourcePathOfTheLightIlluminatedDescription=在任何不针对光明之路野蛮人的攻击骰上都处于劣势
 Feature/&AttackDisadvantageAgainstNonSourcePathOfTheLightIlluminatedTitle=被照亮
+Feature/&FeaturePathOfTheLightIlluminatingStrikeImprovementDescription=光耀一击的额外伤害提升至2d6点
+Feature/&FeaturePathOfTheLightIlluminatingStrikeImprovementTitle=强化光耀一击
 Feature/&FeatureSetPathOfTheLightIlluminatedPreventInvisibilityDescription=当被光辉道途野蛮人照亮时不能隐形
 Feature/&FeatureSetPathOfTheLightIlluminatedPreventInvisibilityTitle=被照亮
 Feature/&FeatureSetPathOfTheLightIlluminatingBurstDescription=在你进入狂暴状态的那一回合，你能选择照耀你周围30尺内最多3名敌人。他们必须成功地进行体质豁免（DC=8+熟练加值+体质调整值），否则受到4d6点光耀伤害并被你的光耀一击照亮1分钟。以这种方式被照亮的生物在它的每个回合结束时都要再进行一次体质豁免。豁免成功则此效果结束
@@ -14,8 +16,6 @@ Feature/&FeatureSetPathOfTheLightLightsProtectionDescription=当一个受你光�
 Feature/&FeatureSetPathOfTheLightLightsProtectionTitle=光之守护
 Feature/&FeatureSetPathOfTheLightPierceTheDarknessDescription=你获得增强黑暗视觉
 Feature/&FeatureSetPathOfTheLightPierceTheDarknessTitle=刺破黑暗
-Feature/&FeaturePathOfTheLightIlluminatingStrikeImprovementDescription=光耀一击的额外伤害提升至2d6点
-Feature/&FeaturePathOfTheLightIlluminatingStrikeImprovementTitle=强化光耀一击
 Feature/&PowerPathOfTheLightEyesOfTruthDescription=你总是处于"识破隐形"的法术效果之下
 Feature/&PowerPathOfTheLightEyesOfTruthTitle=真实之眼
 Feature/&PowerPathOfTheLightIlluminatingBurstDescription=最多3名敌人受到须通过一次体质豁免，否则将受到4d6点光耀伤害，并被你的光耀一击所照亮

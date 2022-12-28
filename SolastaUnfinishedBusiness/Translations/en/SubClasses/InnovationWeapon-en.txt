@@ -1,4 +1,6 @@
 Condition/&ConditionInnovationWeaponSummonSteelDefenderSpellAttackTitle=Spell attack bonus of its creator
+Feature/&AttributeModifierInnovationWeaponExtraAttackDescription=You can attack twice, rather than once, when you use the attack or shove actions.
+Feature/&AttributeModifierInnovationWeaponExtraAttackTitle=Extra Attack
 Feature/&AutoPreparedSpellsInnovationWeaponDescription=Learn and have always prepared:\n{0}\n\n
 Feature/&AutoPreparedSpellsInnovationWeaponTitle=Weaponsmith Spells
 Feature/&FeatureSetInnovationWeaponSteelDefenderDescription=Your experiments with weapons has borne you a Defending Blade companion. It is immune to poison, exhaustion, being charmed or surprised. In combat, the blade shares your initiative and takes its turn immediately after you. It can move and use reaction to impose disadvantage on the attack roll of the enemy that attacks ally within 1 cell of the blade, but it takes Dodge action on turn start, unless you use bonus action to command it. If you are incapacitated, the blade can take any action of its choice.
@@ -16,8 +18,6 @@ Feature/&PowerInventorWeaponSteelDefenderCommandDescription=Issue command for yo
 Feature/&PowerInventorWeaponSteelDefenderCommandTitle=Command Defending Blade
 Feature/&ProficiencyInnovationWeaponBattleReadyDescription=After experimenting on weapons you learned that you can use your smarts to handle them:\n• You became proficient with all martial weapons\n• You can use Intelligence for attack and damage rolls with magic weapons
 Feature/&ProficiencyInnovationWeaponBattleReadyTitle=Inventive Weapon Use
-Feature/&AttributeModifierInnovationWeaponExtraAttackDescription=You can attack twice, rather than once, when you use the attack or shove actions.
-Feature/&AttributeModifierInnovationWeaponExtraAttackTitle=Extra Attack
 Item/&MonsterAttackSteelDefenderTitle=Force Slash
 Monster/&InnovationWeaponSteelDefenderDescription=Faithful defender of the weaponsmith.
 Monster/&InnovationWeaponSteelDefenderTitle=Defending Blade

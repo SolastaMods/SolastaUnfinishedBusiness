@@ -1,7 +1,7 @@
 ﻿Condition/&ConditionCharmedByDanceOfWarDescription=Classe d'armure réduite par le modificateur de Charisme.
 Condition/&ConditionCharmedByDanceOfWarTittle=Charmé
 Condition/&ConditionWarDanceDescription=Déplacez-vous et attaquez rapidement.
-Condition/&ConditionWarDanceLightMomentumDescription=Votre attaque moment léger.
+Condition/&ConditionWarDanceLightMomentumDescription=Votre attaque a un léger élan.
 Condition/&ConditionWarDanceLightMomentumTitle=Moment léger
 Condition/&ConditionWarDanceMomentumDescription=Votre attaque inflige plus de dégâts mais est moins précise.
 Condition/&ConditionWarDanceMomentumTitle=Élan

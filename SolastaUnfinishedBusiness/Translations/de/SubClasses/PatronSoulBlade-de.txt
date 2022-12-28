@@ -5,6 +5,6 @@ Feature/&PowerSoulBladeEmpowerWeaponTitle=Seelenkraft
 Feature/&PowerSoulBladeSoulShieldDescription=Einmal pro kurzer Rast nutzt du die Kraft der Seelen, um dich zu verteidigen. Mit einer Bonusaktion erhältst du temporäre HP in Höhe deines Levels + Charisma-Modifikator.
 Feature/&PowerSoulBladeSoulShieldTitle=Seelenschild
 Feature/&PowerSoulBladeSummonPactWeaponDescription=Einmal pro kurzer Rast kannst du als Freie Aktion eine spirituelle Form einer Waffe aus deinem Pakt beschwören. Als Bonusaktion kannst du die Waffe wie gewünscht lenken, um deine Feinde anzugreifen. Die Waffe bewegt sich jedes Mal bis zu 20 Fuß, bevor sie zuschlägt.
-Feature/&PowerSoulBladeSummonPactWeaponTitle=Waffe des spirituellen Pakts
+Feature/&PowerSoulBladeSummonPactWeaponTitle=Waffe des spirituellen Paktes
 Subclass/&PatronSoulBladeDescription=Du hast einen Handel mit einer empfindungsfähigen Waffe abgeschlossen, die du im Gegenzug für Macht mit Seelen fütterst.
 Subclass/&PatronSoulBladeTitle=Die Seelenklinge

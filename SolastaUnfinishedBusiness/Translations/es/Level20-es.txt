@@ -1,4 +1,4 @@
-Action/&PersistentRageStartDescription=Durante un minuto, tienes ventaja en las salvaciones y comprobaciones de Fuerza, una bonificación al daño de ataque cuerpo a cuerpo y resistencia al daño cortante, contundente y perforante. Obtienes estos beneficios solo si ahora llevas una armadura pesada.
+Action/&PersistentRageStartDescription=Durante un minuto, tienes ventaja en las salvaciones y controles de Fuerza, una bonificación al daño de ataque cuerpo a cuerpo y resistencia al daño cortante, contundente y perforante. Obtienes estos beneficios solo si ahora llevas una armadura pesada.
 Condition/&ConditionMonkEmptyBodyDescription=Tienes resistencia a todo daño excepto a la fuerza.
 Condition/&ConditionMonkEmptyBodyTitle=cuerpo vacio
 Feature/&BattleStartedListenerMonkPerfectSelfDescription=Cuando comienzas la batalla y no te quedan puntos de ki, recuperas 4 puntos de ki.
