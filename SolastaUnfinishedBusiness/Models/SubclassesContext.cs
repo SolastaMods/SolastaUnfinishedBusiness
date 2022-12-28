@@ -26,7 +26,7 @@ internal static class SubclassesContext
         LoadSubclass(new CollegeOfGuts());
         LoadSubclass(new CollegeOfHarlequin());
         LoadSubclass(new CollegeOfLife());
-        LoadSubclass(new CollegeOfWarDancer(), true);
+        LoadSubclass(new CollegeOfWarDancer());
 
         // Druid
         LoadSubclass(new CircleOfTheAncientForest());
@@ -40,6 +40,7 @@ internal static class SubclassesContext
         LoadSubclass(new MartialTactician());
 
         // Paladin
+        LoadSubclass(new OathOfAncients());
         LoadSubclass(new OathOfHatred());
 
         // Ranger

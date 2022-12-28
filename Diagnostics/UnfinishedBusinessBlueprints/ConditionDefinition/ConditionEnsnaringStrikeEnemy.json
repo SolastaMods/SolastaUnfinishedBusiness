@@ -1,12 +1,9 @@
 {
   "$type": "ConditionDefinition, Assembly-CSharp",
   "inDungeonEditor": false,
-  "parentCondition": null,
+  "parentCondition": "Definition:ConditionRestrained:ec9fa707d4174c54bbdecde60a860c2c",
   "conditionType": "Detrimental",
-  "features": [
-    "Definition:CombatAffinityFrightened:bd7a11317eacebb44966fa78e8b8f2dc",
-    "Definition:AbilityCheckAffinityFrightened:2a2719b10ea87f34f9f29e03cbdba5c7"
-  ],
+  "features": [],
   "allowMultipleInstances": false,
   "silentWhenAdded": false,
   "silentWhenRemoved": false,
@@ -46,13 +43,13 @@
   },
   "conditionParticleReference": {
     "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-    "m_AssetGUID": "40ab6dfd54701724ab98b3f91c846a41",
+    "m_AssetGUID": "",
     "m_SubObjectName": "",
     "m_SubObjectType": ""
   },
   "conditionEndParticleReference": {
     "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-    "m_AssetGUID": "09122c24b2751d34a89764b8407ef696",
+    "m_AssetGUID": "",
     "m_SubObjectName": "",
     "m_SubObjectType": ""
   },
@@ -264,12 +261,12 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Rules/&ConditionFrightenedTitle",
-    "description": "Rules/&ConditionFrightenedDescription",
+    "title": "Rules/&ConditionRestrainedTitle",
+    "description": "Rules/&ConditionRestrainedDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "6999cc364fd0b374a8acf35bac34d694",
-      "m_SubObjectName": "ConditionFrightened",
+      "m_AssetGUID": "d89ea9eef65da0d46a12c4ff40481527",
+      "m_SubObjectName": "ConditionRestrained",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
@@ -285,7 +282,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "1b247ded-7f2e-57f1-b89e-4e61bb57dd3f",
+  "guid": "d187d079-4674-5b3a-8906-467583847e18",
   "contentPack": 9999,
-  "name": "ConditionFrightened1minute"
+  "name": "ConditionEnsnaringStrikeEnemy"
 }
