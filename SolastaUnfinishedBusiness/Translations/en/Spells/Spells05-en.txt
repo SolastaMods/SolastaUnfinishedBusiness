@@ -1,4 +1,10 @@
 ﻿Condition/&ConditionFarStepDescription=You can use a bonus action to teleport up to 60 feet to an unoccupied space you can see.
 Condition/&ConditionFarStepTitle=Far Step
+Feature/&AdditionalDamageBanishingSmiteDescription=You're hit by force damage.
+Feature/&AdditionalDamageBanishingSmiteTitle=Banishing Smite
+Feedback/&AdditionalDamageBanishingSmiteFormat=Banishing Smite!
+Feedback/&AdditionalDamageBanishingSmiteLine={0} deals more damage to {1} through a banishing smite (+{2})
+Spell/&BanishingSmiteDescription=Your next hit causes additional force damage with your weapon. Additionally, if this attack reduces the target to 50 hit points of fewer, you banish it for 1 min.
+Spell/&BanishingSmiteTitle=Banishing Smite
 Spell/&FarStepDescription=You teleport up to 60 feet to an unoccupied space you can see. On each of your turns before the spell ends, you can use a bonus action to teleport in this way again.
 Spell/&FarStepTitle=Far Step

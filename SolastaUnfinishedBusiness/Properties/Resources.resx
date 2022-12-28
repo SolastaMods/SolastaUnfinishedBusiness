@@ -623,4 +623,7 @@
   <data name="StaggeringSmite" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Spells/StaggeringSmite.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="BanishmentSmite" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>../Resources/Spells/BanishmentSmite.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
 </root>

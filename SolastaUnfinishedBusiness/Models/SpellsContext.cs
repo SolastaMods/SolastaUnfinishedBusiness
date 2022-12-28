@@ -220,10 +220,11 @@ internal static class SpellsContext
         RegisterSpell(BuildWinterBreath(), 0, SpellListDruid, SpellListSorcerer, SpellListWizard);
         RegisterSpell(BuildSpiritShroud(), 0, SpellListCleric, SpellListPaladin, SpellListWarlock, SpellListWizard);
 
-        // 3rd level
+        // 4th level
         RegisterSpell(BuildStaggeringSmite(), 0, SpellListPaladin);
         
         //5th level
+        RegisterSpell(BuildBanishingSmite(), 0, SpellListPaladin);
         RegisterSpell(FarStep, 0, SpellListSorcerer, SpellListWarlock, SpellListWizard);
 
         // 7th level

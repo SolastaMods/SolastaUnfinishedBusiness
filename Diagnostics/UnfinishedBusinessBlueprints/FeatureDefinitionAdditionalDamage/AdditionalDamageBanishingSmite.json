@@ -1,6 +1,6 @@
 {
   "$type": "FeatureDefinitionAdditionalDamage, Assembly-CSharp",
-  "notificationTag": "WrathfulSmite",
+  "notificationTag": "BanishingSmite",
   "limitedUsage": "None",
   "firstTargetOnly": true,
   "targetSide": "Enemy",
@@ -17,32 +17,32 @@
   "requiredAncestryType": "Sorcerer",
   "damageValueDetermination": "Die",
   "flatBonus": 0,
-  "damageDieType": "D6",
-  "damageDiceNumber": 1,
+  "damageDieType": "D10",
+  "damageDiceNumber": 5,
   "additionalDamageType": "Specific",
-  "specificDamageType": "DamagePsychic",
+  "specificDamageType": "DamageForce",
   "ancestryTypeForDamageType": "Sorcerer",
   "damageAdvancement": "SlotLevel",
   "diceByRankTable": [
     {
       "$type": "DiceByRank, Assembly-CSharp",
       "rank": 1,
-      "diceNumber": 1
+      "diceNumber": 0
     },
     {
       "$type": "DiceByRank, Assembly-CSharp",
       "rank": 2,
-      "diceNumber": 2
+      "diceNumber": 0
     },
     {
       "$type": "DiceByRank, Assembly-CSharp",
       "rank": 3,
-      "diceNumber": 3
+      "diceNumber": 0
     },
     {
       "$type": "DiceByRank, Assembly-CSharp",
       "rank": 4,
-      "diceNumber": 4
+      "diceNumber": 0
     },
     {
       "$type": "DiceByRank, Assembly-CSharp",
@@ -127,25 +127,14 @@
   ],
   "familiesWithAdditionalDice": [],
   "familiesDiceNumber": 1,
-  "ignoreCriticalDoubleDice": false,
-  "hasSavingThrow": true,
-  "savingThrowAbility": "Wisdom",
-  "dcComputation": "SpellCastingFeature",
-  "savingThrowDC": 12,
-  "savingThrowDCAbilityModifier": "Wisdom",
-  "damageSaveAffinity": "Negates",
-  "conditionOperations": [
-    {
-      "$type": "ConditionOperationDescription, Assembly-CSharp",
-      "hasSavingThrow": true,
-      "operation": "Add",
-      "conditionName": "",
-      "conditionDefinition": "Definition:ConditionFrightened1minute:1b247ded-7f2e-57f1-b89e-4e61bb57dd3f",
-      "saveAffinity": "Negates",
-      "canSaveToCancel": true,
-      "saveOccurence": "StartOfTurn"
-    }
-  ],
+  "ignoreCriticalDoubleDice": true,
+  "hasSavingThrow": false,
+  "savingThrowAbility": "Dexterity",
+  "dcComputation": "FixedValue",
+  "savingThrowDC": 10,
+  "savingThrowDCAbilityModifier": "Dexterity",
+  "damageSaveAffinity": "None",
+  "conditionOperations": [],
   "addLightSource": false,
   "lightSourceForm": null,
   "impactParticleReference": null,
@@ -160,8 +149,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&AdditionalDamageWrathfulSmiteTitle",
-    "description": "Feature/&AdditionalDamageWrathfulSmiteDescription",
+    "title": "Feature/&AdditionalDamageBanishingSmiteTitle",
+    "description": "Feature/&AdditionalDamageBanishingSmiteDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -181,7 +170,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "a4155f80-3b56-5bb3-93fd-5f38a7e23c3b",
+  "guid": "245a99cf-a5fe-50e5-9f4b-4b5a0d0b7161",
   "contentPack": 9999,
-  "name": "AdditionalDamageWrathfulSmite"
+  "name": "AdditionalDamageBanishingSmite"
 }

@@ -49,6 +49,7 @@ internal static partial class SpellBuilders
                 EffectDifficultyClassComputation.SpellCastingFeature,
                 EffectSavingThrowType.Negates,
                 AttributeDefinitions.Wisdom)
+            .SetIgnoreCriticalDoubleDice(true)
             .SetConditionOperations(
                 new ConditionOperationDescription
                 {
@@ -60,9 +61,6 @@ internal static partial class SpellBuilders
                     operation = ConditionOperationDescription.ConditionOperation.Add
                 })
             .AddToDB();
-
-        // hack as I need to init the saving throw data above but only let the condition enforce it
-        additionalDamageStaggeringSmite.hasSavingThrow = false;
 
         var conditionStaggeringSmite = ConditionDefinitionBuilder
             .Create($"Condition{NAME}")

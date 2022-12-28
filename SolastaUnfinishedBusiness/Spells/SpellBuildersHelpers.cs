@@ -174,5 +174,41 @@ internal static partial class SpellBuilders
         }
     }
 
+    private sealed class OnAttackHitEffectBanishingSmite : IAfterAttackEffect
+    {
+        private readonly ConditionDefinition _conditionDefinition;
+
+        public OnAttackHitEffectBanishingSmite(ConditionDefinition conditionDefinition)
+        {
+            _conditionDefinition = conditionDefinition;
+        }
+
+        public void AfterOnAttackHit(
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            RollOutcome outcome,
+            CharacterActionParams actionParams,
+            RulesetAttackMode attackMode,
+            ActionModifier attackModifier)
+        {
+            if (outcome is RollOutcome.Failure or RollOutcome.CriticalFailure ||
+                defender.RulesetCharacter.CurrentHitPoints >= 50)
+            {
+                return;
+            }
+
+            var rulesetCondition = RulesetCondition.CreateActiveCondition(
+                defender.Guid,
+                _conditionDefinition,
+                DurationType.Minute,
+                1,
+                TurnOccurenceType.EndOfTurn,
+                attacker.RulesetCharacter.Guid,
+                attacker.RulesetCharacter.CurrentFaction.Name);
+
+            attacker.RulesetCharacter.AddConditionOfCategory(AttributeDefinitions.TagCombat, rulesetCondition);
+        }
+    }
+
     #endregion
 }

@@ -165,6 +165,7 @@ internal static partial class SpellBuilders
             .SetAdditionalDamageType(AdditionalDamageType.Specific)
             .SetAdvancement(AdditionalDamageAdvancement.SlotLevel, 1)
             .SetSpecificDamageType(DamageTypeFire)
+            .SetIgnoreCriticalDoubleDice(true)
             .SetSavingThrowData()
             .SetConditionOperations(
                 new ConditionOperationDescription
@@ -207,7 +208,6 @@ internal static partial class SpellBuilders
         return spell;
     }
 
-
     internal static SpellDefinition BuildThunderousSmite()
     {
         const string NAME = "ThunderousSmite";
@@ -220,6 +220,7 @@ internal static partial class SpellBuilders
             .SetAdditionalDamageType(AdditionalDamageType.Specific)
             .SetAdvancement(AdditionalDamageAdvancement.SlotLevel, 1)
             .SetSpecificDamageType(DamageTypeThunder)
+            .SetIgnoreCriticalDoubleDice(true)
             .SetCustomSubFeatures(new OnAttackHitEffectThunderousSmite())
             .AddToDB();
 
@@ -282,9 +283,6 @@ internal static partial class SpellBuilders
                     operation = ConditionOperationDescription.ConditionOperation.Add
                 })
             .AddToDB();
-
-        // hack as I need to init the saving throw data above but only let the condition enforce it
-        additionalDamageWrathfulSmite.hasSavingThrow = false;
 
         var conditionWrathfulSmite = ConditionDefinitionBuilder
             .Create($"Condition{NAME}")

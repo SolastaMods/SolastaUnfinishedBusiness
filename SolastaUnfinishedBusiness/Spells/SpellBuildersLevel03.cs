@@ -29,6 +29,7 @@ internal static partial class SpellBuilders
             .SetAdvancement(AdditionalDamageAdvancement.SlotLevel, 3, 1, 1, 3)
             .SetSpecificDamageType(DamageTypeRadiant)
             .SetSavingThrowData()
+            .SetIgnoreCriticalDoubleDice(true)
             .SetConditionOperations(
                 new ConditionOperationDescription
                 {
@@ -40,9 +41,6 @@ internal static partial class SpellBuilders
                     operation = ConditionOperationDescription.ConditionOperation.Add
                 })
             .AddToDB();
-
-        // hack as I need to init the saving throw data above but only let the condition enforce it
-        additionalDamageBlindingSmite.hasSavingThrow = false;
 
         var conditionBlindingSmite = ConditionDefinitionBuilder
             .Create($"Condition{NAME}")

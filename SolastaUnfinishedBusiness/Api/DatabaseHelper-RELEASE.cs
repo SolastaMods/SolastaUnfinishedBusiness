@@ -226,6 +226,9 @@ internal static partial class DatabaseHelper
         internal static ConditionDefinition ConditionBaned { get; } =
             GetDefinition<ConditionDefinition>("ConditionBaned");
 
+        internal static ConditionDefinition ConditionBanishedByPrismaticSpray { get; } =
+            GetDefinition<ConditionDefinition>("ConditionBanishedByPrismaticSpray");
+
         internal static ConditionDefinition ConditionBardicInspiration { get; } =
             GetDefinition<ConditionDefinition>("ConditionBardicInspiration");
 
