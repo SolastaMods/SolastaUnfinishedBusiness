@@ -25,6 +25,14 @@
         "Definition:ProtectionFromEnergy:8416ac74aea478f498e2d50380376e90",
         "Definition:SpiritGuardians:e44bc16c38bca35458599d87cf6def2d"
       ]
+    },
+    {
+      "$type": "FeatureDefinitionAutoPreparedSpells+AutoPreparedSpellsGroup, Assembly-CSharp",
+      "classLevel": 13,
+      "spellsList": [
+        "Definition:IceStorm:433fb934e19f1b5409b89bfa7fed3e3d",
+        "Definition:Stoneskin:9040c4fcd7301184f8772720f716a837"
+      ]
     }
   ],
   "spellcastingClass": "Definition:Paladin:b2e60f3a15ee5de40a14cce2d16f02ba",
@@ -53,7 +61,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "8ed25b66-1547-5a60-9d78-e3c1b0750ec0",
+  "guid": "8fa00b8b-be61-5e63-abf3-e250d27588da",
   "contentPack": 9999,
-  "name": "AutoPreparedSpells{NAME}"
+  "name": "AutoPreparedSpellsOathOfAncients"
 }

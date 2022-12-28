@@ -25,6 +25,14 @@
         "Definition:Haste:134efafc59c7c58438b711271fb2c785",
         "Definition:ProtectionFromEnergy:8416ac74aea478f498e2d50380376e90"
       ]
+    },
+    {
+      "$type": "FeatureDefinitionAutoPreparedSpells+AutoPreparedSpellsGroup, Assembly-CSharp",
+      "classLevel": 13,
+      "spellsList": [
+        "Definition:Banishment:5f6a4b43068dbdc448632b9d43022eb8",
+        "Definition:DreadfulOmen:a06863ee662908a47a95ca334aa24b99"
+      ]
     }
   ],
   "spellcastingClass": "Definition:Paladin:b2e60f3a15ee5de40a14cce2d16f02ba",
