@@ -8,6 +8,7 @@ CHANGES:
 - added Banishment, Ensnaring and Staggering Smite spells
 - added Oath of Ancient subclass
 - added level 13th Oath spells to support Level 20 feature
+- fixed Shadow Blade damage progression
 - improved Merciless gui presentation
 - improved translation terms
 - included Raise Skeleton spells on selection lists
