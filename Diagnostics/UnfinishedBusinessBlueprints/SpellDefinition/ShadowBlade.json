@@ -129,17 +129,17 @@
             {
               "$type": "FeatureUnlockByLevel, Assembly-CSharp",
               "featureDefinition": "Definition:AttackModifierFlameBlade4:b50bad012130ef44696c9191bcd13cdb",
-              "level": 4
+              "level": 3
             },
             {
               "$type": "FeatureUnlockByLevel, Assembly-CSharp",
               "featureDefinition": "Definition:AttackModifierFlameBlade6:d3ea3505d943c18499a3115cc4488fa1",
-              "level": 6
+              "level": 5
             },
             {
               "$type": "FeatureUnlockByLevel, Assembly-CSharp",
               "featureDefinition": "Definition:AttackModifierFlameBlade8:61ffd00901e0456419161c51792f4745",
-              "level": 8
+              "level": 7
             }
           ],
           "usageLimitation": "Unlimited",
@@ -170,35 +170,6 @@
           "operation": "Add",
           "conditionsList": [],
           "applyToSelf": true,
-          "forceOnSelf": false
-        },
-        "hasFilterId": false,
-        "filterId": 0
-      },
-      {
-        "$type": "EffectForm, Assembly-CSharp",
-        "formType": "Condition",
-        "addBonusMode": "None",
-        "applyLevel": "No",
-        "levelType": "ClassLevel",
-        "levelMultiplier": 1,
-        "diceByLevelTable": [],
-        "createdByCharacter": false,
-        "createdByCondition": false,
-        "hasSavingThrow": false,
-        "savingThrowAffinity": "None",
-        "dcModifier": 0,
-        "canSaveToCancel": false,
-        "saveOccurence": "EndOfTurn",
-        "conditionForm": {
-          "$type": "ConditionForm, Assembly-CSharp",
-          "conditionDefinitionName": "ConditionShadowBlade",
-          "conditionDefinition": "Definition:ConditionShadowBlade:7f7a5735-9143-5616-a6d5-659c5da3026d",
-          "operation": "Add",
-          "conditionsList": [
-            "Definition:ConditionShadowBlade:7f7a5735-9143-5616-a6d5-659c5da3026d"
-          ],
-          "applyToSelf": false,
           "forceOnSelf": false
         },
         "hasFilterId": false,

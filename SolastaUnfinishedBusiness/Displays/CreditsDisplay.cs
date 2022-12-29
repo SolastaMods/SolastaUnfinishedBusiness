@@ -2,6 +2,7 @@
 using System.IO;
 using SolastaUnfinishedBusiness.Api.Infrastructure;
 using SolastaUnfinishedBusiness.Api.ModKit;
+using SolastaUnfinishedBusiness.Models;
 using UnityExplorer;
 using static SolastaUnfinishedBusiness.Displays.PatchesDisplay;
 
@@ -23,13 +24,13 @@ internal static class CreditsDisplay
         ("ChrisJohnDigital",
             "builders, gameplay, feats, fighting styles, original Tinkerer, original Wizard subclasses, Arcane Fighter, Spell Master, Spell Shield"),
         ("SilverGriffon", "gameplay, visuals, spells, Dark Elf, Draconic Kobold, Grey Dwarf, Divine Heart"),
+        ("Haxermn", "spells, Oath of Ancient, Oath of Hatred"),
         ("tivie", "Circle of The Night, Path of The Spirits"),
         ("ElAntonius", "feats, fighting styles, Arcanist"),
         ("DubhHerder", "replace spiders, spells, original Warlock subclasses"),
         ("Holic75", "spells, Bolgrif, Gnome"),
         ("RedOrca", "Path of The Light"),
         ("DreadMaker", "Forest Guardian"),
-        ("Haxermn", "Oath of Hatred"),
         ("Bazou", "fighting styles, rules, spells"),
         ("Prioritizer", "Russian translations"),
         ("xxy961216", "Chinese translations"),
@@ -43,26 +44,32 @@ internal static class CreditsDisplay
 
     private static bool IsUnityExplorerEnabled { get; set; }
 
+    private static void EnableUnityExplorerUi()
+    {
+        IsUnityExplorerEnabled = true;
+
+        try
+        {
+            ExplorerStandalone.CreateInstance();
+        }
+        catch
+        {
+            // ignored
+        }
+    }
     internal static void DisplayCredits()
     {
-        if (IsUnityExplorerInstalled && !IsUnityExplorerEnabled)
+        UI.Label();
+        
+        using (UI.HorizontalScope())
         {
-            UI.Label();
-
-            UI.ActionButton("Unity Explorer UI".Bold().Khaki(), () =>
-                {
-                    IsUnityExplorerEnabled = true;
-
-                    try
-                    {
-                        ExplorerStandalone.CreateInstance();
-                    }
-                    catch
-                    {
-                        // ignored
-                    }
-                },
-                UI.Width(150));
+            UI.ActionButton("Donate".Bold().Khaki(), BootContext.OpenDonate, UI.Width(150));
+            UI.ActionButton("Change Log History".Bold().Khaki(), BootContext.OpenChangeLog, UI.Width(150));
+        
+            if (IsUnityExplorerInstalled && !IsUnityExplorerEnabled)
+            {
+                UI.ActionButton("Unity Explorer UI".Bold().Khaki(), EnableUnityExplorerUi, UI.Width(150));
+            }
         }
 
         UI.Label();

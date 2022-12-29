@@ -1,4 +1,10 @@
 ﻿Condition/&ConditionFarStepDescription=Sie können eine Bonusaktion verwenden, um sich bis zu 60 Fuß zu einem unbesetzten Feld zu teleportieren, das Sie sehen können.
 Condition/&ConditionFarStepTitle=Weiter Schritt
+Feature/&AdditionalDamageBanishingSmiteDescription=Du wirst von Gewaltschaden getroffen.
+Feature/&AdditionalDamageBanishingSmiteTitle=Verbannung von Smite
+Feedback/&AdditionalDamageBanishingSmiteFormat=Smite verbannen!
+Feedback/&AdditionalDamageBanishingSmiteLine={0} fügt {1} mehr Schaden durch einen Bannschlag zu (+{2})
+Spell/&BanishingSmiteDescription=Dein nächster Treffer verursacht mit deiner Waffe zusätzlichen Kraftschaden. Wenn dieser Angriff das Ziel auf 50 Trefferpunkte oder weniger reduziert, verbannt Ihr es außerdem für 1 Minute.
+Spell/&BanishingSmiteTitle=Verbannung von Smite
 Spell/&FarStepDescription=Sie teleportieren bis zu 60 Fuß zu einem unbesetzten Feld, das Sie sehen können. In jedem deiner Züge, bevor der Zauber endet, kannst du eine Bonusaktion nutzen, um dich erneut auf diese Weise zu teleportieren.
 Spell/&FarStepTitle=Weiter Schritt

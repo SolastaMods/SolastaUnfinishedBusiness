@@ -96,6 +96,7 @@ internal static class MeleeCombatFeats
                     .SetFeatures(
                         FeatureDefinitionMovementAffinityBuilder
                             .Create("MovementAffinityFeatSlasher")
+                            .SetGuiPresentation("FeatSlasherStr", Category.Feat)
                             .SetBaseSpeedAdditiveModifier(-2)
                             .AddToDB())
                     .AddToDB(),

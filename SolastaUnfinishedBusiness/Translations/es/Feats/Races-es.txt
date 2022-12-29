@@ -1,3 +1,5 @@
+Feat/&FeatDragonWingsDescription=Te brotan alas dracónicas. Obtienes la habilidad de volar por un tiempo limitado si no llevas una armadura pesada.
+Feat/&FeatDragonWingsTitle=Alas de dragón
 Feat/&FeatFadeAwayDexDescription=Has aprendido un truco mágico para desvanecerte cuando sufres daño. Aumenta tu puntuación de Destreza en 1, hasta un máximo de 20. Inmediatamente después de recibir daño, puedes usar una reacción para volverte invisible mágicamente hasta el final de tu próximo turno o hasta que ataques, inflijas daño u obligues a alguien a hacer una salvación. tirar. Una vez que usas esta habilidad, no puedes volver a hacerlo hasta que termines un descanso corto o largo.
 Feat/&FeatFadeAwayDexTitle=Desaparecer [Dex]
 Feat/&FeatFadeAwayIntDescription=Has aprendido un truco mágico para desvanecerte cuando sufres daño. Aumenta tu puntuación de Inteligencia en 1, hasta un máximo de 20. Inmediatamente después de recibir daño, puedes usar una reacción para volverte invisible mágicamente hasta el final de tu próximo turno o hasta que ataques, inflijas daño u obligues a alguien a hacer una salvación. tirar. Una vez que usas esta habilidad, no puedes volver a hacerlo hasta que termines un descanso corto o largo.
@@ -8,5 +10,3 @@ Feat/&FeatRevenantGreatSwordStrDescription=Aumenta tu puntuación de Fuerza en 1
 Feat/&FeatRevenantGreatSwordStrTitle=Gran espada de resucitado [Str]
 Feature/&AttributeModifierFeatRevenantGreatSwordArmorClassDescription=Mientras sostienes una gran espada, obtienes una bonificación de +1 a la Clase de armadura.
 Feature/&AttributeModifierFeatRevenantGreatSwordArmorClassTitle=Gran espada de resucitado
-Feat/&FeatDragonWingsDescription=Te brotan alas dracónicas. Obtienes la habilidad de volar por un tiempo limitado si no llevas una armadura pesada.
-Feat/&FeatDragonWingsTitle=Alas de dragón

@@ -5,7 +5,10 @@ KNOWN ISSUES:
 
 CHANGES:
 
-- added missing attribute pre-reqs to Poisonous Skin and Monk Initiate
-- changed Tiefling Zariel to learn Searing Smite instead of Faerie Fire at 3rd
-- improved Circle of The Night subclass and Shape Changer spell integration
-- improved Crusher and Slasher feats
+- added Banishment, Ensnaring and Staggering Smite spells
+- added Oath of Ancient subclass
+- added level 13th Oath spells to support Level 20 feature
+- fixed Shadow Blade damage progression
+- improved Merciless gui presentation
+- improved translation terms
+- included Raise Skeleton spells on selection lists

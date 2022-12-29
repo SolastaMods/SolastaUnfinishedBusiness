@@ -2,7 +2,7 @@
 Condition/&ConditionSpiritShroudNoHealTitle=Linceul touché
 Feature/&AdditionalDamageBlindingSmiteDescription=Vous êtes touché par des dégâts radiants.
 Feature/&AdditionalDamageBlindingSmiteTitle=Châtiment aveuglant
-Feedback/&AdditionalDamageBlindingSmiteFormat=Châtiment brûlant !
+Feedback/&AdditionalDamageBlindingSmiteFormat=Châtiment aveuglant !
 Feedback/&AdditionalDamageBlindingSmiteLine={0} inflige plus de dégâts à {1} par un châtiment aveuglant (+{2})
 Feedback/&AdditionalDamageSpiritShroudDamageColdFormat=Voile spirituel !
 Feedback/&AdditionalDamageSpiritShroudDamageColdLine={0} inflige {2} dégâts de froid à {1} avec Spirit Shroud !
@@ -10,7 +10,7 @@ Feedback/&AdditionalDamageSpiritShroudDamageNecroticFormat=Voile spirituel !
 Feedback/&AdditionalDamageSpiritShroudDamageNecroticLine={0} inflige {2} dégâts nécrotiques à {1} avec Spirit Shroud !
 Feedback/&AdditionalDamageSpiritShroudDamageRadiantFormat=Voile spirituel !
 Feedback/&AdditionalDamageSpiritShroudDamageRadiantLine={0} inflige {2} dégâts radiants à {1} avec Spirit Shroud !
-Spell/&BlindingSmiteDescription=Votre prochain coup cause des dégâts radiants supplémentaires avec votre arme flamboyante avec une lumière vive.
+Spell/&BlindingSmiteDescription=Votre prochain coup cause des dégâts radiants supplémentaires avec votre arme flamboyante avec une lumière vive. De plus, la cible doit réussir un jet de sauvegarde de Constitution ou être aveuglée pendant 1 minute.
 Spell/&BlindingSmiteTitle=Châtiment aveuglant
 Spell/&EarthTremorDescription=Vous frappez le sol et déclenchez un tremblement de force sismique, projetant de la terre, de la roche et du sable.
 Spell/&EarthTremorTitle=Tremblement de terre

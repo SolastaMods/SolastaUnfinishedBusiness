@@ -2,7 +2,7 @@
 Condition/&ConditionSpiritShroudNoHealTitle=Sudario tocado
 Feature/&AdditionalDamageBlindingSmiteDescription=Eres golpeado por daño radiante.
 Feature/&AdditionalDamageBlindingSmiteTitle=Golpe cegador
-Feedback/&AdditionalDamageBlindingSmiteFormat=Golpe abrasador!
+Feedback/&AdditionalDamageBlindingSmiteFormat=¡Golpe cegador!
 Feedback/&AdditionalDamageBlindingSmiteLine={0} inflige más daño a {1} mediante un golpe cegador (+{2})
 Feedback/&AdditionalDamageSpiritShroudDamageColdFormat=Sudario de Espíritu!
 Feedback/&AdditionalDamageSpiritShroudDamageColdLine=¡{0} inflige {2} daños por frío a {1} con Spirit Shroud!
@@ -10,7 +10,7 @@ Feedback/&AdditionalDamageSpiritShroudDamageNecroticFormat=Sudario de Espíritu!
 Feedback/&AdditionalDamageSpiritShroudDamageNecroticLine=¡{0} inflige {2} daño necrótico a {1} con Spirit Shroud!
 Feedback/&AdditionalDamageSpiritShroudDamageRadiantFormat=Sudario de Espíritu!
 Feedback/&AdditionalDamageSpiritShroudDamageRadiantLine=¡{0} inflige {2} daño radiante a {1} de Spirit Shroud!
-Spell/&BlindingSmiteDescription=Tu próximo golpe causa daño radiante adicional con tu arma destellando con una luz brillante.
+Spell/&BlindingSmiteDescription=Tu próximo golpe causa daño radiante adicional con tu arma destellando con una luz brillante. Además, el objetivo debe tener éxito en una tirada de salvación de Constitución o quedará cegado durante 1 minuto.
 Spell/&BlindingSmiteTitle=Golpe cegador
 Spell/&EarthTremorDescription=Golpeas el suelo y desatas un temblor de fuerza sísmica, arrojando tierra, rocas y arena.
 Spell/&EarthTremorTitle=Terremoto

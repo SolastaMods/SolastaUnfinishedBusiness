@@ -1,0 +1,6 @@
+﻿Feature/&AdditionalDamageStaggeringSmiteDescription=You're hit by psychic damage.
+Feature/&AdditionalDamageStaggeringSmiteTitle=Staggering Smite
+Feedback/&AdditionalDamageStaggeringSmiteFormat=Staggering Smite!
+Feedback/&AdditionalDamageStaggeringSmiteLine={0} deals more damage to {1} through a staggering smite (+{2})
+Spell/&StaggeringSmiteDescription=Your next hit causes additional psychic damage with your weapon. The target must make a Wisdom saving throw. On a failed save, it has disadvantage on attack rolls and ability checks, and can’t take reactions, until the end of its next turn.
+Spell/&StaggeringSmiteTitle=Staggering Smite

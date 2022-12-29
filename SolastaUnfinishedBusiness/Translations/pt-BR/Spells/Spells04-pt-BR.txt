@@ -1,0 +1,6 @@
+﻿Feature/&AdditionalDamageStaggeringSmiteDescription=Você é atingido por dano psíquico.
+Feature/&AdditionalDamageStaggeringSmiteTitle=Punição Impressionante
+Feedback/&AdditionalDamageStaggeringSmiteFormat=Smite impressionante!
+Feedback/&AdditionalDamageStaggeringSmiteLine={0} causa mais dano a {1} por meio de um golpe impressionante (+{2})
+Spell/&StaggeringSmiteDescription=Seu próximo golpe causa dano psíquico adicional com sua arma. O alvo deve fazer um teste de resistência de Sabedoria. Em uma falha na resistência, ele tem desvantagem nas jogadas de ataque e testes de habilidade e não pode realizar reações até o final de seu próximo turno.
+Spell/&StaggeringSmiteTitle=Punição Impressionante

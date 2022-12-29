@@ -1,4 +1,4 @@
-Feature/&ActionAffinityPathOfTheSpiritsCunningActionDescription=O espírito da águia faz de você um predador ágil que pode passar pela briga com facilidade. Você pode executar a ação Correr, Desengajar ou Esconder-se como uma Ação Bônus.
+Feature/&ActionAffinityPathOfTheSpiritsCunningActionDescription=O espírito da águia faz de você um predador ágil que pode passar pela briga com facilidade. Você pode realizar a ação Correr, Desengajar ou Esconder-se como uma Ação Bônus.
 Feature/&ActionAffinityPathOfTheSpiritsCunningActionTitle=espírito da águia
 Feature/&ConditionPathOfTheSpiritsWolfLeadershipPackDescription=O espírito do lobo concedeu a você vantagem nas jogadas de ataque corpo a corpo.
 Feature/&ConditionPathOfTheSpiritsWolfLeadershipPackTitle=espírito do lobo
@@ -16,9 +16,9 @@ Feature/&FeatureSetPathOfTheSpiritsSpiritSeekerDescription=Ao adotar esse caminh
 Feature/&FeatureSetPathOfTheSpiritsSpiritSeekerTitle=Buscador de espíritos
 Feature/&FeatureSetPathOfTheSpiritsSpiritWalkerDescription=No 10º nível, você pode invocar a proteção do seu Espírito Animal para guiá-lo e protegê-lo. Você ganha a habilidade de conjurar Guardiões Espirituais como uma Ação Bônus um número de vezes igual ao seu modificador de proficiência.
 Feature/&FeatureSetPathOfTheSpiritsSpiritWalkerTitle=Andarilho Espiritual
-Feature/&PowerPathOfTheSpiritsWolfLeadershipDescription=O espírito do lobo faz de você um líder de caçadores. Quando você começa a fúria, qualquer amigo a até 4,5 metros que possa ver você terá vantagem nas jogadas de ataque corpo a corpo por 1 minuto.
-Feature/&PowerPathOfTheSpiritsWolfLeadershipTitle=espírito do lobo
 Feature/&PowerPathOfTheSpiritsBearResistanceDescription=O espírito do urso torna você forte o suficiente para enfrentar qualquer punição. Enquanto estiver em fúria, você tem resistência a todos os danos, exceto dano psíquico.
 Feature/&PowerPathOfTheSpiritsBearResistanceTitle=Resistência de urso
+Feature/&PowerPathOfTheSpiritsWolfLeadershipDescription=O espírito do lobo faz de você um líder de caçadores. Qualquer amigo a até 4,5 metros que possa ver você furioso no final do seu turno terá vantagem nas jogadas de ataque corpo a corpo durante o turno dele.
+Feature/&PowerPathOfTheSpiritsWolfLeadershipTitle=espírito do lobo
 Subclass/&PathOfTheSpiritsDescription=Os bárbaros que seguem o Caminho dos Espíritos aceitam um espírito animal como guia, protetor e inspiração, que os preenche com poder sobrenatural, acrescentando combustível mágico à fúria bárbara.
 Subclass/&PathOfTheSpiritsTitle=caminho dos espíritos

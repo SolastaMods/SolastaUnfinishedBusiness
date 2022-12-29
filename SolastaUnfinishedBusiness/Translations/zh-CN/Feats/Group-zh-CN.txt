@@ -12,6 +12,8 @@ Feat/&FeatGroupCreedDescription=将你的一项属性提高 1，最多 20。\n�
 Feat/&FeatGroupCreedTitle=诸神信条
 Feat/&FeatGroupCriticalVirtuosoDescription=提高你对敌人造成重击的几率
 Feat/&FeatGroupCriticalVirtuosoTitle=重击大师
+Feat/&FeatGroupCrusherDescription=将你的力量或体质提高 1，最多 20。\n当你用造成钝击伤害的攻击击中生物时，每回合一次你将敌人推 5 英尺。当你获得重击时，在你的下一轮开始之前，对该生物的攻击掷骰具有优势。
+Feat/&FeatGroupCrusherTitle=破碎机
 Feat/&FeatGroupDefenseExpertDescription=将你的一项精神属性增加 1，最多 20。\n当你没有穿着任何盔甲时，你的 AC 等于 10 + 你的敏捷调整值 + 选定的精神属性调整值。
 Feat/&FeatGroupDefenseExpertTitle=无甲防御专家
 Feat/&FeatGroupElementalTouchDescription=每次你第一次用徒手攻击或武器造成伤害时，你都会造成等同于你的熟练加值的额外元素伤害。
@@ -42,6 +44,8 @@ Feat/&FeatGroupShadowTouchedDescription=将你的一项精神属性提高 1，�
 Feat/&FeatGroupShadowTouchedTitle=暗影亲和
 Feat/&FeatGroupSkillsDescription=熟练或专精技能的专长组合
 Feat/&FeatGroupSkillsTitle=技能
+Feat/&FeatGroupSlasherDescription=将你的力量或敏捷提高 1 点，最高可达 20。\n当你用造成挥砍伤害的攻击击中生物时，你可以将目标的速度降低 10 英尺，直到你的下一轮开始。当你获得重击时，你会严重伤害它。在你的下一轮开始之前，目标的所有攻击检定都处于劣势。
+Feat/&FeatGroupSlasherTitle=杀戮者
 Feat/&FeatGroupSpellCombatDescription=法术战斗专长组合
 Feat/&FeatGroupSpellCombatTitle=法术战斗
 Feat/&FeatGroupTelekineticDescription=将你的一项精神属性提高 1，最多 20。\n以一个附赠动作，你可以用心灵遥控的方式将一个你能看到的生物移动到距离你 30 英尺的范围内。 目标必须通过一次力量豁免检定（DC=8 + 你的熟练加值 + 你选择的属性调整值），否则将你选择的方向移动 5 英尺。

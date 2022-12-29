@@ -1,0 +1,6 @@
+﻿Feature/&AdditionalDamageStaggeringSmiteDescription=Вы получили психический урон.
+Feature/&AdditionalDamageStaggeringSmiteTitle=Ошеломляющий удар
+Feedback/&AdditionalDamageStaggeringSmiteFormat=Ошеломляющий удар!
+Feedback/&AdditionalDamageStaggeringSmiteLine={0} наносит больше урона {1} ошеломляющим ударом (+{2})
+Spell/&StaggeringSmiteDescription=Ваш следующий удар наносит дополнительный психический урон вашим оружием. Цель должна совершить спасбросок Мудрости. При провале он совершает с помехой броски атаки и проверки характеристик и не может совершать реакции до конца своего следующего хода.
+Spell/&StaggeringSmiteTitle=Ошеломляющий удар

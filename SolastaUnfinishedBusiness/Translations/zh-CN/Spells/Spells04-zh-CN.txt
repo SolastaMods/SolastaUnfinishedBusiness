@@ -1,0 +1,6 @@
+﻿Feature/&AdditionalDamageStaggeringSmiteDescription=你受到精神伤害。
+Feature/&AdditionalDamageStaggeringSmiteTitle=惊人的打击
+Feedback/&AdditionalDamageStaggeringSmiteFormat=惊人的打击！
+Feedback/&AdditionalDamageStaggeringSmiteLine={0} 通过惊人的打击对 {1} 造成更多伤害 (+{2})
+Spell/&StaggeringSmiteDescription=你的下一击会对你的武器造成额外的精神伤害。目标必须进行一次感知豁免。豁免失败时，它在攻击检定和能力检定上具有劣势，并且不能做出反应，直到它的下一轮结束。
+Spell/&StaggeringSmiteTitle=惊人的打击

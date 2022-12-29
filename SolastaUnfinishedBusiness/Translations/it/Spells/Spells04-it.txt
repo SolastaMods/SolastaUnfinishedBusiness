@@ -1,0 +1,6 @@
+﻿Feature/&AdditionalDamageStaggeringSmiteDescription=Sei colpito da un danno psichico.
+Feature/&AdditionalDamageStaggeringSmiteTitle=Punizione Sconcertante
+Feedback/&AdditionalDamageStaggeringSmiteFormat=Punizione sbalorditiva!
+Feedback/&AdditionalDamageStaggeringSmiteLine={0} infligge più danni a {1} tramite una punizione sbalorditiva (+{2})
+Spell/&StaggeringSmiteDescription=Il tuo prossimo colpo provoca danni psichici aggiuntivi con la tua arma. Il bersaglio deve effettuare un tiro salvezza su Saggezza. Se fallisce il Tiro Salvezza, ha svantaggio ai Tiri per Colpire e alle prove di caratteristica, e non può effettuare reazioni fino alla fine del suo prossimo turno.
+Spell/&StaggeringSmiteTitle=Punizione Sconcertante

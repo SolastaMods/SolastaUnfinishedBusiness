@@ -127,7 +127,7 @@
   ],
   "familiesWithAdditionalDice": [],
   "familiesDiceNumber": 1,
-  "ignoreCriticalDoubleDice": false,
+  "ignoreCriticalDoubleDice": true,
   "hasSavingThrow": true,
   "savingThrowAbility": "Constitution",
   "dcComputation": "SpellCastingFeature",
@@ -140,7 +140,7 @@
       "hasSavingThrow": true,
       "operation": "Add",
       "conditionName": "",
-      "conditionDefinition": "Definition:ConditionBlinded1minute:89bc8542c1b8bba47919722774af38bd",
+      "conditionDefinition": "Definition:ConditionBlindingSmiteEnemy:f4dd3787-cbde-5773-a7ae-d599891dd1fd",
       "saveAffinity": "Negates",
       "canSaveToCancel": true,
       "saveOccurence": "StartOfTurn"

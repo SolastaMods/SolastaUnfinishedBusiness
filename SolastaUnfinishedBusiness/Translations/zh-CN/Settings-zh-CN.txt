@@ -13,6 +13,7 @@ ModUi/&Adventure=<color=#F0DAA0>冒险：</color>
 ModUi/&AllItemInDm=全部物品加入地城制作
 ModUi/&AllowAllPlayersOnNarrativeSequences=<i>+ 允许全部玩家加入叙事序列</i>
 ModUi/&AllowAnyClassToWearSylvanArmor=允许任何职业装备<color=#D89555>木族护甲</color> or <color=#D89555>光明使者服饰</color>
+ModUi/&AllowAssigningOfficialSpells=允许官方法术显示在这些列表上 <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
 ModUi/&AllowBeardlessDwarves=允许不长胡子的<color=#D89555>矮人</color>
 ModUi/&AllowDruidToWearMetalArmor=允许<color=#D89555>德鲁伊</color>装备金属护甲
 ModUi/&AllowDungeonsMaxLevel20=允许自定义地城最大等级达到20级
@@ -107,6 +108,7 @@ ModUi/&HideExitAndTeleporterGizmosIfNotDiscovered=在未发现前隐藏出口和
 ModUi/&HideMonsterHitPoints=以25%/50%/75%/100%为单位显示怪物的生命值状态，而非精确的生命值
 ModUi/&House=<color=#F0DAA0>房屋:</color>
 ModUi/&IdentifyAfterRest=添加短休或长休后鉴定魔法物品的能力
+ModUi/&IncreaseGameTimeBy=增加游戏时间
 ModUi/&IncreaseSenseNormalVision=<color=white>提高<color=#D89555>正常视觉</color>距离以允许长距离攻击</color><color=#F0DAA0>【需要重新启动游戏】</color>
 ModUi/&IncreaseSenseNormalVisionHelp=<i><color=#F0DAA0>【40是一个相对理想的距离，以避免敌人从过远的距离加入战斗】</color></i>
 ModUi/&InitialChoices=<color=#F0DAA0>初始选择：</color>
@@ -184,4 +186,3 @@ ModUi/&UnlockSkinColors=解锁全部皮肤颜色
 ModUi/&UseHeightOneCylinderEffect=施放<color=#D89555>艾伐黑触手、纠缠术、油腻术</color> <i><color=#F0DAA0>【方形】</color></i> or <color=#D89555>荆棘丛生</color> <i><color=#F0DAA0>【圆形】</color></i>时，显示高度为1的圆柱效果范围
 ModUi/&UseOfficialAdvantageDisadvantageRules=应用官方的优势/劣势规则
 ModUi/&Visuals=<color=#F0DAA0>视效：</color> <b><i><color=#C04040E0>【需要重启游戏】</color></i></b>
-ModUi/&AllowAssigningOfficialSpells=允许官方法术显示在这些列表上 <b><i><color=#C04040E0>[Requires Restart]</color></i></b>

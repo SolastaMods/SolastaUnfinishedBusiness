@@ -21,5 +21,5 @@ Reaction/&ReactToAttackFinishedMarshalCoordinatedAttackReactDescription=Usa la r
 Reaction/&ReactToAttackFinishedMarshalCoordinatedAttackReactTitle=attacco
 Reaction/&ReactToAttackFinishedMarshalCoordinatedAttackTitle=Attacco coordinato
 Reaction/&SubitemSelectReactToAttackFinishedMarshalCoordinatedAttackTitle=Seleziona azione
-Subclass/&MartialMarshalDescription=Abili nello studiare i punti deboli dei nemici e nel coordinare gli attacchi degli altri membri del gruppo per sfruttarli, i combattenti che si sono formati in questa parte marziale sono famosi orchestratori del campo di battaglia.
+Subclass/&MartialMarshalDescription=Abili nello studiare i punti deboli dei nemici e nel coordinare gli attacchi degli altri membri del gruppo per sfruttarli, i combattenti che si sono addestrati in questa parte marziale sono famosi orchestratori del campo di battaglia.
 Subclass/&MartialMarshalTitle=Maresciallo

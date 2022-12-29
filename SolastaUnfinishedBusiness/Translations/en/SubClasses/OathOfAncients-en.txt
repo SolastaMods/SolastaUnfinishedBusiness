@@ -1,0 +1,12 @@
+﻿Condition/&ConditionOathOfAncientsNaturesWrathDescription=You are entangled in vines preventing movement, disadvantage on dexterity saving throws, and attackers have an advantage. At the end of your turn, make a strength saving throw to escape.
+Condition/&ConditionOathOfAncientsNaturesWrathTitle=Entangled
+Condition/&ConditionOathOfAncientsAuraWardingDescription=Gain resistance to natural elements taking half damage from acid, cold, fire, lightning, thunder, and poison.
+Condition/&ConditionOathOfAncientsAuraWardingTitle=Warded
+Feature/&PowerOathOfAncientsNaturesWrathDescription=Conjure vines on a target, the target is restrained on a failed strength saving throw. The target rolls a strength saving throwing to escape at the end of their turn.
+Feature/&PowerOathOfAncientsNaturesWrathTitle=Channel Divinity: Natures Wrath
+Feature/&PowerOathOfAncientsTurnFaithlessDescription=Perform a prayer, Fey, Fiends, and Elementals that are near must make a wisdom saving throw, on failure they are turned.
+Feature/&PowerOathOfAncientsTurnFaithlessTitle=Channel Divinity: Turn the Faithless
+Feature/&PowerOathOfAncientsAuraWardingDescription=Grant you and those around you an ancient ward reducing damage from spells.
+Feature/&PowerOathOfAncientsAuraWardingTitle=Aura of Warding
+Subclass/&OathOfAncientsDescription=An Oath from a more primitive time which one dedicates themself to utilizing nature for good.
+Subclass/&OathOfAncientsTitle=Oath of Ancients

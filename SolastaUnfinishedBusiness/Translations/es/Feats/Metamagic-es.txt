@@ -1,2 +1,2 @@
-﻿Feat/&FeatAdeptMetamagicDescription=Aumenta tu Carisma en 1, hasta un máximo de 20. Obtienes 3 puntos de hechicería y aprendes la {0} metamagia: {1}
+﻿Feat/&FeatAdeptMetamagicDescription=Aumenta tu Carisma en 1, hasta un máximo de 20. Obtienes puntos de hechicería iguales a tu bonificación de competencia y aprendes la {0} metamagia: {1}
 Feat/&FeatAdeptMetamagicTitle=Metamagia: {0}

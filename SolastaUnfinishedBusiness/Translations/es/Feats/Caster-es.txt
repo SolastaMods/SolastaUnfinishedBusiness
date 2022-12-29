@@ -1,6 +1,6 @@
 Feat/&FeatCelestialTouchedChaDescription=Aumenta tu atributo Carisma en 1, hasta un máximo de 20.\nObtienes la habilidad de lanzar la palabra de sanación, curar heridas y hechizos de restauración menores una vez por descanso prolongado y puedes lanzar estos hechizos con tus espacios de hechizo.
 Feat/&FeatCelestialTouchedChaTitle=Tocado celestial [Cha]
-Feat/&FeatCelestialTouchedIntDescription=Aumenta tu atributo de Inteligencia en 1, hasta un máximo de 20.\nObtienes la capacidad de lanzar la palabra de curación, curar heridas y hechizos de restauración menores una vez por descanso prolongado y puedes lanzar estos hechizos con tus espacios de hechizos.
+Feat/&FeatCelestialTouchedIntDescription=Aumenta tu atributo de Inteligencia en 1, hasta un máximo de 20.\nObtienes la habilidad de lanzar la palabra de sanación, curar heridas y hechizos de restauración menores una vez por descanso prolongado y puedes lanzar estos hechizos con tus espacios de hechizos.
 Feat/&FeatCelestialTouchedIntTitle=Tocado celestial [Int]
 Feat/&FeatCelestialTouchedWisDescription=Aumenta tu atributo Sabiduría en 1, hasta un máximo de 20.\nObtienes la habilidad de lanzar la palabra de sanación, curar heridas y hechizos de restauración menores una vez por descanso prolongado y puedes lanzar estos hechizos con tus espacios de hechizo.
 Feat/&FeatCelestialTouchedWisTitle=Tocado celestial [Sab]
@@ -8,7 +8,7 @@ Feat/&FeatFeyTeleportationChaDescription=Aumenta tu carisma en 1, hasta un máxi
 Feat/&FeatFeyTeleportationChaTitle=Teletransportación Fey [Cha]
 Feat/&FeatFeyTeleportationIntDescription=Aumenta tu inteligencia en 1, hasta un máximo de 20.\nPuedes usar paso brumoso una vez por descanso breve y puedes lanzar este hechizo con tus espacios de hechizo.\nObtienes competencia en Tirmarian.
 Feat/&FeatFeyTeleportationIntTitle=Teletransportación Fey [Int]
-Feat/&FeatFeyTeleportationWisDescription=Aumenta tu Sabiduría en 1, hasta un máximo de 20.\nPuedes usar paso brumoso una vez por descanso breve y puedes lanzar este hechizo con tus espacios de hechizo.\nObtienes competencia en Tirmarian.
+Feat/&FeatFeyTeleportationWisDescription=Aumenta tu Sabiduría en 1, hasta un máximo de 20.\nPuedes usar paso brumoso una vez por descanso breve y puedes lanzar este hechizo con tus espacios de hechizos.\nObtienes competencia en Tirmarian.
 Feat/&FeatFeyTeleportationWisTitle=Teletransportación Fey [Sabiduría]
 Feat/&FeatFlameTouchedChaDescription=Aumenta tu atributo Carisma en 1, hasta un máximo de 20.\nObtienes la capacidad de lanzar los hechizos Manos ardientes, Reprensión infernal y Rayo abrasador una vez por descanso prolongado y puedes lanzar estos hechizos con tus espacios de hechizos.
 Feat/&FeatFlameTouchedChaTitle=Llama tocada [Cha]

@@ -2,7 +2,7 @@
 Feature/&FeatureSetRoyalKnightRoyalEnvoyTitle=enviado real
 Feature/&PowerRoyalKnightInspiringSurgeDescription=Otorga a un aliado una acción principal adicional durante 1 ronda. No se acumula con Action Surge.
 Feature/&PowerRoyalKnightInspiringSurgeTitle=Oleada inspiradora
-Feature/&PowerRoyalKnightRallyingCryDescription=Reemplaza Second Wind con un poder para restaurar 4x puntos de golpe de los niveles de luchador a uno o más aliados dentro de 6 celdas, hasta su máximo de puntos de golpe.
+Feature/&PowerRoyalKnightRallyingCryDescription=Reemplaza Second Wind con un poder para restaurar los puntos de vida de 4x Fighter Levels a uno o más aliados dentro de 6 celdas, hasta su máximo de puntos de vida.
 Feature/&PowerRoyalKnightRallyingCryTitle=Grito de guerra
 Subclass/&MartialRoyalKnightDescription=Un caballero que inspira grandeza en los demás al cometer hazañas valientes en la batalla. Un Royal Knight es un guerrero habilidoso, pero uno que lidera una banda de aliados puede transformar incluso a la milicia peor equipada en una feroz banda de guerra.
 Subclass/&MartialRoyalKnightTitle=Caballero real

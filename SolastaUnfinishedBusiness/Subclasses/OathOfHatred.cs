@@ -28,7 +28,8 @@ internal sealed class OathOfHatred : AbstractSubclass
             .SetPreparedSpellGroups(
                 BuildSpellGroup(3, Bane, HuntersMark),
                 BuildSpellGroup(5, HoldPerson, MistyStep),
-                BuildSpellGroup(9, Haste, ProtectionFromEnergy))
+                BuildSpellGroup(9, Haste, ProtectionFromEnergy),
+                BuildSpellGroup(13, Banishment, DreadfulOmen))
             .SetSpellcastingClass(CharacterClassDefinitions.Paladin)
             .AddToDB();
 

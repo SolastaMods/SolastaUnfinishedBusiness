@@ -22,4 +22,4 @@ Reaction/&ReactToAttackFinishedMarshalCoordinatedAttackReactTitle=Ataque
 Reaction/&ReactToAttackFinishedMarshalCoordinatedAttackTitle=Ataque coordinado
 Reaction/&SubitemSelectReactToAttackFinishedMarshalCoordinatedAttackTitle=Seleccione la acción
 Subclass/&MartialMarshalDescription=Expertos en estudiar las debilidades de los enemigos y coordinar los ataques de otros miembros del grupo para explotarlos, los luchadores que se entrenaron en esta parte marcial son famosos orquestadores del campo de batalla.
-Subclass/&MartialMarshalTitle=Mariscal
+Subclass/&MartialMarshalTitle=marshall

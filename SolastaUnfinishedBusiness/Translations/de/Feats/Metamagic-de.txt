@@ -1,2 +1,2 @@
-﻿Feat/&FeatAdeptMetamagicDescription=Erhöhe dein Charisma um 1 bis maximal 20. Du erhältst 3 Hexereipunkte und lernst die {0}-Metamagie: {1}
+﻿Feat/&FeatAdeptMetamagicDescription=Erhöhe dein Charisma um 1 bis maximal 20. Du erhältst Hexereipunkte in Höhe deines Fertigkeitsbonus und erlernst die {0}-Metamagie: {1}
 Feat/&FeatAdeptMetamagicTitle=Metamagie: {0}

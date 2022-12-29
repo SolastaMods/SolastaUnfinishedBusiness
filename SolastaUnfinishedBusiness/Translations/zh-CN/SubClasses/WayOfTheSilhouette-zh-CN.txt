@@ -10,5 +10,3 @@ Feature/&PowerWayOfSilhouetteSilhouetteStepDescription=你可以用附赠动作�
 Feature/&PowerWayOfSilhouetteSilhouetteStepTitle=黯影步
 Subclass/&WayOfSilhouetteDescription=黯影宗的武僧遵循重视隐秘和诡计的传统，这些武僧经常会充当间谍和刺客。有时，忍者修道院的成员是一个家庭，组成一个宣誓对他们的技艺和使命保密的氏族。 其他修道院更像是盗贼行会，将他们的服务出租给贵族、富商或任何可以支付费用的人。不管他们的方法如何，这些修道院的负责人都希望他们的弟子毫不迟疑地服从。
 Subclass/&WayOfSilhouetteTitle=黯影宗
-
-

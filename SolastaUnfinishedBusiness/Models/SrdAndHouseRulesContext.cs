@@ -66,7 +66,7 @@ internal static class SrdAndHouseRulesContext
         ConditionDefinitions.ConditionConjuredItemLink.silentWhenAdded = true;
         ConditionDefinitions.ConditionConjuredItemLink.silentWhenRemoved = true;
         ConditionDefinitions.ConditionConjuredItemLink.GuiPresentation.hidden = true;
- 
+
         AllowTargetingSelectionWhenCastingChainLightningSpell();
         ApplyConditionBlindedShouldNotAllowOpportunityAttack();
         ApplySrdWeightToFoodRations();

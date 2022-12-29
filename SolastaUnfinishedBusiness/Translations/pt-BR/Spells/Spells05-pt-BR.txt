@@ -1,4 +1,10 @@
 ﻿Condition/&ConditionFarStepDescription=Você pode usar uma ação bônus para se teletransportar até 60 pés para um espaço desocupado que você possa ver.
 Condition/&ConditionFarStepTitle=passo distante
+Feature/&AdditionalDamageBanishingSmiteDescription=Você é atingido por dano de força.
+Feature/&AdditionalDamageBanishingSmiteTitle=Golpe de Banimento
+Feedback/&AdditionalDamageBanishingSmiteFormat=Banindo Smite!
+Feedback/&AdditionalDamageBanishingSmiteLine={0} causa mais dano a {1} por meio de uma punição de banimento (+{2})
+Spell/&BanishingSmiteDescription=Seu próximo golpe causa dano de força adicional com sua arma. Além disso, se este ataque reduzir o alvo a 50 pontos de vida ou menos, você o bane por 1 min.
+Spell/&BanishingSmiteTitle=Golpe de Banimento
 Spell/&FarStepDescription=Você se teletransporta até 18 metros para um espaço desocupado que possa ver. Em cada um de seus turnos antes do feitiço terminar, você pode usar uma ação bônus para se teletransportar desta forma novamente.
 Spell/&FarStepTitle=passo distante

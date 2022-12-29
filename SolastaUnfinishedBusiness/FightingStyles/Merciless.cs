@@ -8,7 +8,6 @@ using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.Models;
-using TA;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionFightingStyleChoices;
 using static RuleDefinitions;
 
@@ -18,9 +17,10 @@ internal sealed class Merciless : AbstractFightingStyle
 {
     private static readonly FeatureDefinitionPower PowerFightingStyleMerciless = FeatureDefinitionPowerBuilder
         .Create("PowerFightingStyleMerciless")
-        .SetGuiPresentationNoContent(true)
+        .SetGuiPresentation("Merciless", Category.FightingStyle)
         .SetEffectDescription(EffectDescriptionBuilder
             .Create(DatabaseHelper.SpellDefinitions.Fear.EffectDescription)
+            .SetTargetingData(Side.Enemy, RangeType.Touch, 1, TargetType.Cube)
             .SetSavingThrowData(false,
                 AttributeDefinitions.Wisdom, false, EffectDifficultyClassComputation.AbilityScoreAndProficiency,
                 AttributeDefinitions.Strength)
@@ -75,7 +75,10 @@ internal sealed class Merciless : AbstractFightingStyle
                 saveDC = ComputeAbilityScoreBasedDC(strength, proficiencyBonus)
             };
             var distance = Global.CriticalHit ? proficiencyBonus : (proficiencyBonus + 1) / 2;
-            var effectPower = new RulesetEffectPower(rulesetCharacter, usablePower);
+            var effectPower = new RulesetEffectPower(rulesetCharacter, usablePower)
+            {
+                EffectDescription = { targetParameter = (distance * 2) + 1 }
+            };
 
             foreach (var enemy in battle.EnemyContenders
                          .Where(enemy => downedCreature.RulesetActor.DistanceTo(enemy.RulesetActor) <= distance))

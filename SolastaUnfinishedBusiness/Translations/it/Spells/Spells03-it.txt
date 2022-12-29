@@ -2,7 +2,7 @@
 Condition/&ConditionSpiritShroudNoHealTitle=Sindone toccato
 Feature/&AdditionalDamageBlindingSmiteDescription=Sei colpito da un danno radiante.
 Feature/&AdditionalDamageBlindingSmiteTitle=Punizione Accecante
-Feedback/&AdditionalDamageBlindingSmiteFormat=Punizione Bruciante!
+Feedback/&AdditionalDamageBlindingSmiteFormat=Punizione Accecante!
 Feedback/&AdditionalDamageBlindingSmiteLine={0} infligge più danni a {1} tramite una punizione accecante (+{2})
 Feedback/&AdditionalDamageSpiritShroudDamageColdFormat=Spirito Sindone!
 Feedback/&AdditionalDamageSpiritShroudDamageColdLine={0} infligge {2} danni da freddo a {1} da Spirit Shroud!
@@ -10,7 +10,7 @@ Feedback/&AdditionalDamageSpiritShroudDamageNecroticFormat=Spirito Sindone!
 Feedback/&AdditionalDamageSpiritShroudDamageNecroticLine={0} infligge {2} danni necrotici a {1} da Spirit Shroud!
 Feedback/&AdditionalDamageSpiritShroudDamageRadiantFormat=Spirito Sindone!
 Feedback/&AdditionalDamageSpiritShroudDamageRadiantLine={0} infligge {2} danni radianti a {1} da Spirit Shroud!
-Spell/&BlindingSmiteDescription=Il tuo prossimo colpo provoca danni radianti aggiuntivi con la tua arma che lampeggia con una luce intensa.
+Spell/&BlindingSmiteDescription=Il tuo prossimo colpo provoca danni radianti aggiuntivi con la tua arma che lampeggia con una luce brillante. Inoltre, il bersaglio deve superare un tiro salvezza su Costituzione o rimanere accecato per 1 minuto.
 Spell/&BlindingSmiteTitle=Punizione Accecante
 Spell/&EarthTremorDescription=Colpisci il suolo e scateni una scossa di forza sismica, sollevando terra, roccia e sabbia.
 Spell/&EarthTremorTitle=Tremore Terrestre

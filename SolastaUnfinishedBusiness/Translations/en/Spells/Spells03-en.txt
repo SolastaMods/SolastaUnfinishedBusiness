@@ -2,7 +2,7 @@
 Condition/&ConditionSpiritShroudNoHealTitle=Shroud Touched
 Feature/&AdditionalDamageBlindingSmiteDescription=You're hit by radiant damage.
 Feature/&AdditionalDamageBlindingSmiteTitle=Blinding Smite
-Feedback/&AdditionalDamageBlindingSmiteFormat=Searing Smite!
+Feedback/&AdditionalDamageBlindingSmiteFormat=Blinding Smite!
 Feedback/&AdditionalDamageBlindingSmiteLine={0} deals more damage to {1} through a blinding smite (+{2})
 Feedback/&AdditionalDamageSpiritShroudDamageColdFormat=Spirit Shroud!
 Feedback/&AdditionalDamageSpiritShroudDamageColdLine={0} deals {2} cold damage to {1} from Spirit Shroud!
@@ -10,7 +10,7 @@ Feedback/&AdditionalDamageSpiritShroudDamageNecroticFormat=Spirit Shroud!
 Feedback/&AdditionalDamageSpiritShroudDamageNecroticLine={0} deals {2} necrotic damage to {1} from Spirit Shroud!
 Feedback/&AdditionalDamageSpiritShroudDamageRadiantFormat=Spirit Shroud!
 Feedback/&AdditionalDamageSpiritShroudDamageRadiantLine={0} deals {2} radiant damage to {1} from Spirit Shroud!
-Spell/&BlindingSmiteDescription=Your next hit causes additional radiant damage with your weapon flaring with a bright light.
+Spell/&BlindingSmiteDescription=Your next hit causes additional radiant damage with your weapon flaring with a bright light. Additionally, the target must succeed on a Constitution saving throw or be blinded for 1 minute.
 Spell/&BlindingSmiteTitle=Blinding Smite
 Spell/&EarthTremorDescription=You strike the ground and unleash a tremor of seismic force, hurling up earth, rock, and sand.
 Spell/&EarthTremorTitle=Earth Tremor

@@ -352,6 +352,11 @@ internal static class BootContext
     {
         OpenUrl("https://discord.com/invite/uu8utaF");
     }
+    
+    internal static void OpenChangeLog()
+    {
+        OpenUrl($"file://{Main.ModFolder}/ChangeLogHistory.txt");
+    }
 
     private static void OpenUrl(string url)
     {
