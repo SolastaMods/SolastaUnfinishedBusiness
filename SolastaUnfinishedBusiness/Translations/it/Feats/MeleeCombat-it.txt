@@ -21,3 +21,7 @@ Feedback/&AdditionalDamageCrusherLine={0} schiaccia {1}
 Feedback/&AdditionalDamagePiercerFormat=piercing!
 Feedback/&AdditionalDamagePiercerLine={0} perfora in modo critico {1}
 Tooltip/&PowerAttackConcentration=Disabilita l'attacco potente.
+Reaction/&SpendPowerPowerFeatCrusherHitDescription=Schiaccia il tuo nemico e spingilo di 1,5 m.
+Reaction/&SpendPowerPowerFeatCrusherHitTitle=Schiacciare
+Reaction/&SpendPowerPowerFeatCrusherHitReactDescription=Schiaccia il tuo nemico e spingilo di 1,5 m.
+Reaction/&SpendPowerPowerFeatCrusherHitReactTitle=Schiacciare

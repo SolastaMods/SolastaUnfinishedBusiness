@@ -21,3 +21,7 @@ Feedback/&AdditionalDamageCrusherLine={0} aplasta {1}
 Feedback/&AdditionalDamagePiercerFormat=perforadores!
 Feedback/&AdditionalDamagePiercerLine={0} perfora críticamente {1}
 Tooltip/&PowerAttackConcentration=Desactiva el ataque de poder.
+Reaction/&SpendPowerPowerFeatCrusherHitDescription=Aplasta a tu enemigo y empújalo 5 pies.
+Reaction/&SpendPowerPowerFeatCrusherHitTitle=Triturar
+Reaction/&SpendPowerPowerFeatCrusherHitReactDescription=Aplasta a tu enemigo y empújalo 5 pies.
+Reaction/&SpendPowerPowerFeatCrusherHitReactTitle=Triturar

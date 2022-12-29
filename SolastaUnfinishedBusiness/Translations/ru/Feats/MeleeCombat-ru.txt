@@ -21,3 +21,7 @@ Feedback/&AdditionalDamageCrusherLine={0} раздавливает {1}
 Feedback/&AdditionalDamagePiercerFormat=Пронзатель!
 Feedback/&AdditionalDamagePiercerLine={0} проводит пронзающую атаку по {1} (+{2})
 Tooltip/&PowerAttackConcentration=Отключить мощную атаку.
+Reaction/&SpendPowerPowerFeatCrusherHitDescription=Раздавите врага и оттолкните его на 5 футов.
+Reaction/&SpendPowerPowerFeatCrusherHitTitle=Раздавить
+Reaction/&SpendPowerPowerFeatCrusherHitReactDescription=Раздавите врага и оттолкните его на 5 футов.
+Reaction/&SpendPowerPowerFeatCrusherHitReactTitle=Раздавить

@@ -21,3 +21,7 @@ Feedback/&AdditionalDamageCrusherLine={0} écrase {1}
 Feedback/&AdditionalDamagePiercerFormat=perceurs!
 Feedback/&AdditionalDamagePiercerLine={0} perce de manière critique {1}
 Tooltip/&PowerAttackConcentration=Désactivez l'attaque puissante.
+Reaction/&SpendPowerPowerFeatCrusherHitDescription=Écrasez votre ennemi et poussez-le de 5 pieds.
+Reaction/&SpendPowerPowerFeatCrusherHitTitle=Écraser
+Reaction/&SpendPowerPowerFeatCrusherHitReactDescription=Écrasez votre ennemi et poussez-le de 5 pieds.
+Reaction/&SpendPowerPowerFeatCrusherHitReactTitle=Écraser
