@@ -167,7 +167,20 @@ internal static partial class SpellBuilders
     internal static SpellDefinition BuildShadowBlade()
     {
         const string NAME = "ShadowBlade";
-
+        
+        var conditionShadowBlade = ConditionDefinitionBuilder
+            .Create($"Condition{NAME}")
+            .SetGuiPresentationNoContent(true)
+            .SetSilent(Silent.WhenAddedOrRemoved)
+            .SetFeatures(
+                FeatureDefinitionAttackModifiers.AttackModifierMagicWeapon,
+                FeatureDefinitionCombatAffinityBuilder
+                    .Create($"CombatAffinity{NAME}")
+                    .SetGuiPresentation($"Item{NAME}", Category.Item)
+                    .SetMyAttackAdvantage(AdvantageType.Advantage)
+                    .AddToDB())
+            .AddToDB();
+        
         var itemShadowBlade = ItemDefinitionBuilder
             .Create(ItemDefinitions.FlameBlade, $"Item{NAME}")
             .SetOrUpdateGuiPresentation(Category.Item, ItemDefinitions.Enchanted_Dagger_Souldrinker)
@@ -185,24 +198,19 @@ internal static partial class SpellBuilders
         weaponDescription.weaponType = WeaponTypeDefinitions.DaggerType.Name;
         weaponDescription.weaponTags.Add(TagsDefinitions.WeaponTagThrown);
 
+        weaponDescription.EffectDescription.EffectForms.Add(
+            EffectFormBuilder
+                .Create()
+                .SetConditionForm(
+                    conditionShadowBlade,
+                    ConditionForm.ConditionOperation.Add)
+                .Build());
+        
         var damageForm = weaponDescription.EffectDescription.FindFirstDamageForm();
 
         damageForm.damageType = DamageTypePsychic;
         damageForm.dieType = DieType.D8;
         damageForm.diceNumber = 2;
-
-        var conditionShadowBlade = ConditionDefinitionBuilder
-            .Create($"Condition{NAME}")
-            .SetGuiPresentationNoContent(true)
-            .SetSilent(Silent.WhenAddedOrRemoved)
-            .SetFeatures(
-                FeatureDefinitionAttackModifiers.AttackModifierMagicWeapon,
-                FeatureDefinitionCombatAffinityBuilder
-                    .Create($"CombatAffinity{NAME}")
-                    .SetGuiPresentation($"Item{NAME}", Category.Item)
-                    .SetMyAttackAdvantage(AdvantageType.Advantage)
-                    .AddToDB())
-            .AddToDB();
 
         var spell = SpellDefinitionBuilder
             .Create(FlameBlade, NAME)
@@ -213,15 +221,15 @@ internal static partial class SpellBuilders
 
         spell.EffectDescription.durationType = DurationType.Minute;
         spell.EffectDescription.durationParameter = 1;
-        spell.EffectDescription.EffectForms.Add(EffectFormBuilder
-            .Create()
-            .SetConditionForm(conditionShadowBlade, ConditionForm.ConditionOperation.Add)
-            .Build());
 
         var summonForm = spell.EffectDescription.EffectForms[0].SummonForm;
+        var itemPropertyForm = spell.EffectDescription.EffectForms[1].ItemPropertyForm;
 
         summonForm.itemDefinition = itemShadowBlade;
         summonForm.effectProxyDefinitionName = "ProxySpiritualWeapon";
+        itemPropertyForm.FeatureBySlotLevel[1].level = 3;
+        itemPropertyForm.FeatureBySlotLevel[2].level = 5;
+        itemPropertyForm.FeatureBySlotLevel[3].level = 7;
 
         return spell;
     }
