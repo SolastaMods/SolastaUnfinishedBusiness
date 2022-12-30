@@ -17,7 +17,6 @@ namespace SolastaUnfinishedBusiness.Feats;
 
 internal static class MeleeCombatFeats
 {
-    // using AdditionalDamage here only to have access to the frequency limit
     private static readonly FeatureDefinitionPower PowerFeatCrusherHit = FeatureDefinitionPowerBuilder
         .Create("PowerFeatCrusherHit")
         .SetGuiPresentation("FeatCrusherStr", Category.Feat)
