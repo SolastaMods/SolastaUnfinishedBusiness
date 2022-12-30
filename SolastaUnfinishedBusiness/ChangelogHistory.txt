@@ -3,7 +3,8 @@
 1.4.32.14:
 
 - fixed Chromatic Orb upcasting
-- improved Crusher to confirm push
+- fixed Hand-and-A-Half off hand check
+- improved Crusher push mechanism
 
 1.4.32.12:
 

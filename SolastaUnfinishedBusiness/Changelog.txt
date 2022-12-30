@@ -6,4 +6,5 @@ KNOWN ISSUES:
 CHANGES:
 
 - fixed Chromatic Orb upcasting
-- improved Crusher to confirm push
+- fixed Hand-and-A-Half off hand check
+- improved Crusher push mechanism
