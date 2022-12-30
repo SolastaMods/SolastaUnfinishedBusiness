@@ -353,10 +353,6 @@ At 5th level, the melee attack deals an extra 1d8 radiant damage to the target. 
 [*][b]Mule[/b]: The recipient of this spell is able to ignore the effects of heavy loads or armor on movement speed. They can also carry slightly more weight.
 [*][b]Radiant Motes[/b]: Unleashes a swarm of 4 radiant projectiles that deal 1d4 radiant damage each.
 When you cast this spell using a spell slot of 2nd level or higher, the spell creates 1 more projectile for each slot above 1st.
-[*][b]Raise Skeleton[/b]: Summons <b>Skeleton</b>:
-Skeletons are animated by dark magic. They used to be living creatures but are now empty shells of hate, arisen from tombs or battlefields and craving for life… to kill.
-[*][b]Raise Skeleton Archer[/b]: Summons <b>Skeleton Archer</b>:
-Skeletons are animated by dark magic. They used to be living creatures but are now empty shells of hate, arisen from tombs or battlefields and craving for life… to kill.
 [*][b]Searing Smite[/b]: Your next hit causes additional fire damage and your target ignites in flames.
 [*][b]Thunderous Smite[/b]: Your next hit causes additional thunder damage that is audible within 300 feet of you.
 [*][b]Wrathful Smite[/b]: Your next hit causes additional psychic damage and your target mind explodes in pain.
@@ -366,33 +362,37 @@ A duplicate's AC equals 10 + your Dexterity modifier. If an attack hits a duplic
 A creature is unaffected by this spell if it is Blinded, or has Blindsight, Truesight or Tremorsense (doesn't apply if you don't touch ground).
 [*][b]Petal Storm[/b]: Choose an unoccupied 15-foot cube of air that you can see within range. An elemental force of swirling winds appears in the cube and lasts for the spell's duration. The cloud heavily obscures its area. Any creature that enters the storm for the first time on a turn or starts its turn there must make a Strength saving throw. On a failed save, the creature takes 3d4 slashing damage. As a bonus action, you can move the storm up to 30 feet in any direction.
 [*][b]Protect Threshold[/b]: Tracing arcane sigils along its boundary, you can ward a doorway, window, or other portal from entry. For the duration, an invisible eldritch creature stalks the warded portal. Any creature that attempts to pass through the portal must make a Wisdom saving throw or take 4d6 psychic damage, or half as much on a successful save.
-[*][b]Raise Ghoul[/b]: Summons <b>Ghoul</b>:
-A ravenous undead creature, constantly searching for flesh to eat.
+[*][b]Raise Skeleton[/b]: Summons <b>Skeleton</b>:
+Skeletons are animated by dark magic. They used to be living creatures but are now empty shells of hate, arisen from tombs or battlefields and craving for life… to kill.
+[*][b]Raise Skeleton Archer[/b]: Summons <b>Skeleton Archer</b>:
+Skeletons are animated by dark magic. They used to be living creatures but are now empty shells of hate, arisen from tombs or battlefields and craving for life… to kill.
 [*][b]Shadow Blade[/b]: You weave together threads of shadow to create a sword of solidified gloom in your hand.
 [*][b]Blinding Smite[/b]: Your next hit causes additional radiant damage with your weapon flaring with a bright light. Additionally, the target must succeed on a Constitution saving throw or be blinded for 1 minute.
 [*][b]Earth Tremor[/b]: You strike the ground and unleash a tremor of seismic force, hurling up earth, rock, and sand.
-[*][b]Raise Skeletal Enforcer[/b]: Summons <b>Skeletal Enforcer</b>:
-A powerful undead creature armed with an axe and a shield.
+[*][b]Raise Ghoul[/b]: Summons <b>Ghoul</b>:
+A ravenous undead creature, constantly searching for flesh to eat.
 [*][b]Spirit Shroud[/b]: You call forth spirits of the dead, which flit around you for the spell's duration. The spirits are intangible and invulnerable.
 Until the spell ends, any attack you make deals 1d8 extra damage when you hit a creature within 10 feet of you. This damage is radiant, necrotic, or cold (your choice when you cast the spell). Any creature that takes this damage can't regain hit points until the start of your next turn.
 In addition, any enemy creature within 10ft of you when you cast, or that enters or starts its turn in that range has its movement speed lowered by 10ft until start of its next turn.
 When you cast this spell using a spell slot of 4th level or higher, the damage increases by 1d8 for every two slot levels above 3rd.
 [*][b]Winter's Breath[/b]: Create a blast of cold wind to chill your enemies and knock them prone.
+[*][b]Raise Skeletal Enforcer[/b]: Summons <b>Skeletal Enforcer</b>:
+A powerful undead creature armed with an axe and a shield.
+[*][b]Staggering Smite[/b]: Your next hit causes additional psychic damage with your weapon. The target must make a Wisdom saving throw. On a failed save, it has disadvantage on attack rolls and ability checks, and can’t take reactions, until the end of its next turn.
+[*][b]Banishing Smite[/b]: Your next hit causes additional force damage with your weapon. Additionally, if this attack reduces the target to 50 hit points of fewer, you banish it for 1 min.
+[*][b]Far Step[/b]: You teleport up to 60 feet to an unoccupied space you can see. On each of your turns before the spell ends, you can use a bonus action to teleport in this way again.
 [*][b]Raise Skeletal Knight[/b]: Summons <b>Skeletal Knight</b>:
 A powerful undead creature, created by raising a dead knight.
 [*][b]Raise Skeletal Marksman[/b]: Summons <b>Skeletal Marksman</b>:
 A powerful skeleton archer that shoots magical arrows imbued with necrotic magic.
-[*][b]Staggering Smite[/b]: Your next hit causes additional psychic damage with your weapon. The target must make a Wisdom saving throw. On a failed save, it has disadvantage on attack rolls and ability checks, and can’t take reactions, until the end of its next turn.
-[*][b]Banishing Smite[/b]: Your next hit causes additional force damage with your weapon. Additionally, if this attack reduces the target to 50 hit points of fewer, you banish it for 1 min.
-[*][b]Far Step[/b]: You teleport up to 60 feet to an unoccupied space you can see. On each of your turns before the spell ends, you can use a bonus action to teleport in this way again.
 [*][b]Raise Spectral Avenger[/b]: Summons <b>Spectral Avenger</b>:
 A powerful, ethereal undead creature.
 [*][b]Raise Wight[/b]: Summons <b>Wight</b>:
 A Wight
-[*][b]Raise Wight Lord[/b]: Summons <b>Wight Lord</b>:
-A powerful wight, trained to withstand the light of day.
 [*][b]Reverse Gravity[/b]: This spell reverses gravity in a 50-foot-radius, 100-foot-high cylinder centered on a point within range.
 [*][b]Mind Blank[/b]: Until the spell ends, one willing creature you touch is immune to psychic damage, any effect that would sense its emotions or read its thoughts, divination spells, and the charmed condition.
+[*][b]Raise Wight Lord[/b]: Summons <b>Wight Lord</b>:
+A powerful wight, trained to withstand the light of day.
 [*][b]Foresight[/b]: You touch a willing creature and bestow a limited ability to see into the immediate future. For the duration, the target can't be surprised and has advantage on attack rolls, ability checks, and saving throws. Additionally, other creatures have disadvantage on attack rolls against the target for the duration.
 [*][b]Mass Heal[/b]: A flood of healing energy flows from you into injured creatures around you. You restore 120 hit points each to 6 creatures that you can see within range. Creatures healed by this spell are also cured of all diseases and any effect making them blinded or deafened. This spell has no effect on undead or constructs. 
 [*][b]Meteor Swarm [Single Target][/b]: Blazing orbs of fire plummet to the ground at a single point you can see within range. Each creature in a 40-foot-radius sphere centered on the point you choose must make a Dexterity saving throw. The sphere spreads around corners. A creature takes 20d6 fire damage and 20d6 bludgeoning damage on a failed save, or half as much damage on a successful one. A creature in the area of more than one fiery burst is affected only once.

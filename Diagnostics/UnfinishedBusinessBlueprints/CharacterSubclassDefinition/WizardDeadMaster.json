@@ -8,6 +8,11 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:BypassSpellConcentrationDeadMaster:cd7f009c-70eb-5610-9622-f5de5f1a9603",
+      "level": 2
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:SummoningAffinityDeadMasterUndeadChains:afdb20e8-8265-5158-86f0-89a10fad52c1",
       "level": 2
     },
