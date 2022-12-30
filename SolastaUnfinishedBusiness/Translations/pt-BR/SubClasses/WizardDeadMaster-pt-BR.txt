@@ -1,5 +1,7 @@
 ﻿Feature/&AutoPreparedSpellsDeadMasterDescription={0}.
 Feature/&AutoPreparedSpellsDeadMasterTitle=Feitiços de Mestre Morto
+Feature/&BypassSpellConcentrationDeadMasterDescription=Você aprendeu os caminhos da necromancia. Você não precisa de concentração para ressuscitar os mortos.
+Feature/&BypassSpellConcentrationDeadMasterTitle=Dispersão
 Feature/&SummoningAffinityDeadMasterUndeadChainsDescription=Mortos-vivos criados por você têm pontos de vida máximos aumentados em 2 HP por seu nível de mago e adicionam seu bônus de proficiência às jogadas de ataque.
 Feature/&SummoningAffinityDeadMasterUndeadChainsTitle=correntes de mortos-vivos
 Feature/&TargetReducedToZeroHpDeadMasterStarkHarvestDescription=Uma vez por turno, quando você mata uma criatura com uma magia de 1º nível ou superior, você recupera pontos de vida iguais ao dobro do nível da magia, ou três vezes seu nível se a magia pertencer à Escola de Necromancia. Se sua saúde estiver cheia, você ganha pontos de vida temporários. Você não ganha esse benefício por matar constructos ou mortos-vivos.

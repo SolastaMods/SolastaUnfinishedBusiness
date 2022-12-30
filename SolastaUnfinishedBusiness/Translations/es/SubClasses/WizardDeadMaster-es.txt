@@ -1,5 +1,7 @@
 ﻿Feature/&AutoPreparedSpellsDeadMasterDescription={0}.
 Feature/&AutoPreparedSpellsDeadMasterTitle=Hechizos del maestro muerto
+Feature/&BypassSpellConcentrationDeadMasterDescription=Has aprendido los caminos de la nigromancia. No se requiere concentración para resucitar muertos.
+Feature/&BypassSpellConcentrationDeadMasterTitle=Dispersión
 Feature/&SummoningAffinityDeadMasterUndeadChainsDescription=Los muertos vivientes creados por ti tienen un máximo de puntos de golpe aumentado en 2 HP por tu nivel de mago y agregan tu bonificación de competencia a las tiradas de ataque.
 Feature/&SummoningAffinityDeadMasterUndeadChainsTitle=Cadenas de muertos vivientes
 Feature/&TargetReducedToZeroHpDeadMasterStarkHarvestDescription=Una vez por turno, cuando matas a una criatura con un conjuro de 1er nivel o superior, recuperas puntos de golpe equivalentes al doble del nivel del conjuro, o tres veces su nivel si el conjuro pertenece a la Escuela de Nigromancia. Si tu salud está llena, obtienes puntos de vida temporales en su lugar. No obtienes este beneficio por matar construcciones o muertos vivientes.

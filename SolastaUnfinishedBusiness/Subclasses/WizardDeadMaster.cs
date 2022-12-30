@@ -35,6 +35,11 @@ internal sealed class WizardDeadMaster : AbstractSubclass
             .SetSpellcastingClass(CharacterClassDefinitions.Wizard)
             .SetAutoTag("DeadMaster")
             .SetPreparedSpellGroups(GetDeadSpellAutoPreparedGroups())
+            .AddToDB();
+
+        var bypassSpellConcentrationDeadMaster = FeatureDefinitionBuilder
+            .Create("BypassSpellConcentrationDeadMaster")
+            .SetGuiPresentation(Category.Feature)
             .SetCustomSubFeatures(new BypassSpellConcentrationDeadMaster())
             .AddToDB();
 
@@ -87,6 +92,7 @@ internal sealed class WizardDeadMaster : AbstractSubclass
             .Create(WizardDeadMasterName)
             .SetGuiPresentation(Category.Subclass, SorcerousHauntedSoul)
             .AddFeaturesAtLevel(2,
+                bypassSpellConcentrationDeadMaster,
                 autoPreparedSpellsDeadMaster,
                 deadMasterUndeadChains)
             .AddFeaturesAtLevel(6,

@@ -1,5 +1,7 @@
 ﻿Feature/&AutoPreparedSpellsDeadMasterDescription={0}.
 Feature/&AutoPreparedSpellsDeadMasterTitle=Zauber des toten Meisters
+Feature/&BypassSpellConcentrationDeadMasterDescription=Du hast die Methoden der Nekromantie erlernt. Sie brauchen keine Konzentration, um Tote zu erwecken.
+Feature/&BypassSpellConcentrationDeadMasterTitle=Streuen
 Feature/&SummoningAffinityDeadMasterUndeadChainsDescription=Von Ihnen erstellte Untote haben ein um 2 TP erhöhtes Trefferpunktmaximum pro Zaubererstufe und addieren Ihren Fertigkeitsbonus zu Angriffswürfen.
 Feature/&SummoningAffinityDeadMasterUndeadChainsTitle=Untote Ketten
 Feature/&TargetReducedToZeroHpDeadMasterStarkHarvestDescription=Wenn Sie einmal pro Zug eine Kreatur mit einem Zauber der 1. Stufe oder höher töten, erhalten Sie Trefferpunkte in Höhe des doppelten Grades des Zaubers oder des dreifachen Grades des Zaubers zurück, wenn der Zauber zur Schule der Nekromantie gehört. Wenn Ihre Gesundheit voll ist, erhalten Sie stattdessen vorübergehende Trefferpunkte. Du erhältst diesen Vorteil nicht, wenn du Konstrukte oder Untote tötest.
