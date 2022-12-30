@@ -99,6 +99,14 @@ internal static class Global
             feature.OnAfterAction(action);
         }
 
+        //BUGFIX: game isn't spending power on this scenario [maybe others like OnAttackHit but for now this is ok]
+        if (action is CharacterActionSpendPower spendPower &&
+            spendPower.activePower.PowerDefinition.rechargeRate == RuleDefinitions.RechargeRate.TurnStart &&
+            spendPower.activePower.PowerDefinition.activationTime is RuleDefinitions.ActivationTime.OnAttackHitMelee)
+        {
+            spendPower.activePower.UsablePower.ForceSpentPoints(1);
+        }
+
         CurrentAction = null;
     }
 }

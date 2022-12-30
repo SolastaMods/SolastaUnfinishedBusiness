@@ -21,3 +21,7 @@ Feedback/&AdditionalDamageCrusherLine={0} crushes {1}
 Feedback/&AdditionalDamagePiercerFormat=Piercer!
 Feedback/&AdditionalDamagePiercerLine={0} critically pierces {1} 
 Tooltip/&PowerAttackConcentration=Disable Power Attack.
+Reaction/&SpendPowerPowerFeatCrusherHitDescription=Crush your enemy and push it by 5 ft.
+Reaction/&SpendPowerPowerFeatCrusherHitTitle=Crush
+Reaction/&SpendPowerPowerFeatCrusherHitReactDescription=Crush your enemy and push it by 5 ft.
+Reaction/&SpendPowerPowerFeatCrusherHitReactTitle=Crush

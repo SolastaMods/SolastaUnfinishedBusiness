@@ -116,9 +116,9 @@ internal static class ValidatorsCharacter
     internal static readonly IsCharacterValidHandler MainHandIsGreatSword = character =>
         ValidatorsWeapon.IsGreatSword(character.GetItemInSlot(EquipmentDefinitions.SlotTypeMainHand));
 
-    internal static readonly IsCharacterValidHandler MainHandIsVersatileWeapon = character =>
+    internal static readonly IsCharacterValidHandler MainHandIsVersatileWeaponNoShield = character =>
         ValidatorsWeapon.HasAnyWeaponTag(character.GetItemInSlot(EquipmentDefinitions.SlotTypeMainHand),
-            TagsDefinitions.WeaponTagVersatile);
+            TagsDefinitions.WeaponTagVersatile) && IsFreeOffhand(character);
 
     internal static readonly IsCharacterValidHandler MainHandIsMeleeWeapon = character =>
         ValidatorsWeapon.IsMelee(character.GetItemInSlot(EquipmentDefinitions.SlotTypeMainHand));

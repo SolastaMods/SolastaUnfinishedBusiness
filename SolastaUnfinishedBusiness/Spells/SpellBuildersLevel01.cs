@@ -56,7 +56,6 @@ internal static partial class SpellBuilders
                     .SetSpeed(SpeedType.CellsPerSeconds, 8.5f)
                     .SetupImpactOffsets(offsetImpactTimePerTarget: 0.1f)
                     .Build())
-                .SetSubSpells()
                 .AddToDB();
 
             subSpells[i] = spell;
@@ -72,6 +71,16 @@ internal static partial class SpellBuilders
             .SetVocalSpellSameType(VocalSpellSemeType.Attack)
             .SetCastingTime(ActivationTime.Action)
             .SetSubSpells(subSpells)
+            .SetEffectDescription(EffectDescriptionBuilder
+                .Create()
+                .SetTargetFiltering(TargetFilteringMethod.CharacterOnly)
+                .SetTargetingData(Side.Enemy, RangeType.RangeHit, 12, TargetType.Individuals)
+                .SetDurationData(DurationType.Instantaneous)
+                .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel, 1,
+                    additionalDicePerIncrement: 1)
+                .SetSpeed(SpeedType.CellsPerSeconds, 8.5f)
+                .SetupImpactOffsets(offsetImpactTimePerTarget: 0.1f)
+                .Build())
             .AddToDB();
     }
 

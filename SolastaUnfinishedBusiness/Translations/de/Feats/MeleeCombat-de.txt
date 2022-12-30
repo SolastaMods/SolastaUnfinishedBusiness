@@ -21,3 +21,7 @@ Feedback/&AdditionalDamageCrusherLine={0} verknallt {1}
 Feedback/&AdditionalDamagePiercerFormat=Piercer!
 Feedback/&AdditionalDamagePiercerLine={0} durchbohrt {1} kritisch
 Tooltip/&PowerAttackConcentration=Machtangriff deaktivieren.
+Reaction/&SpendPowerPowerFeatCrusherHitDescription=Zerschmettere deinen Feind und schiebe ihn um 5 Fuß.
+Reaction/&SpendPowerPowerFeatCrusherHitTitle=Zerkleinern
+Reaction/&SpendPowerPowerFeatCrusherHitReactDescription=Zerschmettere deinen Feind und schiebe ihn um 5 Fuß.
+Reaction/&SpendPowerPowerFeatCrusherHitReactTitle=Zerkleinern

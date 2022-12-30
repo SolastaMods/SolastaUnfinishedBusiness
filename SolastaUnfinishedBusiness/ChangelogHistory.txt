@@ -1,5 +1,11 @@
 ﻿CHANGES:
 
+1.4.32.14:
+
+- fixed Chromatic Orb upcasting
+- fixed Hand-and-A-Half off hand check
+- improved Crusher push mechanism
+
 1.4.32.12:
 
 - added Banishment, Ensnaring and Staggering Smite spells

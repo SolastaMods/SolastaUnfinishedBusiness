@@ -17,7 +17,23 @@ namespace SolastaUnfinishedBusiness.Feats;
 
 internal static class MeleeCombatFeats
 {
-    // using AdditionalDamage here only to have access to the frequency limit
+    private static readonly FeatureDefinitionPower PowerFeatCrusherHit = FeatureDefinitionPowerBuilder
+        .Create("PowerFeatCrusherHit")
+        .SetGuiPresentation("FeatCrusherStr", Category.Feat)
+        .SetUsesFixed(ActivationTime.OnAttackHitMelee, RechargeRate.TurnStart)
+        .SetCustomSubFeatures(new RestrictReactionAttackMode((mode, _, _) => ValidatorsWeapon.IsBludgeoningMelee(mode)))
+        .SetShowCasting(false)
+        .SetEffectDescription(EffectDescriptionBuilder
+            .Create()
+            .SetTargetingData(Side.Enemy, RangeType.Self, 1, TargetType.IndividualsUnique)
+            .SetDurationData(DurationType.Instantaneous)
+            .SetEffectForms(EffectFormBuilder
+                .Create()
+                .SetMotionForm(MotionForm.MotionType.PushFromOrigin, 1)
+                .Build())
+            .Build())
+        .AddToDB();
+
     private static readonly FeatureDefinition FeatureFeatCrusher = FeatureDefinitionAdditionalDamageBuilder
         .Create("FeatureFeatCrusher")
         .SetGuiPresentationNoContent(true)
@@ -26,19 +42,6 @@ internal static class MeleeCombatFeats
         .SetNotificationTag("Crusher")
         .SetCustomSubFeatures(
             new AfterAttackEffectFeatCrusher(
-                FeatureDefinitionPowerBuilder
-                    .Create(FeatureDefinitionPowers.PowerInvocationRepellingBlast, "PowerFeatCrusherHit")
-                    .SetGuiPresentation("FeatCrusherStr", Category.Feat)
-                    .SetEffectDescription(EffectDescriptionBuilder
-                        .Create()
-                        .SetTargetingData(Side.Enemy, RangeType.Self, 1, TargetType.IndividualsUnique)
-                        .SetDurationData(DurationType.Instantaneous)
-                        .SetEffectForms(EffectFormBuilder
-                            .Create()
-                            .SetMotionForm(MotionForm.MotionType.PushFromOrigin, 1)
-                            .Build())
-                        .Build())
-                    .AddToDB(),
                 ConditionDefinitionBuilder
                     .Create("ConditionFeatCrusherCriticalHit")
                     .SetGuiPresentation("FeatCrusherStr", Category.Feat)
@@ -312,6 +315,7 @@ internal static class MeleeCombatFeats
             .SetGuiPresentation(Category.Feat)
             .SetFeatures(
                 FeatureDefinitionAttributeModifiers.AttributeModifierCreed_Of_Einar,
+                PowerFeatCrusherHit,
                 FeatureFeatCrusher)
             .SetAbilityScorePrerequisite(AttributeDefinitions.Strength, 13)
             .AddToDB();
@@ -324,6 +328,7 @@ internal static class MeleeCombatFeats
             .SetGuiPresentation(Category.Feat)
             .SetFeatures(
                 FeatureDefinitionAttributeModifiers.AttributeModifierCreed_Of_Arun,
+                PowerFeatCrusherHit,
                 FeatureFeatCrusher)
             .SetAbilityScorePrerequisite(AttributeDefinitions.Constitution, 13)
             .AddToDB();
@@ -447,16 +452,13 @@ internal static class MeleeCombatFeats
 
     private sealed class AfterAttackEffectFeatCrusher : IAfterAttackEffect
     {
-        private readonly FeatureDefinitionPower _featureDefinitionPower;
         private readonly ConditionDefinition _criticalConditionDefinition;
         private readonly string _damageType;
 
         internal AfterAttackEffectFeatCrusher(
-            FeatureDefinitionPower featureDefinitionPower,
             ConditionDefinition criticalConditionDefinition,
             string damageType)
         {
-            _featureDefinitionPower = featureDefinitionPower;
             _criticalConditionDefinition = criticalConditionDefinition;
             _damageType = damageType;
         }
@@ -474,14 +476,6 @@ internal static class MeleeCombatFeats
             if (damage == null || damage.DamageType != _damageType)
             {
                 return;
-            }
-
-            if (outcome is RollOutcome.Success or RollOutcome.CriticalSuccess)
-            {
-                var usablePower = new RulesetUsablePower(_featureDefinitionPower, null, null);
-                var effectPower = new RulesetEffectPower(attacker.RulesetCharacter, usablePower);
-
-                effectPower.ApplyEffectOnCharacter(defender.RulesetCharacter, true, defender.LocationPosition);
             }
 
             if (outcome is not RollOutcome.CriticalSuccess)
