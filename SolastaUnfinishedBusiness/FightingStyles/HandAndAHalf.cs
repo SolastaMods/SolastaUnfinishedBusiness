@@ -22,8 +22,8 @@ internal sealed class HandAndAHalf : AbstractFightingStyle
                 .SetAttackRollModifier(1)
                 .SetDamageRollModifier(1)
                 .SetCustomSubFeatures(
-                    new RestrictedContextValidator(OperationType.Set, ValidatorsCharacter.MainHandIsVersatileWeapon),
-                    new RestrictedContextValidator(OperationType.And, ValidatorsCharacter.IsFreeOffhand))
+                    new RestrictedContextValidator(OperationType.Set,
+                        ValidatorsCharacter.MainHandIsVersatileWeaponNoShield))
                 .AddToDB())
         .AddToDB();
 
