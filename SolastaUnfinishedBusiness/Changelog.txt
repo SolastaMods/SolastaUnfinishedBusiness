@@ -5,6 +5,7 @@ KNOWN ISSUES:
 
 CHANGES:
 
-- fixed Chromatic Orb upcasting
-- fixed Hand-and-A-Half off hand check
-- improved Crusher push mechanism
+- changed all Raise Dead spells to be one level up from 2 to 8
+- changed all Raise Dead spells to require concentration
+- changed Dead Master to not require concentration on Raise Dead spells
+- improved War Dancer to allow bardic die use on momentum logic
