@@ -3,6 +3,7 @@ using System.Linq;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Models;
+using static RuleDefinitions;
 
 namespace SolastaUnfinishedBusiness.CustomBehaviors;
 
@@ -44,7 +45,7 @@ internal static class ValidatorsWeapon
     {
         return itemDefinition != null &&
                (itemDefinition.WeaponDescription?.WeaponTypeDefinition.WeaponProximity ==
-                   RuleDefinitions.AttackProximity.Melee || itemDefinition.IsArmor /* for shields */);
+                   AttackProximity.Melee || itemDefinition.IsArmor /* for shields */);
     }
 
     internal static bool IsMelee([CanBeNull] RulesetItem weapon)
@@ -55,6 +56,12 @@ internal static class ValidatorsWeapon
     internal static bool IsMelee([CanBeNull] RulesetAttackMode attack)
     {
         return attack is { SourceDefinition: ItemDefinition itemDefinition } && IsMelee(itemDefinition);
+    }
+
+    internal static bool IsBludgeoningMelee([CanBeNull] RulesetAttackMode attack)
+    {
+        return attack is { SourceDefinition: ItemDefinition itemDefinition } && IsMelee(itemDefinition) &&
+               attack.EffectDescription.FindFirstDamageForm()?.damageType == DamageTypeBludgeoning;
     }
 
     internal static bool IsRanged(RulesetItem weapon)
