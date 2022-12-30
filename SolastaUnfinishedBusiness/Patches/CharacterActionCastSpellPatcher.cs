@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
+using System.Linq;
 using System.Reflection.Emit;
 using HarmonyLib;
 using JetBrains.Annotations;
@@ -129,17 +130,23 @@ public static class CharacterActionCastSpellPatcher
     {
         public static bool Prefix(CharacterActionCastSpell __instance)
         {
-            //PATCH: BestowCurseNoConcentrationRequiredForSlotLevel5OrAbove
-            if (!Main.Settings.BestowCurseNoConcentrationRequiredForSlotLevel5OrAbove)
+            //PATCH: IBypassSpellConcentration
+            if (CanBypassSpellConcentration(__instance))
             {
-                return true;
+                return false;
             }
 
-            // Per SRD Bestow Curse does not need concentration when cast with slot level 5 or above
-            // If the active spell is a sub-spell of Bestow Curse and the slot level is >= 5 don't run StartConcentrationAsNeeded
-            return
-                !__instance.ActiveSpell.SpellDefinition.IsSubSpellOf(DatabaseHelper.SpellDefinitions.BestowCurse)
-                || __instance.ActiveSpell.SlotLevel < 5;
+            //PATCH: BestowCurseNoConcentrationRequiredForSlotLevel5OrAbove
+            if (Main.Settings.BestowCurseNoConcentrationRequiredForSlotLevel5OrAbove)
+            {
+                // Per SRD Bestow Curse does not need concentration when cast with slot level 5 or above
+                // If the active spell is a sub-spell of Bestow Curse and the slot level is >= 5 don't run StartConcentrationAsNeeded
+                return
+                    !__instance.ActiveSpell.SpellDefinition.IsSubSpellOf(DatabaseHelper.SpellDefinitions.BestowCurse)
+                    || __instance.ActiveSpell.SlotLevel < 5;
+            }
+
+            return true;
         }
     }
 
@@ -150,11 +157,28 @@ public static class CharacterActionCastSpellPatcher
     {
         public static bool Prefix(CharacterActionCastSpell __instance)
         {
+            //PATCH: IBypassSpellConcentration
+            if (CanBypassSpellConcentration(__instance))
+            {
+                return false;
+            }
+
             var currentAction = Global.CurrentAction;
 
             return currentAction is not CharacterActionUsePower characterActionUsePower || characterActionUsePower
                     .activePower.PowerDefinition.GetFirstSubFeatureOfType<IPreventRemoveConcentrationWithPowerUse>() ==
                 null;
         }
+    }
+
+    private static bool CanBypassSpellConcentration(CharacterActionCastSpell __instance)
+    {
+        var rulesetCharacter = __instance.ActingCharacter.RulesetCharacter;
+        var spell = __instance.ActiveSpell?.SpellDefinition;
+
+        return spell != null && rulesetCharacter
+                .GetSubFeaturesByType<IBypassSpellConcentration>()
+                .SelectMany(x => x.SpellDefinitions())
+                .Contains(spell);
     }
 }
