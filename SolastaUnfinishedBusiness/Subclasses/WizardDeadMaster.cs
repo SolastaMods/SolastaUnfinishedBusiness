@@ -100,7 +100,7 @@ internal sealed class WizardDeadMaster : AbstractSubclass
                     .SetSilent(Silent.WhenAddedOrRemoved)
                     .SetPossessive()
                     .SetAmountOrigin(ExtraOriginOfAmount.SourceClassLevel, WizardClass)
-                    .SetFeatures(hpBonus, hpBonus)
+                    .SetFeatures(hpBonus)
                     .AddToDB())
             .AddToDB();
 
