@@ -9,6 +9,7 @@ using SolastaUnfinishedBusiness.Api.Extensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.Models;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.RecipeDefinitions;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
@@ -44,13 +45,27 @@ public static class GameLocationManagerPatcher
         }
     }
 
-    //PATCH: HideExitsAndTeleportersGizmosIfNotDiscovered
     [HarmonyPatch(typeof(GameLocationManager), "ReadyLocation")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     public static class ReadyLocation_Patch
     {
         public static void Postfix(GameLocationManager __instance)
         {
+            //BUGFIX: enforce learn same recipes as official campaigns get on a Load
+            var gameLoreService = ServiceRepository.GetService<IGameLoreService>();
+
+            if (!gameLoreService.KnownRecipes.Contains(RecipeBasic_Arrows))
+            {
+                gameLoreService.LearnRecipe(RecipeBasic_Arrows);
+            }
+
+            if (!gameLoreService.KnownRecipes.Contains(RecipeBasic_Bolts))
+            {
+                gameLoreService.LearnRecipe(RecipeBasic_Bolts);
+            }
+            //END BUGFIX
+
+            //PATCH: HideExitsAndTeleportersGizmosIfNotDiscovered
             if (!Main.Settings.HideExitsAndTeleportersGizmosIfNotDiscovered || Gui.GameLocation.UserLocation == null)
             {
                 return;

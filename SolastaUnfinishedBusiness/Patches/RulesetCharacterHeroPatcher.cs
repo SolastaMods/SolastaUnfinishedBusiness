@@ -737,4 +737,16 @@ public static class RulesetCharacterHeroPatcher
             });
         }
     }
+
+    [HarmonyPatch(typeof(RulesetCharacterHero), "ItemEquiped")]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    public static class ItemEquiped_Patch
+    {
+        public static void Postfix(RulesetCharacterHero __instance)
+        {
+            //TODO: convert this to an interface
+            WizardBladeDancer.OnItemEquipped(__instance);
+            CollegeOfWarDancer.OnItemEquipped(__instance);
+        }
+    }
 }
