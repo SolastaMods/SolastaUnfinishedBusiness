@@ -19,7 +19,7 @@ internal static class MeleeCombatFeats
 {
     private static readonly FeatureDefinitionPower PowerFeatCrusherHit = FeatureDefinitionPowerBuilder
         .Create("PowerFeatCrusherHit")
-        .SetGuiPresentation("FeatCrusherStr", Category.Feat)
+        .SetGuiPresentation(Category.Feature)
         .SetUsesFixed(ActivationTime.OnAttackHitMelee, RechargeRate.TurnStart)
         .SetCustomSubFeatures(new RestrictReactionAttackMode((mode, _, _) => ValidatorsWeapon.IsBludgeoningMelee(mode)))
         .SetShowCasting(false)
@@ -50,7 +50,7 @@ internal static class MeleeCombatFeats
                     .SetFeatures(
                         FeatureDefinitionCombatAffinityBuilder
                             .Create("CombatAffinityFeatCrusher")
-                            .SetGuiPresentation("FeatCrusherStr", Category.Feat)
+                            .SetGuiPresentation("ConditionFeatCrusherCriticalHit", Category.Condition)
                             .SetAttackOnMeAdvantage(AdvantageType.Advantage)
                             .AddToDB())
                     .AddToDB(),
@@ -63,14 +63,14 @@ internal static class MeleeCombatFeats
         .SetCustomSubFeatures(
             new AfterAttackEffectFeatPiercer(ConditionDefinitionBuilder
                     .Create("ConditionFeatPiercerNonMagic")
-                    .SetGuiPresentation("FeatPiercerStr", Category.Feat)
+                    .SetGuiPresentation(Category.Condition)
                     .SetSpecialDuration(DurationType.Round, 1)
                     .SetPossessive()
                     .SetSpecialInterruptions(ConditionInterruption.Attacked)
                     .SetFeatures(
                         FeatureDefinitionDieRollModifierBuilder
                             .Create("DieRollModifierFeatPiercerNonMagic")
-                            .SetGuiPresentationNoContent(true)
+                            .SetGuiPresentation("ConditionFeatPiercerNonMagic", Category.Condition)
                             .SetModifiers(AttackDamageValueRoll, 1, 1, 1, "Feat/&FeatPiercerReroll")
                             .AddToDB())
                     .AddToDB(),
@@ -78,7 +78,7 @@ internal static class MeleeCombatFeats
             new CustomAdditionalDamageFeatPiercer(
                 FeatureDefinitionAdditionalDamageBuilder
                     .Create("AdditionalDamageFeatPiercer")
-                    .SetGuiPresentation("FeatPiercerStr", Category.Feat)
+                    .SetGuiPresentation(Category.Feature)
                     .SetNotificationTag("Piercer")
                     .SetDamageValueDetermination(AdditionalDamageValueDetermination.SameAsBaseWeaponDie)
                     .SetIgnoreCriticalDoubleDice(true)
@@ -93,25 +93,25 @@ internal static class MeleeCombatFeats
             new AfterAttackEffectFeatSlasher(
                 ConditionDefinitionBuilder
                     .Create("ConditionFeatSlasherHit")
-                    .SetGuiPresentation("FeatSlasherStr", Category.Feat)
+                    .SetGuiPresentation(Category.Condition)
                     .SetSpecialDuration(DurationType.Round, 1)
                     .SetPossessive()
                     .SetFeatures(
                         FeatureDefinitionMovementAffinityBuilder
                             .Create("MovementAffinityFeatSlasher")
-                            .SetGuiPresentation("FeatSlasherStr", Category.Feat)
+                            .SetGuiPresentation("ConditionFeatSlasherHit", Category.Condition)
                             .SetBaseSpeedAdditiveModifier(-2)
                             .AddToDB())
                     .AddToDB(),
                 ConditionDefinitionBuilder
                     .Create("ConditionFeatSlasherCriticalHit")
-                    .SetGuiPresentation("FeatSlasherStr", Category.Feat)
+                    .SetGuiPresentation(Category.Condition)
                     .SetSpecialDuration(DurationType.Round, 1)
                     .SetPossessive()
                     .SetFeatures(
                         FeatureDefinitionCombatAffinityBuilder
                             .Create("CombatAffinityFeatSlasher")
-                            .SetGuiPresentation("FeatSlasherStr", Category.Feat)
+                            .SetGuiPresentation("ConditionFeatSlasherCriticalHit", Category.Condition)
                             .SetMyAttackAdvantage(AdvantageType.Disadvantage)
                             .AddToDB())
                     .AddToDB(),
