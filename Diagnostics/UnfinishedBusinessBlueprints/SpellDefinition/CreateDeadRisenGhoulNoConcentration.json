@@ -4,13 +4,13 @@
   "subspellsList": [],
   "implemented": true,
   "schoolOfMagic": "SchoolNecromancy",
-  "spellLevel": 2,
+  "spellLevel": 3,
   "ritual": false,
   "uniqueInstance": true,
   "castingTime": "Action",
   "reactionContext": "None",
   "ritualCastingTime": "Action",
-  "requiresConcentration": true,
+  "requiresConcentration": false,
   "effectDescription": {
     "$type": "EffectDescription, Assembly-CSharp",
     "rangeType": "Distance",
@@ -91,12 +91,12 @@
           "summonType": "Creature",
           "itemDefinition": null,
           "trackItem": false,
-          "monsterDefinitionName": "RisenSkeleton_Archer",
+          "monsterDefinitionName": "RisenGhoul",
           "number": 1,
           "conditionDefinition": null,
           "persistOnConcentrationLoss": false,
           "decisionPackage": null,
-          "effectProxyDefinitionName": null
+          "effectProxyDefinitionName": ""
         },
         "hasFilterId": false,
         "filterId": 0
@@ -318,13 +318,13 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Raise Skeleton Archer",
-    "description": "Summons <b>Skeleton Archer</b>:\nSkeletons are animated by dark magic. They used to be living creatures but are now empty shells of hate, arisen from tombs or battlefields and craving for life… to kill.",
+    "title": "Raise Ghoul",
+    "description": "Summons <b>Ghoul</b>:\nA ravenous undead creature, constantly searching for flesh to eat.",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "7e6888c9-5e64-5f42-97b3-62b17b41b2bb",
-      "m_SubObjectName": null,
-      "m_SubObjectType": null
+      "m_AssetGUID": "e4b4062b-0f61-555c-8f94-f94c34d3d192",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
@@ -339,7 +339,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "c03cf01d-8d95-5f4b-b3c8-485ee02386ea",
+  "guid": "4520881f-bb33-5079-8922-8b44435e6604",
   "contentPack": 9999,
-  "name": "CreateDeadRisenSkeleton_Archer"
+  "name": "CreateDeadRisenGhoulNoConcentration"
 }
