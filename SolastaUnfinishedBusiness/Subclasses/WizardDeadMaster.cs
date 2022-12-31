@@ -37,6 +37,22 @@ internal sealed class WizardDeadMaster : AbstractSubclass
             .SetPreparedSpellGroups(GetDeadSpellAutoPreparedGroups())
             .AddToDB();
 
+        var featureSetDeadMasterNecromancyBonusDc = FeatureDefinitionFeatureSetBuilder
+            .Create("FeatureSetDeadMasterNecromancyBonusDC")
+            .SetGuiPresentation(Category.Feature)
+            .AddToDB();
+
+        foreach (var spellDefinition in DatabaseRepository.GetDatabase<SpellDefinition>()
+                     .Where(x => x.SchoolOfMagic == SchoolNecromancy))
+        {
+            featureSetDeadMasterNecromancyBonusDc.FeatureSet.Add(
+                FeatureDefinitionMagicAffinityBuilder
+                    .Create($"MagicAffinityDeadMaster{spellDefinition.Name}")
+                    .SetGuiPresentationNoContent(true)
+                    .SetSpellWithModifiedSaveDc(spellDefinition, 1)
+                    .AddToDB());
+        }
+
         var bypassSpellConcentrationDeadMaster = FeatureDefinitionBuilder
             .Create("BypassSpellConcentrationDeadMaster")
             .SetGuiPresentation(Category.Feature)
@@ -93,6 +109,7 @@ internal sealed class WizardDeadMaster : AbstractSubclass
             .SetGuiPresentation(Category.Subclass, SorcerousHauntedSoul)
             .AddFeaturesAtLevel(2,
                 bypassSpellConcentrationDeadMaster,
+                featureSetDeadMasterNecromancyBonusDc,
                 autoPreparedSpellsDeadMaster,
                 deadMasterUndeadChains)
             .AddFeaturesAtLevel(6,
@@ -106,11 +123,16 @@ internal sealed class WizardDeadMaster : AbstractSubclass
         EnableCommandAllUndead();
     }
 
-    internal sealed class BypassSpellConcentrationDeadMaster : IBypassSpellConcentration
+    private sealed class BypassSpellConcentrationDeadMaster : IBypassSpellConcentration
     {
         public IEnumerable<SpellDefinition> SpellDefinitions()
         {
             return DeadMasterSpells;
+        }
+
+        public int OnlyWithUpcastGreaterThan()
+        {
+            return 2;
         }
     }
 
@@ -146,8 +168,8 @@ internal sealed class WizardDeadMaster : AbstractSubclass
                 {
                     (3, 2), new()
                     {
-                        (Skeleton, 2, Sprites.SpellRaiseSkeleton, new BaseDefinition[] { Scimitar }),
-                        (Skeleton_Archer, 2, Sprites.SpellRaiseSkeletonArcher,
+                        (Skeleton, 1, Sprites.SpellRaiseSkeleton, new BaseDefinition[] { Scimitar }),
+                        (Skeleton_Archer, 1, Sprites.SpellRaiseSkeletonArcher,
                             new BaseDefinition[] { Shortbow, Shortsword })
                     }
                 }, //CR 0.25 x2
@@ -183,7 +205,7 @@ internal sealed class WizardDeadMaster : AbstractSubclass
                 }, //CR 4
                 {
                     (13, 7),
-                    new() { (Wight, 2, Sprites.SpellRaiseWight, new BaseDefinition[] { LongswordPlus2, LongbowPlus1 }) }
+                    new() { (Wight, 1, Sprites.SpellRaiseWight, new BaseDefinition[] { LongswordPlus2, LongbowPlus1 }) }
                 }, //CR 3 x2
                 {
                     (15, 8), new()
@@ -224,11 +246,19 @@ internal sealed class WizardDeadMaster : AbstractSubclass
                     .SetEffectDescription(EffectDescriptionBuilder.Create()
                         .SetTargetingData(Side.All, RangeType.Distance, 4, TargetType.Position, count)
                         .SetDurationData(DurationType.UntilLongRest)
+                        .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel, 1,
+                            additionalSummonsPerIncrement: 1)
                         .SetParticleEffectParameters(VampiricTouch)
                         .SetEffectForms(EffectFormBuilder.Create()
                             .SetSummonCreatureForm(1, monster.Name)
                             .Build())
                         .Build())
+                    .AddToDB();
+
+                // create non concentration versions to be used whenever upcast greater than 2
+                _ = SpellDefinitionBuilder
+                    .Create(createDeadSpell, $"CreateDead{monster.name}NoConcentration")
+                    .SetRequiresConcentration(false)
                     .AddToDB();
 
                 spells.Add(createDeadSpell);

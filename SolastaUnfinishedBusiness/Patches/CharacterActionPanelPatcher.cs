@@ -1,12 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
+using System.Linq;
 using System.Reflection.Emit;
 using HarmonyLib;
 using JetBrains.Annotations;
+using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.Extensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.CustomBehaviors;
+using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Models;
 
@@ -178,6 +181,33 @@ public static class CharacterActionPanelPatcher
             return instructions.ReplaceCalls(bindInvocationSelectionPanel, "CharacterActionPanel.SelectInvocation",
                 new CodeInstruction(OpCodes.Ldarg_0),
                 new CodeInstruction(OpCodes.Call, method));
+        }
+    }
+
+    [HarmonyPatch(typeof(CharacterActionPanel), "SpellcastEngaged")]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    public static class SpellcastEngaged_Patch
+    {
+        private static void Prefix(
+            CharacterActionPanel __instance,
+            RulesetSpellRepertoire spellRepertoire,
+            ref SpellDefinition spellDefinition,
+            int slotLevel)
+        {
+            var rulesetCharacter = __instance.GuiCharacter.RulesetCharacter;
+            var spellLevel = spellDefinition.SpellLevel;
+            var upcastDelta = slotLevel - spellLevel;
+            var spell = spellDefinition; // cannot pass ref to enumerator
+            var requiresConcentration = !rulesetCharacter
+                .GetSubFeaturesByType<IBypassSpellConcentration>()
+                .Where(x => upcastDelta >= x.OnlyWithUpcastGreaterThan())
+                .Any(y => y.SpellDefinitions().Contains(spell));
+
+            if (!requiresConcentration)
+            {
+                spellDefinition =
+                    DatabaseHelper.GetDefinition<SpellDefinition>($"{spellDefinition.Name}NoConcentration");
+            }
         }
     }
 }
