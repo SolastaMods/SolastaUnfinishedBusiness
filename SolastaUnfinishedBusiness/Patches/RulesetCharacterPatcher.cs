@@ -46,8 +46,12 @@ public static class RulesetCharacterPatcher
     {
         public static void Postfix(RulesetCharacter __instance, RulesetCondition activeCondition)
         {
-            //PATCH: notifies custom condition features that condition is applied
             var definition = activeCondition.ConditionDefinition;
+
+            //PATCH: allow flurry of blows to correctly work with druid under wildshape
+            MulticlassWildshapeContext.HandleFlurryOfBlows(__instance, definition);
+
+            //PATCH: notifies custom condition features that condition is applied
             definition.GetAllSubFeaturesOfType<ICustomConditionFeature>()
                 .ForEach(c => c.ApplyFeature(__instance, activeCondition));
 
@@ -65,6 +69,7 @@ public static class RulesetCharacterPatcher
         {
             //PATCH: notifies custom condition features that condition is removed 
             var definition = activeCondition.ConditionDefinition;
+
             definition.GetAllSubFeaturesOfType<ICustomConditionFeature>()
                 .ForEach(c => c.RemoveFeature(__instance, activeCondition));
 
