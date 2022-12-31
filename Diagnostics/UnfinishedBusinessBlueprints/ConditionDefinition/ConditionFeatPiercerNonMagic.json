@@ -130,8 +130,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feat/&FeatPiercerStrTitle",
-    "description": "Feat/&FeatPiercerStrDescription",
+    "title": "Condition/&ConditionFeatPiercerNonMagicTitle",
+    "description": "Condition/&ConditionFeatPiercerNonMagicDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
