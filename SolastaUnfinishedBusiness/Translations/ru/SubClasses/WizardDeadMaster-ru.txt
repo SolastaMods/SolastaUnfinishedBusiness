@@ -2,7 +2,9 @@
 Feature/&AutoPreparedSpellsDeadMasterTitle=Заклинания Владыки Смерти
 Feature/&BypassSpellConcentrationDeadMasterDescription=Вы изучили методы некромантии. Вам не нужна концентрация, чтобы воскрешать мертвых.
 Feature/&BypassSpellConcentrationDeadMasterTitle=Разброс
-Feature/&SummoningAffinityDeadMasterUndeadChainsDescription=Нежить созданная Вами получает бонус плюс 2 к максимальным Очкам Здоровья за каждый уровень Чародея, а также добавляет Ваш бонус Мастерства к броскам Атаки.
+Feature/&FeatureSetDeadMasterNecromancyBonusDCDescription=Вы получаете бонус +1 DC при использовании заклинаний некромантии.
+Feature/&FeatureSetDeadMasterNecromancyBonusDCTitle=Эксперт по некромантии
+Feature/&SummoningAffinityDeadMasterUndeadChainsDescription=Нежить созданная Вами получает бонус плюс 1 к максимальным Очкам Здоровья за каждый уровень Чародея, а также добавляет Ваш бонус Мастерства к броскам Атаки.
 Feature/&SummoningAffinityDeadMasterUndeadChainsTitle=Оковы Нежити
 Feature/&TargetReducedToZeroHpDeadMasterStarkHarvestDescription=Один раз за ход, когда вы убиваете существо заклинанием 1 уровня или выше, то можете восстановить Очки Здоровья в количестве двойного значения уровня заклинания, а если Заклинание принадлежит Школе Некромантии то тройного значения. Если у вас полные Очки Здоровья, то получите сверх этого временные. Вы не получаете этот эффект если убиваете Конструкты или Нежить.
 Feature/&TargetReducedToZeroHpDeadMasterStarkHarvestTitle=Богатый Урожай

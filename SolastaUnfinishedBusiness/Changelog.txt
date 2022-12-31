@@ -1,10 +1,18 @@
 KNOWN ISSUES:
 
 - Grenadier bombs resolve to DC 0 under multiplayer
-- Tiefling needs better race pictures
+- Tiefling needs better race pictures [anyone? please]
 
 CHANGES:
 
-- fixed Chromatic Orb upcasting
-- fixed Hand-and-A-Half off hand check
-- improved Crusher push mechanism
+- allow bardic die use on momentum logic
+- changed all Raise Dead spells:
+    * allow 1 additional summon per slot level
+    * be one level up from 2 to 8
+    * only summon one creature at their given level
+    * require concentration
+- changed Dead Master subclass:
+    * have +1 save DC on any Necromancy spell
+    * doesn't require concentration on raise dead if upcasted with 2 or more slots
+    * only grant 1 HP per level to summonings
+- improved Crusher, Piercer and Slasher translation terms
