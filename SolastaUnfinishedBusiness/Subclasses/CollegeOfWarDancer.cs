@@ -322,7 +322,7 @@ internal sealed class CollegeOfWarDancer : AbstractSubclass
                     .Where(x => x.conditionDefinition == WarDanceMomentumExtraAction ||
                                 x.conditionDefinition == ImprovedWarDanceMomentumExtraAction));
 
-            if (!flag || RemoveMomentumAnyway(hero) || pb == 0)
+            if (!flag || RemoveMomentumAnyway(hero) || pb == 0 || !hero.RulesetCharacter.HasConditionOfType(ConditionWarDance))
             {
                 foreach (var cond in currentMomentum)
                 {
