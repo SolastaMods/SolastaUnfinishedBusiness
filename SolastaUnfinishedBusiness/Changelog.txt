@@ -1,10 +1,8 @@
 KNOWN ISSUES:
-
 - Grenadier bombs resolve to DC 0 under multiplayer
 - Tiefling needs better race pictures [anyone? please]
 
 CHANGES:
-
 - allow bardic die use on momentum logic
 - changed all Raise Dead spells:
     * allow 1 additional summon per slot level
@@ -15,4 +13,5 @@ CHANGES:
     * have +1 save DC on any Necromancy spell
     * doesn't require concentration on raise dead if upcasted with 2 or more slots
     * only grant 1 HP per level to summonings
+- improved Crusher to allow unarmed
 - improved Crusher, Piercer and Slasher translation terms

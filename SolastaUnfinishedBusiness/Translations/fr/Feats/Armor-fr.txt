@@ -4,5 +4,5 @@ Feat/&FeatMediumArmorDexDescription=Augmentez votre Dextérité de 1, jusqu'à u
 Feat/&FeatMediumArmorDexTitle=Armure moyenne [Dex]
 Feat/&FeatMediumArmorStrDescription=Augmentez votre Force de 1, jusqu'à un maximum de 20.\nVous maîtrisez les armures et les boucliers moyens.
 Feat/&FeatMediumArmorStrTitle=Armure moyenne [For]
-Feedback/&HeavyArmorMasterFormat=Maître des armures lourdes !
-Feedback/&HeavyArmorMasterLine=Heavy Armor Master réduit les dégâts de la cible !
+Feedback/&HeavyArmorMasterFormat=Maître des armures lourdes!
+Feedback/&HeavyArmorMasterLine=Heavy Armor Master réduit les dégâts de la cible!

@@ -12,6 +12,7 @@
     * have +1 save DC on any Necromancy spell
     * doesn't require concentration on raise dead if upcasted with 2 or more slots
     * only grant 1 HP per level to summonings
+- improved Crusher to allow unarmed
 - improved Crusher, Piercer and Slasher translation terms
 
 1.4.32.14:
