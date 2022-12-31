@@ -100,7 +100,7 @@ internal sealed class WizardDeadMaster : AbstractSubclass
                     .SetSilent(Silent.WhenAddedOrRemoved)
                     .SetPossessive()
                     .SetAmountOrigin(ExtraOriginOfAmount.SourceClassLevel, WizardClass)
-                    .SetFeatures(hpBonus)
+                    .SetFeatures(hpBonus, hpBonus)
                     .AddToDB())
             .AddToDB();
 
@@ -132,7 +132,7 @@ internal sealed class WizardDeadMaster : AbstractSubclass
 
         public int OnlyWithUpcastGreaterThan()
         {
-            return 2;
+            return 1;
         }
     }
 
@@ -245,9 +245,9 @@ internal sealed class WizardDeadMaster : AbstractSubclass
                     .SetCastingTime(ActivationTime.Action)
                     .SetEffectDescription(EffectDescriptionBuilder.Create()
                         .SetTargetingData(Side.All, RangeType.Distance, 4, TargetType.Position, count)
-                        .SetDurationData(DurationType.UntilLongRest)
-                        .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel, 1,
-                            additionalSummonsPerIncrement: 1)
+                        .SetDurationData(DurationType.Minute, 1)
+                        .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel, 2,
+                            alteredDuration: AdvancementDuration.Minutes_1_10_480_1440_Infinite)
                         .SetParticleEffectParameters(VampiricTouch)
                         .SetEffectForms(EffectFormBuilder.Create()
                             .SetSummonCreatureForm(1, monster.Name)
@@ -259,6 +259,16 @@ internal sealed class WizardDeadMaster : AbstractSubclass
                 _ = SpellDefinitionBuilder
                     .Create(createDeadSpell, $"CreateDead{monster.name}NoConcentration")
                     .SetRequiresConcentration(false)
+                    .SetEffectDescription(EffectDescriptionBuilder.Create()
+                        .SetTargetingData(Side.All, RangeType.Distance, 4, TargetType.Position, count)
+                        .SetDurationData(DurationType.UntilShortRest)
+                        .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel, 2,
+                            alteredDuration: AdvancementDuration.Hours_1_8_24)
+                        .SetParticleEffectParameters(VampiricTouch)
+                        .SetEffectForms(EffectFormBuilder.Create()
+                            .SetSummonCreatureForm(1, monster.Name)
+                            .Build())
+                        .Build())
                     .AddToDB();
 
                 spells.Add(createDeadSpell);
