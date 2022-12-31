@@ -31,4 +31,4 @@ Spell/&SunlightBladeTitle=Lame ensoleillée
 Spell/&ThornyVinesDescription=Vous créez une longue vigne ressemblant à un fouet couverte d'épines qui se déchaîne à votre commande vers une créature à portée. Effectuez une attaque avec un sort à distance contre la cible. Si l'attaque réussit, la créature subit 1d6 dégâts perforants et vous rapprochez la créature jusqu'à 3 mètres de vous.
 Spell/&ThornyVinesTitle=Vignes épineuses
 Spell/&ThunderStrikeDescription=Crée une rafale de tonnerre, forçant les créatures adjacentes à effectuer un jet de sauvegarde de Constitution ou à subir 1d6 dégâts de tonnerre.\nLes dégâts de ce sort augmentent de 1d6 lorsque vous atteignez les niveaux 5 (2d6), 11 (3d6) et 17. niveau (4d6).
-Spell/&ThunderStrikeTitle=rafale sonore
+Spell/&ThunderStrikeTitle=Rafale sonore

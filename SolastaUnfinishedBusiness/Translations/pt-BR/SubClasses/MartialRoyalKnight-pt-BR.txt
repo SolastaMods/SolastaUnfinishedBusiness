@@ -1,5 +1,5 @@
 ﻿Feature/&FeatureSetRoyalKnightRoyalEnvoyDescription=Adicione metade do seu bônus de proficiência (arredondado para cima) a qualquer teste de Carisma que você fizer que ainda não use seu bônus de proficiência. Além disso, você se torna proficiente em testes de resistência de Carisma.
-Feature/&FeatureSetRoyalKnightRoyalEnvoyTitle=enviado real
+Feature/&FeatureSetRoyalKnightRoyalEnvoyTitle=Enviado real
 Feature/&PowerRoyalKnightInspiringSurgeDescription=Conceda a um aliado uma ação principal adicional por 1 rodada. Não acumula com Action Surge.
 Feature/&PowerRoyalKnightInspiringSurgeTitle=Onda Inspiradora
 Feature/&PowerRoyalKnightRallyingCryDescription=Substitui o Second Wind com o poder de restaurar 4x os pontos de vida dos níveis do lutador para um ou mais aliados dentro de 6 células, até o máximo de pontos de vida.

@@ -1,7 +1,7 @@
 Condition/&ConditionFeatCrusherCriticalHitDescription=Você foi esmagado por um acerto crítico e os ataques contra você têm vantagem.
 Condition/&ConditionFeatCrusherCriticalHitTitle=Esmagado
 Condition/&ConditionFeatPiercerNonMagicDescription=Quando você atinge uma criatura com um ataque que causa dano perfurante, você pode jogar novamente os dados quando rolar um 1 e deve usar a nova jogada.
-Condition/&ConditionFeatPiercerNonMagicTitle=perfurador
+Condition/&ConditionFeatPiercerNonMagicTitle=Perfurador
 Condition/&ConditionFeatSlasherHitDescription=Seu deslocamento é reduzido em 3 metros até o início do próximo turno.
 Condition/&ConditionFeatSlasherHitTitle=Cortado
 Condition/&ConditionFeatSlasherCriticalHitDescription=Você foi cortado por um acerto crítico e seus ataques têm desvantagem.
@@ -27,7 +27,7 @@ Feat/&FeatSlasherStrTitle=Slasher [Str]
 Feat/&PowerFeatCrusherHitDescription=Quando você acerta uma criatura com um ataque que causa dano de concussão, uma vez por turno você empurra o inimigo 1,5m.
 Feat/&PowerFeatCrusherHitTitle=Triturador
 Feature/&AdditionalDamageFeatPiercerDescription=Quando você acerta um acerto crítico, você pode rolar um dado de dano adicional ao determinar o dano perfurante extra.
-Feature/&AdditionalDamageFeatPiercerTitle=perfurador
+Feature/&AdditionalDamageFeatPiercerTitle=Perfurador
 Feedback/&AdditionalDamageCrusherFormat=Triturador!
 Feedback/&AdditionalDamageCrusherLine={0} esmaga {1}
 Feedback/&AdditionalDamagePiercerFormat=perfuradores!

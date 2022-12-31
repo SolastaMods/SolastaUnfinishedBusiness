@@ -1,6 +1,6 @@
 Condition/&ConditionGambitDebilitateDescription=A un désavantage aux jets de sauvegarde
 Condition/&ConditionGambitDebilitateTitle=Débilité
-Condition/&ConditionGambitGoadingEffectTitle=aiguillonné
+Condition/&ConditionGambitGoadingEffectTitle=Aiguillonné
 Condition/&ConditionGambitSwitchBadDescription=La classe d'armure est diminuée du bonus de compétence du Tacticien qui a infligé cet effet.
 Condition/&ConditionGambitSwitchBadTitle=Appâté
 Condition/&ConditionGambitSwitchGoodDescription=La classe d'armure est augmentée du bonus de compétence du Tacticien qui a infligé cet effet.

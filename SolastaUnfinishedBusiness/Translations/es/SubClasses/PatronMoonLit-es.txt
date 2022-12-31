@@ -1,5 +1,5 @@
 ﻿Condition/&ConditionMoonlitMoonTouchedDescription=Su gravedad es negada.
-Condition/&ConditionMoonlitMoonTouchedTitle=luna tocada
+Condition/&ConditionMoonlitMoonTouchedTitle=Luna tocada
 Feature/&BonusCantripsMoonlitDescription=Tu control de la luz de la luna ha aumentado a un nuevo nivel. Puedes lanzar los hechizos <b>Rayo de luna</b> y <b>Fuego feérico</b> a voluntad.
 Feature/&BonusCantripsMoonlitTitle=Control de luz
 Feature/&FeatureSetMoonlitSuperiorSightDescription=Puedes ver perfectamente en todas las condiciones de iluminación y tener visión ciega de hasta 16 celdas, lo que te permite percibir a los enemigos incluso a través de la invisibilidad y la oscuridad mágica.
@@ -15,6 +15,6 @@ Feature/&PowerMoonlitDarkMoonTitle=Luna oscura
 Feature/&PowerMoonlitFullMoonDescription=Puedes lanzar <b>Luz del día<b> un número de veces por descanso prolongado igual a tu bonificación de competencia.
 Feature/&PowerMoonlitFullMoonTitle=Luna llena
 Feature/&PowerMoonlitMoonTouchedDescription=Conjuras la atracción gravitatoria de la luna en un área pequeña, lo que hace que las criaturas que fallan una tirada de salvación floten hacia arriba.
-Feature/&PowerMoonlitMoonTouchedTitle=luna tocada
+Feature/&PowerMoonlitMoonTouchedTitle=Luna tocada
 Subclass/&PatronMoonlitDescription=Tu patrón es un espíritu de la luna, una entidad que encarna la naturaleza cíclica de la luz y la oscuridad. Estos espíritus buscan mantener el poder de la luna sobre el cielo nocturno mientras mantienen a raya los poderes profanos que acechan en la oscuridad y les asignan a sus brujos la misma tarea, otorgándoles el control sobre los poderes de la luna y sus efectos.
-Subclass/&PatronMoonlitTitle=el iluminado por la luna
+Subclass/&PatronMoonlitTitle=El iluminado por la luna

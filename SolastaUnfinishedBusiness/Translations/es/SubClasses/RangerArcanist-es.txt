@@ -13,4 +13,4 @@ Feature/&PowerArcanistArcanePulseTitle=Pulso Arcano
 Feedback/&AdditionalDamageArcanistMarkFormat=¡Marca del arcanista!
 Feedback/&AdditionalDamageArcanistMarkLine=¡La marca del arcanista detona e inflige daño extra al objetivo!
 Subclass/&RangerArcanistDescription=El arcanista combina sus habilidades de guardabosques con habilidades arcanas. Sus armas pueden afectar a sus oponentes con la Marca del arcanista y han aprendido a lanzar algunos hechizos de mago como parte de su repertorio de hechizos de guardabosques.
-Subclass/&RangerArcanistTitle=arcanista
+Subclass/&RangerArcanistTitle=Arcanista

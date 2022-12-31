@@ -9,4 +9,4 @@ Feature/&PowerGrayDwarfInvisibilityTitle=Invisibilidade
 Feature/&PowerGrayDwarfStoneStrengthDescription=Com uma ação bônus, você assume a força da pedra por 1 minuto. Você tem vantagem em testes de Força e testes de resistência de Força. Você também causa 1d4 de dano extra com armas corpo a corpo baseadas em Força. Depois de usar essa habilidade, você não pode usá-la novamente até terminar um descanso curto ou longo.
 Feature/&PowerGrayDwarfStoneStrengthTitle=Força da Pedra
 Race/&RaceGrayDwarfDescription=Os Grey Dwarves são anões que foram transformados após apenas algumas gerações de exposição às misteriosas magias de Badlands. Eles são em grande parte noturnos e vivem principalmente em ruínas enterradas. A cor de sua pele tende ao cinza ou até ao preto como carvão. Ao contrário da maioria dos anões, eles não têm barba.
-Race/&RaceGrayDwarfTitle=anã cinza
+Race/&RaceGrayDwarfTitle=Anã cinza

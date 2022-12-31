@@ -1,7 +1,7 @@
 ﻿Condition/&ConditionCollegeOfHarlequinFightingAbilityEnhancedDescription=Tu capacidad de lucha ha mejorado mucho.
 Condition/&ConditionCollegeOfHarlequinFightingAbilityEnhancedTitle=Inspirado
 Feature/&AttackModifierCollegeOfHarlequinCombatInspirationAttackEnhancementDescription=Obtienes una bonificación a tu ataque y daño igual a tu tirada de inspiración de bardo.
-Feature/&AttackModifierCollegeOfHarlequinCombatInspirationAttackEnhancementTitle=ofensa inspirada
+Feature/&AttackModifierCollegeOfHarlequinCombatInspirationAttackEnhancementTitle=Ofensa inspirada
 Feature/&AttributeModifierCollegeOfHarlequinCombatInspirationArmorClassEnhancementDescription=Obtienes una bonificación a tu CA igual a tu tirada de inspiración de bardo.
 Feature/&AttributeModifierCollegeOfHarlequinCombatInspirationArmorClassEnhancementTitle=Defensa inspirada
 Feature/&MovementAffinityCollegeOfHarlequinCombatInspirationMovementEnhancementDescription=Obtienes una bonificación a tu velocidad de movimiento igual a tu tirada de inspiración de bardo.

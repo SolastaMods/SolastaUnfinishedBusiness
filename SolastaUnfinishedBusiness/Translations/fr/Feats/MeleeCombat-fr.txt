@@ -1,7 +1,7 @@
 Condition/&ConditionFeatCrusherCriticalHitDescription=Vous avez été écrasé par un coup critique et les attaques contre vous ont l'avantage.
 Condition/&ConditionFeatCrusherCriticalHitTitle=Écrasé
 Condition/&ConditionFeatPiercerNonMagicDescription=Lorsque vous touchez une créature avec une attaque qui inflige des dégâts perforants, vous pouvez relancer les dés lorsque vous obtenez un 1 et vous devez utiliser le nouveau jet.
-Condition/&ConditionFeatPiercerNonMagicTitle=perceur
+Condition/&ConditionFeatPiercerNonMagicTitle=Perceur
 Condition/&ConditionFeatSlasherHitDescription=Votre vitesse est réduite de 3 mètres jusqu'au début de votre prochain tour.
 Condition/&ConditionFeatSlasherHitTitle=Entaillé
 Condition/&ConditionFeatSlasherCriticalHitDescription=Vous avez été lacéré par un coup critique et vos attaques ont un désavantage.
@@ -27,7 +27,7 @@ Feat/&FeatSlasherStrTitle=Slasher [For]
 Feat/&PowerFeatCrusherHitDescription=Lorsque vous touchez une créature avec une attaque qui inflige des dégâts contondants, une fois par tour, vous repoussez l'ennemi de 1,50 mètre.
 Feat/&PowerFeatCrusherHitTitle=Broyeur
 Feature/&AdditionalDamageFeatPiercerDescription=Lorsque vous marquez un coup critique, vous pouvez lancer un dé de dégâts supplémentaire pour déterminer les dégâts perforants supplémentaires.
-Feature/&AdditionalDamageFeatPiercerTitle=perceur
+Feature/&AdditionalDamageFeatPiercerTitle=Perceur
 Feedback/&AdditionalDamageCrusherFormat=Broyeur!
 Feedback/&AdditionalDamageCrusherLine={0} écrase {1}
 Feedback/&AdditionalDamagePiercerFormat=perceurs!

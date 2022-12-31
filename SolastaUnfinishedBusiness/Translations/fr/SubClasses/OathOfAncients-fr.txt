@@ -1,5 +1,5 @@
 ﻿Condition/&ConditionOathOfAncientsNaturesWrathDescription=Vous êtes empêtré dans des vignes empêchant le mouvement, un désavantage aux jets de sauvegarde de dextérité et les attaquants ont un avantage. A la fin de votre tour, effectuez un jet de sauvegarde de force pour vous échapper.
-Condition/&ConditionOathOfAncientsNaturesWrathTitle=empêtré
+Condition/&ConditionOathOfAncientsNaturesWrathTitle=Empêtré
 Condition/&ConditionOathOfAncientsAuraWardingDescription=Gagnez de la résistance aux éléments naturels subissant la moitié des dégâts causés par l'acide, le froid, le feu, la foudre, le tonnerre et le poison.
 Condition/&ConditionOathOfAncientsAuraWardingTitle=Gardé
 Feature/&PowerOathOfAncientsNaturesWrathDescription=Invoque des lianes sur une cible, la cible est entravée en cas d'échec d'un jet de sauvegarde de force. La cible effectue un jet de sauvegarde de force pour s'échapper à la fin de son tour.

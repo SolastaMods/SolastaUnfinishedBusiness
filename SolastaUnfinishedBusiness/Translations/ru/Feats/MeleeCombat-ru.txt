@@ -1,7 +1,7 @@
 Condition/&ConditionFeatCrusherCriticalHitDescription=Вы были раздавлены критическим ударом, и атаки против вас имеют преимущество.
 Condition/&ConditionFeatCrusherCriticalHitTitle=Раздавленный
 Condition/&ConditionFeatPiercerNonMagicDescription=Когда вы поражаете существо атакой, наносящей колющий урон, вы можете перебросить кубики, когда выпадет 1, и вы должны использовать новый бросок.
-Condition/&ConditionFeatPiercerNonMagicTitle=пирсинг
+Condition/&ConditionFeatPiercerNonMagicTitle=Пирсинг
 Condition/&ConditionFeatSlasherHitDescription=Ваша скорость уменьшается на 10 футов до начала вашего следующего хода.
 Condition/&ConditionFeatSlasherHitTitle=Слэш
 Condition/&ConditionFeatSlasherCriticalHitDescription=Вы получили удар критического удара, и ваши атаки имеют помеху.
@@ -27,7 +27,7 @@ Feat/&FeatSlasherStrTitle=Слэшер [Сила]
 Feat/&PowerFeatCrusherHitDescription=Когда вы попадаете по существу атакой, наносящей дробящий урон, один раз за ход вы толкаете врага на 5 футов.
 Feat/&PowerFeatCrusherHitTitle=Дробилка
 Feature/&AdditionalDamageFeatPiercerDescription=Когда вы наносите критический удар, вы можете бросить один дополнительный кубик урона при определении дополнительного колющего урона.
-Feature/&AdditionalDamageFeatPiercerTitle=пирсинг
+Feature/&AdditionalDamageFeatPiercerTitle=Пирсинг
 Feedback/&AdditionalDamageCrusherFormat=Дробилка!
 Feedback/&AdditionalDamageCrusherLine={0} раздавливает {1}
 Feedback/&AdditionalDamagePiercerFormat=Пронзатель!

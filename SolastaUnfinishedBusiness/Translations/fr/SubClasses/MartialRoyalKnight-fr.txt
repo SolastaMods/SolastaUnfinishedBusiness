@@ -5,4 +5,4 @@ Feature/&PowerRoyalKnightInspiringSurgeTitle=Surtension inspirante
 Feature/&PowerRoyalKnightRallyingCryDescription=Remplace Second Wind par un pouvoir permettant de restaurer 4 fois les points de vie des niveaux de combattant à un ou plusieurs alliés dans un rayon de 6 cellules, jusqu'à leur maximum de points de vie.
 Feature/&PowerRoyalKnightRallyingCryTitle=Cri de ralliement
 Subclass/&MartialRoyalKnightDescription=Un chevalier qui inspire la grandeur chez les autres en commettant des actes courageux au combat. Un chevalier royal est un guerrier habile, mais celui qui dirige une bande d'alliés peut transformer même la milice la moins bien équipée en une bande de guerre féroce.
-Subclass/&MartialRoyalKnightTitle=chevalier royal
+Subclass/&MartialRoyalKnightTitle=Chevalier royal

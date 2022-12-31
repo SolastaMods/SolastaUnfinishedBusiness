@@ -1,2 +1,2 @@
 Subclass/&CollegeOfGutsDescription=Los bardos del Colegio de las Tripas se reúnen en salones de hidromiel o alrededor de grandes hogueras para cantar las hazañas de los poderosos, tanto del pasado como del presente. Viajan por la tierra para presenciar grandes eventos de primera mano y para asegurarse de que la memoria de esos eventos no pase del mundo. Con sus canciones, inspiran a otros a alcanzar las mismas alturas de logros que los héroes de antaño.
-Subclass/&CollegeOfGutsTitle=colegio de tripas
+Subclass/&CollegeOfGutsTitle=Colegio de tripas

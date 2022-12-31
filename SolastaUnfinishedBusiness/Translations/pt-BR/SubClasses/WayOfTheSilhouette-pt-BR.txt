@@ -1,5 +1,5 @@
 ﻿Feature/&FeatureSetWayOfSilhouetteSilhouetteArtsDescription=Começando quando você escolhe esta tradição no 3º nível, você pode gastar 2 pontos de ki para conjurar escuridão, visão no escuro, passar sem rastros ou silêncio, sem fornecer componentes materiais. Além disso, você ganha o truque da luz, caso ainda não o conheça.
-Feature/&FeatureSetWayOfSilhouetteSilhouetteArtsTitle=artes de silhueta
+Feature/&FeatureSetWayOfSilhouetteSilhouetteArtsTitle=Artes de silhueta
 Feature/&LightAffinityWayOfSilhouetteCloakOfSilhouettesStrongDescription=Cloak of Silhouettes agora funciona na penumbra e na escuridão mágica, além da escuridão natural.
 Feature/&LightAffinityWayOfSilhouetteCloakOfSilhouettesStrongTitle=Manto de Silhuetas Aprimorado
 Feature/&LightAffinityWayOfSilhouetteCloakOfSilhouettesWeakDescription=Se você começar seu turno na escuridão natural, ficará invisível. Sair da escuridão, atacar ou usar qualquer poder ou feitiço que não tenha como alvo apenas a si mesmo quebra a invisibilidade.
@@ -9,4 +9,4 @@ Feature/&PowerWayOfSilhouetteImprovedSilhouetteStepTitle=Passo Silhueta Aprimora
 Feature/&PowerWayOfSilhouetteSilhouetteStepDescription=Você pode se teletransportar com uma ação bônus de até 9 metros para um espaço desocupado que você possa ver. Você pode usar este poder um número de vezes por descanso longo igual ao seu bônus de proficiência.
 Feature/&PowerWayOfSilhouetteSilhouetteStepTitle=Passo Silhueta
 Subclass/&WayOfSilhouetteDescription=Monges do Caminho da Silhueta seguem uma tradição que valoriza furtividade e subterfúgio. Esses monges servem como espiões e assassinos. Às vezes, os membros de um mosteiro ninja são membros da família, formando um clã que jurou segredo sobre suas artes e missões. Outros monastérios são mais parecidos com guildas de ladrões, alugando seus serviços para nobres, mercadores ricos ou qualquer outra pessoa que possa pagar suas taxas. Independentemente de seus métodos, os chefes desses mosteiros esperam a obediência inquestionável de seus alunos.
-Subclass/&WayOfSilhouetteTitle=caminho da silhueta
+Subclass/&WayOfSilhouetteTitle=Caminho da silhueta

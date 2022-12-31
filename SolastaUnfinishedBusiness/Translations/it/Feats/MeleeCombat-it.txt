@@ -1,7 +1,7 @@
 Condition/&ConditionFeatCrusherCriticalHitDescription=Sei stato schiacciato da un colpo critico e gli attacchi contro di te hanno un vantaggio.
 Condition/&ConditionFeatCrusherCriticalHitTitle=Schiacciato
 Condition/&ConditionFeatPiercerNonMagicDescription=Quando colpisci una creatura con un attacco che infligge danni perforanti, puoi ripetere il tiro dei dadi quando ottieni un 1 e devi usare il nuovo tiro.
-Condition/&ConditionFeatPiercerNonMagicTitle=perforatore
+Condition/&ConditionFeatPiercerNonMagicTitle=Perforatore
 Condition/&ConditionFeatSlasherHitDescription=La tua velocità è ridotta di 3 metri fino all'inizio del tuo prossimo turno.
 Condition/&ConditionFeatSlasherHitTitle=Tagliato
 Condition/&ConditionFeatSlasherCriticalHitDescription=Sei stato colpito da un colpo critico e i tuoi attacchi hanno svantaggio.
@@ -27,7 +27,7 @@ Feat/&FeatSlasherStrTitle=Tagliatore [Str]
 Feat/&PowerFeatCrusherHitDescription=Quando colpisci una creatura con un attacco che infligge danni contundenti, una volta per turno spingi il nemico di 1,5 metri.
 Feat/&PowerFeatCrusherHitTitle=Frantoio
 Feature/&AdditionalDamageFeatPiercerDescription=Quando metti a segno un colpo critico puoi tirare un dado di danno aggiuntivo per determinare il danno perforante extra.
-Feature/&AdditionalDamageFeatPiercerTitle=perforatore
+Feature/&AdditionalDamageFeatPiercerTitle=Perforatore
 Feedback/&AdditionalDamageCrusherFormat=Frantumatore!
 Feedback/&AdditionalDamageCrusherLine={0} schiaccia {1}
 Feedback/&AdditionalDamagePiercerFormat=piercing!

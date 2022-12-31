@@ -1,14 +1,14 @@
 ﻿Condition/&ConditionDauntlessPursuerDescription=2 células de movimento extras e ignora as reações do oponente.
 Condition/&ConditionDauntlessPursuerTitle=Perseguidor destemido
 Condition/&ConditionScornfulPrayerDescription=A força e os vocais desaparecem à medida que a oração se desenvolve. Enquanto estiver sob os efeitos, a oração faz com que o inimigo seja amaldiçoado nas jogadas de ataque e enfraquecido.
-Condition/&ConditionScornfulPrayerTitle=desprezado
+Condition/&ConditionScornfulPrayerTitle=Desprezado
 Feature/&FeatureDauntlessPursuerDescription=No ataque de oportunidade bem-sucedido, ganhe 2 movimentos e um Desengajamento grátis.
 Feature/&FeatureDauntlessPursuerTitle=Perseguidor destemido
 Feature/&FeatureSetHatredElevatedHateDescription=Ao fazer seu Juramento de Ódio, escolha um inimigo favorito para odiar, causando dano extra ao lutar.
-Feature/&FeatureSetHatredElevatedHateTitle=ódio elevado
+Feature/&FeatureSetHatredElevatedHateTitle=Ódio elevado
 Feature/&PowerHatredHatefulGazeDescription=Como uma ação bônus, use seu Canalizar Divindade para invocar sua raiva em um olhar que causa medo no inimigo alvo até 6 células de distância.
 Feature/&PowerHatredHatefulGazeTitle=Divindade do Canal: Olhar Odioso
 Feature/&PowerHatredScornfulPrayerDescription=Use seu Canalizar Divindade para realizar uma oração de desprezo em direção a um inimigo a até 10 células de distância, amaldiçoando e enfraquecendo-o em uma falha no teste de resistência.
 Feature/&PowerHatredScornfulPrayerTitle=Canalizar Divindade: Oração Desprezível
 Subclass/&OathOfHatredDescription=Um paladino do Juramento de Ódio se dedicou a punir os malfeitores canalizando o ódio.
-Subclass/&OathOfHatredTitle=juramento de ódio
+Subclass/&OathOfHatredTitle=Juramento de ódio

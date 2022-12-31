@@ -1,5 +1,5 @@
 ﻿Condition/&AdditionalConditionEnsnaringStrikDescription=Estás enredado en enredaderas que impiden el movimiento, tienes desventaja en las tiradas de salvación de destreza y recibes daño perforante cada turno. Al final de tu turno, haz una tirada de fuerza para escapar de las enredaderas.
-Condition/&AdditionalConditionEnsnaringStrikeTitle=atrapado
+Condition/&AdditionalConditionEnsnaringStrikeTitle=Atrapado
 Condition/&ConditionMuleDescription=Tu velocidad no se ve reducida por estorbos o armaduras pesadas. Puedes llevar 20 libras adicionales.
 Condition/&ConditionMuleTitle=Mula
 Feature/&AdditionalDamageEnsnaringStrikeDescription=Estás atrapado por las vides.
