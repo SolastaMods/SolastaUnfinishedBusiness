@@ -1,4 +1,4 @@
-// manually generated on 12/28/2022
+// manually generated on 12/31/2022
 using TA.AI;
 namespace SolastaUnfinishedBusiness.Api;
 internal static partial class DatabaseHelper
@@ -137,6 +137,7 @@ internal static partial class DatabaseHelper
         internal static ConditionDefinition ConditionDummy { get; } = GetDefinition<ConditionDefinition>("ConditionDummy");
         internal static ConditionDefinition ConditionEncumbered { get; } = GetDefinition<ConditionDefinition>("ConditionEncumbered");
         internal static ConditionDefinition ConditionEnfeebled { get; } = GetDefinition<ConditionDefinition>("ConditionEnfeebled");
+        internal static ConditionDefinition ConditionMonkFlurryOfBlowsUnarmedStrikeBonus { get; } = GetDefinition<ConditionDefinition>("ConditionMonkFlurryOfBlowsUnarmedStrikeBonus");
         internal static ConditionDefinition ConditionFlying12 { get; } = GetDefinition<ConditionDefinition>("ConditionFlying12");
         internal static ConditionDefinition ConditionFreedomOfMovement { get; } = GetDefinition<ConditionDefinition>("ConditionFreedomOfMovement");
         internal static ConditionDefinition ConditionFrightened { get; } = GetDefinition<ConditionDefinition>("ConditionFrightened");
