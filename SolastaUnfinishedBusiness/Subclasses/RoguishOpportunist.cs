@@ -37,22 +37,26 @@ internal sealed class RoguishOpportunist : AbstractSubclass
                         AttributeDefinitions.Constitution,
                         true,
                         EffectDifficultyClassComputation.AbilityScoreAndProficiency,
-                        AttributeDefinitions.Dexterity,
-                        20)
+                        AttributeDefinitions.Dexterity)
                     .SetEffectForms(EffectFormBuilder
                         .Create()
                         .SetConditionForm(
                             ConditionDefinitionBuilder
-                                .Create(ConditionDummy, "ConditionOpportunistDebilitated")
-                                .SetOrUpdateGuiPresentation(Category.Condition)
+                                .Create("ConditionOpportunistDebilitated")
+                                .SetFeatures(FeatureDefinitionSavingThrowAffinityBuilder
+                                    .Create("SavingThrowAffinityConditionOpportunistDebilitated")
+                                    .SetGuiPresentationNoContent(true)
+                                    .SetModifiers(FeatureDefinitionSavingThrowAffinity.ModifierType.RemoveDice,
+                                        DieType.D6, 1, false, AttributeDefinitions.Charisma,
+                                        AttributeDefinitions.Constitution, AttributeDefinitions.Dexterity,
+                                        AttributeDefinitions.Intelligence, AttributeDefinitions.Strength,
+                                        AttributeDefinitions.Wisdom)
+                                    .AddToDB())
+                                .SetOrUpdateGuiPresentation(Category.Condition, ConditionBaned)
                                 .AddToDB(),
-                            ConditionForm.ConditionOperation.AddRandom,
+                            ConditionForm.ConditionOperation.Add,
                             false,
-                            false,
-                            ConditionBaned,
-                            ConditionBleeding,
-                            ConditionDefinitions.ConditionBlinded,
-                            ConditionDefinitions.ConditionStunned)
+                            false)
                         .Build())
                     .Build())
             .AddToDB();

@@ -754,7 +754,7 @@ public static class GameLocationBattleManagerPatcher
             //Process other participants of the battle
             foreach (var unit in units)
             {
-                if (unit == defender)
+                if (unit == defender || unit == attacker)
                 {
                     continue;
                 }
