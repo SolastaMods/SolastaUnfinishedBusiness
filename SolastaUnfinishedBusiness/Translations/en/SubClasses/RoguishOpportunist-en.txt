@@ -1,10 +1,10 @@
 Condition/&ConditionOpportunistDebilitatedDescription=Debilitated.
 Condition/&ConditionOpportunistDebilitatedTitle=Debilitated
-Feature/&FeatureRoguishOpportunistSeizeTheChanceDescription=When an enemy fails a saving throw you can use you reaction to make an attack against it. You can trigger sneak attack with this feature.
+Feature/&FeatureRoguishOpportunistSeizeTheChanceDescription=When an enemy fails a saving throw and it is not your turn, you can use you reaction to make an attack against it. You can trigger sneak attack with this feature.
 Feature/&FeatureRoguishOpportunistSeizeTheChanceTitle=Seize The Chance
 Feature/&OnComputeAttackModifierOpportunistQuickStrikeDescription=You have advantage attacking enemies whose initiative is lower than yours. In addition, you also have advantage when performing attacks of opportunity.
 Feature/&OnComputeAttackModifierOpportunistQuickStrikeTitle=Quick Strike
-Feature/&PowerOpportunistDebilitatingStrikeDescription=Your sneak attack causes the target to make a Constitution saving throw (DC 8 + your proficiency bonus + your Dexterity modifier) or suffer one of the following conditions: blinded, bane, bleeding or stunned.
+Feature/&PowerOpportunistDebilitatingStrikeDescription=Your sneak attack causes the target to make a Constitution saving throw (DC 8 + your proficiency bonus + your Dexterity modifier) or having saving throw reduced by 1D6 for one round.
 Feature/&PowerOpportunistDebilitatingStrikeTitle=Debilitating Strike
 Subclass/&RoguishOpportunistDescription=Opportunist are those who never let a chance to finish their enemies slide. They stab fast and stab where it matters. Not many facing them can escape unscratched.
 Subclass/&RoguishOpportunistTitle=Opportunist
