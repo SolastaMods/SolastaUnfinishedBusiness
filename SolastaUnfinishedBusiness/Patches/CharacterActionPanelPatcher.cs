@@ -117,7 +117,6 @@ public static class CharacterActionPanelPatcher
         {
             var definition = invocation.InvocationDefinition;
             var power = definition.GetPower();
-
             var actionDefinitions =
                 ServiceRepository.GetService<IGameLocationActionService>().AllActionDefinitions;
 
@@ -190,17 +189,17 @@ public static class CharacterActionPanelPatcher
     {
         private static void Prefix(
             CharacterActionPanel __instance,
-            RulesetSpellRepertoire spellRepertoire,
-            ref SpellDefinition spellDefinition,
-            int slotLevel)
+            // RulesetSpellRepertoire spellRepertoire,
+            ref SpellDefinition spellDefinition)
+            // int slotLevel)
         {
             var rulesetCharacter = __instance.GuiCharacter.RulesetCharacter;
-            var spellLevel = spellDefinition.SpellLevel;
-            var upcastDelta = slotLevel - spellLevel;
+            // var spellLevel = spellDefinition.SpellLevel;
+            // var upcastDelta = slotLevel - spellLevel;
             var spell = spellDefinition; // cannot pass ref to enumerator
             var requiresConcentration = !rulesetCharacter
                 .GetSubFeaturesByType<IBypassSpellConcentration>()
-                .Where(x => upcastDelta >= x.OnlyWithUpcastGreaterThan())
+                //.Where(x => upcastDelta >= x.OnlyWithUpcastGreaterThan())
                 .Any(y => y.SpellDefinitions().Contains(spell));
 
             if (!requiresConcentration)

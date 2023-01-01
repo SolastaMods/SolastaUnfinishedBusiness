@@ -130,10 +130,10 @@ internal sealed class WizardDeadMaster : AbstractSubclass
             return DeadMasterSpells;
         }
 
-        public int OnlyWithUpcastGreaterThan()
-        {
-            return 1;
-        }
+        // public int OnlyWithUpcastGreaterThan()
+        // {
+        //     return 1;
+        // }
     }
 
     internal override CharacterSubclassDefinition Subclass { get; }
@@ -166,7 +166,8 @@ internal sealed class WizardDeadMaster : AbstractSubclass
                     )>>
             {
                 {
-                    (3, 2), new()
+                    (3, 2),
+                    new()
                     {
                         (Skeleton, 1, Sprites.SpellRaiseSkeleton, new BaseDefinition[] { Scimitar }),
                         (Skeleton_Archer, 1, Sprites.SpellRaiseSkeletonArcher,
@@ -192,7 +193,8 @@ internal sealed class WizardDeadMaster : AbstractSubclass
                     }
                 }, //CR 2
                 {
-                    (9, 5), new()
+                    (9, 5),
+                    new()
                     {
                         (Skeleton_Knight, 1, Sprites.SpellRaiseSkeletonKnight, new BaseDefinition[] { Longsword }),
                         (Skeleton_Marksman, 1, Sprites.SpellRaiseSkeletonMarksman,
@@ -232,6 +234,9 @@ internal sealed class WizardDeadMaster : AbstractSubclass
                 var description = Gui.Format("Spell/&SpellRaiseDeadFormatDescription",
                     monster.FormatTitle(),
                     monster.FormatDescription());
+                var incrementMethod = spell <= 4
+                    ? AdvancementDuration.Minutes_1_10_480_1440_Infinite
+                    : AdvancementDuration.Hours_1_8_24;
 
                 var createDeadSpell = SpellDefinitionBuilder
                     .Create($"CreateDead{monster.name}")
@@ -244,10 +249,10 @@ internal sealed class WizardDeadMaster : AbstractSubclass
                     .SetUniqueInstance()
                     .SetCastingTime(ActivationTime.Action)
                     .SetEffectDescription(EffectDescriptionBuilder.Create()
-                        .SetTargetingData(Side.All, RangeType.Distance, 4, TargetType.Position, count)
+                        .SetTargetingData(Side.All, RangeType.Distance, 6, TargetType.Position, count)
                         .SetDurationData(DurationType.Minute, 1)
-                        .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel, 2,
-                            alteredDuration: AdvancementDuration.Minutes_1_10_480_1440_Infinite)
+                        .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel, 1,
+                            alteredDuration: incrementMethod)
                         .SetParticleEffectParameters(VampiricTouch)
                         .SetEffectForms(EffectFormBuilder.Create()
                             .SetSummonCreatureForm(1, monster.Name)
@@ -255,20 +260,10 @@ internal sealed class WizardDeadMaster : AbstractSubclass
                         .Build())
                     .AddToDB();
 
-                // create non concentration versions to be used whenever upcast greater than 2
+                // create non concentration versions to be used whenever upcast
                 _ = SpellDefinitionBuilder
                     .Create(createDeadSpell, $"CreateDead{monster.name}NoConcentration")
                     .SetRequiresConcentration(false)
-                    .SetEffectDescription(EffectDescriptionBuilder.Create()
-                        .SetTargetingData(Side.All, RangeType.Distance, 4, TargetType.Position, count)
-                        .SetDurationData(DurationType.UntilShortRest)
-                        .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel, 2,
-                            alteredDuration: AdvancementDuration.Hours_1_8_24)
-                        .SetParticleEffectParameters(VampiricTouch)
-                        .SetEffectForms(EffectFormBuilder.Create()
-                            .SetSummonCreatureForm(1, monster.Name)
-                            .Build())
-                        .Build())
                     .AddToDB();
 
                 spells.Add(createDeadSpell);

@@ -4,6 +4,7 @@
   "parentCondition": null,
   "conditionType": "Beneficial",
   "features": [
+    "Definition:AttributeModifierDeadMasterUndeadChains:c366c121-0945-5b6b-873a-de2cca24ce07",
     "Definition:AttributeModifierDeadMasterUndeadChains:c366c121-0945-5b6b-873a-de2cca24ce07"
   ],
   "allowMultipleInstances": false,
