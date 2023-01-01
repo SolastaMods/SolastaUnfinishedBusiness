@@ -1,5 +1,12 @@
 ﻿CHANGES:
 
+1.4.32.17:
+
+- fixed a wrong change on action started event introduced on last version
+- fixed DC 0 on grenadier bombs under multiplayer
+- improved Arcane Fighter description
+- improved Long Mace sprites
+
 1.4.32.16:
 
 - added Study your Enemy custom sprite
