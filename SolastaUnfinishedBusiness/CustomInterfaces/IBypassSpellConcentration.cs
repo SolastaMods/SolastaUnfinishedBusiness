@@ -9,5 +9,5 @@ public interface IBypassSpellConcentration
     public IEnumerable<SpellDefinition> SpellDefinitions();
     
     // allow to bypass only if a certain level upcast was triggered. set to zero to bypass this check
-    // public int OnlyWithUpcastGreaterThan();
+    public int OnlyWithUpcastGreaterThan();
 }

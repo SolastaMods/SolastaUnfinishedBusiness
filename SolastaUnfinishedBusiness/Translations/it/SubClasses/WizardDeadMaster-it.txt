@@ -1,6 +1,6 @@
 ﻿Feature/&AutoPreparedSpellsDeadMasterDescription={0}.
 Feature/&AutoPreparedSpellsDeadMasterTitle=Incantesimi del maestro morto
-Feature/&BypassSpellConcentrationDeadMasterDescription=Hai imparato le vie della negromanzia. Non hai bisogno di concentrazione per resuscitare morti se sei lanciato con almeno 2 slot in più.
+Feature/&BypassSpellConcentrationDeadMasterDescription=Hai imparato le vie della negromanzia. Se potenziato, non hai bisogno di concentrazione per resuscitare morti.
 Feature/&BypassSpellConcentrationDeadMasterTitle=Disperdere
 Feature/&FeatureSetDeadMasterNecromancyBonusDCDescription=Ottieni un bonus di +1 alla CD quando lanci incantesimi di negromanzia.
 Feature/&FeatureSetDeadMasterNecromancyBonusDCTitle=Esperto di negromanzia

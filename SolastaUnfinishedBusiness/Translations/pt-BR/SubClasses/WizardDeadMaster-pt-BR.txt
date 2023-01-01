@@ -1,6 +1,6 @@
 ﻿Feature/&AutoPreparedSpellsDeadMasterDescription={0}.
 Feature/&AutoPreparedSpellsDeadMasterTitle=Feitiços de Mestre Morto
-Feature/&BypassSpellConcentrationDeadMasterDescription=Você aprendeu os caminhos da necromancia. Você não precisa de concentração para ressuscitar mortos se upcast com pelo menos 2 slots a mais.
+Feature/&BypassSpellConcentrationDeadMasterDescription=Você aprendeu os caminhos da necromancia. Se upcasted, você não precisa de concentração para ressuscitar os mortos.
 Feature/&BypassSpellConcentrationDeadMasterTitle=Dispersão
 Feature/&FeatureSetDeadMasterNecromancyBonusDCDescription=Você ganha +1 de bônus na CD ao conjurar magias de necromancia.
 Feature/&FeatureSetDeadMasterNecromancyBonusDCTitle=Especialista em necromancia

@@ -130,10 +130,10 @@ internal sealed class WizardDeadMaster : AbstractSubclass
             return DeadMasterSpells;
         }
 
-        // public int OnlyWithUpcastGreaterThan()
-        // {
-        //     return 1;
-        // }
+        public int OnlyWithUpcastGreaterThan()
+        {
+            return 1;
+        }
     }
 
     internal override CharacterSubclassDefinition Subclass { get; }
