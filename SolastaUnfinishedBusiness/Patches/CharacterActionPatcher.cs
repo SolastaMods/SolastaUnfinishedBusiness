@@ -42,6 +42,11 @@ public static class CharacterActionPatcher
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     public static class Execute_Patch
     {
+        public static void Prefix(CharacterAction __instance)
+        {
+            Global.ActionStarted(__instance);
+        }
+
         public static IEnumerator Postfix(IEnumerator values, CharacterAction __instance)
         {
             //PATCH: support for character action tracking
