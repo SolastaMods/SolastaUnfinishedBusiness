@@ -334,4 +334,231 @@ public static class RulesetImplementationManagerPatcher
                 rangedAttack, attackMode, rulesetEffect);
         }
     }
+
+    [HarmonyPatch(typeof(RulesetImplementationManager), "TryRollSavingThrow")]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    public static class TryRollSavingThrow_Patch
+    {
+        public static void Prefix(RulesetCharacter caster, ref int saveDC, BaseDefinition sourceDefinition)
+        {
+            //BUGFIX: for still an unknown reason we get DC 0 on some Grenadier powers so hack it here (MULTIPLAYER)
+            if (saveDC != 0 || sourceDefinition is not FeatureDefinition featureDefinition)
+            {
+                return;
+            }
+
+            var spellRepertoire = caster.GetClassSpellRepertoire();
+
+            if (spellRepertoire == null)
+            {
+                return;
+            }
+
+            // if I try to use this then I get an exception on our patch on ComputeSaveDC ???
+            // saveDC = caster.ComputeSaveDC(repertoire);
+
+            saveDC = 8 + caster.TryGetAttributeValue("ProficiencyBonus") +
+                     AttributeDefinitions.ComputeAbilityScoreModifier(caster.TryGetAttributeValue(spellRepertoire.SpellCastingAbility));
+        }
+    }
+
+// use to debug MP issue with grenadier
+#if false
+    public static bool Prefix(
+        RulesetImplementationManager __instance,
+        RulesetCharacter caster,
+        RuleDefinitions.Side sourceSide,
+        RulesetActor target,
+        ActionModifier actionModifier,
+        bool hasHitVisual,
+        bool hasSavingThrow,
+        string savingThrowAbility,
+        ref int saveDC,
+        bool disableSavingThrowOnAllies,
+        bool advantageForEnemies,
+        bool ignoreCover,
+        RuleDefinitions.FeatureSourceType featureSourceType,
+        List<EffectForm> effectForms,
+        List<SaveAffinityBySenseDescription> savingThrowAffinitiesBySense,
+        List<SaveAffinityByFamilyDescription> savingThrowAffinitiesByFamily,
+        string sourceName,
+        BaseDefinition sourceDefinition,
+        string schoolOfMagic,
+        MetamagicOptionDefinition metamagicOption,
+        out RuleDefinitions.RollOutcome saveOutcome,
+        out int saveOutcomeDelta,
+        ref bool __result)
+    {
+        var flag1 = false;
+        saveOutcome = RuleDefinitions.RollOutcome.Failure;
+        saveOutcomeDelta = 0;
+        var sourceFamily = caster != null ? caster.CharacterFamily : string.Empty;
+        if (caster != null && sourceDefinition != null)
+        {
+            caster.EnumerateFeaturesToBrowse<IEffectAffinityProvider>(caster.FeaturesToBrowse);
+            foreach (IEffectAffinityProvider affinityProvider in caster.FeaturesToBrowse)
+            {
+                switch (affinityProvider.AddBonusToEffectSaveDC)
+                {
+                    case SpellAndPowersDefinitions.RulesetEffectSaveDCBonusType.Spell:
+                        if (sourceDefinition == affinityProvider.SpellWithModifiedSaveDC)
+                        {
+                            break;
+                        }
+
+                        continue;
+                    case SpellAndPowersDefinitions.RulesetEffectSaveDCBonusType.Power:
+                        if (!(sourceDefinition == affinityProvider.PowerWithModifiedSaveDC))
+                        {
+                            continue;
+                        }
+
+                        break;
+                    default:
+                        continue;
+                }
+
+                saveDC += affinityProvider.BonusToEffectSaveDC;
+            }
+        }
+
+        var flag2 = false;
+        foreach (var effectForm in effectForms)
+        {
+            if (effectForm.OverrideSavingThrowInfo != null)
+            {
+                flag2 = true;
+                savingThrowAbility = effectForm.OverrideSavingThrowInfo.SavingThrowAbility;
+                saveDC = effectForm.OverrideSavingThrowInfo.SavingThrowDC;
+                break;
+            }
+        }
+
+        if (hasSavingThrow | flag2 && target != null)
+        {
+            flag1 = true;
+            if (disableSavingThrowOnAllies && sourceSide == target.Side)
+            {
+                flag1 = false;
+            }
+            else if (metamagicOption != null &&
+                     metamagicOption.Type == RuleDefinitions.MetamagicType.CarefulSpell &&
+                     sourceSide == target.Side)
+            {
+                flag1 = true;
+                saveOutcome = RuleDefinitions.RollOutcome.Success;
+            }
+            else if (!target.IsAutomaticallyFailingSavingThrow(savingThrowAbility))
+            {
+                var actionModifier1 =
+                    actionModifier == null ? new ActionModifier() : actionModifier.Clone();
+                target.EnumerateFeaturesToBrowse<ISavingThrowAffinityProvider>(target.FeaturesToBrowse);
+                foreach (ISavingThrowAffinityProvider feature in target.FeaturesToBrowse)
+                {
+                    if (!string.IsNullOrEmpty(feature.PriorityAbilityScore) &&
+                        feature.PriorityAbilityScore != savingThrowAbility)
+                    {
+                        var abilityScoreModifier =
+                            AttributeDefinitions.ComputeAbilityScoreModifier(target.GetAttribute(savingThrowAbility)
+                                .CurrentValue);
+                        if (AttributeDefinitions.ComputeAbilityScoreModifier(target
+                                .GetAttribute(feature.PriorityAbilityScore).CurrentValue) > abilityScoreModifier)
+                        {
+                            var abilityScoreForSave =
+                                target.ReplacedAbilityScoreForSave;
+                            if (abilityScoreForSave != null)
+                            {
+                                abilityScoreForSave(target, feature as FeatureDefinition, savingThrowAbility,
+                                    feature.PriorityAbilityScore);
+                            }
+
+                            savingThrowAbility = feature.PriorityAbilityScore;
+                        }
+                    }
+                }
+
+                actionModifier1.SavingThrowModifierTrends.Clear();
+                var savingThrowBonus = target.ComputeBaseSavingThrowBonus(savingThrowAbility,
+                    actionModifier1.SavingThrowModifierTrends);
+                foreach (var effectForm in effectForms)
+                {
+                    var damageType = effectForm.FormType == EffectForm.EffectFormType.Damage
+                        ? effectForm.DamageForm.DamageType
+                        : string.Empty;
+                    var conditionType = string.Empty;
+                    if (effectForm.FormType == EffectForm.EffectFormType.Condition &&
+                        effectForm.ConditionForm.ConditionDefinition != null)
+                    {
+                        conditionType = effectForm.ConditionForm.ConditionDefinition.Name;
+                    }
+
+                    var savingThrowContext = __instance.ComputeCharacterSavingThrowContext(target);
+                    target.ComputeSavingThrowModifier(savingThrowAbility, effectForm.FormType,
+                        sourceDefinition != null ? sourceDefinition.Name : string.Empty,
+                        schoolOfMagic, damageType, conditionType, sourceFamily, actionModifier1,
+                        __instance.accountedProviders, savingThrowContext);
+                    caster?.ComputeSavingThrowModifierImposedOnTarget(sourceName, actionModifier1, metamagicOption);
+                }
+
+                __instance.accountedProviders.Clear();
+                if (advantageForEnemies &&
+                    ((target.Side == RuleDefinitions.Side.Enemy && sourceSide == RuleDefinitions.Side.Ally) ||
+                     (target.Side == RuleDefinitions.Side.Ally && sourceSide == RuleDefinitions.Side.Enemy)))
+                {
+                    actionModifier1.SavingThrowAdvantageTrends.Add(
+                        new RuleDefinitions.TrendInfo(1, featureSourceType, sourceName, caster));
+                }
+
+                if (target is RulesetCharacter rulesetCharacter)
+                {
+                    if (savingThrowAffinitiesBySense != null)
+                    {
+                        foreach (var senseDescription in savingThrowAffinitiesBySense)
+                        {
+                            if (senseDescription.AdvantageType != RuleDefinitions.AdvantageType.None &&
+                                rulesetCharacter.HasSenseType(senseDescription.SenseType))
+                            {
+                                actionModifier1.SavingThrowAdvantageTrends.Add(
+                                    new RuleDefinitions.TrendInfo(
+                                        senseDescription.AdvantageType == RuleDefinitions.AdvantageType.Advantage
+                                            ? 1
+                                            : -1, featureSourceType, sourceName, caster));
+                                break;
+                            }
+                        }
+                    }
+
+                    if (rulesetCharacter is RulesetCharacterMonster monster &&
+                        savingThrowAffinitiesByFamily != null)
+                    {
+                        var monsterDefinition = monster.MonsterDefinition;
+                        foreach (var familyDescription in savingThrowAffinitiesByFamily)
+                        {
+                            if (familyDescription.AdvantageType != RuleDefinitions.AdvantageType.None &&
+                                monsterDefinition.CharacterFamily == familyDescription.Family)
+                            {
+                                actionModifier1.SavingThrowAdvantageTrends.Add(
+                                    new RuleDefinitions.TrendInfo(
+                                        familyDescription.AdvantageType == RuleDefinitions.AdvantageType.Advantage
+                                            ? 1
+                                            : -1, featureSourceType, sourceName, caster));
+                                break;
+                            }
+                        }
+                    }
+                }
+
+
+                target.RollSavingThrow(savingThrowBonus, savingThrowAbility, sourceDefinition,
+                    actionModifier1.SavingThrowModifierTrends, actionModifier1.SavingThrowAdvantageTrends,
+                    actionModifier1.GetSavingThrowModifier(savingThrowAbility, ignoreCover), saveDC, hasHitVisual,
+                    out saveOutcome, out saveOutcomeDelta);
+            }
+        }
+
+        __result = flag1;
+
+        return false;
+    }
+#endif
 }
