@@ -8,5 +8,5 @@ Feature/&PowerArcaneFighterEnchantWeaponDescription=Когда активно н
 Feature/&PowerArcaneFighterEnchantWeaponTitle=Оружие Арканы
 Feedback/&AdditionalDamageArcaneFighterFormat=Боец Арканы!
 Feedback/&AdditionalDamageArcaneFighterLine=Боец Арканы наносит дополнительно +{2} урона!
-Subclass/&WizardArcaneFighterDescription=Направьте свою магию в атаки оружием.
+Subclass/&WizardArcaneFighterDescription=Чародейские бойцы направляют магию в свое оружие, чтобы выполнять разрушительные атаки. Их противники часто удивляются свирепости и безжалостности этих заклинателей.
 Subclass/&WizardArcaneFighterTitle=Боец Арканы

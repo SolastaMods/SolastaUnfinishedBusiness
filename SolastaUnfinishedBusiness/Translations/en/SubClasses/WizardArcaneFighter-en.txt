@@ -8,5 +8,5 @@ Feature/&PowerArcaneFighterEnchantWeaponDescription=When active on a weapon, its
 Feature/&PowerArcaneFighterEnchantWeaponTitle=Arcane Weapon
 Feedback/&AdditionalDamageArcaneFighterFormat=Arcane Fighter!
 Feedback/&AdditionalDamageArcaneFighterLine=Arcane Fighter deals extra +{2} damage!
-Subclass/&WizardArcaneFighterDescription=Channel your magic into weapon attacks.
+Subclass/&WizardArcaneFighterDescription=Arcane Fighters channel magic into their weapons in order to perform devastating attacks. Their adversaries are often surprised at the ferocity and relentlessness from these spell casters.
 Subclass/&WizardArcaneFighterTitle=Arcane Fighter

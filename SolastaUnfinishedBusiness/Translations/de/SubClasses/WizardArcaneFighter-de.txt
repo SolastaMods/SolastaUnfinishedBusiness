@@ -8,5 +8,5 @@ Feature/&PowerArcaneFighterEnchantWeaponDescription=Wenn eine Waffe aktiv ist, z
 Feature/&PowerArcaneFighterEnchantWeaponTitle=Arkane Waffe
 Feedback/&AdditionalDamageArcaneFighterFormat=Arkaner Kämpfer!
 Feedback/&AdditionalDamageArcaneFighterLine=Arcane Fighter verursacht zusätzlichen +{2} Schaden!
-Subclass/&WizardArcaneFighterDescription=Kanalisieren Sie Ihre Magie in Waffenangriffe.
+Subclass/&WizardArcaneFighterDescription=Arkane Kämpfer kanalisieren Magie in ihre Waffen, um verheerende Angriffe auszuführen. Ihre Gegner sind oft überrascht von der Wildheit und Unerbittlichkeit dieser Zauberkundigen.
 Subclass/&WizardArcaneFighterTitle=Arkaner Kämpfer

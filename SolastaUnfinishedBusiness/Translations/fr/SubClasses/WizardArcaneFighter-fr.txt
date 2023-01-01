@@ -8,5 +8,5 @@ Feature/&PowerArcaneFighterEnchantWeaponDescription=Lorsqu'elle est active sur u
 Feature/&PowerArcaneFighterEnchantWeaponTitle=Arme arcanique
 Feedback/&AdditionalDamageArcaneFighterFormat=Combattant arcanique!
 Feedback/&AdditionalDamageArcaneFighterLine=Arcane Fighter inflige +{2} dégâts supplémentaires!
-Subclass/&WizardArcaneFighterDescription=Canalisez votre magie dans des attaques d'armes.
+Subclass/&WizardArcaneFighterDescription=Les Arcane Fighters canalisent la magie dans leurs armes afin d'effectuer des attaques dévastatrices. Leurs adversaires sont souvent surpris de la férocité et de l'acharnement de ces lanceurs de sorts.
 Subclass/&WizardArcaneFighterTitle=Combattant arcanique
