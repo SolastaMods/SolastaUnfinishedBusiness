@@ -1,5 +1,5 @@
 ﻿Condition/&ConditionOathOfAncientsNaturesWrathDescription=Вы запутались в лианах, мешающих движению, помеха спасброскам ловкости, а нападающие имеют преимущество. В конце своего хода совершите спасбросок силы, чтобы сбежать.
-Condition/&ConditionOathOfAncientsNaturesWrathTitle=запутался
+Condition/&ConditionOathOfAncientsNaturesWrathTitle=Запутался
 Condition/&ConditionOathOfAncientsAuraWardingDescription=Получите сопротивление природным элементам, получая половину урона от кислоты, холода, огня, молнии, грома и яда.
 Condition/&ConditionOathOfAncientsAuraWardingTitle=Защищенный
 Feature/&PowerOathOfAncientsNaturesWrathDescription=Сотворите лозы на цели, цель становится опутанной при проваленном спасброске силы. Цель бросает спасбросок силы, чтобы сбежать в конце своего хода.

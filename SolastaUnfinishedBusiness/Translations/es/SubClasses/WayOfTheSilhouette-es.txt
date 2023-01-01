@@ -1,5 +1,5 @@
 ﻿Feature/&FeatureSetWayOfSilhouetteSilhouetteArtsDescription=Comenzando cuando eliges esta tradición en el nivel 3, puedes gastar 2 puntos de ki para lanzar oscuridad, visión en la oscuridad, pasar sin dejar rastro o silenciar, sin proporcionar componentes materiales. Además, obtienes el cantrip de luz si aún no lo conoces.
-Feature/&FeatureSetWayOfSilhouetteSilhouetteArtsTitle=silueta artes
+Feature/&FeatureSetWayOfSilhouetteSilhouetteArtsTitle=Silueta artes
 Feature/&LightAffinityWayOfSilhouetteCloakOfSilhouettesStrongDescription=Capa de siluetas ahora funciona con poca luz y oscuridad mágica además de la oscuridad natural.
 Feature/&LightAffinityWayOfSilhouetteCloakOfSilhouettesStrongTitle=Capa de siluetas mejorada
 Feature/&LightAffinityWayOfSilhouetteCloakOfSilhouettesWeakDescription=Si comienzas tu turno en la oscuridad natural, te vuelves invisible. Salir de la oscuridad, atacar o usar cualquier poder o hechizo que no solo te apunte a ti mismo rompe la invisibilidad.

@@ -1,14 +1,14 @@
 ﻿Condition/&ConditionDauntlessPursuerDescription=2 cellules de mouvement supplémentaires et ignore les réactions de l'adversaire.
 Condition/&ConditionDauntlessPursuerTitle=Poursuivant intrépide
 Condition/&ConditionScornfulPrayerDescription=La force et la voix s'estompent au fur et à mesure que la prière s'enveloppe. Sous les effets, la prière provoque la malédiction de l'ennemi lors des jets d'attaque et l'affaiblit.
-Condition/&ConditionScornfulPrayerTitle=méprisé
+Condition/&ConditionScornfulPrayerTitle=Méprisé
 Feature/&FeatureDauntlessPursuerDescription=En cas d'attaque d'opportunité réussie, gagnez 2 mouvements et un désengagement gratuit.
 Feature/&FeatureDauntlessPursuerTitle=Poursuivant intrépide
 Feature/&FeatureSetHatredElevatedHateDescription=Lorsque vous prononcez votre serment de haine, choisissez un ennemi favori à détester infligeant des dégâts supplémentaires lors du combat.
 Feature/&FeatureSetHatredElevatedHateTitle=Haine élevée
 Feature/&PowerHatredHatefulGazeDescription=En tant qu'action bonus, utilisez votre canal divin pour invoquer votre rage dans un regard provoquant la peur chez l'ennemi ciblé jusqu'à 6 cellules de distance.
-Feature/&PowerHatredHatefulGazeTitle=Channel Divinity : Regard haineux
+Feature/&PowerHatredHatefulGazeTitle=Channel Divinity: Regard haineux
 Feature/&PowerHatredScornfulPrayerDescription=Utilisez votre canal divin pour accomplir une prière de mépris envers un ennemi jusqu'à 10 cases, en le maudissant et en l'affaiblissant lors d'un jet de sauvegarde raté.
-Feature/&PowerHatredScornfulPrayerTitle=Channel Divinity : prière méprisante
+Feature/&PowerHatredScornfulPrayerTitle=Channel Divinity: prière méprisante
 Subclass/&OathOfHatredDescription=Un paladin du Serment de la haine s'est consacré au châtiment des malfaiteurs en canalisant la haine.
 Subclass/&OathOfHatredTitle=Serment de haine

@@ -1,4 +1,5 @@
-﻿using SolastaUnfinishedBusiness.Api.Extensions;
+﻿#if false
+using SolastaUnfinishedBusiness.Api.Extensions;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.Subclasses;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.RecipeDefinitions;
@@ -112,7 +113,7 @@ internal static class DelegatesContext
             // gameLocationCharacter.ClimbFinished += ClimbFinished;
             // gameLocationCharacter.ChangeSurfaceStarted += ChangeSurfaceStarted;
             // gameLocationCharacter.AttackStart += AttackStart;
-            gameLocationCharacter.AttackImpactStart += AttackImpactStart;
+            // gameLocationCharacter.AttackImpactStart += AttackImpactStart;
             // gameLocationCharacter.DeflectAttackStart += DeflectAttackStart;
             // gameLocationCharacter.ManipulateStart += ManipulateStart;
             // gameLocationCharacter.ManipulateEnd += ManipulateEnd;
@@ -177,7 +178,7 @@ internal static class DelegatesContext
                 return;
             }
 
-            rulesetCharacterHero.ItemEquipedCallback += ItemEquipped;
+            // rulesetCharacterHero.ItemEquipedCallback += ItemEquipped;
 
             // rulesetCharacterHero.CharacterInventory.ItemEquiped += ItemEquiped;
             // rulesetCharacterHero.CharacterInventory.ItemAltered += ItemAltered;
@@ -240,7 +241,7 @@ internal static class DelegatesContext
             // gameLocationCharacter.ClimbFinished -= ClimbFinished;
             // gameLocationCharacter.ChangeSurfaceStarted -= ChangeSurfaceStarted;
             // gameLocationCharacter.AttackStart -= AttackStart;
-            gameLocationCharacter.AttackImpactStart -= AttackImpactStart;
+            // gameLocationCharacter.AttackImpactStart -= AttackImpactStart;
             // gameLocationCharacter.DeflectAttackStart -= DeflectAttackStart;
             // gameLocationCharacter.ManipulateStart -= ManipulateStart;
             // gameLocationCharacter.ManipulateEnd -= ManipulateEnd;
@@ -305,7 +306,7 @@ internal static class DelegatesContext
                 return;
             }
 
-            rulesetCharacterHero.ItemEquipedCallback -= ItemEquipped;
+            // rulesetCharacterHero.ItemEquipedCallback -= ItemEquipped;
             // rulesetCharacterHero.CharacterInventory.ItemEquiped -= ItemEquiped;
             // rulesetCharacterHero.CharacterInventory.ItemAltered -= ItemAltered;
             // rulesetCharacterHero.CharacterInventory.ItemUnequiped -= ItemUnequiped;
@@ -317,7 +318,6 @@ internal static class DelegatesContext
     // IGameLocationCharacterService
     //
 
-#if false
     private static void CharacterCreated(GameLocationCharacter gameLocationCharacter)
     {
         Main.Info($"{gameLocationCharacter.Name} Character Created");
@@ -337,7 +337,6 @@ internal static class DelegatesContext
     {
         Main.Info($"{character.Name} Character Killed");
     }
-#endif
 
     //
     // RulesetCharacterHero
@@ -346,7 +345,7 @@ internal static class DelegatesContext
     private static void ItemEquipped(RulesetCharacterHero hero, RulesetItem item)
     {
         Main.Info($"{hero.Name} Item Equipped Hero");
-
+    
         WizardBladeDancer.OnItemEquipped(hero);
         CollegeOfWarDancer.OnItemEquipped(hero);
     }
@@ -355,34 +354,34 @@ internal static class DelegatesContext
     // CharacterInventory
     //
 
-    // private static void ItemEquiped(
-    //     RulesetInventory characterInventory,
-    //     RulesetInventorySlot slot,
-    //     RulesetItem item)
-    // {
-    //     Main.Info("Item Equipped");
-    // }
-    //
-    // private static void ItemAltered(
-    //     RulesetInventory characterInventory,
-    //     RulesetInventorySlot slot,
-    //     RulesetItem item)
-    // {
-    //     Main.Info("Item Altered");
-    // }
-    //
-    // private static void ItemUnequiped(
-    //     RulesetInventory characterInventory,
-    //     RulesetInventorySlot slot,
-    //     RulesetItem item)
-    // {
-    //     Main.Info("Item Unequipped");
-    // }
-    //
-    // private static void ItemReleased(RulesetItem item, bool canKeep)
-    // {
-    //     Main.Info("Item Released");
-    // }
+    private static void ItemEquiped(
+        RulesetInventory characterInventory,
+        RulesetInventorySlot slot,
+        RulesetItem item)
+    {
+        Main.Info("Item Equipped");
+    }
+    
+    private static void ItemAltered(
+        RulesetInventory characterInventory,
+        RulesetInventorySlot slot,
+        RulesetItem item)
+    {
+        Main.Info("Item Altered");
+    }
+    
+    private static void ItemUnequiped(
+        RulesetInventory characterInventory,
+        RulesetInventorySlot slot,
+        RulesetItem item)
+    {
+        Main.Info("Item Unequipped");
+    }
+    
+    private static void ItemReleased(RulesetItem item, bool canKeep)
+    {
+        Main.Info("Item Released");
+    }
 
     //
     // IGameLocationActionService
@@ -473,7 +472,6 @@ internal static class DelegatesContext
     // GameLocationCharacter
     //
 
-#if false
     private static void Placed(GameLocationCharacter character, int3 location)
     {
         Main.Info($"{character.Name} Placed");
@@ -631,9 +629,7 @@ internal static class DelegatesContext
     {
         Main.Info($"{character.Name} Change Surface Started");
     }
-#endif
 
-#if false
     private static void AttackStart(
         GameLocationCharacter attacker,
         GameLocationCharacter defender,
@@ -659,7 +655,6 @@ internal static class DelegatesContext
             effect.BeforeOnAttackHit(attacker, defender, outcome, actionParams, attackMode, attackModifier);
         }
     }
-#endif
 
     private static void AttackImpactStart(
         GameLocationCharacter attacker,
@@ -687,7 +682,6 @@ internal static class DelegatesContext
         }
     }
 
-#if false
     private static void DeflectAttackStart(
         GameLocationCharacter blocker,
         GameLocationCharacter attacker,
@@ -838,239 +832,239 @@ internal static class DelegatesContext
     {
         Main.Info($"{character.Name} Dissolve Started");
     }
-#endif
 
     //
     // RulesetCharacter
     //
 
-    // private static void ConditionAdded(RulesetActor character, RulesetCondition addedActiveCondition)
-    // {
-    //     Main.Info("ConditionAdded");
-    // }
-    //
-    // private static void ConditionRemoved(RulesetActor character, RulesetCondition removedActiveCondition)
-    // {
-    //     Main.Info("ConditionRemoved");
-    // }
-    //
-    // private static void ConditionRemovedForVisual(
-    //     RulesetActor character,
-    //     RulesetCondition removedActiveCondition,
-    //     bool showGraphics = true)
-    // {
-    //     Main.Info("ConditionRemovedForVisual");
-    // }
-    //
-    // private static void ConditionOccurenceReached(RulesetActor character, RulesetCondition removedActiveCondition)
-    // {
-    //     Main.Info("ConditionOccurenceReached");
-    // }
-    //
-    // private static void ConditionSaveRerollRequested(RulesetActor character, RulesetCondition activeCondition,
-    //     RuleDefinitions.AdvantageType advantageType, bool removeOnSuccess, out bool success)
-    // {
-    //     Main.Info("ConditionSaveRerollRequested");
-    // }
-    //
-    // private static void ImmuneToSpell(RulesetActor character, SpellDefinition spellDefinition)
-    // {
-    //     Main.Info("ImmuneToSpell");
-    // }
-    //
-    // private static void ImmuneToSpellLevel(RulesetActor character, SpellDefinition spellDefinition, int maxSpellLevel)
-    // {
-    //     Main.Info("ImmuneToSpellLevel");
-    // }
-    //
-    // private static void ImmuneToDamage(RulesetActor character, string damageType, bool silent)
-    // {
-    //     Main.Info("ImmuneToDamage");
-    // }
-    //
-    // private static void DamageAltered(
-    //     RulesetActor character,
-    //     string damageType,
-    //     RuleDefinitions.DamageAffinityType damageAffinityType,
-    //     int flatDamageReduction,
-    //     bool silent)
-    // {
-    //     Main.Info("DamageAltered");
-    // }
-    //
-    // private static void ImmuneToCondition(RulesetActor character, string conditionName, ulong sourceGuid)
-    // {
-    //     Main.Info("ImmuneToCondition");
-    // }
-    //
-    // private static void SaveRolled(
-    //     RulesetActor character,
-    //     string abilityScoreName,
-    //     BaseDefinition sourceDefinition,
-    //     RuleDefinitions.RollOutcome outcome,
-    //     int saveDc,
-    //     int totalRoll,
-    //     int saveRoll,
-    //     int firstRoll,
-    //     int secondRoll,
-    //     int rollModifier,
-    //     List<RuleDefinitions.TrendInfo> modifierTrends,
-    //     List<RuleDefinitions.TrendInfo> advantageTrends,
-    //     bool hasHitVisual)
-    // {
-    //     Main.Info("SaveRolled");
-    // }
-    //
-    // private static void DieRerolled(
-    //     RulesetActor character,
-    //     RuleDefinitions.DieType dieType,
-    //     int previousValue,
-    //     int newValue,
-    //     string localizationKey)
-    // {
-    //     Main.Info("DieRerolled");
-    // }
-    //
-    // private static void AttackInitiated(
-    //     RulesetActor character,
-    //     int firstRoll,
-    //     int secondRoll,
-    //     int modifier,
-    //     RuleDefinitions.AdvantageType advantageType)
-    // {
-    //     Main.Info("AttackInitiated");
-    // }
-    //
-    // private static void AttackRolled(
-    //     RulesetActor character,
-    //     RulesetActor target,
-    //     BaseDefinition attackMethod,
-    //     RuleDefinitions.RollOutcome outcome,
-    //     int attackRoll,
-    //     int rawRoll,
-    //     int modifier,
-    //     List<RuleDefinitions.TrendInfo> toHitTrends,
-    //     List<RuleDefinitions.TrendInfo> advantageTrends,
-    //     bool opportunity = false,
-    //     ActionDefinitions.ReactionCounterAttackType reactionCounterAttackType =
-    //         ActionDefinitions.ReactionCounterAttackType.None)
-    // {
-    //     Main.Info("AttackRolled");
-    // }
-    //
-    // private static void IncomingAttackRolled(
-    //     RulesetActor character,
-    //     RulesetActor target,
-    //     BaseDefinition attackMethod,
-    //     bool rangeAttack,
-    //     RuleDefinitions.RollOutcome outcome,
-    //     int attackRoll,
-    //     int rawRoll,
-    //     int modifier,
-    //     List<RuleDefinitions.TrendInfo> toHitTrends,
-    //     List<RuleDefinitions.TrendInfo> advantageTrends,
-    //     bool opportunity = false)
-    // {
-    //     Main.Info("IncomingAttackRolled");
-    // }
-    //
-    // private static void AttackAutomaticHit(RulesetActor character, RulesetActor target, BaseDefinition attackMethod)
-    // {
-    //     Main.Info("AttackAutomaticHit");
-    // }
-    //
-    // private static void AttackAutomaticCritical(RulesetActor target)
-    // {
-    //     Main.Info("AttackAutomaticCritical");
-    // }
-    //
-    // private static void DamageFormsTriggered(RulesetActor character, List<EffectGroupInfo> damageInfos)
-    // {
-    //     Main.Info("DamageFormsTriggered");
-    // }
-    //
-    // private static void HealingFormsTriggered(RulesetActor character, List<EffectGroupInfo> healingInfos)
-    // {
-    //     Main.Info("HealingFormsTriggered");
-    // }
-    //
-    // private static void IncomingDamageNotified(
-    //     RulesetActor character,
-    //     RuleDefinitions.EffectSourceType damageType,
-    //     BaseDefinition attackVectorDefinition)
-    // {
-    //     Main.Info("IncomingDamageNotified");
-    // }
-    //
-    // private static void AbilityScoreIncreased(
-    //     RulesetActor character,
-    //     string abilityScore,
-    //     int valueIncrease,
-    //     int maxIncrease)
-    // {
-    //     Main.Info("AbilityScoreIncreased");
-    // }
-    //
-    // private static void DamageHalved(RulesetActor character, FeatureDefinition feature)
-    // {
-    //     Main.Info("DamageHalved");
-    // }
-    //
-    // private static void DamageReduced(RulesetActor character, FeatureDefinition feature, int reductionAmount)
-    // {
-    //     Main.Info("DamageReduced");
-    // }
-    //
-    // private static void ReplacedAbilityScoreForSave(
-    //     RulesetActor saver,
-    //     FeatureDefinition feature,
-    //     string originalAbilityScore,
-    //     string replacedAbilityScore)
-    // {
-    //     Main.Info("ReplacedAbilityScoreForSave");
-    // }
-    //
-    // private static void AdditionalSaveDieRolled(
-    //     RulesetActor character,
-    //     RuleDefinitions.TrendInfo trendInfo)
-    // {
-    //     Main.Info("AdditionalSaveDieRolled");
-    // }
-    //
-    // private static void DamageReceived(
-    //     RulesetActor target,
-    //     int damage,
-    //     string damageType,
-    //     ulong sourceGuid,
-    //     RollInfo rollInfo)
-    // {
-    //     Main.Info("DamageReceived");
-    // }
-    //
-    // private static void AlterationInflicted(
-    //     RulesetActor source,
-    //     RulesetActor target,
-    //     AlterationForm.Type alterationType)
-    // {
-    //     Main.Info("AlterationInflicted");
-    // }
-    //
-    // private static void SpellDissipated(
-    //     RulesetActor source,
-    //     RulesetActor target,
-    //     SpellDefinition spellDefinition,
-    //     bool success)
-    // {
-    //     Main.Info("SpellDissipated");
-    // }
-    //
-    // private static void TagRevealed(RulesetActor actor, string revealedTag)
-    // {
-    //     Main.Info("TagRevealed");
-    // }
-    //
-    // private static void ActorReplaced(RulesetActor originalActor, RulesetActor newActor)
-    // {
-    //     Main.Info("ActorReplaced");
-    // }
+    private static void ConditionAdded(RulesetActor character, RulesetCondition addedActiveCondition)
+    {
+        Main.Info("ConditionAdded");
+    }
+    
+    private static void ConditionRemoved(RulesetActor character, RulesetCondition removedActiveCondition)
+    {
+        Main.Info("ConditionRemoved");
+    }
+    
+    private static void ConditionRemovedForVisual(
+        RulesetActor character,
+        RulesetCondition removedActiveCondition,
+        bool showGraphics = true)
+    {
+        Main.Info("ConditionRemovedForVisual");
+    }
+    
+    private static void ConditionOccurenceReached(RulesetActor character, RulesetCondition removedActiveCondition)
+    {
+        Main.Info("ConditionOccurenceReached");
+    }
+    
+    private static void ConditionSaveRerollRequested(RulesetActor character, RulesetCondition activeCondition,
+        RuleDefinitions.AdvantageType advantageType, bool removeOnSuccess, out bool success)
+    {
+        Main.Info("ConditionSaveRerollRequested");
+    }
+    
+    private static void ImmuneToSpell(RulesetActor character, SpellDefinition spellDefinition)
+    {
+        Main.Info("ImmuneToSpell");
+    }
+    
+    private static void ImmuneToSpellLevel(RulesetActor character, SpellDefinition spellDefinition, int maxSpellLevel)
+    {
+        Main.Info("ImmuneToSpellLevel");
+    }
+    
+    private static void ImmuneToDamage(RulesetActor character, string damageType, bool silent)
+    {
+        Main.Info("ImmuneToDamage");
+    }
+    
+    private static void DamageAltered(
+        RulesetActor character,
+        string damageType,
+        RuleDefinitions.DamageAffinityType damageAffinityType,
+        int flatDamageReduction,
+        bool silent)
+    {
+        Main.Info("DamageAltered");
+    }
+    
+    private static void ImmuneToCondition(RulesetActor character, string conditionName, ulong sourceGuid)
+    {
+        Main.Info("ImmuneToCondition");
+    }
+    
+    private static void SaveRolled(
+        RulesetActor character,
+        string abilityScoreName,
+        BaseDefinition sourceDefinition,
+        RuleDefinitions.RollOutcome outcome,
+        int saveDc,
+        int totalRoll,
+        int saveRoll,
+        int firstRoll,
+        int secondRoll,
+        int rollModifier,
+        List<RuleDefinitions.TrendInfo> modifierTrends,
+        List<RuleDefinitions.TrendInfo> advantageTrends,
+        bool hasHitVisual)
+    {
+        Main.Info("SaveRolled");
+    }
+    
+    private static void DieRerolled(
+        RulesetActor character,
+        RuleDefinitions.DieType dieType,
+        int previousValue,
+        int newValue,
+        string localizationKey)
+    {
+        Main.Info("DieRerolled");
+    }
+    
+    private static void AttackInitiated(
+        RulesetActor character,
+        int firstRoll,
+        int secondRoll,
+        int modifier,
+        RuleDefinitions.AdvantageType advantageType)
+    {
+        Main.Info("AttackInitiated");
+    }
+    
+    private static void AttackRolled(
+        RulesetActor character,
+        RulesetActor target,
+        BaseDefinition attackMethod,
+        RuleDefinitions.RollOutcome outcome,
+        int attackRoll,
+        int rawRoll,
+        int modifier,
+        List<RuleDefinitions.TrendInfo> toHitTrends,
+        List<RuleDefinitions.TrendInfo> advantageTrends,
+        bool opportunity = false,
+        ActionDefinitions.ReactionCounterAttackType reactionCounterAttackType =
+            ActionDefinitions.ReactionCounterAttackType.None)
+    {
+        Main.Info("AttackRolled");
+    }
+    
+    private static void IncomingAttackRolled(
+        RulesetActor character,
+        RulesetActor target,
+        BaseDefinition attackMethod,
+        bool rangeAttack,
+        RuleDefinitions.RollOutcome outcome,
+        int attackRoll,
+        int rawRoll,
+        int modifier,
+        List<RuleDefinitions.TrendInfo> toHitTrends,
+        List<RuleDefinitions.TrendInfo> advantageTrends,
+        bool opportunity = false)
+    {
+        Main.Info("IncomingAttackRolled");
+    }
+    
+    private static void AttackAutomaticHit(RulesetActor character, RulesetActor target, BaseDefinition attackMethod)
+    {
+        Main.Info("AttackAutomaticHit");
+    }
+    
+    private static void AttackAutomaticCritical(RulesetActor target)
+    {
+        Main.Info("AttackAutomaticCritical");
+    }
+    
+    private static void DamageFormsTriggered(RulesetActor character, List<EffectGroupInfo> damageInfos)
+    {
+        Main.Info("DamageFormsTriggered");
+    }
+    
+    private static void HealingFormsTriggered(RulesetActor character, List<EffectGroupInfo> healingInfos)
+    {
+        Main.Info("HealingFormsTriggered");
+    }
+    
+    private static void IncomingDamageNotified(
+        RulesetActor character,
+        RuleDefinitions.EffectSourceType damageType,
+        BaseDefinition attackVectorDefinition)
+    {
+        Main.Info("IncomingDamageNotified");
+    }
+    
+    private static void AbilityScoreIncreased(
+        RulesetActor character,
+        string abilityScore,
+        int valueIncrease,
+        int maxIncrease)
+    {
+        Main.Info("AbilityScoreIncreased");
+    }
+    
+    private static void DamageHalved(RulesetActor character, FeatureDefinition feature)
+    {
+        Main.Info("DamageHalved");
+    }
+    
+    private static void DamageReduced(RulesetActor character, FeatureDefinition feature, int reductionAmount)
+    {
+        Main.Info("DamageReduced");
+    }
+    
+    private static void ReplacedAbilityScoreForSave(
+        RulesetActor saver,
+        FeatureDefinition feature,
+        string originalAbilityScore,
+        string replacedAbilityScore)
+    {
+        Main.Info("ReplacedAbilityScoreForSave");
+    }
+    
+    private static void AdditionalSaveDieRolled(
+        RulesetActor character,
+        RuleDefinitions.TrendInfo trendInfo)
+    {
+        Main.Info("AdditionalSaveDieRolled");
+    }
+    
+    private static void DamageReceived(
+        RulesetActor target,
+        int damage,
+        string damageType,
+        ulong sourceGuid,
+        RollInfo rollInfo)
+    {
+        Main.Info("DamageReceived");
+    }
+    
+    private static void AlterationInflicted(
+        RulesetActor source,
+        RulesetActor target,
+        AlterationForm.Type alterationType)
+    {
+        Main.Info("AlterationInflicted");
+    }
+    
+    private static void SpellDissipated(
+        RulesetActor source,
+        RulesetActor target,
+        SpellDefinition spellDefinition,
+        bool success)
+    {
+        Main.Info("SpellDissipated");
+    }
+    
+    private static void TagRevealed(RulesetActor actor, string revealedTag)
+    {
+        Main.Info("TagRevealed");
+    }
+    
+    private static void ActorReplaced(RulesetActor originalActor, RulesetActor newActor)
+    {
+        Main.Info("ActorReplaced");
+    }
 }
+#endif

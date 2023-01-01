@@ -1,14 +1,14 @@
 Feature/&AttributeModifierCasterFightingExtraAttackDescription=Você ganha um ataque extra e agora pode atacar até 2 vezes no seu turno.
 Feature/&AttributeModifierCasterFightingExtraAttackTitle=Ataque extra
 Feature/&DamageAffinityGenericHardenToNecroticDescription=Você tem imunidade a dano necrótico e seu máximo de pontos de vida não pode ser reduzido.
-Feature/&DamageAffinityGenericHardenToNecroticTitle=endurecer para necrótico
+Feature/&DamageAffinityGenericHardenToNecroticTitle=Endurecer para necrótico
 Feature/&FeatureSetCasterFightingProficiencyDescription=Você pode usar armadura leve, armadura média e escudo e também ganhar proficiência com armas marciais.
 Feature/&FeatureSetCasterFightingProficiencyTitle=Armaduras e Armas
 Feature/&MagicAffinityCasterFightingCombatMagicDescription=Vantagem em testes de concentração, bem como a capacidade de executar componentes somáticos de feitiços enquanto segura itens.
-Feature/&MagicAffinityCasterFightingCombatMagicTitle=elenco de guerra
+Feature/&MagicAffinityCasterFightingCombatMagicTitle=Elenco de guerra
 Feature/&PowerCasterCommandUndeadDescription=Você pode usar sua ação um número de vezes por dia igual ao seu bônus de proficiência, para trazer mortos-vivos sob seu controle. O morto-vivo deve fazer um teste de resistência de Carisma (CD igual a 8 + PB + seu modificador de INT) ou será controlado por 1 minuto.
 Feature/&PowerCasterCommandUndeadTitle=Comandar mortos-vivos
 Feature/&PowerCasterFightingWarMagicDescription=Você pode usar sua ação bônus para atacar usando a arma em sua mão principal após lançar um feitiço.
-Feature/&PowerCasterFightingWarMagicTitle=magia de guerra
+Feature/&PowerCasterFightingWarMagicTitle=Magia de guerra
 Feature/&ReplaceAttackWithCantripCasterFightingDescription=Você pode substituir um de seus ataques por um truque.
 Feature/&ReplaceAttackWithCantripCasterFightingTitle=Truque de ataque

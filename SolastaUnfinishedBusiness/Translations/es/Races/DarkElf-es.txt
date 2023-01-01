@@ -1,4 +1,4 @@
-Feature/&AttributeModifierDarkelfCharismaAbilityScoreIncreaseDescription=carisma +1
+Feature/&AttributeModifierDarkelfCharismaAbilityScoreIncreaseDescription=Carisma +1
 Feature/&AttributeModifierDarkelfCharismaAbilityScoreIncreaseTitle=Aumento de puntuación de habilidad
 Feature/&CastSpellDarkelfMagicDescription=Ya conoces el truco de <b>Luces Danzantes</b>. En el nivel 3 aprendes <b>Fuego feérico</b> y en el nivel 5, <b>Oscuridad</b>. Ambos pueden usarse una vez por descanso prolongado.
 Feature/&CastSpellDarkelfMagicTitle=Magia de los elfos oscuros

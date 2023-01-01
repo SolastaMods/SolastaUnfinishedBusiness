@@ -1,5 +1,5 @@
 ﻿Condition/&AfterRestIdentifyDescription=Identificando itens mágicos
-Condition/&AfterRestIdentifyTitle=identificando
+Condition/&AfterRestIdentifyTitle=Identificando
 Condition/&ConditionDistractedByAllyDescription=Esta criatura foi distraída.
 Condition/&ConditionDistractedByAllyTitle=Distraído
 Condition/&ConditionLightSensitivityDescription=Você tem Desvantagem em testes de Sabedoria (Percepção) sob luz forte e sofre uma penalidade de -1d4 nas jogadas de ataque.

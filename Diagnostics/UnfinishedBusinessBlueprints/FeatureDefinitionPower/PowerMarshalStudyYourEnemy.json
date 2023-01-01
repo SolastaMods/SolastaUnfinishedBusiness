@@ -330,7 +330,7 @@
     "description": "Feature/&PowerMarshalStudyYourEnemyDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "fcc3c653-fce9-5363-a107-272d82b3d119",
+      "m_AssetGUID": "60f4c65b-9caf-5dfa-8152-a1bd90b492e6",
       "m_SubObjectName": null,
       "m_SubObjectType": null
     },

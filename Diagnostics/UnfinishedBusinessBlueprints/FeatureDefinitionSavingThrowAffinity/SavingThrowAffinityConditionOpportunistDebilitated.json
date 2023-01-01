@@ -1,0 +1,117 @@
+{
+  "$type": "FeatureDefinitionSavingThrowAffinity, Assembly-CSharp",
+  "useControllerSavingThrows": false,
+  "priorityAbilityScore": "",
+  "affinityGroups": [
+    {
+      "$type": "FeatureDefinitionSavingThrowAffinity+SavingThrowAffinityGroup, Assembly-CSharp",
+      "abilityScoreName": "Charisma",
+      "affinity": "None",
+      "savingThrowModifierType": "RemoveDice",
+      "savingThrowModifierDiceNumber": 1,
+      "savingThrowModifierDieType": "D6",
+      "restrictedForms": [],
+      "restrictedSchools": [],
+      "restrictedSpells": [],
+      "restrictedPowers": [],
+      "savingThrowContext": "None"
+    },
+    {
+      "$type": "FeatureDefinitionSavingThrowAffinity+SavingThrowAffinityGroup, Assembly-CSharp",
+      "abilityScoreName": "Constitution",
+      "affinity": "None",
+      "savingThrowModifierType": "RemoveDice",
+      "savingThrowModifierDiceNumber": 1,
+      "savingThrowModifierDieType": "D6",
+      "restrictedForms": [],
+      "restrictedSchools": [],
+      "restrictedSpells": [],
+      "restrictedPowers": [],
+      "savingThrowContext": "None"
+    },
+    {
+      "$type": "FeatureDefinitionSavingThrowAffinity+SavingThrowAffinityGroup, Assembly-CSharp",
+      "abilityScoreName": "Dexterity",
+      "affinity": "None",
+      "savingThrowModifierType": "RemoveDice",
+      "savingThrowModifierDiceNumber": 1,
+      "savingThrowModifierDieType": "D6",
+      "restrictedForms": [],
+      "restrictedSchools": [],
+      "restrictedSpells": [],
+      "restrictedPowers": [],
+      "savingThrowContext": "None"
+    },
+    {
+      "$type": "FeatureDefinitionSavingThrowAffinity+SavingThrowAffinityGroup, Assembly-CSharp",
+      "abilityScoreName": "Intelligence",
+      "affinity": "None",
+      "savingThrowModifierType": "RemoveDice",
+      "savingThrowModifierDiceNumber": 1,
+      "savingThrowModifierDieType": "D6",
+      "restrictedForms": [],
+      "restrictedSchools": [],
+      "restrictedSpells": [],
+      "restrictedPowers": [],
+      "savingThrowContext": "None"
+    },
+    {
+      "$type": "FeatureDefinitionSavingThrowAffinity+SavingThrowAffinityGroup, Assembly-CSharp",
+      "abilityScoreName": "Strength",
+      "affinity": "None",
+      "savingThrowModifierType": "RemoveDice",
+      "savingThrowModifierDiceNumber": 1,
+      "savingThrowModifierDieType": "D6",
+      "restrictedForms": [],
+      "restrictedSchools": [],
+      "restrictedSpells": [],
+      "restrictedPowers": [],
+      "savingThrowContext": "None"
+    },
+    {
+      "$type": "FeatureDefinitionSavingThrowAffinity+SavingThrowAffinityGroup, Assembly-CSharp",
+      "abilityScoreName": "Wisdom",
+      "affinity": "None",
+      "savingThrowModifierType": "RemoveDice",
+      "savingThrowModifierDiceNumber": 1,
+      "savingThrowModifierDieType": "D6",
+      "restrictedForms": [],
+      "restrictedSchools": [],
+      "restrictedSpells": [],
+      "restrictedPowers": [],
+      "savingThrowContext": "None"
+    }
+  ],
+  "indomitableSavingThrows": 0,
+  "canBorrowLuck": false,
+  "canUseDiamondSoul": false,
+  "myselfFamilyRestrictions": [],
+  "otherCharacterFamilyRestrictions": [],
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": true,
+    "title": "Feature/&NoContentTitle",
+    "description": "Feature/&NoContentTitle",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "53334528-6e15-5fe4-b6d7-50f42dde44e9",
+  "contentPack": 9999,
+  "name": "SavingThrowAffinityConditionOpportunistDebilitated"
+}

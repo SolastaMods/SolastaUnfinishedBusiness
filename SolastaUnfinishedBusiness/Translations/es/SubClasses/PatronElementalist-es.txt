@@ -21,4 +21,4 @@ Feature/&PowerElementalistElementalFormPoolTitle=Formas elementales
 Feedback/&AdditionalDamageElementalDamageFormat=Daño Elemental
 Feedback/&AdditionalDamageElementalDamageLine=La forma elemental otorga daño adicional
 Subclass/&PatronElementalistDescription=Has hecho un pacto con los primordiales presentes en las tierras baldías elementales y te han cambiado. El caos elemental del patrón ha impregnado tu alma, permitiéndote usar el poder de diferentes tipos de elementos.
-Subclass/&PatronElementalistTitle=el elementalista
+Subclass/&PatronElementalistTitle=El elementalista

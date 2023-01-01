@@ -1,4 +1,4 @@
-Modal/&AssertionFailedTtitle=Asserzione non riuscita
+Modal/&AssertionFailedTTitle=Asserzione non riuscita
 Modal/&CampaignSelectionButtonTitle=Selezionare
 Modal/&CampaignSelectionTitle=Campagna
 Modal/&CampCaptionMultipleHoursFormat=La festa si accamperà per {0} ore.

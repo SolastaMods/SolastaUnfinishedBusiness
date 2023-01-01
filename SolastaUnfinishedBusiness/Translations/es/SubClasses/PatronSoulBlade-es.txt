@@ -1,5 +1,5 @@
 ﻿Feature/&AttackModifierSoulBladeEmpowerWeaponDescription=El arma usa el modificador Carisma para las tiradas de ataque y daño y cuenta como mágica hasta un descanso prolongado.
-Feature/&AttackModifierSoulBladeEmpowerWeaponTitle=alma empoderada
+Feature/&AttackModifierSoulBladeEmpowerWeaponTitle=Alma empoderada
 Feature/&PowerSoulBladeEmpowerWeaponDescription=Una vez por descanso prolongado puedes potenciar un arma con el poder de las almas. El arma usa el modificador Carisma para las tiradas de ataque y daño y cuenta como mágica. Solo un arma puede estar bajo este efecto.
 Feature/&PowerSoulBladeEmpowerWeaponTitle=Empoderamiento del alma
 Feature/&PowerSoulBladeSoulShieldDescription=Una vez por breve descanso, usas el poder de las almas para defenderte. Usando una acción de bonificación, obtienes hp temporales iguales a tu nivel + modificador de Carisma.

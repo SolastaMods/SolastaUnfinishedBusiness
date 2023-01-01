@@ -4,6 +4,7 @@
   "parentCondition": null,
   "conditionType": "Beneficial",
   "features": [
+    "Definition:AttackModifierWarDance:668fa6c1-2515-598f-88c7-70e4f8344a5d",
     "Definition:FeatureConditionWarDanceCustom:b414fa27-eb2f-51af-9afe-80868c30c28e",
     "Definition:FeatureConditionWarDanceSwitchWeaponFreely:769a3fa5-1316-5778-94a4-df8522923016",
     "Definition:MovementAffinityConditionWarDanceExtraMovement3:503c1064-5ed8-54ed-a4e2-ef24a73b0e82"

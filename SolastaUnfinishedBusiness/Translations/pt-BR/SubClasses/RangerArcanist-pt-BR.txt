@@ -13,4 +13,4 @@ Feature/&PowerArcanistArcanePulseTitle=Pulso Arcano
 Feedback/&AdditionalDamageArcanistMarkFormat=Marca do Arcanista!
 Feedback/&AdditionalDamageArcanistMarkLine=A Marca do Arcanista detona e causa dano extra ao alvo!
 Subclass/&RangerArcanistDescription=O Arcanist combina suas habilidades de Ranger com habilidades arcanas. Suas armas podem afligir seus oponentes com a Marca do Arcanista e aprenderam a lançar alguns feitiços de Mago como parte de seu repertório de feitiços de Ranger.
-Subclass/&RangerArcanistTitle=arcanista
+Subclass/&RangerArcanistTitle=Arcanista

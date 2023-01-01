@@ -109,7 +109,7 @@ internal sealed class MartialMarshal : AbstractSubclass
 
     private static FeatureDefinitionPower BuildStudyEnemyPower()
     {
-        var sprite = Sprites.GetSprite("PowerHelp", Resources.PowerHelp, 128);
+        var sprite = Sprites.GetSprite("PowerStudyYourEnemy", Resources.PowerStudyYourEnemy, 128);
 
         return FeatureDefinitionPowerBuilder
             .Create("PowerMarshalStudyYourEnemy")

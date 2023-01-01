@@ -34,8 +34,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feat/&FeatCrusherStrTitle",
-    "description": "Feat/&FeatCrusherStrDescription",
+    "title": "Condition/&ConditionFeatCrusherCriticalHitTitle",
+    "description": "Condition/&ConditionFeatCrusherCriticalHitDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",

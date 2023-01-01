@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using SolastaUnfinishedBusiness.Api;
 using UnityEngine;
 using static FeatureDefinitionFeatureSet;
 
@@ -32,6 +33,21 @@ internal static class MulticlassWildshapeContext
         UpdateSenses(monster);
         UpdateAttributeModifiers(monster, keepMentalAbilityScores);
         FixShapeShiftedAc(monster);
+    }
+
+    internal static void HandleFlurryOfBlows(RulesetCharacter __instance, ConditionDefinition conditionDefinition)
+    {
+        if (__instance is not RulesetCharacterMonster { IsSubstitute: true } monster ||
+            conditionDefinition != DatabaseHelper.ConditionDefinitions.ConditionMonkFlurryOfBlowsUnarmedStrikeBonus)
+        {
+            return;
+        }
+
+        var gameLocationCharacter = GameLocationCharacter.GetFromActor(monster);
+
+        gameLocationCharacter.usedMainAttacks -= 2;
+        gameLocationCharacter.hasAttackedSinceLastTurn = false;
+        gameLocationCharacter.RefreshActionPerformances();
     }
 
     private static void UpdateSenses(RulesetCharacterMonster monster)

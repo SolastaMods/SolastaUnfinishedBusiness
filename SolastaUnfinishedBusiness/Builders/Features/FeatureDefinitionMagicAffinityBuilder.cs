@@ -72,6 +72,16 @@ internal class FeatureDefinitionMagicAffinityBuilder
         return this;
     }
 
+    internal FeatureDefinitionMagicAffinityBuilder SetSpellWithModifiedSaveDc(
+        SpellDefinition spellDefinition,
+        int bonus)
+    {
+        Definition.spellWithModifiedSaveDC = spellDefinition;
+        Definition.bonusToEffectSaveDC = bonus;
+        Definition.addBonusToEffectSaveDC = SpellAndPowersDefinitions.RulesetEffectSaveDCBonusType.Spell;
+        return this;
+    }
+
     internal FeatureDefinitionMagicAffinityBuilder SetSpellLearnAndPrepModifiers(
         float scribeDurationMultiplier,
         float scribeCostMultiplier,

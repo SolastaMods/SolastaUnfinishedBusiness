@@ -7,6 +7,7 @@ using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomInterfaces;
+using SolastaUnfinishedBusiness.CustomUI;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 
@@ -82,6 +83,11 @@ internal sealed class CollegeOfWarDancer : AbstractSubclass
                     .Create("FeatureConditionWarDanceSwitchWeaponFreely")
                     .SetGuiPresentationNoContent(true)
                     .SetCustomSubFeatures(new SwitchWeaponFreely())
+                    .AddToDB(),
+                FeatureDefinitionAttackModifierBuilder
+                    .Create("AttackModifierWarDance")
+                    .SetGuiPresentation(Category.Feature)
+                    .AddAbilityScoreBonus(AttributeDefinitions.Charisma)
                     .AddToDB()
             )
             .SetCustomSubFeatures(new RemoveOnAttackMissOrAttackWithNonMeleeWeapon())
@@ -97,6 +103,8 @@ internal sealed class CollegeOfWarDancer : AbstractSubclass
 
     private sealed class WarDanceFlurryAttack : IAttackFinished
     {
+        private const string Format = "Reaction/&CustomReactionDanceOfWarOnMissDescription";
+
         public IEnumerator OnAttackFinished(GameLocationBattleManager battleManager, CharacterAction action,
             GameLocationCharacter attacker, GameLocationCharacter defender, RulesetAttackMode attackerAttackMode,
             RollOutcome attackRollOutcome, int damageAmount)
@@ -110,6 +118,31 @@ internal sealed class CollegeOfWarDancer : AbstractSubclass
                 ValidatorsWeapon.IsMelee(attackerAttackMode))
             {
                 yield break;
+            }
+
+            var manager = ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
+            if (!RemoveMomentumAnyway(attacker) && attacker.RulesetCharacter.RemainingBardicInspirations > 0 &&
+                manager != null)
+            {
+                // spend bardic inspiration dice to keep war dance condition
+                var description = Gui.Format(Format, attacker.Name);
+                var reactionParams =
+                    new CharacterActionParams(attacker, (ActionDefinitions.Id)ExtraActionId.DoNothingReaction)
+                    {
+                        StringParameter = description
+                    };
+                var reactionRequest = new ReactionRequestCustom("DanceOfWarOnMiss", reactionParams);
+
+                IGameLocationActionService service = ServiceRepository.GetService<IGameLocationActionService>();
+                int count = service.PendingReactionRequestGroups.Count;
+                manager.AddInterruptRequest(reactionRequest);
+                yield return battleManager.WaitForReactions(attacker, service, count);
+
+                if (reactionParams.ReactionValidated)
+                {
+                    attacker.RulesetCharacter.usedBardicInspiration += 1;
+                    yield break;
+                }
             }
 
             RemoveConditionOnAttackMissOrAttackWithNonMeleeWeapon(attacker.RulesetCharacter);
@@ -250,42 +283,48 @@ internal sealed class CollegeOfWarDancer : AbstractSubclass
                     .SetCustomSubFeatures(new WarDanceFlurryAttackModifier())
                     .AddToDB())
             .AddToDB();
-
         public bool MightRefundOneAttackOfMainAction(GameLocationCharacter hero, CharacterActionParams actionParams)
         {
             var flag = true;
+            var momentum = 1;
             if (actionParams.actionDefinition.Id != ActionDefinitions.Id.AttackMain)
             {
                 if (actionParams.actionDefinition.Id != ActionDefinitions.Id.CastMain)
                 {
                     flag = false;
                 }
-
-                // blade cantrips are allowed
-                if (actionParams.RulesetEffect is not RulesetEffectSpell spellEffect ||
-                    spellEffect.spellDefinition.spellLevel > 0 || !spellEffect.SpellDefinition
-                        .HasSubFeatureOfType<IPerformAttackAfterMagicEffectUse>())
+                else
                 {
-                    flag = false;
+                    if (actionParams.activeEffect is RulesetEffectSpell spellEffect)
+                    {
+                        if (spellEffect.slotLevel > 0 || spellEffect.SpellDefinition
+                                .HasSubFeatureOfType<IPerformAttackAfterMagicEffectUse>())
+                        {
+                            if (spellEffect.slotLevel / 2 > momentum)
+                            {
+                                momentum = spellEffect.slotLevel / 2;
+                            }
+                        }
+                        else
+                        {
+                            flag = false;
+                        }
+                    }
                 }
             }
 
-            // Only apply if the main action is spent
-            if (hero.usedMainAttacks != 0 || !hero.RulesetCharacter.HasConditionOfType(ConditionWarDance))
-            {
-                flag = false;
-            }
+            // only apply if number of momentum less than PB
+            var currentMomentum = new List<RulesetCondition>();
+            var pb = hero.RulesetCharacter.TryGetAttributeValue("ProficiencyBonus");
+            currentMomentum.AddRange(
+                hero.RulesetCharacter.ConditionsByCategory
+                    .SelectMany(x => x.Value)
+                    .Where(x => x.conditionDefinition == WarDanceMomentumExtraAction ||
+                                x.conditionDefinition == ImprovedWarDanceMomentumExtraAction));
 
-            if (!flag)
+            if (!flag || RemoveMomentumAnyway(hero) || pb == 0 || !hero.RulesetCharacter.HasConditionOfType(ConditionWarDance))
             {
-                var conditionsToRemove = new List<RulesetCondition>();
-
-                conditionsToRemove.AddRange(
-                    hero.RulesetCharacter.ConditionsByCategory
-                        .SelectMany(x => x.Value)
-                        .Where(x => x.conditionDefinition == WarDanceMomentumExtraAction ||
-                                    x.conditionDefinition == ImprovedWarDanceMomentumExtraAction));
-                foreach (var cond in conditionsToRemove)
+                foreach (var cond in currentMomentum)
                 {
                     hero.RulesetCharacter.RemoveCondition(cond);
                 }
@@ -299,7 +338,11 @@ internal sealed class CollegeOfWarDancer : AbstractSubclass
             ApplyActionAffinity(hero.RulesetCharacter);
 
             // apply momentum
-            GrantWarDanceMomentum(hero);
+            for (int i = 0; i < momentum; i++)
+            {
+                GrantWarDanceMomentum(hero);
+            }
+
             return true;
         }
 
@@ -401,6 +444,11 @@ internal sealed class CollegeOfWarDancer : AbstractSubclass
                 power.remainingRounds += 1;
                 break;
             }
+
+            if (attacker.RulesetCharacter.usedBardicInspiration > 0)
+            {
+                attacker.RulesetCharacter.usedBardicInspiration -= 1;
+            }
         }
     }
 
@@ -480,5 +528,17 @@ internal sealed class CollegeOfWarDancer : AbstractSubclass
 
     private sealed class SwitchWeaponFreely : IUnlimitedFreeAction
     {
+    }
+
+    private static bool RemoveMomentumAnyway(GameLocationCharacter hero)
+    {
+        var currentMomentum = new List<RulesetCondition>();
+        var pb = hero.RulesetCharacter.TryGetAttributeValue("ProficiencyBonus");
+        currentMomentum.AddRange(
+            hero.RulesetCharacter.ConditionsByCategory
+                .SelectMany(x => x.Value)
+                .Where(x => x.conditionDefinition == WarDanceMomentum));
+
+        return currentMomentum.Count >= pb || pb == 0;
     }
 }

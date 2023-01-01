@@ -1,10 +1,18 @@
-KNOWN ISSUES:
-
-- Grenadier bombs resolve to DC 0 under multiplayer
-- Tiefling needs better race pictures
+ATTENTION:
+- RESPEC any hero that has acquired raise dead spells
 
 CHANGES:
-
-- fixed Chromatic Orb upcasting
-- fixed Hand-and-A-Half off hand check
-- improved Crusher push mechanism
+- added Study your Enemy custom sprite
+- allowed bardic die use on War Dancer momentum
+- changed all Raise Dead spells to:
+    * be one level up from 2 to 8
+    * require concentration
+    * have duration of 1 min, 10 min, 1 hour on levels 2, 3 and 4
+    * have duration of 1 hour, 8 hours, 1 day on levels 5 and above
+- changed Dead Master subclass to:
+    * have +1 save DC on any Necromancy spell at 2nd level
+    * not require concentration on raise dead upcast
+- changed Opportunist debilitated condition to -1D6 on all saving throws
+- improved Crusher to allow unarmed
+- improved Crusher, Piercer and Slasher translation terms
+- improved Druid Wildshape interaction with unarmed feats, monk flurry of blows, etc.

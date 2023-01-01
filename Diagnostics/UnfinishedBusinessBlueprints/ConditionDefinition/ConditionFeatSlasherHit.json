@@ -128,8 +128,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feat/&FeatSlasherStrTitle",
-    "description": "Feat/&FeatSlasherStrDescription",
+    "title": "Condition/&ConditionFeatSlasherHitTitle",
+    "description": "Condition/&ConditionFeatSlasherHitDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
