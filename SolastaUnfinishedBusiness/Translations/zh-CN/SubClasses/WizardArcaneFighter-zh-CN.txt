@@ -8,5 +8,5 @@ Feature/&PowerArcaneFighterEnchantWeaponDescription=当激活于一个武器时�
 Feature/&PowerArcaneFighterEnchantWeaponTitle=奥法武器
 Feedback/&AdditionalDamageArcaneFighterFormat=奥法战士!
 Feedback/&AdditionalDamageArcaneFighterLine=奥法战士造成额外 +{2} 伤害!
-Subclass/&WizardArcaneFighterDescription=将你的魔法转化为武器攻击
+Subclass/&WizardArcaneFighterDescription=奥术战士将魔法引导到他们的武器中以进行毁灭性的攻击。他们的对手常常对这些施法者的凶猛和无情感到惊讶。
 Subclass/&WizardArcaneFighterTitle=奥法战士
