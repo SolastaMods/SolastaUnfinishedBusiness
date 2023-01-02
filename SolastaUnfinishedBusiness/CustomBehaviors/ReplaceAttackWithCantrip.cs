@@ -79,6 +79,12 @@ internal static class ReplaceAttackWithCantrip
         {
             __instance.currentActionRankByType[ActionDefinitions.ActionType.Main]--;
         }
+
+        // reset __instance.usedMainAttacks so doesn't block haste or action surge
+        if (__instance.usedMainAttacks >= num)
+        {
+            __instance.usedMainAttacks = 0;
+        }
     }
 
     internal static void MightRefundOneAttackOfMainAction(
