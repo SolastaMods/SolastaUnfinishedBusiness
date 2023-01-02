@@ -232,6 +232,7 @@ public class Settings : UnityModManager.ModSettings
     public bool HideExitsAndTeleportersGizmosIfNotDiscovered { get; set; }
     public bool AllowMoreRealStateOnRestPanel { get; set; }
     public bool AddMonkKiPointsToggle { get; set; }
+    public bool AddPaladinSmiteToggle { get; set; }
 
     // Input
     public bool AltOnlyHighlightItemsInPartyFieldOfView { get; set; }

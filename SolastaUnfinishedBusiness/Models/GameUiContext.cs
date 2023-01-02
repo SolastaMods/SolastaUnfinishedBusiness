@@ -669,6 +669,25 @@ internal static class GameUiContext
             .AddToDB();
     }
 
+    internal static FeatureDefinitionActionAffinity ActionAffinityPaladinSmiteToggle { get; private set; }
+
+    private static void LoadPaladinSmiteToggle()
+    {
+        _ = ActionDefinitionBuilder
+            .Create(DatabaseHelper.ActionDefinitions.MetamagicToggle, "PaladinSmiteToggle")
+            .SetOrUpdateGuiPresentation(Category.Action)
+            .RequiresAuthorization()
+            .SetActionId(ExtraActionId.PaladinSmiteToggle)
+            .AddToDB();
+
+        ActionAffinityPaladinSmiteToggle = FeatureDefinitionActionAffinityBuilder
+            .Create(DatabaseHelper.FeatureDefinitionActionAffinitys.ActionAffinitySorcererMetamagicToggle,
+                "ActionAffinityPaladinSmiteToggle")
+            .SetGuiPresentationNoContent(true)
+            .SetAuthorizedActions((ActionDefinitions.Id)ExtraActionId.PaladinSmiteToggle)
+            .AddToDB();
+    }
+
     internal static void Load()
     {
         InventoryManagementContext.Load();
@@ -676,6 +695,7 @@ internal static class GameUiContext
         SwitchEmpressGarb();
         LoadRemoveBugVisualModels();
         LoadMonkKiPointsToggle();
+        LoadPaladinSmiteToggle();
 
         var inputService = ServiceRepository.GetService<IInputService>();
 

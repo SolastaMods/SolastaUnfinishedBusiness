@@ -187,3 +187,4 @@ ModUi/&UseHeightOneCylinderEffect=Use a height 1 cylinder effect when casting <c
 ModUi/&UseOfficialAdvantageDisadvantageRules=Use official advantage / disadvantage rules
 ModUi/&Visuals=<color=#F0DAA0>Visuals:</color> <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
 ModUi/&AddMonkKiPointsToggle=Add a toggle to allow <color=#D89555>Monks</color> to enable/disable Ki Points <i><color=#F0DAA0>[useful to minimize reaction prompts]</color></i>
+ModUi/&AddPaladinSmiteToggle=Add a toggle to allow <color=#D89555>Paladins</color> to only enable smites on critical hits <i><color=#F0DAA0>[useful to minimize reaction prompts]</color></i>

@@ -187,3 +187,4 @@ ModUi/&UseHeightOneCylinderEffect=Используйте эффект цилин
 ModUi/&UseOfficialAdvantageDisadvantageRules=Использоваться официальные правила штрафов и бонусов
 ModUi/&Visuals=<color=#F0DAA0>Visuals:</color> <b><i><color=#C04040E0>[Требуется Перезапуск]</color></i></b>
 ModUi/&AddMonkKiPointsToggle=Добавьте переключатель, позволяющий <color=#D89555>монахам</color> включать/отключать точки Ки <i><color=#F0DAA0>[полезно для минимизации запросов на реакцию]</color></i>
+ModUi/&AddPaladinSmiteToggle=Добавьте переключатель, позволяющий <color=#D89555>Paladins</color> включать удары только при критических ударах <i><color=#F0DAA0>[полезно для минимизации подсказок реакции]</color></i>

@@ -13,6 +13,7 @@ using SolastaUnfinishedBusiness.Api.Infrastructure;
 using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.Models;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterClassDefinitions;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
@@ -389,7 +390,7 @@ public static class RulesetCharacterPatcher
         {
             // wildshape
             if (__instance.OriginalFormCharacter is RulesetCharacterHero hero && hero != __instance &&
-                hero.classesAndLevels.TryGetValue(DatabaseHelper.CharacterClassDefinitions.Druid, out var level) &&
+                hero.classesAndLevels.TryGetValue(Druid, out var level) &&
                 level < 18)
             {
                 __result = false;
@@ -1152,21 +1153,40 @@ public static class RulesetCharacterPatcher
                 return;
             }
 
-            if (hero.ClassesHistory.Contains(DatabaseHelper.CharacterClassDefinitions.Monk))
+            if (hero.ClassesHistory.Contains(Monk))
             {
-                var tag = AttributeDefinitions.GetClassTag(DatabaseHelper.CharacterClassDefinitions.Monk, 1);
+                var tag = AttributeDefinitions.GetClassTag(Monk, 1);
 
                 switch (Main.Settings.AddMonkKiPointsToggle)
                 {
                     case true when !hero.HasAnyFeature(GameUiContext.ActionAffinityMonkKiPointsToggle):
                         hero.ActiveFeatures[tag].Add(GameUiContext.ActionAffinityMonkKiPointsToggle);
+                        hero.EnableToggle((ActionDefinitions.Id)ExtraActionId.MonkKiPointsToggle);
                         break;
                     case false when hero.HasAnyFeature(GameUiContext.ActionAffinityMonkKiPointsToggle):
                         hero.ActiveFeatures[tag].Remove(GameUiContext.ActionAffinityMonkKiPointsToggle);
+                        hero.DisableToggle((ActionDefinitions.Id)ExtraActionId.MonkKiPointsToggle);
                         break;
                 }
             }
-            
+
+            if (hero.ClassesHistory.Contains(Paladin))
+            {
+                var tag = AttributeDefinitions.GetClassTag(Paladin, 1);
+
+                switch (Main.Settings.AddPaladinSmiteToggle)
+                {
+                    case true when !hero.HasAnyFeature(GameUiContext.ActionAffinityPaladinSmiteToggle):
+                        hero.ActiveFeatures[tag].Add(GameUiContext.ActionAffinityPaladinSmiteToggle);
+                        hero.EnableToggle((ActionDefinitions.Id)ExtraActionId.PaladinSmiteToggle);
+                        break;
+                    case false when hero.HasAnyFeature(GameUiContext.ActionAffinityPaladinSmiteToggle):
+                        hero.ActiveFeatures[tag].Remove(GameUiContext.ActionAffinityPaladinSmiteToggle);
+                        hero.DisableToggle((ActionDefinitions.Id)ExtraActionId.PaladinSmiteToggle);
+                        break;
+                }
+            }
+
             hero.RefreshAll();
         }
     }

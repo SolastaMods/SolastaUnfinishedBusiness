@@ -65,7 +65,7 @@ public static class CharacterActionPanelPatcher
         {
             var character = panel.GuiCharacter.RulesetCharacter;
             var battle = Gui.Battle != null;
-            
+
             //PATCH: reorder the actions panel in case we have custom toggles
             if (actions.Contains((ActionDefinitions.Id)ExtraActionId.MonkKiPointsToggle))
             {
@@ -77,7 +77,18 @@ public static class CharacterActionPanelPatcher
                     actions.Insert(powerNdx, (ActionDefinitions.Id)ExtraActionId.MonkKiPointsToggle);
                 }
             }
-            
+
+            if (actions.Contains((ActionDefinitions.Id)ExtraActionId.PaladinSmiteToggle))
+            {
+                var powerNdx = actions.FindIndex(x => x == ActionDefinitions.Id.PowerMain);
+
+                if (powerNdx >= 0)
+                {
+                    actions.Remove((ActionDefinitions.Id)ExtraActionId.PaladinSmiteToggle);
+                    actions.Insert(powerNdx, (ActionDefinitions.Id)ExtraActionId.PaladinSmiteToggle);
+                }
+            }
+
             //PATCH: hide power button on action panel if no valid powers to use or see
             actions.RemoveAll(id => ActionIsInvalid(id, character, battle));
             return actions.Count;

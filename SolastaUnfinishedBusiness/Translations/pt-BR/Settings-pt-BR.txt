@@ -187,3 +187,4 @@ ModUi/&UseHeightOneCylinderEffect=Use um efeito de 1 cilindro de altura ao conju
 ModUi/&UseOfficialAdvantageDisadvantageRules=Use as regras oficiais de vantagem/desvantagem
 ModUi/&Visuals=<color=#F0DAA0>Visuais:</color> <b><i><color=#C04040E0>[Requer reinicialização]</color></i></b>
 ModUi/&AddMonkKiPointsToggle=Adicione uma alternância para permitir que <color=#D89555>Monks</color> habilite/desabilite Pontos Ki <i><color=#F0DAA0>[útil para minimizar solicitações de reação]</color></i>
+ModUi/&AddPaladinSmiteToggle=Adicionada uma alternância para permitir que <color=#D89555>Paladins</color> habilite smites apenas em acertos críticos <i><color=#F0DAA0>[útil para minimizar solicitações de reação]</color></i>

@@ -735,6 +735,13 @@ internal static class GameLocationBattleManagerTweaks
                             hero = attacker.RulesetCharacter.OriginalFormCharacter as RulesetCharacterHero;
                         }
 
+                        // This is used to only offer smites on critical hits
+                        if (!criticalHit &&
+                            !hero.IsToggleEnabled((ActionDefinitions.Id)ExtraActionId.PaladinSmiteToggle))
+                        {
+                            break;
+                        }
+
                         var classDefinition = hero.FindClassHoldingFeature(featureDefinition);
 
                         RulesetSpellRepertoire selectedSpellRepertoire = null;

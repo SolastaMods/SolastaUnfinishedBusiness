@@ -93,6 +93,12 @@ internal static class GameUiDisplay
             Main.Settings.AddMonkKiPointsToggle = toggle;
         }
 
+        toggle = Main.Settings.AddPaladinSmiteToggle;
+        if (UI.Toggle(Gui.Localize("ModUi/&AddPaladinSmiteToggle"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.AddPaladinSmiteToggle = toggle;
+        }
+
         #endregion
 
         #region Input

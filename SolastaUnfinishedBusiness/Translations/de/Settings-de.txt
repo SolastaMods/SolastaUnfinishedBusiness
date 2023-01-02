@@ -187,3 +187,4 @@ ModUi/&UseHeightOneCylinderEffect=Verwenden Sie einen Zylindereffekt der Höhe 1
 ModUi/&UseOfficialAdvantageDisadvantageRules=Verwenden Sie die offiziellen Vorteils- / Nachteilsregeln
 ModUi/&Visuals=<color=#F0DAA0>Visuals:</color> <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>
 ModUi/&AddMonkKiPointsToggle=Fügen Sie einen Schalter hinzu, um <color=#D89555>Mönchen</color> zu erlauben, Ki-Punkte zu aktivieren/deaktivieren <i><color=#F0DAA0>[nützlich, um Reaktionsaufforderungen zu minimieren]</color></i>
+ModUi/&AddPaladinSmiteToggle=Fügen Sie einen Umschalter hinzu, um <color=#D89555>Paladins</color> zu erlauben, Smites nur bei kritischen Treffern zu aktivieren <i><color=#F0DAA0>[nützlich, um Reaktionsaufforderungen zu minimieren]</color></i>
