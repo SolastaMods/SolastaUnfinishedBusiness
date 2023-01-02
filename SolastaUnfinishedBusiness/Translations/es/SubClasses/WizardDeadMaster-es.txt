@@ -1,6 +1,6 @@
 ﻿Feature/&AutoPreparedSpellsDeadMasterDescription={0}.
 Feature/&AutoPreparedSpellsDeadMasterTitle=Hechizos del maestro muerto
-Feature/&BypassSpellConcentrationDeadMasterDescription=Has aprendido los caminos de la nigromancia. No necesitas concentración para resucitar muertos si tienes al menos 2 espacios más arriba.
+Feature/&BypassSpellConcentrationDeadMasterDescription=Has aprendido los caminos de la nigromancia. Si estás levantado, no necesitas concentración para resucitar muertos.
 Feature/&BypassSpellConcentrationDeadMasterTitle=Dispersión
 Feature/&FeatureSetDeadMasterNecromancyBonusDCDescription=Obtienes una bonificación de CD de +1 cuando lanzas hechizos de nigromancia.
 Feature/&FeatureSetDeadMasterNecromancyBonusDCTitle=Experto en nigromancia

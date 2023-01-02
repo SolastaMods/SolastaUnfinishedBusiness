@@ -3,6 +3,6 @@
 public interface IIncreaseSpellAttackRoll
 {
     RuleDefinitions.FeatureSourceType SourceType { get; }
-    string SourceName { get; set; }
+    string SourceName { get; }
     int GetSpellAttackRollModifier(RulesetCharacter caster);
 }

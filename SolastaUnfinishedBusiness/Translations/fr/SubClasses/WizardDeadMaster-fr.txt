@@ -1,6 +1,6 @@
 ﻿Feature/&AutoPreparedSpellsDeadMasterDescription={0}.
 Feature/&AutoPreparedSpellsDeadMasterTitle=Sorts de maître mort
-Feature/&BypassSpellConcentrationDeadMasterDescription=Vous avez appris les voies de la nécromancie. Vous n'avez pas besoin de concentration pour ressusciter si vous lancez avec au moins 2 emplacements de plus.
+Feature/&BypassSpellConcentrationDeadMasterDescription=Vous avez appris les voies de la nécromancie. Si upcasted, vous n'avez pas besoin de concentration pour ressusciter.
 Feature/&BypassSpellConcentrationDeadMasterTitle=Dispersion
 Feature/&FeatureSetDeadMasterNecromancyBonusDCDescription=Vous gagnez un bonus de +1 DD lorsque vous lancez des sorts de nécromancie.
 Feature/&FeatureSetDeadMasterNecromancyBonusDCTitle=Expert en nécromancie

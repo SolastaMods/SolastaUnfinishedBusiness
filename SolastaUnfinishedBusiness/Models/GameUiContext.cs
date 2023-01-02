@@ -4,6 +4,8 @@ using System.Linq;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.Extensions;
+using SolastaUnfinishedBusiness.Builders;
+using SolastaUnfinishedBusiness.Builders.Features;
 using TA;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
@@ -648,12 +650,52 @@ internal static class GameUiContext
         }
     }
 
+    internal static FeatureDefinitionActionAffinity ActionAffinityMonkKiPointsToggle { get; private set; }
+
+    private static void LoadMonkKiPointsToggle()
+    {
+        _ = ActionDefinitionBuilder
+            .Create(DatabaseHelper.ActionDefinitions.MetamagicToggle, "MonkKiPointsToggle")
+            .SetOrUpdateGuiPresentation(Category.Action)
+            .RequiresAuthorization()
+            .SetActionId(ExtraActionId.MonkKiPointsToggle)
+            .AddToDB();
+
+        ActionAffinityMonkKiPointsToggle = FeatureDefinitionActionAffinityBuilder
+            .Create(DatabaseHelper.FeatureDefinitionActionAffinitys.ActionAffinitySorcererMetamagicToggle,
+                "ActionAffinityMonkKiPointsToggle")
+            .SetGuiPresentationNoContent(true)
+            .SetAuthorizedActions((ActionDefinitions.Id)ExtraActionId.MonkKiPointsToggle)
+            .AddToDB();
+    }
+
+    internal static FeatureDefinitionActionAffinity ActionAffinityPaladinSmiteToggle { get; private set; }
+
+    private static void LoadPaladinSmiteToggle()
+    {
+        _ = ActionDefinitionBuilder
+            .Create(DatabaseHelper.ActionDefinitions.MetamagicToggle, "PaladinSmiteToggle")
+            .SetOrUpdateGuiPresentation(Category.Action)
+            .RequiresAuthorization()
+            .SetActionId(ExtraActionId.PaladinSmiteToggle)
+            .AddToDB();
+
+        ActionAffinityPaladinSmiteToggle = FeatureDefinitionActionAffinityBuilder
+            .Create(DatabaseHelper.FeatureDefinitionActionAffinitys.ActionAffinitySorcererMetamagicToggle,
+                "ActionAffinityPaladinSmiteToggle")
+            .SetGuiPresentationNoContent(true)
+            .SetAuthorizedActions((ActionDefinitions.Id)ExtraActionId.PaladinSmiteToggle)
+            .AddToDB();
+    }
+
     internal static void Load()
     {
         InventoryManagementContext.Load();
         SwitchCrownOfTheMagister();
         SwitchEmpressGarb();
         LoadRemoveBugVisualModels();
+        LoadMonkKiPointsToggle();
+        LoadPaladinSmiteToggle();
 
         var inputService = ServiceRepository.GetService<IInputService>();
 

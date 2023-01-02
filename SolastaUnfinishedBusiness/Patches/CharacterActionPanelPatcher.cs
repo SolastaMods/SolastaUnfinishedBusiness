@@ -65,6 +65,31 @@ public static class CharacterActionPanelPatcher
         {
             var character = panel.GuiCharacter.RulesetCharacter;
             var battle = Gui.Battle != null;
+
+            //PATCH: reorder the actions panel in case we have custom toggles
+            if (actions.Contains((ActionDefinitions.Id)ExtraActionId.MonkKiPointsToggle))
+            {
+                var powerNdx = actions.FindIndex(x => x == ActionDefinitions.Id.PowerMain);
+
+                if (powerNdx >= 0)
+                {
+                    actions.Remove((ActionDefinitions.Id)ExtraActionId.MonkKiPointsToggle);
+                    actions.Insert(powerNdx, (ActionDefinitions.Id)ExtraActionId.MonkKiPointsToggle);
+                }
+            }
+
+            if (actions.Contains((ActionDefinitions.Id)ExtraActionId.PaladinSmiteToggle))
+            {
+                var powerNdx = actions.FindIndex(x => x == ActionDefinitions.Id.PowerMain);
+
+                if (powerNdx >= 0)
+                {
+                    actions.Remove((ActionDefinitions.Id)ExtraActionId.PaladinSmiteToggle);
+                    actions.Insert(powerNdx, (ActionDefinitions.Id)ExtraActionId.PaladinSmiteToggle);
+                }
+            }
+
+            //PATCH: hide power button on action panel if no valid powers to use or see
             actions.RemoveAll(id => ActionIsInvalid(id, character, battle));
             return actions.Count;
         }
@@ -190,16 +215,16 @@ public static class CharacterActionPanelPatcher
         private static void Prefix(
             CharacterActionPanel __instance,
             // RulesetSpellRepertoire spellRepertoire,
-            ref SpellDefinition spellDefinition)
-            // int slotLevel)
+            ref SpellDefinition spellDefinition,
+            int slotLevel)
         {
             var rulesetCharacter = __instance.GuiCharacter.RulesetCharacter;
-            // var spellLevel = spellDefinition.SpellLevel;
-            // var upcastDelta = slotLevel - spellLevel;
+            var spellLevel = spellDefinition.SpellLevel;
+            var upcastDelta = slotLevel - spellLevel;
             var spell = spellDefinition; // cannot pass ref to enumerator
             var requiresConcentration = !rulesetCharacter
                 .GetSubFeaturesByType<IBypassSpellConcentration>()
-                //.Where(x => upcastDelta >= x.OnlyWithUpcastGreaterThan())
+                .Where(x => upcastDelta >= x.OnlyWithUpcastGreaterThan())
                 .Any(y => y.SpellDefinitions().Contains(spell));
 
             if (!requiresConcentration)

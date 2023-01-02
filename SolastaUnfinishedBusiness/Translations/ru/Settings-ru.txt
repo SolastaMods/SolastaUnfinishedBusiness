@@ -186,3 +186,5 @@ ModUi/&UnlockSkinColors=Разблокировать цвет скинов
 ModUi/&UseHeightOneCylinderEffect=Используйте эффект цилиндра высотой 1 при кастовании <color=#D89555>Черные Тентакли, Опутать, Масло</color> <i><color=#F0DAA0>[square]</color></i> или <color=#D89555>Spike Growth</color> <i><color=#F0DAA0>[round]</color></i>
 ModUi/&UseOfficialAdvantageDisadvantageRules=Использоваться официальные правила штрафов и бонусов
 ModUi/&Visuals=<color=#F0DAA0>Visuals:</color> <b><i><color=#C04040E0>[Требуется Перезапуск]</color></i></b>
+ModUi/&AddMonkKiPointsToggle=Добавьте переключатель, позволяющий <color=#D89555>монахам</color> включать/отключать точки Ки <i><color=#F0DAA0>[полезно для минимизации запросов на реакцию]</color></i>
+ModUi/&AddPaladinSmiteToggle=Добавьте переключатель, позволяющий <color=#D89555>Paladins</color> включать удары только при критических ударах <i><color=#F0DAA0>[полезно для минимизации подсказок реакции]</color></i>

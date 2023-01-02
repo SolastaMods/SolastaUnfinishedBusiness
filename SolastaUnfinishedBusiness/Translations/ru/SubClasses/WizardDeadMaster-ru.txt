@@ -1,6 +1,6 @@
 ﻿Feature/&AutoPreparedSpellsDeadMasterDescription={0}.
 Feature/&AutoPreparedSpellsDeadMasterTitle=Заклинания Владыки Смерти
-Feature/&BypassSpellConcentrationDeadMasterDescription=Вы изучили методы некромантии. Вам не нужна концентрация, чтобы воскрешать мертвых.
+Feature/&BypassSpellConcentrationDeadMasterDescription=Вы изучили методы некромантии. Если вы подняты вверх, вам не требуется концентрация, чтобы поднять мертвого.
 Feature/&BypassSpellConcentrationDeadMasterTitle=Разброс
 Feature/&FeatureSetDeadMasterNecromancyBonusDCDescription=Вы получаете бонус +1 DC при использовании заклинаний некромантии.
 Feature/&FeatureSetDeadMasterNecromancyBonusDCTitle=Эксперт по некромантии

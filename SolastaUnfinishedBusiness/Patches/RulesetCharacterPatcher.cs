@@ -13,6 +13,7 @@ using SolastaUnfinishedBusiness.Api.Infrastructure;
 using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.Models;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterClassDefinitions;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
@@ -200,8 +201,11 @@ public static class RulesetCharacterPatcher
         }
 
         //TODO: move to separate file
-        private static void ValidateIfInfusedInHand(RulesetCharacter caster, SpellDefinition spell,
-            ref bool result, ref string failure)
+        private static void ValidateIfInfusedInHand(
+            RulesetCharacter caster,
+            SpellDefinition spell,
+            ref bool result,
+            ref string failure)
         {
             var mainHand = caster.GetItemInSlot(EquipmentDefinitions.SlotTypeMainHand);
             var offHand = caster.GetItemInSlot(EquipmentDefinitions.SlotTypeOffHand);
@@ -373,7 +377,7 @@ public static class RulesetCharacterPatcher
 
             var features = __instance.GetSubFeaturesByType<IIncreaseSpellDc>();
 
-            __result += features.Where(feature => feature != null).Sum(feature => feature.GetSpellModifier(__instance));
+            __result += features.Sum(feature => feature.GetSpellModifier(__instance));
         }
     }
 
@@ -386,7 +390,7 @@ public static class RulesetCharacterPatcher
         {
             // wildshape
             if (__instance.OriginalFormCharacter is RulesetCharacterHero hero && hero != __instance &&
-                hero.classesAndLevels.TryGetValue(DatabaseHelper.CharacterClassDefinitions.Druid, out var level) &&
+                hero.classesAndLevels.TryGetValue(Druid, out var level) &&
                 level < 18)
             {
                 __result = false;
@@ -1120,6 +1124,70 @@ public static class RulesetCharacterPatcher
             return currentAction is not CharacterActionUsePower characterActionUsePower || characterActionUsePower
                     .activePower.PowerDefinition.GetFirstSubFeatureOfType<IPreventRemoveConcentrationWithPowerUse>() ==
                 null;
+        }
+    }
+
+    //PATCH: support Monk Ki Points Toggle
+    [HarmonyPatch(typeof(RulesetCharacter), "RemainingKiPoints", MethodType.Getter)]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    public static class RemainingKiPoints_Getter_Patch
+    {
+        public static void Postfix(RulesetCharacter __instance, ref int __result)
+        {
+            if (!__instance.IsToggleEnabled((ActionDefinitions.Id)ExtraActionId.MonkKiPointsToggle))
+            {
+                __result = 0;
+            }
+        }
+    }
+
+    //PATCH: support adding required action affinities to classes that can use toggles
+    [HarmonyPatch(typeof(RulesetCharacter), "PostLoad")]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    public static class PostLoad_Patch
+    {
+        public static void Postfix(RulesetCharacter __instance)
+        {
+            if (__instance is not RulesetCharacterHero hero)
+            {
+                return;
+            }
+
+            if (hero.ClassesHistory.Contains(Monk))
+            {
+                var tag = AttributeDefinitions.GetClassTag(Monk, 1);
+
+                switch (Main.Settings.AddMonkKiPointsToggle)
+                {
+                    case true when !hero.HasAnyFeature(GameUiContext.ActionAffinityMonkKiPointsToggle):
+                        hero.ActiveFeatures[tag].Add(GameUiContext.ActionAffinityMonkKiPointsToggle);
+                        hero.EnableToggle((ActionDefinitions.Id)ExtraActionId.MonkKiPointsToggle);
+                        break;
+                    case false when hero.HasAnyFeature(GameUiContext.ActionAffinityMonkKiPointsToggle):
+                        hero.ActiveFeatures[tag].Remove(GameUiContext.ActionAffinityMonkKiPointsToggle);
+                        hero.DisableToggle((ActionDefinitions.Id)ExtraActionId.MonkKiPointsToggle);
+                        break;
+                }
+            }
+
+            if (hero.ClassesHistory.Contains(Paladin))
+            {
+                var tag = AttributeDefinitions.GetClassTag(Paladin, 1);
+
+                switch (Main.Settings.AddPaladinSmiteToggle)
+                {
+                    case true when !hero.HasAnyFeature(GameUiContext.ActionAffinityPaladinSmiteToggle):
+                        hero.ActiveFeatures[tag].Add(GameUiContext.ActionAffinityPaladinSmiteToggle);
+                        hero.EnableToggle((ActionDefinitions.Id)ExtraActionId.PaladinSmiteToggle);
+                        break;
+                    case false when hero.HasAnyFeature(GameUiContext.ActionAffinityPaladinSmiteToggle):
+                        hero.ActiveFeatures[tag].Remove(GameUiContext.ActionAffinityPaladinSmiteToggle);
+                        hero.DisableToggle((ActionDefinitions.Id)ExtraActionId.PaladinSmiteToggle);
+                        break;
+                }
+            }
+
+            hero.RefreshAll();
         }
     }
 }
