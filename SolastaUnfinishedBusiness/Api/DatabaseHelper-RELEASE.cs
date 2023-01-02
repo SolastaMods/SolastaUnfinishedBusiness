@@ -5,6 +5,7 @@ internal static partial class DatabaseHelper
 {
     internal static class ActionDefinitions
     {
+        internal static ActionDefinition MetamagicToggle { get; } = GetDefinition<ActionDefinition>("MetamagicToggle");
         internal static ActionDefinition OneWithShadowsTurnInvisible { get; } = GetDefinition<ActionDefinition>("OneWithShadowsTurnInvisible");
         internal static ActionDefinition WildShape { get; } = GetDefinition<ActionDefinition>("WildShape");
     }

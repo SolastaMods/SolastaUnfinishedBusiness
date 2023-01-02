@@ -119,8 +119,7 @@ internal static class RulesetCharacterExtensions
     }
 
     /**Checks if power has enough uses and that all validators are OK*/
-    internal static bool CanUsePower(
-        this RulesetCharacter instance,
+    internal static bool CanUsePower(this RulesetCharacter instance,
         [CanBeNull] FeatureDefinitionPower power,
         bool considerUses = true,
         bool considerHaving = false)
@@ -144,8 +143,7 @@ internal static class RulesetCharacterExtensions
             .All(v => v.CanUsePower(instance, power));
     }
 
-    internal static bool CanCastCantrip(
-        [NotNull] this RulesetCharacter character,
+    internal static bool CanCastCantrip(this RulesetCharacter character,
         SpellDefinition cantrip,
         [CanBeNull] out RulesetSpellRepertoire spellRepertoire)
     {
@@ -204,11 +202,10 @@ internal static class RulesetCharacterExtensions
     }
 
     [CanBeNull]
-    internal static RulesetSpellRepertoire GetClassSpellRepertoire(
-        this RulesetCharacter instance,
+    internal static RulesetSpellRepertoire GetClassSpellRepertoire(this RulesetCharacter instance,
         CharacterClassDefinition classDefinition)
     {
-        var className = classDefinition?.name;
+        var className = classDefinition == null ? string.Empty : classDefinition.name;
 
         if (string.IsNullOrEmpty(className) || instance is not RulesetCharacterHero hero)
         {
@@ -349,6 +346,7 @@ internal static class RulesetCharacterExtensions
         {
             bool isValid;
             var definition = invocation.invocationDefinition;
+
             if (scope == ActionScope.Battle)
             {
                 isValid = definition.GetActionId() == actionId;
@@ -386,6 +384,7 @@ internal static class RulesetCharacterExtensions
         }
 
         var labelScreen = Gui.GuiService.GetScreen<GameLocationLabelScreen>();
+
         if (labelScreen == null)
         {
             return;
@@ -393,20 +392,18 @@ internal static class RulesetCharacterExtensions
 
         var worldChar = labelScreen.characterLabelsMap.Keys
             .FirstOrDefault(x => x.gameCharacter.RulesetCharacter == character);
+
         if (worldChar == null)
         {
             return;
         }
 
-        var roll = roll1;
-        if (advantage == AdvantageType.Advantage)
+        var roll = advantage switch
         {
-            roll = Math.Max(roll1, roll2);
-        }
-        else if (advantage == AdvantageType.Disadvantage)
-        {
-            roll = Math.Min(roll1, roll2);
-        }
+            AdvantageType.Advantage => Math.Max(roll1, roll2),
+            AdvantageType.Disadvantage => Math.Min(roll1, roll2),
+            _ => roll1
+        };
 
         var label = labelScreen.characterLabelsMap[worldChar];
 
@@ -425,5 +422,29 @@ internal static class RulesetCharacterExtensions
             displayModifier: displayModifier) { rollImmediatly = false };
 
         label.dieRollModule.RollDie(info);
+    }
+
+    internal static bool IsToggleEnabled(this RulesetCharacter rulesetCharacter, Id actionId)
+    {
+        var toggleName = actionId.ToString();
+
+        return !rulesetCharacter.dummy.Contains(toggleName);
+    }
+
+    internal static void DisableToggle(this RulesetCharacter rulesetCharacter, Id actionId)
+    {
+        var toggleName = actionId.ToString();
+
+        if (!rulesetCharacter.dummy.Contains(toggleName))
+        {
+            rulesetCharacter.dummy += toggleName;
+        }
+    }
+
+    internal static void EnableToggle(this RulesetCharacter rulesetCharacter, Id actionId)
+    {
+        var toggleName = actionId.ToString();
+
+        rulesetCharacter.dummy = rulesetCharacter.dummy.Replace(toggleName, String.Empty);
     }
 }

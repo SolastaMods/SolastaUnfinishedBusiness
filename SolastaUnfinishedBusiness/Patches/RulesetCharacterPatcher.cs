@@ -200,8 +200,11 @@ public static class RulesetCharacterPatcher
         }
 
         //TODO: move to separate file
-        private static void ValidateIfInfusedInHand(RulesetCharacter caster, SpellDefinition spell,
-            ref bool result, ref string failure)
+        private static void ValidateIfInfusedInHand(
+            RulesetCharacter caster,
+            SpellDefinition spell,
+            ref bool result,
+            ref string failure)
         {
             var mainHand = caster.GetItemInSlot(EquipmentDefinitions.SlotTypeMainHand);
             var offHand = caster.GetItemInSlot(EquipmentDefinitions.SlotTypeOffHand);
@@ -373,7 +376,7 @@ public static class RulesetCharacterPatcher
 
             var features = __instance.GetSubFeaturesByType<IIncreaseSpellDc>();
 
-            __result += features == null ? 0 : features.Sum(feature => feature.GetSpellModifier(__instance));
+            __result += features.Sum(feature => feature.GetSpellModifier(__instance));
         }
     }
 
@@ -1120,6 +1123,51 @@ public static class RulesetCharacterPatcher
             return currentAction is not CharacterActionUsePower characterActionUsePower || characterActionUsePower
                     .activePower.PowerDefinition.GetFirstSubFeatureOfType<IPreventRemoveConcentrationWithPowerUse>() ==
                 null;
+        }
+    }
+
+    //PATCH: support Monk Ki Points Toggle
+    [HarmonyPatch(typeof(RulesetCharacter), "RemainingKiPoints", MethodType.Getter)]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    public static class RemainingKiPoints_Getter_Patch
+    {
+        public static void Postfix(RulesetCharacter __instance, ref int __result)
+        {
+            if (!__instance.IsToggleEnabled((ActionDefinitions.Id)ExtraActionId.MonkKiPointsToggle))
+            {
+                __result = 0;
+            }
+        }
+    }
+
+    //PATCH: support adding required action affinities to classes that can use toggles
+    [HarmonyPatch(typeof(RulesetCharacter), "PostLoad")]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    public static class PostLoad_Patch
+    {
+        public static void Postfix(RulesetCharacter __instance)
+        {
+            if (__instance is not RulesetCharacterHero hero)
+            {
+                return;
+            }
+
+            if (hero.ClassesHistory.Contains(DatabaseHelper.CharacterClassDefinitions.Monk))
+            {
+                var tag = AttributeDefinitions.GetClassTag(DatabaseHelper.CharacterClassDefinitions.Monk, 1);
+
+                switch (Main.Settings.AddMonkKiPointsToggle)
+                {
+                    case true when !hero.HasAnyFeature(GameUiContext.ActionAffinityMonkKiPointsToggle):
+                        hero.ActiveFeatures[tag].Add(GameUiContext.ActionAffinityMonkKiPointsToggle);
+                        break;
+                    case false when hero.HasAnyFeature(GameUiContext.ActionAffinityMonkKiPointsToggle):
+                        hero.ActiveFeatures[tag].Remove(GameUiContext.ActionAffinityMonkKiPointsToggle);
+                        break;
+                }
+            }
+            
+            hero.RefreshAll();
         }
     }
 }

@@ -78,10 +78,19 @@ internal static class GameUiDisplay
         }
 
         UI.Label();
+
         toggle = Main.Settings.AllowMoreRealStateOnRestPanel;
         if (UI.Toggle(Gui.Localize("ModUi/&AllowMoreRealStateOnRestPanel"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.AllowMoreRealStateOnRestPanel = toggle;
+        }
+
+        UI.Label();
+
+        toggle = Main.Settings.AddMonkKiPointsToggle;
+        if (UI.Toggle(Gui.Localize("ModUi/&AddMonkKiPointsToggle"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.AddMonkKiPointsToggle = toggle;
         }
 
         #endregion
