@@ -36,8 +36,7 @@ internal sealed class MartialSpellShield : AbstractSubclass
             .Create("MagicAffinitySpellShieldCombatMagicVigor")
             .SetGuiPresentation(Category.Feature)
             .SetCustomSubFeatures(
-                new VigorSpellDcModifier(),
-                new VigorSpellAttackModifier
+                new VigorSpellModifier
                 {
                     SourceName = "VigorSpell", SourceType = FeatureSourceType.ExplicitFeature
                 })
@@ -105,39 +104,36 @@ internal sealed class MartialSpellShield : AbstractSubclass
     internal override FeatureDefinitionSubclassChoice SubclassChoice =>
         FeatureDefinitionSubclassChoices.SubclassChoiceFighterMartialArchetypes;
 
-    private static int CalculateModifier([NotNull] RulesetCharacter myself)
+    private sealed class VigorSpellModifier : IIncreaseSpellDc, IIncreaseSpellAttackRoll
     {
-        if (myself == null)
+        private static int CalculateModifier([NotNull] RulesetCharacter myself)
         {
-            throw new ArgumentNullException(nameof(myself));
+            if (myself == null)
+            {
+                throw new ArgumentNullException(nameof(myself));
+            }
+
+            var strModifier =
+                AttributeDefinitions.ComputeAbilityScoreModifier(myself.GetAttribute(AttributeDefinitions.Strength)
+                    .CurrentValue);
+            var dexModifier =
+                AttributeDefinitions.ComputeAbilityScoreModifier(myself.GetAttribute(AttributeDefinitions.Dexterity)
+                    .CurrentValue);
+
+            return Math.Max(strModifier, dexModifier);
         }
-
-        var strModifier =
-            AttributeDefinitions.ComputeAbilityScoreModifier(myself.GetAttribute(AttributeDefinitions.Strength)
-                .CurrentValue);
-        var dexModifier =
-            AttributeDefinitions.ComputeAbilityScoreModifier(myself.GetAttribute(AttributeDefinitions.Dexterity)
-                .CurrentValue);
-
-        return Math.Max(strModifier, dexModifier);
-    }
-
-    private sealed class VigorSpellDcModifier : IIncreaseSpellDc
-    {
+        
         public int GetSpellModifier(RulesetCharacter caster)
         {
             return CalculateModifier(caster);
         }
-    }
-
-    private sealed class VigorSpellAttackModifier : IIncreaseSpellAttackRoll
-    {
+        
         public int GetSpellAttackRollModifier(RulesetCharacter caster)
         {
             return CalculateModifier(caster);
         }
 
         public FeatureSourceType SourceType { get; set; }
-        public string SourceName { get; set; }
+        public string SourceName { get; set; } 
     }
 }

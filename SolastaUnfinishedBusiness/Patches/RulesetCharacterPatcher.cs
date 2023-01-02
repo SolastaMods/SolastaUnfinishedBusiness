@@ -373,7 +373,7 @@ public static class RulesetCharacterPatcher
 
             var features = __instance.GetSubFeaturesByType<IIncreaseSpellDc>();
 
-            __result += features.Where(feature => feature != null).Sum(feature => feature.GetSpellModifier(__instance));
+            __result += features == null ? 0 : features.Sum(feature => feature.GetSpellModifier(__instance));
         }
     }
 
