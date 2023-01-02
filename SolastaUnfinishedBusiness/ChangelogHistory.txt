@@ -1,5 +1,13 @@
 ﻿CHANGES:
 
+1.4.32.18:
+
+- added an Interface > Game UI setting for a Paladin smite toggle
+- added an Interface > Game UI setting for a Monk ki points toggle
+- fixed Dead Master to only allow non concentration if upcasted
+- fixed Poisonous Skin and Pugilist to not apply on range [i.e.: wildshape apes]
+- fixed replace attack with cantrip interaction with haste and action surge
+
 1.4.32.17:
 
 - fixed a wrong change on action started event introduced on last version

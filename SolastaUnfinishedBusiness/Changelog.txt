@@ -1,8 +1,6 @@
-ATTENTION:
-- RESPEC any hero that has acquired raise dead spells before 1.4.32.16
-
 CHANGES:
-- fixed a wrong change on action started event introduced on last version
-- fixed DC 0 on grenadier bombs under multiplayer
-- improved Arcane Fighter description
-- improved Long Mace sprites
+- added an Interface > Game UI setting for a Paladin smite toggle
+- added an Interface > Game UI setting for a Monk ki points toggle
+- fixed Dead Master to only allow non concentration if upcasted
+- fixed Poisonous Skin and Pugilist to not apply on range [i.e.: wildshape apes]
+- fixed replace attack with cantrip interaction with haste and action surge
