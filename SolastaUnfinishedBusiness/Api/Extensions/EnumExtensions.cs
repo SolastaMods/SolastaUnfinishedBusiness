@@ -5,7 +5,7 @@ namespace SolastaUnfinishedBusiness.Api.Extensions;
 
 internal enum ExtraSituationalContext
 {
-    MainWeaponIsMelee = 1000,
+    MainWeaponIsMeleeOrUnarmed = 1000,
     WearingNoArmorOrLightArmorWithoutShield = 1001,
 
     // MainWeaponIsFinesseOrLightRange = 1002,
