@@ -37,6 +37,7 @@ internal sealed class PatronSoulBlade : AbstractSubclass
             .SetUniqueInstance()
             .SetCustomSubFeatures(SkipEffectRemovalOnLocationChange.Always)
             .SetUsesFixed(ActivationTime.Action, RechargeRate.LongRest)
+            .SetExplicitAbilityScore(AttributeDefinitions.Charisma)
             .SetEffectDescription(EffectDescriptionBuilder.Create()
                 .SetDurationData(DurationType.Permanent)
                 .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Item,
@@ -55,13 +56,13 @@ internal sealed class PatronSoulBlade : AbstractSubclass
                             0))
                     .Build())
                 .Build())
-            .SetBonusToAttack(true, true, AttributeDefinitions.Charisma)
             .AddToDB();
 
         var powerSoulBladeSummonPactWeapon = FeatureDefinitionPowerBuilder
-            .Create(PowerTraditionShockArcanistArcaneFury, "PowerSoulBladeSummonPactWeapon")
+            .Create("PowerSoulBladeSummonPactWeapon")
             .SetOrUpdateGuiPresentation(Category.Feature, SpiritualWeapon)
             .SetUsesFixed(ActivationTime.NoCost, RechargeRate.ShortRest)
+            .SetExplicitAbilityScore(AttributeDefinitions.Charisma)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create(SpiritualWeapon.EffectDescription)
