@@ -63,7 +63,7 @@ internal sealed class RoguishOpportunist : AbstractSubclass
             .Create("RoguishOpportunist")
             .SetGuiPresentation(Category.Subclass, MartialCommander)
             .AddFeaturesAtLevel(3,
-                onComputeAttackModifierOpportunistQuickStrike, debilitatingStrike)
+                onComputeAttackModifierOpportunistQuickStrike)
             .AddFeaturesAtLevel(9,
                 debilitatingStrike)
             .AddFeaturesAtLevel(13, followupStrikeOnTargetFailedSavingThrow)
