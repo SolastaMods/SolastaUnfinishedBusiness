@@ -23,42 +23,34 @@ internal sealed class RoguishOpportunist : AbstractSubclass
 
         // Enemies struck by your sneak attack suffered from one of the following condition (Baned, Blinded, Bleed, Stunned)
         // if they fail a CON save against the DC of 8 + your DEX mod + your prof.
-        var powerOpportunistDebilitatingStrike = FeatureDefinitionPowerBuilder
-            .Create("PowerOpportunistDebilitatingStrike")
+        var debilitatingStrike = FeatureDefinitionAdditionalDamageBuilder
+            .Create(FeatureDefinitionAdditionalDamages.AdditionalDamageRogueSneakAttack,
+                "PowerOpportunistDebilitatingStrike")
             .SetGuiPresentation(Category.Feature)
-            .SetUsesFixed(ActivationTime.OnSneakAttackHitAuto)
-            .SetEffectDescription(
-                EffectDescriptionBuilder
-                    .Create()
-                    .SetDurationData(DurationType.Round, 1)
-                    .SetTargetingData(Side.Enemy, RangeType.MeleeHit, 1, TargetType.Individuals)
-                    .SetSavingThrowData(
-                        false,
-                        AttributeDefinitions.Constitution,
-                        true,
-                        EffectDifficultyClassComputation.AbilityScoreAndProficiency,
-                        AttributeDefinitions.Dexterity)
-                    .SetEffectForms(EffectFormBuilder
-                        .Create()
-                        .SetConditionForm(
-                            ConditionDefinitionBuilder
-                                .Create("ConditionOpportunistDebilitated")
-                                .SetFeatures(FeatureDefinitionSavingThrowAffinityBuilder
-                                    .Create("SavingThrowAffinityConditionOpportunistDebilitated")
-                                    .SetGuiPresentationNoContent(true)
-                                    .SetModifiers(FeatureDefinitionSavingThrowAffinity.ModifierType.RemoveDice,
-                                        DieType.D6, 1, false, AttributeDefinitions.Charisma,
-                                        AttributeDefinitions.Constitution, AttributeDefinitions.Dexterity,
-                                        AttributeDefinitions.Intelligence, AttributeDefinitions.Strength,
-                                        AttributeDefinitions.Wisdom)
-                                    .AddToDB())
-                                .SetOrUpdateGuiPresentation(Category.Condition, ConditionBaned)
-                                .AddToDB(),
-                            ConditionForm.ConditionOperation.Add,
-                            false,
-                            false)
-                        .Build())
-                    .Build())
+            .SetDamageValueDetermination(AdditionalDamageValueDetermination.FlatBonus)
+            .SetNotificationTag("DebilitateStrike")
+            .SetConditionOperations(new ConditionOperationDescription()
+            {
+                operation = ConditionOperationDescription.ConditionOperation.Add,
+                hasSavingThrow = true,
+                conditionDefinition = ConditionDefinitionBuilder
+                    .Create("ConditionOpportunistDebilitated")
+                    .SetSpecialDuration(DurationType.Round, 1)
+                    .SetFeatures(FeatureDefinitionSavingThrowAffinityBuilder
+                        .Create("SavingThrowAffinityConditionOpportunistDebilitated")
+                        .SetGuiPresentationNoContent(true)
+                        .SetModifiers(FeatureDefinitionSavingThrowAffinity.ModifierType.RemoveDice,
+                            DieType.D6, 1, false, AttributeDefinitions.Charisma,
+                            AttributeDefinitions.Constitution, AttributeDefinitions.Dexterity,
+                            AttributeDefinitions.Intelligence, AttributeDefinitions.Strength,
+                            AttributeDefinitions.Wisdom)
+                        .AddToDB())
+                    .SetOrUpdateGuiPresentation(Category.Condition, ConditionBaned)
+                    .AddToDB(),
+                saveAffinity = EffectSavingThrowType.Negates
+            })
+            .SetSavingThrowData(EffectDifficultyClassComputation.CustomAbilityModifierAndProficiency,
+                EffectSavingThrowType.Negates, AttributeDefinitions.Constitution, AttributeDefinitions.Dexterity)
             .AddToDB();
 
         var followupStrikeOnTargetFailedSavingThrow = FeatureDefinitionBuilder
@@ -71,9 +63,9 @@ internal sealed class RoguishOpportunist : AbstractSubclass
             .Create("RoguishOpportunist")
             .SetGuiPresentation(Category.Subclass, MartialCommander)
             .AddFeaturesAtLevel(3,
-                onComputeAttackModifierOpportunistQuickStrike)
+                onComputeAttackModifierOpportunistQuickStrike, debilitatingStrike)
             .AddFeaturesAtLevel(9,
-                powerOpportunistDebilitatingStrike)
+                debilitatingStrike)
             .AddFeaturesAtLevel(13, followupStrikeOnTargetFailedSavingThrow)
             .AddToDB();
     }
