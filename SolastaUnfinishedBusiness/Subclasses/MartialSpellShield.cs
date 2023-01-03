@@ -36,10 +36,7 @@ internal sealed class MartialSpellShield : AbstractSubclass
             .Create("MagicAffinitySpellShieldCombatMagicVigor")
             .SetGuiPresentation(Category.Feature)
             .SetCustomSubFeatures(
-                new VigorSpellModifier
-                {
-                    SourceName = "VigorSpell", SourceType = FeatureSourceType.ExplicitFeature
-                })
+                new VigorSpellModifier { SourceName = "VigorSpell", SourceType = FeatureSourceType.ExplicitFeature })
             .AddToDB();
 
         var conditionSpellShieldArcaneDeflection = ConditionDefinitionBuilder
@@ -122,18 +119,18 @@ internal sealed class MartialSpellShield : AbstractSubclass
 
             return Math.Max(strModifier, dexModifier);
         }
-        
+
         public int GetSpellModifier(RulesetCharacter caster)
         {
             return CalculateModifier(caster);
         }
-        
+
         public int GetSpellAttackRollModifier(RulesetCharacter caster)
         {
             return CalculateModifier(caster);
         }
 
         public FeatureSourceType SourceType { get; set; }
-        public string SourceName { get; set; } 
+        public string SourceName { get; set; }
     }
 }

@@ -239,7 +239,7 @@ internal static class SrdAndHouseRulesContext
     private static void FixRecklessAttackForReachWeapons()
     {
         FeatureDefinitionCombatAffinitys.CombatAffinityReckless
-            .situationalContext = (SituationalContext)ExtraSituationalContext.MainWeaponIsMelee;
+            .situationalContext = (SituationalContext)ExtraSituationalContext.MainWeaponIsMeleeOrUnarmed;
     }
 
     internal static void ApplyConditionBlindedShouldNotAllowOpportunityAttack()

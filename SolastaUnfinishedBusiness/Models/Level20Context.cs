@@ -543,18 +543,22 @@ internal static class Level20Context
                 new FeatureUnlockByLevel(PowerPaladinCleansingTouch, 14),
                 new FeatureUnlockByLevel(FeatureSetAbilityScoreChoice, 16)
             );
-            
-            DatabaseHelper.FeatureDefinitionAutoPreparedSpellss.AutoPreparedSpellsOathOfDevotion.AutoPreparedSpellsGroups.Add(
-                BuildSpellGroup(13, GuardianOfFaith, FreedomOfMovement));
-            
-            DatabaseHelper.FeatureDefinitionAutoPreparedSpellss.AutoPreparedSpellsOathOfJugement.AutoPreparedSpellsGroups.Add(
-                BuildSpellGroup(13, Banishment, Blight));
-            
-            DatabaseHelper.FeatureDefinitionAutoPreparedSpellss.AutoPreparedSpellsOathOfMotherland.AutoPreparedSpellsGroups.Add(
-                BuildSpellGroup(13, WallOfFire, FireShield));
-            
-            DatabaseHelper.FeatureDefinitionAutoPreparedSpellss.AutoPreparedSpellsOathOfTirmar.AutoPreparedSpellsGroups.Add(
-                BuildSpellGroup(13, DreadfulOmen, PhantasmalKiller));
+
+            DatabaseHelper.FeatureDefinitionAutoPreparedSpellss.AutoPreparedSpellsOathOfDevotion
+                .AutoPreparedSpellsGroups.Add(
+                    BuildSpellGroup(13, GuardianOfFaith, FreedomOfMovement));
+
+            DatabaseHelper.FeatureDefinitionAutoPreparedSpellss.AutoPreparedSpellsOathOfJugement
+                .AutoPreparedSpellsGroups.Add(
+                    BuildSpellGroup(13, Banishment, Blight));
+
+            DatabaseHelper.FeatureDefinitionAutoPreparedSpellss.AutoPreparedSpellsOathOfMotherland
+                .AutoPreparedSpellsGroups.Add(
+                    BuildSpellGroup(13, WallOfFire, FireShield));
+
+            DatabaseHelper.FeatureDefinitionAutoPreparedSpellss.AutoPreparedSpellsOathOfTirmar.AutoPreparedSpellsGroups
+                .Add(
+                    BuildSpellGroup(13, DreadfulOmen, PhantasmalKiller));
         }
 
         Paladin.FeatureUnlocks.AddRange(

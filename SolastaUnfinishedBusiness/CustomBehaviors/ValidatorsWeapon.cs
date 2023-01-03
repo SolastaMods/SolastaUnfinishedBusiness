@@ -47,7 +47,7 @@ internal static class ValidatorsWeapon
 
         return weapon.IsMagicalWeapon() || ShieldAttack.IsMagicShield(weapon);
     }
-    
+
     private static bool IsMelee([CanBeNull] ItemDefinition itemDefinition)
     {
         return itemDefinition != null &&
@@ -79,7 +79,7 @@ internal static class ValidatorsWeapon
     {
         return !HasAnyWeaponTag(weapon, TagsDefinitions.WeaponTagTwoHanded);
     }
-    
+
     internal static bool IsPolearm([CanBeNull] RulesetItem weapon)
     {
         return weapon != null
@@ -102,19 +102,19 @@ internal static class ValidatorsWeapon
     {
         return attack is { Reach: false, Ranged: true } or { Reach: false, Thrown: true };
     }
-    
+
     internal static bool IsThrownWeapon([CanBeNull] RulesetItem weapon)
     {
         return weapon != null && weapon.itemDefinition.isWeapon &&
                weapon.itemDefinition.WeaponDescription.WeaponTags.Contains(TagsDefinitions.WeaponTagThrown);
     }
-    
+
     internal static bool IsTwoHanded([CanBeNull] RulesetItem weapon)
     {
         return weapon != null && weapon.itemDefinition.isWeapon &&
                weapon.itemDefinition.WeaponDescription.WeaponTags.Contains(TagsDefinitions.WeaponTagTwoHanded);
     }
-    
+
     private static bool IsUnarmedWeapon(
         [CanBeNull] RulesetAttackMode attackMode,
         RulesetItem weapon)
@@ -143,7 +143,7 @@ internal static class ValidatorsWeapon
     //
     //
     //
-    
+
     internal static bool HasAnyWeaponTag([CanBeNull] RulesetItem item, [NotNull] params string[] tags)
     {
         return HasAnyWeaponTag(item?.ItemDefinition, tags);
@@ -165,7 +165,7 @@ internal static class ValidatorsWeapon
 
         return new List<string>();
     }
-    
+
 #if false
     internal static bool IsReactionAttackMode(
         RulesetAttackMode attackMode,

@@ -24,10 +24,10 @@ internal class FeatureDefinitionAttackModifierBuilder
         Definition.attackRollModifier = value;
         return this;
     }
-    
+
     internal FeatureDefinitionAttackModifierBuilder AddAbilityScoreBonus(string ability)
     {
-        Definition.attackRollModifierMethod =AttackModifierMethod.AddAbilityScoreBonus;
+        Definition.attackRollModifierMethod = AttackModifierMethod.AddAbilityScoreBonus;
         Definition.attackRollAbilityScore = ability;
         return this;
     }

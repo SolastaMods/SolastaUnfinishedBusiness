@@ -358,7 +358,8 @@ public static class RulesetImplementationManagerPatcher
             // saveDC = caster.ComputeSaveDC(repertoire);
 
             saveDC = 8 + caster.TryGetAttributeValue("ProficiencyBonus") +
-                     AttributeDefinitions.ComputeAbilityScoreModifier(caster.TryGetAttributeValue(spellRepertoire.SpellCastingAbility));
+                     AttributeDefinitions.ComputeAbilityScoreModifier(
+                         caster.TryGetAttributeValue(spellRepertoire.SpellCastingAbility));
         }
     }
 

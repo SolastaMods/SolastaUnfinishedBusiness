@@ -123,6 +123,9 @@ internal static class ValidatorsCharacter
     internal static readonly IsCharacterValidHandler MainHandIsMeleeWeapon = character =>
         ValidatorsWeapon.IsMelee(character.GetItemInSlot(EquipmentDefinitions.SlotTypeMainHand));
 
+    internal static readonly IsCharacterValidHandler MainHandIsUnarmed = character =>
+        ValidatorsWeapon.IsUnarmedWeapon(character.GetItemInSlot(EquipmentDefinitions.SlotTypeMainHand));
+
 #if false
     internal static readonly CharacterValidator FullyUnarmed = character =>
     {

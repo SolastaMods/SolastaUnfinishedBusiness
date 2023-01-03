@@ -1,5 +1,13 @@
 ﻿CHANGES:
 
+1.4.32.19:
+
+- fixed Mind Sharpener infusion to grant concentration advantage
+- fixed Mind Sharpener infusion to ignore concentration check on damage < 10
+- fixed Opportunist debilitate strike to apply on success
+- fixed Reckless to work with any monster
+- fixed Soul Blade pact weapon to use Charisma modifier
+
 1.4.32.18:
 
 - added an Interface > Game UI setting for a Paladin smite toggle

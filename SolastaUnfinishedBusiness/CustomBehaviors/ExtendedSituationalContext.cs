@@ -20,8 +20,9 @@ internal static class CustomSituationalContext
 
         return (ExtraSituationalContext)context switch
         {
-            ExtraSituationalContext.MainWeaponIsMelee =>
-                ValidatorsCharacter.MainHandIsMeleeWeapon(contextParams.source),
+            ExtraSituationalContext.MainWeaponIsMeleeOrUnarmed =>
+                ValidatorsCharacter.MainHandIsMeleeWeapon(contextParams.source) ||
+                ValidatorsCharacter.MainHandIsUnarmed(contextParams.source),
 
             ExtraSituationalContext.WearingNoArmorOrLightArmorWithoutShield =>
                 ValidatorsCharacter.NoArmor(contextParams.source)
