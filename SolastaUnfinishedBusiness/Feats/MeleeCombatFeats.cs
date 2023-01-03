@@ -21,7 +21,8 @@ internal static class MeleeCombatFeats
         .Create("PowerFeatCrusherHit")
         .SetGuiPresentationNoContent(true)
         .SetUsesFixed(ActivationTime.OnAttackHitMelee, RechargeRate.TurnStart)
-        .SetCustomSubFeatures(new RestrictReactionAttackMode((mode, _, _) => ValidatorsWeapon.IsBludgeoningMeleeOrUnarmed(mode)))
+        .SetCustomSubFeatures(
+            new RestrictReactionAttackMode((mode, _, _) => ValidatorsWeapon.IsBludgeoningMeleeOrUnarmed(mode)))
         .SetShowCasting(false)
         .SetEffectDescription(EffectDescriptionBuilder
             .Create()

@@ -133,8 +133,9 @@ internal sealed class CollegeOfWarDancer : AbstractSubclass
                     };
                 var reactionRequest = new ReactionRequestCustom("DanceOfWarOnMiss", reactionParams);
 
-                IGameLocationActionService service = ServiceRepository.GetService<IGameLocationActionService>();
-                int count = service.PendingReactionRequestGroups.Count;
+                var service = ServiceRepository.GetService<IGameLocationActionService>();
+                var count = service.PendingReactionRequestGroups.Count;
+
                 manager.AddInterruptRequest(reactionRequest);
                 yield return battleManager.WaitForReactions(attacker, service, count);
 
@@ -283,6 +284,7 @@ internal sealed class CollegeOfWarDancer : AbstractSubclass
                     .SetCustomSubFeatures(new WarDanceFlurryAttackModifier())
                     .AddToDB())
             .AddToDB();
+
         public bool MightRefundOneAttackOfMainAction(GameLocationCharacter hero, CharacterActionParams actionParams)
         {
             var flag = true;
@@ -322,7 +324,8 @@ internal sealed class CollegeOfWarDancer : AbstractSubclass
                     .Where(x => x.conditionDefinition == WarDanceMomentumExtraAction ||
                                 x.conditionDefinition == ImprovedWarDanceMomentumExtraAction));
 
-            if (!flag || RemoveMomentumAnyway(hero) || pb == 0 || !hero.RulesetCharacter.HasConditionOfType(ConditionWarDance))
+            if (!flag || RemoveMomentumAnyway(hero) || pb == 0 ||
+                !hero.RulesetCharacter.HasConditionOfType(ConditionWarDance))
             {
                 foreach (var cond in currentMomentum)
                 {
@@ -338,7 +341,7 @@ internal sealed class CollegeOfWarDancer : AbstractSubclass
             ApplyActionAffinity(hero.RulesetCharacter);
 
             // apply momentum
-            for (int i = 0; i < momentum; i++)
+            for (var i = 0; i < momentum; i++)
             {
                 GrantWarDanceMomentum(hero);
             }

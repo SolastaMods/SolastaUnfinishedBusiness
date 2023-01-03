@@ -166,8 +166,7 @@ internal sealed class WizardDeadMaster : AbstractSubclass
                     )>>
             {
                 {
-                    (3, 2),
-                    new()
+                    (3, 2), new()
                     {
                         (Skeleton, 1, Sprites.SpellRaiseSkeleton, new BaseDefinition[] { Scimitar }),
                         (Skeleton_Archer, 1, Sprites.SpellRaiseSkeletonArcher,
@@ -193,8 +192,7 @@ internal sealed class WizardDeadMaster : AbstractSubclass
                     }
                 }, //CR 2
                 {
-                    (9, 5),
-                    new()
+                    (9, 5), new()
                     {
                         (Skeleton_Knight, 1, Sprites.SpellRaiseSkeletonKnight, new BaseDefinition[] { Longsword }),
                         (Skeleton_Marksman, 1, Sprites.SpellRaiseSkeletonMarksman,

@@ -167,7 +167,7 @@ internal static partial class SpellBuilders
     internal static SpellDefinition BuildShadowBlade()
     {
         const string NAME = "ShadowBlade";
-        
+
         var conditionShadowBlade = ConditionDefinitionBuilder
             .Create($"Condition{NAME}")
             .SetGuiPresentationNoContent(true)
@@ -180,7 +180,7 @@ internal static partial class SpellBuilders
                     .SetMyAttackAdvantage(AdvantageType.Advantage)
                     .AddToDB())
             .AddToDB();
-        
+
         var itemShadowBlade = ItemDefinitionBuilder
             .Create(ItemDefinitions.FlameBlade, $"Item{NAME}")
             .SetOrUpdateGuiPresentation(Category.Item, ItemDefinitions.Enchanted_Dagger_Souldrinker)
@@ -205,7 +205,7 @@ internal static partial class SpellBuilders
                     conditionShadowBlade,
                     ConditionForm.ConditionOperation.Add)
                 .Build());
-        
+
         var damageForm = weaponDescription.EffectDescription.FindFirstDamageForm();
 
         damageForm.damageType = DamageTypePsychic;

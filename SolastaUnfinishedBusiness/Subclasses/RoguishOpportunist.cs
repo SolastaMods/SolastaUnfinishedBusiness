@@ -29,7 +29,7 @@ internal sealed class RoguishOpportunist : AbstractSubclass
             .SetGuiPresentation(Category.Feature)
             .SetDamageValueDetermination(AdditionalDamageValueDetermination.FlatBonus)
             .SetNotificationTag("DebilitateStrike")
-            .SetConditionOperations(new ConditionOperationDescription()
+            .SetConditionOperations(new ConditionOperationDescription
             {
                 operation = ConditionOperationDescription.ConditionOperation.Add,
                 hasSavingThrow = true,
