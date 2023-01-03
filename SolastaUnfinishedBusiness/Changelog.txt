@@ -1,6 +1,7 @@
 CHANGES:
-- added an Interface > Game UI setting for a Paladin smite toggle
-- added an Interface > Game UI setting for a Monk ki points toggle
-- fixed Dead Master to only allow non concentration if upcasted
-- fixed Poisonous Skin and Pugilist to not apply on range [i.e.: wildshape apes]
-- fixed replace attack with cantrip interaction with haste and action surge
+
+- fixed Mind Sharpener infusion to grant concentration advantage
+- fixed Mind Sharpener infusion to ignore concentration check on damage < 10
+- fixed Opportunist debilitate strike to apply on success
+- fixed Reckless to work with any monster
+- fixed Soul Blade pact weapon to use Charisma modifier
