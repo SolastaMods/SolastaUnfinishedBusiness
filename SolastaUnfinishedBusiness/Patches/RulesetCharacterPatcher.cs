@@ -719,46 +719,12 @@ public static class RulesetCharacterPatcher
                 RulesetCharacter,
                 List<FeatureDefinition>,
                 Dictionary<FeatureDefinition, RuleDefinitions.FeatureOrigin>
-            >(CustomEnumerate).Method;
+            >(EnumerateSpellCastingAffinityProviderFromItems).Method;
 
             //PATCH: make ISpellCastingAffinityProvider from dynamic item properties apply to repertoires
             return instructions.ReplaceEnumerateFeaturesToBrowse("ISpellCastingAffinityProvider",
                 -1, "RulesetCharacter.RefreshSpellRepertoires",
                 new CodeInstruction(OpCodes.Call, enumerate));
-        }
-
-        private static void CustomEnumerate(
-            RulesetCharacter __instance,
-            List<FeatureDefinition> featuresToBrowse,
-            Dictionary<FeatureDefinition,
-                RuleDefinitions.FeatureOrigin> featuresOrigin)
-        {
-            __instance.EnumerateFeaturesToBrowse<ISpellCastingAffinityProvider>(featuresToBrowse, featuresOrigin);
-
-            if (__instance is not RulesetCharacterHero hero)
-            {
-                return;
-            }
-
-            foreach (var definition in hero.CharacterInventory.InventorySlotsByName
-                         .Select(keyValuePair => keyValuePair.Value)
-                         .Where(slot => slot.EquipedItem != null && !slot.Disabled && !slot.ConfigSlot)
-                         .Select(slot => slot.EquipedItem)
-                         .SelectMany(equipedItem => equipedItem.DynamicItemProperties
-                             .Select(dynamicItemProperty => dynamicItemProperty.FeatureDefinition)
-                             .Where(definition => definition != null && definition is ISpellCastingAffinityProvider)))
-            {
-                featuresToBrowse.Add(definition);
-
-                if (featuresOrigin.ContainsKey(definition))
-                {
-                    continue;
-                }
-
-                featuresOrigin.Add(definition, new RuleDefinitions.FeatureOrigin(
-                    RuleDefinitions.FeatureSourceType.CharacterFeature, definition.Name,
-                    null, definition.ParseSpecialFeatureTags()));
-            }
         }
 
         public static void Postfix(RulesetCharacter __instance)
@@ -1188,6 +1154,81 @@ public static class RulesetCharacterPatcher
             }
 
             hero.RefreshAll();
+        }
+    }
+
+    //PATCH: allow modifiers from items to be considered on concentration checks
+    [HarmonyPatch(typeof(RulesetCharacter), "RollConcentrationCheck")]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    public static class RollConcentrationCheck_Patch
+    {
+        public static IEnumerable<CodeInstruction> Transpiler([NotNull] IEnumerable<CodeInstruction> instructions)
+        {
+            var enumerate = new Action<
+                RulesetCharacter,
+                List<FeatureDefinition>,
+                Dictionary<FeatureDefinition, RuleDefinitions.FeatureOrigin>
+            >(EnumerateSpellCastingAffinityProviderFromItems).Method;
+
+            //PATCH: make ISpellCastingAffinityProvider from dynamic item properties apply to repertoires
+            return instructions.ReplaceEnumerateFeaturesToBrowse("ISpellCastingAffinityProvider",
+                -1, "RulesetCharacter.RollConcentrationCheck",
+                new CodeInstruction(OpCodes.Call, enumerate));
+        }
+    }
+
+    //PATCH: allow modifiers from items to be considered on concentration checks
+    [HarmonyPatch(typeof(RulesetCharacter), "RollConcentrationCheckFromDamage")]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    public static class RollConcentrationCheckFromDamage_Patch
+    {
+        public static IEnumerable<CodeInstruction> Transpiler([NotNull] IEnumerable<CodeInstruction> instructions)
+        {
+            var enumerate = new Action<
+                RulesetCharacter,
+                List<FeatureDefinition>,
+                Dictionary<FeatureDefinition, RuleDefinitions.FeatureOrigin>
+            >(EnumerateSpellCastingAffinityProviderFromItems).Method;
+
+            //PATCH: make ISpellCastingAffinityProvider from dynamic item properties apply to repertoires
+            return instructions.ReplaceEnumerateFeaturesToBrowse("FeatureDefinitionMagicAffinity",
+                -1, "RulesetCharacter.RollConcentrationCheckFromDamage",
+                new CodeInstruction(OpCodes.Call, enumerate));
+        }
+    }
+
+    // helper to get infusions modifiers from items
+    private static void EnumerateSpellCastingAffinityProviderFromItems(
+        RulesetCharacter __instance,
+        List<FeatureDefinition> featuresToBrowse,
+        Dictionary<FeatureDefinition,
+            RuleDefinitions.FeatureOrigin> featuresOrigin)
+    {
+        __instance.EnumerateFeaturesToBrowse<ISpellCastingAffinityProvider>(featuresToBrowse, featuresOrigin);
+
+        if (__instance is not RulesetCharacterHero hero)
+        {
+            return;
+        }
+
+        foreach (var definition in hero.CharacterInventory.InventorySlotsByName
+                     .Select(keyValuePair => keyValuePair.Value)
+                     .Where(slot => slot.EquipedItem != null && !slot.Disabled && !slot.ConfigSlot)
+                     .Select(slot => slot.EquipedItem)
+                     .SelectMany(equipedItem => equipedItem.DynamicItemProperties
+                         .Select(dynamicItemProperty => dynamicItemProperty.FeatureDefinition)
+                         .Where(definition => definition != null && definition is ISpellCastingAffinityProvider)))
+        {
+            featuresToBrowse.Add(definition);
+
+            if (featuresOrigin.ContainsKey(definition))
+            {
+                continue;
+            }
+
+            featuresOrigin.Add(definition, new RuleDefinitions.FeatureOrigin(
+                RuleDefinitions.FeatureSourceType.CharacterFeature, definition.Name,
+                null, definition.ParseSpecialFeatureTags()));
         }
     }
 }
