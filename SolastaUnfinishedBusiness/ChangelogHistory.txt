@@ -1,5 +1,10 @@
 ﻿CHANGES:
 
+1.4.32.20:
+
+- added Abilities of The Chain Master invocation
+- tweaked Oath of Ancients aura warding to reduce damage from elements and also apply to self
+
 1.4.32.19:
 
 - fixed Mind Sharpener infusion to grant concentration advantage

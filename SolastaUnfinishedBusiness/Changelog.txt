@@ -1,7 +1,4 @@
 CHANGES:
 
-- fixed Mind Sharpener infusion to grant concentration advantage
-- fixed Mind Sharpener infusion to ignore concentration check on damage < 10
-- fixed Opportunist debilitate strike to apply on success
-- fixed Reckless to work with any monster
-- fixed Soul Blade pact weapon to use Charisma modifier
+- added Abilities of The Chain Master invocation
+- tweaked Oath of Ancients aura warding to reduce damage from elements and also apply to self
