@@ -3,7 +3,8 @@
 1.4.32.20:
 
 - added Abilities of The Chain Master invocation
-- tweaked Oath of Ancients aura warding to reduce damage from elements and also apply to self
+- changed Oath of Ancients aura warding to reduce damage from elements instead of spells and also apply to self
+- fixed Spirit Shroud damage slots progression
 
 1.4.32.19:
 
