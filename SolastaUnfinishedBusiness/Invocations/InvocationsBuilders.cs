@@ -1,4 +1,4 @@
-﻿using SolastaUnfinishedBusiness.Api;
+using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.Extensions;
 using SolastaUnfinishedBusiness.Api.Infrastructure;
 using SolastaUnfinishedBusiness.Builders;
@@ -9,6 +9,9 @@ using SolastaUnfinishedBusiness.CustomUI;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionFeatureSets;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionDamageAffinitys;
+using System.Xml.Schema;
+using System.Diagnostics;
+using UnityEngine;
 
 namespace SolastaUnfinishedBusiness.Invocations;
 
@@ -401,6 +404,7 @@ internal static class InvocationsBuilders
             .AddToDB();
     }
 
+
     internal static InvocationDefinition BuildDiscerningGaze()
     {
         const string NAME = "InvocationDiscerningGaze";
@@ -432,6 +436,54 @@ internal static class InvocationsBuilders
             .SetGrantedSpell(spellBreakerAndBanisher, true, true)
             .AddToDB();
     }
+
+    internal static InvocationDefinition BuildAbilitiesOfTheChainMaster()
+    {
+        const string NAME = "InvocationAbilitiesOfTheChainMaster";
+
+        var conditionAbilitySprite = ConditionDefinitionBuilder
+            .Create("ConditionAbilitySprite")
+            .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionPactChainSprite)
+            .AddFeatures(FeatureDefinitionAttributeModifiers.AttributeModifierBarkskin,
+            FeatureDefinitionCombatAffinitys.CombatAffinityBlurred)
+            .SetSilent(Silent.WhenAddedOrRemoved)
+            .AddToDB();
+
+        var conditionAbilityImp = ConditionDefinitionBuilder
+            .Create(ConditionDefinitions.ConditionInvisibleGreater, "ConditionAbilityImp")
+            .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionPactChainImp)
+            .SetSilent(Silent.WhenAddedOrRemoved)
+            .AddToDB();
+
+        var conditionAbilityPseudo = ConditionDefinitionBuilder
+            .Create(ConditionDefinitions.ConditionFlying12, "ConditionAbilityPseudo")
+            .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionPactChainPseudodragon)
+            .AddFeatures(FeatureDefinitionAdditionalDamages.AdditionalDamagePoison_GhoulsCaress)
+            .SetSilent(Silent.WhenAddedOrRemoved)
+            .AddToDB();
+
+        var conditionAbilityQuasit = ConditionDefinitionBuilder
+            .Create("ConditionAbilityQausit")
+            .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionPactChainQuasit)
+            .AddFeatures(FeatureDefinitionAdditionalActions.AdditionalActionHasted,
+            FeatureDefinitionSavingThrowAffinitys.SavingThrowAffinityConditionHasted)
+            .SetSilent(Silent.WhenAddedOrRemoved)
+            .AddToDB();
+
+        var featureAbilitiesOfTheChainMaster = FeatureDefinitionBuilder
+            .Create($"Feature{NAME}")
+            .SetGuiPresentationNoContent(true)
+            .SetCustomSubFeatures(new AfterActionAbilitiesChain(conditionAbilitySprite, conditionAbilityImp, conditionAbilityQuasit, conditionAbilityPseudo))
+            .AddToDB();
+
+        return InvocationDefinitionBuilder
+            .Create(InvocationDefinitions.VoiceChainMaster, NAME)
+            .SetOrUpdateGuiPresentation(Category.Invocation)
+            .SetRequirements(7, pact: FeatureSetPactChain)
+            .SetGrantedFeature(featureAbilitiesOfTheChainMaster)
+            .AddToDB();
+    }
+
 
     /*
      
@@ -499,5 +551,107 @@ internal static class InvocationsBuilders
 
             return effect;
         }
+    }
+
+    private sealed class AfterActionAbilitiesChain : IOnAfterActionFeature
+    {
+        private readonly ConditionDefinition _conditionSpriteAbility;
+                                             
+        private readonly ConditionDefinition _conditionImpAbility;
+                                             
+        private readonly ConditionDefinition _conditionQuasitAbility;
+                                             
+        private readonly ConditionDefinition _conditionPseudoAbility;
+
+        internal AfterActionAbilitiesChain(ConditionDefinition conditionSpriteAbility,
+            ConditionDefinition conditionImpAbility,
+            ConditionDefinition conditionQuasitAbility,
+            ConditionDefinition conditionPseudoAbility)
+        {
+            _conditionSpriteAbility = conditionSpriteAbility;
+            _conditionImpAbility = conditionImpAbility;
+            _conditionQuasitAbility = conditionQuasitAbility;
+            _conditionPseudoAbility = conditionPseudoAbility;
+        }
+
+        void SetChainBuff(RulesetCharacter self, ConditionDefinition buff)
+        {
+            var rulesetCondition = RulesetCondition.CreateActiveCondition(
+                self.Guid,
+                buff,
+                RuleDefinitions.DurationType.Minute,
+                1,
+                RuleDefinitions.TurnOccurenceType.StartOfTurn,
+                self.Guid,
+                self.CurrentFaction.Name
+                );
+
+            self.AddConditionOfCategory(AttributeDefinitions.TagEffect, rulesetCondition, false);
+        }
+
+        public void OnAfterAction(CharacterAction action)
+        { 
+            
+            if(action.ActionType != ActionDefinitions.ActionType.Bonus)
+            {
+                return;
+            }
+
+            if (action.ActingCharacter == null)
+            {
+                return;
+            }
+
+            var self = action.ActingCharacter;
+
+            var powers = self.RulesetCharacter.usablePowers;
+
+            foreach(RulesetUsablePower power in powers)
+            {
+                if(self.RulesetCharacter.IsPowerActive(power))
+                {
+                    if(power.PowerDefinition == FeatureDefinitionPowers.PowerPactChainImp &&
+                        !self.RulesetCharacter.HasConditionOfCategoryAndType(AttributeDefinitions.TagEffect, _conditionImpAbility.name))
+                    {
+                        SetChainBuff(self.RulesetCharacter, _conditionImpAbility);
+                    } else if(power.PowerDefinition == FeatureDefinitionPowers.PowerPactChainQuasit &&
+                        !self.RulesetCharacter.HasConditionOfCategoryAndType(AttributeDefinitions.TagEffect, _conditionQuasitAbility.name))
+                    {
+                        SetChainBuff(self.RulesetCharacter, _conditionQuasitAbility);
+                    } else if(power.PowerDefinition == FeatureDefinitionPowers.PowerPactChainSprite &&
+                        !self.RulesetCharacter.HasConditionOfCategoryAndType(AttributeDefinitions.TagEffect, _conditionSpriteAbility.name))
+                    {
+                        SetChainBuff(self.RulesetCharacter, _conditionSpriteAbility);
+                    } else if(power.PowerDefinition == FeatureDefinitionPowers.PowerPactChainPseudodragon &&
+                        !self.RulesetCharacter.HasConditionOfCategoryAndType(AttributeDefinitions.TagEffect, _conditionPseudoAbility.name))
+                    {
+                        SetChainBuff(self.RulesetCharacter, _conditionPseudoAbility);
+                    }
+                }
+                else
+                {
+                    if (power.PowerDefinition == FeatureDefinitionPowers.PowerPactChainImp)
+                    {
+                        self.RulesetCharacter.RemoveAllConditionsOfCategoryAndType(AttributeDefinitions.TagEffect, _conditionImpAbility.name);
+                    }
+                    else if (power.PowerDefinition == FeatureDefinitionPowers.PowerPactChainQuasit)
+                    {
+                        self.RulesetCharacter.RemoveAllConditionsOfCategoryAndType(AttributeDefinitions.TagEffect, _conditionQuasitAbility.name);
+                    }
+                    else if (power.PowerDefinition == FeatureDefinitionPowers.PowerPactChainSprite)
+                    {
+                        self.RulesetCharacter.RemoveAllConditionsOfCategoryAndType(AttributeDefinitions.TagEffect, _conditionSpriteAbility.name);
+                    }
+                    else if (power.PowerDefinition == FeatureDefinitionPowers.PowerPactChainPseudodragon)
+                    {
+                        self.RulesetCharacter.RemoveAllConditionsOfCategoryAndType(AttributeDefinitions.TagEffect, _conditionPseudoAbility.name);
+                    }
+                }
+
+            
+            }
+   
+        }
+
     }
 }
