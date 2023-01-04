@@ -1,4 +1,4 @@
-﻿using SolastaUnfinishedBusiness.Builders;
+using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
@@ -95,6 +95,8 @@ internal sealed class OathOfAncients : AbstractSubclass
                     .SetEffectForms(
                         EffectFormBuilder
                             .Create()
+                            .HasSavingThrow(EffectSavingThrowType.Negates)
+                            .CanSaveToCancel(TurnOccurenceType.EndOfTurn)
                             .SetConditionForm(
                                 ConditionDefinitions.ConditionTurned,
                                 ConditionForm.ConditionOperation.Add)
@@ -110,6 +112,7 @@ internal sealed class OathOfAncients : AbstractSubclass
         var conditionAuraWarding = ConditionDefinitionBuilder
             .Create($"Condition{NAME}AuraWarding")
             .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionAuraOfProtection)
+            .SetSilent(Silent.WhenAddedOrRemoved)
             .AddFeatures(DamageAffinityAcidResistance)
             .AddFeatures(DamageAffinityColdResistance)
             .AddFeatures(DamageAffinityFireResistance)
@@ -134,7 +137,9 @@ internal sealed class OathOfAncients : AbstractSubclass
                             .Create()
                             .SetConditionForm(
                                 conditionAuraWarding,
-                                ConditionForm.ConditionOperation.Add)
+                                ConditionForm.ConditionOperation.Add,
+                                true,
+                                true)
                             .Build())
                     .Build())
             .AddToDB();
