@@ -1,7 +1,17 @@
+Condition/&ConditionAbilitySpriteDescription=Gain an AC score of atleast 16 and attackers have a disadvantage when targeting you.
+Condition/&ConditionAbilitySpriteTitle=Sprite's Ability
+Condition/&ConditionAbilityImpDescription=Gain invisibility, you may attack and cast spells without losing invisibility.
+Condition/&ConditionAbilityImpTitle=Imp's Ability
+Condition/&ConditionAbilityPseudoDescription=Gain the ability to fly and imbue your attacks with poison that restrains.
+Condition/&ConditionAbilityPseudoTitle=Pseudodragon's Ability
+Condition/&ConditionAbilityQausitDescription=Gain an additional action and an advantage on Dexterity saving throws.
+Condition/&ConditionAbilityQausitTitle=Qausit's Ability
 Feature/&AttackModifierHitAndDamagePlus1Description=The weapon gains a +1 bonus to its attack and damage rolls.
 Feature/&AttackModifierHitAndDamagePlus1Title=Pact Weapon Enhancement
 Feedback/&AdditionalDamageEldritchSmiteFormat=Eldritch Smite!
 Feedback/&AdditionalDamageEldritchSmiteLine={0} smites {1} (+{2})
+Invocation/&InvocationAbilitiesOfTheChainMasterDescription=Gain additional effects when bound to a creatue. When bound to Imp gain greater invisibility, when bound to Pseudodragon gain flight and attacks imbued with poison, when bound to Quasit gain an additional main action and advantage on Dexterity saving throws, and when bound to Sprite get an AC score of atleast 16 and attackers have disadvantage against you.
+Invocation/&InvocationAbilitiesOfTheChainMasterTitle=Abilities of the Chain Master
 Invocation/&InvocationAspectOfTheMoonDescription=You no longer need to sleep and can keep watch, lowering the chances of attack and ensuring you are awake if camp is attacked.
 Invocation/&InvocationAspectOfTheMoonTitle=Aspect of The Moon
 Invocation/&InvocationBondOfTheTalismanDescription=You can use Bonus Action to teleport up to 30 ft away to an unoccupied space you can see.
