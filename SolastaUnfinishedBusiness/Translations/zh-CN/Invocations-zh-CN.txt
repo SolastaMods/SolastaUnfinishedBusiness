@@ -1,7 +1,17 @@
+Condition/&ConditionAbilitySpriteDescription=获得至少 16 的 AC 分数，攻击者在瞄准您时处于劣势。
+Condition/&ConditionAbilitySpriteTitle=雪碧的能力
+Condition/&ConditionAbilityImpDescription=获得隐形，你可以在不失去隐形的情况下攻击和施法。
+Condition/&ConditionAbilityImpTitle=小鬼的能力
+Condition/&ConditionAbilityPseudoDescription=获得飞行的能力，并在你的攻击中注入克制的毒药。
+Condition/&ConditionAbilityPseudoTitle=伪龙的能力
+Condition/&ConditionAbilityQuasitDescription=在敏捷豁免检定上获得额外动作和优势。
+Condition/&ConditionAbilityQuasitTitle=夸西特的能力
 Feature/&AttackModifierHitAndDamagePlus1Description=武器在攻击骰和伤害骰上获得+1加值
 Feature/&AttackModifierHitAndDamagePlus1Title=契约武器增强
 Feedback/&AdditionalDamageEldritchSmiteFormat=魔能斩!
 Feedback/&AdditionalDamageEldritchSmiteLine={0} 斩击 {1} (+{2})
+Invocation/&InvocationAbilitiesOfTheChainMasterDescription=与生物绑定时获得额外效果。当绑定到 Imp 时获得更大的隐身性，当绑定到 Pseudodragon 时获得飞行和充满毒药的攻击，当绑定到 Quasit 时获得额外的主要动作和敏捷豁免检定的优势，当绑定到 Sprite 时获得至少 16 的 AC 分数和攻击者对你不利。
+Invocation/&InvocationAbilitiesOfTheChainMasterTitle=锁链大师的能力
 Invocation/&InvocationAspectOfTheMoonDescription=你不再需要睡眠，同样不能以任何手段强制入梦。为了获得长休的益处，你可以花费8小时执行轻度的工作，例如阅读你的影之书和放哨。
 Invocation/&InvocationAspectOfTheMoonTitle=月之仪态
 Invocation/&InvocationBondOfTheTalismanDescription=你可以随意以附赠动作传送到最多离你30尺远的一处未被占据的空间

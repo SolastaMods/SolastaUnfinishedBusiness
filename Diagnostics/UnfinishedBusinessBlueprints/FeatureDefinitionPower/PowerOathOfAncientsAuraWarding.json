@@ -80,11 +80,9 @@
           "conditionDefinitionName": "ConditionOathOfAncientsAuraWarding",
           "conditionDefinition": "Definition:ConditionOathOfAncientsAuraWarding:bac3d48d-32a4-542e-9171-142f53c5272f",
           "operation": "Add",
-          "conditionsList": [
-            "Definition:ConditionOathOfAncientsAuraWarding:bac3d48d-32a4-542e-9171-142f53c5272f"
-          ],
-          "applyToSelf": false,
-          "forceOnSelf": false
+          "conditionsList": [],
+          "applyToSelf": true,
+          "forceOnSelf": true
         },
         "hasFilterId": false,
         "filterId": 0

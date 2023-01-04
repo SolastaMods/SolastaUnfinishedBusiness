@@ -20,6 +20,7 @@ internal static class InvocationsContext
 
     internal static void LateLoad()
     {
+        LoadInvocation(BuildAbilitiesOfTheChainMaster());
         LoadInvocation(BuildAspectOfTheMoon());
         LoadInvocation(BuildBondOfTheTalisman());
         LoadInvocation(BuildBreakerAndBanisher());

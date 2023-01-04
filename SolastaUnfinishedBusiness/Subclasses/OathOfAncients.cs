@@ -1,5 +1,6 @@
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
+using SolastaUnfinishedBusiness.Models;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterSubclassDefinitions;
@@ -120,6 +121,9 @@ internal sealed class OathOfAncients : AbstractSubclass
             .AddFeatures(DamageAffinityThunderResistance)
             .AddFeatures(DamageAffinityPoisonResistance)
             .AddToDB();
+
+        // only reports condition on char panel
+        Global.CharacterLabelEnabledConditions.Add(conditionAuraWarding);
 
         var powerAuraWarding = FeatureDefinitionPowerBuilder
             .Create($"Power{NAME}AuraWarding")

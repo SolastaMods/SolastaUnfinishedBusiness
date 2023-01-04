@@ -1,7 +1,17 @@
+Condition/&ConditionAbilitySpriteDescription=Erreiche einen AC-Wert von mindestens 16 und Angreifer haben einen Nachteil, wenn sie auf dich zielen.
+Condition/&ConditionAbilitySpriteTitle=Sprites Fähigkeit
+Condition/&ConditionAbilityImpDescription=Erlangen Sie Unsichtbarkeit, Sie können angreifen und Zauber wirken, ohne die Unsichtbarkeit zu verlieren.
+Condition/&ConditionAbilityImpTitle=Die Fähigkeit des Kobolds
+Condition/&ConditionAbilityPseudoDescription=Erlangen Sie die Fähigkeit zu fliegen und Ihre Angriffe mit Gift zu erfüllen, das zurückhält.
+Condition/&ConditionAbilityPseudoTitle=Die Fähigkeit des Pseudodrachen
+Condition/&ConditionAbilityQuasitDescription=Erhalte eine zusätzliche Aktion und einen Vorteil bei Geschicklichkeitswürfen.
+Condition/&ConditionAbilityQuasitTitle=Qausits ​​Fähigkeit
 Feature/&AttackModifierHitAndDamagePlus1Description=Die Waffe erhält einen Bonus von +1 auf ihre Angriffs- und Schadenswürfe.
 Feature/&AttackModifierHitAndDamagePlus1Title=Pakt-Waffenverbesserung
 Feedback/&AdditionalDamageEldritchSmiteFormat=Eldritch Smite!
 Feedback/&AdditionalDamageEldritchSmiteLine={0} schlägt {1} (+{2})
+Invocation/&InvocationAbilitiesOfTheChainMasterDescription=Erhalte zusätzliche Effekte, wenn du an eine Kreatur gebunden bist. Wenn Sie an Imp gebunden sind, erhalten Sie größere Unsichtbarkeit, wenn Sie an Pseudodragon gebunden sind, erhalten Sie Flug und Angriffe, die mit Gift durchdrungen sind, wenn Sie an Quasit gebunden sind, erhalten Sie eine zusätzliche Hauptaktion und einen Vorteil bei Geschicklichkeitswürfen, und wenn Sie an Sprite gebunden sind, erhalten Sie einen AC-Wert von mindestens 16 und Angreifer Nachteil gegen dich haben.
+Invocation/&InvocationAbilitiesOfTheChainMasterTitle=Fähigkeiten des Kettenmeisters
 Invocation/&InvocationAspectOfTheMoonDescription=Sie müssen nicht mehr schlafen und können Wache halten, was die Wahrscheinlichkeit eines Angriffs verringert und sicherstellt, dass Sie wach sind, wenn das Lager angegriffen wird.
 Invocation/&InvocationAspectOfTheMoonTitle=Aspekt des Mondes
 Invocation/&InvocationBondOfTheTalismanDescription=Sie können die Bonusaktion verwenden, um bis zu 30 Fuß entfernt zu einem unbesetzten Feld zu teleportieren, das Sie sehen können.

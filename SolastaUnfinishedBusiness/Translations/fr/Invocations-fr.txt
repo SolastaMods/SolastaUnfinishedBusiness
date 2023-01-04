@@ -1,7 +1,17 @@
+Condition/&ConditionAbilitySpriteDescription=Gagnez un score AC d'au moins 16 et les attaquants ont un désavantage lorsqu'ils vous ciblent.
+Condition/&ConditionAbilitySpriteTitle=Capacité de Sprite
+Condition/&ConditionAbilityImpDescription=Gagnez en invisibilité, vous pouvez attaquer et lancer des sorts sans perdre votre invisibilité.
+Condition/&ConditionAbilityImpTitle=Capacité du diablotin
+Condition/&ConditionAbilityPseudoDescription=Gagnez la capacité de voler et d'imprégner vos attaques d'un poison qui retient.
+Condition/&ConditionAbilityPseudoTitle=Capacité du pseudo-dragon
+Condition/&ConditionAbilityQuasitDescription=Gagnez une action supplémentaire et un avantage sur les jets de sauvegarde de Dextérité.
+Condition/&ConditionAbilityQuasitTitle=Capacité de Qausit
 Feature/&AttackModifierHitAndDamagePlus1Description=L'arme gagne un bonus de +1 à ses jets d'attaque et de dégâts.
 Feature/&AttackModifierHitAndDamagePlus1Title=Amélioration de l'arme du Pacte
 Feedback/&AdditionalDamageEldritchSmiteFormat=Châtiment Eldritch!
 Feedback/&AdditionalDamageEldritchSmiteLine={0} châtie {1} (+{2})
+Invocation/&InvocationAbilitiesOfTheChainMasterDescription=Gagne des effets supplémentaires lorsqu'il est lié à une créature. Lorsqu'il est lié à Imp, gagnez une plus grande invisibilité, lorsqu'il est lié à Pseudodragon, gagnez du vol et des attaques imprégnées de poison, lorsqu'il est lié à Quasit, gagnez une action principale supplémentaire et un avantage sur les jets de sauvegarde de Dextérité, et lorsqu'il est lié à Sprite, obtenez un score de CA d'au moins 16 et les attaquants avoir un désavantage contre vous.
+Invocation/&InvocationAbilitiesOfTheChainMasterTitle=Capacités du maître de la chaîne
 Invocation/&InvocationAspectOfTheMoonDescription=Vous n'avez plus besoin de dormir et pouvez surveiller, ce qui réduit les risques d'attaque et vous assure d'être éveillé si le camp est attaqué.
 Invocation/&InvocationAspectOfTheMoonTitle=Aspect de la lune
 Invocation/&InvocationBondOfTheTalismanDescription=Vous pouvez utiliser Bonus Action pour vous téléporter jusqu'à 30 pieds dans un espace inoccupé que vous pouvez voir.
