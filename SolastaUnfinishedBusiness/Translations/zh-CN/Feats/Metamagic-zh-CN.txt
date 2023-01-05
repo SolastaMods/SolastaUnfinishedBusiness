@@ -1,2 +1,2 @@
-﻿Feat/&FeatAdeptMetamagicDescription=将你的魅力提高 1，最多为 20。你获得 3 个术法点并学习{0}超魔法：{1}
+﻿Feat/&FeatAdeptMetamagicDescription=你获得 3 个术法点并学习{0}超魔法：{1}
 Feat/&FeatAdeptMetamagicTitle=超魔法: {0}
