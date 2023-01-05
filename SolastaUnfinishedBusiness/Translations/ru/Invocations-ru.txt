@@ -1,7 +1,17 @@
+Condition/&ConditionAbilitySpriteDescription=Получите не менее 16 очков AC, и злоумышленники будут иметь преимущество при нацеливании на вас.
+Condition/&ConditionAbilitySpriteTitle=Способность спрайта
+Condition/&ConditionAbilityImpDescription=Получите невидимость, вы можете атаковать и использовать заклинания, не теряя невидимости.
+Condition/&ConditionAbilityImpTitle=Способность беса
+Condition/&ConditionAbilityPseudoDescription=Получите способность летать и наполнить свои атаки сдерживающим ядом.
+Condition/&ConditionAbilityPseudoTitle=Способность псевдодракона
+Condition/&ConditionAbilityQuasitDescription=Получите дополнительное действие и преимущество в спасбросках Ловкости.
+Condition/&ConditionAbilityQuasitTitle=Способность Каузита
 Feature/&AttackModifierHitAndDamagePlus1Description=Оружие получает бонус +1 к броскам атаки и урона.
 Feature/&AttackModifierHitAndDamagePlus1Title=Договор Улучшения Оружия
 Feedback/&AdditionalDamageEldritchSmiteFormat=Жуткий удар!
 Feedback/&AdditionalDamageEldritchSmiteLine={0} поражает {1} (+{2})
+Invocation/&InvocationAbilitiesOfTheChainMasterDescription=Получите дополнительные эффекты при привязке к существу. При привязке к Бесу вы получаете большую невидимость, при привязке к Псевдодракону получаете полет и атаки, пропитанные ядом, при привязке к Квазиту получаете дополнительное основное действие и преимущество в спасбросках Ловкости, а при привязке к Спрайту получаете не менее 16 КД и атакующие. иметь недостаток против вас.
+Invocation/&InvocationAbilitiesOfTheChainMasterTitle=Способности Мастера Цепи
 Invocation/&InvocationAspectOfTheMoonDescription=Вам больше не нужно спать, и вы можете нести вахту, снижая вероятность нападения и гарантируя, что вы бодрствуете, если лагерь подвергнется нападению.
 Invocation/&InvocationAspectOfTheMoonTitle=Аспект Луны
 Invocation/&InvocationBondOfTheTalismanDescription=Можете использовать Бонусное действие, чтобы Телепортироваться на расстояние до 30 футов, на незанятое и видимое место.

@@ -1,7 +1,17 @@
+Condition/&ConditionAbilitySpriteDescription=Obtenga una puntuación de CA de al menos 16 y los atacantes tienen una desventaja cuando lo atacan.
+Condition/&ConditionAbilitySpriteTitle=Habilidad de Sprite
+Condition/&ConditionAbilityImpDescription=Gana invisibilidad, puedes atacar y lanzar hechizos sin perder la invisibilidad.
+Condition/&ConditionAbilityImpTitle=Habilidad de diablillo
+Condition/&ConditionAbilityPseudoDescription=Obtén la habilidad de volar e imbuir tus ataques con veneno que refrena.
+Condition/&ConditionAbilityPseudoTitle=Habilidad del pseudodragón
+Condition/&ConditionAbilityQuasitDescription=Gana una acción adicional y una ventaja en las tiradas de salvación de Destreza.
+Condition/&ConditionAbilityQuasitTitle=Habilidad de Qausit
 Feature/&AttackModifierHitAndDamagePlus1Description=El arma gana una bonificación de +1 a sus tiradas de ataque y daño.
 Feature/&AttackModifierHitAndDamagePlus1Title=Mejora de armas del pacto
 Feedback/&AdditionalDamageEldritchSmiteFormat=Golpe sobrenatural!
 Feedback/&AdditionalDamageEldritchSmiteLine={0} hiere a {1} (+{2})
+Invocation/&InvocationAbilitiesOfTheChainMasterDescription=Gana efectos adicionales cuando estás vinculado a una criatura. Cuando se une a Imp gana una mayor invisibilidad, cuando se une a Pseudodragon gana vuelo y ataques imbuidos de veneno, cuando se une a Quasit obtiene una acción principal adicional y una ventaja en las tiradas de salvación de Destreza, y cuando se une a Sprite obtiene una puntuación de AC de al menos 16 y los atacantes tener desventaja contra usted.
+Invocation/&InvocationAbilitiesOfTheChainMasterTitle=Habilidades del Maestro de la Cadena
 Invocation/&InvocationAspectOfTheMoonDescription=Ya no necesita dormir y puede vigilar, lo que reduce las posibilidades de ataque y garantiza que esté despierto si atacan el campamento.
 Invocation/&InvocationAspectOfTheMoonTitle=Aspecto de la luna
 Invocation/&InvocationBondOfTheTalismanDescription=Puede usar Bonus Action para teletransportarse hasta 30 pies de distancia a un espacio desocupado que pueda ver.

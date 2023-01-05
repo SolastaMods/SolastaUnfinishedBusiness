@@ -202,6 +202,7 @@ internal static partial class SpellBuilders
             .SetRequiresConcentration(true)
             .SetEffectDescription(EffectDescriptionBuilder.Create()
                 .SetDurationData(DurationType.Minute, 1)
+                .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel, 2, additionalDicePerIncrement: 1)
                 .Build())
             .SetSubSpells(
                 BuildSpiritShroudSubSpell(DamageTypeRadiant, hinder, noHeal, sprite),
@@ -227,6 +228,7 @@ internal static partial class SpellBuilders
                 .SetTargetFiltering(TargetFilteringMethod.CharacterOnly)
                 .SetTargetingData(Side.Enemy, RangeType.Self, 1, TargetType.Cube, 5)
                 .SetDurationData(DurationType.Minute, 1)
+                .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel, 2, additionalDicePerIncrement: 1)
                 //RAW it should only trigger if target starts turn in the area, but game doesn't trigger on turn start for some reason without other flags
                 .SetRecurrentEffect(RecurrentEffect.OnActivation
                                     | RecurrentEffect.OnTurnStart

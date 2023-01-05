@@ -1,5 +1,6 @@
-﻿using SolastaUnfinishedBusiness.Builders;
+using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
+using SolastaUnfinishedBusiness.Models;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterSubclassDefinitions;
@@ -95,6 +96,8 @@ internal sealed class OathOfAncients : AbstractSubclass
                     .SetEffectForms(
                         EffectFormBuilder
                             .Create()
+                            .HasSavingThrow(EffectSavingThrowType.Negates)
+                            .CanSaveToCancel(TurnOccurenceType.EndOfTurn)
                             .SetConditionForm(
                                 ConditionDefinitions.ConditionTurned,
                                 ConditionForm.ConditionOperation.Add)
@@ -110,6 +113,7 @@ internal sealed class OathOfAncients : AbstractSubclass
         var conditionAuraWarding = ConditionDefinitionBuilder
             .Create($"Condition{NAME}AuraWarding")
             .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionAuraOfProtection)
+            .SetSilent(Silent.WhenAddedOrRemoved)
             .AddFeatures(DamageAffinityAcidResistance)
             .AddFeatures(DamageAffinityColdResistance)
             .AddFeatures(DamageAffinityFireResistance)
@@ -117,6 +121,9 @@ internal sealed class OathOfAncients : AbstractSubclass
             .AddFeatures(DamageAffinityThunderResistance)
             .AddFeatures(DamageAffinityPoisonResistance)
             .AddToDB();
+
+        // only reports condition on char panel
+        Global.CharacterLabelEnabledConditions.Add(conditionAuraWarding);
 
         var powerAuraWarding = FeatureDefinitionPowerBuilder
             .Create($"Power{NAME}AuraWarding")
@@ -134,7 +141,9 @@ internal sealed class OathOfAncients : AbstractSubclass
                             .Create()
                             .SetConditionForm(
                                 conditionAuraWarding,
-                                ConditionForm.ConditionOperation.Add)
+                                ConditionForm.ConditionOperation.Add,
+                                true,
+                                true)
                             .Build())
                     .Build())
             .AddToDB();

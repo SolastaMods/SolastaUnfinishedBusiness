@@ -4,12 +4,8 @@
   "parentCondition": null,
   "conditionType": "Beneficial",
   "features": [
-    "Definition:DamageAffinityAcidResistance:10a85b220b55a28479e26b695ba7392d",
-    "Definition:DamageAffinityColdResistance:277b59ebffdc36946879acc4e946affd",
-    "Definition:DamageAffinityFireResistance:65d64edf05bfa284999522d4c5375d17",
-    "Definition:DamageAffinityLightningResistance:443d9129d7904f14b8d9977881f95c08",
-    "Definition:DamageAffinityPoisonResistance:acd13ccc3c05d474a8a4472b0cc01a75",
-    "Definition:DamageAffinityThunderResistance:510045c677352854ca27ebea37c85d02"
+    "Definition:AdditionalActionHasted:7de0bb174ce429a458b357b5838edadb",
+    "Definition:SavingThrowAffinityConditionHasted:112a137c1bd1c254581f2f1a654985c0"
   ],
   "allowMultipleInstances": false,
   "silentWhenAdded": true,
@@ -133,12 +129,12 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Condition/&ConditionOathOfAncientsAuraWardingTitle",
-    "description": "Condition/&ConditionOathOfAncientsAuraWardingDescription",
+    "title": "Condition/&ConditionAbilityQuasitTitle",
+    "description": "Condition/&ConditionAbilityQuasitDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "04f42c446dd0c5143bcc4d3b56edfbb2",
-      "m_SubObjectName": "ConditionShieldedByFaith",
+      "m_AssetGUID": "c29cad3433c31a04ea35a9c4bcdc634d",
+      "m_SubObjectName": "ConditionPactChainQuasit",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
@@ -154,7 +150,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "bac3d48d-32a4-542e-9171-142f53c5272f",
+  "guid": "0a85bd47-8e20-55f5-a8a2-2fd676399a63",
   "contentPack": 9999,
-  "name": "ConditionOathOfAncientsAuraWarding"
+  "name": "ConditionAbilityQuasit"
 }

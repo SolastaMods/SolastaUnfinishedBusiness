@@ -304,6 +304,7 @@ You can use a bonus action to select a weapon. Its attacks count as magical and 
 
 [list=1]
 
+[*][b]Abilities of the Chain Master[/b]: Gain additional effects when bound to a creatue. When bound to Imp gain greater invisibility, when bound to Pseudodragon gain flight and attacks imbued with poison, when bound to Quasit gain an additional main action and advantage on Dexterity saving throws, and when bound to Sprite get an AC score of atleast 16 and attackers have disadvantage against you.
 [*][b]Aspect of The Moon[/b]: You no longer need to sleep and can keep watch, lowering the chances of attack and ensuring you are awake if camp is attacked.
 [*][b]Breaker and Banisher[/b]: You can cast <b>Dispel Evil and Good</b> using your pact slot once per long rest.
 [*][b]Chilling Blast[/b]: You can change the damage type of the eldritch blast to cold damage instead of force damage.

@@ -1,0 +1,38 @@
+{
+  "$type": "InvocationDefinition, Assembly-CSharp",
+  "requiredKnownSpell": null,
+  "requiredLevel": 7,
+  "requiredPact": "Definition:FeatureSetPactChain:101749129eb42a74583471b1f8dc44b7",
+  "grantedFeature": "Definition:FeatureInvocationAbilitiesOfTheChainMaster:65281a0e-fd59-554b-ac9c-a1f0ba2cecbb",
+  "grantedSpell": null,
+  "consumesSpellSlot": false,
+  "longRestRecharge": false,
+  "overrideMaterialComponent": true,
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": true,
+    "title": "Invocation/&InvocationAbilitiesOfTheChainMasterTitle",
+    "description": "Invocation/&InvocationAbilitiesOfTheChainMasterDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "859d70eb5d2128a4084437f476a72835",
+      "m_SubObjectName": "CastInvocation",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "835f99be-27cf-5b7d-acf6-afca4dab8754",
+  "contentPack": 9999,
+  "name": "InvocationAbilitiesOfTheChainMaster"
+}
