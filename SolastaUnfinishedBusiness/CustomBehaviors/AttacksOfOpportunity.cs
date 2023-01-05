@@ -31,6 +31,12 @@ internal static class AttacksOfOpportunity
             yield break;
         }
 
+        // this happens during Aksha fight when she uses second veil a 2nd time
+        if (defender == null)
+        {
+            yield break;
+        }
+
         var battle = battleManager.Battle;
 
         if (battle == null)
