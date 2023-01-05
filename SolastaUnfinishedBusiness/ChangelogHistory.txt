@@ -1,5 +1,11 @@
 ﻿CHANGES:
 
+1.4.33.0:
+
+- fixed a null exception on certain legendary actions
+- removed CHA+1 from metamagic feats
+- updated to game version 1.4.33
+
 1.4.32.20:
 
 - added Abilities of The Chain Master invocation
