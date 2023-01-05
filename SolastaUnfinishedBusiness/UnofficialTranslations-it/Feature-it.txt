@@ -579,7 +579,6 @@ Feature/&AttackModifierDamageRollIncreasedDescription=Il tiro per i danni è aum
 Feature/&ConditionAutoCriticalFormat=Tutti gli attacchi ricevuti sono colpi critici.
 Feature/&SavingThrowByAbilityScoreBonus=[abilità] su {0} tiri salvezza
 Feature/&DomainBattleExtraAttackTitle=Studioso di battaglia
-Feature/&AdditionalDamageDomainLifeDivineStrikeDescription=#ERRORE!
 Feature/&AdditionalDamageDomainLifeDivineStrikeTitle=Colpo Divino
 Feature/&DomainElementalHeraldOfTheElementsFireShortTitle=Invoca il fuoco
 Feature/&DomainElementalHeraldOfTheElementsFireTitle=Araldo degli elementi: \nInvoca il fuoco

@@ -14,7 +14,6 @@ BlueprintCategory/&FlatRoomsTitle=Flat Rooms
 ContentPack/&9999Description=The Unfinished Business pack adds multiclass, races, sub-classes, feats, fighting style and spells. There's a higher level cap, QOL features, fixes and more. It's a veritable Horn of Plenty (TM)...
 ContentPack/&9999Title=Unfinished Business Pack
 Failure/&FailureFlagTargetMeleeWeaponError=Can't perform melee attack on this target with current weapon
-Feature/&AdditionalDamageDomainLifeDivineStrikeDescription=+1d8 radiant damage on weapon attacks, once per turn.
 Feature/&AlwaysBeardDescription={0}% chances to grow a glorious beard!
 Feature/&CollegeHopeWanderingHealerSpellsDescription={0}\n\n
 Feature/&DomainSpellsDescription={0}\n\n

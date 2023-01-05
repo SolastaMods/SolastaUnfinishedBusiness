@@ -1,5 +1,5 @@
 CHANGES:
 
-- added Abilities of The Chain Master invocation
-- changed Oath of Ancients aura warding to reduce damage from elements instead of spells and also apply to self
-- fixed Spirit Shroud damage slots progression
+- fixed a null exception on certain legendary actions
+- removed CHA+1 from metamagic feats
+- updated to game version 1.4.33

@@ -15,7 +15,6 @@ BlueprintCategory/&FlatRoomsTitle=水平空间
 ContentPack/&9999Description=未竟之业Pack增加了多职业、种族、子职业、专长、战斗风格和法术。 有更高的等级上限、QOL 功能、修复等。 这是名副其实的丰饶号角 (TM)...
 ContentPack/&9999Title=未竟之业
 Failure/&FailureFlagTargetMeleeWeaponError=无法使用当前武器对该目标进行近战攻击
-Feature/&AdditionalDamageDomainLifeDivineStrikeDescription=每轮一次，武器攻击+1d8光耀伤害。
 Feature/&AlwaysBeardDescription={0}% 的机会长出漂亮的胡子！
 Feature/&CollegeHopeWanderingHealerSpellsDescription={0}\n\n
 Feature/&DomainSpellsDescription={0}\n\n

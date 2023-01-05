@@ -1,2 +1,2 @@
-﻿Feat/&FeatAdeptMetamagicDescription=Augmentez votre Charisme de 1, jusqu'à un maximum de 20. Vous gagnez des points de sorcellerie égaux à votre bonus de maîtrise et apprenez la métamagie {0}: {1}
+﻿Feat/&FeatAdeptMetamagicDescription=Vous gagnez des points de sorcellerie égaux à votre bonus de maîtrise et apprenez la métamagie {0}: {1}
 Feat/&FeatAdeptMetamagicTitle=Métamagique: {0}
