@@ -13,7 +13,6 @@
   "knownFeatsPrerequisite": [],
   "features": [
     "Definition:ActionAffinitySorcererMetamagicToggle:04a952fbc7800154cab7f4994e3ac481",
-    "Definition:AttributeModifierCreed_Of_Solasta:330246532ae609848887c37e44b7f7e4",
     "Definition:AttributeModifierSorcererSorceryPointsBonus3:62adbaa6-4099-5d5b-a0fc-584f03eef4c2",
     "Definition:CustomCodeFeatAdeptMetamagicHeightenedSpell:bbacb8f0-fca2-5a22-9471-c0d8015f122b"
   ],
@@ -21,7 +20,7 @@
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
     "title": "Metamagic: Heightened Spell",
-    "description": "Increase your Charisma by 1, to a maximum of 20. You gain sorcery points equals to your proficiency bonus and learn the Heightened Spell metamagic: Can force a creature to roll the saving throw with disadvantage",
+    "description": "You gain sorcery points equals to your proficiency bonus and learn the Heightened Spell metamagic: Can force a creature to roll the saving throw with disadvantage",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",

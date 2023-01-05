@@ -579,7 +579,6 @@ Feature/&AttackModifierDamageRollIncreasedDescription=Se incrementa la tirada de
 Feature/&ConditionAutoCriticalFormat=Todos los ataques recibidos son golpes críticos.
 Feature/&SavingThrowByAbilityScoreBonus=[habilidad] en {0} tiradas de salvación
 Feature/&DomainBattleExtraAttackTitle=estudioso de la batalla
-Feature/&AdditionalDamageDomainLifeDivineStrikeDescription=#¡ERROR!
 Feature/&AdditionalDamageDomainLifeDivineStrikeTitle=Golpe divino
 Feature/&DomainElementalHeraldOfTheElementsFireShortTitle=llama al fuego
 Feature/&DomainElementalHeraldOfTheElementsFireTitle=Heraldo de los elementos: \nLlamada al fuego

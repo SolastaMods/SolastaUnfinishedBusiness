@@ -14,7 +14,6 @@ BlueprintCategory/&FlatRoomsTitle=Quartos Planos
 ContentPack/&9999Description=O pacote Unfinished Business adiciona multiclasse, raças, subclasses, talentos, estilo de luta e feitiços. Há um limite de nível mais alto, recursos de qualidade de vida, correções e muito mais. É um verdadeiro Horn of Plenty (TM)...
 ContentPack/&9999Title=Pacote de Negócios Inacabados
 Failure/&FailureFlagTargetMeleeWeaponError=Não é possível realizar ataque corpo a corpo neste alvo com a arma atual
-Feature/&AdditionalDamageDomainLifeDivineStrikeDescription=+1d8 de dano radiante em ataques com armas, uma vez por turno.
 Feature/&AlwaysBeardDescription={0}% de chances de deixar crescer uma barba gloriosa!
 Feature/&CollegeHopeWanderingHealerSpellsDescription={0}\n\n
 Feature/&DomainSpellsDescription={0}\n\n

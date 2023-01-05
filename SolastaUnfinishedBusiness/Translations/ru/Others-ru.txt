@@ -14,7 +14,6 @@ BlueprintCategory/&FlatRoomsTitle=Плоские комнаты
 ContentPack/&9999Description=The Unfinished Business pack добавляет мультикласс, подклассы, черты, боевые стили и заклинания. Увеличен максимальный уровень и многие другие исправления. Это настоящий Рог Изобилия (TM)...
 ContentPack/&9999Title=Unfinished Business Pack
 Failure/&FailureFlagTargetMeleeWeaponError=Не можете осуществить атаку в ближнем бою этой цели текущим оружием.
-Feature/&AdditionalDamageDomainLifeDivineStrikeDescription=+1d8 сияющего урона при атаке оружием, раз в ход.
 Feature/&AlwaysBeardDescription={0}% шанс отрастить великолепную бороду!
 Feature/&CollegeHopeWanderingHealerSpellsDescription={0}\n\n
 Feature/&DomainSpellsDescription={0}\n\n

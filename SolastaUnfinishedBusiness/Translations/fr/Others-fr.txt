@@ -14,7 +14,6 @@ BlueprintCategory/&FlatRoomsTitle=Chambres à plat
 ContentPack/&9999Description=Le pack Unfinished Business ajoute la multiclasse, les races, les sous-classes, les exploits, le style de combat et les sorts. Il y a un plafond de niveau plus élevé, des fonctionnalités QOL, des correctifs et plus encore. C'est une véritable corne d'abondance (TM)...
 ContentPack/&9999Title=Pack d'affaires inachevé
 Failure/&FailureFlagTargetMeleeWeaponError=Impossible d'effectuer une attaque au corps à corps sur cette cible avec l'arme actuelle
-Feature/&AdditionalDamageDomainLifeDivineStrikeDescription=+1d8 dégâts radiants sur les attaques avec une arme, une fois par tour.
 Feature/&AlwaysBeardDescription={0} % de chances de faire pousser une magnifique barbe!
 Feature/&CollegeHopeWanderingHealerSpellsDescription={0}\n\n
 Feature/&DomainSpellsDescription={0}\n\n

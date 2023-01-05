@@ -14,7 +14,6 @@ BlueprintCategory/&FlatRoomsTitle=Habitaciones planas
 ContentPack/&9999Description=El paquete Unfinished Business agrega multiclase, razas, subclases, hazañas, estilo de lucha y hechizos. Hay un límite de nivel superior, características de calidad de vida, correcciones y más. Es un verdadero Cuerno de la Abundancia (TM)...
 ContentPack/&9999Title=Paquete de negocios inconclusos
 Failure/&FailureFlagTargetMeleeWeaponError=No se puede realizar un ataque cuerpo a cuerpo en este objetivo con el arma actual
-Feature/&AdditionalDamageDomainLifeDivineStrikeDescription=+1d8 daño radiante en ataques con armas, una vez por turno.
 Feature/&AlwaysBeardDescription=¡{0}% de posibilidades de dejarse crecer una barba gloriosa!
 Feature/&CollegeHopeWanderingHealerSpellsDescription={0}\n\n
 Feature/&DomainSpellsDescription={0}\n\n
