@@ -135,7 +135,6 @@ internal static partial class DatabaseHelper
         internal static ConditionDefinition ConditionDead { get; } = GetDefinition<ConditionDefinition>("ConditionDead");
         internal static ConditionDefinition ConditionDistracted { get; } = GetDefinition<ConditionDefinition>("ConditionDistracted");
         internal static ConditionDefinition ConditionDoomLaughter { get; } = GetDefinition<ConditionDefinition>("ConditionDoomLaughter");
-        internal static ConditionDefinition ConditionDummy { get; } = GetDefinition<ConditionDefinition>("ConditionDummy");
         internal static ConditionDefinition ConditionEncumbered { get; } = GetDefinition<ConditionDefinition>("ConditionEncumbered");
         internal static ConditionDefinition ConditionEnfeebled { get; } = GetDefinition<ConditionDefinition>("ConditionEnfeebled");
         internal static ConditionDefinition ConditionMonkFlurryOfBlowsUnarmedStrikeBonus { get; } = GetDefinition<ConditionDefinition>("ConditionMonkFlurryOfBlowsUnarmedStrikeBonus");
@@ -166,7 +165,6 @@ internal static partial class DatabaseHelper
         internal static ConditionDefinition ConditionPactChainImp { get; } = GetDefinition<ConditionDefinition>("ConditionPactChainImp");
         internal static ConditionDefinition ConditionPactChainPseudodragon { get; } = GetDefinition<ConditionDefinition>("ConditionPactChainPseudodragon");
         internal static ConditionDefinition ConditionPactChainQuasit { get; } = GetDefinition<ConditionDefinition>("ConditionPactChainQuasit");
-        
         internal static ConditionDefinition ConditionPactChainSprite { get; } = GetDefinition<ConditionDefinition>("ConditionPactChainSprite");
         internal static ConditionDefinition ConditionParalyzed { get; } = GetDefinition<ConditionDefinition>("ConditionParalyzed");
         internal static ConditionDefinition ConditionParalyzed_CrimsonSpiderVenom { get; } = GetDefinition<ConditionDefinition>("ConditionParalyzed_CrimsonSpiderVenom");

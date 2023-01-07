@@ -288,9 +288,10 @@ internal sealed class PathOfTheSpirits : AbstractSubclass
 
             foreach (var rulesetCharacter in gameLocationCharacterService.ValidCharacters
                          .Select(x => x.RulesetCharacter)
-                         .Where(x => x.CurrentFaction == FactionDefinitions.Party)
-                         .Where(x => x != myself)
-                         .Where(x => myself.DistanceTo(x) <= 3)) // 15 feet
+                         .Where(x =>
+                             x.CurrentFaction == FactionDefinitions.Party &&
+                             x != myself &&
+                             myself.DistanceTo(x) <= 3)) // 15 feet
             {
                 if (rulesetCharacter.TryGetConditionOfCategoryAndType(AttributeDefinitions.TagEffect,
                         _conditionDefinition.Name, out _))
