@@ -540,14 +540,13 @@ public static class GameLocationBattleManagerPatcher
             GameLocationCharacter attacker,
             GameLocationCharacter downedCreature,
             RulesetAttackMode rulesetAttackMode,
-            RulesetEffect activeEffect
-        )
+            RulesetEffect activeEffect)
         {
             //PATCH: INotifyConditionRemoval
             var rulesetDownedCreature = downedCreature.RulesetCharacter;
 
-            foreach (var rulesetCondition in rulesetDownedCreature.ConditionsByCategory
-                         .SelectMany(keyValuePair => keyValuePair.Value))
+            foreach (var rulesetCondition in
+                     RulesetCharacterMonsterPatcher.HandleDeathForEffectConditions_Patch.ConditionsBeforeDeath)
             {
                 if (rulesetCondition.ConditionDefinition == null)
                 {

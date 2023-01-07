@@ -59,8 +59,7 @@ internal sealed class PathOfTheLight : AbstractSubclass
             .SetGuiPresentation(Category.Condition, ConditionBranded)
             .AllowMultipleInstances()
             .SetConditionType(ConditionType.Detrimental)
-            .SetSpecialDuration(DurationType.Irrelevant)
-            .SetSilent(Silent.WhenAdded)
+            .SetSpecialDuration(DurationType.Round, 1, TurnOccurenceType.StartOfTurn)
             .AddFeatures(
                 attackDisadvantageAgainstNonSourcePathOfTheLightIlluminated,
                 featureSetPathOfTheLightIlluminatedPreventInvisibility)
@@ -360,7 +359,7 @@ internal sealed class PathOfTheLight : AbstractSubclass
         public bool IsRechargeSilent => true;
     }
 
-    private sealed class ConditionIlluminated : IConditionRemovedOnSourceTurnStart, INotifyConditionRemoval
+    private sealed class ConditionIlluminated : INotifyConditionRemoval
     {
         public void AfterConditionRemoved(RulesetActor removedFrom, RulesetCondition rulesetCondition)
         {
