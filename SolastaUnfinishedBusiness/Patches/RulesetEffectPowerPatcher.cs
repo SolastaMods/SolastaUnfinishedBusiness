@@ -52,12 +52,26 @@ public static class RulesetEffectPowerPatcher
     {
         public static void Postfix(RulesetEffectPower __instance, ref int __result, RulesetCharacter character)
         {
-            //PATCH: support for `IClassHoldingFeature`
             if (character is not RulesetCharacterHero hero)
             {
                 return;
             }
 
+            int level;
+
+            //PATCH: support for multiclass to correctly get the class level (MULTICLASS)
+            // for some unknown reason when MC we're getting class level 0 here [i.e.: second wind]
+            if (__result == 0)
+            {
+                hero.LookForFeatureOrigin(__instance.UsablePower.PowerDefinition, out var _, out var klass, out var _);
+                
+                if (klass != null && hero.ClassesAndLevels.TryGetValue(klass, out level))
+                {
+                    __result = level;
+                }
+            }
+
+            //PATCH: support for `IClassHoldingFeature`
             var holder = __instance.PowerDefinition.GetFirstSubFeatureOfType<IClassHoldingFeature>();
 
             if (holder == null)
@@ -65,7 +79,7 @@ public static class RulesetEffectPowerPatcher
                 return;
             }
 
-            if (hero.ClassesAndLevels.TryGetValue(holder.Class, out var level))
+            if (hero.ClassesAndLevels.TryGetValue(holder.Class, out level))
             {
                 __result = level;
             }

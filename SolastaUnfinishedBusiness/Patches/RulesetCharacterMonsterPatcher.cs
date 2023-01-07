@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
+using System.Linq;
 using System.Reflection.Emit;
 using HarmonyLib;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.Extensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
+using SolastaUnfinishedBusiness.Api.Infrastructure;
 using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.Models;
@@ -138,6 +140,19 @@ public static class RulesetCharacterMonsterPatcher
             {
                 __instance.CharacterRefreshed(__instance);
             }
+        }
+    }
+
+    [HarmonyPatch(typeof(RulesetCharacterMonster), "HandleDeathForEffectConditions")]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    public static class HandleDeathForEffectConditions_Patch
+    {
+        internal static readonly List<RulesetCondition> ConditionsBeforeDeath = new();
+
+        public static void Prefix(RulesetCharacterMonster __instance)
+        {
+            //PATCH: INotifyConditionRemoval, keep a tab on all monster conditions before death
+            ConditionsBeforeDeath.SetRange(__instance.AllConditions.ToList());
         }
     }
 }

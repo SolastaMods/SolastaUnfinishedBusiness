@@ -299,4 +299,24 @@ public static class RulesetSpellRepertoirePatcher
             return FormatTitle(__instance, ref __result);
         }
     }
+
+    [HarmonyPatch(typeof(RulesetSpellRepertoire), "GetLowestAvailableSlotLevel")]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    public static class GetLowestAvailableSlotLevel_Patch
+    {
+        public static bool Prefix(RulesetSpellRepertoire __instance, ref int __result)
+        {
+            //PATCH: ensures MC Warlock will cast spells using a correct slot level (MULTICLASS)
+            var hero = __instance.GetCasterHero();
+
+            if (hero == null || !SharedSpellsContext.IsMulticaster(hero))
+            {
+                return true;
+            }
+
+            __result = SharedSpellsContext.GetWarlockSpellLevel(hero);
+
+            return __result == 0;
+        }
+    }
 }

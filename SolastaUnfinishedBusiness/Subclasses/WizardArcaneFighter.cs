@@ -63,6 +63,7 @@ internal sealed class WizardArcaneFighter : AbstractSubclass
                                         .SetGuiPresentation("PowerArcaneFighterEnchantWeapon", Category.Feature,
                                             FeatureDefinitionAttackModifiers.AttackModifierMagicWeapon)
                                         .SetAbilityScoreReplacement(AbilityScoreReplacement.SpellcastingAbility)
+                                        .SetMagicalWeapon()
                                         .SetAdditionalAttackTag(TagsDefinitions.Magical)
                                         .AddToDB(),
                                     0))

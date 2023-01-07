@@ -209,7 +209,7 @@ internal sealed class PathOfTheSpirits : AbstractSubclass
             .Create("ConditionPathOfTheSpiritsWolfLeadershipLeader")
             .SetGuiPresentationNoContent(true)
             .SetSilent(Silent.WhenAddedOrRemoved)
-            .SetSpecialInterruptions(ConditionInterruption.RageStop)
+            .SetSpecialDuration(DurationType.Minute, 1)
             .SetFeatures(FeatureDefinitionBuilder
                 .Create("OnAfterActionWolfLeadership")
                 .SetGuiPresentationNoContent(true)
@@ -280,11 +280,18 @@ internal sealed class PathOfTheSpirits : AbstractSubclass
 
             var myself = action.ActingCharacter.RulesetCharacter;
 
+            if (!myself.HasConditionOfCategoryAndType(AttributeDefinitions.TagEffect, "ConditionRagingNormal") &&
+                !myself.HasConditionOfCategoryAndType(AttributeDefinitions.TagEffect, "ConditionRagingPersistent"))
+            {
+                return;
+            }
+
             foreach (var rulesetCharacter in gameLocationCharacterService.ValidCharacters
                          .Select(x => x.RulesetCharacter)
-                         .Where(x => x.CurrentFaction == FactionDefinitions.Party)
-                         .Where(x => x != myself)
-                         .Where(x => myself.DistanceTo(x) <= 3)) // 15 feet
+                         .Where(x =>
+                             x.CurrentFaction == FactionDefinitions.Party &&
+                             x != myself &&
+                             myself.DistanceTo(x) <= 3)) // 15 feet
             {
                 if (rulesetCharacter.TryGetConditionOfCategoryAndType(AttributeDefinitions.TagEffect,
                         _conditionDefinition.Name, out _))

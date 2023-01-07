@@ -214,7 +214,7 @@ internal static partial class SpellBuilders
 
         var spell = SpellDefinitionBuilder
             .Create(FlameBlade, NAME)
-            .SetOrUpdateGuiPresentation(Category.Spell, SpiritualWeapon)
+            .SetGuiPresentation(Category.Spell, Sprites.GetSprite("", Resources.ShadeBlade, 128))
             .SetMaterialComponent(MaterialComponentType.None)
             .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolIllusion)
             .AddToDB();
