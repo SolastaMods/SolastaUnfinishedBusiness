@@ -1,5 +1,9 @@
 ﻿CHANGES:
 
+1.4.33.3:
+
+- added Disable Sense Darkvision and Disable Sense Superior Darkvision settings
+
 1.4.33.2:
 
 - fixed Counter Spell slots offering

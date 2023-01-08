@@ -1,7 +1,5 @@
 CHANGES:
 
-- fixed Counter Spell slots offering
-- fixed multiclass Warlock slots consumption
-- fixed Piercer dice re-rolling
+- added Disable Sense Darkvision and Disable Sense Superior Darkvision settings
 
 
