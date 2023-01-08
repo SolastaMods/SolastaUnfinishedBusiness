@@ -28,6 +28,24 @@ internal static class CharacterDisplay
             CharacterContext.SwitchHelpPower();
         }
 
+        toggle = Main.Settings.DisableRacePrerequisitesOnModFeats;
+        if (UI.Toggle(Gui.Localize("ModUi/&DisableRacePrerequisitesOnModFeats"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.DisableRacePrerequisitesOnModFeats = toggle;
+        }
+
+        toggle = Main.Settings.DisableSenseDarkVisionFromAllRaces;
+        if (UI.Toggle(Gui.Localize("ModUi/&DisableSenseDarkVisionFromAllRaces"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.DisableSenseDarkVisionFromAllRaces = toggle;
+        }
+
+        toggle = Main.Settings.DisableSenseSuperiorDarkVisionFromAllRaces;
+        if (UI.Toggle(Gui.Localize("ModUi/&DisableSenseSuperiorDarkVisionFromAllRaces"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.DisableSenseSuperiorDarkVisionFromAllRaces = toggle;
+        }
+
         toggle = Main.Settings.EnableFlexibleBackgrounds;
         if (UI.Toggle(Gui.Localize("ModUi/&EnableFlexibleBackgrounds"), ref toggle, UI.AutoWidth()))
         {
@@ -47,12 +65,6 @@ internal static class CharacterDisplay
         {
             Main.Settings.EnableAlternateHuman = toggle;
             CharacterContext.SwitchFirstLevelTotalFeats();
-        }
-
-        toggle = Main.Settings.DisableRacePrerequisitesOnModFeats;
-        if (UI.Toggle(Gui.Localize("ModUi/&DisableRacePrerequisitesOnModFeats"), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.DisableRacePrerequisitesOnModFeats = toggle;
         }
 
         UI.Label();

@@ -59,6 +59,8 @@ public class Settings : UnityModManager.ModSettings
 
     // Initial Choices
     public bool AddHelpActionToAllRaces { get; set; }
+    public bool DisableSenseDarkVisionFromAllRaces { get; set; }
+    public bool DisableSenseSuperiorDarkVisionFromAllRaces { get; set; }
     public bool EnableAlternateHuman { get; set; }
     public bool EnableFlexibleBackgrounds { get; set; }
     public bool EnableFlexibleRaces { get; set; }

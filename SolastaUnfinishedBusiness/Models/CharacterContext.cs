@@ -17,6 +17,7 @@ using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterRaceDefinitio
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterSubclassDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionFeatureSets;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPointPools;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionSenses;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.MorphotypeElementDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
 using static RuleDefinitions;
@@ -58,6 +59,7 @@ internal static class CharacterContext
 
         LoadFighterArmamentAdroitness();
         LoadHelpPower();
+        LoadVision();
         LoadEpicArray();
         LoadVisuals();
     }
@@ -95,6 +97,29 @@ internal static class CharacterContext
             .SetEffectDescription(effectDescription)
             .SetUniqueInstance()
             .AddToDB();
+    }
+
+    private static void LoadVision()
+    {
+        if (Main.Settings.DisableSenseDarkVisionFromAllRaces)
+        {
+            foreach (var featureUnlocks in DatabaseRepository.GetDatabase<CharacterRaceDefinition>()
+                         .Select(crd => crd.FeatureUnlocks))
+            {
+                featureUnlocks.RemoveAll(x => x.FeatureDefinition == SenseDarkvision);
+                // Half-orcs have a different darkvision.
+                featureUnlocks.RemoveAll(x => x.FeatureDefinition == SenseDarkvision12);
+            }
+        }
+
+        if (Main.Settings.DisableSenseSuperiorDarkVisionFromAllRaces)
+        {
+            foreach (var featureUnlocks in DatabaseRepository.GetDatabase<CharacterRaceDefinition>()
+                         .Select(crd => crd.FeatureUnlocks))
+            {
+                featureUnlocks.RemoveAll(x => x.FeatureDefinition == SenseSuperiorDarkvision);
+            }
+        }
     }
 
     private static void LoadAdditionalNames()

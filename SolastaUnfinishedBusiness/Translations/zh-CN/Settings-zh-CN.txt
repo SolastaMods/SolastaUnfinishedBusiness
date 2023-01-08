@@ -188,3 +188,5 @@ ModUi/&UseOfficialAdvantageDisadvantageRules=应用官方的优势/劣势规则
 ModUi/&Visuals=<color=#F0DAA0>视效：</color> <b><i><color=#C04040E0>【需要重启游戏】</color></i></b>
 ModUi/&AddMonkKiPointsToggle=添加一个开关以允许<color=#D89555>僧侣</color>启用/禁用 Ki 点<i><color=#F0DAA0>[用于最小化反应提示]</color></i>
 ModUi/&AddPaladinSmiteToggle=添加一个开关以允许 <color=#D89555>Paladins</color> 仅在暴击时启用打击<i><color=#F0DAA0>[有助于最小化反应提示]</color></i>
+ModUi/&DisableSenseDarkVisionFromAllRaces=禁用所有可玩种族的<color=#D89555>Sense Dark Vision</color><b><i><color=#C04040E0>[Requires Restart]</color></i></b>
+ModUi/&DisableSenseSuperiorDarkVisionFromAllRaces=禁用所有可玩种族的<color=#D89555>Superior Sense Dark Vision</color><b><i><color=#C04040E0>[需要重启]</color></i></b>
