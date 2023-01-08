@@ -1,7 +1,5 @@
 ﻿namespace SolastaUnfinishedBusiness.CustomInterfaces;
 
-//need to reenable code in DelegatesContext if required
-#if false
 /**
  * Called after roll is made, but before damage is applied.
  * Called regardless of whether attack hits or not.
@@ -16,7 +14,6 @@ public interface IBeforeAttackEffect
         RulesetAttackMode attackMode,
         ActionModifier attackModifier);
 }
-#endif
 
 /**
  * Called after damage is applied (or would have been applied if it was a hit).

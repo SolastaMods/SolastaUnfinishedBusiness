@@ -376,7 +376,7 @@ internal static class MeleeCombatFeats
         }
     }
 
-    private sealed class AfterAttackEffectFeatPiercer : IAfterAttackEffect
+    private sealed class AfterAttackEffectFeatPiercer : IBeforeAttackEffect
     {
         private readonly ConditionDefinition _conditionDefinition;
         private readonly string _damageType;
@@ -387,7 +387,7 @@ internal static class MeleeCombatFeats
             _damageType = damageType;
         }
 
-        public void AfterOnAttackHit(
+        public void BeforeOnAttackHit(
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
             RollOutcome outcome,
@@ -395,12 +395,7 @@ internal static class MeleeCombatFeats
             RulesetAttackMode attackMode,
             ActionModifier attackModifier)
         {
-            if (attackMode == null || outcome is RollOutcome.Failure or RollOutcome.CriticalFailure)
-            {
-                return;
-            }
-
-            var damage = attackMode.EffectDescription?.FindFirstDamageForm();
+            var damage = attackMode?.EffectDescription?.FindFirstDamageForm();
 
             if (damage == null || damage.DamageType != _damageType)
             {
@@ -411,7 +406,7 @@ internal static class MeleeCombatFeats
                 attacker.RulesetCharacter.Guid,
                 _conditionDefinition,
                 DurationType.Round,
-                0,
+                1,
                 TurnOccurenceType.EndOfTurn,
                 attacker.RulesetCharacter.Guid,
                 attacker.RulesetCharacter.CurrentFaction.Name);
