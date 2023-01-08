@@ -20,12 +20,8 @@ public class SpellsByLevelBoxPatcher
         {
             var hero = spellsByLevelBox.spellRepertoire.GetCasterHero();
 
-            if (hero != null && !SharedSpellsContext.IsMulticaster(hero))
-            {
-                return spellsByLevelBox.spellRepertoire.SpellCastingFeature.UniqueLevelSlots;
-            }
-
-            return false;
+            return !SharedSpellsContext.IsMulticaster(hero) &&
+                   spellsByLevelBox.spellRepertoire.SpellCastingFeature.UniqueLevelSlots;
         }
 
         public static IEnumerable<CodeInstruction> Transpiler([NotNull] IEnumerable<CodeInstruction> instructions)

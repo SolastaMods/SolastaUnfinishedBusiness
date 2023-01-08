@@ -46,11 +46,6 @@ public static class RulesetSpellRepertoirePatcher
 
             var heroWithSpellRepertoire = __instance.GetCasterHero();
 
-            if (heroWithSpellRepertoire == null)
-            {
-                return true;
-            }
-
             if (!SharedSpellsContext.IsMulticaster(heroWithSpellRepertoire))
             {
                 return true;
@@ -183,7 +178,7 @@ public static class RulesetSpellRepertoirePatcher
 
             var heroWithSpellRepertoire = __instance.GetCasterHero();
 
-            if (heroWithSpellRepertoire == null || !SharedSpellsContext.IsMulticaster(heroWithSpellRepertoire))
+            if (!SharedSpellsContext.IsMulticaster(heroWithSpellRepertoire))
             {
                 return;
             }
@@ -263,7 +258,7 @@ public static class RulesetSpellRepertoirePatcher
 
             var heroWithSpellRepertoire = __instance.GetCasterHero();
 
-            if (heroWithSpellRepertoire == null || !SharedSpellsContext.IsMulticaster(heroWithSpellRepertoire))
+            if (!SharedSpellsContext.IsMulticaster(heroWithSpellRepertoire))
             {
                 return;
             }
@@ -310,7 +305,7 @@ public static class RulesetSpellRepertoirePatcher
             var hero = __instance.GetCasterHero();
 
             // get off here if not multicaster
-            if (hero == null || !SharedSpellsContext.IsMulticaster(hero))
+            if (!SharedSpellsContext.IsMulticaster(hero))
             {
                 return true;
             }

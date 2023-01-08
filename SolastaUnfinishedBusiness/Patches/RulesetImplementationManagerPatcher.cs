@@ -210,7 +210,7 @@ public static class RulesetImplementationManagerPatcher
             }
 
             // patch is only required for Wildshape Heroes or Multiclassed ones
-            if (originalHero != null && !SharedSpellsContext.IsMulticaster(originalHero))
+            if (!SharedSpellsContext.IsMulticaster(originalHero))
             {
                 return true;
             }

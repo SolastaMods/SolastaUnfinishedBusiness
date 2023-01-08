@@ -24,8 +24,7 @@ public static class SlotStatusTablePatcher
             var hero = rulesetSpellRepertoire.GetCasterHero();
 
             //PATCH: displays slots on any multicaster hero so Warlocks can see their spell slots
-            return featureDefinitionCastSpell.UniqueLevelSlots &&
-                   (hero == null || !SharedSpellsContext.IsMulticaster(hero));
+            return featureDefinitionCastSpell.UniqueLevelSlots && !SharedSpellsContext.IsMulticaster(hero);
         }
 
         public static IEnumerable<CodeInstruction> Transpiler([NotNull] IEnumerable<CodeInstruction> instructions)

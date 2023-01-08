@@ -42,7 +42,7 @@ public static class GuiCharacterPatcher
 
             var hero = __instance.RulesetCharacterHero;
 
-            if (hero == null || !SharedSpellsContext.IsMulticaster(hero))
+            if (!SharedSpellsContext.IsMulticaster(hero))
             {
                 return;
             }
@@ -63,7 +63,7 @@ public static class GuiCharacterPatcher
 
             var hero = guiCharacter.RulesetCharacterHero;
 
-            if (hero == null || !SharedSpellsContext.IsMulticaster(hero))
+            if (!SharedSpellsContext.IsMulticaster(hero))
             {
                 return;
             }
