@@ -1,9 +1,7 @@
 CHANGES:
 
-- added Shadow Blade custom sprite
-- fixed Arcane Fighter, enchant weapon, to set it as magical
-- fixed multiclass interaction with powers dependent on class level [i.e.: second wind]
-- fixed multiclass Warlock to correctly set slot level on effects [i.e.: spirit shroud]
-- fixed Path of The Light, lights of protection, to receive healing after downed enemy
-- fixed Path of The Spirits, wolf leadership pack condition, to be removed on rage stop
+- fixed Counter Spell slots offering
+- fixed multiclass Warlock slots consumption
+- fixed Piercer dice re-rolling
+
 

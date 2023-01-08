@@ -1,5 +1,11 @@
 ﻿CHANGES:
 
+1.4.33.2:
+
+- fixed Counter Spell slots offering
+- fixed multiclass Warlock slots consumption
+- fixed Piercer dice re-rolling
+
 1.4.33.1:
 
 - added Shadow Blade custom sprite
