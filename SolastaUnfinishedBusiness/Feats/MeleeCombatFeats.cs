@@ -62,7 +62,7 @@ internal static class MeleeCombatFeats
         .Create("FeatureFeatPiercer")
         .SetGuiPresentationNoContent(true)
         .SetCustomSubFeatures(
-            new AfterAttackEffectFeatPiercer(ConditionDefinitionBuilder
+            new BeforeAttackEffectFeatPiercer(ConditionDefinitionBuilder
                     .Create("ConditionFeatPiercerNonMagic")
                     .SetGuiPresentation(Category.Condition)
                     .SetSpecialDuration(DurationType.Round, 1)
@@ -376,18 +376,18 @@ internal static class MeleeCombatFeats
         }
     }
 
-    private sealed class AfterAttackEffectFeatPiercer : IAfterAttackEffect
+    private sealed class BeforeAttackEffectFeatPiercer : IBeforeAttackEffect
     {
         private readonly ConditionDefinition _conditionDefinition;
         private readonly string _damageType;
 
-        internal AfterAttackEffectFeatPiercer(ConditionDefinition conditionDefinition, string damageType)
+        internal BeforeAttackEffectFeatPiercer(ConditionDefinition conditionDefinition, string damageType)
         {
             _conditionDefinition = conditionDefinition;
             _damageType = damageType;
         }
 
-        public void AfterOnAttackHit(
+        public void BeforeOnAttackHit(
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
             RollOutcome outcome,
@@ -395,12 +395,7 @@ internal static class MeleeCombatFeats
             RulesetAttackMode attackMode,
             ActionModifier attackModifier)
         {
-            if (attackMode == null || outcome is RollOutcome.Failure or RollOutcome.CriticalFailure)
-            {
-                return;
-            }
-
-            var damage = attackMode.EffectDescription?.FindFirstDamageForm();
+            var damage = attackMode?.EffectDescription?.FindFirstDamageForm();
 
             if (damage == null || damage.DamageType != _damageType)
             {
@@ -411,7 +406,7 @@ internal static class MeleeCombatFeats
                 attacker.RulesetCharacter.Guid,
                 _conditionDefinition,
                 DurationType.Round,
-                0,
+                1,
                 TurnOccurenceType.EndOfTurn,
                 attacker.RulesetCharacter.Guid,
                 attacker.RulesetCharacter.CurrentFaction.Name);

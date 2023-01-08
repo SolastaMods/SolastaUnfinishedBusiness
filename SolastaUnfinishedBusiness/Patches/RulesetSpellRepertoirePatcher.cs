@@ -46,11 +46,6 @@ public static class RulesetSpellRepertoirePatcher
 
             var heroWithSpellRepertoire = __instance.GetCasterHero();
 
-            if (heroWithSpellRepertoire == null)
-            {
-                return true;
-            }
-
             if (!SharedSpellsContext.IsMulticaster(heroWithSpellRepertoire))
             {
                 return true;
@@ -183,7 +178,7 @@ public static class RulesetSpellRepertoirePatcher
 
             var heroWithSpellRepertoire = __instance.GetCasterHero();
 
-            if (heroWithSpellRepertoire == null || !SharedSpellsContext.IsMulticaster(heroWithSpellRepertoire))
+            if (!SharedSpellsContext.IsMulticaster(heroWithSpellRepertoire))
             {
                 return;
             }
@@ -263,7 +258,7 @@ public static class RulesetSpellRepertoirePatcher
 
             var heroWithSpellRepertoire = __instance.GetCasterHero();
 
-            if (heroWithSpellRepertoire == null || !SharedSpellsContext.IsMulticaster(heroWithSpellRepertoire))
+            if (!SharedSpellsContext.IsMulticaster(heroWithSpellRepertoire))
             {
                 return;
             }
@@ -309,12 +304,25 @@ public static class RulesetSpellRepertoirePatcher
             //PATCH: ensures MC Warlock will cast spells using a correct slot level (MULTICLASS)
             var hero = __instance.GetCasterHero();
 
-            if (hero == null || !SharedSpellsContext.IsMulticaster(hero))
+            // get off here if not multicaster
+            if (!SharedSpellsContext.IsMulticaster(hero))
             {
                 return true;
             }
 
-            __result = SharedSpellsContext.GetWarlockSpellLevel(hero);
+            var warlockSpellLevel = SharedSpellsContext.GetWarlockSpellLevel(hero);
+
+            // get off here if doesn't have any Warlock level
+            if (warlockSpellLevel == 0)
+            {
+                return true;
+            }
+
+            var pactMaxSlots = SharedSpellsContext.GetWarlockMaxSlots(hero);
+            var pactUsedSlots = SharedSpellsContext.GetWarlockUsedSlots(hero);
+            var pactAvailableSlots = pactMaxSlots - pactUsedSlots;
+
+            __result = pactAvailableSlots == 0 ? 0 : warlockSpellLevel;
 
             return __result == 0;
         }

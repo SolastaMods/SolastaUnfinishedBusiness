@@ -62,7 +62,6 @@ public static class GameLocationCharacterPatcher
         }
     }
 
-#if false
     [HarmonyPatch(typeof(GameLocationCharacter), "AttackOn")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     public static class AttackOn_Patch
@@ -91,7 +90,6 @@ public static class GameLocationCharacterPatcher
             }
         }
     }
-#endif
 
     [HarmonyPatch(typeof(GameLocationCharacter), "AttackImpactOn")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
