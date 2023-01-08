@@ -4,7 +4,9 @@ using System.Diagnostics.CodeAnalysis;
 using System.Reflection.Emit;
 using HarmonyLib;
 using JetBrains.Annotations;
+using SolastaUnfinishedBusiness.Api.Extensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
+using SolastaUnfinishedBusiness.Models;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
@@ -14,8 +16,15 @@ public class SpellsByLevelBoxPatcher
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     public static class OnActivateStandardBox_Patch
     {
-        private static bool UniqueLevelSlots()
+        private static bool UniqueLevelSlots(SpellsByLevelBox spellsByLevelBox)
         {
+            var hero = spellsByLevelBox.spellRepertoire.GetCasterHero();
+
+            if (hero != null && !SharedSpellsContext.IsMulticaster(hero))
+            {
+                return spellsByLevelBox.spellRepertoire.SpellCastingFeature.UniqueLevelSlots;
+            }
+
             return false;
         }
 
@@ -23,10 +32,11 @@ public class SpellsByLevelBoxPatcher
         {
             //PATCH: ensures multiclass warlock will use the correct slot level when casting spells using spell slots (MULTICLASS)
             var uniqueLevelSlotsMethod = typeof(FeatureDefinitionCastSpell).GetMethod("get_UniqueLevelSlots");
-            var myUniqueLevelSlotsMethod = new Func<bool>(UniqueLevelSlots).Method;
+            var myUniqueLevelSlotsMethod = new Func<SpellsByLevelBox, bool>(UniqueLevelSlots).Method;
 
             return instructions.ReplaceCalls(uniqueLevelSlotsMethod, "SpellsByLevelBox.OnActivateStandardBox",
                 new CodeInstruction(OpCodes.Pop),
+                new CodeInstruction(OpCodes.Ldarg_0),
                 new CodeInstruction(OpCodes.Call, myUniqueLevelSlotsMethod));
         }
     }
