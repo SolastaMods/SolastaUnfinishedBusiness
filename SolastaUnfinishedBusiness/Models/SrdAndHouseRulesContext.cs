@@ -77,10 +77,6 @@ internal static class SrdAndHouseRulesContext
 
     internal static void LateLoad()
     {
-        //BUGFIX: game version 1.4.32 has DIS on Wisdom
-        FeatureDefinitionAbilityCheckAffinitys.AbilityCheckAffinityCloakOfElvenkind.affinityGroups.ForEach(x =>
-            x.affinity = CharacterAbilityCheckAffinity.Advantage);
-
         FixDivineSmiteRestrictions();
         FixDivineSmiteDiceAndBrandingSmiteNumberWhenUsingHighLevelSlots();
         FixMeleeHitEffectsRange();

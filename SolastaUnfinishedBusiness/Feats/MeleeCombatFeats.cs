@@ -62,7 +62,7 @@ internal static class MeleeCombatFeats
         .Create("FeatureFeatPiercer")
         .SetGuiPresentationNoContent(true)
         .SetCustomSubFeatures(
-            new AfterAttackEffectFeatPiercer(ConditionDefinitionBuilder
+            new BeforeAttackEffectFeatPiercer(ConditionDefinitionBuilder
                     .Create("ConditionFeatPiercerNonMagic")
                     .SetGuiPresentation(Category.Condition)
                     .SetSpecialDuration(DurationType.Round, 1)
@@ -376,12 +376,12 @@ internal static class MeleeCombatFeats
         }
     }
 
-    private sealed class AfterAttackEffectFeatPiercer : IBeforeAttackEffect
+    private sealed class BeforeAttackEffectFeatPiercer : IBeforeAttackEffect
     {
         private readonly ConditionDefinition _conditionDefinition;
         private readonly string _damageType;
 
-        internal AfterAttackEffectFeatPiercer(ConditionDefinition conditionDefinition, string damageType)
+        internal BeforeAttackEffectFeatPiercer(ConditionDefinition conditionDefinition, string damageType)
         {
             _conditionDefinition = conditionDefinition;
             _damageType = damageType;
