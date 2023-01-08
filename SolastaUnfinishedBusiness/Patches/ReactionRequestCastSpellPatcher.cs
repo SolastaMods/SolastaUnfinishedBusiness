@@ -32,7 +32,9 @@ public static class ReactionRequestCastSpellPatcher
             }
 
             optionsAvailability.Clear();
-            var selected = MulticlassGameUiContext.AddAvailableSubLevels(optionsAvailability, hero, repertoire);
+
+            var spellLevel = (__instance.ReactionParams.RulesetEffect as RulesetEffectSpell).SpellDefinition.SpellLevel;
+            var selected = MulticlassGameUiContext.AddAvailableSubLevels(optionsAvailability, hero, repertoire, spellLevel);
 
             if (selected >= 0)
             {
