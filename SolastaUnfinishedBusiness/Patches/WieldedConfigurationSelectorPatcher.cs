@@ -5,7 +5,9 @@ using System.Reflection.Emit;
 using HarmonyLib;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.Helpers;
+using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Subclasses;
+using UnityEngine;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
@@ -33,6 +35,31 @@ public static class WieldedConfigurationSelectorPatcher
         private static bool IsMonkWeapon(WeaponDescription description, GuiCharacter guiCharacter)
         {
             return WayOfTheDistantHand.IsMonkWeapon(guiCharacter.RulesetCharacter, description);
+        }
+
+        public static void Postfix(WieldedConfigurationSelector __instance,
+            GuiCharacter guiCharacter,
+            RulesetWieldedConfiguration configuration)
+        {
+            var hero = guiCharacter.RulesetCharacterHero;
+
+            AddHandXbowWarning(__instance.mainHandWarning, configuration.MainHandSlot, hero, configuration);
+            AddHandXbowWarning(__instance.offHandWarning, configuration.OffHandSlot, hero, configuration);
+        }
+
+        private static void AddHandXbowWarning(RectTransform warning, RulesetInventorySlot slot,
+            RulesetCharacterHero hero, RulesetWieldedConfiguration configuration)
+        {
+            if (warning == null
+                || warning.gameObject.activeSelf
+                || !SrdAndHouseRulesContext.IsHandCrossbowUseInvalid(slot.equipedItem, hero,
+                    configuration.MainHandSlot.EquipedItem, configuration.OffHandSlot.EquipedItem))
+            {
+                return;
+            }
+
+            warning.gameObject.SetActive(true);
+            warning.GetComponent<GuiTooltip>().Content = "Tooltip/&NoFreeHandToLoadAmmoDescription";
         }
     }
 }

@@ -117,7 +117,7 @@ internal static class DiagnosticsContext
 
     internal static bool IsCeDefinition(BaseDefinition definition)
     {
-        return _ceBaseDefinitions2.Contains(definition);
+        return _ceBaseDefinitions2?.Contains(definition) ?? false;
     }
 
 #if DEBUG
