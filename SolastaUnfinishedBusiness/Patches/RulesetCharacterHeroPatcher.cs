@@ -753,4 +753,17 @@ public static class RulesetCharacterHeroPatcher
             CollegeOfWarDancer.OnItemEquipped(__instance);
         }
     }
+
+    [HarmonyPatch(typeof(RulesetCharacterHero), nameof(RulesetCharacterHero.GetAmmunitionType))]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    public static class GetAmmunitionType_Patch
+    {
+        public static void Postfix(ref string __result, RulesetAttackMode mode)
+        {
+            if (RepeatingShot.HasRepeatingShot(mode.sourceObject as RulesetItem))
+            {
+                __result = string.Empty;
+            }
+        }
+    }
 }

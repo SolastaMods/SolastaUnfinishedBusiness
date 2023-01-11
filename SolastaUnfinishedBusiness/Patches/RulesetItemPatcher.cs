@@ -23,6 +23,9 @@ public static class RulesetItemPatcher
 
             //PATCH: adds custom `Returning` tag to appropriate weapons
             ReturningWeapon.AddCustomTags(__instance, tagsMap);
+            
+            //PATCH: removes `Loading` and `Ammunition` tags to appropriate weapons
+            RepeatingShot.ModifyTags(__instance, tagsMap);
 
             //PATCH: adds `Unfinished Business` tag to all CE items 
             CeContentPackContext.AddCeTag(item, tagsMap);

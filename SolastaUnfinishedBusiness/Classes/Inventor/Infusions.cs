@@ -113,6 +113,21 @@ internal static class Infusions
             .AddToDB());
 
         #endregion
+        
+        #region 02 Repeating Shot
+
+        sprite = Sprites.GetSprite("RepeatingShot", Resources.RepeatingShot, 128);
+        name = "InfusionRepeatingShot";
+        BuildInfuseItemPowerInvocation(2, name, sprite, IsLoading, FeatureDefinitionAttackModifierBuilder
+            .Create($"AttackModifier{name}")
+            .SetGuiPresentation(name, Category.Feature, ConditionDefinitions.ConditionJump)
+            .SetCustomSubFeatures(RepeatingShot.Instance)
+            .SetAttackRollModifier(1)
+            .SetDamageRollModifier(1)
+            .SetMagicalWeapon()
+            .AddToDB());
+
+        #endregion
 
         #region 06 Resistant Armor
 
@@ -406,6 +421,13 @@ internal static class Infusions
         var definition = item.ItemDefinition;
         return definition.IsWeapon
                && definition.WeaponDescription.WeaponTags.Contains(TagsDefinitions.WeaponTagThrown);
+    }
+    
+    private static bool IsLoading(RulesetCharacter _, RulesetItem item)
+    {
+        var definition = item.ItemDefinition;
+        return definition.IsWeapon
+               && definition.WeaponDescription.WeaponTags.Contains(TagsDefinitions.WeaponTagLoading);
     }
 
     private static bool IsArmor(RulesetCharacter _, RulesetItem item)
