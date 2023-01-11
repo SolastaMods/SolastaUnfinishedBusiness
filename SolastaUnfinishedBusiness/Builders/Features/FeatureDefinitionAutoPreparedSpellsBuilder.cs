@@ -70,6 +70,7 @@ internal static class AutoPreparedSpellsGroupBuilder
         var newSpells = spells
             .Select(x => SpellDefinitionBuilder
                 .Create(prefix + x.Name)
+                .SetOrUpdateGuiPresentation(x.GuiPresentation.Title, x.GuiPresentation.Description, x)
                 .AddToDB())
             .ToArray();
 

@@ -148,9 +148,9 @@ internal enum ExtraAdvancementDuration
     // ReSharper disable once InconsistentNaming
     Minutes_1_10_480_1440_Level3 = 9001,
     // ReSharper disable once InconsistentNaming
-    Minutes_1_10_480_1440_Level4 = 9003,
+    Minutes_1_10_480_1440_Level4 = 9002,
     // ReSharper disable once InconsistentNaming
-    Minutes_1_10_480_1440_Level5 = 9004
+    Minutes_1_10_480_1440_Level5 = 9003
 }
 
 internal enum ExtraActionId
