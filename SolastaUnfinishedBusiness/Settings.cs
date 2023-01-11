@@ -178,6 +178,7 @@ public class Settings : UnityModManager.ModSettings
     public bool AllowAnyClassToUseArcaneShieldstaff { get; set; }
     public bool RemoveAttunementRequirements { get; set; }
     public bool RemoveIdentificationRequirements { get; set; }
+    public bool IgnoreHandXbowFreeHandRequirements { get; set; }
     public bool ShowCraftingRecipeInDetailedTooltips { get; set; }
     public int TotalCraftingTimeModifier { get; set; }
     public int RecipeCost { get; set; } = 200;

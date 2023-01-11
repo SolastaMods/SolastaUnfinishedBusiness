@@ -628,8 +628,11 @@ internal static class SrdAndHouseRulesContext
 
     internal static bool IsHandCrossbowUseInvalid(RulesetItem item, RulesetCharacterHero hero, RulesetItem main, RulesetItem off)
     {
-        //TODO: add setting to return false and skip validation
-        
+        if (Main.Settings.IgnoreHandXbowFreeHandRequirements)
+        {
+            return false;
+        }
+
         if (item == null || hero == null)
         {
             return false;
