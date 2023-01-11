@@ -4,19 +4,19 @@
   "requiredLevel": 1,
   "requiredPact": null,
   "grantedFeature": null,
-  "grantedSpell": "Definition:ScorchingRay:2196d4d1af65ab8469bcb2b382014a58",
+  "grantedSpell": "Definition:FlameTouchedHellishRebuke:dad6de60-d289-5290-8a94-dea8e1fee3b7",
   "consumesSpellSlot": false,
   "longRestRecharge": true,
   "overrideMaterialComponent": true,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Spell/&ScorchingRayTitle",
-    "description": "Spell/&ScorchingRayDescription",
+    "title": "Spell/&HellishRebukeTitle",
+    "description": "Spell/&HellishRebukeDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "9900524619dc26449963422085aed588",
-      "m_SubObjectName": "ScorchingRay",
+      "m_AssetGUID": "b754da10184cb90468c8384c00b2e765",
+      "m_SubObjectName": "HellishRebuke",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
@@ -32,7 +32,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "4d853fd5-c5da-5e3a-9137-4855e8c7ad77",
+  "guid": "c955d091-cb39-5c30-b503-fc721616798e",
   "contentPack": 9999,
-  "name": "CustomInvocationFlameTouchedScorchingRayWisdom"
+  "name": "CustomInvocationFlameTouchedFlameTouchedHellishRebukeCharisma"
 }

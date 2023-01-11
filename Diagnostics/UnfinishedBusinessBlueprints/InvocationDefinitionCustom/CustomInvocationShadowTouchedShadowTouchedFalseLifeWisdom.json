@@ -4,19 +4,19 @@
   "requiredLevel": 1,
   "requiredPact": null,
   "grantedFeature": null,
-  "grantedSpell": "Definition:MistyStep:f4619f117544fe148aae6952202da5e3",
+  "grantedSpell": "Definition:ShadowTouchedFalseLife:b50160ba-893f-59cd-af6e-a7c33ffd56d7",
   "consumesSpellSlot": false,
-  "longRestRecharge": false,
+  "longRestRecharge": true,
   "overrideMaterialComponent": true,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Spell/&MistyStepTitle",
-    "description": "Spell/&MistyStepDescription",
+    "title": "Spell/&FalseLifeTitle",
+    "description": "Spell/&FalseLifeDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "7e6cd80b881b7074d88a122382fd2103",
-      "m_SubObjectName": "MistyStep",
+      "m_AssetGUID": "9c9f5cea8cbef734cad03574eec0f8d4",
+      "m_SubObjectName": "FalseLife",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
@@ -32,7 +32,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "2dc273a9-f5c7-5a64-bfad-ca37becd6566",
+  "guid": "21245016-e393-50ad-8fe0-7a8c7e76a1ba",
   "contentPack": 9999,
-  "name": "CustomInvocationFeyTeleportMistyStepWisdom"
+  "name": "CustomInvocationShadowTouchedShadowTouchedFalseLifeWisdom"
 }

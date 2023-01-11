@@ -4,19 +4,19 @@
   "requiredLevel": 1,
   "requiredPact": null,
   "grantedFeature": null,
-  "grantedSpell": "Definition:InflictWounds:473bbe804543d0f4ebe68ba6db675a49",
+  "grantedSpell": "Definition:FlameTouchedBurningHands:76c60783-cb21-547f-875b-c4997f43b537",
   "consumesSpellSlot": false,
   "longRestRecharge": true,
   "overrideMaterialComponent": true,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Spell/&InflictWoundsTitle",
-    "description": "Spell/&InflictWoundsDescription",
+    "title": "Spell/&BurningHandsTitle",
+    "description": "Spell/&BurningHandsDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "edf772fde799a874d88cae71a06867c8",
-      "m_SubObjectName": "InflictWounds",
+      "m_AssetGUID": "1d4dfd922bc0f764ca73d11f3b37babc",
+      "m_SubObjectName": "BurningHands",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
@@ -32,7 +32,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "f724df9a-2d69-5f70-a8f7-459fe5339cdf",
+  "guid": "2dbfd994-2459-5745-92af-8cb1e294a944",
   "contentPack": 9999,
-  "name": "CustomInvocationShadowTouchedInflictWoundsWisdom"
+  "name": "CustomInvocationFlameTouchedFlameTouchedBurningHandsCharisma"
 }

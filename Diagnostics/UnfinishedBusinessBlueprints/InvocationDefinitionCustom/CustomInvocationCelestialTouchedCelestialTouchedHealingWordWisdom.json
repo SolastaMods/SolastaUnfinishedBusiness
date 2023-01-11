@@ -4,19 +4,19 @@
   "requiredLevel": 1,
   "requiredPact": null,
   "grantedFeature": null,
-  "grantedSpell": "Definition:Invisibility:191eaa38bdc35ea429f843cc00e7e559",
+  "grantedSpell": "Definition:CelestialTouchedHealingWord:ea6f4fb2-1bdc-5797-a64c-3f1ec01aec0e",
   "consumesSpellSlot": false,
   "longRestRecharge": true,
   "overrideMaterialComponent": true,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Spell/&InvisibilityTitle",
-    "description": "Spell/&InvisibilityDescription",
+    "title": "Spell/&HealingWordTitle",
+    "description": "Spell/&HealingWordDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "75e87f6e6651cc040afcc690e549c073",
-      "m_SubObjectName": "Invisibility",
+      "m_AssetGUID": "1b13c9ff1006ea1489bdbcb09ca7a31d",
+      "m_SubObjectName": "HealingWord",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
@@ -32,7 +32,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "c561d0ca-8afc-5101-9227-2be7e8acad38",
+  "guid": "120bd3cf-52a1-5803-900e-3ec7669b6f6f",
   "contentPack": 9999,
-  "name": "CustomInvocationShadowTouchedInvisibilityIntelligence"
+  "name": "CustomInvocationCelestialTouchedCelestialTouchedHealingWordWisdom"
 }

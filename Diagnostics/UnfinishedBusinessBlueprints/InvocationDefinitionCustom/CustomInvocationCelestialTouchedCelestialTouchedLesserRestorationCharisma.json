@@ -4,19 +4,19 @@
   "requiredLevel": 1,
   "requiredPact": null,
   "grantedFeature": null,
-  "grantedSpell": "Definition:FalseLife:97d70ac4c94f31540aa7b7e1555b7a49",
+  "grantedSpell": "Definition:CelestialTouchedLesserRestoration:c40db25c-f170-598a-bcbb-352fcceceacd",
   "consumesSpellSlot": false,
   "longRestRecharge": true,
   "overrideMaterialComponent": true,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Spell/&FalseLifeTitle",
-    "description": "Spell/&FalseLifeDescription",
+    "title": "Spell/&LesserRestorationTitle",
+    "description": "Spell/&LesserRestorationDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "9c9f5cea8cbef734cad03574eec0f8d4",
-      "m_SubObjectName": "FalseLife",
+      "m_AssetGUID": "4aa65f99b71971b4c8a7229b5183b195",
+      "m_SubObjectName": "LesserRestoration",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
@@ -32,7 +32,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "50c73df8-c506-5202-98dd-c5d030935836",
+  "guid": "39c246aa-378e-561e-adae-715cfb02e73e",
   "contentPack": 9999,
-  "name": "CustomInvocationShadowTouchedFalseLifeWisdom"
+  "name": "CustomInvocationCelestialTouchedCelestialTouchedLesserRestorationCharisma"
 }

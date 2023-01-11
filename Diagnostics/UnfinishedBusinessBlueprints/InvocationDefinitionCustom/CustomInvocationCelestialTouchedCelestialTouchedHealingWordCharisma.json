@@ -4,19 +4,19 @@
   "requiredLevel": 1,
   "requiredPact": null,
   "grantedFeature": null,
-  "grantedSpell": "Definition:LesserRestoration:5da149e59ebb042419041382af919aea",
+  "grantedSpell": "Definition:CelestialTouchedHealingWord:ea6f4fb2-1bdc-5797-a64c-3f1ec01aec0e",
   "consumesSpellSlot": false,
   "longRestRecharge": true,
   "overrideMaterialComponent": true,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Spell/&LesserRestorationTitle",
-    "description": "Spell/&LesserRestorationDescription",
+    "title": "Spell/&HealingWordTitle",
+    "description": "Spell/&HealingWordDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "4aa65f99b71971b4c8a7229b5183b195",
-      "m_SubObjectName": "LesserRestoration",
+      "m_AssetGUID": "1b13c9ff1006ea1489bdbcb09ca7a31d",
+      "m_SubObjectName": "HealingWord",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
@@ -32,7 +32,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "2195a81a-9bb7-5ffb-aebc-d5349b6cadc6",
+  "guid": "396a52f3-2e8b-573d-b1b9-13dea927964e",
   "contentPack": 9999,
-  "name": "CustomInvocationCelestialTouchedLesserRestorationWisdom"
+  "name": "CustomInvocationCelestialTouchedCelestialTouchedHealingWordCharisma"
 }

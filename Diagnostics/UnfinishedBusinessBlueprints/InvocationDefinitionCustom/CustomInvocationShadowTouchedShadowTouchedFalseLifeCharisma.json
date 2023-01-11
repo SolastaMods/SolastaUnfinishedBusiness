@@ -4,19 +4,19 @@
   "requiredLevel": 1,
   "requiredPact": null,
   "grantedFeature": null,
-  "grantedSpell": "Definition:BurningHands:a2c42e38e03448e438a2abfc3252352a",
+  "grantedSpell": "Definition:ShadowTouchedFalseLife:b50160ba-893f-59cd-af6e-a7c33ffd56d7",
   "consumesSpellSlot": false,
   "longRestRecharge": true,
   "overrideMaterialComponent": true,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Spell/&BurningHandsTitle",
-    "description": "Spell/&BurningHandsDescription",
+    "title": "Spell/&FalseLifeTitle",
+    "description": "Spell/&FalseLifeDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "1d4dfd922bc0f764ca73d11f3b37babc",
-      "m_SubObjectName": "BurningHands",
+      "m_AssetGUID": "9c9f5cea8cbef734cad03574eec0f8d4",
+      "m_SubObjectName": "FalseLife",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
@@ -32,7 +32,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "defe8a0a-8a46-5d1a-85a0-0df2a8618797",
+  "guid": "32f9b581-3d46-5d49-bc4a-9113941fc7fd",
   "contentPack": 9999,
-  "name": "CustomInvocationFlameTouchedBurningHandsCharisma"
+  "name": "CustomInvocationShadowTouchedShadowTouchedFalseLifeCharisma"
 }

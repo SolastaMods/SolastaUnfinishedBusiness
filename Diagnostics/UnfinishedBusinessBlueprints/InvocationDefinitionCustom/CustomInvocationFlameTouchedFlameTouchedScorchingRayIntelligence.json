@@ -4,19 +4,19 @@
   "requiredLevel": 1,
   "requiredPact": null,
   "grantedFeature": null,
-  "grantedSpell": "Definition:BurningHands:a2c42e38e03448e438a2abfc3252352a",
+  "grantedSpell": "Definition:FlameTouchedScorchingRay:b5d173cb-8150-59a7-91aa-2a645c0474e1",
   "consumesSpellSlot": false,
   "longRestRecharge": true,
   "overrideMaterialComponent": true,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Spell/&BurningHandsTitle",
-    "description": "Spell/&BurningHandsDescription",
+    "title": "Spell/&ScorchingRayTitle",
+    "description": "Spell/&ScorchingRayDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "1d4dfd922bc0f764ca73d11f3b37babc",
-      "m_SubObjectName": "BurningHands",
+      "m_AssetGUID": "9900524619dc26449963422085aed588",
+      "m_SubObjectName": "ScorchingRay",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
@@ -32,7 +32,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "9d18594b-d957-568f-af59-451fa4cf7b5c",
+  "guid": "3295f4fd-ed14-5a14-b1fc-dc1596564dfd",
   "contentPack": 9999,
-  "name": "CustomInvocationFlameTouchedBurningHandsIntelligence"
+  "name": "CustomInvocationFlameTouchedFlameTouchedScorchingRayIntelligence"
 }

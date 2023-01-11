@@ -4,19 +4,19 @@
   "requiredLevel": 1,
   "requiredPact": null,
   "grantedFeature": null,
-  "grantedSpell": "Definition:Invisibility:191eaa38bdc35ea429f843cc00e7e559",
+  "grantedSpell": "Definition:CelestialTouchedCureWounds:669dd544-6d2d-5abb-b4c0-a6c7930fa669",
   "consumesSpellSlot": false,
   "longRestRecharge": true,
   "overrideMaterialComponent": true,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Spell/&InvisibilityTitle",
-    "description": "Spell/&InvisibilityDescription",
+    "title": "Spell/&CureWoundsTitle",
+    "description": "Spell/&CureWoundsDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "75e87f6e6651cc040afcc690e549c073",
-      "m_SubObjectName": "Invisibility",
+      "m_AssetGUID": "8689fa89d8b1645488f398a9c622bc11",
+      "m_SubObjectName": "CureWounds",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
@@ -32,7 +32,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "2d76fd53-2ff3-58c7-812d-4e1f2f215236",
+  "guid": "d5c8c5ff-fa32-5f45-bcab-20737581667a",
   "contentPack": 9999,
-  "name": "CustomInvocationShadowTouchedInvisibilityWisdom"
+  "name": "CustomInvocationCelestialTouchedCelestialTouchedCureWoundsWisdom"
 }

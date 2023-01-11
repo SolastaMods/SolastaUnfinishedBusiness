@@ -4,19 +4,19 @@
   "requiredLevel": 1,
   "requiredPact": null,
   "grantedFeature": null,
-  "grantedSpell": "Definition:CureWounds:c401c5cf11ac8274f98a0dc809ff5863",
+  "grantedSpell": "Definition:FeyTeleportMistyStep:d862dfbc-97d9-55f1-ae50-4794d95ebabd",
   "consumesSpellSlot": false,
-  "longRestRecharge": true,
+  "longRestRecharge": false,
   "overrideMaterialComponent": true,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Spell/&CureWoundsTitle",
-    "description": "Spell/&CureWoundsDescription",
+    "title": "Spell/&MistyStepTitle",
+    "description": "Spell/&MistyStepDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "8689fa89d8b1645488f398a9c622bc11",
-      "m_SubObjectName": "CureWounds",
+      "m_AssetGUID": "7e6cd80b881b7074d88a122382fd2103",
+      "m_SubObjectName": "MistyStep",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
@@ -32,7 +32,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "5072d068-cb31-5d2c-b2fb-36b4b67991fb",
+  "guid": "182f59f4-502d-524d-8073-55eaebf8eb67",
   "contentPack": 9999,
-  "name": "CustomInvocationCelestialTouchedCureWoundsWisdom"
+  "name": "CustomInvocationFeyTeleportFeyTeleportMistyStepCharisma"
 }

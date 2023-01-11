@@ -4,19 +4,19 @@
   "requiredLevel": 1,
   "requiredPact": null,
   "grantedFeature": null,
-  "grantedSpell": "Definition:LesserRestoration:5da149e59ebb042419041382af919aea",
+  "grantedSpell": "Definition:ShadowTouchedInflictWounds:a5660408-07a5-536a-9296-a4d57b01ab99",
   "consumesSpellSlot": false,
   "longRestRecharge": true,
   "overrideMaterialComponent": true,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Spell/&LesserRestorationTitle",
-    "description": "Spell/&LesserRestorationDescription",
+    "title": "Spell/&InflictWoundsTitle",
+    "description": "Spell/&InflictWoundsDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "4aa65f99b71971b4c8a7229b5183b195",
-      "m_SubObjectName": "LesserRestoration",
+      "m_AssetGUID": "edf772fde799a874d88cae71a06867c8",
+      "m_SubObjectName": "InflictWounds",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
@@ -32,7 +32,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "c5807c48-9233-5934-bad6-e5e78fe45e5e",
+  "guid": "f199794b-7a4d-5bf9-9351-3d65c0254b04",
   "contentPack": 9999,
-  "name": "CustomInvocationCelestialTouchedLesserRestorationIntelligence"
+  "name": "CustomInvocationShadowTouchedShadowTouchedInflictWoundsCharisma"
 }

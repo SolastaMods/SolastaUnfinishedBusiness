@@ -4,19 +4,19 @@
   "requiredLevel": 1,
   "requiredPact": null,
   "grantedFeature": null,
-  "grantedSpell": "Definition:HealingWord:0d615e01b2fdf5f42815342ea1e0a26f",
+  "grantedSpell": "Definition:FeyTeleportMistyStep:d862dfbc-97d9-55f1-ae50-4794d95ebabd",
   "consumesSpellSlot": false,
-  "longRestRecharge": true,
+  "longRestRecharge": false,
   "overrideMaterialComponent": true,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Spell/&HealingWordTitle",
-    "description": "Spell/&HealingWordDescription",
+    "title": "Spell/&MistyStepTitle",
+    "description": "Spell/&MistyStepDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "1b13c9ff1006ea1489bdbcb09ca7a31d",
-      "m_SubObjectName": "HealingWord",
+      "m_AssetGUID": "7e6cd80b881b7074d88a122382fd2103",
+      "m_SubObjectName": "MistyStep",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
@@ -32,7 +32,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "2cf712d6-5277-5700-9554-f51f1d831f83",
+  "guid": "b1991011-942f-57e6-b789-2fc71c63c2d3",
   "contentPack": 9999,
-  "name": "CustomInvocationCelestialTouchedHealingWordIntelligence"
+  "name": "CustomInvocationFeyTeleportFeyTeleportMistyStepIntelligence"
 }

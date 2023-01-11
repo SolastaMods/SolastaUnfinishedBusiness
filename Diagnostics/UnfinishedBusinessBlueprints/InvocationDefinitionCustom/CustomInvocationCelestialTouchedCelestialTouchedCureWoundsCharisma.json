@@ -4,19 +4,19 @@
   "requiredLevel": 1,
   "requiredPact": null,
   "grantedFeature": null,
-  "grantedSpell": "Definition:InflictWounds:473bbe804543d0f4ebe68ba6db675a49",
+  "grantedSpell": "Definition:CelestialTouchedCureWounds:669dd544-6d2d-5abb-b4c0-a6c7930fa669",
   "consumesSpellSlot": false,
   "longRestRecharge": true,
   "overrideMaterialComponent": true,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Spell/&InflictWoundsTitle",
-    "description": "Spell/&InflictWoundsDescription",
+    "title": "Spell/&CureWoundsTitle",
+    "description": "Spell/&CureWoundsDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "edf772fde799a874d88cae71a06867c8",
-      "m_SubObjectName": "InflictWounds",
+      "m_AssetGUID": "8689fa89d8b1645488f398a9c622bc11",
+      "m_SubObjectName": "CureWounds",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
@@ -32,7 +32,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "acd75341-153c-5b4e-a8b9-d9459d57da9c",
+  "guid": "c88f7429-9036-5767-b2b0-8d56d191d45f",
   "contentPack": 9999,
-  "name": "CustomInvocationShadowTouchedInflictWoundsIntelligence"
+  "name": "CustomInvocationCelestialTouchedCelestialTouchedCureWoundsCharisma"
 }

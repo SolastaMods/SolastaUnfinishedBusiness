@@ -117,7 +117,7 @@
       "additionalTargetCellsPerIncrement": 0,
       "additionalItemBonus": 0,
       "additionalWeaponDie": 0,
-      "alteredDuration": "Minutes_1_10_480_1440_Infinite"
+      "alteredDuration": 9001
     },
     "speedType": "Instant",
     "speedParameter": 10.0,
