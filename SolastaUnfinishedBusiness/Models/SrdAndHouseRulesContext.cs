@@ -612,6 +612,52 @@ internal static class SrdAndHouseRulesContext
             .AddToDB();
     }
 
+    private static readonly Dictionary<string, TagsDefinitions.Criticity> Tags = new();
+
+    internal static bool IsAttackModeInvalid(RulesetCharacter character, RulesetAttackMode mode)
+    {
+        if (character is not RulesetCharacterHero hero)
+        {
+            return false;
+        }
+
+        return IsHandCrossbowUseInvalid(mode.sourceObject as RulesetItem, hero,
+            hero.GetItemInSlot(EquipmentDefinitions.SlotTypeMainHand),
+            hero.GetItemInSlot(EquipmentDefinitions.SlotTypeOffHand));
+    }
+
+    internal static bool IsHandCrossbowUseInvalid(RulesetItem item, RulesetCharacterHero hero, RulesetItem main, RulesetItem off)
+    {
+        //TODO: add setting to return false and skip validation
+        
+        if (item == null || hero == null)
+        {
+            return false;
+        }
+
+        Tags.Clear();
+        item.FillTags(Tags, hero, true);
+        if (!Tags.ContainsKey(TagsDefinitions.WeaponTagAmmunition)
+            || Tags.ContainsKey(TagsDefinitions.WeaponTagTwoHanded))
+        {
+            return false;
+        }
+
+        if (main == item && off != null)
+        {
+            return true;
+        }
+
+        if (off == item
+            && main != null
+            && main.ItemDefinition.WeaponDescription?.WeaponType != WeaponTypeDefinitions.UnarmedStrikeType.Name)
+        {
+            return true;
+        }
+
+        return false;
+    }
+
     private sealed class CanIdentifyOnRest : IPowerUseValidity
     {
         private CanIdentifyOnRest()
