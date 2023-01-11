@@ -390,5 +390,6 @@ Item/&Warhammer_Power_Description=Diese verzauberte Waffe wurde mit dem uralten 
 Item/&Warhammer_Power_Title=Kriegshammer der Macht
 Item/&Warhammer_Punisher_Description=Diese verzauberte Waffe wurde mithilfe des uralten Wissens der Schmiedemeister von Manacalon hergestellt. Die Kombination aus bestem Metall und Sklavenstein verlieh dieser Axt eine unglaubliche Durchschlagskraft.
 Item/&Warhammer_Punisher_Title=Punisher Warhammer
+Tooltip/&NoFreeHandToLoadAmmoDescription=Keine freie Hand zum Laden von Munition!
 Tooltip/&TagPolearmWeaponTitle=Pole-Arm
 Tooltip/&TagReturningWeaponTitle=Rückkehr

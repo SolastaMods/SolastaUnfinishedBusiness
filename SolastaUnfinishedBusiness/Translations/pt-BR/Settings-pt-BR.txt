@@ -108,6 +108,7 @@ ModUi/&HideExitAndTeleporterGizmosIfNotDiscovered=Ocultar efeitos visuais de sa�
 ModUi/&HideMonsterHitPoints=Exibe a saúde dos monstros em etapas de 25% / 50% / 75% / 100% em vez de pontos de vida exatos
 ModUi/&House=<color=#F0DAA0>Casa:</color>
 ModUi/&IdentifyAfterRest=Adicione um poder para identificar itens mágicos durante um descanso curto ou longo
+ModUi/&IgnoreHandXbowFreeHandRequirements=Não requer mão livre para usar bestas de mão
 ModUi/&IncreaseGameTimeBy=Aumente o tempo de jogo em
 ModUi/&IncreaseSenseNormalVision=<color=white>Aumente o alcance do <color=#D89555>Sentir visão normal</color> para permitir ataques de longo alcance</color> <b><i><color=#C04040E0>[Requer reinicialização]</color></i></b>
 ModUi/&IncreaseSenseNormalVisionHelp=<i><color=#F0DAA0>[40 é ideal para evitar que inimigos se juntem de longe]</color></i>

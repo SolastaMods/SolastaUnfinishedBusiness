@@ -390,5 +390,6 @@ Item/&Warhammer_Power_Description=Esta arma encantada foi forjada usando o antig
 Item/&Warhammer_Power_Title=Martelo de Guerra do Poder
 Item/&Warhammer_Punisher_Description=Esta arma encantada foi criada usando o antigo conhecimento dos mestres ferreiros de Manacalon. A combinação do melhor metal e Slavestone deu a este machado um incrível poder de perfuração.
 Item/&Warhammer_Punisher_Title=Justiceiro Warhammer
+Tooltip/&NoFreeHandToLoadAmmoDescription=Nenhuma mão livre para carregar munição!
 Tooltip/&TagPolearmWeaponTitle=Braço de vara
 Tooltip/&TagReturningWeaponTitle=Voltando

@@ -390,5 +390,6 @@ Item/&Warhammer_Power_Description=这把附魔武器由玛纳卡隆的铁匠大�
 Item/&Warhammer_Power_Title=威能战锤
 Item/&Warhammer_Punisher_Description=这把附魔武器由玛纳卡隆的铁匠大师以上古知识锻造而成。顶级金属和奴石的结合赋予了这把武器无与伦比的穿刺能力
 Item/&Warhammer_Punisher_Title=惩罚者战锤
+Tooltip/&NoFreeHandToLoadAmmoDescription=没有空闲的手来装载弹药！
 Tooltip/&TagPolearmWeaponTitle=长柄武器
 Tooltip/&TagReturningWeaponTitle=回力武器
