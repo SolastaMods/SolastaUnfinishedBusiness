@@ -57,8 +57,22 @@ internal class FeatureDefinitionAutoPreparedSpellsBuilder
 
 internal static class AutoPreparedSpellsGroupBuilder
 {
-    internal static AutoPreparedSpellsGroup BuildSpellGroup(int classLevel, params SpellDefinition[] spellNames)
+    internal static AutoPreparedSpellsGroup BuildSpellGroup(int classLevel, params SpellDefinition[] spells)
     {
-        return new AutoPreparedSpellsGroup { ClassLevel = classLevel, SpellsList = spellNames.ToList() };
+        return new AutoPreparedSpellsGroup { ClassLevel = classLevel, SpellsList = spells.ToList() };
+    }
+
+    internal static AutoPreparedSpellsGroup BuildSpellGroupWithDuplicates(
+        int classLevel,
+        string prefix,
+        params SpellDefinition[] spells)
+    {
+        var newSpells = spells
+            .Select(x => SpellDefinitionBuilder
+                .Create(prefix + x.Name)
+                .AddToDB())
+            .ToArray();
+
+        return new AutoPreparedSpellsGroup { ClassLevel = classLevel, SpellsList = newSpells.ToList() };
     }
 }
