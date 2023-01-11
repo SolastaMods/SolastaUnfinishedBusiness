@@ -333,9 +333,9 @@ internal static class SrdAndHouseRulesContext
 
         // Use our logic to calculate duration for DominatePerson/Beast/Monster
         DominateBeast.EffectDescription.EffectAdvancement.alteredDuration =
-            (AdvancementDuration)ExtraAdvancementDuration.DominateBeast;
+            (AdvancementDuration)ExtraAdvancementDuration.Minutes_1_10_480_1440_Level4;
         DominatePerson.EffectDescription.EffectAdvancement.alteredDuration =
-            (AdvancementDuration)ExtraAdvancementDuration.DominatePerson;
+            (AdvancementDuration)ExtraAdvancementDuration.Minutes_1_10_480_1440_Level5;
 
         // Stops upcasting assigning non-SRD durations
         var spells = new IMagicEffect[]

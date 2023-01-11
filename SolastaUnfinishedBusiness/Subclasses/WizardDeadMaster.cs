@@ -232,9 +232,13 @@ internal sealed class WizardDeadMaster : AbstractSubclass
                 var description = Gui.Format("Spell/&SpellRaiseDeadFormatDescription",
                     monster.FormatTitle(),
                     monster.FormatDescription());
-                var incrementMethod = spell <= 4
-                    ? AdvancementDuration.Minutes_1_10_480_1440_Infinite
-                    : AdvancementDuration.Hours_1_8_24;
+                var incrementMethod = spell switch
+                {
+                    2 => (AdvancementDuration)ExtraAdvancementDuration.Minutes_1_10_480_1440_Level2,
+                    3 => (AdvancementDuration)ExtraAdvancementDuration.Minutes_1_10_480_1440_Level3,
+                    4 => (AdvancementDuration)ExtraAdvancementDuration.Minutes_1_10_480_1440_Level4,
+                    _ => AdvancementDuration.Hours_1_8_24
+                };
 
                 var createDeadSpell = SpellDefinitionBuilder
                     .Create($"CreateDead{monster.name}")

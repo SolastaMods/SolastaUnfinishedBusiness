@@ -141,15 +141,16 @@ internal enum ExtraAdditionalDamageAdvancement
 internal enum ExtraAdvancementDuration
 {
     // None = AdvancementDuration.None,
-    //
-    // // ReSharper disable once InconsistentNaming
     // Hours_1_8_24 = AdvancementDuration.Hours_1_8_24,
-    //
-    // // ReSharper disable once InconsistentNaming
     // Minutes_1_10_480_1440_Infinite = AdvancementDuration.Minutes_1_10_480_1440_Infinite,
-    DominateBeast = 9000,
-    DominatePerson = 9001,
-    DominateMonster = 9002
+    // ReSharper disable once InconsistentNaming
+    Minutes_1_10_480_1440_Level2 = 9000,
+    // ReSharper disable once InconsistentNaming
+    Minutes_1_10_480_1440_Level3 = 9001,
+    // ReSharper disable once InconsistentNaming
+    Minutes_1_10_480_1440_Level4 = 9003,
+    // ReSharper disable once InconsistentNaming
+    Minutes_1_10_480_1440_Level5 = 9004
 }
 
 internal enum ExtraActionId
@@ -195,23 +196,32 @@ internal static class EnumImplementation
             // TA DominateBeast and DominatePerson use AdvancementDuration.Minutes_1_10_480_1440_Infinite
             // which is only computed correctly for BestowCurse.
 
-            ExtraAdvancementDuration.DominateBeast => slotLevel switch
+            ExtraAdvancementDuration.Minutes_1_10_480_1440_Level2 => slotLevel switch
+            {
+                <= 2 => ComputeRoundsDuration(DurationType.Minute, 1),
+                3 => ComputeRoundsDuration(DurationType.Minute, 10),
+                4 => ComputeRoundsDuration(DurationType.Hour, 1),
+                _ => ComputeRoundsDuration(DurationType.Hour, 8)
+            },
+            ExtraAdvancementDuration.Minutes_1_10_480_1440_Level3 => slotLevel switch
+            {
+                <= 3 => ComputeRoundsDuration(DurationType.Minute, 1),
+                4 => ComputeRoundsDuration(DurationType.Minute, 10),
+                5 => ComputeRoundsDuration(DurationType.Hour, 1),
+                _ => ComputeRoundsDuration(DurationType.Hour, 8)
+            },
+            ExtraAdvancementDuration.Minutes_1_10_480_1440_Level4 => slotLevel switch
             {
                 <= 4 => ComputeRoundsDuration(DurationType.Minute, 1),
                 5 => ComputeRoundsDuration(DurationType.Minute, 10),
                 6 => ComputeRoundsDuration(DurationType.Hour, 1),
                 _ => ComputeRoundsDuration(DurationType.Hour, 8)
             },
-            ExtraAdvancementDuration.DominatePerson => slotLevel switch
+            ExtraAdvancementDuration.Minutes_1_10_480_1440_Level5 => slotLevel switch
             {
                 <= 5 => ComputeRoundsDuration(DurationType.Minute, 1),
                 6 => ComputeRoundsDuration(DurationType.Minute, 10),
                 7 => ComputeRoundsDuration(DurationType.Hour, 1),
-                _ => ComputeRoundsDuration(DurationType.Hour, 8)
-            },
-            ExtraAdvancementDuration.DominateMonster => slotLevel switch // currently a DubHerder CE specific spell
-            {
-                <= 8 => ComputeRoundsDuration(DurationType.Hour, 1),
                 _ => ComputeRoundsDuration(DurationType.Hour, 8)
             },
             _ => -1
