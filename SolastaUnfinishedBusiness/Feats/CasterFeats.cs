@@ -75,7 +75,7 @@ internal static class CasterFeats
 
         const string FEY_TELEPORT = "FeyTeleport";
 
-        spells = BuildSpellGroup(0, MistyStep);
+        spells = BuildSpellGroupWithDuplicates(0, FEY_TELEPORT, MistyStep);
 
         autoPreparedSpells = FeatureDefinitionAutoPreparedSpellsBuilder
             .Create("AutoPreparedSpellsFeyTeleportation")
@@ -129,7 +129,7 @@ internal static class CasterFeats
 
         const string CELESTIAL = "CelestialTouched";
 
-        spells = BuildSpellGroup(0, HealingWord, CureWounds, LesserRestoration);
+        spells = BuildSpellGroupWithDuplicates(0, CELESTIAL, HealingWord, CureWounds, LesserRestoration);
 
         autoPreparedSpells = FeatureDefinitionAutoPreparedSpellsBuilder
             .Create("AutoPreparedSpellsFeatCelestialTouched")
@@ -176,7 +176,7 @@ internal static class CasterFeats
 
         const string FLAME_TOUCHED = "FlameTouched";
 
-        spells = BuildSpellGroup(0, BurningHands, HellishRebuke, ScorchingRay);
+        spells = BuildSpellGroupWithDuplicates(0, FLAME_TOUCHED, BurningHands, HellishRebuke, ScorchingRay);
 
         autoPreparedSpells = FeatureDefinitionAutoPreparedSpellsBuilder
             .Create("AutoPreparedSpellsFeatFlameTouched")
@@ -223,7 +223,7 @@ internal static class CasterFeats
 
         const string SHADOW = "ShadowTouched";
 
-        spells = BuildSpellGroup(0, Invisibility, FalseLife, InflictWounds);
+        spells = BuildSpellGroupWithDuplicates(0, SHADOW, Invisibility, FalseLife, InflictWounds);
 
         autoPreparedSpells = FeatureDefinitionAutoPreparedSpellsBuilder
             .Create("AutoPreparedSpellsFeatShadowTouched")

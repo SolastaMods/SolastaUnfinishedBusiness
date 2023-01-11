@@ -108,6 +108,7 @@ ModUi/&HideExitAndTeleporterGizmosIfNotDiscovered=Hide exits and teleporters vis
 ModUi/&HideMonsterHitPoints=Display Monsters' health in steps of 25% / 50% / 75% / 100% instead of exact hit points
 ModUi/&House=<color=#F0DAA0>House:</color>
 ModUi/&IdentifyAfterRest=Add a power to identify magic items over a short or long rest
+ModUi/&IgnoreHandXbowFreeHandRequirements=Do not require free hand to use Hand Crossbows
 ModUi/&IncreaseGameTimeBy=Increase game time by
 ModUi/&IncreaseSenseNormalVision=<color=white>Increase <color=#D89555>Sense Normal Vision</color> range to enable long range attacks</color> <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
 ModUi/&IncreaseSenseNormalVisionHelp=<i><color=#F0DAA0>[40 is ideal to avoid enemies joining from too far]</color></i>
@@ -188,3 +189,5 @@ ModUi/&UseOfficialAdvantageDisadvantageRules=Use official advantage / disadvanta
 ModUi/&Visuals=<color=#F0DAA0>Visuals:</color> <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
 ModUi/&AddMonkKiPointsToggle=Add a toggle to allow <color=#D89555>Monks</color> to enable/disable Ki Points <i><color=#F0DAA0>[useful to minimize reaction prompts]</color></i>
 ModUi/&AddPaladinSmiteToggle=Add a toggle to allow <color=#D89555>Paladins</color> to only enable smites on critical hits <i><color=#F0DAA0>[useful to minimize reaction prompts]</color></i>
+ModUi/&DisableSenseDarkVisionFromAllRaces=Disable <color=#D89555>Sense Dark Vision</color> from all playable races <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
+ModUi/&DisableSenseSuperiorDarkVisionFromAllRaces=Disable <color=#D89555>Superior Sense Dark Vision</color> from all playable races <b><i><color=#C04040E0>[Requires Restart]</color></i></b>

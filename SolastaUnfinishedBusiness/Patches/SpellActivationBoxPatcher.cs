@@ -30,10 +30,12 @@ public static class SpellActivationBoxPatcher
             var pactMaxSlots = SharedSpellsContext.GetWarlockMaxSlots(hero);
             var pactUsedSlots = SharedSpellsContext.GetWarlockUsedSlots(hero);
             var pactAvailableSlots = pactMaxSlots - pactUsedSlots;
-            
-            return featureDefinitionCastSpell.UniqueLevelSlots && // start with whatever we have defined
-                   pactAvailableSlots > 0 && // this ensures game does std slot calculation when out of pact slots
-                   sharedSpellLevel <= warlockSpellLevel; // this ensures game does std slot calculation if we can upcast warlock spells
+
+            return featureDefinitionCastSpell.UniqueLevelSlots &&
+                   // this ensures game does std slot calculation when out of pact slots
+                   pactAvailableSlots > 0 &&
+                   // this ensures game does std slot calculation if we can upcast warlock spells
+                   sharedSpellLevel <= warlockSpellLevel;
         }
 
         public static IEnumerable<CodeInstruction> Transpiler([NotNull] IEnumerable<CodeInstruction> instructions)

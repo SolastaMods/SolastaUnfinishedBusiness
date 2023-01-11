@@ -741,7 +741,8 @@ public static class RulesetCharacterPatcher
                          .OfType<ISpellCastingAffinityProvider>()
                          .SelectMany(x => x.AdditionalSlots))
             {
-                slots[additionalSlot.SlotLevel] = additionalSlot.SlotsNumber;
+                slots.TryAdd(additionalSlot.SlotLevel, 0);
+                slots[additionalSlot.SlotLevel] += additionalSlot.SlotsNumber;
             }
 
             // adds spell slots

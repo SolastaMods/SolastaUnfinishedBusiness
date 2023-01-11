@@ -1,0 +1,38 @@
+{
+  "$type": "SolastaUnfinishedBusiness.CustomDefinitions.InvocationDefinitionCustom, SolastaUnfinishedBusiness",
+  "requiredKnownSpell": null,
+  "requiredLevel": 1,
+  "requiredPact": null,
+  "grantedFeature": null,
+  "grantedSpell": "Definition:CelestialTouchedCureWounds:669dd544-6d2d-5abb-b4c0-a6c7930fa669",
+  "consumesSpellSlot": false,
+  "longRestRecharge": true,
+  "overrideMaterialComponent": true,
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Spell/&CureWoundsTitle",
+    "description": "Spell/&CureWoundsDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "8689fa89d8b1645488f398a9c622bc11",
+      "m_SubObjectName": "CureWounds",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "c1e7451e-ef1d-5767-8a1e-261b33914999",
+  "contentPack": 9999,
+  "name": "CustomInvocationCelestialTouchedCelestialTouchedCureWoundsIntelligence"
+}

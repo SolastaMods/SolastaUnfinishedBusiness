@@ -59,6 +59,8 @@ public class Settings : UnityModManager.ModSettings
 
     // Initial Choices
     public bool AddHelpActionToAllRaces { get; set; }
+    public bool DisableSenseDarkVisionFromAllRaces { get; set; }
+    public bool DisableSenseSuperiorDarkVisionFromAllRaces { get; set; }
     public bool EnableAlternateHuman { get; set; }
     public bool EnableFlexibleBackgrounds { get; set; }
     public bool EnableFlexibleRaces { get; set; }
@@ -176,6 +178,7 @@ public class Settings : UnityModManager.ModSettings
     public bool AllowAnyClassToUseArcaneShieldstaff { get; set; }
     public bool RemoveAttunementRequirements { get; set; }
     public bool RemoveIdentificationRequirements { get; set; }
+    public bool IgnoreHandXbowFreeHandRequirements { get; set; }
     public bool ShowCraftingRecipeInDetailedTooltips { get; set; }
     public int TotalCraftingTimeModifier { get; set; }
     public int RecipeCost { get; set; } = 200;

@@ -280,6 +280,10 @@ public static class RulesetCharacterHeroPatcher
                 }
             }
 
+            //PATCH: remove invalid attacks
+            //used to prevent hand crossbows use with no free hand
+            __instance.AttackModes.RemoveAll(mode => SrdAndHouseRulesContext.IsAttackModeInvalid(__instance, mode));
+
             //refresh character if needed after postfix
             if (_callRefresh && __instance.CharacterRefreshed != null)
             {
@@ -747,6 +751,19 @@ public static class RulesetCharacterHeroPatcher
             //TODO: convert this to an interface
             WizardBladeDancer.OnItemEquipped(__instance);
             CollegeOfWarDancer.OnItemEquipped(__instance);
+        }
+    }
+
+    [HarmonyPatch(typeof(RulesetCharacterHero), nameof(RulesetCharacterHero.GetAmmunitionType))]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    public static class GetAmmunitionType_Patch
+    {
+        public static void Postfix(ref string __result, RulesetAttackMode mode)
+        {
+            if (RepeatingShot.HasRepeatingShot(mode.sourceObject as RulesetItem))
+            {
+                __result = string.Empty;
+            }
         }
     }
 }

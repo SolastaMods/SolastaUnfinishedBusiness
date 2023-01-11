@@ -108,6 +108,7 @@ ModUi/&HideExitAndTeleporterGizmosIfNotDiscovered=Masquez les sorties et les eff
 ModUi/&HideMonsterHitPoints=Affiche la santé des monstres par paliers de 25 % / 50 % / 75 % / 100 % au lieu des points de vie exacts
 ModUi/&House=<color=#F0DAA0>Maison:</color>
 ModUi/&IdentifyAfterRest=Ajouter un pouvoir pour identifier les objets magiques sur un repos court ou long
+ModUi/&IgnoreHandXbowFreeHandRequirements=Ne nécessite pas de main libre pour utiliser les arbalètes à main
 ModUi/&IncreaseGameTimeBy=Augmentez le temps de jeu de
 ModUi/&IncreaseSenseNormalVision=<color=white>Augmenter la plage de <color=#D89555>Détection de la vision normale</color> pour activer les attaques à longue portée</color> <b><i><color=#C04040E0>[Nécessite un redémarrage]</color></i></b>
 ModUi/&IncreaseSenseNormalVisionHelp=<i><color=#F0DAA0>[40 est idéal pour éviter que les ennemis ne se joignent de trop loin]</color></i>
@@ -188,3 +189,5 @@ ModUi/&UseOfficialAdvantageDisadvantageRules=Utiliser les règles officielles d'
 ModUi/&Visuals=<color=#F0DAA0>Visuels:</color> <b><i><color=#C04040E0>[Nécessite un redémarrage]</color></i></b>
 ModUi/&AddMonkKiPointsToggle=Ajoutez une bascule pour permettre aux <color=#D89555>Moines</color> d'activer/désactiver les points Ki <i><color=#F0DAA0>[utile pour minimiser les invites de réaction]</color></i>
 ModUi/&AddPaladinSmiteToggle=Ajoutez une bascule pour permettre aux <color=#D89555>Paladins</color> d'activer uniquement les châtiments sur les coups critiques <i><color=#F0DAA0>[utile pour minimiser les invites de réaction]</color></i>
+ModUi/&DisableSenseDarkVisionFromAllRaces=Désactivez <color=#D89555>Sense Dark Vision</color> de toutes les races jouables <b><i><color=#C04040E0>[Nécessite un redémarrage]</color></i></b>
+ModUi/&DisableSenseSuperiorDarkVisionFromAllRaces=Désactivez <color=#D89555>Superior Sense Dark Vision</color> de toutes les races jouables <b><i><color=#C04040E0>[Nécessite un redémarrage]</color></i></b>

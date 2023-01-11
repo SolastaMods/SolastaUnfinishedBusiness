@@ -1,5 +1,14 @@
 ﻿CHANGES:
 
+1.4.33.3:
+
+- added Disable Sense Darkvision / Superior Darkvision settings
+- added Repeating Shot infusion
+- added setting to ignore free hand requirement on hand crossbows
+- fixed caster feats interaction with non-prepared casters spells un-learning
+- fixed Raise Dead spells upcasting to 1 min, 10 min, 1 hour, 8 hours
+- fixed Sorcerer additional slots consideration under multiclass
+
 1.4.33.2:
 
 - fixed Counter Spell slots offering

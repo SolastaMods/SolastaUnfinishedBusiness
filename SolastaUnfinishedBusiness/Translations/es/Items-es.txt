@@ -390,5 +390,6 @@ Item/&Warhammer_Power_Description=Esta arma encantada fue forjada usando el anti
 Item/&Warhammer_Power_Title=Martillo de guerra de poder
 Item/&Warhammer_Punisher_Description=Esta arma encantada fue creada usando el antiguo conocimiento de los maestros herreros de Manacalon. La combinación del mejor metal y Slavestone le dio a este hacha un increíble poder de perforación.
 Item/&Warhammer_Punisher_Title=Martillo de guerra castigador
+Tooltip/&NoFreeHandToLoadAmmoDescription=¡Sin manos libres para cargar munición!
 Tooltip/&TagPolearmWeaponTitle=Brazo de poste
 Tooltip/&TagReturningWeaponTitle=Regresando

@@ -390,5 +390,6 @@ Item/&Warhammer_Power_Description=This enchanted weapon was forged using the anc
 Item/&Warhammer_Power_Title=Warhammer of Power
 Item/&Warhammer_Punisher_Description=This enchanted weapon was created using the ancient knowledge of Manacalon's master smiths. The combination of the best metal and Slavestone gave this axe incredible piercing power.
 Item/&Warhammer_Punisher_Title=Punisher Warhammer
+Tooltip/&NoFreeHandToLoadAmmoDescription=No free hand to load ammo!
 Tooltip/&TagPolearmWeaponTitle=Polearm
 Tooltip/&TagReturningWeaponTitle=Returning

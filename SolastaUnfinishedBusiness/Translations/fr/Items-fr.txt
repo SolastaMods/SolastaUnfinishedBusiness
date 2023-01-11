@@ -390,5 +390,6 @@ Item/&Warhammer_Power_Description=Cette arme enchantée a été forgée en utili
 Item/&Warhammer_Power_Title=Marteau de guerre de puissance
 Item/&Warhammer_Punisher_Description=Cette arme enchantée a été créée en utilisant les anciennes connaissances des maîtres forgerons de Manacalon. La combinaison du meilleur métal et de Slavestone a donné à cette hache un pouvoir de perçage incroyable.
 Item/&Warhammer_Punisher_Title=Marteau de guerre punisseur
+Tooltip/&NoFreeHandToLoadAmmoDescription=Pas de main libre pour charger des munitions!
 Tooltip/&TagPolearmWeaponTitle=Bras de poteau
 Tooltip/&TagReturningWeaponTitle=De retour

@@ -333,9 +333,9 @@ internal static class SrdAndHouseRulesContext
 
         // Use our logic to calculate duration for DominatePerson/Beast/Monster
         DominateBeast.EffectDescription.EffectAdvancement.alteredDuration =
-            (AdvancementDuration)ExtraAdvancementDuration.DominateBeast;
+            (AdvancementDuration)ExtraAdvancementDuration.Minutes_1_10_480_1440_Level4;
         DominatePerson.EffectDescription.EffectAdvancement.alteredDuration =
-            (AdvancementDuration)ExtraAdvancementDuration.DominatePerson;
+            (AdvancementDuration)ExtraAdvancementDuration.Minutes_1_10_480_1440_Level5;
 
         // Stops upcasting assigning non-SRD durations
         var spells = new IMagicEffect[]
@@ -610,6 +610,55 @@ internal static class SrdAndHouseRulesContext
                     .Build())
                 .Build())
             .AddToDB();
+    }
+
+    private static readonly Dictionary<string, TagsDefinitions.Criticity> Tags = new();
+
+    internal static bool IsAttackModeInvalid(RulesetCharacter character, RulesetAttackMode mode)
+    {
+        if (character is not RulesetCharacterHero hero)
+        {
+            return false;
+        }
+
+        return IsHandCrossbowUseInvalid(mode.sourceObject as RulesetItem, hero,
+            hero.GetItemInSlot(EquipmentDefinitions.SlotTypeMainHand),
+            hero.GetItemInSlot(EquipmentDefinitions.SlotTypeOffHand));
+    }
+
+    internal static bool IsHandCrossbowUseInvalid(RulesetItem item, RulesetCharacterHero hero, RulesetItem main, RulesetItem off)
+    {
+        if (Main.Settings.IgnoreHandXbowFreeHandRequirements)
+        {
+            return false;
+        }
+
+        if (item == null || hero == null)
+        {
+            return false;
+        }
+
+        Tags.Clear();
+        item.FillTags(Tags, hero, true);
+        if (!Tags.ContainsKey(TagsDefinitions.WeaponTagAmmunition)
+            || Tags.ContainsKey(TagsDefinitions.WeaponTagTwoHanded))
+        {
+            return false;
+        }
+
+        if (main == item && off != null)
+        {
+            return true;
+        }
+
+        if (off == item
+            && main != null
+            && main.ItemDefinition.WeaponDescription?.WeaponType != WeaponTypeDefinitions.UnarmedStrikeType.Name)
+        {
+            return true;
+        }
+
+        return false;
     }
 
     private sealed class CanIdentifyOnRest : IPowerUseValidity

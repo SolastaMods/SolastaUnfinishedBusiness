@@ -390,5 +390,6 @@ Item/&Warhammer_Power_Description=Quest'arma incantata è stata forgiata utilizz
 Item/&Warhammer_Power_Title=Martello da guerra del potere
 Item/&Warhammer_Punisher_Description=Quest'arma incantata è stata creata utilizzando l'antica conoscenza dei maestri fabbri di Manacalon. La combinazione del miglior metallo e Slavestone ha conferito a quest'ascia un incredibile potere penetrante.
 Item/&Warhammer_Punisher_Title=Punitore Warhammer
+Tooltip/&NoFreeHandToLoadAmmoDescription=Nessuna mano libera per caricare le munizioni!
 Tooltip/&TagPolearmWeaponTitle=Braccio a palo
 Tooltip/&TagReturningWeaponTitle=Tornando

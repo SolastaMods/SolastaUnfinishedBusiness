@@ -64,7 +64,7 @@ public static class RulesetEffectPowerPatcher
             if (__result == 0)
             {
                 hero.LookForFeatureOrigin(__instance.UsablePower.PowerDefinition, out var _, out var klass, out var _);
-                
+
                 if (klass != null && hero.ClassesAndLevels.TryGetValue(klass, out level))
                 {
                     __result = level;

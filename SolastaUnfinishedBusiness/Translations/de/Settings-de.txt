@@ -108,6 +108,7 @@ ModUi/&HideExitAndTeleporterGizmosIfNotDiscovered=Blenden Sie die visuellen Effe
 ModUi/&HideMonsterHitPoints=Zeigt die Gesundheit der Monster in Schritten von 25 % / 50 % / 75 % / 100 % anstelle der exakten Trefferpunkte an
 ModUi/&House=<color=#F0DAA0>Haus:</color>
 ModUi/&IdentifyAfterRest=Fügen Sie eine Kraft hinzu, um magische Gegenstände über eine kurze oder lange Pause zu identifizieren
+ModUi/&IgnoreHandXbowFreeHandRequirements=Benötigen Sie keine freie Hand, um Handarmbrüste zu verwenden
 ModUi/&IncreaseGameTimeBy=Erhöhen Sie die Spielzeit um
 ModUi/&IncreaseSenseNormalVision=<color=white>Erhöhen Sie die Reichweite der <color=#D89555>Normalen Sicht wahrnehmen</color>, um Langstreckenangriffe zu ermöglichen</color> <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>
 ModUi/&IncreaseSenseNormalVisionHelp=<i><color=#F0DAA0>[40 ist ideal, um zu vermeiden, dass sich Feinde von zu weit her anschließen]</color></i>
@@ -188,3 +189,5 @@ ModUi/&UseOfficialAdvantageDisadvantageRules=Verwenden Sie die offiziellen Vorte
 ModUi/&Visuals=<color=#F0DAA0>Visuals:</color> <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>
 ModUi/&AddMonkKiPointsToggle=Fügen Sie einen Schalter hinzu, um <color=#D89555>Mönchen</color> zu erlauben, Ki-Punkte zu aktivieren/deaktivieren <i><color=#F0DAA0>[nützlich, um Reaktionsaufforderungen zu minimieren]</color></i>
 ModUi/&AddPaladinSmiteToggle=Fügen Sie einen Umschalter hinzu, um <color=#D89555>Paladins</color> zu erlauben, Smites nur bei kritischen Treffern zu aktivieren <i><color=#F0DAA0>[nützlich, um Reaktionsaufforderungen zu minimieren]</color></i>
+ModUi/&DisableSenseDarkVisionFromAllRaces=Deaktiviere <color=#D89555>Dunkle Sicht wahrnehmen</color> von allen spielbaren Rassen <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>
+ModUi/&DisableSenseSuperiorDarkVisionFromAllRaces=Deaktiviere <color=#D89555>Superior Sense Dark Vision</color> von allen spielbaren Rassen <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>
