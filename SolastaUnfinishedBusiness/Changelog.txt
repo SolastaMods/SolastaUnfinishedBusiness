@@ -1,3 +1,7 @@
+ATTENTION:
+
+- You must RESPEC any hero who took caster feats before this update 
+
 CHANGES:
 
 - added Disable Sense Darkvision / Superior Darkvision settings
