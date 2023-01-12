@@ -61,19 +61,4 @@ internal static class AutoPreparedSpellsGroupBuilder
     {
         return new AutoPreparedSpellsGroup { ClassLevel = classLevel, SpellsList = spells.ToList() };
     }
-
-    internal static AutoPreparedSpellsGroup BuildSpellGroupWithDuplicates(
-        int classLevel,
-        string prefix,
-        params SpellDefinition[] spells)
-    {
-        var newSpells = spells
-            .Select(x => SpellDefinitionBuilder
-                .Create(prefix + x.Name)
-                .SetOrUpdateGuiPresentation(x.GuiPresentation.Title, x.GuiPresentation.Description, x)
-                .AddToDB())
-            .ToArray();
-
-        return new AutoPreparedSpellsGroup { ClassLevel = classLevel, SpellsList = newSpells.ToList() };
-    }
 }

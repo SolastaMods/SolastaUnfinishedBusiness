@@ -6,9 +6,9 @@
       "$type": "FeatureDefinitionAutoPreparedSpells+AutoPreparedSpellsGroup, Assembly-CSharp",
       "classLevel": 0,
       "spellsList": [
-        "Definition:FlameTouchedBurningHands:76c60783-cb21-547f-875b-c4997f43b537",
-        "Definition:FlameTouchedHellishRebuke:dad6de60-d289-5290-8a94-dea8e1fee3b7",
-        "Definition:FlameTouchedScorchingRay:b5d173cb-8150-59a7-91aa-2a645c0474e1"
+        "Definition:BurningHands:a2c42e38e03448e438a2abfc3252352a",
+        "Definition:HellishRebuke:ce1fe7c80c29bfc438c6f8150658083b",
+        "Definition:ScorchingRay:2196d4d1af65ab8469bcb2b382014a58"
       ]
     }
   ],

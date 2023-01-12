@@ -6,9 +6,9 @@
       "$type": "FeatureDefinitionAutoPreparedSpells+AutoPreparedSpellsGroup, Assembly-CSharp",
       "classLevel": 0,
       "spellsList": [
-        "Definition:ShadowTouchedInvisibility:af0e80f4-565d-5f6c-938f-6100fe463ee0",
-        "Definition:ShadowTouchedFalseLife:b50160ba-893f-59cd-af6e-a7c33ffd56d7",
-        "Definition:ShadowTouchedInflictWounds:a5660408-07a5-536a-9296-a4d57b01ab99"
+        "Definition:Invisibility:191eaa38bdc35ea429f843cc00e7e559",
+        "Definition:FalseLife:97d70ac4c94f31540aa7b7e1555b7a49",
+        "Definition:InflictWounds:473bbe804543d0f4ebe68ba6db675a49"
       ]
     }
   ],
