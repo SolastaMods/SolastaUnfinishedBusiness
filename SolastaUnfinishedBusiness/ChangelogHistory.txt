@@ -1,5 +1,9 @@
 ﻿CHANGES:
 
+1.4.33.3a:
+
+- reverted caster feats interaction with non-prepared casters spells un-learning
+
 1.4.33.3:
 
 - added Disable Sense Darkvision / Superior Darkvision settings
