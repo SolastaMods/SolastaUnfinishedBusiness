@@ -228,8 +228,20 @@ internal static class AttacksOfOpportunity
     internal static bool IsSubjectToAttackOfOpportunity(RulesetCharacter character, RulesetCharacter attacker,
         bool def, float distance)
     {
-        return def || attacker.GetSubFeaturesByType<ICanIgnoreAoOImmunity>()
-            .Any(f => f.CanIgnoreAoOImmunity(character, attacker, distance));
+        if (attacker.GetSubFeaturesByType<ICanIgnoreAoOImmunity>()
+            .Any(f => f.CanIgnoreAoOImmunity(character, attacker, distance)))
+        {
+            return true;
+        }
+
+        if (character.HasSubFeatureOfType<IImmuneToAooOfRecentAttackedTarget>() &&
+            character.proximityByAttackedCreature.ContainsKey(attacker.Guid) &&
+            character.proximityByAttackedCreature[attacker.Guid] == (int)RuleDefinitions.AttackProximity.Melee)
+        {
+            return false;
+        }
+
+        return def;
     }
 }
 
