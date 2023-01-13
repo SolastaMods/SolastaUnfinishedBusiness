@@ -12,9 +12,7 @@
   "familyTag": "",
   "knownFeatsPrerequisite": [],
   "features": [
-    "Definition:MovementAffinityFeatMobile:bd7b8c83-622b-5546-8e55-f591e0a3d526",
-    "Definition:OnAfterActionFeatMobileDash:f5f589f6-0d77-5668-9ac1-a52873157ece",
-    "Definition:OnAttackHitEffectFeatMobile:124b3f77-8087-58f2-9586-b99dc003c77a"
+    "Definition:MovementAffinityFeatMobile:bd7b8c83-622b-5546-8e55-f591e0a3d526"
   ],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",

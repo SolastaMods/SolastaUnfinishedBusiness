@@ -253,7 +253,22 @@ internal static class OtherFeats
                     .SetGuiPresentationNoContent(true)
                     .SetBaseSpeedAdditiveModifier(2)
                     .AddToDB())
-            .SetCustomSubFeatures(new AooImmunityMobile())
+            .SetCustomSubFeatures(
+                new AooImmunityMobile(),
+                FeatureDefinitionBuilder
+                    .Create("OnAfterActionFeatMobileDash")
+                    .SetGuiPresentationNoContent(true)
+                    .SetCustomSubFeatures(
+                        new OnAfterActionFeatMobileDash(
+                            ConditionDefinitionBuilder
+                                .Create(ConditionDefinitions.ConditionFreedomOfMovement, "ConditionFeatMobileAfterDash")
+                                .SetOrUpdateGuiPresentation(Category.Condition)
+                                .SetPossessive()
+                                .SetSpecialDuration(DurationType.Round, 1, TurnOccurenceType.StartOfTurn)
+                                .SetSpecialInterruptions(ConditionInterruption.AnyBattleTurnEnd)
+                                .SetFeatures(FeatureDefinitionMovementAffinitys.MovementAffinityFreedomOfMovement)
+                                .AddToDB()))
+                    .AddToDB())
             .SetAbilityScorePrerequisite(AttributeDefinitions.Dexterity, 13)
             .AddToDB();
     }
@@ -305,22 +320,7 @@ internal static class OtherFeats
                     .SetGuiPresentationNoContent(true)
                     .SetModifier(FeatureDefinitionAttributeModifier.AttributeModifierOperation.AddProficiencyBonus,
                         AttributeDefinitions.KiPoints)
-                    .AddToDB(),
-                FeatureDefinitionBuilder
-                    .Create("OnAfterActionFeatMobileDash")
-                    .SetGuiPresentationNoContent(true)
-                    .SetCustomSubFeatures(
-                        new OnAfterActionFeatMobileDash(
-                            ConditionDefinitionBuilder
-                                .Create(ConditionDefinitions.ConditionFreedomOfMovement, "ConditionFeatMobileAfterDash")
-                                .SetOrUpdateGuiPresentation(Category.Condition)
-                                .SetPossessive()
-                                .SetSpecialDuration(DurationType.Round, 1, TurnOccurenceType.StartOfTurn)
-                                .SetSpecialInterruptions(ConditionInterruption.AnyBattleTurnEnd)
-                                .SetFeatures(FeatureDefinitionMovementAffinitys.MovementAffinityFreedomOfMovement)
-                                .AddToDB()))
-                    .AddToDB()
-            )
+                    .AddToDB())
             .SetAbilityScorePrerequisite(AttributeDefinitions.Wisdom, 13)
             .AddToDB();
     }
