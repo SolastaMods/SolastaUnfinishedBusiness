@@ -305,7 +305,22 @@ internal static class OtherFeats
                     .SetGuiPresentationNoContent(true)
                     .SetModifier(FeatureDefinitionAttributeModifier.AttributeModifierOperation.AddProficiencyBonus,
                         AttributeDefinitions.KiPoints)
-                    .AddToDB())
+                    .AddToDB(),
+                FeatureDefinitionBuilder
+                    .Create("OnAfterActionFeatMobileDash")
+                    .SetGuiPresentationNoContent(true)
+                    .SetCustomSubFeatures(
+                        new OnAfterActionFeatMobileDash(
+                            ConditionDefinitionBuilder
+                                .Create(ConditionDefinitions.ConditionFreedomOfMovement, "ConditionFeatMobileAfterDash")
+                                .SetOrUpdateGuiPresentation(Category.Condition)
+                                .SetPossessive()
+                                .SetSpecialDuration(DurationType.Round, 1, TurnOccurenceType.StartOfTurn)
+                                .SetSpecialInterruptions(ConditionInterruption.AnyBattleTurnEnd)
+                                .SetFeatures(FeatureDefinitionMovementAffinitys.MovementAffinityFreedomOfMovement)
+                                .AddToDB()))
+                    .AddToDB()
+            )
             .SetAbilityScorePrerequisite(AttributeDefinitions.Wisdom, 13)
             .AddToDB();
     }
@@ -313,6 +328,40 @@ internal static class OtherFeats
     //
     // HELPERS
     //
+    
+    private sealed class OnAfterActionFeatMobileDash : IOnAfterActionFeature
+    {
+        private readonly ConditionDefinition _conditionDefinition;
+
+        public OnAfterActionFeatMobileDash(ConditionDefinition conditionDefinition)
+        {
+            _conditionDefinition = conditionDefinition;
+        }
+
+        public void OnAfterAction(CharacterAction action)
+        {
+            if (action is not CharacterActionDash or CharacterActionFlurryOfBlowsSwiftSteps
+                or CharacterActionFlurryOfBlows or CharacterActionFlurryOfBlowsSwiftSteps
+                or CharacterActionFlurryOfBlowsUnendingStrikes)
+            {
+                return;
+            }
+
+            var attacker = action.ActingCharacter;
+
+            var rulesetCondition = RulesetCondition.CreateActiveCondition(
+                attacker.RulesetCharacter.Guid,
+                _conditionDefinition,
+                DurationType.Round,
+                0,
+                TurnOccurenceType.EndOfTurn,
+                attacker.RulesetCharacter.Guid,
+                attacker.RulesetCharacter.CurrentFaction.Name);
+
+            attacker.RulesetCharacter.AddConditionOfCategory(AttributeDefinitions.TagCombat, rulesetCondition);
+        }
+    }
+    
     private static RulesetEffectPower GetUsablePower(RulesetCharacter rulesetCharacter)
     {
         var constitution = rulesetCharacter.GetAttribute(AttributeDefinitions.Constitution).CurrentValue;
@@ -402,6 +451,5 @@ internal static class OtherFeats
 
     private sealed class AooImmunityMobile : IImmuneToAooOfRecentAttackedTarget
     {
-        
     }
 }

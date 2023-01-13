@@ -234,7 +234,9 @@ internal static class AttacksOfOpportunity
             return true;
         }
 
-        if (character.HasSubFeatureOfType<IImmuneToAooOfRecentAttackedTarget>() && character.proximityByAttackedCreature.ContainsKey(attacker.Guid))
+        if (character.HasSubFeatureOfType<IImmuneToAooOfRecentAttackedTarget>() &&
+            character.proximityByAttackedCreature.ContainsKey(attacker.Guid) &&
+            character.proximityByAttackedCreature[attacker.Guid] == (int)RuleDefinitions.AttackProximity.Melee)
         {
             return false;
         }
