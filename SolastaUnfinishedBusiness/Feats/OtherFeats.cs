@@ -248,17 +248,11 @@ internal static class OtherFeats
             .Create("FeatMobile")
             .SetGuiPresentation(Category.Feat)
             .SetFeatures(
-                FeatureDefinitionMovementAffinityBuilder
-                    .Create("MovementAffinityFeatMobile")
-                    .SetGuiPresentationNoContent(true)
-                    .SetBaseSpeedAdditiveModifier(2)
-                    .AddToDB())
-            .SetCustomSubFeatures(
-                new AooImmunityMobile(),
                 FeatureDefinitionBuilder
                     .Create("OnAfterActionFeatMobileDash")
                     .SetGuiPresentationNoContent(true)
                     .SetCustomSubFeatures(
+                        new AooImmunityMobile(),
                         new OnAfterActionFeatMobileDash(
                             ConditionDefinitionBuilder
                                 .Create(ConditionDefinitions.ConditionFreedomOfMovement, "ConditionFeatMobileAfterDash")
@@ -268,6 +262,11 @@ internal static class OtherFeats
                                 .SetSpecialInterruptions(ConditionInterruption.AnyBattleTurnEnd)
                                 .SetFeatures(FeatureDefinitionMovementAffinitys.MovementAffinityFreedomOfMovement)
                                 .AddToDB()))
+                    .AddToDB(),
+                FeatureDefinitionMovementAffinityBuilder
+                    .Create("MovementAffinityFeatMobile")
+                    .SetGuiPresentationNoContent(true)
+                    .SetBaseSpeedAdditiveModifier(2)
                     .AddToDB())
             .SetAbilityScorePrerequisite(AttributeDefinitions.Dexterity, 13)
             .AddToDB();
@@ -328,7 +327,7 @@ internal static class OtherFeats
     //
     // HELPERS
     //
-    
+
     private sealed class OnAfterActionFeatMobileDash : IOnAfterActionFeature
     {
         private readonly ConditionDefinition _conditionDefinition;
@@ -361,7 +360,7 @@ internal static class OtherFeats
             attacker.RulesetCharacter.AddConditionOfCategory(AttributeDefinitions.TagCombat, rulesetCondition);
         }
     }
-    
+
     private static RulesetEffectPower GetUsablePower(RulesetCharacter rulesetCharacter)
     {
         var constitution = rulesetCharacter.GetAttribute(AttributeDefinitions.Constitution).CurrentValue;
