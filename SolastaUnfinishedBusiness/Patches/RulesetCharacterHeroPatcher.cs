@@ -763,7 +763,11 @@ public static class RulesetCharacterHeroPatcher
             var currentAmmunitionSlot = __instance.CharacterInventory.GetCurrentAmmunitionSlot(__result);
 
             // only standard ammunition
-            if (currentAmmunitionSlot?.EquipedItem?.ItemDefinition?.AmmunitionDescription?.EffectDescription?.FindFirstDamageForm() != null)
+            if (currentAmmunitionSlot?.EquipedItem == null ||
+                currentAmmunitionSlot.EquipedItem.ItemDefinition == null ||
+                currentAmmunitionSlot.EquipedItem.ItemDefinition.AmmunitionDescription?.EffectDescription == null ||
+                currentAmmunitionSlot.EquipedItem.ItemDefinition.AmmunitionDescription.EffectDescription
+                    .FindFirstDamageForm() != null)
             {
                 return;
             }
