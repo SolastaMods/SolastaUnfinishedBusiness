@@ -154,13 +154,9 @@ internal class ConditionDefinitionBuilder
     internal ConditionDefinitionBuilder SetSpecialDuration(
         RuleDefinitions.DurationType durationType = RuleDefinitions.DurationType.Round,
         int duration = 0,
-        RuleDefinitions.TurnOccurenceType turnOccurence = RuleDefinitions.TurnOccurenceType.EndOfTurn,
-        bool validateDuration = true)
+        RuleDefinitions.TurnOccurenceType turnOccurence = RuleDefinitions.TurnOccurenceType.EndOfTurn)
     {
-        if (validateDuration)
-        {
-            PreConditions.IsValidDuration(durationType, duration);
-        }
+        PreConditions.IsValidDuration(durationType, duration);
 
         if (duration != 0)
         {

@@ -197,13 +197,9 @@ internal class EffectDescriptionBuilder
     internal EffectDescriptionBuilder SetDurationData(
         DurationType durationType,
         int durationParameter = 0,
-        TurnOccurenceType endOfEffect = TurnOccurenceType.EndOfTurn,
-        bool validateDuration = true)
+        TurnOccurenceType endOfEffect = TurnOccurenceType.EndOfTurn)
     {
-        if (validateDuration)
-        {
-            PreConditions.IsValidDuration(durationType, durationParameter);
-        }
+        PreConditions.IsValidDuration(durationType, durationParameter);
 
         effect.durationParameter = durationParameter;
         effect.durationType = durationType;

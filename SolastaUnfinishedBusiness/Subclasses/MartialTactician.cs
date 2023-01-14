@@ -621,7 +621,7 @@ internal sealed class MartialTactician : AbstractSubclass
                             .SetSituationalContext(ExtraSituationalContext.TargetIsNotEffectSource)
                             .AddToDB())
                         //Lasts until the end of the target's turn
-                        .SetSpecialDuration(DurationType.Round, 0, TurnOccurenceType.EndOfTurn, false)
+                        .SetSpecialDuration(DurationType.Round, 1)
                         .AddToDB(), ConditionForm.ConditionOperation.Add)
                     .Build())
                 .Build())
