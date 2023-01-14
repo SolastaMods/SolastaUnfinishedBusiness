@@ -1,15 +1,6 @@
 CHANGES:
 
-1.4.33.4:
-
-- reverted caster feats interaction with non-prepared casters spells un-learning
-
-1.4.33.3:
-
-- added Disable Sense Darkvision / Superior Darkvision settings
-- added Repeating Shot infusion
-- added setting to ignore free hand requirement on hand crossbows
-- fixed caster feats interaction with non-prepared casters spells un-learning
-- fixed Raise Dead spells upcasting to 1 min, 10 min, 1 hour, 8 hours
-- fixed Sorcerer additional slots consideration under multiclass
-
+- changed Ape attack order to first offer ranged [rock]
+- changed Deep Spider attack order to first offer ranged [web]
+- improved Mobile feat to be on par with tabletop
+- updated War Caster feat somatic components description

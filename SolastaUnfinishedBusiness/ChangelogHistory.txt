@@ -1,6 +1,13 @@
 ﻿CHANGES:
 
-1.4.33.3a:
+1.4.33.5:
+
+- changed Ape attack order to first offer ranged [rock]
+- changed Deep Spider attack order to first offer ranged [web]
+- improved Mobile feat to be on par with tabletop
+- updated War Caster feat somatic components description
+
+1.4.33.4:
 
 - reverted caster feats interaction with non-prepared casters spells un-learning
 

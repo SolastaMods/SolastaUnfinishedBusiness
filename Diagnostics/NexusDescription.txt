@@ -271,7 +271,7 @@ You gain proficiency with poisoner's kit and Nature, or expertise if already pro
 You gain proficiency with poisoner's kit and Medicine, or expertise if already proficient.
 [*][b]Two Weapon Fighting[/b]: When you engage in two-weapon fighting, you can add your ability modifier to the damage of the second attack.
 [*][b]War Caster[/b]: You gain advantage on checks to maintain concentration.
-You gain the ability to perform the somatic component of spells even with both hands full.
+You can perform the somatic components of spells even when you have weapons or a shield in one or both hands.
 When a hostile creature's movement provokes an opportunity attack from you, you can use your reaction to cast a cantrip at the creature, rather than making an opportunity attack. The cantrip must have a casting time of 1 action or bonus action and must target only that creature.
 [*][b]Wise Defense[/b]: Increase your Wisdom by 1, to a maximum of 20.
 While you are not wearing any armor or shield, your AC equals 10 + your Dexterity modifier + your Wisdom modifier.
