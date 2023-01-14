@@ -285,9 +285,11 @@ internal class ItemDefinitionBuilder : DefinitionBuilder<ItemDefinition, ItemDef
 
     #region Constructors
 
+#if false
     protected ItemDefinitionBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)
     {
     }
+#endif
 
     protected ItemDefinitionBuilder(ItemDefinition original, string name, Guid namespaceGuid)
         : base(original, name, namespaceGuid)

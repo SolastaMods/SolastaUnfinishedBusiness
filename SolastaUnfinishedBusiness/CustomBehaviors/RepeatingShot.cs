@@ -13,20 +13,17 @@ public class RepeatingShot
 
     internal static void ModifyTags(RulesetItem item, Dictionary<string, TagsDefinitions.Criticity> tags)
     {
-        if (HasRepeatingShot(item))
+        if (!HasRepeatingShot(item))
         {
-            tags.Remove(TagsDefinitions.WeaponTagLoading);
-            tags.Remove(TagsDefinitions.WeaponTagAmmunition);
+            return;
         }
+
+        tags.Remove(TagsDefinitions.WeaponTagLoading);
+        tags.Remove(TagsDefinitions.WeaponTagAmmunition);
     }
 
     internal static bool HasRepeatingShot(RulesetItem item)
     {
-        if (item == null)
-        {
-            return false;
-        }
-
-        return item.HasSubFeatureOfType<RepeatingShot>();
+        return item != null && item.HasSubFeatureOfType<RepeatingShot>();
     }
 }

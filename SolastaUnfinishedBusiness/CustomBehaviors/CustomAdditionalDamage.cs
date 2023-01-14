@@ -7,7 +7,7 @@ namespace SolastaUnfinishedBusiness.CustomBehaviors;
  */
 public abstract class CustomAdditionalDamage
 {
-    public CustomAdditionalDamage(IAdditionalDamageProvider provider)
+    protected CustomAdditionalDamage(IAdditionalDamageProvider provider)
     {
         Provider = provider;
     }

@@ -13,7 +13,7 @@ internal class ActionDefinitionBuilder : DefinitionBuilder<ActionDefinition, Act
         return this;
     }
 
-    internal ActionDefinitionBuilder SetActionId(ActionDefinitions.Id id)
+    private ActionDefinitionBuilder SetActionId(ActionDefinitions.Id id)
     {
         Definition.id = id;
         return this;

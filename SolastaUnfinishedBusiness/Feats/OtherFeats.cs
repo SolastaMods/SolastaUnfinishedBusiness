@@ -51,7 +51,7 @@ internal static class OtherFeats
         var featMobile = BuildMobile();
         var featPoisonousSkin = BuildPoisonousSkin();
         var featAstralArms = BuildAstralArms();
-        var featMonkInititiate = BuildMonkInitiate();
+        var featMonkInitiate = BuildMonkInitiate();
 
         feats.AddRange(
             featHealer,
@@ -62,7 +62,7 @@ internal static class OtherFeats
             featMobile,
             featPoisonousSkin,
             featAstralArms,
-            featMonkInititiate);
+            featMonkInitiate);
 
         GroupFeats.MakeGroup("FeatGroupBodyResilience", null,
             FeatDefinitions.BadlandsMarauder,

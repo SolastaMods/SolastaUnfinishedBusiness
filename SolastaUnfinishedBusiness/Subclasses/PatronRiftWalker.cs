@@ -50,7 +50,7 @@ internal sealed class PatronRiftWalker : AbstractSubclass
                 .SetDurationData(DurationType.Round, 1, TurnOccurenceType.StartOfTurn)
                 .SetNoSavingThrow()
                 .Build())
-            .SetCustomSubFeatures(new PreventRemoveConcentrationRiftwalker())
+            .SetCustomSubFeatures(new PreventRemoveConcentrationRiftWalker())
             .AddToDB();
 
         var conditionAffinityRiftWalkerRestrainedImmunity = FeatureDefinitionConditionAffinityBuilder
@@ -67,7 +67,7 @@ internal sealed class PatronRiftWalker : AbstractSubclass
                 .SetDurationData(DurationType.Round, 1)
                 .SetNoSavingThrow()
                 .Build())
-            .SetCustomSubFeatures(new PreventRemoveConcentrationRiftwalker())
+            .SetCustomSubFeatures(new PreventRemoveConcentrationRiftWalker())
             .SetReactionContext(ReactionTriggerContext.HitByMelee)
             .AddToDB();
 
@@ -77,7 +77,7 @@ internal sealed class PatronRiftWalker : AbstractSubclass
             .SetOverriddenPower(powerRiftWalkerRiftWalk)
             .SetUsesProficiencyBonus(ActivationTime.BonusAction)
             .SetEffectDescription(DimensionDoor.EffectDescription)
-            .SetCustomSubFeatures(new PreventRemoveConcentrationRiftwalker())
+            .SetCustomSubFeatures(new PreventRemoveConcentrationRiftWalker())
             .AddToDB();
 
         var damageAffinityRiftWalkerFadeIntoTheVoid = FeatureDefinitionDamageAffinityBuilder
@@ -119,7 +119,7 @@ internal sealed class PatronRiftWalker : AbstractSubclass
     internal override FeatureDefinitionSubclassChoice SubclassChoice =>
         FeatureDefinitionSubclassChoices.SubclassChoiceWarlockOtherworldlyPatrons;
 
-    private sealed class PreventRemoveConcentrationRiftwalker : IPreventRemoveConcentrationWithPowerUse
+    private sealed class PreventRemoveConcentrationRiftWalker : IPreventRemoveConcentrationWithPowerUse
     {
     }
 }

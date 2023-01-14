@@ -149,7 +149,7 @@ internal sealed class CollegeOfWarDancer : AbstractSubclass
             RemoveConditionOnAttackMissOrAttackWithNonMeleeWeapon(attacker.RulesetCharacter);
         }
 
-        internal static void RemoveConditionOnAttackMissOrAttackWithNonMeleeWeapon(RulesetCharacter attacker)
+        internal static void RemoveConditionOnAttackMissOrAttackWithNonMeleeWeapon(RulesetActor attacker)
         {
             var conditionsToRemove = new List<RulesetCondition>();
 
@@ -533,10 +533,11 @@ internal sealed class CollegeOfWarDancer : AbstractSubclass
     {
     }
 
-    private static bool RemoveMomentumAnyway(GameLocationCharacter hero)
+    private static bool RemoveMomentumAnyway(IControllableCharacter hero)
     {
         var currentMomentum = new List<RulesetCondition>();
         var pb = hero.RulesetCharacter.TryGetAttributeValue("ProficiencyBonus");
+
         currentMomentum.AddRange(
             hero.RulesetCharacter.ConditionsByCategory
                 .SelectMany(x => x.Value)

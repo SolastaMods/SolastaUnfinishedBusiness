@@ -55,14 +55,15 @@ internal static class SharedSpellsContext
         [CanBeNull] string characterClassDefinition,
         string characterSubclassDefinition)
     {
-        if (characterClassDefinition != null && ClassCasterType.ContainsKey(characterClassDefinition))
+        if (characterClassDefinition != null && ClassCasterType.TryGetValue(characterClassDefinition, out var value1))
         {
-            return ClassCasterType[characterClassDefinition];
+            return value1;
         }
 
-        if (characterSubclassDefinition != null && SubclassCasterType.ContainsKey(characterSubclassDefinition))
+        if (characterSubclassDefinition != null &&
+            SubclassCasterType.TryGetValue(characterSubclassDefinition, out var value2))
         {
-            return SubclassCasterType[characterSubclassDefinition];
+            return value2;
         }
 
         return CasterProgression.None;

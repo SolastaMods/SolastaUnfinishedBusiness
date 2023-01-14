@@ -143,6 +143,6 @@ internal class InvocationPoolTypeCustom
                 main: (Id)ExtraActionId.CastPlaneMagicMain,
                 bonus: (Id)ExtraActionId.CastPlaneMagicBonus);
 
-        internal static List<InvocationPoolTypeCustom> All => PrivatePools;
+        internal static IEnumerable<InvocationPoolTypeCustom> All => PrivatePools;
     }
 }

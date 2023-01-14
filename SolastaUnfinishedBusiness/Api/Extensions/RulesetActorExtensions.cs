@@ -51,7 +51,7 @@ internal static class RulesetActorExtensions
     }
 
     [NotNull]
-    private static List<BaseDefinition> AllActiveDefinitions([CanBeNull] RulesetActor actor)
+    private static IEnumerable<BaseDefinition> AllActiveDefinitions([CanBeNull] RulesetActor actor)
     {
         var list = FeaturesByType<BaseDefinition>(actor);
 
@@ -147,6 +147,6 @@ internal static class RulesetActorExtensions
 
     internal static bool HasAnyConditionOfType(this RulesetActor actor, params string[] conditions)
     {
-        return conditions.Any(c => actor.HasConditionOfType(c));
+        return conditions.Any(actor.HasConditionOfType);
     }
 }

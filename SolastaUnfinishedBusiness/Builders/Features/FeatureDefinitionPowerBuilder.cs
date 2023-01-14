@@ -155,6 +155,7 @@ internal abstract class
         return (TBuilder)this;
     }
 
+#if false
     internal TBuilder SetTriggeringPower(FeatureDefinitionPower triggerPower, bool copyTarget = false,
         RechargeRate rechargeRate = RechargeRate.AtWill)
     {
@@ -164,6 +165,7 @@ internal abstract class
         Definition.rechargeRate = rechargeRate;
         return (TBuilder)this;
     }
+#endif
 
     #region Constructors
 

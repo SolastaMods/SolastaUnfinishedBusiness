@@ -113,7 +113,7 @@ internal static class Infusions
             .AddToDB());
 
         #endregion
-        
+
         #region 02 Repeating Shot
 
         sprite = Sprites.GetSprite("RepeatingShot", Resources.RepeatingShot, 128);
@@ -362,12 +362,12 @@ internal static class Infusions
         return replica;
     }
 
-    private static string GuiReplicaTitle(ItemDefinition item)
+    private static string GuiReplicaTitle(BaseDefinition item)
     {
         return Gui.Format(ReplicaItemTitleFormat, item.FormatTitle());
     }
 
-    private static string BuildReplicaDescription(ItemDefinition item)
+    private static string BuildReplicaDescription(BaseDefinition item)
     {
         return Gui.Format(ReplicaItemTitleDescription, item.FormatTitle(), item.FormatDescription());
     }
@@ -382,22 +382,16 @@ internal static class Infusions
 
         public override bool IsValid(RulesetCharacter character, RulesetItem rulesetItem, RulesetEffect rulesetEffect)
         {
-            foreach (var property in rulesetItem.dynamicItemProperties)
-            {
-                var effect = EffectHelpers.GetEffectByGuid(property.sourceEffectGuid);
-                if (effect != null && effect.SourceDefinition == rulesetEffect.SourceDefinition)
-                {
-                    return false;
-                }
-            }
-
-            return base.IsValid(character, rulesetItem, rulesetEffect);
+            return !rulesetItem.dynamicItemProperties
+                       .Select(property => EffectHelpers.GetEffectByGuid(property.sourceEffectGuid))
+                       .Any(effect => effect != null && effect.SourceDefinition == rulesetEffect.SourceDefinition) &&
+                   base.IsValid(character, rulesetItem, rulesetEffect);
         }
     }
 
-    private static bool IsArmorsmithItem(RulesetCharacter character, RulesetItem item)
+    private static bool IsArmorSmithItem(RulesetCharacter character, RulesetItem item)
     {
-        //Weapon, or armor if character is level 9 armorsmith
+        //Weapon, or armor if character is level 9 armor smith
         return character.HasSubFeatureOfType<InnovationArmor.ArmorerInfusions>()
                && IsBodyArmor(character, item);
     }
@@ -412,8 +406,8 @@ internal static class Infusions
 
     private static bool IsWeapon(RulesetCharacter character, RulesetItem item)
     {
-        //Weapon, or armor if character is level 9 armorsmith
-        return item.ItemDefinition.IsWeapon || IsArmorsmithItem(character, item);
+        //Weapon, or armor if character is level 9 armor smith
+        return item.ItemDefinition.IsWeapon || IsArmorSmithItem(character, item);
     }
 
     private static bool IsThrownWeapon(RulesetCharacter _, RulesetItem item)
@@ -422,7 +416,7 @@ internal static class Infusions
         return definition.IsWeapon
                && definition.WeaponDescription.WeaponTags.Contains(TagsDefinitions.WeaponTagThrown);
     }
-    
+
     private static bool IsLoading(RulesetCharacter _, RulesetItem item)
     {
         var definition = item.ItemDefinition;

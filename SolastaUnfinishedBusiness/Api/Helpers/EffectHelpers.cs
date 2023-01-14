@@ -79,12 +79,7 @@ internal static class EffectHelpers
             return null;
         }
 
-        if (!RulesetEntity.TryGetEntity<RulesetEffect>(guid, out var entity))
-        {
-            return null;
-        }
-
-        return entity;
+        return !RulesetEntity.TryGetEntity<RulesetEffect>(guid, out var entity) ? null : entity;
     }
 
     internal static List<RulesetCharacter> GetSummonedCreatures(RulesetEffect effect)

@@ -35,9 +35,9 @@ internal static class ObjectExtensions
             return originalObject;
         }
 
-        if (visited.ContainsKey(originalObject))
+        if (visited.TryGetValue(originalObject, out var value))
         {
-            return visited[originalObject];
+            return value;
         }
 
         if (typeof(Delegate).IsAssignableFrom(typeToReflect))

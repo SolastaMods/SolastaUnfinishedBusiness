@@ -506,7 +506,7 @@ internal static class SrdAndHouseRulesContext
         }
     }
 
-    internal static void FixMartialArtsProgression()
+    private static void FixMartialArtsProgression()
     {
         //Fixes die progression of Monk's Martial Arts to use Monk level, not character level
         var provider = new RankByClassLevel(Monk);
@@ -516,7 +516,7 @@ internal static class SrdAndHouseRulesContext
             FeatureDefinitionAttackModifiers.AttackModifierMonkMartialArtsImprovedDamage,
             FeatureDefinitionAttackModifiers.AttackModifierMonkMartialArtsUnarmedStrikeBonus,
             FeatureDefinitionAttackModifiers.AttackModifierMonkFlurryOfBlowsUnarmedStrikeBonus,
-            FeatureDefinitionAttackModifiers.AttackModifierMonkFlurryOfBlowsUnarmedStrikeBonusFreedom,
+            FeatureDefinitionAttackModifiers.AttackModifierMonkFlurryOfBlowsUnarmedStrikeBonusFreedom
         };
 
         foreach (var feature in features)
@@ -525,7 +525,7 @@ internal static class SrdAndHouseRulesContext
         }
     }
 
-    internal static void DistantHandMartialArtsDie()
+    private static void DistantHandMartialArtsDie()
     {
         //Makes Martial Dice progression work on bows for Way of the Distant Hand
         FeatureDefinitionAttackModifiers.AttackModifierMonkMartialArtsImprovedDamage
@@ -626,7 +626,8 @@ internal static class SrdAndHouseRulesContext
             hero.GetItemInSlot(EquipmentDefinitions.SlotTypeOffHand));
     }
 
-    internal static bool IsHandCrossbowUseInvalid(RulesetItem item, RulesetCharacterHero hero, RulesetItem main, RulesetItem off)
+    internal static bool IsHandCrossbowUseInvalid(RulesetItem item, RulesetCharacterHero hero, RulesetItem main,
+        RulesetItem off)
     {
         if (Main.Settings.IgnoreHandXbowFreeHandRequirements)
         {
@@ -651,14 +652,9 @@ internal static class SrdAndHouseRulesContext
             return true;
         }
 
-        if (off == item
-            && main != null
-            && main.ItemDefinition.WeaponDescription?.WeaponType != WeaponTypeDefinitions.UnarmedStrikeType.Name)
-        {
-            return true;
-        }
-
-        return false;
+        return off == item
+               && main != null
+               && main.ItemDefinition.WeaponDescription?.WeaponType != WeaponTypeDefinitions.UnarmedStrikeType.Name;
     }
 
     private sealed class CanIdentifyOnRest : IPowerUseValidity
@@ -672,8 +668,7 @@ internal static class SrdAndHouseRulesContext
         public bool CanUsePower(RulesetCharacter character, FeatureDefinitionPower power)
         {
             //does this work properly for wild-shaped heroes?
-            var hero = character as RulesetCharacterHero;
-            if (hero == null)
+            if (character is not RulesetCharacterHero hero)
             {
                 return false;
             }

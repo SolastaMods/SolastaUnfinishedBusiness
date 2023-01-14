@@ -4,7 +4,7 @@ namespace SolastaUnfinishedBusiness.Api.Infrastructure;
 
 public static class DictionaryExtensions
 {
-    public static void TryAddRange<K, V>(this Dictionary<K, V> dict, IEnumerable<K> keys, V value)
+    public static void TryAddRange<TK, TV>(this Dictionary<TK, TV> dict, IEnumerable<TK> keys, TV value)
     {
         foreach (var key in keys)
         {

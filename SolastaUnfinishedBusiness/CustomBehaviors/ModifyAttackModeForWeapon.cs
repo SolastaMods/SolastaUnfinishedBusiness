@@ -87,11 +87,13 @@ internal class CanUseAttributeForWeapon : IModifyAttackAttributeForWeapon
             .FindIndex(x => x.value == oldValue
                             && x.sourceType == RuleDefinitions.FeatureSourceType.AbilityScore
                             && x.sourceName == oldAttribute);
-        if (i >= 0)
+        if (i < 0)
         {
-            damage.DamageBonusTrends.RemoveAt(i);
-            damage.DamageBonusTrends.Insert(i, info);
+            return;
         }
+
+        damage.DamageBonusTrends.RemoveAt(i);
+        damage.DamageBonusTrends.Insert(i, info);
     }
 }
 

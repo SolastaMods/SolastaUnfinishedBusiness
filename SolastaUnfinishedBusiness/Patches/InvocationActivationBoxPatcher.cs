@@ -15,7 +15,7 @@ public static class InvocationActivationBoxPatcher
     private const string TableName = "SlotStatusTable";
     private const string HighSlotsName = "HighSlotNumber";
 
-    private static void DisablePowerUseSlots(InvocationActivationBox box)
+    private static void DisablePowerUseSlots(GuiBehaviour box)
     {
         var boxRect = box.rectTransform;
 

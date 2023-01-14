@@ -13,7 +13,7 @@ public static class VictoryModalPatcher
     {
         public static void Prefix([NotNull] VictoryModal __instance)
         {
-            //PATCH: scales down the rest sub panel whenever the party size is bigger than 4 (PARTYSIZE)
+            //PATCH: scales down the victory modal sub panel whenever the party size is bigger than 4 (PARTYSIZE)
             if (Gui.GameCampaign.Party.CharactersList.Count > 4)
             {
                 __instance.heroStatsGroup.anchoredPosition = new Vector2(-145f, -248f);

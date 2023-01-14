@@ -280,7 +280,7 @@ internal static class SpellsContext
         }
     }
 
-    internal static void RegisterSpell(
+    private static void RegisterSpell(
         SpellDefinition spellDefinition,
         int suggestedStartsAt = 0,
         params SpellListDefinition[] registeredSpellLists)

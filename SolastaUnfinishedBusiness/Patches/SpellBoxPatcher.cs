@@ -14,18 +14,15 @@ public static class SpellBoxPatcher
         private static string _extraTag;
 
         public static void Prefix(
-            SpellBox __instance,
             ref string autoPreparedTag,
-            ref string extraSpellTag,
-            SpellBox.BindMode bindMode
-        )
+            ref string extraSpellTag)
         {
             if (string.IsNullOrEmpty(extraSpellTag))
             {
                 return;
             }
 
-            //PATCH: show actual class/subclass name in the multiclass tag during spell selection on levelup
+            //PATCH: show actual class/subclass name in the multiclass tag during spell selection on level up
             if (extraSpellTag.StartsWith(LevelUpContext.ExtraClassTag)
                 || extraSpellTag.StartsWith(LevelUpContext.ExtraSubclassTag))
             {
@@ -56,6 +53,7 @@ public static class SpellBoxPatcher
             }
 
             var parts = _extraTag.Split('|');
+
             _extraTag = null;
 
             if (parts.Length != 2)
@@ -70,17 +68,20 @@ public static class SpellBoxPatcher
             const string SUBCLASS_FORMAT = "Screen/&SubclassClassExtraSpellDescriptionFormat";
 
             __instance.autoPreparedTitle.Text = "Screen/&MulticlassExtraSpellTitle";
-            if (type == LevelUpContext.ExtraClassTag &&
-                DatabaseHelper.TryGetDefinition<CharacterClassDefinition>(name, out var classDef))
+
+            switch (type)
             {
-                name = classDef.FormatTitle();
-                __instance.autoPreparedTooltip.Content = Gui.Format(CLASS_FORMAT, name);
-            }
-            else if (type == LevelUpContext.ExtraSubclassTag &&
-                     DatabaseHelper.TryGetDefinition<CharacterSubclassDefinition>(name, out var subDef))
-            {
-                name = subDef.FormatTitle();
-                __instance.autoPreparedTooltip.Content = Gui.Format(SUBCLASS_FORMAT, name);
+                case LevelUpContext.ExtraClassTag when
+                    DatabaseHelper.TryGetDefinition<CharacterClassDefinition>(name, out var classDef):
+                    name = classDef.FormatTitle();
+                    __instance.autoPreparedTooltip.Content = Gui.Format(CLASS_FORMAT, name);
+                    break;
+
+                case LevelUpContext.ExtraSubclassTag when
+                    DatabaseHelper.TryGetDefinition<CharacterSubclassDefinition>(name, out var subDef):
+                    name = subDef.FormatTitle();
+                    __instance.autoPreparedTooltip.Content = Gui.Format(SUBCLASS_FORMAT, name);
+                    break;
             }
         }
     }

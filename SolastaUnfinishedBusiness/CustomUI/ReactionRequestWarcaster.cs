@@ -175,7 +175,10 @@ internal class ReactionRequestWarcaster : ReactionRequest
             var rulesService = ServiceRepository.GetService<IRulesetImplementationService>();
             var rulesetCharacter = actingCharacter.RulesetCharacter;
 
-            rulesetCharacter.CanCastCantrip(spell, out var spellRepertoire);
+            if (!rulesetCharacter.CanCastCantrip(spell, out var spellRepertoire))
+            {
+                return;
+            }
 
             var spellEffect = rulesService.InstantiateEffectSpell(rulesetCharacter, spellRepertoire,
                 spell, spell.SpellLevel, false);

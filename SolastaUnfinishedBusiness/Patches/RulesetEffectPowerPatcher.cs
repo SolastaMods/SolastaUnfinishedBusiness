@@ -63,7 +63,7 @@ public static class RulesetEffectPowerPatcher
             // for some unknown reason when MC we're getting class level 0 here [i.e.: second wind]
             if (__result == 0)
             {
-                hero.LookForFeatureOrigin(__instance.UsablePower.PowerDefinition, out var _, out var klass, out var _);
+                hero.LookForFeatureOrigin(__instance.UsablePower.PowerDefinition, out _, out var klass, out _);
 
                 if (klass != null && hero.ClassesAndLevels.TryGetValue(klass, out level))
                 {

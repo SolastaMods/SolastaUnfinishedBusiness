@@ -1297,7 +1297,7 @@ internal sealed class MartialTactician : AbstractSubclass
             character.RemoveCondition(rulesetCondition);
         }
 
-        public bool CanReact(GameLocationCharacter me)
+        public static bool CanReact(GameLocationCharacter me)
         {
             return me.CanReactNoMatterUses();
         }
@@ -1369,17 +1369,17 @@ internal sealed class MartialTactician : AbstractSubclass
             var dieRoll = RollDie(dieType, AdvantageType.None, out _, out _);
 
             var hitTrends = attackModifier.AttacktoHitTrends;
-            if (hitTrends != null)
+
+            hitTrends?.Add(new TrendInfo(dieRoll, FeatureSourceType.Power, pool.Name, null)
             {
-                hitTrends.Add(new TrendInfo(dieRoll, FeatureSourceType.Power, pool.Name, null)
-                {
-                    dieType = dieType, dieFlag = TrendInfoDieFlag.None
-                });
-            }
+                dieType = dieType, dieFlag = TrendInfoDieFlag.None
+            });
 
             action.AttackSuccessDelta += dieRoll;
             attackModifier.attackRollModifier += dieRoll;
+
             var success = action.AttackSuccessDelta >= 0;
+
             if (success)
             {
                 action.AttackRollOutcome = RollOutcome.Success;

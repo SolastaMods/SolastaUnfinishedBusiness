@@ -573,7 +573,7 @@ internal static class InvocationsBuilders
             _conditionPseudoAbility = conditionPseudoAbility;
         }
 
-        private void SetChainBuff(RulesetCharacter self, ConditionDefinition buff)
+        private static void SetChainBuff(RulesetCharacter self, ConditionDefinition buff)
         {
             var rulesetCondition = RulesetCondition.CreateActiveCondition(
                 self.Guid,

@@ -346,7 +346,7 @@ internal static class TranslatorContext
             return;
         }
 
-        var termsToAdd = englishTerms.Keys.Except(currentLanguageTerms.Keys);
+        var termsToAdd = englishTerms.Keys.Except(currentLanguageTerms.Keys).ToList();
 
         if (termsToAdd.Any())
         {
@@ -360,14 +360,16 @@ internal static class TranslatorContext
 
         var termsToDelete = currentLanguageTerms.Keys.Except(englishTerms.Keys);
 
-        if (termsToDelete.Any())
+        if (!termsToDelete.Any())
         {
-            Main.Info("DELETE THESE TERMS:");
+            return;
+        }
 
-            foreach (var term in currentLanguageTerms.Keys.Except(englishTerms.Keys))
-            {
-                Main.Info($"{term} must be deleted from {languageCode} translation assets");
-            }
+        Main.Info("DELETE THESE TERMS:");
+
+        foreach (var term in currentLanguageTerms.Keys.Except(englishTerms.Keys))
+        {
+            Main.Info($"{term} must be deleted from {languageCode} translation assets");
         }
     }
 

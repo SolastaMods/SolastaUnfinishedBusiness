@@ -18,8 +18,6 @@ internal static class RaceFeats
     private const string FadeAway = "FadeAway";
     private const string RevenantGreatSword = "RevenantGreatSword";
 
-    internal const string ElvenAccuracyTag = "ElvenAccuracy";
-
     internal static void CreateFeats([NotNull] List<FeatDefinition> feats)
     {
         // Dragon Wings

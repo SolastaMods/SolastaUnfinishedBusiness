@@ -15,6 +15,7 @@ internal enum ExtraSituationalContext
     MainWeaponIsGreatSword = 1006,
 }
 
+#if false
 internal enum ExtraEffectFormType
 {
     // Damage = EffectForm.EffectFormType.Damage,
@@ -35,6 +36,7 @@ internal enum ExtraEffectFormType
     // ShapeChange = EffectForm.EffectFormType.ShapeChange,
     Custom = 9000
 }
+#endif
 
 #if false
 internal enum ExtraRitualCasting
@@ -145,10 +147,13 @@ internal enum ExtraAdvancementDuration
     // Minutes_1_10_480_1440_Infinite = AdvancementDuration.Minutes_1_10_480_1440_Infinite,
     // ReSharper disable once InconsistentNaming
     Minutes_1_10_480_1440_Level2 = 9000,
+
     // ReSharper disable once InconsistentNaming
     Minutes_1_10_480_1440_Level3 = 9001,
+
     // ReSharper disable once InconsistentNaming
     Minutes_1_10_480_1440_Level4 = 9002,
+
     // ReSharper disable once InconsistentNaming
     Minutes_1_10_480_1440_Level5 = 9003
 }

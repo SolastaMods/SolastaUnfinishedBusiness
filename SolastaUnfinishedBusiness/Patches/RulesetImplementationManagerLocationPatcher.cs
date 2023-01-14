@@ -120,7 +120,7 @@ public static class RulesetImplementationManagerLocationPatcher
             return useDefaultLogic;
         }
 
-        public static bool CustomSwap(EffectForm effectForm,
+        private static bool CustomSwap(EffectForm effectForm,
             RulesetImplementationDefinitions.ApplyFormsParams formsParams)
         {
             // Main.Log2($"CustomSwap", true);
@@ -138,10 +138,10 @@ public static class RulesetImplementationManagerLocationPatcher
                 return true;
             }
 
-            var actionId = (ActionDefinitions.Id)ExtraActionId.PushedCustom;
+            const ActionDefinitions.Id ACTION_ID = (ActionDefinitions.Id)ExtraActionId.PushedCustom;
 
             action.ExecuteAction(
-                new CharacterActionParams(attacker, actionId, defender.LocationPosition)
+                new CharacterActionParams(attacker, ACTION_ID, defender.LocationPosition)
                 {
                     BoolParameter = false, BoolParameter4 = false, CanBeCancelled = false, CanBeAborted = false
                 }, null, true);
