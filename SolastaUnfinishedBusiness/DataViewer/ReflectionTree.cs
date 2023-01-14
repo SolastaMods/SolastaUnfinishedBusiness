@@ -109,6 +109,7 @@ internal abstract class Node
         _ => string.Empty
     };
 
+#if false
     internal int ExpandedNodeCount
     {
         get
@@ -138,6 +139,7 @@ internal abstract class Node
             return count;
         }
     }
+#endif
 
     internal int ChildrenCount
     {
@@ -410,13 +412,15 @@ internal abstract class GenericNode<TNode> : Node
         var nodeType = typeof(ComponentNode);
         var i = 0;
 
-        if (Value is GameObject gameObject)
+        if (Value is not GameObject gameObject)
         {
-            foreach (var item in gameObject.GetComponents<Component>())
-            {
-                _componentNodes.Add(FindOrCreateChildForValue(nodeType, this, "<component_" + i + ">", item));
-                i++;
-            }
+            return;
+        }
+
+        foreach (var item in gameObject.GetComponents<Component>())
+        {
+            _componentNodes.Add(FindOrCreateChildForValue(nodeType, this, "<component_" + i + ">", item));
+            i++;
         }
     }
 

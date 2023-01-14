@@ -51,7 +51,7 @@ internal static class OtherFeats
         var featMobile = BuildMobile();
         var featPoisonousSkin = BuildPoisonousSkin();
         var featAstralArms = BuildAstralArms();
-        var featMonkInititiate = BuildMonkInitiate();
+        var featMonkInitiate = BuildMonkInitiate();
 
         feats.AddRange(
             featHealer,
@@ -62,7 +62,7 @@ internal static class OtherFeats
             featMobile,
             featPoisonousSkin,
             featAstralArms,
-            featMonkInititiate);
+            featMonkInitiate);
 
         GroupFeats.MakeGroup("FeatGroupBodyResilience", null,
             FeatDefinitions.BadlandsMarauder,
@@ -248,15 +248,11 @@ internal static class OtherFeats
             .Create("FeatMobile")
             .SetGuiPresentation(Category.Feat)
             .SetFeatures(
-                FeatureDefinitionMovementAffinityBuilder
-                    .Create("MovementAffinityFeatMobile")
-                    .SetGuiPresentationNoContent(true)
-                    .SetBaseSpeedAdditiveModifier(2)
-                    .AddToDB(),
                 FeatureDefinitionBuilder
                     .Create("OnAfterActionFeatMobileDash")
                     .SetGuiPresentationNoContent(true)
                     .SetCustomSubFeatures(
+                        new AooImmunityMobile(),
                         new OnAfterActionFeatMobileDash(
                             ConditionDefinitionBuilder
                                 .Create(ConditionDefinitions.ConditionFreedomOfMovement, "ConditionFeatMobileAfterDash")
@@ -264,29 +260,13 @@ internal static class OtherFeats
                                 .SetPossessive()
                                 .SetSpecialDuration(DurationType.Round, 1, TurnOccurenceType.StartOfTurn)
                                 .SetSpecialInterruptions(ConditionInterruption.AnyBattleTurnEnd)
-                                .SetFeatures(
-                                    FeatureDefinitionConditionAffinitys.ConditionAffinityFreedomOfMovementRestrained,
-                                    FeatureDefinitionMovementAffinitys.MovementAffinityFreedomOfMovement)
+                                .SetFeatures(FeatureDefinitionMovementAffinitys.MovementAffinityFreedomOfMovement)
                                 .AddToDB()))
                     .AddToDB(),
-                FeatureDefinitionBuilder
-                    .Create("OnAttackHitEffectFeatMobile")
+                FeatureDefinitionMovementAffinityBuilder
+                    .Create("MovementAffinityFeatMobile")
                     .SetGuiPresentationNoContent(true)
-                    .SetCustomSubFeatures(
-                        new OnAttackHitEffectFeatMobile(
-                            ConditionDefinitionBuilder
-                                .Create("ConditionFeatMobileAfterAttack")
-                                .SetGuiPresentation(Category.Condition)
-                                .SetPossessive()
-                                .SetSpecialDuration(DurationType.Round, 1, TurnOccurenceType.StartOfTurn)
-                                .SetSpecialInterruptions(ConditionInterruption.AnyBattleTurnEnd)
-                                .SetFeatures(FeatureDefinitionAdditionalActionBuilder
-                                    .Create("AdditionalActionFeatMobile")
-                                    .SetGuiPresentationNoContent(true)
-                                    .SetActionType(ActionDefinitions.ActionType.Main)
-                                    .SetRestrictedActions(ActionDefinitions.Id.DisengageMain)
-                                    .AddToDB())
-                                .AddToDB()))
+                    .SetBaseSpeedAdditiveModifier(2)
                     .AddToDB())
             .SetAbilityScorePrerequisite(AttributeDefinitions.Dexterity, 13)
             .AddToDB();
@@ -381,44 +361,6 @@ internal static class OtherFeats
         }
     }
 
-    private sealed class OnAttackHitEffectFeatMobile : IAfterAttackEffect
-    {
-        private readonly ConditionDefinition _conditionFeatMobileAfterAttack;
-
-        internal OnAttackHitEffectFeatMobile(ConditionDefinition conditionFeatMobileAfterAttack)
-        {
-            _conditionFeatMobileAfterAttack = conditionFeatMobileAfterAttack;
-        }
-
-        public void AfterOnAttackHit(
-            GameLocationCharacter attacker,
-            GameLocationCharacter defender,
-            RollOutcome outcome,
-            CharacterActionParams actionParams,
-            RulesetAttackMode attackMode,
-            ActionModifier attackModifier)
-        {
-            var rulesetCharacter = attacker.RulesetCharacter;
-
-            if (!ValidatorsWeapon.IsMelee(attackMode) &&
-                !ValidatorsWeapon.IsUnarmedWeapon(rulesetCharacter, attackMode))
-            {
-                return;
-            }
-
-            var rulesetCondition = RulesetCondition.CreateActiveCondition(
-                rulesetCharacter.Guid,
-                _conditionFeatMobileAfterAttack,
-                DurationType.Round,
-                0,
-                TurnOccurenceType.EndOfTurn,
-                rulesetCharacter.Guid,
-                rulesetCharacter.CurrentFaction.Name);
-
-            rulesetCharacter.AddConditionOfCategory(AttributeDefinitions.TagCombat, rulesetCondition);
-        }
-    }
-
     private static RulesetEffectPower GetUsablePower(RulesetCharacter rulesetCharacter)
     {
         var constitution = rulesetCharacter.GetAttribute(AttributeDefinitions.Constitution).CurrentValue;
@@ -504,5 +446,9 @@ internal static class OtherFeats
             attackMode.reach = true;
             attackMode.reachRange = 2;
         }
+    }
+
+    private sealed class AooImmunityMobile : IImmuneToAooOfRecentAttackedTarget
+    {
     }
 }

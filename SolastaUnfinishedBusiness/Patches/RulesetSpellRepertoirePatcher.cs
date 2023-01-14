@@ -116,7 +116,7 @@ public static class RulesetSpellRepertoirePatcher
             var sharedMaxSlots = totalMaxSlots - pactMaxSlots;
             var sharedUsedSlots = totalUsedSlots - pactUsedSlots;
 
-            var isShiftPressed = Global.CurrentAction is (CharacterActionCastSpell or CharacterActionSpendSpellSlot)
+            var isShiftPressed = Global.CurrentAction is CharacterActionCastSpell or CharacterActionSpendSpellSlot
                                  && Global.CurrentAction.actionParams.BoolParameter5;
 
             var forceConsumePactSlot = sharedUsedSlots == sharedMaxSlots ||

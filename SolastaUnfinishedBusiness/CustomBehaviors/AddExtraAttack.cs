@@ -213,6 +213,7 @@ internal sealed class AddExtraUnarmedAttack : AddExtraAttackBase
     }
 }
 
+#if false
 internal sealed class AddExtraMainHandAttack : AddExtraAttackBase
 {
     internal AddExtraMainHandAttack(
@@ -249,6 +250,7 @@ internal sealed class AddExtraMainHandAttack : AddExtraAttackBase
         return new List<RulesetAttackMode> { attackMode };
     }
 }
+#endif
 
 internal sealed class AddExtraRangedAttack : AddExtraAttackBase
 {

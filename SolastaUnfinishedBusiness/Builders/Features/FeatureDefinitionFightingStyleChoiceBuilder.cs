@@ -1,6 +1,5 @@
 ﻿using System;
 using JetBrains.Annotations;
-using SolastaUnfinishedBusiness.Api.Infrastructure;
 
 namespace SolastaUnfinishedBusiness.Builders.Features;
 
@@ -8,12 +7,14 @@ namespace SolastaUnfinishedBusiness.Builders.Features;
 internal class FeatureDefinitionFightingStyleChoiceBuilder
     : DefinitionBuilder<FeatureDefinitionFightingStyleChoice, FeatureDefinitionFightingStyleChoiceBuilder>
 {
+#if false
     internal FeatureDefinitionFightingStyleChoiceBuilder SetFightingStyles(
         params string[] fightingStyles)
     {
         Definition.FightingStyles.SetRange(fightingStyles);
         return this;
     }
+#endif
 
     #region Constructors
 

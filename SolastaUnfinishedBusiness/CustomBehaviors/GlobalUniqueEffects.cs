@@ -14,9 +14,9 @@ internal static class GlobalUniqueEffects
 
     private static (List<FeatureDefinitionPower>, List<SpellDefinition>) GetGroup(Group group)
     {
-        if (Groups.ContainsKey(group))
+        if (Groups.TryGetValue(group, out var value))
         {
-            return Groups[group];
+            return value;
         }
 
         var newGroup = new ValueTuple<List<FeatureDefinitionPower>, List<SpellDefinition>>

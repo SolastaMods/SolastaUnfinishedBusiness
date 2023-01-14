@@ -106,12 +106,15 @@ public static class GameLocationCharacterExtensions
                 target, positionAfter, new ActionModifier());
 
             // Check if the attack is possible and collect the attack modifier inside the attackParams
-            if (service.CanAttack(paramsBefore) && !service.CanAttack(paramsAfter))
+            if (!service.CanAttack(paramsBefore) || service.CanAttack(paramsAfter))
             {
-                attackMode = mode;
-                attackModifier = paramsBefore.attackModifier;
-                return true;
+                continue;
             }
+
+            attackMode = mode;
+            attackModifier = paramsBefore.attackModifier;
+
+            return true;
         }
 
         return false;
@@ -146,9 +149,11 @@ public static class GameLocationCharacterExtensions
         return canReact;
     }
 
+#if false
     internal static int GetActionTypeRank(this GameLocationCharacter instance, ActionType type)
     {
         var ranks = instance.currentActionRankByType;
         return ranks.TryGetValue(type, out var value) ? value : 0;
     }
+#endif
 }

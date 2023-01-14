@@ -120,14 +120,9 @@ internal static class CustomWeaponsContext
             }
         }
 
-        if (noDescription)
-        {
-            _ = builder.SetGuiPresentation(Category.Item, Gui.NoLocalization, icon);
-        }
-        else
-        {
-            _ = builder.SetGuiPresentation(Category.Item, icon);
-        }
+        _ = noDescription
+            ? builder.SetGuiPresentation(Category.Item, Gui.NoLocalization, icon)
+            : builder.SetGuiPresentation(Category.Item, icon);
 
         var weapon = builder.AddToDB();
 

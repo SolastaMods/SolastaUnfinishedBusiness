@@ -53,11 +53,13 @@ internal abstract class FeatDefinitionBuilder<TDefinition, TBuilder> : Definitio
         return (TBuilder)this;
     }
 
+#if false
     internal TBuilder SetKnownFeatsPrerequisite(params string[] list)
     {
         Definition.knownFeatsPrerequisite.SetRange(list);
         return (TBuilder)this;
     }
+#endif
 
     internal TBuilder SetFeatFamily(string family)
     {

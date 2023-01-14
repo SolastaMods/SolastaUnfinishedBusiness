@@ -113,7 +113,7 @@ public static class PowerSelectionPanelPatcher
         }
 
         private static void MovePowersToRow(
-            RectTransform powersTable,
+            Transform powersTable,
             RectTransform newRow,
             int toStayCount,
             int yOffset)

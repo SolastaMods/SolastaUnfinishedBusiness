@@ -58,7 +58,10 @@ internal class RangedAttackInMeleeDisadvantageRemover
 
         attackParams.attackModifier.attackAdvantageTrends.RemoveAll(t =>
             t.value == -1
-            && t.sourceType == RuleDefinitions.FeatureSourceType.Proximity
-            && t.sourceName == RuleDefinitions.ProximityRangeEnemyNearby);
+            && t is
+            {
+                sourceType: RuleDefinitions.FeatureSourceType.Proximity,
+                sourceName: RuleDefinitions.ProximityRangeEnemyNearby
+            });
     }
 }

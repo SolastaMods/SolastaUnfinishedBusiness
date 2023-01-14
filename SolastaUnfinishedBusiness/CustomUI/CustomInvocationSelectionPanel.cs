@@ -408,9 +408,9 @@ internal class CustomInvocationSelectionPanel : CharacterStagePanel
 
     private List<InvocationDefinitionCustom> GetOrMakeLearnedList(PoolId id)
     {
-        if (learnedInvocations.ContainsKey(id))
+        if (learnedInvocations.TryGetValue(id, out var value))
         {
-            return learnedInvocations[id];
+            return value;
         }
 
         var learned = new List<InvocationDefinitionCustom>();

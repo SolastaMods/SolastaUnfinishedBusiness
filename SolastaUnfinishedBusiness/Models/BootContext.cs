@@ -179,15 +179,17 @@ internal static class BootContext
             f.scope == TooltipDefinitions.Scope.Simplified &&
             f.featurePrefab.GetComponent<TooltipFeature>() is TooltipFeatureDescription);
 
-        if (index >= 0)
+        if (index < 0)
         {
-            //since FeatureInfo is a struct we get here a copy
-            var info = definition.tooltipFeatures[index];
-            //modify it
-            info.scope = TooltipDefinitions.Scope.All;
-            //and then put copy back
-            definition.tooltipFeatures[index] = info;
+            return;
         }
+
+        //since FeatureInfo is a struct we get here a copy
+        var info = definition.tooltipFeatures[index];
+        //modify it
+        info.scope = TooltipDefinitions.Scope.All;
+        //and then put copy back
+        definition.tooltipFeatures[index] = info;
     }
 
     private static void Load()

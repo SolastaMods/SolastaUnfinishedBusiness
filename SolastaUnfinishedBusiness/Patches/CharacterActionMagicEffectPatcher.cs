@@ -60,11 +60,11 @@ public static class CharacterActionMagicEffectPatcher
             service.ApplyEffectForms(effectDescription.EffectForms,
                 formsParams,
                 null,
-                out var _,
+                out _,
                 forceSelfConditionOnly: true,
                 effectApplication: effectDescription.EffectApplication,
                 filters: effectDescription.EffectFormFilters,
-                terminateEffectOnTarget: out var _);
+                terminateEffectOnTarget: out _);
 
             return false;
         }

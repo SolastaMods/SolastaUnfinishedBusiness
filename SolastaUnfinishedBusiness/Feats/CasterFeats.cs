@@ -321,10 +321,11 @@ internal static class CasterFeats
     [NotNull]
     private static FeatureDefinition BuildTelekinesis(string savingThrowDifficultyAbility)
     {
-        var name = "FeatTelekinetic";
+        const string NAME = "FeatTelekinetic";
+
         var power = FeatureDefinitionPowerBuilder
-            .Create($"Power{name}{savingThrowDifficultyAbility}")
-            .SetGuiPresentation(name, Category.Feature, Sprites.FeatTelekinetic)
+            .Create($"Power{NAME}{savingThrowDifficultyAbility}")
+            .SetGuiPresentation(NAME, Category.Feature, Sprites.FeatTelekinetic)
             //TODO: ideally not hide out of combat, but make it disabled
             .SetCustomSubFeatures(PowerFromInvocation.Marker)
             .SetUsesFixed(ActivationTime.BonusAction)
@@ -345,14 +346,14 @@ internal static class CasterFeats
             .AddToDB();
 
         var invocation = CustomInvocationDefinitionBuilder
-            .Create($"CustomInvocation{name}{savingThrowDifficultyAbility}")
+            .Create($"CustomInvocation{NAME}{savingThrowDifficultyAbility}")
             .SetGuiPresentation(power.GuiPresentation)
             .SetPoolType(InvocationPoolTypeCustom.Pools.PlaneMagic)
             .SetGrantedFeature(power)
             .AddToDB();
 
         return FeatureDefinitionGrantInvocationsBuilder
-            .Create($"GrantInvocations{name}{savingThrowDifficultyAbility}")
+            .Create($"GrantInvocations{NAME}{savingThrowDifficultyAbility}")
             .SetGuiPresentationNoContent(true)
             .SetInvocations(invocation)
             .AddToDB();

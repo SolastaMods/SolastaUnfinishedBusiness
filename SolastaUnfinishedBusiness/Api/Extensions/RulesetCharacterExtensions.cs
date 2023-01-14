@@ -378,7 +378,7 @@ internal static class RulesetCharacterExtensions
         AdvantageType advantage = AdvantageType.None
     )
     {
-        if (Gui.GameLocation.FiniteStateMachine.CurrentState is (LocationState_NarrativeSequence or LocationState_Map))
+        if (Gui.GameLocation.FiniteStateMachine.CurrentState is LocationState_NarrativeSequence or LocationState_Map)
         {
             return;
         }

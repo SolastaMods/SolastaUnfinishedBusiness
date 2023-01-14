@@ -212,7 +212,7 @@ public static class CharacterActionPanelPatcher
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     public static class SpellcastEngaged_Patch
     {
-        private static void Prefix(
+        public static void Prefix(
             CharacterActionPanel __instance,
             // RulesetSpellRepertoire spellRepertoire,
             ref SpellDefinition spellDefinition,

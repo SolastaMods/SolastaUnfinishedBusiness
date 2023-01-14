@@ -758,8 +758,20 @@ public static class RulesetCharacterHeroPatcher
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     public static class GetAmmunitionType_Patch
     {
-        public static void Postfix(ref string __result, RulesetAttackMode mode)
+        public static void Postfix(RulesetCharacterHero __instance, ref string __result, RulesetAttackMode mode)
         {
+            var currentAmmunitionSlot = __instance.CharacterInventory.GetCurrentAmmunitionSlot(__result);
+
+            // only standard ammunition
+            if (currentAmmunitionSlot?.EquipedItem == null ||
+                currentAmmunitionSlot.EquipedItem.ItemDefinition == null ||
+                currentAmmunitionSlot.EquipedItem.ItemDefinition.AmmunitionDescription?.EffectDescription == null ||
+                currentAmmunitionSlot.EquipedItem.ItemDefinition.AmmunitionDescription.EffectDescription
+                    .FindFirstDamageForm() != null)
+            {
+                return;
+            }
+
             if (RepeatingShot.HasRepeatingShot(mode.sourceObject as RulesetItem))
             {
                 __result = string.Empty;

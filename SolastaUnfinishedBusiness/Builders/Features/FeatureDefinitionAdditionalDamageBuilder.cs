@@ -85,7 +85,7 @@ internal class FeatureDefinitionAdditionalDamageBuilder
         return this;
     }
 
-    internal FeatureDefinitionAdditionalDamageBuilder AddConditionOperation(ConditionOperationDescription operation)
+    private FeatureDefinitionAdditionalDamageBuilder AddConditionOperation(ConditionOperationDescription operation)
     {
         Definition.ConditionOperations.Add(operation);
         return this;

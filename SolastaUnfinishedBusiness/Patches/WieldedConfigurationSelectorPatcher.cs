@@ -47,8 +47,11 @@ public static class WieldedConfigurationSelectorPatcher
             AddHandXbowWarning(__instance.offHandWarning, configuration.OffHandSlot, hero, configuration);
         }
 
-        private static void AddHandXbowWarning(RectTransform warning, RulesetInventorySlot slot,
-            RulesetCharacterHero hero, RulesetWieldedConfiguration configuration)
+        private static void AddHandXbowWarning(
+            Component warning,
+            RulesetInventorySlot slot,
+            RulesetCharacterHero hero,
+            RulesetWieldedConfiguration configuration)
         {
             if (warning == null
                 || warning.gameObject.activeSelf

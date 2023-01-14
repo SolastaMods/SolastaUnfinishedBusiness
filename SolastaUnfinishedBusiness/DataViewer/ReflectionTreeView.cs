@@ -18,8 +18,6 @@ internal class ReflectionTreeView
     private int _startIndex;
     private int _totalNodeCount;
     private ReflectionTree _tree;
-    private GUIStyle _valueStyle;
-
     private Rect _viewerRect;
     private int searchBreadth;
     private int searchDepth;
@@ -78,8 +76,6 @@ internal class ReflectionTreeView
         }
 
         _buttonStyle ??= new GUIStyle(GUI.skin.button) { alignment = TextAnchor.MiddleLeft, stretchHeight = true };
-
-        _valueStyle ??= new GUIStyle(GUI.skin.box) { alignment = TextAnchor.MiddleLeft, stretchHeight = true };
 
         var startIndexUBound = Math.Max(0, _nodesCount - MaxRows);
 

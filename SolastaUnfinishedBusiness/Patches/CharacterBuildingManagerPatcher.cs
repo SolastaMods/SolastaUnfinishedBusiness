@@ -75,9 +75,9 @@ public static class CharacterBuildingManagerPatcher
                 return true;
             }
 
-            if (heroBuildingData.LevelupTrainedInvocations.ContainsKey(tag))
+            if (heroBuildingData.LevelupTrainedInvocations.TryGetValue(tag, out var value))
             {
-                heroBuildingData.LevelupTrainedInvocations[tag].Remove(invocation);
+                value.Remove(invocation);
             }
 
             return false;
@@ -99,9 +99,9 @@ public static class CharacterBuildingManagerPatcher
                 return true;
             }
 
-            if (heroBuildingData.UnlearnedInvocations.ContainsKey(tag))
+            if (heroBuildingData.UnlearnedInvocations.TryGetValue(tag, out var value))
             {
-                heroBuildingData.UnlearnedInvocations[tag].Remove(invocation);
+                value.Remove(invocation);
             }
 
             return false;
@@ -460,10 +460,10 @@ public static class CharacterBuildingManagerPatcher
                     heroBuildingData.TempAcquiredAnyCantripOrSpellNumber);
             }
 
-            if (heroBuildingData.HeroCharacter.ActiveFeatures.ContainsKey(tag))
+            if (heroBuildingData.HeroCharacter.ActiveFeatures.TryGetValue(tag, out var value))
             {
                 heroBuildingData.HeroCharacter.BrowseFeaturesOfType<FeatureDefinitionCastSpell>(
-                    heroBuildingData.HeroCharacter.ActiveFeatures[tag],
+                    value,
                     (feature, s) => __instance.LearnFixedSpells(heroBuildingData, feature, s), tag);
             }
 
@@ -512,10 +512,9 @@ public static class CharacterBuildingManagerPatcher
 
                 if (__instance.HasAnyActivePoolOfType(heroBuildingData, HeroDefinitions.PointsPoolType.Cantrip)
                     && heroBuildingData.PointPoolStacks[HeroDefinitions.PointsPoolType.Cantrip].ActivePools
-                        .ContainsKey(poolName))
+                        .TryGetValue(poolName, out var pointPool))
                 {
-                    maxPoints = heroBuildingData.PointPoolStacks[HeroDefinitions.PointsPoolType.Cantrip]
-                        .ActivePools[poolName].MaxPoints;
+                    maxPoints = pointPool.MaxPoints;
                 }
 
                 heroBuildingData.TempAcquiredCantripsNumber = 0;
@@ -530,10 +529,10 @@ public static class CharacterBuildingManagerPatcher
                 __instance.SetPointPool(heroBuildingData, HeroDefinitions.PointsPoolType.SpellUnlearn, poolName,
                     heroBuildingData.TempUnlearnedSpellsNumber);
 
-                if (heroBuildingData.HeroCharacter.ActiveFeatures.ContainsKey(poolName))
+                if (heroBuildingData.HeroCharacter.ActiveFeatures.TryGetValue(poolName, out var value))
                 {
                     heroBuildingData.HeroCharacter.BrowseFeaturesOfType<FeatureDefinitionCastSpell>(
-                        heroBuildingData.HeroCharacter.ActiveFeatures[poolName],
+                        value,
                         (feature, s) => __instance.LearnFixedSpells(heroBuildingData, feature, s), poolName);
                 }
             }

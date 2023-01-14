@@ -4,7 +4,6 @@
   "parentCondition": null,
   "conditionType": "Beneficial",
   "features": [
-    "Definition:ConditionAffinityFreedomOfMovementRestrained:ded05463bca9c77408cbe1eba0401020",
     "Definition:MovementAffinityFreedomOfMovement:097ce72cf88822243afb196bbddc360c"
   ],
   "allowMultipleInstances": false,

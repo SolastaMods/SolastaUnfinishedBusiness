@@ -205,7 +205,12 @@ internal static class ToolsDisplay
             Main.Settings.EncounterPercentageChance = intValue;
         }
 
-        var gameTime = Gui.GameCampaign?.GameTime;
+        if (Gui.GameCampaign == null)
+        {
+            return;
+        }
+
+        var gameTime = Gui.GameCampaign.GameTime;
 
         if (gameTime == null)
         {

@@ -182,9 +182,9 @@ public static class CustomActionIdContext
         bool allowUsingDelegatedPowersAsPowers)
     {
         var isInvocationAction = IsInvocationActionId(actionId);
-        var isPoweUse = IsPowerUseActionId(actionId);
+        var isPowerUse = IsPowerUseActionId(actionId);
 
-        if (!isInvocationAction && !isPoweUse)
+        if (!isInvocationAction && !isPowerUse)
         {
             return;
         }
@@ -208,10 +208,10 @@ public static class CustomActionIdContext
         {
             var name = action.Name;
 
-            if (locationCharacter.UsedSpecialFeatures.ContainsKey(name)
-                && locationCharacter.UsedSpecialFeatures[name] >= action.UsesPerTurn)
+            if (locationCharacter.UsedSpecialFeatures.TryGetValue(name, out var value) && value >= action.UsesPerTurn)
             {
                 result = ActionStatus.Unavailable;
+
                 return;
             }
         }
@@ -242,7 +242,7 @@ public static class CustomActionIdContext
             result = CanUseInvocationAction(actionId, scope, character, canCastSpells, canOnlyUseCantrips);
         }
 
-        if (isPoweUse)
+        if (isPowerUse)
         {
             result = character.CanUsePower(action.ActivatedPower, considerHaving: true)
                 ? ActionStatus.Available

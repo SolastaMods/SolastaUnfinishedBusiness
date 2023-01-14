@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.Infrastructure;
 
@@ -285,6 +286,7 @@ internal class ItemDefinitionBuilder : DefinitionBuilder<ItemDefinition, ItemDef
 
     #region Constructors
 
+    [UsedImplicitly]
     protected ItemDefinitionBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)
     {
     }

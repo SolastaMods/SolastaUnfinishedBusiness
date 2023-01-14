@@ -1,5 +1,7 @@
 ﻿using JetBrains.Annotations;
+#if DEBUG
 using SolastaUnfinishedBusiness.Api.Diagnostics;
+#endif
 
 namespace SolastaUnfinishedBusiness.Api;
 

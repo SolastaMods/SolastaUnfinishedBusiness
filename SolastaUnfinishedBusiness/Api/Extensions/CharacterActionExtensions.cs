@@ -15,16 +15,21 @@ internal static class CharacterActionExtensions
             var attack = actionParams.AttackMode;
             var effect = attack.effectDescription;
 
-            if (effect.DifficultyClassComputation == EffectDifficultyClassComputation.FixedValue)
+            switch (effect.DifficultyClassComputation)
             {
-                saveDc = effect.FixedSavingThrowDifficultyClass;
-            }
-            else if (effect.DifficultyClassComputation == EffectDifficultyClassComputation.SpellCastingFeature)
-            {
-                var repertoire = action.ActingCharacter.RulesetCharacter?.GetClassSpellRepertoire();
-                if (repertoire != null)
+                case EffectDifficultyClassComputation.FixedValue:
+                    saveDc = effect.FixedSavingThrowDifficultyClass;
+                    break;
+
+                case EffectDifficultyClassComputation.SpellCastingFeature:
                 {
-                    saveDc = repertoire.SaveDC;
+                    var repertoire = action.ActingCharacter.RulesetCharacter?.GetClassSpellRepertoire();
+                    if (repertoire != null)
+                    {
+                        saveDc = repertoire.SaveDC;
+                    }
+
+                    break;
                 }
             }
         }

@@ -85,10 +85,9 @@ public static class CharacterStageFightingStyleSelectionPanelPatcher
                 __instance.lastGainedClassDefinition,
                 __instance.lastGainedClassLevel, lastGainedSubclass);
 
-            if (hero.ActiveFeatures.ContainsKey(tag))
+            if (hero.ActiveFeatures.TryGetValue(tag, out var value))
             {
-                fightingStyleChoiceFeature = hero.ActiveFeatures[tag]
-                    .OfType<FeatureDefinitionFightingStyleChoice>()
+                fightingStyleChoiceFeature = value.OfType<FeatureDefinitionFightingStyleChoice>()
                     .FirstOrDefault();
             }
 

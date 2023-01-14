@@ -114,24 +114,22 @@ internal static class AttacksOfOpportunity
         //Process other participants of the battle
         foreach (var unit in units)
         {
-            if (mover != unit
-                && mover.IsOppositeSide(unit.Side)
-                && MovingCharactersCache.TryGetValue(mover.Guid, out var movement))
+            if (mover == unit
+                || !mover.IsOppositeSide(unit.Side)
+                || !MovingCharactersCache.TryGetValue(mover.Guid, out var movement))
             {
-                if (unit.GetActionTypeStatus(ActionType.Reaction) == ActionStatus.Available)
-                {
-                    yield return ProcessPolearmExpert(unit, mover, movement, battleManager);
-                }
+                continue;
+            }
 
-                foreach (var brace in unit.RulesetActor.GetSubFeaturesByType<MartialTactician.Brace>())
-                {
-                    if (!brace.CanReact(unit))
-                    {
-                        continue;
-                    }
+            if (unit.GetActionTypeStatus(ActionType.Reaction) == ActionStatus.Available)
+            {
+                yield return ProcessPolearmExpert(unit, mover, movement, battleManager);
+            }
 
-                    yield return brace.Process(unit, mover, movement, battleManager);
-                }
+            foreach (var brace in unit.RulesetActor.GetSubFeaturesByType<MartialTactician.Brace>()
+                         .Where(brace => MartialTactician.Brace.CanReact(unit)))
+            {
+                yield return brace.Process(unit, mover, movement, battleManager);
             }
         }
     }
@@ -228,8 +226,20 @@ internal static class AttacksOfOpportunity
     internal static bool IsSubjectToAttackOfOpportunity(RulesetCharacter character, RulesetCharacter attacker,
         bool def, float distance)
     {
-        return def || attacker.GetSubFeaturesByType<ICanIgnoreAoOImmunity>()
-            .Any(f => f.CanIgnoreAoOImmunity(character, attacker, distance));
+        if (attacker.GetSubFeaturesByType<ICanIgnoreAoOImmunity>()
+            .Any(f => f.CanIgnoreAoOImmunity(character, attacker, distance)))
+        {
+            return true;
+        }
+
+        if (character.HasSubFeatureOfType<IImmuneToAooOfRecentAttackedTarget>() &&
+            character.proximityByAttackedCreature.TryGetValue(attacker.Guid, out var value) &&
+            value == (int)RuleDefinitions.AttackProximity.Melee)
+        {
+            return false;
+        }
+
+        return def;
     }
 }
 

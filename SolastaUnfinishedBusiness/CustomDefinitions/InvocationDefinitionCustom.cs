@@ -15,25 +15,22 @@ internal class InvocationDefinitionCustom : InvocationDefinition, IDefinitionWit
     internal ItemDefinition Item { get; set; }
 
     internal Id MainActionId => PoolType?.MainActionId ?? Id.CastInvocation;
-    internal Id BonusActionId => PoolType?.BonusActionId ?? (Id)ExtraActionId.CastInvocationBonus;
-    internal Id NoCostActionId => PoolType?.NoCostActionId ?? (Id)ExtraActionId.CastInvocationNoCost;
+    private Id BonusActionId => PoolType?.BonusActionId ?? (Id)ExtraActionId.CastInvocationBonus;
+    private Id NoCostActionId => PoolType?.NoCostActionId ?? (Id)ExtraActionId.CastInvocationNoCost;
 
     internal Id BattleActionId
     {
         get
         {
             var type = this.GetActionType();
-            switch (type)
-            {
-                case ActionType.Main:
-                    return MainActionId;
-                case ActionType.Bonus:
-                    return BonusActionId;
-                case ActionType.NoCost:
-                    return NoCostActionId;
-            }
 
-            return MainActionId;
+            return type switch
+            {
+                ActionType.Main => MainActionId,
+                ActionType.Bonus => BonusActionId,
+                ActionType.NoCost => NoCostActionId,
+                _ => MainActionId
+            };
         }
     }
 

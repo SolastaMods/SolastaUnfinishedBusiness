@@ -22,7 +22,7 @@ internal static class CustomConditionsContext
 
     private static ConditionDefinition ConditionInvisibilityEveryRoundRevealed { get; set; }
 
-    internal static ConditionDefinition ConditionInvisibilityEveryRoundHidden { get; set; }
+    private static ConditionDefinition ConditionInvisibilityEveryRoundHidden { get; set; }
 
     internal static void Load()
     {

@@ -92,7 +92,7 @@ internal static class MulticlassInOutRulesContext
 
     [SuppressMessage("Convert switch statement to expression", "IDE0066")]
     private static bool ApproveMultiClassInOut(
-        RulesetCharacterHero hero,
+        RulesetCharacter hero,
         [NotNull] BaseDefinition classDefinition)
     {
         if (classDefinition.GuiPresentation.Hidden)
