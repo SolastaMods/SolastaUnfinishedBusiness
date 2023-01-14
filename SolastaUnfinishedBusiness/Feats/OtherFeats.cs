@@ -310,7 +310,6 @@ internal static class OtherFeats
             .Create("FeatMonkInitiate")
             .SetGuiPresentation(Category.Feat)
             .SetFeatures(
-                AttackModifierMonkMartialArtsImprovedDamage,
                 PowerMonkPatientDefense,
                 FeatureSetMonkStepOfTheWind,
                 FeatureSetMonkFlurryOfBlows,
