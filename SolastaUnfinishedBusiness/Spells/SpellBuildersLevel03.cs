@@ -7,7 +7,6 @@ using UnityEngine.AddressableAssets;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.ConditionDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
-using static EffectForm;
 using static RuleDefinitions;
 
 namespace SolastaUnfinishedBusiness.Spells;
@@ -69,58 +68,6 @@ internal static partial class SpellBuilders
                     .SetConditionForm(conditionBlindingSmite, ConditionForm.ConditionOperation.Add)
                     .Build())
                 .Build())
-            .AddToDB();
-
-        return spell;
-    }
-
-    internal static SpellDefinition BuildEarthTremor()
-    {
-        const string NAME = "EarthTremor";
-
-        var spriteReference = Sprites.GetSprite(NAME, Resources.EarthTremor, 128, 128);
-
-        var rubbleProxy = EffectProxyDefinitionBuilder
-            .Create(EffectProxyDefinitions.ProxyGrease, "EarthTremorRubbleProxy")
-            .AddToDB();
-
-        var effectDescription = EffectDescriptionBuilder
-            .Create()
-            .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel, 1, 0, 1)
-            .SetSavingThrowData(
-                false,
-                AttributeDefinitions.Dexterity,
-                false,
-                EffectDifficultyClassComputation.SpellCastingFeature,
-                AttributeDefinitions.Wisdom,
-                12)
-            .SetDurationData(DurationType.Minute, 10)
-            .SetParticleEffectParameters(Grease)
-            .SetTargetingData(Side.All, RangeType.Distance, 24, TargetType.Cylinder, 2, 1)
-            .SetEffectForms(
-                EffectFormBuilder
-                    .Create()
-                    .SetSummonEffectProxyForm(rubbleProxy)
-                    .Build(),
-                EffectFormBuilder
-                    .Create()
-                    .SetMotionForm(MotionForm.MotionType.FallProne, 1)
-                    .HasSavingThrow(EffectSavingThrowType.Negates).Build(),
-                EffectFormBuilder
-                    .Create()
-                    .SetDamageForm(DamageTypeBludgeoning, 3, DieType.D12)
-                    .HasSavingThrow(EffectSavingThrowType.HalfDamage).Build(),
-                Grease.EffectDescription.EffectForms.Find(e => e.formType == EffectFormType.Topology))
-            .Build();
-
-        var spell = SpellDefinitionBuilder
-            .Create(NAME)
-            .SetGuiPresentation(Category.Spell, spriteReference)
-            .SetEffectDescription(effectDescription)
-            .SetCastingTime(ActivationTime.Action)
-            .SetSpellLevel(3)
-            .SetVocalSpellSameType(VocalSpellSemeType.Attack)
-            .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolTransmutation)
             .AddToDB();
 
         return spell;

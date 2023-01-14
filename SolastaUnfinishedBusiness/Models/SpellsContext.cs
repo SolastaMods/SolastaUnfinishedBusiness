@@ -204,6 +204,7 @@ internal static class SpellsContext
 
         // 1st level
         RegisterSpell(BuildChromaticOrb(), 0, SpellListSorcerer, SpellListWizard);
+        RegisterSpell(BuildEarthTremor(), 0, SpellListBard, SpellListDruid, SpellListSorcerer, SpellListWizard);
         RegisterSpell(EnsnaringStrike, 0, SpellListPaladin);
         RegisterSpell(BuildMule(), 0, SpellListWizard);
         RegisterSpell(BuildRadiantMotes(), 0, SpellListWizard, spellListInventorClass);
@@ -219,7 +220,6 @@ internal static class SpellsContext
 
         // 3rd level
         RegisterSpell(BuildBlindingSmite(), 0, SpellListPaladin);
-        RegisterSpell(BuildEarthTremor(), 0, SpellListDruid, SpellListSorcerer, SpellListWizard);
         RegisterSpell(BuildWinterBreath(), 0, SpellListDruid, SpellListSorcerer, SpellListWizard);
         RegisterSpell(BuildSpiritShroud(), 0, SpellListCleric, SpellListPaladin, SpellListWarlock, SpellListWizard);
 

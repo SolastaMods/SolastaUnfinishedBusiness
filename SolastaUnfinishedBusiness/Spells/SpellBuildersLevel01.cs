@@ -84,6 +84,60 @@ internal static partial class SpellBuilders
             .AddToDB();
     }
 
+
+    internal static SpellDefinition BuildEarthTremor()
+    {
+        const string NAME = "EarthTremor";
+
+        var spriteReference = Sprites.GetSprite(NAME, Resources.EarthTremor, 128, 128);
+
+        var rubbleProxy = EffectProxyDefinitionBuilder
+            .Create(EffectProxyDefinitions.ProxyGrease, "EarthTremorRubbleProxy")
+            .AddToDB();
+
+        var effectDescription = EffectDescriptionBuilder
+            .Create()
+            .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel, 1, 0, 1)
+            .SetSavingThrowData(
+                false,
+                AttributeDefinitions.Dexterity,
+                false,
+                EffectDifficultyClassComputation.SpellCastingFeature)
+            .SetDurationData(DurationType.Minute, 1)
+            .SetParticleEffectParameters(Grease)
+            .SetTargetingData(Side.All, RangeType.Distance, 24, TargetType.Cylinder, 2, 1)
+            .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel, 1, additionalDicePerIncrement: 1)
+            .SetEffectForms(
+                EffectFormBuilder
+                    .Create()
+                    .SetSummonEffectProxyForm(rubbleProxy)
+                    .Build(),
+                EffectFormBuilder
+                    .Create()
+                    .SetMotionForm(MotionForm.MotionType.FallProne, 1)
+                    .HasSavingThrow(EffectSavingThrowType.Negates)
+                    .Build(),
+                EffectFormBuilder
+                    .Create()
+                    .SetDamageForm(DamageTypeBludgeoning, 1, DieType.D6)
+                    .HasSavingThrow(EffectSavingThrowType.HalfDamage)
+                    .Build(),
+                Grease.EffectDescription.EffectForms.Find(e => e.formType == EffectForm.EffectFormType.Topology))
+            .Build();
+
+        var spell = SpellDefinitionBuilder
+            .Create(NAME)
+            .SetGuiPresentation(Category.Spell, spriteReference)
+            .SetEffectDescription(effectDescription)
+            .SetCastingTime(ActivationTime.Action)
+            .SetSpellLevel(1)
+            .SetVocalSpellSameType(VocalSpellSemeType.Attack)
+            .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolEvocation)
+            .AddToDB();
+
+        return spell;
+    }
+
     internal static SpellDefinition BuildEnsnaringStrike()
     {
         const string NAME = "EnsnaringStrike";
