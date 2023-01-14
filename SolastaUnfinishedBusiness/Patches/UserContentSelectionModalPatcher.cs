@@ -10,7 +10,7 @@ public static class UserContentSelectionModalPatcher
     public static class PostLoadJson_Patch
     {
         //BUGFIX: Allows DM to export loot packs to other campaigns (DMP)
-        private static bool Prefix(UserContentSelectionModal __instance)
+        public static bool Prefix(UserContentSelectionModal __instance)
         {
             __instance.contentsByType.Clear();
             __instance.groupsByType.Clear();

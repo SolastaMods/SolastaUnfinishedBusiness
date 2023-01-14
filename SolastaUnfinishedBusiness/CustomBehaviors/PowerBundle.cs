@@ -441,9 +441,9 @@ internal static class PowerBundle
 
     private static SpellDefinition RegisterPower([NotNull] FeatureDefinitionPower power)
     {
-        if (Powers2Spells.ContainsKey(power))
+        if (Powers2Spells.TryGetValue(power, out var value))
         {
-            return Powers2Spells[power];
+            return value;
         }
 
         var spell = SpellDefinitionBuilder.Create($"Spell{power.name}")
