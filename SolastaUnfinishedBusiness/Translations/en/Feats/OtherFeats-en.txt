@@ -1,5 +1,3 @@
-Condition/&ConditionFeatMobileAfterAttackDescription=Grants a Disengage action.
-Condition/&ConditionFeatMobileAfterAttackTitle=Mobility
 Condition/&ConditionFeatMobileAfterDashDescription=Grants immunity to movement restrictions as well as being restrained.
 Condition/&ConditionFeatMobileAfterDashTitle=Freedom
 Feat/&FeatAstralArmsDescription=Increase your Wisdom by 1, to a maximum of 20.\nWhen you make an unarmed strike on your turn, your reach for it is 10 feet.

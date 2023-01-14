@@ -1,5 +1,3 @@
-Condition/&ConditionFeatMobileAfterAttackDescription=Concede uma ação Desengajar.
-Condition/&ConditionFeatMobileAfterAttackTitle=Mobilidade
 Condition/&ConditionFeatMobileAfterDashDescription=Concede imunidade a restrições de movimento, além de ser contido.
 Condition/&ConditionFeatMobileAfterDashTitle=Liberdade
 Feat/&FeatAstralArmsDescription=Aumente sua Sabedoria em 1, até um máximo de 20.\nQuando você desfere um ataque desarmado em seu turno, seu alcance é de 3 metros.

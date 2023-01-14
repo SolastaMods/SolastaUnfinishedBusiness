@@ -1,5 +1,3 @@
-Condition/&ConditionFeatMobileAfterAttackDescription=Получите действие Отход.
-Condition/&ConditionFeatMobileAfterAttackTitle=Подвижность
 Condition/&ConditionFeatMobileAfterDashDescription=Предоставляет иммунитет к ограничениям передвижения, а также к удержаниям.
 Condition/&ConditionFeatMobileAfterDashTitle=Свобода
 Feat/&FeatAstralArmsDescription=Увеличьте свою Мудрость на 1, до максимума 20.\Когда вы наносите безоружный удар в свой ход, дальность этих атак увеличивается до 10 футов.

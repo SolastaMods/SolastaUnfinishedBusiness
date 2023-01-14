@@ -1,5 +1,3 @@
-Condition/&ConditionFeatMobileAfterAttackDescription=Confère une action de désengagement.
-Condition/&ConditionFeatMobileAfterAttackTitle=Mobilité
 Condition/&ConditionFeatMobileAfterDashDescription=Accorde l'immunité aux restrictions de mouvement ainsi qu'à la contention.
 Condition/&ConditionFeatMobileAfterDashTitle=Liberté
 Feat/&FeatAstralArmsDescription=Augmentez votre Sagesse de 1, jusqu'à un maximum de 20.\nLorsque vous portez une frappe à mains nues à votre tour, votre portée est de 3 mètres.

@@ -1,5 +1,3 @@
-Condition/&ConditionFeatMobileAfterAttackDescription=Concede un'azione Disimpegno.
-Condition/&ConditionFeatMobileAfterAttackTitle=Mobilità
 Condition/&ConditionFeatMobileAfterDashDescription=Garantisce l'immunità alle restrizioni di movimento oltre a essere trattenuto.
 Condition/&ConditionFeatMobileAfterDashTitle=Libertà
 Feat/&FeatAstralArmsDescription=Aumenta la tua Saggezza di 1, fino a un massimo di 20.\nQuando effettui un colpo senz'armi durante il tuo turno, la tua portata è di 3 metri.

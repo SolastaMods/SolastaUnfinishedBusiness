@@ -1,7 +1,5 @@
 Condition/&ConditionFeatMobileAfterDashDescription=对限制移动的状态及束缚免疫。
 Condition/&ConditionFeatMobileAfterDashTitle=行动自如
-Condition/&ConditionFeatMobileAfterAttackDescription=获得一个撤离动作。
-Condition/&ConditionFeatMobileAfterAttackTitle=敏捷
 Feat/&FeatAstralArmsDescription=将你的感知提高 1，最多 20。\当你进行徒手攻击时，你的触及范围为 10 尺。
 Feat/&FeatAstralArmsTitle=星臂
 Feat/&FeatHealerDescription=你获得医学检定的熟练项或专精。 每次长休一次，你将获得稳定濒死生物伤势以及复活在两轮内死亡的生物的能力。 你还可以使用一个动作来恢复 1d6 + 4 + 角色等级生命值，每次短休后的可用次数等于你的感知调整值。

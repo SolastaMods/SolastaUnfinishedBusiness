@@ -1,5 +1,3 @@
-Condition/&ConditionFeatMobileAfterAttackDescription=Gewährt eine Aktion Lösen.
-Condition/&ConditionFeatMobileAfterAttackTitle=Mobilität
 Condition/&ConditionFeatMobileAfterDashDescription=Gewährt Immunität gegen Bewegungseinschränkungen und wird zurückgehalten.
 Condition/&ConditionFeatMobileAfterDashTitle=Freiheit
 Feat/&FeatAstralArmsDescription=Erhöhe deine Weisheit um 1 bis zu einem Maximum von 20.\nWenn du in deinem Zug einen unbewaffneten Schlag ausführst, hast du eine Reichweite von 3 m.
