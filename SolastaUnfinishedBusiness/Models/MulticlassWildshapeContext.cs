@@ -1,7 +1,10 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using SolastaUnfinishedBusiness.Api;
+using SolastaUnfinishedBusiness.Builders;
+using SolastaUnfinishedBusiness.Builders.Features;
 using UnityEngine;
+using static ActionDefinitions;
 using static FeatureDefinitionFeatureSet;
 
 namespace SolastaUnfinishedBusiness.Models;
@@ -35,6 +38,20 @@ internal static class MulticlassWildshapeContext
         FixShapeShiftedAc(monster);
     }
 
+    private static readonly ConditionDefinition ConditionWildshapeFlurryOfBlows = ConditionDefinitionBuilder
+        .Create("ConditionWildshapeFlurryOfBlows")
+        .SetGuiPresentationNoContent(true)
+        .SetSilent(Silent.WhenAddedOrRemoved)
+        .SetFeatures(FeatureDefinitionActionAffinityBuilder
+            .Create("ActionAffinityWildshapeFlurryOfBlows")
+            .SetGuiPresentationNoContent(true)
+            .SetDefaultAllowedActionTypes()
+            .SetAuthorizedActions(Id.AttackMain)
+            .SetForbiddenActions(Id.DashMain, Id.DisengageMain, Id.Dodge, Id.HideMain, Id.Ready, Id.Shove)
+            .SetMaxAttackNumber(-1)
+            .AddToDB())
+        .AddToDB();
+
     internal static void HandleFlurryOfBlows(RulesetCharacter __instance, ConditionDefinition conditionDefinition)
     {
         if (__instance is not RulesetCharacterMonster { IsSubstitute: true } monster ||
@@ -45,9 +62,19 @@ internal static class MulticlassWildshapeContext
 
         var gameLocationCharacter = GameLocationCharacter.GetFromActor(monster);
 
-        gameLocationCharacter.usedMainAttacks -= 2;
-        gameLocationCharacter.hasAttackedSinceLastTurn = false;
-        gameLocationCharacter.RefreshActionPerformances();
+        var rulesetCondition = RulesetCondition.CreateActiveCondition(
+            gameLocationCharacter.Guid,
+            ConditionWildshapeFlurryOfBlows,
+            RuleDefinitions.DurationType.Round,
+            1,
+            RuleDefinitions.TurnOccurenceType.StartOfTurn,
+            gameLocationCharacter.Guid,
+            gameLocationCharacter.RulesetCharacter.CurrentFaction.Name);
+
+        gameLocationCharacter.HasAttackedSinceLastTurn = false;
+        gameLocationCharacter.UsedMainAttacks = 0;
+        gameLocationCharacter.RulesetCharacter.AddConditionOfCategory(AttributeDefinitions.TagCombat, rulesetCondition);
+        gameLocationCharacter.RefundActionUse(ActionType.Main);
     }
 
     private static void UpdateSenses(RulesetCharacterMonster monster)
@@ -170,15 +197,11 @@ internal static class MulticlassWildshapeContext
 
         monster.FeaturesToBrowse.Clear();
 
-        foreach (var pair in hero.ActiveFeatures)
+        foreach (var pair in hero.ActiveFeatures
+                     .Where(pair =>
+                         pair.Key.Contains(AttributeDefinitions.TagClass) ||
+                         pair.Key.Contains(AttributeDefinitions.TagSubclass)))
         {
-            //process only class and subclass features, feats are processed on base method
-            if (!pair.Key.Contains(AttributeDefinitions.TagClass)
-                && !pair.Key.Contains(AttributeDefinitions.TagSubclass))
-            {
-                continue;
-            }
-
             EnumerateFeaturesToBrowseHierarchicaly<FeatureDefinition>(pair.Value, monster.FeaturesToBrowse,
                 RuleDefinitions.FeatureSourceType.MonsterFeature, null, hero);
         }

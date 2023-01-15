@@ -5,7 +5,9 @@ using TA;
 //This should have default namespace so that it can be properly created by `CharacterActionPatcher`
 // ReSharper disable once CheckNamespace
 [UsedImplicitly]
+#pragma warning disable CA1050
 public class CharacterActionPushedCustom : CharacterAction
+#pragma warning restore CA1050
 {
     private readonly bool forceFallProne;
     private readonly bool forceSourceCharacterTurnTowardsTargetAfterPush;

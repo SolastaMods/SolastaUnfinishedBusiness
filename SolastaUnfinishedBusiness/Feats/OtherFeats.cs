@@ -10,7 +10,6 @@ using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Properties;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
-using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionAttackModifiers;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionAttributeModifiers;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionFeatureSets;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPowers;
@@ -310,7 +309,6 @@ internal static class OtherFeats
             .Create("FeatMonkInitiate")
             .SetGuiPresentation(Category.Feat)
             .SetFeatures(
-                AttackModifierMonkMartialArtsImprovedDamage,
                 PowerMonkPatientDefense,
                 FeatureSetMonkStepOfTheWind,
                 FeatureSetMonkFlurryOfBlows,

@@ -1,4 +1,3 @@
-
 Action/&CastPlaneMagicDescription=施展你从位面亲和专长中获得的法术之一
 Action/&CastPlaneMagicTitle=通道位面魔法
 Action/&FarStepDescription=传送最多 60 英尺到一个你能看到的未被占用的空间。
@@ -11,6 +10,8 @@ Action/&PaladinSmiteToggleDescription=对任何攻击启用打击，否则仅对
 Action/&PaladinSmiteToggleTitle=重击
 Action/&TacticianGambitDescription=选择特殊动作
 Action/&TacticianGambitTitle=策略
+Action/&WildshapeSwapAttackToggleDescription=交换攻击
+Action/&WildshapeSwapAttackToggleTitle=交换
 BlueprintCategory/&FlatRoomsTitle=水平空间
 ContentPack/&9999Description=未竟之业Pack增加了多职业、种族、子职业、专长、战斗风格和法术。 有更高的等级上限、QOL 功能、修复等。 这是名副其实的丰饶号角 (TM)...
 ContentPack/&9999Title=未竟之业
@@ -76,8 +77,6 @@ RestActivity/&RestActivityRespecTitle=洗点来源
 Rules/&SituationalContext1000Format=主要武器是近战：
 Rules/&SituationalContext1001Format=不穿盔甲或没有盾牌的轻甲：
 Rules/&SituationalContext1004Format=攻击者不是效果的来源：
-Rules/&SituationalContext1004Format=攻击者不是效果的来源：
-Rules/&SituationalContext1005Format=野兽在召唤师旁边：
 Rules/&SituationalContext1005Format=野兽在召唤者旁边：
 Rules/&SituationalContext1006Format=主要武器是大剑：
 Screen/&ClassExtraSpellDescriptionFormat=你从 {0} 职业中学会了这个法术

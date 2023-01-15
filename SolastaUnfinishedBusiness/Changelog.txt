@@ -1,6 +1,6 @@
 CHANGES:
 
-- changed Ape attack order to first offer ranged [rock]
-- changed Deep Spider attack order to first offer ranged [web]
-- improved Mobile feat to be on par with tabletop
-- updated War Caster feat somatic components description
+- added an Interface > Game UI setting for a Druid wildshape attack toggle [useful with a mix of melee and ranged ones]
+- changed Earth Tremor spell to be on par with tabletop
+- improved Wild Shape and Flurry of Blows integration
+- updated Monk Initiate feat incorrect +1d4 damage description

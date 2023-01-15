@@ -87,6 +87,12 @@ internal static class GameUiDisplay
 
         UI.Label();
 
+        toggle = Main.Settings.AddWildshapeSwapAttackToggle;
+        if (UI.Toggle(Gui.Localize("ModUi/&AddWildshapeSwapAttackToggle"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.AddWildshapeSwapAttackToggle = toggle;
+        }
+
         toggle = Main.Settings.AddMonkKiPointsToggle;
         if (UI.Toggle(Gui.Localize("ModUi/&AddMonkKiPointsToggle"), ref toggle, UI.AutoWidth()))
         {

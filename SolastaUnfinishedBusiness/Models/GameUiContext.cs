@@ -688,6 +688,37 @@ internal static class GameUiContext
             .AddToDB();
     }
 
+    private static FeatureDefinitionActionAffinity ActionAffinityWildshapeSwapAttackToggle { get; set; }
+
+    private static void LoadWildshapeSwapAttackToggle()
+    {
+        _ = ActionDefinitionBuilder
+            .Create(DatabaseHelper.ActionDefinitions.MetamagicToggle, "WildshapeSwapAttackToggle")
+            .SetOrUpdateGuiPresentation(Category.Action)
+            .RequiresAuthorization()
+            .SetActionId(ExtraActionId.WildshapeSwapAttackToggle)
+            .AddToDB();
+
+        ActionAffinityWildshapeSwapAttackToggle = FeatureDefinitionActionAffinityBuilder
+            .Create(DatabaseHelper.FeatureDefinitionActionAffinitys.ActionAffinitySorcererMetamagicToggle,
+                "ActionAffinityWildshapeSwapAttackToggle")
+            .SetGuiPresentationNoContent(true)
+            .SetAuthorizedActions((ActionDefinitions.Id)ExtraActionId.WildshapeSwapAttackToggle)
+            .AddToDB();
+    }
+
+    internal static void AddWildshapeSwapAttackToggle(RulesetCharacterMonster monster)
+    {
+        var monsterDefinition = monster.MonsterDefinition;
+
+        if (Main.Settings.AddWildshapeSwapAttackToggle &&
+            monsterDefinition.AttackIterations.Count > 1 &&
+            monsterDefinition.AttackIterations[0] != monsterDefinition.AttackIterations[1])
+        {
+            monster.ActiveFeatures.Add(ActionAffinityWildshapeSwapAttackToggle);
+        }
+    }
+
     internal static void Load()
     {
         InventoryManagementContext.Load();
@@ -696,6 +727,7 @@ internal static class GameUiContext
         LoadRemoveBugVisualModels();
         LoadMonkKiPointsToggle();
         LoadPaladinSmiteToggle();
+        LoadWildshapeSwapAttackToggle();
 
         var inputService = ServiceRepository.GetService<IInputService>();
 

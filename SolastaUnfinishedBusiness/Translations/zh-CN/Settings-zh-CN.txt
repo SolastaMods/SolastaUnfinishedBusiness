@@ -3,10 +3,13 @@ ModUi/&AddBleedingToLesserRestoration=添加<color=#D89555>流血</color>状态�
 ModUi/&AddCustomIconsToOfficialItems=为黯蚀、火焰和闪电弩箭添加自定义图标和对应的配方<b><i><color=#C04040E0>【需要重启】</color></i></b>
 ModUi/&AddHelpActionToAllRaces=添加<color=#D89555>协助</color>动作至全部种族
 ModUi/&AddHumanoidFavoredEnemyToRanger=为<color=#D89555>巡林客</color>添加类人生物宿敌
+ModUi/&AddMonkKiPointsToggle=添加一个开关以允许<color=#D89555>僧侣</color>启用/禁用 Ki 点<i><color=#F0DAA0>[用于最小化反应提示]</color></i>
 ModUi/&AddNewBrightEyeColors=添加一种全新的明亮眼睛颜色
 ModUi/&AddNewWeaponsAndRecipesToShops=添加新的武器和配方至商店<color=#F0DAA0>【裹手，戟，长矛，长钉头锤，手弩】</color> <color=#C04040E0>【需要重启游戏】</color>
+ModUi/&AddPaladinSmiteToggle=添加一个开关以允许 <color=#D89555>Paladins</color> 仅在暴击时启用打击<i><color=#F0DAA0>[有助于最小化反应提示]</color></i>
 ModUi/&AddPickPocketableLoot=添加可扒窃的战利品<color=#F0DAA0>【建议在<color=#D89555>扒窃</color>专长被启用时启用】</color>
 ModUi/&AddToStore=加入商店
+ModUi/&AddWildshapeSwapAttackToggle=添加一个开关以允许 <color=#D89555>Druids</color> 以 wildshape 形式交换先使用哪个攻击
 ModUi/&Advanced=<color=#F0DAA0>进阶选项：</color> <b><i><color=#C04040E0>【需要重启游戏】</color></i></b>
 ModUi/&AdvancedHelp=. <b><color=#C04040E0>注意：</color></b>此项设置将要求玩家安装此Mod
 ModUi/&Adventure=<color=#F0DAA0>冒险：</color>
@@ -46,6 +49,8 @@ ModUi/&CreditsAndDiagnostics=致敬与诊断
 ModUi/&DeadEyeAndPowerAttackBaseBaseValue=<color=white>设置神枪手与猛力攻击的基础修正值</color>\n<i><color=#F0DAA0>[公式是 -mod 命中/mod + 熟练加值伤害]</color></i>
 ModUi/&DisableAutoEquip=禁止自动装备物品栏的物品
 ModUi/&DisableRacePrerequisitesOnModFeats=无视此MOD提供的部分专长所需要的种族先决条件
+ModUi/&DisableSenseDarkVisionFromAllRaces=禁用所有可玩种族的<color=#D89555>Sense Dark Vision</color><b><i><color=#C04040E0>[Requires Restart]</color></i></b>
+ModUi/&DisableSenseSuperiorDarkVisionFromAllRaces=禁用所有可玩种族的<color=#D89555>Superior Sense Dark Vision</color><b><i><color=#C04040E0>[需要重启]</color></i></b>
 ModUi/&DisplayAllKnownSpellsDuringLevelUp=<i>+ 在升级过程中显示其他职业的所有已知法术</i>
 ModUi/&DisplayPactSlotsOnSpellSelectionPanel=<i>+ 在选择法术时而非角色面板上显示<color=#D89555>邪术师</color> 契约槽位</i>
 ModUi/&DontFollowCharacterInBattle=摄像机不再跟随已出现在屏幕上的角色
@@ -187,7 +192,3 @@ ModUi/&UnlockSkinColors=解锁全部皮肤颜色
 ModUi/&UseHeightOneCylinderEffect=施放<color=#D89555>艾伐黑触手、纠缠术、油腻术</color> <i><color=#F0DAA0>【方形】</color></i> or <color=#D89555>荆棘丛生</color> <i><color=#F0DAA0>【圆形】</color></i>时，显示高度为1的圆柱效果范围
 ModUi/&UseOfficialAdvantageDisadvantageRules=应用官方的优势/劣势规则
 ModUi/&Visuals=<color=#F0DAA0>视效：</color> <b><i><color=#C04040E0>【需要重启游戏】</color></i></b>
-ModUi/&AddMonkKiPointsToggle=添加一个开关以允许<color=#D89555>僧侣</color>启用/禁用 Ki 点<i><color=#F0DAA0>[用于最小化反应提示]</color></i>
-ModUi/&AddPaladinSmiteToggle=添加一个开关以允许 <color=#D89555>Paladins</color> 仅在暴击时启用打击<i><color=#F0DAA0>[有助于最小化反应提示]</color></i>
-ModUi/&DisableSenseDarkVisionFromAllRaces=禁用所有可玩种族的<color=#D89555>Sense Dark Vision</color><b><i><color=#C04040E0>[Requires Restart]</color></i></b>
-ModUi/&DisableSenseSuperiorDarkVisionFromAllRaces=禁用所有可玩种族的<color=#D89555>Superior Sense Dark Vision</color><b><i><color=#C04040E0>[需要重启]</color></i></b>

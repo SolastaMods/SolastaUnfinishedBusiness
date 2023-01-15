@@ -31,5 +31,5 @@ Reaction/&ReactionWarcasterTitle=借机攻击
 Reaction/&SubitemSelectReactionWarcasterTitle=选择动作
 Reaction/&WarcasterAttackDescription=攻击目标
 Reaction/&WarcasterAttackTitle=攻击
-Feat/&FeatMonkInitiateDescription=你已经学会了和尚的一些方式。你的徒手攻击造成 1d4 + 你的力量或敏捷调整值。您获得的气点等于您的熟练加值，您可以使用这些气来使用连击、耐心防御或风之步。
+Feat/&FeatMonkInitiateDescription=你已经学会了和尚的一些方式。您获得的气点等于您的熟练加值，您可以使用这些气来使用连击、耐心防御或风之步。
 Feat/&FeatMonkInitiateTitle=修道士
