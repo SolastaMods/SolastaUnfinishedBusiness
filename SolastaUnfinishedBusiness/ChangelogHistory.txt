@@ -1,5 +1,10 @@
 ﻿CHANGES:
 
+1.4.33.7:
+
+- added a Gameplay > Rules setting to make all large wildshape forms medium size
+- added a custom icon to Petal Storm spell
+
 1.4.33.6:
 
 - added an Interface > Game UI setting for a Druid wildshape attack toggle [useful with a mix of melee and ranged ones]
