@@ -12,7 +12,7 @@ internal enum ExtraSituationalContext
     // MainWeaponIsVersatileWithoutShield = 1003,
     TargetIsNotEffectSource = 1004,
     SummonerIsNextToBeast = 1005,
-    MainWeaponIsGreatSword = 1006,
+    MainWeaponIsGreatSword = 1006
 }
 
 #if false

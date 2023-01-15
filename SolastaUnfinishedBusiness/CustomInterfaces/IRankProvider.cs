@@ -2,5 +2,5 @@
 
 public interface IRankProvider
 {
-    int GetRank(RulesetCharacter chracter);
+    int GetRank(RulesetCharacter character);
 }

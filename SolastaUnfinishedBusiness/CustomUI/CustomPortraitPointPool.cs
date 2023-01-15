@@ -74,6 +74,7 @@ internal class CustomPortraitPointPool : MonoBehaviour
         gameObject.SetActive(true); //Do we need ability to set to inactive on update?
 
         //yes, this label name has a typo
+        // ReSharper disable once StringLiteralTypo
         var label = transform.Find("SorceyPointsLabel")?.GetComponent<GuiLabel>();
 
         if (label != null)

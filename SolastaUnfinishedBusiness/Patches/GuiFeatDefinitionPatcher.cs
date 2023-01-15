@@ -65,13 +65,14 @@ public static class GuiFeatDefinitionPatcher
         public static bool Prefix(GuiFeatDefinition __instance, ref string __result)
         {
             //PATCH: use 'Feat Group' as subtitle for feats that are feat groups
-            if (__instance.FeatDefinition.HasSubFeatureOfType<GroupedFeat>())
+            if (!__instance.FeatDefinition.HasSubFeatureOfType<GroupedFeat>())
             {
-                __result = "Tooltip/&FeatGroupTitle";
-                return false;
+                return true;
             }
 
-            return true;
+            __result = "Tooltip/&FeatGroupTitle";
+
+            return false;
         }
     }
 }

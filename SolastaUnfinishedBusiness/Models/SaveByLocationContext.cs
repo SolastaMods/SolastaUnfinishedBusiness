@@ -145,14 +145,15 @@ internal static class SaveByLocationContext
 
         switch (mostRecent.LocationType)
         {
-            default:
-                selectedCampaignService.SetStandardCampaignLocation();
-                break;
             case LocationType.UserLocation:
                 selectedCampaignService.SetCampaignLocation(UserCampaign, Path.GetFileName(mostRecent.Path));
                 break;
             case LocationType.CustomCampaign:
                 selectedCampaignService.SetCampaignLocation(Path.GetFileName(mostRecent.Path), string.Empty);
+                break;
+            case LocationType.StandardCampaign:
+            default:
+                selectedCampaignService.SetStandardCampaignLocation();
                 break;
         }
     }

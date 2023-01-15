@@ -142,15 +142,17 @@ public static class GameLocationCharacterPatcher
 
             //PATCH: force show power use button during exploration if it has at least one usable power
             //This makes it so that if a character only has powers that take longer than an action to activate the "Use Power" button is available.
-            if (!__result && !battleInProgress)
+            if (__result || battleInProgress)
             {
-                if (actionType == ActionDefinitions.ActionType.Main
-                    && rulesetCharacter.UsablePowers.Any(rulesetUsablePower =>
-                        CanUsePower(rulesetCharacter, rulesetUsablePower, accountDelegatedPowers)))
+                return;
+            }
 
-                {
-                    __result = true;
-                }
+            if (actionType == ActionDefinitions.ActionType.Main
+                && rulesetCharacter.UsablePowers.Any(rulesetUsablePower =>
+                    CanUsePower(rulesetCharacter, rulesetUsablePower, accountDelegatedPowers)))
+
+            {
+                __result = true;
             }
         }
 

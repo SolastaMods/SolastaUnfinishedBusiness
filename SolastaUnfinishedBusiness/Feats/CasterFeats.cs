@@ -23,8 +23,6 @@ internal static class CasterFeats
     {
         var groups = new List<FeatDefinition>();
         var groupFeats = new List<FeatDefinition>();
-        FeatureDefinitionAutoPreparedSpells.AutoPreparedSpellsGroup spells;
-        FeatureDefinitionAutoPreparedSpells autoPreparedSpells;
 
         #region Telekinetic
 
@@ -75,9 +73,9 @@ internal static class CasterFeats
 
         const string FEY_TELEPORT = "FeyTeleport";
 
-        spells = BuildSpellGroup(0, MistyStep);
+        var spells = BuildSpellGroup(0, MistyStep);
 
-        autoPreparedSpells = FeatureDefinitionAutoPreparedSpellsBuilder
+        var autoPreparedSpells = FeatureDefinitionAutoPreparedSpellsBuilder
             .Create("AutoPreparedSpellsFeyTeleportation")
             .SetGuiPresentationNoContent(true)
             .SetCustomSubFeatures(ValidateRepertoireForAutoprepared.AnyClassOrSubclass)

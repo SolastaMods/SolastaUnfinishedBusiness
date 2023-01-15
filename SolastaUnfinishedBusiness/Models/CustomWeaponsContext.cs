@@ -676,17 +676,11 @@ internal static class CustomWeaponsContext
         }
 
         var allElements = DatabaseRepository.GetDatabase<ItemDefinition>().GetAllElements();
-        foreach (var item in allElements)
-        {
-            if (item.ItemTags.Contains(TagsDefinitions.ItemTagStandard)
-                && item.IsWeapon
-                && item.WeaponDescription.WeaponTypeDefinition.Name == type)
-            {
-                return item;
-            }
-        }
 
-        return null;
+        return allElements
+            .FirstOrDefault(item =>
+                item.ItemTags.Contains(TagsDefinitions.ItemTagStandard) && item.IsWeapon &&
+                item.WeaponDescription.WeaponTypeDefinition.Name == type);
     }
 
     #region Halberd Icons

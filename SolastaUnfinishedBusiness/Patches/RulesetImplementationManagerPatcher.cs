@@ -19,12 +19,8 @@ public static class RulesetImplementationManagerPatcher
     public static class InstantiateEffectInvocation_Patch
     {
         public static void Postfix(
-            RulesetImplementationManager __instance,
             RulesetEffectSpell __result,
-            RulesetCharacter caster,
-            RulesetInvocation invocation,
-            bool delayRegistration,
-            int subspellIndex)
+            RulesetInvocation invocation)
         {
             //PATCH: setup repertoire for spells cast through invocation
             __result.spellRepertoire ??= invocation.invocationRepertoire;
@@ -342,7 +338,7 @@ public static class RulesetImplementationManagerPatcher
         public static void Prefix(RulesetCharacter caster, ref int saveDC, BaseDefinition sourceDefinition)
         {
             //BUGFIX: for still an unknown reason we get DC 0 on some Grenadier powers so hack it here (MULTIPLAYER)
-            if (saveDC != 0 || sourceDefinition is not FeatureDefinition featureDefinition)
+            if (saveDC != 0 || sourceDefinition is not FeatureDefinition)
             {
                 return;
             }

@@ -49,7 +49,6 @@ internal static class ItemRecipeGenerationHelper
 
     internal static void AddIngredientEnchanting()
     {
-        var recipes = new List<RecipeDefinition>();
         var enchantedToIngredient = new Dictionary<ItemDefinition, ItemDefinition>
         {
             { Ingredient_Enchant_MithralStone, _300_GP_Opal },
@@ -72,18 +71,15 @@ internal static class ItemRecipeGenerationHelper
             { Ingredient_Enchant_SpiderQueen_Venom, Ingredient_BadlandsSpiderVenomGland }
         };
 
-        foreach (var item in enchantedToIngredient.Keys)
-        {
-            var recipeName = "RecipeEnchant" + item.Name;
-
-            recipes.Add(RecipeDefinitionBuilder
-                .Create(recipeName)
+        var recipes = enchantedToIngredient.Keys
+            .Select(item => RecipeDefinitionBuilder
+                .Create("RecipeEnchant" + item.Name)
                 .SetGuiPresentation(item.GuiPresentation)
                 .AddIngredients(enchantedToIngredient[item])
                 .SetCraftedItem(item)
                 .SetCraftingCheckData(16, 16, DatabaseHelper.ToolTypeDefinitions.EnchantingToolType)
-                .AddToDB());
-        }
+                .AddToDB())
+            .ToList();
 
         const string GROUP_KEY = "EnchantingIngredients";
 
@@ -167,7 +163,6 @@ internal static class ItemRecipeGenerationHelper
 
     internal static void AddFactionItems()
     {
-        var recipes = new List<RecipeDefinition>();
         var forgeryToIngredient = new Dictionary<ItemDefinition, ItemDefinition>
         {
             { CAERLEM_TirmarianHolySymbol, Art_Item_50_GP_JadePendant },
@@ -175,18 +170,15 @@ internal static class ItemRecipeGenerationHelper
             { CaerLem_Gate_Plaque, Art_Item_25_GP_SilverChalice }
         };
 
-        foreach (var item in forgeryToIngredient.Keys)
-        {
-            var recipeName = "RecipeForgery" + item.Name;
-
-            recipes.Add(RecipeDefinitionBuilder
-                .Create(recipeName)
+        var recipes = forgeryToIngredient.Keys
+            .Select(item => RecipeDefinitionBuilder
+                .Create("RecipeForgery" + item.Name)
                 .AddIngredients(forgeryToIngredient[item])
                 .SetCraftedItem(item)
                 .SetCraftingCheckData(16, 16, DatabaseHelper.ToolTypeDefinitions.ArtisanToolSmithToolsType)
                 .SetGuiPresentation(item.GuiPresentation)
-                .AddToDB());
-        }
+                .AddToDB())
+            .ToList();
 
         var scrollForgeries = new Dictionary<ItemDefinition, ItemDefinition>
         {
@@ -199,18 +191,14 @@ internal static class ItemRecipeGenerationHelper
             { CAERLEM_Daliat_Document, Ingredient_Skarn }
         };
 
-        foreach (var item in scrollForgeries.Keys)
-        {
-            var recipeName = "RecipeForgery" + item.Name;
-
-            recipes.Add(RecipeDefinitionBuilder
-                .Create(recipeName)
+        recipes.AddRange(scrollForgeries.Keys
+            .Select(item => RecipeDefinitionBuilder
+                .Create("RecipeForgery" + item.Name)
                 .AddIngredients(scrollForgeries[item])
                 .SetCraftedItem(item)
                 .SetCraftingCheckData(16, 16, DatabaseHelper.ToolTypeDefinitions.ScrollKitType)
                 .SetGuiPresentation(item.GuiPresentation)
-                .AddToDB());
-        }
+                .AddToDB()));
 
         const string GROUP_KEY = "RelicForgeries";
 

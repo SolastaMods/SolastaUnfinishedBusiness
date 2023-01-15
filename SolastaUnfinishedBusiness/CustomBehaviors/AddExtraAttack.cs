@@ -11,7 +11,7 @@ namespace SolastaUnfinishedBusiness.CustomBehaviors;
 internal enum AttackModeOrder
 {
     Start,
-    End,
+    End
 }
 
 internal abstract class AddExtraAttackBase : IAddExtraAttack
@@ -98,7 +98,7 @@ internal abstract class AddExtraAttackBase : IAddExtraAttack
                         attackModes.Add(attackMode);
                         break;
                     default:
-                        throw new ArgumentOutOfRangeException();
+                        throw new ArgumentOutOfRangeException(nameof(hero));
                 }
             }
         }

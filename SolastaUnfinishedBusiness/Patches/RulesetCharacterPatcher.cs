@@ -171,7 +171,7 @@ public static class RulesetCharacterPatcher
 
             //PATCH: Allows valid Somatic component if Inventor has infused item in main hand or off hand slots
             // allows casting somatic spells with full hands if one of the hands holds item infused by the caster
-            ValidateIfInfusedInHand(__instance, spellDefinition, ref __result, ref failure);
+            ValidateIfInfusedInHand(__instance, ref __result, ref failure);
         }
 
         //TODO: move to separate file
@@ -203,7 +203,6 @@ public static class RulesetCharacterPatcher
         //TODO: move to separate file
         private static void ValidateIfInfusedInHand(
             RulesetCharacter caster,
-            SpellDefinition spell,
             ref bool result,
             ref string failure)
         {

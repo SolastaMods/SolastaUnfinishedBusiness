@@ -14,12 +14,8 @@ public static class RulesetImplementationManagerLocationPatcher
     public static class InstantiateEffectInvocation_Patch
     {
         public static void Postfix(
-            RulesetImplementationManagerLocation __instance,
             RulesetEffectSpell __result,
-            RulesetCharacter caster,
-            RulesetInvocation invocation,
-            bool delayRegistration,
-            int subspellIndex)
+            RulesetInvocation invocation)
         {
             //PATCH: setup repertoire for spells cast through invocation 
             __result.spellRepertoire ??= invocation.invocationRepertoire;

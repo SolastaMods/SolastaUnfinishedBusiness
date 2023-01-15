@@ -178,11 +178,13 @@ public static class CharacterActionPanelPatcher
 
             if (definition.GrantedSpell != null)
             {
-                if (__instance.actionId != ActionDefinitions.Id.CastInvocation)
+                if (__instance.actionId == ActionDefinitions.Id.CastInvocation)
                 {
-                    __instance.actionId = definition.GrantedSpell.BattleActionId;
-                    __instance.actionParams.actionDefinition = actionDefinitions[__instance.actionId];
+                    return true;
                 }
+
+                __instance.actionId = definition.GrantedSpell.BattleActionId;
+                __instance.actionParams.actionDefinition = actionDefinitions[__instance.actionId];
 
                 return true;
             }

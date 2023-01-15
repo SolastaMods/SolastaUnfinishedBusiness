@@ -132,7 +132,7 @@ public static class GameLocationBattleManagerPatcher
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     public static class PrepareBattleEnd_Patch
     {
-        public static void Prefix(GameLocationBattleManager __instance)
+        public static void Prefix()
         {
             //PATCH: support for Polearm Expert AoO
             //clears movement cache on battle end
@@ -268,10 +268,7 @@ public static class GameLocationBattleManagerPatcher
         }
 
         public static IEnumerator Postfix(
-            IEnumerator values,
-            GameLocationCharacter attacker,
-            GameLocationCharacter defender,
-            RulesetAttackMode attackMode)
+            IEnumerator values)
         {
             //PATCH: support for `IReactionAttackModeRestriction`
             while (values.MoveNext())
@@ -422,10 +419,8 @@ public static class GameLocationBattleManagerPatcher
     public static class CanAttack_Patch
     {
         public static void Postfix(
-            GameLocationBattleManager __instance,
             BattleDefinitions.AttackEvaluationParams attackParams,
-            bool __result
-        )
+            bool __result)
         {
             //PATCH: support for features removing ranged attack disadvantage
             RangedAttackInMeleeDisadvantageRemover.CheckToRemoveRangedDisadvantage(attackParams);

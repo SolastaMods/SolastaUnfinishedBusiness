@@ -87,14 +87,11 @@ internal static class ToolsDisplay
 
     private static void DisplayGeneral()
     {
-        bool toggle;
-        int intValue;
-
         UI.Label();
         UI.Label(Gui.Localize("ModUi/&General"));
         UI.Label();
 
-        toggle = Main.Settings.EnableBetaContent;
+        var toggle = Main.Settings.EnableBetaContent;
         if (UI.Toggle(Gui.Localize("ModUi/&EnableBetaContent"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.EnableBetaContent = toggle;
@@ -153,7 +150,7 @@ internal static class ToolsDisplay
 
         UI.Label();
 
-        intValue = Main.Settings.MultiplyTheExperienceGainedBy;
+        var intValue = Main.Settings.MultiplyTheExperienceGainedBy;
         if (UI.Slider(Gui.Localize("ModUi/&MultiplyTheExperienceGainedBy"), ref intValue, 0, 200, 100, string.Empty,
                 UI.Width(100)))
         {

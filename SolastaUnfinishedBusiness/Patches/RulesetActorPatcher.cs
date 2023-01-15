@@ -25,11 +25,10 @@ public static class RulesetActorPatcher
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     public static class AddConditionOfCategory_Patch
     {
-        public static void Prefix(RulesetActor __instance,
+        public static void Prefix(
+            RulesetActor __instance,
             ref string category,
-            RulesetCondition newCondition,
-            bool refresh,
-            bool registerCondition)
+            RulesetCondition newCondition)
         {
             //PATCH: allow conditions to force specific category
             if (newCondition.conditionDefinition == null)
@@ -52,20 +51,11 @@ public static class RulesetActorPatcher
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     public static class InflictCondition_Patch
     {
-        public static void Prefix(RulesetActor __instance,
+        public static void Prefix(
+            RulesetActor __instance,
             string conditionDefinitionName,
-            RuleDefinitions.DurationType durationType,
-            int durationParameter,
-            RuleDefinitions.TurnOccurenceType endOccurence,
-            string tag,
             ulong sourceGuid,
-            string sourceFaction,
-            int effectLevel,
-            string effectDefinitionName,
-            ref int sourceAmount,
-            int sourceAbilityBonus,
-            int sourceProficiencyBonus,
-            RuleDefinitions.DieType bardicInspirationDie)
+            ref int sourceAmount)
         {
             //PATCH: Implements `ExtraOriginOfAmount`
             var sourceCharacter = EffectHelpers.GetCharacterByGuid(sourceGuid);

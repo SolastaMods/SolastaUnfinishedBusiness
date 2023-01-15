@@ -223,7 +223,7 @@ public static class InnovationArmor
         return item == CustomWeaponsContext.ThunderGauntlet || item == CustomWeaponsContext.LightningLauncher;
     }
 
-    private static void AddArmorBonusesToBuiltinAttack(RulesetCharacterHero hero, RulesetAttackMode attackMode)
+    private static void AddArmorBonusesToBuiltinAttack(RulesetCharacter hero, RulesetAttackMode attackMode)
     {
         var features = new List<FeatureDefinition>();
         var inventorySlotsByName = hero.CharacterInventory.InventorySlotsByName;

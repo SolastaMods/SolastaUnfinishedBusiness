@@ -174,11 +174,9 @@ internal static class Infusions
 
         #region Replicate Magic Item
 
-        int level;
-
         #region Level 02
 
-        level = 2;
+        var level = 2;
         BuildCreateItemPowerInvocation(ItemDefinitions.Backpack_Bag_Of_Holding, level);
         //RAW this should be spectacles that don't require attunement
         BuildCreateItemPowerInvocation(ItemDefinitions.RingDarkvision, level);

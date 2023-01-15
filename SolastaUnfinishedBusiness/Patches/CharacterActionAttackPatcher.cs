@@ -75,13 +75,15 @@ public static class CharacterActionAttackPatcher
 
             var defenderFeatures = defender.RulesetCharacter?.GetSubFeaturesByType<IReactToAttackOnMeFinished>();
 
-            if (defenderFeatures != null)
+            if (defenderFeatures == null)
             {
-                foreach (var feature in defenderFeatures)
-                {
-                    yield return feature.HandleReactToAttackOnMeFinished(
-                        actingCharacter, defender, outcome, actionParams, mode, modifier);
-                }
+                yield break;
+            }
+
+            foreach (var feature in defenderFeatures)
+            {
+                yield return feature.HandleReactToAttackOnMeFinished(
+                    actingCharacter, defender, outcome, actionParams, mode, modifier);
             }
         }
     }

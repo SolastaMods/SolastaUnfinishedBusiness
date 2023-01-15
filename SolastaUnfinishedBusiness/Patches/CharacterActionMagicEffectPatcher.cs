@@ -206,7 +206,7 @@ public static class CharacterActionMagicEffectPatcher
         ArgumentType.Normal, // sourceType,
         ArgumentType.Ref, //ref damageReceive
         ArgumentType.Out, //out damageAbsorbedByTemporaryHitPoints
-        ArgumentType.Out, //out terminateEffectOnTarget
+        ArgumentType.Out //out terminateEffectOnTarget
     })]
     public static class ApplyForms_Patch
     {

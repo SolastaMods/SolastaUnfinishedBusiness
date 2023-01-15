@@ -1102,8 +1102,8 @@ internal static class SpellsByLevelGroupExtensions
     private static void RefreshLearning(this SpellsByLevelGroup instance,
         RulesetCharacterHero hero,
         InvocationPoolTypeCustom pool,
-        List<InvocationDefinitionCustom> learned,
-        List<InvocationDefinitionCustom> unlearnedFeatures,
+        ICollection<InvocationDefinitionCustom> learned,
+        ICollection<InvocationDefinitionCustom> unlearnedFeatures,
         bool canAcquireFeatures)
     {
         foreach (Transform transform in instance.spellsTable)
@@ -1139,7 +1139,7 @@ internal static class SpellsByLevelGroupExtensions
     private static void RefreshUnlearning(this SpellsByLevelGroup instance,
         RulesetCharacterHero hero,
         InvocationPoolTypeCustom pool,
-        List<InvocationDefinitionCustom> unlearnedSpells,
+        ICollection<InvocationDefinitionCustom> unlearnedSpells,
         bool canUnlearnInvocations)
     {
         foreach (Transform transform in instance.spellsTable)
