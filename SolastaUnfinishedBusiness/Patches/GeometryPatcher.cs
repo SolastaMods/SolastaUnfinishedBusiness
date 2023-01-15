@@ -9,13 +9,16 @@ using UnityEngine;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
+[UsedImplicitly]
 public static class CursorLocationGeometricShapePatcher
 {
     //PATCH: UseHeightOneCylinderEffect
     [HarmonyPatch(typeof(CursorLocationGeometricShape), "UpdateGeometricShape")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
     public static class UpdateGeometricShape_Patch
     {
+        [UsedImplicitly]
         public static void MyUpdateCubePosition_Regular(
             [NotNull] GeometricShape __instance,
             Vector3 origin,
@@ -66,6 +69,7 @@ public static class CursorLocationGeometricShapePatcher
             transform.localScale = new Vector3(edgeSize, height, edgeSize);
         }
 
+        [UsedImplicitly]
         public static IEnumerable<CodeInstruction> Transpiler([NotNull] IEnumerable<CodeInstruction> instructions)
         {
             var targetParameter2Field =
@@ -86,8 +90,10 @@ public static class CursorLocationGeometricShapePatcher
     //PATCH: UseHeightOneCylinderEffect
     [HarmonyPatch(typeof(GameLocationTargetingManager), "BuildAABB")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
     public static class BuildAABB_Patch
     {
+        [UsedImplicitly]
         public static void Postfix(GameLocationTargetingManager __instance)
         {
             if (!Main.Settings.UseHeightOneCylinderEffect)
@@ -139,8 +145,10 @@ public static class CursorLocationGeometricShapePatcher
     //PATCH: UseHeightOneCylinderEffect
     [HarmonyPatch(typeof(GameLocationTargetingManager), "DoesShapeContainPoint")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
     public static class DoesShapeContainPoint_Patch
     {
+        [UsedImplicitly]
         public static bool MyCubeContainsPoint_Regular(
             Vector3 cubeOrigin,
             float edgeSize,
@@ -196,6 +204,7 @@ public static class CursorLocationGeometricShapePatcher
         }
 
         [NotNull]
+        [UsedImplicitly]
         public static IEnumerable<CodeInstruction> Transpiler([NotNull] IEnumerable<CodeInstruction> instructions)
         {
             var geometricParameter2Field =

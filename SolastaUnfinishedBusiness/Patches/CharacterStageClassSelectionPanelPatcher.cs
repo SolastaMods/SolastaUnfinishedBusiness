@@ -13,12 +13,15 @@ using UnityEngine;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
+[UsedImplicitly]
 public static class CharacterStageClassSelectionPanelPatcher
 {
     [HarmonyPatch(typeof(CharacterStageClassSelectionPanel), "OnBeginShow")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
     public static class OnBeginShow_Patch
     {
+        [UsedImplicitly]
         public static void Prefix([NotNull] CharacterStageClassSelectionPanel __instance)
         {
             //PATCH: avoids a restart when enabling / disabling classes on the Mod UI panel
@@ -61,6 +64,7 @@ public static class CharacterStageClassSelectionPanelPatcher
 
     [HarmonyPatch(typeof(CharacterStageClassSelectionPanel), "FillClassFeatures")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
     public static class FillClassFeatures_Patch
     {
         //PATCH: hides the features list for already acquired classes (MULTICLASS)
@@ -94,6 +98,7 @@ public static class CharacterStageClassSelectionPanelPatcher
         }
 
         [NotNull]
+        [UsedImplicitly]
         public static IEnumerable<CodeInstruction> Transpiler([NotNull] IEnumerable<CodeInstruction> instructions)
         {
             var levelMethod = typeof(FeatureUnlockByLevel).GetMethod("get_Level");
@@ -112,6 +117,7 @@ public static class CharacterStageClassSelectionPanelPatcher
     //PATCH: hides the equipment panel group (MULTICLASS)
     [HarmonyPatch(typeof(CharacterStageClassSelectionPanel), "Refresh")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
     public static class Refresh_Patch
     {
         private static bool SetActive([NotNull] RulesetCharacterHero currentHero)
@@ -120,6 +126,7 @@ public static class CharacterStageClassSelectionPanelPatcher
         }
 
         [NotNull]
+        [UsedImplicitly]
         public static IEnumerable<CodeInstruction> Transpiler([NotNull] IEnumerable<CodeInstruction> instructions)
         {
             var setActiveMethod = typeof(GameObject).GetMethod("SetActive");

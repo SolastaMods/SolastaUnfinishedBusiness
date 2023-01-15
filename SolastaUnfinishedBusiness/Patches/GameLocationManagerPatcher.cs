@@ -13,13 +13,16 @@ using static SolastaUnfinishedBusiness.Api.DatabaseHelper.RecipeDefinitions;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
+[UsedImplicitly]
 public static class GameLocationManagerPatcher
 {
     //PATCH: EnableSaveByLocation
     [HarmonyPatch(typeof(GameLocationManager), "LoadLocationAsync")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
     public static class LoadLocationAsync_Patch
     {
+        [UsedImplicitly]
         public static void Prefix(
             GameLocationManager __instance,
             string userLocationName,
@@ -47,8 +50,10 @@ public static class GameLocationManagerPatcher
 
     [HarmonyPatch(typeof(GameLocationManager), "ReadyLocation")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
     public static class ReadyLocation_Patch
     {
+        [UsedImplicitly]
         public static void Postfix(GameLocationManager __instance)
         {
             //BUGFIX: enforce learn same recipes as official campaigns get on a Load
@@ -81,9 +86,11 @@ public static class GameLocationManagerPatcher
     }
 
     [HarmonyPatch(typeof(GameLocationManager), "StopCharacterEffectsIfRelevant")]
+    [UsedImplicitly]
     public static class StopCharacterEffectsIfRelevant_Patch
     {
         [NotNull]
+        [UsedImplicitly]
         public static IEnumerable<CodeInstruction> Transpiler([NotNull] IEnumerable<CodeInstruction> instructions)
         {
             //PATCH: prevent some effects from being removed when entering new location

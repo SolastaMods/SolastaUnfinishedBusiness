@@ -6,5 +6,5 @@ internal class InvocationDisabledByDefault
     {
     }
 
-    internal static InvocationDisabledByDefault Marker { get; } = new();
+    // internal static InvocationDisabledByDefault Marker { get; } = new();
 }

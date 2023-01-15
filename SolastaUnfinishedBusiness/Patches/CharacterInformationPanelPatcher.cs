@@ -11,12 +11,15 @@ using UnityEngine;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
+[UsedImplicitly]
 public static class CharacterInformationPanelPatcher
 {
     [HarmonyPatch(typeof(CharacterInformationPanel), "EnumerateFeatures")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
     public static class EnumerateFeatures_Patch
     {
+        [UsedImplicitly]
         public static bool Prefix(
             CharacterInformationPanel __instance,
             RectTransform table,
@@ -32,8 +35,10 @@ public static class CharacterInformationPanelPatcher
 
     [HarmonyPatch(typeof(CharacterInformationPanel), "Bind")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
     public static class Bind_Patch
     {
+        [UsedImplicitly]
         public static void Postfix(CharacterInformationPanel __instance)
         {
             //PATCH: Switches positions of Class and Background descriptions, and class selector for MC characters
@@ -42,9 +47,11 @@ public static class CharacterInformationPanelPatcher
     }
 
     [HarmonyPatch(typeof(CharacterInformationPanel), "Refresh")]
+    [UsedImplicitly]
     public static class Refresh_Patch
     {
         [NotNull]
+        [UsedImplicitly]
         public static IEnumerable<CodeInstruction> Transpiler([NotNull] IEnumerable<CodeInstruction> instructions)
         {
             //PATCH: overrides the selected class search term with the one determined by the hotkeys / enumerate class badges logic

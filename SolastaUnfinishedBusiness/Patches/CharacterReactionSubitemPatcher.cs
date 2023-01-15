@@ -1,18 +1,22 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
+using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.Extensions;
 using SolastaUnfinishedBusiness.Models;
 using UnityEngine;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
+[UsedImplicitly]
 public static class CharacterReactionSubitemPatcher
 {
     //PATCH: creates different slots colors and pop up messages depending on slot types
     [HarmonyPatch(typeof(CharacterReactionSubitem), "Bind")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
     public static class Bind_Patch
     {
+        [UsedImplicitly]
         public static void Postfix(
             CharacterReactionSubitem __instance,
             RulesetSpellRepertoire spellRepertoire,
@@ -35,8 +39,10 @@ public static class CharacterReactionSubitemPatcher
 
     [HarmonyPatch(typeof(CharacterReactionSubitem), "Unbind")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
     public static class Unbind_Patch
     {
+        [UsedImplicitly]
         public static void Prefix(CharacterReactionSubitem __instance)
         {
             //PATCH: ensures slot colors are white before getting back to pool

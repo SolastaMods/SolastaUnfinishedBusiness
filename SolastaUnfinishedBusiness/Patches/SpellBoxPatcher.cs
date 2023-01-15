@@ -1,18 +1,22 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
+using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Models;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
+[UsedImplicitly]
 public static class SpellBoxPatcher
 {
     [HarmonyPatch(typeof(SpellBox), "Bind")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
     public static class Bind_Patch
     {
         private static string _extraTag;
 
+        [UsedImplicitly]
         public static void Prefix(
             ref string autoPreparedTag,
             ref string extraSpellTag)
@@ -44,9 +48,10 @@ public static class SpellBoxPatcher
             extraSpellTag = null;
         }
 
+        [UsedImplicitly]
         public static void Postfix(SpellBox __instance)
         {
-            //PATCH: show actual class/subclass name in the multiclass tag during spell selection on levelup
+            //PATCH: show actual class/subclass name in the multiclass tag during spell selection on level up
             if (string.IsNullOrEmpty(_extraTag))
             {
                 return;

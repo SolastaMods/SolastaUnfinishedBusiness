@@ -17,12 +17,15 @@ using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterClassDefiniti
 
 namespace SolastaUnfinishedBusiness.Patches;
 
+[UsedImplicitly]
 public static class RulesetCharacterPatcher
 {
     [HarmonyPatch(typeof(RulesetCharacter), "TerminateMatchingUniquePower")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
     public static class TerminateMatchingUniquePower_Patch
     {
+        [UsedImplicitly]
         public static void Postfix(RulesetCharacter __instance, FeatureDefinitionPower powerDefinition)
         {
             //PATCH: terminates all matching spells and powers of same group
@@ -32,8 +35,10 @@ public static class RulesetCharacterPatcher
 
     [HarmonyPatch(typeof(RulesetCharacter), "TerminateMatchingUniqueSpell")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
     public static class TerminateMatchingUniqueSpell_Patch
     {
+        [UsedImplicitly]
         public static void Postfix(RulesetCharacter __instance, SpellDefinition spellDefinition)
         {
             //PATCH: terminates all matching spells and powers of same group
@@ -43,8 +48,10 @@ public static class RulesetCharacterPatcher
 
     [HarmonyPatch(typeof(RulesetCharacter), "OnConditionAdded")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
     public static class OnConditionAdded_Patch
     {
+        [UsedImplicitly]
         public static void Postfix(RulesetCharacter __instance, RulesetCondition activeCondition)
         {
             var definition = activeCondition.ConditionDefinition;
@@ -64,8 +71,10 @@ public static class RulesetCharacterPatcher
 
     [HarmonyPatch(typeof(RulesetCharacter), "OnConditionRemoved")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
     public static class OnConditionRemoved_Patch
     {
+        [UsedImplicitly]
         public static void Postfix(RulesetCharacter __instance, RulesetCondition activeCondition)
         {
             //PATCH: notifies custom condition features that condition is removed 
@@ -82,8 +91,10 @@ public static class RulesetCharacterPatcher
 
     [HarmonyPatch(typeof(RulesetCharacter), "AcknowledgeAttackedCharacter")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
     public static class AcknowledgeAttackedCharacter_Patch
     {
+        [UsedImplicitly]
         public static void Postfix([CanBeNull] RulesetCharacter target)
         {
             //PATCH: Allows condition interruption after target was attacked
@@ -94,8 +105,10 @@ public static class RulesetCharacterPatcher
 
     [HarmonyPatch(typeof(RulesetCharacter), nameof(RulesetCharacter.GetAbilityScoreOfPower))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
     public static class GetAbilityScoreOfPower_Patch
     {
+        [UsedImplicitly]
         public static void Postfix(RulesetCharacter __instance,
             ref string __result,
             FeatureDefinitionPower featureDefinitionPower)
@@ -121,8 +134,10 @@ public static class RulesetCharacterPatcher
 
     [HarmonyPatch(typeof(RulesetCharacter), "GetLowestSlotLevelAndRepertoireToCastSpell")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
     public static class GetLowestSlotLevelAndRepertoireToCastSpell_Patch
     {
+        [UsedImplicitly]
         public static void Postfix(RulesetCharacter __instance,
             SpellDefinition spellDefinitionToCast,
             ref int __result,
@@ -150,8 +165,10 @@ public static class RulesetCharacterPatcher
 
     [HarmonyPatch(typeof(RulesetCharacter), "IsComponentSomaticValid")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
     public static class IsComponentSomaticValid_Patch
     {
+        [UsedImplicitly]
         public static void Postfix(
             RulesetCharacter __instance, ref bool __result, SpellDefinition spellDefinition, ref string failure)
         {
@@ -221,8 +238,10 @@ public static class RulesetCharacterPatcher
 
     [HarmonyPatch(typeof(RulesetCharacter), "IsComponentMaterialValid")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
     public static class IsComponentMaterialValid_Patch
     {
+        [UsedImplicitly]
         public static void Postfix(
             RulesetCharacter __instance,
             ref bool __result,
@@ -317,8 +336,10 @@ public static class RulesetCharacterPatcher
 
     [HarmonyPatch(typeof(RulesetCharacter), "SpendSpellMaterialComponentAsNeeded")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
     public static class SpendSpellMaterialComponentAsNeeded_Patch
     {
+        [UsedImplicitly]
         public static bool Prefix(RulesetCharacter __instance, RulesetEffectSpell activeSpell)
         {
             //PATCH: Modify original code to spend enough of a stack to meet component cost
@@ -328,8 +349,10 @@ public static class RulesetCharacterPatcher
 
     [HarmonyPatch(typeof(RulesetCharacter), "IsValidReadyCantrip")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
     public static class IsValidReadyCantrip_Patch
     {
+        [UsedImplicitly]
         public static void Postfix(RulesetCharacter __instance, ref bool __result,
             SpellDefinition cantrip)
         {
@@ -352,9 +375,11 @@ public static class RulesetCharacterPatcher
 
     [HarmonyPatch(typeof(RulesetCharacter), "IsSubjectToAttackOfOpportunity")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
     public static class IsSubjectToAttackOfOpportunity_Patch
     {
         // ReSharper disable once RedundantAssignment
+        [UsedImplicitly]
         public static void Postfix(
             RulesetCharacter __instance, ref bool __result, RulesetCharacter attacker, float distance)
         {
@@ -367,8 +392,10 @@ public static class RulesetCharacterPatcher
     [HarmonyPatch(typeof(RulesetCharacter), "ComputeSaveDC")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     // ReSharper disable once InconsistentNaming
+    [UsedImplicitly]
     public static class ComputeSaveDC_Patch
     {
+        [UsedImplicitly]
         public static void Postfix(RulesetCharacter __instance, ref int __result)
         {
             //PATCH: support for `IIncreaseSpellDC`
@@ -383,8 +410,10 @@ public static class RulesetCharacterPatcher
     //PATCH: ensures that the wildshape heroes or heroes under rage cannot cast any spells (Multiclass)
     [HarmonyPatch(typeof(RulesetCharacter), "CanCastSpells")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
     public static class CanCastSpells_Patch
     {
+        [UsedImplicitly]
         public static void Postfix(RulesetCharacter __instance, ref bool __result)
         {
             // wildshape
@@ -407,8 +436,10 @@ public static class RulesetCharacterPatcher
     //PATCH: ensures that the wildshape hero has access to spell repertoires for calculating slot related features (Multiclass)
     [HarmonyPatch(typeof(RulesetCharacter), "SpellRepertoires", MethodType.Getter)]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
     public static class SpellRepertoires_Getter_Patch
     {
+        [UsedImplicitly]
         public static void Postfix(RulesetCharacter __instance, ref List<RulesetSpellRepertoire> __result)
         {
             if (__instance.OriginalFormCharacter is RulesetCharacterHero hero && hero != __instance)
@@ -421,8 +452,10 @@ public static class RulesetCharacterPatcher
     //PATCH: ensures that original character sorcery point pool is in sync with substitute (Multiclass)
     [HarmonyPatch(typeof(RulesetCharacter), "CreateSorceryPoints")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
     public static class CreateSorceryPoints_Patch
     {
+        [UsedImplicitly]
         public static void Postfix(RulesetCharacter __instance, int slotLevel, RulesetSpellRepertoire repertoire)
         {
             if (__instance.OriginalFormCharacter is RulesetCharacterHero hero && hero != __instance)
@@ -435,8 +468,10 @@ public static class RulesetCharacterPatcher
     //PATCH: ensures that original character sorcery point pool is in sync with substitute (Multiclass)
     [HarmonyPatch(typeof(RulesetCharacter), "GainSorceryPoints")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
     public static class GainSorceryPoints_Patch
     {
+        [UsedImplicitly]
         public static void Postfix(RulesetCharacter __instance, int sorceryPointsGain)
         {
             if (__instance.OriginalFormCharacter is RulesetCharacterHero hero && hero != __instance)
@@ -448,8 +483,10 @@ public static class RulesetCharacterPatcher
 
     [HarmonyPatch(typeof(RulesetCharacter), "UsePower")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
     public static class UsePower_Patch
     {
+        [UsedImplicitly]
         public static void Postfix(RulesetCharacter __instance, RulesetUsablePower usablePower)
         {
             if (__instance.OriginalFormCharacter is RulesetCharacterHero hero && hero != __instance)
@@ -480,9 +517,11 @@ public static class RulesetCharacterPatcher
 
     [HarmonyPatch(typeof(RulesetCharacter), "RefreshAttributeModifiersFromConditions")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
     public static class RefreshAttributeModifiersFromConditions_Patch
     {
         [NotNull]
+        [UsedImplicitly]
         public static IEnumerable<CodeInstruction> Transpiler([NotNull] IEnumerable<CodeInstruction> instructions)
         {
             //PATCH: support for validation of attribute modifications applied through conditions
@@ -503,9 +542,11 @@ public static class RulesetCharacterPatcher
 
     [HarmonyPatch(typeof(RulesetCharacter), "RollAttack")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
     public static class RollAttack_Patch
     {
         [NotNull]
+        [UsedImplicitly]
         public static IEnumerable<CodeInstruction> Transpiler([NotNull] IEnumerable<CodeInstruction> instructions)
         {
             //PATCH: support for Mirror Image - replaces target's AC with 10 + DEX bonus if we targeting mirror image
@@ -524,8 +565,10 @@ public static class RulesetCharacterPatcher
 
     [HarmonyPatch(typeof(RulesetCharacter), "RollAttackMode")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
     public static class RollAttackMode_Patch
     {
+        [UsedImplicitly]
         public static void Prefix(
             [NotNull] RulesetCharacter __instance,
             RulesetAttackMode attackMode,
@@ -540,6 +583,7 @@ public static class RulesetCharacterPatcher
             ElvenPrecisionLogic.PhysicalAttackRollPrefix(__instance, attackMode);
         }
 
+        [UsedImplicitly]
         public static void Postfix(
             [NotNull] RulesetCharacter __instance,
             RulesetAttackMode attackMode,
@@ -562,8 +606,10 @@ public static class RulesetCharacterPatcher
 
     [HarmonyPatch(typeof(RulesetCharacter), "RollMagicAttack")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
     public static class RollMagicAttack_Patch
     {
+        [UsedImplicitly]
         public static void Prefix(
             [NotNull] RulesetCharacter __instance,
             RulesetEffect activeEffect,
@@ -578,6 +624,7 @@ public static class RulesetCharacterPatcher
             ElvenPrecisionLogic.MagicAttackRollPrefix(__instance, activeEffect);
         }
 
+        [UsedImplicitly]
         public static void Postfix(
             [NotNull] RulesetCharacter __instance,
             RulesetActor target,
@@ -598,8 +645,10 @@ public static class RulesetCharacterPatcher
     //PATCH: IChangeAbilityCheck
     [HarmonyPatch(typeof(RulesetCharacter), "RollAbilityCheck")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
     public static class RollAbilityCheck_Patch
     {
+        [UsedImplicitly]
         public static void Prefix(
             [NotNull] RulesetCharacter __instance,
             int baseBonus,
@@ -631,8 +680,10 @@ public static class RulesetCharacterPatcher
     //PATCH: IChangeAbilityCheck
     [HarmonyPatch(typeof(RulesetCharacter), "ResolveContestCheck")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
     public static class ResolveContestCheck_Patch
     {
+        [UsedImplicitly]
         public static int ExtendedRollDie(
             [NotNull] RulesetCharacter rulesetCharacter,
             RuleDefinitions.DieType dieType,
@@ -676,6 +727,7 @@ public static class RulesetCharacterPatcher
         // there are 2 calls to RollDie on this method
         // we replace them to allow us to compare the die result vs. the minRoll value from any IChangeAbilityCheck feature
         //
+        [UsedImplicitly]
         public static IEnumerable<CodeInstruction> Transpiler([NotNull] IEnumerable<CodeInstruction> instructions)
         {
             var rollDieMethod = typeof(RulesetActor).GetMethod("RollDie");
@@ -709,9 +761,11 @@ public static class RulesetCharacterPatcher
     //PATCH: logic to correctly calculate spell slots under MC (Multiclass)
     [HarmonyPatch(typeof(RulesetCharacter), "RefreshSpellRepertoires")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
     public static class RefreshSpellRepertoires_Patch
     {
         [NotNull]
+        [UsedImplicitly]
         public static IEnumerable<CodeInstruction> Transpiler([NotNull] IEnumerable<CodeInstruction> instructions)
         {
             var enumerate = new Action<
@@ -726,6 +780,7 @@ public static class RulesetCharacterPatcher
                 new CodeInstruction(OpCodes.Call, enumerate));
         }
 
+        [UsedImplicitly]
         public static void Postfix(RulesetCharacter __instance)
         {
             if (__instance is not RulesetCharacterHero hero || !SharedSpellsContext.IsMulticaster(hero))
@@ -778,8 +833,10 @@ public static class RulesetCharacterPatcher
 
     [HarmonyPatch(typeof(RulesetCharacter), "RechargePowersForTurnStart")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
     public static class RechargePowersForTurnStart_Patch
     {
+        [UsedImplicitly]
         public static void Postfix(RulesetCharacter __instance)
         {
             //PATCH: support for powers that recharge on turn start
@@ -809,8 +866,10 @@ public static class RulesetCharacterPatcher
 
     [HarmonyPatch(typeof(RulesetCharacter), "RepayPowerUse")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
     public static class RepayPowerUse_Patch
     {
+        [UsedImplicitly]
         public static void Postfix(RulesetCharacter __instance, RulesetUsablePower usablePower)
         {
             //PATCH: update usage for power pools
@@ -820,8 +879,10 @@ public static class RulesetCharacterPatcher
 
     [HarmonyPatch(typeof(RulesetCharacter), "GrantPowers")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
     public static class GrantPowers_Patch
     {
+        [UsedImplicitly]
         public static void Postfix(RulesetCharacter __instance)
         {
             //PATCH: update usage for power pools
@@ -831,8 +892,10 @@ public static class RulesetCharacterPatcher
 
     [HarmonyPatch(typeof(RulesetCharacter), "ApplyRest")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
     public static class ApplyRest_Patch
     {
+        [UsedImplicitly]
         public static void Postfix(
             RulesetCharacter __instance, RuleDefinitions.RestType restType, bool simulate)
         {
@@ -858,6 +921,7 @@ public static class RulesetCharacterPatcher
             }
         }
 
+        [UsedImplicitly]
         public static IEnumerable<CodeInstruction> Transpiler([NotNull] IEnumerable<CodeInstruction> instructions)
         {
             //PATCH: Makes powers that have their max usage extended by pool modifiers show up correctly during rest
@@ -920,8 +984,10 @@ public static class RulesetCharacterPatcher
     //PATCH: ensures auto prepared spells from subclass are considered on level up
     [HarmonyPatch(typeof(RulesetCharacter), "ComputeAutopreparedSpells")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
     public static class ComputeAutopreparedSpells_Patch
     {
+        [UsedImplicitly]
         public static bool Prefix(
             [NotNull] RulesetCharacter __instance, [NotNull] RulesetSpellRepertoire spellRepertoire)
         {
@@ -975,8 +1041,10 @@ public static class RulesetCharacterPatcher
 
     [HarmonyPatch(typeof(RulesetCharacter), "RollInitiative")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
     public static class RollInitiative_Patch
     {
+        [UsedImplicitly]
         public static void Prefix(RulesetCharacter __instance, ref int forcedInitiative)
         {
             //PATCH: allows summons to have forced initiative of a summoner
@@ -998,8 +1066,10 @@ public static class RulesetCharacterPatcher
 
     [HarmonyPatch(typeof(RulesetCharacter), "RefreshUsableDeviceFunctions")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
     public static class RefreshUsableDeviceFunctions_Patch
     {
+        [UsedImplicitly]
         public static IEnumerable<CodeInstruction> Transpiler([NotNull] IEnumerable<CodeInstruction> instructions)
         {
             var isFunctionAvailable = typeof(RulesetItemDevice).GetMethod("IsFunctionAvailable");
@@ -1045,8 +1115,10 @@ public static class RulesetCharacterPatcher
 
     [HarmonyPatch(typeof(RulesetCharacter), "ComputeSpeedAddition")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
     public static class ComputeSpeedAddition_Patch
     {
+        [UsedImplicitly]
         public static void Postfix(RulesetCharacter __instance, IMovementAffinityProvider provider, ref int __result)
         {
             if (provider is not FeatureDefinition feature)
@@ -1066,8 +1138,10 @@ public static class RulesetCharacterPatcher
     //PATCH: implement IPreventRemoveConcentrationWithPowerUse
     [HarmonyPatch(typeof(RulesetCharacter), "TerminateSpell")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
     public static class TerminateSpell_Patch
     {
+        [UsedImplicitly]
         public static bool Prefix()
         {
             var currentAction = Global.CurrentAction;
@@ -1081,8 +1155,10 @@ public static class RulesetCharacterPatcher
     //PATCH: implement IPreventRemoveConcentrationWithPowerUse
     [HarmonyPatch(typeof(RulesetCharacter), "TerminatePower")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
     public static class TerminatePower_Patch
     {
+        [UsedImplicitly]
         public static bool Prefix()
         {
             var currentAction = Global.CurrentAction;
@@ -1096,8 +1172,10 @@ public static class RulesetCharacterPatcher
     //PATCH: support Monk Ki Points Toggle
     [HarmonyPatch(typeof(RulesetCharacter), "RemainingKiPoints", MethodType.Getter)]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
     public static class RemainingKiPoints_Getter_Patch
     {
+        [UsedImplicitly]
         public static void Postfix(RulesetCharacter __instance, ref int __result)
         {
             if (!__instance.IsToggleEnabled((ActionDefinitions.Id)ExtraActionId.MonkKiPointsToggle))
@@ -1110,8 +1188,10 @@ public static class RulesetCharacterPatcher
     //PATCH: support adding required action affinities to classes that can use toggles
     [HarmonyPatch(typeof(RulesetCharacter), "PostLoad")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
     public static class PostLoad_Patch
     {
+        [UsedImplicitly]
         public static void Postfix(RulesetCharacter __instance)
         {
             if (__instance is not RulesetCharacterHero hero)
@@ -1160,8 +1240,10 @@ public static class RulesetCharacterPatcher
     //PATCH: allow modifiers from items to be considered on concentration checks
     [HarmonyPatch(typeof(RulesetCharacter), "RollConcentrationCheck")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
     public static class RollConcentrationCheck_Patch
     {
+        [UsedImplicitly]
         public static IEnumerable<CodeInstruction> Transpiler([NotNull] IEnumerable<CodeInstruction> instructions)
         {
             var enumerate = new Action<
@@ -1180,8 +1262,10 @@ public static class RulesetCharacterPatcher
     //PATCH: allow modifiers from items to be considered on concentration checks
     [HarmonyPatch(typeof(RulesetCharacter), "RollConcentrationCheckFromDamage")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
     public static class RollConcentrationCheckFromDamage_Patch
     {
+        [UsedImplicitly]
         public static IEnumerable<CodeInstruction> Transpiler([NotNull] IEnumerable<CodeInstruction> instructions)
         {
             var enumerate = new Action<

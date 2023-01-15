@@ -12,12 +12,15 @@ using UnityEngine.UI;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
+[UsedImplicitly]
 public static class FeatSubPanelPatcher
 {
     [HarmonyPatch(typeof(FeatSubPanel), "Bind")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
     public static class Bind_Patch
     {
+        [UsedImplicitly]
         public static void Prefix([NotNull] FeatSubPanel __instance)
         {
             //PATCH: avoids a restart when enabling / disabling feats on the Mod UI panel
@@ -34,9 +37,11 @@ public static class FeatSubPanelPatcher
     //PATCH: enforces the feat selection panel to always display same-width columns
     [HarmonyPatch(typeof(FeatSubPanel), "SetState")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
     public static class SetState_Patch
     {
         [NotNull]
+        [UsedImplicitly]
         public static IEnumerable<CodeInstruction> Transpiler([NotNull] IEnumerable<CodeInstruction> instructions)
         {
             var forceRebuildLayoutImmediateMethod = typeof(LayoutRebuilder)

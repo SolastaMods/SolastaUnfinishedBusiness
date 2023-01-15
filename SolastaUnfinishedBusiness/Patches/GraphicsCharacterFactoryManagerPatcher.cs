@@ -1,17 +1,21 @@
 ﻿using System;
 using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
+using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.Extensions;
 using SolastaUnfinishedBusiness.Models;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
-public class GraphicsCharacterFactoryManagerPatcher
+[UsedImplicitly]
+public static class GraphicsCharacterFactoryManagerPatcher
 {
     [HarmonyPatch(typeof(GraphicsCharacterFactoryManager), "InstantiateWieldedItemAsNeeded")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
     public static class InstantiateWieldedItemAsNeeded_Patch
     {
+        [UsedImplicitly]
         public static void Postfix(GraphicsCharacter graphicsCharacter,
             RulesetItem rulesetItem,
             string slotName)
@@ -79,8 +83,10 @@ public class GraphicsCharacterFactoryManagerPatcher
 
     [HarmonyPatch(typeof(GraphicsCharacterFactoryManager), "CollectBodyPartsToLoadWherePossible_Morphotypes")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
     public static class CollectBodyPartsToLoadWherePossible_Morphotypes_Patch
     {
+        [UsedImplicitly]
         public static void Postfix(GraphicsCharacterFactoryManager __instance)
         {
             //PATCH: support for horns on all races

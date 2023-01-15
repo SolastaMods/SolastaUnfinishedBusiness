@@ -2,10 +2,12 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using HarmonyLib;
+using JetBrains.Annotations;
 using static HeroDefinitions.PointsPoolType;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
+[UsedImplicitly]
 public static class CharacterStageProficiencySelectionPanelPatcher
 {
     private static LearnStepItem CurrentStepItem(CharacterStageProficiencySelectionPanel __instance)
@@ -31,8 +33,10 @@ public static class CharacterStageProficiencySelectionPanelPatcher
 
     [HarmonyPatch(typeof(CharacterStageProficiencySelectionPanel), "Refresh")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
     public static class Refresh_Patch
     {
+        [UsedImplicitly]
         public static void Postfix(CharacterStageProficiencySelectionPanel __instance)
         {
             //PATCH: support for skipping skill and tool proficiency picking if you picked all available, but still have points remaining
@@ -87,8 +91,10 @@ public static class CharacterStageProficiencySelectionPanelPatcher
 
     [HarmonyPatch(typeof(CharacterStageProficiencySelectionPanel), "OnLearnAutoImpl")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
     public static class OnLearnAutoImpl_Patch
     {
+        [UsedImplicitly]
         public static bool Prefix(CharacterStageProficiencySelectionPanel __instance, Random rng)
         {
             //PATCH: support for skipping skill and tool proficiency picking if you picked all available, but still have points remaining

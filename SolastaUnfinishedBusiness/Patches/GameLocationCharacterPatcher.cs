@@ -14,12 +14,15 @@ using SolastaUnfinishedBusiness.Models;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
+[UsedImplicitly]
 public static class GameLocationCharacterPatcher
 {
     [HarmonyPatch(typeof(GameLocationCharacter), "StartBattleTurn")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
     public static class StartBattleTurn_Patch
     {
+        [UsedImplicitly]
         public static void Postfix(GameLocationCharacter __instance)
         {
             //PATCH: acts as a callback for the character's combat turn started event
@@ -29,8 +32,10 @@ public static class GameLocationCharacterPatcher
 
     [HarmonyPatch(typeof(GameLocationCharacter), "EndBattleTurn")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
     public static class EndBattleTurn_Patch
     {
+        [UsedImplicitly]
         public static void Postfix(GameLocationCharacter __instance)
         {
             //PATCH: acts as a callback for the character's combat turn ended event
@@ -40,8 +45,10 @@ public static class GameLocationCharacterPatcher
 
     [HarmonyPatch(typeof(GameLocationCharacter), "StartBattle")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
     public static class StartBattle_Patch
     {
+        [UsedImplicitly]
         public static void Postfix(GameLocationCharacter __instance, bool surprise)
         {
             //PATCH: acts as a callback for the character's combat started event
@@ -52,8 +59,10 @@ public static class GameLocationCharacterPatcher
 
     [HarmonyPatch(typeof(GameLocationCharacter), "EndBattle")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
     public static class EndBattle_Patch
     {
+        [UsedImplicitly]
         public static void Postfix(GameLocationCharacter __instance)
         {
             //PATCH: acts as a callback for the character's combat ended event
@@ -64,8 +73,10 @@ public static class GameLocationCharacterPatcher
 
     [HarmonyPatch(typeof(GameLocationCharacter), "AttackOn")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
     public static class AttackOn_Patch
     {
+        [UsedImplicitly]
         public static void Prefix(
             [NotNull] GameLocationCharacter __instance,
             GameLocationCharacter target,
@@ -93,8 +104,10 @@ public static class GameLocationCharacterPatcher
 
     [HarmonyPatch(typeof(GameLocationCharacter), "AttackImpactOn")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
     public static class AttackImpactOn_Patch
     {
+        [UsedImplicitly]
         public static void Prefix(
             [NotNull] GameLocationCharacter __instance,
             GameLocationCharacter target,
@@ -123,8 +136,10 @@ public static class GameLocationCharacterPatcher
     // Yes the actual game typos this it is "OnPower" and not the expected "OnePower"
     [HarmonyPatch(typeof(GameLocationCharacter), "CanUseAtLeastOnPower")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
     public static class CanUseAtLeastOnPower_Patch
     {
+        [UsedImplicitly]
         public static void Postfix(
             GameLocationCharacter __instance,
             ActionDefinitions.ActionType actionType,
@@ -167,9 +182,11 @@ public static class GameLocationCharacterPatcher
 
     [HarmonyPatch(typeof(GameLocationCharacter), "GetActionStatus")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
     public static class GetActionStatus_Patch
     {
         [NotNull]
+        [UsedImplicitly]
         public static IEnumerable<CodeInstruction> Transpiler([NotNull] IEnumerable<CodeInstruction> instructions)
         {
             //PATCH: Support for Pugilist Fighting Style
@@ -187,6 +204,7 @@ public static class GameLocationCharacterPatcher
                 new CodeInstruction(OpCodes.Call, trueMethod));
         }
 
+        [UsedImplicitly]
         public static void Postfix(GameLocationCharacter __instance,
             ref ActionDefinitions.ActionStatus __result,
             ActionDefinitions.Id actionId,
@@ -207,9 +225,11 @@ public static class GameLocationCharacterPatcher
 
     [HarmonyPatch(typeof(GameLocationCharacter), "RefreshActionPerformances")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
     public static class RefreshActionPerformances_Patch
     {
         [NotNull]
+        [UsedImplicitly]
         public static IEnumerable<CodeInstruction> Transpiler([NotNull] IEnumerable<CodeInstruction> instructions)
         {
             var enumerate1 = new Action<
@@ -240,8 +260,10 @@ public static class GameLocationCharacterPatcher
 
     [HarmonyPatch(typeof(GameLocationCharacter), "HandleActionExecution")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
     public static class HandleActionExecution_Patch
     {
+        [UsedImplicitly]
         public static void Postfix(
             GameLocationCharacter __instance,
             CharacterActionParams actionParams,
@@ -255,9 +277,11 @@ public static class GameLocationCharacterPatcher
 
     [HarmonyPatch(typeof(GameLocationCharacter), "GetActionAvailableIterations")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
     public static class GetActionAvailableIterations_Patch
     {
         [NotNull]
+        [UsedImplicitly]
         public static IEnumerable<CodeInstruction> Transpiler([NotNull] IEnumerable<CodeInstruction> instructions)
         {
             //PATCH: Support for ExtraAttacksOnActionPanel

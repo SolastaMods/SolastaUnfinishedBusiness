@@ -10,8 +10,10 @@ public static class MultiplayerStatusModalPatcher
 {
     [HarmonyPatch(typeof(MultiplayerStatusModal), "OnBeginShow")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
     public static class OnBeginShow1_Patch
     {
+        [UsedImplicitly]
         public static void Prefix([NotNull] MultiplayerStatusModal __instance)
         {
             //PATCH: allows up to 6 players to join the game if there are enough heroes available (PARTYSIZE)

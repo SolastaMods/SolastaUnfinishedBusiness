@@ -1,16 +1,20 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using HarmonyLib;
+using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Models;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
+[UsedImplicitly]
 public static class GameManagerPatcher
 {
     [HarmonyPatch(typeof(GameManager), "BindPostDatabase")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
     public static class BindPostDatabase_Patch
     {
+        [UsedImplicitly]
         public static void Postfix()
         {
             //PATCH: loads all mod contexts
@@ -21,6 +25,7 @@ public static class GameManagerPatcher
     [HarmonyPatch(typeof(GameManager), "BindServiceSettings")]
     internal static class BindServiceSettings_Patch
     {
+        [UsedImplicitly]
         public static void Prefix(GameManager __instance)
         {
             //PATCH: add unofficial languages before game tries to load the game settings xml

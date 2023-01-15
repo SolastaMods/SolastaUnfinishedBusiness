@@ -10,13 +10,13 @@ using SolastaUnfinishedBusiness.CustomBehaviors;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
-public static class FeatureDefinitionFeatureSetPatcher
+[UsedImplicitly] public static class FeatureDefinitionFeatureSetPatcher
 {
     [HarmonyPatch(typeof(FeatureDefinitionFeatureSet), "FormatDescription")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    public static class FormatDescription_Patch
+    [UsedImplicitly] public static class FormatDescription_Patch
     {
-        public static void Postfix([NotNull] FeatureDefinitionFeatureSet __instance, ref string __result)
+        [UsedImplicitly] public static void Postfix([NotNull] FeatureDefinitionFeatureSet __instance, ref string __result)
         {
             //PATCH: improves formatting of feature sets description by including descriptions of its sub-features
             if (!__instance.HasSubFeatureOfType<CustomSetDescription>())

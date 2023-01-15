@@ -7,12 +7,15 @@ using SolastaUnfinishedBusiness.Api.Infrastructure;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
+[UsedImplicitly]
 public static class CharacterStageRaceSelectionPanelPatcher
 {
     [HarmonyPatch(typeof(CharacterStageRaceSelectionPanel), "OnBeginShow")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
     public static class OnBeginShow_Patch
     {
+        [UsedImplicitly]
         public static void Prefix([NotNull] CharacterStageRaceSelectionPanel __instance)
         {
             //PATCH: avoids a restart when enabling / disabling races on the Mod UI panel

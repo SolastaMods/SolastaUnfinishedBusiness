@@ -12,12 +12,15 @@ using SolastaUnfinishedBusiness.Models;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
+[UsedImplicitly]
 public static class SpellSelectionPanelPatcher
 {
     [HarmonyPatch(typeof(SpellSelectionPanel), "Bind")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
     public static class Bind_Patch
     {
+        [UsedImplicitly]
         public static void Prefix(
             GuiCharacter caster,
             ref bool cantripOnly,
@@ -33,6 +36,7 @@ public static class SpellSelectionPanelPatcher
             }
         }
 
+        [UsedImplicitly]
         public static void Postfix(
             SpellSelectionPanel __instance,
             GuiCharacter caster,
@@ -51,6 +55,7 @@ public static class SpellSelectionPanelPatcher
         }
 
         [NotNull]
+        [UsedImplicitly]
         public static IEnumerable<CodeInstruction> Transpiler([NotNull] IEnumerable<CodeInstruction> instructions)
         {
             //PATCH: hide spell panels for repertoires that have hidden spell casting feature
@@ -71,8 +76,10 @@ public static class SpellSelectionPanelPatcher
 
     [HarmonyPatch(typeof(SpellSelectionPanel), "Unbind")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
     public static class Unbind_Patch
     {
+        [UsedImplicitly]
         public static void Postfix()
         {
             //PATCH: shows spell selection on multiple rows

@@ -1,15 +1,19 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
+using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Models;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
+[UsedImplicitly]
 public static class FlexibleCastingItemPatcher
 {
     [HarmonyPatch(typeof(FlexibleCastingItem), "Bind")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
     public static class Bind_Patch
     {
+        [UsedImplicitly]
         public static void Postfix(
             FlexibleCastingItem __instance,
             int slotLevel,
@@ -35,8 +39,10 @@ public static class FlexibleCastingItemPatcher
     }
 
     [HarmonyPatch(typeof(FlexibleCastingItem), "Unbind")]
+    [UsedImplicitly]
     public static class Unbind_Patch
     {
+        [UsedImplicitly]
         public static void Prefix(FlexibleCastingItem __instance)
         {
             //PATCH: ensures slot colors are white before getting back to pool (MULTICLASS)

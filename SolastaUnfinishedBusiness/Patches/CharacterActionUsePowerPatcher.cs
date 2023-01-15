@@ -6,12 +6,15 @@ using SolastaUnfinishedBusiness.Models;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
+[UsedImplicitly]
 public static class CharacterActionUsePowerPatcher
 {
     [HarmonyPatch(typeof(CharacterActionUsePower), "CheckInterruptionBefore")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
     public static class CheckInterruptionBefore_Patch
     {
+        [UsedImplicitly]
         public static bool Prefix([NotNull] CharacterActionUsePower __instance)
         {
             //PATCH: ignores interruptions processing for certain powers so they won't interrupt invisibility
@@ -21,8 +24,10 @@ public static class CharacterActionUsePowerPatcher
 
     [HarmonyPatch(typeof(CharacterActionUsePower), "CheckInterruptionAfter")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
     public static class CheckInterruptionAfter_Patch
     {
+        [UsedImplicitly]
         public static bool Prefix([NotNull] CharacterActionUsePower __instance)
         {
             //PATCH: ignores interruptions processing for certain powers so they won't interrupt invisibility
@@ -32,8 +37,10 @@ public static class CharacterActionUsePowerPatcher
 
     [HarmonyPatch(typeof(CharacterActionUsePower), "GetAdvancementData")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
     public static class GetAdvancementData_Patch
     {
+        [UsedImplicitly]
         public static bool Prefix([NotNull] CharacterActionUsePower __instance)
         {
             //PATCH: Calculate advancement data for `RulesetEffectPowerWithAdvancement`
@@ -43,8 +50,10 @@ public static class CharacterActionUsePowerPatcher
 
     [HarmonyPatch(typeof(CharacterActionUsePower), "HandleEffectUniqueness")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
     public static class HandleEffectUniqueness_Patch
     {
+        [UsedImplicitly]
         public static void Postfix([NotNull] CharacterActionUsePower __instance)
         {
             //PATCH: Support for limited power effect instances
@@ -56,8 +65,10 @@ public static class CharacterActionUsePowerPatcher
 
     [HarmonyPatch(typeof(CharacterActionUsePower), "SpendMagicEffectUses")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
     public static class SpendMagicEffectUses_Patch
     {
+        [UsedImplicitly]
         public static bool Prefix([NotNull] CharacterActionUsePower __instance)
         {
             //PATCH: Calculate extra charge usage for `RulesetEffectPowerWithAdvancement`

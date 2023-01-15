@@ -1,14 +1,17 @@
 ﻿using System;
 using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
+using JetBrains.Annotations;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
+[UsedImplicitly]
 public static class EquipmentDefinitionsPatcher
 {
     //PATCH: ScaleMerchantPricesCorrectly
     [HarmonyPatch(typeof(EquipmentDefinitions), "ScaleAndRoundCosts")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
     public static class ScaleAndRoundCosts_Patch
     {
         //Original method - if cost is say '1' and the multiplier is less than one, it ends up as zero.
@@ -21,6 +24,7 @@ public static class EquipmentDefinitionsPatcher
                     scaledCosts[index] = Mathf.RoundToInt(priceMultiplier* (float) baseCosts[index]);
             }
         */
+        [UsedImplicitly]
         public static bool Prefix(float priceMultiplier, int[] baseCosts, int[] scaledCosts)
         {
             if (!Main.Settings.ScaleMerchantPricesCorrectly)

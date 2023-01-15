@@ -5,12 +5,15 @@ using SolastaUnfinishedBusiness.CustomBehaviors;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
+[UsedImplicitly]
 public static class GraphicsCharacterHeroPatcher
 {
     [HarmonyPatch(typeof(GraphicsCharacterHero), "GetAttackAnimationData")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
     public static class GetAttackAnimationData_Patch
     {
+        [UsedImplicitly]
         public static void Postfix(
             ref string __result,
             [NotNull] RulesetAttackMode attackMode,

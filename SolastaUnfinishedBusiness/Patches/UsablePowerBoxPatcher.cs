@@ -1,17 +1,21 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
+using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomUI;
 using UnityEngine.UI;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
+[UsedImplicitly]
 public static class UsablePowerBoxPatcher
 {
     [HarmonyPatch(typeof(UsablePowerBox), "OnActivateCb")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
     public static class OnActivateCb_Patch
     {
+        [UsedImplicitly]
         public static bool Prefix(UsablePowerBox __instance)
         {
             //PATCH: used by Power Bundles feature
@@ -24,8 +28,10 @@ public static class UsablePowerBoxPatcher
 
     [HarmonyPatch(typeof(UsablePowerBox), "Bind")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
     public static class Bind_Patch
     {
+        [UsedImplicitly]
         public static void Postfix(UsablePowerBox __instance)
         {
             //PATCH: sets current character as context for power tooltip, so it may update its properties based on user

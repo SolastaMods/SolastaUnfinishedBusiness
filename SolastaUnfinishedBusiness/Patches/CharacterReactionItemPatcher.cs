@@ -13,13 +13,16 @@ using UnityEngine;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
+[UsedImplicitly]
 public static class CharacterReactionItemPatcher
 {
     [HarmonyPatch(typeof(CharacterReactionItem), "Bind")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
     public static class Bind_Patch
     {
         [NotNull]
+        [UsedImplicitly]
         public static IEnumerable<CodeInstruction> Transpiler([NotNull] IEnumerable<CodeInstruction> instructions)
         {
             //PATCH: replaces calls to the Bind of `CharacterReactionSubitem` with custom method
@@ -40,6 +43,7 @@ public static class CharacterReactionItemPatcher
                 .RemoveBoolAsserts();
         }
 
+        [UsedImplicitly]
         public static void Postfix([NotNull] CharacterReactionItem __instance)
         {
             var request = __instance.ReactionRequest;
@@ -103,8 +107,10 @@ public static class CharacterReactionItemPatcher
     //TODO: check if still relevant - while this method wasn't touched, maybe sub-items are now disposed properly?
     [HarmonyPatch(typeof(CharacterReactionItem), "GetSelectedSubItem")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
     public static class GetSelectedSubItem_Patch
     {
+        [UsedImplicitly]
         public static bool Prefix([NotNull] CharacterReactionItem __instance, out int __result)
         {
             //BUGFIX: replaces `GetSelectedSubItem` to fix reaction selection crashes

@@ -1,17 +1,21 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using HarmonyLib;
+using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Models;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
+[UsedImplicitly]
 public static class NarrativeSequenceBuilderPatcher
 {
     //PATCH: Ensure all roles are filled if party has less than 4 heroes
     [HarmonyPatch(typeof(NarrativeSequenceBuilder), "BuildBaseSequence")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
     public static class BuildBaseSequence_Patch
     {
+        [UsedImplicitly]
         public static void Prefix(NarrativeSequence narrativeSequence)
         {
             var top = narrativeSequence.PlayerActors.Count - 1;

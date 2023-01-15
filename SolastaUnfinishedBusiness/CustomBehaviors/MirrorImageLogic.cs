@@ -160,7 +160,7 @@ public class MirrorImageLogic
         RulesetCharacter attacker,
         RulesetAttackMode attackMode,
         RulesetActor target,
-        List<RuleDefinitions.TrendInfo> toHitTrends,
+        IEnumerable<RuleDefinitions.TrendInfo> toHitTrends,
         ref RuleDefinitions.RollOutcome outcome,
         ref int successDelta,
         bool testMode)

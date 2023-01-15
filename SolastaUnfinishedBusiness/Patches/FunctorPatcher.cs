@@ -7,12 +7,15 @@ using SolastaUnfinishedBusiness.Api;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
+[UsedImplicitly]
 public static class FunctorPatcher
 {
     [HarmonyPatch(typeof(Functor), "SelectCharacters")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
     public static class SelectCharacters_Patch
     {
+        [UsedImplicitly]
         public static void Postfix(
             [NotNull] FunctorParametersDescription functorParameters,
             List<GameLocationCharacter> selectedCharacters)

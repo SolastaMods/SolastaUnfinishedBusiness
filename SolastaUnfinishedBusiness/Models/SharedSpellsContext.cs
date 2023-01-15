@@ -307,28 +307,28 @@ internal static class SharedSpellsContext
 
     #region Slots Definitions
 
-    internal static List<SlotsByLevelDuplet> RaceCastingSlots { get; } = new()
+    internal static IEnumerable<SlotsByLevelDuplet> RaceCastingSlots { get; } = new List<SlotsByLevelDuplet>
     {
-        new SlotsByLevelDuplet { Slots = new List<int> { 0, 0 }, Level = 01 },
-        new SlotsByLevelDuplet { Slots = new List<int> { 0, 0 }, Level = 02 },
-        new SlotsByLevelDuplet { Slots = new List<int> { 1, 0 }, Level = 03 },
-        new SlotsByLevelDuplet { Slots = new List<int> { 1, 0 }, Level = 04 },
-        new SlotsByLevelDuplet { Slots = new List<int> { 1, 1 }, Level = 05 },
-        new SlotsByLevelDuplet { Slots = new List<int> { 1, 1 }, Level = 06 },
-        new SlotsByLevelDuplet { Slots = new List<int> { 1, 1 }, Level = 07 },
-        new SlotsByLevelDuplet { Slots = new List<int> { 1, 1 }, Level = 08 },
-        new SlotsByLevelDuplet { Slots = new List<int> { 1, 1 }, Level = 09 },
-        new SlotsByLevelDuplet { Slots = new List<int> { 1, 1 }, Level = 10 },
-        new SlotsByLevelDuplet { Slots = new List<int> { 1, 1 }, Level = 11 },
-        new SlotsByLevelDuplet { Slots = new List<int> { 1, 1 }, Level = 12 },
-        new SlotsByLevelDuplet { Slots = new List<int> { 1, 1 }, Level = 13 },
-        new SlotsByLevelDuplet { Slots = new List<int> { 1, 1 }, Level = 14 },
-        new SlotsByLevelDuplet { Slots = new List<int> { 1, 1 }, Level = 15 },
-        new SlotsByLevelDuplet { Slots = new List<int> { 1, 1 }, Level = 16 },
-        new SlotsByLevelDuplet { Slots = new List<int> { 1, 1 }, Level = 17 },
-        new SlotsByLevelDuplet { Slots = new List<int> { 1, 1 }, Level = 18 },
-        new SlotsByLevelDuplet { Slots = new List<int> { 1, 1 }, Level = 19 },
-        new SlotsByLevelDuplet { Slots = new List<int> { 1, 1 }, Level = 20 }
+        new() { Slots = new List<int> { 0, 0 }, Level = 01 },
+        new() { Slots = new List<int> { 0, 0 }, Level = 02 },
+        new() { Slots = new List<int> { 1, 0 }, Level = 03 },
+        new() { Slots = new List<int> { 1, 0 }, Level = 04 },
+        new() { Slots = new List<int> { 1, 1 }, Level = 05 },
+        new() { Slots = new List<int> { 1, 1 }, Level = 06 },
+        new() { Slots = new List<int> { 1, 1 }, Level = 07 },
+        new() { Slots = new List<int> { 1, 1 }, Level = 08 },
+        new() { Slots = new List<int> { 1, 1 }, Level = 09 },
+        new() { Slots = new List<int> { 1, 1 }, Level = 10 },
+        new() { Slots = new List<int> { 1, 1 }, Level = 11 },
+        new() { Slots = new List<int> { 1, 1 }, Level = 12 },
+        new() { Slots = new List<int> { 1, 1 }, Level = 13 },
+        new() { Slots = new List<int> { 1, 1 }, Level = 14 },
+        new() { Slots = new List<int> { 1, 1 }, Level = 15 },
+        new() { Slots = new List<int> { 1, 1 }, Level = 16 },
+        new() { Slots = new List<int> { 1, 1 }, Level = 17 },
+        new() { Slots = new List<int> { 1, 1 }, Level = 18 },
+        new() { Slots = new List<int> { 1, 1 }, Level = 19 },
+        new() { Slots = new List<int> { 1, 1 }, Level = 20 }
     };
 
     internal static List<SlotsByLevelDuplet> RaceEmptyCastingSlots { get; } = new()

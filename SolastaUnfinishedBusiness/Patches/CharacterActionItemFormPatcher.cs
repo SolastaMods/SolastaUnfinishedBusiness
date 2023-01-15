@@ -1,5 +1,6 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
+using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.Extensions;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using TA.AddressableAssets;
@@ -7,12 +8,15 @@ using UnityEngine;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
+[UsedImplicitly]
 public static class CharacterActionItemFormPatcher
 {
     [HarmonyPatch(typeof(CharacterActionItemForm), "Bind")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
     public static class Bind_Patch
     {
+        [UsedImplicitly]
         public static void Postfix(CharacterActionItemForm __instance)
         {
             //PATCH: Get dynamic properties from forced attack
@@ -29,8 +33,10 @@ public static class CharacterActionItemFormPatcher
 
     [HarmonyPatch(typeof(CharacterActionItemForm), "Refresh")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
     public static class Refresh_Patch
     {
+        [UsedImplicitly]
         public static void Postfix(CharacterActionItemForm __instance)
         {
             //PATCH: support for `IActionItemDiceBox` showing custom dice number/size

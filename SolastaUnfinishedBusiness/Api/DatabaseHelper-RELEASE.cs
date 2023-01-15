@@ -1,5 +1,8 @@
 // manually generated on 12/31/2022
 using TA.AI;
+// ReSharper disable IdentifierTypo
+// ReSharper disable InconsistentNaming
+// ReSharper disable StringLiteralTypo
 namespace SolastaUnfinishedBusiness.Api;
 internal static partial class DatabaseHelper
 {

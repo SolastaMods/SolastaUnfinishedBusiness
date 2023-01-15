@@ -1,5 +1,6 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
+using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.Extensions;
 using SolastaUnfinishedBusiness.CustomBehaviors;
@@ -7,12 +8,15 @@ using static RuleDefinitions;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
+[UsedImplicitly]
 public static class RulesetImplementationManagerLocationPatcher
 {
     [HarmonyPatch(typeof(RulesetImplementationManagerLocation), "InstantiateEffectInvocation")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
     public static class InstantiateEffectInvocation_Patch
     {
+        [UsedImplicitly]
         public static void Postfix(
             RulesetEffectSpell __result,
             RulesetInvocation invocation)
@@ -24,8 +28,10 @@ public static class RulesetImplementationManagerLocationPatcher
 
     [HarmonyPatch(typeof(RulesetImplementationManagerLocation), "IsMetamagicOptionAvailable")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
     public static class IsMetamagicOptionAvailable_Patch
     {
+        [UsedImplicitly]
         public static void Postfix(
             ref bool __result,
             RulesetEffectSpell rulesetEffectSpell,
@@ -62,8 +68,10 @@ public static class RulesetImplementationManagerLocationPatcher
 
     [HarmonyPatch(typeof(RulesetImplementationManagerLocation), "IsSituationalContextValid")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
     public static class IsSituationalContextValid_Patch
     {
+        [UsedImplicitly]
         public static void Postfix(
             ref bool __result,
             RulesetImplementationDefinitions.SituationalContextParams contextParams)
@@ -77,8 +85,10 @@ public static class RulesetImplementationManagerLocationPatcher
 
     [HarmonyPatch(typeof(RulesetImplementationManagerLocation), "InstantiateActiveDeviceFunction")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
     public static class InstantiateActiveDeviceFunction_Patch
     {
+        [UsedImplicitly]
         public static bool Prefix(
             RulesetImplementationManagerLocation __instance,
             ref RulesetEffect __result,
@@ -97,8 +107,10 @@ public static class RulesetImplementationManagerLocationPatcher
 
     [HarmonyPatch(typeof(RulesetImplementationManagerLocation), "ApplyMotionForm")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
     public static class ApplyMotionForm_Patch
     {
+        [UsedImplicitly]
         public static bool Prefix(EffectForm effectForm, RulesetImplementationDefinitions.ApplyFormsParams formsParams)
         {
             //PATCH: support for `PushesFromEffectPoint`

@@ -10,10 +10,12 @@ using SolastaUnfinishedBusiness.Models;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
-public class SpellsByLevelBoxPatcher
+[UsedImplicitly]
+public static class SpellsByLevelBoxPatcher
 {
     [HarmonyPatch(typeof(SpellsByLevelBox), "OnActivateStandardBox")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
     public static class OnActivateStandardBox_Patch
     {
         private static bool UniqueLevelSlots(SpellsByLevelBox spellsByLevelBox)
@@ -24,6 +26,7 @@ public class SpellsByLevelBoxPatcher
                    spellsByLevelBox.spellRepertoire.SpellCastingFeature.UniqueLevelSlots;
         }
 
+        [UsedImplicitly]
         public static IEnumerable<CodeInstruction> Transpiler([NotNull] IEnumerable<CodeInstruction> instructions)
         {
             //PATCH: ensures multiclass warlock will use the correct slot level when casting spells using spell slots (MULTICLASS)

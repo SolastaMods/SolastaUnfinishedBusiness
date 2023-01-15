@@ -6,12 +6,15 @@ using UnityEngine.UI;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
+[UsedImplicitly]
 public static class RestSubPanelPatcher
 {
     [HarmonyPatch(typeof(RestSubPanel), "OnBeginShow")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
     public static class OnBeginShow_Patch
     {
+        [UsedImplicitly]
         public static void Prefix([NotNull] RestSubPanel __instance)
         {
             var y1 = __instance.characterPlatesTable.anchoredPosition.y;

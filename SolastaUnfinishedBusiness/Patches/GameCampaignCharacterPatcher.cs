@@ -4,12 +4,15 @@ using JetBrains.Annotations;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
+[UsedImplicitly]
 public static class GameCampaignCharacterPatcher
 {
     [HarmonyPatch(typeof(GameCampaignCharacter), "EngageRest")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
     public static class EngageRest_Patch
     {
+        [UsedImplicitly]
         public static bool Prefix([NotNull] GameCampaignCharacter __instance, RuleDefinitions.RestType restType)
         {
             //BUGFIX: terminates effects correctly on world travel

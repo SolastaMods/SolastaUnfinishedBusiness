@@ -1,16 +1,20 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using HarmonyLib;
+using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.Infrastructure;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
+[UsedImplicitly]
 public static class DatabaseSelectionModalPatcher
 {
     [HarmonyPatch(typeof(DatabaseSelectionModal), "BuildMonsters")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
     public static class BuildMonsters_Patch
     {
+        [UsedImplicitly]
         public static bool Prefix(DatabaseSelectionModal __instance)
         {
             //PATCH: unleashes all NPC definitions to be used as monsters (DMP)
@@ -39,8 +43,10 @@ public static class DatabaseSelectionModalPatcher
 
     [HarmonyPatch(typeof(DatabaseSelectionModal), "BuildNpcs")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
     public static class BuildNpcs_Patch
     {
+        [UsedImplicitly]
         public static bool Prefix(DatabaseSelectionModal __instance)
         {
             //PATCH: unleashes all monster definitions to be used as NPCs (DMP)

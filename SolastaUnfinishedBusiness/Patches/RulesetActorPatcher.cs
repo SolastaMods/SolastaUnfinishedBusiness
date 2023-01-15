@@ -19,12 +19,15 @@ using static FeatureDefinitionAttributeModifier;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
+[UsedImplicitly]
 public static class RulesetActorPatcher
 {
     [HarmonyPatch(typeof(RulesetActor), "AddConditionOfCategory")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
     public static class AddConditionOfCategory_Patch
     {
+        [UsedImplicitly]
         public static void Prefix(
             RulesetActor __instance,
             ref string category,
@@ -49,8 +52,10 @@ public static class RulesetActorPatcher
 
     [HarmonyPatch(typeof(RulesetActor), "InflictCondition")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
     public static class InflictCondition_Patch
     {
+        [UsedImplicitly]
         public static void Prefix(
             RulesetActor __instance,
             string conditionDefinitionName,
@@ -124,8 +129,10 @@ public static class RulesetActorPatcher
 
     [HarmonyPatch(typeof(RulesetActor), "RemoveCondition")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
     public static class RemoveCondition_Patch
     {
+        [UsedImplicitly]
         public static void Postfix(RulesetActor __instance, RulesetCondition rulesetCondition)
         {
             //PATCH: INotifyConditionRemoval
@@ -144,8 +151,10 @@ public static class RulesetActorPatcher
 
     [HarmonyPatch(typeof(RulesetActor), "ProcessConditionsMatchingOccurenceType")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
     public static class ProcessConditionsMatchingOccurenceType_Patch
     {
+        [UsedImplicitly]
         public static void Postfix(RulesetActor __instance, RuleDefinitions.TurnOccurenceType occurenceType)
         {
             //PATCH: support for `IConditionRemovedOnSourceTurnStart` - removes appropriately marked conditions
@@ -156,9 +165,9 @@ public static class RulesetActorPatcher
 #if false
     [HarmonyPatch(typeof(RulesetActor), "ProcessConditionsMatchingInterruption")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    public static class ProcessConditionsMatchingInterruption_Patch
+    [UsedImplicitly] public static class ProcessConditionsMatchingInterruption_Patch
     {
-        public static void Prefix(RulesetActor __instance,
+        [UsedImplicitly] public static void Prefix(RulesetActor __instance,
             RuleDefinitions.ConditionInterruption interruption,
             int amount)
         {
@@ -173,8 +182,10 @@ public static class RulesetActorPatcher
 
     [HarmonyPatch(typeof(RulesetActor), "ModulateSustainedDamage")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
     public static class ModulateSustainedDamage_Patch
     {
+        [UsedImplicitly]
         public static IEnumerable<CodeInstruction> Transpiler([NotNull] IEnumerable<CodeInstruction> instructions)
         {
             //PATCH: add `IDamageAffinityProvider` from dynamic item properties
@@ -224,8 +235,10 @@ public static class RulesetActorPatcher
 
     [HarmonyPatch(typeof(RulesetActor), "RollDie")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
     public static class RollDie_Patch
     {
+        [UsedImplicitly]
         public static IEnumerable<CodeInstruction> Transpiler([NotNull] IEnumerable<CodeInstruction> instructions)
         {
             var rollDieMethod = typeof(RuleDefinitions).GetMethod("RollDie", BindingFlags.Public | BindingFlags.Static);
@@ -237,6 +250,7 @@ public static class RulesetActorPatcher
                 new CodeInstruction(OpCodes.Call, myRollDieMethod));
         }
 
+        [UsedImplicitly]
         public static int RollDie(
             RuleDefinitions.DieType dieType,
             RuleDefinitions.AdvantageType advantageType,
@@ -300,6 +314,7 @@ public static class RulesetActorPatcher
         }
 
         // TODO: make this more generic
+        [UsedImplicitly]
         public static void Prefix(RulesetActor __instance, RuleDefinitions.RollContext rollContext,
             ref bool enumerateFeatures, ref bool canRerollDice)
         {
@@ -318,6 +333,7 @@ public static class RulesetActorPatcher
     //PATCH: uses class level instead of character level on attributes calculation (Multiclass)
     [HarmonyPatch(typeof(RulesetActor), "RefreshAttributes")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
     public static class RefreshAttributes_Patch
     {
         // private static readonly Regex ClassPattern = new($"{AttributeDefinitions.TagClass}(.*)\\d+");
@@ -363,6 +379,7 @@ public static class RulesetActorPatcher
         }
 
         [NotNull]
+        [UsedImplicitly]
         public static IEnumerable<CodeInstruction> Transpiler([NotNull] IEnumerable<CodeInstruction> instructions)
         {
             // needed for sorcery points, healing pools, ki points to be of proper sizes when multiclass

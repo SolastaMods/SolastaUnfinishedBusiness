@@ -1,15 +1,19 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
+using JetBrains.Annotations;
 using static SolastaUnfinishedBusiness.Models.SaveByLocationContext;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
+[UsedImplicitly]
 public static class TacticalAdventuresApplicationPatcher
 {
     [HarmonyPatch(typeof(TacticalAdventuresApplication), "SaveGameDirectory", MethodType.Getter)]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
     public static class SaveGameDirectory_Getter_Patch
     {
+        [UsedImplicitly]
         public static bool Prefix(ref string __result)
         {
             //PATCH: EnableSaveByLocation

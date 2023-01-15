@@ -12,12 +12,15 @@ using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterClassDefiniti
 
 namespace SolastaUnfinishedBusiness.Patches;
 
+[UsedImplicitly]
 public static class RulesetImplementationManagerPatcher
 {
     [HarmonyPatch(typeof(RulesetImplementationManager), "InstantiateEffectInvocation")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
     public static class InstantiateEffectInvocation_Patch
     {
+        [UsedImplicitly]
         public static void Postfix(
             RulesetEffectSpell __result,
             RulesetInvocation invocation)
@@ -29,8 +32,10 @@ public static class RulesetImplementationManagerPatcher
 
     [HarmonyPatch(typeof(RulesetImplementationManager), "ApplySummonForm")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
     public static class ApplySummonForm_Patch
     {
+        [UsedImplicitly]
         public static bool Prefix(
             EffectForm effectForm,
             RulesetImplementationDefinitions.ApplyFormsParams formsParams)
@@ -71,8 +76,10 @@ public static class RulesetImplementationManagerPatcher
     // The code is prettified decompiled code from `RulesetImplementationManagerLocation`
     [HarmonyPatch(typeof(RulesetImplementationManager), "TerminateEffect")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
     public static class TerminateEffect_Patch
     {
+        [UsedImplicitly]
         public static void Prefix(RulesetImplementationManager __instance, RulesetEffect activeEffect)
         {
             //PATCH: allows for extra careful tracking of summoned items
@@ -81,6 +88,7 @@ public static class RulesetImplementationManagerPatcher
             ExtraCarefulTrackedItem.Process(__instance, activeEffect);
         }
 
+        [UsedImplicitly]
         public static void Postfix(RulesetImplementationManager __instance, RulesetEffect activeEffect)
         {
             if (__instance is not RulesetImplementationManagerCampaign)
@@ -190,8 +198,10 @@ public static class RulesetImplementationManagerPatcher
     //PATCH: handles Sorcerer wildshape scenarios / enforces sorcerer class level / correctly handle slots recovery scenarios
     [HarmonyPatch(typeof(RulesetImplementationManager), "ApplySpellSlotsForm")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
     public static class ApplySpellSlotsForm_Patch
     {
+        [UsedImplicitly]
         public static bool Prefix(EffectForm effectForm,
             RulesetImplementationDefinitions.ApplyFormsParams formsParams)
         {
@@ -205,7 +215,7 @@ public static class RulesetImplementationManagerPatcher
                 return true;
             }
 
-            // patch is only required for Wildshape Heroes or Multiclassed ones
+            // patch is only required for Wildshape Heroes or Multiclass ones
             if (!SharedSpellsContext.IsMulticaster(originalHero))
             {
                 return true;
@@ -295,9 +305,11 @@ public static class RulesetImplementationManagerPatcher
 
     [HarmonyPatch(typeof(RulesetImplementationManager), "IsValidContextForRestrictedContextProvider")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
     public static class IsValidContextForRestrictedContextProvider_Patch
     {
         [NotNull]
+        [UsedImplicitly]
         public static IEnumerable<CodeInstruction> Transpiler([NotNull] IEnumerable<CodeInstruction> instructions)
         {
             //PATCH: support for shield counting as melee
@@ -317,6 +329,7 @@ public static class RulesetImplementationManagerPatcher
                     new CodeInstruction(OpCodes.Call, customIsWeapon));
         }
 
+        [UsedImplicitly]
         public static void Postfix(ref bool __result,
             IRestrictedContextProvider provider,
             RulesetCharacter character,
@@ -333,8 +346,10 @@ public static class RulesetImplementationManagerPatcher
 
     [HarmonyPatch(typeof(RulesetImplementationManager), "TryRollSavingThrow")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
     public static class TryRollSavingThrow_Patch
     {
+        [UsedImplicitly]
         public static void Prefix(RulesetCharacter caster, ref int saveDC, BaseDefinition sourceDefinition)
         {
             //BUGFIX: for still an unknown reason we get DC 0 on some Grenadier powers so hack it here (MULTIPLAYER)
@@ -361,7 +376,7 @@ public static class RulesetImplementationManagerPatcher
 
 // use to debug MP issue with grenadier
 #if false
-    public static bool Prefix(
+    [UsedImplicitly] public static bool Prefix(
         RulesetImplementationManager __instance,
         RulesetCharacter caster,
         RuleDefinitions.Side sourceSide,

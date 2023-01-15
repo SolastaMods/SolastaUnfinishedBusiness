@@ -10,10 +10,12 @@ using SolastaUnfinishedBusiness.Models;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
+[UsedImplicitly]
 public static class ArchetypesPreviewModalPatcher
 {
     [HarmonyPatch(typeof(ArchetypesPreviewModal), "Refresh")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
     public static class Refresh_Patch
     {
         //PATCH: filters out on subclass display features already taken (MULTICLASS)
@@ -41,6 +43,7 @@ public static class ArchetypesPreviewModalPatcher
         }
 
         [NotNull]
+        [UsedImplicitly]
         public static IEnumerable<CodeInstruction> Transpiler([NotNull] IEnumerable<CodeInstruction> instructions)
         {
             var levelMethod = typeof(FeatureUnlockByLevel).GetMethod("get_Level");
@@ -53,8 +56,10 @@ public static class ArchetypesPreviewModalPatcher
 
     [HarmonyPatch(typeof(ArchetypesPreviewModal), "Show")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
     public static class Show_Patch
     {
+        [UsedImplicitly]
         public static void Prefix(ref List<string> subclasses)
         {
             //PATCH: only presents the subclass already taken if one was already selected for this class (MULTICLASS)

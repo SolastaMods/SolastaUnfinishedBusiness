@@ -1,17 +1,21 @@
 ﻿using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
+using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.Extensions;
 using SolastaUnfinishedBusiness.Models;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
+[UsedImplicitly]
 public static class GameGadgetPatcher
 {
     [HarmonyPatch(typeof(GameGadget), "ComputeIsRevealed")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
     public static class ComputeIsRevealed_Patch
     {
+        [UsedImplicitly]
         public static void Postfix(GameGadget __instance, ref bool __result)
         {
             //PATCH: HideExitsAndTeleportersGizmosIfNotDiscovered
@@ -29,12 +33,14 @@ public static class GameGadgetPatcher
 
     [HarmonyPatch(typeof(GameGadget), "CheckHasActiveDetectedTrap")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
     public static class CheckHasActiveDetectedTrap_Patch
     {
+        [UsedImplicitly]
         public static bool Prefix(GameGadget __instance, out bool __result)
         {
             //PATCH: fixes plant traps being shown on map even after destroyed
-            //mostly copy of a base method with addded check
+            //mostly copy of a base method with added check
             __result = __instance.CheckConditionName("Param_IsTrap", true, false) &&
                        __instance.CheckConditionName("Param_Enabled", true, true) &&
                        __instance.CheckConditionName("TrapDetected", true, true) &&
@@ -48,8 +54,10 @@ public static class GameGadgetPatcher
 
     [HarmonyPatch(typeof(GameGadget), "SetCondition")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
     public static class SetCondition_Patch
     {
+        [UsedImplicitly]
         public static void Postfix(GameGadget __instance, int conditionIndex, bool state)
         {
             //BUGFIX: fix issue where a button activator fires Triggered event with state=true first time and

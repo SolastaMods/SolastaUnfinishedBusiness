@@ -5,13 +5,16 @@ using UnityEngine;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
+[UsedImplicitly]
 public static class ContinuePanelPatcher
 {
     //PATCH: tweaks the UI to allow less/more heroes to be selected on a campaign (PARTYSIZE)
     [HarmonyPatch(typeof(ContinuePanel), "OnBeginShow")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
     public static class OnBeginShow_Patch
     {
+        [UsedImplicitly]
         public static void Prefix([NotNull] ContinuePanel __instance)
         {
             // scales down the plates table if required

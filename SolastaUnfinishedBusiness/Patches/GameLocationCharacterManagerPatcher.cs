@@ -6,13 +6,16 @@ using TA;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
+[UsedImplicitly]
 public static class GameLocationCharacterManagerPatcher
 {
     //PATCH: recalculates additional party members positions (PARTYSIZE)
     [HarmonyPatch(typeof(GameLocationCharacterManager), "UnlockCharactersForLoading")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
     public static class UnlockCharactersForLoading_Patch
     {
+        [UsedImplicitly]
         public static void Prefix([NotNull] GameLocationCharacterManager __instance)
         {
             var partyCharacters = __instance.PartyCharacters;

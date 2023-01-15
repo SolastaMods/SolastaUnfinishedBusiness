@@ -1,17 +1,21 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using HarmonyLib;
+using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Models;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
 //PATCH: removes low-level sub-option for spell reactions if caster is not-multiclass warlock (MULTICLASS)
+[UsedImplicitly]
 public static class ReactionRequestCastSpellPatcher
 {
     [HarmonyPatch(typeof(ReactionRequestCastSpell), "BuildSlotSubOptions")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
     public static class BuildSlotSubOptions_Patch
     {
+        [UsedImplicitly]
         public static void Postfix(ReactionRequestCastSpell __instance)
         {
             if (__instance.Character.RulesetCharacter is not RulesetCharacterHero hero
@@ -46,8 +50,10 @@ public static class ReactionRequestCastSpellPatcher
 
     [HarmonyPatch(typeof(ReactionRequestCastSpell), "SelectSubOption")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
     public static class SelectSubOption_Patch
     {
+        [UsedImplicitly]
         public static bool Prefix(ReactionRequestCastSpell __instance, int option)
         {
             //this should always be false
@@ -70,8 +76,10 @@ public static class ReactionRequestCastSpellPatcher
 
     [HarmonyPatch(typeof(ReactionRequestCastSpell), "SelectedSubOption", MethodType.Getter)]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
     public static class SelectedSubOption_Getter_Patch
     {
+        [UsedImplicitly]
         public static bool Prefix(ReactionRequestCastSpell __instance, ref int __result)
         {
             //this should always be false

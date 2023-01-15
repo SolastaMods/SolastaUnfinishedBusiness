@@ -1,17 +1,21 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
+using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.Extensions;
 using UnityEngine;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
+[UsedImplicitly]
 public static class GameLocationScreenMapPatcher
 {
     //PATCH: displays the location of campfires, entrances and exits on the game location screen map (level map)
     [HarmonyPatch(typeof(GameLocationScreenMap), "BindGadgets")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
     public static class BindGadgets_Patch
     {
+        [UsedImplicitly]
         public static bool Prefix(GameLocationScreenMap __instance)
         {
             if (!Main.Settings.EnableAdditionalIconsOnLevelMap || Gui.GameLocation.UserLocation == null)

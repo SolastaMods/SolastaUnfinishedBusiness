@@ -15,12 +15,15 @@ using static FeatureDefinitionCastSpell;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
+[UsedImplicitly]
 public static class CharacterBuildingManagerPatcher
 {
     [HarmonyPatch(typeof(CharacterBuildingManager), "CreateNewCharacter")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
     public static class CreateNewCharacter_Patch
     {
+        [UsedImplicitly]
         public static void Postfix([NotNull] CharacterBuildingManager __instance)
         {
             //PATCH: registers the hero getting created
@@ -30,8 +33,10 @@ public static class CharacterBuildingManagerPatcher
 
     [HarmonyPatch(typeof(CharacterBuildingManager), "TrainInvocation")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
     public static class TrainInvocation_Patch
     {
+        [UsedImplicitly]
         public static void Prefix(
             InvocationDefinition invocation,
             ref bool checkPool)
@@ -46,8 +51,10 @@ public static class CharacterBuildingManagerPatcher
 
     [HarmonyPatch(typeof(CharacterBuildingManager), "UnlearnInvocation")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
     public static class UnlearnInvocation_Patch
     {
+        [UsedImplicitly]
         public static void Prefix(
             InvocationDefinition invocation,
             ref bool checkPool)
@@ -62,8 +69,10 @@ public static class CharacterBuildingManagerPatcher
 
     [HarmonyPatch(typeof(CharacterBuildingManager), "UntrainInvocation")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
     public static class UntrainInvocation_Patch
     {
+        [UsedImplicitly]
         public static bool Prefix(
             CharacterHeroBuildingData heroBuildingData,
             InvocationDefinition invocation,
@@ -86,8 +95,10 @@ public static class CharacterBuildingManagerPatcher
 
     [HarmonyPatch(typeof(CharacterBuildingManager), "UndoUnlearnInvocation")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
     public static class UndoUnlearnInvocation_Patch
     {
+        [UsedImplicitly]
         public static bool Prefix(
             CharacterHeroBuildingData heroBuildingData,
             InvocationDefinition invocation,
@@ -110,8 +121,10 @@ public static class CharacterBuildingManagerPatcher
 
     [HarmonyPatch(typeof(CharacterBuildingManager), "LevelUpCharacter")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
     public static class LevelUpCharacter_Patch
     {
+        [UsedImplicitly]
         public static void Prefix([NotNull] RulesetCharacterHero hero, ref bool force)
         {
             //PATCH: forces no experience on level up setting
@@ -127,8 +140,10 @@ public static class CharacterBuildingManagerPatcher
 
     [HarmonyPatch(typeof(CharacterBuildingManager), "FinalizeCharacter")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
     public static class FinalizeCharacter_Patch
     {
+        [UsedImplicitly]
         public static void Prefix([NotNull] CharacterBuildingManager __instance, [NotNull] RulesetCharacterHero hero)
         {
             //PATCH: grants race features
@@ -140,6 +155,7 @@ public static class CharacterBuildingManagerPatcher
             LevelUpContext.GrantCustomFeatures(hero);
         }
 
+        [UsedImplicitly]
         public static void Postfix([NotNull] RulesetCharacterHero hero)
         {
             //PATCH: keeps spell repertoires sorted by class title but ancestry one is always kept first
@@ -155,8 +171,10 @@ public static class CharacterBuildingManagerPatcher
 
     [HarmonyPatch(typeof(CharacterBuildingManager), "AssignClassLevel")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
     public static class AssignClassLevel_Patch
     {
+        [UsedImplicitly]
         public static bool Prefix([NotNull] RulesetCharacterHero hero, CharacterClassDefinition classDefinition)
         {
             //PATCH: captures the desired class
@@ -179,8 +197,10 @@ public static class CharacterBuildingManagerPatcher
 
     [HarmonyPatch(typeof(CharacterBuildingManager), "AssignSubclass")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
     public static class AssignSubclass_Patch
     {
+        [UsedImplicitly]
         public static void Prefix([NotNull] RulesetCharacterHero hero, CharacterSubclassDefinition subclassDefinition)
         {
             //PATCH: captures the desired sub class
@@ -190,8 +210,10 @@ public static class CharacterBuildingManagerPatcher
 
     [HarmonyPatch(typeof(CharacterBuildingManager), "GrantFeatures")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
     public static class GrantFeatures_Patch
     {
+        [UsedImplicitly]
         public static bool Prefix([NotNull] RulesetCharacterHero hero)
         {
             //PATCH: ensures this doesn't get executed in the class panel level up screen
@@ -201,6 +223,7 @@ public static class CharacterBuildingManagerPatcher
             return !(isLevelingUp && isClassSelectionStage);
         }
 
+        [UsedImplicitly]
         public static void Postfix(
             RulesetCharacterHero hero,
             List<FeatureDefinition> grantedFeatures,
@@ -234,6 +257,7 @@ public static class CharacterBuildingManagerPatcher
             FeatureDefinitionGrantInvocations.GrantInvocations(hero, tag, grantedFeatures);
         }
 
+        [UsedImplicitly]
         public static IEnumerable<CodeInstruction> Transpiler([NotNull] IEnumerable<CodeInstruction> instructions)
         {
             var getInvocationProficiencies = typeof(RulesetCharacterHero).GetMethod("get_InvocationProficiencies");
@@ -251,8 +275,10 @@ public static class CharacterBuildingManagerPatcher
 
     [HarmonyPatch(typeof(CharacterBuildingManager), "RemoveActiveFeaturesFromHeroByTag")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
     public static class RemoveActiveFeaturesFromHeroByTag_Patch
     {
+        [UsedImplicitly]
         public static void Prefix(RulesetCharacterHero hero, string tag)
         {
             //PATCH: support for `FeatureDefinitionGrantCustomInvocations`
@@ -270,8 +296,10 @@ public static class CharacterBuildingManagerPatcher
 
     [HarmonyPatch(typeof(CharacterBuildingManager), "ClearPrevious")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
     public static class ClearPrevious_Patch
     {
+        [UsedImplicitly]
         public static void Prefix(RulesetCharacterHero hero, string tag)
         {
             //PATCH: support for `FeatureDefinitionGrantCustomInvocations`
@@ -289,8 +317,10 @@ public static class CharacterBuildingManagerPatcher
 
     [HarmonyPatch(typeof(CharacterBuildingManager), "UnassignLastClassLevel")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
     public static class UnassignLastClassLevel_Patch
     {
+        [UsedImplicitly]
         public static bool Prefix([NotNull] RulesetCharacterHero hero)
         {
             //PATCH: un-captures the desired class
@@ -313,8 +343,10 @@ public static class CharacterBuildingManagerPatcher
 
     [HarmonyPatch(typeof(CharacterBuildingManager), "UnassignLastSubclass")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
     public static class UnassignLastSubclass_Patch
     {
+        [UsedImplicitly]
         public static bool Prefix([NotNull] RulesetCharacterHero hero)
         {
             //PATCH: un-captures the desired subclass
@@ -331,8 +363,10 @@ public static class CharacterBuildingManagerPatcher
 
     [HarmonyPatch(typeof(CharacterBuildingManager), "UntrainLastFightingStyle")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
     public static class UntrainLastFightingStyle_Patch
     {
+        [UsedImplicitly]
         public static bool Prefix([NotNull] RulesetCharacterHero hero)
         {
             //PATCH: ensures this doesn't get executed in the class panel level up screen
@@ -346,8 +380,10 @@ public static class CharacterBuildingManagerPatcher
 
     [HarmonyPatch(typeof(CharacterBuildingManager), "EnumerateKnownAndAcquiredSpells")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
     public static class EnumerateKnownAndAcquiredSpells_Patch
     {
+        [UsedImplicitly]
         public static void Postfix(
             [NotNull] CharacterHeroBuildingData heroBuildingData,
             List<SpellDefinition> __result)
@@ -360,8 +396,10 @@ public static class CharacterBuildingManagerPatcher
     //PATCH: gets the correct spell feature for the selected class
     [HarmonyPatch(typeof(CharacterBuildingManager), "GetSpellFeature")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
     public static class GetSpellFeature_Patch
     {
+        [UsedImplicitly]
         public static bool Prefix(
             [NotNull] CharacterHeroBuildingData heroBuildingData,
             string tag,
@@ -433,8 +471,10 @@ public static class CharacterBuildingManagerPatcher
     //PATCH: ensures the level up process don't get stuck if race uses fixed list and hero is a caster on level 1
     [HarmonyPatch(typeof(CharacterBuildingManager), "SetupSpellPointPools")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
     public static class SetupSpellPointPools_Patch
     {
+        [UsedImplicitly]
         public static bool Prefix(
             CharacterBuildingManager __instance,
             CharacterHeroBuildingData heroBuildingData,
@@ -474,8 +514,10 @@ public static class CharacterBuildingManagerPatcher
     //PATCH: ensures the level up process only offers slots from the leveling up class
     [HarmonyPatch(typeof(CharacterBuildingManager), "UpgradeSpellPointPools")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
     public static class UpgradeSpellPointPools_Patch
     {
+        [UsedImplicitly]
         public static bool Prefix(
             CharacterBuildingManager __instance,
             [NotNull] CharacterHeroBuildingData heroBuildingData)
@@ -543,8 +585,10 @@ public static class CharacterBuildingManagerPatcher
 
     [HarmonyPatch(typeof(CharacterBuildingManager), "IsFeatMatchingPrerequisites")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
     public static class IsFeatMatchingPrerequisites_Patch
     {
+        [UsedImplicitly]
         public static void Postfix(
             ref bool __result,
             CharacterHeroBuildingData heroBuildingData,
@@ -572,7 +616,8 @@ public static class CharacterBuildingManagerPatcher
     //BUGFIX: considers subclass morphotype preferences
     [HarmonyPatch(typeof(CharacterBuildingManager), "AssignDefaultMorphotypes")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    public class AssignDefaultMorphotypes_Patch
+    [UsedImplicitly]
+    public static class AssignDefaultMorphotypes_Patch
     {
         private static RangedInt PreferedSkinColors(
             RacePresentation racePresentation,
@@ -596,6 +641,7 @@ public static class CharacterBuildingManagerPatcher
                 : racePresentation.PreferedHairColors;
         }
 
+        [UsedImplicitly]
         public static IEnumerable<CodeInstruction> Transpiler([NotNull] IEnumerable<CodeInstruction> instructions)
         {
             var preferedSkinColorsMethod = typeof(RacePresentation).GetMethod("get_PreferedSkinColors");

@@ -1,18 +1,22 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using HarmonyLib;
+using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.Extensions;
 using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.Models;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
+[UsedImplicitly]
 public static class AfterRestActionItemPatcher
 {
     [HarmonyPatch(typeof(AfterRestActionItem), "OnExecuteCb")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
     public static class OnExecuteCb_Patch
     {
+        [UsedImplicitly]
         public static bool Prefix(AfterRestActionItem __instance)
         {
             //PATCH: replaces callback execution for bundled powers to show sub-power selection
@@ -22,8 +26,10 @@ public static class AfterRestActionItemPatcher
 
     [HarmonyPatch(typeof(AfterRestActionItem), "Bind")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
     public static class Bind_Patch
     {
+        [UsedImplicitly]
         public static void Postfix(AfterRestActionItem __instance)
         {
             var activity = __instance.RestActivityDefinition;

@@ -1,16 +1,20 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
+using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Models;
 using UnityEngine;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
+[UsedImplicitly]
 public static class GraphicsCharacterPatcher
 {
     [HarmonyPatch(typeof(GraphicsCharacter), "ResetScale")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    public class ResetScale_Patch
+    [UsedImplicitly]
+    public static class ResetScale_Patch
     {
+        [UsedImplicitly]
         public static void Postfix(GraphicsCharacter __instance, ref float __result)
         {
             //PATCH: Allows custom races with different scales

@@ -10,12 +10,15 @@ using UnityEngine;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
+[UsedImplicitly]
 public static class SubspellSelectionModalPatcher
 {
     [HarmonyPatch(typeof(SubspellSelectionModal), "OnActivate")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
     public static class OnActivate_Patch
     {
+        [UsedImplicitly]
         public static bool Prefix(SubspellSelectionModal __instance, int index)
         {
             //PATCH: customizes subspell activation for upcasted elemental/fey
@@ -30,9 +33,11 @@ public static class SubspellSelectionModalPatcher
         typeof(SpellDefinition), typeof(RulesetCharacter), typeof(RulesetSpellRepertoire),
         typeof(SpellsByLevelBox.SpellCastEngagedHandler), typeof(int), typeof(RectTransform)
     })]
+    [UsedImplicitly]
     public static class Bind_Patch
     {
         [NotNull]
+        [UsedImplicitly]
         public static IEnumerable<CodeInstruction> Transpiler([NotNull] IEnumerable<CodeInstruction> instructions)
         {
             //PATCH: replaces available subspell list with additional higher level elemental/fey

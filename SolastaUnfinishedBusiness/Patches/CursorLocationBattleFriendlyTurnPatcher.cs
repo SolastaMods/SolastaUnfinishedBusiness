@@ -9,13 +9,16 @@ using SolastaUnfinishedBusiness.CustomUI;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
+[UsedImplicitly]
 public static class CursorLocationBattleFriendlyTurnPatcher
 {
     [HarmonyPatch(typeof(CursorLocationBattleFriendlyTurn), "IsValidAttack")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
     public static class IsValidAttack_Patch
     {
         [NotNull]
+        [UsedImplicitly]
         public static IEnumerable<CodeInstruction> Transpiler([NotNull] IEnumerable<CodeInstruction> instructions)
         {
             //PATCH: ReachMeleeTargeting

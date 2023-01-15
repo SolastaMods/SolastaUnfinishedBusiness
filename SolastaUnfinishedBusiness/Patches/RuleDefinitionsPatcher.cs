@@ -7,12 +7,15 @@ using static RuleDefinitions;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
+[UsedImplicitly]
 public static class RuleDefinitionsPatcher
 {
     [HarmonyPatch(typeof(RuleDefinitions), "ComputeAdvantage")]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
     public static class ComputeAdvantage_Patch
     {
+        [UsedImplicitly]
         public static void Postfix([NotNull] List<TrendInfo> trends, ref AdvantageType __result)
         {
             //PATCH: Apply SRD setting `UseOfficialAdvantageDisadvantageRules`
