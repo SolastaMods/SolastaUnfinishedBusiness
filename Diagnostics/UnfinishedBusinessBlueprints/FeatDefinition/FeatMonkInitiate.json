@@ -12,7 +12,6 @@
   "familyTag": "",
   "knownFeatsPrerequisite": [],
   "features": [
-    "Definition:AttackModifierMonkMartialArtsImprovedDamage:4a6917adf817ad4448032a76e2a75e3d",
     "Definition:AttributeModifierMonkKiPointsAddProficiencyBonus:87c4ce58-4094-57af-8437-1d1be2549977",
     "Definition:FeatureSetMonkFlurryOfBlows:48a146e4b2069e14b82d8f51355fded3",
     "Definition:FeatureSetMonkStepOfTheWind:8b9db5a4bcf83264d83077da21292574",
