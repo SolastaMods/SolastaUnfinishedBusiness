@@ -168,6 +168,13 @@ internal static class RulesDisplay
             SrdAndHouseRulesContext.SwitchFullyControlConjurations();
         }
 
+        toggle = Main.Settings.MakeLargeWildshapeFormsMedium;
+        if (UI.Toggle(Gui.Localize("ModUi/&MakeLargeWildshapeFormsMedium"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.MakeLargeWildshapeFormsMedium = toggle;
+            SrdAndHouseRulesContext.SwitchMakeLargeWildshapeFormsMedium();
+        }
+
         toggle = Main.Settings.MakeAllMagicStaveArcaneFoci;
         if (UI.Toggle(Gui.Localize("ModUi/&MakeAllMagicStaveArcaneFoci"), ref toggle, UI.AutoWidth()))
         {

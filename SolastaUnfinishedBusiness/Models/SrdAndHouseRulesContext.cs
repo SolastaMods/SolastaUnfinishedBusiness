@@ -94,6 +94,7 @@ internal static class SrdAndHouseRulesContext
         SwitchMagicStaffFoci();
         SwitchEnableUpcastConjureElementalAndFey();
         SwitchFullyControlConjurations();
+        SwitchMakeLargeWildshapeFormsMedium();
         FixMartialArtsProgression();
         DistantHandMartialArtsDie();
     }
@@ -506,11 +507,28 @@ internal static class SrdAndHouseRulesContext
         }
     }
 
+    private static readonly string[] LargeWildshapeForms =
+    {
+        "WildShapeAirElemental", "WildShapeFireElemental", "WildShapeEarthElemental", "WildShapeWaterElemental",
+        "WildShapeApe", "WildShapeTundraTiger"
+    };
+
+    internal static void SwitchMakeLargeWildshapeFormsMedium()
+    {
+        foreach (var monsterDefinitionName in LargeWildshapeForms)
+        {
+            var monsterDefinition = GetDefinition<MonsterDefinition>(monsterDefinitionName);
+
+            monsterDefinition.sizeDefinition = Main.Settings.MakeLargeWildshapeFormsMedium
+                ? CharacterSizeDefinitions.Medium
+                : CharacterSizeDefinitions.Large;
+        }
+    }
+
     private static void FixMartialArtsProgression()
     {
         //Fixes die progression of Monk's Martial Arts to use Monk level, not character level
         var provider = new RankByClassLevel(Monk);
-
         var features = new List<FeatureDefinition>
         {
             FeatureDefinitionAttackModifiers.AttackModifierMonkMartialArtsImprovedDamage,
@@ -747,20 +765,15 @@ internal static class StackedMaterialComponent
 
         character.CharacterInventory.EnumerateAllItems(items);
 
-        foreach (var item in items)
+        if (!items.Any(item => item.ItemDefinition.ItemTags.Contains(spellDefinition.SpecificMaterialComponentTag) &&
+                               EquipmentDefinitions.GetApproximateCostInGold(item.ItemDefinition.Costs) *
+                               item.StackCount >= spellDefinition.SpecificMaterialComponentCostGp))
         {
-            var approximateCostInGold = EquipmentDefinitions.GetApproximateCostInGold(item.ItemDefinition.Costs);
-
-            if (!item.ItemDefinition.ItemTags.Contains(spellDefinition.SpecificMaterialComponentTag) ||
-                approximateCostInGold * item.StackCount < spellDefinition.SpecificMaterialComponentCostGp)
-            {
-                continue;
-            }
-
-            result = true;
-            failure = string.Empty;
-            break;
+            return;
         }
+
+        result = true;
+        failure = string.Empty;
     }
 
     //Modify original code to spend enough of a stack to meet component cost

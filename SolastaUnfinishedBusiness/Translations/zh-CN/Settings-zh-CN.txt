@@ -129,6 +129,7 @@ ModUi/&ItemsCraftingMerchants=物品，制作和商人
 ModUi/&ItemsHelp1=<color=#C04040E0>你必须打开人物检查界面才能为英雄添加物品……</color>
 ModUi/&ItemsHelp2=<b>按+将物品添加至地面容器</b>
 ModUi/&MakeAllMagicStaveArcaneFoci=使所有魔杖视为奥术法器<i><color=#F0DAA0>【全职业通用的<color=#D89555>治疗法杖</color>除外】</color><color=#C04040E0>【需要重启游戏】</color></i>
+ModUi/&MakeLargeWildshapeFormsMedium=使所有大的 wildshape 形式中等大小
 ModUi/&MarkInvisibleTeleportersOnLevelMap=<i>+ 在关卡地图上标记已发现的隐形传送点的位置</i>
 ModUi/&MaxAllowedClasses=<color=white>最高职业数量</color>
 ModUi/&Merchants=<color=#F0DAA0>商人：</color>
