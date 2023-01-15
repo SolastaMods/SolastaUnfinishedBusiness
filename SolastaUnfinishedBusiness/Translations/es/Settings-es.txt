@@ -189,5 +189,6 @@ ModUi/&UseOfficialAdvantageDisadvantageRules=Usar reglas oficiales de ventaja/de
 ModUi/&Visuals=<color=#F0DAA0>Imágenes:</color> <b><i><color=#C04040E0>[Requiere reiniciar]</color></i></b>
 ModUi/&AddMonkKiPointsToggle=Agregue un interruptor para permitir que <color=#D89555>Monjes</color> habiliten o deshabiliten los Puntos Ki <i><color=#F0DAA0>[útil para minimizar las indicaciones de reacción]</color></i>
 ModUi/&AddPaladinSmiteToggle=Agregue un interruptor para permitir que <color=#D89555>paladines</color> solo habiliten castigos en golpes críticos <i><color=#F0DAA0>[útil para minimizar las indicaciones de reacción]</color></i>
+ModUi/&AddWildshapeSwapAttackToggle=Agregue un interruptor para permitir que los <color=#D89555>druidas</color> en forma de comodín intercambien qué ataque usar primero
 ModUi/&DisableSenseDarkVisionFromAllRaces=Desactiva <color=#D89555>Sense Dark Vision</color> de todas las razas jugables <b><i><color=#C04040E0>[Requiere reinicio]</color></i></b>
 ModUi/&DisableSenseSuperiorDarkVisionFromAllRaces=Deshabilita <color=#D89555>Superior Sense Dark Vision</color> de todas las razas jugables <b><i><color=#C04040E0>[Requiere reinicio]</color></i></b>

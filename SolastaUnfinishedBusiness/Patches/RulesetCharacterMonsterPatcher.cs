@@ -22,6 +22,9 @@ public static class RulesetCharacterMonsterPatcher
     {
         public static void Postfix(RulesetCharacterMonster __instance, bool keepMentalAbilityScores)
         {
+            //PATCH: add a toggle to allow WS monsters to swap attacks
+            GameUiContext.AddWildshapeSwapAttackToggle(__instance);
+
             //PATCH: Fixes AC calculation for MC shape-shifters
             //Instead of setting monster's AC as base it adds it as a Natural Armor value
             //And adds base 10 and dex AC modifiers too, so they can mix with unarmored defense if needed

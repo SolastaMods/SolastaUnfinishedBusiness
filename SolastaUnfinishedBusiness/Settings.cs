@@ -236,6 +236,7 @@ public class Settings : UnityModManager.ModSettings
     public bool AllowMoreRealStateOnRestPanel { get; set; }
     public bool AddMonkKiPointsToggle { get; set; }
     public bool AddPaladinSmiteToggle { get; set; }
+    public bool AddWildshapeSwapAttackToggle { get; set; }
 
     // Input
     public bool AltOnlyHighlightItemsInPartyFieldOfView { get; set; }

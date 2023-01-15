@@ -189,5 +189,6 @@ ModUi/&UseOfficialAdvantageDisadvantageRules=Usa le regole ufficiali di vantaggi
 ModUi/&Visuals=<color=#F0DAA0>Visuali:</color> <b><i><color=#C04040E0>[Richiede il riavvio]</color></i></b>
 ModUi/&AddMonkKiPointsToggle=Aggiungi un interruttore per consentire ai <color=#D89555>Monaci</color> di abilitare/disabilitare i Punti Ki <i><color=#F0DAA0>[utile per ridurre al minimo le richieste di reazione]</color></i>
 ModUi/&AddPaladinSmiteToggle=Aggiungi un interruttore per consentire ai <color=#D89555>Paladini</color> di abilitare solo i colpi critici <i><color=#F0DAA0>[utile per ridurre al minimo le richieste di reazione]</color></i>
+ModUi/&AddWildshapeSwapAttackToggle=Aggiungi un interruttore per consentire ai <color=#D89555>Druidi</color> in forma selvaggia di scambiare quale attacco usare per primo
 ModUi/&DisableSenseDarkVisionFromAllRaces=Disabilita <color=#D89555>Percepisci Visione Oscura</color> da tutte le razze giocabili <b><i><color=#C04040E0>[Richiede il riavvio]</color></i></b>
 ModUi/&DisableSenseSuperiorDarkVisionFromAllRaces=Disabilita <color=#D89555>Oscuro Senso Superiore</color> da tutte le razze giocabili <b><i><color=#C04040E0>[Richiede il riavvio]</color></i></b>

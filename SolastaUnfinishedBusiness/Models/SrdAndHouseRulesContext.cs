@@ -82,7 +82,6 @@ internal static class SrdAndHouseRulesContext
         FixMeleeHitEffectsRange();
         FixMountaineerBonusShoveRestrictions();
         FixRecklessAttackForReachWeapons();
-        FixWildshapeShouldOfferRangedAttackFirst();
         MinorFixes();
         AddBleedingToRestoration();
         SwitchFilterOnHideousLaughter();
@@ -237,18 +236,6 @@ internal static class SrdAndHouseRulesContext
     {
         FeatureDefinitionCombatAffinitys.CombatAffinityReckless
             .situationalContext = (SituationalContext)ExtraSituationalContext.MainWeaponIsMeleeOrUnarmed;
-    }
-
-    /**
-     * fix an engine limitation and ensures we first offer range attacks and then melee ones
-     * otherwise we might get in a situation where we cannot attack if no enemy in melee range
-     */
-    private static void FixWildshapeShouldOfferRangedAttackFirst()
-    {
-        (WildShapeApe.AttackIterations[0], WildShapeApe.AttackIterations[1]) =
-            (WildShapeApe.AttackIterations[1], WildShapeApe.AttackIterations[0]);
-        (WildshapeDeepSpider.AttackIterations[0], WildshapeDeepSpider.AttackIterations[1]) = (
-            WildshapeDeepSpider.AttackIterations[1], WildshapeDeepSpider.AttackIterations[0]);
     }
 
     internal static void ApplyConditionBlindedShouldNotAllowOpportunityAttack()

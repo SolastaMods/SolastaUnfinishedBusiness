@@ -189,5 +189,6 @@ ModUi/&UseOfficialAdvantageDisadvantageRules=Использоваться офи
 ModUi/&Visuals=<color=#F0DAA0>Visuals:</color> <b><i><color=#C04040E0>[Требуется Перезапуск]</color></i></b>
 ModUi/&AddMonkKiPointsToggle=Добавьте переключатель, позволяющий <color=#D89555>монахам</color> включать/отключать точки Ки <i><color=#F0DAA0>[полезно для минимизации запросов на реакцию]</color></i>
 ModUi/&AddPaladinSmiteToggle=Добавьте переключатель, позволяющий <color=#D89555>Paladins</color> включать удары только при критических ударах <i><color=#F0DAA0>[полезно для минимизации подсказок реакции]</color></i>
+ModUi/&AddWildshapeSwapAttackToggle=Добавьте переключатель, позволяющий <color=#D89555>Друидам</color> в форме дикой формы менять местами, какую атаку использовать первой.
 ModUi/&DisableSenseDarkVisionFromAllRaces=Отключите <color=#D89555>Sense Dark Vision</color> для всех игровых рас <b><i><color=#C04040E0>[Требуется перезагрузка]</color></i></b>
 ModUi/&DisableSenseSuperiorDarkVisionFromAllRaces=Отключите <color=#D89555>Superior Sense Dark Vision</color> для всех игровых рас <b><i><color=#C04040E0>[Требуется перезагрузка]</color></i></b>

@@ -174,7 +174,8 @@ internal enum ExtraActionId
     DoNothingFree = 9011,
     DoNothingReaction = 9012,
     MonkKiPointsToggle = 9013,
-    PaladinSmiteToggle = 9014
+    PaladinSmiteToggle = 9014,
+    WildshapeSwapAttackToggle = 9015
 }
 
 internal static class EnumImplementation
