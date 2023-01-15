@@ -67,26 +67,32 @@ public static class CharacterActionPanelPatcher
             var battle = Gui.Battle != null;
 
             //PATCH: reorder the actions panel in case we have custom toggles
-            if (actions.Contains((ActionDefinitions.Id)ExtraActionId.MonkKiPointsToggle))
+            void DoReorder(ActionDefinitions.Id actionId)
             {
                 var powerNdx = actions.FindIndex(x => x == ActionDefinitions.Id.PowerMain);
 
-                if (powerNdx >= 0)
+                if (powerNdx < 0)
                 {
-                    actions.Remove((ActionDefinitions.Id)ExtraActionId.MonkKiPointsToggle);
-                    actions.Insert(powerNdx, (ActionDefinitions.Id)ExtraActionId.MonkKiPointsToggle);
+                    return;
                 }
+
+                actions.Remove(actionId);
+                actions.Insert(powerNdx, actionId);
+            }
+
+            if (actions.Contains((ActionDefinitions.Id)ExtraActionId.MonkKiPointsToggle))
+            {
+                DoReorder((ActionDefinitions.Id)ExtraActionId.MonkKiPointsToggle);
             }
 
             if (actions.Contains((ActionDefinitions.Id)ExtraActionId.PaladinSmiteToggle))
             {
-                var powerNdx = actions.FindIndex(x => x == ActionDefinitions.Id.PowerMain);
+                DoReorder((ActionDefinitions.Id)ExtraActionId.PaladinSmiteToggle);
+            }
 
-                if (powerNdx >= 0)
-                {
-                    actions.Remove((ActionDefinitions.Id)ExtraActionId.PaladinSmiteToggle);
-                    actions.Insert(powerNdx, (ActionDefinitions.Id)ExtraActionId.PaladinSmiteToggle);
-                }
+            if (actions.Contains((ActionDefinitions.Id)ExtraActionId.WildshapeSwapAttackToggle))
+            {
+                DoReorder((ActionDefinitions.Id)ExtraActionId.WildshapeSwapAttackToggle);
             }
 
             //PATCH: hide power button on action panel if no valid powers to use or see
@@ -104,6 +110,8 @@ public static class CharacterActionPanelPatcher
                     ActionDefinitions.ActionType.Bonus, battle),
                 ActionDefinitions.Id.PowerNoCost => !character.CanSeeAndUseAtLeastOnePower(
                     ActionDefinitions.ActionType.NoCost, battle),
+                (ActionDefinitions.Id)ExtraActionId.WildshapeSwapAttackToggle => GameLocationCharacter
+                    .GetFromActor(character).HasAttackedSinceLastTurn,
                 _ => false
             };
         }

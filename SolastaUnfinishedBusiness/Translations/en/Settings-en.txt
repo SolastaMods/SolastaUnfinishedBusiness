@@ -9,7 +9,7 @@ ModUi/&AddNewWeaponsAndRecipesToShops=Add new weapons and recipes to shops <i><c
 ModUi/&AddPaladinSmiteToggle=Add a toggle to allow <color=#D89555>Paladins</color> to only enable smites on critical hits <i><color=#F0DAA0>[useful to minimize reaction prompts]</color></i>
 ModUi/&AddPickPocketableLoot=Add pickpocketable loot <i><color=#F0DAA0>[suggested if <color=#D89555>Pickpocket</color> feat is enabled]</color></i>
 ModUi/&AddToStore=Add to store
-ModUi/&AddWildshapeSwapAttackToggle=Add a toggle to allow <color=#D89555>Druids</color> in wildshape form to swap which attack to use first
+ModUi/&AddWildshapeSwapAttackToggle=Add a toggle to allow <color=#D89555>Druids</color> in wildshape form to select which attack to use first
 ModUi/&Advanced=<color=#F0DAA0>Advanced:</color> <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
 ModUi/&AdvancedHelp=. <b><color=#C04040E0>ATTENTION:</color></b> These settings will require the player to have this mod installed
 ModUi/&Adventure=<color=#F0DAA0>Adventure:</color>

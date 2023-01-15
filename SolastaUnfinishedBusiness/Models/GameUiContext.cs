@@ -709,9 +709,11 @@ internal static class GameUiContext
 
     internal static void AddWildshapeSwapAttackToggle(RulesetCharacterMonster monster)
     {
+        var monsterDefinition = monster.MonsterDefinition;
+
         if (Main.Settings.AddWildshapeSwapAttackToggle &&
-            monster.attackModes.Count > 1 &&
-            monster.attackModes[0].sourceDefinition != monster.attackModes[1].sourceDefinition)
+            monsterDefinition.AttackIterations.Count > 0 &&
+            monsterDefinition.AttackIterations[0] != monsterDefinition.AttackIterations[1])
         {
             monster.ActiveFeatures.Add(ActionAffinityWildshapeSwapAttackToggle);
         }

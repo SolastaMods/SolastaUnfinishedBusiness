@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Builders;
@@ -71,6 +72,8 @@ internal static class MulticlassWildshapeContext
             gameLocationCharacter.Guid,
             gameLocationCharacter.RulesetCharacter.CurrentFaction.Name);
 
+        gameLocationCharacter.HasAttackedSinceLastTurn = false;
+        gameLocationCharacter.UsedMainAttacks = 0;
         gameLocationCharacter.RulesetCharacter.AddConditionOfCategory(AttributeDefinitions.TagCombat, rulesetCondition);
         gameLocationCharacter.RefundActionUse(ActionType.Main);
     }

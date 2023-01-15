@@ -87,6 +87,12 @@ internal static class GameUiDisplay
 
         UI.Label();
 
+        toggle = Main.Settings.AddWildshapeSwapAttackToggle;
+        if (UI.Toggle(Gui.Localize("ModUi/&AddWildshapeSwapAttackToggle"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.AddWildshapeSwapAttackToggle = toggle;
+        }
+
         toggle = Main.Settings.AddMonkKiPointsToggle;
         if (UI.Toggle(Gui.Localize("ModUi/&AddMonkKiPointsToggle"), ref toggle, UI.AutoWidth()))
         {
@@ -97,12 +103,6 @@ internal static class GameUiDisplay
         if (UI.Toggle(Gui.Localize("ModUi/&AddPaladinSmiteToggle"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.AddPaladinSmiteToggle = toggle;
-        }
-        
-        toggle = Main.Settings.AddWildshapeSwapAttackToggle;
-        if (UI.Toggle(Gui.Localize("ModUi/&AddWildshapeSwapAttackToggle"), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.AddWildshapeSwapAttackToggle = toggle;
         }
 
         #endregion
