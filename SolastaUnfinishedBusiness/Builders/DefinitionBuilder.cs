@@ -35,7 +35,7 @@ internal abstract class DefinitionBuilder
     {
         if (Main.Settings.DebugLogDefinitionCreation)
         {
-            Main.Log(message);
+            Log(message);
         }
     }
 #endif
@@ -359,7 +359,7 @@ internal abstract class DefinitionBuilder<TDefinition> : DefinitionBuilder, IDef
                 {
                     if (Main.Settings.DebugLogFieldInitialization)
                     {
-                        Main.Log(message);
+                        Log(message);
                     }
                 }
 #endif

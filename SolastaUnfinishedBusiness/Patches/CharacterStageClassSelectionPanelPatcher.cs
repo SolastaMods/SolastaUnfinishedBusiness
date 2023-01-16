@@ -62,7 +62,8 @@ public static class CharacterStageClassSelectionPanelPatcher
         }
     }
 
-    [HarmonyPatch(typeof(CharacterStageClassSelectionPanel), nameof(CharacterStageClassSelectionPanel.FillClassFeatures))]
+    [HarmonyPatch(typeof(CharacterStageClassSelectionPanel),
+        nameof(CharacterStageClassSelectionPanel.FillClassFeatures))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
     public static class FillClassFeatures_Patch

@@ -74,7 +74,8 @@ public static class ReactionRequestCastSpellPatcher
         }
     }
 
-    [HarmonyPatch(typeof(ReactionRequestCastSpell), nameof(ReactionRequestCastSpell.SelectedSubOption), MethodType.Getter)]
+    [HarmonyPatch(typeof(ReactionRequestCastSpell), nameof(ReactionRequestCastSpell.SelectedSubOption),
+        MethodType.Getter)]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
     public static class SelectedSubOption_Getter_Patch

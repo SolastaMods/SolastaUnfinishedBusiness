@@ -8,7 +8,8 @@ namespace SolastaUnfinishedBusiness.Patches;
 [UsedImplicitly]
 public static class AttackEvaluationParamsPatcher
 {
-    [HarmonyPatch(typeof(BattleDefinitions.AttackEvaluationParams), nameof(BattleDefinitions.AttackEvaluationParams.FillForMagicTouchAttack))]
+    [HarmonyPatch(typeof(BattleDefinitions.AttackEvaluationParams),
+        nameof(BattleDefinitions.AttackEvaluationParams.FillForMagicTouchAttack))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
     public static class FillForMagicTouchAttack_Patch
@@ -31,7 +32,8 @@ public static class AttackEvaluationParamsPatcher
         }
     }
 
-    [HarmonyPatch(typeof(BattleDefinitions.AttackEvaluationParams), nameof(BattleDefinitions.AttackEvaluationParams.FillForMagicReachAttack))]
+    [HarmonyPatch(typeof(BattleDefinitions.AttackEvaluationParams),
+        nameof(BattleDefinitions.AttackEvaluationParams.FillForMagicReachAttack))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
     public static class FillForMagicReachAttack_Patch

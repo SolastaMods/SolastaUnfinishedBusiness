@@ -607,6 +607,7 @@ internal class ItemNode<TNode> : PassiveNode<TNode>
 internal abstract class ChildNode<TParent, TNode> : GenericNode<TNode>
 {
     protected readonly WeakReference<GenericNode<TParent>> ParentNode;
+
     // ReSharper disable once InconsistentNaming
     protected bool _isException;
 

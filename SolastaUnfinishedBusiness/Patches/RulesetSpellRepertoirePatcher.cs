@@ -158,7 +158,8 @@ public static class RulesetSpellRepertoirePatcher
     }
 
     //PATCH: handles all different scenarios to determine max spell level
-    [HarmonyPatch(typeof(RulesetSpellRepertoire), nameof(RulesetSpellRepertoire.MaxSpellLevelOfSpellCastingLevel), MethodType.Getter)]
+    [HarmonyPatch(typeof(RulesetSpellRepertoire), nameof(RulesetSpellRepertoire.MaxSpellLevelOfSpellCastingLevel),
+        MethodType.Getter)]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
     public static class MaxSpellLevelOfSpellCastingLevel_Getter_Patch

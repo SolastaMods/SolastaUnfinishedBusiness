@@ -10,7 +10,8 @@ namespace SolastaUnfinishedBusiness.Patches;
 public static class GameLocationCharacterManagerPatcher
 {
     //PATCH: recalculates additional party members positions (PARTYSIZE)
-    [HarmonyPatch(typeof(GameLocationCharacterManager), nameof(GameLocationCharacterManager.UnlockCharactersForLoading))]
+    [HarmonyPatch(typeof(GameLocationCharacterManager),
+        nameof(GameLocationCharacterManager.UnlockCharactersForLoading))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
     public static class UnlockCharactersForLoading_Patch

@@ -55,7 +55,8 @@ public static class CharacterStageLevelGainPanelPatcher
         }
     }
 
-    [HarmonyPatch(typeof(CharacterStageLevelGainsPanel), nameof(CharacterStageLevelGainsPanel.RefreshSpellcastingFeatures))]
+    [HarmonyPatch(typeof(CharacterStageLevelGainsPanel),
+        nameof(CharacterStageLevelGainsPanel.RefreshSpellcastingFeatures))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
     public static class RefreshSpellcastingFeatures_Patch

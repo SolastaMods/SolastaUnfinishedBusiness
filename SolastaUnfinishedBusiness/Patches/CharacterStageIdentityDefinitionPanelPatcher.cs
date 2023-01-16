@@ -9,7 +9,8 @@ namespace SolastaUnfinishedBusiness.Patches;
 public static class CharacterStageIdentityDefinitionPanelPatcher
 {
     //PATCH: avoids issues during RESPEC if a hero with same name is in the pool
-    [HarmonyPatch(typeof(CharacterStageIdentityDefinitionPanel), nameof(CharacterStageIdentityDefinitionPanel.CanProceedToNextStage))]
+    [HarmonyPatch(typeof(CharacterStageIdentityDefinitionPanel),
+        nameof(CharacterStageIdentityDefinitionPanel.CanProceedToNextStage))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
     public static class CanProceedToNextStage_Patch

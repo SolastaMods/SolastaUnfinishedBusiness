@@ -49,7 +49,8 @@ public static class UserLocationViewPanelPatcher
         }
     }
 
-    [HarmonyPatch(typeof(UserLocationViewPanel), nameof(UserLocationViewPanel.GadgetInvalidPlacement), MethodType.Getter)]
+    [HarmonyPatch(typeof(UserLocationViewPanel), nameof(UserLocationViewPanel.GadgetInvalidPlacement),
+        MethodType.Getter)]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
     public static class GadgetInvalidPlacement_Getter_Patch

@@ -15,7 +15,8 @@ namespace SolastaUnfinishedBusiness.Patches;
 [UsedImplicitly]
 public static class RulesetImplementationManagerPatcher
 {
-    [HarmonyPatch(typeof(RulesetImplementationManager), nameof(RulesetImplementationManager.InstantiateEffectInvocation))]
+    [HarmonyPatch(typeof(RulesetImplementationManager),
+        nameof(RulesetImplementationManager.InstantiateEffectInvocation))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
     public static class InstantiateEffectInvocation_Patch
@@ -303,7 +304,8 @@ public static class RulesetImplementationManagerPatcher
         }
     }
 
-    [HarmonyPatch(typeof(RulesetImplementationManager), nameof(RulesetImplementationManager.IsValidContextForRestrictedContextProvider))]
+    [HarmonyPatch(typeof(RulesetImplementationManager),
+        nameof(RulesetImplementationManager.IsValidContextForRestrictedContextProvider))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
     public static class IsValidContextForRestrictedContextProvider_Patch
