@@ -620,7 +620,7 @@ public static class RulesetCharacterHeroPatcher
     [HarmonyPatch(typeof(RulesetCharacterHero), nameof(RulesetCharacterHero.CanLevelUp), MethodType.Getter)]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
-    public static class CanLevelUp_Patch
+    public static class CanLevelUp_Getter_Patch
     {
         [UsedImplicitly]
         public static bool Prefix(RulesetCharacterHero __instance, ref bool __result)
