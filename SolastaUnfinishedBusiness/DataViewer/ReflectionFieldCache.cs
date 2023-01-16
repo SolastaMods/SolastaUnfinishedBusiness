@@ -65,9 +65,11 @@ internal static partial class ReflectionCache
         }
 
         // for static field
+        [UsedImplicitly]
         internal abstract TField Get();
 
         // for static field
+        [UsedImplicitly]
         internal abstract void Set(TField value);
 
         protected Delegate CreateGetter(Type delType, bool isInstByRef)

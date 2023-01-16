@@ -14,23 +14,26 @@ using static SolastaUnfinishedBusiness.Models.ItemPropertyDescriptionsContext;
 using static RuleDefinitions;
 using static RuleDefinitions.ItemRarity;
 
+// ReSharper disable InconsistentNaming
+
 namespace SolastaUnfinishedBusiness.Models;
 
 internal static class CustomWeaponsContext
 {
-    internal const string CeHandXbowType = "CEHandXbowType";
     private const string PolearmWeaponTag = "PolearmWeapon";
 
+    internal const string CeHandXbowType = "CEHandXbowType";
     internal const string AttackedWithLauncherConditionName = "ConditionLauncherAttackMarker";
-    internal static WeaponTypeDefinition HalberdWeaponType, PikeWeaponType, LongMaceWeaponType, HandXbowWeaponType;
-    internal static ItemDefinition HandwrapsOfForce, HandwrapsOfPulling;
-    internal static ItemDefinition Halberd, HalberdPrimed, HalberdPlus1, HalberdPlus2, HalberdLightning;
-    internal static ItemDefinition Pike, PikePrimed, PikePlus1, PikePlus2, PikePsychic;
-    internal static ItemDefinition LongMace, LongMacePrimed, LongMacePlus1, LongMacePlus2, LongMaceThunder;
-    internal static ItemDefinition HandXbow, HandXbowPrimed, HandXbowPlus1, HandXbowPlus2, HandXbowAcid;
-    internal static ItemDefinition ProducedFlameDart;
-    internal static WeaponTypeDefinition ThunderGauntletType, LightningLauncherType;
-    internal static ItemDefinition ThunderGauntlet, LightningLauncher;
+
+    private static WeaponTypeDefinition HalberdWeaponType, PikeWeaponType, LongMaceWeaponType;
+    private static ItemDefinition HandwrapsOfForce, HandwrapsOfPulling;
+    private static ItemDefinition Halberd, HalberdPrimed, HalberdPlus1, HalberdPlus2, HalberdLightning;
+    private static ItemDefinition Pike, PikePrimed, PikePlus1, PikePlus2, PikePsychic;
+    private static ItemDefinition LongMace, LongMacePrimed, LongMacePlus1, LongMacePlus2, LongMaceThunder;
+    private static ItemDefinition HandXbow, HandXbowPrimed, HandXbowPlus1, HandXbowPlus2, HandXbowAcid;
+
+    internal static WeaponTypeDefinition HandXbowWeaponType, LightningLauncherType, ThunderGauntletType;
+    internal static ItemDefinition LightningLauncher, ProducedFlameDart, ThunderGauntlet;
 
     internal static readonly List<string> PolearmWeaponTypes = new()
     {

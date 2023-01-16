@@ -10,6 +10,7 @@ using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Api.Infrastructure;
 using SolastaUnfinishedBusiness.Models;
 using UnityEngine;
+using static SolastaUnfinishedBusiness.Main;
 using Object = UnityEngine.Object;
 
 namespace SolastaUnfinishedBusiness.Builders;
@@ -140,8 +141,11 @@ internal abstract class DefinitionBuilder<TDefinition> : DefinitionBuilder, IDef
         BaseDefinition.Copyright copyright = BaseDefinition.Copyright.UserContent,
         GamingPlatformDefinitions.ContentPack contentPack = CeContentPackContext.CeContentPack)
     {
+        // ReSharper disable once InvocationIsSkipped
         PreConditions.ArgumentIsNotNull(Definition, nameof(Definition));
+        // ReSharper disable once InvocationIsSkipped
         PreConditions.IsNotNullOrWhiteSpace(Definition.Name, nameof(Definition.Name));
+        // ReSharper disable once InvocationIsSkipped
         PreConditions.IsNotNullOrWhiteSpace(Definition.GUID, nameof(Definition.GUID));
 
         if (!Guid.TryParse(Definition.GUID, out _))
@@ -264,7 +268,8 @@ internal abstract class DefinitionBuilder<TDefinition> : DefinitionBuilder, IDef
         {
             if (Definition.GuiPresentation == null)
             {
-                Main.Log(
+                // ReSharper disable once InvocationIsSkipped
+                Log(
                     $"Verify GuiPresentation: {Definition.GetType().Name}({Definition.Name}) has no GuiPresentation, setting to NoContent.");
 
                 Definition.GuiPresentation = GuiPresentationBuilder.NoContent;
@@ -273,7 +278,8 @@ internal abstract class DefinitionBuilder<TDefinition> : DefinitionBuilder, IDef
             {
                 if (string.IsNullOrEmpty(Definition.GuiPresentation.Title))
                 {
-                    Main.Log(
+                    // ReSharper disable once InvocationIsSkipped
+                    Log(
                         $"Verify GuiPresentation: {Definition.GetType().Name}({Definition.Name}) has no GuiPresentation.Title, setting to NoContent.");
 
                     Definition.GuiPresentation.Title = GuiPresentationBuilder.NoContentTitle;
@@ -284,7 +290,8 @@ internal abstract class DefinitionBuilder<TDefinition> : DefinitionBuilder, IDef
                     return;
                 }
 
-                Main.Log(
+                // ReSharper disable once InvocationIsSkipped
+                Log(
                     $"Verify GuiPresentation: {Definition.GetType().Name}({Definition.Name}) has no GuiPresentation.Description, setting to NoContent.");
 
                 Definition.GuiPresentation.Description = GuiPresentationBuilder.NoContentTitle;
@@ -343,7 +350,7 @@ internal abstract class DefinitionBuilder<TDefinition> : DefinitionBuilder, IDef
                     }
                     catch (Exception ex)
                     {
-                        Main.Error(ex);
+                        Error(ex);
                     }
                 }
 
@@ -375,6 +382,7 @@ internal abstract class DefinitionBuilder<TDefinition> : DefinitionBuilder, IDef
     /// <param name="namespaceGuid">The base or namespace guid from which to generate a guid for this definition.</param>
     private protected DefinitionBuilder(string name, Guid namespaceGuid)
     {
+        // ReSharper disable once InvocationIsSkipped
         PreConditions.IsNotNullOrWhiteSpace(name, nameof(name));
 
         Definition = ScriptableObject.CreateInstance<TDefinition>();
@@ -406,7 +414,9 @@ internal abstract class DefinitionBuilder<TDefinition> : DefinitionBuilder, IDef
     /// <param name="namespaceGuid">The base or namespace guid from which to generate a guid for this definition.</param>
     private protected DefinitionBuilder(TDefinition original, string name, Guid namespaceGuid)
     {
+        // ReSharper disable once InvocationIsSkipped
         PreConditions.ArgumentIsNotNull(original, nameof(original));
+        // ReSharper disable once InvocationIsSkipped
         PreConditions.IsNotNullOrWhiteSpace(name, nameof(name));
 
         Definition = Object.Instantiate(original);

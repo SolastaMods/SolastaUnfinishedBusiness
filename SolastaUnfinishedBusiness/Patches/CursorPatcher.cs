@@ -40,6 +40,7 @@ public static class CursorPatcher
                 return;
             }
 
+            // ReSharper disable once InvocationIsSkipped
             Main.Log($"Cancelling {screen.GetType().Name} cursor");
             screen.HandleInput(InputCommands.Id.Cancel);
         }

@@ -34,6 +34,7 @@ public static class GameLocationScreenMapPatcher
                     var isInvisible = gameGadget.IsInvisible();
                     var isRevealed = gameGadget.Revealed;
 
+                    // ReSharper disable once InvocationIsSkipped
                     Main.Log(
                         $"{gameGadget.UniqueNameId}, Revealed={isRevealed}, Enabled={isEnabled}, Invisible={isInvisible}");
 

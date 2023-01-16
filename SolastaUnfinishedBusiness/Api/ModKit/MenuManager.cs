@@ -16,7 +16,7 @@ internal interface IMenuPage
 
     int Priority { get; }
 
-    void OnGUI(UnityModManager.ModEntry modEntry);
+    void OnGUI(UnityModManager.ModEntry _);
 }
 
 internal interface IMenuTopPage : IMenuPage

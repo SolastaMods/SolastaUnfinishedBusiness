@@ -35,7 +35,7 @@ internal class ReflectionTree<TRoot>
         SetRoot(root);
     }
 
-    internal TRoot Root => _root.Value;
+    // internal TRoot Root => _root.Value;
 
     internal Node RootNode => _root;
 

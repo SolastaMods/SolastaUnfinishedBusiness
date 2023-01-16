@@ -1,5 +1,8 @@
-﻿namespace SolastaUnfinishedBusiness.CustomBehaviors;
+﻿using JetBrains.Annotations;
 
+namespace SolastaUnfinishedBusiness.CustomBehaviors;
+
+[UsedImplicitly]
 internal class InvocationDisabledByDefault
 {
     private InvocationDisabledByDefault()

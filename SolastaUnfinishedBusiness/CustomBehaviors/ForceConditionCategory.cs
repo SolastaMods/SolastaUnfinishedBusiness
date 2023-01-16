@@ -1,21 +1,18 @@
-﻿namespace SolastaUnfinishedBusiness.CustomBehaviors;
+﻿using SolastaUnfinishedBusiness.CustomInterfaces;
 
-public interface IForceConditionCategory
-{
-    string GetForcedCategory(RulesetActor actor, RulesetCondition newCondition, string category);
-}
+namespace SolastaUnfinishedBusiness.CustomBehaviors;
 
 public class ForceConditionCategory : IForceConditionCategory
 {
-    private readonly string category;
+    private readonly string _category;
 
     public ForceConditionCategory(string category)
     {
-        this.category = category;
+        _category = category;
     }
 
     public string GetForcedCategory(RulesetActor actor, RulesetCondition newCondition, string category)
     {
-        return this.category;
+        return _category;
     }
 }

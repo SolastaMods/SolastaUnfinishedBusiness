@@ -14,9 +14,9 @@ public class ModifyMagicEffectOnLevels : IModifyMagicEffect
         this.effects = effects;
     }
 
-    public ModifyMagicEffectOnLevels(params (int, EffectDescription)[] effects) : this(null, effects)
-    {
-    }
+    // public ModifyMagicEffectOnLevels(params (int, EffectDescription)[] effects) : this(null, effects)
+    // {
+    // }
 
     public EffectDescription ModifyEffect(BaseDefinition definition, EffectDescription effect,
         RulesetCharacter character)

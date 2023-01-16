@@ -829,11 +829,13 @@ internal static class StackedMaterialComponent
 
         if (itemToUse == null)
         {
+            // ReSharper disable once InvocationIsSkipped
             Main.Log("Didn't find item.");
 
             return false;
         }
 
+        // ReSharper disable once InvocationIsSkipped
         Main.Log($"Spending stack={itemToUse.StackCountRequired}, cost={itemToUse.TotalCost}");
 
         var componentConsumed = character.SpellComponentConsumed;
@@ -851,12 +853,14 @@ internal static class StackedMaterialComponent
         if (rulesetItem.ItemDefinition.CanBeStacked && rulesetItem.StackCount > 1 &&
             itemToUse.StackCountRequired < rulesetItem.StackCount)
         {
+            // ReSharper disable once InvocationIsSkipped
             Main.Log($"Spending stack={itemToUse.StackCountRequired}, cost={itemToUse.TotalCost}");
 
             rulesetItem.SpendStack(itemToUse.StackCountRequired);
         }
         else
         {
+            // ReSharper disable once InvocationIsSkipped
             Main.Log("Destroy item");
 
             character.CharacterInventory.DestroyItem(rulesetItem);
@@ -952,6 +956,7 @@ internal static class UpcastConjureElementalAndFey
 
         _filteredSubspells = allOrMostPowerful.SelectMany(s => s.SpellDefinitions).ToList();
 
+        // ReSharper disable once InvocationIsSkipped
         _filteredSubspells.ForEach(s => Main.Log($"{Gui.Localize(s.GuiPresentation.Title)}"));
 
         return _filteredSubspells;

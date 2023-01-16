@@ -141,6 +141,7 @@ internal static class SaveByLocationContext
             return;
         }
 
+        // ReSharper disable once InvocationIsSkipped
         Main.Log($"Most recent folder={mostRecent.Path}");
 
         switch (mostRecent.LocationType)
@@ -238,6 +239,7 @@ internal static class SaveByLocationContext
         // Get the current campaign location and select it in the dropdown
         var selectedCampaign = ServiceRepositoryEx.GetOrCreateService<SelectedCampaignService>();
 
+        // ReSharper disable once InvocationIsSkipped
         Main.Log($"LoadPanel: selected={selectedCampaign.CampaignOrLocationName}, {selectedCampaign.LocationType}");
 
         var option = guiDropdown.options
@@ -289,6 +291,7 @@ internal static class SaveByLocationContext
 
             var selected = dropdown.options.Skip(dropdown.value).FirstOrDefault() as LocationOptionData;
 
+            // ReSharper disable once InvocationIsSkipped
             Main.Log(
                 $"ValueChanged: {dropdown.value}, selected={selected.LocationType}, {selected.text}, {selected.CampaignOrLocation}");
 
@@ -394,6 +397,7 @@ internal static class SaveByLocationContext
 
         internal void SetCampaignLocation([CanBeNull] string campaign, [CanBeNull] string location)
         {
+            // ReSharper disable once InvocationIsSkipped
             Main.Log($"SetCampaignLocation: Campaign='{campaign}', Location='{location}'");
 
             var camp = campaign?.Trim() ?? string.Empty;
@@ -422,6 +426,7 @@ internal static class SaveByLocationContext
                 CampaignOrLocationName = string.Empty;
             }
 
+            // ReSharper disable once InvocationIsSkipped
             Main.Log($"SelectedCampaignService: Campaign='{camp}', Location='{loc}', Folder='{SaveGameDirectory}'");
         }
 

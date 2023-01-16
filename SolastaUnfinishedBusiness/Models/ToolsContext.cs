@@ -94,6 +94,7 @@ internal static class ToolsContext
 
     public static Transform CreateHeroCheckbox(Component character)
     {
+        // ReSharper disable once Unity.UnknownResource
         var settingCheckboxItem = Resources.Load<GameObject>("Gui/Prefabs/Modal/Setting/SettingCheckboxItem");
         var smallToggleNoFrame = settingCheckboxItem.transform.Find("SmallToggleNoFrame");
         var checkBox = Object.Instantiate(smallToggleNoFrame, character.transform);

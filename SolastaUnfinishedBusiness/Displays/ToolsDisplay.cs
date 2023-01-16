@@ -218,7 +218,7 @@ internal static class ToolsDisplay
 
         using (UI.HorizontalScope())
         {
-            UI.Label("ModUi/&IncreaseGameTimeBy", UI.Width(300));
+            UI.Label(Gui.Localize("ModUi/&IncreaseGameTimeBy"), UI.Width(300));
             UI.ActionButton("1 hour", () => gameTime.UpdateTime(60 * 60), UI.Width(100));
             UI.ActionButton("6 hours", () => gameTime.UpdateTime(60 * 60 * 6), UI.Width(100));
             UI.ActionButton("12 hours", () => gameTime.UpdateTime(60 * 60 * 12), UI.Width(100));

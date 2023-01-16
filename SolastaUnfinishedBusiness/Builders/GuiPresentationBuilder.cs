@@ -35,6 +35,7 @@ internal class GuiPresentationBuilder
 
     internal static string CreateTitleKey(string name, Category category)
     {
+        // ReSharper disable once InvocationIsSkipped
         PreConditions.IsNotNullOrWhiteSpace(name, nameof(name));
 
         return $"{category}/&{name}Title";
@@ -42,6 +43,7 @@ internal class GuiPresentationBuilder
 
     internal static string CreateDescriptionKey(string description, Category category)
     {
+        // ReSharper disable once InvocationIsSkipped
         PreConditions.IsNotNullOrWhiteSpace(description, nameof(description));
 
         return $"{category}/&{description}Description";
@@ -260,10 +262,10 @@ internal static class BaseDefinitionBuilderGuiPresentationExtensions
         string description, BaseDefinition definition = null)
         where TBuilder : IDefinitionBuilder
     {
-        var guip = builder.GetGuiPresentation();
+        var gui = builder.GetGuiPresentation();
         var sprite = definition == null ? null : definition.GuiPresentation.spriteReference;
 
-        return SetGuiPresentation(builder, GuiPresentationBuilder.Build(guip, title, description, sprite));
+        return SetGuiPresentation(builder, GuiPresentationBuilder.Build(gui, title, description, sprite));
     }
 
     /// <summary>
@@ -277,10 +279,10 @@ internal static class BaseDefinitionBuilderGuiPresentationExtensions
         Category category, BaseDefinition definition = null, int sortOrder = 0)
         where TBuilder : IDefinitionBuilder
     {
-        var guip = builder.GetGuiPresentation();
+        var gui = builder.GetGuiPresentation();
         var sprite = definition == null ? null : definition.GuiPresentation.spriteReference;
 
-        return SetGuiPresentation(builder, GuiPresentationBuilder.Build(guip, name, category, sprite, sortOrder));
+        return SetGuiPresentation(builder, GuiPresentationBuilder.Build(gui, name, category, sprite, sortOrder));
     }
 
     /// <summary>
@@ -295,12 +297,12 @@ internal static class BaseDefinitionBuilderGuiPresentationExtensions
         BaseDefinition definition = null, int sortOrder = 0)
         where TBuilder : IDefinitionBuilder
     {
-        var guip = builder.GetGuiPresentation();
+        var gui = builder.GetGuiPresentation();
         var definitionName = builder.Name;
         var sprite = definition == null ? null : definition.GuiPresentation.spriteReference;
 
         return SetGuiPresentation(builder,
-            GuiPresentationBuilder.Build(guip, definitionName, category, sprite, sortOrder));
+            GuiPresentationBuilder.Build(gui, definitionName, category, sprite, sortOrder));
     }
 
     /// <summary>

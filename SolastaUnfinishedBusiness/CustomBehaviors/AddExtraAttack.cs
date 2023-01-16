@@ -169,13 +169,13 @@ internal abstract class AddExtraAttackBase : IAddExtraAttack
 
 internal sealed class AddExtraUnarmedAttack : AddExtraAttackBase
 {
-    internal AddExtraUnarmedAttack(
-        ActionDefinitions.ActionType actionType,
-        bool clearSameType,
-        params IsCharacterValidHandler[] validators) : base(actionType, clearSameType, validators)
-    {
-        // Empty
-    }
+    // internal AddExtraUnarmedAttack(
+    //     ActionDefinitions.ActionType actionType,
+    //     bool clearSameType,
+    //     params IsCharacterValidHandler[] validators) : base(actionType, clearSameType, validators)
+    // {
+    //     // Empty
+    // }
 
     internal AddExtraUnarmedAttack(
         ActionDefinitions.ActionType actionType,

@@ -192,15 +192,15 @@ internal class FeatureDefinitionAdditionalDamageBuilder
             RuleDefinitions.EffectDifficultyClassComputation.SpellCastingFeature,
         RuleDefinitions.EffectSavingThrowType damageSaveAffinity = RuleDefinitions.EffectSavingThrowType.Negates,
         string savingThrowAbility = AttributeDefinitions.Constitution,
-        string savingThrowDCAbilityModifier = AttributeDefinitions.Wisdom,
-        int savingThrowDC = 12)
+        string savingThrowDcAbilityModifier = AttributeDefinitions.Wisdom,
+        int savingThrowDc = 12)
     {
         Definition.hasSavingThrow = true;
         Definition.dcComputation = dcComputation;
         Definition.damageSaveAffinity = damageSaveAffinity;
         Definition.savingThrowAbility = savingThrowAbility;
-        Definition.savingThrowDCAbilityModifier = savingThrowDCAbilityModifier;
-        Definition.savingThrowDC = savingThrowDC;
+        Definition.savingThrowDCAbilityModifier = savingThrowDcAbilityModifier;
+        Definition.savingThrowDC = savingThrowDc;
 
         return this;
     }

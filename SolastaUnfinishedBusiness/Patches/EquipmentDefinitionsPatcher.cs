@@ -36,7 +36,7 @@ public static class EquipmentDefinitionsPatcher
             var cp =
                 (1000 * baseCosts[0]) + // platinum
                 (100 * baseCosts[1]) + // gold
-                (50 * baseCosts[2]) + // electrum?
+                (50 * baseCosts[2]) + // electrum
                 (10 * baseCosts[3]) + // silver
                 baseCosts[4]; // copper
 
