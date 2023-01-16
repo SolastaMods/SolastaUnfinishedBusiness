@@ -41,7 +41,7 @@ public static class GameLocationBattleManagerPatcher
             //PATCH: support for `IReactionAttackModeRestriction`
             if (__result)
             {
-                __result = RestrictReactionAttackMode.CanCharacterReactWithPower(__instance, usablePower);
+                __result = RestrictReactionAttackMode.CanCharacterReactWithPower(usablePower);
             }
         }
     }
@@ -559,6 +559,7 @@ public static class GameLocationBattleManagerPatcher
     [HarmonyPatch(typeof(GameLocationBattleManager), nameof(GameLocationBattleManager.HandleTargetReducedToZeroHP))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
+    // ReSharper disable once InconsistentNaming
     public static class HandleTargetReducedToZeroHP_Patch
     {
         [UsedImplicitly]

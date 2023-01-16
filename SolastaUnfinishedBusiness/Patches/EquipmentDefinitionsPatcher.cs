@@ -107,19 +107,13 @@ public static class SignificantDigits
 {
     public static double Round(this double value, int significantDigits)
     {
-        return RoundSignificantDigits(value, significantDigits, out _);
+        return RoundSignificantDigits(value, significantDigits);
     }
 
-    private static double RoundSignificantDigits(double value, int significantDigits, out int roundingPosition)
+    private static double RoundSignificantDigits(double value, int significantDigits)
     {
-        // this method will return a rounded double value at a number of significant figures.
-        // the sigFigures parameter must be between 0 and 15, exclusive.
-
-        roundingPosition = 0;
-
         if (value.AlmostEquals(0d))
         {
-            roundingPosition = significantDigits - 1;
             return 0d;
         }
 
@@ -144,8 +138,11 @@ public static class SignificantDigits
                 @"The significantDigits argument must be between 1 and 15.");
         }
 
+        // this method will return a rounded double value at a number of significant figures.
+        // the sigFigures parameter must be between 0 and 15, exclusive.
+
         // The resulting rounding position will be negative for rounding at whole numbers, and positive for decimal places.
-        roundingPosition = significantDigits - 1 - (int)Math.Floor(Math.Log10(Math.Abs(value)));
+        var roundingPosition = significantDigits - 1 - (int)Math.Floor(Math.Log10(Math.Abs(value)));
 
         // try to use a rounding position directly, if no scale is needed.
         // this is because the scale multiplication after the rounding can introduce error, although 

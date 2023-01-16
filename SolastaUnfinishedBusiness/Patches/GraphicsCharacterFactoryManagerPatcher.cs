@@ -107,6 +107,7 @@ public static class GraphicsCharacterFactoryManagerPatcher
 
                 pos = __instance.shapePartsToLoad[i].IndexOf(searchTermMale, StringComparison.InvariantCulture);
 
+                // ReSharper disable once InvertIf
                 if (pos > 0)
                 {
                     var raceName = __instance.shapePartsToLoad[i].Substring(0, pos);

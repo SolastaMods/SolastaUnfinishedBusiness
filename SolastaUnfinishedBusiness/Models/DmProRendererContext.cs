@@ -276,6 +276,7 @@ internal static class DmProRendererContext
         var environmentName = a[1];
         var str1 = "Gui/Bitmaps/Blueprints/Props/";
         var str2 = "User_Props_" + propName;
+        // ReSharper disable once StringLiteralTypo
         var postfix = perspective ? "_Pers" : "_Top";
 
         if (environmentDefinition != null &&

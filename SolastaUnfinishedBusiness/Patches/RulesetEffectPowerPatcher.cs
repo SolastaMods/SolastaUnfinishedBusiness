@@ -15,6 +15,7 @@ public static class RulesetEffectPowerPatcher
     [HarmonyPatch(typeof(RulesetEffectPower), nameof(RulesetEffectPower.SaveDC), MethodType.Getter)]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
+    // ReSharper disable once InconsistentNaming
     public static class SaveDC_Getter_Patch
     {
         [UsedImplicitly]

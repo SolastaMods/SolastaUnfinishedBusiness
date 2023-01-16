@@ -64,6 +64,7 @@ public class MirrorImageLogic
             .ToList();
     }
 
+    // ReSharper disable once InconsistentNaming
     internal static int GetAC(
         RulesetAttribute attribute,
         RulesetActor target,

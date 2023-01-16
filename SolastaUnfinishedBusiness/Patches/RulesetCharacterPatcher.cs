@@ -391,8 +391,8 @@ public static class RulesetCharacterPatcher
 
     [HarmonyPatch(typeof(RulesetCharacter), nameof(RulesetCharacter.ComputeSaveDC))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    // ReSharper disable once InconsistentNaming
     [UsedImplicitly]
+    // ReSharper disable once InconsistentNaming
     public static class ComputeSaveDC_Patch
     {
         [UsedImplicitly]

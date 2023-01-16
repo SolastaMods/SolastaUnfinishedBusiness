@@ -119,7 +119,7 @@ public static class InnovationAlchemy
                 Sprites.GetSprite("AlchemyFlask", Resources.AlchemyFlask, 128))
             .SetRequiresIdentification(false)
             .SetWeight(0)
-            .SetItemPresentation(CustomWeaponsContext.BuildPresentation("ItemAlchemyFunctorUnid",
+            .SetItemPresentation(CustomWeaponsContext.BuildPresentation("ItemAlchemyFunctorUnidentified",
                 ItemDefinitions.ScrollFly.itemPresentation))
             .SetUsableDeviceDescription(deviceDescription.Build())
             .AddToDB();
