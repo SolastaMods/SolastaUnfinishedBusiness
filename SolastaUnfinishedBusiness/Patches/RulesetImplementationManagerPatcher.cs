@@ -15,7 +15,7 @@ namespace SolastaUnfinishedBusiness.Patches;
 [UsedImplicitly]
 public static class RulesetImplementationManagerPatcher
 {
-    [HarmonyPatch(typeof(RulesetImplementationManager), "InstantiateEffectInvocation")]
+    [HarmonyPatch(typeof(RulesetImplementationManager), nameof(RulesetImplementationManager.InstantiateEffectInvocation))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
     public static class InstantiateEffectInvocation_Patch
@@ -30,7 +30,7 @@ public static class RulesetImplementationManagerPatcher
         }
     }
 
-    [HarmonyPatch(typeof(RulesetImplementationManager), "ApplySummonForm")]
+    [HarmonyPatch(typeof(RulesetImplementationManager), nameof(RulesetImplementationManager.ApplySummonForm))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
     public static class ApplySummonForm_Patch
@@ -74,7 +74,7 @@ public static class RulesetImplementationManagerPatcher
     // Call parts of the stuff `RulesetImplementationManagerLocation` does for `RulesetImplementationManagerCampaign`
     // This makes light and item effects correctly terminate when resting during world travel
     // The code is prettified decompiled code from `RulesetImplementationManagerLocation`
-    [HarmonyPatch(typeof(RulesetImplementationManager), "TerminateEffect")]
+    [HarmonyPatch(typeof(RulesetImplementationManager), nameof(RulesetImplementationManager.TerminateEffect))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
     public static class TerminateEffect_Patch
@@ -196,7 +196,7 @@ public static class RulesetImplementationManagerPatcher
     }
 
     //PATCH: handles Sorcerer wildshape scenarios / enforces sorcerer class level / correctly handle slots recovery scenarios
-    [HarmonyPatch(typeof(RulesetImplementationManager), "ApplySpellSlotsForm")]
+    [HarmonyPatch(typeof(RulesetImplementationManager), nameof(RulesetImplementationManager.ApplySpellSlotsForm))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
     public static class ApplySpellSlotsForm_Patch
@@ -303,7 +303,7 @@ public static class RulesetImplementationManagerPatcher
         }
     }
 
-    [HarmonyPatch(typeof(RulesetImplementationManager), "IsValidContextForRestrictedContextProvider")]
+    [HarmonyPatch(typeof(RulesetImplementationManager), nameof(RulesetImplementationManager.IsValidContextForRestrictedContextProvider))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
     public static class IsValidContextForRestrictedContextProvider_Patch
@@ -344,7 +344,7 @@ public static class RulesetImplementationManagerPatcher
         }
     }
 
-    [HarmonyPatch(typeof(RulesetImplementationManager), "TryRollSavingThrow")]
+    [HarmonyPatch(typeof(RulesetImplementationManager), nameof(RulesetImplementationManager.TryRollSavingThrow))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
     public static class TryRollSavingThrow_Patch

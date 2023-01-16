@@ -11,7 +11,7 @@ namespace SolastaUnfinishedBusiness.Patches;
 [UsedImplicitly]
 public static class ItemMenuModalPatcher
 {
-    [HarmonyPatch(typeof(ItemMenuModal), "SetupFromItem")]
+    [HarmonyPatch(typeof(ItemMenuModal), nameof(ItemMenuModal.SetupFromItem))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
     public static class SetupFromItem_Patch

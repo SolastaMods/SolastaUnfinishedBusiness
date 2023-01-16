@@ -7,7 +7,7 @@ namespace SolastaUnfinishedBusiness.Patches;
 [UsedImplicitly]
 public static class GameCampaignCharacterPatcher
 {
-    [HarmonyPatch(typeof(GameCampaignCharacter), "EngageRest")]
+    [HarmonyPatch(typeof(GameCampaignCharacter), nameof(GameCampaignCharacter.EngageRest))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
     public static class EngageRest_Patch

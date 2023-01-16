@@ -9,7 +9,7 @@ namespace SolastaUnfinishedBusiness.Patches;
 [UsedImplicitly]
 public static class InventorySlotBoxPatcher
 {
-    [HarmonyPatch(typeof(InventorySlotBox), "RefreshState")]
+    [HarmonyPatch(typeof(InventorySlotBox), nameof(InventorySlotBox.RefreshState))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
     public static class RefreshState_Patch
@@ -43,7 +43,7 @@ public static class InventorySlotBoxPatcher
     }
 
 
-    [HarmonyPatch(typeof(InventorySlotBox), "Unbind")]
+    [HarmonyPatch(typeof(InventorySlotBox), nameof(InventorySlotBox.Unbind))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
     public static class Unbind_Patch

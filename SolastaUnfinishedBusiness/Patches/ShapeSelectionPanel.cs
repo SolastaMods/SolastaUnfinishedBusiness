@@ -8,7 +8,7 @@ namespace SolastaUnfinishedBusiness.Patches;
 [UsedImplicitly]
 public static class ShapeSelectionPanelPatcher
 {
-    [HarmonyPatch(typeof(ShapeSelectionPanel), "OnEndShow")]
+    [HarmonyPatch(typeof(ShapeSelectionPanel), nameof(ShapeSelectionPanel.OnEndShow))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
     public static class OnEndShow_Patch

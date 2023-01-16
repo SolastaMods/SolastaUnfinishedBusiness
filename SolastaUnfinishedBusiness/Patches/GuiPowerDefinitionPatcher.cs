@@ -9,7 +9,7 @@ namespace SolastaUnfinishedBusiness.Patches;
 [UsedImplicitly]
 public static class GuiPowerDefinitionPatcher
 {
-    [HarmonyPatch(typeof(GuiPowerDefinition), "EnumerateTags")]
+    [HarmonyPatch(typeof(GuiPowerDefinition), nameof(GuiPowerDefinition.EnumerateTags))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
     public static class EnumerateTags_Patch
@@ -22,7 +22,7 @@ public static class GuiPowerDefinitionPatcher
         }
     }
 
-    [HarmonyPatch(typeof(GuiPowerDefinition), "EffectDescription", MethodType.Getter)]
+    [HarmonyPatch(typeof(GuiPowerDefinition), nameof(GuiPowerDefinition.EffectDescription), MethodType.Getter)]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
     public static class EffectDescription_Getter_Patch

@@ -11,7 +11,7 @@ namespace SolastaUnfinishedBusiness.Patches;
 [UsedImplicitly]
 public static class CharacterFilteringGroupPatcher
 {
-    [HarmonyPatch(typeof(CharacterFilteringGroup), "Compare")]
+    [HarmonyPatch(typeof(CharacterFilteringGroup), nameof(CharacterFilteringGroup.Compare))]
     [UsedImplicitly]
     public static class Compare_Patch
     {

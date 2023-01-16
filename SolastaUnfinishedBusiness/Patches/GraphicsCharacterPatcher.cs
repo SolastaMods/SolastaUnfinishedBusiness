@@ -9,7 +9,7 @@ namespace SolastaUnfinishedBusiness.Patches;
 [UsedImplicitly]
 public static class GraphicsCharacterPatcher
 {
-    [HarmonyPatch(typeof(GraphicsCharacter), "ResetScale")]
+    [HarmonyPatch(typeof(GraphicsCharacter), nameof(GraphicsCharacter.ResetScale))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
     public static class ResetScale_Patch

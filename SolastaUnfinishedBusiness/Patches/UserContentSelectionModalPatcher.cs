@@ -7,7 +7,7 @@ namespace SolastaUnfinishedBusiness.Patches;
 [UsedImplicitly]
 public static class UserContentSelectionModalPatcher
 {
-    [HarmonyPatch(typeof(UserContentSelectionModal), "EnumerateContents")]
+    [HarmonyPatch(typeof(UserContentSelectionModal), nameof(UserContentSelectionModal.EnumerateContents))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
     public static class PostLoadJson_Patch

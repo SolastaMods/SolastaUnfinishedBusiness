@@ -20,7 +20,7 @@ namespace SolastaUnfinishedBusiness.Patches;
 [UsedImplicitly]
 public static class RulesetCharacterHeroPatcher
 {
-    [HarmonyPatch(typeof(RulesetCharacterHero), "RefreshArmorClass")]
+    [HarmonyPatch(typeof(RulesetCharacterHero), nameof(RulesetCharacterHero.RefreshArmorClass))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
     public static class RefreshArmorClass_Patch
@@ -78,7 +78,7 @@ public static class RulesetCharacterHeroPatcher
         }
     }
 
-    [HarmonyPatch(typeof(RulesetCharacterHero), "FindClassHoldingFeature")]
+    [HarmonyPatch(typeof(RulesetCharacterHero), nameof(RulesetCharacterHero.FindClassHoldingFeature))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
     public static class FindClassHoldingFeature_Patch
@@ -106,7 +106,7 @@ public static class RulesetCharacterHeroPatcher
         }
     }
 
-    [HarmonyPatch(typeof(RulesetCharacterHero), "CanCastAnyInvocation")]
+    [HarmonyPatch(typeof(RulesetCharacterHero), nameof(RulesetCharacterHero.CanCastAnyInvocation))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
     public static class CanCastAnyInvocation_Patch
@@ -123,7 +123,7 @@ public static class RulesetCharacterHeroPatcher
         }
     }
 
-    [HarmonyPatch(typeof(RulesetCharacterHero), "CanCastInvocation")]
+    [HarmonyPatch(typeof(RulesetCharacterHero), nameof(RulesetCharacterHero.CanCastInvocation))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
     public static class CanCastInvocation_Patch
@@ -152,7 +152,7 @@ public static class RulesetCharacterHeroPatcher
         }
     }
 
-    [HarmonyPatch(typeof(RulesetCharacterHero), "GrantInvocations")]
+    [HarmonyPatch(typeof(RulesetCharacterHero), nameof(RulesetCharacterHero.GrantInvocations))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
     public static class GrantInvocations_Patch
@@ -185,7 +185,7 @@ public static class RulesetCharacterHeroPatcher
         }
     }
 
-    [HarmonyPatch(typeof(RulesetCharacterHero), "RefreshAttackMode")]
+    [HarmonyPatch(typeof(RulesetCharacterHero), nameof(RulesetCharacterHero.RefreshAttackMode))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
     public static class RefreshAttackMode_Patch
@@ -249,7 +249,7 @@ public static class RulesetCharacterHeroPatcher
         }
     }
 
-    [HarmonyPatch(typeof(RulesetCharacterHero), "RefreshAttackModes")]
+    [HarmonyPatch(typeof(RulesetCharacterHero), nameof(RulesetCharacterHero.RefreshAttackModes))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
     public static class RefreshAttackModes_Patch
@@ -349,7 +349,7 @@ public static class RulesetCharacterHeroPatcher
         }
     }
 
-    [HarmonyPatch(typeof(RulesetCharacterHero), "RefreshAll")]
+    [HarmonyPatch(typeof(RulesetCharacterHero), nameof(RulesetCharacterHero.RefreshAll))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
     public static class RefreshAll_Patch
@@ -368,7 +368,7 @@ public static class RulesetCharacterHeroPatcher
         }
     }
 
-    [HarmonyPatch(typeof(RulesetCharacterHero), "RefreshActiveFightingStyles")]
+    [HarmonyPatch(typeof(RulesetCharacterHero), nameof(RulesetCharacterHero.RefreshActiveFightingStyles))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
     public static class RefreshActiveFightingStyles_Patch
@@ -381,7 +381,7 @@ public static class RulesetCharacterHeroPatcher
         }
     }
 
-    [HarmonyPatch(typeof(RulesetCharacterHero), "AcknowledgeAttackUse")]
+    [HarmonyPatch(typeof(RulesetCharacterHero), nameof(RulesetCharacterHero.AcknowledgeAttackUse))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
     public static class AcknowledgeAttackUse_Patch
@@ -404,7 +404,7 @@ public static class RulesetCharacterHeroPatcher
         }
     }
 
-    [HarmonyPatch(typeof(RulesetCharacterHero), "ComputeCraftingDurationHours")]
+    [HarmonyPatch(typeof(RulesetCharacterHero), nameof(RulesetCharacterHero.ComputeCraftingDurationHours))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
     public static class ComputeCraftingDurationHours_Patch
@@ -441,7 +441,7 @@ public static class RulesetCharacterHeroPatcher
     }
 
     //PATCH: DisableAutoEquip
-    [HarmonyPatch(typeof(RulesetCharacterHero), "GrantItem")]
+    [HarmonyPatch(typeof(RulesetCharacterHero), nameof(RulesetCharacterHero.GrantItem))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
     public static class GrantItem_Patch
@@ -459,7 +459,7 @@ public static class RulesetCharacterHeroPatcher
     }
 
     //PATCH: ensures ritual spells from all spell repertoires are made available (Multiclass)
-    [HarmonyPatch(typeof(RulesetCharacterHero), "EnumerateUsableRitualSpells")]
+    [HarmonyPatch(typeof(RulesetCharacterHero), nameof(RulesetCharacterHero.EnumerateUsableRitualSpells))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
     public static class EnumerateUsableRitualSpells_Patch
@@ -596,7 +596,7 @@ public static class RulesetCharacterHeroPatcher
         }
     }
 
-    [HarmonyPatch(typeof(RulesetCharacterHero), "GrantExperience")]
+    [HarmonyPatch(typeof(RulesetCharacterHero), nameof(RulesetCharacterHero.GrantExperience))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
     public static class GrantExperience_Patch
@@ -617,7 +617,7 @@ public static class RulesetCharacterHeroPatcher
     }
 
     //PATCH: enables the No Experience on Level up cheat (NoExperienceOnLevelUp)
-    [HarmonyPatch(typeof(RulesetCharacterHero), "CanLevelUp", MethodType.Getter)]
+    [HarmonyPatch(typeof(RulesetCharacterHero), nameof(RulesetCharacterHero.CanLevelUp), MethodType.Getter)]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
     public static class CanLevelUp_Patch
@@ -659,7 +659,7 @@ public static class RulesetCharacterHeroPatcher
         }
     }
 
-    [HarmonyPatch(typeof(RulesetCharacterHero), "AddClassLevel")]
+    [HarmonyPatch(typeof(RulesetCharacterHero), nameof(RulesetCharacterHero.AddClassLevel))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
     public static class AddClassLevel_Patch
@@ -686,7 +686,7 @@ public static class RulesetCharacterHeroPatcher
         }
     }
 
-    [HarmonyPatch(typeof(RulesetCharacterHero), "EnumerateAvailableDevices")]
+    [HarmonyPatch(typeof(RulesetCharacterHero), nameof(RulesetCharacterHero.EnumerateAvailableDevices))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
     public static class EnumerateAvailableDevices_Patch
@@ -717,7 +717,7 @@ public static class RulesetCharacterHeroPatcher
         }
     }
 
-    [HarmonyPatch(typeof(RulesetCharacterHero), "UseDeviceFunction")]
+    [HarmonyPatch(typeof(RulesetCharacterHero), nameof(RulesetCharacterHero.UseDeviceFunction))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
     public static class UseDeviceFunction_Patch
@@ -742,7 +742,7 @@ public static class RulesetCharacterHeroPatcher
         }
     }
 
-    [HarmonyPatch(typeof(RulesetCharacterHero), "Unregister")]
+    [HarmonyPatch(typeof(RulesetCharacterHero), nameof(RulesetCharacterHero.Unregister))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
     public static class Unregister_Patch
@@ -755,7 +755,7 @@ public static class RulesetCharacterHeroPatcher
         }
     }
 
-    [HarmonyPatch(typeof(RulesetCharacterHero), "EnumerateAfterRestActions")]
+    [HarmonyPatch(typeof(RulesetCharacterHero), nameof(RulesetCharacterHero.EnumerateAfterRestActions))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
     public static class EnumerateAfterRestActions_Patch
@@ -783,7 +783,7 @@ public static class RulesetCharacterHeroPatcher
         }
     }
 
-    [HarmonyPatch(typeof(RulesetCharacterHero), "ItemEquiped")]
+    [HarmonyPatch(typeof(RulesetCharacterHero), nameof(RulesetCharacterHero.ItemEquiped))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
     public static class ItemEquiped_Patch

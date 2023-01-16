@@ -7,7 +7,7 @@ namespace SolastaUnfinishedBusiness.Patches;
 [UsedImplicitly]
 public static class RulesetItemDevicePatcher
 {
-    [HarmonyPatch(typeof(RulesetItemDevice), "IsFunctionAvailable")]
+    [HarmonyPatch(typeof(RulesetItemDevice), nameof(RulesetItemDevice.IsFunctionAvailable))]
     [UsedImplicitly]
     public static class IsFunctionAvailable_Patch
     {

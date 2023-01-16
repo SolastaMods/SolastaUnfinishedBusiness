@@ -8,7 +8,7 @@ namespace SolastaUnfinishedBusiness.Patches;
 [UsedImplicitly]
 public static class CursorLocationSelectTargetPatcher
 {
-    [HarmonyPatch(typeof(CursorLocationSelectTarget), "IsFilteringValid")]
+    [HarmonyPatch(typeof(CursorLocationSelectTarget), nameof(CursorLocationSelectTarget.IsFilteringValid))]
     [UsedImplicitly]
     public static class IsFilteringValid_Patch
     {

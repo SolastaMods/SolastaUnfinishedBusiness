@@ -16,7 +16,7 @@ namespace SolastaUnfinishedBusiness.Patches;
 [UsedImplicitly]
 public static class GuiCharacterPatcher
 {
-    [HarmonyPatch(typeof(GuiCharacter), "DisplayUniqueLevelSpellSlots")]
+    [HarmonyPatch(typeof(GuiCharacter), nameof(GuiCharacter.DisplayUniqueLevelSpellSlots))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
     public static class DisplayUniqueLevelSpellSlots_Patch
@@ -87,7 +87,7 @@ public static class GuiCharacterPatcher
         }
     }
 
-    [HarmonyPatch(typeof(GuiCharacter), "MainClassDefinition", MethodType.Getter)]
+    [HarmonyPatch(typeof(GuiCharacter), nameof(GuiCharacter.MainClassDefinition), MethodType.Getter)]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
     public static class MainClassDefinition_Getter_Patch
@@ -107,7 +107,7 @@ public static class GuiCharacterPatcher
     }
 
     //PATCH: Changes Game UI to support Multiclass
-    [HarmonyPatch(typeof(GuiCharacter), "LevelAndClassAndSubclass", MethodType.Getter)]
+    [HarmonyPatch(typeof(GuiCharacter), nameof(GuiCharacter.LevelAndClassAndSubclass), MethodType.Getter)]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
     public static class LevelAndClassAndSubclass_Getter_Patch
@@ -120,7 +120,7 @@ public static class GuiCharacterPatcher
     }
 
     //PATCH: Changes Game UI to support Multiclass
-    [HarmonyPatch(typeof(GuiCharacter), "ClassAndLevel", MethodType.Getter)]
+    [HarmonyPatch(typeof(GuiCharacter), nameof(GuiCharacter.ClassAndLevel), MethodType.Getter)]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
     public static class ClassAndLevel_Getter_Patch
@@ -133,7 +133,7 @@ public static class GuiCharacterPatcher
     }
 
     //PATCH: Changes Game UI to support Multiclass
-    [HarmonyPatch(typeof(GuiCharacter), "LevelAndExperienceTooltip", MethodType.Getter)]
+    [HarmonyPatch(typeof(GuiCharacter), nameof(GuiCharacter.LevelAndExperienceTooltip), MethodType.Getter)]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
     public static class LevelAndExperienceTooltip_Getter_Patch
@@ -145,7 +145,7 @@ public static class GuiCharacterPatcher
         }
     }
 
-    [HarmonyPatch(typeof(GuiCharacter), "BackgroundDescription", MethodType.Getter)]
+    [HarmonyPatch(typeof(GuiCharacter), nameof(GuiCharacter.BackgroundDescription), MethodType.Getter)]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
     public static class BackgroundDescription_Getter_Patch
@@ -185,7 +185,7 @@ public static class GuiCharacterPatcher
         }
     }
 
-    [HarmonyPatch(typeof(GuiCharacter), "FormatHealthGauge")]
+    [HarmonyPatch(typeof(GuiCharacter), nameof(GuiCharacter.FormatHealthGauge))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
     public static class FormatHealthGauge_Patch
@@ -237,7 +237,7 @@ public static class GuiCharacterPatcher
         }
     }
 
-    [HarmonyPatch(typeof(GuiCharacter), "FormatHealthLabel")]
+    [HarmonyPatch(typeof(GuiCharacter), nameof(GuiCharacter.FormatHealthLabel))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
     public static class FormatHealthLabel_Patch
@@ -329,7 +329,7 @@ public static class GuiCharacterPatcher
         }
     }
 
-    [HarmonyPatch(typeof(CharacterPlateGame), "OnPointerEnter")]
+    [HarmonyPatch(typeof(CharacterPlateGame), nameof(CharacterPlateGame.OnPointerEnter))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
     public static class OnPointerEnter_Patch

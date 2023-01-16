@@ -19,7 +19,7 @@ public static class FeatureDefinitionMagicAffinityPatcher
     }
 
     //PATCH: formats spell list into list with spell levels, instead of 1 line of all spells like default does
-    [HarmonyPatch(typeof(FeatureDefinitionMagicAffinity), "FormatDescription")]
+    [HarmonyPatch(typeof(FeatureDefinitionMagicAffinity), nameof(FeatureDefinitionMagicAffinity.FormatDescription))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
     public static class FormatDescription_Patch

@@ -16,7 +16,7 @@ namespace SolastaUnfinishedBusiness.Patches;
 [UsedImplicitly]
 public static class InvocationSubPanelPatcher
 {
-    [HarmonyPatch(typeof(InvocationSubPanel), "Bind")]
+    [HarmonyPatch(typeof(InvocationSubPanel), nameof(InvocationSubPanel.Bind))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
     public static class Bind_Patch
@@ -33,7 +33,7 @@ public static class InvocationSubPanelPatcher
         }
     }
 
-    [HarmonyPatch(typeof(InvocationSubPanel), "SetState")]
+    [HarmonyPatch(typeof(InvocationSubPanel), nameof(InvocationSubPanel.SetState))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
     public static class SetState_Patch

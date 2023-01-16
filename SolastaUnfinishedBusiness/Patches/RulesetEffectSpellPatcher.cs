@@ -16,7 +16,7 @@ namespace SolastaUnfinishedBusiness.Patches;
 public static class RulesetEffectSpellPatcher
 {
     //PATCH: support for `ICustomMagicEffectBasedOnCaster` and `IModifySpellEffect` 
-    [HarmonyPatch(typeof(RulesetEffectSpell), "EffectDescription", MethodType.Getter)]
+    [HarmonyPatch(typeof(RulesetEffectSpell), nameof(RulesetEffectSpell.EffectDescription), MethodType.Getter)]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
     public static class EffectDescription_Getter_Patch
@@ -29,7 +29,7 @@ public static class RulesetEffectSpellPatcher
         }
     }
 
-    [HarmonyPatch(typeof(RulesetEffectSpell), "SaveDC", MethodType.Getter)]
+    [HarmonyPatch(typeof(RulesetEffectSpell), nameof(RulesetEffectSpell.SaveDC), MethodType.Getter)]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
     public static class SaveDC_Getter_Patch
@@ -64,7 +64,7 @@ public static class RulesetEffectSpellPatcher
         }
     }
 
-    [HarmonyPatch(typeof(RulesetEffectSpell), "MagicAttackBonus", MethodType.Getter)]
+    [HarmonyPatch(typeof(RulesetEffectSpell), nameof(RulesetEffectSpell.MagicAttackBonus), MethodType.Getter)]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
     public static class MagicAttackBonus_Getter_Patch
@@ -104,7 +104,7 @@ public static class RulesetEffectSpellPatcher
         }
     }
 
-    [HarmonyPatch(typeof(RulesetEffectSpell), "MagicAttackTrends", MethodType.Getter)]
+    [HarmonyPatch(typeof(RulesetEffectSpell), nameof(RulesetEffectSpell.MagicAttackTrends), MethodType.Getter)]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
     public static class MagicAttackTrends_Getter_Patch
@@ -145,7 +145,7 @@ public static class RulesetEffectSpellPatcher
     }
 
     //PATCH: Multiclass: enforces cantrips to be cast at character level 
-    [HarmonyPatch(typeof(RulesetEffectSpell), "GetClassLevel")]
+    [HarmonyPatch(typeof(RulesetEffectSpell), nameof(RulesetEffectSpell.GetClassLevel))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
     public static class GetClassLevel_Patch
@@ -180,7 +180,7 @@ public static class RulesetEffectSpellPatcher
     }
 
     //PATCH: enforces cantrips to be cast at character level
-    [HarmonyPatch(typeof(RulesetEffectSpell), "ComputeTargetParameter")]
+    [HarmonyPatch(typeof(RulesetEffectSpell), nameof(RulesetEffectSpell.ComputeTargetParameter))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
     public static class ComputeTargetParameter_Patch

@@ -10,7 +10,7 @@ namespace SolastaUnfinishedBusiness.Patches;
 [UsedImplicitly]
 public static class CursorLocationTelekinesisPatcher
 {
-    [HarmonyPatch(typeof(CursorLocationTelekinesis), "OnClickMainPointer")]
+    [HarmonyPatch(typeof(CursorLocationTelekinesis), nameof(CursorLocationTelekinesis.OnClickMainPointer))]
     [UsedImplicitly]
     public static class OnClickMainPointer_Patch
     {

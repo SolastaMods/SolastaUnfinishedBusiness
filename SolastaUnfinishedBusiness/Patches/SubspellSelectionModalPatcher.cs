@@ -13,7 +13,7 @@ namespace SolastaUnfinishedBusiness.Patches;
 [UsedImplicitly]
 public static class SubspellSelectionModalPatcher
 {
-    [HarmonyPatch(typeof(SubspellSelectionModal), "OnActivate")]
+    [HarmonyPatch(typeof(SubspellSelectionModal), nameof(SubspellSelectionModal.OnActivate))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
     public static class OnActivate_Patch
@@ -26,7 +26,7 @@ public static class SubspellSelectionModalPatcher
         }
     }
 
-    [HarmonyPatch(typeof(SubspellSelectionModal), "Bind")]
+    [HarmonyPatch(typeof(SubspellSelectionModal), nameof(SubspellSelectionModal.Bind))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [HarmonyPatch(new[]
     {

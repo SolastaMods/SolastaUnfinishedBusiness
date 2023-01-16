@@ -14,7 +14,7 @@ namespace SolastaUnfinishedBusiness.Patches;
 public static class UserCampaignPoolManagerPatcher
 {
     //PATCH: allows the last X campaign files to be backed up in the mod folder
-    [HarmonyPatch(typeof(UserCampaignPoolManager), "SaveUserCampaign")]
+    [HarmonyPatch(typeof(UserCampaignPoolManager), nameof(UserCampaignPoolManager.SaveUserCampaign))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
     public static class SaveUserCampaign_Patch

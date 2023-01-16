@@ -14,7 +14,7 @@ namespace SolastaUnfinishedBusiness.Patches;
 public static class WorldLocationPatcher
 {
     //PATCH: changes how the location / rooms are instantiated (DMP)
-    [HarmonyPatch(typeof(WorldLocation), "BuildFromUserLocation")]
+    [HarmonyPatch(typeof(WorldLocation), nameof(WorldLocation.BuildFromUserLocation))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
     public static class BuildFromUserLocation_Patch

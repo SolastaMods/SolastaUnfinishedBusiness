@@ -19,7 +19,7 @@ public static class PowerSelectionPanelPatcher
     private static RectTransform _secondRow;
     private static RectTransform _thirdRow;
 
-    [HarmonyPatch(typeof(PowerSelectionPanel), "Bind")]
+    [HarmonyPatch(typeof(PowerSelectionPanel), nameof(PowerSelectionPanel.Bind))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
     public static class Bind_Patch
@@ -141,7 +141,7 @@ public static class PowerSelectionPanelPatcher
         }
     }
 
-    [HarmonyPatch(typeof(PowerSelectionPanel), "Unbind")]
+    [HarmonyPatch(typeof(PowerSelectionPanel), nameof(PowerSelectionPanel.Unbind))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
     public static class Unbind_Patch

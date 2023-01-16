@@ -14,7 +14,7 @@ namespace SolastaUnfinishedBusiness.Patches;
 [UsedImplicitly]
 public static class CharacterInformationPanelPatcher
 {
-    [HarmonyPatch(typeof(CharacterInformationPanel), "EnumerateFeatures")]
+    [HarmonyPatch(typeof(CharacterInformationPanel), nameof(CharacterInformationPanel.EnumerateFeatures))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
     public static class EnumerateFeatures_Patch
@@ -33,7 +33,7 @@ public static class CharacterInformationPanelPatcher
         }
     }
 
-    [HarmonyPatch(typeof(CharacterInformationPanel), "Bind")]
+    [HarmonyPatch(typeof(CharacterInformationPanel), nameof(CharacterInformationPanel.Bind))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
     public static class Bind_Patch
@@ -46,7 +46,7 @@ public static class CharacterInformationPanelPatcher
         }
     }
 
-    [HarmonyPatch(typeof(CharacterInformationPanel), "Refresh")]
+    [HarmonyPatch(typeof(CharacterInformationPanel), nameof(CharacterInformationPanel.Refresh))]
     [UsedImplicitly]
     public static class Refresh_Patch
     {

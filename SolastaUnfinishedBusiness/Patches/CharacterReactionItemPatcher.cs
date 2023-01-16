@@ -16,7 +16,7 @@ namespace SolastaUnfinishedBusiness.Patches;
 [UsedImplicitly]
 public static class CharacterReactionItemPatcher
 {
-    [HarmonyPatch(typeof(CharacterReactionItem), "Bind")]
+    [HarmonyPatch(typeof(CharacterReactionItem), nameof(CharacterReactionItem.Bind))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
     public static class Bind_Patch
@@ -105,7 +105,7 @@ public static class CharacterReactionItemPatcher
     }
 
     //TODO: check if still relevant - while this method wasn't touched, maybe sub-items are now disposed properly?
-    [HarmonyPatch(typeof(CharacterReactionItem), "GetSelectedSubItem")]
+    [HarmonyPatch(typeof(CharacterReactionItem), nameof(CharacterReactionItem.GetSelectedSubItem))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
     public static class GetSelectedSubItem_Patch

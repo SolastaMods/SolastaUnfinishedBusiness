@@ -9,7 +9,7 @@ namespace SolastaUnfinishedBusiness.Patches;
 [UsedImplicitly]
 public static class CharacterActionUsePowerPatcher
 {
-    [HarmonyPatch(typeof(CharacterActionUsePower), "CheckInterruptionBefore")]
+    [HarmonyPatch(typeof(CharacterActionUsePower), nameof(CharacterActionUsePower.CheckInterruptionBefore))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
     public static class CheckInterruptionBefore_Patch
@@ -22,7 +22,7 @@ public static class CharacterActionUsePowerPatcher
         }
     }
 
-    [HarmonyPatch(typeof(CharacterActionUsePower), "CheckInterruptionAfter")]
+    [HarmonyPatch(typeof(CharacterActionUsePower), nameof(CharacterActionUsePower.CheckInterruptionAfter))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
     public static class CheckInterruptionAfter_Patch
@@ -35,7 +35,7 @@ public static class CharacterActionUsePowerPatcher
         }
     }
 
-    [HarmonyPatch(typeof(CharacterActionUsePower), "GetAdvancementData")]
+    [HarmonyPatch(typeof(CharacterActionUsePower), nameof(CharacterActionUsePower.GetAdvancementData))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
     public static class GetAdvancementData_Patch
@@ -48,7 +48,7 @@ public static class CharacterActionUsePowerPatcher
         }
     }
 
-    [HarmonyPatch(typeof(CharacterActionUsePower), "HandleEffectUniqueness")]
+    [HarmonyPatch(typeof(CharacterActionUsePower), nameof(CharacterActionUsePower.HandleEffectUniqueness))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
     public static class HandleEffectUniqueness_Patch
@@ -63,7 +63,7 @@ public static class CharacterActionUsePowerPatcher
         }
     }
 
-    [HarmonyPatch(typeof(CharacterActionUsePower), "SpendMagicEffectUses")]
+    [HarmonyPatch(typeof(CharacterActionUsePower), nameof(CharacterActionUsePower.SpendMagicEffectUses))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
     public static class SpendMagicEffectUses_Patch

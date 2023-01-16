@@ -13,7 +13,7 @@ namespace SolastaUnfinishedBusiness.Patches;
 [UsedImplicitly]
 public static class SpellsByLevelBoxPatcher
 {
-    [HarmonyPatch(typeof(SpellsByLevelBox), "OnActivateStandardBox")]
+    [HarmonyPatch(typeof(SpellsByLevelBox), nameof(SpellsByLevelBox.OnActivateStandardBox))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
     public static class OnActivateStandardBox_Patch

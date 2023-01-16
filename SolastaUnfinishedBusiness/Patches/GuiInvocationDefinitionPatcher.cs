@@ -15,7 +15,7 @@ public static class GuiInvocationDefinitionPatcher
 {
     //NOTE: There is a typo on official method name
     // ReSharper disable once StringLiteralTypo
-    [HarmonyPatch(typeof(GuiInvocationDefinition), "IsInvocationMacthingPrerequisites")]
+    [HarmonyPatch(typeof(GuiInvocationDefinition), nameof(GuiInvocationDefinition.IsInvocationMacthingPrerequisites))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
     // ReSharper disable once IdentifierTypo

@@ -12,7 +12,7 @@ namespace SolastaUnfinishedBusiness.Patches;
 public static class CharacterStageAbilityScoresPanelPatcher
 {
     //PATCH: extends the cost buy table to enable `EpicPointsAndArray`
-    [HarmonyPatch(typeof(CharacterStageAbilityScoresPanel), "Reset")]
+    [HarmonyPatch(typeof(CharacterStageAbilityScoresPanel), nameof(CharacterStageAbilityScoresPanel.Reset))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
     public static class Reset_Patch
@@ -35,7 +35,7 @@ public static class CharacterStageAbilityScoresPanelPatcher
     }
 
     //PATCH: extends the cost buy table to enable `EpicPointsAndArray`
-    [HarmonyPatch(typeof(CharacterStageAbilityScoresPanel), "Refresh")]
+    [HarmonyPatch(typeof(CharacterStageAbilityScoresPanel), nameof(CharacterStageAbilityScoresPanel.Refresh))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
     public static class Refresh_Patch

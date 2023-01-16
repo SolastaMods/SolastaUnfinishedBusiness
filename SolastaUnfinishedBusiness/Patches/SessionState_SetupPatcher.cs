@@ -14,7 +14,7 @@ namespace SolastaUnfinishedBusiness.Patches;
 [UsedImplicitly]
 public static class SessionState_SetupPatcher
 {
-    [HarmonyPatch(typeof(SessionState_Setup), "Begin")]
+    [HarmonyPatch(typeof(SessionState_Setup), nameof(SessionState_Setup.Begin))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
     public static class Begin_Patch

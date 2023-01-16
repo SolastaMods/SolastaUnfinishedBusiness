@@ -14,7 +14,7 @@ namespace SolastaUnfinishedBusiness.Patches;
 [UsedImplicitly]
 public static class AttunementModalPatcher
 {
-    [HarmonyPatch(typeof(AttunementModal), "Refresh")]
+    [HarmonyPatch(typeof(AttunementModal), nameof(AttunementModal.Refresh))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
     public static class Refresh_Patch
@@ -47,7 +47,7 @@ public static class AttunementModalPatcher
         }
     }
 
-    [HarmonyPatch(typeof(AttunementModal), "Bind")]
+    [HarmonyPatch(typeof(AttunementModal), nameof(AttunementModal.Bind))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
     public static class Bind_Patch

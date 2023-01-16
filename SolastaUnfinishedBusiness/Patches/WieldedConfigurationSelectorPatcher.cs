@@ -14,7 +14,7 @@ namespace SolastaUnfinishedBusiness.Patches;
 [UsedImplicitly]
 public static class WieldedConfigurationSelectorPatcher
 {
-    [HarmonyPatch(typeof(WieldedConfigurationSelector), "Bind")]
+    [HarmonyPatch(typeof(WieldedConfigurationSelector), nameof(WieldedConfigurationSelector.Bind))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
     public static class Bind_Patch

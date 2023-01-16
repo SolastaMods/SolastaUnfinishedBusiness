@@ -14,7 +14,7 @@ namespace SolastaUnfinishedBusiness.Patches;
 [UsedImplicitly]
 public static class CharacterActionMagicEffectPatcher
 {
-    [HarmonyPatch(typeof(CharacterActionMagicEffect), "ForceApplyConditionOnSelf")]
+    [HarmonyPatch(typeof(CharacterActionMagicEffect), nameof(CharacterActionMagicEffect.ForceApplyConditionOnSelf))]
     [UsedImplicitly]
     public static class ForceApplyConditionOnSelf_Patch
     {
@@ -73,7 +73,7 @@ public static class CharacterActionMagicEffectPatcher
         }
     }
 
-    [HarmonyPatch(typeof(CharacterActionMagicEffect), "ExecuteImpl")]
+    [HarmonyPatch(typeof(CharacterActionMagicEffect), nameof(CharacterActionMagicEffect.ExecuteImpl))]
     [UsedImplicitly]
     public static class ExecuteImpl_Patch
     {
@@ -168,7 +168,7 @@ public static class CharacterActionMagicEffectPatcher
         }
     }
 
-    [HarmonyPatch(typeof(CharacterActionMagicEffect), "ApplyForms")]
+    [HarmonyPatch(typeof(CharacterActionMagicEffect), nameof(CharacterActionMagicEffect.ApplyForms))]
     [HarmonyPatch(new[]
     {
         typeof(GameLocationCharacter), // caster

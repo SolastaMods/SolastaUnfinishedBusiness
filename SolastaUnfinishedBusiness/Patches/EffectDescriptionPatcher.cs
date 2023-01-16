@@ -8,7 +8,7 @@ namespace SolastaUnfinishedBusiness.Patches;
 [UsedImplicitly]
 public static class EffectDescriptionPatcher
 {
-    [HarmonyPatch(typeof(EffectDescription), "ComputeRoundsDuration")]
+    [HarmonyPatch(typeof(EffectDescription), nameof(EffectDescription.ComputeRoundsDuration))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
     public static class ComputeRoundsDuration_Patch
@@ -22,7 +22,7 @@ public static class EffectDescriptionPatcher
     }
 
 #if false
-    [HarmonyPatch(typeof(EffectDescription), "FillTags")]
+    [HarmonyPatch(typeof(EffectDescription), nameof(EffectDescription.FillTags))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly] public static class FillTags_Patch
     {

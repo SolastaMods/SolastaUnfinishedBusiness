@@ -14,7 +14,7 @@ namespace SolastaUnfinishedBusiness.Patches;
 public static class GameLocationPositioningManagerPatcher
 {
     //PATCH: avoids a trace message when party greater than 4 (PARTYSIZE)
-    [HarmonyPatch(typeof(GameLocationPositioningManager), "CharacterMoved", typeof(GameLocationCharacter),
+    [HarmonyPatch(typeof(GameLocationPositioningManager), nameof(GameLocationPositioningManager.CharacterMoved), typeof(GameLocationCharacter),
         typeof(int3), typeof(int3), typeof(RulesetActor.SizeParameters), typeof(RulesetActor.SizeParameters))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]

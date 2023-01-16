@@ -18,7 +18,7 @@ namespace SolastaUnfinishedBusiness.Patches;
 [UsedImplicitly]
 public static class CharacterActionPanelPatcher
 {
-    [HarmonyPatch(typeof(CharacterActionPanel), "ReadyActionEngaged")]
+    [HarmonyPatch(typeof(CharacterActionPanel), nameof(CharacterActionPanel.ReadyActionEngaged))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
     public static class ReadyActionEngaged_Patch
@@ -31,7 +31,7 @@ public static class CharacterActionPanelPatcher
         }
     }
 
-    [HarmonyPatch(typeof(CharacterActionPanel), "ComputeMultipleGuiCharacterActions")]
+    [HarmonyPatch(typeof(CharacterActionPanel), nameof(CharacterActionPanel.ComputeMultipleGuiCharacterActions))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
     public static class ComputeMultipleGuiCharacterActions_Patch
@@ -124,7 +124,7 @@ public static class CharacterActionPanelPatcher
         }
     }
 
-    [HarmonyPatch(typeof(CharacterActionPanel), "OnActivateAction")]
+    [HarmonyPatch(typeof(CharacterActionPanel), nameof(CharacterActionPanel.OnActivateAction))]
     [HarmonyPatch(new[] { typeof(ActionDefinitions.Id), typeof(GuiCharacterAction) })]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
@@ -151,7 +151,7 @@ public static class CharacterActionPanelPatcher
         }
     }
 
-    [HarmonyPatch(typeof(CharacterActionPanel), "InvocationCastEngaged")]
+    [HarmonyPatch(typeof(CharacterActionPanel), nameof(CharacterActionPanel.InvocationCastEngaged))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
     public static class InvocationCastEngaged_Patch
@@ -206,7 +206,7 @@ public static class CharacterActionPanelPatcher
         }
     }
 
-    [HarmonyPatch(typeof(CharacterActionPanel), "SelectInvocation")]
+    [HarmonyPatch(typeof(CharacterActionPanel), nameof(CharacterActionPanel.SelectInvocation))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
     public static class SelectInvocation_Patch
@@ -231,7 +231,7 @@ public static class CharacterActionPanelPatcher
         }
     }
 
-    [HarmonyPatch(typeof(CharacterActionPanel), "SpellcastEngaged")]
+    [HarmonyPatch(typeof(CharacterActionPanel), nameof(CharacterActionPanel.SpellcastEngaged))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
     public static class SpellcastEngaged_Patch

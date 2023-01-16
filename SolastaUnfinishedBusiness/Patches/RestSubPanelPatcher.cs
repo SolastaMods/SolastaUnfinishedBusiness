@@ -9,7 +9,7 @@ namespace SolastaUnfinishedBusiness.Patches;
 [UsedImplicitly]
 public static class RestSubPanelPatcher
 {
-    [HarmonyPatch(typeof(RestSubPanel), "OnBeginShow")]
+    [HarmonyPatch(typeof(RestSubPanel), nameof(RestSubPanel.OnBeginShow))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
     public static class OnBeginShow_Patch

@@ -10,7 +10,7 @@ namespace SolastaUnfinishedBusiness.Patches;
 [UsedImplicitly]
 public static class ReactionRequestCastSpellPatcher
 {
-    [HarmonyPatch(typeof(ReactionRequestCastSpell), "BuildSlotSubOptions")]
+    [HarmonyPatch(typeof(ReactionRequestCastSpell), nameof(ReactionRequestCastSpell.BuildSlotSubOptions))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
     public static class BuildSlotSubOptions_Patch
@@ -48,7 +48,7 @@ public static class ReactionRequestCastSpellPatcher
         }
     }
 
-    [HarmonyPatch(typeof(ReactionRequestCastSpell), "SelectSubOption")]
+    [HarmonyPatch(typeof(ReactionRequestCastSpell), nameof(ReactionRequestCastSpell.SelectSubOption))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
     public static class SelectSubOption_Patch
@@ -74,7 +74,7 @@ public static class ReactionRequestCastSpellPatcher
         }
     }
 
-    [HarmonyPatch(typeof(ReactionRequestCastSpell), "SelectedSubOption", MethodType.Getter)]
+    [HarmonyPatch(typeof(ReactionRequestCastSpell), nameof(ReactionRequestCastSpell.SelectedSubOption), MethodType.Getter)]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
     public static class SelectedSubOption_Getter_Patch

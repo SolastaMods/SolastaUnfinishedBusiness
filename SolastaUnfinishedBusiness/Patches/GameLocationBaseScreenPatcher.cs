@@ -8,7 +8,7 @@ namespace SolastaUnfinishedBusiness.Patches;
 [UsedImplicitly]
 public static class GameLocationBaseScreenPatcher
 {
-    [HarmonyPatch(typeof(GameLocationBaseScreen), "HandleInput")]
+    [HarmonyPatch(typeof(GameLocationBaseScreen), nameof(GameLocationBaseScreen.HandleInput))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
     public static class HandleInput_Patch

@@ -11,7 +11,7 @@ namespace SolastaUnfinishedBusiness.Patches;
 [UsedImplicitly]
 public static class RulesetImplementationManagerLocationPatcher
 {
-    [HarmonyPatch(typeof(RulesetImplementationManagerLocation), "InstantiateEffectInvocation")]
+    [HarmonyPatch(typeof(RulesetImplementationManagerLocation), nameof(RulesetImplementationManagerLocation.InstantiateEffectInvocation))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
     public static class InstantiateEffectInvocation_Patch
@@ -26,7 +26,7 @@ public static class RulesetImplementationManagerLocationPatcher
         }
     }
 
-    [HarmonyPatch(typeof(RulesetImplementationManagerLocation), "IsMetamagicOptionAvailable")]
+    [HarmonyPatch(typeof(RulesetImplementationManagerLocation), nameof(RulesetImplementationManagerLocation.IsMetamagicOptionAvailable))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
     public static class IsMetamagicOptionAvailable_Patch
@@ -66,7 +66,7 @@ public static class RulesetImplementationManagerLocationPatcher
         }
     }
 
-    [HarmonyPatch(typeof(RulesetImplementationManagerLocation), "IsSituationalContextValid")]
+    [HarmonyPatch(typeof(RulesetImplementationManagerLocation), nameof(RulesetImplementationManagerLocation.IsSituationalContextValid))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
     public static class IsSituationalContextValid_Patch
@@ -83,7 +83,7 @@ public static class RulesetImplementationManagerLocationPatcher
         }
     }
 
-    [HarmonyPatch(typeof(RulesetImplementationManagerLocation), "InstantiateActiveDeviceFunction")]
+    [HarmonyPatch(typeof(RulesetImplementationManagerLocation), nameof(RulesetImplementationManagerLocation.InstantiateActiveDeviceFunction))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
     public static class InstantiateActiveDeviceFunction_Patch
@@ -105,7 +105,7 @@ public static class RulesetImplementationManagerLocationPatcher
     }
 
 
-    [HarmonyPatch(typeof(RulesetImplementationManagerLocation), "ApplyMotionForm")]
+    [HarmonyPatch(typeof(RulesetImplementationManagerLocation), nameof(RulesetImplementationManagerLocation.ApplyMotionForm))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
     public static class ApplyMotionForm_Patch

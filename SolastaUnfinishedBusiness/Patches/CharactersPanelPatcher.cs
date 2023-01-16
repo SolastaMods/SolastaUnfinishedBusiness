@@ -10,7 +10,7 @@ namespace SolastaUnfinishedBusiness.Patches;
 public static class CharactersPanelPatcher
 {
     //PATCH: Keeps last level up hero selected
-    [HarmonyPatch(typeof(CharactersPanel), "OnBeginShow")]
+    [HarmonyPatch(typeof(CharactersPanel), nameof(CharactersPanel.OnBeginShow))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
     public static class OnBeginShow_Patch
@@ -44,7 +44,7 @@ public static class CharactersPanelPatcher
     }
 
     //PATCH: add checkboxes to heroes plate to allow heroes pre-selection (DEFAULT_PARTY)
-    [HarmonyPatch(typeof(CharactersPanel), "EnumeratePlates")]
+    [HarmonyPatch(typeof(CharactersPanel), nameof(CharactersPanel.EnumeratePlates))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
     public static class EnumeratePlates_Patch

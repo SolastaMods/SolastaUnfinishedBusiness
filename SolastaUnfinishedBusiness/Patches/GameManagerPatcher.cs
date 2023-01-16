@@ -9,7 +9,7 @@ namespace SolastaUnfinishedBusiness.Patches;
 [UsedImplicitly]
 public static class GameManagerPatcher
 {
-    [HarmonyPatch(typeof(GameManager), "BindPostDatabase")]
+    [HarmonyPatch(typeof(GameManager), nameof(GameManager.BindPostDatabase))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
     public static class BindPostDatabase_Patch
@@ -22,7 +22,7 @@ public static class GameManagerPatcher
         }
     }
 
-    [HarmonyPatch(typeof(GameManager), "BindServiceSettings")]
+    [HarmonyPatch(typeof(GameManager), nameof(GameManager.BindServiceSettings))]
     internal static class BindServiceSettings_Patch
     {
         [UsedImplicitly]

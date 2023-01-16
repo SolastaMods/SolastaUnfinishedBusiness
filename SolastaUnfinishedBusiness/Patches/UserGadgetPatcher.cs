@@ -14,7 +14,7 @@ namespace SolastaUnfinishedBusiness.Patches;
 [UsedImplicitly]
 public static class UserGadgetPatcher
 {
-    [HarmonyPatch(typeof(UserGadget), "PostLoadJson")]
+    [HarmonyPatch(typeof(UserGadget), nameof(UserGadget.PostLoadJson))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
     public static class PostLoadJson_Patch
@@ -39,7 +39,7 @@ public static class UserGadgetPatcher
     }
 
     //PATCH: Expands exits and exits multiple sense grids if party greater than 4 (PARTYSIZE)
-    [HarmonyPatch(typeof(UserGadget), "ApplySpecialDimensions")]
+    [HarmonyPatch(typeof(UserGadget), nameof(UserGadget.ApplySpecialDimensions))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
     public static class ApplySpecialDimensions_Patch

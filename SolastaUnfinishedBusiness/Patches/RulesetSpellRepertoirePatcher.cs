@@ -29,7 +29,7 @@ public static class RulesetSpellRepertoirePatcher
     }
 
     //PATCH: handles all different scenarios of spell slots consumption (casts, smites, point buys)
-    [HarmonyPatch(typeof(RulesetSpellRepertoire), "SpendSpellSlot")]
+    [HarmonyPatch(typeof(RulesetSpellRepertoire), nameof(RulesetSpellRepertoire.SpendSpellSlot))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
     public static class SpendSpellSlot_Patch
@@ -158,7 +158,7 @@ public static class RulesetSpellRepertoirePatcher
     }
 
     //PATCH: handles all different scenarios to determine max spell level
-    [HarmonyPatch(typeof(RulesetSpellRepertoire), "MaxSpellLevelOfSpellCastingLevel", MethodType.Getter)]
+    [HarmonyPatch(typeof(RulesetSpellRepertoire), nameof(RulesetSpellRepertoire.MaxSpellLevelOfSpellCastingLevel), MethodType.Getter)]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
     public static class MaxSpellLevelOfSpellCastingLevel_Getter_Patch
@@ -197,7 +197,7 @@ public static class RulesetSpellRepertoirePatcher
     }
 
     //PATCH: handles Arcane Recovery granted spells on short rests
-    [HarmonyPatch(typeof(RulesetSpellRepertoire), "RecoverMissingSlots")]
+    [HarmonyPatch(typeof(RulesetSpellRepertoire), nameof(RulesetSpellRepertoire.RecoverMissingSlots))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
     public static class RecoverMissingSlots_Patch
@@ -245,7 +245,7 @@ public static class RulesetSpellRepertoirePatcher
     }
 
     //PATCH: only offers upcast Warlock pact at their correct slot level
-    [HarmonyPatch(typeof(RulesetSpellRepertoire), "CanUpcastSpell")]
+    [HarmonyPatch(typeof(RulesetSpellRepertoire), nameof(RulesetSpellRepertoire.CanUpcastSpell))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
     public static class CanUpcastSpell_Patch
@@ -283,7 +283,7 @@ public static class RulesetSpellRepertoirePatcher
         }
     }
 
-    [HarmonyPatch(typeof(RulesetSpellRepertoire), "FormatHeader")]
+    [HarmonyPatch(typeof(RulesetSpellRepertoire), nameof(RulesetSpellRepertoire.FormatHeader))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
     public static class FormatHeader_Patch
@@ -296,7 +296,7 @@ public static class RulesetSpellRepertoirePatcher
         }
     }
 
-    [HarmonyPatch(typeof(RulesetSpellRepertoire), "FormatShortHeader")]
+    [HarmonyPatch(typeof(RulesetSpellRepertoire), nameof(RulesetSpellRepertoire.FormatShortHeader))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
     public static class FormatShortHeader_Patch
@@ -309,7 +309,7 @@ public static class RulesetSpellRepertoirePatcher
         }
     }
 
-    [HarmonyPatch(typeof(RulesetSpellRepertoire), "GetLowestAvailableSlotLevel")]
+    [HarmonyPatch(typeof(RulesetSpellRepertoire), nameof(RulesetSpellRepertoire.GetLowestAvailableSlotLevel))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
     public static class GetLowestAvailableSlotLevel_Patch

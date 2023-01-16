@@ -17,7 +17,7 @@ namespace SolastaUnfinishedBusiness.Patches;
 [UsedImplicitly]
 public static class GameLocationCharacterPatcher
 {
-    [HarmonyPatch(typeof(GameLocationCharacter), "StartBattleTurn")]
+    [HarmonyPatch(typeof(GameLocationCharacter), nameof(GameLocationCharacter.StartBattleTurn))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
     public static class StartBattleTurn_Patch
@@ -30,7 +30,7 @@ public static class GameLocationCharacterPatcher
         }
     }
 
-    [HarmonyPatch(typeof(GameLocationCharacter), "EndBattleTurn")]
+    [HarmonyPatch(typeof(GameLocationCharacter), nameof(GameLocationCharacter.EndBattleTurn))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
     public static class EndBattleTurn_Patch
@@ -43,7 +43,7 @@ public static class GameLocationCharacterPatcher
         }
     }
 
-    [HarmonyPatch(typeof(GameLocationCharacter), "StartBattle")]
+    [HarmonyPatch(typeof(GameLocationCharacter), nameof(GameLocationCharacter.StartBattle))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
     public static class StartBattle_Patch
@@ -57,7 +57,7 @@ public static class GameLocationCharacterPatcher
         }
     }
 
-    [HarmonyPatch(typeof(GameLocationCharacter), "EndBattle")]
+    [HarmonyPatch(typeof(GameLocationCharacter), nameof(GameLocationCharacter.EndBattle))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
     public static class EndBattle_Patch
@@ -71,7 +71,7 @@ public static class GameLocationCharacterPatcher
         }
     }
 
-    [HarmonyPatch(typeof(GameLocationCharacter), "AttackOn")]
+    [HarmonyPatch(typeof(GameLocationCharacter), nameof(GameLocationCharacter.AttackOn))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
     public static class AttackOn_Patch
@@ -102,7 +102,7 @@ public static class GameLocationCharacterPatcher
         }
     }
 
-    [HarmonyPatch(typeof(GameLocationCharacter), "AttackImpactOn")]
+    [HarmonyPatch(typeof(GameLocationCharacter), nameof(GameLocationCharacter.AttackImpactOn))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
     public static class AttackImpactOn_Patch
@@ -134,7 +134,7 @@ public static class GameLocationCharacterPatcher
     }
 
     // Yes the actual game typos this it is "OnPower" and not the expected "OnePower"
-    [HarmonyPatch(typeof(GameLocationCharacter), "CanUseAtLeastOnPower")]
+    [HarmonyPatch(typeof(GameLocationCharacter), nameof(GameLocationCharacter.CanUseAtLeastOnPower))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
     public static class CanUseAtLeastOnPower_Patch
@@ -180,7 +180,7 @@ public static class GameLocationCharacterPatcher
         }
     }
 
-    [HarmonyPatch(typeof(GameLocationCharacter), "GetActionStatus")]
+    [HarmonyPatch(typeof(GameLocationCharacter), nameof(GameLocationCharacter.GetActionStatus))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
     public static class GetActionStatus_Patch
@@ -223,7 +223,7 @@ public static class GameLocationCharacterPatcher
         }
     }
 
-    [HarmonyPatch(typeof(GameLocationCharacter), "RefreshActionPerformances")]
+    [HarmonyPatch(typeof(GameLocationCharacter), nameof(GameLocationCharacter.RefreshActionPerformances))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
     public static class RefreshActionPerformances_Patch
@@ -258,7 +258,7 @@ public static class GameLocationCharacterPatcher
         }
     }
 
-    [HarmonyPatch(typeof(GameLocationCharacter), "HandleActionExecution")]
+    [HarmonyPatch(typeof(GameLocationCharacter), nameof(GameLocationCharacter.HandleActionExecution))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
     public static class HandleActionExecution_Patch
@@ -275,7 +275,7 @@ public static class GameLocationCharacterPatcher
         }
     }
 
-    [HarmonyPatch(typeof(GameLocationCharacter), "GetActionAvailableIterations")]
+    [HarmonyPatch(typeof(GameLocationCharacter), nameof(GameLocationCharacter.GetActionAvailableIterations))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
     public static class GetActionAvailableIterations_Patch

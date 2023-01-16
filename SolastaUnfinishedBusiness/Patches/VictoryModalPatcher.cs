@@ -8,7 +8,7 @@ namespace SolastaUnfinishedBusiness.Patches;
 [UsedImplicitly]
 public static class VictoryModalPatcher
 {
-    [HarmonyPatch(typeof(VictoryModal), "OnBeginShow")]
+    [HarmonyPatch(typeof(VictoryModal), nameof(VictoryModal.OnBeginShow))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
     public static class OnBeginShow_Patch

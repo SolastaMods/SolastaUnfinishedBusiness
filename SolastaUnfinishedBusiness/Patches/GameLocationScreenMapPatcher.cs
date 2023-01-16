@@ -10,7 +10,7 @@ namespace SolastaUnfinishedBusiness.Patches;
 public static class GameLocationScreenMapPatcher
 {
     //PATCH: displays the location of campfires, entrances and exits on the game location screen map (level map)
-    [HarmonyPatch(typeof(GameLocationScreenMap), "BindGadgets")]
+    [HarmonyPatch(typeof(GameLocationScreenMap), nameof(GameLocationScreenMap.BindGadgets))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
     public static class BindGadgets_Patch

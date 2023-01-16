@@ -13,7 +13,7 @@ namespace SolastaUnfinishedBusiness.Patches;
 public static class CursorLocationGeometricShapePatcher
 {
     //PATCH: UseHeightOneCylinderEffect
-    [HarmonyPatch(typeof(CursorLocationGeometricShape), "UpdateGeometricShape")]
+    [HarmonyPatch(typeof(CursorLocationGeometricShape), nameof(CursorLocationGeometricShape.UpdateGeometricShape))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
     public static class UpdateGeometricShape_Patch
@@ -88,7 +88,7 @@ public static class CursorLocationGeometricShapePatcher
     }
 
     //PATCH: UseHeightOneCylinderEffect
-    [HarmonyPatch(typeof(GameLocationTargetingManager), "BuildAABB")]
+    [HarmonyPatch(typeof(GameLocationTargetingManager), nameof(GameLocationTargetingManager.BuildAABB))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
     public static class BuildAABB_Patch
@@ -143,7 +143,7 @@ public static class CursorLocationGeometricShapePatcher
     }
 
     //PATCH: UseHeightOneCylinderEffect
-    [HarmonyPatch(typeof(GameLocationTargetingManager), "DoesShapeContainPoint")]
+    [HarmonyPatch(typeof(GameLocationTargetingManager), nameof(GameLocationTargetingManager.DoesShapeContainPoint))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
     public static class DoesShapeContainPoint_Patch

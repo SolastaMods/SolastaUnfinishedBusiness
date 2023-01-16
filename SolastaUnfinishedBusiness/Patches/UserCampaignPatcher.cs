@@ -8,7 +8,7 @@ namespace SolastaUnfinishedBusiness.Patches;
 [UsedImplicitly]
 public static class UserCampaignPatcher
 {
-    [HarmonyPatch(typeof(UserCampaign), "PostLoadJson")]
+    [HarmonyPatch(typeof(UserCampaign), nameof(UserCampaign.PostLoadJson))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
     public static class PostLoadJson_Patch

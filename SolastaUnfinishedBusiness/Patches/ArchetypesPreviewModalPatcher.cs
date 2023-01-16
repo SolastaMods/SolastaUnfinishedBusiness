@@ -13,7 +13,7 @@ namespace SolastaUnfinishedBusiness.Patches;
 [UsedImplicitly]
 public static class ArchetypesPreviewModalPatcher
 {
-    [HarmonyPatch(typeof(ArchetypesPreviewModal), "Refresh")]
+    [HarmonyPatch(typeof(ArchetypesPreviewModal), nameof(ArchetypesPreviewModal.Refresh))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
     public static class Refresh_Patch
@@ -54,7 +54,7 @@ public static class ArchetypesPreviewModalPatcher
         }
     }
 
-    [HarmonyPatch(typeof(ArchetypesPreviewModal), "Show")]
+    [HarmonyPatch(typeof(ArchetypesPreviewModal), nameof(ArchetypesPreviewModal.Show))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
     public static class Show_Patch

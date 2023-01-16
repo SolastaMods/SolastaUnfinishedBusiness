@@ -8,7 +8,7 @@ namespace SolastaUnfinishedBusiness.Patches;
 [UsedImplicitly]
 public static class NarrativeStateNpcSpeechPatcher
 {
-    [HarmonyPatch(typeof(NarrativeStateNpcSpeech), "RecordSpeechLine")]
+    [HarmonyPatch(typeof(NarrativeStateNpcSpeech), nameof(NarrativeStateNpcSpeech.RecordSpeechLine))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
     public static class RecordSpeechLine_Patch

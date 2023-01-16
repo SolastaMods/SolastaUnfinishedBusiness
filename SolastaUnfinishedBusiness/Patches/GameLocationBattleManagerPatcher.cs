@@ -20,7 +20,7 @@ namespace SolastaUnfinishedBusiness.Patches;
 [UsedImplicitly]
 public static class GameLocationBattleManagerPatcher
 {
-    [HarmonyPatch(typeof(GameLocationBattleManager), "CanCharacterUsePower")]
+    [HarmonyPatch(typeof(GameLocationBattleManager), nameof(GameLocationBattleManager.CanCharacterUsePower))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
     public static class CanCharacterUsePower_Patch
@@ -46,7 +46,7 @@ public static class GameLocationBattleManagerPatcher
         }
     }
 
-    [HarmonyPatch(typeof(GameLocationBattleManager), "CanPerformReadiedActionOnCharacter")]
+    [HarmonyPatch(typeof(GameLocationBattleManager), nameof(GameLocationBattleManager.CanPerformReadiedActionOnCharacter))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
     public static class CanPerformReadiedActionOnCharacter_Patch
@@ -68,7 +68,7 @@ public static class GameLocationBattleManagerPatcher
         }
     }
 
-    [HarmonyPatch(typeof(GameLocationBattleManager), "IsValidAttackForReadiedAction")]
+    [HarmonyPatch(typeof(GameLocationBattleManager), nameof(GameLocationBattleManager.IsValidAttackForReadiedAction))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
     public static class IsValidAttackForReadiedAction_Patch
@@ -95,7 +95,7 @@ public static class GameLocationBattleManagerPatcher
         }
     }
 
-    [HarmonyPatch(typeof(GameLocationBattleManager), "HandleCharacterMoveStart")]
+    [HarmonyPatch(typeof(GameLocationBattleManager), nameof(GameLocationBattleManager.HandleCharacterMoveStart))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
     public static class HandleCharacterMoveStart_Patch
@@ -111,7 +111,7 @@ public static class GameLocationBattleManagerPatcher
         }
     }
 
-    [HarmonyPatch(typeof(GameLocationBattleManager), "HandleCharacterMoveEnd")]
+    [HarmonyPatch(typeof(GameLocationBattleManager), nameof(GameLocationBattleManager.HandleCharacterMoveEnd))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
     public static class HandleCharacterMoveEnd_Patch
@@ -139,7 +139,7 @@ public static class GameLocationBattleManagerPatcher
         }
     }
 
-    [HarmonyPatch(typeof(GameLocationBattleManager), "PrepareBattleEnd")]
+    [HarmonyPatch(typeof(GameLocationBattleManager), nameof(GameLocationBattleManager.PrepareBattleEnd))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
     public static class PrepareBattleEnd_Patch
@@ -197,7 +197,7 @@ public static class GameLocationBattleManagerPatcher
         }
     }
 
-    [HarmonyPatch(typeof(GameLocationBattleManager), "HandleCharacterAttackFinished")]
+    [HarmonyPatch(typeof(GameLocationBattleManager), nameof(GameLocationBattleManager.HandleCharacterAttackFinished))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
     public static class HandleCharacterAttackFinished_Patch
@@ -228,7 +228,7 @@ public static class GameLocationBattleManagerPatcher
         }
     }
 
-    [HarmonyPatch(typeof(GameLocationBattleManager), "HandleCharacterAttackHitConfirmed")]
+    [HarmonyPatch(typeof(GameLocationBattleManager), nameof(GameLocationBattleManager.HandleCharacterAttackHitConfirmed))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
     public static class HandleCharacterAttackHitConfirmed_Patch
@@ -273,7 +273,7 @@ public static class GameLocationBattleManagerPatcher
         }
     }
 
-    [HarmonyPatch(typeof(GameLocationBattleManager), "HandleAttackerTriggeringPowerOnCharacterAttackHitConfirmed")]
+    [HarmonyPatch(typeof(GameLocationBattleManager), nameof(GameLocationBattleManager.HandleAttackerTriggeringPowerOnCharacterAttackHitConfirmed))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
     public static class HandleAttackerTriggeringPowerOnCharacterAttackHitConfirmed_Patch
@@ -302,7 +302,7 @@ public static class GameLocationBattleManagerPatcher
         }
     }
 
-    [HarmonyPatch(typeof(GameLocationBattleManager), "HandleDefenderBeforeDamageReceived")]
+    [HarmonyPatch(typeof(GameLocationBattleManager), nameof(GameLocationBattleManager.HandleDefenderBeforeDamageReceived))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
     public static class HandleDefenderBeforeDamageReceived_Patch
@@ -438,7 +438,7 @@ public static class GameLocationBattleManagerPatcher
         }
     }
 
-    [HarmonyPatch(typeof(GameLocationBattleManager), "CanAttack")]
+    [HarmonyPatch(typeof(GameLocationBattleManager), nameof(GameLocationBattleManager.CanAttack))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
     public static class CanAttack_Patch
@@ -503,7 +503,7 @@ public static class GameLocationBattleManagerPatcher
         }
     }
 
-    [HarmonyPatch(typeof(GameLocationBattleManager), "HandleAdditionalDamageOnCharacterAttackHitConfirmed")]
+    [HarmonyPatch(typeof(GameLocationBattleManager), nameof(GameLocationBattleManager.HandleAdditionalDamageOnCharacterAttackHitConfirmed))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
     public static class HandleAdditionalDamageOnCharacterAttackHitConfirmed_Patch
@@ -532,7 +532,7 @@ public static class GameLocationBattleManagerPatcher
         }
     }
 
-    [HarmonyPatch(typeof(GameLocationBattleManager), "ComputeAndNotifyAdditionalDamage")]
+    [HarmonyPatch(typeof(GameLocationBattleManager), nameof(GameLocationBattleManager.ComputeAndNotifyAdditionalDamage))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
     public static class ComputeAndNotifyAdditionalDamage_Patch
@@ -556,7 +556,7 @@ public static class GameLocationBattleManagerPatcher
         }
     }
 
-    [HarmonyPatch(typeof(GameLocationBattleManager), "HandleTargetReducedToZeroHP")]
+    [HarmonyPatch(typeof(GameLocationBattleManager), nameof(GameLocationBattleManager.HandleTargetReducedToZeroHP))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
     public static class HandleTargetReducedToZeroHP_Patch
@@ -608,7 +608,7 @@ public static class GameLocationBattleManagerPatcher
         }
     }
 
-    [HarmonyPatch(typeof(GameLocationBattleManager), "HandleCharacterMagicalAttackHitConfirmed")]
+    [HarmonyPatch(typeof(GameLocationBattleManager), nameof(GameLocationBattleManager.HandleCharacterMagicalAttackHitConfirmed))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
     public static class HandleCharacterMagicalAttackHitConfirmed_Patch
@@ -655,7 +655,7 @@ public static class GameLocationBattleManagerPatcher
         }
     }
 
-    [HarmonyPatch(typeof(GameLocationBattleManager), "HandleFailedSavingThrow")]
+    [HarmonyPatch(typeof(GameLocationBattleManager), nameof(GameLocationBattleManager.HandleFailedSavingThrow))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
     public static class HandleFailedSavingThrow_Patch
@@ -801,7 +801,7 @@ public static class GameLocationBattleManagerPatcher
         }
     }
 
-    [HarmonyPatch(typeof(GameLocationBattleManager), "HandleCharacterPhysicalAttackFinished")]
+    [HarmonyPatch(typeof(GameLocationBattleManager), nameof(GameLocationBattleManager.HandleCharacterPhysicalAttackFinished))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
     public static class HandleCharacterPhysicalAttackFinished_Patch

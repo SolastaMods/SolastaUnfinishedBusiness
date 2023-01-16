@@ -10,7 +10,7 @@ namespace SolastaUnfinishedBusiness.Patches;
 [UsedImplicitly]
 public static class GameGadgetPatcher
 {
-    [HarmonyPatch(typeof(GameGadget), "ComputeIsRevealed")]
+    [HarmonyPatch(typeof(GameGadget), nameof(GameGadget.ComputeIsRevealed))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
     public static class ComputeIsRevealed_Patch
@@ -31,7 +31,7 @@ public static class GameGadgetPatcher
         }
     }
 
-    [HarmonyPatch(typeof(GameGadget), "CheckHasActiveDetectedTrap")]
+    [HarmonyPatch(typeof(GameGadget), nameof(GameGadget.CheckHasActiveDetectedTrap))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
     public static class CheckHasActiveDetectedTrap_Patch
@@ -52,7 +52,7 @@ public static class GameGadgetPatcher
         }
     }
 
-    [HarmonyPatch(typeof(GameGadget), "SetCondition")]
+    [HarmonyPatch(typeof(GameGadget), nameof(GameGadget.SetCondition))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
     public static class SetCondition_Patch

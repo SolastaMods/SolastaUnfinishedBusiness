@@ -8,7 +8,7 @@ namespace SolastaUnfinishedBusiness.Patches;
 [UsedImplicitly]
 public static class FlexibleCastingItemPatcher
 {
-    [HarmonyPatch(typeof(FlexibleCastingItem), "Bind")]
+    [HarmonyPatch(typeof(FlexibleCastingItem), nameof(FlexibleCastingItem.Bind))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
     public static class Bind_Patch
@@ -38,7 +38,7 @@ public static class FlexibleCastingItemPatcher
         }
     }
 
-    [HarmonyPatch(typeof(FlexibleCastingItem), "Unbind")]
+    [HarmonyPatch(typeof(FlexibleCastingItem), nameof(FlexibleCastingItem.Unbind))]
     [UsedImplicitly]
     public static class Unbind_Patch
     {

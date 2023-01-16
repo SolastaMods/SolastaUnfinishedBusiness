@@ -9,7 +9,7 @@ namespace SolastaUnfinishedBusiness.Patches;
 [UsedImplicitly]
 public static class DatabaseSelectionModalPatcher
 {
-    [HarmonyPatch(typeof(DatabaseSelectionModal), "BuildMonsters")]
+    [HarmonyPatch(typeof(DatabaseSelectionModal), nameof(DatabaseSelectionModal.BuildMonsters))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
     public static class BuildMonsters_Patch
@@ -41,7 +41,7 @@ public static class DatabaseSelectionModalPatcher
         }
     }
 
-    [HarmonyPatch(typeof(DatabaseSelectionModal), "BuildNpcs")]
+    [HarmonyPatch(typeof(DatabaseSelectionModal), nameof(DatabaseSelectionModal.BuildNpcs))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
     public static class BuildNpcs_Patch

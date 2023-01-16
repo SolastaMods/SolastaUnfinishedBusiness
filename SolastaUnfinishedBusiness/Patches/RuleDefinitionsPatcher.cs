@@ -10,7 +10,7 @@ namespace SolastaUnfinishedBusiness.Patches;
 [UsedImplicitly]
 public static class RuleDefinitionsPatcher
 {
-    [HarmonyPatch(typeof(RuleDefinitions), "ComputeAdvantage")]
+    [HarmonyPatch(typeof(RuleDefinitions), nameof(RuleDefinitions.ComputeAdvantage))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
     public static class ComputeAdvantage_Patch

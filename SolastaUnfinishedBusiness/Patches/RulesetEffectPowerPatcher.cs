@@ -12,7 +12,7 @@ namespace SolastaUnfinishedBusiness.Patches;
 [UsedImplicitly]
 public static class RulesetEffectPowerPatcher
 {
-    [HarmonyPatch(typeof(RulesetEffectPower), "SaveDC", MethodType.Getter)]
+    [HarmonyPatch(typeof(RulesetEffectPower), nameof(RulesetEffectPower.SaveDC), MethodType.Getter)]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
     public static class SaveDC_Getter_Patch
@@ -50,7 +50,7 @@ public static class RulesetEffectPowerPatcher
         }
     }
 
-    [HarmonyPatch(typeof(RulesetEffectPower), "GetClassLevel")]
+    [HarmonyPatch(typeof(RulesetEffectPower), nameof(RulesetEffectPower.GetClassLevel))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
     public static class GetClassLevel_Patch
@@ -92,7 +92,7 @@ public static class RulesetEffectPowerPatcher
         }
     }
 
-    [HarmonyPatch(typeof(RulesetEffectPower), "EffectDescription", MethodType.Getter)]
+    [HarmonyPatch(typeof(RulesetEffectPower), nameof(RulesetEffectPower.EffectDescription), MethodType.Getter)]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
     public static class EffectDescription_Getter_Patch
@@ -106,7 +106,7 @@ public static class RulesetEffectPowerPatcher
         }
     }
 
-    [HarmonyPatch(typeof(RulesetEffectPower), "MagicAttackBonus", MethodType.Getter)]
+    [HarmonyPatch(typeof(RulesetEffectPower), nameof(RulesetEffectPower.MagicAttackBonus), MethodType.Getter)]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
     public static class MagicAttackBonus_Getter_Patch
@@ -133,7 +133,7 @@ public static class RulesetEffectPowerPatcher
         }
     }
 
-    [HarmonyPatch(typeof(RulesetEffectPower), "MagicAttackTrends", MethodType.Getter)]
+    [HarmonyPatch(typeof(RulesetEffectPower), nameof(RulesetEffectPower.MagicAttackTrends), MethodType.Getter)]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
     public static class MagicAttackTrends_Getter_Patch

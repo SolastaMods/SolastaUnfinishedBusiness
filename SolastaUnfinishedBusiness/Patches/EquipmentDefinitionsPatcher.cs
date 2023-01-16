@@ -9,7 +9,7 @@ namespace SolastaUnfinishedBusiness.Patches;
 public static class EquipmentDefinitionsPatcher
 {
     //PATCH: ScaleMerchantPricesCorrectly
-    [HarmonyPatch(typeof(EquipmentDefinitions), "ScaleAndRoundCosts")]
+    [HarmonyPatch(typeof(EquipmentDefinitions), nameof(EquipmentDefinitions.ScaleAndRoundCosts))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
     public static class ScaleAndRoundCosts_Patch

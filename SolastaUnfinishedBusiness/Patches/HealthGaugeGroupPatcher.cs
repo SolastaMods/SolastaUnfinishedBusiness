@@ -9,7 +9,7 @@ namespace SolastaUnfinishedBusiness.Patches;
 [UsedImplicitly]
 public static class HealthGaugeGroupPatcher
 {
-    [HarmonyPatch(typeof(HealthGaugeGroup), "Refresh")]
+    [HarmonyPatch(typeof(HealthGaugeGroup), nameof(HealthGaugeGroup.Refresh))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
     public static class Refresh_Patch

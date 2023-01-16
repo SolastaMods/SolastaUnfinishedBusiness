@@ -10,7 +10,7 @@ namespace SolastaUnfinishedBusiness.Patches;
 [UsedImplicitly]
 public static class RulesetItemPatcher
 {
-    [HarmonyPatch(typeof(RulesetItem), "FillTags")]
+    [HarmonyPatch(typeof(RulesetItem), nameof(RulesetItem.FillTags))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
     public static class FillTags_Patch

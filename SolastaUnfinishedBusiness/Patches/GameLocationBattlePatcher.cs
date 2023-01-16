@@ -9,7 +9,7 @@ namespace SolastaUnfinishedBusiness.Patches;
 public static class GameLocationBattlePatcher
 {
     //PATCH: EnableEnemiesControlledByPlayer
-    [HarmonyPatch(typeof(GameLocationBattle), "GetMyContenders")]
+    [HarmonyPatch(typeof(GameLocationBattle), nameof(GameLocationBattle.GetMyContenders))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
     public static class GetMyContenders_Patch
@@ -33,7 +33,7 @@ public static class GameLocationBattlePatcher
     }
 
     //PATCH: EnableEnemiesControlledByPlayer
-    [HarmonyPatch(typeof(GameLocationBattle), "GetOpposingContenders")]
+    [HarmonyPatch(typeof(GameLocationBattle), nameof(GameLocationBattle.GetOpposingContenders))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
     public static class GetOpposingContenders_Patch

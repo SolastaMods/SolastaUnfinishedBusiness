@@ -12,7 +12,7 @@ namespace SolastaUnfinishedBusiness.Patches;
 
 [UsedImplicitly] public static class FeatureDefinitionFeatureSetPatcher
 {
-    [HarmonyPatch(typeof(FeatureDefinitionFeatureSet), "FormatDescription")]
+    [HarmonyPatch(typeof(FeatureDefinitionFeatureSet), nameof(FeatureDefinitionFeatureSet.FormatDescription))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly] public static class FormatDescription_Patch
     {

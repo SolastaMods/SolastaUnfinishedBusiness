@@ -8,7 +8,7 @@ namespace SolastaUnfinishedBusiness.Patches;
 [UsedImplicitly]
 public static class HeroDefinitionsPatcher
 {
-    [HarmonyPatch(typeof(HeroDefinitions), "MaxHeroExperience")]
+    [HarmonyPatch(typeof(HeroDefinitions), nameof(HeroDefinitions.MaxHeroExperience))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
     public static class MaxHeroExperience_Patch

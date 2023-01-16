@@ -16,7 +16,7 @@ namespace SolastaUnfinishedBusiness.Patches;
 [UsedImplicitly]
 public static class CharacterStageClassSelectionPanelPatcher
 {
-    [HarmonyPatch(typeof(CharacterStageClassSelectionPanel), "OnBeginShow")]
+    [HarmonyPatch(typeof(CharacterStageClassSelectionPanel), nameof(CharacterStageClassSelectionPanel.OnBeginShow))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
     public static class OnBeginShow_Patch
@@ -62,7 +62,7 @@ public static class CharacterStageClassSelectionPanelPatcher
         }
     }
 
-    [HarmonyPatch(typeof(CharacterStageClassSelectionPanel), "FillClassFeatures")]
+    [HarmonyPatch(typeof(CharacterStageClassSelectionPanel), nameof(CharacterStageClassSelectionPanel.FillClassFeatures))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
     public static class FillClassFeatures_Patch
@@ -115,7 +115,7 @@ public static class CharacterStageClassSelectionPanelPatcher
     }
 
     //PATCH: hides the equipment panel group (MULTICLASS)
-    [HarmonyPatch(typeof(CharacterStageClassSelectionPanel), "Refresh")]
+    [HarmonyPatch(typeof(CharacterStageClassSelectionPanel), nameof(CharacterStageClassSelectionPanel.Refresh))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
     public static class Refresh_Patch

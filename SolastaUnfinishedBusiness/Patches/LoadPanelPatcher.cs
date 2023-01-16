@@ -8,7 +8,7 @@ namespace SolastaUnfinishedBusiness.Patches;
 [UsedImplicitly]
 public static class LoadPanelPatcher
 {
-    [HarmonyPatch(typeof(LoadPanel), "OnBeginShow")]
+    [HarmonyPatch(typeof(LoadPanel), nameof(LoadPanel.OnBeginShow))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
     public static class OnBeginShow_Patch

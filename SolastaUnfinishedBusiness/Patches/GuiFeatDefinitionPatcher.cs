@@ -14,7 +14,7 @@ namespace SolastaUnfinishedBusiness.Patches;
 [UsedImplicitly]
 public static class GuiFeatDefinitionPatcher
 {
-    [HarmonyPatch(typeof(GuiFeatDefinition), "IsFeatMatchingPrerequisites")]
+    [HarmonyPatch(typeof(GuiFeatDefinition), nameof(GuiFeatDefinition.IsFeatMatchingPrerequisites))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
     public static class IsFeatMatchingPrerequisites_Patch
@@ -62,7 +62,7 @@ public static class GuiFeatDefinitionPatcher
         }
     }
 
-    [HarmonyPatch(typeof(GuiFeatDefinition), "Subtitle", MethodType.Getter)]
+    [HarmonyPatch(typeof(GuiFeatDefinition), nameof(GuiFeatDefinition.Subtitle), MethodType.Getter)]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
     public static class Subtitle_Patch

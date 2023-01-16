@@ -8,7 +8,7 @@ namespace SolastaUnfinishedBusiness.Patches;
 [UsedImplicitly]
 public static class ProficienciesPanelPatcher
 {
-    [HarmonyPatch(typeof(ProficienciesPanel), "RuntimeLoaded")]
+    [HarmonyPatch(typeof(ProficienciesPanel), nameof(ProficienciesPanel.RuntimeLoaded))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
     public static class RuntimeLoaded_Patch
@@ -24,7 +24,7 @@ public static class ProficienciesPanelPatcher
 
     //TODO: Don't know when this is called - was unable to trigger this method 
 #if false
-    [HarmonyPatch(typeof(ProficienciesPanel), "Unload")]
+    [HarmonyPatch(typeof(ProficienciesPanel), nameof(ProficienciesPanel.Unload))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly] public static class Unload_Patch
     {

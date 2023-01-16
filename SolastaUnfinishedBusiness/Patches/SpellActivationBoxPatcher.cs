@@ -12,7 +12,7 @@ namespace SolastaUnfinishedBusiness.Patches;
 [UsedImplicitly]
 public static class SpellActivationBoxPatcher
 {
-    [HarmonyPatch(typeof(SpellActivationBox), "BindSpell")]
+    [HarmonyPatch(typeof(SpellActivationBox), nameof(SpellActivationBox.BindSpell))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
     public static class BindSpell_Patch

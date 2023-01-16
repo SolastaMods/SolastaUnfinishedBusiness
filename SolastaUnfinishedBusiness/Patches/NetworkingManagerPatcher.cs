@@ -7,7 +7,7 @@ namespace SolastaUnfinishedBusiness.Patches;
 [UsedImplicitly]
 public static class NetworkingManagerPatcher
 {
-    [HarmonyPatch(typeof(NetworkingManager), "CreateRoom")]
+    [HarmonyPatch(typeof(NetworkingManager), nameof(NetworkingManager.CreateRoom))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
     public static class CreateOfflineRoomIfNeeded_Patch

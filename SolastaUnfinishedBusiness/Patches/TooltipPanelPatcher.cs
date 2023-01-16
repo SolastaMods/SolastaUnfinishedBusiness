@@ -7,7 +7,7 @@ namespace SolastaUnfinishedBusiness.Patches;
 [UsedImplicitly]
 public static class TooltipPanelPatcher
 {
-    [HarmonyPatch(typeof(TooltipPanel), "SetupFeatures")]
+    [HarmonyPatch(typeof(TooltipPanel), nameof(TooltipPanel.SetupFeatures))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
     public static class SetupFeatures_Patch

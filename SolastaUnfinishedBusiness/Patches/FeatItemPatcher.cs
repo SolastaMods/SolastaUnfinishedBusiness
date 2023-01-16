@@ -10,7 +10,7 @@ namespace SolastaUnfinishedBusiness.Patches;
 [UsedImplicitly]
 public static class FeatItemPatcher
 {
-    [HarmonyPatch(typeof(FeatItem), "Bind")]
+    [HarmonyPatch(typeof(FeatItem), nameof(FeatItem.Bind))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
     public static class Bind_Patch
@@ -54,7 +54,7 @@ public static class FeatItemPatcher
         }
     }
 
-    [HarmonyPatch(typeof(FeatItem), "Unbind")]
+    [HarmonyPatch(typeof(FeatItem), nameof(FeatItem.Unbind))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
     public static class Unbind_Patch

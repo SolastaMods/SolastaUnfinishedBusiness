@@ -10,7 +10,7 @@ namespace SolastaUnfinishedBusiness.Patches;
 [UsedImplicitly]
 public static class InventoryShortcutsPanelPatcher
 {
-    [HarmonyPatch(typeof(InventoryShortcutsPanel), "OnConfigurationSwitched")]
+    [HarmonyPatch(typeof(InventoryShortcutsPanel), nameof(InventoryShortcutsPanel.OnConfigurationSwitched))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
     public static class OnConfigurationSwitched_Patch

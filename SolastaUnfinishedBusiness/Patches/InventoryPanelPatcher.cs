@@ -10,7 +10,7 @@ namespace SolastaUnfinishedBusiness.Patches;
 public static class InventoryPanelPatcher
 {
     //PATCH: Enable Inventory Filtering and Sorting
-    [HarmonyPatch(typeof(InventoryPanel), "OnBeginShow")]
+    [HarmonyPatch(typeof(InventoryPanel), nameof(InventoryPanel.OnBeginShow))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
     public static class OnBeginShow_Patch
@@ -28,7 +28,7 @@ public static class InventoryPanelPatcher
     }
 
     //PATCH: Enable Inventory Filtering and Sorting
-    [HarmonyPatch(typeof(InventoryPanel), "Bind")]
+    [HarmonyPatch(typeof(InventoryPanel), nameof(InventoryPanel.Bind))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
     public static class Bind_Patch
@@ -46,7 +46,7 @@ public static class InventoryPanelPatcher
     }
 
     //PATCH: Enable Inventory Filtering and Sorting
-    [HarmonyPatch(typeof(InventoryPanel), "Unbind")]
+    [HarmonyPatch(typeof(InventoryPanel), nameof(InventoryPanel.Unbind))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
     public static class Unbind_Patch
@@ -62,7 +62,7 @@ public static class InventoryPanelPatcher
         }
     }
 
-    [HarmonyPatch(typeof(InventoryPanel), "RefreshSlotsList")]
+    [HarmonyPatch(typeof(InventoryPanel), nameof(InventoryPanel.RefreshSlotsList))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
     public static class RefreshSlotsList_Patch

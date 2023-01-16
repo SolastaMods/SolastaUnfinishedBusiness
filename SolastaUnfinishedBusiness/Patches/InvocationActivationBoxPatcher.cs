@@ -36,7 +36,7 @@ public static class InvocationActivationBoxPatcher
         }
     }
 
-    [HarmonyPatch(typeof(InvocationActivationBox), "Bind")]
+    [HarmonyPatch(typeof(InvocationActivationBox), nameof(InvocationActivationBox.Bind))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
     public static class Bind_Patch
@@ -257,7 +257,7 @@ public static class InvocationActivationBoxPatcher
         }
     }
 
-    [HarmonyPatch(typeof(InvocationActivationBox), "Unbind")]
+    [HarmonyPatch(typeof(InvocationActivationBox), nameof(InvocationActivationBox.Unbind))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
     public static class Unbind_Patch

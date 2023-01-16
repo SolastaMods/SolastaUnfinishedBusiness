@@ -13,7 +13,7 @@ namespace SolastaUnfinishedBusiness.Patches;
 public static class NewAdventurePanelPatcher
 {
     //PATCH: tweaks the UI to allow less/more heroes to be selected on a campaign (PARTYSIZE)
-    [HarmonyPatch(typeof(NewAdventurePanel), "OnBeginShow")]
+    [HarmonyPatch(typeof(NewAdventurePanel), nameof(NewAdventurePanel.OnBeginShow))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
     public static class OnBeginShow_Patch
@@ -65,7 +65,7 @@ public static class NewAdventurePanelPatcher
     }
 
     //PATCH: auto assign heroes on new adventures (DEFAULT_PARTY)
-    [HarmonyPatch(typeof(NewAdventurePanel), "OnEndShow")]
+    [HarmonyPatch(typeof(NewAdventurePanel), nameof(NewAdventurePanel.OnEndShow))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
     public static class OnEndShow_Patch
@@ -108,7 +108,7 @@ public static class NewAdventurePanelPatcher
     }
 
     //PATCH: clear flag that prevents hero auto assignment under MP (DEFAULT_PARTY)
-    [HarmonyPatch(typeof(NewAdventurePanel), "OnEndHide")]
+    [HarmonyPatch(typeof(NewAdventurePanel), nameof(NewAdventurePanel.OnEndHide))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
     public static class OnEndHide_Patch

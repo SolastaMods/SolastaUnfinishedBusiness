@@ -10,7 +10,7 @@ namespace SolastaUnfinishedBusiness.Patches;
 [UsedImplicitly]
 public static class GraphicsCharacterFactoryManagerPatcher
 {
-    [HarmonyPatch(typeof(GraphicsCharacterFactoryManager), "InstantiateWieldedItemAsNeeded")]
+    [HarmonyPatch(typeof(GraphicsCharacterFactoryManager), nameof(GraphicsCharacterFactoryManager.InstantiateWieldedItemAsNeeded))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
     public static class InstantiateWieldedItemAsNeeded_Patch
@@ -81,7 +81,7 @@ public static class GraphicsCharacterFactoryManagerPatcher
         }
     }
 
-    [HarmonyPatch(typeof(GraphicsCharacterFactoryManager), "CollectBodyPartsToLoadWherePossible_Morphotypes")]
+    [HarmonyPatch(typeof(GraphicsCharacterFactoryManager), nameof(GraphicsCharacterFactoryManager.CollectBodyPartsToLoadWherePossible_Morphotypes))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
     public static class CollectBodyPartsToLoadWherePossible_Morphotypes_Patch

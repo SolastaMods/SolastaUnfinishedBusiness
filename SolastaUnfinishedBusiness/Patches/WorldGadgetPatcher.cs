@@ -8,7 +8,7 @@ namespace SolastaUnfinishedBusiness.Patches;
 [UsedImplicitly]
 public static class WorldGadgetPatcher
 {
-    [HarmonyPatch(typeof(WorldGadget), "SetHighlightVisibility")]
+    [HarmonyPatch(typeof(WorldGadget), nameof(WorldGadget.SetHighlightVisibility))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
     public static class SetHighlightVisibility_Patch

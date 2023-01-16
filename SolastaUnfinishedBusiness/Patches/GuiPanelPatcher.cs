@@ -9,7 +9,7 @@ namespace SolastaUnfinishedBusiness.Patches;
 [UsedImplicitly]
 public static class GuiPanelPatcher
 {
-    [HarmonyPatch(typeof(GuiPanel), "Show")]
+    [HarmonyPatch(typeof(GuiPanel), nameof(GuiPanel.Show))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
     public static class Show_Patch
@@ -27,7 +27,7 @@ public static class GuiPanelPatcher
         }
     }
 
-    [HarmonyPatch(typeof(GuiPanel), "OnBeginHide")]
+    [HarmonyPatch(typeof(GuiPanel), nameof(GuiPanel.OnBeginHide))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
     public static class OnEndHide_Patch

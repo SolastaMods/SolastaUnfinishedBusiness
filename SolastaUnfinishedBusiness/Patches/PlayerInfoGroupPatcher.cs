@@ -10,7 +10,7 @@ namespace SolastaUnfinishedBusiness.Patches;
 [UsedImplicitly]
 public static class PlayerInfoGroupPatcher
 {
-    [HarmonyPatch(typeof(PlayerInfoGroup), "RefreshPlayerAvatar")]
+    [HarmonyPatch(typeof(PlayerInfoGroup), nameof(PlayerInfoGroup.RefreshPlayerAvatar))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
     public static class RefreshPlayerAvatar_Patch

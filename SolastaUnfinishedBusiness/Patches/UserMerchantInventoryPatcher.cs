@@ -8,7 +8,7 @@ namespace SolastaUnfinishedBusiness.Patches;
 [UsedImplicitly]
 public static class UserMerchantInventoryPatcher
 {
-    [HarmonyPatch(typeof(UserMerchantInventory), "CreateMerchantDefinition")]
+    [HarmonyPatch(typeof(UserMerchantInventory), nameof(UserMerchantInventory.CreateMerchantDefinition))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
     public static class CreateMerchantDefinition_Patch

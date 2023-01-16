@@ -8,7 +8,7 @@ namespace SolastaUnfinishedBusiness.Patches;
 [UsedImplicitly]
 public static class CameraControllerLocationPatcher
 {
-    [HarmonyPatch(typeof(CameraControllerLocation), "FollowCharacterForBattle")]
+    [HarmonyPatch(typeof(CameraControllerLocation), nameof(CameraControllerLocation.FollowCharacterForBattle))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
     public static class FollowCharacterForBattle_Patch

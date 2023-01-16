@@ -14,7 +14,7 @@ public static class FeatureDefinitionAutoPreparedSpellsPatcher
         return Gui.Colorize(level == 0 ? "0" : Gui.ToRoman(level), Gui.ColorHighEmphasis);
     }
 
-    [HarmonyPatch(typeof(FeatureDefinitionAutoPreparedSpells), "FormatDescription")]
+    [HarmonyPatch(typeof(FeatureDefinitionAutoPreparedSpells), nameof(FeatureDefinitionAutoPreparedSpells.FormatDescription))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
     public static class FormatDescription_Patch

@@ -31,7 +31,7 @@ public static class CharacterStageProficiencySelectionPanelPatcher
         return item;
     }
 
-    [HarmonyPatch(typeof(CharacterStageProficiencySelectionPanel), "Refresh")]
+    [HarmonyPatch(typeof(CharacterStageProficiencySelectionPanel), nameof(CharacterStageProficiencySelectionPanel.Refresh))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
     public static class Refresh_Patch
@@ -93,7 +93,7 @@ public static class CharacterStageProficiencySelectionPanelPatcher
         }
     }
 
-    [HarmonyPatch(typeof(CharacterStageProficiencySelectionPanel), "OnLearnAutoImpl")]
+    [HarmonyPatch(typeof(CharacterStageProficiencySelectionPanel), nameof(CharacterStageProficiencySelectionPanel.OnLearnAutoImpl))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
     public static class OnLearnAutoImpl_Patch

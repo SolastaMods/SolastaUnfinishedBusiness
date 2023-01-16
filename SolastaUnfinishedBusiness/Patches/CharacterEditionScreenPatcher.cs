@@ -9,7 +9,7 @@ namespace SolastaUnfinishedBusiness.Patches;
 [UsedImplicitly]
 public static class CharacterEditionScreenPatcher
 {
-    [HarmonyPatch(typeof(CharacterEditionScreen), "LoadStagePanels")]
+    [HarmonyPatch(typeof(CharacterEditionScreen), nameof(CharacterEditionScreen.LoadStagePanels))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
     public static class LoadStagePanels_Patch
@@ -26,7 +26,7 @@ public static class CharacterEditionScreenPatcher
         }
     }
 
-    [HarmonyPatch(typeof(CharacterEditionScreen), "DoAbort")]
+    [HarmonyPatch(typeof(CharacterEditionScreen), nameof(CharacterEditionScreen.DoAbort))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
     public static class DoAbort_Patch

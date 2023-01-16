@@ -8,7 +8,7 @@ namespace SolastaUnfinishedBusiness.Patches;
 [UsedImplicitly]
 public static class SettingDropListItemPatcher
 {
-    [HarmonyPatch(typeof(SettingDropListItem), "Bind")]
+    [HarmonyPatch(typeof(SettingDropListItem), nameof(SettingDropListItem.Bind))]
     internal static class Bind_Patch
     {
         [UsedImplicitly]

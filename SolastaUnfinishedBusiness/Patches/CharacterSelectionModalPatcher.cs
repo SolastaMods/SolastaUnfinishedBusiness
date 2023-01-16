@@ -14,7 +14,7 @@ namespace SolastaUnfinishedBusiness.Patches;
 public static class CharacterSelectionModalPatcher
 {
     //PATCH: this patch changes the min/max requirements on locations or campaigns
-    [HarmonyPatch(typeof(CharacterSelectionModal), "SelectFromPool")]
+    [HarmonyPatch(typeof(CharacterSelectionModal), nameof(CharacterSelectionModal.SelectFromPool))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
     public static class SelectFromPool_Patch
@@ -32,7 +32,7 @@ public static class CharacterSelectionModalPatcher
         }
     }
 
-    [HarmonyPatch(typeof(CharacterSelectionModal), "EnumeratePlates")]
+    [HarmonyPatch(typeof(CharacterSelectionModal), nameof(CharacterSelectionModal.EnumeratePlates))]
     [UsedImplicitly]
     public static class EnumeratePlates_Patch
     {

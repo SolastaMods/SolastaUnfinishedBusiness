@@ -22,7 +22,7 @@ namespace SolastaUnfinishedBusiness.Patches;
 [UsedImplicitly]
 public static class RulesetActorPatcher
 {
-    [HarmonyPatch(typeof(RulesetActor), "AddConditionOfCategory")]
+    [HarmonyPatch(typeof(RulesetActor), nameof(RulesetActor.AddConditionOfCategory))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
     public static class AddConditionOfCategory_Patch
@@ -50,7 +50,7 @@ public static class RulesetActorPatcher
         }
     }
 
-    [HarmonyPatch(typeof(RulesetActor), "InflictCondition")]
+    [HarmonyPatch(typeof(RulesetActor), nameof(RulesetActor.InflictCondition))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
     public static class InflictCondition_Patch
@@ -127,7 +127,7 @@ public static class RulesetActorPatcher
         }
     }
 
-    [HarmonyPatch(typeof(RulesetActor), "RemoveCondition")]
+    [HarmonyPatch(typeof(RulesetActor), nameof(RulesetActor.RemoveCondition))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
     public static class RemoveCondition_Patch
@@ -149,7 +149,7 @@ public static class RulesetActorPatcher
         }
     }
 
-    [HarmonyPatch(typeof(RulesetActor), "ProcessConditionsMatchingOccurenceType")]
+    [HarmonyPatch(typeof(RulesetActor), nameof(RulesetActor.ProcessConditionsMatchingOccurenceType))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
     public static class ProcessConditionsMatchingOccurenceType_Patch
@@ -163,7 +163,7 @@ public static class RulesetActorPatcher
     }
 
 #if false
-    [HarmonyPatch(typeof(RulesetActor), "ProcessConditionsMatchingInterruption")]
+    [HarmonyPatch(typeof(RulesetActor), nameof(RulesetActor.ProcessConditionsMatchingInterruption))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly] public static class ProcessConditionsMatchingInterruption_Patch
     {
@@ -180,7 +180,7 @@ public static class RulesetActorPatcher
     }
 #endif
 
-    [HarmonyPatch(typeof(RulesetActor), "ModulateSustainedDamage")]
+    [HarmonyPatch(typeof(RulesetActor), nameof(RulesetActor.ModulateSustainedDamage))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
     public static class ModulateSustainedDamage_Patch
@@ -233,7 +233,7 @@ public static class RulesetActorPatcher
         }
     }
 
-    [HarmonyPatch(typeof(RulesetActor), "RollDie")]
+    [HarmonyPatch(typeof(RulesetActor), nameof(RulesetActor.RollDie))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
     public static class RollDie_Patch
@@ -331,7 +331,7 @@ public static class RulesetActorPatcher
     }
 
     //PATCH: uses class level instead of character level on attributes calculation (Multiclass)
-    [HarmonyPatch(typeof(RulesetActor), "RefreshAttributes")]
+    [HarmonyPatch(typeof(RulesetActor), nameof(RulesetActor.RefreshAttributes))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
     public static class RefreshAttributes_Patch

@@ -8,7 +8,7 @@ namespace SolastaUnfinishedBusiness.Patches;
 [UsedImplicitly]
 public static class TooltipFeatureDescriptionPatcher
 {
-    [HarmonyPatch(typeof(TooltipFeatureDescription), "Bind")]
+    [HarmonyPatch(typeof(TooltipFeatureDescription), nameof(TooltipFeatureDescription.Bind))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
     public static class Bind_Patch

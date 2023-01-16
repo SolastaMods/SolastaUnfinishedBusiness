@@ -11,7 +11,7 @@ namespace SolastaUnfinishedBusiness.Patches;
 public static class CharacterReactionSubitemPatcher
 {
     //PATCH: creates different slots colors and pop up messages depending on slot types
-    [HarmonyPatch(typeof(CharacterReactionSubitem), "Bind")]
+    [HarmonyPatch(typeof(CharacterReactionSubitem), nameof(CharacterReactionSubitem.Bind))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
     public static class Bind_Patch
@@ -37,7 +37,7 @@ public static class CharacterReactionSubitemPatcher
         }
     }
 
-    [HarmonyPatch(typeof(CharacterReactionSubitem), "Unbind")]
+    [HarmonyPatch(typeof(CharacterReactionSubitem), nameof(CharacterReactionSubitem.Unbind))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
     public static class Unbind_Patch

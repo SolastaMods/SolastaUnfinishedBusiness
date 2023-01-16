@@ -9,7 +9,7 @@ namespace SolastaUnfinishedBusiness.Patches;
 public static class MultiplayerSetupPanelPatcher
 {
     //PATCH: set flag that prevents hero auto assignment under MP (DEFAULT_PARTY)
-    [HarmonyPatch(typeof(MultiplayerSetupPanel), "OnBeginShow")]
+    [HarmonyPatch(typeof(MultiplayerSetupPanel), nameof(MultiplayerSetupPanel.OnBeginShow))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
     public static class OnBeginShow_Patch

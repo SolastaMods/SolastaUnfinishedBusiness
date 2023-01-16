@@ -10,7 +10,7 @@ namespace SolastaUnfinishedBusiness.Patches;
 [UsedImplicitly]
 public static class UsablePowerBoxPatcher
 {
-    [HarmonyPatch(typeof(UsablePowerBox), "OnActivateCb")]
+    [HarmonyPatch(typeof(UsablePowerBox), nameof(UsablePowerBox.OnActivateCb))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
     public static class OnActivateCb_Patch
@@ -26,7 +26,7 @@ public static class UsablePowerBoxPatcher
         }
     }
 
-    [HarmonyPatch(typeof(UsablePowerBox), "Bind")]
+    [HarmonyPatch(typeof(UsablePowerBox), nameof(UsablePowerBox.Bind))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
     public static class Bind_Patch

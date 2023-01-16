@@ -9,7 +9,7 @@ namespace SolastaUnfinishedBusiness.Patches;
 [UsedImplicitly]
 public static class CharacterInspectionScreenPatcher
 {
-    [HarmonyPatch(typeof(CharacterInspectionScreen), "Bind")]
+    [HarmonyPatch(typeof(CharacterInspectionScreen), nameof(CharacterInspectionScreen.Bind))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
     public static class Bind_Patch
@@ -50,7 +50,7 @@ public static class CharacterInspectionScreenPatcher
         }
     }
 
-    [HarmonyPatch(typeof(CharacterInspectionScreen), "Unbind")]
+    [HarmonyPatch(typeof(CharacterInspectionScreen), nameof(CharacterInspectionScreen.Unbind))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
     public static class Unbind_Patch
@@ -70,7 +70,7 @@ public static class CharacterInspectionScreenPatcher
     }
 
     //PATCH: resets the inspection context for MC heroes otherwise we get class name bleeding on char pool
-    [HarmonyPatch(typeof(CharacterInspectionScreen), "DoClose")]
+    [HarmonyPatch(typeof(CharacterInspectionScreen), nameof(CharacterInspectionScreen.DoClose))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
     public static class DoClose_Patch

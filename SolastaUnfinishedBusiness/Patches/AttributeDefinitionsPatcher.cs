@@ -8,7 +8,7 @@ namespace SolastaUnfinishedBusiness.Patches;
 [UsedImplicitly]
 public static class AttributeDefinitionsPatcher
 {
-    [HarmonyPatch(typeof(AttributeDefinitions), "ComputeCostToRaiseAbility")]
+    [HarmonyPatch(typeof(AttributeDefinitions), nameof(AttributeDefinitions.ComputeCostToRaiseAbility))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
     public static class ComputeCostToRaiseAbility_Patch

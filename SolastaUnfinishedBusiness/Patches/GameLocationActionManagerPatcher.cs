@@ -9,7 +9,7 @@ namespace SolastaUnfinishedBusiness.Patches;
 [UsedImplicitly]
 public static class GameLocationActionManagerPatcher
 {
-    [HarmonyPatch(typeof(GameLocationActionManager), "ReactToSpendSpellSlot")]
+    [HarmonyPatch(typeof(GameLocationActionManager), nameof(GameLocationActionManager.ReactToSpendSpellSlot))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
     public static class ReactToSpendSpellSlot_Patch
@@ -24,7 +24,7 @@ public static class GameLocationActionManagerPatcher
         }
     }
 
-    [HarmonyPatch(typeof(GameLocationActionManager), "ReactForOpportunityAttack")]
+    [HarmonyPatch(typeof(GameLocationActionManager), nameof(GameLocationActionManager.ReactForOpportunityAttack))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
     public static class ReactForOpportunityAttack_Patch
@@ -39,7 +39,7 @@ public static class GameLocationActionManagerPatcher
         }
     }
 
-    [HarmonyPatch(typeof(GameLocationActionManager), "ReactToSpendPower")]
+    [HarmonyPatch(typeof(GameLocationActionManager), nameof(GameLocationActionManager.ReactToSpendPower))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
     public static class ReactToSpendPower_Patch

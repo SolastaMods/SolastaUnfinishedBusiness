@@ -9,7 +9,7 @@ namespace SolastaUnfinishedBusiness.Patches;
 //PATCH: These patches are for effect form usage diagnostics
 [UsedImplicitly] public static class EffectFormPatcher
 {
-    [HarmonyPatch(typeof(EffectForm), "DamageForm", MethodType.Getter)]
+    [HarmonyPatch(typeof(EffectForm), nameof(EffectForm.DamageForm), MethodType.Getter)]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly] public static class Damage_Patch
     {
@@ -19,7 +19,7 @@ namespace SolastaUnfinishedBusiness.Patches;
         }
     }
 
-    [HarmonyPatch(typeof(EffectForm), "HealingForm", MethodType.Getter)]
+    [HarmonyPatch(typeof(EffectForm), nameof(EffectForm.HealingForm), MethodType.Getter)]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly] public static class Healing_Patch
     {
@@ -29,7 +29,7 @@ namespace SolastaUnfinishedBusiness.Patches;
         }
     }
 
-    [HarmonyPatch(typeof(EffectForm), "ConditionForm", MethodType.Getter)]
+    [HarmonyPatch(typeof(EffectForm), nameof(EffectForm.ConditionForm), MethodType.Getter)]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly] public static class Condition_Patch
     {
@@ -39,7 +39,7 @@ namespace SolastaUnfinishedBusiness.Patches;
         }
     }
 
-    [HarmonyPatch(typeof(EffectForm), "LightSourceForm", MethodType.Getter)]
+    [HarmonyPatch(typeof(EffectForm), nameof(EffectForm.LightSourceForm), MethodType.Getter)]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly] public static class LightSource_Patch
     {
@@ -49,7 +49,7 @@ namespace SolastaUnfinishedBusiness.Patches;
         }
     }
 
-    [HarmonyPatch(typeof(EffectForm), "SummonForm", MethodType.Getter)]
+    [HarmonyPatch(typeof(EffectForm), nameof(EffectForm.SummonForm), MethodType.Getter)]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly] public static class Summon_Patch
     {
@@ -59,7 +59,7 @@ namespace SolastaUnfinishedBusiness.Patches;
         }
     }
 
-    [HarmonyPatch(typeof(EffectForm), "CounterForm", MethodType.Getter)]
+    [HarmonyPatch(typeof(EffectForm), nameof(EffectForm.CounterForm), MethodType.Getter)]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly] public static class Counter_Patch
     {
@@ -69,7 +69,7 @@ namespace SolastaUnfinishedBusiness.Patches;
         }
     }
 
-    [HarmonyPatch(typeof(EffectForm), "TemporaryHitPointsForm", MethodType.Getter)]
+    [HarmonyPatch(typeof(EffectForm), nameof(EffectForm.TemporaryHitPointsForm), MethodType.Getter)]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly] public static class TemporaryHitPoints_Patch
     {
@@ -79,7 +79,7 @@ namespace SolastaUnfinishedBusiness.Patches;
         }
     }
 
-    [HarmonyPatch(typeof(EffectForm), "MotionForm", MethodType.Getter)]
+    [HarmonyPatch(typeof(EffectForm), nameof(EffectForm.MotionForm), MethodType.Getter)]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly] public static class Motion_Patch
     {
@@ -89,7 +89,7 @@ namespace SolastaUnfinishedBusiness.Patches;
         }
     }
 
-    [HarmonyPatch(typeof(EffectForm), "SpellSlotsForm", MethodType.Getter)]
+    [HarmonyPatch(typeof(EffectForm), nameof(EffectForm.SpellSlotsForm), MethodType.Getter)]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly] public static class SpellSlots_Patch
     {
@@ -99,7 +99,7 @@ namespace SolastaUnfinishedBusiness.Patches;
         }
     }
 
-    [HarmonyPatch(typeof(EffectForm), "DivinationForm", MethodType.Getter)]
+    [HarmonyPatch(typeof(EffectForm), nameof(EffectForm.DivinationForm), MethodType.Getter)]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly] public static class Divination_Patch
     {
@@ -109,7 +109,7 @@ namespace SolastaUnfinishedBusiness.Patches;
         }
     }
 
-    [HarmonyPatch(typeof(EffectForm), "ItemPropertyForm", MethodType.Getter)]
+    [HarmonyPatch(typeof(EffectForm), nameof(EffectForm.ItemPropertyForm), MethodType.Getter)]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly] public static class ItemProperty_Patch
     {
@@ -119,7 +119,7 @@ namespace SolastaUnfinishedBusiness.Patches;
         }
     }
 
-    [HarmonyPatch(typeof(EffectForm), "AlterationForm", MethodType.Getter)]
+    [HarmonyPatch(typeof(EffectForm), nameof(EffectForm.AlterationForm), MethodType.Getter)]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly] public static class Alteration_Patch
     {
@@ -129,7 +129,7 @@ namespace SolastaUnfinishedBusiness.Patches;
         }
     }
 
-    [HarmonyPatch(typeof(EffectForm), "TopologyForm", MethodType.Getter)]
+    [HarmonyPatch(typeof(EffectForm), nameof(EffectForm.TopologyForm), MethodType.Getter)]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly] public static class Topology_Patch
     {
@@ -139,7 +139,7 @@ namespace SolastaUnfinishedBusiness.Patches;
         }
     }
 
-    [HarmonyPatch(typeof(EffectForm), "ReviveForm", MethodType.Getter)]
+    [HarmonyPatch(typeof(EffectForm), nameof(EffectForm.ReviveForm), MethodType.Getter)]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly] public static class Revive_Patch
     {
@@ -149,7 +149,7 @@ namespace SolastaUnfinishedBusiness.Patches;
         }
     }
 
-    [HarmonyPatch(typeof(EffectForm), "KillForm", MethodType.Getter)]
+    [HarmonyPatch(typeof(EffectForm), nameof(EffectForm.KillForm), MethodType.Getter)]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly] public static class Kill_Patch
     {
@@ -159,7 +159,7 @@ namespace SolastaUnfinishedBusiness.Patches;
         }
     }
 
-    [HarmonyPatch(typeof(EffectForm), "ShapeChangeForm", MethodType.Getter)]
+    [HarmonyPatch(typeof(EffectForm), nameof(EffectForm.ShapeChangeForm), MethodType.Getter)]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly] public static class ShapeChange_Patch
     {

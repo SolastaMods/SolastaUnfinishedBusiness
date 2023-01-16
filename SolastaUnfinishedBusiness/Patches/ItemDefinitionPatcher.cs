@@ -8,7 +8,7 @@ namespace SolastaUnfinishedBusiness.Patches;
 //PATCH: These patches are for item usage diagnostics
 [UsedImplicitly] public static class ItemDefinitionPatcher
 {
-    [HarmonyPatch(typeof(ItemDefinition), "ArmorDescription", MethodType.Getter)]
+    [HarmonyPatch(typeof(ItemDefinition), nameof(ItemDefinition.ArmorDescription), MethodType.Getter)]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly] public static class ArmorDescription_Getter_Patch
     {
@@ -18,7 +18,7 @@ namespace SolastaUnfinishedBusiness.Patches;
         }
     }
 
-    [HarmonyPatch(typeof(ItemDefinition), "WeaponDescription", MethodType.Getter)]
+    [HarmonyPatch(typeof(ItemDefinition), nameof(ItemDefinition.WeaponDescription), MethodType.Getter)]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly] public static class WeaponDescription_Getter_Patch
     {
@@ -28,7 +28,7 @@ namespace SolastaUnfinishedBusiness.Patches;
         }
     }
 
-    [HarmonyPatch(typeof(ItemDefinition), "AmmunitionDescription", MethodType.Getter)]
+    [HarmonyPatch(typeof(ItemDefinition), nameof(ItemDefinition.AmmunitionDescription), MethodType.Getter)]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly] public static class AmmunitionDescription_Getter_Patch
     {
@@ -38,7 +38,7 @@ namespace SolastaUnfinishedBusiness.Patches;
         }
     }
 
-    [HarmonyPatch(typeof(ItemDefinition), "UsableDeviceDescription", MethodType.Getter)]
+    [HarmonyPatch(typeof(ItemDefinition), nameof(ItemDefinition.UsableDeviceDescription), MethodType.Getter)]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly] public static class UsableDeviceDescription_Getter_Patch
     {
@@ -48,7 +48,7 @@ namespace SolastaUnfinishedBusiness.Patches;
         }
     }
 
-    [HarmonyPatch(typeof(ItemDefinition), "ToolDescription", MethodType.Getter)]
+    [HarmonyPatch(typeof(ItemDefinition), nameof(ItemDefinition.ToolDescription), MethodType.Getter)]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly] public static class ToolDescription_Getter_Patch
     {
@@ -58,7 +58,7 @@ namespace SolastaUnfinishedBusiness.Patches;
         }
     }
 
-    [HarmonyPatch(typeof(ItemDefinition), "StarterPackDescription", MethodType.Getter)]
+    [HarmonyPatch(typeof(ItemDefinition), nameof(ItemDefinition.StarterPackDescription), MethodType.Getter)]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly] public static class StarterPackDescription_Getter_Patch
     {
@@ -68,7 +68,7 @@ namespace SolastaUnfinishedBusiness.Patches;
         }
     }
 
-    [HarmonyPatch(typeof(ItemDefinition), "ContainerItemDescription", MethodType.Getter)]
+    [HarmonyPatch(typeof(ItemDefinition), nameof(ItemDefinition.ContainerItemDescription), MethodType.Getter)]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly] public static class ContainerItemDescription_Getter_Patch
     {
@@ -78,7 +78,7 @@ namespace SolastaUnfinishedBusiness.Patches;
         }
     }
 
-    [HarmonyPatch(typeof(ItemDefinition), "LightSourceItemDescription", MethodType.Getter)]
+    [HarmonyPatch(typeof(ItemDefinition), nameof(ItemDefinition.LightSourceItemDescription), MethodType.Getter)]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly] public static class LightSourceItemDescription_Getter_Patch
     {
@@ -88,7 +88,7 @@ namespace SolastaUnfinishedBusiness.Patches;
         }
     }
 
-    [HarmonyPatch(typeof(ItemDefinition), "FocusItemDescription", MethodType.Getter)]
+    [HarmonyPatch(typeof(ItemDefinition), nameof(ItemDefinition.FocusItemDescription), MethodType.Getter)]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly] public static class FocusItemDescription_Getter_Patch
     {
@@ -98,7 +98,7 @@ namespace SolastaUnfinishedBusiness.Patches;
         }
     }
 
-    [HarmonyPatch(typeof(ItemDefinition), "WealthPileDescription", MethodType.Getter)]
+    [HarmonyPatch(typeof(ItemDefinition), nameof(ItemDefinition.WealthPileDescription), MethodType.Getter)]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly] public static class WealthPileDescription_Getter_Patch
     {
@@ -108,7 +108,7 @@ namespace SolastaUnfinishedBusiness.Patches;
         }
     }
 
-    [HarmonyPatch(typeof(ItemDefinition), "SpellbookDescription", MethodType.Getter)]
+    [HarmonyPatch(typeof(ItemDefinition), nameof(ItemDefinition.SpellbookDescription), MethodType.Getter)]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly] public static class SpellbookDescription_Getter_Patch
     {
@@ -118,7 +118,7 @@ namespace SolastaUnfinishedBusiness.Patches;
         }
     }
 
-    [HarmonyPatch(typeof(ItemDefinition), "FoodDescription", MethodType.Getter)]
+    [HarmonyPatch(typeof(ItemDefinition), nameof(ItemDefinition.FoodDescription), MethodType.Getter)]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly] public static class FoodDescription_Getter_Patch
     {
@@ -128,7 +128,7 @@ namespace SolastaUnfinishedBusiness.Patches;
         }
     }
 
-    [HarmonyPatch(typeof(ItemDefinition), "FactionRelicDescription", MethodType.Getter)]
+    [HarmonyPatch(typeof(ItemDefinition), nameof(ItemDefinition.FactionRelicDescription), MethodType.Getter)]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly] public static class FactionRelicDescription_Getter_Patch
     {
@@ -138,7 +138,7 @@ namespace SolastaUnfinishedBusiness.Patches;
         }
     }
 
-    [HarmonyPatch(typeof(ItemDefinition), "DocumentDescription", MethodType.Getter)]
+    [HarmonyPatch(typeof(ItemDefinition), nameof(ItemDefinition.DocumentDescription), MethodType.Getter)]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly] public static class DocumentDescription_Getter_Patch
     {

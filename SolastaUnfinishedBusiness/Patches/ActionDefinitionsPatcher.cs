@@ -7,7 +7,7 @@ namespace SolastaUnfinishedBusiness.Patches;
 [UsedImplicitly]
 public static class ActionDefinitionsPatcher
 {
-    [HarmonyPatch(typeof(ActionDefinitions), "CanActionHaveMultipleGuiItems")]
+    [HarmonyPatch(typeof(ActionDefinitions), nameof(ActionDefinitions.CanActionHaveMultipleGuiItems))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
     public static class CanActionHaveMultipleGuiItems_Patch

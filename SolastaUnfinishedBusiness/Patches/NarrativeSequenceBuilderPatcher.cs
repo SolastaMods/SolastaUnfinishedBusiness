@@ -10,7 +10,7 @@ namespace SolastaUnfinishedBusiness.Patches;
 public static class NarrativeSequenceBuilderPatcher
 {
     //PATCH: Ensure all roles are filled if party has less than 4 heroes
-    [HarmonyPatch(typeof(NarrativeSequenceBuilder), "BuildBaseSequence")]
+    [HarmonyPatch(typeof(NarrativeSequenceBuilder), nameof(NarrativeSequenceBuilder.BuildBaseSequence))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
     public static class BuildBaseSequence_Patch

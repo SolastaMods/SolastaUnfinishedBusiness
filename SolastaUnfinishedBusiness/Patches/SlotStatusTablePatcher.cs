@@ -14,7 +14,7 @@ namespace SolastaUnfinishedBusiness.Patches;
 [UsedImplicitly]
 public static class SlotStatusTablePatcher
 {
-    [HarmonyPatch(typeof(SlotStatusTable), "Bind")]
+    [HarmonyPatch(typeof(SlotStatusTable), nameof(SlotStatusTable.Bind))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
     public static class Bind_Patch
@@ -75,7 +75,7 @@ public static class SlotStatusTablePatcher
     }
 
     //PATCH: ensures slot colors are white before getting back to pool
-    [HarmonyPatch(typeof(SlotStatusTable), "Unbind")]
+    [HarmonyPatch(typeof(SlotStatusTable), nameof(SlotStatusTable.Unbind))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
     public static class Unbind_Patch

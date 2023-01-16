@@ -8,7 +8,7 @@ namespace SolastaUnfinishedBusiness.Patches;
 public static class ReactionModalPatcher
 {
     //TODO: Create a FeatureBuilder with Validators to create a generic check here
-    [HarmonyPatch(typeof(ReactionModal), "ReactionTriggered")]
+    [HarmonyPatch(typeof(ReactionModal), nameof(ReactionModal.ReactionTriggered))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
     public static class ReactionTriggered_Patch

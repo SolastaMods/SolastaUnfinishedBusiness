@@ -17,7 +17,7 @@ namespace SolastaUnfinishedBusiness.Patches;
 [UsedImplicitly]
 public static class RulesetCharacterMonsterPatcher
 {
-    [HarmonyPatch(typeof(RulesetCharacterMonster), "FinalizeMonster")]
+    [HarmonyPatch(typeof(RulesetCharacterMonster), nameof(RulesetCharacterMonster.FinalizeMonster))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
     public static class FinalizeMonster_Patch
@@ -37,7 +37,7 @@ public static class RulesetCharacterMonsterPatcher
         }
     }
 
-    [HarmonyPatch(typeof(RulesetCharacterMonster), "RefreshAll")]
+    [HarmonyPatch(typeof(RulesetCharacterMonster), nameof(RulesetCharacterMonster.RefreshAll))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
     public static class RefreshAll_Patch
@@ -60,7 +60,7 @@ public static class RulesetCharacterMonsterPatcher
         }
     }
 
-    [HarmonyPatch(typeof(RulesetCharacterMonster), "RefreshArmorClass")]
+    [HarmonyPatch(typeof(RulesetCharacterMonster), nameof(RulesetCharacterMonster.RefreshArmorClass))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
     public static class RefreshArmorClass_Patch
@@ -88,7 +88,7 @@ public static class RulesetCharacterMonsterPatcher
         }
     }
 
-    [HarmonyPatch(typeof(RulesetCharacterMonster), "ComputeBaseSavingThrowBonus")]
+    [HarmonyPatch(typeof(RulesetCharacterMonster), nameof(RulesetCharacterMonster.ComputeBaseSavingThrowBonus))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
     public static class ComputeBaseSavingThrowBonus_Patch
@@ -105,7 +105,7 @@ public static class RulesetCharacterMonsterPatcher
     }
 
 
-    [HarmonyPatch(typeof(RulesetCharacterMonster), "ComputeBaseAbilityCheckBonus")]
+    [HarmonyPatch(typeof(RulesetCharacterMonster), nameof(RulesetCharacterMonster.ComputeBaseAbilityCheckBonus))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
     public static class ComputeBaseAbilityCheckBonus_Patch
@@ -122,7 +122,7 @@ public static class RulesetCharacterMonsterPatcher
     }
 
     //PATCH: This is very similar to RulesetCharacterHero patch but it's here to support wildshape scenarios
-    [HarmonyPatch(typeof(RulesetCharacterMonster), "RefreshAttackModes")]
+    [HarmonyPatch(typeof(RulesetCharacterMonster), nameof(RulesetCharacterMonster.RefreshAttackModes))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
     public static class RefreshAttackModes_Patch
@@ -160,7 +160,7 @@ public static class RulesetCharacterMonsterPatcher
         }
     }
 
-    [HarmonyPatch(typeof(RulesetCharacterMonster), "HandleDeathForEffectConditions")]
+    [HarmonyPatch(typeof(RulesetCharacterMonster), nameof(RulesetCharacterMonster.HandleDeathForEffectConditions))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
     public static class HandleDeathForEffectConditions_Patch
