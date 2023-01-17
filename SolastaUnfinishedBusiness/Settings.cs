@@ -238,6 +238,12 @@ public class Settings : UnityModManager.ModSettings
     public bool AddMonkKiPointsToggle { get; set; }
     public bool AddPaladinSmiteToggle { get; set; }
     public bool AddWildshapeSwapAttackToggle { get; set; }
+    public bool FormationGridInitialized { get; set; }
+    public int[][] FormationGrid =
+    {
+        new int[GameUiContext.GridSize], new int[GameUiContext.GridSize], new int[GameUiContext.GridSize],
+        new int[GameUiContext.GridSize], new int[GameUiContext.GridSize]
+    };
 
     // Input
     public bool AltOnlyHighlightItemsInPartyFieldOfView { get; set; }

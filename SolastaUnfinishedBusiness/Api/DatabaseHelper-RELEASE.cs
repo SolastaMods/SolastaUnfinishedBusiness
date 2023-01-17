@@ -700,6 +700,7 @@ internal static partial class DatabaseHelper
     }
     internal static class FormationDefinitions
     {
+        internal static FormationDefinition Column2 = GetDefinition<FormationDefinition>("Column2");
         internal static FormationDefinition SingleCreature { get; } = GetDefinition<FormationDefinition>("SingleCreature");
         internal static FormationDefinition Squad4 { get; } = GetDefinition<FormationDefinition>("Squad4");
     }
