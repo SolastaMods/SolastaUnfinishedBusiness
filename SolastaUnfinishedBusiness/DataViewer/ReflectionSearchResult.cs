@@ -9,13 +9,13 @@ namespace SolastaUnfinishedBusiness.DataViewer;
 
 internal abstract class ResultNode
 {
-    internal virtual string Name { get; }
+    [UsedImplicitly] internal virtual string Name { get; }
 
-    internal virtual Type Type { get; }
+    [UsedImplicitly] internal virtual Type Type { get; }
 
-    internal virtual string NodeTypePrefix { get; }
+    [UsedImplicitly] internal virtual string NodeTypePrefix { get; }
 
-    internal virtual string ValueText { get; }
+    [UsedImplicitly] internal virtual string ValueText { get; }
 }
 
 internal class ResultNode<TNode> : ResultNode where TNode : class

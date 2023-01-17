@@ -278,11 +278,6 @@ internal sealed class MartialTactician : AbstractSubclass
 
     private static void BuildGambits()
     {
-        string name;
-        AssetReferenceSprite sprite;
-        FeatureDefinition feature;
-        FeatureDefinitionPower power;
-        ICustomConditionFeature reaction;
         const int HIGH_LEVEL = 7;
 
         #region Helpers
@@ -324,11 +319,11 @@ internal sealed class MartialTactician : AbstractSubclass
 
         #region Blind
 
-        name = "GambitBlind";
+        var name = "GambitBlind";
         //TODO: add proper icon
-        sprite = Sprites.ActionGambit;
+        var sprite = Sprites.ActionGambit;
 
-        reaction = new AddUsablePowerFromCondition(FeatureDefinitionPowerBuilder
+        ICustomConditionFeature reaction = new AddUsablePowerFromCondition(FeatureDefinitionPowerBuilder
             .Create($"Power{name}React")
             .SetGuiPresentation(name, Category.Feature, sprite)
             .SetCustomSubFeatures(PowerVisibilityModifier.Hidden, ForcePowerUseInSpendPowerAction.Marker)
@@ -346,7 +341,7 @@ internal sealed class MartialTactician : AbstractSubclass
                 .Build())
             .AddToDB());
 
-        power = FeatureDefinitionPowerBuilder
+        var power = FeatureDefinitionPowerBuilder
             .Create($"Power{name}Activate")
             .SetGuiPresentation(name, Category.Feature, sprite)
             .SetShowCasting(false)
@@ -835,7 +830,7 @@ internal sealed class MartialTactician : AbstractSubclass
         //TODO: add proper icon
         sprite = Sprites.ActionGambit;
 
-        feature = FeatureDefinitionBuilder
+        var feature = FeatureDefinitionBuilder
             .Create($"Feature{name}")
             .SetGuiPresentation(name, Category.Feature, sprite)
             .SetCustomSubFeatures(new Retaliate(spendDiePower, conditionGambitDieDamage, true))

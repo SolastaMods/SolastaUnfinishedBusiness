@@ -1,14 +1,18 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
+using JetBrains.Annotations;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
+[UsedImplicitly]
 public static class GameMenuModalPatcher
 {
-    [HarmonyPatch(typeof(GameMenuModal), "SetButtonAvailability")]
+    [HarmonyPatch(typeof(GameMenuModal), nameof(GameMenuModal.SetButtonAvailability))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
     public static class SetButtonAvailability_Patch
     {
+        [UsedImplicitly]
         public static void Postfix(GameMenuModal __instance, GameMenuModal.MenuButtonIndex index)
         {
             //PATCH: enables the cheats window during gameplay

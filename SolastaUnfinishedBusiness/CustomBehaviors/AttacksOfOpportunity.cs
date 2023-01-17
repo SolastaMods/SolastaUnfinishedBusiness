@@ -127,7 +127,7 @@ internal static class AttacksOfOpportunity
             }
 
             foreach (var brace in unit.RulesetActor.GetSubFeaturesByType<MartialTactician.Brace>()
-                         .Where(brace => MartialTactician.Brace.CanReact(unit)))
+                         .Where(_ => MartialTactician.Brace.CanReact(unit)))
             {
                 yield return brace.Process(unit, mover, movement, battleManager);
             }

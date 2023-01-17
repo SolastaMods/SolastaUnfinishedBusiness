@@ -11,13 +11,16 @@ using UnityEngine;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
+[UsedImplicitly]
 public static class AttunementModalPatcher
 {
-    [HarmonyPatch(typeof(AttunementModal), "Refresh")]
+    [HarmonyPatch(typeof(AttunementModal), nameof(AttunementModal.Refresh))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
     public static class Refresh_Patch
     {
         [NotNull]
+        [UsedImplicitly]
         public static IEnumerable<CodeInstruction> Transpiler([NotNull] IEnumerable<CodeInstruction> instructions)
         {
             var method = new Func<AttunementModal, int>(GetLimit).Method;
@@ -28,6 +31,7 @@ public static class AttunementModalPatcher
                 new CodeInstruction(OpCodes.Call, method));
         }
 
+        [UsedImplicitly]
         public static void Postfix(AttunementModal __instance)
         {
             var text = Gui.Format(AttunementModal.AttunementCountFormat,
@@ -43,10 +47,12 @@ public static class AttunementModalPatcher
         }
     }
 
-    [HarmonyPatch(typeof(AttunementModal), "Bind")]
+    [HarmonyPatch(typeof(AttunementModal), nameof(AttunementModal.Bind))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
     public static class Bind_Patch
     {
+        [UsedImplicitly]
         public static void Prefix(AttunementModal __instance, RulesetCharacterHero attuningHero)
         {
             var limit = attuningHero.GetAttunementLimit();

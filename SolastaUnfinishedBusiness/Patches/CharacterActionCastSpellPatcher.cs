@@ -12,9 +12,10 @@ using SolastaUnfinishedBusiness.Models;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
+[UsedImplicitly]
 public static class CharacterActionCastSpellPatcher
 {
-    [HarmonyPatch(typeof(CharacterActionCastSpell), "ApplyMagicEffect")]
+    [HarmonyPatch(typeof(CharacterActionCastSpell), nameof(CharacterActionCastSpell.ApplyMagicEffect))]
     [HarmonyPatch(
         new[]
         {
@@ -28,8 +29,10 @@ public static class CharacterActionCastSpellPatcher
             ArgumentType.Normal, ArgumentType.Normal, ArgumentType.Normal, ArgumentType.Ref, ArgumentType.Out,
             ArgumentType.Out
         })]
+    [UsedImplicitly]
     public static class ApplyMagicEffect_Patch
     {
+        [UsedImplicitly]
         public static bool Prefix(CharacterActionCastSpell __instance,
             GameLocationCharacter target,
             ActionModifier actionModifier,
@@ -102,11 +105,13 @@ public static class CharacterActionCastSpellPatcher
         }
     }
 
-    [HarmonyPatch(typeof(CharacterActionCastSpell), "GetAdvancementData")]
+    [HarmonyPatch(typeof(CharacterActionCastSpell), nameof(CharacterActionCastSpell.GetAdvancementData))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
     public static class GetAdvancementData_Patch
     {
         [NotNull]
+        [UsedImplicitly]
         public static IEnumerable<CodeInstruction> Transpiler([NotNull] IEnumerable<CodeInstruction> instructions)
         {
             //PATCH: enforces cantrips to be cast at character level (MULTICLASS)
@@ -123,10 +128,12 @@ public static class CharacterActionCastSpellPatcher
         }
     }
 
-    [HarmonyPatch(typeof(CharacterActionCastSpell), "StartConcentrationAsNeeded")]
+    [HarmonyPatch(typeof(CharacterActionCastSpell), nameof(CharacterActionCastSpell.StartConcentrationAsNeeded))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
     public static class StartConcentrationAsNeeded_Patch
     {
+        [UsedImplicitly]
         public static bool Prefix(CharacterActionCastSpell __instance)
         {
             //PATCH: BestowCurseNoConcentrationRequiredForSlotLevel5OrAbove
@@ -144,10 +151,12 @@ public static class CharacterActionCastSpellPatcher
     }
 
     //PATCH: implement IPreventRemoveConcentrationWithPowerUse
-    [HarmonyPatch(typeof(CharacterActionCastSpell), "RemoveConcentrationAsNeeded")]
+    [HarmonyPatch(typeof(CharacterActionCastSpell), nameof(CharacterActionCastSpell.RemoveConcentrationAsNeeded))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
     public static class RemoveConcentrationAsNeeded_Patch
     {
+        [UsedImplicitly]
         public static bool Prefix()
         {
             var currentAction = Global.CurrentAction;

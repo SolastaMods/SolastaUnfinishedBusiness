@@ -9,13 +9,16 @@ using Object = UnityEngine.Object;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
+[UsedImplicitly]
 public static class NewAdventurePanelPatcher
 {
     //PATCH: tweaks the UI to allow less/more heroes to be selected on a campaign (PARTYSIZE)
-    [HarmonyPatch(typeof(NewAdventurePanel), "OnBeginShow")]
+    [HarmonyPatch(typeof(NewAdventurePanel), nameof(NewAdventurePanel.OnBeginShow))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
     public static class OnBeginShow_Patch
     {
+        [UsedImplicitly]
         public static void Prefix([NotNull] NewAdventurePanel __instance)
         {
             // overrides campaign party size
@@ -62,10 +65,12 @@ public static class NewAdventurePanelPatcher
     }
 
     //PATCH: auto assign heroes on new adventures (DEFAULT_PARTY)
-    [HarmonyPatch(typeof(NewAdventurePanel), "OnEndShow")]
+    [HarmonyPatch(typeof(NewAdventurePanel), nameof(NewAdventurePanel.OnEndShow))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
     public static class OnEndShow_Patch
     {
+        [UsedImplicitly]
         public static void Postfix(NewAdventurePanel __instance)
         {
             if (Global.IsMultiplayer || !Main.Settings.EnableTogglesToOverwriteDefaultTestParty)
@@ -103,11 +108,13 @@ public static class NewAdventurePanelPatcher
     }
 
     //PATCH: clear flag that prevents hero auto assignment under MP (DEFAULT_PARTY)
-    [HarmonyPatch(typeof(NewAdventurePanel), "OnEndHide")]
+    [HarmonyPatch(typeof(NewAdventurePanel), nameof(NewAdventurePanel.OnEndHide))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
     public static class OnEndHide_Patch
     {
         // ReSharper disable once UnusedMember.Global
+        [UsedImplicitly]
         public static void Prefix()
         {
             Global.IsSettingUpMultiplayer = false;

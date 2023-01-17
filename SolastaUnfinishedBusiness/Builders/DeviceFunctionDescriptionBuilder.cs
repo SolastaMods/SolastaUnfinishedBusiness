@@ -54,6 +54,7 @@ internal class DeviceFunctionDescriptionBuilder
 
     private void Validate()
     {
+        // ReSharper disable once SwitchStatementHandlesSomeKnownEnumValuesWithDefault
         switch (description.Type)
         {
             case FunctionType.Power when description.FeatureDefinitionPower == null:

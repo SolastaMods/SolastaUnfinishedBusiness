@@ -94,6 +94,7 @@ internal static class SrdAndHouseRulesContext
         SwitchMagicStaffFoci();
         SwitchEnableUpcastConjureElementalAndFey();
         SwitchFullyControlConjurations();
+        SwitchMakeLargeWildshapeFormsMedium();
         FixMartialArtsProgression();
         DistantHandMartialArtsDie();
     }
@@ -506,11 +507,28 @@ internal static class SrdAndHouseRulesContext
         }
     }
 
+    private static readonly string[] LargeWildshapeForms =
+    {
+        "WildShapeAirElemental", "WildShapeFireElemental", "WildShapeEarthElemental", "WildShapeWaterElemental",
+        "WildShapeApe", "WildShapeTundraTiger"
+    };
+
+    internal static void SwitchMakeLargeWildshapeFormsMedium()
+    {
+        foreach (var monsterDefinitionName in LargeWildshapeForms)
+        {
+            var monsterDefinition = GetDefinition<MonsterDefinition>(monsterDefinitionName);
+
+            monsterDefinition.sizeDefinition = Main.Settings.MakeLargeWildshapeFormsMedium
+                ? CharacterSizeDefinitions.Medium
+                : CharacterSizeDefinitions.Large;
+        }
+    }
+
     private static void FixMartialArtsProgression()
     {
         //Fixes die progression of Monk's Martial Arts to use Monk level, not character level
         var provider = new RankByClassLevel(Monk);
-
         var features = new List<FeatureDefinition>
         {
             FeatureDefinitionAttackModifiers.AttackModifierMonkMartialArtsImprovedDamage,
@@ -747,20 +765,15 @@ internal static class StackedMaterialComponent
 
         character.CharacterInventory.EnumerateAllItems(items);
 
-        foreach (var item in items)
+        if (!items.Any(item => item.ItemDefinition.ItemTags.Contains(spellDefinition.SpecificMaterialComponentTag) &&
+                               EquipmentDefinitions.GetApproximateCostInGold(item.ItemDefinition.Costs) *
+                               item.StackCount >= spellDefinition.SpecificMaterialComponentCostGp))
         {
-            var approximateCostInGold = EquipmentDefinitions.GetApproximateCostInGold(item.ItemDefinition.Costs);
-
-            if (!item.ItemDefinition.ItemTags.Contains(spellDefinition.SpecificMaterialComponentTag) ||
-                approximateCostInGold * item.StackCount < spellDefinition.SpecificMaterialComponentCostGp)
-            {
-                continue;
-            }
-
-            result = true;
-            failure = string.Empty;
-            break;
+            return;
         }
+
+        result = true;
+        failure = string.Empty;
     }
 
     //Modify original code to spend enough of a stack to meet component cost
@@ -816,11 +829,13 @@ internal static class StackedMaterialComponent
 
         if (itemToUse == null)
         {
+            // ReSharper disable once InvocationIsSkipped
             Main.Log("Didn't find item.");
 
             return false;
         }
 
+        // ReSharper disable once InvocationIsSkipped
         Main.Log($"Spending stack={itemToUse.StackCountRequired}, cost={itemToUse.TotalCost}");
 
         var componentConsumed = character.SpellComponentConsumed;
@@ -838,12 +853,14 @@ internal static class StackedMaterialComponent
         if (rulesetItem.ItemDefinition.CanBeStacked && rulesetItem.StackCount > 1 &&
             itemToUse.StackCountRequired < rulesetItem.StackCount)
         {
+            // ReSharper disable once InvocationIsSkipped
             Main.Log($"Spending stack={itemToUse.StackCountRequired}, cost={itemToUse.TotalCost}");
 
             rulesetItem.SpendStack(itemToUse.StackCountRequired);
         }
         else
         {
+            // ReSharper disable once InvocationIsSkipped
             Main.Log("Destroy item");
 
             character.CharacterInventory.DestroyItem(rulesetItem);
@@ -939,6 +956,7 @@ internal static class UpcastConjureElementalAndFey
 
         _filteredSubspells = allOrMostPowerful.SelectMany(s => s.SpellDefinitions).ToList();
 
+        // ReSharper disable once InvocationIsSkipped
         _filteredSubspells.ForEach(s => Main.Log($"{Gui.Localize(s.GuiPresentation.Title)}"));
 
         return _filteredSubspells;

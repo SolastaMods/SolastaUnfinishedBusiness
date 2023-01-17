@@ -2,16 +2,20 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using HarmonyLib;
+using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Models;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
+[UsedImplicitly]
 public static class NarrativeDirectionManagerPatcher
 {
-    [HarmonyPatch(typeof(NarrativeDirectionManager), "PrepareDialogSequence")]
+    [HarmonyPatch(typeof(NarrativeDirectionManager), nameof(NarrativeDirectionManager.PrepareDialogSequence))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
     public static class PrepareDialogSequence_Patch
     {
+        [UsedImplicitly]
         public static void Prefix(List<GameLocationCharacter> involvedGameCharacters)
         {
             //PATCH: Don't offer controlled conjurations on dialogue sequences (FullyControlConjurations)
@@ -42,10 +46,12 @@ public static class NarrativeDirectionManagerPatcher
     }
 
     //PATCH: EnableLogDialoguesToConsole
-    [HarmonyPatch(typeof(NarrativeDirectionManager), "StartDialogSequence")]
+    [HarmonyPatch(typeof(NarrativeDirectionManager), nameof(NarrativeDirectionManager.StartDialogSequence))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
     public static class StartDialogSequence_Patch
     {
+        [UsedImplicitly]
         public static void Postfix()
         {
             if (!Main.Settings.EnableLogDialoguesToConsole)

@@ -104,6 +104,9 @@ ModUi/&FeatsFightingStylesInvocations=Dotes, estilos e invocaciones
 ModUi/&FightingStyles=<color=#F0DAA0>Estilos de lucha</color>
 ModUi/&FixEldritchBlastRange=Cambia el rango de <color=#D89555>Explosión sobrenatural</color> a 24 <i><color=#F0DAA0>[en lugar de 16]</color></i>
 ModUi/&FixSorcererTwinnedLogic=Se corrigió el uso metamágico gemelo de <color=#D89555>Sorcerer</color> <i><color=#F0DAA0>[debe ser incapaz de apuntar a más de una criatura en el nivel actual del hechizo]</color></i>
+ModUi/&Formation=<color=#F0DAA0>Formación:</color>
+ModUi/&FormationError=<color=#C04040E0>No puedes cambiar tu formación durante una partida multijugador, pero puedes configurarlo de antemano...</color>
+ModUi/&FormationHelp=. Haga clic en cualquiera de los 2 botones para intercambiar su contenido\n. <b><color=#1E81B0>@</color></b> representa posiciones de héroe y se asignan respetando el orden del grupo
 ModUi/&FullyControlConjurations=Controla por completo las conjuraciones <i><color=#F0DAA0>[animales, elementales, etc.]</color></i>
 ModUi/&Gameplay=Como se Juega
 ModUi/&GameUi=Interfaz de usuario del juego
@@ -129,6 +132,7 @@ ModUi/&ItemsCraftingMerchants=Objetos, Fabricación y Comerciantes
 ModUi/&ItemsHelp1=<color=#C04040E0>Abre la pantalla de inspección de personajes para agregar elementos a los héroes...</color>
 ModUi/&ItemsHelp2=<b>Presiona + para agregar artículos al contenedor de tierra</b>
 ModUi/&MakeAllMagicStaveArcaneFoci=Haz que todos los bastones mágicos sean focos arcanos <i><color=#F0DAA0>[excepto el <color=#D89555>Bastón de curación</color> que es universal]</color></i>
+ModUi/&MakeLargeWildshapeFormsMedium=Haga que todas las formas grandes de forma salvaje sean de tamaño mediano
 ModUi/&MarkInvisibleTeleportersOnLevelMap=<i>+ También marque la ubicación de los teletransportadores invisibles en el mapa de nivel después del descubrimiento</i>
 ModUi/&MaxAllowedClasses=<color=white>Clases máximas permitidas</color>
 ModUi/&Merchants=<color=#F0DAA0>Comerciantes:</color>

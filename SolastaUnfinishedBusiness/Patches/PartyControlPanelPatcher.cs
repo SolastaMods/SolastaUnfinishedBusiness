@@ -6,12 +6,15 @@ using UnityEngine;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
+[UsedImplicitly]
 public static class PartyControlPanelPatcher
 {
-    [HarmonyPatch(typeof(PartyControlPanel), "OnBeginShow")]
+    [HarmonyPatch(typeof(PartyControlPanel), nameof(PartyControlPanel.OnBeginShow))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
     public static class OnBeginShow_Patch
     {
+        [UsedImplicitly]
         public static void Prefix([NotNull] PartyControlPanel __instance)
         {
             //PATCH: scales down the party control panel whenever the party size is bigger than 4 (PARTYSIZE)

@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Properties;
@@ -42,18 +41,5 @@ internal static class CeContentPackContext
         {
             AddCeTag(spell, tags);
         }
-    }
-
-    private sealed class
-        // ReSharper disable once ClassNeverInstantiated.Local
-        ContentPackDefinitionBuilder : DefinitionBuilder<ContentPackDefinition, ContentPackDefinitionBuilder>
-    {
-        #region Constructors
-
-        internal ContentPackDefinitionBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)
-        {
-        }
-
-        #endregion
     }
 }

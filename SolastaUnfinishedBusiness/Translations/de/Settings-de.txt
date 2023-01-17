@@ -104,6 +104,9 @@ ModUi/&FeatsFightingStylesInvocations=Kunststücke, Stile und Anrufungen
 ModUi/&FightingStyles=<color=#F0DAA0>Kampfstile</color>
 ModUi/&FixEldritchBlastRange=Ändere die Reichweite von <color=#D89555>Eldritch Blast</color> auf 24 <i><color=#F0DAA0>[statt 16]</color></i>
 ModUi/&FixSorcererTwinnedLogic=<color=#D89555>Zauberer</color>-Zwillings-Metamagie-Anwendung <i><color=#F0DAA0>[muss unfähig sein, mehr als eine Kreatur auf der aktuellen Stufe des Zaubers anzuvisieren]</color></i> behoben
+ModUi/&Formation=<color=#F0DAA0>Formation:</color>
+ModUi/&FormationError=<color=#C04040E0>Du kannst deine Formation während eines Multiplayer-Spiels nicht ändern, aber du kannst sie vorher festlegen...</color>
+ModUi/&FormationHelp=. Klicken Sie auf 2 beliebige Schaltflächen, um deren Inhalt auszutauschen\n. <b><color=#1E81B0>@</color></b> repräsentiert Heldenpositionen und sie werden entsprechend der Gruppenreihenfolge zugewiesen
 ModUi/&FullyControlConjurations=Volle Kontrolle über Beschwörungen <i><color=#F0DAA0>[Tiere, Elementare usw.]</color></i>
 ModUi/&Gameplay=Spielweise
 ModUi/&GameUi=Benutzeroberfläche des Spiels
@@ -129,6 +132,7 @@ ModUi/&ItemsCraftingMerchants=Gegenstände, Handwerk & Händler
 ModUi/&ItemsHelp1=<color=#C04040E0>Öffne den Charakterinspektionsbildschirm, um Gegenstände zu Helden hinzuzufügen...</color>
 ModUi/&ItemsHelp2=<b>Drücken Sie +, um Gegenstände zum Bodenbehälter hinzuzufügen</b>
 ModUi/&MakeAllMagicStaveArcaneFoci=Machen Sie alle magischen Stäbe zu arkanen Brennpunkten <i><color=#F0DAA0>[außer <color=#D89555>Stab der Heilung</color>, der universell ist]</color></i>
+ModUi/&MakeLargeWildshapeFormsMedium=Machen Sie alle großen Wildformen zu einer mittleren Größe
 ModUi/&MarkInvisibleTeleportersOnLevelMap=<i>+ Markieren Sie nach der Entdeckung auch die Position unsichtbarer Teleporter auf der Levelkarte</i>
 ModUi/&MaxAllowedClasses=<color=white>Maximal erlaubte Klassen</color>
 ModUi/&Merchants=<color=#F0DAA0>Händler:</color>

@@ -6,13 +6,16 @@ using UnityEngine;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
+[UsedImplicitly]
 public static class GameCampaignPartyPatcher
 {
     //PATCH: Correctly updates the level cap under Level 20 scenarios
-    [HarmonyPatch(typeof(GameCampaignParty), "UpdateLevelCaps")]
+    [HarmonyPatch(typeof(GameCampaignParty), nameof(GameCampaignParty.UpdateLevelCaps))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
     public static class UpdateLevelCaps_Patch
     {
+        [UsedImplicitly]
         public static bool Prefix([NotNull] GameCampaignParty __instance, int levelCap)
         {
             var max = Main.Settings.EnableLevel20 ? Level20Context.ModMaxLevel : Level20Context.GameMaxLevel;

@@ -5,13 +5,13 @@ namespace SolastaUnfinishedBusiness.DataViewer;
 
 internal static class UnsafeForceCast
 {
-    private static readonly DoubleDictionary<Type, Type, WeakReference> _cache = new();
+    private static readonly DoubleDictionary<Type, Type, WeakReference> Cache = new();
 
     internal static Func<TInput, TOutput> GetDelegate<TInput, TOutput>()
     {
         Func<TInput, TOutput> cache = default;
 
-        if (_cache.TryGetValue(typeof(TInput), typeof(TOutput), out var weakRef))
+        if (Cache.TryGetValue(typeof(TInput), typeof(TOutput), out var weakRef))
         {
             cache = weakRef.Target as Func<TInput, TOutput>;
         }
@@ -22,7 +22,7 @@ internal static class UnsafeForceCast
         }
 
         cache = CreateDelegate<TInput, TOutput>();
-        _cache[typeof(TInput), typeof(TOutput)] = new WeakReference(cache);
+        Cache[typeof(TInput), typeof(TOutput)] = new WeakReference(cache);
 
         return cache;
     }

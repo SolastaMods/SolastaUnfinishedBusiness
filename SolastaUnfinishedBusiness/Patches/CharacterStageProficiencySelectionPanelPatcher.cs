@@ -2,10 +2,12 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using HarmonyLib;
+using JetBrains.Annotations;
 using static HeroDefinitions.PointsPoolType;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
+[UsedImplicitly]
 public static class CharacterStageProficiencySelectionPanelPatcher
 {
     private static LearnStepItem CurrentStepItem(CharacterStageProficiencySelectionPanel __instance)
@@ -29,10 +31,13 @@ public static class CharacterStageProficiencySelectionPanelPatcher
         return item;
     }
 
-    [HarmonyPatch(typeof(CharacterStageProficiencySelectionPanel), "Refresh")]
+    [HarmonyPatch(typeof(CharacterStageProficiencySelectionPanel),
+        nameof(CharacterStageProficiencySelectionPanel.Refresh))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
     public static class Refresh_Patch
     {
+        [UsedImplicitly]
         public static void Postfix(CharacterStageProficiencySelectionPanel __instance)
         {
             //PATCH: support for skipping skill and tool proficiency picking if you picked all available, but still have points remaining
@@ -49,29 +54,33 @@ public static class CharacterStageProficiencySelectionPanelPatcher
             var needSkip = false;
             var pool = service.GetPointPoolOfTypeAndTag(buildingData, item.PoolType, item.Tag);
 
-            if (item.PoolType == Skill)
+            // ReSharper disable once SwitchStatementMissingSomeEnumCasesNoDefault
+            switch (item.PoolType)
             {
-                //get all skills - unlike tools if you run out ofn restricted skills to pick, game allows picking any skill
-                if (DatabaseRepository
-                        //remove skills already knows or trained this level
-                        .GetDatabase<SkillDefinition>()
-                        .Count(s => !service.IsSkillKnownOrTrained(buildingData, s)) == 0)
+                case Skill:
                 {
-                    needSkip = true;
+                    if (DatabaseRepository.GetDatabase<SkillDefinition>()
+                        .All(s => service.IsSkillKnownOrTrained(buildingData, s)))
+                    {
+                        needSkip = true;
+                    }
+
+                    break;
                 }
-            }
-            else if (item.PoolType == Tool)
-            {
-                if (DatabaseRepository
+                case Tool:
+                {
+                    if (DatabaseRepository
                         //get all restricted tools
                         .GetDatabase<ToolTypeDefinition>()
                         //remove ones already known or trained this level
-                        .Where(s => pool.RestrictedChoices == null
-                                    || pool.RestrictedChoices.Empty()
-                                    || pool.RestrictedChoices.Contains(s.Name))
-                        .Count(s => !service.IsToolTypeKnownOrTrained(buildingData, s)) == 0)
-                {
-                    needSkip = true;
+                        .Where(s => pool.RestrictedChoices == null || pool.RestrictedChoices.Empty() ||
+                                    pool.RestrictedChoices.Contains(s.Name))
+                        .All(s => service.IsToolTypeKnownOrTrained(buildingData, s)))
+                    {
+                        needSkip = true;
+                    }
+
+                    break;
                 }
             }
 
@@ -85,10 +94,13 @@ public static class CharacterStageProficiencySelectionPanelPatcher
         }
     }
 
-    [HarmonyPatch(typeof(CharacterStageProficiencySelectionPanel), "OnLearnAutoImpl")]
+    [HarmonyPatch(typeof(CharacterStageProficiencySelectionPanel),
+        nameof(CharacterStageProficiencySelectionPanel.OnLearnAutoImpl))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
     public static class OnLearnAutoImpl_Patch
     {
+        [UsedImplicitly]
         public static bool Prefix(CharacterStageProficiencySelectionPanel __instance, Random rng)
         {
             //PATCH: support for skipping skill and tool proficiency picking if you picked all available, but still have points remaining

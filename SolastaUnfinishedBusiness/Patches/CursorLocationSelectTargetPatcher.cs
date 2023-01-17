@@ -1,14 +1,18 @@
 ﻿using HarmonyLib;
+using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.Extensions;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
+[UsedImplicitly]
 public static class CursorLocationSelectTargetPatcher
 {
-    [HarmonyPatch(typeof(CursorLocationSelectTarget), "IsFilteringValid")]
+    [HarmonyPatch(typeof(CursorLocationSelectTarget), nameof(CursorLocationSelectTarget.IsFilteringValid))]
+    [UsedImplicitly]
     public static class IsFilteringValid_Patch
     {
+        [UsedImplicitly]
         public static void Postfix(CursorLocationSelectTarget __instance, GameLocationCharacter target,
             ref bool __result)
         {

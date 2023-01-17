@@ -1,10 +1,78 @@
-﻿using SolastaUnfinishedBusiness.Api.ModKit;
+﻿using SolastaUnfinishedBusiness.Api;
+using SolastaUnfinishedBusiness.Api.ModKit;
 using SolastaUnfinishedBusiness.Models;
+using TA;
 
 namespace SolastaUnfinishedBusiness.Displays;
 
 internal static class GameUiDisplay
 {
+    #region Formation Helpers
+
+    private static bool _selectedForSwap;
+    private static int _selectedX, _selectedY;
+
+
+    private static void DisplayFormationGrid()
+    {
+        UI.Label();
+
+        for (var y = 0; y < GameUiContext.GridSize; y++)
+        {
+            using (UI.HorizontalScope())
+            {
+                for (var x = 0; x < GameUiContext.GridSize; x++)
+                {
+                    string label;
+
+                    if (Main.Settings.FormationGrid[y][x] == 1)
+                    {
+                        if (_selectedForSwap && _selectedX == x && _selectedY == y)
+                        {
+                            label = "<b><color=red>@</color></b>";
+                        }
+                        else
+                        {
+                            label = "<b><color=#1E81B0>@</color></b>";
+                        }
+                    }
+                    else
+                    {
+                        if (_selectedForSwap && _selectedX == x && _selectedY == y)
+                        {
+                            label = "<b><color=red>..</color></b>";
+                        }
+                        else
+                        {
+                            label = "..";
+                        }
+                    }
+                    
+                    UI.ActionButton(label, () =>
+                    {
+                        if (_selectedForSwap)
+                        {
+                            (Main.Settings.FormationGrid[y][x], Main.Settings.FormationGrid[_selectedY][_selectedX]) = (
+                                Main.Settings.FormationGrid[_selectedY][_selectedX], Main.Settings.FormationGrid[y][x]);
+
+                            GameUiContext.FillDefinitionFromFormationGrid();
+
+                            _selectedForSwap = false;
+                        }
+                        else
+                        {
+                            _selectedX = x;
+                            _selectedY = y;
+                            _selectedForSwap = true;
+                        }
+                    }, UI.Width(30));
+                }
+            }
+        }
+    }
+
+    #endregion
+
     internal static void DisplayGameUi()
     {
         #region Campaign
@@ -103,6 +171,24 @@ internal static class GameUiDisplay
         if (UI.Toggle(Gui.Localize("ModUi/&AddPaladinSmiteToggle"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.AddPaladinSmiteToggle = toggle;
+        }
+
+        #endregion
+
+        #region Formation
+
+        UI.Label();
+        UI.Label(Gui.Localize("ModUi/&Formation"));
+        UI.Label();
+
+        if (Global.IsMultiplayer)
+        {
+            UI.Label(Gui.Localize("ModUi/&FormationError"));
+        }
+        else
+        {
+            UI.Label(Gui.Localize("ModUi/&FormationHelp"));
+            DisplayFormationGrid();
         }
 
         #endregion

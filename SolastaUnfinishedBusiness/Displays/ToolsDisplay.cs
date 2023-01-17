@@ -87,14 +87,11 @@ internal static class ToolsDisplay
 
     private static void DisplayGeneral()
     {
-        bool toggle;
-        int intValue;
-
         UI.Label();
         UI.Label(Gui.Localize("ModUi/&General"));
         UI.Label();
 
-        toggle = Main.Settings.EnableBetaContent;
+        var toggle = Main.Settings.EnableBetaContent;
         if (UI.Toggle(Gui.Localize("ModUi/&EnableBetaContent"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.EnableBetaContent = toggle;
@@ -153,7 +150,7 @@ internal static class ToolsDisplay
 
         UI.Label();
 
-        intValue = Main.Settings.MultiplyTheExperienceGainedBy;
+        var intValue = Main.Settings.MultiplyTheExperienceGainedBy;
         if (UI.Slider(Gui.Localize("ModUi/&MultiplyTheExperienceGainedBy"), ref intValue, 0, 200, 100, string.Empty,
                 UI.Width(100)))
         {
@@ -221,7 +218,7 @@ internal static class ToolsDisplay
 
         using (UI.HorizontalScope())
         {
-            UI.Label("ModUi/&IncreaseGameTimeBy", UI.Width(300));
+            UI.Label(Gui.Localize("ModUi/&IncreaseGameTimeBy"), UI.Width(300));
             UI.ActionButton("1 hour", () => gameTime.UpdateTime(60 * 60), UI.Width(100));
             UI.ActionButton("6 hours", () => gameTime.UpdateTime(60 * 60 * 6), UI.Width(100));
             UI.ActionButton("12 hours", () => gameTime.UpdateTime(60 * 60 * 12), UI.Width(100));

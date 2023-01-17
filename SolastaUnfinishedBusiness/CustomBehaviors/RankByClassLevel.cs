@@ -7,17 +7,17 @@ public class RankByClassLevel : IRankProvider
 {
     private readonly string className;
 
-    public RankByClassLevel(string className)
+    private RankByClassLevel(string className)
     {
         this.className = className;
     }
 
-    public RankByClassLevel(CharacterClassDefinition classDefinition) : this(classDefinition.Name)
+    public RankByClassLevel(BaseDefinition classDefinition) : this(classDefinition.Name)
     {
     }
 
-    public int GetRank(RulesetCharacter chracter)
+    public int GetRank(RulesetCharacter character)
     {
-        return chracter.GetClassLevel(className);
+        return character.GetClassLevel(className);
     }
 }

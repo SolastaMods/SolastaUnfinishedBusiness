@@ -1,15 +1,19 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
+using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.Extensions;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
+[UsedImplicitly]
 public static class GuiCharacterActionPatcher
 {
-    [HarmonyPatch(typeof(GuiCharacterAction), "LimitedUses", MethodType.Getter)]
+    [HarmonyPatch(typeof(GuiCharacterAction), nameof(GuiCharacterAction.LimitedUses), MethodType.Getter)]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
     public static class LimitedUses_Getter_Patch
     {
+        [UsedImplicitly]
         public static void Postfix(GuiCharacterAction __instance, ref int __result)
         {
             //PATCH: Get remaining attack uses (ammunition) from forced attack mode
@@ -22,10 +26,12 @@ public static class GuiCharacterActionPatcher
         }
     }
 
-    [HarmonyPatch(typeof(GuiCharacterAction), "OnGoing", MethodType.Getter)]
+    [HarmonyPatch(typeof(GuiCharacterAction), nameof(GuiCharacterAction.OnGoing), MethodType.Getter)]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
     public static class OnGoing_Getter_Patch
     {
+        [UsedImplicitly]
         public static bool Prefix(GuiCharacterAction __instance, ref bool __result)
         {
             if (__instance.actionId != (ActionDefinitions.Id)ExtraActionId.MonkKiPointsToggle &&

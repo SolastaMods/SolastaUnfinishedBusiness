@@ -1,16 +1,20 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
+using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Models;
 using UnityEngine;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
+[UsedImplicitly]
 public static class CharacterInspectionScreenPatcher
 {
-    [HarmonyPatch(typeof(CharacterInspectionScreen), "Bind")]
+    [HarmonyPatch(typeof(CharacterInspectionScreen), nameof(CharacterInspectionScreen.Bind))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
     public static class Bind_Patch
     {
+        [UsedImplicitly]
         public static void Prefix(CharacterInspectionScreen __instance, RulesetCharacterHero heroCharacter)
         {
             //PATCH: sets the inspection context for MC heroes
@@ -23,6 +27,7 @@ public static class CharacterInspectionScreenPatcher
                 new Vector3(__instance.characterPlate.transform.position.x / 2f, transform.position.y, 0);
         }
 
+        [UsedImplicitly]
         public static void Postfix(CharacterInspectionScreen __instance, RulesetCharacterHero heroCharacter)
         {
             //PATCH: hide repertoires that have hidden spell casting feature
@@ -45,10 +50,12 @@ public static class CharacterInspectionScreenPatcher
         }
     }
 
-    [HarmonyPatch(typeof(CharacterInspectionScreen), "Unbind")]
+    [HarmonyPatch(typeof(CharacterInspectionScreen), nameof(CharacterInspectionScreen.Unbind))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
     public static class Unbind_Patch
     {
+        [UsedImplicitly]
         public static void Prefix()
         {
             //PATCH: resets the inspection context for MC heroes
@@ -63,11 +70,13 @@ public static class CharacterInspectionScreenPatcher
     }
 
     //PATCH: resets the inspection context for MC heroes otherwise we get class name bleeding on char pool
-    [HarmonyPatch(typeof(CharacterInspectionScreen), "DoClose")]
+    [HarmonyPatch(typeof(CharacterInspectionScreen), nameof(CharacterInspectionScreen.DoClose))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    internal static class DoClose_Patch
+    [UsedImplicitly]
+    public static class DoClose_Patch
     {
-        internal static void Prefix()
+        [UsedImplicitly]
+        public static void Prefix()
         {
             Global.InspectedHero = null;
         }

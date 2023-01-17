@@ -434,7 +434,7 @@
   "soundEffectOnHitDescriptionOverride": null,
   "itemPresentation": {
     "$type": "ItemPresentation, Assembly-CSharp",
-    "unidentifiedTitle": "Item/&ItemAlchemyFunctorUnidTitle",
+    "unidentifiedTitle": "Item/&ItemAlchemyFunctorUnidentifiedTitle",
     "unidentifiedDescription": "Feature/&NoContentTitle",
     "overrideSubtype": "None",
     "assetReference": {

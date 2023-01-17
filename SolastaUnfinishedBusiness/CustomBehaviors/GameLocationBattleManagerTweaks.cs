@@ -72,6 +72,11 @@ internal static class GameLocationBattleManagerTweaks
          * Support for wild-shaped characters
          */
 
+        if (featureDefinition == null)
+        {
+            return;
+        }
+
         //[CE] Store original RulesetCharacterHero for future use
         var hero = attacker.RulesetCharacter as RulesetCharacterHero ??
                    attacker.RulesetCharacter.OriginalFormCharacter as RulesetCharacterHero;

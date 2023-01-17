@@ -6,6 +6,7 @@ using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.Extensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
+using SolastaUnfinishedBusiness.Displays;
 using TA;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
@@ -18,6 +19,8 @@ namespace SolastaUnfinishedBusiness.Models;
 
 internal static class GameUiContext
 {
+    public const int GridSize = 5;
+
     // Toggle HUD components
     private const InputCommands.Id CtrlShiftH = (InputCommands.Id)44440004;
 
@@ -719,6 +722,38 @@ internal static class GameUiContext
         }
     }
 
+    internal static void FillFormationGridFromDefinition()
+    {
+        for (var y = 0; y < GridSize; y++)
+        {
+            for (var x = 0; x < GridSize; x++)
+            {
+                Main.Settings.FormationGrid[y][x] = 0;
+            }
+        }
+
+        foreach (var position in DatabaseHelper.FormationDefinitions.Column2.FormationPositions)
+        {
+            Main.Settings.FormationGrid[-position.z][position.x + 2] = 1;
+        }
+    }
+
+    internal static void FillDefinitionFromFormationGrid()
+    {
+        var position = 0;
+
+        for (var y = 0; y < GridSize; y++)
+        {
+            for (var x = 0; x < GridSize; x++)
+            {
+                if (Main.Settings.FormationGrid[y][x] == 1)
+                {
+                    DatabaseHelper.FormationDefinitions.Column2.FormationPositions[position++] = new int3(x - 2, 0, -y);
+                }
+            }
+        }
+    }
+
     internal static void Load()
     {
         InventoryManagementContext.Load();
@@ -728,6 +763,16 @@ internal static class GameUiContext
         LoadMonkKiPointsToggle();
         LoadPaladinSmiteToggle();
         LoadWildshapeSwapAttackToggle();
+
+        if (Main.Settings.FormationGridInitialized)
+        {
+            FillDefinitionFromFormationGrid();
+        }
+        else
+        {
+            FillFormationGridFromDefinition();
+            Main.Settings.FormationGridInitialized = true;
+        }
 
         var inputService = ServiceRepository.GetService<IInputService>();
 
@@ -757,6 +802,19 @@ internal static class GameUiContext
         // Rejoin
         inputService.RegisterCommand(CtrlShiftR, (int)KeyCode.R, (int)KeyCode.LeftShift,
             (int)KeyCode.LeftControl);
+    }
+
+    internal static void LateLoad()
+    {
+        if (Main.Settings.FormationGridInitialized)
+        {
+            FillDefinitionFromFormationGrid();
+        }
+        else
+        {
+            FillFormationGridFromDefinition();
+            Main.Settings.FormationGridInitialized = true;
+        }
     }
 
     internal static void HandleInput(GameLocationBaseScreen gameLocationBaseScreen, InputCommands.Id command)

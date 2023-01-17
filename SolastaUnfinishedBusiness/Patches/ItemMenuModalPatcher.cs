@@ -8,10 +8,12 @@ using SolastaUnfinishedBusiness.Api.Helpers;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
+[UsedImplicitly]
 public static class ItemMenuModalPatcher
 {
-    [HarmonyPatch(typeof(ItemMenuModal), "SetupFromItem")]
+    [HarmonyPatch(typeof(ItemMenuModal), nameof(ItemMenuModal.SetupFromItem))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
     public static class SetupFromItem_Patch
     {
         //PATCH: allows mark deity to work with MC heroes (Multiclass)
@@ -21,6 +23,7 @@ public static class ItemMenuModalPatcher
         }
 
         [NotNull]
+        [UsedImplicitly]
         public static IEnumerable<CodeInstruction> Transpiler([NotNull] IEnumerable<CodeInstruction> instructions)
         {
             var requiresDeityMethod = typeof(CharacterClassDefinition).GetMethod("get_RequiresDeity");

@@ -491,7 +491,7 @@ internal static class MulticlassContext
                     new CodeInstruction(OpCodes.Call, classFilteredFeatureUnlocksMethod));
 
             default:
-                throw new ArgumentOutOfRangeException();
+                throw new ArgumentOutOfRangeException(nameof(instructions));
         }
     }
 
@@ -521,14 +521,11 @@ internal static class MulticlassContext
         }
 
         // replace features per mc rules
-        foreach (var featureNameToReplace in FeaturesToReplace)
+        foreach (var featureNameToReplace in FeaturesToReplace
+                     .Where(featureNameToReplace => filteredFeatureUnlockByLevels
+                         .RemoveAll(x => x.FeatureDefinition == featureNameToReplace.Key) > 0))
         {
-            var count = filteredFeatureUnlockByLevels.RemoveAll(x => x.FeatureDefinition == featureNameToReplace.Key);
-
-            if (count > 0)
-            {
-                filteredFeatureUnlockByLevels.Add(new FeatureUnlockByLevel(featureNameToReplace.Value, 1));
-            }
+            filteredFeatureUnlockByLevels.Add(new FeatureUnlockByLevel(featureNameToReplace.Value, 1));
         }
 
         // exclude features per mc rules

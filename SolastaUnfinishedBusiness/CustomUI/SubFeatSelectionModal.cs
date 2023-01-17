@@ -243,7 +243,7 @@ internal class SubFeatSelectionModal : GuiGameScreen
         localInitialized = true;
     }
 
-    private void InitFeatItem(FeatDefinition featDefinition, FeatItem component)
+    private void InitFeatItem(BaseDefinition featDefinition, FeatItem component)
     {
         component.GuiFeatDefinition = ServiceRepository.GetService<IGuiWrapperService>()
             .GetGuiFeatDefinition(featDefinition.Name);

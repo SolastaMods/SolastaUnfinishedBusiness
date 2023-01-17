@@ -558,7 +558,7 @@ internal static class MulticlassGameUiContext
         //Properly tag and not allow to pick spells that are auto-prepared from various features
         LevelUpContext.EnumerateExtraSpells(group.extraSpellsMap, localHeroCharacter);
 
-        // this is required to support when other caster is wholelist
+        // this is required to support when other caster is whole list
         var keys = group.extraSpellsMap.Keys.Where(x => !allSpells.Contains(x));
 
         group.autoPreparedSpells.AddRange(keys);

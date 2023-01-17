@@ -35,7 +35,7 @@ internal class ReflectionTree<TRoot>
         SetRoot(root);
     }
 
-    internal TRoot Root => _root.Value;
+    // internal TRoot Root => _root.Value;
 
     internal Node RootNode => _root;
 
@@ -607,6 +607,8 @@ internal class ItemNode<TNode> : PassiveNode<TNode>
 internal abstract class ChildNode<TParent, TNode> : GenericNode<TNode>
 {
     protected readonly WeakReference<GenericNode<TParent>> ParentNode;
+
+    // ReSharper disable once InconsistentNaming
     protected bool _isException;
 
     protected ChildNode(GenericNode<TParent> parentNode, string name, NodeType nodeType) : base(nodeType)

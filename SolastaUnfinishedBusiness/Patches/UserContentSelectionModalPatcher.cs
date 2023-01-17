@@ -1,15 +1,19 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
+using JetBrains.Annotations;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
+[UsedImplicitly]
 public static class UserContentSelectionModalPatcher
 {
-    [HarmonyPatch(typeof(UserContentSelectionModal), "EnumerateContents")]
+    [HarmonyPatch(typeof(UserContentSelectionModal), nameof(UserContentSelectionModal.EnumerateContents))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
     public static class PostLoadJson_Patch
     {
         //BUGFIX: Allows DM to export loot packs to other campaigns (DMP)
+        [UsedImplicitly]
         public static bool Prefix(UserContentSelectionModal __instance)
         {
             __instance.contentsByType.Clear();

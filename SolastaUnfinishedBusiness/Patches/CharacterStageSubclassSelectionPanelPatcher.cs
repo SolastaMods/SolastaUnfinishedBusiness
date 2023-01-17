@@ -8,12 +8,16 @@ using UnityEngine.UI;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
+[UsedImplicitly]
 public static class CharacterStageSubclassSelectionPanelPatcher
 {
-    [HarmonyPatch(typeof(CharacterStageSubclassSelectionPanel), "OnBeginShow")]
+    [HarmonyPatch(typeof(CharacterStageSubclassSelectionPanel),
+        nameof(CharacterStageSubclassSelectionPanel.OnBeginShow))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
     public static class OnBeginShow_Patch
     {
+        [UsedImplicitly]
         public static void Prefix([NotNull] CharacterStageSubclassSelectionPanel __instance)
         {
             //PATCH: changes the subclasses layout to allow more offering
@@ -61,10 +65,13 @@ public static class CharacterStageSubclassSelectionPanelPatcher
         }
     }
 
-    [HarmonyPatch(typeof(CharacterStageSubclassSelectionPanel), "UpdateRelevance")]
+    [HarmonyPatch(typeof(CharacterStageSubclassSelectionPanel),
+        nameof(CharacterStageSubclassSelectionPanel.UpdateRelevance))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
     public static class UpdateRelevance_Patch
     {
+        [UsedImplicitly]
         public static void Postfix([NotNull] CharacterStageSubclassSelectionPanel __instance)
         {
             //PATCH: updates this panel relevance (MULTICLASS)

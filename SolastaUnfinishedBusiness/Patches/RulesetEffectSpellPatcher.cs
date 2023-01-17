@@ -12,13 +12,17 @@ using SolastaUnfinishedBusiness.Models;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
+[UsedImplicitly]
 public static class RulesetEffectSpellPatcher
 {
     //PATCH: support for `ICustomMagicEffectBasedOnCaster` and `IModifySpellEffect` 
-    [HarmonyPatch(typeof(RulesetEffectSpell), "EffectDescription", MethodType.Getter)]
+    [HarmonyPatch(typeof(RulesetEffectSpell), nameof(RulesetEffectSpell.EffectDescription), MethodType.Getter)]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
+    // ReSharper disable once InconsistentNaming
     public static class EffectDescription_Getter_Patch
     {
+        [UsedImplicitly]
         public static void Postfix(RulesetEffectSpell __instance, ref EffectDescription __result)
         {
             // allowing to pick and/or tweak spell effect depending on some caster properties
@@ -26,10 +30,13 @@ public static class RulesetEffectSpellPatcher
         }
     }
 
-    [HarmonyPatch(typeof(RulesetEffectSpell), "SaveDC", MethodType.Getter)]
+    [HarmonyPatch(typeof(RulesetEffectSpell), nameof(RulesetEffectSpell.SaveDC), MethodType.Getter)]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
+    // ReSharper disable once InconsistentNaming
     public static class SaveDC_Getter_Patch
     {
+        [UsedImplicitly]
         public static void Postfix(RulesetEffectSpell __instance, ref int __result)
         {
             //PATCH: allow devices have DC based on user or item summoner stats, instead of static value
@@ -59,10 +66,12 @@ public static class RulesetEffectSpellPatcher
         }
     }
 
-    [HarmonyPatch(typeof(RulesetEffectSpell), "MagicAttackBonus", MethodType.Getter)]
+    [HarmonyPatch(typeof(RulesetEffectSpell), nameof(RulesetEffectSpell.MagicAttackBonus), MethodType.Getter)]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
     public static class MagicAttackBonus_Getter_Patch
     {
+        [UsedImplicitly]
         public static void Postfix(RulesetEffectSpell __instance, ref int __result)
         {
             //PATCH: allow devices have magic attack bonus based on user or item summoner stats, instead of static value
@@ -97,10 +106,12 @@ public static class RulesetEffectSpellPatcher
         }
     }
 
-    [HarmonyPatch(typeof(RulesetEffectSpell), "MagicAttackTrends", MethodType.Getter)]
+    [HarmonyPatch(typeof(RulesetEffectSpell), nameof(RulesetEffectSpell.MagicAttackTrends), MethodType.Getter)]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
     public static class MagicAttackTrends_Getter_Patch
     {
+        [UsedImplicitly]
         public static void Postfix(RulesetEffectSpell __instance, ref List<RuleDefinitions.TrendInfo> __result)
         {
             //PATCH: allow devices have magic attack trends based on user or item summoner stats, instead of static value
@@ -136,10 +147,12 @@ public static class RulesetEffectSpellPatcher
     }
 
     //PATCH: Multiclass: enforces cantrips to be cast at character level 
-    [HarmonyPatch(typeof(RulesetEffectSpell), "GetClassLevel")]
+    [HarmonyPatch(typeof(RulesetEffectSpell), nameof(RulesetEffectSpell.GetClassLevel))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
     public static class GetClassLevel_Patch
     {
+        [UsedImplicitly]
         public static void Postfix(RulesetEffectSpell __instance, ref int __result, RulesetCharacter character)
         {
             if (character is not RulesetCharacterHero hero)
@@ -169,11 +182,13 @@ public static class RulesetEffectSpellPatcher
     }
 
     //PATCH: enforces cantrips to be cast at character level
-    [HarmonyPatch(typeof(RulesetEffectSpell), "ComputeTargetParameter")]
+    [HarmonyPatch(typeof(RulesetEffectSpell), nameof(RulesetEffectSpell.ComputeTargetParameter))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
     public static class ComputeTargetParameter_Patch
     {
         [NotNull]
+        [UsedImplicitly]
         public static IEnumerable<CodeInstruction> Transpiler([NotNull] IEnumerable<CodeInstruction> instructions)
         {
             //replaces repertoire's SpellCastingLevel with character level for cantrips

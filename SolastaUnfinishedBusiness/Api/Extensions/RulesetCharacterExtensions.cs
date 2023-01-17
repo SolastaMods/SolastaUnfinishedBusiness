@@ -212,7 +212,12 @@ internal static class RulesetCharacterExtensions
             return instance.GetClassSpellRepertoire();
         }
 
-        hero.ClassesAndSubclasses.TryGetValue(classDefinition, out var subclassDefinition);
+        CharacterSubclassDefinition subclassDefinition = null;
+
+        if (classDefinition != null)
+        {
+            hero.ClassesAndSubclasses.TryGetValue(classDefinition, out subclassDefinition);
+        }
 
         return instance.SpellRepertoires.FirstOrDefault(r =>
             (r.SpellCastingFeature.SpellCastingOrigin == FeatureDefinitionCastSpell.CastingOrigin.Class &&

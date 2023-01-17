@@ -1,5 +1,8 @@
 // manually generated on 12/31/2022
 using TA.AI;
+// ReSharper disable IdentifierTypo
+// ReSharper disable InconsistentNaming
+// ReSharper disable StringLiteralTypo
 namespace SolastaUnfinishedBusiness.Api;
 internal static partial class DatabaseHelper
 {
@@ -66,6 +69,7 @@ internal static partial class DatabaseHelper
     }
     internal static class CharacterSizeDefinitions
     {
+        internal static CharacterSizeDefinition Large { get; } = GetDefinition<CharacterSizeDefinition>("Large");
         internal static CharacterSizeDefinition Medium { get; } = GetDefinition<CharacterSizeDefinition>("Medium");
         internal static CharacterSizeDefinition Small { get; } = GetDefinition<CharacterSizeDefinition>("Small");
     }
@@ -696,6 +700,7 @@ internal static partial class DatabaseHelper
     }
     internal static class FormationDefinitions
     {
+        internal static FormationDefinition Column2 = GetDefinition<FormationDefinition>("Column2");
         internal static FormationDefinition SingleCreature { get; } = GetDefinition<FormationDefinition>("SingleCreature");
         internal static FormationDefinition Squad4 { get; } = GetDefinition<FormationDefinition>("Squad4");
     }

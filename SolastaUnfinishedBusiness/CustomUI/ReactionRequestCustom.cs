@@ -14,7 +14,7 @@ public class ReactionRequestCustom : ReactionRequest, IReactionRequestWithResour
 
     public ICustomReactionResource Resource { get; set; }
 
-    internal static string Name(string type)
+    private static string Name(string type)
     {
         return $"CustomReaction{type}";
     }

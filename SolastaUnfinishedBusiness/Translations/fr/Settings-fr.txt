@@ -104,6 +104,9 @@ ModUi/&FeatsFightingStylesInvocations=Exploits, styles et invocations
 ModUi/&FightingStyles=<color=#F0DAA0>Styles de combat</color>
 ModUi/&FixEldritchBlastRange=Changez la plage <color=#D89555>Eldritch Blast</color> à 24 <i><color=#F0DAA0>[au lieu de 16]</color></i>
 ModUi/&FixSorcererTwinnedLogic=Correction de l'utilisation de la métamagie jumelée <color=#D89555>Sorcier</color> <i><color=#F0DAA0>[doit être incapable de cibler plus d'une créature au niveau actuel du sort]</color></i>
+ModUi/&Formation=<color=#F0DAA0>Formation :</color>
+ModUi/&FormationError=<color=#C04040E0>Vous ne pouvez pas changer votre formation pendant une partie multijoueur, mais vous pouvez le définir au préalable...</color>
+ModUi/&FormationHelp=. Cliquez sur 2 boutons pour échanger leur contenu\n. <b><color=#1E81B0>@</color></b> représente les positions de héros et elles sont attribuées en respectant l'ordre du groupe
 ModUi/&FullyControlConjurations=Contrôlez entièrement les conjurations <i><color=#F0DAA0>[animaux, élémentaux, etc]</color></i>
 ModUi/&Gameplay=Jouabilité
 ModUi/&GameUi=Interface utilisateur du jeu
@@ -129,6 +132,7 @@ ModUi/&ItemsCraftingMerchants=Objets, artisanat et marchands
 ModUi/&ItemsHelp1=<color=#C04040E0>Ouvrez l'écran d'inspection des personnages pour ajouter des objets aux héros...</color>
 ModUi/&ItemsHelp2=<b>Appuyez sur + pour ajouter des éléments au conteneur terrestre</b>
 ModUi/&MakeAllMagicStaveArcaneFoci=Faire de tous les bâtons magiques des foyers arcaniques <i><color=#F0DAA0>[sauf le <color=#D89555>Bâton de guérison</color> qui est universel]</color></i>
+ModUi/&MakeLargeWildshapeFormsMedium=Rendre tous les grands formulaires sauvages de taille moyenne
 ModUi/&MarkInvisibleTeleportersOnLevelMap=<i>+ Marquez également l'emplacement des téléporteurs invisibles sur la carte de niveau après la découverte</i>
 ModUi/&MaxAllowedClasses=<color=white>Classes maximales autorisées</color>
 ModUi/&Merchants=<color=#F0DAA0>Commerçants:</color>

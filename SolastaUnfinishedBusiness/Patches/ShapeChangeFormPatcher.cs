@@ -11,10 +11,12 @@ using SolastaUnfinishedBusiness.CustomInterfaces;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
+[UsedImplicitly]
 public static class ShapeChangeFormPatcher
 {
-    [HarmonyPatch(typeof(ShapeSelectionPanel), "Show")]
+    [HarmonyPatch(typeof(ShapeSelectionPanel), nameof(ShapeSelectionPanel.Show))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
     public static class Show_Patch
     {
         private static List<ShapeOptionDescription> ShapeOptions(
@@ -34,6 +36,7 @@ public static class ShapeChangeFormPatcher
             return shapeOptions.Count == 0 ? shapeChangeForm.ShapeOptions : shapeOptions;
         }
 
+        [UsedImplicitly]
         public static IEnumerable<CodeInstruction> Transpiler([NotNull] IEnumerable<CodeInstruction> instructions)
         {
             //PATCH: Support for IChangeShapeOptions

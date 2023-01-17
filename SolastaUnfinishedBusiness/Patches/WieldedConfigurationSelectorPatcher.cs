@@ -11,12 +11,15 @@ using UnityEngine;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
+[UsedImplicitly]
 public static class WieldedConfigurationSelectorPatcher
 {
-    [HarmonyPatch(typeof(WieldedConfigurationSelector), "Bind")]
+    [HarmonyPatch(typeof(WieldedConfigurationSelector), nameof(WieldedConfigurationSelector.Bind))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
     public static class Bind_Patch
     {
+        [UsedImplicitly]
         public static IEnumerable<CodeInstruction> Transpiler([NotNull] IEnumerable<CodeInstruction> instructions)
         {
             //PATCH: do not show warning sign over bows for Zen Archer monks
@@ -37,6 +40,7 @@ public static class WieldedConfigurationSelectorPatcher
             return WayOfTheDistantHand.IsMonkWeapon(guiCharacter.RulesetCharacter, description);
         }
 
+        [UsedImplicitly]
         public static void Postfix(WieldedConfigurationSelector __instance,
             GuiCharacter guiCharacter,
             RulesetWieldedConfiguration configuration)

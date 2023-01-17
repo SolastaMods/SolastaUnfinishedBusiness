@@ -297,45 +297,45 @@ internal static class RecipeHelper
 
 internal sealed class MerchantFilter
 {
-    internal static readonly MerchantFilter GenericMelee = new() { IsMeleeWeapon = true };
-    internal static readonly MerchantFilter MagicMelee = new() { IsMagicalMeleeWeapon = true };
-    internal static readonly MerchantFilter PrimedMelee = new() { IsPrimedMeleeWeapon = true };
-    internal static readonly MerchantFilter GenericRanged = new() { IsRangeWeapon = true };
-    internal static readonly MerchantFilter MagicRanged = new() { IsMagicalRangeWeapon = true };
-    internal static readonly MerchantFilter PrimedRanged = new() { IsPrimedRangeWeapon = true };
-    internal static readonly MerchantFilter MagicEquipment = new() { IsMagicalEquipment = true };
-    internal static readonly MerchantFilter CraftingManual = new() { IsDocument = true };
-    internal bool? IsAmmunition = null;
-    internal bool? IsArmor = null;
-    internal bool? IsDocument;
+    internal static readonly MerchantFilter GenericMelee = new() { isMeleeWeapon = true };
+    internal static readonly MerchantFilter MagicMelee = new() { isMagicalMeleeWeapon = true };
+    internal static readonly MerchantFilter PrimedMelee = new() { isPrimedMeleeWeapon = true };
+    internal static readonly MerchantFilter GenericRanged = new() { isRangeWeapon = true };
+    internal static readonly MerchantFilter MagicRanged = new() { isMagicalRangeWeapon = true };
+    internal static readonly MerchantFilter PrimedRanged = new() { isPrimedRangeWeapon = true };
+    internal static readonly MerchantFilter MagicEquipment = new() { isMagicalEquipment = true };
+    internal static readonly MerchantFilter CraftingManual = new() { isDocument = true };
+    private readonly bool? isAmmunition = null;
+    private readonly bool? isArmor = null;
+    private bool? isDocument;
 
-    internal bool? IsMagicalAmmunition = null;
-    internal bool? IsMagicalArmor = null;
-    internal bool? IsMagicalEquipment;
-    internal bool? IsMagicalMeleeWeapon;
-    internal bool? IsMagicalRangeWeapon;
-    internal bool? IsMeleeWeapon;
+    private readonly bool? isMagicalAmmunition = null;
+    private readonly bool? isMagicalArmor = null;
+    private bool? isMagicalEquipment;
+    private bool? isMagicalMeleeWeapon;
+    private bool? isMagicalRangeWeapon;
+    private bool? isMeleeWeapon;
 
-    internal bool? IsPrimedArmor = null;
-    internal bool? IsPrimedMeleeWeapon;
-    internal bool? IsPrimedRangeWeapon;
-    internal bool? IsRangeWeapon;
+    private readonly bool? isPrimedArmor = null;
+    private bool? isPrimedMeleeWeapon;
+    private bool? isPrimedRangeWeapon;
+    private bool? isRangeWeapon;
 
     internal bool Matches(MerchantTypeContext.MerchantType merchantType)
     {
-        return (IsAmmunition == null || IsAmmunition == merchantType.IsAmmunition) &&
-               (IsArmor == null || IsArmor == merchantType.IsArmor) &&
-               (IsDocument == null || IsDocument == merchantType.IsDocument) &&
-               (IsMagicalAmmunition == null || IsMagicalAmmunition == merchantType.IsMagicalAmmunition) &&
-               (IsMagicalArmor == null || IsMagicalArmor == merchantType.IsMagicalArmor) &&
-               (IsMagicalMeleeWeapon == null || IsMagicalMeleeWeapon == merchantType.IsMagicalMeleeWeapon) &&
-               (IsMagicalRangeWeapon == null || IsMagicalRangeWeapon == merchantType.IsMagicalRangeWeapon) &&
-               (IsMagicalEquipment == null || IsMagicalEquipment == merchantType.IsMagicalEquipment) &&
-               (IsMeleeWeapon == null || IsMeleeWeapon == merchantType.IsMeleeWeapon) &&
-               (IsPrimedArmor == null || IsPrimedArmor == merchantType.IsPrimedArmor) &&
-               (IsPrimedMeleeWeapon == null || IsPrimedMeleeWeapon == merchantType.IsPrimedMeleeWeapon) &&
-               (IsPrimedRangeWeapon == null || IsPrimedRangeWeapon == merchantType.IsPrimedRangeWeapon) &&
-               (IsRangeWeapon == null || IsRangeWeapon == merchantType.IsRangeWeapon);
+        return (isAmmunition == null || isAmmunition == merchantType.IsAmmunition) &&
+               (isArmor == null || isArmor == merchantType.IsArmor) &&
+               (isDocument == null || isDocument == merchantType.IsDocument) &&
+               (isMagicalAmmunition == null || isMagicalAmmunition == merchantType.IsMagicalAmmunition) &&
+               (isMagicalArmor == null || isMagicalArmor == merchantType.IsMagicalArmor) &&
+               (isMagicalMeleeWeapon == null || isMagicalMeleeWeapon == merchantType.IsMagicalMeleeWeapon) &&
+               (isMagicalRangeWeapon == null || isMagicalRangeWeapon == merchantType.IsMagicalRangeWeapon) &&
+               (isMagicalEquipment == null || isMagicalEquipment == merchantType.IsMagicalEquipment) &&
+               (isMeleeWeapon == null || isMeleeWeapon == merchantType.IsMeleeWeapon) &&
+               (isPrimedArmor == null || isPrimedArmor == merchantType.IsPrimedArmor) &&
+               (isPrimedMeleeWeapon == null || isPrimedMeleeWeapon == merchantType.IsPrimedMeleeWeapon) &&
+               (isPrimedRangeWeapon == null || isPrimedRangeWeapon == merchantType.IsPrimedRangeWeapon) &&
+               (isRangeWeapon == null || isRangeWeapon == merchantType.IsRangeWeapon);
     }
 }
 

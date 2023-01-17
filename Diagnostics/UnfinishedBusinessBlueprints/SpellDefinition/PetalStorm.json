@@ -18,7 +18,7 @@
     "halfDamageOnAMiss": false,
     "hitAffinitiesByTargetTag": [],
     "targetType": "Cube",
-    "itemSelectionType": "Equiped",
+    "itemSelectionType": "None",
     "targetParameter": 3,
     "targetParameter2": 2,
     "emissiveBorder": "None",
@@ -55,7 +55,7 @@
     "createdByCharacter": true,
     "difficultyClassComputation": "SpellCastingFeature",
     "savingThrowDifficultyAbility": "Wisdom",
-    "fixedSavingThrowDifficultyClass": 15,
+    "fixedSavingThrowDifficultyClass": 10,
     "savingThrowAffinitiesBySense": [],
     "savingThrowAffinitiesByFamily": [],
     "advantageForEnemies": false,
@@ -380,9 +380,9 @@
     "description": "Spell/&PetalStormDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "a7b5207d24d6b58459f3085a25e8a79b",
-      "m_SubObjectName": "WindWall",
-      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+      "m_AssetGUID": "001116ee-6c04-5b2f-871f-cfa90ac631e0",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",

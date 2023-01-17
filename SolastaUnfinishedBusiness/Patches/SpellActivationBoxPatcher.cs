@@ -9,10 +9,12 @@ using SolastaUnfinishedBusiness.Models;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
+[UsedImplicitly]
 public static class SpellActivationBoxPatcher
 {
-    [HarmonyPatch(typeof(SpellActivationBox), "BindSpell")]
+    [HarmonyPatch(typeof(SpellActivationBox), nameof(SpellActivationBox.BindSpell))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
     public static class BindSpell_Patch
     {
         private static bool UniqueLevelSlots(
@@ -38,6 +40,7 @@ public static class SpellActivationBoxPatcher
                    sharedSpellLevel <= warlockSpellLevel;
         }
 
+        [UsedImplicitly]
         public static IEnumerable<CodeInstruction> Transpiler([NotNull] IEnumerable<CodeInstruction> instructions)
         {
             var uniqueLevelSlotsMethod = typeof(FeatureDefinitionCastSpell).GetMethod("get_UniqueLevelSlots");

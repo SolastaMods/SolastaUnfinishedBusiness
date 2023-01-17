@@ -8,9 +8,11 @@ using SolastaUnfinishedBusiness.Api.Helpers;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
+[UsedImplicitly]
 public static class CharacterFilteringGroupPatcher
 {
-    [HarmonyPatch(typeof(CharacterFilteringGroup), "Compare")]
+    [HarmonyPatch(typeof(CharacterFilteringGroup), nameof(CharacterFilteringGroup.Compare))]
+    [UsedImplicitly]
     public static class Compare_Patch
     {
         //PATCH: correctly offers on adventures with min/max caps on character level (MULTICLASS)
@@ -20,6 +22,7 @@ public static class CharacterFilteringGroupPatcher
         }
 
         [NotNull]
+        [UsedImplicitly]
         public static IEnumerable<CodeInstruction> Transpiler([NotNull] IEnumerable<CodeInstruction> instructions)
         {
             var myLevelMethod = new Func<IEnumerable<int>, int>(MyLevels).Method;

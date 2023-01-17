@@ -35,6 +35,7 @@ internal static partial class UI
         var controlID = GUIUtility.GetControlID(SButtonHint, FocusType.Passive, rect);
         var result = false;
 
+        // ReSharper disable once SwitchStatementMissingSomeEnumCasesNoDefault
         switch (Event.current.GetTypeForControl(controlID))
         {
             case EventType.MouseDown:

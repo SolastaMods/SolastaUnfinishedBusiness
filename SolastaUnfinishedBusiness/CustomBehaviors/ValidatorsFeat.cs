@@ -13,11 +13,13 @@ internal static class ValidatorsFeat
     // validation routines for FeatDefinitionWithPrerequisites
     //
 
+    // ReSharper disable once InconsistentNaming
     private static readonly Func<FeatDefinition, RulesetCharacterHero, (bool result, string output)> _isDragonborn;
 
     internal static readonly Func<FeatDefinition, RulesetCharacterHero, (bool result, string output)> IsDragonborn =
         _isDragonborn ??= ValidateIsRace(Dragonborn.FormatTitle(), Dragonborn);
 
+    // ReSharper disable once InconsistentNaming
     private static readonly Func<FeatDefinition, RulesetCharacterHero, (bool result, string output)> _isElfOfHalfElf;
 
     internal static readonly Func<FeatDefinition, RulesetCharacterHero, (bool result, string output)> IsElfOfHalfElf =

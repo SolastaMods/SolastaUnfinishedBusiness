@@ -61,6 +61,7 @@ internal class ItemPropertyDescriptionBuilder
 
     private void Validate()
     {
+        // ReSharper disable once SwitchStatementHandlesSomeKnownEnumValuesWithDefault
         switch (property.Type)
         {
             case ItemPropertyDescription.PropertyType.Feature when property.FeatureDefinition == null:

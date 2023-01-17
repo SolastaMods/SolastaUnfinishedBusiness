@@ -1,5 +1,6 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
+using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.Extensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.CustomBehaviors;
@@ -10,6 +11,7 @@ using UnityEngine.UI;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
+[UsedImplicitly]
 public static class InvocationActivationBoxPatcher
 {
     private const string TableName = "SlotStatusTable";
@@ -34,12 +36,14 @@ public static class InvocationActivationBoxPatcher
         }
     }
 
-    [HarmonyPatch(typeof(InvocationActivationBox), "Bind")]
+    [HarmonyPatch(typeof(InvocationActivationBox), nameof(InvocationActivationBox.Bind))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
     public static class Bind_Patch
     {
         private static GameObject _slotPrefab;
 
+        [UsedImplicitly]
         public static void Postfix(
             InvocationActivationBox __instance,
             RulesetInvocation invocation,
@@ -253,10 +257,12 @@ public static class InvocationActivationBoxPatcher
         }
     }
 
-    [HarmonyPatch(typeof(InvocationActivationBox), "Unbind")]
+    [HarmonyPatch(typeof(InvocationActivationBox), nameof(InvocationActivationBox.Unbind))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
     public static class Unbind_Patch
     {
+        [UsedImplicitly]
         public static void Prefix(InvocationActivationBox __instance)
         {
             //PATCH: clean up custom widgets added for power invocations

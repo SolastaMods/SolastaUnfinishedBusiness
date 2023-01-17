@@ -161,6 +161,7 @@ internal static class LevelUpContext
         required =
             !classesAndLevels.ContainsKey(Wizard) && levelUpData.SelectedClass == Wizard;
 
+        // ReSharper disable once InvertIf
         if (required)
         {
             levelUpData.GrantedItems.Add(Spellbook);

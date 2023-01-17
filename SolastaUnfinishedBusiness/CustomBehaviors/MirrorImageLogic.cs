@@ -48,7 +48,7 @@ public class MirrorImageLogic
             .AddToDB();
     }
 
-    private static List<RulesetCondition> GetConditions(RulesetCharacter character)
+    private static List<RulesetCondition> GetConditions(RulesetActor character)
     {
         var conditions = new List<RulesetCondition>();
 
@@ -64,6 +64,7 @@ public class MirrorImageLogic
             .ToList();
     }
 
+    // ReSharper disable once InconsistentNaming
     internal static int GetAC(
         RulesetAttribute attribute,
         RulesetActor target,
@@ -78,7 +79,7 @@ public class MirrorImageLogic
         return 10 + AttributeDefinitions.ComputeAbilityScoreModifier(dexterity);
     }
 
-    private static bool TargetsMirrorImage(List<RuleDefinitions.TrendInfo> toHitTrends)
+    private static bool TargetsMirrorImage(IEnumerable<RuleDefinitions.TrendInfo> toHitTrends)
     {
         return toHitTrends.Any(t => t.sourceName == TargetMirrorImageTag);
     }
@@ -160,7 +161,7 @@ public class MirrorImageLogic
         RulesetCharacter attacker,
         RulesetAttackMode attackMode,
         RulesetActor target,
-        List<RuleDefinitions.TrendInfo> toHitTrends,
+        IEnumerable<RuleDefinitions.TrendInfo> toHitTrends,
         ref RuleDefinitions.RollOutcome outcome,
         ref int successDelta,
         bool testMode)

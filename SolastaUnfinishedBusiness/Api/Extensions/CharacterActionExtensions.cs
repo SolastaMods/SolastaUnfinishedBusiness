@@ -4,6 +4,7 @@ namespace SolastaUnfinishedBusiness.Api.Extensions;
 
 internal static class CharacterActionExtensions
 {
+    // ReSharper disable once InconsistentNaming
     internal static int GetSaveDC(this CharacterAction action)
     {
         var actionParams = action.actionParams;

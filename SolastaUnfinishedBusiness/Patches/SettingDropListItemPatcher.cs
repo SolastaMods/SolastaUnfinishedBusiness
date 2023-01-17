@@ -1,14 +1,17 @@
 ﻿using System;
 using HarmonyLib;
+using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Models;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
+[UsedImplicitly]
 public static class SettingDropListItemPatcher
 {
-    [HarmonyPatch(typeof(SettingDropListItem), "Bind")]
+    [HarmonyPatch(typeof(SettingDropListItem), nameof(SettingDropListItem.Bind))]
     internal static class Bind_Patch
     {
+        [UsedImplicitly]
         public static void Postfix(SettingDropListItem __instance)
         {
             //PATCH: add additional items to language selection drop down for each unofficial detected language

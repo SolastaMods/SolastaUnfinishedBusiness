@@ -1,15 +1,19 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
+using JetBrains.Annotations;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
+[UsedImplicitly]
 public static class CursorPatcher
 {
-    [HarmonyPatch(typeof(Cursor), "OnClickSecondaryPointer")]
+    [HarmonyPatch(typeof(Cursor), nameof(Cursor.OnClickSecondaryPointer))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
     public static class OnClickSecondaryPointer_Patch
     {
-        internal static void Postfix(Cursor __instance)
+        [UsedImplicitly]
+        public static void Postfix(Cursor __instance)
         {
             //PATCH: Enable cancel action on right mouse click
             if (!Main.Settings.EnableCancelEditOnRightMouseClick)
@@ -36,6 +40,7 @@ public static class CursorPatcher
                 return;
             }
 
+            // ReSharper disable once InvocationIsSkipped
             Main.Log($"Cancelling {screen.GetType().Name} cursor");
             screen.HandleInput(InputCommands.Id.Cancel);
         }

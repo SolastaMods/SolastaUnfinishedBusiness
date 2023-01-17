@@ -104,6 +104,9 @@ ModUi/&FeatsFightingStylesInvocations=Feats, Styles & Invocations
 ModUi/&FightingStyles=<color=#F0DAA0>Fighting Styles</color>
 ModUi/&FixEldritchBlastRange=Change <color=#D89555>Eldritch Blast</color> range to 24 <i><color=#F0DAA0>[instead of 16]</color></i>
 ModUi/&FixSorcererTwinnedLogic=Fix <color=#D89555>Sorcerer</color> twinned metamagic use <i><color=#F0DAA0>[must be incapable of targeting more than one creature at spell's current level]</color></i>
+ModUi/&Formation=<color=#F0DAA0>Formation:</color>
+ModUi/&FormationError=<color=#C04040E0>You cannot change your formation during a multiplayer game but you can set that beforehand...</color>
+ModUi/&FormationHelp=. Click any 2 buttons to swap their contents\n. <b><color=#1E81B0>@</color></b> represents hero positions and they are assigned respecting party order
 ModUi/&FullyControlConjurations=Fully control conjurations <i><color=#F0DAA0>[animals, elementals, etc]</color></i>
 ModUi/&Gameplay=Gameplay
 ModUi/&GameUi=Game UI
@@ -129,6 +132,7 @@ ModUi/&ItemsCraftingMerchants=Items, Crafting & Merchants
 ModUi/&ItemsHelp1=<color=#C04040E0>Open the character inspection screen to add items to heroes...</color>
 ModUi/&ItemsHelp2=<b>Press + to add items to the ground container</b>
 ModUi/&MakeAllMagicStaveArcaneFoci=Make all magic staves arcane foci <i><color=#F0DAA0>[except for <color=#D89555>Staff of Healing</color> which is Universal]</color></i>
+ModUi/&MakeLargeWildshapeFormsMedium=Make all large wildshape forms medium in size
 ModUi/&MarkInvisibleTeleportersOnLevelMap=<i>+ Also mark the location of invisible teleporters on level map after discovery</i>
 ModUi/&MaxAllowedClasses=<color=white>Max allowed classes</color>
 ModUi/&Merchants=<color=#F0DAA0>Merchants:</color>

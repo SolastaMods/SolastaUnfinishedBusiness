@@ -24,12 +24,12 @@ internal class ReflectionTreeView
     private string searchText = "";
     private int visitCount;
 
-    internal ReflectionTreeView() { }
+    // internal ReflectionTreeView() { }
 
-    internal ReflectionTreeView(object root)
-    {
-        SetRoot(root);
-    }
+    // internal ReflectionTreeView(object root)
+    // {
+    //     SetRoot(root);
+    // }
 
     private static float DepthDelta => 30f;
 
@@ -213,6 +213,7 @@ internal class ReflectionTreeView
                                         DrawNodePrivate(node.Node, depth, ref toggleState);
                                     }
 
+                                    // ReSharper disable once InvocationIsSkipped
                                     if (node.ToggleState != toggleState) { Main.Log(node.ToString()); }
 
                                     node.ToggleState = toggleState;

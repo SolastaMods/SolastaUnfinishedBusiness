@@ -57,11 +57,14 @@ internal static partial class SpellBuilders
     [NotNull]
     internal static SpellDefinition BuildPetalStorm()
     {
-        const string ProxyPetalStormName = "ProxyPetalStorm";
+        const string NAME = "PetalStorm";
+        const string ProxyPetalStormName = $"Proxy{NAME}";
+
+        var sprite = Sprites.GetSprite(NAME, Resources.PetalStorm, 128);
 
         _ = EffectProxyDefinitionBuilder
             .Create(EffectProxyDefinitions.ProxyInsectPlague, ProxyPetalStormName)
-            .SetGuiPresentation("PetalStorm", Category.Spell, WindWall)
+            .SetGuiPresentation(NAME, Category.Spell, sprite)
             .SetCanMove()
             .SetIsEmptyPresentation(false)
             .SetCanMoveOnCharacters()
@@ -72,30 +75,28 @@ internal static partial class SpellBuilders
             .AddToDB();
 
         var spell = SpellDefinitionBuilder
-            .Create(InsectPlague, "PetalStorm")
-            .SetGuiPresentation(Category.Spell, WindWall)
+            .Create(InsectPlague, NAME)
+            .SetGuiPresentation(Category.Spell, sprite)
             .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolConjuration)
             .SetMaterialComponent(MaterialComponentType.Mundane)
             .SetVocalSpellSameType(VocalSpellSemeType.Attack)
             .SetSpellLevel(2)
+            .SetEffectDescription(EffectDescriptionBuilder
+                .Create(InsectPlague.EffectDescription)
+                .SetTargetingData(Side.All, RangeType.Distance, 12, TargetType.Cube, 3)
+                .SetDurationData(DurationType.Minute, 1)
+                .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel, 1, additionalDicePerIncrement: 2)
+                .SetRecurrentEffect(RecurrentEffect.OnTurnStart | RecurrentEffect.OnEnter)
+                .SetSavingThrowData(
+                    false,
+                    AttributeDefinitions.Strength,
+                    false,
+                    EffectDifficultyClassComputation.SpellCastingFeature)
+                .Build())
             .AddToDB();
 
         //TODO: move this into a builder
         var effectDescription = spell.EffectDescription;
-
-        effectDescription.rangeType = RangeType.Distance;
-        effectDescription.rangeParameter = 12;
-        effectDescription.durationType = DurationType.Minute;
-        effectDescription.durationParameter = 1;
-        effectDescription.targetType = TargetType.Cube;
-        effectDescription.targetParameter = 3;
-        effectDescription.hasSavingThrow = true;
-        effectDescription.savingThrowAbility = AttributeDefinitions.Strength;
-        effectDescription.recurrentEffect = (RecurrentEffect)20;
-
-        effectDescription.EffectAdvancement.additionalDicePerIncrement = 2;
-        effectDescription.EffectAdvancement.incrementMultiplier = 1;
-        effectDescription.EffectAdvancement.effectIncrementMethod = EffectIncrementMethod.PerAdditionalSlotLevel;
 
         effectDescription.EffectForms[0].hasSavingThrow = true;
         effectDescription.EffectForms[0].savingThrowAffinity = EffectSavingThrowType.Negates;
@@ -103,7 +104,6 @@ internal static partial class SpellBuilders
         effectDescription.EffectForms[0].DamageForm.dieType = DieType.D4;
         effectDescription.EffectForms[0].DamageForm.damageType = DamageTypeSlashing;
         effectDescription.EffectForms[0].levelMultiplier = 1;
-
         effectDescription.EffectForms[2].SummonForm.effectProxyDefinitionName = ProxyPetalStormName;
 
         return spell;
@@ -128,6 +128,18 @@ internal static partial class SpellBuilders
             .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolAbjuration)
             .SetVocalSpellSameType(VocalSpellSemeType.Defense)
             .SetSpellLevel(2)
+            .SetEffectDescription(EffectDescriptionBuilder
+                .Create(SpikeGrowth.EffectDescription)
+                .SetTargetingData(Side.All, RangeType.Distance, 1, TargetType.Sphere, 0)
+                .SetDurationData(DurationType.Minute, 10)
+                .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel, 1, additionalDicePerIncrement: 1)
+                .SetRecurrentEffect(RecurrentEffect.OnEnter)
+                .SetSavingThrowData(
+                    false,
+                    AttributeDefinitions.Wisdom,
+                    false,
+                    EffectDifficultyClassComputation.SpellCastingFeature)
+                .Build())
             .SetRequiresConcentration(false)
             .SetRitualCasting(ActivationTime.Minute10)
             .AddToDB();
@@ -135,24 +147,7 @@ internal static partial class SpellBuilders
         //TODO: move this into a builder
         var effectDescription = spell.EffectDescription;
 
-        effectDescription.difficultyClassComputation = EffectDifficultyClassComputation.SpellCastingFeature;
-        effectDescription.durationParameter = 10;
-        effectDescription.durationType = DurationType.Minute;
-        effectDescription.hasSavingThrow = true;
-        effectDescription.rangeParameter = 1;
-        effectDescription.rangeType = RangeType.Distance;
-        effectDescription.recurrentEffect = RecurrentEffect.OnEnter;
-        effectDescription.savingThrowAbility = AttributeDefinitions.Wisdom;
-        effectDescription.fixedSavingThrowDifficultyClass = 12;
-        effectDescription.targetParameter = 0;
-        effectDescription.targetType = TargetType.Sphere;
-
-        effectDescription.EffectAdvancement.additionalDicePerIncrement = 1;
-        effectDescription.EffectAdvancement.incrementMultiplier = 1;
-        effectDescription.EffectAdvancement.effectIncrementMethod = EffectIncrementMethod.PerAdditionalSlotLevel;
-
         effectDescription.EffectForms[0].SummonForm.effectProxyDefinitionName = ProxyPetalStormName;
-
         effectDescription.EffectForms[1].hasSavingThrow = true;
         effectDescription.EffectForms[1].savingThrowAffinity = EffectSavingThrowType.HalfDamage;
         effectDescription.EffectForms[1].DamageForm.diceNumber = 4;

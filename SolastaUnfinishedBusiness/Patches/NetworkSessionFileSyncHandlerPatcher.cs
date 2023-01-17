@@ -8,10 +8,12 @@ namespace SolastaUnfinishedBusiness.Patches;
 [UsedImplicitly]
 public static class NetworkSessionFileSyncHandlerPatcher
 {
-    [HarmonyPatch(typeof(NetworkSessionFileSyncHandler), "ForceCharacterPaths")]
+    [HarmonyPatch(typeof(NetworkSessionFileSyncHandler), nameof(NetworkSessionFileSyncHandler.ForceCharacterPaths))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
     public static class ForceCharacterPaths_Patch
     {
+        [UsedImplicitly]
         public static bool Prefix(Session session)
         {
             //PATCH: allows up to 6 players to join the game if there are enough heroes available (PARTYSIZE)

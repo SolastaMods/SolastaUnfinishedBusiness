@@ -11,7 +11,9 @@ internal static class TraverseHelper
 
     private static TV GetField<T, TV>([NotNull] this T instance, [NotNull] string fieldName) where T : class
     {
+        // ReSharper disable once InvocationIsSkipped
         PreConditions.ArgumentIsNotNull(instance, nameof(instance));
+        // ReSharper disable once InvocationIsSkipped
         PreConditions.IsNotNullOrWhiteSpace(fieldName, nameof(fieldName));
 
         var t = Traverse.Create(instance);

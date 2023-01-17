@@ -1,6 +1,5 @@
 CHANGES:
 
-- added an Interface > Game UI setting for a Druid wildshape attack toggle [useful with a mix of melee and ranged ones]
-- changed Earth Tremor spell to be on par with tabletop
-- improved Wild Shape and Flurry of Blows integration
-- updated Monk Initiate feat incorrect +1d4 damage description
+- added an Interface > Game UI setting to change the party formation
+- added a Gameplay > Rules setting to make all large wildshape forms medium size
+- added a custom icon to Petal Storm spell

@@ -10,25 +10,30 @@ using UnityEngine;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
+[UsedImplicitly]
 public static class WorldLocationPatcher
 {
     //PATCH: changes how the location / rooms are instantiated (DMP)
-    [HarmonyPatch(typeof(WorldLocation), "BuildFromUserLocation")]
+    [HarmonyPatch(typeof(WorldLocation), nameof(WorldLocation.BuildFromUserLocation))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
     public static class BuildFromUserLocation_Patch
     {
+        [UsedImplicitly]
         public static void Prefix(WorldLocation __instance, UserLocation userLocation)
         {
             DmProRendererContext.GetTemplateVegetationMaskArea(__instance);
             DmProRendererContext.SetupLocationTerrain(__instance, userLocation);
         }
 
+        [UsedImplicitly]
         public static void Postfix(WorldLocation __instance)
         {
             DmProRendererContext.FixFlatRoomReflectionProbe(__instance);
         }
 
         [NotNull]
+        [UsedImplicitly]
         public static IEnumerable<CodeInstruction> Transpiler([NotNull] IEnumerable<CodeInstruction> instructions)
         {
             var roomTransformPos = Main.IsDebugBuild ? 8 : 4;

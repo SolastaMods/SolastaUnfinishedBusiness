@@ -112,6 +112,7 @@ internal static class CharacterContext
             }
         }
 
+        // ReSharper disable once InvertIf
         if (Main.Settings.DisableSenseSuperiorDarkVisionFromAllRaces)
         {
             foreach (var featureUnlocks in DatabaseRepository.GetDatabase<CharacterRaceDefinition>()

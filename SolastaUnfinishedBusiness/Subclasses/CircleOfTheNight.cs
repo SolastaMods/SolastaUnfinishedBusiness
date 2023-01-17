@@ -29,7 +29,7 @@ internal sealed class CircleOfTheNight : AbstractSubclass
             ShapeBuilder(2, WildshapeDirewolf),
             ShapeBuilder(2, WildShapeBrownBear),
             ShapeBuilder(4, WildshapeDeepSpider),
-            ShapeBuilder(4, HBWildShapeDireBear()),
+            ShapeBuilder(4, HbWildShapeDireBear()),
             ShapeBuilder(6, WildShapeApe),
             // flying
             ShapeBuilder(8, WildshapeTiger_Drake),
@@ -41,10 +41,10 @@ internal sealed class CircleOfTheNight : AbstractSubclass
             // However elementals in this game are nerfed, since they don't have special attacks, such as Whirlwind
             //TODO: Create a new feature for elemental transformation.
             //TODO: Add special attacks to elemental forms (whirlwind, Whelm, Earth Glide maybe)
-            ShapeBuilder(10, HBWildShapeAirElemental()),
-            ShapeBuilder(10, HBWildShapeFireElemental()),
-            ShapeBuilder(10, HBWildShapeEarthElemental()),
-            ShapeBuilder(10, HBWildShapeWaterElemental())
+            ShapeBuilder(10, HbWildShapeAirElemental()),
+            ShapeBuilder(10, HbWildShapeFireElemental()),
+            ShapeBuilder(10, HbWildShapeEarthElemental()),
+            ShapeBuilder(10, HbWildShapeWaterElemental())
         };
 
         // 2nd level
@@ -173,7 +173,7 @@ internal sealed class CircleOfTheNight : AbstractSubclass
     /**
      * based on MM Cave Bear
      * */
-    private static MonsterDefinition HBWildShapeDireBear()
+    private static MonsterDefinition HbWildShapeDireBear()
     {
         // attacks
         // Bite
@@ -210,7 +210,7 @@ internal sealed class CircleOfTheNight : AbstractSubclass
         return shape;
     }
 
-    private static MonsterDefinition HBWildShapeAirElemental()
+    private static MonsterDefinition HbWildShapeAirElemental()
     {
         var shape = MonsterDefinitionBuilder.Create(Air_Elemental, "WildShapeAirElemental")
             // STR, DEX, CON, INT, WIS, CHA
@@ -224,7 +224,7 @@ internal sealed class CircleOfTheNight : AbstractSubclass
         return shape;
     }
 
-    private static MonsterDefinition HBWildShapeFireElemental()
+    private static MonsterDefinition HbWildShapeFireElemental()
     {
         var shape = MonsterDefinitionBuilder
             .Create(Fire_Elemental, "WildShapeFireElemental")
@@ -234,7 +234,7 @@ internal sealed class CircleOfTheNight : AbstractSubclass
         return shape;
     }
 
-    private static MonsterDefinition HBWildShapeEarthElemental()
+    private static MonsterDefinition HbWildShapeEarthElemental()
     {
         var shape = MonsterDefinitionBuilder
             .Create(Earth_Elemental, "WildShapeEarthElemental")
@@ -244,7 +244,7 @@ internal sealed class CircleOfTheNight : AbstractSubclass
         return shape;
     }
 
-    private static MonsterDefinition HBWildShapeWaterElemental()
+    private static MonsterDefinition HbWildShapeWaterElemental()
     {
         // TODO Create Whelm attack (recharge 5/6)
         // Whelm(Recharge 4–6).Each creature in the elemental space must make a DC 15 Strength saving throw.

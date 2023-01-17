@@ -3,17 +3,21 @@ using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using HarmonyLib;
 using JetBrains.Annotations;
-using static RuleDefinitions;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
+[UsedImplicitly]
 public static class RuleDefinitionsPatcher
 {
-    [HarmonyPatch(typeof(RuleDefinitions), "ComputeAdvantage")]
+    [HarmonyPatch(typeof(RuleDefinitions), nameof(RuleDefinitions.ComputeAdvantage))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
     public static class ComputeAdvantage_Patch
     {
-        public static void Postfix([NotNull] List<TrendInfo> trends, ref AdvantageType __result)
+        [UsedImplicitly]
+        public static void Postfix(
+            [NotNull] List<RuleDefinitions.TrendInfo> trends,
+            ref RuleDefinitions.AdvantageType __result)
         {
             //PATCH: Apply SRD setting `UseOfficialAdvantageDisadvantageRules`
             if (!Main.Settings.UseOfficialAdvantageDisadvantageRules)
@@ -26,15 +30,15 @@ public static class RuleDefinitionsPatcher
 
             if (!(hasAdvantage ^ hasDisadvantage))
             {
-                __result = AdvantageType.None;
+                __result = RuleDefinitions.AdvantageType.None;
             }
             else if (hasAdvantage)
             {
-                __result = AdvantageType.Advantage;
+                __result = RuleDefinitions.AdvantageType.Advantage;
             }
             else
             {
-                __result = AdvantageType.Disadvantage;
+                __result = RuleDefinitions.AdvantageType.Disadvantage;
             }
         }
     }

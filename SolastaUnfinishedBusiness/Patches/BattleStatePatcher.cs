@@ -1,13 +1,16 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
+using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Models;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
-[HarmonyPatch(typeof(BattleState_TurnInitialize), "Begin")]
+[HarmonyPatch(typeof(BattleState_TurnInitialize), nameof(BattleState_TurnInitialize.Begin))]
 [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+[UsedImplicitly]
 public static class BattleState_TurnInitialize_Begin
 {
+    [UsedImplicitly]
     public static void Prefix(BattleState_TurnInitialize __instance)
     {
         //PATCH: EnableHeroesControlledByComputer and EnableEnemiesControlledByPlayer
@@ -15,10 +18,12 @@ public static class BattleState_TurnInitialize_Begin
     }
 }
 
-[HarmonyPatch(typeof(BattleState_TurnEnd), "Begin")]
+[HarmonyPatch(typeof(BattleState_TurnEnd), nameof(BattleState_TurnEnd.Begin))]
 [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+[UsedImplicitly]
 public static class BattleState_TurnEnd_Begin
 {
+    [UsedImplicitly]
     public static void Prefix(BattleState_TurnEnd __instance)
     {
         //PATCH: EnableHeroesControlledByComputer and EnableEnemiesControlledByPlayer
@@ -26,10 +31,12 @@ public static class BattleState_TurnEnd_Begin
     }
 }
 
-[HarmonyPatch(typeof(BattleState_Victory), "Begin")]
+[HarmonyPatch(typeof(BattleState_Victory), nameof(BattleState_Victory.Begin))]
 [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+[UsedImplicitly]
 public static class BattleState_Victory_Begin
 {
+    [UsedImplicitly]
     public static void Prefix(BattleState_Victory __instance)
     {
         //PATCH: EnableHeroesControlledByComputer and EnableEnemiesControlledByPlayer
@@ -38,11 +45,11 @@ public static class BattleState_Victory_Begin
 }
 
 #if false
-[HarmonyPatch(typeof(BattleState_Victory), "Update")]
+[HarmonyPatch(typeof(BattleState_Victory), nameof(BattleState_Victory.Update))]
 [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-public static class BattleState_Victory_Update
+[UsedImplicitly] public static class BattleState_Victory_Update
 {
-    public static void Postfix()
+    [UsedImplicitly] public static void Postfix()
     {
         //PATCH: AutoPauseOnVictory
         if (!Main.Settings.AutoPauseOnVictory)

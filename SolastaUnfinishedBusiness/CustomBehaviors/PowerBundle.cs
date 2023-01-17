@@ -276,7 +276,7 @@ internal static class PowerBundle
         return $"{definition.GetType()}:{definition.Name}";
     }
 
-    private static EffectDescription GetCachedEffect(RulesetCharacter caster, BaseDefinition definition)
+    private static EffectDescription GetCachedEffect(RulesetEntity caster, BaseDefinition definition)
     {
         if (!SpellEffectCache.TryGetValue(caster.Guid, out var effects))
         {
@@ -286,7 +286,7 @@ internal static class PowerBundle
         return !effects.TryGetValue(Key(definition), out var effect) ? null : effect;
     }
 
-    private static void CacheEffect(RulesetCharacter caster, BaseDefinition definition, EffectDescription effect)
+    private static void CacheEffect(RulesetEntity caster, BaseDefinition definition, EffectDescription effect)
     {
         Dictionary<string, EffectDescription> effects;
 

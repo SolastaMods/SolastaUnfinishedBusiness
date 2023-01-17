@@ -7,12 +7,15 @@ using SolastaUnfinishedBusiness.CustomInterfaces;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
+[UsedImplicitly]
 public static class CharacterActionAttackPatcher
 {
-    [HarmonyPatch(typeof(CharacterActionAttack), "ExecuteImpl")]
+    [HarmonyPatch(typeof(CharacterActionAttack), nameof(CharacterActionAttack.ExecuteImpl))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
     public static class ExecuteImpl_Patch
     {
+        [UsedImplicitly]
         public static IEnumerator Postfix(
             [NotNull] IEnumerator values,
             [NotNull] CharacterActionAttack __instance)
@@ -75,13 +78,15 @@ public static class CharacterActionAttackPatcher
 
             var defenderFeatures = defender.RulesetCharacter?.GetSubFeaturesByType<IReactToAttackOnMeFinished>();
 
-            if (defenderFeatures != null)
+            if (defenderFeatures == null)
             {
-                foreach (var feature in defenderFeatures)
-                {
-                    yield return feature.HandleReactToAttackOnMeFinished(
-                        actingCharacter, defender, outcome, actionParams, mode, modifier);
-                }
+                yield break;
+            }
+
+            foreach (var feature in defenderFeatures)
+            {
+                yield return feature.HandleReactToAttackOnMeFinished(
+                    actingCharacter, defender, outcome, actionParams, mode, modifier);
             }
         }
     }

@@ -11,11 +11,14 @@ using SolastaUnfinishedBusiness.CustomInterfaces;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
+[UsedImplicitly]
 public static class CharacterActionMagicEffectPatcher
 {
-    [HarmonyPatch(typeof(CharacterActionMagicEffect), "ForceApplyConditionOnSelf")]
+    [HarmonyPatch(typeof(CharacterActionMagicEffect), nameof(CharacterActionMagicEffect.ForceApplyConditionOnSelf))]
+    [UsedImplicitly]
     public static class ForceApplyConditionOnSelf_Patch
     {
+        [UsedImplicitly]
         public static bool Prefix([NotNull] CharacterActionMagicEffect __instance)
         {
             //PATCH: compute effect level of forced on self conditions
@@ -70,9 +73,11 @@ public static class CharacterActionMagicEffectPatcher
         }
     }
 
-    [HarmonyPatch(typeof(CharacterActionMagicEffect), "ExecuteImpl")]
+    [HarmonyPatch(typeof(CharacterActionMagicEffect), nameof(CharacterActionMagicEffect.ExecuteImpl))]
+    [UsedImplicitly]
     public static class ExecuteImpl_Patch
     {
+        [UsedImplicitly]
         public static void Prefix([NotNull] CharacterActionMagicEffect __instance)
         {
             var definition = __instance.GetBaseDefinition();
@@ -84,6 +89,7 @@ public static class CharacterActionMagicEffectPatcher
             }
         }
 
+        [UsedImplicitly]
         public static IEnumerator Postfix(
             [NotNull] IEnumerator values,
             CharacterActionMagicEffect __instance)
@@ -162,7 +168,7 @@ public static class CharacterActionMagicEffectPatcher
         }
     }
 
-    [HarmonyPatch(typeof(CharacterActionMagicEffect), "ApplyForms")]
+    [HarmonyPatch(typeof(CharacterActionMagicEffect), nameof(CharacterActionMagicEffect.ApplyForms))]
     [HarmonyPatch(new[]
     {
         typeof(GameLocationCharacter), // caster
@@ -206,11 +212,13 @@ public static class CharacterActionMagicEffectPatcher
         ArgumentType.Normal, // sourceType,
         ArgumentType.Ref, //ref damageReceive
         ArgumentType.Out, //out damageAbsorbedByTemporaryHitPoints
-        ArgumentType.Out, //out terminateEffectOnTarget
+        ArgumentType.Out //out terminateEffectOnTarget
     })]
+    [UsedImplicitly]
     public static class ApplyForms_Patch
     {
         [NotNull]
+        [UsedImplicitly]
         public static IEnumerable<CodeInstruction> Transpiler([NotNull] IEnumerable<CodeInstruction> instructions)
         {
             //PATCH: support for `PushesFromEffectPoint`

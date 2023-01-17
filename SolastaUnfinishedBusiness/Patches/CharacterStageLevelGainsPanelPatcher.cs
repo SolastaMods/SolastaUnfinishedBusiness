@@ -10,10 +10,12 @@ using SolastaUnfinishedBusiness.Models;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
+[UsedImplicitly]
 public static class CharacterStageLevelGainPanelPatcher
 {
-    [HarmonyPatch(typeof(CharacterStageLevelGainsPanel), "EnterStage")]
+    [HarmonyPatch(typeof(CharacterStageLevelGainsPanel), nameof(CharacterStageLevelGainsPanel.EnterStage))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
     public static class EnterStage_Patch
     {
         // ReSharper disable once UnusedMember.Global
@@ -39,6 +41,7 @@ public static class CharacterStageLevelGainPanelPatcher
         }
 
         [NotNull]
+        [UsedImplicitly]
         public static IEnumerable<CodeInstruction> Transpiler([NotNull] IEnumerable<CodeInstruction> instructions)
         {
             var getLastAssignedClassAndLevelMethod =
@@ -52,8 +55,10 @@ public static class CharacterStageLevelGainPanelPatcher
         }
     }
 
-    [HarmonyPatch(typeof(CharacterStageLevelGainsPanel), "RefreshSpellcastingFeatures")]
+    [HarmonyPatch(typeof(CharacterStageLevelGainsPanel),
+        nameof(CharacterStageLevelGainsPanel.RefreshSpellcastingFeatures))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
     public static class RefreshSpellcastingFeatures_Patch
     {
         //PATCH: only displays spell casting features from the current class (MULTICLASS)
@@ -71,6 +76,7 @@ public static class CharacterStageLevelGainPanelPatcher
         }
 
         [NotNull]
+        [UsedImplicitly]
         public static IEnumerable<CodeInstruction> Transpiler([NotNull] IEnumerable<CodeInstruction> instructions)
         {
             var spellRepertoiresMethod = typeof(RulesetCharacter).GetMethod("get_SpellRepertoires");

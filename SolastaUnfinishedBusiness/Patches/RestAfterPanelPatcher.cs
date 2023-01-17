@@ -5,12 +5,15 @@ using UnityEngine.UI;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
+[UsedImplicitly]
 public static class RestAfterPanelPatcher
 {
-    [HarmonyPatch(typeof(RestAfterPanel), "OnBeginShow")]
+    [HarmonyPatch(typeof(RestAfterPanel), nameof(RestAfterPanel.OnBeginShow))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
     public static class OnBeginShow_Patch
     {
+        [UsedImplicitly]
         public static void Postfix([NotNull] RestSubPanel __instance)
         {
             //PATCH: Allow More Real State On Rest Panel

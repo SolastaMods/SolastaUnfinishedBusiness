@@ -2,9 +2,11 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using HarmonyLib;
+using JetBrains.Annotations;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
+[UsedImplicitly]
 public static class FeatureDefinitionAutoPreparedSpellsPatcher
 {
     private static string FormatSpellLevel(int level)
@@ -12,10 +14,13 @@ public static class FeatureDefinitionAutoPreparedSpellsPatcher
         return Gui.Colorize(level == 0 ? "0" : Gui.ToRoman(level), Gui.ColorHighEmphasis);
     }
 
-    [HarmonyPatch(typeof(FeatureDefinitionAutoPreparedSpells), "FormatDescription")]
+    [HarmonyPatch(typeof(FeatureDefinitionAutoPreparedSpells),
+        nameof(FeatureDefinitionAutoPreparedSpells.FormatDescription))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
     public static class FormatDescription_Patch
     {
+        [UsedImplicitly]
         public static bool Prefix(FeatureDefinitionAutoPreparedSpells __instance, out string __result)
         {
             //PATCH: formats spell list into list with spell levels, instead of 1 line of all spells like default does

@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- ReSharper disable ResxNotResolved -->
 <root>
   <!-- 
     Microsoft ResX Schema 
@@ -471,7 +472,7 @@
     <value>../Resources/Items/ItemGemLightning.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="ItemThunderGauntlet" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>../Resources/Items/ItemThundergauntlet.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <value>../Resources/Items/ItemThunderGauntlet.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="PowerDefensiveField" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/Powers/PowerDefensiveField.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -631,5 +632,8 @@
   </data>
   <data name="RepeatingShot" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Infusions\RepeatingShot.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PetalStorm" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Spells\PetalStorm.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

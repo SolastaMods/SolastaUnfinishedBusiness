@@ -91,23 +91,11 @@ internal static class ExtraAttacksOnActionPanel
             actions.Clear();
         }
 
-        foreach (var attackMode in panel.GuiCharacter.RulesetCharacter.AttackModes)
+        foreach (var attackMode in panel.GuiCharacter.RulesetCharacter.AttackModes
+                     .Where(attackMode => attackMode.ActionType == actionType && !actions.Any(guiCharacterAction =>
+                         guiCharacterAction.ActionId == actionId && guiCharacterAction.ForcedAttackMode == attackMode)))
         {
-            if (attackMode.ActionType != actionType)
-            {
-                continue;
-            }
-
-            var exists = actions.Any(guiCharacterAction =>
-                guiCharacterAction.ActionId == actionId && guiCharacterAction.ForcedAttackMode == attackMode);
-
-            if (exists)
-            {
-                continue;
-            }
-
-            var guiCharacterAction = new GuiCharacterAction(actionId) { ForcedAttackMode = attackMode };
-            actions.Add(guiCharacterAction);
+            actions.Add(new GuiCharacterAction(actionId) { ForcedAttackMode = attackMode });
         }
 
         return actions.Count;

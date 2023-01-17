@@ -1,16 +1,20 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
+using JetBrains.Annotations;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
+[UsedImplicitly]
 public static class RulesetInventoryPatcher
 {
-    [HarmonyPatch(typeof(RulesetInventory), "SwitchToWieldItemsOfConfiguration")]
+    [HarmonyPatch(typeof(RulesetInventory), nameof(RulesetInventory.SwitchToWieldItemsOfConfiguration))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
     public static class SwitchToWieldItemsOfConfiguration_Patch
     {
         private const int LightSource = 2;
 
+        [UsedImplicitly]
         public static void Prefix(RulesetInventory __instance, ref int rank)
         {
             if (rank < 100)

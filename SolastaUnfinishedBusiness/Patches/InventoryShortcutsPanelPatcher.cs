@@ -1,18 +1,22 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
+using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.Extensions;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using UnityEngine;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
+[UsedImplicitly]
 public static class InventoryShortcutsPanelPatcher
 {
-    [HarmonyPatch(typeof(InventoryShortcutsPanel), "OnConfigurationSwitched")]
+    [HarmonyPatch(typeof(InventoryShortcutsPanel), nameof(InventoryShortcutsPanel.OnConfigurationSwitched))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
     public static class OnConfigurationSwitched_Patch
     {
-        public static void Prefix(InventoryShortcutsPanel __instance, ref int rank)
+        [UsedImplicitly]
+        public static void Prefix(ref int rank)
         {
             var isCtrlPressed = Input.GetKey(KeyCode.LeftControl) || Input.GetKey(KeyCode.RightControl);
 
@@ -22,6 +26,7 @@ public static class InventoryShortcutsPanelPatcher
             }
         }
 
+        [UsedImplicitly]
         public static void Postfix(InventoryShortcutsPanel __instance, int rank)
         {
             var gameLocationCharacter = __instance.GuiCharacter.gameLocationCharacter;

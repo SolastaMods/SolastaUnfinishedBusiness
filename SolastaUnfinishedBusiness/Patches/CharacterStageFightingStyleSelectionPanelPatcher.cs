@@ -9,12 +9,16 @@ using UnityEngine.UI;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
+[UsedImplicitly]
 public static class CharacterStageFightingStyleSelectionPanelPatcher
 {
-    [HarmonyPatch(typeof(CharacterStageFightingStyleSelectionPanel), "OnBeginShow")]
+    [HarmonyPatch(typeof(CharacterStageFightingStyleSelectionPanel),
+        nameof(CharacterStageFightingStyleSelectionPanel.OnBeginShow))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
     public static class OnBeginShow_Patch
     {
+        [UsedImplicitly]
         public static void Prefix([NotNull] CharacterStageFightingStyleSelectionPanel __instance)
         {
             //PATCH: changes the fighting style layout to allow more offerings
@@ -58,10 +62,13 @@ public static class CharacterStageFightingStyleSelectionPanelPatcher
         }
     }
 
-    [HarmonyPatch(typeof(CharacterStageFightingStyleSelectionPanel), "TryGetFightingStyleChoiceFeature")]
+    [HarmonyPatch(typeof(CharacterStageFightingStyleSelectionPanel),
+        nameof(CharacterStageFightingStyleSelectionPanel.TryGetFightingStyleChoiceFeature))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
     public static class TryGetFightingStyleChoiceFeature_Patch
     {
+        [UsedImplicitly]
         public static void Postfix(
             [NotNull] CharacterStageFightingStyleSelectionPanel __instance,
             ref bool __result,

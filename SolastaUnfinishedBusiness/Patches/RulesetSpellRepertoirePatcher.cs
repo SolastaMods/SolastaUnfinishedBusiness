@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using HarmonyLib;
+using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.Extensions;
 using SolastaUnfinishedBusiness.Models;
@@ -10,6 +11,7 @@ using UnityEngine;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
+[UsedImplicitly]
 public static class RulesetSpellRepertoirePatcher
 {
     private static bool FormatTitle(RulesetSpellRepertoire __instance, ref string __result)
@@ -27,10 +29,12 @@ public static class RulesetSpellRepertoirePatcher
     }
 
     //PATCH: handles all different scenarios of spell slots consumption (casts, smites, point buys)
-    [HarmonyPatch(typeof(RulesetSpellRepertoire), "SpendSpellSlot")]
+    [HarmonyPatch(typeof(RulesetSpellRepertoire), nameof(RulesetSpellRepertoire.SpendSpellSlot))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
     public static class SpendSpellSlot_Patch
     {
+        [UsedImplicitly]
         public static bool Prefix(RulesetSpellRepertoire __instance, int slotLevel)
         {
             if (__instance.SpellCastingFeature.SpellCastingOrigin is FeatureDefinitionCastSpell.CastingOrigin.Race
@@ -154,10 +158,13 @@ public static class RulesetSpellRepertoirePatcher
     }
 
     //PATCH: handles all different scenarios to determine max spell level
-    [HarmonyPatch(typeof(RulesetSpellRepertoire), "MaxSpellLevelOfSpellCastingLevel", MethodType.Getter)]
+    [HarmonyPatch(typeof(RulesetSpellRepertoire), nameof(RulesetSpellRepertoire.MaxSpellLevelOfSpellCastingLevel),
+        MethodType.Getter)]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
     public static class MaxSpellLevelOfSpellCastingLevel_Getter_Patch
     {
+        [UsedImplicitly]
         public static void Postfix(RulesetSpellRepertoire __instance, ref int __result)
         {
             if (__instance.SpellCastingFeature == null)
@@ -191,10 +198,12 @@ public static class RulesetSpellRepertoirePatcher
     }
 
     //PATCH: handles Arcane Recovery granted spells on short rests
-    [HarmonyPatch(typeof(RulesetSpellRepertoire), "RecoverMissingSlots")]
+    [HarmonyPatch(typeof(RulesetSpellRepertoire), nameof(RulesetSpellRepertoire.RecoverMissingSlots))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
     public static class RecoverMissingSlots_Patch
     {
+        [UsedImplicitly]
         public static bool Prefix(RulesetSpellRepertoire __instance, Dictionary<int, int> recoveredSlots)
         {
             if (__instance.SpellCastingFeature.SpellCastingOrigin is FeatureDefinitionCastSpell.CastingOrigin.Race
@@ -237,10 +246,12 @@ public static class RulesetSpellRepertoirePatcher
     }
 
     //PATCH: only offers upcast Warlock pact at their correct slot level
-    [HarmonyPatch(typeof(RulesetSpellRepertoire), "CanUpcastSpell")]
+    [HarmonyPatch(typeof(RulesetSpellRepertoire), nameof(RulesetSpellRepertoire.CanUpcastSpell))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
     public static class CanUpcastSpell_Patch
     {
+        [UsedImplicitly]
         public static void Postfix(
             RulesetSpellRepertoire __instance,
             List<int> availableSlotLevels)
@@ -273,10 +284,12 @@ public static class RulesetSpellRepertoirePatcher
         }
     }
 
-    [HarmonyPatch(typeof(RulesetSpellRepertoire), "FormatHeader")]
+    [HarmonyPatch(typeof(RulesetSpellRepertoire), nameof(RulesetSpellRepertoire.FormatHeader))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
     public static class FormatHeader_Patch
     {
+        [UsedImplicitly]
         public static bool Prefix(RulesetSpellRepertoire __instance, ref string __result)
         {
             //PATCH: prevent null pointer crashes if all origin sources are null
@@ -284,10 +297,12 @@ public static class RulesetSpellRepertoirePatcher
         }
     }
 
-    [HarmonyPatch(typeof(RulesetSpellRepertoire), "FormatShortHeader")]
+    [HarmonyPatch(typeof(RulesetSpellRepertoire), nameof(RulesetSpellRepertoire.FormatShortHeader))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
     public static class FormatShortHeader_Patch
     {
+        [UsedImplicitly]
         public static bool Prefix(RulesetSpellRepertoire __instance, ref string __result)
         {
             //PATCH: prevent null pointer crashes if all origin sources are null
@@ -295,10 +310,12 @@ public static class RulesetSpellRepertoirePatcher
         }
     }
 
-    [HarmonyPatch(typeof(RulesetSpellRepertoire), "GetLowestAvailableSlotLevel")]
+    [HarmonyPatch(typeof(RulesetSpellRepertoire), nameof(RulesetSpellRepertoire.GetLowestAvailableSlotLevel))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
     public static class GetLowestAvailableSlotLevel_Patch
     {
+        [UsedImplicitly]
         public static bool Prefix(RulesetSpellRepertoire __instance, ref int __result)
         {
             //PATCH: ensures MC Warlock will cast spells using a correct slot level (MULTICLASS)

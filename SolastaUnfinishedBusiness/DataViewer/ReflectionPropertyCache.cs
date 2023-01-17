@@ -2,6 +2,7 @@
 using System.Linq;
 using System.Reflection;
 using System.Reflection.Emit;
+using JetBrains.Annotations;
 
 namespace SolastaUnfinishedBusiness.DataViewer;
 
@@ -68,9 +69,11 @@ internal static partial class ReflectionCache
         }
 
         // for static property
+        [UsedImplicitly]
         internal abstract TProperty Get();
 
         // for static property
+        [UsedImplicitly]
         internal abstract void Set(TProperty value);
 
         protected Delegate CreateGetter(Type delType, MethodInfo getter, bool isInstByRef)

@@ -15,12 +15,15 @@ using SolastaUnfinishedBusiness.Models;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
+[UsedImplicitly]
 public static class CharacterActionPanelPatcher
 {
-    [HarmonyPatch(typeof(CharacterActionPanel), "ReadyActionEngaged")]
+    [HarmonyPatch(typeof(CharacterActionPanel), nameof(CharacterActionPanel.ReadyActionEngaged))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
     public static class ReadyActionEngaged_Patch
     {
+        [UsedImplicitly]
         public static void Prefix(CharacterActionPanel __instance, ActionDefinitions.ReadyActionType readyActionType)
         {
             //PATCH: used for `force preferred cantrip` option
@@ -28,10 +31,12 @@ public static class CharacterActionPanelPatcher
         }
     }
 
-    [HarmonyPatch(typeof(CharacterActionPanel), "ComputeMultipleGuiCharacterActions")]
+    [HarmonyPatch(typeof(CharacterActionPanel), nameof(CharacterActionPanel.ComputeMultipleGuiCharacterActions))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
     public static class ComputeMultipleGuiCharacterActions_Patch
     {
+        [UsedImplicitly]
         public static void Postfix(CharacterActionPanel __instance, ref int __result, ActionDefinitions.Id actionId)
         {
             //PATCH: Support for ExtraAttacksOnActionPanel
@@ -42,8 +47,10 @@ public static class CharacterActionPanelPatcher
 
     [HarmonyPatch(typeof(CharacterActionPanel), nameof(CharacterActionPanel.RefreshActions))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
     public static class RefreshActions_Patch
     {
+        [UsedImplicitly]
         public static IEnumerable<CodeInstruction> Transpiler([NotNull] IEnumerable<CodeInstruction> instructions)
         {
             //PATCH: hide power button on action panel if no valid powers to use or see
@@ -117,11 +124,13 @@ public static class CharacterActionPanelPatcher
         }
     }
 
-    [HarmonyPatch(typeof(CharacterActionPanel), "OnActivateAction")]
+    [HarmonyPatch(typeof(CharacterActionPanel), nameof(CharacterActionPanel.OnActivateAction))]
     [HarmonyPatch(new[] { typeof(ActionDefinitions.Id), typeof(GuiCharacterAction) })]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
     public static class OnActivateAction_Patch
     {
+        [UsedImplicitly]
         public static IEnumerable<CodeInstruction> Transpiler([NotNull] IEnumerable<CodeInstruction> instructions)
         {
             //PATCH: Support for ExtraAttacksOnActionPanel
@@ -142,10 +151,12 @@ public static class CharacterActionPanelPatcher
         }
     }
 
-    [HarmonyPatch(typeof(CharacterActionPanel), "InvocationCastEngaged")]
+    [HarmonyPatch(typeof(CharacterActionPanel), nameof(CharacterActionPanel.InvocationCastEngaged))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
     public static class InvocationCastEngaged_Patch
     {
+        [UsedImplicitly]
         public static bool Prefix(CharacterActionPanel __instance, RulesetInvocation invocation, int subspellIndex)
         {
             var definition = invocation.InvocationDefinition;
@@ -178,11 +189,13 @@ public static class CharacterActionPanelPatcher
 
             if (definition.GrantedSpell != null)
             {
-                if (__instance.actionId != ActionDefinitions.Id.CastInvocation)
+                if (__instance.actionId == ActionDefinitions.Id.CastInvocation)
                 {
-                    __instance.actionId = definition.GrantedSpell.BattleActionId;
-                    __instance.actionParams.actionDefinition = actionDefinitions[__instance.actionId];
+                    return true;
                 }
+
+                __instance.actionId = definition.GrantedSpell.BattleActionId;
+                __instance.actionParams.actionDefinition = actionDefinitions[__instance.actionId];
 
                 return true;
             }
@@ -193,10 +206,12 @@ public static class CharacterActionPanelPatcher
         }
     }
 
-    [HarmonyPatch(typeof(CharacterActionPanel), "SelectInvocation")]
+    [HarmonyPatch(typeof(CharacterActionPanel), nameof(CharacterActionPanel.SelectInvocation))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
     public static class SelectInvocation_Patch
     {
+        [UsedImplicitly]
         public static IEnumerable<CodeInstruction> Transpiler([NotNull] IEnumerable<CodeInstruction> instructions)
         {
             //PATCH: Support for bonus action invocations
@@ -216,10 +231,12 @@ public static class CharacterActionPanelPatcher
         }
     }
 
-    [HarmonyPatch(typeof(CharacterActionPanel), "SpellcastEngaged")]
+    [HarmonyPatch(typeof(CharacterActionPanel), nameof(CharacterActionPanel.SpellcastEngaged))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
     public static class SpellcastEngaged_Patch
     {
+        [UsedImplicitly]
         public static void Prefix(
             CharacterActionPanel __instance,
             // RulesetSpellRepertoire spellRepertoire,

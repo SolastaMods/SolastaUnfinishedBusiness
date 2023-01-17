@@ -36,7 +36,7 @@ internal sealed class RestrictReactionAttackMode : IRestrictReactionAttackMode
     }
 #endif
 
-    internal static bool CanCharacterReactWithPower(GameLocationBattleManager _, RulesetUsablePower usablePower)
+    internal static bool CanCharacterReactWithPower(RulesetUsablePower usablePower)
     {
         var (attacker, defender, attackMode) = ReactionContext;
 

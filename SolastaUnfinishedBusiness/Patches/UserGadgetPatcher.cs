@@ -11,10 +11,12 @@ using UnityEngine;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
+[UsedImplicitly]
 public static class UserGadgetPatcher
 {
-    [HarmonyPatch(typeof(UserGadget), "PostLoadJson")]
+    [HarmonyPatch(typeof(UserGadget), nameof(UserGadget.PostLoadJson))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
     public static class PostLoadJson_Patch
     {
         //PATCH: Ensures game doesn't remove `invalid` monsters created with Dungeon Maker Pro (DMP)
@@ -24,6 +26,7 @@ public static class UserGadgetPatcher
         }
 
         [NotNull]
+        [UsedImplicitly]
         public static IEnumerable<CodeInstruction> Transpiler([NotNull] IEnumerable<CodeInstruction> instructions)
         {
             var dungeonMakerPresenceMethod = typeof(MonsterDefinition).GetMethod("get_DungeonMakerPresence");
@@ -36,8 +39,9 @@ public static class UserGadgetPatcher
     }
 
     //PATCH: Expands exits and exits multiple sense grids if party greater than 4 (PARTYSIZE)
-    [HarmonyPatch(typeof(UserGadget), "ApplySpecialDimensions")]
+    [HarmonyPatch(typeof(UserGadget), nameof(UserGadget.ApplySpecialDimensions))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
     public static class ApplySpecialDimensions_Patch
     {
         private static readonly GadgetBlueprint Exit = DatabaseHelper.GetDefinition<GadgetBlueprint>("Exit");
@@ -45,6 +49,7 @@ public static class UserGadgetPatcher
         private static readonly GadgetBlueprint ExitMultiple =
             DatabaseHelper.GetDefinition<GadgetBlueprint>("ExitMultiple");
 
+        [UsedImplicitly]
         public static void Postfix(UserGadget __instance, WorldGadget worldGadget)
         {
             var gadgetBlueprint = __instance.gadgetBlueprint;

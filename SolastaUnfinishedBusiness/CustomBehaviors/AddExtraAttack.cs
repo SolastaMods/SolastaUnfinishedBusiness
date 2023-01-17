@@ -11,7 +11,7 @@ namespace SolastaUnfinishedBusiness.CustomBehaviors;
 internal enum AttackModeOrder
 {
     Start,
-    End,
+    End
 }
 
 internal abstract class AddExtraAttackBase : IAddExtraAttack
@@ -98,7 +98,7 @@ internal abstract class AddExtraAttackBase : IAddExtraAttack
                         attackModes.Add(attackMode);
                         break;
                     default:
-                        throw new ArgumentOutOfRangeException();
+                        throw new ArgumentOutOfRangeException(nameof(hero));
                 }
             }
         }
@@ -169,13 +169,13 @@ internal abstract class AddExtraAttackBase : IAddExtraAttack
 
 internal sealed class AddExtraUnarmedAttack : AddExtraAttackBase
 {
-    internal AddExtraUnarmedAttack(
-        ActionDefinitions.ActionType actionType,
-        bool clearSameType,
-        params IsCharacterValidHandler[] validators) : base(actionType, clearSameType, validators)
-    {
-        // Empty
-    }
+    // internal AddExtraUnarmedAttack(
+    //     ActionDefinitions.ActionType actionType,
+    //     bool clearSameType,
+    //     params IsCharacterValidHandler[] validators) : base(actionType, clearSameType, validators)
+    // {
+    //     // Empty
+    // }
 
     internal AddExtraUnarmedAttack(
         ActionDefinitions.ActionType actionType,
