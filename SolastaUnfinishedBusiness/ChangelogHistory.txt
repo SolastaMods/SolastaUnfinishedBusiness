@@ -2,6 +2,7 @@
 
 1.4.33.7:
 
+- added an Interface > Game UI setting to change the party formation
 - added a Gameplay > Rules setting to make all large wildshape forms medium size
 - added a custom icon to Petal Storm spell
 
