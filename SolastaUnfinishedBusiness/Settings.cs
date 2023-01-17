@@ -238,11 +238,35 @@ public class Settings : UnityModManager.ModSettings
     public bool AddMonkKiPointsToggle { get; set; }
     public bool AddPaladinSmiteToggle { get; set; }
     public bool AddWildshapeSwapAttackToggle { get; set; }
-    public bool FormationGridInitialized { get; set; }
-    public int[][] FormationGrid =
+    public int FormationGridSelectedSet { get; set; } = -1;
+
+    public int[][][] FormationGridSets =
     {
-        new int[GameUiContext.GridSize], new int[GameUiContext.GridSize], new int[GameUiContext.GridSize],
-        new int[GameUiContext.GridSize], new int[GameUiContext.GridSize]
+        new[]
+        {
+            new int[GameUiContext.GridSize], new int[GameUiContext.GridSize], new int[GameUiContext.GridSize],
+            new int[GameUiContext.GridSize], new int[GameUiContext.GridSize]
+        },
+        new[]
+        {
+            new int[GameUiContext.GridSize], new int[GameUiContext.GridSize], new int[GameUiContext.GridSize],
+            new int[GameUiContext.GridSize], new int[GameUiContext.GridSize]
+        },
+        new[]
+        {
+            new int[GameUiContext.GridSize], new int[GameUiContext.GridSize], new int[GameUiContext.GridSize],
+            new int[GameUiContext.GridSize], new int[GameUiContext.GridSize]
+        },
+        new[]
+        {
+            new int[GameUiContext.GridSize], new int[GameUiContext.GridSize], new int[GameUiContext.GridSize],
+            new int[GameUiContext.GridSize], new int[GameUiContext.GridSize]
+        },
+        new[]
+        {
+            new int[GameUiContext.GridSize], new int[GameUiContext.GridSize], new int[GameUiContext.GridSize],
+            new int[GameUiContext.GridSize], new int[GameUiContext.GridSize]
+        }
     };
 
     // Input

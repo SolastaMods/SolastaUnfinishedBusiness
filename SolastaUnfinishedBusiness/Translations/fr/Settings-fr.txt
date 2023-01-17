@@ -106,7 +106,8 @@ ModUi/&FixEldritchBlastRange=Changez la plage <color=#D89555>Eldritch Blast</col
 ModUi/&FixSorcererTwinnedLogic=Correction de l'utilisation de la métamagie jumelée <color=#D89555>Sorcier</color> <i><color=#F0DAA0>[doit être incapable de cibler plus d'une créature au niveau actuel du sort]</color></i>
 ModUi/&Formation=<color=#F0DAA0>Formation :</color>
 ModUi/&FormationError=<color=#C04040E0>Vous ne pouvez pas changer votre formation pendant une partie multijoueur, mais vous pouvez le définir au préalable...</color>
-ModUi/&FormationHelp=. Cliquez sur 2 boutons pour échanger leur contenu\n. <b><color=#1E81B0>@</color></b> représente les positions de héros et elles sont attribuées en respectant l'ordre du groupe
+ModUi/&FormationHelp=. Cliquez sur les touches numériques pour sélectionner l'ensemble actuel <i><color=#F0DAA0>[Appuyez sur</color> <color=#1E81B0>CTRL-SHIFT-(1..5)</color> <color=#F0DAA0> pour les utiliser dans le jeu]</color></i>\n. Cliquez sur n'importe quel bouton de la grille pour échanger leur contenu\n. <b><color=#1E81B0>@</color></b> représente les positions de héros et elles sont attribuées en respectant l'ordre du groupe
+ModUi/&FormationSelected=Ensemble de formation {0} sélectionné
 ModUi/&FullyControlConjurations=Contrôlez entièrement les conjurations <i><color=#F0DAA0>[animaux, élémentaux, etc]</color></i>
 ModUi/&Gameplay=Jouabilité
 ModUi/&GameUi=Interface utilisateur du jeu

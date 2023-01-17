@@ -106,7 +106,8 @@ ModUi/&FixEldritchBlastRange=Cambia el rango de <color=#D89555>Explosión sobren
 ModUi/&FixSorcererTwinnedLogic=Se corrigió el uso metamágico gemelo de <color=#D89555>Sorcerer</color> <i><color=#F0DAA0>[debe ser incapaz de apuntar a más de una criatura en el nivel actual del hechizo]</color></i>
 ModUi/&Formation=<color=#F0DAA0>Formación:</color>
 ModUi/&FormationError=<color=#C04040E0>No puedes cambiar tu formación durante una partida multijugador, pero puedes configurarlo de antemano...</color>
-ModUi/&FormationHelp=. Haga clic en cualquiera de los 2 botones para intercambiar su contenido\n. <b><color=#1E81B0>@</color></b> representa posiciones de héroe y se asignan respetando el orden del grupo
+ModUi/&FormationHelp=. Haga clic en los botones numéricos para seleccionar el conjunto actual <i><color=#F0DAA0>[Presione</color> <color=#1E81B0>CTRL-SHIFT-(1..5)</color> <color=#F0DAA0> para usarlos en el juego]</color></i>\n. Haga clic en cualquiera de los 2 botones de la cuadrícula para intercambiar su contenido\n. <b><color=#1E81B0>@</color></b> representa posiciones de héroe y se asignan respetando el orden del grupo
+ModUi/&FormationSelected=Conjunto de formación {0} seleccionado
 ModUi/&FullyControlConjurations=Controla por completo las conjuraciones <i><color=#F0DAA0>[animales, elementales, etc.]</color></i>
 ModUi/&Gameplay=Como se Juega
 ModUi/&GameUi=Interfaz de usuario del juego

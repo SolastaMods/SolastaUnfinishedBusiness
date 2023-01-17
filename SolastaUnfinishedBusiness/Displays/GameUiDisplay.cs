@@ -1,7 +1,5 @@
-﻿using SolastaUnfinishedBusiness.Api;
-using SolastaUnfinishedBusiness.Api.ModKit;
+﻿using SolastaUnfinishedBusiness.Api.ModKit;
 using SolastaUnfinishedBusiness.Models;
-using TA;
 
 namespace SolastaUnfinishedBusiness.Displays;
 
@@ -11,10 +9,21 @@ internal static class GameUiDisplay
 
     private static bool _selectedForSwap;
     private static int _selectedX, _selectedY;
-
+    private static readonly string[] SetNames = { "1", "2", "3", "4", "5" };
 
     private static void DisplayFormationGrid()
     {
+        UI.Label();
+
+        var selectedSet = Main.Settings.FormationGridSelectedSet;
+
+        if (UI.SelectionGrid(ref selectedSet, SetNames, SetNames.Length, SetNames.Length, UI.Width(165)))
+        {
+            _selectedForSwap = false;
+            Main.Settings.FormationGridSelectedSet = selectedSet;
+            GameUiContext.FillDefinitionFromFormationGrid();
+        }
+
         UI.Label();
 
         for (var y = 0; y < GameUiContext.GridSize; y++)
@@ -25,7 +34,7 @@ internal static class GameUiDisplay
                 {
                     string label;
 
-                    if (Main.Settings.FormationGrid[y][x] == 1)
+                    if (Main.Settings.FormationGridSets[selectedSet][y][x] == 1)
                     {
                         if (_selectedForSwap && _selectedX == x && _selectedY == y)
                         {
@@ -47,13 +56,15 @@ internal static class GameUiDisplay
                             label = "..";
                         }
                     }
-                    
+
                     UI.ActionButton(label, () =>
                     {
                         if (_selectedForSwap)
                         {
-                            (Main.Settings.FormationGrid[y][x], Main.Settings.FormationGrid[_selectedY][_selectedX]) = (
-                                Main.Settings.FormationGrid[_selectedY][_selectedX], Main.Settings.FormationGrid[y][x]);
+                            (Main.Settings.FormationGridSets[selectedSet][y][x],
+                                Main.Settings.FormationGridSets[selectedSet][_selectedY][_selectedX]) = (
+                                Main.Settings.FormationGridSets[selectedSet][_selectedY][_selectedX],
+                                Main.Settings.FormationGridSets[selectedSet][y][x]);
 
                             GameUiContext.FillDefinitionFromFormationGrid();
 
@@ -188,6 +199,7 @@ internal static class GameUiDisplay
         else
         {
             UI.Label(Gui.Localize("ModUi/&FormationHelp"));
+
             DisplayFormationGrid();
         }
 
