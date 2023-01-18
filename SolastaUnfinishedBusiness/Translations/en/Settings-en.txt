@@ -106,7 +106,12 @@ ModUi/&FixEldritchBlastRange=Change <color=#D89555>Eldritch Blast</color> range 
 ModUi/&FixSorcererTwinnedLogic=Fix <color=#D89555>Sorcerer</color> twinned metamagic use <i><color=#F0DAA0>[must be incapable of targeting more than one creature at spell's current level]</color></i>
 ModUi/&Formation=<color=#F0DAA0>Formation:</color>
 ModUi/&FormationError=<color=#C04040E0>You cannot change your formation during a multiplayer game but you can set that beforehand...</color>
-ModUi/&FormationHelp=. Click the numeric buttons to select the current set <i><color=#F0DAA0>[Press</color> <color=#1E81B0>CTRL-SHIFT-(1..5)</color> <color=#F0DAA0>to use them in game]</color></i>\n. Click any 2 buttons on grid to swap their contents\n. <b><color=#1E81B0>@</color></b> represents hero positions and they are assigned respecting party order
+ModUi/&FormationHelp1=. Click the numeric buttons to select the current set <i><color=#F0DAA0>[check hotkeys on input section]</color></i>
+ModUi/&FormationHelp2=. <b><color=#1E81B0>@</color></b> represent relative hero positions
+ModUi/&FormationHelp3=. Click any 2 buttons on grid to swap their contents
+ModUi/&FormationResetAllSets=Reset all sets
+ModUi/&FormationResetThisSet=Reset this set
+ModUi/&FormationHotkey=Enable <color=#1E81B0>CTRL-SHIFT-(1..5)</color> to swap formation sets in game
 ModUi/&FormationSelected=Formation set {0} selected
 ModUi/&FullyControlConjurations=Fully control conjurations <i><color=#F0DAA0>[animals, elementals, etc]</color></i>
 ModUi/&Gameplay=Gameplay

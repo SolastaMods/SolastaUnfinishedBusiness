@@ -105,9 +105,14 @@ ModUi/&FightingStyles=<color=#F0DAA0>Stili di combattimento</color>
 ModUi/&FixEldritchBlastRange=Cambia la portata di <color=#D89555>Eldritch Blast</color> a 24 <i><color=#F0DAA0>[invece di 16]</color></i>
 ModUi/&Formation=<color=#F0DAA0>Formazione:</color>
 ModUi/&FormationError=<color=#C04040E0>Non puoi cambiare la tua formazione durante una partita multiplayer, ma puoi impostarla in anticipo...</color>
-ModUi/&FormationHelp=. Fai clic sui pulsanti numerici per selezionare il set corrente <i><color=#F0DAA0>[Premi</color> <color=#1E81B0>CTRL-MAIUSC-(1..5)</color> <color=#F0DAA0> per usarli nel gioco]</color></i>\n. Fai clic su 2 pulsanti qualsiasi sulla griglia per scambiarne i contenuti\n. <b><color=#1E81B0>@</color></b> rappresenta le posizioni degli eroi e vengono assegnate rispettando l'ordine del gruppo
-ModUi/&FixSorcererTwinnedLogic=Correzione <color=#D89555>Stregone</color> uso metamagico gemellato <i><color=#F0DAA0>[deve essere incapace di bersagliare più di una creatura al livello attuale dell'incantesimo]</color></i>
+ModUi/&FormationHelp1=. Fai clic sui pulsanti numerici per selezionare il set corrente <i><color=#F0DAA0>[controlla i tasti di scelta rapida nella sezione di input]</color></i>
+ModUi/&FormationHelp2=. <b><color=#1E81B0>@</color></b> rappresentano le posizioni relative degli eroi
+ModUi/&FormationHelp3=. Fare clic su qualsiasi 2 pulsanti sulla griglia per scambiare i loro contenuti
+ModUi/&FormationResetAllSets=Ripristina tutti i set
+ModUi/&FormationResetThisSet=Ripristina questo set
+ModUi/&FormationHotkey=Abilita <color=#1E81B0>CTRL-MAIUSC-(1..5)</color> per scambiare i set di formazione nel gioco
 ModUi/&FormationSelected=Gruppo di formazione {0} selezionato
+ModUi/&FixSorcererTwinnedLogic=Correzione <color=#D89555>Stregone</color> uso metamagico gemellato <i><color=#F0DAA0>[deve essere incapace di bersagliare più di una creatura al livello attuale dell'incantesimo]</color></i>
 ModUi/&FullyControlConjurations=Controlla completamente le evocazioni <i><color=#F0DAA0>[animali, elementali, ecc.]</color></i>
 ModUi/&Gameplay=Gioco
 ModUi/&GameUi=Interfaccia utente del gioco

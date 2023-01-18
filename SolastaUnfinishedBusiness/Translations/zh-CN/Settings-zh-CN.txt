@@ -106,7 +106,12 @@ ModUi/&FixEldritchBlastRange=将 <color=#D89555>魔能爆</color> 的施法距�
 ModUi/&FixSorcererTwinnedLogic=修复<color=#D89555>术士</color>孪生法术<i><color=#F0DAA0>【该法术在其当前环阶时不能同时指定多个生物为目标】</color></i>
 ModUi/&Formation=<color=#F0DAA0>队形：</color>
 ModUi/&FormationError=<color=#C04040E0>你不能在多人游戏中改变你的阵型，但你可以预先设置...</color>
-ModUi/&FormationHelp=.单击数字按钮选择当前集 <i><color=#F0DAA0>[按</color> <color=#1E81B0>CTRL-SHIFT-(1..5)</color> <color=#F0DAA0>在游戏中使用它们]</color></i>\n。单击网格上的任意 2 个按钮以交换其内容\n。 <b><color=#1E81B0>@</color></b> 代表英雄位置，他们是根据队伍顺序分配的
+ModUi/&FormationHelp1=.单击数字按钮以选择当前集 <i><color=#F0DAA0>[检查输入部分的热键]</color></i>
+ModUi/&FormationHelp2=. <b><color=#1E81B0>@</color></b>代表相对英雄位置
+ModUi/&FormationHelp3=.单击网格上的任意 2 个按钮以交换它们的内容
+ModUi/&FormationResetAllSets=重置所有设置
+ModUi/&FormationResetThisSet=重置此设置
+ModUi/&FormationHotkey=启用<color=#1E81B0>CTRL-SHIFT-(1..5)</color> 在游戏中交换阵型
 ModUi/&FormationSelected=已选择编队集 {0}
 ModUi/&FullyControlConjurations=完全控制召唤生物<i><color=#F0DAA0>【动物，元素等】</color></i>
 ModUi/&Gameplay=游戏内容

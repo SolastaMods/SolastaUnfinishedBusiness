@@ -105,9 +105,14 @@ ModUi/&FightingStyles=<color=#F0DAA0>Estilos de luta</color>
 ModUi/&FixEldritchBlastRange=Altere o intervalo de <color=#D89555>Eldritch Blast</color> para 24 <i><color=#F0DAA0>[em vez de 16]</color></i>
 ModUi/&Formation=<color=#F0DAA0>Formação:</color>
 ModUi/&FormationError=<color=#C04040E0>Você não pode mudar sua formação durante um jogo multijogador, mas pode definir isso de antemão...</color>
-ModUi/&FormationHelp=. Clique nos botões numéricos para selecionar o conjunto atual <i><color=#F0DAA0>[Pressione</color> <color=#1E81B0>CTRL-SHIFT-(1..5)</color> <color=#F0DAA0> para usá-los no jogo]</color></i>\n. Clique em quaisquer 2 botões na grade para trocar seus conteúdos\n. <b><color=#1E81B0>@</color></b> representa posições de herói e são atribuídas respeitando a ordem do grupo
-ModUi/&FixSorcererTwinnedLogic=Corrigido <color=#D89555>Feiticeiro</color> uso de metamágica gêmea <i><color=#F0DAA0>[deve ser incapaz de atingir mais de uma criatura no nível atual do feitiço]</color></i>
+ModUi/&FormationHelp1=. Clique nos botões numéricos para selecionar o conjunto atual <i><color=#F0DAA0>[verifique as teclas de atalho na seção de entrada]</color></i>
+ModUi/&FormationHelp2=. <b><color=#1E81B0>@</color></b> representam posições relativas de heróis
+ModUi/&FormationHelp3=. Clique em quaisquer 2 botões na grade para trocar seus conteúdos
+ModUi/&FormationResetAllSets=Redefinir todos os conjuntos
+ModUi/&FormationResetThisSet=Redefinir este conjunto
+ModUi/&FormationHotkey=Habilite <color=#1E81B0>CTRL-SHIFT-(1..5)</color> para trocar conjuntos de formação no jogo
 ModUi/&FormationSelected=Conjunto de formação {0} selecionado
+ModUi/&FixSorcererTwinnedLogic=Corrigido <color=#D89555>Feiticeiro</color> uso de metamágica gêmea <i><color=#F0DAA0>[deve ser incapaz de atingir mais de uma criatura no nível atual do feitiço]</color></i>
 ModUi/&FullyControlConjurations=Controle totalmente as conjurações <i><color=#F0DAA0>[animais, elementais, etc]</color></i>
 ModUi/&Gameplay=Jogabilidade
 ModUi/&GameUi=IU do jogo

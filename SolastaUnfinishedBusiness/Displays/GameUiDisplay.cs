@@ -11,12 +11,17 @@ internal static class GameUiDisplay
 
     private static void DisplayFormationGrid()
     {
-        UI.Label();
-
         var selectedSet = Main.Settings.FormationGridSelectedSet;
 
         using (UI.HorizontalScope())
         {
+            UI.ActionButton(Gui.Localize("ModUi/&FormationResetAllSets"), () =>
+                {
+                    _selectedForSwap = false;
+                    GameUiContext.ResetAllFormationGrids();
+                },
+                UI.Width(110));
+
             if (UI.SelectionGrid(ref selectedSet, SetNames, SetNames.Length, SetNames.Length, UI.Width(165)))
             {
                 _selectedForSwap = false;
@@ -24,12 +29,7 @@ internal static class GameUiDisplay
                 GameUiContext.FillDefinitionFromFormationGrid();
             }
 
-            UI.ActionButton("reset all", () =>
-                {
-                    _selectedForSwap = false;
-                    GameUiContext.ResetAllFormationGrids();
-                },
-                UI.Width(100));
+            UI.Label(Gui.Localize("ModUi/&FormationHelp1"));
         }
 
         UI.Label();
@@ -38,6 +38,21 @@ internal static class GameUiDisplay
         {
             using (UI.HorizontalScope())
             {
+                // first line
+                if (y == 0)
+                {
+                    UI.ActionButton(Gui.Localize("ModUi/&FormationResetThisSet"), () =>
+                        {
+                            _selectedForSwap = false;
+                            GameUiContext.ResetFormationGrid(Main.Settings.FormationGridSelectedSet);
+                        },
+                        UI.Width(110));
+                }
+                else
+                {
+                    UI.Label("", UI.Width(110));
+                }
+
                 for (var x = 0; x < GameUiContext.GridSize; x++)
                 {
                     string label;
@@ -95,14 +110,9 @@ internal static class GameUiDisplay
                 }
 
                 // first line
-                if (y == 0)
+                if (y <= 1)
                 {
-                    UI.ActionButton("reset this", () =>
-                        {
-                            _selectedForSwap = false;
-                            GameUiContext.ResetFormationGrid(Main.Settings.FormationGridSelectedSet);
-                        },
-                        UI.Width(100));
+                    UI.Label(Gui.Localize("ModUi/&FormationHelp" + (y + 2)));
                 }
             }
         }
@@ -222,8 +232,6 @@ internal static class GameUiDisplay
         }
         else
         {
-            UI.Label(Gui.Localize("ModUi/&FormationHelp"));
-
             DisplayFormationGrid();
         }
 
@@ -248,6 +256,12 @@ internal static class GameUiDisplay
         }
 
         UI.Label();
+
+        toggle = Main.Settings.EnableHotkeySwapFormationSets;
+        if (UI.Toggle(Gui.Localize("ModUi/&FormationHotkey"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableHotkeySwapFormationSets = toggle;
+        }
 
         toggle = Main.Settings.EnableHotkeyToggleHud;
         if (UI.Toggle(Gui.Localize("ModUi/&EnableHotkeyToggleHud"), ref toggle, UI.AutoWidth()))

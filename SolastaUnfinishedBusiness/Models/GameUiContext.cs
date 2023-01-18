@@ -926,23 +926,23 @@ internal static class GameUiContext
             case CtrlShiftS when EncountersSpawnContext.EncounterCharacters.Count > 0:
                 EncountersSpawnContext.ConfirmStageEncounter();
                 break;
-            case CtrlShift1 when !Global.IsMultiplayer:
+            case CtrlShift1 when Main.Settings.EnableHotkeySwapFormationSets && !Global.IsMultiplayer:
                 Main.Settings.FormationGridSelectedSet = 0;
                 FillDefinitionFromFormationGrid();
                 break;
-            case CtrlShift2 when !Global.IsMultiplayer:
+            case CtrlShift2 when Main.Settings.EnableHotkeySwapFormationSets && !Global.IsMultiplayer:
                 Main.Settings.FormationGridSelectedSet = 1;
                 FillDefinitionFromFormationGrid();
                 break;
-            case CtrlShift3 when !Global.IsMultiplayer:
+            case CtrlShift3 when Main.Settings.EnableHotkeySwapFormationSets && !Global.IsMultiplayer:
                 Main.Settings.FormationGridSelectedSet = 2;
                 FillDefinitionFromFormationGrid();
                 break;
-            case CtrlShift4 when !Global.IsMultiplayer:
+            case CtrlShift4 when Main.Settings.EnableHotkeySwapFormationSets && !Global.IsMultiplayer:
                 Main.Settings.FormationGridSelectedSet = 3;
                 FillDefinitionFromFormationGrid();
                 break;
-            case CtrlShift5 when !Global.IsMultiplayer:
+            case CtrlShift5 when Main.Settings.EnableHotkeySwapFormationSets && !Global.IsMultiplayer:
                 Main.Settings.FormationGridSelectedSet = 4;
                 FillDefinitionFromFormationGrid();
                 break;
