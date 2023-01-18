@@ -105,10 +105,10 @@ ModUi/&FightingStyles=<color=#F0DAA0>Styles de combat</color>
 ModUi/&FixEldritchBlastRange=Changez la plage <color=#D89555>Eldritch Blast</color> à 24 <i><color=#F0DAA0>[au lieu de 16]</color></i>
 ModUi/&FixSorcererTwinnedLogic=Correction de l'utilisation de la métamagie jumelée <color=#D89555>Sorcier</color> <i><color=#F0DAA0>[doit être incapable de cibler plus d'une créature au niveau actuel du sort]</color></i>
 ModUi/&Formation=<color=#F0DAA0>Formation:</color>
-ModUi/&FormationError=<color=#C04040E0>Vous ne pouvez pas changer votre formation pendant une partie multijoueur, mais vous pouvez le définir au préalable...</color>
-ModUi/&FormationHelp1=. Cliquez sur les boutons numériques pour sélectionner l'ensemble actuel <i><color=#F0DAA0>[vérifiez les raccourcis clavier dans la section d'entrée]</color></i>
+ModUi/&FormationError=<color=#C04040E0>Vous ne pouvez pas changer de formation pendant une partie multijoueur...</color>
+ModUi/&FormationHelp1=. Utilisez les touches numériques pour modifier un ensemble donné <i><color=#F0DAA0>[envisagez d'activer les raccourcis clavier sous saisie]</color></i>
 ModUi/&FormationHelp2=. <b><color=#1E81B0>@</color></b> représentent les positions relatives des héros
-ModUi/&FormationHelp3=. Cliquez sur n'importe quel 2 boutons sur la grille pour échanger leur contenu
+ModUi/&FormationHelp3=. Cliquez sur 2 boutons pour échanger leurs positions
 ModUi/&FormationResetAllSets=Réinitialiser tous les ensembles
 ModUi/&FormationResetThisSet=Réinitialiser cet ensemble
 ModUi/&FormationHotkey=Activez <color=#1E81B0>CTRL-SHIFT-(1..5)</color> pour échanger les ensembles de formation dans le jeu

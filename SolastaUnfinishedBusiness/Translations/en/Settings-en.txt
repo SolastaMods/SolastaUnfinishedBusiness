@@ -105,10 +105,10 @@ ModUi/&FightingStyles=<color=#F0DAA0>Fighting Styles</color>
 ModUi/&FixEldritchBlastRange=Change <color=#D89555>Eldritch Blast</color> range to 24 <i><color=#F0DAA0>[instead of 16]</color></i>
 ModUi/&FixSorcererTwinnedLogic=Fix <color=#D89555>Sorcerer</color> twinned metamagic use <i><color=#F0DAA0>[must be incapable of targeting more than one creature at spell's current level]</color></i>
 ModUi/&Formation=<color=#F0DAA0>Formation:</color>
-ModUi/&FormationError=<color=#C04040E0>You cannot change your formation during a multiplayer game but you can set that beforehand...</color>
-ModUi/&FormationHelp1=. Click the numeric buttons to select the current set <i><color=#F0DAA0>[check hotkeys on input section]</color></i>
+ModUi/&FormationError=<color=#C04040E0>You cannot change your formation during a multiplayer game...</color>
+ModUi/&FormationHelp1=. Use the numeric buttons to edit a given set <i><color=#F0DAA0>[consider enabling hotkeys under input]</color></i>
 ModUi/&FormationHelp2=. <b><color=#1E81B0>@</color></b> represent relative hero positions
-ModUi/&FormationHelp3=. Click any 2 buttons on grid to swap their contents
+ModUi/&FormationHelp3=. Click any 2 buttons to swap their positions
 ModUi/&FormationResetAllSets=Reset all sets
 ModUi/&FormationResetThisSet=Reset this set
 ModUi/&FormationHotkey=Enable <color=#1E81B0>CTRL-SHIFT-(1..5)</color> to swap formation sets in game

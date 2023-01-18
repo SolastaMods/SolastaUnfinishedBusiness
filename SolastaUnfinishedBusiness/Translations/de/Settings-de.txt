@@ -105,10 +105,10 @@ ModUi/&FightingStyles=<color=#F0DAA0>Kampfstile</color>
 ModUi/&FixEldritchBlastRange=Ändere die Reichweite von <color=#D89555>Eldritch Blast</color> auf 24 <i><color=#F0DAA0>[statt 16]</color></i>
 ModUi/&FixSorcererTwinnedLogic=<color=#D89555>Zauberer</color>-Zwillings-Metamagie-Anwendung <i><color=#F0DAA0>[muss unfähig sein, mehr als eine Kreatur auf der aktuellen Stufe des Zaubers anzuvisieren]</color></i> behoben
 ModUi/&Formation=<color=#F0DAA0>Formation:</color>
-ModUi/&FormationError=<color=#C04040E0>Du kannst deine Formation während eines Multiplayer-Spiels nicht ändern, aber du kannst sie vorher festlegen...</color>
-ModUi/&FormationHelp1=. Klicken Sie auf die Zifferntasten, um den aktuellen Satz auszuwählen <i><color=#F0DAA0>[Hotkeys im Eingabebereich prüfen]</color></i>
+ModUi/&FormationError=<color=#C04040E0>Du kannst deine Formation während eines Multiplayer-Spiels nicht ändern...</color>
+ModUi/&FormationHelp1=. Verwenden Sie die Zifferntasten, um einen bestimmten Satz zu bearbeiten <i><color=#F0DAA0>[erwägen Sie die Aktivierung von Hotkeys unter der Eingabe]</color></i>
 ModUi/&FormationHelp2=. <b><color=#1E81B0>@</color></b> stehen für relative Heldenpositionen
-ModUi/&FormationHelp3=. Klicken Sie auf zwei beliebige Schaltflächen im Raster, um deren Inhalt auszutauschen
+ModUi/&FormationHelp3=. Klicken Sie auf 2 beliebige Schaltflächen, um ihre Positionen zu tauschen
 ModUi/&FormationResetAllSets=Alle Sätze zurücksetzen
 ModUi/&FormationResetThisSet=Setzen Sie diesen Satz zurück
 ModUi/&FormationHotkey=Aktivieren Sie <color=#1E81B0>CTRL-SHIFT-(1..5)</color>, um Formationssätze im Spiel auszutauschen
