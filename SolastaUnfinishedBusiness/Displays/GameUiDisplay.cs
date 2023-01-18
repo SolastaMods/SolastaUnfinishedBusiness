@@ -5,8 +5,6 @@ namespace SolastaUnfinishedBusiness.Displays;
 
 internal static class GameUiDisplay
 {
-    #region Formation Helpers
-
     private static bool _selectedForSwap;
     private static int _selectedX, _selectedY;
     private static readonly string[] SetNames = { "1", "2", "3", "4", "5" };
@@ -69,12 +67,19 @@ internal static class GameUiDisplay
 
                     UI.ActionButton(label, () =>
                     {
+                        // ReSharper disable once InlineTemporaryVariable
+                        // ReSharper disable once AccessToModifiedClosure
+                        var localX = x;
+                        // ReSharper disable once InlineTemporaryVariable
+                        // ReSharper disable once AccessToModifiedClosure
+                        var localY = y;
+
                         if (_selectedForSwap)
                         {
-                            (Main.Settings.FormationGridSets[selectedSet][y][x],
+                            (Main.Settings.FormationGridSets[selectedSet][localY][localX],
                                 Main.Settings.FormationGridSets[selectedSet][_selectedY][_selectedX]) = (
                                 Main.Settings.FormationGridSets[selectedSet][_selectedY][_selectedX],
-                                Main.Settings.FormationGridSets[selectedSet][y][x]);
+                                Main.Settings.FormationGridSets[selectedSet][localY][localX]);
 
                             GameUiContext.FillDefinitionFromFormationGrid();
 
@@ -82,8 +87,8 @@ internal static class GameUiDisplay
                         }
                         else
                         {
-                            _selectedX = x;
-                            _selectedY = y;
+                            _selectedX = localX;
+                            _selectedY = localY;
                             _selectedForSwap = true;
                         }
                     }, UI.Width(30));
@@ -102,8 +107,6 @@ internal static class GameUiDisplay
             }
         }
     }
-
-    #endregion
 
     internal static void DisplayGameUi()
     {
@@ -334,24 +337,6 @@ internal static class GameUiDisplay
         {
             Main.Settings.RemoveBugVisualModels = toggle;
         }
-
-        #endregion
-
-        #region Spell
-
-#if false
-        // ModUi/&Spells=<color=#F0DAA0>Spells:</color>
-        // ModUi/&MaxSpellLevelsPerLine=<color=white>Max levels per line on Spell Panel</color>
-        UI.Label("");
-        UI.Label(Gui.Localize("ModUi/&Spells"));
-        UI.Label("");
-
-        intValue = Main.Settings.MaxSpellLevelsPerLine;
-        if (UI.Slider(Gui.Localize("ModUi/&MaxSpellLevelsPerLine"), ref intValue, 3, 7, 5, "", UI.AutoWidth()))
-        {
-            Main.Settings.MaxSpellLevelsPerLine = intValue;
-        }
-#endif
 
         #endregion
 

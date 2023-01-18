@@ -7,7 +7,6 @@ using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
-using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionAttributeModifiers;
 
 namespace SolastaUnfinishedBusiness.Feats;
 
@@ -68,14 +67,15 @@ internal static class TwoWeaponCombatFeats
     private static FeatDefinition BuildDualWeaponDefense()
     {
         const string NAME = "FeatDualWeaponDefense";
-        
+
         return FeatDefinitionBuilder
             .Create(NAME)
             .SetGuiPresentation(Category.Feat)
             .SetFeatures(FeatureDefinitionAttributeModifierBuilder
                 .Create("AttributeModifierFeatDualWeaponDefense")
                 .SetGuiPresentation(NAME, Category.Feat)
-                .SetModifier(FeatureDefinitionAttributeModifier.AttributeModifierOperation.Additive, AttributeDefinitions.ArmorClass, 1)
+                .SetModifier(FeatureDefinitionAttributeModifier.AttributeModifierOperation.Additive,
+                    AttributeDefinitions.ArmorClass, 1)
                 .SetSituationalContext(SituationalContext.DualWieldingMeleeWeapons)
                 .AddToDB())
             .SetAbilityScorePrerequisite(AttributeDefinitions.Dexterity, 13)
