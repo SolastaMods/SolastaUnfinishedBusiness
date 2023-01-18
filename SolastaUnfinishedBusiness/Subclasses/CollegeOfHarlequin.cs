@@ -141,8 +141,7 @@ internal sealed class CollegeOfHarlequin : AbstractSubclass
                 powerTerrificPerformance,
                 proficiencyCollegeOfHarlequinMartialWeapon,
                 CommonBuilders.MagicAffinityCasterFightingCombatMagic,
-                proficiencyCollegeOfHarlequinFightingStyle,
-                powerTerrificPerformanceImproved)
+                proficiencyCollegeOfHarlequinFightingStyle)
             .AddFeaturesAtLevel(6,
                 CommonBuilders.AttributeModifierCasterFightingExtraAttack,
                 powerImprovedCombatInspiration)
