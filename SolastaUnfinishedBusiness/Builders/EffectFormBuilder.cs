@@ -146,7 +146,8 @@ internal class EffectFormBuilder
         int diceNumber = 0,
         DieType dieType = DieType.D1,
         int bonusDamage = 0,
-        HealFromInflictedDamage healFromInflictedDamage = HealFromInflictedDamage.Never)
+        HealFromInflictedDamage healFromInflictedDamage = HealFromInflictedDamage.Never,
+        bool overrideWithBardicInspirationDie = false)
     {
         var damageForm = new DamageForm
         {
@@ -157,7 +158,8 @@ internal class EffectFormBuilder
             DiceNumber = diceNumber,
             DieType = dieType,
             healFromInflictedDamage = healFromInflictedDamage,
-            damageBonusTrends = new List<TrendInfo>()
+            damageBonusTrends = new List<TrendInfo>(),
+            OverrideWithBardicInspirationDie = overrideWithBardicInspirationDie
         };
 
         effectForm.damageForm = damageForm;
