@@ -8,17 +8,17 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:ProficiencyCollegeOfHarlequinFightingStyle:5dc4329e-11f4-53b2-a93d-7686f1818ec9",
-      "level": 3
-    },
-    {
-      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:ProficiencyCollegeOfHarlequinMartialWeapon:459f109d-5d1c-540a-aefb-d3a3290e349d",
       "level": 3
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:PowerCollegeOfHarlequinTerrificPerformance:f9e4f50d-e4f5-5061-bfde-100c35d1a731",
+      "level": 3
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:ProficiencyCollegeOfHarlequinFightingStyle:5dc4329e-11f4-53b2-a93d-7686f1818ec9",
       "level": 3
     },
     {
@@ -35,6 +35,11 @@
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:PowerCollegeOfHarlequinImprovedCombatInspiration:27cc7798-4a8b-553d-82ba-698af5e03805",
       "level": 6
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:PowerCollegeOfHarlequinTerrificPerformanceImproved:66945792-1155-5851-9134-abea2b4aa5c7",
+      "level": 14
     }
   ],
   "personalityFlagOccurences": [],

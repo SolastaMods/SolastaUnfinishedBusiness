@@ -12,7 +12,7 @@
   "familyTag": "",
   "knownFeatsPrerequisite": [],
   "features": [
-    "Definition:AttributeModifierSwiftBladeBladeDance:79d091104a511e34c92c90f6839fc450"
+    "Definition:AttributeModifierFeatDualWeaponDefense:33b7066e-6c97-5c27-a498-e940d670c891"
   ],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",

@@ -1,17 +1,17 @@
 {
   "$type": "FeatureDefinitionAttributeModifier, Assembly-CSharp",
   "modifiedAttribute": "ArmorClass",
-  "modifierOperation": "AddConditionAmount",
-  "modifierValue": 0,
+  "modifierOperation": "Additive",
+  "modifierValue": 1,
   "modifierAbilityScore": "Constitution",
-  "situationalContext": "None",
+  "situationalContext": "DualWieldingMeleeWeapons",
   "minimum1": false,
   "useBonusFromCaster": false,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&AttributeModifierCollegeOfHarlequinCombatInspirationArmorClassEnhancementTitle",
-    "description": "Feature/&AttributeModifierCollegeOfHarlequinCombatInspirationArmorClassEnhancementDescription",
+    "title": "Feat/&FeatDualWeaponDefenseTitle",
+    "description": "Feat/&FeatDualWeaponDefenseDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -31,7 +31,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "b50bb7d4-b86e-5335-8dcc-be4dfbcadcd1",
+  "guid": "33b7066e-6c97-5c27-a498-e940d670c891",
   "contentPack": 9999,
-  "name": "AttributeModifierCollegeOfHarlequinCombatInspirationArmorClassEnhancement"
+  "name": "AttributeModifierFeatDualWeaponDefense"
 }
