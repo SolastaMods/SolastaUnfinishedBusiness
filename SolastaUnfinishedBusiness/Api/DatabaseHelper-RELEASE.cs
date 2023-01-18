@@ -358,7 +358,6 @@ internal static partial class DatabaseHelper
         internal static FeatureDefinitionAttributeModifier AttributeModifierPaladinHealingPoolBase { get; } = GetDefinition<FeatureDefinitionAttributeModifier>("AttributeModifierPaladinHealingPoolBase");
         internal static FeatureDefinitionAttributeModifier AttributeModifierPaladinHealingPoolMultiplier { get; } = GetDefinition<FeatureDefinitionAttributeModifier>("AttributeModifierPaladinHealingPoolMultiplier");
         internal static FeatureDefinitionAttributeModifier AttributeModifierSorcererSorceryPointsBase { get; } = GetDefinition<FeatureDefinitionAttributeModifier>("AttributeModifierSorcererSorceryPointsBase");
-        internal static FeatureDefinitionAttributeModifier AttributeModifierSwiftBladeBladeDance { get; } = GetDefinition<FeatureDefinitionAttributeModifier>("AttributeModifierSwiftBladeBladeDance");
     }
     internal static class FeatureDefinitionAutoPreparedSpellss
     {
@@ -700,7 +699,7 @@ internal static partial class DatabaseHelper
     }
     internal static class FormationDefinitions
     {
-        internal static FormationDefinition Column2 = GetDefinition<FormationDefinition>("Column2");
+        internal static FormationDefinition Column2 { get; } = GetDefinition<FormationDefinition>("Column2");
         internal static FormationDefinition SingleCreature { get; } = GetDefinition<FormationDefinition>("SingleCreature");
         internal static FormationDefinition Squad4 { get; } = GetDefinition<FormationDefinition>("Squad4");
     }

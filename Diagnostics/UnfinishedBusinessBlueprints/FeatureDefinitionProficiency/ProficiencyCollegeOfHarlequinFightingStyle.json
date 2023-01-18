@@ -2,7 +2,6 @@
   "$type": "FeatureDefinitionProficiency, Assembly-CSharp",
   "proficiencyType": "FightingStyle",
   "proficiencies": [
-    "Archery",
     "TwoWeapon"
   ],
   "forbiddenItemTags": [],

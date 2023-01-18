@@ -238,16 +238,41 @@ public class Settings : UnityModManager.ModSettings
     public bool AddMonkKiPointsToggle { get; set; }
     public bool AddPaladinSmiteToggle { get; set; }
     public bool AddWildshapeSwapAttackToggle { get; set; }
-    public bool FormationGridInitialized { get; set; }
-    public int[][] FormationGrid =
+    public int FormationGridSelectedSet { get; set; } = -1;
+
+    public int[][][] FormationGridSets { get; set; } =
     {
-        new int[GameUiContext.GridSize], new int[GameUiContext.GridSize], new int[GameUiContext.GridSize],
-        new int[GameUiContext.GridSize], new int[GameUiContext.GridSize]
+        new[]
+        {
+            new int[GameUiContext.GridSize], new int[GameUiContext.GridSize], new int[GameUiContext.GridSize],
+            new int[GameUiContext.GridSize], new int[GameUiContext.GridSize]
+        },
+        new[]
+        {
+            new int[GameUiContext.GridSize], new int[GameUiContext.GridSize], new int[GameUiContext.GridSize],
+            new int[GameUiContext.GridSize], new int[GameUiContext.GridSize]
+        },
+        new[]
+        {
+            new int[GameUiContext.GridSize], new int[GameUiContext.GridSize], new int[GameUiContext.GridSize],
+            new int[GameUiContext.GridSize], new int[GameUiContext.GridSize]
+        },
+        new[]
+        {
+            new int[GameUiContext.GridSize], new int[GameUiContext.GridSize], new int[GameUiContext.GridSize],
+            new int[GameUiContext.GridSize], new int[GameUiContext.GridSize]
+        },
+        new[]
+        {
+            new int[GameUiContext.GridSize], new int[GameUiContext.GridSize], new int[GameUiContext.GridSize],
+            new int[GameUiContext.GridSize], new int[GameUiContext.GridSize]
+        }
     };
 
     // Input
     public bool AltOnlyHighlightItemsInPartyFieldOfView { get; set; }
     public bool InvertAltBehaviorOnTooltips { get; set; }
+    public bool EnableHotkeySwapFormationSets { get; set; }
     public bool EnableHotkeyToggleHud { get; set; }
     public bool EnableCharacterExport { get; set; }
     public bool EnableTeleportParty { get; set; }

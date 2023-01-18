@@ -1,5 +1,10 @@
+ATTENTION:
+
+- RESPEC any College of Harlequin hero before this update
+
 CHANGES:
 
-- added an Interface > Game UI setting to change the party formation
-- added a Gameplay > Rules setting to make all large wildshape forms medium size
-- added a custom icon to Petal Storm spell
+- fixed Dual Weapon Defense feat AC bonus
+- improved party formation feature with sets, templates and hotkeys
+- removed AC and damage bonus from College of Harlequin combat inspiration
+- removed Archery fighting style from College of Harlequin progression

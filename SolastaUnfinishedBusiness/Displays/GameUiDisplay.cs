@@ -1,31 +1,63 @@
-﻿using SolastaUnfinishedBusiness.Api;
-using SolastaUnfinishedBusiness.Api.ModKit;
+﻿using SolastaUnfinishedBusiness.Api.ModKit;
 using SolastaUnfinishedBusiness.Models;
-using TA;
 
 namespace SolastaUnfinishedBusiness.Displays;
 
 internal static class GameUiDisplay
 {
-    #region Formation Helpers
-
     private static bool _selectedForSwap;
     private static int _selectedX, _selectedY;
-
+    private static readonly string[] SetNames = { "1", "2", "3", "4", "5" };
 
     private static void DisplayFormationGrid()
     {
+        var selectedSet = Main.Settings.FormationGridSelectedSet;
+
+        using (UI.HorizontalScope())
+        {
+            UI.ActionButton(Gui.Localize("ModUi/&FormationResetAllSets"), () =>
+                {
+                    _selectedForSwap = false;
+                    GameUiContext.ResetAllFormationGrids();
+                },
+                UI.Width(110));
+
+            if (UI.SelectionGrid(ref selectedSet, SetNames, SetNames.Length, SetNames.Length, UI.Width(165)))
+            {
+                _selectedForSwap = false;
+                Main.Settings.FormationGridSelectedSet = selectedSet;
+                GameUiContext.FillDefinitionFromFormationGrid();
+            }
+
+            UI.Label(Gui.Localize("ModUi/&FormationHelp1"));
+        }
+
         UI.Label();
 
         for (var y = 0; y < GameUiContext.GridSize; y++)
         {
             using (UI.HorizontalScope())
             {
+                // first line
+                if (y == 0)
+                {
+                    UI.ActionButton(Gui.Localize("ModUi/&FormationResetThisSet"), () =>
+                        {
+                            _selectedForSwap = false;
+                            GameUiContext.ResetFormationGrid(Main.Settings.FormationGridSelectedSet);
+                        },
+                        UI.Width(110));
+                }
+                else
+                {
+                    UI.Label("", UI.Width(110));
+                }
+
                 for (var x = 0; x < GameUiContext.GridSize; x++)
                 {
                     string label;
 
-                    if (Main.Settings.FormationGrid[y][x] == 1)
+                    if (Main.Settings.FormationGridSets[selectedSet][y][x] == 1)
                     {
                         if (_selectedForSwap && _selectedX == x && _selectedY == y)
                         {
@@ -47,13 +79,22 @@ internal static class GameUiDisplay
                             label = "..";
                         }
                     }
-                    
+
                     UI.ActionButton(label, () =>
                     {
+                        // ReSharper disable once InlineTemporaryVariable
+                        // ReSharper disable once AccessToModifiedClosure
+                        var localX = x;
+                        // ReSharper disable once InlineTemporaryVariable
+                        // ReSharper disable once AccessToModifiedClosure
+                        var localY = y;
+
                         if (_selectedForSwap)
                         {
-                            (Main.Settings.FormationGrid[y][x], Main.Settings.FormationGrid[_selectedY][_selectedX]) = (
-                                Main.Settings.FormationGrid[_selectedY][_selectedX], Main.Settings.FormationGrid[y][x]);
+                            (Main.Settings.FormationGridSets[selectedSet][localY][localX],
+                                Main.Settings.FormationGridSets[selectedSet][_selectedY][_selectedX]) = (
+                                Main.Settings.FormationGridSets[selectedSet][_selectedY][_selectedX],
+                                Main.Settings.FormationGridSets[selectedSet][localY][localX]);
 
                             GameUiContext.FillDefinitionFromFormationGrid();
 
@@ -61,17 +102,21 @@ internal static class GameUiDisplay
                         }
                         else
                         {
-                            _selectedX = x;
-                            _selectedY = y;
+                            _selectedX = localX;
+                            _selectedY = localY;
                             _selectedForSwap = true;
                         }
                     }, UI.Width(30));
                 }
+
+                // first line
+                if (y <= 1)
+                {
+                    UI.Label(Gui.Localize("ModUi/&FormationHelp" + (y + 2)));
+                }
             }
         }
     }
-
-    #endregion
 
     internal static void DisplayGameUi()
     {
@@ -187,7 +232,6 @@ internal static class GameUiDisplay
         }
         else
         {
-            UI.Label(Gui.Localize("ModUi/&FormationHelp"));
             DisplayFormationGrid();
         }
 
@@ -212,6 +256,12 @@ internal static class GameUiDisplay
         }
 
         UI.Label();
+
+        toggle = Main.Settings.EnableHotkeySwapFormationSets;
+        if (UI.Toggle(Gui.Localize("ModUi/&FormationHotkey"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableHotkeySwapFormationSets = toggle;
+        }
 
         toggle = Main.Settings.EnableHotkeyToggleHud;
         if (UI.Toggle(Gui.Localize("ModUi/&EnableHotkeyToggleHud"), ref toggle, UI.AutoWidth()))
@@ -301,24 +351,6 @@ internal static class GameUiDisplay
         {
             Main.Settings.RemoveBugVisualModels = toggle;
         }
-
-        #endregion
-
-        #region Spell
-
-#if false
-        // ModUi/&Spells=<color=#F0DAA0>Spells:</color>
-        // ModUi/&MaxSpellLevelsPerLine=<color=white>Max levels per line on Spell Panel</color>
-        UI.Label("");
-        UI.Label(Gui.Localize("ModUi/&Spells"));
-        UI.Label("");
-
-        intValue = Main.Settings.MaxSpellLevelsPerLine;
-        if (UI.Slider(Gui.Localize("ModUi/&MaxSpellLevelsPerLine"), ref intValue, 3, 7, 5, "", UI.AutoWidth()))
-        {
-            Main.Settings.MaxSpellLevelsPerLine = intValue;
-        }
-#endif
 
         #endregion
 

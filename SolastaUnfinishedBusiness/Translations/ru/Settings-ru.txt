@@ -105,8 +105,14 @@ ModUi/&FightingStyles=<color=#F0DAA0>Боевые Стили</color>
 ModUi/&FixEldritchBlastRange=Сменить дальность <color=#D89555>Жуткого Взрыва</color> на 24 <i><color=#F0DAA0>[вместо 16]</color></i>
 ModUi/&FixSorcererTwinnedLogic=Исправить использвование <color=#D89555>Волшебником</color> метамагии вторая цель <i><color=#F0DAA0>[должен быть неспособен нацелить более одного существа на текущем уровне заклинания]</color></i>
 ModUi/&Formation=<color=#F0DAA0>Построение:</color>
-ModUi/&FormationError=<color=#C04040E0>Вы не можете изменить свою расстановку во время многопользовательской игры, но вы можете установить это заранее...</color>
-ModUi/&FormationHelp=. Нажмите любые 2 кнопки, чтобы поменять местами их содержимое\n. <b><color=#1E81B0>@</color></b> представляет позиции героев, и они назначаются в соответствии с порядком отряда.
+ModUi/&FormationError=<color=#C04040E0>Вы не можете изменить построение во время многопользовательской игры...</color>
+ModUi/&FormationHelp1=. Используйте цифровые кнопки для редактирования заданного набора <i><color=#F0DAA0>[рассмотрите возможность включения горячих клавиш при вводе]</color></i>
+ModUi/&FormationHelp2=. <b><color=#1E81B0>@</color></b> представляют относительные позиции героев
+ModUi/&FormationHelp3=. Нажмите любые 2 кнопки, чтобы поменять их местами
+ModUi/&FormationResetAllSets=Сбросить все наборы
+ModUi/&FormationResetThisSet=Сбросить этот набор
+ModUi/&FormationHotkey=Включите <color=#1E81B0>CTRL-SHIFT-(1..5)</color>, чтобы менять наборы построений в игре.
+ModUi/&FormationSelected=Выбран формационный набор {0}
 ModUi/&FullyControlConjurations=Полный контроль над призывом <i><color=#F0DAA0>[животные, элементали, и т.д.]</color></i>
 ModUi/&Gameplay=Геймплей
 ModUi/&GameUi=Game UI

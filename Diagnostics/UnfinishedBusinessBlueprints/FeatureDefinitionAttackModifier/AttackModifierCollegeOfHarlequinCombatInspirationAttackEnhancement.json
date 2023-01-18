@@ -6,7 +6,7 @@
   "attackRollUseCasterBonus": false,
   "attackRollModifier": 0,
   "attackRollAbilityScore": "",
-  "damageRollModifierMethod": "SourceConditionAmount",
+  "damageRollModifierMethod": "None",
   "damageRollUseCasterBonus": false,
   "damageRollModifier": 0,
   "damageRollAbilityScore": "",

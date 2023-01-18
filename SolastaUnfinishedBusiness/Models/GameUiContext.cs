@@ -6,7 +6,7 @@ using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.Extensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
-using SolastaUnfinishedBusiness.Displays;
+using SolastaUnfinishedBusiness.Patches;
 using TA;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
@@ -19,7 +19,51 @@ namespace SolastaUnfinishedBusiness.Models;
 
 internal static class GameUiContext
 {
-    public const int GridSize = 5;
+    private static readonly int[][][] FormationGridSetTemplates =
+    {
+        new[] // default
+        {
+            new[] { 0, 0, 1, 1, 0 }, //
+            new[] { 0, 0, 1, 1, 0 }, //
+            new[] { 0, 0, 1, 1, 0 }, //
+            new[] { 0, 0, 1, 1, 0 }, //
+            new[] { 0, 0, 0, 0, 0 } //
+        },
+        new[] // triangle
+        {
+            new[] { 0, 0, 1, 0, 0 }, //
+            new[] { 0, 1, 0, 1, 0 }, //
+            new[] { 1, 0, 1, 0, 1 }, //
+            new[] { 0, 1, 0, 1, 0 }, //
+            new[] { 0, 0, 0, 0, 0 } //
+        },
+        new[]
+        {
+            new[] { 0, 0, 1, 0, 0 }, //
+            new[] { 0, 0, 0, 0, 0 }, //
+            new[] { 0, 1, 1, 1, 0 }, //
+            new[] { 0, 1, 0, 1, 0 }, //
+            new[] { 1, 0, 0, 0, 1 } //
+        },
+        new[]
+        {
+            new[] { 0, 1, 0, 1, 0 }, //
+            new[] { 0, 0, 1, 0, 0 }, //
+            new[] { 0, 0, 1, 0, 0 }, //
+            new[] { 0, 1, 0, 1, 0 }, //
+            new[] { 0, 1, 0, 1, 0 } //
+        },
+        new[] // spaced
+        {
+            new[] { 0, 1, 0, 1, 0 }, //
+            new[] { 0, 0, 0, 0, 0 }, //
+            new[] { 0, 1, 0, 1, 0 }, //
+            new[] { 0, 1, 0, 1, 0 }, //
+            new[] { 0, 1, 0, 1, 0 } //
+        }
+    };
+
+    internal const int GridSize = 5;
 
     // Toggle HUD components
     private const InputCommands.Id CtrlShiftH = (InputCommands.Id)44440004;
@@ -38,6 +82,13 @@ internal static class GameUiContext
 
     // Rejoin Party
     private const InputCommands.Id CtrlShiftR = (InputCommands.Id)44440009;
+
+    // Formation
+    private const InputCommands.Id CtrlShift1 = (InputCommands.Id)44440010;
+    private const InputCommands.Id CtrlShift2 = (InputCommands.Id)44440011;
+    private const InputCommands.Id CtrlShift3 = (InputCommands.Id)44440012;
+    private const InputCommands.Id CtrlShift4 = (InputCommands.Id)44440013;
+    private const InputCommands.Id CtrlShift5 = (InputCommands.Id)44440014;
 
     private static readonly List<RectTransform> SpellLineTables = new();
     private static ItemPresentation EmpressGarbOriginalItemPresentation { get; set; }
@@ -722,36 +773,81 @@ internal static class GameUiContext
         }
     }
 
-    internal static void FillFormationGridFromDefinition()
+    internal static void ResetFormationGrid(int selectedSet)
     {
         for (var y = 0; y < GridSize; y++)
         {
             for (var x = 0; x < GridSize; x++)
             {
-                Main.Settings.FormationGrid[y][x] = 0;
+                Main.Settings.FormationGridSets[selectedSet][y][x] = FormationGridSetTemplates[selectedSet][y][x];
+            }
+        }
+    }
+
+    internal static void ResetAllFormationGrids()
+    {
+        for (var i = 0; i < FormationGridSetTemplates.Length; i++)
+        {
+            ResetFormationGrid(i);
+        }
+
+        Main.Settings.FormationGridSelectedSet = 0;
+    }
+
+    private static void LoadFormationGrid()
+    {
+        if (Main.Settings.FormationGridSelectedSet < 0)
+        {
+            ResetAllFormationGrids();
+        }
+        else
+        {
+            FillDefinitionFromFormationGrid();
+        }
+    }
+
+#if false
+    private static void FillFormationGridFromDefinition(int selectedSet)
+    {
+        for (var y = 0; y < GridSize; y++)
+        {
+            for (var x = 0; x < GridSize; x++)
+            {
+                Main.Settings.FormationGridSets[selectedSet][y][x] = 0;
             }
         }
 
         foreach (var position in DatabaseHelper.FormationDefinitions.Column2.FormationPositions)
         {
-            Main.Settings.FormationGrid[-position.z][position.x + 2] = 1;
+            Main.Settings.FormationGridSets[selectedSet][-position.z][position.x + 2] = 1;
         }
     }
+#endif
 
     internal static void FillDefinitionFromFormationGrid()
     {
         var position = 0;
+        var selectedSet = Main.Settings.FormationGridSelectedSet;
 
         for (var y = 0; y < GridSize; y++)
         {
             for (var x = 0; x < GridSize; x++)
             {
-                if (Main.Settings.FormationGrid[y][x] == 1)
+                if (Main.Settings.FormationGridSets[selectedSet][y][x] == 1)
                 {
                     DatabaseHelper.FormationDefinitions.Column2.FormationPositions[position++] = new int3(x - 2, 0, -y);
                 }
             }
         }
+
+        if (UnityModManagerUIPatcher.ModManagerUI.IsOpen)
+        {
+            return;
+        }
+
+        Gui.GuiService.ShowAlert(
+            Gui.Format("ModUi/&FormationSelected", (Main.Settings.FormationGridSelectedSet + 1).ToString()),
+            Gui.ColorAlert);
     }
 
     internal static void Load()
@@ -763,16 +859,7 @@ internal static class GameUiContext
         LoadMonkKiPointsToggle();
         LoadPaladinSmiteToggle();
         LoadWildshapeSwapAttackToggle();
-
-        if (Main.Settings.FormationGridInitialized)
-        {
-            FillDefinitionFromFormationGrid();
-        }
-        else
-        {
-            FillFormationGridFromDefinition();
-            Main.Settings.FormationGridInitialized = true;
-        }
+        LoadFormationGrid();
 
         var inputService = ServiceRepository.GetService<IInputService>();
 
@@ -802,47 +889,63 @@ internal static class GameUiContext
         // Rejoin
         inputService.RegisterCommand(CtrlShiftR, (int)KeyCode.R, (int)KeyCode.LeftShift,
             (int)KeyCode.LeftControl);
-    }
 
-    internal static void LateLoad()
-    {
-        if (Main.Settings.FormationGridInitialized)
-        {
-            FillDefinitionFromFormationGrid();
-        }
-        else
-        {
-            FillFormationGridFromDefinition();
-            Main.Settings.FormationGridInitialized = true;
-        }
+        // Formation
+        inputService.RegisterCommand(CtrlShift1, (int)KeyCode.Alpha1, (int)KeyCode.LeftShift,
+            (int)KeyCode.LeftControl);
+        inputService.RegisterCommand(CtrlShift2, (int)KeyCode.Alpha2, (int)KeyCode.LeftShift,
+            (int)KeyCode.LeftControl);
+        inputService.RegisterCommand(CtrlShift3, (int)KeyCode.Alpha3, (int)KeyCode.LeftShift,
+            (int)KeyCode.LeftControl);
+        inputService.RegisterCommand(CtrlShift4, (int)KeyCode.Alpha4, (int)KeyCode.LeftShift,
+            (int)KeyCode.LeftControl);
+        inputService.RegisterCommand(CtrlShift5, (int)KeyCode.Alpha5, (int)KeyCode.LeftShift,
+            (int)KeyCode.LeftControl);
     }
 
     internal static void HandleInput(GameLocationBaseScreen gameLocationBaseScreen, InputCommands.Id command)
     {
-        if (Main.Settings.EnableCharacterExport && command == CtrlShiftE)
+        // ReSharper disable once SwitchStatementMissingSomeEnumCasesNoDefault
+        switch (command)
         {
-            CharacterExportContext.ExportInspectedCharacter();
-        }
-
-        if (Main.Settings.EnableHotkeyToggleHud && command == CtrlShiftH)
-        {
-            GameHud.ShowAll(gameLocationBaseScreen, GetInitiativeOrPartyPanel(), GetTimeAndNavigationPanel());
-        }
-        else if (Main.Settings.EnableHotkeyDebugOverlay && command == CtrlShiftD)
-        {
-            ServiceRepository.GetService<IDebugOverlayService>()?.ToggleActivation();
-        }
-        else if (Main.Settings.EnableTeleportParty && command == CtrlShiftT)
-        {
-            Teleporter.ConfirmTeleportParty(Teleporter.GetEncounterPosition);
-        }
-        else if (Main.Settings.EnableRejoinParty && command == CtrlShiftR)
-        {
-            Teleporter.ConfirmTeleportParty(Teleporter.GetLeaderPosition);
-        }
-        else if (EncountersSpawnContext.EncounterCharacters.Count > 0 && command == CtrlShiftS)
-        {
-            EncountersSpawnContext.ConfirmStageEncounter();
+            case CtrlShiftE when Main.Settings.EnableCharacterExport:
+                CharacterExportContext.ExportInspectedCharacter();
+                break;
+            case CtrlShiftH when Main.Settings.EnableHotkeyToggleHud:
+                GameHud.ShowAll(gameLocationBaseScreen, GetInitiativeOrPartyPanel(), GetTimeAndNavigationPanel());
+                break;
+            case CtrlShiftD when Main.Settings.EnableHotkeyDebugOverlay:
+                ServiceRepository.GetService<IDebugOverlayService>()?.ToggleActivation();
+                break;
+            case CtrlShiftT when Main.Settings.EnableTeleportParty:
+                Teleporter.ConfirmTeleportParty(Teleporter.GetEncounterPosition);
+                break;
+            case CtrlShiftR when Main.Settings.EnableRejoinParty:
+                Teleporter.ConfirmTeleportParty(Teleporter.GetLeaderPosition);
+                break;
+            case CtrlShiftS when EncountersSpawnContext.EncounterCharacters.Count > 0:
+                EncountersSpawnContext.ConfirmStageEncounter();
+                break;
+            case CtrlShift1 when Main.Settings.EnableHotkeySwapFormationSets && !Global.IsMultiplayer:
+                Main.Settings.FormationGridSelectedSet = 0;
+                FillDefinitionFromFormationGrid();
+                break;
+            case CtrlShift2 when Main.Settings.EnableHotkeySwapFormationSets && !Global.IsMultiplayer:
+                Main.Settings.FormationGridSelectedSet = 1;
+                FillDefinitionFromFormationGrid();
+                break;
+            case CtrlShift3 when Main.Settings.EnableHotkeySwapFormationSets && !Global.IsMultiplayer:
+                Main.Settings.FormationGridSelectedSet = 2;
+                FillDefinitionFromFormationGrid();
+                break;
+            case CtrlShift4 when Main.Settings.EnableHotkeySwapFormationSets && !Global.IsMultiplayer:
+                Main.Settings.FormationGridSelectedSet = 3;
+                FillDefinitionFromFormationGrid();
+                break;
+            case CtrlShift5 when Main.Settings.EnableHotkeySwapFormationSets && !Global.IsMultiplayer:
+                Main.Settings.FormationGridSelectedSet = 4;
+                FillDefinitionFromFormationGrid();
+                break;
         }
 
         [CanBeNull]

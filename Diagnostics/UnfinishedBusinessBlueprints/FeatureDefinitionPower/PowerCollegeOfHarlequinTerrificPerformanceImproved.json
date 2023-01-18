@@ -8,7 +8,7 @@
     "hitAffinitiesByTargetTag": [],
     "targetType": "Sphere",
     "itemSelectionType": "None",
-    "targetParameter": 3,
+    "targetParameter": 6,
     "targetParameter2": 2,
     "emissiveBorder": "None",
     "emissiveParameter": 1,
@@ -60,6 +60,41 @@
     "effectApplication": "All",
     "effectFormFilters": [],
     "effectForms": [
+      {
+        "$type": "EffectForm, Assembly-CSharp",
+        "formType": "Damage",
+        "addBonusMode": "None",
+        "applyLevel": "No",
+        "levelType": "ClassLevel",
+        "levelMultiplier": 1,
+        "diceByLevelTable": [],
+        "createdByCharacter": false,
+        "createdByCondition": false,
+        "hasSavingThrow": false,
+        "savingThrowAffinity": "None",
+        "dcModifier": 0,
+        "canSaveToCancel": false,
+        "saveOccurence": "EndOfTurn",
+        "damageForm": {
+          "$type": "DamageForm, Assembly-CSharp",
+          "versatile": false,
+          "diceNumber": 2,
+          "dieType": "D8",
+          "overrideWithBardicInspirationDie": true,
+          "versatileDieType": "D1",
+          "bonusDamage": 0,
+          "damageType": "DamagePsychic",
+          "ancestryType": "Sorcerer",
+          "healFromInflictedDamage": "Never",
+          "hitPointsFloor": 0,
+          "forceKillOnZeroHp": false,
+          "specialDeathCondition": null,
+          "ignoreFlyingCharacters": false,
+          "ignoreCriticalDoubleDice": false
+        },
+        "hasFilterId": false,
+        "filterId": 0
+      },
       {
         "$type": "EffectForm, Assembly-CSharp",
         "formType": "Condition",
@@ -321,13 +356,13 @@
   "uniqueInstance": false,
   "showCasting": true,
   "shortTitleOverride": "",
-  "overriddenPower": null,
+  "overriddenPower": "Definition:PowerCollegeOfHarlequinTerrificPerformance:f9e4f50d-e4f5-5061-bfde-100c35d1a731",
   "includeBaseDescription": false,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&PowerCollegeOfHarlequinTerrificPerformanceTitle",
-    "description": "Feature/&PowerCollegeOfHarlequinTerrificPerformanceDescription",
+    "title": "Feature/&PowerCollegeOfHarlequinTerrificPerformanceImprovedTitle",
+    "description": "Feature/&PowerCollegeOfHarlequinTerrificPerformanceImprovedDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -347,7 +382,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "f9e4f50d-e4f5-5061-bfde-100c35d1a731",
+  "guid": "66945792-1155-5851-9134-abea2b4aa5c7",
   "contentPack": 9999,
-  "name": "PowerCollegeOfHarlequinTerrificPerformance"
+  "name": "PowerCollegeOfHarlequinTerrificPerformanceImproved"
 }

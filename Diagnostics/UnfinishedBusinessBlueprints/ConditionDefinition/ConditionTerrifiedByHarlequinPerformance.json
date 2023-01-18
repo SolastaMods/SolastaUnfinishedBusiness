@@ -2,10 +2,11 @@
   "$type": "ConditionDefinition, Assembly-CSharp",
   "inDungeonEditor": false,
   "parentCondition": null,
-  "conditionType": "Beneficial",
+  "conditionType": "Detrimental",
   "features": [
-    "Definition:AttackModifierCollegeOfHarlequinCombatInspirationAttackEnhancement:7c05ea7a-6e4a-5ca3-8ed2-332d0c308e12",
-    "Definition:MovementAffinityCollegeOfHarlequinCombatInspirationMovementEnhancement:aae664df-bf9f-506b-9b36-b716d52e9eb2"
+    "Definition:AbilityCheckAffinityFrightened:2a2719b10ea87f34f9f29e03cbdba5c7",
+    "Definition:CombatAffinityFrightened:bd7a11317eacebb44966fa78e8b8f2dc",
+    "Definition:SavingThrowAffinityPatronHiveWeakeningPheromones:efba1b9e43d4abc4abc123dca4ac3e87"
   ],
   "allowMultipleInstances": false,
   "silentWhenAdded": false,
@@ -129,12 +130,12 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Condition/&ConditionCollegeOfHarlequinFightingAbilityEnhancedTitle",
-    "description": "Condition/&ConditionCollegeOfHarlequinFightingAbilityEnhancedDescription",
+    "title": "Condition/&ConditionTerrifiedByHarlequinPerformanceTitle",
+    "description": "Condition/&ConditionTerrifiedByHarlequinPerformanceDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "df79a8d92a082eb40a000919a6f5b27a",
-      "m_SubObjectName": "ConditionDivineFavor",
+      "m_AssetGUID": "6999cc364fd0b374a8acf35bac34d694",
+      "m_SubObjectName": "ConditionFrightened",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
@@ -150,7 +151,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "d1e823fe-ae98-5788-9bf3-85e0f2ab2ee3",
+  "guid": "8d8c467d-99d0-5d74-874b-18396f97e421",
   "contentPack": 9999,
-  "name": "ConditionCollegeOfHarlequinFightingAbilityEnhanced"
+  "name": "ConditionTerrifiedByHarlequinPerformance"
 }
