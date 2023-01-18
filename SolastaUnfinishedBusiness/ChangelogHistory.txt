@@ -2,8 +2,10 @@
 
 1.4.33.8:
 
-- fixed Dual Weapon Defense feat +1 AC
-- improved party formation feature with sets and hotkeys
+- fixed Dual Weapon Defense feat AC bonus
+- improved party formation feature with sets, templates and hotkeys
+- removed AC and damage bonus from College of Harlequin combat inspiration
+- removed Archery fighting style from College of Harlequin progression
 
 1.4.33.7:
 

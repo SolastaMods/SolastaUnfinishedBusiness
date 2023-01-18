@@ -1,4 +1,10 @@
+ATTENTION:
+
+- RESPEC any College of Harlequin hero before this update
+
 CHANGES:
 
-- fixed Dual Weapon Defense feat +1 AC
-- improved party formation feature with sets and hotkeys
+- fixed Dual Weapon Defense feat AC bonus
+- improved party formation feature with sets, templates and hotkeys
+- removed AC and damage bonus from College of Harlequin combat inspiration
+- removed Archery fighting style from College of Harlequin progression
