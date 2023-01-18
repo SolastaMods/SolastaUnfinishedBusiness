@@ -6,6 +6,7 @@ using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.Extensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
+using SolastaUnfinishedBusiness.Patches;
 using TA;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
@@ -18,7 +19,50 @@ namespace SolastaUnfinishedBusiness.Models;
 
 internal static class GameUiContext
 {
-    private const int SetSize = 5;
+    private static readonly int[][][] FormationGridSetTemplates =
+    {
+        new[] // default
+        {
+            new[] { 0, 0, 1, 1, 0 }, //
+            new[] { 0, 0, 1, 1, 0 }, //
+            new[] { 0, 0, 1, 1, 0 }, //
+            new[] { 0, 0, 1, 1, 0 }, //
+            new[] { 0, 0, 0, 0, 0 } //
+        },
+        new[] // triangle
+        {
+            new[] { 0, 0, 1, 0, 0 }, //
+            new[] { 0, 1, 0, 1, 0 }, //
+            new[] { 1, 0, 1, 0, 1 }, //
+            new[] { 0, 1, 0, 1, 0 }, //
+            new[] { 0, 0, 0, 0, 0 } //
+        },
+        new[]
+        {
+            new[] { 0, 0, 1, 0, 0 }, //
+            new[] { 0, 0, 0, 0, 0 }, //
+            new[] { 0, 1, 1, 1, 0 }, //
+            new[] { 0, 1, 0, 1, 0 }, //
+            new[] { 1, 0, 0, 0, 1 } //
+        },
+        new[]
+        {
+            new[] { 0, 1, 0, 1, 0 }, //
+            new[] { 0, 0, 1, 0, 0 }, //
+            new[] { 0, 0, 1, 0, 0 }, //
+            new[] { 0, 1, 0, 1, 0 }, //
+            new[] { 0, 1, 0, 1, 0 } //
+        },
+        new[] // spaced
+        {
+            new[] { 0, 1, 0, 1, 0 }, //
+            new[] { 0, 0, 0, 0, 0 }, //
+            new[] { 0, 1, 0, 1, 0 }, //
+            new[] { 0, 1, 0, 1, 0 }, //
+            new[] { 0, 1, 0, 1, 0 } //
+        }
+    };
+
     internal const int GridSize = 5;
 
     // Toggle HUD components
@@ -729,16 +773,32 @@ internal static class GameUiContext
         }
     }
 
+    internal static void ResetFormationGrid(int selectedSet)
+    {
+        for (var y = 0; y < GridSize; y++)
+        {
+            for (var x = 0; x < GridSize; x++)
+            {
+                Main.Settings.FormationGridSets[selectedSet][y][x] = FormationGridSetTemplates[selectedSet][y][x];
+            }
+        }
+    }
+
+    internal static void ResetAllFormationGrids()
+    {
+        for (var i = 0; i < FormationGridSetTemplates.Length; i++)
+        {
+            ResetFormationGrid(i);
+        }
+
+        Main.Settings.FormationGridSelectedSet = 0;
+    }
+
     private static void LoadFormationGrid()
     {
         if (Main.Settings.FormationGridSelectedSet < 0)
         {
-            for (var i = 0; i < SetSize; i++)
-            {
-                FillFormationGridFromDefinition(i);
-            }
-
-            Main.Settings.FormationGridSelectedSet = 0;
+            ResetAllFormationGrids();
         }
         else
         {
@@ -746,6 +806,7 @@ internal static class GameUiContext
         }
     }
 
+#if false
     private static void FillFormationGridFromDefinition(int selectedSet)
     {
         for (var y = 0; y < GridSize; y++)
@@ -761,6 +822,7 @@ internal static class GameUiContext
             Main.Settings.FormationGridSets[selectedSet][-position.z][position.x + 2] = 1;
         }
     }
+#endif
 
     internal static void FillDefinitionFromFormationGrid()
     {
@@ -776,6 +838,11 @@ internal static class GameUiContext
                     DatabaseHelper.FormationDefinitions.Column2.FormationPositions[position++] = new int3(x - 2, 0, -y);
                 }
             }
+        }
+
+        if (UnityModManagerUIPatcher.ModManagerUI.IsOpen)
+        {
+            return;
         }
 
         Gui.GuiService.ShowAlert(

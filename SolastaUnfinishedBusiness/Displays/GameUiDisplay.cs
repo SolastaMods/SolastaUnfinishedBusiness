@@ -17,11 +17,21 @@ internal static class GameUiDisplay
 
         var selectedSet = Main.Settings.FormationGridSelectedSet;
 
-        if (UI.SelectionGrid(ref selectedSet, SetNames, SetNames.Length, SetNames.Length, UI.Width(165)))
+        using (UI.HorizontalScope())
         {
-            _selectedForSwap = false;
-            Main.Settings.FormationGridSelectedSet = selectedSet;
-            GameUiContext.FillDefinitionFromFormationGrid();
+            if (UI.SelectionGrid(ref selectedSet, SetNames, SetNames.Length, SetNames.Length, UI.Width(165)))
+            {
+                _selectedForSwap = false;
+                Main.Settings.FormationGridSelectedSet = selectedSet;
+                GameUiContext.FillDefinitionFromFormationGrid();
+            }
+
+            UI.ActionButton("reset all", () =>
+                {
+                    _selectedForSwap = false;
+                    GameUiContext.ResetAllFormationGrids();
+                },
+                UI.Width(100));
         }
 
         UI.Label();
@@ -77,6 +87,17 @@ internal static class GameUiDisplay
                             _selectedForSwap = true;
                         }
                     }, UI.Width(30));
+                }
+
+                // first line
+                if (y == 0)
+                {
+                    UI.ActionButton("reset this", () =>
+                        {
+                            _selectedForSwap = false;
+                            GameUiContext.ResetFormationGrid(Main.Settings.FormationGridSelectedSet);
+                        },
+                        UI.Width(100));
                 }
             }
         }
