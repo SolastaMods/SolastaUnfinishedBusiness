@@ -146,7 +146,7 @@ internal sealed class CollegeOfHarlequin : AbstractSubclass
             .AddFeaturesAtLevel(6,
                 CommonBuilders.AttributeModifierCasterFightingExtraAttack,
                 powerImprovedCombatInspiration)
-            // .AddFeaturesAtLevel(14,powerTerrificPerformanceImproved)
+            .AddFeaturesAtLevel(14,powerTerrificPerformanceImproved)
             .AddToDB();
     }
 
@@ -248,7 +248,7 @@ internal sealed class CollegeOfHarlequin : AbstractSubclass
 
             var power = power6;
             var level = attacker.RulesetCharacter.GetClassLevel(BardClass);
-            if (level >= 1)
+            if (level >= 14)
             {
                 power = power14;
             }
