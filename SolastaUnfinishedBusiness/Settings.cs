@@ -239,7 +239,34 @@ public class Settings : UnityModManager.ModSettings
     public bool AddPaladinSmiteToggle { get; set; }
     public bool AddWildshapeSwapAttackToggle { get; set; }
     public int FormationGridSelectedSet { get; set; } = -1;
-    public int[][][] FormationGridSets { get; set; }
+    public int[][][] FormationGridSets { get; set; } =
+    {
+        new[]
+        {
+            new int[GameUiContext.GridSize], new int[GameUiContext.GridSize], new int[GameUiContext.GridSize],
+            new int[GameUiContext.GridSize], new int[GameUiContext.GridSize]
+        },
+        new[]
+        {
+            new int[GameUiContext.GridSize], new int[GameUiContext.GridSize], new int[GameUiContext.GridSize],
+            new int[GameUiContext.GridSize], new int[GameUiContext.GridSize]
+        },
+        new[]
+        {
+            new int[GameUiContext.GridSize], new int[GameUiContext.GridSize], new int[GameUiContext.GridSize],
+            new int[GameUiContext.GridSize], new int[GameUiContext.GridSize]
+        },
+        new[]
+        {
+            new int[GameUiContext.GridSize], new int[GameUiContext.GridSize], new int[GameUiContext.GridSize],
+            new int[GameUiContext.GridSize], new int[GameUiContext.GridSize]
+        },
+        new[]
+        {
+            new int[GameUiContext.GridSize], new int[GameUiContext.GridSize], new int[GameUiContext.GridSize],
+            new int[GameUiContext.GridSize], new int[GameUiContext.GridSize]
+        }
+    };
 
     // Input
     public bool AltOnlyHighlightItemsInPartyFieldOfView { get; set; }
