@@ -6,7 +6,6 @@ using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomInterfaces;
-using static FeatureDefinitionAttributeModifier.AttributeModifierOperation;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 
@@ -18,6 +17,14 @@ internal sealed class CollegeOfHarlequin : AbstractSubclass
 
     internal CollegeOfHarlequin()
     {
+        var conditionTerrified = ConditionDefinitionBuilder
+            .Create("ConditionTerrifiedByHarlequinPerformance")
+            .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionFrightenedFear)
+            .SetConditionType(ConditionType.Detrimental)
+            .AddFeatures(ConditionDefinitions.ConditionFrightened.Features.ToArray())
+            .AddFeatures(ConditionDefinitions.ConditionPatronHiveWeakeningPheromones.Features.ToArray())
+            .AddToDB();
+
         var powerTerrificPerformance = FeatureDefinitionPowerBuilder
             .Create("PowerCollegeOfHarlequinTerrificPerformance")
             .SetGuiPresentation(Category.Feature)
@@ -26,24 +33,39 @@ internal sealed class CollegeOfHarlequin : AbstractSubclass
                 //actual targeting is happening in sub-feature, this is for proper tooltip
                 .SetTargetingData(Side.Enemy, RangeType.Self, 0, TargetType.Sphere, 3)
                 .SetParticleEffectParameters(SpellDefinitions.Fear.effectDescription.effectParticleParameters)
+                .SetSavingThrowData(false, AttributeDefinitions.Wisdom, false,
+                    EffectDifficultyClassComputation.SpellCastingFeature)
+                .SetEffectForms(EffectFormBuilder.Create()
+                    .HasSavingThrow(EffectSavingThrowType.Negates)
+                    .SetConditionForm(conditionTerrified, ConditionForm.ConditionOperation.Add)
+                    .Build())
+                .Build())
+            .AddToDB();
+
+        var powerTerrificPerformanceImproved = FeatureDefinitionPowerBuilder
+            .Create("PowerCollegeOfHarlequinTerrificPerformanceImproved")
+            .SetGuiPresentation(Category.Feature)
+            .SetOverriddenPower(powerTerrificPerformance)
+            .SetEffectDescription(EffectDescriptionBuilder.Create()
+                .SetDurationData(DurationType.Round, 1)
+                //actual targeting is happening in sub-feature, this is for proper tooltip
+                .SetTargetingData(Side.Enemy, RangeType.Self, 0, TargetType.Sphere, 6)
+                .SetParticleEffectParameters(SpellDefinitions.Fear.effectDescription.effectParticleParameters)
                 .SetSavingThrowData(false,
                     AttributeDefinitions.Wisdom, false, EffectDifficultyClassComputation.SpellCastingFeature)
                 .SetEffectForms(
                     EffectFormBuilder.Create()
-                        .HasSavingThrow(EffectSavingThrowType.Negates)
-                        .SetConditionForm(ConditionDefinitions.ConditionFrightened,
-                            ConditionForm.ConditionOperation.Add)
+                        .SetDamageForm(DamageTypePsychic, 2, DieType.D8, 0, HealFromInflictedDamage.Never, true)
                         .Build(),
                     EffectFormBuilder.Create()
                         .HasSavingThrow(EffectSavingThrowType.Negates)
-                        .SetConditionForm(ConditionDefinitions.ConditionPatronHiveWeakeningPheromones,
-                            ConditionForm.ConditionOperation.Add)
+                        .SetConditionForm(conditionTerrified, ConditionForm.ConditionOperation.Add)
                         .Build())
                 .Build())
             .AddToDB();
 
         powerTerrificPerformance.SetCustomSubFeatures(
-            new TerrificPerformance(powerTerrificPerformance),
+            new TerrificPerformance(powerTerrificPerformance, powerTerrificPerformanceImproved),
             PowerVisibilityModifier.Hidden
         );
 
@@ -63,11 +85,6 @@ internal sealed class CollegeOfHarlequin : AbstractSubclass
                             .Create(CombatInspirationCondition)
                             .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionHeraldOfBattle)
                             .AddFeatures(
-                                FeatureDefinitionAttributeModifierBuilder
-                                    .Create("AttributeModifierCollegeOfHarlequinCombatInspirationArmorClassEnhancement")
-                                    .SetGuiPresentation(Category.Feature)
-                                    .SetModifier(AddConditionAmount, AttributeDefinitions.ArmorClass)
-                                    .AddToDB(),
                                 FeatureDefinitionMovementAffinityBuilder
                                     .Create("MovementAffinityCollegeOfHarlequinCombatInspirationMovementEnhancement")
                                     .SetGuiPresentation(Category.Feature)
@@ -77,7 +94,6 @@ internal sealed class CollegeOfHarlequin : AbstractSubclass
                                     .Create("AttackModifierCollegeOfHarlequinCombatInspirationAttackEnhancement")
                                     .SetGuiPresentation(Category.Feature)
                                     .SetAttackRollModifier(method: AttackModifierMethod.SourceConditionAmount)
-                                    .SetDamageRollModifier(method: AttackModifierMethod.SourceConditionAmount)
                                     .AddToDB())
                             .SetCustomSubFeatures(new ConditionCombatInspired(FeatureName))
                             .AddToDB(),
@@ -96,8 +112,7 @@ internal sealed class CollegeOfHarlequin : AbstractSubclass
         var proficiencyCollegeOfHarlequinFightingStyle = FeatureDefinitionProficiencyBuilder
             .Create("ProficiencyCollegeOfHarlequinFightingStyle")
             .SetGuiPresentation(Category.Feature)
-            .SetProficiencies(ProficiencyType.FightingStyle,
-                FightingStyleDefinitions.Archery.Name, FightingStyleDefinitions.TwoWeapon.Name)
+            .SetProficiencies(ProficiencyType.FightingStyle, FightingStyleDefinitions.TwoWeapon.Name)
             .AddToDB();
 
         var powerImprovedCombatInspiration = FeatureDefinitionPowerBuilder
@@ -130,6 +145,7 @@ internal sealed class CollegeOfHarlequin : AbstractSubclass
             .AddFeaturesAtLevel(6,
                 CommonBuilders.AttributeModifierCasterFightingExtraAttack,
                 powerImprovedCombatInspiration)
+            .AddFeaturesAtLevel(14,powerTerrificPerformanceImproved)
             .AddToDB();
     }
 
@@ -201,11 +217,13 @@ internal sealed class CollegeOfHarlequin : AbstractSubclass
 
     private sealed class TerrificPerformance : ITargetReducedToZeroHp
     {
-        private readonly FeatureDefinitionPower power;
-
-        public TerrificPerformance(FeatureDefinitionPower power)
+        private readonly FeatureDefinitionPower power6;
+        private readonly FeatureDefinitionPower power14;
+        
+        public TerrificPerformance(FeatureDefinitionPower power6, FeatureDefinitionPower power14)
         {
-            this.power = power;
+            this.power6 = power6;
+            this.power14 = power14;
         }
 
         public IEnumerator HandleCharacterReducedToZeroHp(
@@ -227,6 +245,13 @@ internal sealed class CollegeOfHarlequin : AbstractSubclass
                 yield break;
             }
 
+            var power = power6;
+            var level = attacker.RulesetCharacter.GetClassLevel(BardClass);
+            if (level >= 14)
+            {
+                power = power14;
+            }
+            
             var rulesetAttacker = attacker.RulesetCharacter;
             var effectPower = new RulesetEffectPower(rulesetAttacker, UsablePowersProvider.Get(power, rulesetAttacker));
 
