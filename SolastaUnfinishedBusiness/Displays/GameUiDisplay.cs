@@ -61,7 +61,8 @@ internal static class GameUiDisplay
 
                     if (Main.Settings.FormationGridSets[selectedSet][y][x] == 1)
                     {
-                        GUI.color = Color.green;
+                        // yep 256 not 255 for a light contrast
+                        GUI.color = new Color(0x1E / 256f, 0x81 / 256f, 0xB0 / 256f);
                         label = "@";
                     }
                     else
