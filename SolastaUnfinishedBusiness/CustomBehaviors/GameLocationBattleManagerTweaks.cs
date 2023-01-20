@@ -292,9 +292,8 @@ internal static class GameLocationBattleManagerTweaks
             // Try to find the condition granting the provider
             var holdingCondition =
                 attacker.RulesetCharacter.FindFirstConditionHoldingFeature(provider as FeatureDefinition);
-            RulesetCharacter sourceCharacter = null;
             if (holdingCondition != null &&
-                RulesetEntity.TryGetEntity(holdingCondition.SourceGuid, out sourceCharacter))
+                RulesetEntity.TryGetEntity(holdingCondition.SourceGuid, out RulesetCharacter sourceCharacter))
             {
                 additionalDamageForm.DieType = RuleDefinitions.DieType.D1;
                 additionalDamageForm.DiceNumber = 0;
@@ -311,7 +310,7 @@ internal static class GameLocationBattleManagerTweaks
         //Commented out original check
         // else if (provider.DamageValueDetermination == RuleDefinitions.AdditionalDamageValueDetermination.TargetKnowledgeLevel && attacker.RulesetCharacter is RulesetCharacterHero && defender.RulesetCharacter is RulesetCharacterMonster)
 
-        // [CE] use previously saved hero variable to check if attacker is actually a  hero, this allows for wild-shaped charaters to count
+        // [CE] use previously saved hero variable to check if attacker is actually a  hero, this allows for wild-shaped characters to count
         else if (provider.DamageValueDetermination ==
                  RuleDefinitions.AdditionalDamageValueDetermination.TargetKnowledgeLevel && hero != null &&
                  defender.RulesetCharacter is RulesetCharacterMonster)

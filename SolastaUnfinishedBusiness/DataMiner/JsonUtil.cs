@@ -42,12 +42,12 @@ namespace SolastaUnfinishedBusiness.DataMiner
             return refJsonSerializerSettings;
         }
 
-        internal static bool IsBlacklisted(MemberInfo _)
+        private static bool IsBlacklisted(MemberInfo _)
         {
             return false;
         }
 
-        internal static List<MemberInfo> GetUnitySerializableMembers(Type objectType)
+        internal static IEnumerable<MemberInfo> GetUnitySerializableMembers(Type objectType)
         {
             if (objectType == null)
             {

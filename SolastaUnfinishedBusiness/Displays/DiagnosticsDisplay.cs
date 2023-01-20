@@ -194,9 +194,9 @@ All settings start disabled by default.
             string exportTaLabel;
             string exportTaLabel2;
             string exportCeLabel;
-            var percentageCompleteTa = BlueprintExporter.CurrentExports[DiagnosticsContext.Ta].percentageComplete;
-            var percentageCompleteTa2 = BlueprintExporter.CurrentExports[DiagnosticsContext.Ta2].percentageComplete;
-            var percentageCompleteCe = BlueprintExporter.CurrentExports[DiagnosticsContext.Ce].percentageComplete;
+            var percentageCompleteTa = BlueprintExporter.CurrentExports[DiagnosticsContext.Ta].PercentageComplete;
+            var percentageCompleteTa2 = BlueprintExporter.CurrentExports[DiagnosticsContext.Ta2].PercentageComplete;
+            var percentageCompleteCe = BlueprintExporter.CurrentExports[DiagnosticsContext.Ce].PercentageComplete;
 
             if (percentageCompleteTa == 0)
             {

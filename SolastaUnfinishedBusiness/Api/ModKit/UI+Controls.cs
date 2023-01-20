@@ -40,7 +40,7 @@ internal static partial class UI
 
     // Text Fields
 
-    private static float FloatTextField(ref float value, string name = null, params GUILayoutOption[] options)
+    private static void FloatTextField(ref float value, string name = null, params GUILayoutOption[] options)
     {
         var text = $"{value}";
 
@@ -55,8 +55,6 @@ internal static partial class UI
         {
             value = val;
         }
-
-        return value;
     }
 
     // Action Text Fields
