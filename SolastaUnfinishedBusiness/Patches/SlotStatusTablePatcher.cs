@@ -49,7 +49,7 @@ public static class SlotStatusTablePatcher
             int spellLevel)
         {
             // spellRepertoire is null during level up...
-            if (spellRepertoire == null || spellLevel == 0)
+            if (spellRepertoire == null || spellLevel == 0 || spellRepertoire.SpellCastingRace != null)
             {
                 return;
             }
