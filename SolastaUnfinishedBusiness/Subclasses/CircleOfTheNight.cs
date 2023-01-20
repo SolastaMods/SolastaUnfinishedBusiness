@@ -340,8 +340,8 @@ internal sealed class CircleOfTheNight : AbstractSubclass
 
     private class OnAfterActionWildShape : IOnAfterActionFeature
     {
-        private readonly ConditionDefinition _wildshapeActionCondition;
         private readonly ConditionDefinition _anyActionCondition;
+        private readonly ConditionDefinition _wildshapeActionCondition;
 
         public OnAfterActionWildShape(
             ConditionDefinition wildshapeActionCondition,

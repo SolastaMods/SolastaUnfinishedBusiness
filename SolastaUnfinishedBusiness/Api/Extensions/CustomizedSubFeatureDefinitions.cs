@@ -25,26 +25,20 @@ internal static class CustomizedSubFeatureDefinitions
         return !CustomSubFeatures.ContainsKey(definition) ? null : CustomSubFeatures[definition];
     }
 
-    [NotNull]
-    internal static T SetCustomSubFeatures<T>(
+    internal static void SetCustomSubFeatures<T>(
         [NotNull] this T definition,
         [NotNull] params object[] subFeatures)
         where T : BaseDefinition
     {
         GetOrCreateForKey(definition).SetRange(subFeatures);
-
-        return definition;
     }
 
-    [NotNull]
-    internal static T AddCustomSubFeatures<T>(
+    internal static void AddCustomSubFeatures<T>(
         [NotNull] this T definition,
         [NotNull] params object[] subFeatures)
         where T : BaseDefinition
     {
         GetOrCreateForKey(definition).AddRange(subFeatures);
-
-        return definition;
     }
 
     [NotNull]

@@ -38,14 +38,16 @@ public static class GuiCharacterPatcher
                 return;
             }
 
-            if (!Main.Settings.DisplayPactSlotsOnSpellSelectionPanel)
+            // need to check for not null hero as we don't wanna these slots displayed under WS
+            var hero = __instance.RulesetCharacterHero;
+
+            if (hero != null && !Main.Settings.DisplayPactSlotsOnSpellSelectionPanel)
             {
                 return;
             }
 
-            var hero = __instance.RulesetCharacterHero;
 
-            if (!SharedSpellsContext.IsMulticaster(hero))
+            if (hero != null && !SharedSpellsContext.IsMulticaster(hero))
             {
                 return;
             }

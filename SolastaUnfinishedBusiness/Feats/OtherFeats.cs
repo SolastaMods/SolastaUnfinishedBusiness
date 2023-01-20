@@ -322,6 +322,18 @@ internal static class OtherFeats
             .AddToDB();
     }
 
+    private static RulesetEffectPower GetUsablePower(RulesetCharacter rulesetCharacter)
+    {
+        var constitution = rulesetCharacter.GetAttribute(AttributeDefinitions.Constitution).CurrentValue;
+        var proficiencyBonus = rulesetCharacter.GetAttribute(AttributeDefinitions.ProficiencyBonus).CurrentValue;
+        var usablePower = new RulesetUsablePower(PowerFeatPoisonousSkin, null, null)
+        {
+            saveDC = ComputeAbilityScoreBasedDC(constitution, proficiencyBonus)
+        };
+
+        return new RulesetEffectPower(rulesetCharacter, usablePower);
+    }
+
     //
     // HELPERS
     //
@@ -357,18 +369,6 @@ internal static class OtherFeats
 
             attacker.RulesetCharacter.AddConditionOfCategory(AttributeDefinitions.TagCombat, rulesetCondition);
         }
-    }
-
-    private static RulesetEffectPower GetUsablePower(RulesetCharacter rulesetCharacter)
-    {
-        var constitution = rulesetCharacter.GetAttribute(AttributeDefinitions.Constitution).CurrentValue;
-        var proficiencyBonus = rulesetCharacter.GetAttribute(AttributeDefinitions.ProficiencyBonus).CurrentValue;
-        var usablePower = new RulesetUsablePower(PowerFeatPoisonousSkin, null, null)
-        {
-            saveDC = ComputeAbilityScoreBasedDC(constitution, proficiencyBonus)
-        };
-
-        return new RulesetEffectPower(rulesetCharacter, usablePower);
     }
 
     private sealed class OnAttackHitEffectFeatPoisonousSkin : IAfterAttackEffect

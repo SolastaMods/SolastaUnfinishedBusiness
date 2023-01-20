@@ -58,6 +58,14 @@ internal static class SrdAndHouseRulesContext
         FeyDriad // CR 1
     };
 
+    private static readonly string[] LargeWildshapeForms =
+    {
+        "WildShapeAirElemental", "WildShapeFireElemental", "WildShapeEarthElemental", "WildShapeWaterElemental",
+        "WildShapeApe", "WildShapeTundraTiger"
+    };
+
+    private static readonly Dictionary<string, TagsDefinitions.Criticity> Tags = new();
+
     private static SpellDefinition ConjureElementalInvisibleStalker { get; set; }
 
     internal static void Load()
@@ -507,12 +515,6 @@ internal static class SrdAndHouseRulesContext
         }
     }
 
-    private static readonly string[] LargeWildshapeForms =
-    {
-        "WildShapeAirElemental", "WildShapeFireElemental", "WildShapeEarthElemental", "WildShapeWaterElemental",
-        "WildShapeApe", "WildShapeTundraTiger"
-    };
-
     internal static void SwitchMakeLargeWildshapeFormsMedium()
     {
         foreach (var monsterDefinitionName in LargeWildshapeForms)
@@ -629,8 +631,6 @@ internal static class SrdAndHouseRulesContext
                 .Build())
             .AddToDB();
     }
-
-    private static readonly Dictionary<string, TagsDefinitions.Criticity> Tags = new();
 
     internal static bool IsAttackModeInvalid(RulesetCharacter character, RulesetAttackMode mode)
     {

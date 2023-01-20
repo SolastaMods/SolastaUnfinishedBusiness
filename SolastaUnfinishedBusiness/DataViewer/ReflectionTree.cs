@@ -233,7 +233,6 @@ internal abstract class Node
     }
 
     internal abstract void SetDirty();
-    internal abstract void UpdateValue();
 }
 
 internal abstract class GenericNode<TNode> : Node
@@ -517,7 +516,7 @@ internal abstract class GenericNode<TNode> : Node
         _propertyNodes.Sort((x, y) => String.Compare(x.Name, y.Name, StringComparison.CurrentCultureIgnoreCase));
     }
 
-    internal override void UpdateValue()
+    internal void UpdateValue()
     {
         if (!_valueIsDirty)
         {

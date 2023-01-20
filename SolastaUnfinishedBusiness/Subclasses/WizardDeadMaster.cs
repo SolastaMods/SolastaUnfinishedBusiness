@@ -123,19 +123,6 @@ internal sealed class WizardDeadMaster : AbstractSubclass
         EnableCommandAllUndead();
     }
 
-    private sealed class BypassSpellConcentrationDeadMaster : IBypassSpellConcentration
-    {
-        public IEnumerable<SpellDefinition> SpellDefinitions()
-        {
-            return DeadMasterSpells;
-        }
-
-        public int OnlyWithUpcastGreaterThan()
-        {
-            return 1;
-        }
-    }
-
     internal override CharacterSubclassDefinition Subclass { get; }
 
     internal override FeatureDefinitionSubclassChoice SubclassChoice =>
@@ -253,7 +240,7 @@ internal sealed class WizardDeadMaster : AbstractSubclass
                     .SetEffectDescription(EffectDescriptionBuilder.Create()
                         .SetTargetingData(Side.All, RangeType.Distance, 6, TargetType.Position, count)
                         .SetDurationData(DurationType.Minute, 1)
-                        .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel, 1,
+                        .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel,
                             alteredDuration: incrementMethod)
                         .SetParticleEffectParameters(VampiricTouch)
                         .SetEffectForms(EffectFormBuilder.Create()
@@ -313,6 +300,19 @@ internal sealed class WizardDeadMaster : AbstractSubclass
         }
 
         return modified;
+    }
+
+    private sealed class BypassSpellConcentrationDeadMaster : IBypassSpellConcentration
+    {
+        public IEnumerable<SpellDefinition> SpellDefinitions()
+        {
+            return DeadMasterSpells;
+        }
+
+        public int OnlyWithUpcastGreaterThan()
+        {
+            return 1;
+        }
     }
 
     private sealed class StarkHarvest : ITargetReducedToZeroHp

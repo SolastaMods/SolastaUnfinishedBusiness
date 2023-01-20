@@ -10,10 +10,6 @@ namespace SolastaUnfinishedBusiness.Displays;
 
 internal static class ToolsDisplay
 {
-    private static bool DisplayItemsToggle { get; set; }
-
-    private static bool DisplayFactionRelationsToggle { get; set; }
-
     internal const float DefaultFastTimeModifier = 1.5f;
 
     private static readonly (string, Func<ItemDefinition, bool>)[] ItemsFilters =
@@ -58,6 +54,10 @@ internal static class ToolsDisplay
 
     private static readonly string[] ItemsWeaponTagsFiltersLabels =
         ItemsWeaponTagsFilters.Select(x => x.Item1).ToArray();
+
+    private static bool DisplayItemsToggle { get; set; }
+
+    private static bool DisplayFactionRelationsToggle { get; set; }
 
     private static Vector2 ItemPosition { get; set; } = Vector2.zero;
 

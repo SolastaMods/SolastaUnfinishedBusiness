@@ -10,7 +10,7 @@ internal static class ItemDefinitionVerification
 {
     private const string LogName = "ItemDefinition.txt";
 
-    internal static Verification Mode { get; set; } = Verification.None;
+    private static Verification Mode { get; set; } = Verification.None;
 
     internal static void Load()
     {

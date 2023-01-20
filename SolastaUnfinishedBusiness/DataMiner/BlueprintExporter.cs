@@ -11,9 +11,9 @@ namespace SolastaUnfinishedBusiness.DataMiner
 {
     internal class BlueprintExporter : MonoBehaviour
     {
-        private const int MAX_PATH_LENGTH = 250;
+        private const int MaxPathLength = 250;
 
-        private static BlueprintExporter exporter;
+        private static BlueprintExporter _exporter;
 
         internal static readonly ExportStatus[] CurrentExports = new ExportStatus[3];
 
@@ -21,13 +21,15 @@ namespace SolastaUnfinishedBusiness.DataMiner
         {
             get
             {
-                if (exporter == null)
+                if (_exporter != null)
                 {
-                    exporter = new GameObject().AddComponent<BlueprintExporter>();
-                    DontDestroyOnLoad(exporter.gameObject);
+                    return _exporter;
                 }
 
-                return exporter;
+                _exporter = new GameObject().AddComponent<BlueprintExporter>();
+                DontDestroyOnLoad(_exporter.gameObject);
+
+                return _exporter;
             }
         }
 
@@ -41,18 +43,18 @@ namespace SolastaUnfinishedBusiness.DataMiner
 
         private static void SetExport(int exportId, Coroutine coroutine, float percentageComplete)
         {
-            CurrentExports[exportId].coroutine = coroutine;
-            CurrentExports[exportId].percentageComplete = percentageComplete;
+            CurrentExports[exportId].Coroutine = coroutine;
+            CurrentExports[exportId].PercentageComplete = percentageComplete;
         }
 
         internal static void Cancel(int exportId)
         {
-            if (CurrentExports[exportId].coroutine == null)
+            if (CurrentExports[exportId].Coroutine == null)
             {
                 return;
             }
 
-            Exporter.StopCoroutine(CurrentExports[exportId].coroutine);
+            Exporter.StopCoroutine(CurrentExports[exportId].Coroutine);
             SetExport(exportId, null, 0f);
         }
 
@@ -64,7 +66,7 @@ namespace SolastaUnfinishedBusiness.DataMiner
             bool exportOriginalCopy,
             string path)
         {
-            if (baseDefinitionsMap == null || baseDefinitions == null || CurrentExports[exportId].coroutine != null)
+            if (baseDefinitionsMap == null || baseDefinitions == null || CurrentExports[exportId].Coroutine != null)
             {
                 return;
             }
@@ -78,9 +80,9 @@ namespace SolastaUnfinishedBusiness.DataMiner
 
         private static IEnumerator ExportMany(
             int exportId,
-            BaseDefinition[] baseDefinitions,
+            IReadOnlyList<BaseDefinition> baseDefinitions,
             Dictionary<Type, BaseDefinition[]> baseDefinitionsMap,
-            Dictionary<BaseDefinition, BaseDefinition> baseDefinitionAndCopy,
+            IReadOnlyDictionary<BaseDefinition, BaseDefinition> baseDefinitionAndCopy,
             bool exportOriginalCopy,
             string path)
         {
@@ -120,7 +122,7 @@ namespace SolastaUnfinishedBusiness.DataMiner
 
             yield return null;
 
-            var total = baseDefinitions.Length;
+            var total = baseDefinitions.Count;
 
             // Blueprints/definitions
             for (var i = 0; i < total; i++)
@@ -129,15 +131,15 @@ namespace SolastaUnfinishedBusiness.DataMiner
                 var definitionType = definition.GetType().Name;
 
                 var filename = $"{definition.Name}.json";
-                var foldername = $"{path}/{definitionType}";
-                var fullname = $"{foldername}/{filename}";
+                var folderName = $"{path}/{definitionType}";
+                var fullname = $"{folderName}/{filename}";
 
-                EnsureFolderExists(foldername);
+                EnsureFolderExists(folderName);
 
-                if (fullname.Length > MAX_PATH_LENGTH)
+                if (fullname.Length > MaxPathLength)
                 {
-                    Main.Log($"Shortened path {fullname}, to {foldername}/{definition.GUID}.json");
-                    fullname = $"{foldername}/{definition.GUID}.json";
+                    Main.Log($"Shortened path {fullname}, to {folderName}/{definition.GUID}.json");
+                    fullname = $"{folderName}/{definition.GUID}.json";
                 }
 
                 try
@@ -157,7 +159,7 @@ namespace SolastaUnfinishedBusiness.DataMiner
                     Main.Error(ex);
                 }
 
-                CurrentExports[exportId].percentageComplete = (float)i / total;
+                CurrentExports[exportId].PercentageComplete = (float)i / total;
 
                 yield return null;
             }
@@ -182,8 +184,8 @@ namespace SolastaUnfinishedBusiness.DataMiner
 
         internal struct ExportStatus
         {
-            internal Coroutine coroutine;
-            internal float percentageComplete;
+            internal Coroutine Coroutine;
+            internal float PercentageComplete;
         }
     }
 }

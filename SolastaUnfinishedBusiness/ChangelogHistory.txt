@@ -1,5 +1,12 @@
 ﻿CHANGES:
 
+1.4.33.9:
+
+- fixed a crash to desktop when Moonlit tried to wildshape
+- fixed an original game issue when determining critical hit against opponents with very high AC [reported to TA with a fix]
+- fixed slots reaction UI interaction with caster races
+- made formation mod UI accessible for users who scale UMM
+
 1.4.33.8:
 
 - fixed Dual Weapon Defense feat AC bonus

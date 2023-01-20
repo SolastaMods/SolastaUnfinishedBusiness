@@ -50,8 +50,7 @@ internal static partial class SpellBuilders
                     .SetEffectForms(EffectFormBuilder.Create()
                         .SetDamageForm(damageType, 3, DieType.D8)
                         .Build())
-                    .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel, 1,
-                        additionalDicePerIncrement: 1)
+                    .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel, additionalDicePerIncrement: 1)
                     .SetParticleEffectParameters(particleType)
                     .SetSpeed(SpeedType.CellsPerSeconds, 8.5f)
                     .SetupImpactOffsets(offsetImpactTimePerTarget: 0.1f)
@@ -76,7 +75,7 @@ internal static partial class SpellBuilders
                 .SetTargetFiltering(TargetFilteringMethod.CharacterOnly)
                 .SetTargetingData(Side.Enemy, RangeType.RangeHit, 12, TargetType.Individuals)
                 .SetDurationData(DurationType.Instantaneous)
-                .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel, 1,
+                .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel,
                     additionalDicePerIncrement: 1)
                 .SetSpeed(SpeedType.CellsPerSeconds, 8.5f)
                 .SetupImpactOffsets(offsetImpactTimePerTarget: 0.1f)
@@ -106,7 +105,7 @@ internal static partial class SpellBuilders
             .SetDurationData(DurationType.Minute, 1)
             .SetParticleEffectParameters(Grease)
             .SetTargetingData(Side.All, RangeType.Distance, 24, TargetType.Cylinder, 2, 1)
-            .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel, 1, additionalDicePerIncrement: 1)
+            .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel, additionalDicePerIncrement: 1)
             .SetEffectForms(
                 EffectFormBuilder
                     .Create()

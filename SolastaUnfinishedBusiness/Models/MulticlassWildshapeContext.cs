@@ -31,13 +31,6 @@ internal static class MulticlassWildshapeContext
         AttributeDefinitions.Intelligence, AttributeDefinitions.Wisdom, AttributeDefinitions.Charisma
     };
 
-    internal static void FinalizeMonster(RulesetCharacterMonster monster, bool keepMentalAbilityScores)
-    {
-        UpdateSenses(monster);
-        UpdateAttributeModifiers(monster, keepMentalAbilityScores);
-        FixShapeShiftedAc(monster);
-    }
-
     private static readonly ConditionDefinition ConditionWildshapeFlurryOfBlows = ConditionDefinitionBuilder
         .Create("ConditionWildshapeFlurryOfBlows")
         .SetGuiPresentationNoContent(true)
@@ -51,6 +44,13 @@ internal static class MulticlassWildshapeContext
             .SetMaxAttackNumber(-1)
             .AddToDB())
         .AddToDB();
+
+    internal static void FinalizeMonster(RulesetCharacterMonster monster, bool keepMentalAbilityScores)
+    {
+        UpdateSenses(monster);
+        UpdateAttributeModifiers(monster, keepMentalAbilityScores);
+        FixShapeShiftedAc(monster);
+    }
 
     internal static void HandleFlurryOfBlows(RulesetCharacter __instance, ConditionDefinition conditionDefinition)
     {

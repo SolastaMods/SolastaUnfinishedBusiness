@@ -12,10 +12,6 @@ internal static partial class DatabaseHelper
         internal static ActionDefinition OneWithShadowsTurnInvisible { get; } = GetDefinition<ActionDefinition>("OneWithShadowsTurnInvisible");
         internal static ActionDefinition WildShape { get; } = GetDefinition<ActionDefinition>("WildShape");
     }
-    internal static class AlignmentDefinitions
-    {
-        internal static AlignmentDefinition Neutral { get; } = GetDefinition<AlignmentDefinition>("Neutral");
-    }
     internal static class CharacterBackgroundDefinitions
     {
         internal static CharacterBackgroundDefinition Academic { get; } = GetDefinition<CharacterBackgroundDefinition>("Academic");
@@ -693,7 +689,6 @@ internal static partial class DatabaseHelper
     }
     internal static class FightingStyleDefinitions
     {
-        internal static FightingStyleDefinition Archery { get; } = GetDefinition<FightingStyleDefinition>("Archery");
         internal static FightingStyleDefinition Defense { get; } = GetDefinition<FightingStyleDefinition>("Defense");
         internal static FightingStyleDefinition TwoWeapon { get; } = GetDefinition<FightingStyleDefinition>("TwoWeapon");
     }

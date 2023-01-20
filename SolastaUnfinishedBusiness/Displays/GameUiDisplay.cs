@@ -1,5 +1,6 @@
 ﻿using SolastaUnfinishedBusiness.Api.ModKit;
 using SolastaUnfinishedBusiness.Models;
+using UnityEngine;
 
 namespace SolastaUnfinishedBusiness.Displays;
 
@@ -55,29 +56,23 @@ internal static class GameUiDisplay
 
                 for (var x = 0; x < GameUiContext.GridSize; x++)
                 {
+                    var saveColor = GUI.color;
                     string label;
 
                     if (Main.Settings.FormationGridSets[selectedSet][y][x] == 1)
                     {
-                        if (_selectedForSwap && _selectedX == x && _selectedY == y)
-                        {
-                            label = "<b><color=red>@</color></b>";
-                        }
-                        else
-                        {
-                            label = "<b><color=#1E81B0>@</color></b>";
-                        }
+                        // yep 256 not 255 for a light contrast
+                        GUI.color = new Color(0x1E / 256f, 0x81 / 256f, 0xB0 / 256f);
+                        label = "@";
                     }
                     else
                     {
-                        if (_selectedForSwap && _selectedX == x && _selectedY == y)
-                        {
-                            label = "<b><color=red>..</color></b>";
-                        }
-                        else
-                        {
-                            label = "..";
-                        }
+                        label = "..";
+                    }
+
+                    if (_selectedForSwap && _selectedX == x && _selectedY == y)
+                    {
+                        label = $"<b><color=red>{label}</color></b>";
                     }
 
                     UI.ActionButton(label, () =>
@@ -107,6 +102,8 @@ internal static class GameUiDisplay
                             _selectedForSwap = true;
                         }
                     }, UI.Width(30));
+
+                    GUI.color = saveColor;
                 }
 
                 // first line

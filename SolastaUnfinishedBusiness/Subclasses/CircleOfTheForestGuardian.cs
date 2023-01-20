@@ -73,12 +73,6 @@ internal sealed class CircleOfTheForestGuardian : AbstractSubclass
             .SetUniqueInstance()
             .AddToDB();
 
-        //TODO: this was kept for backward compatibility. remove on next major game version
-        _ = FeatureDefinitionPowerBuilder
-            .Create("PowerForestGuardianBarkWardPool")
-            .SetGuiPresentationNoContent(true)
-            .AddToDB();
-
         var powerSharedPoolForestGuardianBarkWard = FeatureDefinitionPowerBuilder
             .Create("PowerSharedPoolForestGuardianBarkWard")
             .SetGuiPresentation(Category.Feature, PowerDruidWildShape)

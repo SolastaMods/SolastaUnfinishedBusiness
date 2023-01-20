@@ -11,15 +11,17 @@ namespace SolastaUnfinishedBusiness.Builders;
 [UsedImplicitly]
 internal class MonsterDefinitionBuilder : DefinitionBuilder<MonsterDefinition, MonsterDefinitionBuilder>
 {
+    internal const string NeutralAlignment = "Neutral";
+
     internal MonsterDefinitionBuilder SetGroupAttacks(bool value)
     {
         Definition.groupAttacks = value;
         return this;
     }
 
-    internal MonsterDefinitionBuilder SetAlignment(AlignmentDefinition alignment)
+    internal MonsterDefinitionBuilder SetAlignment(string name)
     {
-        Definition.alignment = alignment.name;
+        Definition.alignment = name;
         return this;
     }
 

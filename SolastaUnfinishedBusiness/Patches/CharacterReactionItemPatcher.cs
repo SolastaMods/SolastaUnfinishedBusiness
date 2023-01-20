@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
-using System.Reflection;
+using System.Linq;
 using System.Reflection.Emit;
 using HarmonyLib;
 using JetBrains.Annotations;
@@ -26,17 +26,20 @@ public static class CharacterReactionItemPatcher
         public static IEnumerable<CodeInstruction> Transpiler([NotNull] IEnumerable<CodeInstruction> instructions)
         {
             //PATCH: replaces calls to the Bind of `CharacterReactionSubitem` with custom method
-            var bind = typeof(CharacterReactionSubitem).GetMethod("Bind",
-                BindingFlags.Public | BindingFlags.Instance);
+            var bind = typeof(CharacterReactionSubitem).GetMethod("Bind");
             var customBindMethod =
                 new Action<CharacterReactionSubitem, RulesetSpellRepertoire, int, string, bool,
                     CharacterReactionSubitem.SubitemSelectedHandler, ReactionRequest>(CustomBind).Method;
+            var spellRepertoires = typeof(RulesetCharacter).GetMethod("get_SpellRepertoires");
+            var customSpellRepertoiresMethod =
+                new Func<RulesetCharacter, List<RulesetSpellRepertoire>>(SpellRepertoiresNoRace).Method;
 
             return instructions
                 .ReplaceCalls(bind, "CharacterReactionItem.Bind",
                     new CodeInstruction(OpCodes.Ldarg_1),
                     new CodeInstruction(OpCodes.Call, customBindMethod))
-
+                .ReplaceCalls(spellRepertoires, "CharacterReactionItem.SpellRepertoires",
+                    new CodeInstruction(OpCodes.Call, customSpellRepertoiresMethod))
                 //PATCH: removes Trace.Assert() that checks if character has any spell repertoires
                 //this assert was added in 1.4.5 and triggers if non-spell caster does AoO
                 //happens because we replaced default AoO reaction with warcaster one, so they would merge properly when several are triggered at once
@@ -59,6 +62,14 @@ public static class CharacterReactionItemPatcher
             {
                 SetupResource(__instance, attack.Resource);
             }
+        }
+
+        //BUGFIX: game currently gets the first spell repertoire to present slots on screen
+        private static List<RulesetSpellRepertoire> SpellRepertoiresNoRace(RulesetCharacter rulesetCharacter)
+        {
+            return rulesetCharacter.SpellRepertoires
+                .Where(x => x.SpellCastingRace == null)
+                .ToList();
         }
 
         private static void SetupResource(CharacterReactionItem item, ICustomReactionResource resource)
