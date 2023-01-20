@@ -580,6 +580,38 @@ public static class RulesetCharacterPatcher
     [UsedImplicitly]
     public static class RollAttack_Patch
     {
+        private static int FixCriticalDeterminationAndMirrorImageLogic(
+            RulesetAttribute attribute,
+            RulesetCharacter rulesetCharacter,
+            int rawRoll,
+            RulesetActor target,
+            List<RuleDefinitions.TrendInfo> toHitTrends)
+        {
+            //BUGFIX: using this as a temporary place to fix an issue with official game code when determining critical
+            // original game code first check if AC is bypassed even on a critical roll
+            var service = ServiceRepository.GetService<IGameSettingsService>();
+            var disableEnemyCritical = rulesetCharacter.Side == RuleDefinitions.Side.Enemy && service is
+            {
+                DisableEnemyCrits: true
+            };
+
+            var currentValue = RuleDefinitions.DiceMaxValue[8];
+
+            if (target.TryGetAttribute(AttributeDefinitions.CriticalThreshold, out var rulesetAttribute))
+            {
+                currentValue = rulesetAttribute.CurrentValue;
+            }
+
+            var outcome = rawRoll < currentValue || disableEnemyCritical
+                ? RuleDefinitions.RollOutcome.Success
+                : RuleDefinitions.RollOutcome.CriticalSuccess;
+
+            // use -MaxInt to force the successDelta check to true and ensure we get a critical regardless of enemy's AC
+            return outcome == RuleDefinitions.RollOutcome.CriticalSuccess
+                ? -Int32.MaxValue
+                : MirrorImageLogic.GetAC(attribute, target, toHitTrends);
+        }
+
         [NotNull]
         [UsedImplicitly]
         public static IEnumerable<CodeInstruction> Transpiler([NotNull] IEnumerable<CodeInstruction> instructions)
@@ -587,13 +619,16 @@ public static class RulesetCharacterPatcher
             //PATCH: support for Mirror Image - replaces target's AC with 10 + DEX bonus if we targeting mirror image
             var currentValueMethod = typeof(RulesetAttribute).GetMethod("get_CurrentValue");
             var method =
-                new Func<RulesetAttribute, RulesetActor, List<RuleDefinitions.TrendInfo>, int>(MirrorImageLogic.GetAC)
+                new Func<RulesetAttribute, RulesetCharacter, int, RulesetActor, List<RuleDefinitions.TrendInfo>, int>(
+                        FixCriticalDeterminationAndMirrorImageLogic)
                     .Method;
 
             return instructions.ReplaceCall(currentValueMethod,
                 1, "RulesetCharacter.RollAttack",
-                new CodeInstruction(OpCodes.Ldarg_2),
-                new CodeInstruction(OpCodes.Ldarg, 4),
+                new CodeInstruction(OpCodes.Ldarg_0), // this
+                new CodeInstruction(OpCodes.Ldloc_3), // rawRoll
+                new CodeInstruction(OpCodes.Ldarg_2), // target
+                new CodeInstruction(OpCodes.Ldarg, 4), // toHitTrends
                 new CodeInstruction(OpCodes.Call, method));
         }
     }
