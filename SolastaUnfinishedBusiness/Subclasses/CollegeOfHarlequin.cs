@@ -145,7 +145,7 @@ internal sealed class CollegeOfHarlequin : AbstractSubclass
             .AddFeaturesAtLevel(6,
                 CommonBuilders.AttributeModifierCasterFightingExtraAttack,
                 powerImprovedCombatInspiration)
-            .AddFeaturesAtLevel(14,powerTerrificPerformanceImproved)
+            .AddFeaturesAtLevel(14, powerTerrificPerformanceImproved)
             .AddToDB();
     }
 
@@ -217,9 +217,9 @@ internal sealed class CollegeOfHarlequin : AbstractSubclass
 
     private sealed class TerrificPerformance : ITargetReducedToZeroHp
     {
-        private readonly FeatureDefinitionPower power6;
         private readonly FeatureDefinitionPower power14;
-        
+        private readonly FeatureDefinitionPower power6;
+
         public TerrificPerformance(FeatureDefinitionPower power6, FeatureDefinitionPower power14)
         {
             this.power6 = power6;
@@ -251,7 +251,7 @@ internal sealed class CollegeOfHarlequin : AbstractSubclass
             {
                 power = power14;
             }
-            
+
             var rulesetAttacker = attacker.RulesetCharacter;
             var effectPower = new RulesetEffectPower(rulesetAttacker, UsablePowersProvider.Get(power, rulesetAttacker));
 

@@ -554,13 +554,12 @@ internal static class InvocationsBuilders
 
     private sealed class AfterActionAbilitiesChain : IOnAfterActionFeature
     {
-        private readonly ConditionDefinition _conditionSpriteAbility;
-
         private readonly ConditionDefinition _conditionImpAbility;
 
-        private readonly ConditionDefinition _conditionQuasitAbility;
-
         private readonly ConditionDefinition _conditionPseudoAbility;
+
+        private readonly ConditionDefinition _conditionQuasitAbility;
+        private readonly ConditionDefinition _conditionSpriteAbility;
 
         internal AfterActionAbilitiesChain(ConditionDefinition conditionSpriteAbility,
             ConditionDefinition conditionImpAbility,
@@ -571,21 +570,6 @@ internal static class InvocationsBuilders
             _conditionImpAbility = conditionImpAbility;
             _conditionQuasitAbility = conditionQuasitAbility;
             _conditionPseudoAbility = conditionPseudoAbility;
-        }
-
-        private static void SetChainBuff(RulesetCharacter self, ConditionDefinition buff)
-        {
-            var rulesetCondition = RulesetCondition.CreateActiveCondition(
-                self.Guid,
-                buff,
-                RuleDefinitions.DurationType.Minute,
-                1,
-                RuleDefinitions.TurnOccurenceType.StartOfTurn,
-                self.Guid,
-                self.CurrentFaction.Name
-            );
-
-            self.AddConditionOfCategory(AttributeDefinitions.TagEffect, rulesetCondition, false);
         }
 
         public void OnAfterAction(CharacterAction action)
@@ -657,6 +641,21 @@ internal static class InvocationsBuilders
                     }
                 }
             }
+        }
+
+        private static void SetChainBuff(RulesetCharacter self, ConditionDefinition buff)
+        {
+            var rulesetCondition = RulesetCondition.CreateActiveCondition(
+                self.Guid,
+                buff,
+                RuleDefinitions.DurationType.Minute,
+                1,
+                RuleDefinitions.TurnOccurenceType.StartOfTurn,
+                self.Guid,
+                self.CurrentFaction.Name
+            );
+
+            self.AddConditionOfCategory(AttributeDefinitions.TagEffect, rulesetCondition, false);
         }
     }
 }

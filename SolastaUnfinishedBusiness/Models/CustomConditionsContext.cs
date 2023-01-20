@@ -123,7 +123,8 @@ internal static class CustomConditionsContext
 
         public void ApplyFeature(RulesetCharacter target, RulesetCondition rulesetCondition)
         {
-            if (target is not RulesetCharacterMonster && !target.HasConditionOfType(ConditionInvisibilityEveryRoundRevealed))
+            if (target is not RulesetCharacterMonster &&
+                !target.HasConditionOfType(ConditionInvisibilityEveryRoundRevealed))
             {
                 BecomeHidden(target);
             }
@@ -133,7 +134,7 @@ internal static class CustomConditionsContext
         {
             if (target is not RulesetCharacterMonster)
             {
-                target.RemoveAllConditionsOfCategory(CategoryHidden, false); 
+                target.RemoveAllConditionsOfCategory(CategoryHidden, false);
             }
         }
 

@@ -85,7 +85,7 @@ internal static partial class SpellBuilders
                 .Create(InsectPlague.EffectDescription)
                 .SetTargetingData(Side.All, RangeType.Distance, 12, TargetType.Cube, 3)
                 .SetDurationData(DurationType.Minute, 1)
-                .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel, 1, additionalDicePerIncrement: 2)
+                .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel, additionalDicePerIncrement: 2)
                 .SetRecurrentEffect(RecurrentEffect.OnTurnStart | RecurrentEffect.OnEnter)
                 .SetSavingThrowData(
                     false,
@@ -132,7 +132,7 @@ internal static partial class SpellBuilders
                 .Create(SpikeGrowth.EffectDescription)
                 .SetTargetingData(Side.All, RangeType.Distance, 1, TargetType.Sphere, 0)
                 .SetDurationData(DurationType.Minute, 10)
-                .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel, 1, additionalDicePerIncrement: 1)
+                .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel, additionalDicePerIncrement: 1)
                 .SetRecurrentEffect(RecurrentEffect.OnEnter)
                 .SetSavingThrowData(
                     false,

@@ -79,10 +79,10 @@ public static class ElvenPrecisionLogic
 
     internal sealed class ElvenPrecisionContext
     {
-        public static ElvenPrecisionContext Mark { get; } = new();
-
         private ElvenPrecisionContext()
         {
         }
+
+        public static ElvenPrecisionContext Mark { get; } = new();
     }
 }

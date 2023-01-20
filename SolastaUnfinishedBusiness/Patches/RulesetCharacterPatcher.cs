@@ -20,6 +20,41 @@ namespace SolastaUnfinishedBusiness.Patches;
 [UsedImplicitly]
 public static class RulesetCharacterPatcher
 {
+    // helper to get infusions modifiers from items
+    private static void EnumerateSpellCastingAffinityProviderFromItems(
+        RulesetCharacter __instance,
+        List<FeatureDefinition> featuresToBrowse,
+        Dictionary<FeatureDefinition,
+            RuleDefinitions.FeatureOrigin> featuresOrigin)
+    {
+        __instance.EnumerateFeaturesToBrowse<ISpellCastingAffinityProvider>(featuresToBrowse, featuresOrigin);
+
+        if (__instance is not RulesetCharacterHero hero)
+        {
+            return;
+        }
+
+        foreach (var definition in hero.CharacterInventory.InventorySlotsByName
+                     .Select(keyValuePair => keyValuePair.Value)
+                     .Where(slot => slot.EquipedItem != null && !slot.Disabled && !slot.ConfigSlot)
+                     .Select(slot => slot.EquipedItem)
+                     .SelectMany(equipedItem => equipedItem.DynamicItemProperties
+                         .Select(dynamicItemProperty => dynamicItemProperty.FeatureDefinition)
+                         .Where(definition => definition != null && definition is ISpellCastingAffinityProvider)))
+        {
+            featuresToBrowse.Add(definition);
+
+            if (featuresOrigin.ContainsKey(definition))
+            {
+                continue;
+            }
+
+            featuresOrigin.Add(definition, new RuleDefinitions.FeatureOrigin(
+                RuleDefinitions.FeatureSourceType.CharacterFeature, definition.Name,
+                null, definition.ParseSpecialFeatureTags()));
+        }
+    }
+
     [HarmonyPatch(typeof(RulesetCharacter), nameof(RulesetCharacter.TerminateMatchingUniquePower))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
@@ -1278,41 +1313,6 @@ public static class RulesetCharacterPatcher
             return instructions.ReplaceEnumerateFeaturesToBrowse("FeatureDefinitionMagicAffinity",
                 -1, "RulesetCharacter.RollConcentrationCheckFromDamage",
                 new CodeInstruction(OpCodes.Call, enumerate));
-        }
-    }
-
-    // helper to get infusions modifiers from items
-    private static void EnumerateSpellCastingAffinityProviderFromItems(
-        RulesetCharacter __instance,
-        List<FeatureDefinition> featuresToBrowse,
-        Dictionary<FeatureDefinition,
-            RuleDefinitions.FeatureOrigin> featuresOrigin)
-    {
-        __instance.EnumerateFeaturesToBrowse<ISpellCastingAffinityProvider>(featuresToBrowse, featuresOrigin);
-
-        if (__instance is not RulesetCharacterHero hero)
-        {
-            return;
-        }
-
-        foreach (var definition in hero.CharacterInventory.InventorySlotsByName
-                     .Select(keyValuePair => keyValuePair.Value)
-                     .Where(slot => slot.EquipedItem != null && !slot.Disabled && !slot.ConfigSlot)
-                     .Select(slot => slot.EquipedItem)
-                     .SelectMany(equipedItem => equipedItem.DynamicItemProperties
-                         .Select(dynamicItemProperty => dynamicItemProperty.FeatureDefinition)
-                         .Where(definition => definition != null && definition is ISpellCastingAffinityProvider)))
-        {
-            featuresToBrowse.Add(definition);
-
-            if (featuresOrigin.ContainsKey(definition))
-            {
-                continue;
-            }
-
-            featuresOrigin.Add(definition, new RuleDefinitions.FeatureOrigin(
-                RuleDefinitions.FeatureSourceType.CharacterFeature, definition.Name,
-                null, definition.ParseSpecialFeatureTags()));
         }
     }
 }

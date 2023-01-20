@@ -1,10 +1,5 @@
-ATTENTION:
-
-- RESPEC any College of Harlequin hero before this update
-
 CHANGES:
 
-- fixed Dual Weapon Defense feat AC bonus
-- improved party formation feature with sets, templates and hotkeys
-- removed AC and damage bonus from College of Harlequin combat inspiration
-- removed Archery fighting style from College of Harlequin progression
+- fixed a crash to desktop when Moonlit tried to wildshape
+- fixed slots reaction UI interaction with caster races
+- made formation mod UI accessible for users who scale UMM

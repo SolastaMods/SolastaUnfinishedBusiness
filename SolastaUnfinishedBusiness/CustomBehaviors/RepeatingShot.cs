@@ -5,11 +5,11 @@ namespace SolastaUnfinishedBusiness.CustomBehaviors;
 
 public class RepeatingShot
 {
-    public static RepeatingShot Instance { get; } = new();
-
     private RepeatingShot()
     {
     }
+
+    public static RepeatingShot Instance { get; } = new();
 
     internal static void ModifyTags(RulesetItem item, Dictionary<string, TagsDefinitions.Criticity> tags)
     {

@@ -307,16 +307,14 @@ internal sealed class MerchantFilter
     internal static readonly MerchantFilter CraftingManual = new() { isDocument = true };
     private readonly bool? isAmmunition = null;
     private readonly bool? isArmor = null;
-    private bool? isDocument;
-
     private readonly bool? isMagicalAmmunition = null;
     private readonly bool? isMagicalArmor = null;
+    private readonly bool? isPrimedArmor = null;
+    private bool? isDocument;
     private bool? isMagicalEquipment;
     private bool? isMagicalMeleeWeapon;
     private bool? isMagicalRangeWeapon;
     private bool? isMeleeWeapon;
-
-    private readonly bool? isPrimedArmor = null;
     private bool? isPrimedMeleeWeapon;
     private bool? isPrimedRangeWeapon;
     private bool? isRangeWeapon;

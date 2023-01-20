@@ -190,7 +190,7 @@ internal sealed class MartialMarshal : AbstractSubclass
                     .AddToDB(),
                 1))
             .SetArmorClass(16)
-            .SetAlignment(AlignmentDefinitions.Neutral)
+            .SetAlignment(MonsterDefinitionBuilder.NeutralAlignment)
             .SetCharacterFamily(CharacterFamilyDefinitions.Undead)
             .SetCreatureTags(EternalComradeName)
             .SetDefaultBattleDecisionPackage(DefaultMeleeWithBackupRangeDecisions)

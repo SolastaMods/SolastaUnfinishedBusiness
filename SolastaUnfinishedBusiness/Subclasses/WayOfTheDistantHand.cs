@@ -439,11 +439,11 @@ internal sealed class WayOfTheDistantHand : AbstractSubclass
 
     internal sealed class ZenArcherDiceUpgrade : IRestrictedContextValidator
     {
-        public static IRestrictedContextValidator Marker { get; } = new ZenArcherDiceUpgrade();
-
         private ZenArcherDiceUpgrade()
         {
         }
+
+        public static IRestrictedContextValidator Marker { get; } = new ZenArcherDiceUpgrade();
 
 
         public (OperationType, bool) ValidateContext(BaseDefinition definition, IRestrictedContextProvider provider,

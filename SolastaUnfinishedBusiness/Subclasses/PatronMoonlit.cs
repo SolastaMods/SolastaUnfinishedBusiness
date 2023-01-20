@@ -66,13 +66,6 @@ internal sealed class PatronMoonlit : AbstractSubclass
             .AddFeatureSet(SenseSuperiorDarkvision)
             .AddToDB();
 
-        //TODO: this was kept for backward compatibility. remove on next major game version
-        _ = FeatureDefinitionConditionAffinityBuilder
-            .Create("ConditionAffinityMoonlitDarknessImmunity")
-            .SetGuiPresentationNoContent(true)
-            .SetConditionAffinityType(ConditionAffinityType.None)
-            .AddToDB();
-
         var powerMoonlitDarkMoon = FeatureDefinitionPowerBuilder
             .Create("PowerMoonlitDarkMoon")
             .SetGuiPresentation(Category.Feature, Darkness)

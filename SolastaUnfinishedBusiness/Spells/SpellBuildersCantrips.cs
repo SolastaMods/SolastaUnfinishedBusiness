@@ -314,7 +314,7 @@ internal static partial class SpellBuilders
                     .SetBonusMode(AddBonusMode.AbilityBonus)
                     .SetDamageForm(DamageTypeThunder, 0, DieType.D8)
                     .Build())
-                .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel, 1, additionalDicePerIncrement: 1)
+                .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel, additionalDicePerIncrement: 1)
                 .Build())
             .AddToDB();
 
