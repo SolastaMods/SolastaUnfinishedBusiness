@@ -1,5 +1,6 @@
 CHANGES:
 
 - fixed a crash to desktop when Moonlit tried to wildshape
+- fixed an original game issue when determining critical hit against opponents with very high AC [reported to TA with a fix]
 - fixed slots reaction UI interaction with caster races
 - made formation mod UI accessible for users who scale UMM
