@@ -268,6 +268,7 @@ internal sealed class MartialTactician : AbstractSubclass
         var condition = ConditionDefinitionBuilder
             .Create(CONDITION_NAME)
             .SetGuiPresentation(Category.Condition, Sprites.ConditionTacticalSurge)
+            .SetPossessive()
             .SetFeatures(tick)
             .AddToDB();
 
