@@ -48,15 +48,11 @@ public static class SlotStatusTablePatcher
             RulesetSpellRepertoire spellRepertoire,
             int spellLevel)
         {
-            // spellRepertoire is null during level up...
-            if (spellRepertoire == null || spellLevel == 0 || spellRepertoire.SpellCastingRace != null)
-            {
-                return;
-            }
-
             var heroWithSpellRepertoire = spellRepertoire.GetCasterHero();
 
-            if (heroWithSpellRepertoire is null)
+            // spellRepertoire is null during level up...
+            if (spellRepertoire == null || spellLevel == 0 ||
+                !SharedSpellsContext.IsMulticaster(heroWithSpellRepertoire) || spellRepertoire.SpellCastingRace != null)
             {
                 return;
             }

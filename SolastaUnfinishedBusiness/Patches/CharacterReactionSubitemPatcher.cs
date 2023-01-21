@@ -24,7 +24,8 @@ public static class CharacterReactionSubitemPatcher
         {
             var heroWithSpellRepertoire = spellRepertoire.GetCasterHero();
 
-            if (heroWithSpellRepertoire is null)
+            if (heroWithSpellRepertoire is null || !SharedSpellsContext.IsMulticaster(heroWithSpellRepertoire) ||
+                spellRepertoire.SpellCastingRace != null)
             {
                 return;
             }
