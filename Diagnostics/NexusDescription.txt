@@ -131,6 +131,7 @@ All settings start disabled by default.
 [*][b]Divine Heart[/b]: Your innate magic has been imparted to you by a Deity for a purpose you may or may not understand. 
 [*][b]Field Manipulator[/b]: Field Manipulators excel at controlling the battlefield and preventing their enemies from being able to attack them.
 [*][b]Way of The Distant Hand[/b]: Practitioners of the Way of the Distant Hand train to make arrows an extension of their hands. They are proficient in using bows and delivering ki-empowered effects through arrows.
+[*][b]Way of the Dragon[/b]: Monks that follow the Way of the Dragon devote themselves to learning the powerful beasts, gaining draconic abilities.
 [*][b]Way of The Silhouette[/b]: Monks of the Way of Silhouette follow a tradition that values stealth and subterfuge. These monks serve as spies and assassins. Sometimes the members of a ninja monastery are family members, forming a clan sworn to secrecy about their arts and missions. Other monasteries are more like thieves' guilds, hiring out their services to nobles, rich merchants, or anyone else who can pay their fees. Regardless of their methods, the heads of these monasteries expect the unquestioning obedience of their students.
 [*][b]The Elementalist[/b]: You've been made a pact with and been changed by primordials present in the elemental badlands. The elemental chaos of the patron has suffused your soul, letting you use the power of different elemental types.
 [*][b]The Moonlit[/b]: Your patron is a spirit of the moon, an entity that embodies the cyclical nature of light and darkness. These spirits seek to maintain the power of the moon over the night sky while keeping profane powers that stalk the darkness at bay and task their warlocks with the same, granting them command over the powers of the moon and its effects.
@@ -452,7 +453,7 @@ A powerful wight, trained to withstand the light of day.
 [*][b]ImpPhil[/b]: api, builders, gameplay, rules, quality of life
 [*][b]ChrisJohnDigital[/b]: builders, gameplay, feats, fighting styles, original Tinkerer, original Wizard subclasses, Arcane Fighter, Spell Master, Spell Shield
 [*][b]SilverGriffon[/b]: gameplay, visuals, spells, Dark Elf, Draconic Kobold, Grey Dwarf, Divine Heart
-[*][b]Haxermn[/b]: spells, Oath of Ancient, Oath of Hatred
+[*][b]Haxermn[/b]: spells, Oath of Ancient, Oath of Hatred, Way of The Dragon
 [*][b]tivie[/b]: Circle of The Night, Path of The Spirits
 [*][b]ElAntonius[/b]: feats, fighting styles, Arcanist
 [*][b]DubhHerder[/b]: replace spiders, spells, original Warlock subclasses

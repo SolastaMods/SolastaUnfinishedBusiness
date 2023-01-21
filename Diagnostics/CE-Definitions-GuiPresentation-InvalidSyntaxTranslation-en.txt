@@ -26,6 +26,7 @@ ConditionElementalistNormalFire	Title='Channeling Fire Plane'.
 ConditionElementalistNormalFire	Description='Deal additional Fire damage equal to your proficiency bonus on a first hit each round.'.
 ConditionElementalistNormalIce	Title='Channeling Ice Plane'.
 ConditionElementalistNormalIce	Description='Deal additional Cold damage equal to your proficiency bonus on a first hit each round.'.
+ConditionReactiveHide	Description='PowerWayOfTheDragonReactiveHide'.
 CraftingManualRecipeEnchantBreastplate_Deflection	Title='Enchant Breastplate of Deflection'.
 CraftingManualRecipeEnchantBreastplate_FlameDancing	Title='Enchant Breastplate of Flame Dancing'.
 CraftingManualRecipeEnchantBreastplate_FrostWalking	Title='Enchant Breastplate of Frost Walking'.

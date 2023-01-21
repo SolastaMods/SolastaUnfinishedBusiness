@@ -1,0 +1,44 @@
+{
+  "$type": "FeatureDefinitionFeatureSet, Assembly-CSharp",
+  "featureSet": [
+    "Definition:AncestryPathClawDraconicBlack:51eba7020ffaad344996a28e44ec1d44",
+    "Definition:AncestryPathClawDraconicGold:c413b7b49c1b34644b45d0e0fa9903d0",
+    "Definition:AncestryPathClawDraconicGreen:239f7ef79d39f8e46b42eb4954336f5a",
+    "Definition:AncestryPathClawDraconicSilver:87d1b388750ccdf4d819f9d79709bfc0",
+    "Definition:AncestryPathClawDraconicBlue:9f2ad5c3efed11f48ac396beef21ec82"
+  ],
+  "mode": "Exclusion",
+  "ancestryDamageTypeMap": [],
+  "ancestryType": "Sorcerer",
+  "defaultSelection": 1,
+  "uniqueChoices": false,
+  "enumerateInDescription": false,
+  "hasRacialAffinity": false,
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feature/&FeatureSetWayOfTheDragonAncestryTitle",
+    "description": "Feature/&FeatureSetWayOfTheDragonAncestryDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "5b6d87c7-23ef-524b-8395-47fdeb93c276",
+  "contentPack": 9999,
+  "name": "FeatureSetWayOfTheDragonAncestry"
+}

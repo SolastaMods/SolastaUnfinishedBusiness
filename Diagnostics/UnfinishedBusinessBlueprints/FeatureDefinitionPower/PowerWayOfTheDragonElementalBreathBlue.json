@@ -6,18 +6,18 @@
     "rangeParameter": 0,
     "halfDamageOnAMiss": false,
     "hitAffinitiesByTargetTag": [],
-    "targetType": "Item",
-    "itemSelectionType": "Weapon",
-    "targetParameter": 1,
+    "targetType": "Line",
+    "itemSelectionType": "Equiped",
+    "targetParameter": 6,
     "targetParameter2": 2,
     "emissiveBorder": "None",
     "emissiveParameter": 1,
     "requiresTargetProximity": false,
-    "targetProximityDistance": 6,
-    "targetExcludeCaster": false,
+    "targetProximityDistance": 30,
+    "targetExcludeCaster": true,
     "canBePlacedOnCharacter": true,
     "affectOnlyGround": false,
-    "targetFilteringMethod": "AllCharacterAndGadgets",
+    "targetFilteringMethod": "CharacterOnly",
     "targetFilteringTag": "No",
     "requiresVisibilityForPosition": true,
     "inviteOptionalAlly": false,
@@ -30,21 +30,21 @@
     "trapRangeType": "Triggerer",
     "targetConditionName": "",
     "targetConditionAsset": null,
-    "targetSide": "Ally",
-    "durationType": "Permanent",
-    "durationParameter": 0,
+    "targetSide": "All",
+    "durationType": "Instantaneous",
+    "durationParameter": 1,
     "endOfEffect": "EndOfTurn",
-    "hasSavingThrow": false,
+    "hasSavingThrow": true,
     "disableSavingThrowOnAllies": false,
-    "savingThrowAbility": "Dexterity",
+    "savingThrowAbility": "Constitution",
     "ignoreCover": false,
     "grantedConditionOnSave": null,
     "rollSaveOnlyIfRelevantForms": false,
     "hasShoveRoll": false,
-    "createdByCharacter": false,
-    "difficultyClassComputation": "SpellCastingFeature",
+    "createdByCharacter": true,
+    "difficultyClassComputation": "AbilityScoreAndProficiency",
     "savingThrowDifficultyAbility": "Wisdom",
-    "fixedSavingThrowDifficultyClass": 15,
+    "fixedSavingThrowDifficultyClass": 20,
     "savingThrowAffinitiesBySense": [],
     "savingThrowAffinitiesByFamily": [],
     "advantageForEnemies": false,
@@ -62,30 +62,51 @@
     "effectForms": [
       {
         "$type": "EffectForm, Assembly-CSharp",
-        "formType": "ItemProperty",
+        "formType": "Damage",
         "addBonusMode": "None",
-        "applyLevel": "No",
+        "applyLevel": "DiceNumberByLevelTable",
         "levelType": "ClassLevel",
         "levelMultiplier": 1,
-        "diceByLevelTable": [],
-        "createdByCharacter": false,
+        "diceByLevelTable": [
+          {
+            "$type": "DiceByRank, Assembly-CSharp",
+            "rank": 6,
+            "diceNumber": 1
+          },
+          {
+            "$type": "DiceByRank, Assembly-CSharp",
+            "rank": 11,
+            "diceNumber": 2
+          },
+          {
+            "$type": "DiceByRank, Assembly-CSharp",
+            "rank": 16,
+            "diceNumber": 3
+          }
+        ],
+        "createdByCharacter": true,
         "createdByCondition": false,
-        "hasSavingThrow": false,
-        "savingThrowAffinity": "None",
+        "hasSavingThrow": true,
+        "savingThrowAffinity": "HalfDamage",
         "dcModifier": 0,
         "canSaveToCancel": false,
         "saveOccurence": "EndOfTurn",
-        "itemPropertyForm": {
-          "$type": "ItemPropertyForm, Assembly-CSharp",
-          "featureBySlotLevel": [
-            {
-              "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-              "featureDefinition": "Definition:AttackModifierSoulBladeEmpowerWeapon:1dc172b2-415c-5f50-a3c5-d1e1a11574ad",
-              "level": 0
-            }
-          ],
-          "usageLimitation": "Unlimited",
-          "useAmount": 1
+        "damageForm": {
+          "$type": "DamageForm, Assembly-CSharp",
+          "versatile": false,
+          "diceNumber": 2,
+          "dieType": "D6",
+          "overrideWithBardicInspirationDie": false,
+          "versatileDieType": "D10",
+          "bonusDamage": 0,
+          "damageType": "DamageLightning",
+          "ancestryType": "Sorcerer",
+          "healFromInflictedDamage": "Never",
+          "hitPointsFloor": 0,
+          "forceKillOnZeroHp": false,
+          "specialDeathCondition": null,
+          "ignoreFlyingCharacters": false,
+          "ignoreCriticalDoubleDice": false
         },
         "hasFilterId": false,
         "filterId": 0
@@ -94,7 +115,7 @@
     "specialFormsDescription": "",
     "effectAdvancement": {
       "$type": "EffectAdvancement, Assembly-CSharp",
-      "effectIncrementMethod": "None",
+      "effectIncrementMethod": "CasterLevelTable",
       "incrementMultiplier": 1,
       "additionalTargetsPerIncrement": 0,
       "additionalSubtargetsPerIncrement": 0,
@@ -117,7 +138,7 @@
       "$type": "EffectParticleParameters, Assembly-CSharp",
       "casterParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "81560ac3813217d4d9fd281d5e73c234",
+        "m_AssetGUID": "0551e282955878646b5d9b264b5aa8df",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -153,7 +174,7 @@
       },
       "zoneParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "",
+        "m_AssetGUID": "3966d3914ca5ea446ba7ef60341c6a95",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -165,7 +186,7 @@
       },
       "impactParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "",
+        "m_AssetGUID": "f22fe9e010756a64490c46fcb319e75e",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -286,13 +307,13 @@
       "sortingScoreMultiplier": 1.0,
       "dynamicCooldown": false
     },
-    "animationMagicEffect": "Animation0",
+    "animationMagicEffect": "Animation1",
     "lightCounterDispellsEffect": false
   },
   "delegatedToAction": false,
   "surrogateToSpell": null,
   "triggeredBySpecialMove": false,
-  "activationTime": "Action",
+  "activationTime": "BonusAction",
   "autoActivationRequiredTargetSenseType": "None",
   "autoActivationRequiredTargetCreatureTag": "",
   "autoActivationPowerTag": "",
@@ -307,19 +328,19 @@
   "canUseInDialog": false,
   "disableIfConditionIsOwned": null,
   "disableIfTargetConditionIsOwned": null,
-  "rechargeRate": "ShortRest",
-  "costPerUse": 1,
+  "rechargeRate": "KiPoints",
+  "costPerUse": 3,
   "spellcastingFeature": null,
   "usesDetermination": "Fixed",
   "abilityScoreDetermination": "Explicit",
   "usesAbilityScoreName": "Charisma",
   "fixedUsesPerRecharge": 1,
-  "abilityScore": "Charisma",
+  "abilityScore": "Strength",
   "attackHitComputation": "AbilityScore",
   "fixedAttackHit": 0,
   "abilityScoreBonusToAttack": false,
   "proficiencyBonusToAttack": false,
-  "uniqueInstance": true,
+  "uniqueInstance": false,
   "showCasting": true,
   "shortTitleOverride": "",
   "overriddenPower": null,
@@ -327,12 +348,12 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&PowerSoulBladeEmpowerWeaponTitle",
-    "description": "Feature/&PowerSoulBladeEmpowerWeaponDescription",
+    "title": "Feature/&PowerWayOfTheDragonElementalBreathBlueTitle",
+    "description": "Feature/&PowerWayOfTheDragonElementalBreathBlueDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "0fe1cea935b34b9478e878c754746923",
-      "m_SubObjectName": "SacredWeapon",
+      "m_AssetGUID": "f766f330143e00642a785a4730c46289",
+      "m_SubObjectName": "BreathWeaponBlue",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
@@ -348,7 +369,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "f0387894-e020-5e52-92d5-f5b88bb6997d",
+  "guid": "ca30d282-4c2d-50cf-8a64-7686eec68a1f",
   "contentPack": 9999,
-  "name": "PowerSoulBladeEmpowerWeapon"
+  "name": "PowerWayOfTheDragonElementalBreathBlue"
 }

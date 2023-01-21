@@ -1,0 +1,50 @@
+{
+  "$type": "FeatureDefinitionFeatureSet, Assembly-CSharp",
+  "featureSet": [
+    "Definition:PowerWayOfTheDragonDragonFuryAcid:2b187f36-d37f-50e1-bd82-8bb96465b2f3",
+    "Definition:PowerWayOfTheDragonDragonFuryLightning:05eb15db-4f49-5381-9d97-2a7dfd70865b",
+    "Definition:PowerWayOfTheDragonDragonFuryFire:450d8e47-8c9f-5baf-9881-7792ce93d34b",
+    "Definition:PowerWayOfTheDragonDragonFuryPoison:e1387bb6-3561-52f1-b261-26e0bac442f2",
+    "Definition:PowerWayOfTheDragonDragonFuryCold:8fbfd2cc-f98b-5efa-afac-7b2c70de7274"
+  ],
+  "mode": "DeterminedByAncestry",
+  "ancestryDamageTypeMap": [
+    "DamageAcid",
+    "DamageLightning",
+    "DamageFire",
+    "DamagePoison",
+    "DamageCold"
+  ],
+  "ancestryType": "BarbarianClaw",
+  "defaultSelection": 0,
+  "uniqueChoices": false,
+  "enumerateInDescription": false,
+  "hasRacialAffinity": false,
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feature/&FeatureSetWayOfTheDragonFuryTitle",
+    "description": "Feature/&FeatureSetWayOfTheDragonFuryDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "af962ee3-be8a-5109-9c75-8b3e5b32ebac",
+  "contentPack": 9999,
+  "name": "FeatureSetWayOfTheDragonFury"
+}

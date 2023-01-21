@@ -6,8 +6,8 @@
     "rangeParameter": 0,
     "halfDamageOnAMiss": false,
     "hitAffinitiesByTargetTag": [],
-    "targetType": "Item",
-    "itemSelectionType": "Weapon",
+    "targetType": "Self",
+    "itemSelectionType": "None",
     "targetParameter": 1,
     "targetParameter2": 2,
     "emissiveBorder": "None",
@@ -31,8 +31,8 @@
     "targetConditionName": "",
     "targetConditionAsset": null,
     "targetSide": "Ally",
-    "durationType": "Permanent",
-    "durationParameter": 0,
+    "durationType": "Round",
+    "durationParameter": 1,
     "endOfEffect": "EndOfTurn",
     "hasSavingThrow": false,
     "disableSavingThrowOnAllies": false,
@@ -62,7 +62,7 @@
     "effectForms": [
       {
         "$type": "EffectForm, Assembly-CSharp",
-        "formType": "ItemProperty",
+        "formType": "Condition",
         "addBonusMode": "None",
         "applyLevel": "No",
         "levelType": "ClassLevel",
@@ -75,17 +75,14 @@
         "dcModifier": 0,
         "canSaveToCancel": false,
         "saveOccurence": "EndOfTurn",
-        "itemPropertyForm": {
-          "$type": "ItemPropertyForm, Assembly-CSharp",
-          "featureBySlotLevel": [
-            {
-              "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-              "featureDefinition": "Definition:AttackModifierSoulBladeEmpowerWeapon:1dc172b2-415c-5f50-a3c5-d1e1a11574ad",
-              "level": 0
-            }
-          ],
-          "usageLimitation": "Unlimited",
-          "useAmount": 1
+        "conditionForm": {
+          "$type": "ConditionForm, Assembly-CSharp",
+          "conditionDefinitionName": "ConditionDragonFuryCold",
+          "conditionDefinition": "Definition:ConditionDragonFuryCold:12f3818b-b6e2-50e7-8f6f-5d5ac56abd61",
+          "operation": "Add",
+          "conditionsList": [],
+          "applyToSelf": true,
+          "forceOnSelf": true
         },
         "hasFilterId": false,
         "filterId": 0
@@ -117,7 +114,7 @@
       "$type": "EffectParticleParameters, Assembly-CSharp",
       "casterParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "81560ac3813217d4d9fd281d5e73c234",
+        "m_AssetGUID": "3b7d45ea0f197854aa21c5d1ea581201",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -153,7 +150,7 @@
       },
       "zoneParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "",
+        "m_AssetGUID": "596b83c27fbb806419e030cde3f8fe3d",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -165,7 +162,7 @@
       },
       "impactParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "",
+        "m_AssetGUID": "38c44805a1a3e4c4aaf0cd27dbe5f3f6",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -292,7 +289,7 @@
   "delegatedToAction": false,
   "surrogateToSpell": null,
   "triggeredBySpecialMove": false,
-  "activationTime": "Action",
+  "activationTime": "NoCost",
   "autoActivationRequiredTargetSenseType": "None",
   "autoActivationRequiredTargetCreatureTag": "",
   "autoActivationPowerTag": "",
@@ -307,19 +304,19 @@
   "canUseInDialog": false,
   "disableIfConditionIsOwned": null,
   "disableIfTargetConditionIsOwned": null,
-  "rechargeRate": "ShortRest",
-  "costPerUse": 1,
+  "rechargeRate": "KiPoints",
+  "costPerUse": 2,
   "spellcastingFeature": null,
   "usesDetermination": "Fixed",
   "abilityScoreDetermination": "Explicit",
   "usesAbilityScoreName": "Charisma",
   "fixedUsesPerRecharge": 1,
-  "abilityScore": "Charisma",
+  "abilityScore": "Intelligence",
   "attackHitComputation": "AbilityScore",
   "fixedAttackHit": 0,
   "abilityScoreBonusToAttack": false,
   "proficiencyBonusToAttack": false,
-  "uniqueInstance": true,
+  "uniqueInstance": false,
   "showCasting": true,
   "shortTitleOverride": "",
   "overriddenPower": null,
@@ -327,12 +324,12 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&PowerSoulBladeEmpowerWeaponTitle",
-    "description": "Feature/&PowerSoulBladeEmpowerWeaponDescription",
+    "title": "Feature/&PowerWayOfTheDragonDragonFuryColdTitle",
+    "description": "Feature/&PowerWayOfTheDragonDragonFuryColdDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "0fe1cea935b34b9478e878c754746923",
-      "m_SubObjectName": "SacredWeapon",
+      "m_AssetGUID": "efaa412a510b8b448a811c645bcbd8fa",
+      "m_SubObjectName": "RayOfFrost",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
@@ -348,7 +345,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "f0387894-e020-5e52-92d5-f5b88bb6997d",
+  "guid": "8fbfd2cc-f98b-5efa-afac-7b2c70de7274",
   "contentPack": 9999,
-  "name": "PowerSoulBladeEmpowerWeapon"
+  "name": "PowerWayOfTheDragonDragonFuryCold"
 }

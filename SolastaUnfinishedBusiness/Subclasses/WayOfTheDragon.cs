@@ -40,7 +40,7 @@ internal sealed class WayOfTheDragon : AbstractSubclass
 
         var conditionReactiveHide = ConditionDefinitionBuilder
             .Create(ConditionFiendishResilienceFire, "ConditionReactiveHide")
-            .SetGuiPresentation(Category.Feature, "PowerReactiveHide")
+            .SetGuiPresentation(Category.Condition, $"Power{Name}ReactiveHide")
             .SetPossessive()
             .AddFeatures(
                 DamageAffinityAcidResistance,
@@ -59,7 +59,7 @@ internal sealed class WayOfTheDragon : AbstractSubclass
             .AddToDB();
 
         var powerReactiveHide = FeatureDefinitionPowerBuilder
-            .Create("PowerReactiveHide")
+            .Create($"Power{Name}ReactiveHide")
             .SetGuiPresentation(Category.Feature)
             .SetUsesFixed(ActivationTime.Reaction, RechargeRate.KiPoints)
             .SetCustomSubFeatures(new ReactToAttackReactiveHide())
@@ -104,7 +104,7 @@ internal sealed class WayOfTheDragon : AbstractSubclass
     private static FeatureDefinitionFeatureSet BuildDragonFeatureSet()
     {
         var powerBlackElementalBreath = FeatureDefinitionPowerBuilder
-            .Create(PowerDragonbornBreathWeaponBlack, "PowerBlackElementalBreath")
+            .Create(PowerDragonbornBreathWeaponBlack, $"Power{Name}ElementalBreathBlack")
             .SetUsesFixed(ActivationTime.BonusAction, RechargeRate.KiPoints, 3)
             .SetGuiPresentation(Category.Feature)
             .SetEffectDescription(
@@ -122,7 +122,7 @@ internal sealed class WayOfTheDragon : AbstractSubclass
             .AddToDB();
 
         var powerBlueElementalBreath = FeatureDefinitionPowerBuilder
-            .Create(PowerDragonbornBreathWeaponBlue, "PowerBlueElementalBreath")
+            .Create(PowerDragonbornBreathWeaponBlue, $"Power{Name}ElementalBreathBlue")
             .SetUsesFixed(ActivationTime.BonusAction, RechargeRate.KiPoints, 3)
             .SetGuiPresentation(Category.Feature, PowerDragonbornBreathWeaponBlue)
             .SetEffectDescription(
@@ -140,7 +140,7 @@ internal sealed class WayOfTheDragon : AbstractSubclass
             .AddToDB();
 
         var powerGreenElementalBreath = FeatureDefinitionPowerBuilder
-            .Create(PowerDragonbornBreathWeaponGreen, "PowerGreenElementalBreath")
+            .Create(PowerDragonbornBreathWeaponGreen, $"Power{Name}ElementalBreathGreen")
             .SetUsesFixed(ActivationTime.BonusAction, RechargeRate.KiPoints, 3)
             .SetGuiPresentation(Category.Feature, PowerDragonbornBreathWeaponGreen)
             .SetEffectDescription(
@@ -158,7 +158,7 @@ internal sealed class WayOfTheDragon : AbstractSubclass
             .AddToDB();
 
         var powerGoldElementalBreath = FeatureDefinitionPowerBuilder
-            .Create(PowerDragonbornBreathWeaponGold, "PowerGoldElementalBreath")
+            .Create(PowerDragonbornBreathWeaponGold, $"Power{Name}ElementalBreathGold")
             .SetUsesFixed(ActivationTime.BonusAction, RechargeRate.KiPoints, 3)
             .SetGuiPresentation(Category.Feature, PowerDragonbornBreathWeaponGold)
             .SetEffectDescription(
@@ -176,7 +176,7 @@ internal sealed class WayOfTheDragon : AbstractSubclass
             .AddToDB();
 
         var powerSilverElementalBreath = FeatureDefinitionPowerBuilder
-            .Create(PowerDragonbornBreathWeaponSilver, "PowerSilverElementalBreath")
+            .Create(PowerDragonbornBreathWeaponSilver, $"Power{Name}ElementalBreathSilver")
             .SetUsesFixed(ActivationTime.BonusAction, RechargeRate.KiPoints, 3)
             .SetGuiPresentation(Category.Feature, PowerDragonbornBreathWeaponSilver)
             .SetEffectDescription(
@@ -215,7 +215,7 @@ internal sealed class WayOfTheDragon : AbstractSubclass
         const string NOTIFICATION_TAG = "DragonFury";
 
         var additionalDamageAcid = FeatureDefinitionAdditionalDamageBuilder
-            .Create("AdditionalDamageDragonFuryAcid")
+            .Create($"AdditionalDamage{Name}DragonFuryAcid")
             .SetGuiPresentation(Category.Feature)
             .SetNotificationTag(NOTIFICATION_TAG)
             .SetAdditionalDamageType(AdditionalDamageType.Specific)
@@ -232,7 +232,7 @@ internal sealed class WayOfTheDragon : AbstractSubclass
             .AddToDB();
 
         var powerDragonFuryAcid = FeatureDefinitionPowerBuilder
-            .Create("PowerDragonFuryAcid")
+            .Create($"Power{Name}DragonFuryAcid")
             .SetGuiPresentation(Category.Feature, AcidSplash)
             .SetUsesFixed(ActivationTime.NoCost, RechargeRate.KiPoints, 2)
             .SetEffectDescription(
@@ -254,7 +254,7 @@ internal sealed class WayOfTheDragon : AbstractSubclass
             .AddToDB();
 
         var additionalDamageLightning = FeatureDefinitionAdditionalDamageBuilder
-            .Create("AdditionalDamageDragonFuryLightning")
+            .Create($"AdditionalDamage{Name}DragonFuryLightning")
             .SetGuiPresentation(Category.Feature)
             .SetNotificationTag(NOTIFICATION_TAG)
             .SetAdditionalDamageType(AdditionalDamageType.Specific)
@@ -272,7 +272,7 @@ internal sealed class WayOfTheDragon : AbstractSubclass
             .AddToDB();
 
         var powerDragonFuryLightning = FeatureDefinitionPowerBuilder
-            .Create("PowerDragonFuryLightning")
+            .Create($"Power{Name}DragonFuryLightning")
             .SetGuiPresentation(Category.Feature, ShockingGrasp)
             .SetUsesFixed(ActivationTime.NoCost, RechargeRate.KiPoints, 2)
             .SetEffectDescription(
@@ -293,7 +293,7 @@ internal sealed class WayOfTheDragon : AbstractSubclass
             .AddToDB();
 
         var additionalDamagePoison = FeatureDefinitionAdditionalDamageBuilder
-            .Create("AdditionalDamageDragonFuryPoison").SetGuiPresentation(Category.Feature)
+            .Create($"AdditionalDamage{Name}DragonFuryPoison").SetGuiPresentation(Category.Feature)
             .SetNotificationTag(NOTIFICATION_TAG)
             .SetAdditionalDamageType(AdditionalDamageType.Specific)
             .SetImpactParticleReference(PoisonSpray.EffectDescription.effectParticleParameters.impactParticleReference)
@@ -309,7 +309,7 @@ internal sealed class WayOfTheDragon : AbstractSubclass
             .AddToDB();
 
         var powerDragonFuryPoison = FeatureDefinitionPowerBuilder
-            .Create("PowerDragonFuryPoison")
+            .Create($"Power{Name}DragonFuryPoison")
             .SetGuiPresentation(Category.Feature, PoisonSpray)
             .SetUsesFixed(ActivationTime.NoCost, RechargeRate.KiPoints, 2)
             .SetEffectDescription(
@@ -331,7 +331,7 @@ internal sealed class WayOfTheDragon : AbstractSubclass
             .AddToDB();
 
         var additionalDamageFire = FeatureDefinitionAdditionalDamageBuilder
-            .Create("AdditionalDamageDragonFuryFire")
+            .Create($"AdditionalDamage{Name}DragonFuryFire")
             .SetGuiPresentation(Category.Feature)
             .SetNotificationTag(NOTIFICATION_TAG)
             .SetAdditionalDamageType(AdditionalDamageType.Specific)
@@ -348,7 +348,7 @@ internal sealed class WayOfTheDragon : AbstractSubclass
             .AddToDB();
 
         var powerDragonFuryFire = FeatureDefinitionPowerBuilder
-            .Create("PowerDragonFuryFire")
+            .Create($"Power{Name}DragonFuryFire")
             .SetGuiPresentation(Category.Feature, ProduceFlame)
             .SetUsesFixed(ActivationTime.NoCost, RechargeRate.KiPoints, 2)
             .SetEffectDescription(
@@ -371,7 +371,7 @@ internal sealed class WayOfTheDragon : AbstractSubclass
             .AddToDB();
 
         var additionalDamageCold = FeatureDefinitionAdditionalDamageBuilder
-            .Create("AdditionalDamageDragonFuryCold")
+            .Create($"AdditionalDamage{Name}DragonFuryCold")
             .SetGuiPresentation(Category.Feature)
             .SetNotificationTag(NOTIFICATION_TAG)
             .SetAdditionalDamageType(AdditionalDamageType.Specific)
@@ -388,7 +388,7 @@ internal sealed class WayOfTheDragon : AbstractSubclass
             .AddToDB();
 
         var powerDragonFuryCold = FeatureDefinitionPowerBuilder
-            .Create("PowerDragonFuryCold")
+            .Create($"Power{Name}DragonFuryCold")
             .SetGuiPresentation(Category.Feature, RayOfFrost)
             .SetUsesFixed(ActivationTime.NoCost, RechargeRate.KiPoints, 2)
             .SetEffectDescription(
