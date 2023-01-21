@@ -1,5 +1,11 @@
 ﻿CHANGES:
 
+1.4.33.10:
+
+- added [BETA] Way of The Dragon subclass
+- changed SoulBlade Empower Weapon recharge rate to short rest
+- fixed race slots inspection UI interaction with single class Warlock
+
 1.4.33.9:
 
 - fixed a crash to desktop when Moonlit tried to wildshape
