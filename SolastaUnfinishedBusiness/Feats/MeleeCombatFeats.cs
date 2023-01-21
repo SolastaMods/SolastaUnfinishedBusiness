@@ -17,6 +17,10 @@ namespace SolastaUnfinishedBusiness.Feats;
 
 internal static class MeleeCombatFeats
 {
+    private const string Slasher = "Slasher";
+    private const string Piercer = "Piercer";
+    private const string Crusher = "Crusher";
+
     private static readonly FeatureDefinitionPower PowerFeatCrusherHit = FeatureDefinitionPowerBuilder
         .Create("PowerFeatCrusherHit")
         .SetGuiPresentationNoContent(true)
@@ -40,7 +44,7 @@ internal static class MeleeCombatFeats
         .SetGuiPresentationNoContent(true)
         .SetFrequencyLimit(FeatureLimitedUsage.OncePerTurn)
         .SetDamageDice(DieType.D1, 0)
-        .SetNotificationTag("Crusher")
+        .SetNotificationTag(Crusher)
         .SetCustomSubFeatures(
             new AfterAttackEffectFeatCrusher(
                 ConditionDefinitionBuilder
@@ -80,7 +84,7 @@ internal static class MeleeCombatFeats
                 FeatureDefinitionAdditionalDamageBuilder
                     .Create("AdditionalDamageFeatPiercer")
                     .SetGuiPresentation(Category.Feature)
-                    .SetNotificationTag("Piercer")
+                    .SetNotificationTag(Piercer)
                     .SetDamageValueDetermination(AdditionalDamageValueDetermination.SameAsBaseWeaponDie)
                     .SetIgnoreCriticalDoubleDice(true)
                     .AddToDB(),
@@ -145,15 +149,15 @@ internal static class MeleeCombatFeats
             featSavageAttack);
 
 
-        var featGroupCrusher = GroupFeats.MakeGroup("FeatGroupCrusher", "Crusher",
+        var featGroupCrusher = GroupFeats.MakeGroup("FeatGroupCrusher", Crusher,
             featCrusherStr,
             featCrusherCon);
 
-        FeatGroupPiercer = GroupFeats.MakeGroup("FeatGroupPiercer", "Piercer",
+        FeatGroupPiercer = GroupFeats.MakeGroup("FeatGroupPiercer", Piercer,
             featPiercerDex,
             featPiercerStr);
 
-        var featGroupSlasher = GroupFeats.MakeGroup("FeatGroupSlasher", "Slasher",
+        var featGroupSlasher = GroupFeats.MakeGroup("FeatGroupSlasher", Slasher,
             featSlasherDex,
             featSlasherStr);
 
@@ -293,6 +297,7 @@ internal static class MeleeCombatFeats
             .SetFeatures(
                 FeatureDefinitionAttributeModifiers.AttributeModifierCreed_Of_Misaye,
                 FeatureFeatPiercer)
+            .SetFeatFamily(Piercer)
             .SetAbilityScorePrerequisite(AttributeDefinitions.Dexterity, 13)
             .AddToDB();
     }
@@ -305,6 +310,7 @@ internal static class MeleeCombatFeats
             .SetFeatures(
                 FeatureDefinitionAttributeModifiers.AttributeModifierCreed_Of_Einar,
                 FeatureFeatPiercer)
+            .SetFeatFamily(Piercer)
             .SetAbilityScorePrerequisite(AttributeDefinitions.Strength, 13)
             .AddToDB();
     }
@@ -318,6 +324,7 @@ internal static class MeleeCombatFeats
                 FeatureDefinitionAttributeModifiers.AttributeModifierCreed_Of_Einar,
                 PowerFeatCrusherHit,
                 FeatureFeatCrusher)
+            .SetFeatFamily(Crusher)
             .SetAbilityScorePrerequisite(AttributeDefinitions.Strength, 13)
             .AddToDB();
     }
@@ -331,6 +338,7 @@ internal static class MeleeCombatFeats
                 FeatureDefinitionAttributeModifiers.AttributeModifierCreed_Of_Arun,
                 PowerFeatCrusherHit,
                 FeatureFeatCrusher)
+            .SetFeatFamily(Crusher)
             .SetAbilityScorePrerequisite(AttributeDefinitions.Constitution, 13)
             .AddToDB();
     }
@@ -343,6 +351,7 @@ internal static class MeleeCombatFeats
             .SetFeatures(
                 FeatureDefinitionAttributeModifiers.AttributeModifierCreed_Of_Misaye,
                 FeatureFeatSlasher)
+            .SetFeatFamily(Slasher)
             .SetAbilityScorePrerequisite(AttributeDefinitions.Dexterity, 13)
             .AddToDB();
     }
@@ -355,6 +364,7 @@ internal static class MeleeCombatFeats
             .SetFeatures(
                 FeatureDefinitionAttributeModifiers.AttributeModifierCreed_Of_Einar,
                 FeatureFeatSlasher)
+            .SetFeatFamily(Slasher)
             .SetAbilityScorePrerequisite(AttributeDefinitions.Strength, 13)
             .AddToDB();
     }
