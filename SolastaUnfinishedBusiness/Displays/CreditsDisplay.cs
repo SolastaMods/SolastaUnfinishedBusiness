@@ -24,7 +24,7 @@ internal static class CreditsDisplay
         ("ChrisJohnDigital",
             "builders, gameplay, feats, fighting styles, original Tinkerer, original Wizard subclasses, Arcane Fighter, Spell Master, Spell Shield"),
         ("SilverGriffon", "gameplay, visuals, spells, Dark Elf, Draconic Kobold, Grey Dwarf, Divine Heart"),
-        ("Haxermn", "spells, Oath of Ancient, Oath of Hatred"),
+        ("Haxermn", "spells, Oath of Ancient, Oath of Hatred, Way of The Dragon"),
         ("tivie", "Circle of The Night, Path of The Spirits"),
         ("ElAntonius", "feats, fighting styles, Arcanist"),
         ("DubhHerder", "replace spiders, spells, original Warlock subclasses"),

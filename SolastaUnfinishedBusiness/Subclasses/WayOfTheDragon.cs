@@ -16,24 +16,24 @@ namespace SolastaUnfinishedBusiness.Subclasses;
 
 internal sealed class WayOfTheDragon : AbstractSubclass
 {
+    private const string Name = "WayOfTheDragon";
+
     internal WayOfTheDragon()
     {
-        const string NAME = "WayOfTheDragon";
-
         var featureWayOfDragonAncestry = FeatureDefinitionFeatureSetBuilder
-            .Create(FeatureSetPathClawDragonAncestry, $"Feature{NAME}Ancestry")
+            .Create(FeatureSetPathClawDragonAncestry, $"FeatureSet{Name}Ancestry")
             .SetOrUpdateGuiPresentation(Category.Feature)
             .AddToDB();
 
         var featureWayOfDragonResistance = FeatureDefinitionFeatureSetBuilder
-            .Create(FeatureSetSorcererDraconicResilience, $"Feature{NAME}Resistance")
+            .Create(FeatureSetSorcererDraconicResilience, $"FeatureSet{Name}Resistance")
             .SetOrUpdateGuiPresentation(Category.Feature)
             .AddToDB();
 
         featureWayOfDragonResistance.ancestryType = AncestryType.BarbarianClaw;
 
         var featureWayOfTheDragonProficiency = FeatureDefinitionProficiencyBuilder
-            .Create($"Feature{NAME}Proficiency")
+            .Create($"Proficiency{Name}")
             .SetOrUpdateGuiPresentation(Category.Feature)
             .SetProficiencies(ProficiencyType.SkillOrExpertise, SkillDefinitions.Stealth, SkillDefinitions.Perception)
             .AddToDB();
@@ -68,7 +68,8 @@ internal sealed class WayOfTheDragon : AbstractSubclass
                 EffectDescriptionBuilder
                     .Create()
                     .SetDurationData(DurationType.Round, 1)
-                    .SetParticleEffectParameters(PowerPatronHiveReactiveCarapace.EffectDescription.effectParticleParameters)
+                    .SetParticleEffectParameters(PowerPatronHiveReactiveCarapace.EffectDescription
+                        .effectParticleParameters)
                     .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
                     .SetEffectForms(EffectFormBuilder
                         .Create()
@@ -82,7 +83,7 @@ internal sealed class WayOfTheDragon : AbstractSubclass
             .AddToDB();
 
         Subclass = CharacterSubclassDefinitionBuilder
-            .Create(NAME)
+            .Create(Name)
             .SetGuiPresentation(Category.Subclass, SorcerousDraconicBloodline)
             .AddFeaturesAtLevel(3,
                 powerReactiveHide,
@@ -102,8 +103,6 @@ internal sealed class WayOfTheDragon : AbstractSubclass
 
     private static FeatureDefinitionFeatureSet BuildDragonFeatureSet()
     {
-        const string NAME = "WayOfTheDragon";
-
         var powerBlackElementalBreath = FeatureDefinitionPowerBuilder
             .Create(PowerDragonbornBreathWeaponBlack, "PowerBlackElementalBreath")
             .SetUsesFixed(ActivationTime.BonusAction, RechargeRate.KiPoints, 3)
@@ -195,7 +194,7 @@ internal sealed class WayOfTheDragon : AbstractSubclass
             .AddToDB();
 
         var featureWayOfDragonBreath = FeatureDefinitionFeatureSetBuilder
-            .Create(FeatureSetDragonbornBreathWeapon, $"Feature{NAME}Breath")
+            .Create(FeatureSetDragonbornBreathWeapon, $"FeatureSet{Name}Breath")
             .SetOrUpdateGuiPresentation(Category.Feature)
             .ClearFeatureSet()
             .AddFeatureSetNoSort(
@@ -213,13 +212,12 @@ internal sealed class WayOfTheDragon : AbstractSubclass
 
     private static FeatureDefinitionFeatureSet BuildDragonFuryFeatureSet()
     {
-        const string NAME = "WayOfTheDragon";
-        const string NAME2 = "Dragon's Fury";
+        const string NOTIFICATION_TAG = "DragonFury";
 
         var additionalDamageAcid = FeatureDefinitionAdditionalDamageBuilder
             .Create("AdditionalDamageDragonFuryAcid")
             .SetGuiPresentation(Category.Feature)
-            .SetNotificationTag(NAME2)
+            .SetNotificationTag(NOTIFICATION_TAG)
             .SetAdditionalDamageType(AdditionalDamageType.Specific)
             .SetImpactParticleReference(AcidSplash.EffectDescription.EffectParticleParameters.impactParticleReference)
             .SetSpecificDamageType(DamageTypeAcid)
@@ -258,7 +256,7 @@ internal sealed class WayOfTheDragon : AbstractSubclass
         var additionalDamageLightning = FeatureDefinitionAdditionalDamageBuilder
             .Create("AdditionalDamageDragonFuryLightning")
             .SetGuiPresentation(Category.Feature)
-            .SetNotificationTag(NAME2)
+            .SetNotificationTag(NOTIFICATION_TAG)
             .SetAdditionalDamageType(AdditionalDamageType.Specific)
             .SetImpactParticleReference(
                 LightningBolt.EffectDescription.effectParticleParameters.impactParticleReference)
@@ -296,7 +294,7 @@ internal sealed class WayOfTheDragon : AbstractSubclass
 
         var additionalDamagePoison = FeatureDefinitionAdditionalDamageBuilder
             .Create("AdditionalDamageDragonFuryPoison").SetGuiPresentation(Category.Feature)
-            .SetNotificationTag(NAME2)
+            .SetNotificationTag(NOTIFICATION_TAG)
             .SetAdditionalDamageType(AdditionalDamageType.Specific)
             .SetImpactParticleReference(PoisonSpray.EffectDescription.effectParticleParameters.impactParticleReference)
             .SetSpecificDamageType(DamageTypePoison)
@@ -335,7 +333,7 @@ internal sealed class WayOfTheDragon : AbstractSubclass
         var additionalDamageFire = FeatureDefinitionAdditionalDamageBuilder
             .Create("AdditionalDamageDragonFuryFire")
             .SetGuiPresentation(Category.Feature)
-            .SetNotificationTag(NAME2)
+            .SetNotificationTag(NOTIFICATION_TAG)
             .SetAdditionalDamageType(AdditionalDamageType.Specific)
             .SetSpecificDamageType(DamageTypeFire)
             .SetImpactParticleReference(Fireball.EffectDescription.effectParticleParameters.impactParticleReference)
@@ -375,7 +373,7 @@ internal sealed class WayOfTheDragon : AbstractSubclass
         var additionalDamageCold = FeatureDefinitionAdditionalDamageBuilder
             .Create("AdditionalDamageDragonFuryCold")
             .SetGuiPresentation(Category.Feature)
-            .SetNotificationTag(NAME2)
+            .SetNotificationTag(NOTIFICATION_TAG)
             .SetAdditionalDamageType(AdditionalDamageType.Specific)
             .SetImpactParticleReference(ConeOfCold.EffectDescription.effectParticleParameters.impactParticleReference)
             .SetSpecificDamageType(DamageTypeCold)
@@ -398,8 +396,7 @@ internal sealed class WayOfTheDragon : AbstractSubclass
                     .Create()
                     .SetDurationData(DurationType.Round, 1)
                     .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
-                    .SetParticleEffectParameters(ConeOfCold.EffectDescription
-                        .effectParticleParameters)
+                    .SetParticleEffectParameters(ConeOfCold.EffectDescription.effectParticleParameters)
                     .SetEffectForms(EffectFormBuilder
                         .Create()
                         .SetConditionForm(
@@ -413,10 +410,11 @@ internal sealed class WayOfTheDragon : AbstractSubclass
             .AddToDB();
 
         var featureWayOfDragonFury = FeatureDefinitionFeatureSetBuilder
-            .Create(FeatureSetDragonbornBreathWeapon, $"Feature{NAME}Fury")
+            .Create(FeatureSetDragonbornBreathWeapon, $"FeatureSet{Name}Fury")
             .SetOrUpdateGuiPresentation(Category.Feature)
             .ClearFeatureSet()
-            .AddFeatureSetNoSort(powerDragonFuryAcid,
+            .AddFeatureSetNoSort(
+                powerDragonFuryAcid,
                 powerDragonFuryLightning,
                 powerDragonFuryFire,
                 powerDragonFuryPoison,
