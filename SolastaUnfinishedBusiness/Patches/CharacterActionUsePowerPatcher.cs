@@ -1,6 +1,7 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
 using JetBrains.Annotations;
+using SolastaUnfinishedBusiness.Api.Extensions;
 using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.Models;
 
@@ -71,8 +72,19 @@ public static class CharacterActionUsePowerPatcher
         [UsedImplicitly]
         public static bool Prefix([NotNull] CharacterActionUsePower __instance)
         {
-            //PATCH: Calculate extra charge usage for `RulesetEffectPowerWithAdvancement`
+            //BUGFIX: for still an unknown reason we get an empty originItem under MP (MULTIPLAYER)
+            if (__instance.activePower.OriginItem == null)
+            {
+                var providers = __instance.ActingCharacter.RulesetCharacter.GetSubFeaturesByType<PowerPoolDevice>();
 
+                if (providers.Count > 0)
+                {
+                    __instance.activePower.originItem =
+                        providers[0].GetDevice(__instance.ActingCharacter.RulesetCharacter);
+                }
+            }
+
+            //PATCH: Calculate extra charge usage for `RulesetEffectPowerWithAdvancement`
             if (__instance.activePower.OriginItem == null
                 || __instance.activePower is not RulesetEffectPowerWithAdvancement power)
             {

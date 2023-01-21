@@ -11,7 +11,7 @@ namespace SolastaUnfinishedBusiness.CustomBehaviors;
  */
 internal class PowerPoolDevice
 {
-    private static readonly Dictionary<RulesetCharacterHero, Dictionary<string, RulesetItemDevice>> DeviceCache = new();
+    private static readonly Dictionary<RulesetCharacter, Dictionary<string, RulesetItemDevice>> DeviceCache = new();
 
     private readonly ItemDefinition baseItem;
 
@@ -23,18 +23,18 @@ internal class PowerPoolDevice
 
     internal FeatureDefinitionPower Pool { get; }
 
-    internal static void Clear(RulesetCharacterHero hero)
+    internal static void Clear(RulesetCharacter hero)
     {
         DeviceCache.Remove(hero);
     }
 
-    internal static PowerPoolDevice GetFromRulesetItem(RulesetCharacterHero hero, RulesetItemDevice device)
+    internal static PowerPoolDevice GetFromRulesetItem(RulesetCharacter hero, RulesetItemDevice device)
     {
         return hero.GetSubFeaturesByType<PowerPoolDevice>()
             .FirstOrDefault(p => p.baseItem.Name == device.ItemDefinition.Name);
     }
 
-    internal RulesetItemDevice GetDevice(RulesetCharacterHero hero)
+    internal RulesetItemDevice GetDevice(RulesetCharacter hero)
     {
         if (!DeviceCache.TryGetValue(hero, out var devices))
         {
