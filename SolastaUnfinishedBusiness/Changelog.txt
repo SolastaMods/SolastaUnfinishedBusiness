@@ -2,4 +2,8 @@ CHANGES:
 
 - added [BETA] Way of The Dragon subclass
 - changed SoulBlade Empower Weapon recharge rate to short rest
+- fixed null repertoire scenarios in GetCasterHero
 - fixed race slots inspection UI interaction with single class Warlock
+- set feat family for Slasher, Piercer and Crusher to avoid picking them twice
+- set Tactical Surge as possessive for combat log
+
