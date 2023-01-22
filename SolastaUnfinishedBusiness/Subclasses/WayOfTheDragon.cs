@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.Extensions;
 using SolastaUnfinishedBusiness.Builders;
@@ -11,6 +11,7 @@ using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionFeatu
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPowers;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
 using static RuleDefinitions;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 
 namespace SolastaUnfinishedBusiness.Subclasses;
 
@@ -97,7 +98,7 @@ internal sealed class WayOfTheDragon : AbstractSubclass
         var powerBlackElementalBreath = FeatureDefinitionPowerBuilder
             .Create(PowerDragonbornBreathWeaponBlack, $"Power{Name}ElementalBreathBlack")
             .SetUsesFixed(ActivationTime.BonusAction, RechargeRate.KiPoints, 3)
-            .SetGuiPresentation(Category.Feature)
+            .SetGuiPresentation(Category.Feature, PowerDragonbornBreathWeaponBlack)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create(PowerDragonbornBreathWeaponBlack.EffectDescription)
@@ -130,6 +131,10 @@ internal sealed class WayOfTheDragon : AbstractSubclass
                     .Build())
             .AddToDB();
 
+        var effectGreenElementalBreath = EffectProxyDefinitionBuilder
+            .Create(EffectProxyDefinitions.ProxyStinkingCloud, "EffectGreenElementalBreath")
+            .AddToDB();
+
         var powerGreenElementalBreath = FeatureDefinitionPowerBuilder
             .Create(PowerDragonbornBreathWeaponGreen, $"Power{Name}ElementalBreathGreen")
             .SetUsesFixed(ActivationTime.BonusAction, RechargeRate.KiPoints, 3)
@@ -137,8 +142,16 @@ internal sealed class WayOfTheDragon : AbstractSubclass
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create(PowerDragonbornBreathWeaponGreen.EffectDescription)
-                    .SetParticleEffectParameters(PowerDragonbornBreathWeaponGreen.EffectDescription
-                        .effectParticleParameters)
+                    .SetParticleEffectParameters(PowerDragonbornBreathWeaponGreen)
+                    .SetTargetingData(Side.All, RangeType.Self, 2, TargetType.Sphere, 2)
+                    .SetDurationData(DurationType.Round, 3)
+                    .AddEffectForms(
+                        EffectFormBuilder
+                        .Create()
+                        .SetSummonEffectProxyForm(effectGreenElementalBreath)
+                        .Build(),
+                        SpellDefinitions.StinkingCloud.EffectDescription
+                        .effectForms.Find(e => e.formType == EffectForm.EffectFormType.Topology))
                     .SetSavingThrowData(false,
                         AttributeDefinitions.Constitution,
                         false,
@@ -456,53 +469,63 @@ internal sealed class WayOfTheDragon : AbstractSubclass
             TryGetAncestryDamageTypeFromCharacter(me.Guid, (AncestryType)ExtraAncestryType.WayOfTheDragon,
                 out var damageType);
 
+            var myLevel = me.RulesetCharacter.GetAttribute(AttributeDefinitions.CharacterLevel).CurrentValue;
+
+            var damageInt = myLevel switch
+            {
+                <= 4 => 8,
+                <= 10 => 12,
+                <= 16 => 16,
+                <= 20 => 20,
+                _ => 0
+            };
+
             switch (damageType)
             {
                 case null:
                     yield break;
-                case DamageTypeAcid:
-                {
-                    var myLevel = me.RulesetCharacter.GetAttribute(AttributeDefinitions.CharacterLevel).CurrentValue;
-
-                    var damageInt = myLevel switch
-                    {
-                        <= 4 => 8,
-                        <= 10 => 12,
-                        <= 16 => 16,
-                        <= 20 => 20,
-                        _ => 0
-                    };
-
-                    if (savingOutcome == RollOutcome.Success)
-                    {
-                        attacker.RulesetCharacter.SustainDamage(damageInt / 2, DamageTypeAcid, false, me.Guid, null,
-                            out _);
-                    }
-                    else
-                    {
-                        attacker.RulesetCharacter.SustainDamage(damageInt, DamageTypeAcid, false, me.Guid, null,
-                            out _);
-                    }
-
+                case DamageTypeAcid when savingOutcome == RollOutcome.Success:
                     yield break;
-                }
+                case DamageTypeAcid when attacker.RulesetCharacter.HasConditionOfType(ConditionAcidArrowed.Name):
+                    attacker.RulesetCharacter.SustainDamage(damageInt, DamageTypeAcid, false, me.Guid, null,
+                                out _);
+                    yield break;
+                case DamageTypeAcid:
+                    ApplyReactiveHideDebuff(attacker.RulesetCharacter, ConditionAcidArrowed);
+                    yield break;
                 case DamageTypeLightning when savingOutcome == RollOutcome.Success:
+                    yield break;
+                case DamageTypeLightning when attacker.RulesetCharacter.HasConditionOfType(ConditionShocked.Name):
+                    attacker.RulesetCharacter.SustainDamage(damageInt, DamageTypeLightning, false, me.Guid, null,
+                                out _);
                     yield break;
                 case DamageTypeLightning:
                     ApplyReactiveHideDebuff(attacker.RulesetCharacter, ConditionShocked);
                     yield break;
                 case DamageTypeFire when savingOutcome == RollOutcome.Success:
                     yield break;
+                case DamageTypeFire when attacker.RulesetCharacter.HasConditionOfType(ConditionOnFire.Name):
+                    attacker.RulesetCharacter.SustainDamage(damageInt, DamageTypeFire, false, me.Guid, null,
+                                out _);
+                    yield break;
                 case DamageTypeFire:
                     ApplyReactiveHideDebuff(attacker.RulesetCharacter, ConditionOnFire);
                     yield break;
                 case DamageTypePoison when savingOutcome == RollOutcome.Success:
+                    yield break;
+                case DamageTypePoison when attacker.RulesetCharacter.HasConditionOfType(ConditionDefinitions.ConditionPoisoned.Name):
+                    attacker.RulesetCharacter.SustainDamage(damageInt, DamageTypePoison, false, me.Guid, null,
+                                out _);
                     yield break;
                 case DamageTypePoison:
                     ApplyReactiveHideDebuff(attacker.RulesetCharacter,
                         DatabaseHelper.ConditionDefinitions.ConditionPoisoned);
                     yield break;
                 case DamageTypeCold when savingOutcome == RollOutcome.Success:
+                    yield break;
+                case DamageTypeCold when attacker.RulesetCharacter.HasConditionOfType(ConditionHindered_By_Frost.Name):
+                    attacker.RulesetCharacter.SustainDamage(damageInt, DamageTypeCold, false, me.Guid, null,
+                                out _);
                     yield break;
                 case DamageTypeCold:
                     ApplyReactiveHideDebuff(attacker.RulesetCharacter, ConditionHindered_By_Frost);
