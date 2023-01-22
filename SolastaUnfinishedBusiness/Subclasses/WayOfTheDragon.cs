@@ -21,6 +21,66 @@ internal sealed class WayOfTheDragon : AbstractSubclass
 
     internal WayOfTheDragon()
     {
+        var powerReactiveHide = FeatureDefinitionPowerBuilder
+            .Create($"Power{Name}ReactiveHide")
+            .SetGuiPresentation(Category.Feature)
+            .SetUsesFixed(ActivationTime.Reaction, RechargeRate.KiPoints)
+            .SetCustomSubFeatures(new ReactToAttackReactiveHide())
+            //TODO: create a proper extra enum
+            .SetReactionContext((ReactionTriggerContext)9000)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetDurationData(DurationType.Round, 1)
+                    .SetParticleEffectParameters(
+                        PowerPatronHiveReactiveCarapace.EffectDescription.effectParticleParameters)
+                    .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
+                    .SetEffectForms(EffectFormBuilder
+                        .Create()
+                        .SetConditionForm(
+                            ConditionDefinitionBuilder
+                                .Create(ConditionFiendishResilienceFire, $"Condition{Name}ReactiveHide")
+                                .SetGuiPresentation(Category.Condition)
+                                .SetPossessive()
+                                .AddFeatures(
+                                    DamageAffinityAcidResistance,
+                                    DamageAffinityBludgeoningResistance,
+                                    DamageAffinityColdResistance,
+                                    DamageAffinityFireResistance,
+                                    DamageAffinityForceDamageResistance,
+                                    DamageAffinityLightningResistance,
+                                    DamageAffinityNecroticResistance,
+                                    DamageAffinityPiercingResistance,
+                                    DamageAffinityPoisonResistance,
+                                    DamageAffinityPsychicResistance,
+                                    DamageAffinityRadiantResistance,
+                                    DamageAffinitySlashingResistance,
+                                    DamageAffinityThunderResistance)
+                                .AddSpecialInterruptions(ConditionInterruption.AnyBattleTurnEnd)
+                                .AddToDB(),
+                            ConditionForm.ConditionOperation.Add,
+                            true,
+                            true)
+                        .Build())
+                    .Build())
+            .AddToDB();
+
+        Subclass = CharacterSubclassDefinitionBuilder
+            .Create(Name)
+            .SetGuiPresentation(Category.Subclass, SorcerousDraconicBloodline)
+            .AddFeaturesAtLevel(3, BuildDiscipleFeatureSet(), powerReactiveHide)
+            .AddFeaturesAtLevel(6, BuildDragonFeatureSet())
+            .AddFeaturesAtLevel(11, BuildDragonFuryFeatureSet())
+            .AddToDB();
+    }
+
+    internal override CharacterSubclassDefinition Subclass { get; }
+
+    internal override FeatureDefinitionSubclassChoice SubclassChoice =>
+        FeatureDefinitionSubclassChoices.SubclassChoiceMonkMonasticTraditions;
+
+    private static FeatureDefinitionFeatureSet BuildDiscipleFeatureSet()
+    {
         var featureSetDisciple = FeatureDefinitionFeatureSetBuilder
             .Create($"FeatureSet{Name}Disciple")
             .SetGuiPresentation(Category.Feature)
@@ -55,65 +115,8 @@ internal sealed class WayOfTheDragon : AbstractSubclass
             featureSetDisciple.FeatureSet.Add(featureSet);
         }
 
-        var conditionReactiveHide = ConditionDefinitionBuilder
-            .Create(ConditionFiendishResilienceFire, $"Condition{Name}ReactiveHide")
-            .SetGuiPresentation(Category.Condition)
-            .SetPossessive()
-            .AddFeatures(
-                DamageAffinityAcidResistance,
-                DamageAffinityBludgeoningResistance,
-                DamageAffinityColdResistance,
-                DamageAffinityForceDamageResistance,
-                DamageAffinityLightningResistance,
-                DamageAffinityNecroticResistance,
-                DamageAffinityPiercingResistance,
-                DamageAffinityPoisonResistance,
-                DamageAffinityPsychicResistance,
-                DamageAffinityRadiantResistance,
-                DamageAffinitySlashingResistance,
-                DamageAffinityThunderResistance)
-            .AddSpecialInterruptions(ConditionInterruption.AnyBattleTurnEnd)
-            .AddToDB();
-
-        var powerReactiveHide = FeatureDefinitionPowerBuilder
-            .Create($"Power{Name}ReactiveHide")
-            .SetGuiPresentation(Category.Feature)
-            .SetUsesFixed(ActivationTime.Reaction, RechargeRate.KiPoints)
-            .SetCustomSubFeatures(new ReactToAttackReactiveHide())
-            .SetReactionContext(ReactionTriggerContext.DamagedByMagicEffect)
-            .SetEffectDescription(
-                EffectDescriptionBuilder
-                    .Create()
-                    .SetDurationData(DurationType.Round, 1)
-                    .SetParticleEffectParameters(
-                        PowerPatronHiveReactiveCarapace.EffectDescription.effectParticleParameters)
-                    .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
-                    .SetEffectForms(EffectFormBuilder
-                        .Create()
-                        .SetConditionForm(
-                            conditionReactiveHide,
-                            ConditionForm.ConditionOperation.Add,
-                            true,
-                            true)
-                        .Build())
-                    .Build())
-            .AddToDB();
-
-        Subclass = CharacterSubclassDefinitionBuilder
-            .Create(Name)
-            .SetGuiPresentation(Category.Subclass, SorcerousDraconicBloodline)
-            .AddFeaturesAtLevel(3,
-                featureSetDisciple,
-                powerReactiveHide)
-            .AddFeaturesAtLevel(6, BuildDragonFeatureSet())
-            .AddFeaturesAtLevel(11, BuildDragonFuryFeatureSet())
-            .AddToDB();
+        return featureSetDisciple;
     }
-
-    internal override CharacterSubclassDefinition Subclass { get; }
-
-    internal override FeatureDefinitionSubclassChoice SubclassChoice =>
-        FeatureDefinitionSubclassChoices.SubclassChoiceMonkMonasticTraditions;
 
     private static FeatureDefinitionFeatureSet BuildDragonFeatureSet()
     {
