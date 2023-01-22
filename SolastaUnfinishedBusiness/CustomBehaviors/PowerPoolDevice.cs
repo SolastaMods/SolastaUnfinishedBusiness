@@ -19,6 +19,14 @@ internal class PowerPoolDevice
         FeatureDefinitionPower pool)
     {
         this.baseItem = baseItem;
+        var powers = baseItem.UsableDeviceDescription.deviceFunctions
+            .Select(d => d.FeatureDefinitionPower)
+            .Where(p => p != null);
+        
+        foreach (var power in powers)
+        {
+            power.AddCustomSubFeatures(this);
+        }
         Pool = pool;
     }
 
