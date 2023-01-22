@@ -219,7 +219,7 @@ public static class GameLocationCharacterPatcher
 
             //PATCH: support for custom invocation action ids
             CustomActionIdContext.ProcessCustomActionIds(__instance, ref __result, actionId, scope, actionTypeStatus,
-                optionalAttackMode, ignoreMovePoints, allowUsingDelegatedPowersAsPowers);
+                ignoreMovePoints);
         }
     }
 

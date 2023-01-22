@@ -8,8 +8,8 @@
   "minimalAbilityScoreName": "Charisma",
   "armorProficiencyPrerequisite": false,
   "armorProficiencyCategory": "",
-  "hasFamilyTag": false,
-  "familyTag": "",
+  "hasFamilyTag": true,
+  "familyTag": "Metamagic",
   "knownFeatsPrerequisite": [],
   "features": [
     "Definition:ActionAffinitySorcererMetamagicToggle:04a952fbc7800154cab7f4994e3ac481",

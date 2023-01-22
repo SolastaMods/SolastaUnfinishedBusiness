@@ -1,0 +1,35 @@
+{
+  "$type": "FeatureDefinitionAncestry, Assembly-CSharp",
+  "type": 9000,
+  "damageType": "DamageLightning",
+  "associatedFaceAndSkinColor": "",
+  "myselfFamilyRestrictions": [],
+  "otherCharacterFamilyRestrictions": [],
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feature/&AncestryPathClawDraconicBlueTitle",
+    "description": "Feature/&AncestryPathClawDraconicDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "d779dd45-dcbf-51c5-8073-fbb23f6eaeee",
+  "contentPack": 9999,
+  "name": "AncestryWayOfTheDragonDraconicBlue"
+}

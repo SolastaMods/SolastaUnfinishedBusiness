@@ -77,16 +77,11 @@ internal static class CharacterInspectionScreenEnhancement
     {
         var fightingStyleIdx = 0;
         var classBadges = new HashSet<FightingStyleDefinition>();
-        var classLevelFightingStyle = new Dictionary<string, FightingStyleDefinition>();
-
-        foreach (var x in Global.InspectedHero!.ActiveFeatures
-                     .Where(x => x.Key.Contains(AttributeDefinitions.TagClass)))
-        {
-            foreach (var _ in x.Value.OfType<FeatureDefinitionFightingStyleChoice>())
-            {
-                classLevelFightingStyle.Add(x.Key, Global.InspectedHero.TrainedFightingStyles[fightingStyleIdx++]);
-            }
-        }
+        var classLevelFightingStyle = Global.InspectedHero!.ActiveFeatures
+            .Where(x => x.Key.Contains(AttributeDefinitions.TagClass))
+            .SelectMany(x => x.Value
+                .OfType<FeatureDefinitionFightingStyleChoice>(), (x, _) => x)
+            .ToDictionary(x => x.Key, x => Global.InspectedHero.TrainedFightingStyles[fightingStyleIdx++]);
 
         foreach (var kvp in classLevelFightingStyle
                      .Where(x => SelectedClass != null && x.Key.Contains(SelectedClass.Name)))

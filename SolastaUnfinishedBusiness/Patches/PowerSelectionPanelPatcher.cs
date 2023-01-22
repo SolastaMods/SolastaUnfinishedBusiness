@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
+using System.Linq;
 using System.Reflection.Emit;
 using HarmonyLib;
 using JetBrains.Annotations;
@@ -49,19 +50,17 @@ public static class PowerSelectionPanelPatcher
             var relevantPowers = panel.relevantPowers;
             var actionType = panel.ActionType;
 
-            foreach (var power in usablePowers)
+            foreach (var power in usablePowers
+                         .Select(power => new
+                         {
+                             power,
+                             feature = power.PowerDefinition.GetFirstSubFeatureOfType<PowerVisibilityModifier>()
+                         })
+                         .Where(t => t.feature != null)
+                         .Where(t => t.feature.IsVisible(character, t.power.PowerDefinition, actionType))
+                         .Select(t => t.power))
             {
-                var feature = power.PowerDefinition.GetFirstSubFeatureOfType<PowerVisibilityModifier>();
-
-                if (feature == null)
-                {
-                    continue;
-                }
-
-                if (feature.IsVisible(character, power.PowerDefinition, actionType))
-                {
-                    relevantPowers.TryAdd(power);
-                }
+                relevantPowers.TryAdd(power);
             }
 
             for (var i = relevantPowers.Count - 1; i >= 0; i--)

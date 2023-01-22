@@ -1,6 +1,8 @@
 ﻿using System.Diagnostics.CodeAnalysis;
+using System.Linq;
 using HarmonyLib;
 using JetBrains.Annotations;
+using SolastaUnfinishedBusiness.Api.Extensions;
 using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.Models;
 
@@ -71,8 +73,19 @@ public static class CharacterActionUsePowerPatcher
         [UsedImplicitly]
         public static bool Prefix([NotNull] CharacterActionUsePower __instance)
         {
-            //PATCH: Calculate extra charge usage for `RulesetEffectPowerWithAdvancement`
+            //BUGFIX: for still an unknown reason we get an empty originItem under MP (MULTIPLAYER)
+            if (__instance.activePower.OriginItem == null)
+            {
+                var providers = __instance.ActingCharacter.RulesetCharacter.GetSubFeaturesByType<PowerPoolDevice>();
 
+                if (providers.Count > 0)
+                {
+                    __instance.activePower.originItem =
+                        providers[0].GetDevice(__instance.ActingCharacter.RulesetCharacter);
+                }
+            }
+
+            //PATCH: Calculate extra charge usage for `RulesetEffectPowerWithAdvancement`
             if (__instance.activePower.OriginItem == null
                 || __instance.activePower is not RulesetEffectPowerWithAdvancement power)
             {
@@ -81,16 +94,16 @@ public static class CharacterActionUsePowerPatcher
 
             var usableDevice = power.OriginItem;
 
-            foreach (var usableFunction in usableDevice.UsableFunctions)
+            foreach (var usableFunction in usableDevice.UsableFunctions
+                         .Select(usableFunction => new
+                         {
+                             usableFunction, functionDescription = usableFunction.DeviceFunctionDescription
+                         })
+                         .Where(t =>
+                             t.functionDescription.Type == DeviceFunctionDescription.FunctionType.Power &&
+                             t.functionDescription.FeatureDefinitionPower == power.PowerDefinition)
+                         .Select(t => t.usableFunction))
             {
-                var functionDescription = usableFunction.DeviceFunctionDescription;
-
-                if (functionDescription.Type != DeviceFunctionDescription.FunctionType.Power
-                    || functionDescription.FeatureDefinitionPower != power.PowerDefinition)
-                {
-                    continue;
-                }
-
                 __instance.ActingCharacter.RulesetCharacter
                     .UseDeviceFunction(usableDevice, usableFunction, power.ExtraCharges);
                 break;

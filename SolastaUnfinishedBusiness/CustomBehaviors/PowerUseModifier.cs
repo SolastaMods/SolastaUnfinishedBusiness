@@ -12,6 +12,7 @@ public class PowerUseModifier : IPowerUseModifier
 
     public int PoolChangeAmount(RulesetCharacter character)
     {
+        // ReSharper disable once SwitchStatementHandlesSomeKnownEnumValuesWithDefault
         switch (Type)
         {
             case PowerPoolBonusCalculationType.Fixed:

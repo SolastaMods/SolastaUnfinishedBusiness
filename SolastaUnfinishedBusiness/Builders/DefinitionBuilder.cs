@@ -73,6 +73,7 @@ internal abstract class DefinitionBuilder
     {
         var definitions = new Dictionary<string, (string typeName, bool isCeDef)>(StringComparer.OrdinalIgnoreCase);
 
+        // ReSharper disable once ForeachCanBePartlyConvertedToQueryUsingAnotherGetEnumerator
         foreach (var db in DatabaseRepository.databases)
         {
             foreach (var bd in (IEnumerable)db.Value)

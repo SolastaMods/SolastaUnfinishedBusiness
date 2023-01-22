@@ -243,17 +243,10 @@ internal static class PowerBundle
     {
         var pointPoolPower = sharedPoolPower.GetUsagePoolPower();
 
-        foreach (var poolPower in character.UsablePowers)
-        {
-            if (poolPower.PowerDefinition != pointPoolPower)
-            {
-                continue;
-            }
-
-            return poolPower.RemainingUses;
-        }
-
-        return 0;
+        return character.UsablePowers
+            .Where(x => x.PowerDefinition == pointPoolPower)
+            .Select(poolPower => poolPower.RemainingUses)
+            .FirstOrDefault();
     }
 
     internal static EffectDescription ModifySpellEffect(EffectDescription original, [NotNull] RulesetEffectSpell spell)

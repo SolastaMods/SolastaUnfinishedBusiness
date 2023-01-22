@@ -177,9 +177,7 @@ public static class CustomActionIdContext
         Id actionId,
         ActionScope scope,
         ActionStatus actionTypeStatus,
-        RulesetAttackMode optionalAttackMode,
-        bool ignoreMovePoints,
-        bool allowUsingDelegatedPowersAsPowers)
+        bool ignoreMovePoints)
     {
         var isInvocationAction = IsInvocationActionId(actionId);
         var isPowerUse = IsPowerUseActionId(actionId);

@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using SolastaUnfinishedBusiness.Api.Extensions;
 
 namespace SolastaUnfinishedBusiness.Api.Helpers;
@@ -35,7 +36,6 @@ internal static class EffectHelpers
 
             case RuleDefinitions.EffectDifficultyClassComputation.FixedValue:
                 return effectDescription.FixedSavingThrowDifficultyClass;
-#if false
             //TODO: implement missing computation methods (like Ki and Breath Weapon)
             case RuleDefinitions.EffectDifficultyClassComputation.Ki:
                 break;
@@ -43,7 +43,8 @@ internal static class EffectHelpers
                 break;
             case RuleDefinitions.EffectDifficultyClassComputation.CustomAbilityModifierAndProficiency:
                 break;
-#endif
+            default:
+                throw new ArgumentException("effectDescription.DifficultyClassComputation");
         }
 
         return def;

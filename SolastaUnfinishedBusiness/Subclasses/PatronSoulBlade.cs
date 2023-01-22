@@ -36,7 +36,7 @@ internal sealed class PatronSoulBlade : AbstractSubclass
             .SetGuiPresentation(Category.Feature, PowerOathOfDevotionSacredWeapon)
             .SetUniqueInstance()
             .SetCustomSubFeatures(SkipEffectRemovalOnLocationChange.Always)
-            .SetUsesFixed(ActivationTime.Action, RechargeRate.LongRest)
+            .SetUsesFixed(ActivationTime.Action, RechargeRate.ShortRest)
             .SetExplicitAbilityScore(AttributeDefinitions.Charisma)
             .SetEffectDescription(EffectDescriptionBuilder.Create()
                 .SetDurationData(DurationType.Permanent)

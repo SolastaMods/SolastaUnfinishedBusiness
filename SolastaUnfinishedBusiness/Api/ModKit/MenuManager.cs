@@ -16,7 +16,8 @@ internal interface IMenuPage
 
     int Priority { get; }
 
-    void OnGUI(UnityModManager.ModEntry _);
+    // ReSharper disable once UnusedParameter.Global
+    void OnGUI(UnityModManager.ModEntry modEntry);
 }
 
 internal interface IMenuTopPage : IMenuPage

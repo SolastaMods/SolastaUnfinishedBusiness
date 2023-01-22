@@ -398,7 +398,7 @@ internal static class Level20Context
     {
         var powerFighterActionSurge2 = FeatureDefinitionPowerBuilder
             .Create(PowerFighterActionSurge, "PowerFighterActionSurge2")
-            .SetUsesFixed(ActivationTime.NoCost, RechargeRate.LongRest, 1, 2)
+            .SetUsesFixed(ActivationTime.NoCost, RechargeRate.ShortRest, 1, 2)
             .SetOverriddenPower(PowerFighterActionSurge)
             .AddToDB();
 

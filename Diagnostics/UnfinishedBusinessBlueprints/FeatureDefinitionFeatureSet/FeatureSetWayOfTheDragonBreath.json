@@ -1,0 +1,50 @@
+{
+  "$type": "FeatureDefinitionFeatureSet, Assembly-CSharp",
+  "featureSet": [
+    "Definition:PowerWayOfTheDragonElementalBreathBlack:159384fc-e99b-5c30-9651-3e2730d27780",
+    "Definition:PowerWayOfTheDragonElementalBreathBlue:ca30d282-4c2d-50cf-8a64-7686eec68a1f",
+    "Definition:PowerWayOfTheDragonElementalBreathGold:3dd7aa6a-7335-51f0-81d7-eed5809a7ed1",
+    "Definition:PowerWayOfTheDragonElementalBreathGreen:6999a757-eb46-5e29-b9f1-458fdc13c075",
+    "Definition:PowerWayOfTheDragonElementalBreathSilver:80903e66-95c2-501c-95c7-d358218e7aa7"
+  ],
+  "mode": "DeterminedByAncestry",
+  "ancestryDamageTypeMap": [
+    "DamageAcid",
+    "DamageLightning",
+    "DamageFire",
+    "DamagePoison",
+    "DamageCold"
+  ],
+  "ancestryType": 9000,
+  "defaultSelection": 0,
+  "uniqueChoices": false,
+  "enumerateInDescription": false,
+  "hasRacialAffinity": false,
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feature/&FeatureSetWayOfTheDragonBreathTitle",
+    "description": "Feature/&FeatureSetWayOfTheDragonBreathDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "9dec46c1-9503-51be-b659-e93549d966e8",
+  "contentPack": 9999,
+  "name": "FeatureSetWayOfTheDragonBreath"
+}

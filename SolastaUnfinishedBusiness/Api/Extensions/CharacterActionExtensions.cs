@@ -1,4 +1,5 @@
-﻿using static RuleDefinitions;
+﻿using System;
+using static RuleDefinitions;
 
 namespace SolastaUnfinishedBusiness.Api.Extensions;
 
@@ -32,6 +33,17 @@ internal static class CharacterActionExtensions
 
                     break;
                 }
+                //TODO: implement missing computation methods (like Ki and Breath Weapon)
+                case EffectDifficultyClassComputation.AbilityScoreAndProficiency:
+                    break;
+                case EffectDifficultyClassComputation.Ki:
+                    break;
+                case EffectDifficultyClassComputation.BreathWeapon:
+                    break;
+                case EffectDifficultyClassComputation.CustomAbilityModifierAndProficiency:
+                    break;
+                default:
+                    throw new ArgumentException("effect.DifficultyClassComputation");
             }
         }
         else

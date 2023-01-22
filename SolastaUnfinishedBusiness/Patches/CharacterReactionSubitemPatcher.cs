@@ -22,9 +22,10 @@ public static class CharacterReactionSubitemPatcher
             RulesetSpellRepertoire spellRepertoire,
             int slotLevel)
         {
-            var heroWithSpellRepertoire = spellRepertoire.GetCasterHero();
+            var heroWithSpellRepertoire = spellRepertoire?.GetCasterHero();
 
-            if (heroWithSpellRepertoire is null)
+            if (heroWithSpellRepertoire == null ||
+                !SharedSpellsContext.IsMulticaster(heroWithSpellRepertoire) || spellRepertoire.SpellCastingRace != null)
             {
                 return;
             }

@@ -25,7 +25,8 @@ internal static class RulesetCharacterExtensions
     }
 #endif
 
-    internal static bool IsWearingMediumArmor([NotNull] this RulesetCharacter _)
+    // ReSharper disable once UnusedParameter.Global
+    internal static bool IsWearingMediumArmor([NotNull] this RulesetCharacter rulesetCharacter)
     {
         return false;
     }

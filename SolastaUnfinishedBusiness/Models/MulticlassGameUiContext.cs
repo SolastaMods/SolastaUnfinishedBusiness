@@ -18,11 +18,13 @@ internal static class MulticlassGameUiContext
     private static Sprite _pactSlotSprite;
 
     private static Sprite RegularSlotSprite => _regularSlotSprite ??= Resources
+        // ReSharper disable once Unity.UnknownResource
         .Load<GameObject>("Gui/Prefabs/Location/Magic/SlotStatus")
         .GetComponent<SlotStatus>().Available
         .GetComponent<Image>().sprite;
 
     private static Sprite PactSlotSprite => _pactSlotSprite ??= Resources
+        // ReSharper disable once Unity.UnknownResource
         .Load<GameObject>("Gui/Prefabs/Location/Magic/SlotStatusWarlock")
         .GetComponent<SlotStatus>().Available
         .GetComponent<Image>().sprite;

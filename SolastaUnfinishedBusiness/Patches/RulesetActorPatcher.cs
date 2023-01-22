@@ -123,6 +123,24 @@ public static class RulesetActorPatcher
                     }
 
                     break;
+                case ConditionDefinition.OriginOfAmount.None:
+                    break;
+                case ConditionDefinition.OriginOfAmount.SourceDamage:
+                    break;
+                case ConditionDefinition.OriginOfAmount.SourceGain:
+                    break;
+                case ConditionDefinition.OriginOfAmount.AddDice:
+                    break;
+                case ConditionDefinition.OriginOfAmount.Fixed:
+                    break;
+                case ConditionDefinition.OriginOfAmount.SourceHalfHitPoints:
+                    break;
+                case ConditionDefinition.OriginOfAmount.SourceSpellCastingAbility:
+                    break;
+                case ConditionDefinition.OriginOfAmount.SourceSpellAttack:
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException(nameof(conditionDefinitionName));
             }
         }
     }
@@ -215,17 +233,11 @@ public static class RulesetActorPatcher
                 return;
             }
 
-            foreach (var keyValuePair in hero.CharacterInventory.InventorySlotsByName)
+            foreach (var equipedItem in hero.CharacterInventory.InventorySlotsByName
+                         .Select(keyValuePair => keyValuePair.Value)
+                         .Where(slot => slot.EquipedItem != null && !slot.Disabled && !slot.ConfigSlot)
+                         .Select(slot => slot.EquipedItem))
             {
-                var slot = keyValuePair.Value;
-
-                if (slot.EquipedItem == null || slot.Disabled || slot.ConfigSlot)
-                {
-                    continue;
-                }
-
-                var equipedItem = slot.EquipedItem;
-
                 featuresToBrowse.AddRange(equipedItem.DynamicItemProperties
                     .Select(dynamicItemProperty => dynamicItemProperty.FeatureDefinition)
                     .Where(definition => definition is IDamageAffinityProvider));

@@ -13,11 +13,13 @@ namespace SolastaUnfinishedBusiness.Feats;
 
 internal static class MetamagicFeats
 {
+    private const string Metamagic = "Metamagic";
+
     internal static void CreateFeats([NotNull] List<FeatDefinition> feats)
     {
         var metaMagicFeats = BuildMetamagic();
 
-        var group = GroupFeats.MakeGroup("FeatGroupMetamagic", "Metamagic", metaMagicFeats);
+        var group = GroupFeats.MakeGroup("FeatGroupMetamagic", Metamagic, metaMagicFeats);
 
         group.mustCastSpellsPrerequisite = true;
         group.minimalAbilityScorePrerequisite = true;
@@ -59,6 +61,7 @@ internal static class MetamagicFeats
                         .AddToDB())
                 .SetAbilityScorePrerequisite(AttributeDefinitions.Charisma, 13)
                 .SetMustCastSpellsPrerequisite()
+                .SetFeatFamily(Metamagic)
                 .SetValidators(ValidatorsFeat.ValidateNotMetamagic(metamagicOptionDefinition))
                 .AddToDB()));
 

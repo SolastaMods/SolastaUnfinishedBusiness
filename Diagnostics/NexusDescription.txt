@@ -100,6 +100,7 @@ All settings start disabled by default.
 
 [*][b]Inventor[/b]: Inventors are tinkerers, alchemists, and more. They bridge the space between magic and technology.
 
+[*][b]Way of Dragon[/b]: Monks that follow the Way of Dragon devote themselves to learning the powerful beasts, gaining draconic abilities.
 [*][b]Armorer[/b]: Armorers focus their studies on magical armors and how to use them effectively.
 [*][b]Grenadier[/b]: Grenadiers study unstable substances and their use in creating explosions of various types.
 [*][b]Weaponsmith[/b]: Weaponsmiths focus their studies on magical weapons and how to use them effectively.
@@ -379,7 +380,7 @@ When you cast this spell using a spell slot of 4th level or higher, the damage i
 [*][b]Winter's Breath[/b]: Create a blast of cold wind to chill your enemies and knock them prone.
 [*][b]Raise Skeletal Enforcer[/b]: Summons <b>Skeletal Enforcer</b>:
 A powerful undead creature armed with an axe and a shield.
-[*][b]Staggering Smite[/b]: Your next hit causes additional psychic damage with your weapon. The target must make a Wisdom saving throw. On a failed save, it has disadvantage on attack rolls and ability checks, and can’t take reactions, until the end of its next turn.
+[*][b]Staggering Smite[/b]: Your next hit causes additional psychic damage with your weapon. The target must make a Wisdom saving throw. On a failed save, it has disadvantage on attack rolls and ability checks, and can't take reactions, until the end of its next turn.
 [*][b]Banishing Smite[/b]: Your next hit causes additional force damage with your weapon. Additionally, if this attack reduces the target to 50 hit points of fewer, you banish it for 1 min.
 [*][b]Far Step[/b]: You teleport up to 60 feet to an unoccupied space you can see. On each of your turns before the spell ends, you can use a bonus action to teleport in this way again.
 [*][b]Raise Skeletal Knight[/b]: Summons <b>Skeletal Knight</b>:
@@ -452,7 +453,7 @@ A powerful wight, trained to withstand the light of day.
 [*][b]ImpPhil[/b]: api, builders, gameplay, rules, quality of life
 [*][b]ChrisJohnDigital[/b]: builders, gameplay, feats, fighting styles, original Tinkerer, original Wizard subclasses, Arcane Fighter, Spell Master, Spell Shield
 [*][b]SilverGriffon[/b]: gameplay, visuals, spells, Dark Elf, Draconic Kobold, Grey Dwarf, Divine Heart
-[*][b]Haxermn[/b]: spells, Oath of Ancient, Oath of Hatred
+[*][b]Haxermn[/b]: spells, Oath of Ancient, Oath of Hatred, Way of The Dragon
 [*][b]tivie[/b]: Circle of The Night, Path of The Spirits
 [*][b]ElAntonius[/b]: feats, fighting styles, Arcanist
 [*][b]DubhHerder[/b]: replace spiders, spells, original Warlock subclasses
