@@ -14,7 +14,7 @@ namespace SolastaUnfinishedBusiness.Feats;
 internal static class MetamagicFeats
 {
     private const string Metamagic = "Metamagic";
-    
+
     internal static void CreateFeats([NotNull] List<FeatDefinition> feats)
     {
         var metaMagicFeats = BuildMetamagic();

@@ -72,6 +72,7 @@ internal class RulesetEffectPowerWithAdvancement : RulesetEffectPower
         }
         else
         {
+            // ReSharper disable once SwitchStatementMissingSomeEnumCasesNoDefault
             switch (targetType)
             {
                 case RuleDefinitions.TargetType.Individuals:

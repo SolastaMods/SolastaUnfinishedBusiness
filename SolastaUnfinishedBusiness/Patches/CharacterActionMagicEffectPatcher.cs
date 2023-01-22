@@ -37,14 +37,15 @@ public static class CharacterActionMagicEffectPatcher
             var effectLevel = 0;
             var effectSourceType = RuleDefinitions.EffectSourceType.Power;
 
-            if (__instance is CharacterActionCastSpell spell)
+            switch (__instance)
             {
-                effectSourceType = RuleDefinitions.EffectSourceType.Spell;
-                effectLevel = spell.ActiveSpell.SlotLevel;
-            }
-            else if (__instance is CharacterActionUsePower power)
-            {
-                effectLevel = power.activePower.EffectLevel;
+                case CharacterActionCastSpell spell:
+                    effectSourceType = RuleDefinitions.EffectSourceType.Spell;
+                    effectLevel = spell.ActiveSpell.SlotLevel;
+                    break;
+                case CharacterActionUsePower power:
+                    effectLevel = power.activePower.EffectLevel;
+                    break;
             }
 
             var character = __instance.ActingCharacter.RulesetCharacter;

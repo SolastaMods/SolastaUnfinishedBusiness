@@ -80,6 +80,7 @@ internal class FeatureDefinitionCastSpellBuilder
                 }
 
                 break;
+            case CasterProgression.Flat:
             default:
                 throw new SolastaUnfinishedBusinessException($"Unknown CasterProgression: {progression}");
         }
@@ -162,6 +163,7 @@ internal class FeatureDefinitionCastSpellBuilder
                 }
 
                 break;
+            case CasterProgression.Flat:
             default:
                 throw new SolastaUnfinishedBusinessException($"Unknown CasterProgression: {progression}");
         }
@@ -345,6 +347,7 @@ internal class FeatureDefinitionCastSpellBuilder
                 }
 
                 break;
+            case CasterProgression.None:
             default:
                 throw new SolastaUnfinishedBusinessException($"Unknown CasterProgression: {progression}");
         }

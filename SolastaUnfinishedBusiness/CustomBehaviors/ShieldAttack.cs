@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 
 namespace SolastaUnfinishedBusiness.CustomBehaviors;
 
@@ -48,27 +49,10 @@ internal static class ShieldAttack
 
         shield.EnumerateFeaturesToBrowse<FeatureDefinitionAttributeModifier>(features);
 
-        var sum = 0;
-
-        foreach (var feature in features)
-        {
-            var modifier = feature as FeatureDefinitionAttributeModifier;
-
-            if (modifier == null)
-            {
-                continue;
-            }
-
-            if (modifier.ModifiedAttribute != AttributeDefinitions.ArmorClass)
-            {
-                continue;
-            }
-
-            if (modifier.ModifierOperation == FeatureDefinitionAttributeModifier.AttributeModifierOperation.Additive)
-            {
-                sum += modifier.ModifierValue;
-            }
-        }
+        var sum = features.OfType<FeatureDefinitionAttributeModifier>()
+            .Where(x => x.ModifiedAttribute == AttributeDefinitions.ArmorClass &&
+                        x.ModifierOperation == FeatureDefinitionAttributeModifier.AttributeModifierOperation.Additive)
+            .Sum(feature => feature.ModifierValue);
 
         return sum > 0;
     }

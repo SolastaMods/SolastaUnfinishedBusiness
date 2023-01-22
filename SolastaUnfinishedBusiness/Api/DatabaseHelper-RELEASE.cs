@@ -107,6 +107,7 @@ internal static partial class DatabaseHelper
     }
     internal static class ConditionDefinitions
     {
+        internal static ConditionDefinition ConditionAcidArrowed { get; } = GetDefinition<ConditionDefinition>("ConditionAcidArrowed");
         internal static ConditionDefinition ConditionAcidSpit { get; } = GetDefinition<ConditionDefinition>("ConditionAcidSpit");
         internal static ConditionDefinition ConditionAuraOfProtection { get; } = GetDefinition<ConditionDefinition>("ConditionAuraOfProtection");
         internal static ConditionDefinition ConditionBaned { get; } = GetDefinition<ConditionDefinition>("ConditionBaned");
@@ -208,6 +209,7 @@ internal static partial class DatabaseHelper
         internal static EffectProxyDefinition ProxyGrease { get; } = GetDefinition<EffectProxyDefinition>("ProxyGrease");
         internal static EffectProxyDefinition ProxyInsectPlague { get; } = GetDefinition<EffectProxyDefinition>("ProxyInsectPlague");
         internal static EffectProxyDefinition ProxySpikeGrowth { get; } = GetDefinition<EffectProxyDefinition>("ProxySpikeGrowth");
+        internal static EffectProxyDefinition ProxyStinkingCloud { get; } = GetDefinition<EffectProxyDefinition>("ProxyStinkingCloud");
     }
     internal static class FactionDefinitions
     {

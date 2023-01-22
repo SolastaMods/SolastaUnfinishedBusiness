@@ -175,7 +175,6 @@ public static class InvocationActivationBoxPatcher
 
                 high.name = HighSlotsName;
                 rect = high.GetComponent<RectTransform>();
-                // ReSharper disable once Unity.InefficientPropertyAccess
                 rect.position = new Vector3(rect.position.x, position.y, 0);
                 highSlots = high.GetComponent<GuiLabel>();
             }

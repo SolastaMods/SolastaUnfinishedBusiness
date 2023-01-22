@@ -110,25 +110,14 @@ public class MirrorImageLogic
 
         var distance = (int)attacker.DistanceTo(target);
 
-        foreach (var sense in attacker.SenseModes)
+        foreach (var sense in attacker.SenseModes
+                     .Where(sense => sense.senseType is SenseMode.Type.Blindsight or SenseMode.Type.Truesight
+                         or SenseMode.Type.Tremorsense)
+                     .Where(sense => sense.senseType is not SenseMode.Type.Tremorsense || target.IsTouchingGround())
+                     .Where(sense => sense.senseRange >= distance))
         {
-            if (sense.senseType is not (SenseMode.Type.Blindsight or SenseMode.Type.Truesight
-                or SenseMode.Type.Tremorsense))
-            {
-                continue;
-            }
-
-            if (sense.senseType is SenseMode.Type.Tremorsense && !target.IsTouchingGround())
-            {
-                continue;
-            }
-
-            if (sense.senseRange < distance)
-            {
-                continue;
-            }
-
             ReportAttackerHasSense(attacker, sense.senseType);
+
             return;
         }
 

@@ -104,6 +104,7 @@ internal static class FightingStyleContext
                 continue;
             }
 
+            // ReSharper disable once SwitchStatementMissingSomeEnumCasesNoDefault
             switch (trainedFightingStyle.Condition)
             {
                 // Make hand crossbows benefit from Archery Fighting Style

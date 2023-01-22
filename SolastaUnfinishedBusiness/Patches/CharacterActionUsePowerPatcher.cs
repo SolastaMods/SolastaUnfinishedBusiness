@@ -1,4 +1,5 @@
 ﻿using System.Diagnostics.CodeAnalysis;
+using System.Linq;
 using HarmonyLib;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.Extensions;
@@ -93,16 +94,16 @@ public static class CharacterActionUsePowerPatcher
 
             var usableDevice = power.OriginItem;
 
-            foreach (var usableFunction in usableDevice.UsableFunctions)
+            foreach (var usableFunction in usableDevice.UsableFunctions
+                         .Select(usableFunction => new
+                         {
+                             usableFunction, functionDescription = usableFunction.DeviceFunctionDescription
+                         })
+                         .Where(t =>
+                             t.functionDescription.Type == DeviceFunctionDescription.FunctionType.Power &&
+                             t.functionDescription.FeatureDefinitionPower == power.PowerDefinition)
+                         .Select(t => t.usableFunction))
             {
-                var functionDescription = usableFunction.DeviceFunctionDescription;
-
-                if (functionDescription.Type != DeviceFunctionDescription.FunctionType.Power
-                    || functionDescription.FeatureDefinitionPower != power.PowerDefinition)
-                {
-                    continue;
-                }
-
                 __instance.ActingCharacter.RulesetCharacter
                     .UseDeviceFunction(usableDevice, usableFunction, power.ExtraCharges);
                 break;

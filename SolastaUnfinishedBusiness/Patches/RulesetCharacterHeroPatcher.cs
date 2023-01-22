@@ -210,15 +210,24 @@ public static class RulesetCharacterHeroPatcher
         {
             var num = provider.AttackRollModifier;
 
-            if (provider.AttackRollModifierMethod == RuleDefinitions.AttackModifierMethod.SourceConditionAmount)
+            switch (provider.AttackRollModifierMethod)
             {
-                num = hero.FindFirstConditionHoldingFeature(provider as FeatureDefinition).Amount;
-            }
-            else if (provider.AttackRollModifierMethod == RuleDefinitions.AttackModifierMethod.AddAbilityScoreBonus &&
-                     !string.IsNullOrEmpty(provider.AttackRollAbilityScore))
-            {
-                num += AttributeDefinitions.ComputeAbilityScoreModifier(
-                    hero.TryGetAttributeValue(provider.AttackRollAbilityScore));
+                case RuleDefinitions.AttackModifierMethod.SourceConditionAmount:
+                    num = hero.FindFirstConditionHoldingFeature(provider as FeatureDefinition).Amount;
+                    break;
+                case RuleDefinitions.AttackModifierMethod.AddAbilityScoreBonus when
+                    !string.IsNullOrEmpty(provider.AttackRollAbilityScore):
+                    num += AttributeDefinitions.ComputeAbilityScoreModifier(
+                        hero.TryGetAttributeValue(provider.AttackRollAbilityScore));
+                    break;
+                case RuleDefinitions.AttackModifierMethod.None:
+                    break;
+                case RuleDefinitions.AttackModifierMethod.FlatValue:
+                    break;
+                case RuleDefinitions.AttackModifierMethod.AddProficiencyBonus:
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException(nameof(provider));
             }
 
             return num;
@@ -482,7 +491,8 @@ public static class RulesetCharacterHeroPatcher
             __instance.EnumerateFeaturesToBrowse<FeatureDefinitionMagicAffinity>(magicAffinities);
 
             // ReSharper disable once PossibleInvalidCastExceptionInForeachLoop
-            foreach (FeatureDefinitionMagicAffinity featureDefinitionMagicAffinity in magicAffinities)
+            foreach (var featureDefinitionMagicAffinity in magicAffinities
+                         .OfType<FeatureDefinitionMagicAffinity>())
             {
                 if (featureDefinitionMagicAffinity.RitualCasting == RuleDefinitions.RitualCasting.None)
                 {
@@ -492,6 +502,7 @@ public static class RulesetCharacterHeroPatcher
                 foreach (var spellRepertoire in __instance.SpellRepertoires)
                 {
                     // this is very similar to switch statement TA wrote but with spell loops outside
+                    // ReSharper disable once SwitchStatementMissingSomeEnumCasesNoDefault
                     switch (featureDefinitionMagicAffinity.RitualCasting)
                     {
                         case RuleDefinitions.RitualCasting.PactTomeRitual:

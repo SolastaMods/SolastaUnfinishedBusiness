@@ -550,6 +550,10 @@ public static class CharacterBuildingManagerPatcher
                     case CastingOrigin.Race:
                         poolName = AttributeDefinitions.TagRace;
                         break;
+                    case CastingOrigin.Monster:
+                        break;
+                    default:
+                        throw new ArgumentException("spellRepertoire.SpellCastingFeature.SpellCastingOrigin");
                 }
 
                 if (__instance.HasAnyActivePoolOfType(heroBuildingData, HeroDefinitions.PointsPoolType.Cantrip)

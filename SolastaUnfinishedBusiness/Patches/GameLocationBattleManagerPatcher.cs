@@ -181,15 +181,14 @@ public static class GameLocationBattleManagerPatcher
                 action.AttackSuccessDelta += action.BardicDieRoll;
             }
 
-            foreach (var feature in attacker.RulesetActor.GetSubFeaturesByType<IAlterAttackOutcome>())
+            foreach (var extraEvents in attacker.RulesetActor
+                         .GetSubFeaturesByType<IAlterAttackOutcome>()
+                         .TakeWhile(_ =>
+                             action.AttackRollOutcome == RuleDefinitions.RollOutcome.Failure &&
+                             action.AttackSuccessDelta < 0)
+                         .Select(feature =>
+                             feature.TryAlterAttackOutcome(__instance, action, attacker, target, attackModifier)))
             {
-                if (action.AttackRollOutcome != RuleDefinitions.RollOutcome.Failure || action.AttackSuccessDelta >= 0)
-                {
-                    break;
-                }
-
-                var extraEvents = feature.TryAlterAttackOutcome(__instance, action, attacker, target, attackModifier);
-
                 while (extraEvents.MoveNext())
                 {
                     yield return extraEvents.Current;
@@ -255,12 +254,21 @@ public static class GameLocationBattleManagerPatcher
 
             if (character != null)
             {
-                foreach (var feature in character.GetSubFeaturesByType<IDefenderBeforeAttackHitConfirmed>())
+                foreach (var extra in character
+                             .GetSubFeaturesByType<IDefenderBeforeAttackHitConfirmed>()
+                             .Select(feature => feature.DefenderBeforeAttackHitConfirmed(
+                                 __instance,
+                                 attacker,
+                                 defender,
+                                 attackModifier,
+                                 attackMode,
+                                 rangedAttack,
+                                 advantageType,
+                                 actualEffectForms,
+                                 rulesetEffect,
+                                 criticalHit,
+                                 firstTarget)))
                 {
-                    var extra = feature.DefenderBeforeAttackHitConfirmed(__instance, attacker, defender, attackModifier,
-                        attackMode,
-                        rangedAttack, advantageType, actualEffectForms, rulesetEffect, criticalHit, firstTarget);
-
                     while (extra.MoveNext())
                     {
                         yield return extra.Current;
@@ -431,6 +439,40 @@ public static class GameLocationBattleManagerPatcher
 
                         totalReducedDamage = feature.ReducedDamage * reactionParams.IntParameter;
                         break;
+                    case RuleDefinitions.AdditionalDamageTriggerCondition.AdvantageOrNearbyAlly:
+                        break;
+                    case RuleDefinitions.AdditionalDamageTriggerCondition.SpecificCharacterFamily:
+                        break;
+                    case RuleDefinitions.AdditionalDamageTriggerCondition.TargetHasConditionCreatedByMe:
+                        break;
+                    case RuleDefinitions.AdditionalDamageTriggerCondition.TargetHasCondition:
+                        break;
+                    case RuleDefinitions.AdditionalDamageTriggerCondition.TargetIsWounded:
+                        break;
+                    case RuleDefinitions.AdditionalDamageTriggerCondition.TargetHasSenseType:
+                        break;
+                    case RuleDefinitions.AdditionalDamageTriggerCondition.TargetHasCreatureTag:
+                        break;
+                    case RuleDefinitions.AdditionalDamageTriggerCondition.RangeAttackFromHigherGround:
+                        break;
+                    case RuleDefinitions.AdditionalDamageTriggerCondition.EvocationSpellDamage:
+                        break;
+                    case RuleDefinitions.AdditionalDamageTriggerCondition.TargetDoesNotHaveCondition:
+                        break;
+                    case RuleDefinitions.AdditionalDamageTriggerCondition.SpellDamageMatchesSourceAncestry:
+                        break;
+                    case RuleDefinitions.AdditionalDamageTriggerCondition.CriticalHit:
+                        break;
+                    case RuleDefinitions.AdditionalDamageTriggerCondition.RagingAndTargetIsSpellcaster:
+                        break;
+                    case RuleDefinitions.AdditionalDamageTriggerCondition.Raging:
+                        break;
+                    case RuleDefinitions.AdditionalDamageTriggerCondition.SpellDamagesTarget:
+                        break;
+                    case RuleDefinitions.AdditionalDamageTriggerCondition.NotWearingHeavyArmor:
+                        break;
+                    default:
+                        throw new ArgumentException("feature.TriggerCondition");
                 }
 
                 var trendInfo = new RuleDefinitions.TrendInfo(totalReducedDamage,

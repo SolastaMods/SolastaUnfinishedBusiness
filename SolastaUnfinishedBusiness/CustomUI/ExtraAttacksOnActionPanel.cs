@@ -69,6 +69,7 @@ internal static class ExtraAttacksOnActionPanel
 
         ActionType actionType;
 
+        // ReSharper disable once SwitchStatementHandlesSomeKnownEnumValuesWithDefault
         switch (actionId)
         {
             case Id.AttackMain:
