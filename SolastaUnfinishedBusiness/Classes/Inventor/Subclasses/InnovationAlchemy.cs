@@ -24,7 +24,7 @@ public static class InnovationAlchemy
     private static FeatureDefinitionPower AlchemyPool { get; set; }
     private static FeatureDefinitionPower ElementalBombs { get; set; }
     private static FeatureDefinitionPower AdvancedBombs { get; set; }
-    private static HashSet<FeatureDefinitionPower> BombPowers { get; } = new();
+    private static List<FeatureDefinitionPower> BombPowers { get; } = new();
 
     public static CharacterSubclassDefinition Build()
     {
@@ -67,12 +67,12 @@ public static class InnovationAlchemy
 
     private static FeatureDefinition BuildBombs()
     {
-        var deviceDescription = new UsableDeviceDescriptionBuilder()
+        var deviceDescriptionBuilder = new UsableDeviceDescriptionBuilder()
             .SetUsage(EquipmentDefinitions.ItemUsage.Charges)
             .SetRecharge(RechargeRate.ShortRest)
             .SetSaveDc(EffectHelpers.BasedOnUser);
 
-        BuildFireBombs(deviceDescription);
+        BuildFireBombs(deviceDescriptionBuilder);
 
         ElementalBombs = FeatureDefinitionPowerBuilder
             .Create("PowerInnovationAlchemyBombsElemental")
@@ -87,10 +87,10 @@ public static class InnovationAlchemy
 
         PowerBundle.RegisterPowerBundle(ElementalBombs, true,
             MakeBombFireDamageToggle(),
-            BuildColdBombs(deviceDescription),
-            BuildLightningBombs(deviceDescription),
-            BuildAcidBombs(deviceDescription),
-            BuildPoisonBombs(deviceDescription)
+            BuildColdBombs(deviceDescriptionBuilder),
+            BuildLightningBombs(deviceDescriptionBuilder),
+            BuildAcidBombs(deviceDescriptionBuilder),
+            BuildPoisonBombs(deviceDescriptionBuilder)
         );
 
         //TODO: maybe make elemental and advanced bombs not exclusive?
@@ -108,13 +108,14 @@ public static class InnovationAlchemy
             .AddToDB();
 
         PowerBundle.RegisterPowerBundle(AdvancedBombs, true,
-            BuildForceBombs(deviceDescription),
-            BuildRadiantBombs(deviceDescription),
-            BuildNecroBombs(deviceDescription),
-            BuildThunderBombs(deviceDescription),
-            BuildPsychicBombs(deviceDescription)
+            BuildForceBombs(deviceDescriptionBuilder),
+            BuildRadiantBombs(deviceDescriptionBuilder),
+            BuildNecroBombs(deviceDescriptionBuilder),
+            BuildThunderBombs(deviceDescriptionBuilder),
+            BuildPsychicBombs(deviceDescriptionBuilder)
         );
 
+        var deviceDescription = deviceDescriptionBuilder.Build();
         var bombItem = ItemDefinitionBuilder
             .Create("ItemInnovationAlchemyBomb")
             .SetGuiPresentation(BombsFeatureName, Category.Feature,
@@ -123,13 +124,23 @@ public static class InnovationAlchemy
             .SetWeight(0)
             .SetItemPresentation(CustomWeaponsContext.BuildPresentation("ItemAlchemyFunctorUnidentified",
                 ItemDefinitions.ScrollFly.itemPresentation))
-            .SetUsableDeviceDescription(deviceDescription.Build())
+            .SetUsableDeviceDescription(deviceDescription)
             .AddToDB();
+
+        var powerDevice = new PowerPoolDevice(bombItem, AlchemyPool);
+
+        // link powers to the powerDevice
+        foreach (var bombPower in BombPowers)
+        {
+            bombPower.SetCustomSubFeatures(powerDevice);
+        }
+        
+        BombPowers.Clear();
 
         return FeatureDefinitionBuilder
             .Create(BombsFeatureName)
             .SetGuiPresentation(Category.Feature)
-            .SetCustomSubFeatures(new PowerPoolDevice(bombItem, AlchemyPool, BombPowers))
+            .SetCustomSubFeatures(powerDevice)
             .AddToDB();
     }
 

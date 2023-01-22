@@ -76,15 +76,11 @@ public static class CharacterActionUsePowerPatcher
             //PATCH: we get an empty originItem under MP (GRENADIER) (MULTIPLAYER)
             if (__instance.activePower.OriginItem == null)
             {
-                var rulesetCharacter = __instance.ActingCharacter.RulesetCharacter;
-                var provider = rulesetCharacter
-                    .GetSubFeaturesByType<PowerPoolDevice>()
-                    .FirstOrDefault(x => x.AttachedPowers
-                        .Any(y => y.Name == __instance.activePower.Name));
+                var provider = __instance.activePower.PowerDefinition.GetFirstSubFeatureOfType<PowerPoolDevice>();
 
                 if (provider != null)
                 {
-                    __instance.activePower.originItem = provider.GetDevice(rulesetCharacter);
+                    __instance.activePower.originItem = provider.GetDevice(__instance.ActingCharacter.RulesetCharacter);
                 }
             }
 

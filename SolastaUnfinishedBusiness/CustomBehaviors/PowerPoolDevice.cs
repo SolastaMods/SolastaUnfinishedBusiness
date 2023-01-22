@@ -16,15 +16,11 @@ internal class PowerPoolDevice
 
     internal PowerPoolDevice(
         ItemDefinition baseItem,
-        FeatureDefinitionPower pool,
-        HashSet<FeatureDefinitionPower> attachedPowers)
+        FeatureDefinitionPower pool)
     {
         this.baseItem = baseItem;
         Pool = pool;
-        AttachedPowers = attachedPowers;
     }
-
-    internal HashSet<FeatureDefinitionPower> AttachedPowers { get; } = new();
 
     internal FeatureDefinitionPower Pool { get; }
 
