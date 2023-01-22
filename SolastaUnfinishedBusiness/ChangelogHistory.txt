@@ -2,12 +2,14 @@
 
 1.4.33.10:
 
-- added [BETA] Way of The Dragon subclass
+- added Way of The Dragon [BETA] subclass
 - changed SoulBlade Empower Weapon recharge rate to short rest
-- fixed null repertoire scenarios in GetCasterHero
-- fixed race slots inspection UI interaction with single class Warlock
-- set feat family for Slasher, Piercer and Crusher to avoid picking them twice
-- set Tactical Surge as possessive for combat log
+- changed Metamagic feats to only allow one pick in the family
+- fixed grenadier bombs consumption under multiplayer sessions
+- fixed race slots inspection UI interaction with SC Warlock
+- fixed some rare null repertoire scenarios
+- set feat family for Slasher, Piercer and Crusher
+- set Tactical Surge as possessive for a better combat log
 
 1.4.33.9:
 
