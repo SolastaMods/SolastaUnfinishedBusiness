@@ -1,29 +1,26 @@
 {
   "$type": "FeatureDefinitionFeatureSet, Assembly-CSharp",
   "featureSet": [
-    "Definition:AncestryPathClawDraconicBlack:51eba7020ffaad344996a28e44ec1d44",
-    "Definition:AncestryPathClawDraconicGold:c413b7b49c1b34644b45d0e0fa9903d0",
-    "Definition:AncestryPathClawDraconicGreen:239f7ef79d39f8e46b42eb4954336f5a",
-    "Definition:AncestryPathClawDraconicSilver:87d1b388750ccdf4d819f9d79709bfc0",
-    "Definition:AncestryPathClawDraconicBlue:9f2ad5c3efed11f48ac396beef21ec82"
+    "Definition:DamageAffinityColdResistance:277b59ebffdc36946879acc4e946affd",
+    "Definition:AncestryWayOfTheDragonDraconicSilver:556e16a3-444e-5894-8682-4b629d98e438"
   ],
-  "mode": "Exclusion",
+  "mode": "Union",
   "ancestryDamageTypeMap": [],
   "ancestryType": "Sorcerer",
-  "defaultSelection": 1,
+  "defaultSelection": 0,
   "uniqueChoices": false,
   "enumerateInDescription": false,
   "hasRacialAffinity": false,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&FeatureSetWayOfTheDragonAncestryTitle",
-    "description": "Feature/&FeatureSetWayOfTheDragonAncestryDescription",
+    "title": "Feature/&AncestryPathClawDraconicSilverTitle",
+    "description": "Feature/&AncestryPathClawDraconicDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
-      "m_SubObjectName": "",
-      "m_SubObjectType": ""
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
@@ -38,7 +35,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "5b6d87c7-23ef-524b-8395-47fdeb93c276",
+  "guid": "eb1239fd-466a-513d-b227-32f5be63d424",
   "contentPack": 9999,
-  "name": "FeatureSetWayOfTheDragonAncestry"
+  "name": "FeatureSetWayOfTheDragonDraconicSilver"
 }

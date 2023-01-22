@@ -1,0 +1,35 @@
+{
+  "$type": "FeatureDefinitionAncestry, Assembly-CSharp",
+  "type": 9000,
+  "damageType": "DamagePoison",
+  "associatedFaceAndSkinColor": "",
+  "myselfFamilyRestrictions": [],
+  "otherCharacterFamilyRestrictions": [],
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feature/&AncestryPathClawDraconicGreenTitle",
+    "description": "Feature/&AncestryPathClawDraconicDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "5b90b73d-4395-5e1d-99b7-a635b4c5efc0",
+  "contentPack": 9999,
+  "name": "AncestryWayOfTheDragonDraconicGreen"
+}

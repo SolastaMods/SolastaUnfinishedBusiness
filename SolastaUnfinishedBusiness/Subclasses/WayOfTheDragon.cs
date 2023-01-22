@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Linq;
 using SolastaUnfinishedBusiness.Api.Extensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
@@ -20,16 +21,39 @@ internal sealed class WayOfTheDragon : AbstractSubclass
 
     internal WayOfTheDragon()
     {
-        var featureWayOfDragonAncestry = FeatureDefinitionFeatureSetBuilder
-            .Create(FeatureSetPathClawDragonAncestry, $"FeatureSet{Name}Ancestry")
-            .SetOrUpdateGuiPresentation(Category.Feature)
-            .AddToDB();
-
-        var featureWayOfDragonResistance = FeatureDefinitionFeatureSetBuilder
-            .Create(FeatureSetSorcererDraconicResilience, $"FeatureSet{Name}Resistance")
-            .SetOrUpdateGuiPresentation(Category.Feature)
+        var featureSetDisciple = FeatureDefinitionFeatureSetBuilder
+            .Create($"FeatureSet{Name}Disciple")
+            .SetGuiPresentation(Category.Feature)
+            .SetMode(FeatureDefinitionFeatureSet.FeatureSetMode.Exclusion)
             .SetAncestryType(ExtraAncestryType.WayOfTheDragon)
             .AddToDB();
+
+        foreach (var featureDefinitionAncestry in DatabaseRepository.GetDatabase<FeatureDefinitionAncestry>()
+                     .Where(x => x.Type == AncestryType.BarbarianClaw)
+                     .ToList())
+        {
+            var newAncestryName = featureDefinitionAncestry.Name.Replace("PathClaw", Name);
+            var ancestry = FeatureDefinitionAncestryBuilder
+                .Create(featureDefinitionAncestry, newAncestryName)
+                .SetAncestry(ExtraAncestryType.WayOfTheDragon)
+                .AddToDB();
+
+            var damage = ancestry.damageType.Replace("Damage", string.Empty);
+            var damageAffinity = GetDefinition<FeatureDefinitionDamageAffinity>($"DamageAffinity{damage}Resistance");
+
+            var featureSet = FeatureDefinitionFeatureSetBuilder
+                .Create(newAncestryName.Replace("Ancestry", "FeatureSet"))
+                .SetGuiPresentation(
+                    featureDefinitionAncestry.GuiPresentation.Title,
+                    featureDefinitionAncestry.GuiPresentation.Description)
+                .SetMode(FeatureDefinitionFeatureSet.FeatureSetMode.Union)
+                .AddFeatureSet(
+                    ancestry,
+                    damageAffinity)
+                .AddToDB();
+
+            featureSetDisciple.FeatureSet.Add(featureSet);
+        }
 
         var conditionReactiveHide = ConditionDefinitionBuilder
             .Create(ConditionFiendishResilienceFire, $"Condition{Name}ReactiveHide")
@@ -56,13 +80,13 @@ internal sealed class WayOfTheDragon : AbstractSubclass
             .SetGuiPresentation(Category.Feature)
             .SetUsesFixed(ActivationTime.Reaction, RechargeRate.KiPoints)
             .SetCustomSubFeatures(new ReactToAttackReactiveHide())
-            .SetReactionContext(ReactionTriggerContext.DEPRECATED_DamagedBySpecificElement)
+            .SetReactionContext(ReactionTriggerContext.DamagedByMagicEffect)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
                     .SetDurationData(DurationType.Round, 1)
-                    .SetParticleEffectParameters(PowerPatronHiveReactiveCarapace.EffectDescription
-                        .effectParticleParameters)
+                    .SetParticleEffectParameters(
+                        PowerPatronHiveReactiveCarapace.EffectDescription.effectParticleParameters)
                     .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
                     .SetEffectForms(EffectFormBuilder
                         .Create()
@@ -79,9 +103,8 @@ internal sealed class WayOfTheDragon : AbstractSubclass
             .Create(Name)
             .SetGuiPresentation(Category.Subclass, SorcerousDraconicBloodline)
             .AddFeaturesAtLevel(3,
-                powerReactiveHide,
-                featureWayOfDragonAncestry,
-                featureWayOfDragonResistance)
+                featureSetDisciple,
+                powerReactiveHide)
             .AddFeaturesAtLevel(6, BuildDragonFeatureSet())
             .AddFeaturesAtLevel(11, BuildDragonFuryFeatureSet())
             .AddToDB();

@@ -1,10 +1,13 @@
 {
   "$type": "FeatureDefinitionFeatureSet, Assembly-CSharp",
   "featureSet": [
-    "Definition:AttributeModifierSorcererDraconicResilienceHitPoints:2f3d137ff6ef7e44ab1e3b47c5bbb352",
-    "Definition:AttributeModifierSorcererDraconicResilienceAC:354b8c0cc0364dc41934ba2d7052c607"
+    "Definition:FeatureSetWayOfTheDragonDraconicBlack:b3f7475d-56f0-5fb4-8fbd-550ca275d103",
+    "Definition:FeatureSetWayOfTheDragonDraconicBlue:21c94b18-f9a0-59b6-bedf-4aa4e4131e25",
+    "Definition:FeatureSetWayOfTheDragonDraconicGold:ff9fb526-325a-55c2-a8d5-16f7ea2b1e82",
+    "Definition:FeatureSetWayOfTheDragonDraconicGreen:954ce83b-dd23-5200-a93a-5db5a84f725c",
+    "Definition:FeatureSetWayOfTheDragonDraconicSilver:eb1239fd-466a-513d-b227-32f5be63d424"
   ],
-  "mode": "Union",
+  "mode": "Exclusion",
   "ancestryDamageTypeMap": [],
   "ancestryType": 9000,
   "defaultSelection": 0,
@@ -14,13 +17,13 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&FeatureSetWayOfTheDragonResistanceTitle",
-    "description": "Feature/&FeatureSetWayOfTheDragonResistanceDescription",
+    "title": "Feature/&FeatureSetWayOfTheDragonDiscipleTitle",
+    "description": "Feature/&FeatureSetWayOfTheDragonDiscipleDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
-      "m_SubObjectName": "",
-      "m_SubObjectType": ""
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
@@ -35,7 +38,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "eda8b361-100f-53c2-87b0-fe9a4f119e1f",
+  "guid": "315d3146-11b8-5158-a8fa-98e5b95d94d1",
   "contentPack": 9999,
-  "name": "FeatureSetWayOfTheDragonResistance"
+  "name": "FeatureSetWayOfTheDragonDisciple"
 }

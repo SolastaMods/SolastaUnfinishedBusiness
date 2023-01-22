@@ -295,7 +295,7 @@
   "autoActivationPowerTag": "",
   "triggeringPower": null,
   "copyTargetingFromTriggeringPower": false,
-  "reactionContext": "DEPRECATED_DamagedBySpecificElement",
+  "reactionContext": "DamagedByMagicEffect",
   "reactionName": "",
   "reactionActingCharacterParamIdx": 0,
   "reactionAttackerParamIdx": -1,

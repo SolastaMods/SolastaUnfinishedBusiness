@@ -478,7 +478,6 @@ internal static partial class DatabaseHelper
         internal static FeatureDefinitionFeatureSet FeatureSetPactTome { get; } = GetDefinition<FeatureDefinitionFeatureSet>("FeatureSetPactTome");
         internal static FeatureDefinitionFeatureSet FeatureSetPathClawDragonAncestry { get; } = GetDefinition<FeatureDefinitionFeatureSet>("FeatureSetPathClawDragonAncestry");
         internal static FeatureDefinitionFeatureSet FeatureSetSorcererDraconicChoice { get; } = GetDefinition<FeatureDefinitionFeatureSet>("FeatureSetSorcererDraconicChoice");
-        internal static FeatureDefinitionFeatureSet FeatureSetSorcererDraconicResilience { get; } = GetDefinition<FeatureDefinitionFeatureSet>("FeatureSetSorcererDraconicResilience");
     }
     internal static class FeatureDefinitionFightingStyleChoices
     {
