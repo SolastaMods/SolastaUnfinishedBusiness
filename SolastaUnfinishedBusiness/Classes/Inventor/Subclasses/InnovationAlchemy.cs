@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using SolastaUnfinishedBusiness.Api.Extensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Builders;
@@ -23,6 +24,7 @@ public static class InnovationAlchemy
     private static FeatureDefinitionPower AlchemyPool { get; set; }
     private static FeatureDefinitionPower ElementalBombs { get; set; }
     private static FeatureDefinitionPower AdvancedBombs { get; set; }
+    private static HashSet<FeatureDefinitionPower> BombPowers { get; } = new();
 
     public static CharacterSubclassDefinition Build()
     {
@@ -127,7 +129,7 @@ public static class InnovationAlchemy
         return FeatureDefinitionBuilder
             .Create(BombsFeatureName)
             .SetGuiPresentation(Category.Feature)
-            .SetCustomSubFeatures(new PowerPoolDevice(bombItem, AlchemyPool))
+            .SetCustomSubFeatures(new PowerPoolDevice(bombItem, AlchemyPool, BombPowers))
             .AddToDB();
     }
 
@@ -573,9 +575,10 @@ public static class InnovationAlchemy
     {
         const string NAME = "PowerInnovationAlchemyBombPrecise";
 
-        return FeatureDefinitionPowerBuilder.Create($"{NAME}{damageType}")
+        var power = FeatureDefinitionPowerBuilder.Create($"{NAME}{damageType}")
             .SetGuiPresentation(NAME, Category.Feature, sprite)
             .SetUsesFixed(ActivationTime.Action)
+            .SetCustomSubFeatures(PowerVisibilityModifier.Visible, new AddPBToDamage(), new Overcharge(), validator)
             .SetEffectDescription(EffectDescriptionBuilder.Create()
                 .SetAnimationMagicEffect(AnimationDefinitions.AnimationMagicEffect.Animation1)
                 .SetTargetingData(Side.Enemy, RangeType.RangeHit, 12, TargetType.Individuals)
@@ -591,8 +594,11 @@ public static class InnovationAlchemy
                 .SetupImpactOffsets(offsetImpactTimePerTarget: 0.3f)
                 .Build())
             .SetUseSpellAttack()
-            .SetCustomSubFeatures(PowerVisibilityModifier.Visible, new AddPBToDamage(), new Overcharge(), validator)
             .AddToDB();
+
+        BombPowers.Add(power);
+
+        return power;
     }
 
     private static FeatureDefinitionPower MakeBreathBombPower(string damageType,
@@ -606,7 +612,7 @@ public static class InnovationAlchemy
     {
         const string NAME = "PowerInnovationAlchemyBombBreath";
 
-        return FeatureDefinitionPowerBuilder.Create($"{NAME}{damageType}")
+        var power = FeatureDefinitionPowerBuilder.Create($"{NAME}{damageType}")
             .SetGuiPresentation(NAME, Category.Feature, sprite)
             .SetUsesFixed(ActivationTime.Action)
             .SetCustomSubFeatures(PowerVisibilityModifier.Visible, new AddPBToDamage(), new Overcharge(), validator)
@@ -629,6 +635,10 @@ public static class InnovationAlchemy
                 .AddEffectForms(effects)
                 .Build())
             .AddToDB();
+
+        BombPowers.Add(power);
+
+        return power;
     }
 
     private static FeatureDefinitionPower MakeSplashBombPower(string damageType,
@@ -641,7 +651,7 @@ public static class InnovationAlchemy
     {
         const string NAME = "PowerInnovationAlchemyBombSplash";
 
-        return FeatureDefinitionPowerBuilder.Create($"{NAME}{damageType}")
+        var power = FeatureDefinitionPowerBuilder.Create($"{NAME}{damageType}")
             .SetGuiPresentation(NAME, Category.Feature, sprite)
             .SetUsesFixed(ActivationTime.Action)
             .SetCustomSubFeatures(PowerVisibilityModifier.Visible, new AddPBToDamage(), new Overcharge(), validator)
@@ -665,6 +675,10 @@ public static class InnovationAlchemy
                 .SetSpeed(SpeedType.CellsPerSeconds, 8)
                 .Build())
             .AddToDB();
+
+        BombPowers.Add(power);
+
+        return power;
     }
 
     private static FeatureDefinitionPower BuildAlchemyPool()

@@ -73,15 +73,18 @@ public static class CharacterActionUsePowerPatcher
         [UsedImplicitly]
         public static bool Prefix([NotNull] CharacterActionUsePower __instance)
         {
-            //BUGFIX: for still an unknown reason we get an empty originItem under MP (MULTIPLAYER)
+            //PATCH: we get an empty originItem under MP (GRENADIER) (MULTIPLAYER)
             if (__instance.activePower.OriginItem == null)
             {
-                var providers = __instance.ActingCharacter.RulesetCharacter.GetSubFeaturesByType<PowerPoolDevice>();
+                var rulesetCharacter = __instance.ActingCharacter.RulesetCharacter;
+                var provider = rulesetCharacter
+                    .GetSubFeaturesByType<PowerPoolDevice>()
+                    .FirstOrDefault(x => x.AttachedPowers
+                        .Any(y => y.Name == __instance.activePower.Name));
 
-                if (providers.Count > 0)
+                if (provider != null)
                 {
-                    __instance.activePower.originItem =
-                        providers[0].GetDevice(__instance.ActingCharacter.RulesetCharacter);
+                    __instance.activePower.originItem = provider.GetDevice(rulesetCharacter);
                 }
             }
 

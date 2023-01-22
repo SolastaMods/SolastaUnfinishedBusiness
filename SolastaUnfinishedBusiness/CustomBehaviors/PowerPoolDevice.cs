@@ -12,14 +12,19 @@ namespace SolastaUnfinishedBusiness.CustomBehaviors;
 internal class PowerPoolDevice
 {
     private static readonly Dictionary<RulesetCharacter, Dictionary<string, RulesetItemDevice>> DeviceCache = new();
-
     private readonly ItemDefinition baseItem;
 
-    internal PowerPoolDevice(ItemDefinition baseItem, FeatureDefinitionPower pool)
+    internal PowerPoolDevice(
+        ItemDefinition baseItem,
+        FeatureDefinitionPower pool,
+        HashSet<FeatureDefinitionPower> attachedPowers)
     {
         this.baseItem = baseItem;
         Pool = pool;
+        AttachedPowers = attachedPowers;
     }
+
+    internal HashSet<FeatureDefinitionPower> AttachedPowers { get; } = new();
 
     internal FeatureDefinitionPower Pool { get; }
 
