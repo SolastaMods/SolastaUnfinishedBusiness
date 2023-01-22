@@ -1,5 +1,4 @@
 using System;
-using System.Collections.Generic;
 using SolastaUnfinishedBusiness.Api.Extensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Builders;
@@ -24,7 +23,6 @@ public static class InnovationAlchemy
     private static FeatureDefinitionPower AlchemyPool { get; set; }
     private static FeatureDefinitionPower ElementalBombs { get; set; }
     private static FeatureDefinitionPower AdvancedBombs { get; set; }
-    private static List<FeatureDefinitionPower> BombPowers { get; } = new();
 
     public static CharacterSubclassDefinition Build()
     {
@@ -127,20 +125,10 @@ public static class InnovationAlchemy
             .SetUsableDeviceDescription(deviceDescription)
             .AddToDB();
 
-        var powerDevice = new PowerPoolDevice(bombItem, AlchemyPool);
-
-        // link powers to the powerDevice
-        foreach (var bombPower in BombPowers)
-        {
-            bombPower.SetCustomSubFeatures(powerDevice);
-        }
-        
-        BombPowers.Clear();
-
         return FeatureDefinitionBuilder
             .Create(BombsFeatureName)
             .SetGuiPresentation(Category.Feature)
-            .SetCustomSubFeatures(powerDevice)
+            .SetCustomSubFeatures(new PowerPoolDevice(bombItem, AlchemyPool))
             .AddToDB();
     }
 
@@ -607,8 +595,6 @@ public static class InnovationAlchemy
             .SetUseSpellAttack()
             .AddToDB();
 
-        BombPowers.Add(power);
-
         return power;
     }
 
@@ -647,8 +633,6 @@ public static class InnovationAlchemy
                 .Build())
             .AddToDB();
 
-        BombPowers.Add(power);
-
         return power;
     }
 
@@ -686,8 +670,6 @@ public static class InnovationAlchemy
                 .SetSpeed(SpeedType.CellsPerSeconds, 8)
                 .Build())
             .AddToDB();
-
-        BombPowers.Add(power);
 
         return power;
     }
