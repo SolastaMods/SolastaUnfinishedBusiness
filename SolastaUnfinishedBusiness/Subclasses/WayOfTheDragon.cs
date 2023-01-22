@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using SolastaUnfinishedBusiness.Api;
+using SolastaUnfinishedBusiness.Api.Extensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomInterfaces;
@@ -8,7 +9,6 @@ using static SolastaUnfinishedBusiness.Api.DatabaseHelper.ConditionDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionDamageAffinitys;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionFeatureSets;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPowers;
-using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionSenses;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
 using static RuleDefinitions;
 
@@ -28,19 +28,12 @@ internal sealed class WayOfTheDragon : AbstractSubclass
         var featureWayOfDragonResistance = FeatureDefinitionFeatureSetBuilder
             .Create(FeatureSetSorcererDraconicResilience, $"FeatureSet{Name}Resistance")
             .SetOrUpdateGuiPresentation(Category.Feature)
-            .AddToDB();
-
-        featureWayOfDragonResistance.ancestryType = AncestryType.BarbarianClaw;
-
-        var featureWayOfTheDragonProficiency = FeatureDefinitionProficiencyBuilder
-            .Create($"Proficiency{Name}")
-            .SetOrUpdateGuiPresentation(Category.Feature)
-            .SetProficiencies(ProficiencyType.SkillOrExpertise, SkillDefinitions.Stealth, SkillDefinitions.Perception)
+            .SetAncestryType(ExtraAncestryType.WayOfTheDragon)
             .AddToDB();
 
         var conditionReactiveHide = ConditionDefinitionBuilder
-            .Create(ConditionFiendishResilienceFire, "ConditionReactiveHide")
-            .SetGuiPresentation(Category.Condition, $"Power{Name}ReactiveHide")
+            .Create(ConditionFiendishResilienceFire, $"Condition{Name}ReactiveHide")
+            .SetGuiPresentation(Category.Condition)
             .SetPossessive()
             .AddFeatures(
                 DamageAffinityAcidResistance,
@@ -88,9 +81,7 @@ internal sealed class WayOfTheDragon : AbstractSubclass
             .AddFeaturesAtLevel(3,
                 powerReactiveHide,
                 featureWayOfDragonAncestry,
-                featureWayOfDragonResistance,
-                SenseDarkvision,
-                featureWayOfTheDragonProficiency)
+                featureWayOfDragonResistance)
             .AddFeaturesAtLevel(6, BuildDragonFeatureSet())
             .AddFeaturesAtLevel(11, BuildDragonFuryFeatureSet())
             .AddToDB();
@@ -203,9 +194,8 @@ internal sealed class WayOfTheDragon : AbstractSubclass
                 powerGoldElementalBreath,
                 powerGreenElementalBreath,
                 powerSilverElementalBreath)
+            .SetAncestryType(ExtraAncestryType.WayOfTheDragon)
             .AddToDB();
-
-        featureWayOfDragonBreath.ancestryType = AncestryType.BarbarianClaw;
 
         return featureWayOfDragonBreath;
     }
@@ -226,7 +216,7 @@ internal sealed class WayOfTheDragon : AbstractSubclass
             .AddToDB();
 
         var conditionDragonFuryAcid = ConditionDefinitionBuilder
-            .Create("ConditionDragonFuryAcid")
+            .Create($"Condition{Name}DragonFuryAcid")
             .SetGuiPresentation(Category.Condition, ConditionPactChainPseudodragon)
             .AddFeatures(additionalDamageAcid)
             .AddToDB();
@@ -266,7 +256,7 @@ internal sealed class WayOfTheDragon : AbstractSubclass
             .AddToDB();
 
         var conditionDragonFuryLightning = ConditionDefinitionBuilder
-            .Create("ConditionDragonFuryLightning")
+            .Create($"Condition{Name}DragonFuryLightning")
             .SetGuiPresentation(Category.Condition, ConditionPactChainPseudodragon)
             .AddFeatures(additionalDamageLightning)
             .AddToDB();
@@ -303,7 +293,7 @@ internal sealed class WayOfTheDragon : AbstractSubclass
             .AddToDB();
 
         var conditionDragonFuryPoison = ConditionDefinitionBuilder
-            .Create("ConditionDragonFuryPoison")
+            .Create($"Condition{Name}DragonFuryPoison")
             .SetGuiPresentation(Category.Condition, ConditionPactChainPseudodragon)
             .AddFeatures(additionalDamagePoison)
             .AddToDB();
@@ -342,7 +332,7 @@ internal sealed class WayOfTheDragon : AbstractSubclass
             .AddToDB();
 
         var conditionDragonFuryFire = ConditionDefinitionBuilder
-            .Create("ConditionDragonFuryFire")
+            .Create($"Condition{Name}DragonFuryFire")
             .SetGuiPresentation(Category.Condition, ConditionPactChainPseudodragon)
             .AddFeatures(additionalDamageFire)
             .AddToDB();
@@ -382,7 +372,7 @@ internal sealed class WayOfTheDragon : AbstractSubclass
             .AddToDB();
 
         var conditionDragonFuryCold = ConditionDefinitionBuilder
-            .Create("ConditionDragonFuryCold")
+            .Create($"Condition{Name}DragonFuryCold")
             .SetGuiPresentation(Category.Condition, ConditionPactChainPseudodragon)
             .AddFeatures(additionalDamageCold)
             .AddToDB();
@@ -419,9 +409,8 @@ internal sealed class WayOfTheDragon : AbstractSubclass
                 powerDragonFuryFire,
                 powerDragonFuryPoison,
                 powerDragonFuryCold)
+            .SetAncestryType(ExtraAncestryType.WayOfTheDragon)
             .AddToDB();
-
-        featureWayOfDragonFury.ancestryType = AncestryType.BarbarianClaw;
 
         return featureWayOfDragonFury;
     }
@@ -446,7 +435,7 @@ internal sealed class WayOfTheDragon : AbstractSubclass
                 yield break;
             }
 
-            if (!me.RulesetCharacter.HasConditionOfType("ConditionReactiveHide"))
+            if (!me.RulesetCharacter.HasConditionOfType($"Condition{Name}ReactiveHide"))
             {
                 yield break;
             }
@@ -464,7 +453,8 @@ internal sealed class WayOfTheDragon : AbstractSubclass
                 advantageTrends, attackerConModifier, 8 + profBonus + myWisModifier, false, out var savingOutcome,
                 out _);
 
-            TryGetAncestryDamageTypeFromCharacter(me.Guid, AncestryType.BarbarianClaw, out var damageType);
+            TryGetAncestryDamageTypeFromCharacter(me.Guid, (AncestryType)ExtraAncestryType.WayOfTheDragon,
+                out var damageType);
 
             switch (damageType)
             {

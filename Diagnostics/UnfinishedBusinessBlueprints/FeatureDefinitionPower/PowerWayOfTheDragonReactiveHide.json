@@ -77,8 +77,8 @@
         "saveOccurence": "EndOfTurn",
         "conditionForm": {
           "$type": "ConditionForm, Assembly-CSharp",
-          "conditionDefinitionName": "ConditionReactiveHide",
-          "conditionDefinition": "Definition:ConditionReactiveHide:e63d9e8a-cfe2-5fb3-8b9c-9100a5e89b2b",
+          "conditionDefinitionName": "ConditionWayOfTheDragonReactiveHide",
+          "conditionDefinition": "Definition:ConditionWayOfTheDragonReactiveHide:136e2214-b261-52cc-8792-451d1b3de94d",
           "operation": "Add",
           "conditionsList": [],
           "applyToSelf": true,

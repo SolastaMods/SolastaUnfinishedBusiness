@@ -4,7 +4,7 @@
   "parentCondition": null,
   "conditionType": "Beneficial",
   "features": [
-    "Definition:AdditionalDamageWayOfTheDragonDragonFuryPoison:0542db72-6648-5061-858b-d7098fd7d0ae"
+    "Definition:AdditionalDamageWayOfTheDragonDragonFuryCold:5c1ce5c4-f54a-51e6-a276-6bb332dca97b"
   ],
   "allowMultipleInstances": false,
   "silentWhenAdded": false,
@@ -128,8 +128,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Condition/&ConditionDragonFuryPoisonTitle",
-    "description": "Condition/&ConditionDragonFuryPoisonDescription",
+    "title": "Condition/&ConditionWayOfTheDragonDragonFuryColdTitle",
+    "description": "Condition/&ConditionWayOfTheDragonDragonFuryColdDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "8dfe9f1596547894183502d7ffa4c0af",
@@ -149,7 +149,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "29ff887e-1589-5d55-98af-6aead2ef184e",
+  "guid": "4d05c461-cbcf-5d93-a2ab-08be03dda1c5",
   "contentPack": 9999,
-  "name": "ConditionDragonFuryPoison"
+  "name": "ConditionWayOfTheDragonDragonFuryCold"
 }

@@ -3,6 +3,11 @@ using static RuleDefinitions;
 
 namespace SolastaUnfinishedBusiness.Api.Extensions;
 
+internal enum ExtraAncestryType
+{
+    WayOfTheDragon = 9000
+}
+
 internal enum ExtraSituationalContext
 {
     MainWeaponIsMeleeOrUnarmed = 1000,

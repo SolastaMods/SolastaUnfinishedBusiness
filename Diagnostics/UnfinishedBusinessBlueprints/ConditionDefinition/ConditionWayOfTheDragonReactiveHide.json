@@ -279,8 +279,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Condition/&ConditionReactiveHideTitle",
-    "description": "PowerWayOfTheDragonReactiveHide",
+    "title": "Condition/&ConditionWayOfTheDragonReactiveHideTitle",
+    "description": "Condition/&ConditionWayOfTheDragonReactiveHideDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -300,7 +300,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "e63d9e8a-cfe2-5fb3-8b9c-9100a5e89b2b",
+  "guid": "136e2214-b261-52cc-8792-451d1b3de94d",
   "contentPack": 9999,
-  "name": "ConditionReactiveHide"
+  "name": "ConditionWayOfTheDragonReactiveHide"
 }

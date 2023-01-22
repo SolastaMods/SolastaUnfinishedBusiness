@@ -1,5 +1,6 @@
 ﻿using System;
 using JetBrains.Annotations;
+using SolastaUnfinishedBusiness.Api.Extensions;
 
 namespace SolastaUnfinishedBusiness.Builders.Features;
 
@@ -29,6 +30,12 @@ internal class FeatureDefinitionFeatureSetBuilder
     internal FeatureDefinitionFeatureSetBuilder SetMode(FeatureDefinitionFeatureSet.FeatureSetMode mode)
     {
         Definition.mode = mode;
+        return this;
+    }
+
+    internal FeatureDefinitionFeatureSetBuilder SetAncestryType(ExtraAncestryType ancestryType)
+    {
+        Definition.ancestryType = (RuleDefinitions.AncestryType)ancestryType;
         return this;
     }
 

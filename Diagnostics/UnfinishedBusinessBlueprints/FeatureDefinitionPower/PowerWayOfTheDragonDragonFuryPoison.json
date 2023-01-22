@@ -77,8 +77,8 @@
         "saveOccurence": "EndOfTurn",
         "conditionForm": {
           "$type": "ConditionForm, Assembly-CSharp",
-          "conditionDefinitionName": "ConditionDragonFuryPoison",
-          "conditionDefinition": "Definition:ConditionDragonFuryPoison:29ff887e-1589-5d55-98af-6aead2ef184e",
+          "conditionDefinitionName": "ConditionWayOfTheDragonDragonFuryPoison",
+          "conditionDefinition": "Definition:ConditionWayOfTheDragonDragonFuryPoison:d7d786fd-a7fe-54da-8891-c5a3d66fc02a",
           "operation": "Add",
           "conditionsList": [],
           "applyToSelf": true,

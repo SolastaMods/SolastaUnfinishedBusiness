@@ -128,8 +128,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Condition/&ConditionDragonFuryFireTitle",
-    "description": "Condition/&ConditionDragonFuryFireDescription",
+    "title": "Condition/&ConditionWayOfTheDragonDragonFuryFireTitle",
+    "description": "Condition/&ConditionWayOfTheDragonDragonFuryFireDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "8dfe9f1596547894183502d7ffa4c0af",
@@ -149,7 +149,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "d6d974dc-b1dc-5cd2-b1eb-5f818663ecb4",
+  "guid": "a6a104f3-3aa5-53f1-8f24-0d34c8ec6470",
   "contentPack": 9999,
-  "name": "ConditionDragonFuryFire"
+  "name": "ConditionWayOfTheDragonDragonFuryFire"
 }

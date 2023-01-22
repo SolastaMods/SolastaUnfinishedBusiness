@@ -3,16 +3,6 @@
   "featureUnlocks": [
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:SenseDarkvision:446f786482b07db45b6f4a0854be3056",
-      "level": 3
-    },
-    {
-      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:ProficiencyWayOfTheDragon:37413b1f-b851-5368-a8ce-60199e8ad85b",
-      "level": 3
-    },
-    {
-      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:FeatureSetWayOfTheDragonResistance:eda8b361-100f-53c2-87b0-fe9a4f119e1f",
       "level": 3
     },

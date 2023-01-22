@@ -4,7 +4,7 @@
   "parentCondition": null,
   "conditionType": "Beneficial",
   "features": [
-    "Definition:AdditionalDamageWayOfTheDragonDragonFuryAcid:d1c05c8a-c8d1-5a30-b57d-dff80dc9fb71"
+    "Definition:AdditionalDamageWayOfTheDragonDragonFuryLightning:19efddd2-69d4-5dff-ba20-6f16adba9924"
   ],
   "allowMultipleInstances": false,
   "silentWhenAdded": false,
@@ -128,8 +128,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Condition/&ConditionDragonFuryAcidTitle",
-    "description": "Condition/&ConditionDragonFuryAcidDescription",
+    "title": "Condition/&ConditionWayOfTheDragonDragonFuryLightningTitle",
+    "description": "Condition/&ConditionWayOfTheDragonDragonFuryLightningDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "8dfe9f1596547894183502d7ffa4c0af",
@@ -149,7 +149,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "7fedac23-66be-5684-845a-48a4af180c38",
+  "guid": "38948f18-d5aa-5050-abf5-a11585ce6bef",
   "contentPack": 9999,
-  "name": "ConditionDragonFuryAcid"
+  "name": "ConditionWayOfTheDragonDragonFuryLightning"
 }

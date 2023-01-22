@@ -6,7 +6,7 @@
   ],
   "mode": "Union",
   "ancestryDamageTypeMap": [],
-  "ancestryType": "BarbarianClaw",
+  "ancestryType": 9000,
   "defaultSelection": 0,
   "uniqueChoices": false,
   "enumerateInDescription": false,
