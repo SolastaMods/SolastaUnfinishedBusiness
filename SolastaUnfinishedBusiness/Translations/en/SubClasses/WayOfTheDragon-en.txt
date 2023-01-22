@@ -62,5 +62,5 @@ Reaction/&UsePowerWayOfTheDragonReactiveHideDescription=Use your reaction to hal
 Reaction/&UsePowerWayOfTheDragonReactiveHideReactDescription=Use your reaction to halve incoming damage and retaliate with draconic powers.
 Reaction/&UsePowerWayOfTheDragonReactiveHideReactTitle=Reactive Hide
 Reaction/&UsePowerWayOfTheDragonReactiveHideTitle=Reactive Hide
-Subclass/&WayOfTheDragonDescription=Monks that follow the Way of Dragon devote themselves to learning the powerful beasts, gaining draconic abilities.
+Subclass/&WayOfTheDragonDescription=Practitioners of the Way of Dragon devote themselves to learning the powerful beasts, gaining draconic abilities.
 Subclass/&WayOfTheDragonTitle=Way of Dragon
