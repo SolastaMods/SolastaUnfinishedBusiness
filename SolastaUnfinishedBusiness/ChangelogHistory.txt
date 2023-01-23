@@ -1,5 +1,10 @@
 ﻿CHANGES:
 
+1.4.33.11:
+
+- fixed missing Way of The Dragon ancestry powers
+- fixed narrative sequences to support party of 1
+
 1.4.33.10:
 
 - added Way of The Dragon [BETA] subclass

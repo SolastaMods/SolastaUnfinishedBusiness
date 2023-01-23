@@ -233,6 +233,7 @@ internal class ItemDefinitionBuilder : DefinitionBuilder<ItemDefinition, ItemDef
         return this;
     }
 
+    // ReSharper disable once UnusedMethodReturnValue.Global
     internal ItemDefinitionBuilder AddWeaponEffect(EffectForm effect)
     {
         Definition.WeaponDescription.EffectDescription.EffectForms.Add(effect);

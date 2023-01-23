@@ -25,6 +25,7 @@ internal class CharacterClassDefinitionBuilder
         return this;
     }
 
+    // ReSharper disable once UnusedMethodReturnValue.Global
     internal CharacterClassDefinitionBuilder AddPersonality(string personalityFlag, int weight)
     {
         Definition.PersonalityFlagOccurences.Add(

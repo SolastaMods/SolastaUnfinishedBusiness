@@ -12,12 +12,23 @@ namespace SolastaUnfinishedBusiness.CustomBehaviors;
 internal class PowerPoolDevice
 {
     private static readonly Dictionary<RulesetCharacter, Dictionary<string, RulesetItemDevice>> DeviceCache = new();
-
     private readonly ItemDefinition baseItem;
 
-    internal PowerPoolDevice(ItemDefinition baseItem, FeatureDefinitionPower pool)
+    internal PowerPoolDevice(
+        ItemDefinition baseItem,
+        FeatureDefinitionPower pool)
     {
         this.baseItem = baseItem;
+
+        var powers = baseItem.UsableDeviceDescription.deviceFunctions
+            .Select(d => d.FeatureDefinitionPower)
+            .Where(p => p != null);
+
+        foreach (var power in powers)
+        {
+            power.AddCustomSubFeatures(this);
+        }
+
         Pool = pool;
     }
 

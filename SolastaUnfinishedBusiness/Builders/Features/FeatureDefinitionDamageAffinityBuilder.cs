@@ -1,5 +1,6 @@
 ﻿using System;
 using JetBrains.Annotations;
+using SolastaUnfinishedBusiness.Api.Extensions;
 
 namespace SolastaUnfinishedBusiness.Builders.Features;
 
@@ -7,6 +8,13 @@ namespace SolastaUnfinishedBusiness.Builders.Features;
 internal class FeatureDefinitionDamageAffinityBuilder
     : DefinitionBuilder<FeatureDefinitionDamageAffinity, FeatureDefinitionDamageAffinityBuilder>
 {
+    internal FeatureDefinitionDamageAffinityBuilder SetAncestryType(ExtraAncestryType ancestryType)
+    {
+        Definition.ancestryDefinesDamageType = true;
+        Definition.ancestryType = (RuleDefinitions.AncestryType)ancestryType;
+        return this;
+    }
+
     internal FeatureDefinitionDamageAffinityBuilder SetDamageType(string damageType)
     {
         Definition.DamageType = damageType;

@@ -36,5 +36,5 @@ Reaction/&ReactionSpendPowerBundlePowerWayOfTheDistantHandZenArrowUpgradedTechni
 Reaction/&ReactionSpendPowerBundlePowerWayOfTheDistantHandZenArrowUpgradedTechniqueReactDescription=Apply selected technique.
 Reaction/&ReactionSpendPowerBundlePowerWayOfTheDistantHandZenArrowUpgradedTechniqueReactTitle=Apply
 Reaction/&ReactionSpendPowerBundlePowerWayOfTheDistantHandZenArrowUpgradedTechniqueTitle=Distant Hand Technique
-Subclass/&WayOfTheDistantHandDescription=Practitioners of the Way of the Distant Hand train to make arrows an extension of their hands. They are proficient in using bows and delivering ki-empowered effects through arrows.
-Subclass/&WayOfTheDistantHandTitle=Way of The Distant Hand
+Subclass/&WayOfTheDistantHandDescription=Practitioners of the Way of Distant Hand train to make arrows an extension of their hands. They are proficient in using bows and delivering ki-empowered effects through arrows.
+Subclass/&WayOfTheDistantHandTitle=Way of Distant Hand

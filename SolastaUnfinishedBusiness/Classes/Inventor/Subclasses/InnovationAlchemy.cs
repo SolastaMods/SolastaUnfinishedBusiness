@@ -65,12 +65,12 @@ public static class InnovationAlchemy
 
     private static FeatureDefinition BuildBombs()
     {
-        var deviceDescription = new UsableDeviceDescriptionBuilder()
+        var deviceDescriptionBuilder = new UsableDeviceDescriptionBuilder()
             .SetUsage(EquipmentDefinitions.ItemUsage.Charges)
             .SetRecharge(RechargeRate.ShortRest)
             .SetSaveDc(EffectHelpers.BasedOnUser);
 
-        BuildFireBombs(deviceDescription);
+        BuildFireBombs(deviceDescriptionBuilder);
 
         ElementalBombs = FeatureDefinitionPowerBuilder
             .Create("PowerInnovationAlchemyBombsElemental")
@@ -85,10 +85,10 @@ public static class InnovationAlchemy
 
         PowerBundle.RegisterPowerBundle(ElementalBombs, true,
             MakeBombFireDamageToggle(),
-            BuildColdBombs(deviceDescription),
-            BuildLightningBombs(deviceDescription),
-            BuildAcidBombs(deviceDescription),
-            BuildPoisonBombs(deviceDescription)
+            BuildColdBombs(deviceDescriptionBuilder),
+            BuildLightningBombs(deviceDescriptionBuilder),
+            BuildAcidBombs(deviceDescriptionBuilder),
+            BuildPoisonBombs(deviceDescriptionBuilder)
         );
 
         //TODO: maybe make elemental and advanced bombs not exclusive?
@@ -106,13 +106,14 @@ public static class InnovationAlchemy
             .AddToDB();
 
         PowerBundle.RegisterPowerBundle(AdvancedBombs, true,
-            BuildForceBombs(deviceDescription),
-            BuildRadiantBombs(deviceDescription),
-            BuildNecroBombs(deviceDescription),
-            BuildThunderBombs(deviceDescription),
-            BuildPsychicBombs(deviceDescription)
+            BuildForceBombs(deviceDescriptionBuilder),
+            BuildRadiantBombs(deviceDescriptionBuilder),
+            BuildNecroBombs(deviceDescriptionBuilder),
+            BuildThunderBombs(deviceDescriptionBuilder),
+            BuildPsychicBombs(deviceDescriptionBuilder)
         );
 
+        var deviceDescription = deviceDescriptionBuilder.Build();
         var bombItem = ItemDefinitionBuilder
             .Create("ItemInnovationAlchemyBomb")
             .SetGuiPresentation(BombsFeatureName, Category.Feature,
@@ -121,7 +122,7 @@ public static class InnovationAlchemy
             .SetWeight(0)
             .SetItemPresentation(CustomWeaponsContext.BuildPresentation("ItemAlchemyFunctorUnidentified",
                 ItemDefinitions.ScrollFly.itemPresentation))
-            .SetUsableDeviceDescription(deviceDescription.Build())
+            .SetUsableDeviceDescription(deviceDescription)
             .AddToDB();
 
         return FeatureDefinitionBuilder
@@ -573,9 +574,10 @@ public static class InnovationAlchemy
     {
         const string NAME = "PowerInnovationAlchemyBombPrecise";
 
-        return FeatureDefinitionPowerBuilder.Create($"{NAME}{damageType}")
+        var power = FeatureDefinitionPowerBuilder.Create($"{NAME}{damageType}")
             .SetGuiPresentation(NAME, Category.Feature, sprite)
             .SetUsesFixed(ActivationTime.Action)
+            .SetCustomSubFeatures(PowerVisibilityModifier.Visible, new AddPBToDamage(), new Overcharge(), validator)
             .SetEffectDescription(EffectDescriptionBuilder.Create()
                 .SetAnimationMagicEffect(AnimationDefinitions.AnimationMagicEffect.Animation1)
                 .SetTargetingData(Side.Enemy, RangeType.RangeHit, 12, TargetType.Individuals)
@@ -591,8 +593,9 @@ public static class InnovationAlchemy
                 .SetupImpactOffsets(offsetImpactTimePerTarget: 0.3f)
                 .Build())
             .SetUseSpellAttack()
-            .SetCustomSubFeatures(PowerVisibilityModifier.Visible, new AddPBToDamage(), new Overcharge(), validator)
             .AddToDB();
+
+        return power;
     }
 
     private static FeatureDefinitionPower MakeBreathBombPower(string damageType,
@@ -606,7 +609,7 @@ public static class InnovationAlchemy
     {
         const string NAME = "PowerInnovationAlchemyBombBreath";
 
-        return FeatureDefinitionPowerBuilder.Create($"{NAME}{damageType}")
+        var power = FeatureDefinitionPowerBuilder.Create($"{NAME}{damageType}")
             .SetGuiPresentation(NAME, Category.Feature, sprite)
             .SetUsesFixed(ActivationTime.Action)
             .SetCustomSubFeatures(PowerVisibilityModifier.Visible, new AddPBToDamage(), new Overcharge(), validator)
@@ -629,6 +632,8 @@ public static class InnovationAlchemy
                 .AddEffectForms(effects)
                 .Build())
             .AddToDB();
+
+        return power;
     }
 
     private static FeatureDefinitionPower MakeSplashBombPower(string damageType,
@@ -641,7 +646,7 @@ public static class InnovationAlchemy
     {
         const string NAME = "PowerInnovationAlchemyBombSplash";
 
-        return FeatureDefinitionPowerBuilder.Create($"{NAME}{damageType}")
+        var power = FeatureDefinitionPowerBuilder.Create($"{NAME}{damageType}")
             .SetGuiPresentation(NAME, Category.Feature, sprite)
             .SetUsesFixed(ActivationTime.Action)
             .SetCustomSubFeatures(PowerVisibilityModifier.Visible, new AddPBToDamage(), new Overcharge(), validator)
@@ -665,6 +670,8 @@ public static class InnovationAlchemy
                 .SetSpeed(SpeedType.CellsPerSeconds, 8)
                 .Build())
             .AddToDB();
+
+        return power;
     }
 
     private static FeatureDefinitionPower BuildAlchemyPool()
