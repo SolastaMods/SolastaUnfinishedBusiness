@@ -606,7 +606,14 @@ internal static class PowerBundle
      */
     internal static void CloseSubPowerSelectionModal(bool instant)
     {
-        Gui.GuiService.GetScreen<SubpowerSelectionModal>().Hide(instant);
+        var screen = Gui.GuiService.GetScreen<SubpowerSelectionModal>();
+
+        if (screen == null)
+        {
+            return;
+        }
+
+        screen.Hide(instant);
     }
 
     //TODO: decide if we need this, or can re-use native method of rest bundle powers
