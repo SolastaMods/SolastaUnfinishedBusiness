@@ -1,7 +1,11 @@
-﻿using System.Diagnostics.CodeAnalysis;
+﻿using System;
+using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
+using System.Reflection.Emit;
 using HarmonyLib;
 using JetBrains.Annotations;
+using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Models;
 
 namespace SolastaUnfinishedBusiness.Patches;
@@ -15,6 +19,27 @@ public static class NarrativeSequenceBuilderPatcher
     [UsedImplicitly]
     public static class BuildBaseSequence_Patch
     {
+        private static void TryAdd(
+            Dictionary<string, WorldLocationCharacter> playerRolesMap,
+            string role,
+            WorldLocationCharacter actor)
+        {
+            playerRolesMap.TryAdd(role, actor);
+        }
+
+        [UsedImplicitly]
+        public static IEnumerable<CodeInstruction> Transpiler([NotNull] IEnumerable<CodeInstruction> instructions)
+        {
+            var tryAddMethod = new Action<
+                Dictionary<string, WorldLocationCharacter>,
+                string,
+                WorldLocationCharacter>(TryAdd).Method;
+
+            return instructions.ReplaceAdd("System.String, WorldLocationCharacter", -1,
+                "NarrativeStatePlayerRoleAssignment.BuildHook",
+                new CodeInstruction(OpCodes.Call, tryAddMethod));
+        }
+
         [UsedImplicitly]
         public static void Prefix(NarrativeSequence narrativeSequence)
         {
