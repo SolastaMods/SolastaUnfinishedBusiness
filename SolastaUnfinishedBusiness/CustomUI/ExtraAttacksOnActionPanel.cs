@@ -28,6 +28,7 @@ internal static class ExtraAttacksOnActionPanel
         Id actionId,
         bool getWithMostAttackNb,
         bool onlyIfRemainingUses,
+        ReadyActionType readyActionType,
         [CanBeNull] RulesetAttackMode forcedAttack)
     {
         if (actionId != Id.AttackOff || forcedAttack == null)
