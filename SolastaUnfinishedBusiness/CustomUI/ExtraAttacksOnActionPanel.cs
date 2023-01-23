@@ -12,6 +12,7 @@ internal static class ExtraAttacksOnActionPanel
         Id actionId,
         bool getWithMostAttackNb,
         bool onlyIfRemainingUses,
+        ReadyActionType readyActionType,
         GuiCharacterAction guiAction)
     {
         if (actionId != Id.AttackOff || guiAction.ForcedAttackMode == null)

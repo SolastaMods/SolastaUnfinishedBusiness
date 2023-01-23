@@ -566,12 +566,13 @@ internal static class MulticlassGameUiContext
         group.autoPreparedSpells.AddRange(keys);
 
         group.CommonBind(null, unlearn ? SpellBox.BindMode.Unlearn : SpellBox.BindMode.Learning, spellBoxChanged,
-            allSpells, null, null, group.autoPreparedSpells, unlearnedSpells, autoPrepareTag,
+            allSpells, null, null, group.autoPreparedSpells, unlearnedSpells, new Dictionary<SpellDefinition, string>(),
             group.extraSpellsMap, tooltipAnchor, anchorMode);
 
         if (unlearn)
         {
-            group.RefreshUnlearning(characterBuildingService, knownSpells, unlearnedSpells, spellTag,
+            group.RefreshUnlearning(characterBuildingService, knownSpells, unlearnedSpells, new List<SpellDefinition>(),
+                spellTag,
                 canAcquireSpells && spellLevel > 0);
         }
         else
