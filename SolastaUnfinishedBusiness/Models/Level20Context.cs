@@ -805,7 +805,7 @@ internal static class Level20Context
         }
 
         var result = code
-            .FindAll(x => x.opcode == OpCodes.Ldc_I4_S && Convert.ToInt32(x.operand) == GameMaxLevel);
+            .FindAll(x => x.opcode == OpCodes.Ldc_I4_S && (Convert.ToInt32(x.operand) == 12 || Convert.ToInt32(x.operand) == 16));
 
         if (result.Count > 0)
         {
