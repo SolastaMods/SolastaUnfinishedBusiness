@@ -81,7 +81,7 @@ internal static class CharacterInspectionScreenEnhancement
             .Where(x => x.Key.Contains(AttributeDefinitions.TagClass))
             .SelectMany(x => x.Value
                 .OfType<FeatureDefinitionFightingStyleChoice>(), (x, _) => x)
-            .ToDictionary(x => x.Key, x => Global.InspectedHero.TrainedFightingStyles[fightingStyleIdx++]);
+            .ToDictionary(x => x.Key, _ => Global.InspectedHero.TrainedFightingStyles[fightingStyleIdx++]);
 
         foreach (var kvp in classLevelFightingStyle
                      .Where(x => SelectedClass != null && x.Key.Contains(SelectedClass.Name)))
