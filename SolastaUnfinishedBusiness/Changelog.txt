@@ -1,11 +1,5 @@
 CHANGES:
 
-- added Way of The Dragon [BETA] subclass
-- changed SoulBlade Empower Weapon recharge rate to short rest
-- changed Metamagic feats to only allow one pick in the family
-- fixed grenadier bombs consumption under multiplayer sessions
-- fixed race slots inspection UI interaction with SC Warlock
-- fixed some rare null repertoire scenarios
-- set feat family for Slasher, Piercer and Crusher
-- set Tactical Surge as possessive for a better combat log
+- fixed missing Way of The Dragon ancestry powers
+- fixed narrative sequences to support party of 1
 
