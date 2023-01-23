@@ -1,4 +1,4 @@
-// manually generated on 12/31/2022
+// manually generated on 01/22/23
 using TA.AI;
 // ReSharper disable IdentifierTypo
 // ReSharper disable InconsistentNaming
@@ -476,7 +476,6 @@ internal static partial class DatabaseHelper
         internal static FeatureDefinitionFeatureSet FeatureSetPactBlade { get; } = GetDefinition<FeatureDefinitionFeatureSet>("FeatureSetPactBlade");
         internal static FeatureDefinitionFeatureSet FeatureSetPactChain { get; } = GetDefinition<FeatureDefinitionFeatureSet>("FeatureSetPactChain");
         internal static FeatureDefinitionFeatureSet FeatureSetPactTome { get; } = GetDefinition<FeatureDefinitionFeatureSet>("FeatureSetPactTome");
-        internal static FeatureDefinitionFeatureSet FeatureSetPathClawDragonAncestry { get; } = GetDefinition<FeatureDefinitionFeatureSet>("FeatureSetPathClawDragonAncestry");
         internal static FeatureDefinitionFeatureSet FeatureSetSorcererDraconicChoice { get; } = GetDefinition<FeatureDefinitionFeatureSet>("FeatureSetSorcererDraconicChoice");
     }
     internal static class FeatureDefinitionFightingStyleChoices

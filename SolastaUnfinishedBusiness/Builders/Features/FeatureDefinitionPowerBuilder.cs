@@ -148,6 +148,12 @@ internal abstract class
         return (TBuilder)this;
     }
 
+    internal TBuilder SetReactionContext(ExtraReactionContext context)
+    {
+        Definition.reactionContext = (ReactionTriggerContext)context;
+        return (TBuilder)this;
+    }
+
     internal TBuilder SetExplicitAbilityScore(string abilityScore)
     {
         Definition.abilityScoreDetermination = AbilityScoreDetermination.Explicit;

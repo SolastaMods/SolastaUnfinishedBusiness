@@ -3,6 +3,11 @@
   "featureUnlocks": [
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:DamageAffinityWayOfTheDragonAncestry:e089e416-42f8-56cd-a7ea-d9bc4a4faa4a",
+      "level": 3
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:FeatureSetWayOfTheDragonDisciple:315d3146-11b8-5158-a8fa-98e5b95d94d1",
       "level": 3
     },

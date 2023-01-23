@@ -3,6 +3,11 @@ using static RuleDefinitions;
 
 namespace SolastaUnfinishedBusiness.Api.Extensions;
 
+internal enum ExtraReactionContext
+{
+    Custom = 9000
+}
+
 internal enum ExtraAncestryType
 {
     WayOfTheDragon = 9000

@@ -1,11 +1,11 @@
 {
   "$type": "FeatureDefinitionFeatureSet, Assembly-CSharp",
   "featureSet": [
-    "Definition:FeatureSetWayOfTheDragonDraconicBlack:b3f7475d-56f0-5fb4-8fbd-550ca275d103",
-    "Definition:FeatureSetWayOfTheDragonDraconicBlue:21c94b18-f9a0-59b6-bedf-4aa4e4131e25",
-    "Definition:FeatureSetWayOfTheDragonDraconicGold:ff9fb526-325a-55c2-a8d5-16f7ea2b1e82",
-    "Definition:FeatureSetWayOfTheDragonDraconicGreen:954ce83b-dd23-5200-a93a-5db5a84f725c",
-    "Definition:FeatureSetWayOfTheDragonDraconicSilver:eb1239fd-466a-513d-b227-32f5be63d424"
+    "Definition:AncestryWayOfTheDragonDraconicBlack:37db6048-b0d3-5f90-8a47-ee7bb4096d3b",
+    "Definition:AncestryWayOfTheDragonDraconicBlue:d779dd45-dcbf-51c5-8073-fbb23f6eaeee",
+    "Definition:AncestryWayOfTheDragonDraconicGold:6c8a94a6-7779-57be-b6f7-290eb8098d2f",
+    "Definition:AncestryWayOfTheDragonDraconicGreen:5b90b73d-4395-5e1d-99b7-a635b4c5efc0",
+    "Definition:AncestryWayOfTheDragonDraconicSilver:556e16a3-444e-5894-8682-4b629d98e438"
   ],
   "mode": "Exclusion",
   "ancestryDamageTypeMap": [],
@@ -17,8 +17,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&FeatureSetWayOfTheDragonDiscipleTitle",
-    "description": "Feature/&FeatureSetWayOfTheDragonDiscipleDescription",
+    "title": "Feature/&PathClawDragonAncestryTitle",
+    "description": "Feature/&PathClawDragonAncestryDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",

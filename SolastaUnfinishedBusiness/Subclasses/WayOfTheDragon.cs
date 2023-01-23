@@ -21,13 +21,19 @@ internal sealed class WayOfTheDragon : AbstractSubclass
 
     internal WayOfTheDragon()
     {
+        var damageAffinityAncestry = FeatureDefinitionDamageAffinityBuilder
+            .Create($"DamageAffinity{Name}Ancestry")
+            .SetGuiPresentation("DragonbornDamageResistance", Category.Feature)
+            .SetAncestryType(ExtraAncestryType.WayOfTheDragon)
+            .SetDamageAffinityType(DamageAffinityType.Resistance)
+            .AddToDB();
+
         var powerReactiveHide = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}ReactiveHide")
             .SetGuiPresentation(Category.Feature)
             .SetUsesFixed(ActivationTime.Reaction, RechargeRate.KiPoints)
             .SetCustomSubFeatures(new ReactToAttackReactiveHide())
-            //TODO: create a proper extra enum
-            .SetReactionContext((ReactionTriggerContext)9000)
+            .SetReactionContext(ExtraReactionContext.Custom)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
@@ -68,7 +74,7 @@ internal sealed class WayOfTheDragon : AbstractSubclass
         Subclass = CharacterSubclassDefinitionBuilder
             .Create(Name)
             .SetGuiPresentation(Category.Subclass, SorcerousDraconicBloodline)
-            .AddFeaturesAtLevel(3, BuildDiscipleFeatureSet(), powerReactiveHide)
+            .AddFeaturesAtLevel(3, BuildDiscipleFeatureSet(), damageAffinityAncestry, powerReactiveHide)
             .AddFeaturesAtLevel(6, BuildDragonFeatureSet())
             .AddFeaturesAtLevel(11, BuildDragonFuryFeatureSet())
             .AddToDB();
@@ -83,11 +89,12 @@ internal sealed class WayOfTheDragon : AbstractSubclass
     {
         var featureSetDisciple = FeatureDefinitionFeatureSetBuilder
             .Create($"FeatureSet{Name}Disciple")
-            .SetGuiPresentation(Category.Feature)
+            .SetGuiPresentation("PathClawDragonAncestry", Category.Feature)
             .SetMode(FeatureDefinitionFeatureSet.FeatureSetMode.Exclusion)
             .SetAncestryType(ExtraAncestryType.WayOfTheDragon)
             .AddToDB();
 
+        // ReSharper disable once ForeachCanBePartlyConvertedToQueryUsingAnotherGetEnumerator
         foreach (var featureDefinitionAncestry in DatabaseRepository.GetDatabase<FeatureDefinitionAncestry>()
                      .Where(x => x.Type == AncestryType.BarbarianClaw)
                      .ToList())
@@ -98,21 +105,7 @@ internal sealed class WayOfTheDragon : AbstractSubclass
                 .SetAncestry(ExtraAncestryType.WayOfTheDragon)
                 .AddToDB();
 
-            var damage = ancestry.damageType.Replace("Damage", string.Empty);
-            var damageAffinity = GetDefinition<FeatureDefinitionDamageAffinity>($"DamageAffinity{damage}Resistance");
-
-            var featureSet = FeatureDefinitionFeatureSetBuilder
-                .Create(newAncestryName.Replace("Ancestry", "FeatureSet"))
-                .SetGuiPresentation(
-                    featureDefinitionAncestry.GuiPresentation.Title,
-                    featureDefinitionAncestry.GuiPresentation.Description)
-                .SetMode(FeatureDefinitionFeatureSet.FeatureSetMode.Union)
-                .AddFeatureSet(
-                    ancestry,
-                    damageAffinity)
-                .AddToDB();
-
-            featureSetDisciple.FeatureSet.Add(featureSet);
+            featureSetDisciple.FeatureSet.Add(ancestry);
         }
 
         return featureSetDisciple;
