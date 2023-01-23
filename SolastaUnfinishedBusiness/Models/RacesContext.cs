@@ -18,12 +18,12 @@ internal static class RacesContext
         Morphotypes.Load();
 
         LoadRace(DarkelfSubraceBuilder.SubraceDarkelf);
-        LoadRace(GnomeRaceBuilder.RaceGnome);
+        _ = GnomeRaceBuilder.RaceGnome;
         LoadRace(GrayDwarfSubraceBuilder.SubraceGrayDwarf);
         LoadRace(RaceBolgrifBuilder.RaceBolgrif);
         LoadRace(RaceHalfElfVariantRaceBuilder.RaceHalfElfVariant);
         LoadRace(KoboldRaceBuilder.RaceKobold);
-        LoadRace(TieflingRaceBuilder.RaceTiefling);
+        _ = TieflingRaceBuilder.RaceTiefling;
 
         // sorting
         Races = Races.OrderBy(x => x.FormatTitle()).ToHashSet();
