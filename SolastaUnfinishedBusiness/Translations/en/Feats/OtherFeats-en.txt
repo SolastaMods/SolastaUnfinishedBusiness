@@ -39,4 +39,5 @@ Reaction/&ReactionWarcasterTitle=Attack of Opportunity
 Reaction/&SubitemSelectReactionWarcasterTitle=Select action
 Reaction/&WarcasterAttackDescription=Attack target.
 Reaction/&WarcasterAttackTitle=Attack
-Tag/&MagicInitiateSpellSpecialTagTitle=Magic Initiate
+Tag/&FeatMagicInitiateCantripSpecialTagTitle=Initiate Cantrips
+Tag/&FeatMagicInitiateSpellSpecialTagTitle=Initiate Spells
