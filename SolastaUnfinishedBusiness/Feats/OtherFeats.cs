@@ -248,10 +248,16 @@ internal static class OtherFeats
                     Gui.Format($"Feat/&Feat{MagicInitiate}Description", classDefinition.FormatTitle()))
                 .SetFeatures(
                     FeatureDefinitionPointPoolBuilder
-                        .Create($"PointPoolFeat{MagicInitiate}{className}")
+                        .Create($"PointPoolFeat{MagicInitiate}{className}Cantrip")
                         .SetGuiPresentationNoContent(true)
                         .SetSpellOrCantripPool(HeroDefinitions.PointsPoolType.Cantrip, 2, spellList,
                             MagicInitiate)
+                        .AddToDB(),
+                    FeatureDefinitionPointPoolBuilder
+                        .Create($"PointPoolFeat{MagicInitiate}{className}Spell")
+                        .SetGuiPresentationNoContent(true)
+                        .SetSpellOrCantripPool(HeroDefinitions.PointsPoolType.Spell, 1, spellList,
+                            MagicInitiate, 1, 1)
                         .AddToDB())
                 .SetMustCastSpellsPrerequisite()
                 .AddToDB();
