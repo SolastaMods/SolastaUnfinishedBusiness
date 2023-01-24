@@ -23,7 +23,7 @@ internal static class OtherFeats
     internal const string FeatWarCaster = "FeatWarCaster";
     internal const string MagicAffinityFeatWarCaster = "MagicAffinityFeatWarCaster";
 
-    private const string MagicInitiate = "MagicInitiate";
+    private const string FeatMagicInitiate = "FeatMagicInitiate";
 
     private static readonly FeatureDefinitionPower PowerFeatPoisonousSkin = FeatureDefinitionPowerBuilder
         .Create("PowerFeatPoisonousSkin")
@@ -57,7 +57,7 @@ internal static class OtherFeats
         var featTough = BuildTough();
         var featWarCaster = BuildWarcaster();
 
-        BuildMagicInitiate(feats);
+        // BuildMagicInitiate(feats);
 
         feats.AddRange(
             featAstralArms,
@@ -242,22 +242,22 @@ internal static class OtherFeats
             var className = spellList.Name.Replace("SpellList", "");
             var classDefinition = GetDefinition<CharacterClassDefinition>(className);
             var featMagicInitiate = FeatDefinitionWithPrerequisitesBuilder
-                .Create($"Feat{MagicInitiate}{className}")
+                .Create($"{FeatMagicInitiate}{className}")
                 .SetGuiPresentation(
-                    Gui.Format($"Feat/&Feat{MagicInitiate}Title", classDefinition.FormatTitle()),
-                    Gui.Format($"Feat/&Feat{MagicInitiate}Description", classDefinition.FormatTitle()))
+                    Gui.Format($"Feat/&{FeatMagicInitiate}Title", classDefinition.FormatTitle()),
+                    Gui.Format($"Feat/&{FeatMagicInitiate}Description", classDefinition.FormatTitle()))
                 .SetFeatures(
                     FeatureDefinitionPointPoolBuilder
-                        .Create($"PointPoolFeat{MagicInitiate}{className}Cantrip")
+                        .Create($"PointPool{FeatMagicInitiate}{className}Cantrip")
                         .SetGuiPresentationNoContent(true)
                         .SetSpellOrCantripPool(HeroDefinitions.PointsPoolType.Cantrip, 2, spellList,
-                            MagicInitiate)
+                            FeatMagicInitiate)
                         .AddToDB(),
                     FeatureDefinitionPointPoolBuilder
-                        .Create($"PointPoolFeat{MagicInitiate}{className}Spell")
+                        .Create($"PointPool{FeatMagicInitiate}{className}Spell")
                         .SetGuiPresentationNoContent(true)
                         .SetSpellOrCantripPool(HeroDefinitions.PointsPoolType.Spell, 1, spellList,
-                            MagicInitiate, 1, 1)
+                            FeatMagicInitiate, 1, 1)
                         .AddToDB())
                 .SetMustCastSpellsPrerequisite()
                 .AddToDB();
@@ -265,7 +265,7 @@ internal static class OtherFeats
             magicInitiateFeats.Add(featMagicInitiate);
         }
 
-        var group = GroupFeats.MakeGroup("FeatGroupMagicInitiate", MagicInitiate, magicInitiateFeats);
+        var group = GroupFeats.MakeGroup("FeatGroupMagicInitiate", FeatMagicInitiate, magicInitiateFeats);
 
         group.mustCastSpellsPrerequisite = true;
         feats.AddRange(magicInitiateFeats);
