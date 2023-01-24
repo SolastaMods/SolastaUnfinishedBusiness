@@ -19,6 +19,7 @@ namespace SolastaUnfinishedBusiness.Feats;
 
 internal static class OtherFeats
 {
+    internal const string FeatEldritchAdept = "FeatEldritchAdept";
     internal const string FeatWarCaster = "FeatWarCaster";
     internal const string MagicAffinityFeatWarCaster = "MagicAffinityFeatWarCaster";
 
@@ -46,6 +47,7 @@ internal static class OtherFeats
     internal static void CreateFeats([NotNull] List<FeatDefinition> feats)
     {
         var featAstralArms = BuildAstralArms();
+        var featEldritchAdept = BuildEldritchAdept();
         var featHealer = BuildHealer();
         var featInspiringLeader = BuildInspiringLeader();
         var featMobile = BuildMobile();
@@ -58,15 +60,16 @@ internal static class OtherFeats
         BuildMagicInitiate(feats);
 
         feats.AddRange(
+            featAstralArms,
+            featEldritchAdept,
             featHealer,
             featInspiringLeader,
-            featPickPocket,
-            featTough,
-            featWarCaster,
             featMobile,
+            featMonkInitiate,
+            featPickPocket,
             featPoisonousSkin,
-            featAstralArms,
-            featMonkInitiate);
+            featTough,
+            featWarCaster);
 
         GroupFeats.MakeGroup("FeatGroupBodyResilience", null,
             FeatDefinitions.BadlandsMarauder,
@@ -102,6 +105,20 @@ internal static class OtherFeats
                     .Create("ModifyAttackModeForWeaponFeatAstralArms")
                     .SetGuiPresentationNoContent(true)
                     .SetCustomSubFeatures(new ModifyAttackModeForWeaponFeatAstralArms())
+                    .AddToDB())
+            .AddToDB();
+    }
+
+    private static FeatDefinition BuildEldritchAdept()
+    {
+        return FeatDefinitionWithPrerequisitesBuilder
+            .Create(FeatEldritchAdept)
+            .SetGuiPresentation(Category.Feat)
+            .SetFeatures(
+                FeatureDefinitionPointPoolBuilder
+                    .Create($"PointPool{FeatEldritchAdept}")
+                    .SetGuiPresentationNoContent(true)
+                    .SetPool(HeroDefinitions.PointsPoolType.Invocation, 1)
                     .AddToDB())
             .AddToDB();
     }
