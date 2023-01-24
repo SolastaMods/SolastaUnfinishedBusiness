@@ -1,5 +1,12 @@
 {
-  "$type": "FeatureDefinition, Assembly-CSharp",
+  "$type": "FeatureDefinitionAttributeModifier, Assembly-CSharp",
+  "modifiedAttribute": "SorceryPoints",
+  "modifierOperation": "Additive",
+  "modifierValue": 2,
+  "modifierAbilityScore": "Constitution",
+  "situationalContext": "None",
+  "minimum1": false,
+  "useBonusFromCaster": false,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
@@ -24,7 +31,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "bbacb8f0-fca2-5a22-9471-c0d8015f122b",
+  "guid": "c83ac082-07a8-539e-b6ae-157e640b3a3c",
   "contentPack": 9999,
-  "name": "CustomCodeFeatAdeptMetamagicHeightenedSpell"
+  "name": "AttributeModifierSorcererSorceryPointsBonus2"
 }

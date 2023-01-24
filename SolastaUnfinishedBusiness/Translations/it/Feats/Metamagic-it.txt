@@ -1,2 +1,0 @@
-﻿Feat/&FeatAdeptMetamagicDescription=Ottieni punti stregoneria pari al tuo bonus di competenza e impari la metamagia {0}: {1}
-Feat/&FeatAdeptMetamagicTitle=Metamagia: {0}

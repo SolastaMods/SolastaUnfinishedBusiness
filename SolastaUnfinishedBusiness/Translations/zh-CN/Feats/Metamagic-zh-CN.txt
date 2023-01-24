@@ -1,2 +1,0 @@
-﻿Feat/&FeatAdeptMetamagicDescription=你获得 3 个术法点并学习{0}超魔法：{1}
-Feat/&FeatAdeptMetamagicTitle=超魔法: {0}

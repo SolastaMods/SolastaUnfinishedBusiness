@@ -1,22 +1,24 @@
 {
-  "$type": "FeatDefinition, Assembly-CSharp",
+  "$type": "SolastaUnfinishedBusiness.CustomDefinitions.FeatDefinitionWithPrerequisites, SolastaUnfinishedBusiness",
   "compatibleClassesPrerequisite": [],
-  "mustCastSpellsPrerequisite": true,
+  "mustCastSpellsPrerequisite": false,
   "compatibleRacesPrerequisite": [],
-  "minimalAbilityScorePrerequisite": true,
+  "minimalAbilityScorePrerequisite": false,
   "minimalAbilityScoreValue": 13,
-  "minimalAbilityScoreName": "Charisma",
+  "minimalAbilityScoreName": "Strength",
   "armorProficiencyPrerequisite": false,
   "armorProficiencyCategory": "",
-  "hasFamilyTag": true,
-  "familyTag": "Metamagic",
+  "hasFamilyTag": false,
+  "familyTag": "",
   "knownFeatsPrerequisite": [],
-  "features": [],
+  "features": [
+    "Definition:PointPoolFeatEldritchAdept:a8dc46a2-e036-5b90-b508-9c908cdce872"
+  ],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
-    "title": "Feat/&FeatGroupMetamagicTitle",
-    "description": "Feat/&FeatGroupMetamagicDescription",
+    "title": "Feat/&FeatEldritchAdeptTitle",
+    "description": "Feat/&FeatEldritchAdeptDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -36,7 +38,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "816eafb5-6e4a-5182-b0b3-184137b0222f",
+  "guid": "39163aa7-6819-59e4-ac4d-d0d8e29659d0",
   "contentPack": 9999,
-  "name": "FeatGroupMetamagic"
+  "name": "FeatEldritchAdept"
 }

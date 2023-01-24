@@ -14,6 +14,25 @@ internal class FeatureDefinitionPointPoolBuilder
         return this;
     }
 
+    internal FeatureDefinitionPointPoolBuilder SetSpellOrCantripPool(
+        HeroDefinitions.PointsPoolType poolType,
+        int poolAmount,
+        SpellListDefinition spellListOverride = null,
+        string extraSpellsTag = "",
+        int minSpellLevel = 0,
+        int maxSpellLevel = 0,
+        bool ritualsOnly = false)
+    {
+        Definition.poolType = poolType;
+        Definition.poolAmount = poolAmount;
+        Definition.spellListOverride = spellListOverride;
+        Definition.extraSpellsTag = extraSpellsTag;
+        Definition.minSpellLevel = minSpellLevel;
+        Definition.maxSpellLevel = maxSpellLevel;
+        Definition.ritualOnly = ritualsOnly;
+        return this;
+    }
+
     internal FeatureDefinitionPointPoolBuilder RestrictChoices(params string[] choices)
     {
         Definition.RestrictedChoices.AddRange(choices);

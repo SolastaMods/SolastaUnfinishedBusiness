@@ -4,6 +4,7 @@ using System.Linq;
 using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.Infrastructure;
 using SolastaUnfinishedBusiness.CustomDefinitions;
+using SolastaUnfinishedBusiness.Feats;
 using SolastaUnfinishedBusiness.Models;
 using UnityEngine;
 
@@ -30,7 +31,8 @@ public class CustomInvocationSubPanel : MonoBehaviour
     {
         var selectedClass = LevelUpContext.GetSelectedClass(__instance);
 
-        if (selectedClass != DatabaseHelper.CharacterClassDefinitions.Warlock)
+        if (selectedClass != DatabaseHelper.CharacterClassDefinitions.Warlock
+            && !__instance.TrainedFeats.Exists(x => x.Name == OtherFeats.FeatEldritchAdept))
         {
             return new List<string>();
         }

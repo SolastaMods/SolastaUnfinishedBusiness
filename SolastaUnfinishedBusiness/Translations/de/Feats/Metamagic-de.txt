@@ -1,2 +1,0 @@
-﻿Feat/&FeatAdeptMetamagicDescription=Du erhältst Hexereipunkte in Höhe deines Fertigkeitsbonus und erlernst die {0}-Metamagie: {1}
-Feat/&FeatAdeptMetamagicTitle=Metamagie: {0}

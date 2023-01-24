@@ -1,5 +1,10 @@
 ﻿CHANGES:
 
+1.4.33.12:
+
+- added Eldritch Initiate feat
+- refactored Metamagic feat to be on par with tabletop
+
 1.4.33.11:
 
 - fixed missing Way of The Dragon ancestry powers

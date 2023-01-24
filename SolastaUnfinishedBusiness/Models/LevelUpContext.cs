@@ -725,6 +725,39 @@ internal static class LevelUpContext
         }
     }
 
+    internal static void RebuildCharacterStageProficiencyPanel(bool levelingUp)
+    {
+        CharacterStagePanel characterStagePanel = null;
+
+        if (levelingUp)
+        {
+            var screen = Gui.GuiService.GetScreen<CharacterLevelUpScreen>();
+
+            if (screen != null && screen.Visible)
+            {
+                characterStagePanel = screen.CurrentStagePanel;
+            }
+        }
+        else
+        {
+            var screen = Gui.GuiService.GetScreen<CharacterLevelUpScreen>();
+
+            if (screen != null && screen.Visible)
+            {
+                characterStagePanel = screen.CurrentStagePanel;
+            }
+        }
+
+        if (characterStagePanel is not CharacterStageProficiencySelectionPanel characterStageProficiencySelectionPanel)
+        {
+            return;
+        }
+
+        Gui.ReleaseChildrenToPool(characterStageProficiencySelectionPanel.learnStepsTable);
+        characterStageProficiencySelectionPanel.CollectTags();
+        characterStageProficiencySelectionPanel.BuildLearnSteps();
+    }
+
     // keeps the multiclass level up context
     private sealed class LevelUpData
     {
