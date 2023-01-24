@@ -667,6 +667,7 @@ public static class CharacterBuildingManagerPatcher
         }
     }
 
+    //PATCH: apply point pools assigned from feats
     [HarmonyPatch(typeof(CharacterBuildingManager), nameof(CharacterBuildingManager.TrainFeat))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
@@ -709,6 +710,7 @@ public static class CharacterBuildingManagerPatcher
         }
     }
 
+    //PATCH: remove point pools assigned from feats
     [HarmonyPatch(typeof(CharacterBuildingManager), nameof(CharacterBuildingManager.UntrainFeat))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
@@ -725,7 +727,54 @@ public static class CharacterBuildingManagerPatcher
                 if (!heroBuildingData.PointPoolStacks.TryGetValue(featureDefinitionPointPool.PoolType,
                         out var pointPoolStack))
                 {
-                    return;
+                    continue;
+                }
+
+                var finaTag = tag;
+
+                if (featureDefinitionPointPool.PoolType is HeroDefinitions.PointsPoolType.Spell
+                    or HeroDefinitions.PointsPoolType.Cantrip or HeroDefinitions.PointsPoolType.CantripOrSpell)
+                {
+                    finaTag += featureDefinitionPointPool.ExtraSpellsTag;
+                }
+
+                if (!pointPoolStack.ActivePools.TryGetValue(finaTag, out var pool))
+                {
+                    continue;
+                }
+
+                pool.maxPoints -= featureDefinitionPointPool.poolAmount;
+
+                if (pool.maxPoints == 0)
+                {
+                    pointPoolStack.ActivePools.Remove(finaTag);
+                }
+            }
+
+            LevelUpContext.RebuildCharacterStageProficiencyPanel(heroBuildingData.LevelingUp);
+        }
+    }
+
+    //PATCH: remove point pools assigned from feats
+    [HarmonyPatch(typeof(CharacterBuildingManager), nameof(CharacterBuildingManager.UntrainFeats))]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
+    public static class UntrainFeats_Patch
+    {
+        [UsedImplicitly]
+        public static void Prefix(
+            CharacterHeroBuildingData heroBuildingData,
+            string tag)
+        {
+            foreach (var featureDefinitionPointPool in heroBuildingData.LevelupTrainedFeats
+                         .SelectMany(x => x.Value
+                             .SelectMany(y => y.Features))
+                         .OfType<FeatureDefinitionPointPool>())
+            {
+                if (!heroBuildingData.PointPoolStacks.TryGetValue(featureDefinitionPointPool.PoolType,
+                        out var pointPoolStack))
+                {
+                    continue;
                 }
 
                 var finaTag = tag;

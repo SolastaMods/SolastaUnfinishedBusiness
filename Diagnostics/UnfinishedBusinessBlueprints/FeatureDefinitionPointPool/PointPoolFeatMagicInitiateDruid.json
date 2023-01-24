@@ -1,17 +1,14 @@
 {
-  "$type": "SolastaUnfinishedBusiness.CustomDefinitions.FeatDefinitionWithPrerequisites, SolastaUnfinishedBusiness",
-  "compatibleClassesPrerequisite": [],
-  "mustCastSpellsPrerequisite": false,
-  "compatibleRacesPrerequisite": [],
-  "minimalAbilityScorePrerequisite": false,
-  "minimalAbilityScoreValue": 13,
-  "minimalAbilityScoreName": "Strength",
-  "armorProficiencyPrerequisite": false,
-  "armorProficiencyCategory": "",
-  "hasFamilyTag": false,
-  "familyTag": "",
-  "knownFeatsPrerequisite": [],
-  "features": [],
+  "$type": "FeatureDefinitionPointPool, Assembly-CSharp",
+  "poolType": "Cantrip",
+  "poolAmount": 2,
+  "restrictedChoices": [],
+  "uniqueChoices": false,
+  "spellListOverride": "Definition:SpellListDruid:f192117ea9cbe334cba0849993779ae8",
+  "ritualOnly": false,
+  "minSpellLevel": 0,
+  "maxSpellLevel": 0,
+  "extraSpellsTag": "MagicInitiate",
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
@@ -36,7 +33,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "b1c1aad1-a413-5fd7-99ca-8082919bd8a3",
+  "guid": "29edd4e5-8c4b-5310-a373-86061acda9a7",
   "contentPack": 9999,
-  "name": "FeatAdeptMetamagicTwinnedSpell"
+  "name": "PointPoolFeatMagicInitiateDruid"
 }

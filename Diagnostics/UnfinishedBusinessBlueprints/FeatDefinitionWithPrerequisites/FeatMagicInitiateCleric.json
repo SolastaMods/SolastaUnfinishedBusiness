@@ -1,7 +1,7 @@
 {
   "$type": "SolastaUnfinishedBusiness.CustomDefinitions.FeatDefinitionWithPrerequisites, SolastaUnfinishedBusiness",
   "compatibleClassesPrerequisite": [],
-  "mustCastSpellsPrerequisite": false,
+  "mustCastSpellsPrerequisite": true,
   "compatibleRacesPrerequisite": [],
   "minimalAbilityScorePrerequisite": false,
   "minimalAbilityScoreValue": 13,
@@ -11,12 +11,14 @@
   "hasFamilyTag": false,
   "familyTag": "",
   "knownFeatsPrerequisite": [],
-  "features": [],
+  "features": [
+    "Definition:PointPoolFeatMagicInitiateCleric:b39dd777-c297-5bc4-8bf0-a6b8207ea1df"
+  ],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
-    "title": "Feature/&NoContentTitle",
-    "description": "Feature/&NoContentTitle",
+    "title": "Magic Initiate [Cleric]",
+    "description": "You learn two cantrips of your choice from the Cleric class's spell list. In addition, choose one 1st-level spell to learn from that same list.",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -36,7 +38,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "b1c1aad1-a413-5fd7-99ca-8082919bd8a3",
+  "guid": "e6e35360-193d-5498-89ea-b47f375d4643",
   "contentPack": 9999,
-  "name": "FeatAdeptMetamagicTwinnedSpell"
+  "name": "FeatMagicInitiateCleric"
 }

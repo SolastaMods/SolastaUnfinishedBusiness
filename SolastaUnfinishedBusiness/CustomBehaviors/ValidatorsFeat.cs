@@ -35,6 +35,7 @@ internal static class ValidatorsFeat
     internal static readonly Func<FeatDefinition, RulesetCharacterHero, (bool result, string output)> IsGnome =
         ValidateIsRace(GnomeRaceBuilder.RaceGnome.FormatTitle(), GnomeRaceBuilder.RaceGnome);
 
+#if false
     [NotNull]
     internal static Func<FeatDefinition, RulesetCharacterHero, (bool result, string output)> ValidateNotMetamagic(
         [NotNull] BaseDefinition baseDefinition)
@@ -47,6 +48,7 @@ internal static class ValidatorsFeat
             return hasMetamagic ? (false, Gui.Colorize(guiFormat, Gui.ColorFailure)) : (true, guiFormat);
         };
     }
+#endif
 
     [NotNull]
     internal static Func<FeatDefinition, RulesetCharacterHero, (bool result, string output)> ValidateNotFightingStyle(

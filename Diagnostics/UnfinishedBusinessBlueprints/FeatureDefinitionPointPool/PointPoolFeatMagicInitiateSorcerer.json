@@ -1,5 +1,14 @@
 {
-  "$type": "FeatureDefinition, Assembly-CSharp",
+  "$type": "FeatureDefinitionPointPool, Assembly-CSharp",
+  "poolType": "Cantrip",
+  "poolAmount": 2,
+  "restrictedChoices": [],
+  "uniqueChoices": false,
+  "spellListOverride": "Definition:SpellListSorcerer:d6922d6bd72f7fa42b89475449744641",
+  "ritualOnly": false,
+  "minSpellLevel": 0,
+  "maxSpellLevel": 0,
+  "extraSpellsTag": "MagicInitiate",
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
@@ -24,7 +33,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "03043435-67c9-5bb8-83f5-28debf1faa98",
+  "guid": "fd30e57d-c9a9-5605-abab-f630442ef792",
   "contentPack": 9999,
-  "name": "CustomCodeFeatAdeptMetamagicDistantSpell"
+  "name": "PointPoolFeatMagicInitiateSorcerer"
 }

@@ -1,7 +1,7 @@
 {
   "$type": "SolastaUnfinishedBusiness.CustomDefinitions.FeatDefinitionWithPrerequisites, SolastaUnfinishedBusiness",
   "compatibleClassesPrerequisite": [],
-  "mustCastSpellsPrerequisite": false,
+  "mustCastSpellsPrerequisite": true,
   "compatibleRacesPrerequisite": [],
   "minimalAbilityScorePrerequisite": false,
   "minimalAbilityScoreValue": 13,
@@ -11,12 +11,14 @@
   "hasFamilyTag": false,
   "familyTag": "",
   "knownFeatsPrerequisite": [],
-  "features": [],
+  "features": [
+    "Definition:PointPoolFeatMagicInitiateDruid:29edd4e5-8c4b-5310-a373-86061acda9a7"
+  ],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
-    "title": "Feature/&NoContentTitle",
-    "description": "Feature/&NoContentTitle",
+    "title": "Magic Initiate [Druid]",
+    "description": "You learn two cantrips of your choice from the Druid class's spell list. In addition, choose one 1st-level spell to learn from that same list.",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -36,7 +38,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "b1c1aad1-a413-5fd7-99ca-8082919bd8a3",
+  "guid": "f087bc9d-50ee-5e99-87cc-9596abc4ff52",
   "contentPack": 9999,
-  "name": "FeatAdeptMetamagicTwinnedSpell"
+  "name": "FeatMagicInitiateDruid"
 }

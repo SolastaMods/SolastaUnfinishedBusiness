@@ -13,13 +13,17 @@ using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionAttributeModifiers;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionFeatureSets;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPowers;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellListDefinitions;
 
 namespace SolastaUnfinishedBusiness.Feats;
 
 internal static class OtherFeats
 {
+    internal const string FeatEldritchAdept = "FeatEldritchAdept";
     internal const string FeatWarCaster = "FeatWarCaster";
     internal const string MagicAffinityFeatWarCaster = "MagicAffinityFeatWarCaster";
+
+    private const string MagicInitiate = "MagicInitiate";
 
     private static readonly FeatureDefinitionPower PowerFeatPoisonousSkin = FeatureDefinitionPowerBuilder
         .Create("PowerFeatPoisonousSkin")
@@ -42,26 +46,30 @@ internal static class OtherFeats
 
     internal static void CreateFeats([NotNull] List<FeatDefinition> feats)
     {
+        var featAstralArms = BuildAstralArms();
+        var featEldritchAdept = BuildEldritchAdept();
         var featHealer = BuildHealer();
         var featInspiringLeader = BuildInspiringLeader();
+        var featMobile = BuildMobile();
+        var featMonkInitiate = BuildMonkInitiate();
         var featPickPocket = BuildPickPocket();
+        var featPoisonousSkin = BuildPoisonousSkin();
         var featTough = BuildTough();
         var featWarCaster = BuildWarcaster();
-        var featMobile = BuildMobile();
-        var featPoisonousSkin = BuildPoisonousSkin();
-        var featAstralArms = BuildAstralArms();
-        var featMonkInitiate = BuildMonkInitiate();
+
+        BuildMagicInitiate(feats);
 
         feats.AddRange(
+            featAstralArms,
+            featEldritchAdept,
             featHealer,
             featInspiringLeader,
-            featPickPocket,
-            featTough,
-            featWarCaster,
             featMobile,
+            featMonkInitiate,
+            featPickPocket,
             featPoisonousSkin,
-            featAstralArms,
-            featMonkInitiate);
+            featTough,
+            featWarCaster);
 
         GroupFeats.MakeGroup("FeatGroupBodyResilience", null,
             FeatDefinitions.BadlandsMarauder,
@@ -84,6 +92,35 @@ internal static class OtherFeats
             featWarCaster);
 
         group.mustCastSpellsPrerequisite = true;
+    }
+
+    private static FeatDefinition BuildAstralArms()
+    {
+        return FeatDefinitionBuilder
+            .Create("FeatAstralArms")
+            .SetGuiPresentation(Category.Feat)
+            .SetFeatures(
+                AttributeModifierCreed_Of_Maraike,
+                FeatureDefinitionBuilder
+                    .Create("ModifyAttackModeForWeaponFeatAstralArms")
+                    .SetGuiPresentationNoContent(true)
+                    .SetCustomSubFeatures(new ModifyAttackModeForWeaponFeatAstralArms())
+                    .AddToDB())
+            .AddToDB();
+    }
+
+    private static FeatDefinition BuildEldritchAdept()
+    {
+        return FeatDefinitionWithPrerequisitesBuilder
+            .Create(FeatEldritchAdept)
+            .SetGuiPresentation(Category.Feat)
+            .SetFeatures(
+                FeatureDefinitionPointPoolBuilder
+                    .Create($"PointPool{FeatEldritchAdept}")
+                    .SetGuiPresentationNoContent(true)
+                    .SetPool(HeroDefinitions.PointsPoolType.Invocation, 1)
+                    .AddToDB())
+            .AddToDB();
     }
 
     private static FeatDefinition BuildHealer()
@@ -186,6 +223,97 @@ internal static class OtherFeats
             .AddToDB();
     }
 
+    private static void BuildMagicInitiate([NotNull] List<FeatDefinition> feats)
+    {
+        var magicInitiateFeats = new List<FeatDefinition>();
+        var spellLists = new List<SpellListDefinition>
+        {
+            SpellListBard,
+            SpellListCleric,
+            SpellListDruid,
+            SpellListSorcerer,
+            SpellListWarlock,
+            SpellListWizard
+        };
+
+        // ReSharper disable once ForeachCanBeConvertedToQueryUsingAnotherGetEnumerator
+        foreach (var spellList in spellLists)
+        {
+            var className = spellList.Name.Replace("SpellList", "");
+            var classDefinition = GetDefinition<CharacterClassDefinition>(className);
+            var featMagicInitiate = FeatDefinitionWithPrerequisitesBuilder
+                .Create($"Feat{MagicInitiate}{className}")
+                .SetGuiPresentation(
+                    Gui.Format($"Feat/&Feat{MagicInitiate}Title", classDefinition.FormatTitle()),
+                    Gui.Format($"Feat/&Feat{MagicInitiate}Description", classDefinition.FormatTitle()))
+                .SetFeatures(
+                    FeatureDefinitionPointPoolBuilder
+                        .Create($"PointPoolFeat{MagicInitiate}{className}")
+                        .SetGuiPresentationNoContent(true)
+                        .SetSpellOrCantripPool(HeroDefinitions.PointsPoolType.Cantrip, 2, spellList,
+                            MagicInitiate)
+                        .AddToDB())
+                .SetMustCastSpellsPrerequisite()
+                .AddToDB();
+
+            magicInitiateFeats.Add(featMagicInitiate);
+        }
+
+        var group = GroupFeats.MakeGroup("FeatGroupMagicInitiate", MagicInitiate, magicInitiateFeats);
+
+        group.mustCastSpellsPrerequisite = true;
+        feats.AddRange(magicInitiateFeats);
+    }
+
+    private static FeatDefinition BuildMobile()
+    {
+        return FeatDefinitionBuilder
+            .Create("FeatMobile")
+            .SetGuiPresentation(Category.Feat)
+            .SetFeatures(
+                FeatureDefinitionBuilder
+                    .Create("OnAfterActionFeatMobileDash")
+                    .SetGuiPresentationNoContent(true)
+                    .SetCustomSubFeatures(
+                        new AooImmunityMobile(),
+                        new OnAfterActionFeatMobileDash(
+                            ConditionDefinitionBuilder
+                                .Create(ConditionDefinitions.ConditionFreedomOfMovement, "ConditionFeatMobileAfterDash")
+                                .SetOrUpdateGuiPresentation(Category.Condition)
+                                .SetPossessive()
+                                .SetSpecialDuration(DurationType.Round, 1, TurnOccurenceType.StartOfTurn)
+                                .SetSpecialInterruptions(ConditionInterruption.AnyBattleTurnEnd)
+                                .SetFeatures(FeatureDefinitionMovementAffinitys.MovementAffinityFreedomOfMovement)
+                                .AddToDB()))
+                    .AddToDB(),
+                FeatureDefinitionMovementAffinityBuilder
+                    .Create("MovementAffinityFeatMobile")
+                    .SetGuiPresentationNoContent(true)
+                    .SetBaseSpeedAdditiveModifier(2)
+                    .AddToDB())
+            .SetAbilityScorePrerequisite(AttributeDefinitions.Dexterity, 13)
+            .AddToDB();
+    }
+
+    private static FeatDefinition BuildMonkInitiate()
+    {
+        return FeatDefinitionBuilder
+            .Create("FeatMonkInitiate")
+            .SetGuiPresentation(Category.Feat)
+            .SetFeatures(
+                PowerMonkPatientDefense,
+                FeatureSetMonkStepOfTheWind,
+                FeatureSetMonkFlurryOfBlows,
+                FeatureDefinitionAttributeModifierBuilder
+                    .Create("AttributeModifierMonkKiPointsAddProficiencyBonus")
+                    .SetGuiPresentationNoContent(true)
+                    .SetModifier(FeatureDefinitionAttributeModifier.AttributeModifierOperation.AddProficiencyBonus,
+                        AttributeDefinitions.KiPoints)
+                    .AddToDB())
+            .SetAbilityScorePrerequisite(AttributeDefinitions.Wisdom, 13)
+            .AddToDB();
+    }
+
     private static FeatDefinition BuildPickPocket()
     {
         var abilityCheckAffinityFeatPickPocket = FeatureDefinitionAbilityCheckAffinityBuilder
@@ -207,6 +335,23 @@ internal static class OtherFeats
             .Create(FeatDefinitions.Lockbreaker, "FeatPickPocket")
             .SetFeatures(abilityCheckAffinityFeatPickPocket, proficiencyFeatPickPocket)
             .SetGuiPresentation(Category.Feat)
+            .AddToDB();
+    }
+
+    private static FeatDefinition BuildPoisonousSkin()
+    {
+        return FeatDefinitionBuilder
+            .Create("FeatPoisonousSkin")
+            .SetGuiPresentation(Category.Feat)
+            .SetFeatures(
+                FeatureDefinitionBuilder
+                    .Create("OnAttackHitEffectFeatPoisonousSkin")
+                    .SetGuiPresentationNoContent(true)
+                    .SetCustomSubFeatures(
+                        new OnAttackHitEffectFeatPoisonousSkin(),
+                        new CustomConditionFeatureFeatPoisonousSkin())
+                    .AddToDB())
+            .SetAbilityScorePrerequisite(AttributeDefinitions.Constitution, 13)
             .AddToDB();
     }
 
@@ -241,86 +386,6 @@ internal static class OtherFeats
             .AddToDB();
     }
 
-    private static FeatDefinition BuildMobile()
-    {
-        return FeatDefinitionBuilder
-            .Create("FeatMobile")
-            .SetGuiPresentation(Category.Feat)
-            .SetFeatures(
-                FeatureDefinitionBuilder
-                    .Create("OnAfterActionFeatMobileDash")
-                    .SetGuiPresentationNoContent(true)
-                    .SetCustomSubFeatures(
-                        new AooImmunityMobile(),
-                        new OnAfterActionFeatMobileDash(
-                            ConditionDefinitionBuilder
-                                .Create(ConditionDefinitions.ConditionFreedomOfMovement, "ConditionFeatMobileAfterDash")
-                                .SetOrUpdateGuiPresentation(Category.Condition)
-                                .SetPossessive()
-                                .SetSpecialDuration(DurationType.Round, 1, TurnOccurenceType.StartOfTurn)
-                                .SetSpecialInterruptions(ConditionInterruption.AnyBattleTurnEnd)
-                                .SetFeatures(FeatureDefinitionMovementAffinitys.MovementAffinityFreedomOfMovement)
-                                .AddToDB()))
-                    .AddToDB(),
-                FeatureDefinitionMovementAffinityBuilder
-                    .Create("MovementAffinityFeatMobile")
-                    .SetGuiPresentationNoContent(true)
-                    .SetBaseSpeedAdditiveModifier(2)
-                    .AddToDB())
-            .SetAbilityScorePrerequisite(AttributeDefinitions.Dexterity, 13)
-            .AddToDB();
-    }
-
-    private static FeatDefinition BuildPoisonousSkin()
-    {
-        return FeatDefinitionBuilder
-            .Create("FeatPoisonousSkin")
-            .SetGuiPresentation(Category.Feat)
-            .SetFeatures(
-                FeatureDefinitionBuilder
-                    .Create("OnAttackHitEffectFeatPoisonousSkin")
-                    .SetGuiPresentationNoContent(true)
-                    .SetCustomSubFeatures(
-                        new OnAttackHitEffectFeatPoisonousSkin(),
-                        new CustomConditionFeatureFeatPoisonousSkin())
-                    .AddToDB())
-            .SetAbilityScorePrerequisite(AttributeDefinitions.Constitution, 13)
-            .AddToDB();
-    }
-
-    private static FeatDefinition BuildAstralArms()
-    {
-        return FeatDefinitionBuilder
-            .Create("FeatAstralArms")
-            .SetGuiPresentation(Category.Feat)
-            .SetFeatures(
-                AttributeModifierCreed_Of_Maraike,
-                FeatureDefinitionBuilder
-                    .Create("ModifyAttackModeForWeaponFeatAstralArms")
-                    .SetGuiPresentationNoContent(true)
-                    .SetCustomSubFeatures(new ModifyAttackModeForWeaponFeatAstralArms())
-                    .AddToDB())
-            .AddToDB();
-    }
-
-    private static FeatDefinition BuildMonkInitiate()
-    {
-        return FeatDefinitionBuilder
-            .Create("FeatMonkInitiate")
-            .SetGuiPresentation(Category.Feat)
-            .SetFeatures(
-                PowerMonkPatientDefense,
-                FeatureSetMonkStepOfTheWind,
-                FeatureSetMonkFlurryOfBlows,
-                FeatureDefinitionAttributeModifierBuilder
-                    .Create("AttributeModifierMonkKiPointsAddProficiencyBonus")
-                    .SetGuiPresentationNoContent(true)
-                    .SetModifier(FeatureDefinitionAttributeModifier.AttributeModifierOperation.AddProficiencyBonus,
-                        AttributeDefinitions.KiPoints)
-                    .AddToDB())
-            .SetAbilityScorePrerequisite(AttributeDefinitions.Wisdom, 13)
-            .AddToDB();
-    }
 
     private static RulesetEffectPower GetUsablePower(RulesetCharacter rulesetCharacter)
     {

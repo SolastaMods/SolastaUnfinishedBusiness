@@ -1,17 +1,14 @@
 {
-  "$type": "SolastaUnfinishedBusiness.CustomDefinitions.FeatDefinitionWithPrerequisites, SolastaUnfinishedBusiness",
-  "compatibleClassesPrerequisite": [],
-  "mustCastSpellsPrerequisite": false,
-  "compatibleRacesPrerequisite": [],
-  "minimalAbilityScorePrerequisite": false,
-  "minimalAbilityScoreValue": 13,
-  "minimalAbilityScoreName": "Strength",
-  "armorProficiencyPrerequisite": false,
-  "armorProficiencyCategory": "",
-  "hasFamilyTag": false,
-  "familyTag": "",
-  "knownFeatsPrerequisite": [],
-  "features": [],
+  "$type": "FeatureDefinitionPointPool, Assembly-CSharp",
+  "poolType": "Metamagic",
+  "poolAmount": 2,
+  "restrictedChoices": [],
+  "uniqueChoices": false,
+  "spellListOverride": null,
+  "ritualOnly": false,
+  "minSpellLevel": 0,
+  "maxSpellLevel": 9,
+  "extraSpellsTag": "",
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
@@ -36,7 +33,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "b1c1aad1-a413-5fd7-99ca-8082919bd8a3",
+  "guid": "82f8bd37-2595-53f9-b70b-80a427ea1e22",
   "contentPack": 9999,
-  "name": "FeatAdeptMetamagicTwinnedSpell"
+  "name": "PointPoolFeatMetamagicAdept"
 }

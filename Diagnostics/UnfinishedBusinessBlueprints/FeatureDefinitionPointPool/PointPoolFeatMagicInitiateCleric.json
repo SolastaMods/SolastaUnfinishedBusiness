@@ -1,5 +1,14 @@
 {
-  "$type": "FeatureDefinition, Assembly-CSharp",
+  "$type": "FeatureDefinitionPointPool, Assembly-CSharp",
+  "poolType": "Cantrip",
+  "poolAmount": 2,
+  "restrictedChoices": [],
+  "uniqueChoices": false,
+  "spellListOverride": "Definition:SpellListCleric:e728ae4e4306da44983db43e2889e53b",
+  "ritualOnly": false,
+  "minSpellLevel": 0,
+  "maxSpellLevel": 0,
+  "extraSpellsTag": "MagicInitiate",
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
@@ -24,7 +33,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "88261d1d-d150-554b-8d8d-e88547fc01ae",
+  "guid": "b39dd777-c297-5bc4-8bf0-a6b8207ea1df",
   "contentPack": 9999,
-  "name": "CustomCodeFeatAdeptMetamagicExtendedSpell"
+  "name": "PointPoolFeatMagicInitiateCleric"
 }

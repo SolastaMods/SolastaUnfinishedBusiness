@@ -3,20 +3,20 @@
   "compatibleClassesPrerequisite": [],
   "mustCastSpellsPrerequisite": true,
   "compatibleRacesPrerequisite": [],
-  "minimalAbilityScorePrerequisite": true,
+  "minimalAbilityScorePrerequisite": false,
   "minimalAbilityScoreValue": 13,
-  "minimalAbilityScoreName": "Charisma",
+  "minimalAbilityScoreName": "Strength",
   "armorProficiencyPrerequisite": false,
   "armorProficiencyCategory": "",
   "hasFamilyTag": true,
-  "familyTag": "Metamagic",
+  "familyTag": "MagicInitiate",
   "knownFeatsPrerequisite": [],
   "features": [],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
-    "title": "Feat/&FeatGroupMetamagicTitle",
-    "description": "Feat/&FeatGroupMetamagicDescription",
+    "title": "Feat/&FeatGroupMagicInitiateTitle",
+    "description": "Feat/&FeatGroupMagicInitiateDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -36,7 +36,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "816eafb5-6e4a-5182-b0b3-184137b0222f",
+  "guid": "c9eb9385-67a0-5edb-8e5f-f87b91ab96c1",
   "contentPack": 9999,
-  "name": "FeatGroupMetamagic"
+  "name": "FeatGroupMagicInitiate"
 }

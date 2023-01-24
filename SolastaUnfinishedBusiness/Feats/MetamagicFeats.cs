@@ -1,11 +1,9 @@
 ﻿using System.Collections.Generic;
-using System.Linq;
+using HarmonyLib;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.Infrastructure;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
-using SolastaUnfinishedBusiness.CustomBehaviors;
-using SolastaUnfinishedBusiness.CustomInterfaces;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionActionAffinitys;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionAttributeModifiers;
 
@@ -13,26 +11,39 @@ namespace SolastaUnfinishedBusiness.Feats;
 
 internal static class MetamagicFeats
 {
-    private const string Metamagic = "Metamagic";
-
     internal static void CreateFeats([NotNull] List<FeatDefinition> feats)
     {
-        var metaMagicFeats = BuildMetamagic();
+        // KEEP FOR BACKWARD COMPATIBILITY until next DLC
+        BuildMetamagicBackwardCompatibility();
 
-        var group = GroupFeats.MakeGroup("FeatGroupMetamagic", Metamagic, metaMagicFeats);
+        var featMetamagicAdept = FeatDefinitionWithPrerequisitesBuilder
+            .Create("FeatMetamagicAdept")
+            .SetGuiPresentation(Category.Feat)
+            .SetFeatures(
+                ActionAffinitySorcererMetamagicToggle,
+                FeatureDefinitionAttributeModifierBuilder
+                    .Create(AttributeModifierSorcererSorceryPointsBase, "AttributeModifierSorcererSorceryPointsBonus2")
+                    .SetGuiPresentationNoContent(true)
+                    .SetModifier(
+                        FeatureDefinitionAttributeModifier.AttributeModifierOperation.Additive,
+                        AttributeDefinitions.SorceryPoints,
+                        2)
+                    .AddToDB(),
+                FeatureDefinitionPointPoolBuilder
+                    .Create("PointPoolFeatMetamagicAdept")
+                    .SetGuiPresentationNoContent(true)
+                    .SetPool(HeroDefinitions.PointsPoolType.Metamagic, 2)
+                    .AddToDB())
+            .SetMustCastSpellsPrerequisite()
+            .AddToDB();
 
-        group.mustCastSpellsPrerequisite = true;
-        group.minimalAbilityScorePrerequisite = true;
-        group.minimalAbilityScoreName = AttributeDefinitions.Charisma;
-        group.minimalAbilityScoreValue = 13;
-
-        feats.AddRange(metaMagicFeats);
+        feats.AddRange(featMetamagicAdept);
     }
 
-    private static List<FeatDefinition> BuildMetamagic()
+    private static void BuildMetamagicBackwardCompatibility()
     {
         // Metamagic
-        var attributeModifierSorcererSorceryPointsBonus3 = FeatureDefinitionAttributeModifierBuilder
+        _ = FeatureDefinitionAttributeModifierBuilder
             .Create(AttributeModifierSorcererSorceryPointsBase, "AttributeModifierSorcererSorceryPointsBonus3")
             .SetGuiPresentationNoContent(true)
             .SetModifier(
@@ -40,55 +51,12 @@ internal static class MetamagicFeats
                 AttributeDefinitions.SorceryPoints)
             .AddToDB();
 
-        var metaMagicFeats = new List<FeatDefinition>();
         var dbMetamagicOptionDefinition = DatabaseRepository.GetDatabase<MetamagicOptionDefinition>();
 
-        metaMagicFeats.SetRange(dbMetamagicOptionDefinition
-            .Select(metamagicOptionDefinition => FeatDefinitionWithPrerequisitesBuilder
+        dbMetamagicOptionDefinition
+            .Do(metamagicOptionDefinition => FeatDefinitionWithPrerequisitesBuilder
                 .Create($"FeatAdept{metamagicOptionDefinition.Name}")
-                .SetGuiPresentation(
-                    Gui.Format("Feat/&FeatAdeptMetamagicTitle", metamagicOptionDefinition.FormatTitle()),
-                    Gui.Format("Feat/&FeatAdeptMetamagicDescription",
-                        metamagicOptionDefinition.FormatTitle(),
-                        metamagicOptionDefinition.FormatDescription()))
-                .SetFeatures(
-                    ActionAffinitySorcererMetamagicToggle,
-                    attributeModifierSorcererSorceryPointsBonus3,
-                    FeatureDefinitionBuilder
-                        .Create($"CustomCodeFeatAdept{metamagicOptionDefinition.Name}")
-                        .SetGuiPresentationNoContent(true)
-                        .SetCustomSubFeatures(new CustomCodeFeatMetamagicAdept(metamagicOptionDefinition))
-                        .AddToDB())
-                .SetAbilityScorePrerequisite(AttributeDefinitions.Charisma, 13)
-                .SetMustCastSpellsPrerequisite()
-                .SetFeatFamily(Metamagic)
-                .SetValidators(ValidatorsFeat.ValidateNotMetamagic(metamagicOptionDefinition))
-                .AddToDB()));
-
-        return metaMagicFeats;
-    }
-
-    //
-    // HELPERS
-    //
-
-    private sealed class CustomCodeFeatMetamagicAdept : IFeatureDefinitionCustomCode
-    {
-        public CustomCodeFeatMetamagicAdept(MetamagicOptionDefinition metamagicOption)
-        {
-            MetamagicOption = metamagicOption;
-        }
-
-        private MetamagicOptionDefinition MetamagicOption { get; }
-
-        public void ApplyFeature([NotNull] RulesetCharacterHero hero, string tag)
-        {
-            if (hero.MetamagicFeatures.ContainsKey(MetamagicOption))
-            {
-                return;
-            }
-
-            hero.TrainMetaMagicOptions(new List<MetamagicOptionDefinition> { MetamagicOption });
-        }
+                .SetGuiPresentationNoContent(true)
+                .AddToDB());
     }
 }

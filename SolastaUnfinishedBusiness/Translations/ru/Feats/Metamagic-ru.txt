@@ -1,2 +1,0 @@
-﻿Feat/&FeatAdeptMetamagicDescription=Получите 3 очка магии и выучите {0} Метамагию: {1} 
-Feat/&FeatAdeptMetamagicTitle=Метамагия: {0}
