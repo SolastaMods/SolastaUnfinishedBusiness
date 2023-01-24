@@ -223,6 +223,7 @@ internal static class OtherFeats
             .AddToDB();
     }
 
+#if false
     private static void BuildMagicInitiate([NotNull] List<FeatDefinition> feats)
     {
         var magicInitiateFeats = new List<FeatDefinition>();
@@ -270,6 +271,7 @@ internal static class OtherFeats
         group.mustCastSpellsPrerequisite = true;
         feats.AddRange(magicInitiateFeats);
     }
+#endif
 
     private static FeatDefinition BuildMobile()
     {
