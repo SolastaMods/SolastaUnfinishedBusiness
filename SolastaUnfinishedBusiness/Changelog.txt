@@ -1,5 +1,6 @@
 CHANGES:
 
-- fixed missing Way of The Dragon ancestry powers
-- fixed narrative sequences to support party of 1
+- added Eldritch Initiate feat
+- refactored Metamagic feat to be on par with tabletop
+
 

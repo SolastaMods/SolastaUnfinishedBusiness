@@ -84,6 +84,7 @@ internal class SubFeatSelectionModal : GuiGameScreen
         const float V_STEP = -(FeatsContext.Height + FeatsContext.Spacing);
 
         var position = attachTo.position;
+        // ReSharper disable once Unity.UnknownResource
         var featPrefab = Resources.Load<GameObject>("Gui/Prefabs/CharacterInspection/Proficiencies/FeatItem");
         var header = Gui.GetPrefabFromPool(featPrefab, featTable).GetComponent<FeatItem>();
 
