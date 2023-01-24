@@ -1,5 +1,14 @@
 {
-  "$type": "FeatureDefinition, Assembly-CSharp",
+  "$type": "FeatureDefinitionPointPool, Assembly-CSharp",
+  "poolType": "Metamagic",
+  "poolAmount": 2,
+  "restrictedChoices": [],
+  "uniqueChoices": false,
+  "spellListOverride": null,
+  "ritualOnly": false,
+  "minSpellLevel": 0,
+  "maxSpellLevel": 9,
+  "extraSpellsTag": "",
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
@@ -24,7 +33,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "c85a1d97-0d72-5867-9a2a-fc4a358c137b",
+  "guid": "82f8bd37-2595-53f9-b70b-80a427ea1e22",
   "contentPack": 9999,
-  "name": "CustomCodeFeatAdeptMetamagicTwinnedSpell"
+  "name": "PointPoolFeatMetamagicAdept"
 }

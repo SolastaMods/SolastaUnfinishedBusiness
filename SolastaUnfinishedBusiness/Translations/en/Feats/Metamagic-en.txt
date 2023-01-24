@@ -1,2 +1,0 @@
-﻿Feat/&FeatAdeptMetamagicDescription=You gain sorcery points equals to your proficiency bonus and learn the {0} metamagic: {1}
-Feat/&FeatAdeptMetamagicTitle=Metamagic: {0}
