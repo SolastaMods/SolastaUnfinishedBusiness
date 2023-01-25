@@ -1,4 +1,4 @@
-// manually generated on 01/22/23
+// manually generated on 01/25/23
 using TA.AI;
 // ReSharper disable IdentifierTypo
 // ReSharper disable InconsistentNaming
@@ -138,7 +138,6 @@ internal static partial class DatabaseHelper
         internal static ConditionDefinition ConditionDoomLaughter { get; } = GetDefinition<ConditionDefinition>("ConditionDoomLaughter");
         internal static ConditionDefinition ConditionEncumbered { get; } = GetDefinition<ConditionDefinition>("ConditionEncumbered");
         internal static ConditionDefinition ConditionEnfeebled { get; } = GetDefinition<ConditionDefinition>("ConditionEnfeebled");
-        internal static ConditionDefinition ConditionFiendishResilienceFire { get; } = GetDefinition<ConditionDefinition>("ConditionFiendishResilienceFire");
         internal static ConditionDefinition ConditionFlying12 { get; } = GetDefinition<ConditionDefinition>("ConditionFlying12");
         internal static ConditionDefinition ConditionFreedomOfMovement { get; } = GetDefinition<ConditionDefinition>("ConditionFreedomOfMovement");
         internal static ConditionDefinition ConditionFrightened { get; } = GetDefinition<ConditionDefinition>("ConditionFrightened");

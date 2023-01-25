@@ -44,26 +44,26 @@ internal sealed class WayOfTheDragon : AbstractSubclass
                     .SetEffectForms(EffectFormBuilder
                         .Create()
                         .SetConditionForm(
-                            ConditionDefinitionBuilder
-                                .Create(ConditionFiendishResilienceFire, $"Condition{Name}ReactiveHide")
-                                .SetGuiPresentation(Category.Condition)
-                                .SetPossessive()
-                                .AddFeatures(
-                                    DamageAffinityAcidResistance,
-                                    DamageAffinityBludgeoningResistance,
-                                    DamageAffinityColdResistance,
-                                    DamageAffinityFireResistance,
-                                    DamageAffinityForceDamageResistance,
-                                    DamageAffinityLightningResistance,
-                                    DamageAffinityNecroticResistance,
-                                    DamageAffinityPiercingResistance,
-                                    DamageAffinityPoisonResistance,
-                                    DamageAffinityPsychicResistance,
-                                    DamageAffinityRadiantResistance,
-                                    DamageAffinitySlashingResistance,
-                                    DamageAffinityThunderResistance)
-                                .AddSpecialInterruptions(ConditionInterruption.AnyBattleTurnEnd)
-                                .AddToDB(),
+                           ConditionDefinitionBuilder
+                            .Create($"Condition{Name}ReactiveHide")
+                               .SetGuiPresentation(Category.Condition)
+                               .SetPossessive()
+                               .AddFeatures(
+                                   DamageAffinityAcidResistance,
+                                   DamageAffinityBludgeoningResistance,
+                                   DamageAffinityColdResistance,
+                                   DamageAffinityFireResistance,
+                                   DamageAffinityForceDamageResistance,
+                                   DamageAffinityLightningResistance,
+                                   DamageAffinityNecroticResistance,
+                                   DamageAffinityPiercingResistance,
+                                   DamageAffinityPoisonResistance,
+                                   DamageAffinityPsychicResistance,
+                                   DamageAffinityRadiantResistance,
+                                   DamageAffinitySlashingResistance,
+                                   DamageAffinityThunderResistance)
+                             .AddSpecialInterruptions(ConditionInterruption.AnyBattleTurnEnd)
+                            .AddToDB(),
                             ConditionForm.ConditionOperation.Add,
                             true,
                             true)
@@ -115,7 +115,7 @@ internal sealed class WayOfTheDragon : AbstractSubclass
     {
         var powerBlackElementalBreath = FeatureDefinitionPowerBuilder
             .Create(PowerDragonbornBreathWeaponBlack, $"Power{Name}ElementalBreathBlack")
-            .SetUsesFixed(ActivationTime.BonusAction, RechargeRate.KiPoints, 3)
+            .SetUsesProficiencyBonus(ActivationTime.BonusAction)
             .SetGuiPresentation(Category.Feature, PowerDragonbornBreathWeaponBlack)
             .SetEffectDescription(
                 EffectDescriptionBuilder
@@ -133,7 +133,7 @@ internal sealed class WayOfTheDragon : AbstractSubclass
 
         var powerBlueElementalBreath = FeatureDefinitionPowerBuilder
             .Create(PowerDragonbornBreathWeaponBlue, $"Power{Name}ElementalBreathBlue")
-            .SetUsesFixed(ActivationTime.BonusAction, RechargeRate.KiPoints, 3)
+            .SetUsesProficiencyBonus(ActivationTime.BonusAction)
             .SetGuiPresentation(Category.Feature, PowerDragonbornBreathWeaponBlue)
             .SetEffectDescription(
                 EffectDescriptionBuilder
@@ -155,12 +155,12 @@ internal sealed class WayOfTheDragon : AbstractSubclass
 
         var powerGreenElementalBreath = FeatureDefinitionPowerBuilder
             .Create(PowerDragonbornBreathWeaponGreen, $"Power{Name}ElementalBreathGreen")
-            .SetUsesFixed(ActivationTime.BonusAction, RechargeRate.KiPoints, 3)
+            .SetUsesProficiencyBonus(ActivationTime.BonusAction)
             .SetGuiPresentation(Category.Feature, PowerDragonbornBreathWeaponGreen)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create(PowerDragonbornBreathWeaponGreen.EffectDescription)
-                    .SetParticleEffectParameters(PowerDragonbornBreathWeaponGreen)
+                    .SetParticleEffectParameters(StinkingCloud.EffectDescription.effectParticleParameters)
                     .SetTargetingData(Side.All, RangeType.Self, 2, TargetType.Sphere, 2)
                     .SetDurationData(DurationType.Round, 3)
                     .AddEffectForms(
@@ -181,7 +181,7 @@ internal sealed class WayOfTheDragon : AbstractSubclass
 
         var powerGoldElementalBreath = FeatureDefinitionPowerBuilder
             .Create(PowerDragonbornBreathWeaponGold, $"Power{Name}ElementalBreathGold")
-            .SetUsesFixed(ActivationTime.BonusAction, RechargeRate.KiPoints, 3)
+            .SetUsesProficiencyBonus(ActivationTime.BonusAction)
             .SetGuiPresentation(Category.Feature, PowerDragonbornBreathWeaponGold)
             .SetEffectDescription(
                 EffectDescriptionBuilder
@@ -199,7 +199,7 @@ internal sealed class WayOfTheDragon : AbstractSubclass
 
         var powerSilverElementalBreath = FeatureDefinitionPowerBuilder
             .Create(PowerDragonbornBreathWeaponSilver, $"Power{Name}ElementalBreathSilver")
-            .SetUsesFixed(ActivationTime.BonusAction, RechargeRate.KiPoints, 3)
+            .SetUsesProficiencyBonus(ActivationTime.BonusAction)
             .SetGuiPresentation(Category.Feature, PowerDragonbornBreathWeaponSilver)
             .SetEffectDescription(
                 EffectDescriptionBuilder
@@ -250,6 +250,7 @@ internal sealed class WayOfTheDragon : AbstractSubclass
             .Create($"Condition{Name}DragonFuryAcid")
             .SetGuiPresentation(Category.Condition, ConditionPactChainPseudodragon)
             .AddFeatures(additionalDamageAcid)
+            .SetSpecialInterruptions(ConditionInterruption.AnyBattleTurnEnd)
             .AddToDB();
 
         var powerDragonFuryAcid = FeatureDefinitionPowerBuilder
@@ -290,6 +291,7 @@ internal sealed class WayOfTheDragon : AbstractSubclass
             .Create($"Condition{Name}DragonFuryLightning")
             .SetGuiPresentation(Category.Condition, ConditionPactChainPseudodragon)
             .AddFeatures(additionalDamageLightning)
+            .SetSpecialInterruptions(ConditionInterruption.AnyBattleTurnEnd)
             .AddToDB();
 
         var powerDragonFuryLightning = FeatureDefinitionPowerBuilder
@@ -327,6 +329,7 @@ internal sealed class WayOfTheDragon : AbstractSubclass
             .Create($"Condition{Name}DragonFuryPoison")
             .SetGuiPresentation(Category.Condition, ConditionPactChainPseudodragon)
             .AddFeatures(additionalDamagePoison)
+            .SetSpecialInterruptions(ConditionInterruption.AnyBattleTurnEnd)
             .AddToDB();
 
         var powerDragonFuryPoison = FeatureDefinitionPowerBuilder
@@ -366,6 +369,7 @@ internal sealed class WayOfTheDragon : AbstractSubclass
             .Create($"Condition{Name}DragonFuryFire")
             .SetGuiPresentation(Category.Condition, ConditionPactChainPseudodragon)
             .AddFeatures(additionalDamageFire)
+            .SetSpecialInterruptions(ConditionInterruption.AnyBattleTurnEnd)
             .AddToDB();
 
         var powerDragonFuryFire = FeatureDefinitionPowerBuilder
@@ -406,6 +410,7 @@ internal sealed class WayOfTheDragon : AbstractSubclass
             .Create($"Condition{Name}DragonFuryCold")
             .SetGuiPresentation(Category.Condition, ConditionPactChainPseudodragon)
             .AddFeatures(additionalDamageCold)
+            .SetSpecialInterruptions(ConditionInterruption.AnyBattleTurnEnd)
             .AddToDB();
 
         var powerDragonFuryCold = FeatureDefinitionPowerBuilder

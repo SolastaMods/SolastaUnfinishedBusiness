@@ -1279,9 +1279,9 @@ public static class RulesetCharacterPatcher
                         if (!hero.HasAnyFeature(GameUiContext.ActionAffinityMonkKiPointsToggle))
                         {
                             hero.ActiveFeatures[tag].Add(GameUiContext.ActionAffinityMonkKiPointsToggle);
+                            hero.EnableToggle((ActionDefinitions.Id)ExtraActionId.MonkKiPointsToggle);
                         }
 
-                        hero.EnableToggle((ActionDefinitions.Id)ExtraActionId.MonkKiPointsToggle);
                         break;
                     case false:
                         if (hero.HasAnyFeature(GameUiContext.ActionAffinityMonkKiPointsToggle))
@@ -1289,7 +1289,7 @@ public static class RulesetCharacterPatcher
                             hero.ActiveFeatures[tag].Remove(GameUiContext.ActionAffinityMonkKiPointsToggle);
                         }
 
-                        hero.DisableToggle((ActionDefinitions.Id)ExtraActionId.MonkKiPointsToggle);
+                        hero.EnableToggle((ActionDefinitions.Id)ExtraActionId.MonkKiPointsToggle);
                         break;
                 }
             }
@@ -1304,9 +1304,9 @@ public static class RulesetCharacterPatcher
                         if (!hero.HasAnyFeature(GameUiContext.ActionAffinityPaladinSmiteToggle))
                         {
                             hero.ActiveFeatures[tag].Add(GameUiContext.ActionAffinityPaladinSmiteToggle);
+                            hero.EnableToggle((ActionDefinitions.Id)ExtraActionId.PaladinSmiteToggle);
                         }
 
-                        hero.EnableToggle((ActionDefinitions.Id)ExtraActionId.PaladinSmiteToggle);
                         break;
                     case false:
                         if (hero.HasAnyFeature(GameUiContext.ActionAffinityPaladinSmiteToggle))
@@ -1314,7 +1314,7 @@ public static class RulesetCharacterPatcher
                             hero.ActiveFeatures[tag].Remove(GameUiContext.ActionAffinityPaladinSmiteToggle);
                         }
 
-                        hero.DisableToggle((ActionDefinitions.Id)ExtraActionId.PaladinSmiteToggle);
+                        hero.EnableToggle((ActionDefinitions.Id)ExtraActionId.PaladinSmiteToggle);
                         break;
                 }
             }
