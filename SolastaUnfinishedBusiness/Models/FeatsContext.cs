@@ -33,7 +33,6 @@ internal static class FeatsContext
         DefenseExpertFeats.CreateFeats(feats);
         FightingStyleFeats.CreateFeats(feats);
         MeleeCombatFeats.CreateFeats(feats);
-        MetamagicFeats.CreateFeats(feats);
         PrecisionFocusedFeats.CreateFeats(feats);
         RaceFeats.CreateFeats(feats);
         RangedCombatFeats.CreateFeats(feats); // depends on a group in MeleeCombatFeats

@@ -1,5 +1,5 @@
-Condition/&ConditionFightingStyleCrippledDescription=AC -1 ， 速度 -10 尺
-Condition/&ConditionFightingStyleCrippledTitle=致残
+Condition/&ConditionFightingStyleCripplingDescription=AC -1 ， 速度 -10 尺
+Condition/&ConditionFightingStyleCripplingTitle=致残
 Feature/&PowerFightingStyleTorchbearerDescription=尝试点燃近战目标！
 Feature/&PowerFightingStyleTorchbearerTitle=火炬手
 Feedback/&AdditionalDamageCripplingFormat=致残伤害!
