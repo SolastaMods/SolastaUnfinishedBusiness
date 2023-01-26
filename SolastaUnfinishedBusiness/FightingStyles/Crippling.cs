@@ -31,7 +31,8 @@ internal sealed class Crippling : AbstractFightingStyle
                     {
                         conditionDefinition = ConditionDefinitionBuilder
                             .Create(ConditionHindered_By_Frost, "ConditionFightingStyleCrippling")
-                            .SetSpecialDuration(DurationType.Round, 1)
+                            .SetGuiPresentation(Category.Condition)
+                            .SetSpecialDuration(DurationType.Round, 2)
                             .SetFeatures(
                                 MovementAffinityConditionHindered,
                                 FeatureDefinitionAttributeModifierBuilder

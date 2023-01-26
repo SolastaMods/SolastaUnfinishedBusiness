@@ -1,5 +1,5 @@
-Condition/&ConditionFightingStyleCrippledDescription=CA -1 et vitesse -2.
-Condition/&ConditionFightingStyleCrippledTitle=Estropié
+Condition/&ConditionFightingStyleCripplingDescription=CA -1 et vitesse -2.
+Condition/&ConditionFightingStyleCripplingTitle=Estropié
 Feature/&PowerFightingStyleTorchbearerDescription=Essayez de mettre le feu à une cible de mêlée!
 Feature/&PowerFightingStyleTorchbearerTitle=Porte-flambeau
 Feedback/&AdditionalDamageCripplingFormat=Dégâts paralysants!

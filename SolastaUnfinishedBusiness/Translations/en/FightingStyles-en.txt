@@ -1,5 +1,5 @@
-Condition/&ConditionFightingStyleCrippledDescription=AC -1 and speed -2.
-Condition/&ConditionFightingStyleCrippledTitle=Crippled
+Condition/&ConditionFightingStyleCripplingDescription=Your speed is reduced by 10 ft and your AC by 1.
+Condition/&ConditionFightingStyleCripplingTitle=Crippled
 Feature/&PowerFightingStyleTorchbearerDescription=Attempt to set a melee target on fire!
 Feature/&PowerFightingStyleTorchbearerTitle=Torchbearer
 Feedback/&AdditionalDamageCripplingFormat=Crippling Damage!

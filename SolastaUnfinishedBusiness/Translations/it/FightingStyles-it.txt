@@ -1,5 +1,5 @@
-Condition/&ConditionFightingStyleCrippledDescription=CA -1 e velocità -2.
-Condition/&ConditionFightingStyleCrippledTitle=Paralizzato
+Condition/&ConditionFightingStyleCripplingDescription=CA -1 e velocità -2.
+Condition/&ConditionFightingStyleCripplingTitle=Paralizzato
 Feature/&PowerFightingStyleTorchbearerDescription=Tentativo di incendiare un bersaglio corpo a corpo!
 Feature/&PowerFightingStyleTorchbearerTitle=Tedoforo
 Feedback/&AdditionalDamageCripplingFormat=Danno paralizzante!
