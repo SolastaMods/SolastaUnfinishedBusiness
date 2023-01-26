@@ -19,6 +19,7 @@ namespace SolastaUnfinishedBusiness.Feats;
 
 internal static class OtherFeats
 {
+    internal const string FeatSpellSniperTag = "Sniper";
     internal const string FeatEldritchAdept = "FeatEldritchAdept";
     internal const string FeatWarCaster = "FeatWarCaster";
     internal const string MagicAffinityFeatWarCaster = "MagicAffinityFeatWarCaster";
@@ -55,6 +56,7 @@ internal static class OtherFeats
         var featMonkInitiate = BuildMonkInitiate();
         var featPickPocket = BuildPickPocket();
         var featPoisonousSkin = BuildPoisonousSkin();
+        var featSpellSniper = BuildSpellSniper();
         var featTough = BuildTough();
         var featWarCaster = BuildWarcaster();
 
@@ -70,6 +72,7 @@ internal static class OtherFeats
             featMonkInitiate,
             featPickPocket,
             featPoisonousSkin,
+            featSpellSniper,
             featTough,
             featWarCaster);
 
@@ -91,6 +94,7 @@ internal static class OtherFeats
         var group = GroupFeats.MakeGroup("FeatGroupSpellCombat", null,
             FeatDefinitions.FlawlessConcentration,
             FeatDefinitions.PowerfulCantrip,
+            featSpellSniper,
             featWarCaster);
 
         group.mustCastSpellsPrerequisite = true;
@@ -225,56 +229,6 @@ internal static class OtherFeats
             .SetAbilityScorePrerequisite(AttributeDefinitions.Charisma, 13)
             .AddToDB();
     }
-
-#if false
-    private static void BuildMagicInitiate([NotNull] List<FeatDefinition> feats)
-    {
-        var magicInitiateFeats = new List<FeatDefinition>();
-        var spellLists = new List<SpellListDefinition>
-        {
-            SpellListBard,
-            SpellListCleric,
-            SpellListDruid,
-            SpellListSorcerer,
-            SpellListWarlock,
-            SpellListWizard
-        };
-
-        // ReSharper disable once ForeachCanBeConvertedToQueryUsingAnotherGetEnumerator
-        foreach (var spellList in spellLists)
-        {
-            var className = spellList.Name.Replace("SpellList", "");
-            var classDefinition = GetDefinition<CharacterClassDefinition>(className);
-            var featMagicInitiate = FeatDefinitionWithPrerequisitesBuilder
-                .Create($"{FeatMagicInitiate}{className}")
-                .SetGuiPresentation(
-                    Gui.Format($"Feat/&{FeatMagicInitiate}Title", classDefinition.FormatTitle()),
-                    Gui.Format($"Feat/&{FeatMagicInitiate}Description", classDefinition.FormatTitle()))
-                .SetFeatures(
-                    FeatureDefinitionPointPoolBuilder
-                        .Create($"PointPool{FeatMagicInitiate}{className}Cantrip")
-                        .SetGuiPresentationNoContent(true)
-                        .SetSpellOrCantripPool(HeroDefinitions.PointsPoolType.Cantrip, 2, spellList,
-                            FeatMagicInitiate)
-                        .AddToDB(),
-                    FeatureDefinitionPointPoolBuilder
-                        .Create($"PointPool{FeatMagicInitiate}{className}Spell")
-                        .SetGuiPresentationNoContent(true)
-                        .SetSpellOrCantripPool(HeroDefinitions.PointsPoolType.Spell, 1, spellList,
-                            FeatMagicInitiate, 1, 1)
-                        .AddToDB())
-                .SetMustCastSpellsPrerequisite()
-                .AddToDB();
-
-            magicInitiateFeats.Add(featMagicInitiate);
-        }
-
-        var group = GroupFeats.MakeGroup("FeatGroupMagicInitiate", FeatMagicInitiate, magicInitiateFeats);
-
-        group.mustCastSpellsPrerequisite = true;
-        feats.AddRange(magicInitiateFeats);
-    }
-#endif
 
     private static FeatDefinition BuildMetamagic()
     {
@@ -411,6 +365,39 @@ internal static class OtherFeats
                         new CustomConditionFeatureFeatPoisonousSkin())
                     .AddToDB())
             .SetAbilityScorePrerequisite(AttributeDefinitions.Constitution, 13)
+            .AddToDB();
+    }
+
+    private static FeatDefinition BuildSpellSniper()
+    {
+        const string NAME = "FeatSpellSniper";
+
+        var spellSniperSpells = SpellListDefinitions.SpellListAllCantrips.SpellsByLevel
+            .SelectMany(x => x.Spells)
+            .Where(x => x.EffectDescription.RangeType is RangeType.RangeHit or RangeType.Distance &&
+                        x.EffectDescription.GetFirstFormOfType(EffectForm.EffectFormType.Damage) != null)
+            .ToArray();
+
+        var spellListDefinition = SpellListDefinitionBuilder
+            .Create($"SpellList{NAME}")
+            .SetGuiPresentationNoContent(true)
+            .ClearSpells()
+            .SetSpellsAtLevel(0, spellSniperSpells)
+            .FinalizeSpells(true, -1)
+            .AddToDB();
+
+        return FeatDefinitionWithPrerequisitesBuilder
+            .Create($"{NAME}")
+            .SetGuiPresentation(Category.Feat)
+            .SetFeatures(
+                FeatureDefinitionPointPoolBuilder
+                    .Create($"PointPool{NAME}Cantrip")
+                    .SetGuiPresentationNoContent(true)
+                    .SetSpellOrCantripPool(HeroDefinitions.PointsPoolType.Cantrip, 2, spellListDefinition,
+                        FeatSpellSniperTag)
+                    .AddToDB())
+            .SetCustomSubFeatures(new ModifyMagicEffectFeatSpellSniper())
+            .SetValidators(ValidatorsFeat.HasCantrips())
             .AddToDB();
     }
 
@@ -572,5 +559,30 @@ internal static class OtherFeats
 
     private sealed class AooImmunityMobile : IImmuneToAooOfRecentAttackedTarget
     {
+    }
+
+    private sealed class ModifyMagicEffectFeatSpellSniper : IModifyMagicEffect
+    {
+        public EffectDescription ModifyEffect(
+            BaseDefinition definition,
+            EffectDescription effect,
+            RulesetCharacter caster)
+        {
+            if (definition is not SpellDefinition spellDefinition)
+            {
+                return effect;
+            }
+
+            if ((effect.rangeType != RangeType.RangeHit && effect.rangeType != RangeType.Distance) ||
+                effect.GetFirstFormOfType(EffectForm.EffectFormType.Damage) == null)
+            {
+                return effect;
+            }
+
+            effect.rangeParameter = spellDefinition.EffectDescription.RangeParameter * 2;
+            effect.ignoreCover = true;
+
+            return effect;
+        }
     }
 }

@@ -522,6 +522,32 @@ internal static class LevelUpContext
         characterBuildingManager.GrantFeatures(hero, grantedFeatures, $"02Race{characterLevel}", false);
     }
 
+    internal static void GrantSpellsOrCantripsFromTag(
+        CharacterBuildingManager characterBuildingManager,
+        [NotNull] RulesetCharacterHero hero, string tag)
+    {
+        characterBuildingManager.GetLastAssignedClassAndLevel(hero, out var classDefinition, out var level);
+
+        var spellcastingFeature = classDefinition.FeatureUnlocks
+            .Select(z => z.FeatureDefinition)
+            .OfType<FeatureDefinitionCastSpell>()
+            .FirstOrDefault();
+
+        if (spellcastingFeature == null &&
+            hero.ClassesAndSubclasses.TryGetValue(classDefinition, out var subclassDefinition))
+        {
+            spellcastingFeature = subclassDefinition.FeatureUnlocks
+                .Select(z => z.FeatureDefinition)
+                .OfType<FeatureDefinitionCastSpell>()
+                .FirstOrDefault();
+        }
+
+        var heroBuildingData = hero.GetHeroBuildingData();
+        var classTag = AttributeDefinitions.GetClassTag(classDefinition, level);
+
+        characterBuildingManager.GrantCantripsAndSpellsByTag(heroBuildingData, classTag + tag, spellcastingFeature);
+    }
+
     internal static void SortHeroRepertoires(RulesetCharacterHero hero)
     {
         if (hero.SpellRepertoires.Count <= 2)
