@@ -1,6 +1,14 @@
 CHANGES:
 
-- added Eldritch Initiate feat
-- refactored Metamagic feat to be on par with tabletop
+- changed Way of The Dragon breath uses to proficiency bonus
+- enforced min level 2 to take Eldritch Adept feat
+- enforced min level 3 to take Metamagic Adept feat
+- fixed Crippling condition title and description
+- fixed Ki and Smites toggle logic preventing use of these powers
+- fixed Way of The Dragon dragon fury duration
+- tweaked monsters / NPCs offering on DMP
+
+
+
 
 
