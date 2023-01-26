@@ -476,7 +476,7 @@ internal sealed class CollegeOfWarDancer : AbstractSubclass
 
         public void ModifyAttackMode(RulesetCharacter character, RulesetAttackMode attackMode)
         {
-            if (attackMode == null || ValidatorsWeapon.IsRanged(attackMode))
+            if (attackMode == null || !ValidatorsWeapon.IsMelee(attackMode))
             {
                 return;
             }
