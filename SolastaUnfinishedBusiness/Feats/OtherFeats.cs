@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using HarmonyLib;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.Infrastructure;
 using SolastaUnfinishedBusiness.Builders;
@@ -13,7 +14,6 @@ using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionAttributeModifiers;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionFeatureSets;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPowers;
-using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellListDefinitions;
 
 namespace SolastaUnfinishedBusiness.Feats;
 
@@ -23,7 +23,7 @@ internal static class OtherFeats
     internal const string FeatWarCaster = "FeatWarCaster";
     internal const string MagicAffinityFeatWarCaster = "MagicAffinityFeatWarCaster";
 
-    private const string FeatMagicInitiate = "FeatMagicInitiate";
+    // private const string FeatMagicInitiate = "FeatMagicInitiate";
 
     private static readonly FeatureDefinitionPower PowerFeatPoisonousSkin = FeatureDefinitionPowerBuilder
         .Create("PowerFeatPoisonousSkin")
@@ -50,6 +50,7 @@ internal static class OtherFeats
         var featEldritchAdept = BuildEldritchAdept();
         var featHealer = BuildHealer();
         var featInspiringLeader = BuildInspiringLeader();
+        var featMetamagic = BuildMetamagic();
         var featMobile = BuildMobile();
         var featMonkInitiate = BuildMonkInitiate();
         var featPickPocket = BuildPickPocket();
@@ -64,6 +65,7 @@ internal static class OtherFeats
             featEldritchAdept,
             featHealer,
             featInspiringLeader,
+            featMetamagic,
             featMobile,
             featMonkInitiate,
             featPickPocket,
@@ -120,6 +122,7 @@ internal static class OtherFeats
                     .SetGuiPresentationNoContent(true)
                     .SetPool(HeroDefinitions.PointsPoolType.Invocation, 1)
                     .AddToDB())
+            .SetValidators(ValidatorsFeat.ValidateMinCharLevel(2))
             .AddToDB();
     }
 
@@ -272,6 +275,54 @@ internal static class OtherFeats
         feats.AddRange(magicInitiateFeats);
     }
 #endif
+
+    private static FeatDefinition BuildMetamagic()
+    {
+        // KEEP FOR BACKWARD COMPATIBILITY until next DLC
+        BuildMetamagicBackwardCompatibility();
+
+        return FeatDefinitionWithPrerequisitesBuilder
+            .Create("FeatMetamagicAdept")
+            .SetGuiPresentation(Category.Feat)
+            .SetFeatures(
+                FeatureDefinitionActionAffinitys.ActionAffinitySorcererMetamagicToggle,
+                FeatureDefinitionAttributeModifierBuilder
+                    .Create(AttributeModifierSorcererSorceryPointsBase, "AttributeModifierSorcererSorceryPointsBonus2")
+                    .SetGuiPresentationNoContent(true)
+                    .SetModifier(
+                        FeatureDefinitionAttributeModifier.AttributeModifierOperation.Additive,
+                        AttributeDefinitions.SorceryPoints,
+                        2)
+                    .AddToDB(),
+                FeatureDefinitionPointPoolBuilder
+                    .Create("PointPoolFeatMetamagicAdept")
+                    .SetGuiPresentationNoContent(true)
+                    .SetPool(HeroDefinitions.PointsPoolType.Metamagic, 2)
+                    .AddToDB())
+            .SetMustCastSpellsPrerequisite()
+            .SetValidators(ValidatorsFeat.ValidateMinCharLevel(3))
+            .AddToDB();
+    }
+
+    private static void BuildMetamagicBackwardCompatibility()
+    {
+        // Metamagic
+        _ = FeatureDefinitionAttributeModifierBuilder
+            .Create(AttributeModifierSorcererSorceryPointsBase, "AttributeModifierSorcererSorceryPointsBonus3")
+            .SetGuiPresentationNoContent(true)
+            .SetModifier(
+                FeatureDefinitionAttributeModifier.AttributeModifierOperation.AddProficiencyBonus,
+                AttributeDefinitions.SorceryPoints)
+            .AddToDB();
+
+        var dbMetamagicOptionDefinition = DatabaseRepository.GetDatabase<MetamagicOptionDefinition>();
+
+        dbMetamagicOptionDefinition
+            .Do(metamagicOptionDefinition => FeatDefinitionWithPrerequisitesBuilder
+                .Create($"FeatAdept{metamagicOptionDefinition.Name}")
+                .SetGuiPresentationNoContent(true)
+                .AddToDB());
+    }
 
     private static FeatDefinition BuildMobile()
     {

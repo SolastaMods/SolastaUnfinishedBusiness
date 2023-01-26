@@ -102,6 +102,7 @@ Tooltip/&InvocationUsageShortRestAvailableDescription=Una vez utilizada, esta in
 Tooltip/&InvocationUsageShortRestUsedDescription=Esta invocación requiere un descanso corto o largo para volver a activarse.
 Tooltip/&MonsterNaturalArmorTitle=Armadura Natural
 Tooltip/&PreReqDoesNotKnow=no sabe {0}
+Tooltip/&PreReqLevelFormat=Nivel mínimo de personaje {0}
 Tooltip/&PreReqIs=es {0}
 Tooltip/&PreReqIsNot=no es {0}
 Tooltip/&PreReqMustKnow=debe saber {0}
