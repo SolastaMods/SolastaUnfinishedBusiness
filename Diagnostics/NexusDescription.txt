@@ -162,6 +162,7 @@ You can use a bonus action to select a weapon. Its attacks count as magical and 
 When you make an unarmed strike on your turn, your reach for it is 10 feet.
 [*][b]Blind Fighting[/b]: You have blind sight with a range of 10 feet. Within that range, you can effectively see anything that isn't behind total cover, even if you're blinded or in darkness. Moreover, you can see an invisible creature within that range, unless the creature successfully hides from you.
 [*][b]Bow Mastery[/b]: You gain a +1 bonus to damage rolls you make with shortbows and longbows. When you use the Attack action with a shortbow on your turn, you can make one ranged weapon attack as a bonus action. You can use Strength instead of Dexterity for the attack and damage rolls you make with longbows.
+[*][b]Cantrips Adept[/b]:  You learn two cantrips from the spell list of any class. These cantrips uses your spellcasting ability modifier.
 [*][b]Celestial Touched [Cha][/b]: Increase your Charisma attribute by 1, to a maximum of 20.
 You gain the ability to cast the healing word, cure wounds and lesser restoration spells once per long rest and you can cast these spells with your spell slots.
 [*][b]Celestial Touched [Int][/b]: Increase your Intelligence attribute by 1, to a maximum of 20.

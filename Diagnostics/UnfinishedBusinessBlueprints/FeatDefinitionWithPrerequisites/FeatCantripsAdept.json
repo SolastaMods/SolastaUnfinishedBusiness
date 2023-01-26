@@ -12,13 +12,13 @@
   "familyTag": "",
   "knownFeatsPrerequisite": [],
   "features": [
-    "Definition:PointPoolFeatSpellSniperCantrip:a8d51d41-cd0d-5b35-a5ee-f4508ed83ff6"
+    "Definition:PointPoolFeatCantripsAdeptCantrip:fdcc0453-b00f-5847-a551-b12635b199bf"
   ],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
-    "title": "Feat/&FeatSpellSniperTitle",
-    "description": "Feat/&FeatSpellSniperDescription",
+    "title": "Feat/&FeatCantripsAdeptTitle",
+    "description": "Feat/&FeatCantripsAdeptDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -38,7 +38,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "90b2684c-9542-5101-ae96-b4cf63c3130c",
+  "guid": "daa8a75c-dc3c-51d2-b9c9-ab609f9d1514",
   "contentPack": 9999,
-  "name": "FeatSpellSniper"
+  "name": "FeatCantripsAdept"
 }

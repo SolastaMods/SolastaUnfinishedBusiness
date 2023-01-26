@@ -19,6 +19,7 @@ namespace SolastaUnfinishedBusiness.Feats;
 
 internal static class OtherFeats
 {
+    internal const string FeatCantripsAdeptTag = "Adept";
     internal const string FeatSpellSniperTag = "Sniper";
     internal const string FeatEldritchAdept = "FeatEldritchAdept";
     internal const string FeatWarCaster = "FeatWarCaster";
@@ -48,6 +49,7 @@ internal static class OtherFeats
     internal static void CreateFeats([NotNull] List<FeatDefinition> feats)
     {
         var featAstralArms = BuildAstralArms();
+        var featCantripsAdept = BuildCantripsAdept();
         var featEldritchAdept = BuildEldritchAdept();
         var featHealer = BuildHealer();
         var featInspiringLeader = BuildInspiringLeader();
@@ -64,6 +66,7 @@ internal static class OtherFeats
 
         feats.AddRange(
             featAstralArms,
+            featCantripsAdept,
             featEldritchAdept,
             featHealer,
             featInspiringLeader,
@@ -94,6 +97,7 @@ internal static class OtherFeats
         var group = GroupFeats.MakeGroup("FeatGroupSpellCombat", null,
             FeatDefinitions.FlawlessConcentration,
             FeatDefinitions.PowerfulCantrip,
+            featCantripsAdept,
             featSpellSniper,
             featWarCaster);
 
@@ -115,6 +119,24 @@ internal static class OtherFeats
             .AddToDB();
     }
 
+    private static FeatDefinition BuildCantripsAdept()
+    {
+        const string NAME = "FeatCantripsAdept";
+
+        return FeatDefinitionWithPrerequisitesBuilder
+            .Create($"{NAME}")
+            .SetGuiPresentation(Category.Feat)
+            .SetFeatures(
+                FeatureDefinitionPointPoolBuilder
+                    .Create($"PointPool{NAME}Cantrip")
+                    .SetGuiPresentationNoContent(true)
+                    .SetSpellOrCantripPool(HeroDefinitions.PointsPoolType.Cantrip, 2, SpellListDefinitions.SpellListAllCantrips,
+                        FeatCantripsAdeptTag)
+                    .AddToDB())
+            .SetValidators(ValidatorsFeat.HasCantrips())
+            .AddToDB();
+    }
+    
     private static FeatDefinition BuildEldritchAdept()
     {
         return FeatDefinitionWithPrerequisitesBuilder
@@ -393,7 +415,7 @@ internal static class OtherFeats
                 FeatureDefinitionPointPoolBuilder
                     .Create($"PointPool{NAME}Cantrip")
                     .SetGuiPresentationNoContent(true)
-                    .SetSpellOrCantripPool(HeroDefinitions.PointsPoolType.Cantrip, 2, spellListDefinition,
+                    .SetSpellOrCantripPool(HeroDefinitions.PointsPoolType.Cantrip, 1, spellListDefinition,
                         FeatSpellSniperTag)
                     .AddToDB())
             .SetCustomSubFeatures(new ModifyMagicEffectFeatSpellSniper())
