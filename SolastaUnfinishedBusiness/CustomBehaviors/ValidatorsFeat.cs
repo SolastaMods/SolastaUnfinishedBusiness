@@ -126,21 +126,18 @@ internal static class ValidatorsFeat
         };
     }
 
-#if false
     [NotNull]
-    // Tooltip/&FeatPreReqLevelFormat=Min Character Level {0}
     internal static Func<FeatDefinition, RulesetCharacterHero, (bool result, string output)> ValidateMinCharLevel(
         int minCharLevel)
     {
         return (_, hero) =>
         {
             var isLevelValid = hero.ClassesHistory.Count >= minCharLevel;
-            var guiFormat = Gui.Format("Tooltip/&FeatPreReqLevelFormat", minCharLevel.ToString());
+            var guiFormat = Gui.Format("Tooltip/&PreReqLevelFormat", minCharLevel.ToString());
 
             return isLevelValid
                 ? (true, guiFormat)
                 : (false, Gui.Colorize(guiFormat, Gui.ColorFailure));
         };
     }
-#endif
 }

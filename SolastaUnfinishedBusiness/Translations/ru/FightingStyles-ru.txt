@@ -1,5 +1,5 @@
-Condition/&ConditionFightingStyleCrippledDescription=КД -1 и скорость -2.
-Condition/&ConditionFightingStyleCrippledTitle=Покалечен
+Condition/&ConditionFightingStyleCripplingDescription=КД -1 и скорость -2.
+Condition/&ConditionFightingStyleCripplingTitle=Покалечен
 Feature/&PowerFightingStyleTorchbearerDescription=Попытаться поджечь цель в ближнем бою!
 Feature/&PowerFightingStyleTorchbearerTitle=Факелоносец
 Feedback/&AdditionalDamageCripplingFormat=Калечащий Урон!

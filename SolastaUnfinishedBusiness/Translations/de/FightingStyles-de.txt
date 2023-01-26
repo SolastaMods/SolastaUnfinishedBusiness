@@ -1,5 +1,5 @@
-Condition/&ConditionFightingStyleCrippledDescription=AC -1 und Geschwindigkeit -2.
-Condition/&ConditionFightingStyleCrippledTitle=Verkrüppelt
+Condition/&ConditionFightingStyleCripplingDescription=AC -1 und Geschwindigkeit -2.
+Condition/&ConditionFightingStyleCripplingTitle=Verkrüppelt
 Feature/&PowerFightingStyleTorchbearerDescription=Versuchen Sie, ein Nahkampfziel in Brand zu setzen!
 Feature/&PowerFightingStyleTorchbearerTitle=Fackelträger
 Feedback/&AdditionalDamageCripplingFormat=Lähmender Schaden!

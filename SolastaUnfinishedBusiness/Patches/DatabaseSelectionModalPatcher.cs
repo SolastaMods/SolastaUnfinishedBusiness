@@ -23,19 +23,15 @@ public static class DatabaseSelectionModalPatcher
                 return true;
             }
 
-            __instance.allMonsters.SetRange(DatabaseRepository.GetDatabase<MonsterDefinition>()
-                .Where(x => !x.GuiPresentation.Hidden)
-                .OrderBy(d => d.dungeonMakerPresence + Gui.Localize(d.GuiPresentation.Title)));
+            __instance.allMonsters
+                .SetRange(DatabaseRepository
+                    .GetDatabase<MonsterDefinition>()
+                    .Where(x => !x.GuiPresentation.Hidden)
+                    .OrderBy(d => d.dungeonMakerPresence + Gui.Localize(d.GuiPresentation.Title)));
 
             var service = ServiceRepository.GetService<IGamingPlatformService>();
 
-            for (var index = __instance.allMonsters.Count - 1; index >= 0; --index)
-            {
-                if (!service.IsContentPackAvailable(__instance.allMonsters[index].ContentPack))
-                {
-                    __instance.allMonsters.RemoveAt(index);
-                }
-            }
+            __instance.allMonsters.RemoveAll(x => !service.IsContentPackAvailable(x.ContentPack));
 
             return false;
         }
@@ -55,21 +51,15 @@ public static class DatabaseSelectionModalPatcher
                 return true;
             }
 
-            __instance.allNpcs.SetRange(DatabaseRepository.GetDatabase<MonsterDefinition>()
-                .Where(x => x.dungeonMakerPresence
-                    is MonsterDefinition.DungeonMaker.Monster
-                    or MonsterDefinition.DungeonMaker.NPC)
-                .OrderBy(d => d.dungeonMakerPresence + Gui.Localize(d.GuiPresentation.Title)));
+            __instance.allNpcs
+                .SetRange(DatabaseRepository
+                    .GetDatabase<MonsterDefinition>()
+                    .Where(x => !x.GuiPresentation.Hidden)
+                    .OrderBy(d => d.dungeonMakerPresence + Gui.Localize(d.GuiPresentation.Title)));
 
             var service = ServiceRepository.GetService<IGamingPlatformService>();
 
-            for (var index = __instance.allNpcs.Count - 1; index >= 0; --index)
-            {
-                if (!service.IsContentPackAvailable(__instance.allNpcs[index].ContentPack))
-                {
-                    __instance.allNpcs.RemoveAt(index);
-                }
-            }
+            __instance.allMonsters.RemoveAll(x => !service.IsContentPackAvailable(x.ContentPack));
 
             return false;
         }

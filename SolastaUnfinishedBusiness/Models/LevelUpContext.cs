@@ -740,7 +740,7 @@ internal static class LevelUpContext
         }
         else
         {
-            var screen = Gui.GuiService.GetScreen<CharacterLevelUpScreen>();
+            var screen = Gui.GuiService.GetScreen<CharacterCreationScreen>();
 
             if (screen != null && screen.Visible)
             {

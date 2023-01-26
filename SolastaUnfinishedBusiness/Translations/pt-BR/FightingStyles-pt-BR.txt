@@ -1,5 +1,5 @@
-Condition/&ConditionFightingStyleCrippledDescription=CA -1 e velocidade -2.
-Condition/&ConditionFightingStyleCrippledTitle=Aleijado
+Condition/&ConditionFightingStyleCripplingDescription=CA -1 e velocidade -2.
+Condition/&ConditionFightingStyleCripplingTitle=Aleijado
 Feature/&PowerFightingStyleTorchbearerDescription=Tente incendiar um alvo corpo a corpo!
 Feature/&PowerFightingStyleTorchbearerTitle=Portador da tocha
 Feedback/&AdditionalDamageCripplingFormat=Dano incapacitante!

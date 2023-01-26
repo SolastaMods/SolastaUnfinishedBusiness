@@ -1,5 +1,5 @@
-Condition/&ConditionFightingStyleCrippledDescription=CA -1 y velocidad -2.
-Condition/&ConditionFightingStyleCrippledTitle=Lisiado
+Condition/&ConditionFightingStyleCripplingDescription=CA -1 y velocidad -2.
+Condition/&ConditionFightingStyleCripplingTitle=Lisiado
 Feature/&PowerFightingStyleTorchbearerDescription=¡Intenta prender fuego a un objetivo cuerpo a cuerpo!
 Feature/&PowerFightingStyleTorchbearerTitle=Portador de la antorcha
 Feedback/&AdditionalDamageCripplingFormat=¡Daño paralizante!
