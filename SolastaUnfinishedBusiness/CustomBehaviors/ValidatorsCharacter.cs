@@ -108,11 +108,10 @@ internal static class ValidatorsCharacter
                DatabaseHelper.WeaponTypeDefinitions.HeavyCrossbowType;
     };
 
-#if false
     internal static readonly IsCharacterValidHandler MainHandIsFinesseWeapon = character =>
         ValidatorsWeapon.HasAnyWeaponTag(character.GetItemInSlot(EquipmentDefinitions.SlotTypeMainHand),
             TagsDefinitions.WeaponTagFinesse);
-#endif
+
     internal static readonly IsCharacterValidHandler MainHandIsGreatSword = character =>
         ValidatorsWeapon.IsGreatSword(character.GetItemInSlot(EquipmentDefinitions.SlotTypeMainHand));
 

@@ -127,27 +127,28 @@ internal static class MeleeCombatFeats
 
     internal static void CreateFeats([NotNull] List<FeatDefinition> feats)
     {
+        var featCrusherStr = BuildCrusherStr();
+        var featCrusherCon = BuildCrusherCon();
+        var featDefensiveDuelist = BuildDefensiveDuelist();
+        var featPiercerDex = BuildPiercerDex();
+        var featPiercerStr = BuildPiercerStr();
         var featPowerAttack = BuildPowerAttack();
         var featRecklessAttack = BuildRecklessAttack();
         var featSavageAttack = BuildSavageAttack();
-        var featCrusherStr = BuildCrusherStr();
-        var featCrusherCon = BuildCrusherCon();
-        var featPiercerDex = BuildPiercerDex();
-        var featPiercerStr = BuildPiercerStr();
         var featSlasherStr = BuildSlasherStr();
         var featSlasherDex = BuildSlasherDex();
 
         feats.AddRange(
+            featDefensiveDuelist,
             featCrusherStr,
             featCrusherCon,
             featPiercerDex,
             featPiercerStr,
-            featSlasherDex,
-            featSlasherStr,
             featPowerAttack,
             featRecklessAttack,
-            featSavageAttack);
-
+            featSavageAttack,
+            featSlasherDex,
+            featSlasherStr);
 
         var featGroupCrusher = GroupFeats.MakeGroup("FeatGroupCrusher", Crusher,
             featCrusherStr,
@@ -172,6 +173,53 @@ internal static class MeleeCombatFeats
             featGroupCrusher,
             FeatGroupPiercer,
             featGroupSlasher);
+    }
+
+    private static FeatDefinition BuildDefensiveDuelist()
+    {
+        const string NAME = "FeatDefensiveDuelist";
+
+        var conditionDefensiveDuelist = ConditionDefinitionBuilder
+            .Create($"Condition{NAME}")
+            .SetGuiPresentation(NAME, Category.Feat)
+            .SetFeatures(FeatureDefinitionAttributeModifierBuilder
+                .Create($"AttributeModifier{NAME}")
+                .SetGuiPresentation($"Power{NAME}", Category.Feature)
+                .SetModifier(
+                    FeatureDefinitionAttributeModifier.AttributeModifierOperation.Additive,
+                    AttributeDefinitions.ArmorClass,
+                    3)
+                .AddToDB())
+            .SetSilent(Silent.WhenAddedOrRemoved)
+            .AddToDB();
+
+        var powerDefensiveDuelist = FeatureDefinitionPowerBuilder
+            .Create($"Power{NAME}")
+            .SetGuiPresentation(NAME, Category.Feat)
+            .SetUsesFixed(ActivationTime.Reaction)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetDurationData(DurationType.Round, 1)
+                    .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
+                    .SetEffectForms(EffectFormBuilder
+                        .Create()
+                        .SetConditionForm(
+                            conditionDefensiveDuelist,
+                            ConditionForm.ConditionOperation.Add,
+                            true,
+                            true)
+                        .Build())
+                    .Build())
+            .SetCustomSubFeatures(new ValidatorsPowerUse(ValidatorsCharacter.MainHandIsFinesseWeapon))
+            .AddToDB();
+
+        return FeatDefinitionBuilder
+            .Create(NAME)
+            .SetGuiPresentation(Category.Feat)
+            .SetFeatures(powerDefensiveDuelist)
+            .SetAbilityScorePrerequisite(AttributeDefinitions.Dexterity, 13)
+            .AddToDB();
     }
 
     private static FeatDefinition BuildPowerAttack()

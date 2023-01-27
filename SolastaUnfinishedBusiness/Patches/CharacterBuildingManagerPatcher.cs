@@ -9,6 +9,7 @@ using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.CustomDefinitions;
 using SolastaUnfinishedBusiness.CustomUI;
+using SolastaUnfinishedBusiness.Feats;
 using SolastaUnfinishedBusiness.Models;
 using TA;
 using static FeatureDefinitionCastSpell;
@@ -156,8 +157,14 @@ public static class CharacterBuildingManagerPatcher
         }
 
         [UsedImplicitly]
-        public static void Postfix([NotNull] RulesetCharacterHero hero)
+        public static void Postfix(CharacterBuildingManager __instance, [NotNull] RulesetCharacterHero hero)
         {
+            //PATCH: adds cantrips selected on feat cantrips adept
+            LevelUpContext.GrantSpellsOrCantripsFromTag(__instance, hero, OtherFeats.FeatCantripsAdeptTag);
+            
+            //PATCH: adds cantrips selected on feat spell sniper
+            LevelUpContext.GrantSpellsOrCantripsFromTag(__instance, hero, OtherFeats.FeatSpellSniperTag);
+
             //PATCH: keeps spell repertoires sorted by class title but ancestry one is always kept first
             LevelUpContext.SortHeroRepertoires(hero);
 

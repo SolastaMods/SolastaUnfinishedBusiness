@@ -78,6 +78,20 @@ internal static class ItemCraftingMerchantContext
 
         HerbalismKit.GuiPresentation.spriteReference =
             Sprites.GetSprite("RecipeRadiantBolt", Resources.HerbalismKit, 120, 121);
+
+        CraftingManualRemedy.GuiPresentation.spriteReference =
+            Sprites.GetSprite("CraftingManualRemedy", Resources.CraftingManualRemedy, 128, 128);
+
+        CraftingManualPotionOfSuperiorHealing.GuiPresentation.spriteReference =
+            Sprites.GetSprite("CraftingManualPotionOfSuperiorHealing", Resources.CraftingManualPotionOfSuperiorHealing,
+                128, 128);
+
+        CraftingManualPotionOfHealing.GuiPresentation.spriteReference =
+            Sprites.GetSprite("CraftingManualPotionOfHealing", Resources.CraftingManualPotionOfHealing, 128, 128);
+
+        CraftingManualPotionOfGreaterHealing.GuiPresentation.spriteReference =
+            Sprites.GetSprite("CraftingManualPotionOfGreaterHealing", Resources.CraftingManualPotionOfGreaterHealing,
+                128, 128);
     }
 
     private static void LoadClothingGorimStock()

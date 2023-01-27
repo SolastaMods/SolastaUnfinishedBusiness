@@ -2,6 +2,7 @@
 using System.Linq;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.Extensions;
+using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Races;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterRaceDefinitions;
 
@@ -49,6 +50,30 @@ internal static class ValidatorsFeat
         };
     }
 #endif
+
+    internal static Func<FeatDefinition, RulesetCharacterHero, (bool result, string output)> HasCantrips()
+    {
+        return (_, hero) =>
+        {
+            var hasCantrips = false;
+            var selectedClass = LevelUpContext.GetSelectedClass(hero);
+            var selectedSubClass = LevelUpContext.GetSelectedSubclass(hero);
+
+            if (selectedClass != null)
+            {
+                hasCantrips = hero.SpellRepertoires.Exists(x =>
+                    (x.SpellCastingFeature.SpellCastingOrigin == FeatureDefinitionCastSpell.CastingOrigin.Class &&
+                     x.SpellCastingClass == selectedClass && x.SpellCastingFeature.SpellListDefinition.HasCantrips) ||
+                    (x.SpellCastingFeature.SpellCastingOrigin == FeatureDefinitionCastSpell.CastingOrigin.Subclass &&
+                     x.SpellCastingSubclass == selectedSubClass &&
+                     x.SpellCastingFeature.SpellListDefinition.HasCantrips));
+            }
+
+            var guiLocalize = Gui.Localize("Tooltip/&PreReqHasCantrips");
+
+            return hasCantrips ? (true, guiLocalize) : (false, Gui.Colorize(guiLocalize, Gui.ColorFailure));
+        };
+    }
 
     [NotNull]
     internal static Func<FeatDefinition, RulesetCharacterHero, (bool result, string output)> ValidateNotFightingStyle(

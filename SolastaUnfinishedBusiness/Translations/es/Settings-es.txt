@@ -54,7 +54,7 @@ ModUi/&DisableSenseSuperiorDarkVisionFromAllRaces=Deshabilita <color=#D89555>Sup
 ModUi/&DisplayAllKnownSpellsDuringLevelUp=<i>+ Mostrar todos los hechizos conocidos de otras clases durante la subida de nivel</i>
 ModUi/&DisplayPactSlotsOnSpellSelectionPanel=<i>+ Mostrar espacios de pacto <color=#D89555>Brujo</color> en la selección de hechizos en lugar del panel de personajes</i>
 ModUi/&DontFollowCharacterInBattle=La cámara de batalla no sigue cuando el personaje ya está en la pantalla
-ModUi/&DontFollowMargin=<i><color=blanco>+ A menos que el héroe esté apagado o dentro del % del borde de la pantalla</color></i>
+ModUi/&DontFollowMargin=<i><color=Blanco>+ A menos que el héroe esté apagado o dentro del % del borde de la pantalla</color></i>
 ModUi/&DungeonMakerBasicHelp=. Estas configuraciones no requerirán que el jugador tenga este mod instalado
 ModUi/&DungeonMakerMenu=Creador de mazmorras
 ModUi/&EmpressGarbAppearance=Apariencia <color=#D89555>Atuendo de emperatriz</color>
@@ -157,7 +157,7 @@ ModUi/&Races=<color=#F0DAA0>Carreras</color>
 ModUi/&RacesClassesSubclasses=Razas, Clases y Subclases
 ModUi/&RecipeCost=<color=white>Coste de la receta</color>
 ModUi/&RecipesInDm=Recetas en DM
-ModUi/&RelicForgeries=falsificaciones de reliquias
+ModUi/&RelicForgeries=Falsificaciones de reliquias
 ModUi/&RemoveAttunementRequirements=Eliminar los requisitos de sintonización <b><i><color=#C04040E0>[Requiere reiniciar]</color></i></b>
 ModUi/&RemoveBugVisualModels=Reemplace los modelos con forma de araña con imágenes alternativas en el juego <b><i><color=#C04040E0>[Requiere reinicio]</color></i></b>
 ModUi/&RemoveHumanoidFilterOnHideousLaughter=Eliminar filtro humanoide en <color=#D89555>Risas espantosas</color>
@@ -173,7 +173,7 @@ ModUi/&ScaleMerchantPricesCorrectly=Escale los precios de los comerciantes corre
 ModUi/&SelectAll=Seleccionar todo
 ModUi/&SelectSuggested=Seleccionar sugerido
 ModUi/&Services=Servicios
-ModUi/&SetBeltOfDwarvenKindBeardChances=<color=#D89555>Cinturón de raza enana</color> <color=blanco>posibilidades de aparición de barba</color>
+ModUi/&SetBeltOfDwarvenKindBeardChances=<color=#D89555>Cinturón de raza enana</color> <color=Blanco>posibilidades de aparición de barba</color>
 ModUi/&ShowCraftingRecipeInDetailedTooltips=Mostrar receta de elaboración en información detallada sobre herramientas
 ModUi/&ShowDescriptions=Mostrar descripciones
 ModUi/&SpellInstructions=. Puede asignar individualmente cada hechizo a cualquier lista de hechizos o simplemente seleccionar el conjunto sugerido

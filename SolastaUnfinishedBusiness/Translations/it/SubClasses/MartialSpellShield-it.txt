@@ -6,7 +6,5 @@ Feature/&PowerSpellShieldArcaneDeflectionDescription=Puoi usare i tuoi poteri ar
 Feature/&PowerSpellShieldArcaneDeflectionTitle=Deviazione Arcana
 Feature/&PowerSpellShieldRangedDeflectionDescription=Quando un attaccante che puoi vedere ti colpisce con un attacco a distanza o un incantesimo, puoi usare la tua reazione per dimezzare il danno dell'attacco contro di te.
 Feature/&PowerSpellShieldRangedDeflectionTitle=Deviazione a distanza
-Reaction/&SpendPowerPowerSpellShieldArcaneDeflectionDescription=Puoi usare i tuoi poteri arcani per proteggerti come reazione.
-Reaction/&SpendPowerPowerSpellShieldArcaneDeflectionTitle=Scudo magico
 Subclass/&MartialSpellShieldDescription=Gli Scudi magici sono combattenti specializzati in difesa e protezione. Usano la magia per aiutare le loro abilità naturali.
 Subclass/&MartialSpellShieldTitle=Scudo magico

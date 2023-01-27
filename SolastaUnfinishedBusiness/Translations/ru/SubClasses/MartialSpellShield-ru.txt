@@ -6,7 +6,5 @@ Feature/&PowerSpellShieldArcaneDeflectionDescription=В качестве реа�
 Feature/&PowerSpellShieldArcaneDeflectionTitle=Арканическое Отражение
 Feature/&PowerSpellShieldRangedDeflectionDescription=Когда нападающий, которого вы видите, поражает вас дальнобойной атакой или заклинанием, вы можете реакцией уполовинить урон от атаки против вас.
 Feature/&PowerSpellShieldRangedDeflectionTitle=Отражение дальнего боя
-Reaction/&SpendPowerPowerSpellShieldArcaneDeflectionDescription=В качестве реакции вы можете использовать свои тайные силы, чтобы защитить себя.
-Reaction/&SpendPowerPowerSpellShieldArcaneDeflectionTitle=Щиты Магии
 Subclass/&MartialSpellShieldDescription=Щиты Магии это бойцы, которые специализируются на охране и защите. Они используют магию, чтобы помочь своим природным способностям.
 Subclass/&MartialSpellShieldTitle=Щиты Магии
