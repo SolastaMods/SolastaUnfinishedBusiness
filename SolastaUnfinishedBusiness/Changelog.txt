@@ -1,14 +1,7 @@
 CHANGES:
 
-- changed Way of The Dragon breath uses to proficiency bonus
-- enforced min level 2 to take Eldritch Adept feat
-- enforced min level 3 to take Metamagic Adept feat
-- fixed Crippling condition title and description
-- fixed Ki and Smites toggle logic preventing use of these powers
-- fixed Way of The Dragon dragon fury duration
-- tweaked monsters / NPCs offering on DMP
-
-
-
-
-
+- added additional custom icons for Potions of Healing manuals
+- added Cantrips Adept feat
+- added Defensive Duelist feat
+- added Spell Sniper feat
+- tweaked War Dancer momentum debuff checks to properly work with thrown melee weapons

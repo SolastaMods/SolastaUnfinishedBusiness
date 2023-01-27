@@ -1,5 +1,13 @@
 ﻿CHANGES:
 
+1.4.33.14:
+
+- added additional custom icons for Potions of Healing manuals
+- added Cantrips Adept feat
+- added Defensive Duelist feat
+- added Spell Sniper feat
+- tweaked War Dancer momentum debuff checks to properly work with thrown melee weapons
+
 1.4.33.13:
 
 - changed Way of The Dragon breath uses to proficiency bonus
