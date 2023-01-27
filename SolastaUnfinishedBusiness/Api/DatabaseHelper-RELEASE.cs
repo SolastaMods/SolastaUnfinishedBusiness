@@ -796,6 +796,9 @@ internal static partial class DatabaseHelper
         internal static ItemDefinition CraftingManual_Alchemy_Flaming_Bolts { get; } = GetDefinition<ItemDefinition>("CraftingManual_Alchemy_Flaming_Bolts");
         internal static ItemDefinition CraftingManual_Alchemy_Flash_Bolts { get; } = GetDefinition<ItemDefinition>("CraftingManual_Alchemy_Flash_Bolts");
         internal static ItemDefinition CraftingManual_Enchant_Longsword_Warden { get; } = GetDefinition<ItemDefinition>("CraftingManual_Enchant_Longsword_Warden");
+        internal static ItemDefinition CraftingManualPotionOfGreaterHealing { get; } = GetDefinition<ItemDefinition>("CraftingManualPotionOfGreaterHealing");
+        internal static ItemDefinition CraftingManualPotionOfHealing { get; } = GetDefinition<ItemDefinition>("CraftingManualPotionOfHealing");
+        internal static ItemDefinition CraftingManualPotionOfSuperiorHealing { get; } = GetDefinition<ItemDefinition>("CraftingManualPotionOfSuperiorHealing");
         internal static ItemDefinition CraftingManualRemedy { get; } = GetDefinition<ItemDefinition>("CraftingManualRemedy");
         internal static ItemDefinition CraftingManualScrollOfVampiricTouch { get; } = GetDefinition<ItemDefinition>("CraftingManualScrollOfVampiricTouch");
         internal static ItemDefinition CrownOfTheMagister { get; } = GetDefinition<ItemDefinition>("CrownOfTheMagister");
