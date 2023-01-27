@@ -1,12 +1,5 @@
 {
-  "$type": "FeatureDefinitionAttributeModifier, Assembly-CSharp",
-  "modifiedAttribute": "ArmorClass",
-  "modifierOperation": "AddProficiencyBonus",
-  "modifierValue": 0,
-  "modifierAbilityScore": "Constitution",
-  "situationalContext": "None",
-  "minimum1": false,
-  "useBonusFromCaster": false,
+  "$type": "FeatureDefinition, Assembly-CSharp",
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
@@ -31,7 +24,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "290701ea-b9e5-59d8-8884-bac2c69781ec",
+  "guid": "c85a1d97-0d72-5867-9a2a-fc4a358c137b",
   "contentPack": 9999,
-  "name": "AttributeModifierFeatDefensiveDuelist"
+  "name": "CustomCodeFeatAdeptMetamagicTwinnedSpell"
 }

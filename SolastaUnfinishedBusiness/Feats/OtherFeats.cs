@@ -11,6 +11,7 @@ using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Properties;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionActionAffinitys;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionAttributeModifiers;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionFeatureSets;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPowers;
@@ -282,8 +283,7 @@ internal static class OtherFeats
 
     private static void BuildMetamagicBackwardCompatibility()
     {
-        // Metamagic
-        _ = FeatureDefinitionAttributeModifierBuilder
+        var attributeModifierSorcererSorceryPointsBonus3 = FeatureDefinitionAttributeModifierBuilder
             .Create(AttributeModifierSorcererSorceryPointsBase, "AttributeModifierSorcererSorceryPointsBonus3")
             .SetGuiPresentationNoContent(true)
             .SetModifier(
@@ -291,13 +291,44 @@ internal static class OtherFeats
                 AttributeDefinitions.SorceryPoints)
             .AddToDB();
 
+        var metaMagicFeats = new List<FeatDefinition>();
         var dbMetamagicOptionDefinition = DatabaseRepository.GetDatabase<MetamagicOptionDefinition>();
 
-        dbMetamagicOptionDefinition
-            .Do(metamagicOptionDefinition => FeatDefinitionWithPrerequisitesBuilder
+        metaMagicFeats.SetRange(dbMetamagicOptionDefinition
+            .Select(metamagicOptionDefinition => FeatDefinitionWithPrerequisitesBuilder
                 .Create($"FeatAdept{metamagicOptionDefinition.Name}")
                 .SetGuiPresentationNoContent(true)
-                .AddToDB());
+                .SetFeatures(
+                    ActionAffinitySorcererMetamagicToggle,
+                    attributeModifierSorcererSorceryPointsBonus3,
+                    FeatureDefinitionBuilder
+                        .Create($"CustomCodeFeatAdept{metamagicOptionDefinition.Name}")
+                        .SetGuiPresentationNoContent(true)
+                        .SetCustomSubFeatures(new CustomCodeFeatMetamagicAdept(metamagicOptionDefinition))
+                        .AddToDB())
+                .SetAbilityScorePrerequisite(AttributeDefinitions.Charisma, 13)
+                .SetMustCastSpellsPrerequisite()
+                .AddToDB()));
+    }
+    
+    private sealed class CustomCodeFeatMetamagicAdept : IFeatureDefinitionCustomCode
+    {
+        public CustomCodeFeatMetamagicAdept(MetamagicOptionDefinition metamagicOption)
+        {
+            MetamagicOption = metamagicOption;
+        }
+
+        private MetamagicOptionDefinition MetamagicOption { get; }
+
+        public void ApplyFeature([NotNull] RulesetCharacterHero hero, string tag)
+        {
+            if (hero.MetamagicFeatures.ContainsKey(MetamagicOption))
+            {
+                return;
+            }
+
+            hero.TrainMetaMagicOptions(new List<MetamagicOptionDefinition> { MetamagicOption });
+        }
     }
 
     private static FeatDefinition BuildMobile()

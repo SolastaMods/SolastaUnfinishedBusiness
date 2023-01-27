@@ -1,7 +1,4 @@
 CHANGES:
 
-- added additional custom icons for Potions of Healing manuals
-- added Cantrips Adept feat
-- added Defensive Duelist feat
-- added Spell Sniper feat
-- tweaked War Dancer momentum debuff checks to properly work with thrown melee weapons
+- fixed some "Marty" McFly issues
+- tweaked Defensive Duelist feat
