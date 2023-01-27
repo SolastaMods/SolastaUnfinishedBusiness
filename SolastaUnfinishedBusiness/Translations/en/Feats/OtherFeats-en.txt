@@ -41,5 +41,5 @@ Reaction/&ReactionWarcasterTitle=Attack of Opportunity
 Reaction/&SubitemSelectReactionWarcasterTitle=Select action
 Reaction/&WarcasterAttackDescription=Attack target.
 Reaction/&WarcasterAttackTitle=Attack
-Tag/&SniperCantripSpecialTagTitle=Sniper Cantrips
 Tag/&AdeptCantripSpecialTagTitle=Adept Cantrips
+Tag/&SniperCantripSpecialTagTitle=Sniper Cantrips
