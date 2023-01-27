@@ -150,7 +150,6 @@ internal static class MeleeCombatFeats
             featSlasherDex,
             featSlasherStr);
 
-
         var featGroupCrusher = GroupFeats.MakeGroup("FeatGroupCrusher", Crusher,
             featCrusherStr,
             featCrusherCon);
@@ -179,13 +178,13 @@ internal static class MeleeCombatFeats
     private static FeatDefinition BuildDefensiveDuelist()
     {
         const string NAME = "FeatDefensiveDuelist";
-        
-        var conditionSpellShieldArcaneDeflection = ConditionDefinitionBuilder
+
+        var conditionDefensiveDuelist = ConditionDefinitionBuilder
             .Create($"Condition{NAME}")
             .SetGuiPresentation(NAME, Category.Feat)
             .SetFeatures(FeatureDefinitionAttributeModifierBuilder
                 .Create($"AttributeModifier{NAME}")
-                .SetGuiPresentation("Power{NAME}", Category.Feature)
+                .SetGuiPresentation($"Power{NAME}", Category.Feature)
                 .SetModifier(
                     FeatureDefinitionAttributeModifier.AttributeModifierOperation.Additive,
                     AttributeDefinitions.ArmorClass,
@@ -195,7 +194,7 @@ internal static class MeleeCombatFeats
             .AddToDB();
 
         var powerDefensiveDuelist = FeatureDefinitionPowerBuilder
-            .Create("Power{NAME}")
+            .Create($"Power{NAME}")
             .SetGuiPresentation(NAME, Category.Feat)
             .SetUsesFixed(ActivationTime.Reaction)
             .SetEffectDescription(
@@ -206,7 +205,7 @@ internal static class MeleeCombatFeats
                     .SetEffectForms(EffectFormBuilder
                         .Create()
                         .SetConditionForm(
-                            conditionSpellShieldArcaneDeflection,
+                            conditionDefensiveDuelist,
                             ConditionForm.ConditionOperation.Add,
                             true,
                             true)
@@ -214,7 +213,7 @@ internal static class MeleeCombatFeats
                     .Build())
             .SetCustomSubFeatures(new ValidatorsPowerUse(ValidatorsCharacter.MainHandIsFinesseWeapon))
             .AddToDB();
-        
+
         return FeatDefinitionBuilder
             .Create(NAME)
             .SetGuiPresentation(Category.Feat)
@@ -222,6 +221,7 @@ internal static class MeleeCombatFeats
             .SetAbilityScorePrerequisite(AttributeDefinitions.Dexterity, 13)
             .AddToDB();
     }
+
     private static FeatDefinition BuildPowerAttack()
     {
         var concentrationProvider = new StopPowerConcentrationProvider("PowerAttack",
