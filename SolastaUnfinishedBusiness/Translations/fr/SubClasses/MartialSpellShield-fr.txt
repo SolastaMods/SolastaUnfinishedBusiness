@@ -6,7 +6,5 @@ Feature/&PowerSpellShieldArcaneDeflectionDescription=Vous pouvez utiliser vos po
 Feature/&PowerSpellShieldArcaneDeflectionTitle=Déviation arcanique
 Feature/&PowerSpellShieldRangedDeflectionDescription=Lorsqu'un attaquant que vous pouvez voir vous touche avec une attaque à distance ou un sort, vous pouvez utiliser votre réaction pour réduire de moitié les dégâts de l'attaque contre vous.
 Feature/&PowerSpellShieldRangedDeflectionTitle=Déviation à distance
-Reaction/&SpendPowerPowerSpellShieldArcaneDeflectionDescription=Vous pouvez utiliser vos pouvoirs arcaniques pour vous protéger en réaction.
-Reaction/&SpendPowerPowerSpellShieldArcaneDeflectionTitle=Bouclier anti-sort
 Subclass/&MartialSpellShieldDescription=Les Spell Shields sont des combattants spécialisés dans la défense et la protection. Ils utilisent la magie pour aider leurs capacités naturelles.
 Subclass/&MartialSpellShieldTitle=Bouclier anti-sort

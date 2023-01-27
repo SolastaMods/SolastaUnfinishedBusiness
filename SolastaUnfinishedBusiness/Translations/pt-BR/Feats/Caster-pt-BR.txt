@@ -38,4 +38,4 @@ Screen/&FlameTouchedSpellDescription=Este feitiço tocado por chamas está sempr
 Screen/&FlameTouchedSpellTitle=Chama
 Screen/&ShadowTouchedSpellDescription=Este feitiço tocado pelas sombras está sempre preparado.
 Screen/&ShadowTouchedSpellTitle=Sombra
-UI/&CustomFeatureSelectionTooltipTypePlaneMagic=plano mágico
+UI/&CustomFeatureSelectionTooltipTypePlaneMagic=Plano mágico

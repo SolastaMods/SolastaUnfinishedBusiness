@@ -157,7 +157,7 @@ ModUi/&Races=<color=#F0DAA0>Corridas</color>
 ModUi/&RacesClassesSubclasses=Raças, classes e subclasses
 ModUi/&RecipeCost=<color=white>Custo da receita</color>
 ModUi/&RecipesInDm=Receitas na DM
-ModUi/&RelicForgeries=falsificações de relíquias
+ModUi/&RelicForgeries=Falsificações de relíquias
 ModUi/&RemoveAttunementRequirements=Remova os requisitos de sintonização <b><i><color=#C04040E0>[Requer reinicialização]</color></i></b>
 ModUi/&RemoveBugVisualModels=Substitua modelos semelhantes a aranhas por visuais alternativos no jogo <b><i><color=#C04040E0>[Requer reinicialização]</color></i></b>
 ModUi/&RemoveHumanoidFilterOnHideousLaughter=Remova o filtro humanoide em <color=#D89555>Gargalhada</color>
