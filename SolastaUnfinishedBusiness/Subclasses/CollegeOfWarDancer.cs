@@ -48,6 +48,13 @@ internal sealed class CollegeOfWarDancer : AbstractSubclass
         .SetCustomSubFeatures(new RemoveOnAttackMissOrAttackWithNonMeleeWeapon())
         .AddToDB();
 
+    private static readonly ConditionDefinition MomentumAlreadyApplied = ConditionDefinitionBuilder
+        .Create("ConditionWarDanceMomentumAlreadyApplied")
+        .SetGuiPresentationNoContent()
+        .SetSilent(Silent.WhenAddedOrRemoved)
+        .SetSpecialInterruptions(ConditionInterruption.AnyBattleTurnEnd)
+        .AddToDB();
+    
     internal CollegeOfWarDancer()
     {
         var warDance = FeatureDefinitionPowerBuilder
@@ -335,16 +342,27 @@ internal sealed class CollegeOfWarDancer : AbstractSubclass
                 hero.RulesetCharacter.ConditionsByCategory
                     .SelectMany(x => x.Value)
                     .Where(x => x.conditionDefinition == WarDanceMomentumExtraAction ||
-                                x.conditionDefinition == ImprovedWarDanceMomentumExtraAction));
+                                x.conditionDefinition == ImprovedWarDanceMomentumExtraAction ||
+                                x.conditionDefinition == WarDanceMomentum));
 
             if (!flag || RemoveMomentumAnyway(hero) || pb == 0 ||
-                !hero.RulesetCharacter.HasConditionOfType(ConditionWarDance))
+                !hero.RulesetCharacter.HasConditionOfType(ConditionWarDance) || hero.RulesetCharacter.HasConditionOfType(MomentumAlreadyApplied))
             {
                 foreach (var cond in currentMomentum)
                 {
                     hero.RulesetCharacter.RemoveCondition(cond);
                 }
+                
+                var marked = RulesetCondition.CreateActiveCondition(
+                    hero.Guid,
+                    MomentumAlreadyApplied,
+                    DurationType.Round,
+                    1,
+                    TurnOccurenceType.StartOfTurn,
+                    hero.Guid,
+                    hero.RulesetCharacter.CurrentFaction.Name);
 
+                hero.RulesetCharacter.AddConditionOfCategory(AttributeDefinitions.TagCombat, marked);
                 return false;
             }
 
