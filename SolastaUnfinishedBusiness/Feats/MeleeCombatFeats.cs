@@ -181,21 +181,21 @@ internal static class MeleeCombatFeats
 
         var conditionDefensiveDuelist = ConditionDefinitionBuilder
             .Create($"Condition{NAME}")
-            .SetGuiPresentation(NAME, Category.Feat)
+            .SetGuiPresentationNoContent(true)
             .SetFeatures(FeatureDefinitionAttributeModifierBuilder
                 .Create($"AttributeModifier{NAME}")
-                .SetGuiPresentation($"Power{NAME}", Category.Feature)
+                .SetGuiPresentationNoContent(true)
                 .SetModifier(
-                    FeatureDefinitionAttributeModifier.AttributeModifierOperation.Additive,
-                    AttributeDefinitions.ArmorClass,
-                    3)
+                    FeatureDefinitionAttributeModifier.AttributeModifierOperation.AddProficiencyBonus,
+                    AttributeDefinitions.ArmorClass)
                 .AddToDB())
+            .SetSpecialInterruptions(ConditionInterruption.AnyBattleTurnEnd)
             .SetSilent(Silent.WhenAddedOrRemoved)
             .AddToDB();
 
         var powerDefensiveDuelist = FeatureDefinitionPowerBuilder
             .Create($"Power{NAME}")
-            .SetGuiPresentation(NAME, Category.Feat)
+            .SetGuiPresentationNoContent(true)
             .SetUsesFixed(ActivationTime.Reaction)
             .SetEffectDescription(
                 EffectDescriptionBuilder

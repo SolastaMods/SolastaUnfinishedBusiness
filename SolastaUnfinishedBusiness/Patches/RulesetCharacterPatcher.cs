@@ -1366,4 +1366,55 @@ public static class RulesetCharacterPatcher
                 new CodeInstruction(OpCodes.Call, enumerate));
         }
     }
+
+    //PATCH: allow AddProficiencyBonus to be considered on attribute modifiers used on reaction attacks
+    [HarmonyPatch(typeof(RulesetCharacter), nameof(RulesetCharacter.CanAttackOutcomeFromAlterationMagicalEffectFail))]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
+    public static class CanAttackOutcomeFromAlterationMagicalEffectFail_Patch
+    {
+        [UsedImplicitly]
+        public static bool Prefix(
+            RulesetCharacter __instance,
+            ref bool __result,
+            List<EffectForm> effectForms,
+            int totalAttack)
+        {
+            foreach (var feature in effectForms
+                         .Where(effectForm => effectForm.FormType == EffectForm.EffectFormType.Condition &&
+                                              effectForm.ConditionForm.Operation ==
+                                              ConditionForm.ConditionOperation.Add).SelectMany(effectForm =>
+                             effectForm.ConditionForm.ConditionDefinition.Features))
+            {
+                if (feature is not FeatureDefinitionAttributeModifier
+                    {
+                        ModifiedAttribute: AttributeDefinitions.ArmorClass
+                    } attributeModifier ||
+                    (attributeModifier.ModifierOperation !=
+                     FeatureDefinitionAttributeModifier.AttributeModifierOperation.Additive &&
+                     attributeModifier.ModifierOperation != FeatureDefinitionAttributeModifier
+                         .AttributeModifierOperation.AddProficiencyBonus))
+                {
+                    continue;
+                }
+
+                var currentValue = __instance.RefreshArmorClass(dryRun: true, dryRunFeature: feature).CurrentValue;
+
+                __instance.GetAttribute(AttributeDefinitions.ArmorClass).ReleaseCopy();
+
+                if (currentValue <= totalAttack)
+                {
+                    continue;
+                }
+
+                __result = true;
+
+                return false;
+            }
+
+            __result = false;
+
+            return false;
+        }
+    }
 }
