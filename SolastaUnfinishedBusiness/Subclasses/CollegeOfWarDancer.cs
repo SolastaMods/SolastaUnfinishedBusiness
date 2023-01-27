@@ -48,6 +48,13 @@ internal sealed class CollegeOfWarDancer : AbstractSubclass
         .SetCustomSubFeatures(new RemoveOnAttackMissOrAttackWithNonMeleeWeapon())
         .AddToDB();
 
+    private static readonly ConditionDefinition MomentumAlreadyApplied = ConditionDefinitionBuilder
+        .Create("ConditionWarDanceMomentumAlreadyApplied")
+        .SetGuiPresentationNoContent()
+        .SetSilent(Silent.WhenAddedOrRemoved)
+        .SetSpecialInterruptions(ConditionInterruption.AnyBattleTurnEnd)
+        .AddToDB();
+    
     internal CollegeOfWarDancer()
     {
         var warDance = FeatureDefinitionPowerBuilder
@@ -145,40 +152,33 @@ internal sealed class CollegeOfWarDancer : AbstractSubclass
 
     private static int GetMomentumDiceNum(RulesetCharacter character)
     {
-        const int BASE_VALUE = 2;
-
         var momentum = character.ConditionsByCategory
             .SelectMany(x => x.Value)
             .Count(x => x.ConditionDefinition == WarDanceMomentum);
-
-        if (momentum <= 1)
-        {
-            return BASE_VALUE;
-        }
 
         var slotsByName = character.CharacterInventory.InventorySlotsByName;
         var item = slotsByName[EquipmentDefinitions.SlotTypeMainHand].EquipedItem;
 
         if (item == null || !item.itemDefinition.isWeapon)
         {
-            return BASE_VALUE;
+            return 0;
         }
 
         var isLight = item.itemDefinition.WeaponDescription.WeaponTags.Contains(TagsDefinitions.WeaponTagLight);
 
         if (isLight)
         {
-            return BASE_VALUE + ((momentum - 1) / 2);
+            return momentum;
         }
 
         var isHeavy = item.itemDefinition.WeaponDescription.WeaponTags.Contains(TagsDefinitions.WeaponTagHeavy);
 
         if (isHeavy)
         {
-            return BASE_VALUE + (2 * (momentum - 1));
+            return 2 * momentum;
         }
 
-        return BASE_VALUE + (momentum - 1);
+        return momentum + 1;
     }
 
     internal static void OnItemEquipped([NotNull] RulesetCharacter character)
@@ -198,8 +198,8 @@ internal sealed class CollegeOfWarDancer : AbstractSubclass
             hero.RulesetCharacter.ConditionsByCategory
                 .SelectMany(x => x.Value)
                 .Where(x => x.conditionDefinition == WarDanceMomentum));
-
-        return currentMomentum.Count >= pb || pb == 0;
+        
+        return currentMomentum.Count >= ((pb + 1)/ 2) || pb == 0;
     }
 
     private sealed class RemoveOnAttackMissOrAttackWithNonMeleeWeapon
@@ -262,8 +262,7 @@ internal sealed class CollegeOfWarDancer : AbstractSubclass
                 attacker.ConditionsByCategory
                     .SelectMany(x => x.Value)
                     .Where(x => x.ConditionDefinition
-                                    .HasSubFeatureOfType<RemoveOnAttackMissOrAttackWithNonMeleeWeapon>() ||
-                                x.conditionDefinition == ConditionDefinitions.ConditionBardicInspiration));
+                        .HasSubFeatureOfType<RemoveOnAttackMissOrAttackWithNonMeleeWeapon>()));
 
             foreach (var conditionToRemove in conditionsToRemove)
             {
@@ -343,16 +342,27 @@ internal sealed class CollegeOfWarDancer : AbstractSubclass
                 hero.RulesetCharacter.ConditionsByCategory
                     .SelectMany(x => x.Value)
                     .Where(x => x.conditionDefinition == WarDanceMomentumExtraAction ||
-                                x.conditionDefinition == ImprovedWarDanceMomentumExtraAction));
+                                x.conditionDefinition == ImprovedWarDanceMomentumExtraAction ||
+                                x.conditionDefinition == WarDanceMomentum));
 
             if (!flag || RemoveMomentumAnyway(hero) || pb == 0 ||
-                !hero.RulesetCharacter.HasConditionOfType(ConditionWarDance))
+                !hero.RulesetCharacter.HasConditionOfType(ConditionWarDance) || hero.RulesetCharacter.HasConditionOfType(MomentumAlreadyApplied))
             {
                 foreach (var cond in currentMomentum)
                 {
                     hero.RulesetCharacter.RemoveCondition(cond);
                 }
+                
+                var marked = RulesetCondition.CreateActiveCondition(
+                    hero.Guid,
+                    MomentumAlreadyApplied,
+                    DurationType.Round,
+                    1,
+                    TurnOccurenceType.StartOfTurn,
+                    hero.Guid,
+                    hero.RulesetCharacter.CurrentFaction.Name);
 
+                hero.RulesetCharacter.AddConditionOfCategory(AttributeDefinitions.TagCombat, marked);
                 return false;
             }
 
@@ -459,11 +469,6 @@ internal sealed class CollegeOfWarDancer : AbstractSubclass
             {
                 power.remainingRounds += 1;
                 break;
-            }
-
-            if (attacker.RulesetCharacter.usedBardicInspiration > 0)
-            {
-                attacker.RulesetCharacter.usedBardicInspiration -= 1;
             }
         }
     }
