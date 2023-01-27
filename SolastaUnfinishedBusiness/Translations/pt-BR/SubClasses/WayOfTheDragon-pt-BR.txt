@@ -61,4 +61,4 @@ Reaction/&UsePowerWayOfTheDragonReactiveHideReactDescription=Use sua reação pa
 Reaction/&UsePowerWayOfTheDragonReactiveHideReactTitle=Ocultação reativa
 Reaction/&UsePowerWayOfTheDragonReactiveHideTitle=Ocultação reativa
 Subclass/&WayOfTheDragonDescription=Monges que seguem o Caminho do Dragão se dedicam a aprender as poderosas feras, ganhando habilidades dracônicas.
-Subclass/&WayOfTheDragonTitle=caminho do dragão
+Subclass/&WayOfTheDragonTitle=Caminho do dragão

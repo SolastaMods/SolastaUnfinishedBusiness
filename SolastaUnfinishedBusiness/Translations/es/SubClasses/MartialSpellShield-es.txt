@@ -6,7 +6,5 @@ Feature/&PowerSpellShieldArcaneDeflectionDescription=Puedes usar tus poderes arc
 Feature/&PowerSpellShieldArcaneDeflectionTitle=Desviación arcana
 Feature/&PowerSpellShieldRangedDeflectionDescription=Cuando un atacante que puedes ver te golpea con un ataque a distancia o un hechizo, puedes usar tu reacción para reducir a la mitad el daño del ataque contra ti.
 Feature/&PowerSpellShieldRangedDeflectionTitle=Desviación a distancia
-Reaction/&SpendPowerPowerSpellShieldArcaneDeflectionDescription=Puedes usar tus poderes arcanos para protegerte como reacción.
-Reaction/&SpendPowerPowerSpellShieldArcaneDeflectionTitle=Escudo de hechizos
 Subclass/&MartialSpellShieldDescription=Spell Shields son luchadores que se especializan en defensa y protección. Usan magia para ayudar a sus habilidades naturales.
 Subclass/&MartialSpellShieldTitle=Escudo de hechizos
