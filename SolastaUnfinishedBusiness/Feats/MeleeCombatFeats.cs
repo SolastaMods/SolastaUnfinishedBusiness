@@ -184,7 +184,7 @@ internal static class MeleeCombatFeats
             .SetGuiPresentationNoContent(true)
             .SetFeatures(FeatureDefinitionAttributeModifierBuilder
                 .Create($"AttributeModifier{NAME}")
-                .SetGuiPresentation($"Power{NAME}", Category.Feature)
+                .SetGuiPresentationNoContent(true)
                 .SetModifier(
                     FeatureDefinitionAttributeModifier.AttributeModifierOperation.AddProficiencyBonus,
                     AttributeDefinitions.ArmorClass)
