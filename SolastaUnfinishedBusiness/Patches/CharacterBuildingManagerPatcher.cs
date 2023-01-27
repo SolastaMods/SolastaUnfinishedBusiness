@@ -161,7 +161,7 @@ public static class CharacterBuildingManagerPatcher
         {
             //PATCH: adds cantrips selected on feat cantrips adept
             LevelUpContext.GrantSpellsOrCantripsFromTag(__instance, hero, OtherFeats.FeatCantripsAdeptTag);
-            
+
             //PATCH: adds cantrips selected on feat spell sniper
             LevelUpContext.GrantSpellsOrCantripsFromTag(__instance, hero, OtherFeats.FeatSpellSniperTag);
 
@@ -709,7 +709,7 @@ public static class CharacterBuildingManagerPatcher
                 }
                 else
                 {
-                    __instance.ApplyFeatureDefinitionPointPool(heroBuildingData, featureDefinitionPointPool, tag);
+                    __instance.ApplyFeatureDefinitionPointPool(heroBuildingData, featureDefinitionPointPool, finaTag);
                 }
             }
 
