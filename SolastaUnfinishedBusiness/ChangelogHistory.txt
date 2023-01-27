@@ -1,5 +1,10 @@
 ﻿CHANGES:
 
+1.4.33.15:
+
+- fixed some "Marty" McFly issues
+- tweaked Defensive Duelist feat
+
 1.4.33.14:
 
 - added additional custom icons for Potions of Healing manuals
