@@ -12,7 +12,7 @@
   "familyTag": "FeatMagicInitiate",
   "knownFeatsPrerequisite": [],
   "features": [
-    "Definition:CastSpellFeatMagicInitiateWizard#:c41c9905-9b4e-547b-b8ab-08adc205e3a0",
+    "Definition:CastSpellFeatMagicInitiateWizard:ccc31bac-962d-56c7-ab8e-f6a73a864bc2",
     "Definition:PointPoolFeatMagicInitiateWizardCantrip:ae8f65b6-f7f3-53fa-8225-605b70c60199",
     "Definition:PointPoolFeatMagicInitiateWizardSpell:3f4579d3-4113-5f39-840d-152dba98c1e3"
   ],

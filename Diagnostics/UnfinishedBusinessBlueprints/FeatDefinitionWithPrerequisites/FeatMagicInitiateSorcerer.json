@@ -12,7 +12,7 @@
   "familyTag": "FeatMagicInitiate",
   "knownFeatsPrerequisite": [],
   "features": [
-    "Definition:CastSpellFeatMagicInitiateSorcerer#:bc3cfbdc-857c-50c5-9fda-aaf912c3e49c",
+    "Definition:CastSpellFeatMagicInitiateSorcerer:20a041b3-2e41-5931-9015-f520e243cd87",
     "Definition:PointPoolFeatMagicInitiateSorcererCantrip:aa433bac-d96e-5c30-a46a-e277c2d538ec",
     "Definition:PointPoolFeatMagicInitiateSorcererSpell:99eddc1d-3510-5532-9ead-4aae6d544b8d"
   ],

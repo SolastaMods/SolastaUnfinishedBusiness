@@ -1,11 +1,11 @@
 {
   "$type": "FeatureDefinitionCastSpell, Assembly-CSharp",
   "spellCastingOrigin": "Race",
-  "spellcastingAbility": "Intelligence",
+  "spellcastingAbility": "Wisdom",
   "spellcastingParametersComputation": "Dynamic",
   "staticDCValue": 10,
   "staticToHitValue": 4,
-  "spellListDefinition": "Definition:SpellListWizard:ebbe572795f1e2e499bf55d00df9547f",
+  "spellListDefinition": "Definition:SpellListCleric:e728ae4e4306da44983db43e2889e53b",
   "restrictedSchools": [],
   "spellKnowledge": "Selection",
   "spellReadyness": "AllKnown",
@@ -58,26 +58,26 @@
     1
   ],
   "scribedSpells": [
-    6,
-    2,
-    2,
-    2,
-    2,
-    2,
-    2,
-    2,
-    2,
-    2,
-    2,
-    2,
-    2,
-    2,
-    2,
-    2,
-    2,
-    2,
-    2,
-    2,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
     0
   ],
   "replacedSpells": [
@@ -245,13 +245,13 @@
       ]
     }
   ],
-  "focusType": "Arcane",
+  "focusType": "Divine",
   "hasAccessToInvocations": false,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "Initiate",
-    "description": "You learn two cantrips of your choice from the Wizard spell list. In addition, choose one 1st-level spell to learn from that same list. Using this feat, you can cast the spell once at its lowest level, and you must finish a long rest before you can cast it in this way again.",
+    "description": "You learn two cantrips of your choice from the Cleric spell list. In addition, choose one 1st-level spell to learn from that same list. Using this feat, you can cast the spell once at its lowest level, and you must finish a long rest before you can cast it in this way again.",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -271,7 +271,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "c41c9905-9b4e-547b-b8ab-08adc205e3a0",
+  "guid": "dce4d42f-878f-54c5-8525-49976359b27b",
   "contentPack": 9999,
-  "name": "CastSpellFeatMagicInitiateWizard#"
+  "name": "CastSpellFeatMagicInitiateCleric"
 }

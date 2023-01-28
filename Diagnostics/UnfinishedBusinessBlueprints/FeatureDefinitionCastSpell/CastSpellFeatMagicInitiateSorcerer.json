@@ -5,7 +5,7 @@
   "spellcastingParametersComputation": "Dynamic",
   "staticDCValue": 10,
   "staticToHitValue": 4,
-  "spellListDefinition": "Definition:SpellListBard:73378bcb8a4d12c418b336ee97b062c8",
+  "spellListDefinition": "Definition:SpellListSorcerer:d6922d6bd72f7fa42b89475449744641",
   "restrictedSchools": [],
   "spellKnowledge": "Selection",
   "spellReadyness": "AllKnown",
@@ -58,26 +58,26 @@
     1
   ],
   "scribedSpells": [
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
+    6,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
     0
   ],
   "replacedSpells": [
@@ -245,13 +245,13 @@
       ]
     }
   ],
-  "focusType": "MusicalInstrument",
+  "focusType": "Arcane",
   "hasAccessToInvocations": false,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "Initiate",
-    "description": "You learn two cantrips of your choice from the Bard spell list. In addition, choose one 1st-level spell to learn from that same list. Using this feat, you can cast the spell once at its lowest level, and you must finish a long rest before you can cast it in this way again.",
+    "description": "You learn two cantrips of your choice from the Sorcerer spell list. In addition, choose one 1st-level spell to learn from that same list. Using this feat, you can cast the spell once at its lowest level, and you must finish a long rest before you can cast it in this way again.",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -271,7 +271,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "5071b25b-f97b-588c-90d9-396bd08985f9",
+  "guid": "20a041b3-2e41-5931-9015-f520e243cd87",
   "contentPack": 9999,
-  "name": "CastSpellFeatMagicInitiateBard#"
+  "name": "CastSpellFeatMagicInitiateSorcerer"
 }

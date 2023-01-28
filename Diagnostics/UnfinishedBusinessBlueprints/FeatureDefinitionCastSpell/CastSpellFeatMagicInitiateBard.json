@@ -5,7 +5,7 @@
   "spellcastingParametersComputation": "Dynamic",
   "staticDCValue": 10,
   "staticToHitValue": 4,
-  "spellListDefinition": "Definition:SpellListWarlock:4916ffc0bd81f214e9752b68511ed553",
+  "spellListDefinition": "Definition:SpellListBard:73378bcb8a4d12c418b336ee97b062c8",
   "restrictedSchools": [],
   "spellKnowledge": "Selection",
   "spellReadyness": "AllKnown",
@@ -58,26 +58,26 @@
     1
   ],
   "scribedSpells": [
-    6,
-    2,
-    2,
-    2,
-    2,
-    2,
-    2,
-    2,
-    2,
-    2,
-    2,
-    2,
-    2,
-    2,
-    2,
-    2,
-    2,
-    2,
-    2,
-    2,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
     0
   ],
   "replacedSpells": [
@@ -245,13 +245,13 @@
       ]
     }
   ],
-  "focusType": "Arcane",
-  "hasAccessToInvocations": true,
+  "focusType": "MusicalInstrument",
+  "hasAccessToInvocations": false,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "Initiate",
-    "description": "You learn two cantrips of your choice from the Warlock spell list. In addition, choose one 1st-level spell to learn from that same list. Using this feat, you can cast the spell once at its lowest level, and you must finish a long rest before you can cast it in this way again.",
+    "description": "You learn two cantrips of your choice from the Bard spell list. In addition, choose one 1st-level spell to learn from that same list. Using this feat, you can cast the spell once at its lowest level, and you must finish a long rest before you can cast it in this way again.",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -271,7 +271,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "1028b522-931c-52f1-b58e-276ac4dafeb5",
+  "guid": "9dffb549-1d49-5ca6-9c7f-f94673d59c4d",
   "contentPack": 9999,
-  "name": "CastSpellFeatMagicInitiateWarlock#"
+  "name": "CastSpellFeatMagicInitiateBard"
 }
