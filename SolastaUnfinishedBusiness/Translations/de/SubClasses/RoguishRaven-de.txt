@@ -1,4 +1,4 @@
-﻿Feature/&AdditionalActionRavenKillingSpreeDescription=Sie können einen zusätzlichen Angriff ausführen, wenn Sie in Ihrem Zug zum ersten Mal einen Feind töten. Außerdem kann jedes Mal, wenn Sie einen Feind töten, Ihr Schleichangriff in derselben Runde wiederverwendet werden.
+﻿Feature/&AdditionalActionRavenKillingSpreeDescription=Du kannst einen zusätzlichen Angriff ausführen, wenn du in deinem Zug zum ersten Mal einen Feind tötest. Außerdem kann jedes Mal, wenn Sie einen Feind töten, Ihr Schleichangriff in derselben Runde wiederverwendet werden.
 Feature/&AdditionalActionRavenKillingSpreeTitle=Amoklauf
 Feature/&AttackModifierRavenHeartSeekingShotDescription=Dein Angriff erleidet einen Malus von -4 auf Treffer.
 Feature/&AttackModifierRavenHeartSeekingShotTitle=Herzsuchender Schuss
@@ -13,6 +13,6 @@ Feature/&FeatureSetRavenSharpShooterDescription=Sie beherrschen alle zweihändig
 Feature/&FeatureSetRavenSharpShooterTitle=Scharfer Schütze
 Feedback/&AdditionalDamageHeartSeekingShotFormat=Herzsuchender Schuss
 Feedback/&AdditionalDamageHeartSeekingShotLine=Herzsuchschuss verursacht zusätzlichen +{2} Schaden!
-Subclass/&RoguishRavenDescription=Ravens sind Spezialisten für Fernkampfwaffen, die darauf trainiert sind, Feinde schnell und effektiv auszuschalten.
+Subclass/&RoguishRavenDescription=Raben sind Spezialisten für Fernkampfwaffen, die darauf trainiert sind, Feinde schnell und effektiv auszuschalten.
 Subclass/&RoguishRavenTitle=Rabe
 Tooltip/&HeartSeekingShotConcentration=Deaktivieren Sie den herzsuchenden Schuss.

@@ -81,6 +81,12 @@ internal class FeatureDefinitionCastSpellBuilder
 
                 break;
             case CasterProgression.Flat:
+                for (; level < 21; level++)
+                {
+                    knownSpells.Add(1);
+                }
+
+                break;
             default:
                 throw new SolastaUnfinishedBusinessException($"Unknown CasterProgression: {progression}");
         }
@@ -210,6 +216,12 @@ internal class FeatureDefinitionCastSpellBuilder
     internal FeatureDefinitionCastSpellBuilder SetSlotsRecharge(RuleDefinitions.RechargeRate slotRecharge)
     {
         Definition.slotsRecharge = slotRecharge;
+        return this;
+    }
+
+    internal FeatureDefinitionCastSpellBuilder SetUniqueLevelSlots(bool value)
+    {
+        Definition.uniqueLevelSlots = value;
         return this;
     }
 

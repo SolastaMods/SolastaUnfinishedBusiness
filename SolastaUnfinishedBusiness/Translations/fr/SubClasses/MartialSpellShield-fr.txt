@@ -1,6 +1,6 @@
 Feature/&CastSpellSpellShieldDescription=Lancez des sorts et des cantrips de magicien.
 Feature/&CastSpellSpellShieldTitle=Lancer des sorts
-Feature/&MagicAffinitySpellShieldCombatMagicVigorDescription=Ajoutez votre modificateur de force ou de dextérité, selon le plus élevé, à votre jet de sauvegarde contre les sorts et à votre jet d'attaque avec un sort.
+Feature/&MagicAffinitySpellShieldCombatMagicVigorDescription=Ajoutez votre modificateur de Force ou de Dextérité, selon celui qui est le plus élevé, à votre jet de sauvegarde contre les sorts et à votre jet d'attaque avec un sort.
 Feature/&MagicAffinitySpellShieldCombatMagicVigorTitle=Vigueur
 Feature/&PowerSpellShieldArcaneDeflectionDescription=Vous pouvez utiliser vos pouvoirs arcaniques pour vous protéger en réaction. Cela vous donne +3 à votre CA jusqu'à votre prochain tour.
 Feature/&PowerSpellShieldArcaneDeflectionTitle=Déviation arcanique

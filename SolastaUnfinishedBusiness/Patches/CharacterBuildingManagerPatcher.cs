@@ -6,6 +6,7 @@ using System.Reflection.Emit;
 using HarmonyLib;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api;
+using SolastaUnfinishedBusiness.Api.Extensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.CustomDefinitions;
 using SolastaUnfinishedBusiness.CustomUI;
@@ -150,18 +151,20 @@ public static class CharacterBuildingManagerPatcher
             //PATCH: grants race features
             LevelUpContext.GrantRaceFeatures(__instance, hero);
 
-            LevelUpContext.GrantCustomFeaturesFromFeats(hero);
-
             //PATCH: grants custom features
+            LevelUpContext.GrantCustomFeaturesFromFeats(hero);
             LevelUpContext.GrantCustomFeatures(hero);
         }
 
         [UsedImplicitly]
         public static void Postfix(CharacterBuildingManager __instance, [NotNull] RulesetCharacterHero hero)
         {
+            //PATCH: grants spell repertoires and respective selected spells from feats
+            LevelUpContext.GrantSpellsOrCantripsFromFeatCastSpell(__instance, hero);
+
             //PATCH: adds cantrips selected on feat cantrips adept
             LevelUpContext.GrantSpellsOrCantripsFromTag(__instance, hero, OtherFeats.FeatCantripsAdeptTag);
-            
+
             //PATCH: adds cantrips selected on feat spell sniper
             LevelUpContext.GrantSpellsOrCantripsFromTag(__instance, hero, OtherFeats.FeatSpellSniperTag);
 
@@ -413,8 +416,24 @@ public static class CharacterBuildingManagerPatcher
             ref FeatureDefinitionCastSpell __result)
         {
             var hero = heroBuildingData.HeroCharacter;
-            var isMulticlass = LevelUpContext.IsMulticlass(hero);
 
+            //PATCH: support cast spell granted from feat
+            foreach (var featureDefinitionCastSpell in heroBuildingData.levelupTrainedFeats.SelectMany(x =>
+                         x.Value.SelectMany(x => x.Features).OfType<FeatureDefinitionCastSpell>()))
+            {
+                var spellTag = featureDefinitionCastSpell.GetFirstSubFeatureOfType<OtherFeats.SpellTag>();
+
+                if (spellTag == null || !tag.EndsWith(spellTag.Name))
+                {
+                    continue;
+                }
+
+                __result = featureDefinitionCastSpell;
+
+                return false;
+            }
+
+            var isMulticlass = LevelUpContext.IsMulticlass(hero);
             if (!isMulticlass)
             {
                 return true;
@@ -703,7 +722,8 @@ public static class CharacterBuildingManagerPatcher
                     finaTag += featureDefinitionPointPool.ExtraSpellsTag;
                 }
 
-                if (pointPoolStack.ActivePools.TryGetValue(finaTag, out var pool))
+                if (pointPoolStack.ActivePools.TryGetValue(finaTag + featureDefinitionPointPool.ExtraSpellsTag,
+                        out var pool))
                 {
                     pool.maxPoints += featureDefinitionPointPool.poolAmount;
                 }

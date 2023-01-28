@@ -1,4 +1,4 @@
-Condition/&ConditionDivineHeartEmpoweredHealingDescription=Si vous lancez un sort de Soins ce tour-ci, vous relancez un résultat de 1 ou 2.
+Condition/&ConditionDivineHeartEmpoweredHealingDescription=Si vous lancez un sort de soin ce tour-ci, vous relancez un résultat de 1 ou 2.
 Condition/&ConditionDivineHeartEmpoweredHealingTitle=Guérison renforcée
 Feature/&AttributeModifierDivineHeartDivineFortitudeDescription=+1 point de vie par niveau
 Feature/&AttributeModifierDivineHeartDivineFortitudeTitle=Courage divin
@@ -23,7 +23,7 @@ Feature/&PowerDivineHeartDivineRecoveryTitle=Récupération divine
 Feature/&PowerDivineHeartEmpoweredHealingDescription=Jusqu'au début de votre prochain tour, lorsque vous lancez un sort de soin, vous relancez les jets de dés de soin de 1 ou 2, en conservant le nouveau résultat. Activez ce pouvoir en tant qu'action bonus en dépensant 1 point de sorcier.
 Feature/&PowerDivineHeartEmpoweredHealingReroll={0} utilise la guérison renforcée pour relancer un {1} dé de dégâts de {2} à {3}.
 Feature/&PowerDivineHeartEmpoweredHealingTitle=Guérison renforcée
-Feature/&PowerDivineHeartPlanarPortalDescription=Ouvre un portail qui peut transporter une créature amie et vous-même vers une destination spécifiée.
+Feature/&PowerDivineHeartPlanarPortalDescription=Ouvre un portail qui peut transporter une créature alliée et vous-même vers une destination spécifiée.
 Feature/&PowerDivineHeartPlanarPortalTitle=Portail planaire
 Subclass/&SorcerousDivineHeartDescription=Votre magie innée vous a été transmise par une divinité dans un but que vous ne comprenez peut-être pas.
 Subclass/&SorcerousDivineHeartTitle=Cœur Divin

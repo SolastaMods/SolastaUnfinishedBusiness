@@ -1,6 +1,6 @@
 Feature/&CastSpellSpellShieldDescription=Cast Wizard spells and cantrips.
 Feature/&CastSpellSpellShieldTitle=Spellcasting
-Feature/&MagicAffinitySpellShieldCombatMagicVigorDescription=Add your strength or dexterity modifier, whichever is higher, to your spell saving throw DC and spell attack roll.
+Feature/&MagicAffinitySpellShieldCombatMagicVigorDescription=Add your Strength or Dexterity modifier, whichever is higher, to your spell saving throw DC and spell attack roll.
 Feature/&MagicAffinitySpellShieldCombatMagicVigorTitle=Vigor
 Feature/&PowerSpellShieldArcaneDeflectionDescription=You can use your arcane powers to shield yourself as a reaction. This gives you +3 to your AC until your next turn.
 Feature/&PowerSpellShieldArcaneDeflectionTitle=Arcane Deflection

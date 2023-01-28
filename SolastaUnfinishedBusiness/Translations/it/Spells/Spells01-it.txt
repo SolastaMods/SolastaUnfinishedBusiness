@@ -1,6 +1,6 @@
-﻿Condition/&AdditionalConditionEnsnaringStrikDescription=Sei intrappolato in rampicanti che impediscono il movimento, svantaggio ai tiri salvezza di destrezza e subisci danni perforanti ogni turno. Alla fine del tuo turno, effettua un tiro salvezza con lancio di forza per sfuggire ai rampicanti.
+﻿Condition/&AdditionalConditionEnsnaringStrikDescription=Sei intrappolato in rampicanti che impediscono il movimento, svantaggio ai tiri salvezza di Destrezza e subisci danni perforanti ogni turno. Alla fine del tuo turno, effettua un tiro salvezza su Forza per sfuggire ai rampicanti.
 Condition/&AdditionalConditionEnsnaringStrikeTitle=Intrappolato
-Condition/&ConditionMuleDescription=La tua velocità non è ridotta da ingombri o armature pesanti. Puoi trasportare 20 sterline in più.
+Condition/&ConditionMuleDescription=La tua velocità non è ridotta da ingombri o armature pesanti. Puoi portare 20 sterline in più.
 Condition/&ConditionMuleTitle=Mulo
 Feature/&AdditionalDamageEnsnaringStrikeDescription=Sei intrappolato dalle viti.
 Feature/&AdditionalDamageEnsnaringStrikeTitle=Colpo Intrappolante
@@ -26,7 +26,7 @@ Spell/&EnsnaringStrikeDescription=Il tuo prossimo colpo provoca danni perforanti
 Spell/&EnsnaringStrikeTitle=Colpo Intrappolante
 Spell/&MuleDescription=Il destinatario di questo incantesimo è in grado di ignorare gli effetti di carichi pesanti o armature sulla velocità di movimento. Possono anche portare un po' più di peso.
 Spell/&MuleTitle=Mulo
-Spell/&RadiantMotesDescription=Scatena uno sciame di 4 proiettili radiosi che infliggono 1d4 danni radiosi ciascuno.\nQuando lanci questo incantesimo usando uno slot incantesimo di 2° livello o superiore, l'incantesimo crea 1 proiettile in più per ogni slot sopra il 1°.
+Spell/&RadiantMotesDescription=Scatena uno sciame di 4 proiettili radianti che infliggono 1d4 danni radiosi ciascuno.\nQuando lanci questo incantesimo utilizzando uno slot incantesimo di 2° livello o superiore, l'incantesimo crea 1 proiettile in più per ogni slot sopra il 1°.
 Spell/&RadiantMotesTitle=Granelli radianti
 Spell/&SearingSmiteDescription=Il tuo prossimo colpo provoca danni da fuoco aggiuntivi e il tuo bersaglio prende fuoco.
 Spell/&SearingSmiteTitle=Punizione Bruciante

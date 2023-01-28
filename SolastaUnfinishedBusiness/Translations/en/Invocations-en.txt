@@ -1,11 +1,11 @@
-Condition/&ConditionAbilitySpriteDescription=Gain an AC score of atleast 16 and attackers have a disadvantage when targeting you.
-Condition/&ConditionAbilitySpriteTitle=Sprite's Ability
 Condition/&ConditionAbilityImpDescription=Gain invisibility, you may attack and cast spells without losing invisibility.
 Condition/&ConditionAbilityImpTitle=Imp's Ability
 Condition/&ConditionAbilityPseudoDescription=Gain the ability to fly and imbue your attacks with poison that restrains.
 Condition/&ConditionAbilityPseudoTitle=Pseudodragon's Ability
 Condition/&ConditionAbilityQuasitDescription=Gain an additional action and an advantage on Dexterity saving throws.
 Condition/&ConditionAbilityQuasitTitle=Qausit's Ability
+Condition/&ConditionAbilitySpriteDescription=Gain an AC score of atleast 16 and attackers have a disadvantage when targeting you.
+Condition/&ConditionAbilitySpriteTitle=Sprite's Ability
 Feature/&AttackModifierHitAndDamagePlus1Description=The weapon gains a +1 bonus to its attack and damage rolls.
 Feature/&AttackModifierHitAndDamagePlus1Title=Pact Weapon Enhancement
 Feedback/&AdditionalDamageEldritchSmiteFormat=Eldritch Smite!

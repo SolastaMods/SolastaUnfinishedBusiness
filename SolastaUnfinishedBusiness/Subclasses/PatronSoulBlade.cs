@@ -1,4 +1,5 @@
-﻿using SolastaUnfinishedBusiness.Builders;
+﻿using System.Linq;
+using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
 using static RuleDefinitions;
@@ -35,14 +36,15 @@ internal sealed class PatronSoulBlade : AbstractSubclass
             .Create("PowerSoulBladeEmpowerWeapon")
             .SetGuiPresentation(Category.Feature, PowerOathOfDevotionSacredWeapon)
             .SetUniqueInstance()
-            .SetCustomSubFeatures(SkipEffectRemovalOnLocationChange.Always)
+            .SetCustomSubFeatures(SkipEffectRemovalOnLocationChange.Always,
+                new CustomItemFilter(CanWeaponBeEmpowered))
             .SetUsesFixed(ActivationTime.Action, RechargeRate.ShortRest)
             .SetExplicitAbilityScore(AttributeDefinitions.Charisma)
             .SetEffectDescription(EffectDescriptionBuilder.Create()
                 .SetDurationData(DurationType.Permanent)
                 .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Item,
                     //TODO: with new Inventor code we can make it RAW: implement target limiter for the weapon to work on 1-hand or pact weapon
-                    itemSelectionType: ActionDefinitions.ItemSelectionType.Weapon)
+                    itemSelectionType: ActionDefinitions.ItemSelectionType.Carried)
                 .SetEffectForms(EffectFormBuilder.Create()
                     .SetItemPropertyForm(
                         ItemPropertyUsage.Unlimited,
@@ -108,4 +110,27 @@ internal sealed class PatronSoulBlade : AbstractSubclass
 
     internal override FeatureDefinitionSubclassChoice SubclassChoice =>
         FeatureDefinitionSubclassChoices.SubclassChoiceWarlockOtherworldlyPatrons;
+
+    private static bool CanWeaponBeEmpowered(RulesetCharacter character, RulesetItem item)
+    {
+        var definition = item.ItemDefinition;
+        if (!definition.IsWeapon || !character.IsProficientWithItem(definition))
+        {
+            return false;
+        }
+
+        if (!definition.WeaponDescription.WeaponTags.Contains(TagsDefinitions.WeaponTagTwoHanded))
+        {
+            return true;
+        }
+
+        if (character is RulesetCharacterHero hero &&
+            hero.ActiveFeatures.Any(p => p.Value.Contains(FeatureDefinitionFeatureSets.FeatureSetPactBlade)))
+        {
+            return hero.InvocationProficiencies.Contains("InvocationImprovedPactWeapon") ||
+                   definition.WeaponDescription.WeaponTypeDefinition.WeaponProximity == AttackProximity.Melee;
+        }
+
+        return false;
+    }
 }

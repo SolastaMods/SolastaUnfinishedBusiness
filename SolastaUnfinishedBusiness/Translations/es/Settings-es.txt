@@ -1,15 +1,15 @@
 ModUi/&AddAllToStore=Agregar todo a la tienda
 ModUi/&AddBleedingToLesserRestoration=Agregue la condición <color=#D89555>Sangrado</color> a las eliminadas por <color=#D89555>Restauración mayor</color> y <color=#D89555>Restauración menor</color>
 ModUi/&AddCustomIconsToOfficialItems=Añade iconos personalizados a los elementos oficiales del juego <i><color=#F0DAA0>[municiones, recetas, kits, etc.]</color></i> <b><i><color=#C04040E0>[Requiere reinicio] </color></i></b>
-ModUi/&AddHelpActionToAllRaces=Agrega la acción <color=#D89555>Ayuda</color> a todas las razas jugables <i><color=#F0DAA0>[puedes ayudar a una criatura amiga a atacar a una criatura a 5 pies de ti]</color> </i>
+ModUi/&AddHelpActionToAllRaces=Agrega la acción <color=#D89555>Ayuda</color> a todas las razas jugables <i><color=#F0DAA0>[puedes ayudar a una criatura amiga a atacar a una criatura a 5 pies de ti]</color></i>
 ModUi/&AddHumanoidFavoredEnemyToRanger=Añadir enemigo preferido humanoide a <color=#D89555>Rangers</color>
-ModUi/&AddMonkKiPointsToggle=Agregue un interruptor para permitir que <color=#D89555>Monjes</color> habiliten o deshabiliten los Puntos Ki <i><color=#F0DAA0>[útil para minimizar las indicaciones de reacción]</color></i>
+ModUi/&AddMonkKiPointsToggle=Agrega un interruptor para permitir que <color=#D89555>Monjes</color> habiliten o deshabiliten los Puntos Ki <i><color=#F0DAA0>[útil para minimizar las indicaciones de reacción]</color></i>
 ModUi/&AddNewBrightEyeColors=Añadir nuevos colores de ojos brillantes
 ModUi/&AddNewWeaponsAndRecipesToShops=Agregue nuevas armas y recetas a las tiendas <i><color=#F0DAA0>[atados de mano, alabardas, picas, mazas largas, ballestas de mano]</color></i> <b><i><color=#C04040E0> [Requiere reiniciar]</color></i></b>
 ModUi/&AddPaladinSmiteToggle=Agregue un interruptor para permitir que <color=#D89555>paladines</color> solo habiliten castigos en golpes críticos <i><color=#F0DAA0>[útil para minimizar las indicaciones de reacción]</color></i>
 ModUi/&AddPickPocketableLoot=Agregar botín de carterista <i><color=#F0DAA0>[sugerido si la característica <color=#D89555>Carterista</color> está habilitada]</color></i>
 ModUi/&AddToStore=Añadir a la tienda
-ModUi/&AddWildshapeSwapAttackToggle=Agregue un interruptor para permitir que los <color=#D89555>druidas</color> en forma de comodín intercambien qué ataque usar primero
+ModUi/&AddWildshapeSwapAttackToggle=Agregue un interruptor para permitir que los <color=#D89555>druidas</color> en forma salvaje seleccionen qué ataque usar primero <i><color=#F0DAA0>[útil con una combinación de ataques cuerpo a cuerpo y a distancia]</color> </i>
 ModUi/&Advanced=<color=#F0DAA0>Avanzado:</color> <b><i><color=#C04040E0>[Requiere reinicio]</color></i></b>
 ModUi/&AdvancedHelp=. <b><color=#C04040E0>ATENCIÓN:</color></b> Esta configuración requerirá que el jugador tenga este mod instalado
 ModUi/&Adventure=<color=#F0DAA0>Aventura:</color>
@@ -46,7 +46,7 @@ ModUi/&Crafting=<color=#F0DAA0>Fabricación:</color>
 ModUi/&CraftingHelp=. Presiona el botón para aprender recetas al instante en el grupo activo\n. Los artículos agregados a las tiendas pueden necesitar que el grupo se aleje de la ubicación y regrese
 ModUi/&Credits=Créditos
 ModUi/&CreditsAndDiagnostics=Créditos y Diagnósticos
-ModUi/&DeadEyeAndPowerAttackBaseBaseValue=<color=white>Establece el valor del modificador base Deadeye y Power Attack</color>\n<i><color=#F0DAA0>[la fórmula es -mod para golpear / mod + PB para dañar]</color></i>
+ModUi/&DeadEyeAndPowerAttackBaseBaseValue=<color=white>Establece el valor básico del modificador Deadeye y Power Attack</color>\n<i><color=#F0DAA0>[la fórmula es -mod para golpear / mod + tu bonificación de competencia para dañar]</color></i>
 ModUi/&DisableAutoEquip=Deshabilitar el equipamiento automático de artículos en el inventario
 ModUi/&DisableRacePrerequisitesOnModFeats=Deshabilitar los requisitos previos de carrera en las hazañas proporcionadas por este mod
 ModUi/&DisableSenseDarkVisionFromAllRaces=Desactiva <color=#D89555>Sense Dark Vision</color> de todas las razas jugables <b><i><color=#C04040E0>[Requiere reinicio]</color></i></b>
@@ -54,7 +54,7 @@ ModUi/&DisableSenseSuperiorDarkVisionFromAllRaces=Deshabilita <color=#D89555>Sup
 ModUi/&DisplayAllKnownSpellsDuringLevelUp=<i>+ Mostrar todos los hechizos conocidos de otras clases durante la subida de nivel</i>
 ModUi/&DisplayPactSlotsOnSpellSelectionPanel=<i>+ Mostrar espacios de pacto <color=#D89555>Brujo</color> en la selección de hechizos en lugar del panel de personajes</i>
 ModUi/&DontFollowCharacterInBattle=La cámara de batalla no sigue cuando el personaje ya está en la pantalla
-ModUi/&DontFollowMargin=<i><color=Blanco>+ A menos que el héroe esté apagado o dentro del % del borde de la pantalla</color></i>
+ModUi/&DontFollowMargin=<i><color=blanco>+ A menos que el héroe esté apagado o dentro del % del borde de la pantalla</color></i>
 ModUi/&DungeonMakerBasicHelp=. Estas configuraciones no requerirán que el jugador tenga este mod instalado
 ModUi/&DungeonMakerMenu=Creador de mazmorras
 ModUi/&EmpressGarbAppearance=Apariencia <color=#D89555>Atuendo de emperatriz</color>
@@ -66,7 +66,7 @@ ModUi/&EnableBetaContent=Habilitar contenido beta <b><i><color=#C04040E0>[Requie
 ModUi/&EnableCancelEditOnRightMouseClick=Habilite las acciones de cancelación con el botón derecho del mouse
 ModUi/&EnableCharacterExport=Habilite <color=#1E81B0>CTRL-SHIFT-(E)</color> para exportar el carácter
 ModUi/&EnableCheatMenu=Habilitar el menú de trucos
-ModUi/&EnableDungeonMakerModdedContent=Habilite Dungeon Maker Pro\n<i><color=#F0DAA0>[incluya salas planas, tamaños de mazmorras de 150 x 150 y 200 x 200 y elementos sin lujos que mezclen recursos de todos los entornos]</color></i>
+ModUi/&EnableDungeonMakerModdedContent=Habilite Dungeon Maker Pro\n<i><color=#F0DAA0>[incluya habitaciones planas, tamaños de mazmorras de 150 x 150 y 200 x 200 y elementos sencillos que mezclen recursos de todos los entornos]</color></i>
 ModUi/&EnableEpicPointsAndArray=Habilite un sistema de compra épico de 35 puntos y una matriz <i><color=#F0DAA0>[17,15,13,12,10,8]</color></i> <b><i><color=#C04040E0>[Requiere reinicio]</color></i></b>
 ModUi/&EnableFeatsAtEvenLevels=Habilitar la selección de dotes en los niveles de clase 2, 6, 10 y 14
 ModUi/&EnableFighterArmamentAdroitness=Activa <color=#D89555>Luchador</color> <b>Entrenamiento con armas</b> en los niveles de clase 2, 6, 10 y 14 <i><color=#F0DAA0>[elige un tipo de arma para obtener +1 a golpear y dañar]</color></i>
@@ -88,8 +88,8 @@ ModUi/&EnablesAsiAndFeat=Habilite el aumento de puntajes de atributos y la selec
 ModUi/&EnableSaveByLocation=Habilitar guardar por campañas/ubicaciones
 ModUi/&EnableSortingDungeonMakerAssets=Habilitar la clasificación de activos en el editor de Dungeon Maker
 ModUi/&EnableStatsOnHeroTooltip=Mostrar estadísticas en la información sobre herramientas del héroe <i><color=#F0DAA0>[es decir, golpes críticos, fallas críticas, etc.]</color></i>
-ModUi/&EnableTeleportParty=Habilita <color=#1E81B0>CTRL-SHIFT-(T)</color> para teletransportarte al grupo <i><color=#F0DAA0>[puedes romper misiones si te teletransportas a un lugar desconocido]</color> </i>
-ModUi/&EnableTogglesToOverwriteDefaultTestParty=Habilite los cambios en el grupo de personajes para configurar su juego predeterminado y grupo de prueba
+ModUi/&EnableTeleportParty=Habilita <color=#1E81B0>CTRL-SHIFT-(T)</color> para teletransportarte al grupo <i><color=#F0DAA0>[puedes romper misiones si te teletransportas a un lugar desconocido]</color></i>
+ModUi/&EnableTogglesToOverwriteDefaultTestParty=Habilite los interruptores en el grupo de personajes para configurar su juego predeterminado y grupo de prueba
 ModUi/&EnableUpcastConjureElementalAndFey=Habilitar upcast de <color=#D89555>Conjure Elemental</color> y <color=#D89555>Conjure Fey</color>
 ModUi/&EncounterPercentageChance=<color=white>Establecer porcentajes de probabilidad de encuentros aleatorios</color>
 ModUi/&Encounters=Encuentros
@@ -109,9 +109,9 @@ ModUi/&FormationError=<color=#C04040E0>No puedes cambiar tu formación durante u
 ModUi/&FormationHelp1=. Use los botones numéricos para editar un conjunto determinado <i><color=#F0DAA0>[considere habilitar las teclas de acceso rápido en la entrada]</color></i>
 ModUi/&FormationHelp2=. <b><color=#1E81B0>@</color></b> representan las posiciones relativas de los héroes
 ModUi/&FormationHelp3=. Haga clic en cualquiera de los 2 botones para intercambiar sus posiciones
-ModUi/&FormationResetAllSets=Restablecer todos los conjuntos
-ModUi/&FormationResetThisSet=Restablecer este conjunto
 ModUi/&FormationHotkey=Activa <color=#1E81B0>CTRL-SHIFT-(1..5)</color> para intercambiar conjuntos de formación en el juego
+ModUi/&FormationResetAllSets=Resetear todo
+ModUi/&FormationResetThisSet=Restablecer esto
 ModUi/&FormationSelected=Conjunto de formación {0} seleccionado
 ModUi/&FullyControlConjurations=Controla por completo las conjuraciones <i><color=#F0DAA0>[animales, elementales, etc.]</color></i>
 ModUi/&Gameplay=Como se Juega
@@ -138,12 +138,12 @@ ModUi/&ItemsCraftingMerchants=Objetos, Fabricación y Comerciantes
 ModUi/&ItemsHelp1=<color=#C04040E0>Abre la pantalla de inspección de personajes para agregar elementos a los héroes...</color>
 ModUi/&ItemsHelp2=<b>Presiona + para agregar artículos al contenedor de tierra</b>
 ModUi/&MakeAllMagicStaveArcaneFoci=Haz que todos los bastones mágicos sean focos arcanos <i><color=#F0DAA0>[excepto el <color=#D89555>Bastón de curación</color> que es universal]</color></i>
-ModUi/&MakeLargeWildshapeFormsMedium=Haga que todas las formas grandes de forma salvaje sean de tamaño mediano
+ModUi/&MakeLargeWildshapeFormsMedium=Haga que todas las formas grandes de forma salvaje sean de tamaño mediano.
 ModUi/&MarkInvisibleTeleportersOnLevelMap=<i>+ También marque la ubicación de los teletransportadores invisibles en el mapa de nivel después del descubrimiento</i>
 ModUi/&MaxAllowedClasses=<color=white>Clases máximas permitidas</color>
 ModUi/&Merchants=<color=#F0DAA0>Comerciantes:</color>
 ModUi/&Monsters=<color=#F0DAA0>Monstruos:</color>
-ModUi/&MulticlassKeyHelp=<color=#1E81B0>MAYÚS</color> al hacer clic en un hechizo se invierte el tipo de espacio de repertorio predeterminado consumido\n<i><color=#F0DAA0>[<color=#D89555>Brujo</color> gasta espacios de hechizos blancos y otros gastan verdes de pacto]</color></i>
+ModUi/&MulticlassKeyHelp=<color=#1E81B0>MAYÚS</color> al hacer clic en un hechizo se invierte el tipo de espacio de repertorio predeterminado consumido\n<i><color=#F0DAA0>[<color=#D89555>Brujo</color> gasta espacios de hechizo blancos y otros gastan verdes de pacto]</color></i>
 ModUi/&MultiplyTheExperienceGainedBy=<color=white>Multiplica la experiencia ganada por</color> <color=#C04040E0>[%]</color>
 ModUi/&NoExperienceOnLevelUp=No se requiere experiencia para subir de nivel
 ModUi/&OfferAdditionalLoreFriendlyNames=Ofrezca nombres amigables adicionales en la creación de personajes
@@ -168,12 +168,12 @@ ModUi/&RestockArcaneum=Reponer Arcaneum <i><color=#F0DAA0>[Heddlon Surespell]</c
 ModUi/&RestockCircleOfDanantar=Reponer Círculo de Danantar <i><color=#F0DAA0>[Joriel Foxeye]</color></i>
 ModUi/&RestockHelp=. Anule los valores predeterminados para obligar a que todas las existencias del comerciante se reabastezcan con el tiempo <i><color=#F0DAA0>[excluyendo manuales y tomos]</color></i>\n. Tenga en cuenta que algunos artículos pueden tardar hasta 7 días de juego en reabastecerse
 ModUi/&RestockTowerOfKnowledge=Reponer Torre del Conocimiento <i><color=#F0DAA0>[Maddy Greenisle]</color></i>
-ModUi/&Rules=Reglas
+ModUi/&Rules=Normas
 ModUi/&ScaleMerchantPricesCorrectly=Escale los precios de los comerciantes correctamente/exactamente <i><color=#F0DAA0>[no más errores de redondeo al convertir valores de monedas]</color></i>
 ModUi/&SelectAll=Seleccionar todo
 ModUi/&SelectSuggested=Seleccionar sugerido
 ModUi/&Services=Servicios
-ModUi/&SetBeltOfDwarvenKindBeardChances=<color=#D89555>Cinturón de raza enana</color> <color=Blanco>posibilidades de aparición de barba</color>
+ModUi/&SetBeltOfDwarvenKindBeardChances=<color=#D89555>Cinturón de raza enana</color> <color=blanco>posibilidades de aparición de barba</color>
 ModUi/&ShowCraftingRecipeInDetailedTooltips=Mostrar receta de elaboración en información detallada sobre herramientas
 ModUi/&ShowDescriptions=Mostrar descripciones
 ModUi/&SpellInstructions=. Puede asignar individualmente cada hechizo a cualquier lista de hechizos o simplemente seleccionar el conjunto sugerido

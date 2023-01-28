@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using HarmonyLib;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.Infrastructure;
 using SolastaUnfinishedBusiness.Builders;
@@ -8,11 +7,13 @@ using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomUI;
+using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Properties;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionActionAffinitys;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionAttributeModifiers;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionCastSpells;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionFeatureSets;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPowers;
 
@@ -25,6 +26,8 @@ internal static class OtherFeats
     internal const string FeatEldritchAdept = "FeatEldritchAdept";
     internal const string FeatWarCaster = "FeatWarCaster";
     internal const string MagicAffinityFeatWarCaster = "MagicAffinityFeatWarCaster";
+
+    private const string FeatMagicInitiateTag = "Initiate";
 
     // private const string FeatMagicInitiate = "FeatMagicInitiate";
 
@@ -63,7 +66,7 @@ internal static class OtherFeats
         var featTough = BuildTough();
         var featWarCaster = BuildWarcaster();
 
-        // BuildMagicInitiate(feats);
+        BuildMagicInitiate(feats);
 
         feats.AddRange(
             featAstralArms,
@@ -131,13 +134,14 @@ internal static class OtherFeats
                 FeatureDefinitionPointPoolBuilder
                     .Create($"PointPool{NAME}Cantrip")
                     .SetGuiPresentationNoContent(true)
-                    .SetSpellOrCantripPool(HeroDefinitions.PointsPoolType.Cantrip, 2, SpellListDefinitions.SpellListAllCantrips,
+                    .SetSpellOrCantripPool(HeroDefinitions.PointsPoolType.Cantrip, 2,
+                        SpellListDefinitions.SpellListAllCantrips,
                         FeatCantripsAdeptTag)
                     .AddToDB())
             .SetValidators(ValidatorsFeat.HasCantrips())
             .AddToDB();
     }
-    
+
     private static FeatDefinition BuildEldritchAdept()
     {
         return FeatDefinitionWithPrerequisitesBuilder
@@ -253,6 +257,72 @@ internal static class OtherFeats
             .AddToDB();
     }
 
+    private static void BuildMagicInitiate([NotNull] List<FeatDefinition> feats)
+    {
+        const string NAME = "FeatMagicInitiate";
+
+        var magicInitiateFeats = new List<FeatDefinition>();
+        var castSpells = new List<FeatureDefinitionCastSpell>
+        {
+            CastSpellBard,
+            CastSpellCleric,
+            CastSpellDruid,
+            CastSpellSorcerer,
+            CastSpellWarlock,
+            CastSpellWizard
+        };
+
+        // ReSharper disable once ForeachCanBeConvertedToQueryUsingAnotherGetEnumerator
+        foreach (var castSpell in castSpells)
+        {
+            var spellList = castSpell.SpellListDefinition;
+            var className = spellList.Name.Replace("SpellList", "");
+            var classDefinition = GetDefinition<CharacterClassDefinition>(className);
+            var classTitle = classDefinition.FormatTitle();
+            var featMagicInitiate = FeatDefinitionWithPrerequisitesBuilder
+                .Create($"{NAME}{className}")
+                .SetGuiPresentation(
+                    Gui.Format($"Feat/&{NAME}Title", classTitle),
+                    Gui.Format($"Feat/&{NAME}Description", classTitle))
+                .SetFeatures(
+                    FeatureDefinitionCastSpellBuilder
+                        .Create(castSpell, $"CastSpell{NAME}{className}")
+                        .SetGuiPresentation(
+                            Gui.Format($"Feature/&CastSpell{NAME}Title", classTitle),
+                            Gui.Format($"Feat/&{NAME}Description", classTitle))
+                        .SetSpellCastingOrigin(FeatureDefinitionCastSpell.CastingOrigin.Race)
+                        .SetSpellKnowledge(SpellKnowledge.Selection)
+                        .SetSpellReadyness(SpellReadyness.AllKnown)
+                        .SetSlotsRecharge(RechargeRate.LongRest)
+                        .SetSlotsPerLevel(SharedSpellsContext.InitiateCastingSlots)
+                        .SetKnownCantrips(2, 1, FeatureDefinitionCastSpellBuilder.CasterProgression.Flat)
+                        .SetKnownSpells(2, FeatureDefinitionCastSpellBuilder.CasterProgression.Flat)
+                        .SetUniqueLevelSlots(false)
+                        .SetCustomSubFeatures(new SpellTag(FeatMagicInitiateTag))
+                        .AddToDB(),
+                    FeatureDefinitionPointPoolBuilder
+                        .Create($"PointPool{NAME}{className}Cantrip")
+                        .SetGuiPresentationNoContent(true)
+                        .SetSpellOrCantripPool(HeroDefinitions.PointsPoolType.Cantrip, 2, spellList,
+                            FeatMagicInitiateTag)
+                        .AddToDB(),
+                    FeatureDefinitionPointPoolBuilder
+                        .Create($"PointPool{NAME}{className}Spell")
+                        .SetGuiPresentationNoContent(true)
+                        .SetSpellOrCantripPool(HeroDefinitions.PointsPoolType.Spell, 1, spellList,
+                            FeatMagicInitiateTag, 1, 1)
+                        .AddToDB())
+                .SetFeatFamily(NAME)
+                .AddToDB();
+
+            magicInitiateFeats.Add(featMagicInitiate);
+        }
+
+        _ = GroupFeats.MakeGroup("FeatGroupMagicInitiate", NAME, magicInitiateFeats);
+
+        feats.AddRange(magicInitiateFeats);
+    }
+
     private static FeatDefinition BuildMetamagic()
     {
         // KEEP FOR BACKWARD COMPATIBILITY until next DLC
@@ -262,7 +332,7 @@ internal static class OtherFeats
             .Create("FeatMetamagicAdept")
             .SetGuiPresentation(Category.Feat)
             .SetFeatures(
-                FeatureDefinitionActionAffinitys.ActionAffinitySorcererMetamagicToggle,
+                ActionAffinitySorcererMetamagicToggle,
                 FeatureDefinitionAttributeModifierBuilder
                     .Create(AttributeModifierSorcererSorceryPointsBase, "AttributeModifierSorcererSorceryPointsBonus2")
                     .SetGuiPresentationNoContent(true)
@@ -309,26 +379,6 @@ internal static class OtherFeats
                 .SetAbilityScorePrerequisite(AttributeDefinitions.Charisma, 13)
                 .SetMustCastSpellsPrerequisite()
                 .AddToDB()));
-    }
-    
-    private sealed class CustomCodeFeatMetamagicAdept : IFeatureDefinitionCustomCode
-    {
-        public CustomCodeFeatMetamagicAdept(MetamagicOptionDefinition metamagicOption)
-        {
-            MetamagicOption = metamagicOption;
-        }
-
-        private MetamagicOptionDefinition MetamagicOption { get; }
-
-        public void ApplyFeature([NotNull] RulesetCharacterHero hero, string tag)
-        {
-            if (hero.MetamagicFeatures.ContainsKey(MetamagicOption))
-            {
-                return;
-            }
-
-            hero.TrainMetaMagicOptions(new List<MetamagicOptionDefinition> { MetamagicOption });
-        }
     }
 
     private static FeatDefinition BuildMobile()
@@ -427,7 +477,7 @@ internal static class OtherFeats
 
         var spellSniperSpells = SpellListDefinitions.SpellListAllCantrips.SpellsByLevel
             .SelectMany(x => x.Spells)
-            .Where(x => x.EffectDescription.RangeType is RangeType.RangeHit or RangeType.Distance &&
+            .Where(x => x.EffectDescription.RangeType is RangeType.RangeHit &&
                         x.EffectDescription.GetFirstFormOfType(EffectForm.EffectFormType.Damage) != null)
             .ToArray();
 
@@ -496,6 +546,36 @@ internal static class OtherFeats
         };
 
         return new RulesetEffectPower(rulesetCharacter, usablePower);
+    }
+
+    internal sealed class SpellTag
+    {
+        internal SpellTag(string spellTag)
+        {
+            Name = spellTag;
+        }
+
+        internal string Name { get; }
+    }
+
+    private sealed class CustomCodeFeatMetamagicAdept : IFeatureDefinitionCustomCode
+    {
+        public CustomCodeFeatMetamagicAdept(MetamagicOptionDefinition metamagicOption)
+        {
+            MetamagicOption = metamagicOption;
+        }
+
+        private MetamagicOptionDefinition MetamagicOption { get; }
+
+        public void ApplyFeature([NotNull] RulesetCharacterHero hero, string tag)
+        {
+            if (hero.MetamagicFeatures.ContainsKey(MetamagicOption))
+            {
+                return;
+            }
+
+            hero.TrainMetaMagicOptions(new List<MetamagicOptionDefinition> { MetamagicOption });
+        }
     }
 
     //
@@ -626,7 +706,7 @@ internal static class OtherFeats
                 return effect;
             }
 
-            if ((effect.rangeType != RangeType.RangeHit && effect.rangeType != RangeType.Distance) ||
+            if (effect.rangeType != RangeType.RangeHit ||
                 effect.GetFirstFormOfType(EffectForm.EffectFormType.Damage) == null)
             {
                 return effect;

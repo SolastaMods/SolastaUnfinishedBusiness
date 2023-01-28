@@ -4,5 +4,5 @@ Feat/&FeatMediumArmorDexDescription=Aumenta tu Destreza en 1, hasta un máximo d
 Feat/&FeatMediumArmorDexTitle=Armadura mediana [Des]
 Feat/&FeatMediumArmorStrDescription=Aumenta tu Fuerza en 1, hasta un máximo de 20.\nObtienes competencia con armaduras y escudos medianos.
 Feat/&FeatMediumArmorStrTitle=Armadura mediana [Str]
-Feedback/&HeavyArmorMasterFormat=¡Maestro de armadura pesada!
-Feedback/&HeavyArmorMasterLine=¡Heavy Armor Master reduce el daño del objetivo!
+Feedback/&HeavyArmorMasterFormat=Maestro de armadura pesada!
+Feedback/&HeavyArmorMasterLine=Heavy Armor Master reduce el daño del objetivo!

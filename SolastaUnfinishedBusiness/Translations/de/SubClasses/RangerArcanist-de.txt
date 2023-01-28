@@ -12,5 +12,5 @@ Feature/&PowerArcanistArcanePulseDescription=Ab der 7. Stufe kannst du eine Erup
 Feature/&PowerArcanistArcanePulseTitle=Arkaner Puls
 Feedback/&AdditionalDamageArcanistMarkFormat=Zeichen des Arkanisten!
 Feedback/&AdditionalDamageArcanistMarkLine=Das Zeichen des Arkanisten detoniert und fügt dem Ziel zusätzlichen Schaden zu!
-Subclass/&RangerArcanistDescription=Der Arkanist verschmilzt seine Ranger-Fähigkeiten mit arkanen Fähigkeiten. Ihre Waffen können ihre Gegner mit dem Zeichen des Arkanisten belegen und haben gelernt, einige Zaubersprüche als Teil ihres Zauberrepertoires für Waldläufer zu wirken.
+Subclass/&RangerArcanistDescription=Der Arkanist verschmilzt seine Ranger-Fähigkeiten mit arkanen Fähigkeiten. Ihre Waffen können ihre Gegner mit dem Zeichen des Arkanisten belegen und haben gelernt, wie man einige Zaubersprüche als Teil ihres Zauberrepertoires für Waldläufer wirkt.
 Subclass/&RangerArcanistTitle=Arkanist

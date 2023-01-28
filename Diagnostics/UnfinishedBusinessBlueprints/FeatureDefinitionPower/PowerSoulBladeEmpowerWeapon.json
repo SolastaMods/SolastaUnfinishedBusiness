@@ -7,7 +7,7 @@
     "halfDamageOnAMiss": false,
     "hitAffinitiesByTargetTag": [],
     "targetType": "Item",
-    "itemSelectionType": "Weapon",
+    "itemSelectionType": "Carried",
     "targetParameter": 1,
     "targetParameter2": 2,
     "emissiveBorder": "None",

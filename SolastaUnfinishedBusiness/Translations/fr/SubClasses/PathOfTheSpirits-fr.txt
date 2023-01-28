@@ -1,4 +1,4 @@
-Feature/&ActionAffinityPathOfTheSpiritsCunningActionDescription=L'esprit de l'aigle fait de vous un prédateur agile qui peut facilement se faufiler dans la mêlée. Vous pouvez effectuer l'action Foncez, Désengagez ou Cachez-vous en tant qu'action bonus.
+Feature/&ActionAffinityPathOfTheSpiritsCunningActionDescription=L'esprit de l'aigle fait de vous un prédateur agile qui peut facilement se faufiler dans la mêlée. Vous pouvez effectuer l'action Se précipiter, se désengager ou se cacher en tant qu'action bonus.
 Feature/&ActionAffinityPathOfTheSpiritsCunningActionTitle=Esprit d'aigle
 Feature/&ConditionPathOfTheSpiritsWolfLeadershipPackDescription=L'esprit du loup vous accordait un avantage sur les jets d'attaque au corps à corps.
 Feature/&ConditionPathOfTheSpiritsWolfLeadershipPackTitle=Esprit de loup

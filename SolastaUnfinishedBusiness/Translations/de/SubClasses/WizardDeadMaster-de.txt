@@ -1,6 +1,6 @@
 ﻿Feature/&AutoPreparedSpellsDeadMasterDescription={0}.
 Feature/&AutoPreparedSpellsDeadMasterTitle=Zauber des toten Meisters
-Feature/&BypassSpellConcentrationDeadMasterDescription=Du hast die Methoden der Nekromantie erlernt. Wenn Sie auf den Kopf gestellt werden, brauchen Sie keine Konzentration, um Tote zu erwecken.
+Feature/&BypassSpellConcentrationDeadMasterDescription=Du hast die Methoden der Nekromantie erlernt. Wenn Sie auf den Kopf gestellt werden, benötigen Sie keine Konzentration, um Tote zu erwecken.
 Feature/&BypassSpellConcentrationDeadMasterTitle=Streuen
 Feature/&FeatureSetDeadMasterNecromancyBonusDCDescription=Beim Wirken von Nekromantiezaubern erhältst du einen SG-Bonus von +1.
 Feature/&FeatureSetDeadMasterNecromancyBonusDCTitle=Experte für Nekromantie

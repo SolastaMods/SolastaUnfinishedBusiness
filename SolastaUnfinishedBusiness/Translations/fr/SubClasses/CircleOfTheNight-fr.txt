@@ -16,5 +16,5 @@ Monster/&WildShapeDireBearDescription=L'ours omnivore ne dérange généralement
 Monster/&WildShapeDireBearTitle=Ours redoutable
 Monster/&WildShapeWaterElementalDescription=Un élémental d'eau est un torrent d'eau suffocant sous la pression de 3000 gallons d'eau tourbillonnants.
 Monster/&WildShapeWaterElementalTitle=Élémentaire d'eau
-Subclass/&CircleOfTheNightDescription=Les Druides du Cercle de la Nuit sont de féroces gardiens de la nature. Leur ordre se rassemble sous la pleine lune pour partager des nouvelles et échanger des avertissements. Ils hantent les parties les plus profondes de la nature sauvage, où ils peuvent passer des semaines avant de croiser la route d'une autre créature humanoïde, sans parler d'un autre druide.
+Subclass/&CircleOfTheNightDescription=Les Druides du Cercle de la Nuit sont de féroces gardiens de la nature. Leur ordre se rassemble sous la pleine lune pour partager des nouvelles et échanger des avertissements. Ils hantent les parties les plus profondes de la nature sauvage, où ils peuvent passer des semaines entières avant de croiser la route d'une autre créature humanoïde, sans parler d'un autre druide.
 Subclass/&CircleOfTheNightTitle=Cercle de la nuit

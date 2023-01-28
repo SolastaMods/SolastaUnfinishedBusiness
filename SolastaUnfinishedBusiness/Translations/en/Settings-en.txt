@@ -46,7 +46,7 @@ ModUi/&Crafting=<color=#F0DAA0>Crafting:</color>
 ModUi/&CraftingHelp=. Press the button to learn recipes instantly on the active party\n. Items added to stores might need the party to travel away from the location and come back
 ModUi/&Credits=Credits
 ModUi/&CreditsAndDiagnostics=Credits & Diagnostics
-ModUi/&DeadEyeAndPowerAttackBaseBaseValue=<color=white>Set Deadeye and Power Attack base modifier value</color>\n<i><color=#F0DAA0>[formula is -mod to hit / mod + PB to damage]</color></i>
+ModUi/&DeadEyeAndPowerAttackBaseBaseValue=<color=white>Set Deadeye and Power Attack base modifier value</color>\n<i><color=#F0DAA0>[formula is -mod to hit / mod + your proficiency bonus to damage]</color></i>
 ModUi/&DisableAutoEquip=Disable auto-equip of items in inventory
 ModUi/&DisableRacePrerequisitesOnModFeats=Disable Race pre-requisites on feats provided by this mod
 ModUi/&DisableSenseDarkVisionFromAllRaces=Disable <color=#D89555>Sense Dark Vision</color> from all playable races <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
@@ -109,9 +109,9 @@ ModUi/&FormationError=<color=#C04040E0>You cannot change your formation during a
 ModUi/&FormationHelp1=. Use the numeric buttons to edit a given set <i><color=#F0DAA0>[consider enabling hotkeys under input]</color></i>
 ModUi/&FormationHelp2=. <b><color=#1E81B0>@</color></b> represent relative hero positions
 ModUi/&FormationHelp3=. Click any 2 buttons to swap their positions
+ModUi/&FormationHotkey=Enable <color=#1E81B0>CTRL-SHIFT-(1..5)</color> to swap formation sets in game
 ModUi/&FormationResetAllSets=Reset all
 ModUi/&FormationResetThisSet=Reset this
-ModUi/&FormationHotkey=Enable <color=#1E81B0>CTRL-SHIFT-(1..5)</color> to swap formation sets in game
 ModUi/&FormationSelected=Formation set {0} selected
 ModUi/&FullyControlConjurations=Fully control conjurations <i><color=#F0DAA0>[animals, elementals, etc]</color></i>
 ModUi/&Gameplay=Gameplay

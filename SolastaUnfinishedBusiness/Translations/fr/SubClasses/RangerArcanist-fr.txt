@@ -12,5 +12,5 @@ Feature/&PowerArcanistArcanePulseDescription=À partir du niveau 7, vous pouvez 
 Feature/&PowerArcanistArcanePulseTitle=Impulsion arcanique
 Feedback/&AdditionalDamageArcanistMarkFormat=Marque de l'arcaniste!
 Feedback/&AdditionalDamageArcanistMarkLine=La marque de l'arcaniste explose et inflige des dégâts supplémentaires à la cible!
-Subclass/&RangerArcanistDescription=L'Arcaniste fusionne ses compétences de Ranger avec ses capacités arcaniques. Leurs armes peuvent affliger leurs adversaires avec la marque de l'arcaniste et ont appris à lancer des sorts de sorcier dans le cadre de leur répertoire de sorts de Ranger.
+Subclass/&RangerArcanistDescription=L'Arcaniste fusionne ses compétences de Ranger avec ses capacités arcaniques. Leurs armes peuvent affliger leurs adversaires avec la marque de l'arcaniste et ont appris à lancer des sorts de magicien dans le cadre de leur répertoire de sorts de Ranger.
 Subclass/&RangerArcanistTitle=Arcaniste

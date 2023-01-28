@@ -1,0 +1,46 @@
+{
+  "$type": "SolastaUnfinishedBusiness.CustomDefinitions.FeatDefinitionWithPrerequisites, SolastaUnfinishedBusiness",
+  "compatibleClassesPrerequisite": [],
+  "mustCastSpellsPrerequisite": false,
+  "compatibleRacesPrerequisite": [],
+  "minimalAbilityScorePrerequisite": false,
+  "minimalAbilityScoreValue": 13,
+  "minimalAbilityScoreName": "Strength",
+  "armorProficiencyPrerequisite": false,
+  "armorProficiencyCategory": "",
+  "hasFamilyTag": true,
+  "familyTag": "FeatMagicInitiate",
+  "knownFeatsPrerequisite": [],
+  "features": [
+    "Definition:CastSpellFeatMagicInitiateSorcerer:20a041b3-2e41-5931-9015-f520e243cd87",
+    "Definition:PointPoolFeatMagicInitiateSorcererCantrip:aa433bac-d96e-5c30-a46a-e277c2d538ec",
+    "Definition:PointPoolFeatMagicInitiateSorcererSpell:99eddc1d-3510-5532-9ead-4aae6d544b8d"
+  ],
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": true,
+    "title": "Magic Initiate [Sorcerer]",
+    "description": "You learn two cantrips of your choice from the Sorcerer spell list. In addition, choose one 1st-level spell to learn from that same list. Using this feat, you can cast the spell once at its lowest level, and you must finish a long rest before you can cast it in this way again.",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "5a211c30-4d42-5d0c-b3fc-de852165f349",
+  "contentPack": 9999,
+  "name": "FeatMagicInitiateSorcerer"
+}
