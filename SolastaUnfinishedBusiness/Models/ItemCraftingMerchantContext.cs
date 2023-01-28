@@ -92,6 +92,10 @@ internal static class ItemCraftingMerchantContext
         CraftingManualPotionOfGreaterHealing.GuiPresentation.spriteReference =
             Sprites.GetSprite("CraftingManualPotionOfGreaterHealing", Resources.CraftingManualPotionOfGreaterHealing,
                 128, 128);
+        
+        CraftingManualScrollOfScorchingRay.GuiPresentation.spriteReference =
+            Sprites.GetSprite("CraftingManualScrollOfScorchingRay", Resources.CraftingManualScrollOfScorchingRay,
+                128, 128);   
     }
 
     private static void LoadClothingGorimStock()

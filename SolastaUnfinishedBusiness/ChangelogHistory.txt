@@ -2,7 +2,7 @@
 
 1.4.33.16:
 
-- added magic initiate feats
+- added Magic Initiate feats
 - changed College of War Dancer from regaining bardic inspiration on kill
 - fixed Cantrips Master and Spell Sniper cantrips offering on some cases
 - fixed College of War Dancer interaction with Haste
