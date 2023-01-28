@@ -1,6 +1,6 @@
 Feature/&FeatureSetCircleOfTheNightElementalFormsDescription=Auf der 10. Stufe kannst du Wildform einmal verwenden, um dich in einen Luftelementar, einen Erdelementar oder einen Feuerelementar zu verwandeln.
 Feature/&FeatureSetCircleOfTheNightElementalFormsTitle=Elementare Formen
-Feature/&OnAfterActionWildShapeDescription=Sie erhalten Ihre Hauptaktion zurück, wenn Sie wildformen, auf Kosten einer Bonusaktion, wenn Sie sie noch nicht verwendet haben.
+Feature/&OnAfterActionWildShapeDescription=Sie erhalten Ihre Hauptaktion zurück, wenn Sie wildformen, auf Kosten einer Bonusaktion, falls Sie sie noch nicht verwendet haben.
 Feature/&OnAfterActionWildShapeTitle=Bonus-Wild-Form
 Feature/&PowerCircleOfTheNightPrimalStrikeDescription=Ab der 6. Stufe zählen deine Angriffe in Bestiengestalt als magisch, um Widerstand und Immunität gegen nicht magische Angriffe und Schaden zu überwinden. Du kannst dich auch in eine Bestie verwandeln, deren Herausforderungswert so hoch ist wie deine Druidenstufe geteilt durch 3, abgerundet.
 Feature/&PowerCircleOfTheNightPrimalStrikeTitle=Urschlag
@@ -12,7 +12,7 @@ Feature/&PowerCircleOfTheNightWildShapeImprovedHealingDescription=Deine Kampfhei
 Feature/&PowerCircleOfTheNightWildShapeImprovedHealingTitle=Verbesserte Kampfheilung
 Feature/&PowerCircleOfTheNightWildShapeSuperiorHealingDescription=Deine Kampfheilung heilt dich jetzt um 3W8+6 Trefferpunkte.
 Feature/&PowerCircleOfTheNightWildShapeSuperiorHealingTitle=Überlegene Kampfheilung
-Monster/&WildShapeDireBearDescription=Der allesfressende Schreckensbär stört normalerweise keine Kreaturen, die versuchen, ihm auszuweichen, aber er verteidigt aggressiv eine Beute oder eine andere Nahrungsquelle. Es wird nicht zögern, alles auseinanderzureißen, was etwas Essbares enthalten könnte.
+Monster/&WildShapeDireBearDescription=Der allesfressende Schreckensbär stört Kreaturen, die versuchen, ihm auszuweichen, normalerweise nicht, verteidigt jedoch aggressiv eine Beute oder eine andere Nahrungsquelle. Es wird nicht zögern, alles auseinanderzureißen, was etwas Essbares enthalten könnte.
 Monster/&WildShapeDireBearTitle=Schrecklicher Bär
 Monster/&WildShapeWaterElementalDescription=Ein Wasserelementar ist ein erstickender Strom aus Wasser mit dem Druck von 3000 wirbelnden Gallonen Wasser.
 Monster/&WildShapeWaterElementalTitle=Wasserelementar

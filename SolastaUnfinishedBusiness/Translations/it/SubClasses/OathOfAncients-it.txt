@@ -1,10 +1,10 @@
-﻿Condition/&ConditionOathOfAncientsNaturesWrathDescription=Sei intrappolato in rampicanti che impediscono il movimento, svantaggio ai tiri salvezza di destrezza e gli attaccanti hanno un vantaggio. Alla fine del tuo turno, effettua un tiro salvezza di forza per scappare.
+﻿Condition/&ConditionOathOfAncientsNaturesWrathDescription=Sei intrappolato in rampicanti che impediscono il movimento, svantaggio ai tiri salvezza di Destrezza e gli attaccanti hanno un vantaggio. Alla fine del tuo turno, effettua un tiro salvezza su Forza per scappare.
 Condition/&ConditionOathOfAncientsNaturesWrathTitle=Impigliato
 Condition/&ConditionOathOfAncientsAuraWardingDescription=Ottieni resistenza agli elementi naturali subendo la metà dei danni da acido, freddo, fuoco, fulmini, tuoni e veleno.
 Condition/&ConditionOathOfAncientsAuraWardingTitle=Protetto
-Feature/&PowerOathOfAncientsNaturesWrathDescription=Evoca rampicanti su un bersaglio, il bersaglio viene trattenuto se fallisce il tiro salvezza su Forza. Il bersaglio effettua un tiro salvezza sulla forza per scappare alla fine del proprio turno.
+Feature/&PowerOathOfAncientsNaturesWrathDescription=Evoca rampicanti su un bersaglio, il bersaglio viene trattenuto se fallisce il tiro salvezza su Forza. Il bersaglio effettua un tiro salvezza su Forza per fuggire alla fine del proprio turno.
 Feature/&PowerOathOfAncientsNaturesWrathTitle=Incanalare Divinità: Ira della Natura
-Feature/&PowerOathOfAncientsTurnFaithlessDescription=Esegui una preghiera, Fey, Fiends ed Elementals che sono vicini devono effettuare un tiro salvezza di saggezza, in caso di fallimento vengono scacciati.
+Feature/&PowerOathOfAncientsTurnFaithlessDescription=Esegui una preghiera, Fey, Fiends ed Elementals che sono vicini devono effettuare un tiro salvezza su Saggezza, in caso di fallimento vengono scacciati.
 Feature/&PowerOathOfAncientsTurnFaithlessTitle=Channel Divinity: trasforma i senza fede
 Feature/&PowerOathOfAncientsAuraWardingDescription=Concedi a te e a chi ti circonda un'antica protezione che riduce i danni causati dagli elementi.
 Feature/&PowerOathOfAncientsAuraWardingTitle=Aura di Protezione

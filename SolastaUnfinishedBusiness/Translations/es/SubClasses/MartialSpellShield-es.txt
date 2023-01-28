@@ -1,6 +1,6 @@
 Feature/&CastSpellSpellShieldDescription=Lanza hechizos y cantrips de mago.
 Feature/&CastSpellSpellShieldTitle=Lanzamiento de hechizos
-Feature/&MagicAffinitySpellShieldCombatMagicVigorDescription=Añade tu modificador de fuerza o destreza, el que sea mayor, a tu CD de tirada de salvación de conjuros y tirada de ataque de conjuros.
+Feature/&MagicAffinitySpellShieldCombatMagicVigorDescription=Añade tu modificador de Fuerza o Destreza, el que sea mayor, a tu CD de tirada de salvación de conjuros y tirada de ataque de conjuros.
 Feature/&MagicAffinitySpellShieldCombatMagicVigorTitle=Vigor
 Feature/&PowerSpellShieldArcaneDeflectionDescription=Puedes usar tus poderes arcanos para protegerte como reacción. Esto te da +3 a tu CA hasta tu próximo turno.
 Feature/&PowerSpellShieldArcaneDeflectionTitle=Desviación arcana

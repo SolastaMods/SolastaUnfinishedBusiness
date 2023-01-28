@@ -1,15 +1,15 @@
 ModUi/&AddAllToStore=Alle zum Shop hinzufügen
 ModUi/&AddBleedingToLesserRestoration=Fügen Sie den Zustand <color=#D89555>Bluten</color> zu denjenigen hinzu, die durch <color=#D89555>Größere</color> und <color=#D89555>Geringere Wiederherstellung</color> entfernt wurden
 ModUi/&AddCustomIconsToOfficialItems=Benutzerdefinierte Symbole zu offiziellen Spielgegenständen hinzufügen <i><color=#F0DAA0>[Munition, Rezepte, Kits usw.]</color></i> <b><i><color=#C04040E0>[Neustart erforderlich] </color></i></b>
-ModUi/&AddHelpActionToAllRaces=Füge allen spielbaren Völkern die Aktion <color=#D89555>Hilfe</color> hinzu <i><color=#F0DAA0>[du kannst einer freundlichen Kreatur dabei helfen, eine Kreatur innerhalb von 1,50 m von dir anzugreifen]</color> </i>
+ModUi/&AddHelpActionToAllRaces=Füge allen spielbaren Völkern die Aktion <color=#D89555>Hilfe</color> hinzu <i><color=#F0DAA0>[du kannst einer freundlichen Kreatur dabei helfen, eine Kreatur innerhalb von 1,50 m von dir anzugreifen]</color></i>
 ModUi/&AddHumanoidFavoredEnemyToRanger=Füge <color=#D89555>Waldläufern</color> humanoiden bevorzugten Feind hinzu
 ModUi/&AddMonkKiPointsToggle=Fügen Sie einen Schalter hinzu, um <color=#D89555>Mönchen</color> zu erlauben, Ki-Punkte zu aktivieren/deaktivieren <i><color=#F0DAA0>[nützlich, um Reaktionsaufforderungen zu minimieren]</color></i>
 ModUi/&AddNewBrightEyeColors=Füge neue leuchtende Augenfarben hinzu
-ModUi/&AddNewWeaponsAndRecipesToShops=Füge den Geschäften neue Waffen und Rezepte hinzu <i><color=#F0DAA0>[Handbandagen, Hellebarden, Piken, lange Keulen, Handarmbrüste]</color></i> <b><i><color=#C04040E0> [Neustart erforderlich]</color></i></b>
+ModUi/&AddNewWeaponsAndRecipesToShops=Füge den Läden neue Waffen und Rezepte hinzu <i><color=#F0DAA0>[Handbandagen, Hellebarden, Piken, lange Keulen, Handarmbrüste]</color></i> <b><i><color=#C04040E0> [Neustart erforderlich]</color></i></b>
 ModUi/&AddPaladinSmiteToggle=Fügen Sie einen Umschalter hinzu, um <color=#D89555>Paladins</color> zu erlauben, Smites nur bei kritischen Treffern zu aktivieren <i><color=#F0DAA0>[nützlich, um Reaktionsaufforderungen zu minimieren]</color></i>
 ModUi/&AddPickPocketableLoot=Taschendiebstahl-Beute hinzufügen <i><color=#F0DAA0>[empfohlen, wenn <color=#D89555>Taschendiebstahl</color>-Talent aktiviert ist]</color></i>
 ModUi/&AddToStore=Zum Shop hinzufügen
-ModUi/&AddWildshapeSwapAttackToggle=Füge einen Umschalter hinzu, damit <color=#D89555>Druiden</color> in Wildform wechseln können, welcher Angriff zuerst verwendet werden soll
+ModUi/&AddWildshapeSwapAttackToggle=Füge einen Schalter hinzu, damit <color=#D89555>Druiden</color> in Wildform auswählen können, welcher Angriff zuerst verwendet werden soll <i><color=#F0DAA0>[nützlich bei einer Mischung aus Nah- und Fernkampf]</color> </i>
 ModUi/&Advanced=<color=#F0DAA0>Erweitert:</color> <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>
 ModUi/&AdvancedHelp=. <b><color=#C04040E0>ACHTUNG:</color></b> Diese Einstellungen erfordern, dass der Spieler diesen Mod installiert hat
 ModUi/&Adventure=<color=#F0DAA0>Abenteuer:</color>
@@ -22,8 +22,8 @@ ModUi/&AllowDruidToWearMetalArmor=Erlaube dem <color=#D89555>Druiden</color>, Me
 ModUi/&AllowDungeonsMaxLevel20=Erlaube Dungeons mit max. Stufe 20
 ModUi/&AllowGadgetsAndPropsToBePlacedAnywhere=Aktivieren Sie den <color=#1E81B0>CTRL</color>-Klick, um alle Überprüfungen beim Platzieren von Gadgets oder Requisiten zu umgehen
 ModUi/&AllowHornsOnAllRaces=Hörner für alle Rassen zulassen <i><color=#F0DAA0>[Ergebnisse können je nach Rasse, Kopf und Horn schrecklich aussehen]</color></i>
-ModUi/&AllowMoreRealStateOnRestPanel=Erlauben Sie mehr realen Status im Ruhebereich <i><color=#F0DAA0>[Aktionen nach der Ruhe im Bereich „Vorher“ und Wiederherstellungsfunktionen im Bereich „Nachher“ ausblenden]</color></i>
-ModUi/&AllowStackedMaterialComponent=Gestapelte Materialkomponente zulassen <i><color=#F0DAA0>[z.B. 2 x 500 gp Diamant entsprechen 1000 gp Diamant]</color></i>
+ModUi/&AllowMoreRealStateOnRestPanel=Erlauben Sie mehr realen Zustand im Ruhebereich <i><color=#F0DAA0>[Aktionen nach Ruhe im Bereich „Vorher“ und Wiederherstellungsfunktionen im Bereich „Nachher“ ausblenden]</color></i>
+ModUi/&AllowStackedMaterialComponent=Gestapelte Materialkomponente zulassen <i><color=#F0DAA0>[z.B. 2x500gp Diamant entspricht 1000gp Diamant]</color></i>
 ModUi/&AllowTargetingSelectionWhenCastingChainLightningSpell=Zielauswahl zulassen, wenn der Zauberspruch <color=#D89555>Kettenblitz</color> gewirkt wird
 ModUi/&AllowUnmarkedSorcerers=Erlaube <color=#D89555>Zauberer</color> ohne Ursprungsmarkierungen und Tätowierungen
 ModUi/&AllRecipesInDm=Alle Rezepte in DM
@@ -46,10 +46,10 @@ ModUi/&Crafting=<color=#F0DAA0>Herstellung:</color>
 ModUi/&CraftingHelp=. Drücken Sie die Taste, um Rezepte sofort auf der aktiven Party zu lernen\n. Artikel, die den Geschäften hinzugefügt werden, erfordern möglicherweise, dass die Gruppe den Ort verlässt und zurückkommt
 ModUi/&Credits=Kredite
 ModUi/&CreditsAndDiagnostics=Kredite & Diagnostik
-ModUi/&DeadEyeAndPowerAttackBaseBaseValue=<color=white>Stellen Sie den Basismodifikatorwert für Deadeye und Power Attack ein</color>\n<i><color=#F0DAA0>[Formel ist -mod to hit / mod + PB to damage]</color></i>
+ModUi/&DeadEyeAndPowerAttackBaseBaseValue=<color=white>Stellen Sie den Basismodifikatorwert für Deadeye und Power Attack ein</color>\n<i><color=#F0DAA0>[Formel ist -Mod auf Treffer / Mod + Ihr Fertigkeitsbonus auf Schaden]</color></i>
 ModUi/&DisableAutoEquip=Deaktiviere das automatische Ausrüsten von Gegenständen im Inventar
 ModUi/&DisableRacePrerequisitesOnModFeats=Deaktivieren Sie die Rennvoraussetzungen für Leistungen, die von diesem Mod bereitgestellt werden
-ModUi/&DisableSenseDarkVisionFromAllRaces=Deaktiviere <color=#D89555>Dunkle Sicht wahrnehmen</color> von allen spielbaren Rassen <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>
+ModUi/&DisableSenseDarkVisionFromAllRaces=Deaktiviere <color=#D89555>Dunkle Sicht wahrnehmen</color> von allen spielbaren Völkern <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>
 ModUi/&DisableSenseSuperiorDarkVisionFromAllRaces=Deaktiviere <color=#D89555>Superior Sense Dark Vision</color> von allen spielbaren Rassen <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>
 ModUi/&DisplayAllKnownSpellsDuringLevelUp=<i>+ Alle bekannten Zauber aus anderen Klassen während des Levelaufstiegs anzeigen</i>
 ModUi/&DisplayPactSlotsOnSpellSelectionPanel=<i>+ Anzeige von <color=#D89555>Hexenmeister</color>-Paktplätzen bei der Zauberauswahl statt im Charakterbereich</i>
@@ -66,17 +66,17 @@ ModUi/&EnableBetaContent=Beta-Inhalt aktivieren <b><i><color=#C04040E0>[Neustart
 ModUi/&EnableCancelEditOnRightMouseClick=Abbrechen von Aktionen mit rechtem Mausklick aktivieren
 ModUi/&EnableCharacterExport=Aktivieren Sie <color=#1E81B0>CTRL-SHIFT-(E)</color>, um das Zeichen zu exportieren
 ModUi/&EnableCheatMenu=Aktivieren Sie das Cheat-Menü
-ModUi/&EnableDungeonMakerModdedContent=Aktivieren Sie Dungeon Maker Pro\n<i><color=#F0DAA0>[einschließlich flacher Räume, Dungeongrößen von 150 x 150 und 200 x 200 und schnörkellosem Mischen von Assets aus allen Umgebungen]</color></i>
+ModUi/&EnableDungeonMakerModdedContent=Aktivieren Sie Dungeon Maker Pro\n<i><color=#F0DAA0>[einschließlich flacher Räume, Dungeongrößen von 150x150 und 200x200 und schnörkellosem Mischen von Assets aus allen Umgebungen]</color></i>
 ModUi/&EnableEpicPointsAndArray=Aktivieren Sie ein episches 35-Punkte-Kaufsystem und Array <i><color=#F0DAA0>[17,15,13,12,10,8]</color></i> <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>
 ModUi/&EnableFeatsAtEvenLevels=Aktivieren Sie die Talentauswahl auf den Klassenstufen 2, 6, 10 und 14
 ModUi/&EnableFighterArmamentAdroitness=Aktivieren Sie <color=#D89555>Kämpfer</color> <b>Waffentraining</b> auf Klassenstufen 2, 6, 10 und 14 <i><color=#F0DAA0>[wählen Sie einen Waffentyp aus, auf den Sie +1 erhalten treffen und beschädigen]</color></i>
 ModUi/&EnableFlexibleBackgrounds=Aktivieren Sie flexible Hintergründe <i><color=#F0DAA0>[Fähigkeiten und Werkzeugkenntnisse aus Hintergründen auswählen]</color></i>
-ModUi/&EnableFlexibleRaces=Aktivieren Sie flexible Rassen <i><color=#F0DAA0>[weisen Sie Fähigkeitspunktepunkte anstelle der rassischen Standardwerte zu]</color></i>
+ModUi/&EnableFlexibleRaces=Aktivieren Sie flexible Rassen <i><color=#F0DAA0>[weisen Sie Fähigkeitspunktepunkte anstelle der rassischen Standardeinstellungen zu]</color></i>
 ModUi/&EnableHotkeyDebugOverlay=Aktivieren Sie <color=#1E81B0>CTRL-SHIFT-(D)</color>, um das Debug-Overlay anzuzeigen
 ModUi/&EnableHotkeyToggleHud=Aktivieren Sie <color=#1E81B0>CTRL-SHIFT-(H)</color>, um die HUD-Anzeige umzuschalten
 ModUi/&EnableInventoryFilteringAndSorting=Inventarfilterung und -sortierung aktivieren
 ModUi/&EnableInventoryTaintNonProficientItemsRed=<i>+ Beflecke alle Gegenstände, mit denen der Held nicht vertraut ist, rot</i>
-ModUi/&EnableInvisibleCrownOfTheMagister=Blenden Sie die <color=#D89555>Krone des Magisters</color> auf der Benutzeroberfläche des Spiels aus
+ModUi/&EnableInvisibleCrownOfTheMagister=Blenden Sie die <color=#D89555>Krone des Magisters</color> auf der Spieloberfläche aus
 ModUi/&EnableLevel20=Stufe 20 aktivieren <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>
 ModUi/&EnableLogDialoguesToConsole=Aktivieren Sie Protokolldialoge zur Spielkonsole während narrativer Sequenzen
 ModUi/&EnableMinInOutAttributes=<i>+ Mindestvoraussetzungen für Fähigkeitswerte erzwingen</i>
@@ -88,7 +88,7 @@ ModUi/&EnablesAsiAndFeat=Aktivieren Sie sowohl die Erhöhung der Attributwerte a
 ModUi/&EnableSaveByLocation=Speichern nach Kampagnen/Standorten aktivieren
 ModUi/&EnableSortingDungeonMakerAssets=Aktivieren Sie die Asset-Sortierung im Dungeon Maker-Editor
 ModUi/&EnableStatsOnHeroTooltip=Zeigen Sie Statistiken im Tooltip des Helden an <i><color=#F0DAA0>[d. h.: kritische Treffer, kritische Fehlschläge usw.]</color></i>
-ModUi/&EnableTeleportParty=Aktivieren Sie <color=#1E81B0>STRG-UMSCHALT-(T)</color>, um die Gruppe zu teleportieren <i><color=#F0DAA0>[Sie könnten Quests abbrechen, wenn Sie sich an einen unentdeckten Ort teleportieren]</color> </i>
+ModUi/&EnableTeleportParty=Aktivieren Sie <color=#1E81B0>CTRL-SHIFT-(T)</color>, um die Gruppe zu teleportieren <i><color=#F0DAA0>[Sie könnten Quests abbrechen, wenn Sie sich an einen unentdeckten Ort teleportieren]</color></i>
 ModUi/&EnableTogglesToOverwriteDefaultTestParty=Aktivieren Sie Umschalter im Charakterpool, um Ihre Standardspiel- und Testgruppe festzulegen
 ModUi/&EnableUpcastConjureElementalAndFey=Upcast von <color=#D89555>Elementar beschwören</color> und <color=#D89555>Feen beschwören</color> aktivieren
 ModUi/&EncounterPercentageChance=<color=white>Stellen Sie die prozentualen Chancen für zufällige Begegnungen ein</color>
@@ -98,7 +98,7 @@ ModUi/&FactionHelp=<color=#C04040E0>Laden Sie ein offizielles Kampagnenspiel, um
 ModUi/&FactionRelations=<color=#F0DAA0>Fraktionen:</color>
 ModUi/&FasterTimeModifier=<color=white>Spielzeitmodifikator beim Drücken der Leertaste</color>
 ModUi/&FeatGroups=<color=#F0DAA0>Leistungsgruppen</color>
-ModUi/&FeatGroupsHelp=. Jede Gruppe ist eine Konsolidierung ähnlicher Heldentaten <i><color=#F0DAA0>[d. h. Glaubensbekenntnisse, Kampfstile, Metamagie usw.]</color></i>\n. Talente in diesen Gruppen werden nicht mehr direkt auf der Leistungsauswahlstufe sichtbar sein\n. Die Gruppe bietet sie, wenn sie ausgewählt ist, in einer Dropdown-Liste an, um den Spielbildschirm zu entrümpeln
+ModUi/&FeatGroupsHelp=. Jede Gruppe ist eine Konsolidierung ähnlicher Heldentaten <i><color=#F0DAA0>[d.h. Glaubensbekenntnisse, Kampfstile, Metamagie usw.]</color></i>\n. Talente in diesen Gruppen werden nicht mehr direkt auf der Leistungsauswahlstufe sichtbar sein\n. Die Gruppe bietet sie, wenn sie ausgewählt ist, in einer Dropdown-Liste an, um den Spielbildschirm zu entrümpeln
 ModUi/&Feats=<color=#F0DAA0>Talente</color>
 ModUi/&FeatsFightingStylesInvocations=Kunststücke, Stile und Anrufungen
 ModUi/&FightingStyles=<color=#F0DAA0>Kampfstile</color>
@@ -109,9 +109,9 @@ ModUi/&FormationError=<color=#C04040E0>Du kannst deine Formation während eines 
 ModUi/&FormationHelp1=. Verwenden Sie die Zifferntasten, um einen bestimmten Satz zu bearbeiten <i><color=#F0DAA0>[erwägen Sie die Aktivierung von Hotkeys unter der Eingabe]</color></i>
 ModUi/&FormationHelp2=. <b><color=#1E81B0>@</color></b> stehen für relative Heldenpositionen
 ModUi/&FormationHelp3=. Klicken Sie auf 2 beliebige Schaltflächen, um ihre Positionen zu tauschen
-ModUi/&FormationResetAllSets=Alle Sätze zurücksetzen
-ModUi/&FormationResetThisSet=Setzen Sie diesen Satz zurück
 ModUi/&FormationHotkey=Aktivieren Sie <color=#1E81B0>CTRL-SHIFT-(1..5)</color>, um Formationssätze im Spiel auszutauschen
+ModUi/&FormationResetAllSets=Alles zurücksetzen
+ModUi/&FormationResetThisSet=Setzen Sie dies zurück
 ModUi/&FormationSelected=Formationssatz {0} ausgewählt
 ModUi/&FullyControlConjurations=Volle Kontrolle über Beschwörungen <i><color=#F0DAA0>[Tiere, Elementare usw.]</color></i>
 ModUi/&Gameplay=Spielweise
@@ -119,13 +119,13 @@ ModUi/&GameUi=Benutzeroberfläche des Spiels
 ModUi/&General=<color=#F0DAA0>Allgemein:</color>
 ModUi/&GeneralMenu=Allgemein
 ModUi/&HideExitAndTeleporterGizmosIfNotDiscovered=Blenden Sie die visuellen Effekte von Ausgängen und Teleportern aus, wenn sie noch nicht entdeckt wurden
-ModUi/&HideMonsterHitPoints=Zeigt die Gesundheit der Monster in Schritten von 25 % / 50 % / 75 % / 100 % anstelle der exakten Trefferpunkte an
+ModUi/&HideMonsterHitPoints=Zeigt die Gesundheit der Monster in Schritten von 25% / 50% / 75% / 100% anstelle der exakten Trefferpunkte an
 ModUi/&House=<color=#F0DAA0>Haus:</color>
 ModUi/&IdentifyAfterRest=Fügen Sie eine Kraft hinzu, um magische Gegenstände über eine kurze oder lange Pause zu identifizieren
 ModUi/&IgnoreHandXbowFreeHandRequirements=Benötigen Sie keine freie Hand, um Handarmbrüste zu verwenden
 ModUi/&IncreaseGameTimeBy=Erhöhen Sie die Spielzeit um
 ModUi/&IncreaseSenseNormalVision=<color=white>Erhöhen Sie die Reichweite der <color=#D89555>Normalen Sicht wahrnehmen</color>, um Langstreckenangriffe zu ermöglichen</color> <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>
-ModUi/&IncreaseSenseNormalVisionHelp=<i><color=#F0DAA0>[40 ist ideal, um zu vermeiden, dass sich Feinde von zu weit her anschließen]</color></i>
+ModUi/&IncreaseSenseNormalVisionHelp=<i><color=#F0DAA0>[40 ist ideal, um zu verhindern, dass sich Feinde von zu weit her anschließen]</color></i>
 ModUi/&InitialChoices=<color=#F0DAA0>Erstellung:</color>
 ModUi/&Input=<color=#F0DAA0>Eingabe:</color>
 ModUi/&Interface=Schnittstelle
@@ -138,7 +138,7 @@ ModUi/&ItemsCraftingMerchants=Gegenstände, Handwerk & Händler
 ModUi/&ItemsHelp1=<color=#C04040E0>Öffne den Charakterinspektionsbildschirm, um Gegenstände zu Helden hinzuzufügen...</color>
 ModUi/&ItemsHelp2=<b>Drücken Sie +, um Gegenstände zum Bodenbehälter hinzuzufügen</b>
 ModUi/&MakeAllMagicStaveArcaneFoci=Machen Sie alle magischen Stäbe zu arkanen Brennpunkten <i><color=#F0DAA0>[außer <color=#D89555>Stab der Heilung</color>, der universell ist]</color></i>
-ModUi/&MakeLargeWildshapeFormsMedium=Machen Sie alle großen Wildformen zu einer mittleren Größe
+ModUi/&MakeLargeWildshapeFormsMedium=Machen Sie alle großen Wildshape-Formen mittelgroß
 ModUi/&MarkInvisibleTeleportersOnLevelMap=<i>+ Markieren Sie nach der Entdeckung auch die Position unsichtbarer Teleporter auf der Levelkarte</i>
 ModUi/&MaxAllowedClasses=<color=white>Maximal erlaubte Klassen</color>
 ModUi/&Merchants=<color=#F0DAA0>Händler:</color>
@@ -199,6 +199,6 @@ ModUi/&UnlockGlowingColorsForAllMarksAndTattoos=Schalten Sie leuchtende Farben f
 ModUi/&UnlockGlowingEyeColors=Fügen Sie leuchtende Augenfarben hinzu
 ModUi/&UnlockMarkAndTattoosForAllCharacters=Schalte <color=#D89555>Zauberer</color>-Ursprungsmarkierungen und Tätowierungen für alle Charaktere frei
 ModUi/&UnlockSkinColors=Schalte Hautfarben frei
-ModUi/&UseHeightOneCylinderEffect=Verwenden Sie einen Zylindereffekt der Höhe 1, wenn Sie <color=#D89555>Schwarze Tentakel, Verstricken, Fett</color> <i><color=#F0DAA0>[Quadrat]</color></i> oder <color=#D89555 wirken>Stachelwachstum</color> <i><color=#F0DAA0>[Runde]</color></i>
+ModUi/&UseHeightOneCylinderEffect=Verwenden Sie einen Zylindereffekt der Höhe 1, wenn Sie <color=#D89555>Schwarze Tentakel, Verstricken, Fett</color> <i><color=#F0DAA0>[Quadrat]</color></i> oder <color=#D89555 wirken>Spitzenwachstum</color> <i><color=#F0DAA0>[Runde]</color></i>
 ModUi/&UseOfficialAdvantageDisadvantageRules=Verwenden Sie die offiziellen Vorteils- / Nachteilsregeln
 ModUi/&Visuals=<color=#F0DAA0>Visuals:</color> <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>

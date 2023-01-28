@@ -6,5 +6,5 @@ Feedback/&AdditionalDamageBanishingSmiteFormat=Châtiment de bannissement!
 Feedback/&AdditionalDamageBanishingSmiteLine={0} inflige plus de dégâts à {1} via un châtiment de bannissement (+{2})
 Spell/&BanishingSmiteDescription=Votre prochain coup inflige des dégâts de force supplémentaires avec votre arme. De plus, si cette attaque réduit la cible à 50 points de vie ou moins, vous la bannissez pendant 1 min.
 Spell/&BanishingSmiteTitle=Châtiment de bannissement
-Spell/&FarStepDescription=Vous vous téléportez jusqu'à 18 mètres dans un espace inoccupé que vous pouvez voir. A chacun de vos tours avant la fin du sort, vous pouvez utiliser une action bonus pour vous téléporter à nouveau de cette façon.
+Spell/&FarStepDescription=Vous vous téléportez jusqu'à 18 mètres dans un espace inoccupé que vous pouvez voir. A chacun de vos tours avant la fin du sort, vous pouvez utiliser une action bonus pour vous téléporter à nouveau de cette manière.
 Spell/&FarStepTitle=Pas loin

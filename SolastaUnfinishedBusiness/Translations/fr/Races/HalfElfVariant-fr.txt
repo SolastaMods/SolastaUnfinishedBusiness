@@ -1,4 +1,4 @@
-Race/&RaceHalfElfDarkDescription=Les elfes demi-noirs sont des descendants d'elfes qui ont été modifiés au fil du temps en vivant dans les Badlands inhospitalières. Leur héritage humain les rendait adaptables à la lumière vive.
+Race/&RaceHalfElfDarkDescription=Les elfes semi-noirs sont des descendants d'elfes qui ont été modifiés au fil du temps en vivant dans les Badlands inhospitalières. Leur héritage humain les rendait adaptables à la lumière vive.
 Race/&RaceHalfElfDarkTitle=Elfe mi-noir
 Race/&RaceHalfElfHighDescription=Les demi-hauts-elfes sont entraînés à utiliser la magie très tôt.
 Race/&RaceHalfElfHighTitle=Demi-haut-elfe

@@ -123,6 +123,26 @@ internal static class CharacterContext
         }
     }
 
+    private static void AddNameToRace(CharacterRaceDefinition raceDefinition, string gender, string name)
+    {
+        var racePresentation = raceDefinition.RacePresentation;
+
+        switch (gender)
+        {
+            case "Male":
+                racePresentation.MaleNameOptions.Add(name);
+                break;
+
+            case "Female":
+                racePresentation.FemaleNameOptions.Add(name);
+                break;
+
+            case "Sur":
+                racePresentation.SurNameOptions.Add(name);
+                break;
+        }
+    }
+
     private static void LoadAdditionalNames()
     {
         if (!Main.Settings.OfferAdditionalLoreFriendlyNames)
@@ -150,21 +170,16 @@ internal static class CharacterContext
 
             if (DatabaseRepository.GetDatabase<CharacterRaceDefinition>().TryGetElement(raceName, out var race))
             {
-                var racePresentation = race.RacePresentation;
-
-                switch (gender)
+                if (race.subRaces.Count == 0)
                 {
-                    case "Male":
-                        racePresentation.MaleNameOptions.Add(name);
-                        break;
-
-                    case "Female":
-                        racePresentation.FemaleNameOptions.Add(name);
-                        break;
-
-                    case "Sur":
-                        racePresentation.SurNameOptions.Add(name);
-                        break;
+                    AddNameToRace(race, gender, name);
+                }
+                else
+                {
+                    foreach (var subRace in race.SubRaces)
+                    {
+                        AddNameToRace(subRace, gender, name);
+                    }
                 }
             }
             else

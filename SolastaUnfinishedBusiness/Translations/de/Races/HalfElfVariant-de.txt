@@ -2,5 +2,5 @@ Race/&RaceHalfElfDarkDescription=Halbdunkelelfen sind Nachkommen von Elfen, die 
 Race/&RaceHalfElfDarkTitle=Halb-Dunkel-Elf
 Race/&RaceHalfElfHighDescription=Halbhochelfen werden sehr früh darauf trainiert, Magie einzusetzen.
 Race/&RaceHalfElfHighTitle=Halbhochelfe
-Race/&RaceHalfElfSylvanDescription=Halbsylvanische Elfen sind darauf trainiert, in der Wildnis zu überleben, und sind besonders überlebensfähig. Als ihr Erbe der Waldelfen werden sie seit ihrer Kindheit darin trainiert, mit Schwertern und Bögen zu kämpfen.
+Race/&RaceHalfElfSylvanDescription=Halbsylvanische Elfen sind darauf trainiert, in der Wildnis zu überleben, und sind besonders überlebensfähig. Als ihr Erbe der Waldelfen sind sie seit ihrer Kindheit darauf trainiert, mit Schwertern und Bögen zu kämpfen.
 Race/&RaceHalfElfSylvanTitle=Halbsylvanischer Elf

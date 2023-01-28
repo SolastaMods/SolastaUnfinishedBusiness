@@ -1,4 +1,4 @@
-Condition/&ConditionCollegeOfLifeConstitutionDescription=Proficiência temporária para salvar a Constituição concedida pelo poder Transmutar Força.
+Condition/&ConditionCollegeOfLifeConstitutionDescription=Proficiência de salvamento de Constituição temporária concedida pelo poder Transmutar Força.
 Condition/&ConditionCollegeOfLifeConstitutionTitle=Constituição salva
 Condition/&ConditionCollegeOfLifeElementalResistanceDescription=Resistência temporária a ácido, frio, fogo, raio, necrótico, veneno e trovão concedida pelo poder Transmutar Força.
 Condition/&ConditionCollegeOfLifeElementalResistanceTitle=Resistência elemental

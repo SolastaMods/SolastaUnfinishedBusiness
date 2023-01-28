@@ -1,6 +1,6 @@
 ﻿Feature/&AttackModifierSoulBladeEmpowerWeaponDescription=L'arma utilizza il modificatore di Carisma per i tiri per colpire e per i danni e conta come magica fino al riposo lungo.
 Feature/&AttackModifierSoulBladeEmpowerWeaponTitle=Anima potenziata
-Feature/&PowerSoulBladeEmpowerWeaponDescription=Una volta per riposo lungo puoi potenziare un'arma con il potere delle anime. L'arma utilizza il modificatore di Carisma per i tiri per colpire e per i danni e conta come magica. Solo un'arma può essere soggetta a questo effetto.
+Feature/&PowerSoulBladeEmpowerWeaponDescription=Una volta per riposo lungo puoi potenziare un'arma con il potere delle anime. L'arma usa il modificatore di Carisma per i tiri per colpire e per i danni e conta come magica. Solo un'arma può essere soggetta a questo effetto.
 Feature/&PowerSoulBladeEmpowerWeaponTitle=Potere dell'Anima
 Feature/&PowerSoulBladeSoulShieldDescription=Una volta per riposo breve, usi il potere delle anime per difenderti. Usando un'azione bonus, guadagni pf temporanei pari al tuo livello + modificatore di Carisma.
 Feature/&PowerSoulBladeSoulShieldTitle=Scudo dell'Anima

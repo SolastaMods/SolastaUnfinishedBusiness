@@ -8,4 +8,3 @@ Feature/&PowerOpportunistDebilitatingStrikeDescription=Dein Schleichangriff bewi
 Feature/&PowerOpportunistDebilitatingStrikeTitle=Lähmender Schlag
 Subclass/&RoguishOpportunistDescription=Opportunisten sind diejenigen, die niemals eine Chance auslassen, ihre Feinde zu erledigen. Sie stechen schnell und stechen dort, wo es darauf ankommt. Nicht viele, die ihnen gegenüberstehen, können unversehrt davonkommen.
 Subclass/&RoguishOpportunistTitle=Opportunist
-

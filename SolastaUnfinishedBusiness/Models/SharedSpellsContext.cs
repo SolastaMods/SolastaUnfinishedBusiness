@@ -307,6 +307,30 @@ internal static class SharedSpellsContext
 
     #region Slots Definitions
 
+    internal static IEnumerable<SlotsByLevelDuplet> InitiateCastingSlots { get; } = new List<SlotsByLevelDuplet>
+    {
+        new() { Slots = new List<int> { 1 }, Level = 01 },
+        new() { Slots = new List<int> { 1 }, Level = 02 },
+        new() { Slots = new List<int> { 1 }, Level = 03 },
+        new() { Slots = new List<int> { 1 }, Level = 04 },
+        new() { Slots = new List<int> { 1 }, Level = 05 },
+        new() { Slots = new List<int> { 1 }, Level = 06 },
+        new() { Slots = new List<int> { 1 }, Level = 07 },
+        new() { Slots = new List<int> { 1 }, Level = 08 },
+        new() { Slots = new List<int> { 1 }, Level = 09 },
+        new() { Slots = new List<int> { 1 }, Level = 10 },
+        new() { Slots = new List<int> { 1 }, Level = 11 },
+        new() { Slots = new List<int> { 1 }, Level = 12 },
+        new() { Slots = new List<int> { 1 }, Level = 13 },
+        new() { Slots = new List<int> { 1 }, Level = 14 },
+        new() { Slots = new List<int> { 1 }, Level = 15 },
+        new() { Slots = new List<int> { 1 }, Level = 16 },
+        new() { Slots = new List<int> { 1 }, Level = 17 },
+        new() { Slots = new List<int> { 1 }, Level = 18 },
+        new() { Slots = new List<int> { 1 }, Level = 19 },
+        new() { Slots = new List<int> { 1 }, Level = 20 }
+    };
+
     internal static IEnumerable<SlotsByLevelDuplet> RaceCastingSlots { get; } = new List<SlotsByLevelDuplet>
     {
         new() { Slots = new List<int> { 0, 0 }, Level = 01 },

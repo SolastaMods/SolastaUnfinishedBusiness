@@ -44,26 +44,26 @@ internal sealed class WayOfTheDragon : AbstractSubclass
                     .SetEffectForms(EffectFormBuilder
                         .Create()
                         .SetConditionForm(
-                           ConditionDefinitionBuilder
-                            .Create($"Condition{Name}ReactiveHide")
-                               .SetGuiPresentation(Category.Condition)
-                               .SetPossessive()
-                               .AddFeatures(
-                                   DamageAffinityAcidResistance,
-                                   DamageAffinityBludgeoningResistance,
-                                   DamageAffinityColdResistance,
-                                   DamageAffinityFireResistance,
-                                   DamageAffinityForceDamageResistance,
-                                   DamageAffinityLightningResistance,
-                                   DamageAffinityNecroticResistance,
-                                   DamageAffinityPiercingResistance,
-                                   DamageAffinityPoisonResistance,
-                                   DamageAffinityPsychicResistance,
-                                   DamageAffinityRadiantResistance,
-                                   DamageAffinitySlashingResistance,
-                                   DamageAffinityThunderResistance)
-                             .AddSpecialInterruptions(ConditionInterruption.AnyBattleTurnEnd)
-                            .AddToDB(),
+                            ConditionDefinitionBuilder
+                                .Create($"Condition{Name}ReactiveHide")
+                                .SetGuiPresentation(Category.Condition)
+                                .SetPossessive()
+                                .AddFeatures(
+                                    DamageAffinityAcidResistance,
+                                    DamageAffinityBludgeoningResistance,
+                                    DamageAffinityColdResistance,
+                                    DamageAffinityFireResistance,
+                                    DamageAffinityForceDamageResistance,
+                                    DamageAffinityLightningResistance,
+                                    DamageAffinityNecroticResistance,
+                                    DamageAffinityPiercingResistance,
+                                    DamageAffinityPoisonResistance,
+                                    DamageAffinityPsychicResistance,
+                                    DamageAffinityRadiantResistance,
+                                    DamageAffinitySlashingResistance,
+                                    DamageAffinityThunderResistance)
+                                .AddSpecialInterruptions(ConditionInterruption.AnyBattleTurnEnd)
+                                .AddToDB(),
                             ConditionForm.ConditionOperation.Add,
                             true,
                             true)

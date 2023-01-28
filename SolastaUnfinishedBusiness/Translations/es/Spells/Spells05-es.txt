@@ -2,7 +2,7 @@
 Condition/&ConditionFarStepTitle=Paso lejano
 Feature/&AdditionalDamageBanishingSmiteDescription=Eres golpeado por daño de fuerza.
 Feature/&AdditionalDamageBanishingSmiteTitle=Castigo de destierro
-Feedback/&AdditionalDamageBanishingSmiteFormat=¡Destierro de Smite!
+Feedback/&AdditionalDamageBanishingSmiteFormat=Destierro de Smite!
 Feedback/&AdditionalDamageBanishingSmiteLine={0} inflige más daño a {1} a través de un golpe de destierro (+{2})
 Spell/&BanishingSmiteDescription=Tu próximo golpe causa daño de fuerza adicional con tu arma. Además, si este ataque reduce al objetivo a 50 puntos de golpe o menos, lo destierras durante 1 min.
 Spell/&BanishingSmiteTitle=Castigo de destierro

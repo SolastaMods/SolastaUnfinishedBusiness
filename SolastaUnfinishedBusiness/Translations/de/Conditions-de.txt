@@ -2,7 +2,7 @@
 Condition/&AfterRestIdentifyTitle=Identifizieren
 Condition/&ConditionDistractedByAllyDescription=Diese Kreatur wurde abgelenkt.
 Condition/&ConditionDistractedByAllyTitle=Abgelenkt
-Condition/&ConditionLightSensitivityDescription=Du hast einen Nachteil bei Würfen für Weisheit (Wahrnehmung) bei hellem Licht und erleidest einen Malus von -1W4 auf Angriffswürfe.
+Condition/&ConditionLightSensitivityDescription=Du hast einen Nachteil bei Fertigkeitswürfen für Weisheit (Wahrnehmung) bei hellem Licht und erleidest einen Malus von -1W4 auf Angriffswürfe.
 Condition/&ConditionLightSensitivityTitle=Lichtempfindlichkeit
 Condition/&ConditionStopMovementDescription=Bewegungsunfähig. Geschwindigkeit auf 0 gesetzt.
 Condition/&ConditionStopMovementTitle=Gestoppt

@@ -1,6 +1,6 @@
 ﻿Condition/&ConditionAncientForestPhotosynthesisDescription=Você pode absorver energia da luz solar. Enquanto estiver sob luz forte direta, você recupera 2 HP no início do seu turno.
 Condition/&ConditionAncientForestPhotosynthesisTitle=Fotossíntese
-Condition/&ConditionAncientForestRootedDescription=Gavinhas arbóreas crescem de seus pés e cavam no chão. Você pode conjurar emaranhar à vontade. Seu deslocamento torna-se 0 e você ganha vantagem em qualquer teste de resistência para empurrá-lo, puxá-lo ou derrubá-lo.
+Condition/&ConditionAncientForestRootedDescription=Gavinhas arbóreas crescem de seus pés e se enterram no solo. Você pode conjurar emaranhar à vontade. Seu deslocamento torna-se 0 e você ganha vantagem em qualquer teste de resistência para empurrá-lo, puxá-lo ou derrubá-lo.
 Condition/&ConditionAncientForestRootedTitle=Enraizado
 Equipment/&HerbalBrewDamageAffinityAcidResistanceDescription=Ganhe resistência a dano de ácido por 1 hora.
 Equipment/&HerbalBrewDamageAffinityAcidResistanceTitle=Cerveja de Proteção Ácida
@@ -26,9 +26,9 @@ Feature/&OnMagicalAttackDamageEffectAncientForestLifeSapDescription=Quando você
 Feature/&OnMagicalAttackDamageEffectAncientForestLifeSapTitle=Seiva da vida
 Feature/&PowerAncientForestRegrowthDescription=Você tem uma reserva de poder de cura que é reabastecida quando você faz um descanso longo. Com essa reserva, você pode restaurar um número total de pontos de vida igual ao seu nível de Druida × 5.
 Feature/&PowerAncientForestRegrowthTitle=Recrescimento
-Feature/&PowerAncientForestRootedDescription=Gavinhas arbóreas crescem de seus pés e cavam no chão. Seu deslocamento torna-se 0 e você ganha vantagem em qualquer teste de resistência para empurrá-lo, puxá-lo ou derrubá-lo. Você pode lançar emaranhado à vontade.
+Feature/&PowerAncientForestRootedDescription=Gavinhas arbóreas crescem de seus pés e se enterram no solo. Seu deslocamento torna-se 0 e você ganha vantagem em qualquer teste de resistência para empurrá-lo, puxá-lo ou derrubá-lo. Você pode lançar emaranhado à vontade.
 Feature/&PowerAncientForestRootedTitle=Enraizado
-Feature/&PowerPoolAncientForestHerbalBrewDescription=Ao terminar um descanso longo, você pode criar infusões de ervas, cada uma das quais dura até o próximo descanso longo. Você cria um total de poções igual ao seu bônus de proficiência. Para cada bebida, escolha um dos seguintes efeitos: \n<color=#add8e6ff>Fortifying Brew</color>: concede resistência a diferentes tipos de dano por 1 hora.\n<color=#add8e6ff>Quickening Brew </color>: fornece 2d4 pontos de vida.\n<color=#add8e6ff>Cerveja Toxificante</color>: age como um veneno que pode ser aplicado a uma arma que dura 1 minuto. Se o golpe acertar, o alvo recebe 1d4 de dano venenoso em cada golpe.
+Feature/&PowerPoolAncientForestHerbalBrewDescription=Ao terminar um descanso longo, você pode criar infusões de ervas, cada uma das quais dura até o próximo descanso longo. Você cria um total de poções igual ao seu bônus de proficiência. Para cada bebida, escolha um dos seguintes efeitos: \n<color=#add8e6ff>Fortifying Brew</color>: concede resistência a diferentes tipos de danos por 1 hora.\n<color=#add8e6ff>Quickening Brew</color>: fornece 2d4 pontos de vida.\n<color=#add8e6ff>Cerveja Toxificante</color>: age como um veneno que pode ser aplicado a uma arma que dura 1 minuto. Se o golpe acertar, o alvo recebe 1d4 de dano venenoso em cada golpe.
 Feature/&PowerPoolAncientForestHerbalBrewTitle=Fermentação à base de ervas
 Feature/&PowerPoolAncientForestWallOfThornsDescription=Você pode conjurar Muralha de Espinhos um número de vezes igual ao seu modificador de Sabedoria. Recarrega em descansos longos.
 Feature/&PowerPoolAncientForestWallOfThornsTitle=Muralha de Espinhos

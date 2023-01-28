@@ -20,5 +20,5 @@ Feature/&PowerPathOfTheSpiritsBearResistanceDescription=Lo spirito dell'orso ti 
 Feature/&PowerPathOfTheSpiritsBearResistanceTitle=Resistenza all'orso
 Feature/&PowerPathOfTheSpiritsWolfLeadershipDescription=Lo spirito del lupo ti rende un capo dei cacciatori. Qualsiasi amico entro 15 piedi che può vederti infuriare alla fine del tuo turno avrà vantaggio sui tiri per colpire in mischia durante il proprio turno.
 Feature/&PowerPathOfTheSpiritsWolfLeadershipTitle=Spirito Lupo
-Subclass/&PathOfTheSpiritsDescription=I barbari che seguono il Sentiero degli Spiriti accettano uno spirito animale come guida, protettore e ispirazione, che li riempie di potere soprannaturale, aggiungendo carburante magico alla furia barbara.
+Subclass/&PathOfTheSpiritsDescription=I barbari che seguono il Sentiero degli Spiriti accettano uno spirito animale come guida, protettore e ispirazione, che li riempie di potere soprannaturale, aggiungendo carburante magico alla furia barbarica.
 Subclass/&PathOfTheSpiritsTitle=Sentiero Degli Spiriti
