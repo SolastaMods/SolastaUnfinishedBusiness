@@ -285,6 +285,7 @@ internal static class OtherFeats
                             FeatMagicInitiateTag, 1, 1)
                         .AddToDB())
                 .SetFeatFamily(NAME)
+                .SetValidators(ValidatorsFeat.ValidateMinCharLevel(2))
                 .AddToDB();
 
             magicInitiateFeats.Add(featMagicInitiate);
@@ -504,6 +505,7 @@ internal static class OtherFeats
                         .SetSlotsPerLevel(SharedSpellsContext.RaceEmptyCastingSlots)
                         .SetKnownCantrips(1, 1, FeatureDefinitionCastSpellBuilder.CasterProgression.Flat)
                         .SetKnownSpells(0, FeatureDefinitionCastSpellBuilder.CasterProgression.Flat)
+                        .SetReplacedSpells(1, 0)
                         .SetUniqueLevelSlots(false)
                         .SetCustomSubFeatures(new SpellTag(FeatSpellSniperTag))
                         .SetSpellList(spellList)
@@ -516,6 +518,7 @@ internal static class OtherFeats
                         .AddToDB())
                 .SetFeatFamily(NAME)
                 .SetCustomSubFeatures(new ModifyMagicEffectFeatSpellSniper())
+                .SetValidators(ValidatorsFeat.ValidateMinCharLevel(2))
                 .AddToDB();
 
             spellSniperFeats.Add(featSpellSniper);

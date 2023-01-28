@@ -565,6 +565,7 @@ internal static class LevelUpContext
         }
     }
 
+#if false
     internal static void GrantSpellsOrCantripsFromTag(
         CharacterBuildingManager characterBuildingManager,
         [NotNull] RulesetCharacterHero hero,
@@ -591,6 +592,7 @@ internal static class LevelUpContext
 
         characterBuildingManager.GrantCantripsAndSpellsByTag(heroBuildingData, classTag + tag, spellcastingFeature);
     }
+#endif
 
     internal static void SortHeroRepertoires(RulesetCharacterHero hero)
     {
