@@ -46,8 +46,10 @@ Feat/&FeatGroupSkillsDescription=熟练或专精技能的专长组合
 Feat/&FeatGroupSkillsTitle=技能
 Feat/&FeatGroupSlasherDescription=将你的力量或敏捷提高 1 点，最高可达 20。\n当你用造成挥砍伤害的攻击击中生物时，你可以将目标的速度降低 10 英尺，直到你的下一轮开始。当你获得重击时，你会严重伤害它。在你的下一轮开始之前，目标的所有攻击检定都处于劣势。
 Feat/&FeatGroupSlasherTitle=杀戮者
-Feat/&FeatGroupSpellCombatDescription=法术战斗专长组合
+Feat/&FeatGroupSpellCombatDescription=团体法术战斗专长：完美专注、强大的 Cantrip 法术狙击手和战争施法者。
 Feat/&FeatGroupSpellCombatTitle=法术战斗
+Feat/&FeatGroupSpellSniperDescription=你学会了一个需要攻击检定的戏法。从吟游诗人、牧师、德鲁伊、术士、术士或法师法术列表中选择咒语。当你施展需要进行攻击检定的法术时，该法术的射程会加倍。你的远程法术攻击无视半掩护和四分之三掩护。
+Feat/&FeatGroupSpellSniperTitle=法术狙击手
 Feat/&FeatGroupTelekineticDescription=将你的一项精神属性提高 1，最多 20。\n以一个附赠动作，你可以用心灵遥控的方式将一个你能看到的生物移动到距离你 30 英尺的范围内。 目标必须通过一次力量豁免检定（DC=8 + 你的熟练加值 + 你选择的属性调整值），否则将你选择的方向移动 5 英尺。
 Feat/&FeatGroupTelekineticTitle=念力
 Feat/&FeatGroupTeleportationDescription=将你的一项精神属性提高 1，最多 20。\n每次短休你可以使用一次迷踪步，并且你可以使用你的法术位施展该法术。\n你学会 Tirmarian 语。

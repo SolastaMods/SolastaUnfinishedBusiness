@@ -8,10 +8,7 @@
       "level": 0,
       "spells": [
         "Definition:ChillTouch:2dffe98ad497e4b418abc947f6077fb7",
-        "Definition:EldritchBlast:1bc808c50803d9841be7af7314327d6d",
-        "Definition:FireBolt:fac7c06d87f301d4ca3798b4c18d86c8",
-        "Definition:RayOfFrost:637a3697f05a4614e8200abfa5daaaff",
-        "Definition:VenomousSpike:804bffd98d2384c4b9c01ebb30f3cbee"
+        "Definition:EldritchBlast:1bc808c50803d9841be7af7314327d6d"
       ]
     },
     {
@@ -86,7 +83,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "ebc47481-b11f-5b40-a799-c06ff5269f50",
+  "guid": "28c9be90-0099-50ef-8232-9c780442c448",
   "contentPack": 9999,
-  "name": "SpellListFeatSpellSniper"
+  "name": "SpellListFeatSpellSniperWarlock"
 }

@@ -1,10 +1,10 @@
+ATTENTION:
+
+- You must RESPEC any hero that took Cantrips Adept or Spell Sniper before this update
+
 CHANGES:
 
-- added Magic Initiate feats
-- changed College of War Dancer from regaining bardic inspiration on kill
-- fixed Cantrips Master and Spell Sniper cantrips offering on some cases
-- fixed College of War Dancer interaction with Haste
-- fixed College of War Dancer weapon switch when off hand was empty
-- fixed Soul Blade empower not limiting two-handed weapons
-- fixed Spell Sniper to only consider ranger hit type cantrips
-- reduced College of War Dancer maximum momentum to half-PB rounded up
+- changed Magic Initiate and Spell Sniper feats to require level 2 [technical limitation]
+- fixed Soul Blade empower weapon
+- refactored Spell Sniper on 5 separate feats with its own repertoire and correct casting ability
+- removed Cantrips Adept feat in favor of Magic Initiate ones

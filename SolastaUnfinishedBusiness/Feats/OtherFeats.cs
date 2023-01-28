@@ -21,15 +21,12 @@ namespace SolastaUnfinishedBusiness.Feats;
 
 internal static class OtherFeats
 {
-    internal const string FeatCantripsAdeptTag = "Adept";
-    internal const string FeatSpellSniperTag = "Sniper";
     internal const string FeatEldritchAdept = "FeatEldritchAdept";
     internal const string FeatWarCaster = "FeatWarCaster";
     internal const string MagicAffinityFeatWarCaster = "MagicAffinityFeatWarCaster";
 
     private const string FeatMagicInitiateTag = "Initiate";
-
-    // private const string FeatMagicInitiate = "FeatMagicInitiate";
+    private const string FeatSpellSniperTag = "Sniper";
 
     private static readonly FeatureDefinitionPower PowerFeatPoisonousSkin = FeatureDefinitionPowerBuilder
         .Create("PowerFeatPoisonousSkin")
@@ -53,7 +50,6 @@ internal static class OtherFeats
     internal static void CreateFeats([NotNull] List<FeatDefinition> feats)
     {
         var featAstralArms = BuildAstralArms();
-        var featCantripsAdept = BuildCantripsAdept();
         var featEldritchAdept = BuildEldritchAdept();
         var featHealer = BuildHealer();
         var featInspiringLeader = BuildInspiringLeader();
@@ -62,15 +58,14 @@ internal static class OtherFeats
         var featMonkInitiate = BuildMonkInitiate();
         var featPickPocket = BuildPickPocket();
         var featPoisonousSkin = BuildPoisonousSkin();
-        var featSpellSniper = BuildSpellSniper();
         var featTough = BuildTough();
         var featWarCaster = BuildWarcaster();
 
-        BuildMagicInitiate(feats);
+        _ = BuildMagicInitiate(feats);
+        var spellSniperGroup = BuildSpellSniper(feats);
 
         feats.AddRange(
             featAstralArms,
-            featCantripsAdept,
             featEldritchAdept,
             featHealer,
             featInspiringLeader,
@@ -79,7 +74,6 @@ internal static class OtherFeats
             featMonkInitiate,
             featPickPocket,
             featPoisonousSkin,
-            featSpellSniper,
             featTough,
             featWarCaster);
 
@@ -98,14 +92,11 @@ internal static class OtherFeats
             featHealer,
             featPickPocket);
 
-        var group = GroupFeats.MakeGroup("FeatGroupSpellCombat", null,
+        _ = GroupFeats.MakeGroup("FeatGroupSpellCombat", null,
             FeatDefinitions.FlawlessConcentration,
             FeatDefinitions.PowerfulCantrip,
-            featCantripsAdept,
-            featSpellSniper,
-            featWarCaster);
-
-        group.mustCastSpellsPrerequisite = true;
+            featWarCaster,
+            spellSniperGroup);
     }
 
     private static FeatDefinition BuildAstralArms()
@@ -120,25 +111,6 @@ internal static class OtherFeats
                     .SetGuiPresentationNoContent(true)
                     .SetCustomSubFeatures(new ModifyAttackModeForWeaponFeatAstralArms())
                     .AddToDB())
-            .AddToDB();
-    }
-
-    private static FeatDefinition BuildCantripsAdept()
-    {
-        const string NAME = "FeatCantripsAdept";
-
-        return FeatDefinitionWithPrerequisitesBuilder
-            .Create($"{NAME}")
-            .SetGuiPresentation(Category.Feat)
-            .SetFeatures(
-                FeatureDefinitionPointPoolBuilder
-                    .Create($"PointPool{NAME}Cantrip")
-                    .SetGuiPresentationNoContent(true)
-                    .SetSpellOrCantripPool(HeroDefinitions.PointsPoolType.Cantrip, 2,
-                        SpellListDefinitions.SpellListAllCantrips,
-                        FeatCantripsAdeptTag)
-                    .AddToDB())
-            .SetValidators(ValidatorsFeat.HasCantrips())
             .AddToDB();
     }
 
@@ -257,7 +229,7 @@ internal static class OtherFeats
             .AddToDB();
     }
 
-    private static void BuildMagicInitiate([NotNull] List<FeatDefinition> feats)
+    private static FeatDefinition BuildMagicInitiate([NotNull] List<FeatDefinition> feats)
     {
         const string NAME = "FeatMagicInitiate";
 
@@ -313,14 +285,17 @@ internal static class OtherFeats
                             FeatMagicInitiateTag, 1, 1)
                         .AddToDB())
                 .SetFeatFamily(NAME)
+                .SetValidators(ValidatorsFeat.ValidateMinCharLevel(2))
                 .AddToDB();
 
             magicInitiateFeats.Add(featMagicInitiate);
         }
 
-        _ = GroupFeats.MakeGroup("FeatGroupMagicInitiate", NAME, magicInitiateFeats);
+        var metamagicGroup = GroupFeats.MakeGroup("FeatGroupMagicInitiate", NAME, magicInitiateFeats);
 
         feats.AddRange(magicInitiateFeats);
+
+        return metamagicGroup;
     }
 
     private static FeatDefinition BuildMetamagic()
@@ -471,37 +446,89 @@ internal static class OtherFeats
             .AddToDB();
     }
 
-    private static FeatDefinition BuildSpellSniper()
+    private static FeatDefinition BuildSpellSniper([NotNull] List<FeatDefinition> feats)
     {
         const string NAME = "FeatSpellSniper";
 
-        var spellSniperSpells = SpellListDefinitions.SpellListAllCantrips.SpellsByLevel
-            .SelectMany(x => x.Spells)
-            .Where(x => x.EffectDescription.RangeType is RangeType.RangeHit &&
-                        x.EffectDescription.GetFirstFormOfType(EffectForm.EffectFormType.Damage) != null)
-            .ToArray();
+        var spellSniperFeats = new List<FeatDefinition>();
+        var castSpells = new List<FeatureDefinitionCastSpell>
+        {
+            // CastSpellBard, // Bard doesn't have any cantrips in Solasta that are RangeHit
+            CastSpellCleric,
+            CastSpellDruid,
+            CastSpellSorcerer,
+            CastSpellWarlock,
+            CastSpellWizard
+        };
 
-        var spellListDefinition = SpellListDefinitionBuilder
-            .Create($"SpellList{NAME}")
-            .SetGuiPresentationNoContent(true)
-            .ClearSpells()
-            .SetSpellsAtLevel(0, spellSniperSpells)
-            .FinalizeSpells(true, -1)
-            .AddToDB();
+        // ReSharper disable once ForeachCanBeConvertedToQueryUsingAnotherGetEnumerator
+        foreach (var castSpell in castSpells)
+        {
+            var spellSniperSpells = castSpell.SpellListDefinition.SpellsByLevel
+                .SelectMany(x => x.Spells)
+                .Where(x => x.EffectDescription.RangeType is RangeType.RangeHit &&
+                            x.EffectDescription.GetFirstFormOfType(EffectForm.EffectFormType.Damage) != null)
+                .ToArray();
 
-        return FeatDefinitionWithPrerequisitesBuilder
-            .Create($"{NAME}")
-            .SetGuiPresentation(Category.Feat)
-            .SetFeatures(
-                FeatureDefinitionPointPoolBuilder
-                    .Create($"PointPool{NAME}Cantrip")
-                    .SetGuiPresentationNoContent(true)
-                    .SetSpellOrCantripPool(HeroDefinitions.PointsPoolType.Cantrip, 1, spellListDefinition,
-                        FeatSpellSniperTag)
-                    .AddToDB())
-            .SetCustomSubFeatures(new ModifyMagicEffectFeatSpellSniper())
-            .SetValidators(ValidatorsFeat.HasCantrips())
-            .AddToDB();
+            if (spellSniperSpells.Length == 0)
+            {
+                continue;
+            }
+
+            var className = castSpell.SpellListDefinition.Name.Replace("SpellList", "");
+            var classDefinition = GetDefinition<CharacterClassDefinition>(className);
+            var classTitle = classDefinition.FormatTitle();
+
+            var spellList = SpellListDefinitionBuilder
+                .Create($"SpellList{NAME}{className}")
+                .SetGuiPresentationNoContent(true)
+                .ClearSpells()
+                .SetSpellsAtLevel(0, spellSniperSpells)
+                .FinalizeSpells(true, -1)
+                .AddToDB();
+
+            var featSpellSniper = FeatDefinitionWithPrerequisitesBuilder
+                .Create($"{NAME}{className}")
+                .SetGuiPresentation(
+                    Gui.Format($"Feat/&{NAME}Title", classTitle),
+                    Gui.Format($"Feat/&{NAME}Description", classTitle))
+                .SetFeatures(
+                    FeatureDefinitionCastSpellBuilder
+                        .Create(castSpell, $"CastSpell{NAME}{className}")
+                        .SetGuiPresentation(
+                            Gui.Format($"Feature/&CastSpell{NAME}Title", classTitle),
+                            Gui.Format($"Feat/&{NAME}Description", classTitle))
+                        .SetSpellCastingOrigin(FeatureDefinitionCastSpell.CastingOrigin.Race)
+                        .SetSpellKnowledge(SpellKnowledge.Selection)
+                        .SetSpellReadyness(SpellReadyness.AllKnown)
+                        .SetSlotsRecharge(RechargeRate.LongRest)
+                        .SetSlotsPerLevel(SharedSpellsContext.RaceEmptyCastingSlots)
+                        .SetKnownCantrips(1, 1, FeatureDefinitionCastSpellBuilder.CasterProgression.Flat)
+                        .SetKnownSpells(0, FeatureDefinitionCastSpellBuilder.CasterProgression.Flat)
+                        .SetReplacedSpells(1, 0)
+                        .SetUniqueLevelSlots(false)
+                        .SetCustomSubFeatures(new SpellTag(FeatSpellSniperTag))
+                        .SetSpellList(spellList)
+                        .AddToDB(),
+                    FeatureDefinitionPointPoolBuilder
+                        .Create($"PointPool{NAME}{className}Cantrip")
+                        .SetGuiPresentationNoContent(true)
+                        .SetSpellOrCantripPool(HeroDefinitions.PointsPoolType.Cantrip, 1, spellList,
+                            FeatSpellSniperTag)
+                        .AddToDB())
+                .SetFeatFamily(NAME)
+                .SetCustomSubFeatures(new ModifyMagicEffectFeatSpellSniper())
+                .SetValidators(ValidatorsFeat.ValidateMinCharLevel(2))
+                .AddToDB();
+
+            spellSniperFeats.Add(featSpellSniper);
+        }
+
+        var spellSniperGroup = GroupFeats.MakeGroup("FeatGroupSpellSniper", NAME, spellSniperFeats);
+
+        feats.AddRange(spellSniperFeats);
+
+        return spellSniperGroup;
     }
 
     private static FeatDefinition BuildTough()
