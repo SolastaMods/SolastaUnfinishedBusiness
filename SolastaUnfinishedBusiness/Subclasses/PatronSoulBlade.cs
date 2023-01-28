@@ -1,5 +1,4 @@
 ﻿using System.Linq;
-using SolastaUnfinishedBusiness.Api.Extensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
@@ -107,6 +106,11 @@ internal sealed class PatronSoulBlade : AbstractSubclass
             .AddToDB();
     }
 
+    internal override CharacterSubclassDefinition Subclass { get; }
+
+    internal override FeatureDefinitionSubclassChoice SubclassChoice =>
+        FeatureDefinitionSubclassChoices.SubclassChoiceWarlockOtherworldlyPatrons;
+
     private static bool CanWeaponBeEmpowered(RulesetCharacter character, RulesetItem item)
     {
         var definition = item.ItemDefinition;
@@ -114,20 +118,19 @@ internal sealed class PatronSoulBlade : AbstractSubclass
         {
             return false;
         }
+
         if (!definition.WeaponDescription.WeaponTags.Contains(TagsDefinitions.WeaponTagTwoHanded))
         {
             return true;
         }
-        if (character is RulesetCharacterHero hero && hero.ActiveFeatures.Any(p => p.Value.Contains(FeatureDefinitionFeatureSets.FeatureSetPactBlade)))
+
+        if (character is RulesetCharacterHero hero &&
+            hero.ActiveFeatures.Any(p => p.Value.Contains(FeatureDefinitionFeatureSets.FeatureSetPactBlade)))
         {
             return hero.InvocationProficiencies.Contains("InvocationImprovedPactWeapon") ||
-                definition.WeaponDescription.WeaponTypeDefinition.WeaponProximity == AttackProximity.Melee;
+                   definition.WeaponDescription.WeaponTypeDefinition.WeaponProximity == AttackProximity.Melee;
         }
+
         return false;
     }
-
-    internal override CharacterSubclassDefinition Subclass { get; }
-
-    internal override FeatureDefinitionSubclassChoice SubclassChoice =>
-        FeatureDefinitionSubclassChoices.SubclassChoiceWarlockOtherworldlyPatrons;
 }

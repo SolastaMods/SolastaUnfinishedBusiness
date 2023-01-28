@@ -722,7 +722,8 @@ public static class CharacterBuildingManagerPatcher
                     finaTag += featureDefinitionPointPool.ExtraSpellsTag;
                 }
 
-                if (pointPoolStack.ActivePools.TryGetValue(finaTag + featureDefinitionPointPool.ExtraSpellsTag, out var pool))
+                if (pointPoolStack.ActivePools.TryGetValue(finaTag + featureDefinitionPointPool.ExtraSpellsTag,
+                        out var pool))
                 {
                     pool.maxPoints += featureDefinitionPointPool.poolAmount;
                 }

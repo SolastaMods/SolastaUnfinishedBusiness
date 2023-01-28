@@ -7,6 +7,7 @@
 - fixed Cantrips Master and Spell Sniper cantrips offering on some cases
 - fixed College of War Dancer interaction with Haste
 - fixed College of War Dancer weapon switch when off hand was empty
+- fixed Soul Blade empower not limiting two-handed weapons
 - fixed Spell Sniper to only consider ranger hit type cantrips
 - reduced College of War Dancer maximum momentum to half-PB rounded up
 

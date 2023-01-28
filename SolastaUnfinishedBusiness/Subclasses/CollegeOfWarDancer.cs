@@ -54,7 +54,7 @@ internal sealed class CollegeOfWarDancer : AbstractSubclass
         .SetSilent(Silent.WhenAddedOrRemoved)
         .SetSpecialInterruptions(ConditionInterruption.AnyBattleTurnEnd)
         .AddToDB();
-    
+
     internal CollegeOfWarDancer()
     {
         var warDance = FeatureDefinitionPowerBuilder
@@ -198,8 +198,8 @@ internal sealed class CollegeOfWarDancer : AbstractSubclass
             hero.RulesetCharacter.ConditionsByCategory
                 .SelectMany(x => x.Value)
                 .Where(x => x.conditionDefinition == WarDanceMomentum));
-        
-        return currentMomentum.Count >= ((pb + 1)/ 2) || pb == 0;
+
+        return currentMomentum.Count >= (pb + 1) / 2 || pb == 0;
     }
 
     private sealed class RemoveOnAttackMissOrAttackWithNonMeleeWeapon
@@ -346,13 +346,14 @@ internal sealed class CollegeOfWarDancer : AbstractSubclass
                                 x.conditionDefinition == WarDanceMomentum));
 
             if (!flag || RemoveMomentumAnyway(hero) || pb == 0 ||
-                !hero.RulesetCharacter.HasConditionOfType(ConditionWarDance) || hero.RulesetCharacter.HasConditionOfType(MomentumAlreadyApplied))
+                !hero.RulesetCharacter.HasConditionOfType(ConditionWarDance) ||
+                hero.RulesetCharacter.HasConditionOfType(MomentumAlreadyApplied))
             {
                 foreach (var cond in currentMomentum)
                 {
                     hero.RulesetCharacter.RemoveCondition(cond);
                 }
-                
+
                 var marked = RulesetCondition.CreateActiveCondition(
                     hero.Guid,
                     MomentumAlreadyApplied,
