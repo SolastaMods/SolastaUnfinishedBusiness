@@ -706,7 +706,7 @@ internal static class OtherFeats
                 return effect;
             }
 
-            if ((effect.rangeType != RangeType.RangeHit && effect.rangeType != RangeType.Distance) ||
+            if ((effect.rangeType != RangeType.RangeHit) ||
                 effect.GetFirstFormOfType(EffectForm.EffectFormType.Damage) == null)
             {
                 return effect;
