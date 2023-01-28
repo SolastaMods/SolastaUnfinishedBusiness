@@ -286,7 +286,7 @@ internal static class OtherFeats
                     Gui.Format($"Feat/&{NAME}Description", classTitle))
                 .SetFeatures(
                     FeatureDefinitionCastSpellBuilder
-                        .Create(castSpell, $"CastSpell{NAME}{className}#")
+                        .Create(castSpell, $"CastSpell{NAME}{className}")
                         .SetGuiPresentation(
                             Gui.Format($"Feature/&CastSpell{NAME}Title", classTitle),
                             Gui.Format($"Feat/&{NAME}Description", classTitle))
@@ -706,7 +706,7 @@ internal static class OtherFeats
                 return effect;
             }
 
-            if ((effect.rangeType != RangeType.RangeHit) ||
+            if (effect.rangeType != RangeType.RangeHit ||
                 effect.GetFirstFormOfType(EffectForm.EffectFormType.Damage) == null)
             {
                 return effect;

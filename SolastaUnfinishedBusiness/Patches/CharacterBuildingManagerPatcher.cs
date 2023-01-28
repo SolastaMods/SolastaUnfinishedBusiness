@@ -6,6 +6,7 @@ using System.Reflection.Emit;
 using HarmonyLib;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api;
+using SolastaUnfinishedBusiness.Api.Extensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.CustomDefinitions;
 using SolastaUnfinishedBusiness.CustomUI;
@@ -415,8 +416,24 @@ public static class CharacterBuildingManagerPatcher
             ref FeatureDefinitionCastSpell __result)
         {
             var hero = heroBuildingData.HeroCharacter;
-            var isMulticlass = LevelUpContext.IsMulticlass(hero);
 
+            //PATCH: support cast spell granted from feat
+            foreach (var featureDefinitionCastSpell in heroBuildingData.levelupTrainedFeats.SelectMany(x =>
+                         x.Value.SelectMany(x => x.Features).OfType<FeatureDefinitionCastSpell>()))
+            {
+                var spellTag = featureDefinitionCastSpell.GetFirstSubFeatureOfType<OtherFeats.SpellTag>();
+
+                if (spellTag == null || !tag.EndsWith(spellTag.Name))
+                {
+                    continue;
+                }
+
+                __result = featureDefinitionCastSpell;
+
+                return false;
+            }
+
+            var isMulticlass = LevelUpContext.IsMulticlass(hero);
             if (!isMulticlass)
             {
                 return true;
