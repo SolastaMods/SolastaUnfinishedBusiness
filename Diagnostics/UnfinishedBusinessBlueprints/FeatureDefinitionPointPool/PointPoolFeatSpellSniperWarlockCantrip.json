@@ -1,14 +1,14 @@
 {
   "$type": "FeatureDefinitionPointPool, Assembly-CSharp",
   "poolType": "Cantrip",
-  "poolAmount": 2,
+  "poolAmount": 1,
   "restrictedChoices": [],
   "uniqueChoices": false,
-  "spellListOverride": "Definition:SpellListAllCantrips:d2d90930dfc4e9244b0b8cefaf93f49c",
+  "spellListOverride": "Definition:SpellListFeatSpellSniperWarlock:28c9be90-0099-50ef-8232-9c780442c448",
   "ritualOnly": false,
   "minSpellLevel": 0,
   "maxSpellLevel": 0,
-  "extraSpellsTag": "Adept",
+  "extraSpellsTag": "Sniper",
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
@@ -33,7 +33,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "fdcc0453-b00f-5847-a551-b12635b199bf",
+  "guid": "ae51d91a-5764-5bff-ab35-e08b4f10ef26",
   "contentPack": 9999,
-  "name": "PointPoolFeatCantripsAdeptCantrip"
+  "name": "PointPoolFeatSpellSniperWarlockCantrip"
 }

@@ -4,7 +4,7 @@
   "poolAmount": 1,
   "restrictedChoices": [],
   "uniqueChoices": false,
-  "spellListOverride": "Definition:SpellListFeatSpellSniper:ebc47481-b11f-5b40-a799-c06ff5269f50",
+  "spellListOverride": "Definition:SpellListFeatSpellSniperWizard:ddbfd984-7f32-5435-97f7-9b3cdcc28a35",
   "ritualOnly": false,
   "minSpellLevel": 0,
   "maxSpellLevel": 0,
@@ -33,7 +33,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "a8d51d41-cd0d-5b35-a5ee-f4508ed83ff6",
+  "guid": "f4bd3ada-4e07-5457-aad6-d1027139364b",
   "contentPack": 9999,
-  "name": "PointPoolFeatSpellSniperCantrip"
+  "name": "PointPoolFeatSpellSniperWizardCantrip"
 }

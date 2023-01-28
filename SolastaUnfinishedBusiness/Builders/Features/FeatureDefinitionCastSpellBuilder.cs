@@ -83,7 +83,7 @@ internal class FeatureDefinitionCastSpellBuilder
             case CasterProgression.Flat:
                 for (; level < 21; level++)
                 {
-                    knownSpells.Add(1);
+                    knownSpells.Add(startingAmount);
                 }
 
                 break;

@@ -1,5 +1,5 @@
 {
-  "$type": "FeatDefinition, Assembly-CSharp",
+  "$type": "SolastaUnfinishedBusiness.CustomDefinitions.FeatDefinitionWithPrerequisites, SolastaUnfinishedBusiness",
   "compatibleClassesPrerequisite": [],
   "mustCastSpellsPrerequisite": false,
   "compatibleRacesPrerequisite": [],
@@ -8,15 +8,18 @@
   "minimalAbilityScoreName": "Strength",
   "armorProficiencyPrerequisite": false,
   "armorProficiencyCategory": "",
-  "hasFamilyTag": false,
-  "familyTag": "",
+  "hasFamilyTag": true,
+  "familyTag": "FeatSpellSniper",
   "knownFeatsPrerequisite": [],
-  "features": [],
+  "features": [
+    "Definition:CastSpellFeatSpellSniperDruid:41fd83d3-110d-52ce-b4cc-5146955de240",
+    "Definition:PointPoolFeatSpellSniperDruidCantrip:2629d7c9-5f17-57b6-ad2b-fff94f3ce782"
+  ],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
-    "title": "Feat/&FeatGroupSpellCombatTitle",
-    "description": "Feat/&FeatGroupSpellCombatDescription",
+    "title": "Spell Sniper [Druid]",
+    "description": "You learn two cantrips of your choice from the Druid spell list. When you cast a spell that requires you to make an attack roll, the spell's range is doubled. Your ranged spell attacks ignore half cover and three-quarters cover.",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -36,7 +39,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "3c9a2ed6-0790-5712-90af-eea863da7ed0",
+  "guid": "fd067d01-120b-540a-9710-68d63e493b61",
   "contentPack": 9999,
-  "name": "FeatGroupSpellCombat"
+  "name": "FeatSpellSniperDruid"
 }

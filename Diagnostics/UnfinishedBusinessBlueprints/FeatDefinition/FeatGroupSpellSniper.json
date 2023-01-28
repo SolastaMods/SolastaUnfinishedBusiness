@@ -1,5 +1,5 @@
 {
-  "$type": "SolastaUnfinishedBusiness.CustomDefinitions.FeatDefinitionWithPrerequisites, SolastaUnfinishedBusiness",
+  "$type": "FeatDefinition, Assembly-CSharp",
   "compatibleClassesPrerequisite": [],
   "mustCastSpellsPrerequisite": false,
   "compatibleRacesPrerequisite": [],
@@ -8,17 +8,15 @@
   "minimalAbilityScoreName": "Strength",
   "armorProficiencyPrerequisite": false,
   "armorProficiencyCategory": "",
-  "hasFamilyTag": false,
-  "familyTag": "",
+  "hasFamilyTag": true,
+  "familyTag": "FeatSpellSniper",
   "knownFeatsPrerequisite": [],
-  "features": [
-    "Definition:PointPoolFeatSpellSniperCantrip:a8d51d41-cd0d-5b35-a5ee-f4508ed83ff6"
-  ],
+  "features": [],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
-    "title": "Feat/&FeatSpellSniperTitle",
-    "description": "Feat/&FeatSpellSniperDescription",
+    "title": "Feat/&FeatGroupSpellSniperTitle",
+    "description": "Feat/&FeatGroupSpellSniperDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -38,7 +36,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "90b2684c-9542-5101-ae96-b4cf63c3130c",
+  "guid": "05d05e21-7def-588f-86e5-acdb2b2b42ce",
   "contentPack": 9999,
-  "name": "FeatSpellSniper"
+  "name": "FeatGroupSpellSniper"
 }
