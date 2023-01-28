@@ -1,7 +1,7 @@
 ﻿Condition/&ConditionWildMasterSummonSpiritBeastBonusTitle=Wild Master-Bonus
 Feature/&FeatureSetWildMaster03Description=Du erhältst einen Spirit Beast-Begleiter, der dich auf deinen Abenteuern begleitet und darauf trainiert ist, an deiner Seite zu kämpfen. Es erhält deinen Weisheitsmodifikator für Rüstungsklasse, Angriffswürfe und Schadenswürfe. Außerdem erhält es 4 HP pro Ranger-Stufe und kann in seinem Zug nur die Ausweichaktion ausführen, es sei denn, du befiehlst ihm etwas anderes.\nSowohl Geisterbestie als auch Beschwörer haben dieselbe Initiative und du kannst einen Bären, einen Adler oder einen Wolf wählen :\n. Der Bär kann einen Feuerkegel speien\n. Der Adler eine Stromleitung\n. Der Wolf ein Kältekegel.
 Feature/&FeatureSetWildMaster03Title=Bestie Begleiter
-Feature/&FeatureSetWildMaster07Description=Die Geisterbestie kann jetzt in ihrem Zug die Aktion „Anstürmen“ oder „Ausrücken“ ausführen. sein Angriff gilt als magisch, um Widerstand und Immunität zu überwinden. Das Spirit Beast ist auch mächtiger: \n. Der Bär ist jetzt widerstandsfähig gegen Feuer\n. Der Adler zur Elektrizität\n. Der Wolf zu kalt.
+Feature/&FeatureSetWildMaster07Description=Die Geisterbestie kann jetzt in ihrem Zug die Aktion „Sprinten“ oder „Ausrücken“ ausführen. sein Angriff gilt als magisch, um Widerstand und Immunität zu überwinden. Das Spirit Beast ist auch mächtiger: \n. Der Bär ist jetzt widerstandsfähig gegen Feuer\n. Der Adler zur Elektrizität\n. Der Wolf zu kalt.
 Feature/&FeatureSetWildMaster07Title=Wahre Expertise
 Feature/&FeatureSetWildMaster11Description=Die Geisterbestie kann nun alle verfügbaren Angriffe voll nutzen und erhält außerdem deinen Fertigkeitsbonus auf alle Rettungswürfe. Alle Geisterbestien können jetzt unsichtbar werden.
 Feature/&FeatureSetWildMaster11Title=Master-Expertise
@@ -16,7 +16,7 @@ Feature/&PowerWildMasterSpiritBeastCommandTitle=Befehl Geisterbestie
 Feature/&PowerWildMasterSpiritBeastRecuperateDescription=Die Geisterbestie hat eine Anzahl von W8-Trefferwürfeln, die deiner Ranger-Stufe entspricht. Während einer kurzen Pause können Sie sie rollen, um die Trefferpunkte der Spirit Beast wiederherzustellen.
 Feature/&PowerWildMasterSpiritBeastRecuperateFormat=Seelenbestie HP:\n{0}/{1}
 Feature/&PowerWildMasterSpiritBeastRecuperateTitle=Geisterbestie Hit Die
-Feature/&PowerWildMasterSummonSpiritBeastDescription=Eine {0}, die an einen Ranger gebunden ist.
+Feature/&PowerWildMasterSummonSpiritBeastDescription=Ein {0}, der an einen Ranger gebunden ist.
 Feature/&PowerWildMasterSummonSpiritBeastPoolDescription=Beschwöre einen Bären, einen Adler oder einen Wolf.
 Feature/&PowerWildMasterSummonSpiritBeastPoolTitle=Beschwörung von Geisterbestien
 Feature/&PowerWildMasterSummonSpiritBeastTitle=Beschwöre {0}

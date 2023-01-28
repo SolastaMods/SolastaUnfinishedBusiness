@@ -1,10 +1,10 @@
-﻿Condition/&ConditionOathOfAncientsNaturesWrathDescription=Você está enredado em trepadeiras impedindo o movimento, desvantagem em testes de resistência de destreza e atacantes têm uma vantagem. No final do seu turno, faça um teste de resistência de força para escapar.
+﻿Condition/&ConditionOathOfAncientsNaturesWrathDescription=Você está enredado em trepadeiras impedindo o movimento, desvantagem em testes de resistência de Destreza e atacantes têm uma vantagem. No final do seu turno, faça um teste de resistência de Força para escapar.
 Condition/&ConditionOathOfAncientsNaturesWrathTitle=Emaranhado
 Condition/&ConditionOathOfAncientsAuraWardingDescription=Ganhe resistência a elementos naturais recebendo metade do dano de ácido, frio, fogo, raio, trovão e veneno.
 Condition/&ConditionOathOfAncientsAuraWardingTitle=Protegido
-Feature/&PowerOathOfAncientsNaturesWrathDescription=Conjure vinhas em um alvo, o alvo é impedido em uma falha no teste de resistência de força. O alvo rola um teste de resistência de força para escapar no final de seu turno.
+Feature/&PowerOathOfAncientsNaturesWrathDescription=Conjure vinhas em um alvo, o alvo é impedido em uma falha no teste de resistência de Força. O alvo rola um teste de resistência de Força para escapar no final de seu turno.
 Feature/&PowerOathOfAncientsNaturesWrathTitle=Canalizar Divindade: Ira da Natureza
-Feature/&PowerOathOfAncientsTurnFaithlessDescription=Realize uma oração, Fey, Fiends e Elementals que estão próximos devem fazer um teste de resistência de sabedoria, em caso de falha, eles são derrotados.
+Feature/&PowerOathOfAncientsTurnFaithlessDescription=Realize uma oração, Fey, Fiends e Elementals que estão próximos devem fazer um teste de resistência de Sabedoria, em caso de falha, eles são derrotados.
 Feature/&PowerOathOfAncientsTurnFaithlessTitle=Canalizar Divindade: Transforme os Infiéis
 Feature/&PowerOathOfAncientsAuraWardingDescription=Conceda a você e àqueles ao seu redor uma proteção antiga que reduz o dano dos elementos.
 Feature/&PowerOathOfAncientsAuraWardingTitle=Aura de Proteção

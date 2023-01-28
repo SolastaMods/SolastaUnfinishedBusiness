@@ -1,6 +1,6 @@
 Feature/&CastSpellSpellShieldDescription=Lancia incantesimi e trucchetti da mago.
 Feature/&CastSpellSpellShieldTitle=Incantesimi
-Feature/&MagicAffinitySpellShieldCombatMagicVigorDescription=Aggiungi il tuo modificatore di forza o destrezza, qualunque sia il più alto, alla tua CD del tiro salvezza degli incantesimi e al tiro per colpire con incantesimo.
+Feature/&MagicAffinitySpellShieldCombatMagicVigorDescription=Aggiungi il tuo modificatore di Forza o Destrezza, qualunque sia il più alto, alla tua CD del tiro salvezza degli incantesimi e al tiro per colpire con incantesimo.
 Feature/&MagicAffinitySpellShieldCombatMagicVigorTitle=Vigore
 Feature/&PowerSpellShieldArcaneDeflectionDescription=Puoi usare i tuoi poteri arcani per proteggerti come reazione. Questo ti dà +3 alla tua CA fino al tuo prossimo turno.
 Feature/&PowerSpellShieldArcaneDeflectionTitle=Deviazione Arcana

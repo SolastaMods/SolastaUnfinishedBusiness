@@ -20,6 +20,6 @@ Reaction/&ReactToAttackFinishedMarshalCoordinatedAttackDescription={0} foi ataca
 Reaction/&ReactToAttackFinishedMarshalCoordinatedAttackReactDescription=Use a reação para atacar o alvo.
 Reaction/&ReactToAttackFinishedMarshalCoordinatedAttackReactTitle=Ataque
 Reaction/&ReactToAttackFinishedMarshalCoordinatedAttackTitle=Ataque Coordenado
-Reaction/&SubitemSelectReactToAttackFinishedMarshalCoordinatedAttackTitle=Selecione a ação
+Reaction/&SubitemSelectReactToAttackFinishedMarshalCoordinatedAttackTitle=Selecionar ação
 Subclass/&MartialMarshalDescription=Hábeis em estudar as fraquezas dos inimigos e coordenar ataques de outros membros do grupo para explorá-los, os lutadores que treinaram nesta parte marcial são famosos orquestradores do campo de batalha.
 Subclass/&MartialMarshalTitle=Marechal

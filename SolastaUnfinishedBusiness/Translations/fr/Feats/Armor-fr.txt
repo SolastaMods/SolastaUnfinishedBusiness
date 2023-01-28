@@ -1,4 +1,4 @@
-Feat/&FeatHeavyArmorMasterDescription=Vous pouvez utiliser votre armure pour dévier les frappes qui en tueraient d'autres. Augmentez votre score de Force de 1, jusqu'à un maximum de 20. Lorsque vous portez une armure lourde, les dégâts contondants, perforants et tranchants que vous subissez lors d'attaques sont réduits de 3.
+Feat/&FeatHeavyArmorMasterDescription=Vous pouvez utiliser votre armure pour dévier les frappes qui en tueraient d'autres. Augmentez votre valeur de Force de 1, jusqu'à un maximum de 20. Lorsque vous portez une armure lourde, les dégâts contondants, perforants et tranchants que vous subissez lors d'attaques sont réduits de 3.
 Feat/&FeatHeavyArmorMasterTitle=Maître des armures lourdes
 Feat/&FeatMediumArmorDexDescription=Augmentez votre Dextérité de 1, jusqu'à un maximum de 20.\nVous maîtrisez les armures et les boucliers moyens.
 Feat/&FeatMediumArmorDexTitle=Armure moyenne [Dex]

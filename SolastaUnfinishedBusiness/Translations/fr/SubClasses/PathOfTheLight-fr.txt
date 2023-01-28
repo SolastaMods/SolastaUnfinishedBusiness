@@ -1,4 +1,4 @@
-Condition/&ConditionPathOfTheLightEyesOfTruthDescription=Peut percevoir des créatures invisibles.
+Condition/&ConditionPathOfTheLightEyesOfTruthDescription=Peut percevoir les créatures invisibles.
 Condition/&ConditionPathOfTheLightEyesOfTruthTitle=Vue d'invisibilité
 Condition/&ConditionPathOfTheLightIlluminatedDescription=Distrait par Illuminating Strike.
 Condition/&ConditionPathOfTheLightIlluminatedTitle=Illuminé
@@ -10,7 +10,7 @@ Feature/&FeatureSetPathOfTheLightIlluminatedPreventInvisibilityDescription=Ne pe
 Feature/&FeatureSetPathOfTheLightIlluminatedPreventInvisibilityTitle=Illuminé
 Feature/&FeatureSetPathOfTheLightIlluminatingBurstDescription=Au tour où vous entrez dans votre rage, vous pouvez choisir d'illuminer jusqu'à trois ennemis à moins de 9 mètres de vous. Ils doivent réussir un jet de sauvegarde de Constitution (DD égal à 8 + votre bonus de maîtrise + votre modificateur de Constitution) ou subir 4d6 dégâts radiants et être illuminés par votre Frappe lumineuse pendant 1 minute. Une créature ainsi éclairée effectue un autre jet de sauvegarde de Constitution à la fin de chacun de ses tours. En cas de sauvegarde réussie, l'effet se termine pour lui.
 Feature/&FeatureSetPathOfTheLightIlluminatingBurstTitle=Rafale éclairante
-Feature/&FeatureSetPathOfTheLightIlluminatingStrikeDescription=Pendant que vous êtes en rage, la première créature que vous touchez avec une attaque à votre tour subit 1d6 dégâts radiants supplémentaires et devient magiquement illuminée jusqu'au début de votre prochain tour. De plus, la créature a un désavantage sur tout jet d'attaque qui n'est pas contre vous et ne peut pas devenir invisible.
+Feature/&FeatureSetPathOfTheLightIlluminatingStrikeDescription=Pendant que vous êtes en rage, la première créature que vous touchez avec une attaque à votre tour subit 1d6 dégâts radiants supplémentaires et devient magiquement illuminée jusqu'au début de son prochain tour. De plus, la créature a un désavantage sur tout jet d'attaque qui n'est pas contre vous et ne peut pas devenir invisible.
 Feature/&FeatureSetPathOfTheLightIlluminatingStrikeTitle=Frappe éclairante
 Feature/&FeatureSetPathOfTheLightLightsProtectionDescription=Vous regagnez des points de vie égaux à la moitié de votre niveau de barbare lorsqu'une créature hostile affectée par votre Frappe illuminatrice meurt. De plus, vous ne provoquez plus d'attaques d'opportunité de la part des créatures affectées par votre Frappe éclairante.
 Feature/&FeatureSetPathOfTheLightLightsProtectionTitle=Protection de la lumière

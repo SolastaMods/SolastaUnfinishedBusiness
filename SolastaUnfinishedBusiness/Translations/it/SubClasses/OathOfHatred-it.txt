@@ -2,7 +2,7 @@
 Condition/&ConditionDauntlessPursuerTitle=Inseguitore Intrepido
 Condition/&ConditionScornfulPrayerDescription=La forza e la voce svaniscono man mano che la preghiera si avvolge. Mentre è sotto gli effetti, la preghiera fa sì che il nemico venga maledetto ai tiri per colpire e indebolito.
 Condition/&ConditionScornfulPrayerTitle=Disprezzato
-Feature/&FeatureDauntlessPursuerDescription=Con un attacco di opportunità riuscito, ottieni 2 movimento e un Disimpegno gratuito.
+Feature/&FeatureDauntlessPursuerDescription=Con un attacco di opportunità riuscito, ottieni 2 movimenti e un Disimpegno gratuito.
 Feature/&FeatureDauntlessPursuerTitle=Inseguitore Intrepido
 Feature/&FeatureSetHatredElevatedHateDescription=Mentre prendi il tuo giuramento di odio, scegli un nemico prescelto da odiare infliggendo danni extra durante il combattimento.
 Feature/&FeatureSetHatredElevatedHateTitle=Odio elevato

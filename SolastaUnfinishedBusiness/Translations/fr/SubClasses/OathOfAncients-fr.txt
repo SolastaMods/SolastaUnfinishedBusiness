@@ -1,10 +1,10 @@
-﻿Condition/&ConditionOathOfAncientsNaturesWrathDescription=Vous êtes empêtré dans des vignes empêchant le mouvement, un désavantage aux jets de sauvegarde de dextérité et les attaquants ont un avantage. A la fin de votre tour, effectuez un jet de sauvegarde de force pour vous échapper.
+﻿Condition/&ConditionOathOfAncientsNaturesWrathDescription=Vous êtes empêtré dans des vignes empêchant le mouvement, un désavantage aux jets de sauvegarde de Dextérité et les attaquants ont un avantage. À la fin de votre tour, effectuez un jet de sauvegarde de Force pour vous échapper.
 Condition/&ConditionOathOfAncientsNaturesWrathTitle=Empêtré
 Condition/&ConditionOathOfAncientsAuraWardingDescription=Gagnez de la résistance aux éléments naturels subissant la moitié des dégâts causés par l'acide, le froid, le feu, la foudre, le tonnerre et le poison.
 Condition/&ConditionOathOfAncientsAuraWardingTitle=Gardé
-Feature/&PowerOathOfAncientsNaturesWrathDescription=Invoque des lianes sur une cible, la cible est entravée en cas d'échec d'un jet de sauvegarde de force. La cible effectue un jet de sauvegarde de force pour s'échapper à la fin de son tour.
+Feature/&PowerOathOfAncientsNaturesWrathDescription=Invoquer des lianes sur une cible, la cible est entravée en cas d'échec d'un jet de sauvegarde de Force. La cible effectue un jet de sauvegarde de Force pour s'échapper à la fin de son tour.
 Feature/&PowerOathOfAncientsNaturesWrathTitle=Channel Divinity: Colère de la nature
-Feature/&PowerOathOfAncientsTurnFaithlessDescription=Effectuez une prière, Fey, Fiends et Elementals qui sont proches doivent faire un jet de sauvegarde de sagesse, en cas d'échec, ils sont transformés.
+Feature/&PowerOathOfAncientsTurnFaithlessDescription=Effectuez une prière, Fey, Fiends et Elementals qui sont proches doivent faire un jet de sauvegarde de Sagesse, en cas d'échec, ils sont transformés.
 Feature/&PowerOathOfAncientsTurnFaithlessTitle=Channel Divinity: Transformez les infidèles
 Feature/&PowerOathOfAncientsAuraWardingDescription=Accordez-vous, ainsi qu'à ceux qui vous entourent, une ancienne protection réduisant les dégâts des éléments.
 Feature/&PowerOathOfAncientsAuraWardingTitle=Aura de protection

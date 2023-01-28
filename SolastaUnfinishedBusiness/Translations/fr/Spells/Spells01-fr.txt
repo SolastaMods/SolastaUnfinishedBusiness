@@ -1,4 +1,4 @@
-﻿Condition/&AdditionalConditionEnsnaringStrikDescription=Vous êtes empêtré dans des lianes qui vous empêchent de vous déplacer, vous êtes désavantagé lors des jets de sauvegarde de dextérité et vous subissez des dégâts perforants à chaque tour. À la fin de votre tour, effectuez une sauvegarde de lancer de force pour échapper aux lianes.
+﻿Condition/&AdditionalConditionEnsnaringStrikDescription=Vous êtes empêtré dans des lianes qui vous empêchent de vous déplacer, vous êtes désavantagé lors des jets de sauvegarde de dextérité et vous subissez des dégâts perforants à chaque tour. À la fin de votre tour, effectuez une sauvegarde de lancer de Force pour échapper aux lianes.
 Condition/&AdditionalConditionEnsnaringStrikeTitle=Pris au piège
 Condition/&ConditionMuleDescription=Votre vitesse n'est pas réduite par l'encombrement ou l'armure lourde. Vous pouvez transporter 20 livres supplémentaires.
 Condition/&ConditionMuleTitle=Mule
@@ -26,7 +26,7 @@ Spell/&EnsnaringStrikeDescription=Votre prochain coup inflige des dégâts perfo
 Spell/&EnsnaringStrikeTitle=Frappe envoûtante
 Spell/&MuleDescription=Le destinataire de ce sort est capable d'ignorer les effets des charges lourdes ou de l'armure sur la vitesse de déplacement. Ils peuvent également supporter un peu plus de poids.
 Spell/&MuleTitle=Mule
-Spell/&RadiantMotesDescription=Libère une nuée de 4 projectiles radiants qui infligent 1d4 dégâts radiants chacun.\nLorsque vous lancez ce sort en utilisant un emplacement de sort de niveau 2 ou supérieur, le sort crée 1 projectile supplémentaire pour chaque emplacement au-dessus du 1er.
+Spell/&RadiantMotesDescription=Libère une nuée de 4projectiles radiants qui infligent 1d4dégâts radiants chacun.\nLorsque vous lancez ce sort en utilisant un emplacement de sort de niveau 2 ou supérieur, le sort crée 1 projectile supplémentaire pour chaque emplacement au-dessus du 1er.
 Spell/&RadiantMotesTitle=Particules radieuses
 Spell/&SearingSmiteDescription=Votre prochain coup inflige des dégâts de feu supplémentaires et votre cible s'enflamme.
 Spell/&SearingSmiteTitle=Châtiment brûlant

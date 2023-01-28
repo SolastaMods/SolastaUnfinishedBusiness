@@ -2,5 +2,5 @@
 Condition/&ConditionDualFlurryGrantTitle=Zweifacher Flurry
 Feat/&FeatDualFlurryDescription=Du bist ein Meister im Kampf mit gepaarten Waffen. In jedem Zug, in dem du zweimal mit Nahkampfangriffen triffst, während du eine Waffe in jeder Hand führst, kannst du einen zusätzlichen Nebenhandangriff ausführen, wenn du mit deiner Bonusaktion angreifst.
 Feat/&FeatDualFlurryTitle=Zweifacher Flurry
-Feat/&FeatDualWeaponDefenseDescription=Sie erhalten einen Bonus von +1 auf die RK, wenn Sie in jeder Hand eine separate Nahkampfwaffe führen.
+Feat/&FeatDualWeaponDefenseDescription=Du erhältst einen Bonus von +1 auf die RK, während du in jeder Hand eine separate Nahkampfwaffe führst.
 Feat/&FeatDualWeaponDefenseTitle=Verteidigung mit zwei Waffen

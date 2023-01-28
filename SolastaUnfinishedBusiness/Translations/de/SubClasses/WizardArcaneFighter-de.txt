@@ -1,6 +1,6 @@
 Feature/&AdditionalActionArcaneFighterDescription=Du kannst einen Zauber wirken, nachdem du einen Feind mit deinen Waffenangriffen besiegt hast.
 Feature/&AdditionalActionArcaneFighterTitle=Zauberkampf
-Feature/&AdditionalDamageArcaneFighterBonusWeaponDescription=Einmal pro Zug verursachen deine Waffenangriffe 1W8 zusätzlichen Schaden.
+Feature/&AdditionalDamageArcaneFighterBonusWeaponDescription=Einmal pro Runde verursachen deine Waffenangriffe 1W8 zusätzlichen Schaden.
 Feature/&AdditionalDamageArcaneFighterBonusWeaponTitle=Magisch angetriebene Angriffe
 Feature/&MagicAffinityArcaneFighterConcentrationAdvantageDescription=Verschaffen Sie sich aufgrund der Erfahrung im Chaos des Kampfes einen Vorteil bei Konzentrationswürfen.
 Feature/&MagicAffinityArcaneFighterConcentrationAdvantageTitle=Verbesserte Konzentration
