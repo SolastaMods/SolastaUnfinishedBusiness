@@ -150,15 +150,17 @@ public static class CharacterBuildingManagerPatcher
             //PATCH: grants race features
             LevelUpContext.GrantRaceFeatures(__instance, hero);
 
-            LevelUpContext.GrantCustomFeaturesFromFeats(hero);
-
             //PATCH: grants custom features
+            LevelUpContext.GrantCustomFeaturesFromFeats(hero);
             LevelUpContext.GrantCustomFeatures(hero);
         }
 
         [UsedImplicitly]
         public static void Postfix(CharacterBuildingManager __instance, [NotNull] RulesetCharacterHero hero)
         {
+            //PATCH: grants spell repertoires and respective selected spells from feats
+            LevelUpContext.GrantSpellsOrCantripsFromFeatCastSpell(__instance, hero);
+
             //PATCH: adds cantrips selected on feat cantrips adept
             LevelUpContext.GrantSpellsOrCantripsFromTag(__instance, hero, OtherFeats.FeatCantripsAdeptTag);
 

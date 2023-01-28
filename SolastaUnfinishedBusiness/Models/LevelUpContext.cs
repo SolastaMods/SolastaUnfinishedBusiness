@@ -8,6 +8,7 @@ using SolastaUnfinishedBusiness.Api.Extensions;
 using SolastaUnfinishedBusiness.Api.Infrastructure;
 using SolastaUnfinishedBusiness.CustomDefinitions;
 using SolastaUnfinishedBusiness.CustomInterfaces;
+using SolastaUnfinishedBusiness.Feats;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterClassDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.ItemDefinitions;
 
@@ -522,9 +523,52 @@ internal static class LevelUpContext
         characterBuildingManager.GrantFeatures(hero, grantedFeatures, $"02Race{characterLevel}", false);
     }
 
+    internal static void GrantSpellsOrCantripsFromFeatCastSpell(
+        CharacterBuildingManager characterBuildingManager,
+        [NotNull] RulesetCharacterHero hero)
+    {
+        var heroBuildingData = hero.GetHeroBuildingData();
+
+        foreach (var featureDefinitionCastSpell in heroBuildingData.LevelupTrainedFeats
+                     .SelectMany(x => x.Value)
+                     .SelectMany(x => x.Features)
+                     .OfType<FeatureDefinitionCastSpell>())
+        {
+            var spellTag = featureDefinitionCastSpell.GetFirstSubFeatureOfType<OtherFeats.SpellTag>();
+
+            if (spellTag == null)
+            {
+                continue;
+            }
+
+            characterBuildingManager.GetLastAssignedClassAndLevel(hero, out var classDefinition, out var level);
+
+            var classTag = AttributeDefinitions.GetClassTag(classDefinition, level);
+            var tag = spellTag.Name;
+            var finalTag = classTag + tag + tag;
+
+            if (heroBuildingData.AcquiredCantrips.TryGetValue(finalTag, out var cantrips))
+            {
+                foreach (var cantrip in cantrips)
+                {
+                    hero.GrantCantrip(cantrip, featureDefinitionCastSpell);
+                }
+            }
+
+            if (heroBuildingData.AcquiredSpells.TryGetValue(finalTag, out var spells))
+            {
+                foreach (var spell in spells)
+                {
+                    hero.GrantSpell(spell, featureDefinitionCastSpell);
+                }
+            }
+        }
+    }
+
     internal static void GrantSpellsOrCantripsFromTag(
         CharacterBuildingManager characterBuildingManager,
-        [NotNull] RulesetCharacterHero hero, string tag)
+        [NotNull] RulesetCharacterHero hero,
+        string tag)
     {
         characterBuildingManager.GetLastAssignedClassAndLevel(hero, out var classDefinition, out var level);
 
