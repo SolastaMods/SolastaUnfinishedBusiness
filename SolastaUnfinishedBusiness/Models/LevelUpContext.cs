@@ -545,7 +545,7 @@ internal static class LevelUpContext
 
             var classTag = AttributeDefinitions.GetClassTag(classDefinition, level);
             var tag = spellTag.Name;
-            var finalTag = classTag + tag;
+            var finalTag = classTag + tag + tag;
 
             if (heroBuildingData.AcquiredCantrips.TryGetValue(finalTag, out var cantrips))
             {
