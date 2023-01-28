@@ -1,5 +1,12 @@
 ﻿CHANGES:
 
+1.4.33.17:
+
+- changed Magic Initiate and Spell Sniper feats to require level 2 [technical limitation]
+- fixed Soul Blade empower weapon
+- refactored Spell Sniper on 5 separate feats with its own repertoire and correct casting ability
+- removed Cantrips Adept feat in favor of Magic Initiate ones
+
 1.4.33.16:
 
 - added Magic Initiate feats
