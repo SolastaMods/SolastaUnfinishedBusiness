@@ -285,7 +285,6 @@ internal static class OtherFeats
                             FeatMagicInitiateTag, 1, 1)
                         .AddToDB())
                 .SetFeatFamily(NAME)
-                .SetValidators(ValidatorsFeat.ValidateMinCharLevel(2))
                 .AddToDB();
 
             magicInitiateFeats.Add(featMagicInitiate);
@@ -518,7 +517,6 @@ internal static class OtherFeats
                         .AddToDB())
                 .SetFeatFamily(NAME)
                 .SetCustomSubFeatures(new ModifyMagicEffectFeatSpellSniper())
-                .SetValidators(ValidatorsFeat.ValidateMinCharLevel(2))
                 .AddToDB();
 
             spellSniperFeats.Add(featSpellSniper);

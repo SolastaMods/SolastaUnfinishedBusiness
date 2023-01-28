@@ -697,8 +697,7 @@ public static class CharacterBuildingManagerPatcher
         public static void Prefix(
             CharacterBuildingManager __instance,
             CharacterHeroBuildingData heroBuildingData,
-            FeatDefinition feat,
-            string tag)
+            FeatDefinition feat)
         {
             foreach (var featureDefinitionPointPool in feat.Features.OfType<FeatureDefinitionPointPool>())
             {
@@ -708,16 +707,15 @@ public static class CharacterBuildingManagerPatcher
                     continue;
                 }
 
-                var finaTag = tag;
+                var hero = __instance.CurrentLocalHeroCharacter;
 
-                if (featureDefinitionPointPool.PoolType is HeroDefinitions.PointsPoolType.Spell
-                    or HeroDefinitions.PointsPoolType.Cantrip or HeroDefinitions.PointsPoolType.CantripOrSpell)
-                {
-                    finaTag += featureDefinitionPointPool.ExtraSpellsTag;
-                }
+                __instance.GetLastAssignedClassAndLevel(hero, out var classDefinition, out var level);
 
-                if (pointPoolStack.ActivePools.TryGetValue(finaTag + featureDefinitionPointPool.ExtraSpellsTag,
-                        out var pool))
+                var finaTag = AttributeDefinitions.GetClassTag(classDefinition, level) +
+                              featureDefinitionPointPool.ExtraSpellsTag;
+
+                if (pointPoolStack.ActivePools
+                    .TryGetValue(finaTag + featureDefinitionPointPool.ExtraSpellsTag, out var pool))
                 {
                     pool.maxPoints += featureDefinitionPointPool.poolAmount;
                 }
@@ -739,9 +737,9 @@ public static class CharacterBuildingManagerPatcher
     {
         [UsedImplicitly]
         public static void Prefix(
+            CharacterBuildingManager __instance,
             CharacterHeroBuildingData heroBuildingData,
-            FeatDefinition feat,
-            string tag)
+            FeatDefinition feat)
         {
             foreach (var featureDefinitionPointPool in feat.Features.OfType<FeatureDefinitionPointPool>())
             {
@@ -751,13 +749,12 @@ public static class CharacterBuildingManagerPatcher
                     continue;
                 }
 
-                var finaTag = tag;
+                var hero = __instance.CurrentLocalHeroCharacter;
 
-                if (featureDefinitionPointPool.PoolType is HeroDefinitions.PointsPoolType.Spell
-                    or HeroDefinitions.PointsPoolType.Cantrip or HeroDefinitions.PointsPoolType.CantripOrSpell)
-                {
-                    finaTag += featureDefinitionPointPool.ExtraSpellsTag + featureDefinitionPointPool.ExtraSpellsTag;
-                }
+                __instance.GetLastAssignedClassAndLevel(hero, out var classDefinition, out var level);
+
+                var finaTag = AttributeDefinitions.GetClassTag(classDefinition, level) +
+                              featureDefinitionPointPool.ExtraSpellsTag + featureDefinitionPointPool.ExtraSpellsTag;
 
                 if (!pointPoolStack.ActivePools.TryGetValue(finaTag, out var pool))
                 {
@@ -784,8 +781,8 @@ public static class CharacterBuildingManagerPatcher
     {
         [UsedImplicitly]
         public static void Prefix(
-            CharacterHeroBuildingData heroBuildingData,
-            string tag)
+            CharacterBuildingManager __instance,
+            CharacterHeroBuildingData heroBuildingData)
         {
             foreach (var featureDefinitionPointPool in heroBuildingData.LevelupTrainedFeats
                          .SelectMany(x => x.Value
@@ -798,13 +795,12 @@ public static class CharacterBuildingManagerPatcher
                     continue;
                 }
 
-                var finaTag = tag;
+                var hero = __instance.CurrentLocalHeroCharacter;
 
-                if (featureDefinitionPointPool.PoolType is HeroDefinitions.PointsPoolType.Spell
-                    or HeroDefinitions.PointsPoolType.Cantrip or HeroDefinitions.PointsPoolType.CantripOrSpell)
-                {
-                    finaTag += featureDefinitionPointPool.ExtraSpellsTag + featureDefinitionPointPool.ExtraSpellsTag;
-                }
+                __instance.GetLastAssignedClassAndLevel(hero, out var classDefinition, out var level);
+
+                var finaTag = AttributeDefinitions.GetClassTag(classDefinition, level) +
+                              featureDefinitionPointPool.ExtraSpellsTag + featureDefinitionPointPool.ExtraSpellsTag;
 
                 if (!pointPoolStack.ActivePools.TryGetValue(finaTag, out var pool))
                 {
