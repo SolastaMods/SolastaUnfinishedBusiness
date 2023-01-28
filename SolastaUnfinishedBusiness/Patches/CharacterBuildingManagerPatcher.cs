@@ -162,12 +162,6 @@ public static class CharacterBuildingManagerPatcher
             //PATCH: grants spell repertoires and respective selected spells from feats
             LevelUpContext.GrantSpellsOrCantripsFromFeatCastSpell(__instance, hero);
 
-            //PATCH: adds cantrips selected on feat cantrips adept
-            LevelUpContext.GrantSpellsOrCantripsFromTag(__instance, hero, OtherFeats.FeatCantripsAdeptTag);
-
-            //PATCH: adds cantrips selected on feat spell sniper
-            LevelUpContext.GrantSpellsOrCantripsFromTag(__instance, hero, OtherFeats.FeatSpellSniperTag);
-
             //PATCH: keeps spell repertoires sorted by class title but ancestry one is always kept first
             LevelUpContext.SortHeroRepertoires(hero);
 

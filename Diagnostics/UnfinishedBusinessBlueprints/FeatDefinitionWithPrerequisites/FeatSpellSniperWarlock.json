@@ -1,5 +1,5 @@
 {
-  "$type": "FeatDefinition, Assembly-CSharp",
+  "$type": "SolastaUnfinishedBusiness.CustomDefinitions.FeatDefinitionWithPrerequisites, SolastaUnfinishedBusiness",
   "compatibleClassesPrerequisite": [],
   "mustCastSpellsPrerequisite": false,
   "compatibleRacesPrerequisite": [],
@@ -8,15 +8,18 @@
   "minimalAbilityScoreName": "Strength",
   "armorProficiencyPrerequisite": false,
   "armorProficiencyCategory": "",
-  "hasFamilyTag": false,
-  "familyTag": "",
+  "hasFamilyTag": true,
+  "familyTag": "FeatSpellSniper",
   "knownFeatsPrerequisite": [],
-  "features": [],
+  "features": [
+    "Definition:CastSpellFeatSpellSniperWarlock:c11a3f95-b593-5d39-b07c-c2d23f291334",
+    "Definition:PointPoolFeatSpellSniperWarlockCantrip:ae51d91a-5764-5bff-ab35-e08b4f10ef26"
+  ],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
-    "title": "Feat/&FeatGroupSpellCombatTitle",
-    "description": "Feat/&FeatGroupSpellCombatDescription",
+    "title": "Spell Sniper [Warlock]",
+    "description": "You learn two cantrips of your choice from the Warlock spell list. When you cast a spell that requires you to make an attack roll, the spell's range is doubled. Your ranged spell attacks ignore half cover and three-quarters cover.",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -36,7 +39,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "3c9a2ed6-0790-5712-90af-eea863da7ed0",
+  "guid": "202e9658-d632-56e7-9a96-61b1ba2e336a",
   "contentPack": 9999,
-  "name": "FeatGroupSpellCombat"
+  "name": "FeatSpellSniperWarlock"
 }

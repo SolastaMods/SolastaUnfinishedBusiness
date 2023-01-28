@@ -1,11 +1,11 @@
 {
   "$type": "FeatureDefinitionCastSpell, Assembly-CSharp",
   "spellCastingOrigin": "Race",
-  "spellcastingAbility": "Wisdom",
+  "spellcastingAbility": "Charisma",
   "spellcastingParametersComputation": "Dynamic",
   "staticDCValue": 10,
   "staticToHitValue": 4,
-  "spellListDefinition": "Definition:SpellListDruid:f192117ea9cbe334cba0849993779ae8",
+  "spellListDefinition": "Definition:SpellListFeatSpellSniperWarlock:28c9be90-0099-50ef-8232-9c780442c448",
   "restrictedSchools": [],
   "spellKnowledge": "Selection",
   "spellReadyness": "AllKnown",
@@ -14,51 +14,28 @@
   "uniqueLevelSlots": false,
   "spellCastingLevel": -1,
   "knownCantrips": [
-    2,
-    2,
-    2,
-    2,
-    2,
-    2,
-    2,
-    2,
-    2,
-    2,
-    2,
-    2,
-    2,
-    2,
-    2,
-    2,
-    2,
-    2,
-    2,
-    2
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1
   ],
   "knownSpells": [
-    0,
-    0,
-    0,
-    0,
-    2,
-    2,
-    2,
-    2,
-    2,
-    2,
-    2,
-    2,
-    2,
-    2,
-    2,
-    2,
-    2,
-    2,
-    2,
-    2
-  ],
-  "scribedSpells": [
-    0,
     0,
     0,
     0,
@@ -80,27 +57,50 @@
     0,
     0
   ],
+  "scribedSpells": [
+    6,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    0
+  ],
   "replacedSpells": [
     0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
     0
   ],
   "slotsPerLevels": [
@@ -108,150 +108,150 @@
       "$type": "FeatureDefinitionCastSpell+SlotsByLevelDuplet, Assembly-CSharp",
       "level": 1,
       "slots": [
-        1
+        0
       ]
     },
     {
       "$type": "FeatureDefinitionCastSpell+SlotsByLevelDuplet, Assembly-CSharp",
       "level": 2,
       "slots": [
-        1
+        0
       ]
     },
     {
       "$type": "FeatureDefinitionCastSpell+SlotsByLevelDuplet, Assembly-CSharp",
       "level": 3,
       "slots": [
-        1
+        0
       ]
     },
     {
       "$type": "FeatureDefinitionCastSpell+SlotsByLevelDuplet, Assembly-CSharp",
       "level": 4,
       "slots": [
-        1
+        0
       ]
     },
     {
       "$type": "FeatureDefinitionCastSpell+SlotsByLevelDuplet, Assembly-CSharp",
       "level": 5,
       "slots": [
-        1
+        0
       ]
     },
     {
       "$type": "FeatureDefinitionCastSpell+SlotsByLevelDuplet, Assembly-CSharp",
       "level": 6,
       "slots": [
-        1
+        0
       ]
     },
     {
       "$type": "FeatureDefinitionCastSpell+SlotsByLevelDuplet, Assembly-CSharp",
       "level": 7,
       "slots": [
-        1
+        0
       ]
     },
     {
       "$type": "FeatureDefinitionCastSpell+SlotsByLevelDuplet, Assembly-CSharp",
       "level": 8,
       "slots": [
-        1
+        0
       ]
     },
     {
       "$type": "FeatureDefinitionCastSpell+SlotsByLevelDuplet, Assembly-CSharp",
       "level": 9,
       "slots": [
-        1
+        0
       ]
     },
     {
       "$type": "FeatureDefinitionCastSpell+SlotsByLevelDuplet, Assembly-CSharp",
       "level": 10,
       "slots": [
-        1
+        0
       ]
     },
     {
       "$type": "FeatureDefinitionCastSpell+SlotsByLevelDuplet, Assembly-CSharp",
       "level": 11,
       "slots": [
-        1
+        0
       ]
     },
     {
       "$type": "FeatureDefinitionCastSpell+SlotsByLevelDuplet, Assembly-CSharp",
       "level": 12,
       "slots": [
-        1
+        0
       ]
     },
     {
       "$type": "FeatureDefinitionCastSpell+SlotsByLevelDuplet, Assembly-CSharp",
       "level": 13,
       "slots": [
-        1
+        0
       ]
     },
     {
       "$type": "FeatureDefinitionCastSpell+SlotsByLevelDuplet, Assembly-CSharp",
       "level": 14,
       "slots": [
-        1
+        0
       ]
     },
     {
       "$type": "FeatureDefinitionCastSpell+SlotsByLevelDuplet, Assembly-CSharp",
       "level": 15,
       "slots": [
-        1
+        0
       ]
     },
     {
       "$type": "FeatureDefinitionCastSpell+SlotsByLevelDuplet, Assembly-CSharp",
       "level": 16,
       "slots": [
-        1
+        0
       ]
     },
     {
       "$type": "FeatureDefinitionCastSpell+SlotsByLevelDuplet, Assembly-CSharp",
       "level": 17,
       "slots": [
-        1
+        0
       ]
     },
     {
       "$type": "FeatureDefinitionCastSpell+SlotsByLevelDuplet, Assembly-CSharp",
       "level": 18,
       "slots": [
-        1
+        0
       ]
     },
     {
       "$type": "FeatureDefinitionCastSpell+SlotsByLevelDuplet, Assembly-CSharp",
       "level": 19,
       "slots": [
-        1
+        0
       ]
     },
     {
       "$type": "FeatureDefinitionCastSpell+SlotsByLevelDuplet, Assembly-CSharp",
       "level": 20,
       "slots": [
-        1
+        0
       ]
     }
   ],
-  "focusType": "Druidic",
-  "hasAccessToInvocations": false,
+  "focusType": "Arcane",
+  "hasAccessToInvocations": true,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Initiate",
-    "description": "You learn two cantrips of your choice from the Druid spell list. In addition, choose one 1st-level spell to learn from that same list. Using this feat, you can cast the spell once at its lowest level, and you must finish a long rest before you can cast it in this way again.",
+    "title": "Sniper",
+    "description": "You learn two cantrips of your choice from the Warlock spell list. When you cast a spell that requires you to make an attack roll, the spell's range is doubled. Your ranged spell attacks ignore half cover and three-quarters cover.",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -271,7 +271,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "80581b25-0a44-5789-a777-994f7103affd",
+  "guid": "c11a3f95-b593-5d39-b07c-c2d23f291334",
   "contentPack": 9999,
-  "name": "CastSpellFeatMagicInitiateDruid"
+  "name": "CastSpellFeatSpellSniperWarlock"
 }
