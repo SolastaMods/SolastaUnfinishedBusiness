@@ -1,4 +1,6 @@
-﻿using SolastaUnfinishedBusiness.Builders;
+﻿using System.Linq;
+using SolastaUnfinishedBusiness.Api.Extensions;
+using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
 using static RuleDefinitions;
@@ -108,8 +110,26 @@ internal sealed class PatronSoulBlade : AbstractSubclass
     private static bool CanWeaponBeEmpowered(RulesetCharacter character, RulesetItem item)
     {
         var definition = item.ItemDefinition;
-        return definition.IsWeapon && character.IsProficientWithItem(definition)
-            && !definition.WeaponDescription.WeaponTags.Contains(TagsDefinitions.WeaponTagTwoHanded);
+        if (!definition.IsWeapon || !character.IsProficientWithItem(definition))
+        {
+            return false;
+        }
+        if (!definition.WeaponDescription.WeaponTags.Contains(TagsDefinitions.WeaponTagTwoHanded))
+        {
+            return true;
+        }
+        if (FeatureDefinitionFeatureSets.FeatureSetPactBlade.FeatureSet.All(f => character.HasAnyFeature(f)))
+        {
+            if (definition.WeaponDescription.WeaponTypeDefinition.WeaponProximity == AttackProximity.Melee)
+            {
+                return true;
+            }
+            if (character is RulesetCharacterHero hero)
+            {
+                return hero.InvocationProficiencies.Contains("InvocationImprovedPactWeapon");
+            }
+        }
+        return false;
     }
 
     internal override CharacterSubclassDefinition Subclass { get; }
