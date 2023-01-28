@@ -118,16 +118,10 @@ internal sealed class PatronSoulBlade : AbstractSubclass
         {
             return true;
         }
-        if (FeatureDefinitionFeatureSets.FeatureSetPactBlade.FeatureSet.All(f => character.HasAnyFeature(f)))
+        if (character is RulesetCharacterHero hero && hero.ActiveFeatures.Any(p => p.Value.Contains(FeatureDefinitionFeatureSets.FeatureSetPactBlade)))
         {
-            if (definition.WeaponDescription.WeaponTypeDefinition.WeaponProximity == AttackProximity.Melee)
-            {
-                return true;
-            }
-            if (character is RulesetCharacterHero hero)
-            {
-                return hero.InvocationProficiencies.Contains("InvocationImprovedPactWeapon");
-            }
+            return hero.InvocationProficiencies.Contains("InvocationImprovedPactWeapon") ||
+                definition.WeaponDescription.WeaponTypeDefinition.WeaponProximity == AttackProximity.Melee;
         }
         return false;
     }
