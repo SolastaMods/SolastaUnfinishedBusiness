@@ -477,7 +477,7 @@ internal static class OtherFeats
 
         var spellSniperSpells = SpellListDefinitions.SpellListAllCantrips.SpellsByLevel
             .SelectMany(x => x.Spells)
-            .Where(x => x.EffectDescription.RangeType is RangeType.RangeHit or RangeType.Distance &&
+            .Where(x => x.EffectDescription.RangeType is RangeType.RangeHit &&
                         x.EffectDescription.GetFirstFormOfType(EffectForm.EffectFormType.Damage) != null)
             .ToArray();
 

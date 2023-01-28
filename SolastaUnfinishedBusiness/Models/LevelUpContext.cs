@@ -545,7 +545,7 @@ internal static class LevelUpContext
 
             var classTag = AttributeDefinitions.GetClassTag(classDefinition, level);
             var tag = spellTag.Name;
-            var finalTag = classTag + tag + tag;
+            var finalTag = classTag + tag;
 
             if (heroBuildingData.AcquiredCantrips.TryGetValue(finalTag, out var cantrips))
             {
@@ -589,8 +589,7 @@ internal static class LevelUpContext
         var heroBuildingData = hero.GetHeroBuildingData();
         var classTag = AttributeDefinitions.GetClassTag(classDefinition, level);
 
-        characterBuildingManager.GrantCantripsAndSpellsByTag(heroBuildingData, classTag + tag + tag,
-            spellcastingFeature);
+        characterBuildingManager.GrantCantripsAndSpellsByTag(heroBuildingData, classTag + tag, spellcastingFeature);
     }
 
     internal static void SortHeroRepertoires(RulesetCharacterHero hero)

@@ -722,7 +722,7 @@ public static class CharacterBuildingManagerPatcher
                     finaTag += featureDefinitionPointPool.ExtraSpellsTag;
                 }
 
-                if (pointPoolStack.ActivePools.TryGetValue(finaTag, out var pool))
+                if (pointPoolStack.ActivePools.TryGetValue(finaTag + featureDefinitionPointPool.ExtraSpellsTag, out var pool))
                 {
                     pool.maxPoints += featureDefinitionPointPool.poolAmount;
                 }
@@ -761,7 +761,7 @@ public static class CharacterBuildingManagerPatcher
                 if (featureDefinitionPointPool.PoolType is HeroDefinitions.PointsPoolType.Spell
                     or HeroDefinitions.PointsPoolType.Cantrip or HeroDefinitions.PointsPoolType.CantripOrSpell)
                 {
-                    finaTag += featureDefinitionPointPool.ExtraSpellsTag;
+                    finaTag += featureDefinitionPointPool.ExtraSpellsTag + featureDefinitionPointPool.ExtraSpellsTag;
                 }
 
                 if (!pointPoolStack.ActivePools.TryGetValue(finaTag, out var pool))
@@ -808,7 +808,7 @@ public static class CharacterBuildingManagerPatcher
                 if (featureDefinitionPointPool.PoolType is HeroDefinitions.PointsPoolType.Spell
                     or HeroDefinitions.PointsPoolType.Cantrip or HeroDefinitions.PointsPoolType.CantripOrSpell)
                 {
-                    finaTag += featureDefinitionPointPool.ExtraSpellsTag;
+                    finaTag += featureDefinitionPointPool.ExtraSpellsTag + featureDefinitionPointPool.ExtraSpellsTag;
                 }
 
                 if (!pointPoolStack.ActivePools.TryGetValue(finaTag, out var pool))

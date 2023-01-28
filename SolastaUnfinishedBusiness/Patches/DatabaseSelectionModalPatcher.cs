@@ -55,6 +55,9 @@ public static class DatabaseSelectionModalPatcher
                 .SetRange(DatabaseRepository
                     .GetDatabase<MonsterDefinition>()
                     .Where(x => !x.GuiPresentation.Hidden && x.IsContentAvailable)
+                    .Where(x => Main.Settings.UnleashNpcAsEnemy ||
+                                x.DungeonMakerPresence is MonsterDefinition.DungeonMaker.Monster
+                                    or MonsterDefinition.DungeonMaker.NPC)
                     .OrderBy(d => d.dungeonMakerPresence + Gui.Localize(d.GuiPresentation.Title)));
 
             var service = ServiceRepository.GetService<IGamingPlatformService>();
