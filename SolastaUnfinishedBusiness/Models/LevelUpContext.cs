@@ -613,7 +613,7 @@ internal static class LevelUpContext
                 {
                     return 1;
                 }
-                
+
                 return -1;
             }
 
@@ -626,7 +626,7 @@ internal static class LevelUpContext
                 {
                     return -1;
                 }
-                
+
                 return 1;
             }
 

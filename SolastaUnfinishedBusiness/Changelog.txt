@@ -1,6 +1,7 @@
 CHANGES:
 
+- added additional names suggestions to Gnomes and Tieflings
 - added Elemental Adept feats
-- fixed College of Life reality bending when MC
-- fixed granting pool points from feats at level 1
+- fixed College of Life reality bending interaction with other spell repertoires
+- fixed pool points selection from feats at level 1
 - removed any minimum level requirement from all feats
