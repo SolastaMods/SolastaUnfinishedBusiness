@@ -547,7 +547,9 @@ public static class CharacterBuildingManagerPatcher
             var selectedSubclass = LevelUpContext.GetSelectedSubclass(hero);
             var selectedClassLevel = LevelUpContext.GetSelectedClassLevel(hero);
 
-            foreach (var spellRepertoire in hero.SpellRepertoires)
+            // we filter out any repertoire that was granted from feats
+            foreach (var spellRepertoire in hero.SpellRepertoires
+                         .Where(x => !x.SpellCastingFeature.HasSubFeatureOfType<OtherFeats.SpellTag>()))
             {
                 var poolName = string.Empty;
                 var maxPoints = 0;
