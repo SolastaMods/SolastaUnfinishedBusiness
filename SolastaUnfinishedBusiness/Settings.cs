@@ -315,9 +315,7 @@ public class Settings : UnityModManager.ModSettings
 
     // Debug
     public bool DebugDisableVerifyDefinitionNameIsNotInUse { get; set; }
-#if DEBUG
     public bool DebugLogDefinitionCreation { get; set; }
     public bool DebugLogFieldInitialization { get; set; }
     public bool DebugLogVariantMisuse { get; set; }
-#endif
 }

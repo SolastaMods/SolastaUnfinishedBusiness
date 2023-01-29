@@ -1,5 +1,5 @@
 {
-  "$type": "SolastaUnfinishedBusiness.CustomDefinitions.FeatDefinitionWithPrerequisites, SolastaUnfinishedBusiness",
+  "$type": "FeatDefinition, Assembly-CSharp",
   "compatibleClassesPrerequisite": [],
   "mustCastSpellsPrerequisite": false,
   "compatibleRacesPrerequisite": [],
@@ -12,15 +12,15 @@
   "familyTag": "FeatMagicInitiate",
   "knownFeatsPrerequisite": [],
   "features": [
-    "Definition:CastSpellFeatMagicInitiateBard:9dffb549-1d49-5ca6-9c7f-f94673d59c4d",
-    "Definition:PointPoolFeatMagicInitiateBardCantrip:56da36c9-595f-5089-9de0-b2eca1393580",
-    "Definition:PointPoolFeatMagicInitiateBardSpell:a3bcc646-960f-5821-a39a-8b3b164eabce"
+    "Definition:CastSpellFeatMagicInitiateDruid:80581b25-0a44-5789-a777-994f7103affd",
+    "Definition:PointPoolFeatMagicInitiateDruidCantrip:0fdc7382-e2c7-5600-a6bb-176d5836a1a7",
+    "Definition:PointPoolFeatMagicInitiateDruidSpell:47fb288b-aacf-5a65-98b0-b6b506b484a4"
   ],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
-    "title": "Magic Initiate [Bard]",
-    "description": "You learn two cantrips of your choice from the Bard spell list. In addition, choose one 1st-level spell to learn from that same list. Using this feat, you can cast the spell once at its lowest level, and you must finish a long rest before you can cast it in this way again.",
+    "title": "Magic Initiate [Druid]",
+    "description": "You learn two cantrips of your choice from the Druid spell list. In addition, choose one 1st-level spell to learn from that same list. Using this feat, you can cast the spell once at its lowest level, and you must finish a long rest before you can cast it in this way again.",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -40,7 +40,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "595486bc-8b72-5071-b525-36734d7bbf94",
+  "guid": "f087bc9d-50ee-5e99-87cc-9596abc4ff52",
   "contentPack": 9999,
-  "name": "FeatMagicInitiateBard"
+  "name": "FeatMagicInitiateDruid"
 }

@@ -1,26 +1,26 @@
 {
-  "$type": "SolastaUnfinishedBusiness.CustomDefinitions.FeatDefinitionWithPrerequisites, SolastaUnfinishedBusiness",
+  "$type": "FeatDefinition, Assembly-CSharp",
   "compatibleClassesPrerequisite": [],
-  "mustCastSpellsPrerequisite": false,
+  "mustCastSpellsPrerequisite": true,
   "compatibleRacesPrerequisite": [],
   "minimalAbilityScorePrerequisite": false,
   "minimalAbilityScoreValue": 13,
   "minimalAbilityScoreName": "Strength",
   "armorProficiencyPrerequisite": false,
   "armorProficiencyCategory": "",
-  "hasFamilyTag": true,
-  "familyTag": "FeatMagicInitiate",
+  "hasFamilyTag": false,
+  "familyTag": "",
   "knownFeatsPrerequisite": [],
   "features": [
-    "Definition:CastSpellFeatMagicInitiateDruid:80581b25-0a44-5789-a777-994f7103affd",
-    "Definition:PointPoolFeatMagicInitiateDruidCantrip:0fdc7382-e2c7-5600-a6bb-176d5836a1a7",
-    "Definition:PointPoolFeatMagicInitiateDruidSpell:47fb288b-aacf-5a65-98b0-b6b506b484a4"
+    "Definition:ActionAffinitySorcererMetamagicToggle:04a952fbc7800154cab7f4994e3ac481",
+    "Definition:AttributeModifierSorcererSorceryPointsBonus2:c83ac082-07a8-539e-b6ae-157e640b3a3c",
+    "Definition:PointPoolFeatMetamagicAdept:82f8bd37-2595-53f9-b70b-80a427ea1e22"
   ],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
-    "title": "Magic Initiate [Druid]",
-    "description": "You learn two cantrips of your choice from the Druid spell list. In addition, choose one 1st-level spell to learn from that same list. Using this feat, you can cast the spell once at its lowest level, and you must finish a long rest before you can cast it in this way again.",
+    "title": "Feat/&FeatMetamagicAdeptTitle",
+    "description": "Feat/&FeatMetamagicAdeptDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -40,7 +40,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "f087bc9d-50ee-5e99-87cc-9596abc4ff52",
+  "guid": "2f81cb57-a32f-515e-8a8d-a75c96ef957d",
   "contentPack": 9999,
-  "name": "FeatMagicInitiateDruid"
+  "name": "FeatMetamagicAdept"
 }

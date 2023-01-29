@@ -1,25 +1,26 @@
 {
-  "$type": "SolastaUnfinishedBusiness.CustomDefinitions.FeatDefinitionWithPrerequisites, SolastaUnfinishedBusiness",
+  "$type": "FeatDefinition, Assembly-CSharp",
   "compatibleClassesPrerequisite": [],
-  "mustCastSpellsPrerequisite": false,
+  "mustCastSpellsPrerequisite": true,
   "compatibleRacesPrerequisite": [],
-  "minimalAbilityScorePrerequisite": false,
+  "minimalAbilityScorePrerequisite": true,
   "minimalAbilityScoreValue": 13,
-  "minimalAbilityScoreName": "Strength",
+  "minimalAbilityScoreName": "Charisma",
   "armorProficiencyPrerequisite": false,
   "armorProficiencyCategory": "",
-  "hasFamilyTag": true,
-  "familyTag": "FeatSpellSniper",
+  "hasFamilyTag": false,
+  "familyTag": "",
   "knownFeatsPrerequisite": [],
   "features": [
-    "Definition:CastSpellFeatSpellSniperWarlock:c11a3f95-b593-5d39-b07c-c2d23f291334",
-    "Definition:PointPoolFeatSpellSniperWarlockCantrip:ae51d91a-5764-5bff-ab35-e08b4f10ef26"
+    "Definition:ActionAffinitySorcererMetamagicToggle:04a952fbc7800154cab7f4994e3ac481",
+    "Definition:AttributeModifierSorcererSorceryPointsBonus3:62adbaa6-4099-5d5b-a0fc-584f03eef4c2",
+    "Definition:CustomCodeFeatAdeptMetamagicExtendedSpell:88261d1d-d150-554b-8d8d-e88547fc01ae"
   ],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
-    "title": "Spell Sniper [Warlock]",
-    "description": "You learn two cantrips of your choice from the Warlock spell list. When you cast a spell that requires you to make an attack roll, the spell's range is doubled. Your ranged spell attacks ignore half cover and three-quarters cover.",
+    "title": "Feature/&NoContentTitle",
+    "description": "Feature/&NoContentTitle",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -39,7 +40,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "202e9658-d632-56e7-9a96-61b1ba2e336a",
+  "guid": "fdbab52a-0c7d-5f7d-a7d0-67716ac95a11",
   "contentPack": 9999,
-  "name": "FeatSpellSniperWarlock"
+  "name": "FeatAdeptMetamagicExtendedSpell"
 }

@@ -1,5 +1,5 @@
 {
-  "$type": "SolastaUnfinishedBusiness.CustomDefinitions.FeatDefinitionWithPrerequisites, SolastaUnfinishedBusiness",
+  "$type": "FeatDefinition, Assembly-CSharp",
   "compatibleClassesPrerequisite": [],
   "mustCastSpellsPrerequisite": false,
   "compatibleRacesPrerequisite": [],
@@ -12,14 +12,14 @@
   "familyTag": "FeatSpellSniper",
   "knownFeatsPrerequisite": [],
   "features": [
-    "Definition:CastSpellFeatSpellSniperWizard:01a6022b-7436-5f85-842f-c1f1342f13ba",
-    "Definition:PointPoolFeatSpellSniperWizardCantrip:f4bd3ada-4e07-5457-aad6-d1027139364b"
+    "Definition:CastSpellFeatSpellSniperCleric:b31e289b-6c1f-5b7e-ac9b-376466528c66",
+    "Definition:PointPoolFeatSpellSniperClericCantrip:9279f08d-8834-581e-98fa-a3b063cd5611"
   ],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
-    "title": "Spell Sniper [Wizard]",
-    "description": "You learn two cantrips of your choice from the Wizard spell list. When you cast a spell that requires you to make an attack roll, the spell's range is doubled. Your ranged spell attacks ignore half cover and three-quarters cover.",
+    "title": "Spell Sniper [Cleric]",
+    "description": "You learn two cantrips of your choice from the Cleric spell list. When you cast a spell that requires you to make an attack roll, the spell's range is doubled. Your ranged spell attacks ignore half cover and three-quarters cover.",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -39,7 +39,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "5b6f6b6c-c6d2-5863-9b63-ca8863195021",
+  "guid": "ad9ee16a-f682-53a4-b58f-df4a081fb753",
   "contentPack": 9999,
-  "name": "FeatSpellSniperWizard"
+  "name": "FeatSpellSniperCleric"
 }

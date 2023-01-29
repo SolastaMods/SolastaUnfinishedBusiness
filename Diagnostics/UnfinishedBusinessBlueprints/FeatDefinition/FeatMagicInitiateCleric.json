@@ -1,5 +1,5 @@
 {
-  "$type": "SolastaUnfinishedBusiness.CustomDefinitions.FeatDefinitionWithPrerequisites, SolastaUnfinishedBusiness",
+  "$type": "FeatDefinition, Assembly-CSharp",
   "compatibleClassesPrerequisite": [],
   "mustCastSpellsPrerequisite": false,
   "compatibleRacesPrerequisite": [],
@@ -9,17 +9,18 @@
   "armorProficiencyPrerequisite": false,
   "armorProficiencyCategory": "",
   "hasFamilyTag": true,
-  "familyTag": "FeatSpellSniper",
+  "familyTag": "FeatMagicInitiate",
   "knownFeatsPrerequisite": [],
   "features": [
-    "Definition:CastSpellFeatSpellSniperSorcerer:8397ac76-53ff-5be9-8a92-735a792bc28b",
-    "Definition:PointPoolFeatSpellSniperSorcererCantrip:88df28aa-b72f-5b73-9414-9637486d054a"
+    "Definition:CastSpellFeatMagicInitiateCleric:dce4d42f-878f-54c5-8525-49976359b27b",
+    "Definition:PointPoolFeatMagicInitiateClericCantrip:5ace38cf-2b34-523f-8010-b84677a4b826",
+    "Definition:PointPoolFeatMagicInitiateClericSpell:62b9d93e-6a59-5751-a38a-d49e1e453c15"
   ],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
-    "title": "Spell Sniper [Sorcerer]",
-    "description": "You learn two cantrips of your choice from the Sorcerer spell list. When you cast a spell that requires you to make an attack roll, the spell's range is doubled. Your ranged spell attacks ignore half cover and three-quarters cover.",
+    "title": "Magic Initiate [Cleric]",
+    "description": "You learn two cantrips of your choice from the Cleric spell list. In addition, choose one 1st-level spell to learn from that same list. Using this feat, you can cast the spell once at its lowest level, and you must finish a long rest before you can cast it in this way again.",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -39,7 +40,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "ae05a223-2345-59e2-aa5c-1f5e3e64eb93",
+  "guid": "e6e35360-193d-5498-89ea-b47f375d4643",
   "contentPack": 9999,
-  "name": "FeatSpellSniperSorcerer"
+  "name": "FeatMagicInitiateCleric"
 }

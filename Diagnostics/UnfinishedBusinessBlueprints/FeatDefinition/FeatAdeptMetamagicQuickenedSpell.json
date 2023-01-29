@@ -1,5 +1,5 @@
 {
-  "$type": "SolastaUnfinishedBusiness.CustomDefinitions.FeatDefinitionWithPrerequisites, SolastaUnfinishedBusiness",
+  "$type": "FeatDefinition, Assembly-CSharp",
   "compatibleClassesPrerequisite": [],
   "mustCastSpellsPrerequisite": true,
   "compatibleRacesPrerequisite": [],
@@ -14,7 +14,7 @@
   "features": [
     "Definition:ActionAffinitySorcererMetamagicToggle:04a952fbc7800154cab7f4994e3ac481",
     "Definition:AttributeModifierSorcererSorceryPointsBonus3:62adbaa6-4099-5d5b-a0fc-584f03eef4c2",
-    "Definition:CustomCodeFeatAdeptMetamagicDistantSpell:03043435-67c9-5bb8-83f5-28debf1faa98"
+    "Definition:CustomCodeFeatAdeptMetamagicQuickenedSpell:8cb12062-9fa2-5329-a536-a938fc022f5a"
   ],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
@@ -40,7 +40,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "10d3d858-c315-5886-be8c-adaa039f22bf",
+  "guid": "6ba9b4ac-5630-54b0-9d4b-29e6025eaaa8",
   "contentPack": 9999,
-  "name": "FeatAdeptMetamagicDistantSpell"
+  "name": "FeatAdeptMetamagicQuickenedSpell"
 }

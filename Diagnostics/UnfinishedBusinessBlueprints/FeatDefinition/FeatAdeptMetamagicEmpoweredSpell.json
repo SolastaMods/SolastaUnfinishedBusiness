@@ -1,11 +1,11 @@
 {
-  "$type": "SolastaUnfinishedBusiness.CustomDefinitions.FeatDefinitionWithPrerequisites, SolastaUnfinishedBusiness",
+  "$type": "FeatDefinition, Assembly-CSharp",
   "compatibleClassesPrerequisite": [],
   "mustCastSpellsPrerequisite": true,
   "compatibleRacesPrerequisite": [],
-  "minimalAbilityScorePrerequisite": false,
+  "minimalAbilityScorePrerequisite": true,
   "minimalAbilityScoreValue": 13,
-  "minimalAbilityScoreName": "Strength",
+  "minimalAbilityScoreName": "Charisma",
   "armorProficiencyPrerequisite": false,
   "armorProficiencyCategory": "",
   "hasFamilyTag": false,
@@ -13,14 +13,14 @@
   "knownFeatsPrerequisite": [],
   "features": [
     "Definition:ActionAffinitySorcererMetamagicToggle:04a952fbc7800154cab7f4994e3ac481",
-    "Definition:AttributeModifierSorcererSorceryPointsBonus2:c83ac082-07a8-539e-b6ae-157e640b3a3c",
-    "Definition:PointPoolFeatMetamagicAdept:82f8bd37-2595-53f9-b70b-80a427ea1e22"
+    "Definition:AttributeModifierSorcererSorceryPointsBonus3:62adbaa6-4099-5d5b-a0fc-584f03eef4c2",
+    "Definition:CustomCodeFeatAdeptMetamagicEmpoweredSpell:504d0d72-53bb-53bc-967f-e459d1ce42b9"
   ],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
-    "title": "Feat/&FeatMetamagicAdeptTitle",
-    "description": "Feat/&FeatMetamagicAdeptDescription",
+    "title": "Feature/&NoContentTitle",
+    "description": "Feature/&NoContentTitle",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -40,7 +40,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "2f81cb57-a32f-515e-8a8d-a75c96ef957d",
+  "guid": "0b375d38-963a-53f7-8e82-fb6cc6d24e7f",
   "contentPack": 9999,
-  "name": "FeatMetamagicAdept"
+  "name": "FeatAdeptMetamagicEmpoweredSpell"
 }

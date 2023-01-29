@@ -1,5 +1,5 @@
 {
-  "$type": "SolastaUnfinishedBusiness.CustomDefinitions.FeatDefinitionWithPrerequisites, SolastaUnfinishedBusiness",
+  "$type": "FeatDefinition, Assembly-CSharp",
   "compatibleClassesPrerequisite": [],
   "mustCastSpellsPrerequisite": false,
   "compatibleRacesPrerequisite": [],
@@ -12,15 +12,15 @@
   "familyTag": "FeatMagicInitiate",
   "knownFeatsPrerequisite": [],
   "features": [
-    "Definition:CastSpellFeatMagicInitiateCleric:dce4d42f-878f-54c5-8525-49976359b27b",
-    "Definition:PointPoolFeatMagicInitiateClericCantrip:5ace38cf-2b34-523f-8010-b84677a4b826",
-    "Definition:PointPoolFeatMagicInitiateClericSpell:62b9d93e-6a59-5751-a38a-d49e1e453c15"
+    "Definition:CastSpellFeatMagicInitiateSorcerer:20a041b3-2e41-5931-9015-f520e243cd87",
+    "Definition:PointPoolFeatMagicInitiateSorcererCantrip:aa433bac-d96e-5c30-a46a-e277c2d538ec",
+    "Definition:PointPoolFeatMagicInitiateSorcererSpell:99eddc1d-3510-5532-9ead-4aae6d544b8d"
   ],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
-    "title": "Magic Initiate [Cleric]",
-    "description": "You learn two cantrips of your choice from the Cleric spell list. In addition, choose one 1st-level spell to learn from that same list. Using this feat, you can cast the spell once at its lowest level, and you must finish a long rest before you can cast it in this way again.",
+    "title": "Magic Initiate [Sorcerer]",
+    "description": "You learn two cantrips of your choice from the Sorcerer spell list. In addition, choose one 1st-level spell to learn from that same list. Using this feat, you can cast the spell once at its lowest level, and you must finish a long rest before you can cast it in this way again.",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -40,7 +40,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "e6e35360-193d-5498-89ea-b47f375d4643",
+  "guid": "5a211c30-4d42-5d0c-b3fc-de852165f349",
   "contentPack": 9999,
-  "name": "FeatMagicInitiateCleric"
+  "name": "FeatMagicInitiateSorcerer"
 }

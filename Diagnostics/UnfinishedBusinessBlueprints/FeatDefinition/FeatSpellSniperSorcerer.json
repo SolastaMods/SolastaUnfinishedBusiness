@@ -1,26 +1,25 @@
 {
-  "$type": "SolastaUnfinishedBusiness.CustomDefinitions.FeatDefinitionWithPrerequisites, SolastaUnfinishedBusiness",
+  "$type": "FeatDefinition, Assembly-CSharp",
   "compatibleClassesPrerequisite": [],
-  "mustCastSpellsPrerequisite": true,
+  "mustCastSpellsPrerequisite": false,
   "compatibleRacesPrerequisite": [],
-  "minimalAbilityScorePrerequisite": true,
+  "minimalAbilityScorePrerequisite": false,
   "minimalAbilityScoreValue": 13,
-  "minimalAbilityScoreName": "Charisma",
+  "minimalAbilityScoreName": "Strength",
   "armorProficiencyPrerequisite": false,
   "armorProficiencyCategory": "",
-  "hasFamilyTag": false,
-  "familyTag": "",
+  "hasFamilyTag": true,
+  "familyTag": "FeatSpellSniper",
   "knownFeatsPrerequisite": [],
   "features": [
-    "Definition:ActionAffinitySorcererMetamagicToggle:04a952fbc7800154cab7f4994e3ac481",
-    "Definition:AttributeModifierSorcererSorceryPointsBonus3:62adbaa6-4099-5d5b-a0fc-584f03eef4c2",
-    "Definition:CustomCodeFeatAdeptMetamagicEmpoweredSpell:504d0d72-53bb-53bc-967f-e459d1ce42b9"
+    "Definition:CastSpellFeatSpellSniperSorcerer:8397ac76-53ff-5be9-8a92-735a792bc28b",
+    "Definition:PointPoolFeatSpellSniperSorcererCantrip:88df28aa-b72f-5b73-9414-9637486d054a"
   ],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
-    "title": "Feature/&NoContentTitle",
-    "description": "Feature/&NoContentTitle",
+    "title": "Spell Sniper [Sorcerer]",
+    "description": "You learn two cantrips of your choice from the Sorcerer spell list. When you cast a spell that requires you to make an attack roll, the spell's range is doubled. Your ranged spell attacks ignore half cover and three-quarters cover.",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -40,7 +39,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "0b375d38-963a-53f7-8e82-fb6cc6d24e7f",
+  "guid": "ae05a223-2345-59e2-aa5c-1f5e3e64eb93",
   "contentPack": 9999,
-  "name": "FeatAdeptMetamagicEmpoweredSpell"
+  "name": "FeatSpellSniperSorcerer"
 }
