@@ -61,8 +61,10 @@ internal static class OtherFeats
         var featTough = BuildTough();
         var featWarCaster = BuildWarcaster();
 
-        _ = BuildMagicInitiate(feats);
+        var elementalAdeptGroup = BuildElementalAdept(feats);
         var spellSniperGroup = BuildSpellSniper(feats);
+
+        _ = BuildMagicInitiate(feats);
 
         feats.AddRange(
             featAstralArms,
@@ -95,6 +97,7 @@ internal static class OtherFeats
         _ = GroupFeats.MakeGroup("FeatGroupSpellCombat", null,
             FeatDefinitions.FlawlessConcentration,
             FeatDefinitions.PowerfulCantrip,
+            elementalAdeptGroup,
             featWarCaster,
             spellSniperGroup);
     }
@@ -112,6 +115,48 @@ internal static class OtherFeats
                     .SetCustomSubFeatures(new ModifyAttackModeForWeaponFeatAstralArms())
                     .AddToDB())
             .AddToDB();
+    }
+
+    private static FeatDefinition BuildElementalAdept(List<FeatDefinition> feats)
+    {
+        const string NAME = "FeatElementalAdept";
+
+        var elementalAdeptFeats = new List<FeatDefinition>();
+
+        var damageTypes = new[]
+        {
+            DamageTypeAcid, DamageTypeCold, DamageTypeFire, DamageTypeLightning, DamageTypeThunder
+        };
+
+        // ReSharper disable once LoopCanBeConvertedToQuery
+        foreach (var damageType in damageTypes)
+        {
+            var damageTitle = Gui.Localize($"Rules/&{damageType}Title");
+            var guiPresentation = new GuiPresentationBuilder(
+                Gui.Format($"Feat/&{NAME}Title", damageTitle),
+                Gui.Format($"Feat/&{NAME}Description", damageTitle))
+                .Build();
+
+            var feat = FeatDefinitionBuilder
+                .Create($"{NAME}{damageType}")
+                .SetGuiPresentation(guiPresentation)
+                .SetFeatures(FeatureDefinitionDieRollModifierDamageTypeDependentBuilder
+                    .Create($"DieRollModifierDamageTypeDependent{NAME}{damageType}")
+                    .SetGuiPresentation(guiPresentation)
+                    .SetModifiers(RollContext.MagicDamageValueRoll, 1, 1, 1,
+                        "Feature/&DieRollModifierFeatElementalAdeptReroll", damageType)
+                    .SetCustomSubFeatures(new IgnoreDamageResistanceElementalAdept(damageType))
+                    .AddToDB())
+                .AddToDB();
+
+            elementalAdeptFeats.Add(feat);
+        }
+
+        var elementalAdeptGroup = GroupFeats.MakeGroup("FeatGroupElementalAdept", NAME, elementalAdeptFeats);
+
+        feats.AddRange(elementalAdeptFeats);
+
+        return elementalAdeptGroup;
     }
 
     private static FeatDefinition BuildEldritchAdept()
@@ -571,6 +616,21 @@ internal static class OtherFeats
         };
 
         return new RulesetEffectPower(rulesetCharacter, usablePower);
+    }
+
+    private sealed class IgnoreDamageResistanceElementalAdept : IIgnoreDamageAffinity
+    {
+        private readonly List<string> _damageTypes = new();
+
+        public IgnoreDamageResistanceElementalAdept(params string[] damageTypes)
+        {
+            _damageTypes.AddRange(damageTypes);
+        }
+
+        public bool CanIgnoreDamageAffinity(IDamageAffinityProvider provider, string damageType)
+        {
+            return provider.DamageAffinityType == DamageAffinityType.Resistance && _damageTypes.Contains(damageType);
+        }
     }
 
     internal sealed class SpellTag

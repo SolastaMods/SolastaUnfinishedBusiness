@@ -10,6 +10,7 @@ using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.Extensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.CustomBehaviors;
+using SolastaUnfinishedBusiness.CustomDefinitions;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.Subclasses;
 using TA;
@@ -403,6 +404,54 @@ public static class RulesetActorPatcher
                 new CodeInstruction(OpCodes.Ldarg_0),
                 new CodeInstruction(OpCodes.Call, custom),
                 new CodeInstruction(OpCodes.Call, refreshAttributes)); // checked for Call vs CallVirtual
+        }
+    }
+
+    //PATCH: supports DieRollModifierDamageTypeDependent
+    [HarmonyPatch(typeof(RulesetActor), nameof(RulesetActor.RollDamage))]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
+    [HarmonyPatch(typeof(RulesetActor), nameof(RulesetActor.RollDamage))]
+    internal class RulesetActor_RollDamage
+    {
+        internal static DamageForm CurrentDamageForm;
+
+        [UsedImplicitly]
+        public static void Prefix(DamageForm damageForm)
+        {
+            CurrentDamageForm = damageForm;
+        }
+
+        [UsedImplicitly]
+        public static void Postfix()
+        {
+            CurrentDamageForm = null;
+        }
+    }
+
+    //PATCH: supports DieRollModifierDamageTypeDependent
+    [HarmonyPatch(typeof(RulesetActor), nameof(RulesetActor.RerollDieAsNeeded))]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
+    public static class RulesetActor_RerollDieAsNeeded
+    {
+        [UsedImplicitly]
+        public static bool Prefix(
+            FeatureDefinitionDieRollModifier dieRollModifier,
+            int rollScore,
+            ref int __result)
+        {
+            if (dieRollModifier is not FeatureDefinitionDieRollModifierDamageTypeDependent
+                    featureDefinitionDieRollModifierDamageTypeDependent
+                || RulesetActor_RollDamage.CurrentDamageForm == null
+                || featureDefinitionDieRollModifierDamageTypeDependent.damageTypes.Contains(RulesetActor_RollDamage
+                    .CurrentDamageForm.damageType))
+            {
+                return true;
+            }
+
+            __result = rollScore;
+            return false;
         }
     }
 }
