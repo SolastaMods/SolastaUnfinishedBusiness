@@ -1,4 +1,6 @@
-﻿using SolastaUnfinishedBusiness.Builders;
+﻿using System.Linq;
+using SolastaUnfinishedBusiness.Api.Infrastructure;
+using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
@@ -17,21 +19,10 @@ internal sealed class CollegeOfLife : AbstractSubclass
     {
         // LEVEL 03
 
-        var magicAffinityCollegeOfLifeHeightened = FeatureDefinitionMagicAffinityBuilder
+        MagicAffinityCollegeOfLifeHeightened = FeatureDefinitionMagicAffinityBuilder
             .Create("MagicAffinityCollegeOfLifeHeightened")
             .SetGuiPresentation(Category.Feature)
-            .SetWarList(2,
-                // Necromancy
-                BestowCurse,
-                Blindness,
-                Eyebite,
-                RaiseDead,
-                // Transmutation
-                EnhanceAbility,
-                FeatherFall,
-                HeatMetal,
-                Knock,
-                Longstrider)
+            .SetWarList(2) // we set spells on later load
             .AddToDB();
 
         // LEVEL 06
@@ -161,7 +152,7 @@ internal sealed class CollegeOfLife : AbstractSubclass
             .Create("CollegeOfLife")
             .SetGuiPresentation(Category.Subclass, RoguishDarkweaver)
             .AddFeaturesAtLevel(3,
-                magicAffinityCollegeOfLifeHeightened)
+                MagicAffinityCollegeOfLifeHeightened)
             .AddFeaturesAtLevel(6,
                 damageAffinityCollegeOfLifeNecroticResistance,
                 powerSharedPoolCollegeOfLifeHealingPool,
@@ -177,8 +168,19 @@ internal sealed class CollegeOfLife : AbstractSubclass
             .AddToDB();
     }
 
+    private static FeatureDefinitionMagicAffinity MagicAffinityCollegeOfLifeHeightened { get; set; }
+
     internal override CharacterSubclassDefinition Subclass { get; }
 
     internal override FeatureDefinitionSubclassChoice SubclassChoice =>
         FeatureDefinitionSubclassChoices.SubclassChoiceBardColleges;
+
+    internal static void LateLoad()
+    {
+        MagicAffinityCollegeOfLifeHeightened.WarListSpells.SetRange(SpellListDefinitions.SpellListAllSpells
+            .SpellsByLevel
+            .SelectMany(x => x.Spells)
+            .Where(x => x.SchoolOfMagic is SchoolNecromancy or SchoolTransmutation)
+            .Select(x => x.Name));
+    }
 }

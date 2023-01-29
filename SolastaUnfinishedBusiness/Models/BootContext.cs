@@ -115,6 +115,9 @@ internal static class BootContext
             // Shared Slots - patching and final configs
             SharedSpellsContext.LateLoad();
 
+            // Set anything on subs that depends on spells and others
+            SubclassesContext.LateLoad();
+
             // Save by location initialization depends on services to be ready
             SaveByLocationContext.LateLoad();
 

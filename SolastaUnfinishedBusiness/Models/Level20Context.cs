@@ -143,15 +143,6 @@ internal static class Level20Context
         CastSpellElfHigh.slotsPerLevels = SharedSpellsContext.RaceEmptyCastingSlots;
 
         //
-        // BUGFIX: these null shouldn't be there as it breaks Bard Magical Secrets
-        //
-
-        foreach (var spells in SpellListAllSpells.SpellsByLevel.Select(x => x.Spells))
-        {
-            spells.RemoveAll(x => x == null);
-        }
-
-        //
         // BUGFIX: add a sprite reference to Resurrection
         //
 
