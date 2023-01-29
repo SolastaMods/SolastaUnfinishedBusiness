@@ -1,5 +1,11 @@
 CHANGES:
 
+1.4.33.19:
+
+- fixed a crash on slots reaction modal
+
+1.4.33.18:
+
 - added additional names suggestions to Gnomes and Tieflings
 - added Elemental Adept feats
 - fixed College of Life reality bending interaction with other spell repertoires
