@@ -25,8 +25,8 @@ internal static class OtherFeats
     internal const string FeatWarCaster = "FeatWarCaster";
     internal const string MagicAffinityFeatWarCaster = "MagicAffinityFeatWarCaster";
 
-    private const string FeatMagicInitiateTag = "Initiate";
-    private const string FeatSpellSniperTag = "Sniper";
+    internal const string FeatMagicInitiateTag = "Initiate";
+    internal const string FeatSpellSniperTag = "Sniper";
 
     private static readonly FeatureDefinitionPower PowerFeatPoisonousSkin = FeatureDefinitionPowerBuilder
         .Create("PowerFeatPoisonousSkin")
@@ -61,8 +61,10 @@ internal static class OtherFeats
         var featTough = BuildTough();
         var featWarCaster = BuildWarcaster();
 
-        _ = BuildMagicInitiate(feats);
         var spellSniperGroup = BuildSpellSniper(feats);
+
+        _ = BuildElementalAdept(feats);
+        _ = BuildMagicInitiate(feats);
 
         feats.AddRange(
             featAstralArms,
@@ -114,9 +116,52 @@ internal static class OtherFeats
             .AddToDB();
     }
 
+    private static FeatDefinition BuildElementalAdept(List<FeatDefinition> feats)
+    {
+        const string NAME = "FeatElementalAdept";
+
+        var elementalAdeptFeats = new List<FeatDefinition>();
+
+        var damageTypes = new[]
+        {
+            DamageTypeAcid, DamageTypeCold, DamageTypeFire, DamageTypeLightning, DamageTypeThunder
+        };
+
+        // ReSharper disable once LoopCanBeConvertedToQuery
+        foreach (var damageType in damageTypes)
+        {
+            var damageTitle = Gui.Localize($"Rules/&{damageType}Title");
+            var guiPresentation = new GuiPresentationBuilder(
+                    Gui.Format($"Feat/&{NAME}Title", damageTitle),
+                    Gui.Format($"Feat/&{NAME}Description", damageTitle))
+                .Build();
+
+            var feat = FeatDefinitionBuilder
+                .Create($"{NAME}{damageType}")
+                .SetGuiPresentation(guiPresentation)
+                .SetFeatures(FeatureDefinitionDieRollModifierDamageTypeDependentBuilder
+                    .Create($"DieRollModifierDamageTypeDependent{NAME}{damageType}")
+                    .SetGuiPresentation(guiPresentation)
+                    .SetModifiers(RollContext.MagicDamageValueRoll, 1, 1, 1,
+                        "Feature/&DieRollModifierFeatElementalAdeptReroll", damageType)
+                    .SetCustomSubFeatures(new IgnoreDamageResistanceElementalAdept(damageType))
+                    .AddToDB())
+                .SetMustCastSpellsPrerequisite()
+                .AddToDB();
+
+            elementalAdeptFeats.Add(feat);
+        }
+
+        var elementalAdeptGroup = GroupFeats.MakeGroup("FeatGroupElementalAdept", NAME, elementalAdeptFeats);
+
+        feats.AddRange(elementalAdeptFeats);
+
+        return elementalAdeptGroup;
+    }
+
     private static FeatDefinition BuildEldritchAdept()
     {
-        return FeatDefinitionWithPrerequisitesBuilder
+        return FeatDefinitionBuilder
             .Create(FeatEldritchAdept)
             .SetGuiPresentation(Category.Feat)
             .SetFeatures(
@@ -125,7 +170,6 @@ internal static class OtherFeats
                     .SetGuiPresentationNoContent(true)
                     .SetPool(HeroDefinitions.PointsPoolType.Invocation, 1)
                     .AddToDB())
-            .SetValidators(ValidatorsFeat.ValidateMinCharLevel(2))
             .AddToDB();
     }
 
@@ -251,7 +295,7 @@ internal static class OtherFeats
             var className = spellList.Name.Replace("SpellList", "");
             var classDefinition = GetDefinition<CharacterClassDefinition>(className);
             var classTitle = classDefinition.FormatTitle();
-            var featMagicInitiate = FeatDefinitionWithPrerequisitesBuilder
+            var featMagicInitiate = FeatDefinitionBuilder
                 .Create($"{NAME}{className}")
                 .SetGuiPresentation(
                     Gui.Format($"Feat/&{NAME}Title", classTitle),
@@ -269,6 +313,7 @@ internal static class OtherFeats
                         .SetSlotsPerLevel(SharedSpellsContext.InitiateCastingSlots)
                         .SetKnownCantrips(2, 1, FeatureDefinitionCastSpellBuilder.CasterProgression.Flat)
                         .SetKnownSpells(2, FeatureDefinitionCastSpellBuilder.CasterProgression.Flat)
+                        .SetReplacedSpells(1, 0)
                         .SetUniqueLevelSlots(false)
                         .SetCustomSubFeatures(new SpellTag(FeatMagicInitiateTag))
                         .AddToDB(),
@@ -285,7 +330,6 @@ internal static class OtherFeats
                             FeatMagicInitiateTag, 1, 1)
                         .AddToDB())
                 .SetFeatFamily(NAME)
-                .SetValidators(ValidatorsFeat.ValidateMinCharLevel(2))
                 .AddToDB();
 
             magicInitiateFeats.Add(featMagicInitiate);
@@ -303,7 +347,7 @@ internal static class OtherFeats
         // KEEP FOR BACKWARD COMPATIBILITY until next DLC
         BuildMetamagicBackwardCompatibility();
 
-        return FeatDefinitionWithPrerequisitesBuilder
+        return FeatDefinitionBuilder
             .Create("FeatMetamagicAdept")
             .SetGuiPresentation(Category.Feat)
             .SetFeatures(
@@ -322,7 +366,6 @@ internal static class OtherFeats
                     .SetPool(HeroDefinitions.PointsPoolType.Metamagic, 2)
                     .AddToDB())
             .SetMustCastSpellsPrerequisite()
-            .SetValidators(ValidatorsFeat.ValidateMinCharLevel(3))
             .AddToDB();
     }
 
@@ -340,7 +383,7 @@ internal static class OtherFeats
         var dbMetamagicOptionDefinition = DatabaseRepository.GetDatabase<MetamagicOptionDefinition>();
 
         metaMagicFeats.SetRange(dbMetamagicOptionDefinition
-            .Select(metamagicOptionDefinition => FeatDefinitionWithPrerequisitesBuilder
+            .Select(metamagicOptionDefinition => FeatDefinitionBuilder
                 .Create($"FeatAdept{metamagicOptionDefinition.Name}")
                 .SetGuiPresentationNoContent(true)
                 .SetFeatures(
@@ -487,7 +530,7 @@ internal static class OtherFeats
                 .FinalizeSpells(true, -1)
                 .AddToDB();
 
-            var featSpellSniper = FeatDefinitionWithPrerequisitesBuilder
+            var featSpellSniper = FeatDefinitionBuilder
                 .Create($"{NAME}{className}")
                 .SetGuiPresentation(
                     Gui.Format($"Feat/&{NAME}Title", classTitle),
@@ -518,7 +561,6 @@ internal static class OtherFeats
                         .AddToDB())
                 .SetFeatFamily(NAME)
                 .SetCustomSubFeatures(new ModifyMagicEffectFeatSpellSniper())
-                .SetValidators(ValidatorsFeat.ValidateMinCharLevel(2))
                 .AddToDB();
 
             spellSniperFeats.Add(featSpellSniper);
@@ -573,6 +615,21 @@ internal static class OtherFeats
         };
 
         return new RulesetEffectPower(rulesetCharacter, usablePower);
+    }
+
+    private sealed class IgnoreDamageResistanceElementalAdept : IIgnoreDamageAffinity
+    {
+        private readonly List<string> _damageTypes = new();
+
+        public IgnoreDamageResistanceElementalAdept(params string[] damageTypes)
+        {
+            _damageTypes.AddRange(damageTypes);
+        }
+
+        public bool CanIgnoreDamageAffinity(IDamageAffinityProvider provider, string damageType)
+        {
+            return provider.DamageAffinityType == DamageAffinityType.Resistance && _damageTypes.Contains(damageType);
+        }
     }
 
     internal sealed class SpellTag

@@ -27,7 +27,7 @@ namespace SolastaUnfinishedBusiness.Models;
 internal static class CharacterContext
 {
     internal const int MinInitialFeats = 0;
-    internal const int MaxInitialFeats = 2; // don't increase this value to avoid issue reports on crazy scenarios
+    internal const int MaxInitialFeats = 4; // don't increase this value to avoid issue reports on crazy scenarios
 
     internal const int GameMaxAttribute = 15;
     internal const int GameBuyPoints = 27;
@@ -42,9 +42,9 @@ internal static class CharacterContext
 
     internal static void Load()
     {
+        // create feats point pools
         // +1 here as need to count the Alternate Human Feat
-        // + 20 here to allow it to be set directly on XML file
-        for (var i = 1; i <= MaxInitialFeats + 1 + 20; i++)
+        for (var i = 1; i <= MaxInitialFeats + 1; i++)
         {
             var s = i.ToString();
 
@@ -55,6 +55,14 @@ internal static class CharacterContext
                     Gui.Format("Feature/&PointPoolSelectBonusFeatsDescription", s))
                 .SetPool(HeroDefinitions.PointsPoolType.Feat, i)
                 .AddToDB();
+        }
+
+        //
+        // BUGFIX: these null shouldn't be there as it breaks Bard Magical Secrets
+        //
+        foreach (var spells in SpellListDefinitions.SpellListAllSpells.SpellsByLevel.Select(x => x.Spells))
+        {
+            spells.RemoveAll(x => x == null);
         }
 
         LoadFighterArmamentAdroitness();

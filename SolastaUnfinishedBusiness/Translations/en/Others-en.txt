@@ -103,7 +103,6 @@ Tooltip/&InvocationUsageShortRestAvailableDescription=Once it has been used, thi
 Tooltip/&InvocationUsageShortRestUsedDescription=This invocation requires a short or long rest to be activated again.
 Tooltip/&MonsterNaturalArmorTitle=Natural Armor
 Tooltip/&PreReqDoesNotKnow=Doesn't know {0}
-Tooltip/&PreReqHasCantrips=Ability to Cast Cantrips
 Tooltip/&PreReqIs=Is {0}
 Tooltip/&PreReqIsNot=Isn't {0}
 Tooltip/&PreReqLevelFormat=Min Character Level {0}

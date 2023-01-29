@@ -68,7 +68,7 @@ public class MirrorImageLogic
     internal static int GetAC(
         RulesetAttribute attribute,
         RulesetActor target,
-        List<RuleDefinitions.TrendInfo> toHitTrends)
+        IEnumerable<RuleDefinitions.TrendInfo> toHitTrends)
     {
         if (!TargetsMirrorImage(toHitTrends))
         {

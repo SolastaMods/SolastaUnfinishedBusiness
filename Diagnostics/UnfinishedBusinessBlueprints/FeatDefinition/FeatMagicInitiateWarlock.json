@@ -1,0 +1,46 @@
+{
+  "$type": "FeatDefinition, Assembly-CSharp",
+  "compatibleClassesPrerequisite": [],
+  "mustCastSpellsPrerequisite": false,
+  "compatibleRacesPrerequisite": [],
+  "minimalAbilityScorePrerequisite": false,
+  "minimalAbilityScoreValue": 13,
+  "minimalAbilityScoreName": "Strength",
+  "armorProficiencyPrerequisite": false,
+  "armorProficiencyCategory": "",
+  "hasFamilyTag": true,
+  "familyTag": "FeatMagicInitiate",
+  "knownFeatsPrerequisite": [],
+  "features": [
+    "Definition:CastSpellFeatMagicInitiateWarlock:b8717ccf-f74f-5db1-84b8-d619c5c5785c",
+    "Definition:PointPoolFeatMagicInitiateWarlockCantrip:e18f7d64-353d-51e8-a5ce-5681d6321b84",
+    "Definition:PointPoolFeatMagicInitiateWarlockSpell:8aad3ea9-7083-5144-ba49-c5f0a277c765"
+  ],
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": true,
+    "title": "Magic Initiate [Warlock]",
+    "description": "You learn two cantrips of your choice from the Warlock spell list. In addition, choose one 1st-level spell to learn from that same list. Using this feat, you can cast the spell once at its lowest level, and you must finish a long rest before you can cast it in this way again.",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "71d4c33c-052c-5122-a4bb-c0ae6cdbe57d",
+  "contentPack": 9999,
+  "name": "FeatMagicInitiateWarlock"
+}

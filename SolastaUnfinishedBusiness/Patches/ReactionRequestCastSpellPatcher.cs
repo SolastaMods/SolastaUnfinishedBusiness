@@ -16,6 +16,19 @@ public static class ReactionRequestCastSpellPatcher
     public static class BuildSlotSubOptions_Patch
     {
         [UsedImplicitly]
+        public static void Prefix(ReactionRequestCastSpell __instance)
+        {
+            if (__instance.ReactionParams.RulesetEffect is RulesetEffectSpell rulesetEffectSpell)
+            {
+                // this is a collateral case to support spells from race repertoires
+                // but UI for some reason still displays slots from the caster class
+                rulesetEffectSpell.spellRepertoire =
+                    __instance.Character.RulesetCharacter.SpellRepertoires.FirstOrDefault(x =>
+                        x.KnownSpells.Contains(rulesetEffectSpell.SpellDefinition));
+            }
+        }
+
+        [UsedImplicitly]
         public static void Postfix(ReactionRequestCastSpell __instance)
         {
             if (__instance.Character.RulesetCharacter is not RulesetCharacterHero hero
@@ -37,7 +50,8 @@ public static class ReactionRequestCastSpellPatcher
 
             optionsAvailability.Clear();
 
-            var spellLevel = (__instance.ReactionParams.RulesetEffect as RulesetEffectSpell).SpellDefinition.SpellLevel;
+            var rulesetEffectSpell = __instance.ReactionParams.RulesetEffect as RulesetEffectSpell;
+            var spellLevel = rulesetEffectSpell.SpellDefinition.SpellLevel;
             var selected =
                 MulticlassGameUiContext.AddAvailableSubLevels(optionsAvailability, hero, repertoire, spellLevel);
 

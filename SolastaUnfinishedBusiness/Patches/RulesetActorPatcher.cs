@@ -10,6 +10,7 @@ using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.Extensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.CustomBehaviors;
+using SolastaUnfinishedBusiness.CustomDefinitions;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.Subclasses;
 using TA;
@@ -206,19 +207,58 @@ public static class RulesetActorPatcher
         [UsedImplicitly]
         public static IEnumerable<CodeInstruction> Transpiler([NotNull] IEnumerable<CodeInstruction> instructions)
         {
-            //PATCH: add `IDamageAffinityProvider` from dynamic item properties
-            //fixes game not applying damage reductions from dynamic item properties
-            //used for Inventor's Resistant Armor infusions
-
+            var modulateSustainedDamage = typeof(IRulesetImplementationService).GetMethod("ModulateSustainedDamage");
+            var myModulateSustainedDamage =
+                typeof(ModulateSustainedDamage_Patch).GetMethod("MayModulateSustainedDamage");
             var myEnumerate = new Action<
                 RulesetActor,
                 List<FeatureDefinition>,
                 Dictionary<FeatureDefinition, RuleDefinitions.FeatureOrigin>
             >(MyEnumerate).Method;
 
-            return instructions.ReplaceEnumerateFeaturesToBrowse("IDamageAffinityProvider",
-                -1, "RulesetActor.ModulateSustainedDamage",
-                new CodeInstruction(OpCodes.Call, myEnumerate));
+            return instructions
+                //PATCH: supports IIgnoreDamageAffinity    
+                .ReplaceCall(modulateSustainedDamage,
+                    2, "RulesetActor.ModulateSustainedDamage.1",
+                    new CodeInstruction(OpCodes.Ldarg, 4), // source guid
+                    new CodeInstruction(OpCodes.Call, myModulateSustainedDamage))
+                //PATCH: add `IDamageAffinityProvider` from dynamic item properties
+                //fixes game not applying damage reductions from dynamic item properties
+                //used for Inventor's Resistant Armor infusions
+                .ReplaceEnumerateFeaturesToBrowse("IDamageAffinityProvider",
+                    -1, "RulesetActor.ModulateSustainedDamage.2",
+                    new CodeInstruction(OpCodes.Call, myEnumerate));
+        }
+
+        [UsedImplicitly]
+        public static float MayModulateSustainedDamage(
+            IRulesetImplementationService service,
+            IDamageAffinityProvider provider,
+            RulesetActor actor,
+            string damageType,
+            float multiplier,
+            List<string> sourceTags,
+            bool wasFirstDamage,
+            out int damageReduction,
+            out string ancestryDamageType,
+            ulong sourceGuid)
+        {
+            ServiceRepository.GetService<IRulesetEntityService>().TryGetEntityByGuid(sourceGuid, out var rulesetEntity);
+
+            var caster = rulesetEntity as RulesetCharacter;
+            var features = caster.GetSubFeaturesByType<IIgnoreDamageAffinity>();
+
+            if (!features.Any(feature => feature.CanIgnoreDamageAffinity(provider, damageType)))
+            {
+                return service.ModulateSustainedDamage(provider, actor, damageType, multiplier, sourceTags,
+                    wasFirstDamage,
+                    out damageReduction, out ancestryDamageType);
+            }
+
+            damageReduction = 0;
+            ancestryDamageType = string.Empty;
+
+            return multiplier;
         }
 
         private static void MyEnumerate(
@@ -403,6 +443,54 @@ public static class RulesetActorPatcher
                 new CodeInstruction(OpCodes.Ldarg_0),
                 new CodeInstruction(OpCodes.Call, custom),
                 new CodeInstruction(OpCodes.Call, refreshAttributes)); // checked for Call vs CallVirtual
+        }
+    }
+
+    //PATCH: supports DieRollModifierDamageTypeDependent
+    [HarmonyPatch(typeof(RulesetActor), nameof(RulesetActor.RollDamage))]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
+    [HarmonyPatch(typeof(RulesetActor), nameof(RulesetActor.RollDamage))]
+    internal class RulesetActor_RollDamage
+    {
+        internal static DamageForm CurrentDamageForm;
+
+        [UsedImplicitly]
+        public static void Prefix(DamageForm damageForm)
+        {
+            CurrentDamageForm = damageForm;
+        }
+
+        [UsedImplicitly]
+        public static void Postfix()
+        {
+            CurrentDamageForm = null;
+        }
+    }
+
+    //PATCH: supports DieRollModifierDamageTypeDependent
+    [HarmonyPatch(typeof(RulesetActor), nameof(RulesetActor.RerollDieAsNeeded))]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
+    public static class RulesetActor_RerollDieAsNeeded
+    {
+        [UsedImplicitly]
+        public static bool Prefix(
+            FeatureDefinitionDieRollModifier dieRollModifier,
+            int rollScore,
+            ref int __result)
+        {
+            if (dieRollModifier is not FeatureDefinitionDieRollModifierDamageTypeDependent
+                    featureDefinitionDieRollModifierDamageTypeDependent
+                || RulesetActor_RollDamage.CurrentDamageForm == null
+                || featureDefinitionDieRollModifierDamageTypeDependent.damageTypes.Contains(RulesetActor_RollDamage
+                    .CurrentDamageForm.damageType))
+            {
+                return true;
+            }
+
+            __result = rollScore;
+            return false;
         }
     }
 }

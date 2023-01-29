@@ -1,5 +1,13 @@
 ﻿CHANGES:
 
+1.4.33.18:
+
+- added additional names suggestions to Gnomes and Tieflings
+- added Elemental Adept feats
+- fixed College of Life reality bending interaction with other spell repertoires
+- fixed pool points selection from feats at level 1
+- removed any minimum level requirement from all feats
+
 1.4.33.17:
 
 - changed Magic Initiate and Spell Sniper feats to require level 2 [technical limitation]
