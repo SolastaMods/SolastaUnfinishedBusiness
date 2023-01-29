@@ -18,13 +18,19 @@ public static class ReactionRequestCastSpellPatcher
         [UsedImplicitly]
         public static void Prefix(ReactionRequestCastSpell __instance)
         {
-            if (__instance.ReactionParams.RulesetEffect is RulesetEffectSpell rulesetEffectSpell)
+            if (__instance.ReactionParams.RulesetEffect is not RulesetEffectSpell rulesetEffectSpell)
             {
-                // this is a collateral case to support spells from race repertoires
-                // but UI for some reason still displays slots from the caster class
-                rulesetEffectSpell.spellRepertoire =
-                    __instance.Character.RulesetCharacter.SpellRepertoires.FirstOrDefault(x =>
-                        x.KnownSpells.Contains(rulesetEffectSpell.SpellDefinition));
+                return;
+            }
+
+            // this is a collateral case to support spells from race repertoires
+            // but UI for some reason still displays slots from the caster class
+            var repertoire = __instance.Character.RulesetCharacter.SpellRepertoires.FirstOrDefault(x =>
+                x.KnownSpells.Contains(rulesetEffectSpell.SpellDefinition));
+
+            if (repertoire != null)
+            {
+                rulesetEffectSpell.spellRepertoire = repertoire;
             }
         }
 
