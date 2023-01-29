@@ -1,10 +1,5 @@
-ATTENTION:
-
-- You must RESPEC any hero that took Cantrips Adept or Spell Sniper before this update
-
 CHANGES:
 
-- changed Magic Initiate and Spell Sniper feats to require level 2 [technical limitation]
-- fixed Soul Blade empower weapon
-- refactored Spell Sniper on 5 separate feats with its own repertoire and correct casting ability
-- removed Cantrips Adept feat in favor of Magic Initiate ones
+- added Elemental Adept feats
+- fixed granting pool points from feats at level 1
+- removed any minimum level requirement from all feats
