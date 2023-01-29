@@ -147,6 +147,7 @@ internal static class OtherFeats
                         "Feature/&DieRollModifierFeatElementalAdeptReroll", damageType)
                     .SetCustomSubFeatures(new IgnoreDamageResistanceElementalAdept(damageType))
                     .AddToDB())
+                .SetMustCastSpellsPrerequisite()
                 .AddToDB();
 
             elementalAdeptFeats.Add(feat);
@@ -161,7 +162,7 @@ internal static class OtherFeats
 
     private static FeatDefinition BuildEldritchAdept()
     {
-        return FeatDefinitionWithPrerequisitesBuilder
+        return FeatDefinitionBuilder
             .Create(FeatEldritchAdept)
             .SetGuiPresentation(Category.Feat)
             .SetFeatures(
@@ -170,7 +171,6 @@ internal static class OtherFeats
                     .SetGuiPresentationNoContent(true)
                     .SetPool(HeroDefinitions.PointsPoolType.Invocation, 1)
                     .AddToDB())
-            .SetValidators(ValidatorsFeat.ValidateMinCharLevel(2))
             .AddToDB();
     }
 
@@ -296,7 +296,7 @@ internal static class OtherFeats
             var className = spellList.Name.Replace("SpellList", "");
             var classDefinition = GetDefinition<CharacterClassDefinition>(className);
             var classTitle = classDefinition.FormatTitle();
-            var featMagicInitiate = FeatDefinitionWithPrerequisitesBuilder
+            var featMagicInitiate = FeatDefinitionBuilder
                 .Create($"{NAME}{className}")
                 .SetGuiPresentation(
                     Gui.Format($"Feat/&{NAME}Title", classTitle),
@@ -347,7 +347,7 @@ internal static class OtherFeats
         // KEEP FOR BACKWARD COMPATIBILITY until next DLC
         BuildMetamagicBackwardCompatibility();
 
-        return FeatDefinitionWithPrerequisitesBuilder
+        return FeatDefinitionBuilder
             .Create("FeatMetamagicAdept")
             .SetGuiPresentation(Category.Feat)
             .SetFeatures(
@@ -366,7 +366,6 @@ internal static class OtherFeats
                     .SetPool(HeroDefinitions.PointsPoolType.Metamagic, 2)
                     .AddToDB())
             .SetMustCastSpellsPrerequisite()
-            .SetValidators(ValidatorsFeat.ValidateMinCharLevel(3))
             .AddToDB();
     }
 
@@ -384,7 +383,7 @@ internal static class OtherFeats
         var dbMetamagicOptionDefinition = DatabaseRepository.GetDatabase<MetamagicOptionDefinition>();
 
         metaMagicFeats.SetRange(dbMetamagicOptionDefinition
-            .Select(metamagicOptionDefinition => FeatDefinitionWithPrerequisitesBuilder
+            .Select(metamagicOptionDefinition => FeatDefinitionBuilder
                 .Create($"FeatAdept{metamagicOptionDefinition.Name}")
                 .SetGuiPresentationNoContent(true)
                 .SetFeatures(
@@ -531,7 +530,7 @@ internal static class OtherFeats
                 .FinalizeSpells(true, -1)
                 .AddToDB();
 
-            var featSpellSniper = FeatDefinitionWithPrerequisitesBuilder
+            var featSpellSniper = FeatDefinitionBuilder
                 .Create($"{NAME}{className}")
                 .SetGuiPresentation(
                     Gui.Format($"Feat/&{NAME}Title", classTitle),

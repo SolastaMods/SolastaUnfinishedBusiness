@@ -103,7 +103,6 @@ Tooltip/&InvocationUsageShortRestAvailableDescription=一旦被使用，此魔�
 Tooltip/&InvocationUsageShortRestUsedDescription=此魔能祈唤需要短休或长休后才能再次使用。
 Tooltip/&MonsterNaturalArmorTitle=自然护甲
 Tooltip/&PreReqDoesNotKnow=没有已知 {0}
-Tooltip/&PreReqHasCantrips=班级有戏法
 Tooltip/&PreReqLevelFormat=最低角色等级 {0}
 Tooltip/&PreReqIs=Is {0}
 Tooltip/&PreReqIsNot=不是 {0}

@@ -37,20 +37,6 @@ internal static class ValidatorsFeat
         ValidateIsRace(GnomeRaceBuilder.RaceGnome.FormatTitle(), GnomeRaceBuilder.RaceGnome);
 
 #if false
-    [NotNull]
-    internal static Func<FeatDefinition, RulesetCharacterHero, (bool result, string output)> ValidateNotMetamagic(
-        [NotNull] BaseDefinition baseDefinition)
-    {
-        return (_, hero) =>
-        {
-            var hasMetamagic = hero.TrainedMetamagicOptions.Any(x => x.Name == baseDefinition.Name);
-            var guiFormat = Gui.Format("Tooltip/&PreReqDoesNotKnow", baseDefinition.FormatTitle());
-
-            return hasMetamagic ? (false, Gui.Colorize(guiFormat, Gui.ColorFailure)) : (true, guiFormat);
-        };
-    }
-#endif
-
     internal static Func<FeatDefinition, RulesetCharacterHero, (bool result, string output)> HasCantrips()
     {
         return (_, hero) =>
@@ -74,6 +60,7 @@ internal static class ValidatorsFeat
             return hasCantrips ? (true, guiLocalize) : (false, Gui.Colorize(guiLocalize, Gui.ColorFailure));
         };
     }
+#endif
 
     [NotNull]
     internal static Func<FeatDefinition, RulesetCharacterHero, (bool result, string output)> ValidateNotFightingStyle(
@@ -151,6 +138,7 @@ internal static class ValidatorsFeat
         };
     }
 
+#if false
     [NotNull]
     internal static Func<FeatDefinition, RulesetCharacterHero, (bool result, string output)> ValidateMinCharLevel(
         int minCharLevel)
@@ -165,4 +153,5 @@ internal static class ValidatorsFeat
                 : (false, Gui.Colorize(guiFormat, Gui.ColorFailure));
         };
     }
+#endif
 }
