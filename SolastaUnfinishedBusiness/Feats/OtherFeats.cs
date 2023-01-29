@@ -132,8 +132,8 @@ internal static class OtherFeats
         {
             var damageTitle = Gui.Localize($"Rules/&{damageType}Title");
             var guiPresentation = new GuiPresentationBuilder(
-                Gui.Format($"Feat/&{NAME}Title", damageTitle),
-                Gui.Format($"Feat/&{NAME}Description", damageTitle))
+                    Gui.Format($"Feat/&{NAME}Title", damageTitle),
+                    Gui.Format($"Feat/&{NAME}Description", damageTitle))
                 .Build();
 
             var feat = FeatDefinitionBuilder
