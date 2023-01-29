@@ -5,10 +5,8 @@ using System.Linq;
 using System.Reflection.Emit;
 using HarmonyLib;
 using JetBrains.Annotations;
-using SolastaUnfinishedBusiness.Api.Extensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.CustomBehaviors;
-using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.Models;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterClassDefinitions;
 
@@ -376,27 +374,6 @@ public static class RulesetImplementationManagerPatcher
             saveDC = 8 + caster.TryGetAttributeValue("ProficiencyBonus") +
                      AttributeDefinitions.ComputeAbilityScoreModifier(
                          caster.TryGetAttributeValue(spellRepertoire.SpellCastingAbility));
-        }
-    }
-
-    [HarmonyPatch(typeof(RulesetImplementationManager), nameof(RulesetImplementationManager.ModulateSustainedDamage))]
-    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    [UsedImplicitly]
-    public static class ModulateSustainedDamage_Patch
-    {
-        [UsedImplicitly]
-        public static void Postfix(
-            ref float __result,
-            IDamageAffinityProvider provider,
-            RulesetActor actor,
-            string damageType)
-        {
-            var features = actor.GetSubFeaturesByType<IIgnoreDamageAffinity>();
-
-            if (features.Any(feature => feature.CanIgnoreDamageAffinity(provider, damageType)))
-            {
-                __result = 2 * __result;
-            }
         }
     }
 }
