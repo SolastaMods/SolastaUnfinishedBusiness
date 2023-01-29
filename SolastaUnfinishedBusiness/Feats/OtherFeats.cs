@@ -25,8 +25,8 @@ internal static class OtherFeats
     internal const string FeatWarCaster = "FeatWarCaster";
     internal const string MagicAffinityFeatWarCaster = "MagicAffinityFeatWarCaster";
 
-    private const string FeatMagicInitiateTag = "Initiate";
-    private const string FeatSpellSniperTag = "Sniper";
+    internal const string FeatMagicInitiateTag = "Initiate";
+    internal const string FeatSpellSniperTag = "Sniper";
 
     private static readonly FeatureDefinitionPower PowerFeatPoisonousSkin = FeatureDefinitionPowerBuilder
         .Create("PowerFeatPoisonousSkin")
@@ -313,6 +313,7 @@ internal static class OtherFeats
                         .SetSlotsPerLevel(SharedSpellsContext.InitiateCastingSlots)
                         .SetKnownCantrips(2, 1, FeatureDefinitionCastSpellBuilder.CasterProgression.Flat)
                         .SetKnownSpells(2, FeatureDefinitionCastSpellBuilder.CasterProgression.Flat)
+                        .SetReplacedSpells(1, 0)
                         .SetUniqueLevelSlots(false)
                         .SetCustomSubFeatures(new SpellTag(FeatMagicInitiateTag))
                         .AddToDB(),

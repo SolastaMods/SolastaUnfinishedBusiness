@@ -607,28 +607,40 @@ internal static class LevelUpContext
             if (a.SpellCastingFeature.SpellCastingOrigin is FeatureDefinitionCastSpell.CastingOrigin.Race
                 or FeatureDefinitionCastSpell.CastingOrigin.Monster)
             {
-                return -1;
-            }
-
-            if (a.SpellCastingFeature.SpellCastingOrigin is FeatureDefinitionCastSpell.CastingOrigin.Race
-                or FeatureDefinitionCastSpell.CastingOrigin.Monster)
-            {
+                // we want repertoires from feats to always come after others
+                if (a.SpellCastingFeature.Name.Contains(OtherFeats.FeatMagicInitiateTag) ||
+                    a.SpellCastingFeature.Name.Contains(OtherFeats.FeatSpellSniperTag))
+                {
+                    return 1;
+                }
+                
                 return -1;
             }
 
             if (b.SpellCastingFeature.SpellCastingOrigin is FeatureDefinitionCastSpell.CastingOrigin.Race
                 or FeatureDefinitionCastSpell.CastingOrigin.Monster)
             {
+                // we want repertoires from feats to always come after others
+                if (b.SpellCastingFeature.Name.Contains(OtherFeats.FeatMagicInitiateTag) ||
+                    b.SpellCastingFeature.Name.Contains(OtherFeats.FeatSpellSniperTag))
+                {
+                    return -1;
+                }
+                
                 return 1;
             }
 
             var title1 = a.SpellCastingClass != null
                 ? a.SpellCastingClass.FormatTitle()
-                : a.SpellCastingSubclass.FormatTitle();
+                : a.SpellCastingSubclass != null
+                    ? a.SpellCastingSubclass.FormatTitle()
+                    : a.SpellCastingRace.FormatTitle();
 
             var title2 = b.SpellCastingClass != null
                 ? b.SpellCastingClass.FormatTitle()
-                : b.SpellCastingSubclass.FormatTitle();
+                : b.SpellCastingSubclass != null
+                    ? b.SpellCastingSubclass.FormatTitle()
+                    : b.SpellCastingRace.FormatTitle();
 
             return a.SaveDC == b.SaveDC
                 ? String.Compare(title1, title2, StringComparison.CurrentCultureIgnoreCase)
