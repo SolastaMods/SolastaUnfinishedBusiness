@@ -61,9 +61,9 @@ internal static class OtherFeats
         var featTough = BuildTough();
         var featWarCaster = BuildWarcaster();
 
-        var elementalAdeptGroup = BuildElementalAdept(feats);
         var spellSniperGroup = BuildSpellSniper(feats);
 
+        _ = BuildElementalAdept(feats);
         _ = BuildMagicInitiate(feats);
 
         feats.AddRange(
@@ -97,7 +97,6 @@ internal static class OtherFeats
         _ = GroupFeats.MakeGroup("FeatGroupSpellCombat", null,
             FeatDefinitions.FlawlessConcentration,
             FeatDefinitions.PowerfulCantrip,
-            elementalAdeptGroup,
             featWarCaster,
             spellSniperGroup);
     }
