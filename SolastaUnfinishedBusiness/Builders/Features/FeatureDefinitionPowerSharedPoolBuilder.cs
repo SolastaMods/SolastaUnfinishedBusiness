@@ -13,8 +13,10 @@ internal class FeatureDefinitionPowerSharedPoolBuilder
     {
         base.Validate();
 
+        // ReSharper disable once InvocationIsSkipped
         PreConditions.ArgumentIsNotNull(Definition.SharedPool,
             $"FeatureDefinitionPowerSharedPoolBuilder[{Definition.Name}].SharedPool is null.");
+        // ReSharper disable once InvocationIsSkipped
         PreConditions.AreEqual(Definition.UsesDetermination, RuleDefinitions.UsesDetermination.Fixed,
             $"FeatureDefinitionPowerSharedPoolBuilder[{Definition.Name}].UsesDetermination must be set to Fixed.");
     }

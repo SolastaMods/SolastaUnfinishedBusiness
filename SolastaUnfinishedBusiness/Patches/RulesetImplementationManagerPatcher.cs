@@ -354,6 +354,7 @@ public static class RulesetImplementationManagerPatcher
     public static class TryRollSavingThrow_Patch
     {
         [UsedImplicitly]
+        // ReSharper disable once InconsistentNaming
         public static void Prefix(RulesetCharacter caster, ref int saveDC, BaseDefinition sourceDefinition)
         {
             //BUGFIX: for still an unknown reason we get DC 0 on some Grenadier powers so hack it here (MULTIPLAYER)

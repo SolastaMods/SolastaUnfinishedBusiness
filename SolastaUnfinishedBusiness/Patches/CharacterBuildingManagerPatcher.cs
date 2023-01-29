@@ -413,7 +413,7 @@ public static class CharacterBuildingManagerPatcher
 
             //PATCH: support cast spell granted from feat
             foreach (var featureDefinitionCastSpell in heroBuildingData.levelupTrainedFeats.SelectMany(x =>
-                         x.Value.SelectMany(x => x.Features).OfType<FeatureDefinitionCastSpell>()))
+                         x.Value.SelectMany(y => y.Features).OfType<FeatureDefinitionCastSpell>()))
             {
                 var spellTag = featureDefinitionCastSpell.GetFirstSubFeatureOfType<OtherFeats.SpellTag>();
 

@@ -555,6 +555,7 @@ internal static class LevelUpContext
                 }
             }
 
+            // ReSharper disable once InvertIf
             if (heroBuildingData.AcquiredSpells.TryGetValue(finalTag, out var spells))
             {
                 foreach (var spell in spells)
