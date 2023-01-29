@@ -1,5 +1,12 @@
 ﻿CHANGES:
 
+1.4.33.18:
+
+- added Elemental Adept feats
+- fixed College of Life reality bending when MC
+- fixed granting pool points from feats at level 1
+- removed any minimum level requirement from all feats
+
 1.4.33.17:
 
 - changed Magic Initiate and Spell Sniper feats to require level 2 [technical limitation]

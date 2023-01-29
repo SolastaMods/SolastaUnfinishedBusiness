@@ -14,6 +14,7 @@ internal class FeatureDefinitionPowerUseModifierBuilder
         FeatureDefinitionPower poolPower,
         int powerPoolModifier)
     {
+        // ReSharper disable once InvocationIsSkipped
         PreConditions.ArgumentIsNotNull(poolPower, $"{GetType().Name}[{Definition.Name}] poolPower is null.");
 
         var modifier = Definition.Modifier;
