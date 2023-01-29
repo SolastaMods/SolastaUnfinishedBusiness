@@ -1,5 +1,6 @@
 CHANGES:
 
 - added Elemental Adept feats
+- fixed College of Life reality bending when MC
 - fixed granting pool points from feats at level 1
 - removed any minimum level requirement from all feats
