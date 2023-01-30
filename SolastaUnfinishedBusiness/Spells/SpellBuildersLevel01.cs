@@ -343,24 +343,26 @@ internal static partial class SpellBuilders
 
     internal static SpellDefinition BuildSkinOfRetribution()
     {
-        var spriteReference = Sprites.GetSprite("SkinOfRetribution", Resources.SkinOfRetribution, 128);
+        const string NAME = "SkinOfRetribution";
+        
+        var spriteReference = Sprites.GetSprite(NAME, Resources.SkinOfRetribution, 128);
         const int TEMP_HP_PER_LEVEL = SkinOfRetributionLogic.TempHpPerLevel;
 
-        var condition = ConditionDefinitionBuilder
-            .Create("ConditionSkinOfRetributionMark")
-            .SetGuiPresentation(SkinOfRetributionLogic.Condition.Name, Category.Condition)
+        var conditionMark = ConditionDefinitionBuilder
+            .Create($"Condition{NAME}Mark")
+            .SetGuiPresentation(NAME, Category.Spell)
             .SetSilent(Silent.WhenAddedOrRemoved)
             .CopyParticleReferences(ConditionBlurred)
             .SetFeatures(FeatureDefinitionBuilder
-                .Create("FeatureSkinOfRetribution")
-                .SetGuiPresentation(SkinOfRetributionLogic.Condition.Name, Category.Condition)
+                .Create($"Feature{NAME}")
+                .SetGuiPresentation(NAME, Category.Spell)
                 .SetCustomSubFeatures(SkinOfRetributionLogic.SkinProvider.Mark)
                 .AddToDB())
             .AddToDB();
 
         var effectFormRetribution = EffectFormBuilder
             .Create()
-            .SetConditionForm(condition, ConditionForm.ConditionOperation.Add, true, false)
+            .SetConditionForm(conditionMark, ConditionForm.ConditionOperation.Add, true, false)
             .Build();
 
         var effectFormTemporaryHitPoints = EffectFormBuilder
@@ -369,7 +371,7 @@ internal static partial class SpellBuilders
             .Build();
 
         return SpellDefinitionBuilder
-            .Create("SkinOfRetribution")
+            .Create(NAME)
             .SetGuiPresentation(Category.Spell, spriteReference)
             .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolAbjuration)
             .SetVerboseComponent(false)

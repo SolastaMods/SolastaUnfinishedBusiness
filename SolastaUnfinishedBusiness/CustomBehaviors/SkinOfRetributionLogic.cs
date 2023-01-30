@@ -19,7 +19,7 @@ public class SkinOfRetributionLogic
 
     private SkinOfRetributionLogic() { }
 
-    internal static ConditionDefinition Condition => _condition ??= BuildCondition();
+    private static ConditionDefinition Condition => _condition ??= BuildCondition();
 
     private static SkinOfRetributionLogic Marker { get; } = new();
 
@@ -41,7 +41,7 @@ public class SkinOfRetributionLogic
     {
         var powerSkinOfRetribution = FeatureDefinitionPowerBuilder
             .Create("PowerSkinOfRetribution")
-            .SetGuiPresentationNoContent()
+            .SetGuiPresentationNoContent(true)
             .SetUsesFixed(ActivationTime.NoCost)
             .SetEffectDescription(
                 EffectDescriptionBuilder
@@ -56,23 +56,20 @@ public class SkinOfRetributionLogic
             .SetUniqueInstance()
             .AddToDB();
 
-        var feature1 = FeatureDefinitionBuilder
+        var featureSkinOfRetributionHp = FeatureDefinitionBuilder
             .Create("FeatureSkinOfRetributionHp")
             .SetGuiPresentationNoContent(true)
             .SetCustomSubFeatures(SkinProvider.Mark)
             .AddToDB();
 
-        FeatureDefinition feature2 = FeatureDefinitionDamageAffinityBuilder
-            .Create("DamageSkinOfRetribution")
-            .SetGuiPresentationNoContent()
+        var damageSkinOfRetribution = FeatureDefinitionDamageAffinityBuilder
+            .Create("DamageAffinitySkinOfRetribution")
+            .SetGuiPresentationNoContent(true)
             .SetDamageAffinityType(DamageAffinityType.None)
             .SetRetaliate(powerSkinOfRetribution, 1, true)
             .AddToDB();
 
-
-        FeatureDefinition[] features = { feature1, feature2 };
-
-        return features;
+        return new[] { featureSkinOfRetributionHp, damageSkinOfRetribution };
     }
 
     private static List<RulesetCondition> GetConditions(RulesetActor character)
@@ -97,12 +94,10 @@ public class SkinOfRetributionLogic
     {
         var conditions = GetConditions(target as RulesetCharacter);
 
-        foreach (var condition in conditions)
+        foreach (var condition in conditions
+                     .Where(_ => ((RulesetCharacter)target).temporaryHitPoints == 0))
         {
-            if (((RulesetCharacter)target).temporaryHitPoints == 0)
-            {
-                target.RemoveCondition(condition);
-            }
+            target.RemoveCondition(condition);
         }
     }
 
