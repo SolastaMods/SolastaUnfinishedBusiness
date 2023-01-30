@@ -17,9 +17,9 @@ internal static class RangedCombatFeats
 {
     internal static void CreateFeats([NotNull] List<FeatDefinition> feats)
     {
+        var featBowMastery = BuildBowMastery();
         var featDeadEye = BuildDeadEye();
         var featRangedExpert = BuildRangedExpert();
-        var featBowMastery = BuildBowMastery();
 
         feats.AddRange(featDeadEye, featRangedExpert, featBowMastery);
 
@@ -32,18 +32,38 @@ internal static class RangedCombatFeats
             MeleeCombatFeats.FeatGroupPiercer);
     }
 
+    private static FeatDefinition BuildBowMastery()
+    {
+        const string NAME = "FeatBowMastery";
+
+        return FeatDefinitionBuilder
+            .Create(NAME)
+            .SetGuiPresentation(Category.Feat)
+            .SetFeatures(
+                FeatureDefinitionAttackModifierBuilder
+                    .Create($"Feature{NAME}")
+                    .SetDamageRollModifier(1)
+                    .SetCustomSubFeatures(
+                        ValidatorsCharacter.HasLongbowOrShortbow,
+                        new CanUseAttributeForWeapon(AttributeDefinitions.Strength, ValidatorsCharacter.IsLongbow),
+                        new AddExtraRangedAttack(ValidatorsCharacter.IsShortbow, ActionDefinitions.ActionType.Bonus,
+                            ValidatorsCharacter.HasAttacked))
+                    .AddToDB())
+            .AddToDB();
+    }
+
     private static FeatDefinition BuildDeadEye()
     {
-        const string FEAT_NAME = "FeatDeadeye";
+        const string NAME = "FeatDeadeye";
 
         var conditionDeadeye = ConditionDefinitionBuilder
             .Create("ConditionDeadeye")
-            .SetGuiPresentation(FEAT_NAME, Category.Feat)
+            .SetGuiPresentation(NAME, Category.Feat)
             .SetSilent(Silent.WhenAddedOrRemoved)
             .SetFeatures(
                 FeatureDefinitionBuilder
                     .Create("ModifyAttackModeForWeaponFeatDeadeye")
-                    .SetGuiPresentation(FEAT_NAME, Category.Feat)
+                    .SetGuiPresentation(NAME, Category.Feat)
                     .SetCustomSubFeatures(new ModifyAttackModeForWeaponFeatDeadeye())
                     .AddToDB())
             .AddToDB();
@@ -67,7 +87,7 @@ internal static class RangedCombatFeats
 
         var powerDeadeye = FeatureDefinitionPowerBuilder
             .Create("PowerDeadeye")
-            .SetGuiPresentation(FEAT_NAME, Category.Feat,
+            .SetGuiPresentation(NAME, Category.Feat,
                 Sprites.GetSprite("DeadeyeIcon", Resources.DeadeyeIcon, 128, 64))
             .SetUsesFixed(ActivationTime.NoCost)
             .SetEffectDescription(
@@ -114,7 +134,7 @@ internal static class RangedCombatFeats
         concentrationProvider.StopPower = powerTurnOffDeadeye;
 
         return FeatDefinitionBuilder
-            .Create(FEAT_NAME)
+            .Create(NAME)
             .SetGuiPresentation(Category.Feat,
                 Gui.Format("Feat/&FeatDeadeyeDescription", Main.Settings.DeadEyeAndPowerAttackBaseValue.ToString()))
             .SetFeatures(
@@ -122,7 +142,7 @@ internal static class RangedCombatFeats
                 powerTurnOffDeadeye,
                 FeatureDefinitionCombatAffinityBuilder
                     .Create("CombatAffinityDeadeyeIgnoreDefender")
-                    .SetGuiPresentation(FEAT_NAME, Category.Feat)
+                    .SetGuiPresentation(NAME, Category.Feat)
                     .SetIgnoreCover()
                     .SetCustomSubFeatures(new BumpWeaponAttackRangeToMax(ValidatorsWeapon.AlwaysValid))
                     .AddToDB())
@@ -131,31 +151,17 @@ internal static class RangedCombatFeats
 
     private static FeatDefinition BuildRangedExpert()
     {
+        const string NAME = "FeatRangedExpert";
+
         return FeatDefinitionBuilder
-            .Create("FeatRangedExpert")
+            .Create(NAME)
             .SetGuiPresentation(Category.Feat)
             .SetFeatures(FeatureDefinitionBuilder
-                .Create("FeatureFeatRangedExpert")
+                .Create($"Feature{NAME}")
                 .SetGuiPresentationNoContent(true)
                 .SetCustomSubFeatures(
                     new RangedAttackInMeleeDisadvantageRemover(),
-                    new AddExtraRangedAttack(IsOneHandedRanged, ActionDefinitions.ActionType.Bonus,
-                        ValidatorsCharacter.HasAttacked))
-                .AddToDB())
-            .AddToDB();
-    }
-
-    private static FeatDefinition BuildBowMastery()
-    {
-        return FeatDefinitionBuilder
-            .Create("FeatBowMastery")
-            .SetGuiPresentation(Category.Feat)
-            .SetFeatures(FeatureDefinitionBuilder
-                .Create("CustomFeatBowMastery")
-                .SetGuiPresentationNoContent(true)
-                .SetCustomSubFeatures(
-                    new CanUseAttributeForWeapon(AttributeDefinitions.Strength, IsLongbow),
-                    new AddExtraRangedAttack(IsShortbow, ActionDefinitions.ActionType.Bonus,
+                    new AddExtraRangedAttack(ValidatorsCharacter.IsOneHandedRanged, ActionDefinitions.ActionType.Bonus,
                         ValidatorsCharacter.HasAttacked))
                 .AddToDB())
             .AddToDB();
@@ -164,21 +170,6 @@ internal static class RangedCombatFeats
     //
     // HELPERS
     //
-
-    private static bool IsOneHandedRanged(RulesetAttackMode mode, RulesetItem weapon, RulesetCharacter _)
-    {
-        return ValidatorsWeapon.IsRanged(weapon) && ValidatorsWeapon.IsOneHanded(weapon);
-    }
-
-    private static bool IsShortbow(RulesetAttackMode mode, RulesetItem weapon, RulesetCharacter _)
-    {
-        return weapon?.ItemDefinition.WeaponDescription?.WeaponTypeDefinition == WeaponTypeDefinitions.ShortbowType;
-    }
-
-    private static bool IsLongbow(RulesetAttackMode mode, RulesetItem weapon, RulesetCharacter _)
-    {
-        return weapon?.ItemDefinition.WeaponDescription?.WeaponTypeDefinition == WeaponTypeDefinitions.LongbowType;
-    }
 
     private sealed class ModifyAttackModeForWeaponFeatDeadeye : IModifyAttackModeForWeapon
     {

@@ -108,6 +108,12 @@ internal static class ValidatorsCharacter
                DatabaseHelper.WeaponTypeDefinitions.HeavyCrossbowType;
     };
 
+    internal static readonly IsCharacterValidHandler HasLongbowOrShortbow = character =>
+        IsLongbow(
+            null, character.GetItemInSlot(EquipmentDefinitions.SlotTypeMainHand), null) ||
+        IsShortbow(
+            null, character.GetItemInSlot(EquipmentDefinitions.SlotTypeMainHand), null);
+
     internal static readonly IsCharacterValidHandler MainHandIsFinesseWeapon = character =>
         ValidatorsWeapon.HasAnyWeaponTag(character.GetItemInSlot(EquipmentDefinitions.SlotTypeMainHand),
             TagsDefinitions.WeaponTagFinesse);
@@ -124,6 +130,25 @@ internal static class ValidatorsCharacter
 
     internal static readonly IsCharacterValidHandler MainHandIsUnarmed = character =>
         ValidatorsWeapon.IsUnarmedWeapon(character.GetItemInSlot(EquipmentDefinitions.SlotTypeMainHand));
+
+#pragma warning disable IDE0060
+    internal static bool IsOneHandedRanged(RulesetAttackMode mode, RulesetItem weapon, RulesetCharacter character)
+    {
+        return ValidatorsWeapon.IsRanged(weapon) && ValidatorsWeapon.IsOneHanded(weapon);
+    }
+
+    internal static bool IsShortbow(RulesetAttackMode mode, RulesetItem weapon, RulesetCharacter character)
+    {
+        return weapon?.ItemDefinition.WeaponDescription?.WeaponTypeDefinition ==
+               DatabaseHelper.WeaponTypeDefinitions.ShortbowType;
+    }
+
+    internal static bool IsLongbow(RulesetAttackMode mode, RulesetItem weapon, RulesetCharacter character)
+    {
+        return weapon?.ItemDefinition.WeaponDescription?.WeaponTypeDefinition ==
+               DatabaseHelper.WeaponTypeDefinitions.LongbowType;
+    }
+#pragma warning restore IDE0060
 
 #if false
     internal static readonly CharacterValidator FullyUnarmed = character =>
