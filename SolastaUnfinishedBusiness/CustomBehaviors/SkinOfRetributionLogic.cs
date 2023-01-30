@@ -9,6 +9,7 @@ using SolastaUnfinishedBusiness.Properties;
 using static RuleDefinitions;
 
 namespace SolastaUnfinishedBusiness.CustomBehaviors;
+
 public class SkinOfRetributionLogic
 {
     private const string ConditionName = "ConditionSkinOfRetribution";
@@ -50,29 +51,29 @@ public class SkinOfRetributionLogic
                             .Create()
                             .SetDamageForm(DamageTypeCold, bonusDamage: TempHpPerLevel)
                             .Build())
-                .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel, incrementMultiplier: TempHpPerLevel)
-                .Build())
+                    .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel, TempHpPerLevel)
+                    .Build())
             .SetUniqueInstance()
             .AddToDB();
 
-        FeatureDefinition feature1 = FeatureDefinitionBuilder
-                .Create("FeatureSkinOfRetributionHp")
-                .SetGuiPresentationNoContent(true)
-                .SetCustomSubFeatures(SkinProvider.Mark)
-                .AddToDB();
+        var feature1 = FeatureDefinitionBuilder
+            .Create("FeatureSkinOfRetributionHp")
+            .SetGuiPresentationNoContent(true)
+            .SetCustomSubFeatures(SkinProvider.Mark)
+            .AddToDB();
 
         FeatureDefinition feature2 = FeatureDefinitionDamageAffinityBuilder
-                .Create("DamageSkinOfRetribution")
-                .SetGuiPresentationNoContent()
-                .SetDamageAffinityType(DamageAffinityType.None)
-                .SetRetaliate(powerSkinOfRetribution, 1, true)
-                .AddToDB();
+            .Create("DamageSkinOfRetribution")
+            .SetGuiPresentationNoContent()
+            .SetDamageAffinityType(DamageAffinityType.None)
+            .SetRetaliate(powerSkinOfRetribution, 1, true)
+            .AddToDB();
 
 
-        FeatureDefinition[] features = { feature1, feature2};
+        FeatureDefinition[] features = { feature1, feature2 };
 
         return features;
-    } 
+    }
 
     private static List<RulesetCondition> GetConditions(RulesetActor character)
     {
@@ -96,9 +97,9 @@ public class SkinOfRetributionLogic
     {
         var conditions = GetConditions(target as RulesetCharacter);
 
-        foreach(RulesetCondition condition in conditions) 
+        foreach (var condition in conditions)
         {
-            if(((RulesetCharacter)target).temporaryHitPoints == 0)
+            if (((RulesetCharacter)target).temporaryHitPoints == 0)
             {
                 target.RemoveCondition(condition);
             }
@@ -117,8 +118,8 @@ public class SkinOfRetributionLogic
         public void ApplyFeature(RulesetCharacter target, RulesetCondition rulesetCondition)
         {
             var condition = RulesetCondition.CreateActiveCondition(
-                target.Guid, Condition, RuleDefinitions.DurationType.Hour, 1,
-                RuleDefinitions.TurnOccurenceType.EndOfTurn, target.Guid, target.CurrentFaction.Name);
+                target.Guid, Condition, DurationType.Hour, 1,
+                TurnOccurenceType.EndOfTurn, target.Guid, target.CurrentFaction.Name);
 
             target.AddConditionOfCategory(AttributeDefinitions.TagEffect, condition);
         }
@@ -133,7 +134,4 @@ public class SkinOfRetributionLogic
             }
         }
     }
-
-
-
 }

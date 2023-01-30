@@ -2,7 +2,6 @@
 using System.Linq;
 using HarmonyLib;
 using JetBrains.Annotations;
-using static SolastaUnfinishedBusiness.Models.SaveByLocationContext;
 
 namespace SolastaUnfinishedBusiness.Patches;
 

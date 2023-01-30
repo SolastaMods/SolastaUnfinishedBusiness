@@ -1,12 +1,12 @@
 ﻿using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
+using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Properties;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.ConditionDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
 using static RuleDefinitions;
-using SolastaUnfinishedBusiness.CustomBehaviors;
 
 namespace SolastaUnfinishedBusiness.Spells;
 
@@ -343,8 +343,8 @@ internal static partial class SpellBuilders
 
     internal static SpellDefinition BuildSkinOfRetribution()
     {
-        var spriteReference = Sprites.GetSprite("MinorLifesteal", Resources.MinorLifesteal, 128);
-        int tempHpPerLevel = SkinOfRetributionLogic.TempHpPerLevel;
+        var spriteReference = Sprites.GetSprite("SkinOfRetribution", Resources.SkinOfRetribution, 128);
+        const int TEMP_HP_PER_LEVEL = SkinOfRetributionLogic.TempHpPerLevel;
 
         var condition = ConditionDefinitionBuilder
             .Create("ConditionSkinOfRetributionMark")
@@ -365,7 +365,7 @@ internal static partial class SpellBuilders
 
         var effectFormTemporaryHitPoints = EffectFormBuilder
             .Create()
-            .SetTempHpForm(tempHpPerLevel)
+            .SetTempHpForm(TEMP_HP_PER_LEVEL)
             .Build();
 
         return SpellDefinitionBuilder
@@ -383,7 +383,8 @@ internal static partial class SpellBuilders
                     effectFormRetribution,
                     effectFormTemporaryHitPoints
                 )
-                .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel, additionalTempHpPerIncrement: tempHpPerLevel)
+                .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel,
+                    additionalTempHpPerIncrement: TEMP_HP_PER_LEVEL)
                 .SetParticleEffectParameters(Blur)
                 .Build())
             .AddToDB();

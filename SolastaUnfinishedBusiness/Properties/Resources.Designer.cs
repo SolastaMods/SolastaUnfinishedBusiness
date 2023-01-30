@@ -1535,6 +1535,16 @@ namespace SolastaUnfinishedBusiness.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
+        public static byte[] SkinOfRetribution {
+            get {
+                object obj = ResourceManager.GetObject("SkinOfRetribution", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
         public static byte[] SpellFarStep {
             get {
                 object obj = ResourceManager.GetObject("SpellFarStep", resourceCulture);
