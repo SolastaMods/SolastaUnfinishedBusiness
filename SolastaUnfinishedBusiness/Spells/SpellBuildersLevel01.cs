@@ -6,6 +6,7 @@ using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.ConditionDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
 using static RuleDefinitions;
+using SolastaUnfinishedBusiness.CustomBehaviors;
 
 namespace SolastaUnfinishedBusiness.Spells;
 
@@ -338,6 +339,54 @@ internal static partial class SpellBuilders
             .AddToDB();
 
         return spell;
+    }
+
+    internal static SpellDefinition BuildSkinOfRetribution()
+    {
+        var spriteReference = Sprites.GetSprite("MinorLifesteal", Resources.MinorLifesteal, 128);
+        int tempHpPerLevel = SkinOfRetributionLogic.TempHpPerLevel;
+
+        var condition = ConditionDefinitionBuilder
+            .Create("ConditionSkinOfRetributionMark")
+            .SetGuiPresentation(SkinOfRetributionLogic.Condition.Name, Category.Condition)
+            .SetSilent(Silent.WhenAddedOrRemoved)
+            .CopyParticleReferences(ConditionBlurred)
+            .SetFeatures(FeatureDefinitionBuilder
+                .Create("FeatureSkinOfRetribution")
+                .SetGuiPresentation(SkinOfRetributionLogic.Condition.Name, Category.Condition)
+                .SetCustomSubFeatures(SkinOfRetributionLogic.SkinProvider.Mark)
+                .AddToDB())
+            .AddToDB();
+
+        var effectFormRetribution = EffectFormBuilder
+            .Create()
+            .SetConditionForm(condition, ConditionForm.ConditionOperation.Add, true, false)
+            .Build();
+
+        var effectFormTemporaryHitPoints = EffectFormBuilder
+            .Create()
+            .SetTempHpForm(tempHpPerLevel)
+            .Build();
+
+        return SpellDefinitionBuilder
+            .Create("SkinOfRetribution")
+            .SetGuiPresentation(Category.Spell, spriteReference)
+            .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolAbjuration)
+            .SetVerboseComponent(false)
+            .SetVocalSpellSameType(VocalSpellSemeType.Defense)
+            .SetSpellLevel(1)
+            .SetEffectDescription(EffectDescriptionBuilder
+                .Create()
+                .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
+                .SetDurationData(DurationType.Hour, 1)
+                .SetEffectForms(
+                    effectFormRetribution,
+                    effectFormTemporaryHitPoints
+                )
+                .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel, additionalTempHpPerIncrement: tempHpPerLevel)
+                .SetParticleEffectParameters(Blur)
+                .Build())
+            .AddToDB();
     }
 
     internal static SpellDefinition BuildThunderousSmite()
