@@ -167,9 +167,6 @@ internal sealed class PathOfTheSpirits : AbstractSubclass
                 DamageAffinityThunderResistance)
             .AddToDB();
 
-        // only reports condition on char panel
-        Global.CharacterLabelEnabledConditions.Add(conditionPathOfTheSpiritsBearResistance);
-
         return FeatureDefinitionPowerBuilder
             .Create("PowerPathOfTheSpiritsBearResistance")
             .SetGuiPresentation(Category.Feature)

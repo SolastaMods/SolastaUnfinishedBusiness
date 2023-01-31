@@ -75,9 +75,6 @@ internal static class CustomConditionsContext
                 .AddToDB())
             .AddToDB();
 
-        // only reports condition on char panel
-        Global.CharacterLabelEnabledConditions.Add(conditionInvisibilityEveryRound);
-
         return conditionInvisibilityEveryRound;
     }
 
@@ -108,9 +105,6 @@ internal static class CustomConditionsContext
             .SetConditionType(ConditionType.Detrimental)
             .SetFeatures(abilityCheckAffinityLightSensitivity, combatAffinityDarkelfLightSensitivity)
             .AddToDB();
-
-        // this allows the condition to still display as a label on character panel
-        Global.CharacterLabelEnabledConditions.Add(conditionLightSensitive);
 
         return conditionLightSensitive;
     }
