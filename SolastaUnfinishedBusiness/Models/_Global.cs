@@ -58,9 +58,6 @@ internal static class Global
     // last attack was a critical hit
     internal static bool CriticalHit { get; set; }
 
-    // conditions that should display on char panel even if set to silent
-    internal static HashSet<ConditionDefinition> CharacterLabelEnabledConditions { get; } = new();
-
     // special case for our powers that add a turn off stop provider
     internal static HashSet<FeatureDefinitionPower> PowersThatIgnoreInterruptions { get; } = new();
 

@@ -210,5 +210,45 @@ internal static partial class SpellBuilders
         }
     }
 
+    private sealed class ModifyMagicEffectSkinOfRetribution : IModifyMagicEffect
+    {
+        private static void MaybeRemoveSkinOfRetribution(RulesetCharacter target)
+        {
+            if (target.temporaryHitPoints > 0)
+            {
+                return;
+            }
+
+            foreach (var condition in target.AllConditions
+                         .FindAll(x => x.EffectDefinitionName == "SkinOfRetribution"))
+            {
+                target.RemoveCondition(condition);
+            }
+        }
+        
+        public EffectDescription ModifyEffect(
+            BaseDefinition definition,
+            EffectDescription effect,
+            RulesetCharacter character)
+        {
+            var rulesetCondition =
+                character.AllConditions.FirstOrDefault(x => x.EffectDefinitionName == "SkinOfRetribution");
+
+            if (rulesetCondition == null || !effect.HasDamageForm())
+            {
+                return effect;
+            }
+
+            MaybeRemoveSkinOfRetribution(character);
+            
+            var effectLevel = rulesetCondition.EffectLevel;
+            var damageForm = effect.FindFirstDamageForm();
+
+            damageForm.bonusDamage *= effectLevel;
+
+            return effect;
+        }
+    }
+
     #endregion
 }

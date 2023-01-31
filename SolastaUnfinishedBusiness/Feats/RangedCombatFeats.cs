@@ -9,7 +9,7 @@ using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Properties;
 using static RuleDefinitions;
-using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatDefinitions;
 
 namespace SolastaUnfinishedBusiness.Feats;
 
@@ -24,8 +24,9 @@ internal static class RangedCombatFeats
         feats.AddRange(featDeadEye, featRangedExpert, featBowMastery);
 
         GroupFeats.MakeGroup("FeatGroupRangedCombat", null,
-            FeatDefinitions.TakeAim,
-            FeatDefinitions.UncannyAccuracy,
+            TakeAim,
+            DiscretionOfTheCoedymwarth,
+            UncannyAccuracy,
             featBowMastery,
             featDeadEye,
             featRangedExpert,

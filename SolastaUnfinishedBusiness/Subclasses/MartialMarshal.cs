@@ -301,9 +301,6 @@ internal sealed class MartialMarshal : AbstractSubclass
 
     private static FeatureDefinitionPower BuildEncourage()
     {
-        // this allows the condition to still display as a label on character panel
-        Global.CharacterLabelEnabledConditions.Add(ConditionEncourage);
-
         return FeatureDefinitionPowerBuilder
             .Create("PowerMarshalEncouragement")
             .SetGuiPresentation(Category.Feature, Bless)
@@ -327,9 +324,6 @@ internal sealed class MartialMarshal : AbstractSubclass
 
     private static FeatureDefinitionPower BuildImprovedEncourage()
     {
-        // this allows the condition to still display as a label on character panel
-        Global.CharacterLabelEnabledConditions.Add(ConditionEncourage);
-
         return FeatureDefinitionPowerBuilder
             .Create("PowerMarshalImprovedEncouragement")
             .SetOverriddenPower(PowerMarshalEncouragement)

@@ -474,6 +474,7 @@ A powerful wight, trained to withstand the light of day.
 [*][b]RedOrca[/b]: Path of The Light
 [*][b]DreadMaker[/b]: Forest Guardian
 [*][b]Bazou[/b]: fighting styles, rules, spells
+[*][b]Pikachar2[/b]: spells
 [*][b]Prioritizer[/b]: Russian translations
 [*][b]xxy961216[/b]: Chinese translations
 [*][b]GoogleTranslator[/b]: French, German, Italian, Portuguese and Spanish translations

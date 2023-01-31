@@ -510,7 +510,7 @@ internal static class OtherFeats
             var spellSniperSpells = castSpell.SpellListDefinition.SpellsByLevel
                 .SelectMany(x => x.Spells)
                 .Where(x => x.EffectDescription.RangeType is RangeType.RangeHit &&
-                            x.EffectDescription.GetFirstFormOfType(EffectForm.EffectFormType.Damage) != null)
+                            x.EffectDescription.HasDamageForm())
                 .ToArray();
 
             if (spellSniperSpells.Length == 0)
@@ -790,8 +790,7 @@ internal static class OtherFeats
                 return effect;
             }
 
-            if (effect.rangeType != RangeType.RangeHit ||
-                effect.GetFirstFormOfType(EffectForm.EffectFormType.Damage) == null)
+            if (effect.rangeType != RangeType.RangeHit || !effect.HasDamageForm())
             {
                 return effect;
             }

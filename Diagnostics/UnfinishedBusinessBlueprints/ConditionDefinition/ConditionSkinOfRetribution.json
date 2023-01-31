@@ -4,11 +4,11 @@
   "parentCondition": null,
   "conditionType": "Beneficial",
   "features": [
-    "Definition:FeatureSkinOfRetribution:76fb804a-ab2e-5284-8d85-0f117a1d1517"
+    "Definition:DamageAffinitySkinOfRetribution:46db0433-e7ae-5219-84df-d4e09bb52b19"
   ],
   "allowMultipleInstances": false,
   "silentWhenAdded": true,
-  "silentWhenRemoved": true,
+  "silentWhenRemoved": false,
   "terminateWhenRemoved": false,
   "specialDuration": false,
   "durationType": "Hour",
@@ -39,28 +39,23 @@
   "additionalConditionTurnOccurenceType": "StartOfTurn",
   "conditionStartParticleReference": {
     "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-    "m_AssetGUID": "11b228b9c6a815040b07ef9663f8f606",
-    "m_SubObjectName": "",
-    "m_SubObjectType": ""
+    "m_AssetGUID": "",
+    "m_SubObjectName": null,
+    "m_SubObjectType": null
   },
   "conditionParticleReference": {
     "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-    "m_AssetGUID": "d1e3db790c6bd8940838c668d0f0e794",
-    "m_SubObjectName": "",
-    "m_SubObjectType": ""
+    "m_AssetGUID": "",
+    "m_SubObjectName": null,
+    "m_SubObjectType": null
   },
   "conditionEndParticleReference": {
     "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-    "m_AssetGUID": "37ef9234bbeb3e945b68b9b5af4cb5c1",
-    "m_SubObjectName": "",
-    "m_SubObjectType": ""
-  },
-  "recurrentEffectParticleReference": {
-    "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
     "m_AssetGUID": "",
-    "m_SubObjectName": "",
-    "m_SubObjectType": ""
+    "m_SubObjectName": null,
+    "m_SubObjectType": null
   },
+  "recurrentEffectParticleReference": null,
   "characterShaderReference": {
     "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
     "m_AssetGUID": "",
@@ -91,7 +86,7 @@
   },
   "timeToWaitBeforeApplyingShader": 0.5,
   "timeToWaitBeforeRemovingShader": 0.5,
-  "possessive": false,
+  "possessive": true,
   "amountOrigin": "None",
   "baseAmount": 0,
   "additiveAmount": false,
@@ -133,11 +128,11 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Spell/&SkinOfRetributionTitle",
-    "description": "Spell/&SkinOfRetributionDescription",
+    "title": "Spell/&ConditionSkinOfRetributionTitle",
+    "description": "Spell/&ConditionSkinOfRetributionDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "",
+      "m_AssetGUID": "2190a678-d008-5cd6-90e0-a269c474877f",
       "m_SubObjectName": null,
       "m_SubObjectType": null
     },
@@ -154,7 +149,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "59e7059d-f094-56e0-90f6-ce2760645653",
+  "guid": "756ee728-5506-5f03-b552-b94004839697",
   "contentPack": 9999,
-  "name": "ConditionSkinOfRetributionMark"
+  "name": "ConditionSkinOfRetribution"
 }
