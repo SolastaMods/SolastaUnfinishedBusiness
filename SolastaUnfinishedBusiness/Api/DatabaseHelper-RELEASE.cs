@@ -1238,7 +1238,6 @@ internal static partial class DatabaseHelper
         internal static SpellDefinition EnhanceAbility { get; } = GetDefinition<SpellDefinition>("EnhanceAbility");
         internal static SpellDefinition Entangle { get; } = GetDefinition<SpellDefinition>("Entangle");
         internal static SpellDefinition ExpeditiousRetreat { get; } = GetDefinition<SpellDefinition>("ExpeditiousRetreat");
-        internal static SpellDefinition Eyebite { get; } = GetDefinition<SpellDefinition>("Eyebite");
         internal static SpellDefinition EyebiteAsleep { get; } = GetDefinition<SpellDefinition>("EyebiteAsleep");
         internal static SpellDefinition EyebitePanicked { get; } = GetDefinition<SpellDefinition>("EyebitePanicked");
         internal static SpellDefinition EyebiteSickened { get; } = GetDefinition<SpellDefinition>("EyebiteSickened");
@@ -1283,7 +1282,6 @@ internal static partial class DatabaseHelper
         internal static SpellDefinition InsectPlague { get; } = GetDefinition<SpellDefinition>("InsectPlague");
         internal static SpellDefinition Invisibility { get; } = GetDefinition<SpellDefinition>("Invisibility");
         internal static SpellDefinition Jump { get; } = GetDefinition<SpellDefinition>("Jump");
-        internal static SpellDefinition Knock { get; } = GetDefinition<SpellDefinition>("Knock");
         internal static SpellDefinition LesserRestoration { get; } = GetDefinition<SpellDefinition>("LesserRestoration");
         internal static SpellDefinition Levitate { get; } = GetDefinition<SpellDefinition>("Levitate");
         internal static SpellDefinition Light { get; } = GetDefinition<SpellDefinition>("Light");
@@ -1310,7 +1308,6 @@ internal static partial class DatabaseHelper
         internal static SpellDefinition ProtectionFromEnergyThunder { get; } = GetDefinition<SpellDefinition>("ProtectionFromEnergyThunder");
         internal static SpellDefinition ProtectionFromEvilGood { get; } = GetDefinition<SpellDefinition>("ProtectionFromEvilGood");
         internal static SpellDefinition ProtectionFromPoison { get; } = GetDefinition<SpellDefinition>("ProtectionFromPoison");
-        internal static SpellDefinition RaiseDead { get; } = GetDefinition<SpellDefinition>("RaiseDead");
         internal static SpellDefinition RayOfFrost { get; } = GetDefinition<SpellDefinition>("RayOfFrost");
         internal static SpellDefinition RemoveCurse { get; } = GetDefinition<SpellDefinition>("RemoveCurse");
         internal static SpellDefinition Resistance { get; } = GetDefinition<SpellDefinition>("Resistance");

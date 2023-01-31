@@ -218,8 +218,7 @@ public static class GameLocationBattleManagerPatcher
             }
 
             var extraEvents =
-                AttacksOfOpportunity.ProcessOnCharacterAttackFinished(__instance, attacker, defender,
-                    attackerAttackMode);
+                AttacksOfOpportunity.ProcessOnCharacterAttackFinished(__instance, attacker, defender);
 
             while (extraEvents.MoveNext())
             {

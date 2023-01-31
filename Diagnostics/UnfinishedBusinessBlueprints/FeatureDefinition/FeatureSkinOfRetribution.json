@@ -2,9 +2,9 @@
   "$type": "FeatureDefinition, Assembly-CSharp",
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
-    "hidden": true,
-    "title": "Feature/&NoContentTitle",
-    "description": "Feature/&NoContentTitle",
+    "hidden": false,
+    "title": "Spell/&SkinOfRetributionTitle",
+    "description": "Spell/&SkinOfRetributionDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -24,7 +24,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "212038a4-5bbf-5f46-8cc9-f64d8c5a9470",
+  "guid": "76fb804a-ab2e-5284-8d85-0f117a1d1517",
   "contentPack": 9999,
-  "name": "CustomFeatBowMastery"
+  "name": "FeatureSkinOfRetribution"
 }

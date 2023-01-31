@@ -664,13 +664,16 @@ public static class RulesetCharacterPatcher
             bool testMode)
         {
             //PATCH: support for Mirror Image - checks if we have Mirror Images, and makes attack miss target and removes 1 image if it was hit
-            MirrorImageLogic.AttackRollPostfix(__instance, attackMode, target, toHitTrends,
+            MirrorImageLogic.AttackRollPostfix(attackMode, target, toHitTrends,
                 ref outcome,
                 ref successDelta,
                 testMode);
 
             //PATCH: support for Elven Precision - reset flag after physical attack is finished
             ElvenPrecisionLogic.Active = false;
+
+            //PATCH: support for Skin of Retribution - checks if we have Skin of Retribution and TempHP and if NOT, removes the buff
+            SkinOfRetributionLogic.AttackRollPostfix(target);
         }
     }
 
@@ -704,11 +707,13 @@ public static class RulesetCharacterPatcher
             bool testMode)
         {
             //PATCH: support for Mirror Image - checks if we have Mirror Images, and makes attack miss target and removes 1 image if it was hit
-            MirrorImageLogic.AttackRollPostfix(__instance, null, target, toHitTrends, ref outcome, ref successDelta,
-                testMode);
+            MirrorImageLogic.AttackRollPostfix(null, target, toHitTrends, ref outcome, ref successDelta, testMode);
 
             //PATCH: support for Elven Precision - reset flag after magic attack is finished
             ElvenPrecisionLogic.Active = false;
+
+            //PATCH: support for Skin of Retribution - checks if we have Skin of Retribution and TempHP and if NOT, removes the buff
+            SkinOfRetributionLogic.AttackRollPostfix(target);
         }
     }
 
@@ -1376,7 +1381,7 @@ public static class RulesetCharacterPatcher
         [UsedImplicitly]
         public static bool Prefix(
             RulesetCharacter __instance,
-            ref bool __result,
+            out bool __result,
             List<EffectForm> effectForms,
             int totalAttack)
         {

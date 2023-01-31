@@ -106,6 +106,7 @@ internal class ReflectionSearch : MonoBehaviour
         }
 
         SequenceNumber++;
+        // ReSharper disable once InvocationIsSkipped
         Main.Log($"seq: {SequenceNumber} - search for: {searchText}");
 
         if (searchText.Length == 0)
@@ -176,12 +177,15 @@ internal class ReflectionSearch : MonoBehaviour
                     foundMatch = true;
                     updater(visitCount, depth, breadth);
                     resultRoot.AddSearchResult(node);
+                    // ReSharper disable once InvocationIsSkipped
                     Main.Log($"{depth} matched: {node.GetPath()} - {node.ValueText}");
+                    // ReSharper disable once InvocationIsSkipped
                     Main.Log($"{resultRoot}");
                 }
             }
             catch (Exception e)
             {
+                // ReSharper disable once InvocationIsSkipped
                 Main.Log($"{depth} caught - {e}");
             }
 
@@ -212,6 +216,7 @@ internal class ReflectionSearch : MonoBehaviour
                 }
                 catch (Exception e)
                 {
+                    // ReSharper disable once InvocationIsSkipped
                     Main.Log($"{depth} caught - {e}");
                 }
 
@@ -221,6 +226,7 @@ internal class ReflectionSearch : MonoBehaviour
                 }
                 catch (Exception e)
                 {
+                    // ReSharper disable once InvocationIsSkipped
                     Main.Log($"{depth} caught - {e}");
                 }
 
@@ -230,6 +236,7 @@ internal class ReflectionSearch : MonoBehaviour
                 }
                 catch (Exception e)
                 {
+                    // ReSharper disable once InvocationIsSkipped
                     Main.Log($"{depth} caught - {e}");
                 }
 
@@ -239,6 +246,7 @@ internal class ReflectionSearch : MonoBehaviour
                 }
                 catch (Exception e)
                 {
+                    // ReSharper disable once InvocationIsSkipped
                     Main.Log($"{depth} caught - {e}");
                 }
             }
