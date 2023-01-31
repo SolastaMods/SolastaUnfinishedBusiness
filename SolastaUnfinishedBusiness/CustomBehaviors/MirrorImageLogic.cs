@@ -147,7 +147,6 @@ public class MirrorImageLogic
     }
 
     internal static void AttackRollPostfix(
-        RulesetCharacter attacker,
         RulesetAttackMode attackMode,
         RulesetActor target,
         IEnumerable<RuleDefinitions.TrendInfo> toHitTrends,

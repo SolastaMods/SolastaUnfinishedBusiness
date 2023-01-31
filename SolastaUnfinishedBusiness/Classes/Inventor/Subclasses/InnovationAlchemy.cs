@@ -134,6 +134,7 @@ public static class InnovationAlchemy
 
     private static void BuildFireBombs(UsableDeviceDescriptionBuilder deviceDescription)
     {
+        // ReSharper disable once InlineTemporaryVariable
         const string DAMAGE = DamageTypeFire;
         const string SAVE = AttributeDefinitions.Dexterity;
         const DieType DIE_TYPE = DieType.D8;
@@ -157,6 +158,7 @@ public static class InnovationAlchemy
 
     private static FeatureDefinitionPower BuildColdBombs(UsableDeviceDescriptionBuilder deviceDescription)
     {
+        // ReSharper disable once InlineTemporaryVariable
         const string DAMAGE = DamageTypeCold;
         const string SAVE = AttributeDefinitions.Constitution;
         const DieType DIE_TYPE = DieType.D6;
@@ -185,6 +187,7 @@ public static class InnovationAlchemy
 
     private static FeatureDefinitionPower BuildLightningBombs(UsableDeviceDescriptionBuilder deviceDescription)
     {
+        // ReSharper disable once InlineTemporaryVariable
         const string DAMAGE = DamageTypeLightning;
         const string SAVE = AttributeDefinitions.Dexterity;
         const DieType DIE_TYPE = DieType.D6;
@@ -219,6 +222,7 @@ public static class InnovationAlchemy
 
     private static FeatureDefinitionPower BuildPoisonBombs(UsableDeviceDescriptionBuilder deviceDescription)
     {
+        // ReSharper disable once InlineTemporaryVariable
         const string DAMAGE = DamageTypePoison;
         const string SAVE = AttributeDefinitions.Constitution;
         const DieType DIE_TYPE = DieType.D6;
@@ -261,6 +265,7 @@ public static class InnovationAlchemy
 
     private static FeatureDefinitionPower BuildAcidBombs(UsableDeviceDescriptionBuilder deviceDescription)
     {
+        // ReSharper disable once InlineTemporaryVariable
         const string DAMAGE = DamageTypeAcid;
         const string SAVE = AttributeDefinitions.Constitution;
         const DieType DIE_TYPE = DieType.D6;
@@ -291,6 +296,7 @@ public static class InnovationAlchemy
 
     private static FeatureDefinitionPower BuildForceBombs(UsableDeviceDescriptionBuilder deviceDescription)
     {
+        // ReSharper disable once InlineTemporaryVariable
         const string DAMAGE = DamageTypeForce;
         const string SAVE = AttributeDefinitions.Strength;
         const DieType DIE_TYPE = DieType.D6;
@@ -323,6 +329,7 @@ public static class InnovationAlchemy
     private static FeatureDefinitionPower BuildRadiantBombs(UsableDeviceDescriptionBuilder deviceDescription)
     {
         var branded = ConditionDefinitions.ConditionBranded.GuiPresentation;
+        // ReSharper disable once InlineTemporaryVariable
         const string DAMAGE = DamageTypeRadiant;
         const string SAVE = AttributeDefinitions.Charisma;
         const DieType DIE_TYPE = DieType.D6;
@@ -362,6 +369,7 @@ public static class InnovationAlchemy
 
     private static FeatureDefinitionPower BuildNecroBombs(UsableDeviceDescriptionBuilder deviceDescription)
     {
+        // ReSharper disable once InlineTemporaryVariable
         const string DAMAGE = DamageTypeNecrotic;
         const string SAVE = AttributeDefinitions.Constitution;
         const DieType DIE_TYPE = DieType.D6;
@@ -402,6 +410,7 @@ public static class InnovationAlchemy
 
     private static FeatureDefinitionPower BuildThunderBombs(UsableDeviceDescriptionBuilder deviceDescription)
     {
+        // ReSharper disable once InlineTemporaryVariable
         const string DAMAGE = DamageTypeThunder;
         const string SAVE = AttributeDefinitions.Constitution;
         const DieType DIE_TYPE = DieType.D6;
@@ -447,6 +456,7 @@ public static class InnovationAlchemy
 
     private static FeatureDefinitionPower BuildPsychicBombs(UsableDeviceDescriptionBuilder deviceDescription)
     {
+        // ReSharper disable once InlineTemporaryVariable
         const string DAMAGE = DamageTypePsychic;
         const string SAVE = AttributeDefinitions.Wisdom;
         const DieType DIE_TYPE = DieType.D6;

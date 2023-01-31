@@ -41,7 +41,8 @@ internal static class RangedCombatFeats
             .SetGuiPresentation(Category.Feat)
             .SetFeatures(
                 FeatureDefinitionAttackModifierBuilder
-                    .Create($"Feature{NAME}")
+                    .Create($"Custom{NAME}")
+                    .SetGuiPresentation(NAME, Category.Feat)
                     .SetDamageRollModifier(1)
                     .SetCustomSubFeatures(
                         ValidatorsCharacter.HasLongbowOrShortbow,

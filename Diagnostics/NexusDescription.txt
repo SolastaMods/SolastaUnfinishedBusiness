@@ -369,6 +369,7 @@ At 5th level, the melee attack deals an extra 1d8 radiant damage to the target. 
 [*][b]Radiant Motes[/b]: Unleashes a swarm of 4 radiant projectiles that deal 1d4 radiant damage each.
 When you cast this spell using a spell slot of 2nd level or higher, the spell creates 1 more projectile for each slot above 1st.
 [*][b]Searing Smite[/b]: Your next hit causes additional fire damage and your target ignites in flames.
+[*][b]Skin of Retribution[/b]: A protective magical force surrounds you, manifesting as a spectral frost that covers you and your gear. You gain 5 temporary hit points for the duration. If a creature hits you with a melee attack while you have these hit points, the creature takes 5 cold damage.
 [*][b]Thunderous Smite[/b]: Your next hit causes additional thunder damage that is audible within 300 feet of you.
 [*][b]Wrathful Smite[/b]: Your next hit causes additional psychic damage and your target mind explodes in pain.
 [*][b]Mirror Image[/b]: Three illusory duplicates of yourself appear in your space. Until the spell ends, each time a creature targets you with an attack, roll a d20 to determine whether the attack instead targets one of your duplicates.

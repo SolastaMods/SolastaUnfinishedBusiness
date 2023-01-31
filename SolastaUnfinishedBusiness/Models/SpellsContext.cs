@@ -209,6 +209,7 @@ internal static class SpellsContext
         RegisterSpell(BuildMule(), 0, SpellListWizard);
         RegisterSpell(BuildRadiantMotes(), 0, SpellListWizard, spellListInventorClass);
         RegisterSpell(SearingSmite, 0, SpellListPaladin, SpellListRanger);
+        RegisterSpell(BuildSkinOfRetribution(), 0, SpellListWarlock);
         RegisterSpell(BuildThunderousSmite(), 0, SpellListPaladin);
         RegisterSpell(BuildWrathfulSmite(), 0, SpellListPaladin);
 
