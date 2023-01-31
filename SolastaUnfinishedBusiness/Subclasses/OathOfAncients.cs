@@ -1,6 +1,5 @@
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
-using SolastaUnfinishedBusiness.Models;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterSubclassDefinitions;
@@ -127,7 +126,7 @@ internal sealed class OathOfAncients : AbstractSubclass
             .Create(PowerPaladinAuraOfProtection, $"Power{NAME}AuraWarding")
             .SetGuiPresentation(Category.Feature)
             .AddToDB();
-        
+
         // keep it simple and ensure it'll follow any changes from Aura of Protection
         powerAuraWarding.EffectDescription.EffectForms[0] = EffectFormBuilder
             .Create()
