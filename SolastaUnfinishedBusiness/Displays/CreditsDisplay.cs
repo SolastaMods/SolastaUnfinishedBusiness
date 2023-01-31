@@ -32,6 +32,7 @@ internal static class CreditsDisplay
         ("RedOrca", "Path of The Light"),
         ("DreadMaker", "Forest Guardian"),
         ("Bazou", "fighting styles, rules, spells"),
+        ("Pikachar2", "spells"),
         ("Prioritizer", "Russian translations"),
         ("xxy961216", "Chinese translations"),
         ("GoogleTranslator", "French, German, Italian, Portuguese and Spanish translations"),
