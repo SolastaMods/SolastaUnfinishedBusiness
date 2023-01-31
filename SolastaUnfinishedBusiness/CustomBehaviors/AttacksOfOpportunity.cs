@@ -23,8 +23,7 @@ internal static class AttacksOfOpportunity
     internal static IEnumerator ProcessOnCharacterAttackFinished(
         GameLocationBattleManager battleManager,
         GameLocationCharacter attacker,
-        GameLocationCharacter defender,
-        RulesetAttackMode attackerAttackMode)
+        GameLocationCharacter defender)
     {
         if (battleManager == null)
         {

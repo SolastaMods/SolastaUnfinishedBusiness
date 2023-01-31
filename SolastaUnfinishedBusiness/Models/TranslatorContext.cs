@@ -298,6 +298,7 @@ internal static class TranslatorContext
 
             if (termData?.Languages[languageIndex] != null)
             {
+                // ReSharper disable once InvocationIsSkipped
                 Main.Log($"term {term} overwritten with text {text}");
                 termData.Languages[languageIndex] = text;
             }

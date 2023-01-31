@@ -89,7 +89,6 @@ public class SkinOfRetributionLogic
     }
 
     internal static void AttackRollPostfix(
-        RulesetCharacter attacker,
         RulesetActor target)
     {
         var conditions = GetConditions(target as RulesetCharacter);

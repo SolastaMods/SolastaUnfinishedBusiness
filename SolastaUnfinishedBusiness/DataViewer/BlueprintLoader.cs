@@ -75,6 +75,7 @@ internal sealed class BlueprintLoader : MonoBehaviour
         }
 
         // clean up
+        // ReSharper disable once InvocationIsSkipped
         Main.Log($"loaded {blueprints.Count} blueprints");
         callback(blueprints);
 
