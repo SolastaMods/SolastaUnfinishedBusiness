@@ -672,9 +672,6 @@ public static class RulesetCharacterPatcher
 
             //PATCH: support for Elven Precision - reset flag after physical attack is finished
             ElvenPrecisionLogic.Active = false;
-
-            //PATCH: support for Skin of Retribution - checks if we have Skin of Retribution and TempHP and if NOT, removes the buff
-            SpellBuilders.SkinOfRetributionMarker.AttackRollPostfix(target);
         }
     }
 
@@ -712,9 +709,6 @@ public static class RulesetCharacterPatcher
 
             //PATCH: support for Elven Precision - reset flag after magic attack is finished
             ElvenPrecisionLogic.Active = false;
-
-            //PATCH: support for Skin of Retribution - checks if we have Skin of Retribution and TempHP and if NOT, removes the buff
-            SpellBuilders.SkinOfRetributionMarker.AttackRollPostfix(target);
         }
     }
 

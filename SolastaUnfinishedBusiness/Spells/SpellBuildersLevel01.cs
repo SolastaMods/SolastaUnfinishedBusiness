@@ -374,7 +374,6 @@ internal static partial class SpellBuilders
         var conditionSkinOfRetribution = ConditionDefinitionBuilder
             .Create($"Condition{NAME}")
             .SetGuiPresentation(Category.Spell, spriteReferenceCondition)
-            .SetCustomSubFeatures(SkinOfRetributionMarker.Instance)
             .SetSilent(Silent.WhenAdded)
             .SetPossessive()
             .SetFeatures(damageSkinOfRetribution)
