@@ -49,9 +49,9 @@ public class SkinOfRetributionLogic
                     .SetEffectForms(
                         EffectFormBuilder
                             .Create()
-                            .SetDamageForm(DamageTypeCold, bonusDamage: TempHpPerLevel)
+                            .SetDamageForm(DamageTypeCold, TempHpPerLevel)
                             .Build())
-                    .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel, TempHpPerLevel)
+                    .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel, additionalDicePerIncrement:TempHpPerLevel)
                     .Build())
             .SetUniqueInstance()
             .AddToDB();
