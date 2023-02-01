@@ -88,8 +88,8 @@
         "saveOccurence": "EndOfTurn",
         "conditionForm": {
           "$type": "ConditionForm, Assembly-CSharp",
-          "conditionDefinitionName": "ConditionSkinOfRetributionMark",
-          "conditionDefinition": "Definition:ConditionSkinOfRetributionMark:59e7059d-f094-56e0-90f6-ce2760645653",
+          "conditionDefinitionName": "ConditionSkinOfRetribution",
+          "conditionDefinition": "Definition:ConditionSkinOfRetribution:756ee728-5506-5f03-b552-b94004839697",
           "operation": "Add",
           "conditionsList": [],
           "applyToSelf": true,

@@ -1,6 +1,5 @@
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
-using SolastaUnfinishedBusiness.Models;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterSubclassDefinitions;
@@ -113,6 +112,7 @@ internal sealed class OathOfAncients : AbstractSubclass
         var conditionAuraWarding = ConditionDefinitionBuilder
             .Create($"Condition{NAME}AuraWarding")
             .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionAuraOfProtection)
+            .SetSpecialDuration(DurationType.Permanent, 0, TurnOccurenceType.StartOfTurn)
             .SetSilent(Silent.WhenAddedOrRemoved)
             .AddFeatures(DamageAffinityAcidResistance)
             .AddFeatures(DamageAffinityColdResistance)
@@ -122,31 +122,16 @@ internal sealed class OathOfAncients : AbstractSubclass
             .AddFeatures(DamageAffinityPoisonResistance)
             .AddToDB();
 
-        // only reports condition on char panel
-        Global.CharacterLabelEnabledConditions.Add(conditionAuraWarding);
-
         var powerAuraWarding = FeatureDefinitionPowerBuilder
-            .Create($"Power{NAME}AuraWarding")
+            .Create(PowerPaladinAuraOfProtection, $"Power{NAME}AuraWarding")
             .SetGuiPresentation(Category.Feature)
-            .SetUsesFixed(ActivationTime.PermanentUnlessIncapacitated)
-            .SetEffectDescription(
-                EffectDescriptionBuilder
-                    .Create()
-                    .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Sphere, 3)
-                    .SetDurationData(DurationType.Permanent, 0, TurnOccurenceType.StartOfTurn)
-                    .SetRecurrentEffect(
-                        RecurrentEffect.OnActivation | RecurrentEffect.OnEnter | RecurrentEffect.OnTurnStart)
-                    .SetEffectForms(
-                        EffectFormBuilder
-                            .Create()
-                            .SetConditionForm(
-                                conditionAuraWarding,
-                                ConditionForm.ConditionOperation.Add,
-                                true,
-                                true)
-                            .Build())
-                    .Build())
             .AddToDB();
+
+        // keep it simple and ensure it'll follow any changes from Aura of Protection
+        powerAuraWarding.EffectDescription.EffectForms[0] = EffectFormBuilder
+            .Create()
+            .SetConditionForm(conditionAuraWarding, ConditionForm.ConditionOperation.Add)
+            .Build();
 
         Subclass = CharacterSubclassDefinitionBuilder
             .Create(NAME)

@@ -3,7 +3,6 @@ using SolastaUnfinishedBusiness.Api.Extensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomInterfaces;
-using SolastaUnfinishedBusiness.Models;
 using static FeatureDefinitionAttributeModifier;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
@@ -166,9 +165,6 @@ internal sealed class PathOfTheSpirits : AbstractSubclass
                 DamageAffinitySlashingResistance,
                 DamageAffinityThunderResistance)
             .AddToDB();
-
-        // only reports condition on char panel
-        Global.CharacterLabelEnabledConditions.Add(conditionPathOfTheSpiritsBearResistance);
 
         return FeatureDefinitionPowerBuilder
             .Create("PowerPathOfTheSpiritsBearResistance")

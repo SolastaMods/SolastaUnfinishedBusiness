@@ -580,6 +580,7 @@ public static class RulesetCharacterPatcher
     [UsedImplicitly]
     public static class RollAttack_Patch
     {
+#if false
         private static int FixCriticalDeterminationAndMirrorImageLogic(
             RulesetAttribute attribute,
             RulesetCharacter rulesetCharacter,
@@ -631,6 +632,23 @@ public static class RulesetCharacterPatcher
                 new CodeInstruction(OpCodes.Ldarg, 4), // toHitTrends
                 new CodeInstruction(OpCodes.Call, method));
         }
+#endif
+        [NotNull]
+        [UsedImplicitly]
+        public static IEnumerable<CodeInstruction> Transpiler([NotNull] IEnumerable<CodeInstruction> instructions)
+        {
+            //PATCH: support for Mirror Image - replaces target's AC with 10 + DEX bonus if we targeting mirror image
+            var currentValueMethod = typeof(RulesetAttribute).GetMethod("get_CurrentValue");
+            var method =
+                new Func<RulesetAttribute, RulesetActor, List<RuleDefinitions.TrendInfo>, int>(MirrorImageLogic.GetAC)
+                    .Method;
+
+            return instructions.ReplaceCall(currentValueMethod,
+                1, "RulesetCharacter.RollAttack",
+                new CodeInstruction(OpCodes.Ldarg_2),
+                new CodeInstruction(OpCodes.Ldarg, 4),
+                new CodeInstruction(OpCodes.Call, method));
+        }
     }
 
     [HarmonyPatch(typeof(RulesetCharacter), nameof(RulesetCharacter.RollAttackMode))]
@@ -671,9 +689,6 @@ public static class RulesetCharacterPatcher
 
             //PATCH: support for Elven Precision - reset flag after physical attack is finished
             ElvenPrecisionLogic.Active = false;
-
-            //PATCH: support for Skin of Retribution - checks if we have Skin of Retribution and TempHP and if NOT, removes the buff
-            SkinOfRetributionLogic.AttackRollPostfix(target);
         }
     }
 
@@ -711,9 +726,6 @@ public static class RulesetCharacterPatcher
 
             //PATCH: support for Elven Precision - reset flag after magic attack is finished
             ElvenPrecisionLogic.Active = false;
-
-            //PATCH: support for Skin of Retribution - checks if we have Skin of Retribution and TempHP and if NOT, removes the buff
-            SkinOfRetributionLogic.AttackRollPostfix(target);
         }
     }
 

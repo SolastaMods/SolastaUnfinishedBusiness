@@ -2,7 +2,6 @@
 using HarmonyLib;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Models;
-using UnityEngine;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
@@ -20,14 +19,14 @@ public static class GameCampaignPartyPatcher
         {
             var max = Main.Settings.EnableLevel20 ? Level20Context.ModMaxLevel : Level20Context.GameMaxLevel;
 
-            levelCap = Main.Settings.OverrideMinMaxLevel ? Level20Context.ModMaxLevel : levelCap;
+            levelCap = Main.Settings.EnableLevel20 || levelCap == 0 ? max : levelCap;
 
             foreach (var character in __instance.CharactersList)
             {
                 var characterLevel = character.RulesetCharacter.GetAttribute(AttributeDefinitions.CharacterLevel);
                 var experience = character.RulesetCharacter.GetAttribute(AttributeDefinitions.Experience);
 
-                characterLevel.MaxValue = levelCap > 0 ? Mathf.Min(levelCap, max) : max;
+                characterLevel.MaxValue = levelCap;
                 characterLevel.Refresh();
 
                 experience.MaxValue = HeroDefinitions.MaxHeroExperience(characterLevel.MaxValue);
