@@ -1,5 +1,13 @@
 ﻿CHANGES:
 
+1.4.33.22:
+
+- added Fell Handed and Blade Mastery feats
+- fixed Chitinous Boon to correctly add a Warlock pact slot
+- fixed Defensive Duelist missing title on reaction modal
+- improved patches to allow readying non-standard ranged attacks [i.e.: Lightning Launcher]
+- removed Requires Restart from Allow Assigning Official Spells setting
+
 1.4.33.21:
 
 - added Discretion of The Coedymwarth to the ranged combat group in addition to the armor one
@@ -8,7 +16,6 @@
 - fixed Slasher to correctly apply detrimental condition to defender
 - fixed Way of The Dragon dragon breath description to correctly say proficiency bonus usage
 - fixed wrong interaction between Level20 and Override Min Max Level settings
-- improved patches to allow readying non-standard ranged attacks [i.e.: Lightning Launcher]
 
 1.4.33.20:
 
