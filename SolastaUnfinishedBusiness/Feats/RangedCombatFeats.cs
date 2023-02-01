@@ -137,7 +137,7 @@ internal static class RangedCombatFeats
 
         return FeatDefinitionBuilder
             .Create(NAME)
-            .SetGuiPresentation(Category.Feat,
+            .SetGuiPresentation("Feat/&FeatDeadeyeTitle",
                 Gui.Format("Feat/&FeatDeadeyeDescription", Main.Settings.DeadEyeAndPowerAttackBaseValue.ToString()))
             .SetFeatures(
                 powerDeadeye,
