@@ -4,8 +4,12 @@ using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Properties;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.ConditionDefinitions;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.DamageDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
 using static RuleDefinitions;
+using System.Collections.Generic;
+using SolastaUnfinishedBusiness.CustomBehaviors;
+using HarmonyLib;
 
 namespace SolastaUnfinishedBusiness.Spells;
 
@@ -343,9 +347,16 @@ internal static partial class SpellBuilders
     internal static SpellDefinition BuildSkinOfRetribution()
     {
         const string NAME = "SkinOfRetribution";
-        const int TempHpPerLevel = 5;
+        const int TEMP_HP_PER_LEVEL = 5;
 
         var spriteReferenceCondition = Sprites.GetSprite("ConditionMirrorImage", Resources.ConditionMirrorImage, 32);
+
+        List<SpellDefinition> subSpells = new List<SpellDefinition>();
+        var damageTypes = new[]
+        {
+            DamageTypeAcid, DamageTypeCold, DamageTypeFire, DamageTypeLightning, DamageTypePoison, DamageTypeThunder
+        };
+
 
         var powerSkinOfRetribution = FeatureDefinitionPowerBuilder
             .Create($"Power{NAME}")
@@ -357,7 +368,7 @@ internal static partial class SpellBuilders
                     .SetEffectForms(
                         EffectFormBuilder
                             .Create()
-                            .SetDamageForm(DamageTypeCold, bonusDamage: 5)
+                            .SetDamageForm(DamageTypeCold, bonusDamage: TEMP_HP_PER_LEVEL)
                             .Build())
                     .Build())
             .SetUniqueInstance()
@@ -379,6 +390,36 @@ internal static partial class SpellBuilders
             .SetFeatures(damageSkinOfRetribution)
             .AddToDB();
 
+        foreach (var damageType in damageTypes) {
+            var spell = SpellDefinitionBuilder
+                .Create(NAME + damageType.ToString())
+                .SetGuiPresentation(Category.Spell, Sprites.GetSprite(NAME, Resources.SkinOfRetribution, 128))
+                .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolAbjuration)
+                .SetVerboseComponent(false)
+                .SetVocalSpellSameType(VocalSpellSemeType.Defense)
+                .SetSpellLevel(1)
+                .SetEffectDescription(EffectDescriptionBuilder
+                    .Create()
+                    .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
+                    .SetDurationData(DurationType.Hour, 1)
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .SetConditionForm(conditionSkinOfRetribution, ConditionForm.ConditionOperation.Add, true, false)
+                            .Build(),
+                        EffectFormBuilder
+                            .Create()
+                            .SetTempHpForm(TEMP_HP_PER_LEVEL)
+                            .Build())
+                    .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel,
+                        additionalTempHpPerIncrement: TEMP_HP_PER_LEVEL)
+                    .SetParticleEffectParameters(Blur)
+                    .Build())
+                .AddToDB();
+
+            subSpells.Add(spell);
+        }
+
         return SpellDefinitionBuilder
             .Create(NAME)
             .SetGuiPresentation(Category.Spell, Sprites.GetSprite(NAME, Resources.SkinOfRetribution, 128))
@@ -386,6 +427,7 @@ internal static partial class SpellBuilders
             .SetVerboseComponent(false)
             .SetVocalSpellSameType(VocalSpellSemeType.Defense)
             .SetSpellLevel(1)
+            .SetSubSpells(subSpells.ToArray())
             .SetEffectDescription(EffectDescriptionBuilder
                 .Create()
                 .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
@@ -397,10 +439,10 @@ internal static partial class SpellBuilders
                         .Build(),
                     EffectFormBuilder
                         .Create()
-                        .SetTempHpForm(TempHpPerLevel)
+                        .SetTempHpForm(TEMP_HP_PER_LEVEL)
                         .Build())
                 .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel,
-                    additionalTempHpPerIncrement: TempHpPerLevel)
+                    additionalTempHpPerIncrement: TEMP_HP_PER_LEVEL)
                 .SetParticleEffectParameters(Blur)
                 .Build())
             .AddToDB();
