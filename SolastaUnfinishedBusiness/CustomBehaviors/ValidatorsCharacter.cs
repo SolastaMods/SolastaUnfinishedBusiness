@@ -114,6 +114,14 @@ internal static class ValidatorsCharacter
         IsShortbow(
             null, character.GetItemInSlot(EquipmentDefinitions.SlotTypeMainHand), null);
 
+    internal static IsCharacterValidHandler MainHandHasWeaponType(
+        params WeaponTypeDefinition[] weaponTypeDefinitions)
+    {
+        return character =>
+            ValidatorsWeapon.IsWeaponType(character.GetItemInSlot(EquipmentDefinitions.SlotTypeMainHand),
+                weaponTypeDefinitions);
+    }
+
     internal static readonly IsCharacterValidHandler MainHandIsFinesseWeapon = character =>
         ValidatorsWeapon.HasAnyWeaponTag(character.GetItemInSlot(EquipmentDefinitions.SlotTypeMainHand),
             TagsDefinitions.WeaponTagFinesse);

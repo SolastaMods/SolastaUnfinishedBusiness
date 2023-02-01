@@ -93,6 +93,20 @@ internal static class ValidatorsWeapon
                && CustomWeaponsContext.PolearmWeaponTypes.Contains(weapon.WeaponDescription?.WeaponType);
     }
 
+    internal static bool IsWeaponType([CanBeNull] RulesetItem item, params WeaponTypeDefinition[] weaponTypeDefinitions)
+    {
+        return item != null
+               && item.ItemDefinition != null
+               && item.ItemDefinition.IsWeapon
+               && weaponTypeDefinitions.Contains(item.ItemDefinition.WeaponDescription.WeaponTypeDefinition);
+    }
+
+    internal static bool IsWeaponType([CanBeNull] RulesetItem item,
+        IEnumerable<WeaponTypeDefinition> weaponTypeDefinitions)
+    {
+        return IsWeaponType(item, weaponTypeDefinitions.ToArray());
+    }
+
     internal static bool IsRanged(RulesetItem weapon)
     {
         return HasAnyWeaponTag(weapon, TagsDefinitions.WeaponTagRange, TagsDefinitions.WeaponTagThrown);

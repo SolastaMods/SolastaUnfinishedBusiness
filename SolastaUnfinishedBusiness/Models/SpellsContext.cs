@@ -270,11 +270,6 @@ internal static class SpellsContext
 
     private static void AllowAssigningOfficialSpells()
     {
-        if (!Main.Settings.AllowAssigningOfficialSpells)
-        {
-            return;
-        }
-
         foreach (var kvp in SpellSpellListMap)
         {
             RegisterSpell(kvp.Key, kvp.Value.Count, kvp.Value.ToArray());

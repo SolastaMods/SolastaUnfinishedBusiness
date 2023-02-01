@@ -14,6 +14,7 @@ using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.Models;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterClassDefinitions;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionMagicAffinitys;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
@@ -673,7 +674,6 @@ public static class RulesetCharacterPatcher
 
         [UsedImplicitly]
         public static void Postfix(
-            [NotNull] RulesetCharacter __instance,
             RulesetAttackMode attackMode,
             RulesetActor target,
             List<RuleDefinitions.TrendInfo> toHitTrends,
@@ -714,7 +714,6 @@ public static class RulesetCharacterPatcher
 
         [UsedImplicitly]
         public static void Postfix(
-            [NotNull] RulesetCharacter __instance,
             RulesetActor target,
             List<RuleDefinitions.TrendInfo> toHitTrends,
             ref RuleDefinitions.RollOutcome outcome,
@@ -879,6 +878,9 @@ public static class RulesetCharacterPatcher
 
             // adds features slots
             foreach (var additionalSlot in hero.FeaturesToBrowse
+                         .OfType<FeatureDefinitionMagicAffinity>()
+                         // special Warlock case so we should discard it here
+                         .Where(x => x != MagicAffinityChitinousBoonAdditionalSpellSlot)
                          .OfType<ISpellCastingAffinityProvider>()
                          .SelectMany(x => x.AdditionalSlots))
             {
@@ -897,13 +899,21 @@ public static class RulesetCharacterPatcher
             }
 
             // adds warlock slots
+            var warlockAdditionalSlots = hero.FeaturesToBrowse
+                .OfType<FeatureDefinitionMagicAffinity>()
+                .Where(x => x == MagicAffinityChitinousBoonAdditionalSpellSlot)
+                .OfType<ISpellCastingAffinityProvider>()
+                .SelectMany(x => x.AdditionalSlots)
+                .Sum(x => x.SlotsNumber);
+
             var warlockCasterLevel = SharedSpellsContext.GetWarlockCasterLevel(hero);
             var warlockSpellLevel = SharedSpellsContext.GetWarlockSpellLevel(hero);
 
             for (var i = 1; i <= warlockSpellLevel; i++)
             {
                 slots.TryAdd(i, 0);
-                slots[i] += SharedSpellsContext.WarlockCastingSlots[warlockCasterLevel - 1].Slots[i - 1];
+                slots[i] += SharedSpellsContext.WarlockCastingSlots[warlockCasterLevel - 1].Slots[i - 1] +
+                            warlockAdditionalSlots;
             }
 
             // reassign slots back to repertoires except for race ones

@@ -33,7 +33,7 @@
     "targetSide": "Ally",
     "durationType": "Round",
     "durationParameter": 1,
-    "endOfEffect": "EndOfTurn",
+    "endOfEffect": "StartOfTurn",
     "hasSavingThrow": false,
     "disableSavingThrowOnAllies": false,
     "savingThrowAbility": "Dexterity",
@@ -77,8 +77,8 @@
         "saveOccurence": "EndOfTurn",
         "conditionForm": {
           "$type": "ConditionForm, Assembly-CSharp",
-          "conditionDefinitionName": "ConditionFeatDefensiveDuelist",
-          "conditionDefinition": "Definition:ConditionFeatDefensiveDuelist:0a5d4009-672d-5bfb-91d3-33c422e06533",
+          "conditionDefinitionName": "ConditionFeatBladeMastery",
+          "conditionDefinition": "Definition:ConditionFeatBladeMastery:d768dc3c-2bdd-511c-8cb8-98f57e50569b",
           "operation": "Add",
           "conditionsList": [],
           "applyToSelf": true,
@@ -324,8 +324,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feat/&FeatDefensiveDuelistTitle",
-    "description": "Feat/&FeatDefensiveDuelistDescription",
+    "title": "Feat/&FeatBladeMasteryTitle",
+    "description": "Feat/&FeatBladeMasteryDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -345,7 +345,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "4940450d-ded7-58fe-8fc8-e6ff8cff27d0",
+  "guid": "67c72872-97e3-5ee8-8ecf-e265017b77f5",
   "contentPack": 9999,
-  "name": "PowerFeatDefensiveDuelist"
+  "name": "PowerFeatBladeMastery"
 }

@@ -16,7 +16,7 @@ ModUi/&Adventure=<color=#F0DAA0>Aventura:</color>
 ModUi/&AllItemInDm=Todos os itens na DM
 ModUi/&AllowAllPlayersOnNarrativeSequences=<i>+ Permitir todos os jogadores em sequências narrativas</i>
 ModUi/&AllowAnyClassToWearSylvanArmor=Permita que qualquer classe use <color=#D89555>Armadura Silvestre</color> ou <color=#D89555>Roupas Portadoras da Luz</color>
-ModUi/&AllowAssigningOfficialSpells=Permitir que feitiços oficiais sejam exibidos nestas listas <b><i><color=#C04040E0>[Requer reinicialização]</color></i></b>
+ModUi/&AllowAssigningOfficialSpells=Permitir que feitiços oficiais sejam exibidos nestas listas
 ModUi/&AllowBeardlessDwarves=Permitir <color=#D89555>Anões</color> sem barba
 ModUi/&AllowDruidToWearMetalArmor=Permitir que <color=#D89555>Druida</color> use armadura de metal
 ModUi/&AllowDungeonsMaxLevel20=Permitir masmorras com nível máximo 20

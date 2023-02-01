@@ -61,11 +61,52 @@ public static class GameLocationBattleManagerPatcher
                 new Func<List<SpellDefinition>, SpellDefinition, bool>(CustomReactionsContext.CheckAndModifyCantrips)
                     .Method;
 
-            return instructions.ReplaceCall(
-                "Contains",
-                -1,
-                "GameLocationBattleManager.CanPerformReadiedActionOnCharacter",
-                new CodeInstruction(OpCodes.Call, customBindMethod));
+            //PATCH: allows to ready non-standard ranged attacks (like Armorer's Lightning Launcher)
+            var customFindMethod =
+                new Func<
+                        GameLocationCharacter, // character,
+                        ActionDefinitions.Id, // actionId,
+                        bool, // getWithMostAttackNb,
+                        bool, // onlyIfRemainingUses,
+                        RulesetAttackMode //result
+                    >(FindActionAttackMode)
+                    .Method;
+
+            return instructions
+                .ReplaceCall(
+                    "Contains",
+                    -1,
+                    "GameLocationBattleManager.CanPerformReadiedActionOnCharacter.Contains",
+                    new CodeInstruction(OpCodes.Call, customBindMethod)
+                )
+                .ReplaceCall(
+                    "FindActionAttackMode",
+                    -1,
+                    "GameLocationBattleManager.CanPerformReadiedActionOnCharacter.FindActionAttackMode",
+                    new CodeInstruction(OpCodes.Call, customFindMethod)
+                );
+        }
+
+        private static RulesetAttackMode FindActionAttackMode(
+            GameLocationCharacter character,
+            ActionDefinitions.Id actionId,
+            bool getWithMostAttackNb,
+            bool onlyIfRemainingUses
+        )
+        {
+            var attackMode = character.FindActionAttackMode(actionId, getWithMostAttackNb, onlyIfRemainingUses);
+
+            if (character.ReadiedAction != ActionDefinitions.ReadyActionType.Ranged)
+            {
+                return attackMode;
+            }
+
+            if (attackMode != null && (attackMode.Ranged || attackMode.Thrown))
+            {
+                return attackMode;
+            }
+
+            return character.GetFirstRangedModeThatCanBeReadied();
         }
     }
 

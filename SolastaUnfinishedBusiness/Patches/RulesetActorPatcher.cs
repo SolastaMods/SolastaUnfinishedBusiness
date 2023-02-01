@@ -12,6 +12,7 @@ using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomDefinitions;
 using SolastaUnfinishedBusiness.CustomInterfaces;
+using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Subclasses;
 using TA;
 using UnityEngine;
@@ -310,17 +311,28 @@ public static class RulesetActorPatcher
             out int secondRoll,
             float rollAlterationScore,
             RulesetActor actor,
-            RuleDefinitions.RollContext rollContext
-        )
+            RuleDefinitions.RollContext rollContext)
         {
+            int result;
+
             if (rollContext == RuleDefinitions.RollContext.AttackRoll &&
                 advantageType == RuleDefinitions.AdvantageType.Advantage && ElvenPrecisionLogic.Active)
             {
-                return Roll3DicesAndKeepBest(actor.Name, dieType, out firstRoll, out secondRoll, rollAlterationScore);
+                result = Roll3DicesAndKeepBest(actor.Name, dieType, out firstRoll, out secondRoll, rollAlterationScore);
+
+                Global.FirstRoll = firstRoll;
+                Global.SecondRoll = secondRoll;
+
+                return result;
             }
 
-            return RuleDefinitions.RollDie(dieType, advantageType, out firstRoll, out secondRoll,
+            result = RuleDefinitions.RollDie(dieType, advantageType, out firstRoll, out secondRoll,
                 rollAlterationScore);
+
+            Global.FirstRoll = firstRoll;
+            Global.SecondRoll = secondRoll;
+
+            return result;
         }
 
         private static int Roll3DicesAndKeepBest(

@@ -67,6 +67,24 @@ public static class GameLocationCharacterExtensions
         return (null, null);
     }
 
+    internal static RulesetAttackMode GetFirstRangedModeThatCanBeReadied(this GameLocationCharacter instance)
+    {
+        foreach (var mode in instance.RulesetCharacter.AttackModes)
+        {
+            if (mode.ActionType != ActionType.Main)
+            {
+                continue;
+            }
+
+            if (mode.Ranged || mode.Thrown)
+            {
+                return mode;
+            }
+        }
+
+        return null;
+    }
+
     /**
      * Finds first melee attack mode that can attack target on positionBefore, but can't on positionAfter
      */

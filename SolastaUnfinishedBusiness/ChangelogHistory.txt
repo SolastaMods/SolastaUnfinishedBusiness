@@ -1,5 +1,13 @@
 ﻿CHANGES:
 
+1.4.33.22:
+
+- added Fell Handed and Blade Mastery feats
+- fixed Chitinous Boon to correctly add a Warlock pact slot
+- fixed Defensive Duelist missing title on reaction modal
+- improved patches to allow readying non-standard ranged attacks [i.e.: Lightning Launcher]
+- removed Requires Restart from Allow Assigning Official Spells setting
+
 1.4.33.21:
 
 - added Discretion of The Coedymwarth to the ranged combat group in addition to the armor one
