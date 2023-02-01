@@ -1,0 +1,44 @@
+{
+  "$type": "FeatDefinition, Assembly-CSharp",
+  "compatibleClassesPrerequisite": [],
+  "mustCastSpellsPrerequisite": false,
+  "compatibleRacesPrerequisite": [],
+  "minimalAbilityScorePrerequisite": false,
+  "minimalAbilityScoreValue": 13,
+  "minimalAbilityScoreName": "Strength",
+  "armorProficiencyPrerequisite": false,
+  "armorProficiencyCategory": "",
+  "hasFamilyTag": false,
+  "familyTag": "",
+  "knownFeatsPrerequisite": [],
+  "features": [
+    "Definition:PowerFeatBladeMastery:67c72872-97e3-5ee8-8ecf-e265017b77f5"
+  ],
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": true,
+    "title": "Feat/&FeatBladeMasteryTitle",
+    "description": "Feat/&FeatBladeMasteryDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "438aafd7-ecdb-5d2b-960f-536159a9bff3",
+  "contentPack": 9999,
+  "name": "FeatBladeMastery"
+}
