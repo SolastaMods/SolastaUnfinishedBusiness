@@ -8,6 +8,7 @@
 - fixed Slasher to correctly apply detrimental condition to defender
 - fixed Way of The Dragon dragon breath description to correctly say proficiency bonus usage
 - fixed wrong interaction between Level20 and Override Min Max Level settings
+- improved patches to allow readying non-standard ranged attacks [i.e.: Lightning Launcher]
 
 1.4.33.20:
 

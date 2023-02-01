@@ -100,8 +100,9 @@ internal static class ValidatorsWeapon
                && item.ItemDefinition.IsWeapon
                && weaponTypeDefinitions.Contains(item.ItemDefinition.WeaponDescription.WeaponTypeDefinition);
     }
-    
-    internal static bool IsWeaponType([CanBeNull] RulesetItem item, IEnumerable<WeaponTypeDefinition> weaponTypeDefinitions)
+
+    internal static bool IsWeaponType([CanBeNull] RulesetItem item,
+        IEnumerable<WeaponTypeDefinition> weaponTypeDefinitions)
     {
         return IsWeaponType(item, weaponTypeDefinitions.ToArray());
     }

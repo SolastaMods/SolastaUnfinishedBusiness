@@ -60,7 +60,7 @@ public static class GameLocationBattleManagerPatcher
             var customBindMethod =
                 new Func<List<SpellDefinition>, SpellDefinition, bool>(CustomReactionsContext.CheckAndModifyCantrips)
                     .Method;
-            
+
             //PATCH: allows to ready non-standard ranged attacks (like Armorer's Lightning Launcher)
             var customFindMethod =
                 new Func<
@@ -92,10 +92,10 @@ public static class GameLocationBattleManagerPatcher
             ActionDefinitions.Id actionId,
             bool getWithMostAttackNb,
             bool onlyIfRemainingUses
-            )
+        )
         {
             var attackMode = character.FindActionAttackMode(actionId, getWithMostAttackNb, onlyIfRemainingUses);
-            
+
             if (character.ReadiedAction != ActionDefinitions.ReadyActionType.Ranged)
             {
                 return attackMode;
