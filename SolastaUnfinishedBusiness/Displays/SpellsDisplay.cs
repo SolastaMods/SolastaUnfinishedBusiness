@@ -72,7 +72,9 @@ internal static class SpellsDisplay
             var sliderPos = Main.Settings.SpellListSliderPosition[name];
             var spellEnabled = Main.Settings.SpellListSpellEnabled[name];
             var allowedSpells = spellListContext.AllSpells
-                .Where(x => SpellLevelFilter == ShowAll || x.SpellLevel == SpellLevelFilter).ToHashSet();
+                .Where(x => x.ContentPack == CeContentPackContext.CeContentPack || Main.Settings.AllowAssigningOfficialSpells)
+                .Where(x => SpellLevelFilter == ShowAll || x.SpellLevel == SpellLevelFilter)
+                .ToHashSet();
 
             void AdditionalRendering()
             {

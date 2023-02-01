@@ -16,7 +16,7 @@ ModUi/&Adventure=<color=#F0DAA0>Abenteuer:</color>
 ModUi/&AllItemInDm=Alle Artikel in DM
 ModUi/&AllowAllPlayersOnNarrativeSequences=<i>+ Erlaube allen Spielern narrative Sequenzen</i>
 ModUi/&AllowAnyClassToWearSylvanArmor=Erlaube jeder Klasse, <color=#D89555>Waldrüstung</color> oder <color=#D89555>Lichtbringerkleidung</color> zu tragen
-ModUi/&AllowAssigningOfficialSpells=Anzeige offizieller Zauber auf diesen Listen zulassen <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>
+ModUi/&AllowAssigningOfficialSpells=Anzeige offizieller Zauber auf diesen Listen zulassen
 ModUi/&AllowBeardlessDwarves=Erlaube bartlose <color=#D89555>Zwerge</color>
 ModUi/&AllowDruidToWearMetalArmor=Erlaube dem <color=#D89555>Druiden</color>, Metallrüstungen zu tragen
 ModUi/&AllowDungeonsMaxLevel20=Erlaube Dungeons mit max. Stufe 20

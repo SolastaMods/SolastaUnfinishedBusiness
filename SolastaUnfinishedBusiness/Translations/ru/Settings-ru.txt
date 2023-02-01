@@ -16,7 +16,7 @@ ModUi/&Adventure=<color=#F0DAA0>Приключение:</color>
 ModUi/&AllItemInDm=Все предметы в DM
 ModUi/&AllowAllPlayersOnNarrativeSequences=<i>+ Позволить всем игрокам включить повествование</i>
 ModUi/&AllowAnyClassToWearSylvanArmor=Позволить любому классу носить <color=#D89555>Доспех Сильван</color> или <color=#D89555>Одежду Светоносного</color>
-ModUi/&AllowAssigningOfficialSpells=Разрешить отображение официальных заклинаний в этих списках <b><i><color=#C04040E0>[Требуется перезагрузка]</color></i></b>
+ModUi/&AllowAssigningOfficialSpells=Разрешить отображение официальных заклинаний в этих списках
 ModUi/&AllowBeardlessDwarves=Позволить исключить бороду у <color=#D89555>Дварфов</color>
 ModUi/&AllowDruidToWearMetalArmor=Позволить <color=#D89555>Друиду</color> носить металлический доспех
 ModUi/&AllowDungeonsMaxLevel20=Открыть доступ к подземельям с макс. уровнем 20

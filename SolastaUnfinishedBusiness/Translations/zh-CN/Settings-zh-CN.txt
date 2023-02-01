@@ -16,7 +16,7 @@ ModUi/&Adventure=<color=#F0DAA0>冒险：</color>
 ModUi/&AllItemInDm=全部物品加入地城制作
 ModUi/&AllowAllPlayersOnNarrativeSequences=<i>+ 允许全部玩家加入叙事序列</i>
 ModUi/&AllowAnyClassToWearSylvanArmor=允许任何职业装备<color=#D89555>木族护甲</color> or <color=#D89555>光明使者服饰</color>
-ModUi/&AllowAssigningOfficialSpells=允许官方法术显示在这些列表上 <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
+ModUi/&AllowAssigningOfficialSpells=允许官方法术显示在这些列表上
 ModUi/&AllowBeardlessDwarves=允许不长胡子的<color=#D89555>矮人</color>
 ModUi/&AllowDruidToWearMetalArmor=允许<color=#D89555>德鲁伊</color>装备金属护甲
 ModUi/&AllowDungeonsMaxLevel20=允许自定义地城最大等级达到20级
