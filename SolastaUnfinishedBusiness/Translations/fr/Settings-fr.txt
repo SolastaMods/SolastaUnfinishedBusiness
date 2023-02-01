@@ -16,7 +16,7 @@ ModUi/&Adventure=<color=#F0DAA0>Aventure:</color>
 ModUi/&AllItemInDm=Tous les articles en DM
 ModUi/&AllowAllPlayersOnNarrativeSequences=<i>+ Autoriser tous les joueurs sur les séquences narratives</i>
 ModUi/&AllowAnyClassToWearSylvanArmor=Autoriser n'importe quelle classe à porter une <color=#D89555>armure sylvestre</color> ou des <color=#D89555>vêtements de porteur de lumière</color>
-ModUi/&AllowAssigningOfficialSpells=Autoriser l'affichage des sorts officiels sur ces listes <b><i><color=#C04040E0>[Nécessite un redémarrage]</color></i></b>
+ModUi/&AllowAssigningOfficialSpells=Autoriser l'affichage des sorts officiels sur ces listes
 ModUi/&AllowBeardlessDwarves=Autoriser les <color=#D89555>Nains</color> imberbes
 ModUi/&AllowDruidToWearMetalArmor=Autoriser le <color=#D89555>Druide</color> à porter une armure en métal
 ModUi/&AllowDungeonsMaxLevel20=Autoriser les donjons avec un niveau maximum de 20

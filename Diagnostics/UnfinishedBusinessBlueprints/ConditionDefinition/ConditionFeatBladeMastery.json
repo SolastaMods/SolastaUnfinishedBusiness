@@ -4,7 +4,7 @@
   "parentCondition": null,
   "conditionType": "Beneficial",
   "features": [
-    "Definition:AttributeModifierFeatDefensiveDuelist:290701ea-b9e5-59d8-8884-bac2c69781ec"
+    "Definition:AttributeModifierFeatBladeMastery:0b20d3c7-ec41-591d-943d-e1709702206a"
   ],
   "allowMultipleInstances": false,
   "silentWhenAdded": true,
@@ -16,9 +16,7 @@
   "durationParameter": 1,
   "forceTurnOccurence": false,
   "turnOccurence": "EndOfTurn",
-  "specialInterruptions": [
-    "AnyBattleTurnEnd"
-  ],
+  "specialInterruptions": [],
   "interruptionRequiresSavingThrow": false,
   "interruptionSavingThrowComputationMethod": "SaveOverride",
   "interruptionSavingThrowAbility": "",
@@ -130,8 +128,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feat/&FeatDefensiveDuelistTitle",
-    "description": "Feat/&FeatDefensiveDuelistDescription",
+    "title": "Feat/&FeatBladeMasteryTitle",
+    "description": "Feat/&FeatBladeMasteryDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -151,7 +149,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "0a5d4009-672d-5bfb-91d3-33c422e06533",
+  "guid": "d768dc3c-2bdd-511c-8cb8-98f57e50569b",
   "contentPack": 9999,
-  "name": "ConditionFeatDefensiveDuelist"
+  "name": "ConditionFeatBladeMastery"
 }

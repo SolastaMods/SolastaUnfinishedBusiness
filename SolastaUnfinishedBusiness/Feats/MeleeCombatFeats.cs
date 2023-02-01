@@ -1,5 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using JetBrains.Annotations;
+using SolastaUnfinishedBusiness.Api.Extensions;
 using SolastaUnfinishedBusiness.Api.Infrastructure;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
@@ -12,6 +14,7 @@ using static RuleDefinitions;
 using static RuleDefinitions.RollContext;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionActionAffinitys;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.WeaponTypeDefinitions;
 
 namespace SolastaUnfinishedBusiness.Feats;
 
@@ -127,9 +130,11 @@ internal static class MeleeCombatFeats
 
     internal static void CreateFeats([NotNull] List<FeatDefinition> feats)
     {
+        var featBladeMastery = BuildBladeMastery();
         var featCrusherStr = BuildCrusherStr();
         var featCrusherCon = BuildCrusherCon();
         var featDefensiveDuelist = BuildDefensiveDuelist();
+        var featFellHanded = BuildFellHanded();
         var featPiercerDex = BuildPiercerDex();
         var featPiercerStr = BuildPiercerStr();
         var featPowerAttack = BuildPowerAttack();
@@ -139,9 +144,11 @@ internal static class MeleeCombatFeats
         var featSlasherDex = BuildSlasherDex();
 
         feats.AddRange(
-            featDefensiveDuelist,
+            featBladeMastery,
             featCrusherStr,
             featCrusherCon,
+            featDefensiveDuelist,
+            featFellHanded,
             featPiercerDex,
             featPiercerStr,
             featPowerAttack,
@@ -167,6 +174,8 @@ internal static class MeleeCombatFeats
             FeatDefinitions.DauntingPush,
             FeatDefinitions.DistractingGambit,
             FeatDefinitions.TripAttack,
+            featBladeMastery,
+            featFellHanded,
             featPowerAttack,
             featRecklessAttack,
             featSavageAttack,
@@ -175,13 +184,64 @@ internal static class MeleeCombatFeats
             featGroupSlasher);
     }
 
+    private static FeatDefinition BuildBladeMastery()
+    {
+        const string NAME = "FeatBladeMastery";
+
+        var weaponTypes = new[] { ShortswordType, LongswordType, ScimitarType, RapierType, GreatswordType };
+
+        var conditionBladeMastery = ConditionDefinitionBuilder
+            .Create($"Condition{NAME}")
+            .SetGuiPresentation(NAME, Category.Feat)
+            .SetFeatures(FeatureDefinitionAttributeModifierBuilder
+                .Create($"AttributeModifier{NAME}")
+                .SetGuiPresentationNoContent(true)
+                .SetModifier(
+                    FeatureDefinitionAttributeModifier.AttributeModifierOperation.Additive,
+                    AttributeDefinitions.ArmorClass,
+                    1)
+                .AddToDB())
+            .SetSilent(Silent.WhenAddedOrRemoved)
+            .AddToDB();
+
+        var powerBladeMastery = FeatureDefinitionPowerBuilder
+            .Create($"Power{NAME}")
+            .SetGuiPresentation(NAME, Category.Feat)
+            .SetUsesFixed(ActivationTime.Reaction)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetDurationData(DurationType.Round, 1, TurnOccurenceType.StartOfTurn)
+                    .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
+                    .SetEffectForms(EffectFormBuilder
+                        .Create()
+                        .SetConditionForm(
+                            conditionBladeMastery,
+                            ConditionForm.ConditionOperation.Add,
+                            true,
+                            true)
+                        .Build())
+                    .Build())
+            .SetCustomSubFeatures(new ValidatorsPowerUse(ValidatorsCharacter.MainHandHasWeaponType(weaponTypes)))
+            .AddToDB();
+
+        return FeatDefinitionBuilder
+            .Create(NAME)
+            .SetGuiPresentation(Category.Feat)
+            .SetFeatures(powerBladeMastery)
+            .SetCustomSubFeatures(
+                new OnComputeAttackModifierFeatBladeMastery(),
+                new ModifyAttackModeWeaponTypeFilter($"Feature/&ModifyAttackMode{NAME}Title", weaponTypes))
+            .AddToDB();
+    }
+
     private static FeatDefinition BuildDefensiveDuelist()
     {
         const string NAME = "FeatDefensiveDuelist";
 
         var conditionDefensiveDuelist = ConditionDefinitionBuilder
             .Create($"Condition{NAME}")
-            .SetGuiPresentationNoContent(true)
+            .SetGuiPresentation(NAME, Category.Feat)
             .SetFeatures(FeatureDefinitionAttributeModifierBuilder
                 .Create($"AttributeModifier{NAME}")
                 .SetGuiPresentationNoContent(true)
@@ -195,7 +255,7 @@ internal static class MeleeCombatFeats
 
         var powerDefensiveDuelist = FeatureDefinitionPowerBuilder
             .Create($"Power{NAME}")
-            .SetGuiPresentationNoContent(true)
+            .SetGuiPresentation(NAME, Category.Feat)
             .SetUsesFixed(ActivationTime.Reaction)
             .SetEffectDescription(
                 EffectDescriptionBuilder
@@ -219,6 +279,20 @@ internal static class MeleeCombatFeats
             .SetGuiPresentation(Category.Feat)
             .SetFeatures(powerDefensiveDuelist)
             .SetAbilityScorePrerequisite(AttributeDefinitions.Dexterity, 13)
+            .AddToDB();
+    }
+
+    private static FeatDefinition BuildFellHanded()
+    {
+        const string NAME = "FeatFellHanded";
+
+        return FeatDefinitionBuilder
+            .Create(NAME)
+            .SetGuiPresentation(Category.Feat)
+            .SetCustomSubFeatures(
+                new AfterAttackEffectFeatFellHanded(),
+                new ModifyAttackModeWeaponTypeFilter($"Feature/&ModifyAttackMode{NAME}Title",
+                    BattleaxeType, GreataxeType, HandaxeType, MaulType, WarhammerType))
             .AddToDB();
     }
 
@@ -612,6 +686,119 @@ internal static class MeleeCombatFeats
                 attacker.RulesetCharacter.CurrentFaction.Name);
 
             defender.RulesetCharacter.AddConditionOfCategory(AttributeDefinitions.TagCombat, rulesetCondition);
+        }
+    }
+
+    private sealed class AfterAttackEffectFeatFellHanded : IAfterAttackEffect
+    {
+        public void AfterOnAttackHit(
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            RollOutcome outcome,
+            CharacterActionParams actionParams,
+            RulesetAttackMode attackMode,
+            ActionModifier attackModifier)
+        {
+            switch (attackModifier.AttackAdvantageTrend)
+            {
+                case > 0 when outcome is RollOutcome.Success or RollOutcome.CriticalSuccess:
+                    var lowerRoll = Math.Min(Global.FirstRoll, Global.SecondRoll);
+                    var defenderAc = defender.RulesetCharacter.GetAttribute(AttributeDefinitions.ArmorClass)
+                        .CurrentValue;
+
+                    if (lowerRoll >= defenderAc)
+                    {
+                        var rulesetCondition = RulesetCondition.CreateActiveCondition(
+                            defender.RulesetCharacter.Guid,
+                            ConditionDefinitions.ConditionProne,
+                            DurationType.Round,
+                            1,
+                            TurnOccurenceType.StartOfTurn,
+                            attacker.RulesetCharacter.Guid,
+                            attacker.RulesetCharacter.CurrentFaction.Name);
+
+                        defender.RulesetCharacter.AddConditionOfCategory(AttributeDefinitions.TagCombat,
+                            rulesetCondition);
+                    }
+
+                    break;
+                case < 0 when outcome is RollOutcome.Failure or RollOutcome.CriticalFailure:
+                    var strength = attacker.RulesetCharacter.GetAttribute(AttributeDefinitions.Strength)
+                        .CurrentValue;
+                    var strengthMod = AttributeDefinitions.ComputeAbilityScoreModifier(strength);
+
+                    if (strengthMod > 0)
+                    {
+                        defender.RulesetCharacter.SustainDamage(strengthMod, DamageTypeBludgeoning, false,
+                            attacker.Guid, null, out _);
+                    }
+
+                    break;
+            }
+        }
+    }
+
+    private sealed class ModifyAttackModeWeaponTypeFilter : IModifyAttackModeForWeapon
+    {
+        private readonly string _sourceName;
+        private readonly List<WeaponTypeDefinition> _weaponTypeDefinition = new();
+
+        public ModifyAttackModeWeaponTypeFilter(string sourceName, params WeaponTypeDefinition[] weaponTypeDefinition)
+        {
+            _sourceName = sourceName;
+            _weaponTypeDefinition.AddRange(weaponTypeDefinition);
+        }
+
+        public void ModifyAttackMode(RulesetCharacter character, [CanBeNull] RulesetAttackMode attackMode)
+        {
+            var damage = attackMode?.EffectDescription?.FindFirstDamageForm();
+
+            if (damage == null)
+            {
+                return;
+            }
+
+            if (attackMode.sourceDefinition is not ItemDefinition { IsWeapon: true } sourceDefinition ||
+                !_weaponTypeDefinition.Contains(sourceDefinition.WeaponDescription.WeaponTypeDefinition))
+            {
+                return;
+            }
+
+            attackMode.ToHitBonus += 1;
+            attackMode.ToHitBonusTrends.Add(new TrendInfo(1, FeatureSourceType.CharacterFeature, _sourceName, null));
+        }
+    }
+
+    private sealed class OnComputeAttackModifierFeatBladeMastery : IOnComputeAttackModifier
+    {
+        private readonly List<WeaponTypeDefinition> _weaponTypeDefinition = new();
+
+        public OnComputeAttackModifierFeatBladeMastery(params WeaponTypeDefinition[] weaponTypeDefinition)
+        {
+            _weaponTypeDefinition.AddRange(weaponTypeDefinition);
+        }
+
+        public void ComputeAttackModifier(
+            RulesetCharacter myself,
+            RulesetCharacter defender,
+            RulesetAttackMode attackMode,
+            ref ActionModifier attackModifier)
+        {
+            if (attackMode == null || defender == null ||
+                attackMode.ActionType != ActionDefinitions.ActionType.Reaction)
+            {
+                return;
+            }
+
+            if (!ValidatorsWeapon.IsWeaponType(myself.GetItemInSlot(EquipmentDefinitions.SlotTypeMainHand),
+                    _weaponTypeDefinition))
+            {
+                return;
+            }
+
+            attackModifier.attackAdvantageTrends.Add(new TrendInfo(1,
+                FeatureSourceType.CharacterFeature, "Feature/&ModifyAttackModeBladeMasteryTitle",
+                null));
         }
     }
 }
