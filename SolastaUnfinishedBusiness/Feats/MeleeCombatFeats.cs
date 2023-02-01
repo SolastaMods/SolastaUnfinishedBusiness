@@ -594,7 +594,7 @@ internal static class MeleeCombatFeats
                     attacker.RulesetCharacter.Guid,
                     attacker.RulesetCharacter.CurrentFaction.Name);
 
-                attacker.RulesetCharacter.AddConditionOfCategory(AttributeDefinitions.TagCombat, rulesetCondition);
+                defender.RulesetCharacter.AddConditionOfCategory(AttributeDefinitions.TagCombat, rulesetCondition);
             }
 
             if (outcome is not RollOutcome.CriticalSuccess)

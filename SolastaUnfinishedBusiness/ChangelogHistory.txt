@@ -1,5 +1,14 @@
 ﻿CHANGES:
 
+1.4.33.21:
+
+- added Discretion of The Coedymwarth to the ranged combat group in addition to the armor one
+- fixed Oath of Ancients to correctly apply aura of warding power
+- fixed Skin of Distribution to correctly increase cold damage on upcast
+- fixed Slasher to correctly apply detrimental condition to defender
+- fixed Way of The Dragon dragon breath description to correctly say proficiency bonus usage
+- fixed wrong interaction between Level20 and Override Min Max Level settings
+
 1.4.33.20:
 
 - added Skin of Retribution level 1 spell

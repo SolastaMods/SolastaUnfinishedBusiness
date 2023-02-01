@@ -13,7 +13,6 @@ using SolastaUnfinishedBusiness.Api.Infrastructure;
 using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.Models;
-using SolastaUnfinishedBusiness.Spells;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterClassDefinitions;
 
 namespace SolastaUnfinishedBusiness.Patches;
@@ -581,6 +580,7 @@ public static class RulesetCharacterPatcher
     [UsedImplicitly]
     public static class RollAttack_Patch
     {
+#if false
         private static int FixCriticalDeterminationAndMirrorImageLogic(
             RulesetAttribute attribute,
             RulesetCharacter rulesetCharacter,
@@ -630,6 +630,23 @@ public static class RulesetCharacterPatcher
                 new CodeInstruction(OpCodes.Ldloc_3), // rawRoll
                 new CodeInstruction(OpCodes.Ldarg_2), // target
                 new CodeInstruction(OpCodes.Ldarg, 4), // toHitTrends
+                new CodeInstruction(OpCodes.Call, method));
+        }
+#endif
+        [NotNull]
+        [UsedImplicitly]
+        public static IEnumerable<CodeInstruction> Transpiler([NotNull] IEnumerable<CodeInstruction> instructions)
+        {
+            //PATCH: support for Mirror Image - replaces target's AC with 10 + DEX bonus if we targeting mirror image
+            var currentValueMethod = typeof(RulesetAttribute).GetMethod("get_CurrentValue");
+            var method =
+                new Func<RulesetAttribute, RulesetActor, List<RuleDefinitions.TrendInfo>, int>(MirrorImageLogic.GetAC)
+                    .Method;
+
+            return instructions.ReplaceCall(currentValueMethod,
+                1, "RulesetCharacter.RollAttack",
+                new CodeInstruction(OpCodes.Ldarg_2),
+                new CodeInstruction(OpCodes.Ldarg, 4),
                 new CodeInstruction(OpCodes.Call, method));
         }
     }

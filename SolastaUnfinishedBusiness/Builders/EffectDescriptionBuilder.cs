@@ -199,6 +199,7 @@ internal class EffectDescriptionBuilder
         int durationParameter = 0,
         TurnOccurenceType endOfEffect = TurnOccurenceType.EndOfTurn)
     {
+        // ReSharper disable once InvocationIsSkipped
         PreConditions.IsValidDuration(durationType, durationParameter);
 
         effect.durationParameter = durationParameter;
