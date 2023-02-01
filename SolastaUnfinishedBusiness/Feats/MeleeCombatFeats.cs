@@ -373,7 +373,7 @@ internal static class MeleeCombatFeats
 
         return FeatDefinitionBuilder
             .Create("FeatPowerAttack")
-            .SetGuiPresentation(Category.Feat,
+            .SetGuiPresentation("Feat/&FeatPowerAttackTitle",
                 Gui.Format("Feat/&FeatPowerAttackDescription", Main.Settings.DeadEyeAndPowerAttackBaseValue.ToString()))
             .SetFeatures(
                 powerAttack,
