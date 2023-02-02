@@ -1,5 +1,6 @@
 ﻿using System.Linq;
 using SolastaUnfinishedBusiness.Api.Extensions;
+using SolastaUnfinishedBusiness.Api.Helpers;
 
 namespace SolastaUnfinishedBusiness.CustomBehaviors;
 
@@ -20,12 +21,39 @@ internal class ExtraCarefulTrackedItem
         ProcessItemProperties(activeEffect);
     }
 
+    internal static void FixDynamicPropertiesWithoutEffect()
+    {
+        var properties = ServiceRepository
+            .GetService<IRulesetEntityService>()
+            .RulesetEntities.Values.OfType<RulesetItemProperty>()
+            .Where(IsOrphaned)
+            .ToList();
+
+        foreach (var property in properties)
+        {
+            var item = EffectHelpers.GetItemByGuid(property.TargetItemGuid);
+            if (item == null)
+            {
+                continue;
+            }
+            //TODO: do we need to log this?
+            RemoveItemProperty(property, item);
+        }
+    }
+
+    private static bool IsOrphaned(RulesetItemProperty p)
+    {
+        return p.FeatureDefinition.HasSubFeatureOfType<ExtraCarefulTrackedItem>()
+               && p.SourceEffectGuid > 0
+               && EffectHelpers.GetEffectByGuid(p.SourceEffectGuid) == null;
+    }
+
     private static void ProcessSummonedItems(RulesetEffect activeEffect)
     {
         var allEntities = ServiceRepository
             .GetService<IRulesetEntityService>()
             .RulesetEntities.Values;
-        
+
         var characters = allEntities
             .Select(e => e as RulesetCharacter)
             .Where(e => e != null)
@@ -80,7 +108,7 @@ internal class ExtraCarefulTrackedItem
         var items = ServiceRepository
             .GetService<IRulesetEntityService>()
             .RulesetEntities.Values.OfType<RulesetItem>().ToList();
-        
+
         foreach (var item in items)
         {
             var propertyGuids = activeEffect.trackedItemPropertyGuids;
@@ -90,15 +118,21 @@ internal class ExtraCarefulTrackedItem
 
             foreach (var itemProperty in properties)
             {
-                if (itemProperty.Guid > 0)
-                {
-                    itemProperty.Unregister();
-                }
-
-                item.dynamicItemProperties.Remove(itemProperty);
+                RemoveItemProperty(itemProperty, item);
             }
 
             item.ItemPropertyRemoved -= activeEffect.ItemPropertyRemoved;
         }
+    }
+
+    private static void RemoveItemProperty(RulesetItemProperty itemProperty, RulesetItem item)
+    {
+
+        if (itemProperty.Guid > 0)
+        {
+            itemProperty.Unregister();
+        }
+
+        item.dynamicItemProperties.Remove(itemProperty);
     }
 }
