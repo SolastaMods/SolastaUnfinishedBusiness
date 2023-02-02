@@ -1,12 +1,12 @@
 ﻿Condition/&ConditionOathOfAncientsNaturesWrathDescription=Estás enredado en enredaderas que impiden el movimiento, desventaja en las tiradas de salvación de Destreza y los atacantes tienen ventaja. Al final de tu turno, haz una tirada de salvación de Fuerza para escapar.
 Condition/&ConditionOathOfAncientsNaturesWrathTitle=Enredado
-Condition/&ConditionOathOfAncientsAuraWardingDescription=Obtenga resistencia a los elementos naturales recibiendo la mitad del daño del ácido, el frío, el fuego, los rayos, los truenos y el veneno.
+Condition/&ConditionOathOfAncientsAuraWardingDescription=Gana resistencia al daño de hechizos.
 Condition/&ConditionOathOfAncientsAuraWardingTitle=Custodiado
 Feature/&PowerOathOfAncientsNaturesWrathDescription=Conjurar enredaderas en un objetivo, el objetivo queda inmovilizado con una tirada de salvación de Fuerza fallida. El objetivo realiza una tirada de salvación de Fuerza para escapar al final de su turno.
 Feature/&PowerOathOfAncientsNaturesWrathTitle=Divinidad del canal: Ira de la naturaleza
 Feature/&PowerOathOfAncientsTurnFaithlessDescription=Realiza una oración, Fey, Fiends y Elementals que están cerca deben hacer una tirada de salvación de Sabiduría, si fallan son rechazados.
 Feature/&PowerOathOfAncientsTurnFaithlessTitle=Channel Divinity: Convierte a los infieles
-Feature/&PowerOathOfAncientsAuraWardingDescription=Otorga a ti y a los que te rodean una protección antigua que reduce el daño de los elementos.
+Feature/&PowerOathOfAncientsAuraWardingDescription=Otorga a ti y a los que te rodean una protección antigua que reduce el daño de los hechizos.
 Feature/&PowerOathOfAncientsAuraWardingTitle=Aura de protección
 Subclass/&OathOfAncientsDescription=Un Juramento de un tiempo más primitivo que uno se dedica a utilizar la naturaleza para el bien.
 Subclass/&OathOfAncientsTitle=Juramento de los antiguos

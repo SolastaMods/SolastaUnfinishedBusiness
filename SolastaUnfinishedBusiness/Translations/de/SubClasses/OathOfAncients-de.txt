@@ -1,12 +1,12 @@
 ﻿Condition/&ConditionOathOfAncientsNaturesWrathDescription=Sie sind in Ranken verstrickt, die Bewegung verhindern, sind bei Geschicklichkeitswürfen benachteiligt und Angreifer haben einen Vorteil. Führe am Ende deines Zuges einen Kraftrettungswurf aus, um zu entkommen.
 Condition/&ConditionOathOfAncientsNaturesWrathTitle=Verstrickt
-Condition/&ConditionOathOfAncientsAuraWardingDescription=Gewinnen Sie Widerstand gegen natürliche Elemente, indem Sie den halben Schaden durch Säure, Kälte, Feuer, Blitz, Donner und Gift erleiden.
+Condition/&ConditionOathOfAncientsAuraWardingDescription=Resistenz gegen Zauberschaden erlangen.
 Condition/&ConditionOathOfAncientsAuraWardingTitle=Bewacht
 Feature/&PowerOathOfAncientsNaturesWrathDescription=Beschwört Ranken auf ein Ziel, das Ziel wird bei einem misslungenen Stärkerettungswurf festgehalten. Das Ziel würfelt einen Kraftsparwurf, um am Ende seines Zuges zu entkommen.
 Feature/&PowerOathOfAncientsNaturesWrathTitle=Channel Divinity: Zorn der Natur
 Feature/&PowerOathOfAncientsTurnFaithlessDescription=Verrichte ein Gebet, Fey, Fiends und Elementals, die in der Nähe sind, müssen einen Weisheitswurf machen, bei Misserfolg werden sie umgedreht.
 Feature/&PowerOathOfAncientsTurnFaithlessTitle=Channel Divinity: Verwandle die Treulosen
-Feature/&PowerOathOfAncientsAuraWardingDescription=Gewähre dir und deinen Mitmenschen einen uralten Schutz, der Schaden durch Elemente reduziert.
+Feature/&PowerOathOfAncientsAuraWardingDescription=Gewähre dir und deinen Mitmenschen einen uralten Schutz, der Schaden durch Zauber reduziert.
 Feature/&PowerOathOfAncientsAuraWardingTitle=Aura der Abwehr
 Subclass/&OathOfAncientsDescription=Ein Schwur aus einer primitiveren Zeit, mit dem man sich der Nutzung der Natur zum Guten widmet.
 Subclass/&OathOfAncientsTitle=Eid der Alten
