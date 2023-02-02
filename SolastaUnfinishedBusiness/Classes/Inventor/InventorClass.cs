@@ -12,6 +12,7 @@ using SolastaUnfinishedBusiness.CustomDefinitions;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Feats;
+using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Properties;
 using UnityEngine.AddressableAssets;
 using static RuleDefinitions;
@@ -24,6 +25,7 @@ internal static class InventorClass
 {
     public const string ClassName = "Inventor";
     private const string InfusionsName = "FeatureInventorInfusionPool";
+    private const string LimiterName = "Infusion";
 
     private static readonly AssetReferenceSprite Sprite =
         Sprites.GetSprite("Inventor", Resources.Inventor, 1024, 576);
@@ -32,7 +34,7 @@ internal static class InventorClass
         Sprites.GetSprite("InventorPictogram", Resources.InventorPictogram, 128);
 
     private static SpellListDefinition _spellList;
-    public static readonly LimitEffectInstances InfusionLimiter = new("Infusion", GetInfusionLimit);
+    public static readonly LimitEffectInstances InfusionLimiter = new(LimiterName, GetInfusionLimit);
 
     private static FeatureDefinitionCustomInvocationPool _learn2, _learn4, _unlearn;
     private static int _infusionPoolIncreases;
@@ -392,6 +394,8 @@ internal static class InventorClass
 
         #endregion
 
+        BuildCancelAllInfusionsRestActivity();
+
         return Class;
     }
 
@@ -597,6 +601,48 @@ internal static class InventorClass
             .AddToDB();
     }
 
+    private static void BuildCancelAllInfusionsRestActivity()
+    {
+        const string POWER_NAME = "PowerAfterRestStopInfusions";
+
+        RestActivityDefinitionBuilder
+            .Create("RestActivityShortRestStopInfusions")
+            .SetGuiPresentation(POWER_NAME, Category.Feature)
+            .SetCustomSubFeatures(new RestActivityValidationParams(false, false))
+            .SetRestData(
+                RestDefinitions.RestStage.AfterRest,
+                RestType.ShortRest,
+                RestActivityDefinition.ActivityCondition.None,
+                PowerBundleContext.UseCustomRestPowerFunctorName,
+                POWER_NAME)
+            .AddToDB();
+
+        RestActivityDefinitionBuilder
+            .Create("RestActivityLongRestStopInfusions")
+            .SetGuiPresentation(POWER_NAME, Category.Feature)
+            .SetCustomSubFeatures(new RestActivityValidationParams(false, false))
+            .SetRestData(
+                RestDefinitions.RestStage.AfterRest,
+                RestType.LongRest,
+                RestActivityDefinition.ActivityCondition.None,
+                PowerBundleContext.UseCustomRestPowerFunctorName,
+                POWER_NAME)
+            .AddToDB();
+
+        FeatureDefinitionPowerBuilder
+            .Create(POWER_NAME)
+            .SetGuiPresentation(Category.Feature, hidden: true)
+            .SetCustomSubFeatures(
+                new HasActiveInfusions(),
+                new LimitEffectInstances(LimiterName, _ => 1))
+            .SetUsesFixed(ActivationTime.Rest)
+            .SetEffectDescription(EffectDescriptionBuilder.Create()
+                .SetTargetingData(Side.Ally, RangeType.Self, 1, TargetType.Self)
+                .SetDurationData(DurationType.Instantaneous)
+                .Build())
+            .AddToDB();
+    }
+
     private static FeatureDefinition BuildMagicAdept()
     {
         return FeatureDefinitionCraftingAffinityBuilder
@@ -750,6 +796,15 @@ internal static class InventorClass
             .SetGuiPresentation(TEXT, Category.Feature)
             .AddFeatureSet(auraPower, bonusPower)
             .AddToDB();
+    }
+
+    private class HasActiveInfusions : IPowerUseValidity
+    {
+        public bool CanUsePower(RulesetCharacter character, FeatureDefinitionPower power)
+        {
+            return character.PowersUsedByMe.FirstOrDefault(p =>
+                p.PowerDefinition.GetFirstSubFeatureOfType<LimitEffectInstances>()?.Name == LimiterName) != null;
+        }
     }
 }
 

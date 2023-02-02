@@ -347,4 +347,28 @@ public static class RulesetSpellRepertoirePatcher
             return __result == 0;
         }
     }
+
+    //PATCH: support special MagicAffinityChitinousBoonAdditionalSpellSlot case with multiclass heroes
+    [HarmonyPatch(typeof(RulesetSpellRepertoire), nameof(RulesetSpellRepertoire.GetSlotsNumber))]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
+    public static class GetSlotsNumber_Patch
+    {
+        [UsedImplicitly]
+        public static bool Prefix(RulesetSpellRepertoire __instance, ref int remaining, ref int max)
+        {
+            var hero = __instance.GetCasterHero();
+
+            if (__instance.SpellCastingClass != DatabaseHelper.CharacterClassDefinitions.Warlock ||
+                !SharedSpellsContext.IsMulticaster(hero))
+            {
+                return true;
+            }
+
+            max = SharedSpellsContext.GetWarlockMaxSlots(hero);
+            remaining = SharedSpellsContext.GetWarlockUsedSlots(hero);
+
+            return false;
+        }
+    }
 }

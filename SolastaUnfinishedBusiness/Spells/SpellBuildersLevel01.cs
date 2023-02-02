@@ -1,4 +1,5 @@
-﻿using SolastaUnfinishedBusiness.Builders;
+﻿using System.Collections.Generic;
+using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Properties;
@@ -343,41 +344,91 @@ internal static partial class SpellBuilders
     internal static SpellDefinition BuildSkinOfRetribution()
     {
         const string NAME = "SkinOfRetribution";
-        const int TempHpPerLevel = 5;
+        const int TEMP_HP_PER_LEVEL = 5;
 
         var spriteReferenceCondition = Sprites.GetSprite("ConditionMirrorImage", Resources.ConditionMirrorImage, 32);
 
-        var powerSkinOfRetribution = FeatureDefinitionPowerBuilder
-            .Create($"Power{NAME}")
-            .SetGuiPresentationNoContent(true)
-            .SetUsesFixed(ActivationTime.NoCost)
-            .SetEffectDescription(
-                EffectDescriptionBuilder
+        var subSpells = new List<SpellDefinition>();
+        var damageTypes = new[]
+        {
+            DamageTypeAcid, DamageTypeCold, DamageTypeFire, DamageTypeLightning, DamageTypePoison, DamageTypeThunder
+        };
+
+        var subSpellDescription = $"Spell/&SubSpell{NAME}Description";
+        var subSpellConditionDescription = $"Spell/&Condition{NAME}Description";
+        var subSpellConditionTitle = $"Spell/&Condition{NAME}Title";
+
+        foreach (var damageType in damageTypes)
+        {
+            var title = Gui.Localize($"Tooltip/&Tag{damageType}Title");
+
+            var powerSkinOfRetribution = FeatureDefinitionPowerBuilder
+                .Create($"Power{NAME}{damageType}")
+                .SetGuiPresentationNoContent(true)
+                .SetUsesFixed(ActivationTime.NoCost)
+                .SetEffectDescription(
+                    EffectDescriptionBuilder
+                        .Create()
+                        .SetEffectForms(
+                            EffectFormBuilder
+                                .Create()
+                                .SetDamageForm(damageType, bonusDamage: TEMP_HP_PER_LEVEL)
+                                .Build())
+                        .Build())
+                .SetUniqueInstance()
+                .SetCustomSubFeatures(new ModifyMagicEffectSkinOfRetribution())
+                .AddToDB();
+
+            var damageSkinOfRetribution = FeatureDefinitionDamageAffinityBuilder
+                .Create($"DamageAffinity{NAME}{damageType}")
+                .SetGuiPresentationNoContent(true)
+                .SetDamageAffinityType(DamageAffinityType.None)
+                .SetRetaliate(powerSkinOfRetribution, 1, true)
+                .AddToDB();
+
+            var conditionSkinOfRetribution = ConditionDefinitionBuilder
+                .Create($"Condition{NAME}{damageType}")
+                .SetGuiPresentation(subSpellConditionTitle,
+                    Gui.Format(subSpellConditionDescription, title), spriteReferenceCondition
+                )
+                .SetSilent(Silent.WhenAdded)
+                .SetPossessive()
+                .SetFeatures(damageSkinOfRetribution)
+                .AddToDB();
+
+            var spell = SpellDefinitionBuilder
+                .Create(NAME + damageType)
+                .SetGuiPresentation(title,
+                    Gui.Format(subSpellDescription, title),
+                    Sprites.GetSprite(NAME, Resources.SkinOfRetribution, 128)
+                )
+                .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolAbjuration)
+                .SetVerboseComponent(false)
+                .SetVocalSpellSameType(VocalSpellSemeType.Defense)
+                .SetSpellLevel(1)
+                .SetUniqueInstance()
+                .SetEffectDescription(EffectDescriptionBuilder
                     .Create()
+                    .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
+                    .SetDurationData(DurationType.Hour, 1)
                     .SetEffectForms(
                         EffectFormBuilder
                             .Create()
-                            .SetDamageForm(DamageTypeCold, bonusDamage: 5)
+                            .SetTempHpForm(TEMP_HP_PER_LEVEL)
+                            .Build(),
+                        EffectFormBuilder
+                            .Create()
+                            .SetConditionForm(conditionSkinOfRetribution, ConditionForm.ConditionOperation.Add, true,
+                                false)
                             .Build())
+                    .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel,
+                        additionalTempHpPerIncrement: TEMP_HP_PER_LEVEL)
+                    .SetParticleEffectParameters(Blur)
                     .Build())
-            .SetUniqueInstance()
-            .SetCustomSubFeatures(new ModifyMagicEffectSkinOfRetribution())
-            .AddToDB();
+                .AddToDB();
 
-        var damageSkinOfRetribution = FeatureDefinitionDamageAffinityBuilder
-            .Create($"DamageAffinity{NAME}")
-            .SetGuiPresentationNoContent(true)
-            .SetDamageAffinityType(DamageAffinityType.None)
-            .SetRetaliate(powerSkinOfRetribution, 1, true)
-            .AddToDB();
-
-        var conditionSkinOfRetribution = ConditionDefinitionBuilder
-            .Create($"Condition{NAME}")
-            .SetGuiPresentation(Category.Spell, spriteReferenceCondition)
-            .SetSilent(Silent.WhenAdded)
-            .SetPossessive()
-            .SetFeatures(damageSkinOfRetribution)
-            .AddToDB();
+            subSpells.Add(spell);
+        }
 
         return SpellDefinitionBuilder
             .Create(NAME)
@@ -386,21 +437,13 @@ internal static partial class SpellBuilders
             .SetVerboseComponent(false)
             .SetVocalSpellSameType(VocalSpellSemeType.Defense)
             .SetSpellLevel(1)
+            .SetSubSpells(subSpells.ToArray())
             .SetEffectDescription(EffectDescriptionBuilder
                 .Create()
                 .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
                 .SetDurationData(DurationType.Hour, 1)
-                .SetEffectForms(
-                    EffectFormBuilder
-                        .Create()
-                        .SetConditionForm(conditionSkinOfRetribution, ConditionForm.ConditionOperation.Add, true, false)
-                        .Build(),
-                    EffectFormBuilder
-                        .Create()
-                        .SetTempHpForm(TempHpPerLevel)
-                        .Build())
                 .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel,
-                    additionalTempHpPerIncrement: TempHpPerLevel)
+                    additionalTempHpPerIncrement: TEMP_HP_PER_LEVEL)
                 .SetParticleEffectParameters(Blur)
                 .Build())
             .AddToDB();

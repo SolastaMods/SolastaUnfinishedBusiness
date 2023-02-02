@@ -86,7 +86,7 @@ public static class RulesetImplementationManagerPatcher
             //PATCH: allows for extra careful tracking of summoned items
             //removes tracked items from any character, container or loot pile
             //used for Inventor's item summoning
-            ExtraCarefulTrackedItem.Process(__instance, activeEffect);
+            ExtraCarefulTrackedItem.Process(activeEffect);
         }
 
         [UsedImplicitly]

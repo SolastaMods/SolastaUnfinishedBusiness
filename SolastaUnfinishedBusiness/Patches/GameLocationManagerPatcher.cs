@@ -7,6 +7,7 @@ using HarmonyLib;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.Extensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
+using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.Models;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.RecipeDefinitions;
@@ -69,6 +70,10 @@ public static class GameLocationManagerPatcher
                 gameLoreService.LearnRecipe(RecipeBasic_Bolts);
             }
             //END BUGFIX
+
+            //BUGFIX: remove carefully tracked dynamic item properties that have effect guid, but effect is removed
+            //fixes Inventor's Infusions sometimes breaking and lingering forever without ability to remove them
+            ExtraCarefulTrackedItem.FixDynamicPropertiesWithoutEffect();
 
             //PATCH: HideExitsAndTeleportersGizmosIfNotDiscovered
             if (!Main.Settings.HideExitsAndTeleportersGizmosIfNotDiscovered || Gui.GameLocation.UserLocation == null)

@@ -898,22 +898,12 @@ public static class RulesetCharacterPatcher
                 slots[i] += SharedSpellsContext.FullCastingSlots[sharedCasterLevel - 1].Slots[i - 1];
             }
 
-            // adds warlock slots
-            var warlockAdditionalSlots = hero.FeaturesToBrowse
-                .OfType<FeatureDefinitionMagicAffinity>()
-                .Where(x => x == MagicAffinityChitinousBoonAdditionalSpellSlot)
-                .OfType<ISpellCastingAffinityProvider>()
-                .SelectMany(x => x.AdditionalSlots)
-                .Sum(x => x.SlotsNumber);
-
-            var warlockCasterLevel = SharedSpellsContext.GetWarlockCasterLevel(hero);
             var warlockSpellLevel = SharedSpellsContext.GetWarlockSpellLevel(hero);
 
             for (var i = 1; i <= warlockSpellLevel; i++)
             {
                 slots.TryAdd(i, 0);
-                slots[i] += SharedSpellsContext.WarlockCastingSlots[warlockCasterLevel - 1].Slots[i - 1] +
-                            warlockAdditionalSlots;
+                slots[i] += SharedSpellsContext.GetWarlockMaxSlots(hero);
             }
 
             // reassign slots back to repertoires except for race ones

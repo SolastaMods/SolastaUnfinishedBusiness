@@ -1,5 +1,6 @@
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
+using SolastaUnfinishedBusiness.CustomInterfaces;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterSubclassDefinitions;
@@ -108,18 +109,37 @@ internal sealed class OathOfAncients : AbstractSubclass
         // LEVEL 7
         //
 
-        //Grants resistance against some elemental damage though I would like to change to resistance to spells eventually
+        var conditionAuraWardingResistance = ConditionDefinitionBuilder
+            .Create($"Condition{NAME}AuraWardingResistance")
+            .SetGuiPresentationNoContent(true)
+            .AddFeatures(DamageAffinityAcidResistance,
+                DamageAffinityBludgeoningResistance,
+                DamageAffinityColdResistance,
+                DamageAffinityFireResistance,
+                DamageAffinityForceDamageResistance,
+                DamageAffinityLightningResistance,
+                DamageAffinityNecroticResistance,
+                DamageAffinityPiercingResistance,
+                DamageAffinityPoisonResistance,
+                DamageAffinityPsychicResistance,
+                DamageAffinityRadiantResistance,
+                DamageAffinitySlashingResistance,
+                DamageAffinityThunderResistance)
+            .AddSpecialInterruptions(ConditionInterruption.Damaged)
+            .SetSilent(Silent.WhenAddedOrRemoved)
+            .AddToDB();
+
+        var featureAuraWarding = FeatureDefinitionBuilder
+            .Create($"Feature{NAME}AuraWarding")
+            .SetCustomSubFeatures(new AuraWardingModifyMagic(conditionAuraWardingResistance))
+            .SetGuiPresentationNoContent(true)
+            .AddToDB();
+
         var conditionAuraWarding = ConditionDefinitionBuilder
             .Create($"Condition{NAME}AuraWarding")
-            .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionAuraOfProtection)
-            .SetSpecialDuration(DurationType.Permanent, 0, TurnOccurenceType.StartOfTurn)
+            .SetGuiPresentation($"Power{NAME}AuraWarding", Category.Feature, ConditionDefinitions.ConditionBlessed)
             .SetSilent(Silent.WhenAddedOrRemoved)
-            .AddFeatures(DamageAffinityAcidResistance)
-            .AddFeatures(DamageAffinityColdResistance)
-            .AddFeatures(DamageAffinityFireResistance)
-            .AddFeatures(DamageAffinityLightningResistance)
-            .AddFeatures(DamageAffinityThunderResistance)
-            .AddFeatures(DamageAffinityPoisonResistance)
+            .SetFeatures(featureAuraWarding)
             .AddToDB();
 
         var powerAuraWarding = FeatureDefinitionPowerBuilder
@@ -148,4 +168,40 @@ internal sealed class OathOfAncients : AbstractSubclass
 
     internal override FeatureDefinitionSubclassChoice SubclassChoice => FeatureDefinitionSubclassChoices
         .SubclassChoicePaladinSacredOaths;
+
+    private sealed class AuraWardingModifyMagic : IModifyMagicEffectOnTarget
+    {
+        private readonly ConditionDefinition _conditionWardingAura;
+
+        internal AuraWardingModifyMagic(ConditionDefinition conditionWardingAura)
+        {
+            _conditionWardingAura = conditionWardingAura;
+        }
+
+        public EffectDescription ModifyEffect(
+            BaseDefinition definition,
+            EffectDescription effect,
+            RulesetCharacter caster,
+            RulesetCharacter target)
+        {
+            if (definition is not SpellDefinition)
+            {
+                return effect;
+            }
+
+            var rulesetCondition = RulesetCondition.CreateActiveCondition(
+                target.Guid,
+                _conditionWardingAura,
+                DurationType.Round,
+                1,
+                TurnOccurenceType.StartOfTurn,
+                target.Guid,
+                target.CurrentFaction.Name
+            );
+
+            target.AddConditionOfCategory(AttributeDefinitions.TagCombat, rulesetCondition);
+
+            return effect;
+        }
+    }
 }

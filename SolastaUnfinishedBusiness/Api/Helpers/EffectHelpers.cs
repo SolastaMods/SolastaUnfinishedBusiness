@@ -83,6 +83,16 @@ internal static class EffectHelpers
         return !RulesetEntity.TryGetEntity<RulesetEffect>(guid, out var entity) ? null : entity;
     }
 
+    internal static RulesetItem GetItemByGuid(ulong guid)
+    {
+        if (guid == 0)
+        {
+            return null;
+        }
+
+        return !RulesetEntity.TryGetEntity<RulesetItem>(guid, out var item) ? null : item;
+    }
+
     internal static List<RulesetCharacter> GetSummonedCreatures(RulesetEffect effect)
     {
         var summons = new List<RulesetCharacter>();
