@@ -300,7 +300,11 @@ internal static class Infusions
 
     private static EffectDescription BuildInfuseItemWithFeaturesEffect(params FeatureDefinition[] features)
     {
-        var properties = features.Select(f => new FeatureUnlockByLevel(f, 0));
+        var properties = features.Select(f =>
+        {
+            f.AddCustomSubFeatures(ExtraCarefulTrackedItem.Marker);
+            return new FeatureUnlockByLevel(f, 0);
+        });
 
         return EffectDescriptionBuilder.Create()
             .SetAnimationMagicEffect(AnimationDefinitions.AnimationMagicEffect.Animation1)
