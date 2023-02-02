@@ -262,6 +262,63 @@ internal static partial class SpellBuilders
         return spell;
     }
 
+    internal static SpellDefinition BuildMinkSpike()
+    {
+        const string NAME = "MinkSpike";
+
+        var spriteReference = Sprites.GetSprite(NAME, Resources.MinkSpike, 128, 128);
+
+        var conditionMinkSpike = ConditionDefinitionBuilder
+            .Create($"Condition{NAME}")
+            .SetGuiPresentation(Category.Condition)
+            .SetSpecialDuration(DurationType.Round, 1)
+            .SetFeatures(
+                FeatureDefinitionSavingThrowAffinityBuilder
+                    .Create($"SavingThrowAffinity{NAME}")
+                    .SetGuiPresentationNoContent(true)
+                    .SetModifiers(FeatureDefinitionSavingThrowAffinity.ModifierType.AddDice, DieType.D4, -1, false,
+                        AttributeDefinitions.Strength,
+                        AttributeDefinitions.Dexterity,
+                        AttributeDefinitions.Constitution,
+                        AttributeDefinitions.Wisdom,
+                        AttributeDefinitions.Intelligence,
+                        AttributeDefinitions.Charisma)
+                    .AddToDB())
+            .SetSpecialInterruptions(ConditionInterruption.SavingThrow)
+            .AddToDB();
+
+        var effectDescription = EffectDescriptionBuilder
+            .Create()
+            .SetEffectAdvancement(EffectIncrementMethod.CasterLevelTable, 5, additionalDicePerIncrement: 1)
+            .SetDurationData(DurationType.Instantaneous)
+            .SetTargetingData(Side.Enemy, RangeType.MeleeHit, 12, TargetType.Individuals)
+            .SetEffectForms(
+                EffectFormBuilder
+                    .Create()
+                    .SetDamageForm(DamageTypePsychic, 1, DieType.D6)
+                    .HasSavingThrow(EffectSavingThrowType.Negates)
+                    .Build(),
+                EffectFormBuilder
+                    .Create()
+                    .SetConditionForm(conditionMinkSpike, ConditionForm.ConditionOperation.Add)
+                    .HasSavingThrow(EffectSavingThrowType.Negates)
+                    .Build())
+            .Build();
+
+        var spell = SpellDefinitionBuilder
+            .Create(NAME)
+            .SetGuiPresentation(Category.Spell, spriteReference)
+            .SetEffectDescription(effectDescription)
+            .SetCastingTime(ActivationTime.Action)
+            .SetSpellLevel(0)
+            .SetVerboseComponent(false)
+            .SetVocalSpellSameType(VocalSpellSemeType.Attack)
+            .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolEnchantment)
+            .AddToDB();
+
+        return spell;
+    }
+
     internal static SpellDefinition BuildMinorLifesteal()
     {
         var spriteReference = Sprites.GetSprite("MinorLifesteal", Resources.MinorLifesteal, 128);
