@@ -6,19 +6,26 @@ namespace SolastaUnfinishedBusiness.CustomBehaviors;
 internal class ExtraCarefulTrackedItem
 {
     internal static readonly ExtraCarefulTrackedItem Marker = new();
+
     private ExtraCarefulTrackedItem() { }
 
-    internal static void Process(RulesetImplementationManager rules, RulesetEffect activeEffect)
+    internal static void Process(RulesetEffect activeEffect)
     {
         if (!activeEffect.SourceDefinition.HasSubFeatureOfType<ExtraCarefulTrackedItem>())
         {
             return;
         }
 
+        ProcessSummonedItems(activeEffect);
+        ProcessItemProperties(activeEffect);
+    }
+
+    private static void ProcessSummonedItems(RulesetEffect activeEffect)
+    {
         var allEntities = ServiceRepository
             .GetService<IRulesetEntityService>()
             .RulesetEntities.Values;
-
+        
         var characters = allEntities
             .Select(e => e as RulesetCharacter)
             .Where(e => e != null)
@@ -31,22 +38,12 @@ internal class ExtraCarefulTrackedItem
 
         var itemService = ServiceRepository.GetService<IGameLocationItemService>();
 
-        if (activeEffect.TrackedSummonedItemGuids.Count <= 0)
+        if (activeEffect.TrackedSummonedItemGuids.Empty())
         {
             return;
         }
 
-        rules.summonedItemGuidsToProcess.AddRange(activeEffect.TrackedSummonedItemGuids);
-
-        foreach (var guid in rules.summonedItemGuidsToProcess)
-        {
-            if (RulesetEntity.TryGetEntity<RulesetItem>(guid, out var entity))
-            {
-                entity.ItemDestroyed -= activeEffect.ItemDestroyed;
-            }
-        }
-
-        foreach (var guid in rules.summonedItemGuidsToProcess)
+        foreach (var guid in activeEffect.TrackedSummonedItemGuids)
         {
             if (!RulesetEntity.TryGetEntity<RulesetItem>(guid, out var trackedItem))
             {
@@ -66,10 +63,42 @@ internal class ExtraCarefulTrackedItem
             //TODO: check if it works with merchants
 
             itemService?.LootItem(trackedItem);
+            trackedItem.ItemDestroyed -= activeEffect.ItemDestroyed;
             trackedItem.Unregister();
         }
 
         activeEffect.TrackedSummonedItemGuids.Clear();
-        rules.summonedItemGuidsToProcess.Clear();
+    }
+
+    private static void ProcessItemProperties(RulesetEffect activeEffect)
+    {
+        if (activeEffect.TrackedItemPropertyGuids.Empty())
+        {
+            return;
+        }
+
+        var items = ServiceRepository
+            .GetService<IRulesetEntityService>()
+            .RulesetEntities.Values.OfType<RulesetItem>().ToList();
+        
+        foreach (var item in items)
+        {
+            var propertyGuids = activeEffect.trackedItemPropertyGuids;
+            var properties = item.DynamicItemProperties
+                .Where(p => propertyGuids.Contains(p.guid))
+                .ToList();
+
+            foreach (var itemProperty in properties)
+            {
+                if (itemProperty.Guid > 0)
+                {
+                    itemProperty.Unregister();
+                }
+
+                item.dynamicItemProperties.Remove(itemProperty);
+            }
+
+            item.ItemPropertyRemoved -= activeEffect.ItemPropertyRemoved;
+        }
     }
 }
