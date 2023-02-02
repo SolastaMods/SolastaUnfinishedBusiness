@@ -327,7 +327,8 @@ internal static class MeleeCombatFeats
 
         var powerAttack = FeatureDefinitionPowerBuilder
             .Create("PowerAttack")
-            .SetGuiPresentation("FeatPowerAttack", Category.Feat,
+            .SetGuiPresentation("Feat/&FeatPowerAttackTitle",
+                Gui.Format("Feat/&FeatPowerAttackDescription", Main.Settings.DeadEyeAndPowerAttackBaseValue.ToString()),
                 Sprites.GetSprite("PowerAttackIcon", Resources.PowerAttackIcon, 128, 64))
             .SetUsesFixed(ActivationTime.NoCost)
             .SetEffectDescription(EffectDescriptionBuilder
