@@ -377,7 +377,7 @@ internal static partial class SpellBuilders
                                 .SetDamageForm(damageType, bonusDamage: TEMP_HP_PER_LEVEL)
                                 .Build())
                         .Build())
-                .SetUniqueInstance()    /* want to move this */
+                .SetUniqueInstance()
                 .SetCustomSubFeatures(new ModifyMagicEffectSkinOfRetribution())
                 .AddToDB();
 
@@ -388,7 +388,6 @@ internal static partial class SpellBuilders
                 .SetRetaliate(powerSkinOfRetribution, 1, true)
                 .AddToDB();
 
-            // TODO: Fix TITLE -- should actually get from translator file
             var conditionSkinOfRetribution = ConditionDefinitionBuilder
                 .Create($"Condition{NAME}{damageType}")
                 .SetGuiPresentation(subSpellConditionTitle,
