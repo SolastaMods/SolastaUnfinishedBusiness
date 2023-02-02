@@ -366,6 +366,7 @@ You can use a bonus action to select a weapon. Its attacks count as magical and 
 [*][b]Illuminating Sphere[/b]: Causes light sources such as torches and mana lamps in the area of effect to light up.
 [*][b]Light[/b]: An object you can touch emits a powerful light for a limited time.
 [*][b]Light[/b]: An object you can touch emits a powerful light for a limited time.
+[*][b]Mink Spike[/b]: You drive a disorienting spike of psychic energy into the mind of one creature you can see within range. The target must succeed on an Intelligence saving throw or take 1d6 psychic damage and subtract 1d4 from the next saving throw it makes before the end of your next turn.
 [*][b]Minor Lifesteal[/b]: You drain life energy from a hostile creature you can see within range. Deal 1d8 Necrotic damage to target on hit, heal amount of HP equal to half of damage dealt and gain 1d4 temporary hit points. This spell has no effect on undead or constructs. Both damage and temporary HP gain additional die at levels 5, 11 and 17.
 [*][b]Poison Spray[/b]: Fire a poison spray at an enemy you can see, within range.
 [*][b]Produce Flame[/b]: Conjures a flickering flame in your hand, which generates light or can be hurled to inflict fire damage.
@@ -386,6 +387,7 @@ This spell's damage increases by 1d6 when you reach 5th level (2d6), 11th level 
 [*][b]Sparkle[/b]: Target up to three objects that can be illuminated and light them up immediately.
 [*][b]Sunlit Blade[/b]: Make a melee attack with a weapon. On a hit, the target suffers the attack's normal effects, and is enveloped in glowing radiant energy, shedding dim light for the turn. Next attack against this creature while it is highlighted is done with advantage.
 At 5th level, the melee attack deals an extra 1d8 radiant damage to the target. The damage increases by another 1d8 at 11th level and 17th level.
+[*][b]Sword Storm[/b]: You create a momentary circle of spectral blades that sweep around you. All other creatures within 5 feet of you must each succeed on a Dexterity saving throw or take 1d6 force damage.
 [*][b]Thorny Vines[/b]: You create a long, whip-like vine covered in thorns that lashes out at your command toward a creature in range. Make a ranged spell attack against the target. If the attack hits, the creature takes 1d6 piercing damage, and you pull the creature up to 10 feet closer to you.
 [*][b]True Strike[/b]: Increases your chance to hit a target you can see, one time.
 [*][b]Venomous Spike[/b]: A bone spike that pierces and poisons its target.
@@ -434,7 +436,7 @@ When you cast this spell using a spell slot of 2nd level or higher, the spell cr
 [*][b]Searing Smite[/b]: Your next hit causes additional fire damage and your target ignites in flames.
 [*][b]Shield[/b]: Increase your AC by 5 just before you would take a hit.
 [*][b]Shield of Faith[/b]: Increase an ally's AC by 2 for a limited time.
-[*][b]Skin of Retribution[/b]: A protective magical force surrounds you, manifesting as a spectral frost that covers you and your gear. You gain 5 temporary hit points for the duration. If a creature hits you with a melee attack while you have these hit points, the creature takes 5 cold damage.
+[*][b]Skin of Retribution[/b]: Choose a type: Acid, Cold, Fire, Lightning, Poison, or Thunder. A protective elemental skin envelops you, covering you and your gear. You gain 5 temporary hit points per spell level for the duration. In addition, if a creature hits you with a melee attack while you have these temporary hit points, the creature takes 5 damage of the chosen type per spell level.
 [*][b]Sleep[/b]: Put a number of creatures to sleep for a limited time. Roll 5d8: the total is how many hit points of creatures this spell can affect.
 [*][b]Thunderous Smite[/b]: Your next hit causes additional thunder damage that is audible within 300 feet of you.
 [*][b]Thunderwave[/b]: Emit a wave of force that causes damage and pushes creatures and objects away.

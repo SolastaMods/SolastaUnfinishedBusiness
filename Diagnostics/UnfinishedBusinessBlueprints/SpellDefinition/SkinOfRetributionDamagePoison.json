@@ -1,19 +1,12 @@
 {
   "$type": "SpellDefinition, Assembly-CSharp",
-  "spellsBundle": true,
-  "subspellsList": [
-    "Definition:SkinOfRetributionDamageAcid:1e52bd11-6272-5877-87a2-5ad2443ed285",
-    "Definition:SkinOfRetributionDamageCold:e0a2a755-2576-509e-af6d-a0a2d2f5a038",
-    "Definition:SkinOfRetributionDamageFire:afa8c181-ca65-5646-9698-5d59ee7d7f17",
-    "Definition:SkinOfRetributionDamageLightning:c8c54035-0a9f-5981-ab81-c70885fabecf",
-    "Definition:SkinOfRetributionDamagePoison:432c80f7-716e-50d5-88d0-3cdf3ca185cb",
-    "Definition:SkinOfRetributionDamageThunder:63008b6d-6a03-5f82-9630-0249dfb61bac"
-  ],
+  "spellsBundle": false,
+  "subspellsList": [],
   "implemented": true,
   "schoolOfMagic": "SchoolAbjuration",
   "spellLevel": 1,
   "ritual": false,
-  "uniqueInstance": false,
+  "uniqueInstance": true,
   "castingTime": "Action",
   "reactionContext": "None",
   "ritualCastingTime": "Action",
@@ -77,7 +70,60 @@
     "effectPoolAmount": 60,
     "effectApplication": "All",
     "effectFormFilters": [],
-    "effectForms": [],
+    "effectForms": [
+      {
+        "$type": "EffectForm, Assembly-CSharp",
+        "formType": "TemporaryHitPoints",
+        "addBonusMode": "None",
+        "applyLevel": "No",
+        "levelType": "ClassLevel",
+        "levelMultiplier": 1,
+        "diceByLevelTable": [],
+        "createdByCharacter": false,
+        "createdByCondition": false,
+        "hasSavingThrow": false,
+        "savingThrowAffinity": "None",
+        "dcModifier": 0,
+        "canSaveToCancel": false,
+        "saveOccurence": "EndOfTurn",
+        "temporaryHitPointsForm": {
+          "$type": "TemporaryHitPointsForm, Assembly-CSharp",
+          "diceNumber": 0,
+          "dieType": "D1",
+          "bonusHitPoints": 5,
+          "applyToSelf": false
+        },
+        "hasFilterId": false,
+        "filterId": 0
+      },
+      {
+        "$type": "EffectForm, Assembly-CSharp",
+        "formType": "Condition",
+        "addBonusMode": "None",
+        "applyLevel": "No",
+        "levelType": "ClassLevel",
+        "levelMultiplier": 1,
+        "diceByLevelTable": [],
+        "createdByCharacter": false,
+        "createdByCondition": false,
+        "hasSavingThrow": false,
+        "savingThrowAffinity": "None",
+        "dcModifier": 0,
+        "canSaveToCancel": false,
+        "saveOccurence": "EndOfTurn",
+        "conditionForm": {
+          "$type": "ConditionForm, Assembly-CSharp",
+          "conditionDefinitionName": "ConditionSkinOfRetributionDamagePoison",
+          "conditionDefinition": "Definition:ConditionSkinOfRetributionDamagePoison:ef02048e-ca30-5587-a55e-d1f7bfa32d3e",
+          "operation": "Add",
+          "conditionsList": [],
+          "applyToSelf": true,
+          "forceOnSelf": false
+        },
+        "hasFilterId": false,
+        "filterId": 0
+      }
+    ],
     "specialFormsDescription": "",
     "effectAdvancement": {
       "$type": "EffectAdvancement, Assembly-CSharp",
@@ -294,8 +340,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Spell/&SkinOfRetributionTitle",
-    "description": "Spell/&SkinOfRetributionDescription",
+    "title": "Poison Damage",
+    "description": "The creature takes 5 Poison Damage per spell level.",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "331d497f-bb40-5372-93d7-5584cf598a49",
@@ -315,7 +361,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "424c953e-e984-58b1-a84f-b19bb50cdc1b",
+  "guid": "432c80f7-716e-50d5-88d0-3cdf3ca185cb",
   "contentPack": 9999,
-  "name": "SkinOfRetribution"
+  "name": "SkinOfRetributionDamagePoison"
 }

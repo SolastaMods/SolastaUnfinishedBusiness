@@ -4,7 +4,7 @@
   "parentCondition": null,
   "conditionType": "Beneficial",
   "features": [
-    "Definition:DamageAffinitySkinOfRetribution:46db0433-e7ae-5219-84df-d4e09bb52b19"
+    "Definition:DamageAffinitySkinOfRetributionDamageThunder:e650335f-f032-551e-9748-62e8cac89aa2"
   ],
   "allowMultipleInstances": false,
   "silentWhenAdded": true,
@@ -129,7 +129,7 @@
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "Spell/&ConditionSkinOfRetributionTitle",
-    "description": "Spell/&ConditionSkinOfRetributionDescription",
+    "description": "If a creature hits you with a melee attack while you have these temporary hit points, the creature takes 5 Thunder Damage per spell level.",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "2190a678-d008-5cd6-90e0-a269c474877f",
@@ -149,7 +149,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "756ee728-5506-5f03-b552-b94004839697",
+  "guid": "75f38f06-77b8-5f1f-9b93-5286f8f63027",
   "contentPack": 9999,
-  "name": "ConditionSkinOfRetribution"
+  "name": "ConditionSkinOfRetributionDamageThunder"
 }

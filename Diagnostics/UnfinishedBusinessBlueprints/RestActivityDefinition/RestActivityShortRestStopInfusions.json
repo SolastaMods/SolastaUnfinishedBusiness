@@ -1,0 +1,36 @@
+{
+  "$type": "RestActivityDefinition, Assembly-CSharp",
+  "restStage": "AfterRest",
+  "restType": "ShortRest",
+  "condition": "None",
+  "functor": "UseCustomRestPower",
+  "stringParameter": "PowerAfterRestStopInfusions",
+  "checkConsciousness": false,
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feature/&PowerAfterRestStopInfusionsTitle",
+    "description": "Feature/&PowerAfterRestStopInfusionsDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "6551ce2e-7787-5d1d-a1f3-1a8deb814ae0",
+  "contentPack": 9999,
+  "name": "RestActivityShortRestStopInfusions"
+}
