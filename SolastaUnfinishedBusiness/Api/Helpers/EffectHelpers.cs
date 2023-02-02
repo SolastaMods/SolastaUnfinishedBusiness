@@ -82,7 +82,7 @@ internal static class EffectHelpers
 
         return !RulesetEntity.TryGetEntity<RulesetEffect>(guid, out var entity) ? null : entity;
     }
-    
+
     internal static RulesetItem GetItemByGuid(ulong guid)
     {
         if (guid == 0)

@@ -306,8 +306,7 @@ internal static class PowerBundle
         BaseDefinition definition,
         [CanBeNull] RulesetCharacter caster)
     {
-        
-         var currentAction = Global.CurrentAction;
+        var currentAction = Global.CurrentAction;
 
         if (currentAction != null)
         {
@@ -321,7 +320,7 @@ internal static class PowerBundle
                 }
             }
         }
-        
+
         var result = original;
 
         if (caster == null)

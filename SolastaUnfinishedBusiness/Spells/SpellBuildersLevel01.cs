@@ -1,4 +1,5 @@
-﻿using SolastaUnfinishedBusiness.Builders;
+﻿using System.Collections.Generic;
+using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Properties;
@@ -6,7 +7,6 @@ using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.ConditionDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
 using static RuleDefinitions;
-using System.Collections.Generic;
 
 namespace SolastaUnfinishedBusiness.Spells;
 
@@ -348,7 +348,7 @@ internal static partial class SpellBuilders
 
         var spriteReferenceCondition = Sprites.GetSprite("ConditionMirrorImage", Resources.ConditionMirrorImage, 32);
 
-        List<SpellDefinition> subSpells = new List<SpellDefinition>();
+        var subSpells = new List<SpellDefinition>();
         var damageTypes = new[]
         {
             DamageTypeAcid, DamageTypeCold, DamageTypeFire, DamageTypeLightning, DamageTypePoison, DamageTypeThunder
@@ -358,7 +358,8 @@ internal static partial class SpellBuilders
         var subSpellConditionDescription = $"Spell/&Condition{NAME}Description";
         var subSpellConditionTitle = $"Spell/&Condition{NAME}Title";
 
-        foreach (var damageType in damageTypes) {
+        foreach (var damageType in damageTypes)
+        {
             var title = Gui.Localize($"Tooltip/&Tag{damageType}Title");
 
             var powerSkinOfRetribution = FeatureDefinitionPowerBuilder
@@ -397,8 +398,8 @@ internal static partial class SpellBuilders
 
             var spell = SpellDefinitionBuilder
                 .Create(NAME + damageType)
-                .SetGuiPresentation(title, 
-                    Gui.Format(subSpellDescription, title), 
+                .SetGuiPresentation(title,
+                    Gui.Format(subSpellDescription, title),
                     Sprites.GetSprite(NAME, Resources.SkinOfRetribution, 128)
                 )
                 .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolAbjuration)
@@ -417,7 +418,8 @@ internal static partial class SpellBuilders
                             .Build(),
                         EffectFormBuilder
                             .Create()
-                            .SetConditionForm(conditionSkinOfRetribution, ConditionForm.ConditionOperation.Add, true, false)
+                            .SetConditionForm(conditionSkinOfRetribution, ConditionForm.ConditionOperation.Add, true,
+                                false)
                             .Build())
                     .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel,
                         additionalTempHpPerIncrement: TEMP_HP_PER_LEVEL)

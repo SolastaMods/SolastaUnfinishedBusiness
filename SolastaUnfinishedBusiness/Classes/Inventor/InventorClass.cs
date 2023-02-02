@@ -25,6 +25,7 @@ internal static class InventorClass
 {
     public const string ClassName = "Inventor";
     private const string InfusionsName = "FeatureInventorInfusionPool";
+    private const string LimiterName = "Infusion";
 
     private static readonly AssetReferenceSprite Sprite =
         Sprites.GetSprite("Inventor", Resources.Inventor, 1024, 576);
@@ -33,7 +34,6 @@ internal static class InventorClass
         Sprites.GetSprite("InventorPictogram", Resources.InventorPictogram, 128);
 
     private static SpellListDefinition _spellList;
-    private const string LimiterName = "Infusion";
     public static readonly LimitEffectInstances InfusionLimiter = new(LimiterName, GetInfusionLimit);
 
     private static FeatureDefinitionCustomInvocationPool _learn2, _learn4, _unlearn;
@@ -393,7 +393,7 @@ internal static class InventorClass
             .AddToDB());
 
         #endregion
-        
+
         BuildCancelAllInfusionsRestActivity();
 
         return Class;
@@ -600,7 +600,7 @@ internal static class InventorClass
             .SetUsesFixed(ActivationTime.Action, RechargeRate.LongRest, 1, 2)
             .AddToDB();
     }
-    
+
     private static void BuildCancelAllInfusionsRestActivity()
     {
         const string POWER_NAME = "PowerAfterRestStopInfusions";
@@ -641,14 +641,6 @@ internal static class InventorClass
                 .SetDurationData(DurationType.Instantaneous)
                 .Build())
             .AddToDB();
-    }
-    
-    private class HasActiveInfusions: IPowerUseValidity
-    {
-        public bool CanUsePower(RulesetCharacter character, FeatureDefinitionPower power)
-        {
-            return character.PowersUsedByMe.FirstOrDefault(p => p.PowerDefinition.GetFirstSubFeatureOfType<LimitEffectInstances>()?.Name == LimiterName) != null;
-        }
     }
 
     private static FeatureDefinition BuildMagicAdept()
@@ -804,6 +796,15 @@ internal static class InventorClass
             .SetGuiPresentation(TEXT, Category.Feature)
             .AddFeatureSet(auraPower, bonusPower)
             .AddToDB();
+    }
+
+    private class HasActiveInfusions : IPowerUseValidity
+    {
+        public bool CanUsePower(RulesetCharacter character, FeatureDefinitionPower power)
+        {
+            return character.PowersUsedByMe.FirstOrDefault(p =>
+                p.PowerDefinition.GetFirstSubFeatureOfType<LimitEffectInstances>()?.Name == LimiterName) != null;
+        }
     }
 }
 

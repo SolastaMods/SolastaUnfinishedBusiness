@@ -1,5 +1,6 @@
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
+using SolastaUnfinishedBusiness.CustomInterfaces;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterSubclassDefinitions;
@@ -108,33 +109,31 @@ internal sealed class OathOfAncients : AbstractSubclass
         // LEVEL 7
         //
 
-         var conditionAuraWardingResistance = ConditionDefinitionBuilder
+        var conditionAuraWardingResistance = ConditionDefinitionBuilder
             .Create($"Condition{NAME}AuraWardingResistance")
             .SetGuiPresentationNoContent(true)
             .AddFeatures(DamageAffinityAcidResistance,
-             DamageAffinityBludgeoningResistance,
-             DamageAffinityColdResistance,
-             DamageAffinityFireResistance,
-             DamageAffinityForceDamageResistance,
-             DamageAffinityLightningResistance,
-             DamageAffinityNecroticResistance,
-             DamageAffinityPiercingResistance,
-             DamageAffinityPoisonResistance,
-             DamageAffinityPsychicResistance,
-             DamageAffinityRadiantResistance,
-             DamageAffinitySlashingResistance,
-             DamageAffinityThunderResistance)
+                DamageAffinityBludgeoningResistance,
+                DamageAffinityColdResistance,
+                DamageAffinityFireResistance,
+                DamageAffinityForceDamageResistance,
+                DamageAffinityLightningResistance,
+                DamageAffinityNecroticResistance,
+                DamageAffinityPiercingResistance,
+                DamageAffinityPoisonResistance,
+                DamageAffinityPsychicResistance,
+                DamageAffinityRadiantResistance,
+                DamageAffinitySlashingResistance,
+                DamageAffinityThunderResistance)
             .AddSpecialInterruptions(ConditionInterruption.Damaged)
             .SetSilent(Silent.WhenAddedOrRemoved)
             .AddToDB();
 
-        
         var featureAuraWarding = FeatureDefinitionBuilder
             .Create($"Feature{NAME}AuraWarding")
             .SetCustomSubFeatures(new AuraWardingModifyMagic(conditionAuraWardingResistance))
             .SetGuiPresentationNoContent(true)
             .AddToDB();
-        
 
         var conditionAuraWarding = ConditionDefinitionBuilder
             .Create($"Condition{NAME}AuraWarding")
@@ -169,39 +168,38 @@ internal sealed class OathOfAncients : AbstractSubclass
 
     internal override FeatureDefinitionSubclassChoice SubclassChoice => FeatureDefinitionSubclassChoices
         .SubclassChoicePaladinSacredOaths;
-        
+
     private sealed class AuraWardingModifyMagic : IModifyMagicEffectOnTarget
     {
         private readonly ConditionDefinition _conditionWardingAura;
+
         internal AuraWardingModifyMagic(ConditionDefinition conditionWardingAura)
         {
             _conditionWardingAura = conditionWardingAura;
         }
 
         public EffectDescription ModifyEffect(
-        BaseDefinition definition,
-        EffectDescription effect,
-        RulesetCharacter caster,
-        RulesetCharacter target)
+            BaseDefinition definition,
+            EffectDescription effect,
+            RulesetCharacter caster,
+            RulesetCharacter target)
         {
-            if ( definition is not SpellDefinition spellDefinition)
+            if (definition is not SpellDefinition)
             {
                 return effect;
             }
 
-            var me = target;
-
             var rulesetCondition = RulesetCondition.CreateActiveCondition(
-                me.Guid,
+                target.Guid,
                 _conditionWardingAura,
                 DurationType.Round,
                 1,
                 TurnOccurenceType.StartOfTurn,
-                me.Guid,
-                me.CurrentFaction.Name
-                );
+                target.Guid,
+                target.CurrentFaction.Name
+            );
 
-            me.AddConditionOfCategory(AttributeDefinitions.TagCombat, rulesetCondition);
+            target.AddConditionOfCategory(AttributeDefinitions.TagCombat, rulesetCondition);
 
             return effect;
         }

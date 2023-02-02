@@ -218,7 +218,8 @@ internal static partial class SpellBuilders
             RulesetCharacter character)
         {
             var rulesetCondition =
-                character.AllConditions.FirstOrDefault(x => x.EffectDefinitionName != null && x.EffectDefinitionName.Contains("SkinOfRetribution"));
+                character.AllConditions.FirstOrDefault(x =>
+                    x.EffectDefinitionName != null && x.EffectDefinitionName.Contains("SkinOfRetribution"));
 
             if (rulesetCondition == null || !effect.HasDamageForm())
             {
@@ -243,7 +244,8 @@ internal static partial class SpellBuilders
             }
 
             foreach (var condition in target.AllConditions
-                         .FindAll(x => x.EffectDefinitionName != null && x.EffectDefinitionName.Contains("SkinOfRetribution")))
+                         .FindAll(x =>
+                             x.EffectDefinitionName != null && x.EffectDefinitionName.Contains("SkinOfRetribution")))
             {
                 target.RemoveCondition(condition);
             }
