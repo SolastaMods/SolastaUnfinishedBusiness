@@ -5,6 +5,8 @@ using System.Reflection;
 using System.Reflection.Emit;
 using HarmonyLib;
 using JetBrains.Annotations;
+using SolastaUnfinishedBusiness.Api;
+using SolastaUnfinishedBusiness.Api.Extensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Classes.Inventor;
 using SolastaUnfinishedBusiness.Subclasses;
@@ -124,8 +126,15 @@ internal static class SharedSpellsContext
     internal static int GetWarlockMaxSlots(RulesetCharacterHero rulesetCharacterHero)
     {
         var warlockLevel = GetWarlockCasterLevel(rulesetCharacterHero);
+        var warlockAdditionalSlots = rulesetCharacterHero
+            .GetFeaturesByType<FeatureDefinitionMagicAffinity>()
+            .Where(x => x == DatabaseHelper.FeatureDefinitionMagicAffinitys
+                .MagicAffinityChitinousBoonAdditionalSpellSlot)
+            .SelectMany(x => x.AdditionalSlots)
+            .Sum(x => x.SlotsNumber);
+        var slots = warlockLevel > 0 ? WarlockCastingSlots[warlockLevel - 1].Slots[0] : 0;
 
-        return warlockLevel > 0 ? WarlockCastingSlots[warlockLevel - 1].Slots[0] : 0;
+        return slots + warlockAdditionalSlots;
     }
 
     internal static int GetWarlockUsedSlots([NotNull] RulesetCharacterHero rulesetCharacterHero)
