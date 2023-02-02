@@ -359,6 +359,7 @@ internal static partial class SpellBuilders
 
         var subSpellDescription = $"Spell/&SubSpell{NAME}Description";
         var subSpellConditionDescription = $"Spell/&Condition{NAME}Description";
+        var subSpellConditionTitle = $"Spell/&Condition{NAME}Title";
 
         foreach (var damageType in damageTypes) {
             var title = Gui.Localize($"Tooltip/&Tag{damageType}Title");
@@ -376,7 +377,7 @@ internal static partial class SpellBuilders
                                 .SetDamageForm(damageType, bonusDamage: TEMP_HP_PER_LEVEL)
                                 .Build())
                         .Build())
-                .SetUniqueInstance()
+                .SetUniqueInstance()    /* want to move this */
                 .SetCustomSubFeatures(new ModifyMagicEffectSkinOfRetribution())
                 .AddToDB();
 
@@ -387,9 +388,10 @@ internal static partial class SpellBuilders
                 .SetRetaliate(powerSkinOfRetribution, 1, true)
                 .AddToDB();
 
+            // TODO: Fix TITLE -- should actually get from translator file
             var conditionSkinOfRetribution = ConditionDefinitionBuilder
                 .Create($"Condition{NAME}{damageType}")
-                .SetGuiPresentation(title,
+                .SetGuiPresentation(subSpellConditionTitle,
                     Gui.Format(subSpellConditionDescription, title), spriteReferenceCondition
                 )
                 .SetSilent(Silent.WhenAdded)
@@ -407,6 +409,7 @@ internal static partial class SpellBuilders
                 .SetVerboseComponent(false)
                 .SetVocalSpellSameType(VocalSpellSemeType.Defense)
                 .SetSpellLevel(1)
+                .SetUniqueInstance()
                 .SetEffectDescription(EffectDescriptionBuilder
                     .Create()
                     .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
