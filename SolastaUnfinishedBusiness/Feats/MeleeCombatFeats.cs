@@ -286,11 +286,16 @@ internal static class MeleeCombatFeats
     {
         const string NAME = "FeatFellHanded";
 
+        var conditionFellHandedProne = ConditionDefinitionBuilder
+            .Create(ConditionDefinitions.ConditionProne, $"Condition{NAME}")
+            .SetSpecialDuration(DurationType.Round, 1)
+            .AddToDB();
+
         return FeatDefinitionBuilder
             .Create(NAME)
             .SetGuiPresentation(Category.Feat)
             .SetCustomSubFeatures(
-                new AfterAttackEffectFeatFellHanded(),
+                new AfterAttackEffectFeatFellHanded(conditionFellHandedProne),
                 new ModifyAttackModeWeaponTypeFilter($"Feature/&ModifyAttackMode{NAME}Title",
                     BattleaxeType, GreataxeType, HandaxeType, MaulType, WarhammerType))
             .AddToDB();
@@ -692,6 +697,13 @@ internal static class MeleeCombatFeats
 
     private sealed class AfterAttackEffectFeatFellHanded : IAfterAttackEffect
     {
+        private readonly ConditionDefinition _conditionDefinition;
+
+        public AfterAttackEffectFeatFellHanded(ConditionDefinition conditionDefinition)
+        {
+            _conditionDefinition = conditionDefinition;
+        }
+
         public void AfterOnAttackHit(
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
@@ -711,7 +723,7 @@ internal static class MeleeCombatFeats
                     {
                         var rulesetCondition = RulesetCondition.CreateActiveCondition(
                             defender.RulesetCharacter.Guid,
-                            ConditionDefinitions.ConditionProne,
+                            _conditionDefinition,
                             DurationType.Round,
                             1,
                             TurnOccurenceType.StartOfTurn,
