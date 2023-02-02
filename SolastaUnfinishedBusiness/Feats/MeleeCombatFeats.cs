@@ -785,8 +785,7 @@ internal static class MeleeCombatFeats
             RulesetAttackMode attackMode,
             ref ActionModifier attackModifier)
         {
-            if (attackMode == null || defender == null ||
-                attackMode.ActionType != ActionDefinitions.ActionType.Reaction)
+            if (attackMode == null || defender == null)
             {
                 return;
             }
