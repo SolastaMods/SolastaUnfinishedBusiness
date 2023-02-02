@@ -292,6 +292,11 @@ internal static partial class SpellBuilders
             .SetEffectAdvancement(EffectIncrementMethod.CasterLevelTable, 5, additionalDicePerIncrement: 1)
             .SetDurationData(DurationType.Instantaneous)
             .SetTargetingData(Side.Enemy, RangeType.MeleeHit, 12, TargetType.Individuals)
+            .SetSavingThrowData(
+                false,
+                AttributeDefinitions.Intelligence,
+                false,
+                EffectDifficultyClassComputation.SpellCastingFeature)
             .SetEffectForms(
                 EffectFormBuilder
                     .Create()
@@ -311,7 +316,6 @@ internal static partial class SpellBuilders
             .SetEffectDescription(effectDescription)
             .SetCastingTime(ActivationTime.Action)
             .SetSpellLevel(0)
-            .SetVerboseComponent(false)
             .SetVocalSpellSameType(VocalSpellSemeType.Attack)
             .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolEnchantment)
             .AddToDB();
@@ -519,6 +523,43 @@ internal static partial class SpellBuilders
             .AddToDB();
     }
 
+    internal static SpellDefinition BuildSwordStorm()
+    {
+        const string NAME = "SwordStorm";
+
+        var spriteReference = Sprites.GetSprite(NAME, Resources.SwordStorm, 128, 128);
+
+        var effectDescription = EffectDescriptionBuilder
+            .Create()
+            .SetEffectAdvancement(EffectIncrementMethod.CasterLevelTable, 5, additionalDicePerIncrement: 1)
+            .SetDurationData(DurationType.Instantaneous)
+            .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Cube, 3)
+            .SetSavingThrowData(
+                false,
+                AttributeDefinitions.Dexterity,
+                false,
+                EffectDifficultyClassComputation.SpellCastingFeature)
+            .SetEffectForms(
+                EffectFormBuilder
+                    .Create()
+                    .SetDamageForm(DamageTypeForce, 1, DieType.D6)
+                    .HasSavingThrow(EffectSavingThrowType.Negates)
+                    .Build())
+            .Build();
+
+        var spell = SpellDefinitionBuilder
+            .Create(NAME)
+            .SetGuiPresentation(Category.Spell, spriteReference)
+            .SetEffectDescription(effectDescription)
+            .SetCastingTime(ActivationTime.Action)
+            .SetSpellLevel(0)
+            .SetVocalSpellSameType(VocalSpellSemeType.Attack)
+            .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolEnchantment)
+            .AddToDB();
+
+        return spell;
+    }
+        
     internal static SpellDefinition BuildThornyVines()
     {
         var spriteReference = Sprites.GetSprite("ThornyVines", Resources.ThornyVines, 128);
