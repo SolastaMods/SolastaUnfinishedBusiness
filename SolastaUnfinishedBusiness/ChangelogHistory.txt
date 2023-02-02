@@ -5,6 +5,7 @@
 - added after rest activity to stop all Inventor infusions
 - added Mink Spike cantrip
 - added Sword Storm cantrip
+- changed Oath of Ancients aura warding to grant resistance against spells instead of elements
 - fixed Deadeye and Power Attack descriptions
 - fixed Blade Mastery to grant advantage on all actions instead of reaction only
 - fixed Fell Handed to correctly apply prone condition

@@ -306,6 +306,21 @@ internal static class PowerBundle
         BaseDefinition definition,
         [CanBeNull] RulesetCharacter caster)
     {
+        var currentAction = Global.CurrentAction;
+
+        if (currentAction != null)
+        {
+            foreach (var target in currentAction.actionParams.TargetCharacters
+                         .Select(x => x.RulesetCharacter)
+                         .Where(x => x.HasSubFeatureOfType<IModifyMagicEffectOnTarget>()))
+            {
+                foreach (var modifyMagicEffectOnTarget in target.GetSubFeaturesByType<IModifyMagicEffectOnTarget>())
+                {
+                    modifyMagicEffectOnTarget.ModifyEffect(definition, original, caster, target);
+                }
+            }
+        }
+
         var result = original;
 
         if (caster == null)

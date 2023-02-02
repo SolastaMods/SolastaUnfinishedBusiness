@@ -559,7 +559,7 @@ internal static partial class SpellBuilders
 
         return spell;
     }
-        
+
     internal static SpellDefinition BuildThornyVines()
     {
         var spriteReference = Sprites.GetSprite("ThornyVines", Resources.ThornyVines, 128);
