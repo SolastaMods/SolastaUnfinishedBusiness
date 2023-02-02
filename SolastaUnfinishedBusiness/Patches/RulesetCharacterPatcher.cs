@@ -909,6 +909,9 @@ public static class RulesetCharacterPatcher
             var warlockCasterLevel = SharedSpellsContext.GetWarlockCasterLevel(hero);
             var warlockSpellLevel = SharedSpellsContext.GetWarlockSpellLevel(hero);
 
+            // special chitinous boom case
+            slots[SharedSpellsContext.PactMagicSlotsTab] += warlockAdditionalSlots;
+
             for (var i = 1; i <= warlockSpellLevel; i++)
             {
                 slots.TryAdd(i, 0);

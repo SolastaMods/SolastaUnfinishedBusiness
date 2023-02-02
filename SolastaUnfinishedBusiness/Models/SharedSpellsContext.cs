@@ -138,7 +138,7 @@ internal static class SharedSpellsContext
         }
 
         var slotLevel = IsMulticaster(rulesetCharacterHero)
-            ? -1
+            ? PactMagicSlotsTab
             : GetWarlockSpellLevel(rulesetCharacterHero);
 
         repertoire.usedSpellsSlots.TryGetValue(slotLevel, out var warlockUsedSlots);

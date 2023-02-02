@@ -15,7 +15,7 @@
   "retaliateWhenHit": true,
   "retaliateProximity": "Melee",
   "retaliateRangeCells": 1,
-  "retaliatePower": "Definition:PowerSkinOfRetribution:88dab8ae-5388-555d-8212-b877be029dbc",
+  "retaliatePower": "Definition:PowerSkinOfRetributionDamageThunder:a1673620-e341-5c48-9e0c-edf631c24d7d",
   "retaliateFromSource": false,
   "knockOutAffinity": "None",
   "knockOutOccurencesNumber": 1,
@@ -50,7 +50,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "46db0433-e7ae-5219-84df-d4e09bb52b19",
+  "guid": "e650335f-f032-551e-9748-62e8cac89aa2",
   "contentPack": 9999,
-  "name": "DamageAffinitySkinOfRetribution"
+  "name": "DamageAffinitySkinOfRetributionDamageThunder"
 }

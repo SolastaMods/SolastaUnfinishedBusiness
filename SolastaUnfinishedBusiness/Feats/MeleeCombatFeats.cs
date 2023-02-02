@@ -286,11 +286,16 @@ internal static class MeleeCombatFeats
     {
         const string NAME = "FeatFellHanded";
 
+        var conditionFellHandedProne = ConditionDefinitionBuilder
+            .Create(ConditionDefinitions.ConditionProne, $"Condition{NAME}")
+            .SetSpecialDuration(DurationType.Round, 1)
+            .AddToDB();
+
         return FeatDefinitionBuilder
             .Create(NAME)
             .SetGuiPresentation(Category.Feat)
             .SetCustomSubFeatures(
-                new AfterAttackEffectFeatFellHanded(),
+                new AfterAttackEffectFeatFellHanded(conditionFellHandedProne),
                 new ModifyAttackModeWeaponTypeFilter($"Feature/&ModifyAttackMode{NAME}Title",
                     BattleaxeType, GreataxeType, HandaxeType, MaulType, WarhammerType))
             .AddToDB();
@@ -327,7 +332,8 @@ internal static class MeleeCombatFeats
 
         var powerAttack = FeatureDefinitionPowerBuilder
             .Create("PowerAttack")
-            .SetGuiPresentation("FeatPowerAttack", Category.Feat,
+            .SetGuiPresentation("Feat/&FeatPowerAttackTitle",
+                Gui.Format("Feat/&FeatPowerAttackDescription", Main.Settings.DeadEyeAndPowerAttackBaseValue.ToString()),
                 Sprites.GetSprite("PowerAttackIcon", Resources.PowerAttackIcon, 128, 64))
             .SetUsesFixed(ActivationTime.NoCost)
             .SetEffectDescription(EffectDescriptionBuilder
@@ -373,7 +379,7 @@ internal static class MeleeCombatFeats
 
         return FeatDefinitionBuilder
             .Create("FeatPowerAttack")
-            .SetGuiPresentation(Category.Feat,
+            .SetGuiPresentation("Feat/&FeatPowerAttackTitle",
                 Gui.Format("Feat/&FeatPowerAttackDescription", Main.Settings.DeadEyeAndPowerAttackBaseValue.ToString()))
             .SetFeatures(
                 powerAttack,
@@ -691,6 +697,13 @@ internal static class MeleeCombatFeats
 
     private sealed class AfterAttackEffectFeatFellHanded : IAfterAttackEffect
     {
+        private readonly ConditionDefinition _conditionDefinition;
+
+        public AfterAttackEffectFeatFellHanded(ConditionDefinition conditionDefinition)
+        {
+            _conditionDefinition = conditionDefinition;
+        }
+
         public void AfterOnAttackHit(
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
@@ -710,7 +723,7 @@ internal static class MeleeCombatFeats
                     {
                         var rulesetCondition = RulesetCondition.CreateActiveCondition(
                             defender.RulesetCharacter.Guid,
-                            ConditionDefinitions.ConditionProne,
+                            _conditionDefinition,
                             DurationType.Round,
                             1,
                             TurnOccurenceType.StartOfTurn,
@@ -784,8 +797,7 @@ internal static class MeleeCombatFeats
             RulesetAttackMode attackMode,
             ref ActionModifier attackModifier)
         {
-            if (attackMode == null || defender == null ||
-                attackMode.ActionType != ActionDefinitions.ActionType.Reaction)
+            if (attackMode == null || defender == null)
             {
                 return;
             }

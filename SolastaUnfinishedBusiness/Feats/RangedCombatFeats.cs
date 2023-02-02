@@ -89,7 +89,8 @@ internal static class RangedCombatFeats
 
         var powerDeadeye = FeatureDefinitionPowerBuilder
             .Create("PowerDeadeye")
-            .SetGuiPresentation(NAME, Category.Feat,
+            .SetGuiPresentation("Feat/&FeatDeadeyeTitle",
+                Gui.Format("Feat/&FeatDeadeyeDescription", Main.Settings.DeadEyeAndPowerAttackBaseValue.ToString()),
                 Sprites.GetSprite("DeadeyeIcon", Resources.DeadeyeIcon, 128, 64))
             .SetUsesFixed(ActivationTime.NoCost)
             .SetEffectDescription(
@@ -137,7 +138,7 @@ internal static class RangedCombatFeats
 
         return FeatDefinitionBuilder
             .Create(NAME)
-            .SetGuiPresentation(Category.Feat,
+            .SetGuiPresentation("Feat/&FeatDeadeyeTitle",
                 Gui.Format("Feat/&FeatDeadeyeDescription", Main.Settings.DeadEyeAndPowerAttackBaseValue.ToString()))
             .SetFeatures(
                 powerDeadeye,
