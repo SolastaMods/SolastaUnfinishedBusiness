@@ -56,11 +56,7 @@ public static class InventorySlotBoxPatcher
 
         private static void TintNonProficientItems(InventorySlotBox box, ItemDefinition item)
         {
-            var hero = Global.InspectedHero;
-            if (hero == null)
-            {
-                return;
-            }
+            var hero = box.GuiCharacter?.RulesetCharacterHero ?? Global.InspectedHero;
 
             if (item == null || box.equipedItemImage == null)
             {
@@ -68,7 +64,7 @@ public static class InventorySlotBoxPatcher
             }
 
 
-            if ((Main.Settings.EnableInventoryTaintNonProficientItemsRed && !hero.IsProficientWithItem(item))
+            if ((Main.Settings.EnableInventoryTaintNonProficientItemsRed && !(hero?.IsProficientWithItem(item) ?? true))
                 || (Main.Settings.EnableInventoryTintKnownRecipesRed && RecipeHelper.RecipeIsKnown(item)))
             {
                 box.equipedItemImage.color = Color.red;
