@@ -636,21 +636,6 @@
   <data name="PetalStorm" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Spells\PetalStorm.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="CraftingManualPotionOfGreaterHealing" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Items\CraftingManualPotionOfGreaterHealing.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="CraftingManualPotionOfHealing" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Items\CraftingManualPotionOfHealing.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="CraftingManualPotionOfSuperiorHealing" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Items\CraftingManualPotionOfSuperiorHealing.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="CraftingManualRemedy" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Items\CraftingManualRemedy.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="CraftingManualScrollOfScorchingRay" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Items\CraftingManualScrollOfScorchingRay.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="SkinOfRetribution" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Spells\SkinOfRetribution.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>

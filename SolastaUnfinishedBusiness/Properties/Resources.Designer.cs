@@ -592,56 +592,6 @@ namespace SolastaUnfinishedBusiness.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        public static byte[] CraftingManualPotionOfGreaterHealing {
-            get {
-                object obj = ResourceManager.GetObject("CraftingManualPotionOfGreaterHealing", resourceCulture);
-                return ((byte[])(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Byte[].
-        /// </summary>
-        public static byte[] CraftingManualPotionOfHealing {
-            get {
-                object obj = ResourceManager.GetObject("CraftingManualPotionOfHealing", resourceCulture);
-                return ((byte[])(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Byte[].
-        /// </summary>
-        public static byte[] CraftingManualPotionOfSuperiorHealing {
-            get {
-                object obj = ResourceManager.GetObject("CraftingManualPotionOfSuperiorHealing", resourceCulture);
-                return ((byte[])(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Byte[].
-        /// </summary>
-        public static byte[] CraftingManualRemedy {
-            get {
-                object obj = ResourceManager.GetObject("CraftingManualRemedy", resourceCulture);
-                return ((byte[])(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Byte[].
-        /// </summary>
-        public static byte[] CraftingManualScrollOfScorchingRay {
-            get {
-                object obj = ResourceManager.GetObject("CraftingManualScrollOfScorchingRay", resourceCulture);
-                return ((byte[])(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Byte[].
-        /// </summary>
         public static byte[] Darkelf {
             get {
                 object obj = ResourceManager.GetObject("Darkelf", resourceCulture);
