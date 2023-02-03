@@ -18,6 +18,11 @@ public static class InventorySlotBoxPatcher
         public static void Postfix(InventorySlotBox __instance)
         {
             //PATCH: Enable inventory taint non proficient items in red (paint them red)
+            TintNonProficientItems(__instance);
+        }
+
+        private static void TintNonProficientItems(InventorySlotBox box)
+        {
             if (Global.InspectedHero == null)
             {
                 return;
@@ -28,16 +33,16 @@ public static class InventorySlotBoxPatcher
                 return;
             }
 
-            if (__instance.InventorySlot?.EquipedItem == null || __instance.equipedItemImage == null)
+            if (box.InventorySlot?.EquipedItem == null || box.equipedItemImage == null)
             {
                 return;
             }
 
-            var itemDefinition = __instance.InventorySlot.EquipedItem.ItemDefinition;
+            var itemDefinition = box.InventorySlot.EquipedItem.ItemDefinition;
 
             if (!Global.InspectedHero.IsProficientWithItem(itemDefinition))
             {
-                __instance.equipedItemImage.color = Color.red;
+                box.equipedItemImage.color = Color.red;
             }
         }
     }
