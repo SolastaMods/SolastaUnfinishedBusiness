@@ -230,7 +230,7 @@ internal static class MeleeCombatFeats
             .SetGuiPresentation(Category.Feat)
             .SetFeatures(powerBladeMastery)
             .SetCustomSubFeatures(
-                new OnComputeAttackModifierFeatBladeMastery(),
+                new OnComputeAttackModifierFeatBladeMastery(weaponTypes),
                 new ModifyAttackModeWeaponTypeFilter($"Feature/&ModifyAttackMode{NAME}Title", weaponTypes))
             .AddToDB();
     }
@@ -797,7 +797,8 @@ internal static class MeleeCombatFeats
             RulesetAttackMode attackMode,
             ref ActionModifier attackModifier)
         {
-            if (attackMode == null || defender == null)
+            if (attackMode == null || defender == null ||
+                attackMode.actionType != ActionDefinitions.ActionType.Reaction)
             {
                 return;
             }
@@ -809,7 +810,7 @@ internal static class MeleeCombatFeats
             }
 
             attackModifier.attackAdvantageTrends.Add(new TrendInfo(1,
-                FeatureSourceType.CharacterFeature, "Feature/&ModifyAttackModeBladeMasteryTitle",
+                FeatureSourceType.CharacterFeature, "Feature/&ModifyAttackModeFeatBladeMasteryTitle",
                 null));
         }
     }
