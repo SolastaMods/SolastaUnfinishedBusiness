@@ -262,13 +262,13 @@ internal static partial class SpellBuilders
         return spell;
     }
 
-    internal static SpellDefinition BuildMinkSpike()
+    internal static SpellDefinition BuildMindSpike()
     {
-        const string NAME = "MinkSpike";
+        const string NAME = "MindSpike";
 
-        var spriteReference = Sprites.GetSprite(NAME, Resources.MinkSpike, 128, 128);
+        var spriteReference = Sprites.GetSprite(NAME, Resources.MindSpike, 128, 128);
 
-        var conditionMinkSpike = ConditionDefinitionBuilder
+        var conditionMindSpike = ConditionDefinitionBuilder
             .Create($"Condition{NAME}")
             .SetGuiPresentation(Category.Condition)
             .SetSpecialDuration(DurationType.Round, 1)
@@ -292,6 +292,7 @@ internal static partial class SpellBuilders
             .SetEffectAdvancement(EffectIncrementMethod.CasterLevelTable, 5, additionalDicePerIncrement: 1)
             .SetDurationData(DurationType.Instantaneous)
             .SetTargetingData(Side.Enemy, RangeType.MeleeHit, 12, TargetType.Individuals)
+            .SetParticleEffectParameters(Bane)
             .SetSavingThrowData(
                 false,
                 AttributeDefinitions.Intelligence,
@@ -305,7 +306,7 @@ internal static partial class SpellBuilders
                     .Build(),
                 EffectFormBuilder
                     .Create()
-                    .SetConditionForm(conditionMinkSpike, ConditionForm.ConditionOperation.Add)
+                    .SetConditionForm(conditionMindSpike, ConditionForm.ConditionOperation.Add)
                     .HasSavingThrow(EffectSavingThrowType.Negates)
                     .Build())
             .Build();
@@ -533,7 +534,8 @@ internal static partial class SpellBuilders
             .Create()
             .SetEffectAdvancement(EffectIncrementMethod.CasterLevelTable, 5, additionalDicePerIncrement: 1)
             .SetDurationData(DurationType.Instantaneous)
-            .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Cube, 3)
+            .SetTargetingData(Side.Enemy, RangeType.Self, 0, TargetType.Cube, 3)
+            .SetParticleEffectParameters(ShadowDagger)
             .SetSavingThrowData(
                 false,
                 AttributeDefinitions.Dexterity,

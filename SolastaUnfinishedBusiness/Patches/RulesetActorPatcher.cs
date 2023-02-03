@@ -319,18 +319,21 @@ public static class RulesetActorPatcher
                 advantageType == RuleDefinitions.AdvantageType.Advantage && ElvenPrecisionLogic.Active)
             {
                 result = Roll3DicesAndKeepBest(actor.Name, dieType, out firstRoll, out secondRoll, rollAlterationScore);
+            }
+            else
+            {
+                
+                result = RuleDefinitions.RollDie(dieType, advantageType, out firstRoll, out secondRoll,
+                    rollAlterationScore);
+            }
 
-                Global.FirstRoll = firstRoll;
-                Global.SecondRoll = secondRoll;
-
+            if (rollContext != RuleDefinitions.RollContext.AttackRoll)
+            {
                 return result;
             }
 
-            result = RuleDefinitions.RollDie(dieType, advantageType, out firstRoll, out secondRoll,
-                rollAlterationScore);
-
-            Global.FirstRoll = firstRoll;
-            Global.SecondRoll = secondRoll;
+            Global.FirstAttackRoll = firstRoll;
+            Global.SecondAttackRoll = secondRoll;
 
             return result;
         }

@@ -286,16 +286,11 @@ internal static class MeleeCombatFeats
     {
         const string NAME = "FeatFellHanded";
 
-        var conditionFellHandedProne = ConditionDefinitionBuilder
-            .Create(ConditionDefinitions.ConditionProne, $"Condition{NAME}")
-            .SetSpecialDuration(DurationType.Round, 1)
-            .AddToDB();
-
         return FeatDefinitionBuilder
             .Create(NAME)
             .SetGuiPresentation(Category.Feat)
             .SetCustomSubFeatures(
-                new AfterAttackEffectFeatFellHanded(conditionFellHandedProne),
+                new AfterAttackEffectFeatFellHanded(),
                 new ModifyAttackModeWeaponTypeFilter($"Feature/&ModifyAttackMode{NAME}Title",
                     BattleaxeType, GreataxeType, HandaxeType, MaulType, WarhammerType))
             .AddToDB();
@@ -697,13 +692,6 @@ internal static class MeleeCombatFeats
 
     private sealed class AfterAttackEffectFeatFellHanded : IAfterAttackEffect
     {
-        private readonly ConditionDefinition _conditionDefinition;
-
-        public AfterAttackEffectFeatFellHanded(ConditionDefinition conditionDefinition)
-        {
-            _conditionDefinition = conditionDefinition;
-        }
-
         public void AfterOnAttackHit(
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
@@ -714,16 +702,16 @@ internal static class MeleeCombatFeats
         {
             switch (attackModifier.AttackAdvantageTrend)
             {
-                case > 0 when outcome is RollOutcome.Success or RollOutcome.CriticalSuccess:
-                    var lowerRoll = Math.Min(Global.FirstRoll, Global.SecondRoll);
+                case >= 0 when outcome is RollOutcome.Success or RollOutcome.CriticalSuccess:
+                    var lowerRoll = Math.Min(Global.FirstAttackRoll, Global.SecondAttackRoll);
                     var defenderAc = defender.RulesetCharacter.GetAttribute(AttributeDefinitions.ArmorClass)
                         .CurrentValue;
 
-                    if (lowerRoll >= defenderAc)
+                    if (lowerRoll + attackModifier.attackRollModifier >= defenderAc)
                     {
                         var rulesetCondition = RulesetCondition.CreateActiveCondition(
                             defender.RulesetCharacter.Guid,
-                            _conditionDefinition,
+                            ConditionDefinitions.ConditionProne,
                             DurationType.Round,
                             1,
                             TurnOccurenceType.StartOfTurn,
