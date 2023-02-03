@@ -29,7 +29,7 @@ public static class TooltipFeatureItemProficiencyPatcher
 
             if (RecipeHelper.RecipeIsKnown(data.ItemDefinition))
             {
-                __instance.notProficientLabel.Text = "Tooltip/&RecipeIsKnown";
+                __instance.notProficientLabel.Text = "Failure/&FailureFlagRecipeAlreadyKnown";
                 obj.SetActive(true);
             }
         }
