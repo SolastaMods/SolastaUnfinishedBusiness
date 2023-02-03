@@ -358,6 +358,7 @@ internal static partial class SpellBuilders
         const string SUB_SPELL_CONDITION_DESCRIPTION = $"Spell/&Condition{NAME}Description";
         const string SUB_SPELL_CONDITION_TITLE = $"Spell/&Condition{NAME}Title";
 
+        // ReSharper disable once LoopCanBeConvertedToQuery
         foreach (var damageType in damageTypes)
         {
             var title = Gui.Localize($"Tooltip/&Tag{damageType}Title");
