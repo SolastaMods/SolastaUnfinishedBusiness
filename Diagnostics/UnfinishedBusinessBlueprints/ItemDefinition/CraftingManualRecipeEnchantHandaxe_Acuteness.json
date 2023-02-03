@@ -102,8 +102,10 @@
     "sameBehavioursForMaleAndFemale": true,
     "maleBodyPartBehaviours": [],
     "femaleBodyPartBehaviours": [],
-    "itemFlags": [],
-    "serializedVersion": 1
+    "itemFlags": [
+      "Definition:ItemFlagRecipeIcon:048ea97c-9dc6-5f73-b157-7da55477257c"
+    ],
+    "serializedVersion": 0
   },
   "clue": null,
   "clueSuspect": null,

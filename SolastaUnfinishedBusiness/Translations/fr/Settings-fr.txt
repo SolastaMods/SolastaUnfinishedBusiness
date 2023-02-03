@@ -75,7 +75,8 @@ ModUi/&EnableFlexibleRaces=Activer les races flexibles <i><color=#F0DAA0>[attrib
 ModUi/&EnableHotkeyDebugOverlay=Activez <color=#1E81B0>CTRL-SHIFT-(D)</color> pour afficher la superposition de débogage
 ModUi/&EnableHotkeyToggleHud=Activez <color=#1E81B0>CTRL-SHIFT-(H)</color> pour basculer l'affichage HUD
 ModUi/&EnableInventoryFilteringAndSorting=Activer le filtrage et le tri de l'inventaire
-ModUi/&EnableInventoryTaintNonProficientItemsRed=<i>+ Tache en rouge tout objet que le héros ne maîtrise pas</i>
+ModUi/&EnableInventoryTaintNonProficientItemsRed=Teint en rouge tout objet avec lequel le héros ne maîtrise pas
+ModUi/&EnableInventoryTintKnownRecipesRed=Recettes connues de teinte rouge
 ModUi/&EnableInvisibleCrownOfTheMagister=Masquez la <color=#D89555>couronne du magistère</color> sur l'interface utilisateur du jeu
 ModUi/&EnableLevel20=Activer le niveau 20 <b><i><color=#C04040E0>[Nécessite un redémarrage]</color></i></b>
 ModUi/&EnableLogDialoguesToConsole=Activer les dialogues de journal sur la console de jeu pendant les séquences narratives
@@ -174,6 +175,7 @@ ModUi/&SelectAll=Tout sélectionner
 ModUi/&SelectSuggested=Sélectionnez Suggéré
 ModUi/&Services=Prestations de service
 ModUi/&SetBeltOfDwarvenKindBeardChances=<color=#D89555>Ceinture des Nains</color> <color=white>possibilités d'apparition de la barbe</color>
+ModUi/&ShowCraftedItemOnRecipeIcon=Afficher l'icône de l'objet fabriqué près de l'objet de la recette dans la boutique et l'inventaire. Passer la souris dessus affichera une info-bulle pour l'objet fabriqué
 ModUi/&ShowCraftingRecipeInDetailedTooltips=Afficher la recette d'artisanat dans des infobulles détaillées
 ModUi/&ShowDescriptions=Afficher les descriptions
 ModUi/&SpellInstructions=. Vous pouvez attribuer individuellement chaque sort à n'importe quelle liste de sorts ou simplement sélectionner l'ensemble suggéré
@@ -184,6 +186,7 @@ ModUi/&StockGorimStoreWithAllNonMagicalClothing=Stockez le magasin de Gorim avec
 ModUi/&StockGorimStoreWithAllNonMagicalInstruments=Stockez le magasin de Gorim avec tous les instruments de musique non magiques <b><i><color=#C04040E0>[Nécessite un redémarrage]</color></i></b>
 ModUi/&StockHugoStoreWithAdditionalFoci=Stockez le magasin Hugo avec <color=#D89555>Bâton Arcane</color>, <color=#D89555>Cou de Druide</color>, <color=#D89555>Bâton</color> et <color=#D89555>Matraque</color> définir comme éléments foci
 ModUi/&Subclasses=<color=#F0DAA0>Sous-classes</color>
+ModUi/&SwapCraftedItemAndRecipeIcons=<i>+ Échangez les icônes de recettes et d'objets fabriqués dans la boutique</i>
 ModUi/&TargetLanguage=Langue cible
 ModUi/&Tools=Outils
 ModUi/&TotalCraftingTimeModifier=<color=white>Réduire le temps de fabrication de</color>

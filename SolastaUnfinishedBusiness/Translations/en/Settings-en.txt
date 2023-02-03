@@ -75,7 +75,8 @@ ModUi/&EnableFlexibleRaces=Enable flexible races <i><color=#F0DAA0>[assign abili
 ModUi/&EnableHotkeyDebugOverlay=Enable <color=#1E81B0>CTRL-SHIFT-(D)</color> to display the debug overlay
 ModUi/&EnableHotkeyToggleHud=Enable <color=#1E81B0>CTRL-SHIFT-(H)</color> to toggle the HUD display
 ModUi/&EnableInventoryFilteringAndSorting=Enable inventory filtering and sorting
-ModUi/&EnableInventoryTaintNonProficientItemsRed=<i>+ Taint in red any item the hero isn't proficient with</i>
+ModUi/&EnableInventoryTaintNonProficientItemsRed=Tint red any item the hero isn't proficient with
+ModUi/&EnableInventoryTintKnownRecipesRed=Tint red known recipes
 ModUi/&EnableInvisibleCrownOfTheMagister=Hide the <color=#D89555>Crown of the Magister</color> on game UI
 ModUi/&EnableLevel20=Enable level 20 <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
 ModUi/&EnableLogDialoguesToConsole=Enable log dialogues to game console during narrative sequences
@@ -174,6 +175,7 @@ ModUi/&SelectAll=Select All
 ModUi/&SelectSuggested=Select Suggested
 ModUi/&Services=Services
 ModUi/&SetBeltOfDwarvenKindBeardChances=<color=#D89555>Belt of Dwarvenkind</color> <color=white>beard appearing chances</color>
+ModUi/&ShowCraftedItemOnRecipeIcon=Show crafted item icon near recipe item in shop and inventory. Hovering over it will show tooltip for crafted item
 ModUi/&ShowCraftingRecipeInDetailedTooltips=Show crafting recipe in detailed tooltips
 ModUi/&ShowDescriptions=Show Descriptions
 ModUi/&SpellInstructions=. You can individually assign each spell to any spell list or simply select the suggested set
@@ -184,6 +186,7 @@ ModUi/&StockGorimStoreWithAllNonMagicalClothing=Stock Gorim's store with all non
 ModUi/&StockGorimStoreWithAllNonMagicalInstruments=Stock Gorim's store with all non-magical musical instruments <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
 ModUi/&StockHugoStoreWithAdditionalFoci=Stock Hugo's store with <color=#D89555>Arcane Staff</color>, <color=#D89555>Druid Neck</color>, <color=#D89555>Staff</color> and <color=#D89555>Club</color> set as foci items
 ModUi/&Subclasses=<color=#F0DAA0>Subclasses</color>
+ModUi/&SwapCraftedItemAndRecipeIcons=<i>+ Swap recipe and crafted item icons in shop</i>
 ModUi/&TargetLanguage=Target Language
 ModUi/&Tools=Tools
 ModUi/&TotalCraftingTimeModifier=<color=white>Reduce crafting time by</color>

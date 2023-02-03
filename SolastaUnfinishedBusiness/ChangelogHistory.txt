@@ -1,5 +1,9 @@
 ﻿CHANGES:
 
+1.4.33.25:
+
+- improved recipes displays with new options under Interface / Game UI
+
 1.4.33.24:
 
 - fixed minor issues on recently added cantrips and feats
