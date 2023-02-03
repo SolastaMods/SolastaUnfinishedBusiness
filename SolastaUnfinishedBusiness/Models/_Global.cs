@@ -62,9 +62,9 @@ internal static class Global
     internal static HashSet<FeatureDefinitionPower> PowersThatIgnoreInterruptions { get; } = new();
 
     // keep a tab on last rolled dices
-    internal static int FirstRoll { get; set; }
+    internal static int FirstAttackRoll { get; set; }
 
-    internal static int SecondRoll { get; set; }
+    internal static int SecondAttackRoll { get; set; }
 
     // restate globals on every new action
     internal static void ActionStarted([NotNull] CharacterAction characterAction)

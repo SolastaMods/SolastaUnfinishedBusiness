@@ -1,9 +1,14 @@
 ﻿CHANGES:
 
+1.4.33.24:
+
+- fixed minor issues on recently added cantrips and feats
+- fixed slots display issue introduced on last version
+
 1.4.33.23:
 
 - added after rest activity to stop all Inventor infusions
-- added Mink Spike cantrip
+- added Mind Spike cantrip
 - added Sword Storm cantrip
 - changed Oath of Ancients aura warding to grant resistance against spells instead of elements
 - fixed Deadeye and Power Attack descriptions

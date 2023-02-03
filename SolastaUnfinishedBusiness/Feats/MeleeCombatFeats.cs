@@ -102,6 +102,7 @@ internal static class MeleeCombatFeats
                 ConditionDefinitionBuilder
                     .Create("ConditionFeatSlasherHit")
                     .SetGuiPresentation(Category.Condition)
+                    .SetConditionType(ConditionType.Detrimental)
                     .SetSpecialDuration(DurationType.Round, 1)
                     .SetPossessive()
                     .SetFeatures(
@@ -114,6 +115,7 @@ internal static class MeleeCombatFeats
                 ConditionDefinitionBuilder
                     .Create("ConditionFeatSlasherCriticalHit")
                     .SetGuiPresentation(Category.Condition)
+                    .SetConditionType(ConditionType.Detrimental)
                     .SetSpecialDuration(DurationType.Round, 1)
                     .SetPossessive()
                     .SetFeatures(
@@ -230,7 +232,7 @@ internal static class MeleeCombatFeats
             .SetGuiPresentation(Category.Feat)
             .SetFeatures(powerBladeMastery)
             .SetCustomSubFeatures(
-                new OnComputeAttackModifierFeatBladeMastery(),
+                new OnComputeAttackModifierFeatBladeMastery(weaponTypes),
                 new ModifyAttackModeWeaponTypeFilter($"Feature/&ModifyAttackMode{NAME}Title", weaponTypes))
             .AddToDB();
     }
@@ -286,16 +288,11 @@ internal static class MeleeCombatFeats
     {
         const string NAME = "FeatFellHanded";
 
-        var conditionFellHandedProne = ConditionDefinitionBuilder
-            .Create(ConditionDefinitions.ConditionProne, $"Condition{NAME}")
-            .SetSpecialDuration(DurationType.Round, 1)
-            .AddToDB();
-
         return FeatDefinitionBuilder
             .Create(NAME)
             .SetGuiPresentation(Category.Feat)
             .SetCustomSubFeatures(
-                new AfterAttackEffectFeatFellHanded(conditionFellHandedProne),
+                new AfterAttackEffectFeatFellHanded(),
                 new ModifyAttackModeWeaponTypeFilter($"Feature/&ModifyAttackMode{NAME}Title",
                     BattleaxeType, GreataxeType, HandaxeType, MaulType, WarhammerType))
             .AddToDB();
@@ -697,13 +694,6 @@ internal static class MeleeCombatFeats
 
     private sealed class AfterAttackEffectFeatFellHanded : IAfterAttackEffect
     {
-        private readonly ConditionDefinition _conditionDefinition;
-
-        public AfterAttackEffectFeatFellHanded(ConditionDefinition conditionDefinition)
-        {
-            _conditionDefinition = conditionDefinition;
-        }
-
         public void AfterOnAttackHit(
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
@@ -714,16 +704,22 @@ internal static class MeleeCombatFeats
         {
             switch (attackModifier.AttackAdvantageTrend)
             {
-                case > 0 when outcome is RollOutcome.Success or RollOutcome.CriticalSuccess:
-                    var lowerRoll = Math.Min(Global.FirstRoll, Global.SecondRoll);
+                case >= 0 when outcome is RollOutcome.Success or RollOutcome.CriticalSuccess:
+                    var lowerRoll = Math.Min(Global.FirstAttackRoll, Global.SecondAttackRoll);
                     var defenderAc = defender.RulesetCharacter.GetAttribute(AttributeDefinitions.ArmorClass)
                         .CurrentValue;
 
-                    if (lowerRoll >= defenderAc)
+                    if (lowerRoll + attackMode.ToHitBonus >= defenderAc)
                     {
+                        var console = Gui.Game.GameConsole;
+                        var entry = new GameConsoleEntry("Feedback/&FeatFellHanded", console.consoleTableDefinition);
+
+                        console.AddCharacterEntry(defender.RulesetActor, entry);
+                        console.AddEntry(entry);
+
                         var rulesetCondition = RulesetCondition.CreateActiveCondition(
                             defender.RulesetCharacter.Guid,
-                            _conditionDefinition,
+                            ConditionDefinitions.ConditionProne,
                             DurationType.Round,
                             1,
                             TurnOccurenceType.StartOfTurn,
@@ -797,7 +793,8 @@ internal static class MeleeCombatFeats
             RulesetAttackMode attackMode,
             ref ActionModifier attackModifier)
         {
-            if (attackMode == null || defender == null)
+            if (attackMode == null || defender == null ||
+                attackMode.actionType != ActionDefinitions.ActionType.Reaction)
             {
                 return;
             }
@@ -809,7 +806,7 @@ internal static class MeleeCombatFeats
             }
 
             attackModifier.attackAdvantageTrends.Add(new TrendInfo(1,
-                FeatureSourceType.CharacterFeature, "Feature/&ModifyAttackModeBladeMasteryTitle",
+                FeatureSourceType.CharacterFeature, "Feature/&ModifyAttackModeFeatBladeMasteryTitle",
                 null));
         }
     }
