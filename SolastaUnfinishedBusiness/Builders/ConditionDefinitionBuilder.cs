@@ -156,6 +156,7 @@ internal class ConditionDefinitionBuilder
         int duration = 0,
         RuleDefinitions.TurnOccurenceType turnOccurence = RuleDefinitions.TurnOccurenceType.EndOfTurn)
     {
+        // ReSharper disable once InvocationIsSkipped
         PreConditions.IsValidDuration(durationType, duration);
 
         if (duration != 0)

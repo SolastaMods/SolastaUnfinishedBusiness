@@ -10,7 +10,7 @@ namespace SolastaUnfinishedBusiness.Patches;
 [UsedImplicitly]
 public static class StockUnitLinePatcher
 {
-    private static Transform GetRecipeItem(RectTransform factionGroup, bool justRetrieve)
+    private static Transform GetRecipeItem(Transform factionGroup, bool justRetrieve)
     {
         const string NAME = "RECIPE_ITEM";
 
@@ -30,7 +30,7 @@ public static class StockUnitLinePatcher
         return t;
     }
 
-    private static Image SetupCraftedItem(Transform t, ItemDefinition item)
+    private static Image SetupCraftedItem(Transform t, BaseDefinition item)
     {
         if (t == null)
         {

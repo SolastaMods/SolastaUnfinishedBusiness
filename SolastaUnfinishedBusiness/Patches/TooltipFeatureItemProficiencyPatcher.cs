@@ -27,11 +27,13 @@ public static class TooltipFeatureItemProficiencyPatcher
                 return;
             }
 
-            if (RecipeHelper.RecipeIsKnown(data.ItemDefinition))
+            if (!RecipeHelper.RecipeIsKnown(data.ItemDefinition))
             {
-                __instance.notProficientLabel.Text = "Failure/&FailureFlagRecipeAlreadyKnown";
-                obj.SetActive(true);
+                return;
             }
+
+            __instance.notProficientLabel.Text = "Failure/&FailureFlagRecipeAlreadyKnown";
+            obj.SetActive(true);
         }
     }
 }

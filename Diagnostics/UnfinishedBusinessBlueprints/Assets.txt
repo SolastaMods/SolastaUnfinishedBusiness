@@ -3619,6 +3619,7 @@ Warhammer_Bearclaw	ItemDefinition	ItemDefinition	021e865d-e49c-55df-9bfa-cf7bfe8
 Warhammer_Lightbringer	ItemDefinition	ItemDefinition	c21bfcd2-8004-50ca-a767-b0ad7a8209f1
 Warhammer_Power	ItemDefinition	ItemDefinition	12fbc355-26af-57d9-81d4-a2a0af500c5d
 Warhammer_Punisher	ItemDefinition	ItemDefinition	e24acda7-24e1-57a8-bd5d-9c777fd4f9b9
+ItemFlagRecipeIcon	ItemFlagDefinition	ItemFlagDefinition	048ea97c-9dc6-5f73-b157-7da55477257c
 LanguageGnomish	LanguageDefinition	LanguageDefinition	b0b2dc39-9e69-5ff2-88ab-44d629fdb1b7
 LanguageInfernal	LanguageDefinition	LanguageDefinition	dc60c9d9-d97d-5f0f-bac7-d1a0d06c71bd
 Attack_Wildshape_DireBear_Bite	MonsterAttackDefinition	MonsterAttackDefinition	8e5fc1b6-b11d-5409-a72d-24eba1307f14

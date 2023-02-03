@@ -39,6 +39,7 @@ FeatureDefinitionSummoningAffinity
 FightingStyleDefinition
 InvocationDefinition
 ItemDefinition
+ItemFlagDefinition
 LanguageDefinition
 MonsterAttackDefinition
 MonsterDefinition

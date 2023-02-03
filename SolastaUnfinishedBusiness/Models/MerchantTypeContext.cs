@@ -251,12 +251,21 @@ internal static class RecipeHelper
 
     public static RecipeDefinition BuildPrimeRecipe(ItemDefinition item, ItemDefinition primed)
     {
-        if (!primed.itemPresentation.ItemFlags.Contains(ItemFlagPrimed))
+        if (primed.itemPresentation.ItemFlags.Contains(ItemFlagPrimed))
         {
-            var presentation = new ItemPresentation(primed.itemPresentation);
-            presentation.ItemFlags.Add(ItemFlagPrimed);
-            primed.itemPresentation = presentation;
+            return RecipeDefinitionBuilder
+                .Create($"RecipePrime{item.Name}")
+                .SetGuiPresentation(primed.GuiPresentation.Title, GuiPresentationBuilder.EmptyString, primed)
+                .SetCraftedItem(primed)
+                .SetCraftingCheckData(8, 15, ToolTypeDefinitions.EnchantingToolType)
+                .AddIngredients(item)
+                .AddToDB();
         }
+
+        var presentation = new ItemPresentation(primed.itemPresentation);
+        
+        presentation.ItemFlags.Add(ItemFlagPrimed);
+        primed.itemPresentation = presentation;
 
         return RecipeDefinitionBuilder
             .Create($"RecipePrime{item.Name}")
@@ -332,7 +341,6 @@ internal static class RecipeHelper
                         .GetGuiItemDefinition(item.Name)
                         .SetupTooltip(tooltip, context);
                 }
-
             }))
             .AddToDB();
 
@@ -384,12 +392,8 @@ internal static class RecipeHelper
         }
 
         var service = ServiceRepository.GetService<IGameLoreService>();
-        if (service == null)
-        {
-            return false;
-        }
-
-        return service.KnownRecipes.Contains(item.DocumentDescription.RecipeDefinition);
+        
+        return service != null && service.KnownRecipes.Contains(item.DocumentDescription.RecipeDefinition);
     }
 }
 
