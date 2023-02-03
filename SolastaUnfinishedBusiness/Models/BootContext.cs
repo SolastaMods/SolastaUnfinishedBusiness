@@ -84,6 +84,7 @@ internal static class BootContext
 
         // Item Options must be loaded after Item Crafting
         ItemCraftingMerchantContext.Load();
+        RecipeHelper.AddRecipeIcons();
 
         MerchantContext.Load();
 

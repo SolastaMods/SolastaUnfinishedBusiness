@@ -283,7 +283,10 @@ public class Settings : UnityModManager.ModSettings
     public bool DisableAutoEquip { get; set; }
     public bool EnableInventoryFilteringAndSorting { get; set; }
     public bool EnableInventoryTaintNonProficientItemsRed { get; set; }
+    public bool EnableInventoryTintKnownRecipesRed { get; set; }
     public bool EnableInvisibleCrownOfTheMagister { get; set; }
+    public bool ShowCraftedItemOnRecipeIcon { get; set; } = true;
+    public bool SwapCraftedItemAndRecipeIcons { get; set; }
 
     // Monsters
     public bool HideMonsterHitPoints { get; set; }
