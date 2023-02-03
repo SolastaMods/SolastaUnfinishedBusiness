@@ -102,6 +102,7 @@ internal static class MeleeCombatFeats
                 ConditionDefinitionBuilder
                     .Create("ConditionFeatSlasherHit")
                     .SetGuiPresentation(Category.Condition)
+                    .SetConditionType(ConditionType.Detrimental)
                     .SetSpecialDuration(DurationType.Round, 1)
                     .SetPossessive()
                     .SetFeatures(
@@ -114,6 +115,7 @@ internal static class MeleeCombatFeats
                 ConditionDefinitionBuilder
                     .Create("ConditionFeatSlasherCriticalHit")
                     .SetGuiPresentation(Category.Condition)
+                    .SetConditionType(ConditionType.Detrimental)
                     .SetSpecialDuration(DurationType.Round, 1)
                     .SetPossessive()
                     .SetFeatures(
@@ -709,6 +711,13 @@ internal static class MeleeCombatFeats
 
                     if (lowerRoll + attackMode.ToHitBonus >= defenderAc)
                     {
+                        var console = Gui.Game.GameConsole;
+                        var entry = new GameConsoleEntry("Feedback/&FeatFellHanded", console.consoleTableDefinition);
+
+                        console.AddCharacterEntry(attacker.RulesetActor, entry);
+                        console.AddCharacterEntry(defender.RulesetActor, entry);
+                        console.AddEntry(entry);
+
                         var rulesetCondition = RulesetCondition.CreateActiveCondition(
                             defender.RulesetCharacter.Guid,
                             ConditionDefinitions.ConditionProne,
