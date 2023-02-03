@@ -329,6 +329,21 @@ internal static class GameUiDisplay
             GameUiContext.SwitchCrownOfTheMagister();
         }
 
+        toggle = Main.Settings.ShowCraftedItemOnRecipeIcon;
+        if (UI.Toggle(Gui.Localize("ModUi/&ShowCraftedItemOnRecipeIcon"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.ShowCraftedItemOnRecipeIcon = toggle;
+        }
+
+        if (Main.Settings.ShowCraftedItemOnRecipeIcon)
+        {
+            toggle = Main.Settings.SwapCraftedItemAndRecipeIcons;
+            if (UI.Toggle(Gui.Localize("ModUi/&SwapCraftedItemAndRecipeIcons"), ref toggle, UI.AutoWidth()))
+            {
+                Main.Settings.SwapCraftedItemAndRecipeIcons = toggle;
+            }
+        }
+
         #endregion
 
         #region Monster
