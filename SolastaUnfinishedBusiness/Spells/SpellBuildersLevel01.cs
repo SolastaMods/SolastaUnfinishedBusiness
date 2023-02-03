@@ -354,9 +354,9 @@ internal static partial class SpellBuilders
             DamageTypeAcid, DamageTypeCold, DamageTypeFire, DamageTypeLightning, DamageTypePoison, DamageTypeThunder
         };
 
-        var subSpellDescription = $"Spell/&SubSpell{NAME}Description";
-        var subSpellConditionDescription = $"Spell/&Condition{NAME}Description";
-        var subSpellConditionTitle = $"Spell/&Condition{NAME}Title";
+        const string SUB_SPELL_DESCRIPTION = $"Spell/&SubSpell{NAME}Description";
+        const string SUB_SPELL_CONDITION_DESCRIPTION = $"Spell/&Condition{NAME}Description";
+        const string SUB_SPELL_CONDITION_TITLE = $"Spell/&Condition{NAME}Title";
 
         foreach (var damageType in damageTypes)
         {
@@ -388,8 +388,8 @@ internal static partial class SpellBuilders
 
             var conditionSkinOfRetribution = ConditionDefinitionBuilder
                 .Create($"Condition{NAME}{damageType}")
-                .SetGuiPresentation(subSpellConditionTitle,
-                    Gui.Format(subSpellConditionDescription, title), spriteReferenceCondition
+                .SetGuiPresentation(SUB_SPELL_CONDITION_TITLE,
+                    Gui.Format(SUB_SPELL_CONDITION_DESCRIPTION, title), spriteReferenceCondition
                 )
                 .SetSilent(Silent.WhenAdded)
                 .SetPossessive()
@@ -399,7 +399,7 @@ internal static partial class SpellBuilders
             var spell = SpellDefinitionBuilder
                 .Create(NAME + damageType)
                 .SetGuiPresentation(title,
-                    Gui.Format(subSpellDescription, title),
+                    Gui.Format(SUB_SPELL_DESCRIPTION, title),
                     Sprites.GetSprite(NAME, Resources.SkinOfRetribution, 128)
                 )
                 .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolAbjuration)

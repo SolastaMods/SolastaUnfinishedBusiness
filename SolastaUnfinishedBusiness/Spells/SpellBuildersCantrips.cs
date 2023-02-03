@@ -211,6 +211,7 @@ internal static partial class SpellBuilders
             .SetTargetingData(Side.Enemy, RangeType.Distance, 6, TargetType.Individuals)
             .SetTargetFiltering(TargetFilteringMethod.CharacterOnly)
             .SetEffectAdvancement(EffectIncrementMethod.CasterLevelTable, 5, additionalDicePerIncrement: 1)
+            .SetParticleEffectParameters(Bane)
             .SetSavingThrowData(
                 false,
                 AttributeDefinitions.Constitution,

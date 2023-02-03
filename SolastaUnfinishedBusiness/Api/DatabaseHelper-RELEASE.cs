@@ -109,7 +109,6 @@ internal static partial class DatabaseHelper
     {
         internal static ConditionDefinition ConditionAcidArrowed { get; } = GetDefinition<ConditionDefinition>("ConditionAcidArrowed");
         internal static ConditionDefinition ConditionAcidSpit { get; } = GetDefinition<ConditionDefinition>("ConditionAcidSpit");
-        internal static ConditionDefinition ConditionAuraOfProtection { get; } = GetDefinition<ConditionDefinition>("ConditionAuraOfProtection");
         internal static ConditionDefinition ConditionBaned { get; } = GetDefinition<ConditionDefinition>("ConditionBaned");
         internal static ConditionDefinition ConditionBanishedByPrismaticSpray { get; } = GetDefinition<ConditionDefinition>("ConditionBanishedByPrismaticSpray");
         internal static ConditionDefinition ConditionBardicInspiration { get; } = GetDefinition<ConditionDefinition>("ConditionBardicInspiration");
@@ -1317,6 +1316,7 @@ internal static partial class DatabaseHelper
         internal static SpellDefinition SacredFlame_B { get; } = GetDefinition<SpellDefinition>("SacredFlame_B");
         internal static SpellDefinition ScorchingRay { get; } = GetDefinition<SpellDefinition>("ScorchingRay");
         internal static SpellDefinition SeeInvisibility { get; } = GetDefinition<SpellDefinition>("SeeInvisibility");
+        internal static SpellDefinition ShadowDagger { get; } = GetDefinition<SpellDefinition>("ShadowDagger");
         internal static SpellDefinition Shatter { get; } = GetDefinition<SpellDefinition>("Shatter");
         internal static SpellDefinition Shield { get; } = GetDefinition<SpellDefinition>("Shield");
         internal static SpellDefinition ShieldOfFaith { get; } = GetDefinition<SpellDefinition>("ShieldOfFaith");

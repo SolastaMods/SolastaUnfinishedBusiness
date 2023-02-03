@@ -707,7 +707,7 @@ internal static class MeleeCombatFeats
                     var defenderAc = defender.RulesetCharacter.GetAttribute(AttributeDefinitions.ArmorClass)
                         .CurrentValue;
 
-                    if (lowerRoll + attackModifier.attackRollModifier >= defenderAc)
+                    if (lowerRoll + attackMode.ToHitBonus >= defenderAc)
                     {
                         var rulesetCondition = RulesetCondition.CreateActiveCondition(
                             defender.RulesetCharacter.Guid,
