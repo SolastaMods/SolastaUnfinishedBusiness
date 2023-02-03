@@ -793,15 +793,8 @@ internal static partial class DatabaseHelper
         internal static ItemDefinition ComponentPouch_ArcaneAmulet { get; } = GetDefinition<ItemDefinition>("ComponentPouch_ArcaneAmulet");
         internal static ItemDefinition ComponentPouch_Belt { get; } = GetDefinition<ItemDefinition>("ComponentPouch_Belt");
         internal static ItemDefinition ComponentPouch_Bracers { get; } = GetDefinition<ItemDefinition>("ComponentPouch_Bracers");
-        internal static ItemDefinition CraftingManual_Alchemy_Corrosive_Bolts { get; } = GetDefinition<ItemDefinition>("CraftingManual_Alchemy_Corrosive_Bolts");
-        internal static ItemDefinition CraftingManual_Alchemy_Flaming_Bolts { get; } = GetDefinition<ItemDefinition>("CraftingManual_Alchemy_Flaming_Bolts");
-        internal static ItemDefinition CraftingManual_Alchemy_Flash_Bolts { get; } = GetDefinition<ItemDefinition>("CraftingManual_Alchemy_Flash_Bolts");
         internal static ItemDefinition CraftingManual_Enchant_Longsword_Warden { get; } = GetDefinition<ItemDefinition>("CraftingManual_Enchant_Longsword_Warden");
-        internal static ItemDefinition CraftingManualPotionOfGreaterHealing { get; } = GetDefinition<ItemDefinition>("CraftingManualPotionOfGreaterHealing");
-        internal static ItemDefinition CraftingManualPotionOfHealing { get; } = GetDefinition<ItemDefinition>("CraftingManualPotionOfHealing");
-        internal static ItemDefinition CraftingManualPotionOfSuperiorHealing { get; } = GetDefinition<ItemDefinition>("CraftingManualPotionOfSuperiorHealing");
         internal static ItemDefinition CraftingManualRemedy { get; } = GetDefinition<ItemDefinition>("CraftingManualRemedy");
-        internal static ItemDefinition CraftingManualScrollOfScorchingRay { get; } = GetDefinition<ItemDefinition>("CraftingManualScrollOfScorchingRay");
         internal static ItemDefinition CraftingManualScrollOfVampiricTouch { get; } = GetDefinition<ItemDefinition>("CraftingManualScrollOfVampiricTouch");
         internal static ItemDefinition CrownOfTheMagister { get; } = GetDefinition<ItemDefinition>("CrownOfTheMagister");
         internal static ItemDefinition CrownOfTheMagister01 { get; } = GetDefinition<ItemDefinition>("CrownOfTheMagister01");
