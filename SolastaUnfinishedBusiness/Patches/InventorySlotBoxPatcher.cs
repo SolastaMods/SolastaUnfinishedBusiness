@@ -29,7 +29,7 @@ public static class InventorySlotBoxPatcher
             var itemDefinition = equipmentItem.ItemDefinition;
 
             //PATCH: Enable inventory taint non proficient items in red (paint them red)
-            TintNonProficientItems(__instance);
+            TintNonProficientItems(__instance, itemDefinition);
             ModifyCustomItemFlags(__instance, itemDefinition);
         }
 
@@ -54,26 +54,22 @@ public static class InventorySlotBoxPatcher
             }
         }
 
-        private static void TintNonProficientItems(InventorySlotBox box)
+        private static void TintNonProficientItems(InventorySlotBox box, ItemDefinition item)
         {
-            if (Global.InspectedHero == null)
+            var hero = Global.InspectedHero;
+            if (hero == null)
             {
                 return;
             }
 
-            if (!Main.Settings.EnableInventoryTaintNonProficientItemsRed)
+            if (item == null || box.equipedItemImage == null)
             {
                 return;
             }
 
-            if (box.InventorySlot?.EquipedItem == null || box.equipedItemImage == null)
-            {
-                return;
-            }
 
-            var itemDefinition = box.InventorySlot.EquipedItem.ItemDefinition;
-
-            if (!Global.InspectedHero.IsProficientWithItem(itemDefinition))
+            if ((Main.Settings.EnableInventoryTaintNonProficientItemsRed && !hero.IsProficientWithItem(item))
+                || (Main.Settings.EnableInventoryTintKnownRecipesRed && RecipeHelper.RecipeIsKnown(item)))
             {
                 box.equipedItemImage.color = Color.red;
             }

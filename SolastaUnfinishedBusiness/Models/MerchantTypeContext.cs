@@ -366,6 +366,24 @@ internal static class RecipeHelper
 
         return item.DocumentDescription.RecipeDefinition.CraftedItem;
     }
+
+    public static bool RecipeIsKnown(ItemDefinition item)
+    {
+        if (!item.IsDocument
+            || item.DocumentDescription == null
+            || item.DocumentDescription.RecipeDefinition == null)
+        {
+            return false;
+        }
+
+        var service = ServiceRepository.GetService<IGameLoreService>();
+        if (service == null)
+        {
+            return false;
+        }
+
+        return service.KnownRecipes.Contains(item.DocumentDescription.RecipeDefinition);
+    }
 }
 
 internal sealed class MerchantFilter
