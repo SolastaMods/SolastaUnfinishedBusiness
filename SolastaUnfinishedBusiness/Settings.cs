@@ -285,7 +285,7 @@ public class Settings : UnityModManager.ModSettings
     public bool EnableInventoryTaintNonProficientItemsRed { get; set; }
     public bool EnableInventoryTintKnownRecipesRed { get; set; }
     public bool EnableInvisibleCrownOfTheMagister { get; set; }
-    public bool ShowCraftedItemOnRecipeIcon { get; set; } = true;
+    public bool ShowCraftedItemOnRecipeIcon { get; set; }
     public bool SwapCraftedItemAndRecipeIcons { get; set; }
 
     // Monsters
