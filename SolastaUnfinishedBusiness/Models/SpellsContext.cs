@@ -26,6 +26,7 @@ internal static class SpellsContext
     // ReSharper disable once InconsistentNaming
     private static readonly SortedList<string, SpellListDefinition> spellLists = new();
     private static readonly Dictionary<SpellDefinition, List<SpellListDefinition>> SpellSpellListMap = new();
+
     internal static readonly SpellDefinition EnsnaringStrike = BuildEnsnaringStrike();
     internal static readonly SpellDefinition FarStep = BuildFarStep();
     internal static readonly SpellDefinition SearingSmite = BuildSearingSmite();
@@ -271,6 +272,22 @@ internal static class SpellsContext
         }
     }
 
+    internal static void SwitchAllowAssigningOfficialSpells()
+    {
+        if (Main.Settings.AllowAssigningOfficialSpells)
+        {
+            return;
+        }
+
+        foreach (var spellList in SpellLists.Values)
+        {
+            var name = spellList.Name;
+
+            Main.Settings.SpellListSpellEnabled[name].RemoveAll(x =>
+                DatabaseHelper.GetDefinition<SpellDefinition>(x).ContentPack != CeContentPackContext.CeContentPack);
+        }
+    }
+
     private static void AllowAssigningOfficialSpells()
     {
         foreach (var kvp in SpellSpellListMap)
@@ -290,18 +307,6 @@ internal static class SpellsContext
         }
 
         Spells.Add(spellDefinition);
-
-        //Add spells to `All Spells` list, so that Warlock's `Book of Ancient Secrets` and Bard's `Magic Secrets` would see them
-        if (spellDefinition.contentPack == CeContentPackContext.CeContentPack)
-        {
-            SpellListAllSpells.AddSpell(spellDefinition);
-
-            //Add cantrips to `All Cantrips` list, so that Warlock's `Pact of the Tome` and Loremaster's `Arcane Professor` would see them
-            if (spellDefinition.SpellLevel == 0)
-            {
-                SpellListAllCantrips.AddSpell(spellDefinition);
-            }
-        }
 
         for (var i = 0; i < registeredSpellLists.Length; i++)
         {
@@ -352,7 +357,9 @@ internal static class SpellsContext
         internal HashSet<SpellDefinition> SuggestedSpells { get; }
 
         // ReSharper disable once MemberHidesStaticFromOuterClass
-        internal bool IsAllSetSelected => SelectedSpells.Count == AllSpells.Count;
+        internal bool IsAllSetSelected => SelectedSpells.Count == AllSpells
+            .Count(x => Main.Settings.AllowAssigningOfficialSpells ||
+                        x.ContentPack == CeContentPackContext.CeContentPack);
 
         // ReSharper disable once MemberHidesStaticFromOuterClass
         internal bool IsSuggestedSetSelected => SelectedSpells.Count == SuggestedSpells.Count
@@ -398,22 +405,61 @@ internal static class SpellsContext
         {
             var spellListName = SpellList.Name;
             var spellName = spellDefinition.Name;
-            var spells = SpellList.SpellsByLevel.Find(x => x.Level == spellDefinition.SpellLevel)?.Spells;
 
-            // this happens on spell lists without cantrips
-            if (spells == null)
+            if (!SpellList.HasCantrips && spellDefinition.SpellLevel == 0)
+            {
+                return;
+            }
+
+            if (!Main.Settings.AllowAssigningOfficialSpells &&
+                spellDefinition.ContentPack != CeContentPackContext.CeContentPack)
             {
                 return;
             }
 
             if (active)
             {
-                spells.TryAdd(spellDefinition);
+                SpellList.AddSpell(spellDefinition);
+
+                //Add spells to `All Spells` list, so that Warlock's `Book of Ancient Secrets` and Bard's `Magic Secrets` would see them
+                if (spellDefinition.contentPack == CeContentPackContext.CeContentPack)
+                {
+                    SpellListAllSpells.AddSpell(spellDefinition);
+
+                    //Add cantrips to `All Cantrips` list, so that Warlock's `Pact of the Tome` and Loremaster's `Arcane Professor` would see them
+                    if (spellDefinition.SpellLevel == 0)
+                    {
+                        SpellListAllCantrips.AddSpell(spellDefinition);
+                    }
+                }
+
                 Main.Settings.SpellListSpellEnabled[spellListName].TryAdd(spellName);
             }
             else
             {
-                spells.Remove(spellDefinition);
+                foreach (var spellsByLevel in SpellList.SpellsByLevel)
+                {
+                    spellsByLevel.Spells.RemoveAll(x => x == spellDefinition);
+                }
+
+                //Remove spells to `All Spells` list, so that Warlock's `Book of Ancient Secrets` and Bard's `Magic Secrets` would see them
+                if (spellDefinition.contentPack == CeContentPackContext.CeContentPack)
+                {
+                    foreach (var spellsByLevel in SpellListAllSpells.SpellsByLevel)
+                    {
+                        spellsByLevel.Spells.RemoveAll(x => x == spellDefinition);
+                    }
+
+                    //Remove cantrips to `All Cantrips` list, so that Warlock's `Pact of the Tome` and Loremaster's `Arcane Professor` would see them
+                    if (spellDefinition.SpellLevel == 0)
+                    {
+                        foreach (var spellsByLevel in SpellListAllCantrips.SpellsByLevel)
+                        {
+                            spellsByLevel.Spells.RemoveAll(x => x == spellDefinition);
+                        }
+                    }
+                }
+
                 Main.Settings.SpellListSpellEnabled[spellListName].Remove(spellName);
             }
         }
