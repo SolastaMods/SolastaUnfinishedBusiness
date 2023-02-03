@@ -270,21 +270,10 @@ internal static partial class SpellBuilders
         var spriteReference = Sprites.GetSprite(NAME, Resources.MindSpike, 128, 128);
 
         var conditionMindSpike = ConditionDefinitionBuilder
-            .Create($"Condition{NAME}")
-            .SetGuiPresentation(Category.Condition)
+            .Create(ConditionBaned, $"Condition{NAME}")
+            .SetOrUpdateGuiPresentation(Category.Condition)
             .SetSpecialDuration(DurationType.Round, 1)
-            .SetFeatures(
-                FeatureDefinitionSavingThrowAffinityBuilder
-                    .Create($"SavingThrowAffinity{NAME}")
-                    .SetGuiPresentationNoContent(true)
-                    .SetModifiers(FeatureDefinitionSavingThrowAffinity.ModifierType.AddDice, DieType.D4, -1, false,
-                        AttributeDefinitions.Strength,
-                        AttributeDefinitions.Dexterity,
-                        AttributeDefinitions.Constitution,
-                        AttributeDefinitions.Wisdom,
-                        AttributeDefinitions.Intelligence,
-                        AttributeDefinitions.Charisma)
-                    .AddToDB())
+            .SetFeatures(FeatureDefinitionSavingThrowAffinitys.SavingThrowAffinityConditionBaned)
             .SetSpecialInterruptions(ConditionInterruption.SavingThrow)
             .AddToDB();
 
@@ -292,7 +281,7 @@ internal static partial class SpellBuilders
             .Create()
             .SetEffectAdvancement(EffectIncrementMethod.CasterLevelTable, 5, additionalDicePerIncrement: 1)
             .SetDurationData(DurationType.Instantaneous)
-            .SetTargetingData(Side.Enemy, RangeType.MeleeHit, 12, TargetType.Individuals)
+            .SetTargetingData(Side.Enemy, RangeType.Distance, 12, TargetType.Individuals)
             .SetParticleEffectParameters(Bane)
             .SetSavingThrowData(
                 false,
