@@ -1,6 +1,7 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
 using JetBrains.Annotations;
+using SolastaUnfinishedBusiness.Models;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -27,19 +28,6 @@ public static class StockUnitLinePatcher
         t.localScale = new Vector3(1.5f, 1.5f, 1f);
 
         return t;
-    }
-
-    private static ItemDefinition GetCraftedItem(GameStockUnit stock)
-    {
-        if (!Main.Settings.ShowCraftedItemOnRecipeIcon
-            || !stock.ItemDefinition.IsDocument
-            || stock.ItemDefinition.DocumentDescription == null
-            || stock.ItemDefinition.DocumentDescription.RecipeDefinition == null)
-        {
-            return null;
-        }
-
-        return stock.ItemDefinition.DocumentDescription.RecipeDefinition.CraftedItem;
     }
 
     private static Image SetupCraftedItem(Transform t, ItemDefinition item)
@@ -78,7 +66,9 @@ public static class StockUnitLinePatcher
         public static void Postfix(StockUnitLine __instance)
         {
             var item = GetRecipeItem(__instance.factionIncompatibleGroup, false);
-            var crafted = GetCraftedItem(__instance.StockUnit);
+            var crafted = Main.Settings.ShowCraftedItemOnRecipeIcon
+                ? RecipeHelper.GetCraftedItem(__instance.StockUnit.ItemDefinition)
+                : null;
             if (crafted == null)
             {
                 item.gameObject.SetActive(false);

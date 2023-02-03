@@ -293,6 +293,18 @@ internal static class RecipeHelper
     {
         return BuildManual(BuildPrimeRecipe(item, primed), item, "Prime");
     }
+
+    public static ItemDefinition GetCraftedItem(ItemDefinition item)
+    {
+        if (!item.IsDocument
+            || item.DocumentDescription == null
+            || item.DocumentDescription.RecipeDefinition == null)
+        {
+            return null;
+        }
+
+        return item.DocumentDescription.RecipeDefinition.CraftedItem;
+    }
 }
 
 internal sealed class MerchantFilter
