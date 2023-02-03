@@ -322,7 +322,6 @@ public static class RulesetActorPatcher
             }
             else
             {
-                
                 result = RuleDefinitions.RollDie(dieType, advantageType, out firstRoll, out secondRoll,
                     rollAlterationScore);
             }
