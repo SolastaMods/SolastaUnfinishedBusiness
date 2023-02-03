@@ -1,7 +1,6 @@
 CHANGES:
 
-- fixed minor issues on recently added cantrips and feats
-- fixed slots display issue introduced on last version
+- improved recipes displays with new options under Interface / Game UI
 
 
 
