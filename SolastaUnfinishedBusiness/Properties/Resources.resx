@@ -591,15 +591,6 @@
   <data name="RadiantBolt" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/OfficialGameChanges/RadiantBolt.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="RecipeAcidBolt" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>../Resources/OfficialGameChanges/RecipeAcidBolt.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="RecipeFlamingBolt" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>../Resources/OfficialGameChanges/RecipeFlamingBolt.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="RecipeRadiantBolt" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>../Resources/OfficialGameChanges/RecipeRadiantBolt.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="ArtisanToolSmithTools" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>../Resources/OfficialGameChanges/ArtisanToolSmithTools.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
