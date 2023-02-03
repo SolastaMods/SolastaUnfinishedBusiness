@@ -75,7 +75,8 @@ ModUi/&EnableFlexibleRaces=Abilita razze flessibili <i><color=#F0DAA0>[assegna p
 ModUi/&EnableHotkeyDebugOverlay=Abilita <color=#1E81B0>CTRL-MAIUSC-(D)</color> per visualizzare la sovrapposizione di debug
 ModUi/&EnableHotkeyToggleHud=Abilita <color=#1E81B0>CTRL-MAIUSC-(H)</color> per alternare la visualizzazione dell'HUD
 ModUi/&EnableInventoryFilteringAndSorting=Abilita il filtro e l'ordinamento dell'inventario
-ModUi/&EnableInventoryTaintNonProficientItemsRed=<i>+ Contamina in rosso qualsiasi oggetto con cui l'eroe non è competente</i>
+ModUi/&EnableInventoryTaintNonProficientItemsRed=Colora di rosso qualsiasi oggetto in cui l'eroe non è competente
+ModUi/&EnableInventoryTintKnownRecipesRed=Tinta ricette note rosse
 ModUi/&EnableInvisibleCrownOfTheMagister=Nascondi la <color=#D89555>Corona del Magister</color> sull'interfaccia utente del gioco
 ModUi/&EnableLevel20=Abilita livello 20 <b><i><color=#C04040E0>[Richiede il riavvio]</color></i></b>
 ModUi/&EnableLogDialoguesToConsole=Abilita i dialoghi di registrazione sulla console di gioco durante le sequenze narrative
@@ -174,6 +175,7 @@ ModUi/&SelectAll=Seleziona tutto
 ModUi/&SelectSuggested=Seleziona Suggerito
 ModUi/&Services=Servizi
 ModUi/&SetBeltOfDwarvenKindBeardChances=<color=#D89555>Cintura dei Nani</color> <color=white>probabilità che appaia la barba</color>
+ModUi/&ShowCraftedItemOnRecipeIcon=Mostra l'icona dell'oggetto creato accanto all'oggetto della ricetta nel negozio e nell'inventario. Passando il mouse su di esso verrà visualizzato il suggerimento per l'oggetto creato
 ModUi/&ShowCraftingRecipeInDetailedTooltips=Mostra la ricetta di creazione in suggerimenti dettagliati
 ModUi/&ShowDescriptions=Mostra descrizioni
 ModUi/&SpellInstructions=. Puoi assegnare individualmente ogni incantesimo a qualsiasi elenco di incantesimi o semplicemente selezionare il set suggerito
@@ -184,6 +186,7 @@ ModUi/&StockGorimStoreWithAllNonMagicalClothing=Fai scorta del negozio di Gorim 
 ModUi/&StockGorimStoreWithAllNonMagicalInstruments=Fai scorta del negozio di Gorim con tutti gli strumenti musicali non magici <b><i><color=#C04040E0>[Richiede il riavvio]</color></i></b>
 ModUi/&StockHugoStoreWithAdditionalFoci=Fai scorta del negozio di Hugo con <color=#D89555> Bastone Arcano</color>, <color=#D89555> Collo del Druido</color>, <color=#D89555> Bastone</color> e <color=#D89555> Mazza</color> impostato come elementi focali
 ModUi/&Subclasses=<color=#F0DAA0>Sottoclassi</color>
+ModUi/&SwapCraftedItemAndRecipeIcons=<i>+ Scambia le icone delle ricette e degli oggetti realizzati nel negozio</i>
 ModUi/&TargetLanguage=Lingua di destinazione
 ModUi/&Tools=Strumenti
 ModUi/&TotalCraftingTimeModifier=<color=white>Riduci il tempo di creazione di</color>

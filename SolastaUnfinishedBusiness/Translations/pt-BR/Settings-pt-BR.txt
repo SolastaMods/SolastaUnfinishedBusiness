@@ -75,7 +75,8 @@ ModUi/&EnableFlexibleRaces=Habilite corridas flexíveis <i><color=#F0DAA0>[atrib
 ModUi/&EnableHotkeyDebugOverlay=Habilite <color=#1E81B0>CTRL-SHIFT-(D)</color> para exibir a sobreposição de depuração
 ModUi/&EnableHotkeyToggleHud=Habilite <color=#1E81B0>CTRL-SHIFT-(H)</color> para alternar a exibição do HUD
 ModUi/&EnableInventoryFilteringAndSorting=Ativar filtragem e classificação de inventário
-ModUi/&EnableInventoryTaintNonProficientItemsRed=<i>+ Mancha em vermelho qualquer item com o qual o herói não é proficiente</i>
+ModUi/&EnableInventoryTaintNonProficientItemsRed=Tinja de vermelho qualquer item com o qual o herói não seja proficiente
+ModUi/&EnableInventoryTintKnownRecipesRed=Receitas conhecidas de tinta vermelha
 ModUi/&EnableInvisibleCrownOfTheMagister=Oculte a <color=#D89555>Coroa do Magistrado</color> na IU do jogo
 ModUi/&EnableLevel20=Habilitar nível 20 <b><i><color=#C04040E0>[Requer reinicialização]</color></i></b>
 ModUi/&EnableLogDialoguesToConsole=Ativar diálogos de registro no console do jogo durante as sequências narrativas
@@ -174,6 +175,7 @@ ModUi/&SelectAll=Selecionar tudo
 ModUi/&SelectSuggested=Selecione Sugerido
 ModUi/&Services=Serviços
 ModUi/&SetBeltOfDwarvenKindBeardChances=<color=#D89555>Cinturão dos Anões</color> <color=white>chance de aparecimento de barba</color>
+ModUi/&ShowCraftedItemOnRecipeIcon=Mostrar o ícone do item criado próximo ao item da receita na loja e no inventário. Passar o mouse sobre ele mostrará a dica de ferramenta para o item criado
 ModUi/&ShowCraftingRecipeInDetailedTooltips=Mostrar receita de criação em dicas de ferramentas detalhadas
 ModUi/&ShowDescriptions=Mostrar descrições
 ModUi/&SpellInstructions=. Você pode atribuir individualmente cada feitiço a qualquer lista de feitiços ou simplesmente selecionar o conjunto sugerido
@@ -184,6 +186,7 @@ ModUi/&StockGorimStoreWithAllNonMagicalClothing=Loja de estoque de Gorim com tod
 ModUi/&StockGorimStoreWithAllNonMagicalInstruments=Stock Gorim's store com todos os instrumentos musicais não mágicos <b><i><color=#C04040E0>[Requer reinicialização]</color></i></b>
 ModUi/&StockHugoStoreWithAdditionalFoci=Loja do Stock Hugo com <color=#D89555>Cajado Arcano</color>, <color=#D89555>Pescoço de Druida</color>, <color=#D89555>Cajado</color> e <color=#D89555>Club</color> definido como itens de foco
 ModUi/&Subclasses=<color=#F0DAA0>Subclasses</color>
+ModUi/&SwapCraftedItemAndRecipeIcons=<i>+ Troque ícones de receitas e itens criados na loja</i>
 ModUi/&TargetLanguage=Idioma Alvo
 ModUi/&Tools=Ferramentas
 ModUi/&TotalCraftingTimeModifier=<color=white>Reduza o tempo de fabricação em</color>
