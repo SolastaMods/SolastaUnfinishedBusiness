@@ -1,5 +1,10 @@
 ﻿CHANGES:
 
+1.4.33.24:
+
+- fixed minor issues on recently added cantrips and feats
+- fixed slots display issue introduced on last version
+
 1.4.33.23:
 
 - added after rest activity to stop all Inventor infusions
