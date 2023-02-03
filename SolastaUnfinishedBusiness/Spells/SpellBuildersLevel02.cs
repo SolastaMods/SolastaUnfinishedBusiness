@@ -4,6 +4,7 @@ using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomUI;
+using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Properties;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.ConditionDefinitions;
@@ -34,6 +35,7 @@ internal static partial class SpellBuilders
 
         var spell = MirrorImage;
 
+        spell.contentPack = CeContentPackContext.CeContentPack; // required otherwise it FUP spells UI
         spell.implemented = true;
         spell.uniqueInstance = true;
         spell.schoolOfMagic = SchoolIllusion;
