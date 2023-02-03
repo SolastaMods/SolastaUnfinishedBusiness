@@ -2,6 +2,8 @@
 using System.Linq;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Builders;
+using SolastaUnfinishedBusiness.CustomInterfaces;
+using UnityEngine;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.ItemFlagDefinitions;
 
@@ -279,6 +281,65 @@ internal static class RecipeHelper
         manual.inDungeonEditor = false;
 
         return manual;
+    }
+
+    internal static void AddRecipeIcons()
+    {
+        var flag = ItemFlagDefinitionBuilder
+            .Create("ItemFlagRecipeIcon")
+            .SetGuiPresentationNoContent()
+            .SetCustomSubFeatures(new TooltipModifier<ItemDefinition>((tooltip, img, obj, definition, context) =>
+            {
+                var item = Main.Settings.ShowCraftedItemOnRecipeIcon
+                    ? GetCraftedItem(definition)
+                    : null;
+
+                if (item == null)
+                {
+                    return;
+                }
+
+                if (img != null)
+                {
+                    if (img.sprite != null)
+                    {
+                        Gui.ReleaseAddressableAsset(img.sprite);
+                        img.sprite = null;
+                    }
+
+                    var spriteReference = item.GuiPresentation.SpriteReference;
+                    if (spriteReference != null && spriteReference.RuntimeKeyIsValid())
+                    {
+                        img.sprite = Gui.LoadAssetSync<Sprite>(spriteReference);
+                        if (obj != null)
+                        {
+                            obj.gameObject.SetActive(true);
+                            obj.localScale = new Vector3(2f, 2f, 1f);
+                        }
+                    }
+                }
+
+                if (tooltip != null)
+                {
+                    ServiceRepository.GetService<IGuiWrapperService>()
+                        .GetGuiItemDefinition(item.Name)
+                        .SetupTooltip(tooltip, context);
+                }
+
+            }))
+            .AddToDB();
+
+        var recipes = DatabaseRepository.GetDatabase<ItemDefinition>()
+            .Where(d => d.IsDocument)
+            .Where(d => d.DocumentDescription != null)
+            .Where(d => d.DocumentDescription.RecipeDefinition != null);
+
+        foreach (var recipe in recipes)
+        {
+            var presentation = new ItemPresentation(recipe.ItemPresentation);
+            presentation.ItemFlags.Add(flag);
+            recipe.itemPresentation = presentation;
+        }
     }
 
     [NotNull]
