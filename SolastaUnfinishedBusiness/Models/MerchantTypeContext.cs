@@ -251,6 +251,13 @@ internal static class RecipeHelper
 
     public static RecipeDefinition BuildPrimeRecipe(ItemDefinition item, ItemDefinition primed)
     {
+        if (!primed.itemPresentation.ItemFlags.Contains(ItemFlagPrimed))
+        {
+            var presentation = new ItemPresentation(primed.itemPresentation);
+            presentation.ItemFlags.Add(ItemFlagPrimed);
+            primed.itemPresentation = presentation;
+        }
+
         return RecipeDefinitionBuilder
             .Create($"RecipePrime{item.Name}")
             .SetGuiPresentation(primed.GuiPresentation.Title, GuiPresentationBuilder.EmptyString, primed)
