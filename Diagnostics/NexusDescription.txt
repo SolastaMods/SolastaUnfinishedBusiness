@@ -366,7 +366,7 @@ You can use a bonus action to select a weapon. Its attacks count as magical and 
 [*][b]Illuminating Sphere[/b]: Causes light sources such as torches and mana lamps in the area of effect to light up.
 [*][b]Light[/b]: An object you can touch emits a powerful light for a limited time.
 [*][b]Light[/b]: An object you can touch emits a powerful light for a limited time.
-[*][b]Mink Spike[/b]: You drive a disorienting spike of psychic energy into the mind of one creature you can see within range. The target must succeed on an Intelligence saving throw or take 1d6 psychic damage and subtract 1d4 from the next saving throw it makes before the end of your next turn.
+[*][b]Mind Spike[/b]: You drive a disorienting spike of psychic energy into the mind of one creature you can see within range. The target must succeed on an Intelligence saving throw or take 1d6 psychic damage and subtract 1d4 from the next saving throw it makes before the end of your next turn.
 [*][b]Minor Lifesteal[/b]: You drain life energy from a hostile creature you can see within range. Deal 1d8 Necrotic damage to target on hit, heal amount of HP equal to half of damage dealt and gain 1d4 temporary hit points. This spell has no effect on undead or constructs. Both damage and temporary HP gain additional die at levels 5, 11 and 17.
 [*][b]Poison Spray[/b]: Fire a poison spray at an enemy you can see, within range.
 [*][b]Produce Flame[/b]: Conjures a flickering flame in your hand, which generates light or can be hurled to inflict fire damage.

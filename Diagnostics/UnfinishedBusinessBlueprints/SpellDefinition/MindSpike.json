@@ -13,7 +13,7 @@
   "requiresConcentration": false,
   "effectDescription": {
     "$type": "EffectDescription, Assembly-CSharp",
-    "rangeType": "MeleeHit",
+    "rangeType": "Distance",
     "rangeParameter": 12,
     "halfDamageOnAMiss": false,
     "hitAffinitiesByTargetTag": [],
@@ -123,11 +123,11 @@
         "saveOccurence": "EndOfTurn",
         "conditionForm": {
           "$type": "ConditionForm, Assembly-CSharp",
-          "conditionDefinitionName": "ConditionMinkSpike",
-          "conditionDefinition": "Definition:ConditionMinkSpike:3df1302f-2ff2-5fa9-8630-902c97688499",
+          "conditionDefinitionName": "ConditionMindSpike",
+          "conditionDefinition": "Definition:ConditionMindSpike:13d9079f-dec3-5edb-bc7d-f9685fa38fc0",
           "operation": "Add",
           "conditionsList": [
-            "Definition:ConditionMinkSpike:3df1302f-2ff2-5fa9-8630-902c97688499"
+            "Definition:ConditionMindSpike:13d9079f-dec3-5edb-bc7d-f9685fa38fc0"
           ],
           "applyToSelf": false,
           "forceOnSelf": false
@@ -162,7 +162,7 @@
       "$type": "EffectParticleParameters, Assembly-CSharp",
       "casterParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "81560ac3813217d4d9fd281d5e73c234",
+        "m_AssetGUID": "f540d0a67ac604c479c483b5b0e5c3bb",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -295,7 +295,7 @@
       },
       "conditionStartParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "",
+        "m_AssetGUID": "1f4269faf93934946b0baf061776d756",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -307,7 +307,7 @@
       },
       "conditionEndParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "",
+        "m_AssetGUID": "710595d3d2670d4418a2769ab48a6b07",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -352,11 +352,11 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Spell/&MinkSpikeTitle",
-    "description": "Spell/&MinkSpikeDescription",
+    "title": "Spell/&MindSpikeTitle",
+    "description": "Spell/&MindSpikeDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "3800068d-2f63-528f-bae1-210fa8deb282",
+      "m_AssetGUID": "26e62c5c-c568-5ca5-b2bb-5650b1d06f8e",
       "m_SubObjectName": null,
       "m_SubObjectType": null
     },
@@ -373,7 +373,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "977d5782-b845-5a1e-8b72-b06483d2083a",
+  "guid": "bfa2d1c0-d3ad-5895-8bef-21c8f4830c7c",
   "contentPack": 9999,
-  "name": "MinkSpike"
+  "name": "MindSpike"
 }
