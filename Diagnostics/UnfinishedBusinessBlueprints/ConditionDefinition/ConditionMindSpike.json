@@ -2,15 +2,13 @@
   "$type": "ConditionDefinition, Assembly-CSharp",
   "inDungeonEditor": false,
   "parentCondition": null,
-  "conditionType": "Neutral",
+  "conditionType": "Detrimental",
   "features": [
-    "Definition:CombatAffinityProneDefender:7a9070e36d361a14fb4dd02bd7d4438c",
-    "Definition:CombatAffinityProneAttackerContact:57619ae8566c8f14ea049ef8aaa52187",
-    "Definition:CombatAffinityProneAttackerAway:074df5f74f9b0f94e84ef804b7d53420"
+    "Definition:SavingThrowAffinityConditionBaned:f810f1fc9bbd8944c8e618dd65179311"
   ],
   "allowMultipleInstances": false,
-  "silentWhenAdded": true,
-  "silentWhenRemoved": true,
+  "silentWhenAdded": false,
+  "silentWhenRemoved": false,
   "terminateWhenRemoved": false,
   "specialDuration": true,
   "durationType": "Round",
@@ -18,7 +16,9 @@
   "durationParameter": 1,
   "forceTurnOccurence": false,
   "turnOccurence": "EndOfTurn",
-  "specialInterruptions": [],
+  "specialInterruptions": [
+    "SavingThrow"
+  ],
   "interruptionRequiresSavingThrow": false,
   "interruptionSavingThrowComputationMethod": "SaveOverride",
   "interruptionSavingThrowAbility": "",
@@ -265,12 +265,12 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Rules/&ConditionProneTitle",
-    "description": "Rules/&ConditionProneDescription",
+    "title": "Condition/&ConditionMindSpikeTitle",
+    "description": "Condition/&ConditionMindSpikeDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "c361725f0a278ea4bbef108455b7029d",
-      "m_SubObjectName": "ConditionProne",
+      "m_AssetGUID": "972ed4fda488202498a29dc8a698c8e8",
+      "m_SubObjectName": "ConditionNegative",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
@@ -286,7 +286,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "49d7b762-8004-5668-885b-120645fbe53a",
+  "guid": "13d9079f-dec3-5edb-bc7d-f9685fa38fc0",
   "contentPack": 9999,
-  "name": "ConditionFeatFellHanded"
+  "name": "ConditionMindSpike"
 }

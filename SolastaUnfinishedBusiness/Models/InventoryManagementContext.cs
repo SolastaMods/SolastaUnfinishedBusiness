@@ -210,8 +210,10 @@ internal static class InventoryManagementContext
                 {
                     var merchantCategoryDefinitions = DatabaseRepository.GetDatabase<MerchantCategoryDefinition>();
 
+                    // ReSharper disable once IdentifierTypo
                     var amct = Gui.Localize(merchantCategoryDefinitions.GetElement(a.ItemDefinition.MerchantCategory)
                         .GuiPresentation.Title);
+                    // ReSharper disable once IdentifierTypo
                     var bmct = Gui.Localize(merchantCategoryDefinitions.GetElement(b.ItemDefinition.MerchantCategory)
                         .GuiPresentation.Title);
 
@@ -260,8 +262,10 @@ internal static class InventoryManagementContext
             case 4: // Cost per Weight
                 items.Sort((a, b) =>
                 {
+                    // ReSharper disable once IdentifierTypo
                     var acpw = EquipmentDefinitions.GetApproximateCostInGold(a.ItemDefinition.Costs) /
                                a.ComputeWeight();
+                    // ReSharper disable once IdentifierTypo
                     var bcpw = EquipmentDefinitions.GetApproximateCostInGold(b.ItemDefinition.Costs) /
                                b.ComputeWeight();
 

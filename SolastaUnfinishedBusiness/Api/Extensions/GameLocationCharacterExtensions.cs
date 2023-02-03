@@ -1,4 +1,5 @@
-﻿using TA;
+﻿using System.Linq;
+using TA;
 using static ActionDefinitions;
 
 namespace SolastaUnfinishedBusiness.Api.Extensions;
@@ -69,20 +70,9 @@ public static class GameLocationCharacterExtensions
 
     internal static RulesetAttackMode GetFirstRangedModeThatCanBeReadied(this GameLocationCharacter instance)
     {
-        foreach (var mode in instance.RulesetCharacter.AttackModes)
-        {
-            if (mode.ActionType != ActionType.Main)
-            {
-                continue;
-            }
-
-            if (mode.Ranged || mode.Thrown)
-            {
-                return mode;
-            }
-        }
-
-        return null;
+        return instance.RulesetCharacter.AttackModes
+            .Where(mode => mode.ActionType == ActionType.Main)
+            .FirstOrDefault(mode => mode.Ranged || mode.Thrown);
     }
 
     /**

@@ -1,15 +1,7 @@
 CHANGES:
 
-- added after rest activity to stop all Inventor infusions
-- added Mink Spike cantrip
-- added Sword Storm cantrip
-- changed Oath of Ancients aura warding to grant resistance against spells instead of elements
-- fixed Deadeye and Power Attack descriptions
-- fixed Blade Mastery to grant advantage on all actions instead of reaction only
-- fixed Fell Handed to correctly apply prone condition
-- fixed Chitinous Boom use case under multiclass
-- improved Inventor infusions logic
-- refactored Skin of Retribution to allow choosing damage type
+- fixed minor issues on recently added cantrips and feats
+- fixed slots display issue introduced on last version
 
 
 

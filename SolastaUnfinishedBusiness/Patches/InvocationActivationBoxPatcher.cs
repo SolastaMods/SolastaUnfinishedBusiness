@@ -174,8 +174,10 @@ public static class InvocationActivationBoxPatcher
                 var high = Object.Instantiate(highTransform.gameObject, boxRect);
 
                 high.name = HighSlotsName;
-                rect = high.GetComponent<RectTransform>();
-                rect.position = new Vector3(rect.position.x, position.y, 0);
+
+                var rect2 = high.GetComponent<RectTransform>();
+
+                rect2.position = new Vector3(rect2.position.x, position.y, 0);
                 highSlots = high.GetComponent<GuiLabel>();
             }
             else
