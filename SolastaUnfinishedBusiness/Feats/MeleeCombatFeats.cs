@@ -714,7 +714,6 @@ internal static class MeleeCombatFeats
                         var console = Gui.Game.GameConsole;
                         var entry = new GameConsoleEntry("Feedback/&FeatFellHanded", console.consoleTableDefinition);
 
-                        console.AddCharacterEntry(attacker.RulesetActor, entry);
                         console.AddCharacterEntry(defender.RulesetActor, entry);
                         console.AddEntry(entry);
 

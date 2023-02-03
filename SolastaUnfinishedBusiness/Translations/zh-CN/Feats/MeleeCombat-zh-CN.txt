@@ -38,6 +38,7 @@ Feedback/&AdditionalDamageCrusherFormat=破碎机！
 Feedback/&AdditionalDamageCrusherLine={0} 粉碎 {1}
 Feedback/&AdditionalDamagePiercerFormat=穿孔器！
 Feedback/&AdditionalDamagePiercerLine={0} 严重刺穿 {1}
+Feedback/&FeatFellHanded={0} 摔倒了，现在是俯卧的。
 Reaction/&SpendPowerPowerFeatCrusherHitDescription=粉碎你的敌人并将其推开 5 英尺。
 Reaction/&SpendPowerPowerFeatCrusherHitReactDescription=粉碎你的敌人并将其推开 5 英尺。
 Reaction/&SpendPowerPowerFeatCrusherHitReactTitle=压碎
