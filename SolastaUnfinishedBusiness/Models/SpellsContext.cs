@@ -207,6 +207,7 @@ internal static class SpellsContext
             spellListInventorClass);
 
         // 1st level
+        RegisterSpell(BuildCausticBile(), 0, SpellListSorcerer, SpellListWizard);
         RegisterSpell(BuildChromaticOrb(), 0, SpellListSorcerer, SpellListWizard);
         RegisterSpell(BuildEarthTremor(), 0, SpellListBard, SpellListDruid, SpellListSorcerer, SpellListWizard);
         RegisterSpell(EnsnaringStrike, 0, SpellListPaladin);
