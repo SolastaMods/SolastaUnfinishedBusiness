@@ -195,6 +195,7 @@ internal static class MeleeCombatFeats
         var conditionBladeMastery = ConditionDefinitionBuilder
             .Create($"Condition{NAME}")
             .SetGuiPresentation(NAME, Category.Feat)
+            .SetSilent(Silent.WhenAddedOrRemoved)
             .SetFeatures(FeatureDefinitionAttributeModifierBuilder
                 .Create($"AttributeModifier{NAME}")
                 .SetGuiPresentationNoContent(true)
@@ -203,7 +204,6 @@ internal static class MeleeCombatFeats
                     AttributeDefinitions.ArmorClass,
                     1)
                 .AddToDB())
-            .SetSilent(Silent.WhenAddedOrRemoved)
             .AddToDB();
 
         var powerBladeMastery = FeatureDefinitionPowerBuilder
@@ -288,13 +288,15 @@ internal static class MeleeCombatFeats
     {
         const string NAME = "FeatFellHanded";
 
+        var weaponTypes = new[] { BattleaxeType, GreataxeType, HandaxeType, MaulType, WarhammerType };
+
         return FeatDefinitionBuilder
             .Create(NAME)
             .SetGuiPresentation(Category.Feat)
             .SetCustomSubFeatures(
-                new AfterAttackEffectFeatFellHanded(),
+                new AfterAttackEffectFeatFellHanded(weaponTypes),
                 new ModifyAttackModeWeaponTypeFilter($"Feature/&ModifyAttackMode{NAME}Title",
-                    BattleaxeType, GreataxeType, HandaxeType, MaulType, WarhammerType))
+                    weaponTypes))
             .AddToDB();
     }
 
@@ -694,6 +696,13 @@ internal static class MeleeCombatFeats
 
     private sealed class AfterAttackEffectFeatFellHanded : IAfterAttackEffect
     {
+        private readonly List<WeaponTypeDefinition> _weaponTypeDefinition = new();
+
+        public AfterAttackEffectFeatFellHanded(params WeaponTypeDefinition[] weaponTypeDefinition)
+        {
+            _weaponTypeDefinition.AddRange(weaponTypeDefinition);
+        }
+
         public void AfterOnAttackHit(
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
@@ -702,6 +711,12 @@ internal static class MeleeCombatFeats
             RulesetAttackMode attackMode,
             ActionModifier attackModifier)
         {
+            if (attackMode.sourceDefinition is not ItemDefinition { IsWeapon: true } sourceDefinition ||
+                !_weaponTypeDefinition.Contains(sourceDefinition.WeaponDescription.WeaponTypeDefinition))
+            {
+                return;
+            }
+
             switch (attackModifier.AttackAdvantageTrend)
             {
                 case >= 0 when outcome is RollOutcome.Success or RollOutcome.CriticalSuccess:
