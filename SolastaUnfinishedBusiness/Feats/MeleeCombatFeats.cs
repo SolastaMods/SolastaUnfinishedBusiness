@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.Extensions;
 using SolastaUnfinishedBusiness.Api.Infrastructure;
@@ -144,6 +145,7 @@ internal static class MeleeCombatFeats
         var featSavageAttack = BuildSavageAttack();
         var featSlasherStr = BuildSlasherStr();
         var featSlasherDex = BuildSlasherDex();
+        var featSpearMastery = BuildSpearMastery();
 
         feats.AddRange(
             featBladeMastery,
@@ -157,7 +159,8 @@ internal static class MeleeCombatFeats
             featRecklessAttack,
             featSavageAttack,
             featSlasherDex,
-            featSlasherStr);
+            featSlasherStr,
+            featSpearMastery);
 
         var featGroupCrusher = GroupFeats.MakeGroup("FeatGroupCrusher", Crusher,
             featCrusherStr,
@@ -181,6 +184,7 @@ internal static class MeleeCombatFeats
             featPowerAttack,
             featRecklessAttack,
             featSavageAttack,
+            featSpearMastery,
             featGroupCrusher,
             FeatGroupPiercer,
             featGroupSlasher);
@@ -233,7 +237,7 @@ internal static class MeleeCombatFeats
             .SetFeatures(powerBladeMastery)
             .SetCustomSubFeatures(
                 new OnComputeAttackModifierFeatBladeMastery(weaponTypes),
-                new ModifyAttackModeWeaponTypeFilter($"Feature/&ModifyAttackMode{NAME}Title", weaponTypes))
+                new ModifyAttackModeForWeaponTypeFilter($"Feature/&ModifyAttackMode{NAME}Title", weaponTypes))
             .AddToDB();
     }
 
@@ -295,8 +299,8 @@ internal static class MeleeCombatFeats
             .SetGuiPresentation(Category.Feat)
             .SetCustomSubFeatures(
                 new AfterAttackEffectFeatFellHanded(weaponTypes),
-                new ModifyAttackModeWeaponTypeFilter($"Feature/&ModifyAttackMode{NAME}Title",
-                    weaponTypes))
+                new ModifyAttackModeForWeaponTypeFilter(
+                    $"Feature/&ModifyAttackMode{NAME}Title", weaponTypes))
             .AddToDB();
     }
 
@@ -493,6 +497,76 @@ internal static class MeleeCombatFeats
                 FeatureFeatSlasher)
             .SetFeatFamily(Slasher)
             .SetAbilityScorePrerequisite(AttributeDefinitions.Strength, 13)
+            .AddToDB();
+    }
+
+    private static FeatDefinition BuildSpearMastery()
+    {
+        const string NAME = "FeatSpearMastery";
+
+        var weaponTypes = new[] { SpearType };
+
+        var conditionFeatSpearMasteryReach = ConditionDefinitionBuilder
+            .Create($"Condition{NAME}Reach")
+            .SetGuiPresentation($"Power{NAME}Reach", Category.Feature)
+            .SetSpecialInterruptions(ConditionInterruption.AnyBattleTurnEnd)
+            .AddToDB();
+
+        var powerFeatSpearMasteryReach = FeatureDefinitionPowerBuilder
+            .Create($"Power{NAME}Reach")
+            .SetGuiPresentation(Category.Feature,
+                Sprites.GetSprite($"Power{NAME}Reach", Resources.SpearMasteryReach, 256, 128))
+            .SetUsesFixed(ActivationTime.BonusAction)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetDurationData(DurationType.Round, 1, TurnOccurenceType.StartOfTurn)
+                    .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
+                    .SetEffectForms(EffectFormBuilder
+                        .Create()
+                        .SetConditionForm(
+                            conditionFeatSpearMasteryReach,
+                            ConditionForm.ConditionOperation.Add,
+                            true,
+                            true)
+                        .Build())
+                    .Build())
+            .AddToDB();
+
+        var conditionFeatSpearMasteryCharge = ConditionDefinitionBuilder
+            .Create($"Condition{NAME}Charge")
+            .SetGuiPresentation($"Power{NAME}Charge", Category.Feature)
+            .AddToDB();
+
+        var powerFeatSpearMasteryCharge = FeatureDefinitionPowerBuilder
+            .Create($"Power{NAME}Charge")
+            .SetGuiPresentation(Category.Feature,
+                Sprites.GetSprite($"Power{NAME}Charge", Resources.SpearMasteryCharge, 256, 128))
+            .SetUsesFixed(ActivationTime.BonusAction)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetDurationData(DurationType.Round, 1, TurnOccurenceType.StartOfTurn)
+                    .SetTargetingData(Side.Enemy, RangeType.Distance, 12, TargetType.IndividualsUnique)
+                    .SetEffectForms(EffectFormBuilder
+                        .Create()
+                        .SetConditionForm(
+                            conditionFeatSpearMasteryCharge,
+                            ConditionForm.ConditionOperation.Add)
+                        .Build())
+                    .Build())
+            .AddToDB();
+
+        return FeatDefinitionBuilder
+            .Create(NAME)
+            .SetGuiPresentation(Category.Feat)
+            .SetFeatures(
+                powerFeatSpearMasteryReach,
+                powerFeatSpearMasteryCharge)
+            .SetCustomSubFeatures(
+                new AfterAttackEffectFeatSpearMastery(conditionFeatSpearMasteryCharge, weaponTypes),
+                new ModifyAttackModeForWeaponFeatSpearMastery(
+                    $"Feature/&ModifyAttackMode{NAME}Title", conditionFeatSpearMasteryReach, weaponTypes))
             .AddToDB();
     }
 
@@ -762,12 +836,13 @@ internal static class MeleeCombatFeats
         }
     }
 
-    private sealed class ModifyAttackModeWeaponTypeFilter : IModifyAttackModeForWeapon
+    private sealed class ModifyAttackModeForWeaponTypeFilter : IModifyAttackModeForWeapon
     {
         private readonly string _sourceName;
         private readonly List<WeaponTypeDefinition> _weaponTypeDefinition = new();
 
-        public ModifyAttackModeWeaponTypeFilter(string sourceName, params WeaponTypeDefinition[] weaponTypeDefinition)
+        public ModifyAttackModeForWeaponTypeFilter(string sourceName,
+            params WeaponTypeDefinition[] weaponTypeDefinition)
         {
             _sourceName = sourceName;
             _weaponTypeDefinition.AddRange(weaponTypeDefinition);
@@ -823,6 +898,119 @@ internal static class MeleeCombatFeats
             attackModifier.attackAdvantageTrends.Add(new TrendInfo(1,
                 FeatureSourceType.CharacterFeature, "Feature/&ModifyAttackModeFeatBladeMasteryTitle",
                 null));
+        }
+    }
+
+    private sealed class AfterAttackEffectFeatSpearMastery : IAfterAttackEffect
+    {
+        private readonly ConditionDefinition _conditionDefinition;
+        private readonly List<WeaponTypeDefinition> _weaponTypeDefinition = new();
+
+        public AfterAttackEffectFeatSpearMastery(
+            ConditionDefinition conditionDefinition,
+            params WeaponTypeDefinition[] weaponTypeDefinition)
+        {
+            _conditionDefinition = conditionDefinition;
+            _weaponTypeDefinition.AddRange(weaponTypeDefinition);
+        }
+
+        public void AfterOnAttackHit(
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            RollOutcome outcome,
+            CharacterActionParams actionParams,
+            RulesetAttackMode attackMode,
+            ActionModifier attackModifier)
+        {
+            if (attackMode.sourceDefinition is not ItemDefinition { IsWeapon: true } sourceDefinition ||
+                !_weaponTypeDefinition.Contains(sourceDefinition.WeaponDescription.WeaponTypeDefinition))
+            {
+                return;
+            }
+
+            var damageForm = attackMode.EffectDescription.FindFirstDamageForm();
+
+            if (damageForm == null)
+            {
+                return;
+            }
+
+            /* When you use a spear, its damage die changes from a d6
+            to a d8, and from a d8 to a d10 when wielded with two
+            hands. */
+
+            damageForm.dieType = damageForm.DieType switch
+            {
+                DieType.D6 => DieType.D8,
+                DieType.D8 => DieType.D10,
+                _ => damageForm.dieType
+            };
+
+            /* You can set your spear to receive a charge. As a bonus
+            action, choose a creature you can see that is at least 20
+            feet away from you. If that creatures moves within your
+            spear’s reach on its next turn, you can make a melee
+            attack against it with your spear as a reaction. If the attack
+            hits, the target takes an extra 1d8 piercing damage, or an
+            extra 1d10 piercing damage if you wield the spear with
+            two hands. */
+
+            if (attackMode.actionType != ActionDefinitions.ActionType.Reaction ||
+                defender.RulesetCharacter.AllConditions.All(x => x.ConditionDefinition != _conditionDefinition))
+            {
+                return;
+            }
+
+            damageForm.diceNumber += 1;
+        }
+    }
+
+    private sealed class ModifyAttackModeForWeaponFeatSpearMastery : IModifyAttackModeForWeapon
+    {
+        private readonly ConditionDefinition _conditionDefinition;
+        private readonly string _sourceName;
+        private readonly List<WeaponTypeDefinition> _weaponTypeDefinition = new();
+
+        public ModifyAttackModeForWeaponFeatSpearMastery(
+            string sourceName,
+            ConditionDefinition conditionDefinition,
+            params WeaponTypeDefinition[] weaponTypeDefinition)
+        {
+            _sourceName = sourceName;
+            _conditionDefinition = conditionDefinition;
+            _weaponTypeDefinition.AddRange(weaponTypeDefinition);
+        }
+
+        public void ModifyAttackMode(RulesetCharacter character, [CanBeNull] RulesetAttackMode attackMode)
+        {
+            var damage = attackMode?.EffectDescription?.FindFirstDamageForm();
+
+            if (damage == null)
+            {
+                return;
+            }
+
+            if (attackMode.sourceDefinition is not ItemDefinition { IsWeapon: true } sourceDefinition ||
+                !_weaponTypeDefinition.Contains(sourceDefinition.WeaponDescription.WeaponTypeDefinition))
+            {
+                return;
+            }
+
+            /* You gain a +1 bonus to attack rolls you make with a spear */
+
+            attackMode.ToHitBonus += 1;
+            attackMode.ToHitBonusTrends.Add(new TrendInfo(1, FeatureSourceType.CharacterFeature, _sourceName, null));
+
+            /* As a bonus action on your turn, you can increase your
+            reach with a spear by 5 feet for the rest of your turn */
+
+            if (character.AllConditions.All(x => x.ConditionDefinition != _conditionDefinition))
+            {
+                return;
+            }
+
+            attackMode.reach = true;
+            attackMode.reachRange = 2;
         }
     }
 }
