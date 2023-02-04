@@ -157,7 +157,8 @@ public static class InnovationArmor
         var defensiveField = FeatureDefinitionPowerBuilder
             .Create("PowerInnovationArmorDefensiveField")
             .SetGuiPresentation(Category.Feature, Sprites.PowerDefensiveField)
-            .SetCustomSubFeatures(new ValidatorsPowerUse(InGuardianMode), InventorClassHolder.Marker)
+            .SetCustomSubFeatures(new ValidatorsPowerUse(InGuardianMode), InventorClassHolder.Marker,
+                RecurrenceOnlyOnSelfTurn.Mark)
             .SetUsesProficiencyBonus(ActivationTime.BonusAction)
             .SetEffectDescription(EffectDescriptionBuilder.Create()
                 .SetDurationData(DurationType.Minute, 1)
