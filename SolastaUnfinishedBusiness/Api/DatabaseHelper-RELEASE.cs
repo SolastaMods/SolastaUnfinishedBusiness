@@ -301,6 +301,8 @@ internal static partial class DatabaseHelper
         internal static FeatureDefinitionAdditionalDamage AdditionalDamageBrandingSmite { get; } = GetDefinition<FeatureDefinitionAdditionalDamage>("AdditionalDamageBrandingSmite");
         internal static FeatureDefinitionAdditionalDamage AdditionalDamageCircleBalanceColdEmbrace { get; } = GetDefinition<FeatureDefinitionAdditionalDamage>("AdditionalDamageCircleBalanceColdEmbrace");
         internal static FeatureDefinitionAdditionalDamage AdditionalDamageHuntersMark { get; } = GetDefinition<FeatureDefinitionAdditionalDamage>("AdditionalDamageHuntersMark");
+        internal static FeatureDefinitionAdditionalDamage AdditionalDamageInvocationAgonizingBlast { get; } = GetDefinition<FeatureDefinitionAdditionalDamage>("AdditionalDamageInvocationAgonizingBlast");
+        internal static FeatureDefinitionAdditionalDamage AdditionalDamageLifedrinker { get; } = GetDefinition<FeatureDefinitionAdditionalDamage>("AdditionalDamageLifedrinker");
         internal static FeatureDefinitionAdditionalDamage AdditionalDamagePaladinDivineSmite { get; } = GetDefinition<FeatureDefinitionAdditionalDamage>("AdditionalDamagePaladinDivineSmite");
         internal static FeatureDefinitionAdditionalDamage AdditionalDamagePoison_GhoulsCaress { get; } = GetDefinition<FeatureDefinitionAdditionalDamage>("AdditionalDamagePoison_GhoulsCaress");
         internal static FeatureDefinitionAdditionalDamage AdditionalDamageRangerFavoredEnemyAberration { get; } = GetDefinition<FeatureDefinitionAdditionalDamage>("AdditionalDamageRangerFavoredEnemyAberration");
@@ -317,6 +319,7 @@ internal static partial class DatabaseHelper
         internal static FeatureDefinitionAdditionalDamage AdditionalDamageRangerFavoredEnemyPlant { get; } = GetDefinition<FeatureDefinitionAdditionalDamage>("AdditionalDamageRangerFavoredEnemyPlant");
         internal static FeatureDefinitionAdditionalDamage AdditionalDamageRangerFavoredEnemyUndead { get; } = GetDefinition<FeatureDefinitionAdditionalDamage>("AdditionalDamageRangerFavoredEnemyUndead");
         internal static FeatureDefinitionAdditionalDamage AdditionalDamageRogueSneakAttack { get; } = GetDefinition<FeatureDefinitionAdditionalDamage>("AdditionalDamageRogueSneakAttack");
+        internal static FeatureDefinitionAdditionalDamage AdditionalDamageTraditionShockArcanistArcaneFury { get; } = GetDefinition<FeatureDefinitionAdditionalDamage>("AdditionalDamageTraditionShockArcanistArcaneFury");
     }
     internal static class FeatureDefinitionAttackModifiers
     {
