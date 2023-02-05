@@ -222,7 +222,7 @@ internal sealed class WayOfTheDragon : AbstractSubclass
         var additionalDamageAcid = FeatureDefinitionAdditionalDamageBuilder
             .Create($"AdditionalDamage{Name}DragonFuryAcid")
             .SetGuiPresentation(Category.Feature)
-            .SetNotificationTag(NOTIFICATION_TAG)
+            .SetNotificationTag(NOTIFICATION_TAG + DamageTypeAcid)
             .SetAdditionalDamageType(AdditionalDamageType.Specific)
             .SetImpactParticleReference(AcidSplash)
             .SetSpecificDamageType(DamageTypeAcid)
@@ -233,6 +233,7 @@ internal sealed class WayOfTheDragon : AbstractSubclass
         var conditionDragonFuryAcid = ConditionDefinitionBuilder
             .Create($"Condition{Name}DragonFuryAcid")
             .SetGuiPresentation(Category.Condition, ConditionPactChainPseudodragon)
+            .SetPossessive()
             .AddFeatures(additionalDamageAcid)
             .SetSpecialInterruptions(ConditionInterruption.AnyBattleTurnEnd)
             .AddToDB();
@@ -259,7 +260,7 @@ internal sealed class WayOfTheDragon : AbstractSubclass
         var additionalDamageLightning = FeatureDefinitionAdditionalDamageBuilder
             .Create($"AdditionalDamage{Name}DragonFuryLightning")
             .SetGuiPresentation(Category.Feature)
-            .SetNotificationTag(NOTIFICATION_TAG)
+            .SetNotificationTag(NOTIFICATION_TAG + DamageTypeLightning)
             .SetAdditionalDamageType(AdditionalDamageType.Specific)
             .SetImpactParticleReference(LightningBolt)
             .SetSpecificDamageType(DamageTypeLightning)
@@ -270,6 +271,7 @@ internal sealed class WayOfTheDragon : AbstractSubclass
         var conditionDragonFuryLightning = ConditionDefinitionBuilder
             .Create($"Condition{Name}DragonFuryLightning")
             .SetGuiPresentation(Category.Condition, ConditionPactChainPseudodragon)
+            .SetPossessive()
             .AddFeatures(additionalDamageLightning)
             .SetSpecialInterruptions(ConditionInterruption.AnyBattleTurnEnd)
             .AddToDB();
@@ -294,7 +296,7 @@ internal sealed class WayOfTheDragon : AbstractSubclass
 
         var additionalDamagePoison = FeatureDefinitionAdditionalDamageBuilder
             .Create($"AdditionalDamage{Name}DragonFuryPoison").SetGuiPresentation(Category.Feature)
-            .SetNotificationTag(NOTIFICATION_TAG)
+            .SetNotificationTag(NOTIFICATION_TAG + DamageTypePoison)
             .SetAdditionalDamageType(AdditionalDamageType.Specific)
             .SetImpactParticleReference(PoisonSpray)
             .SetSpecificDamageType(DamageTypePoison)
@@ -305,6 +307,7 @@ internal sealed class WayOfTheDragon : AbstractSubclass
         var conditionDragonFuryPoison = ConditionDefinitionBuilder
             .Create($"Condition{Name}DragonFuryPoison")
             .SetGuiPresentation(Category.Condition, ConditionPactChainPseudodragon)
+            .SetPossessive()
             .AddFeatures(additionalDamagePoison)
             .SetSpecialInterruptions(ConditionInterruption.AnyBattleTurnEnd)
             .AddToDB();
@@ -331,7 +334,7 @@ internal sealed class WayOfTheDragon : AbstractSubclass
         var additionalDamageFire = FeatureDefinitionAdditionalDamageBuilder
             .Create($"AdditionalDamage{Name}DragonFuryFire")
             .SetGuiPresentation(Category.Feature)
-            .SetNotificationTag(NOTIFICATION_TAG)
+            .SetNotificationTag(NOTIFICATION_TAG + DamageTypeFire)
             .SetAdditionalDamageType(AdditionalDamageType.Specific)
             .SetSpecificDamageType(DamageTypeFire)
             .SetImpactParticleReference(Fireball)
@@ -342,6 +345,7 @@ internal sealed class WayOfTheDragon : AbstractSubclass
         var conditionDragonFuryFire = ConditionDefinitionBuilder
             .Create($"Condition{Name}DragonFuryFire")
             .SetGuiPresentation(Category.Condition, ConditionPactChainPseudodragon)
+            .SetPossessive()
             .AddFeatures(additionalDamageFire)
             .SetSpecialInterruptions(ConditionInterruption.AnyBattleTurnEnd)
             .AddToDB();
@@ -368,7 +372,7 @@ internal sealed class WayOfTheDragon : AbstractSubclass
         var additionalDamageCold = FeatureDefinitionAdditionalDamageBuilder
             .Create($"AdditionalDamage{Name}DragonFuryCold")
             .SetGuiPresentation(Category.Feature)
-            .SetNotificationTag(NOTIFICATION_TAG)
+            .SetNotificationTag(NOTIFICATION_TAG + DamageTypeCold)
             .SetAdditionalDamageType(AdditionalDamageType.Specific)
             .SetImpactParticleReference(ConeOfCold)
             .SetSpecificDamageType(DamageTypeCold)
@@ -379,6 +383,7 @@ internal sealed class WayOfTheDragon : AbstractSubclass
         var conditionDragonFuryCold = ConditionDefinitionBuilder
             .Create($"Condition{Name}DragonFuryCold")
             .SetGuiPresentation(Category.Condition, ConditionPactChainPseudodragon)
+            .SetPossessive()
             .AddFeatures(additionalDamageCold)
             .SetSpecialInterruptions(ConditionInterruption.AnyBattleTurnEnd)
             .AddToDB();
