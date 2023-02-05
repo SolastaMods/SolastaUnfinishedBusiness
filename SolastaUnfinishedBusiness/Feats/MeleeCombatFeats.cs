@@ -922,7 +922,17 @@ internal static class MeleeCombatFeats
                 .SetNotificationTag("SpearMastery")
                 .SetDamageValueDetermination(AdditionalDamageValueDetermination.SameAsBaseWeaponDie)
                 // .SetTargetCondition(conditionFeatSpearMasteryCharge, AdditionalDamageTriggerCondition.TargetHasCondition)
-                .SetCustomSubFeatures(new CanMakeAoOOnReachEntered(hasSpear), hasSpear)
+                //Adding any property so that custom restricted context would trigger
+                .SetRequiredProperty(RestrictedContextRequiredProperty.Weapon)
+                .SetCustomSubFeatures(
+                    new CanMakeAoOOnReachEntered
+                    {
+                        AccountAoOImmunity = true,
+                        WeaponValidator = validWeapon
+                    },
+                    new RestrictedContextValidator(OperationType.Set, character => hasSpear(character)
+                        //not character's turn - likely a reaction, should improve detection later
+                        && Gui.Battle !=null && Gui.Battle.activeContender.RulesetCharacter != character))
                .AddToDB())
             .AddToDB();
 

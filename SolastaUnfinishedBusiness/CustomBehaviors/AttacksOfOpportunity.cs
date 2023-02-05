@@ -7,7 +7,6 @@ using SolastaUnfinishedBusiness.Api.Extensions;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.FightingStyles;
-using SolastaUnfinishedBusiness.Subclasses;
 using TA;
 using static ActionDefinitions;
 
@@ -99,6 +98,8 @@ internal static class AttacksOfOpportunity
             yield break;
         }
 
+        var actionManager = ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
+
         var battle = battleManager.Battle;
 
         if (battle == null)
@@ -120,15 +121,10 @@ internal static class AttacksOfOpportunity
                 continue;
             }
 
-            if (unit.GetActionTypeStatus(ActionType.Reaction) == ActionStatus.Available)
+            foreach (var brace in unit.RulesetActor.GetSubFeaturesByType<CanMakeAoOOnReachEntered>()
+                         .Where(feature => feature.IsValid(unit, mover)))
             {
-                yield return ProcessPolearmExpert(unit, mover, movement, battleManager);
-            }
-
-            foreach (var brace in unit.RulesetActor.GetSubFeaturesByType<MartialTactician.Brace>()
-                         .Where(_ => MartialTactician.Brace.CanReact(unit)))
-            {
-                yield return brace.Process(unit, mover, movement, battleManager);
+                yield return brace.Process(unit, mover, movement, battleManager, actionManager);
             }
         }
     }
@@ -136,49 +132,6 @@ internal static class AttacksOfOpportunity
     internal static void CleanMovingCache()
     {
         MovingCharactersCache.Clear();
-    }
-
-    private static IEnumerator ProcessPolearmExpert([NotNull] GameLocationCharacter attacker,
-        [NotNull] GameLocationCharacter mover,
-        (int3, int3) movement,
-        GameLocationBattleManager battleManager)
-    {
-        if (!CanMakeAoOOnEnemyEnterReach(attacker.RulesetCharacter) ||
-            !battleManager.CanPerformOpportunityAttackOnCharacter(attacker, mover, movement.Item2, movement.Item1,
-                out var attackMode))
-        {
-            yield break;
-        }
-
-        var actionService = ServiceRepository.GetService<IGameLocationActionService>();
-        var count = actionService.PendingReactionRequestGroups.Count;
-        var reactionParams = new CharacterActionParams(
-            attacker,
-            Id.AttackOpportunity,
-            attackMode,
-            mover,
-            new ActionModifier());
-
-        var manager = actionService as GameLocationActionManager;
-        if (manager == null)
-        {
-            //shouldn't happen, but just in case use regular AoO reaction
-            actionService.ReactForOpportunityAttack(reactionParams);
-        }
-        else
-        {
-            manager.AddInterruptRequest(new ReactionRequestReactionAttack("AoOEnter", reactionParams));
-        }
-
-
-        yield return battleManager.WaitForReactions(attacker, actionService, count);
-    }
-
-    private static bool CanMakeAoOOnEnemyEnterReach([CanBeNull] RulesetCharacter character)
-    {
-        return character != null &&
-               character.GetSubFeaturesByType<CanMakeAoOOnReachEntered>()
-                   .Any(f => f.IsValid(character));
     }
 
     private static void RequestReactionAttack(string type, CharacterActionParams actionParams)
@@ -276,17 +229,72 @@ internal sealed class SentinelFeatMarker
 {
 }
 
-internal sealed class CanMakeAoOOnReachEntered
+internal class CanMakeAoOOnReachEntered
 {
-    private readonly IsCharacterValidHandler[] validators;
+    public string Name { get; set; } = "AoOEnter";
+    public IsCharacterValidHandler ValidateAttacker { get; set; }
+    public IsCharacterValidHandler ValidateMover { get; set; }
+    public IsWeaponValidHandler WeaponValidator { get; set; }
+    public bool IgnoreReactionUses { get; set; }
+    public bool AccountAoOImmunity { get; set; }
 
-    internal CanMakeAoOOnReachEntered(params IsCharacterValidHandler[] validators)
+    internal bool IsValid(GameLocationCharacter attacker, GameLocationCharacter mover)
     {
-        this.validators = validators;
+        var rulesetAttacker = attacker.RulesetCharacter;
+        var rulesetMover = mover.RulesetCharacter;
+
+        return rulesetAttacker != null
+               && rulesetMover != null
+               && (ValidateAttacker?.Invoke(rulesetAttacker) ?? true)
+               && attacker.CanReact(IgnoreReactionUses)
+               && (ValidateMover?.Invoke(rulesetMover) ?? true);
     }
 
-    internal bool IsValid([CanBeNull] RulesetCharacter character)
+    protected virtual IEnumerator BeforeReaction([NotNull] GameLocationCharacter attacker,
+        [NotNull] GameLocationCharacter mover, (int3 from, int3 to) movement, GameLocationBattleManager battleManager, 
+        GameLocationActionManager actionManager, ReactionRequest request)
     {
-        return character != null && character.IsValid(validators);
+        yield break;
+    }
+
+    protected virtual IEnumerator AfterReaction([NotNull] GameLocationCharacter attacker,
+        [NotNull] GameLocationCharacter mover, (int3 from, int3 to) movement, GameLocationBattleManager battleManager, 
+        GameLocationActionManager actionManager, ReactionRequest request)
+    {
+        yield break;
+    }
+
+    public virtual IEnumerator Process([NotNull] GameLocationCharacter attacker, [NotNull] GameLocationCharacter mover,
+        (int3 from, int3 to) movement, GameLocationBattleManager battleManager, GameLocationActionManager actionManager)
+    {
+        if (!attacker.CanPerformOpportunityAttackOnCharacter(mover, movement.to, movement.from,
+                out var attackMode, out var attackModifier, battleManager, AccountAoOImmunity, WeaponValidator))
+        {
+            yield break;
+        }
+
+        var reactionRequest = MakeReactionRequest(attacker, mover, attackMode, attackModifier);
+
+        yield return BeforeReaction(attacker, mover, movement, battleManager, actionManager, reactionRequest);
+
+        var previousReactionCount = actionManager.PendingReactionRequestGroups.Count;
+        actionManager.AddInterruptRequest(reactionRequest);
+        yield return battleManager.WaitForReactions(attacker, actionManager, previousReactionCount);
+
+        yield return AfterReaction(attacker, mover, movement, battleManager, actionManager, reactionRequest);
+    }
+
+    protected virtual ReactionRequestReactionAttack MakeReactionRequest(GameLocationCharacter attacker,
+        GameLocationCharacter mover,
+        RulesetAttackMode attackMode, ActionModifier attackModifier)
+    {
+        var reactionParams = new CharacterActionParams(
+            attacker,
+            Id.AttackOpportunity,
+            attackMode,
+            mover,
+            attackModifier);
+
+        return new ReactionRequestReactionAttack(Name, reactionParams);
     }
 }
