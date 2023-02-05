@@ -1230,9 +1230,11 @@ internal sealed class MartialTactician : AbstractSubclass
             this.condition = condition;
             IgnoreReactionUses = true;
             ValidateAttacker = character => character.GetRemainingPowerCharges(pool) > 0;
+            BeforeReaction = AddCondition;
+            AfterReaction = RemoveCondition;
         }
 
-        protected override IEnumerator BeforeReaction(GameLocationCharacter attacker, GameLocationCharacter mover,
+        private IEnumerator AddCondition(GameLocationCharacter attacker, GameLocationCharacter mover,
             (int3 from, int3 to) movement, GameLocationBattleManager battleManager, 
             GameLocationActionManager actionManager, ReactionRequest request)
         {
@@ -1251,7 +1253,7 @@ internal sealed class MartialTactician : AbstractSubclass
             yield break;
         }
 
-        protected override IEnumerator AfterReaction(GameLocationCharacter attacker, GameLocationCharacter mover,
+        private IEnumerator RemoveCondition(GameLocationCharacter attacker, GameLocationCharacter mover,
             (int3 from, int3 to) movement, GameLocationBattleManager battleManager, 
             GameLocationActionManager actionManager, ReactionRequest request)
         {

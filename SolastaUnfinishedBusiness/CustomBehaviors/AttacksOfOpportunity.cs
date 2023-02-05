@@ -231,10 +231,16 @@ internal sealed class SentinelFeatMarker
 
 internal class CanMakeAoOOnReachEntered
 {
+    public delegate IEnumerator Handler([NotNull] GameLocationCharacter attacker,
+        [NotNull] GameLocationCharacter mover, (int3 from, int3 to) movement, GameLocationBattleManager battleManager,
+        GameLocationActionManager actionManager, ReactionRequest request);
+    
     public string Name { get; set; } = "AoOEnter";
     public IsCharacterValidHandler ValidateAttacker { get; set; }
     public IsCharacterValidHandler ValidateMover { get; set; }
     public IsWeaponValidHandler WeaponValidator { get; set; }
+    public Handler BeforeReaction { get; set; }
+    public Handler AfterReaction { get; set; }
     public bool IgnoreReactionUses { get; set; }
     public bool AccountAoOImmunity { get; set; }
 
@@ -250,21 +256,7 @@ internal class CanMakeAoOOnReachEntered
                && (ValidateMover?.Invoke(rulesetMover) ?? true);
     }
 
-    protected virtual IEnumerator BeforeReaction([NotNull] GameLocationCharacter attacker,
-        [NotNull] GameLocationCharacter mover, (int3 from, int3 to) movement, GameLocationBattleManager battleManager, 
-        GameLocationActionManager actionManager, ReactionRequest request)
-    {
-        yield break;
-    }
-
-    protected virtual IEnumerator AfterReaction([NotNull] GameLocationCharacter attacker,
-        [NotNull] GameLocationCharacter mover, (int3 from, int3 to) movement, GameLocationBattleManager battleManager, 
-        GameLocationActionManager actionManager, ReactionRequest request)
-    {
-        yield break;
-    }
-
-    public virtual IEnumerator Process([NotNull] GameLocationCharacter attacker, [NotNull] GameLocationCharacter mover,
+    public IEnumerator Process([NotNull] GameLocationCharacter attacker, [NotNull] GameLocationCharacter mover,
         (int3 from, int3 to) movement, GameLocationBattleManager battleManager, GameLocationActionManager actionManager)
     {
         if (!attacker.CanPerformOpportunityAttackOnCharacter(mover, movement.to, movement.from,
@@ -275,13 +267,20 @@ internal class CanMakeAoOOnReachEntered
 
         var reactionRequest = MakeReactionRequest(attacker, mover, attackMode, attackModifier);
 
-        yield return BeforeReaction(attacker, mover, movement, battleManager, actionManager, reactionRequest);
+        if (BeforeReaction != null)
+        {
+            yield return BeforeReaction(attacker, mover, movement, battleManager, actionManager, reactionRequest);
+        }
 
         var previousReactionCount = actionManager.PendingReactionRequestGroups.Count;
         actionManager.AddInterruptRequest(reactionRequest);
         yield return battleManager.WaitForReactions(attacker, actionManager, previousReactionCount);
 
-        yield return AfterReaction(attacker, mover, movement, battleManager, actionManager, reactionRequest);
+        if (AfterReaction != null)
+        {
+            yield return AfterReaction(attacker, mover, movement, battleManager, actionManager, reactionRequest);
+        }
+
     }
 
     protected virtual ReactionRequestReactionAttack MakeReactionRequest(GameLocationCharacter attacker,

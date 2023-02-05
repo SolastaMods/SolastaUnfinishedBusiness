@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.Extensions;
@@ -10,6 +11,7 @@ using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Properties;
+using TA;
 using static RuleDefinitions;
 using static RuleDefinitions.RollContext;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
@@ -880,11 +882,11 @@ internal static class MeleeCombatFeats
         const string REACH_CONDITION = $"Condition{NAME}Reach";
 
         var validWeapon = ValidatorsWeapon.IsOfWeaponType(SpearType);
-        var hasSpear = ValidatorsCharacter.MainHandHasWeaponType(SpearType);
 
         var conditionFeatSpearMasteryReach = ConditionDefinitionBuilder
             .Create(REACH_CONDITION)
-            .SetGuiPresentation($"Power{NAME}Reach", Category.Feature)
+            .SetGuiPresentation($"Power{NAME}Reach", Category.Feature, ConditionDefinitions.ConditionGuided)
+            .SetPossessive()
             .SetSpecialInterruptions(ConditionInterruption.AnyBattleTurnEnd)
             .SetFeatures(FeatureDefinitionBuilder
                 .Create($"Feature{NAME}Reach")
@@ -902,6 +904,7 @@ internal static class MeleeCombatFeats
             .SetEffectDescription(EffectDescriptionBuilder.Create()
                 .SetDurationData(DurationType.Round, 1, TurnOccurenceType.StartOfTurn)
                 .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
+                .SetParticleEffectParameters(SpellDefinitions.Shield)
                 .SetEffectForms(EffectFormBuilder.Create()
                     .SetConditionForm(
                         conditionFeatSpearMasteryReach,
@@ -913,9 +916,9 @@ internal static class MeleeCombatFeats
                 .Build())
             .AddToDB();
 
-        var conditionFeatSpearMasteryCharge = ConditionDefinitionBuilder
-            .Create($"Condition{NAME}Charge")
-            .SetGuiPresentation($"Power{NAME}Charge", Category.Feature, ConditionDefinitions.ConditionHighlighted)
+        var conditionDamage = ConditionDefinitionBuilder
+            .Create($"Condition{NAME}Damage")
+            .SetGuiPresentationNoContent(true)
             .SetFeatures(FeatureDefinitionAdditionalDamageBuilder
                 .Create($"AdditionalDamage{NAME}")
                 .SetGuiPresentationNoContent(true)
@@ -924,16 +927,49 @@ internal static class MeleeCombatFeats
                 // .SetTargetCondition(conditionFeatSpearMasteryCharge, AdditionalDamageTriggerCondition.TargetHasCondition)
                 //Adding any property so that custom restricted context would trigger
                 .SetRequiredProperty(RestrictedContextRequiredProperty.Weapon)
-                .SetCustomSubFeatures(
-                    new CanMakeAoOOnReachEntered
-                    {
-                        AccountAoOImmunity = true,
-                        WeaponValidator = validWeapon
-                    },
-                    new RestrictedContextValidator(OperationType.Set, character => hasSpear(character)
-                        //not character's turn - likely a reaction, should improve detection later
-                        && Gui.Battle !=null && Gui.Battle.activeContender.RulesetCharacter != character))
-               .AddToDB())
+                .SetCustomSubFeatures(new RestrictedContextValidator((_, _, character, _, ranged, mode, _) =>
+                        (OperationType.Set, !ranged && validWeapon(mode, null, character))))
+                .AddToDB())
+            .AddToDB();
+
+        IEnumerator AddCondition(GameLocationCharacter attacker, GameLocationCharacter mover,
+            (int3 from, int3 to) movement, GameLocationBattleManager manager, GameLocationActionManager actionManager,
+            ReactionRequest request)
+        {
+            var character = attacker.RulesetCharacter;
+            var rulesetCondition = RulesetCondition.CreateActiveCondition(character.Guid, conditionDamage,
+                DurationType.Round, 1, TurnOccurenceType.StartOfTurn, character.Guid, string.Empty);
+
+            character.AddConditionOfCategory(AttributeDefinitions.TagCombat, rulesetCondition);
+
+            yield break;
+        }
+
+        IEnumerator RemoveCondition(GameLocationCharacter attacker, GameLocationCharacter mover,
+            (int3 from, int3 to) movement, GameLocationBattleManager manager, GameLocationActionManager actionManager,
+            ReactionRequest request)
+        {
+            attacker.RulesetCharacter.RemoveAllConditionsOfCategoryAndType(AttributeDefinitions.TagCombat,
+                conditionDamage.Name);
+
+            yield break;
+        }
+
+        var conditionFeatSpearMasteryCharge = ConditionDefinitionBuilder
+            .Create($"Condition{NAME}Charge")
+            .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionGuided)
+            .SetPossessive()
+            .SetFeatures(FeatureDefinitionBuilder
+                .Create($"Feature{NAME}")
+                .SetGuiPresentationNoContent(true)
+                .SetCustomSubFeatures(new CanMakeAoOOnReachEntered
+                {
+                    AccountAoOImmunity = true,
+                    WeaponValidator = validWeapon,
+                    BeforeReaction = AddCondition,
+                    AfterReaction = RemoveCondition
+                })
+                .AddToDB())
             .AddToDB();
 
         var powerFeatSpearMasteryCharge = FeatureDefinitionPowerBuilder
