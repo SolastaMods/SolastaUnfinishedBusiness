@@ -6265,7 +6265,6 @@ BladeWard	SpellDefinition	SpellDefinition	5d04caa2-64a0-587e-a0d2-6c9ab52a56ca
 BlindingSmite	SpellDefinition	SpellDefinition	4840cef2-e39f-58f6-8a1d-0968f87008e7
 BreakerAndBanisher	SpellDefinition	SpellDefinition	471a96f8-d46e-5317-9be7-cc6f520ee0c9
 BurstOfRadiance	SpellDefinition	SpellDefinition	1e699378-f73c-564a-a7d8-b5b90931ae27
-CausticBile	SpellDefinition	SpellDefinition	940d15ce-7569-551b-8a37-08fb8505a524
 ChromaticOrb	SpellDefinition	SpellDefinition	ff742f4d-17e1-5006-95f7-ac07400a99f7
 ChromaticOrbDamageAcid	SpellDefinition	SpellDefinition	ebc348dd-d8b7-5f8f-b0c2-01867909ad4b
 ChromaticOrbDamageCold	SpellDefinition	SpellDefinition	1d892337-1f3c-51f2-8775-2db65f2af7ba

@@ -14,45 +14,6 @@ internal static partial class SpellBuilders
 {
     #region LEVEL 01
 
-    internal static SpellDefinition BuildCausticBile()
-    {
-        const string NAME = "CausticBile";
-
-        var spell = SpellDefinitionBuilder
-            .Create(NAME)
-            .SetGuiPresentation(Category.Spell, Sprites.GetSprite(NAME, Resources.CausticBile, 128))
-            .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolEvocation)
-            .SetSpellLevel(1)
-            .SetMaterialComponent(MaterialComponentType.Mundane)
-            .SetVocalSpellSameType(VocalSpellSemeType.Attack)
-            .SetCastingTime(ActivationTime.Action)
-            .SetRequiresConcentration(true)
-            .SetEffectDescription(EffectDescriptionBuilder
-                .Create()
-                .SetTargetingData(Side.All, RangeType.Self, 0, TargetType.Line, 6)
-                .SetDurationData(DurationType.Minute, 1)
-                .SetSavingThrowData(
-                    false,
-                    AttributeDefinitions.Dexterity,
-                    false,
-                    EffectDifficultyClassComputation.SpellCastingFeature)
-                .SetEffectForms(
-                    EffectFormBuilder
-                        .Create()
-                        .HasSavingThrow(EffectSavingThrowType.Negates, TurnOccurenceType.StartOfTurn)
-                        .SetDamageForm(DamageTypeAcid, 2, DieType.D4)
-                        .Build())
-                .SetRecurrentEffect(RecurrentEffect.OnActivation | RecurrentEffect.OnTurnStart)
-                .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel, additionalDicePerIncrement: 2)
-                .SetParticleEffectParameters(AcidSplash)
-                .SetSpeed(SpeedType.CellsPerSeconds, 9)
-                .SetupImpactOffsets(offsetImpactTimePerTarget: 0.25f)
-                .Build())
-            .AddToDB();
-
-        return spell;
-    }
-
     internal static SpellDefinition BuildChromaticOrb()
     {
         const string NAME = "ChromaticOrb";
