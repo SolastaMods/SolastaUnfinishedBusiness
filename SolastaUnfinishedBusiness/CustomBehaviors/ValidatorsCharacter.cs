@@ -300,6 +300,12 @@ internal static class ValidatorsCharacter
     }
 
     [NotNull]
+    internal static IsCharacterValidHandler HasAnyOfConditions(params string[] conditions)
+    {
+        return character => conditions.Any(character.HasConditionOfType);
+    }
+
+    [NotNull]
     internal static IsCharacterValidHandler HasNoCondition(params string[] conditions)
     {
         return character => !conditions.Any(character.HasConditionOfType);

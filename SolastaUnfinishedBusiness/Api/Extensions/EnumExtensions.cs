@@ -156,16 +156,16 @@ internal enum ExtraAdvancementDuration
     // Hours_1_8_24 = AdvancementDuration.Hours_1_8_24,
     // Minutes_1_10_480_1440_Infinite = AdvancementDuration.Minutes_1_10_480_1440_Infinite,
     // ReSharper disable once InconsistentNaming
-    Minutes_1_10_480_1440_Level2 = 9000,
+    Minutes_1_10_480_1440_Level2 = -9000,
 
     // ReSharper disable once InconsistentNaming
-    Minutes_1_10_480_1440_Level3 = 9001,
+    Minutes_1_10_480_1440_Level3 = -9001,
 
     // ReSharper disable once InconsistentNaming
-    Minutes_1_10_480_1440_Level4 = 9002,
+    Minutes_1_10_480_1440_Level4 = -9002,
 
     // ReSharper disable once InconsistentNaming
-    Minutes_1_10_480_1440_Level5 = 9003
+    Minutes_1_10_480_1440_Level5 = -9003
 }
 
 internal enum ExtraActionId

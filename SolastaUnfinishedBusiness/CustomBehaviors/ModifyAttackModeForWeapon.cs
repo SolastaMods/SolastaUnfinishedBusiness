@@ -131,49 +131,50 @@ internal abstract class ModifyAttackModeForWeaponBase : IModifyAttackModeForWeap
         RulesetItem weapon);
 }
 
-// internal sealed class UpgradeWeaponDice : ModifyAttackModeForWeaponBase
-// {
-//     internal delegate (RuleDefinitions.DieType, int) GetWeaponDiceHandler(RulesetCharacter character,
-//         RulesetItem weapon);
-//
-//     private readonly GetWeaponDiceHandler getWeaponDice;
-//
-//     internal UpgradeWeaponDice(GetWeaponDiceHandler getWeaponDice, IsWeaponValidHandler isWeaponValid,
-//         params CharacterValidator[] validators) : base(isWeaponValid, validators)
-//     {
-//         this.getWeaponDice = getWeaponDice;
-//     }
-//
-//     protected override void TryModifyAttackMode(RulesetCharacter character, [NotNull] RulesetAttackMode attackMode,
-//         RulesetItem weapon)
-//     {
-//         var effectDescription = attackMode.EffectDescription;
-//         var damage = effectDescription?.FindFirstDamageForm();
-//
-//         if (damage == null)
-//         {
-//             return;
-//         }
-//
-//         var (newDie, newNumber) = getWeaponDice(character, weapon);
-//         var newDamage = RuleDefinitions.DieAverage(newDie) * newNumber;
-//
-//         var oldDamage = RuleDefinitions.DieAverage(damage.DieType) * damage.DiceNumber;
-//         var oldDamageVersatile = RuleDefinitions.DieAverage(damage.VersatileDieType) * damage.DiceNumber;
-//
-//
-//         if (newDamage > oldDamage)
-//         {
-//             damage.DieType = newDie;
-//             damage.DiceNumber = newNumber;
-//         }
-//
-//         if (newDamage > oldDamageVersatile)
-//         {
-//             damage.VersatileDieType = newDie;
-//         }
-//     }
-// }
+internal sealed class UpgradeWeaponDice : ModifyAttackModeForWeaponBase
+{
+    private readonly GetWeaponDiceHandler getWeaponDice;
+
+    internal UpgradeWeaponDice(GetWeaponDiceHandler getWeaponDice, IsWeaponValidHandler isWeaponValid,
+        params IsCharacterValidHandler[] validators) : base(isWeaponValid, validators)
+    {
+        this.getWeaponDice = getWeaponDice;
+    }
+
+    protected override void TryModifyAttackMode(RulesetCharacter character, [NotNull] RulesetAttackMode attackMode,
+        RulesetItem weapon)
+    {
+        var effectDescription = attackMode.EffectDescription;
+        var damage = effectDescription?.FindFirstDamageForm();
+
+        if (damage == null)
+        {
+            return;
+        }
+
+        var (newNumber, newDie, newVersatileDie) = getWeaponDice(character, weapon);
+
+        var newDamage = RuleDefinitions.DieAverage(newDie) * newNumber;
+        var oldDamage = RuleDefinitions.DieAverage(damage.DieType) * damage.DiceNumber;
+        if (newDamage > oldDamage)
+        {
+            damage.DieType = newDie;
+            damage.DiceNumber = newNumber;
+        }
+
+        newDamage = RuleDefinitions.DieAverage(newVersatileDie) * newNumber;
+        oldDamage = RuleDefinitions.DieAverage(damage.VersatileDieType) * damage.DiceNumber;
+        if (newDamage > oldDamage)
+        {
+            damage.VersatileDieType = newDie;
+        }
+    }
+
+    internal delegate (int number, RuleDefinitions.DieType dieType, RuleDefinitions.DieType versatileDieType)
+        GetWeaponDiceHandler(
+            RulesetCharacter character,
+            RulesetItem weapon);
+}
 
 internal sealed class AddTagToWeaponAttack : ModifyAttackModeForWeaponBase
 {
