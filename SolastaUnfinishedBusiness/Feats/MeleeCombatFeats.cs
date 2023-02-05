@@ -225,6 +225,7 @@ internal static class MeleeCombatFeats
                 .SetGuiPresentationNoContent(true)
                 .SetNotificationTag("SpearMastery")
                 .SetDamageValueDetermination(AdditionalDamageValueDetermination.SameAsBaseWeaponDie)
+                .SetIgnoreCriticalDoubleDice(true)
                 // .SetTargetCondition(conditionFeatSpearMasteryCharge, AdditionalDamageTriggerCondition.TargetHasCondition)
                 //Adding any property so that custom restricted context would trigger
                 .SetRequiredProperty(RestrictedContextRequiredProperty.Weapon)
