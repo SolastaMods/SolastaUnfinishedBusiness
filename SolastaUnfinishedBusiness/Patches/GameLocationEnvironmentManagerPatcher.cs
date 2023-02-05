@@ -23,7 +23,7 @@ public static class GameLocationEnvironmentManagerPatcher
         [UsedImplicitly]
         public static IEnumerable<CodeInstruction> Transpiler([NotNull] IEnumerable<CodeInstruction> instructions)
         {
-            //PATCH: Support for marker to make reoccuring effect that happen on turn start happened only on caster's turn
+            //PATCH: Support for marker to make recurring effect that happen on turn start happened only on caster's turn
 
             var validate = new Func<
                 RulesetEffect,

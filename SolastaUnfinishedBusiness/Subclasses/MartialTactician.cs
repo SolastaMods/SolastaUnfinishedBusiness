@@ -1219,7 +1219,7 @@ internal sealed class MartialTactician : AbstractSubclass
         }
     }
 
-    internal class Brace : CanMakeAoOOnReachEntered
+    private class Brace : CanMakeAoOOnReachEntered
     {
         private readonly ConditionDefinition condition;
         private readonly FeatureDefinitionPower pool;
@@ -1235,7 +1235,7 @@ internal sealed class MartialTactician : AbstractSubclass
         }
 
         private IEnumerator AddCondition(GameLocationCharacter attacker, GameLocationCharacter mover,
-            (int3 from, int3 to) movement, GameLocationBattleManager battleManager, 
+            (int3 from, int3 to) movement, GameLocationBattleManager battleManager,
             GameLocationActionManager actionManager, ReactionRequest request)
         {
             var character = attacker.RulesetCharacter;
@@ -1254,7 +1254,7 @@ internal sealed class MartialTactician : AbstractSubclass
         }
 
         private IEnumerator RemoveCondition(GameLocationCharacter attacker, GameLocationCharacter mover,
-            (int3 from, int3 to) movement, GameLocationBattleManager battleManager, 
+            (int3 from, int3 to) movement, GameLocationBattleManager battleManager,
             GameLocationActionManager actionManager, ReactionRequest request)
         {
             var character = attacker.RulesetCharacter;
@@ -1279,7 +1279,7 @@ internal sealed class MartialTactician : AbstractSubclass
                 Id.AttackFree,
                 attackMode,
                 mover,
-                attackModifier)) {Resource = new ReactionResourcePowerPool(pool, Sprites.GambitResourceIcon)};
+                attackModifier)) { Resource = new ReactionResourcePowerPool(pool, Sprites.GambitResourceIcon) };
         }
     }
 

@@ -113,10 +113,12 @@ public static class GameLocationCharacterExtensions
 
             // Prepare attack evaluation params
             var paramsBefore = new BattleDefinitions.AttackEvaluationParams();
+            
             paramsBefore.FillForPhysicalReachAttack(instance, instance.LocationPosition, mode,
                 target, positionBefore, new ActionModifier());
 
             var paramsAfter = new BattleDefinitions.AttackEvaluationParams();
+            
             paramsAfter.FillForPhysicalReachAttack(instance, instance.LocationPosition, mode,
                 target, positionAfter, new ActionModifier());
 
@@ -138,6 +140,7 @@ public static class GameLocationCharacterExtensions
     internal static bool CanReact(this GameLocationCharacter instance, bool ignoreReactionUses = false)
     {
         var character = instance.RulesetCharacter;
+
         if (character == null)
         {
             return false;
@@ -151,27 +154,26 @@ public static class GameLocationCharacterExtensions
             return false;
         }
 
-        if (ignoreReactionUses)
-        {
-            var wasUsed = instance.currentActionRankByType[ActionType.Reaction] > 0;
-            if (wasUsed)
-            {
-                instance.currentActionRankByType[ActionType.Reaction]--;
-            }
-
-            var canReact = instance.GetActionTypeStatus(ActionType.Reaction) == ActionStatus.Available;
-
-            if (wasUsed)
-            {
-                instance.currentActionRankByType[ActionType.Reaction]++;
-            }
-
-            return canReact;
-        }
-        else
+        if (!ignoreReactionUses)
         {
             return instance.GetActionTypeStatus(ActionType.Reaction) == ActionStatus.Available;
         }
+
+        var wasUsed = instance.currentActionRankByType[ActionType.Reaction] > 0;
+
+        if (wasUsed)
+        {
+            instance.currentActionRankByType[ActionType.Reaction]--;
+        }
+
+        var canReact = instance.GetActionTypeStatus(ActionType.Reaction) == ActionStatus.Available;
+
+        if (wasUsed)
+        {
+            instance.currentActionRankByType[ActionType.Reaction]++;
+        }
+
+        return canReact;
     }
 
 #if false

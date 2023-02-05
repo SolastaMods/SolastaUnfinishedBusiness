@@ -25,7 +25,7 @@ internal static class ValidatorsWeapon
 
     internal static bool IsBludgeoningMeleeOrUnarmed([CanBeNull] RulesetAttackMode attack)
     {
-        return attack.EffectDescription.FindFirstDamageForm()?.damageType == DamageTypeBludgeoning;
+        return attack?.EffectDescription.FindFirstDamageForm()?.damageType == DamageTypeBludgeoning;
     }
 
     internal static bool IsGreatSword([CanBeNull] RulesetItem weapon)
@@ -95,7 +95,7 @@ internal static class ValidatorsWeapon
 
     internal static IsWeaponValidHandler IsOfWeaponType(params WeaponTypeDefinition[] weaponTypeDefinitions)
     {
-        return (mode, weapon, _) => IsWeaponType((weapon ?? mode?.sourceObject as RulesetItem), weaponTypeDefinitions);
+        return (mode, weapon, _) => IsWeaponType(weapon ?? mode?.sourceObject as RulesetItem, weaponTypeDefinitions);
     }
 
     internal static bool IsWeaponType([CanBeNull] RulesetItem item, params WeaponTypeDefinition[] weaponTypeDefinitions)

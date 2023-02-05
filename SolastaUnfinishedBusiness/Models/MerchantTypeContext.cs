@@ -263,7 +263,7 @@ internal static class RecipeHelper
         }
 
         var presentation = new ItemPresentation(primed.itemPresentation);
-        
+
         presentation.ItemFlags.Add(ItemFlagPrimed);
         primed.itemPresentation = presentation;
 
@@ -392,7 +392,7 @@ internal static class RecipeHelper
         }
 
         var service = ServiceRepository.GetService<IGameLoreService>();
-        
+
         return service != null && service.KnownRecipes.Contains(item.DocumentDescription.RecipeDefinition);
     }
 }

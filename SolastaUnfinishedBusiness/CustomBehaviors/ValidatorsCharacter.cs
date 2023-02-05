@@ -298,7 +298,7 @@ internal static class ValidatorsCharacter
     {
         return character => conditions.Any(c => character.HasConditionOfType(c.Name));
     }
-    
+
     [NotNull]
     internal static IsCharacterValidHandler HasAnyOfConditions(params string[] conditions)
     {

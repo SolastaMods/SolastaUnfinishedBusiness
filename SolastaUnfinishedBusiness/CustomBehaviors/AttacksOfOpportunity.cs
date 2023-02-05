@@ -234,14 +234,14 @@ internal class CanMakeAoOOnReachEntered
     public delegate IEnumerator Handler([NotNull] GameLocationCharacter attacker,
         [NotNull] GameLocationCharacter mover, (int3 from, int3 to) movement, GameLocationBattleManager battleManager,
         GameLocationActionManager actionManager, ReactionRequest request);
-    
-    public string Name { get; set; } = "AoOEnter";
-    public IsCharacterValidHandler ValidateAttacker { get; set; }
-    public IsCharacterValidHandler ValidateMover { get; set; }
+
+    private const string Name = "AoOEnter";
+    protected IsCharacterValidHandler ValidateAttacker { get; set; }
+    private IsCharacterValidHandler ValidateMover { get; set; }
     public IsWeaponValidHandler WeaponValidator { get; set; }
     public Handler BeforeReaction { get; set; }
     public Handler AfterReaction { get; set; }
-    public bool IgnoreReactionUses { get; set; }
+    protected bool IgnoreReactionUses { get; set; }
     public bool AccountAoOImmunity { get; set; }
 
     internal bool IsValid(GameLocationCharacter attacker, GameLocationCharacter mover)
@@ -273,14 +273,15 @@ internal class CanMakeAoOOnReachEntered
         }
 
         var previousReactionCount = actionManager.PendingReactionRequestGroups.Count;
+
         actionManager.AddInterruptRequest(reactionRequest);
+
         yield return battleManager.WaitForReactions(attacker, actionManager, previousReactionCount);
 
         if (AfterReaction != null)
         {
             yield return AfterReaction(attacker, mover, movement, battleManager, actionManager, reactionRequest);
         }
-
     }
 
     protected virtual ReactionRequestReactionAttack MakeReactionRequest(GameLocationCharacter attacker,

@@ -87,6 +87,261 @@ internal static class MeleeCombatFeats
             featGroupSlasher);
     }
 
+    #region Defensive Duelist
+
+    private static FeatDefinition BuildDefensiveDuelist()
+    {
+        const string NAME = "FeatDefensiveDuelist";
+
+        var conditionDefensiveDuelist = ConditionDefinitionBuilder
+            .Create($"Condition{NAME}")
+            .SetGuiPresentation(NAME, Category.Feat)
+            .SetFeatures(FeatureDefinitionAttributeModifierBuilder
+                .Create($"AttributeModifier{NAME}")
+                .SetGuiPresentationNoContent(true)
+                .SetModifier(
+                    FeatureDefinitionAttributeModifier.AttributeModifierOperation.AddProficiencyBonus,
+                    AttributeDefinitions.ArmorClass)
+                .AddToDB())
+            .SetSpecialInterruptions(ConditionInterruption.AnyBattleTurnEnd)
+            .SetSilent(Silent.WhenAddedOrRemoved)
+            .AddToDB();
+
+        var powerDefensiveDuelist = FeatureDefinitionPowerBuilder
+            .Create($"Power{NAME}")
+            .SetGuiPresentation(NAME, Category.Feat)
+            .SetUsesFixed(ActivationTime.Reaction)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetDurationData(DurationType.Round, 1)
+                    .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
+                    .SetEffectForms(EffectFormBuilder
+                        .Create()
+                        .SetConditionForm(
+                            conditionDefensiveDuelist,
+                            ConditionForm.ConditionOperation.Add,
+                            true,
+                            true)
+                        .Build())
+                    .Build())
+            .SetCustomSubFeatures(new ValidatorsPowerUse(ValidatorsCharacter.MainHandIsFinesseWeapon))
+            .AddToDB();
+
+        return FeatDefinitionBuilder
+            .Create(NAME)
+            .SetGuiPresentation(Category.Feat)
+            .SetFeatures(powerDefensiveDuelist)
+            .SetAbilityScorePrerequisite(AttributeDefinitions.Dexterity, 13)
+            .AddToDB();
+    }
+
+    #endregion
+
+    #region Reckless Attack
+
+    private static FeatDefinition BuildRecklessAttack()
+    {
+        return FeatDefinitionWithPrerequisitesBuilder
+            .Create("FeatRecklessAttack")
+            .SetGuiPresentation("RecklessAttack", Category.Action)
+            .SetFeatures(ActionAffinityBarbarianRecklessAttack)
+            .SetValidators(ValidatorsFeat.ValidateNotClass(CharacterClassDefinitions.Barbarian))
+            .AddToDB();
+    }
+
+    #endregion
+
+    #region Savage Attack
+
+    private static FeatDefinition BuildSavageAttack()
+    {
+        return FeatDefinitionBuilder
+            .Create("FeatSavageAttack")
+            .SetGuiPresentation(Category.Feat)
+            .SetFeatures(
+                FeatureDefinitionDieRollModifierBuilder
+                    .Create("DieRollModifierFeatSavageAttackNonMagic")
+                    .SetGuiPresentationNoContent(true)
+                    .SetModifiers(AttackDamageValueRoll, 1, 1, 1, "Feat/&FeatSavageAttackReroll")
+                    .AddToDB(),
+                FeatureDefinitionDieRollModifierBuilder
+                    .Create("DieRollModifierFeatSavageAttackMagic")
+                    .SetGuiPresentationNoContent(true)
+                    .SetModifiers(MagicDamageValueRoll, 1, 1, 1, "Feat/&FeatSavageAttackReroll")
+                    .AddToDB())
+            .AddToDB();
+    }
+
+    #endregion
+
+    #region Spear Mastery
+
+    private static FeatDefinition BuildSpearMastery()
+    {
+        const string NAME = "FeatSpearMastery";
+        const string REACH_CONDITION = $"Condition{NAME}Reach";
+
+        var validWeapon = ValidatorsWeapon.IsOfWeaponType(SpearType);
+
+        var conditionFeatSpearMasteryReach = ConditionDefinitionBuilder
+            .Create(REACH_CONDITION)
+            .SetGuiPresentation($"Power{NAME}Reach", Category.Feature, ConditionDefinitions.ConditionGuided)
+            .SetPossessive()
+            .SetSpecialInterruptions(ConditionInterruption.AnyBattleTurnEnd)
+            .SetFeatures(FeatureDefinitionBuilder
+                .Create($"Feature{NAME}Reach")
+                .SetGuiPresentationNoContent(true)
+                .SetCustomSubFeatures(new IncreaseMeleeAttackReach(1, validWeapon,
+                    ValidatorsCharacter.HasAnyOfConditions(REACH_CONDITION)))
+                .AddToDB())
+            .AddToDB();
+
+        var powerFeatSpearMasteryReach = FeatureDefinitionPowerBuilder
+            .Create($"Power{NAME}Reach")
+            .SetGuiPresentation(Category.Feature,
+                Sprites.GetSprite($"Power{NAME}Reach", Resources.SpearMasteryReach, 256, 128))
+            .SetUsesFixed(ActivationTime.BonusAction)
+            .SetEffectDescription(EffectDescriptionBuilder.Create()
+                .SetDurationData(DurationType.Round, 1, TurnOccurenceType.StartOfTurn)
+                .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
+                .SetParticleEffectParameters(SpellDefinitions.Shield)
+                .SetEffectForms(EffectFormBuilder.Create()
+                    .SetConditionForm(
+                        conditionFeatSpearMasteryReach,
+                        ConditionForm.ConditionOperation.Add,
+                        true,
+                        true)
+                    .Build())
+                .UseQuickAnimations()
+                .Build())
+            .AddToDB();
+
+        var conditionDamage = ConditionDefinitionBuilder
+            .Create($"Condition{NAME}Damage")
+            .SetGuiPresentationNoContent(true)
+            .SetFeatures(FeatureDefinitionAdditionalDamageBuilder
+                .Create($"AdditionalDamage{NAME}")
+                .SetGuiPresentationNoContent(true)
+                .SetNotificationTag("SpearMastery")
+                .SetDamageValueDetermination(AdditionalDamageValueDetermination.SameAsBaseWeaponDie)
+                // .SetTargetCondition(conditionFeatSpearMasteryCharge, AdditionalDamageTriggerCondition.TargetHasCondition)
+                //Adding any property so that custom restricted context would trigger
+                .SetRequiredProperty(RestrictedContextRequiredProperty.Weapon)
+                .SetCustomSubFeatures(new RestrictedContextValidator((_, _, character, _, ranged, mode, _) =>
+                    (OperationType.Set, !ranged && validWeapon(mode, null, character))))
+                .AddToDB())
+            .AddToDB();
+
+        IEnumerator AddCondition(GameLocationCharacter attacker, GameLocationCharacter mover,
+            (int3 from, int3 to) movement, GameLocationBattleManager manager, GameLocationActionManager actionManager,
+            ReactionRequest request)
+        {
+            var character = attacker.RulesetCharacter;
+            var rulesetCondition = RulesetCondition.CreateActiveCondition(character.Guid, conditionDamage,
+                DurationType.Round, 1, TurnOccurenceType.StartOfTurn, character.Guid, string.Empty);
+
+            character.AddConditionOfCategory(AttributeDefinitions.TagCombat, rulesetCondition);
+
+            yield break;
+        }
+
+        IEnumerator RemoveCondition(GameLocationCharacter attacker, GameLocationCharacter mover,
+            (int3 from, int3 to) movement, GameLocationBattleManager manager, GameLocationActionManager actionManager,
+            ReactionRequest request)
+        {
+            attacker.RulesetCharacter.RemoveAllConditionsOfCategoryAndType(AttributeDefinitions.TagCombat,
+                conditionDamage.Name);
+
+            yield break;
+        }
+
+        var conditionFeatSpearMasteryCharge = ConditionDefinitionBuilder
+            .Create($"Condition{NAME}Charge")
+            .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionGuided)
+            .SetPossessive()
+            .SetFeatures(FeatureDefinitionBuilder
+                .Create($"Feature{NAME}")
+                .SetGuiPresentationNoContent(true)
+                .SetCustomSubFeatures(new CanMakeAoOOnReachEntered
+                {
+                    AccountAoOImmunity = true,
+                    WeaponValidator = validWeapon,
+                    BeforeReaction = AddCondition,
+                    AfterReaction = RemoveCondition
+                })
+                .AddToDB())
+            .AddToDB();
+
+        var powerFeatSpearMasteryCharge = FeatureDefinitionPowerBuilder
+            .Create($"Power{NAME}Charge")
+            .SetGuiPresentation(Category.Feature,
+                Sprites.GetSprite($"Power{NAME}Charge", Resources.SpearMasteryCharge, 256, 128))
+            .SetUsesFixed(ActivationTime.BonusAction)
+            .SetEffectDescription(EffectDescriptionBuilder.Create()
+                .SetDurationData(DurationType.Round, 1, TurnOccurenceType.StartOfTurn)
+                .SetTargetingData(Side.Ally, RangeType.Self, 1, TargetType.Self)
+                .SetEffectForms(EffectFormBuilder.Create()
+                    .SetConditionForm(conditionFeatSpearMasteryCharge,
+                        ConditionForm.ConditionOperation.Add, true, false)
+                    .Build())
+                .UseQuickAnimations()
+                .Build())
+            .AddToDB();
+
+        return FeatDefinitionBuilder
+            .Create(NAME)
+            .SetGuiPresentation(Category.Feat)
+            .SetFeatures(
+                powerFeatSpearMasteryReach,
+                powerFeatSpearMasteryCharge,
+                FeatureDefinitionAttackModifierBuilder
+                    .Create($"AttackModifier{NAME}")
+                    .SetGuiPresentation(Category.Feature)
+                    .SetAttackRollModifier(1)
+                    .SetCustomSubFeatures(new UpgradeWeaponDice((_, _) => (1, DieType.D8, DieType.D10), validWeapon))
+                    .AddToDB())
+            .AddToDB();
+    }
+
+    #endregion
+
+    #region Helpers
+
+    private sealed class ModifyAttackModeForWeaponTypeFilter : IModifyAttackModeForWeapon
+    {
+        private readonly string _sourceName;
+        private readonly List<WeaponTypeDefinition> _weaponTypeDefinition = new();
+
+        public ModifyAttackModeForWeaponTypeFilter(string sourceName,
+            params WeaponTypeDefinition[] weaponTypeDefinition)
+        {
+            _sourceName = sourceName;
+            _weaponTypeDefinition.AddRange(weaponTypeDefinition);
+        }
+
+        public void ModifyAttackMode(RulesetCharacter character, [CanBeNull] RulesetAttackMode attackMode)
+        {
+            var damage = attackMode?.EffectDescription?.FindFirstDamageForm();
+
+            if (damage == null)
+            {
+                return;
+            }
+
+            if (attackMode.sourceDefinition is not ItemDefinition { IsWeapon: true } sourceDefinition ||
+                !_weaponTypeDefinition.Contains(sourceDefinition.WeaponDescription.WeaponTypeDefinition))
+            {
+                return;
+            }
+
+            attackMode.ToHitBonus += 1;
+            attackMode.ToHitBonusTrends.Add(new TrendInfo(1, FeatureSourceType.CharacterFeature, _sourceName, null));
+        }
+    }
+
+    #endregion
+
     #region Common Features
 
     private static readonly FeatureDefinitionPower PowerFeatCrusherHit = FeatureDefinitionPowerBuilder
@@ -195,42 +450,6 @@ internal static class MeleeCombatFeats
 
     #endregion
 
-    #region Helpers
-
-    private sealed class ModifyAttackModeForWeaponTypeFilter : IModifyAttackModeForWeapon
-    {
-        private readonly string _sourceName;
-        private readonly List<WeaponTypeDefinition> _weaponTypeDefinition = new();
-
-        public ModifyAttackModeForWeaponTypeFilter(string sourceName,
-            params WeaponTypeDefinition[] weaponTypeDefinition)
-        {
-            _sourceName = sourceName;
-            _weaponTypeDefinition.AddRange(weaponTypeDefinition);
-        }
-
-        public void ModifyAttackMode(RulesetCharacter character, [CanBeNull] RulesetAttackMode attackMode)
-        {
-            var damage = attackMode?.EffectDescription?.FindFirstDamageForm();
-
-            if (damage == null)
-            {
-                return;
-            }
-
-            if (attackMode.sourceDefinition is not ItemDefinition {IsWeapon: true} sourceDefinition ||
-                !_weaponTypeDefinition.Contains(sourceDefinition.WeaponDescription.WeaponTypeDefinition))
-            {
-                return;
-            }
-
-            attackMode.ToHitBonus += 1;
-            attackMode.ToHitBonusTrends.Add(new TrendInfo(1, FeatureSourceType.CharacterFeature, _sourceName, null));
-        }
-    }
-
-    #endregion
-
     #region Crusher
 
     private static FeatDefinition BuildCrusherStr()
@@ -315,7 +534,7 @@ internal static class MeleeCombatFeats
     {
         const string NAME = "FeatBladeMastery";
 
-        var weaponTypes = new[] {ShortswordType, LongswordType, ScimitarType, RapierType, GreatswordType};
+        var weaponTypes = new[] { ShortswordType, LongswordType, ScimitarType, RapierType, GreatswordType };
 
         var conditionBladeMastery = ConditionDefinitionBuilder
             .Create($"Condition{NAME}")
@@ -398,64 +617,13 @@ internal static class MeleeCombatFeats
 
     #endregion
 
-    #region Defensive Duelist
-
-    private static FeatDefinition BuildDefensiveDuelist()
-    {
-        const string NAME = "FeatDefensiveDuelist";
-
-        var conditionDefensiveDuelist = ConditionDefinitionBuilder
-            .Create($"Condition{NAME}")
-            .SetGuiPresentation(NAME, Category.Feat)
-            .SetFeatures(FeatureDefinitionAttributeModifierBuilder
-                .Create($"AttributeModifier{NAME}")
-                .SetGuiPresentationNoContent(true)
-                .SetModifier(
-                    FeatureDefinitionAttributeModifier.AttributeModifierOperation.AddProficiencyBonus,
-                    AttributeDefinitions.ArmorClass)
-                .AddToDB())
-            .SetSpecialInterruptions(ConditionInterruption.AnyBattleTurnEnd)
-            .SetSilent(Silent.WhenAddedOrRemoved)
-            .AddToDB();
-
-        var powerDefensiveDuelist = FeatureDefinitionPowerBuilder
-            .Create($"Power{NAME}")
-            .SetGuiPresentation(NAME, Category.Feat)
-            .SetUsesFixed(ActivationTime.Reaction)
-            .SetEffectDescription(
-                EffectDescriptionBuilder
-                    .Create()
-                    .SetDurationData(DurationType.Round, 1)
-                    .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
-                    .SetEffectForms(EffectFormBuilder
-                        .Create()
-                        .SetConditionForm(
-                            conditionDefensiveDuelist,
-                            ConditionForm.ConditionOperation.Add,
-                            true,
-                            true)
-                        .Build())
-                    .Build())
-            .SetCustomSubFeatures(new ValidatorsPowerUse(ValidatorsCharacter.MainHandIsFinesseWeapon))
-            .AddToDB();
-
-        return FeatDefinitionBuilder
-            .Create(NAME)
-            .SetGuiPresentation(Category.Feat)
-            .SetFeatures(powerDefensiveDuelist)
-            .SetAbilityScorePrerequisite(AttributeDefinitions.Dexterity, 13)
-            .AddToDB();
-    }
-
-    #endregion
-
     #region Fell Handed
 
     private static FeatDefinition BuildFellHanded()
     {
         const string NAME = "FeatFellHanded";
 
-        var weaponTypes = new[] {BattleaxeType, GreataxeType, HandaxeType, MaulType, WarhammerType};
+        var weaponTypes = new[] { BattleaxeType, GreataxeType, HandaxeType, MaulType, WarhammerType };
 
         return FeatDefinitionBuilder
             .Create(NAME)
@@ -484,7 +652,7 @@ internal static class MeleeCombatFeats
             RulesetAttackMode attackMode,
             ActionModifier attackModifier)
         {
-            if (attackMode.sourceDefinition is not ItemDefinition {IsWeapon: true} sourceDefinition ||
+            if (attackMode.sourceDefinition is not ItemDefinition { IsWeapon: true } sourceDefinition ||
                 !_weaponTypeDefinition.Contains(sourceDefinition.WeaponDescription.WeaponTypeDefinition))
             {
                 return;
@@ -741,43 +909,6 @@ internal static class MeleeCombatFeats
 
     #endregion
 
-    #region Reckless Attack
-
-    private static FeatDefinition BuildRecklessAttack()
-    {
-        return FeatDefinitionWithPrerequisitesBuilder
-            .Create("FeatRecklessAttack")
-            .SetGuiPresentation("RecklessAttack", Category.Action)
-            .SetFeatures(ActionAffinityBarbarianRecklessAttack)
-            .SetValidators(ValidatorsFeat.ValidateNotClass(CharacterClassDefinitions.Barbarian))
-            .AddToDB();
-    }
-
-    #endregion
-
-    #region Savage Attack
-
-    private static FeatDefinition BuildSavageAttack()
-    {
-        return FeatDefinitionBuilder
-            .Create("FeatSavageAttack")
-            .SetGuiPresentation(Category.Feat)
-            .SetFeatures(
-                FeatureDefinitionDieRollModifierBuilder
-                    .Create("DieRollModifierFeatSavageAttackNonMagic")
-                    .SetGuiPresentationNoContent(true)
-                    .SetModifiers(AttackDamageValueRoll, 1, 1, 1, "Feat/&FeatSavageAttackReroll")
-                    .AddToDB(),
-                FeatureDefinitionDieRollModifierBuilder
-                    .Create("DieRollModifierFeatSavageAttackMagic")
-                    .SetGuiPresentationNoContent(true)
-                    .SetModifiers(MagicDamageValueRoll, 1, 1, 1, "Feat/&FeatSavageAttackReroll")
-                    .AddToDB())
-            .AddToDB();
-    }
-
-    #endregion
-
     #region Slasher
 
     private static FeatDefinition BuildSlasherDex()
@@ -870,137 +1001,6 @@ internal static class MeleeCombatFeats
 
             defender.RulesetCharacter.AddConditionOfCategory(AttributeDefinitions.TagCombat, rulesetCondition);
         }
-    }
-
-    #endregion
-
-    #region Spear Mastery
-
-    private static FeatDefinition BuildSpearMastery()
-    {
-        const string NAME = "FeatSpearMastery";
-        const string REACH_CONDITION = $"Condition{NAME}Reach";
-
-        var validWeapon = ValidatorsWeapon.IsOfWeaponType(SpearType);
-
-        var conditionFeatSpearMasteryReach = ConditionDefinitionBuilder
-            .Create(REACH_CONDITION)
-            .SetGuiPresentation($"Power{NAME}Reach", Category.Feature, ConditionDefinitions.ConditionGuided)
-            .SetPossessive()
-            .SetSpecialInterruptions(ConditionInterruption.AnyBattleTurnEnd)
-            .SetFeatures(FeatureDefinitionBuilder
-                .Create($"Feature{NAME}Reach")
-                .SetGuiPresentationNoContent(true)
-                .SetCustomSubFeatures(new IncreaseMeleeAttackReach(1, validWeapon,
-                    ValidatorsCharacter.HasAnyOfConditions(REACH_CONDITION)))
-                .AddToDB())
-            .AddToDB();
-
-        var powerFeatSpearMasteryReach = FeatureDefinitionPowerBuilder
-            .Create($"Power{NAME}Reach")
-            .SetGuiPresentation(Category.Feature,
-                Sprites.GetSprite($"Power{NAME}Reach", Resources.SpearMasteryReach, 256, 128))
-            .SetUsesFixed(ActivationTime.BonusAction)
-            .SetEffectDescription(EffectDescriptionBuilder.Create()
-                .SetDurationData(DurationType.Round, 1, TurnOccurenceType.StartOfTurn)
-                .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
-                .SetParticleEffectParameters(SpellDefinitions.Shield)
-                .SetEffectForms(EffectFormBuilder.Create()
-                    .SetConditionForm(
-                        conditionFeatSpearMasteryReach,
-                        ConditionForm.ConditionOperation.Add,
-                        true,
-                        true)
-                    .Build())
-                .UseQuickAnimations()
-                .Build())
-            .AddToDB();
-
-        var conditionDamage = ConditionDefinitionBuilder
-            .Create($"Condition{NAME}Damage")
-            .SetGuiPresentationNoContent(true)
-            .SetFeatures(FeatureDefinitionAdditionalDamageBuilder
-                .Create($"AdditionalDamage{NAME}")
-                .SetGuiPresentationNoContent(true)
-                .SetNotificationTag("SpearMastery")
-                .SetDamageValueDetermination(AdditionalDamageValueDetermination.SameAsBaseWeaponDie)
-                // .SetTargetCondition(conditionFeatSpearMasteryCharge, AdditionalDamageTriggerCondition.TargetHasCondition)
-                //Adding any property so that custom restricted context would trigger
-                .SetRequiredProperty(RestrictedContextRequiredProperty.Weapon)
-                .SetCustomSubFeatures(new RestrictedContextValidator((_, _, character, _, ranged, mode, _) =>
-                        (OperationType.Set, !ranged && validWeapon(mode, null, character))))
-                .AddToDB())
-            .AddToDB();
-
-        IEnumerator AddCondition(GameLocationCharacter attacker, GameLocationCharacter mover,
-            (int3 from, int3 to) movement, GameLocationBattleManager manager, GameLocationActionManager actionManager,
-            ReactionRequest request)
-        {
-            var character = attacker.RulesetCharacter;
-            var rulesetCondition = RulesetCondition.CreateActiveCondition(character.Guid, conditionDamage,
-                DurationType.Round, 1, TurnOccurenceType.StartOfTurn, character.Guid, string.Empty);
-
-            character.AddConditionOfCategory(AttributeDefinitions.TagCombat, rulesetCondition);
-
-            yield break;
-        }
-
-        IEnumerator RemoveCondition(GameLocationCharacter attacker, GameLocationCharacter mover,
-            (int3 from, int3 to) movement, GameLocationBattleManager manager, GameLocationActionManager actionManager,
-            ReactionRequest request)
-        {
-            attacker.RulesetCharacter.RemoveAllConditionsOfCategoryAndType(AttributeDefinitions.TagCombat,
-                conditionDamage.Name);
-
-            yield break;
-        }
-
-        var conditionFeatSpearMasteryCharge = ConditionDefinitionBuilder
-            .Create($"Condition{NAME}Charge")
-            .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionGuided)
-            .SetPossessive()
-            .SetFeatures(FeatureDefinitionBuilder
-                .Create($"Feature{NAME}")
-                .SetGuiPresentationNoContent(true)
-                .SetCustomSubFeatures(new CanMakeAoOOnReachEntered
-                {
-                    AccountAoOImmunity = true,
-                    WeaponValidator = validWeapon,
-                    BeforeReaction = AddCondition,
-                    AfterReaction = RemoveCondition
-                })
-                .AddToDB())
-            .AddToDB();
-
-        var powerFeatSpearMasteryCharge = FeatureDefinitionPowerBuilder
-            .Create($"Power{NAME}Charge")
-            .SetGuiPresentation(Category.Feature,
-                Sprites.GetSprite($"Power{NAME}Charge", Resources.SpearMasteryCharge, 256, 128))
-            .SetUsesFixed(ActivationTime.BonusAction)
-            .SetEffectDescription(EffectDescriptionBuilder.Create()
-                .SetDurationData(DurationType.Round, 1, TurnOccurenceType.StartOfTurn)
-                .SetTargetingData(Side.Ally, RangeType.Self, 1, TargetType.Self)
-                .SetEffectForms(EffectFormBuilder.Create()
-                    .SetConditionForm(conditionFeatSpearMasteryCharge,
-                        ConditionForm.ConditionOperation.Add, true, false)
-                    .Build())
-                .UseQuickAnimations()
-                .Build())
-            .AddToDB();
-
-        return FeatDefinitionBuilder
-            .Create(NAME)
-            .SetGuiPresentation(Category.Feat)
-            .SetFeatures(
-                powerFeatSpearMasteryReach,
-                powerFeatSpearMasteryCharge,
-                FeatureDefinitionAttackModifierBuilder
-                    .Create($"AttackModifier{NAME}")
-                    .SetGuiPresentation(Category.Feature)
-                    .SetAttackRollModifier(1)
-                    .SetCustomSubFeatures(new UpgradeWeaponDice((_, _) => (1, DieType.D8, DieType.D10), validWeapon))
-                    .AddToDB())
-            .AddToDB();
     }
 
     #endregion

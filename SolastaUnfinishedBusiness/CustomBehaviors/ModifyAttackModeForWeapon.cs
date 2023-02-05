@@ -133,10 +133,6 @@ internal abstract class ModifyAttackModeForWeaponBase : IModifyAttackModeForWeap
 
 internal sealed class UpgradeWeaponDice : ModifyAttackModeForWeaponBase
 {
-    internal delegate (int number, RuleDefinitions.DieType dieType, RuleDefinitions.DieType versatileDieType) GetWeaponDiceHandler(
-        RulesetCharacter character,
-        RulesetItem weapon);
-
     private readonly GetWeaponDiceHandler getWeaponDice;
 
     internal UpgradeWeaponDice(GetWeaponDiceHandler getWeaponDice, IsWeaponValidHandler isWeaponValid,
@@ -173,6 +169,11 @@ internal sealed class UpgradeWeaponDice : ModifyAttackModeForWeaponBase
             damage.VersatileDieType = newDie;
         }
     }
+
+    internal delegate (int number, RuleDefinitions.DieType dieType, RuleDefinitions.DieType versatileDieType)
+        GetWeaponDiceHandler(
+            RulesetCharacter character,
+            RulesetItem weapon);
 }
 
 internal sealed class AddTagToWeaponAttack : ModifyAttackModeForWeaponBase
