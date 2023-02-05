@@ -330,6 +330,7 @@ internal static class OtherFeats
                             FeatMagicInitiateTag, 1, 1)
                         .AddToDB())
                 .SetFeatFamily(NAME)
+                .SetMustCastSpellsPrerequisite()
                 .AddToDB();
 
             magicInitiateFeats.Add(featMagicInitiate);
@@ -569,6 +570,8 @@ internal static class OtherFeats
         var spellSniperGroup = GroupFeats.MakeGroup("FeatGroupSpellSniper", NAME, spellSniperFeats);
 
         feats.AddRange(spellSniperFeats);
+
+        spellSniperGroup.mustCastSpellsPrerequisite = true;
 
         return spellSniperGroup;
     }

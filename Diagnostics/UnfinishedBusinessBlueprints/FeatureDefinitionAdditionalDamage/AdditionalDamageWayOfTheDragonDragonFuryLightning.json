@@ -1,6 +1,6 @@
 {
   "$type": "FeatureDefinitionAdditionalDamage, Assembly-CSharp",
-  "notificationTag": "DragonFury",
+  "notificationTag": "DragonFuryDamageLightning",
   "limitedUsage": "None",
   "firstTargetOnly": true,
   "targetSide": "Enemy",

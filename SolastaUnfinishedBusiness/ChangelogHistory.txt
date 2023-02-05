@@ -1,5 +1,14 @@
 ﻿CHANGES:
 
+1.4.33.26:
+
+- added Spear Mastery feat
+- fixed Agonizing Blast and Life Drinker interaction with Eldritch Adept
+- fixed Armorer Defensive Field to only triggers on Inventor's turn
+- fixed Circle of The Ancient Forest Brew power
+- fixed Dead Master upcasted summons duration
+- fixed Spell Sniper casting pre-requisites
+
 1.4.33.25:
 
 - improved recipes displays with new options under Interface / Game UI

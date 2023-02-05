@@ -6,6 +6,7 @@ using SolastaUnfinishedBusiness.Api.Extensions;
 using SolastaUnfinishedBusiness.Invocations;
 using SolastaUnfinishedBusiness.Models;
 using UnityEngine;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionAdditionalDamages;
 
 namespace SolastaUnfinishedBusiness.CustomBehaviors;
 
@@ -190,6 +191,7 @@ internal static class GameLocationBattleManagerTweaks
                 additionalDamageForm.DieType = provider.DamageDieType;
             }
 
+
             /*
              * Support for damage die progression
              * [CE] EDIT END
@@ -272,6 +274,30 @@ internal static class GameLocationBattleManagerTweaks
                     }
                 }
 
+                //TODO: make this a custom feature where we can grab a forced casting attribute
+                //for now there are only 3 cases that fall here so hard-coded
+                /*
+                 * ######################################
+                 * [CE] EDIT START
+                 * Support 3 exceptional cases here
+                 */
+                if (featureDefinition == AdditionalDamageInvocationAgonizingBlast ||
+                    featureDefinition == AdditionalDamageLifedrinker)
+                {
+                    spellBonus = AttributeDefinitions.ComputeAbilityScoreModifier(hero
+                        .GetAttribute(AttributeDefinitions.Charisma).CurrentValue);
+                }
+                else if (featureDefinition == AdditionalDamageTraditionShockArcanistArcaneFury)
+                {
+                    spellBonus = AttributeDefinitions.ComputeAbilityScoreModifier(hero
+                        .GetAttribute(AttributeDefinitions.Intelligence).CurrentValue);
+                }
+
+                /*
+                 * Support 3 exceptional cases here
+                 * [CE] EDIT END
+                 * ######################################
+                 */
                 additionalDamageForm.BonusDamage += spellBonus;
             }
 
