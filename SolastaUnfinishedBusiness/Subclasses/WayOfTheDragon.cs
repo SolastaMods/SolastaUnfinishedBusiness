@@ -3,6 +3,7 @@ using System.Linq;
 using SolastaUnfinishedBusiness.Api.Extensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
+using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterSubclassDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.ConditionDefinitions;
@@ -241,6 +242,7 @@ internal sealed class WayOfTheDragon : AbstractSubclass
         var powerDragonFuryAcid = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}DragonFuryAcid")
             .SetGuiPresentation(Category.Feature, AcidSplash)
+            .SetCustomSubFeatures(ValidatorsPowerUse.HasNoCondition(conditionDragonFuryAcid.Name))
             .SetUsesFixed(ActivationTime.NoCost, RechargeRate.KiPoints, 2)
             .SetEffectDescription(EffectDescriptionBuilder.Create()
                 .SetDurationData(DurationType.Round, 1)
@@ -279,6 +281,7 @@ internal sealed class WayOfTheDragon : AbstractSubclass
         var powerDragonFuryLightning = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}DragonFuryLightning")
             .SetGuiPresentation(Category.Feature, ShockingGrasp)
+            .SetCustomSubFeatures(ValidatorsPowerUse.HasNoCondition(conditionDragonFuryLightning.Name))
             .SetUsesFixed(ActivationTime.NoCost, RechargeRate.KiPoints, 2)
             .SetEffectDescription(EffectDescriptionBuilder.Create()
                 .SetDurationData(DurationType.Round, 1)
@@ -315,6 +318,7 @@ internal sealed class WayOfTheDragon : AbstractSubclass
         var powerDragonFuryPoison = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}DragonFuryPoison")
             .SetGuiPresentation(Category.Feature, PoisonSpray)
+            .SetCustomSubFeatures(ValidatorsPowerUse.HasNoCondition(conditionDragonFuryPoison.Name))
             .SetUsesFixed(ActivationTime.NoCost, RechargeRate.KiPoints, 2)
             .SetEffectDescription(EffectDescriptionBuilder.Create()
                 .SetDurationData(DurationType.Round, 1)
@@ -353,6 +357,7 @@ internal sealed class WayOfTheDragon : AbstractSubclass
         var powerDragonFuryFire = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}DragonFuryFire")
             .SetGuiPresentation(Category.Feature, ProduceFlame)
+            .SetCustomSubFeatures(ValidatorsPowerUse.HasNoCondition(conditionDragonFuryFire.Name))
             .SetUsesFixed(ActivationTime.NoCost, RechargeRate.KiPoints, 2)
             .SetEffectDescription(EffectDescriptionBuilder.Create()
                 .SetDurationData(DurationType.Round, 1)
@@ -391,6 +396,7 @@ internal sealed class WayOfTheDragon : AbstractSubclass
         var powerDragonFuryCold = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}DragonFuryCold")
             .SetGuiPresentation(Category.Feature, RayOfFrost)
+            .SetCustomSubFeatures(ValidatorsPowerUse.HasNoCondition(conditionDragonFuryCold.Name))
             .SetUsesFixed(ActivationTime.NoCost, RechargeRate.KiPoints, 2)
             .SetEffectDescription(EffectDescriptionBuilder.Create()
                 .SetDurationData(DurationType.Round, 1)
