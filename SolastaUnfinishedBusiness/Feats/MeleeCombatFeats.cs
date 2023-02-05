@@ -225,6 +225,7 @@ internal static class MeleeCombatFeats
                 .SetGuiPresentationNoContent(true)
                 .SetNotificationTag("SpearMastery")
                 .SetDamageValueDetermination(AdditionalDamageValueDetermination.SameAsBaseWeaponDie)
+                .SetIgnoreCriticalDoubleDice(true)
                 // .SetTargetCondition(conditionFeatSpearMasteryCharge, AdditionalDamageTriggerCondition.TargetHasCondition)
                 //Adding any property so that custom restricted context would trigger
                 .SetRequiredProperty(RestrictedContextRequiredProperty.Weapon)
@@ -391,9 +392,9 @@ internal static class MeleeCombatFeats
         .SetCustomSubFeatures(
             new BeforeAttackEffectFeatPiercer(ConditionDefinitionBuilder
                     .Create("ConditionFeatPiercerNonMagic")
-                    .SetGuiPresentation(Category.Condition)
+                    .SetGuiPresentationNoContent(true)
+                    .SetSilent(Silent.WhenAddedOrRemoved)
                     .SetSpecialDuration(DurationType.Round, 1)
-                    .SetPossessive()
                     .SetSpecialInterruptions(ConditionInterruption.Attacked)
                     .SetFeatures(
                         FeatureDefinitionDieRollModifierBuilder
