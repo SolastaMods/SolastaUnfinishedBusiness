@@ -3,7 +3,9 @@
   "inDungeonEditor": false,
   "parentCondition": null,
   "conditionType": "Beneficial",
-  "features": [],
+  "features": [
+    "Definition:FeatureFeatSpearMastery:8b94f1ca-b946-5cec-8695-f760bc871fc4"
+  ],
   "allowMultipleInstances": false,
   "silentWhenAdded": false,
   "silentWhenRemoved": false,
@@ -84,7 +86,7 @@
   },
   "timeToWaitBeforeApplyingShader": 0.5,
   "timeToWaitBeforeRemovingShader": 0.5,
-  "possessive": false,
+  "possessive": true,
   "amountOrigin": "None",
   "baseAmount": 0,
   "additiveAmount": false,
@@ -126,13 +128,13 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&PowerFeatSpearMasteryChargeTitle",
-    "description": "Feature/&PowerFeatSpearMasteryChargeDescription",
+    "title": "Condition/&ConditionFeatSpearMasteryChargeTitle",
+    "description": "Condition/&ConditionFeatSpearMasteryChargeDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "",
-      "m_SubObjectName": null,
-      "m_SubObjectType": null
+      "m_AssetGUID": "f13223f6db6229143b50b9afcee438ce",
+      "m_SubObjectName": "ConditionGuided",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",

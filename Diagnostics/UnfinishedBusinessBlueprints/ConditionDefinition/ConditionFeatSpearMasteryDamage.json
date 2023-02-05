@@ -4,7 +4,7 @@
   "parentCondition": null,
   "conditionType": "Beneficial",
   "features": [
-    "Definition:FeatureFeatSpearMasteryReach:f89dec71-415b-5375-ada8-6a66fbacb34b"
+    "Definition:AdditionalDamageFeatSpearMastery:2131db6e-4b24-5d25-9868-be29b048a2dc"
   ],
   "allowMultipleInstances": false,
   "silentWhenAdded": false,
@@ -16,9 +16,7 @@
   "durationParameter": 1,
   "forceTurnOccurence": false,
   "turnOccurence": "EndOfTurn",
-  "specialInterruptions": [
-    "AnyBattleTurnEnd"
-  ],
+  "specialInterruptions": [],
   "interruptionRequiresSavingThrow": false,
   "interruptionSavingThrowComputationMethod": "SaveOverride",
   "interruptionSavingThrowAbility": "",
@@ -88,7 +86,7 @@
   },
   "timeToWaitBeforeApplyingShader": 0.5,
   "timeToWaitBeforeRemovingShader": 0.5,
-  "possessive": true,
+  "possessive": false,
   "amountOrigin": "None",
   "baseAmount": 0,
   "additiveAmount": false,
@@ -129,14 +127,14 @@
   },
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
-    "hidden": false,
-    "title": "Feature/&PowerFeatSpearMasteryReachTitle",
-    "description": "Feature/&PowerFeatSpearMasteryReachDescription",
+    "hidden": true,
+    "title": "Feature/&NoContentTitle",
+    "description": "Feature/&NoContentTitle",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "f13223f6db6229143b50b9afcee438ce",
-      "m_SubObjectName": "ConditionGuided",
-      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+      "m_AssetGUID": "",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
@@ -151,7 +149,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "07af8c69-cb28-56a0-99ef-9ad7f46e8125",
+  "guid": "5932b00d-25a2-59ed-8fde-6599206a3523",
   "contentPack": 9999,
-  "name": "ConditionFeatSpearMasteryReach"
+  "name": "ConditionFeatSpearMasteryDamage"
 }

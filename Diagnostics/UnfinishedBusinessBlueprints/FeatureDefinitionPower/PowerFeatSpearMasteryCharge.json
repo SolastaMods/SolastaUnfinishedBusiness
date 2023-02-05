@@ -2,11 +2,11 @@
   "$type": "FeatureDefinitionPower, Assembly-CSharp",
   "effectDescription": {
     "$type": "EffectDescription, Assembly-CSharp",
-    "rangeType": "Distance",
-    "rangeParameter": 12,
+    "rangeType": "Self",
+    "rangeParameter": 1,
     "halfDamageOnAMiss": false,
     "hitAffinitiesByTargetTag": [],
-    "targetType": "IndividualsUnique",
+    "targetType": "Self",
     "itemSelectionType": "None",
     "targetParameter": 1,
     "targetParameter2": 2,
@@ -30,7 +30,7 @@
     "trapRangeType": "Triggerer",
     "targetConditionName": "",
     "targetConditionAsset": null,
-    "targetSide": "Enemy",
+    "targetSide": "Ally",
     "durationType": "Round",
     "durationParameter": 1,
     "endOfEffect": "StartOfTurn",
@@ -80,10 +80,8 @@
           "conditionDefinitionName": "ConditionFeatSpearMasteryCharge",
           "conditionDefinition": "Definition:ConditionFeatSpearMasteryCharge:f3424256-5dec-593f-a598-957a2966c91e",
           "operation": "Add",
-          "conditionsList": [
-            "Definition:ConditionFeatSpearMasteryCharge:f3424256-5dec-593f-a598-957a2966c91e"
-          ],
-          "applyToSelf": false,
+          "conditionsList": [],
+          "applyToSelf": true,
           "forceOnSelf": false
         },
         "hasFilterId": false,
@@ -108,7 +106,7 @@
       "alteredDuration": "None"
     },
     "speedType": "Instant",
-    "speedParameter": 10.0,
+    "speedParameter": -1.0,
     "offsetImpactTimeBasedOnDistance": false,
     "offsetImpactTimeBasedOnDistanceFactor": 0.1,
     "offsetImpactTimePerTarget": 0.0,
@@ -128,7 +126,7 @@
       },
       "casterQuickSpellParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "",
+        "m_AssetGUID": "81560ac3813217d4d9fd281d5e73c234",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
