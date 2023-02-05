@@ -392,9 +392,9 @@ internal static class MeleeCombatFeats
         .SetCustomSubFeatures(
             new BeforeAttackEffectFeatPiercer(ConditionDefinitionBuilder
                     .Create("ConditionFeatPiercerNonMagic")
-                    .SetGuiPresentation(Category.Condition)
+                    .SetGuiPresentationNoContent(true)
+                    .SetSilent(Silent.WhenAddedOrRemoved)
                     .SetSpecialDuration(DurationType.Round, 1)
-                    .SetPossessive()
                     .SetSpecialInterruptions(ConditionInterruption.Attacked)
                     .SetFeatures(
                         FeatureDefinitionDieRollModifierBuilder
