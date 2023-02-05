@@ -16,7 +16,11 @@ internal sealed class PolearmExpert : AbstractFightingStyle
             .Create("FeaturePolearm")
             .SetGuiPresentationNoContent(true)
             .SetCustomSubFeatures(
-                new CanMakeAoOOnReachEntered(ValidatorsCharacter.HasPolearm),
+                new CanMakeAoOOnReachEntered
+                {
+                    WeaponValidator = (mode, weapon, _) =>
+                        ValidatorsWeapon.IsPolearm(weapon ?? mode?.SourceObject as RulesetItem)
+                },
                 new AddPolearmFollowupAttack())
             .AddToDB())
         .AddToDB();

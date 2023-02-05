@@ -1116,7 +1116,7 @@ internal sealed class MartialTactician : AbstractSubclass
                 yield break;
             }
 
-            if (!me.CanReactNoMatterUses())
+            if (!me.CanReact(true))
             {
                 yield break;
             }
@@ -1219,7 +1219,7 @@ internal sealed class MartialTactician : AbstractSubclass
         }
     }
 
-    internal class Brace
+    internal class Brace : CanMakeAoOOnReachEntered
     {
         private readonly ConditionDefinition condition;
         private readonly FeatureDefinitionPower pool;
@@ -1228,41 +1228,17 @@ internal sealed class MartialTactician : AbstractSubclass
         {
             this.pool = pool;
             this.condition = condition;
+            IgnoreReactionUses = true;
+            ValidateAttacker = character => character.GetRemainingPowerCharges(pool) > 0;
+            BeforeReaction = AddCondition;
+            AfterReaction = RemoveCondition;
         }
 
-        internal IEnumerator Process(
-            GameLocationCharacter me,
-            GameLocationCharacter mover,
-            (int3, int3) movement,
-            GameLocationBattleManager battle)
+        private IEnumerator AddCondition(GameLocationCharacter attacker, GameLocationCharacter mover,
+            (int3 from, int3 to) movement, GameLocationBattleManager battleManager, 
+            GameLocationActionManager actionManager, ReactionRequest request)
         {
-            var manager = ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
-
-            if (manager == null)
-            {
-                yield break;
-            }
-
-            if (me.RulesetCharacter.GetRemainingPowerCharges(pool) <= 0)
-            {
-                yield break;
-            }
-
-            if (!me.CanPerformOpportunityAttackOnCharacter(mover, movement.Item2, movement.Item1,
-                    out var retaliationMode, out var retaliationModifier, battle))
-            {
-                yield break;
-            }
-
-            var reactionParams = new CharacterActionParams(
-                me,
-                Id.AttackFree,
-                retaliationMode,
-                mover,
-                retaliationModifier);
-
-            var character = me.RulesetCharacter;
-
+            var character = attacker.RulesetCharacter;
             var rulesetCondition = RulesetCondition.CreateActiveCondition(character.Guid,
                 condition,
                 DurationType.Round,
@@ -1274,28 +1250,36 @@ internal sealed class MartialTactician : AbstractSubclass
 
             character.AddConditionOfCategory(AttributeDefinitions.TagCombat, rulesetCondition);
 
-            var previousReactionCount = manager.PendingReactionRequestGroups.Count;
-            var reactionRequest = new ReactionRequestReactionAttack("GambitBrace", reactionParams)
-            {
-                Resource = new ReactionResourcePowerPool(pool, Sprites.GambitResourceIcon)
-            };
+            yield break;
+        }
 
-            manager.AddInterruptRequest(reactionRequest);
-
-            yield return battle.WaitForReactions(mover, manager, previousReactionCount);
-
+        private IEnumerator RemoveCondition(GameLocationCharacter attacker, GameLocationCharacter mover,
+            (int3 from, int3 to) movement, GameLocationBattleManager battleManager, 
+            GameLocationActionManager actionManager, ReactionRequest request)
+        {
+            var character = attacker.RulesetCharacter;
+            var reactionParams = request.reactionParams;
             //Can we detect this before attack starts? Currently we get to this part after attack finishes, if reaction was validated
             if (reactionParams.ReactionValidated)
             {
                 character.UsePower(UsablePowersProvider.Get(pool, character));
             }
 
-            character.RemoveCondition(rulesetCondition);
+            character.RemoveAllConditionsOfCategoryAndType(AttributeDefinitions.TagCombat, condition.Name);
+
+            yield break;
         }
 
-        public static bool CanReact(GameLocationCharacter me)
+        protected override ReactionRequestReactionAttack MakeReactionRequest(GameLocationCharacter attacker,
+            GameLocationCharacter mover,
+            RulesetAttackMode attackMode, ActionModifier attackModifier)
         {
-            return me.CanReactNoMatterUses();
+            return new ReactionRequestReactionAttack("GambitBrace", new CharacterActionParams(
+                attacker,
+                Id.AttackFree,
+                attackMode,
+                mover,
+                attackModifier)) {Resource = new ReactionResourcePowerPool(pool, Sprites.GambitResourceIcon)};
         }
     }
 
