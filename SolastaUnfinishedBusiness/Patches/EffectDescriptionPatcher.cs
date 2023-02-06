@@ -1,4 +1,5 @@
-﻿using System.Diagnostics.CodeAnalysis;
+﻿#if false
+using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.Extensions;
@@ -21,7 +22,6 @@ public static class EffectDescriptionPatcher
         }
     }
 
-#if false
     [HarmonyPatch(typeof(EffectDescription), nameof(EffectDescription.FillTags))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly] public static class FillTags_Patch
@@ -35,5 +35,5 @@ public static class EffectDescriptionPatcher
             }
         }
     }
-#endif
 }
+#endif

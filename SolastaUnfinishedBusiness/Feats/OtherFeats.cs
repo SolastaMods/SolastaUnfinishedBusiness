@@ -367,7 +367,6 @@ internal static class OtherFeats
                     .SetPool(HeroDefinitions.PointsPoolType.Metamagic, 2)
                     .AddToDB())
             .SetMustCastSpellsPrerequisite()
-            .SetAbilityScorePrerequisite(AttributeDefinitions.Charisma, 13)
             .AddToDB();
     }
 
