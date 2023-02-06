@@ -15,6 +15,8 @@ internal static class Main
 {
     internal static readonly bool IsDebugBuild = Debug.isDebugBuild;
 
+    internal static FileTransferHandler FileTransfer { get; } = new();
+
     internal static readonly string ModFolder = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
     private static ModManager<Core, Settings> Mod { get; set; }
     private static UnityModManager.ModEntry ModEntry { get; set; }
@@ -25,7 +27,7 @@ internal static class Main
 
     internal static string SettingsFolder => Path.Combine(ModFolder, "Settings");
     internal static string[] SettingsFiles { get; private set; }
-    internal static string SettingsFilename { get; private set; }
+    internal static string SettingsFilename { get; private set; } = String.Empty;
     internal static Settings Settings => Mod.Settings;
 
     [Conditional("DEBUG")]
@@ -70,6 +72,7 @@ internal static class Main
         {
             var assembly = Assembly.GetExecutingAssembly();
 
+            FileTransfer.Initialize();
             ModEntry = modEntry;
             Mod = new ModManager<Core, Settings>();
             Mod.Enable(modEntry, assembly);
