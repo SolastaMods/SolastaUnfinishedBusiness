@@ -30,10 +30,6 @@ internal sealed class ModManager<TCore, TSettings>
 
         try
         {
-            modEntry.OnSaveGUI += HandleSaveGUI;
-            Settings = UnityModManager.ModSettings.Load<TSettings>(modEntry);
-            Core = new TCore();
-
             var types = assembly.GetTypes();
 
             if (!Patched)
@@ -61,6 +57,9 @@ internal sealed class ModManager<TCore, TSettings>
                 Patched = true;
             }
 
+            modEntry.OnSaveGUI += HandleSaveGUI;
+            Settings = UnityModManager.ModSettings.Load<TSettings>(modEntry);
+            Core = new TCore();
             Enabled = true;
 
             _eventHandlers = types.Where(type => type != typeof(TCore) &&
@@ -103,7 +102,7 @@ internal sealed class ModManager<TCore, TSettings>
 
     private TCore Core { get; set; }
 
-    internal TSettings Settings { get; private set; }
+    internal TSettings Settings { get; set; }
 
     private bool Enabled { get; set; }
 

@@ -175,6 +175,13 @@ ModUi/&SelectAll=Tout sélectionner
 ModUi/&SelectSuggested=Sélectionnez Suggéré
 ModUi/&Services=Prestations de service
 ModUi/&SetBeltOfDwarvenKindBeardChances=<color=#D89555>Ceinture des Nains</color> <color=white>possibilités d'apparition de la barbe</color>
+ModUi/&Settings=<color=#F0DAA0>Paramètres :</color>
+ModUi/&SettingsExport=Exporter
+ModUi/&SettingsHelp=. En tant qu'hôte, vous pouvez exporter votre configuration actuelle, ouvrir le dossier des exportations et partager facilement avec vos pairs\n. En tant qu'invité, vous pouvez ouvrir le dossier des exportations, coller le fichier partagé depuis l'hôte et le charger sur <b><i><color=#C04040E0>[Nécessite un redémarrage]</color></i></b>
+ModUi/&SettingsLoad=. Charger un paramètre exporté
+ModUi/&SettingsOpenFolder=Ouvrir le dossier des paramètres exportés
+ModUi/&SettingsRefresh=Rafraîchir
+ModUi/&SettingsRemove=Retirer
 ModUi/&ShowCraftedItemOnRecipeIcon=Afficher l'icône de l'objet fabriqué près de l'objet de la recette dans la boutique et l'inventaire. Passer la souris dessus affichera une info-bulle pour l'objet fabriqué
 ModUi/&ShowCraftingRecipeInDetailedTooltips=Afficher la recette d'artisanat dans des infobulles détaillées
 ModUi/&ShowDescriptions=Afficher les descriptions

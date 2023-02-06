@@ -1,10 +1,6 @@
 CHANGES:
 
-- added Spear Mastery feat
-- fixed Agonizing Blast and Life Drinker interaction with Eldritch Adept
-- fixed Armorer Defensive Field to only triggers on Inventor's turn
-- fixed Circle of The Ancient Forest Brew power
-- fixed Dead Master upcasted summons duration
-- fixed Spell Sniper to have casting pre-requisites
+- added Gameplay > Tools > Settings to allow export/import settings files [easier MP session setup / switch easily across different configs]
+- fixed missing Metamagic feat charisma pre-requisite
 
 

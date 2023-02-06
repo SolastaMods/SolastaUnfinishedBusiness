@@ -175,6 +175,13 @@ ModUi/&SelectAll=Select All
 ModUi/&SelectSuggested=Select Suggested
 ModUi/&Services=Services
 ModUi/&SetBeltOfDwarvenKindBeardChances=<color=#D89555>Belt of Dwarvenkind</color> <color=white>beard appearing chances</color>
+ModUi/&Settings=<color=#F0DAA0>Settings:</color>
+ModUi/&SettingsExport=Export
+ModUi/&SettingsHelp=. As a host you can export your current configuration, open the exports folder and easily share with your peers\n. As a guest you can open the exports folder, paste the shared file from the host and load it over <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
+ModUi/&SettingsLoad=. Load an exported setting
+ModUi/&SettingsOpenFolder=Open exported settings folder
+ModUi/&SettingsRefresh=Refresh
+ModUi/&SettingsRemove=Remove
 ModUi/&ShowCraftedItemOnRecipeIcon=Show crafted item icon near recipe item in shop and inventory. Hovering over it will show tooltip for crafted item
 ModUi/&ShowCraftingRecipeInDetailedTooltips=Show crafting recipe in detailed tooltips
 ModUi/&ShowDescriptions=Show Descriptions
