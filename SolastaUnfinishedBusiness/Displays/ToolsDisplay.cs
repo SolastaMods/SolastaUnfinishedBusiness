@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Diagnostics;
+using System.IO;
 using System.Linq;
 using HarmonyLib;
 using SolastaUnfinishedBusiness.Api.Infrastructure;
@@ -479,7 +480,7 @@ internal static class ToolsDisplay
 
         using (UI.HorizontalScope())
         {
-            UI.ActionButton("Refresh", Main.LoadSettingFilenames, UI.Width(144));
+            UI.ActionButton(Gui.Localize("ModUi/&SettingsRemove"), Main.LoadSettingFilenames, UI.Width(144));
             UI.ActionButton(Gui.Localize("ModUi/&SettingsOpenFolder"), () =>
             {
                 Process.Start(new ProcessStartInfo
@@ -488,7 +489,6 @@ internal static class ToolsDisplay
                 });
             }, UI.Width(292));
         }
-
 
         UI.Label();
 

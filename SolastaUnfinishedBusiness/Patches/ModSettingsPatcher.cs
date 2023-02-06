@@ -18,7 +18,7 @@ public static class ModSettingsPatcher
         [UsedImplicitly]
         public static bool Prefix(ref string __result)
         {
-            if (Main.SettingsFilename == String.Empty)
+            if (string.IsNullOrEmpty(Main.SettingsFilename))
             {
                 return true;
             }
