@@ -190,28 +190,24 @@ internal enum ExtraActionId
 
 internal static class EnumImplementation
 {
-    internal static bool ComputeExtraAdvancementDuration(
+    internal static void ComputeExtraAdvancementDuration(
         [NotNull] EffectDescription effect,
         int slotLevel,
-        ref int result)
+        ref int result,
+        ref DurationType durationType)
     {
         //
-        // BUGFIX: dominate spells
+        // BUGFIX: summon spells
         //
-
         if (effect.EffectAdvancement.AlteredDuration >= 0)
         {
-            // use standard calculation
-            return true;
+            return;
         }
 
         var alteredDuration = (ExtraAdvancementDuration)effect.EffectAdvancement.AlteredDuration;
 
         var duration = alteredDuration switch
         {
-            // TA DominateBeast and DominatePerson use AdvancementDuration.Minutes_1_10_480_1440_Infinite
-            // which is only computed correctly for BestowCurse.
-
             ExtraAdvancementDuration.Minutes_1_10_480_1440_Level2 => slotLevel switch
             {
                 <= 2 => ComputeRoundsDuration(DurationType.Minute, 1),
@@ -245,11 +241,10 @@ internal static class EnumImplementation
 
         if (duration == -1)
         {
-            return true;
+            return;
         }
 
         result = duration;
-
-        return false;
+        durationType = DurationType.Round;
     }
 }
