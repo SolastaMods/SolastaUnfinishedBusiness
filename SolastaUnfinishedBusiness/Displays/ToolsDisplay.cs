@@ -490,25 +490,6 @@ internal static class ToolsDisplay
             }, UI.Width(292));
         }
 
-        var service = ServiceRepository.GetService<ISessionService>();
-
-        if (service.Session != null)
-        {
-            var ownerId = service.Session.PlayerSlotsList[0].PlayerNickname;
-
-            UI.ActionButton("Upload", () =>
-            {
-                File.Copy(Path.Combine(Main.ModFolder, "Settings.xml"), Path.Combine(TacticalAdventuresApplication.MultiplayerFilesDirectory, "ugc_1984_json"));
-                Main.FileTransfer.UploadFile(
-                    Path.Combine(Main.ModFolder, "Settings.xml"), "room", NetworkingDefinitions.FileType.UGC, 1984);
-            });
-            
-            UI.ActionButton("Upload", () =>
-            {
-                Main.FileTransfer.DownloadFile("room", NetworkingDefinitions.FileType.UGC, 1984);
-            });
-        }
-
         UI.Label();
 
         if (Main.SettingsFiles.Length == 0)
