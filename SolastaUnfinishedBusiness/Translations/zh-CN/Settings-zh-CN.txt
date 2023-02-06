@@ -175,6 +175,13 @@ ModUi/&SelectAll=选择全部
 ModUi/&SelectSuggested=选择推荐
 ModUi/&Services=服务
 ModUi/&SetBeltOfDwarvenKindBeardChances=<color=white>设置使用<color=#D89555>矮人腰带</color>时长出胡子的概率</color>
+ModUi/&Settings=<color=#F0DAA0>设置：</color>
+ModUi/&SettingsExport=出口
+ModUi/&SettingsHelp=.作为主持人，您可以导出当前配置，打开导出文件夹并轻松与同行共享\n。作为来宾，您可以打开导出文件夹，从主机粘贴共享文件并将其加载到 <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
+ModUi/&SettingsLoad=.加载导出的设置
+ModUi/&SettingsOpenFolder=打开导出的设置文件夹
+ModUi/&SettingsRefresh=刷新
+ModUi/&SettingsRemove=消除
 ModUi/&ShowCraftedItemOnRecipeIcon=在商店和库存中的配方项目附近显示制作的项目图标。将鼠标悬停在它上面将显示制作物品的工具提示
 ModUi/&ShowCraftingRecipeInDetailedTooltips=在详细工具提示中显示制作配方
 ModUi/&ShowDescriptions=显示说明

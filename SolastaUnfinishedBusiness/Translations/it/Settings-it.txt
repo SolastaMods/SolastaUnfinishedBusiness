@@ -175,6 +175,13 @@ ModUi/&SelectAll=Seleziona tutto
 ModUi/&SelectSuggested=Seleziona Suggerito
 ModUi/&Services=Servizi
 ModUi/&SetBeltOfDwarvenKindBeardChances=<color=#D89555>Cintura dei Nani</color> <color=white>probabilità che appaia la barba</color>
+ModUi/&Settings=<color=#F0DAA0>Impostazioni:</color>
+ModUi/&SettingsExport=Esportare
+ModUi/&SettingsHelp=. In qualità di host puoi esportare la tua configurazione attuale, aprire la cartella delle esportazioni e condividerla facilmente con i tuoi colleghi\n. Come ospite puoi aprire la cartella delle esportazioni, incollare il file condiviso dall'host e caricarlo su <b><i><color=#C04040E0>[Richiede il riavvio]</color></i></b>
+ModUi/&SettingsLoad=. Carica un'impostazione esportata
+ModUi/&SettingsOpenFolder=Apri la cartella delle impostazioni esportate
+ModUi/&SettingsRefresh=ricaricare
+ModUi/&SettingsRemove=Rimuovere
 ModUi/&ShowCraftedItemOnRecipeIcon=Mostra l'icona dell'oggetto creato accanto all'oggetto della ricetta nel negozio e nell'inventario. Passando il mouse su di esso verrà visualizzato il suggerimento per l'oggetto creato
 ModUi/&ShowCraftingRecipeInDetailedTooltips=Mostra la ricetta di creazione in suggerimenti dettagliati
 ModUi/&ShowDescriptions=Mostra descrizioni
