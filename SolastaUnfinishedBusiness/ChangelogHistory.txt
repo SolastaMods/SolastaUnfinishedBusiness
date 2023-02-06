@@ -1,5 +1,12 @@
 ﻿CHANGES:
 
+1.4.33.28:
+
+- added new icons to pikes and hand crossbows from @taco
+- fixed issues with settings not saving upon exit
+- fixed summons upcast durations
+- reverted wrong change on metamagic feat
+
 1.4.33.27:
 
 - added Gameplay > Tools > Settings to allow export/import settings files [easier MP session setup / switch easily across different configs]
