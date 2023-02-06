@@ -175,6 +175,13 @@ ModUi/&SelectAll=Выбрать всё
 ModUi/&SelectSuggested=Выбрать Рекомендованное
 ModUi/&Services=Службы
 ModUi/&SetBeltOfDwarvenKindBeardChances=<color=#D89555>Пояс Короля Гномов </color> <color=white>шанс появления бороды</color>
+ModUi/&Settings=<color=#F0DAA0>Настройки:</color>
+ModUi/&SettingsExport=Экспорт
+ModUi/&SettingsHelp=. В качестве хоста вы можете экспортировать текущую конфигурацию, открывать папку экспорта и легко делиться ею с коллегами\n. В качестве гостя вы можете открыть папку экспорта, вставить общий файл с хоста и загрузить его поверх <b><i><color=#C04040E0>[требуется перезагрузка]</color></i></b>
+ModUi/&SettingsLoad=. Загрузить экспортированный параметр
+ModUi/&SettingsOpenFolder=Открыть папку с экспортированными настройками
+ModUi/&SettingsRefresh=Обновить
+ModUi/&SettingsRemove=Удалять
 ModUi/&ShowCraftedItemOnRecipeIcon=Показывать значок созданного предмета рядом с предметом рецепта в магазине и инвентаре. При наведении на него появится всплывающая подсказка для созданного предмета.
 ModUi/&ShowCraftingRecipeInDetailedTooltips=Показать рецепт крафта в подробных всплывающих подсказках
 ModUi/&ShowDescriptions=Показать описания

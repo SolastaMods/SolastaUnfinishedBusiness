@@ -175,6 +175,13 @@ ModUi/&SelectAll=Wählen Sie Alle
 ModUi/&SelectSuggested=Wählen Sie Vorgeschlagen aus
 ModUi/&Services=Dienstleistungen
 ModUi/&SetBeltOfDwarvenKindBeardChances=<color=#D89555>Gürtel der Zwerge</color> <color=white>Erscheinungschancen für Bart</color>
+ModUi/&Settings=<color=#F0DAA0>Einstellungen:</color>
+ModUi/&SettingsExport=Export
+ModUi/&SettingsHelp=. Als Host können Sie Ihre aktuelle Konfiguration exportieren, den Exportordner öffnen und einfach mit Ihren Kollegen teilen\n. Als Gast können Sie den Exportordner öffnen, die freigegebene Datei vom Host einfügen und über <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b> laden
+ModUi/&SettingsLoad=. Laden Sie eine exportierte Einstellung
+ModUi/&SettingsOpenFolder=Öffnen Sie den Ordner mit den exportierten Einstellungen
+ModUi/&SettingsRefresh=Aktualisierung
+ModUi/&SettingsRemove=Entfernen
 ModUi/&ShowCraftedItemOnRecipeIcon=Zeigen Sie das Symbol für hergestellte Gegenstände in der Nähe des Rezeptgegenstands im Shop und im Inventar an. Wenn Sie den Mauszeiger darüber bewegen, wird ein Tooltip für hergestellte Gegenstände angezeigt
 ModUi/&ShowCraftingRecipeInDetailedTooltips=Handwerksrezept in detaillierten Tooltips anzeigen
 ModUi/&ShowDescriptions=Beschreibungen anzeigen

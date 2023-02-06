@@ -1,5 +1,10 @@
 ﻿CHANGES:
 
+1.4.33.27:
+
+- added Gameplay > Tools > Settings to allow export/import settings files [easier MP session setup / switch easily across different configs]
+- fixed missing Metamagic feat charisma pre-requisite
+
 1.4.33.26:
 
 - added Spear Mastery feat

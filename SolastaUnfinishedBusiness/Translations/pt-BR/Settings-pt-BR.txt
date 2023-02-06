@@ -175,6 +175,13 @@ ModUi/&SelectAll=Selecionar tudo
 ModUi/&SelectSuggested=Selecione Sugerido
 ModUi/&Services=Serviços
 ModUi/&SetBeltOfDwarvenKindBeardChances=<color=#D89555>Cinturão dos Anões</color> <color=white>chance de aparecimento de barba</color>
+ModUi/&Settings=<color=#F0DAA0>Configurações:</color>
+ModUi/&SettingsExport=Exportar
+ModUi/&SettingsHelp=. Como host, você pode exportar sua configuração atual, abrir a pasta de exportações e compartilhar facilmente com seus colegas\n. Como convidado, você pode abrir a pasta exports, colar o arquivo compartilhado do host e carregá-lo em <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
+ModUi/&SettingsLoad=. Carregar uma configuração exportada
+ModUi/&SettingsOpenFolder=Abra a pasta de configurações exportadas
+ModUi/&SettingsRefresh=Atualizar
+ModUi/&SettingsRemove=Remover
 ModUi/&ShowCraftedItemOnRecipeIcon=Mostrar o ícone do item criado próximo ao item da receita na loja e no inventário. Passar o mouse sobre ele mostrará a dica de ferramenta para o item criado
 ModUi/&ShowCraftingRecipeInDetailedTooltips=Mostrar receita de criação em dicas de ferramentas detalhadas
 ModUi/&ShowDescriptions=Mostrar descrições
