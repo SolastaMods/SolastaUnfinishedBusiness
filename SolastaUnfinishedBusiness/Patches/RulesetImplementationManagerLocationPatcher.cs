@@ -180,8 +180,11 @@ public static class RulesetImplementationManagerLocationPatcher
         [UsedImplicitly]
         public static void Prefix(ref RulesetImplementationDefinitions.ApplyFormsParams formsParams)
         {
-            EnumImplementation.ComputeExtraAdvancementDuration(formsParams.activeEffect.EffectDescription, 3,
-                ref formsParams.durationParameter, ref formsParams.durationType);
+            EnumImplementation.ComputeExtraAdvancementDuration(
+                formsParams.activeEffect.EffectDescription,
+                formsParams.effectLevel,
+                ref formsParams.durationParameter,
+                ref formsParams.durationType);
         }
     }
 }
