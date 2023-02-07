@@ -6,7 +6,6 @@ using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.Extensions;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomUI;
-using SolastaUnfinishedBusiness.FightingStyles;
 using TA;
 using static ActionDefinitions;
 
@@ -181,7 +180,7 @@ internal sealed class SentinelFeatMarker : CustomReactionAttack
 {
     public SentinelFeatMarker()
     {
-        Name = Sentinel.SentinelName;
+        Name = "ReactionAttackSentinel";
     }
 }
 
@@ -189,7 +188,7 @@ internal class CanMakeAoOOnReachEntered : CustomReactionAttack
 {
     public CanMakeAoOOnReachEntered()
     {
-        Name = "AoOEnter";
+        Name = "ReactionAttackAoOEnter";
     }
 }
 
@@ -255,17 +254,16 @@ internal class CustomReactionAttack
         RulesetAttackMode.AttackModesPool.Return(attackMode);
     }
 
-    protected virtual ReactionRequestReactionAttack MakeReactionRequest(GameLocationCharacter attacker,
-        GameLocationCharacter mover,
-        RulesetAttackMode attackMode, ActionModifier attackModifier)
+    protected virtual ReactionRequest MakeReactionRequest(GameLocationCharacter attacker,
+        GameLocationCharacter defender, RulesetAttackMode attackMode, ActionModifier attackModifier)
     {
         var reactionParams = new CharacterActionParams(
             attacker,
             Id.AttackOpportunity,
             attackMode,
-            mover,
-            attackModifier);
+            defender,
+            attackModifier) {StringParameter2 = Name};
 
-        return new ReactionRequestReactionAttack(Name, reactionParams);
+        return new ReactionRequestWarcaster(reactionParams);
     }
 }

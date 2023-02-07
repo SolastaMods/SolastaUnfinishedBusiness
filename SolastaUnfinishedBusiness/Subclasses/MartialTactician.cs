@@ -1267,15 +1267,14 @@ internal sealed class MartialTactician : AbstractSubclass
             yield break;
         }
 
-        protected override ReactionRequestReactionAttack MakeReactionRequest(GameLocationCharacter attacker,
-            GameLocationCharacter mover,
-            RulesetAttackMode attackMode, ActionModifier attackModifier)
+        protected override ReactionRequest MakeReactionRequest(GameLocationCharacter attacker,
+            GameLocationCharacter defender, RulesetAttackMode attackMode, ActionModifier attackModifier)
         {
             return new ReactionRequestReactionAttack("GambitBrace", new CharacterActionParams(
                 attacker,
                 Id.AttackFree,
                 attackMode,
-                mover,
+                defender,
                 attackModifier)) { Resource = new ReactionResourcePowerPool(pool, Sprites.GambitResourceIcon) };
         }
     }
