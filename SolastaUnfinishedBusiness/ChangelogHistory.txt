@@ -1,5 +1,12 @@
 ﻿CHANGES:
 
+1.4.33.29:
+
+- fixed summons issue introduced on previous release and Wild Master upcast
+- changed Wild Master beast extra hit points to increase with character level
+- changed Wild Master beast power DC to 8 + CON modifier + caster PB modifier
+- changed Wild Master beast power dice damage to increase at 5, 9, 13 and 17
+
 1.4.33.28:
 
 - added new icons to pikes and hand crossbows from @taco

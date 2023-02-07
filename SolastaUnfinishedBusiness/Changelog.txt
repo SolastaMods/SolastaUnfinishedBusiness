@@ -1,8 +1,8 @@
 CHANGES:
 
-- added new icons to pikes and hand crossbows from @taco
-- fixed issues with settings not saving upon exit
-- fixed summons upcast durations
-- reverted wrong change on metamagic feat
+- fixed summons issue introduced on previous release and Wild Master upcast
+- changed Wild Master beast extra hit points to increase with character level
+- changed Wild Master beast power DC to 8 + CON modifier + caster PB modifier
+- changed Wild Master beast power dice damage to increase at 5, 9, 13 and 17
 
 
