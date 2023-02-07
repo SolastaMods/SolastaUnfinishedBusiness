@@ -82,8 +82,8 @@ public static class GameLocationCharacterExtensions
     internal static bool CanPerformOpportunityAttackOnCharacter(
         this GameLocationCharacter instance,
         GameLocationCharacter target,
-        int3 positionBefore,
-        int3 positionAfter,
+        int3? positionBefore,
+        int3? positionAfter,
         out RulesetAttackMode attackMode,
         out ActionModifier attackModifier,
         IGameLocationBattleService service = null,
@@ -113,19 +113,28 @@ public static class GameLocationCharacterExtensions
 
             // Prepare attack evaluation params
             var paramsBefore = new BattleDefinitions.AttackEvaluationParams();
-            
-            paramsBefore.FillForPhysicalReachAttack(instance, instance.LocationPosition, mode,
-                target, positionBefore, new ActionModifier());
 
-            var paramsAfter = new BattleDefinitions.AttackEvaluationParams();
-            
-            paramsAfter.FillForPhysicalReachAttack(instance, instance.LocationPosition, mode,
-                target, positionAfter, new ActionModifier());
+            paramsBefore.FillForPhysicalReachAttack(instance, instance.LocationPosition, mode,
+                target, positionBefore ?? target.LocationPosition, new ActionModifier());
 
             // Check if the attack is possible and collect the attack modifier inside the attackParams
-            if (!service.CanAttack(paramsBefore) || service.CanAttack(paramsAfter))
+            if (!service.CanAttack(paramsBefore))
             {
                 continue;
+            }
+
+            if (positionAfter != null)
+            {
+                var paramsAfter = new BattleDefinitions.AttackEvaluationParams();
+
+                paramsAfter.FillForPhysicalReachAttack(instance, instance.LocationPosition, mode,
+                    target, positionAfter.Value, new ActionModifier());
+
+                // skip if attack is still possible after move - target hasn't left reach yet
+                if (service.CanAttack(paramsAfter))
+                {
+                    continue;
+                }
             }
 
             attackMode = mode;

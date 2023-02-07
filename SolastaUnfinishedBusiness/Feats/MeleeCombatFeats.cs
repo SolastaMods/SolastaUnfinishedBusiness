@@ -11,7 +11,6 @@ using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Properties;
-using TA;
 using static RuleDefinitions;
 using static RuleDefinitions.RollContext;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
@@ -232,9 +231,8 @@ internal static class MeleeCombatFeats
                 .AddToDB())
             .AddToDB();
 
-        IEnumerator AddCondition(GameLocationCharacter attacker, GameLocationCharacter mover,
-            (int3 from, int3 to) movement, GameLocationBattleManager manager, GameLocationActionManager actionManager,
-            ReactionRequest request)
+        IEnumerator AddCondition(GameLocationCharacter attacker, GameLocationCharacter defender,
+            GameLocationBattleManager manager, GameLocationActionManager actionManager, ReactionRequest request)
         {
             var character = attacker.RulesetCharacter;
             var rulesetCondition = RulesetCondition.CreateActiveCondition(character.Guid, conditionDamage,
@@ -245,9 +243,8 @@ internal static class MeleeCombatFeats
             yield break;
         }
 
-        IEnumerator RemoveCondition(GameLocationCharacter attacker, GameLocationCharacter mover,
-            (int3 from, int3 to) movement, GameLocationBattleManager manager, GameLocationActionManager actionManager,
-            ReactionRequest request)
+        IEnumerator RemoveCondition(GameLocationCharacter attacker, GameLocationCharacter defender,
+            GameLocationBattleManager manager, GameLocationActionManager actionManager, ReactionRequest request)
         {
             attacker.RulesetCharacter.RemoveAllConditionsOfCategoryAndType(AttributeDefinitions.TagCombat,
                 conditionDamage.Name);

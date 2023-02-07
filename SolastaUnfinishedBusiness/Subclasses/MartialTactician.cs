@@ -10,7 +10,6 @@ using SolastaUnfinishedBusiness.CustomDefinitions;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Models;
-using TA;
 using UnityEngine.AddressableAssets;
 using static ActionDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
@@ -1234,9 +1233,8 @@ internal sealed class MartialTactician : AbstractSubclass
             AfterReaction = RemoveCondition;
         }
 
-        private IEnumerator AddCondition(GameLocationCharacter attacker, GameLocationCharacter mover,
-            (int3 from, int3 to) movement, GameLocationBattleManager battleManager,
-            GameLocationActionManager actionManager, ReactionRequest request)
+        private IEnumerator AddCondition(GameLocationCharacter attacker, GameLocationCharacter defender,
+            GameLocationBattleManager battleManager, GameLocationActionManager actionManager, ReactionRequest request)
         {
             var character = attacker.RulesetCharacter;
             var rulesetCondition = RulesetCondition.CreateActiveCondition(character.Guid,
@@ -1253,9 +1251,8 @@ internal sealed class MartialTactician : AbstractSubclass
             yield break;
         }
 
-        private IEnumerator RemoveCondition(GameLocationCharacter attacker, GameLocationCharacter mover,
-            (int3 from, int3 to) movement, GameLocationBattleManager battleManager,
-            GameLocationActionManager actionManager, ReactionRequest request)
+        private IEnumerator RemoveCondition(GameLocationCharacter attacker, GameLocationCharacter defender,
+            GameLocationBattleManager battleManager, GameLocationActionManager actionManager, ReactionRequest request)
         {
             var character = attacker.RulesetCharacter;
             var reactionParams = request.reactionParams;
