@@ -28,7 +28,16 @@ internal static class CharacterReactionSubitemExtension
             if (tooltip != null)
             {
                 tooltip.Disabled = false;
-                tooltip.Content = "Reaction/&WarcasterAttackDescription";
+                if (reactionRequest.ReactionParams.attackMode?.sourceObject is RulesetItem weapon)
+                {
+                    ServiceRepository.GetService<IGuiWrapperService>()
+                        .GetGuiItemDefinition(weapon.Name)
+                        .SetupTooltip(tooltip, reactionRequest.Character.RulesetActor);
+                }
+                else
+                {
+                    tooltip.Content = "Reaction/&WarcasterAttackDescription";
+                }
             }
         }
         else

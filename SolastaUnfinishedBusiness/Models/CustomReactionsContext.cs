@@ -18,7 +18,6 @@ internal static class CustomReactionsContext
     {
         MakeReactDefinition(ReactionRequestWarcaster.Name);
         MakeReactDefinition(ReactionRequestSpendBundlePower.Name);
-        MakeReactDefinition(ReactionRequestReactionAttack.Name(Sentinel.SentinelName));
     }
 
     private static void MakeReactDefinition(string name)
