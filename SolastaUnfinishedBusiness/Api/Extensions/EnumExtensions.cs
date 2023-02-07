@@ -190,18 +190,15 @@ internal enum ExtraActionId
 
 internal static class EnumImplementation
 {
-    internal static void ComputeExtraAdvancementDuration(
+    internal static bool ComputeExtraAdvancementDuration(
         [NotNull] EffectDescription effect,
         int slotLevel,
         ref int result,
         ref DurationType durationType)
     {
-        //
-        // BUGFIX: summon spells
-        //
         if (effect.EffectAdvancement.AlteredDuration >= 0)
         {
-            return;
+            return true;
         }
 
         var alteredDuration = (ExtraAdvancementDuration)effect.EffectAdvancement.AlteredDuration;
@@ -241,10 +238,12 @@ internal static class EnumImplementation
 
         if (duration == -1)
         {
-            return;
+            return true;
         }
 
         result = duration;
         durationType = DurationType.Round;
+
+        return false;
     }
 }
