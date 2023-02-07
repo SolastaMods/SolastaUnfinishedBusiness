@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using SolastaUnfinishedBusiness.Api.Extensions;
+using SolastaUnfinishedBusiness.Api.Infrastructure;
 using SolastaUnfinishedBusiness.Feats;
 
 namespace SolastaUnfinishedBusiness.CustomUI;
@@ -11,10 +12,14 @@ internal class ReactionRequestWarcaster : ReactionRequest
     private readonly GuiCharacter guiTarget;
 
     private readonly string type;
+    private readonly ActionDefinition attackAction;
+    private readonly List<ActionModifier> attackModifiers = new();
 
     internal ReactionRequestWarcaster(CharacterActionParams reactionParams)
         : base(Name, reactionParams)
     {
+        attackAction = reactionParams.ActionDefinition;
+        attackModifiers.SetRange(reactionParams.ActionModifiers);
         BuildSuboptions();
         type = string.IsNullOrEmpty(ReactionParams.StringParameter2)
             ? Name
@@ -152,19 +157,9 @@ internal class ReactionRequestWarcaster : ReactionRequest
 
         if (option == 0)
         {
-            reactionParams.ActionDefinition = ServiceRepository.GetService<IGameLocationActionService>()
-                .AllActionDefinitions[ActionDefinitions.Id.AttackOpportunity];
+            reactionParams.ActionDefinition = attackAction;
+            reactionParams.ActionModifiers.SetRange(attackModifiers);
             reactionParams.RulesetEffect = null;
-
-            var attackParams = new BattleDefinitions.AttackEvaluationParams();
-            var actionModifier = new ActionModifier();
-
-            attackParams.FillForPhysicalReachAttack(actingCharacter,
-                actingCharacter.LocationPosition,
-                reactionParams.AttackMode,
-                reactionParams.TargetCharacters[0],
-                reactionParams.TargetCharacters[0].LocationPosition, actionModifier);
-            reactionParams.ActionModifiers[0] = actionModifier;
         }
         else
         {
