@@ -242,7 +242,6 @@ internal class CanMakeAoOOnReachEntered
     public Handler BeforeReaction { get; set; }
     public Handler AfterReaction { get; set; }
     protected bool IgnoreReactionUses { get; set; }
-    public ActionType ActionType { get; set; } = ActionType.Reaction;
     public bool AccountAoOImmunity { get; set; }
 
     internal bool IsValid(GameLocationCharacter attacker, GameLocationCharacter mover)
@@ -268,7 +267,7 @@ internal class CanMakeAoOOnReachEntered
 
         var attackMode = RulesetAttackMode.AttackModesPool.Get();
         attackMode.Copy(mode);
-        attackMode.actionType = ActionType;
+        attackMode.actionType = ActionType.Reaction;
 
         var reactionRequest = MakeReactionRequest(attacker, mover, attackMode, attackModifier);
 
