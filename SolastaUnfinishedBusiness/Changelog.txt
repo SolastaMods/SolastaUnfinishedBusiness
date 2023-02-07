@@ -1,6 +1,6 @@
 CHANGES:
 
-- fixed summons issue introduced on previous release and Wild Master upcast
+- fixed summons issue introduced on previous release and Dead Master upcast
 - changed Wild Master beast extra hit points to increase with character level
 - changed Wild Master beast power DC to 8 + CON modifier + caster PB modifier
 - changed Wild Master beast power dice damage to increase at 5, 9, 13 and 17
