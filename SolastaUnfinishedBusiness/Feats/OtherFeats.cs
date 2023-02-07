@@ -62,9 +62,9 @@ internal static class OtherFeats
         var featWarCaster = BuildWarcaster();
 
         var spellSniperGroup = BuildSpellSniper(feats);
+        var elementalAdeptGroup = BuildElementalAdept(feats);
 
-        _ = BuildElementalAdept(feats);
-        _ = BuildMagicInitiate(feats);
+        BuildMagicInitiate(feats);
 
         feats.AddRange(
             featAstralArms,
@@ -78,6 +78,15 @@ internal static class OtherFeats
             featPoisonousSkin,
             featTough,
             featWarCaster);
+
+        GroupFeats.FeatGroupUnarmoredCombat.AddFeats(
+            featAstralArms,
+            featMonkInitiate,
+            featPoisonousSkin);
+
+        GroupFeats.FeatGroupSupportCombat.AddFeats(
+            featHealer,
+            featInspiringLeader);
 
         GroupFeats.MakeGroup("FeatGroupBodyResilience", null,
             FeatDefinitions.BadlandsMarauder,
@@ -94,11 +103,19 @@ internal static class OtherFeats
             featHealer,
             featPickPocket);
 
-        _ = GroupFeats.MakeGroup("FeatGroupSpellCombat", null,
+        GroupFeats.MakeGroup("FeatGroupSpellCombat", null,
             FeatDefinitions.FlawlessConcentration,
             FeatDefinitions.PowerfulCantrip,
+            elementalAdeptGroup,
             featWarCaster,
             spellSniperGroup);
+
+        GroupFeats.MakeGroup("FeatGroupAgilityCombat", null,
+            FeatDefinitions.EagerForBattle,
+            FeatDefinitions.ForestRunner,
+            FeatDefinitions.ReadyOrNot,
+            FeatDefinitions.RushToBattle,
+            featMobile);
     }
 
     private static FeatDefinition BuildAstralArms()

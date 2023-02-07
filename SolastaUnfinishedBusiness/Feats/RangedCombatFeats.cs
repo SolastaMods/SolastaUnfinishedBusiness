@@ -24,13 +24,13 @@ internal static class RangedCombatFeats
         feats.AddRange(featDeadEye, featRangedExpert, featBowMastery);
 
         GroupFeats.MakeGroup("FeatGroupRangedCombat", null,
+            GroupFeats.FeatGroupPiercer,
             TakeAim,
             DiscretionOfTheCoedymwarth,
             UncannyAccuracy,
             featBowMastery,
             featDeadEye,
-            featRangedExpert,
-            MeleeCombatFeats.FeatGroupPiercer);
+            featRangedExpert);
     }
 
     private static FeatDefinition BuildBowMastery()

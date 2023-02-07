@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using SolastaUnfinishedBusiness.Api.Extensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
@@ -11,27 +12,45 @@ internal static class GroupFeats
 {
     private static readonly List<FeatDefinition> Groups = new();
 
+    internal const string Slasher = "Slasher";
+    internal const string Piercer = "Piercer";
+    internal const string Crusher = "Crusher";
+
+    internal static FeatDefinition FeatGroupDefenseCombat { get; } = MakeGroup("FeatGroupDefenseCombat", null,
+        FeatDefinitions.CloakAndDagger,
+        FeatDefinitions.RaiseShield,
+        FeatDefinitions.TwinBlade);
+
+    internal static FeatDefinition FeatGroupElementalTouch { get; } = MakeGroup("FeatGroupElementalTouch",
+        "Touch",
+        FeatDefinitions.BurningTouch,
+        FeatDefinitions.ToxicTouch,
+        FeatDefinitions.ElectrifyingTouch,
+        FeatDefinitions.IcyTouch,
+        FeatDefinitions.MeltingTouch);
+
+    internal static FeatDefinition FeatGroupPiercer { get; } = MakeGroup("FeatGroupPiercer", Piercer);
+
+    internal static FeatDefinition FeatGroupSupportCombat { get; } = MakeGroup("FeatGroupSupportCombat", null,
+        FeatDefinitions.Mender);
+
+    internal static FeatDefinition FeatGroupUnarmoredCombat { get; } = MakeGroup("FeatGroupUnarmoredCombat", null,
+        FeatGroupElementalTouch);
+
     internal static void Load(Action<FeatDefinition> loader)
     {
-        Groups.Add(MakeGroup("FeatGroupCreed", null,
+        MakeGroup("FeatGroupCreed", null,
             FeatDefinitions.Creed_Of_Arun,
             FeatDefinitions.Creed_Of_Einar,
             FeatDefinitions.Creed_Of_Maraike,
             FeatDefinitions.Creed_Of_Misaye,
             FeatDefinitions.Creed_Of_Pakri,
-            FeatDefinitions.Creed_Of_Solasta));
+            FeatDefinitions.Creed_Of_Solasta);
 
-        Groups.Add(MakeGroup("FeatGroupElementalTouch", "Touch",
-            FeatDefinitions.BurningTouch,
-            FeatDefinitions.ToxicTouch,
-            FeatDefinitions.ElectrifyingTouch,
-            FeatDefinitions.IcyTouch,
-            FeatDefinitions.MeltingTouch));
-
-        Groups.Add(MakeGroup("FeatGroupTwoHandedCombat", null,
+        MakeGroup("FeatGroupTwoHandedCombat", null,
             FeatDefinitions.MightyBlow,
             FeatDefinitions.ForestallingStrength,
-            FeatDefinitions.FollowUpStrike));
+            FeatDefinitions.FollowUpStrike);
 
         Groups.ForEach(loader);
     }
@@ -54,5 +73,12 @@ internal static class GroupFeats
         Groups.Add(group);
 
         return group;
+    }
+
+    internal static void AddFeats(this FeatDefinition groupDefinition, params FeatDefinition[] feats)
+    {
+        var groupedFeat = groupDefinition.GetFirstSubFeatureOfType<GroupedFeat>();
+
+        groupedFeat?.AddFeats(feats);
     }
 }

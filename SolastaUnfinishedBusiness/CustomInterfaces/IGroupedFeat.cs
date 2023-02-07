@@ -25,5 +25,10 @@ public class GroupedFeat : IGroupedFeat
         return feats.Where(x => !x.GuiPresentation.hidden).ToList();
     }
 
+    public void AddFeats(params FeatDefinition[] featDefinitions)
+    {
+        this.feats.AddRange(featDefinitions);
+    }
+
     public bool HideSubFeats => true;
 }
