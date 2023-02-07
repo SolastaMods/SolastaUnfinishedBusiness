@@ -307,18 +307,42 @@ public static class InnovationArmor
 
             AddArmorBonusesToBuiltinAttack(hero, attackMode);
 
-            var modes = new List<RulesetAttackMode> { attackMode };
+            var modes = new List<RulesetAttackMode> {attackMode};
 
-            if (!hero.HasEmptyMainHand())
+            var main = hero.GetMainWeapon();
+            var off = hero.GetOffhandWeapon();
+
+            WeaponDescription weapon = null;
+            if (main != null && main.itemDefinition.isWeapon)
             {
-                return modes;
+                weapon = main.itemDefinition.WeaponDescription;
             }
 
-            var reaction = RulesetAttackMode.AttackModesPool.Get();
 
-            reaction.Copy(attackMode);
-            reaction.ActionType = ActionDefinitions.ActionType.Reaction;
-            modes.Add(reaction);
+            if (off == null //empty off-hand
+                && (main == null //empty main hand
+                    || (weapon != null //or main hand is 1-handed melee weapon
+                        && !weapon.WeaponTags.Contains(TagsDefinitions.WeaponTagTwoHanded)
+                        && weapon.WeaponTypeDefinition.weaponProximity == AttackProximity.Melee))
+                && hero.CanDualWieldNonLight)
+            {
+                var offhand = RulesetAttackMode.AttackModesPool.Get();
+
+                offhand.Copy(attackMode);
+                offhand.attacksNumber = 1;
+                offhand.ActionType = ActionDefinitions.ActionType.Bonus;
+                modes.Add(offhand);
+            }
+
+            if (main == null)
+            {
+                var reaction = RulesetAttackMode.AttackModesPool.Get();
+
+                reaction.Copy(attackMode);
+                reaction.attacksNumber = 1;
+                reaction.ActionType = ActionDefinitions.ActionType.Reaction;
+                modes.Add(reaction);
+            }
 
             return modes;
         }
@@ -365,7 +389,7 @@ public static class InnovationArmor
 
             AddArmorBonusesToBuiltinAttack(hero, attackMode);
 
-            return new List<RulesetAttackMode> { attackMode };
+            return new List<RulesetAttackMode> {attackMode};
         }
     }
 
