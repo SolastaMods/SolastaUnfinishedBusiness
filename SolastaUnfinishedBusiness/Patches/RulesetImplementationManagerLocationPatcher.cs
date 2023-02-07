@@ -178,12 +178,13 @@ public static class RulesetImplementationManagerLocationPatcher
     public static class ApplySummonForm_Patch
     {
         [UsedImplicitly]
-        public static void Prefix(RulesetImplementationManagerLocation __instance, EffectForm effectForm, ref RulesetImplementationDefinitions.ApplyFormsParams formsParams)
+        public static void Prefix(ref RulesetImplementationDefinitions.ApplyFormsParams formsParams)
         {
-            EnumImplementation.ComputeExtraAdvancementDuration(formsParams.activeEffect.EffectDescription, 3,
-                ref formsParams.durationParameter);
-
-            formsParams.durationType = DurationType.Round;
+            EnumImplementation.ComputeExtraAdvancementDuration(
+                formsParams.activeEffect.EffectDescription,
+                formsParams.effectLevel,
+                ref formsParams.durationParameter,
+                ref formsParams.durationType);
         }
     }
 }

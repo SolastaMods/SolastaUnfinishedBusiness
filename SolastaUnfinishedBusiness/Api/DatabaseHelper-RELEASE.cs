@@ -491,6 +491,7 @@ internal static partial class DatabaseHelper
     {
         internal static FeatureDefinitionHealingModifier HealingModifierBeaconOfHope { get; } = GetDefinition<FeatureDefinitionHealingModifier>("HealingModifierBeaconOfHope");
         internal static FeatureDefinitionHealingModifier HealingModifierChilledByTouch { get; } = GetDefinition<FeatureDefinitionHealingModifier>("HealingModifierChilledByTouch");
+        internal static FeatureDefinitionHealingModifier HealingModifierKindredSpiritBond { get; } = GetDefinition<FeatureDefinitionHealingModifier>("HealingModifierKindredSpiritBond");
     }
     internal static class FeatureDefinitionMagicAffinitys
     {

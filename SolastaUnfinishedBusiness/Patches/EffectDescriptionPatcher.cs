@@ -1,5 +1,4 @@
-﻿#if false
-using System.Diagnostics.CodeAnalysis;
+﻿using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.Extensions;
@@ -18,10 +17,10 @@ public static class EffectDescriptionPatcher
         public static bool Prefix([NotNull] EffectDescription __instance, int slotLevel, ref int __result)
         {
             //PATCH: implements computation of extra effect duration advancement types
-            return EnumImplementation.ComputeExtraAdvancementDuration(__instance, slotLevel, ref __result);
+            return EnumImplementation.ComputeExtraAdvancementDuration(__instance, slotLevel, ref __result, ref __instance.durationType);
         }
     }
-
+#if false
     [HarmonyPatch(typeof(EffectDescription), nameof(EffectDescription.FillTags))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly] public static class FillTags_Patch
@@ -35,5 +34,5 @@ public static class EffectDescriptionPatcher
             }
         }
     }
-}
 #endif
+}

@@ -49,7 +49,6 @@
   "stealableLootDefinition": null,
   "bestiaryLootOptions": [],
   "features": [
-    "Definition:CombatAffinityWildMasterSummonerIsNextToBeast:5caab56f-2aec-5048-b426-36ae4df0b447",
     "Definition:ConditionAffinityProneImmunity:abedf907fa238ce4c91865e7ab06c78d",
     "Definition:ConditionAffinityWildMasterSpiritBeastInitiative:074d3251-8db0-5c10-949c-97fed558a0c3",
     "Definition:MovementAffinityNoClimb:f65dd18ad2835b14e96502705a1b9544",
@@ -57,10 +56,10 @@
     "Definition:MoveModeFly10:983b70804daf71d42a2bc3e844c00987",
     "Definition:MoveModeMove2:0127a492ba7a429408b3282dde9374d7",
     "Definition:PerceptionAffinityWildMasterSpiritBeast:428e7055-c49a-51d9-a0f6-b12c87974615",
-    "Definition:PowerDragonbornBreathWeaponBlue:8ae044db5645a5849a9315596a72a2a5",
     "Definition:PowerEyebitePanicked:7c9fd45374147c04da705bf77d14916c",
     "Definition:PowerFiendishResilienceLightning:86d1c3508e8c5c741a7cd53b98db4653",
     "Definition:PowerHelp:faded953-56c9-55e9-aa49-54a485c1de6d",
+    "Definition:PowerSpiritBeastBreathWeaponBlue:b09b13b8-0692-5ee6-a46a-12d1c5149db0",
     "Definition:PowerWildMasterInvisibility:4a34a150-94ca-5e73-843f-97bf2eb176be",
     "Definition:SenseNormalVision:222ef639393ed4e4bbd7152690597945"
   ],

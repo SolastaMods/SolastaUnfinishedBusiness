@@ -1,5 +1,11 @@
 ﻿Condition/&ConditionWildMasterSummonSpiritBeastBonusTitle=荒野之主奖励
-Feature/&FeatureSetWildMaster03Description=你获得了一只野兽精魄伙伴，它会陪伴你进行冒险，并与你并肩作战。 它能将你的感知调整值增加到AC等级、攻击掷骰和伤害掷骰上。 它还可以获得每游侠等级 4 HP，并且只能在轮到它时采取回避动作，除非你命令它不这样做。\n野兽精魄和荒野之主共享相同的先攻权，你可以选择熊、鹰或狼：\n熊可以释放扇形火\n。 鹰可以释放闪电束\n. 狼可以释放寒冰锥。
+Feature/&FeatureSetWildMaster03Description=你获得了一只灵兽伙伴，它会陪伴你进行冒险，并受过训练与你并肩作战。它使你的感知调整值增加到盔甲等级、攻击掷骰和伤害掷骰上。它还会获得每个角色等级 4 的 HP，并且只能在轮到它时采取闪避行动，除非你命令它不这样做。\nSpirit Beast 和召唤师共享相同的主动权，你可以选择熊、鹰或狼：\n。熊可以喷出一团火\n。鹰线\n。狼一锥寒。
+Feature/&PowerSpiritBeastBreathWeaponBlueTitle=闪电武器
+Feature/&PowerSpiritBeastBreathWeaponGoldTitle=火武器
+Feature/&PowerSpiritBeastBreathWeaponSilverTitle=冷兵器
+Feature/&PowerSpiritBeastBreathWeaponBlueDescription=在一条宽度为一个单元格、长度为六个单元格的线上投射闪电。队列中的生物必须进行 CON 豁免才能使闪电伤害减半。伤害等于 2d6 到 4 级，在 5 级增加到 3d6，在 9 级增加到 4d6，在 13 级增加到 5d6，在 17 级增加到 6d6。
+Feature/&PowerSpiritBeastBreathWeaponGoldDescription=在一个 3 格宽的锥形区域中投射火焰。锥形区域中的生物必须进行一次 DEX 豁免才能使火焰伤害减半。伤害等于 2d6 到 4 级，在 5 级增加到 3d6，在 9 级增加到 4d6，在 13 级增加到 5d6，在 17 级增加到 6d6。
+Feature/&PowerSpiritBeastBreathWeaponSilverDescription=在 3 个细胞宽的圆锥体中投射冰块。锥形区域中的生物必须进行一次 DEX 豁免才能使寒冷伤害减半。伤害等于 2d6 到 4 级，在 5 级增加到 3d6，在 9 级增加到 4d6，在 13 级增加到 5d6，在 17 级增加到 6d6。
 Feature/&FeatureSetWildMaster03Title=野兽伙伴
 Feature/&FeatureSetWildMaster07Description=野兽精魄现在可以在轮到它时执行疾走或撤离动作。 在克服抗性和免疫时，它的攻击视为魔法攻击。 野兽精魄也更强大：\n. 熊现在可以抵抗火焰\n。 鹰可以抵抗闪电\n。 狼可以抵抗寒冷。
 Feature/&FeatureSetWildMaster07Title=完全精通
