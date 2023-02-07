@@ -98,51 +98,63 @@ internal sealed class RangerWildMaster : AbstractSubclass
 
         #region EAGLE
 
+        var powerSpiritBeastBreathWeaponBlue = FeatureDefinitionPowerBuilder
+            .Create(FeatureDefinitionPowers.PowerDragonbornBreathWeaponBlue, "PowerSpiritBeastBreathWeaponBlue")
+            .SetOrUpdateGuiPresentation(Category.Feature)
+            .AddToDB();
+
+        powerSpiritBeastBreathWeaponBlue.EffectDescription.EffectForms[0].diceByLevelTable = DiceByRankBuilder
+            .BuildDiceByRankTable(0, 1, 4);
+
         var powerKindredSpiritEagle03 = BuildSpiritBeastPower(powerWildMasterSummonSpiritBeastPool03,
             MonsterDefinitions.KindredSpiritEagle, 3, false,
-            FeatureDefinitionPowers.PowerDragonbornBreathWeaponBlue,
+            powerSpiritBeastBreathWeaponBlue,
             CharacterContext.FeatureDefinitionPowerHelpAction,
             actionAffinitySpiritBeast,
-            combatAffinityWildMasterSummonerIsNextToBeast,
             conditionAffinityWildMasterSpiritBeastInitiative);
 
         var powerKindredSpiritEagle07 = BuildSpiritBeastPower(powerWildMasterSummonSpiritBeastPool07,
             MonsterDefinitions.KindredSpiritEagle, 7, false,
-            FeatureDefinitionPowers.PowerDragonbornBreathWeaponBlue,
+            powerSpiritBeastBreathWeaponBlue,
             FeatureDefinitionPowers.PowerFiendishResilienceLightning,
             CharacterContext.FeatureDefinitionPowerHelpAction,
             actionAffinitySpiritBeast,
-            combatAffinityWildMasterSummonerIsNextToBeast,
             conditionAffinityWildMasterSpiritBeastInitiative);
 
         var powerKindredSpiritEagle11 = BuildSpiritBeastPower(powerWildMasterSummonSpiritBeastPool11,
             MonsterDefinitions.KindredSpiritEagle, 11, true,
-            FeatureDefinitionPowers.PowerDragonbornBreathWeaponBlue,
+            powerSpiritBeastBreathWeaponBlue,
             FeatureDefinitionPowers.PowerFiendishResilienceLightning,
             powerWildMasterInvisibility,
             CharacterContext.FeatureDefinitionPowerHelpAction,
             actionAffinitySpiritBeast,
-            combatAffinityWildMasterSummonerIsNextToBeast,
             conditionAffinityWildMasterSpiritBeastInitiative);
 
         var powerKindredSpiritEagle15 = BuildSpiritBeastPower(powerWildMasterSummonSpiritBeastPool15,
             MonsterDefinitions.KindredSpiritEagle, 15, true,
-            FeatureDefinitionPowers.PowerDragonbornBreathWeaponBlue,
+            powerSpiritBeastBreathWeaponBlue,
             FeatureDefinitionPowers.PowerFiendishResilienceLightning,
             powerWildMasterInvisibility,
             FeatureDefinitionPowers.PowerEyebitePanicked,
             CharacterContext.FeatureDefinitionPowerHelpAction,
             perceptionAffinitySpiritBeast,
-            combatAffinityWildMasterSummonerIsNextToBeast,
             conditionAffinityWildMasterSpiritBeastInitiative);
 
         #endregion
 
         #region BEAR
 
+        var powerSpiritBeastBreathWeaponGold = FeatureDefinitionPowerBuilder
+            .Create(FeatureDefinitionPowers.PowerDragonbornBreathWeaponGold, "PowerSpiritBeastBreathWeaponGold")
+            .SetOrUpdateGuiPresentation(Category.Feature)
+            .AddToDB();
+
+        powerSpiritBeastBreathWeaponGold.EffectDescription.EffectForms[0].diceByLevelTable = DiceByRankBuilder
+            .BuildDiceByRankTable(0, 1, 4);
+
         var powerKindredSpiritBear03 = BuildSpiritBeastPower(powerWildMasterSummonSpiritBeastPool03,
             MonsterDefinitions.KindredSpiritBear, 3, false,
-            FeatureDefinitionPowers.PowerDragonbornBreathWeaponGold,
+            powerSpiritBeastBreathWeaponGold,
             CharacterContext.FeatureDefinitionPowerHelpAction,
             actionAffinitySpiritBeast,
             combatAffinityWildMasterSummonerIsNextToBeast,
@@ -150,7 +162,7 @@ internal sealed class RangerWildMaster : AbstractSubclass
 
         var powerKindredSpiritBear07 = BuildSpiritBeastPower(powerWildMasterSummonSpiritBeastPool07,
             MonsterDefinitions.KindredSpiritBear, 7, false,
-            FeatureDefinitionPowers.PowerDragonbornBreathWeaponGold,
+            powerSpiritBeastBreathWeaponGold,
             FeatureDefinitionPowers.PowerFiendishResilienceFire,
             CharacterContext.FeatureDefinitionPowerHelpAction,
             actionAffinitySpiritBeast,
@@ -159,7 +171,7 @@ internal sealed class RangerWildMaster : AbstractSubclass
 
         var powerKindredSpiritBear11 = BuildSpiritBeastPower(powerWildMasterSummonSpiritBeastPool11,
             MonsterDefinitions.KindredSpiritBear, 11, true,
-            FeatureDefinitionPowers.PowerDragonbornBreathWeaponGold,
+            powerSpiritBeastBreathWeaponGold,
             FeatureDefinitionPowers.PowerFiendishResilienceFire,
             powerWildMasterInvisibility,
             CharacterContext.FeatureDefinitionPowerHelpAction,
@@ -169,7 +181,7 @@ internal sealed class RangerWildMaster : AbstractSubclass
 
         var powerKindredSpiritBear15 = BuildSpiritBeastPower(powerWildMasterSummonSpiritBeastPool15,
             MonsterDefinitions.KindredSpiritBear, 15, true,
-            FeatureDefinitionPowers.PowerDragonbornBreathWeaponGold,
+            powerSpiritBeastBreathWeaponGold,
             FeatureDefinitionPowers.PowerFiendishResilienceFire,
             powerWildMasterInvisibility,
             FeatureDefinitionPowers.PowerEyebitePanicked,
@@ -182,9 +194,17 @@ internal sealed class RangerWildMaster : AbstractSubclass
 
         #region WOLF
 
+        var powerSpiritBeastBreathWeaponSilver = FeatureDefinitionPowerBuilder
+            .Create(FeatureDefinitionPowers.PowerDragonbornBreathWeaponSilver, "PowerSpiritBeastBreathWeaponSilver")
+            .SetOrUpdateGuiPresentation(Category.Feature)
+            .AddToDB();
+
+        powerSpiritBeastBreathWeaponSilver.EffectDescription.EffectForms[0].diceByLevelTable = DiceByRankBuilder
+            .BuildDiceByRankTable(0, 1, 4);
+
         var powerKindredSpiritWolf03 = BuildSpiritBeastPower(powerWildMasterSummonSpiritBeastPool03,
             MonsterDefinitions.KindredSpiritWolf, 3, false,
-            FeatureDefinitionPowers.PowerDragonbornBreathWeaponSilver,
+            powerSpiritBeastBreathWeaponSilver,
             CharacterContext.FeatureDefinitionPowerHelpAction,
             actionAffinitySpiritBeast,
             combatAffinityWildMasterSummonerIsNextToBeast,
@@ -192,7 +212,7 @@ internal sealed class RangerWildMaster : AbstractSubclass
 
         var powerKindredSpiritWolf07 = BuildSpiritBeastPower(powerWildMasterSummonSpiritBeastPool07,
             MonsterDefinitions.KindredSpiritWolf, 7, false,
-            FeatureDefinitionPowers.PowerDragonbornBreathWeaponSilver,
+            powerSpiritBeastBreathWeaponSilver,
             FeatureDefinitionPowers.PowerFiendishResilienceCold,
             CharacterContext.FeatureDefinitionPowerHelpAction,
             actionAffinitySpiritBeast,
@@ -201,7 +221,7 @@ internal sealed class RangerWildMaster : AbstractSubclass
 
         var powerKindredSpiritWolf11 = BuildSpiritBeastPower(powerWildMasterSummonSpiritBeastPool11,
             MonsterDefinitions.KindredSpiritWolf, 11, true,
-            FeatureDefinitionPowers.PowerDragonbornBreathWeaponSilver,
+            powerSpiritBeastBreathWeaponSilver,
             FeatureDefinitionPowers.PowerFiendishResilienceCold,
             powerWildMasterInvisibility,
             CharacterContext.FeatureDefinitionPowerHelpAction,
@@ -211,7 +231,7 @@ internal sealed class RangerWildMaster : AbstractSubclass
 
         var powerKindredSpiritWolf15 = BuildSpiritBeastPower(powerWildMasterSummonSpiritBeastPool15,
             MonsterDefinitions.KindredSpiritWolf, 15, true,
-            FeatureDefinitionPowers.PowerDragonbornBreathWeaponSilver,
+            powerSpiritBeastBreathWeaponSilver,
             FeatureDefinitionPowers.PowerFiendishResilienceCold,
             powerWildMasterInvisibility,
             FeatureDefinitionPowers.PowerEyebiteAsleep,
@@ -229,12 +249,15 @@ internal sealed class RangerWildMaster : AbstractSubclass
             .SetGuiPresentation(Category.Feature)
             .AddToDB();
 
+        // BACKWARD COMPATIBILITY
+        _ = BuildPowerWildMasterSpiritBeastRecuperate();
+
         var featureSetWildMaster03 = FeatureDefinitionFeatureSetBuilder
             .Create("FeatureSetWildMaster03")
             .SetGuiPresentation(Category.Feature)
             .AddFeatureSet(
                 BuildCommandSpiritBeast(),
-                BuildPowerWildMasterSpiritBeastRecuperate(),
+                FeatureDefinitionHealingModifiers.HealingModifierKindredSpiritBond,
                 BuildSpiritBeastAffinityLevel03(),
                 powerWildMasterSummonSpiritBeastPool03,
                 powerKindredSpiritBear03,
@@ -532,10 +555,17 @@ internal sealed class RangerWildMaster : AbstractSubclass
                         AttributeDefinitions.CharacterLevel)
                     .AddToDB(),
                 ConditionDefinitionBuilder
+                    .Create("ConditionWildMasterSummonSpiritBeastCopyProficiencyBonus")
+                    .SetGuiPresentationNoContent()
+                    .SetSilent(Silent.WhenAddedOrRemoved)
+                    .SetAmountOrigin(ExtraOriginOfAmount.SourceCopyAttributeFromSummoner,
+                        AttributeDefinitions.ProficiencyBonus)
+                    .AddToDB(),
+                ConditionDefinitionBuilder
                     .Create("ConditionWildMasterSummonSpiritBeastLevel")
                     .SetGuiPresentationNoContent()
                     .SetSilent(Silent.WhenAddedOrRemoved)
-                    .SetAmountOrigin(ExtraOriginOfAmount.SourceClassLevel, RangerClass)
+                    .SetAmountOrigin(ExtraOriginOfAmount.SourceCharacterLevel)
                     .SetFeatures(hpBonus, hpBonus, hpBonus, hpBonus) // 4 HP per level
                     .AddToDB())
             .AddToDB();

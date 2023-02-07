@@ -3,12 +3,7 @@
   "inDungeonEditor": false,
   "parentCondition": null,
   "conditionType": "Beneficial",
-  "features": [
-    "Definition:AttributeModifierWildMasterSummonSpiritBeastHP:7d081a22-9a79-5039-8652-471aa0c2f4e1",
-    "Definition:AttributeModifierWildMasterSummonSpiritBeastHP:7d081a22-9a79-5039-8652-471aa0c2f4e1",
-    "Definition:AttributeModifierWildMasterSummonSpiritBeastHP:7d081a22-9a79-5039-8652-471aa0c2f4e1",
-    "Definition:AttributeModifierWildMasterSummonSpiritBeastHP:7d081a22-9a79-5039-8652-471aa0c2f4e1"
-  ],
+  "features": [],
   "allowMultipleInstances": false,
   "silentWhenAdded": true,
   "silentWhenRemoved": true,
@@ -31,7 +26,7 @@
   "cancellingConditions": [],
   "additionalDamageWhenHit": false,
   "additionalDamageTypeDetermination": "Specific",
-  "additionalDamageType": "",
+  "additionalDamageType": "ProficiencyBonus",
   "additionalDamageQuantity": "AbilityBonus",
   "additionalDamageDieType": "D1",
   "additionalDamageDieNumber": 1,
@@ -90,7 +85,7 @@
   "timeToWaitBeforeApplyingShader": 0.5,
   "timeToWaitBeforeRemovingShader": 0.5,
   "possessive": false,
-  "amountOrigin": 9001,
+  "amountOrigin": 9005,
   "baseAmount": 0,
   "additiveAmount": false,
   "sourceAbilityBonusMinValue": 1,
@@ -152,7 +147,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "2b5618ad-8ed2-5ebc-aa0e-702f31b08b51",
+  "guid": "61fc04cd-6ac0-5ab1-8bc5-034562f3718e",
   "contentPack": 9999,
-  "name": "ConditionWildMasterSummonSpiritBeastLevel"
+  "name": "ConditionWildMasterSummonSpiritBeastCopyProficiencyBonus"
 }
