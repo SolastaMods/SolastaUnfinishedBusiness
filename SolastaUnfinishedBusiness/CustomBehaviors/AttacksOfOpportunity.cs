@@ -242,6 +242,7 @@ internal class CanMakeAoOOnReachEntered
     public Handler BeforeReaction { get; set; }
     public Handler AfterReaction { get; set; }
     protected bool IgnoreReactionUses { get; set; }
+    public ActionType ActionType { get; set; } = ActionType.Reaction;
     public bool AccountAoOImmunity { get; set; }
 
     internal bool IsValid(GameLocationCharacter attacker, GameLocationCharacter mover)
@@ -260,10 +261,14 @@ internal class CanMakeAoOOnReachEntered
         (int3 from, int3 to) movement, GameLocationBattleManager battleManager, GameLocationActionManager actionManager)
     {
         if (!attacker.CanPerformOpportunityAttackOnCharacter(mover, movement.to, movement.from,
-                out var attackMode, out var attackModifier, battleManager, AccountAoOImmunity, WeaponValidator))
+                out var mode, out var attackModifier, battleManager, AccountAoOImmunity, WeaponValidator))
         {
             yield break;
         }
+
+        var attackMode = RulesetAttackMode.AttackModesPool.Get();
+        attackMode.Copy(mode);
+        attackMode.actionType = ActionType;
 
         var reactionRequest = MakeReactionRequest(attacker, mover, attackMode, attackModifier);
 
@@ -282,6 +287,8 @@ internal class CanMakeAoOOnReachEntered
         {
             yield return AfterReaction(attacker, mover, movement, battleManager, actionManager, reactionRequest);
         }
+
+        RulesetAttackMode.AttackModesPool.Return(attackMode);
     }
 
     protected virtual ReactionRequestReactionAttack MakeReactionRequest(GameLocationCharacter attacker,
