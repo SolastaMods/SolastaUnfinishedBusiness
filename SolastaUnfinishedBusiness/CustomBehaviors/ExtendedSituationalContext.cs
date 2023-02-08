@@ -26,9 +26,9 @@ internal static class CustomSituationalContext
                 ValidatorsCharacter.MainHandIsUnarmed(contextParams.source),
 
             ExtraSituationalContext.WearingNoArmorOrLightArmorWithoutShield =>
-                ValidatorsCharacter.NoArmor(contextParams.source)
+                ValidatorsCharacter.HasNoArmor(contextParams.source)
                 || (ValidatorsCharacter.LightArmor(contextParams.source)
-                    && ValidatorsCharacter.NoShield(contextParams.source)),
+                    && ValidatorsCharacter.HasNoShield(contextParams.source)),
 
 #if false
             ExtraSituationalContext.MainWeaponIsFinesseOrLightRange =>

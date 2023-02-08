@@ -347,7 +347,8 @@ internal static class MeleeCombatFeats
         .SetGuiPresentationNoContent(true)
         .SetUsesFixed(ActivationTime.OnAttackHitMelee, RechargeRate.TurnStart)
         .SetCustomSubFeatures(
-            new RestrictReactionAttackMode((mode, _, _) => ValidatorsWeapon.IsBludgeoningMeleeOrUnarmed(mode)))
+            new RestrictReactionAttackMode((mode, _, _) =>
+                ValidatorsWeapon.IsOfDamageType(mode, DamageTypeBludgeoning)))
         .SetShowCasting(false)
         .SetEffectDescription(EffectDescriptionBuilder
             .Create()

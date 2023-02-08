@@ -242,7 +242,7 @@ internal sealed class WayOfTheDragon : AbstractSubclass
         var powerDragonFuryAcid = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}DragonFuryAcid")
             .SetGuiPresentation(Category.Feature, AcidSplash)
-            .SetCustomSubFeatures(ValidatorsPowerUse.HasNoCondition(conditionDragonFuryAcid.Name))
+            .SetCustomSubFeatures(ValidatorsPowerUse.HasNoneOfConditions(conditionDragonFuryAcid.Name))
             .SetUsesFixed(ActivationTime.NoCost, RechargeRate.KiPoints, 2)
             .SetEffectDescription(EffectDescriptionBuilder.Create()
                 .SetDurationData(DurationType.Round, 1)
@@ -281,7 +281,7 @@ internal sealed class WayOfTheDragon : AbstractSubclass
         var powerDragonFuryLightning = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}DragonFuryLightning")
             .SetGuiPresentation(Category.Feature, ShockingGrasp)
-            .SetCustomSubFeatures(ValidatorsPowerUse.HasNoCondition(conditionDragonFuryLightning.Name))
+            .SetCustomSubFeatures(ValidatorsPowerUse.HasNoneOfConditions(conditionDragonFuryLightning.Name))
             .SetUsesFixed(ActivationTime.NoCost, RechargeRate.KiPoints, 2)
             .SetEffectDescription(EffectDescriptionBuilder.Create()
                 .SetDurationData(DurationType.Round, 1)
@@ -318,7 +318,7 @@ internal sealed class WayOfTheDragon : AbstractSubclass
         var powerDragonFuryPoison = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}DragonFuryPoison")
             .SetGuiPresentation(Category.Feature, PoisonSpray)
-            .SetCustomSubFeatures(ValidatorsPowerUse.HasNoCondition(conditionDragonFuryPoison.Name))
+            .SetCustomSubFeatures(ValidatorsPowerUse.HasNoneOfConditions(conditionDragonFuryPoison.Name))
             .SetUsesFixed(ActivationTime.NoCost, RechargeRate.KiPoints, 2)
             .SetEffectDescription(EffectDescriptionBuilder.Create()
                 .SetDurationData(DurationType.Round, 1)
@@ -357,7 +357,7 @@ internal sealed class WayOfTheDragon : AbstractSubclass
         var powerDragonFuryFire = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}DragonFuryFire")
             .SetGuiPresentation(Category.Feature, ProduceFlame)
-            .SetCustomSubFeatures(ValidatorsPowerUse.HasNoCondition(conditionDragonFuryFire.Name))
+            .SetCustomSubFeatures(ValidatorsPowerUse.HasNoneOfConditions(conditionDragonFuryFire.Name))
             .SetUsesFixed(ActivationTime.NoCost, RechargeRate.KiPoints, 2)
             .SetEffectDescription(EffectDescriptionBuilder.Create()
                 .SetDurationData(DurationType.Round, 1)
@@ -396,7 +396,7 @@ internal sealed class WayOfTheDragon : AbstractSubclass
         var powerDragonFuryCold = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}DragonFuryCold")
             .SetGuiPresentation(Category.Feature, RayOfFrost)
-            .SetCustomSubFeatures(ValidatorsPowerUse.HasNoCondition(conditionDragonFuryCold.Name))
+            .SetCustomSubFeatures(ValidatorsPowerUse.HasNoneOfConditions(conditionDragonFuryCold.Name))
             .SetUsesFixed(ActivationTime.NoCost, RechargeRate.KiPoints, 2)
             .SetEffectDescription(EffectDescriptionBuilder.Create()
                 .SetDurationData(DurationType.Round, 1)
