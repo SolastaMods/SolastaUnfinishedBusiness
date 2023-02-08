@@ -660,28 +660,30 @@ internal static class MeleeCombatFeats
             {
                 case >= 0 when outcome is RollOutcome.Success or RollOutcome.CriticalSuccess:
                     var lowerRoll = Math.Min(Global.FirstAttackRoll, Global.SecondAttackRoll);
+                    var totalRoll = lowerRoll + attackMode.ToHitBonus;
                     var defenderAc = defender.RulesetCharacter.GetAttribute(AttributeDefinitions.ArmorClass)
                         .CurrentValue;
 
-                    if (lowerRoll + attackMode.ToHitBonus >= defenderAc)
+                    if (totalRoll >= defenderAc)
                     {
                         var console = Gui.Game.GameConsole;
                         var entry = new GameConsoleEntry("Feedback/&FeatFellHanded", console.consoleTableDefinition);
-
+                        var successfulOutcome = Gui.Format("Feedback/&AttackSuccessOutcome", totalRoll.ToString());
+                        
                         console.AddCharacterEntry(defender.RulesetActor, entry);
+                        entry.AddParameter(ConsoleStyleDuplet.ParameterType.Base, $"{lowerRoll}+{attackMode.ToHitBonus}");
+                        entry.AddParameter(ConsoleStyleDuplet.ParameterType.SuccessfulRoll, successfulOutcome);
                         console.AddEntry(entry);
 
-                        var rulesetCondition = RulesetCondition.CreateActiveCondition(
-                            defender.RulesetCharacter.Guid,
-                            ConditionDefinitions.ConditionProne,
-                            DurationType.Round,
-                            1,
-                            TurnOccurenceType.StartOfTurn,
-                            attacker.RulesetCharacter.Guid,
-                            attacker.RulesetCharacter.CurrentFaction.Name);
+                        var usablePower = new RulesetUsablePower(
+                            FeatureDefinitionPowers.PowerTraditionOpenHandOpenHandTechniqueKnockProne, null, null);
 
-                        defender.RulesetCharacter.AddConditionOfCategory(AttributeDefinitions.TagCombat,
-                            rulesetCondition);
+                        var effectPower = new RulesetEffectPower(attacker.RulesetCharacter, usablePower)
+                        {
+                            EffectDescription = { hasSavingThrow = false }
+                        };
+
+                        effectPower.ApplyEffectOnCharacter(defender.RulesetCharacter, true, defender.LocationPosition);
                     }
 
                     break;
