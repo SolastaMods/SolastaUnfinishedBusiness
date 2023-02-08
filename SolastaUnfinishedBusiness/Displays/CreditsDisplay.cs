@@ -63,15 +63,9 @@ internal static class CreditsDisplay
     {
         UI.Label();
 
-        using (UI.HorizontalScope())
+        if (IsUnityExplorerInstalled && !IsUnityExplorerEnabled)
         {
-            UI.ActionButton("Donate".Bold().Khaki(), BootContext.OpenDonate, UI.Width(150));
-            UI.ActionButton("Change Log History".Bold().Khaki(), BootContext.OpenChangeLog, UI.Width(150));
-
-            if (IsUnityExplorerInstalled && !IsUnityExplorerEnabled)
-            {
-                UI.ActionButton("Unity Explorer UI".Bold().Khaki(), EnableUnityExplorerUi, UI.Width(150));
-            }
+            UI.ActionButton("Unity Explorer UI".Bold().Khaki(), EnableUnityExplorerUi, UI.Width(150));
         }
 
         UI.Label();
