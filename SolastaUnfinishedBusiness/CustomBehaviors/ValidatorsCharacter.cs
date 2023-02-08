@@ -13,6 +13,26 @@ internal static class ValidatorsCharacter
     // internal static readonly IsCharacterValidHandler EmptyOffhand = character =>
     //     character.CharacterInventory.InventorySlotsByName[EquipmentDefinitions.SlotTypeOffHand].EquipedItem == null;
 
+    internal static readonly IsCharacterValidHandler HasLightSourceOffHand = character =>
+    {
+        // required for wildshape scenarios
+        if (character is not RulesetCharacterHero)
+        {
+            return false;
+        }
+
+        var offItem = character.GetOffhandWeapon();
+
+        return offItem != null && offItem.ItemDefinition != null && offItem.ItemDefinition.IsLightSourceItem;
+    };
+
+    // only considers free hand if not wielding a two-handed
+    internal static readonly IsCharacterValidHandler HasFreeHandRestrict = character =>
+        character.HasFreeHandSlot() && !ValidatorsWeapon.IsTwoHanded(character.GetMainWeapon());
+
+    // considers free hand even if wielding a two-handed
+    internal static readonly IsCharacterValidHandler HasFreeHand = character => character.HasFreeHandSlot();
+
     internal static readonly IsCharacterValidHandler HasAttacked = character => character.ExecutedAttacks > 0;
 
     internal static readonly IsCharacterValidHandler HasNoArmor = character => !character.IsWearingArmor();
@@ -43,13 +63,6 @@ internal static class ValidatorsCharacter
     internal static readonly IsCharacterValidHandler MainHandIsUnarmed = character =>
         ValidatorsWeapon.IsUnarmedWeapon(character.GetMainWeapon());
 
-    internal static readonly IsCharacterValidHandler HasUnarmedHand = character =>
-        ValidatorsWeapon.IsUnarmedWeapon(character.GetMainWeapon()) ||
-        (!ValidatorsWeapon.IsTwoHanded(character.GetMainWeapon()) &&
-         ValidatorsWeapon.IsUnarmedWeapon(character.GetOffhandWeapon()));
-
-    internal static readonly IsCharacterValidHandler HasFreeHand = character => character.HasFreeHandSlot();
-
     internal static readonly IsCharacterValidHandler LightArmor = character =>
         HasArmorCategory(character, EquipmentDefinitions.LightArmorCategory);
 
@@ -58,20 +71,6 @@ internal static class ValidatorsCharacter
 
     internal static readonly IsCharacterValidHandler NotHeavyArmor = character =>
         !HasArmorCategory(character, EquipmentDefinitions.HeavyArmorCategory);
-
-    internal static readonly IsCharacterValidHandler OffHandHasLightSource = character =>
-    {
-        // required for wildshape scenarios
-        if (character is not RulesetCharacterHero)
-        {
-            return false;
-        }
-
-        var offItem = character.CharacterInventory.InventorySlotsByName[EquipmentDefinitions.SlotTypeOffHand]
-            .EquipedItem;
-
-        return offItem != null && offItem.ItemDefinition != null && offItem.ItemDefinition.IsLightSourceItem;
-    };
 
     internal static IsCharacterValidHandler MainHandHasWeaponType(
         params WeaponTypeDefinition[] weaponTypeDefinitions)
