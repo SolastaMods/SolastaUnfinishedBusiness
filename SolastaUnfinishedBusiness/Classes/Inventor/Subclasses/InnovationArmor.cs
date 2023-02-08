@@ -307,7 +307,7 @@ public static class InnovationArmor
 
             AddArmorBonusesToBuiltinAttack(hero, attackMode);
 
-            var modes = new List<RulesetAttackMode> {attackMode};
+            var modes = new List<RulesetAttackMode> { attackMode };
 
             var main = hero.GetMainWeapon();
             var off = hero.GetOffhandWeapon();
@@ -334,15 +334,17 @@ public static class InnovationArmor
                 modes.Add(offhand);
             }
 
-            if (main == null)
+            if (main != null)
             {
-                var reaction = RulesetAttackMode.AttackModesPool.Get();
-
-                reaction.Copy(attackMode);
-                reaction.attacksNumber = 1;
-                reaction.ActionType = ActionDefinitions.ActionType.Reaction;
-                modes.Add(reaction);
+                return modes;
             }
+
+            var reaction = RulesetAttackMode.AttackModesPool.Get();
+
+            reaction.Copy(attackMode);
+            reaction.attacksNumber = 1;
+            reaction.ActionType = ActionDefinitions.ActionType.Reaction;
+            modes.Add(reaction);
 
             return modes;
         }
@@ -389,7 +391,7 @@ public static class InnovationArmor
 
             AddArmorBonusesToBuiltinAttack(hero, attackMode);
 
-            return new List<RulesetAttackMode> {attackMode};
+            return new List<RulesetAttackMode> { attackMode };
         }
     }
 

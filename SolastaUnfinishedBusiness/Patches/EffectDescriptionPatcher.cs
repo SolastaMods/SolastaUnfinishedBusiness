@@ -17,7 +17,8 @@ public static class EffectDescriptionPatcher
         public static bool Prefix([NotNull] EffectDescription __instance, int slotLevel, ref int __result)
         {
             //PATCH: implements computation of extra effect duration advancement types
-            return EnumImplementation.ComputeExtraAdvancementDuration(__instance, slotLevel, ref __result, ref __instance.durationType);
+            return EnumImplementation.ComputeExtraAdvancementDuration(__instance, slotLevel, ref __result,
+                ref __instance.durationType);
         }
     }
 #if false

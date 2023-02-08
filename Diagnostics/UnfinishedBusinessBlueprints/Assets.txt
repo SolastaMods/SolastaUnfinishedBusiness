@@ -5908,7 +5908,6 @@ WorkTable_B~TownInterior~MOD	PropBlueprint	PropBlueprint	89384b40-cdbe-5f33-b494
 WorkTable_B~ValleyPalace~MOD	PropBlueprint	PropBlueprint	bcfd02d0-de86-5e3e-86bd-23940fe25c88
 WorkTable_C~Stronghold~MOD	PropBlueprint	PropBlueprint	fd6adc9c-29c5-576c-8e4b-88d907b68e5b
 WorkTable_C~TownInterior~MOD	PropBlueprint	PropBlueprint	14c2596a-27fd-5ede-ac14-a7ef9619a359
-ReactionAttackSentinel	ReactionDefinition	ReactionDefinition	d8ea4420-7a7a-538e-98da-9bc5eb40c359
 ReactionSpendPowerBundle	ReactionDefinition	ReactionDefinition	59c7d7ad-440d-5b79-81d1-7d46f8076eef
 ReactionWarcaster	ReactionDefinition	ReactionDefinition	3968d453-c366-5e67-83ea-262e18737bb6
 RecipeEnchantBreastplate_Deflection	RecipeDefinition	RecipeDefinition	4e5506c3-f7bd-56e3-8f33-1994c03c86b5

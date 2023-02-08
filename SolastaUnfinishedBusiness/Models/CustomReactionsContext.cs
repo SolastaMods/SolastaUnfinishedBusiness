@@ -3,7 +3,6 @@ using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.CustomUI;
-using SolastaUnfinishedBusiness.FightingStyles;
 using UnityEngine;
 using static ActionDefinitions;
 

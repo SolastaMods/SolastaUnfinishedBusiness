@@ -10,11 +10,10 @@ namespace SolastaUnfinishedBusiness.Feats;
 
 internal static class GroupFeats
 {
-    private static readonly List<FeatDefinition> Groups = new();
-
     internal const string Slasher = "Slasher";
     internal const string Piercer = "Piercer";
     internal const string Crusher = "Crusher";
+    private static readonly List<FeatDefinition> Groups = new();
 
     internal static FeatDefinition FeatGroupDefenseCombat { get; } = MakeGroup("FeatGroupDefenseCombat", null,
         FeatDefinitions.CloakAndDagger,

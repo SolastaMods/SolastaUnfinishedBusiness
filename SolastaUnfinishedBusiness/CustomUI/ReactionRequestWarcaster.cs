@@ -9,11 +9,11 @@ namespace SolastaUnfinishedBusiness.CustomUI;
 internal class ReactionRequestWarcaster : ReactionRequest
 {
     internal const string Name = "ReactionWarcaster";
+    private readonly ActionDefinition attackAction;
+    private readonly List<ActionModifier> attackModifiers = new();
     private readonly GuiCharacter guiTarget;
 
     private readonly string type;
-    private readonly ActionDefinition attackAction;
-    private readonly List<ActionModifier> attackModifiers = new();
 
     internal ReactionRequestWarcaster(CharacterActionParams reactionParams)
         : base(Name, reactionParams)

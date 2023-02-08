@@ -15,8 +15,6 @@ internal static class Main
 {
     internal static readonly bool IsDebugBuild = Debug.isDebugBuild;
 
-    internal static FileTransferHandler FileTransfer { get; } = new();
-
     internal static readonly string ModFolder = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
     private static ModManager<Core, Settings> Mod { get; set; }
     private static UnityModManager.ModEntry ModEntry { get; set; }
@@ -72,7 +70,6 @@ internal static class Main
         {
             var assembly = Assembly.GetExecutingAssembly();
 
-            FileTransfer.Initialize();
             ModEntry = modEntry;
             Mod = new ModManager<Core, Settings>();
             Mod.Enable(modEntry, assembly);

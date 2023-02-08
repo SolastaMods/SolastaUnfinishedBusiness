@@ -198,8 +198,10 @@ internal class CustomReactionAttack
         [NotNull] GameLocationCharacter defender, GameLocationBattleManager battleManager,
         GameLocationActionManager actionManager, ReactionRequest request);
 
-    public string Name { get; set; }
+    protected string Name { get; set; }
     protected IsCharacterValidHandler ValidateAttacker { get; set; }
+
+    // ReSharper disable once UnusedAutoPropertyAccessor.Local
     private IsCharacterValidHandler ValidateMover { get; set; }
     public IsWeaponValidHandler WeaponValidator { get; set; }
     public Handler BeforeReaction { get; set; }
@@ -262,7 +264,7 @@ internal class CustomReactionAttack
             Id.AttackOpportunity,
             attackMode,
             defender,
-            attackModifier) {StringParameter2 = Name};
+            attackModifier) { StringParameter2 = Name };
 
         return new ReactionRequestWarcaster(reactionParams);
     }
