@@ -10,8 +10,8 @@ internal delegate bool IsCharacterValidHandler(RulesetCharacter character);
 
 internal static class ValidatorsCharacter
 {
-    internal static readonly IsCharacterValidHandler EmptyOffhand = character =>
-        character.CharacterInventory.InventorySlotsByName[EquipmentDefinitions.SlotTypeOffHand].EquipedItem == null;
+    // internal static readonly IsCharacterValidHandler EmptyOffhand = character =>
+    //     character.CharacterInventory.InventorySlotsByName[EquipmentDefinitions.SlotTypeOffHand].EquipedItem == null;
 
     internal static readonly IsCharacterValidHandler HasAttacked = character => character.ExecutedAttacks > 0;
 

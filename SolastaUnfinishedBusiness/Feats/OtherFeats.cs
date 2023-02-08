@@ -290,7 +290,7 @@ internal static class OtherFeats
             .AddToDB();
     }
 
-    private static FeatDefinition BuildMagicInitiate([NotNull] List<FeatDefinition> feats)
+    private static void BuildMagicInitiate([NotNull] List<FeatDefinition> feats)
     {
         const string NAME = "FeatMagicInitiate";
 
@@ -353,11 +353,9 @@ internal static class OtherFeats
             magicInitiateFeats.Add(featMagicInitiate);
         }
 
-        var metamagicGroup = GroupFeats.MakeGroup("FeatGroupMagicInitiate", NAME, magicInitiateFeats);
+        GroupFeats.MakeGroup("FeatGroupMagicInitiate", NAME, magicInitiateFeats);
 
         feats.AddRange(magicInitiateFeats);
-
-        return metamagicGroup;
     }
 
     private static FeatDefinition BuildMetamagic()
