@@ -595,6 +595,7 @@ internal static class SrdAndHouseRulesContext
         RestActivityDefinitionBuilder
             .Create("RestActivityLongRestIdentify")
             .SetGuiPresentation(AfterRestIdentifyName, Category.Feature)
+            .SetCustomSubFeatures(new RestActivityValidationParams(false, false))
             .SetRestData(
                 RestDefinitions.RestStage.AfterRest,
                 RestType.LongRest,

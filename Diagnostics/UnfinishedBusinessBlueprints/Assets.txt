@@ -624,9 +624,9 @@ FeatGroupDefenseCombat	FeatDefinition	FeatDefinition	41b14fa2-53a6-57cd-9655-ae1
 FeatGroupDefenseExpert	FeatDefinition	FeatDefinition	66e3f8c9-5bc1-5415-b2a3-0631450564a9
 FeatGroupElementalAdept	FeatDefinition	FeatDefinition	60c01354-01f3-5375-bae9-06def82b8f58
 FeatGroupElementalTouch	FeatDefinition	FeatDefinition	66f44d06-1557-52db-a92a-a97d3b993e41
-FeatGroupElvenAccuracy	FeatDefinition	FeatDefinition	fc305079-6815-5a08-b3e5-fcfeea95d903
+FeatGroupElvenAccuracy	SolastaUnfinishedBusiness.CustomDefinitions.FeatDefinitionWithPrerequisites	FeatDefinition	fc305079-6815-5a08-b3e5-fcfeea95d903
 FeatGroupEnchanter	FeatDefinition	FeatDefinition	f3ff3f2a-49fe-5333-8c0b-84eb3adebb90
-FeatGroupFadeAway	FeatDefinition	FeatDefinition	b6aa78a6-05c3-593b-ae5f-e177740a73c2
+FeatGroupFadeAway	SolastaUnfinishedBusiness.CustomDefinitions.FeatDefinitionWithPrerequisites	FeatDefinition	b6aa78a6-05c3-593b-ae5f-e177740a73c2
 FeatGroupFightingStyle	FeatDefinition	FeatDefinition	a9395b1c-83fc-5649-9eb2-508ed6e87571
 FeatGroupFlameTouched	FeatDefinition	FeatDefinition	d56829e9-dad7-5512-a8e3-7a221bcc5774
 FeatGroupMagicInitiate	FeatDefinition	FeatDefinition	c9eb9385-67a0-5edb-8e5f-f87b91ab96c1
@@ -637,7 +637,7 @@ FeatGroupPlaneTouchedMagic	FeatDefinition	FeatDefinition	937ec083-fac8-53c1-8e3e
 FeatGroupPrecisionFocused	FeatDefinition	FeatDefinition	6883a6a3-69f3-5dfb-80ab-4a2f36f43c4f
 FeatGroupRaceBound	FeatDefinition	FeatDefinition	08dd4258-765f-5a45-97c8-468f0baedc22
 FeatGroupRangedCombat	FeatDefinition	FeatDefinition	c478e23f-556b-5cd4-8540-6cac7a1b13d0
-FeatGroupRevenantGreatSword	FeatDefinition	FeatDefinition	2b9de6a3-d310-5ee6-a680-de822e84a7d7
+FeatGroupRevenantGreatSword	SolastaUnfinishedBusiness.CustomDefinitions.FeatDefinitionWithPrerequisites	FeatDefinition	2b9de6a3-d310-5ee6-a680-de822e84a7d7
 FeatGroupShadowTouched	FeatDefinition	FeatDefinition	8279eade-c82e-56e7-94ab-6cfadf16b4a4
 FeatGroupSkills	FeatDefinition	FeatDefinition	3a0ce468-e42e-5dcb-b43d-ec6205618dd0
 FeatGroupSlasher	FeatDefinition	FeatDefinition	bec59749-ea7e-5090-bd55-e4e0cfd7b343

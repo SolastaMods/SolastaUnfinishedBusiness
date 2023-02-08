@@ -1,11 +1,5 @@
 CHANGES:
 
-- added new feat groups and refactored others a bit
-- fixed a very rare interaction between Warlock and Far Step spell
-- fixed AoO reactions interaction with War Caster
-- fixed AoO not triggering Sentinel's movement stop
-- fixed Revenant Blade feat not triggering with custom DM weapons
-- fixed UB tags bleeding into vanilla spells
-- improved Thunder Gauntlet to add a bonus action attack if:
-    * main or off-hand is empty
-    * main is one-handed melee and hero can dual-wield non-light
+- fixed identify action not working on long rests
+- fixed Bow and Spear Mastery +1 damage not filtering by weapon type
+- fixed Spear Mastery not changing to D10 dice on versatile
