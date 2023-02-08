@@ -26,12 +26,8 @@ internal static class ValidatorsCharacter
         return offItem != null && offItem.ItemDefinition != null && offItem.ItemDefinition.IsLightSourceItem;
     };
 
-    // only considers free hand if not wielding a two-handed
-    internal static readonly IsCharacterValidHandler HasFreeHandRestrict = character =>
+    internal static readonly IsCharacterValidHandler HasFreeHand = character =>
         character.HasFreeHandSlot() && !ValidatorsWeapon.IsTwoHanded(character.GetMainWeapon());
-
-    // considers free hand even if wielding a two-handed
-    internal static readonly IsCharacterValidHandler HasFreeHand = character => character.HasFreeHandSlot();
 
     internal static readonly IsCharacterValidHandler HasAttacked = character => character.ExecutedAttacks > 0;
 
