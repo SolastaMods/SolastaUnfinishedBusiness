@@ -294,7 +294,10 @@ internal static class MeleeCombatFeats
                     .Create($"AttackModifier{NAME}")
                     .SetGuiPresentation(Category.Feature)
                     .SetAttackRollModifier(1)
-                    .SetCustomSubFeatures(new UpgradeWeaponDice((_, _) => (1, DieType.D8, DieType.D10), validWeapon))
+                    .SetCustomSubFeatures(
+                        new RestrictedContextValidator(OperationType.Set,
+                            ValidatorsCharacter.MainHandHasWeaponType(SpearType)),
+                        new UpgradeWeaponDice((_, _) => (1, DieType.D8, DieType.D10), validWeapon))
                     .AddToDB())
             .AddToDB();
     }
@@ -344,7 +347,8 @@ internal static class MeleeCombatFeats
         .SetGuiPresentationNoContent(true)
         .SetUsesFixed(ActivationTime.OnAttackHitMelee, RechargeRate.TurnStart)
         .SetCustomSubFeatures(
-            new RestrictReactionAttackMode((mode, _, _) => ValidatorsWeapon.IsBludgeoningMeleeOrUnarmed(mode)))
+            new RestrictReactionAttackMode((mode, _, _) =>
+                ValidatorsWeapon.IsOfDamageType(mode, DamageTypeBludgeoning)))
         .SetShowCasting(false)
         .SetEffectDescription(EffectDescriptionBuilder
             .Create()

@@ -25,8 +25,18 @@ internal static class RulesetCharacterExtensions
     }
 #endif
 
+    internal static RulesetItem GetMainWeapon(this RulesetCharacter hero)
+    {
+        return hero.GetItemInSlot(EquipmentDefinitions.SlotTypeMainHand);
+    }
+
+    internal static RulesetItem GetOffhandWeapon(this RulesetCharacter hero)
+    {
+        return hero.GetItemInSlot(EquipmentDefinitions.SlotTypeOffHand);
+    }
+
     // ReSharper disable once UnusedParameter.Global
-    internal static bool IsWearingMediumArmor([NotNull] this RulesetCharacter rulesetCharacter)
+    internal static bool IsWearingMediumArmor([NotNull] this RulesetCharacter _)
     {
         return false;
     }

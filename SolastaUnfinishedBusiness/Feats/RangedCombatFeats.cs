@@ -47,7 +47,8 @@ internal static class RangedCombatFeats
                     .SetGuiPresentation(NAME, Category.Feat)
                     .SetDamageRollModifier(1)
                     .SetCustomSubFeatures(
-                        ValidatorsWeapon.IsOfWeaponType(LongbowType, ShortbowType),
+                        new RestrictedContextValidator(OperationType.Set,
+                            ValidatorsCharacter.MainHandHasWeaponType(LongbowType, ShortbowType)),
                         new CanUseAttributeForWeapon(AttributeDefinitions.Strength,
                             ValidatorsWeapon.IsOfWeaponType(LongbowType)),
                         new AddExtraRangedAttack(ValidatorsWeapon.IsOfWeaponType(ShortbowType),

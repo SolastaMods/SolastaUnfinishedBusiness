@@ -47,9 +47,9 @@ internal sealed class ValidatorsPowerUse : IPowerUseValidity
         });
     }
 
-    internal static IPowerUseValidity HasNoCondition(params string[] types)
+    internal static IPowerUseValidity HasNoneOfConditions(params string[] types)
     {
-        return new ValidatorsPowerUse(ValidatorsCharacter.HasNoCondition(types));
+        return new ValidatorsPowerUse(ValidatorsCharacter.HasNoneOfConditions(types));
     }
 
     internal static bool IsPowerNotValid(RulesetCharacter character, RulesetUsablePower power)
