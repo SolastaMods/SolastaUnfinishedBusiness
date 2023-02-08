@@ -1,5 +1,11 @@
 ﻿CHANGES:
 
+1.4.33.31:
+
+- fixed identify action not working on long rests
+- fixed Bow and Spear Mastery +1 damage not filtering by weapon type
+- fixed Spear Mastery not changing to D10 dice on versatile
+
 1.4.33.30:
 
 - added new feat groups and refactored others a bit

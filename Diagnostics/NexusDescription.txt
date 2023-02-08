@@ -469,7 +469,7 @@ A powerful wight, trained to withstand the light of day.
 [list]
 
 [*][b]Zappastuff[/b]: maintenance, mod UI, infrastructure, gameplay, feats, fighting styles, invocations, rules, spells, quality of life, Half-elf variants, Blade Dancer, Ancient Forest, College of Guts, College of Life, Dead Master, Field Manipulator, Way of The Silhouette, Wild Master, Multiclass
-[*][b]TPABOBAP[/b]: game UI, infrastructure, gameplay, feats, invocations, spells, Dead Master, Elementalist, Moonlit, RiftWalker, SoulBlade, Tactician, Way of The Distant Hand, Inventor
+[*][b]TPABOBAP[/b]: game UI, infrastructure, gameplay, feats, invocations, spells, quality of life, Dead Master, Elementalist, Moonlit, RiftWalker, SoulBlade, Tactician, Way of The Distant Hand, Inventor
 [*][b]Nd[/b]: College of Harlequin, College of War Dancer, Marshal, Opportunist, Raven, Spell Shield
 [*][b]ImpPhil[/b]: api, builders, gameplay, rules, quality of life
 [*][b]ChrisJohnDigital[/b]: builders, gameplay, feats, fighting styles, original Tinkerer, original Wizard subclasses, Arcane Fighter, Spell Master, Spell Shield
@@ -477,7 +477,7 @@ A powerful wight, trained to withstand the light of day.
 [*][b]Haxermn[/b]: spells, Oath of Ancient, Oath of Hatred, Way of The Dragon
 [*][b]tivie[/b]: Circle of The Night, Path of The Spirits
 [*][b]ElAntonius[/b]: feats, fighting styles, Arcanist
-[*][b]DubhHerder[/b]: replace spiders, spells, original Warlock subclasses
+[*][b]DubhHerder[/b]: quality of life, spells, original Warlock subclasses
 [*][b]Holic75[/b]: spells, Bolgrif, Gnome
 [*][b]RedOrca[/b]: Path of The Light
 [*][b]DreadMaker[/b]: Forest Guardian
@@ -485,7 +485,7 @@ A powerful wight, trained to withstand the light of day.
 [*][b]Pikachar2[/b]: spells
 [*][b]Prioritizer[/b]: Russian translations
 [*][b]xxy961216[/b]: Chinese translations
-[*][b]GoogleTranslator[/b]: French, German, Italian, Portuguese and Spanish translations
-[*][b]Balmz[/b]: some powers and spells icons, icons improvements
+[*][b]Balmz[/b]: some power and spell icons
+[*][b]Taco[/b]: some weapon icons
 [/list]
 
