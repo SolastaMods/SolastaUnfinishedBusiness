@@ -38,7 +38,7 @@ internal class PowerVisibilityModifier
         this.handler = handler;
     }
 
-    internal virtual bool IsVisible(RulesetCharacter character, FeatureDefinitionPower power, ActionType actionType)
+    internal bool IsVisible(RulesetCharacter character, FeatureDefinitionPower power, ActionType actionType)
     {
         return handler(character, power, actionType);
     }

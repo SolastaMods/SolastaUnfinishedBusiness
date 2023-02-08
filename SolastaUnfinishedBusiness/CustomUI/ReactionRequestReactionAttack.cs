@@ -27,7 +27,7 @@ internal class ReactionRequestReactionAttack : ReactionRequest, IReactionRequest
 
     public ICustomReactionResource Resource { get; set; }
 
-    internal static string Name(string type)
+    private static string Name(string type)
     {
         return $"ReactionAttack{type}";
     }

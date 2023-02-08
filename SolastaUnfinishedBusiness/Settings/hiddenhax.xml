@@ -695,10 +695,6 @@
   <FasterTimeModifier>1.5</FasterTimeModifier>
   <EncounterPercentageChance>5</EncounterPercentageChance>
   <DefaultPartyHeroes>
-    <string>Balasar</string>
-    <string>Mysia</string>
-    <string>Vinka</string>
-    <string>Dothan</string>
   </DefaultPartyHeroes>
   <DontFollowCharacterInBattle>true</DontFollowCharacterInBattle>
   <DontFollowMargin>5</DontFollowMargin>

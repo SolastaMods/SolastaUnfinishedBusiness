@@ -12,7 +12,7 @@ namespace SolastaUnfinishedBusiness.FightingStyles;
 
 internal sealed class Sentinel : AbstractFightingStyle
 {
-    internal const string SentinelName = "Sentinel";
+    private const string SentinelName = "Sentinel";
 
     internal override FightingStyleDefinition FightingStyle { get; } = FightingStyleBuilder
         .Create(SentinelName)

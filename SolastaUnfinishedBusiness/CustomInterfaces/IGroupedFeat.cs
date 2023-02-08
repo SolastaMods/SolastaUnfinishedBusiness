@@ -26,4 +26,9 @@ public class GroupedFeat : IGroupedFeat
     }
 
     public bool HideSubFeats => true;
+
+    public void AddFeats(params FeatDefinition[] featDefinitions)
+    {
+        feats.AddRange(featDefinitions);
+    }
 }

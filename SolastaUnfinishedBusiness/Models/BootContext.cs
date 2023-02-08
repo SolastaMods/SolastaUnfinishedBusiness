@@ -361,7 +361,7 @@ internal static class BootContext
 
     internal static void OpenChangeLog()
     {
-        OpenUrl($"file://{Main.ModFolder}/ChangeLogHistory.txt");
+        OpenUrl("https://raw.githubusercontent.com/SolastaMods/SolastaUnfinishedBusiness/master/SolastaUnfinishedBusiness/ChangelogHistory.txt");
     }
 
     private static void OpenUrl(string url)
