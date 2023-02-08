@@ -183,19 +183,34 @@ internal static class RaceFeats
             featRevenantGreatSwordDex,
             featRevenantGreatSwordStr);
 
-        var featGroupsElvenAccuracy = GroupFeats.MakeGroup("FeatGroupElvenAccuracy", ElvenPrecision,
+        var featGroupsElvenAccuracy = GroupFeats.MakeGroupWithPreRequisite(
+            "FeatGroupElvenAccuracy",
+            ElvenPrecision,
+            ValidatorsFeat.IsElfOfHalfElf,
             featElvenAccuracyCharisma,
             featElvenAccuracyDexterity,
             featElvenAccuracyIntelligence,
             featElvenAccuracyWisdom);
 
-        var featGroupFadeAway = GroupFeats.MakeGroup("FeatGroupFadeAway", FadeAway,
+        var featGroupFadeAway = GroupFeats.MakeGroupWithPreRequisite(
+            "FeatGroupFadeAway",
+            FadeAway,
+            ValidatorsFeat.IsGnome,
             featFadeAwayDex,
             featFadeAwayInt);
 
-        var featGroupRevenantGreatSword = GroupFeats.MakeGroup("FeatGroupRevenantGreatSword", RevenantGreatSword,
+        var featGroupRevenantGreatSword = GroupFeats.MakeGroupWithPreRequisite(
+            "FeatGroupRevenantGreatSword",
+            RevenantGreatSword,
+            ValidatorsFeat.IsElfOfHalfElf,
             featRevenantGreatSwordDex,
             featRevenantGreatSwordStr);
+
+        GroupFeats.FeatGroupAgilityCombat.AddFeats(featDragonWings);
+
+        GroupFeats.FeatGroupDefenseCombat.AddFeats(featGroupFadeAway);
+
+        GroupFeats.FeatGroupTwoHandedCombat.AddFeats(featGroupRevenantGreatSword);
 
         GroupFeats.MakeGroup("FeatGroupRaceBound", null,
             featDragonWings,

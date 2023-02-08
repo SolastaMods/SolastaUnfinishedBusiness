@@ -110,12 +110,7 @@ internal static class OtherFeats
             featWarCaster,
             spellSniperGroup);
 
-        GroupFeats.MakeGroup("FeatGroupAgilityCombat", null,
-            FeatDefinitions.EagerForBattle,
-            FeatDefinitions.ForestRunner,
-            FeatDefinitions.ReadyOrNot,
-            FeatDefinitions.RushToBattle,
-            featMobile);
+        GroupFeats.FeatGroupAgilityCombat.AddFeats(featMobile);
     }
 
     private static FeatDefinition BuildAstralArms()

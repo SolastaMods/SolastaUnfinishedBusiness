@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using SolastaUnfinishedBusiness.Api.Extensions;
 using SolastaUnfinishedBusiness.Builders;
+using SolastaUnfinishedBusiness.CustomDefinitions;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 
@@ -14,6 +15,12 @@ internal static class GroupFeats
     internal const string Piercer = "Piercer";
     internal const string Crusher = "Crusher";
     private static readonly List<FeatDefinition> Groups = new();
+
+    internal static FeatDefinition FeatGroupAgilityCombat { get; } = MakeGroup("FeatGroupAgilityCombat", null,
+        FeatDefinitions.EagerForBattle,
+        FeatDefinitions.ForestRunner,
+        FeatDefinitions.ReadyOrNot,
+        FeatDefinitions.RushToBattle);
 
     internal static FeatDefinition FeatGroupDefenseCombat { get; } = MakeGroup("FeatGroupDefenseCombat", null,
         FeatDefinitions.CloakAndDagger,
@@ -33,6 +40,11 @@ internal static class GroupFeats
     internal static FeatDefinition FeatGroupSupportCombat { get; } = MakeGroup("FeatGroupSupportCombat", null,
         FeatDefinitions.Mender);
 
+    internal static FeatDefinition FeatGroupTwoHandedCombat { get; } = MakeGroup("FeatGroupTwoHandedCombat", null,
+        FeatDefinitions.MightyBlow,
+        FeatDefinitions.ForestallingStrength,
+        FeatDefinitions.FollowUpStrike);
+
     internal static FeatDefinition FeatGroupUnarmoredCombat { get; } = MakeGroup("FeatGroupUnarmoredCombat", null,
         FeatGroupElementalTouch);
 
@@ -45,11 +57,6 @@ internal static class GroupFeats
             FeatDefinitions.Creed_Of_Misaye,
             FeatDefinitions.Creed_Of_Pakri,
             FeatDefinitions.Creed_Of_Solasta);
-
-        MakeGroup("FeatGroupTwoHandedCombat", null,
-            FeatDefinitions.MightyBlow,
-            FeatDefinitions.ForestallingStrength,
-            FeatDefinitions.FollowUpStrike);
 
         Groups.ForEach(loader);
     }
@@ -67,6 +74,26 @@ internal static class GroupFeats
             .SetCustomSubFeatures(new GroupedFeat(feats))
             .SetFeatFamily(family)
             .SetFeatures()
+            .AddToDB();
+
+        Groups.Add(group);
+
+        return group;
+    }
+
+    internal static FeatDefinition MakeGroupWithPreRequisite(
+        string name,
+        string family,
+        Func<FeatDefinitionWithPrerequisites, RulesetCharacterHero, (bool result, string output)> validator,
+        params FeatDefinition[] feats)
+    {
+        var group = FeatDefinitionWithPrerequisitesBuilder
+            .Create(name)
+            .SetGuiPresentation(Category.Feat)
+            .SetCustomSubFeatures(new GroupedFeat(feats))
+            .SetFeatFamily(family)
+            .SetFeatures()
+            .SetValidators(validator)
             .AddToDB();
 
         Groups.Add(group);
