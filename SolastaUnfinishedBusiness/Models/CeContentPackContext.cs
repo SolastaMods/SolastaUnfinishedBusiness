@@ -30,16 +30,4 @@ internal static class CeContentPackContext
             tags.TryAdd(CeTag, TagsDefinitions.Criticity.Normal);
         }
     }
-
-    internal static void AddCeSpellTag(SpellDefinition spell, Dictionary<string, TagsDefinitions.Criticity> tags)
-    {
-        if (SpellsContext.Spells.TryGetValue(spell, out _))
-        {
-            tags.TryAdd(CeTag, TagsDefinitions.Criticity.Normal);
-        }
-        else // Not all CE spells are registered in SpellsContext
-        {
-            AddCeTag(spell, tags);
-        }
-    }
 }

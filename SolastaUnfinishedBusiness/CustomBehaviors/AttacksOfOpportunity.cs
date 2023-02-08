@@ -6,7 +6,6 @@ using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.Extensions;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomUI;
-using SolastaUnfinishedBusiness.FightingStyles;
 using TA;
 using static ActionDefinitions;
 
@@ -43,6 +42,7 @@ internal static class AttacksOfOpportunity
         }
 
         //Process features on attacker or defender
+        var actionManager = ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
 
         var units = battle.AllContenders
             .Where(u => !u.RulesetCharacter.IsDeadOrDyingOrUnconscious)
@@ -53,7 +53,7 @@ internal static class AttacksOfOpportunity
         {
             if (attacker != unit && defender != unit)
             {
-                yield return ProcessSentinel(unit, attacker, defender, battleManager);
+                yield return ProcessSentinel(unit, attacker, defender, battleManager, actionManager);
             }
         }
     }
@@ -62,27 +62,19 @@ internal static class AttacksOfOpportunity
         [NotNull] GameLocationCharacter unit,
         [NotNull] GameLocationCharacter attacker,
         GameLocationCharacter defender,
-        GameLocationBattleManager battleManager)
+        GameLocationBattleManager battleManager,
+        GameLocationActionManager actionManager)
     {
-        if (!attacker.IsOppositeSide(unit.Side) || defender.Side != unit.Side || unit == defender
-            || !(unit.RulesetCharacter?.HasSubFeatureOfType<SentinelFeatMarker>() ?? false)
-            || !CanMakeAoO(unit, attacker, out var opportunityAttackMode, out var actionModifier, battleManager))
+        if (!attacker.IsOppositeSide(unit.Side) || defender.Side != unit.Side || unit == defender)
         {
             yield break;
         }
 
-        var actionService = ServiceRepository.GetService<IGameLocationActionService>();
-        var count = actionService.PendingReactionRequestGroups.Count;
-
-        RequestReactionAttack(Sentinel.SentinelName, new CharacterActionParams(
-            unit,
-            Id.AttackOpportunity,
-            opportunityAttackMode,
-            attacker,
-            actionModifier)
-        );
-
-        yield return battleManager.WaitForReactions(unit, actionService, count);
+        foreach (var reaction in unit.RulesetActor.GetSubFeaturesByType<SentinelFeatMarker>()
+                     .Where(feature => feature.IsValid(unit, attacker)))
+        {
+            yield return reaction.Process(unit, attacker, null, battleManager, actionManager);
+        }
     }
 
     internal static void ProcessOnCharacterMoveStart([NotNull] GameLocationCharacter mover, int3 destination)
@@ -132,47 +124,6 @@ internal static class AttacksOfOpportunity
     internal static void CleanMovingCache()
     {
         MovingCharactersCache.Clear();
-    }
-
-    private static void RequestReactionAttack(string type, CharacterActionParams actionParams)
-    {
-        var actionManager = ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
-
-        if (actionManager == null)
-        {
-            return;
-        }
-
-        actionParams.AttackMode?.AddAttackTagAsNeeded(NotAoOTag);
-        actionManager.AddInterruptRequest(new ReactionRequestReactionAttack(type, actionParams));
-    }
-
-    private static bool CanMakeAoO(GameLocationCharacter attacker, GameLocationCharacter defender,
-        [CanBeNull] out RulesetAttackMode attackMode, [NotNull] out ActionModifier actionModifier,
-        IGameLocationBattleService battleManager = null)
-    {
-        battleManager ??= ServiceRepository.GetService<IGameLocationBattleService>();
-        actionModifier = new ActionModifier();
-        attackMode = null;
-
-        if (!battleManager.IsValidAttackerForOpportunityAttackOnCharacter(attacker, defender))
-        {
-            return false;
-        }
-
-        attackMode = attacker.FindActionAttackMode(Id.AttackOpportunity);
-
-        if (attackMode == null)
-        {
-            return false;
-        }
-
-        var evaluationParams = new BattleDefinitions.AttackEvaluationParams();
-
-        evaluationParams.FillForPhysicalReachAttack(attacker, attacker.LocationPosition, attackMode, defender,
-            defender.LocationPosition, actionModifier);
-
-        return battleManager.CanAttack(evaluationParams);
     }
 
     internal static bool IsSubjectToAttackOfOpportunity(RulesetCharacter character, RulesetCharacter attacker,
@@ -225,18 +176,32 @@ internal sealed class CanIgnoreDisengage : ICanIgnoreAoOImmunity
     }
 }
 
-internal sealed class SentinelFeatMarker
+internal sealed class SentinelFeatMarker : CustomReactionAttack
 {
+    public SentinelFeatMarker()
+    {
+        Name = "ReactionAttackSentinel";
+    }
 }
 
-internal class CanMakeAoOOnReachEntered
+internal class CanMakeAoOOnReachEntered : CustomReactionAttack
+{
+    public CanMakeAoOOnReachEntered()
+    {
+        Name = "ReactionAttackAoOEnter";
+    }
+}
+
+internal class CustomReactionAttack
 {
     public delegate IEnumerator Handler([NotNull] GameLocationCharacter attacker,
-        [NotNull] GameLocationCharacter mover, (int3 from, int3 to) movement, GameLocationBattleManager battleManager,
+        [NotNull] GameLocationCharacter defender, GameLocationBattleManager battleManager,
         GameLocationActionManager actionManager, ReactionRequest request);
 
-    private const string Name = "AoOEnter";
+    protected string Name { get; set; }
     protected IsCharacterValidHandler ValidateAttacker { get; set; }
+
+    // ReSharper disable once UnusedAutoPropertyAccessor.Local
     private IsCharacterValidHandler ValidateMover { get; set; }
     public IsWeaponValidHandler WeaponValidator { get; set; }
     public Handler BeforeReaction { get; set; }
@@ -257,19 +222,24 @@ internal class CanMakeAoOOnReachEntered
     }
 
     public IEnumerator Process([NotNull] GameLocationCharacter attacker, [NotNull] GameLocationCharacter mover,
-        (int3 from, int3 to) movement, GameLocationBattleManager battleManager, GameLocationActionManager actionManager)
+        (int3 from, int3 to)? movement, GameLocationBattleManager battleManager,
+        GameLocationActionManager actionManager)
     {
-        if (!attacker.CanPerformOpportunityAttackOnCharacter(mover, movement.to, movement.from,
-                out var attackMode, out var attackModifier, battleManager, AccountAoOImmunity, WeaponValidator))
+        if (!attacker.CanPerformOpportunityAttackOnCharacter(mover, movement?.to, movement?.from,
+                out var mode, out var attackModifier, battleManager, AccountAoOImmunity, WeaponValidator))
         {
             yield break;
         }
+
+        var attackMode = RulesetAttackMode.AttackModesPool.Get();
+        attackMode.Copy(mode);
+        attackMode.actionType = ActionType.Reaction;
 
         var reactionRequest = MakeReactionRequest(attacker, mover, attackMode, attackModifier);
 
         if (BeforeReaction != null)
         {
-            yield return BeforeReaction(attacker, mover, movement, battleManager, actionManager, reactionRequest);
+            yield return BeforeReaction(attacker, mover, battleManager, actionManager, reactionRequest);
         }
 
         var previousReactionCount = actionManager.PendingReactionRequestGroups.Count;
@@ -280,21 +250,22 @@ internal class CanMakeAoOOnReachEntered
 
         if (AfterReaction != null)
         {
-            yield return AfterReaction(attacker, mover, movement, battleManager, actionManager, reactionRequest);
+            yield return AfterReaction(attacker, mover, battleManager, actionManager, reactionRequest);
         }
+
+        RulesetAttackMode.AttackModesPool.Return(attackMode);
     }
 
-    protected virtual ReactionRequestReactionAttack MakeReactionRequest(GameLocationCharacter attacker,
-        GameLocationCharacter mover,
-        RulesetAttackMode attackMode, ActionModifier attackModifier)
+    protected virtual ReactionRequest MakeReactionRequest(GameLocationCharacter attacker,
+        GameLocationCharacter defender, RulesetAttackMode attackMode, ActionModifier attackModifier)
     {
         var reactionParams = new CharacterActionParams(
             attacker,
             Id.AttackOpportunity,
             attackMode,
-            mover,
-            attackModifier);
+            defender,
+            attackModifier) { StringParameter2 = Name };
 
-        return new ReactionRequestReactionAttack(Name, reactionParams);
+        return new ReactionRequestWarcaster(reactionParams);
     }
 }

@@ -19,6 +19,9 @@ internal static class TwoWeaponCombatFeats
 
         feats.AddRange(featDualFlurry, featDualWeaponDefense);
 
+        GroupFeats.FeatGroupDefenseCombat.AddFeats(
+            featDualWeaponDefense);
+
         GroupFeats.MakeGroup("FeatGroupTwoWeaponCombat", null,
             FeatDefinitions.Ambidextrous,
             FeatDefinitions.TwinBlade,

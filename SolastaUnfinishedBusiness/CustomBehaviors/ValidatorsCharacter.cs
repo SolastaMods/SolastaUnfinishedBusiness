@@ -2,6 +2,7 @@
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.Extensions;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.WeaponTypeDefinitions;
 
 namespace SolastaUnfinishedBusiness.CustomBehaviors;
 
@@ -9,17 +10,16 @@ internal delegate bool IsCharacterValidHandler(RulesetCharacter character);
 
 internal static class ValidatorsCharacter
 {
+    // internal static readonly IsCharacterValidHandler EmptyOffhand = character =>
+    //     character.CharacterInventory.InventorySlotsByName[EquipmentDefinitions.SlotTypeOffHand].EquipedItem == null;
+
     internal static readonly IsCharacterValidHandler HasAttacked = character => character.ExecutedAttacks > 0;
 
     internal static readonly IsCharacterValidHandler NoArmor = character => !character.IsWearingArmor();
 
-    // internal static readonly CharacterValidator MediumArmor = character => character.IsWearingMediumArmor();
-
     internal static readonly IsCharacterValidHandler NoShield = character => !character.IsWearingShield();
 
     internal static readonly IsCharacterValidHandler HasShield = character => character.IsWearingShield();
-
-    // internal static readonly CharacterValidator EmptyOffhand = character => character.CharacterInventory.InventorySlotsByName[EquipmentDefinitions.SlotTypeOffHand].EquipedItem == null;
 
     internal static readonly IsCharacterValidHandler HasPolearm = character =>
     {
@@ -36,98 +36,15 @@ internal static class ValidatorsCharacter
     };
 
     internal static readonly IsCharacterValidHandler HasMeleeWeaponInMainHand = character =>
-    {
-        // required for wildshape scenarios
-        if (character is not RulesetCharacterHero)
-        {
-            return false;
-        }
+        ValidatorsWeapon.IsMelee(character.GetItemInSlot(EquipmentDefinitions.SlotTypeMainHand));
 
-        var slotsByName = character.CharacterInventory.InventorySlotsByName;
-        var weapon = slotsByName[EquipmentDefinitions.SlotTypeMainHand].EquipedItem;
-        return ValidatorsWeapon.IsMelee(weapon);
-    };
-
-#if false
-    internal static readonly IsCharacterValidHandler HasLightRangeWeapon = character =>
-    {
-        var slotsByName = character.CharacterInventory.InventorySlotsByName;
-        var equipedItem = slotsByName[EquipmentDefinitions.SlotTypeMainHand];
-
-        if (equipedItem == null)
-        {
-            return false;
-        }
-
-        var equipedItemDescription = equipedItem.EquipedItem?.ItemDefinition;
-
-        if (equipedItemDescription == null)
-        {
-            return false;
-        }
-
-        return equipedItemDescription.WeaponDescription.WeaponTypeDefinition ==
-               DatabaseHelper.WeaponTypeDefinitions.ShortbowType
-               || equipedItemDescription.WeaponDescription.WeaponTypeDefinition ==
-               DatabaseHelper.WeaponTypeDefinitions.LightCrossbowType
-               || equipedItemDescription.WeaponDescription.WeaponTypeDefinition ==
-               CustomWeaponsContext.HandXbowWeaponType;
-    };
-#endif
-
-    internal static readonly IsCharacterValidHandler HasTwoHandedRangeWeapon = character =>
-    {
-        // required for wildshape scenarios
-        if (character is not RulesetCharacterHero)
-        {
-            return false;
-        }
-
-        var slotsByName = character.CharacterInventory.InventorySlotsByName;
-        var equipedItem = slotsByName[EquipmentDefinitions.SlotTypeMainHand];
-
-        if (equipedItem == null)
-        {
-            return false;
-        }
-
-        var equipedItemDescription = equipedItem.EquipedItem?.ItemDefinition;
-
-        if (equipedItemDescription == null)
-        {
-            return false;
-        }
-
-        return equipedItemDescription.WeaponDescription.WeaponTypeDefinition ==
-               DatabaseHelper.WeaponTypeDefinitions.LongbowType
-               || equipedItemDescription.WeaponDescription.WeaponTypeDefinition ==
-               DatabaseHelper.WeaponTypeDefinitions.ShortbowType
-               || equipedItemDescription.WeaponDescription.WeaponTypeDefinition ==
-               DatabaseHelper.WeaponTypeDefinitions.LightCrossbowType
-               || equipedItemDescription.WeaponDescription.WeaponTypeDefinition ==
-               DatabaseHelper.WeaponTypeDefinitions.HeavyCrossbowType;
-    };
-
-    internal static readonly IsCharacterValidHandler HasLongbowOrShortbow = character =>
-        IsLongbow(
-            null, character.GetItemInSlot(EquipmentDefinitions.SlotTypeMainHand), null) ||
-        IsShortbow(
-            null, character.GetItemInSlot(EquipmentDefinitions.SlotTypeMainHand), null);
-
-    internal static IsCharacterValidHandler MainHandHasWeaponType(
-        params WeaponTypeDefinition[] weaponTypeDefinitions)
-    {
-        return character =>
-            ValidatorsWeapon.IsWeaponType(character.GetItemInSlot(EquipmentDefinitions.SlotTypeMainHand),
-                weaponTypeDefinitions);
-    }
+    internal static readonly IsCharacterValidHandler HasTwoHandedRangedWeapon = character =>
+        ValidatorsWeapon.IsWeaponType(character.GetItemInSlot(EquipmentDefinitions.SlotTypeMainHand),
+            LongbowType, ShortbowType, HeavyCrossbowType, LightCrossbowType);
 
     internal static readonly IsCharacterValidHandler MainHandIsFinesseWeapon = character =>
         ValidatorsWeapon.HasAnyWeaponTag(character.GetItemInSlot(EquipmentDefinitions.SlotTypeMainHand),
             TagsDefinitions.WeaponTagFinesse);
-
-    internal static readonly IsCharacterValidHandler MainHandIsGreatSword = character =>
-        ValidatorsWeapon.IsGreatSword(character.GetItemInSlot(EquipmentDefinitions.SlotTypeMainHand));
 
     internal static readonly IsCharacterValidHandler MainHandIsVersatileWeaponNoShield = character =>
         ValidatorsWeapon.HasAnyWeaponTag(character.GetItemInSlot(EquipmentDefinitions.SlotTypeMainHand),
@@ -138,25 +55,6 @@ internal static class ValidatorsCharacter
 
     internal static readonly IsCharacterValidHandler MainHandIsUnarmed = character =>
         ValidatorsWeapon.IsUnarmedWeapon(character.GetItemInSlot(EquipmentDefinitions.SlotTypeMainHand));
-
-#pragma warning disable IDE0060
-    internal static bool IsOneHandedRanged(RulesetAttackMode mode, RulesetItem weapon, RulesetCharacter character)
-    {
-        return ValidatorsWeapon.IsRanged(weapon) && ValidatorsWeapon.IsOneHanded(weapon);
-    }
-
-    internal static bool IsShortbow(RulesetAttackMode mode, RulesetItem weapon, RulesetCharacter character)
-    {
-        return weapon?.ItemDefinition.WeaponDescription?.WeaponTypeDefinition ==
-               DatabaseHelper.WeaponTypeDefinitions.ShortbowType;
-    }
-
-    internal static bool IsLongbow(RulesetAttackMode mode, RulesetItem weapon, RulesetCharacter character)
-    {
-        return weapon?.ItemDefinition.WeaponDescription?.WeaponTypeDefinition ==
-               DatabaseHelper.WeaponTypeDefinitions.LongbowType;
-    }
-#pragma warning restore IDE0060
 
 #if false
     internal static readonly CharacterValidator FullyUnarmed = character =>
@@ -211,8 +109,13 @@ internal static class ValidatorsCharacter
 
     internal static readonly IsCharacterValidHandler LightArmor = character =>
     {
-        // null check required for wildshape scenarios
-        var equipedItem = character.CharacterInventory?.InventorySlotsByName[EquipmentDefinitions.SlotTypeTorso]
+        // required for wildshape scenarios
+        if (character is not RulesetCharacterHero)
+        {
+            return false;
+        }
+
+        var equipedItem = character.CharacterInventory.InventorySlotsByName[EquipmentDefinitions.SlotTypeTorso]
             .EquipedItem;
 
         if (equipedItem == null || !equipedItem.ItemDefinition.IsArmor)
@@ -231,8 +134,13 @@ internal static class ValidatorsCharacter
 
     internal static readonly IsCharacterValidHandler HeavyArmor = character =>
     {
-        // null check required for wildshape scenarios
-        var equipedItem = character.CharacterInventory?.InventorySlotsByName[EquipmentDefinitions.SlotTypeTorso]
+        // required for wildshape scenarios
+        if (character is not RulesetCharacterHero)
+        {
+            return false;
+        }
+
+        var equipedItem = character.CharacterInventory.InventorySlotsByName[EquipmentDefinitions.SlotTypeTorso]
             .EquipedItem;
 
         if (equipedItem == null || !equipedItem.ItemDefinition.IsArmor)
@@ -264,6 +172,14 @@ internal static class ValidatorsCharacter
                 return false;
         }
     };
+
+    internal static IsCharacterValidHandler MainHandHasWeaponType(
+        params WeaponTypeDefinition[] weaponTypeDefinitions)
+    {
+        return character =>
+            ValidatorsWeapon.IsWeaponType(character.GetItemInSlot(EquipmentDefinitions.SlotTypeMainHand),
+                weaponTypeDefinitions);
+    }
 
     // Does character has free offhand in TA's terms as used in RefreshAttackModes for bonus unarmed attack for Monk?
     // defined as having offhand empty or being not a weapon
@@ -317,11 +233,4 @@ internal static class ValidatorsCharacter
             .Any(keyValuePair => keyValuePair.Value
                 .Any(rulesetCondition => rulesetCondition.ConditionDefinition.HasSubFeatureOfType<T>()));
     }
-
-#if false
-    internal static IsCharacterValidHandler HasAnyFeature(params FeatureDefinition[] features)
-    {
-        return character => character.HasAnyFeature(features);
-    }
-#endif
 }

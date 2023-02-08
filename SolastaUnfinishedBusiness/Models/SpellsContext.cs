@@ -31,7 +31,7 @@ internal static class SpellsContext
     internal static readonly SpellDefinition FarStep = BuildFarStep();
     internal static readonly SpellDefinition SearingSmite = BuildSearingSmite();
     internal static readonly SpellDefinition SunlightBlade = BuildSunlightBlade();
-    internal static HashSet<SpellDefinition> Spells { get; private set; } = new();
+    private static HashSet<SpellDefinition> Spells { get; set; } = new();
 
     [NotNull]
     internal static SortedList<string, SpellListDefinition> SpellLists

@@ -1,8 +1,11 @@
 CHANGES:
 
-- fixed summons issue introduced on previous release and Wild Master upcast
-- changed Wild Master beast extra hit points to increase with character level
-- changed Wild Master beast power DC to 8 + CON modifier + caster PB modifier
-- changed Wild Master beast power dice damage to increase at 5, 9, 13 and 17
-
-
+- added new feat groups and refactored others a bit
+- fixed a very rare interaction between Warlock and Far Step spell
+- fixed AoO reactions interaction with War Caster
+- fixed AoO not triggering Sentinel's movement stop
+- fixed Revenant Blade feat not triggering with custom DM weapons
+- fixed UB tags bleeding into vanilla spells
+- improved Thunder Gauntlet to add a bonus action attack if:
+    * main or off-hand is empty
+    * main is one-handed melee and hero can dual-wield non-light

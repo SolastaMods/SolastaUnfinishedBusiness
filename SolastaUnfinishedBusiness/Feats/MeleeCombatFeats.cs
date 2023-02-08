@@ -2,7 +2,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using JetBrains.Annotations;
-using SolastaUnfinishedBusiness.Api.Extensions;
 using SolastaUnfinishedBusiness.Api.Infrastructure;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
@@ -11,7 +10,6 @@ using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Properties;
-using TA;
 using static RuleDefinitions;
 using static RuleDefinitions.RollContext;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
@@ -22,12 +20,6 @@ namespace SolastaUnfinishedBusiness.Feats;
 
 internal static class MeleeCombatFeats
 {
-    private const string Slasher = "Slasher";
-    private const string Piercer = "Piercer";
-    private const string Crusher = "Crusher";
-
-    internal static FeatDefinition FeatGroupPiercer { get; private set; }
-
     internal static void CreateFeats([NotNull] List<FeatDefinition> feats)
     {
         var featBladeMastery = BuildBladeMastery();
@@ -59,31 +51,35 @@ internal static class MeleeCombatFeats
             featSlasherStr,
             featSpearMastery);
 
-        var featGroupCrusher = GroupFeats.MakeGroup("FeatGroupCrusher", Crusher,
+        var featGroupCrusher = GroupFeats.MakeGroup("FeatGroupCrusher", GroupFeats.Crusher,
             featCrusherStr,
             featCrusherCon);
 
-        FeatGroupPiercer = GroupFeats.MakeGroup("FeatGroupPiercer", Piercer,
-            featPiercerDex,
-            featPiercerStr);
-
-        var featGroupSlasher = GroupFeats.MakeGroup("FeatGroupSlasher", Slasher,
+        var featGroupSlasher = GroupFeats.MakeGroup("FeatGroupSlasher", GroupFeats.Slasher,
             featSlasherDex,
             featSlasherStr);
 
+        GroupFeats.FeatGroupDefenseCombat.AddFeats(
+            featDefensiveDuelist);
+
+        GroupFeats.FeatGroupPiercer.AddFeats(
+            featPiercerDex,
+            featPiercerStr);
+
         GroupFeats.MakeGroup("FeatGroupMeleeCombat", null,
-            FeatDefinitions.CloakAndDagger,
+            GroupFeats.FeatGroupElementalTouch,
+            GroupFeats.FeatGroupPiercer,
             FeatDefinitions.DauntingPush,
             FeatDefinitions.DistractingGambit,
             FeatDefinitions.TripAttack,
             featBladeMastery,
+            featDefensiveDuelist,
             featFellHanded,
             featPowerAttack,
             featRecklessAttack,
             featSavageAttack,
             featSpearMastery,
             featGroupCrusher,
-            FeatGroupPiercer,
             featGroupSlasher);
     }
 
@@ -234,9 +230,8 @@ internal static class MeleeCombatFeats
                 .AddToDB())
             .AddToDB();
 
-        IEnumerator AddCondition(GameLocationCharacter attacker, GameLocationCharacter mover,
-            (int3 from, int3 to) movement, GameLocationBattleManager manager, GameLocationActionManager actionManager,
-            ReactionRequest request)
+        IEnumerator AddCondition(GameLocationCharacter attacker, GameLocationCharacter defender,
+            GameLocationBattleManager manager, GameLocationActionManager actionManager, ReactionRequest request)
         {
             var character = attacker.RulesetCharacter;
             var rulesetCondition = RulesetCondition.CreateActiveCondition(character.Guid, conditionDamage,
@@ -247,9 +242,8 @@ internal static class MeleeCombatFeats
             yield break;
         }
 
-        IEnumerator RemoveCondition(GameLocationCharacter attacker, GameLocationCharacter mover,
-            (int3 from, int3 to) movement, GameLocationBattleManager manager, GameLocationActionManager actionManager,
-            ReactionRequest request)
+        IEnumerator RemoveCondition(GameLocationCharacter attacker, GameLocationCharacter defender,
+            GameLocationBattleManager manager, GameLocationActionManager actionManager, ReactionRequest request)
         {
             attacker.RulesetCharacter.RemoveAllConditionsOfCategoryAndType(AttributeDefinitions.TagCombat,
                 conditionDamage.Name);
@@ -368,7 +362,7 @@ internal static class MeleeCombatFeats
         .SetGuiPresentationNoContent(true)
         .SetFrequencyLimit(FeatureLimitedUsage.OncePerTurn)
         .SetDamageDice(DieType.D1, 0)
-        .SetNotificationTag(Crusher)
+        .SetNotificationTag(GroupFeats.Crusher)
         .SetCustomSubFeatures(
             new AfterAttackEffectFeatCrusher(
                 ConditionDefinitionBuilder
@@ -408,7 +402,7 @@ internal static class MeleeCombatFeats
                 FeatureDefinitionAdditionalDamageBuilder
                     .Create("AdditionalDamageFeatPiercer")
                     .SetGuiPresentation(Category.Feature)
-                    .SetNotificationTag(Piercer)
+                    .SetNotificationTag(GroupFeats.Piercer)
                     .SetDamageValueDetermination(AdditionalDamageValueDetermination.SameAsBaseWeaponDie)
                     .SetIgnoreCriticalDoubleDice(true)
                     .AddToDB(),
@@ -451,7 +445,7 @@ internal static class MeleeCombatFeats
 
     #endregion
 
-    #region Crusher
+    #region GroupFeats.Crusher
 
     private static FeatDefinition BuildCrusherStr()
     {
@@ -462,7 +456,7 @@ internal static class MeleeCombatFeats
                 FeatureDefinitionAttributeModifiers.AttributeModifierCreed_Of_Einar,
                 PowerFeatCrusherHit,
                 FeatureFeatCrusher)
-            .SetFeatFamily(Crusher)
+            .SetFeatFamily(GroupFeats.Crusher)
             .SetAbilityScorePrerequisite(AttributeDefinitions.Strength, 13)
             .AddToDB();
     }
@@ -476,7 +470,7 @@ internal static class MeleeCombatFeats
                 FeatureDefinitionAttributeModifiers.AttributeModifierCreed_Of_Arun,
                 PowerFeatCrusherHit,
                 FeatureFeatCrusher)
-            .SetFeatFamily(Crusher)
+            .SetFeatFamily(GroupFeats.Crusher)
             .SetAbilityScorePrerequisite(AttributeDefinitions.Constitution, 13)
             .AddToDB();
     }
@@ -604,8 +598,7 @@ internal static class MeleeCombatFeats
                 return;
             }
 
-            if (!ValidatorsWeapon.IsWeaponType(myself.GetItemInSlot(EquipmentDefinitions.SlotTypeMainHand),
-                    _weaponTypeDefinition))
+            if (!ValidatorsWeapon.IsOfWeaponType(_weaponTypeDefinition.ToArray())(attackMode, null, null))
             {
                 return;
             }
@@ -706,7 +699,7 @@ internal static class MeleeCombatFeats
 
     #endregion
 
-    #region Piercer
+    #region GroupFeats.Piercer
 
     private static FeatDefinition BuildPiercerDex()
     {
@@ -716,7 +709,7 @@ internal static class MeleeCombatFeats
             .SetFeatures(
                 FeatureDefinitionAttributeModifiers.AttributeModifierCreed_Of_Misaye,
                 FeatureFeatPiercer)
-            .SetFeatFamily(Piercer)
+            .SetFeatFamily(GroupFeats.Piercer)
             .SetAbilityScorePrerequisite(AttributeDefinitions.Dexterity, 13)
             .AddToDB();
     }
@@ -729,7 +722,7 @@ internal static class MeleeCombatFeats
             .SetFeatures(
                 FeatureDefinitionAttributeModifiers.AttributeModifierCreed_Of_Einar,
                 FeatureFeatPiercer)
-            .SetFeatFamily(Piercer)
+            .SetFeatFamily(GroupFeats.Piercer)
             .SetAbilityScorePrerequisite(AttributeDefinitions.Strength, 13)
             .AddToDB();
     }
@@ -920,7 +913,7 @@ internal static class MeleeCombatFeats
             .SetFeatures(
                 FeatureDefinitionAttributeModifiers.AttributeModifierCreed_Of_Misaye,
                 FeatureFeatSlasher)
-            .SetFeatFamily(Slasher)
+            .SetFeatFamily(GroupFeats.Slasher)
             .SetAbilityScorePrerequisite(AttributeDefinitions.Dexterity, 13)
             .AddToDB();
     }
@@ -933,11 +926,10 @@ internal static class MeleeCombatFeats
             .SetFeatures(
                 FeatureDefinitionAttributeModifiers.AttributeModifierCreed_Of_Einar,
                 FeatureFeatSlasher)
-            .SetFeatFamily(Slasher)
+            .SetFeatFamily(GroupFeats.Slasher)
             .SetAbilityScorePrerequisite(AttributeDefinitions.Strength, 13)
             .AddToDB();
     }
-
 
     private sealed class AfterAttackEffectFeatSlasher : IAfterAttackEffect
     {

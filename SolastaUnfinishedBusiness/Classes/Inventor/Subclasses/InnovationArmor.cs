@@ -309,7 +309,32 @@ public static class InnovationArmor
 
             var modes = new List<RulesetAttackMode> { attackMode };
 
-            if (!hero.HasEmptyMainHand())
+            var main = hero.GetMainWeapon();
+            var off = hero.GetOffhandWeapon();
+
+            WeaponDescription weapon = null;
+            if (main != null && main.itemDefinition.isWeapon)
+            {
+                weapon = main.itemDefinition.WeaponDescription;
+            }
+
+
+            if (off == null //empty off-hand
+                && (main == null //empty main hand
+                    || (weapon != null //or main hand is 1-handed melee weapon
+                        && !weapon.WeaponTags.Contains(TagsDefinitions.WeaponTagTwoHanded)
+                        && weapon.WeaponTypeDefinition.weaponProximity == AttackProximity.Melee))
+                && hero.CanDualWieldNonLight)
+            {
+                var offhand = RulesetAttackMode.AttackModesPool.Get();
+
+                offhand.Copy(attackMode);
+                offhand.attacksNumber = 1;
+                offhand.ActionType = ActionDefinitions.ActionType.Bonus;
+                modes.Add(offhand);
+            }
+
+            if (main != null)
             {
                 return modes;
             }
@@ -317,6 +342,7 @@ public static class InnovationArmor
             var reaction = RulesetAttackMode.AttackModesPool.Get();
 
             reaction.Copy(attackMode);
+            reaction.attacksNumber = 1;
             reaction.ActionType = ActionDefinitions.ActionType.Reaction;
             modes.Add(reaction);
 

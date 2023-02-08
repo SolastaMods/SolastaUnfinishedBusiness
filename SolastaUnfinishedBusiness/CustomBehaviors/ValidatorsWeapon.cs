@@ -14,26 +14,17 @@ internal static class ValidatorsWeapon
 {
     internal static readonly IsWeaponValidHandler AlwaysValid = (_, _, _) => true;
 
-    // internal static readonly IsWeaponValidHandler IsUnarmed = IsUnarmedWeapon;
-
-    // internal static readonly IsWeaponValidHandler IsReactionAttack = IsReactionAttackMode;
-
-    // internal static readonly IsWeaponValidHandler IsLight = (mode, weapon, _) =>
-    //     HasActiveTag(mode, weapon, TagsDefinitions.WeaponTagLight);
-
-    // internal static readonly IsWeaponValidHandler Melee = (_, weapon, _) => IsMelee(weapon);
+    internal static IsWeaponValidHandler IsOfWeaponType(params WeaponTypeDefinition[] weaponTypeDefinitions)
+    {
+        return (mode, weapon, _) => IsWeaponType(weapon ?? mode?.sourceObject as RulesetItem, weaponTypeDefinitions);
+    }
 
     internal static bool IsBludgeoningMeleeOrUnarmed([CanBeNull] RulesetAttackMode attack)
     {
         return attack?.EffectDescription.FindFirstDamageForm()?.damageType == DamageTypeBludgeoning;
     }
 
-    internal static bool IsGreatSword([CanBeNull] RulesetItem weapon)
-    {
-        return weapon != null && weapon.ItemDefinition.IsWeapon && weapon.ItemDefinition.Name.Contains("Greatsword");
-    }
-
-    internal static bool IsMagic(RulesetAttackMode attackMode, RulesetItem weapon, RulesetCharacter character)
+    internal static bool IsMagic(RulesetAttackMode attackMode, RulesetItem weapon, RulesetCharacter _)
     {
         if (attackMode.Magical)
         {
@@ -80,6 +71,11 @@ internal static class ValidatorsWeapon
         return !HasAnyWeaponTag(weapon, TagsDefinitions.WeaponTagTwoHanded);
     }
 
+    internal static bool IsTwoHanded([CanBeNull] RulesetItem weapon)
+    {
+        return HasAnyWeaponTag(weapon, TagsDefinitions.WeaponTagTwoHanded);
+    }
+
     internal static bool IsPolearm([CanBeNull] RulesetItem weapon)
     {
         return weapon != null
@@ -93,23 +89,12 @@ internal static class ValidatorsWeapon
                && CustomWeaponsContext.PolearmWeaponTypes.Contains(weapon.WeaponDescription?.WeaponType);
     }
 
-    internal static IsWeaponValidHandler IsOfWeaponType(params WeaponTypeDefinition[] weaponTypeDefinitions)
-    {
-        return (mode, weapon, _) => IsWeaponType(weapon ?? mode?.sourceObject as RulesetItem, weaponTypeDefinitions);
-    }
-
     internal static bool IsWeaponType([CanBeNull] RulesetItem item, params WeaponTypeDefinition[] weaponTypeDefinitions)
     {
         return item != null
                && item.ItemDefinition != null
                && item.ItemDefinition.IsWeapon
                && weaponTypeDefinitions.Contains(item.ItemDefinition.WeaponDescription.WeaponTypeDefinition);
-    }
-
-    internal static bool IsWeaponType([CanBeNull] RulesetItem item,
-        IEnumerable<WeaponTypeDefinition> weaponTypeDefinitions)
-    {
-        return IsWeaponType(item, weaponTypeDefinitions.ToArray());
     }
 
     internal static bool IsRanged(RulesetItem weapon)
@@ -128,11 +113,10 @@ internal static class ValidatorsWeapon
                weapon.itemDefinition.WeaponDescription.WeaponTags.Contains(TagsDefinitions.WeaponTagThrown);
     }
 
-    internal static bool IsTwoHanded([CanBeNull] RulesetItem weapon)
-    {
-        return weapon != null && weapon.itemDefinition.isWeapon &&
-               weapon.itemDefinition.WeaponDescription.WeaponTags.Contains(TagsDefinitions.WeaponTagTwoHanded);
-    }
+
+    //
+    // UNARMED
+    //
 
     private static bool IsUnarmedWeapon(
         [CanBeNull] RulesetAttackMode attackMode,
@@ -160,7 +144,7 @@ internal static class ValidatorsWeapon
     }
 
     //
-    //
+    // TAGS
     //
 
     internal static bool HasAnyWeaponTag([CanBeNull] RulesetItem item, [NotNull] params string[] tags)

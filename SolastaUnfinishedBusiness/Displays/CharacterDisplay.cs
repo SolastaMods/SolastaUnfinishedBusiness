@@ -15,6 +15,7 @@ internal static class CharacterDisplay
             UI.ActionButton("Donate".Bold().Khaki(), BootContext.OpenDonate, UI.Width(150));
             UI.ActionButton("Discord".Bold().Khaki(), BootContext.OpenDiscord, UI.Width(150));
             UI.ActionButton("Wiki".Bold().Khaki(), BootContext.OpenWiki, UI.Width(150));
+            UI.ActionButton("Change History".Bold().Khaki(), BootContext.OpenChangeLog, UI.Width(150));
         }
 
         UI.Label();
@@ -83,23 +84,6 @@ internal static class CharacterDisplay
         {
             Main.Settings.EnableEpicPointsAndArray = toggle;
         }
-
-#if false
-        // ModUi/&DisableSenseDarkVisionFromAllRaces = Disable <color=#D89555>Sense Dark Vision</color> from all playable races <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
-        // ModUi/&DisableSenseSuperiorDarkVisionFromAllRaces = Disable <color=#D89555>Superior Sense Dark Vision</color> from all playable races <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
-
-        toggle = Main.Settings.DisableSenseDarkVisionFromAllRaces;
-        if (UI.Toggle(Gui.Localize("ModUi/&DisableSenseDarkVisionFromAllRaces"), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.DisableSenseDarkVisionFromAllRaces = toggle;
-        }
-
-        toggle = Main.Settings.DisableSenseSuperiorDarkVisionFromAllRaces;
-        if (UI.Toggle(Gui.Localize("ModUi/&DisableSenseSuperiorDarkVisionFromAllRaces"), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.DisableSenseSuperiorDarkVisionFromAllRaces = toggle;
-        }
-#endif
 
         UI.Label();
 

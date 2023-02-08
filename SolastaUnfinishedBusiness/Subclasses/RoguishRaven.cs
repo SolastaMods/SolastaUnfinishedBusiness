@@ -107,14 +107,14 @@ internal sealed class RoguishRaven : AbstractSubclass
                     .SetModifier(FeatureDefinitionAttributeModifier.AttributeModifierOperation.Additive,
                         AttributeDefinitions.CriticalThreshold, -2)
                     .SetCustomSubFeatures(
-                        new ValidatorsDefinitionApplication(ValidatorsCharacter.HasTwoHandedRangeWeapon))
+                        new ValidatorsDefinitionApplication(ValidatorsCharacter.HasTwoHandedRangedWeapon))
                     .AddToDB(),
                 FeatureDefinitionAttackModifierBuilder
                     .Create("AttackModifierRavenHeartSeekingShot")
                     .SetGuiPresentation(Category.Feature)
                     .SetAttackRollModifier(-4)
                     .SetCustomSubFeatures(
-                        new RestrictedContextValidator(OperationType.Set, ValidatorsCharacter.HasTwoHandedRangeWeapon))
+                        new RestrictedContextValidator(OperationType.Set, ValidatorsCharacter.HasTwoHandedRangedWeapon))
                     .SetRequiredProperty(RestrictedContextRequiredProperty.RangeWeapon)
                     .AddToDB(),
                 FeatureDefinitionAdditionalDamageBuilder
@@ -125,7 +125,7 @@ internal sealed class RoguishRaven : AbstractSubclass
                     .SetTriggerCondition(AdditionalDamageTriggerCondition.AlwaysActive)
                     .SetAdditionalDamageType(AdditionalDamageType.SameAsBaseDamage)
                     .SetCustomSubFeatures(
-                        new RestrictedContextValidator(OperationType.Set, ValidatorsCharacter.HasTwoHandedRangeWeapon),
+                        new RestrictedContextValidator(OperationType.Set, ValidatorsCharacter.HasTwoHandedRangedWeapon),
                         new HeartSeekingShotAdditionalDamageOnCritMarker(CharacterClassDefinitions.Rogue))
                     .SetRequiredProperty(RestrictedContextRequiredProperty.RangeWeapon)
                     .SetDamageDice(DieType.D6, 1)
@@ -154,7 +154,7 @@ internal sealed class RoguishRaven : AbstractSubclass
                         .SetConditionForm(conditionRavenHeartSeekingShot, ConditionForm.ConditionOperation.Add)
                         .Build())
                 .Build())
-            .SetCustomSubFeatures(new ValidatorsPowerUse(ValidatorsCharacter.HasTwoHandedRangeWeapon))
+            .SetCustomSubFeatures(new ValidatorsPowerUse(ValidatorsCharacter.HasTwoHandedRangedWeapon))
             .AddToDB();
 
         Global.PowersThatIgnoreInterruptions.Add(powerRavenHeartSeekingShot);
