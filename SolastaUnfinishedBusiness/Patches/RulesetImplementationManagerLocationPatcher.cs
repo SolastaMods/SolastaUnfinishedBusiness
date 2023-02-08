@@ -1,11 +1,9 @@
 ﻿using System.Diagnostics.CodeAnalysis;
-using System.Linq;
 using HarmonyLib;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.Extensions;
 using SolastaUnfinishedBusiness.CustomBehaviors;
-using SolastaUnfinishedBusiness.CustomInterfaces;
 using static RuleDefinitions;
 
 namespace SolastaUnfinishedBusiness.Patches;
@@ -167,24 +165,6 @@ public static class RulesetImplementationManagerLocationPatcher
                 }, null, false);
 
             return false;
-        }
-    }
-
-    //PATCH: implements computation of extra effect duration advancement types
-    [HarmonyPatch(typeof(RulesetImplementationManagerLocation),
-        nameof(RulesetImplementationManagerLocation.ApplySummonForm))]
-    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    [UsedImplicitly]
-    public static class ApplySummonForm_Patch
-    {
-        [UsedImplicitly]
-        public static void Prefix(ref RulesetImplementationDefinitions.ApplyFormsParams formsParams)
-        {
-            EnumImplementation.ComputeExtraAdvancementDuration(
-                formsParams.activeEffect.EffectDescription,
-                formsParams.effectLevel,
-                ref formsParams.durationParameter,
-                ref formsParams.durationType);
         }
     }
 }
