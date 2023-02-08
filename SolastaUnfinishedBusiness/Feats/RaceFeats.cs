@@ -140,7 +140,8 @@ internal static class RaceFeats
         var modifyAttackModeFeatRevenantGreatSword = FeatureDefinitionBuilder
             .Create("ModifyAttackModeFeatRevenantGreatSword")
             .SetGuiPresentationNoContent(true)
-            .SetCustomSubFeatures(new CanUseAttributeForWeapon(AttributeDefinitions.Dexterity, IsGreatSword))
+            .SetCustomSubFeatures(new CanUseAttributeForWeapon(AttributeDefinitions.Dexterity,
+                ValidatorsWeapon.IsOfWeaponType(DatabaseHelper.WeaponTypeDefinitions.GreatswordType)))
             .AddToDB();
 
         // Revenant Great Sword (Dexterity)
@@ -201,10 +202,5 @@ internal static class RaceFeats
             featGroupsElvenAccuracy,
             featGroupFadeAway,
             featGroupRevenantGreatSword);
-    }
-
-    private static bool IsGreatSword(RulesetAttackMode mode, RulesetItem weapon, RulesetCharacter character)
-    {
-        return ValidatorsCharacter.MainHandIsGreatSword(character);
     }
 }

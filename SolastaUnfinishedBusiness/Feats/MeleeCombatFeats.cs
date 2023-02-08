@@ -2,7 +2,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using JetBrains.Annotations;
-using SolastaUnfinishedBusiness.Api.Extensions;
 using SolastaUnfinishedBusiness.Api.Infrastructure;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
@@ -599,8 +598,7 @@ internal static class MeleeCombatFeats
                 return;
             }
 
-            if (!ValidatorsWeapon.IsWeaponType(myself.GetItemInSlot(EquipmentDefinitions.SlotTypeMainHand),
-                    _weaponTypeDefinition))
+            if (!ValidatorsWeapon.IsOfWeaponType(_weaponTypeDefinition.ToArray())(attackMode, null, null))
             {
                 return;
             }

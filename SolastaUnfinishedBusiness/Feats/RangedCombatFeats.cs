@@ -10,6 +10,7 @@ using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Properties;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatDefinitions;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.WeaponTypeDefinitions;
 
 namespace SolastaUnfinishedBusiness.Feats;
 
@@ -46,10 +47,11 @@ internal static class RangedCombatFeats
                     .SetGuiPresentation(NAME, Category.Feat)
                     .SetDamageRollModifier(1)
                     .SetCustomSubFeatures(
-                        ValidatorsCharacter.HasLongbowOrShortbow,
-                        new CanUseAttributeForWeapon(AttributeDefinitions.Strength, ValidatorsCharacter.IsLongbow),
-                        new AddExtraRangedAttack(ValidatorsCharacter.IsShortbow, ActionDefinitions.ActionType.Bonus,
-                            ValidatorsCharacter.HasAttacked))
+                        ValidatorsWeapon.IsOfWeaponType(LongbowType, ShortbowType),
+                        new CanUseAttributeForWeapon(AttributeDefinitions.Strength,
+                            ValidatorsWeapon.IsOfWeaponType(LongbowType)),
+                        new AddExtraRangedAttack(ValidatorsWeapon.IsOfWeaponType(ShortbowType),
+                            ActionDefinitions.ActionType.Bonus, ValidatorsCharacter.HasAttacked))
                     .AddToDB())
             .AddToDB();
     }
@@ -164,8 +166,8 @@ internal static class RangedCombatFeats
                 .SetGuiPresentationNoContent(true)
                 .SetCustomSubFeatures(
                     new RangedAttackInMeleeDisadvantageRemover(),
-                    new AddExtraRangedAttack(ValidatorsCharacter.IsOneHandedRanged, ActionDefinitions.ActionType.Bonus,
-                        ValidatorsCharacter.HasAttacked))
+                    new AddExtraRangedAttack(ValidatorsWeapon.IsOfWeaponType(CustomWeaponsContext.HandXbowWeaponType),
+                        ActionDefinitions.ActionType.Bonus, ValidatorsCharacter.HasAttacked))
                 .AddToDB())
             .AddToDB();
     }
