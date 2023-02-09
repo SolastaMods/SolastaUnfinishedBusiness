@@ -4,8 +4,8 @@ namespace SolastaUnfinishedBusiness.Api.ModKit;
 
 internal static partial class UI
 {
-    private const string CheckGlyphOn = "<color=green><b>o</b></color>";
-    private const string CheckGlyphOff = "<color=#C04040E0><b>o</b></color>"; //#101011
+    private const string CheckGlyphOn = "<color=green>✔</color>"; // ✔ ✓ 
+    private const string CheckGlyphOff = "<color=#C04040E0>✖</color>"; //#101011 // ✖ ×
     private const string DisclosureGlyphOn = "<color=#C0C0C0FF><b>v</b></color>"; // ▼▲
     private const string DisclosureGlyphOff = "<color=#C0C0C0FF><b>></b></color>"; // ▶▲
     private const string DisclosureGlyphEmpty = " <color=#B8B8B8FF> </color> ";
