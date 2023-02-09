@@ -27,12 +27,12 @@ public static class Sprites
 
     #region UI
     internal static AssetReferenceSprite Check_On =>
-        GetSprite("check_on", Resources.check_on, 16);
+        GetSprite("check_on", Resources.check_on, 12);
 
     internal static Texture Check_On_Texture => GetSpriteByGuid(Check_On.AssetGUID).texture;
     
     internal static AssetReferenceSprite Check_Off =>
-        GetSprite("check_off", Resources.check_off, 16);
+        GetSprite("check_off", Resources.check_off, 12);
     
     internal static Texture Check_Off_Texture => GetSpriteByGuid(Check_Off.AssetGUID).texture;
 
