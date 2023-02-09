@@ -2,7 +2,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using JetBrains.Annotations;
-using SolastaUnfinishedBusiness.Api.Extensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Api.Infrastructure;
 using SolastaUnfinishedBusiness.Builders;
@@ -329,7 +328,7 @@ internal static class MeleeCombatFeats
                 return;
             }
 
-            if (attackMode.sourceDefinition is not ItemDefinition { IsWeapon: true } sourceDefinition ||
+            if (attackMode.sourceDefinition is not ItemDefinition {IsWeapon: true} sourceDefinition ||
                 !_weaponTypeDefinition.Contains(sourceDefinition.WeaponDescription.WeaponTypeDefinition))
             {
                 return;
@@ -535,7 +534,7 @@ internal static class MeleeCombatFeats
     {
         const string NAME = "FeatBladeMastery";
 
-        var weaponTypes = new[] { ShortswordType, LongswordType, ScimitarType, RapierType, GreatswordType };
+        var weaponTypes = new[] {ShortswordType, LongswordType, ScimitarType, RapierType, GreatswordType};
 
         var conditionBladeMastery = ConditionDefinitionBuilder
             .Create($"Condition{NAME}")
@@ -623,7 +622,7 @@ internal static class MeleeCombatFeats
     {
         const string NAME = "FeatFellHanded";
 
-        var weaponTypes = new[] { BattleaxeType, GreataxeType, HandaxeType, MaulType, WarhammerType };
+        var weaponTypes = new[] {BattleaxeType, GreataxeType, HandaxeType, MaulType, WarhammerType};
 
         var fellHandedAdvantage = FeatureDefinitionPowerBuilder
             .Create($"Power{NAME}Advantage")
