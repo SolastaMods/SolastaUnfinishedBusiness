@@ -13,7 +13,7 @@ internal static class CeContentPackContext
 
     internal static void Load()
     {
-        var sprite = Sprites.GetSprite("ContentPack", Resources.ContentPack, 64);
+        var sprite = Sprites.GetSprite("ContentPack", Resources.ContentPack, 128);
 
         _ = ContentPackDefinitionBuilder
             .Create(CeContentPack.ToString())
