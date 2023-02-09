@@ -70,7 +70,7 @@ internal static class GameConsoleHelper
         console.AddCharacterEntry(target, entry);
         console.AddEntry(entry);
     }
-    
+
     internal static void LogCharacterAffectsTarget(
         [NotNull] RulesetCharacter character,
         [NotNull] RulesetCharacter target,
@@ -102,21 +102,14 @@ internal static class GameConsoleHelper
     {
         var console = Gui.Game.GameConsole;
         var text = condition.Possessive ? GameConsole.ConditionAddedHasLine : GameConsole.ConditionAddedLine;
-        var entry = new GameConsoleEntry(text, console.consoleTableDefinition) {Indent = true};
+        var entry = new GameConsoleEntry(text, console.consoleTableDefinition) { Indent = true };
 
-        ConsoleStyleDuplet.ParameterType type;
-        switch (condition.ConditionType)
+        ConsoleStyleDuplet.ParameterType type = condition.ConditionType switch
         {
-            case RuleDefinitions.ConditionType.Beneficial:
-                type = ConsoleStyleDuplet.ParameterType.Positive;
-                break;
-            case RuleDefinitions.ConditionType.Detrimental:
-                type = ConsoleStyleDuplet.ParameterType.Negative;
-                break;
-            default:
-                type = ConsoleStyleDuplet.ParameterType.AbilityInfo;
-                break;
-        }
+            RuleDefinitions.ConditionType.Beneficial => ConsoleStyleDuplet.ParameterType.Positive,
+            RuleDefinitions.ConditionType.Detrimental => ConsoleStyleDuplet.ParameterType.Negative,
+            _ => ConsoleStyleDuplet.ParameterType.AbilityInfo
+        };
 
         console.AddCharacterEntry(character, entry);
         entry.AddParameter(type, condition.FormatTitle(), tooltipContent: condition.FormatDescription());

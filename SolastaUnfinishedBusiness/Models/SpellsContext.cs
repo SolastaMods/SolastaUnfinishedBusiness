@@ -31,6 +31,7 @@ internal static class SpellsContext
     internal static readonly SpellDefinition FarStep = BuildFarStep();
     internal static readonly SpellDefinition SearingSmite = BuildSearingSmite();
     internal static readonly SpellDefinition SunlightBlade = BuildSunlightBlade();
+    // ReSharper disable once MemberCanBePrivate.Global
     internal static HashSet<SpellDefinition> Spells { get; set; } = new();
 
     [NotNull]

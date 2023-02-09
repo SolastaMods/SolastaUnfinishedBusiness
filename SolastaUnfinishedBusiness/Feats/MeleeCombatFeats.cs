@@ -328,7 +328,7 @@ internal static class MeleeCombatFeats
                 return;
             }
 
-            if (attackMode.sourceDefinition is not ItemDefinition {IsWeapon: true} sourceDefinition ||
+            if (attackMode.sourceDefinition is not ItemDefinition { IsWeapon: true } sourceDefinition ||
                 !_weaponTypeDefinition.Contains(sourceDefinition.WeaponDescription.WeaponTypeDefinition))
             {
                 return;
@@ -534,7 +534,7 @@ internal static class MeleeCombatFeats
     {
         const string NAME = "FeatBladeMastery";
 
-        var weaponTypes = new[] {ShortswordType, LongswordType, ScimitarType, RapierType, GreatswordType};
+        var weaponTypes = new[] { ShortswordType, LongswordType, ScimitarType, RapierType, GreatswordType };
 
         var conditionBladeMastery = ConditionDefinitionBuilder
             .Create($"Condition{NAME}")
@@ -622,7 +622,7 @@ internal static class MeleeCombatFeats
     {
         const string NAME = "FeatFellHanded";
 
-        var weaponTypes = new[] {BattleaxeType, GreataxeType, HandaxeType, MaulType, WarhammerType};
+        var weaponTypes = new[] { BattleaxeType, GreataxeType, HandaxeType, MaulType, WarhammerType };
 
         var fellHandedAdvantage = FeatureDefinitionPowerBuilder
             .Create($"Power{NAME}Advantage")
@@ -650,25 +650,22 @@ internal static class MeleeCombatFeats
 
     private sealed class AfterAttackEffectFeatFellHanded : IAfterAttackEffect
     {
-        private readonly List<WeaponTypeDefinition> _weaponTypeDefinition = new();
-        private readonly FeatureDefinitionPower power;
-        private readonly DamageForm damage;
         private const string SuretyText = "Feedback/&FeatFeatFellHandedDisadvantage";
         private const string SuretyTitle = "Feat/&FeatFellHandedTitle";
         private const string SuretyDescription = "Feature/&PowerFeatFellHandedDisadvantageDescription";
+        private readonly List<WeaponTypeDefinition> _weaponTypeDefinition = new();
+        private readonly DamageForm damage;
+        private readonly FeatureDefinitionPower power;
 
         public AfterAttackEffectFeatFellHanded(FeatureDefinitionPower power,
             params WeaponTypeDefinition[] weaponTypeDefinition)
         {
             this.power = power;
             _weaponTypeDefinition.AddRange(weaponTypeDefinition);
-            
-            damage = new DamageForm()
+
+            damage = new DamageForm
             {
-                DamageType = DamageTypeBludgeoning,
-                DieType = DieType.D1,
-                DiceNumber = 0,
-                BonusDamage = 0,
+                DamageType = DamageTypeBludgeoning, DieType = DieType.D1, DiceNumber = 0, BonusDamage = 0
             };
         }
 
@@ -680,7 +677,7 @@ internal static class MeleeCombatFeats
             RulesetAttackMode attackMode,
             ActionModifier attackModifier)
         {
-            if (attackMode.sourceDefinition is not ItemDefinition {IsWeapon: true} sourceDefinition ||
+            if (attackMode.sourceDefinition is not ItemDefinition { IsWeapon: true } sourceDefinition ||
                 !_weaponTypeDefinition.Contains(sourceDefinition.WeaponDescription.WeaponTypeDefinition))
             {
                 return;
@@ -743,8 +740,6 @@ internal static class MeleeCombatFeats
                             GameConsoleHelper.LogCharacterAffectedByCondition(rulesetDefender,
                                 ConditionDefinitions.ConditionProne);
                         }, false);
-
-
                     }
 
                     break;
@@ -763,7 +758,7 @@ internal static class MeleeCombatFeats
                             strengthMod,
                             damage,
                             DamageTypeBludgeoning,
-                            new RulesetImplementationDefinitions.ApplyFormsParams() {targetCharacter = rulesetDefender},
+                            new RulesetImplementationDefinitions.ApplyFormsParams { targetCharacter = rulesetDefender },
                             rulesetDefender,
                             false,
                             attacker.Guid,

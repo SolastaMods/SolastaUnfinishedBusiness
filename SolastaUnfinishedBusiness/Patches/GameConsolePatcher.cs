@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
+using System.Linq;
 using System.Reflection.Emit;
 using HarmonyLib;
 using JetBrains.Annotations;
@@ -27,32 +28,24 @@ public static class GameConsolePatcher
                 new CodeInstruction(OpCodes.Call, method));
         }
 
-        private static void AddEntry(GameRecordTable console, GameRecordEntry entry, int insertionIndex, BaseDefinition definition)
+        private static void AddEntry(GameRecordTable console, GameRecordEntry entry, int insertionIndex,
+            BaseDefinition definition)
         {
-            foreach (var parameter in entry.Parameters)
+            if (definition is FeatureDefinitionPower)
             {
-                if (parameter.parameterType != (int)ConsoleStyleDuplet.ParameterType.AttackSpellPower)
-                {
-                    continue;
-                }
-
-                if (!string.IsNullOrEmpty(parameter.tooltipContent) || !string.IsNullOrEmpty(parameter.tooltipClass))
-                {
-                    continue;
-                }
-
-                if (parameter.contentValue != definition.GuiPresentation.Title)
-                {
-                    continue;
-                }
-
-                if (definition is FeatureDefinitionPower)
+                foreach (var parameter in entry.Parameters
+                             .Where(parameter =>
+                                 parameter.parameterType == (int)ConsoleStyleDuplet.ParameterType.AttackSpellPower)
+                             .Where(parameter =>
+                                 string.IsNullOrEmpty(parameter.tooltipContent) &&
+                                 string.IsNullOrEmpty(parameter.tooltipClass))
+                             .Where(parameter => parameter.contentValue == definition.GuiPresentation.Title))
                 {
                     parameter.tooltipContent = definition.Name;
                     parameter.tooltipClass = GuiPowerDefinition.TooltipClassPowerDefinition;
                 }
             }
-            
+
             console.AddEntry(entry, insertionIndex);
         }
     }
