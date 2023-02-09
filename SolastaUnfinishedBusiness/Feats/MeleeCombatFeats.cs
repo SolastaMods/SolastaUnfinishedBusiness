@@ -626,7 +626,7 @@ internal static class MeleeCombatFeats
 
         var fellHandedAdvantage = FeatureDefinitionPowerBuilder
             .Create($"Power{NAME}Advantage")
-            .SetGuiPresentation(NAME, Category.Feat, hidden: true)
+            .SetGuiPresentation(NAME, Category.Feat, $"Feature/&Power{NAME}AdvantageDescription", hidden: true)
             .SetUsesFixed(ActivationTime.Reaction)
             .SetEffectDescription(EffectDescriptionBuilder.Create()
                 .SetTargetingData(Side.Enemy, RangeType.Touch, 1, TargetType.Individuals)
