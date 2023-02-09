@@ -31,7 +31,7 @@ internal sealed class OathOfAltruism : AbstractSubclass
             .Create($"AutoPreparedSpells{NAME}")
             .SetGuiPresentation("DomainSpells", Category.Feature)
             .SetPreparedSpellGroups(
-                BuildSpellGroup(3, Sanctuary, ShieldOfFaith),
+                BuildSpellGroup(3, HealingWord, ShieldOfFaith),
                 BuildSpellGroup(5, CalmEmotions, HoldPerson),
                 BuildSpellGroup(9, Counterspell, HypnoticPattern),
                 BuildSpellGroup(13, DominateBeast, GuardianOfFaith),
