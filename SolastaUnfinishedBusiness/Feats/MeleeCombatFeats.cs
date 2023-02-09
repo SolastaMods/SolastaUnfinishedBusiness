@@ -625,26 +625,39 @@ internal static class MeleeCombatFeats
 
         var weaponTypes = new[] { BattleaxeType, GreataxeType, HandaxeType, MaulType, WarhammerType };
 
+        var fellHandedAdvantage = FeatureDefinitionPowerBuilder
+            .Create($"Power{NAME}Advantage")
+            .SetGuiPresentation(NAME, Category.Feat, hidden: true)
+            .SetUsesFixed(ActivationTime.Reaction)
+            .SetEffectDescription(EffectDescriptionBuilder.Create()
+                .SetTargetingData(Side.Enemy, RangeType.Touch, 1, TargetType.Individuals)
+                .SetEffectForms(EffectFormBuilder.Create()
+                    .SetMotionForm(MotionForm.MotionType.FallProne)
+                    .Build())
+                .Build())
+            .AddToDB();
+
         var feat = FeatDefinitionBuilder
             .Create(NAME)
             .SetGuiPresentation(Category.Feat)
-            .SetCustomSubFeatures(new ModifyAttackModeForWeaponTypeFilter(
-                $"Feature/&ModifyAttackMode{NAME}Title", weaponTypes))
+            .SetCustomSubFeatures(
+                new AfterAttackEffectFeatFellHanded(fellHandedAdvantage, weaponTypes),
+                new ModifyAttackModeForWeaponTypeFilter(
+                    $"Feature/&ModifyAttackMode{NAME}Title", weaponTypes))
             .AddToDB();
 
-        feat.AddCustomSubFeatures(new AfterAttackEffectFeatFellHanded(feat, weaponTypes));
         return feat;
     }
 
     private sealed class AfterAttackEffectFeatFellHanded : IAfterAttackEffect
     {
         private readonly List<WeaponTypeDefinition> _weaponTypeDefinition = new();
-        private readonly FeatDefinition feat;
+        private readonly FeatureDefinitionPower power;
 
-        public AfterAttackEffectFeatFellHanded(FeatDefinition feat,
+        public AfterAttackEffectFeatFellHanded(FeatureDefinitionPower power,
             params WeaponTypeDefinition[] weaponTypeDefinition)
         {
-            this.feat = feat;
+            this.power = power;
             _weaponTypeDefinition.AddRange(weaponTypeDefinition);
         }
 
@@ -656,7 +669,7 @@ internal static class MeleeCombatFeats
             RulesetAttackMode attackMode,
             ActionModifier attackModifier)
         {
-            if (attackMode.sourceDefinition is not ItemDefinition { IsWeapon: true } sourceDefinition ||
+            if (attackMode.sourceDefinition is not ItemDefinition {IsWeapon: true} sourceDefinition ||
                 !_weaponTypeDefinition.Contains(sourceDefinition.WeaponDescription.WeaponTypeDefinition))
             {
                 return;
@@ -694,7 +707,7 @@ internal static class MeleeCombatFeats
                     Gui.Game.GameConsole.AttackRolled(
                         rulesetAttacker,
                         rulesetDefender,
-                        feat,
+                        power,
                         lowOutcome,
                         lowerRoll + modifier,
                         lowerRoll,
@@ -704,17 +717,23 @@ internal static class MeleeCombatFeats
 
                     if (lowOutcome is RollOutcome.Success or RollOutcome.CriticalSuccess)
                     {
-                        var usablePower = new RulesetUsablePower(
-                            FeatureDefinitionPowers.PowerTraditionOpenHandOpenHandTechniqueKnockProne, null, null);
+                        var actions = ServiceRepository.GetService<IGameLocationActionService>();
+                        var rules = ServiceRepository.GetService<IRulesetImplementationService>();
 
-                        var effectPower = new RulesetEffectPower(rulesetAttacker, usablePower)
+                        var reactionParams = new CharacterActionParams(attacker, ActionDefinitions.Id.PowerNoCost);
+                        reactionParams.TargetCharacters.Add(defender);
+                        reactionParams.ActionModifiers.Add(new ActionModifier());
+                        reactionParams.SkipAnimationsAndVFX = true;
+                        reactionParams.RulesetEffect = rules.InstantiateEffectPower(rulesetAttacker,
+                            UsablePowersProvider.Get(power, rulesetAttacker), false);
+
+                        actions.ExecuteAction(reactionParams, _ =>
                         {
-                            EffectDescription = {hasSavingThrow = false}
-                        };
+                            GameConsoleHelper.LogCharacterAffectedByCondition(rulesetDefender,
+                                ConditionDefinitions.ConditionProne);
+                        }, false);
 
-                        effectPower.ApplyEffectOnCharacter(rulesetDefender, true, defender.LocationPosition);
-                        GameConsoleHelper.LogCharacterAffectedByCondition(rulesetDefender,
-                            ConditionDefinitions.ConditionProne);
+
                     }
 
                     break;
