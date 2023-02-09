@@ -43,10 +43,9 @@ internal static class GameConsoleHelper
         params (ConsoleStyleDuplet.ParameterType type, string value)[] extra)
     {
         var console = Gui.Game.GameConsole;
-        var characterName = character is RulesetCharacterHero hero ? hero.DisplayName : character.Name;
         var entry = new GameConsoleEntry(text, console.consoleTableDefinition) { Indent = indent };
 
-        entry.AddParameter(ConsoleStyleDuplet.ParameterType.Player, characterName);
+        console.AddCharacterEntry(character, entry);
         entry.AddParameter(ConsoleStyleDuplet.ParameterType.AttackSpellPower, abilityName,
             tooltipContent: tooltipContent, tooltipClass: tooltipClass);
         foreach (var (type, value) in extra)
@@ -69,6 +68,59 @@ internal static class GameConsoleHelper
 
         console.AddCharacterEntry(character, entry);
         console.AddCharacterEntry(target, entry);
+        console.AddEntry(entry);
+    }
+    
+    internal static void LogCharacterAffectsTarget(
+        [NotNull] RulesetCharacter character,
+        [NotNull] RulesetCharacter target,
+        string abilityName,
+        string text = DefaultUseText,
+        bool indent = false,
+        string tooltipContent = null,
+        string tooltipClass = null,
+        params (ConsoleStyleDuplet.ParameterType type, string value)[] extra)
+    {
+        var console = Gui.Game.GameConsole;
+        var entry = new GameConsoleEntry(text, console.consoleTableDefinition) { Indent = indent };
+
+        console.AddCharacterEntry(character, entry);
+        console.AddCharacterEntry(target, entry);
+        entry.AddParameter(ConsoleStyleDuplet.ParameterType.AttackSpellPower, abilityName,
+            tooltipContent: tooltipContent, tooltipClass: tooltipClass);
+        foreach (var (type, value) in extra)
+        {
+            entry.AddParameter(type, value);
+        }
+
+        console.AddEntry(entry);
+    }
+
+    internal static void LogCharacterAffectedByCondition(
+        [NotNull] RulesetCharacter character,
+        [NotNull] ConditionDefinition condition)
+    {
+        var console = Gui.Game.GameConsole;
+        var text = condition.Possessive ? GameConsole.ConditionAddedHasLine : GameConsole.ConditionAddedLine;
+        var entry = new GameConsoleEntry(text, console.consoleTableDefinition) {Indent = true};
+
+        ConsoleStyleDuplet.ParameterType type;
+        switch (condition.ConditionType)
+        {
+            case RuleDefinitions.ConditionType.Beneficial:
+                type = ConsoleStyleDuplet.ParameterType.Positive;
+                break;
+            case RuleDefinitions.ConditionType.Detrimental:
+                type = ConsoleStyleDuplet.ParameterType.Negative;
+                break;
+            default:
+                type = ConsoleStyleDuplet.ParameterType.AbilityInfo;
+                break;
+        }
+
+        console.AddCharacterEntry(character, entry);
+        entry.AddParameter(type, condition.FormatTitle(), tooltipContent: condition.FormatDescription());
+
         console.AddEntry(entry);
     }
 

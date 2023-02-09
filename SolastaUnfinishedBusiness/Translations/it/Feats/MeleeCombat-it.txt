@@ -46,7 +46,6 @@ Feedback/&AdditionalDamageCrusherFormat=Frantumatore!
 Feedback/&AdditionalDamageCrusherLine={0} schiaccia {1}
 Feedback/&AdditionalDamagePiercerFormat=Piercing!
 Feedback/&AdditionalDamagePiercerLine={0} perfora in modo critico {1}
-Feedback/&FeatFellHanded={0} è caduto con un tiro di {1} = {2} ed è ora a terra.
 Reaction/&SpendPowerPowerFeatCrusherHitDescription=Schiaccia il tuo nemico e spingilo di 1,5 m.
 Reaction/&SpendPowerPowerFeatCrusherHitReactDescription=Schiaccia il tuo nemico e spingilo di 1,5 m.
 Reaction/&SpendPowerPowerFeatCrusherHitReactTitle=Schiacciare
