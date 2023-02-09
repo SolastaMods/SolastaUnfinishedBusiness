@@ -689,28 +689,24 @@ internal static class MeleeCombatFeats
             {
                 case > 0 when outcome is RollOutcome.Success or RollOutcome.CriticalSuccess:
                     var lowerRoll = Math.Min(Global.FirstAttackRoll, Global.SecondAttackRoll);
-                    var modifier = attackMode.ToHitBonus;
+                    var modifier = attackMode.ToHitBonus + attackModifier.AttackRollModifier;
 
-                    var initiated = rulesetAttacker.AttackInitiated;
-                    rulesetAttacker.AttackInitiated = null;
-                    rulesetAttacker.RollAttack(
-                        attackMode.ToHitBonus,
-                        rulesetDefender,
-                        null,
-                        attackMode.ToHitBonusTrends,
-                        true,
-                        new List<TrendInfo>(),
-                        false,
-                        false,
-                        attackModifier.AttackRollModifier,
-                        out var lowOutcome,
-                        out _,
-                        lowerRoll,
-                        true
-                    );
-                    rulesetAttacker.AttackInitiated = initiated;
-
-                    modifier += attackModifier.AttackRollModifier;
+                    RollOutcome lowOutcome;
+                    if (lowerRoll == DiceMaxValue[(int)DieType.D20])
+                    {
+                        lowOutcome = RollOutcome.CriticalSuccess;
+                    }
+                    else if (lowerRoll == DiceMinValue[(int)DieType.D20])
+                    {
+                        lowOutcome = RollOutcome.CriticalFailure;
+                    }
+                    else
+                    {
+                        var defenderArmorClass = rulesetDefender.TryGetAttributeValue(AttributeDefinitions.ArmorClass);
+                        lowOutcome = lowerRoll + modifier >= defenderArmorClass
+                            ? RollOutcome.Success
+                            : RollOutcome.Failure;
+                    }
 
                     Gui.Game.GameConsole.AttackRolled(
                         rulesetAttacker,
@@ -725,21 +721,13 @@ internal static class MeleeCombatFeats
 
                     if (lowOutcome is RollOutcome.Success or RollOutcome.CriticalSuccess)
                     {
-                        var actions = ServiceRepository.GetService<IGameLocationActionService>();
-                        var rules = ServiceRepository.GetService<IRulesetImplementationService>();
+                        var usablePower = UsablePowersProvider.Get(power, rulesetAttacker);
+                        ServiceRepository.GetService<IRulesetImplementationService>()
+                            .InstantiateEffectPower(rulesetAttacker, usablePower, false)
+                            .ApplyEffectOnCharacter(rulesetDefender, true, defender.LocationPosition);
 
-                        var reactionParams = new CharacterActionParams(attacker, ActionDefinitions.Id.PowerNoCost);
-                        reactionParams.TargetCharacters.Add(defender);
-                        reactionParams.ActionModifiers.Add(new ActionModifier());
-                        reactionParams.SkipAnimationsAndVFX = true;
-                        reactionParams.RulesetEffect = rules.InstantiateEffectPower(rulesetAttacker,
-                            UsablePowersProvider.Get(power, rulesetAttacker), false);
-
-                        actions.ExecuteAction(reactionParams, _ =>
-                        {
-                            GameConsoleHelper.LogCharacterAffectedByCondition(rulesetDefender,
-                                ConditionDefinitions.ConditionProne);
-                        }, false);
+                        GameConsoleHelper.LogCharacterAffectedByCondition(rulesetDefender,
+                            ConditionDefinitions.ConditionProne);
                     }
 
                     break;
