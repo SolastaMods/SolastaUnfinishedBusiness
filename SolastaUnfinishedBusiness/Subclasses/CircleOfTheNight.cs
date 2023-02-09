@@ -323,7 +323,7 @@ internal sealed class CircleOfTheNight : AbstractSubclass
     private static ValidatorsPowerUse CanUseCombatHealing()
     {
         return new ValidatorsPowerUse(
-            ValidatorsCharacter.HasAnyOfConditions(ConditionDefinitions.ConditionWildShapeSubstituteForm));
+            ValidatorsCharacter.HasAnyOfConditions(ConditionDefinitions.ConditionWildShapeSubstituteForm.name));
     }
 
     private sealed class ChangeShapeOptionsCircleOfTheNightWildShapeCombat : IChangeShapeOptions

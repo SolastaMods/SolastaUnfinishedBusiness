@@ -39,7 +39,7 @@ internal sealed class WayOfTheDistantHand : AbstractSubclass
             .SetCustomSubFeatures(
                 new ZenArcherMarker(),
                 new RangedAttackInMeleeDisadvantageRemover(
-                    IsMonkWeapon, ValidatorsCharacter.NoArmor, ValidatorsCharacter.NoShield),
+                    IsMonkWeapon, ValidatorsCharacter.HasNoArmor, ValidatorsCharacter.HasNoShield),
                 new AddTagToWeaponAttack(ZenArrowTag, IsZenArrowAttack))
             .AddToDB();
 
@@ -491,8 +491,8 @@ internal sealed class WayOfTheDistantHand : AbstractSubclass
 
     private sealed class AddFlurryOfArrowsAttacks : AddExtraAttackBase
     {
-        private AddFlurryOfArrowsAttacks() : base(ActionDefinitions.ActionType.Bonus, ValidatorsCharacter.NoArmor,
-            ValidatorsCharacter.NoShield, WieldsZenArcherWeapon)
+        private AddFlurryOfArrowsAttacks() : base(ActionDefinitions.ActionType.Bonus, ValidatorsCharacter.HasNoArmor,
+            ValidatorsCharacter.HasNoShield, WieldsZenArcherWeapon)
         {
         }
 

@@ -62,9 +62,9 @@ internal static class OtherFeats
         var featWarCaster = BuildWarcaster();
 
         var spellSniperGroup = BuildSpellSniper(feats);
+        var elementalAdeptGroup = BuildElementalAdept(feats);
 
-        _ = BuildElementalAdept(feats);
-        _ = BuildMagicInitiate(feats);
+        BuildMagicInitiate(feats);
 
         feats.AddRange(
             featAstralArms,
@@ -78,6 +78,15 @@ internal static class OtherFeats
             featPoisonousSkin,
             featTough,
             featWarCaster);
+
+        GroupFeats.FeatGroupUnarmoredCombat.AddFeats(
+            featAstralArms,
+            featMonkInitiate,
+            featPoisonousSkin);
+
+        GroupFeats.FeatGroupSupportCombat.AddFeats(
+            featHealer,
+            featInspiringLeader);
 
         GroupFeats.MakeGroup("FeatGroupBodyResilience", null,
             FeatDefinitions.BadlandsMarauder,
@@ -94,11 +103,14 @@ internal static class OtherFeats
             featHealer,
             featPickPocket);
 
-        _ = GroupFeats.MakeGroup("FeatGroupSpellCombat", null,
+        GroupFeats.MakeGroup("FeatGroupSpellCombat", null,
             FeatDefinitions.FlawlessConcentration,
             FeatDefinitions.PowerfulCantrip,
+            elementalAdeptGroup,
             featWarCaster,
             spellSniperGroup);
+
+        GroupFeats.FeatGroupAgilityCombat.AddFeats(featMobile);
     }
 
     private static FeatDefinition BuildAstralArms()
@@ -273,7 +285,7 @@ internal static class OtherFeats
             .AddToDB();
     }
 
-    private static FeatDefinition BuildMagicInitiate([NotNull] List<FeatDefinition> feats)
+    private static void BuildMagicInitiate([NotNull] List<FeatDefinition> feats)
     {
         const string NAME = "FeatMagicInitiate";
 
@@ -330,16 +342,15 @@ internal static class OtherFeats
                             FeatMagicInitiateTag, 1, 1)
                         .AddToDB())
                 .SetFeatFamily(NAME)
+                .SetMustCastSpellsPrerequisite()
                 .AddToDB();
 
             magicInitiateFeats.Add(featMagicInitiate);
         }
 
-        var metamagicGroup = GroupFeats.MakeGroup("FeatGroupMagicInitiate", NAME, magicInitiateFeats);
+        GroupFeats.MakeGroup("FeatGroupMagicInitiate", NAME, magicInitiateFeats);
 
         feats.AddRange(magicInitiateFeats);
-
-        return metamagicGroup;
     }
 
     private static FeatDefinition BuildMetamagic()
@@ -569,6 +580,8 @@ internal static class OtherFeats
         var spellSniperGroup = GroupFeats.MakeGroup("FeatGroupSpellSniper", NAME, spellSniperFeats);
 
         feats.AddRange(spellSniperFeats);
+
+        spellSniperGroup.mustCastSpellsPrerequisite = true;
 
         return spellSniperGroup;
     }

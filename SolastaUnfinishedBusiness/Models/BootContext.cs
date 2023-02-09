@@ -84,6 +84,7 @@ internal static class BootContext
 
         // Item Options must be loaded after Item Crafting
         ItemCraftingMerchantContext.Load();
+        RecipeHelper.AddRecipeIcons();
 
         MerchantContext.Load();
 
@@ -360,7 +361,8 @@ internal static class BootContext
 
     internal static void OpenChangeLog()
     {
-        OpenUrl($"file://{Main.ModFolder}/ChangeLogHistory.txt");
+        OpenUrl(
+            "https://raw.githubusercontent.com/SolastaMods/SolastaUnfinishedBusiness/master/SolastaUnfinishedBusiness/ChangelogHistory.txt");
     }
 
     private static void OpenUrl(string url)

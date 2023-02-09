@@ -1,4 +1,5 @@
 ﻿namespace SolastaUnfinishedBusiness.CustomInterfaces;
+
 public interface IModifyMagicEffectOnTarget
 {
     public EffectDescription ModifyEffect(

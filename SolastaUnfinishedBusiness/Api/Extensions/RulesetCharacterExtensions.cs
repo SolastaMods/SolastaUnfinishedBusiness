@@ -25,8 +25,18 @@ internal static class RulesetCharacterExtensions
     }
 #endif
 
+    internal static RulesetItem GetMainWeapon(this RulesetCharacter hero)
+    {
+        return hero.GetItemInSlot(EquipmentDefinitions.SlotTypeMainHand);
+    }
+
+    internal static RulesetItem GetOffhandWeapon(this RulesetCharacter hero)
+    {
+        return hero.GetItemInSlot(EquipmentDefinitions.SlotTypeOffHand);
+    }
+
     // ReSharper disable once UnusedParameter.Global
-    internal static bool IsWearingMediumArmor([NotNull] this RulesetCharacter rulesetCharacter)
+    internal static bool IsWearingMediumArmor([NotNull] this RulesetCharacter _)
     {
         return false;
     }
@@ -434,16 +444,16 @@ internal static class RulesetCharacterExtensions
     {
         var toggleName = actionId.ToString();
 
-        return !rulesetCharacter.dummy.Contains(toggleName);
+        return !rulesetCharacter.ToggledPowersOn.Contains(toggleName);
     }
 
     internal static void DisableToggle(this RulesetCharacter rulesetCharacter, Id actionId)
     {
         var toggleName = actionId.ToString();
 
-        if (!rulesetCharacter.dummy.Contains(toggleName))
+        if (!rulesetCharacter.ToggledPowersOn.Contains(toggleName))
         {
-            rulesetCharacter.dummy += toggleName;
+            rulesetCharacter.ToggledPowersOn.Add(toggleName);
         }
     }
 
@@ -451,6 +461,6 @@ internal static class RulesetCharacterExtensions
     {
         var toggleName = actionId.ToString();
 
-        rulesetCharacter.dummy = rulesetCharacter.dummy.Replace(toggleName, String.Empty);
+        rulesetCharacter.ToggledPowersOn.Remove(toggleName);
     }
 }

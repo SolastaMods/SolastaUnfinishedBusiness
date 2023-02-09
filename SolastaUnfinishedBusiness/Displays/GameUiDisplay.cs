@@ -308,18 +308,19 @@ internal static class GameUiDisplay
         if (UI.Toggle(Gui.Localize("ModUi/&EnableInventoryFilteringAndSorting"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.EnableInventoryFilteringAndSorting = toggle;
-            Main.Settings.EnableInventoryTaintNonProficientItemsRed = toggle;
             InventoryManagementContext.RefreshControlsVisibility();
         }
 
-        if (Main.Settings.EnableInventoryFilteringAndSorting)
+        toggle = Main.Settings.EnableInventoryTaintNonProficientItemsRed;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableInventoryTaintNonProficientItemsRed"), ref toggle, UI.AutoWidth()))
         {
-            toggle = Main.Settings.EnableInventoryTaintNonProficientItemsRed;
-            if (UI.Toggle(Gui.Localize("ModUi/&EnableInventoryTaintNonProficientItemsRed"), ref toggle,
-                    UI.AutoWidth()))
-            {
-                Main.Settings.EnableInventoryTaintNonProficientItemsRed = toggle;
-            }
+            Main.Settings.EnableInventoryTaintNonProficientItemsRed = toggle;
+        }
+
+        toggle = Main.Settings.EnableInventoryTintKnownRecipesRed;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableInventoryTintKnownRecipesRed"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableInventoryTintKnownRecipesRed = toggle;
         }
 
         toggle = Main.Settings.EnableInvisibleCrownOfTheMagister;
@@ -327,6 +328,21 @@ internal static class GameUiDisplay
         {
             Main.Settings.EnableInvisibleCrownOfTheMagister = toggle;
             GameUiContext.SwitchCrownOfTheMagister();
+        }
+
+        toggle = Main.Settings.ShowCraftedItemOnRecipeIcon;
+        if (UI.Toggle(Gui.Localize("ModUi/&ShowCraftedItemOnRecipeIcon"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.ShowCraftedItemOnRecipeIcon = toggle;
+        }
+
+        if (Main.Settings.ShowCraftedItemOnRecipeIcon)
+        {
+            toggle = Main.Settings.SwapCraftedItemAndRecipeIcons;
+            if (UI.Toggle(Gui.Localize("ModUi/&SwapCraftedItemAndRecipeIcons"), ref toggle, UI.AutoWidth()))
+            {
+                Main.Settings.SwapCraftedItemAndRecipeIcons = toggle;
+            }
         }
 
         #endregion

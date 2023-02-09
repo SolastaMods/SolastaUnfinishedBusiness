@@ -1,10 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
+using System.Linq;
 using System.Reflection.Emit;
 using HarmonyLib;
 using JetBrains.Annotations;
+using SolastaUnfinishedBusiness.Api.Extensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionMagicAffinitys;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
@@ -16,10 +19,45 @@ public static class ItemMenuModalPatcher
     [UsedImplicitly]
     public static class SetupFromItem_Patch
     {
+#if false
+        private static bool IsSpellDefinitionOnRepertoire(
+            RulesetActor rulesetActor,
+            RulesetSpellRepertoire spellRepertoire,
+            SpellDefinition spellDefinition)
+        {
+            if (spellRepertoire.SpellCastingFeature.HasAccessToSpell(spellDefinition) ||
+                spellRepertoire.AutoPreparedSpells.Contains(spellDefinition) ||
+                spellRepertoire.IsSpellDefinitionInExtraSpells(spellDefinition))
+            {
+                return true;
+            }
+
+            // only exceptional case a Wizard in game can get additional spells
+            return rulesetActor.HasAnyFeature(MagicAffinityGreenmageGreenMagicList) &&
+                   MagicAffinityGreenmageGreenMagicList.ExtendedSpellList.ContainsSpell(spellDefinition);
+        }
+#endif
+
         //PATCH: allows mark deity to work with MC heroes (Multiclass)
         private static bool RequiresDeity(ItemMenuModal itemMenuModal)
         {
             return itemMenuModal.GuiCharacter.RulesetCharacterHero.ClassesHistory.Exists(x => x.RequiresDeity);
+        }
+
+        //PATCH: only allow to scribe spells the scriber class can do
+        private static List<RulesetSpellRepertoire> SpellRepertoires(
+            RulesetCharacterHero rulesetCharacterHero,
+            GuiEquipmentItem guiEquipmentItem)
+        {
+            if (guiEquipmentItem.EquipementItem is not RulesetItemDevice rulesetItemDevice ||
+                rulesetItemDevice.UsableFunctions[0] is not { } rulesetDeviceFunction)
+            {
+                return rulesetCharacterHero.SpellRepertoires;
+            }
+
+            return rulesetCharacterHero.SpellRepertoires
+                .Where(x => x.SpellCastingFeature.SpellKnowledge == RuleDefinitions.SpellKnowledge.Spellbook)
+                .ToList();
         }
 
         [NotNull]
@@ -29,10 +67,18 @@ public static class ItemMenuModalPatcher
             var requiresDeityMethod = typeof(CharacterClassDefinition).GetMethod("get_RequiresDeity");
             var myRequiresDeityMethod = new Func<ItemMenuModal, bool>(RequiresDeity).Method;
 
-            return instructions.ReplaceCalls(requiresDeityMethod, "ItemMenuModal.SetupFromItem",
-                new CodeInstruction(OpCodes.Pop),
-                new CodeInstruction(OpCodes.Ldarg_0),
-                new CodeInstruction(OpCodes.Call, myRequiresDeityMethod));
+            var spellRepertoiresMethod = typeof(RulesetCharacter).GetMethod("get_SpellRepertoires");
+            var mySpellRepertoiresMethod =
+                new Func<RulesetCharacterHero, GuiEquipmentItem, List<RulesetSpellRepertoire>>(SpellRepertoires).Method;
+
+            return instructions
+                .ReplaceCalls(requiresDeityMethod, "ItemMenuModal.SetupFromItem1",
+                    new CodeInstruction(OpCodes.Pop),
+                    new CodeInstruction(OpCodes.Ldarg_0),
+                    new CodeInstruction(OpCodes.Call, myRequiresDeityMethod))
+                .ReplaceCalls(spellRepertoiresMethod, "ItemMenuModal.SetupFromItem2",
+                    new CodeInstruction(OpCodes.Ldarg_3),
+                    new CodeInstruction(OpCodes.Call, mySpellRepertoiresMethod));
         }
     }
 }

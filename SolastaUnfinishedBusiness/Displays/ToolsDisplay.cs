@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Linq;
 using HarmonyLib;
 using SolastaUnfinishedBusiness.Api.Infrastructure;
@@ -55,9 +56,13 @@ internal static class ToolsDisplay
     private static readonly string[] ItemsWeaponTagsFiltersLabels =
         ItemsWeaponTagsFilters.Select(x => x.Item1).ToArray();
 
-    private static bool DisplayItemsToggle { get; set; }
+    private static bool DisplayAdventureToggle { get; set; }
 
     private static bool DisplayFactionRelationsToggle { get; set; }
+
+    private static bool DisplayItemsToggle { get; set; }
+
+    private static bool DisplaySettingsToggle { get; set; }
 
     private static Vector2 ItemPosition { get; set; } = Vector2.zero;
 
@@ -66,6 +71,8 @@ internal static class ToolsDisplay
     private static int CurrentItemsItemTagsFilterIndex { get; set; }
 
     private static int CurrentItemsWeaponTagsFilterIndex { get; set; }
+
+    private static string ExportFileName { get; set; }
 
     private static void SetFactionRelation(string name, int value)
     {
@@ -79,8 +86,10 @@ internal static class ToolsDisplay
     internal static void DisplayTools()
     {
         DisplayGeneral();
-        DisplayItems();
+        DisplayAdventure();
         DisplayFactionRelations();
+        DisplayItems();
+        DisplaySettings();
 
         UI.Label();
     }
@@ -123,9 +132,24 @@ internal static class ToolsDisplay
         {
             Main.Settings.EnableHotkeyDebugOverlay = toggle;
         }
+    }
+
+    private static void DisplayAdventure()
+    {
+        var toggle = DisplayAdventureToggle;
 
         UI.Label();
-        UI.Label(Gui.Localize("ModUi/&Adventure"));
+
+        if (UI.DisclosureToggle(Gui.Localize("ModUi/&Adventure"), ref toggle))
+        {
+            DisplayAdventureToggle = toggle;
+        }
+
+        if (!DisplayAdventureToggle)
+        {
+            return;
+        }
+
         UI.Label();
 
         toggle = Main.Settings.EnableTogglesToOverwriteDefaultTestParty;
@@ -232,7 +256,7 @@ internal static class ToolsDisplay
 
         UI.Label();
 
-        if (UI.DisclosureToggle(Gui.Localize("ModUi/&FactionRelations"), ref toggle, 200))
+        if (UI.DisclosureToggle(Gui.Localize("ModUi/&FactionRelations"), ref toggle))
         {
             DisplayFactionRelationsToggle = toggle;
         }
@@ -293,7 +317,7 @@ internal static class ToolsDisplay
 
         UI.Label();
 
-        if (UI.DisclosureToggle(Gui.Localize("ModUi/&Items"), ref toggle, 200))
+        if (UI.DisclosureToggle(Gui.Localize("ModUi/&Items"), ref toggle))
         {
             DisplayItemsToggle = toggle;
         }
@@ -413,6 +437,72 @@ internal static class ToolsDisplay
 
                 UI.Label(label, UI.AutoWidth());
             }
+        }
+    }
+
+    private static void DisplaySettings()
+    {
+        var toggle = DisplaySettingsToggle;
+
+        UI.Label();
+
+        if (UI.DisclosureToggle(Gui.Localize("ModUi/&Settings"), ref toggle))
+        {
+            DisplaySettingsToggle = toggle;
+        }
+
+        if (!DisplaySettingsToggle)
+        {
+            return;
+        }
+
+        UI.Label();
+        UI.Label(Gui.Localize("ModUi/&SettingsHelp"));
+        UI.Label();
+
+        using (UI.HorizontalScope())
+        {
+            UI.ActionButton(Gui.Localize("ModUi/&SettingsExport"), () =>
+            {
+                Main.SaveSettings(ExportFileName);
+            }, UI.Width(144));
+
+            UI.ActionButton(Gui.Localize("ModUi/&SettingsRemove"), () =>
+            {
+                Main.RemoveSettings(ExportFileName);
+            }, UI.Width(144));
+
+            var text = ExportFileName;
+
+            UI.ActionTextField(ref text, String.Empty, s => { ExportFileName = s; }, null, UI.Width(144));
+        }
+
+        using (UI.HorizontalScope())
+        {
+            UI.ActionButton(Gui.Localize("ModUi/&SettingsRemove"), Main.LoadSettingFilenames, UI.Width(144));
+            UI.ActionButton(Gui.Localize("ModUi/&SettingsOpenFolder"), () =>
+            {
+                Process.Start(new ProcessStartInfo
+                {
+                    FileName = Main.SettingsFolder, UseShellExecute = true, Verb = "open"
+                });
+            }, UI.Width(292));
+        }
+
+        UI.Label();
+
+        if (Main.SettingsFiles.Length == 0)
+        {
+            return;
+        }
+
+        UI.Label(Gui.Localize("ModUi/&SettingsLoad"));
+        UI.Label();
+
+        var intValue = -1;
+        if (UI.SelectionGrid(ref intValue, Main.SettingsFiles, Main.SettingsFiles.Length, 4, UI.Width(440)))
+        {
+            Main.LoadSettings(Main.SettingsFiles[intValue]);
         }
     }
 }

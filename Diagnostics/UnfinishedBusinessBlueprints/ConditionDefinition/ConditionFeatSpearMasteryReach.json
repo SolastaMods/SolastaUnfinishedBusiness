@@ -4,20 +4,20 @@
   "parentCondition": null,
   "conditionType": "Beneficial",
   "features": [
-    "Definition:SavingThrowAffinityMinkSpike:c0c6e5f5-91c3-574c-85da-668834602a52"
+    "Definition:FeatureFeatSpearMasteryReach:f89dec71-415b-5375-ada8-6a66fbacb34b"
   ],
   "allowMultipleInstances": false,
   "silentWhenAdded": false,
   "silentWhenRemoved": false,
   "terminateWhenRemoved": false,
-  "specialDuration": true,
-  "durationType": "Round",
-  "durationParameterDie": "D1",
+  "specialDuration": false,
+  "durationType": "Hour",
+  "durationParameterDie": "D4",
   "durationParameter": 1,
   "forceTurnOccurence": false,
   "turnOccurence": "EndOfTurn",
   "specialInterruptions": [
-    "SavingThrow"
+    "AnyBattleTurnEnd"
   ],
   "interruptionRequiresSavingThrow": false,
   "interruptionSavingThrowComputationMethod": "SaveOverride",
@@ -88,7 +88,7 @@
   },
   "timeToWaitBeforeApplyingShader": 0.5,
   "timeToWaitBeforeRemovingShader": 0.5,
-  "possessive": false,
+  "possessive": true,
   "amountOrigin": "None",
   "baseAmount": 0,
   "additiveAmount": false,
@@ -130,13 +130,13 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Condition/&ConditionMinkSpikeTitle",
-    "description": "Condition/&ConditionMinkSpikeDescription",
+    "title": "Feature/&PowerFeatSpearMasteryReachTitle",
+    "description": "Feature/&PowerFeatSpearMasteryReachDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "",
-      "m_SubObjectName": null,
-      "m_SubObjectType": null
+      "m_AssetGUID": "f13223f6db6229143b50b9afcee438ce",
+      "m_SubObjectName": "ConditionGuided",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
@@ -151,7 +151,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "3df1302f-2ff2-5fa9-8630-902c97688499",
+  "guid": "07af8c69-cb28-56a0-99ef-9ad7f46e8125",
   "contentPack": 9999,
-  "name": "ConditionMinkSpike"
+  "name": "ConditionFeatSpearMasteryReach"
 }

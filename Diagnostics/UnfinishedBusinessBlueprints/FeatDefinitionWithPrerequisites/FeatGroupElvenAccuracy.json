@@ -1,5 +1,5 @@
 {
-  "$type": "FeatDefinition, Assembly-CSharp",
+  "$type": "SolastaUnfinishedBusiness.CustomDefinitions.FeatDefinitionWithPrerequisites, SolastaUnfinishedBusiness",
   "compatibleClassesPrerequisite": [],
   "mustCastSpellsPrerequisite": false,
   "compatibleRacesPrerequisite": [],
@@ -9,14 +9,14 @@
   "armorProficiencyPrerequisite": false,
   "armorProficiencyCategory": "",
   "hasFamilyTag": true,
-  "familyTag": "FadeAway",
+  "familyTag": "ElvenPrecision",
   "knownFeatsPrerequisite": [],
   "features": [],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
-    "title": "Feat/&FeatGroupFadeAwayTitle",
-    "description": "Feat/&FeatGroupFadeAwayDescription",
+    "title": "Feat/&FeatGroupElvenAccuracyTitle",
+    "description": "Feat/&FeatGroupElvenAccuracyDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -36,7 +36,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "b6aa78a6-05c3-593b-ae5f-e177740a73c2",
+  "guid": "fc305079-6815-5a08-b3e5-fcfeea95d903",
   "contentPack": 9999,
-  "name": "FeatGroupFadeAway"
+  "name": "FeatGroupElvenAccuracy"
 }

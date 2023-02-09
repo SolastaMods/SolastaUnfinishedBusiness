@@ -473,7 +473,7 @@ internal sealed class AddBonusTorchAttack : AddExtraAttackBase
     {
         var item = hero.CharacterInventory.InventorySlotsByName[slot].EquipedItem;
 
-        if (item == null || !ValidatorsCharacter.OffHandHasLightSource(hero))
+        if (item == null || !ValidatorsCharacter.HasLightSourceOffHand(hero))
         {
             return;
         }

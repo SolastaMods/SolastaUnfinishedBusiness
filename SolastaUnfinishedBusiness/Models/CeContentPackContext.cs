@@ -13,7 +13,7 @@ internal static class CeContentPackContext
 
     internal static void Load()
     {
-        var sprite = Sprites.GetSprite("ContentPack", Resources.ContentPack, 128);
+        var sprite = Sprites.GetSprite("ContentPack", Resources.ContentPack, 64);
 
         _ = ContentPackDefinitionBuilder
             .Create(CeContentPack.ToString())
@@ -28,18 +28,6 @@ internal static class CeContentPackContext
         if (DiagnosticsContext.IsCeDefinition(item))
         {
             tags.TryAdd(CeTag, TagsDefinitions.Criticity.Normal);
-        }
-    }
-
-    internal static void AddCeSpellTag(SpellDefinition spell, Dictionary<string, TagsDefinitions.Criticity> tags)
-    {
-        if (SpellsContext.Spells.TryGetValue(spell, out _))
-        {
-            tags.TryAdd(CeTag, TagsDefinitions.Criticity.Normal);
-        }
-        else // Not all CE spells are registered in SpellsContext
-        {
-            AddCeTag(spell, tags);
         }
     }
 }

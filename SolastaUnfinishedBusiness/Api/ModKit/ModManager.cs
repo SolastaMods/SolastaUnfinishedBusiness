@@ -103,7 +103,7 @@ internal sealed class ModManager<TCore, TSettings>
 
     private TCore Core { get; set; }
 
-    internal TSettings Settings { get; private set; }
+    internal TSettings Settings { get; set; }
 
     private bool Enabled { get; set; }
 

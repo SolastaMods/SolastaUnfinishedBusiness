@@ -5,7 +5,6 @@ using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomInterfaces;
-using SolastaUnfinishedBusiness.Models;
 using UnityEngine;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterSubclassDefinitions;
@@ -56,7 +55,7 @@ internal sealed class CircleOfTheAncientForest : AbstractSubclass
         var powerPoolAncientForestHerbalBrew = FeatureDefinitionPowerBuilder
             .Create("PowerPoolAncientForestHerbalBrew")
             .SetGuiPresentation(Category.Feature, PotionRemedy)
-            .SetUsesFixed(ActivationTime.Rest, RechargeRate.LongRest)
+            .SetUsesProficiencyBonus(ActivationTime.Action)
             .SetBonusToAttack(true)
             .AddToDB();
 
@@ -69,17 +68,6 @@ internal sealed class CircleOfTheAncientForest : AbstractSubclass
             BuildHerbalBrew(powerPoolAncientForestHerbalBrew, DamageAffinityPoisonResistance, PotionOfHeroism),
             BuildHerbalBrew(powerPoolAncientForestHerbalBrew, DamageAffinityRadiantResistance, PotionOfInvisibility)
         );
-
-        _ = RestActivityDefinitionBuilder
-            .Create("RestActivityAncientForestToxifying")
-            .SetGuiPresentation(powerPoolAncientForestHerbalBrew.GuiPresentation)
-            .SetRestData(
-                RestDefinitions.RestStage.AfterRest,
-                RestType.LongRest,
-                RestActivityDefinition.ActivityCondition.CanUsePower,
-                PowerBundleContext.UseCustomRestPowerFunctorName,
-                powerPoolAncientForestHerbalBrew.name)
-            .AddToDB();
 
         var lightAffinityAncientForest = FeatureDefinitionLightAffinityBuilder
             .Create("LightAffinityAncientForestPhotosynthesis")
@@ -244,7 +232,7 @@ internal sealed class CircleOfTheAncientForest : AbstractSubclass
         return FeatureDefinitionPowerSharedPoolBuilder
             .Create(powerName)
             .SetGuiPresentation(guiPresentation)
-            .SetSharedPool(ActivationTime.NoCost, pool)
+            .SetSharedPool(ActivationTime.BonusAction, pool)
             .SetEffectDescription(brewEffect)
             .AddToDB();
     }
@@ -324,7 +312,7 @@ internal sealed class CircleOfTheAncientForest : AbstractSubclass
         return FeatureDefinitionPowerSharedPoolBuilder
             .Create(powerName)
             .SetGuiPresentation(guiPresentation)
-            .SetSharedPool(ActivationTime.NoCost, pool)
+            .SetSharedPool(ActivationTime.Action, pool)
             .SetEffectDescription(brewEffect)
             .AddToDB();
     }

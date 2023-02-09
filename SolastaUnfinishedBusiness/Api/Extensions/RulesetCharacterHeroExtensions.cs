@@ -122,6 +122,11 @@ internal static class RulesetCharacterHeroExtensions
         return hero.GetItemInSlot(EquipmentDefinitions.SlotTypeMainHand);
     }
 
+    internal static RulesetItem GetOffhandWeapon(this RulesetCharacterHero hero)
+    {
+        return hero.GetItemInSlot(EquipmentDefinitions.SlotTypeOffHand);
+    }
+
     internal static int GetAttunementLimit([CanBeNull] this RulesetCharacterHero hero)
     {
         var limit = 3;

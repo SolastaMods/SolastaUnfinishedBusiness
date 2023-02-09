@@ -64,38 +64,11 @@ internal static class ItemCraftingMerchantContext
         Bolt_Alchemy_Flash.GuiPresentation.spriteReference =
             Sprites.GetSprite("RadiantBolt", Resources.RadiantBolt, 120, 125);
 
-        CraftingManual_Alchemy_Corrosive_Bolts.GuiPresentation.spriteReference =
-            Sprites.GetSprite("RecipeAcidBolt", Resources.RecipeAcidBolt, 127, 125);
-
-        CraftingManual_Alchemy_Flaming_Bolts.GuiPresentation.spriteReference =
-            Sprites.GetSprite("RecipeFlamingBolt", Resources.RecipeFlamingBolt, 127, 125);
-
-        CraftingManual_Alchemy_Flash_Bolts.GuiPresentation.spriteReference =
-            Sprites.GetSprite("RecipeRadiantBolt", Resources.RecipeRadiantBolt, 127, 125);
-
         ArtisanToolSmithTools.GuiPresentation.spriteReference =
             Sprites.GetSprite("ArtisanToolSmithTools", Resources.ArtisanToolSmithTools, 118, 120);
 
         HerbalismKit.GuiPresentation.spriteReference =
             Sprites.GetSprite("RecipeRadiantBolt", Resources.HerbalismKit, 120, 121);
-
-        CraftingManualRemedy.GuiPresentation.spriteReference =
-            Sprites.GetSprite("CraftingManualRemedy", Resources.CraftingManualRemedy, 128, 128);
-
-        CraftingManualPotionOfSuperiorHealing.GuiPresentation.spriteReference =
-            Sprites.GetSprite("CraftingManualPotionOfSuperiorHealing", Resources.CraftingManualPotionOfSuperiorHealing,
-                128, 128);
-
-        CraftingManualPotionOfHealing.GuiPresentation.spriteReference =
-            Sprites.GetSprite("CraftingManualPotionOfHealing", Resources.CraftingManualPotionOfHealing, 128, 128);
-
-        CraftingManualPotionOfGreaterHealing.GuiPresentation.spriteReference =
-            Sprites.GetSprite("CraftingManualPotionOfGreaterHealing", Resources.CraftingManualPotionOfGreaterHealing,
-                128, 128);
-
-        CraftingManualScrollOfScorchingRay.GuiPresentation.spriteReference =
-            Sprites.GetSprite("CraftingManualScrollOfScorchingRay", Resources.CraftingManualScrollOfScorchingRay,
-                128, 128);
     }
 
     private static void LoadClothingGorimStock()

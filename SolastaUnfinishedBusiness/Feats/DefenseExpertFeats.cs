@@ -63,9 +63,15 @@ internal static class DefenseExpertFeats
 
         feats.AddRange(featArcaneDefense, featCharismaticDefense, featWiseDefense);
 
-        GroupFeats.MakeGroup("FeatGroupDefenseExpert", DefenseExpert,
+        var featGroupDefenseExpert = GroupFeats.MakeGroup("FeatGroupDefenseExpert", DefenseExpert,
             featArcaneDefense,
             featCharismaticDefense,
             featWiseDefense);
+
+        GroupFeats.FeatGroupDefenseCombat.AddFeats(
+            featGroupDefenseExpert);
+
+        GroupFeats.FeatGroupUnarmoredCombat.AddFeats(
+            featGroupDefenseExpert);
     }
 }

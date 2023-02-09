@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Diagnostics;
 using System.IO;
+using System.Linq;
 using System.Reflection;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.ModKit;
@@ -16,19 +17,21 @@ internal static class Main
 
     internal static readonly string ModFolder = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
     private static ModManager<Core, Settings> Mod { get; set; }
+    private static UnityModManager.ModEntry ModEntry { get; set; }
 
     internal static bool Enabled { get; private set; }
 
     internal static Action Enable { get; private set; }
 
-    private static UnityModManager.ModEntry.ModLogger Logger { get; set; }
-
+    internal static string SettingsFolder => Path.Combine(ModFolder, "Settings");
+    internal static string[] SettingsFiles { get; private set; }
+    internal static string SettingsFilename { get; private set; } = String.Empty;
     internal static Settings Settings => Mod.Settings;
 
     [Conditional("DEBUG")]
     internal static void Log(string msg, bool console = false)
     {
-        Logger.Log(msg);
+        ModEntry.Logger.Log(msg);
 
         if (!console)
         {
@@ -37,35 +40,37 @@ internal static class Main
 
         var game = Gui.Game;
 
-        if (game != null)
+        if (game == null)
         {
-            game.GameConsole?.LogSimpleLine(msg);
+            return;
         }
+
+        game.GameConsole?.LogSimpleLine(msg);
     }
 
     internal static void Error(Exception ex)
     {
-        Logger.Error(ex.ToString());
+        ModEntry.Logger.Error(ex.ToString());
     }
 
     internal static void Error(string msg)
     {
-        Logger.Error(msg);
+        ModEntry.Logger.Error(msg);
     }
 
     internal static void Info(string msg)
     {
-        Logger.Log(msg);
+        ModEntry.Logger.Log(msg);
     }
 
     [UsedImplicitly]
-    public static bool Load([NotNull] UnityModManager.ModEntry modEntry)
+    internal static bool Load([NotNull] UnityModManager.ModEntry modEntry)
     {
         try
         {
             var assembly = Assembly.GetExecutingAssembly();
 
-            Logger = modEntry.Logger;
+            ModEntry = modEntry;
             Mod = new ModManager<Core, Settings>();
             Mod.Enable(modEntry, assembly);
 
@@ -81,7 +86,8 @@ internal static class Main
             {
                 Enabled = true;
                 new MenuManager().Enable(modEntry, assembly);
-                Logger.Log("enabled.");
+                LoadSettingFilenames();
+                ModEntry.Logger.Log("enabled.");
             };
 
             TranslatorContext.LoadCustomLanguages();
@@ -94,5 +100,70 @@ internal static class Main
         }
 
         return true;
+    }
+
+    internal static void LoadSettingFilenames()
+    {
+        if (!Directory.Exists(SettingsFolder))
+        {
+            Directory.CreateDirectory(SettingsFolder);
+        }
+
+        SettingsFiles = Directory.GetFiles(SettingsFolder)
+            .Where(x => x.EndsWith(".xml"))
+            .Select(Path.GetFileNameWithoutExtension)
+            .ToArray();
+    }
+
+    private static bool ValidateFilename(ref string filename)
+    {
+        filename = string.Concat(filename.Split(Path.GetInvalidFileNameChars()));
+
+        if (string.IsNullOrEmpty(filename))
+        {
+            return false;
+        }
+
+        filename = Path.GetFileName(filename) + ".xml";
+
+        return true;
+    }
+
+    internal static void SaveSettings(string filename)
+    {
+        if (!ValidateFilename(ref filename))
+        {
+            return;
+        }
+
+        SettingsFilename = Path.Combine(SettingsFolder, filename);
+        UnityModManager.ModSettings.Save(Settings, ModEntry);
+        SettingsFilename = String.Empty;
+
+        LoadSettingFilenames();
+    }
+
+    internal static void LoadSettings(string filename)
+    {
+        SettingsFilename = Path.Combine(SettingsFolder, $"{filename}.xml");
+        Mod.Settings = UnityModManager.ModSettings.Load<Settings>(ModEntry);
+        SettingsFilename = String.Empty;
+    }
+
+    internal static void RemoveSettings(string filename)
+    {
+        if (!ValidateFilename(ref filename))
+        {
+            return;
+        }
+
+        filename = Path.Combine(SettingsFolder, filename);
+
+        if (File.Exists(filename))
+        {
+            File.Delete(filename);
+        }
+
+        LoadSettingFilenames();
     }
 }

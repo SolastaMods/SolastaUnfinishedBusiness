@@ -264,6 +264,10 @@ You gain the ability to cast the invisibility, inflict wounds, and false life sp
 [*][b]Shield Expert[/b]: You have trained in the use of a shield as a weapon. It becomes a melee weapon that you are proficient with that deals 1d4 bludgeoning damage. You gain advantage on shove attempts while wielding a shield.
 [*][b]Slasher [Dex][/b]: You've learned where to cut to have the greatest results. Increase your Dexterity by 1, to a maximum of 20. When you hit a creature with an attack that deals slashing damage, you can reduce the speed of the target by 10 feet until the start of your next turn. When you score a critical hit you grievously wound it. Until the start of your next turn, the target has disadvantage on all attack rolls.
 [*][b]Slasher [Str][/b]: You've learned where to cut to have the greatest results. Increase your Strength by 1, to a maximum of 20. When you hit a creature with an attack that deals slashing damage, you can reduce the speed of the target by 10 feet until the start of your next turn. When you score a critical hit you grievously wound it. Until the start of your next turn, the target has disadvantage on all attack rolls.
+[*][b]Spear Mastery[/b]: Though the spear is a simple weapon to learn, it rewards you for the time you have taken to master it:
+• You gain a +1 bonus to attack rolls you make with a spear and its damage die changes from a d6 to a d8, and from a d8 to a d10 when wielded with two hands.
+• As a bonus action you can brace your spear to intercept approaching enemies. You can use reaction to perform attack of opportunity with a spear on enemy that enters your reach and deal extra die of damage if that attack hits.
+• As a bonus action, you can increase your reach with a spear by 5 feet for the rest of your turn.
 [*][b]Spell Sniper [Cleric][/b]: You learn two cantrips of your choice from the Cleric spell list. When you cast a spell that requires you to make an attack roll, the spell's range is doubled. Your ranged spell attacks ignore half cover and three-quarters cover.
 [*][b]Spell Sniper [Druid][/b]: You learn two cantrips of your choice from the Druid spell list. When you cast a spell that requires you to make an attack roll, the spell's range is doubled. Your ranged spell attacks ignore half cover and three-quarters cover.
 [*][b]Spell Sniper [Sorcerer][/b]: You learn two cantrips of your choice from the Sorcerer spell list. When you cast a spell that requires you to make an attack roll, the spell's range is doubled. Your ranged spell attacks ignore half cover and three-quarters cover.
@@ -351,234 +355,63 @@ You can use a bonus action to select a weapon. Its attacks count as magical and 
 [list=1]
 
 [*][b]Acid Claws[/b]: Your fingernails sharpen, ready to deliver a corrosive attack. Make a melee spell attack against one creature within 5 feet of you. On a hit, the target takes 1d8 acid damage and has Armor Class lowered by 1 for 1 round (not stacking).
-[*][b]Acid Splash[/b]: Launch an acid bolt.
 [*][b]Air Blast[/b]: Fire a blast of focused air at your target.
-[*][b]Annoying Bee[/b]: The target sees an illusional bee harassing them and has disadvantage on concentration checks until the start of their next turn.
 [*][b]Blade Ward[/b]: You extend your hand and trace a sigil of warding in the air. Until the end of your next turn, you have resistance against bludgeoning, piercing, and slashing damage dealt by weapon attacks.
 [*][b]Burst of Radiance[/b]: Create a brilliant flash of shimmering light, damaging all enemies around you.
-[*][b]Chill Touch[/b]: Deal damage to one enemy and prevent healing for a limited time.
-[*][b]Dancing Lights[/b]: Create dancing lights that move at your command.
-[*][b]Dazzle[/b]: Lower a target's AC and prevent reaction until the start of its next turn.
-[*][b]Eldritch Blast[/b]: Unleash a beam of crackling energy with a ranged spell attack against the target. On a hit, it takes 1d10 force damage.
 [*][b]Enduring Sting[/b]: You sap the vitality of one creature you can see in range. The target must succeed on a Constitution saving throw or take 1d4 necrotic damage and fall prone.
-[*][b]Fire Bolt[/b]: Launch a fire bolt.
-[*][b]Guidance[/b]: Increase an ally's ability checks for a limited time.
 [*][b]Illuminating Sphere[/b]: Causes light sources such as torches and mana lamps in the area of effect to light up.
-[*][b]Light[/b]: An object you can touch emits a powerful light for a limited time.
-[*][b]Light[/b]: An object you can touch emits a powerful light for a limited time.
-[*][b]Mink Spike[/b]: You drive a disorienting spike of psychic energy into the mind of one creature you can see within range. The target must succeed on an Intelligence saving throw or take 1d6 psychic damage and subtract 1d4 from the next saving throw it makes before the end of your next turn.
+[*][b]Mind Spike[/b]: You drive a disorienting spike of psychic energy into the mind of one creature you can see within range. The target must succeed on an Intelligence saving throw or take 1d6 psychic damage and subtract 1d4 from the next saving throw it makes before the end of your next turn.
 [*][b]Minor Lifesteal[/b]: You drain life energy from a hostile creature you can see within range. Deal 1d8 Necrotic damage to target on hit, heal amount of HP equal to half of damage dealt and gain 1d4 temporary hit points. This spell has no effect on undead or constructs. Both damage and temporary HP gain additional die at levels 5, 11 and 17.
-[*][b]Poison Spray[/b]: Fire a poison spray at an enemy you can see, within range.
-[*][b]Produce Flame[/b]: Conjures a flickering flame in your hand, which generates light or can be hurled to inflict fire damage.
-[*][b]Ray of Frost[/b]: Launch a freezing ray at an enemy to damage and slow them.
-[*][b]Resistance[/b]: Grant an ally a one-time bonus to saving throws.
 [*][b]Resonating Strike[/b]: Select one creature within melee range of you and a different creature that you can see within 5 feet of main target. You make a melee attack with current weapon against first creature. On a hit, the target suffers the weapon attack's normal effects, and resonating sound leaps to second target, dealing thunder damage equal to your spellcasting ability modifier.
 At 5th level, the melee attack deals extra 1d8 thunder damage to the target on a hit, and the thunder damage to the second creature increases to 1d8 + your spellcasting ability modifier. Both damage rolls increase by 1d8 at 11th and 17th levels.
-[*][b]Sacred Flame[/b]: Strike an enemy with radiant damage.
-[*][b]Sacred Flame*[/b]: Strike an enemy with radiant damage.
-[*][b]Shadow Armor[/b]: Grants 3 temporary hit points for one minute.
-[*][b]Shadow Dagger[/b]: Launches an illusionary dagger that causes psychic damage.
-[*][b]Shillelagh[/b]: Conjures a magical club whose attacks are magical and use your spellcasting ability instead of strength.
-[*][b]Shine[/b]: An enemy you can see becomes luminous for a while.
-[*][b]Shocking Grasp[/b]: Damage and daze an enemy on a successful touch.
 [*][b]Sound Burst[/b]: Create a burst of thundering sound, forcing creatures adjacent to you to make a Constitution saving throw or take 1d6 thunder damage.
 This spell's damage increases by 1d6 when you reach 5th level (2d6), 11th level (3d6), and 17th level (4d6).
-[*][b]Spare the Dying[/b]: Touch a dying ally to stabilize them.
-[*][b]Sparkle[/b]: Target up to three objects that can be illuminated and light them up immediately.
 [*][b]Sunlit Blade[/b]: Make a melee attack with a weapon. On a hit, the target suffers the attack's normal effects, and is enveloped in glowing radiant energy, shedding dim light for the turn. Next attack against this creature while it is highlighted is done with advantage.
 At 5th level, the melee attack deals an extra 1d8 radiant damage to the target. The damage increases by another 1d8 at 11th level and 17th level.
 [*][b]Sword Storm[/b]: You create a momentary circle of spectral blades that sweep around you. All other creatures within 5 feet of you must each succeed on a Dexterity saving throw or take 1d6 force damage.
 [*][b]Thorny Vines[/b]: You create a long, whip-like vine covered in thorns that lashes out at your command toward a creature in range. Make a ranged spell attack against the target. If the attack hits, the creature takes 1d6 piercing damage, and you pull the creature up to 10 feet closer to you.
-[*][b]True Strike[/b]: Increases your chance to hit a target you can see, one time.
-[*][b]Venomous Spike[/b]: A bone spike that pierces and poisons its target.
-[*][b]Vicious Mockery[/b]: Unleash a torrent of magically-enhanced insults on a creature you can see. It must make a successful wisdom saving throw, or take psychic damage and have disadvantage on its next attack roll. The effect lasts until the end of its next turn.
-[*][b]Animal Friendship[/b]: Choose a beast that you can see within the spell's range. The beast must make a Wisdom saving throw or be charmed for the spell's duration.
-[*][b]Bane[/b]: Reduce your enemies' attack and saving throws for a limited time.
-[*][b]Bless[/b]: Increase your allies' saving throws and attack rolls for a limited time.
-[*][b]Burning Hands[/b]: Spray a cone of fire in front of you.
-[*][b]Burning Hands[/b]: Spray a cone of fire in front of you.
-[*][b]Charm Person[/b]: Makes an ally of an enemy.
 [*][b]Chromatic Orb[/b]: You hurl a 4-inch-diameter sphere of energy at a creature that you can see within range. You choose acid, cold, fire, lightning, poison, or thunder for the type of orb you create, and then make a ranged spell attack against the target. If the attack hits, the creature takes 3d8 damage of the type you chose.
-[*][b]Color Spray[/b]: Spray a luminous cone that briefly blinds your enemies. Roll 6d10: the total is how many hit points of creatures this spell can affect.
-[*][b]Comprehend Languages[/b]: For the duration of the spell, you understand the literal meaning of any spoken words that you hear.
-[*][b]Cure Wounds[/b]: Heal an ally by touch.
-[*][b]Detect Evil and Good[/b]: Detect nearby creatures of evil or good nature.
-[*][b]Detect Magic[/b]: Detect nearby magic objects or creatures.
-[*][b]Detect Poison and Disease[/b]: TMP For the duration you sense the presence and location of poisonous creatures and diseases within 6 cells of you.
-[*][b]Divine Favor[/b]: Gain additional radiant damage for a limited time.
 [*][b]Earth Tremor[/b]: You strike the ground and unleash a tremor of seismic force, hurling up earth, rock, and sand.
 [*][b]Ensnaring Strike[/b]: Your next hit causes additional piercing damage and your target is ensnared by vines.
-[*][b]Entangle[/b]: Creatures in a four-cell square area are restrained if they fail a STR saving throw
-[*][b]Expeditious Retreat[/b]: Gain movement points and become able to dash as a bonus action for a limited time.
-[*][b]Faerie Fire[/b]: Highlight creatures to give advantage to anyone attacking them.
-[*][b]False Life[/b]: Gain a few temporary hit points for a limited time.
-[*][b]Feather Fall[/b]: Provide a safe landing when you or an ally falls.
-[*][b]Fog Cloud[/b]: Generate a sphere of thick fog for a limited time. Creatures inside it cannot attack those on the outside.
-[*][b]Goodberry[/b]: Creates 10 berries infused with magic. Eating a berry restores 1 hit point and provides sustenance for a long rest. Berries vanish after a long rest.
-[*][b]Grease[/b]: Cover an area of 2 x 2 cells with grease. Creatures trying to cross it may fall prone.
-[*][b]Guiding Bolt[/b]: Launch a radiant attack against an enemy and make them easy to hit.
-[*][b]Healing Word[/b]: Heal an ally you can see.
-[*][b]Hellish Rebuke[/b]: When you are damaged by a creature within range, you can use your reaction to inflict fire damage back.
-[*][b]Heroism[/b]: An ally gains temporary hit points and cannot be frightened for a limited time.
-[*][b]Hideous Laughter[/b]: Make an enemy helpless with irresistible laughter.
-[*][b]Hunter's Mark[/b]: An enemy gets additional damage from you, and you can easily detect it for a limited time.
-[*][b]Identify[/b]: Identify the hidden properties of an object.
-[*][b]Inflict Wounds[/b]: Deal necrotic damage to an enemy you hit.
-[*][b]Jump[/b]: Increase an ally's jumping distance.
-[*][b]Longstrider[/b]: Increases an ally's speed by two cells per turn.
-[*][b]Mage Armor[/b]: Provide magical armor to an ally who doesn't wear armor.
-[*][b]Magic Missile[/b]: Strike one or more enemies with projectiles that can't miss.
-[*][b]Malediction[/b]: Until the spell ends, whenever you hit a target with an attack you deal an extra 1d6 magical damage of the same type as the attack's damage.
 [*][b]Mule[/b]: The recipient of this spell is able to ignore the effects of heavy loads or armor on movement speed. They can also carry slightly more weight.
-[*][b]Protect vs Evil & Good[/b]: Touch an ally to give them protection from evil or good creatures for a limited time.
 [*][b]Radiant Motes[/b]: Unleashes a swarm of 4 radiant projectiles that deal 1d4 radiant damage each.
 When you cast this spell using a spell slot of 2nd level or higher, the spell creates 1 more projectile for each slot above 1st.
 [*][b]Searing Smite[/b]: Your next hit causes additional fire damage and your target ignites in flames.
-[*][b]Shield[/b]: Increase your AC by 5 just before you would take a hit.
-[*][b]Shield of Faith[/b]: Increase an ally's AC by 2 for a limited time.
 [*][b]Skin of Retribution[/b]: Choose a type: Acid, Cold, Fire, Lightning, Poison, or Thunder. A protective elemental skin envelops you, covering you and your gear. You gain 5 temporary hit points per spell level for the duration. In addition, if a creature hits you with a melee attack while you have these temporary hit points, the creature takes 5 damage of the chosen type per spell level.
-[*][b]Sleep[/b]: Put a number of creatures to sleep for a limited time. Roll 5d8: the total is how many hit points of creatures this spell can affect.
 [*][b]Thunderous Smite[/b]: Your next hit causes additional thunder damage that is audible within 300 feet of you.
-[*][b]Thunderwave[/b]: Emit a wave of force that causes damage and pushes creatures and objects away.
 [*][b]Wrathful Smite[/b]: Your next hit causes additional psychic damage and your target mind explodes in pain.
-[*][b]Acid Arrow[/b]: Launch an acid arrow that deals some damage even if you miss your shot.
-[*][b]Aid[/b]: Temporarily increases hit points for up to three allies.
-[*][b]Barkskin[/b]: Gives you or an ally you can touch an AC of at least 16.
-[*][b]Blindness[/b]: Blind an enemy for one minute.
-[*][b]Blur[/b]: Makes you blurry and harder to hit for up to one minute.
-[*][b]Branding Smite[/b]: Your next hit causes additional radiant damage and your target becomes luminous.
-[*][b]Calm Emotions[/b]: Stops allies from being charmed or frightened and makes hostile humanoids indifferent.
-[*][b]Darkness[/b]: Create an area of magical darkness.
-[*][b]Darkvision[/b]: Grant Darkvision to the target.
-[*][b]Enhance Ability[/b]: Grant temporary powers to an ally for up to one hour.
-[*][b]Find Traps[/b]: Spot mechanical and magical traps, but not natural hazards.
-[*][b]Flame Blade[/b]: Evokes a fiery blade for ten minutes that you can wield in battle.
-[*][b]Flaming Sphere[/b]: Summons a movable, burning sphere.
-[*][b]Heat Metal[/b]: Causes metallic armor worn by a target creature to glow red hot, causing fire damage and disadvantage to attack rolls and ability checks. The damage can be repeated every turn with a bonus action.
-[*][b]Hold Person[/b]: Paralyze a humanoid you can see for a limited time.
-[*][b]Invisibility[/b]: Make an ally invisible for a limited time.
-[*][b]Knock[/b]: Magically open locked doors, chests, and the like.
-[*][b]Lesser Restoration[/b]: Remove a detrimental condition from an ally.
-[*][b]Levitate[/b]: Allow a creature to levitate and gain control of its aerial movement for a limited time. Can affect enemies if their size is medium or smaller.
-[*][b]Magic Weapon[/b]: A nonmagical weapon becomes a +1 weapon for up to one hour.
 [*][b]Mirror Image[/b]: Three illusory duplicates of yourself appear in your space. Until the spell ends, each time a creature targets you with an attack, roll a d20 to determine whether the attack instead targets one of your duplicates.
 If you have 3 duplicates, you must roll a 6 or higher to change the attack's target to a duplicate. With 2 duplicates, you must roll an 8 or higher. With 1 duplicate, you must roll an 11 or higher.
 A duplicate's AC equals 10 + your Dexterity modifier. If an attack hits a duplicate, the duplicate is destroyed. A duplicate can be destroyed only by an attack that hits it. It ignores all other damage and effects. The spell ends when all three duplicates are destroyed.
 A creature is unaffected by this spell if it is Blinded, or has Blindsight, Truesight or Tremorsense (doesn't apply if you don't touch ground).
-[*][b]Misty Step[/b]: Teleports you to a free cell you can see, no more than 6 cells away.
-[*][b]Moon Beam[/b]: Conjures a vertical column of moonlight which causes radiant damage. Shapechangers have disadvantage on the save.
-[*][b]Pass Without Trace[/b]: Make yourself and up to 5 allies stealthier for one hour.
 [*][b]Petal Storm[/b]: Choose an unoccupied 15-foot cube of air that you can see within range. An elemental force of swirling winds appears in the cube and lasts for the spell's duration. The cloud heavily obscures its area. Any creature that enters the storm for the first time on a turn or starts its turn there must make a Strength saving throw. On a failed save, the creature takes 3d4 slashing damage. As a bonus action, you can move the storm up to 30 feet in any direction.
-[*][b]Prayer of Healing[/b]: Heal multiple allies at the same time.
 [*][b]Protect Threshold[/b]: Tracing arcane sigils along its boundary, you can ward a doorway, window, or other portal from entry. For the duration, an invisible eldritch creature stalks the warded portal. Any creature that attempts to pass through the portal must make a Wisdom saving throw or take 4d6 psychic damage, or half as much on a successful save.
-[*][b]Protection from Poison[/b]: Cures and protects against poison.
 [*][b]Raise Skeleton[/b]: Summons <b>Skeleton</b>:
 Skeletons are animated by dark magic. They used to be living creatures but are now empty shells of hate, arisen from tombs or battlefields and craving for life… to kill.
 [*][b]Raise Skeleton Archer[/b]: Summons <b>Skeleton Archer</b>:
 Skeletons are animated by dark magic. They used to be living creatures but are now empty shells of hate, arisen from tombs or battlefields and craving for life… to kill.
-[*][b]Ray of Enfeeblement[/b]: Weaken an enemy so they deal less damage for one minute.
-[*][b]Scorching Ray[/b]: Fling rays of fire at one or more enemies.
-[*][b]See Invisibility[/b]: You can see invisible creatures.
 [*][b]Shadow Blade[/b]: You weave together threads of shadow to create a sword of solidified gloom in your hand.
-[*][b]Shatter[/b]: Triggers a sudden noise that causes Thunder Damage in a 2-cell radius.
-[*][b]Silence[/b]: Creates a sphere four cells in radius, inside which sound cannot exist. Stops thunder damage and prevents spellcasting using verbal components.
-[*][b]Spider Climb[/b]: Touch an ally to allow them to climb walls like a spider for a limited time.
-[*][b]Spike Growth[/b]: Grows spikes and thorns in the area, making the terrain difficult and causing damage for every cell of movement.
-[*][b]Spiritual Weapon[/b]: Summon a weapon that fights for you.
-[*][b]Beacon of Hope[/b]: Raise hope and vitality.
-[*][b]Bestow Curse[/b]: Curses a creature you can touch.
 [*][b]Blinding Smite[/b]: Your next hit causes additional radiant damage with your weapon flaring with a bright light. Additionally, the target must succeed on a Constitution saving throw or be blinded for 1 minute.
-[*][b]Call Lightning[/b]: Conjures a storm cloud from which you can call a vertical bolt of lightning to strike targets, dealing 3D10 lightning damage. Another bolt can be repeated every turn by using an action.
-[*][b]Conjure Animal[/b]: Summon spirits in the form of beasts to help you in battle
-[*][b]Counterspell[/b]: Interrupt an enemy's spellcasting.
-[*][b]Create Food[/b]: Conjure 15 units of food.
-[*][b]Daylight[/b]: Summon a globe of bright light.
-[*][b]Dispel Magic[/b]: End active spells on a creature or object.
-[*][b]Fear[/b]: Frighten creatures and force them to flee.
-[*][b]Fireball[/b]: Launch a fireball that explodes from a point of your choosing.
-[*][b]Fly[/b]: An ally you touch gains the ability to fly for a limited time.
-[*][b]Haste[/b]: Make an ally faster and more agile, and grant them an additional action for a limited time.
-[*][b]Hypnotic Pattern[/b]: Charms enemies to make them harmless until attacked, but also affects allies in range.
-[*][b]Lightning Bolt[/b]: Unleash a stroke of lightning in a direction of your choice, damaging everyone it touches.
-[*][b]Mass Healing Word[/b]: Instantly heals up to six allies you can see.
-[*][b]Protection from Energy[/b]: Touch one willing creature to give them resistance to this damage type.
 [*][b]Raise Ghoul[/b]: Summons <b>Ghoul</b>:
 A ravenous undead creature, constantly searching for flesh to eat.
-[*][b]Remove Curse[/b]: Removes all curses affecting the target.
-[*][b]Revivify[/b]: Brings one creature back to life, up to 1 minute after death.
-[*][b]Sleet Storm[/b]: Creates an area where the ground is slippery, vision is obscured, and concentration is harder.
-[*][b]Slow[/b]: Slows and impairs the actions of up to 6 creatures.
-[*][b]Spirit Guardians[/b]: Call forth spirits to protect you.
 [*][b]Spirit Shroud[/b]: You call forth spirits of the dead, which flit around you for the spell's duration. The spirits are intangible and invulnerable.
 Until the spell ends, any attack you make deals 1d8 extra damage when you hit a creature within 10 feet of you. This damage is radiant, necrotic, or cold (your choice when you cast the spell). Any creature that takes this damage can't regain hit points until the start of your next turn.
 In addition, any enemy creature within 10ft of you when you cast, or that enters or starts its turn in that range has its movement speed lowered by 10ft until start of its next turn.
 When you cast this spell using a spell slot of 4th level or higher, the damage increases by 1d8 for every two slot levels above 3rd.
-[*][b]Stinking Cloud[/b]: Create a cloud of incapacitating, noxious gas.
-[*][b]Tongues[/b]: Grants knowledge of all languages for one hour.
-[*][b]Vampiric Touch[/b]: Grants you a life-draining melee attack for one minute.
-[*][b]Wind Wall[/b]: Create a wall of wind that causes damage, pushes creatures and objects away, and disperses fogs and gases.
 [*][b]Winter's Breath[/b]: Create a blast of cold wind to chill your enemies and knock them prone.
-[*][b]Banishment[/b]: Banishes a creature as long as you concentrate. The creature can be permanently banished if it is extraplanar.
-[*][b]Black Tentacles[/b]: Conjures black tentacles that restrain and damage creatures within the area of effect.
-[*][b]Blight[/b]: Drains life from a creature, causing massive necrotic damage.
-[*][b]Confusion[/b]: Creates confusion and erratic behavior in a creature, possibly leading it to attack its allies.
-[*][b]Conjure Minor Elementals[/b]: Conjure elemental creatures under your command, which are dismissed when the spell ends or is broken.
-[*][b]Death Ward[/b]: Protects the creature once against instant death or being reduced to 0 hit points.
-[*][b]Dimension Door[/b]: Transfers the caster and a friendly creature to a specified destination.
-[*][b]Dominate Beast[/b]: Grants you control over an enemy beast.
-[*][b]Dreadful Omen[/b]: You whisper dreadful words that cause immense mental anguish in your enemies. On a failed wisdom saving throw, they take psychic damage and become frightened until the end of their next turn, moving away from you as much as possible. On a successful save, they take half as much damage and are not frightened.
-[*][b]Fire Shield[/b]: Grants resistance to fire or cold, and damages creatures attacking the caster with melee attacks.
-[*][b]Freedom of Movement[/b]: Grants immunity to movement restrictions, as well as being paralyzed or restrained.
-[*][b]Giant Insect[/b]: Conjures a giant version of a natural insect or arthropod.
-[*][b]Greater Invisibility[/b]: Target becomes invisible for the duration, even when attacking or casting spells.
-[*][b]Guardian of Faith[/b]: Conjures a large spectral guardian that damages approaching enemies.
-[*][b]Ice Storm[/b]: Causes bludgeoning and cold damage in the area, and turns the ground into difficult terrain.
-[*][b]Identify Creatures[/b]: Reveals full bestiary knowledge for the affected creatures.
-[*][b]Phantasmal Killer[/b]: Causes psychic damage to the target creature with each turn, unless a saving throw is successful or the effect ends.
 [*][b]Raise Skeletal Enforcer[/b]: Summons <b>Skeletal Enforcer</b>:
 A powerful undead creature armed with an axe and a shield.
 [*][b]Staggering Smite[/b]: Your next hit causes additional psychic damage with your weapon. The target must make a Wisdom saving throw. On a failed save, it has disadvantage on attack rolls and ability checks, and can't take reactions, until the end of its next turn.
-[*][b]Stoneskin[/b]: Grants resistance to non-magical bludgeoning, slashing, and piercing damage.
-[*][b]Wall of Fire[/b]: Create a burning wall that injures creatures in or next to it.
 [*][b]Banishing Smite[/b]: Your next hit causes additional force damage with your weapon. Additionally, if this attack reduces the target to 50 hit points of fewer, you banish it for 1 min.
-[*][b]Cloudkill[/b]: Creates an obscuring and poisonous cloud. The cloud moves every round.
-[*][b]Cone of Cold[/b]: Inflicts massive cold damage in the cone of effect.
-[*][b]Conjure Elemental[/b]: Conjures an elemental of the chosen element that fights alongside you. If you lose concentration, the elemental remains and becomes hostile.
-[*][b]Contagion[/b]: Hit a creature to inflict a disease from the options.
-[*][b]Dispel Evil and Good[/b]: Celestial, elementals, feys, fiends, and undead have disadvantage on attacks against you. This spell also allows you to cancel hostile enchantments or dismiss extraplanar creatures hit by your attacks once.
-[*][b]Dominate Person[/b]: Grants you control over an enemy creature.
 [*][b]Far Step[/b]: You teleport up to 60 feet to an unoccupied space you can see. On each of your turns before the spell ends, you can use a bonus action to teleport in this way again.
-[*][b]Flame Strike[/b]: Conjures a burning column of fire and radiance affecting all creatures inside.
-[*][b]Greater Restoration[/b]: Removes one detrimental condition, such as a charm or curse, or an effect that reduces an ability score or hit points.
-[*][b]Hold Monster[/b]: Paralyzes a creature unless it succeeds a WIS saving throw. No effect on undead.
-[*][b]Insect Plague[/b]: Summons a sphere of biting insects.
-[*][b]Mass Cure Wounds[/b]: Heals up to 6 creatures.
-[*][b]Mind Twist[/b]: Causes massive psychic damage to hostile creatures around you, and incapacitates them if they fail their INT saving throw.
-[*][b]Raise Dead[/b]: Brings one creature back to life, up to 10 days after death.
 [*][b]Raise Skeletal Knight[/b]: Summons <b>Skeletal Knight</b>:
 A powerful undead creature, created by raising a dead knight.
 [*][b]Raise Skeletal Marksman[/b]: Summons <b>Skeletal Marksman</b>:
 A powerful skeleton archer that shoots magical arrows imbued with necrotic magic.
-[*][b]Blade Barrier[/b]: Conjures a wall of razor sharp blades which causes 6d10 slashing damage to anyone crossing it
-[*][b]Chain Lightning[/b]: Target a creature with lightning, which can arc to 3 other targets within 6 cells.
-[*][b]Circle of Death[/b]: A sphere of negative energy causes Necrotic damage from a point you choose
-[*][b]Conjure Fey[/b]: Conjures a fey creature of challenge rating 1 to 6 to fight alongside you. If you lose concentration, the creature stays but becomes hostile.
-[*][b]Disintegrate[/b]: Causes massive force damage on the target, which can be disintegrated if reduced to 0 hit points
-[*][b]Eyebite[/b]: Your eyes gain a specific property which can target a creature each turn
-[*][b]Freezing Sphere[/b]: Toss a huge ball of cold energy that explodes on impact
-[*][b]Globe Of Invulnerability[/b]: A sphere surrounding you prevents any spell up to 5th level to affect anyone inside it. 
-[*][b]Harm[/b]: Inflicts devastating necrotic damage and reduces the maximum hit points accordingly. Cannot drop the target below 1 hit points
-[*][b]Heal[/b]: Heals 70 hit points and also removes blindness and diseases
-[*][b]Heroes Feast[/b]: Summons a feast which cures most ailments and grants immunity to poisonand being frightened, WIS save advantage, and increased maximum hitpoints
-[*][b]Hilarity[/b]: Choose one target. They fall down laughing, becoming prone and incapacitated, and take psychic damage until they save at the end of one of their turns, or until the spell ends.
 [*][b]Raise Spectral Avenger[/b]: Summons <b>Spectral Avenger</b>:
 A powerful, ethereal undead creature.
-[*][b]Sunbeam[/b]: You conjure a line of radiance which can burn and blind creatures in the line of effect; undead and oozes save with disadvantage. The beam can be retargeted each turn
-[*][b]True Seeing[/b]: A creature you touch gains True Sight for one hour
-[*][b]Wall of Thorns[/b]: Creates a wall of tough of needle-sharp thorns, that hurts and slows every creature in it.
 [*][b]Raise Wight[/b]: Summons <b>Wight</b>:
 A Wight
-[*][b]Resurrection[/b]: Brings one creature back to life, up to 100 years after death.
 [*][b]Reverse Gravity[/b]: This spell reverses gravity in a 50-foot-radius, 100-foot-high cylinder centered on a point within range.
 [*][b]Mind Blank[/b]: Until the spell ends, one willing creature you touch is immune to psychic damage, any effect that would sense its emotions or read its thoughts, divination spells, and the charmed condition.
 [*][b]Raise Wight Lord[/b]: Summons <b>Wight Lord</b>:
@@ -636,7 +469,7 @@ A powerful wight, trained to withstand the light of day.
 [list]
 
 [*][b]Zappastuff[/b]: maintenance, mod UI, infrastructure, gameplay, feats, fighting styles, invocations, rules, spells, quality of life, Half-elf variants, Blade Dancer, Ancient Forest, College of Guts, College of Life, Dead Master, Field Manipulator, Way of The Silhouette, Wild Master, Multiclass
-[*][b]TPABOBAP[/b]: game UI, infrastructure, gameplay, feats, invocations, spells, Dead Master, Elementalist, Moonlit, RiftWalker, SoulBlade, Tactician, Way of The Distant Hand, Inventor
+[*][b]TPABOBAP[/b]: game UI, infrastructure, gameplay, feats, invocations, spells, quality of life, Dead Master, Elementalist, Moonlit, RiftWalker, SoulBlade, Tactician, Way of The Distant Hand, Inventor
 [*][b]Nd[/b]: College of Harlequin, College of War Dancer, Marshal, Opportunist, Raven, Spell Shield
 [*][b]ImpPhil[/b]: api, builders, gameplay, rules, quality of life
 [*][b]ChrisJohnDigital[/b]: builders, gameplay, feats, fighting styles, original Tinkerer, original Wizard subclasses, Arcane Fighter, Spell Master, Spell Shield
@@ -644,7 +477,7 @@ A powerful wight, trained to withstand the light of day.
 [*][b]Haxermn[/b]: spells, Oath of Ancient, Oath of Hatred, Way of The Dragon
 [*][b]tivie[/b]: Circle of The Night, Path of The Spirits
 [*][b]ElAntonius[/b]: feats, fighting styles, Arcanist
-[*][b]DubhHerder[/b]: replace spiders, spells, original Warlock subclasses
+[*][b]DubhHerder[/b]: quality of life, spells, original Warlock subclasses
 [*][b]Holic75[/b]: spells, Bolgrif, Gnome
 [*][b]RedOrca[/b]: Path of The Light
 [*][b]DreadMaker[/b]: Forest Guardian
@@ -652,7 +485,7 @@ A powerful wight, trained to withstand the light of day.
 [*][b]Pikachar2[/b]: spells
 [*][b]Prioritizer[/b]: Russian translations
 [*][b]xxy961216[/b]: Chinese translations
-[*][b]GoogleTranslator[/b]: French, German, Italian, Portuguese and Spanish translations
-[*][b]Balmz[/b]: some powers and spells icons, icons improvements
+[*][b]Balmz[/b]: some power and spell icons
+[*][b]Taco[/b]: some weapon icons
 [/list]
 

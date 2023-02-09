@@ -1,4 +1,6 @@
-﻿using TA;
+﻿using System.Linq;
+using SolastaUnfinishedBusiness.CustomBehaviors;
+using TA;
 using static ActionDefinitions;
 
 namespace SolastaUnfinishedBusiness.Api.Extensions;
@@ -69,20 +71,9 @@ public static class GameLocationCharacterExtensions
 
     internal static RulesetAttackMode GetFirstRangedModeThatCanBeReadied(this GameLocationCharacter instance)
     {
-        foreach (var mode in instance.RulesetCharacter.AttackModes)
-        {
-            if (mode.ActionType != ActionType.Main)
-            {
-                continue;
-            }
-
-            if (mode.Ranged || mode.Thrown)
-            {
-                return mode;
-            }
-        }
-
-        return null;
+        return instance.RulesetCharacter.AttackModes
+            .Where(mode => mode.ActionType == ActionType.Main)
+            .FirstOrDefault(mode => mode.Ranged || mode.Thrown);
     }
 
     /**
@@ -91,12 +82,13 @@ public static class GameLocationCharacterExtensions
     internal static bool CanPerformOpportunityAttackOnCharacter(
         this GameLocationCharacter instance,
         GameLocationCharacter target,
-        int3 positionBefore,
-        int3 positionAfter,
+        int3? positionBefore,
+        int3? positionAfter,
         out RulesetAttackMode attackMode,
         out ActionModifier attackModifier,
         IGameLocationBattleService service = null,
-        bool accountAoOImmunity = false)
+        bool accountAoOImmunity = false,
+        IsWeaponValidHandler weaponValidator = null)
     {
         service ??= ServiceRepository.GetService<IGameLocationBattleService>();
         attackMode = null;
@@ -109,24 +101,40 @@ public static class GameLocationCharacterExtensions
 
         foreach (var mode in instance.RulesetCharacter.AttackModes)
         {
-            if (!mode.Reach)
+            if (mode.Ranged)
+            {
+                continue;
+            }
+
+            if (!(weaponValidator?.Invoke(mode, null, instance.RulesetCharacter) ?? true))
             {
                 continue;
             }
 
             // Prepare attack evaluation params
             var paramsBefore = new BattleDefinitions.AttackEvaluationParams();
-            paramsBefore.FillForPhysicalReachAttack(instance, instance.LocationPosition, mode,
-                target, positionBefore, new ActionModifier());
 
-            var paramsAfter = new BattleDefinitions.AttackEvaluationParams();
-            paramsAfter.FillForPhysicalReachAttack(instance, instance.LocationPosition, mode,
-                target, positionAfter, new ActionModifier());
+            paramsBefore.FillForPhysicalReachAttack(instance, instance.LocationPosition, mode,
+                target, positionBefore ?? target.LocationPosition, new ActionModifier());
 
             // Check if the attack is possible and collect the attack modifier inside the attackParams
-            if (!service.CanAttack(paramsBefore) || service.CanAttack(paramsAfter))
+            if (!service.CanAttack(paramsBefore))
             {
                 continue;
+            }
+
+            if (positionAfter != null)
+            {
+                var paramsAfter = new BattleDefinitions.AttackEvaluationParams();
+
+                paramsAfter.FillForPhysicalReachAttack(instance, instance.LocationPosition, mode,
+                    target, positionAfter.Value, new ActionModifier());
+
+                // skip if attack is still possible after move - target hasn't left reach yet
+                if (service.CanAttack(paramsAfter))
+                {
+                    continue;
+                }
             }
 
             attackMode = mode;
@@ -138,20 +146,30 @@ public static class GameLocationCharacterExtensions
         return false;
     }
 
-    internal static bool CanReactNoMatterUses(this GameLocationCharacter instance)
+    internal static bool CanReact(this GameLocationCharacter instance, bool ignoreReactionUses = false)
     {
         var character = instance.RulesetCharacter;
+
         if (character == null)
         {
             return false;
         }
 
-        if (character.HasConditionOfType(RuleDefinitions.ConditionProne))
+        if (character.HasConditionOfType(RuleDefinitions.ConditionProne)
+            || character.HasConditionOfType(RuleDefinitions.ConditionIncapacitated)
+            || character.HasConditionOfType(RuleDefinitions.ConditionStunned)
+            || character.HasConditionOfType(RuleDefinitions.ConditionParalyzed))
         {
             return false;
         }
 
+        if (!ignoreReactionUses)
+        {
+            return instance.GetActionTypeStatus(ActionType.Reaction) == ActionStatus.Available;
+        }
+
         var wasUsed = instance.currentActionRankByType[ActionType.Reaction] > 0;
+
         if (wasUsed)
         {
             instance.currentActionRankByType[ActionType.Reaction]--;

@@ -8,15 +8,15 @@
   "minimalAbilityScoreName": "Strength",
   "armorProficiencyPrerequisite": false,
   "armorProficiencyCategory": "",
-  "hasFamilyTag": true,
-  "familyTag": "ElvenPrecision",
+  "hasFamilyTag": false,
+  "familyTag": "",
   "knownFeatsPrerequisite": [],
   "features": [],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
-    "title": "Feat/&FeatGroupElvenAccuracyTitle",
-    "description": "Feat/&FeatGroupElvenAccuracyDescription",
+    "title": "Feat/&FeatGroupDefenseCombatTitle",
+    "description": "Feat/&FeatGroupDefenseCombatDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -36,7 +36,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "fc305079-6815-5a08-b3e5-fcfeea95d903",
+  "guid": "41b14fa2-53a6-57cd-9655-ae19d9ffe57a",
   "contentPack": 9999,
-  "name": "FeatGroupElvenAccuracy"
+  "name": "FeatGroupDefenseCombat"
 }

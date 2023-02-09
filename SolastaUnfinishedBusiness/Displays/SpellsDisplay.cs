@@ -23,6 +23,7 @@ internal static class SpellsDisplay
                 UI.Width(ModUi.PixelsPerColumn)))
         {
             Main.Settings.AllowAssigningOfficialSpells = toggle;
+            SpellsContext.SwitchAllowAssigningOfficialSpells();
         }
 
         UI.Label();

@@ -639,7 +639,7 @@ public static class CharacterBuildingManagerPatcher
         }
     }
 
-    //BUGFIX: considers subclass morphotype preferences
+    //PATCH: considers subclass morphotype preferences
     [HarmonyPatch(typeof(CharacterBuildingManager), nameof(CharacterBuildingManager.AssignDefaultMorphotypes))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]

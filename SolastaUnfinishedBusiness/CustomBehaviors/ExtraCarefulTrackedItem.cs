@@ -36,6 +36,7 @@ internal class ExtraCarefulTrackedItem
             {
                 continue;
             }
+
             //TODO: do we need to log this?
             RemoveItemProperty(property, item);
         }
@@ -127,7 +128,6 @@ internal class ExtraCarefulTrackedItem
 
     private static void RemoveItemProperty(RulesetItemProperty itemProperty, RulesetItem item)
     {
-
         if (itemProperty.Guid > 0)
         {
             itemProperty.Unregister();

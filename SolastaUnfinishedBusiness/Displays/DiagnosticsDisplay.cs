@@ -340,7 +340,8 @@ All settings start disabled by default.
                 GenerateDescription(FeatsContext.Feats),
                 GenerateDescription(FightingStyleContext.FightingStyles),
                 GenerateDescription(InvocationsContext.Invocations),
-                GenerateDescription(SpellsContext.Spells),
+                GenerateDescription(SpellsContext.Spells
+                    .Where(x => x.ContentPack == CeContentPackContext.CeContentPack)),
                 CraftingContext.GenerateItemsDescription());
 
             using var sw = new StreamWriter($"{DiagnosticsContext.DiagnosticsFolder}/NexusDescription.txt");

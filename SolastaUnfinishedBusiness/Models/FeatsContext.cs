@@ -34,11 +34,10 @@ internal static class FeatsContext
         FightingStyleFeats.CreateFeats(feats);
         MeleeCombatFeats.CreateFeats(feats);
         PrecisionFocusedFeats.CreateFeats(feats);
-        RaceFeats.CreateFeats(feats);
-        RangedCombatFeats.CreateFeats(feats); // depends on a group in MeleeCombatFeats
-        TwoWeaponCombatFeats.CreateFeats(feats);
-
         OtherFeats.CreateFeats(feats);
+        RaceFeats.CreateFeats(feats);
+        RangedCombatFeats.CreateFeats(feats);
+        TwoWeaponCombatFeats.CreateFeats(feats);
 
         // load them in mod UI
         feats.ForEach(LoadFeat);
@@ -167,6 +166,7 @@ internal static class FeatsContext
         }
 
         var toRemove = new List<FeatDefinition>();
+
         foreach (var group in panel.relevantFeats
                      .Select(feat => feat.GetFirstSubFeatureOfType<IGroupedFeat>())
                      .Where(group => group is { HideSubFeats: true }))
@@ -178,6 +178,7 @@ internal static class FeatsContext
         {
             var child = table.GetChild(i);
             var featItem = child.GetComponent<FeatItem>();
+
             if (toRemove.Contains(featItem.GuiFeatDefinition.FeatDefinition))
             {
                 child.gameObject.SetActive(false);

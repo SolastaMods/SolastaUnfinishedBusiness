@@ -48,20 +48,6 @@ internal static class DelegatesContext
     {
         Main.Info("Location Ready");
 
-        //BUGFIX: enforce learn same recipes as official campaigns get on a Load
-        var gameLoreService = ServiceRepository.GetService<IGameLoreService>();
-
-        if (!gameLoreService.KnownRecipes.Contains(RecipeBasic_Arrows))
-        {
-            gameLoreService.LearnRecipe(RecipeBasic_Arrows);
-        }
-
-        if (!gameLoreService.KnownRecipes.Contains(RecipeBasic_Bolts))
-        {
-            gameLoreService.LearnRecipe(RecipeBasic_Bolts);
-        }
-        //END BUGFIX
-
         var gameLocationCharacterService = ServiceRepository.GetService<IGameLocationCharacterService>();
 
         // gameLocationCharacterService.CharacterCreated += CharacterCreated;

@@ -1,3 +1,4 @@
+using System.Linq;
 using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.Extensions;
 using SolastaUnfinishedBusiness.Api.Infrastructure;
@@ -588,7 +589,8 @@ internal static class InvocationsBuilders
 
             var powers = self.RulesetCharacter.usablePowers;
 
-            foreach (var power in powers)
+            // required ToList() to avoid list was changed when Far Step in play
+            foreach (var power in powers.ToList())
             {
                 if (self.RulesetCharacter.IsPowerActive(power))
                 {

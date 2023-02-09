@@ -2,7 +2,6 @@
 using System.IO;
 using SolastaUnfinishedBusiness.Api.Infrastructure;
 using SolastaUnfinishedBusiness.Api.ModKit;
-using SolastaUnfinishedBusiness.Models;
 using UnityExplorer;
 using static SolastaUnfinishedBusiness.Displays.PatchesDisplay;
 
@@ -18,7 +17,7 @@ internal static class CreditsDisplay
         ("Zappastuff",
             "maintenance, mod UI, infrastructure, gameplay, feats, fighting styles, invocations, rules, spells, quality of life, Half-elf variants, Blade Dancer, Ancient Forest, College of Guts, College of Life, Dead Master, Field Manipulator, Way of The Silhouette, Wild Master, Multiclass"),
         ("TPABOBAP",
-            "game UI, infrastructure, gameplay, feats, invocations, spells, Dead Master, Elementalist, Moonlit, RiftWalker, SoulBlade, Tactician, Way of The Distant Hand, Inventor"),
+            "game UI, infrastructure, gameplay, feats, invocations, spells, quality of life, Dead Master, Elementalist, Moonlit, RiftWalker, SoulBlade, Tactician, Way of The Distant Hand, Inventor"),
         ("Nd", "College of Harlequin, College of War Dancer, Marshal, Opportunist, Raven, Spell Shield"),
         ("ImpPhil", "api, builders, gameplay, rules, quality of life"),
         ("ChrisJohnDigital",
@@ -27,7 +26,7 @@ internal static class CreditsDisplay
         ("Haxermn", "spells, Oath of Ancient, Oath of Hatred, Way of The Dragon"),
         ("tivie", "Circle of The Night, Path of The Spirits"),
         ("ElAntonius", "feats, fighting styles, Arcanist"),
-        ("DubhHerder", "replace spiders, spells, original Warlock subclasses"),
+        ("DubhHerder", "quality of life, spells, original Warlock subclasses"),
         ("Holic75", "spells, Bolgrif, Gnome"),
         ("RedOrca", "Path of The Light"),
         ("DreadMaker", "Forest Guardian"),
@@ -35,8 +34,8 @@ internal static class CreditsDisplay
         ("Pikachar2", "spells"),
         ("Prioritizer", "Russian translations"),
         ("xxy961216", "Chinese translations"),
-        ("GoogleTranslator", "French, German, Italian, Portuguese and Spanish translations"),
-        ("Balmz", "some powers and spells icons, icons improvements")
+        ("Balmz", "some power and spell icons"),
+        ("Taco", "some weapon icons")
     };
 
     private static readonly bool IsUnityExplorerInstalled =
@@ -63,15 +62,9 @@ internal static class CreditsDisplay
     {
         UI.Label();
 
-        using (UI.HorizontalScope())
+        if (IsUnityExplorerInstalled && !IsUnityExplorerEnabled)
         {
-            UI.ActionButton("Donate".Bold().Khaki(), BootContext.OpenDonate, UI.Width(150));
-            UI.ActionButton("Change Log History".Bold().Khaki(), BootContext.OpenChangeLog, UI.Width(150));
-
-            if (IsUnityExplorerInstalled && !IsUnityExplorerEnabled)
-            {
-                UI.ActionButton("Unity Explorer UI".Bold().Khaki(), EnableUnityExplorerUi, UI.Width(150));
-            }
+            UI.ActionButton("Unity Explorer UI".Bold().Khaki(), EnableUnityExplorerUi, UI.Width(150));
         }
 
         UI.Label();

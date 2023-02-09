@@ -10,6 +10,7 @@ using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Properties;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatDefinitions;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.WeaponTypeDefinitions;
 
 namespace SolastaUnfinishedBusiness.Feats;
 
@@ -24,13 +25,13 @@ internal static class RangedCombatFeats
         feats.AddRange(featDeadEye, featRangedExpert, featBowMastery);
 
         GroupFeats.MakeGroup("FeatGroupRangedCombat", null,
+            GroupFeats.FeatGroupPiercer,
             TakeAim,
             DiscretionOfTheCoedymwarth,
             UncannyAccuracy,
             featBowMastery,
             featDeadEye,
-            featRangedExpert,
-            MeleeCombatFeats.FeatGroupPiercer);
+            featRangedExpert);
     }
 
     private static FeatDefinition BuildBowMastery()
@@ -46,10 +47,12 @@ internal static class RangedCombatFeats
                     .SetGuiPresentation(NAME, Category.Feat)
                     .SetDamageRollModifier(1)
                     .SetCustomSubFeatures(
-                        ValidatorsCharacter.HasLongbowOrShortbow,
-                        new CanUseAttributeForWeapon(AttributeDefinitions.Strength, ValidatorsCharacter.IsLongbow),
-                        new AddExtraRangedAttack(ValidatorsCharacter.IsShortbow, ActionDefinitions.ActionType.Bonus,
-                            ValidatorsCharacter.HasAttacked))
+                        new RestrictedContextValidator(OperationType.Set,
+                            ValidatorsCharacter.MainHandHasWeaponType(LongbowType, ShortbowType)),
+                        new CanUseAttributeForWeapon(AttributeDefinitions.Strength,
+                            ValidatorsWeapon.IsOfWeaponType(LongbowType)),
+                        new AddExtraRangedAttack(ValidatorsWeapon.IsOfWeaponType(ShortbowType),
+                            ActionDefinitions.ActionType.Bonus, ValidatorsCharacter.HasAttacked))
                     .AddToDB())
             .AddToDB();
     }
@@ -164,8 +167,8 @@ internal static class RangedCombatFeats
                 .SetGuiPresentationNoContent(true)
                 .SetCustomSubFeatures(
                     new RangedAttackInMeleeDisadvantageRemover(),
-                    new AddExtraRangedAttack(ValidatorsCharacter.IsOneHandedRanged, ActionDefinitions.ActionType.Bonus,
-                        ValidatorsCharacter.HasAttacked))
+                    new AddExtraRangedAttack(ValidatorsWeapon.IsOfWeaponType(CustomWeaponsContext.HandXbowWeaponType),
+                        ActionDefinitions.ActionType.Bonus, ValidatorsCharacter.HasAttacked))
                 .AddToDB())
             .AddToDB();
     }

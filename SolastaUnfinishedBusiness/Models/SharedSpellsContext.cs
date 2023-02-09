@@ -5,6 +5,8 @@ using System.Reflection;
 using System.Reflection.Emit;
 using HarmonyLib;
 using JetBrains.Annotations;
+using SolastaUnfinishedBusiness.Api;
+using SolastaUnfinishedBusiness.Api.Extensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Classes.Inventor;
 using SolastaUnfinishedBusiness.Subclasses;
@@ -94,7 +96,7 @@ internal static class SharedSpellsContext
     }
 
     // need the null check for companions who don't have repertoires
-    internal static int GetWarlockCasterLevel([CanBeNull] RulesetCharacterHero rulesetCharacterHero)
+    private static int GetWarlockCasterLevel([CanBeNull] RulesetCharacterHero rulesetCharacterHero)
     {
         if (rulesetCharacterHero == null)
         {
@@ -124,8 +126,15 @@ internal static class SharedSpellsContext
     internal static int GetWarlockMaxSlots(RulesetCharacterHero rulesetCharacterHero)
     {
         var warlockLevel = GetWarlockCasterLevel(rulesetCharacterHero);
+        var warlockAdditionalSlots = rulesetCharacterHero
+            .GetFeaturesByType<FeatureDefinitionMagicAffinity>()
+            .Where(x => x == DatabaseHelper.FeatureDefinitionMagicAffinitys
+                .MagicAffinityChitinousBoonAdditionalSpellSlot)
+            .SelectMany(x => x.AdditionalSlots)
+            .Sum(x => x.SlotsNumber);
+        var slots = warlockLevel > 0 ? WarlockCastingSlots[warlockLevel - 1].Slots[0] : 0;
 
-        return warlockLevel > 0 ? WarlockCastingSlots[warlockLevel - 1].Slots[0] : 0;
+        return slots + warlockAdditionalSlots;
     }
 
     internal static int GetWarlockUsedSlots([NotNull] RulesetCharacterHero rulesetCharacterHero)
@@ -380,7 +389,7 @@ internal static class SharedSpellsContext
     };
 
     // game uses IndexOf(0) on these sub lists reason why the last 0 there
-    internal static List<SlotsByLevelDuplet> WarlockCastingSlots { get; } = new()
+    private static List<SlotsByLevelDuplet> WarlockCastingSlots { get; } = new()
     {
         new SlotsByLevelDuplet
         {

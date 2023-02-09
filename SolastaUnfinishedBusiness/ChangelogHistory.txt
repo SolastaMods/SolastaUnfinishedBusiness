@@ -1,10 +1,70 @@
 ﻿CHANGES:
 
+1.4.33.31:
+
+- added lore friendly Kobold names
+- added new mod content pack icon
+- fixed identify action not working on long rests
+- fixed Bow and Spear Mastery +1 damage not filtering by weapon type
+- fixed Fell Handed not applying prone effect
+- fixed Spear Mastery not changing to D10 dice on versatile
+- fixed Wizard spell scribing interaction with multiclass
+
+1.4.33.30:
+
+- added new feat groups and refactored others a bit
+- fixed a very rare interaction between Warlock and Far Step spell
+- fixed AoO reactions interaction with War Caster
+- fixed AoO not triggering Sentinel's movement stop
+- fixed Revenant Blade feat not triggering with custom DM weapons
+- fixed UB tags bleeding into vanilla spells
+- improved Thunder Gauntlet to add a bonus action attack if:
+    * main or off-hand is empty
+    * main is one-handed melee and hero can dual-wield non-light
+
+1.4.33.29:
+
+- fixed summons issue introduced on previous release and Wild Master upcast
+- changed Wild Master beast extra hit points to increase with character level
+- changed Wild Master beast power DC to 8 + CON modifier + caster PB modifier
+- changed Wild Master beast power dice damage to increase at 5, 9, 13 and 17
+
+1.4.33.28:
+
+- added new icons to pikes and hand crossbows from @taco
+- fixed issues with settings not saving upon exit
+- fixed summons upcast durations
+- reverted wrong change on metamagic feat
+
+1.4.33.27:
+
+- added Gameplay > Tools > Settings to allow export/import settings files [easier MP session setup / switch easily across different configs]
+- fixed missing Metamagic feat charisma pre-requisite
+
+1.4.33.26:
+
+- added Spear Mastery feat
+- fixed Agonizing Blast and Life Drinker interaction with Eldritch Adept
+- fixed Armorer Defensive Field to only triggers on Inventor's turn
+- fixed Circle of The Ancient Forest Brew power
+- fixed Dead Master upcasted summons duration
+- fixed Spell Sniper casting pre-requisites
+
+1.4.33.25:
+
+- improved recipes displays with new options under Interface / Game UI
+
+1.4.33.24:
+
+- fixed minor issues on recently added cantrips and feats
+- fixed slots display issue introduced on last version
+
 1.4.33.23:
 
 - added after rest activity to stop all Inventor infusions
-- added Mink Spike cantrip
+- added Mind Spike cantrip
 - added Sword Storm cantrip
+- changed Oath of Ancients aura warding to grant resistance against spells instead of elements
 - fixed Deadeye and Power Attack descriptions
 - fixed Blade Mastery to grant advantage on all actions instead of reaction only
 - fixed Fell Handed to correctly apply prone condition
