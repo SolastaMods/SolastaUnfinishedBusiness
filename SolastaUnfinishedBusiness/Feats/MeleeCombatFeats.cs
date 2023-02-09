@@ -652,6 +652,7 @@ internal static class MeleeCombatFeats
     {
         private readonly List<WeaponTypeDefinition> _weaponTypeDefinition = new();
         private readonly FeatureDefinitionPower power;
+        private readonly DamageForm damage;
         private const string SuretyText = "Feedback/&FeatFeatFellHandedDisadvantage";
         private const string SuretyTitle = "Feat/&FeatFellHandedTitle";
         private const string SuretyDescription = "Feature/&PowerFeatFellHandedDisadvantageDescription";
@@ -661,6 +662,14 @@ internal static class MeleeCombatFeats
         {
             this.power = power;
             _weaponTypeDefinition.AddRange(weaponTypeDefinition);
+            
+            damage = new DamageForm()
+            {
+                DamageType = DamageTypeBludgeoning,
+                DieType = DieType.D1,
+                DiceNumber = 0,
+                BonusDamage = 0,
+            };
         }
 
         public void AfterOnAttackHit(
@@ -749,8 +758,20 @@ internal static class MeleeCombatFeats
                         GameConsoleHelper.LogCharacterAffectsTarget(rulesetAttacker, rulesetDefender,
                             SuretyTitle, SuretyText, tooltipContent: SuretyDescription);
 
-                        rulesetDefender.SustainDamage(strengthMod, DamageTypeBludgeoning, false,
-                            attacker.Guid, null, out _);
+                        damage.BonusDamage = strengthMod;
+                        RulesetActor.InflictDamage(
+                            strengthMod,
+                            damage,
+                            DamageTypeBludgeoning,
+                            new RulesetImplementationDefinitions.ApplyFormsParams() {targetCharacter = rulesetDefender},
+                            rulesetDefender,
+                            false,
+                            attacker.Guid,
+                            false,
+                            attackMode.AttackTags,
+                            new RollInfo(DieType.D1, new List<int>(), strengthMod),
+                            true,
+                            out _);
                     }
 
                     break;
