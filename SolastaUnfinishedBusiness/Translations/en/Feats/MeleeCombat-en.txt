@@ -41,6 +41,7 @@ Feature/&AttackModifierFeatSpearMasteryTitle=Spear Mastery
 Feature/&ModifyAttackModeFeatBladeMasteryTitle=Blade Mastery
 Feature/&ModifyAttackModeFeatFellHandedTitle=Fell Handed
 Feature/&PowerFeatFellHandedAdvantageDescription=Whenever you have advantage on a melee attack roll and hit, you knock the target prone if the lower of the two d20 rolls would also hit the target.
+Feature/&PowerFeatFellHandedDisadvantageDescription=Whenever you have disadvantage on a melee attack roll and miss, the target takes bludgeoning damage equal to your Strength modifier.
 Feature/&PowerFeatSpearMasteryChargeDescription=You can brace your spear to intercept approaching enemies. You can use reaction to perform attack of opportunity with a spear on enemy that enters your reach and deal extra die of damage if that attack hits.
 Feature/&PowerFeatSpearMasteryChargeTitle=Spear Brace
 Feature/&PowerFeatSpearMasteryReachDescription=You can increase your reach with a spear by 5 feet for the rest of your turn.
@@ -51,6 +52,7 @@ Feedback/&AdditionalDamagePiercerFormat=Piercer!
 Feedback/&AdditionalDamagePiercerLine={0} critically pierces {1} 
 Feedback/&AdditionalDamageSpearMasteryLine={0} has readied spear and deals extra {2} damage to {1}!
 Feedback/&FeatFellHanded={0} fell handed with a {1} = {2} roll and is now prone.
+Notification/&FeatFeatFellHandedDisadvantage={0} deals damage to {1} through {2}:
 Reaction/&SpendPowerPowerFeatCrusherHitDescription=Crush your enemy and push it by 5 ft.
 Reaction/&SpendPowerPowerFeatCrusherHitReactDescription=Crush your enemy and push it by 5 ft.
 Reaction/&SpendPowerPowerFeatCrusherHitReactTitle=Crush

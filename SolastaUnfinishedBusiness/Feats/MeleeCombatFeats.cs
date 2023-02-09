@@ -652,6 +652,9 @@ internal static class MeleeCombatFeats
     {
         private readonly List<WeaponTypeDefinition> _weaponTypeDefinition = new();
         private readonly FeatureDefinitionPower power;
+        private const string SuretyText = "Notification/&FeatFeatFellHandedDisadvantage";
+        private const string SuretyTitle = "Feat/&FeatFellHandedTitle";
+        private const string SuretyDescription = "Feature/&PowerFeatFellHandedDisadvantageDescription";
 
         public AfterAttackEffectFeatFellHanded(FeatureDefinitionPower power,
             params WeaponTypeDefinition[] weaponTypeDefinition)
@@ -743,6 +746,9 @@ internal static class MeleeCombatFeats
 
                     if (strengthMod > 0)
                     {
+                        GameConsoleHelper.LogCharacterAffectsTarget(rulesetAttacker, rulesetDefender,
+                            SuretyTitle, SuretyText, tooltipContent: SuretyDescription);
+
                         rulesetDefender.SustainDamage(strengthMod, DamageTypeBludgeoning, false,
                             attacker.Guid, null, out _);
                     }
