@@ -38,7 +38,7 @@ internal sealed class Torchbearer : AbstractFightingStyle
                 8)
             .Build())
         .SetShowCasting(false)
-        .SetCustomSubFeatures(new ValidatorsPowerUse(ValidatorsCharacter.OffHandHasLightSource))
+        .SetCustomSubFeatures(new ValidatorsPowerUse(ValidatorsCharacter.HasLightSourceOffHand))
         .AddToDB();
 
     internal override FightingStyleDefinition FightingStyle { get; } = FightingStyleBuilder

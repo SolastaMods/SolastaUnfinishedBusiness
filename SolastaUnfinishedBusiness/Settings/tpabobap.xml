@@ -4,12 +4,12 @@
   <HideWelcomeMessage>true</HideWelcomeMessage>
   <DisplayRacesToggle>true</DisplayRacesToggle>
   <DisplayClassesToggle>true</DisplayClassesToggle>
-  <DisplaySubclassesToggle>false</DisplaySubclassesToggle>
+  <DisplaySubclassesToggle>true</DisplaySubclassesToggle>
   <DisplayFeatsToggle>false</DisplayFeatsToggle>
-  <DisplayFeatGroupsToggle>false</DisplayFeatGroupsToggle>
+  <DisplayFeatGroupsToggle>true</DisplayFeatGroupsToggle>
   <DisplayFightingStylesToggle>false</DisplayFightingStylesToggle>
   <DisplayInvocationsToggle>false</DisplayInvocationsToggle>
-  <DisplayCraftingToggle>true</DisplayCraftingToggle>
+  <DisplayCraftingToggle>false</DisplayCraftingToggle>
   <DisplayMerchantsToggle>true</DisplayMerchantsToggle>
   <DisplaySpellListsToggle>
     <item>
@@ -408,6 +408,10 @@
     <string>FeatGroupMagicInitiate</string>
     <string>FeatGroupSpellSniper</string>
     <string>FeatGroupElementalAdept</string>
+    <string>FeatGroupAgilityCombat</string>
+    <string>FeatGroupDefenseCombat</string>
+    <string>FeatGroupSupportCombat</string>
+    <string>FeatGroupUnarmoredCombat</string>
   </FeatGroupEnabled>
   <FightingStyleSliderPosition>4</FightingStyleSliderPosition>
   <FightingStyleEnabled>
@@ -685,6 +689,7 @@
         <ArrayOfString>
           <string>ResonatingStrike</string>
           <string>SunlightBlade</string>
+          <string>SwordStorm</string>
           <string>ThornyVines</string>
           <string>ThunderStrike</string>
           <string>RadiantMotes</string>
@@ -728,9 +733,11 @@
           <string>AirBlast</string>
           <string>BladeWard</string>
           <string>IlluminatingSphere</string>
+          <string>MindSpike</string>
           <string>MinorLifesteal</string>
           <string>ResonatingStrike</string>
           <string>SunlightBlade</string>
+          <string>SwordStorm</string>
           <string>ThunderStrike</string>
           <string>ChromaticOrb</string>
           <string>EarthTremor</string>
@@ -825,9 +832,12 @@
       <value>
         <ArrayOfString>
           <string>BladeWard</string>
+          <string>MindSpike</string>
           <string>MinorLifesteal</string>
           <string>ResonatingStrike</string>
           <string>SunlightBlade</string>
+          <string>SwordStorm</string>
+          <string>SkinOfRetribution</string>
           <string>MirrorImage</string>
           <string>ShadowBlade</string>
           <string>SpiritShroud</string>
@@ -854,9 +864,11 @@
           <string>BladeWard</string>
           <string>EnduringSting</string>
           <string>IlluminatingSphere</string>
+          <string>MindSpike</string>
           <string>MinorLifesteal</string>
           <string>ResonatingStrike</string>
           <string>SunlightBlade</string>
+          <string>SwordStorm</string>
           <string>ThunderStrike</string>
           <string>ChromaticOrb</string>
           <string>EarthTremor</string>
@@ -965,12 +977,12 @@
   <EnableRespec>false</EnableRespec>
   <EnableCheatMenu>true</EnableCheatMenu>
   <EnableTogglesToOverwriteDefaultTestParty>false</EnableTogglesToOverwriteDefaultTestParty>
-  <NoExperienceOnLevelUp>true</NoExperienceOnLevelUp>
+  <NoExperienceOnLevelUp>false</NoExperienceOnLevelUp>
   <OverrideMinMaxLevel>true</OverrideMinMaxLevel>
   <MultiplyTheExperienceGainedBy>200</MultiplyTheExperienceGainedBy>
   <OverridePartySize>4</OverridePartySize>
   <AllowAllPlayersOnNarrativeSequences>false</AllowAllPlayersOnNarrativeSequences>
-  <FasterTimeModifier>1.5</FasterTimeModifier>
+  <FasterTimeModifier>2</FasterTimeModifier>
   <EncounterPercentageChance>5</EncounterPercentageChance>
   <DefaultPartyHeroes />
   <DontFollowCharacterInBattle>false</DontFollowCharacterInBattle>
@@ -982,9 +994,9 @@
   <MarkInvisibleTeleportersOnLevelMap>true</MarkInvisibleTeleportersOnLevelMap>
   <HideExitsAndTeleportersGizmosIfNotDiscovered>false</HideExitsAndTeleportersGizmosIfNotDiscovered>
   <AllowMoreRealStateOnRestPanel>true</AllowMoreRealStateOnRestPanel>
-  <AddMonkKiPointsToggle>false</AddMonkKiPointsToggle>
-  <AddPaladinSmiteToggle>false</AddPaladinSmiteToggle>
-  <AddWildshapeSwapAttackToggle>false</AddWildshapeSwapAttackToggle>
+  <AddMonkKiPointsToggle>true</AddMonkKiPointsToggle>
+  <AddPaladinSmiteToggle>true</AddPaladinSmiteToggle>
+  <AddWildshapeSwapAttackToggle>true</AddWildshapeSwapAttackToggle>
   <FormationGridSelectedSet>0</FormationGridSelectedSet>
   <FormationGridSets>
     <ArrayOfArrayOfInt>
@@ -1180,13 +1192,13 @@
   <EnableCharacterExport>true</EnableCharacterExport>
   <EnableTeleportParty>false</EnableTeleportParty>
   <EnableRejoinParty>false</EnableRejoinParty>
-  <EnableCancelEditOnRightMouseClick>false</EnableCancelEditOnRightMouseClick>
-  <DisableAutoEquip>false</DisableAutoEquip>
+  <EnableCancelEditOnRightMouseClick>true</EnableCancelEditOnRightMouseClick>
+  <DisableAutoEquip>true</DisableAutoEquip>
   <EnableInventoryFilteringAndSorting>true</EnableInventoryFilteringAndSorting>
   <EnableInventoryTaintNonProficientItemsRed>true</EnableInventoryTaintNonProficientItemsRed>
-  <EnableInventoryTintKnownRecipesRed>false</EnableInventoryTintKnownRecipesRed>
+  <EnableInventoryTintKnownRecipesRed>true</EnableInventoryTintKnownRecipesRed>
   <EnableInvisibleCrownOfTheMagister>false</EnableInvisibleCrownOfTheMagister>
-  <ShowCraftedItemOnRecipeIcon>false</ShowCraftedItemOnRecipeIcon>
+  <ShowCraftedItemOnRecipeIcon>true</ShowCraftedItemOnRecipeIcon>
   <SwapCraftedItemAndRecipeIcons>false</SwapCraftedItemAndRecipeIcons>
   <HideMonsterHitPoints>false</HideMonsterHitPoints>
   <RemoveBugVisualModels>false</RemoveBugVisualModels>

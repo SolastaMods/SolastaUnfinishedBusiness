@@ -156,6 +156,7 @@ internal sealed class UpgradeWeaponDice : ModifyAttackModeForWeaponBase
 
         var newDamage = RuleDefinitions.DieAverage(newDie) * newNumber;
         var oldDamage = RuleDefinitions.DieAverage(damage.DieType) * damage.DiceNumber;
+
         if (newDamage > oldDamage)
         {
             damage.DieType = newDie;
@@ -164,9 +165,10 @@ internal sealed class UpgradeWeaponDice : ModifyAttackModeForWeaponBase
 
         newDamage = RuleDefinitions.DieAverage(newVersatileDie) * newNumber;
         oldDamage = RuleDefinitions.DieAverage(damage.VersatileDieType) * damage.DiceNumber;
+
         if (newDamage > oldDamage)
         {
-            damage.VersatileDieType = newDie;
+            damage.VersatileDieType = newVersatileDie;
         }
     }
 

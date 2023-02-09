@@ -2,7 +2,6 @@
 using System.IO;
 using SolastaUnfinishedBusiness.Api.Infrastructure;
 using SolastaUnfinishedBusiness.Api.ModKit;
-using SolastaUnfinishedBusiness.Models;
 using UnityExplorer;
 using static SolastaUnfinishedBusiness.Displays.PatchesDisplay;
 

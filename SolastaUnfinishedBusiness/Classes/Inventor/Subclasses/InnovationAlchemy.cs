@@ -528,7 +528,7 @@ public static class InnovationAlchemy
 
         GlobalUniqueEffects.AddToGroup(GlobalUniqueEffects.Group.GrenadierGrenadeMode, power);
 
-        return (power, new ValidatorsPowerUse(ValidatorsCharacter.HasAnyOfConditions(marker)));
+        return (power, new ValidatorsPowerUse(ValidatorsCharacter.HasAnyOfConditions(marker.name)));
     }
 
     private static FeatureDefinitionPower MakeBombFireDamageToggle()

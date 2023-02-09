@@ -14,14 +14,14 @@ internal static class ValidatorsWeapon
 {
     internal static readonly IsWeaponValidHandler AlwaysValid = (_, _, _) => true;
 
+    internal static bool IsOfDamageType([CanBeNull] RulesetAttackMode attack, string damageType)
+    {
+        return attack?.EffectDescription.FindFirstDamageForm()?.damageType == damageType;
+    }
+
     internal static IsWeaponValidHandler IsOfWeaponType(params WeaponTypeDefinition[] weaponTypeDefinitions)
     {
         return (mode, weapon, _) => IsWeaponType(weapon ?? mode?.sourceObject as RulesetItem, weaponTypeDefinitions);
-    }
-
-    internal static bool IsBludgeoningMeleeOrUnarmed([CanBeNull] RulesetAttackMode attack)
-    {
-        return attack?.EffectDescription.FindFirstDamageForm()?.damageType == DamageTypeBludgeoning;
     }
 
     internal static bool IsMagic(RulesetAttackMode attackMode, RulesetItem weapon, RulesetCharacter _)
@@ -112,7 +112,6 @@ internal static class ValidatorsWeapon
         return weapon != null && weapon.itemDefinition.isWeapon &&
                weapon.itemDefinition.WeaponDescription.WeaponTags.Contains(TagsDefinitions.WeaponTagThrown);
     }
-
 
     //
     // UNARMED

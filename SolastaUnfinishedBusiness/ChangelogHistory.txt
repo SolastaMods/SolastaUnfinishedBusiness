@@ -1,5 +1,15 @@
 ﻿CHANGES:
 
+1.4.33.31:
+
+- added lore friendly Kobold names
+- added new mod content pack icon
+- fixed identify action not working on long rests
+- fixed Bow and Spear Mastery +1 damage not filtering by weapon type
+- fixed Fell Handed not applying prone effect
+- fixed Spear Mastery not changing to D10 dice on versatile
+- fixed Wizard spell scribing interaction with multiclass
+
 1.4.33.30:
 
 - added new feat groups and refactored others a bit
