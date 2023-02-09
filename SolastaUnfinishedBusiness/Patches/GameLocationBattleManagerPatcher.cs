@@ -249,7 +249,9 @@ public static class GameLocationBattleManagerPatcher
             GameLocationBattleManager __instance,
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
-            RulesetAttackMode attackerAttackMode
+            RulesetAttackMode attackerAttackMode,
+            RulesetEffect rulesetEffect,
+            int damageAmount
         )
         {
             //PATCH: support for Sentinel feat - allows reaction attack on enemy attacking ally 
