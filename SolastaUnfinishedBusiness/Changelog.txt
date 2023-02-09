@@ -4,3 +4,4 @@ CHANGES:
 - fixed Bow and Spear Mastery +1 damage not filtering by weapon type
 - fixed Fell Handed not applying prone effect and improved combat log
 - fixed Spear Mastery not changing to D10 dice on versatile
+- fixed Wizard spell scribing interaction with multiclass
