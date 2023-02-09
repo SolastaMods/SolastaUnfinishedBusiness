@@ -1,29 +1,22 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
-
-using SolastaUnfinishedBusiness.Builders;
-using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.Extensions;
-using SolastaUnfinishedBusiness.CustomInterfaces;
-using SolastaUnfinishedBusiness.CustomUI;
-using SolastaUnfinishedBusiness.FightingStyles;
-using SolastaUnfinishedBusiness.Subclasses;
-using TA;
-using static ActionDefinitions;
-using static SolastaUnfinishedBusiness.CustomBehaviors.BlockAttacks;
 using SolastaUnfinishedBusiness.Api.Helpers;
+using SolastaUnfinishedBusiness.CustomUI;
+using static ActionDefinitions;
 
 namespace SolastaUnfinishedBusiness.CustomBehaviors;
+
+[UsedImplicitly]
 internal class GuardianAuraHpSwap
 {
     internal static readonly object AuraGuardianConditionMarker = new GuardianAuraCondition();
     internal static readonly object AuraGuardianUserMarker = new GuardianAuraUser();
-    internal static readonly FeatureDefinitionPower dummyAuraGuardianPower = new FeatureDefinitionPower();
+    private static readonly FeatureDefinitionPower DummyAuraGuardianPower = new();
 
-    internal static IEnumerator ProcessOnCharacterAttackHitFinished (
+    internal static IEnumerator ProcessOnCharacterAttackHitFinished(
         GameLocationBattleManager battleManager,
         GameLocationCharacter attacker,
         GameLocationCharacter defender,
@@ -53,15 +46,14 @@ internal class GuardianAuraHpSwap
             .Where(u => !u.RulesetCharacter.IsDeadOrDyingOrUnconscious)
             .ToArray();
 
-
         foreach (var unit in units)
         {
             if (attacker != unit && defender != unit)
             {
-                yield return ActiveHealthSwap(unit, attacker, defender, battleManager,attackerAttackMode, rulesetEffect, damageAmount);
+                yield return ActiveHealthSwap(
+                    unit, attacker, defender, battleManager, attackerAttackMode, rulesetEffect, damageAmount);
             }
         }
-
     }
 
     private static IEnumerator ActiveHealthSwap(
@@ -72,7 +64,7 @@ internal class GuardianAuraHpSwap
         RulesetAttackMode attackerAttackMode,
         RulesetEffect rulesetEffect,
         int damageAmount
-        )
+    )
     {
         if (!attacker.IsOppositeSide(unit.Side) || defender.Side != unit.Side || unit == defender
             || !(unit.RulesetCharacter?.HasSubFeatureOfType<GuardianAuraUser>() ?? false)
@@ -86,11 +78,10 @@ internal class GuardianAuraHpSwap
             yield break;
         }
 
-        if(damageAmount == 0)
+        if (damageAmount == 0)
         {
             yield break;
         }
-
 
         var actionService = ServiceRepository.GetService<IGameLocationActionService>();
         var count = actionService.PendingReactionRequestGroups.Count;
@@ -100,17 +91,16 @@ internal class GuardianAuraHpSwap
         var guiUnit = new GuiCharacter(unit);
         var guiDefender = new GuiCharacter(defender);
 
-        CharacterActionParams temp =
-            new CharacterActionParams(
+        var temp = new CharacterActionParams(
             unit,
             (Id)ExtraActionId.DoNothingReaction,
             attackMode,
             defender,
-            new ActionModifier()
-            )
-            {
-            StringParameter = Gui.Format("Reaction/&CustomReactionGuardianAuraDescription", guiUnit.Name, guiDefender.Name)
-            };
+            new ActionModifier())
+        {
+            StringParameter = Gui.Format(
+                "Reaction/&CustomReactionGuardianAuraDescription", guiUnit.Name, guiDefender.Name)
+        };
 
         RequestCustomReaction("GuardianAura", temp);
 
@@ -123,26 +113,27 @@ internal class GuardianAuraHpSwap
 
         DamageForm damage = null;
 
-        if(attackerAttackMode != null)
+        if (attackerAttackMode != null)
         {
             damage = attackerAttackMode.EffectDescription.FindFirstDamageForm();
         }
 
-        if(rulesetEffect != null)
+        if (rulesetEffect != null)
         {
             damage = rulesetEffect.EffectDescription.FindFirstDamageForm();
         }
 
-        defender.RulesetCharacter.HealingReceived(defender.RulesetCharacter, damageAmount, unit.Guid, RuleDefinitions.HealingCap.MaximumHitPoints, null);
+        defender.RulesetCharacter.HealingReceived(defender.RulesetCharacter, damageAmount, unit.Guid,
+            RuleDefinitions.HealingCap.MaximumHitPoints, null);
         defender.RulesetCharacter.ForceSetHealth(damageAmount, true);
-        unit.RulesetCharacter.SustainDamage(damageAmount, damage.DamageType,false, attacker.Guid, null, out bool temphealth);
-        
+        unit.RulesetCharacter.SustainDamage(damageAmount, damage.DamageType, false, attacker.Guid, null,
+            out var _);
 
-        dummyAuraGuardianPower.name = "GuardianAura";
-        dummyAuraGuardianPower.guiPresentation = DatabaseHelper.SpellDefinitions.ShieldOfFaith.guiPresentation;
+        DummyAuraGuardianPower.name = "GuardianAura";
+        DummyAuraGuardianPower.guiPresentation = DatabaseHelper.SpellDefinitions.ShieldOfFaith.guiPresentation;
 
-        GameConsoleHelper.LogCharacterUsedPower(unit.RulesetCharacter, dummyAuraGuardianPower, "Feedback/&GuardianAuraHeal");
-
+        GameConsoleHelper.LogCharacterUsedPower(unit.RulesetCharacter, DummyAuraGuardianPower,
+            "Feedback/&GuardianAuraHeal");
     }
 
     private static void RequestCustomReaction(string type, CharacterActionParams actionParams)
@@ -159,14 +150,11 @@ internal class GuardianAuraHpSwap
         actionManager.AddInterruptRequest(reactionRequest);
     }
 
-    internal sealed class GuardianAuraCondition
+    private sealed class GuardianAuraCondition
     {
-
     }
 
-    internal sealed class GuardianAuraUser
+    private sealed class GuardianAuraUser
     {
-
     }
-
 }

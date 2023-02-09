@@ -104,7 +104,7 @@ internal static class GameConsoleHelper
         var text = condition.Possessive ? GameConsole.ConditionAddedHasLine : GameConsole.ConditionAddedLine;
         var entry = new GameConsoleEntry(text, console.consoleTableDefinition) { Indent = true };
 
-        ConsoleStyleDuplet.ParameterType type = condition.ConditionType switch
+        var type = condition.ConditionType switch
         {
             RuleDefinitions.ConditionType.Beneficial => ConsoleStyleDuplet.ParameterType.Positive,
             RuleDefinitions.ConditionType.Detrimental => ConsoleStyleDuplet.ParameterType.Negative,

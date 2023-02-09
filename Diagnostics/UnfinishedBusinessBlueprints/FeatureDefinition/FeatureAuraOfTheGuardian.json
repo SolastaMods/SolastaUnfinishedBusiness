@@ -1,14 +1,13 @@
 {
-  "$type": "ContentPackDefinition, Assembly-CSharp",
-  "hideWhenUnavailable": false,
+  "$type": "FeatureDefinition, Assembly-CSharp",
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
-    "hidden": false,
-    "title": "ContentPack/&9999Title",
-    "description": "ContentPack/&9999Description",
+    "hidden": true,
+    "title": "Feature/&NoContentTitle",
+    "description": "Feature/&NoContentTitle",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "8aaa36ce-a52c-5319-a72e-0178b1751ff0",
+      "m_AssetGUID": "",
       "m_SubObjectName": null,
       "m_SubObjectType": null
     },
@@ -25,7 +24,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "81c2b331-87e1-51f4-a035-33adf3429def",
+  "guid": "d2109b68-0a75-5ca3-8c84-6806f8d9522e",
   "contentPack": 9999,
-  "name": "9999"
+  "name": "FeatureAuraOfTheGuardian"
 }

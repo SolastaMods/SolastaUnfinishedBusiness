@@ -1,16 +1,15 @@
 {
-  "$type": "ContentPackDefinition, Assembly-CSharp",
-  "hideWhenUnavailable": false,
+  "$type": "FeatureDefinition, Assembly-CSharp",
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "ContentPack/&9999Title",
-    "description": "ContentPack/&9999Description",
+    "title": "Feature/&FeatureOathOfAltruismSpiritualShieldingTitle",
+    "description": "Feature/&FeatureOathOfAltruismSpiritualShieldingDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "8aaa36ce-a52c-5319-a72e-0178b1751ff0",
-      "m_SubObjectName": null,
-      "m_SubObjectType": null
+      "m_AssetGUID": "42d9d312013d64043a49b3d3e82a0ba3",
+      "m_SubObjectName": "ShieldOfFaith",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
@@ -25,7 +24,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "81c2b331-87e1-51f4-a035-33adf3429def",
+  "guid": "5ae7a4f1-d00d-5c43-8abc-94f37e7fa58e",
   "contentPack": 9999,
-  "name": "9999"
+  "name": "FeatureOathOfAltruismSpiritualShielding"
 }

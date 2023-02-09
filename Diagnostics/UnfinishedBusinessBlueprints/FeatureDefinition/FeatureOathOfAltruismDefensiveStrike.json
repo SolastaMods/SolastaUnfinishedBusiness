@@ -1,16 +1,15 @@
 {
-  "$type": "ContentPackDefinition, Assembly-CSharp",
-  "hideWhenUnavailable": false,
+  "$type": "FeatureDefinition, Assembly-CSharp",
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "ContentPack/&9999Title",
-    "description": "ContentPack/&9999Description",
+    "title": "Feature/&FeatureOathOfAltruismDefensiveStrikeTitle",
+    "description": "Feature/&FeatureOathOfAltruismDefensiveStrikeDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "8aaa36ce-a52c-5319-a72e-0178b1751ff0",
-      "m_SubObjectName": null,
-      "m_SubObjectType": null
+      "m_AssetGUID": "28dfc426376ad0e4cb6fddb428d8774f",
+      "m_SubObjectName": "DecisiveStrike",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
@@ -25,7 +24,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "81c2b331-87e1-51f4-a035-33adf3429def",
+  "guid": "427dfc91-533d-545c-bd5d-8bc680579b9b",
   "contentPack": 9999,
-  "name": "9999"
+  "name": "FeatureOathOfAltruismDefensiveStrike"
 }
