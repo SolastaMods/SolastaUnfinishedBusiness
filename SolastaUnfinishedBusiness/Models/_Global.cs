@@ -106,7 +106,7 @@ internal static class Global
             spendPower.activePower.PowerDefinition.rechargeRate == RuleDefinitions.RechargeRate.TurnStart &&
             spendPower.activePower.PowerDefinition.activationTime is RuleDefinitions.ActivationTime.OnAttackHitMelee)
         {
-            spendPower.activePower.UsablePower.ForceSpentPoints(1);
+            spendPower.activePower.UsablePower.ForceSpentPoints(spendPower.activePower.PowerDefinition.CostPerUse);
         }
 
         CurrentAction = null;

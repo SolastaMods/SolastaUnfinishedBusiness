@@ -36,7 +36,7 @@ public static class ReactionModalPatcher
         }
     }
 
-    //BUGFIX: ensure we correctly spend powers after they are used (BUGFIX)
+    //PATCH: ensure we correctly spend powers after they are used (BUGFIX)
     [HarmonyPatch(typeof(ReactionModal), nameof(ReactionModal.OnReact))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
