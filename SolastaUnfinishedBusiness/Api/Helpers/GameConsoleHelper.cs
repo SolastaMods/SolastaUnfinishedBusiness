@@ -72,6 +72,34 @@ internal static class GameConsoleHelper
         console.AddEntry(entry);
     }
 
+    internal static void LogCharacterAffectedByCondition(
+        [NotNull] RulesetCharacter character,
+        [NotNull] ConditionDefinition condition)
+    {
+        var console = Gui.Game.GameConsole;
+        var text = condition.Possessive ? GameConsole.ConditionAddedHasLine : GameConsole.ConditionAddedLine;
+        var entry = new GameConsoleEntry(text, console.consoleTableDefinition) {Indent = true};
+
+        ConsoleStyleDuplet.ParameterType type;
+        switch (condition.ConditionType)
+        {
+            case RuleDefinitions.ConditionType.Beneficial:
+                type = ConsoleStyleDuplet.ParameterType.Positive;
+                break;
+            case RuleDefinitions.ConditionType.Detrimental:
+                type = ConsoleStyleDuplet.ParameterType.Negative;
+                break;
+            default:
+                type = ConsoleStyleDuplet.ParameterType.AbilityInfo;
+                break;
+        }
+
+        console.AddCharacterEntry(character, entry);
+        entry.AddParameter(type, condition.FormatTitle(), tooltipContent: condition.FormatDescription());
+
+        console.AddEntry(entry);
+    }
+
     internal static void LogCharacterConversationLine(string character, string line, bool npc)
     {
         var console = Gui.Game.GameConsole;
