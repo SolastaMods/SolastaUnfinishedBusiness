@@ -46,7 +46,6 @@ Feedback/&AdditionalDamageCrusherFormat=Trituradora!
 Feedback/&AdditionalDamageCrusherLine={0} aplasta {1}
 Feedback/&AdditionalDamagePiercerFormat=Perforadores!
 Feedback/&AdditionalDamagePiercerLine={0} perfora críticamente {1}
-Feedback/&FeatFellHanded={0} cayó con una {1} = {2} tirada y ahora está boca abajo.
 Reaction/&SpendPowerPowerFeatCrusherHitDescription=Aplasta a tu enemigo y empújalo 5 pies.
 Reaction/&SpendPowerPowerFeatCrusherHitReactDescription=Aplasta a tu enemigo y empújalo 5 pies.
 Reaction/&SpendPowerPowerFeatCrusherHitReactTitle=Triturar

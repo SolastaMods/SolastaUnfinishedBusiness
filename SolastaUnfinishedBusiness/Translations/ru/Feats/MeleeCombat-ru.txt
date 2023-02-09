@@ -46,7 +46,6 @@ Feedback/&AdditionalDamageCrusherFormat=Дробилка!
 Feedback/&AdditionalDamageCrusherLine={0} раздавливает {1}
 Feedback/&AdditionalDamagePiercerFormat=Пронзатель!
 Feedback/&AdditionalDamagePiercerLine={0} проводит пронзающую атаку по {1} (+{2})
-Feedback/&FeatFellHanded={0} упал с руки при броске {1} = {2} и теперь лежит ничком.
 Reaction/&SpendPowerPowerFeatCrusherHitDescription=Раздавите врага и оттолкните его на 5 футов.
 Reaction/&SpendPowerPowerFeatCrusherHitReactDescription=Раздавите врага и оттолкните его на 5 футов.
 Reaction/&SpendPowerPowerFeatCrusherHitReactTitle=Раздавить

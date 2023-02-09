@@ -51,8 +51,7 @@ Feedback/&AdditionalDamageCrusherLine={0} crushes {1}
 Feedback/&AdditionalDamagePiercerFormat=Piercer!
 Feedback/&AdditionalDamagePiercerLine={0} critically pierces {1} 
 Feedback/&AdditionalDamageSpearMasteryLine={0} has readied spear and deals extra {2} damage to {1}!
-Feedback/&FeatFellHanded={0} fell handed with a {1} = {2} roll and is now prone.
-Notification/&FeatFeatFellHandedDisadvantage={0} deals damage to {1} through {2}:
+Feedback/&FeatFeatFellHandedDisadvantage={0} deals damage to {1} through {2}:
 Reaction/&SpendPowerPowerFeatCrusherHitDescription=Crush your enemy and push it by 5 ft.
 Reaction/&SpendPowerPowerFeatCrusherHitReactDescription=Crush your enemy and push it by 5 ft.
 Reaction/&SpendPowerPowerFeatCrusherHitReactTitle=Crush

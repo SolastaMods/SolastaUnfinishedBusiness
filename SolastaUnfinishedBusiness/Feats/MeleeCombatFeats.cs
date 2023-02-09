@@ -652,7 +652,7 @@ internal static class MeleeCombatFeats
     {
         private readonly List<WeaponTypeDefinition> _weaponTypeDefinition = new();
         private readonly FeatureDefinitionPower power;
-        private const string SuretyText = "Notification/&FeatFeatFellHandedDisadvantage";
+        private const string SuretyText = "Feedback/&FeatFeatFellHandedDisadvantage";
         private const string SuretyTitle = "Feat/&FeatFellHandedTitle";
         private const string SuretyDescription = "Feature/&PowerFeatFellHandedDisadvantageDescription";
 
