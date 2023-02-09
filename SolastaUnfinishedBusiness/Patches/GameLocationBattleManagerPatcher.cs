@@ -249,7 +249,9 @@ public static class GameLocationBattleManagerPatcher
             GameLocationBattleManager __instance,
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
-            RulesetAttackMode attackerAttackMode
+            RulesetAttackMode attackerAttackMode,
+            RulesetEffect rulesetEffect,
+            int damageAmount
         )
         {
             //PATCH: support for Sentinel feat - allows reaction attack on enemy attacking ally 
@@ -264,6 +266,24 @@ public static class GameLocationBattleManagerPatcher
             while (extraEvents.MoveNext())
             {
                 yield return extraEvents.Current;
+            }
+            
+                 //PATCH: support for Defensive Strike Power - allows adding Charisma modifer and chain reactions
+            var defensiveEvents =
+                DefensiveStrikeAttack.ProcessOnCharacterAttackFinished(__instance, attacker, defender);
+
+            while (defensiveEvents.MoveNext())
+            {
+                yield return defensiveEvents.Current;
+            }
+
+            //PATCH: support for Aura of the Guardian power - allows swapping hp on enemy attacking ally
+            var guardianEvents =
+                GuardianAuraHpSwap.ProcessOnCharacterAttackHitFinished(__instance, attacker, defender, attackerAttackMode, rulesetEffect, damageAmount);
+
+            while (guardianEvents.MoveNext())
+            {
+                yield return guardianEvents.Current;
             }
         }
     }
@@ -321,6 +341,41 @@ public static class GameLocationBattleManagerPatcher
                 yield return values.Current;
             }
         }
+    }
+    
+      [HarmonyPatch(typeof(GameLocationBattleManager),
+        nameof(GameLocationBattleManager.HandleCharacterAttackHitPossible))]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
+    public static class HandleCharacterAttackHitPossible_Patch
+    {
+        [UsedImplicitly]
+        public static IEnumerator Postfix(
+            IEnumerator values,
+            GameLocationBattleManager __instance,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            RulesetAttackMode attackMode,
+            RulesetEffect rulesetEffect,
+            ActionModifier attackModifier,
+            int attackRoll
+            )
+        {
+            while (values.MoveNext())
+            {
+                yield return values.Current;
+            }
+
+            //PATCH: Support for Spiritual Shielding feature - allows reaction before hit confirmed
+            var blockEvents =
+              BlockAttacks.ProcessOnCharacterAttackHitConfirm(__instance, attacker, defender, attackMode, rulesetEffect, attackModifier, attackRoll);
+
+            while (blockEvents.MoveNext())
+            {
+                yield return blockEvents.Current;
+            }
+        }
+
     }
 
     [HarmonyPatch(typeof(GameLocationBattleManager),
