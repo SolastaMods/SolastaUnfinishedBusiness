@@ -1,12 +1,10 @@
-﻿Condition/&ConditionOathOfAncientsNaturesWrathDescription=你被藤蔓缠住，无法移动，在敏捷豁免上处于劣势，而攻击者有优势。在你的回合结束时，进行一次力量豁免以逃脱。
-Condition/&ConditionOathOfAncientsNaturesWrathTitle=纠结
-Condition/&ConditionOathOfAncientsAuraWardingDescription=获得对法术伤害的抵抗力。
-Condition/&ConditionOathOfAncientsAuraWardingTitle=守卫
-Feature/&PowerOathOfAncientsNaturesWrathDescription=在目标身上召唤藤蔓，目标在一次失败的力量豁免检定中被束缚。目标在他们的回合结束时进行一次力量豁免投掷以逃脱。
+﻿Condition/&ConditionOathOfAncientsAuraWardingDescription=获得对法术伤害的抵抗力。
+Condition/&ConditionOathOfAncientsAuraWardingTitle=被保护
+Feature/&PowerOathOfAncientsNaturesWrathDescription=你可以使用你的通灵神力来召唤原始力量来诱捕敌人。作为一个动作，你可以使幽灵藤蔓出现并伸向你周围 10 英尺内你能看到的一个生物。该生物必须成功通过一次力量豁免，否则将被束缚。当被藤蔓束缚时，该生物在其每个回合结束时重复一次豁免检定。成功后，它会自行释放并且藤蔓会消失。
 Feature/&PowerOathOfAncientsNaturesWrathTitle=引导神力：自然之怒
-Feature/&PowerOathOfAncientsTurnFaithlessDescription=进行一次祈祷，附近的精类、恶魔和元素必须进行一次智慧豁免检定，失败则转向。
+Feature/&PowerOathOfAncientsTurnFaithlessDescription=你可以使用你的通灵神力说出精类和恶魔听来痛苦的古老话语。作为一个动作，你展示你的圣徽，并且在你 30 英尺内的每个能听到你的精类或恶魔必须进行一次感知豁免。如果豁免失败，该生物将被驱散 1 分钟或直到它受到伤害。
 Feature/&PowerOathOfAncientsTurnFaithlessTitle=引导神性：转变背信者
-Feature/&PowerOathOfAncientsAuraWardingDescription=给你和你周围的人一个古老的守卫，减少法术的伤害。
+Feature/&PowerOathOfAncientsAuraWardingDescription=从第 7 级开始，远古魔法对你的影响如此之大，以至于它形成了一个 eldritch 结界。你和你周围 10 英尺内的友方生物对法术伤害具有抗性。
 Feature/&PowerOathOfAncientsAuraWardingTitle=守护光环
 Subclass/&OathOfAncientsDescription=来自更原始时代的誓言，人们致力于利用自然造福人类。
 Subclass/&OathOfAncientsTitle=先祖之誓
