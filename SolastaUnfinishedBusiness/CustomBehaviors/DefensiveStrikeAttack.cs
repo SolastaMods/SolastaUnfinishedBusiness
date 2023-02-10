@@ -9,9 +9,10 @@ using static ActionDefinitions;
 namespace SolastaUnfinishedBusiness.CustomBehaviors;
 
 //Old Attack of Opportunity before it became too narrow to use
+[UsedImplicitly]
 internal class DefensiveStrikeAttack
 {
-    internal const string NotAoOTag = "NotAoO"; //Used to distinguish reaction attacks from AoO
+    private const string NotAoOTag = "NotAoO"; //Used to distinguish reaction attacks from AoO
     internal static readonly object DefensiveStrikeMarker = new DefensiveStrikeMarker();
 
     internal static IEnumerator ProcessOnCharacterAttackFinished(
@@ -123,7 +124,6 @@ internal class DefensiveStrikeAttack
 
         unit.RulesetCharacter.usedChannelDivinity++;
     }
-
 
     private static void RequestReactionAttack(string type, CharacterActionParams actionParams)
     {

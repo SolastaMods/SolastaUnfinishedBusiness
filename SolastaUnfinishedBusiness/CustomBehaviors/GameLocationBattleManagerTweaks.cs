@@ -12,8 +12,10 @@ namespace SolastaUnfinishedBusiness.CustomBehaviors;
 
 internal static class GameLocationBattleManagerTweaks
 {
+    // ReSharper disable once InconsistentNaming
     private static int ComputeSavingThrowDC(RulesetCharacter character, IAdditionalDamageProvider provider)
     {
+        // ReSharper disable once ConvertSwitchStatementToSwitchExpression
         switch (provider.DcComputation)
         {
             case RuleDefinitions.EffectDifficultyClassComputation.FixedValue:
@@ -182,15 +184,8 @@ internal static class GameLocationBattleManagerTweaks
 
             //Get die type from features if applicable
             var dieTypeProvider = featureDefinition.GetFirstSubFeatureOfType<DamageDieProvider>();
-            if (dieTypeProvider != null)
-            {
-                additionalDamageForm.DieType = dieTypeProvider(attacker.RulesetCharacter, provider.DamageDieType);
-            }
-            else
-            {
-                additionalDamageForm.DieType = provider.DamageDieType;
-            }
 
+            additionalDamageForm.DieType = dieTypeProvider?.Invoke(attacker.RulesetCharacter, provider.DamageDieType) ?? provider.DamageDieType;
 
             /*
              * Support for damage die progression

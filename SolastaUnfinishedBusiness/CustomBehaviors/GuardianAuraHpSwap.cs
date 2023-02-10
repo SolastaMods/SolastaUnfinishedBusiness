@@ -127,7 +127,7 @@ internal class GuardianAuraHpSwap
             RuleDefinitions.HealingCap.MaximumHitPoints, null);
         defender.RulesetCharacter.ForceSetHealth(damageAmount, true);
         unit.RulesetCharacter.SustainDamage(damageAmount, damage.DamageType, false, attacker.Guid, null,
-            out var _);
+            out _);
 
         DummyAuraGuardianPower.name = "GuardianAura";
         DummyAuraGuardianPower.guiPresentation = DatabaseHelper.SpellDefinitions.ShieldOfFaith.guiPresentation;
