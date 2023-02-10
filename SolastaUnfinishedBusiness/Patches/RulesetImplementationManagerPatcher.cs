@@ -345,35 +345,4 @@ public static class RulesetImplementationManagerPatcher
                 rangedAttack, attackMode, rulesetEffect);
         }
     }
-
-    [HarmonyPatch(typeof(RulesetImplementationManager), nameof(RulesetImplementationManager.TryRollSavingThrow))]
-    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    [UsedImplicitly]
-    public static class TryRollSavingThrow_Patch
-    {
-        [UsedImplicitly]
-        // ReSharper disable once InconsistentNaming
-        public static void Prefix(RulesetCharacter caster, ref int saveDC, BaseDefinition sourceDefinition)
-        {
-            //BUGFIX: for still an unknown reason we get DC 0 on some Grenadier powers so hack it here (MULTIPLAYER)
-            if (saveDC != 0 || sourceDefinition is not FeatureDefinition)
-            {
-                return;
-            }
-
-            var spellRepertoire = caster.GetClassSpellRepertoire();
-
-            if (spellRepertoire == null)
-            {
-                return;
-            }
-
-            // if I try to use this then I get an exception on our patch on ComputeSaveDC ???
-            // saveDC = caster.ComputeSaveDC(repertoire);
-
-            saveDC = 8 + caster.TryGetAttributeValue("ProficiencyBonus") +
-                     AttributeDefinitions.ComputeAbilityScoreModifier(
-                         caster.TryGetAttributeValue(spellRepertoire.SpellCastingAbility));
-        }
-    }
 }

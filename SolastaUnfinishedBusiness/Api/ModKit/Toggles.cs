@@ -1,15 +1,16 @@
-﻿using UnityEngine;
+﻿using SolastaUnfinishedBusiness.CustomUI;
+using UnityEngine;
 
 namespace SolastaUnfinishedBusiness.Api.ModKit;
 
 internal static partial class UI
 {
     private static readonly GUIContent LabelContent = new();
-    private static readonly GUIContent CheckOn = new(CheckGlyphOn);
-    private static readonly GUIContent CheckOff = new(CheckGlyphOff);
-    private static readonly GUIContent DisclosureOn = new(DisclosureGlyphOn);
-    private static readonly GUIContent DisclosureOff = new(DisclosureGlyphOff);
-    private static readonly GUIContent DisclosureEmpty = new(DisclosureGlyphEmpty);
+    private static readonly GUIContent CheckOn = new(Sprites.CheckOnTexture);
+    private static readonly GUIContent CheckOff = new(Sprites.CheckOffTexture);
+    private static readonly GUIContent DisclosureOn = new(Sprites.ExpandedTexture);
+    private static readonly GUIContent DisclosureOff = new(Sprites.CollapsedTexture);
+    private static readonly GUIContent DisclosureEmpty = new(string.Empty);
 
     private static readonly int SButtonHint = "MyGUI.Button".GetHashCode();
 

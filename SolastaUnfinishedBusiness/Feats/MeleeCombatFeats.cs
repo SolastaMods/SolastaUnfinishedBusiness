@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using JetBrains.Annotations;
+using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Api.Infrastructure;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
@@ -347,6 +348,7 @@ internal static class MeleeCombatFeats
         .SetGuiPresentationNoContent(true)
         .SetUsesFixed(ActivationTime.OnAttackHitMelee, RechargeRate.TurnStart)
         .SetCustomSubFeatures(
+            ForcePowerUseInSpendPowerAction.Marker,
             new RestrictReactionAttackMode((mode, _, _) =>
                 ValidatorsWeapon.IsOfDamageType(mode, DamageTypeBludgeoning)))
         .SetShowCasting(false)
@@ -623,23 +625,49 @@ internal static class MeleeCombatFeats
 
         var weaponTypes = new[] { BattleaxeType, GreataxeType, HandaxeType, MaulType, WarhammerType };
 
-        return FeatDefinitionBuilder
+        var fellHandedAdvantage = FeatureDefinitionPowerBuilder
+            .Create($"Power{NAME}Advantage")
+            .SetGuiPresentation(NAME, Category.Feat, $"Feature/&Power{NAME}AdvantageDescription", hidden: true)
+            .SetUsesFixed(ActivationTime.Reaction)
+            .SetEffectDescription(EffectDescriptionBuilder.Create()
+                .SetTargetingData(Side.Enemy, RangeType.Touch, 1, TargetType.Individuals)
+                .SetEffectForms(EffectFormBuilder.Create()
+                    .SetMotionForm(MotionForm.MotionType.FallProne)
+                    .Build())
+                .Build())
+            .AddToDB();
+
+        var feat = FeatDefinitionBuilder
             .Create(NAME)
             .SetGuiPresentation(Category.Feat)
             .SetCustomSubFeatures(
-                new AfterAttackEffectFeatFellHanded(weaponTypes),
+                new AfterAttackEffectFeatFellHanded(fellHandedAdvantage, weaponTypes),
                 new ModifyAttackModeForWeaponTypeFilter(
                     $"Feature/&ModifyAttackMode{NAME}Title", weaponTypes))
             .AddToDB();
+
+        return feat;
     }
 
     private sealed class AfterAttackEffectFeatFellHanded : IAfterAttackEffect
     {
+        private const string SuretyText = "Feedback/&FeatFeatFellHandedDisadvantage";
+        private const string SuretyTitle = "Feat/&FeatFellHandedTitle";
+        private const string SuretyDescription = "Feature/&PowerFeatFellHandedDisadvantageDescription";
         private readonly List<WeaponTypeDefinition> _weaponTypeDefinition = new();
+        private readonly DamageForm damage;
+        private readonly FeatureDefinitionPower power;
 
-        public AfterAttackEffectFeatFellHanded(params WeaponTypeDefinition[] weaponTypeDefinition)
+        public AfterAttackEffectFeatFellHanded(FeatureDefinitionPower power,
+            params WeaponTypeDefinition[] weaponTypeDefinition)
         {
+            this.power = power;
             _weaponTypeDefinition.AddRange(weaponTypeDefinition);
+
+            damage = new DamageForm
+            {
+                DamageType = DamageTypeBludgeoning, DieType = DieType.D1, DiceNumber = 0, BonusDamage = 0
+            };
         }
 
         public void AfterOnAttackHit(
@@ -656,46 +684,78 @@ internal static class MeleeCombatFeats
                 return;
             }
 
+            var rulesetAttacker = attacker.RulesetCharacter;
+            var rulesetDefender = defender.RulesetCharacter;
             switch (attackModifier.AttackAdvantageTrend)
             {
-                case >= 0 when outcome is RollOutcome.Success or RollOutcome.CriticalSuccess:
+                case > 0 when outcome is RollOutcome.Success or RollOutcome.CriticalSuccess:
                     var lowerRoll = Math.Min(Global.FirstAttackRoll, Global.SecondAttackRoll);
-                    var totalRoll = lowerRoll + attackMode.ToHitBonus;
-                    var defenderAc = defender.RulesetCharacter.GetAttribute(AttributeDefinitions.ArmorClass)
-                        .CurrentValue;
+                    var modifier = attackMode.ToHitBonus + attackModifier.AttackRollModifier;
 
-                    if (totalRoll >= defenderAc)
+                    RollOutcome lowOutcome;
+                    if (lowerRoll == DiceMaxValue[(int)DieType.D20])
                     {
-                        var console = Gui.Game.GameConsole;
-                        var entry = new GameConsoleEntry("Feedback/&FeatFellHanded", console.consoleTableDefinition);
-                        var successfulOutcome = Gui.Format("Feedback/&AttackSuccessOutcome", totalRoll.ToString());
-                        
-                        console.AddCharacterEntry(defender.RulesetActor, entry);
-                        entry.AddParameter(ConsoleStyleDuplet.ParameterType.Base, $"{lowerRoll}+{attackMode.ToHitBonus}");
-                        entry.AddParameter(ConsoleStyleDuplet.ParameterType.SuccessfulRoll, successfulOutcome);
-                        console.AddEntry(entry);
+                        lowOutcome = RollOutcome.CriticalSuccess;
+                    }
+                    else if (lowerRoll == DiceMinValue[(int)DieType.D20])
+                    {
+                        lowOutcome = RollOutcome.CriticalFailure;
+                    }
+                    else
+                    {
+                        var defenderArmorClass = rulesetDefender.TryGetAttributeValue(AttributeDefinitions.ArmorClass);
+                        lowOutcome = lowerRoll + modifier >= defenderArmorClass
+                            ? RollOutcome.Success
+                            : RollOutcome.Failure;
+                    }
 
-                        var usablePower = new RulesetUsablePower(
-                            FeatureDefinitionPowers.PowerTraditionOpenHandOpenHandTechniqueKnockProne, null, null);
+                    Gui.Game.GameConsole.AttackRolled(
+                        rulesetAttacker,
+                        rulesetDefender,
+                        power,
+                        lowOutcome,
+                        lowerRoll + modifier,
+                        lowerRoll,
+                        modifier,
+                        attackModifier.AttacktoHitTrends,
+                        new List<TrendInfo>());
 
-                        var effectPower = new RulesetEffectPower(attacker.RulesetCharacter, usablePower)
-                        {
-                            EffectDescription = { hasSavingThrow = false }
-                        };
+                    if (lowOutcome is RollOutcome.Success or RollOutcome.CriticalSuccess)
+                    {
+                        var usablePower = UsablePowersProvider.Get(power, rulesetAttacker);
+                        ServiceRepository.GetService<IRulesetImplementationService>()
+                            .InstantiateEffectPower(rulesetAttacker, usablePower, false)
+                            .ApplyEffectOnCharacter(rulesetDefender, true, defender.LocationPosition);
 
-                        effectPower.ApplyEffectOnCharacter(defender.RulesetCharacter, true, defender.LocationPosition);
+                        GameConsoleHelper.LogCharacterAffectedByCondition(rulesetDefender,
+                            ConditionDefinitions.ConditionProne);
                     }
 
                     break;
                 case < 0 when outcome is RollOutcome.Failure or RollOutcome.CriticalFailure:
-                    var strength = attacker.RulesetCharacter.GetAttribute(AttributeDefinitions.Strength)
+                    var strength = rulesetAttacker.GetAttribute(AttributeDefinitions.Strength)
                         .CurrentValue;
                     var strengthMod = AttributeDefinitions.ComputeAbilityScoreModifier(strength);
 
                     if (strengthMod > 0)
                     {
-                        defender.RulesetCharacter.SustainDamage(strengthMod, DamageTypeBludgeoning, false,
-                            attacker.Guid, null, out _);
+                        GameConsoleHelper.LogCharacterAffectsTarget(rulesetAttacker, rulesetDefender,
+                            SuretyTitle, SuretyText, tooltipContent: SuretyDescription);
+
+                        damage.BonusDamage = strengthMod;
+                        RulesetActor.InflictDamage(
+                            strengthMod,
+                            damage,
+                            DamageTypeBludgeoning,
+                            new RulesetImplementationDefinitions.ApplyFormsParams { targetCharacter = rulesetDefender },
+                            rulesetDefender,
+                            false,
+                            attacker.Guid,
+                            false,
+                            attackMode.AttackTags,
+                            new RollInfo(DieType.D1, new List<int>(), strengthMod),
+                            true,
+                            out _);
                     }
 
                     break;

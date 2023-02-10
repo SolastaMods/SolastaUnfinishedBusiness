@@ -31,6 +31,8 @@ internal static class SpellsContext
     internal static readonly SpellDefinition FarStep = BuildFarStep();
     internal static readonly SpellDefinition SearingSmite = BuildSearingSmite();
     internal static readonly SpellDefinition SunlightBlade = BuildSunlightBlade();
+
+    // ReSharper disable once MemberCanBePrivate.Global
     internal static HashSet<SpellDefinition> Spells { get; set; } = new();
 
     [NotNull]
@@ -103,12 +105,6 @@ internal static class SpellsContext
                     .Select(x => x.FeatureDefinition)
                     .OfType<FeatureDefinitionCastSpell>()
                     .FirstOrDefault();
-
-                // this is an exception to comport Warlock Variant and force the original game one
-                if (characterClass == DatabaseHelper.CharacterClassDefinitions.Warlock)
-                {
-                    featureDefinitionCastSpell = DatabaseHelper.FeatureDefinitionCastSpells.CastSpellWarlock;
-                }
 
                 // NOTE: don't use featureDefinitionCastSpell?. which bypasses Unity object lifetime check
                 if (!featureDefinitionCastSpell

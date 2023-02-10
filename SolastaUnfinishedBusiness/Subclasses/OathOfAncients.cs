@@ -36,7 +36,6 @@ internal sealed class OathOfAncients : AbstractSubclass
 
         var conditionNaturesWrath = ConditionDefinitionBuilder
             .Create(ConditionDefinitions.ConditionRestrainedByEntangle, $"Condition{NAME}NaturesWrath")
-            .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionRestrainedByEntangle)
             .SetConditionParticleReference(Entangle.effectDescription.EffectParticleParameters
                 .conditionParticleReference)
             .AddToDB();
