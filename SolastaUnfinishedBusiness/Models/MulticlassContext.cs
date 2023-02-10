@@ -374,12 +374,12 @@ internal static class MulticlassContext
                 NullMethod, HeroContext.StagePanel
             ),
             (
-                typeof(CharacterStageClassSelectionPanel).GetMethod("FillClassFeatures", PrivateBinding) ?? 
+                typeof(CharacterStageClassSelectionPanel).GetMethod("FillClassFeatures", PrivateBinding) ??
                 NullMethod, HeroContext.StagePanel
             ),
             // CharacterStageLevelGainsPanel
             (
-                typeof(CharacterStageLevelGainsPanel).GetMethod("OnHigherLevelClassCb") ?? 
+                typeof(CharacterStageLevelGainsPanel).GetMethod("OnHigherLevelClassCb") ??
                 NullMethod, HeroContext.StagePanel
             ),
             (
@@ -391,19 +391,19 @@ internal static class MulticlassContext
                 NullMethod, HeroContext.StagePanel
             ),
             (
-                typeof(CharacterStageLevelGainsPanel).GetMethod("Refresh", PrivateBinding) ?? 
+                typeof(CharacterStageLevelGainsPanel).GetMethod("Refresh", PrivateBinding) ??
                 NullMethod, HeroContext.StagePanel
             ),
 
             // CharacterBuildingManager
             (
-                typeof(CharacterBuildingManager).GetMethod("FinalizeCharacter") ?? 
+                typeof(CharacterBuildingManager).GetMethod("FinalizeCharacter") ??
                 NullMethod, HeroContext.BuildingManager
             ),
 
             // CharacterInformationPanel
             (
-                typeof(CharacterInformationPanel).GetMethod("TryFindChoiceFeature", PrivateBinding) ?? 
+                typeof(CharacterInformationPanel).GetMethod("TryFindChoiceFeature", PrivateBinding) ??
                 NullMethod, HeroContext.InformationPanel
             )
         };

@@ -106,12 +106,6 @@ internal static class SpellsContext
                     .OfType<FeatureDefinitionCastSpell>()
                     .FirstOrDefault();
 
-                // this is an exception to comport Warlock Variant and force the original game one
-                if (characterClass == DatabaseHelper.CharacterClassDefinitions.Warlock)
-                {
-                    featureDefinitionCastSpell = DatabaseHelper.FeatureDefinitionCastSpells.CastSpellWarlock;
-                }
-
                 // NOTE: don't use featureDefinitionCastSpell?. which bypasses Unity object lifetime check
                 if (!featureDefinitionCastSpell
                     || !featureDefinitionCastSpell.SpellListDefinition
