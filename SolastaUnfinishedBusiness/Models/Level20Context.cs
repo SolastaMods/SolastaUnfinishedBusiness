@@ -135,19 +135,6 @@ internal static class Level20Context
                 });
             }
         }
-
-        //
-        // BUGFIX: fix Race Repertoires
-        //
-
-        CastSpellElfHigh.slotsPerLevels = SharedSpellsContext.RaceEmptyCastingSlots;
-
-        //
-        // BUGFIX: add a sprite reference to Resurrection
-        //
-
-        Resurrection.GuiPresentation.spriteReference =
-            Sprites.GetSprite("Resurrection", Resources.Resurrection, 128, 128);
     }
 
     internal static void LateLoad()

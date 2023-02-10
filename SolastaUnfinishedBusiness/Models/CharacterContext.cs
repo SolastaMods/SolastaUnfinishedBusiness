@@ -57,14 +57,6 @@ internal static class CharacterContext
                 .AddToDB();
         }
 
-        //
-        // BUGFIX: these null shouldn't be there as it breaks Bard Magical Secrets
-        //
-        foreach (var spells in SpellListDefinitions.SpellListAllSpells.SpellsByLevel.Select(x => x.Spells))
-        {
-            spells.RemoveAll(x => x == null);
-        }
-
         LoadFighterArmamentAdroitness();
         LoadHelpPower();
         LoadVision();

@@ -142,7 +142,7 @@ internal class BlockAttacks
         actionManager.AddInterruptRequest(reactionRequest);
     }
 
-    internal sealed class SpiritualShielding
+    private sealed class SpiritualShielding
     {
     }
 }
