@@ -261,8 +261,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Condition/&ConditionOathOfAncientsNaturesWrathTitle",
-    "description": "Condition/&ConditionOathOfAncientsNaturesWrathDescription",
+    "title": "Rules/&ConditionRestrainedTitle",
+    "description": "Rules/&ConditionRestrainedDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "d89ea9eef65da0d46a12c4ff40481527",

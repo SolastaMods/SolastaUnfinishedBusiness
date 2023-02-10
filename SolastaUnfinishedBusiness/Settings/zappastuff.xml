@@ -133,7 +133,7 @@
   <UnlockGlowingEyeColors>true</UnlockGlowingEyeColors>
   <UnlockGlowingColorsForAllMarksAndTattoos>true</UnlockGlowingColorsForAllMarksAndTattoos>
   <UnlockSkinColors>true</UnlockSkinColors>
-  <AllowBeardlessDwarves>false</AllowBeardlessDwarves>
+  <AllowBeardlessDwarves>true</AllowBeardlessDwarves>
   <AllowHornsOnAllRaces>false</AllowHornsOnAllRaces>
   <RaceSliderPosition>4</RaceSliderPosition>
   <RaceEnabled>
@@ -183,6 +183,7 @@
     <string>OathOfHatred</string>
     <string>OathOfAncients</string>
     <string>WayOfTheDragon</string>
+    <string>OathOfAltruism</string>
   </SubclassEnabled>
   <FeatSliderPosition>4</FeatSliderPosition>
   <FeatEnabled>
@@ -797,12 +798,12 @@
   <EnableBetaContent>true</EnableBetaContent>
   <EnableSaveByLocation>true</EnableSaveByLocation>
   <EnableRespec>true</EnableRespec>
-  <EnableCheatMenu>false</EnableCheatMenu>
+  <EnableCheatMenu>true</EnableCheatMenu>
   <EnableTogglesToOverwriteDefaultTestParty>true</EnableTogglesToOverwriteDefaultTestParty>
   <NoExperienceOnLevelUp>true</NoExperienceOnLevelUp>
   <OverrideMinMaxLevel>true</OverrideMinMaxLevel>
   <MultiplyTheExperienceGainedBy>100</MultiplyTheExperienceGainedBy>
-  <OverridePartySize>4</OverridePartySize>
+  <OverridePartySize>2</OverridePartySize>
   <AllowAllPlayersOnNarrativeSequences>false</AllowAllPlayersOnNarrativeSequences>
   <FasterTimeModifier>1.5</FasterTimeModifier>
   <EncounterPercentageChance>5</EncounterPercentageChance>

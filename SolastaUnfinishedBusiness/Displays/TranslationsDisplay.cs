@@ -36,7 +36,8 @@ internal static class TranslationsDisplay
 
         foreach (var userCampaign in userCampaignPoolService.AllCampaigns
                      .Where(x => !x.TechnicalInfo.StartsWith(TranslatorContext.TranslatorBehaviour.UbTranslationTag))
-                     .OrderBy(x => x.Title))
+                     .OrderBy(x => x.Author)
+                     .ThenBy(x => x.Title))
         {
             var exportName = userCampaign.Title;
 

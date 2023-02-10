@@ -140,10 +140,7 @@ internal static class BootContext
 
     private static void ExpandColorTables()
     {
-        //
-        // BUGFIX: expand color tables
-        //
-
+        //BUGFIX: expand color tables
         for (var i = 21; i < 33; i++)
         {
             Gui.ModifierColors.Add(i, new Color32(0, 164, byte.MaxValue, byte.MaxValue));
@@ -373,7 +370,7 @@ internal static class BootContext
         }
         catch
         {
-            // hack because of this: https://github.com/dotnet/corefx/issues/10361
+            // because of this: https://github.com/dotnet/corefx/issues/10361
             if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
             {
                 url = url.Replace("&", "^&");

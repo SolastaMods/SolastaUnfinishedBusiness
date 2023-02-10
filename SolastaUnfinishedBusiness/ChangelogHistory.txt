@@ -1,5 +1,15 @@
 ﻿CHANGES:
 
+1.4.33.32:
+
+- added Oath of Altruism subclass in BETA
+- fixed Blade Dancer not removing the beneficial condition on invalid armor or weapon sets
+- fixed Ki and Smite toggles loosing their state on area changes
+- fixed some powers to correctly work in multiclass and multiplayer [i.e: DC, consumption]
+- fixed War Caster persisting the bonus attack to the next round
+- improved Mod UI icons to make intentions more clear
+- refactored Fell Handed with better combat log and behavior
+
 1.4.33.31:
 
 - added lore friendly Kobold names

@@ -63,12 +63,14 @@ public static class InventorySlotBoxPatcher
                 return;
             }
 
-
+            var color = Color.white;
             if ((Main.Settings.EnableInventoryTaintNonProficientItemsRed && !(hero?.IsProficientWithItem(item) ?? true))
                 || (Main.Settings.EnableInventoryTintKnownRecipesRed && RecipeHelper.RecipeIsKnown(item)))
             {
-                box.equipedItemImage.color = Color.red;
+                color = Color.red;
             }
+
+            box.equipedItemImage.color = color;
         }
     }
 
