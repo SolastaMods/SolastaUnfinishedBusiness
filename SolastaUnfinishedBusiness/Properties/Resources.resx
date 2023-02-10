@@ -641,10 +641,16 @@
   <data name="SpearMasteryReach" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Powers\SpearMasteryReach.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="check_off" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\UI\check_off.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="checkOff" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\UI\checkOff.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="check_on" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\UI\check_on.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="checkOn" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\UI\checkOn.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="expanded" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\UI\expanded.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="collapsed" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\UI\collapsed.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

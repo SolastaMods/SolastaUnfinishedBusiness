@@ -28,14 +28,24 @@ public static class Sprites
     #region UI
 
     private static AssetReferenceSprite CheckOn =>
-        GetSprite("check_on", Resources.check_on, 12);
+        GetSprite("CheckOn", Resources.checkOn, 12);
 
     internal static Texture CheckOnTexture => GetSpriteByGuid(CheckOn.AssetGUID)?.texture;
 
     private static AssetReferenceSprite CheckOff =>
-        GetSprite("check_off", Resources.check_off, 12);
+        GetSprite("CheckOff", Resources.checkOff, 12);
 
     internal static Texture CheckOffTexture => GetSpriteByGuid(CheckOff.AssetGUID)?.texture;
+
+    private static AssetReferenceSprite Expanded =>
+        GetSprite("Expanded", Resources.expanded, 12);
+
+    internal static Texture ExpandedTexture => GetSpriteByGuid(Expanded.AssetGUID)?.texture;
+
+    private static AssetReferenceSprite Collapsed =>
+        GetSprite("Collapsed", Resources.collapsed, 12);
+
+    internal static Texture CollapsedTexture => GetSpriteByGuid(Collapsed.AssetGUID)?.texture;
 
     #endregion
 
