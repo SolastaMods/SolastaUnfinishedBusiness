@@ -40,7 +40,7 @@ internal static class SubclassesContext
         LoadSubclass(new MartialTactician());
 
         // Paladin
-        LoadSubclass(new OathOfAltruism());
+        LoadSubclass(new OathOfAltruism(), true);
         LoadSubclass(new OathOfAncients());
         LoadSubclass(new OathOfHatred());
 

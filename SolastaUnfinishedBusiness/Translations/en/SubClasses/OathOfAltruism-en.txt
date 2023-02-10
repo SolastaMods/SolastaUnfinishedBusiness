@@ -24,4 +24,4 @@ Reaction/&CustomReactionSpiritualShieldingTitle=Spiritual Shielding!
 Reaction/&CustomReactionSpiritualShieldingReactDescription=Use your reaction as the enemy strikes at your ally to cast a shield on them.
 Reaction/&CustomReactionSpiritualShieldingReactTitle=Shield!
 Subclass/&OathOfAltruismDescription=The Oath of Altruism calls out to those selfless heroes who put protection of others above all else.
-Subclass/&OathOfAltruismTitle=Oath of Altruism
+Subclass/&OathOfAltruismTitle=Oath of Altruism <color=red>[BETA]</color>
