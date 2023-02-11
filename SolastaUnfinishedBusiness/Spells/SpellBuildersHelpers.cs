@@ -192,11 +192,12 @@ internal static partial class SpellBuilders
             ActionModifier attackModifier)
         {
             if (outcome is RollOutcome.Failure or RollOutcome.CriticalFailure ||
-                defender.RulesetCharacter.CurrentHitPoints >= 50)
+                defender.RulesetCharacter.CurrentHitPoints > 50)
             {
                 return;
             }
 
+            //TODO: ideally we need to banish extra planar creatures forever (kill them?)
             var rulesetCondition = RulesetCondition.CreateActiveCondition(
                 defender.Guid,
                 _conditionDefinition,
