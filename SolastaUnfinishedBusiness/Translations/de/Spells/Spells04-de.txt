@@ -2,5 +2,5 @@
 Feature/&AdditionalDamageStaggeringSmiteTitle=Umwerfendes Smite
 Feedback/&AdditionalDamageStaggeringSmiteFormat=Atemberaubendes Smite!
 Feedback/&AdditionalDamageStaggeringSmiteLine={0} fügt {1} durch einen umwerfenden Schlag (+{2}) mehr Schaden zu
-Spell/&StaggeringSmiteDescription=Dein nächster Treffer verursacht mit deiner Waffe zusätzlichen psychischen Schaden. Das Ziel muss einen Weisheitsrettungswurf machen. Bei einem fehlgeschlagenen Rettungswurf hat es einen Nachteil bei Angriffswürfen und Attributswürfen und kann bis zum Ende seines nächsten Zuges keine Reaktionen einstecken.
+Spell/&StaggeringSmiteDescription=Wenn du während der Dauer dieses Zaubers das nächste Mal eine Kreatur mit einem Waffenangriff triffst, durchbohrt deine Waffe Körper und Geist, und der Angriff fügt dem Ziel zusätzlich 4W6 psychischen Schaden zu. Das Ziel muss einen Weisheitsrettungswurf machen. Bei einem gescheiterten Rettungswurf hat es einen Nachteil bei Angriffswürfen und Attributswürfen und kann bis zum Ende seines nächsten Zuges keine Reaktionen einstecken.
 Spell/&StaggeringSmiteTitle=Umwerfendes Smite

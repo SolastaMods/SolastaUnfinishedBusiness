@@ -2,5 +2,5 @@
 Feature/&AdditionalDamageStaggeringSmiteTitle=Punizione Sconcertante
 Feedback/&AdditionalDamageStaggeringSmiteFormat=Punizione sbalorditiva!
 Feedback/&AdditionalDamageStaggeringSmiteLine={0} infligge più danni a {1} tramite una punizione sbalorditiva (+{2})
-Spell/&StaggeringSmiteDescription=Il tuo prossimo colpo provoca danni psichici aggiuntivi con la tua arma. Il bersaglio deve effettuare un tiro salvezza su Saggezza. Se fallisce il Tiro Salvezza, ha svantaggio ai tiri per colpire e alle prove di caratteristica, e non può effettuare reazioni fino alla fine del suo prossimo turno.
+Spell/&StaggeringSmiteDescription=La prossima volta che colpisci una creatura con un attacco con un'arma durante la durata di questo incantesimo, la tua arma perfora sia il corpo che la mente e l'attacco infligge 4d6 danni psichici extra al bersaglio. Il bersaglio deve effettuare un tiro salvezza su Saggezza. Se fallisce il Tiro Salvezza, ha svantaggio ai tiri per colpire e alle prove di caratteristica, e non può effettuare reazioni fino alla fine del suo prossimo turno.
 Spell/&StaggeringSmiteTitle=Punizione Sconcertante

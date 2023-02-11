@@ -1,6 +1,6 @@
 ﻿Feature/&AdditionalDamageStaggeringSmiteDescription=Eres golpeado por daño psíquico.
 Feature/&AdditionalDamageStaggeringSmiteTitle=Golpe asombroso
-Feedback/&AdditionalDamageStaggeringSmiteFormat=Aplastamiento asombroso!
+Feedback/&AdditionalDamageStaggeringSmiteFormat=¡Aplastamiento asombroso!
 Feedback/&AdditionalDamageStaggeringSmiteLine={0} inflige más daño a {1} a través de un golpe asombroso (+{2})
-Spell/&StaggeringSmiteDescription=Tu próximo golpe causa daño psíquico adicional con tu arma. El objetivo debe hacer una tirada de salvación de Sabiduría. Si falla, tiene desventaja en las tiradas de ataque y las pruebas de habilidad, y no puede reaccionar hasta el final de su siguiente turno.
+Spell/&StaggeringSmiteDescription=La próxima vez que golpees a una criatura con un ataque de arma durante la duración de este hechizo, tu arma perfora tanto el cuerpo como la mente, y el ataque inflige 4d6 daños psíquicos adicionales al objetivo. El objetivo debe hacer una tirada de salvación de Sabiduría. Si falla, tiene desventaja en las tiradas de ataque y las pruebas de habilidad, y no puede reaccionar hasta el final de su siguiente turno.
 Spell/&StaggeringSmiteTitle=Golpe asombroso

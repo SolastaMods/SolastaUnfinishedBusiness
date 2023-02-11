@@ -1,6 +1,6 @@
 ﻿Feature/&AdditionalDamageStaggeringSmiteDescription=Vous êtes touché par des dégâts psychiques.
 Feature/&AdditionalDamageStaggeringSmiteTitle=Châtiment étourdissant
-Feedback/&AdditionalDamageStaggeringSmiteFormat=Châtiment stupéfiant!
+Feedback/&AdditionalDamageStaggeringSmiteFormat=Châtiment stupéfiant !
 Feedback/&AdditionalDamageStaggeringSmiteLine={0} inflige plus de dégâts à {1} par un châtiment stupéfiant (+{2})
-Spell/&StaggeringSmiteDescription=Votre prochain coup inflige des dégâts psychiques supplémentaires avec votre arme. La cible doit effectuer un jet de sauvegarde de Sagesse. En cas d'échec, il a un désavantage aux jets d'attaque et aux tests de capacité, et ne peut pas réagir jusqu'à la fin de son prochain tour.
+Spell/&StaggeringSmiteDescription=La prochaine fois que vous touchez une créature avec une attaque avec une arme pendant la durée de ce sort, votre arme transperce à la fois le corps et l'esprit, et l'attaque inflige 4d6 dégâts psychiques supplémentaires à la cible. La cible doit effectuer un jet de sauvegarde de Sagesse. En cas d'échec, il a un désavantage aux jets d'attaque et aux tests de capacité, et ne peut pas réagir jusqu'à la fin de son prochain tour.
 Spell/&StaggeringSmiteTitle=Châtiment étourdissant
