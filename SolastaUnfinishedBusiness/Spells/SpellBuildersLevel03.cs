@@ -25,15 +25,10 @@ internal static partial class SpellBuilders
             .SetNotificationTag(NAME)
             .SetDamageDice(DieType.D8, 3)
             .SetAdditionalDamageType(AdditionalDamageType.Specific)
-            .SetSpecificDamageType(DamageTypeRadiant)
             .SetAdvancement(AdditionalDamageAdvancement.SlotLevel, 3, 1, 1, 3)
-            .SetIgnoreCriticalDoubleDice(true)
-            .AddToDB();
-        
-        var additionalDamageBlindingSmiteCondition = FeatureDefinitionAdditionalDamageBuilder
-            .Create($"AdditionalDamage{NAME}Condition")
-            .SetGuiPresentationNoContent(true)
+            .SetSpecificDamageType(DamageTypeRadiant)
             .SetSavingThrowData()
+            .SetIgnoreCriticalDoubleDice(true)
             .SetConditionOperations(
                 new ConditionOperationDescription
                 {
@@ -53,7 +48,7 @@ internal static partial class SpellBuilders
             .Create($"Condition{NAME}")
             .SetGuiPresentation(NAME, Category.Spell, ConditionBrandingSmite)
             .SetPossessive()
-            .SetFeatures(additionalDamageBlindingSmite, additionalDamageBlindingSmiteCondition)
+            .SetFeatures(additionalDamageBlindingSmite)
             .SetSpecialInterruptions(ConditionInterruption.AttacksAndDamages)
             .AddToDB();
 

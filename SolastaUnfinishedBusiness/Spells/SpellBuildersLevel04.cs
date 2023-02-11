@@ -45,16 +45,11 @@ internal static partial class SpellBuilders
             .SetAdditionalDamageType(AdditionalDamageType.Specific)
             .SetAdvancement(AdditionalDamageAdvancement.SlotLevel, 4, 1, 1, 4)
             .SetSpecificDamageType(DamageTypePsychic)
-            .SetIgnoreCriticalDoubleDice(true)
-            .AddToDB();
-        
-        var additionalDamageStaggeringSmiteCondition = FeatureDefinitionAdditionalDamageBuilder
-            .Create($"AdditionalDamage{NAME}Condition")
-            .SetGuiPresentationNoContent(true)
             .SetSavingThrowData(
                 EffectDifficultyClassComputation.SpellCastingFeature,
                 EffectSavingThrowType.Negates,
                 AttributeDefinitions.Wisdom)
+            .SetIgnoreCriticalDoubleDice(true)
             .SetConditionOperations(
                 new ConditionOperationDescription
                 {
@@ -71,7 +66,7 @@ internal static partial class SpellBuilders
             .Create($"Condition{NAME}")
             .SetGuiPresentation(NAME, Category.Spell, ConditionBrandingSmite)
             .SetPossessive()
-            .SetFeatures(additionalDamageStaggeringSmite, additionalDamageStaggeringSmiteCondition)
+            .SetFeatures(additionalDamageStaggeringSmite)
             .SetSpecialInterruptions(ConditionInterruption.AttacksAndDamages)
             .AddToDB();
 

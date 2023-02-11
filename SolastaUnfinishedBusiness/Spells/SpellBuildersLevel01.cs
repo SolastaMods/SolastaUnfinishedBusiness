@@ -294,14 +294,9 @@ internal static partial class SpellBuilders
             .SetNotificationTag(NAME)
             .SetDamageDice(DieType.D6, 1)
             .SetAdditionalDamageType(AdditionalDamageType.Specific)
-            .SetSpecificDamageType(DamageTypeFire)
             .SetAdvancement(AdditionalDamageAdvancement.SlotLevel, 1)
+            .SetSpecificDamageType(DamageTypeFire)
             .SetIgnoreCriticalDoubleDice(true)
-            .AddToDB();
-
-        var additionalDamageSearingSmiteCondition = FeatureDefinitionAdditionalDamageBuilder
-            .Create($"AdditionalDamage{NAME}Condition")
-            .SetGuiPresentationNoContent(true)
             .SetSavingThrowData()
             .SetConditionOperations(
                 new ConditionOperationDescription
@@ -321,7 +316,7 @@ internal static partial class SpellBuilders
             .Create($"Condition{NAME}")
             .SetGuiPresentation(NAME, Category.Spell, ConditionBrandingSmite)
             .SetPossessive()
-            .SetFeatures(additionalDamageSearingSmite, additionalDamageSearingSmiteCondition)
+            .SetFeatures(additionalDamageSearingSmite)
             .SetSpecialInterruptions(ConditionInterruption.AttacksAndDamages)
             .AddToDB();
 
@@ -510,18 +505,13 @@ internal static partial class SpellBuilders
             .SetNotificationTag(NAME)
             .SetDamageDice(DieType.D6, 1)
             .SetAdditionalDamageType(AdditionalDamageType.Specific)
-            .SetSpecificDamageType(DamageTypePsychic)
             .SetAdvancement(AdditionalDamageAdvancement.SlotLevel, 1)
-            .SetIgnoreCriticalDoubleDice(true)
-            .AddToDB();
-
-        var additionalDamageWrathfulSmiteCondition = FeatureDefinitionAdditionalDamageBuilder
-            .Create($"AdditionalDamage{NAME}Condition")
-            .SetGuiPresentationNoContent(true)
+            .SetSpecificDamageType(DamageTypePsychic)
             .SetSavingThrowData(
                 EffectDifficultyClassComputation.SpellCastingFeature,
                 EffectSavingThrowType.Negates,
                 AttributeDefinitions.Wisdom)
+            .SetIgnoreCriticalDoubleDice(true)
             .SetConditionOperations(
                 new ConditionOperationDescription
                 {
@@ -541,7 +531,7 @@ internal static partial class SpellBuilders
             .Create($"Condition{NAME}")
             .SetGuiPresentation(NAME, Category.Spell, ConditionBrandingSmite)
             .SetPossessive()
-            .SetFeatures(additionalDamageWrathfulSmite, additionalDamageWrathfulSmiteCondition)
+            .SetFeatures(additionalDamageWrathfulSmite)
             .SetSpecialInterruptions(ConditionInterruption.AttacksAndDamages)
             .AddToDB();
 
