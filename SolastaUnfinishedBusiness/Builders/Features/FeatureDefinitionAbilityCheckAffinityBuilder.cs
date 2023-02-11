@@ -31,7 +31,7 @@ internal class FeatureDefinitionAbilityCheckAffinityBuilder
         return this;
     }
 
-    internal FeatureDefinitionAbilityCheckAffinityBuilder BuildAndSetAffinityGroups(
+    private FeatureDefinitionAbilityCheckAffinityBuilder BuildAndSetAffinityGroups(
         CharacterAbilityCheckAffinity affinityType = CharacterAbilityCheckAffinity.None,
         DieType dieType = DieType.D1,
         int diceNumber = 0,
@@ -40,7 +40,7 @@ internal class FeatureDefinitionAbilityCheckAffinityBuilder
         return BuildAndSetAffinityGroups(affinityType, dieType, diceNumber,
             abilityScores.Select(a => (a, string.Empty)).ToArray());
     }
-    
+
     internal FeatureDefinitionAbilityCheckAffinityBuilder BuildAndSetAffinityGroups(
         CharacterAbilityCheckAffinity affinityType,
         params string[] abilityScores)

@@ -145,12 +145,12 @@ internal static partial class SpellBuilders
         }
     }
 
-    private sealed class ConditionUsesPowerOntarget : ICustomConditionFeature
+    private sealed class ConditionUsesPowerOnTarget : ICustomConditionFeature
     {
         private readonly FeatureDefinitionPower power;
         private readonly bool removeCondition;
 
-        public ConditionUsesPowerOntarget(FeatureDefinitionPower power, bool removeCondition = true)
+        public ConditionUsesPowerOnTarget(FeatureDefinitionPower power, bool removeCondition = true)
         {
             this.power = power;
             this.removeCondition = removeCondition;

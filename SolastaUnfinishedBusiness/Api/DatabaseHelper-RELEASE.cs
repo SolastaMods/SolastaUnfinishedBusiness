@@ -111,7 +111,6 @@ internal static partial class DatabaseHelper
         internal static ConditionDefinition ConditionAcidSpit { get; } = GetDefinition<ConditionDefinition>("ConditionAcidSpit");
         internal static ConditionDefinition ConditionBaned { get; } = GetDefinition<ConditionDefinition>("ConditionBaned");
         internal static ConditionDefinition ConditionBanished { get; } = GetDefinition<ConditionDefinition>("ConditionBanished");
-        internal static ConditionDefinition ConditionBanishedByPrismaticSpray { get; } = GetDefinition<ConditionDefinition>("ConditionBanishedByPrismaticSpray");
         internal static ConditionDefinition ConditionBardicInspiration { get; } = GetDefinition<ConditionDefinition>("ConditionBardicInspiration");
         internal static ConditionDefinition ConditionBarkskin { get; } = GetDefinition<ConditionDefinition>("ConditionBarkskin");
         internal static ConditionDefinition ConditionBearsEndurance { get; } = GetDefinition<ConditionDefinition>("ConditionBearsEndurance");

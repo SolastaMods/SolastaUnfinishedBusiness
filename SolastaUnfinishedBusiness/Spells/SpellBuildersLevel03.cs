@@ -28,6 +28,7 @@ internal static partial class SpellBuilders
             .SetSavingThrowData( //explicitly stating all relevant properties (even default ones) for readability
                 EffectDifficultyClassComputation.SpellCastingFeature,
                 EffectSavingThrowType.None,
+                // ReSharper disable once RedundantArgumentDefaultValue
                 AttributeDefinitions.Constitution)
             .SetConditionOperations(
                 new ConditionOperationDescription

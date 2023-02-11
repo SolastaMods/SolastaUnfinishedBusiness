@@ -293,6 +293,7 @@ internal static partial class SpellBuilders
             .SetSavingThrowData( //explicitly stating all relevant properties (even default ones) for readability
                 EffectDifficultyClassComputation.SpellCastingFeature,
                 EffectSavingThrowType.None,
+                // ReSharper disable once RedundantArgumentDefaultValue
                 AttributeDefinitions.Constitution)
             .SetConditionOperations(
                 new ConditionOperationDescription
@@ -451,7 +452,7 @@ internal static partial class SpellBuilders
 
         var power = FeatureDefinitionPowerBuilder
             .Create($"Power{NAME}Push")
-            .SetGuiPresentationNoContent(hidden: true)
+            .SetGuiPresentationNoContent(true)
             .SetEffectDescription(EffectDescriptionBuilder.Create()
                 .SetTargetingData(Side.Enemy, RangeType.Touch, 1, TargetType.Individuals)
                 .SetEffectForms(
@@ -483,9 +484,9 @@ internal static partial class SpellBuilders
                 saveOccurence = TurnOccurenceType.StartOfTurn,
                 conditionDefinition = ConditionDefinitionBuilder
                     .Create($"Condition{NAME}Enemy")
-                    .SetGuiPresentationNoContent(hidden: true)
+                    .SetGuiPresentationNoContent(true)
                     .SetSilent(Silent.WhenAddedOrRemoved)
-                    .SetCustomSubFeatures(new ConditionUsesPowerOntarget(power))
+                    .SetCustomSubFeatures(new ConditionUsesPowerOnTarget(power))
                     .AddToDB(),
                 operation = ConditionOperationDescription.ConditionOperation.Add
             })

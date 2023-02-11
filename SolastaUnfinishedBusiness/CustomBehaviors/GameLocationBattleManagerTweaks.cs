@@ -424,6 +424,7 @@ internal static class GameLocationBattleManagerTweaks
                     foreach (var definitionAncestry in FeatureDefinitionAncestry.FeaturesToBrowse
                                  .Select(definition => definition as FeatureDefinitionAncestry)
                                  .Where(definitionAncestry =>
+                                     definitionAncestry != null &&
                                      definitionAncestry.Type == provider.AncestryTypeForDamageType &&
                                      !string.IsNullOrEmpty(definitionAncestry.DamageType)))
                     {
@@ -532,7 +533,7 @@ internal static class GameLocationBattleManagerTweaks
                 actualEffectForms.Add(newEffectForm);
             }
         }
-        
+
         /*
          * ######################################
          * [CE] EDIT START

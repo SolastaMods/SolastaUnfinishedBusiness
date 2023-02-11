@@ -63,14 +63,14 @@ internal class FeatureDefinitionActionAffinityBuilder
         bool noCost = true)
     {
         var types = Definition.AllowedActionTypes;
-        
+
         types[(int)ActionDefinitions.ActionType.Main] = main;
         types[(int)ActionDefinitions.ActionType.Bonus] = bonus;
         types[(int)ActionDefinitions.ActionType.Move] = move;
         types[(int)ActionDefinitions.ActionType.FreeOnce] = freeOnce;
         types[(int)ActionDefinitions.ActionType.Reaction] = reaction;
         types[(int)ActionDefinitions.ActionType.NoCost] = noCost;
-        
+
         return this;
     }
 
