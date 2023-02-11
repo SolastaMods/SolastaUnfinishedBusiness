@@ -9,7 +9,7 @@ ModUi/&AddNewWeaponsAndRecipesToShops=Füge den Läden neue Waffen und Rezepte h
 ModUi/&AddPaladinSmiteToggle=Fügen Sie einen Umschalter hinzu, um <color=#D89555>Paladins</color> zu erlauben, Smites nur bei kritischen Treffern zu aktivieren <i><color=#F0DAA0>[nützlich, um Reaktionsaufforderungen zu minimieren]</color></i>
 ModUi/&AddPickPocketableLoot=Taschendiebstahl-Beute hinzufügen <i><color=#F0DAA0>[empfohlen, wenn <color=#D89555>Taschendiebstahl</color>-Talent aktiviert ist]</color></i>
 ModUi/&AddToStore=Zum Shop hinzufügen
-ModUi/&AddWildshapeSwapAttackToggle=Füge einen Schalter hinzu, damit <color=#D89555>Druiden</color> in Wildform auswählen können, welcher Angriff zuerst verwendet werden soll <i><color=#F0DAA0>[nützlich bei einer Mischung aus Nah- und Fernkampf]</color> </i>
+ModUi/&AddMonsterSwapAttackToggle=Füge einen Schalter hinzu, damit <color=#D89555>Druiden</color> in Wildform auswählen können, welcher Angriff zuerst verwendet werden soll <i><color=#F0DAA0>[nützlich bei einer Mischung aus Nah- und Fernkampf]</color> </i>
 ModUi/&Advanced=<color=#F0DAA0>Erweitert:</color> <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>
 ModUi/&AdvancedHelp=. <b><color=#C04040E0>ACHTUNG:</color></b> Diese Einstellungen erfordern, dass der Spieler diesen Mod installiert hat
 ModUi/&Adventure=<color=#F0DAA0>Abenteuer:</color>

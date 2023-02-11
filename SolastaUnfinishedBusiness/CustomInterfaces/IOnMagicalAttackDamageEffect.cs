@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using JetBrains.Annotations;
 
 namespace SolastaUnfinishedBusiness.CustomInterfaces;
 
@@ -15,6 +16,7 @@ public interface IOnMagicalAttackDamageEffect
         bool criticalHit);
 #endif
 
+    [UsedImplicitly]
     public void AfterOnMagicalAttackDamage(
         GameLocationCharacter attacker,
         GameLocationCharacter defender,

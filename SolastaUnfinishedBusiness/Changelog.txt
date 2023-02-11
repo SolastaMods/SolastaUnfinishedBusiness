@@ -1,3 +1,9 @@
+1.4.33.33:
+
+- fixed Warlocks getting incorrect invocations learn step if multiclass
+
+1.4.33.32:
+
 - added Oath of Altruism subclass in BETA
 - fixed Blade Dancer not removing the beneficial condition on invalid armor or weapon sets
 - fixed Ki and Smite toggles loosing their state on area changes

@@ -9,8 +9,7 @@ using static ActionDefinitions;
 namespace SolastaUnfinishedBusiness.CustomBehaviors;
 
 //Old Attack of Opportunity before it became too narrow to use
-[UsedImplicitly]
-internal class DefensiveStrikeAttack
+internal static class DefensiveStrikeAttack
 {
     private const string NotAoOTag = "NotAoO"; //Used to distinguish reaction attacks from AoO
     internal static readonly object DefensiveStrikeMarker = new DefensiveStrikeMarker();
@@ -94,30 +93,33 @@ internal class DefensiveStrikeAttack
         actionService = ServiceRepository.GetService<IGameLocationActionService>();
         count = actionService.PendingReactionRequestGroups.Count;
 
-        var damage = opportunityAttackMode.EffectDescription.FindFirstDamageForm();
+        if (opportunityAttackMode != null)
+        {
+            var damage = opportunityAttackMode.EffectDescription.FindFirstDamageForm();
 
-        damage.bonusDamage +=
-            AttributeDefinitions.ComputeAbilityScoreModifier(unit.RulesetCharacter
-                .GetAttribute(AttributeDefinitions.Charisma).CurrentValue) + unit.RulesetCharacter
-                .GetAttribute(AttributeDefinitions.CharacterLevel).CurrentValue;
+            damage.bonusDamage +=
+                AttributeDefinitions.ComputeAbilityScoreModifier(unit.RulesetCharacter
+                    .GetAttribute(AttributeDefinitions.Charisma).CurrentValue) + unit.RulesetCharacter
+                    .GetAttribute(AttributeDefinitions.CharacterLevel).CurrentValue;
 
-        opportunityAttackMode.toHitBonus +=
-            AttributeDefinitions.ComputeAbilityScoreModifier(unit.RulesetCharacter
-                .GetAttribute(AttributeDefinitions.Charisma).CurrentValue) + unit.RulesetCharacter
-                .GetAttribute(AttributeDefinitions.CharacterLevel).CurrentValue;
+            opportunityAttackMode.toHitBonus +=
+                AttributeDefinitions.ComputeAbilityScoreModifier(unit.RulesetCharacter
+                    .GetAttribute(AttributeDefinitions.Charisma).CurrentValue) + unit.RulesetCharacter
+                    .GetAttribute(AttributeDefinitions.CharacterLevel).CurrentValue;
+        }
 
-        var temp2 = new CharacterActionParams(
+        var actionParams = new CharacterActionParams(
             defender,
             Id.AttackOpportunity,
             opportunityAttackMode,
             attacker,
             actionModifier);
 
-        RequestReactionAttack(OathOfAltruism.Name3, temp2);
+        RequestReactionAttack(OathOfAltruism.Name3, actionParams);
 
         yield return battleManager.WaitForReactions(defender, actionService, count);
 
-        if (!temp2.reactionValidated)
+        if (!actionParams.reactionValidated)
         {
             yield break;
         }

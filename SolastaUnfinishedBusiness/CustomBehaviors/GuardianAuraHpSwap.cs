@@ -9,12 +9,12 @@ using static ActionDefinitions;
 
 namespace SolastaUnfinishedBusiness.CustomBehaviors;
 
-[UsedImplicitly]
-internal class GuardianAuraHpSwap
+internal static class GuardianAuraHpSwap
 {
+    private static readonly FeatureDefinitionPower DummyAuraGuardianPower = new();
+
     internal static readonly object AuraGuardianConditionMarker = new GuardianAuraCondition();
     internal static readonly object AuraGuardianUserMarker = new GuardianAuraUser();
-    private static readonly FeatureDefinitionPower DummyAuraGuardianPower = new();
 
     internal static IEnumerator ProcessOnCharacterAttackHitFinished(
         GameLocationBattleManager battleManager,
@@ -41,7 +41,6 @@ internal class GuardianAuraHpSwap
             yield break;
         }
 
-
         var units = battle.AllContenders
             .Where(u => !u.RulesetCharacter.IsDeadOrDyingOrUnconscious)
             .ToArray();
@@ -63,12 +62,11 @@ internal class GuardianAuraHpSwap
         GameLocationBattleManager battleManager,
         RulesetAttackMode attackerAttackMode,
         RulesetEffect rulesetEffect,
-        int damageAmount
-    )
+        int damageAmount)
     {
-        if (!attacker.IsOppositeSide(unit.Side) || defender.Side != unit.Side || unit == defender
-            || !(unit.RulesetCharacter?.HasSubFeatureOfType<GuardianAuraUser>() ?? false)
-            || !(defender.RulesetCharacter?.HasSubFeatureOfType<GuardianAuraCondition>() ?? false))
+        if (!attacker.IsOppositeSide(unit.Side) || defender.Side != unit.Side || unit == defender ||
+            !(unit.RulesetCharacter?.HasSubFeatureOfType<GuardianAuraUser>() ?? false) ||
+            !(defender.RulesetCharacter?.HasSubFeatureOfType<GuardianAuraCondition>() ?? false))
         {
             yield break;
         }
@@ -85,13 +83,10 @@ internal class GuardianAuraHpSwap
 
         var actionService = ServiceRepository.GetService<IGameLocationActionService>();
         var count = actionService.PendingReactionRequestGroups.Count;
-
         var attackMode = defender.FindActionAttackMode(Id.AttackMain);
-
         var guiUnit = new GuiCharacter(unit);
         var guiDefender = new GuiCharacter(defender);
-
-        var temp = new CharacterActionParams(
+        var actionParams = new CharacterActionParams(
             unit,
             (Id)ExtraActionId.DoNothingReaction,
             attackMode,
@@ -102,11 +97,11 @@ internal class GuardianAuraHpSwap
                 "Reaction/&CustomReactionGuardianAuraDescription", guiUnit.Name, guiDefender.Name)
         };
 
-        RequestCustomReaction("GuardianAura", temp);
+        RequestCustomReaction("GuardianAura", actionParams);
 
         yield return battleManager.WaitForReactions(unit, actionService, count);
 
-        if (!temp.ReactionValidated)
+        if (!actionParams.ReactionValidated)
         {
             yield break;
         }
@@ -123,11 +118,15 @@ internal class GuardianAuraHpSwap
             damage = rulesetEffect.EffectDescription.FindFirstDamageForm();
         }
 
-        defender.RulesetCharacter.HealingReceived(defender.RulesetCharacter, damageAmount, unit.Guid,
-            RuleDefinitions.HealingCap.MaximumHitPoints, null);
+        defender.RulesetCharacter.HealingReceived(
+            defender.RulesetCharacter, damageAmount, unit.Guid, RuleDefinitions.HealingCap.MaximumHitPoints, null);
         defender.RulesetCharacter.ForceSetHealth(damageAmount, true);
-        unit.RulesetCharacter.SustainDamage(damageAmount, damage.DamageType, false, attacker.Guid, null,
-            out _);
+
+        if (damage != null)
+        {
+            unit.RulesetCharacter.SustainDamage(
+                damageAmount, damage.DamageType, false, attacker.Guid, null, out _);
+        }
 
         DummyAuraGuardianPower.name = "GuardianAura";
         DummyAuraGuardianPower.guiPresentation = DatabaseHelper.SpellDefinitions.ShieldOfFaith.guiPresentation;

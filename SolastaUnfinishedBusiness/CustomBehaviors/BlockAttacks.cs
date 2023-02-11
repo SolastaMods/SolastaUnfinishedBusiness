@@ -8,7 +8,7 @@ using static ActionDefinitions;
 
 namespace SolastaUnfinishedBusiness.CustomBehaviors;
 
-internal class BlockAttacks
+internal static class BlockAttacks
 {
     internal static readonly object SpiritualShieldingMarker = new SpiritualShielding();
 
