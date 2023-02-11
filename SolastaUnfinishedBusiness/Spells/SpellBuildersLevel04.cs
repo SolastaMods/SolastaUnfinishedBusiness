@@ -19,7 +19,7 @@ internal static partial class SpellBuilders
 
         var conditionStaggeringSmiteEnemy = ConditionDefinitionBuilder
             .Create($"Condition{NAME}Enemy")
-            .SetGuiPresentation($"AdditionalDamage{NAME}", Category.Feature, ConditionBrandingSmite)
+            .SetGuiPresentation($"AdditionalDamage{NAME}", Category.Feature, ConditionDazzled)
             .SetSpecialDuration(DurationType.Round, 1)
             .AddFeatures(
                 FeatureDefinitionCombatAffinityBuilder
@@ -60,9 +60,8 @@ internal static partial class SpellBuilders
                 new ConditionOperationDescription
                 {
                     hasSavingThrow = true,
-                    canSaveToCancel = true,
+                    canSaveToCancel = false,
                     saveAffinity = EffectSavingThrowType.Negates,
-                    saveOccurence = TurnOccurenceType.StartOfTurn,
                     conditionDefinition = conditionStaggeringSmiteEnemy,
                     operation = ConditionOperationDescription.ConditionOperation.Add
                 })
