@@ -3,7 +3,9 @@
   "inDungeonEditor": false,
   "parentCondition": null,
   "conditionType": "Detrimental",
-  "features": [],
+  "features": [
+    "Definition:ActionAffinityConditionBanished:b11840e0e3f0bbc47b0e7598135dde9f"
+  ],
   "allowMultipleInstances": false,
   "silentWhenAdded": false,
   "silentWhenRemoved": false,
@@ -22,32 +24,7 @@
   "keepConditionIfSavingThrowSucceeds": false,
   "interruptionSavingThrowAffinity": "None",
   "conditionTags": [],
-  "recurrentEffectForms": [
-    {
-      "$type": "EffectForm, Assembly-CSharp",
-      "formType": "Kill",
-      "addBonusMode": "None",
-      "applyLevel": "No",
-      "levelType": "ClassLevel",
-      "levelMultiplier": 0,
-      "diceByLevelTable": [],
-      "createdByCharacter": false,
-      "createdByCondition": true,
-      "hasSavingThrow": false,
-      "savingThrowAffinity": "None",
-      "dcModifier": 0,
-      "canSaveToCancel": false,
-      "saveOccurence": "StartOfTurn",
-      "killForm": {
-        "$type": "KillForm, Assembly-CSharp",
-        "killCondition": "Always",
-        "challengeRating": 0.0,
-        "hitPoints": 0
-      },
-      "hasFilterId": false,
-      "filterId": 0
-    }
-  ],
+  "recurrentEffectForms": [],
   "cancellingConditions": [],
   "additionalDamageWhenHit": false,
   "additionalDamageTypeDetermination": "Specific",
@@ -62,7 +39,7 @@
   "additionalConditionTurnOccurenceType": "StartOfTurn",
   "conditionStartParticleReference": {
     "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-    "m_AssetGUID": "aeab2c9b72fb5a449973fac61efe50b3",
+    "m_AssetGUID": "",
     "m_SubObjectName": "",
     "m_SubObjectType": ""
   },
@@ -74,7 +51,7 @@
   },
   "conditionEndParticleReference": {
     "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-    "m_AssetGUID": "38120d2f5dc9ce34ca01fc3a6b422130",
+    "m_AssetGUID": "",
     "m_SubObjectName": "",
     "m_SubObjectType": ""
   },
@@ -259,8 +236,8 @@
   "fearSource": false,
   "battlePackage": null,
   "explorationPackage": null,
-  "removedFromTheGame": false,
-  "permanentlyRemovedIfExtraPlanar": false,
+  "removedFromTheGame": true,
+  "permanentlyRemovedIfExtraPlanar": true,
   "refundReceivedDamageWhenRemoved": false,
   "followSourcePosition": false,
   "disolveCharacterOnDeath": false,

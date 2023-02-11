@@ -1,9 +1,11 @@
 {
   "$type": "ConditionDefinition, Assembly-CSharp",
   "inDungeonEditor": false,
-  "parentCondition": "Definition:ConditionOnFire:16ca5e0ef0891e445a26be9ae27a72de",
+  "parentCondition": null,
   "conditionType": "Detrimental",
-  "features": [],
+  "features": [
+    "Definition:ActionAffinityConditionOnFire:8a75fa48a86a0f24ea26200a5c553a8d"
+  ],
   "allowMultipleInstances": false,
   "silentWhenAdded": false,
   "silentWhenRemoved": false,
@@ -45,7 +47,7 @@
         "$type": "DamageForm, Assembly-CSharp",
         "versatile": false,
         "diceNumber": 1,
-        "dieType": "D4",
+        "dieType": "D6",
         "overrideWithBardicInspirationDie": false,
         "versatileDieType": "D1",
         "bonusDamage": 0,

@@ -4,6 +4,7 @@
   "parentCondition": null,
   "conditionType": "Beneficial",
   "features": [
+    "Definition:AbilityCheckAffinityStaggeringSmite:c19863d5-3b06-56bd-8e81-f768b0584697",
     "Definition:ActionAffinityStaggeringSmite:f087f049-96dd-5932-8401-e58c194ea1cb",
     "Definition:CombatAffinityStaggeringSmite:bec893d0-747c-520d-a494-b5c9551b2c73"
   ],
@@ -133,8 +134,8 @@
     "description": "Feature/&AdditionalDamageStaggeringSmiteDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "8440ca8497e8ca64f811d09a9d4679d9",
-      "m_SubObjectName": "ConditionBrandingSmite",
+      "m_AssetGUID": "3b24b98087e888a4584553215450c700",
+      "m_SubObjectName": "ConditionDazzled",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {

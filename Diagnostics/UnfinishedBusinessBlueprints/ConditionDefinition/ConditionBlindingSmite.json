@@ -4,8 +4,7 @@
   "parentCondition": null,
   "conditionType": "Beneficial",
   "features": [
-    "Definition:AdditionalDamageBlindingSmite:0e4c8179-a105-50ff-9027-7a3cd4ad6089",
-    "Definition:AdditionalDamageBlindingSmiteCondition:6a456499-4261-5bff-bfa4-b4efcb398c00"
+    "Definition:AdditionalDamageBlindingSmite:0e4c8179-a105-50ff-9027-7a3cd4ad6089"
   ],
   "allowMultipleInstances": false,
   "silentWhenAdded": false,
