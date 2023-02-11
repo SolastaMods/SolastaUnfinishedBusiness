@@ -57,6 +57,24 @@ internal static class GameLocationBattleManagerTweaks
         }
     }
 
+    internal static RuleDefinitions.RollOutcome GetAttackResult(int rawRoll, int modifier, RulesetCharacter defender)
+    {
+        if (rawRoll == RuleDefinitions.DiceMaxValue[(int)RuleDefinitions.DieType.D20])
+        {
+            return RuleDefinitions.RollOutcome.CriticalSuccess;
+        }
+
+        if (rawRoll == RuleDefinitions.DiceMinValue[(int)RuleDefinitions.DieType.D20])
+        {
+            return RuleDefinitions.RollOutcome.CriticalFailure;
+        }
+
+        var defenderArmorClass = defender.TryGetAttributeValue(AttributeDefinitions.ArmorClass);
+        return rawRoll + modifier >= defenderArmorClass
+            ? RuleDefinitions.RollOutcome.Success
+            : RuleDefinitions.RollOutcome.Failure;
+    }
+
     /**
      * This method is almost completely original game source provided by TA (1.4.8)
      * All changes made by CE mod should be clearly marked for easy future updates
