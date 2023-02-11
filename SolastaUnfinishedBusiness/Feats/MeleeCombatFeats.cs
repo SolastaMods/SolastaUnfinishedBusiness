@@ -687,7 +687,7 @@ internal static class MeleeCombatFeats
             var rulesetAttacker = attacker.RulesetCharacter;
             var rulesetDefender = defender.RulesetCharacter;
             var modifier = attackMode.ToHitBonus + attackModifier.AttackRollModifier;
-            
+
             switch (attackModifier.AttackAdvantageTrend)
             {
                 case > 0 when outcome is RollOutcome.Success or RollOutcome.CriticalSuccess:
@@ -747,7 +747,7 @@ internal static class MeleeCombatFeats
                         strengthMod,
                         damage,
                         DamageTypeBludgeoning,
-                        new RulesetImplementationDefinitions.ApplyFormsParams {targetCharacter = rulesetDefender},
+                        new RulesetImplementationDefinitions.ApplyFormsParams { targetCharacter = rulesetDefender },
                         rulesetDefender,
                         false,
                         attacker.Guid,
