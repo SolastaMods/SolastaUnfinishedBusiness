@@ -1,4 +1,6 @@
-﻿namespace SolastaUnfinishedBusiness.CustomBehaviors;
+﻿using JetBrains.Annotations;
+
+namespace SolastaUnfinishedBusiness.CustomBehaviors;
 
 internal class ConditionSourceCanUsePowerToImproveFailedSaveRoll
 {
@@ -11,6 +13,7 @@ internal class ConditionSourceCanUsePowerToImproveFailedSaveRoll
     internal FeatureDefinitionPower Power { get; }
     internal string ReactionName { get; }
 
+    [UsedImplicitly]
     internal virtual bool ShouldTrigger(
         CharacterAction action,
         GameLocationCharacter attacker,
@@ -25,6 +28,7 @@ internal class ConditionSourceCanUsePowerToImproveFailedSaveRoll
         return true;
     }
 
+    [UsedImplicitly]
     internal virtual bool TryModifyRoll(
         CharacterAction action,
         GameLocationCharacter attacker,
@@ -39,6 +43,7 @@ internal class ConditionSourceCanUsePowerToImproveFailedSaveRoll
         return true;
     }
 
+    [UsedImplicitly]
     internal virtual string FormatReactionDescription(
         CharacterAction action,
         GameLocationCharacter attacker,

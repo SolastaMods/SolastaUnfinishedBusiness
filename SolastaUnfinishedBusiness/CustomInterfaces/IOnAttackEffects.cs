@@ -1,4 +1,6 @@
-﻿namespace SolastaUnfinishedBusiness.CustomInterfaces;
+﻿using JetBrains.Annotations;
+
+namespace SolastaUnfinishedBusiness.CustomInterfaces;
 
 /**
  * Called after roll is made, but before damage is applied.
@@ -6,6 +8,7 @@
  */
 public interface IBeforeAttackEffect
 {
+    [UsedImplicitly]
     public void BeforeOnAttackHit(
         GameLocationCharacter attacker,
         GameLocationCharacter defender,
@@ -21,6 +24,7 @@ public interface IBeforeAttackEffect
  */
 public interface IAfterAttackEffect
 {
+    [UsedImplicitly]
     public void AfterOnAttackHit(
         GameLocationCharacter attacker,
         GameLocationCharacter defender,

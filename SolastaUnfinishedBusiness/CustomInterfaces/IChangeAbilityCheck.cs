@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using JetBrains.Annotations;
 
 namespace SolastaUnfinishedBusiness.CustomInterfaces;
 
@@ -7,6 +8,7 @@ namespace SolastaUnfinishedBusiness.CustomInterfaces;
 /// </summary>
 public interface IChangeAbilityCheck
 {
+    [UsedImplicitly]
     public int MinRoll(
         RulesetCharacter character,
         int baseBonus,

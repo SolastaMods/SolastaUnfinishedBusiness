@@ -1,9 +1,11 @@
 ﻿using System.Collections;
+using JetBrains.Annotations;
 
 namespace SolastaUnfinishedBusiness.CustomInterfaces;
 
 public interface IReactToMyAttackFinished
 {
+    [UsedImplicitly]
     public IEnumerator HandleReactToMyAttackFinished(
         GameLocationCharacter me,
         GameLocationCharacter defender,
@@ -15,6 +17,7 @@ public interface IReactToMyAttackFinished
 
 public interface IReactToAttackOnMeFinished
 {
+    [UsedImplicitly]
     public IEnumerator HandleReactToAttackOnMeFinished(
         GameLocationCharacter attacker,
         GameLocationCharacter me,
