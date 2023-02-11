@@ -29,7 +29,6 @@ internal sealed class RangerWildMaster : AbstractSubclass
             FeatureDefinitionActionAffinityBuilder
                 .Create("ActionAffinityWildMasterSpiritBeast")
                 .SetGuiPresentationNoContent()
-                .SetDefaultAllowedActionTypes()
                 .SetForbiddenActions(Id.AttackMain, Id.AttackOff, Id.AttackReadied, Id.AttackOpportunity, Id.Ready,
                     Id.PowerMain, Id.PowerBonus, Id.PowerReaction, Id.SpendPower)
                 .SetCustomSubFeatures(new SummonerHasConditionOrKOd())

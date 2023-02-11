@@ -1,8 +1,8 @@
 ﻿using System.Linq;
 using JetBrains.Annotations;
-using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.Extensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
+using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using static RuleDefinitions;
 
@@ -145,32 +145,40 @@ internal static partial class SpellBuilders
         }
     }
 
-    private sealed class OnAttackHitEffectThunderousSmite : IAfterAttackEffect
+    private sealed class ConditionUsesPowerOntarget : ICustomConditionFeature
     {
-        public void AfterOnAttackHit(
-            GameLocationCharacter attacker,
-            GameLocationCharacter defender,
-            RollOutcome outcome,
-            CharacterActionParams actionParams,
-            RulesetAttackMode attackMode,
-            ActionModifier attackModifier)
-        {
-            var rulesetAttacker = attacker.RulesetCharacter;
+        private readonly FeatureDefinitionPower power;
+        private readonly bool removeCondition;
 
-            if (outcome is RollOutcome.Failure or RollOutcome.CriticalFailure)
+        public ConditionUsesPowerOntarget(FeatureDefinitionPower power, bool removeCondition = true)
+        {
+            this.power = power;
+            this.removeCondition = removeCondition;
+        }
+
+        public void ApplyFeature(RulesetCharacter target, RulesetCondition rulesetCondition)
+        {
+            var defender = GameLocationCharacter.GetFromActor(target);
+            var rulesetAttacker = EffectHelpers.GetCharacterByGuid(rulesetCondition.SourceGuid);
+
+            if (rulesetAttacker == null || defender == null)
             {
                 return;
             }
 
-            var usablePower =
-                new RulesetUsablePower(DatabaseHelper.FeatureDefinitionPowers.PowerInvocationRepellingBlast, null, null)
-                {
-                    saveDC = rulesetAttacker.SpellRepertoires.Select(x => x.SaveDC).Max()
-                };
-
+            var usablePower = UsablePowersProvider.Get(power, rulesetAttacker);
             var effectPower = new RulesetEffectPower(rulesetAttacker, usablePower);
 
-            effectPower.ApplyEffectOnCharacter(defender.RulesetCharacter, true, defender.LocationPosition);
+            effectPower.ApplyEffectOnCharacter(target, true, defender.LocationPosition);
+
+            if (removeCondition)
+            {
+                target.RemoveCondition(rulesetCondition);
+            }
+        }
+
+        public void RemoveFeature(RulesetCharacter target, RulesetCondition rulesetCondition)
+        {
         }
     }
 
@@ -192,11 +200,12 @@ internal static partial class SpellBuilders
             ActionModifier attackModifier)
         {
             if (outcome is RollOutcome.Failure or RollOutcome.CriticalFailure ||
-                defender.RulesetCharacter.CurrentHitPoints >= 50)
+                defender.RulesetCharacter.CurrentHitPoints > 50)
             {
                 return;
             }
 
+            //TODO: ideally we need to banish extra planar creatures forever (kill them?)
             var rulesetCondition = RulesetCondition.CreateActiveCondition(
                 defender.Guid,
                 _conditionDefinition,
@@ -206,7 +215,7 @@ internal static partial class SpellBuilders
                 attacker.RulesetCharacter.Guid,
                 attacker.RulesetCharacter.CurrentFaction.Name);
 
-            attacker.RulesetCharacter.AddConditionOfCategory(AttributeDefinitions.TagCombat, rulesetCondition);
+            defender.RulesetCharacter.AddConditionOfCategory(AttributeDefinitions.TagCombat, rulesetCondition);
         }
     }
 

@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
+using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Properties;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
@@ -142,31 +143,32 @@ internal static partial class SpellBuilders
     {
         const string NAME = "EnsnaringStrike";
 
+        var ensnared = ConditionDefinitionBuilder
+            .Create(ConditionRestrainedByEntangle, $"Condition{NAME}Enemy")
+            .SetSpecialDuration(DurationType.Minute, 1, TurnOccurenceType.StartOfTurn)
+            .SetRecurrentEffectForms(EffectFormBuilder.Create()
+                .SetDamageForm(DamageTypePiercing, 1, DieType.D6)
+                .Build())
+            .AddToDB();
+
         var additionalDamageEnsnaringStrike = FeatureDefinitionAdditionalDamageBuilder
             .Create($"AdditionalDamage{NAME}")
             .SetGuiPresentation(Category.Feature)
             .SetNotificationTag(NAME)
-            .SetAdditionalDamageType(AdditionalDamageType.Specific)
-            .SetAdvancement(AdditionalDamageAdvancement.SlotLevel)
+            .SetDamageDice(DieType.D6, 1)
             .SetSpecificDamageType(DamageTypePiercing)
-            .SetSavingThrowData(
-                EffectDifficultyClassComputation.SpellCastingFeature,
-                EffectSavingThrowType.Negates,
-                AttributeDefinitions.Strength)
-            .SetIgnoreCriticalDoubleDice(true)
-            .SetConditionOperations(
-                new ConditionOperationDescription
+            .SetAdvancement(AdditionalDamageAdvancement.SlotLevel)
+            .SetCustomSubFeatures(new AdditionalEffectFormOnDamageHandler((attacker, _, provider) =>
+                new List<EffectForm>
                 {
-                    hasSavingThrow = true,
-                    canSaveToCancel = true,
-                    saveAffinity = EffectSavingThrowType.Negates,
-                    saveOccurence = TurnOccurenceType.StartOfTurn,
-                    ConditionDefinition = ConditionDefinitionBuilder
-                        .Create(ConditionRestrainedByEntangle, $"Condition{NAME}Enemy")
-                        .SetSpecialDuration(DurationType.Minute, 1, TurnOccurenceType.StartOfTurn)
-                        .AddToDB(),
-                    operation = ConditionOperationDescription.ConditionOperation.Add
-                })
+                    EffectFormBuilder.Create()
+                        .SetConditionForm(ensnared, ConditionForm.ConditionOperation.Add)
+                        .HasSavingThrow(EffectSavingThrowType.Negates)
+                        .CanSaveToCancel(TurnOccurenceType.EndOfTurn)
+                        .OverrideSavingThrowInfo(AttributeDefinitions.Strength,
+                            GameLocationBattleManagerTweaks.ComputeSavingThrowDC(attacker.RulesetCharacter, provider))
+                        .Build()
+                }))
             .AddToDB();
 
         var conditionEnsnaringStrike = ConditionDefinitionBuilder
@@ -185,20 +187,13 @@ internal static partial class SpellBuilders
             .SetMaterialComponent(MaterialComponentType.None)
             .SetVocalSpellSameType(VocalSpellSemeType.Buff)
             .SetCastingTime(ActivationTime.BonusAction)
-            .SetEffectDescription(EffectDescriptionBuilder
-                .Create()
-                .SetEffectForms(
-                    EffectFormBuilder
-                        .Create()
-                        .SetConditionForm(
-                            conditionEnsnaringStrike,
-                            ConditionForm.ConditionOperation.Add,
-                            true,
-                            false)
-                        .Build())
+            .SetEffectDescription(EffectDescriptionBuilder.Create()
+                .SetEffectForms(EffectFormBuilder.Create()
+                    .SetConditionForm(conditionEnsnaringStrike, ConditionForm.ConditionOperation.Add)
+                    .Build())
                 .SetDurationData(DurationType.Minute, 1)
                 .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
-                .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel, 1, 0, 0, 1)
+                .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel, additionalDicePerIncrement: 1)
                 .Build())
             .SetRequiresConcentration(true)
             .AddToDB();
@@ -293,16 +288,12 @@ internal static partial class SpellBuilders
             .SetGuiPresentation(Category.Feature)
             .SetNotificationTag(NAME)
             .SetDamageDice(DieType.D6, 1)
-            .SetAdditionalDamageType(AdditionalDamageType.Specific)
             .SetSpecificDamageType(DamageTypeFire)
             .SetAdvancement(AdditionalDamageAdvancement.SlotLevel, 1)
-            .SetIgnoreCriticalDoubleDice(true)
-            .AddToDB();
-
-        var additionalDamageSearingSmiteCondition = FeatureDefinitionAdditionalDamageBuilder
-            .Create($"AdditionalDamage{NAME}Condition")
-            .SetGuiPresentationNoContent(true)
-            .SetSavingThrowData()
+            .SetSavingThrowData( //explicitly stating all relevant properties (even default ones) for readability
+                EffectDifficultyClassComputation.SpellCastingFeature,
+                EffectSavingThrowType.None,
+                AttributeDefinitions.Constitution)
             .SetConditionOperations(
                 new ConditionOperationDescription
                 {
@@ -311,7 +302,7 @@ internal static partial class SpellBuilders
                     saveAffinity = EffectSavingThrowType.Negates,
                     saveOccurence = TurnOccurenceType.StartOfTurn,
                     conditionDefinition = ConditionDefinitionBuilder
-                        .Create(ConditionOnFire1D4, $"Condition{NAME}Enemy")
+                        .Create(ConditionOnFire, $"Condition{NAME}Enemy")
                         .AddToDB(),
                     operation = ConditionOperationDescription.ConditionOperation.Add
                 })
@@ -321,7 +312,7 @@ internal static partial class SpellBuilders
             .Create($"Condition{NAME}")
             .SetGuiPresentation(NAME, Category.Spell, ConditionBrandingSmite)
             .SetPossessive()
-            .SetFeatures(additionalDamageSearingSmite, additionalDamageSearingSmiteCondition)
+            .SetFeatures(additionalDamageSearingSmite)
             .SetSpecialInterruptions(ConditionInterruption.AttacksAndDamages)
             .AddToDB();
 
@@ -332,14 +323,13 @@ internal static partial class SpellBuilders
             .SetSpellLevel(1)
             .SetCastingTime(ActivationTime.BonusAction)
             .SetVerboseComponent(true)
-            .SetEffectDescription(EffectDescriptionBuilder
-                .Create()
+            .SetEffectDescription(EffectDescriptionBuilder.Create()
                 .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
                 .SetDurationData(DurationType.Minute, 1)
-                .SetEffectForms(EffectFormBuilder
-                    .Create()
+                .SetEffectForms(EffectFormBuilder.Create()
                     .SetConditionForm(conditionSearingSmite, ConditionForm.ConditionOperation.Add)
                     .Build())
+                .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel, additionalDicePerIncrement: 1)
                 .Build())
             .AddToDB();
 
@@ -459,16 +449,46 @@ internal static partial class SpellBuilders
     {
         const string NAME = "ThunderousSmite";
 
+        var power = FeatureDefinitionPowerBuilder
+            .Create($"Power{NAME}Push")
+            .SetGuiPresentationNoContent(hidden: true)
+            .SetEffectDescription(EffectDescriptionBuilder.Create()
+                .SetTargetingData(Side.Enemy, RangeType.Touch, 1, TargetType.Individuals)
+                .SetEffectForms(
+                    EffectFormBuilder.Create()
+                        .SetMotionForm(MotionForm.MotionType.PushFromOrigin, 2)
+                        .Build(),
+                    EffectFormBuilder.Create()
+                        .SetMotionForm(MotionForm.MotionType.FallProne)
+                        .Build()
+                )
+                .Build())
+            .AddToDB();
+
         var additionalDamageThunderousSmite = FeatureDefinitionAdditionalDamageBuilder
             .Create($"AdditionalDamage{NAME}")
             .SetGuiPresentation(Category.Feature)
             .SetNotificationTag(NAME)
             .SetDamageDice(DieType.D6, 2)
-            .SetAdditionalDamageType(AdditionalDamageType.Specific)
-            .SetAdvancement(AdditionalDamageAdvancement.SlotLevel, 1)
             .SetSpecificDamageType(DamageTypeThunder)
-            .SetIgnoreCriticalDoubleDice(true)
-            .SetCustomSubFeatures(new OnAttackHitEffectThunderousSmite())
+            .SetSavingThrowData( //explicitly stating all relevant properties (even default ones) for readability
+                EffectDifficultyClassComputation.SpellCastingFeature,
+                EffectSavingThrowType.None,
+                AttributeDefinitions.Strength)
+            .SetConditionOperations(new ConditionOperationDescription
+            {
+                hasSavingThrow = true,
+                canSaveToCancel = true,
+                saveAffinity = EffectSavingThrowType.Negates,
+                saveOccurence = TurnOccurenceType.StartOfTurn,
+                conditionDefinition = ConditionDefinitionBuilder
+                    .Create($"Condition{NAME}Enemy")
+                    .SetGuiPresentationNoContent(hidden: true)
+                    .SetSilent(Silent.WhenAddedOrRemoved)
+                    .SetCustomSubFeatures(new ConditionUsesPowerOntarget(power))
+                    .AddToDB(),
+                operation = ConditionOperationDescription.ConditionOperation.Add
+            })
             .AddToDB();
 
         var conditionThunderousSmite = ConditionDefinitionBuilder
@@ -486,12 +506,10 @@ internal static partial class SpellBuilders
             .SetSpellLevel(1)
             .SetCastingTime(ActivationTime.BonusAction)
             .SetVerboseComponent(true)
-            .SetEffectDescription(EffectDescriptionBuilder
-                .Create()
+            .SetEffectDescription(EffectDescriptionBuilder.Create()
                 .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
                 .SetDurationData(DurationType.Minute, 1)
-                .SetEffectForms(EffectFormBuilder
-                    .Create()
+                .SetEffectForms(EffectFormBuilder.Create()
                     .SetConditionForm(conditionThunderousSmite, ConditionForm.ConditionOperation.Add)
                     .Build())
                 .Build())
@@ -509,18 +527,11 @@ internal static partial class SpellBuilders
             .SetGuiPresentation(Category.Feature)
             .SetNotificationTag(NAME)
             .SetDamageDice(DieType.D6, 1)
-            .SetAdditionalDamageType(AdditionalDamageType.Specific)
             .SetSpecificDamageType(DamageTypePsychic)
             .SetAdvancement(AdditionalDamageAdvancement.SlotLevel, 1)
-            .SetIgnoreCriticalDoubleDice(true)
-            .AddToDB();
-
-        var additionalDamageWrathfulSmiteCondition = FeatureDefinitionAdditionalDamageBuilder
-            .Create($"AdditionalDamage{NAME}Condition")
-            .SetGuiPresentationNoContent(true)
             .SetSavingThrowData(
                 EffectDifficultyClassComputation.SpellCastingFeature,
-                EffectSavingThrowType.Negates,
+                EffectSavingThrowType.None,
                 AttributeDefinitions.Wisdom)
             .SetConditionOperations(
                 new ConditionOperationDescription
@@ -541,7 +552,7 @@ internal static partial class SpellBuilders
             .Create($"Condition{NAME}")
             .SetGuiPresentation(NAME, Category.Spell, ConditionBrandingSmite)
             .SetPossessive()
-            .SetFeatures(additionalDamageWrathfulSmite, additionalDamageWrathfulSmiteCondition)
+            .SetFeatures(additionalDamageWrathfulSmite)
             .SetSpecialInterruptions(ConditionInterruption.AttacksAndDamages)
             .AddToDB();
 
@@ -552,12 +563,10 @@ internal static partial class SpellBuilders
             .SetSpellLevel(1)
             .SetCastingTime(ActivationTime.BonusAction)
             .SetVerboseComponent(true)
-            .SetEffectDescription(EffectDescriptionBuilder
-                .Create()
+            .SetEffectDescription(EffectDescriptionBuilder.Create()
                 .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
                 .SetDurationData(DurationType.Minute, 1)
-                .SetEffectForms(EffectFormBuilder
-                    .Create()
+                .SetEffectForms(EffectFormBuilder.Create()
                     .SetConditionForm(conditionWrathfulSmite, ConditionForm.ConditionOperation.Add)
                     .Build())
                 .Build())

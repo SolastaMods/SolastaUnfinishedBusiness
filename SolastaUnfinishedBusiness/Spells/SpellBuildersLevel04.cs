@@ -19,21 +19,29 @@ internal static partial class SpellBuilders
 
         var conditionStaggeringSmiteEnemy = ConditionDefinitionBuilder
             .Create($"Condition{NAME}Enemy")
-            .SetGuiPresentation($"AdditionalDamage{NAME}", Category.Feature, ConditionBrandingSmite)
+            .SetGuiPresentation($"AdditionalDamage{NAME}", Category.Feature, ConditionDazzled)
             .SetSpecialDuration(DurationType.Round, 1)
             .AddFeatures(
                 FeatureDefinitionCombatAffinityBuilder
                     .Create($"CombatAffinity{NAME}")
-                    .SetMyAttackAdvantage(AdvantageType.Disadvantage)
                     .SetGuiPresentationNoContent(true)
+                    .SetMyAttackAdvantage(AdvantageType.Disadvantage)
+                    .AddToDB(),
+                FeatureDefinitionAbilityCheckAffinityBuilder
+                    .Create($"AbilityCheckAffinity{NAME}")
+                    .SetGuiPresentationNoContent(true)
+                    .BuildAndSetAffinityGroups(CharacterAbilityCheckAffinity.Disadvantage,
+                        AttributeDefinitions.Strength,
+                        AttributeDefinitions.Dexterity,
+                        AttributeDefinitions.Constitution,
+                        AttributeDefinitions.Intelligence,
+                        AttributeDefinitions.Wisdom,
+                        AttributeDefinitions.Charisma)
                     .AddToDB(),
                 FeatureDefinitionActionAffinityBuilder
                     .Create($"ActionAffinity{NAME}")
                     .SetGuiPresentationNoContent(true)
-                    .SetForbiddenActions(
-                        ActionDefinitions.Id.ReactionShot,
-                        ActionDefinitions.Id.CastReaction,
-                        ActionDefinitions.Id.PowerReaction)
+                    .SetAllowedActionTypes(reaction: false)
                     .AddToDB())
             .AddToDB();
 
@@ -42,26 +50,17 @@ internal static partial class SpellBuilders
             .SetGuiPresentation(Category.Feature)
             .SetNotificationTag(NAME)
             .SetDamageDice(DieType.D6, 4)
-            .SetAdditionalDamageType(AdditionalDamageType.Specific)
-            .SetAdvancement(AdditionalDamageAdvancement.SlotLevel, 4, 1, 1, 4)
             .SetSpecificDamageType(DamageTypePsychic)
-            .SetIgnoreCriticalDoubleDice(true)
-            .AddToDB();
-        
-        var additionalDamageStaggeringSmiteCondition = FeatureDefinitionAdditionalDamageBuilder
-            .Create($"AdditionalDamage{NAME}Condition")
-            .SetGuiPresentationNoContent(true)
             .SetSavingThrowData(
                 EffectDifficultyClassComputation.SpellCastingFeature,
-                EffectSavingThrowType.Negates,
+                EffectSavingThrowType.None,
                 AttributeDefinitions.Wisdom)
             .SetConditionOperations(
                 new ConditionOperationDescription
                 {
                     hasSavingThrow = true,
-                    canSaveToCancel = true,
+                    canSaveToCancel = false,
                     saveAffinity = EffectSavingThrowType.Negates,
-                    saveOccurence = TurnOccurenceType.StartOfTurn,
                     conditionDefinition = conditionStaggeringSmiteEnemy,
                     operation = ConditionOperationDescription.ConditionOperation.Add
                 })
@@ -71,7 +70,7 @@ internal static partial class SpellBuilders
             .Create($"Condition{NAME}")
             .SetGuiPresentation(NAME, Category.Spell, ConditionBrandingSmite)
             .SetPossessive()
-            .SetFeatures(additionalDamageStaggeringSmite, additionalDamageStaggeringSmiteCondition)
+            .SetFeatures(additionalDamageStaggeringSmite)
             .SetSpecialInterruptions(ConditionInterruption.AttacksAndDamages)
             .AddToDB();
 
@@ -82,12 +81,10 @@ internal static partial class SpellBuilders
             .SetSpellLevel(4)
             .SetCastingTime(ActivationTime.BonusAction)
             .SetVerboseComponent(true)
-            .SetEffectDescription(EffectDescriptionBuilder
-                .Create()
+            .SetEffectDescription(EffectDescriptionBuilder.Create()
                 .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
                 .SetDurationData(DurationType.Minute, 1)
-                .SetEffectForms(EffectFormBuilder
-                    .Create()
+                .SetEffectForms(EffectFormBuilder.Create()
                     .SetConditionForm(conditionStaggeringSmite, ConditionForm.ConditionOperation.Add)
                     .Build())
                 .Build())

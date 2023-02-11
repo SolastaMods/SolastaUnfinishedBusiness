@@ -13,7 +13,7 @@ namespace SolastaUnfinishedBusiness.CustomBehaviors;
 internal static class GameLocationBattleManagerTweaks
 {
     // ReSharper disable once InconsistentNaming
-    private static int ComputeSavingThrowDC(RulesetCharacter character, IAdditionalDamageProvider provider)
+    internal static int ComputeSavingThrowDC(RulesetCharacter character, IAdditionalDamageProvider provider)
     {
         // ReSharper disable once ConvertSwitchStatementToSwitchExpression
         switch (provider.DcComputation)
@@ -532,6 +532,24 @@ internal static class GameLocationBattleManagerTweaks
                 actualEffectForms.Add(newEffectForm);
             }
         }
+        
+        /*
+         * ######################################
+         * [CE] EDIT START
+         * Support for additional effects
+         */
+
+        var additionalForms = featureDefinition.GetFirstSubFeatureOfType<AdditionalEffectFormOnDamageHandler>();
+        if (additionalForms != null)
+        {
+            actualEffectForms.AddRange(additionalForms(attacker, defender, provider));
+        }
+
+        /*
+         * Support for for additional effects
+         * [CE] EDIT END
+         * ######################################
+         */
 
         // Do I need to add a light source?
         if (provider.AddLightSource && defender.RulesetCharacter is { PersonalLightSource: null })
