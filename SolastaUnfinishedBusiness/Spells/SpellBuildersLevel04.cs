@@ -43,7 +43,6 @@ internal static partial class SpellBuilders
             .SetNotificationTag(NAME)
             .SetDamageDice(DieType.D6, 4)
             .SetSpecificDamageType(DamageTypePsychic)
-            .SetAdvancement(AdditionalDamageAdvancement.SlotLevel, 4, 1, 1, 4)
             .SetSavingThrowData(
                 EffectDifficultyClassComputation.SpellCastingFeature,
                 EffectSavingThrowType.None,
@@ -76,12 +75,10 @@ internal static partial class SpellBuilders
             .SetSpellLevel(4)
             .SetCastingTime(ActivationTime.BonusAction)
             .SetVerboseComponent(true)
-            .SetEffectDescription(EffectDescriptionBuilder
-                .Create()
+            .SetEffectDescription(EffectDescriptionBuilder.Create()
                 .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
                 .SetDurationData(DurationType.Minute, 1)
-                .SetEffectForms(EffectFormBuilder
-                    .Create()
+                .SetEffectForms(EffectFormBuilder.Create()
                     .SetConditionForm(conditionStaggeringSmite, ConditionForm.ConditionOperation.Add)
                     .Build())
                 .Build())

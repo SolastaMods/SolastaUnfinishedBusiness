@@ -185,17 +185,10 @@ internal static partial class SpellBuilders
             .SetMaterialComponent(MaterialComponentType.None)
             .SetVocalSpellSameType(VocalSpellSemeType.Buff)
             .SetCastingTime(ActivationTime.BonusAction)
-            .SetEffectDescription(EffectDescriptionBuilder
-                .Create()
-                .SetEffectForms(
-                    EffectFormBuilder
-                        .Create()
-                        .SetConditionForm(
-                            conditionEnsnaringStrike,
-                            ConditionForm.ConditionOperation.Add,
-                            true,
-                            false)
-                        .Build())
+            .SetEffectDescription(EffectDescriptionBuilder.Create()
+                .SetEffectForms(EffectFormBuilder.Create()
+                    .SetConditionForm(conditionEnsnaringStrike, ConditionForm.ConditionOperation.Add)
+                    .Build())
                 .SetDurationData(DurationType.Minute, 1)
                 .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
                 .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel, 1, 0, 0, 1)
@@ -329,12 +322,10 @@ internal static partial class SpellBuilders
             .SetSpellLevel(1)
             .SetCastingTime(ActivationTime.BonusAction)
             .SetVerboseComponent(true)
-            .SetEffectDescription(EffectDescriptionBuilder
-                .Create()
+            .SetEffectDescription(EffectDescriptionBuilder.Create()
                 .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
                 .SetDurationData(DurationType.Minute, 1)
-                .SetEffectForms(EffectFormBuilder
-                    .Create()
+                .SetEffectForms(EffectFormBuilder.Create()
                     .SetConditionForm(conditionSearingSmite, ConditionForm.ConditionOperation.Add)
                     .Build())
                 .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel, 1, 0, 0, 1)
@@ -463,7 +454,6 @@ internal static partial class SpellBuilders
             .SetNotificationTag(NAME)
             .SetDamageDice(DieType.D6, 2)
             .SetSpecificDamageType(DamageTypeThunder)
-            .SetAdvancement(AdditionalDamageAdvancement.SlotLevel, 1)
             .SetIgnoreCriticalDoubleDice(true)
             .SetCustomSubFeatures(new OnAttackHitEffectThunderousSmite())
             .AddToDB();
@@ -483,12 +473,10 @@ internal static partial class SpellBuilders
             .SetSpellLevel(1)
             .SetCastingTime(ActivationTime.BonusAction)
             .SetVerboseComponent(true)
-            .SetEffectDescription(EffectDescriptionBuilder
-                .Create()
+            .SetEffectDescription(EffectDescriptionBuilder.Create()
                 .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
                 .SetDurationData(DurationType.Minute, 1)
-                .SetEffectForms(EffectFormBuilder
-                    .Create()
+                .SetEffectForms(EffectFormBuilder.Create()
                     .SetConditionForm(conditionThunderousSmite, ConditionForm.ConditionOperation.Add)
                     .Build())
                 .Build())
@@ -543,12 +531,10 @@ internal static partial class SpellBuilders
             .SetSpellLevel(1)
             .SetCastingTime(ActivationTime.BonusAction)
             .SetVerboseComponent(true)
-            .SetEffectDescription(EffectDescriptionBuilder
-                .Create()
+            .SetEffectDescription(EffectDescriptionBuilder.Create()
                 .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
                 .SetDurationData(DurationType.Minute, 1)
-                .SetEffectForms(EffectFormBuilder
-                    .Create()
+                .SetEffectForms(EffectFormBuilder.Create()
                     .SetConditionForm(conditionWrathfulSmite, ConditionForm.ConditionOperation.Add)
                     .Build())
                 .Build())

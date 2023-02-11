@@ -25,7 +25,6 @@ internal static partial class SpellBuilders
             .SetNotificationTag(NAME)
             .SetDamageDice(DieType.D8, 3)
             .SetSpecificDamageType(DamageTypeRadiant)
-            .SetAdvancement(AdditionalDamageAdvancement.SlotLevel, 3, 1, 1, 3)
             .SetSavingThrowData( //explicitly stating all relevant properties (even default ones) for readability
                 EffectDifficultyClassComputation.SpellCastingFeature,
                 EffectSavingThrowType.None,
@@ -61,12 +60,10 @@ internal static partial class SpellBuilders
             .SetSpellLevel(3)
             .SetCastingTime(ActivationTime.BonusAction)
             .SetVerboseComponent(true)
-            .SetEffectDescription(EffectDescriptionBuilder
-                .Create()
+            .SetEffectDescription(EffectDescriptionBuilder.Create()
                 .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
                 .SetDurationData(DurationType.Minute, 1)
-                .SetEffectForms(EffectFormBuilder
-                    .Create()
+                .SetEffectForms(EffectFormBuilder.Create()
                     .SetConditionForm(conditionBlindingSmite, ConditionForm.ConditionOperation.Add)
                     .Build())
                 .Build())
