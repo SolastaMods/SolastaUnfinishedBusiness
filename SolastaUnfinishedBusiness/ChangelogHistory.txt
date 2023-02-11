@@ -1,5 +1,10 @@
 ﻿CHANGES:
 
+1.4.33.34:
+
+- fixed Searing, Wrathful, Blinding and Staggering Smite to always apply damage
+- updated Oath of Altruism descriptions
+
 1.4.33.33:
 
 - fixed Warlocks getting incorrect invocations learn step if multiclass
