@@ -151,7 +151,7 @@ internal static partial class SpellBuilders
             .SetSpecificDamageType(DamageTypePiercing)
             .SetSavingThrowData(
                 EffectDifficultyClassComputation.SpellCastingFeature,
-                EffectSavingThrowType.Negates,
+                EffectSavingThrowType.None,
                 AttributeDefinitions.Strength)
             .SetIgnoreCriticalDoubleDice(true)
             .SetConditionOperations(
@@ -297,7 +297,10 @@ internal static partial class SpellBuilders
             .SetAdvancement(AdditionalDamageAdvancement.SlotLevel, 1)
             .SetSpecificDamageType(DamageTypeFire)
             .SetIgnoreCriticalDoubleDice(true)
-            .SetSavingThrowData()
+            .SetSavingThrowData( //explicitly stating all relevant properties (even default ones) for readability
+                EffectDifficultyClassComputation.SpellCastingFeature,
+                EffectSavingThrowType.None,
+                AttributeDefinitions.Constitution)
             .SetConditionOperations(
                 new ConditionOperationDescription
                 {
@@ -509,7 +512,7 @@ internal static partial class SpellBuilders
             .SetSpecificDamageType(DamageTypePsychic)
             .SetSavingThrowData(
                 EffectDifficultyClassComputation.SpellCastingFeature,
-                EffectSavingThrowType.Negates,
+                EffectSavingThrowType.None,
                 AttributeDefinitions.Wisdom)
             .SetIgnoreCriticalDoubleDice(true)
             .SetConditionOperations(

@@ -27,7 +27,10 @@ internal static partial class SpellBuilders
             .SetAdditionalDamageType(AdditionalDamageType.Specific)
             .SetAdvancement(AdditionalDamageAdvancement.SlotLevel, 3, 1, 1, 3)
             .SetSpecificDamageType(DamageTypeRadiant)
-            .SetSavingThrowData()
+            .SetSavingThrowData( //explicitly stating all relevant properties (even default ones) for readability
+                EffectDifficultyClassComputation.SpellCastingFeature,
+                EffectSavingThrowType.None,
+                AttributeDefinitions.Constitution)
             .SetIgnoreCriticalDoubleDice(true)
             .SetConditionOperations(
                 new ConditionOperationDescription

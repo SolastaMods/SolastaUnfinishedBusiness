@@ -47,7 +47,7 @@ internal static partial class SpellBuilders
             .SetSpecificDamageType(DamageTypePsychic)
             .SetSavingThrowData(
                 EffectDifficultyClassComputation.SpellCastingFeature,
-                EffectSavingThrowType.Negates,
+                EffectSavingThrowType.None,
                 AttributeDefinitions.Wisdom)
             .SetIgnoreCriticalDoubleDice(true)
             .SetConditionOperations(
