@@ -185,7 +185,8 @@ internal static class GameLocationBattleManagerTweaks
             //Get die type from features if applicable
             var dieTypeProvider = featureDefinition.GetFirstSubFeatureOfType<DamageDieProvider>();
 
-            additionalDamageForm.DieType = dieTypeProvider?.Invoke(attacker.RulesetCharacter, provider.DamageDieType) ?? provider.DamageDieType;
+            additionalDamageForm.DieType = dieTypeProvider?.Invoke(attacker.RulesetCharacter, provider.DamageDieType) ??
+                                           provider.DamageDieType;
 
             /*
              * Support for damage die progression
@@ -404,6 +405,7 @@ internal static class GameLocationBattleManagerTweaks
         if (additionalDamageForm.DiceNumber > 0 || additionalDamageForm.BonusDamage > 0)
         {
             // Add the new damage form
+            // ReSharper disable once SwitchStatementHandlesSomeKnownEnumValuesWithDefault
             switch (provider.AdditionalDamageType)
             {
                 case RuleDefinitions.AdditionalDamageType.SameAsBaseDamage:
@@ -462,8 +464,9 @@ internal static class GameLocationBattleManagerTweaks
                 {
                     // This additional damage will override the saving throw for the whole attack
                     newEffectForm.SavingThrowAffinity = provider.DamageSaveAffinity;
-                    var rulesetImplementationService =
-                        ServiceRepository.GetService<IRulesetImplementationService>();
+                    // var rulesetImplementationService =
+                    //     ServiceRepository.GetService<IRulesetImplementationService>();
+                    // ReSharper disable once InconsistentNaming
                     var saveDC = ComputeSavingThrowDC(attacker.RulesetCharacter, provider);
                     newEffectForm.OverrideSavingThrowInfo = new OverrideSavingThrowInfo(provider.SavingThrowAbility,
                         saveDC, provider.Name, RuleDefinitions.FeatureSourceType.ExplicitFeature);
@@ -517,8 +520,9 @@ internal static class GameLocationBattleManagerTweaks
                 {
                     // This additional damage will override the saving throw for the whole attack
                     newEffectForm.SavingThrowAffinity = conditionOperation.SaveAffinity;
-                    var rulesetImplementationService =
-                        ServiceRepository.GetService<IRulesetImplementationService>();
+                    // var rulesetImplementationService =
+                    //     ServiceRepository.GetService<IRulesetImplementationService>();
+                    // ReSharper disable once InconsistentNaming
                     var saveDC = ComputeSavingThrowDC(attacker.RulesetCharacter, provider);
                     newEffectForm.OverrideSavingThrowInfo = new OverrideSavingThrowInfo(provider.SavingThrowAbility,
                         saveDC, provider.Name, RuleDefinitions.FeatureSourceType.ExplicitFeature);
@@ -628,6 +632,7 @@ internal static class GameLocationBattleManagerTweaks
             var validUses = true;
             if (provider.LimitedUsage != RuleDefinitions.FeatureLimitedUsage.None)
             {
+                // ReSharper disable once SwitchStatementHandlesSomeKnownEnumValuesWithDefault
                 switch (provider.LimitedUsage)
                 {
                     case RuleDefinitions.FeatureLimitedUsage.OnceInMyTurn
@@ -713,6 +718,7 @@ internal static class GameLocationBattleManagerTweaks
                  * ######################################
                  */
             {
+                // ReSharper disable once SwitchStatementHandlesSomeKnownEnumValuesWithDefault
                 switch (provider.TriggerCondition)
                 {
                     // Typical for Sneak Attack
