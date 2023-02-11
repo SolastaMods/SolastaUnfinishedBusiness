@@ -337,6 +337,7 @@ internal static partial class SpellBuilders
                     .Create()
                     .SetConditionForm(conditionSearingSmite, ConditionForm.ConditionOperation.Add)
                     .Build())
+                .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel, 1, 0, 0, 1)
                 .Build())
             .AddToDB();
 
