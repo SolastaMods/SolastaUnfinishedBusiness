@@ -5,10 +5,10 @@ using JetBrains.Annotations;
 // ReSharper disable once CheckNamespace
 [UsedImplicitly]
 #pragma warning disable CA1050
-public class CharacterActionWildshapeSwapAttackToggle : CharacterAction
+public class CharacterActionMonsterSwapAttackToggle : CharacterAction
 #pragma warning restore CA1050
 {
-    public CharacterActionWildshapeSwapAttackToggle(CharacterActionParams actionParams) : base(actionParams)
+    public CharacterActionMonsterSwapAttackToggle(CharacterActionParams actionParams) : base(actionParams)
     {
     }
 

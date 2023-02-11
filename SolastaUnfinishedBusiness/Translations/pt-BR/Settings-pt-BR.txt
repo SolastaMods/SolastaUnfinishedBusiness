@@ -9,7 +9,7 @@ ModUi/&AddNewWeaponsAndRecipesToShops=Adicione novas armas e receitas às lojas 
 ModUi/&AddPaladinSmiteToggle=Adicionada uma alternância para permitir que <color=#D89555>Paladins</color> habilite smites apenas em acertos críticos <i><color=#F0DAA0>[útil para minimizar solicitações de reação]</color></i>
 ModUi/&AddPickPocketableLoot=Adicionado pilhagem para furto <i><color=#F0DAA0>[sugerido se o talento <color=#D89555>Pickpocket</color> estiver ativado]</color></i>
 ModUi/&AddToStore=Adicionar à loja
-ModUi/&AddWildshapeSwapAttackToggle=Adicionada uma alternância para permitir que <color=#D89555>Druidas</color> em forma selvagem selecionem qual ataque usar primeiro <i><color=#F0DAA0>[útil com uma mistura de corpo a corpo e à distância]</color> </i>
+ModUi/&AddMonsterSwapAttackToggle=Adicionada uma alternância para permitir que <color=#D89555>Druidas</color> em forma selvagem selecionem qual ataque usar primeiro <i><color=#F0DAA0>[útil com uma mistura de corpo a corpo e à distância]</color> </i>
 ModUi/&Advanced=<color=#F0DAA0>Avançado:</color> <b><i><color=#C04040E0>[Requer reinicialização]</color></i></b>
 ModUi/&AdvancedHelp=. <b><color=#C04040E0>ATENÇÃO:</color></b> Estas configurações exigirão que o jogador tenha este mod instalado
 ModUi/&Adventure=<color=#F0DAA0>Aventura:</color>

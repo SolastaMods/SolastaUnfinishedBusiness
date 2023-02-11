@@ -237,7 +237,7 @@ public class Settings : UnityModManager.ModSettings
     public bool AllowMoreRealStateOnRestPanel { get; set; }
     public bool AddMonkKiPointsToggle { get; set; }
     public bool AddPaladinSmiteToggle { get; set; }
-    public bool AddWildshapeSwapAttackToggle { get; set; }
+    public bool AddMonsterSwapAttackToggle { get; set; }
     public int FormationGridSelectedSet { get; set; } = -1;
 
     public int[][][] FormationGridSets { get; set; } =
