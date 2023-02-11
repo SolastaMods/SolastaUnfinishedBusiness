@@ -22,7 +22,6 @@ internal class ShieldExpert : AbstractFightingStyle
             FeatureDefinitionActionAffinityBuilder
                 .Create("ActionAffinityShieldExpertShove")
                 .SetGuiPresentationNoContent(true)
-                .SetDefaultAllowedActionTypes()
                 .SetActionExecutionModifiers(
                     new ActionDefinitions.ActionExecutionModifier
                     {

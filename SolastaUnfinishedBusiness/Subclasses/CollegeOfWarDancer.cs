@@ -281,7 +281,6 @@ internal sealed class CollegeOfWarDancer : AbstractSubclass
                 FeatureDefinitionActionAffinityBuilder
                     .Create("ActionAffinityWarDanceExtraAction")
                     .SetGuiPresentationNoContent(true)
-                    .SetDefaultAllowedActionTypes()
                     .SetMaxAttackNumber(1)
                     .SetForbiddenActions(ActionDefinitions.Id.CastMain, ActionDefinitions.Id.PowerMain,
                         ActionDefinitions.Id.UseItemMain, ActionDefinitions.Id.HideMain, ActionDefinitions.Id.Ready)
@@ -297,7 +296,6 @@ internal sealed class CollegeOfWarDancer : AbstractSubclass
                 FeatureDefinitionActionAffinityBuilder
                     .Create("ActionAffinityImprovedWarDanceExtraAction")
                     .SetGuiPresentationNoContent(true)
-                    .SetDefaultAllowedActionTypes()
                     .SetMaxAttackNumber(1)
                     .SetForbiddenActions(ActionDefinitions.Id.PowerMain,
                         ActionDefinitions.Id.UseItemMain, ActionDefinitions.Id.HideMain, ActionDefinitions.Id.Ready)

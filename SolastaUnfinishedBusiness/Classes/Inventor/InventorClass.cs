@@ -571,7 +571,6 @@ internal static class InventorClass
                 FeatureDefinitionActionAffinityBuilder
                     .Create("ActionAffinityInventorRituals")
                     .SetGuiPresentationNoContent(true)
-                    .SetDefaultAllowedActionTypes()
                     .SetAuthorizedActions(ActionDefinitions.Id.CastRitual)
                     .AddToDB())
             .AddToDB();

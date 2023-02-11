@@ -8,6 +8,22 @@ namespace SolastaUnfinishedBusiness.Builders.Features;
 internal class FeatureDefinitionActionAffinityBuilder
     : DefinitionBuilder<FeatureDefinitionActionAffinity, FeatureDefinitionActionAffinityBuilder>
 {
+    protected override void Initialise()
+    {
+        base.Initialise();
+        SetDefaultAllowedActionTypes();
+    }
+
+    private void SetDefaultAllowedActionTypes()
+    {
+        const int MAX = (int)ActionDefinitions.ActionType.Max;
+        Definition.AllowedActionTypes = new bool[MAX];
+        for (var i = 0; i < MAX; i++)
+        {
+            Definition.AllowedActionTypes[i] = true;
+        }
+    }
+
     internal FeatureDefinitionActionAffinityBuilder SetAuthorizedActions(params ActionDefinitions.Id[] actions)
     {
         Definition.AuthorizedActions.SetRange(actions);
@@ -38,12 +54,6 @@ internal class FeatureDefinitionActionAffinityBuilder
         return this;
     }
 
-    internal FeatureDefinitionActionAffinityBuilder SetDefaultAllowedActionTypes()
-    {
-        Definition.AllowedActionTypes = new[] { true, true, true, true, true, true };
-        return this;
-    }
-
     internal FeatureDefinitionActionAffinityBuilder SetAllowedActionTypes(
         bool main = true,
         bool bonus = true,
@@ -52,7 +62,15 @@ internal class FeatureDefinitionActionAffinityBuilder
         bool reaction = true,
         bool noCost = true)
     {
-        Definition.AllowedActionTypes = new[] {main, bonus, move, freeOnce, reaction, noCost};
+        var types = Definition.AllowedActionTypes;
+        
+        types[(int)ActionDefinitions.ActionType.Main] = main;
+        types[(int)ActionDefinitions.ActionType.Bonus] = bonus;
+        types[(int)ActionDefinitions.ActionType.Move] = move;
+        types[(int)ActionDefinitions.ActionType.FreeOnce] = freeOnce;
+        types[(int)ActionDefinitions.ActionType.Reaction] = reaction;
+        types[(int)ActionDefinitions.ActionType.NoCost] = noCost;
+        
         return this;
     }
 
