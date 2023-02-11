@@ -30,10 +30,7 @@ internal static partial class SpellBuilders
                 FeatureDefinitionActionAffinityBuilder
                     .Create($"ActionAffinity{NAME}")
                     .SetGuiPresentationNoContent(true)
-                    .SetForbiddenActions(
-                        ActionDefinitions.Id.ReactionShot,
-                        ActionDefinitions.Id.CastReaction,
-                        ActionDefinitions.Id.PowerReaction)
+                    .SetAllowedActionTypes(reaction: false)
                     .AddToDB())
             .AddToDB();
 

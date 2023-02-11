@@ -44,6 +44,18 @@ internal class FeatureDefinitionActionAffinityBuilder
         return this;
     }
 
+    internal FeatureDefinitionActionAffinityBuilder SetAllowedActionTypes(
+        bool main = true,
+        bool bonus = true,
+        bool move = true,
+        bool freeOnce = true,
+        bool reaction = true,
+        bool noCost = true)
+    {
+        Definition.AllowedActionTypes = new[] {main, bonus, move, freeOnce, reaction, noCost};
+        return this;
+    }
+
     internal FeatureDefinitionActionAffinityBuilder SetMaxAttackNumber(int maxAttack)
     {
         Definition.maxAttacksNumber = maxAttack;
