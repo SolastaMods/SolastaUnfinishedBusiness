@@ -1,10 +1,10 @@
-﻿Condition/&ConditionFarStepDescription=Вы можете использовать бонусное действие, чтобы телепортироваться до 60 футов в незанятое пространство, видимое вами. 
-Condition/&ConditionFarStepTitle=Далекий шаг
+﻿Condition/&ConditionFarStepDescription=Вы можете использовать бонусное действие, чтобы телепортироваться на расстояние до 60 футов в незанятое пространство, которое вы видите.
+Condition/&ConditionFarStepTitle=Дальний шаг
 Feature/&AdditionalDamageBanishingSmiteDescription=Вы получили силовой урон.
 Feature/&AdditionalDamageBanishingSmiteTitle=Изгоняющая кара
 Feedback/&AdditionalDamageBanishingSmiteFormat=Изгоняющий удар!
 Feedback/&AdditionalDamageBanishingSmiteLine={0} наносит больше урона {1} изгоняющим ударом (+{2})
-Spell/&BanishingSmiteDescription=Ваш следующий удар наносит дополнительный силовой урон вашим оружием. Кроме того, если эта атака снижает хиты цели до 50 или меньше, вы изгоняете ее на 1 мин.
+Spell/&BanishingSmiteDescription=Ваш следующий удар причиняет дополнительный урон силовым полем 5d10 вашим оружием. Кроме того, если эта атака снижает хиты цели до 50 или меньше, вы изгоняете ее на 1 мин.
 Spell/&BanishingSmiteTitle=Изгоняющая кара
-Spell/&FarStepDescription=Вы телепортируетесь до 60 футов в свободное пространство, видимое вами. Вы можете каждый ваш ход до окончания действия заклинания бонусным действием телепортироваться таким образом снова.
-Spell/&FarStepTitle=Далёкий шаг
+Spell/&FarStepDescription=Вы телепортируетесь на расстояние до 60 футов в незанятое пространство, которое видите. В каждый свой ход до того, как заклинание закончится, вы можете использовать бонусное действие, чтобы снова телепортироваться таким образом.
+Spell/&FarStepTitle=Дальний шаг

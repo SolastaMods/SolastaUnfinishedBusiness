@@ -119,6 +119,17 @@ internal class EffectFormBuilder
         return this;
     }
 
+    internal EffectFormBuilder OverrideSavingThrowInfo(
+        string savingThrowAbility,
+        int savingThrowDc,
+        string sourceDefinitionName = "",
+        FeatureSourceType featureSourceType = FeatureSourceType.Base)
+    {
+        effectForm.OverrideSavingThrowInfo = new OverrideSavingThrowInfo(savingThrowAbility, savingThrowDc,
+            sourceDefinitionName, featureSourceType);
+        return this;
+    }
+
 #if false
     internal EffectFormBuilder SetCounterForm(
         CounterForm.CounterType type,

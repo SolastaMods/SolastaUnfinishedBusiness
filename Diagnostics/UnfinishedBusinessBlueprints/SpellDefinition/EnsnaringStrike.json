@@ -91,8 +91,10 @@
           "conditionDefinitionName": "ConditionEnsnaringStrike",
           "conditionDefinition": "Definition:ConditionEnsnaringStrike:d88af821-2d98-5dd1-a112-f644dfb01001",
           "operation": "Add",
-          "conditionsList": [],
-          "applyToSelf": true,
+          "conditionsList": [
+            "Definition:ConditionEnsnaringStrike:d88af821-2d98-5dd1-a112-f644dfb01001"
+          ],
+          "applyToSelf": false,
           "forceOnSelf": false
         },
         "hasFilterId": false,
@@ -106,8 +108,8 @@
       "incrementMultiplier": 1,
       "additionalTargetsPerIncrement": 0,
       "additionalSubtargetsPerIncrement": 0,
-      "additionalDicePerIncrement": 0,
-      "additionalSpellLevelPerIncrement": 1,
+      "additionalDicePerIncrement": 1,
+      "additionalSpellLevelPerIncrement": 0,
       "additionalSummonsPerIncrement": 0,
       "additionalHPPerIncrement": 0,
       "additionalTempHPPerIncrement": 0,

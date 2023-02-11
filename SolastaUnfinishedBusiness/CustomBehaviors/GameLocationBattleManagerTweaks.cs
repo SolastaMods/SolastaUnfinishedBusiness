@@ -13,7 +13,7 @@ namespace SolastaUnfinishedBusiness.CustomBehaviors;
 internal static class GameLocationBattleManagerTweaks
 {
     // ReSharper disable once InconsistentNaming
-    private static int ComputeSavingThrowDC(RulesetCharacter character, IAdditionalDamageProvider provider)
+    internal static int ComputeSavingThrowDC(RulesetCharacter character, IAdditionalDamageProvider provider)
     {
         // ReSharper disable once ConvertSwitchStatementToSwitchExpression
         switch (provider.DcComputation)
@@ -55,6 +55,24 @@ internal static class GameLocationBattleManagerTweaks
             default:
                 return 10;
         }
+    }
+
+    internal static RuleDefinitions.RollOutcome GetAttackResult(int rawRoll, int modifier, RulesetCharacter defender)
+    {
+        if (rawRoll == RuleDefinitions.DiceMaxValue[(int)RuleDefinitions.DieType.D20])
+        {
+            return RuleDefinitions.RollOutcome.CriticalSuccess;
+        }
+
+        if (rawRoll == RuleDefinitions.DiceMinValue[(int)RuleDefinitions.DieType.D20])
+        {
+            return RuleDefinitions.RollOutcome.CriticalFailure;
+        }
+
+        var defenderArmorClass = defender.TryGetAttributeValue(AttributeDefinitions.ArmorClass);
+        return rawRoll + modifier >= defenderArmorClass
+            ? RuleDefinitions.RollOutcome.Success
+            : RuleDefinitions.RollOutcome.Failure;
     }
 
     /**
@@ -424,6 +442,7 @@ internal static class GameLocationBattleManagerTweaks
                     foreach (var definitionAncestry in FeatureDefinitionAncestry.FeaturesToBrowse
                                  .Select(definition => definition as FeatureDefinitionAncestry)
                                  .Where(definitionAncestry =>
+                                     definitionAncestry != null &&
                                      definitionAncestry.Type == provider.AncestryTypeForDamageType &&
                                      !string.IsNullOrEmpty(definitionAncestry.DamageType)))
                     {
@@ -532,6 +551,24 @@ internal static class GameLocationBattleManagerTweaks
                 actualEffectForms.Add(newEffectForm);
             }
         }
+
+        /*
+         * ######################################
+         * [CE] EDIT START
+         * Support for additional effects
+         */
+
+        var additionalForms = featureDefinition.GetFirstSubFeatureOfType<AdditionalEffectFormOnDamageHandler>();
+        if (additionalForms != null)
+        {
+            actualEffectForms.AddRange(additionalForms(attacker, defender, provider));
+        }
+
+        /*
+         * Support for for additional effects
+         * [CE] EDIT END
+         * ######################################
+         */
 
         // Do I need to add a light source?
         if (provider.AddLightSource && defender.RulesetCharacter is { PersonalLightSource: null })

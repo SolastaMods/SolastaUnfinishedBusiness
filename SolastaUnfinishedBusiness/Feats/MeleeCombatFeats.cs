@@ -686,28 +686,15 @@ internal static class MeleeCombatFeats
 
             var rulesetAttacker = attacker.RulesetCharacter;
             var rulesetDefender = defender.RulesetCharacter;
+            var modifier = attackMode.ToHitBonus + attackModifier.AttackRollModifier;
+
             switch (attackModifier.AttackAdvantageTrend)
             {
                 case > 0 when outcome is RollOutcome.Success or RollOutcome.CriticalSuccess:
                     var lowerRoll = Math.Min(Global.FirstAttackRoll, Global.SecondAttackRoll);
-                    var modifier = attackMode.ToHitBonus + attackModifier.AttackRollModifier;
 
-                    RollOutcome lowOutcome;
-                    if (lowerRoll == DiceMaxValue[(int)DieType.D20])
-                    {
-                        lowOutcome = RollOutcome.CriticalSuccess;
-                    }
-                    else if (lowerRoll == DiceMinValue[(int)DieType.D20])
-                    {
-                        lowOutcome = RollOutcome.CriticalFailure;
-                    }
-                    else
-                    {
-                        var defenderArmorClass = rulesetDefender.TryGetAttributeValue(AttributeDefinitions.ArmorClass);
-                        lowOutcome = lowerRoll + modifier >= defenderArmorClass
-                            ? RollOutcome.Success
-                            : RollOutcome.Failure;
-                    }
+                    var lowOutcome =
+                        GameLocationBattleManagerTweaks.GetAttackResult(lowerRoll, modifier, rulesetDefender);
 
                     Gui.Game.GameConsole.AttackRolled(
                         rulesetAttacker,
@@ -733,30 +720,42 @@ internal static class MeleeCombatFeats
 
                     break;
                 case < 0 when outcome is RollOutcome.Failure or RollOutcome.CriticalFailure:
+                    var higherRoll = Math.Max(Global.FirstAttackRoll, Global.SecondAttackRoll);
+
                     var strength = rulesetAttacker.GetAttribute(AttributeDefinitions.Strength)
                         .CurrentValue;
                     var strengthMod = AttributeDefinitions.ComputeAbilityScoreModifier(strength);
 
-                    if (strengthMod > 0)
+                    if (strengthMod <= 0)
                     {
-                        GameConsoleHelper.LogCharacterAffectsTarget(rulesetAttacker, rulesetDefender,
-                            SuretyTitle, SuretyText, tooltipContent: SuretyDescription);
-
-                        damage.BonusDamage = strengthMod;
-                        RulesetActor.InflictDamage(
-                            strengthMod,
-                            damage,
-                            DamageTypeBludgeoning,
-                            new RulesetImplementationDefinitions.ApplyFormsParams { targetCharacter = rulesetDefender },
-                            rulesetDefender,
-                            false,
-                            attacker.Guid,
-                            false,
-                            attackMode.AttackTags,
-                            new RollInfo(DieType.D1, new List<int>(), strengthMod),
-                            true,
-                            out _);
+                        break;
                     }
+
+                    var higherOutcome =
+                        GameLocationBattleManagerTweaks.GetAttackResult(higherRoll, modifier, rulesetDefender);
+
+                    if (higherOutcome is not (RollOutcome.Success or RollOutcome.CriticalSuccess))
+                    {
+                        break;
+                    }
+
+                    GameConsoleHelper.LogCharacterAffectsTarget(rulesetAttacker, rulesetDefender,
+                        SuretyTitle, SuretyText, tooltipContent: SuretyDescription);
+
+                    damage.BonusDamage = strengthMod;
+                    RulesetActor.InflictDamage(
+                        strengthMod,
+                        damage,
+                        DamageTypeBludgeoning,
+                        new RulesetImplementationDefinitions.ApplyFormsParams { targetCharacter = rulesetDefender },
+                        rulesetDefender,
+                        false,
+                        attacker.Guid,
+                        false,
+                        attackMode.AttackTags,
+                        new RollInfo(DieType.D1, new List<int>(), strengthMod),
+                        true,
+                        out _);
 
                     break;
             }

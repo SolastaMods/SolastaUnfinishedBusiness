@@ -1,2 +1,4 @@
-- fixed Searing, Wrathful, Blinding and Staggering Smite to always apply damage
-- updated Oath of Altruism descriptions
+- refactored Fell Handed feat
+- refactored Searing, Wrathful, Blinding and Staggering Smite spells
+- updated Oath of Altruism features descriptions
+- updated Oath of Ancients features descriptions
