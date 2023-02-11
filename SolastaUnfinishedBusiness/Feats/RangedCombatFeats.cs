@@ -111,6 +111,8 @@ internal static class RangedCombatFeats
                             .SetConditionForm(conditionDeadeye, ConditionForm.ConditionOperation.Add)
                             .Build())
                     .Build())
+            .SetCustomSubFeatures(
+                new ValidatorsPowerUse(ValidatorsCharacter.HasNoneOfConditions(conditionDeadeye.Name)))
             .AddToDB();
 
         Global.PowersThatIgnoreInterruptions.Add(powerDeadeye);

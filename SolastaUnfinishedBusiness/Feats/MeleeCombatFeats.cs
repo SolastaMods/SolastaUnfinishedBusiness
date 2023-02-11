@@ -916,6 +916,8 @@ internal static class MeleeCombatFeats
                         .SetConditionForm(conditionPowerAttack, ConditionForm.ConditionOperation.Add)
                         .Build())
                 .Build())
+            .SetCustomSubFeatures(
+                new ValidatorsPowerUse(ValidatorsCharacter.HasNoneOfConditions(conditionPowerAttack.Name)))
             .AddToDB();
 
         Global.PowersThatIgnoreInterruptions.Add(powerAttack);
