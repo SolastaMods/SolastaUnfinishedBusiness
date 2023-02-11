@@ -27,6 +27,17 @@ internal static partial class SpellBuilders
                     .SetMyAttackAdvantage(AdvantageType.Disadvantage)
                     .SetGuiPresentationNoContent(true)
                     .AddToDB(),
+                FeatureDefinitionAbilityCheckAffinityBuilder
+                    .Create($"AbilityCheckAffinity{NAME}")
+                    .SetGuiPresentationNoContent(true)
+                    .BuildAndSetAffinityGroups(CharacterAbilityCheckAffinity.Disadvantage,
+                        AttributeDefinitions.Strength,
+                        AttributeDefinitions.Dexterity,
+                        AttributeDefinitions.Constitution,
+                        AttributeDefinitions.Intelligence,
+                        AttributeDefinitions.Wisdom,
+                        AttributeDefinitions.Charisma)
+                    .AddToDB(),
                 FeatureDefinitionActionAffinityBuilder
                     .Create($"ActionAffinity{NAME}")
                     .SetGuiPresentationNoContent(true)
