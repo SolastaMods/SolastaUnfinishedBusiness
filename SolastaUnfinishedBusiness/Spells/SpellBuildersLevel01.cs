@@ -146,9 +146,9 @@ internal static partial class SpellBuilders
             .Create($"AdditionalDamage{NAME}")
             .SetGuiPresentation(Category.Feature)
             .SetNotificationTag(NAME)
-            .SetAdditionalDamageType(AdditionalDamageType.Specific)
-            .SetAdvancement(AdditionalDamageAdvancement.SlotLevel)
+            .SetDamageDice(DieType.D6, 1)
             .SetSpecificDamageType(DamageTypePiercing)
+            .SetAdvancement(AdditionalDamageAdvancement.SlotLevel, 1)
             .SetSavingThrowData(
                 EffectDifficultyClassComputation.SpellCastingFeature,
                 EffectSavingThrowType.None,
