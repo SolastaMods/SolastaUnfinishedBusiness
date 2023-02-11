@@ -4,7 +4,8 @@
   "parentCondition": null,
   "conditionType": "Beneficial",
   "features": [
-    "Definition:AdditionalDamageWrathfulSmite:a4155f80-3b56-5bb3-93fd-5f38a7e23c3b"
+    "Definition:AdditionalDamageWrathfulSmite:a4155f80-3b56-5bb3-93fd-5f38a7e23c3b",
+    "Definition:AdditionalDamageWrathfulSmiteCondition:4bbdc780-12dc-5200-8d2a-a9bce88f3d07"
   ],
   "allowMultipleInstances": false,
   "silentWhenAdded": false,

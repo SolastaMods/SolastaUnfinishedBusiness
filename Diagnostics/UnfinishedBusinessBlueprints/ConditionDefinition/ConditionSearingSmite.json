@@ -4,7 +4,8 @@
   "parentCondition": null,
   "conditionType": "Beneficial",
   "features": [
-    "Definition:AdditionalDamageSearingSmite:fdd3a816-0704-5d48-a633-402353b23d17"
+    "Definition:AdditionalDamageSearingSmite:fdd3a816-0704-5d48-a633-402353b23d17",
+    "Definition:AdditionalDamageSearingSmiteCondition:1337559f-9d91-582c-b706-5c1953918baa"
   ],
   "allowMultipleInstances": false,
   "silentWhenAdded": false,
