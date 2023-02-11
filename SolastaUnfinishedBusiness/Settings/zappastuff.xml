@@ -115,7 +115,7 @@
   <EnableEpicPointsAndArray>true</EnableEpicPointsAndArray>
   <TotalFeatsGrantedFirstLevel>1</TotalFeatsGrantedFirstLevel>
   <EnablesAsiAndFeat>true</EnablesAsiAndFeat>
-  <EnableFeatsAtEvenLevels>false</EnableFeatsAtEvenLevels>
+  <EnableFeatsAtEvenLevels>true</EnableFeatsAtEvenLevels>
   <EnableFighterArmamentAdroitness>true</EnableFighterArmamentAdroitness>
   <EnableLevel20>true</EnableLevel20>
   <EnableMulticlass>true</EnableMulticlass>
@@ -329,6 +329,10 @@
     <string>FeatGroupElementalAdept</string>
     <string>FeatGroupMagicInitiate</string>
     <string>FeatGroupSpellSniper</string>
+    <string>FeatGroupAgilityCombat</string>
+    <string>FeatGroupDefenseCombat</string>
+    <string>FeatGroupSupportCombat</string>
+    <string>FeatGroupUnarmoredCombat</string>
   </FeatGroupEnabled>
   <FightingStyleSliderPosition>4</FightingStyleSliderPosition>
   <FightingStyleEnabled>
@@ -808,8 +812,6 @@
   <FasterTimeModifier>1.5</FasterTimeModifier>
   <EncounterPercentageChance>5</EncounterPercentageChance>
   <DefaultPartyHeroes>
-    <string>Celia</string>
-    <string>Allen</string>
   </DefaultPartyHeroes>
   <DontFollowCharacterInBattle>true</DontFollowCharacterInBattle>
   <DontFollowMargin>5</DontFollowMargin>
@@ -822,7 +824,7 @@
   <AllowMoreRealStateOnRestPanel>true</AllowMoreRealStateOnRestPanel>
   <AddMonkKiPointsToggle>true</AddMonkKiPointsToggle>
   <AddPaladinSmiteToggle>true</AddPaladinSmiteToggle>
-  <AddMonsterSwapAttackToggle>true</AddMonsterSwapAttackToggle>
+  <AddMonsterSwapAttackToggle>false</AddMonsterSwapAttackToggle>
   <FormationGridSelectedSet>1</FormationGridSelectedSet>
   <FormationGridSets>
     <ArrayOfArrayOfInt>
