@@ -29,9 +29,8 @@ internal static partial class SpellBuilders
             .SetGuiPresentation(Category.Feature)
             .SetNotificationTag(NAME)
             .SetDamageDice(DieType.D10, 5)
-            .SetAdditionalDamageType(AdditionalDamageType.Specific)
-            .SetAdvancement(AdditionalDamageAdvancement.SlotLevel, 5, 1, 1, 5)
             .SetSpecificDamageType(DamageTypeForce)
+            .SetAdvancement(AdditionalDamageAdvancement.SlotLevel, 5, 1, 1, 5)
             .SetIgnoreCriticalDoubleDice(true)
             .SetCustomSubFeatures(new OnAttackHitEffectBanishingSmite(conditionBanishingSmiteEnemy))
             .AddToDB();

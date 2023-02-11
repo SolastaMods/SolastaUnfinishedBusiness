@@ -42,9 +42,8 @@ internal static partial class SpellBuilders
             .SetGuiPresentation(Category.Feature)
             .SetNotificationTag(NAME)
             .SetDamageDice(DieType.D6, 4)
-            .SetAdditionalDamageType(AdditionalDamageType.Specific)
-            .SetAdvancement(AdditionalDamageAdvancement.SlotLevel, 4, 1, 1, 4)
             .SetSpecificDamageType(DamageTypePsychic)
+            .SetAdvancement(AdditionalDamageAdvancement.SlotLevel, 4, 1, 1, 4)
             .SetSavingThrowData(
                 EffectDifficultyClassComputation.SpellCastingFeature,
                 EffectSavingThrowType.None,

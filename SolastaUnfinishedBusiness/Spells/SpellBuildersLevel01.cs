@@ -293,9 +293,8 @@ internal static partial class SpellBuilders
             .SetGuiPresentation(Category.Feature)
             .SetNotificationTag(NAME)
             .SetDamageDice(DieType.D6, 1)
-            .SetAdditionalDamageType(AdditionalDamageType.Specific)
-            .SetAdvancement(AdditionalDamageAdvancement.SlotLevel, 1)
             .SetSpecificDamageType(DamageTypeFire)
+            .SetAdvancement(AdditionalDamageAdvancement.SlotLevel, 1)
             .SetIgnoreCriticalDoubleDice(true)
             .SetSavingThrowData( //explicitly stating all relevant properties (even default ones) for readability
                 EffectDifficultyClassComputation.SpellCastingFeature,
@@ -462,9 +461,8 @@ internal static partial class SpellBuilders
             .SetGuiPresentation(Category.Feature)
             .SetNotificationTag(NAME)
             .SetDamageDice(DieType.D6, 2)
-            .SetAdditionalDamageType(AdditionalDamageType.Specific)
-            .SetAdvancement(AdditionalDamageAdvancement.SlotLevel, 1)
             .SetSpecificDamageType(DamageTypeThunder)
+            .SetAdvancement(AdditionalDamageAdvancement.SlotLevel, 1)
             .SetIgnoreCriticalDoubleDice(true)
             .SetCustomSubFeatures(new OnAttackHitEffectThunderousSmite())
             .AddToDB();
@@ -507,9 +505,8 @@ internal static partial class SpellBuilders
             .SetGuiPresentation(Category.Feature)
             .SetNotificationTag(NAME)
             .SetDamageDice(DieType.D6, 1)
-            .SetAdditionalDamageType(AdditionalDamageType.Specific)
-            .SetAdvancement(AdditionalDamageAdvancement.SlotLevel, 1)
             .SetSpecificDamageType(DamageTypePsychic)
+            .SetAdvancement(AdditionalDamageAdvancement.SlotLevel, 1)
             .SetSavingThrowData(
                 EffectDifficultyClassComputation.SpellCastingFeature,
                 EffectSavingThrowType.None,
