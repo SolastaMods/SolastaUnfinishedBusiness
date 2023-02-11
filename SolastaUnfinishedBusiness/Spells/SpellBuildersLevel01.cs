@@ -301,7 +301,7 @@ internal static partial class SpellBuilders
                     saveAffinity = EffectSavingThrowType.Negates,
                     saveOccurence = TurnOccurenceType.StartOfTurn,
                     conditionDefinition = ConditionDefinitionBuilder
-                        .Create(ConditionOnFire1D4, $"Condition{NAME}Enemy")
+                        .Create(ConditionOnFire, $"Condition{NAME}Enemy")
                         .AddToDB(),
                     operation = ConditionOperationDescription.ConditionOperation.Add
                 })
