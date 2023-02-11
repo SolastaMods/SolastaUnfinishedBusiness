@@ -9,7 +9,7 @@ ModUi/&AddNewWeaponsAndRecipesToShops=Agregue nuevas armas y recetas a las tiend
 ModUi/&AddPaladinSmiteToggle=Agregue un interruptor para permitir que <color=#D89555>paladines</color> solo habiliten castigos en golpes críticos <i><color=#F0DAA0>[útil para minimizar las indicaciones de reacción]</color></i>
 ModUi/&AddPickPocketableLoot=Agregar botín de carterista <i><color=#F0DAA0>[sugerido si la característica <color=#D89555>Carterista</color> está habilitada]</color></i>
 ModUi/&AddToStore=Añadir a la tienda
-ModUi/&AddWildshapeSwapAttackToggle=Agregue un interruptor para permitir que los <color=#D89555>druidas</color> en forma salvaje seleccionen qué ataque usar primero <i><color=#F0DAA0>[útil con una combinación de ataques cuerpo a cuerpo y a distancia]</color> </i>
+ModUi/&AddMonsterSwapAttackToggle=Agregue un interruptor para permitir que los <color=#D89555>druidas</color> en forma salvaje seleccionen qué ataque usar primero <i><color=#F0DAA0>[útil con una combinación de ataques cuerpo a cuerpo y a distancia]</color> </i>
 ModUi/&Advanced=<color=#F0DAA0>Avanzado:</color> <b><i><color=#C04040E0>[Requiere reinicio]</color></i></b>
 ModUi/&AdvancedHelp=. <b><color=#C04040E0>ATENCIÓN:</color></b> Esta configuración requerirá que el jugador tenga este mod instalado
 ModUi/&Adventure=<color=#F0DAA0>Aventura:</color>

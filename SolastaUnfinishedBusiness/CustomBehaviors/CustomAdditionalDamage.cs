@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using JetBrains.Annotations;
 
 namespace SolastaUnfinishedBusiness.CustomBehaviors;
 
@@ -14,7 +15,9 @@ public abstract class CustomAdditionalDamage
 
     public IAdditionalDamageProvider Provider { get; }
 
-    internal abstract bool IsValid(GameLocationBattleManager battleManager,
+    [UsedImplicitly]
+    internal abstract bool IsValid(
+        GameLocationBattleManager battleManager,
         GameLocationCharacter attacker,
         GameLocationCharacter defender,
         ActionModifier attackModifier,

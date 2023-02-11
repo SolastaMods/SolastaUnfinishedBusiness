@@ -9,7 +9,7 @@ ModUi/&AddNewWeaponsAndRecipesToShops=添加新的武器和配方至商店<color
 ModUi/&AddPaladinSmiteToggle=添加一个开关以允许 <color=#D89555>Paladins</color> 仅在暴击时启用打击<i><color=#F0DAA0>[有助于最小化反应提示]</color></i>
 ModUi/&AddPickPocketableLoot=添加可扒窃的战利品<color=#F0DAA0>【建议在<color=#D89555>扒窃</color>专长被启用时启用】</color>
 ModUi/&AddToStore=加入商店
-ModUi/&AddWildshapeSwapAttackToggle=添加一个开关以允许 <color=#D89555>Druids</color> 以 wildshape 形式交换先使用哪个攻击
+ModUi/&AddMonsterSwapAttackToggle=添加一个开关以允许 <color=#D89555>Druids</color> 以 wildshape 形式交换先使用哪个攻击
 ModUi/&Advanced=<color=#F0DAA0>进阶选项：</color> <b><i><color=#C04040E0>【需要重启游戏】</color></i></b>
 ModUi/&AdvancedHelp=. <b><color=#C04040E0>注意：</color></b>此项设置将要求玩家安装此Mod
 ModUi/&Adventure=<color=#F0DAA0>冒险：</color>

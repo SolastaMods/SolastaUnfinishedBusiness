@@ -74,7 +74,7 @@ public static class CharacterActionPanelPatcher
             var battle = Gui.Battle != null;
 
             //PATCH: reorder the actions panel in case we have custom toggles
-            void DoReorder(ActionDefinitions.Id actionId)
+            void DoReorder(ActionDefinitions.Id actionId, int overrideIndex = -1)
             {
                 var powerNdx = actions.FindIndex(x => x == ActionDefinitions.Id.PowerMain);
 
@@ -84,7 +84,7 @@ public static class CharacterActionPanelPatcher
                 }
 
                 actions.Remove(actionId);
-                actions.Insert(powerNdx, actionId);
+                actions.Insert(overrideIndex < 0 ? powerNdx : overrideIndex, actionId);
             }
 
             if (actions.Contains((ActionDefinitions.Id)ExtraActionId.MonkKiPointsToggle))
@@ -97,9 +97,9 @@ public static class CharacterActionPanelPatcher
                 DoReorder((ActionDefinitions.Id)ExtraActionId.PaladinSmiteToggle);
             }
 
-            if (actions.Contains((ActionDefinitions.Id)ExtraActionId.WildshapeSwapAttackToggle))
+            if (actions.Contains((ActionDefinitions.Id)ExtraActionId.MonsterSwapAttackToggle))
             {
-                DoReorder((ActionDefinitions.Id)ExtraActionId.WildshapeSwapAttackToggle);
+                DoReorder((ActionDefinitions.Id)ExtraActionId.MonsterSwapAttackToggle, 0);
             }
 
             //PATCH: hide power button on action panel if no valid powers to use or see
@@ -117,7 +117,7 @@ public static class CharacterActionPanelPatcher
                     ActionDefinitions.ActionType.Bonus, battle),
                 ActionDefinitions.Id.PowerNoCost => !character.CanSeeAndUseAtLeastOnePower(
                     ActionDefinitions.ActionType.NoCost, battle),
-                (ActionDefinitions.Id)ExtraActionId.WildshapeSwapAttackToggle => GameLocationCharacter
+                (ActionDefinitions.Id)ExtraActionId.MonsterSwapAttackToggle => GameLocationCharacter
                     .GetFromActor(character).HasAttackedSinceLastTurn,
                 _ => false
             };

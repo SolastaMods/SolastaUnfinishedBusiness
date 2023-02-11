@@ -239,6 +239,23 @@ public static class CharacterBuildingManagerPatcher
                 return;
             }
 
+            //BUGFIX: this is a hack that fixes the particular case where we get double invocation pools if hero is MC
+            var heroBuildingData = hero.GetHeroBuildingData();
+
+            if (heroBuildingData.PointPoolStacks
+                    .TryGetValue(HeroDefinitions.PointsPoolType.Invocation, out var pointPoolStack) &&
+                hero.ClassesAndLevels
+                    .TryGetValue(DatabaseHelper.CharacterClassDefinitions.Warlock, out var levels))
+            {
+                var goodTag =
+                    AttributeDefinitions.GetClassTag(DatabaseHelper.CharacterClassDefinitions.Warlock, levels);
+
+                foreach (var badKey in pointPoolStack.ActivePools.Keys.Where(x => x != goodTag).ToList())
+                {
+                    pointPoolStack.ActivePools.Remove(badKey);
+                }
+            }
+
             FeatureDefinitionGrantInvocations.GrantInvocations(hero, tag, grantedFeatures);
         }
 

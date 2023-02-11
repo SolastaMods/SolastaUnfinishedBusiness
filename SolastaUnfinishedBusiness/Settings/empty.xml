@@ -386,7 +386,7 @@
   <AllowMoreRealStateOnRestPanel>false</AllowMoreRealStateOnRestPanel>
   <AddMonkKiPointsToggle>false</AddMonkKiPointsToggle>
   <AddPaladinSmiteToggle>false</AddPaladinSmiteToggle>
-  <AddWildshapeSwapAttackToggle>false</AddWildshapeSwapAttackToggle>
+  <AddMonsterSwapAttackToggle>false</AddMonsterSwapAttackToggle>
   <FormationGridSelectedSet>0</FormationGridSelectedSet>
   <FormationGridSets>
     <ArrayOfArrayOfInt>

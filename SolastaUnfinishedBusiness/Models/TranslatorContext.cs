@@ -36,7 +36,7 @@ internal static class TranslatorContext
 
     private static readonly Dictionary<string, string> Glossary = GetWordsDictionary();
 
-    internal static readonly string[] AvailableLanguages = { "de", "en", "es", "fr", "pt", "ru", "zh-CN" };
+    internal static readonly string[] AvailableLanguages = { "de", "en", "es", "fr", "it", "pt", "ru", "zh-CN" };
 
     internal static readonly List<LanguageEntry> Languages = new();
 

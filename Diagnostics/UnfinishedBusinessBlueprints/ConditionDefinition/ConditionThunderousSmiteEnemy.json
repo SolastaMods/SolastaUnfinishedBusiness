@@ -3,18 +3,14 @@
   "inDungeonEditor": false,
   "parentCondition": null,
   "conditionType": "Beneficial",
-  "features": [
-    "Definition:AbilityCheckAffinityStaggeringSmite:c19863d5-3b06-56bd-8e81-f768b0584697",
-    "Definition:ActionAffinityStaggeringSmite:f087f049-96dd-5932-8401-e58c194ea1cb",
-    "Definition:CombatAffinityStaggeringSmite:bec893d0-747c-520d-a494-b5c9551b2c73"
-  ],
+  "features": [],
   "allowMultipleInstances": false,
-  "silentWhenAdded": false,
-  "silentWhenRemoved": false,
+  "silentWhenAdded": true,
+  "silentWhenRemoved": true,
   "terminateWhenRemoved": false,
-  "specialDuration": true,
-  "durationType": "Round",
-  "durationParameterDie": "D1",
+  "specialDuration": false,
+  "durationType": "Hour",
+  "durationParameterDie": "D4",
   "durationParameter": 1,
   "forceTurnOccurence": false,
   "turnOccurence": "EndOfTurn",
@@ -129,14 +125,14 @@
   },
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
-    "hidden": false,
-    "title": "Feature/&AdditionalDamageStaggeringSmiteTitle",
-    "description": "Feature/&AdditionalDamageStaggeringSmiteDescription",
+    "hidden": true,
+    "title": "Feature/&NoContentTitle",
+    "description": "Feature/&NoContentTitle",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "3b24b98087e888a4584553215450c700",
-      "m_SubObjectName": "ConditionDazzled",
-      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+      "m_AssetGUID": "",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
@@ -151,7 +147,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "e1d48854-ca82-5bb9-b315-e97cc06721a4",
+  "guid": "0fa4ec12-e920-55da-95a1-8dd52be6faa7",
   "contentPack": 9999,
-  "name": "ConditionStaggeringSmiteEnemy"
+  "name": "ConditionThunderousSmiteEnemy"
 }

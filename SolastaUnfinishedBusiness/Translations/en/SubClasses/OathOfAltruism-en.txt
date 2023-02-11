@@ -1,15 +1,15 @@
 ﻿Condition/&ConditionOathOfAltruismAuraOfTheGuardianDescription=This character is in range for Aura of the Guardian reactions.
 Condition/&ConditionOathOfAltruismAuraOfTheGuardianTitle=Aura of the Guardian
-Feature/&FeatureOathOfAltruismSpiritualShieldingDescription=On a reaction, shield an ally from an incoming attack granting them +5 AC.
+Feature/&FeatureOathOfAltruismSpiritualShieldingDescription=As a reaction, which you take when you see a friendly creature hit by an attack, you project a spiritual shield onto that creature. Until the start of this turn, that creature has a +5 bonus to AC, including against the triggering attack.
 Feature/&FeatureOathOfAltruismSpiritualShieldingTitle=Channel Divinity: Spiritual Shielding
-Feature/&FeatureOathOfAltruismDefensiveStrikeDescription=On a reaction, grant an ally that was struck an Attack of Opportunity adding your Charisma Modifer and level to the attack amd damage rolls.
+Feature/&FeatureOathOfAltruismDefensiveStrikeDescription=As a reaction, which you take when you see a friendly creature hit by an attack, you project a surge of steadfast will into that creature. That creature can immediately use its reaction to make one weapon attack, adding your Charisma modifier to both the attack and damage rolls.
 Feature/&FeatureOathOfAltruismDefensiveStrikeTitle=Channel Divinity: Defensive Strike
-Feature/&PowerOathOfAltruismAuraOfTheGuardianDescription=When an ally near is attacked, use your reaction to heal the damage and take the damage yourself.
+Feature/&PowerOathOfAltruismAuraOfTheGuardianDescription=Starting at 7th level, you can shield others from harm at the cost of your own health. When a creature within 10 feet of you takes damage, you can use your reaction to magically take that damage, instead of that creature taking it. This feature doesn't transfer any other effects that might accompany the damage, and this damage can't be reduced in any way.
 Feature/&PowerOathOfAltruismAuraOfTheGuardianTitle=Aura of the Guardian
 Feedback/&GuardianAuraHeal={0} heals an ally through Aura of the Guardian.
-Reaction/&CustomReactionFeatureOathOfAltruismDefensiveStrikeDescription=Grant your ally that has been attacked an Attack of Opportunity at the cost of a Channel Divinity.
+Reaction/&CustomReactionFeatureOathOfAltruismDefensiveStrikeDescription=Grant your ally that has been attacked, an Attack of Opportunity at the cost of a Channel Divinity.
 Reaction/&CustomReactionFeatureOathOfAltruismDefensiveStrikeTitle=Defensive Strike!
-Reaction/&CustomReactionFeatureOathOfAltruismDefensiveStrikeReactDescription=Grant your ally that has been attacked an Attack of Opportunity at the cost of a Channel Divinity.
+Reaction/&CustomReactionFeatureOathOfAltruismDefensiveStrikeReactDescription=Grant your ally that has been attacked, an Attack of Opportunity at the cost of a Channel Divinity.
 Reaction/&CustomReactionFeatureOathOfAltruismDefensiveStrikeReactTitle=Defensive Strike!
 Reaction/&ReactionAttackFeatureOathOfAltruismDefensiveStrikeAllyDescription=Your ally is granting you an Attack of Opportunity at a cost of their Channel Divinity.
 Reaction/&ReactionAttackFeatureOathOfAltruismDefensiveStrikeAllyTitle=Defensive Strike!
@@ -23,5 +23,5 @@ Reaction/&CustomReactionSpiritualShieldingDescription=Use your reaction as the e
 Reaction/&CustomReactionSpiritualShieldingTitle=Spiritual Shielding!
 Reaction/&CustomReactionSpiritualShieldingReactDescription=Use your reaction as the enemy strikes at your ally to cast a shield on them.
 Reaction/&CustomReactionSpiritualShieldingReactTitle=Shield!
-Subclass/&OathOfAltruismDescription=The Oath of Altruism calls out to those selfless heroes who put protection of others above all else.
+Subclass/&OathOfAltruismDescription=Heroes know their calling, and the Oath of Altruism calls out to those selfless heroes who put protection of the meek above all else. Followers of this Oath, are truly selfless protectors, who risk their own lives and would willfully die to protector those they care for. Paladins of this oath are not looking for glory and often align themselves with those seeking a greater purpose. They lend their shields and swords for the greater good of the goals of the team, before their own.
 Subclass/&OathOfAltruismTitle=Oath of Altruism <color=red>[BETA]</color>

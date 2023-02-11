@@ -206,7 +206,7 @@ internal sealed class WizardBladeDancer : AbstractSubclass
                                  x.ConditionDefinition == ConditionBladeDancerDanceOfVictory)
                      .ToList())
         {
-            hero.RemoveConditionOfCategory(AttributeDefinitions.TagEffect, rulesetCondition);
+            hero.RemoveCondition(rulesetCondition);
         }
     }
 }

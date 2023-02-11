@@ -13,7 +13,7 @@ namespace SolastaUnfinishedBusiness.CustomBehaviors;
 internal static class GameLocationBattleManagerTweaks
 {
     // ReSharper disable once InconsistentNaming
-    private static int ComputeSavingThrowDC(RulesetCharacter character, IAdditionalDamageProvider provider)
+    internal static int ComputeSavingThrowDC(RulesetCharacter character, IAdditionalDamageProvider provider)
     {
         // ReSharper disable once ConvertSwitchStatementToSwitchExpression
         switch (provider.DcComputation)
@@ -55,6 +55,24 @@ internal static class GameLocationBattleManagerTweaks
             default:
                 return 10;
         }
+    }
+
+    internal static RuleDefinitions.RollOutcome GetAttackResult(int rawRoll, int modifier, RulesetCharacter defender)
+    {
+        if (rawRoll == RuleDefinitions.DiceMaxValue[(int)RuleDefinitions.DieType.D20])
+        {
+            return RuleDefinitions.RollOutcome.CriticalSuccess;
+        }
+
+        if (rawRoll == RuleDefinitions.DiceMinValue[(int)RuleDefinitions.DieType.D20])
+        {
+            return RuleDefinitions.RollOutcome.CriticalFailure;
+        }
+
+        var defenderArmorClass = defender.TryGetAttributeValue(AttributeDefinitions.ArmorClass);
+        return rawRoll + modifier >= defenderArmorClass
+            ? RuleDefinitions.RollOutcome.Success
+            : RuleDefinitions.RollOutcome.Failure;
     }
 
     /**
@@ -152,7 +170,7 @@ internal static class GameLocationBattleManagerTweaks
                 else
                 {
                     var condition =
-                        attacker.RulesetCharacter.FindFirstConditionHoldingFeature(provider as FeatureDefinition);
+                        attacker.RulesetCharacter.FindFirstConditionHoldingFeature((FeatureDefinition)provider);
                     if (condition != null)
                     {
                         diceNumber = provider.GetDiceOfRank(condition.EffectLevel);
@@ -185,7 +203,8 @@ internal static class GameLocationBattleManagerTweaks
             //Get die type from features if applicable
             var dieTypeProvider = featureDefinition.GetFirstSubFeatureOfType<DamageDieProvider>();
 
-            additionalDamageForm.DieType = dieTypeProvider?.Invoke(attacker.RulesetCharacter, provider.DamageDieType) ?? provider.DamageDieType;
+            additionalDamageForm.DieType = dieTypeProvider?.Invoke(attacker.RulesetCharacter, provider.DamageDieType) ??
+                                           provider.DamageDieType;
 
             /*
              * Support for damage die progression
@@ -210,23 +229,20 @@ internal static class GameLocationBattleManagerTweaks
                   * [CE] EDIT END
                   * ######################################
                   */
-                 (provider.DamageValueDetermination ==
-                  RuleDefinitions.AdditionalDamageValueDetermination.ProficiencyBonus
-                  || provider.DamageValueDetermination ==
-                  RuleDefinitions.AdditionalDamageValueDetermination.SpellcastingBonus
-                  || provider.DamageValueDetermination == RuleDefinitions.AdditionalDamageValueDetermination
-                      .ProficiencyBonusAndSpellcastingBonus
-                  || provider.DamageValueDetermination ==
-                  RuleDefinitions.AdditionalDamageValueDetermination.RageDamage
-                  || provider.DamageValueDetermination == RuleDefinitions.AdditionalDamageValueDetermination.FlatBonus))
+                 provider.DamageValueDetermination is
+                     RuleDefinitions.AdditionalDamageValueDetermination.ProficiencyBonus
+                     or RuleDefinitions.AdditionalDamageValueDetermination.SpellcastingBonus or RuleDefinitions
+                         .AdditionalDamageValueDetermination
+                         .ProficiencyBonusAndSpellcastingBonus
+                     or RuleDefinitions.AdditionalDamageValueDetermination.RageDamage
+                     or RuleDefinitions.AdditionalDamageValueDetermination.FlatBonus)
         {
             additionalDamageForm.DieType = RuleDefinitions.DieType.D1;
             additionalDamageForm.DiceNumber = 0;
             additionalDamageForm.BonusDamage = 0;
 
-            if (provider.DamageValueDetermination ==
-                RuleDefinitions.AdditionalDamageValueDetermination.ProficiencyBonus ||
-                provider.DamageValueDetermination == RuleDefinitions.AdditionalDamageValueDetermination
+            if (provider.DamageValueDetermination is RuleDefinitions.AdditionalDamageValueDetermination.ProficiencyBonus
+                or RuleDefinitions.AdditionalDamageValueDetermination
                     .ProficiencyBonusAndSpellcastingBonus)
             {
                 /*
@@ -249,9 +265,9 @@ internal static class GameLocationBattleManagerTweaks
                  */
             }
 
-            if (provider.DamageValueDetermination ==
-                RuleDefinitions.AdditionalDamageValueDetermination.SpellcastingBonus ||
-                provider.DamageValueDetermination == RuleDefinitions.AdditionalDamageValueDetermination
+            // ReSharper disable once ConvertIfStatementToSwitchStatement
+            if (provider.DamageValueDetermination is RuleDefinitions.AdditionalDamageValueDetermination
+                    .SpellcastingBonus or RuleDefinitions.AdditionalDamageValueDetermination
                     .ProficiencyBonusAndSpellcastingBonus)
             {
                 // Look for the Spell Repertoire
@@ -307,12 +323,13 @@ internal static class GameLocationBattleManagerTweaks
                 additionalDamageForm.BonusDamage += provider.FlatBonus;
             }
         }
+        // ReSharper disable once ConvertIfStatementToSwitchStatement
         else if (provider.DamageValueDetermination ==
                  RuleDefinitions.AdditionalDamageValueDetermination.ProficiencyBonusOfSource)
         {
             // Try to find the condition granting the provider
             var holdingCondition =
-                attacker.RulesetCharacter.FindFirstConditionHoldingFeature(provider as FeatureDefinition);
+                attacker.RulesetCharacter.FindFirstConditionHoldingFeature((FeatureDefinition)provider);
             if (holdingCondition != null &&
                 RulesetEntity.TryGetEntity(holdingCondition.SourceGuid, out RulesetCharacter sourceCharacter))
             {
@@ -349,7 +366,7 @@ internal static class GameLocationBattleManagerTweaks
         else if (provider.DamageValueDetermination ==
                  RuleDefinitions.AdditionalDamageValueDetermination.BrutalCriticalDice)
         {
-            var useVersatileDamage = attackMode != null && attackMode.UseVersatileDamage;
+            var useVersatileDamage = attackMode is { UseVersatileDamage: true };
             var damageForm = EffectForm.GetFirstDamageForm(actualEffectForms);
             additionalDamageForm.DieType = useVersatileDamage ? damageForm.VersatileDieType : damageForm.DieType;
             additionalDamageForm.DiceNumber =
@@ -359,7 +376,7 @@ internal static class GameLocationBattleManagerTweaks
         else if (provider.DamageValueDetermination ==
                  RuleDefinitions.AdditionalDamageValueDetermination.SameAsBaseWeaponDie)
         {
-            var useVersatileDamage = attackMode != null && attackMode.UseVersatileDamage;
+            var useVersatileDamage = attackMode is { UseVersatileDamage: true };
             var damageForm = EffectForm.GetFirstDamageForm(actualEffectForms);
             additionalDamageForm.DieType = useVersatileDamage ? damageForm.VersatileDieType : damageForm.DieType;
             additionalDamageForm.DiceNumber = 1;
@@ -392,7 +409,9 @@ internal static class GameLocationBattleManagerTweaks
         additionalDamageForm.IgnoreSpellAdvancementDamageDice = true;
 
         // Account the use
+#pragma warning disable CA1854
         if (attacker.UsedSpecialFeatures.ContainsKey(featureDefinition.Name))
+#pragma warning restore CA1854
         {
             attacker.UsedSpecialFeatures[featureDefinition.Name]++;
         }
@@ -404,6 +423,7 @@ internal static class GameLocationBattleManagerTweaks
         if (additionalDamageForm.DiceNumber > 0 || additionalDamageForm.BonusDamage > 0)
         {
             // Add the new damage form
+            // ReSharper disable once SwitchStatementHandlesSomeKnownEnumValuesWithDefault
             switch (provider.AdditionalDamageType)
             {
                 case RuleDefinitions.AdditionalDamageType.SameAsBaseDamage:
@@ -419,14 +439,14 @@ internal static class GameLocationBattleManagerTweaks
                         FeatureDefinitionAncestry.FeaturesToBrowse);
 
                     // Pick the first matching one
-                    foreach (var definition in FeatureDefinitionAncestry.FeaturesToBrowse)
+                    foreach (var definitionAncestry in FeatureDefinitionAncestry.FeaturesToBrowse
+                                 .Select(definition => definition as FeatureDefinitionAncestry)
+                                 .Where(definitionAncestry =>
+                                     definitionAncestry != null &&
+                                     definitionAncestry.Type == provider.AncestryTypeForDamageType &&
+                                     !string.IsNullOrEmpty(definitionAncestry.DamageType)))
                     {
-                        var definitionAncestry = definition as FeatureDefinitionAncestry;
-                        if (definitionAncestry.Type == provider.AncestryTypeForDamageType &&
-                            !string.IsNullOrEmpty(definitionAncestry.DamageType))
-                        {
-                            additionalDamageForm.DamageType = definitionAncestry.DamageType;
-                        }
+                        additionalDamageForm.DamageType = definitionAncestry.DamageType;
                     }
 
                     if (string.IsNullOrEmpty(additionalDamageForm.DamageType))
@@ -443,13 +463,12 @@ internal static class GameLocationBattleManagerTweaks
                 && provider.DamageValueDetermination ==
                 RuleDefinitions.AdditionalDamageValueDetermination.SpellcastingBonus)
             {
-                foreach (var effectForm in actualEffectForms)
+                foreach (var effectForm in actualEffectForms
+                             .Where(effectForm =>
+                                 effectForm.FormType == EffectForm.EffectFormType.Damage &&
+                                 effectForm.DamageForm.DamageType == additionalDamageForm.DamageType))
                 {
-                    if (effectForm.FormType == EffectForm.EffectFormType.Damage &&
-                        effectForm.DamageForm.DamageType == additionalDamageForm.DamageType)
-                    {
-                        effectForm.DamageForm.BonusDamage += additionalDamageForm.BonusDamage;
-                    }
+                    effectForm.DamageForm.BonusDamage += additionalDamageForm.BonusDamage;
                 }
             }
             else
@@ -462,8 +481,9 @@ internal static class GameLocationBattleManagerTweaks
                 {
                     // This additional damage will override the saving throw for the whole attack
                     newEffectForm.SavingThrowAffinity = provider.DamageSaveAffinity;
-                    var rulesetImplementationService =
-                        ServiceRepository.GetService<IRulesetImplementationService>();
+                    // var rulesetImplementationService =
+                    //     ServiceRepository.GetService<IRulesetImplementationService>();
+                    // ReSharper disable once InconsistentNaming
                     var saveDC = ComputeSavingThrowDC(attacker.RulesetCharacter, provider);
                     newEffectForm.OverrideSavingThrowInfo = new OverrideSavingThrowInfo(provider.SavingThrowAbility,
                         saveDC, provider.Name, RuleDefinitions.FeatureSourceType.ExplicitFeature);
@@ -501,24 +521,28 @@ internal static class GameLocationBattleManagerTweaks
         {
             foreach (var conditionOperation in provider.ConditionOperations)
             {
-                var newEffectForm = new EffectForm();
-                newEffectForm.FormType = EffectForm.EffectFormType.Condition;
-                newEffectForm.ConditionForm = new ConditionForm();
-                newEffectForm.ConditionForm.ConditionDefinition = conditionOperation.ConditionDefinition;
-                newEffectForm.ConditionForm.Operation =
-                    conditionOperation.Operation == ConditionOperationDescription.ConditionOperation.Add
-                        ? ConditionForm.ConditionOperation.Add
-                        : ConditionForm.ConditionOperation.Remove;
-                newEffectForm.CanSaveToCancel = conditionOperation.CanSaveToCancel;
-                newEffectForm.SaveOccurence = conditionOperation.SaveOccurence;
+                var newEffectForm = new EffectForm
+                {
+                    FormType = EffectForm.EffectFormType.Condition,
+                    ConditionForm = new ConditionForm
+                    {
+                        ConditionDefinition = conditionOperation.ConditionDefinition,
+                        Operation = conditionOperation.Operation == ConditionOperationDescription.ConditionOperation.Add
+                            ? ConditionForm.ConditionOperation.Add
+                            : ConditionForm.ConditionOperation.Remove
+                    },
+                    CanSaveToCancel = conditionOperation.CanSaveToCancel,
+                    SaveOccurence = conditionOperation.SaveOccurence
+                };
 
                 if (conditionOperation.Operation == ConditionOperationDescription.ConditionOperation.Add &&
                     provider.HasSavingThrow)
                 {
                     // This additional damage will override the saving throw for the whole attack
                     newEffectForm.SavingThrowAffinity = conditionOperation.SaveAffinity;
-                    var rulesetImplementationService =
-                        ServiceRepository.GetService<IRulesetImplementationService>();
+                    // var rulesetImplementationService =
+                    //     ServiceRepository.GetService<IRulesetImplementationService>();
+                    // ReSharper disable once InconsistentNaming
                     var saveDC = ComputeSavingThrowDC(attacker.RulesetCharacter, provider);
                     newEffectForm.OverrideSavingThrowInfo = new OverrideSavingThrowInfo(provider.SavingThrowAbility,
                         saveDC, provider.Name, RuleDefinitions.FeatureSourceType.ExplicitFeature);
@@ -528,9 +552,26 @@ internal static class GameLocationBattleManagerTweaks
             }
         }
 
+        /*
+         * ######################################
+         * [CE] EDIT START
+         * Support for additional effects
+         */
+
+        var additionalForms = featureDefinition.GetFirstSubFeatureOfType<AdditionalEffectFormOnDamageHandler>();
+        if (additionalForms != null)
+        {
+            actualEffectForms.AddRange(additionalForms(attacker, defender, provider));
+        }
+
+        /*
+         * Support for for additional effects
+         * [CE] EDIT END
+         * ######################################
+         */
+
         // Do I need to add a light source?
-        if (provider.AddLightSource && defender.RulesetCharacter != null &&
-            defender.RulesetCharacter.PersonalLightSource == null)
+        if (provider.AddLightSource && defender.RulesetCharacter is { PersonalLightSource: null })
         {
             var lightSourceForm = provider.LightSourceForm;
 
@@ -628,6 +669,7 @@ internal static class GameLocationBattleManagerTweaks
             var validUses = true;
             if (provider.LimitedUsage != RuleDefinitions.FeatureLimitedUsage.None)
             {
+                // ReSharper disable once SwitchStatementHandlesSomeKnownEnumValuesWithDefault
                 switch (provider.LimitedUsage)
                 {
                     case RuleDefinitions.FeatureLimitedUsage.OnceInMyTurn
@@ -645,6 +687,7 @@ internal static class GameLocationBattleManagerTweaks
                             // Check if there is not already a used feature with the same tag (special sneak attack for Rogue Hoodlum / COTM-18228)
                             foreach (var kvp in attacker.UsedSpecialFeatures)
                             {
+                                // ReSharper disable once InvertIf
                                 if (DatabaseRepository.GetDatabase<FeatureDefinitionAdditionalDamage>()
                                     .TryGetElement(kvp.Key, out var previousFeature))
                                 {
@@ -662,13 +705,13 @@ internal static class GameLocationBattleManagerTweaks
             }
 
             if (additionalDamage != null
-                && additionalDamage.OtherSimilarAdditionalDamages != null
-                && additionalDamage.OtherSimilarAdditionalDamages.Count > 0
+                && additionalDamage.OtherSimilarAdditionalDamages is { Count: > 0 }
                 && attacker.UsedSpecialFeatures.Count > 0)
             {
                 // Check if there is not already a used feature of the same "family"
                 foreach (var kvp in attacker.UsedSpecialFeatures)
                 {
+                    // ReSharper disable once InvertIf
                     if (DatabaseRepository.GetDatabase<FeatureDefinitionAdditionalDamage>()
                         .TryGetElement(kvp.Key, out var previousFeature))
                     {
@@ -713,6 +756,7 @@ internal static class GameLocationBattleManagerTweaks
                  * ######################################
                  */
             {
+                // ReSharper disable once SwitchStatementHandlesSomeKnownEnumValuesWithDefault
                 switch (provider.TriggerCondition)
                 {
                     // Typical for Sneak Attack
@@ -1063,6 +1107,7 @@ internal static class GameLocationBattleManagerTweaks
             * ######################################
             */
 
+            // ReSharper disable once InvertIf
             if (validTrigger && validProperty)
             {
                 instance.ComputeAndNotifyAdditionalDamage(attacker, defender, provider, actualEffectForms,
@@ -1079,14 +1124,16 @@ internal static class GameLocationBattleManagerTweaks
 
         foreach (var feature in attacker.RulesetCharacter.GetSubFeaturesByType<CustomAdditionalDamage>())
         {
-            if (feature.IsValid(instance, attacker, defender, attackModifier, attackMode, rangedAttack, advantageType,
-                    actualEffectForms, rulesetEffect, criticalHit, firstTarget, out var reactionParams
-                ))
+            if (!feature.IsValid(
+                    instance, attacker, defender, attackModifier, attackMode, rangedAttack, advantageType,
+                    actualEffectForms, rulesetEffect, criticalHit, firstTarget, out var reactionParams))
             {
-                instance.ComputeAndNotifyAdditionalDamage(attacker, defender, feature.Provider, actualEffectForms,
-                    reactionParams, attackMode, criticalHit);
-                instance.triggeredAdditionalDamageTags.Add(feature.Provider.NotificationTag);
+                continue;
             }
+
+            instance.ComputeAndNotifyAdditionalDamage(
+                attacker, defender, feature.Provider, actualEffectForms, reactionParams, attackMode, criticalHit);
+            instance.triggeredAdditionalDamageTags.Add(feature.Provider.NotificationTag);
         }
 
         /*

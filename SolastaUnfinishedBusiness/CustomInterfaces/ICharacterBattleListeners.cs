@@ -1,4 +1,5 @@
-﻿using SolastaUnfinishedBusiness.Api.Extensions;
+﻿using JetBrains.Annotations;
+using SolastaUnfinishedBusiness.Api.Extensions;
 
 namespace SolastaUnfinishedBusiness.CustomInterfaces;
 
@@ -14,6 +15,7 @@ public interface ICharacterTurnEndListener
 
 public interface ICharacterBattleStartedListener
 {
+    [UsedImplicitly]
     void OnCharacterBattleStarted(GameLocationCharacter locationCharacter, bool surprise);
 }
 

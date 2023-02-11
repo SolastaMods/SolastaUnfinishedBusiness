@@ -38,7 +38,6 @@ internal static class MulticlassWildshapeContext
         .SetFeatures(FeatureDefinitionActionAffinityBuilder
             .Create("ActionAffinityWildshapeFlurryOfBlows")
             .SetGuiPresentationNoContent(true)
-            .SetDefaultAllowedActionTypes()
             .SetAuthorizedActions(Id.AttackMain)
             .SetForbiddenActions(Id.DashMain, Id.DisengageMain, Id.Dodge, Id.HideMain, Id.Ready, Id.Shove)
             .SetMaxAttackNumber(-1)

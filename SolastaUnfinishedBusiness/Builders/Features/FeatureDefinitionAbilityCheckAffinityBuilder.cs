@@ -31,6 +31,23 @@ internal class FeatureDefinitionAbilityCheckAffinityBuilder
         return this;
     }
 
+    private FeatureDefinitionAbilityCheckAffinityBuilder BuildAndSetAffinityGroups(
+        CharacterAbilityCheckAffinity affinityType = CharacterAbilityCheckAffinity.None,
+        DieType dieType = DieType.D1,
+        int diceNumber = 0,
+        params string[] abilityScores)
+    {
+        return BuildAndSetAffinityGroups(affinityType, dieType, diceNumber,
+            abilityScores.Select(a => (a, string.Empty)).ToArray());
+    }
+
+    internal FeatureDefinitionAbilityCheckAffinityBuilder BuildAndSetAffinityGroups(
+        CharacterAbilityCheckAffinity affinityType,
+        params string[] abilityScores)
+    {
+        return BuildAndSetAffinityGroups(affinityType, DieType.D1, 0, abilityScores);
+    }
+
 #if false
     internal FeatureDefinitionAbilityCheckAffinityBuilder UseControllerAbilityChecks()
     {

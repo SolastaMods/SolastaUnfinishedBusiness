@@ -237,7 +237,7 @@ public class Settings : UnityModManager.ModSettings
     public bool AllowMoreRealStateOnRestPanel { get; set; }
     public bool AddMonkKiPointsToggle { get; set; }
     public bool AddPaladinSmiteToggle { get; set; }
-    public bool AddWildshapeSwapAttackToggle { get; set; }
+    public bool AddMonsterSwapAttackToggle { get; set; }
     public int FormationGridSelectedSet { get; set; } = -1;
 
     public int[][][] FormationGridSets { get; set; } =
@@ -318,9 +318,7 @@ public class Settings : UnityModManager.ModSettings
 
     // Debug
     public bool DebugDisableVerifyDefinitionNameIsNotInUse { get; set; }
-#if DEBUG
     public bool DebugLogDefinitionCreation { get; set; }
     public bool DebugLogFieldInitialization { get; set; }
     public bool DebugLogVariantMisuse { get; set; }
-#endif
 }
