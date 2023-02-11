@@ -448,6 +448,22 @@ internal static partial class SpellBuilders
     {
         const string NAME = "ThunderousSmite";
 
+        var power = FeatureDefinitionPowerBuilder
+            .Create($"Power{NAME}Push")
+            .SetGuiPresentationNoContent(hidden: true)
+            .SetEffectDescription(EffectDescriptionBuilder.Create()
+                .SetTargetingData(Side.Enemy, RangeType.Touch, 1, TargetType.Individuals)
+                .SetEffectForms(
+                    EffectFormBuilder.Create()
+                        .SetMotionForm(MotionForm.MotionType.PushFromOrigin, 2)
+                        .Build(),
+                    EffectFormBuilder.Create()
+                        .SetMotionForm(MotionForm.MotionType.FallProne)
+                        .Build()
+                )
+                .Build())
+            .AddToDB();
+
         var additionalDamageThunderousSmite = FeatureDefinitionAdditionalDamageBuilder
             .Create($"AdditionalDamage{NAME}")
             .SetGuiPresentation(Category.Feature)
@@ -455,7 +471,24 @@ internal static partial class SpellBuilders
             .SetDamageDice(DieType.D6, 2)
             .SetSpecificDamageType(DamageTypeThunder)
             .SetIgnoreCriticalDoubleDice(true)
-            .SetCustomSubFeatures(new OnAttackHitEffectThunderousSmite())
+            .SetSavingThrowData( //explicitly stating all relevant properties (even default ones) for readability
+                EffectDifficultyClassComputation.SpellCastingFeature,
+                EffectSavingThrowType.None,
+                AttributeDefinitions.Strength)
+            .SetConditionOperations(new ConditionOperationDescription
+            {
+                hasSavingThrow = true,
+                canSaveToCancel = true,
+                saveAffinity = EffectSavingThrowType.Negates,
+                saveOccurence = TurnOccurenceType.StartOfTurn,
+                conditionDefinition = ConditionDefinitionBuilder
+                    .Create($"Condition{NAME}Enemy")
+                    .SetGuiPresentationNoContent(hidden: true)
+                    .SetSilent(Silent.WhenAddedOrRemoved)
+                    .SetCustomSubFeatures(new ConditionUsesPowerOntarget(power))
+                    .AddToDB(),
+                operation = ConditionOperationDescription.ConditionOperation.Add
+            })
             .AddToDB();
 
         var conditionThunderousSmite = ConditionDefinitionBuilder
