@@ -46,7 +46,7 @@ internal static partial class SpellBuilders
         var spell = SpellDefinitionBuilder
             .Create(BrandingSmite, NAME)
             .SetGuiPresentation(Category.Spell, Sprites.GetSprite(NAME, Resources.ThunderousSmite, 128))
-            .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolEvocation)
+            .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolAbjuration)
             .SetSpellLevel(5)
             .SetCastingTime(ActivationTime.BonusAction)
             .SetVerboseComponent(true)
