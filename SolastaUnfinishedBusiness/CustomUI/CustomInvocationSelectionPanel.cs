@@ -915,10 +915,12 @@ internal class CustomInvocationSelectionPanel : CharacterStagePanel
     private IEnumerator BlendToLevelGroup(int level)
     {
         var duration = ScrollDuration;
+        // ReSharper disable once Unity.PerformanceCriticalCodeInvocation
         var group = spellsByLevelTable.GetChild(0).GetComponent<SpellsByLevelGroup>();
 
         foreach (Transform child in spellsByLevelTable)
         {
+            // ReSharper disable once Unity.PerformanceCriticalCodeInvocation
             var spellByLevelGroup = child.GetComponent<SpellsByLevelGroup>();
 
             if (spellByLevelGroup.SpellLevel == level)
