@@ -165,7 +165,7 @@ internal static partial class SpellBuilders
                     EffectFormBuilder.Create()
                         .SetConditionForm(ensnared, ConditionForm.ConditionOperation.Add)
                         .HasSavingThrow(EffectSavingThrowType.Negates)
-                        .CanSaveToCancel(TurnOccurenceType.StartOfTurn)
+                        .CanSaveToCancel(TurnOccurenceType.EndOfTurn)
                         .OverrideSavingThrowInfo(AttributeDefinitions.Strength,
                             GameLocationBattleManagerTweaks.ComputeSavingThrowDC(attacker.RulesetCharacter, provider))
                         .Build()
@@ -194,7 +194,7 @@ internal static partial class SpellBuilders
                     .Build())
                 .SetDurationData(DurationType.Minute, 1)
                 .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
-                .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel, 1, 0, 0, 1)
+                .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel, additionalDicePerIncrement: 1)
                 .Build())
             .SetRequiresConcentration(true)
             .AddToDB();
@@ -331,7 +331,7 @@ internal static partial class SpellBuilders
                 .SetEffectForms(EffectFormBuilder.Create()
                     .SetConditionForm(conditionSearingSmite, ConditionForm.ConditionOperation.Add)
                     .Build())
-                .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel, 1, 0, 0, 1)
+                .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel, additionalDicePerIncrement: 1)
                 .Build())
             .AddToDB();
 
