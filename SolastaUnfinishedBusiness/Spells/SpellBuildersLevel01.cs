@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
+using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Properties;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
@@ -142,31 +143,33 @@ internal static partial class SpellBuilders
     {
         const string NAME = "EnsnaringStrike";
 
+        var ensnared = ConditionDefinitionBuilder
+            .Create(ConditionRestrainedByEntangle, $"Condition{NAME}Enemy")
+            .SetSpecialDuration(DurationType.Minute, 1, TurnOccurenceType.StartOfTurn)
+            .SetRecurrentEffectForms(EffectFormBuilder.Create()
+                .SetDamageForm(DamageTypePiercing, 1, DieType.D6)
+                .Build())
+            .AddToDB();
+
         var additionalDamageEnsnaringStrike = FeatureDefinitionAdditionalDamageBuilder
             .Create($"AdditionalDamage{NAME}")
             .SetGuiPresentation(Category.Feature)
             .SetNotificationTag(NAME)
             .SetDamageDice(DieType.D6, 1)
             .SetSpecificDamageType(DamageTypePiercing)
-            .SetAdvancement(AdditionalDamageAdvancement.SlotLevel, 1)
-            .SetSavingThrowData(
-                EffectDifficultyClassComputation.SpellCastingFeature,
-                EffectSavingThrowType.None,
-                AttributeDefinitions.Strength)
+            .SetAdvancement(AdditionalDamageAdvancement.SlotLevel)
             .SetIgnoreCriticalDoubleDice(true)
-            .SetConditionOperations(
-                new ConditionOperationDescription
+            .SetCustomSubFeatures(new AdditionalEffectFormOnDamageHandler((attacker, _, provider) =>
+                new List<EffectForm>
                 {
-                    hasSavingThrow = true,
-                    canSaveToCancel = true,
-                    saveAffinity = EffectSavingThrowType.Negates,
-                    saveOccurence = TurnOccurenceType.StartOfTurn,
-                    ConditionDefinition = ConditionDefinitionBuilder
-                        .Create(ConditionRestrainedByEntangle, $"Condition{NAME}Enemy")
-                        .SetSpecialDuration(DurationType.Minute, 1, TurnOccurenceType.StartOfTurn)
-                        .AddToDB(),
-                    operation = ConditionOperationDescription.ConditionOperation.Add
-                })
+                    EffectFormBuilder.Create()
+                        .SetConditionForm(ensnared, ConditionForm.ConditionOperation.Add)
+                        .HasSavingThrow(EffectSavingThrowType.Negates)
+                        .CanSaveToCancel(TurnOccurenceType.StartOfTurn)
+                        .OverrideSavingThrowInfo(AttributeDefinitions.Strength,
+                            GameLocationBattleManagerTweaks.ComputeSavingThrowDC(attacker.RulesetCharacter, provider))
+                        .Build()
+                }))
             .AddToDB();
 
         var conditionEnsnaringStrike = ConditionDefinitionBuilder
