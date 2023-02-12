@@ -215,3 +215,4 @@ ModUi/&Critical=<color=#F0DAA0>Acerto crítico:</color>
 ModUi/&CriticalOption1=. 1: adicione a soma dos dados de dano máximo do seu ataque ao seu bônus total <i><color=#F0DAA0>[XdY+Z torna-se XdY+X*Y+Z]</color></i>
 ModUi/&CriticalOption2=. 2: continue rolando qualquer dado que rolar seu valor máximo e adicione-o ao dano total
 ModUi/&CriticalOption3=. 3: dobre seus resultados rolados iniciais em vez de rolar dados críticos adicionais
+ModUi/&Metamagic=<color=#F0DAA0>Metamagia</color>

@@ -215,3 +215,4 @@ ModUi/&Critical=<color=#F0DAA0>暴击：</color>
 ModUi/&CriticalOption1=. 1: 将你攻击的最大伤害骰子的总和加到你的总奖励中 <i><color=#F0DAA0>[XdY+Z 变成 XdY+X*Y+Z]</color></i>
 ModUi/&CriticalOption2=. 2：继续重新掷任何掷出最大值的骰子并将其添加到总伤害中
 ModUi/&CriticalOption3=. 3：将您的初始掷骰结果加倍，而不是掷额外的关键骰子
+ModUi/&Metamagic=<color=#F0DAA0>超魔</color>

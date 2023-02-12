@@ -103,6 +103,9 @@ internal static class BootContext
             // Custom invocations
             InvocationsContext.LateLoad();
 
+            // Custom metamagic
+            MetamagicContext.LateLoad();
+
             // Divine Smite fixes and final switches
             SrdAndHouseRulesContext.LateLoad();
 

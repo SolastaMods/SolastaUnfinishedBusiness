@@ -33,6 +33,7 @@ public class Settings : UnityModManager.ModSettings
     public bool DisplayFeatGroupsToggle { get; set; } = true;
     public bool DisplayFightingStylesToggle { get; set; } = true;
     public bool DisplayInvocationsToggle { get; set; } = true;
+    public bool DisplayMetamagicToggle { get; set; } = true;
     public bool DisplayCraftingToggle { get; set; }
     public bool DisplayMerchantsToggle { get; set; } = true;
     public SerializableDictionary<string, bool> DisplaySpellListsToggle { get; set; } = new();
@@ -48,6 +49,7 @@ public class Settings : UnityModManager.ModSettings
     public bool EnableMultiLineSpellPanel { get; set; } = true;
     public bool EnableSameWidthFeatSelection { get; set; } = true;
     public bool EnableSameWidthInvocationSelection { get; set; } = true;
+    public bool EnableSameWidthMetamagicSelection { get; set; } = true;
     public bool EnableSortingFightingStyles { get; set; } = true;
     public bool EnableSortingSubclasses { get; set; } = true;
     public bool EnableSortingFutureFeatures { get; set; } = true;
@@ -107,7 +109,7 @@ public class Settings : UnityModManager.ModSettings
     public List<string> SubclassEnabled { get; } = new();
 
     //
-    // Characters - Feats, Groups, Fighting Styles and Invocations
+    // Characters - Feats, Groups, Fighting Styles, Invocations and Metamagic
     //
 
     public int FeatSliderPosition { get; set; } = ModUi.DontDisplayDescription;
@@ -121,6 +123,9 @@ public class Settings : UnityModManager.ModSettings
 
     public int InvocationSliderPosition { get; set; } = ModUi.DontDisplayDescription;
     public List<string> InvocationEnabled { get; } = new();
+
+    public int MetamagicSliderPosition { get; set; } = ModUi.DontDisplayDescription;
+    public List<string> MetamagicEnabled { get; } = new();
 
     //
     // Characters - Spells
@@ -166,6 +171,7 @@ public class Settings : UnityModManager.ModSettings
 
     public int IncreaseSenseNormalVision { get; set; } = SrdAndHouseRulesContext.DefaultVisionRange;
     public int CriticalHitModeAllies { get; set; }
+
     public int CriticalHitModeEnemies { get; set; }
     //
     // Gameplay - Items, Crafting & Merchants

@@ -215,3 +215,4 @@ ModUi/&Critical=<color=#F0DAA0>Critical Hit:</color>
 ModUi/&CriticalOption1=. 1: add the sum of the max damage dice of your attack to your total bonus <i><color=#F0DAA0>[XdY+Z becomes XdY+X*Y+Z]</color></i>
 ModUi/&CriticalOption2=. 2: keep re-rolling any dice that rolls it max value and add it to the total damage
 ModUi/&CriticalOption3=. 3: double your initial rolled results instead of rolling additional critical dice
+ModUi/&Metamagic=<color=#F0DAA0>Metamagic</color>

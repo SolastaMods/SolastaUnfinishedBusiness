@@ -215,3 +215,4 @@ ModUi/&Critical=<color=#F0DAA0>Coup critique :</color>
 ModUi/&CriticalOption1=. 1 : ajoutez la somme des dés de dégâts max de votre attaque à votre bonus total <i><color=#F0DAA0>[XdY+Z devient XdY+X*Y+Z]</color></i>
 ModUi/&CriticalOption2=. 2: continuez à relancer tous les dés qui roulent sa valeur maximale et ajoutez-le au total des dégâts
 ModUi/&CriticalOption3=. 3 : doublez vos résultats initiaux au lieu de lancer des dés critiques supplémentaires
+ModUi/&Metamagic=<color=#F0DAA0>Métamagie</color>
