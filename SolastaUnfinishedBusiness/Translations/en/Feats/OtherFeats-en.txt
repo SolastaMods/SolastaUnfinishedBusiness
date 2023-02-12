@@ -1,5 +1,7 @@
 Condition/&ConditionFeatMobileAfterDashDescription=Grants immunity to movement restrictions as well as being restrained.
 Condition/&ConditionFeatMobileAfterDashTitle=Freedom
+Feat/&FeatAltruisticDescription=You left all selfish in this world behind. You can cast any spell with a self range to any individual within 30 feet. The number of individuals you can target the spell is equal to your proficiency bonus divided by 2.
+Feat/&FeatAltruisticTitle=Altruistic
 Feat/&FeatAstralArmsDescription=Increase your Wisdom by 1, to a maximum of 20.\nWhen you make an unarmed strike on your turn, your reach for it is 10 feet.
 Feat/&FeatAstralArmsTitle=Astral Reach
 Feat/&FeatEldritchAdeptDescription=You learn one Eldritch Invocation option of your choice from the warlock class. If the invocation has a prerequisite, you can choose that invocation only if you're a warlock and only if you meet the prerequisite. Whenever you gain a level, you can replace the invocation with another one from the warlock class.

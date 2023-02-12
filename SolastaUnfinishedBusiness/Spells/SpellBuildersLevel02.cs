@@ -132,7 +132,7 @@ internal static partial class SpellBuilders
             .SetSpellLevel(2)
             .SetEffectDescription(EffectDescriptionBuilder
                 .Create(SpikeGrowth.EffectDescription)
-                .SetTargetingData(Side.All, RangeType.Distance, 1, TargetType.Sphere, 0)
+                .SetTargetingData(Side.All, RangeType.Distance, 6, TargetType.Sphere, 3)
                 .SetDurationData(DurationType.Minute, 10)
                 .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel, additionalDicePerIncrement: 1)
                 .SetRecurrentEffect(RecurrentEffect.OnEnter)

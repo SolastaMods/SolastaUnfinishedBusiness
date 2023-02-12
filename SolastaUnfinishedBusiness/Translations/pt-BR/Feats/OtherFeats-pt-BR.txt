@@ -1,5 +1,7 @@
 Condition/&ConditionFeatMobileAfterDashDescription=Concede imunidade a restrições de movimento, além de ser contido.
 Condition/&ConditionFeatMobileAfterDashTitle=Liberdade
+Feat/&FeatAltruisticDescription=Você deixou todos os egoístas deste mundo para trás. Você pode lançar qualquer feitiço com alcance próprio para qualquer indivíduo em um raio de 9 metros. O número de indivíduos que você pode atingir com o feitiço é igual ao seu bônus de proficiência dividido por 2.
+Feat/&FeatAltruisticTitle=Altruísta
 Feat/&FeatAstralArmsDescription=Aumente sua Sabedoria em 1, até um máximo de 20.\nQuando você desfere um ataque desarmado em seu turno, seu alcance é de 3 metros.
 Feat/&FeatAstralArmsTitle=Alcance astral
 Feat/&FeatEldritchAdeptDescription=Você aprende uma opção de Invocação Eldritch de sua escolha na classe do feiticeiro. Se a invocação tiver um pré-requisito, você pode escolher essa invocação apenas se for um feiticeiro e somente se atender ao pré-requisito. Sempre que você ganha um nível, você pode substituir a invocação por outra da classe warlock.

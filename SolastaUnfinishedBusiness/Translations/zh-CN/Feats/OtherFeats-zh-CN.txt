@@ -1,5 +1,7 @@
 Condition/&ConditionFeatMobileAfterDashDescription=对限制移动的状态及束缚免疫。
 Condition/&ConditionFeatMobileAfterDashTitle=行动自如
+Feat/&FeatAltruisticDescription=你把这个世界上所有的自私都抛在脑后。你可以对 30 英尺内的任何个体施展范围为自身的任何法术。你可以将此法术作为目标的个体数量等于你的熟练加值除以 2。
+Feat/&FeatAltruisticTitle=无私的
 Feat/&FeatAstralArmsDescription=将你的感知提高 1，最多 20。\当你进行徒手攻击时，你的触及范围为 10 尺。
 Feat/&FeatAstralArmsTitle=星臂
 Feat/&FeatEldritchAdeptDescription=您从术士课程中学习了一种您选择的 Eldritch Invocation 选项。如果调用有先决条件，则只有当你是术士并且满足先决条件时才能选择该调用。每当您获得一个等级时，您就可以用另一个来自术士等级的调用来替换该调用。

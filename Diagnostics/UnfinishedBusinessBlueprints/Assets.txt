@@ -567,6 +567,7 @@ FeatAdeptMetamagicExtendedSpell	FeatDefinition	FeatDefinition	fdbab52a-0c7d-5f7d
 FeatAdeptMetamagicHeightenedSpell	FeatDefinition	FeatDefinition	573182c5-8892-5c0a-8fa5-1d199065ac7c
 FeatAdeptMetamagicQuickenedSpell	FeatDefinition	FeatDefinition	6ba9b4ac-5630-54b0-9d4b-29e6025eaaa8
 FeatAdeptMetamagicTwinnedSpell	FeatDefinition	FeatDefinition	b1c1aad1-a413-5fd7-99ca-8082919bd8a3
+FeatAltruistic	FeatDefinition	FeatDefinition	fdba3b90-7c1d-54d7-a341-a51fb6aca9f6
 FeatApothecaryCha	FeatDefinition	FeatDefinition	cfbd6325-450a-5813-b0d9-937b48574c06
 FeatApothecaryInt	FeatDefinition	FeatDefinition	028f934d-3eae-55a3-8dbe-b41ada9c4def
 FeatApothecaryWis	FeatDefinition	FeatDefinition	70685886-677d-573f-98a1-c0699e1147d4

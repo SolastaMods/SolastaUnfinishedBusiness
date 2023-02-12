@@ -100,6 +100,7 @@ All settings start disabled by default.
 
 [*][b]Inventor[/b]: Inventors are tinkerers, alchemists, and more. They bridge the space between magic and technology.
 
+[*][b]Oath of Altruism <color=red>[BETA]</color>[/b]: Heroes know their calling, and the Oath of Altruism calls out to those selfless heroes who put protection of the meek above all else. Followers of this Oath, are truly selfless protectors, who risk their own lives and would willfully die to protector those they care for. Paladins of this oath are not looking for glory and often align themselves with those seeking a greater purpose. They lend their shields and swords for the greater good of the goals of the team, before their own.
 [*][b]Armorer[/b]: Armorers focus their studies on magical armors and how to use them effectively.
 [*][b]Grenadier[/b]: Grenadiers study unstable substances and their use in creating explosions of various types.
 [*][b]Weaponsmith[/b]: Weaponsmiths focus their studies on magical weapons and how to use them effectively.
@@ -122,7 +123,6 @@ All settings start disabled by default.
 [*][b]Royal Knight[/b]: A knight who inspires greatness in others by committing brave deeds in battle. A Royal Knight is a skilled warrior, but one leading a band of allies can transform even the most poorly equipped militia into a ferocious war band.
 [*][b]Spell Shield[/b]: Spell Shields are fighters that specialize in defense and protection. They use magic to aid their natural abilities.
 [*][b]Tactician[/b]: The Tactician uses their knowledge and might on the battlefield to perform different gambits as they are needed. They can knock down foes, inspire their allies and get in deadly counter-strikes against their foes.
-[*][b]Oath of Altruism[/b]: The Oath of Altruism calls out to those selfless heroes who put protection of others above all else.
 [*][b]Oath of Ancients[/b]: An Oath from a more primitive time which one dedicates themself to utilizing nature for good.
 [*][b]Oath of Hatred[/b]: An Oath of Hatred paladin has dedicated himself to the punishment of evil doers by channeling hate.
 [*][b]Arcanist[/b]: The Arcanist melds their Ranger skills with arcane abilities. Their weapons can afflict their opponents with the Arcanist's Mark, and have learned how to cast some Wizard spells as part of their Ranger spell repertoire.
@@ -148,6 +148,7 @@ All settings start disabled by default.
 
 [list=1]
 
+[*][b]Altruistic[/b]: You left all selfish in this world behind. You can cast any spell with a self range to any individual within 30 feet. The number of individuals you can target the spell is equal to your proficiency bonus divided by 2.
 [*][b]Apothecary [Cha][/b]: Increase your Charisma by 1, to a maximum of 20.
 You gain proficiency with herbalism kit and Arcana, or expertise if already proficient.
 [*][b]Apothecary [Int][/b]: Increase your Intelligence by 1, to a maximum of 20.
@@ -200,7 +201,7 @@ You can use a bonus action to select a weapon. Its attacks count as magical and 
 [*][b]Fell Handed[/b]: You master the handaxe, battleaxe, greataxe, warhammer and maul. You gain the following benefits when using any of them:
 • A +1 bonus to attack rolls you make with the weapon.
 • Whenever you have advantage on a melee attack roll and hit, you knock the target prone if the lower of the two d20 rolls would also hit the target.
-• Whenever you have disadvantage on a melee attack roll and miss, the target takes bludgeoning damage equal to your Strength modifier.
+• Whenever you have disadvantage on a melee attack roll and miss, the target takes bludgeoning damage equal to your Strength modifier if higher of the two d20 rolls would hit the target.
 [*][b]Fey Teleportation [Cha][/b]: Increase your Charisma by 1, to a maximum of 20.
 You can use misty step once per short rest, and you can cast this spell with your spell slots.
 You gain proficiency in Tirmarian.
@@ -376,14 +377,17 @@ At 5th level, the melee attack deals an extra 1d8 radiant damage to the target. 
 [*][b]Thorny Vines[/b]: You create a long, whip-like vine covered in thorns that lashes out at your command toward a creature in range. Make a ranged spell attack against the target. If the attack hits, the creature takes 1d6 piercing damage, and you pull the creature up to 10 feet closer to you.
 [*][b]Chromatic Orb[/b]: You hurl a 4-inch-diameter sphere of energy at a creature that you can see within range. You choose acid, cold, fire, lightning, poison, or thunder for the type of orb you create, and then make a ranged spell attack against the target. If the attack hits, the creature takes 3d8 damage of the type you chose.
 [*][b]Earth Tremor[/b]: You strike the ground and unleash a tremor of seismic force, hurling up earth, rock, and sand.
-[*][b]Ensnaring Strike[/b]: Your next hit causes additional piercing damage and your target is ensnared by vines.
+[*][b]Ensnaring Strike[/b]: Your next hit ensnares your target in vines - it receives 1d6 piercing damage each turn and can roll STR saving thrown at the end of each turn to stop this effect
+<b>Higher Levels:</b> for each slot level above 1st, your attack deals additional 1d6 piercing damage.
 [*][b]Mule[/b]: The recipient of this spell is able to ignore the effects of heavy loads or armor on movement speed. They can also carry slightly more weight.
 [*][b]Radiant Motes[/b]: Unleashes a swarm of 4 radiant projectiles that deal 1d4 radiant damage each.
 When you cast this spell using a spell slot of 2nd level or higher, the spell creates 1 more projectile for each slot above 1st.
-[*][b]Searing Smite[/b]: Your next hit causes additional fire damage and your target ignites in flames.
+[*][b]Searing Smite[/b]: On your next hit your weapon flares with white-hot intensity, and the attack deals an extra 1d6 fire damage to the target and causes the target to ignite in flames.
+At the start of each of its turns the target must make a successful Constitution saving throw to stop burning, or take 1d6 fire damage.
+<b>Higher Levels:</b> for each slot level above 1st, the initial extra damage dealt by the attack increases by 1d6.
 [*][b]Skin of Retribution[/b]: Choose a type: Acid, Cold, Fire, Lightning, Poison, or Thunder. A protective elemental skin envelops you, covering you and your gear. You gain 5 temporary hit points per spell level for the duration. In addition, if a creature hits you with a melee attack while you have these temporary hit points, the creature takes 5 damage of the chosen type per spell level.
-[*][b]Thunderous Smite[/b]: Your next hit causes additional thunder damage that is audible within 300 feet of you.
-[*][b]Wrathful Smite[/b]: Your next hit causes additional psychic damage and your target mind explodes in pain.
+[*][b]Thunderous Smite[/b]: On your next hit your weapon rings with thunder and the attack deals an extra 2d6 thunder damage to the target. Additionally, if the target is a creature, it must succeed on a Strength saving throw or be pushed 10 feet away from you and knocked prone.
+[*][b]Wrathful Smite[/b]: Your next hit deals additional 1d6 psychic damage. If target fails WIS saving throw its mind explodes in pain and it becomes frightened. 
 [*][b]Mirror Image[/b]: Three illusory duplicates of yourself appear in your space. Until the spell ends, each time a creature targets you with an attack, roll a d20 to determine whether the attack instead targets one of your duplicates.
 If you have 3 duplicates, you must roll a 6 or higher to change the attack's target to a duplicate. With 2 duplicates, you must roll an 8 or higher. With 1 duplicate, you must roll an 11 or higher.
 A duplicate's AC equals 10 + your Dexterity modifier. If an attack hits a duplicate, the duplicate is destroyed. A duplicate can be destroyed only by an attack that hits it. It ignores all other damage and effects. The spell ends when all three duplicates are destroyed.
@@ -395,7 +399,8 @@ Skeletons are animated by dark magic. They used to be living creatures but are n
 [*][b]Raise Skeleton Archer[/b]: Summons <b>Skeleton Archer</b>:
 Skeletons are animated by dark magic. They used to be living creatures but are now empty shells of hate, arisen from tombs or battlefields and craving for life… to kill.
 [*][b]Shadow Blade[/b]: You weave together threads of shadow to create a sword of solidified gloom in your hand.
-[*][b]Blinding Smite[/b]: Your next hit causes additional radiant damage with your weapon flaring with a bright light. Additionally, the target must succeed on a Constitution saving throw or be blinded for 1 minute.
+[*][b]Blinding Smite[/b]: On your next hit your weapon flares with a bright light, and the attack deals an extra 3d8 radiant damage to the target. Additionally, the target must succeed on a Constitution saving throw or be blinded until the spell ends.
+A creature blinded by this spell makes another Constitution saving throw at the end of each of its turns. On a successful save, it is no longer blinded.
 [*][b]Raise Ghoul[/b]: Summons <b>Ghoul</b>:
 A ravenous undead creature, constantly searching for flesh to eat.
 [*][b]Spirit Shroud[/b]: You call forth spirits of the dead, which flit around you for the spell's duration. The spirits are intangible and invulnerable.
@@ -405,8 +410,8 @@ When you cast this spell using a spell slot of 4th level or higher, the damage i
 [*][b]Winter's Breath[/b]: Create a blast of cold wind to chill your enemies and knock them prone.
 [*][b]Raise Skeletal Enforcer[/b]: Summons <b>Skeletal Enforcer</b>:
 A powerful undead creature armed with an axe and a shield.
-[*][b]Staggering Smite[/b]: Your next hit causes additional psychic damage with your weapon. The target must make a Wisdom saving throw. On a failed save, it has disadvantage on attack rolls and ability checks, and can't take reactions, until the end of its next turn.
-[*][b]Banishing Smite[/b]: Your next hit causes additional force damage with your weapon. Additionally, if this attack reduces the target to 50 hit points of fewer, you banish it for 1 min.
+[*][b]Staggering Smite[/b]: The next time you hit a creature with a weapon attack during this spell's duration, your weapon pierces both body and mind, and the attack deals an extra 4d6 psychic damage to the target. The target must make a Wisdom saving throw. On a failed save, it has disadvantage on attack rolls and ability checks, and can't take reactions, until the end of its next turn.
+[*][b]Banishing Smite[/b]: Your next hit deals additional 5d10 force damage with your weapon. Additionally, if this attack reduces the target to 50 hit points of fewer, you banish it for 1 min.
 [*][b]Far Step[/b]: You teleport up to 60 feet to an unoccupied space you can see. On each of your turns before the spell ends, you can use a bonus action to teleport in this way again.
 [*][b]Raise Skeletal Knight[/b]: Summons <b>Skeletal Knight</b>:
 A powerful undead creature, created by raising a dead knight.
