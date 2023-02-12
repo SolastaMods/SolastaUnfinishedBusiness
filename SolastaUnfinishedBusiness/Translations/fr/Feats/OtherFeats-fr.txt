@@ -1,6 +1,6 @@
 Condition/&ConditionFeatMobileAfterDashDescription=Accorde l'immunité aux restrictions de mouvement ainsi qu'à la contention.
 Condition/&ConditionFeatMobileAfterDashTitle=Liberté
-Feat/&FeatAltruisticDescription=Vous avez laissé derrière vous tous les égoïstes de ce monde. Vous pouvez lancer n'importe quel sort avec une portée propre à n'importe quel individu dans un rayon de 9 mètres. Le nombre d'individus que vous pouvez cibler avec le sort est égal à votre bonus de maîtrise divisé par 2.
+Feat/&FeatAltruisticDescription=Vous avez laissé derrière vous toutes les actions égoïstes de ce monde. Vous pouvez rediriger n'importe quel sort avec une portée et une cible automatiques vers n'importe quel individu à moins de 9 mètres. Vous pouvez avoir une 2ème cible au niveau 9 et une 3ème au niveau 17.
 Feat/&FeatAltruisticTitle=Altruiste
 Feat/&FeatAstralArmsDescription=Augmentez votre Sagesse de 1, jusqu'à un maximum de 20.\nLorsque vous effectuez une frappe à mains nues à votre tour, votre portée est de 3mètres.
 Feat/&FeatAstralArmsTitle=Portée astrale

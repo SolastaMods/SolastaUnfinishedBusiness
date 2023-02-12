@@ -1,6 +1,6 @@
 Condition/&ConditionFeatMobileAfterDashDescription=Concede imunidade a restrições de movimento, além de ser contido.
 Condition/&ConditionFeatMobileAfterDashTitle=Liberdade
-Feat/&FeatAltruisticDescription=Você deixou todos os egoístas deste mundo para trás. Você pode lançar qualquer feitiço com alcance próprio para qualquer indivíduo em um raio de 9 metros. O número de indivíduos que você pode atingir com o feitiço é igual ao seu bônus de proficiência dividido por 2.
+Feat/&FeatAltruisticDescription=Você deixou todas as ações egoístas deste mundo para trás. Você pode redirecionar qualquer feitiço com alcance próprio e alvo próprio para qualquer indivíduo em um raio de 9 metros. Você pode ter um segundo alvo no nível 9 e um terceiro no nível 17.
 Feat/&FeatAltruisticTitle=Altruísta
 Feat/&FeatAstralArmsDescription=Aumente sua Sabedoria em 1, até um máximo de 20.\nQuando você desfere um ataque desarmado em seu turno, seu alcance é de 3 metros.
 Feat/&FeatAstralArmsTitle=Alcance astral

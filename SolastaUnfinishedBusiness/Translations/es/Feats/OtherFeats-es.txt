@@ -1,6 +1,6 @@
 Condition/&ConditionFeatMobileAfterDashDescription=Otorga inmunidad a las restricciones de movimiento, así como ser restringido.
 Condition/&ConditionFeatMobileAfterDashTitle=Libertad
-Feat/&FeatAltruisticDescription=Dejaste todo egoísta en este mundo atrás. Puedes lanzar cualquier hechizo con un alcance propio a cualquier individuo dentro de los 30 pies. El número de personas a las que puedes dirigir el hechizo es igual a tu bonificación de competencia dividida por 2.
+Feat/&FeatAltruisticDescription=Dejaste atrás todas las acciones egoístas de este mundo. Puedes redirigir cualquier hechizo con un rango propio y un objetivo propio a cualquier individuo dentro de los 30 pies. Puedes tener un segundo objetivo en el nivel 9 y un tercero en el nivel 17.
 Feat/&FeatAltruisticTitle=Altruista
 Feat/&FeatAstralArmsDescription=Aumenta tu Sabiduría en 1, hasta un máximo de 20.\nCuando realizas un ataque sin armas en tu turno, tu alcance es de 10 pies.
 Feat/&FeatAstralArmsTitle=Alcance astral

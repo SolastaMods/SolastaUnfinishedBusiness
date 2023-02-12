@@ -1,6 +1,6 @@
 Condition/&ConditionFeatMobileAfterDashDescription=Garantisce l'immunità alle restrizioni di movimento oltre a essere trattenuto.
 Condition/&ConditionFeatMobileAfterDashTitle=La libertà
-Feat/&FeatAltruisticDescription=Ti sei lasciato alle spalle tutto l'egoismo di questo mondo. Puoi lanciare qualsiasi incantesimo con portata personale a qualsiasi individuo entro 9 metri. Il numero di individui su cui puoi bersagliare l'incantesimo è pari al tuo bonus di competenza diviso per 2.
+Feat/&FeatAltruisticDescription=Ti sei lasciato alle spalle tutte le azioni egoistiche di questo mondo. Puoi ridirigere qualsiasi incantesimo con auto portata e autobersaglio a qualsiasi individuo entro 9 metri. Puoi avere un 2° bersaglio al 9° livello e un 3° al 17° livello.
 Feat/&FeatAltruisticTitle=Altruista
 Feat/&FeatAstralArmsDescription=Aumenta la tua Saggezza di 1, fino a un massimo di 20.\nQuando effettui un colpo senz'armi durante il tuo turno, la tua portata è di 3 metri.
 Feat/&FeatAstralArmsTitle=Portata astrale

@@ -1,6 +1,6 @@
 Condition/&ConditionFeatMobileAfterDashDescription=Gewährt Immunität gegen Bewegungseinschränkungen und wird zurückgehalten.
 Condition/&ConditionFeatMobileAfterDashTitle=Freiheit
-Feat/&FeatAltruisticDescription=Du hast alle Selbstsucht dieser Welt hinter dir gelassen. Sie können jeden Zauber mit einer eigenen Reichweite auf jede Person innerhalb von 30 Fuß wirken. Die Anzahl der Personen, auf die Sie den Zauber richten können, entspricht Ihrem Kompetenzbonus geteilt durch 2.
+Feat/&FeatAltruisticDescription=Du hast alle selbstsüchtigen Handlungen dieser Welt hinter dir gelassen. Sie können jeden Zauber mit einer Selbstreichweite und einem Selbstziel auf jede Person innerhalb von 30 Fuß umleiten. Sie können ein zweites Ziel auf Stufe 9 und ein drittes auf Stufe 17 haben.
 Feat/&FeatAltruisticTitle=Altruistisch
 Feat/&FeatAstralArmsDescription=Erhöhe deine Weisheit um 1 bis zu einem Maximum von 20.\nWenn du in deinem Zug einen unbewaffneten Schlag ausführst, hast du eine Reichweite von 3m.
 Feat/&FeatAstralArmsTitle=Astrale Reichweite

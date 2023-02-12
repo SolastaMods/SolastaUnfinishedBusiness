@@ -649,7 +649,7 @@ internal static class OtherFeats
             EffectDescription effect,
             RulesetCharacter character)
         {
-            if (effect.rangeType != RangeType.Self || character is not RulesetCharacterHero hero)
+            if (effect.rangeType != RangeType.Self || effect.targetType != TargetType.Self || character is not RulesetCharacterHero hero)
             {
                 return effect;
             }
