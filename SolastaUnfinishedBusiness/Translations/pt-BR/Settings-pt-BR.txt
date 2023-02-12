@@ -212,7 +212,8 @@ ModUi/&UseHeightOneCylinderEffect=Use um efeito de 1 cilindro de altura ao conju
 ModUi/&UseOfficialAdvantageDisadvantageRules=Use as regras oficiais de vantagem/desvantagem
 ModUi/&Visuals=<color=#F0DAA0>Visuais:</color> <b><i><color=#C04040E0>[Requer reinicialização]</color></i></b>
 ModUi/&Critical=<color=#F0DAA0>Acerto crítico:</color>
-ModUi/&CriticalOption1=. 1: adicione a soma dos dados de dano máximo do seu ataque ao seu bônus total <i><color=#F0DAA0>[XdY+Z torna-se XdY+X*Y+Z]</color></i>
-ModUi/&CriticalOption2=. 2: continue rolando qualquer dado que rolar seu valor máximo e adicione-o ao dano total
-ModUi/&CriticalOption3=. 3: dobre seus resultados rolados iniciais em vez de rolar dados críticos adicionais
+ModUi/&CriticalOption0=. 0: jogo padrão, role qualquer dado de dano duas vezes, adicione o resultado e adicione modificadores <i><color=#F0DAA0>[XdY+XdY+Z]</color></i>
+ModUi/&CriticalOption1=. 1: soma o resultado máximo dos dados de dano e adiciona ao dano do ataque <i><color=#F0DAA0>[XdY+(X*Y)+Z]</color></i>
+ModUi/&CriticalOption2=. 2: continue rolando novamente qualquer dado de dano que role o resultado mais alto possível e adicione-o ao dano total
+ModUi/&CriticalOption3=. 3: Duplique o dano total do seu ataque em vez de rolar dados adicionais. <i><color=#F0DAA0>[(XdY+Z)*2]</color></i>
 ModUi/&Metamagic=<color=#F0DAA0>Metamagia</color>

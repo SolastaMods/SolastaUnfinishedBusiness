@@ -212,7 +212,8 @@ ModUi/&UseHeightOneCylinderEffect=施放<color=#D89555>艾伐黑触手、纠缠�
 ModUi/&UseOfficialAdvantageDisadvantageRules=应用官方的优势/劣势规则
 ModUi/&Visuals=<color=#F0DAA0>视效：</color> <b><i><color=#C04040E0>【需要重启游戏】</color></i></b>
 ModUi/&Critical=<color=#F0DAA0>暴击：</color>
-ModUi/&CriticalOption1=. 1: 将你攻击的最大伤害骰子的总和加到你的总奖励中 <i><color=#F0DAA0>[XdY+Z 变成 XdY+X*Y+Z]</color></i>
-ModUi/&CriticalOption2=. 2：继续重新掷任何掷出最大值的骰子并将其添加到总伤害中
-ModUi/&CriticalOption3=. 3：将您的初始掷骰结果加倍，而不是掷额外的关键骰子
+ModUi/&CriticalOption0=. 0：游戏默认，掷任何伤害骰子两次，添加结果并添加修饰符 <i><color=#F0DAA0>[XdY+XdY+Z]</color></i>
+ModUi/&CriticalOption1=. 1：将伤害骰子的最大结果加到攻击伤害中 <i><color=#F0DAA0>[XdY+(X*Y)+Z]</color></i>
+ModUi/&CriticalOption2=. 2：继续重新掷任何掷出最高可能结果的伤害骰子，并将其添加到总伤害中
+ModUi/&CriticalOption3=. 3：双倍攻击的总伤害而不是掷额外的骰子。 <i><color=#F0DAA0>[(XdY+Z)*2]</color></i>
 ModUi/&Metamagic=<color=#F0DAA0>超魔</color>

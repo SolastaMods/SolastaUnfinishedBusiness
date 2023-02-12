@@ -5,7 +5,7 @@ namespace SolastaUnfinishedBusiness.Displays;
 
 internal static class RulesDisplay
 {
-    private static readonly string[] Options = { "default", "1", "2", "3" };
+    private static readonly string[] Options = { "0", "1", "2", "3" };
 
     internal static void DisplayRules()
     {
@@ -195,6 +195,7 @@ internal static class RulesDisplay
         UI.Label(Gui.Localize("ModUi/&Critical"));
         UI.Label();
 
+        UI.Label(Gui.Localize("ModUi/&CriticalOption0"));
         UI.Label(Gui.Localize("ModUi/&CriticalOption1"));
         UI.Label(Gui.Localize("ModUi/&CriticalOption2"));
         UI.Label(Gui.Localize("ModUi/&CriticalOption3"));
@@ -205,7 +206,7 @@ internal static class RulesDisplay
             UI.Label(Gui.Localize("Caption/&TargetFilteringAllyCreature"), UI.Width(100));
 
             intValue = Main.Settings.CriticalHitModeAllies;
-            if (UI.SelectionGrid(ref intValue, Options, Options.Length, 4, UI.Width(440)))
+            if (UI.SelectionGrid(ref intValue, Options, Options.Length, 4, UI.Width(220)))
             {
                 Main.Settings.CriticalHitModeAllies = intValue;
             }
@@ -216,7 +217,7 @@ internal static class RulesDisplay
             UI.Label(Gui.Localize("Caption/&TargetFilteringEnemyCreature"), UI.Width(100));
 
             intValue = Main.Settings.CriticalHitModeEnemies;
-            if (UI.SelectionGrid(ref intValue, Options, Options.Length, 4, UI.Width(440)))
+            if (UI.SelectionGrid(ref intValue, Options, Options.Length, 4, UI.Width(220)))
             {
                 Main.Settings.CriticalHitModeEnemies = intValue;
             }

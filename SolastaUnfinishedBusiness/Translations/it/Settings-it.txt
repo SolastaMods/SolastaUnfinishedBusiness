@@ -212,7 +212,8 @@ ModUi/&UseHeightOneCylinderEffect=Usa un effetto cilindro di altezza 1 quando la
 ModUi/&UseOfficialAdvantageDisadvantageRules=Usa le regole ufficiali di vantaggio/svantaggio
 ModUi/&Visuals=<color=#F0DAA0> Immagini:</color> <b><i><color=#C04040E0>[Richiede il riavvio]</color></i></b>
 ModUi/&Critical=<color=#F0DAA0> Colpo critico:</color>
-ModUi/&CriticalOption1=. 1: aggiungi la somma dei dadi di danno massimo del tuo attacco al tuo bonus totale <i><color=#F0DAA0>[XdY+Z diventa XdY+X*Y+Z]</color></i>
-ModUi/&CriticalOption2=. 2: continua a ripetere il tiro di tutti i dadi che ottengono il valore massimo e aggiungilo al danno totale
-ModUi/&CriticalOption3=. 3: raddoppia i risultati ottenuti inizialmente invece di tirare dadi critici aggiuntivi
+ModUi/&CriticalOption0=. 0: impostazione predefinita del gioco, tira due volte i dadi di danno, somma il risultato e aggiungi i modificatori <i><color=#F0DAA0>[XdY+XdY+Z]</color></i>
+ModUi/&CriticalOption1=. 1: somma il risultato massimo per i dadi di danno e aggiungilo al danno dell'attacco <i><color=#F0DAA0>[XdY+(X*Y)+Z]</color></i>
+ModUi/&CriticalOption2=. 2: continua a ripetere i tiri dei dadi danno che ottengono il risultato più alto possibile e aggiungilo al danno totale
+ModUi/&CriticalOption3=. 3: Raddoppia il danno totale del tuo attacco invece di tirare dadi aggiuntivi. <i><color=#F0DAA0>[(XdY+Z)*2]</color></i>
 ModUi/&Metamagic=<color=#F0DAA0> Metamagia</color>
