@@ -159,6 +159,9 @@ public static class RulesetImplementationManagerPatcher
                 damageForm.DiceNumber + addDice,
                 rolledValues, canRerollDice);
 
+            // duplicates the rolled dices as well
+            rolledValues.AddRange(rolledValues.ToList());
+
             return Mathf.FloorToInt(damageMultiplier *
                                     (Mathf.Clamp(totalDamage + damageForm.BonusDamage - damageRollReduction, 0,
                                         int.MaxValue) + additionalDamage));
