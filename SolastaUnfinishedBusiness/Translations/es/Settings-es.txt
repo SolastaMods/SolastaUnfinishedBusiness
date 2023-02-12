@@ -104,7 +104,6 @@ ModUi/&Feats=<color=#F0DAA0>Dotes</color>
 ModUi/&FeatsFightingStylesInvocations=Dotes, estilos e invocaciones
 ModUi/&FightingStyles=<color=#F0DAA0>Estilos de lucha</color>
 ModUi/&FixEldritchBlastRange=Cambia el rango de <color=#D89555>Explosión sobrenatural</color> a 24 <i><color=#F0DAA0>[en lugar de 16]</color></i>
-ModUi/&FixSorcererTwinnedLogic=Se corrigió el uso metamágico gemelo de <color=#D89555>Sorcerer</color> <i><color=#F0DAA0>[debe ser incapaz de apuntar a más de una criatura en el nivel actual del hechizo]</color></i>
 ModUi/&Formation=<color=#F0DAA0>Formación:</color>
 ModUi/&FormationError=<color=#C04040E0>No puedes cambiar tu formación durante una partida multijugador...</color>
 ModUi/&FormationHelp1=. Use los botones numéricos para editar un conjunto determinado <i><color=#F0DAA0>[considere habilitar las teclas de acceso rápido en la entrada]</color></i>

@@ -104,7 +104,6 @@ ModUi/&Feats=<color=#F0DAA0>Exploits</color>
 ModUi/&FeatsFightingStylesInvocations=Exploits, styles et invocations
 ModUi/&FightingStyles=<color=#F0DAA0>Styles de combat</color>
 ModUi/&FixEldritchBlastRange=Changez la plage <color=#D89555>Eldritch Blast</color> à 24 <i><color=#F0DAA0>[au lieu de 16]</color></i>
-ModUi/&FixSorcererTwinnedLogic=Correction de l'utilisation de la métamagie jumelée <color=#D89555>Sorcier</color> <i><color=#F0DAA0>[doit être incapable de cibler plus d'une créature au niveau actuel du sort]</color></i>
 ModUi/&Formation=<color=#F0DAA0>Formation:</color>
 ModUi/&FormationError=<color=#C04040E0>Vous ne pouvez pas changer de formation pendant une partie multijoueur...</color>
 ModUi/&FormationHelp1=. Utilisez les touches numériques pour modifier un ensemble donné <i><color=#F0DAA0>[envisagez d'activer les raccourcis clavier sous saisie]</color></i>

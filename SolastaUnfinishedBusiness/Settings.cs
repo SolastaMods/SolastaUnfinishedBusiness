@@ -135,7 +135,6 @@ public class Settings : UnityModManager.ModSettings
     //
 
     // SRD
-    public bool FixSorcererTwinnedLogic { get; set; }
     public bool ApplySrdWeightToFoodRations { get; set; }
     public bool UseOfficialAdvantageDisadvantageRules { get; set; }
     public bool IdentifyAfterRest { get; set; }

@@ -41,13 +41,7 @@ public static class RulesetImplementationManagerLocationPatcher
             MetamagicOptionDefinition metamagicOption,
             ref string failure)
         {
-            //PATCH: fix twinned spells offering
-            //plus fixes vanilla code not accounting for things possible in MC
-            if (!Main.Settings.FixSorcererTwinnedLogic)
-            {
-                return;
-            }
-
+            //BUGFIX: fix vanilla twinned spells offering not accounting for target parameter progression
             if (metamagicOption != DatabaseHelper.MetamagicOptionDefinitions.MetamagicTwinnedSpell
                 || caster is not RulesetCharacterHero)
             {

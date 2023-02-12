@@ -13,13 +13,7 @@ internal static class RulesDisplay
         UI.Label(Gui.Localize("ModUi/&SRD"));
         UI.Label();
 
-        var toggle = Main.Settings.FixSorcererTwinnedLogic;
-        if (UI.Toggle(Gui.Localize("ModUi/&FixSorcererTwinnedLogic"), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.FixSorcererTwinnedLogic = toggle;
-        }
-
-        toggle = Main.Settings.ApplySrdWeightToFoodRations;
+        var toggle = Main.Settings.ApplySrdWeightToFoodRations;
         if (UI.Toggle(Gui.Localize("ModUi/&ApplySRDWeightToFoodRations"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.ApplySrdWeightToFoodRations = toggle;

@@ -104,7 +104,6 @@ ModUi/&Feats=<color=#F0DAA0>Feats</color>
 ModUi/&FeatsFightingStylesInvocations=Talentos, estilos e invocações
 ModUi/&FightingStyles=<color=#F0DAA0>Estilos de luta</color>
 ModUi/&FixEldritchBlastRange=Altere o intervalo de <color=#D89555>Eldritch Blast</color> para 24 <i><color=#F0DAA0>[em vez de 16]</color></i>
-ModUi/&FixSorcererTwinnedLogic=Corrigido <color=#D89555>Feiticeiro</color> uso de metamágica gêmea <i><color=#F0DAA0>[deve ser incapaz de atingir mais de uma criatura no nível atual do feitiço]</color></i>
 ModUi/&Formation=<color=#F0DAA0>Formação:</color>
 ModUi/&FormationError=<color=#C04040E0>Você não pode mudar sua formação durante um jogo multijogador...</color>
 ModUi/&FormationHelp1=. Use os botões numéricos para editar um determinado conjunto <i><color=#F0DAA0>[considere ativar as teclas de atalho na entrada]</color></i>

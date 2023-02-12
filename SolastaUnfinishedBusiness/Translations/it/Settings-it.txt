@@ -104,7 +104,6 @@ ModUi/&Feats=<color=#F0DAA0> Talenti</color>
 ModUi/&FeatsFightingStylesInvocations=Talenti, stili e invocazioni
 ModUi/&FightingStyles=<color=#F0DAA0>Stili di combattimento</color>
 ModUi/&FixEldritchBlastRange=Cambia la portata di <color=#D89555>Eldritch Blast</color> a 24 <i><color=#F0DAA0>[invece di 16]</color></i>
-ModUi/&FixSorcererTwinnedLogic=Correzione <color=#D89555>Stregone</color> uso metamagico gemellato <i><color=#F0DAA0>[deve essere incapace di bersagliare più di una creatura al livello attuale dell'incantesimo]</color></i>
 ModUi/&Formation=<color=#F0DAA0>Formazione:</color>
 ModUi/&FormationError=<color=#C04040E0>Non puoi cambiare la tua formazione durante una partita multiplayer...</color>
 ModUi/&FormationHelp1=. Usa i pulsanti numerici per modificare un determinato set <i><color=#F0DAA0>[considera di abilitare i tasti di scelta rapida sotto l'input]</color></i>
