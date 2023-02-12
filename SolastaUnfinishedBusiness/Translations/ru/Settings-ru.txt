@@ -212,3 +212,7 @@ ModUi/&UnlockSkinColors=Разблокировать цвет скинов
 ModUi/&UseHeightOneCylinderEffect=Используйте эффект цилиндра высотой 1 при кастовании <color=#D89555>Черные Тентакли, Опутать, Масло</color> <i><color=#F0DAA0>[square]</color></i> или <color=#D89555>Spike Growth</color> <i><color=#F0DAA0>[round]</color></i>
 ModUi/&UseOfficialAdvantageDisadvantageRules=Использоваться официальные правила штрафов и бонусов
 ModUi/&Visuals=<color=#F0DAA0>Visuals:</color> <b><i><color=#C04040E0>[Требуется Перезапуск]</color></i></b>
+ModUi/&Critical=<color=#F0DAA0>Критический удар:</color>
+ModUi/&CriticalOption1=. 1: добавьте сумму максимальных кубиков урона вашей атаки к вашему общему бонусу <i><color=#F0DAA0>[XdY+Z становится XdY+X*Y+Z]</color></i>
+ModUi/&CriticalOption2=. 2: продолжайте перебрасывать любые кубики, которые выбрасывают максимальное значение, и добавляйте его к общему урону.
+ModUi/&CriticalOption3=. 3: удвойте свои первоначальные результаты броска вместо того, чтобы бросать дополнительные критические кубики

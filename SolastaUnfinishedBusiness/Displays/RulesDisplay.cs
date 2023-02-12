@@ -5,6 +5,8 @@ namespace SolastaUnfinishedBusiness.Displays;
 
 internal static class RulesDisplay
 {
+    private static readonly string[] Options = { "default", "1", "2", "3" };
+
     internal static void DisplayRules()
     {
         UI.Label();
@@ -193,6 +195,37 @@ internal static class RulesDisplay
                 SrdAndHouseRulesContext.DefaultVisionRange, "", UI.AutoWidth()))
         {
             Main.Settings.IncreaseSenseNormalVision = intValue;
+        }
+
+        UI.Label();
+        UI.Label(Gui.Localize("ModUi/&Critical"));
+        UI.Label();
+
+        UI.Label(Gui.Localize("ModUi/&CriticalOption1"));
+        UI.Label(Gui.Localize("ModUi/&CriticalOption2"));
+        UI.Label(Gui.Localize("ModUi/&CriticalOption3"));
+        UI.Label();
+
+        using (UI.HorizontalScope())
+        {
+            UI.Label(Gui.Localize("Caption/&TargetFilteringAllyCreature"), UI.Width(100));
+
+            intValue = Main.Settings.CriticalHitModeAllies;
+            if (UI.SelectionGrid(ref intValue, Options, Options.Length, 4, UI.Width(440)))
+            {
+                Main.Settings.CriticalHitModeAllies = intValue;
+            }
+        }
+
+        using (UI.HorizontalScope())
+        {
+            UI.Label(Gui.Localize("Caption/&TargetFilteringEnemyCreature"), UI.Width(100));
+
+            intValue = Main.Settings.CriticalHitModeEnemies;
+            if (UI.SelectionGrid(ref intValue, Options, Options.Length, 4, UI.Width(440)))
+            {
+                Main.Settings.CriticalHitModeEnemies = intValue;
+            }
         }
 
         UI.Label();

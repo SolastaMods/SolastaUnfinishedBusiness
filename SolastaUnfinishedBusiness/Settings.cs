@@ -166,7 +166,8 @@ public class Settings : UnityModManager.ModSettings
     public bool MakeAllMagicStaveArcaneFoci { get; set; }
 
     public int IncreaseSenseNormalVision { get; set; } = SrdAndHouseRulesContext.DefaultVisionRange;
-
+    public int CriticalHitModeAllies { get; set; }
+    public int CriticalHitModeEnemies { get; set; }
     //
     // Gameplay - Items, Crafting & Merchants
     //
@@ -318,7 +319,9 @@ public class Settings : UnityModManager.ModSettings
 
     // Debug
     public bool DebugDisableVerifyDefinitionNameIsNotInUse { get; set; }
+#if DEBUG
     public bool DebugLogDefinitionCreation { get; set; }
     public bool DebugLogFieldInitialization { get; set; }
     public bool DebugLogVariantMisuse { get; set; }
+#endif
 }

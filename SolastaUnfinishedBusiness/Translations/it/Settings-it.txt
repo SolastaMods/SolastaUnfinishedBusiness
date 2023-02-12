@@ -212,3 +212,7 @@ ModUi/&UnlockSkinColors=Sblocca i colori della pelle
 ModUi/&UseHeightOneCylinderEffect=Usa un effetto cilindro di altezza 1 quando lanci <color=#D89555>Tentacoli neri, Intralcio, Grasso</color> <i><color=#F0DAA0>[square]</color></i> o <color=#D89555>Picchi di Crescita</color> <i><color=#F0DAA0>[round]</color></i>
 ModUi/&UseOfficialAdvantageDisadvantageRules=Usa le regole ufficiali di vantaggio/svantaggio
 ModUi/&Visuals=<color=#F0DAA0> Immagini:</color> <b><i><color=#C04040E0>[Richiede il riavvio]</color></i></b>
+ModUi/&Critical=<color=#F0DAA0> Colpo critico:</color>
+ModUi/&CriticalOption1=. 1: aggiungi la somma dei dadi di danno massimo del tuo attacco al tuo bonus totale <i><color=#F0DAA0>[XdY+Z diventa XdY+X*Y+Z]</color></i>
+ModUi/&CriticalOption2=. 2: continua a ripetere il tiro di tutti i dadi che ottengono il valore massimo e aggiungilo al danno totale
+ModUi/&CriticalOption3=. 3: raddoppia i risultati ottenuti inizialmente invece di tirare dadi critici aggiuntivi

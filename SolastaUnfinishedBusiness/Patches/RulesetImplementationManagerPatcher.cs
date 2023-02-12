@@ -8,6 +8,7 @@ using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.Models;
+using UnityEngine;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterClassDefinitions;
 
 namespace SolastaUnfinishedBusiness.Patches;
@@ -28,6 +29,214 @@ public static class RulesetImplementationManagerPatcher
         {
             //PATCH: setup repertoire for spells cast through invocation
             __result.spellRepertoire ??= invocation.invocationRepertoire;
+        }
+    }
+
+    //PATCH: allow different algorithms to calculate critical damage
+    [HarmonyPatch(typeof(RulesetImplementationManager), nameof(RulesetImplementationManager.ApplyDamageForm))]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
+    public static class ApplyDamageForm_Patch
+    {
+        // add the sum of the max damage dice of your attack to your total bonus
+        private static int RollDamageOption1(
+            RulesetActor rulesetActor,
+            DamageForm damageForm,
+            int addDice,
+            bool criticalSuccess,
+            int additionalDamage,
+            int damageRollReduction,
+            float damageMultiplier,
+            bool useVersatileDamage,
+            bool attackModeDamage,
+            List<int> rolledValues,
+            bool canRerollDice,
+            EffectGroupInfo effectGroupInfo)
+        {
+            var diceMaxValue = RuleDefinitions.DiceMaxValue[(int)damageForm.dieType];
+            var bonusDamage = diceMaxValue * effectGroupInfo.diceNumber / 2;
+
+            damageForm.bonusDamage += bonusDamage;
+            effectGroupInfo.bonusValue += bonusDamage;
+
+            return rulesetActor.RollDamage(
+                damageForm, addDice, criticalSuccess, additionalDamage, damageRollReduction,
+                damageMultiplier, useVersatileDamage, attackModeDamage, rolledValues, canRerollDice);
+        }
+
+        private static int RollDiceKeepRollingMaxAndSum(
+            RulesetActor rulesetActor,
+            RuleDefinitions.DieType diceType,
+            RuleDefinitions.RollContext context,
+            int diceNumber,
+            ICollection<int> rolledValues = null,
+            bool canRerollDice = true,
+            string skill = "")
+        {
+            rulesetActor.EnumerateFeaturesToBrowse<IDieRollModificationProvider>(rulesetActor.featuresToBrowse);
+
+            var total = 0;
+            var maxDie = RuleDefinitions.DiceMaxValue[(int)diceType];
+
+            for (var index = 0; index < diceNumber; ++index)
+            {
+                var roll = maxDie;
+
+                while (roll == maxDie)
+                {
+                    roll = rulesetActor.RollDie(diceType, context, false, RuleDefinitions.AdvantageType.None,
+                        out _, out _, false, canRerollDice, skill);
+                    rolledValues?.Add(roll);
+                    total += roll;
+                }
+            }
+
+            return total;
+        }
+
+        // keep re-rolling any dice that rolls it max value and add it to the total damage
+        private static int RollDamageOption2(
+            RulesetActor rulesetActor,
+            DamageForm damageForm,
+            int addDice,
+            int additionalDamage,
+            int damageRollReduction,
+            float damageMultiplier,
+            bool useVersatileDamage,
+            bool attackModeDamage,
+            ICollection<int> rolledValues,
+            bool canRerollDice)
+        {
+            var diceType = useVersatileDamage ? damageForm.VersatileDieType : damageForm.DieType;
+
+            if (damageForm.OverrideWithBardicInspirationDie && rulesetActor is RulesetCharacterHero hero &&
+                hero.GetBardicInspirationDieValue() != RuleDefinitions.DieType.D1)
+            {
+                diceType = hero.GetBardicInspirationDieValue();
+            }
+
+            var totalDamage = RollDiceKeepRollingMaxAndSum(rulesetActor,
+                diceType,
+                attackModeDamage
+                    ? RuleDefinitions.RollContext.AttackDamageValueRoll
+                    : RuleDefinitions.RollContext.MagicDamageValueRoll,
+                (damageForm.DiceNumber + addDice) * 2, // 2 as it's a critical hit
+                rolledValues, canRerollDice);
+
+            return Mathf.FloorToInt(damageMultiplier *
+                                    (Mathf.Clamp(totalDamage + damageForm.BonusDamage - damageRollReduction, 0,
+                                         int.MaxValue) +
+                                     additionalDamage));
+        }
+
+        // double your initial rolled results instead of rolling additional critical dice
+        private static int RollDamageOption3(
+            RulesetActor rulesetActor,
+            DamageForm damageForm,
+            int addDice,
+            int additionalDamage,
+            int damageRollReduction,
+            float damageMultiplier,
+            bool useVersatileDamage,
+            bool attackModeDamage,
+            List<int> rolledValues,
+            bool canRerollDice)
+        {
+            var diceType = useVersatileDamage ? damageForm.VersatileDieType : damageForm.DieType;
+
+            if (damageForm.OverrideWithBardicInspirationDie && rulesetActor is RulesetCharacterHero hero &&
+                hero.GetBardicInspirationDieValue() != RuleDefinitions.DieType.D1)
+            {
+                diceType = hero.GetBardicInspirationDieValue();
+            }
+
+            // different than original game code we roll usual dices and multiply result by 2
+            var totalDamage = 2 * rulesetActor.RollDiceAndSum(
+                diceType,
+                attackModeDamage
+                    ? RuleDefinitions.RollContext.AttackDamageValueRoll
+                    : RuleDefinitions.RollContext.MagicDamageValueRoll,
+                damageForm.DiceNumber + addDice,
+                rolledValues, canRerollDice);
+
+            return Mathf.FloorToInt(damageMultiplier *
+                                    (Mathf.Clamp(totalDamage + damageForm.BonusDamage - damageRollReduction, 0,
+                                        int.MaxValue) + additionalDamage));
+        }
+
+        private static int RollDamage(
+            RulesetActor rulesetActor,
+            DamageForm damageForm,
+            int addDice,
+            bool criticalSuccess,
+            int additionalDamage,
+            int damageRollReduction,
+            float damageMultiplier,
+            bool useVersatileDamage,
+            bool attackModeDamage,
+            List<int> rolledValues,
+            bool canRerollDice,
+            EffectGroupInfo effectGroupInfo)
+        {
+            if (!criticalSuccess || rulesetActor is not RulesetCharacter rulesetCharacter)
+            {
+                return rulesetActor.RollDamage(
+                    damageForm, addDice, criticalSuccess, additionalDamage, damageRollReduction,
+                    damageMultiplier, useVersatileDamage, attackModeDamage, rolledValues, canRerollDice);
+            }
+
+            return rulesetCharacter.Side switch
+            {
+                RuleDefinitions.Side.Enemy => Main.Settings.CriticalHitModeEnemies switch
+                {
+                    1 => RollDamageOption1(rulesetActor, damageForm, addDice, criticalSuccess, additionalDamage,
+                        damageRollReduction, damageMultiplier, useVersatileDamage, attackModeDamage, rolledValues,
+                        canRerollDice, effectGroupInfo),
+                    2 => RollDamageOption2(rulesetActor, damageForm, addDice, additionalDamage,
+                        damageRollReduction, damageMultiplier, useVersatileDamage, attackModeDamage, rolledValues,
+                        canRerollDice),
+                    3 => RollDamageOption3(rulesetActor, damageForm, addDice, additionalDamage,
+                        damageRollReduction, damageMultiplier, useVersatileDamage, attackModeDamage, rolledValues,
+                        canRerollDice),
+                    _ => rulesetActor.RollDamage(damageForm, addDice, criticalSuccess, additionalDamage,
+                        damageRollReduction, damageMultiplier, useVersatileDamage, attackModeDamage, rolledValues,
+                        canRerollDice)
+                },
+                RuleDefinitions.Side.Ally => Main.Settings.CriticalHitModeAllies switch
+                {
+                    1 => RollDamageOption1(rulesetActor, damageForm, addDice, criticalSuccess, additionalDamage,
+                        damageRollReduction, damageMultiplier, useVersatileDamage, attackModeDamage, rolledValues,
+                        canRerollDice, effectGroupInfo),
+                    2 => RollDamageOption2(rulesetActor, damageForm, addDice, additionalDamage,
+                        damageRollReduction, damageMultiplier, useVersatileDamage, attackModeDamage, rolledValues,
+                        canRerollDice),
+                    3 => RollDamageOption3(rulesetActor, damageForm, addDice, additionalDamage,
+                        damageRollReduction, damageMultiplier, useVersatileDamage, attackModeDamage, rolledValues,
+                        canRerollDice),
+                    _ => rulesetActor.RollDamage(damageForm, addDice, criticalSuccess, additionalDamage,
+                        damageRollReduction, damageMultiplier, useVersatileDamage, attackModeDamage, rolledValues,
+                        canRerollDice)
+                },
+                _ => rulesetActor.RollDamage(
+                    damageForm, addDice, criticalSuccess, additionalDamage, damageRollReduction,
+                    damageMultiplier, useVersatileDamage, attackModeDamage, rolledValues, canRerollDice),
+            };
+        }
+
+        [NotNull]
+        [UsedImplicitly]
+        public static IEnumerable<CodeInstruction> Transpiler([NotNull] IEnumerable<CodeInstruction> instructions)
+        {
+            var rollDamageMethod = typeof(RulesetActor).GetMethod("RollDamage");
+            var myRollDamageMethod =
+                new Func<RulesetActor,
+                    DamageForm, int, bool, int, int, float, bool, bool, List<int>, bool, EffectGroupInfo, int>(
+                    RollDamage).Method;
+
+            return instructions.ReplaceCalls(rollDamageMethod,
+                "RulesetImplementationManager.ApplyDamageForm",
+                new CodeInstruction(OpCodes.Ldloc, 15), // EffectGroupInfo
+                new CodeInstruction(OpCodes.Call, myRollDamageMethod));
         }
     }
 

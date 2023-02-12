@@ -212,3 +212,7 @@ ModUi/&UnlockSkinColors=Unlock skin colors
 ModUi/&UseHeightOneCylinderEffect=Use a height 1 cylinder effect when casting <color=#D89555>Black Tentacles, Entangle, Grease</color> <i><color=#F0DAA0>[square]</color></i> or <color=#D89555>Spike Growth</color> <i><color=#F0DAA0>[round]</color></i>
 ModUi/&UseOfficialAdvantageDisadvantageRules=Use official advantage / disadvantage rules
 ModUi/&Visuals=<color=#F0DAA0>Visuals:</color> <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
+ModUi/&Critical=<color=#F0DAA0>Critical Hit:</color>
+ModUi/&CriticalOption1=. 1: add the sum of the max damage dice of your attack to your total bonus <i><color=#F0DAA0>[XdY+Z becomes XdY+X*Y+Z]</color></i>
+ModUi/&CriticalOption2=. 2: keep re-rolling any dice that rolls it max value and add it to the total damage
+ModUi/&CriticalOption3=. 3: double your initial rolled results instead of rolling additional critical dice

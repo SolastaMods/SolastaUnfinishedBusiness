@@ -212,3 +212,7 @@ ModUi/&UnlockSkinColors=Desbloquear cores de pele
 ModUi/&UseHeightOneCylinderEffect=Use um efeito de 1 cilindro de altura ao conjurar <color=#D89555>Tentáculos Negros, Enredar, Graxa</color> <i><color=#F0DAA0>[quadrado]</color></i> ou <color=#D89555>Crescimento do pico</color> <i><color=#F0DAA0>[rodada]</color></i>
 ModUi/&UseOfficialAdvantageDisadvantageRules=Use as regras oficiais de vantagem/desvantagem
 ModUi/&Visuals=<color=#F0DAA0>Visuais:</color> <b><i><color=#C04040E0>[Requer reinicialização]</color></i></b>
+ModUi/&Critical=<color=#F0DAA0>Acerto crítico:</color>
+ModUi/&CriticalOption1=. 1: adicione a soma dos dados de dano máximo do seu ataque ao seu bônus total <i><color=#F0DAA0>[XdY+Z torna-se XdY+X*Y+Z]</color></i>
+ModUi/&CriticalOption2=. 2: continue rolando qualquer dado que rolar seu valor máximo e adicione-o ao dano total
+ModUi/&CriticalOption3=. 3: dobre seus resultados rolados iniciais em vez de rolar dados críticos adicionais

@@ -212,3 +212,7 @@ ModUi/&UnlockSkinColors=Desbloquear colores de piel
 ModUi/&UseHeightOneCylinderEffect=Usa un efecto de cilindro de altura 1 al lanzar <color=#D89555>Tentáculos negros, Enredar, Grasa</color> <i><color=#F0DAA0>[cuadrado]</color></i> o <color=#D89555>Crecimiento de picos</color> <i><color=#F0DAA0>[redondo]</color></i>
 ModUi/&UseOfficialAdvantageDisadvantageRules=Usar reglas oficiales de ventaja/desventaja
 ModUi/&Visuals=<color=#F0DAA0>Imágenes:</color> <b><i><color=#C04040E0>[Requiere reiniciar]</color></i></b>
+ModUi/&Critical=<color=#F0DAA0>Golpe crítico:</color>
+ModUi/&CriticalOption1=. 1: suma la suma de los dados de daño máximo de tu ataque a tu bonificación total <i><color=#F0DAA0>[XdY+Z se convierte en XdY+X*Y+Z]</color></i>
+ModUi/&CriticalOption2=. 2: sigue tirando cualquier dado que arroje su valor máximo y añádelo al daño total
+ModUi/&CriticalOption3=. 3: duplica tus resultados iniciales en lugar de tirar dados críticos adicionales
