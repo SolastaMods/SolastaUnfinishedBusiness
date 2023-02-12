@@ -1,5 +1,9 @@
 ﻿CHANGES:
 
+1.4.33.35:
+
+- fixed auto update
+
 1.4.33.34:
 
 - refactored Fell Handed feat
