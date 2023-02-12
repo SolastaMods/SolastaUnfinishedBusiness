@@ -19,6 +19,8 @@ namespace SolastaUnfinishedBusiness.Models;
 
 internal static class BootContext
 {
+    private const string BaseURL = "https://github.com/SolastaMods/SolastaUnfinishedBusiness/releases/latest/download";
+
     internal static void Startup()
     {
 #if DEBUG
@@ -218,9 +220,6 @@ internal static class BootContext
 
     private static bool ShouldUpdate(out string version, [NotNull] out string changeLog)
     {
-        const string BASE_URL =
-            "https://raw.githubusercontent.com/SolastaMods/SolastaUnfinishedBusiness/master/SolastaUnfinishedBusiness";
-
         var hasUpdate = false;
 
         version = "";
@@ -233,7 +232,7 @@ internal static class BootContext
         try
         {
             var installedVersion = GetInstalledVersion();
-            var infoPayload = wc.DownloadString($"{BASE_URL}/Info.json");
+            var infoPayload = wc.DownloadString($"{BaseURL}/Info.json");
             var infoJson = JsonConvert.DeserializeObject<JObject>(infoPayload);
 
             // ReSharper disable once AssignNullToNotNullAttribute
@@ -245,7 +244,7 @@ internal static class BootContext
             var v2 = a2[0] + a2[1] + a2[2] + Int32.Parse(a2[3]).ToString("D3");
 
             hasUpdate = String.Compare(v2, v1, StringComparison.Ordinal) > 0;
-            changeLog = wc.DownloadString($"{BASE_URL}/Changelog.txt");
+            changeLog = wc.DownloadString($"{BaseURL}/Changelog.txt");
         }
         catch
         {
@@ -257,8 +256,6 @@ internal static class BootContext
 
     private static void UpdateMod(string version)
     {
-        const string BASE_URL = "https://github.com/SolastaMods/SolastaUnfinishedBusiness";
-
         var destFiles = new[] { "Info.json", "SolastaUnfinishedBusiness.dll" };
 
         using var wc = new WebClient();
@@ -269,7 +266,7 @@ internal static class BootContext
         var zipFile = $"SolastaUnfinishedBusiness-{version}.zip";
         var fullZipFile = Path.Combine(Main.ModFolder, zipFile);
         var fullZipFolder = Path.Combine(Main.ModFolder, "SolastaUnfinishedBusiness");
-        var url = $"{BASE_URL}/releases/download/{version}/{zipFile}";
+        var url = $"{BaseURL}/{zipFile}";
 
         try
         {

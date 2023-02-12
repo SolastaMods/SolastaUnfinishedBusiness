@@ -1,3 +1,8 @@
+- fixed auto update
+
+previously since 1.4.33.32:
+
+- fixed Warlocks getting incorrect invocations learn step if multiclass
 - refactored Fell Handed feat
 - refactored Searing, Wrathful, Blinding and Staggering Smite spells
 - updated Oath of Altruism features descriptions
