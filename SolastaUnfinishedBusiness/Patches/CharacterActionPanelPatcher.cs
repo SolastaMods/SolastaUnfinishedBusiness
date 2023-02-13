@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
-using System.Reflection;
 using System.Reflection.Emit;
 using HarmonyLib;
 using JetBrains.Annotations;
@@ -19,48 +18,6 @@ namespace SolastaUnfinishedBusiness.Patches;
 [UsedImplicitly]
 public static class CharacterActionPanelPatcher
 {
-    //PATCH: support for custom metamagic
-    [HarmonyPatch(typeof(CharacterActionPanel), nameof(CharacterActionPanel.MetamagicSelected))]
-    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    [UsedImplicitly]
-    public static class MetamagicSelected_Patch
-    {
-        private static void ExecuteEffectOfAction(
-            CharacterActionPanel characterActionPanel,
-            GameLocationCharacter caster,
-            RulesetEffectSpell spellEffect,
-            MetamagicOptionDefinition metamagicOption)
-        {
-            var rulesetCharacter = caster.RulesetCharacter;
-            var provideMetamagicBehavior = rulesetCharacter
-                .GetSubFeaturesByType<IProvideMetamagicBehavior>()
-                .FirstOrDefault(x => x.MetamagicOptionName() == metamagicOption.Name);
-
-            provideMetamagicBehavior?.MetamagicSelected(rulesetCharacter, spellEffect, metamagicOption);
-
-            characterActionPanel.ExecuteEffectOfAction();
-        }
-
-        [NotNull]
-        [UsedImplicitly]
-        public static IEnumerable<CodeInstruction> Transpiler([NotNull] IEnumerable<CodeInstruction> instructions)
-        {
-            var executeEffectOfActionMethod = typeof(CharacterActionPanel).GetMethod("ExecuteEffectOfAction",
-                BindingFlags.Instance | BindingFlags.NonPublic);
-            var myExecuteEffectOfAction =
-                new Action<CharacterActionPanel, GameLocationCharacter, RulesetEffectSpell, MetamagicOptionDefinition>(
-                    ExecuteEffectOfAction).Method;
-
-            return instructions
-                //PATCH: allows custom metamagic to change any spellEffect
-                .ReplaceCalls(executeEffectOfActionMethod, "CharacterActionPanel.MetamagicSelected",
-                    new CodeInstruction(OpCodes.Ldarg_1),
-                    new CodeInstruction(OpCodes.Ldarg_2),
-                    new CodeInstruction(OpCodes.Ldarg_3),
-                    new CodeInstruction(OpCodes.Call, myExecuteEffectOfAction));
-        }
-    }
-
     [HarmonyPatch(typeof(CharacterActionPanel), nameof(CharacterActionPanel.ReadyActionEngaged))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]

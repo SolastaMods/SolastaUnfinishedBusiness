@@ -7,12 +7,17 @@ namespace SolastaUnfinishedBusiness.Builders;
 internal class
     MetamagicOptionDefinitionBuilder : DefinitionBuilder<MetamagicOptionDefinition, MetamagicOptionDefinitionBuilder>
 {
+    protected override void Initialise()
+    {
+        base.Initialise();
+        Definition.metamagicType =
+            (RuleDefinitions.MetamagicType)9000; // use a dummy value to avoid conflicts with vanilla
+    }
+
     internal MetamagicOptionDefinitionBuilder SetCost(
         RuleDefinitions.MetamagicCostMethod costMethod = RuleDefinitions.MetamagicCostMethod.FixedValue,
         int sorceryPointsCost = 1)
     {
-        Definition.metamagicType =
-            (RuleDefinitions.MetamagicType)9000; // use a dummy value to avoid conflicts with vanilla
         Definition.costMethod = costMethod;
         Definition.sorceryPointsCost = sorceryPointsCost;
         return this;

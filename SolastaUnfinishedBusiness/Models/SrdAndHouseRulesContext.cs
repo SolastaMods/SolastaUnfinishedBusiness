@@ -121,6 +121,7 @@ internal static class SrdAndHouseRulesContext
         SwitchMakeLargeWildshapeFormsMedium();
         FixMartialArtsProgression();
         DistantHandMartialArtsDie();
+        FixTwinnedMetamagic();
     }
 
     internal static void ModifyAttackModeAndDamage(
@@ -566,6 +567,26 @@ internal static class SrdAndHouseRulesContext
         //Makes Martial Dice progression work on bows for Way of the Distant Hand
         FeatureDefinitionAttackModifiers.AttackModifierMonkMartialArtsImprovedDamage
             .AddCustomSubFeatures(WayOfTheDistantHand.ZenArcherDiceUpgrade.Marker);
+    }
+
+    private static void FixTwinnedMetamagic()
+    {
+        //BUGFIX: fix vanilla twinned spells offering not accounting for target parameter progression
+        MetamagicOptionDefinitions.MetamagicTwinnedSpell.AddCustomSubFeatures(new MetamagicApplicationValidator(
+            (RulesetCharacter _, RulesetEffectSpell spell, MetamagicOptionDefinition _, ref bool result,
+                ref string failure) =>
+            {
+                var effectDescription = spell.SpellDefinition.effectDescription;
+
+                if (effectDescription.TargetType is not (TargetType.Individuals or TargetType.IndividualsUnique)
+                    || spell.ComputeTargetParameter() == 1)
+                {
+                    return;
+                }
+
+                failure = FailureFlagInvalidSingleTarget;
+                result = false;
+            }));
     }
 
     internal static void SwitchEnableUpcastConjureElementalAndFey()
