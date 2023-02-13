@@ -1115,7 +1115,7 @@ internal sealed class MartialTactician : AbstractSubclass
                 yield break;
             }
 
-            if (!me.CanReact(true))
+            if (!me.CanReact())
             {
                 yield break;
             }
@@ -1149,7 +1149,7 @@ internal sealed class MartialTactician : AbstractSubclass
 
             retaliationMode.AddAttackTagAsNeeded(AttacksOfOpportunity.NotAoOTag);
 
-            var reactionParams = new CharacterActionParams(me, Id.AttackFree);
+            var reactionParams = new CharacterActionParams(me, Id.AttackOpportunity);
 
             reactionParams.TargetCharacters.Add(attacker);
             reactionParams.ActionModifiers.Add(retaliationModifier);
@@ -1227,7 +1227,6 @@ internal sealed class MartialTactician : AbstractSubclass
         {
             this.pool = pool;
             this.condition = condition;
-            IgnoreReactionUses = true;
             ValidateAttacker = character => character.GetRemainingPowerCharges(pool) > 0;
             BeforeReaction = AddCondition;
             AfterReaction = RemoveCondition;
@@ -1272,7 +1271,7 @@ internal sealed class MartialTactician : AbstractSubclass
         {
             return new ReactionRequestReactionAttack("GambitBrace", new CharacterActionParams(
                 attacker,
-                Id.AttackFree,
+                Id.AttackOpportunity,
                 attackMode,
                 defender,
                 attackModifier)) { Resource = new ReactionResourcePowerPool(pool, Sprites.GambitResourceIcon) };
@@ -1415,7 +1414,7 @@ internal sealed class MartialTactician : AbstractSubclass
                 yield break;
             }
 
-            if (me.GetActionTypeStatus(ActionType.Reaction) != ActionStatus.Available)
+            if (!me.CanReact())
             {
                 yield break;
             }
