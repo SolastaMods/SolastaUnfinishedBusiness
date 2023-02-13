@@ -5,7 +5,6 @@ using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.Extensions;
 using SolastaUnfinishedBusiness.CustomBehaviors;
-using SolastaUnfinishedBusiness.CustomInterfaces;
 using static RuleDefinitions;
 
 namespace SolastaUnfinishedBusiness.Patches;
@@ -44,11 +43,11 @@ public static class RulesetImplementationManagerLocationPatcher
             ref string failure)
         {
             //PATCH: support for custom metamagic
-            var validator = metamagicOption.GetFirstSubFeatureOfType<IMetamagicApplicationValidator>();
+            var validator = metamagicOption.GetFirstSubFeatureOfType<MetamagicApplicationValidator>();
 
             if (validator != null)
             {
-                __result = validator.IsMetamagicOptionValid(caster, rulesetEffectSpell, metamagicOption, ref failure);
+                validator(caster, rulesetEffectSpell, metamagicOption, ref __result, ref failure);
 
                 return;
             }

@@ -12,8 +12,8 @@ internal static class MetamagicBuilders
 
     internal static MetamagicOptionDefinition BuildMetamagicAltruisticSpell()
     {
-        var validator = new MetamagicApplicationValidatorMetamagicAltruistic();
-        
+        var validator = new MetamagicApplicationValidator(IsMetamagicAltruisticSpellValid);
+
         var altruisticAlly = MetamagicOptionDefinitionBuilder
             .Create($"{MetamagicAltruistic}Ally")
             .SetGuiPresentation(Category.Feature, hidden: true)
@@ -36,27 +36,23 @@ internal static class MetamagicBuilders
             .AddToDB();
     }
 
-    private sealed class MetamagicApplicationValidatorMetamagicAltruistic : IMetamagicApplicationValidator
+    private static void IsMetamagicAltruisticSpellValid(
+        RulesetCharacter caster,
+        RulesetEffectSpell rulesetEffectSpell,
+        MetamagicOptionDefinition metamagicOption,
+        ref bool result,
+        ref string failure)
     {
-        public bool IsMetamagicOptionValid(
-            RulesetCharacter caster,
-            RulesetEffectSpell rulesetEffectSpell,
-            MetamagicOptionDefinition metamagicOption,
-            ref string failure)
+        var effect = rulesetEffectSpell.EffectDescription;
+
+        if (effect.rangeType == RangeType.Self && effect.targetType == TargetType.Self)
         {
-            var effect = rulesetEffectSpell.EffectDescription;
-
-            if (effect.rangeType != RangeType.Self || effect.targetType != TargetType.Self)
-            {
-                failure = "Failure/&FailureFlagSpellRangeMustBeSelf";
-
-                return false;
-            }
-
-            failure = String.Empty;
-
-            return true;
+            return;
         }
+
+        failure = "Failure/&FailureFlagSpellRangeMustBeSelf";
+
+        result = false;
     }
 
     private sealed class MetamagicAltruisticAlly : IModifyMagicEffect
