@@ -123,7 +123,7 @@ internal enum ExtraAdditionalDamageTriggerCondition
     // NotWearingHeavyArmor = AdditionalDamageTriggerCondition.NotWearingHeavyArmor,
 
     TargetWithin10Ft = 9000,
-    UsePowerReaction = 9001,
+    UsePowerReaction = 9001
 }
 
 public enum ExtraConditionInterruption

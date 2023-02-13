@@ -222,7 +222,7 @@ public static class RulesetImplementationManagerPatcher
                 },
                 _ => rulesetActor.RollDamage(
                     damageForm, addDice, criticalSuccess, additionalDamage, damageRollReduction,
-                    damageMultiplier, useVersatileDamage, attackModeDamage, rolledValues, canRerollDice),
+                    damageMultiplier, useVersatileDamage, attackModeDamage, rolledValues, canRerollDice)
             };
         }
 

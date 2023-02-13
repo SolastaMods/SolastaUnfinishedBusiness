@@ -1,8 +1,11 @@
-﻿namespace SolastaUnfinishedBusiness.CustomInterfaces;
+﻿using JetBrains.Annotations;
+
+namespace SolastaUnfinishedBusiness.CustomInterfaces;
 
 public interface IProvideMetamagicBehavior
 {
     // return false here if not the metamagicOption you need to handle
+    [UsedImplicitly]
     public bool IsMetamagicOptionAvailable(
         RulesetEffectSpell rulesetEffectSpell,
         RulesetCharacter caster,
@@ -10,6 +13,7 @@ public interface IProvideMetamagicBehavior
         ref string failure,
         ref bool result);
 
+    [UsedImplicitly]
     public void MetamagicSelected(
         GameLocationCharacter caster,
         RulesetEffectSpell spellEffect,
