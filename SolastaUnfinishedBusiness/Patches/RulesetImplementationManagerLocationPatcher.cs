@@ -44,33 +44,7 @@ public static class RulesetImplementationManagerLocationPatcher
         {
             //PATCH: support for custom metamagic
             var validator = metamagicOption.GetFirstSubFeatureOfType<MetamagicApplicationValidator>();
-
-            if (validator != null)
-            {
-                validator(caster, rulesetEffectSpell, metamagicOption, ref __result, ref failure);
-
-                return;
-            }
-
-            //TODO: port this fix to IMetamagicApplicationValidator
-            //BUGFIX: fix vanilla twinned spells offering not accounting for target parameter progression
-            if (metamagicOption != DatabaseHelper.MetamagicOptionDefinitions.MetamagicTwinnedSpell
-                || caster is not RulesetCharacterHero)
-            {
-                return;
-            }
-
-            var spellDefinition = rulesetEffectSpell.SpellDefinition;
-            var effectDescription = spellDefinition.effectDescription;
-
-            if (effectDescription.TargetType is not (TargetType.Individuals or TargetType.IndividualsUnique) ||
-                rulesetEffectSpell.ComputeTargetParameter() == 1)
-            {
-                return;
-            }
-
-            failure = FailureFlagInvalidSingleTarget;
-            __result = false;
+            validator?.Invoke(caster, rulesetEffectSpell, metamagicOption, ref __result, ref failure);
         }
     }
 
