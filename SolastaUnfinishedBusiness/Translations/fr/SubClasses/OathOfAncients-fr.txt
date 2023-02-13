@@ -1,9 +1,9 @@
 ﻿Condition/&ConditionOathOfAncientsAuraWardingDescription=Gain de résistance aux dégâts des sorts.
 Condition/&ConditionOathOfAncientsAuraWardingTitle=Gardé
 Feature/&PowerOathOfAncientsNaturesWrathDescription=Vous pouvez utiliser votre Channel Divinity pour invoquer des forces primitives afin de piéger un ennemi. Par une action, vous pouvez faire surgir des lianes spectrales et atteindre une créature à 3 mètres ou moins de vous que vous pouvez voir. La créature doit réussir un jet de sauvegarde de Force ou être entravée. Tant qu'elle est retenue par les lianes, la créature répète le jet de sauvegarde à la fin de chacun de ses tours. En cas de succès, il se libère et les lianes disparaissent.
-Feature/&PowerOathOfAncientsNaturesWrathTitle=Channel Divinity : Colère de la nature
+Feature/&PowerOathOfAncientsNaturesWrathTitle=Channel Divinity: Colère de la nature
 Feature/&PowerOathOfAncientsTurnFaithlessDescription=Vous pouvez utiliser votre Channel Divinity pour prononcer des mots anciens qui sont douloureux à entendre pour les fées et les démons. Par une action, vous présentez votre symbole sacré, et chaque fée ou démon se trouvant dans un rayon de 9 mètres autour de vous qui peut vous entendre doit effectuer un jet de sauvegarde de Sagesse. En cas d'échec, la créature est retournée pendant 1 minute ou jusqu'à ce qu'elle subisse des dégâts.
-Feature/&PowerOathOfAncientsTurnFaithlessTitle=Channel Divinity : Transformez les infidèles
+Feature/&PowerOathOfAncientsTurnFaithlessTitle=Channel Divinity: Transformez les infidèles
 Feature/&PowerOathOfAncientsAuraWardingDescription=À partir du niveau 7, la magie ancienne pèse si lourdement sur vous qu'elle forme une protection occulte. Vous et les créatures alliées à moins de 3 mètres de vous avez la résistance aux dégâts des sorts.
 Feature/&PowerOathOfAncientsAuraWardingTitle=Aura de protection
 Subclass/&OathOfAncientsDescription=Un serment d'un temps plus primitif où l'on se consacre à utiliser la nature pour le bien.
