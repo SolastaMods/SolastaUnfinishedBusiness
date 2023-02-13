@@ -130,3 +130,6 @@ UI/&RecipeFilterAmmunition=弹药
 UI/&RecipeFilterArmor=护甲
 UI/&RecipeFilterUsableDevices=可设用备
 UI/&RecipeFilterWeapons=武器
+Feature/&MetamagicAltruisticSpellDescription=当你施放一个没有相关半径的以自己为目标的法术时，你也可以影响 30 英尺内的盟友。法术点数成本等于法术等级。
+Feature/&MetamagicAltruisticSpellTitle=无私的
+Failure/&FailureFlagSpellRangeMustBeSelf=法术范围必须是自身，没有效果半径

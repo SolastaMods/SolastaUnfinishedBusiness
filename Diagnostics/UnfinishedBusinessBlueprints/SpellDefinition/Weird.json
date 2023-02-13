@@ -20,7 +20,7 @@
     "targetType": "Sphere",
     "itemSelectionType": "None",
     "targetParameter": 6,
-    "targetParameter2": 6,
+    "targetParameter2": 2,
     "emissiveBorder": "None",
     "emissiveParameter": 1,
     "requiresTargetProximity": false,

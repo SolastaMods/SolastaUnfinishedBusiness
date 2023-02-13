@@ -42,7 +42,7 @@ namespace SolastaUnfinishedBusiness.Displays
                     DisplayCharacter),
                 new NamedAction(Gui.Localize("ModUi/&RacesClassesSubclasses"),
                     DisplayClassesAndSubclasses),
-                new NamedAction(Gui.Localize("ModUi/&FeatsFightingStylesInvocations"),
+                new NamedAction(Gui.Localize("Screen/&FeatureListingProficienciesTitle"),
                     DisplayFeatsFightingStylesInvocations),
                 new NamedAction(Gui.Localize("ModUi/&SpellsMenu"),
                     DisplaySpells));

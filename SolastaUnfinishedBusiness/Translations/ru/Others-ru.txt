@@ -130,3 +130,6 @@ UI/&RecipeFilterAmmunition=Аммуниция
 UI/&RecipeFilterArmor=Доспехи
 UI/&RecipeFilterUsableDevices=Используемые предметы
 UI/&RecipeFilterWeapons=Оружия
+Feature/&MetamagicAltruisticSpellDescription=Когда вы произносите заклинание, нацеленное на себя без связанного радиуса, вы также можете воздействовать на союзника в пределах 30 футов. Стоимость очков чародейства равна уровню заклинания.
+Feature/&MetamagicAltruisticSpellTitle=альтруистический
+Failure/&FailureFlagSpellRangeMustBeSelf=Диапазон заклинания должен быть самим собой без радиуса действия

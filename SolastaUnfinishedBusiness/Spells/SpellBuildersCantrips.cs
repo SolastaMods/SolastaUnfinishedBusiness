@@ -176,7 +176,7 @@ internal static partial class SpellBuilders
                 12)
             .SetDurationData(DurationType.Instantaneous)
             .SetParticleEffectParameters(BurningHands)
-            .SetTargetingData(Side.Enemy, RangeType.Self, 0, TargetType.Sphere)
+            .SetTargetingData(Side.Enemy, RangeType.Self, 0, TargetType.Cube, 3)
             .SetEffectForms(
                 EffectFormBuilder
                     .Create()
@@ -255,7 +255,7 @@ internal static partial class SpellBuilders
             .SetVocalSpellSameType(VocalSpellSemeType.Detection)
             .SetEffectDescription(EffectDescriptionBuilder
                 .Create(Sparkle.EffectDescription)
-                .SetTargetingData(Side.All, RangeType.Distance, 18, TargetType.Sphere, 5)
+                .SetTargetingData(Side.All, RangeType.Distance, 18, TargetType.Sphere, 6)
                 .SetParticleEffectParameters(SacredFlame_B.EffectDescription.EffectParticleParameters)
                 .Build())
             .AddToDB();
@@ -600,7 +600,7 @@ internal static partial class SpellBuilders
                 AttributeDefinitions.Wisdom,
                 12)
             .SetDurationData(DurationType.Instantaneous)
-            .SetTargetingData(Side.All, RangeType.Self, 0, TargetType.Sphere)
+            .SetTargetingData(Side.All, RangeType.Self, 0, TargetType.Cube, 3)
             .ExcludeCaster()
             .SetEffectForms(
                 EffectFormBuilder

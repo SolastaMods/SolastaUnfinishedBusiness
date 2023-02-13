@@ -4,6 +4,7 @@ using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.Extensions;
 using SolastaUnfinishedBusiness.CustomBehaviors;
+using SolastaUnfinishedBusiness.CustomInterfaces;
 using static RuleDefinitions;
 
 namespace SolastaUnfinishedBusiness.Patches;
@@ -41,13 +42,17 @@ public static class RulesetImplementationManagerLocationPatcher
             MetamagicOptionDefinition metamagicOption,
             ref string failure)
         {
-            //PATCH: fix twinned spells offering
-            //plus fixes vanilla code not accounting for things possible in MC
-            if (!Main.Settings.FixSorcererTwinnedLogic)
+            //PATCH: support for custom metamagic
+            foreach (var provideMetamagicBehavior in caster.GetSubFeaturesByType<IProvideMetamagicBehavior>())
             {
-                return;
+                if (provideMetamagicBehavior.IsMetamagicOptionAvailable(
+                        rulesetEffectSpell, caster, metamagicOption, ref failure, ref __result))
+                {
+                    return;
+                }
             }
 
+            //BUGFIX: fix vanilla twinned spells offering not accounting for target parameter progression
             if (metamagicOption != DatabaseHelper.MetamagicOptionDefinitions.MetamagicTwinnedSpell
                 || caster is not RulesetCharacterHero)
             {

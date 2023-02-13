@@ -130,3 +130,6 @@ UI/&RecipeFilterAmmunition=Munición
 UI/&RecipeFilterArmor=Armadura
 UI/&RecipeFilterUsableDevices=Dispositivos utilizables
 UI/&RecipeFilterWeapons=Armas
+Feature/&MetamagicAltruisticSpellDescription=Cuando lanzas un hechizo que se dirige a ti mismo sin un radio asociado, también puedes afectar a un aliado dentro de los 30 pies. El coste de los puntos de hechicería es igual al nivel del hechizo.
+Feature/&MetamagicAltruisticSpellTitle=Altruista
+Failure/&FailureFlagSpellRangeMustBeSelf=El alcance del hechizo debe ser propio sin radio de efecto.

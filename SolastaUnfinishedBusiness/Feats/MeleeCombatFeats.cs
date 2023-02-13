@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using JetBrains.Annotations;
+using SolastaUnfinishedBusiness.Api.Extensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Api.Infrastructure;
 using SolastaUnfinishedBusiness.Builders;
@@ -346,11 +347,7 @@ internal static class MeleeCombatFeats
     private static readonly FeatureDefinitionPower PowerFeatCrusherHit = FeatureDefinitionPowerBuilder
         .Create("PowerFeatCrusherHit")
         .SetGuiPresentationNoContent(true)
-        .SetUsesFixed(ActivationTime.OnAttackHitMelee, RechargeRate.TurnStart)
-        .SetCustomSubFeatures(
-            ForcePowerUseInSpendPowerAction.Marker,
-            new RestrictReactionAttackMode((mode, _, _) =>
-                ValidatorsWeapon.IsOfDamageType(mode, DamageTypeBludgeoning)))
+        .SetUsesFixed(ActivationTime.NoCost, RechargeRate.TurnStart)
         .SetShowCasting(false)
         .SetEffectDescription(EffectDescriptionBuilder
             .Create()
@@ -366,10 +363,15 @@ internal static class MeleeCombatFeats
     private static readonly FeatureDefinition FeatureFeatCrusher = FeatureDefinitionAdditionalDamageBuilder
         .Create("FeatureFeatCrusher")
         .SetGuiPresentationNoContent(true)
+        .SetTriggerCondition(ExtraAdditionalDamageTriggerCondition.UsePowerReaction)
         .SetFrequencyLimit(FeatureLimitedUsage.OncePerTurn)
         .SetDamageDice(DieType.D1, 0)
+        .SetSpecificDamageType(PowerFeatCrusherHit.Name) // use specific type to pass power name to UsePowerReaction
         .SetNotificationTag(GroupFeats.Crusher)
+        .SetRequiredProperty(RestrictedContextRequiredProperty.MeleeWeapon)
         .SetCustomSubFeatures(
+            new RestrictedContextValidator(OperationType.Set,
+                ValidatorsCharacter.MainHandIsOfDamageType(DamageTypeBludgeoning)),
             new AfterAttackEffectFeatCrusher(
                 ConditionDefinitionBuilder
                     .Create("ConditionFeatCrusherCriticalHit")
@@ -451,7 +453,7 @@ internal static class MeleeCombatFeats
 
     #endregion
 
-    #region GroupFeats.Crusher
+    #region Crusher
 
     private static FeatDefinition BuildCrusherStr()
     {
@@ -460,10 +462,11 @@ internal static class MeleeCombatFeats
             .SetGuiPresentation(Category.Feat)
             .SetFeatures(
                 FeatureDefinitionAttributeModifiers.AttributeModifierCreed_Of_Einar,
-                PowerFeatCrusherHit,
-                FeatureFeatCrusher)
+                FeatureFeatCrusher,
+                PowerFeatCrusherHit)
             .SetFeatFamily(GroupFeats.Crusher)
             .SetAbilityScorePrerequisite(AttributeDefinitions.Strength, 13)
+            //.SetCustomSubFeatures(ValidatorsCharacter.MainHandIsOfDamageType(DamageTypeBludgeoning))
             .AddToDB();
     }
 
@@ -474,10 +477,11 @@ internal static class MeleeCombatFeats
             .SetGuiPresentation(Category.Feat)
             .SetFeatures(
                 FeatureDefinitionAttributeModifiers.AttributeModifierCreed_Of_Arun,
-                PowerFeatCrusherHit,
-                FeatureFeatCrusher)
+                FeatureFeatCrusher,
+                PowerFeatCrusherHit)
             .SetFeatFamily(GroupFeats.Crusher)
             .SetAbilityScorePrerequisite(AttributeDefinitions.Constitution, 13)
+            //.SetCustomSubFeatures(ValidatorsCharacter.MainHandIsOfDamageType(DamageTypeBludgeoning))
             .AddToDB();
     }
 
@@ -764,7 +768,7 @@ internal static class MeleeCombatFeats
 
     #endregion
 
-    #region GroupFeats.Piercer
+    #region Piercer
 
     private static FeatDefinition BuildPiercerDex()
     {

@@ -152,7 +152,7 @@ internal sealed class WayOfTheDragon : AbstractSubclass
             .SetEffectDescription(EffectDescriptionBuilder
                 .Create(PowerDragonbornBreathWeaponGreen.EffectDescription)
                 .SetParticleEffectParameters(StinkingCloud)
-                .SetTargetingData(Side.All, RangeType.Self, 2, TargetType.Sphere, 2)
+                .SetTargetingData(Side.All, RangeType.Self, 0, TargetType.Sphere, 3)
                 .SetDurationData(DurationType.Round, 3)
                 .AddEffectForms(EffectFormBuilder.Create()
                         .SetSummonEffectProxyForm(effectGreenElementalBreath)

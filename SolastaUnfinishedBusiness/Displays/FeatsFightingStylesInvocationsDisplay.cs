@@ -60,6 +60,18 @@ internal static class FeatsFightingStylesInvocationsDisplay
         Main.Settings.DisplayInvocationsToggle = displayToggle;
         Main.Settings.InvocationSliderPosition = sliderPos;
 
+        displayToggle = Main.Settings.DisplayMetamagicToggle;
+        sliderPos = Main.Settings.MetamagicSliderPosition;
+        ModUi.DisplayDefinitions(
+            Gui.Localize("ModUi/&Metamagic"),
+            MetamagicContext.SwitchMetamagic,
+            MetamagicContext.Metamagic,
+            Main.Settings.MetamagicEnabled,
+            ref displayToggle,
+            ref sliderPos);
+        Main.Settings.DisplayMetamagicToggle = displayToggle;
+        Main.Settings.MetamagicSliderPosition = sliderPos;
+
         UI.Label();
     }
 }

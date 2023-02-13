@@ -33,6 +33,7 @@ public class Settings : UnityModManager.ModSettings
     public bool DisplayFeatGroupsToggle { get; set; } = true;
     public bool DisplayFightingStylesToggle { get; set; } = true;
     public bool DisplayInvocationsToggle { get; set; } = true;
+    public bool DisplayMetamagicToggle { get; set; } = true;
     public bool DisplayCraftingToggle { get; set; }
     public bool DisplayMerchantsToggle { get; set; } = true;
     public SerializableDictionary<string, bool> DisplaySpellListsToggle { get; set; } = new();
@@ -48,6 +49,7 @@ public class Settings : UnityModManager.ModSettings
     public bool EnableMultiLineSpellPanel { get; set; } = true;
     public bool EnableSameWidthFeatSelection { get; set; } = true;
     public bool EnableSameWidthInvocationSelection { get; set; } = true;
+    public bool EnableSameWidthMetamagicSelection { get; set; } = true;
     public bool EnableSortingFightingStyles { get; set; } = true;
     public bool EnableSortingSubclasses { get; set; } = true;
     public bool EnableSortingFutureFeatures { get; set; } = true;
@@ -107,7 +109,7 @@ public class Settings : UnityModManager.ModSettings
     public List<string> SubclassEnabled { get; } = new();
 
     //
-    // Characters - Feats, Groups, Fighting Styles and Invocations
+    // Characters - Feats, Groups, Fighting Styles, Invocations and Metamagic
     //
 
     public int FeatSliderPosition { get; set; } = ModUi.DontDisplayDescription;
@@ -122,6 +124,9 @@ public class Settings : UnityModManager.ModSettings
     public int InvocationSliderPosition { get; set; } = ModUi.DontDisplayDescription;
     public List<string> InvocationEnabled { get; } = new();
 
+    public int MetamagicSliderPosition { get; set; } = ModUi.DontDisplayDescription;
+    public List<string> MetamagicEnabled { get; } = new();
+
     //
     // Characters - Spells
     //
@@ -135,7 +140,6 @@ public class Settings : UnityModManager.ModSettings
     //
 
     // SRD
-    public bool FixSorcererTwinnedLogic { get; set; }
     public bool ApplySrdWeightToFoodRations { get; set; }
     public bool UseOfficialAdvantageDisadvantageRules { get; set; }
     public bool IdentifyAfterRest { get; set; }
@@ -166,7 +170,9 @@ public class Settings : UnityModManager.ModSettings
     public bool MakeAllMagicStaveArcaneFoci { get; set; }
 
     public int IncreaseSenseNormalVision { get; set; } = SrdAndHouseRulesContext.DefaultVisionRange;
+    public int CriticalHitModeAllies { get; set; }
 
+    public int CriticalHitModeEnemies { get; set; }
     //
     // Gameplay - Items, Crafting & Merchants
     //
@@ -318,7 +324,9 @@ public class Settings : UnityModManager.ModSettings
 
     // Debug
     public bool DebugDisableVerifyDefinitionNameIsNotInUse { get; set; }
+#if DEBUG
     public bool DebugLogDefinitionCreation { get; set; }
     public bool DebugLogFieldInitialization { get; set; }
     public bool DebugLogVariantMisuse { get; set; }
+#endif
 }

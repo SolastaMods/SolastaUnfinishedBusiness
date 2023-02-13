@@ -130,3 +130,6 @@ UI/&RecipeFilterAmmunition=Munição
 UI/&RecipeFilterArmor=Armaduras
 UI/&RecipeFilterUsableDevices=Dispositivos utilizáveis
 UI/&RecipeFilterWeapons=Armas
+Feature/&MetamagicAltruisticSpellDescription=Quando você lança um feitiço mirando em si mesmo sem raio associado, você também pode afetar um aliado dentro de 30 pés. O custo dos pontos de feitiçaria é igual ao nível do feitiço.
+Feature/&MetamagicAltruisticSpellTitle=Altruísta
+Failure/&FailureFlagSpellRangeMustBeSelf=O alcance do feitiço deve ser próprio sem raio de efeito

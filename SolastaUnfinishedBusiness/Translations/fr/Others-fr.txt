@@ -130,3 +130,6 @@ UI/&RecipeFilterAmmunition=Munition
 UI/&RecipeFilterArmor=Armure
 UI/&RecipeFilterUsableDevices=Appareils utilisables
 UI/&RecipeFilterWeapons=Armes
+Feature/&MetamagicAltruisticSpellDescription=Lorsque vous lancez un sort qui vous cible sans rayon associé, vous pouvez également affecter un allié à moins de 9 mètres. Le coût en points de sorcellerie est égal au niveau du sort.
+Feature/&MetamagicAltruisticSpellTitle=Altruiste
+Failure/&FailureFlagSpellRangeMustBeSelf=La portée du sort doit être propre sans rayon d'effet

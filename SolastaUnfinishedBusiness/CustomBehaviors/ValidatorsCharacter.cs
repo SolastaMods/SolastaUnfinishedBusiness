@@ -68,12 +68,18 @@ internal static class ValidatorsCharacter
     internal static readonly IsCharacterValidHandler NotHeavyArmor = character =>
         !HasArmorCategory(character, EquipmentDefinitions.HeavyArmorCategory);
 
-    internal static IsCharacterValidHandler MainHandHasWeaponType(
-        params WeaponTypeDefinition[] weaponTypeDefinitions)
+    internal static IsCharacterValidHandler MainHandHasWeaponType(params WeaponTypeDefinition[] weaponTypeDefinitions)
     {
         return character =>
-            ValidatorsWeapon.IsWeaponType(character.GetItemInSlot(EquipmentDefinitions.SlotTypeMainHand),
+            ValidatorsWeapon.IsWeaponType(character.GetMainWeapon(),
                 weaponTypeDefinitions);
+    }
+
+    internal static IsCharacterValidHandler MainHandIsOfDamageType(string damageType)
+    {
+        return character =>
+            ValidatorsWeapon.IsDamageType(character.GetMainWeapon(),
+                damageType);
     }
 
     // Does character has free offhand in TA's terms as used in RefreshAttackModes for bonus unarmed attack for Monk?

@@ -5,19 +5,15 @@ namespace SolastaUnfinishedBusiness.Displays;
 
 internal static class RulesDisplay
 {
+    private static readonly string[] Options = { "0", "1", "2", "3" };
+
     internal static void DisplayRules()
     {
         UI.Label();
         UI.Label(Gui.Localize("ModUi/&SRD"));
         UI.Label();
 
-        var toggle = Main.Settings.FixSorcererTwinnedLogic;
-        if (UI.Toggle(Gui.Localize("ModUi/&FixSorcererTwinnedLogic"), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.FixSorcererTwinnedLogic = toggle;
-        }
-
-        toggle = Main.Settings.ApplySrdWeightToFoodRations;
+        var toggle = Main.Settings.ApplySrdWeightToFoodRations;
         if (UI.Toggle(Gui.Localize("ModUi/&ApplySRDWeightToFoodRations"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.ApplySrdWeightToFoodRations = toggle;
@@ -193,6 +189,38 @@ internal static class RulesDisplay
                 SrdAndHouseRulesContext.DefaultVisionRange, "", UI.AutoWidth()))
         {
             Main.Settings.IncreaseSenseNormalVision = intValue;
+        }
+
+        UI.Label();
+        UI.Label(Gui.Localize("ModUi/&Critical"));
+        UI.Label();
+
+        UI.Label(Gui.Localize("ModUi/&CriticalOption0"));
+        UI.Label(Gui.Localize("ModUi/&CriticalOption1"));
+        UI.Label(Gui.Localize("ModUi/&CriticalOption2"));
+        UI.Label(Gui.Localize("ModUi/&CriticalOption3"));
+        UI.Label();
+
+        using (UI.HorizontalScope())
+        {
+            UI.Label(Gui.Localize("Caption/&TargetFilteringAllyCreature"), UI.Width(100));
+
+            intValue = Main.Settings.CriticalHitModeAllies;
+            if (UI.SelectionGrid(ref intValue, Options, Options.Length, 4, UI.Width(220)))
+            {
+                Main.Settings.CriticalHitModeAllies = intValue;
+            }
+        }
+
+        using (UI.HorizontalScope())
+        {
+            UI.Label(Gui.Localize("Caption/&TargetFilteringEnemyCreature"), UI.Width(100));
+
+            intValue = Main.Settings.CriticalHitModeEnemies;
+            if (UI.SelectionGrid(ref intValue, Options, Options.Length, 4, UI.Width(220)))
+            {
+                Main.Settings.CriticalHitModeEnemies = intValue;
+            }
         }
 
         UI.Label();
