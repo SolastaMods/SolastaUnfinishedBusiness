@@ -1,3 +1,4 @@
 - added Altruistic metamagic
 - added rule to offer different critical damage calculation algorithms
 - fixed Crusher and respective interaction with other feats under multiplayer
+- improved long mace icons
