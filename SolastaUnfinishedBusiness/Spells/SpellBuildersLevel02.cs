@@ -48,7 +48,7 @@ internal static partial class SpellBuilders
             .SetDurationData(DurationType.Minute, 1)
             .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
             .SetEffectForms(EffectFormBuilder.Create()
-                .SetConditionForm(condition, ConditionForm.ConditionOperation.Add, true, false)
+                .SetConditionForm(condition, ConditionForm.ConditionOperation.Add)
                 .Build())
             .SetParticleEffectParameters(Blur)
             .Build();
