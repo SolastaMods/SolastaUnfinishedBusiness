@@ -1,4 +1,5 @@
-﻿using System.Diagnostics.CodeAnalysis;
+﻿using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api;
@@ -171,6 +172,21 @@ public static class RulesetImplementationManagerLocationPatcher
                 }, null, false);
 
             return false;
+        }
+    }
+
+    [HarmonyPatch(typeof(RulesetImplementationManagerLocation),
+        nameof(RulesetImplementationManagerLocation.IsAnyMetamagicOptionAvailable))]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
+    public static class IsAnyMetamagicOptionAvailable_Patch
+    {
+        [UsedImplicitly]
+        public static IEnumerable<CodeInstruction> Transpiler([NotNull] IEnumerable<CodeInstruction> instructions)
+        {
+            //PATCH: support for `ReplaceMetamagicOption`
+            return ReplaceMetamagicOption.PatchMetamagicGetter(instructions,
+                "RulesetImplementationManagerLocation.IsAnyMetamagicOptionAvailable");
         }
     }
 }
