@@ -48,7 +48,7 @@ internal static class MetamagicBuilders
             effect.rangeType = RangeType.Distance;
             effect.rangeParameter = 6;
             effect.targetType = TargetType.IndividualsUnique;
-            effect.targetParameter = 2;
+            effect.targetParameter = 1;
 
             return effect;
         }
