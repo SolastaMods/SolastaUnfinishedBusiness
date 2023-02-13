@@ -130,3 +130,6 @@ UI/&RecipeFilterAmmunition=Munition
 UI/&RecipeFilterArmor=Rüstung
 UI/&RecipeFilterUsableDevices=Verwendbare Geräte
 UI/&RecipeFilterWeapons=Waffen
+Feature/&MetamagicAltruisticSpellDescription=Wenn Sie einen Zauber wirken, der auf sich selbst ohne zugeordneten Radius zielt, können Sie auch einen Verbündeten innerhalb von 30 Fuß treffen. Die Kosten für Zauberpunkte entsprechen dem Grad des Zaubers.
+Feature/&MetamagicAltruisticSpellTitle=Altruistisch
+Failure/&FailureFlagSpellRangeMustBeSelf=Die Zauberreichweite muss selbst sein, ohne Wirkungsradius

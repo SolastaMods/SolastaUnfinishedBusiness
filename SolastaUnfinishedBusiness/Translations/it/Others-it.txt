@@ -130,3 +130,6 @@ UI/&RecipeFilterAmmunition=Munizioni
 UI/&RecipeFilterArmor=Armatura
 UI/&RecipeFilterUsableDevices=Dispositivi utilizzabili
 UI/&RecipeFilterWeapons=Armi
+Feature/&MetamagicAltruisticSpellDescription=Quando lanci un incantesimo che prende di mira te stesso senza raggio associato, puoi anche influenzare un alleato entro 9 metri. Il costo in punti stregoneria è pari al livello dell'incantesimo.
+Feature/&MetamagicAltruisticSpellTitle=Altruista
+Failure/&FailureFlagSpellRangeMustBeSelf=La portata dell'incantesimo deve essere se stessa senza raggio d'effetto

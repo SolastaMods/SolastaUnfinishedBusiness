@@ -2,25 +2,17 @@
 using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
-using UnityEngine;
-using UnityEngine.UI;
 using static SolastaUnfinishedBusiness.Metamagic.MetamagicBuilders;
 
 namespace SolastaUnfinishedBusiness.Models;
 
 internal static class MetamagicContext
 {
-    private const int Columns = 4;
-    private const int Width = 230;
-    private const int Height = 44;
-    private const int SpacingX = 7;
-    private const int SpacingY = 5;
-
     internal static HashSet<MetamagicOptionDefinition> Metamagic { get; private set; } = new();
 
     internal static void LateLoad()
     {
-        LoadMetamagic(BuildTestMetamagic());
+        LoadMetamagic(BuildMetamagicAltruisticSpell());
         // sorting
         Metamagic = Metamagic.OrderBy(x => x.FormatTitle()).ToHashSet();
 
