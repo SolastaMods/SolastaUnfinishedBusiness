@@ -49,6 +49,7 @@ internal static class MetamagicBuilders
             effect.rangeParameter = 6;
             effect.targetType = TargetType.IndividualsUnique;
             effect.targetParameter = 1;
+            effect.targetExcludeCaster = true;
 
             return effect;
         }
