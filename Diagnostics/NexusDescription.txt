@@ -100,7 +100,6 @@ All settings start disabled by default.
 
 [*][b]Inventor[/b]: Inventors are tinkerers, alchemists, and more. They bridge the space between magic and technology.
 
-[*][b]Oath of Altruism <color=red>[BETA]</color>[/b]: Heroes know their calling, and the Oath of Altruism calls out to those selfless heroes who put protection of the meek above all else. Followers of this Oath, are truly selfless protectors, who risk their own lives and would willfully die to protector those they care for. Paladins of this oath are not looking for glory and often align themselves with those seeking a greater purpose. They lend their shields and swords for the greater good of the goals of the team, before their own.
 [*][b]Armorer[/b]: Armorers focus their studies on magical armors and how to use them effectively.
 [*][b]Grenadier[/b]: Grenadiers study unstable substances and their use in creating explosions of various types.
 [*][b]Weaponsmith[/b]: Weaponsmiths focus their studies on magical weapons and how to use them effectively.
@@ -123,6 +122,7 @@ All settings start disabled by default.
 [*][b]Royal Knight[/b]: A knight who inspires greatness in others by committing brave deeds in battle. A Royal Knight is a skilled warrior, but one leading a band of allies can transform even the most poorly equipped militia into a ferocious war band.
 [*][b]Spell Shield[/b]: Spell Shields are fighters that specialize in defense and protection. They use magic to aid their natural abilities.
 [*][b]Tactician[/b]: The Tactician uses their knowledge and might on the battlefield to perform different gambits as they are needed. They can knock down foes, inspire their allies and get in deadly counter-strikes against their foes.
+[*][b]Oath of Altruism[/b]: Heroes know their calling, and the Oath of Altruism calls out to those selfless heroes who put protection of the meek above all else. Followers of this Oath, are truly selfless protectors, who risk their own lives and would willfully die to protector those they care for. Paladins of this oath are not looking for glory and often align themselves with those seeking a greater purpose. They lend their shields and swords for the greater good of the goals of the team, before their own.
 [*][b]Oath of Ancients[/b]: An Oath from a more primitive time which one dedicates themself to utilizing nature for good.
 [*][b]Oath of Hatred[/b]: An Oath of Hatred paladin has dedicated himself to the punishment of evil doers by channeling hate.
 [*][b]Arcanist[/b]: The Arcanist melds their Ranger skills with arcane abilities. Their weapons can afflict their opponents with the Arcanist's Mark, and have learned how to cast some Wizard spells as part of their Ranger spell repertoire.
@@ -148,7 +148,6 @@ All settings start disabled by default.
 
 [list=1]
 
-[*][b]Altruistic[/b]: You left all selfish in this world behind. You can cast any spell with a self range to any individual within 30 feet. The number of individuals you can target the spell is equal to your proficiency bonus divided by 2.
 [*][b]Apothecary [Cha][/b]: Increase your Charisma by 1, to a maximum of 20.
 You gain proficiency with herbalism kit and Arcana, or expertise if already proficient.
 [*][b]Apothecary [Int][/b]: Increase your Intelligence by 1, to a maximum of 20.

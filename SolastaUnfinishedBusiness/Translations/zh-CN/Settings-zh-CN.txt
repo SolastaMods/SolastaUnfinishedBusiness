@@ -4,12 +4,12 @@ ModUi/&AddCustomIconsToOfficialItems=为黯蚀、火焰和闪电弩箭添加自�
 ModUi/&AddHelpActionToAllRaces=添加<color=#D89555>协助</color>动作至全部种族
 ModUi/&AddHumanoidFavoredEnemyToRanger=为<color=#D89555>巡林客</color>添加类人生物宿敌
 ModUi/&AddMonkKiPointsToggle=添加一个开关以允许<color=#D89555>僧侣</color>启用/禁用 Ki 点<i><color=#F0DAA0>[用于最小化反应提示]</color></i>
+ModUi/&AddMonsterSwapAttackToggle=添加一个开关以允许 <color=#D89555>Druids</color> 以 wildshape 形式交换先使用哪个攻击
 ModUi/&AddNewBrightEyeColors=添加一种全新的明亮眼睛颜色
 ModUi/&AddNewWeaponsAndRecipesToShops=添加新的武器和配方至商店<color=#F0DAA0>【裹手，戟，长矛，长钉头锤，手弩】</color> <color=#C04040E0>【需要重启游戏】</color>
 ModUi/&AddPaladinSmiteToggle=添加一个开关以允许 <color=#D89555>Paladins</color> 仅在暴击时启用打击<i><color=#F0DAA0>[有助于最小化反应提示]</color></i>
 ModUi/&AddPickPocketableLoot=添加可扒窃的战利品<color=#F0DAA0>【建议在<color=#D89555>扒窃</color>专长被启用时启用】</color>
 ModUi/&AddToStore=加入商店
-ModUi/&AddMonsterSwapAttackToggle=添加一个开关以允许 <color=#D89555>Druids</color> 以 wildshape 形式交换先使用哪个攻击
 ModUi/&Advanced=<color=#F0DAA0>进阶选项：</color> <b><i><color=#C04040E0>【需要重启游戏】</color></i></b>
 ModUi/&AdvancedHelp=. <b><color=#C04040E0>注意：</color></b>此项设置将要求玩家安装此Mod
 ModUi/&Adventure=<color=#F0DAA0>冒险：</color>
@@ -46,6 +46,11 @@ ModUi/&Crafting=<color=#F0DAA0>制作：</color>
 ModUi/&CraftingHelp=. 点击按钮立即学习可活动队伍的配方\n. 添加到商店的物品可能需要队伍从该地点离开后再回来
 ModUi/&Credits=致敬
 ModUi/&CreditsAndDiagnostics=致敬与诊断
+ModUi/&Critical=<color=#F0DAA0>暴击：</color>
+ModUi/&CriticalOption0=. 0：游戏默认，掷任何伤害骰子两次，添加结果并添加修饰符 <i><color=#F0DAA0>[XdY+XdY+Z]</color></i>
+ModUi/&CriticalOption1=. 1：将伤害骰子的最大结果加到攻击伤害中 <i><color=#F0DAA0>[XdY+(X*Y)+Z]</color></i>
+ModUi/&CriticalOption2=. 2：继续重新掷任何掷出最高可能结果的伤害骰子，并将其添加到总伤害中
+ModUi/&CriticalOption3=. 3：双倍攻击的总伤害而不是掷额外的骰子。 <i><color=#F0DAA0>[(XdY+Z)*2]</color></i>
 ModUi/&DeadEyeAndPowerAttackBaseBaseValue=<color=white>设置神枪手与猛力攻击的基础修正值</color>\n<i><color=#F0DAA0>[公式是 -mod 命中/mod + 熟练加值伤害]</color></i>
 ModUi/&DisableAutoEquip=禁止自动装备物品栏的物品
 ModUi/&DisableRacePrerequisitesOnModFeats=无视此MOD提供的部分专长所需要的种族先决条件
@@ -141,6 +146,7 @@ ModUi/&MakeLargeWildshapeFormsMedium=使所有大的 wildshape 形式中等大�
 ModUi/&MarkInvisibleTeleportersOnLevelMap=<i>+ 在关卡地图上标记已发现的隐形传送点的位置</i>
 ModUi/&MaxAllowedClasses=<color=white>最高职业数量</color>
 ModUi/&Merchants=<color=#F0DAA0>商人：</color>
+ModUi/&Metamagic=<color=#F0DAA0>超魔</color>
 ModUi/&Monsters=<color=#F0DAA0>怪物:</color>
 ModUi/&MulticlassKeyHelp=<color=#1E81B0>SHIFT</color>点击一个法术会消耗一个法术位，而非默认的契约法术位\n<i><color=#F0DAA0>【<color=#D89555>邪术师</color> 消耗白色法术位，其他职业消耗绿色法术位】</color></i>
 ModUi/&MultiplyTheExperienceGainedBy=<color=white>获得的经验倍率</color> <color=#C04040E0>【%】</color>
@@ -210,9 +216,3 @@ ModUi/&UnlockSkinColors=解锁全部皮肤颜色
 ModUi/&UseHeightOneCylinderEffect=施放<color=#D89555>艾伐黑触手、纠缠术、油腻术</color> <i><color=#F0DAA0>【方形】</color></i> or <color=#D89555>荆棘丛生</color> <i><color=#F0DAA0>【圆形】</color></i>时，显示高度为1的圆柱效果范围
 ModUi/&UseOfficialAdvantageDisadvantageRules=应用官方的优势/劣势规则
 ModUi/&Visuals=<color=#F0DAA0>视效：</color> <b><i><color=#C04040E0>【需要重启游戏】</color></i></b>
-ModUi/&Critical=<color=#F0DAA0>暴击：</color>
-ModUi/&CriticalOption0=. 0：游戏默认，掷任何伤害骰子两次，添加结果并添加修饰符 <i><color=#F0DAA0>[XdY+XdY+Z]</color></i>
-ModUi/&CriticalOption1=. 1：将伤害骰子的最大结果加到攻击伤害中 <i><color=#F0DAA0>[XdY+(X*Y)+Z]</color></i>
-ModUi/&CriticalOption2=. 2：继续重新掷任何掷出最高可能结果的伤害骰子，并将其添加到总伤害中
-ModUi/&CriticalOption3=. 3：双倍攻击的总伤害而不是掷额外的骰子。 <i><color=#F0DAA0>[(XdY+Z)*2]</color></i>
-ModUi/&Metamagic=<color=#F0DAA0>超魔</color>

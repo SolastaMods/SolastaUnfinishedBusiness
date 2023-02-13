@@ -41,6 +41,7 @@ InvocationDefinition
 ItemDefinition
 ItemFlagDefinition
 LanguageDefinition
+MetamagicOptionDefinition
 MonsterAttackDefinition
 MonsterDefinition
 MorphotypeElementDefinition

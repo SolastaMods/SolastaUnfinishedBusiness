@@ -4,12 +4,12 @@ ModUi/&AddCustomIconsToOfficialItems=Adicione ícones personalizados aos itens o
 ModUi/&AddHelpActionToAllRaces=Adicione a ação <color=#D89555>Ajuda</color> a todas as raças jogáveis <i><color=#F0DAA0>[você pode ajudar uma criatura aliada a atacar uma criatura a até 1,5 metro de você]</color></i>
 ModUi/&AddHumanoidFavoredEnemyToRanger=Adicione o inimigo preferencial humanóide a <color=#D89555>Rangers</color>
 ModUi/&AddMonkKiPointsToggle=Adicione uma alternância para permitir que <color=#D89555>Monks</color> habilite/desabilite Pontos Ki <i><color=#F0DAA0>[útil para minimizar solicitações de reação]</color></i>
+ModUi/&AddMonsterSwapAttackToggle=Adicionada uma alternância para permitir que <color=#D89555>Druidas</color> em forma selvagem selecionem qual ataque usar primeiro <i><color=#F0DAA0>[útil com uma mistura de corpo a corpo e à distância]</color> </i>
 ModUi/&AddNewBrightEyeColors=Adicione novas cores de olhos brilhantes
 ModUi/&AddNewWeaponsAndRecipesToShops=Adicione novas armas e receitas às lojas <i><color=#F0DAA0>[bandagens de mão, alabardas, lanças, maças longas, bestas de mão]</color></i> <b><i><color=#C04040E0> [Requer reinicialização]</color></i></b>
 ModUi/&AddPaladinSmiteToggle=Adicionada uma alternância para permitir que <color=#D89555>Paladins</color> habilite smites apenas em acertos críticos <i><color=#F0DAA0>[útil para minimizar solicitações de reação]</color></i>
 ModUi/&AddPickPocketableLoot=Adicionado pilhagem para furto <i><color=#F0DAA0>[sugerido se o talento <color=#D89555>Pickpocket</color> estiver ativado]</color></i>
 ModUi/&AddToStore=Adicionar à loja
-ModUi/&AddMonsterSwapAttackToggle=Adicionada uma alternância para permitir que <color=#D89555>Druidas</color> em forma selvagem selecionem qual ataque usar primeiro <i><color=#F0DAA0>[útil com uma mistura de corpo a corpo e à distância]</color> </i>
 ModUi/&Advanced=<color=#F0DAA0>Avançado:</color> <b><i><color=#C04040E0>[Requer reinicialização]</color></i></b>
 ModUi/&AdvancedHelp=. <b><color=#C04040E0>ATENÇÃO:</color></b> Estas configurações exigirão que o jogador tenha este mod instalado
 ModUi/&Adventure=<color=#F0DAA0>Aventura:</color>
@@ -46,6 +46,11 @@ ModUi/&Crafting=<color=#F0DAA0>Criação:</color>
 ModUi/&CraftingHelp=. Pressione o botão para aprender receitas instantaneamente na parte ativa\n. Os itens adicionados às lojas podem exigir que o grupo se afaste do local e volte
 ModUi/&Credits=Créditos
 ModUi/&CreditsAndDiagnostics=Créditos e Diagnósticos
+ModUi/&Critical=<color=#F0DAA0>Acerto crítico:</color>
+ModUi/&CriticalOption0=. 0: jogo padrão, role qualquer dado de dano duas vezes, adicione o resultado e adicione modificadores <i><color=#F0DAA0>[XdY+XdY+Z]</color></i>
+ModUi/&CriticalOption1=. 1: soma o resultado máximo dos dados de dano e adiciona ao dano do ataque <i><color=#F0DAA0>[XdY+(X*Y)+Z]</color></i>
+ModUi/&CriticalOption2=. 2: continue rolando novamente qualquer dado de dano que role o resultado mais alto possível e adicione-o ao dano total
+ModUi/&CriticalOption3=. 3: Duplique o dano total do seu ataque em vez de rolar dados adicionais. <i><color=#F0DAA0>[(XdY+Z)*2]</color></i>
 ModUi/&DeadEyeAndPowerAttackBaseBaseValue=<color=white>Definir o valor do modificador base Deadeye e Power Attack</color>\n<i><color=#F0DAA0>[a fórmula é -mod para acertar / mod + seu bônus de proficiência para danificar]</color></i>
 ModUi/&DisableAutoEquip=Desativar o equipamento automático de itens no inventário
 ModUi/&DisableRacePrerequisitesOnModFeats=Desativar os pré-requisitos de raça nos talentos fornecidos por este mod
@@ -141,6 +146,7 @@ ModUi/&MakeLargeWildshapeFormsMedium=Tornar todos os formulários de forma selva
 ModUi/&MarkInvisibleTeleportersOnLevelMap=<i>+ Marque também a localização dos teletransportadores invisíveis no mapa de nível após a descoberta</i>
 ModUi/&MaxAllowedClasses=<color=white>Máximo de aulas permitidas</color>
 ModUi/&Merchants=<color=#F0DAA0>Comerciantes:</color>
+ModUi/&Metamagic=<color=#F0DAA0>Metamagia</color>
 ModUi/&Monsters=<color=#F0DAA0>Monstros:</color>
 ModUi/&MulticlassKeyHelp=<color=#1E81B0>SHIFT</color> clique em um feitiço inverte o tipo de slot de repertório padrão consumido\n<i><color=#F0DAA0>[<color=#D89555>Warlock</color> gasta slots de feitiço branco e outros gastam pacto verde]</color></i>
 ModUi/&MultiplyTheExperienceGainedBy=<color=white>Multiplique a experiência adquirida por</color> <color=#C04040E0>[%]</color>
@@ -210,9 +216,3 @@ ModUi/&UnlockSkinColors=Desbloquear cores de pele
 ModUi/&UseHeightOneCylinderEffect=Use um efeito de 1 cilindro de altura ao conjurar <color=#D89555>Tentáculos Negros, Enredar, Graxa</color> <i><color=#F0DAA0>[quadrado]</color></i> ou <color=#D89555>Crescimento do pico</color> <i><color=#F0DAA0>[rodada]</color></i>
 ModUi/&UseOfficialAdvantageDisadvantageRules=Use as regras oficiais de vantagem/desvantagem
 ModUi/&Visuals=<color=#F0DAA0>Visuais:</color> <b><i><color=#C04040E0>[Requer reinicialização]</color></i></b>
-ModUi/&Critical=<color=#F0DAA0>Acerto crítico:</color>
-ModUi/&CriticalOption0=. 0: jogo padrão, role qualquer dado de dano duas vezes, adicione o resultado e adicione modificadores <i><color=#F0DAA0>[XdY+XdY+Z]</color></i>
-ModUi/&CriticalOption1=. 1: soma o resultado máximo dos dados de dano e adiciona ao dano do ataque <i><color=#F0DAA0>[XdY+(X*Y)+Z]</color></i>
-ModUi/&CriticalOption2=. 2: continue rolando novamente qualquer dado de dano que role o resultado mais alto possível e adicione-o ao dano total
-ModUi/&CriticalOption3=. 3: Duplique o dano total do seu ataque em vez de rolar dados adicionais. <i><color=#F0DAA0>[(XdY+Z)*2]</color></i>
-ModUi/&Metamagic=<color=#F0DAA0>Metamagia</color>

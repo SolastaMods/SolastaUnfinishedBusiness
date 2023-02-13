@@ -4,12 +4,12 @@ ModUi/&AddCustomIconsToOfficialItems=Ajoutez des icônes personnalisées aux él
 ModUi/&AddHelpActionToAllRaces=Ajoutez l'action <color=#D89555>Aide</color> à toutes les races jouables <i><color=#F0DAA0>[vous pouvez aider une créature alliée à attaquer une créature à moins de 1,50 mètre de vous]</color></i>
 ModUi/&AddHumanoidFavoredEnemyToRanger=Ajouter un ennemi préféré humanoïde aux <color=#D89555>Rangers</color>
 ModUi/&AddMonkKiPointsToggle=Ajoutez une bascule pour permettre aux <color=#D89555>Moines</color> d'activer/désactiver les points Ki <i><color=#F0DAA0>[utile pour minimiser les invites de réaction]</color></i>
+ModUi/&AddMonsterSwapAttackToggle=Ajoutez une bascule pour permettre aux <color=#D89555>Druides</color> sous forme sauvage de sélectionner l'attaque à utiliser en premier <i><color=#F0DAA0>[utile avec un mélange d'attaques de mêlée et à distance]</color> </i>
 ModUi/&AddNewBrightEyeColors=Ajouter de nouvelles couleurs vives pour les yeux
 ModUi/&AddNewWeaponsAndRecipesToShops=Ajoutez de nouvelles armes et recettes aux boutiques <i><color=#F0DAA0>[bandages à main, hallebardes, piques, masses longues, arbalètes à main]</color></i> <b><i><color=#C04040E0> [Nécessite un redémarrage]</color></i></b>
 ModUi/&AddPaladinSmiteToggle=Ajoutez une bascule pour permettre aux <color=#D89555>Paladins</color> d'activer uniquement les châtiments sur les coups critiques <i><color=#F0DAA0>[utile pour minimiser les invites de réaction]</color></i>
 ModUi/&AddPickPocketableLoot=Ajouter un butin pickpocketable <i><color=#F0DAA0>[suggéré si la fonctionnalité <color=#D89555>Pickpocket</color> est activée]</color></i>
 ModUi/&AddToStore=Ajouter au magasin
-ModUi/&AddMonsterSwapAttackToggle=Ajoutez une bascule pour permettre aux <color=#D89555>Druides</color> sous forme sauvage de sélectionner l'attaque à utiliser en premier <i><color=#F0DAA0>[utile avec un mélange d'attaques de mêlée et à distance]</color> </i>
 ModUi/&Advanced=<color=#F0DAA0>Avancé:</color> <b><i><color=#C04040E0>[Nécessite un redémarrage]</color></i></b>
 ModUi/&AdvancedHelp=. <b><color=#C04040E0>ATTENTION:</color></b> Ces paramètres nécessiteront que le joueur ait installé ce mod
 ModUi/&Adventure=<color=#F0DAA0>Aventure:</color>
@@ -46,6 +46,11 @@ ModUi/&Crafting=<color=#F0DAA0>Artisanat:</color>
 ModUi/&CraftingHelp=. Appuyez sur le bouton pour apprendre des recettes instantanément sur le groupe actif\n. Les articles ajoutés aux magasins peuvent nécessiter que la fête s'éloigne de l'emplacement et revienne
 ModUi/&Credits=Crédits
 ModUi/&CreditsAndDiagnostics=Crédits & Diagnostics
+ModUi/&Critical=<color=#F0DAA0>Coup critique:</color>
+ModUi/&CriticalOption0=. 0: défaut du jeu, lancez deux fois les dés de dégâts, ajoutez le résultat et ajoutez les modificateurs <i><color=#F0DAA0>[XdY+XdY+Z]</color></i>
+ModUi/&CriticalOption1=. 1: additionnez le résultat maximum des dés de dégâts et ajoutez-le aux dégâts de l'attaque <i><color=#F0DAA0>[XdY+(X*Y)+Z]</color></i>
+ModUi/&CriticalOption2=. 2: continuez à relancer tous les dés de dégâts qui obtiennent le résultat le plus élevé possible et ajoutez-le au total des dégâts
+ModUi/&CriticalOption3=. 3 : Doublez les dégâts totaux de votre attaque au lieu de lancer des dés supplémentaires. <i><color=#F0DAA0>[(XdY+Z)*2]</color></i>
 ModUi/&DeadEyeAndPowerAttackBaseBaseValue=<color=white>Définir la valeur de base du modificateur Deadeye et Power Attack</color>\n<i><color=#F0DAA0>[la formule est -mod to hit / mod + votre bonus de compétence pour les dégâts]</color></i>
 ModUi/&DisableAutoEquip=Désactiver l'équipement automatique des objets dans l'inventaire
 ModUi/&DisableRacePrerequisitesOnModFeats=Désactiver les pré-requis de course sur les exploits fournis par ce mod
@@ -141,6 +146,7 @@ ModUi/&MakeLargeWildshapeFormsMedium=Faites en sorte que toutes les grandes form
 ModUi/&MarkInvisibleTeleportersOnLevelMap=<i>+Marquer également l'emplacement des téléporteurs invisibles sur la carte de niveau après la découverte</i>
 ModUi/&MaxAllowedClasses=<color=white>Classes maximales autorisées</color>
 ModUi/&Merchants=<color=#F0DAA0>Commerçants:</color>
+ModUi/&Metamagic=<color=#F0DAA0>Métamagie</color>
 ModUi/&Monsters=<color=#F0DAA0>Monstres:</color>
 ModUi/&MulticlassKeyHelp=Un clic <color=#1E81B0>SHIFT</color> sur un sort inverse le type d'emplacement par défaut du répertoire consommé\n<i><color=#F0DAA0>[<color=#D89555>Warlock</color> dépense des emplacements de sorts blancs et d'autres dépensent des pactes verts]</color></i>
 ModUi/&MultiplyTheExperienceGainedBy=<color=white>Multipliez l'expérience acquise par</color> <color=#C04040E0>[%]</color>
@@ -210,9 +216,3 @@ ModUi/&UnlockSkinColors=Déverrouiller les couleurs de peau
 ModUi/&UseHeightOneCylinderEffect=Utilisez un effet de cylindre de hauteur 1 lors du lancement de <color=#D89555>Tentacules noires, Enchevêtrement, Graisse</color> <i><color=#F0DAA0>[carré]</color></i> ou <color=#D89555>Croissance en pic</color> <i><color=#F0DAA0>[rond]</color></i>
 ModUi/&UseOfficialAdvantageDisadvantageRules=Utiliser les règles officielles d'avantage/désavantage
 ModUi/&Visuals=<color=#F0DAA0>Visuels:</color> <b><i><color=#C04040E0>[Nécessite un redémarrage]</color></i></b>
-ModUi/&Critical=<color=#F0DAA0>Coup critique:</color>
-ModUi/&CriticalOption0=. 0: défaut du jeu, lancez deux fois les dés de dégâts, ajoutez le résultat et ajoutez les modificateurs <i><color=#F0DAA0>[XdY+XdY+Z]</color></i>
-ModUi/&CriticalOption1=. 1: additionnez le résultat maximum des dés de dégâts et ajoutez-le aux dégâts de l'attaque <i><color=#F0DAA0>[XdY+(X*Y)+Z]</color></i>
-ModUi/&CriticalOption2=. 2: continuez à relancer tous les dés de dégâts qui obtiennent le résultat le plus élevé possible et ajoutez-le au total des dégâts
-ModUi/&CriticalOption3=. 3 : Doublez les dégâts totaux de votre attaque au lieu de lancer des dés supplémentaires. <i><color=#F0DAA0>[(XdY+Z)*2]</color></i>
-ModUi/&Metamagic=<color=#F0DAA0>Métamagie</color>

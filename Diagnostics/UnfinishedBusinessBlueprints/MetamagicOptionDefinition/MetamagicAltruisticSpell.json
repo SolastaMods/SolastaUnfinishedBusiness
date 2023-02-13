@@ -1,22 +1,16 @@
 {
-  "$type": "FeatDefinition, Assembly-CSharp",
-  "compatibleClassesPrerequisite": [],
-  "mustCastSpellsPrerequisite": true,
-  "compatibleRacesPrerequisite": [],
-  "minimalAbilityScorePrerequisite": false,
-  "minimalAbilityScoreValue": 13,
-  "minimalAbilityScoreName": "Strength",
-  "armorProficiencyPrerequisite": false,
-  "armorProficiencyCategory": "",
-  "hasFamilyTag": false,
-  "familyTag": "",
-  "knownFeatsPrerequisite": [],
-  "features": [],
+  "$type": "MetamagicOptionDefinition, Assembly-CSharp",
+  "costMethod": "SpellLevel",
+  "sorceryPointsCost": 1,
+  "metamagicType": 9000,
+  "parameterMethod": "FixedValue",
+  "parameterValue": 1,
+  "boundFeature": null,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
-    "title": "Feat/&FeatAltruisticTitle",
-    "description": "Feat/&FeatAltruisticDescription",
+    "title": "Feature/&MetamagicAltruisticSpellTitle",
+    "description": "Feature/&MetamagicAltruisticSpellDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -36,7 +30,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "fdba3b90-7c1d-54d7-a341-a51fb6aca9f6",
+  "guid": "7013dad5-2075-5e18-81ef-3d95326133cc",
   "contentPack": 9999,
-  "name": "FeatAltruistic"
+  "name": "MetamagicAltruisticSpell"
 }

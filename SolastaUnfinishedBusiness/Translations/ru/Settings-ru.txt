@@ -4,12 +4,12 @@ ModUi/&AddCustomIconsToOfficialItems=Добавьте пользовательс
 ModUi/&AddHelpActionToAllRaces=Добавить действие <color=#D89555>Помощь</color> всем возможным расам <i><color=#F0DAA0>[вы можете помочь союзному существу в атаке другого существа в 5 футах от Вас]</color></i>
 ModUi/&AddHumanoidFavoredEnemyToRanger=Добавить предпочитаемого врага-гуманоида к <color=#D89555>Рейнджерам</color>
 ModUi/&AddMonkKiPointsToggle=Добавьте переключатель, позволяющий <color=#D89555>монахам</color> включать/отключать точки Ки <i><color=#F0DAA0>[полезно для минимизации запросов на реакцию]</color></i>
+ModUi/&AddMonsterSwapAttackToggle=Добавьте переключатель, позволяющий <color=#D89555>Друидам</color> в форме дикой формы менять местами, какую атаку использовать первой.
 ModUi/&AddNewBrightEyeColors=Добавить новые светлые глаза в косметике
 ModUi/&AddNewWeaponsAndRecipesToShops=Добавить новые оружия и рецепты в магазинах <i><color=#F0DAA0>[наручи, алебарды, пики, длинные булавы, ручные арбалеты]</color></i> <b><i><color=#C04040E0>[Требуется Перезапуск]</color></i></b>
 ModUi/&AddPaladinSmiteToggle=Добавьте переключатель, позволяющий <color=#D89555>Paladins</color> включать удары только при критических ударах <i><color=#F0DAA0>[полезно для минимизации подсказок реакции]</color></i>
 ModUi/&AddPickPocketableLoot=Добавить лут для Карманников <i><color=#F0DAA0>[рекомендовано если черта <color=#D89555>Карманник</color> включена]</color></i>
 ModUi/&AddToStore=Добавить в магазин
-ModUi/&AddMonsterSwapAttackToggle=Добавьте переключатель, позволяющий <color=#D89555>Друидам</color> в форме дикой формы менять местами, какую атаку использовать первой.
 ModUi/&Advanced=<color=#F0DAA0>Advanced:</color> <b><i><color=#C04040E0>[Требуется Перезапуск]</color></i></b>
 ModUi/&AdvancedHelp=. <b><color=#C04040E0>ВНИМАНИЕ:</color></b> Эти настройки требуют установить этот мод
 ModUi/&Adventure=<color=#F0DAA0>Приключение:</color>
@@ -46,6 +46,11 @@ ModUi/&Crafting=<color=#F0DAA0>Создание предметов:</color>
 ModUi/&CraftingHelp=. Нажмите кнопку для мгновенного изучения рецепта при активной группе героев.\n. Предметы добавленные в магазины возможно потребуют от команды уйти и вернуться в Локацию
 ModUi/&Credits=Credits
 ModUi/&CreditsAndDiagnostics=Credits & Diagnostics
+ModUi/&Critical=<color=#F0DAA0>Критический удар:</color>
+ModUi/&CriticalOption0=. 0: игра по умолчанию, дважды бросьте любой кубик урона, добавьте результат и добавьте модификаторы <i><color=#F0DAA0>[XdY+XdY+Z]</color></i>
+ModUi/&CriticalOption1=. 1: суммируйте максимальный результат кубиков урона и добавьте его к урону от атаки <i><color=#F0DAA0>[XdY+(X*Y)+Z]</color></i>
+ModUi/&CriticalOption2=. 2: продолжайте перебрасывать любые кубики урона, которые выбрасывают максимально возможный результат, и добавляйте его к общему урону.
+ModUi/&CriticalOption3=. 3: Удвойте общий урон вашей атаки вместо того, чтобы бросать дополнительные кубики. <i><color=#F0DAA0>[(XdY+Z)*2]</color></i>
 ModUi/&DeadEyeAndPowerAttackBaseBaseValue=<color=white>Установить для «Меткий глаз» и «Мощная атака» базовое значение модификатора </color>\n<i><color=#F0DAA0>[formula is -mod to hit / mod + PB to damage]</color></i>
 ModUi/&DisableAutoEquip=Отключить автоматическое надевание предметов из инвентаря
 ModUi/&DisableRacePrerequisitesOnModFeats=Отключить Расовые предустановки на черты предлагаемые этим модом
@@ -141,6 +146,7 @@ ModUi/&MakeLargeWildshapeFormsMedium=Сделать все большие дик
 ModUi/&MarkInvisibleTeleportersOnLevelMap=<i>+ Также отметьте местоположение невидимых телепортов на карте для уровня после обнаружения.</i>
 ModUi/&MaxAllowedClasses=<color=white>Макс. разрешенные Классы</color>
 ModUi/&Merchants=<color=#F0DAA0>Торговцы:</color>
+ModUi/&Metamagic=<color=#F0DAA0>Метамагия</color>
 ModUi/&Monsters=<color=#F0DAA0>Монстры:</color>
 ModUi/&MulticlassKeyHelp=<color=#1E81B0>SHIFT</color> нажмите на заклинании, чтобы инвертировать используемый по умолчанию тип слота репертуара\n<i><color=#F0DAA0>[<color=#D89555>Чернокнижник</color> тратит белые слоты для заклинаний, а зеленые для слотов договора]</color></i>
 ModUi/&MultiplyTheExperienceGainedBy=<color=white>Умножить опыт, полученный </color> <color=#C04040E0>[%]</color>
@@ -210,9 +216,3 @@ ModUi/&UnlockSkinColors=Разблокировать цвет скинов
 ModUi/&UseHeightOneCylinderEffect=Используйте эффект цилиндра высотой 1 при кастовании <color=#D89555>Черные Тентакли, Опутать, Масло</color> <i><color=#F0DAA0>[square]</color></i> или <color=#D89555>Spike Growth</color> <i><color=#F0DAA0>[round]</color></i>
 ModUi/&UseOfficialAdvantageDisadvantageRules=Использоваться официальные правила штрафов и бонусов
 ModUi/&Visuals=<color=#F0DAA0>Visuals:</color> <b><i><color=#C04040E0>[Требуется Перезапуск]</color></i></b>
-ModUi/&Critical=<color=#F0DAA0>Критический удар:</color>
-ModUi/&CriticalOption0=. 0: игра по умолчанию, дважды бросьте любой кубик урона, добавьте результат и добавьте модификаторы <i><color=#F0DAA0>[XdY+XdY+Z]</color></i>
-ModUi/&CriticalOption1=. 1: суммируйте максимальный результат кубиков урона и добавьте его к урону от атаки <i><color=#F0DAA0>[XdY+(X*Y)+Z]</color></i>
-ModUi/&CriticalOption2=. 2: продолжайте перебрасывать любые кубики урона, которые выбрасывают максимально возможный результат, и добавляйте его к общему урону.
-ModUi/&CriticalOption3=. 3: Удвойте общий урон вашей атаки вместо того, чтобы бросать дополнительные кубики. <i><color=#F0DAA0>[(XdY+Z)*2]</color></i>
-ModUi/&Metamagic=<color=#F0DAA0>Метамагия</color>
