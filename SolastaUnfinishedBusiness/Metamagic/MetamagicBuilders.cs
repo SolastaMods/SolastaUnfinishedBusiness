@@ -14,7 +14,7 @@ internal static class MetamagicBuilders
         return MetamagicOptionDefinitionBuilder
             .Create(MetamagicAltruistic)
             .SetGuiPresentation(Category.Feature)
-            .SetCost()
+            .SetCost(MetamagicCostMethod.SpellLevel)
             .SetCustomSubFeatures(new ProvideMetamagicBehaviorMetamagicAltruisticSpell())
             .AddToDB();
     }
@@ -64,7 +64,7 @@ internal static class MetamagicBuilders
             effect.rangeType = RangeType.Distance;
             effect.rangeParameter = 6;
             effect.targetType = TargetType.IndividualsUnique;
-            effect.targetParameter = 1;
+            effect.targetParameter = 2;
         }
     }
 }
