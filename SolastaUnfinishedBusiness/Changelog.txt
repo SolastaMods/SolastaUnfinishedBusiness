@@ -1,4 +1,2 @@
-- added Altruistic metamagic
-- added rule to offer different critical damage calculation algorithms
-- fixed Crusher and respective interaction with other feats under multiplayer
-- improved long mace icons
+- refactored Altruistic metamagic spell to be on par with @Taco design
+- fixed Crusher only considering critical hit bonus if pushed action taken
