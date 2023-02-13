@@ -784,6 +784,7 @@ internal static class GameLocationBattleManagerTweaks
                         .UsePowerReaction:
                     {
                         var hero = attacker.RulesetCharacter as RulesetCharacterHero;
+
                         if (hero == null && attacker.RulesetCharacter.OriginalFormCharacter != null)
                         {
                             hero = attacker.RulesetCharacter.OriginalFormCharacter as RulesetCharacterHero;
@@ -794,15 +795,20 @@ internal static class GameLocationBattleManagerTweaks
 
                         var powerDefinition = DatabaseHelper.GetDefinition<FeatureDefinitionPower>(
                             (featureDefinition as FeatureDefinitionAdditionalDamage).SpecificDamageType);
+                        var rulesetPower = hero.UsablePowers.Find(x => x.PowerDefinition == powerDefinition);
 
-                        hero.LookForFeatureOrigin(powerDefinition, out var raceDefinition, out var classDefinition,
-                            out _);
+                        if (rulesetPower is { RemainingUses: > 0 })
+                        {
+                            yield return instance.PrepareAndReactWithPowerReaction(
+                                attacker, defender, attacker, rulesetPower);
 
-                        yield return instance.PrepareAndReactWithPowerReaction(
-                            attacker, defender, attacker,
-                            new RulesetUsablePower(powerDefinition, raceDefinition, classDefinition));
+                            validTrigger = reactionParams.ReactionValidated;
 
-                        validTrigger = reactionParams.ReactionValidated;
+                            if (validTrigger)
+                            {
+                                rulesetPower.ForceSpentPoints(powerDefinition.costPerUse);
+                            }
+                        }
 
                         break;
                     }
