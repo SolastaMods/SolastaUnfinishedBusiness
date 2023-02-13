@@ -101,7 +101,6 @@ ModUi/&FasterTimeModifier=<color=white>按空格键时可调整游戏速度</col
 ModUi/&FeatGroups=<color=#F0DAA0>专长组 </color>
 ModUi/&FeatGroupsHelp=. 每个专长组都是一组相似的专长组合<i><color=#F0DAA0>[即: 信条, 战斗风格, 超魔法等]</color></i>\n.  这些专长组中的专长将不再直接显示在熟练项选择阶段\n。 该组专长在被选中后会在下拉列表中进行显示，以减少游戏画面的凌乱程度。
 ModUi/&Feats=<color=#F0DAA0>专长</color>
-ModUi/&FeatsFightingStylesInvocations=专长, 战斗风格与魔能祈唤
 ModUi/&FightingStyles=<color=#F0DAA0>战斗风格</color>
 ModUi/&FixEldritchBlastRange=将 <color=#D89555>魔能爆</color> 的施法距离更改为 120 尺 <i><color=#F0DAA0>【而非 80 尺】</color></i>
 ModUi/&Formation=<color=#F0DAA0>队形：</color>

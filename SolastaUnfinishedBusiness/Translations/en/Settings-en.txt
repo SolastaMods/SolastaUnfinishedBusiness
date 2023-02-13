@@ -101,7 +101,6 @@ ModUi/&FasterTimeModifier=<color=white>Game time modifier when pressing space ba
 ModUi/&FeatGroups=<color=#F0DAA0>Feat Groups</color>
 ModUi/&FeatGroupsHelp=. Each group is a consolidation of similar feats <i><color=#F0DAA0>[i.e.: creeds, fighting styles, metamagic, etc]</color></i>\n. Feats in these groups won't be directly visible anymore on the proficiency selection stage\n. The group, when selected, offers them on a dropdown list to de-clutter the game screen
 ModUi/&Feats=<color=#F0DAA0>Feats</color>
-ModUi/&FeatsFightingStylesInvocations=Feats, Styles & Invocations
 ModUi/&FightingStyles=<color=#F0DAA0>Fighting Styles</color>
 ModUi/&FixEldritchBlastRange=Change <color=#D89555>Eldritch Blast</color> range to 24 <i><color=#F0DAA0>[instead of 16]</color></i>
 ModUi/&Formation=<color=#F0DAA0>Formation:</color>

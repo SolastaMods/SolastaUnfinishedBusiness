@@ -101,7 +101,6 @@ ModUi/&FasterTimeModifier=<color=white>Spielzeitmodifikator beim Drücken der Le
 ModUi/&FeatGroups=<color=#F0DAA0>Leistungsgruppen</color>
 ModUi/&FeatGroupsHelp=. Jede Gruppe ist eine Konsolidierung ähnlicher Heldentaten <i><color=#F0DAA0>[d.h. Glaubensbekenntnisse, Kampfstile, Metamagie usw.]</color></i>\n. Talente in diesen Gruppen werden nicht mehr direkt auf der Leistungsauswahlstufe sichtbar sein\n. Die Gruppe bietet sie, wenn sie ausgewählt ist, in einer Dropdown-Liste an, um den Spielbildschirm zu entrümpeln
 ModUi/&Feats=<color=#F0DAA0>Talente</color>
-ModUi/&FeatsFightingStylesInvocations=Kunststücke, Stile und Anrufungen
 ModUi/&FightingStyles=<color=#F0DAA0>Kampfstile</color>
 ModUi/&FixEldritchBlastRange=Ändere die Reichweite von <color=#D89555>Eldritch Blast</color> auf 24 <i><color=#F0DAA0>[statt 16]</color></i>
 ModUi/&Formation=<color=#F0DAA0>Formation:</color>
