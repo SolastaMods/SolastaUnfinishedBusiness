@@ -122,7 +122,8 @@ internal enum ExtraAdditionalDamageTriggerCondition
     // SpellDamagesTarget = AdditionalDamageTriggerCondition.SpellDamagesTarget,
     // NotWearingHeavyArmor = AdditionalDamageTriggerCondition.NotWearingHeavyArmor,
 
-    TargetWithin10Ft = 9000
+    TargetWithin10Ft = 9000,
+    UsePowerReaction = 9001,
 }
 
 public enum ExtraConditionInterruption
