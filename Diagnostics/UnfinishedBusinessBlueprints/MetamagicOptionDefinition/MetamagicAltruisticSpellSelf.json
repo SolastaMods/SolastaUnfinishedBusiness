@@ -1,0 +1,36 @@
+{
+  "$type": "MetamagicOptionDefinition, Assembly-CSharp",
+  "costMethod": "FixedValue",
+  "sorceryPointsCost": 3,
+  "metamagicType": 9000,
+  "parameterMethod": "FixedValue",
+  "parameterValue": 1,
+  "boundFeature": null,
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": true,
+    "title": "Feature/&MetamagicAltruisticSpellSelfTitle",
+    "description": "Feature/&MetamagicAltruisticSpellSelfDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "eac24684-fc62-5107-9ee7-b2e85b22cc4e",
+  "contentPack": 9999,
+  "name": "MetamagicAltruisticSpellSelf"
+}

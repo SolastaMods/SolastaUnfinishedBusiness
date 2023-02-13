@@ -339,7 +339,7 @@ internal static class PowerBundle
         }
 
 
-        var metamagic = (effect is RulesetEffectSpell spell) ? spell.MetamagicOption : null;
+        var metamagic = effect is RulesetEffectSpell spell ? spell.MetamagicOption : null;
 
         var cached = GetCachedEffect(caster, definition, metamagic);
 
@@ -527,7 +527,7 @@ internal static class PowerBundle
     {
         var activePower = action.ActionParams.RulesetEffect as RulesetEffectPower;
 
-        if (activePower is not {OriginItem: null})
+        if (activePower is not { OriginItem: null })
         {
             return;
         }
@@ -695,7 +695,7 @@ internal static class PowerBundle
     {
         item.executing = true;
 
-        var parameters = new FunctorParametersDescription {RestingHero = item.Hero, StringParameter = powerName};
+        var parameters = new FunctorParametersDescription { RestingHero = item.Hero, StringParameter = powerName };
         var gameRestingService = ServiceRepository.GetService<IGameRestingService>();
 
         yield return ServiceRepository.GetService<IFunctorService>()

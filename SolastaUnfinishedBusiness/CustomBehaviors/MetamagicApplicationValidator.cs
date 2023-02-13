@@ -1,6 +1,6 @@
 ﻿namespace SolastaUnfinishedBusiness.CustomBehaviors;
 
-delegate void MetamagicApplicationValidator(
+internal delegate void MetamagicApplicationValidator(
     RulesetCharacter caster,
     RulesetEffectSpell rulesetEffectSpell,
     MetamagicOptionDefinition metamagicOption,
