@@ -49,7 +49,6 @@ internal static class OtherFeats
 
     internal static void CreateFeats([NotNull] List<FeatDefinition> feats)
     {
-        var featAltruistic = BuildAltruistic();
         var featAstralArms = BuildAstralArms();
         var featEldritchAdept = BuildEldritchAdept();
         var featHealer = BuildHealer();
@@ -68,7 +67,6 @@ internal static class OtherFeats
         BuildMagicInitiate(feats);
 
         feats.AddRange(
-            featAltruistic,
             featAstralArms,
             featEldritchAdept,
             featHealer,
@@ -113,16 +111,6 @@ internal static class OtherFeats
             spellSniperGroup);
 
         GroupFeats.FeatGroupAgilityCombat.AddFeats(featMobile);
-    }
-
-    private static FeatDefinition BuildAltruistic()
-    {
-        return FeatDefinitionBuilder
-            .Create("FeatAltruistic")
-            .SetGuiPresentation(Category.Feat)
-            .SetCustomSubFeatures(new ModifyMagicEffectFeatAltruistic())
-            .SetMustCastSpellsPrerequisite()
-            .AddToDB();
     }
 
     private static FeatDefinition BuildAstralArms()
@@ -640,29 +628,6 @@ internal static class OtherFeats
         };
 
         return new RulesetEffectPower(rulesetCharacter, usablePower);
-    }
-
-    private sealed class ModifyMagicEffectFeatAltruistic : IModifyMagicEffect
-    {
-        public EffectDescription ModifyEffect(
-            BaseDefinition definition,
-            EffectDescription effect,
-            RulesetCharacter character)
-        {
-            if (effect.rangeType != RangeType.Self || effect.targetType != TargetType.Self || character is not RulesetCharacterHero hero)
-            {
-                return effect;
-            }
-
-            var proficiencyBonus = hero.GetAttribute(AttributeDefinitions.ProficiencyBonus).CurrentValue;
-
-            effect.rangeType = RangeType.Distance;
-            effect.rangeParameter = 6;
-            effect.targetType = TargetType.IndividualsUnique;
-            effect.targetParameter = proficiencyBonus / 2;
-
-            return effect;
-        }
     }
 
     private sealed class IgnoreDamageResistanceElementalAdept : IIgnoreDamageAffinity

@@ -1,7 +1,5 @@
 Condition/&ConditionFeatMobileAfterDashDescription=Otorga inmunidad a las restricciones de movimiento, así como ser restringido.
 Condition/&ConditionFeatMobileAfterDashTitle=Libertad
-Feat/&FeatAltruisticDescription=Dejaste atrás todas las acciones egoístas de este mundo. Puedes redirigir cualquier hechizo con un rango propio y un objetivo propio a cualquier individuo dentro de los 30 pies. Puedes tener un segundo objetivo en el nivel 9 y un tercero en el nivel 17.
-Feat/&FeatAltruisticTitle=Altruista
 Feat/&FeatAstralArmsDescription=Aumenta tu Sabiduría en 1, hasta un máximo de 20.\nCuando realizas un ataque sin armas en tu turno, tu alcance es de 10 pies.
 Feat/&FeatAstralArmsTitle=Alcance astral
 Feat/&FeatEldritchAdeptDescription=Aprendes una opción de Invocación sobrenatural de tu elección de la clase de brujo. Si la invocación tiene un requisito previo, puedes elegir esa invocación solo si eres un brujo y solo si cumples con el requisito previo. Siempre que ganes un nivel, puedes reemplazar la invocación con otra de la clase brujo.

@@ -1,7 +1,5 @@
 Condition/&ConditionFeatMobileAfterDashDescription=Grants immunity to movement restrictions as well as being restrained.
 Condition/&ConditionFeatMobileAfterDashTitle=Freedom
-Feat/&FeatAltruisticDescription=You left all the selfish actions in this world behind. You can redirect any spell with a self range and self target to any individual within 30 feet. You can have a 2nd target at level 9th and a 3rd at level 17th. 
-Feat/&FeatAltruisticTitle=Altruistic
 Feat/&FeatAstralArmsDescription=Increase your Wisdom by 1, to a maximum of 20.\nWhen you make an unarmed strike on your turn, your reach for it is 10 feet.
 Feat/&FeatAstralArmsTitle=Astral Reach
 Feat/&FeatEldritchAdeptDescription=You learn one Eldritch Invocation option of your choice from the warlock class. If the invocation has a prerequisite, you can choose that invocation only if you're a warlock and only if you meet the prerequisite. Whenever you gain a level, you can replace the invocation with another one from the warlock class.
