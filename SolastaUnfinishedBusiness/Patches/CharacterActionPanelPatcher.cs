@@ -18,6 +18,38 @@ namespace SolastaUnfinishedBusiness.Patches;
 [UsedImplicitly]
 public static class CharacterActionPanelPatcher
 {
+    //PATCH: support for custom metamagic
+    [HarmonyPatch(typeof(CharacterActionPanel), nameof(CharacterActionPanel.MetamagicSelected))]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
+    public static class MetamagicSelected_Patch
+    {
+        [UsedImplicitly]
+        public static bool Prefix(
+            CharacterActionPanel __instance,
+            GameLocationCharacter caster,
+            RulesetEffectSpell spellEffect,
+            MetamagicOptionDefinition metamagicOption)
+        {
+            spellEffect.MetamagicOption = metamagicOption;
+            if (metamagicOption.Type == RuleDefinitions.MetamagicType.QuickenedSpell)
+            {
+                __instance.actionParams.ActionDefinition = ServiceRepository.GetService<IGameLocationActionService>()
+                    .AllActionDefinitions[ActionDefinitions.Id.CastBonus];
+            }
+
+            foreach (var provideMetamagicBehavior in caster.RulesetCharacter
+                         .GetSubFeaturesByType<IProvideMetamagicBehavior>())
+            {
+                provideMetamagicBehavior.MetamagicSelected(caster, spellEffect, metamagicOption);
+            }
+
+            __instance.ExecuteEffectOfAction();
+
+            return false;
+        }
+    }
+
     [HarmonyPatch(typeof(CharacterActionPanel), nameof(CharacterActionPanel.ReadyActionEngaged))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]

@@ -14,10 +14,12 @@ internal static class ValidatorsWeapon
 {
     internal static readonly IsWeaponValidHandler AlwaysValid = (_, _, _) => true;
 
-    internal static bool IsOfDamageType([CanBeNull] RulesetAttackMode attack, string damageType)
+#if false
+    internal static IsWeaponValidHandler IsOfDamageType([CanBeNull] RulesetItem, string damageType)
     {
-        return attack?.EffectDescription.FindFirstDamageForm()?.damageType == damageType;
+        return (mode, weapon, _) => IsDamageType(weapon ?? mode?.sourceObject as RulesetItem, damageType);
     }
+#endif
 
     internal static IsWeaponValidHandler IsOfWeaponType(params WeaponTypeDefinition[] weaponTypeDefinitions)
     {
@@ -87,6 +89,15 @@ internal static class ValidatorsWeapon
         return weapon != null
                && weapon.IsWeapon
                && CustomWeaponsContext.PolearmWeaponTypes.Contains(weapon.WeaponDescription?.WeaponType);
+    }
+
+    internal static bool IsDamageType([CanBeNull] RulesetItem item, string damageType)
+    {
+        return item != null
+               && item.ItemDefinition != null
+               && item.ItemDefinition.IsWeapon
+               && item.ItemDefinition.WeaponDescription.EffectDescription.FindFirstDamageForm()?.DamageType ==
+               damageType;
     }
 
     internal static bool IsWeaponType([CanBeNull] RulesetItem item, params WeaponTypeDefinition[] weaponTypeDefinitions)

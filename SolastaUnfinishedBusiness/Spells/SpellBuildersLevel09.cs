@@ -100,7 +100,7 @@ internal static partial class SpellBuilders
         var effectDescription = EffectDescriptionBuilder
             .Create()
             .SetDurationData(DurationType.Instantaneous)
-            .SetTargetingData(Side.All, RangeType.Distance, 200, TargetType.Sphere, 8, 8)
+            .SetTargetingData(Side.All, RangeType.Distance, 18, TargetType.Sphere, 8)
             // 20 dice number because hits dont stack even on single target
             .SetEffectForms(
                 EffectFormBuilder
@@ -308,7 +308,7 @@ internal static partial class SpellBuilders
         var effectDescription = EffectDescriptionBuilder
             .Create()
             .SetDurationData(DurationType.Minute, 1)
-            .SetTargetingData(Side.Enemy, RangeType.Distance, 12, TargetType.Sphere, 6, 6)
+            .SetTargetingData(Side.Enemy, RangeType.Distance, 12, TargetType.Sphere, 6)
             .SetSavingThrowData(
                 false,
                 AttributeDefinitions.Wisdom,

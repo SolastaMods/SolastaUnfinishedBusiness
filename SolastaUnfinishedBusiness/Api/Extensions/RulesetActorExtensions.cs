@@ -55,11 +55,15 @@ internal static class RulesetActorExtensions
     {
         var list = FeaturesByType<BaseDefinition>(actor);
 
-        //TODO: add other non-feature sources of sub-features like invocations, fighting styles or metamagic if necessary
-        if (actor is RulesetCharacterHero hero)
+        if (actor is not RulesetCharacterHero hero)
         {
-            list.AddRange(hero.trainedFeats);
+            return list;
         }
+
+        list.AddRange(hero.trainedFeats);
+        list.AddRange(hero.trainedMetamagicOptions);
+        list.AddRange(hero.trainedInvocations);
+        list.AddRange(hero.trainedFightingStyles);
 
         return list;
     }

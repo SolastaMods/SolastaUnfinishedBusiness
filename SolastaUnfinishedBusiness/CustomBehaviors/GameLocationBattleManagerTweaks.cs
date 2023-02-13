@@ -778,6 +778,49 @@ internal static class GameLocationBattleManagerTweaks
                     /*
                      * ######################################
                      * [CE] EDIT START
+                     * Support for extra types of reactions
+                     */
+                    case (RuleDefinitions.AdditionalDamageTriggerCondition)ExtraAdditionalDamageTriggerCondition
+                        .UsePowerReaction:
+                    {
+                        var hero = attacker.RulesetCharacter as RulesetCharacterHero;
+
+                        if (hero == null && attacker.RulesetCharacter.OriginalFormCharacter != null)
+                        {
+                            hero = attacker.RulesetCharacter.OriginalFormCharacter as RulesetCharacterHero;
+                        }
+
+                        reactionParams = new CharacterActionParams(attacker, ActionDefinitions.Id.PowerReaction);
+                        reactionParams.ActionModifiers.Add(new ActionModifier());
+
+                        var powerDefinition = DatabaseHelper.GetDefinition<FeatureDefinitionPower>(
+                            (featureDefinition as FeatureDefinitionAdditionalDamage).SpecificDamageType);
+                        var rulesetPower = hero.UsablePowers.Find(x => x.PowerDefinition == powerDefinition);
+
+                        if (rulesetPower is { RemainingUses: > 0 })
+                        {
+                            yield return instance.PrepareAndReactWithPowerReaction(
+                                attacker, defender, attacker, rulesetPower);
+
+                            validTrigger = reactionParams.ReactionValidated;
+
+                            if (validTrigger)
+                            {
+                                rulesetPower.ForceSpentPoints(powerDefinition.costPerUse);
+                            }
+                        }
+
+                        break;
+                    }
+                    /*
+                     * Support for extra types of reactions
+                     * [CE] EDIT END
+                     * ######################################
+                     */
+
+                    /*
+                     * ######################################
+                     * [CE] EDIT START
                      * Support for extra types of Smite (like eldritch smite)
                      */
 

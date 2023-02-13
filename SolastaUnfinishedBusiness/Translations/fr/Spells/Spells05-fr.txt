@@ -2,7 +2,7 @@
 Condition/&ConditionFarStepTitle=Pas loin
 Feature/&AdditionalDamageBanishingSmiteDescription=Vous êtes touché par des dégâts de force.
 Feature/&AdditionalDamageBanishingSmiteTitle=Châtiment de bannissement
-Feedback/&AdditionalDamageBanishingSmiteFormat=Châtiment de bannissement !
+Feedback/&AdditionalDamageBanishingSmiteFormat=Châtiment de bannissement!
 Feedback/&AdditionalDamageBanishingSmiteLine={0} inflige plus de dégâts à {1} via un châtiment de bannissement (+{2})
 Spell/&BanishingSmiteDescription=Votre prochain coup inflige 5d10 dégâts de force supplémentaires avec votre arme. De plus, si cette attaque réduit la cible à 50 points de vie ou moins, vous la bannissez pendant 1 min.
 Spell/&BanishingSmiteTitle=Châtiment de bannissement
