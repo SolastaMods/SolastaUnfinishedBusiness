@@ -12,18 +12,20 @@ internal static class MetamagicBuilders
 
     internal static MetamagicOptionDefinition BuildMetamagicAltruisticSpell()
     {
+        var validator = new MetamagicApplicationValidatorMetamagicAltruistic();
+        
         var altruisticAlly = MetamagicOptionDefinitionBuilder
             .Create($"{MetamagicAltruistic}Ally")
             .SetGuiPresentation(Category.Feature, hidden: true)
             .SetCost()
-            .SetCustomSubFeatures(new MetamagicApplicationValidatorMetamagicAltruisticAlly())
+            .SetCustomSubFeatures(new MetamagicAltruisticAlly(), validator)
             .AddToDB();
 
         var altruisticSelf = MetamagicOptionDefinitionBuilder
             .Create($"{MetamagicAltruistic}Self")
             .SetGuiPresentation(Category.Feature, hidden: true)
             .SetCost(sorceryPointsCost: 3)
-            .SetCustomSubFeatures(new MetamagicApplicationValidatorMetamagicAltruisticSelf())
+            .SetCustomSubFeatures(new MetamagicAltruisticSelf(), validator)
             .AddToDB();
 
         return MetamagicOptionDefinitionBuilder
@@ -34,8 +36,7 @@ internal static class MetamagicBuilders
             .AddToDB();
     }
 
-    private sealed class MetamagicApplicationValidatorMetamagicAltruisticAlly : IMetamagicApplicationValidator,
-        IModifyMagicEffect
+    private sealed class MetamagicApplicationValidatorMetamagicAltruistic : IMetamagicApplicationValidator
     {
         public bool IsMetamagicOptionValid(
             RulesetCharacter caster,
@@ -56,7 +57,10 @@ internal static class MetamagicBuilders
 
             return true;
         }
+    }
 
+    private sealed class MetamagicAltruisticAlly : IModifyMagicEffect
+    {
         public EffectDescription ModifyEffect(BaseDefinition definition, EffectDescription effect,
             RulesetCharacter character)
         {
@@ -70,29 +74,8 @@ internal static class MetamagicBuilders
         }
     }
 
-    private sealed class MetamagicApplicationValidatorMetamagicAltruisticSelf : IMetamagicApplicationValidator,
-        IModifyMagicEffect
+    private sealed class MetamagicAltruisticSelf : IModifyMagicEffect
     {
-        public bool IsMetamagicOptionValid(
-            RulesetCharacter caster,
-            RulesetEffectSpell rulesetEffectSpell,
-            MetamagicOptionDefinition metamagicOption,
-            ref string failure)
-        {
-            var effect = rulesetEffectSpell.EffectDescription;
-
-            if (effect.rangeType != RangeType.Self || effect.targetType != TargetType.Self)
-            {
-                failure = "Failure/&FailureFlagSpellRangeMustBeSelf";
-
-                return false;
-            }
-
-            failure = String.Empty;
-
-            return true;
-        }
-
         public EffectDescription ModifyEffect(BaseDefinition definition, EffectDescription effect,
             RulesetCharacter character)
         {
