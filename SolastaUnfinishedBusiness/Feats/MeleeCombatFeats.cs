@@ -367,11 +367,19 @@ internal static class MeleeCombatFeats
         .SetFrequencyLimit(FeatureLimitedUsage.OncePerTurn)
         .SetDamageDice(DieType.D1, 0)
         .SetSpecificDamageType(PowerFeatCrusherHit.Name) // use specific type to pass power name to UsePowerReaction
-        .SetNotificationTag(GroupFeats.Crusher)
         .SetRequiredProperty(RestrictedContextRequiredProperty.MeleeWeapon)
         .SetCustomSubFeatures(
             new RestrictedContextValidator(OperationType.Set,
-                ValidatorsCharacter.MainHandIsOfDamageType(DamageTypeBludgeoning)),
+                ValidatorsCharacter.MainHandIsOfDamageType(DamageTypeBludgeoning)))
+        .AddToDB();
+
+    private static readonly FeatureDefinition FeatureFeatCrusherCriticalHit = FeatureDefinitionAdditionalDamageBuilder
+        .Create("FeatureFeatCrusherCriticalHit")
+        .SetGuiPresentationNoContent(true)
+        .SetFrequencyLimit(FeatureLimitedUsage.OncePerTurn)
+        .SetDamageDice(DieType.D1, 0)
+        .SetNotificationTag(GroupFeats.Crusher)
+        .SetCustomSubFeatures(
             new AfterAttackEffectFeatCrusher(
                 ConditionDefinitionBuilder
                     .Create("ConditionFeatCrusherCriticalHit")
@@ -463,6 +471,7 @@ internal static class MeleeCombatFeats
             .SetFeatures(
                 FeatureDefinitionAttributeModifiers.AttributeModifierCreed_Of_Einar,
                 FeatureFeatCrusher,
+                FeatureFeatCrusherCriticalHit,
                 PowerFeatCrusherHit)
             .SetFeatFamily(GroupFeats.Crusher)
             .SetAbilityScorePrerequisite(AttributeDefinitions.Strength, 13)
@@ -478,6 +487,7 @@ internal static class MeleeCombatFeats
             .SetFeatures(
                 FeatureDefinitionAttributeModifiers.AttributeModifierCreed_Of_Arun,
                 FeatureFeatCrusher,
+                FeatureFeatCrusherCriticalHit,
                 PowerFeatCrusherHit)
             .SetFeatFamily(GroupFeats.Crusher)
             .SetAbilityScorePrerequisite(AttributeDefinitions.Constitution, 13)

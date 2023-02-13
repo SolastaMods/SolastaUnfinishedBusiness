@@ -1,5 +1,10 @@
 ﻿CHANGES:
 
+1.4.33.37:
+
+- refactored Altruistic metamagic spell to be on par with @Taco design
+- fixed Crusher only considering critical hit bonus if pushed action taken
+
 1.4.33.36:
 
 - added Altruistic metamagic
