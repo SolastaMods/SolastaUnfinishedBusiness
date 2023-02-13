@@ -14,47 +14,44 @@ internal static class MetamagicBuilders
         return MetamagicOptionDefinitionBuilder
             .Create(MetamagicAltruistic)
             .SetGuiPresentation(Category.Feature)
-            .SetCost(MetamagicCostMethod.SpellLevel)
+            .SetCost()
             .SetCustomSubFeatures(new ProvideMetamagicBehaviorMetamagicAltruisticSpell())
             .AddToDB();
     }
 
     private sealed class ProvideMetamagicBehaviorMetamagicAltruisticSpell : IProvideMetamagicBehavior
     {
-        public bool IsMetamagicOptionAvailable(
-            RulesetEffectSpell rulesetEffectSpell,
-            RulesetCharacter caster,
-            MetamagicOptionDefinition metamagicOption,
-            ref string failure,
-            ref bool result)
+        public string MetamagicOptionName()
         {
-            if (metamagicOption.Name != MetamagicAltruistic)
-            {
-                return false;
-            }
+            return MetamagicAltruistic;
+        }
 
+        public bool IsMetamagicOptionAvailable(
+            RulesetCharacter caster,
+            RulesetEffectSpell rulesetEffectSpell,
+            MetamagicOptionDefinition metamagicOption,
+            ref string failure)
+        {
             var effect = rulesetEffectSpell.EffectDescription;
 
             if (effect.rangeType != RangeType.Self || effect.targetType != TargetType.Self)
             {
                 failure = "Failure/&FailureFlagSpellRangeMustBeSelf";
-                result = false;
 
-                return true;
+                return false;
             }
 
             failure = String.Empty;
-            result = true;
 
             return true;
         }
 
         public void MetamagicSelected(
-            GameLocationCharacter caster,
-            RulesetEffectSpell spellEffect,
+            RulesetCharacter caster,
+            RulesetEffectSpell rulesetEffectSpell,
             MetamagicOptionDefinition metamagicOption)
         {
-            var effect = spellEffect.EffectDescription;
+            var effect = rulesetEffectSpell.EffectDescription;
 
             if (effect.rangeType != RangeType.Self || effect.targetType != TargetType.Self)
             {

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
+using System.Reflection;
 using System.Reflection.Emit;
 using HarmonyLib;
 using JetBrains.Annotations;
@@ -24,29 +25,39 @@ public static class CharacterActionPanelPatcher
     [UsedImplicitly]
     public static class MetamagicSelected_Patch
     {
-        [UsedImplicitly]
-        public static bool Prefix(
-            CharacterActionPanel __instance,
+        private static void ExecuteEffectOfAction(
+            CharacterActionPanel characterActionPanel,
             GameLocationCharacter caster,
             RulesetEffectSpell spellEffect,
             MetamagicOptionDefinition metamagicOption)
         {
-            spellEffect.MetamagicOption = metamagicOption;
-            if (metamagicOption.Type == RuleDefinitions.MetamagicType.QuickenedSpell)
-            {
-                __instance.actionParams.ActionDefinition = ServiceRepository.GetService<IGameLocationActionService>()
-                    .AllActionDefinitions[ActionDefinitions.Id.CastBonus];
-            }
+            var rulesetCharacter = caster.RulesetCharacter;
+            var provideMetamagicBehavior = rulesetCharacter
+                .GetSubFeaturesByType<IProvideMetamagicBehavior>()
+                .FirstOrDefault(x => x.MetamagicOptionName() == metamagicOption.Name);
 
-            foreach (var provideMetamagicBehavior in caster.RulesetCharacter
-                         .GetSubFeaturesByType<IProvideMetamagicBehavior>())
-            {
-                provideMetamagicBehavior.MetamagicSelected(caster, spellEffect, metamagicOption);
-            }
+            provideMetamagicBehavior?.MetamagicSelected(rulesetCharacter, spellEffect, metamagicOption);
 
-            __instance.ExecuteEffectOfAction();
+            characterActionPanel.ExecuteEffectOfAction();
+        }
 
-            return false;
+        [NotNull]
+        [UsedImplicitly]
+        public static IEnumerable<CodeInstruction> Transpiler([NotNull] IEnumerable<CodeInstruction> instructions)
+        {
+            var executeEffectOfActionMethod = typeof(CharacterActionPanel).GetMethod("ExecuteEffectOfAction",
+                BindingFlags.Instance | BindingFlags.NonPublic);
+            var myExecuteEffectOfAction =
+                new Action<CharacterActionPanel, GameLocationCharacter, RulesetEffectSpell, MetamagicOptionDefinition>(
+                    ExecuteEffectOfAction).Method;
+
+            return instructions
+                //PATCH: allows custom metamagic to change any spellEffect
+                .ReplaceCalls(executeEffectOfActionMethod, "CharacterActionPanel.MetamagicSelected",
+                    new CodeInstruction(OpCodes.Ldarg_1),
+                    new CodeInstruction(OpCodes.Ldarg_2),
+                    new CodeInstruction(OpCodes.Ldarg_3),
+                    new CodeInstruction(OpCodes.Call, myExecuteEffectOfAction));
         }
     }
 

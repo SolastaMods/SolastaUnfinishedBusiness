@@ -1,4 +1,5 @@
 ﻿using System.Diagnostics.CodeAnalysis;
+using System.Linq;
 using HarmonyLib;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api;
@@ -43,13 +44,16 @@ public static class RulesetImplementationManagerLocationPatcher
             ref string failure)
         {
             //PATCH: support for custom metamagic
-            foreach (var provideMetamagicBehavior in caster.GetSubFeaturesByType<IProvideMetamagicBehavior>())
+            var provideMetamagicBehavior = caster
+                .GetSubFeaturesByType<IProvideMetamagicBehavior>()
+                .FirstOrDefault(x => x.MetamagicOptionName() == metamagicOption.Name);
+
+            if (provideMetamagicBehavior != null)
             {
-                if (provideMetamagicBehavior.IsMetamagicOptionAvailable(
-                        rulesetEffectSpell, caster, metamagicOption, ref failure, ref __result))
-                {
-                    return;
-                }
+                __result = provideMetamagicBehavior.IsMetamagicOptionAvailable(
+                    caster, rulesetEffectSpell, metamagicOption, ref failure);
+
+                return;
             }
 
             //BUGFIX: fix vanilla twinned spells offering not accounting for target parameter progression

@@ -4,18 +4,21 @@ namespace SolastaUnfinishedBusiness.CustomInterfaces;
 
 public interface IProvideMetamagicBehavior
 {
-    // return false here if not the metamagicOption you need to handle
+    // provide the metamagic option name you're creating
+    public string MetamagicOptionName();
+
+    // return true is available otherwise return a failure reason as well
     [UsedImplicitly]
     public bool IsMetamagicOptionAvailable(
-        RulesetEffectSpell rulesetEffectSpell,
         RulesetCharacter caster,
+        RulesetEffectSpell rulesetEffectSpell,
         MetamagicOptionDefinition metamagicOption,
-        ref string failure,
-        ref bool result);
+        ref string failure);
 
+    // change the rulesetEffectSpell here
     [UsedImplicitly]
     public void MetamagicSelected(
-        GameLocationCharacter caster,
-        RulesetEffectSpell spellEffect,
+        RulesetCharacter caster,
+        RulesetEffectSpell rulesetEffectSpell,
         MetamagicOptionDefinition metamagicOption);
 }
