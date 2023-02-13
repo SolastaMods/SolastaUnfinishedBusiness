@@ -15,18 +15,14 @@ internal static class MetamagicBuilders
             .Create(MetamagicAltruistic)
             .SetGuiPresentation(Category.Feature)
             .SetCost()
-            .SetCustomSubFeatures(new ProvideMetamagicBehaviorMetamagicAltruisticSpell())
+            .SetCustomSubFeatures(new MetamagicApplicationValidatorMetamagicAltruisticSpell())
             .AddToDB();
     }
 
-    private sealed class ProvideMetamagicBehaviorMetamagicAltruisticSpell : IProvideMetamagicBehavior
+    private sealed class MetamagicApplicationValidatorMetamagicAltruisticSpell : IMetamagicApplicationValidator,
+        IModifyMagicEffect
     {
-        public string MetamagicOptionName()
-        {
-            return MetamagicAltruistic;
-        }
-
-        public bool IsMetamagicOptionAvailable(
+        public bool IsMetamagicOptionValid(
             RulesetCharacter caster,
             RulesetEffectSpell rulesetEffectSpell,
             MetamagicOptionDefinition metamagicOption,
@@ -46,22 +42,15 @@ internal static class MetamagicBuilders
             return true;
         }
 
-        public void MetamagicSelected(
-            RulesetCharacter caster,
-            RulesetEffectSpell rulesetEffectSpell,
-            MetamagicOptionDefinition metamagicOption)
+        public EffectDescription ModifyEffect(BaseDefinition definition, EffectDescription effect,
+            RulesetCharacter character)
         {
-            var effect = rulesetEffectSpell.EffectDescription;
-
-            if (effect.rangeType != RangeType.Self || effect.targetType != TargetType.Self)
-            {
-                return;
-            }
-
             effect.rangeType = RangeType.Distance;
             effect.rangeParameter = 6;
             effect.targetType = TargetType.IndividualsUnique;
             effect.targetParameter = 2;
+
+            return effect;
         }
     }
 }
