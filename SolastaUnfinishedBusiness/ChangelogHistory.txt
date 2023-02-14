@@ -2,8 +2,8 @@
 
 1.4.33.37:
 
-- refactored Crusher to correctly trigger with shields
-- refactored Altruistic metamagic spell to be on par with original design
+- refactored Crusher to correctly trigger with shields and not with EB
+- refactored Altruistic metamagic spell to be on par with original [Commensal]
 - refactored Brace, Parry and Retaliate gambits to require and consume reaction
 
 1.4.33.36:
