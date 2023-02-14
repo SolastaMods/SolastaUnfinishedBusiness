@@ -297,8 +297,8 @@ internal static class MeleeCombatFeats
                     .SetGuiPresentation(Category.Feature)
                     .SetAttackRollModifier(1)
                     .SetCustomSubFeatures(
-                        new RestrictedContextValidator(OperationType.Set,
-                            ValidatorsCharacter.MainHandHasWeaponType(SpearType)),
+                        new RestrictedContextValidator((_, _, character, _, ranged, mode, _) =>
+                            (OperationType.Set, !ranged && validWeapon(mode, null, character))),
                         new UpgradeWeaponDice((_, _) => (1, DieType.D8, DieType.D10), validWeapon))
                     .AddToDB())
             .AddToDB();
@@ -369,8 +369,9 @@ internal static class MeleeCombatFeats
         .SetSpecificDamageType(PowerFeatCrusherHit.Name) // use specific type to pass power name to UsePowerReaction
         .SetRequiredProperty(RestrictedContextRequiredProperty.MeleeWeapon)
         .SetCustomSubFeatures(
-            new RestrictedContextValidator(OperationType.Set,
-                ValidatorsCharacter.MainHandIsOfDamageType(DamageTypeBludgeoning)))
+            new RestrictedContextValidator((_, _, _, _, ranged, mode, _) =>
+                (OperationType.Set,
+                    !ranged && ValidatorsWeapon.IsOfDamageType(DamageTypeBludgeoning)(mode, null, null))))
         .AddToDB();
 
     private static readonly FeatureDefinition FeatureFeatCrusherCriticalHit = FeatureDefinitionAdditionalDamageBuilder
@@ -380,6 +381,9 @@ internal static class MeleeCombatFeats
         .SetDamageDice(DieType.D1, 0)
         .SetNotificationTag(GroupFeats.Crusher)
         .SetCustomSubFeatures(
+            new RestrictedContextValidator((_, _, character, _, ranged, mode, _) =>
+                (OperationType.Set,
+                    !ranged && ValidatorsWeapon.IsOfDamageType(DamageTypeBludgeoning)(mode, null, character))),
             new AfterAttackEffectFeatCrusher(
                 ConditionDefinitionBuilder
                     .Create("ConditionFeatCrusherCriticalHit")
@@ -400,7 +404,8 @@ internal static class MeleeCombatFeats
         .Create("FeatureFeatPiercer")
         .SetGuiPresentationNoContent(true)
         .SetCustomSubFeatures(
-            new BeforeAttackEffectFeatPiercer(ConditionDefinitionBuilder
+            new BeforeAttackEffectFeatPiercer(
+                ConditionDefinitionBuilder
                     .Create("ConditionFeatPiercerNonMagic")
                     .SetGuiPresentationNoContent(true)
                     .SetSilent(Silent.WhenAddedOrRemoved)
@@ -551,6 +556,8 @@ internal static class MeleeCombatFeats
 
         var weaponTypes = new[] { ShortswordType, LongswordType, ScimitarType, RapierType, GreatswordType };
 
+        var validWeapon = ValidatorsWeapon.IsOfWeaponType(weaponTypes);
+
         var conditionBladeMastery = ConditionDefinitionBuilder
             .Create($"Condition{NAME}")
             .SetGuiPresentation(NAME, Category.Feat)
@@ -583,7 +590,9 @@ internal static class MeleeCombatFeats
                             true)
                         .Build())
                     .Build())
-            .SetCustomSubFeatures(new ValidatorsPowerUse(ValidatorsCharacter.MainHandHasWeaponType(weaponTypes)))
+            .SetCustomSubFeatures(
+                new RestrictedContextValidator((_, _, character, _, ranged, mode, _) =>
+                    (OperationType.Set, !ranged && validWeapon(mode, null, character))))
             .AddToDB();
 
         return FeatDefinitionBuilder

@@ -1,2 +1,3 @@
-- refactored Altruistic metamagic spell to be on par with @Taco design
-- fixed Crusher only considering critical hit bonus if pushed action taken
+- refactored Crusher to correctly trigger with shields and not with EB
+- refactored Altruistic metamagic spell to be on par with original [Commensal]
+- refactored Brace, Parry and Retaliate gambits to require and consume reaction
