@@ -1,5 +1,4 @@
 ﻿using System.Linq;
-using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.Extensions;
 using static RuleDefinitions;
 
@@ -45,10 +44,6 @@ internal static class CustomSituationalContext
 
             ExtraSituationalContext.SummonerIsNextToBeast =>
                 IsConsciousSummonerNextToBeast(GameLocationCharacter.GetFromActor(contextParams.source)),
-
-            ExtraSituationalContext.MainWeaponIsGreatSword =>
-                ValidatorsCharacter
-                    .MainHandHasWeaponType(DatabaseHelper.WeaponTypeDefinitions.GreatswordType)(contextParams.source),
 
             _ => def
         };
