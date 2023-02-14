@@ -1,4 +1,3 @@
-- added Altruistic metamagic
-- added rule to offer different critical damage calculation algorithms
-- fixed Crusher and respective interaction with other feats under multiplayer
-- improved long mace icons
+- refactored Crusher to correctly trigger with shields and not with EB
+- refactored Altruistic metamagic spell to be on par with original [Commensal]
+- refactored Brace, Parry and Retaliate gambits to require and consume reaction

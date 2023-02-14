@@ -1,11 +1,9 @@
-﻿using System.Diagnostics.CodeAnalysis;
+﻿using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
 using JetBrains.Annotations;
-using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.Extensions;
 using SolastaUnfinishedBusiness.CustomBehaviors;
-using SolastaUnfinishedBusiness.CustomInterfaces;
-using static RuleDefinitions;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
@@ -43,33 +41,8 @@ public static class RulesetImplementationManagerLocationPatcher
             ref string failure)
         {
             //PATCH: support for custom metamagic
-            foreach (var provideMetamagicBehavior in caster.GetSubFeaturesByType<IProvideMetamagicBehavior>())
-            {
-                if (provideMetamagicBehavior.IsMetamagicOptionAvailable(
-                        rulesetEffectSpell, caster, metamagicOption, ref failure, ref __result))
-                {
-                    return;
-                }
-            }
-
-            //BUGFIX: fix vanilla twinned spells offering not accounting for target parameter progression
-            if (metamagicOption != DatabaseHelper.MetamagicOptionDefinitions.MetamagicTwinnedSpell
-                || caster is not RulesetCharacterHero)
-            {
-                return;
-            }
-
-            var spellDefinition = rulesetEffectSpell.SpellDefinition;
-            var effectDescription = spellDefinition.effectDescription;
-
-            if (effectDescription.TargetType is not (TargetType.Individuals or TargetType.IndividualsUnique) ||
-                rulesetEffectSpell.ComputeTargetParameter() == 1)
-            {
-                return;
-            }
-
-            failure = FailureFlagInvalidSingleTarget;
-            __result = false;
+            var validator = metamagicOption.GetFirstSubFeatureOfType<MetamagicApplicationValidator>();
+            validator?.Invoke(caster, rulesetEffectSpell, metamagicOption, ref __result, ref failure);
         }
     }
 
@@ -170,6 +143,21 @@ public static class RulesetImplementationManagerLocationPatcher
                 }, null, false);
 
             return false;
+        }
+    }
+
+    [HarmonyPatch(typeof(RulesetImplementationManagerLocation),
+        nameof(RulesetImplementationManagerLocation.IsAnyMetamagicOptionAvailable))]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
+    public static class IsAnyMetamagicOptionAvailable_Patch
+    {
+        [UsedImplicitly]
+        public static IEnumerable<CodeInstruction> Transpiler([NotNull] IEnumerable<CodeInstruction> instructions)
+        {
+            //PATCH: support for `ReplaceMetamagicOption`
+            return ReplaceMetamagicOption.PatchMetamagicGetter(instructions,
+                "RulesetImplementationManagerLocation.IsAnyMetamagicOptionAvailable");
         }
     }
 }

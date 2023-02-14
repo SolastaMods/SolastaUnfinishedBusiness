@@ -38,6 +38,8 @@ internal static class RangedCombatFeats
     {
         const string NAME = "FeatBowMastery";
 
+        var validWeapon = ValidatorsWeapon.IsOfWeaponType(LongbowType, ShortbowType);
+
         return FeatDefinitionBuilder
             .Create(NAME)
             .SetGuiPresentation(Category.Feat)
@@ -47,8 +49,8 @@ internal static class RangedCombatFeats
                     .SetGuiPresentation(NAME, Category.Feat)
                     .SetDamageRollModifier(1)
                     .SetCustomSubFeatures(
-                        new RestrictedContextValidator(OperationType.Set,
-                            ValidatorsCharacter.MainHandHasWeaponType(LongbowType, ShortbowType)),
+                        new RestrictedContextValidator((_, _, character, _, _, mode, _) =>
+                            (OperationType.Set, validWeapon(mode, null, character))),
                         new CanUseAttributeForWeapon(AttributeDefinitions.Strength,
                             ValidatorsWeapon.IsOfWeaponType(LongbowType)),
                         new AddExtraRangedAttack(ValidatorsWeapon.IsOfWeaponType(ShortbowType),

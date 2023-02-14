@@ -1,5 +1,4 @@
 ﻿using System.Linq;
-using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.Extensions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.WeaponTypeDefinitions;
@@ -10,9 +9,6 @@ internal delegate bool IsCharacterValidHandler(RulesetCharacter character);
 
 internal static class ValidatorsCharacter
 {
-    // internal static readonly IsCharacterValidHandler EmptyOffhand = character =>
-    //     character.CharacterInventory.InventorySlotsByName[EquipmentDefinitions.SlotTypeOffHand].EquipedItem == null;
-
     internal static readonly IsCharacterValidHandler HasLightSourceOffHand = character =>
     {
         // required for wildshape scenarios
@@ -67,23 +63,20 @@ internal static class ValidatorsCharacter
 
     internal static readonly IsCharacterValidHandler NotHeavyArmor = character =>
         !HasArmorCategory(character, EquipmentDefinitions.HeavyArmorCategory);
+    // internal static readonly IsCharacterValidHandler EmptyOffhand = character =>
+    //     character.CharacterInventory.InventorySlotsByName[EquipmentDefinitions.SlotTypeOffHand].EquipedItem == null;
 
-    internal static IsCharacterValidHandler MainHandHasWeaponType(params WeaponTypeDefinition[] weaponTypeDefinitions)
+    internal static IsCharacterValidHandler HasAnyOfConditions(params string[] conditions)
     {
-        return character =>
-            ValidatorsWeapon.IsWeaponType(character.GetMainWeapon(),
-                weaponTypeDefinitions);
+        return character => conditions.Any(character.HasConditionOfType);
     }
 
-    internal static IsCharacterValidHandler MainHandIsOfDamageType(string damageType)
+    internal static IsCharacterValidHandler HasNoneOfConditions(params string[] conditions)
     {
-        return character =>
-            ValidatorsWeapon.IsDamageType(character.GetMainWeapon(),
-                damageType);
+        return character => !conditions.Any(character.HasConditionOfType);
     }
 
-    // Does character has free offhand in TA's terms as used in RefreshAttackModes for bonus unarmed attack for Monk?
-    // defined as having offhand empty or being not a weapon
+    // does character has free offhand in TA's terms as used in RefreshAttackModes for bonus unarmed attack for Monk?
     internal static bool IsFreeOffhandForUnarmedTa(RulesetCharacter character)
     {
         var offHand = character.GetOffhandWeapon();
@@ -94,18 +87,6 @@ internal static class ValidatorsCharacter
     internal static bool IsFreeOffhand(RulesetCharacter character)
     {
         return character.GetOffhandWeapon() == null;
-    }
-
-    [NotNull]
-    internal static IsCharacterValidHandler HasAnyOfConditions(params string[] conditions)
-    {
-        return character => conditions.Any(character.HasConditionOfType);
-    }
-
-    [NotNull]
-    internal static IsCharacterValidHandler HasNoneOfConditions(params string[] conditions)
-    {
-        return character => !conditions.Any(character.HasConditionOfType);
     }
 
     internal static bool HasConditionWithSubFeatureOfType<T>(this RulesetCharacter character) where T : class

@@ -1,12 +1,12 @@
 {
   "$type": "FeatureDefinitionAdditionalDamage, Assembly-CSharp",
-  "notificationTag": "",
+  "notificationTag": "Crusher",
   "limitedUsage": "OncePerTurn",
   "firstTargetOnly": true,
   "targetSide": "Enemy",
   "otherSimilarAdditionalDamages": [],
-  "triggerCondition": 9001,
-  "requiredProperty": "MeleeWeapon",
+  "triggerCondition": "AlwaysActive",
+  "requiredProperty": "None",
   "attackModeOnly": false,
   "attackOnly": false,
   "requiredTargetCondition": null,
@@ -19,8 +19,8 @@
   "flatBonus": 0,
   "damageDieType": "D1",
   "damageDiceNumber": 0,
-  "additionalDamageType": "Specific",
-  "specificDamageType": "PowerFeatCrusherHit",
+  "additionalDamageType": "SameAsBaseDamage",
+  "specificDamageType": "Radiant",
   "ancestryTypeForDamageType": "Sorcerer",
   "damageAdvancement": "None",
   "diceByRankTable": [],
@@ -69,7 +69,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "64e6fea6-765a-5c24-ad0d-83be18d62d96",
+  "guid": "fd7dbcf1-90b9-57d6-9c36-2e0bc17c86a3",
   "contentPack": 9999,
-  "name": "FeatureFeatCrusher"
+  "name": "FeatureFeatCrusherCriticalHit"
 }
