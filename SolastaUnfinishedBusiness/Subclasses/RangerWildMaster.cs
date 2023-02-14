@@ -110,6 +110,7 @@ internal sealed class RangerWildMaster : AbstractSubclass
             powerSpiritBeastBreathWeaponBlue,
             CharacterContext.FeatureDefinitionPowerHelpAction,
             actionAffinitySpiritBeast,
+            combatAffinityWildMasterSummonerIsNextToBeast,
             conditionAffinityWildMasterSpiritBeastInitiative);
 
         var powerKindredSpiritEagle07 = BuildSpiritBeastPower(powerWildMasterSummonSpiritBeastPool07,
@@ -118,6 +119,7 @@ internal sealed class RangerWildMaster : AbstractSubclass
             FeatureDefinitionPowers.PowerFiendishResilienceLightning,
             CharacterContext.FeatureDefinitionPowerHelpAction,
             actionAffinitySpiritBeast,
+            combatAffinityWildMasterSummonerIsNextToBeast,
             conditionAffinityWildMasterSpiritBeastInitiative);
 
         var powerKindredSpiritEagle11 = BuildSpiritBeastPower(powerWildMasterSummonSpiritBeastPool11,
@@ -127,6 +129,7 @@ internal sealed class RangerWildMaster : AbstractSubclass
             powerWildMasterInvisibility,
             CharacterContext.FeatureDefinitionPowerHelpAction,
             actionAffinitySpiritBeast,
+            combatAffinityWildMasterSummonerIsNextToBeast,
             conditionAffinityWildMasterSpiritBeastInitiative);
 
         var powerKindredSpiritEagle15 = BuildSpiritBeastPower(powerWildMasterSummonSpiritBeastPool15,
@@ -137,6 +140,7 @@ internal sealed class RangerWildMaster : AbstractSubclass
             FeatureDefinitionPowers.PowerEyebitePanicked,
             CharacterContext.FeatureDefinitionPowerHelpAction,
             perceptionAffinitySpiritBeast,
+            combatAffinityWildMasterSummonerIsNextToBeast,
             conditionAffinityWildMasterSpiritBeastInitiative);
 
         #endregion
