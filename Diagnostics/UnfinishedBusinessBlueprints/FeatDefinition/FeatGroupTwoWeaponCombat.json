@@ -16,7 +16,7 @@
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
     "title": "Feat/&FeatGroupTwoWeaponCombatTitle",
-    "description": "Feat/&FeatGroupTwoWeaponCombatDescription",
+    "description": "Ambidextrous, Twin Blade ",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",

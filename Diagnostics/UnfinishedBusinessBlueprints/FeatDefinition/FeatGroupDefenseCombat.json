@@ -16,7 +16,7 @@
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
     "title": "Feat/&FeatGroupDefenseCombatTitle",
-    "description": "Feat/&FeatGroupDefenseCombatDescription",
+    "description": "Cloak and Dagger, Raise Shield, Twin Blade , Unarmored Expert, Fade Away",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",

@@ -16,7 +16,7 @@
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
     "title": "Feat/&FeatGroupSpellCombatTitle",
-    "description": "Feat/&FeatGroupSpellCombatDescription",
+    "description": "Elemental Adept, Flawless Concentration, Powerful Cantrip, Spell Sniper",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
