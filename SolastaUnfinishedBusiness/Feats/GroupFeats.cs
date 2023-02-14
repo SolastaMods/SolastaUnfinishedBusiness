@@ -51,6 +51,12 @@ internal static class GroupFeats
     private static void ApplyDynamicDescription(FeatDefinition groupDefinition)
     {
         var groupedFeat = groupDefinition.GetFirstSubFeatureOfType<GroupedFeat>();
+
+        if (groupedFeat == null)
+        {
+            return;
+        }
+
         var titles = groupedFeat.GetSubFeats().Select(x => x.FormatTitle()).ToArray();
         var title = string.Join(", ", titles);
 

@@ -34,8 +34,9 @@ internal static class CreditsDisplay
         ("Pikachar2", "spells"),
         ("Prioritizer", "Russian translations"),
         ("xxy961216", "Chinese translations"),
-        ("Balmz", "some power and spell icons"),
-        ("Taco", "some weapon icons")
+        ("Taco", "homebrew content design [metamagic, subclasses], weapon icons"),
+        ("HiddenHax", "homebrew content design [subclasses]"),
+        ("Balmz", "some power and spell icons")
     };
 
     private static readonly bool IsUnityExplorerInstalled =

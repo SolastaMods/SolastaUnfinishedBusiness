@@ -192,7 +192,7 @@ public static class RulesetImplementationManagerPatcher
             {
                 RuleDefinitions.Side.Enemy => Main.Settings.CriticalHitModeEnemies switch
                 {
-                    1 => RollDamageOption1(rulesetActor, damageForm, addDice, criticalSuccess, additionalDamage,
+                    1 => RollDamageOption1(rulesetActor, damageForm, addDice, true, additionalDamage,
                         damageRollReduction, damageMultiplier, useVersatileDamage, attackModeDamage, rolledValues,
                         canRerollDice, effectGroupInfo),
                     2 => RollDamageOption2(rulesetActor, damageForm, addDice, additionalDamage,
@@ -201,13 +201,13 @@ public static class RulesetImplementationManagerPatcher
                     3 => RollDamageOption3(rulesetActor, damageForm, addDice, additionalDamage,
                         damageRollReduction, damageMultiplier, useVersatileDamage, attackModeDamage, rolledValues,
                         canRerollDice),
-                    _ => rulesetActor.RollDamage(damageForm, addDice, criticalSuccess, additionalDamage,
+                    _ => rulesetActor.RollDamage(damageForm, addDice, true, additionalDamage,
                         damageRollReduction, damageMultiplier, useVersatileDamage, attackModeDamage, rolledValues,
                         canRerollDice)
                 },
                 RuleDefinitions.Side.Ally => Main.Settings.CriticalHitModeAllies switch
                 {
-                    1 => RollDamageOption1(rulesetActor, damageForm, addDice, criticalSuccess, additionalDamage,
+                    1 => RollDamageOption1(rulesetActor, damageForm, addDice, true, additionalDamage,
                         damageRollReduction, damageMultiplier, useVersatileDamage, attackModeDamage, rolledValues,
                         canRerollDice, effectGroupInfo),
                     2 => RollDamageOption2(rulesetActor, damageForm, addDice, additionalDamage,
@@ -216,12 +216,12 @@ public static class RulesetImplementationManagerPatcher
                     3 => RollDamageOption3(rulesetActor, damageForm, addDice, additionalDamage,
                         damageRollReduction, damageMultiplier, useVersatileDamage, attackModeDamage, rolledValues,
                         canRerollDice),
-                    _ => rulesetActor.RollDamage(damageForm, addDice, criticalSuccess, additionalDamage,
+                    _ => rulesetActor.RollDamage(damageForm, addDice, true, additionalDamage,
                         damageRollReduction, damageMultiplier, useVersatileDamage, attackModeDamage, rolledValues,
                         canRerollDice)
                 },
                 _ => rulesetActor.RollDamage(
-                    damageForm, addDice, criticalSuccess, additionalDamage, damageRollReduction,
+                    damageForm, addDice, true, additionalDamage, damageRollReduction,
                     damageMultiplier, useVersatileDamage, attackModeDamage, rolledValues, canRerollDice)
             };
         }

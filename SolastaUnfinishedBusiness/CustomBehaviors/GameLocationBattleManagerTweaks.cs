@@ -785,7 +785,8 @@ internal static class GameLocationBattleManagerTweaks
                     {
                         // revalidating it here as game doesn't call this method in cases where attack mode is null
                         var isValid = rulesetImplementation.IsValidContextForRestrictedContextProvider(
-                            provider, attacker.RulesetCharacter, itemDefinition, rangedAttack, attackMode, rulesetEffect);
+                            provider, attacker.RulesetCharacter, itemDefinition, rangedAttack, attackMode,
+                            rulesetEffect);
 
                         if (!isValid)
                         {

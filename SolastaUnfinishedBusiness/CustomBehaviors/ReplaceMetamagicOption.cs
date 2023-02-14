@@ -54,7 +54,7 @@ public class ReplaceMetamagicOption
         return instructions
             //Replace getter with custom one that changes metamagic options
             .ReplaceCalls(getter, context + ".Getter", new CodeInstruction(OpCodes.Call, customGetter))
-            //Esnure hidden metamagics are processed
+            //Ensure hidden metamagic are processed
             .ReplaceCalls(hidden, context + ".Hidden", new CodeInstruction(OpCodes.Call, customHidden));
     }
 
