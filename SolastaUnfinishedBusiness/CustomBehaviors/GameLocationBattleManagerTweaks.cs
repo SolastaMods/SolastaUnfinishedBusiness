@@ -783,6 +783,15 @@ internal static class GameLocationBattleManagerTweaks
                     case (RuleDefinitions.AdditionalDamageTriggerCondition)ExtraAdditionalDamageTriggerCondition
                         .UsePowerReaction:
                     {
+                        // revalidating it here as game doesn't call this method in cases where attack mode is null
+                        var isValid = rulesetImplementation.IsValidContextForRestrictedContextProvider(
+                            provider, attacker.RulesetCharacter, itemDefinition, rangedAttack, attackMode, rulesetEffect);
+
+                        if (!isValid)
+                        {
+                            break;
+                        }
+
                         var hero = attacker.RulesetCharacter as RulesetCharacterHero;
 
                         if (hero == null && attacker.RulesetCharacter.OriginalFormCharacter != null)
