@@ -16,7 +16,7 @@
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
     "title": "Feat/&FeatGroupRangedCombatTitle",
-    "description": "Feat/&FeatGroupRangedCombatDescription",
+    "description": "Discretion of the Coedymwarth, Piercer, Take Aim, Uncanny Accuracy",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",

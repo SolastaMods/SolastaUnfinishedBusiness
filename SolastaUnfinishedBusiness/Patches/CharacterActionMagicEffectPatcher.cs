@@ -93,16 +93,18 @@ public static class CharacterActionMagicEffectPatcher
             var effect = __instance.ActionParams.RulesetEffect;
             var baseEffectDescription = (effect.SourceDefinition as IMagicEffect)?.EffectDescription;
             var effectDescription = effect.EffectDescription;
-
             var targets = __instance.ActionParams.TargetCharacters;
-            if (effectDescription.InviteOptionalAlly
-                && baseEffectDescription?.TargetType == RuleDefinitions.TargetType.Self
-                && targets.Count > 0
-                && targets[0] != __instance.ActingCharacter)
+
+            if (!effectDescription.InviteOptionalAlly
+                || baseEffectDescription?.TargetType != RuleDefinitions.TargetType.Self
+                || targets.Count <= 0
+                || targets[0] == __instance.ActingCharacter)
             {
-                targets.Insert(0, __instance.ActingCharacter);
-                __instance.ActionParams.ActionModifiers.Insert(0, __instance.ActionParams.ActionModifiers[0]);
+                return;
             }
+
+            targets.Insert(0, __instance.ActingCharacter);
+            __instance.ActionParams.ActionModifiers.Insert(0, __instance.ActionParams.ActionModifiers[0]);
         }
 
         [UsedImplicitly]

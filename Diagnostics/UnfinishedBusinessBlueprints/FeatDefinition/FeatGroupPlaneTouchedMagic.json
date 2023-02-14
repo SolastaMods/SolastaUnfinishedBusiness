@@ -16,7 +16,7 @@
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
     "title": "Feat/&FeatGroupPlaneTouchedMagicTitle",
-    "description": "Feat/&FeatGroupPlaneTouchedMagicDescription",
+    "description": "You are touched by some other plane and can cast some spells associated with that plane.\nOne of your mental attributes is raised by 1 to a maximum of 20.",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",

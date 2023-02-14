@@ -48,6 +48,21 @@ internal static class GroupFeats
     internal static FeatDefinition FeatGroupUnarmoredCombat { get; } = MakeGroup("FeatGroupUnarmoredCombat", null,
         FeatGroupElementalTouch);
 
+    private static void ApplyDynamicDescription(FeatDefinition groupDefinition)
+    {
+        var groupedFeat = groupDefinition.GetFirstSubFeatureOfType<GroupedFeat>();
+
+        if (groupedFeat == null)
+        {
+            return;
+        }
+
+        var titles = groupedFeat.GetSubFeats().Select(x => x.FormatTitle()).ToArray();
+        var title = string.Join(", ", titles);
+
+        groupDefinition.guiPresentation.description = Gui.Format(groupDefinition.guiPresentation.description, title);
+    }
+
     internal static void Load(Action<FeatDefinition> loader)
     {
         MakeGroup("FeatGroupCreed", null,
@@ -58,6 +73,7 @@ internal static class GroupFeats
             FeatDefinitions.Creed_Of_Pakri,
             FeatDefinitions.Creed_Of_Solasta);
 
+        Groups.ForEach(ApplyDynamicDescription);
         Groups.ForEach(loader);
     }
 

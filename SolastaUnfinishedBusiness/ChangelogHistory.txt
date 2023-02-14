@@ -1,5 +1,10 @@
 ﻿CHANGES:
 
+1.4.33.38:
+
+- fixed missing advantage on Wild Master eagles pack tactics
+- improved some group descriptions to list feat names within them
+
 1.4.33.37:
 
 - refactored Crusher to correctly trigger with shields and not with EB
