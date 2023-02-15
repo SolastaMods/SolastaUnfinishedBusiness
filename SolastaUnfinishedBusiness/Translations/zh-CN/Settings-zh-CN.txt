@@ -217,4 +217,4 @@ ModUi/&UnlockSkinColors=解锁全部皮肤颜色
 ModUi/&UseHeightOneCylinderEffect=施放<color=#D89555>艾伐黑触手、纠缠术、油腻术</color> <i><color=#F0DAA0>【方形】</color></i> or <color=#D89555>荆棘丛生</color> <i><color=#F0DAA0>【圆形】</color></i>时，显示高度为1的圆柱效果范围
 ModUi/&UseOfficialAdvantageDisadvantageRules=应用官方的优势/劣势规则
 ModUi/&Visuals=<color=#F0DAA0>视效：</color> <b><i><color=#C04040E0>【需要重启游戏】</color></i></b>
-ModUi/&IncreaseMaxAttunedItems=在第 9 级将最大同调物品增加到 4 个，在第 18 级增加到 5 个
+ModUi/&IncreaseMaxAttunedItems=在第 10 级将最大同调物品增加到 4 个，在第 18 级增加到 5 个

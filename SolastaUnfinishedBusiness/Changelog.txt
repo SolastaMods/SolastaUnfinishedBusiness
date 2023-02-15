@@ -1,4 +1,3 @@
-- added Call for Charge feat
-- added house rule to increase max attuned items to 4 at 9th and 5 at 18th
-- fixed missing advantage on Wild Master eagle pack tactics
-- improved group descriptions to list feat names within them
+- fixed Spell Sniper to correctly apply no cover on range hit
+- improved Spells mod UI to fully integrate with Spell Sniper
+- tweaked max attuned items to be granted at 10th and 18th

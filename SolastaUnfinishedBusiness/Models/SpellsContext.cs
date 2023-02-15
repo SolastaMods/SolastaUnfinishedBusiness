@@ -427,6 +427,18 @@ internal static class SpellsContext
                     {
                         SpellListAllCantrips.AddSpell(spellDefinition);
                     }
+
+                    //Add to spell sniper lists
+                    var className = spellListName.Replace("SpellList", string.Empty);
+                    var classesSpellSniper = new[] { "Cleric", "Druid", "Sorcerer", "Warlock", "Wizard" };
+
+                    if (spellDefinition.SpellLevel == 0 && classesSpellSniper.Contains(className))
+                    {
+                        var spellList =
+                            DatabaseHelper.GetDefinition<SpellListDefinition>($"SpellListFeatSpellSniper{className}");
+
+                        spellList.AddSpell(spellDefinition);
+                    }
                 }
 
                 Main.Settings.SpellListSpellEnabled[spellListName].TryAdd(spellName);
@@ -450,6 +462,21 @@ internal static class SpellsContext
                     if (spellDefinition.SpellLevel == 0)
                     {
                         foreach (var spellsByLevel in SpellListAllCantrips.SpellsByLevel)
+                        {
+                            spellsByLevel.Spells.RemoveAll(x => x == spellDefinition);
+                        }
+                    }
+
+                    //Remove from spell sniper lists
+                    var className = spellListName.Replace("SpellList", string.Empty);
+                    var classesSpellSniper = new[] { "Cleric", "Druid", "Sorcerer", "Warlock", "Wizard" };
+
+                    if (spellDefinition.SpellLevel == 0 && classesSpellSniper.Contains(className))
+                    {
+                        var spellList =
+                            DatabaseHelper.GetDefinition<SpellListDefinition>($"SpellListFeatSpellSniper{className}");
+
+                        foreach (var spellsByLevel in spellList.SpellsByLevel)
                         {
                             spellsByLevel.Spells.RemoveAll(x => x == spellDefinition);
                         }

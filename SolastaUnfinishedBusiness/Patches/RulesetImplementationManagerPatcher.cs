@@ -238,7 +238,7 @@ public static class RulesetImplementationManagerPatcher
 
             return instructions.ReplaceCalls(rollDamageMethod,
                 "RulesetImplementationManager.ApplyDamageForm",
-                new CodeInstruction(OpCodes.Ldloc, 15), // EffectGroupInfo
+                new CodeInstruction(OpCodes.Ldloc, Main.IsDebugBuild ? 54 : 15), // EffectGroupInfo
                 new CodeInstruction(OpCodes.Call, myRollDamageMethod));
         }
     }

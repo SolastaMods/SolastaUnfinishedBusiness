@@ -494,7 +494,7 @@ A powerful wight, trained to withstand the light of day.
 [*][b]Pikachar2[/b]: spells
 [*][b]Prioritizer[/b]: Russian translations
 [*][b]xxy961216[/b]: Chinese translations
-[*][b]Taco[/b]: homebrew content design [metamagic, subclasses], weapon icons
+[*][b]Taco[/b]: homebrew content design [feats, metamagic, subclasses], weapon icons
 [*][b]HiddenHax[/b]: homebrew content design [subclasses]
 [*][b]Balmz[/b]: some power and spell icons
 [/list]
