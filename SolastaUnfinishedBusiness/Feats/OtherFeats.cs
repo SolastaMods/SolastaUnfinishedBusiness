@@ -597,6 +597,15 @@ internal static class OtherFeats
                     Gui.Format($"Feat/&{NAME}Title", classTitle),
                     Gui.Format($"Feat/&{NAME}Description", classTitle))
                 .SetFeatures(
+                    FeatureDefinitionCombatAffinityBuilder
+                        .Create($"CombatAffinity{NAME}{className}")
+                        .SetGuiPresentationNoContent(true)
+                        .SetCustomSubFeatures(new RestrictedContextValidator((_, _, _, _, _, mode, _) =>
+                            (OperationType.Set,
+                                mode.sourceDefinition is SpellDefinition &&
+                                mode.EffectDescription.RangeType == RangeType.RangeHit)))
+                        .SetIgnoreCover()
+                        .AddToDB(),
                     FeatureDefinitionCastSpellBuilder
                         .Create(castSpell, $"CastSpell{NAME}{className}")
                         .SetGuiPresentation(
@@ -666,7 +675,6 @@ internal static class OtherFeats
             .SetMustCastSpellsPrerequisite()
             .AddToDB();
     }
-
 
     private static RulesetEffectPower GetUsablePower(RulesetCharacter rulesetCharacter)
     {
@@ -859,7 +867,6 @@ internal static class OtherFeats
             }
 
             effect.rangeParameter = spellDefinition.EffectDescription.RangeParameter * 2;
-            effect.ignoreCover = true;
 
             return effect;
         }
