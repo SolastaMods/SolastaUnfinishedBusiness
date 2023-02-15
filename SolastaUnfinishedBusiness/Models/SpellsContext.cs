@@ -432,7 +432,7 @@ internal static class SpellsContext
                     var className = spellListName.Replace("SpellList", string.Empty);
                     var classesSpellSniper = new[] { "Cleric", "Druid", "Sorcerer", "Warlock", "Wizard" };
 
-                    if (classesSpellSniper.Contains(className))
+                    if (spellDefinition.SpellLevel == 0 && classesSpellSniper.Contains(className))
                     {
                         var spellList =
                             DatabaseHelper.GetDefinition<SpellListDefinition>($"SpellListFeatSpellSniper{className}");
@@ -471,7 +471,7 @@ internal static class SpellsContext
                     var className = spellListName.Replace("SpellList", string.Empty);
                     var classesSpellSniper = new[] { "Cleric", "Druid", "Sorcerer", "Warlock", "Wizard" };
 
-                    if (classesSpellSniper.Contains(className))
+                    if (spellDefinition.SpellLevel == 0 && classesSpellSniper.Contains(className))
                     {
                         var spellList =
                             DatabaseHelper.GetDefinition<SpellListDefinition>($"SpellListFeatSpellSniper{className}");
