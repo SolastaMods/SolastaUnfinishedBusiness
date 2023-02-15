@@ -13,6 +13,7 @@
   "knownFeatsPrerequisite": [],
   "features": [
     "Definition:CastSpellFeatSpellSniperCleric:b31e289b-6c1f-5b7e-ac9b-376466528c66",
+    "Definition:CombatAffinityFeatSpellSniperCleric:ee8f56c3-4b99-55fa-8af6-b1b1c5c05c6b",
     "Definition:PointPoolFeatSpellSniperClericCantrip:9279f08d-8834-581e-98fa-a3b063cd5611"
   ],
   "guiPresentation": {

@@ -1,5 +1,11 @@
 ﻿CHANGES:
 
+1.4.33.39:
+
+- fixed Spell Sniper to correctly apply no cover on range hit
+- improved Spells mod UI to fully integrate with Spell Sniper
+- tweaked max attuned items to be granted at 10th and 18th
+
 1.4.33.38:
 
 - added Call for Charge feat

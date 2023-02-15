@@ -217,4 +217,4 @@ ModUi/&UnlockSkinColors=Schalte Hautfarben frei
 ModUi/&UseHeightOneCylinderEffect=Verwenden Sie einen Zylindereffekt der Höhe 1, wenn Sie <color=#D89555>Schwarze Tentakel, Verstricken, Fett</color> <i><color=#F0DAA0>[Quadrat]</color></i> oder <color=#D89555 wirken>Spitzenwachstum</color> <i><color=#F0DAA0>[Runde]</color></i>
 ModUi/&UseOfficialAdvantageDisadvantageRules=Verwenden Sie die offiziellen Vorteils- / Nachteilsregeln
 ModUi/&Visuals=<color=#F0DAA0>Visuals:</color> <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>
-ModUi/&IncreaseMaxAttunedItems=Erhöhen Sie die maximale Anzahl abgestimmter Gegenstände auf 4 auf Stufe 9 und auf 5 auf Stufe 18
+ModUi/&IncreaseMaxAttunedItems=Erhöhen Sie die maximale Anzahl abgestimmter Gegenstände auf 4 auf Stufe 10 und auf 5 auf Stufe 18

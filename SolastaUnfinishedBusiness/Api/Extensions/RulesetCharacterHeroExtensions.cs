@@ -138,7 +138,7 @@ internal static class RulesetCharacterHeroExtensions
             limit = characterLevel switch
             {
                 >= 18 => 5,
-                >= 9 => 4,
+                >= 10 => 4,
                 _ => limit
             };
         }

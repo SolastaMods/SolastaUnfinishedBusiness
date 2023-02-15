@@ -13,6 +13,7 @@
   "knownFeatsPrerequisite": [],
   "features": [
     "Definition:CastSpellFeatSpellSniperDruid:41fd83d3-110d-52ce-b4cc-5146955de240",
+    "Definition:CombatAffinityFeatSpellSniperDruid:ae265a80-d577-5a26-8135-f83f56f35d6c",
     "Definition:PointPoolFeatSpellSniperDruidCantrip:2629d7c9-5f17-57b6-ad2b-fff94f3ce782"
   ],
   "guiPresentation": {
