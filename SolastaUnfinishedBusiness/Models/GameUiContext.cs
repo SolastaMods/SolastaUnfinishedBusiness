@@ -110,6 +110,28 @@ internal static class GameUiContext
         };
     }
 
+    internal static void RefreshMetamagicOffering(MetaMagicSubPanel __instance)
+    {
+        __instance.relevantMetamagicOptions.Clear();
+
+        foreach (var allElement in DatabaseRepository.GetDatabase<MetamagicOptionDefinition>().GetAllElements())
+        {
+            if (!allElement.GuiPresentation.Hidden)
+            {
+                __instance.relevantMetamagicOptions.Add(allElement);
+            }
+        }
+
+        __instance.relevantMetamagicOptions.Sort(MetamagicContext.CompareMetamagic);
+
+        Gui.ReleaseChildrenToPool(__instance.Table);
+
+        while (__instance.Table.childCount < __instance.relevantMetamagicOptions.Count)
+        {
+            Gui.GetPrefabFromPool(__instance.ItemPrefab, __instance.Table);
+        }
+    }
+    
     internal static void SpellSelectionPanelMultilineUnbind()
     {
         foreach (var spellTable in SpellLineTables

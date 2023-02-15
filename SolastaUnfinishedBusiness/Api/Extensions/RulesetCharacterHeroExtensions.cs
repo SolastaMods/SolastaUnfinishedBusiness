@@ -135,14 +135,12 @@ internal static class RulesetCharacterHeroExtensions
         {
             var characterLevel = hero.GetAttribute(AttributeDefinitions.CharacterLevel).CurrentValue;
 
-            if (characterLevel >= 9)
+            limit = characterLevel switch
             {
-                limit = 4;
-            }
-            else if (characterLevel >= 18)
-            {
-                limit = 5;
-            }
+                >= 18 => 5,
+                >= 9 => 4,
+                _ => limit
+            };
         }
 
         if (hero == null)
@@ -165,6 +163,7 @@ internal static class RulesetCharacterHeroExtensions
         }
 
         hero.CharacterInventory.EnumerateAllItems(hero.Items);
+
         return hero.Items.Any(item => item.NeedsIdentification());
     }
 }

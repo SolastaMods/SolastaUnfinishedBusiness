@@ -146,26 +146,7 @@ public static class CharacterStageProficiencySelectionPanelPatcher
         [UsedImplicitly]
         public static void Prefix(CharacterStageProficiencySelectionPanel __instance)
         {
-            var metaMagicSubPanel = __instance.metamagicSubPanel;
-
-            metaMagicSubPanel.relevantMetamagicOptions.Clear();
-
-            foreach (var allElement in DatabaseRepository.GetDatabase<MetamagicOptionDefinition>().GetAllElements())
-            {
-                if (!allElement.GuiPresentation.Hidden)
-                {
-                    metaMagicSubPanel.relevantMetamagicOptions.Add(allElement);
-                }
-            }
-
-            metaMagicSubPanel.relevantMetamagicOptions.Sort(MetamagicContext.CompareMetamagic);
-
-            Gui.ReleaseChildrenToPool(metaMagicSubPanel.Table);
-
-            while (metaMagicSubPanel.Table.childCount < metaMagicSubPanel.relevantMetamagicOptions.Count)
-            {
-                Gui.GetPrefabFromPool(metaMagicSubPanel.ItemPrefab, metaMagicSubPanel.Table);
-            }
+            GameUiContext.RefreshMetamagicOffering(__instance.metamagicSubPanel);
         }
     }
 }
