@@ -469,11 +469,12 @@ internal sealed class MartialMarshal : AbstractSubclass
         public void ComputeAttackModifier(
             RulesetCharacter myself,
             RulesetCharacter defender,
+            BattleDefinitions.AttackProximity attackProximity,
             RulesetAttackMode attackMode,
             ref ActionModifier attackModifier)
         {
-            // no spell attack
-            if (attackMode == null || defender == null)
+            if (attackProximity != BattleDefinitions.AttackProximity.PhysicalRange &&
+                attackProximity != BattleDefinitions.AttackProximity.PhysicalReach)
             {
                 return;
             }
