@@ -100,8 +100,22 @@ internal sealed class MartialSpellShield : AbstractSubclass
     internal override FeatureDefinitionSubclassChoice SubclassChoice =>
         FeatureDefinitionSubclassChoices.SubclassChoiceFighterMartialArchetypes;
 
-    private sealed class ComputeAttackModifierMagicAffinityCombatMagicVigor : IOnComputeAttackModifier, IIncreaseSpellDc
+    private sealed class ComputeAttackModifierMagicAffinityCombatMagicVigor :
+        IOnComputeAttackModifier, IModifyMagicEffect
     {
+        public EffectDescription ModifyEffect(BaseDefinition definition, EffectDescription effect,
+            RulesetCharacter character)
+        {
+            effect.difficultyClassComputation = EffectDifficultyClassComputation.FixedValue;
+
+            var saveDc = 8 + ComputeAbilityScoreModifier(character.TryGetAttributeValue(Intelligence)) +
+                         character.TryGetAttributeValue(ProficiencyBonus);
+
+            effect.fixedSavingThrowDifficultyClass = saveDc + GetSpellModifier(character);
+
+            return effect;
+        }
+
         public void ComputeAttackModifier(
             RulesetCharacter myself,
             RulesetCharacter defender,
@@ -123,14 +137,10 @@ internal sealed class MartialSpellShield : AbstractSubclass
                 "Feature/&MagicAffinitySpellShieldCombatMagicVigorTitle", null));
         }
 
-        public int GetSpellModifier(RulesetCharacter caster)
+        private static int GetSpellModifier(RulesetEntity caster)
         {
-            var strModifier =
-                ComputeAbilityScoreModifier(caster.GetAttribute(Strength)
-                    .CurrentValue);
-            var dexModifier =
-                ComputeAbilityScoreModifier(caster.GetAttribute(Dexterity)
-                    .CurrentValue);
+            var strModifier = ComputeAbilityScoreModifier(caster.TryGetAttributeValue(Strength));
+            var dexModifier = ComputeAbilityScoreModifier(caster.TryGetAttributeValue(Dexterity));
 
             return Math.Max(strModifier, dexModifier);
         }
