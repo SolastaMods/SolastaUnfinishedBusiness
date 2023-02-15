@@ -34,7 +34,7 @@ internal static class CreditsDisplay
         ("Pikachar2", "spells"),
         ("Prioritizer", "Russian translations"),
         ("xxy961216", "Chinese translations"),
-        ("Taco", "homebrew content design [metamagic, subclasses], weapon icons"),
+        ("Taco", "homebrew content design [feats, metamagic, subclasses], weapon icons"),
         ("HiddenHax", "homebrew content design [subclasses]"),
         ("Balmz", "some power and spell icons")
     };

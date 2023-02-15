@@ -53,6 +53,7 @@ ModUi/&CriticalOption2=. 2: Alle Schadenswürfel mit dem höchstmöglichen Ergeb
 ModUi/&CriticalOption3=. 3: Verdopple den Gesamtschaden deines Angriffs, anstatt zusätzliche Würfel zu werfen. <i><color=#F0DAA0>[(XdY+Z)*2]</color></i>
 ModUi/&DeadEyeAndPowerAttackBaseBaseValue=<color=white>Stellen Sie den Basismodifikatorwert für Deadeye und Power Attack ein</color>\n<i><color=#F0DAA0>[Formel ist -Mod auf Treffer / Mod + Ihr Fertigkeitsbonus auf Schaden]</color></i>
 ModUi/&DisableAutoEquip=Deaktiviere das automatische Ausrüsten von Gegenständen im Inventar
+ModUi/&DisableClassPrerequisitesOnModFeats=Deaktivieren Sie die Rennvoraussetzungen für Leistungen, die von diesem Mod bereitgestellt werden
 ModUi/&DisableRacePrerequisitesOnModFeats=Deaktivieren Sie die Rennvoraussetzungen für Leistungen, die von diesem Mod bereitgestellt werden
 ModUi/&DisableSenseDarkVisionFromAllRaces=Deaktiviere <color=#D89555>Dunkle Sicht wahrnehmen</color> von allen spielbaren Völkern <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>
 ModUi/&DisableSenseSuperiorDarkVisionFromAllRaces=Deaktiviere <color=#D89555>Superior Sense Dark Vision</color> von allen spielbaren Rassen <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>

@@ -164,6 +164,7 @@ When you make an unarmed strike on your turn, your reach for it is 10 feet.
 [*][b]Blade Mastery[/b]: You master the shortsword, longsword, scimitar, rapier, and greatsword. You gain the following benefits when using any of them: A +1 bonus to attack rolls you make with the weapon. On your turn, you can use your reaction to assume a parrying stance, provided you have the weapon in hand. Doing so grants you a +1 bonus to your AC until the start of your next turn. When you make an opportunity attack with the weapon, you have advantage on the attack roll.
 [*][b]Blind Fighting[/b]: You have blind sight with a range of 10 feet. Within that range, you can effectively see anything that isn't behind total cover, even if you're blinded or in darkness. Moreover, you can see an invisible creature within that range, unless the creature successfully hides from you.
 [*][b]Bow Mastery[/b]: You gain a +1 bonus to damage rolls you make with shortbows and longbows. When you use the Attack action with a shortbow on your turn, you can make one ranged weapon attack as a bonus action. You can use Strength instead of Dexterity for the attack and damage rolls you make with longbows.
+[*][b]Call for Charge[/b]: You may use your bonus action to call for a charge. When you do, until the start of your next turn, you and your allies speed increase by 15 ft, and each one have advantage on their first attack roll. You can use this power a number of times per long rest equal to your Charisma modifier.
 [*][b]Celestial Touched [Cha][/b]: Increase your Charisma attribute by 1, to a maximum of 20.
 You gain the ability to cast the healing word, cure wounds and lesser restoration spells once per long rest and you can cast these spells with your spell slots.
 [*][b]Celestial Touched [Int][/b]: Increase your Intelligence attribute by 1, to a maximum of 20.
@@ -493,7 +494,8 @@ A powerful wight, trained to withstand the light of day.
 [*][b]Pikachar2[/b]: spells
 [*][b]Prioritizer[/b]: Russian translations
 [*][b]xxy961216[/b]: Chinese translations
+[*][b]Taco[/b]: homebrew content design [metamagic, subclasses], weapon icons
+[*][b]HiddenHax[/b]: homebrew content design [subclasses]
 [*][b]Balmz[/b]: some power and spell icons
-[*][b]Taco[/b]: some weapon icons
 [/list]
 

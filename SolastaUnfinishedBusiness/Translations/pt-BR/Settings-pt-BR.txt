@@ -53,6 +53,7 @@ ModUi/&CriticalOption2=. 2: continue rolando novamente qualquer dado de dano que
 ModUi/&CriticalOption3=. 3: Duplique o dano total do seu ataque em vez de rolar dados adicionais. <i><color=#F0DAA0>[(XdY+Z)*2]</color></i>
 ModUi/&DeadEyeAndPowerAttackBaseBaseValue=<color=white>Definir o valor do modificador base Deadeye e Power Attack</color>\n<i><color=#F0DAA0>[a fórmula é -mod para acertar / mod + seu bônus de proficiência para danificar]</color></i>
 ModUi/&DisableAutoEquip=Desativar o equipamento automático de itens no inventário
+ModUi/&DisableClassPrerequisitesOnModFeats=Desativar os pré-requisitos de classe nos talentos fornecidos por este mod
 ModUi/&DisableRacePrerequisitesOnModFeats=Desativar os pré-requisitos de raça nos talentos fornecidos por este mod
 ModUi/&DisableSenseDarkVisionFromAllRaces=Desativar <color=#D89555>Sentir visão no escuro</color> de todas as raças jogáveis <b><i><color=#C04040E0>[Requer reinicialização]</color></i></b>
 ModUi/&DisableSenseSuperiorDarkVisionFromAllRaces=Desative <color=#D89555>Superior Sense Dark Vision</color> de todas as raças jogáveis <b><i><color=#C04040E0>[Requer reinicialização]</color></i></b>

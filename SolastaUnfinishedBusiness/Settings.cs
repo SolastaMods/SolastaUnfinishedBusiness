@@ -66,6 +66,7 @@ public class Settings : UnityModManager.ModSettings
     public bool EnableAlternateHuman { get; set; }
     public bool EnableFlexibleBackgrounds { get; set; }
     public bool EnableFlexibleRaces { get; set; }
+    public bool DisableClassPrerequisitesOnModFeats { get; set; }
     public bool DisableRacePrerequisitesOnModFeats { get; set; }
     public bool AddHumanoidFavoredEnemyToRanger { get; set; }
     public bool EnableEpicPointsAndArray { get; set; }

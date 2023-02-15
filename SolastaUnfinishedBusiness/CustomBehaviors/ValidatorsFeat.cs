@@ -3,6 +3,7 @@ using System.Linq;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.Extensions;
 using SolastaUnfinishedBusiness.Races;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterClassDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterRaceDefinitions;
 
 namespace SolastaUnfinishedBusiness.CustomBehaviors;
@@ -13,17 +14,14 @@ internal static class ValidatorsFeat
     // validation routines for FeatDefinitionWithPrerequisites
     //
 
-    // ReSharper disable once InconsistentNaming
-    private static readonly Func<FeatDefinition, RulesetCharacterHero, (bool result, string output)> _isDragonborn;
+    internal static readonly Func<FeatDefinition, RulesetCharacterHero, (bool result, string output)> IsPaladin =
+        ValidateIsClass(Paladin.FormatTitle(), Paladin);
 
     internal static readonly Func<FeatDefinition, RulesetCharacterHero, (bool result, string output)> IsDragonborn =
-        _isDragonborn ??= ValidateIsRace(Dragonborn.FormatTitle(), Dragonborn);
-
-    // ReSharper disable once InconsistentNaming
-    private static readonly Func<FeatDefinition, RulesetCharacterHero, (bool result, string output)> _isElfOfHalfElf;
+        ValidateIsRace(Dragonborn.FormatTitle(), Dragonborn);
 
     internal static readonly Func<FeatDefinition, RulesetCharacterHero, (bool result, string output)> IsElfOfHalfElf =
-        _isElfOfHalfElf ??= ValidateIsRace(
+        ValidateIsRace(
             $"{Elf.FormatTitle()}, {HalfElf.FormatTitle()}",
             Elf, ElfHigh, ElfSylvan, HalfElf,
             DarkelfSubraceBuilder.SubraceDarkelf,
@@ -112,6 +110,26 @@ internal static class ValidatorsFeat
             var guiFormat = Gui.Format("Tooltip/&PreReqIsNot", className);
 
             return isNotClass
+                ? (true, guiFormat)
+                : (false, Gui.Colorize(guiFormat, Gui.ColorFailure));
+        };
+    }
+
+    [NotNull]
+    private static Func<FeatDefinition, RulesetCharacterHero, (bool result, string output)> ValidateIsClass(
+        string description, params CharacterClassDefinition[] characterClassDefinition)
+    {
+        return (_, hero) =>
+        {
+            if (Main.Settings.DisableClassPrerequisitesOnModFeats)
+            {
+                return (true, string.Empty);
+            }
+
+            var isClass = hero.ClassesHistory.Intersect(characterClassDefinition).Any();
+            var guiFormat = Gui.Format("Tooltip/&PreReqIs", description);
+
+            return isClass
                 ? (true, guiFormat)
                 : (false, Gui.Colorize(guiFormat, Gui.ColorFailure));
         };
