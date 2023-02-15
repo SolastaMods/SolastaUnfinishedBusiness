@@ -615,34 +615,16 @@ public static class GameLocationBattleManagerPatcher
                 return;
             }
 
-            switch (attackParams.attackProximity)
+            var attackModifiers = attacker.GetSubFeaturesByType<IOnComputeAttackModifier>();
+
+            foreach (var feature in attackModifiers)
             {
-                case BattleDefinitions.AttackProximity.PhysicalRange or BattleDefinitions.AttackProximity.PhysicalReach:
-                    // handle physical attack roll
-                    var attackModifiers = attacker.GetSubFeaturesByType<IOnComputeAttackModifier>();
-
-                    foreach (var feature in attackModifiers)
-                    {
-                        feature.ComputeAttackModifier(attacker, defender, attackParams.attackMode,
-                            ref attackParams.attackModifier);
-                    }
-
-                    break;
-
-                case BattleDefinitions.AttackProximity.MagicRange or BattleDefinitions.AttackProximity.MagicReach:
-                    // handle magic attack roll
-                    var magicAttackModifiers = attacker.GetSubFeaturesByType<IIncreaseSpellAttackRoll>();
-
-                    foreach (var feature in magicAttackModifiers)
-                    {
-                        var modifier = feature.GetSpellAttackRollModifier(attacker);
-                        attackParams.attackModifier.attackRollModifier += modifier;
-                        attackParams.attackModifier.attackToHitTrends.Add(new RuleDefinitions.TrendInfo(modifier,
-                            feature.SourceType,
-                            feature.SourceName, null));
-                    }
-
-                    break;
+                feature.ComputeAttackModifier(
+                    attacker,
+                    defender,
+                    attackParams.attackProximity,
+                    attackParams.attackMode,
+                    ref attackParams.attackModifier);
             }
         }
     }

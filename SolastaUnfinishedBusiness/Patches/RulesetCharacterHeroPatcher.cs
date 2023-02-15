@@ -636,6 +636,12 @@ public static class RulesetCharacterHeroPatcher
         [UsedImplicitly]
         public static bool Prefix(RulesetCharacterHero __instance, ref bool __result)
         {
+            // don't do anything on main screen
+            if (Gui.Game == null)
+            {
+                return true;
+            }
+
             if (Main.Settings.NoExperienceOnLevelUp)
             {
                 var levelCap = Main.Settings.EnableLevel20
