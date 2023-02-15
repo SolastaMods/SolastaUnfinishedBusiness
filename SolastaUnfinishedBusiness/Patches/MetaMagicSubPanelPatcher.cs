@@ -16,24 +16,7 @@ public static class MetaMagicSubPanelPatcher
         [UsedImplicitly]
         public static void Prefix(MetaMagicSubPanel __instance)
         {
-            __instance.relevantMetamagicOptions.Clear();
-
-            foreach (var allElement in DatabaseRepository.GetDatabase<MetamagicOptionDefinition>().GetAllElements())
-            {
-                if (!allElement.GuiPresentation.Hidden)
-                {
-                    __instance.relevantMetamagicOptions.Add(allElement);
-                }
-            }
-
-            __instance.relevantMetamagicOptions.Sort(MetamagicContext.CompareMetamagic);
-
-            Gui.ReleaseChildrenToPool(__instance.Table);
-
-            while (__instance.Table.childCount < __instance.relevantMetamagicOptions.Count)
-            {
-                Gui.GetPrefabFromPool(__instance.ItemPrefab, __instance.Table);
-            }
+            GameUiContext.RefreshMetamagicOffering(__instance);
         }
     }
 }

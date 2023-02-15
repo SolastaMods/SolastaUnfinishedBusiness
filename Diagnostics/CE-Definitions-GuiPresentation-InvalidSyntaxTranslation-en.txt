@@ -394,6 +394,62 @@ FeatElementalAdeptDamageLightning	Title='Elemental Adept [Lightning]'.
 FeatElementalAdeptDamageLightning	Description='Lightning damage type spells you cast ignore target's resistance to damage. In addition, when you roll damage for these spells, you can reroll any 1s.'.
 FeatElementalAdeptDamageThunder	Title='Elemental Adept [Thunder]'.
 FeatElementalAdeptDamageThunder	Description='Thunder damage type spells you cast ignore target's resistance to damage. In addition, when you roll damage for these spells, you can reroll any 1s.'.
+FeatGroupAgilityCombat	Description='Eager for Battle, Forest Runner, Ready or Not, Rush to Battle '.
+FeatGroupAlchemist	Description='Initiate Alchemist, Master Alchemist'.
+FeatGroupApothecary	Description='Increase one of your mental attributes by 1, to a maximum of 20.
+You gain proficiency with herbalism kit and Arcana, or expertise if already proficient.'.
+FeatGroupArmor	Description='Armor Master, Discretion of the Coedymwarth, Medium Armor, Might of the Iron Legion, Sturdiness of the Tundra'.
+FeatGroupBodyResilience	Description='Badlands Marauder, Blessing of the Elements, Enduring Body, Focused Sleeper, Hard to Kill, Hauler, Robust'.
+FeatGroupCelestialTouched	Description='Increase one of your mental attributes by 1, to a maximum of 20.
+You gain the ability to cast the healing word, cure wounds and lesser restoration spells once per long rest and you can cast these spells with your spell slots.'.
+FeatGroupCreed	Description='Increase one of your attributes by 1, to a maximum of 20.
+Proficiency in saves of chosen attribute, if not already proficient; +1 otherwise.'.
+FeatGroupCriticalVirtuoso	Description='You dedicated your time learning how to leverage enemies weak spots to increase your chance to critical damage.'.
+FeatGroupCrusher	Description='Increase your Strength or Constitution by 1, to a maximum of 20.
+When you hit a creature with an attack that deals bludgeoning damage, once per turn you push the enemy by 5ft. When you score a critical hit attack rolls against that creature are made with advantage until the start of your next turn.'.
+FeatGroupDefenseCombat	Description='Cloak and Dagger, Fade Away, Raise Shield, Twin Blade , Unarmored Expert'.
+FeatGroupDefenseExpert	Description='Increase one of your mental attributes by 1, to a maximum of 20.
+While you are not wearing any armor, your AC equals 10 + your Dexterity modifier + the selected mental attribute modifier.'.
+FeatGroupElementalAdept	Description='When you gain this feat, choose one of the following damage types: acid, cold, fire, lightning, or thunder. Spells you cast ignore resistance to damage of the chosen type. In addition, when you roll damage for a spell you cast that deals damage of that type, you can reroll any 1s.'.
+FeatGroupElementalTouch	Description='The first time each turn that you deal damage with an unarmed attack or weapon, you deal additional elemental damage equal to your proficiency bonus.'.
+FeatGroupElvenAccuracy	Description='You have uncanny aim with attacks that rely on precision rather than brute force. Increase your Dexterity or one of your mental attributes by 1, to a maximum of 20. Whenever you have advantage on an attack roll using Dexterity, Intelligence, Wisdom, or Charisma, you can reroll one of the dice once.'.
+FeatGroupEnchanter	Description='Initiate Enchanter, Master Enchanter'.
+FeatGroupFadeAway	Description='You have learned a magical trick for fading away when you suffer harm. Increase your Dexterity or Intelligence score by 1, to a maximum of 20. Immediately after you take damage, you can use a reaction to magically become invisible until the end of your next turn or until you attack, deal damage, or force someone to make a saving throw. Once you use this ability, you can't do so again until you finish a short or long rest.'.
+FeatGroupFightingStyle	Description='Learn a new Fighting Style.'.
+FeatGroupFlameTouched	Description='Increase one of your mental attributes by 1, to a maximum of 20.
+You gain the ability to cast the burning hands and scorching ray spells once per long rest and you can cast these and hellish rebuke with your spell slots.'.
+FeatGroupMagicInitiate	Description='Choose a class: bard, cleric, druid, sorcerer, warlock, or wizard. You learn two cantrips of your choice from that class's spell list. In addition, choose one 1st-level spell to learn from that same list. Using this feat, you can cast the spell once at its lowest level, and you must finish a long rest before you can cast it in this way again.'.
+FeatGroupMediumArmor	Description='Increase your Strength or Dexterity by 1, to a maximum of 20.
+You gain proficiency with medium armor and shields.'.
+FeatGroupMeleeCombat	Description='Crusher, Daunting Push, Distracting Gambit, Elemental Touch, Piercer, Slasher, Trip Attack'.
+FeatGroupPiercer	Description='Increase your Strength or Dexterity by 1, to a maximum of 20.
+When you hit a creature with an attack that deals piercing damage, you can re-roll dice when you roll a 1 and you must use the new roll. When you score a critical hit you can roll one additional damage die when determining the extra piercing damage the target takes.'.
+FeatGroupPlaneTouchedMagic	Description='You are touched by some other plane and can cast some spells associated with that plane.
+One of your mental attributes is raised by 1 to a maximum of 20.'.
+FeatGroupPrecisionFocused	Description='Increase one of your mental attributes by 1, to a maximum of 20.
+You can use a bonus action to make weapon attacks count as magical and use selected mental attribute for attack and damage rolls for 1 minute. This feature can be used Proficiency Bonus times per long rest'.
+FeatGroupRaceBound	Description='Elven Accuracy, Fade Away, Revenant Great Sword'.
+FeatGroupRangedCombat	Description='Discretion of the Coedymwarth, Piercer, Take Aim, Uncanny Accuracy'.
+FeatGroupRevenantGreatSword	Description='Increase your Dexterity or Strength score by 1, to a maximum of 20. While you are holding a great sword,  you gain a +1 bonus to Armor Class and you can use your Dexterity on to hit and to damage bonuses.'.
+FeatGroupShadowTouched	Description='Increase one of your mental attributes by 1, to a maximum of 20.
+You gain the ability to cast the invisibility, inflict wounds, and false life spells once per long rest and you can cast these spells with your spell slots.'.
+FeatGroupSkills	Description='Manipulator'.
+FeatGroupSlasher	Description='Increase your Strength or Dexterity by 1, to a maximum of 20.
+When you hit a creature with an attack that deals slashing damage, you can reduce the speed of the target by 10 feet until the start of your next turn. When you score a critical hit you grievously wound it. Until the start of your next turn, the target has disadvantage on all attack rolls.'.
+FeatGroupSpellCombat	Description='Elemental Adept, Flawless Concentration, Powerful Cantrip, Spell Sniper'.
+FeatGroupSpellSniper	Description='You learn one cantrip that requires an attack roll. Choose the cantrip from the bard, cleric, druid, sorcerer, warlock, or wizard spell list. When you cast a spell that requires you to make an attack roll, the spell's range is doubled. Your ranged spell attacks ignore half cover and three-quarters cover.'.
+FeatGroupSupportCombat	Description='Mender'.
+FeatGroupTelekinetic	Description='Increase one of your mental attributes by 1, to a maximum of 20.
+As a bonus action during combat, you can telekinetically move one creature you can see within 30 feet of you. The target must succeed on a Strength saving throw (DC 8 + your proficiency bonus + your chosen attributes modifier) or be moved 5 feet in a direction of your choosing.'.
+FeatGroupTeleportation	Description='Increase one of your mental attributes by 1, to a maximum of 20.
+You can use misty step once per short rest, and you can cast this spell with your spell slots.
+You gain proficiency in Tirmarian.'.
+FeatGroupTools	Description='Alchemist, Apothecary, Enchanter, Lock Breaker, Toxicologist'.
+FeatGroupToxicologist	Description='Increase one of your mental attributes by 1, to a maximum of 20.
+You gain proficiency with poisoner's kit and Nature, or expertise if already proficient.'.
+FeatGroupTwoHandedCombat	Description='Follow Up Strike, Forestalling Strength, Mighty Blow, Revenant Great Sword'.
+FeatGroupTwoWeaponCombat	Description='Ambidextrous, Twin Blade '.
+FeatGroupUnarmoredCombat	Description='Elemental Touch, Unarmored Expert'.
 FeatMagicInitiateBard	Title='Magic Initiate [Bard]'.
 FeatMagicInitiateBard	Description='You learn two cantrips of your choice from the Bard spell list. In addition, choose one 1st-level spell to learn from that same list. Using this feat, you can cast the spell once at its lowest level, and you must finish a long rest before you can cast it in this way again.'.
 FeatMagicInitiateCleric	Title='Magic Initiate [Cleric]'.

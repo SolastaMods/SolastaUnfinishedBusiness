@@ -53,6 +53,7 @@ ModUi/&CriticalOption2=. 2: продолжайте перебрасывать л
 ModUi/&CriticalOption3=. 3: Удвойте общий урон вашей атаки вместо того, чтобы бросать дополнительные кубики. <i><color=#F0DAA0>[(XdY+Z)*2]</color></i>
 ModUi/&DeadEyeAndPowerAttackBaseBaseValue=<color=white>Установить для «Меткий глаз» и «Мощная атака» базовое значение модификатора </color>\n<i><color=#F0DAA0>[formula is -mod to hit / mod + PB to damage]</color></i>
 ModUi/&DisableAutoEquip=Отключить автоматическое надевание предметов из инвентаря
+ModUi/&DisableClassPrerequisitesOnModFeats=Отключить Расовые предустановки на Классы предлагаемые этим модом
 ModUi/&DisableRacePrerequisitesOnModFeats=Отключить Расовые предустановки на черты предлагаемые этим модом
 ModUi/&DisableSenseDarkVisionFromAllRaces=Отключите <color=#D89555>Sense Dark Vision</color> для всех игровых рас <b><i><color=#C04040E0>[Требуется перезагрузка]</color></i></b>
 ModUi/&DisableSenseSuperiorDarkVisionFromAllRaces=Отключите <color=#D89555>Superior Sense Dark Vision</color> для всех игровых рас <b><i><color=#C04040E0>[Требуется перезагрузка]</color></i></b>
@@ -216,3 +217,4 @@ ModUi/&UnlockSkinColors=Разблокировать цвет скинов
 ModUi/&UseHeightOneCylinderEffect=Используйте эффект цилиндра высотой 1 при кастовании <color=#D89555>Черные Тентакли, Опутать, Масло</color> <i><color=#F0DAA0>[square]</color></i> или <color=#D89555>Spike Growth</color> <i><color=#F0DAA0>[round]</color></i>
 ModUi/&UseOfficialAdvantageDisadvantageRules=Использоваться официальные правила штрафов и бонусов
 ModUi/&Visuals=<color=#F0DAA0>Visuals:</color> <b><i><color=#C04040E0>[Требуется Перезапуск]</color></i></b>
+ModUi/&IncreaseMaxAttunedItems=Увеличьте максимальное количество настроенных предметов до 4 на уровне 9 и до 5 на уровне 18.

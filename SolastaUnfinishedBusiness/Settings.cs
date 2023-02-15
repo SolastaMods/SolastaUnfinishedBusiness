@@ -66,6 +66,7 @@ public class Settings : UnityModManager.ModSettings
     public bool EnableAlternateHuman { get; set; }
     public bool EnableFlexibleBackgrounds { get; set; }
     public bool EnableFlexibleRaces { get; set; }
+    public bool DisableClassPrerequisitesOnModFeats { get; set; }
     public bool DisableRacePrerequisitesOnModFeats { get; set; }
     public bool AddHumanoidFavoredEnemyToRanger { get; set; }
     public bool EnableEpicPointsAndArray { get; set; }
@@ -166,6 +167,7 @@ public class Settings : UnityModManager.ModSettings
     public bool AllowDruidToWearMetalArmor { get; set; }
 
     public bool FullyControlConjurations { get; set; }
+    public bool IncreaseMaxAttunedItems { get; set; }
     public bool MakeLargeWildshapeFormsMedium { get; set; }
     public bool MakeAllMagicStaveArcaneFoci { get; set; }
 
@@ -324,9 +326,7 @@ public class Settings : UnityModManager.ModSettings
 
     // Debug
     public bool DebugDisableVerifyDefinitionNameIsNotInUse { get; set; }
-#if DEBUG
     public bool DebugLogDefinitionCreation { get; set; }
     public bool DebugLogFieldInitialization { get; set; }
     public bool DebugLogVariantMisuse { get; set; }
-#endif
 }

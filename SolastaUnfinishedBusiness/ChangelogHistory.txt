@@ -1,5 +1,12 @@
 ﻿CHANGES:
 
+1.4.33.38:
+
+- added Call for Charge feat
+- added house rule to increase max attuned items to 4 at 9th and 5 at 18th
+- fixed missing advantage on Wild Master eagle pack tactics
+- improved group descriptions to list feat names within them
+
 1.4.33.37:
 
 - refactored Crusher to correctly trigger with shields and not with EB

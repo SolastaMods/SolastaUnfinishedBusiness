@@ -264,7 +264,7 @@ internal static class PowerBundle
         return ModifyMagicEffect(original, power.PowerDefinition, power.User, power);
     }
 
-    private static string Key(BaseDefinition definition, MetamagicOptionDefinition metamagic)
+    private static string Key(BaseDefinition definition, BaseDefinition metamagic)
     {
         var key = $"{definition.GetType()}:{definition.Name}:";
 
@@ -276,8 +276,10 @@ internal static class PowerBundle
         return key;
     }
 
-    private static EffectDescription GetCachedEffect(RulesetEntity caster, BaseDefinition definition,
-        MetamagicOptionDefinition metamagic)
+    private static EffectDescription GetCachedEffect(
+        RulesetEntity caster,
+        BaseDefinition definition,
+        BaseDefinition metamagic)
     {
         if (!SpellEffectCache.TryGetValue(caster.Guid, out var effects))
         {
@@ -287,8 +289,11 @@ internal static class PowerBundle
         return !effects.TryGetValue(Key(definition, metamagic), out var effect) ? null : effect;
     }
 
-    private static void CacheEffect(RulesetEntity caster, BaseDefinition definition,
-        MetamagicOptionDefinition metamagic, EffectDescription effect)
+    private static void CacheEffect(
+        RulesetEntity caster,
+        BaseDefinition definition,
+        BaseDefinition metamagic,
+        EffectDescription effect)
     {
         Dictionary<string, EffectDescription> effects;
 
