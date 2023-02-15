@@ -57,7 +57,10 @@ internal static class GroupFeats
             return;
         }
 
-        var titles = groupedFeat.GetSubFeats().Select(x => x.FormatTitle()).ToArray();
+        var titles = groupedFeat.GetSubFeats()
+            .Select(x => x.FormatTitle())
+            .OrderBy(x => x)
+            .ToArray();
         var title = string.Join(", ", titles);
 
         groupDefinition.guiPresentation.description = Gui.Format(groupDefinition.guiPresentation.description, title);

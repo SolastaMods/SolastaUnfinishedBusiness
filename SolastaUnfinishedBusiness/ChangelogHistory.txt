@@ -2,8 +2,9 @@
 
 1.4.33.38:
 
-- fixed missing advantage on Wild Master eagles pack tactics
-- improved some group descriptions to list feat names within them
+- added Call for Charge feat
+- fixed missing advantage on Wild Master eagle pack tactics
+- improved group descriptions to list feat names within them
 
 1.4.33.37:
 

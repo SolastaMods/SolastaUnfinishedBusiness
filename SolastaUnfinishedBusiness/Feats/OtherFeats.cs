@@ -50,6 +50,7 @@ internal static class OtherFeats
     internal static void CreateFeats([NotNull] List<FeatDefinition> feats)
     {
         var featAstralArms = BuildAstralArms();
+        var featCallForCharge = BuildCallForCharge();
         var featEldritchAdept = BuildEldritchAdept();
         var featHealer = BuildHealer();
         var featInspiringLeader = BuildInspiringLeader();
@@ -68,6 +69,7 @@ internal static class OtherFeats
 
         feats.AddRange(
             featAstralArms,
+            featCallForCharge,
             featEldritchAdept,
             featHealer,
             featInspiringLeader,
@@ -85,6 +87,7 @@ internal static class OtherFeats
             featPoisonousSkin);
 
         GroupFeats.FeatGroupSupportCombat.AddFeats(
+            featCallForCharge,
             featHealer,
             featInspiringLeader);
 
@@ -125,6 +128,53 @@ internal static class OtherFeats
                     .SetGuiPresentationNoContent(true)
                     .SetCustomSubFeatures(new ModifyAttackModeForWeaponFeatAstralArms())
                     .AddToDB())
+            .AddToDB();
+    }
+
+    private static FeatDefinition BuildCallForCharge()
+    {
+        const string NAME = "FeatCallForCharge";
+
+        return FeatDefinitionWithPrerequisitesBuilder
+            .Create("FeatCallForCharge")
+            .SetGuiPresentation(Category.Feat)
+            .SetFeatures(FeatureDefinitionPowerBuilder
+                .Create($"Power{NAME}")
+                .SetGuiPresentation(Category.Feature, PowerOathOfTirmarGoldenSpeech)
+                .SetUsesAbilityBonus(ActivationTime.BonusAction, RechargeRate.LongRest, AttributeDefinitions.Charisma)
+                .SetEffectDescription(
+                    EffectDescriptionBuilder
+                        .Create()
+                        .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Sphere, 6)
+                        .SetDurationData(DurationType.Round, 1)
+                        .SetEffectForms(
+                            EffectFormBuilder
+                                .Create()
+                                .SetConditionForm(
+                                    ConditionDefinitionBuilder
+                                        .Create($"Condition{NAME}")
+                                        .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionBlessed)
+                                        .SetSpecialInterruptions(ConditionInterruption.Attacked)
+                                        .SetPossessive()
+                                        .SetFeatures(
+                                            FeatureDefinitionMovementAffinityBuilder
+                                                .Create($"MovementAffinity{NAME}")
+                                                .SetGuiPresentation($"Condition{NAME}", Category.Condition)
+                                                .SetBaseSpeedAdditiveModifier(3)
+                                                .AddToDB(),
+                                            FeatureDefinitionCombatAffinityBuilder
+                                                .Create($"CombatAffinity{NAME}")
+                                                .SetGuiPresentation($"Condition{NAME}", Category.Condition)
+                                                .SetMyAttackAdvantage(AdvantageType.Advantage)
+                                                .AddToDB())
+                                        .AddToDB(),
+                                    ConditionForm.ConditionOperation.Add)
+                                .Build())
+                        .SetParticleEffectParameters(SpellDefinitions.MagicWeapon)
+                        .Build())
+                .AddToDB())
+            .SetAbilityScorePrerequisite(AttributeDefinitions.Charisma, 13)
+            .SetValidators(ValidatorsFeat.IsPaladin)
             .AddToDB();
     }
 

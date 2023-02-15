@@ -47,12 +47,13 @@ ModUi/&CraftingHelp=. Press the button to learn recipes instantly on the active 
 ModUi/&Credits=Credits
 ModUi/&CreditsAndDiagnostics=Credits & Diagnostics
 ModUi/&Critical=<color=#F0DAA0>Critical Hit:</color>
-ModUi/&CriticalOption0=. 0: game default, roll any damage dice twice, add the result and add modifiers <i><color=#F0DAA0>[XdY+XdY+Z]</color></i>
-ModUi/&CriticalOption1=. 1: sum the maximum result for the damage dice and add it to the attack's damage <i><color=#F0DAA0>[XdY+(X*Y)+Z]</color></i>
-ModUi/&CriticalOption2=. 2: keep re-rolling any damage dice that roll the highest possible result and add it to the total damage
-ModUi/&CriticalOption3=. 3: Double your attack's total damage instead of rolling additional dice. <i><color=#F0DAA0>[(XdY+Z)*2]</color></i>
-ModUi/&DeadEyeAndPowerAttackBaseBaseValue=<color=white>Set Deadeye and Power Attack base modifier value</color>\n<i><color=#F0DAA0>[formula is -mod to hit / mod + your proficiency bonus to damage]</color></i>
+ModUi/&CriticalOption0=<color=#D89555><b>0</b></color>: game default, roll any damage dice twice, add the result and add modifiers <i><color=#F0DAA0>[XdY+XdY+Z]</color></i>
+ModUi/&CriticalOption1=<color=#D89555><b>1</b></color>: sum the maximum result for the damage dice and add it to the attack's damage <i><color=#F0DAA0>[XdY+(X*Y)+Z]</color></i>
+ModUi/&CriticalOption2=<color=#D89555><b>2</b></color>: keep re-rolling any damage dice that roll the highest possible result and add it to the total damage
+ModUi/&CriticalOption3=<color=#D89555><b>3</b></color>: Double your attack's total damage instead of rolling additional dice. <i><color=#F0DAA0>[(XdY+Z)*2]</color></i>
+ModUi/&DeadEyeAndPowerAttackBaseBaseValue=<color=white>Set Deadeye and Power Attack base modifier value</color>\n<i><color=#F0DAA0>[formula is -mod to hit / mod + your PB to damage]</color></i>
 ModUi/&DisableAutoEquip=Disable auto-equip of items in inventory
+ModUi/&DisableClassPrerequisitesOnModFeats=Disable Class pre-requisites on feats provided by this mod
 ModUi/&DisableRacePrerequisitesOnModFeats=Disable Race pre-requisites on feats provided by this mod
 ModUi/&DisableSenseDarkVisionFromAllRaces=Disable <color=#D89555>Sense Dark Vision</color> from all playable races <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
 ModUi/&DisableSenseSuperiorDarkVisionFromAllRaces=Disable <color=#D89555>Superior Sense Dark Vision</color> from all playable races <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
@@ -216,3 +217,4 @@ ModUi/&UnlockSkinColors=Unlock skin colors
 ModUi/&UseHeightOneCylinderEffect=Use a height 1 cylinder effect when casting <color=#D89555>Black Tentacles, Entangle, Grease</color> <i><color=#F0DAA0>[square]</color></i> or <color=#D89555>Spike Growth</color> <i><color=#F0DAA0>[round]</color></i>
 ModUi/&UseOfficialAdvantageDisadvantageRules=Use official advantage / disadvantage rules
 ModUi/&Visuals=<color=#F0DAA0>Visuals:</color> <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
+ModUi/&IncreaseMaxAttunedItems=Increase max attuned items to 4 at level 9th and 5 at level 18th

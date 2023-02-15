@@ -164,6 +164,12 @@ internal static class RulesDisplay
             SrdAndHouseRulesContext.SwitchFullyControlConjurations();
         }
 
+        toggle = Main.Settings.IncreaseMaxAttunedItems;
+        if (UI.Toggle(Gui.Localize("ModUi/&IncreaseMaxAttunedItems"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.IncreaseMaxAttunedItems = toggle;
+        }
+
         toggle = Main.Settings.MakeLargeWildshapeFormsMedium;
         if (UI.Toggle(Gui.Localize("ModUi/&MakeLargeWildshapeFormsMedium"), ref toggle, UI.AutoWidth()))
         {
