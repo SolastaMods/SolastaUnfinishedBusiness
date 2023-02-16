@@ -33,6 +33,13 @@ public static class GameLocationActionManagerPatcher
         public static bool Prefix(GameLocationActionManager __instance, CharacterActionParams reactionParams)
         {
             //PATCH: replace `OpportunityAttack` reaction with warcaster one
+            
+            //replace only for player characters
+            if (reactionParams.ActingCharacter.Side != RuleDefinitions.Side.Ally)
+            {
+                return true;
+            }
+
             __instance.AddInterruptRequest(new ReactionRequestWarcaster(reactionParams));
 
             return false;
