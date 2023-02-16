@@ -59,6 +59,7 @@ internal static class OtherFeats
         var featMonkInitiate = BuildMonkInitiate();
         var featPickPocket = BuildPickPocket();
         var featPoisonousSkin = BuildPoisonousSkin();
+        var featPotentSpellcaster = BuildPotentSpellcaster();
         var featTough = BuildTough();
         var featWarCaster = BuildWarcaster();
 
@@ -78,6 +79,7 @@ internal static class OtherFeats
             featMonkInitiate,
             featPickPocket,
             featPoisonousSkin,
+            featPotentSpellcaster,
             featTough,
             featWarCaster);
 
@@ -90,6 +92,8 @@ internal static class OtherFeats
             featCallForCharge,
             featHealer,
             featInspiringLeader);
+
+        GroupFeats.FeatGroupAgilityCombat.AddFeats(featMobile);
 
         GroupFeats.MakeGroup("FeatGroupBodyResilience", null,
             FeatDefinitions.BadlandsMarauder,
@@ -110,10 +114,13 @@ internal static class OtherFeats
             FeatDefinitions.FlawlessConcentration,
             FeatDefinitions.PowerfulCantrip,
             elementalAdeptGroup,
+            featPotentSpellcaster,
             featWarCaster,
             spellSniperGroup);
 
-        GroupFeats.FeatGroupAgilityCombat.AddFeats(featMobile);
+        GroupFeats.MakeGroup("FeatGroupClassBound", null,
+            featCallForCharge,
+            featPotentSpellcaster);
     }
 
     private static FeatDefinition BuildAstralArms()
@@ -174,7 +181,7 @@ internal static class OtherFeats
                         .Build())
                 .AddToDB())
             .SetAbilityScorePrerequisite(AttributeDefinitions.Charisma, 13)
-            .SetValidators(ValidatorsFeat.IsPaladin)
+            .SetValidators(ValidatorsFeat.IsPaladinLevel1)
             .AddToDB();
     }
 
@@ -547,6 +554,46 @@ internal static class OtherFeats
             .SetAbilityScorePrerequisite(AttributeDefinitions.Constitution, 13)
             .SetCustomSubFeatures(new CustomBehaviorFeatureFeatPoisonousSkin())
             .AddToDB();
+    }
+
+    private static FeatDefinition BuildPotentSpellcaster()
+    {
+        return FeatDefinitionWithPrerequisitesBuilder
+            .Create("FeatPotentSpellcaster")
+            .SetGuiPresentation(Category.Feat)
+            .SetCustomSubFeatures(new ModifyMagicEffectFeatPotentSpellcaster())
+            .SetValidators(ValidatorsFeat.IsWizardLevel6)
+            .AddToDB();
+    }
+
+    private sealed class ModifyMagicEffectFeatPotentSpellcaster : IModifyMagicEffect
+    {
+        public EffectDescription ModifyEffect(
+            BaseDefinition definition,
+            EffectDescription effect,
+            RulesetCharacter character)
+        {
+            if (definition is not SpellDefinition spellDefinition ||
+                !SpellListDefinitions.SpellListWizard.SpellsByLevel.Any(x =>
+                    x.Level == 0 && x.Spells.Contains(spellDefinition)))
+            {
+                return effect;
+            }
+
+            var damage = effect.FindFirstDamageForm();
+
+            if (damage == null)
+            {
+                return effect;
+            }
+
+            damage.BonusDamage += AttributeDefinitions.ComputeAbilityScoreModifier(
+                character.GetAttribute(AttributeDefinitions.Intelligence).CurrentValue);
+            damage.DamageBonusTrends.Add(
+                new TrendInfo(1, FeatureSourceType.CharacterFeature, "Feat/&FeatPotentSpellcasterTitle", null));
+
+            return effect;
+        }
     }
 
     private static FeatDefinition BuildSpellSniper([NotNull] List<FeatDefinition> feats)
