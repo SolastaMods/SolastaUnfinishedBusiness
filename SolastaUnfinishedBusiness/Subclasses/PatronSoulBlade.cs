@@ -114,14 +114,10 @@ internal sealed class PatronSoulBlade : AbstractSubclass
     private static bool CanWeaponBeEmpowered(RulesetCharacter character, RulesetItem item)
     {
         var definition = item.ItemDefinition;
+
         if (!definition.IsWeapon || !character.IsProficientWithItem(definition))
         {
             return false;
-        }
-
-        if (!definition.WeaponDescription.WeaponTags.Contains(TagsDefinitions.WeaponTagTwoHanded))
-        {
-            return true;
         }
 
         if (character is RulesetCharacterHero hero &&
@@ -131,6 +127,6 @@ internal sealed class PatronSoulBlade : AbstractSubclass
                    definition.WeaponDescription.WeaponTypeDefinition.WeaponProximity == AttackProximity.Melee;
         }
 
-        return false;
+        return definition.WeaponDescription.WeaponTypeDefinition.WeaponProximity == AttackProximity.Melee;
     }
 }
