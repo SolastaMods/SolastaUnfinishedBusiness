@@ -535,18 +535,17 @@ internal static class OtherFeats
 
     private static FeatDefinition BuildPoisonousSkin()
     {
+        // BACKWARD COMPATIBILITY
+        _ = FeatureDefinitionBuilder
+            .Create("OnAttackHitEffectFeatPoisonousSkin")
+            .SetGuiPresentationNoContent(true)
+            .AddToDB();
+
         return FeatDefinitionBuilder
             .Create("FeatPoisonousSkin")
             .SetGuiPresentation(Category.Feat)
-            .SetFeatures(
-                FeatureDefinitionBuilder
-                    .Create("OnAttackHitEffectFeatPoisonousSkin")
-                    .SetGuiPresentationNoContent(true)
-                    .SetCustomSubFeatures(
-                        new OnAttackHitEffectFeatPoisonousSkin(),
-                        new CustomConditionFeatureFeatPoisonousSkin())
-                    .AddToDB())
             .SetAbilityScorePrerequisite(AttributeDefinitions.Constitution, 13)
+            .SetCustomSubFeatures(new CustomBehaviorFeatureFeatPoisonousSkin())
             .AddToDB();
     }
 
@@ -676,18 +675,6 @@ internal static class OtherFeats
             .AddToDB();
     }
 
-    private static RulesetEffectPower GetUsablePower(RulesetCharacter rulesetCharacter)
-    {
-        var constitution = rulesetCharacter.GetAttribute(AttributeDefinitions.Constitution).CurrentValue;
-        var proficiencyBonus = rulesetCharacter.GetAttribute(AttributeDefinitions.ProficiencyBonus).CurrentValue;
-        var usablePower = new RulesetUsablePower(PowerFeatPoisonousSkin, null, null)
-        {
-            saveDC = ComputeAbilityScoreBasedDC(constitution, proficiencyBonus)
-        };
-
-        return new RulesetEffectPower(rulesetCharacter, usablePower);
-    }
-
     private sealed class IgnoreDamageResistanceElementalAdept : IIgnoreDamageAffinity
     {
         private readonly List<string> _damageTypes = new();
@@ -770,8 +757,38 @@ internal static class OtherFeats
         }
     }
 
-    private sealed class OnAttackHitEffectFeatPoisonousSkin : IAfterAttackEffect
+    private class CustomBehaviorFeatureFeatPoisonousSkin :
+        IAfterAttackEffect, ICustomConditionFeature, IOnAfterActionFeature
     {
+        private static RulesetEffectPower GetUsablePower(RulesetCharacter rulesetCharacter)
+        {
+            var constitution = rulesetCharacter.GetAttribute(AttributeDefinitions.Constitution).CurrentValue;
+            var proficiencyBonus = rulesetCharacter.GetAttribute(AttributeDefinitions.ProficiencyBonus).CurrentValue;
+            var usablePower = new RulesetUsablePower(PowerFeatPoisonousSkin, null, null)
+            {
+                saveDC = ComputeAbilityScoreBasedDC(constitution, proficiencyBonus)
+            };
+
+            return new RulesetEffectPower(rulesetCharacter, usablePower);
+        }
+
+        private static void ApplyPower(RulesetCharacter attacker, GameLocationCharacter defender)
+        {
+            var hasEffect = defender.AffectingGlobalEffects.Any(x =>
+                x is RulesetEffectPower rulesetEffectPower &&
+                rulesetEffectPower.PowerDefinition != PowerFeatPoisonousSkin);
+
+            if (hasEffect)
+            {
+                return;
+            }
+
+            var effectPower = GetUsablePower(attacker);
+
+            effectPower.ApplyEffectOnCharacter(defender.RulesetCharacter, true, defender.LocationPosition);
+        }
+
+        // handle standard attack scenario
         public void AfterOnAttackHit(
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
@@ -788,23 +805,10 @@ internal static class OtherFeats
                 return;
             }
 
-            var hasEffect = defender.AffectingGlobalEffects.Any(x =>
-                x is RulesetEffectPower rulesetEffectPower &&
-                rulesetEffectPower.PowerDefinition != PowerFeatPoisonousSkin);
-
-            if (hasEffect)
-            {
-                return;
-            }
-
-            var effectPower = GetUsablePower(rulesetAttacker);
-
-            effectPower.ApplyEffectOnCharacter(defender.RulesetCharacter, true, defender.LocationPosition);
+            ApplyPower(attacker.RulesetCharacter, defender);
         }
-    }
 
-    private class CustomConditionFeatureFeatPoisonousSkin : ICustomConditionFeature
-    {
+        // handle Grappled scenario
         public void ApplyFeature(RulesetCharacter target, RulesetCondition rulesetCondition)
         {
             var conditionDefinition = rulesetCondition.ConditionDefinition;
@@ -814,20 +818,35 @@ internal static class OtherFeats
                 return;
             }
 
-            if (!RulesetEntity.TryGetEntity<RulesetCharacter>(rulesetCondition.SourceGuid, out var rulesetAttacker))
+            if (!RulesetEntity.TryGetEntity<RulesetCharacter>(rulesetCondition.SourceGuid, out var grappler))
             {
                 return;
             }
 
-            var effectPower = GetUsablePower(rulesetAttacker);
-            var targetLocationCharacter = GameLocationCharacter.GetFromActor(target);
+            var grapplerLocationCharacter = GameLocationCharacter.GetFromActor(grappler);
 
-            effectPower.ApplyEffectOnCharacter(target, true, targetLocationCharacter.LocationPosition);
+            ApplyPower(target, grapplerLocationCharacter);
         }
 
         public void RemoveFeature(RulesetCharacter target, RulesetCondition rulesetCondition)
         {
             // empty
+        }
+
+        // handle Shove scenario
+        public void OnAfterAction(CharacterAction action)
+        {
+            if (!action.ActionDefinition.Name.Contains("Shove"))
+            {
+                return;
+            }
+
+            var rulesetAttacker = action.ActingCharacter.RulesetCharacter;
+
+            foreach (var target in action.actionParams.TargetCharacters)
+            {
+                ApplyPower(rulesetAttacker, target);
+            }
         }
     }
 
