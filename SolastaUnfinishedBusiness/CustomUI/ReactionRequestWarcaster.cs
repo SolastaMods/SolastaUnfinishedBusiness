@@ -26,7 +26,7 @@ internal class ReactionRequestWarcaster : ReactionRequest
             : ReactionParams.StringParameter2;
         guiTarget = new GuiCharacter(reactionParams.targetCharacters[0]);
     }
-    
+
     internal ReactionRequestWarcaster(CharacterActionParams reactionParams)
         : this(Name, reactionParams)
     {

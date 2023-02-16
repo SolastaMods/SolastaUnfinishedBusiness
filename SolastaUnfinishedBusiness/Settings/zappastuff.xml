@@ -2,13 +2,14 @@
 <Settings xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <EnableDiagsDump>0</EnableDiagsDump>
   <HideWelcomeMessage>true</HideWelcomeMessage>
-  <DisplayRacesToggle>true</DisplayRacesToggle>
-  <DisplayClassesToggle>true</DisplayClassesToggle>
-  <DisplaySubclassesToggle>true</DisplaySubclassesToggle>
-  <DisplayFeatsToggle>true</DisplayFeatsToggle>
-  <DisplayFeatGroupsToggle>true</DisplayFeatGroupsToggle>
-  <DisplayFightingStylesToggle>true</DisplayFightingStylesToggle>
-  <DisplayInvocationsToggle>true</DisplayInvocationsToggle>
+  <DisplayRacesToggle>false</DisplayRacesToggle>
+  <DisplayClassesToggle>false</DisplayClassesToggle>
+  <DisplaySubclassesToggle>false</DisplaySubclassesToggle>
+  <DisplayFeatsToggle>false</DisplayFeatsToggle>
+  <DisplayFeatGroupsToggle>false</DisplayFeatGroupsToggle>
+  <DisplayFightingStylesToggle>false</DisplayFightingStylesToggle>
+  <DisplayInvocationsToggle>false</DisplayInvocationsToggle>
+  <DisplayMetamagicToggle>false</DisplayMetamagicToggle>
   <DisplayCraftingToggle>false</DisplayCraftingToggle>
   <DisplayMerchantsToggle>true</DisplayMerchantsToggle>
   <DisplaySpellListsToggle>
@@ -100,6 +101,7 @@
   <EnableMultiLineSpellPanel>true</EnableMultiLineSpellPanel>
   <EnableSameWidthFeatSelection>true</EnableSameWidthFeatSelection>
   <EnableSameWidthInvocationSelection>true</EnableSameWidthInvocationSelection>
+  <EnableSameWidthMetamagicSelection>true</EnableSameWidthMetamagicSelection>
   <EnableSortingFightingStyles>true</EnableSortingFightingStyles>
   <EnableSortingSubclasses>true</EnableSortingSubclasses>
   <EnableSortingFutureFeatures>true</EnableSortingFutureFeatures>
@@ -110,6 +112,7 @@
   <EnableAlternateHuman>true</EnableAlternateHuman>
   <EnableFlexibleBackgrounds>false</EnableFlexibleBackgrounds>
   <EnableFlexibleRaces>false</EnableFlexibleRaces>
+  <DisableClassPrerequisitesOnModFeats>false</DisableClassPrerequisitesOnModFeats>
   <DisableRacePrerequisitesOnModFeats>false</DisableRacePrerequisitesOnModFeats>
   <AddHumanoidFavoredEnemyToRanger>true</AddHumanoidFavoredEnemyToRanger>
   <EnableEpicPointsAndArray>true</EnableEpicPointsAndArray>
@@ -121,7 +124,7 @@
   <EnableMulticlass>true</EnableMulticlass>
   <MaxAllowedClasses>3</MaxAllowedClasses>
   <EnableMinInOutAttributes>true</EnableMinInOutAttributes>
-  <EnableRelearnSpells>true</EnableRelearnSpells>
+  <EnableRelearnSpells>false</EnableRelearnSpells>
   <DisplayAllKnownSpellsDuringLevelUp>true</DisplayAllKnownSpellsDuringLevelUp>
   <DisplayPactSlotsOnSpellSelectionPanel>true</DisplayPactSlotsOnSpellSelectionPanel>
   <OfferAdditionalLoreFriendlyNames>true</OfferAdditionalLoreFriendlyNames>
@@ -290,6 +293,7 @@
     <string>FeatBladeMastery</string>
     <string>FeatFellHanded</string>
     <string>FeatSpearMastery</string>
+    <string>FeatCallForCharge</string>
   </FeatEnabled>
   <FeatGroupSliderPosition>4</FeatGroupSliderPosition>
   <FeatGroupEnabled>
@@ -375,6 +379,10 @@
     <string>InvocationStasis</string>
     <string>InvocationAbilitiesOfTheChainMaster</string>
   </InvocationEnabled>
+  <MetamagicSliderPosition>4</MetamagicSliderPosition>
+  <MetamagicEnabled>
+    <string>MetamagicAltruisticSpell</string>
+  </MetamagicEnabled>
   <AllowAssigningOfficialSpells>false</AllowAssigningOfficialSpells>
   <SpellListSliderPosition>
     <item>
@@ -652,7 +660,6 @@
       </value>
     </item>
   </SpellListSpellEnabled>
-  <FixSorcererTwinnedLogic>true</FixSorcererTwinnedLogic>
   <ApplySrdWeightToFoodRations>true</ApplySrdWeightToFoodRations>
   <UseOfficialAdvantageDisadvantageRules>true</UseOfficialAdvantageDisadvantageRules>
   <IdentifyAfterRest>true</IdentifyAfterRest>
@@ -672,9 +679,12 @@
   <AllowAnyClassToWearSylvanArmor>true</AllowAnyClassToWearSylvanArmor>
   <AllowDruidToWearMetalArmor>true</AllowDruidToWearMetalArmor>
   <FullyControlConjurations>true</FullyControlConjurations>
+  <IncreaseMaxAttunedItems>false</IncreaseMaxAttunedItems>
   <MakeLargeWildshapeFormsMedium>true</MakeLargeWildshapeFormsMedium>
   <MakeAllMagicStaveArcaneFoci>true</MakeAllMagicStaveArcaneFoci>
   <IncreaseSenseNormalVision>16</IncreaseSenseNormalVision>
+  <CriticalHitModeAllies>0</CriticalHitModeAllies>
+  <CriticalHitModeEnemies>0</CriticalHitModeEnemies>
   <AddCustomIconsToOfficialItems>true</AddCustomIconsToOfficialItems>
   <AddNewWeaponsAndRecipesToShops>true</AddNewWeaponsAndRecipesToShops>
   <AddNewWeaponsAndRecipesToEditor>true</AddNewWeaponsAndRecipesToEditor>
@@ -811,8 +821,7 @@
   <AllowAllPlayersOnNarrativeSequences>false</AllowAllPlayersOnNarrativeSequences>
   <FasterTimeModifier>1.5</FasterTimeModifier>
   <EncounterPercentageChance>5</EncounterPercentageChance>
-  <DefaultPartyHeroes>
-  </DefaultPartyHeroes>
+  <DefaultPartyHeroes />
   <DontFollowCharacterInBattle>true</DontFollowCharacterInBattle>
   <DontFollowMargin>5</DontFollowMargin>
   <EnableStatsOnHeroTooltip>true</EnableStatsOnHeroTooltip>
@@ -824,7 +833,7 @@
   <AllowMoreRealStateOnRestPanel>true</AllowMoreRealStateOnRestPanel>
   <AddMonkKiPointsToggle>true</AddMonkKiPointsToggle>
   <AddPaladinSmiteToggle>true</AddPaladinSmiteToggle>
-  <AddMonsterSwapAttackToggle>false</AddMonsterSwapAttackToggle>
+  <AddMonsterSwapAttackToggle>true</AddMonsterSwapAttackToggle>
   <FormationGridSelectedSet>1</FormationGridSelectedSet>
   <FormationGridSets>
     <ArrayOfArrayOfInt>
@@ -1040,4 +1049,7 @@
   <EnableEnemiesControlledByPlayer>false</EnableEnemiesControlledByPlayer>
   <EnableHeroesControlledByComputer>false</EnableHeroesControlledByComputer>
   <DebugDisableVerifyDefinitionNameIsNotInUse>false</DebugDisableVerifyDefinitionNameIsNotInUse>
+  <DebugLogDefinitionCreation>false</DebugLogDefinitionCreation>
+  <DebugLogFieldInitialization>false</DebugLogFieldInitialization>
+  <DebugLogVariantMisuse>false</DebugLogVariantMisuse>
 </Settings>

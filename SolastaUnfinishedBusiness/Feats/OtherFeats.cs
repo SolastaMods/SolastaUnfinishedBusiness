@@ -760,34 +760,6 @@ internal static class OtherFeats
     private class CustomBehaviorFeatureFeatPoisonousSkin :
         IAfterAttackEffect, ICustomConditionFeature, IOnAfterActionFeature
     {
-        private static RulesetEffectPower GetUsablePower(RulesetCharacter rulesetCharacter)
-        {
-            var constitution = rulesetCharacter.GetAttribute(AttributeDefinitions.Constitution).CurrentValue;
-            var proficiencyBonus = rulesetCharacter.GetAttribute(AttributeDefinitions.ProficiencyBonus).CurrentValue;
-            var usablePower = new RulesetUsablePower(PowerFeatPoisonousSkin, null, null)
-            {
-                saveDC = ComputeAbilityScoreBasedDC(constitution, proficiencyBonus)
-            };
-
-            return new RulesetEffectPower(rulesetCharacter, usablePower);
-        }
-
-        private static void ApplyPower(RulesetCharacter attacker, GameLocationCharacter defender)
-        {
-            var hasEffect = defender.AffectingGlobalEffects.Any(x =>
-                x is RulesetEffectPower rulesetEffectPower &&
-                rulesetEffectPower.PowerDefinition != PowerFeatPoisonousSkin);
-
-            if (hasEffect)
-            {
-                return;
-            }
-
-            var effectPower = GetUsablePower(attacker);
-
-            effectPower.ApplyEffectOnCharacter(defender.RulesetCharacter, true, defender.LocationPosition);
-        }
-
         // handle standard attack scenario
         public void AfterOnAttackHit(
             GameLocationCharacter attacker,
@@ -847,6 +819,34 @@ internal static class OtherFeats
             {
                 ApplyPower(rulesetAttacker, target);
             }
+        }
+
+        private static RulesetEffectPower GetUsablePower(RulesetCharacter rulesetCharacter)
+        {
+            var constitution = rulesetCharacter.GetAttribute(AttributeDefinitions.Constitution).CurrentValue;
+            var proficiencyBonus = rulesetCharacter.GetAttribute(AttributeDefinitions.ProficiencyBonus).CurrentValue;
+            var usablePower = new RulesetUsablePower(PowerFeatPoisonousSkin, null, null)
+            {
+                saveDC = ComputeAbilityScoreBasedDC(constitution, proficiencyBonus)
+            };
+
+            return new RulesetEffectPower(rulesetCharacter, usablePower);
+        }
+
+        private static void ApplyPower(RulesetCharacter attacker, GameLocationCharacter defender)
+        {
+            var hasEffect = defender.AffectingGlobalEffects.Any(x =>
+                x is RulesetEffectPower rulesetEffectPower &&
+                rulesetEffectPower.PowerDefinition != PowerFeatPoisonousSkin);
+
+            if (hasEffect)
+            {
+                return;
+            }
+
+            var effectPower = GetUsablePower(attacker);
+
+            effectPower.ApplyEffectOnCharacter(defender.RulesetCharacter, true, defender.LocationPosition);
         }
     }
 
