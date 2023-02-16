@@ -15,17 +15,21 @@ internal class ReactionRequestWarcaster : ReactionRequest
 
     private readonly string type;
 
-    internal ReactionRequestWarcaster(CharacterActionParams reactionParams)
-        : base(Name, reactionParams)
+    internal ReactionRequestWarcaster(string name, CharacterActionParams reactionParams)
+        : base(name, reactionParams)
     {
         attackAction = reactionParams.ActionDefinition;
         attackModifiers.SetRange(reactionParams.ActionModifiers);
         BuildSuboptions();
         type = string.IsNullOrEmpty(ReactionParams.StringParameter2)
-            ? Name
+            ? name
             : ReactionParams.StringParameter2;
-        // ReactionParams.StringParameter2 = type;
         guiTarget = new GuiCharacter(reactionParams.targetCharacters[0]);
+    }
+    
+    internal ReactionRequestWarcaster(CharacterActionParams reactionParams)
+        : this(Name, reactionParams)
+    {
     }
 
     public override int SelectedSubOption

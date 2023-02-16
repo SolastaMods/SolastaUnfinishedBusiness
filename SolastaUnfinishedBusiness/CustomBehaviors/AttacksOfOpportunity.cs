@@ -266,6 +266,6 @@ internal class CustomReactionAttack
             defender,
             attackModifier) { StringParameter2 = Name };
 
-        return new ReactionRequestWarcaster(reactionParams);
+        return new ReactionRequestWarcaster(Name, reactionParams);
     }
 }
