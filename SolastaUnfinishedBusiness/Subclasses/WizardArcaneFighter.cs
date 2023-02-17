@@ -12,6 +12,8 @@ internal sealed class WizardArcaneFighter : AbstractSubclass
 {
     internal WizardArcaneFighter()
     {
+        const string PowerArcaneFighterEnchantWeapon = "PowerArcaneFighterEnchantWeapon";
+
         var magicAffinityArcaneFighterConcentrationAdvantage = FeatureDefinitionMagicAffinityBuilder
             .Create("MagicAffinityArcaneFighterConcentrationAdvantage")
             .SetGuiPresentation(Category.Feature)
@@ -38,7 +40,7 @@ internal sealed class WizardArcaneFighter : AbstractSubclass
             .AddToDB();
 
         var powerArcaneFighterEnchantWeapon = FeatureDefinitionPowerBuilder
-            .Create("PowerArcaneFighterEnchantWeapon")
+            .Create(PowerArcaneFighterEnchantWeapon)
             .SetGuiPresentation(Category.Feature, FeatureDefinitionPowers.PowerDomainElementalLightningBlade)
             .SetUsesProficiencyBonus(ActivationTime.BonusAction, RechargeRate.ShortRest)
             .SetEffectDescription(
@@ -69,7 +71,9 @@ internal sealed class WizardArcaneFighter : AbstractSubclass
                                     0))
                             .Build())
                     .Build())
-            .SetCustomSubFeatures(SkipEffectRemovalOnLocationChange.Always)
+            .SetCustomSubFeatures(
+                new ShouldTerminatePowerEffect(PowerArcaneFighterEnchantWeapon),
+                SkipEffectRemovalOnLocationChange.Always)
             .AddToDB();
 
         Subclass = CharacterSubclassDefinitionBuilder

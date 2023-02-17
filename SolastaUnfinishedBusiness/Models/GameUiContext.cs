@@ -131,7 +131,7 @@ internal static class GameUiContext
             Gui.GetPrefabFromPool(__instance.ItemPrefab, __instance.Table);
         }
     }
-    
+
     internal static void SpellSelectionPanelMultilineUnbind()
     {
         foreach (var spellTable in SpellLineTables

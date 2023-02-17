@@ -59,6 +59,7 @@ internal static class OtherFeats
         var featMonkInitiate = BuildMonkInitiate();
         var featPickPocket = BuildPickPocket();
         var featPoisonousSkin = BuildPoisonousSkin();
+        var featPotentSpellcaster = BuildPotentSpellcaster();
         var featTough = BuildTough();
         var featWarCaster = BuildWarcaster();
 
@@ -78,6 +79,7 @@ internal static class OtherFeats
             featMonkInitiate,
             featPickPocket,
             featPoisonousSkin,
+            featPotentSpellcaster,
             featTough,
             featWarCaster);
 
@@ -90,6 +92,8 @@ internal static class OtherFeats
             featCallForCharge,
             featHealer,
             featInspiringLeader);
+
+        GroupFeats.FeatGroupAgilityCombat.AddFeats(featMobile);
 
         GroupFeats.MakeGroup("FeatGroupBodyResilience", null,
             FeatDefinitions.BadlandsMarauder,
@@ -110,10 +114,13 @@ internal static class OtherFeats
             FeatDefinitions.FlawlessConcentration,
             FeatDefinitions.PowerfulCantrip,
             elementalAdeptGroup,
+            featPotentSpellcaster,
             featWarCaster,
             spellSniperGroup);
 
-        GroupFeats.FeatGroupAgilityCombat.AddFeats(featMobile);
+        GroupFeats.MakeGroup("FeatGroupClassBound", null,
+            featCallForCharge,
+            featPotentSpellcaster);
     }
 
     private static FeatDefinition BuildAstralArms()
@@ -174,7 +181,7 @@ internal static class OtherFeats
                         .Build())
                 .AddToDB())
             .SetAbilityScorePrerequisite(AttributeDefinitions.Charisma, 13)
-            .SetValidators(ValidatorsFeat.IsPaladin)
+            .SetValidators(ValidatorsFeat.IsPaladinLevel1)
             .AddToDB();
     }
 
@@ -535,19 +542,58 @@ internal static class OtherFeats
 
     private static FeatDefinition BuildPoisonousSkin()
     {
+        // BACKWARD COMPATIBILITY
+        _ = FeatureDefinitionBuilder
+            .Create("OnAttackHitEffectFeatPoisonousSkin")
+            .SetGuiPresentationNoContent(true)
+            .AddToDB();
+
         return FeatDefinitionBuilder
             .Create("FeatPoisonousSkin")
             .SetGuiPresentation(Category.Feat)
-            .SetFeatures(
-                FeatureDefinitionBuilder
-                    .Create("OnAttackHitEffectFeatPoisonousSkin")
-                    .SetGuiPresentationNoContent(true)
-                    .SetCustomSubFeatures(
-                        new OnAttackHitEffectFeatPoisonousSkin(),
-                        new CustomConditionFeatureFeatPoisonousSkin())
-                    .AddToDB())
             .SetAbilityScorePrerequisite(AttributeDefinitions.Constitution, 13)
+            .SetCustomSubFeatures(new CustomBehaviorFeatureFeatPoisonousSkin())
             .AddToDB();
+    }
+
+    private static FeatDefinition BuildPotentSpellcaster()
+    {
+        return FeatDefinitionWithPrerequisitesBuilder
+            .Create("FeatPotentSpellcaster")
+            .SetGuiPresentation(Category.Feat)
+            .SetCustomSubFeatures(new ModifyMagicEffectFeatPotentSpellcaster())
+            .SetValidators(ValidatorsFeat.IsWizardLevel6)
+            .AddToDB();
+    }
+
+    private sealed class ModifyMagicEffectFeatPotentSpellcaster : IModifyMagicEffect
+    {
+        public EffectDescription ModifyEffect(
+            BaseDefinition definition,
+            EffectDescription effect,
+            RulesetCharacter character)
+        {
+            if (definition is not SpellDefinition spellDefinition ||
+                !SpellListDefinitions.SpellListWizard.SpellsByLevel.Any(x =>
+                    x.Level == 0 && x.Spells.Contains(spellDefinition)))
+            {
+                return effect;
+            }
+
+            var damage = effect.FindFirstDamageForm();
+
+            if (damage == null)
+            {
+                return effect;
+            }
+
+            damage.BonusDamage += AttributeDefinitions.ComputeAbilityScoreModifier(
+                character.GetAttribute(AttributeDefinitions.Intelligence).CurrentValue);
+            damage.DamageBonusTrends.Add(
+                new TrendInfo(1, FeatureSourceType.CharacterFeature, "Feat/&FeatPotentSpellcasterTitle", null));
+
+            return effect;
+        }
     }
 
     private static FeatDefinition BuildSpellSniper([NotNull] List<FeatDefinition> feats)
@@ -676,18 +722,6 @@ internal static class OtherFeats
             .AddToDB();
     }
 
-    private static RulesetEffectPower GetUsablePower(RulesetCharacter rulesetCharacter)
-    {
-        var constitution = rulesetCharacter.GetAttribute(AttributeDefinitions.Constitution).CurrentValue;
-        var proficiencyBonus = rulesetCharacter.GetAttribute(AttributeDefinitions.ProficiencyBonus).CurrentValue;
-        var usablePower = new RulesetUsablePower(PowerFeatPoisonousSkin, null, null)
-        {
-            saveDC = ComputeAbilityScoreBasedDC(constitution, proficiencyBonus)
-        };
-
-        return new RulesetEffectPower(rulesetCharacter, usablePower);
-    }
-
     private sealed class IgnoreDamageResistanceElementalAdept : IIgnoreDamageAffinity
     {
         private readonly List<string> _damageTypes = new();
@@ -770,8 +804,10 @@ internal static class OtherFeats
         }
     }
 
-    private sealed class OnAttackHitEffectFeatPoisonousSkin : IAfterAttackEffect
+    private class CustomBehaviorFeatureFeatPoisonousSkin :
+        IAfterAttackEffect, ICustomConditionFeature, IOnAfterActionFeature
     {
+        // handle standard attack scenario
         public void AfterOnAttackHit(
             GameLocationCharacter attacker,
             GameLocationCharacter defender,
@@ -788,23 +824,10 @@ internal static class OtherFeats
                 return;
             }
 
-            var hasEffect = defender.AffectingGlobalEffects.Any(x =>
-                x is RulesetEffectPower rulesetEffectPower &&
-                rulesetEffectPower.PowerDefinition != PowerFeatPoisonousSkin);
-
-            if (hasEffect)
-            {
-                return;
-            }
-
-            var effectPower = GetUsablePower(rulesetAttacker);
-
-            effectPower.ApplyEffectOnCharacter(defender.RulesetCharacter, true, defender.LocationPosition);
+            ApplyPower(attacker.RulesetCharacter, defender);
         }
-    }
 
-    private class CustomConditionFeatureFeatPoisonousSkin : ICustomConditionFeature
-    {
+        // handle Grappled scenario
         public void ApplyFeature(RulesetCharacter target, RulesetCondition rulesetCondition)
         {
             var conditionDefinition = rulesetCondition.ConditionDefinition;
@@ -814,20 +837,63 @@ internal static class OtherFeats
                 return;
             }
 
-            if (!RulesetEntity.TryGetEntity<RulesetCharacter>(rulesetCondition.SourceGuid, out var rulesetAttacker))
+            if (!RulesetEntity.TryGetEntity<RulesetCharacter>(rulesetCondition.SourceGuid, out var grappler))
             {
                 return;
             }
 
-            var effectPower = GetUsablePower(rulesetAttacker);
-            var targetLocationCharacter = GameLocationCharacter.GetFromActor(target);
+            var grapplerLocationCharacter = GameLocationCharacter.GetFromActor(grappler);
 
-            effectPower.ApplyEffectOnCharacter(target, true, targetLocationCharacter.LocationPosition);
+            ApplyPower(target, grapplerLocationCharacter);
         }
 
         public void RemoveFeature(RulesetCharacter target, RulesetCondition rulesetCondition)
         {
             // empty
+        }
+
+        // handle Shove scenario
+        public void OnAfterAction(CharacterAction action)
+        {
+            if (!action.ActionDefinition.Name.Contains("Shove"))
+            {
+                return;
+            }
+
+            var rulesetAttacker = action.ActingCharacter.RulesetCharacter;
+
+            foreach (var target in action.actionParams.TargetCharacters)
+            {
+                ApplyPower(rulesetAttacker, target);
+            }
+        }
+
+        private static RulesetEffectPower GetUsablePower(RulesetCharacter rulesetCharacter)
+        {
+            var constitution = rulesetCharacter.GetAttribute(AttributeDefinitions.Constitution).CurrentValue;
+            var proficiencyBonus = rulesetCharacter.GetAttribute(AttributeDefinitions.ProficiencyBonus).CurrentValue;
+            var usablePower = new RulesetUsablePower(PowerFeatPoisonousSkin, null, null)
+            {
+                saveDC = ComputeAbilityScoreBasedDC(constitution, proficiencyBonus)
+            };
+
+            return new RulesetEffectPower(rulesetCharacter, usablePower);
+        }
+
+        private static void ApplyPower(RulesetCharacter attacker, GameLocationCharacter defender)
+        {
+            var hasEffect = defender.AffectingGlobalEffects.Any(x =>
+                x is RulesetEffectPower rulesetEffectPower &&
+                rulesetEffectPower.PowerDefinition != PowerFeatPoisonousSkin);
+
+            if (hasEffect)
+            {
+                return;
+            }
+
+            var effectPower = GetUsablePower(attacker);
+
+            effectPower.ApplyEffectOnCharacter(defender.RulesetCharacter, true, defender.LocationPosition);
         }
     }
 

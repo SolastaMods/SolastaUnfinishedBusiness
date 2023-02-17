@@ -111,6 +111,7 @@ Tooltip/&InvocationUsageShortRestUsedDescription=此调用需要短休息或长�
 Tooltip/&MonsterNaturalArmorTitle=天然护甲
 Tooltip/&PreReqDoesNotKnow=不知道{0}
 Tooltip/&PreReqIs=是{0}
+Tooltip/&PreReqIsWithLevel=是{0}级{1}
 Tooltip/&PreReqIsNot=不是{0}
 Tooltip/&PreReqLevelFormat=最低角色等级 {0}
 Tooltip/&PreReqMustKnow=必知{0}

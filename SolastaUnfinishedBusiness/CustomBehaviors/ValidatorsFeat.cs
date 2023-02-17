@@ -14,8 +14,11 @@ internal static class ValidatorsFeat
     // validation routines for FeatDefinitionWithPrerequisites
     //
 
-    internal static readonly Func<FeatDefinition, RulesetCharacterHero, (bool result, string output)> IsPaladin =
-        ValidateIsClass(Paladin.FormatTitle(), Paladin);
+    internal static readonly Func<FeatDefinition, RulesetCharacterHero, (bool result, string output)> IsPaladinLevel1 =
+        ValidateIsClass(Paladin.FormatTitle(), 1, Paladin);
+
+    internal static readonly Func<FeatDefinition, RulesetCharacterHero, (bool result, string output)> IsWizardLevel6 =
+        ValidateIsClass(Wizard.FormatTitle(), 6, Wizard);
 
     internal static readonly Func<FeatDefinition, RulesetCharacterHero, (bool result, string output)> IsDragonborn =
         ValidateIsRace(Dragonborn.FormatTitle(), Dragonborn);
@@ -117,7 +120,7 @@ internal static class ValidatorsFeat
 
     [NotNull]
     private static Func<FeatDefinition, RulesetCharacterHero, (bool result, string output)> ValidateIsClass(
-        string description, params CharacterClassDefinition[] characterClassDefinition)
+        string description, int minLevels, CharacterClassDefinition characterClassDefinition)
     {
         return (_, hero) =>
         {
@@ -126,10 +129,16 @@ internal static class ValidatorsFeat
                 return (true, string.Empty);
             }
 
-            var isClass = hero.ClassesHistory.Intersect(characterClassDefinition).Any();
-            var guiFormat = Gui.Format("Tooltip/&PreReqIs", description);
+            var guiFormat = Gui.Format("Tooltip/&PreReqIsWithLevel", description, minLevels.ToString());
 
-            return isClass
+            if (!hero.ClassesHistory.Contains(characterClassDefinition))
+            {
+                return (false, Gui.Colorize(guiFormat, Gui.ColorFailure));
+            }
+
+            var levels = hero.ClassesHistory.Count;
+
+            return levels >= minLevels
                 ? (true, guiFormat)
                 : (false, Gui.Colorize(guiFormat, Gui.ColorFailure));
         };
