@@ -14,6 +14,9 @@ internal sealed class PatronSoulBlade : AbstractSubclass
 {
     internal PatronSoulBlade()
     {
+        const string PowerSoulBladeEmpowerWeaponName = "PowerSoulBladeEmpowerWeapon";
+        const string PowerSoulBladeSummonPactWeaponName = "PowerSoulBladeSummonPactWeapon";
+
         var spellListSoulBlade = SpellListDefinitionBuilder
             .Create(SpellListDefinitions.SpellListWizard, "SpellListSoulBlade")
             .SetGuiPresentationNoContent(true)
@@ -33,10 +36,12 @@ internal sealed class PatronSoulBlade : AbstractSubclass
             .AddToDB();
 
         var powerSoulBladeEmpowerWeapon = FeatureDefinitionPowerBuilder
-            .Create("PowerSoulBladeEmpowerWeapon")
+            .Create(PowerSoulBladeEmpowerWeaponName)
             .SetGuiPresentation(Category.Feature, PowerOathOfDevotionSacredWeapon)
             .SetUniqueInstance()
-            .SetCustomSubFeatures(SkipEffectRemovalOnLocationChange.Always,
+            .SetCustomSubFeatures(
+                SkipEffectRemovalOnLocationChange.Always,
+                new ShouldTerminatePowerEffect(PowerSoulBladeEmpowerWeaponName),
                 new CustomItemFilter(CanWeaponBeEmpowered))
             .SetUsesFixed(ActivationTime.Action, RechargeRate.ShortRest)
             .SetExplicitAbilityScore(AttributeDefinitions.Charisma)
@@ -61,8 +66,12 @@ internal sealed class PatronSoulBlade : AbstractSubclass
             .AddToDB();
 
         var powerSoulBladeSummonPactWeapon = FeatureDefinitionPowerBuilder
-            .Create("PowerSoulBladeSummonPactWeapon")
-            .SetOrUpdateGuiPresentation(Category.Feature, SpiritualWeapon)
+            .Create(PowerSoulBladeSummonPactWeaponName)
+            .SetGuiPresentation(Category.Feature, SpiritualWeapon)
+            .SetUniqueInstance()
+            .SetCustomSubFeatures(
+                // new ShouldTerminatePowerEffect(PowerSoulBladeSummonPactWeaponName),
+                SkipEffectRemovalOnLocationChange.Always)
             .SetUsesFixed(ActivationTime.NoCost, RechargeRate.ShortRest)
             .SetExplicitAbilityScore(AttributeDefinitions.Charisma)
             .SetEffectDescription(
@@ -123,10 +132,9 @@ internal sealed class PatronSoulBlade : AbstractSubclass
         if (character is RulesetCharacterHero hero &&
             hero.ActiveFeatures.Any(p => p.Value.Contains(FeatureDefinitionFeatureSets.FeatureSetPactBlade)))
         {
-            return hero.InvocationProficiencies.Contains("InvocationImprovedPactWeapon") ||
-                   definition.WeaponDescription.WeaponTypeDefinition.WeaponProximity == AttackProximity.Melee;
+            return true;
         }
 
-        return definition.WeaponDescription.WeaponTypeDefinition.WeaponProximity == AttackProximity.Melee;
+        return !definition.WeaponDescription.WeaponTags.Contains(TagsDefinitions.WeaponTagTwoHanded);
     }
 }
