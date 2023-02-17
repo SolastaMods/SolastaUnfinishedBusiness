@@ -4,6 +4,7 @@ using HarmonyLib;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.Extensions;
 using SolastaUnfinishedBusiness.CustomBehaviors;
+using SolastaUnfinishedBusiness.CustomInterfaces;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
@@ -158,6 +159,38 @@ public static class RulesetImplementationManagerLocationPatcher
             //PATCH: support for `ReplaceMetamagicOption`
             return ReplaceMetamagicOption.PatchMetamagicGetter(instructions,
                 "RulesetImplementationManagerLocation.IsAnyMetamagicOptionAvailable");
+        }
+    }
+
+    //PATCH: implements IShouldTerminateEffect. Also check GameLocationEffect.SerializeAttributes
+    [HarmonyPatch(typeof(RulesetImplementationManagerLocation),
+        nameof(RulesetImplementationManagerLocation.TerminateEffect))]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
+    public static class TerminateEffect_Patch
+    {
+        [UsedImplicitly]
+        public static bool Prefix(RulesetEffect activeEffect)
+        {
+            switch (activeEffect)
+            {
+                case RulesetEffectPower rulesetEffectPower:
+                {
+                    var shouldTerminate = rulesetEffectPower.PowerDefinition
+                        .GetFirstSubFeatureOfType<IShouldTerminateEffect>();
+
+                    return shouldTerminate == null || !shouldTerminate.Validate(activeEffect);
+                }
+                case RulesetEffectSpell rulesetEffectSpell:
+                {
+                    var shouldTerminate = rulesetEffectSpell.SpellDefinition
+                        .GetFirstSubFeatureOfType<IShouldTerminateEffect>();
+
+                    return shouldTerminate == null || !shouldTerminate.Validate(activeEffect);
+                }
+                default:
+                    return true;
+            }
         }
     }
 }

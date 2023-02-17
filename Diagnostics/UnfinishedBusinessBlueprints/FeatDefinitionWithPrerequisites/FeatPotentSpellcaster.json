@@ -1,11 +1,11 @@
 {
-  "$type": "FeatDefinition, Assembly-CSharp",
+  "$type": "SolastaUnfinishedBusiness.CustomDefinitions.FeatDefinitionWithPrerequisites, SolastaUnfinishedBusiness",
   "compatibleClassesPrerequisite": [],
   "mustCastSpellsPrerequisite": false,
   "compatibleRacesPrerequisite": [],
-  "minimalAbilityScorePrerequisite": true,
+  "minimalAbilityScorePrerequisite": false,
   "minimalAbilityScoreValue": 13,
-  "minimalAbilityScoreName": "Constitution",
+  "minimalAbilityScoreName": "Strength",
   "armorProficiencyPrerequisite": false,
   "armorProficiencyCategory": "",
   "hasFamilyTag": false,
@@ -15,8 +15,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
-    "title": "Feat/&FeatPoisonousSkinTitle",
-    "description": "Feat/&FeatPoisonousSkinDescription",
+    "title": "Feat/&FeatPotentSpellcasterTitle",
+    "description": "Feat/&FeatPotentSpellcasterDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -36,7 +36,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "4eb4bebb-bd80-58fc-a7d0-832f0013471c",
+  "guid": "e79833b9-04a7-5e85-b582-bc6f6d684bba",
   "contentPack": 9999,
-  "name": "FeatPoisonousSkin"
+  "name": "FeatPotentSpellcaster"
 }

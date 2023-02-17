@@ -319,7 +319,7 @@
   "fixedAttackHit": 0,
   "abilityScoreBonusToAttack": false,
   "proficiencyBonusToAttack": false,
-  "uniqueInstance": false,
+  "uniqueInstance": true,
   "showCasting": true,
   "shortTitleOverride": "",
   "overriddenPower": null,

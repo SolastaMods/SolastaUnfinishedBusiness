@@ -111,6 +111,7 @@ Tooltip/&InvocationUsageShortRestUsedDescription=Этот призыв треб�
 Tooltip/&MonsterNaturalArmorTitle=Природная броня
 Tooltip/&PreReqDoesNotKnow=Не знает {0}
 Tooltip/&PreReqIs={0}
+Tooltip/&PreReqIsWithLevel={0} уровень {1}
 Tooltip/&PreReqIsNot=Не {0}
 Tooltip/&PreReqLevelFormat=Минимальный уровень персонажа {0}
 Tooltip/&PreReqMustKnow=Должен знать {0}

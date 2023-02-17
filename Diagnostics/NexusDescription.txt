@@ -244,6 +244,7 @@ You gain proficiency with medium armor and shields.
 [*][b]Polearm Expert[/b]: Your expert training with a polearm grants you these benefits:
 • When you take the Attack action and attack with only a polearm weapon, you can use a bonus action to make a melee attack with the opposite end of the weapon. This attack uses the same ability modifier as the primary attack and deals 1d4 bludgeoning damage.
 • Other creatures provoke an opportunity attack from you when they enter the reach you have with wielding a polearm weapon.
+[*][b]Potent Spellcaster[/b]: You can add your Intelligence modifier to the damage you deal with any wizard cantrip.
 [*][b]Power Attack[/b]: You have learned to trade accuracy to land deadlier blows. When attacking with melee weapons, you can choose to take a -3 penalty to your to hit in order to do additional damage equal to 3 + your proficiency bonus.
 [*][b]Protection[/b]: When a creature you can see attacks a target other than you that is within one cell of you, you can use your reaction to impose disadvantage on the attack roll. You must be wielding a shield.
 [*][b]Pugilist[/b]: Your unarmed strikes deal an additional 1d4 bludgeoning damage and you can punch with your offhand as a bonus action. You can shove as a bonus action if you have free hand.

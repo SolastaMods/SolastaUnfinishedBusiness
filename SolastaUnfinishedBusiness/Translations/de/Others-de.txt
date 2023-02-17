@@ -111,6 +111,7 @@ Tooltip/&InvocationUsageShortRestUsedDescription=Dieser Aufruf erfordert eine ku
 Tooltip/&MonsterNaturalArmorTitle=Natürliche Rüstung
 Tooltip/&PreReqDoesNotKnow=Weiß nicht {0}
 Tooltip/&PreReqIs=Ist {0}
+Tooltip/&PreReqIsWithLevel=Ist {0} Stufe {1}
 Tooltip/&PreReqIsNot=Ist nicht {0}
 Tooltip/&PreReqLevelFormat=Mindestcharakterstufe {0}
 Tooltip/&PreReqMustKnow=Muss {0} wissen

@@ -102,6 +102,18 @@ internal sealed class MartialSpellShield : AbstractSubclass
 
     private sealed class ComputeAttackModifierMagicAffinityCombatMagicVigor : IOnComputeAttackModifier, IIncreaseSpellDc
     {
+        public int GetSpellModifier(RulesetCharacter caster)
+        {
+            var strModifier =
+                ComputeAbilityScoreModifier(caster.GetAttribute(Strength)
+                    .CurrentValue);
+            var dexModifier =
+                ComputeAbilityScoreModifier(caster.GetAttribute(Dexterity)
+                    .CurrentValue);
+
+            return Math.Max(strModifier, dexModifier);
+        }
+
         public void ComputeAttackModifier(
             RulesetCharacter myself,
             RulesetCharacter defender,
@@ -121,18 +133,6 @@ internal sealed class MartialSpellShield : AbstractSubclass
             attackModifier.attackRollModifier += modifier;
             attackModifier.attackToHitTrends.Add(new TrendInfo(modifier, FeatureSourceType.ExplicitFeature,
                 "Feature/&MagicAffinitySpellShieldCombatMagicVigorTitle", null));
-        }
-
-        public int GetSpellModifier(RulesetCharacter caster)
-        {
-            var strModifier =
-                ComputeAbilityScoreModifier(caster.GetAttribute(Strength)
-                    .CurrentValue);
-            var dexModifier =
-                ComputeAbilityScoreModifier(caster.GetAttribute(Dexterity)
-                    .CurrentValue);
-
-            return Math.Max(strModifier, dexModifier);
         }
     }
 }

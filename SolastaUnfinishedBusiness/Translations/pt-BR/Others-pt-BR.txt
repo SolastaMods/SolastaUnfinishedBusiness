@@ -111,6 +111,7 @@ Tooltip/&InvocationUsageShortRestUsedDescription=Esta invocação requer um desc
 Tooltip/&MonsterNaturalArmorTitle=Armadura Natural
 Tooltip/&PreReqDoesNotKnow=não sabe {0}
 Tooltip/&PreReqIs=é {0}
+Tooltip/&PreReqIsWithLevel=É {0} nível {1}
 Tooltip/&PreReqIsNot=não é {0}
 Tooltip/&PreReqLevelFormat=Nível mínimo de personagem {0}
 Tooltip/&PreReqMustKnow=Deve saber {0}
