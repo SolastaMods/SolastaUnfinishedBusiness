@@ -1,22 +1,19 @@
 ﻿using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api;
+using SolastaUnfinishedBusiness.Api.Extensions;
 using SolastaUnfinishedBusiness.Api.Infrastructure;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomInterfaces;
-using SolastaUnfinishedBusiness.CustomUI;
-using SolastaUnfinishedBusiness.Models;
-using SolastaUnfinishedBusiness.Properties;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
-using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionActionAffinitys;
-using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionAttributeModifiers;
-using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionCastSpells;
-using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionFeatureSets;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPowers;
+using static FeatureDefinitionAttributeModifier;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
 
 namespace SolastaUnfinishedBusiness.Feats;
 
@@ -27,6 +24,8 @@ internal static class ClassFeats
         var featCallForCharge = BuildCallForCharge();
         var featCunningEscape = BuildCunningEscape();
         var featPotentSpellcaster = BuildPotentSpellcaster();
+
+        var awakenTheBeastWithinGroup = BuildAwakenTheBeastWithin(feats);
 
         feats.AddRange(
             featCallForCharge,
@@ -45,8 +44,66 @@ internal static class ClassFeats
         GroupFeats.MakeGroup("FeatGroupClassBound", null,
             featCallForCharge,
             featCunningEscape,
-            featPotentSpellcaster);
+            featPotentSpellcaster,
+            awakenTheBeastWithinGroup);
     }
+
+    #region Awaken The Beast Within
+
+    private static FeatDefinition BuildAwakenTheBeastWithin([NotNull] List<FeatDefinition> feats)
+    {
+        const string NAME = "FeatAwakenTheBeastWithin";
+
+        var hpBonus = FeatureDefinitionAttributeModifierBuilder
+            .Create($"AttributeModifier{NAME}")
+            .SetGuiPresentationNoContent(true)
+            .SetModifier(AttributeModifierOperation.AddConditionAmount, AttributeDefinitions.HitPoints)
+            .AddToDB();
+
+        var summoningAffinity = FeatureDefinitionSummoningAffinityBuilder
+            .Create($"SummoningAffinity{NAME}")
+            .SetGuiPresentationNoContent()
+            .SetRequiredMonsterTag(TagsDefinitions.CreatureTagWildShape)
+            .SetAddedConditions(
+                ConditionDefinitionBuilder
+                    .Create($"Condition{NAME}")
+                    .SetGuiPresentationNoContent()
+                    .SetSilent(Silent.WhenAddedOrRemoved)
+                    .SetAmountOrigin(ExtraOriginOfAmount.SourceClassLevel)
+                    .SetFeatures(hpBonus, hpBonus) // 2 HP per level
+                    .AddToDB())
+            .AddToDB();
+
+        var awakenTheBeastWithinFeats = AttributeDefinitions.AbilityScoreNames
+            .Select(abilityScore => new
+            {
+                abilityScore,
+                attributeModifier = DatabaseRepository.GetDatabase<FeatureDefinitionAttributeModifier>()
+                    .FirstOrDefault(x =>
+                        x.Name.StartsWith("AttributeModifierCreed") && x.ModifiedAttribute == abilityScore)
+            })
+            .Select(t =>
+                FeatDefinitionWithPrerequisitesBuilder
+                    .Create($"{NAME}{t.abilityScore}")
+                    .SetGuiPresentation(
+                        Gui.Format($"Feat/&{NAME}Title",
+                            CultureInfo.CurrentCulture.TextInfo.ToTitleCase(
+                                Gui.Localize($"Attribute/&{t.abilityScore}Title").ToLower())),
+                        Gui.Format($"Feat/&{NAME}Description", t.abilityScore))
+                    .SetFeatures(t.attributeModifier, summoningAffinity)
+                    .SetValidators(ValidatorsFeat.IsDruidLevel4)
+                    .AddToDB())
+            .ToArray();
+
+        var awakenTheBeastWithinGroup = GroupFeats.MakeGroupWithPreRequisite(
+            "FeatGroupAwakenTheBeastWithin", NAME, ValidatorsFeat.IsDruidLevel4, awakenTheBeastWithinFeats);
+
+        feats.AddRange(awakenTheBeastWithinFeats);
+
+        return awakenTheBeastWithinGroup;
+    }
+
+    #endregion
 
     #region Call for Charge
 
@@ -89,7 +146,7 @@ internal static class ClassFeats
                                         .AddToDB(),
                                     ConditionForm.ConditionOperation.Add)
                                 .Build())
-                        .SetParticleEffectParameters(SpellDefinitions.MagicWeapon)
+                        .SetParticleEffectParameters(MagicWeapon)
                         .Build())
                 .AddToDB())
             .SetAbilityScorePrerequisite(AttributeDefinitions.Charisma, 13)
@@ -165,10 +222,12 @@ internal static class ClassFeats
                 return effect;
             }
 
-            damage.BonusDamage += AttributeDefinitions.ComputeAbilityScoreModifier(
+            var bonus = AttributeDefinitions.ComputeAbilityScoreModifier(
                 character.GetAttribute(AttributeDefinitions.Intelligence).CurrentValue);
-            damage.DamageBonusTrends.Add(
-                new TrendInfo(1, FeatureSourceType.CharacterFeature, "Feat/&FeatPotentSpellcasterTitle", null));
+
+            damage.BonusDamage += bonus;
+            damage.DamageBonusTrends.Add(new TrendInfo(bonus, FeatureSourceType.CharacterFeature,
+                "Feat/&FeatPotentSpellcasterTitle", null));
 
             return effect;
         }

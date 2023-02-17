@@ -73,8 +73,6 @@ internal static class OtherFeats
             featMobile);
 
         GroupFeats.FeatGroupSpellCombat.AddFeats(
-            FeatDefinitions.FlawlessConcentration,
-            FeatDefinitions.PowerfulCantrip,
             elementalAdeptGroup,
             featWarCaster,
             spellSniperGroup);

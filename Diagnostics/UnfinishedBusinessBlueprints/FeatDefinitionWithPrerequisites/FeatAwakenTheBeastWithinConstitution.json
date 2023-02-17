@@ -1,5 +1,5 @@
 {
-  "$type": "FeatDefinition, Assembly-CSharp",
+  "$type": "SolastaUnfinishedBusiness.CustomDefinitions.FeatDefinitionWithPrerequisites, SolastaUnfinishedBusiness",
   "compatibleClassesPrerequisite": [],
   "mustCastSpellsPrerequisite": false,
   "compatibleRacesPrerequisite": [],
@@ -11,12 +11,15 @@
   "hasFamilyTag": false,
   "familyTag": "",
   "knownFeatsPrerequisite": [],
-  "features": [],
+  "features": [
+    "Definition:AttributeModifierCreed_Of_Arun:448b8ab9ee9cd784b81e82a65d5810f0",
+    "Definition:SummoningAffinityFeatAwakenTheBeastWithin:698e1537-52f4-519e-8431-8ac097aac552"
+  ],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
-    "title": "Feat/&FeatGroupTwoWeaponCombatTitle",
-    "description": "Ambidextrous, Dual Flurry, Dual Weapon Defense, Twin Blade ",
+    "title": "Awaken The Beast [Con]",
+    "description": "Increase your Constitution score by 1, to a maximum of 20. Whenever you use your Wild Shape ability to transform into a beast, you gain temporary hit points equal to twice your druid level.",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -36,7 +39,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "62597d02-7727-525e-ac88-4d150234369c",
+  "guid": "2c7d692d-a638-57ff-af50-8b245a52bb87",
   "contentPack": 9999,
-  "name": "FeatGroupTwoWeaponCombat"
+  "name": "FeatAwakenTheBeastWithinConstitution"
 }

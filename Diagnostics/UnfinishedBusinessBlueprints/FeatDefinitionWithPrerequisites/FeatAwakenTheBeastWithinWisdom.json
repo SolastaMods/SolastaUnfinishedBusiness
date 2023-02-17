@@ -1,5 +1,5 @@
 {
-  "$type": "FeatDefinition, Assembly-CSharp",
+  "$type": "SolastaUnfinishedBusiness.CustomDefinitions.FeatDefinitionWithPrerequisites, SolastaUnfinishedBusiness",
   "compatibleClassesPrerequisite": [],
   "mustCastSpellsPrerequisite": false,
   "compatibleRacesPrerequisite": [],
@@ -11,12 +11,15 @@
   "hasFamilyTag": false,
   "familyTag": "",
   "knownFeatsPrerequisite": [],
-  "features": [],
+  "features": [
+    "Definition:AttributeModifierCreed_Of_Maraike:7fd526d5e743c6f48bad92aac9b1738d",
+    "Definition:SummoningAffinityFeatAwakenTheBeastWithin:698e1537-52f4-519e-8431-8ac097aac552"
+  ],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
-    "title": "Feat/&FeatGroupTwoWeaponCombatTitle",
-    "description": "Ambidextrous, Dual Flurry, Dual Weapon Defense, Twin Blade ",
+    "title": "Awaken The Beast [Wis]",
+    "description": "Increase your Wisdom score by 1, to a maximum of 20. Whenever you use your Wild Shape ability to transform into a beast, you gain temporary hit points equal to twice your druid level.",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -36,7 +39,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "62597d02-7727-525e-ac88-4d150234369c",
+  "guid": "03103097-dad3-5c00-a299-6604c6183cc9",
   "contentPack": 9999,
-  "name": "FeatGroupTwoWeaponCombat"
+  "name": "FeatAwakenTheBeastWithinWisdom"
 }

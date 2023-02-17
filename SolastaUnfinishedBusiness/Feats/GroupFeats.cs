@@ -22,8 +22,6 @@ internal static class GroupFeats
         FeatDefinitions.ReadyOrNot,
         FeatDefinitions.RushToBattle);
 
-    internal static FeatDefinition FeatGroupClassBound { get; } = MakeGroup("FeatGroupClassBound", null);
-
     internal static FeatDefinition FeatGroupDefenseCombat { get; } = MakeGroup("FeatGroupDefenseCombat", null,
         FeatDefinitions.CloakAndDagger,
         FeatDefinitions.RaiseShield,
@@ -63,7 +61,7 @@ internal static class GroupFeats
             return;
         }
 
-        var titles = groupedFeat.GetSubFeats()
+        var titles = groupedFeat.GetSubFeats(true)
             .Select(x => x.FormatTitle())
             .OrderBy(x => x)
             .ToArray();
