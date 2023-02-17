@@ -28,6 +28,7 @@ internal static class FeatsContext
         // generate feats here and fill the list
         ArmorFeats.CreateFeats(feats);
         CasterFeats.CreateFeats(feats);
+        ClassFeats.CreateFeats(feats);
         CraftyFeats.CreateFeats(feats);
         CriticalVirtuosoFeats.CreateFeats(feats);
         DefenseExpertFeats.CreateFeats(feats);

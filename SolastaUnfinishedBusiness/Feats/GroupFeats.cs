@@ -22,6 +22,8 @@ internal static class GroupFeats
         FeatDefinitions.ReadyOrNot,
         FeatDefinitions.RushToBattle);
 
+    internal static FeatDefinition FeatGroupClassBound { get; } = MakeGroup("FeatGroupClassBound", null);
+
     internal static FeatDefinition FeatGroupDefenseCombat { get; } = MakeGroup("FeatGroupDefenseCombat", null,
         FeatDefinitions.CloakAndDagger,
         FeatDefinitions.RaiseShield,
@@ -36,6 +38,10 @@ internal static class GroupFeats
         FeatDefinitions.MeltingTouch);
 
     internal static FeatDefinition FeatGroupPiercer { get; } = MakeGroup("FeatGroupPiercer", Piercer);
+
+    internal static FeatDefinition FeatGroupSpellCombat { get; } = MakeGroup("FeatGroupSpellCombat", null,
+        FeatDefinitions.FlawlessConcentration,
+        FeatDefinitions.PowerfulCantrip);
 
     internal static FeatDefinition FeatGroupSupportCombat { get; } = MakeGroup("FeatGroupSupportCombat", null,
         FeatDefinitions.Mender);
