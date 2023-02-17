@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
+using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.Infrastructure;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
@@ -31,6 +32,7 @@ internal static class OtherFeats
     {
         var featAstralArms = BuildAstralArms();
         var featCallForCharge = BuildCallForCharge();
+        var featCunningEscape = BuildCunningEscape();
         var featEldritchAdept = BuildEldritchAdept();
         var featHealer = BuildHealer();
         var featInspiringLeader = BuildInspiringLeader();
@@ -51,6 +53,7 @@ internal static class OtherFeats
         feats.AddRange(
             featAstralArms,
             featCallForCharge,
+            featCunningEscape,
             featEldritchAdept,
             featHealer,
             featInspiringLeader,
@@ -73,7 +76,9 @@ internal static class OtherFeats
             featHealer,
             featInspiringLeader);
 
-        GroupFeats.FeatGroupAgilityCombat.AddFeats(featMobile);
+        GroupFeats.FeatGroupAgilityCombat.AddFeats(
+            featCunningEscape,
+            featMobile);
 
         GroupFeats.MakeGroup("FeatGroupBodyResilience", null,
             FeatDefinitions.BadlandsMarauder,
@@ -100,6 +105,7 @@ internal static class OtherFeats
 
         GroupFeats.MakeGroup("FeatGroupClassBound", null,
             featCallForCharge,
+            featCunningEscape,
             featPotentSpellcaster);
     }
 
@@ -484,6 +490,40 @@ internal static class OtherFeats
 
             attackMode.reach = true;
             attackMode.reachRange = 2;
+        }
+    }
+
+    #endregion
+
+
+    #region Cunning Escape
+
+    private static FeatDefinition BuildCunningEscape()
+    {
+        return FeatDefinitionWithPrerequisitesBuilder
+            .Create("FeatCunningEscape")
+            .SetGuiPresentation(Category.Feat)
+            .SetCustomSubFeatures(new OnAfterActionFeatureFeatCunningEscape())
+            .SetValidators(ValidatorsFeat.IsRogueLevel3)
+            .AddToDB();
+    }
+
+    private class OnAfterActionFeatureFeatCunningEscape : IOnAfterActionFeature
+    {
+        public void OnAfterAction(CharacterAction action)
+        {
+            if (action.ActionDefinition != DatabaseHelper.ActionDefinitions.DashBonus)
+            {
+                return;
+            }
+
+            var actingCharacter = action.ActingCharacter.RulesetCharacter;
+
+            var condition = RulesetCondition.CreateActiveCondition(
+                actingCharacter.Guid, ConditionDefinitions.ConditionDisengaging, DurationType.Round, 0,
+                TurnOccurenceType.EndOfTurn, actingCharacter.Guid, actingCharacter.CurrentFaction.Name);
+
+            actingCharacter.AddConditionOfCategory(AttributeDefinitions.TagCombat, condition);
         }
     }
 
