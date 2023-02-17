@@ -1,5 +1,14 @@
 ﻿CHANGES:
 
+1.4.33.40:
+
+- added Potent Spellcaster feat
+- fixed Sentinel reaction interactions amongst players
+- fixed Soul Blade empower weapon interaction with Pact of Blade
+- improved Poisonous Skin to trigger on shove actions
+- improved Arcane Fighter to keep enchant weapon when unconscious
+- improved Soul Blade to keep empower weapon when unconscious
+
 1.4.33.39:
 
 - fixed Spell Sniper to correctly apply no cover on range hit
