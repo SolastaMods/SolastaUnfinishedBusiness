@@ -8,5 +8,5 @@ Feature/&PowerWayOfTheDiscordanceBurstOfDisharmonyDescription=At 11th level, you
 Feature/&PowerWayOfTheDiscordanceBurstOfDisharmonyTitle=Burst of Disharmony
 Feature/&PowerWayOfTheDiscordanceSubBurstOfDisharmonyDescription=Spend {0} Ki Point to deal {1}d6 damage.
 Feature/&PowerWayOfTheDiscordanceSubBurstOfDisharmonyTitle=Burst of Disharmony [{0} Ki]
-Subclass/&WayOfTheDiscordanceDescription=While most monks seek enlightenment through inner peace and contemplation, monks of the Way of Discordance on the other hand focus on harnessing the chaotic energies of the universe. These mystical scholars of disharmony exploit the inner conflicts of their enemies by manipulating their ki, devastating them with bursts of distorting energy.
+Subclass/&WayOfTheDiscordanceDescription=While most monks seek enlightenment through contemplation and achieving inner peace, monks of the Way of Discordance on the other hand are focused on harnessing the chaotic energies of the universe. These mystical scholars of disharmony exploit the inner conflicts of their enemies by manipulating their ki, devastating them with bursts of distorting energy.
 Subclass/&WayOfTheDiscordanceTitle=Way of Discordance

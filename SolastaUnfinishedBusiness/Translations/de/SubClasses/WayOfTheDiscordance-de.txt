@@ -2,11 +2,11 @@
 Condition/&ConditionWayOfTheDiscordanceDiscordanceTitle=Diskrepanz
 Feature/&FeatureSetWayOfTheDiscordanceDiscordanceDescription=Ab der 3. Stufe lernst du, die innere Disharmonie deiner Feinde zu manipulieren, um Wellen verzerrender Energie zu erzeugen. Jedes Mal, wenn du eine Kreatur mit einer Mönchswaffe oder einem waffenlosen Angriff triffst, erhält die Kreatur 1 Minute lang einen Zustand „Diskordanz“. Wenn eine Kreatur die 3. Instanz erhält, werden alle Instanzen entfernt und die Kreatur erhält psychischen Schaden in Höhe deines Kampfkunstwürfels.
 Feature/&FeatureSetWayOfTheDiscordanceDiscordanceTitle=Diskrepanz
-Feature/&FeatureSetWayOfTheDiscordanceSchismDescription=Ab der 6. Stufe wendet ihr eine weitere Instanz des Zustands Dissonanz an, wenn ihr eine Kreatur erfolgreich mit einer Mönchswaffe oder einem waffenlosen Angriff betäubt.
+Feature/&FeatureSetWayOfTheDiscordanceSchismDescription=Ab der 6. Stufe wendest du eine zusätzliche Instanz des Zustands „Diskordanz“ an, wenn du eine Kreatur erfolgreich mit deiner Fähigkeit „Betäubender Schlag“ betäubst.
 Feature/&FeatureSetWayOfTheDiscordanceSchismTitle=Schisma
 Feature/&PowerWayOfTheDiscordanceBurstOfDisharmonyDescription=Auf der 11. Stufe erhältst du die Fähigkeit, eine Eruption angesammelter negativer Energie zu verursachen. Sie können den Schaden erhöhen, indem Sie Ki-Punkte ausgeben. Jeder Punkt, den Sie ausgeben, bis zu einem Maximum Ihres Fertigkeitsbonus, erhöht den Schaden um 1W6.
 Feature/&PowerWayOfTheDiscordanceBurstOfDisharmonyTitle=Ausbruch der Disharmonie
 Feature/&PowerWayOfTheDiscordanceSubBurstOfDisharmonyDescription=Gib {0} Ki-Punkte aus, um {1}W6 Schaden zu verursachen.
 Feature/&PowerWayOfTheDiscordanceSubBurstOfDisharmonyTitle=Explosion der Disharmonie [{0} Ki]
-Subclass/&WayOfTheDiscordanceDescription=Während die meisten Mönche Erleuchtung durch inneren Frieden und Kontemplation suchen, konzentrieren sich die Mönche des Weges der Zwietracht auf die Nutzung der chaotischen Energien des Universums. Diese mystischen Gelehrten der Disharmonie nutzen die inneren Konflikte ihrer Feinde aus, indem sie ihr Ki manipulieren und sie mit Ausbrüchen verzerrender Energie vernichten.
+Subclass/&WayOfTheDiscordanceDescription=Während die meisten Mönche durch Kontemplation Erleuchtung suchen und inneren Frieden erlangen, konzentrieren sich die Mönche des Weges der Zwietracht auf die Nutzung der chaotischen Energien des Universums. Diese mystischen Gelehrten der Disharmonie nutzen die inneren Konflikte ihrer Feinde aus, indem sie ihr Ki manipulieren und sie mit Ausbrüchen verzerrender Energie vernichten.
 Subclass/&WayOfTheDiscordanceTitle=Weg der Zwietracht
