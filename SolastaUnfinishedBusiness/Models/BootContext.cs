@@ -308,7 +308,7 @@ internal static class BootContext
             message,
             "Donate",
             "Message/&MessageOkTitle",
-            OpenDonate,
+            OpenDonatePayPal,
             () => { }); // keep like this - don't use null here
     }
 
@@ -322,7 +322,7 @@ internal static class BootContext
         Gui.GuiService.ShowMessage(
             MessageModal.Severity.Attention2,
             "Message/&MessageModWelcomeTitle",
-            $"Version {version} is now available.\n\n{changeLog}\n\nWould you like to update?",
+            $"Version {version} is now available.\n\n{changeLog}\n\nWould you like to update?\n\nThe donate button will take you to PayPal by default. There are other donation options under Mod UI > Character.",
             "Message/&MessageOkTitle",
             "Message/&MessageCancelTitle",
             () => UpdateMod(version),
@@ -337,7 +337,7 @@ internal static class BootContext
             "Message/&MessageModWelcomeDescription",
             "Donate",
             "Message/&MessageOkTitle",
-            OpenDonate,
+            OpenDonatePayPal,
             () => { }); // keep like this - don't use null here
     }
 
@@ -346,7 +346,17 @@ internal static class BootContext
         OpenUrl("https://github.com/SolastaMods/SolastaUnfinishedBusiness/wiki");
     }
 
-    internal static void OpenDonate()
+    internal static void OpenDonateGithubSponsors()
+    {
+        OpenUrl("https://github.com/sponsors/ThyWoof");
+    }
+
+    internal static void OpenDonatePatreon()
+    {
+        OpenUrl("https://patreon.com/SolastaMods");
+    }
+    
+    internal static void OpenDonatePayPal()
     {
         OpenUrl("https://www.paypal.com/donate/?business=JG4FX47DNHQAG&item_name=Support+Solasta+Unfinished+Business");
     }

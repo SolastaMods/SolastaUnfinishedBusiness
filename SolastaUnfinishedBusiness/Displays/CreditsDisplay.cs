@@ -15,7 +15,7 @@ internal static class CreditsDisplay
     internal static readonly List<(string, string)> CreditsTable = new()
     {
         ("Zappastuff",
-            "maintenance, mod UI, infrastructure, gameplay, feats, fighting styles, invocations, rules, spells, quality of life, Half-elf variants, Blade Dancer, Ancient Forest, College of Guts, College of Life, Dead Master, Field Manipulator, Way of The Silhouette, Wild Master, Multiclass"),
+            "maintenance, mod UI, infrastructure, gameplay, feats, fighting styles, invocations, rules, spells, quality of life, Half-elf variants, Blade Dancer, Ancient Forest, College of Guts, College of Life, Dead Master, Field Manipulator, Way of The Discordance, Way of The Silhouette, Wild Master, Multiclass"),
         ("TPABOBAP",
             "game UI, infrastructure, gameplay, feats, invocations, spells, quality of life, Dead Master, Elementalist, Moonlit, RiftWalker, SoulBlade, Tactician, Way of The Distant Hand, Inventor"),
         ("Nd", "College of Harlequin, College of War Dancer, Marshal, Opportunist, Raven, Spell Shield"),
@@ -34,7 +34,7 @@ internal static class CreditsDisplay
         ("Pikachar2", "spells"),
         ("Prioritizer", "Russian translations"),
         ("xxy961216", "Chinese translations"),
-        ("Taco", "homebrew content design [feats, metamagic, subclasses], weapon icons"),
+        ("Taco", "homebrew content design [feats, metamagic, subclasses], power and weapon icons"),
         ("HiddenHax", "homebrew content design [subclasses]"),
         ("Balmz", "some power and spell icons")
     };
