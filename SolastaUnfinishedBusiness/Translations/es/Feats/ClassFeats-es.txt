@@ -1,0 +1,12 @@
+Condition/&ConditionFeatCallForChargeDescription=Tu velocidad aumenta en 15 pies y tienes ventaja en tu ataque.
+Condition/&ConditionFeatCallForChargeTitle=Llamar para cobrar
+Feat/&FeatAwakenTheBeastWithinDescription=Aumenta tu puntuación de {0} en 1, hasta un máximo de 20. Cada vez que usas tu habilidad Forma salvaje para transformarte en una bestia, obtienes puntos de golpe temporales equivalentes al doble de tu nivel de druida.
+Feat/&FeatAwakenTheBeastWithinTitle=Despierta a la bestia [{0}]
+Feat/&FeatCallForChargeDescription=Puede usar su acción de bonificación para reclamar un cargo. Cuando lo haces, hasta el comienzo de tu próximo turno, tú y tus aliados aumentan la velocidad en 15 pies, y cada uno tiene ventaja en su primera tirada de ataque. Puedes usar este poder un número de veces por descanso prolongado igual a tu modificador de Carisma.
+Feat/&FeatCallForChargeTitle=Llamar para cobrar
+Feat/&FeatCunningEscapeDescription=Siempre que utilices la acción Correr como acción adicional, tu movimiento no provocará ataques de oportunidad durante el resto del turno.
+Feat/&FeatCunningEscapeTitle=Escape astuto
+Feat/&FeatPotentSpellcasterDescription=Puedes añadir tu modificador de Inteligencia al daño que infliges con cualquier truco de mago.
+Feat/&FeatPotentSpellcasterTitle=Lanzador de hechizos potente
+Feature/&PowerFeatCallForChargeDescription=Tu velocidad y la de tus aliados aumentan en 15 pies y tienes ventaja en tu ataque.
+Feature/&PowerFeatCallForChargeTitle=Llamar para cobrar

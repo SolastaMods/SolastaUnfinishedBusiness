@@ -654,4 +654,7 @@
   <data name="collapsed" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\UI\collapsed.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="PowerBurstOfDisharmony" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Powers\PowerBurstOfDisharmony.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
 </root>

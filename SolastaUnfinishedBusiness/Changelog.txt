@@ -1,6 +1,6 @@
-- added Potent Spellcaster feat
-- fixed Sentinel reaction interactions amongst players
-- fixed Soul Blade empower weapon interaction with Pact of Blade
-- improved Poisonous Skin to trigger on shove actions
-- improved Arcane Fighter to keep enchant weapon when unconscious
-- improved Soul Blade to keep empower weapon when unconscious
+- added additional funding links to Mod UI > Characters [Patreon, GitHub Sponsors]
+- added Awaken The Beast feat
+- added Cunning Escape feat
+- added Way of Discordance subclass
+- improved Astral Arms feat to work as Polearm Master one when enemy enters reach
+- improved Shared Spell metamagic description

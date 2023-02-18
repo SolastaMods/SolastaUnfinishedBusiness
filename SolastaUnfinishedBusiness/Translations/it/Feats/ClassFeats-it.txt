@@ -1,0 +1,12 @@
+Condition/&ConditionFeatCallForChargeDescription=La tua velocità aumenta di 15 piedi e hai un vantaggio sul tuo attacco.
+Condition/&ConditionFeatCallForChargeTitle=Chiamata a pagamento
+Feat/&FeatAwakenTheBeastWithinDescription=Aumenta il tuo punteggio {0} di 1, fino a un massimo di 20. Ogni volta che usi la tua abilità Forma selvaggia per trasformarti in una bestia, guadagni punti ferita temporanei pari al doppio del tuo livello da druido.
+Feat/&FeatAwakenTheBeastWithinTitle=Risveglia la Bestia [{0}]
+Feat/&FeatCallForChargeDescription=Puoi usare la tua azione bonus per richiedere un addebito. Quando lo fai, fino all'inizio del tuo prossimo turno, tu e i tuoi alleati aumenterete la velocità di 4,5 metri, e ciascuno avrà vantaggio al primo tiro per colpire. Puoi usare questo potere un numero di volte per riposo lungo pari al tuo modificatore di Carisma.
+Feat/&FeatCallForChargeTitle=Chiamata a pagamento
+Feat/&FeatCunningEscapeDescription=Ogni volta che usi l'azione Scatto come azione bonus, il tuo movimento non provoca attacchi di opportunità per il resto del turno.
+Feat/&FeatCunningEscapeTitle=Fuga astuta
+Feat/&FeatPotentSpellcasterDescription=Puoi aggiungere il tuo modificatore di Intelligenza al danno che infliggi con qualsiasi trucchetto del mago.
+Feat/&FeatPotentSpellcasterTitle=Potente Incantatore
+Feature/&PowerFeatCallForChargeDescription=La tua velocità e quella dei tuoi alleati aumentano di 15 piedi e hai un vantaggio sul tuo attacco.
+Feature/&PowerFeatCallForChargeTitle=Chiamata a pagamento

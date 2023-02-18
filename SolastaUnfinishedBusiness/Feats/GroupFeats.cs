@@ -37,6 +37,10 @@ internal static class GroupFeats
 
     internal static FeatDefinition FeatGroupPiercer { get; } = MakeGroup("FeatGroupPiercer", Piercer);
 
+    internal static FeatDefinition FeatGroupSpellCombat { get; } = MakeGroup("FeatGroupSpellCombat", null,
+        FeatDefinitions.FlawlessConcentration,
+        FeatDefinitions.PowerfulCantrip);
+
     internal static FeatDefinition FeatGroupSupportCombat { get; } = MakeGroup("FeatGroupSupportCombat", null,
         FeatDefinitions.Mender);
 
@@ -57,7 +61,7 @@ internal static class GroupFeats
             return;
         }
 
-        var titles = groupedFeat.GetSubFeats()
+        var titles = groupedFeat.GetSubFeats(true)
             .Select(x => x.FormatTitle())
             .OrderBy(x => x)
             .ToArray();

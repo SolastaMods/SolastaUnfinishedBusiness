@@ -1,0 +1,12 @@
+Condition/&ConditionFeatCallForChargeDescription=您的速度增加 15 英尺，并且您的攻击具有优势。
+Condition/&ConditionFeatCallForChargeTitle=收费电话
+Feat/&FeatAwakenTheBeastWithinDescription=将您的 {0} 得分提高 1，最高为 20。每当您使用野性变身能力变身为野兽时，您都会获得相当于德鲁伊等级两倍的临时生命值。
+Feat/&FeatAwakenTheBeastWithinTitle=唤醒野兽 [{0}]
+Feat/&FeatCallForChargeDescription=您可以使用您的奖励行动要求收费。当你这样做时，直到你的下一轮开始，你和你的盟友的速度增加 15 英尺，并且每个人在他们的第一次攻击检​​定上都有优势。每次长休你可以使用此异能的次数等于你的魅力调整值。
+Feat/&FeatCallForChargeTitle=收费电话
+Feat/&FeatCunningEscapeDescription=每当你使用冲刺动作作为附赠动作时，你的移动在本回合剩余时间内不会引发借机攻击。
+Feat/&FeatCunningEscapeTitle=狡猾的逃脱
+Feat/&FeatPotentSpellcasterDescription=你可以将你的智力调整值加到你处理任何巫师戏法的伤害上。
+Feat/&FeatPotentSpellcasterTitle=强大的施法者
+Feature/&PowerFeatCallForChargeDescription=你和你的盟友的速度提高 15 英尺，并且你的攻击具有优势。
+Feature/&PowerFeatCallForChargeTitle=收费电话

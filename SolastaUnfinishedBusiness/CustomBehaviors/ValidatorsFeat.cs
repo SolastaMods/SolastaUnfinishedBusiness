@@ -14,8 +14,14 @@ internal static class ValidatorsFeat
     // validation routines for FeatDefinitionWithPrerequisites
     //
 
+    internal static readonly Func<FeatDefinition, RulesetCharacterHero, (bool result, string output)> IsDruidLevel4 =
+        ValidateIsClass(Druid.FormatTitle(), 4, Druid);
+
     internal static readonly Func<FeatDefinition, RulesetCharacterHero, (bool result, string output)> IsPaladinLevel1 =
         ValidateIsClass(Paladin.FormatTitle(), 1, Paladin);
+
+    internal static readonly Func<FeatDefinition, RulesetCharacterHero, (bool result, string output)> IsRogueLevel3 =
+        ValidateIsClass(Rogue.FormatTitle(), 3, Rogue);
 
     internal static readonly Func<FeatDefinition, RulesetCharacterHero, (bool result, string output)> IsWizardLevel6 =
         ValidateIsClass(Wizard.FormatTitle(), 6, Wizard);

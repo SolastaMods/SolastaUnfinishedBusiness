@@ -16,7 +16,7 @@
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
     "title": "Feat/&FeatGroupRaceBoundTitle",
-    "description": "Elven Accuracy, Fade Away, Revenant Great Sword",
+    "description": "Dragon Wings, Elven Accuracy, Fade Away, Revenant Great Sword",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",

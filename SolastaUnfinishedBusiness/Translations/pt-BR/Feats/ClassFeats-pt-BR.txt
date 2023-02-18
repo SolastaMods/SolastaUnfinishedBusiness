@@ -1,0 +1,12 @@
+Condition/&ConditionFeatCallForChargeDescription=Sua velocidade aumenta em 15 pés e você tem vantagem em seu ataque.
+Condition/&ConditionFeatCallForChargeTitle=Chamada para cobrança
+Feat/&FeatAwakenTheBeastWithinDescription=Aumente sua pontuação de {0} em 1, até um máximo de 20. Sempre que você usar sua habilidade Forma Selvagem para se transformar em uma fera, você ganha pontos de vida temporários iguais ao dobro do seu nível de druida.
+Feat/&FeatAwakenTheBeastWithinTitle=Desperte a Besta [{0}]
+Feat/&FeatCallForChargeDescription=Você pode usar sua ação bônus para pedir uma carga. Ao fazer isso, até o início do seu próximo turno, você e seus aliados aumentam a velocidade em 4,5 metros e cada um tem vantagem em sua primeira jogada de ataque. Você pode usar este poder um número de vezes por descanso longo igual ao seu modificador de Carisma.
+Feat/&FeatCallForChargeTitle=Chamada para cobrança
+Feat/&FeatCunningEscapeDescription=Sempre que você usar a ação Correr como uma ação bônus, seu movimento não provocará ataques de oportunidade pelo resto do turno.
+Feat/&FeatCunningEscapeTitle=Fuga Astuciosa
+Feat/&FeatPotentSpellcasterDescription=Você pode adicionar seu modificador de Inteligência ao dano causado por qualquer truque de mago.
+Feat/&FeatPotentSpellcasterTitle=Feiticeiro Potente
+Feature/&PowerFeatCallForChargeDescription=Sua velocidade e a de seus aliados aumentam em 4,5 metros e você tem vantagem em seu ataque.
+Feature/&PowerFeatCallForChargeTitle=Chamada para cobrança

@@ -68,6 +68,9 @@ internal static class MeleeCombatFeats
             featPiercerDex,
             featPiercerStr);
 
+        GroupFeats.FeatGroupUnarmoredCombat.AddFeats(
+            featGroupCrusher);
+
         GroupFeats.MakeGroup("FeatGroupMeleeCombat", null,
             GroupFeats.FeatGroupElementalTouch,
             GroupFeats.FeatGroupPiercer,
