@@ -59,7 +59,6 @@ internal sealed class CollegeOfWarDancer : AbstractSubclass
     {
         var warDance = FeatureDefinitionPowerBuilder
             .Create(PowerWarDanceName)
-            .SetCustomSubFeatures(ValidatorsCharacter.MainHandIsMeleeWeapon)
             .SetUsesFixed(ActivationTime.BonusAction, RechargeRate.BardicInspiration)
             .SetGuiPresentation(Category.Feature, SpellDefinitions.MagicWeapon)
             .SetEffectDescription(EffectDescriptionBuilder
@@ -78,7 +77,9 @@ internal sealed class CollegeOfWarDancer : AbstractSubclass
                         .Build()
                 )
                 .Build())
-            .SetCustomSubFeatures(ValidatorsPowerUse.HasNoneOfConditions(ConditionWarDance.Name),
+            .SetCustomSubFeatures(
+                ValidatorsCharacter.MainHandIsMeleeWeapon,
+                ValidatorsPowerUse.HasNoneOfConditions(ConditionWarDance.Name),
                 new WarDanceRefundOneAttackOfMainAction())
             .AddToDB();
 
