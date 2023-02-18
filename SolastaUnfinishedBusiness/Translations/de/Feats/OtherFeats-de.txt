@@ -1,6 +1,6 @@
 Condition/&ConditionFeatMobileAfterDashDescription=Gewährt Immunität gegen Bewegungseinschränkungen und wird zurückgehalten.
 Condition/&ConditionFeatMobileAfterDashTitle=Freiheit
-Feat/&FeatAstralArmsDescription=Erhöhe deine Weisheit um 1 bis zu einem Maximum von 20.\nWenn du in deinem Zug einen unbewaffneten Schlag ausführst, hast du eine Reichweite von 3 m. Andere Kreaturen provozieren einen Gelegenheitsangriff von dir, wenn sie unbewaffnet in die Reichweite kommen, die du hast.
+Feat/&FeatAstralArmsDescription=Erhöhe deine Weisheit um 1 bis zu einem Maximum von 20.\nWenn du in deinem Zug einen unbewaffneten Schlag ausführst, hast du eine Reichweite von 3m. Andere Kreaturen provozieren einen Gelegenheitsangriff von dir, wenn sie unbewaffnet in die Reichweite kommen, die du hast.
 Feat/&FeatAstralArmsTitle=Astrale Reichweite
 Feat/&FeatEldritchAdeptDescription=Du lernst eine Eldritch Invocation-Option deiner Wahl von der Hexenmeister-Klasse. Wenn die Beschwörung eine Voraussetzung hat, kannst du diese Beschwörung nur wählen, wenn du ein Hexenmeister bist und nur, wenn du die Voraussetzung erfüllst. Immer wenn Sie eine Stufe aufsteigen, können Sie die Anrufung durch eine andere aus der Hexenmeisterklasse ersetzen.
 Feat/&FeatEldritchAdeptTitle=Eldritch Adept
