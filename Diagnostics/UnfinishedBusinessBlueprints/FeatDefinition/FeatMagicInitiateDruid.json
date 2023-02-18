@@ -1,7 +1,7 @@
 {
   "$type": "FeatDefinition, Assembly-CSharp",
   "compatibleClassesPrerequisite": [],
-  "mustCastSpellsPrerequisite": true,
+  "mustCastSpellsPrerequisite": false,
   "compatibleRacesPrerequisite": [],
   "minimalAbilityScorePrerequisite": false,
   "minimalAbilityScoreValue": 13,
