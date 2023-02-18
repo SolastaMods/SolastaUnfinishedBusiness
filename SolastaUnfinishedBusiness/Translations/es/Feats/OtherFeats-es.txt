@@ -1,6 +1,6 @@
 Condition/&ConditionFeatMobileAfterDashDescription=Otorga inmunidad a las restricciones de movimiento, así como ser restringido.
 Condition/&ConditionFeatMobileAfterDashTitle=Libertad
-Feat/&FeatAstralArmsDescription=Aumenta tu Sabiduría en 1, hasta un máximo de 20.\nCuando realizas un ataque sin armas en tu turno, tu alcance es de 10 pies.
+Feat/&FeatAstralArmsDescription=Aumenta tu Sabiduría en 1, hasta un máximo de 20.\nCuando realizas un ataque sin armas en tu turno, tu alcance es de 10 pies. Otras criaturas provocan un ataque de oportunidad de tu parte cuando entran en el alcance que tienes sin armas.
 Feat/&FeatAstralArmsTitle=alcance astral
 Feat/&FeatEldritchAdeptDescription=Aprendes una opción de Invocación sobrenatural de tu elección de la clase de brujo. Si la invocación tiene un requisito previo, puedes elegir esa invocación solo si eres un brujo y solo si cumples con el requisito previo. Siempre que ganes un nivel, puedes reemplazar la invocación con otra de la clase brujo.
 Feat/&FeatEldritchAdeptTitle=Adepto sobrenatural

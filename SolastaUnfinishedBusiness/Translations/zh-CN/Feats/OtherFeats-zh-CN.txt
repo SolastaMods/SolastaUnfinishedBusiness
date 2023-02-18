@@ -1,6 +1,6 @@
 Condition/&ConditionFeatMobileAfterDashDescription=免疫移动限制以及被束缚。
 Condition/&ConditionFeatMobileAfterDashTitle=自由
-Feat/&FeatAstralArmsDescription=将您的智慧提高 1，最大为 20。\n当您在轮到您进行徒手攻击时，您的触及范围为 10 英尺。
+Feat/&FeatAstralArmsDescription=将您的智慧提高 1，最大为 20。\n当您在轮到您进行徒手攻击时，您的触及范围为 10 英尺。当其他生物进入你的徒手攻击范围时，它们会引发你的借机攻击。
 Feat/&FeatAstralArmsTitle=星际延伸
 Feat/&FeatEldritchAdeptDescription=您可以从术士课程中选择一种 Eldritch Invocation 选项。如果调用有先决条件，则只有当你是术士并且满足先决条件时才能选择该调用。每当您获得一个等级时，您就可以用另一个来自术士等级的调用来替换该调用。
 Feat/&FeatEldritchAdeptTitle=异能专家

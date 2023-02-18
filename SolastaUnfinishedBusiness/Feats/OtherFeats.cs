@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
-using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.Infrastructure;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
@@ -76,7 +75,7 @@ internal static class OtherFeats
             elementalAdeptGroup,
             featWarCaster,
             spellSniperGroup);
-        
+
         GroupFeats.MakeGroup("FeatGroupBodyResilience", null,
             FeatDefinitions.BadlandsMarauder,
             FeatDefinitions.BlessingOfTheElements,
@@ -278,7 +277,6 @@ internal static class OtherFeats
                             FeatMagicInitiateTag, 1, 1)
                         .AddToDB())
                 .SetFeatFamily(NAME)
-                .SetMustCastSpellsPrerequisite()
                 .AddToDB();
 
             magicInitiateFeats.Add(featMagicInitiate);
@@ -399,16 +397,25 @@ internal static class OtherFeats
 
     private static FeatDefinition BuildAstralArms()
     {
+        // BACKWARD COMPATIBILITY
+        _ = FeatureDefinitionBuilder
+            .Create("ModifyAttackModeForWeaponFeatAstralArms")
+            .SetGuiPresentationNoContent(true)
+            .SetCustomSubFeatures(new ModifyAttackModeForWeaponFeatAstralArms())
+            .AddToDB();
+
         return FeatDefinitionBuilder
             .Create("FeatAstralArms")
             .SetGuiPresentation(Category.Feat)
             .SetFeatures(
-                AttributeModifierCreed_Of_Maraike,
-                FeatureDefinitionBuilder
-                    .Create("ModifyAttackModeForWeaponFeatAstralArms")
-                    .SetGuiPresentationNoContent(true)
-                    .SetCustomSubFeatures(new ModifyAttackModeForWeaponFeatAstralArms())
-                    .AddToDB())
+                AttributeModifierCreed_Of_Maraike)
+            .SetCustomSubFeatures(
+                new CanMakeAoOOnReachEntered
+                {
+                    WeaponValidator = (mode, weapon, _) =>
+                        ValidatorsWeapon.IsUnarmedWeapon(weapon ?? mode?.SourceObject as RulesetItem)
+                },
+                new ModifyAttackModeForWeaponFeatAstralArms())
             .AddToDB();
     }
 
