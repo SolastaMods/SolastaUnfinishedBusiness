@@ -1,5 +1,14 @@
 ﻿CHANGES:
 
+1.4.33.41:
+
+- added additional funding links to Mod UI > Characters [Patreon, GitHub Sponsors]
+- added Awaken The Beast feat
+- added Cunning Escape feat
+- added Way of Discordance subclass
+- improved Astral Arms feat to work as Polearm Master one when enemy enters reach
+- improved Shared Spell metamagic description
+
 1.4.33.40:
 
 - added Potent Spellcaster feat
