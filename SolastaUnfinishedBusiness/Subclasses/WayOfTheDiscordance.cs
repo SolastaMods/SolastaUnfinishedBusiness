@@ -193,6 +193,18 @@ internal sealed class WayOfTheDiscordance : AbstractSubclass
                 kiPointsAltered?.Invoke(rulesetAttacker, rulesetAttacker.RemainingKiPoints);
             }
 
+            // handle Schism behavior
+            if (GetMonkLevel(rulesetAttacker) >= 6)
+            {
+                foreach (var gameLocationDefender in action.ActionParams.TargetCharacters
+                             .Where(t => t.RulesetCharacter.HasConditionOfCategoryAndType(
+                                 AttributeDefinitions.TagEffect,
+                                 ConditionDefinitions.ConditionStunned_MonkStunningStrike.Name)))
+                {
+                    ApplyCondition(gameLocationAttacker, gameLocationDefender, _conditionDefinition);
+                }
+            }
+
             // although it should be one target only, we better keep it compatible for any future feature
             foreach (var gameLocationDefender in action.ActionParams.TargetCharacters
                          .Select(gameLocationCharacter => new
@@ -206,14 +218,6 @@ internal sealed class WayOfTheDiscordance : AbstractSubclass
                          .Select(t => t.gameLocationCharacter))
             {
                 var rulesetDefender = gameLocationDefender.RulesetCharacter;
-
-                // apply another discordance condition if defender got stunned by strike and at Schism allowed level
-                if (GetMonkLevel(rulesetAttacker) >= 6 &&
-                    rulesetDefender.HasConditionOfCategoryAndType(AttributeDefinitions.TagEffect,
-                        ConditionDefinitions.ConditionStunned_MonkStunningStrike.Name))
-                {
-                    ApplyCondition(gameLocationAttacker, gameLocationDefender, _conditionDefinition);
-                }
 
                 // remove conditions up to the limit to also support Schism scenario
                 rulesetDefender.AllConditions
