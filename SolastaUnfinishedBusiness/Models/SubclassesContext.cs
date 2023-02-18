@@ -40,7 +40,7 @@ internal static class SubclassesContext
         LoadSubclass(new MartialTactician());
 
         // Paladin
-        LoadSubclass(new OathOfAltruism(), true);
+        LoadSubclass(new OathOfAltruism());
         LoadSubclass(new OathOfAncients());
         LoadSubclass(new OathOfHatred());
 
@@ -57,6 +57,7 @@ internal static class SubclassesContext
         LoadSubclass(new SorcerousFieldManipulator());
 
         // Monk
+        LoadSubclass(new WayOfTheDiscordance());
         LoadSubclass(new WayOfTheDistantHand());
         LoadSubclass(new WayOfTheDragon());
         LoadSubclass(new WayOfTheSilhouette());
