@@ -1,0 +1,49 @@
+{
+  "$type": "CharacterSubclassDefinition, Assembly-CSharp",
+  "featureUnlocks": [
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:FeatureSetWayOfTheDiscordanceDiscordance:60ffcecb-0fac-53b9-a5af-aa3920456822",
+      "level": 3
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:FeatureSetWayOfTheDiscordanceSchism:1ebc4bdc-5e8c-5d98-a0a5-c23474f3e564",
+      "level": 6
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:PowerWayOfTheDiscordanceBurstOfDisharmony:e2b2e61a-7617-5285-a7f6-0467d9bb83cd",
+      "level": 11
+    }
+  ],
+  "personalityFlagOccurences": [],
+  "morphotypeSubclassFilterTag": "Default",
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Subclass/&WayOfTheDiscordanceTitle",
+    "description": "Subclass/&WayOfTheDiscordanceDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "29d762aa92314b04ea0c8f607efe10ae",
+      "m_SubObjectName": "Rogue_Shadowcaster",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "59bf0024-2611-5509-a422-6729d472a708",
+  "contentPack": 9999,
+  "name": "WayOfTheDiscordance"
+}

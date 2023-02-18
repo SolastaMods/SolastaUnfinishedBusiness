@@ -1,0 +1,12 @@
+Condition/&ConditionFeatCallForChargeDescription=Votre vitesse augmente de 15 pieds et vous avez un avantage sur votre attaque.
+Condition/&ConditionFeatCallForChargeTitle=Appel à charge
+Feat/&FeatAwakenTheBeastWithinDescription=Augmentez votre score {0} de 1, jusqu'à un maximum de 20. Chaque fois que vous utilisez votre capacité Forme sauvage pour vous transformer en bête, vous gagnez des points de vie temporaires égaux à deux fois votre niveau de druide.
+Feat/&FeatAwakenTheBeastWithinTitle=Éveillez la bête [{0}]
+Feat/&FeatCallForChargeDescription=Vous pouvez utiliser votre action bonus pour demander une charge. Lorsque vous le faites, jusqu'au début de votre prochain tour, vous et vos alliés augmentez votre vitesse de 15 pieds, et chacun a un avantage lors de son premier jet d'attaque. Vous pouvez utiliser ce pouvoir un nombre de fois par repos long égal à votre modificateur de Charisme.
+Feat/&FeatCallForChargeTitle=Appel à charge
+Feat/&FeatCunningEscapeDescription=Chaque fois que vous utilisez l'action Fonce comme action bonus, votre mouvement ne provoque pas d'attaques d'opportunité pour le reste du tour.
+Feat/&FeatCunningEscapeTitle=Fuite rusée
+Feat/&FeatPotentSpellcasterDescription=Vous pouvez ajouter votre modificateur d'Intelligence aux dégâts que vous infligez avec n'importe quel sort mineur de sorcier.
+Feat/&FeatPotentSpellcasterTitle=Puissant lanceur de sorts
+Feature/&PowerFeatCallForChargeDescription=Votre vitesse et celle de vos alliés augmentent de 15 pieds et vous avez un avantage sur votre attaque.
+Feature/&PowerFeatCallForChargeTitle=Appel à charge

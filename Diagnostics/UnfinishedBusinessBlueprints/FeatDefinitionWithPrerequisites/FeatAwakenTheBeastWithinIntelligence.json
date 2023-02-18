@@ -1,0 +1,45 @@
+{
+  "$type": "SolastaUnfinishedBusiness.CustomDefinitions.FeatDefinitionWithPrerequisites, SolastaUnfinishedBusiness",
+  "compatibleClassesPrerequisite": [],
+  "mustCastSpellsPrerequisite": false,
+  "compatibleRacesPrerequisite": [],
+  "minimalAbilityScorePrerequisite": false,
+  "minimalAbilityScoreValue": 13,
+  "minimalAbilityScoreName": "Strength",
+  "armorProficiencyPrerequisite": false,
+  "armorProficiencyCategory": "",
+  "hasFamilyTag": false,
+  "familyTag": "",
+  "knownFeatsPrerequisite": [],
+  "features": [
+    "Definition:AttributeModifierCreed_Of_Pakri:de9467691aafac34c890c3e25d2f306c",
+    "Definition:SummoningAffinityFeatAwakenTheBeastWithin:698e1537-52f4-519e-8431-8ac097aac552"
+  ],
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": true,
+    "title": "Awaken The Beast [Int]",
+    "description": "Increase your Intelligence score by 1, to a maximum of 20. Whenever you use your Wild Shape ability to transform into a beast, you gain temporary hit points equal to twice your druid level.",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "15674159-ed01-51a8-becd-410feab40004",
+  "contentPack": 9999,
+  "name": "FeatAwakenTheBeastWithinIntelligence"
+}

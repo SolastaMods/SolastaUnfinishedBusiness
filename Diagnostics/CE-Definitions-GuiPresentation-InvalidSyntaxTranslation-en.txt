@@ -383,6 +383,18 @@ DieRollModifierDamageTypeDependentFeatElementalAdeptDamageLightning	Title='Eleme
 DieRollModifierDamageTypeDependentFeatElementalAdeptDamageLightning	Description='Lightning damage type spells you cast ignore target's resistance to damage. In addition, when you roll damage for these spells, you can reroll any 1s.'.
 DieRollModifierDamageTypeDependentFeatElementalAdeptDamageThunder	Title='Elemental Adept [Thunder]'.
 DieRollModifierDamageTypeDependentFeatElementalAdeptDamageThunder	Description='Thunder damage type spells you cast ignore target's resistance to damage. In addition, when you roll damage for these spells, you can reroll any 1s.'.
+FeatAwakenTheBeastWithinCharisma	Title='Awaken The Beast [Cha]'.
+FeatAwakenTheBeastWithinCharisma	Description='Increase your Charisma score by 1, to a maximum of 20. Whenever you use your Wild Shape ability to transform into a beast, you gain temporary hit points equal to twice your druid level.'.
+FeatAwakenTheBeastWithinConstitution	Title='Awaken The Beast [Con]'.
+FeatAwakenTheBeastWithinConstitution	Description='Increase your Constitution score by 1, to a maximum of 20. Whenever you use your Wild Shape ability to transform into a beast, you gain temporary hit points equal to twice your druid level.'.
+FeatAwakenTheBeastWithinDexterity	Title='Awaken The Beast [Dex]'.
+FeatAwakenTheBeastWithinDexterity	Description='Increase your Dexterity score by 1, to a maximum of 20. Whenever you use your Wild Shape ability to transform into a beast, you gain temporary hit points equal to twice your druid level.'.
+FeatAwakenTheBeastWithinIntelligence	Title='Awaken The Beast [Int]'.
+FeatAwakenTheBeastWithinIntelligence	Description='Increase your Intelligence score by 1, to a maximum of 20. Whenever you use your Wild Shape ability to transform into a beast, you gain temporary hit points equal to twice your druid level.'.
+FeatAwakenTheBeastWithinStrength	Title='Awaken The Beast [Str]'.
+FeatAwakenTheBeastWithinStrength	Description='Increase your Strength score by 1, to a maximum of 20. Whenever you use your Wild Shape ability to transform into a beast, you gain temporary hit points equal to twice your druid level.'.
+FeatAwakenTheBeastWithinWisdom	Title='Awaken The Beast [Wis]'.
+FeatAwakenTheBeastWithinWisdom	Description='Increase your Wisdom score by 1, to a maximum of 20. Whenever you use your Wild Shape ability to transform into a beast, you gain temporary hit points equal to twice your druid level.'.
 FeatDeadeye	Description='You have learned to trade accuracy to land deadlier shots. When attacking with ranged weapons, you can choose to take a -3 penalty to your to hit in order to do additional damage equal to 3 + your proficiency bonus. Attacking at long range doesn't impose disadvantage and your ranged weapon attacks ignore half cover and three-quarters cover.'.
 FeatElementalAdeptDamageAcid	Title='Elemental Adept [Acid]'.
 FeatElementalAdeptDamageAcid	Description='Acid damage type spells you cast ignore target's resistance to damage. In addition, when you roll damage for these spells, you can reroll any 1s.'.
@@ -394,20 +406,22 @@ FeatElementalAdeptDamageLightning	Title='Elemental Adept [Lightning]'.
 FeatElementalAdeptDamageLightning	Description='Lightning damage type spells you cast ignore target's resistance to damage. In addition, when you roll damage for these spells, you can reroll any 1s.'.
 FeatElementalAdeptDamageThunder	Title='Elemental Adept [Thunder]'.
 FeatElementalAdeptDamageThunder	Description='Thunder damage type spells you cast ignore target's resistance to damage. In addition, when you roll damage for these spells, you can reroll any 1s.'.
-FeatGroupAgilityCombat	Description='Eager for Battle, Forest Runner, Ready or Not, Rush to Battle '.
+FeatGroupAgilityCombat	Description='Cunning Escape, Dragon Wings, Eager for Battle, Forest Runner, Mobile, Ready or Not, Rush to Battle '.
 FeatGroupAlchemist	Description='Initiate Alchemist, Master Alchemist'.
 FeatGroupApothecary	Description='Increase one of your mental attributes by 1, to a maximum of 20.
 You gain proficiency with herbalism kit and Arcana, or expertise if already proficient.'.
-FeatGroupArmor	Description='Armor Master, Discretion of the Coedymwarth, Medium Armor, Might of the Iron Legion, Sturdiness of the Tundra'.
-FeatGroupBodyResilience	Description='Badlands Marauder, Blessing of the Elements, Enduring Body, Focused Sleeper, Hard to Kill, Hauler, Robust'.
+FeatGroupArmor	Description='Armor Master, Discretion of the Coedymwarth, Heavy Armor Master, Medium Armor, Might of the Iron Legion, Sturdiness of the Tundra'.
+FeatGroupAwakenTheBeastWithin	Description='Increase any ability score by 1, to a maximum of 20. Whenever you use your Wild Shape ability to transform into a beast, you gain temporary hit points equal to twice your druid level.'.
+FeatGroupBodyResilience	Description='Badlands Marauder, Blessing of the Elements, Enduring Body, Focused Sleeper, Hard to Kill, Hauler, Robust, Tough'.
 FeatGroupCelestialTouched	Description='Increase one of your mental attributes by 1, to a maximum of 20.
 You gain the ability to cast the healing word, cure wounds and lesser restoration spells once per long rest and you can cast these spells with your spell slots.'.
+FeatGroupClassBound	Description='Awaken The Beast, Call for Charge, Cunning Escape, Potent Spellcaster'.
 FeatGroupCreed	Description='Increase one of your attributes by 1, to a maximum of 20.
 Proficiency in saves of chosen attribute, if not already proficient; +1 otherwise.'.
 FeatGroupCriticalVirtuoso	Description='You dedicated your time learning how to leverage enemies weak spots to increase your chance to critical damage.'.
 FeatGroupCrusher	Description='Increase your Strength or Constitution by 1, to a maximum of 20.
 When you hit a creature with an attack that deals bludgeoning damage, once per turn you push the enemy by 5ft. When you score a critical hit attack rolls against that creature are made with advantage until the start of your next turn.'.
-FeatGroupDefenseCombat	Description='Cloak and Dagger, Fade Away, Raise Shield, Twin Blade , Unarmored Expert'.
+FeatGroupDefenseCombat	Description='Cloak and Dagger, Defensive Duelist, Dual Weapon Defense, Fade Away, Raise Shield, Twin Blade , Unarmored Expert'.
 FeatGroupDefenseExpert	Description='Increase one of your mental attributes by 1, to a maximum of 20.
 While you are not wearing any armor, your AC equals 10 + your Dexterity modifier + the selected mental attribute modifier.'.
 FeatGroupElementalAdept	Description='When you gain this feat, choose one of the following damage types: acid, cold, fire, lightning, or thunder. Spells you cast ignore resistance to damage of the chosen type. In addition, when you roll damage for a spell you cast that deals damage of that type, you can reroll any 1s.'.
@@ -421,35 +435,35 @@ You gain the ability to cast the burning hands and scorching ray spells once per
 FeatGroupMagicInitiate	Description='Choose a class: bard, cleric, druid, sorcerer, warlock, or wizard. You learn two cantrips of your choice from that class's spell list. In addition, choose one 1st-level spell to learn from that same list. Using this feat, you can cast the spell once at its lowest level, and you must finish a long rest before you can cast it in this way again.'.
 FeatGroupMediumArmor	Description='Increase your Strength or Dexterity by 1, to a maximum of 20.
 You gain proficiency with medium armor and shields.'.
-FeatGroupMeleeCombat	Description='Crusher, Daunting Push, Distracting Gambit, Elemental Touch, Piercer, Slasher, Trip Attack'.
+FeatGroupMeleeCombat	Description='Blade Mastery, Crusher, Daunting Push, Defensive Duelist, Distracting Gambit, Elemental Touch, Fell Handed, Piercer, Power Attack, Reckless Attack, Savage Attack, Slasher, Spear Mastery, Trip Attack'.
 FeatGroupPiercer	Description='Increase your Strength or Dexterity by 1, to a maximum of 20.
 When you hit a creature with an attack that deals piercing damage, you can re-roll dice when you roll a 1 and you must use the new roll. When you score a critical hit you can roll one additional damage die when determining the extra piercing damage the target takes.'.
 FeatGroupPlaneTouchedMagic	Description='You are touched by some other plane and can cast some spells associated with that plane.
 One of your mental attributes is raised by 1 to a maximum of 20.'.
 FeatGroupPrecisionFocused	Description='Increase one of your mental attributes by 1, to a maximum of 20.
 You can use a bonus action to make weapon attacks count as magical and use selected mental attribute for attack and damage rolls for 1 minute. This feature can be used Proficiency Bonus times per long rest'.
-FeatGroupRaceBound	Description='Elven Accuracy, Fade Away, Revenant Great Sword'.
-FeatGroupRangedCombat	Description='Discretion of the Coedymwarth, Piercer, Take Aim, Uncanny Accuracy'.
+FeatGroupRaceBound	Description='Dragon Wings, Elven Accuracy, Fade Away, Revenant Great Sword'.
+FeatGroupRangedCombat	Description='Bow Mastery, Deadeye, Discretion of the Coedymwarth, Piercer, Ranged Expert, Take Aim, Uncanny Accuracy'.
 FeatGroupRevenantGreatSword	Description='Increase your Dexterity or Strength score by 1, to a maximum of 20. While you are holding a great sword,  you gain a +1 bonus to Armor Class and you can use your Dexterity on to hit and to damage bonuses.'.
 FeatGroupShadowTouched	Description='Increase one of your mental attributes by 1, to a maximum of 20.
 You gain the ability to cast the invisibility, inflict wounds, and false life spells once per long rest and you can cast these spells with your spell slots.'.
-FeatGroupSkills	Description='Manipulator'.
+FeatGroupSkills	Description='Healer, Manipulator, Pickpocket'.
 FeatGroupSlasher	Description='Increase your Strength or Dexterity by 1, to a maximum of 20.
 When you hit a creature with an attack that deals slashing damage, you can reduce the speed of the target by 10 feet until the start of your next turn. When you score a critical hit you grievously wound it. Until the start of your next turn, the target has disadvantage on all attack rolls.'.
-FeatGroupSpellCombat	Description='Elemental Adept, Flawless Concentration, Powerful Cantrip, Spell Sniper'.
+FeatGroupSpellCombat	Description='Elemental Adept, Flawless Concentration, Potent Spellcaster, Powerful Cantrip, Spell Sniper, War Caster'.
 FeatGroupSpellSniper	Description='You learn one cantrip that requires an attack roll. Choose the cantrip from the bard, cleric, druid, sorcerer, warlock, or wizard spell list. When you cast a spell that requires you to make an attack roll, the spell's range is doubled. Your ranged spell attacks ignore half cover and three-quarters cover.'.
-FeatGroupSupportCombat	Description='Mender'.
+FeatGroupSupportCombat	Description='Call for Charge, Healer, Inspiring Leader, Mender'.
 FeatGroupTelekinetic	Description='Increase one of your mental attributes by 1, to a maximum of 20.
 As a bonus action during combat, you can telekinetically move one creature you can see within 30 feet of you. The target must succeed on a Strength saving throw (DC 8 + your proficiency bonus + your chosen attributes modifier) or be moved 5 feet in a direction of your choosing.'.
 FeatGroupTeleportation	Description='Increase one of your mental attributes by 1, to a maximum of 20.
 You can use misty step once per short rest, and you can cast this spell with your spell slots.
 You gain proficiency in Tirmarian.'.
-FeatGroupTools	Description='Alchemist, Apothecary, Enchanter, Lock Breaker, Toxicologist'.
+FeatGroupTools	Description='Alchemist, Apothecary, Enchanter, Lock Breaker, Scriber, Toxicologist'.
 FeatGroupToxicologist	Description='Increase one of your mental attributes by 1, to a maximum of 20.
 You gain proficiency with poisoner's kit and Nature, or expertise if already proficient.'.
 FeatGroupTwoHandedCombat	Description='Follow Up Strike, Forestalling Strength, Mighty Blow, Revenant Great Sword'.
-FeatGroupTwoWeaponCombat	Description='Ambidextrous, Twin Blade '.
-FeatGroupUnarmoredCombat	Description='Elemental Touch, Unarmored Expert'.
+FeatGroupTwoWeaponCombat	Description='Ambidextrous, Dual Flurry, Dual Weapon Defense, Twin Blade '.
+FeatGroupUnarmoredCombat	Description='Astral Reach, Crusher, Elemental Touch, Monk Initiate, Poisonous Skin, Unarmored Expert'.
 FeatMagicInitiateBard	Title='Magic Initiate [Bard]'.
 FeatMagicInitiateBard	Description='You learn two cantrips of your choice from the Bard spell list. In addition, choose one 1st-level spell to learn from that same list. Using this feat, you can cast the spell once at its lowest level, and you must finish a long rest before you can cast it in this way again.'.
 FeatMagicInitiateCleric	Title='Magic Initiate [Cleric]'.
@@ -638,6 +652,18 @@ PowerSharedPoolElementalistNormalFire	Title='Fire Plane'.
 PowerSharedPoolElementalistNormalFire	Description='When channeling the Fire Plane, you gain Resistance to Fire damage and apply Proficiency Bonus as damage of the same type to first hit each round.'.
 PowerSharedPoolElementalistNormalIce	Title='Ice Plane'.
 PowerSharedPoolElementalistNormalIce	Description='When channeling the Ice Plane, you gain Resistance to Cold damage and apply Proficiency Bonus as damage of the same type to first hit each round.'.
+PowerWayOfTheDiscordanceBurstOfDisharmony1	Title='Burst of Disharmony [1 Ki]'.
+PowerWayOfTheDiscordanceBurstOfDisharmony1	Description='Spend 1 Ki Point to deal 3d6 damage.'.
+PowerWayOfTheDiscordanceBurstOfDisharmony2	Title='Burst of Disharmony [2 Ki]'.
+PowerWayOfTheDiscordanceBurstOfDisharmony2	Description='Spend 2 Ki Point to deal 4d6 damage.'.
+PowerWayOfTheDiscordanceBurstOfDisharmony3	Title='Burst of Disharmony [3 Ki]'.
+PowerWayOfTheDiscordanceBurstOfDisharmony3	Description='Spend 3 Ki Point to deal 5d6 damage.'.
+PowerWayOfTheDiscordanceBurstOfDisharmony4	Title='Burst of Disharmony [4 Ki]'.
+PowerWayOfTheDiscordanceBurstOfDisharmony4	Description='Spend 4 Ki Point to deal 6d6 damage.'.
+PowerWayOfTheDiscordanceBurstOfDisharmony5	Title='Burst of Disharmony [5 Ki]'.
+PowerWayOfTheDiscordanceBurstOfDisharmony5	Description='Spend 5 Ki Point to deal 7d6 damage.'.
+PowerWayOfTheDiscordanceBurstOfDisharmony6	Title='Burst of Disharmony [6 Ki]'.
+PowerWayOfTheDiscordanceBurstOfDisharmony6	Description='Spend 6 Ki Point to deal 8d6 damage.'.
 PowerWildMasterSummonSpiritBeastKindredSpiritBear11	Title='Summon Spirit Bear'.
 PowerWildMasterSummonSpiritBeastKindredSpiritBear11	Description='A Spirit Bear bonded to a Ranger.'.
 PowerWildMasterSummonSpiritBeastKindredSpiritBear15	Title='Summon Spirit Bear'.
@@ -726,6 +752,18 @@ SpellPowerSharedPoolElementalistNormalFire	Title='Fire Plane'.
 SpellPowerSharedPoolElementalistNormalFire	Description='When channeling the Fire Plane, you gain Resistance to Fire damage and apply Proficiency Bonus as damage of the same type to first hit each round.'.
 SpellPowerSharedPoolElementalistNormalIce	Title='Ice Plane'.
 SpellPowerSharedPoolElementalistNormalIce	Description='When channeling the Ice Plane, you gain Resistance to Cold damage and apply Proficiency Bonus as damage of the same type to first hit each round.'.
+SpellPowerWayOfTheDiscordanceBurstOfDisharmony1	Title='Burst of Disharmony [1 Ki]'.
+SpellPowerWayOfTheDiscordanceBurstOfDisharmony1	Description='Spend 1 Ki Point to deal 3d6 damage.'.
+SpellPowerWayOfTheDiscordanceBurstOfDisharmony2	Title='Burst of Disharmony [2 Ki]'.
+SpellPowerWayOfTheDiscordanceBurstOfDisharmony2	Description='Spend 2 Ki Point to deal 4d6 damage.'.
+SpellPowerWayOfTheDiscordanceBurstOfDisharmony3	Title='Burst of Disharmony [3 Ki]'.
+SpellPowerWayOfTheDiscordanceBurstOfDisharmony3	Description='Spend 3 Ki Point to deal 5d6 damage.'.
+SpellPowerWayOfTheDiscordanceBurstOfDisharmony4	Title='Burst of Disharmony [4 Ki]'.
+SpellPowerWayOfTheDiscordanceBurstOfDisharmony4	Description='Spend 4 Ki Point to deal 6d6 damage.'.
+SpellPowerWayOfTheDiscordanceBurstOfDisharmony5	Title='Burst of Disharmony [5 Ki]'.
+SpellPowerWayOfTheDiscordanceBurstOfDisharmony5	Description='Spend 5 Ki Point to deal 7d6 damage.'.
+SpellPowerWayOfTheDiscordanceBurstOfDisharmony6	Title='Burst of Disharmony [6 Ki]'.
+SpellPowerWayOfTheDiscordanceBurstOfDisharmony6	Description='Spend 6 Ki Point to deal 8d6 damage.'.
 SpellPowerWildMasterSummonSpiritBeastKindredSpiritBear11	Title='Summon Spirit Bear'.
 SpellPowerWildMasterSummonSpiritBeastKindredSpiritBear11	Description='A Spirit Bear bonded to a Ranger.'.
 SpellPowerWildMasterSummonSpiritBeastKindredSpiritBear15	Title='Summon Spirit Bear'.

@@ -1,0 +1,12 @@
+﻿Condition/&ConditionWayOfTheDiscordanceDiscordanceDescription=Votre esprit subira des dégâts psychiques si vous êtes en discordance une troisième fois.
+Condition/&ConditionWayOfTheDiscordanceDiscordanceTitle=Désaccord
+Feature/&FeatureSetWayOfTheDiscordanceDiscordanceDescription=À partir du niveau 3, vous apprenez à manipuler la discorde intérieure de vos ennemis pour créer des vagues d'énergie déformante. Chaque fois que vous touchez une créature avec une arme de moine ou une attaque à mains nues, la créature reçoit une instance de Discordance pendant 1 minute. Si une créature est frappée par un coup critique avec les attaques susmentionnées, la créature reçoit à la place deux instances de Discordance. Lorsqu'une créature reçoit la 3e instance, toutes les instances sont supprimées et la créature subit des dégâts psychiques égaux à votre dé d'arts martiaux.
+Feature/&FeatureSetWayOfTheDiscordanceDiscordanceTitle=Désaccord
+Feature/&FeatureSetWayOfTheDiscordanceSchismDescription=À partir du niveau 6, vous appliquez une condition supplémentaire de discordance lorsque vous réussissez à étourdir une créature avec votre technique Frappe étourdissante.
+Feature/&FeatureSetWayOfTheDiscordanceSchismTitle=Schisme
+Feature/&PowerWayOfTheDiscordanceBurstOfDisharmonyDescription=Au niveau 11, vous gagnez la capacité de provoquer une éruption d'énergie négative accumulée. Vous pouvez augmenter les dégâts en dépensant des points de ki. Chaque point que vous dépensez, jusqu'à un maximum de votre bonus de compétence, augmente les dégâts de 1d6.
+Feature/&PowerWayOfTheDiscordanceBurstOfDisharmonyTitle=Explosion de disharmonie
+Feature/&PowerWayOfTheDiscordanceSubBurstOfDisharmonyDescription=Dépensez {0}points de Ki pour infliger {1}d6dégâts.
+Feature/&PowerWayOfTheDiscordanceSubBurstOfDisharmonyTitle=Explosion de disharmonie [{0} Ki]
+Subclass/&WayOfTheDiscordanceDescription=Alors que la plupart des moines recherchent l'illumination par la contemplation et l'atteinte de la paix intérieure, les moines de la Voie de la Discordance, quant à eux, se concentrent sur l'exploitation des énergies chaotiques de l'univers. Ces érudits mystiques de la disharmonie exploitent les conflits intérieurs de leurs ennemis en manipulant leur ki, les dévastant avec des explosions d'énergie déformante.
+Subclass/&WayOfTheDiscordanceTitle=Chemin de la discorde
