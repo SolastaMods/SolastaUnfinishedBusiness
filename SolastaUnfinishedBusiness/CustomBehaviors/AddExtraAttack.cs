@@ -229,7 +229,13 @@ internal sealed class AddExtraMainHandAttack : AddExtraAttackBase
         var mainHandItem = hero.CharacterInventory.InventorySlotsByName[EquipmentDefinitions.SlotTypeMainHand]
             .EquipedItem;
 
-        var strikeDefinition = mainHandItem?.ItemDefinition ?? hero.UnarmedStrikeDefinition;
+        // don't use ?? on Unity Objects as it bypasses the lifetime check on the underlying object
+        var strikeDefinition = mainHandItem?.ItemDefinition;
+
+        if (strikeDefinition == null)
+        {
+            strikeDefinition = hero.UnarmedStrikeDefinition;
+        }
 
         var attackModifiers = hero.attackModifiers;
 

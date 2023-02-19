@@ -198,10 +198,12 @@ internal sealed class WayOfTheDiscordance : AbstractSubclass
             if (GetMonkLevel(rulesetAttacker) >= 6)
             {
                 foreach (var gameLocationDefender in action.ActionParams.TargetCharacters
-                             .Where(t => t.RulesetCharacter.AllConditions
-                                 .Any(x => x.ConditionDefinition ==
-                                           ConditionDefinitions.ConditionStunned_MonkStunningStrike &&
-                                           x.RemainingRounds <= 1)))
+                             .Where(t => !t.RulesetCharacter.IsDeadOrDyingOrUnconscious &&
+                                         t.RulesetCharacter.AllConditions
+                                             .Any(x => x.ConditionDefinition ==
+                                                       ConditionDefinitions.ConditionStunned_MonkStunningStrike &&
+                                                       x.RemainingRounds <= 1))
+                             .ToList()) // avoid changing enumerator
                 {
                     ApplyCondition(gameLocationAttacker, gameLocationDefender, _conditionDefinition);
                 }
@@ -216,10 +218,18 @@ internal sealed class WayOfTheDiscordance : AbstractSubclass
                                  .FindAll(x => x.ConditionDefinition == _conditionDefinition)
                                  .Count
                          })
-                         .Where(t => t.discordanceCount >= DiscordanceLimit)
-                         .Select(t => t.gameLocationCharacter))
+                         .Where(t =>
+                             !t.gameLocationCharacter.RulesetCharacter.IsDeadOrDyingOrUnconscious &&
+                             t.discordanceCount >= DiscordanceLimit)
+                         .Select(t => t.gameLocationCharacter)
+                         .ToList()) // avoid changing enumerator
             {
-                var rulesetDefender = gameLocationDefender.RulesetCharacter;
+                var rulesetDefender = gameLocationDefender?.RulesetCharacter;
+
+                if (rulesetDefender == null)
+                {
+                    continue;
+                }
 
                 // remove conditions up to the limit to also support Schism scenario
                 rulesetDefender.AllConditions
@@ -236,6 +246,9 @@ internal sealed class WayOfTheDiscordance : AbstractSubclass
                 effectPower.EffectDescription.FindFirstDamageForm().DieType =
                     FeatureDefinitionAttackModifiers.AttackModifierMonkMartialArtsImprovedDamage.DieTypeByRankTable
                         .Find(x => x.Rank == GetMonkLevel(rulesetAttacker)).DieType;
+
+                effectPower.EffectDescription.effectParticleParameters.targetParticleReference =
+                    effectPower.EffectDescription.effectParticleParameters.conditionStartParticleReference;
 
                 effectPower.ApplyEffectOnCharacter(rulesetDefender, true, gameLocationDefender.LocationPosition);
             }
