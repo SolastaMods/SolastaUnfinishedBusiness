@@ -1,6 +1,7 @@
 ﻿using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
+using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomDefinitions;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Properties;
@@ -82,7 +83,13 @@ internal static class CommonBuilders
                 .SetConditionForm(ConditionDefinitionBuilder
                         .Create("ConditionCasterFightingWarMagic")
                         .SetGuiPresentationNoContent(true)
-                        .AddFeatures(DatabaseHelper.FeatureDefinitionAttackModifiers.AttackModifierBerserkerFrenzy)
+                        .AddFeatures(FeatureDefinitionAttackModifierBuilder
+                            .Create($"PowerCasterFightingWarMagicAttack")
+                            .SetGuiPresentation("PowerCasterFightingWarMagicAttack", Category.Feature)
+                            .SetDamageRollModifier(1)
+                            .SetCustomSubFeatures(
+                                new AddExtraMainHandAttack(ActionDefinitions.ActionType.Bonus, false))
+                            .AddToDB())
                         .AddToDB(),
                     ConditionForm.ConditionOperation.Add)
                 .Build()
