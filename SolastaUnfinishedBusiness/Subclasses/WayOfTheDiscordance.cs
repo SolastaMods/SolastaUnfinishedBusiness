@@ -57,7 +57,7 @@ internal sealed class WayOfTheDiscordance : AbstractSubclass
             .Create($"Power{Name}BurstOfDisharmony")
             .SetGuiPresentation(Category.Feature,
                 Sprites.GetSprite("PowerBurstOfDisharmony", Resources.PowerBurstOfDisharmony, 128))
-            .SetUsesProficiencyBonus(ActivationTime.Action)
+            .SetUsesProficiencyBonus(ActivationTime.BonusAction)
             .AddToDB();
 
         var powerBurstOfDisharmonyList = new List<FeatureDefinitionPower>();
