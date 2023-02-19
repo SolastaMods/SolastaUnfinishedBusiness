@@ -70,6 +70,7 @@ ModUi/&EnableAdditionalItemsInDungeonMaker=+ 添加新的法器至地城制作
 ModUi/&EnableAlternateHuman=启用变种人类<color=#F0DAA0>【+1专长/+2属性值选择/+1技能】</color>
 ModUi/&EnableBetaContent=启用Beta内容<color=#F0DAA0>【牢记你的存档或英雄在未来有崩溃风险】</color><color=#C04040E0>【需要重启游戏】</color>
 ModUi/&EnableCancelEditOnRightMouseClick=启用右键取消动作
+ModUi/&EnableCharacterChecker=在主屏幕 > 字符上启用字符检查器
 ModUi/&EnableCharacterExport=启用<color=#1E81B0>CTRL-SHIFT-E</color>导出角色<color=#F0DAA0>【仅限角色检查界面】</color>
 ModUi/&EnableCheatMenu=启用作弊菜单
 ModUi/&EnableDungeonMakerModdedContent=启用地城制作Pro<color=#C04040E0>【需要重启游戏】</color>\n\n包括平房，150x150和200x200的地牢尺寸和没有任何装饰的各种环境\n若你选择一个户外环境，你必须有至少一个户外房间

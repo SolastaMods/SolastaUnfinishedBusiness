@@ -94,4 +94,17 @@ public static class CharactersPanelPatcher
             ToolsContext.Rebase(__instance.charactersTable, max);
         }
     }
+
+    //PATCH: enable the character checker button on main > characters
+    [HarmonyPatch(typeof(CharactersPanel), nameof(CharactersPanel.Refresh))]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
+    public static class Refresh_Patch
+    {
+        [UsedImplicitly]
+        public static void Postfix(CharactersPanel __instance)
+        {
+            __instance.characterCheckerButton.gameObject.SetActive(Main.Settings.EnableCharacterChecker);
+        }
+    }
 }

@@ -70,6 +70,7 @@ ModUi/&EnableAdditionalItemsInDungeonMaker=<i>+ Aggiungi nuovi elementi a Dungeo
 ModUi/&EnableAlternateHuman=Abilita l'umano alternativo <i><color=#F0DAA0>[+1 talento / +2 scelte attributi / +1 abilità]</color></i>
 ModUi/&EnableBetaContent=Abilita i contenuti beta <b><i><color=#C04040E0>[Richiede il riavvio]</color></i></b>
 ModUi/&EnableCancelEditOnRightMouseClick=Abilita le azioni di annullamento con il clic destro del mouse
+ModUi/&EnableCharacterChecker=Abilita il controllo caratteri nella schermata principale > Caratteri
 ModUi/&EnableCharacterExport=Abilita <color=#1E81B0>CTRL-MAIUSC-(E)</color> per esportare il personaggio
 ModUi/&EnableCheatMenu=Abilita il menu dei trucchi
 ModUi/&EnableDungeonMakerModdedContent=Abilita Dungeon Maker Pro\n<i><color=#F0DAA0>[includi stanze piatte, dungeon di dimensioni 150x150 e 200x200 e senza fronzoli che mescolano risorse da tutti gli ambienti]</color></i>

@@ -305,6 +305,7 @@ public class Settings : UnityModManager.ModSettings
     //
 
     public bool EnableSortingDungeonMakerAssets { get; set; }
+    public bool EnableCharacterChecker { get; set; }
     public bool EnableHotkeyDebugOverlay { get; set; }
     public bool AllowGadgetsAndPropsToBePlacedAnywhere { get; set; }
     public bool UnleashNpcAsEnemy { get; set; }
