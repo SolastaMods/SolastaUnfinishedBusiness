@@ -57,7 +57,7 @@ internal sealed class WayOfTheDiscordance : AbstractSubclass
             .Create($"Power{Name}BurstOfDisharmony")
             .SetGuiPresentation(Category.Feature,
                 Sprites.GetSprite("PowerBurstOfDisharmony", Resources.PowerBurstOfDisharmony, 128))
-            .SetUsesProficiencyBonus(ActivationTime.BonusAction)
+            .SetUsesFixed(ActivationTime.BonusAction)
             .AddToDB();
 
         var powerBurstOfDisharmonyList = new List<FeatureDefinitionPower>();
@@ -73,7 +73,7 @@ internal sealed class WayOfTheDiscordance : AbstractSubclass
                     Gui.Format($"Feature/&Power{Name}SubBurstOfDisharmonyDescription",
                         i.ToString(),
                         (i + 2).ToString()))
-                .SetSharedPool(ActivationTime.Action, powerBurstOfDisharmonyPool)
+                .SetSharedPool(ActivationTime.BonusAction, powerBurstOfDisharmonyPool)
                 .SetEffectDescription(
                     EffectDescriptionBuilder
                         .Create()
@@ -194,12 +194,14 @@ internal sealed class WayOfTheDiscordance : AbstractSubclass
             }
 
             // handle Schism behavior
+            // if in the future we need to nerf this, gotta add a check for RemainingRounds == 1
             if (GetMonkLevel(rulesetAttacker) >= 6)
             {
                 foreach (var gameLocationDefender in action.ActionParams.TargetCharacters
-                             .Where(t => t.RulesetCharacter.HasConditionOfCategoryAndType(
-                                 AttributeDefinitions.TagEffect,
-                                 ConditionDefinitions.ConditionStunned_MonkStunningStrike.Name)))
+                             .Where(t => t.RulesetCharacter.AllConditions
+                                 .Any(x => x.ConditionDefinition ==
+                                           ConditionDefinitions.ConditionStunned_MonkStunningStrike &&
+                                           x.RemainingRounds <= 1)))
                 {
                     ApplyCondition(gameLocationAttacker, gameLocationDefender, _conditionDefinition);
                 }
