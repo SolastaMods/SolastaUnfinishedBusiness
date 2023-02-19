@@ -187,6 +187,8 @@
     <string>OathOfAncients</string>
     <string>WayOfTheDragon</string>
     <string>OathOfAltruism</string>
+    <string>RoguishDuelist</string>
+    <string>WayOfTheDiscordance</string>
   </SubclassEnabled>
   <FeatSliderPosition>4</FeatSliderPosition>
   <FeatEnabled>
@@ -294,6 +296,14 @@
     <string>FeatFellHanded</string>
     <string>FeatSpearMastery</string>
     <string>FeatCallForCharge</string>
+    <string>FeatAwakenTheBeastWithinCharisma</string>
+    <string>FeatAwakenTheBeastWithinConstitution</string>
+    <string>FeatAwakenTheBeastWithinDexterity</string>
+    <string>FeatAwakenTheBeastWithinIntelligence</string>
+    <string>FeatAwakenTheBeastWithinStrength</string>
+    <string>FeatAwakenTheBeastWithinWisdom</string>
+    <string>FeatCunningEscape</string>
+    <string>FeatPotentSpellcaster</string>
   </FeatEnabled>
   <FeatGroupSliderPosition>4</FeatGroupSliderPosition>
   <FeatGroupEnabled>
@@ -337,6 +347,8 @@
     <string>FeatGroupDefenseCombat</string>
     <string>FeatGroupSupportCombat</string>
     <string>FeatGroupUnarmoredCombat</string>
+    <string>FeatGroupAwakenTheBeastWithin</string>
+    <string>FeatGroupClassBound</string>
   </FeatGroupEnabled>
   <FightingStyleSliderPosition>4</FightingStyleSliderPosition>
   <FightingStyleEnabled>
@@ -821,7 +833,8 @@
   <AllowAllPlayersOnNarrativeSequences>false</AllowAllPlayersOnNarrativeSequences>
   <FasterTimeModifier>1.5</FasterTimeModifier>
   <EncounterPercentageChance>5</EncounterPercentageChance>
-  <DefaultPartyHeroes />
+  <DefaultPartyHeroes>
+  </DefaultPartyHeroes>
   <DontFollowCharacterInBattle>true</DontFollowCharacterInBattle>
   <DontFollowMargin>5</DontFollowMargin>
   <EnableStatsOnHeroTooltip>true</EnableStatsOnHeroTooltip>
@@ -1040,6 +1053,7 @@
   <HideMonsterHitPoints>true</HideMonsterHitPoints>
   <RemoveBugVisualModels>false</RemoveBugVisualModels>
   <EnableSortingDungeonMakerAssets>true</EnableSortingDungeonMakerAssets>
+  <EnableCharacterChecker>true</EnableCharacterChecker>
   <EnableHotkeyDebugOverlay>false</EnableHotkeyDebugOverlay>
   <AllowGadgetsAndPropsToBePlacedAnywhere>true</AllowGadgetsAndPropsToBePlacedAnywhere>
   <UnleashNpcAsEnemy>true</UnleashNpcAsEnemy>

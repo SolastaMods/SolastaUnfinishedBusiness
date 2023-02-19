@@ -95,8 +95,13 @@ internal static class ClassFeats
                     .AddToDB())
             .ToArray();
 
+        // avoid run-time exception on write operation
+        var temp = new List<FeatDefinition>();
+
+        temp.AddRange(awakenTheBeastWithinFeats);
+
         var awakenTheBeastWithinGroup = GroupFeats.MakeGroupWithPreRequisite(
-            "FeatGroupAwakenTheBeastWithin", NAME, ValidatorsFeat.IsDruidLevel4, awakenTheBeastWithinFeats);
+            "FeatGroupAwakenTheBeastWithin", NAME, ValidatorsFeat.IsDruidLevel4, temp.ToArray());
 
         feats.AddRange(awakenTheBeastWithinFeats);
 
