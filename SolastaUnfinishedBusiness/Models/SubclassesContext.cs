@@ -49,6 +49,7 @@ internal static class SubclassesContext
         LoadSubclass(new RangerWildMaster());
 
         // Rogue
+        LoadSubclass(new RoguishDuelist());
         LoadSubclass(new RoguishOpportunist());
         LoadSubclass(new RoguishRaven());
 
