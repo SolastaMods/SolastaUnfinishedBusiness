@@ -1,4 +1,5 @@
 - added Gameplay > Tools > Enable Character Checker setting
 - added Roguish Duelist subclass
+- changed War Caster to allow attacks with ranged weapons
 - changed Way of Discordance's burst of disharmony to be offered as a bonus action
 - changed Way of Discordance's burst of disharmony to be limited by remaining Ki points only
