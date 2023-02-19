@@ -213,7 +213,6 @@ internal sealed class AddExtraUnarmedAttack : AddExtraAttackBase
     }
 }
 
-#if false
 internal sealed class AddExtraMainHandAttack : AddExtraAttackBase
 {
     internal AddExtraMainHandAttack(
@@ -230,7 +229,7 @@ internal sealed class AddExtraMainHandAttack : AddExtraAttackBase
         var mainHandItem = hero.CharacterInventory.InventorySlotsByName[EquipmentDefinitions.SlotTypeMainHand]
             .EquipedItem;
 
-        var strikeDefinition = mainHandItem.ItemDefinition;
+        var strikeDefinition = mainHandItem?.ItemDefinition ?? hero.UnarmedStrikeDefinition;
 
         var attackModifiers = hero.attackModifiers;
 
@@ -250,7 +249,6 @@ internal sealed class AddExtraMainHandAttack : AddExtraAttackBase
         return new List<RulesetAttackMode> { attackMode };
     }
 }
-#endif
 
 internal sealed class AddExtraRangedAttack : AddExtraAttackBase
 {
