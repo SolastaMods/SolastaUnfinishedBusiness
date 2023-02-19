@@ -84,8 +84,8 @@ internal static class CommonBuilders
                         .Create("ConditionCasterFightingWarMagic")
                         .SetGuiPresentationNoContent(true)
                         .AddFeatures(FeatureDefinitionAttackModifierBuilder
-                            .Create($"PowerCasterFightingWarMagicAttack")
-                            .SetGuiPresentation("PowerCasterFightingWarMagicAttack", Category.Feature)
+                            .Create("PowerCasterFightingWarMagic")
+                            .SetGuiPresentation("PowerCasterFightingWarMagic", Category.Feature)
                             .SetDamageRollModifier(1)
                             .SetCustomSubFeatures(
                                 new AddExtraMainHandAttack(ActionDefinitions.ActionType.Bonus, false))
