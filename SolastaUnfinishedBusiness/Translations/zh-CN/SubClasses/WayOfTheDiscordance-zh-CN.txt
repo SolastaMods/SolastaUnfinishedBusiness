@@ -1,8 +1,8 @@
 ﻿Condition/&ConditionWayOfTheDiscordanceDiscordanceDescription=如果你第三次陷入不和谐，你的思想就会受到精神伤害。
 Condition/&ConditionWayOfTheDiscordanceDiscordanceTitle=不和谐
-Feature/&FeatureSetWayOfTheDiscordanceDiscordanceDescription=从第 3 级开始，你学会操纵敌人内心的不和谐来制造扭曲能量的波浪。每次你用武僧武器或徒手攻击击中一个生物时，该生物都会获得一次不和谐状态实例，持续 1 分钟。如果一个生物在上述攻击中被致命一击击中，该生物获得两次不和谐实例。当一个生物获得第三次实例时，所有实例都被移除，并且该生物受到等于你的武术死亡的心灵伤害。
+Feature/&FeatureSetWayOfTheDiscordanceDiscordanceDescription=从第 3 级开始，你学会操纵敌人内心的不和谐来制造扭曲能量的波浪。每次你用僧侣武器或徒手攻击击中一个生物时，该生物都会收到一次不和谐状态实例，持续 1 分钟。当一个生物获得第 3 个实例时，所有实例都会被移除，并且该生物会受到等同于你的武术骰的心灵伤害。
 Feature/&FeatureSetWayOfTheDiscordanceDiscordanceTitle=不和谐
-Feature/&FeatureSetWayOfTheDiscordanceSchismDescription=从第 6 级开始，当你成功地用你的震慑打击能力击晕一个生物时，你会额外应用一次不和谐症状实例。
+Feature/&FeatureSetWayOfTheDiscordanceSchismDescription=从第 6 级开始，当你成功地用你的震慑打击能力击晕一个生物时，你会额外应用一次不和谐症状实例。此外，当昏迷状态持续时，被昏迷的生物会从你的攻击和技能中获得一次额外的不和谐实例。
 Feature/&FeatureSetWayOfTheDiscordanceSchismTitle=分裂主义
 Feature/&PowerWayOfTheDiscordanceBurstOfDisharmonyDescription=在第 11 级，你获得了引发累积负能量爆发的能力。您可以通过消耗 ki 点来增加伤害。你每花费一点，最多可以增加 1d6 的伤害。
 Feature/&PowerWayOfTheDiscordanceBurstOfDisharmonyTitle=不和谐的爆发

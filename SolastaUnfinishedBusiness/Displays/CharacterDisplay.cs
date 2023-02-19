@@ -19,7 +19,8 @@ internal static class CharacterDisplay
 
         using (UI.HorizontalScope())
         {
-            UI.ActionButton("<b>Donate:</b> GitHub Sponsors".Khaki(), BootContext.OpenDonateGithubSponsors, UI.Width(200));
+            UI.ActionButton("<b>Donate:</b> GitHub Sponsors".Khaki(), BootContext.OpenDonateGithubSponsors,
+                UI.Width(200));
             UI.ActionButton("<b>Donate:</b> Patreon".Khaki(), BootContext.OpenDonatePatreon, UI.Width(200));
             UI.ActionButton("<b>Donate:</b> PayPal".Khaki(), BootContext.OpenDonatePayPal, UI.Width(200));
         }

@@ -355,7 +355,7 @@ internal static class BootContext
     {
         OpenUrl("https://patreon.com/SolastaMods");
     }
-    
+
     internal static void OpenDonatePayPal()
     {
         OpenUrl("https://www.paypal.com/donate/?business=JG4FX47DNHQAG&item_name=Support+Solasta+Unfinished+Business");

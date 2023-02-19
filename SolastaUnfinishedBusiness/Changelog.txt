@@ -1,6 +1,5 @@
-- added additional funding links to Mod UI > Characters [Patreon, GitHub Sponsors]
-- added Awaken The Beast feat
-- added Cunning Escape feat
-- added Way of Discordance subclass
-- improved Astral Arms feat to work as Polearm Master one when enemy enters reach
-- improved Shared Spell metamagic description
+- added Gameplay > Tools > Enable Character Checker setting
+- added Roguish Duelist subclass
+- changed War Caster to allow attacks with ranged weapons
+- changed Way of Discordance's burst of disharmony to be offered as a bonus action
+- changed Way of Discordance's burst of disharmony to be limited by remaining Ki points only

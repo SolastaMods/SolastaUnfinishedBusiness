@@ -1,0 +1,14 @@
+﻿Feature/&AdditionalDamageRoguishDuelistDaringDuelDescription=Du brauchst keinen Vorteil beim Angriffswurf, um deinen Hinterhältigen Angriff gegen eine Kreatur einzusetzen, wenn du dich innerhalb von 1,50 m von ihr befindest, keine anderen Kreaturen sich innerhalb von 1,50 m um dich befinden und du keinen Nachteil beim Angriffswurf hast. Alle anderen Sneak Attack-Regeln gelten weiterhin.
+Feature/&AdditionalDamageRoguishDuelistDaringDuelTitle=Gewagtes Duell
+Feature/&AdditionalDamageRoguishDuelistSureFootedDescription=Erhalte deinen Fertigkeitsmodifikator als zusätzlichen Schaden mit Finesse- oder Fernwaffenangriffen.
+Feature/&AdditionalDamageRoguishDuelistSureFootedTitle=Trittsicher
+Feature/&AttributeModifierRoguishDuelistSureFootedDescription=Erhalte zusätzliche RK in Höhe deines halben Kompetenzbonus.
+Feature/&AttributeModifierRoguishDuelistSureFootedTitle=Trittsicher
+Feature/&ActionAffinityRoguishDuelistSwirlingDanceTitle=Wirbelnder Tanz
+Feature/&ActionAffinityRoguishDuelistSwirlingDanceDescription=Ab der 9. Stufe kannst du, wenn dich eine Kreatur mit einem Nahkampfangriffswurf verfehlt, deine Reaktion nutzen, um einen sofortigen Angriff gegen diese Kreatur durchzuführen.
+Feature/&FeatureSetRoguishDuelistSureFootedDescription=Ohne Rüstung oder mit leichter Rüstung ohne Schild erhalten Sie zusätzliche RK und Initiative in Höhe der Hälfte Ihres Kompetenzbonus. Wenn Ihre Zweithand leer ist, erhalten Sie Ihren Fertigkeitsmodifikator als zusätzlichen Schaden mit Finesse- oder Fernkampfwaffenangriffen.
+Feature/&FeatureSetRoguishDuelistSureFootedTitle=Trittsicher
+Feedback/&AdditionalDamageSureFootedFormat=Trittsicher
+Feedback/&AdditionalDamageSureFootedLine=Trittsicher verursacht zusätzlichen +{2} Schaden!
+Subclass/&RoguishDuelistDescription=Duellanten sind Spezialisten für Fernkampfwaffen, die darauf trainiert sind, Feinde schnell und effektiv auszuschalten.
+Subclass/&RoguishDuelistTitle=Duellant

@@ -727,6 +727,7 @@ internal static class Level20Context
             }
 
             character.ForceKiPointConsumption(-4);
+            character.KiPointsAltered?.Invoke(character, character.RemainingKiPoints);
             GameConsoleHelper.LogCharacterActivatesAbility(character, "Feature/&MonkPerfectSelfTitle");
         }
     }
