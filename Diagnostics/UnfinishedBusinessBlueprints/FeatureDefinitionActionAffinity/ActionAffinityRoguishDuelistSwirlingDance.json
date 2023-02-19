@@ -23,8 +23,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&ActionAffinityRoguishDuelistSwiftReprisalTitle",
-    "description": "Feature/&ActionAffinityRoguishDuelistSwiftReprisalDescription",
+    "title": "Feature/&ActionAffinityRoguishDuelistSwirlingDanceTitle",
+    "description": "Feature/&ActionAffinityRoguishDuelistSwirlingDanceDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -44,7 +44,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "91ebe6c8-c515-5d34-9bd0-0a7e3a6d8c25",
+  "guid": "2fc02396-1a32-57a7-a7bd-63a427dd840a",
   "contentPack": 9999,
-  "name": "ActionAffinityRoguishDuelistSwiftReprisal"
+  "name": "ActionAffinityRoguishDuelistSwirlingDance"
 }
