@@ -87,7 +87,6 @@ internal sealed class PathOfTheLight : AbstractSubclass
                 ConditionDefinition = conditionPathOfTheLightIlluminated
             })
             .SetLightSourceForm(lightSourceForm)
-            .SetRequiredProperty(RestrictedContextRequiredProperty.None)
             .SetAdvancement(AdditionalDamageAdvancement.ClassLevel, 1, 1, 10)
             .SetCustomSubFeatures(new BarbarianHolder())
             .AddToDB();

@@ -1,5 +1,4 @@
-﻿using SolastaUnfinishedBusiness.Api;
-using SolastaUnfinishedBusiness.Builders;
+﻿using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomDefinitions;
@@ -84,7 +83,7 @@ internal static class CommonBuilders
                         .Create("ConditionCasterFightingWarMagic")
                         .SetGuiPresentationNoContent(true)
                         .AddFeatures(FeatureDefinitionAttackModifierBuilder
-                            .Create("PowerCasterFightingWarMagic")
+                            .Create("PowerCasterFightingWarMagicAttack")
                             .SetGuiPresentation("PowerCasterFightingWarMagic", Category.Feature)
                             .SetDamageRollModifier(1)
                             .SetCustomSubFeatures(
