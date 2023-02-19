@@ -105,6 +105,7 @@ internal static partial class DatabaseHelper
         internal static CharacterSubclassDefinition TraditionGreenmage { get; } = GetDefinition<CharacterSubclassDefinition>("TraditionGreenmage");
         internal static CharacterSubclassDefinition TraditionLoremaster { get; } = GetDefinition<CharacterSubclassDefinition>("TraditionLoremaster");
         internal static CharacterSubclassDefinition TraditionOpenHand { get; } = GetDefinition<CharacterSubclassDefinition>("TraditionOpenHand");
+        internal static CharacterSubclassDefinition TraditionShockArcanist { get; } = GetDefinition<CharacterSubclassDefinition>("TraditionShockArcanist");
     }
     internal static class ConditionDefinitions
     {
@@ -300,6 +301,7 @@ internal static partial class DatabaseHelper
         internal static FeatureDefinitionActionAffinity ActionAffinityRangerVanish { get; } = GetDefinition<FeatureDefinitionActionAffinity>("ActionAffinityRangerVanish");
         internal static FeatureDefinitionActionAffinity ActionAffinityRogueCunningAction { get; } = GetDefinition<FeatureDefinitionActionAffinity>("ActionAffinityRogueCunningAction");
         internal static FeatureDefinitionActionAffinity ActionAffinitySorcererMetamagicToggle { get; } = GetDefinition<FeatureDefinitionActionAffinity>("ActionAffinitySorcererMetamagicToggle");
+        internal static FeatureDefinitionActionAffinity ActionAffinityTraditionFreedomSwirlingDance { get; } = GetDefinition<FeatureDefinitionActionAffinity>("ActionAffinityTraditionFreedomSwirlingDance");
         internal static FeatureDefinitionActionAffinity ActionAffinityTraditionGreenMageLeafScales { get; } = GetDefinition<FeatureDefinitionActionAffinity>("ActionAffinityTraditionGreenMageLeafScales");
     }
     internal static class FeatureDefinitionAdditionalActions

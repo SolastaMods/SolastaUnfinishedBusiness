@@ -20,7 +20,9 @@ internal sealed class RoguishDuelist : AbstractSubclass
             .SetGuiPresentation(Category.Feature)
             .SetNotificationTag("SneakAttack")
             .SetDamageDice(RuleDefinitions.DieType.D6, 1)
+            .SetAdvancement(RuleDefinitions.AdditionalDamageAdvancement.ClassLevel, 1, 1, 2, 2)
             .SetTriggerCondition(ExtraAdditionalDamageTriggerCondition.TargetIsDuelingWithYou)
+            .SetRequiredProperty(RuleDefinitions.RestrictedContextRequiredProperty.FinesseOrRangeWeapon)
             .AddToDB();
 
         var additionalDamageSureFooted = FeatureDefinitionAdditionalDamageBuilder
@@ -28,6 +30,7 @@ internal sealed class RoguishDuelist : AbstractSubclass
             .SetGuiPresentation(Category.Feature)
             .SetNotificationTag("SureFooted")
             .SetDamageValueDetermination(RuleDefinitions.AdditionalDamageValueDetermination.ProficiencyBonus)
+            .SetRequiredProperty(RuleDefinitions.RestrictedContextRequiredProperty.FinesseOrRangeWeapon)
             .SetCustomSubFeatures(ValidatorsCharacter.HasFreeOffHand)
             .AddToDB();
 
@@ -49,7 +52,7 @@ internal sealed class RoguishDuelist : AbstractSubclass
             .AddToDB();
 
         var actionAffinitySwiftReprisal = FeatureDefinitionActionAffinityBuilder
-            .Create($"ActionAffinity{Name}SwiftReprisal")
+            .Create($"ActionAffinity{Name}SwirlingDance")
             .SetGuiPresentation(Category.Feature)
             .SetAllowedActionTypes()
             .SetAuthorizedActions(ActionDefinitions.Id.SwirlingDance)
@@ -57,7 +60,7 @@ internal sealed class RoguishDuelist : AbstractSubclass
 
         var actionAffinityGracefulTakeDown = FeatureDefinitionActionAffinityBuilder
             .Create($"ActionAffinity{Name}GracefulTakeDown")
-            .SetGuiPresentation(Category.Feature)
+            .SetGuiPresentationNoContent(true)
             .SetAllowedActionTypes()
             .SetAuthorizedActions(ActionDefinitions.Id.ShoveBonus)
             .AddToDB();
@@ -66,7 +69,7 @@ internal sealed class RoguishDuelist : AbstractSubclass
             .Create(Name)
             .SetGuiPresentation(Category.Subclass, RangerSwiftBlade)
             .AddFeaturesAtLevel(3, additionalDamageDaringDuel, featureSetSureFooted)
-            .AddFeaturesAtLevel(9, actionAffinitySwiftReprisal)
+            .AddFeaturesAtLevel(9, FeatureDefinitionActionAffinitys.ActionAffinityTraditionFreedomSwirlingDance)
             .AddFeaturesAtLevel(13, actionAffinityGracefulTakeDown)
             .AddToDB();
     }
