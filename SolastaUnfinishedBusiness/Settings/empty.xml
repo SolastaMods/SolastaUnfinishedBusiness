@@ -9,6 +9,7 @@
   <DisplayFeatGroupsToggle>true</DisplayFeatGroupsToggle>
   <DisplayFightingStylesToggle>true</DisplayFightingStylesToggle>
   <DisplayInvocationsToggle>true</DisplayInvocationsToggle>
+  <DisplayMetamagicToggle>true</DisplayMetamagicToggle>
   <DisplayCraftingToggle>false</DisplayCraftingToggle>
   <DisplayMerchantsToggle>true</DisplayMerchantsToggle>
   <DisplaySpellListsToggle>
@@ -100,6 +101,7 @@
   <EnableMultiLineSpellPanel>true</EnableMultiLineSpellPanel>
   <EnableSameWidthFeatSelection>true</EnableSameWidthFeatSelection>
   <EnableSameWidthInvocationSelection>true</EnableSameWidthInvocationSelection>
+  <EnableSameWidthMetamagicSelection>true</EnableSameWidthMetamagicSelection>
   <EnableSortingFightingStyles>true</EnableSortingFightingStyles>
   <EnableSortingSubclasses>true</EnableSortingSubclasses>
   <EnableSortingFutureFeatures>true</EnableSortingFutureFeatures>
@@ -110,6 +112,7 @@
   <EnableAlternateHuman>false</EnableAlternateHuman>
   <EnableFlexibleBackgrounds>false</EnableFlexibleBackgrounds>
   <EnableFlexibleRaces>false</EnableFlexibleRaces>
+  <DisableClassPrerequisitesOnModFeats>false</DisableClassPrerequisitesOnModFeats>
   <DisableRacePrerequisitesOnModFeats>false</DisableRacePrerequisitesOnModFeats>
   <AddHumanoidFavoredEnemyToRanger>false</AddHumanoidFavoredEnemyToRanger>
   <EnableEpicPointsAndArray>false</EnableEpicPointsAndArray>
@@ -149,6 +152,8 @@
   <FightingStyleEnabled />
   <InvocationSliderPosition>4</InvocationSliderPosition>
   <InvocationEnabled />
+  <MetamagicSliderPosition>4</MetamagicSliderPosition>
+  <MetamagicEnabled />
   <AllowAssigningOfficialSpells>false</AllowAssigningOfficialSpells>
   <SpellListSliderPosition>
     <item>
@@ -314,7 +319,6 @@
       </value>
     </item>
   </SpellListSpellEnabled>
-  <FixSorcererTwinnedLogic>false</FixSorcererTwinnedLogic>
   <ApplySrdWeightToFoodRations>false</ApplySrdWeightToFoodRations>
   <UseOfficialAdvantageDisadvantageRules>false</UseOfficialAdvantageDisadvantageRules>
   <IdentifyAfterRest>false</IdentifyAfterRest>
@@ -334,9 +338,12 @@
   <AllowAnyClassToWearSylvanArmor>false</AllowAnyClassToWearSylvanArmor>
   <AllowDruidToWearMetalArmor>false</AllowDruidToWearMetalArmor>
   <FullyControlConjurations>false</FullyControlConjurations>
+  <IncreaseMaxAttunedItems>false</IncreaseMaxAttunedItems>
   <MakeLargeWildshapeFormsMedium>false</MakeLargeWildshapeFormsMedium>
   <MakeAllMagicStaveArcaneFoci>false</MakeAllMagicStaveArcaneFoci>
   <IncreaseSenseNormalVision>16</IncreaseSenseNormalVision>
+  <CriticalHitModeAllies>0</CriticalHitModeAllies>
+  <CriticalHitModeEnemies>0</CriticalHitModeEnemies>
   <AddCustomIconsToOfficialItems>false</AddCustomIconsToOfficialItems>
   <AddNewWeaponsAndRecipesToShops>false</AddNewWeaponsAndRecipesToShops>
   <AddNewWeaponsAndRecipesToEditor>false</AddNewWeaponsAndRecipesToEditor>
@@ -593,6 +600,7 @@
   <HideMonsterHitPoints>false</HideMonsterHitPoints>
   <RemoveBugVisualModels>false</RemoveBugVisualModels>
   <EnableSortingDungeonMakerAssets>false</EnableSortingDungeonMakerAssets>
+  <EnableCharacterChecker>false</EnableCharacterChecker>
   <EnableHotkeyDebugOverlay>false</EnableHotkeyDebugOverlay>
   <AllowGadgetsAndPropsToBePlacedAnywhere>false</AllowGadgetsAndPropsToBePlacedAnywhere>
   <UnleashNpcAsEnemy>false</UnleashNpcAsEnemy>
@@ -602,4 +610,7 @@
   <EnableEnemiesControlledByPlayer>false</EnableEnemiesControlledByPlayer>
   <EnableHeroesControlledByComputer>false</EnableHeroesControlledByComputer>
   <DebugDisableVerifyDefinitionNameIsNotInUse>false</DebugDisableVerifyDefinitionNameIsNotInUse>
+  <DebugLogDefinitionCreation>false</DebugLogDefinitionCreation>
+  <DebugLogFieldInitialization>false</DebugLogFieldInitialization>
+  <DebugLogVariantMisuse>false</DebugLogVariantMisuse>
 </Settings>

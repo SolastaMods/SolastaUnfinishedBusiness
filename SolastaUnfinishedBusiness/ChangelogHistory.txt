@@ -1,5 +1,12 @@
 ﻿CHANGES:
 
+1.4.33.42:
+
+- added Gameplay > Tools > Enable Character Checker setting
+- added Roguish Duelist subclass
+- changed Way of Discordance's burst of disharmony to be offered as a bonus action
+- changed Way of Discordance's burst of disharmony to be limited by remaining Ki points only
+
 1.4.33.41:
 
 - added additional funding links to Mod UI > Characters [Patreon, GitHub Sponsors]
