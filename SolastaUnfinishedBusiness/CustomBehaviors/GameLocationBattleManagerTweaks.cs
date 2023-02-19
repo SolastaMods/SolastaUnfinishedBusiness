@@ -990,6 +990,16 @@ internal static class GameLocationBattleManagerTweaks
                         validTrigger = instance.IsWithinXCells(attacker, defender, 2);
                         break;
                     }
+
+                    case (RuleDefinitions.AdditionalDamageTriggerCondition)ExtraAdditionalDamageTriggerCondition
+                        .TargetIsDuelingWithYou:
+                    {
+                        validTrigger = advantageType != RuleDefinitions.AdvantageType.Disadvantage &&
+                                       Gui.Battle.AllContenders
+                                           .Where(x => x != attacker && x != defender)
+                                           .All(x => !instance.IsWithin1Cell(attacker, x));
+                        break;
+                    }
                     /*
                      * Support for extra types of trigger conditions
                      * [CE] EDIT END
