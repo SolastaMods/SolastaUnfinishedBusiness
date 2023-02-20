@@ -122,6 +122,8 @@ public static class InnovationAlchemy
             .SetItemPresentation(CustomWeaponsContext.BuildPresentation("ItemAlchemyFunctorUnidentified",
                 ItemDefinitions.ScrollFly.itemPresentation))
             .SetUsableDeviceDescription(deviceDescription)
+            // required for multiclass use cases
+            .SetCustomSubFeatures(InventorClassHolder.Marker)
             .AddToDB();
 
         return FeatureDefinitionBuilder
