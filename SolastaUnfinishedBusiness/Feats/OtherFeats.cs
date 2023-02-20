@@ -804,7 +804,7 @@ internal static class OtherFeats
         {
             var spellSniperSpells = castSpell.SpellListDefinition.SpellsByLevel
                 .SelectMany(x => x.Spells)
-                .Where(x => x.EffectDescription.RangeType is RangeType.RangeHit &&
+                .Where(x => x.SpellLevel == 0 && x.EffectDescription.RangeType is RangeType.RangeHit &&
                             x.EffectDescription.HasDamageForm())
                 .ToArray();
 
