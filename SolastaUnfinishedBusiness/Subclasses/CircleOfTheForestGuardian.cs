@@ -180,4 +180,6 @@ internal sealed class CircleOfTheForestGuardian : AbstractSubclass
 
     internal override FeatureDefinitionSubclassChoice SubclassChoice =>
         FeatureDefinitionSubclassChoices.SubclassChoiceDruidCircle;
+
+    internal override DeityDefinition DeityDefinition { get; }
 }

@@ -120,6 +120,8 @@ internal sealed class PatronSoulBlade : AbstractSubclass
     internal override FeatureDefinitionSubclassChoice SubclassChoice =>
         FeatureDefinitionSubclassChoices.SubclassChoiceWarlockOtherworldlyPatrons;
 
+    internal override DeityDefinition DeityDefinition { get; }
+
     private static bool CanWeaponBeEmpowered(RulesetCharacter character, RulesetItem item)
     {
         var definition = item.ItemDefinition;

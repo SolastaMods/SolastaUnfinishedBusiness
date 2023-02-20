@@ -185,6 +185,8 @@ internal sealed class WizardBladeDancer : AbstractSubclass
     internal override FeatureDefinitionSubclassChoice SubclassChoice =>
         FeatureDefinitionSubclassChoices.SubclassChoiceWizardArcaneTraditions;
 
+    internal override DeityDefinition DeityDefinition { get; }
+
     private static bool IsBladeDanceValid(RulesetCharacter hero)
     {
         return !hero.IsWearingMediumArmor()

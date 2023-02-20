@@ -87,4 +87,6 @@ internal sealed class MartialRoyalKnight : AbstractSubclass
 
     internal override FeatureDefinitionSubclassChoice SubclassChoice =>
         FeatureDefinitionSubclassChoices.SubclassChoiceFighterMartialArchetypes;
+
+    internal override DeityDefinition DeityDefinition { get; }
 }

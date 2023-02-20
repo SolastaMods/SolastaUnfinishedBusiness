@@ -175,6 +175,8 @@ internal sealed class CollegeOfLife : AbstractSubclass
     internal override FeatureDefinitionSubclassChoice SubclassChoice =>
         FeatureDefinitionSubclassChoices.SubclassChoiceBardColleges;
 
+    internal override DeityDefinition DeityDefinition { get; }
+
     internal static void LateLoad()
     {
         MagicAffinityCollegeOfLifeHeightened.WarListSpells.SetRange(SpellListDefinitions.SpellListAllSpells

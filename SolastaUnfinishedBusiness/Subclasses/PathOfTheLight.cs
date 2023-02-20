@@ -309,6 +309,8 @@ internal sealed class PathOfTheLight : AbstractSubclass
     internal override FeatureDefinitionSubclassChoice SubclassChoice =>
         FeatureDefinitionSubclassChoices.SubclassChoiceBarbarianPrimalPath;
 
+    internal override DeityDefinition DeityDefinition { get; }
+
     private static void ApplyLightsProtectionHealing(ulong sourceGuid)
     {
         if (RulesetEntity.GetEntity<RulesetCharacter>(sourceGuid) is not RulesetCharacterHero conditionSource ||

@@ -85,4 +85,6 @@ internal sealed class SorcerousFieldManipulator : AbstractSubclass
 
     internal override FeatureDefinitionSubclassChoice SubclassChoice =>
         FeatureDefinitionSubclassChoices.SubclassChoiceSorcerousOrigin;
+
+    internal override DeityDefinition DeityDefinition { get; }
 }

@@ -97,4 +97,6 @@ internal sealed class WizardArcaneFighter : AbstractSubclass
 
     internal override FeatureDefinitionSubclassChoice SubclassChoice =>
         FeatureDefinitionSubclassChoices.SubclassChoiceWizardArcaneTraditions;
+
+    internal override DeityDefinition DeityDefinition { get; }
 }

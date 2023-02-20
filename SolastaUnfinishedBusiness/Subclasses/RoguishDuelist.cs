@@ -78,4 +78,6 @@ internal sealed class RoguishDuelist : AbstractSubclass
 
     internal override FeatureDefinitionSubclassChoice SubclassChoice =>
         FeatureDefinitionSubclassChoices.SubclassChoiceRogueRoguishArchetypes;
+
+    internal override DeityDefinition DeityDefinition { get; }
 }

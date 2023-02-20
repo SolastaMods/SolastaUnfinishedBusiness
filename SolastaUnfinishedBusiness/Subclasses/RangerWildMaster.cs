@@ -367,6 +367,8 @@ internal sealed class RangerWildMaster : AbstractSubclass
     internal override FeatureDefinitionSubclassChoice SubclassChoice =>
         FeatureDefinitionSubclassChoices.SubclassChoiceRangerArchetypes;
 
+    internal override DeityDefinition DeityDefinition { get; }
+
     private static RulesetCharacter GetSpiritBeast(RulesetCharacter character)
     {
         var spiritBeastEffect =
