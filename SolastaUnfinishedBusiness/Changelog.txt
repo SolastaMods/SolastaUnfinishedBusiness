@@ -1,5 +1,4 @@
-- added Gameplay > Tools > Enable Character Checker setting
-- added Roguish Duelist subclass
-- changed War Caster to allow attacks with ranged weapons
-- changed Way of Discordance's burst of disharmony to be offered as a bonus action
-- changed Way of Discordance's burst of disharmony to be limited by remaining Ki points only
+- added support to Deity based subclasses on builders
+- fixed Duelist subclass description
+- fixed Grenadier bombs DC to always use INT when multicaster
+- fixed Spell Sniper offering spells as cantrips

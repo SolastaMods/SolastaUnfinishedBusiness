@@ -1,5 +1,12 @@
 ﻿CHANGES:
 
+1.4.33.43:
+
+- added support to Deity based subclasses on builders
+- fixed Duelist subclass description
+- fixed Grenadier bombs DC to always use INT when multicaster
+- fixed Spell Sniper offering spells as cantrips
+
 1.4.33.42:
 
 - added Gameplay > Tools > Enable Character Checker setting
