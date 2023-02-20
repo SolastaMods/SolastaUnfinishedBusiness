@@ -10,5 +10,5 @@ Feature/&FeatureSetRoguishDuelistSureFootedDescription=Sans armure ou portant un
 Feature/&FeatureSetRoguishDuelistSureFootedTitle=Pied sûr
 Feedback/&AdditionalDamageSureFootedFormat=Pied sûr
 Feedback/&AdditionalDamageSureFootedLine=Sure Footed inflige +{2} dégâts supplémentaires !
-Subclass/&RoguishDuelistDescription=Les duellistes sont des spécialistes des armes à distance formés pour éliminer les ennemis rapidement et efficacement.
+Subclass/&RoguishDuelistDescription=Les duellistes possèdent une bravade fanfaronne. Ils sont vifs d'esprit, autonomes et dangereux pour les ennemis isolés qui comptent sur la vitesse, l'élégance et le charme à parts égales. Ils excellent dans le combat singulier en concentrant leur formation sur l'art de la lame.
 Subclass/&RoguishDuelistTitle=Duelliste

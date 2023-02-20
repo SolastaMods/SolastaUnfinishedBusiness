@@ -10,5 +10,5 @@ Feature/&FeatureSetRoguishDuelistSureFootedDescription=Пока вы не бро
 Feature/&FeatureSetRoguishDuelistSureFootedTitle=конечно
 Feedback/&AdditionalDamageSureFootedFormat=конечно
 Feedback/&AdditionalDamageSureFootedLine=Уверенная Нога наносит дополнительный урон +{2}!
-Subclass/&RoguishDuelistDescription=Дуэлянты — это специалисты по оружию дальнего боя, обученные быстро и эффективно уничтожать врагов.
+Subclass/&RoguishDuelistDescription=Дуэлянты обладают чванливой бравадой. Они сообразительны, самодостаточны и опасны для изолированных врагов, полагаясь в равной степени на скорость, изящество и обаяние. Они преуспевают в единоборствах, сосредотачивая свое внимание на искусстве владения клинком.
 Subclass/&RoguishDuelistTitle=Дуэлянт

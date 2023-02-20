@@ -10,5 +10,5 @@ Feature/&FeatureSetRoguishDuelistSureFootedDescription=当你没有盔甲或穿�
 Feature/&FeatureSetRoguishDuelistSureFootedTitle=脚踏实地
 Feedback/&AdditionalDamageSureFootedFormat=脚踏实地
 Feedback/&AdditionalDamageSureFootedLine=脚踏实地造成额外的 +{2} 伤害！
-Subclass/&RoguishDuelistDescription=决斗者是远程武器专家，经过训练可以快速有效地击倒敌人。
+Subclass/&RoguishDuelistDescription=决斗者拥有一种狂妄自大的虚张声势。他们机智、自给自足，对依赖速度、优雅和魅力的孤立敌人来说是危险的。他们擅长单打独斗，专注于剑术训练。
 Subclass/&RoguishDuelistTitle=决斗者
