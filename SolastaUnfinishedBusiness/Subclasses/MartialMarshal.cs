@@ -68,6 +68,8 @@ internal sealed class MartialMarshal : AbstractSubclass
     internal override FeatureDefinitionSubclassChoice SubclassChoice =>
         FeatureDefinitionSubclassChoices.SubclassChoiceFighterMartialArchetypes;
 
+    internal override DeityDefinition DeityDefinition { get; }
+
     private static int GetKnowledgeLevelOfEnemy(RulesetCharacter enemy)
     {
         return ServiceRepository.GetService<IGameLoreService>().Bestiary.TryGetBestiaryEntry(enemy, out var entry)

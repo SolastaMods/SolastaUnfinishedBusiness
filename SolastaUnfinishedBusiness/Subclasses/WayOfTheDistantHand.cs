@@ -360,6 +360,8 @@ internal sealed class WayOfTheDistantHand : AbstractSubclass
     internal override FeatureDefinitionSubclassChoice SubclassChoice =>
         FeatureDefinitionSubclassChoices.SubclassChoiceMonkMonasticTraditions;
 
+    internal override DeityDefinition DeityDefinition { get; }
+
     private static bool IsMonkWeapon(RulesetAttackMode attackMode, RulesetItem weapon, RulesetCharacter character)
     {
         return IsMonkWeapon(character, attackMode) || IsMonkWeapon(character, weapon);

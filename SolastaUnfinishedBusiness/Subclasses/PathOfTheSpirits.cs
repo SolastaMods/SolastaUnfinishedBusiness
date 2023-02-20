@@ -117,6 +117,8 @@ internal sealed class PathOfTheSpirits : AbstractSubclass
     internal override FeatureDefinitionSubclassChoice SubclassChoice =>
         FeatureDefinitionSubclassChoices.SubclassChoiceBarbarianPrimalPath;
 
+    internal override DeityDefinition DeityDefinition { get; }
+
     private static FeatureDefinition BuildSpiritSeekerSpell(SpellDefinition spellDefinition)
     {
         var effectDescription = EffectDescriptionBuilder

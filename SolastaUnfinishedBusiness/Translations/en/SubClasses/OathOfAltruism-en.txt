@@ -24,4 +24,4 @@ Reaction/&CustomReactionSpiritualShieldingTitle=Spiritual Shielding!
 Reaction/&CustomReactionSpiritualShieldingReactDescription=Use your reaction as the enemy strikes at your ally to cast a shield on them.
 Reaction/&CustomReactionSpiritualShieldingReactTitle=Shield!
 Subclass/&OathOfAltruismDescription=Heroes know their calling, and the Oath of Altruism calls out to those selfless heroes who put protection of the meek above all else. Followers of this Oath, are truly selfless protectors, who risk their own lives and would willfully die to protector those they care for. Paladins of this oath are not looking for glory and often align themselves with those seeking a greater purpose. They lend their shields and swords for the greater good of the goals of the team, before their own.
-Subclass/&OathOfAltruismTitle=Oath of Altruism <color=red>[BETA]</color>
+Subclass/&OathOfAltruismTitle=Oath of Altruism

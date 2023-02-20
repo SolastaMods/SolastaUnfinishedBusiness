@@ -10,5 +10,5 @@ Feature/&FeatureSetRoguishDuelistSureFootedDescription=Ohne Rüstung oder mit le
 Feature/&FeatureSetRoguishDuelistSureFootedTitle=Trittsicher
 Feedback/&AdditionalDamageSureFootedFormat=Trittsicher
 Feedback/&AdditionalDamageSureFootedLine=Trittsicher verursacht zusätzlichen +{2} Schaden!
-Subclass/&RoguishDuelistDescription=Duellanten sind Spezialisten für Fernkampfwaffen, die darauf trainiert sind, Feinde schnell und effektiv auszuschalten.
+Subclass/&RoguishDuelistDescription=Duellanten besitzen eine prahlerische Tapferkeit. Sie sind schlagfertig, autark und gefährlich für isolierte Feinde.
 Subclass/&RoguishDuelistTitle=Duellant

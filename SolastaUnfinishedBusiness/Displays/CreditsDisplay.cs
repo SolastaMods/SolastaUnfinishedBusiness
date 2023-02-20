@@ -15,15 +15,15 @@ internal static class CreditsDisplay
     internal static readonly List<(string, string)> CreditsTable = new()
     {
         ("Zappastuff",
-            "maintenance, mod UI, infrastructure, gameplay, feats, fighting styles, invocations, rules, spells, quality of life, Half-elf variants, Blade Dancer, Ancient Forest, College of Guts, College of Life, Dead Master, Field Manipulator, Way of The Discordance, Way of The Silhouette, Wild Master, Multiclass"),
+            "maintenance, mod UI, infrastructure, gameplay, feats, fighting styles, invocations, rules, spells, quality of life, Half-elf variants, Ancient Forest, Blade Dancer, College of Guts, College of Life, Dead Master, Duelist, Field Manipulator, Way of The Discordance, Way of The Silhouette, Wild Master, Multiclass"),
         ("TPABOBAP",
-            "game UI, infrastructure, gameplay, feats, invocations, spells, quality of life, Dead Master, Elementalist, Moonlit, RiftWalker, SoulBlade, Tactician, Way of The Distant Hand, Inventor"),
+            "game UI, infrastructure, gameplay, feats, invocations, spells, quality of life, Dead Master, Elementalist, Moonlit, RiftWalker, SoulBlade, Tactician, Way of Distant Hand, Inventor"),
         ("Nd", "College of Harlequin, College of War Dancer, Marshal, Opportunist, Raven, Spell Shield"),
         ("ImpPhil", "api, builders, gameplay, rules, quality of life"),
         ("ChrisJohnDigital",
             "builders, gameplay, feats, fighting styles, original Tinkerer, original Wizard subclasses, Arcane Fighter, Spell Master, Spell Shield"),
         ("SilverGriffon", "gameplay, visuals, spells, Dark Elf, Draconic Kobold, Grey Dwarf, Divine Heart"),
-        ("Haxermn", "spells, Oath of Ancient, Oath of Hatred, Way of The Dragon"),
+        ("Haxermn", "spells, Oath of Ancient, Oath of Hatred, Way of Dragon"),
         ("tivie", "Circle of The Night, Path of The Spirits"),
         ("ElAntonius", "feats, fighting styles, Arcanist"),
         ("DubhHerder", "quality of life, spells, original Warlock subclasses"),

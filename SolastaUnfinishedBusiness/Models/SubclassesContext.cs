@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using HarmonyLib;
 using JetBrains.Annotations;
@@ -9,6 +10,11 @@ namespace SolastaUnfinishedBusiness.Models;
 
 internal static class SubclassesContext
 {
+    private static Dictionary<CharacterSubclassDefinition, DeityDefinition> DeityChoiceList
+    {
+        get;
+    } = new();
+
     private static Dictionary<CharacterSubclassDefinition, FeatureDefinitionSubclassChoice> SubclassesChoiceList
     {
         get;
@@ -99,7 +105,18 @@ internal static class SubclassesContext
     {
         var subclass = subclassBuilder.Subclass;
 
-        SubclassesChoiceList.Add(subclass, subclassBuilder.SubclassChoice);
+        if (subclassBuilder.SubclassChoice != null && subclassBuilder.DeityDefinition == null)
+        {
+            SubclassesChoiceList.Add(subclass, subclassBuilder.SubclassChoice);
+        }
+        else if (subclassBuilder.SubclassChoice == null && subclassBuilder.DeityDefinition != null)
+        {
+            DeityChoiceList.Add(subclass, subclassBuilder.DeityDefinition);
+        }
+        else
+        {
+            throw new Exception("Subclass builder requires a Deity Definition or a SubClassChoice definition");
+        }
 
         if (isBetaContent && !Main.Settings.EnableBetaContent)
         {
@@ -117,15 +134,28 @@ internal static class SubclassesContext
     private static void UpdateSubclassVisibility([NotNull] CharacterSubclassDefinition characterSubclassDefinition)
     {
         var name = characterSubclassDefinition.Name;
-        var choiceList = SubclassesChoiceList[characterSubclassDefinition];
 
-        if (Main.Settings.SubclassEnabled.Contains(name))
+        if (SubclassesChoiceList.TryGetValue(characterSubclassDefinition, out var choiceList))
         {
-            choiceList.Subclasses.TryAdd(name);
+            if (Main.Settings.SubclassEnabled.Contains(name))
+            {
+                choiceList.Subclasses.TryAdd(name);
+            }
+            else
+            {
+                choiceList.Subclasses.Remove(name);
+            }
         }
-        else
+        else if (DeityChoiceList.TryGetValue(characterSubclassDefinition, out var deityDefinition))
         {
-            choiceList.Subclasses.Remove(name);
+            if (Main.Settings.SubclassEnabled.Contains(name))
+            {
+                deityDefinition.Subclasses.TryAdd(name);
+            }
+            else
+            {
+                deityDefinition.Subclasses.Remove(name);
+            }
         }
     }
 

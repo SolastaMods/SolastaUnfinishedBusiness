@@ -397,13 +397,6 @@ internal static class OtherFeats
 
     private static FeatDefinition BuildAstralArms()
     {
-        // BACKWARD COMPATIBILITY
-        _ = FeatureDefinitionBuilder
-            .Create("ModifyAttackModeForWeaponFeatAstralArms")
-            .SetGuiPresentationNoContent(true)
-            .SetCustomSubFeatures(new ModifyAttackModeForWeaponFeatAstralArms())
-            .AddToDB();
-
         return FeatDefinitionBuilder
             .Create("FeatAstralArms")
             .SetGuiPresentation(Category.Feat)
@@ -673,12 +666,6 @@ internal static class OtherFeats
 
     private static FeatDefinition BuildPoisonousSkin()
     {
-        // BACKWARD COMPATIBILITY
-        _ = FeatureDefinitionBuilder
-            .Create("OnAttackHitEffectFeatPoisonousSkin")
-            .SetGuiPresentationNoContent(true)
-            .AddToDB();
-
         return FeatDefinitionBuilder
             .Create("FeatPoisonousSkin")
             .SetGuiPresentation(Category.Feat)
@@ -804,7 +791,7 @@ internal static class OtherFeats
         {
             var spellSniperSpells = castSpell.SpellListDefinition.SpellsByLevel
                 .SelectMany(x => x.Spells)
-                .Where(x => x.EffectDescription.RangeType is RangeType.RangeHit &&
+                .Where(x => x.SpellLevel == 0 && x.EffectDescription.RangeType is RangeType.RangeHit &&
                             x.EffectDescription.HasDamageForm())
                 .ToArray();
 

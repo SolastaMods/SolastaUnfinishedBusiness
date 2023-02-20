@@ -100,6 +100,8 @@ internal sealed class MartialSpellShield : AbstractSubclass
     internal override FeatureDefinitionSubclassChoice SubclassChoice =>
         FeatureDefinitionSubclassChoices.SubclassChoiceFighterMartialArchetypes;
 
+    internal override DeityDefinition DeityDefinition { get; }
+
     private sealed class ComputeAttackModifierMagicAffinityCombatMagicVigor : IOnComputeAttackModifier, IIncreaseSpellDc
     {
         public int GetSpellModifier(RulesetCharacter caster)

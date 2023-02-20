@@ -81,4 +81,6 @@ internal sealed class OathOfAltruism : AbstractSubclass
 
     internal override FeatureDefinitionSubclassChoice SubclassChoice => FeatureDefinitionSubclassChoices
         .SubclassChoicePaladinSacredOaths;
+
+    internal override DeityDefinition DeityDefinition { get; }
 }

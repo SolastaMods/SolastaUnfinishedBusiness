@@ -128,6 +128,8 @@ internal sealed class WizardDeadMaster : AbstractSubclass
     internal override FeatureDefinitionSubclassChoice SubclassChoice =>
         FeatureDefinitionSubclassChoices.SubclassChoiceWizardArcaneTraditions;
 
+    internal override DeityDefinition DeityDefinition { get; }
+
     private static void EnableCommandAllUndead()
     {
         if (!Main.Settings.EnableCommandAllUndead)

@@ -177,4 +177,6 @@ internal sealed class PatronMoonlit : AbstractSubclass
 
     internal override FeatureDefinitionSubclassChoice SubclassChoice => DatabaseHelper.FeatureDefinitionSubclassChoices
         .SubclassChoiceWarlockOtherworldlyPatrons;
+
+    internal override DeityDefinition DeityDefinition { get; }
 }

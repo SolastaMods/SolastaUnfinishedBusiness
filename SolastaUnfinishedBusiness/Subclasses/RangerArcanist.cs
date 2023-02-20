@@ -150,6 +150,8 @@ internal sealed class RangerArcanist : AbstractSubclass
     internal override FeatureDefinitionSubclassChoice SubclassChoice =>
         FeatureDefinitionSubclassChoices.SubclassChoiceRangerArchetypes;
 
+    internal override DeityDefinition DeityDefinition { get; }
+
     private static FeatureDefinitionPower CreatePowerArcanistArcanePulse(
         string name,
         FeatureDefinitionPower overriddenPower = null,

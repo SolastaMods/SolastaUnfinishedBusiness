@@ -191,6 +191,8 @@ internal sealed class CircleOfTheAncientForest : AbstractSubclass
     internal override FeatureDefinitionSubclassChoice SubclassChoice => DatabaseHelper.FeatureDefinitionSubclassChoices
         .SubclassChoiceDruidCircle;
 
+    internal override DeityDefinition DeityDefinition { get; }
+
     private static FeatureDefinitionPower BuildHerbalBrew(
         FeatureDefinitionPower pool,
         string type,

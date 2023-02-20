@@ -10,5 +10,5 @@ Feature/&FeatureSetRoguishDuelistSureFootedDescription=Mentre è disarmato o ind
 Feature/&FeatureSetRoguishDuelistSureFootedTitle=Sicuro di piede
 Feedback/&AdditionalDamageSureFootedFormat=Sicuro di piede
 Feedback/&AdditionalDamageSureFootedLine=Il piede sicuro infligge +{2} danni extra!
-Subclass/&RoguishDuelistDescription=I duellanti sono specialisti di armi a distanza addestrati per abbattere i nemici in modo rapido ed efficace.
+Subclass/&RoguishDuelistDescription=I duellanti possiedono una spavalda spavalderia. Sono intelligenti, autosufficienti e pericolosi per i nemici isolati.
 Subclass/&RoguishDuelistTitle=Duellante

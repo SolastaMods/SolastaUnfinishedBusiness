@@ -75,6 +75,8 @@ internal sealed class RoguishOpportunist : AbstractSubclass
     internal override FeatureDefinitionSubclassChoice SubclassChoice =>
         FeatureDefinitionSubclassChoices.SubclassChoiceRogueRoguishArchetypes;
 
+    internal override DeityDefinition DeityDefinition { get; }
+
     private sealed class OnComputeAttackModifierOpportunistQuickStrike : IOnComputeAttackModifier
     {
         public void ComputeAttackModifier(
