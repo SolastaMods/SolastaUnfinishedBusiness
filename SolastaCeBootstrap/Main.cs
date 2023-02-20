@@ -227,7 +227,6 @@ namespace SolastaCeBootstrap
                 "DatabaseIndex",
                 "DateTime",
                 "DecisionDefinition",
-                "Deity",
                 "DieStyle",
                 "DieType",
                 "DifficultyPreset",
