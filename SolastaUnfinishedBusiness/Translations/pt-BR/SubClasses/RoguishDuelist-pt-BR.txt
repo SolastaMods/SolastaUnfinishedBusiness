@@ -10,5 +10,5 @@ Feature/&FeatureSetRoguishDuelistSureFootedDescription=Enquanto estiver sem arma
 Feature/&FeatureSetRoguishDuelistSureFootedTitle=Pé Seguro
 Feedback/&AdditionalDamageSureFootedFormat=Pé Seguro
 Feedback/&AdditionalDamageSureFootedLine=Sure Footed causa +{2} de dano extra!
-Subclass/&RoguishDuelistDescription=Os duelistas possuem uma bravata arrogante. Eles são perspicazes, autossuficientes e perigosos para inimigos isolados que dependem de velocidade, elegância e charme em partes iguais. Eles se destacam no combate individual focando seu treinamento na arte da lâmina.
+Subclass/&RoguishDuelistDescription=Os duelistas possuem uma bravata arrogante. Eles são perspicazes, autossuficientes e perigosos para inimigos isolados.
 Subclass/&RoguishDuelistTitle=duelista

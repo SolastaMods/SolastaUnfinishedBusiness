@@ -127,7 +127,7 @@ All settings start disabled by default.
 [*][b]Oath of Hatred[/b]: An Oath of Hatred paladin has dedicated himself to the punishment of evil doers by channeling hate.
 [*][b]Arcanist[/b]: The Arcanist melds their Ranger skills with arcane abilities. Their weapons can afflict their opponents with the Arcanist's Mark, and have learned how to cast some Wizard spells as part of their Ranger spell repertoire.
 [*][b]Wild Master[/b]: The Wild Master archetype embodies a friendship between the civilized races and the beasts of the world. United in focus, spirit and ranger work as one to fight the monstrous foes that threaten civilization and the wilderness alike.
-[*][b]Duelist[/b]: Duelists are ranged weapon specialists that are trained to take down enemies quickly and effectively.
+[*][b]Duelist[/b]: Duelists possess a swaggering bravado. They are quick-witted, self-sufficient, and dangerous to isolated enemies.
 [*][b]Opportunist[/b]: Opportunist are those who never let a chance to finish their enemies slide. They stab fast and stab where it matters. Not many facing them can escape unscratched.
 [*][b]Raven[/b]: Ravens are ranged weapon specialists that are trained to take down enemies quickly and effectively.
 [*][b]Divine Heart[/b]: Your innate magic has been imparted to you by a Deity for a purpose you may or may not understand. 
@@ -283,7 +283,6 @@ You gain the ability to cast the invisibility, inflict wounds, and false life sp
 • You gain a +1 bonus to attack rolls you make with a spear and its damage die changes from a d6 to a d8, and from a d8 to a d10 when wielded with two hands.
 • As a bonus action you can brace your spear to intercept approaching enemies. You can use reaction to perform attack of opportunity with a spear on enemy that enters your reach and deal extra die of damage if that attack hits.
 • As a bonus action, you can increase your reach with a spear by 5 feet for the rest of your turn.
-[*][b]Spell Sniper [Cleric][/b]: You learn two cantrips of your choice from the Cleric spell list. When you cast a spell that requires you to make an attack roll, the spell's range is doubled. Your ranged spell attacks ignore half cover and three-quarters cover.
 [*][b]Spell Sniper [Druid][/b]: You learn two cantrips of your choice from the Druid spell list. When you cast a spell that requires you to make an attack roll, the spell's range is doubled. Your ranged spell attacks ignore half cover and three-quarters cover.
 [*][b]Spell Sniper [Sorcerer][/b]: You learn two cantrips of your choice from the Sorcerer spell list. When you cast a spell that requires you to make an attack roll, the spell's range is doubled. Your ranged spell attacks ignore half cover and three-quarters cover.
 [*][b]Spell Sniper [Warlock][/b]: You learn two cantrips of your choice from the Warlock spell list. When you cast a spell that requires you to make an attack roll, the spell's range is doubled. Your ranged spell attacks ignore half cover and three-quarters cover.

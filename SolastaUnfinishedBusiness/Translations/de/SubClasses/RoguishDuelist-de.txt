@@ -10,5 +10,5 @@ Feature/&FeatureSetRoguishDuelistSureFootedDescription=Ohne Rüstung oder mit le
 Feature/&FeatureSetRoguishDuelistSureFootedTitle=Trittsicher
 Feedback/&AdditionalDamageSureFootedFormat=Trittsicher
 Feedback/&AdditionalDamageSureFootedLine=Trittsicher verursacht zusätzlichen +{2} Schaden!
-Subclass/&RoguishDuelistDescription=Duellanten besitzen eine prahlerische Tapferkeit. Sie sind schlagfertig, autark und gefährlich für isolierte Feinde, die sich zu gleichen Teilen auf Geschwindigkeit, Eleganz und Charme verlassen. Sie zeichnen sich im Zweikampf aus und konzentrieren sich auf ihre Ausbildung in der Kunst des Klingens.
+Subclass/&RoguishDuelistDescription=Duellanten besitzen eine prahlerische Tapferkeit. Sie sind schlagfertig, autark und gefährlich für isolierte Feinde.
 Subclass/&RoguishDuelistTitle=Duellant
