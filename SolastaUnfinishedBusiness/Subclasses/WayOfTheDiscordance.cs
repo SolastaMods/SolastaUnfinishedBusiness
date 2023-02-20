@@ -140,6 +140,8 @@ internal sealed class WayOfTheDiscordance : AbstractSubclass
     internal override FeatureDefinitionSubclassChoice SubclassChoice =>
         FeatureDefinitionSubclassChoices.SubclassChoiceMonkMonasticTraditions;
 
+    internal override DeityDefinition DeityDefinition { get; }
+
     // apply the logic to add discordance conditions and to determine if it's time to explode
     private sealed class AfterAttackEffectDiscordance : IOnAfterActionFeature, IAfterAttackEffect
     {

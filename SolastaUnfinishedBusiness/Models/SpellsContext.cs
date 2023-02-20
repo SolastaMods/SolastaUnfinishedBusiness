@@ -114,19 +114,17 @@ internal static class SpellsContext
                     continue;
                 }
 
+                spellLists.Add(title, featureDefinitionCastSpell.SpellListDefinition);
+
+                foreach (var spell in featureDefinitionCastSpell.SpellListDefinition.SpellsByLevel.SelectMany(
+                             x => x.Spells))
                 {
-                    spellLists.Add(title, featureDefinitionCastSpell.SpellListDefinition);
-
-                    foreach (var spell in featureDefinitionCastSpell.SpellListDefinition.SpellsByLevel.SelectMany(
-                                 x => x.Spells))
+                    if (!SpellSpellListMap.ContainsKey(spell))
                     {
-                        if (!SpellSpellListMap.ContainsKey(spell))
-                        {
-                            SpellSpellListMap.Add(spell, new List<SpellListDefinition>());
-                        }
-
-                        SpellSpellListMap[spell].Add(featureDefinitionCastSpell.SpellListDefinition);
+                        SpellSpellListMap.Add(spell, new List<SpellListDefinition>());
                     }
+
+                    SpellSpellListMap[spell].Add(featureDefinitionCastSpell.SpellListDefinition);
                 }
             }
 
@@ -430,13 +428,11 @@ internal static class SpellsContext
 
                     //Add to spell sniper lists
                     var className = spellListName.Replace("SpellList", string.Empty);
-                    var classesSpellSniper = new[] { "Cleric", "Druid", "Sorcerer", "Warlock", "Wizard" };
 
-                    if (spellDefinition.SpellLevel == 0 && classesSpellSniper.Contains(className))
+                    if (spellDefinition.SpellLevel == 0 &&
+                        DatabaseHelper.TryGetDefinition<SpellListDefinition>($"SpellListFeatSpellSniper{className}",
+                            out var spellList))
                     {
-                        var spellList =
-                            DatabaseHelper.GetDefinition<SpellListDefinition>($"SpellListFeatSpellSniper{className}");
-
                         spellList.AddSpell(spellDefinition);
                     }
                 }
@@ -469,13 +465,11 @@ internal static class SpellsContext
 
                     //Remove from spell sniper lists
                     var className = spellListName.Replace("SpellList", string.Empty);
-                    var classesSpellSniper = new[] { "Cleric", "Druid", "Sorcerer", "Warlock", "Wizard" };
 
-                    if (spellDefinition.SpellLevel == 0 && classesSpellSniper.Contains(className))
+                    if (spellDefinition.SpellLevel == 0 &&
+                        DatabaseHelper.TryGetDefinition<SpellListDefinition>($"SpellListFeatSpellSniper{className}",
+                            out var spellList))
                     {
-                        var spellList =
-                            DatabaseHelper.GetDefinition<SpellListDefinition>($"SpellListFeatSpellSniper{className}");
-
                         foreach (var spellsByLevel in spellList.SpellsByLevel)
                         {
                             spellsByLevel.Spells.RemoveAll(x => x == spellDefinition);

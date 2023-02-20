@@ -10,5 +10,5 @@ Feature/&FeatureSetRoguishDuelistSureFootedDescription=While unarmored or wearin
 Feature/&FeatureSetRoguishDuelistSureFootedTitle=Sure Footed
 Feedback/&AdditionalDamageSureFootedFormat=Sure Footed
 Feedback/&AdditionalDamageSureFootedLine=Sure Footed deals extra +{2} damage!
-Subclass/&RoguishDuelistDescription=Duelists are ranged weapon specialists that are trained to take down enemies quickly and effectively.
+Subclass/&RoguishDuelistDescription=Duelists possess a swaggering bravado. They are quick-witted, self-sufficient, and dangerous to isolated enemies.
 Subclass/&RoguishDuelistTitle=Duelist

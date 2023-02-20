@@ -119,4 +119,6 @@ internal sealed class WizardSpellMaster : AbstractSubclass
 
     internal override FeatureDefinitionSubclassChoice SubclassChoice =>
         FeatureDefinitionSubclassChoices.SubclassChoiceWizardArcaneTraditions;
+
+    internal override DeityDefinition DeityDefinition { get; }
 }

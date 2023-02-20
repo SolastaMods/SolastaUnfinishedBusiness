@@ -81,6 +81,8 @@ internal sealed class WayOfTheDragon : AbstractSubclass
     internal override FeatureDefinitionSubclassChoice SubclassChoice =>
         FeatureDefinitionSubclassChoices.SubclassChoiceMonkMonasticTraditions;
 
+    internal override DeityDefinition DeityDefinition { get; }
+
     private static FeatureDefinitionFeatureSet BuildDiscipleFeatureSet()
     {
         var featureSetDisciple = FeatureDefinitionFeatureSetBuilder

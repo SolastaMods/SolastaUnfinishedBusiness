@@ -10,5 +10,5 @@ Feature/&FeatureSetRoguishDuelistSureFootedDescription=Enquanto estiver sem arma
 Feature/&FeatureSetRoguishDuelistSureFootedTitle=Pé Seguro
 Feedback/&AdditionalDamageSureFootedFormat=Pé Seguro
 Feedback/&AdditionalDamageSureFootedLine=Sure Footed causa +{2} de dano extra!
-Subclass/&RoguishDuelistDescription=Os duelistas são especialistas em armas de longo alcance treinados para derrubar inimigos de forma rápida e eficaz.
+Subclass/&RoguishDuelistDescription=Os duelistas possuem uma bravata arrogante. Eles são perspicazes, autossuficientes e perigosos para inimigos isolados.
 Subclass/&RoguishDuelistTitle=duelista

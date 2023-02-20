@@ -77,6 +77,8 @@ internal sealed class RoguishRaven : AbstractSubclass
     internal override FeatureDefinitionSubclassChoice SubclassChoice =>
         FeatureDefinitionSubclassChoices.SubclassChoiceRogueRoguishArchetypes;
 
+    internal override DeityDefinition DeityDefinition { get; }
+
     private static FeatureDefinitionFeatureSet BuildHeartSeekingShot()
     {
         var concentrationProvider = new StopPowerConcentrationProvider("HeartSeekingShot",

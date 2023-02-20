@@ -97,6 +97,8 @@ internal sealed class CollegeOfWarDancer : AbstractSubclass
     internal override FeatureDefinitionSubclassChoice SubclassChoice =>
         FeatureDefinitionSubclassChoices.SubclassChoiceBardColleges;
 
+    internal override DeityDefinition DeityDefinition { get; }
+
     private static ConditionDefinition BuildConditionWarDance()
     {
         return ConditionDefinitionBuilder

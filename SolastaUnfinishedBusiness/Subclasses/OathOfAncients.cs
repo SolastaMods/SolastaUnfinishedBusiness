@@ -168,6 +168,8 @@ internal sealed class OathOfAncients : AbstractSubclass
     internal override FeatureDefinitionSubclassChoice SubclassChoice => FeatureDefinitionSubclassChoices
         .SubclassChoicePaladinSacredOaths;
 
+    internal override DeityDefinition DeityDefinition { get; }
+
     private sealed class AuraWardingModifyMagic : IModifyMagicEffectOnTarget
     {
         private readonly ConditionDefinition _conditionWardingAura;

@@ -252,9 +252,6 @@ internal sealed class RangerWildMaster : AbstractSubclass
             .SetGuiPresentation(Category.Feature)
             .AddToDB();
 
-        // BACKWARD COMPATIBILITY
-        _ = BuildPowerWildMasterSpiritBeastRecuperate();
-
         var featureSetWildMaster03 = FeatureDefinitionFeatureSetBuilder
             .Create("FeatureSetWildMaster03")
             .SetGuiPresentation(Category.Feature)
@@ -370,48 +367,7 @@ internal sealed class RangerWildMaster : AbstractSubclass
     internal override FeatureDefinitionSubclassChoice SubclassChoice =>
         FeatureDefinitionSubclassChoices.SubclassChoiceRangerArchetypes;
 
-    private static FeatureDefinition BuildPowerWildMasterSpiritBeastRecuperate()
-    {
-        const string NAME = "PowerWildMasterSpiritBeastRecuperate";
-
-        RestActivityDefinitionBuilder
-            .Create("RestActivityWildMasterSpiritBeastRecuperate")
-            .SetGuiPresentation(NAME, Category.Feature)
-            .SetRestData(
-                RestDefinitions.RestStage.AfterRest,
-                RestType.ShortRest,
-                RestActivityDefinition.ActivityCondition.CanUsePower,
-                PowerBundleContext.UseCustomRestPowerFunctorName,
-                NAME)
-            .AddToDB();
-
-        var powerWildMasterSpiritBeastRecuperate = FeatureDefinitionPowerBuilder
-            .Create(NAME)
-            .SetGuiPresentation(Category.Feature)
-            .SetCustomSubFeatures(
-                PowerVisibilityModifier.Hidden,
-                HasModifiedUses.Marker,
-                new ValidatorsPowerUse(HasInjuredBeast),
-                new ModifyRestPowerTitleHandler(GetRestPowerTitle),
-                new RetargetSpiritBeast())
-            .SetUsesFixed(ActivationTime.Rest, RechargeRate.LongRest, 1, 0)
-            .SetEffectDescription(EffectDescriptionBuilder.Create()
-                .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
-                .SetEffectForms(EffectFormBuilder.Create()
-                    .SetHealingForm(HealingComputation.Dice, 0, DieType.D8, 1, false, HealingCap.MaximumHitPoints)
-                    .Build())
-                .Build())
-            .AddToDB();
-
-        powerWildMasterSpiritBeastRecuperate.AddCustomSubFeatures(new PowerUseModifier
-        {
-            PowerPool = powerWildMasterSpiritBeastRecuperate,
-            Type = PowerPoolBonusCalculationType.ClassLevel,
-            Attribute = RangerClass
-        });
-
-        return powerWildMasterSpiritBeastRecuperate;
-    }
+    internal override DeityDefinition DeityDefinition { get; }
 
     private static RulesetCharacter GetSpiritBeast(RulesetCharacter character)
     {
@@ -420,27 +376,6 @@ internal sealed class RangerWildMaster : AbstractSubclass
         var summons = EffectHelpers.GetSummonedCreatures(spiritBeastEffect);
 
         return summons.Empty() ? null : summons[0];
-    }
-
-    private static bool HasInjuredBeast(RulesetCharacter character)
-    {
-        var spiritBeast = GetSpiritBeast(character);
-
-        return spiritBeast is { IsMissingHitPoints: true };
-    }
-
-    private static string GetRestPowerTitle(RulesetCharacter character)
-    {
-        var spiritBeast = GetSpiritBeast(character);
-
-        if (spiritBeast == null)
-        {
-            return string.Empty;
-        }
-
-        return Gui.Format("Feature/&PowerWildMasterSpiritBeastRecuperateFormat",
-            spiritBeast.CurrentHitPoints.ToString(),
-            spiritBeast.TryGetAttributeValue(AttributeDefinitions.HitPoints).ToString());
     }
 
     private static FeatureDefinitionPower BuildSpiritBeastPower(

@@ -176,6 +176,8 @@ internal sealed class PatronElementalist : AbstractSubclass
     internal override FeatureDefinitionSubclassChoice SubclassChoice => FeatureDefinitionSubclassChoices
         .SubclassChoiceWarlockOtherworldlyPatrons;
 
+    internal override DeityDefinition DeityDefinition { get; }
+
     private static GuiPresentation GuiPresentation(
         string type,
         string text,

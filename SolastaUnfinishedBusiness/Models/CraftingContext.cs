@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
-using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.ItemCrafting;
 using TMPro;
 using UnityEngine;
@@ -70,9 +69,6 @@ internal static class CraftingContext
 
     internal static void Load()
     {
-        //TODO: do we still need this?
-        MerchantContext.AddItem(DatabaseHelper.ItemDefinitions.Maul, ShopItemType.ShopCrafting);
-
         ItemRecipeGenerationHelper.AddPrimingRecipes();
         ItemRecipeGenerationHelper.AddIngredientEnchanting();
         ItemRecipeGenerationHelper.AddFactionItems();
@@ -163,6 +159,7 @@ internal static class CraftingContext
     {
         var characterInspectionScreen = Gui.GuiService.GetScreen<CharacterInspectionScreen>();
         var craftingPanel = characterInspectionScreen.craftingPanel;
+        // ReSharper disable once Unity.UnknownResource
         var dropdownPrefab = Resources.Load<GameObject>("GUI/Prefabs/Component/Dropdown");
         var filter = Object.Instantiate(dropdownPrefab, craftingPanel.transform);
         var filterRect = filter.GetComponent<RectTransform>();
@@ -253,7 +250,7 @@ internal static class CraftingContext
         internal List<MagicItemDataHolder> MagicToCopy;
         internal List<ItemDefinition> PossiblePrimedItemsToReplace;
 
-        internal struct MagicItemDataHolder
+        internal readonly struct MagicItemDataHolder
         {
             internal readonly string Name;
             internal readonly ItemDefinition Item;

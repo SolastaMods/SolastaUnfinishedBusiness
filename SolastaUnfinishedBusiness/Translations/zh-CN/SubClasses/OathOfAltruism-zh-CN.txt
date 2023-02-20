@@ -24,4 +24,4 @@ Reaction/&CustomReactionSpiritualShieldingTitle=精神护盾！
 Reaction/&CustomReactionSpiritualShieldingReactDescription=当敌人攻击你的盟友时，利用你的反应向他们投下盾牌。
 Reaction/&CustomReactionSpiritualShieldingReactTitle=盾！
 Subclass/&OathOfAltruismDescription=英雄知道他们的呼唤，利他主义誓言向那些将保护温顺者置于首位的无私英雄致敬。这个誓言的追随者，是真正无私的保护者，他们冒着生命危险，愿意为保护他们所关心的人而死。这个誓言的圣骑士并不寻求荣耀，并且经常与那些寻求更大目标的人结盟。他们借出盾牌和剑是为了团队的更大利益，而不是为了自己的利益。
-Subclass/&OathOfAltruismTitle=利他主义誓言<color=red>[BETA]</color>
+Subclass/&OathOfAltruismTitle=利他主义誓言
