@@ -24,4 +24,4 @@ Reaction/&CustomReactionSpiritualShieldingTitle=Духовная защита!
 Reaction/&CustomReactionSpiritualShieldingReactDescription=Используйте свою реакцию, когда враг атакует вашего союзника, чтобы наложить на него щит.
 Reaction/&CustomReactionSpiritualShieldingReactTitle=Щит!
 Subclass/&OathOfAltruismDescription=Герои знают свое призвание, и Клятва Альтруизма взывает к тем самоотверженным героям, которые превыше всего ставят защиту кротких. Последователи этой Клятвы — настоящие бескорыстные защитники, которые рискуют своими жизнями и добровольно готовы умереть, чтобы защитить тех, кто им дорог. Паладины этой клятвы не ищут славы и часто объединяются с теми, кто ищет более высокую цель. Они отдают свои щиты и мечи на благо целей команды, а не своих собственных.
-Subclass/&OathOfAltruismTitle=Клятва альтруизма <color=red>[БЕТА]</color>
+Subclass/&OathOfAltruismTitle=Клятва альтруизма

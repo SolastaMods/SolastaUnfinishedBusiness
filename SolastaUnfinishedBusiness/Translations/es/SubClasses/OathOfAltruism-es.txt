@@ -24,4 +24,4 @@ Reaction/&CustomReactionSpiritualShieldingTitle=¡Protección espiritual!
 Reaction/&CustomReactionSpiritualShieldingReactDescription=Usa tu reacción cuando el enemigo ataque a tu aliado para lanzarle un escudo.
 Reaction/&CustomReactionSpiritualShieldingReactTitle=¡Blindaje!
 Subclass/&OathOfAltruismDescription=Los héroes conocen su vocación, y el Juramento de Altruismo llama la atención de aquellos héroes desinteresados ​​que ponen la protección de los mansos por encima de todo. Los seguidores de este Juramento son verdaderos protectores desinteresados, que arriesgan sus propias vidas y morirían voluntariamente para proteger a aquellos a quienes cuidan. Los paladines de este juramento no buscan la gloria y, a menudo, se alinean con aquellos que buscan un propósito mayor. Prestan sus escudos y espadas por el bien mayor de los objetivos del equipo, antes que los suyos propios.
-Subclass/&OathOfAltruismTitle=Juramento de Altruismo <color=red>[BETA]</color>
+Subclass/&OathOfAltruismTitle=Juramento de Altruismo
