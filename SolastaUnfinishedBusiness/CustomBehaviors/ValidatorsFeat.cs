@@ -118,7 +118,7 @@ internal static class ValidatorsFeat
 
         return (_, hero) =>
         {
-            var isNotClass = !hero.ClassesAndLevels.ContainsKey(characterClassDefinition);
+            var isNotClass = hero.ClassesHistory.Last() != characterClassDefinition;
             var guiFormat = Gui.Format("Tooltip/&PreReqIsNot", className);
 
             return isNotClass
@@ -147,7 +147,7 @@ internal static class ValidatorsFeat
 
             var levels = hero.ClassesHistory.Count;
 
-            return levels >= minLevels
+            return levels >= minLevels && hero.ClassesHistory.Last() == characterClassDefinition
                 ? (true, guiFormat)
                 : (false, Gui.Colorize(guiFormat, Gui.ColorFailure));
         };
