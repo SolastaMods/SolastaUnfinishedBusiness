@@ -17,6 +17,7 @@ internal static class RaceFeats
     private const string ElvenPrecision = "ElvenPrecision";
     private const string FadeAway = "FadeAway";
     private const string RevenantGreatSword = "RevenantGreatSword";
+    private const string SquatNimbleness = "SquatNimbleness";
 
     internal static void CreateFeats([NotNull] List<FeatDefinition> feats)
     {
@@ -174,6 +175,39 @@ internal static class RaceFeats
             .AddToDB();
 
         //
+        // Squat Nimbleness
+        //
+        var featSquatNimblenessDex = FeatDefinitionWithPrerequisitesBuilder
+            .Create("FeatSquatNimblenessDex")
+            .SetGuiPresentation(Category.Feat)
+            .SetFeatures(
+                AttributeModifierCreed_Of_Misaye,
+                DatabaseHelper.FeatureDefinitionMovementAffinitys.MovementAffinitySixLeaguesBoots,
+                FeatureDefinitionProficiencyBuilder
+                    .Create("ProficiencyFeatSquatNimblenessAthletics")
+                    .SetGuiPresentationNoContent(true)
+                    .SetProficiencies(ProficiencyType.SkillOrExpertise, DatabaseHelper.SkillDefinitions.Athletics.Name)
+                    .AddToDB())
+            .SetValidators(ValidatorsFeat.IsSmallRace)
+            .SetFeatFamily(SquatNimbleness)
+            .AddToDB();
+
+        var featSquatNimblenessStr = FeatDefinitionWithPrerequisitesBuilder
+            .Create("FeatSquatNimblenessStr")
+            .SetGuiPresentation(Category.Feat)
+            .SetFeatures(
+                AttributeModifierCreed_Of_Einar,
+                DatabaseHelper.FeatureDefinitionMovementAffinitys.MovementAffinitySixLeaguesBoots,
+                FeatureDefinitionProficiencyBuilder
+                    .Create("ProficiencyFeatSquatNimblenessAcrobatics")
+                    .SetGuiPresentationNoContent(true)
+                    .SetProficiencies(ProficiencyType.SkillOrExpertise, DatabaseHelper.SkillDefinitions.Acrobatics.Name)
+                    .AddToDB())
+            .SetValidators(ValidatorsFeat.IsSmallRace)
+            .SetFeatFamily(SquatNimbleness)
+            .AddToDB();
+
+        //
         // set feats to be registered in mod settings
         //
 
@@ -186,7 +220,9 @@ internal static class RaceFeats
             featElvenAccuracyWisdom,
             featElvenAccuracyCharisma,
             featRevenantGreatSwordDex,
-            featRevenantGreatSwordStr);
+            featRevenantGreatSwordStr,
+            featSquatNimblenessDex,
+            featSquatNimblenessStr);
 
         var featGroupsElvenAccuracy = GroupFeats.MakeGroupWithPreRequisite(
             "FeatGroupElvenAccuracy",
@@ -211,6 +247,13 @@ internal static class RaceFeats
             featRevenantGreatSwordDex,
             featRevenantGreatSwordStr);
 
+        var featGroupSquatNimbleness = GroupFeats.MakeGroupWithPreRequisite(
+            "FeatGroupSquatNimbleness",
+            SquatNimbleness,
+            ValidatorsFeat.IsSmallRace,
+            featSquatNimblenessDex,
+            featSquatNimblenessStr);
+
         GroupFeats.FeatGroupAgilityCombat.AddFeats(featDragonWings);
 
         GroupFeats.FeatGroupDefenseCombat.AddFeats(featGroupFadeAway);
@@ -221,6 +264,7 @@ internal static class RaceFeats
             featDragonWings,
             featGroupsElvenAccuracy,
             featGroupFadeAway,
-            featGroupRevenantGreatSword);
+            featGroupRevenantGreatSword,
+            featGroupSquatNimbleness);
     }
 }
