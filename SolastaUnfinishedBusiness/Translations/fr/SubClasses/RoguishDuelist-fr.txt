@@ -9,6 +9,6 @@ Feature/&ActionAffinityRoguishDuelistSwirlingDanceDescription=À partir du nivea
 Feature/&FeatureSetRoguishDuelistSureFootedDescription=Sans armure ou portant une armure légère sans bouclier, gagnez une CA et une initiative supplémentaires égales à la moitié de votre bonus de compétence. De plus, si votre main secondaire est vide, gagnez votre modificateur de compétence en tant que dégâts supplémentaires avec finesse ou avec des armes à distance.
 Feature/&FeatureSetRoguishDuelistSureFootedTitle=Pied sûr
 Feedback/&AdditionalDamageSureFootedFormat=Pied sûr
-Feedback/&AdditionalDamageSureFootedLine=Sure Footed inflige +{2} dégâts supplémentaires !
+Feedback/&AdditionalDamageSureFootedLine=Sure Footed inflige +{2} dégâts supplémentaires!
 Subclass/&RoguishDuelistDescription=Les duellistes possèdent une bravade fanfaronne. Ils sont vifs d'esprit, autonomes et dangereux pour les ennemis isolés.
 Subclass/&RoguishDuelistTitle=Duelliste

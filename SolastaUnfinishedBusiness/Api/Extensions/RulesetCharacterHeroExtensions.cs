@@ -131,7 +131,7 @@ internal static class RulesetCharacterHeroExtensions
     {
         var limit = 3;
 
-        if (Main.Settings.IncreaseMaxAttunedItems)
+        if (Main.Settings.IncreaseMaxAttunedItems && hero != null)
         {
             var characterLevel = hero.GetAttribute(AttributeDefinitions.CharacterLevel).CurrentValue;
 
