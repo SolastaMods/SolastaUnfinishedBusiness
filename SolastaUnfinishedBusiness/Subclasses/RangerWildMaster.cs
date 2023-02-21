@@ -661,14 +661,4 @@ internal sealed class RangerWildMaster : AbstractSubclass
                    character.powersUsedByMe.Any(p => p.sourceDefinition.Name.StartsWith(SummonSpiritBeastPower));
         }
     }
-
-    private class RetargetSpiritBeast : IRetargetCustomRestPower
-    {
-        public GameLocationCharacter GetTarget(RulesetCharacter character)
-        {
-            var spiritBeast = GetSpiritBeast(character);
-
-            return spiritBeast == null ? null : GameLocationCharacter.GetFromActor(spiritBeast);
-        }
-    }
 }
