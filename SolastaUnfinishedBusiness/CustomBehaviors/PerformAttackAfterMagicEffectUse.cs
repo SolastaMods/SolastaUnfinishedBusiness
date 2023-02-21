@@ -97,6 +97,14 @@ internal sealed class PerformAttackAfterMagicEffectUse : IPerformAttackAfterMagi
         {
             return attacks;
         }
+        
+        //get copy to be sure we don't break existing mode
+        var tmp = RulesetAttackMode.AttackModesPool.Get();
+        tmp.Copy(attackMode);
+        attackMode = tmp;
+
+        //set action type to be same as the one used for the magic effect
+        attackMode.ActionType = effect.ActionType;
 
         var attackModifier = new ActionModifier();
 
