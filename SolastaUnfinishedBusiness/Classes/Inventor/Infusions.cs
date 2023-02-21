@@ -233,16 +233,23 @@ internal static class Infusions
         #endregion
     }
 
-    private static FeatureDefinitionPower BuildInfuseItemPowerInvocation(int level,
-        string name, AssetReferenceSprite icon,
-        IsValidItemHandler filter, params FeatureDefinition[] features)
+    private static FeatureDefinitionPower BuildInfuseItemPowerInvocation(
+        int level,
+        string name,
+        AssetReferenceSprite icon,
+        IsValidItemHandler filter,
+        params FeatureDefinition[] features)
     {
         var power = BuildInfuseItemPower(name, name, icon, filter, features);
+
         BuildInfuseItemPowerInvocation(level, name, icon, power);
+
         return power;
     }
 
-    private static FeatureDefinitionPower BuildInfuseItemPowerInvocation(int level, string name,
+    private static FeatureDefinitionPower BuildInfuseItemPowerInvocation(
+        int level,
+        string name,
         AssetReferenceSprite icon,
         FeatureDefinitionPower power)
     {
@@ -253,6 +260,7 @@ internal static class Infusions
             .SetRequirements(level)
             .SetGrantedFeature(power)
             .AddToDB();
+
         return power;
     }
 
@@ -273,20 +281,35 @@ internal static class Infusions
         invocation.GuiPresentation.description = description;
     }
 
-    private static FeatureDefinitionPowerSharedPool BuildInfuseItemPower(string name, string guiName,
-        AssetReferenceSprite icon, IsValidItemHandler itemFilter, params FeatureDefinition[] features)
+    private static FeatureDefinitionPowerSharedPool BuildInfuseItemPower(
+        string name,
+        string guiName,
+        AssetReferenceSprite icon,
+        IsValidItemHandler itemFilter,
+        params FeatureDefinition[] features)
     {
         return BuildInfuseItemPower(name, guiName, icon, new InfusionItemFilter(itemFilter), features);
     }
 
-    private static FeatureDefinitionPowerSharedPool BuildInfuseItemPower(string name, string guiName,
-        AssetReferenceSprite icon, ICustomItemFilter itemFilter, params FeatureDefinition[] features)
+    private static FeatureDefinitionPowerSharedPool BuildInfuseItemPower(
+        string name,
+        string guiName,
+        AssetReferenceSprite icon,
+        ICustomItemFilter itemFilter,
+        params FeatureDefinition[] features)
     {
-        return FeatureDefinitionPowerSharedPoolBuilder.Create($"Power{name}")
+        var powerName = $"Power{name}";
+
+        return FeatureDefinitionPowerSharedPoolBuilder.Create(powerName)
             .SetGuiPresentation(guiName, Category.Feature, icon)
             .SetSharedPool(ActivationTime.Action, InventorClass.InfusionPool)
-            .SetCustomSubFeatures(ExtraCarefulTrackedItem.Marker, InventorClass.InfusionLimiter,
-                SkipEffectRemovalOnLocationChange.Always, PowerFromInvocation.Marker, itemFilter)
+            .SetCustomSubFeatures(
+                new ShouldTerminatePowerEffect(powerName),
+                ExtraCarefulTrackedItem.Marker,
+                SkipEffectRemovalOnLocationChange.Always,
+                InventorClass.InfusionLimiter,
+                PowerFromInvocation.Marker,
+                itemFilter)
             .SetEffectDescription(BuildInfuseItemWithFeaturesEffect(features))
             .AddToDB();
     }
@@ -294,8 +317,9 @@ internal static class Infusions
     private static void UpgradeInfusionPower(FeatureDefinitionPower power, int level,
         params FeatureDefinition[] features)
     {
-        power.AddCustomSubFeatures(new ModifyMagicEffectOnLevels(InventorClass.ClassName,
-            (level, BuildInfuseItemWithFeaturesEffect(features))));
+        power.AddCustomSubFeatures(
+            new ModifyMagicEffectOnLevels(InventorClass.ClassName,
+                (level, BuildInfuseItemWithFeaturesEffect(features))));
     }
 
     private static EffectDescription BuildInfuseItemWithFeaturesEffect(params FeatureDefinition[] features)
@@ -306,7 +330,8 @@ internal static class Infusions
             return new FeatureUnlockByLevel(f, 0);
         });
 
-        return EffectDescriptionBuilder.Create()
+        return EffectDescriptionBuilder
+            .Create()
             .SetAnimationMagicEffect(AnimationDefinitions.AnimationMagicEffect.Animation1)
             .SetTargetingData(Side.Ally, RangeType.Distance, 3, TargetType.Item,
                 itemSelectionType: ActionDefinitions.ItemSelectionType.Carried)
@@ -321,10 +346,12 @@ internal static class Infusions
 
     private static FeatureDefinitionPowerSharedPool BuildCreateItemPower(ItemDefinition item, string description)
     {
-        var power = FeatureDefinitionPowerSharedPoolBuilder.Create($"PowerCreate{item.name}")
+        var powerName = $"PowerCreate{item.name}";
+        var power = FeatureDefinitionPowerSharedPoolBuilder.Create(powerName)
             .SetGuiPresentation(Category.Feature, item)
             .SetSharedPool(ActivationTime.Action, InventorClass.InfusionPool)
             .SetCustomSubFeatures(
+                new ShouldTerminatePowerEffect(powerName),
                 ExtraCarefulTrackedItem.Marker,
                 SkipEffectRemovalOnLocationChange.Always,
                 InventorClass.InfusionLimiter,

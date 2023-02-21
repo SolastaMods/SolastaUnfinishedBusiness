@@ -1,5 +1,13 @@
 ﻿CHANGES:
 
+1.4.33.44:
+
+- added class bound Blessed Soul feat
+- added class bound Natural Fluidity feat
+- added class bound Spiritual Fluidity feat
+- added race bound Squat Nimbleness feat
+- improved Inventor infusions to endure on unconsciousness
+
 1.4.33.43:
 
 - added support to Deity based subclasses on builders

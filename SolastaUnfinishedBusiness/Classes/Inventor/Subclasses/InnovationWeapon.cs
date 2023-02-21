@@ -175,7 +175,10 @@ public static class InnovationWeapon
                 .SetParticleEffectParameters(ConjureElementalAir)
                 .Build())
             .SetUniqueInstance()
-            .SetCustomSubFeatures(SkipEffectRemovalOnLocationChange.Always, ValidatorsPowerUse.NotInCombat)
+            .SetCustomSubFeatures(
+                new ShouldTerminatePowerEffect(SummonSteelDefenderPower),
+                SkipEffectRemovalOnLocationChange.Always,
+                ValidatorsPowerUse.NotInCombat)
             .AddToDB();
     }
 

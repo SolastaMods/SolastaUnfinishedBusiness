@@ -114,12 +114,12 @@
   <EnableFlexibleRaces>false</EnableFlexibleRaces>
   <DisableClassPrerequisitesOnModFeats>false</DisableClassPrerequisitesOnModFeats>
   <DisableRacePrerequisitesOnModFeats>false</DisableRacePrerequisitesOnModFeats>
-  <AddHumanoidFavoredEnemyToRanger>true</AddHumanoidFavoredEnemyToRanger>
+  <AddHumanoidFavoredEnemyToRanger>false</AddHumanoidFavoredEnemyToRanger>
   <EnableEpicPointsAndArray>true</EnableEpicPointsAndArray>
   <TotalFeatsGrantedFirstLevel>1</TotalFeatsGrantedFirstLevel>
-  <EnablesAsiAndFeat>true</EnablesAsiAndFeat>
-  <EnableFeatsAtEvenLevels>true</EnableFeatsAtEvenLevels>
-  <EnableFighterArmamentAdroitness>true</EnableFighterArmamentAdroitness>
+  <EnablesAsiAndFeat>false</EnablesAsiAndFeat>
+  <EnableFeatsAtEvenLevels>false</EnableFeatsAtEvenLevels>
+  <EnableFighterArmamentAdroitness>false</EnableFighterArmamentAdroitness>
   <EnableLevel20>true</EnableLevel20>
   <EnableMulticlass>true</EnableMulticlass>
   <MaxAllowedClasses>3</MaxAllowedClasses>
@@ -282,7 +282,6 @@
     <string>FeatMagicInitiateWarlock</string>
     <string>FeatMagicInitiateWizard</string>
     <string>FeatDefensiveDuelist</string>
-    <string>FeatSpellSniperCleric</string>
     <string>FeatSpellSniperDruid</string>
     <string>FeatSpellSniperSorcerer</string>
     <string>FeatSpellSniperWarlock</string>
@@ -304,6 +303,11 @@
     <string>FeatAwakenTheBeastWithinWisdom</string>
     <string>FeatCunningEscape</string>
     <string>FeatPotentSpellcaster</string>
+    <string>FeatBlessedSoul</string>
+    <string>FeatSpiritualFluidity</string>
+    <string>FeatNaturalFluidity</string>
+    <string>FeatSquatNimblenessDex</string>
+    <string>FeatSquatNimblenessStr</string>
   </FeatEnabled>
   <FeatGroupSliderPosition>4</FeatGroupSliderPosition>
   <FeatGroupEnabled>
@@ -555,7 +559,6 @@
       </key>
       <value>
         <ArrayOfString>
-          <string>EnsnaringStrike</string>
           <string>SearingSmite</string>
           <string>ThunderousSmite</string>
           <string>WrathfulSmite</string>
@@ -573,6 +576,7 @@
       </key>
       <value>
         <ArrayOfString>
+          <string>EnsnaringStrike</string>
           <string>SearingSmite</string>
         </ArrayOfString>
       </value>
@@ -833,8 +837,7 @@
   <AllowAllPlayersOnNarrativeSequences>false</AllowAllPlayersOnNarrativeSequences>
   <FasterTimeModifier>1.5</FasterTimeModifier>
   <EncounterPercentageChance>5</EncounterPercentageChance>
-  <DefaultPartyHeroes>
-  </DefaultPartyHeroes>
+  <DefaultPartyHeroes />
   <DontFollowCharacterInBattle>true</DontFollowCharacterInBattle>
   <DontFollowMargin>5</DontFollowMargin>
   <EnableStatsOnHeroTooltip>true</EnableStatsOnHeroTooltip>
@@ -1063,7 +1066,4 @@
   <EnableEnemiesControlledByPlayer>false</EnableEnemiesControlledByPlayer>
   <EnableHeroesControlledByComputer>false</EnableHeroesControlledByComputer>
   <DebugDisableVerifyDefinitionNameIsNotInUse>false</DebugDisableVerifyDefinitionNameIsNotInUse>
-  <DebugLogDefinitionCreation>false</DebugLogDefinitionCreation>
-  <DebugLogFieldInitialization>false</DebugLogFieldInitialization>
-  <DebugLogVariantMisuse>false</DebugLogVariantMisuse>
 </Settings>
