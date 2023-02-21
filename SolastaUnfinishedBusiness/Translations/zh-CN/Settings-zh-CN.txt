@@ -30,6 +30,7 @@ ModUi/&AllRecipesInDm=所有配方加入地城制作
 ModUi/&AltOnlyHighlightItemsInPartyFieldOfView=<color=#1E81B0>ALT</color>键只高亮队伍可见视野范围内的互动物件<color=#F0DAA0>【仅限自定义地牢】</color>
 ModUi/&ApplySRDWeightToFoodRations=将口粮的重量减少至2磅
 ModUi/&ArcaneShieldstaffOptions=允许<color=#D89555>奥术盾杖</color>被任意职业同调
+ModUi/&Backgrounds=<color=#F0DAA0>背景：</color>
 ModUi/&Basic=<color=#F0DAA0>基础：</color>
 ModUi/&Bestiary=生物手册
 ModUi/&BestowCurseNoConcentrationRequiredForSlotLevel5OrAbove=<color=#D89555>降咒</color>在以5环或更高法术位施放时无需专注
@@ -52,6 +53,7 @@ ModUi/&CriticalOption1=. 1：将伤害骰子的最大结果加到攻击伤害中
 ModUi/&CriticalOption2=. 2：继续重新掷任何掷出最高可能结果的伤害骰子，并将其添加到总伤害中
 ModUi/&CriticalOption3=. 3：双倍攻击的总伤害而不是掷额外的骰子。 <i><color=#F0DAA0>[(XdY+Z)*2]</color></i>
 ModUi/&DeadEyeAndPowerAttackBaseBaseValue=<color=white>设置神枪手与猛力攻击的基础修正值</color>\n<i><color=#F0DAA0>[公式是 -mod 命中/mod + 熟练加值伤害]</color></i>
+ModUi/&Deities=<color=#F0DAA0>神灵：</color>
 ModUi/&DisableAutoEquip=禁止自动装备物品栏的物品
 ModUi/&DisableClassPrerequisitesOnModFeats=无视此MOD提供的部分专长所需要的种族先决条件
 ModUi/&DisableRacePrerequisitesOnModFeats=无视此MOD提供的部分专长所需要的种族先决条件
@@ -130,6 +132,7 @@ ModUi/&House=<color=#F0DAA0>房屋:</color>
 ModUi/&IdentifyAfterRest=添加短休或长休后鉴定魔法物品的能力
 ModUi/&IgnoreHandXbowFreeHandRequirements=不需要空闲的手来使用手弩
 ModUi/&IncreaseGameTimeBy=增加游戏时间
+ModUi/&IncreaseMaxAttunedItems=在第 10 级将最大同调物品增加到 4 个，在第 18 级增加到 5 个
 ModUi/&IncreaseSenseNormalVision=<color=white>提高<color=#D89555>正常视觉</color>距离以允许长距离攻击</color><color=#F0DAA0>【需要重新启动游戏】</color>
 ModUi/&IncreaseSenseNormalVisionHelp=<i><color=#F0DAA0>【40是一个相对理想的距离，以避免敌人从过远的距离加入战斗】</color></i>
 ModUi/&InitialChoices=<color=#F0DAA0>初始选择：</color>
@@ -218,4 +221,3 @@ ModUi/&UnlockSkinColors=解锁全部皮肤颜色
 ModUi/&UseHeightOneCylinderEffect=施放<color=#D89555>艾伐黑触手、纠缠术、油腻术</color> <i><color=#F0DAA0>【方形】</color></i> or <color=#D89555>荆棘丛生</color> <i><color=#F0DAA0>【圆形】</color></i>时，显示高度为1的圆柱效果范围
 ModUi/&UseOfficialAdvantageDisadvantageRules=应用官方的优势/劣势规则
 ModUi/&Visuals=<color=#F0DAA0>视效：</color> <b><i><color=#C04040E0>【需要重启游戏】</color></i></b>
-ModUi/&IncreaseMaxAttunedItems=在第 10 级将最大同调物品增加到 4 个，在第 18 级增加到 5 个
