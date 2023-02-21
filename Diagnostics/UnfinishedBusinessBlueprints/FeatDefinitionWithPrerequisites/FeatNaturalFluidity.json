@@ -12,6 +12,7 @@
   "familyTag": "",
   "knownFeatsPrerequisite": [],
   "features": [
+    "Definition:PowerFeatNaturalFluidity:4a8f985d-0a1b-5000-8086-776cb9acba75",
     "Definition:PowerFeatNaturalFluidityGainSlotPool:b2cc1022-4e6d-5efd-8d1d-4979ba86da8b",
     "Definition:PowerFeatNaturalFluidityWildShapePool:93dbdc95-5b09-5bb6-879a-2c26e8af0036"
   ],

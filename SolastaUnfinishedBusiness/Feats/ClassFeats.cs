@@ -231,17 +231,23 @@ internal static class ClassFeats
     {
         const string NAME = "FeatNaturalFluidity";
 
+        var power = FeatureDefinitionPowerBuilder
+            .Create($"Power{NAME}")
+            .SetGuiPresentationNoContent(true)
+            .SetUsesFixed(ActivationTime.BonusAction, RechargeRate.LongRest)
+            .AddToDB();
+
         //
         // Gain Slots
         //
 
         var powerGainSlotPoolList = new List<FeatureDefinitionPower>();
 
-        var powerGainSlotPool = FeatureDefinitionPowerBuilder
+        var powerGainSlotPool = FeatureDefinitionPowerSharedPoolBuilder
             .Create($"Power{NAME}GainSlotPool")
             .SetGuiPresentation(Category.Feature,
                 Sprites.GetSprite("PowerGainSlot", Resources.PowerGainSlot, 128, 64))
-            .SetUsesFixed(ActivationTime.BonusAction, RechargeRate.LongRest)
+            .SetSharedPool(ActivationTime.BonusAction, power)
             .AddToDB();
 
         for (var i = 3; i >= 1; i--)
@@ -251,7 +257,7 @@ internal static class ClassFeats
                 .SetGuiPresentation(
                     Gui.Format("Feature/&PowerFeatNaturalFluidityGainSlotTitle", i.ToString()),
                     Gui.Format("Feature/&PowerFeatNaturalFluidityGainSlotDescription", i.ToString()))
-                .SetSharedPool(ActivationTime.BonusAction, powerGainSlotPool)
+                .SetSharedPool(ActivationTime.BonusAction, power)
                 .SetEffectDescription(
                     EffectDescriptionBuilder
                         .Create()
@@ -287,11 +293,11 @@ internal static class ClassFeats
 
         var powerGainWildShapeList = new List<FeatureDefinitionPower>();
 
-        var powerWildShapePool = FeatureDefinitionPowerBuilder
+        var powerWildShapePool = FeatureDefinitionPowerSharedPoolBuilder
             .Create($"Power{NAME}WildShapePool")
             .SetGuiPresentation(Category.Feature,
                 Sprites.GetSprite("PowerGainWildShape", Resources.PowerGainChannelDivinity, 128, 64))
-            .SetUsesFixed(ActivationTime.BonusAction, RechargeRate.LongRest)
+            .SetSharedPool(ActivationTime.BonusAction, power)
             .AddToDB();
 
         for (var i = 8; i >= 3; i--)
@@ -301,8 +307,7 @@ internal static class ClassFeats
 
             var wildShapeAmount = i switch
             {
-                >= 7 => 3,
-                >= 5 => 2,
+                >= 6 => 2,
                 >= 3 => 1,
                 _ => 0
             };
@@ -314,17 +319,20 @@ internal static class ClassFeats
                         wildShapeAmount.ToString()),
                     Gui.Format("Feature/&PowerFeatNaturalFluidityGainWildShapeFromSlotDescription",
                         wildShapeAmount.ToString(), i.ToString()))
-                .SetSharedPool(ActivationTime.BonusAction, powerWildShapePool)
+                .SetSharedPool(ActivationTime.BonusAction, power)
                 .SetCustomSubFeatures(
                     new ValidatorsPowerUse(
                         c =>
                         {
                             var remaining = 0;
 
-                            c.GetClassSpellRepertoire(CharacterClassDefinitions.Cleric)?
+                            c.GetClassSpellRepertoire(CharacterClassDefinitions.Druid)?
                                 .GetSlotsNumber(a, out remaining, out _);
 
-                            return remaining > 0;
+                            var rulesetUsablePower = c.UsablePowers.Find(x => x.PowerDefinition == PowerDruidWildShape);
+
+                            return remaining > 0 && rulesetUsablePower != null &&
+                                   rulesetUsablePower.RemainingUses < rulesetUsablePower.maxUses;
                         }))
                 .AddToDB();
 
@@ -337,7 +345,7 @@ internal static class ClassFeats
             FeatDefinitionWithPrerequisitesBuilder
                 .Create(NAME)
                 .SetGuiPresentation(Category.Feat)
-                .SetFeatures(powerWildShapePool, powerGainSlotPool)
+                .SetFeatures(power, powerWildShapePool, powerGainSlotPool)
                 .SetValidators(ValidatorsFeat.IsDruidLevel4)
                 .SetCustomSubFeatures(new OnAfterActionFeatureFeatNaturalFluidity())
                 .AddToDB();
@@ -367,15 +375,19 @@ internal static class ClassFeats
                     {
                         var wildShapeAmount = level switch
                         {
-                            >= 7 => 3,
-                            >= 5 => 2,
+                            >= 6 => 2,
                             >= 3 => 1,
                             _ => 0
                         };
-                        
-                        rulesetUsablePower.remainingUses += wildShapeAmount;
+
+                        while (wildShapeAmount-- > 0 && rulesetUsablePower.RemainingUses < rulesetUsablePower.MaxUses)
+                        {
+                            rulesetUsablePower.remainingUses++;
+                        }
+
+                        character.RefreshUsablePower(rulesetUsablePower);
                     }
-                    
+
                     break;
                 }
                 case CharacterActionUsePower characterActionUsePowerGainSlot when
@@ -451,17 +463,23 @@ internal static class ClassFeats
     {
         const string NAME = "FeatSpiritualFluidity";
 
+        var power = FeatureDefinitionPowerBuilder
+            .Create($"Power{NAME}")
+            .SetGuiPresentationNoContent(true)
+            .SetUsesFixed(ActivationTime.BonusAction, RechargeRate.LongRest)
+            .AddToDB();
+
         //
         // Gain Slots
         //
 
         var powerGainSlotPoolList = new List<FeatureDefinitionPower>();
 
-        var powerGainSlotPool = FeatureDefinitionPowerBuilder
+        var powerGainSlotPool = FeatureDefinitionPowerSharedPoolBuilder
             .Create($"Power{NAME}GainSlotPool")
             .SetGuiPresentation(Category.Feature,
                 Sprites.GetSprite("PowerGainSlot", Resources.PowerGainSlot, 128, 64))
-            .SetUsesFixed(ActivationTime.BonusAction, RechargeRate.LongRest)
+            .SetSharedPool(ActivationTime.BonusAction, power)
             .AddToDB();
 
         for (var i = 3; i >= 1; i--)
@@ -471,7 +489,7 @@ internal static class ClassFeats
                 .SetGuiPresentation(
                     Gui.Format("Feature/&PowerFeatSpiritualFluidityGainSlotTitle", i.ToString()),
                     Gui.Format("Feature/&PowerFeatSpiritualFluidityGainSlotDescription", i.ToString()))
-                .SetSharedPool(ActivationTime.BonusAction, powerGainSlotPool)
+                .SetSharedPool(ActivationTime.BonusAction, power)
                 .SetEffectDescription(
                     EffectDescriptionBuilder
                         .Create()
@@ -506,7 +524,7 @@ internal static class ClassFeats
         // Gain Channel Divinity
         //
 
-        var pickFeatList = new List<FeatureDefinitionAttributeModifier>()
+        var pickFeatList = new List<FeatureDefinitionAttributeModifier>
         {
             AttributeModifierClericChannelDivinityAdd,
             AttributeModifierClericChannelDivinityAdd,
@@ -515,11 +533,11 @@ internal static class ClassFeats
 
         var powerGainChannelDivinityList = new List<FeatureDefinitionPower>();
 
-        var powerChannelDivinityPool = FeatureDefinitionPowerBuilder
+        var powerChannelDivinityPool = FeatureDefinitionPowerSharedPoolBuilder
             .Create($"Power{NAME}ChannelDivinityPool")
             .SetGuiPresentation(Category.Feature,
                 Sprites.GetSprite("PowerGainChannelDivinity", Resources.PowerGainChannelDivinity, 128, 64))
-            .SetUsesFixed(ActivationTime.BonusAction, RechargeRate.LongRest)
+            .SetSharedPool(ActivationTime.BonusAction, power)
             .AddToDB();
 
         for (var i = 8; i >= 3; i--)
@@ -542,7 +560,7 @@ internal static class ClassFeats
                         channelDivinityAmount.ToString()),
                     Gui.Format("Feature/&PowerFeatSpiritualFluidityGainChannelDivinityFromSlotDescription",
                         channelDivinityAmount.ToString(), i.ToString()))
-                .SetSharedPool(ActivationTime.BonusAction, powerChannelDivinityPool)
+                .SetSharedPool(ActivationTime.BonusAction, power)
                 .SetEffectDescription(
                     EffectDescriptionBuilder
                         .Create()
@@ -583,7 +601,7 @@ internal static class ClassFeats
             FeatDefinitionWithPrerequisitesBuilder
                 .Create(NAME)
                 .SetGuiPresentation(Category.Feat)
-                .SetFeatures(powerChannelDivinityPool, powerGainSlotPool)
+                .SetFeatures(power, powerChannelDivinityPool, powerGainSlotPool)
                 .SetValidators(ValidatorsFeat.IsClericLevel4)
                 .SetCustomSubFeatures(new OnAfterActionFeatureFeatSpiritualFluidity())
                 .AddToDB();
