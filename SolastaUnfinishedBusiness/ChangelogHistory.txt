@@ -1,5 +1,12 @@
 ﻿CHANGES:
 
+1.4.33.44:
+
+- added Blessed Soul feat [Class Bound]
+- added Natural Fluidity feat [Class Bound]
+- added Spiritual Fluidity feat [Class Bound]
+- added Squat Nimbleness feat [Race Bound]
+
 1.4.33.43:
 
 - added support to Deity based subclasses on builders
