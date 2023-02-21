@@ -2,10 +2,11 @@
 
 1.4.33.44:
 
-- added Blessed Soul feat [Class Bound]
-- added Natural Fluidity feat [Class Bound]
-- added Spiritual Fluidity feat [Class Bound]
-- added Squat Nimbleness feat [Race Bound]
+- added class bound Blessed Soul feat
+- added class bound Natural Fluidity feat
+- added class bound Spiritual Fluidity feat
+- added race bound Squat Nimbleness feat
+- improved Inventor infusions to endure on unconsciousness
 
 1.4.33.43:
 
