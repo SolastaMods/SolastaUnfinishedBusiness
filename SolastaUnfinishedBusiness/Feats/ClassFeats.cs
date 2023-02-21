@@ -81,7 +81,7 @@ internal static class ClassFeats
                     .Create($"Condition{NAME}")
                     .SetGuiPresentationNoContent()
                     .SetSilent(Silent.WhenAddedOrRemoved)
-                    .SetAmountOrigin(ExtraOriginOfAmount.SourceClassLevel)
+                    .SetAmountOrigin(ExtraOriginOfAmount.SourceClassLevel, DruidClass)
                     .SetFeatures(hpBonus, hpBonus) // 2 HP per level
                     .AddToDB())
             .AddToDB();

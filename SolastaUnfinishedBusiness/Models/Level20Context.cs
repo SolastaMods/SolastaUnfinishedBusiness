@@ -195,7 +195,8 @@ internal static class Level20Context
             {
                 new(AttributeModifierBarbarianBrutalCriticalAdd, 13),
                 new(PowerBarbarianPersistentRageStart, 15),
-                new(AttributeModifierBarbarianRageDamageAdd, 16)
+                new(AttributeModifierBarbarianRageDamageAdd, 16),
+                new(FeatureSetAbilityScoreChoice, 16)
             });
         }
 

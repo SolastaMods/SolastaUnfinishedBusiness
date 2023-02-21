@@ -8,10 +8,10 @@ using Newtonsoft.Json.Serialization;
 
 namespace SolastaUnfinishedBusiness.DataMiner
 {
-    internal class DataminerContractResolver : DefaultContractResolver
+    internal class DataMinerContractResolver : DefaultContractResolver
     {
-        private readonly DefinitionConverter DefinitionConverter = new();
-        private readonly DefinitionReferenceConverter DefinitionReferenceConverter = new();
+        private readonly DefinitionConverter definitionConverter = new();
+        private readonly DefinitionReferenceConverter definitionReferenceConverter = new();
 
         protected override List<MemberInfo> GetSerializableMembers(Type objectType)
         {
@@ -25,30 +25,33 @@ namespace SolastaUnfinishedBusiness.DataMiner
                 return null;
             }
 
-            if (typeof(BaseDefinition).IsAssignableFrom(objectType))
+            if (!typeof(BaseDefinition).IsAssignableFrom(objectType))
             {
-                if (DefinitionConverter.CanRead && DefinitionConverter.CanWrite)
-                {
-                    return DefinitionConverter;
-                }
-
-                return DefinitionReferenceConverter;
+                return null;
             }
 
-            return null;
+            if (definitionConverter.CanRead && definitionConverter.CanWrite)
+            {
+                return definitionConverter;
+            }
+
+            return definitionReferenceConverter;
         }
 
         protected override JsonContract CreateContract(Type objectType)
         {
             var contract = base.CreateContract(objectType);
-            if (typeof(BaseDefinition).IsAssignableFrom(objectType))
+
+            if (!typeof(BaseDefinition).IsAssignableFrom(objectType))
             {
-                contract.IsReference = false;
-                contract.OnSerializedCallbacks.Add((_, __) => contract.Converter = DefinitionConverter);
-                contract.OnSerializingCallbacks.Add((_, __) => contract.Converter = DefinitionReferenceConverter);
-                contract.OnDeserializedCallbacks.Add((_, __) => contract.Converter = DefinitionConverter);
-                contract.OnDeserializingCallbacks.Add((_, __) => contract.Converter = DefinitionReferenceConverter);
+                return contract;
             }
+
+            contract.IsReference = false;
+            contract.OnSerializedCallbacks.Add((_, __) => contract.Converter = definitionConverter);
+            contract.OnSerializingCallbacks.Add((_, __) => contract.Converter = definitionReferenceConverter);
+            contract.OnDeserializedCallbacks.Add((_, __) => contract.Converter = definitionConverter);
+            contract.OnDeserializingCallbacks.Add((_, __) => contract.Converter = definitionReferenceConverter);
 
             return contract;
         }

@@ -1,4 +1,4 @@
-﻿#if DEBUG
+﻿#if false
 using System;
 using JetBrains.Annotations;
 

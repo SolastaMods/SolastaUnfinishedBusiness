@@ -1,11 +1,11 @@
 ﻿Feature/&AdditionalDamageRoguishDuelistDaringDuelDescription=Non hai bisogno di vantaggio al tiro per colpire per usare il tuo attacco furtivo contro una creatura se sei entro 1,5 metri da essa, nessun'altra creatura si trova entro 1,5 metri da te e non hai svantaggio al tiro per colpire. Tutte le altre regole dell'Attacco Furtivo si applicano ancora.
 Feature/&AdditionalDamageRoguishDuelistDaringDuelTitle=Duello audace
-Feature/&AdditionalDamageRoguishDuelistSureFootedDescription=Ottieni il tuo modificatore di competenza come danno extra con attacchi di precisione o con armi a distanza.
+Feature/&AdditionalDamageRoguishDuelistSureFootedDescription=Ottieni il tuo modificatore di competenza come danno extra con precisione o attacchi con armi a distanza.
 Feature/&AdditionalDamageRoguishDuelistSureFootedTitle=Sicuro di piede
 Feature/&AttributeModifierRoguishDuelistSureFootedDescription=Ottieni CA aggiuntiva pari alla metà del tuo bonus di competenza.
 Feature/&AttributeModifierRoguishDuelistSureFootedTitle=Sicuro di piede
 Feature/&ActionAffinityRoguishDuelistSwirlingDanceTitle=Danza vorticosa
-Feature/&ActionAffinityRoguishDuelistSwirlingDanceDescription=A partire dal 9° livello, quando una creatura ti manca con un tiro per colpire in mischia, puoi usare la tua reazione per effettuare un attacco immediato contro quella creatura.
+Feature/&ActionAffinityRoguishDuelistSwirlingDanceDescription=A partire dal 9° livello, quando una creatura ti manca con un tiro per colpire in mischia, puoi usare la tua reazione per effettuare un attacco di opportunità immediato contro quella creatura.
 Feature/&FeatureSetRoguishDuelistSureFootedDescription=Mentre è disarmato o indossa un'armatura leggera senza scudo, ottiene CA e iniziativa addizionali pari alla metà del proprio bonus di competenza. Inoltre, se la tua mano secondaria è vuota, ottieni il tuo modificatore di competenza come danno extra con precisione o attacchi con armi a distanza.
 Feature/&FeatureSetRoguishDuelistSureFootedTitle=Sicuro di piede
 Feedback/&AdditionalDamageSureFootedFormat=Sicuro di piede
