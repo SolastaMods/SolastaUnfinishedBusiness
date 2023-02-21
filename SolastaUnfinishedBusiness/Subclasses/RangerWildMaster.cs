@@ -369,15 +369,6 @@ internal sealed class RangerWildMaster : AbstractSubclass
 
     internal override DeityDefinition DeityDefinition { get; }
 
-    private static RulesetCharacter GetSpiritBeast(RulesetCharacter character)
-    {
-        var spiritBeastEffect =
-            character.powersUsedByMe.Find(p => p.sourceDefinition.Name.StartsWith(SummonSpiritBeastPower));
-        var summons = EffectHelpers.GetSummonedCreatures(spiritBeastEffect);
-
-        return summons.Empty() ? null : summons[0];
-    }
-
     private static FeatureDefinitionPower BuildSpiritBeastPower(
         FeatureDefinitionPower sharedPoolPower,
         MonsterDefinition monsterDefinition,
@@ -409,7 +400,10 @@ internal sealed class RangerWildMaster : AbstractSubclass
                 .SetParticleEffectParameters(ConjureElementalAir)
                 .Build())
             .SetUniqueInstance()
-            .SetCustomSubFeatures(SkipEffectRemovalOnLocationChange.Always, ValidatorsPowerUse.NotInCombat)
+            .SetCustomSubFeatures(
+                new ShouldTerminatePowerEffect(name),
+                SkipEffectRemovalOnLocationChange.Always,
+                ValidatorsPowerUse.NotInCombat)
             .AddToDB();
     }
 
@@ -659,16 +653,6 @@ internal sealed class RangerWildMaster : AbstractSubclass
         {
             return ServiceRepository.GetService<IGameLocationBattleService>().IsBattleInProgress &&
                    character.powersUsedByMe.Any(p => p.sourceDefinition.Name.StartsWith(SummonSpiritBeastPower));
-        }
-    }
-
-    private class RetargetSpiritBeast : IRetargetCustomRestPower
-    {
-        public GameLocationCharacter GetTarget(RulesetCharacter character)
-        {
-            var spiritBeast = GetSpiritBeast(character);
-
-            return spiritBeast == null ? null : GameLocationCharacter.GetFromActor(spiritBeast);
         }
     }
 }

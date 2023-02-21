@@ -1,4 +1,5 @@
-- added support to Deity based subclasses on builders
-- fixed Duelist subclass description
-- fixed Grenadier bombs DC to always use INT when multicaster
-- fixed Spell Sniper offering spells as cantrips
+- added class bound Blessed Soul feat
+- added class bound Natural Fluidity feat
+- added class bound Spiritual Fluidity feat
+- added race bound Squat Nimbleness feat
+- improved Inventor infusions to endure on unconsciousness
