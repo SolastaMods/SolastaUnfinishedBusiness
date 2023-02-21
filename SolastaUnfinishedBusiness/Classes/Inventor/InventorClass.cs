@@ -699,12 +699,16 @@ internal static class InventorClass
         var description = Gui.Format("Item/&CreateSpellStoringWandFormatDescription", spell.FormatTitle(),
             Gui.ToRoman(spell.spellLevel));
 
+        var powerName = $"PowerCreate{item.name}";
         var power = FeatureDefinitionPowerSharedPoolBuilder
-            .Create($"PowerCreate{item.name}")
+            .Create(powerName)
             .SetGuiPresentation(spell.FormatTitle(), description, spell)
             .SetSharedPool(ActivationTime.Action, pool)
             .SetUniqueInstance()
-            .SetCustomSubFeatures(ExtraCarefulTrackedItem.Marker, SkipEffectRemovalOnLocationChange.Always)
+            .SetCustomSubFeatures(
+                new ShouldTerminatePowerEffect(powerName),
+                ExtraCarefulTrackedItem.Marker,
+                SkipEffectRemovalOnLocationChange.Always)
             .SetEffectDescription(EffectDescriptionBuilder
                 .Create()
                 .SetAnimationMagicEffect(AnimationDefinitions.AnimationMagicEffect.Animation1)
