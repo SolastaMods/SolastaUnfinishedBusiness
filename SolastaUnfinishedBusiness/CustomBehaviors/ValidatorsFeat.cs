@@ -45,6 +45,14 @@ internal static class ValidatorsFeat
     internal static readonly Func<FeatDefinition, RulesetCharacterHero, (bool result, string output)> IsGnome =
         ValidateIsRace(GnomeRaceBuilder.RaceGnome.FormatTitle(), GnomeRaceBuilder.RaceGnome);
 
+    internal static readonly Func<FeatDefinition, RulesetCharacterHero, (bool result, string output)> IsSmallRace =
+        ValidateIsRace(
+            $"{Dwarf.FormatTitle()}, {GnomeRaceBuilder.RaceGnome.FormatTitle()}, {Halfling.FormatTitle()}",
+            Dwarf, DwarfHill, DwarfSnow,
+            GrayDwarfSubraceBuilder.SubraceGrayDwarf,
+            GnomeRaceBuilder.RaceGnome,
+            Halfling, HalflingIsland, HalflingMarsh);
+
 #if false
     internal static Func<FeatDefinition, RulesetCharacterHero, (bool result, string output)> HasCantrips()
     {
