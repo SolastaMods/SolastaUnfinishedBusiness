@@ -86,3 +86,5 @@ Feat/&FeatGroupDefenseCombatDescription={0}
 Feat/&FeatGroupDefenseCombatTitle=Kampf: Verteidigung
 Feat/&FeatGroupSupportCombatDescription={0}
 Feat/&FeatGroupSupportCombatTitle=Kampf: Unterstützung
+Feat/&FeatGroupPotentSpellcasterDescription=Du kannst deinen Zauberzauberer-Attributmodifikator zu dem Schaden hinzufügen, den du mit einem Cantrip in deinem Repertoire verursachst.
+Feat/&FeatGroupPotentSpellcasterTitle=Starker Zauberer

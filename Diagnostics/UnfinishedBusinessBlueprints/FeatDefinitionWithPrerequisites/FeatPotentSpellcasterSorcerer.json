@@ -15,8 +15,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
-    "title": "Feat/&FeatPotentSpellcasterTitle",
-    "description": "Feat/&FeatPotentSpellcasterDescription",
+    "title": "Potent Spellcaster [Sorcerer]",
+    "description": "You can add your spellcaster attribute modifier to the damage you deal with any Sorcerer cantrip in your repertoire.",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -36,7 +36,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "e79833b9-04a7-5e85-b582-bc6f6d684bba",
+  "guid": "615f0f15-ddac-5b65-b72d-193ed4b2ebeb",
   "contentPack": 9999,
-  "name": "FeatPotentSpellcaster"
+  "name": "FeatPotentSpellcasterSorcerer"
 }

@@ -86,3 +86,5 @@ Feat/&FeatGroupDefenseCombatDescription={0}
 Feat/&FeatGroupDefenseCombatTitle=Combattimento: difesa
 Feat/&FeatGroupSupportCombatDescription={0}
 Feat/&FeatGroupSupportCombatTitle=Combattimento: Supporto
+Feat/&FeatGroupPotentSpellcasterDescription=Puoi aggiungere il tuo modificatore di attributo incantatore al danno che infliggi con qualsiasi trucchetto nel tuo repertorio.
+Feat/&FeatGroupPotentSpellcasterTitle=Potente Incantatore

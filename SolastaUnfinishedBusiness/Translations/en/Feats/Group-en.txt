@@ -86,3 +86,5 @@ Feat/&FeatGroupDefenseCombatDescription={0}
 Feat/&FeatGroupDefenseCombatTitle=Combat: Defense
 Feat/&FeatGroupSupportCombatDescription={0}
 Feat/&FeatGroupSupportCombatTitle=Combat: Support
+Feat/&FeatGroupPotentSpellcasterDescription=You can add your spellcaster attribute modifier to the damage you deal with any cantrip in your repertoire.
+Feat/&FeatGroupPotentSpellcasterTitle=Potent Spellcaster

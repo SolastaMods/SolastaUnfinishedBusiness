@@ -86,3 +86,5 @@ Feat/&FeatGroupDefenseCombatDescription={0}
 Feat/&FeatGroupDefenseCombatTitle=战斗：防御
 Feat/&FeatGroupSupportCombatDescription={0}
 Feat/&FeatGroupSupportCombatTitle=战斗：支援
+Feat/&FeatGroupPotentSpellcasterDescription=你可以将你的施法者属性修正值添加到你对你的曲目中任何戏法造成的伤害中。
+Feat/&FeatGroupPotentSpellcasterTitle=强大的施法者
