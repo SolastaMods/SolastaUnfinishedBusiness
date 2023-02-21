@@ -369,15 +369,6 @@ internal sealed class RangerWildMaster : AbstractSubclass
 
     internal override DeityDefinition DeityDefinition { get; }
 
-    private static RulesetCharacter GetSpiritBeast(RulesetCharacter character)
-    {
-        var spiritBeastEffect =
-            character.powersUsedByMe.Find(p => p.sourceDefinition.Name.StartsWith(SummonSpiritBeastPower));
-        var summons = EffectHelpers.GetSummonedCreatures(spiritBeastEffect);
-
-        return summons.Empty() ? null : summons[0];
-    }
-
     private static FeatureDefinitionPower BuildSpiritBeastPower(
         FeatureDefinitionPower sharedPoolPower,
         MonsterDefinition monsterDefinition,
