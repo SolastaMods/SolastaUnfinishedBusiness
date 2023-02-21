@@ -244,10 +244,18 @@ internal sealed class WayOfTheDiscordance : AbstractSubclass
                 // setup explosion power and increase damage dice based on Monk progression
                 var usablePower = new RulesetUsablePower(_featureDefinitionPower, null, null);
                 var effectPower = new RulesetEffectPower(rulesetAttacker, usablePower);
+                var damageForm = effectPower.EffectDescription.FindFirstDamageForm();
+                var monkLevel = GetMonkLevel(rulesetAttacker);
 
-                effectPower.EffectDescription.FindFirstDamageForm().DieType =
-                    FeatureDefinitionAttackModifiers.AttackModifierMonkMartialArtsImprovedDamage.DieTypeByRankTable
-                        .Find(x => x.Rank == GetMonkLevel(rulesetAttacker)).DieType;
+                if (damageForm == null || monkLevel <= 0)
+                {
+                    continue;
+                }
+
+                damageForm.BonusDamage =
+                    rulesetAttacker.GetAttribute(AttributeDefinitions.ProficiencyBonus).CurrentValue / 2;
+                damageForm.DieType = FeatureDefinitionAttackModifiers.AttackModifierMonkMartialArtsImprovedDamage
+                    .DieTypeByRankTable.Find(x => x.Rank == monkLevel).DieType;
 
                 effectPower.EffectDescription.effectParticleParameters.targetParticleReference =
                     effectPower.EffectDescription.effectParticleParameters.conditionStartParticleReference;
