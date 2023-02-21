@@ -27,6 +27,7 @@ internal static class ClassFeats
         var featBlessedSoul = BuildBlessedSoul();
         var featCallForCharge = BuildCallForCharge();
         var featCunningEscape = BuildCunningEscape();
+        var featNaturalFluidity = BuildNaturalFluidity();
         var featPotentSpellcaster = BuildPotentSpellcaster();
         var featSpiritualFluidity = BuildSpiritualFluidity();
 
@@ -36,6 +37,7 @@ internal static class ClassFeats
             featBlessedSoul,
             featCallForCharge,
             featCunningEscape,
+            featNaturalFluidity,
             featPotentSpellcaster,
             featSpiritualFluidity);
 
@@ -52,6 +54,7 @@ internal static class ClassFeats
             featBlessedSoul,
             featCallForCharge,
             featCunningEscape,
+            featNaturalFluidity,
             featPotentSpellcaster,
             featSpiritualFluidity,
             awakenTheBeastWithinGroup);
@@ -217,6 +220,180 @@ internal static class ClassFeats
                 TurnOccurenceType.EndOfTurn, actingCharacter.Guid, actingCharacter.CurrentFaction.Name);
 
             actingCharacter.AddConditionOfCategory(AttributeDefinitions.TagCombat, condition);
+        }
+    }
+
+    #endregion
+
+    #region Natural Fluidity
+
+    private static FeatDefinition BuildNaturalFluidity()
+    {
+        const string NAME = "FeatNaturalFluidity";
+
+        //
+        // Gain Slots
+        //
+
+        var powerGainSlotPoolList = new List<FeatureDefinitionPower>();
+
+        var powerGainSlotPool = FeatureDefinitionPowerBuilder
+            .Create($"Power{NAME}GainSlotPool")
+            .SetGuiPresentation(Category.Feature,
+                Sprites.GetSprite("PowerGainSlot", Resources.PowerGainSlot, 128, 64))
+            .SetUsesFixed(ActivationTime.BonusAction, RechargeRate.LongRest)
+            .AddToDB();
+
+        for (var i = 3; i >= 1; i--)
+        {
+            var powerGainSlot = FeatureDefinitionPowerSharedPoolBuilder
+                .Create($"Power{NAME}GainSlot{i}")
+                .SetGuiPresentation(
+                    Gui.Format("Feature/&PowerFeatNaturalFluidityGainSlotTitle", i.ToString()),
+                    Gui.Format("Feature/&PowerFeatNaturalFluidityGainSlotDescription", i.ToString()))
+                .SetSharedPool(ActivationTime.BonusAction, powerGainSlotPool)
+                .SetEffectDescription(
+                    EffectDescriptionBuilder
+                        .Create()
+                        .SetDurationData(DurationType.UntilLongRest)
+                        .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
+                        .SetEffectForms(
+                            EffectFormBuilder
+                                .Create()
+                                .SetConditionForm(
+                                    ConditionDefinitionBuilder
+                                        .Create($"Condition{NAME}Gain{i}Slot")
+                                        .SetGuiPresentationNoContent(true)
+                                        .SetSilent(Silent.WhenAddedOrRemoved)
+                                        .SetFeatures(GetDefinition<FeatureDefinitionMagicAffinity>(
+                                            $"MagicAffinityAdditionalSpellSlot{i}"))
+                                        .AddToDB(),
+                                    ConditionForm.ConditionOperation.Add)
+                                .Build())
+                        .Build())
+                .SetCustomSubFeatures(
+                    new ValidatorsPowerUse(
+                        c => c.UsablePowers.Find(x => x.PowerDefinition == PowerDruidWildShape)?.RemainingUses > 0))
+                .AddToDB();
+
+            powerGainSlotPoolList.Add(powerGainSlot);
+        }
+
+        PowerBundle.RegisterPowerBundle(powerGainSlotPool, false, powerGainSlotPoolList);
+
+        //
+        // Gain Wild Shape
+        //
+
+        var powerGainWildShapeList = new List<FeatureDefinitionPower>();
+
+        var powerWildShapePool = FeatureDefinitionPowerBuilder
+            .Create($"Power{NAME}WildShapePool")
+            .SetGuiPresentation(Category.Feature,
+                Sprites.GetSprite("PowerGainWildShape", Resources.PowerGainChannelDivinity, 128, 64))
+            .SetUsesFixed(ActivationTime.BonusAction, RechargeRate.LongRest)
+            .AddToDB();
+
+        for (var i = 8; i >= 3; i--)
+        {
+            // closure
+            var a = i;
+
+            var wildShapeAmount = i switch
+            {
+                >= 7 => 3,
+                >= 5 => 2,
+                >= 3 => 1,
+                _ => 0
+            };
+
+            var powerGainWildShapeFromSlot = FeatureDefinitionPowerSharedPoolBuilder
+                .Create($"Power{NAME}GainWildShapeFromSlot{i}")
+                .SetGuiPresentation(
+                    Gui.Format("Feature/&PowerFeatNaturalFluidityGainWildShapeFromSlotTitle",
+                        wildShapeAmount.ToString()),
+                    Gui.Format("Feature/&PowerFeatNaturalFluidityGainWildShapeFromSlotDescription",
+                        wildShapeAmount.ToString(), i.ToString()))
+                .SetSharedPool(ActivationTime.BonusAction, powerWildShapePool)
+                .SetCustomSubFeatures(
+                    new ValidatorsPowerUse(
+                        c =>
+                        {
+                            var remaining = 0;
+
+                            c.GetClassSpellRepertoire(CharacterClassDefinitions.Cleric)?
+                                .GetSlotsNumber(a, out remaining, out _);
+
+                            return remaining > 0;
+                        }))
+                .AddToDB();
+
+            powerGainWildShapeList.Add(powerGainWildShapeFromSlot);
+        }
+
+        PowerBundle.RegisterPowerBundle(powerWildShapePool, false, powerGainWildShapeList);
+
+        return
+            FeatDefinitionWithPrerequisitesBuilder
+                .Create(NAME)
+                .SetGuiPresentation(Category.Feat)
+                .SetFeatures(powerWildShapePool, powerGainSlotPool)
+                .SetValidators(ValidatorsFeat.IsDruidLevel4)
+                .SetCustomSubFeatures(new OnAfterActionFeatureFeatNaturalFluidity())
+                .AddToDB();
+    }
+
+    private sealed class OnAfterActionFeatureFeatNaturalFluidity : IOnAfterActionFeature
+    {
+        public void OnAfterAction(CharacterAction action)
+        {
+            switch (action)
+            {
+                case CharacterActionUsePower characterActionUsePowerGainChannel when
+                    characterActionUsePowerGainChannel.activePower.PowerDefinition.Name.StartsWith(
+                        "PowerFeatNaturalFluidityGainWildShapeFromSlot"):
+                {
+                    var character = action.ActingCharacter.RulesetCharacter;
+                    var name = characterActionUsePowerGainChannel.activePower.PowerDefinition.Name;
+                    var level = int.Parse(name.Substring(name.Length - 1, 1));
+                    var repertoire = character.GetClassSpellRepertoire(CharacterClassDefinitions.Cleric);
+
+                    repertoire?.SpendSpellSlot(level);
+
+                    var rulesetUsablePower = character.UsablePowers
+                        .Find(x => x.PowerDefinition == PowerDruidWildShape);
+
+                    if (rulesetUsablePower != null)
+                    {
+                        var wildShapeAmount = level switch
+                        {
+                            >= 7 => 3,
+                            >= 5 => 2,
+                            >= 3 => 1,
+                            _ => 0
+                        };
+                        
+                        rulesetUsablePower.remainingUses += wildShapeAmount;
+                    }
+                    
+                    break;
+                }
+                case CharacterActionUsePower characterActionUsePowerGainSlot when
+                    characterActionUsePowerGainSlot.activePower.PowerDefinition.Name.StartsWith(
+                        "PowerFeatNaturalFluidityGainSlot"):
+                {
+                    var character = action.ActingCharacter.RulesetCharacter;
+                    var rulesetUsablePower = character.UsablePowers
+                        .Find(x => x.PowerDefinition == PowerDruidWildShape);
+
+                    if (rulesetUsablePower != null)
+                    {
+                        character.UsePower(rulesetUsablePower);
+                    }
+
+                    break;
+                }
+            }
         }
     }
 
