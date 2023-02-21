@@ -87,6 +87,7 @@ internal static class OtherFeats
             featTough);
 
         GroupFeats.MakeGroup("FeatGroupSkills", null,
+            FeatDefinitions.ArcaneAppraiser,
             FeatDefinitions.Manipulator,
             featHealer,
             featPickPocket);

@@ -231,6 +231,7 @@ internal static partial class DatabaseHelper
     internal static class FeatDefinitions
     {
         internal static FeatDefinition Ambidextrous { get; } = GetDefinition<FeatDefinition>("Ambidextrous");
+        internal static FeatDefinition ArcaneAppraiser { get; } = GetDefinition<FeatDefinition>("ArcaneAppraiser");
         internal static FeatDefinition ArmorMaster { get; } = GetDefinition<FeatDefinition>("ArmorMaster");
         internal static FeatDefinition BadlandsMarauder { get; } = GetDefinition<FeatDefinition>("BadlandsMarauder");
         internal static FeatDefinition BlessingOfTheElements { get; } = GetDefinition<FeatDefinition>("BlessingOfTheElements");
