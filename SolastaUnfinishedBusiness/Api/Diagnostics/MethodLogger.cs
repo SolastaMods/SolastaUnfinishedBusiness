@@ -1,4 +1,4 @@
-﻿#if DEBUG
+﻿#if false
 using System.Runtime.CompilerServices;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.Infrastructure;

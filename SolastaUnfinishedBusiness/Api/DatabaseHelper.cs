@@ -1,4 +1,7 @@
 // automatically generated on 2/20/2023 12:00:00 AM
+// ReSharper disable IdentifierTypo
+// ReSharper disable InconsistentNaming
+// ReSharper disable StringLiteralTypo
 
 using TA.AI;
 

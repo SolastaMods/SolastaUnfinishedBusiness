@@ -31,7 +31,7 @@ internal static class TraverseHelper
         return instance.GetField<object, TV>(fieldName);
     }
 
-#if DEBUG
+#if false
     internal static void SetField<T, TV>([NotNull] this T instance, [NotNull] string fieldName, TV value)
         where T : class
     {

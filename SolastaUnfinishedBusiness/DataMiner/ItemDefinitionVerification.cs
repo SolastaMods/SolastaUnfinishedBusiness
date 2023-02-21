@@ -47,33 +47,35 @@ internal static class ItemDefinitionVerification
         var msg =
             $"ItemDefinition {definition.Name}[{definition.GUID}] property {typeof(T)} does not have the matching flag set.";
 
-        if (Mode.HasFlag(Verification.Log))
+        if (!Mode.HasFlag(Verification.Log))
         {
-            Main.Log(msg);
+            return;
+        }
 
-            var path = Path.Combine(DiagnosticsContext.DiagnosticsFolder, LogName);
-            File.AppendAllLines(path,
-                new[]
-                {
-                    $"{Environment.NewLine}",
-                    "------------------------------------------------------------------------------------", msg
-                });
-            File.AppendAllText(path, Environment.StackTrace);
+        Main.Log(msg);
 
-            if (Mode.HasFlag(Verification.ReturnNull))
+        var path = Path.Combine(DiagnosticsContext.DiagnosticsFolder, LogName);
+        File.AppendAllLines(path,
+            new[]
             {
-                __result = null;
-            }
+                $"{Environment.NewLine}",
+                "------------------------------------------------------------------------------------", msg
+            });
+        File.AppendAllText(path, Environment.StackTrace);
 
-            if (Mode.HasFlag(Verification.Throw))
-            {
-                throw new SolastaUnfinishedBusinessException(msg);
-            }
+        if (Mode.HasFlag(Verification.ReturnNull))
+        {
+            __result = null;
+        }
+
+        if (Mode.HasFlag(Verification.Throw))
+        {
+            throw new SolastaUnfinishedBusinessException(msg);
         }
     }
 
     [Flags]
-    internal enum Verification
+    private enum Verification
     {
         None,
         ReturnNull = 1,
