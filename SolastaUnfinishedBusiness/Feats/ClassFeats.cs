@@ -296,7 +296,7 @@ internal static class ClassFeats
         var powerWildShapePool = FeatureDefinitionPowerSharedPoolBuilder
             .Create($"Power{NAME}WildShapePool")
             .SetGuiPresentation(Category.Feature,
-                Sprites.GetSprite("PowerGainWildShape", Resources.PowerGainChannelDivinity, 128, 64))
+                Sprites.GetSprite("PowerGainWildShape", Resources.PowerGainWildShape, 128, 64))
             .SetSharedPool(ActivationTime.BonusAction, power)
             .AddToDB();
 
