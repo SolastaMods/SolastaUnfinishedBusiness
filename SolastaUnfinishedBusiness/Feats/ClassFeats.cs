@@ -418,6 +418,12 @@ internal static class ClassFeats
     {
         const string Name = "FeatPotentSpellcaster";
 
+        // BACKWARD COMPATIBILITY
+        _ = FeatDefinitionBuilder
+            .Create(Name)
+            .SetGuiPresentationNoContent(true)
+            .AddToDB();
+
         var spellLists = new List<SpellListDefinition>
         {
             SpellListDefinitions.SpellListBard,
