@@ -97,7 +97,7 @@ internal sealed class PerformAttackAfterMagicEffectUse : IPerformAttackAfterMagi
         {
             return attacks;
         }
-        
+
         //get copy to be sure we don't break existing mode
         var tmp = RulesetAttackMode.AttackModesPool.Get();
         tmp.Copy(attackMode);

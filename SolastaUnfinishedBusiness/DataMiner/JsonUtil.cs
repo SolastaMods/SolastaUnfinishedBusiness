@@ -18,7 +18,7 @@ namespace SolastaUnfinishedBusiness.DataMiner
             {
                 CheckAdditionalContent = false,
                 ConstructorHandling = ConstructorHandling.AllowNonPublicDefaultConstructor,
-                ContractResolver = new DataminerContractResolver(),
+                ContractResolver = new DataMinerContractResolver(),
                 DateFormatHandling = DateFormatHandling.IsoDateFormat,
                 DateParseHandling = DateParseHandling.DateTime,
                 DateTimeZoneHandling = DateTimeZoneHandling.RoundtripKind,
@@ -40,11 +40,6 @@ namespace SolastaUnfinishedBusiness.DataMiner
             refJsonSerializerSettings.Converters.Add(new StringEnumConverter());
 
             return refJsonSerializerSettings;
-        }
-
-        private static bool IsBlacklisted(MemberInfo _)
-        {
-            return false;
         }
 
         internal static IEnumerable<MemberInfo> GetUnitySerializableMembers(Type objectType)
@@ -83,7 +78,6 @@ namespace SolastaUnfinishedBusiness.DataMiner
                 .Concat(nameProperty)
                 .Concat(newtonsoftProperties)
                 .Concat(newtonsoftFields)
-                .Where(field => !IsBlacklisted(field))
                 .ToList();
         }
     }
