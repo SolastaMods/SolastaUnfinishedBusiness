@@ -400,7 +400,10 @@ internal sealed class RangerWildMaster : AbstractSubclass
                 .SetParticleEffectParameters(ConjureElementalAir)
                 .Build())
             .SetUniqueInstance()
-            .SetCustomSubFeatures(SkipEffectRemovalOnLocationChange.Always, ValidatorsPowerUse.NotInCombat)
+            .SetCustomSubFeatures(
+                new ShouldTerminatePowerEffect(name),
+                SkipEffectRemovalOnLocationChange.Always,
+                ValidatorsPowerUse.NotInCombat)
             .AddToDB();
     }
 
