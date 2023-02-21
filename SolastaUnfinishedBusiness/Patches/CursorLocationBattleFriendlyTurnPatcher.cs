@@ -30,7 +30,7 @@ public static class CursorLocationBattleFriendlyTurnPatcher
             return instructions.ReplaceCalls(findBestActionDestinationMethod,
                 "CursorLocationBattleFriendlyTurn.IsValidAttack",
                 new CodeInstruction(OpCodes.Ldarg_0),
-                new CodeInstruction(OpCodes.Ldloc_2),
+                new CodeInstruction(OpCodes.Ldloc_1), // attack mode is LOC 1
                 new CodeInstruction(OpCodes.Call, method));
         }
     }
