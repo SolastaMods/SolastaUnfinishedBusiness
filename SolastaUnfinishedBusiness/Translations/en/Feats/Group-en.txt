@@ -88,3 +88,5 @@ Feat/&FeatGroupSupportCombatDescription={0}
 Feat/&FeatGroupSupportCombatTitle=Combat: Support
 Feat/&FeatGroupPotentSpellcasterDescription=You can add your spellcaster attribute modifier to the damage you deal with any cantrip in your repertoire.
 Feat/&FeatGroupPotentSpellcasterTitle=Potent Spellcaster
+Feat/&FeatGroupBlessedSoulDescription=Your use of divine magic has left a spiritual mark on your soul, allowing you to express your faith more frequently. Increase your Charisma or Wisdom score by 1, to a maximum of 20. You gain one additional Channel Divinity usage between rests.
+Feat/&FeatGroupBlessedSoulTitle=Blessed Soul

@@ -1,5 +1,5 @@
 {
-  "$type": "SolastaUnfinishedBusiness.CustomDefinitions.FeatDefinitionWithPrerequisites, SolastaUnfinishedBusiness",
+  "$type": "FeatDefinition, Assembly-CSharp",
   "compatibleClassesPrerequisite": [],
   "mustCastSpellsPrerequisite": false,
   "compatibleRacesPrerequisite": [],
@@ -11,15 +11,12 @@
   "hasFamilyTag": false,
   "familyTag": "",
   "knownFeatsPrerequisite": [],
-  "features": [
-    "Definition:AttributeModifierClericChannelDivinityAdd:5f8d0b3220239994ca321752da71c5c5",
-    "Definition:AttributeModifierCreed_Of_Arun:448b8ab9ee9cd784b81e82a65d5810f0"
-  ],
+  "features": [],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
-    "title": "Feat/&FeatBlessedSoulTitle",
-    "description": "Feat/&FeatBlessedSoulDescription",
+    "title": "Feat/&FeatGroupBlessedSoulTitle",
+    "description": "Your use of divine magic has left a spiritual mark on your soul, allowing you to express your faith more frequently. Increase your Charisma or Wisdom score by 1, to a maximum of 20. You gain one additional Channel Divinity usage between rests.",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -39,7 +36,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "52311a90-cb6a-59eb-8256-b037cd9819fe",
+  "guid": "3467db20-48dc-57e6-83b4-86cc9f235e0e",
   "contentPack": 9999,
-  "name": "FeatBlessedSoul"
+  "name": "FeatGroupBlessedSoul"
 }

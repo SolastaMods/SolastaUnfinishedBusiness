@@ -88,3 +88,5 @@ Feat/&FeatGroupSupportCombatDescription={0}
 Feat/&FeatGroupSupportCombatTitle=Kampf: Unterstützung
 Feat/&FeatGroupPotentSpellcasterDescription=Du kannst deinen Zauberzauberer-Attributmodifikator zu dem Schaden hinzufügen, den du mit einem Cantrip in deinem Repertoire verursachst.
 Feat/&FeatGroupPotentSpellcasterTitle=Starker Zauberer
+Feat/&FeatGroupBlessedSoulDescription=Dein Gebrauch göttlicher Magie hat einen spirituellen Eindruck in deiner Seele hinterlassen, wodurch du deinen Glauben häufiger zum Ausdruck bringen kannst. Erhöhen Sie Ihren Charisma- oder Weisheitswert um 1 bis zu einem Maximum von 20. Sie erhalten eine zusätzliche Anwendung von Göttlichkeit kanalisieren zwischen den Pausen.
+Feat/&FeatGroupBlessedSoulTitle=Gesegnete Seele

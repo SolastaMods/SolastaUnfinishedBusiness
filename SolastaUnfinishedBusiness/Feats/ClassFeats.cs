@@ -26,17 +26,16 @@ internal static class ClassFeats
 {
     internal static void CreateFeats([NotNull] List<FeatDefinition> feats)
     {
-        var featBlessedSoul = BuildBlessedSoul();
         var featCallForCharge = BuildCallForCharge();
         var featCunningEscape = BuildCunningEscape();
         var featNaturalFluidity = BuildNaturalFluidity();
         var featSpiritualFluidity = BuildSpiritualFluidity();
 
-        var potentSpellcasterGroup = BuildPotentSpellcaster(feats);
         var awakenTheBeastWithinGroup = BuildAwakenTheBeastWithin(feats);
+        var blessedSoulGroup = BuildBlessedSoul(feats);
+        var potentSpellcasterGroup = BuildPotentSpellcaster(feats);
 
         feats.AddRange(
-            featBlessedSoul,
             featCallForCharge,
             featCunningEscape,
             featNaturalFluidity,
@@ -52,12 +51,12 @@ internal static class ClassFeats
             featCallForCharge);
 
         GroupFeats.MakeGroup("FeatGroupClassBound", null,
-            featBlessedSoul,
             featCallForCharge,
             featCunningEscape,
             featNaturalFluidity,
             featSpiritualFluidity,
             awakenTheBeastWithinGroup,
+            blessedSoulGroup,
             potentSpellcasterGroup);
     }
 
@@ -176,19 +175,38 @@ internal static class ClassFeats
 
     #region Blessed Soul
 
-    private static FeatDefinition BuildBlessedSoul()
+    private static FeatDefinition BuildBlessedSoul(List<FeatDefinition> feats)
     {
-        const string NAME = "FeatBlessedSoul";
+        const string Name = "FeatBlessedSoul";
 
-        return
-            FeatDefinitionWithPrerequisitesBuilder
-                .Create(NAME)
-                .SetGuiPresentation(Category.Feat)
-                .SetFeatures(
-                    AttributeModifierClericChannelDivinityAdd,
-                    AttributeModifierCreed_Of_Arun)
-                .SetValidators(ValidatorsFeat.IsClericLevel4)
-                .AddToDB();
+        // BACKWARD COMPATIBILITY
+        _ = FeatDefinitionBuilder
+            .Create(Name)
+            .SetGuiPresentationNoContent(true)
+            .AddToDB();
+
+        var blessedSoulCleric = FeatDefinitionWithPrerequisitesBuilder
+            .Create($"{Name}Cleric")
+            .SetGuiPresentation(Category.Feat)
+            .SetFeatures(
+                AttributeModifierClericChannelDivinityAdd,
+                AttributeModifierCreed_Of_Arun)
+            .SetValidators(ValidatorsFeat.IsClericLevel4)
+            .AddToDB();
+
+        var blessedSoulPaladin = FeatDefinitionWithPrerequisitesBuilder
+            .Create($"{Name}Paladin")
+            .SetGuiPresentation(Category.Feat)
+            .SetFeatures(
+                AttributeModifierClericChannelDivinityAdd,
+                AttributeModifierCreed_Of_Solasta)
+            .SetValidators(ValidatorsFeat.IsPaladinLevel8)
+            .AddToDB();
+
+        feats.AddRange(blessedSoulCleric, blessedSoulPaladin);
+
+        return GroupFeats.MakeGroup(
+            "FeatGroupBlessedSoul", null, blessedSoulCleric, blessedSoulPaladin);
     }
 
     #endregion

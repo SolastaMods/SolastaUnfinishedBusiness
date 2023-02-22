@@ -88,3 +88,6 @@ Feat/&FeatGroupSupportCombatDescription={0}
 Feat/&FeatGroupSupportCombatTitle=Бой: Поддержка
 Feat/&FeatGroupPotentSpellcasterDescription=Вы можете добавить свой модификатор атрибута заклинателя к урону, который вы наносите любым колдовством в вашем репертуаре.
 Feat/&FeatGroupPotentSpellcasterTitle=Могущественный заклинатель
+
+Feat/&FeatGroupBlessedSoulDescription=Использование вами божественной магии оставило духовный след в вашей душе, позволяя вам чаще выражать свою веру. Увеличьте показатель Харизмы или Мудрости на 1, максимум до 20. Вы получаете одно дополнительное использование Божественного канала между отдыхами.
+Feat/&FeatGroupBlessedSoulTitle=Благословенная душа
