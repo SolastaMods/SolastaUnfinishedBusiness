@@ -225,6 +225,13 @@ internal sealed class MartialMarshal : AbstractSubclass
 
         GlobalUniqueEffects.AddToGroup(GlobalUniqueEffects.Group.Familiar, powerMarshalSummonEternalComrade);
 
+        var hpBonus = FeatureDefinitionAttributeModifierBuilder
+            .Create("AttributeModifierMarshalEternalComradeHP")
+            .SetGuiPresentationNoContent(true)
+            .SetModifier(FeatureDefinitionAttributeModifier.AttributeModifierOperation.AddConditionAmount,
+                AttributeDefinitions.HitPoints)
+            .AddToDB();
+
         var conditionMarshalEternalComradeAc = ConditionDefinitionBuilder
             .Create(ConditionKindredSpiritBondAC, "ConditionMarshalEternalComradeAC")
             .SetGuiPresentationNoContent(true)
@@ -252,9 +259,8 @@ internal sealed class MartialMarshal : AbstractSubclass
         var conditionMarshalEternalComradeHp = ConditionDefinitionBuilder
             .Create(ConditionKindredSpiritBondHP, "ConditionMarshalEternalComradeHP")
             .SetGuiPresentationNoContent(true)
-            .SetAmountOrigin(ExtraOriginOfAmount.SourceClassLevel)
-            .AllowMultipleInstances()
-            .SetAdditionalDamageType(FighterClass)
+            .SetAmountOrigin(ExtraOriginOfAmount.SourceClassLevel, FighterClass)
+            .SetFeatures(hpBonus, hpBonus) // 2 HP per level
             .AddToDB();
 
         var summoningAffinityMarshalEternalComrade = FeatureDefinitionSummoningAffinityBuilder
@@ -266,7 +272,6 @@ internal sealed class MartialMarshal : AbstractSubclass
                 conditionMarshalEternalComradeSavingThrow,
                 conditionMarshalEternalComradeDamage,
                 conditionMarshalEternalComradeHit,
-                conditionMarshalEternalComradeHp,
                 conditionMarshalEternalComradeHp)
             .AddToDB();
 
