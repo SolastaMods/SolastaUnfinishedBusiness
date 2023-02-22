@@ -1,5 +1,14 @@
 ﻿CHANGES:
 
+1.4.33.46:
+
+- expanded Potent Spellcaster to Bards, Clerics, Druids, Sorcerers and Inventors
+- expanded Blessed Soul to Paladins
+- fixed null exception on settings export if user doesn't type a filename
+- fixed some conditions staying 1 round longer than it should
+- fixed wildshape forms not getting benefits from hero summoning affinities
+- fixed wrong spell effect level calculation with multiclass Warlock
+
 1.4.33.45:
 
 - fixed Awaken The Beast not adding Druid class based additional hit points
