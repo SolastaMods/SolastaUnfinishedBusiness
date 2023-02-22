@@ -622,6 +622,58 @@ internal static partial class SpellBuilders
 
         return spell;
     }
+    
+        internal static SpellDefinition BuildWrack()
+    {
+        const string NAME = "Wrack";
+
+        var conditionWrack = ConditionDefinitionBuilder
+            .Create("ConditionWrack")
+            .SetGuiPresentation(Category.Condition, ConditionHindered)
+            .AddFeatures(FeatureDefinitionActionAffinityBuilder
+            .Create("ActionAffinityWrack")
+            .SetForbiddenActions(ActionDefinitions.Id.DisengageMain, ActionDefinitions.Id.DisengageBonus, ActionDefinitions.Id.DashMain, ActionDefinitions.Id.DashBonus)
+            .AddToDB())
+            .AddToDB();
+
+        var effectDescription = EffectDescriptionBuilder
+            .Create(InflictWounds)
+            .SetEffectAdvancement(
+                EffectIncrementMethod.CasterLevelTable, 1, 0, 1)
+            .SetDurationData(DurationType.Round, 1)
+            .SetSavingThrowData(
+                false,
+                AttributeDefinitions.Constitution,
+                false,
+                EffectDifficultyClassComputation.SpellCastingFeature,
+                AttributeDefinitions.Wisdom,
+                12)
+            .SetTargetingData(Side.Enemy, RangeType.Distance, 12, TargetType.Individuals)
+            .SetEffectForms(
+                EffectFormBuilder
+                    .Create()
+                    .SetConditionForm(conditionWrack,ConditionForm.ConditionOperation.Add)
+                    .HasSavingThrow(EffectSavingThrowType.Negates)
+                    .Build(),
+                EffectFormBuilder
+                    .Create()
+                    .SetDamageForm(DamageTypeNecrotic, 1, DieType.D8)
+                    .HasSavingThrow(EffectSavingThrowType.Negates)
+                    .Build())
+            .Build();
+
+        var spell = SpellDefinitionBuilder
+            .Create(NAME)
+            .SetGuiPresentation(Category.Spell, VampiricTouch)
+            .SetEffectDescription(effectDescription)
+            .SetCastingTime(ActivationTime.Action)
+            .SetSpellLevel(0)
+            .SetVocalSpellSameType(VocalSpellSemeType.Attack)
+            .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolNecromancy)
+            .AddToDB();
+
+        return spell;
+    }
 
     #endregion
 }
