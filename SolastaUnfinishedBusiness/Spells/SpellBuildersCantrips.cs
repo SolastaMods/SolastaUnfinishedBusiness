@@ -668,7 +668,7 @@ internal static partial class SpellBuilders
 
         var spell = SpellDefinitionBuilder
             .Create(NAME)
-            .SetGuiPresentation(Category.Spell, VampiricTouch)
+            .SetGuiPresentation(Category.Spell, Sprites.GetSprite("Wrack", Resources.Wrack, 128))
             .SetEffectDescription(effectDescription)
             .SetCastingTime(ActivationTime.Action)
             .SetSpellLevel(0)

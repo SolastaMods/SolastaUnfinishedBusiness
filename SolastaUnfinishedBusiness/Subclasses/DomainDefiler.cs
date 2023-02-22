@@ -2,6 +2,8 @@
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomInterfaces;
+using SolastaUnfinishedBusiness.CustomUI;
+using SolastaUnfinishedBusiness.Properties;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterSubclassDefinitions;
@@ -68,7 +70,8 @@ internal sealed class DomainDefiler : AbstractSubclass
 
         var powerDefileLife = FeatureDefinitionPowerBuilder
             .Create($"Power{NAME}DefileLife")
-            .SetGuiPresentation(Category.Feature, PowerMartialCommanderInvigoratingShout)
+            .SetGuiPresentation(Category.Feature,
+                Sprites.GetSprite("PowerDefileLife", Resources.PowerDefileLife, 128, 64))
             .SetUsesFixed(ActivationTime.Action, RechargeRate.ChannelDivinity)
             .SetEffectDescription(
                 EffectDescriptionBuilder
@@ -112,12 +115,13 @@ internal sealed class DomainDefiler : AbstractSubclass
 
         var powerMarkForDeath = FeatureDefinitionPowerBuilder
             .Create($"Power{NAME}MarkForDeath")
-            .SetGuiPresentation(Category.Feature, DreadfulOmen)
+            .SetGuiPresentation(Category.Feature,
+                Sprites.GetSprite("PowerMarkForDeath", Resources.PowerMarkForDeath, 128, 64))
             .SetUsesFixed(ActivationTime.Action, RechargeRate.ChannelDivinity)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
-                    .SetDurationData(DurationType.Minute, 1)
+                    .SetDurationData(DurationType.Round, 3, TurnOccurenceType.StartOfTurn)
                     .SetTargetingData(Side.Enemy, RangeType.Distance, 6, TargetType.Individuals)
                     .SetEffectForms(
                         EffectFormBuilder
