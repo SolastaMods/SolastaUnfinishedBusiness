@@ -1,0 +1,16 @@
+﻿Condition/&ConditionMarkForDeathDomainDefilerDescription=You have been marked for death gaining vulnerability to bludgeoning, slashing, and piercing.
+Condition/&ConditionMarkForDeathDomainDefilerTitle=Marked for Death
+Condition/&ConditionInsidiousDeathMagicDescription=You have been cursed by a defiler. You can no longer gain hits points.
+Condition/&ConditionInsidiousDeathMagicTitle=Insidious Death Magic
+Feature/&BonusCantripDomainDefilerDescription=Gain the bonus cantrips Wrack and Ray of Frost.
+Feature/&BonusCantripDomainDefilerTitle=Bonus Cantrip
+Feature/&FeatureInsidiousDeathMagicDomainDefilerDescription=Creatures you deal necrotic damage to through spells, abilities, or weapons can not heal for turns equal to your level.
+Feature/&FeatureInsidiousDeathMagicDomainDefilerTitle=Insidious Death Magic
+Feature/&PowerMarkForDeathDomainDefilerDescription=Mark an enemy for death. They gain vulnerability to bludgeoning, slashing, and piercing.
+Feature/&PowerMarkForDeathDomainDefilerTitle=Channel Divinity: Mark for Death
+Feature/&additionaldamageDivineStrikeDomainDefilerDescription=Once per turn, deal +1d8 of necrotic damage on weapon attacks.
+Feature/&additionaldamageDivineStrikeDomainDefilerTitle=Divine Strike
+Feature/&PowerDefileLifeDomainDefilerDescription=Unleash a wave of necrotic energy around you. Each non-undead creature in a 6 tile radius must make a Constitution saving throw. On failed saving throw, the creature takes 4d6 necrotic damage or half damage on a successful one.
+Feature/&PowerDefileLifeDomainDefilerTitle=Channel Divinity: Defile Life
+Subclass/&OathOfAncientsDescription=Defilers worship patrons of death, corruption, and blight. Seeking power and corruption for their own ends- to please their gods,or for more selfish reasons.
+Subclass/&DomainDefilerTitle=Defiler
