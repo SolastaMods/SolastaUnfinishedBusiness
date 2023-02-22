@@ -238,8 +238,8 @@ internal static class ClassFeats
                 actingCharacter.Guid,
                 ConditionDefinitions.ConditionDisengaging,
                 DurationType.Round,
-                1,
-                TurnOccurenceType.StartOfTurn,
+                0,
+                TurnOccurenceType.EndOfTurn,
                 actingCharacter.Guid, actingCharacter.CurrentFaction.Name);
 
             actingCharacter.AddConditionOfCategory(AttributeDefinitions.TagCombat, condition);

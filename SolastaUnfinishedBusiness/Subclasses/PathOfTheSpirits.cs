@@ -302,7 +302,7 @@ internal sealed class PathOfTheSpirits : AbstractSubclass
                     _conditionDefinition,
                     DurationType.Round,
                     1,
-                    TurnOccurenceType.EndOfTurn,
+                    TurnOccurenceType.StartOfTurn,
                     myself.guid,
                     myself.CurrentFaction.Name);
 

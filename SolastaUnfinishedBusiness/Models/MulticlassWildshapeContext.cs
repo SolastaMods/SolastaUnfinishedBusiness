@@ -65,8 +65,8 @@ internal static class MulticlassWildshapeContext
             gameLocationCharacter.Guid,
             ConditionWildshapeFlurryOfBlows,
             RuleDefinitions.DurationType.Round,
-            1,
-            RuleDefinitions.TurnOccurenceType.StartOfTurn,
+            0,
+            RuleDefinitions.TurnOccurenceType.EndOfTurn,
             gameLocationCharacter.Guid,
             gameLocationCharacter.RulesetCharacter.CurrentFaction.Name);
 

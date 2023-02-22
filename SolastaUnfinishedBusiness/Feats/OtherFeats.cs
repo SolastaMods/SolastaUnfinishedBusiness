@@ -629,8 +629,8 @@ internal static class OtherFeats
                 attacker.RulesetCharacter.Guid,
                 _conditionDefinition,
                 DurationType.Round,
-                1,
-                TurnOccurenceType.StartOfTurn,
+                0,
+                TurnOccurenceType.EndOfTurn,
                 attacker.RulesetCharacter.Guid,
                 attacker.RulesetCharacter.CurrentFaction.Name);
 
