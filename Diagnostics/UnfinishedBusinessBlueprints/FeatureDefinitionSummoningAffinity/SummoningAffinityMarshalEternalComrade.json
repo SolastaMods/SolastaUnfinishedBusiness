@@ -6,7 +6,6 @@
     "Definition:ConditionMarshalEternalComradeDamage:9b270885-33c0-54ae-a109-b5eca49d6408",
     "Definition:ConditionMarshalEternalComradeHit:dd22c01c-8c02-5072-8d55-a9f7f36eecd6",
     "Definition:ConditionMarshalEternalComradeHP:0742039c-297c-5b47-a614-e19855092c17",
-    "Definition:ConditionMarshalEternalComradeHP:0742039c-297c-5b47-a614-e19855092c17",
     "Definition:ConditionMarshalEternalComradeSavingThrow:1f121bed-8877-5abf-af8b-cf79aa5f44d4"
   ],
   "effectOnConjuredDeath": true,
