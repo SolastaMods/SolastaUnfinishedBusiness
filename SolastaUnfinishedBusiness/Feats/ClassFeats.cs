@@ -235,8 +235,12 @@ internal static class ClassFeats
             var actingCharacter = action.ActingCharacter.RulesetCharacter;
 
             var condition = RulesetCondition.CreateActiveCondition(
-                actingCharacter.Guid, ConditionDefinitions.ConditionDisengaging, DurationType.Round, 0,
-                TurnOccurenceType.EndOfTurn, actingCharacter.Guid, actingCharacter.CurrentFaction.Name);
+                actingCharacter.Guid,
+                ConditionDefinitions.ConditionDisengaging,
+                DurationType.Round,
+                1,
+                TurnOccurenceType.StartOfTurn,
+                actingCharacter.Guid, actingCharacter.CurrentFaction.Name);
 
             actingCharacter.AddConditionOfCategory(AttributeDefinitions.TagCombat, condition);
         }
@@ -526,7 +530,7 @@ internal static class ClassFeats
                 return effect;
             }
 
-            var attribute = string.Empty;
+            string attribute;
 
             if (_spellListDefinition == SpellListDefinitions.SpellListBard ||
                 _spellListDefinition == SpellListDefinitions.SpellListSorcerer)

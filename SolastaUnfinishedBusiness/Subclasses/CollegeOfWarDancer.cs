@@ -434,7 +434,7 @@ internal sealed class CollegeOfWarDancer : AbstractSubclass
                 WarDanceMomentum,
                 DurationType.Round,
                 1,
-                TurnOccurenceType.EndOfTurn,
+                TurnOccurenceType.StartOfTurn,
                 hero.RulesetCharacter.Guid,
                 hero.RulesetCharacter.CurrentFaction.Name);
 

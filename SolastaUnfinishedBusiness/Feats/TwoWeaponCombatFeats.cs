@@ -120,8 +120,8 @@ internal static class TwoWeaponCombatFeats
                 attacker.RulesetCharacter.Guid,
                 condition,
                 DurationType.Round,
-                0,
-                TurnOccurenceType.EndOfTurn,
+                1,
+                TurnOccurenceType.StartOfTurn,
                 attacker.RulesetCharacter.Guid,
                 attacker.RulesetCharacter.CurrentFaction.Name);
 

@@ -639,8 +639,14 @@ internal sealed class RangerWildMaster : AbstractSubclass
             }
 
             var character = locationCharacter.RulesetCharacter;
-            var newCondition = RulesetCondition.CreateActiveCondition(character.Guid, condition, DurationType.Round, 1,
-                TurnOccurenceType.StartOfTurn, locationCharacter.Guid, character.CurrentFaction.Name);
+            var newCondition = RulesetCondition.CreateActiveCondition(
+                character.Guid,
+                condition,
+                DurationType.Round,
+                1,
+                TurnOccurenceType.StartOfTurn,
+                locationCharacter.Guid,
+                character.CurrentFaction.Name);
 
             character.AddConditionOfCategory(AttributeDefinitions.TagCombat, newCondition);
             GameConsoleHelper.LogCharacterUsedPower(character, power);

@@ -239,8 +239,14 @@ internal static class MeleeCombatFeats
             GameLocationBattleManager manager, GameLocationActionManager actionManager, ReactionRequest request)
         {
             var character = attacker.RulesetCharacter;
-            var rulesetCondition = RulesetCondition.CreateActiveCondition(character.Guid, conditionDamage,
-                DurationType.Round, 1, TurnOccurenceType.StartOfTurn, character.Guid, string.Empty);
+            var rulesetCondition = RulesetCondition.CreateActiveCondition(
+                character.Guid,
+                conditionDamage,
+                DurationType.Round,
+                1,
+                TurnOccurenceType.StartOfTurn,
+                character.Guid,
+                string.Empty);
 
             character.AddConditionOfCategory(AttributeDefinitions.TagCombat, rulesetCondition);
 
@@ -858,7 +864,7 @@ internal static class MeleeCombatFeats
                 _conditionDefinition,
                 DurationType.Round,
                 1,
-                TurnOccurenceType.EndOfTurn,
+                TurnOccurenceType.StartOfTurn,
                 attacker.RulesetCharacter.Guid,
                 attacker.RulesetCharacter.CurrentFaction.Name);
 
@@ -1089,7 +1095,7 @@ internal static class MeleeCombatFeats
                 defender.RulesetCharacter.Guid,
                 _criticalConditionDefinition,
                 DurationType.Round,
-                0,
+                1,
                 TurnOccurenceType.StartOfTurn,
                 attacker.RulesetCharacter.Guid,
                 attacker.RulesetCharacter.CurrentFaction.Name);
