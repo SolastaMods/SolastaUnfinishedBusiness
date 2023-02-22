@@ -1,0 +1,16 @@
+﻿Condition/&ConditionDomainDefilerMarkForDeathDescription=Sei stato condannato a morte diventando vulnerabile a randellate, tagli e perforazioni.
+Condition/&ConditionDomainDefilerMarkForDeathTitle=Marchiato a morte
+Condition/&ConditionDomainDefilerInsidiousDeathMagicDescription=Sei stato maledetto da un profanatore. Non puoi più guadagnare punti ferita.
+Condition/&ConditionDomainDefilerInsidiousDeathMagicTitle=Insidiosa magia della morte
+Feature/&BonusCantripDomainDefilerDescription=Ottieni i trucchetti bonus Wrack e Ray of Frost.
+Feature/&BonusCantripDomainDefilerTitle=Bonus Trucchetto
+Feature/&FeatureDomainDefilerInsidiousDeathMagicDescription=Le creature a cui infliggi danni necrotici tramite incantesimi, abilità o armi non possono guarire per turni pari al tuo livello.
+Feature/&FeatureDomainDefilerInsidiousDeathMagicTitle=Insidiosa magia della morte
+Feature/&PowerDomainDefilerMarkForDeathDescription=Segna un nemico per la morte. Diventano vulnerabili a randellate, taglienti e perforanti.
+Feature/&PowerDomainDefilerMarkForDeathTitle=Channel Divinity: Mark for Death
+Feature/&AdditionalDamageDomainDefilerDivineStrikeDescription=Una volta per turno, infligge +1d8 di danni necrotici agli attacchi con le armi.
+Feature/&AdditionalDamageDomainDefilerDivineStrikeTitle=Colpo Divino
+Feature/&PowerDomainDefilerDefileLifeDescription=Scatena un'ondata di energia necrotica intorno a te. Ogni creatura non-morta in un raggio di 6 caselle deve effettuare un tiro salvezza su Costituzione. Se fallisce il tiro salvezza, la creatura subisce 4d6 danni necrotici o la metà dei danni se lo riesce.
+Feature/&PowerDomainDefilerDefileLifeTitle=Incanalare Divinità: Contaminare la Vita
+Subclass/&DomainDefilerDescription=I profanatori adorano i patroni della morte, della corruzione e della rovina. Alla ricerca del potere e della corruzione per i propri fini: per compiacere i propri dei o per motivi più egoistici.
+Subclass/&DomainDefilerTitle=Difensori

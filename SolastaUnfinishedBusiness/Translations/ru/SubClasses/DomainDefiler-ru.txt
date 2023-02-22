@@ -1,0 +1,16 @@
+﻿Condition/&ConditionDomainDefilerMarkForDeathDescription=Вы были отмечены смертью, получив уязвимость к ударам дубинкой, рубящим и колющим ударам.
+Condition/&ConditionDomainDefilerMarkForDeathTitle=Отмечены для смерти
+Condition/&ConditionDomainDefilerInsidiousDeathMagicDescription=Вы были прокляты осквернителем. Вы больше не можете получать очки жизни.
+Condition/&ConditionDomainDefilerInsidiousDeathMagicTitle=Коварная магия смерти
+Feature/&BonusCantripDomainDefilerDescription=Получите бонусные колдовства Wrack и Frost Ray.
+Feature/&BonusCantripDomainDefilerTitle=Бонус колдовства
+Feature/&FeatureDomainDefilerInsidiousDeathMagicDescription=Существа, которым вы наносите некротический урон с помощью заклинаний, способностей или оружия, не могут исцелить ходы, равные вашему уровню.
+Feature/&FeatureDomainDefilerInsidiousDeathMagicTitle=Коварная магия смерти
+Feature/&PowerDomainDefilerMarkForDeathDescription=Отметить врага на смерть. Они получают уязвимость к дробящим, рубящим и колющим ударам.
+Feature/&PowerDomainDefilerMarkForDeathTitle=Channel Divinity: Метка смерти
+Feature/&AdditionalDamageDomainDefilerDivineStrikeDescription=Один раз за ход нанесите +1d8 урона некротической энергией при атаках оружием.
+Feature/&AdditionalDamageDomainDefilerDivineStrikeTitle=Божественный удар
+Feature/&PowerDomainDefilerDefileLifeDescription=Выпустить вокруг себя волну некротической энергии. Каждое существо, не являющееся нежитью, в радиусе 6 клеток должно совершить спасбросок Телосложения. При провале спасброска существо получает урон некротической энергией 4d6 или половину урона при успехе.
+Feature/&PowerDomainDefilerDefileLifeTitle=Канал Божественности: Осквернение Жизни
+Subclass/&DomainDefilerDescription=Осквернители поклоняются покровителям смерти, порчи и упадка. Стремление к власти и порче для своих целей: чтобы угодить своим богам или по более эгоистичным причинам.
+Subclass/&DomainDefilerTitle=Защитники

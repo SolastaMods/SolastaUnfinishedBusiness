@@ -1,0 +1,34 @@
+{
+  "$type": "FeatureDefinitionBonusCantrips, Assembly-CSharp",
+  "bonusCantrips": [
+    "Definition:RayOfFrost:637a3697f05a4614e8200abfa5daaaff",
+    "Definition:Wrack:4981f583-1a5c-59aa-86ba-d430a6a89969"
+  ],
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feature/&BonusCantripDomainDefilerTitle",
+    "description": "Feature/&BonusCantripDomainDefilerDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "af19c04e-4bf9-55fa-9eb9-84ef0060f1da",
+  "contentPack": 9999,
+  "name": "BonusCantripDomainDefiler"
+}

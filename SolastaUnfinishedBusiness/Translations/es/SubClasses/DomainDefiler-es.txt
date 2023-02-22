@@ -1,0 +1,16 @@
+﻿Condition/&ConditionDomainDefilerMarkForDeathDescription=Has sido marcado para la muerte, ganando vulnerabilidad a golpes, cortes y perforaciones.
+Condition/&ConditionDomainDefilerMarkForDeathTitle=Marcado para morir
+Condition/&ConditionDomainDefilerInsidiousDeathMagicDescription=Has sido maldecido por un profanador. Ya no puedes ganar puntos de golpe.
+Condition/&ConditionDomainDefilerInsidiousDeathMagicTitle=Magia de muerte insidiosa
+Feature/&BonusCantripDomainDefilerDescription=Obtenga los cantrips de bonificación Wrack y Ray of Frost.
+Feature/&BonusCantripDomainDefilerTitle=Bono de truco
+Feature/&FeatureDomainDefilerInsidiousDeathMagicDescription=Las criaturas a las que infliges daño necrótico a través de hechizos, habilidades o armas no pueden curarse durante turnos iguales a tu nivel.
+Feature/&FeatureDomainDefilerInsidiousDeathMagicTitle=Magia de muerte insidiosa
+Feature/&PowerDomainDefilerMarkForDeathDescription=Marca a un enemigo para la muerte. Ganan vulnerabilidad a golpes, cortes y perforaciones.
+Feature/&PowerDomainDefilerMarkForDeathTitle=Channel Divinity: Marca para la muerte
+Feature/&AdditionalDamageDomainDefilerDivineStrikeDescription=Una vez por turno, inflige +1d8 de daño necrótico en ataques con armas.
+Feature/&AdditionalDamageDomainDefilerDivineStrikeTitle=Golpe divino
+Feature/&PowerDomainDefilerDefileLifeDescription=Desata una ola de energía necrótica a tu alrededor. Cada criatura que no sea un muerto viviente en un radio de 6 casillas debe realizar una tirada de salvación de Constitución. Si falla la tirada de salvación, la criatura sufre 4d6 de daño necrótico o la mitad de daño si tiene éxito.
+Feature/&PowerDomainDefilerDefileLifeTitle=Canalizar la divinidad: profanar la vida
+Subclass/&DomainDefilerDescription=Los profanadores adoran a los patrones de la muerte, la corrupción y la ruina. Buscando el poder y la corrupción para sus propios fines: para complacer a sus dioses o por motivos más egoístas.
+Subclass/&DomainDefilerTitle=Defensores

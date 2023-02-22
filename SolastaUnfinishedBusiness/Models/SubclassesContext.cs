@@ -34,6 +34,9 @@ internal static class SubclassesContext
         LoadSubclass(new CollegeOfLife());
         LoadSubclass(new CollegeOfWarDancer());
 
+        // Cleric
+        LoadSubclass(new DomainDefiler());
+
         // Druid
         LoadSubclass(new CircleOfTheAncientForest());
         LoadSubclass(new CircleOfTheForestGuardian());

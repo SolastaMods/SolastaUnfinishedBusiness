@@ -38,3 +38,7 @@ Spell/&ThornyVinesDescription=你创造出一根长长的、鞭子般的藤蔓�
 Spell/&ThornyVinesTitle=荆棘之鞭
 Spell/&ThunderStrikeDescription=制造一阵雷鸣般的声音，迫使与你相邻的生物进行体质豁免，否则受到 1d6 雷鸣伤害。\n当你达到第 5 级（2d6）、第 11 级（3d6）和第 17 级（ 4d6).
 Spell/&ThunderStrikeTitle=音鸣爆
+Condition/&ConditionWrackDescription=你无法进​​行冲刺或脱离动作。
+Condition/&ConditionWrackTitle=伤痕累累
+Spell/&WrackDescription=对范围内的一个生物释放一波极度痛苦。目标必须进行一次体质豁免，否则将受到 1d8 坏死伤害，并阻止他们冲刺或脱离。
+Spell/&WrackTitle=残骸
