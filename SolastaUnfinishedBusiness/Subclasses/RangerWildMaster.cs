@@ -401,7 +401,6 @@ internal sealed class RangerWildMaster : AbstractSubclass
                 .Build())
             .SetUniqueInstance()
             .SetCustomSubFeatures(
-                new ShouldTerminatePowerEffect(name),
                 SkipEffectRemovalOnLocationChange.Always,
                 ValidatorsPowerUse.NotInCombat)
             .AddToDB();
