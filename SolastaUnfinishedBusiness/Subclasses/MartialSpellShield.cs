@@ -1,5 +1,4 @@
 ﻿using System;
-using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomInterfaces;
@@ -8,6 +7,7 @@ using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterSubclassDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.ConditionDefinitions;
 using static SolastaUnfinishedBusiness.Subclasses.CommonBuilders;
+using static AttributeDefinitions;
 
 namespace SolastaUnfinishedBusiness.Subclasses;
 
@@ -21,7 +21,7 @@ internal sealed class MartialSpellShield : AbstractSubclass
             .Create("CastSpellSpellShield")
             .SetGuiPresentation(Category.Feature)
             .SetSpellCastingOrigin(FeatureDefinitionCastSpell.CastingOrigin.Subclass)
-            .SetSpellCastingAbility(AttributeDefinitions.Intelligence)
+            .SetSpellCastingAbility(Intelligence)
             .SetSpellList(SpellListDefinitions.SpellListWizard)
             .SetSpellKnowledge(SpellKnowledge.Selection)
             .SetSpellReadyness(SpellReadyness.AllKnown)
@@ -35,8 +35,7 @@ internal sealed class MartialSpellShield : AbstractSubclass
         var magicAffinitySpellShieldCombatMagicVigor = FeatureDefinitionMagicAffinityBuilder
             .Create("MagicAffinitySpellShieldCombatMagicVigor")
             .SetGuiPresentation(Category.Feature)
-            .SetCustomSubFeatures(
-                new VigorSpellModifier { SourceName = "VigorSpell", SourceType = FeatureSourceType.ExplicitFeature })
+            .SetCustomSubFeatures(new ComputeAttackModifierMagicAffinityCombatMagicVigor())
             .AddToDB();
 
         var conditionSpellShieldArcaneDeflection = ConditionDefinitionBuilder
@@ -47,7 +46,7 @@ internal sealed class MartialSpellShield : AbstractSubclass
                 .SetGuiPresentation("PowerSpellShieldArcaneDeflection", Category.Feature)
                 .SetModifier(
                     FeatureDefinitionAttributeModifier.AttributeModifierOperation.Additive,
-                    AttributeDefinitions.ArmorClass,
+                    ArmorClass,
                     3)
                 .AddToDB())
             .AddToDB();
@@ -101,36 +100,41 @@ internal sealed class MartialSpellShield : AbstractSubclass
     internal override FeatureDefinitionSubclassChoice SubclassChoice =>
         FeatureDefinitionSubclassChoices.SubclassChoiceFighterMartialArchetypes;
 
-    private sealed class VigorSpellModifier : IIncreaseSpellDc, IIncreaseSpellAttackRoll
+    internal override DeityDefinition DeityDefinition { get; }
+
+    private sealed class ComputeAttackModifierMagicAffinityCombatMagicVigor : IOnComputeAttackModifier, IIncreaseSpellDc
     {
-        public int GetSpellAttackRollModifier(RulesetCharacter caster)
-        {
-            return CalculateModifier(caster);
-        }
-
-        public FeatureSourceType SourceType { get; set; }
-        public string SourceName { get; set; }
-
         public int GetSpellModifier(RulesetCharacter caster)
         {
-            return CalculateModifier(caster);
-        }
-
-        private static int CalculateModifier([NotNull] RulesetCharacter myself)
-        {
-            if (myself == null)
-            {
-                throw new ArgumentNullException(nameof(myself));
-            }
-
             var strModifier =
-                AttributeDefinitions.ComputeAbilityScoreModifier(myself.GetAttribute(AttributeDefinitions.Strength)
+                ComputeAbilityScoreModifier(caster.GetAttribute(Strength)
                     .CurrentValue);
             var dexModifier =
-                AttributeDefinitions.ComputeAbilityScoreModifier(myself.GetAttribute(AttributeDefinitions.Dexterity)
+                ComputeAbilityScoreModifier(caster.GetAttribute(Dexterity)
                     .CurrentValue);
 
             return Math.Max(strModifier, dexModifier);
+        }
+
+        public void ComputeAttackModifier(
+            RulesetCharacter myself,
+            RulesetCharacter defender,
+            BattleDefinitions.AttackProximity attackProximity,
+            RulesetAttackMode attackMode,
+            ref ActionModifier attackModifier)
+        {
+            if (attackProximity != BattleDefinitions.AttackProximity.MagicDistance &&
+                attackProximity != BattleDefinitions.AttackProximity.MagicRange &&
+                attackProximity != BattleDefinitions.AttackProximity.MagicReach)
+            {
+                return;
+            }
+
+            var modifier = GetSpellModifier(myself);
+
+            attackModifier.attackRollModifier += modifier;
+            attackModifier.attackToHitTrends.Add(new TrendInfo(modifier, FeatureSourceType.ExplicitFeature,
+                "Feature/&MagicAffinitySpellShieldCombatMagicVigorTitle", null));
         }
     }
 }

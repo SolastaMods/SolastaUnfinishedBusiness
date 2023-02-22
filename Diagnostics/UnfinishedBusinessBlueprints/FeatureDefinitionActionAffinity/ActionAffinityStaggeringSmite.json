@@ -1,13 +1,16 @@
 {
   "$type": "FeatureDefinitionActionAffinity, Assembly-CSharp",
-  "allowedActionTypes": null,
+  "allowedActionTypes": [
+    true,
+    true,
+    true,
+    true,
+    false,
+    true
+  ],
   "eitherMainOrBonus": false,
   "maxAttacksNumber": -1,
-  "forbiddenActions": [
-    "CastReaction",
-    "PowerReaction",
-    "ReactionShot"
-  ],
+  "forbiddenActions": [],
   "authorizedActions": [],
   "restrictedActions": [],
   "actionExecutionModifiers": [],

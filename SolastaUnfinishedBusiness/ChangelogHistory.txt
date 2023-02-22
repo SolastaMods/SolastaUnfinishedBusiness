@@ -1,5 +1,105 @@
 ﻿CHANGES:
 
+1.4.33.45:
+
+- fixed Awaken The Beast not adding Druid class based additional hit points
+- fixed Barbarian to have ASI at level 16
+- fixed interaction between Sentinel and Sunlit Blade through War Caster
+- improved Roguish Duelist and Way of Discordance translations
+- improved Way of Discordance's discordance damage to also add PB/2 bonus
+
+1.4.33.44:
+
+- added class bound Blessed Soul feat
+- added class bound Natural Fluidity feat
+- added class bound Spiritual Fluidity feat
+- added race bound Squat Nimbleness feat
+- improved Inventor infusions to endure on unconsciousness
+
+1.4.33.43:
+
+- added support to Deity based subclasses on builders
+- fixed Duelist subclass description
+- fixed Grenadier bombs DC to always use INT when multicaster
+- fixed Spell Sniper offering spells as cantrips
+
+1.4.33.42:
+
+- added Gameplay > Tools > Enable Character Checker setting
+- added Roguish Duelist subclass
+- changed War Caster to allow attacks with ranged weapons
+- changed Way of Discordance's burst of disharmony to be offered as a bonus action
+- changed Way of Discordance's burst of disharmony to be limited by remaining Ki points only
+
+1.4.33.41:
+
+- added additional funding links to Mod UI > Characters [Patreon, GitHub Sponsors]
+- added Awaken The Beast feat
+- added Cunning Escape feat
+- added Way of Discordance subclass
+- improved Astral Arms feat to work as Polearm Master one when enemy enters reach
+- improved Shared Spell metamagic description
+
+1.4.33.40:
+
+- added Potent Spellcaster feat
+- fixed Sentinel reaction interactions amongst players
+- fixed Soul Blade empower weapon interaction with Pact of Blade
+- improved Poisonous Skin to trigger on shove actions
+- improved Arcane Fighter to keep enchant weapon when unconscious
+- improved Soul Blade to keep empower weapon when unconscious
+
+1.4.33.39:
+
+- fixed Spell Sniper to correctly apply no cover on range hit
+- improved Spells mod UI to fully integrate with Spell Sniper
+- tweaked max attuned items to be granted at 10th and 18th
+
+1.4.33.38:
+
+- added Call for Charge feat
+- added house rule to increase max attuned items to 4 at 9th and 5 at 18th
+- fixed missing advantage on Wild Master eagle pack tactics
+- improved group descriptions to list feat names within them
+
+1.4.33.37:
+
+- refactored Crusher to correctly trigger with shields and not with EB
+- refactored Altruistic metamagic spell to be on par with original [Commensal]
+- refactored Brace, Parry and Retaliate gambits to require and consume reaction
+
+1.4.33.36:
+
+- added Altruistic metamagic
+- added rule to offer different critical damage calculation algorithms
+- fixed Crusher and respective interaction with other feats under multiplayer
+- improved long mace icons
+
+1.4.33.35:
+
+- fixed auto update
+
+1.4.33.34:
+
+- refactored Fell Handed feat
+- refactored Searing, Wrathful, Blinding and Staggering Smite spells
+- updated Oath of Altruism features descriptions
+- updated Oath of Ancients features descriptions
+
+1.4.33.33:
+
+- fixed Warlocks getting incorrect invocations learn step if multiclass
+
+1.4.33.32:
+
+- added Oath of Altruism subclass in BETA
+- fixed Blade Dancer not removing the beneficial condition on invalid armor or weapon sets
+- fixed Ki and Smite toggles loosing their state on area changes
+- fixed some powers to correctly work in multiclass and multiplayer [i.e: DC, consumption]
+- fixed War Caster persisting the bonus attack to the next round
+- improved Mod UI icons to make intentions more clear
+- refactored Fell Handed with better combat log and behavior
+
 1.4.33.31:
 
 - added lore friendly Kobold names

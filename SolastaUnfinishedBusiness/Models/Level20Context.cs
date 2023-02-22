@@ -135,19 +135,6 @@ internal static class Level20Context
                 });
             }
         }
-
-        //
-        // BUGFIX: fix Race Repertoires
-        //
-
-        CastSpellElfHigh.slotsPerLevels = SharedSpellsContext.RaceEmptyCastingSlots;
-
-        //
-        // BUGFIX: add a sprite reference to Resurrection
-        //
-
-        Resurrection.GuiPresentation.spriteReference =
-            Sprites.GetSprite("Resurrection", Resources.Resurrection, 128, 128);
     }
 
     internal static void LateLoad()
@@ -208,7 +195,8 @@ internal static class Level20Context
             {
                 new(AttributeModifierBarbarianBrutalCriticalAdd, 13),
                 new(PowerBarbarianPersistentRageStart, 15),
-                new(AttributeModifierBarbarianRageDamageAdd, 16)
+                new(AttributeModifierBarbarianRageDamageAdd, 16),
+                new(FeatureSetAbilityScoreChoice, 16)
             });
         }
 
@@ -880,6 +868,7 @@ internal static class Level20Context
             }
 
             character.ForceKiPointConsumption(-4);
+            character.KiPointsAltered?.Invoke(character, character.RemainingKiPoints);
             GameConsoleHelper.LogCharacterActivatesAbility(character, "Feature/&MonkPerfectSelfTitle");
         }
     }

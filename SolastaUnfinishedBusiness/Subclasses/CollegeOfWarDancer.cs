@@ -59,7 +59,6 @@ internal sealed class CollegeOfWarDancer : AbstractSubclass
     {
         var warDance = FeatureDefinitionPowerBuilder
             .Create(PowerWarDanceName)
-            .SetCustomSubFeatures(ValidatorsCharacter.MainHandIsMeleeWeapon)
             .SetUsesFixed(ActivationTime.BonusAction, RechargeRate.BardicInspiration)
             .SetGuiPresentation(Category.Feature, SpellDefinitions.MagicWeapon)
             .SetEffectDescription(EffectDescriptionBuilder
@@ -78,7 +77,9 @@ internal sealed class CollegeOfWarDancer : AbstractSubclass
                         .Build()
                 )
                 .Build())
-            .SetCustomSubFeatures(ValidatorsPowerUse.HasNoneOfConditions(ConditionWarDance.Name),
+            .SetCustomSubFeatures(
+                ValidatorsCharacter.MainHandIsMeleeWeapon,
+                ValidatorsPowerUse.HasNoneOfConditions(ConditionWarDance.Name),
                 new WarDanceRefundOneAttackOfMainAction())
             .AddToDB();
 
@@ -95,6 +96,8 @@ internal sealed class CollegeOfWarDancer : AbstractSubclass
 
     internal override FeatureDefinitionSubclassChoice SubclassChoice =>
         FeatureDefinitionSubclassChoices.SubclassChoiceBardColleges;
+
+    internal override DeityDefinition DeityDefinition { get; }
 
     private static ConditionDefinition BuildConditionWarDance()
     {
@@ -281,7 +284,6 @@ internal sealed class CollegeOfWarDancer : AbstractSubclass
                 FeatureDefinitionActionAffinityBuilder
                     .Create("ActionAffinityWarDanceExtraAction")
                     .SetGuiPresentationNoContent(true)
-                    .SetDefaultAllowedActionTypes()
                     .SetMaxAttackNumber(1)
                     .SetForbiddenActions(ActionDefinitions.Id.CastMain, ActionDefinitions.Id.PowerMain,
                         ActionDefinitions.Id.UseItemMain, ActionDefinitions.Id.HideMain, ActionDefinitions.Id.Ready)
@@ -297,7 +299,6 @@ internal sealed class CollegeOfWarDancer : AbstractSubclass
                 FeatureDefinitionActionAffinityBuilder
                     .Create("ActionAffinityImprovedWarDanceExtraAction")
                     .SetGuiPresentationNoContent(true)
-                    .SetDefaultAllowedActionTypes()
                     .SetMaxAttackNumber(1)
                     .SetForbiddenActions(ActionDefinitions.Id.PowerMain,
                         ActionDefinitions.Id.UseItemMain, ActionDefinitions.Id.HideMain, ActionDefinitions.Id.Ready)
@@ -433,7 +434,7 @@ internal sealed class CollegeOfWarDancer : AbstractSubclass
                 WarDanceMomentum,
                 DurationType.Round,
                 1,
-                TurnOccurenceType.EndOfTurn,
+                TurnOccurenceType.StartOfTurn,
                 hero.RulesetCharacter.Guid,
                 hero.RulesetCharacter.CurrentFaction.Name);
 

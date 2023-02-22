@@ -1,4 +1,7 @@
-// automatically generated on 1/5/2023 12:00:00 AM
+// automatically generated on 2/20/2023 12:00:00 AM
+// ReSharper disable IdentifierTypo
+// ReSharper disable InconsistentNaming
+// ReSharper disable StringLiteralTypo
 
 using TA.AI;
 
@@ -2429,6 +2432,24 @@ internal static partial class DatabaseHelper
 
         internal static DamageDefinition DamageThunder { get; } =
             GetDefinition<DamageDefinition>("DamageThunder");
+    }
+
+    internal static class DeityDefinitions
+    {
+        internal static DeityDefinition Arun { get; } =
+            GetDefinition<DeityDefinition>("Arun");
+
+        internal static DeityDefinition Einar { get; } =
+            GetDefinition<DeityDefinition>("Einar");
+
+        internal static DeityDefinition Maraike { get; } =
+            GetDefinition<DeityDefinition>("Maraike");
+
+        internal static DeityDefinition Misaye { get; } =
+            GetDefinition<DeityDefinition>("Misaye");
+
+        internal static DeityDefinition Pakri { get; } =
+            GetDefinition<DeityDefinition>("Pakri");
     }
 
     internal static class DocumentTableDefinitions

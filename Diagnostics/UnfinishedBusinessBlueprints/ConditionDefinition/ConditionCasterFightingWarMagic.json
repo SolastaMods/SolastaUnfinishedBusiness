@@ -4,7 +4,7 @@
   "parentCondition": null,
   "conditionType": "Beneficial",
   "features": [
-    "Definition:AttackModifierBerserkerFrenzy:df8c5b0838433cf419c1bb5d74ed49c5"
+    "Definition:PowerCasterFightingWarMagicAttack:1a82f058-af32-5204-9dae-6995448e0b07"
   ],
   "allowMultipleInstances": false,
   "silentWhenAdded": false,

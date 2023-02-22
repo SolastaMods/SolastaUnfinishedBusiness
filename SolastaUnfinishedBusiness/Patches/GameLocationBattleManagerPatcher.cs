@@ -267,8 +267,8 @@ public static class GameLocationBattleManagerPatcher
             {
                 yield return extraEvents.Current;
             }
-            
-                 //PATCH: support for Defensive Strike Power - allows adding Charisma modifer and chain reactions
+
+            //PATCH: support for Defensive Strike Power - allows adding Charisma modifer and chain reactions
             var defensiveEvents =
                 DefensiveStrikeAttack.ProcessOnCharacterAttackFinished(__instance, attacker, defender);
 
@@ -279,7 +279,8 @@ public static class GameLocationBattleManagerPatcher
 
             //PATCH: support for Aura of the Guardian power - allows swapping hp on enemy attacking ally
             var guardianEvents =
-                GuardianAuraHpSwap.ProcessOnCharacterAttackHitFinished(__instance, attacker, defender, attackerAttackMode, rulesetEffect, damageAmount);
+                GuardianAuraHpSwap.ProcessOnCharacterAttackHitFinished(__instance, attacker, defender,
+                    attackerAttackMode, rulesetEffect, damageAmount);
 
             while (guardianEvents.MoveNext())
             {
@@ -342,8 +343,8 @@ public static class GameLocationBattleManagerPatcher
             }
         }
     }
-    
-      [HarmonyPatch(typeof(GameLocationBattleManager),
+
+    [HarmonyPatch(typeof(GameLocationBattleManager),
         nameof(GameLocationBattleManager.HandleCharacterAttackHitPossible))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
@@ -359,7 +360,7 @@ public static class GameLocationBattleManagerPatcher
             RulesetEffect rulesetEffect,
             ActionModifier attackModifier,
             int attackRoll
-            )
+        )
         {
             while (values.MoveNext())
             {
@@ -368,14 +369,14 @@ public static class GameLocationBattleManagerPatcher
 
             //PATCH: Support for Spiritual Shielding feature - allows reaction before hit confirmed
             var blockEvents =
-              BlockAttacks.ProcessOnCharacterAttackHitConfirm(__instance, attacker, defender, attackMode, rulesetEffect, attackModifier, attackRoll);
+                BlockAttacks.ProcessOnCharacterAttackHitConfirm(__instance, attacker, defender, attackMode,
+                    rulesetEffect, attackModifier, attackRoll);
 
             while (blockEvents.MoveNext())
             {
                 yield return blockEvents.Current;
             }
         }
-
     }
 
     [HarmonyPatch(typeof(GameLocationBattleManager),
@@ -612,34 +613,16 @@ public static class GameLocationBattleManagerPatcher
                 return;
             }
 
-            switch (attackParams.attackProximity)
+            var attackModifiers = attacker.GetSubFeaturesByType<IOnComputeAttackModifier>();
+
+            foreach (var feature in attackModifiers)
             {
-                case BattleDefinitions.AttackProximity.PhysicalRange or BattleDefinitions.AttackProximity.PhysicalReach:
-                    // handle physical attack roll
-                    var attackModifiers = attacker.GetSubFeaturesByType<IOnComputeAttackModifier>();
-
-                    foreach (var feature in attackModifiers)
-                    {
-                        feature.ComputeAttackModifier(attacker, defender, attackParams.attackMode,
-                            ref attackParams.attackModifier);
-                    }
-
-                    break;
-
-                case BattleDefinitions.AttackProximity.MagicRange or BattleDefinitions.AttackProximity.MagicReach:
-                    // handle magic attack roll
-                    var magicAttackModifiers = attacker.GetSubFeaturesByType<IIncreaseSpellAttackRoll>();
-
-                    foreach (var feature in magicAttackModifiers)
-                    {
-                        var modifier = feature.GetSpellAttackRollModifier(attacker);
-                        attackParams.attackModifier.attackRollModifier += modifier;
-                        attackParams.attackModifier.attackToHitTrends.Add(new RuleDefinitions.TrendInfo(modifier,
-                            feature.SourceType,
-                            feature.SourceName, null));
-                    }
-
-                    break;
+                feature.ComputeAttackModifier(
+                    attacker,
+                    defender,
+                    attackParams.attackProximity,
+                    attackParams.attackMode,
+                    ref attackParams.attackModifier);
             }
         }
     }

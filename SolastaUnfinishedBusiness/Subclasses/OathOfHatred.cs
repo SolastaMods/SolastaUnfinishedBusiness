@@ -139,6 +139,8 @@ internal sealed class OathOfHatred : AbstractSubclass
     internal override FeatureDefinitionSubclassChoice SubclassChoice => FeatureDefinitionSubclassChoices
         .SubclassChoicePaladinSacredOaths;
 
+    internal override DeityDefinition DeityDefinition { get; }
+
     private sealed class OnAttackEffectsDauntlessPursuer : IAfterAttackEffect
     {
         private readonly ConditionDefinition _conditionDauntlessPursuerAfterAttack;

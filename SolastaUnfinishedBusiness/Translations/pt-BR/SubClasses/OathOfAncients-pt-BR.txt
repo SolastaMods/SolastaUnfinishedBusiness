@@ -1,12 +1,10 @@
-﻿Condition/&ConditionOathOfAncientsNaturesWrathDescription=Você está enredado em trepadeiras impedindo o movimento, desvantagem em testes de resistência de Destreza e atacantes têm uma vantagem. No final do seu turno, faça um teste de resistência de Força para escapar.
-Condition/&ConditionOathOfAncientsNaturesWrathTitle=Emaranhado
-Condition/&ConditionOathOfAncientsAuraWardingDescription=Ganhe resistência a danos mágicos.
+﻿Condition/&ConditionOathOfAncientsAuraWardingDescription=Ganhe resistência a danos mágicos.
 Condition/&ConditionOathOfAncientsAuraWardingTitle=Protegido
-Feature/&PowerOathOfAncientsNaturesWrathDescription=Conjure vinhas em um alvo, o alvo é impedido em uma falha no teste de resistência de Força. O alvo rola um teste de resistência de Força para escapar no final de seu turno.
+Feature/&PowerOathOfAncientsNaturesWrathDescription=Você pode usar seu Canalizar Divindade para invocar forças primitivas para enredar um inimigo. Com uma ação, você pode fazer com que videiras espectrais brotem e alcancem uma criatura a até 3 metros de você que você possa ver. A criatura deve ser bem sucedida em um teste de resistência de Força ou será impedida. Enquanto estiver contida pelas vinhas, a criatura repete o teste de resistência no final de cada um de seus turnos. Em caso de sucesso, ele se liberta e as vinhas desaparecem.
 Feature/&PowerOathOfAncientsNaturesWrathTitle=Canalizar Divindade: Ira da Natureza
-Feature/&PowerOathOfAncientsTurnFaithlessDescription=Realize uma oração, Fey, Fiends e Elementals que estão próximos devem fazer um teste de resistência de Sabedoria, em caso de falha, eles são derrotados.
+Feature/&PowerOathOfAncientsTurnFaithlessDescription=Você pode usar seu Canalizar Divindade para proferir palavras antigas que são dolorosas para fadas e demônios ouvirem. Como uma ação, você apresenta seu símbolo sagrado, e cada fada ou demônio a até 9 metros de você que possa ouvi-lo deve fazer um teste de resistência de Sabedoria. Se falhar na resistência, a criatura é virada por 1 minuto ou até sofrer dano.
 Feature/&PowerOathOfAncientsTurnFaithlessTitle=Canalizar Divindade: Transforme os Infiéis
-Feature/&PowerOathOfAncientsAuraWardingDescription=Conceda a você e àqueles ao seu redor uma proteção antiga que reduz o dano de feitiços.
+Feature/&PowerOathOfAncientsAuraWardingDescription=A partir do 7º nível, a magia antiga pesa tanto sobre você que forma uma proteção mística. Você e criaturas aliadas a até 3 metros de você têm resistência a dano de magias.
 Feature/&PowerOathOfAncientsAuraWardingTitle=Aura de Proteção
 Subclass/&OathOfAncientsDescription=Um juramento de um tempo mais primitivo que se dedica a utilizar a natureza para o bem.
 Subclass/&OathOfAncientsTitle=Juramento dos Ancestrais

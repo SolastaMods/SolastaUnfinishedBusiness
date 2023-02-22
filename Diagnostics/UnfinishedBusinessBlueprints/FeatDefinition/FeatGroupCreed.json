@@ -16,7 +16,7 @@
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
     "title": "Feat/&FeatGroupCreedTitle",
-    "description": "Feat/&FeatGroupCreedDescription",
+    "description": "Increase one of your attributes by 1, to a maximum of 20.\nProficiency in saves of chosen attribute, if not already proficient; +1 otherwise.",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",

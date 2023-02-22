@@ -16,7 +16,7 @@
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
     "title": "Feat/&FeatGroupBodyResilienceTitle",
-    "description": "Feat/&FeatGroupBodyResilienceDescription",
+    "description": "Badlands Marauder, Blessing of the Elements, Enduring Body, Focused Sleeper, Hard to Kill, Hauler, Robust, Tough",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",

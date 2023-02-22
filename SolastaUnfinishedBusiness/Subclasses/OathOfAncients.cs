@@ -36,7 +36,6 @@ internal sealed class OathOfAncients : AbstractSubclass
 
         var conditionNaturesWrath = ConditionDefinitionBuilder
             .Create(ConditionDefinitions.ConditionRestrainedByEntangle, $"Condition{NAME}NaturesWrath")
-            .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionRestrainedByEntangle)
             .SetConditionParticleReference(Entangle.effectDescription.EffectParticleParameters
                 .conditionParticleReference)
             .AddToDB();
@@ -168,6 +167,8 @@ internal sealed class OathOfAncients : AbstractSubclass
 
     internal override FeatureDefinitionSubclassChoice SubclassChoice => FeatureDefinitionSubclassChoices
         .SubclassChoicePaladinSacredOaths;
+
+    internal override DeityDefinition DeityDefinition { get; }
 
     private sealed class AuraWardingModifyMagic : IModifyMagicEffectOnTarget
     {

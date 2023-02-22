@@ -371,57 +371,40 @@ internal static class MulticlassContext
             // CharacterStageClassSelectionPanel
             (
                 typeof(CharacterStageClassSelectionPanel).GetMethod("EnumerateActiveFeatures", PrivateBinding) ??
-                NullMethod,
-                HeroContext.StagePanel
+                NullMethod, HeroContext.StagePanel
             ),
             (
-                typeof(CharacterStageClassSelectionPanel).GetMethod("FillClassFeatures", PrivateBinding) ?? NullMethod,
-                HeroContext.StagePanel
+                typeof(CharacterStageClassSelectionPanel).GetMethod("FillClassFeatures", PrivateBinding) ??
+                NullMethod, HeroContext.StagePanel
             ),
-
-            // CharacterStageDeitySelectionPanel
-            (typeof(CharacterStageDeitySelectionPanel).GetMethod("EnterStage") ?? NullMethod, HeroContext.StagePanel),
-
             // CharacterStageLevelGainsPanel
             (
-                typeof(CharacterStageLevelGainsPanel).GetMethod("OnHigherLevelClassCb") ?? NullMethod,
-                HeroContext.StagePanel
+                typeof(CharacterStageLevelGainsPanel).GetMethod("OnHigherLevelClassCb") ??
+                NullMethod, HeroContext.StagePanel
             ),
             (
                 typeof(CharacterStageLevelGainsPanel).GetMethod("EnumerateActiveClassFeatures", PrivateBinding) ??
-                NullMethod,
-                HeroContext.StagePanel
+                NullMethod, HeroContext.StagePanel
             ),
             (
                 typeof(CharacterStageLevelGainsPanel).GetMethod("FillUnlockedClassFeatures", PrivateBinding) ??
-                NullMethod,
-                HeroContext.StagePanel
+                NullMethod, HeroContext.StagePanel
             ),
             (
-                typeof(CharacterStageLevelGainsPanel).GetMethod("Refresh", PrivateBinding) ?? NullMethod,
-                HeroContext.StagePanel
+                typeof(CharacterStageLevelGainsPanel).GetMethod("Refresh", PrivateBinding) ??
+                NullMethod, HeroContext.StagePanel
             ),
 
             // CharacterBuildingManager
             (
-                typeof(CharacterBuildingManager).GetMethod("FinalizeCharacter") ?? NullMethod,
-                HeroContext.BuildingManager
+                typeof(CharacterBuildingManager).GetMethod("FinalizeCharacter") ??
+                NullMethod, HeroContext.BuildingManager
             ),
 
             // CharacterInformationPanel
             (
-                typeof(CharacterInformationPanel).GetMethod("TryFindChoiceFeature", PrivateBinding) ?? NullMethod,
-                HeroContext.InformationPanel
-            ),
-
-            // RulesetCharacterHero
-            (
-                typeof(RulesetCharacterHero).GetMethod("FindClassHoldingFeature") ?? NullMethod,
-                HeroContext.CharacterHero
-            ),
-            (
-                typeof(RulesetCharacterHero).GetMethod("LookForFeatureOrigin", PrivateBinding) ?? NullMethod,
-                HeroContext.CharacterHero
+                typeof(CharacterInformationPanel).GetMethod("TryFindChoiceFeature", PrivateBinding) ??
+                NullMethod, HeroContext.InformationPanel
             )
         };
 
@@ -470,12 +453,6 @@ internal static class MulticlassContext
                 return instructions.ReplaceCalls(classFeatureUnlocksMethod,
                     "MulticlassContext.FeatureUnlocksTranspiler.BuildingManager",
                     new CodeInstruction(OpCodes.Ldarg_1),
-                    new CodeInstruction(OpCodes.Call, classFilteredFeatureUnlocksMethod));
-
-            case HeroContext.CharacterHero:
-                return instructions.ReplaceCalls(classFeatureUnlocksMethod,
-                    "MulticlassContext.FeatureUnlocksTranspiler.CharacterHero",
-                    new CodeInstruction(OpCodes.Ldarg_0),
                     new CodeInstruction(OpCodes.Call, classFilteredFeatureUnlocksMethod));
 
             case HeroContext.InformationPanel:
@@ -545,8 +522,7 @@ internal static class MulticlassContext
         return SpellCastingLevel(repertoire, rulesetEffect.Caster, rulesetEffect.SpellDefinition);
     }
 
-    internal static int SpellCastingLevel(RulesetSpellRepertoire repertoire,
-        CharacterActionCastSpell action)
+    internal static int SpellCastingLevel(RulesetSpellRepertoire repertoire, CharacterActionCastSpell action)
     {
         return SpellCastingLevel(repertoire, action.ActingCharacter.RulesetActor, action.ActiveSpell.SpellDefinition);
     }
@@ -568,7 +544,6 @@ internal static class MulticlassContext
     private enum HeroContext
     {
         BuildingManager,
-        CharacterHero,
         StagePanel,
         InformationPanel
     }

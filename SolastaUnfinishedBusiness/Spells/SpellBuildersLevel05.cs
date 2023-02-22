@@ -20,7 +20,7 @@ internal static partial class SpellBuilders
         const string NAME = "BanishingSmite";
 
         var conditionBanishingSmiteEnemy = ConditionDefinitionBuilder
-            .Create(ConditionBanishedByPrismaticSpray, $"Condition{NAME}Enemy")
+            .Create(ConditionBanished, $"Condition{NAME}Enemy")
             .SetSpecialDuration(DurationType.Minute, 1)
             .AddToDB();
 
@@ -29,10 +29,7 @@ internal static partial class SpellBuilders
             .SetGuiPresentation(Category.Feature)
             .SetNotificationTag(NAME)
             .SetDamageDice(DieType.D10, 5)
-            .SetAdditionalDamageType(AdditionalDamageType.Specific)
-            .SetAdvancement(AdditionalDamageAdvancement.SlotLevel, 5, 1, 1, 5)
             .SetSpecificDamageType(DamageTypeForce)
-            .SetIgnoreCriticalDoubleDice(true)
             .SetCustomSubFeatures(new OnAttackHitEffectBanishingSmite(conditionBanishingSmiteEnemy))
             .AddToDB();
 
@@ -47,16 +44,14 @@ internal static partial class SpellBuilders
         var spell = SpellDefinitionBuilder
             .Create(BrandingSmite, NAME)
             .SetGuiPresentation(Category.Spell, Sprites.GetSprite(NAME, Resources.ThunderousSmite, 128))
-            .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolEvocation)
+            .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolAbjuration)
             .SetSpellLevel(5)
             .SetCastingTime(ActivationTime.BonusAction)
             .SetVerboseComponent(true)
-            .SetEffectDescription(EffectDescriptionBuilder
-                .Create()
+            .SetEffectDescription(EffectDescriptionBuilder.Create()
                 .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
                 .SetDurationData(DurationType.Minute, 1)
-                .SetEffectForms(EffectFormBuilder
-                    .Create()
+                .SetEffectForms(EffectFormBuilder.Create()
                     .SetConditionForm(conditionBanishingSmite, ConditionForm.ConditionOperation.Add)
                     .Build())
                 .Build())

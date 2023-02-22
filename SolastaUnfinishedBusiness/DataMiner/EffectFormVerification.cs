@@ -71,7 +71,7 @@ internal static class EffectFormVerification
     }
 
     [Flags]
-    internal enum Verification
+    private enum Verification
     {
         None,
         ReturnNull = 1,

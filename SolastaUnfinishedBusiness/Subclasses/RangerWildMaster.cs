@@ -29,7 +29,6 @@ internal sealed class RangerWildMaster : AbstractSubclass
             FeatureDefinitionActionAffinityBuilder
                 .Create("ActionAffinityWildMasterSpiritBeast")
                 .SetGuiPresentationNoContent()
-                .SetDefaultAllowedActionTypes()
                 .SetForbiddenActions(Id.AttackMain, Id.AttackOff, Id.AttackReadied, Id.AttackOpportunity, Id.Ready,
                     Id.PowerMain, Id.PowerBonus, Id.PowerReaction, Id.SpendPower)
                 .SetCustomSubFeatures(new SummonerHasConditionOrKOd())
@@ -111,6 +110,7 @@ internal sealed class RangerWildMaster : AbstractSubclass
             powerSpiritBeastBreathWeaponBlue,
             CharacterContext.FeatureDefinitionPowerHelpAction,
             actionAffinitySpiritBeast,
+            combatAffinityWildMasterSummonerIsNextToBeast,
             conditionAffinityWildMasterSpiritBeastInitiative);
 
         var powerKindredSpiritEagle07 = BuildSpiritBeastPower(powerWildMasterSummonSpiritBeastPool07,
@@ -119,6 +119,7 @@ internal sealed class RangerWildMaster : AbstractSubclass
             FeatureDefinitionPowers.PowerFiendishResilienceLightning,
             CharacterContext.FeatureDefinitionPowerHelpAction,
             actionAffinitySpiritBeast,
+            combatAffinityWildMasterSummonerIsNextToBeast,
             conditionAffinityWildMasterSpiritBeastInitiative);
 
         var powerKindredSpiritEagle11 = BuildSpiritBeastPower(powerWildMasterSummonSpiritBeastPool11,
@@ -128,6 +129,7 @@ internal sealed class RangerWildMaster : AbstractSubclass
             powerWildMasterInvisibility,
             CharacterContext.FeatureDefinitionPowerHelpAction,
             actionAffinitySpiritBeast,
+            combatAffinityWildMasterSummonerIsNextToBeast,
             conditionAffinityWildMasterSpiritBeastInitiative);
 
         var powerKindredSpiritEagle15 = BuildSpiritBeastPower(powerWildMasterSummonSpiritBeastPool15,
@@ -138,6 +140,7 @@ internal sealed class RangerWildMaster : AbstractSubclass
             FeatureDefinitionPowers.PowerEyebitePanicked,
             CharacterContext.FeatureDefinitionPowerHelpAction,
             perceptionAffinitySpiritBeast,
+            combatAffinityWildMasterSummonerIsNextToBeast,
             conditionAffinityWildMasterSpiritBeastInitiative);
 
         #endregion
@@ -248,9 +251,6 @@ internal sealed class RangerWildMaster : AbstractSubclass
             .Create("FeatureWildMasterBeastIsNextToSummoner")
             .SetGuiPresentation(Category.Feature)
             .AddToDB();
-
-        // BACKWARD COMPATIBILITY
-        _ = BuildPowerWildMasterSpiritBeastRecuperate();
 
         var featureSetWildMaster03 = FeatureDefinitionFeatureSetBuilder
             .Create("FeatureSetWildMaster03")
@@ -367,78 +367,7 @@ internal sealed class RangerWildMaster : AbstractSubclass
     internal override FeatureDefinitionSubclassChoice SubclassChoice =>
         FeatureDefinitionSubclassChoices.SubclassChoiceRangerArchetypes;
 
-    private static FeatureDefinition BuildPowerWildMasterSpiritBeastRecuperate()
-    {
-        const string NAME = "PowerWildMasterSpiritBeastRecuperate";
-
-        RestActivityDefinitionBuilder
-            .Create("RestActivityWildMasterSpiritBeastRecuperate")
-            .SetGuiPresentation(NAME, Category.Feature)
-            .SetRestData(
-                RestDefinitions.RestStage.AfterRest,
-                RestType.ShortRest,
-                RestActivityDefinition.ActivityCondition.CanUsePower,
-                PowerBundleContext.UseCustomRestPowerFunctorName,
-                NAME)
-            .AddToDB();
-
-        var powerWildMasterSpiritBeastRecuperate = FeatureDefinitionPowerBuilder
-            .Create(NAME)
-            .SetGuiPresentation(Category.Feature)
-            .SetCustomSubFeatures(
-                PowerVisibilityModifier.Hidden,
-                HasModifiedUses.Marker,
-                new ValidatorsPowerUse(HasInjuredBeast),
-                new ModifyRestPowerTitleHandler(GetRestPowerTitle),
-                new RetargetSpiritBeast())
-            .SetUsesFixed(ActivationTime.Rest, RechargeRate.LongRest, 1, 0)
-            .SetEffectDescription(EffectDescriptionBuilder.Create()
-                .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
-                .SetEffectForms(EffectFormBuilder.Create()
-                    .SetHealingForm(HealingComputation.Dice, 0, DieType.D8, 1, false, HealingCap.MaximumHitPoints)
-                    .Build())
-                .Build())
-            .AddToDB();
-
-        powerWildMasterSpiritBeastRecuperate.AddCustomSubFeatures(new PowerUseModifier
-        {
-            PowerPool = powerWildMasterSpiritBeastRecuperate,
-            Type = PowerPoolBonusCalculationType.ClassLevel,
-            Attribute = RangerClass
-        });
-
-        return powerWildMasterSpiritBeastRecuperate;
-    }
-
-    private static RulesetCharacter GetSpiritBeast(RulesetCharacter character)
-    {
-        var spiritBeastEffect =
-            character.powersUsedByMe.Find(p => p.sourceDefinition.Name.StartsWith(SummonSpiritBeastPower));
-        var summons = EffectHelpers.GetSummonedCreatures(spiritBeastEffect);
-
-        return summons.Empty() ? null : summons[0];
-    }
-
-    private static bool HasInjuredBeast(RulesetCharacter character)
-    {
-        var spiritBeast = GetSpiritBeast(character);
-
-        return spiritBeast is { IsMissingHitPoints: true };
-    }
-
-    private static string GetRestPowerTitle(RulesetCharacter character)
-    {
-        var spiritBeast = GetSpiritBeast(character);
-
-        if (spiritBeast == null)
-        {
-            return string.Empty;
-        }
-
-        return Gui.Format("Feature/&PowerWildMasterSpiritBeastRecuperateFormat",
-            spiritBeast.CurrentHitPoints.ToString(),
-            spiritBeast.TryGetAttributeValue(AttributeDefinitions.HitPoints).ToString());
-    }
+    internal override DeityDefinition DeityDefinition { get; }
 
     private static FeatureDefinitionPower BuildSpiritBeastPower(
         FeatureDefinitionPower sharedPoolPower,
@@ -471,7 +400,10 @@ internal sealed class RangerWildMaster : AbstractSubclass
                 .SetParticleEffectParameters(ConjureElementalAir)
                 .Build())
             .SetUniqueInstance()
-            .SetCustomSubFeatures(SkipEffectRemovalOnLocationChange.Always, ValidatorsPowerUse.NotInCombat)
+            .SetCustomSubFeatures(
+                new ShouldTerminatePowerEffect(name),
+                SkipEffectRemovalOnLocationChange.Always,
+                ValidatorsPowerUse.NotInCombat)
             .AddToDB();
     }
 
@@ -707,8 +639,14 @@ internal sealed class RangerWildMaster : AbstractSubclass
             }
 
             var character = locationCharacter.RulesetCharacter;
-            var newCondition = RulesetCondition.CreateActiveCondition(character.Guid, condition, DurationType.Round, 1,
-                TurnOccurenceType.StartOfTurn, locationCharacter.Guid, character.CurrentFaction.Name);
+            var newCondition = RulesetCondition.CreateActiveCondition(
+                character.Guid,
+                condition,
+                DurationType.Round,
+                1,
+                TurnOccurenceType.StartOfTurn,
+                locationCharacter.Guid,
+                character.CurrentFaction.Name);
 
             character.AddConditionOfCategory(AttributeDefinitions.TagCombat, newCondition);
             GameConsoleHelper.LogCharacterUsedPower(character, power);
@@ -721,16 +659,6 @@ internal sealed class RangerWildMaster : AbstractSubclass
         {
             return ServiceRepository.GetService<IGameLocationBattleService>().IsBattleInProgress &&
                    character.powersUsedByMe.Any(p => p.sourceDefinition.Name.StartsWith(SummonSpiritBeastPower));
-        }
-    }
-
-    private class RetargetSpiritBeast : IRetargetCustomRestPower
-    {
-        public GameLocationCharacter GetTarget(RulesetCharacter character)
-        {
-            var spiritBeast = GetSpiritBeast(character);
-
-            return spiritBeast == null ? null : GameLocationCharacter.GetFromActor(spiritBeast);
         }
     }
 }

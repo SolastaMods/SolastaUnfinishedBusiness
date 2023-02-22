@@ -122,14 +122,17 @@ All settings start disabled by default.
 [*][b]Royal Knight[/b]: A knight who inspires greatness in others by committing brave deeds in battle. A Royal Knight is a skilled warrior, but one leading a band of allies can transform even the most poorly equipped militia into a ferocious war band.
 [*][b]Spell Shield[/b]: Spell Shields are fighters that specialize in defense and protection. They use magic to aid their natural abilities.
 [*][b]Tactician[/b]: The Tactician uses their knowledge and might on the battlefield to perform different gambits as they are needed. They can knock down foes, inspire their allies and get in deadly counter-strikes against their foes.
+[*][b]Oath of Altruism[/b]: Heroes know their calling, and the Oath of Altruism calls out to those selfless heroes who put protection of the meek above all else. Followers of this Oath, are truly selfless protectors, who risk their own lives and would willfully die to protector those they care for. Paladins of this oath are not looking for glory and often align themselves with those seeking a greater purpose. They lend their shields and swords for the greater good of the goals of the team, before their own.
 [*][b]Oath of Ancients[/b]: An Oath from a more primitive time which one dedicates themself to utilizing nature for good.
 [*][b]Oath of Hatred[/b]: An Oath of Hatred paladin has dedicated himself to the punishment of evil doers by channeling hate.
 [*][b]Arcanist[/b]: The Arcanist melds their Ranger skills with arcane abilities. Their weapons can afflict their opponents with the Arcanist's Mark, and have learned how to cast some Wizard spells as part of their Ranger spell repertoire.
 [*][b]Wild Master[/b]: The Wild Master archetype embodies a friendship between the civilized races and the beasts of the world. United in focus, spirit and ranger work as one to fight the monstrous foes that threaten civilization and the wilderness alike.
+[*][b]Duelist[/b]: Duelists possess a swaggering bravado. They are quick-witted, self-sufficient, and dangerous to isolated enemies.
 [*][b]Opportunist[/b]: Opportunist are those who never let a chance to finish their enemies slide. They stab fast and stab where it matters. Not many facing them can escape unscratched.
 [*][b]Raven[/b]: Ravens are ranged weapon specialists that are trained to take down enemies quickly and effectively.
 [*][b]Divine Heart[/b]: Your innate magic has been imparted to you by a Deity for a purpose you may or may not understand. 
 [*][b]Field Manipulator[/b]: Field Manipulators excel at controlling the battlefield and preventing their enemies from being able to attack them.
+[*][b]Way of Discordance[/b]: While most monks seek enlightenment through contemplation and achieving inner peace, monks of the Way of Discordance on the other hand are focused on harnessing the chaotic energies of the universe. These mystical scholars of disharmony exploit the inner conflicts of their enemies by manipulating their ki, devastating them with bursts of distorting energy.
 [*][b]Way of Distant Hand[/b]: Practitioners of the Way of Distant Hand train to make arrows an extension of their hands. They are proficient in using bows and delivering ki-empowered effects through arrows.
 [*][b]Way of Dragon[/b]: Practitioners of the Way of Dragon devote themselves to learning the powerful beasts, gaining draconic abilities.
 [*][b]Way of Silhouette[/b]: Practitioners of the Way of Silhouette follow a tradition that values stealth and subterfuge. These monks serve as spies and assassins. Sometimes the members of a ninja monastery are family members, forming a clan sworn to secrecy about their arts and missions. Other monasteries are more like thieves' guilds, hiring out their services to nobles, rich merchants, or anyone else who can pay their fees. Regardless of their methods, the heads of these monasteries expect the unquestioning obedience of their students.
@@ -159,10 +162,19 @@ While you are not wearing any armor or shield, your AC equals 10 + your Dexterit
 You can use a bonus action to select a weapon. Its attacks count as magical and you use your Intelligence for your attack and damage rolls for 1 minute. This feature can be used Proficiency Bonus times per long rest.
 [*][b]Archery[/b]: You gain a +2 bonus to attack rolls with ranged weapons.
 [*][b]Astral Reach[/b]: Increase your Wisdom by 1, to a maximum of 20.
-When you make an unarmed strike on your turn, your reach for it is 10 feet.
+When you make an unarmed strike on your turn, your reach for it is 10 feet. Other creatures provoke an opportunity attack from you when they enter the reach you have with unarmed.
+[*][b]Awaken The Beast [Cha][/b]: Increase your Charisma score by 1, to a maximum of 20. Whenever you use your Wild Shape ability to transform into a beast, you gain temporary hit points equal to twice your druid level.
+[*][b]Awaken The Beast [Con][/b]: Increase your Constitution score by 1, to a maximum of 20. Whenever you use your Wild Shape ability to transform into a beast, you gain temporary hit points equal to twice your druid level.
+[*][b]Awaken The Beast [Dex][/b]: Increase your Dexterity score by 1, to a maximum of 20. Whenever you use your Wild Shape ability to transform into a beast, you gain temporary hit points equal to twice your druid level.
+[*][b]Awaken The Beast [Int][/b]: Increase your Intelligence score by 1, to a maximum of 20. Whenever you use your Wild Shape ability to transform into a beast, you gain temporary hit points equal to twice your druid level.
+[*][b]Awaken The Beast [Str][/b]: Increase your Strength score by 1, to a maximum of 20. Whenever you use your Wild Shape ability to transform into a beast, you gain temporary hit points equal to twice your druid level.
+[*][b]Awaken The Beast [Wis][/b]: Increase your Wisdom score by 1, to a maximum of 20. Whenever you use your Wild Shape ability to transform into a beast, you gain temporary hit points equal to twice your druid level.
 [*][b]Blade Mastery[/b]: You master the shortsword, longsword, scimitar, rapier, and greatsword. You gain the following benefits when using any of them: A +1 bonus to attack rolls you make with the weapon. On your turn, you can use your reaction to assume a parrying stance, provided you have the weapon in hand. Doing so grants you a +1 bonus to your AC until the start of your next turn. When you make an opportunity attack with the weapon, you have advantage on the attack roll.
+[*][b]Blessed Soul [Cleric][/b]: Your use of divine magic has left a spiritual mark on your soul, allowing you to express your faith more frequently. Increase your Wisdom score by 1, to a maximum of 20. You gain one additional Channel Divinity usage between rests.
+[*][b]Blessed Soul [Paladin][/b]: Your use of divine magic has left a spiritual mark on your soul, allowing you to express your faith more frequently. Increase your Charisma score by 1, to a maximum of 20. You gain one additional Channel Divinity usage between rests.
 [*][b]Blind Fighting[/b]: You have blind sight with a range of 10 feet. Within that range, you can effectively see anything that isn't behind total cover, even if you're blinded or in darkness. Moreover, you can see an invisible creature within that range, unless the creature successfully hides from you.
 [*][b]Bow Mastery[/b]: You gain a +1 bonus to damage rolls you make with shortbows and longbows. When you use the Attack action with a shortbow on your turn, you can make one ranged weapon attack as a bonus action. You can use Strength instead of Dexterity for the attack and damage rolls you make with longbows.
+[*][b]Call for Charge[/b]: You may use your bonus action to call for a charge. When you do, until the start of your next turn, you and your allies speed increase by 15 ft, and each one have advantage on their first attack roll. You can use this power a number of times per long rest equal to your Charisma modifier.
 [*][b]Celestial Touched [Cha][/b]: Increase your Charisma attribute by 1, to a maximum of 20.
 You gain the ability to cast the healing word, cure wounds and lesser restoration spells once per long rest and you can cast these spells with your spell slots.
 [*][b]Celestial Touched [Int][/b]: Increase your Intelligence attribute by 1, to a maximum of 20.
@@ -176,6 +188,7 @@ You can use a bonus action to select a weapon. Its attacks count as magical and 
 [*][b]Crippling[/b]: Upon hitting with a melee attack, you can reduce the speed of your opponents by 10 ft and reduce their Armor Class by 1 for 2 turns.
 [*][b]Crusher [Con][/b]: You are practiced in the art of crushing your enemies. Increase your Constitution by 1, to a maximum of 20. When you hit a creature with an attack that deals bludgeoning damage, once per turn you push the enemy by 5ft. When you score a critical hit attack rolls against that creature are made with advantage until the start of your next turn.
 [*][b]Crusher [Str][/b]: You are practiced in the art of crushing your enemies. Increase your Strength by 1, to a maximum of 20. When you hit a creature with an attack that deals bludgeoning damage, once per turn you push the enemy by 5ft. When you score a critical hit attack rolls against that creature are made with advantage until the start of your next turn.
+[*][b]Cunning Escape[/b]: Whenever you use the Dash action as a bonus action, your movement doesn't provoke opportunity attacks for the rest of the turn.
 [*][b]Deadeye[/b]: You have learned to trade accuracy to land deadlier shots. When attacking with ranged weapons, you can choose to take a -3 penalty to your to hit in order to do additional damage equal to 3 + your proficiency bonus. Attacking at long range doesn't impose disadvantage and your ranged weapon attacks ignore half cover and three-quarters cover.
 [*][b]Defense[/b]: While you are wearing armor, you gain a +1 bonus to AC.
 [*][b]Defensive Duelist[/b]: When you are wielding a finesse weapon with which you are proficient and another creature hits you with a melee attack, you can use your reaction to add your proficiency bonus to your AC for that attack, potentially causing the attack to miss you.
@@ -196,7 +209,10 @@ You can use a bonus action to select a weapon. Its attacks count as magical and 
 [*][b]Executioner[/b]: You add your proficiency bonus to damage against creatures that are blinded, frightened, restrained, incapacitated, paralyzed, prone or stunned.
 [*][b]Fade Away [Dex][/b]: You have learned a magical trick for fading away when you suffer harm. Increase your Dexterity score by 1, to a maximum of 20. Immediately after you take damage, you can use a reaction to magically become invisible until the end of your next turn or until you attack, deal damage, or force someone to make a saving throw. Once you use this ability, you can't do so again until you finish a short or long rest.
 [*][b]Fade Away [Int][/b]: You have learned a magical trick for fading away when you suffer harm. Increase your Intelligence score by 1, to a maximum of 20. Immediately after you take damage, you can use a reaction to magically become invisible until the end of your next turn or until you attack, deal damage, or force someone to make a saving throw. Once you use this ability, you can't do so again until you finish a short or long rest.
-[*][b]Fell Handed[/b]: You master the handaxe, battleaxe, greataxe, warhammer and maul. You gain the following benefits when using any of them: A +1 bonus to attack rolls you make with the weapon. Whenever you have advantage on a melee attack roll and hit, you can knock the target prone if the lower of the two d20 rolls would also hit the target. Whenever you have disadvantage on a melee attack roll and miss, the target takes bludgeoning damage equal to your Strength modifier.
+[*][b]Fell Handed[/b]: You master the handaxe, battleaxe, greataxe, warhammer and maul. You gain the following benefits when using any of them:
+• A +1 bonus to attack rolls you make with the weapon.
+• Whenever you have advantage on a melee attack roll and hit, you knock the target prone if the lower of the two d20 rolls would also hit the target.
+• Whenever you have disadvantage on a melee attack roll and miss, the target takes bludgeoning damage equal to your Strength modifier if higher of the two d20 rolls would hit the target.
 [*][b]Fey Teleportation [Cha][/b]: Increase your Charisma by 1, to a maximum of 20.
 You can use misty step once per short rest, and you can cast this spell with your spell slots.
 You gain proficiency in Tirmarian.
@@ -232,6 +248,7 @@ You gain proficiency with medium armor and shields.
 [*][b]Metamagic Adept[/b]: You learn two metamagic options of your choice from the sorcerer class and gain 2 sorcery points to spend on it.
 [*][b]Mobile[/b]: You are exceptionally speedy and agile. Your speed increases by 10 feet and you are immune to difficult terrain when dashing. When you make a melee attack against a creature you are immune to attack of opportunity from the creature unless it has immunity to that.
 [*][b]Monk Initiate[/b]: You have learned some of the ways of the monk. You gain ki points equals to your proficiency bonus, which you can spend to use Flurry of Blows, Patient Defense, or Step of the Wind.
+[*][b]Natural Fluidity[/b]: You may use a WildShape form to restore a spent spell slot, up to the maximum of a 3rd level spell slot. Alternatively, you may spend a 3rd level or higher spell slot to regain up to 2 WildShape forms. You can use it once per long rest.
 [*][b]Pickpocket[/b]: You gain proficiency with Sleight of Hand, or expertise if already proficient. You also have advantage on Sleight of Hand Dexterity checks.
 [*][b]Piercer [Dex][/b]: You have achieved a penetrating precision in combat. Increase your Dexterity by 1, to a maximum of 20. When you hit a creature with an attack that deals piercing damage, you can re-roll dice when you roll a 1 and you must use the new roll. When you score a critical hit you can roll one additional damage die when determining the extra piercing damage the target takes.
 [*][b]Piercer [Str][/b]: You have achieved a penetrating precision in combat. Increase your Strength by 1, to a maximum of 20. When you hit a creature with an attack that deals piercing damage, you can re-roll dice when you roll a 1 and you must use the new roll. When you score a critical hit you can roll one additional damage die when determining the extra piercing damage the target takes.
@@ -239,6 +256,12 @@ You gain proficiency with medium armor and shields.
 [*][b]Polearm Expert[/b]: Your expert training with a polearm grants you these benefits:
 • When you take the Attack action and attack with only a polearm weapon, you can use a bonus action to make a melee attack with the opposite end of the weapon. This attack uses the same ability modifier as the primary attack and deals 1d4 bludgeoning damage.
 • Other creatures provoke an opportunity attack from you when they enter the reach you have with wielding a polearm weapon.
+[*][b]Potent Spellcaster [Bard][/b]: You can add your spellcaster attribute modifier to the damage you deal with any Bard cantrip in your repertoire.
+[*][b]Potent Spellcaster [Cleric][/b]: You can add your spellcaster attribute modifier to the damage you deal with any Cleric cantrip in your repertoire.
+[*][b]Potent Spellcaster [Druid][/b]: You can add your spellcaster attribute modifier to the damage you deal with any Druid cantrip in your repertoire.
+[*][b]Potent Spellcaster [Inventor][/b]: You can add your spellcaster attribute modifier to the damage you deal with any Inventor cantrip in your repertoire.
+[*][b]Potent Spellcaster [Sorcerer][/b]: You can add your spellcaster attribute modifier to the damage you deal with any Sorcerer cantrip in your repertoire.
+[*][b]Potent Spellcaster [Wizard][/b]: You can add your spellcaster attribute modifier to the damage you deal with any Wizard cantrip in your repertoire.
 [*][b]Power Attack[/b]: You have learned to trade accuracy to land deadlier blows. When attacking with melee weapons, you can choose to take a -3 penalty to your to hit in order to do additional damage equal to 3 + your proficiency bonus.
 [*][b]Protection[/b]: When a creature you can see attacks a target other than you that is within one cell of you, you can use your reaction to impose disadvantage on the attack roll. You must be wielding a shield.
 [*][b]Pugilist[/b]: Your unarmed strikes deal an additional 1d4 bludgeoning damage and you can punch with your offhand as a bonus action. You can shove as a bonus action if you have free hand.
@@ -268,11 +291,13 @@ You gain the ability to cast the invisibility, inflict wounds, and false life sp
 • You gain a +1 bonus to attack rolls you make with a spear and its damage die changes from a d6 to a d8, and from a d8 to a d10 when wielded with two hands.
 • As a bonus action you can brace your spear to intercept approaching enemies. You can use reaction to perform attack of opportunity with a spear on enemy that enters your reach and deal extra die of damage if that attack hits.
 • As a bonus action, you can increase your reach with a spear by 5 feet for the rest of your turn.
-[*][b]Spell Sniper [Cleric][/b]: You learn two cantrips of your choice from the Cleric spell list. When you cast a spell that requires you to make an attack roll, the spell's range is doubled. Your ranged spell attacks ignore half cover and three-quarters cover.
 [*][b]Spell Sniper [Druid][/b]: You learn two cantrips of your choice from the Druid spell list. When you cast a spell that requires you to make an attack roll, the spell's range is doubled. Your ranged spell attacks ignore half cover and three-quarters cover.
 [*][b]Spell Sniper [Sorcerer][/b]: You learn two cantrips of your choice from the Sorcerer spell list. When you cast a spell that requires you to make an attack roll, the spell's range is doubled. Your ranged spell attacks ignore half cover and three-quarters cover.
 [*][b]Spell Sniper [Warlock][/b]: You learn two cantrips of your choice from the Warlock spell list. When you cast a spell that requires you to make an attack roll, the spell's range is doubled. Your ranged spell attacks ignore half cover and three-quarters cover.
 [*][b]Spell Sniper [Wizard][/b]: You learn two cantrips of your choice from the Wizard spell list. When you cast a spell that requires you to make an attack roll, the spell's range is doubled. Your ranged spell attacks ignore half cover and three-quarters cover.
+[*][b]Spiritual Fluidity[/b]: You may use a Channel Divinity usage to restore a spent spell slot, up to the maximum of a 3rd level spell slot. Alternatively, you may spend a 3rd level or higher spell slot to regain up to 3 Channel Divinity usages. You can use it once per long rest.
+[*][b]Squat Nimbleness [Dex][/b]: You are uncommonly nimble for your race. Increase your Dexterity score by 1, to a maximum of 20. Increase your walking speed by 5 feet. You gain proficiency or expertise in the Acrobatics skill.
+[*][b]Squat Nimbleness [Str][/b]: You are uncommonly nimble for your race. Increase your Strength score by 1, to a maximum of 20. Increase your walking speed by 5 feet. You gain proficiency or expertise in the Athletics skill.
 [*][b]Superior Critical[/b]: Your weapon attacks score a critical hit on a roll of 18, 19 or 20.
 [*][b]Telekinetic [Cha][/b]: Increase your Charisma by 1, to a maximum of 20.
 As a bonus action during combat, you can telekinetically move one creature you can see within 30 feet of you. The target must succeed on a Strength saving throw (DC 8 + your proficiency bonus + your Charisma modifier) or be moved 5 feet in a direction of your choosing.
@@ -372,14 +397,17 @@ At 5th level, the melee attack deals an extra 1d8 radiant damage to the target. 
 [*][b]Thorny Vines[/b]: You create a long, whip-like vine covered in thorns that lashes out at your command toward a creature in range. Make a ranged spell attack against the target. If the attack hits, the creature takes 1d6 piercing damage, and you pull the creature up to 10 feet closer to you.
 [*][b]Chromatic Orb[/b]: You hurl a 4-inch-diameter sphere of energy at a creature that you can see within range. You choose acid, cold, fire, lightning, poison, or thunder for the type of orb you create, and then make a ranged spell attack against the target. If the attack hits, the creature takes 3d8 damage of the type you chose.
 [*][b]Earth Tremor[/b]: You strike the ground and unleash a tremor of seismic force, hurling up earth, rock, and sand.
-[*][b]Ensnaring Strike[/b]: Your next hit causes additional piercing damage and your target is ensnared by vines.
+[*][b]Ensnaring Strike[/b]: Your next hit ensnares your target in vines - it receives 1d6 piercing damage each turn and can roll STR saving thrown at the end of each turn to stop this effect
+<b>Higher Levels:</b> for each slot level above 1st, your attack deals additional 1d6 piercing damage.
 [*][b]Mule[/b]: The recipient of this spell is able to ignore the effects of heavy loads or armor on movement speed. They can also carry slightly more weight.
 [*][b]Radiant Motes[/b]: Unleashes a swarm of 4 radiant projectiles that deal 1d4 radiant damage each.
 When you cast this spell using a spell slot of 2nd level or higher, the spell creates 1 more projectile for each slot above 1st.
-[*][b]Searing Smite[/b]: Your next hit causes additional fire damage and your target ignites in flames.
+[*][b]Searing Smite[/b]: On your next hit your weapon flares with white-hot intensity, and the attack deals an extra 1d6 fire damage to the target and causes the target to ignite in flames.
+At the start of each of its turns the target must make a successful Constitution saving throw to stop burning, or take 1d6 fire damage.
+<b>Higher Levels:</b> for each slot level above 1st, the initial extra damage dealt by the attack increases by 1d6.
 [*][b]Skin of Retribution[/b]: Choose a type: Acid, Cold, Fire, Lightning, Poison, or Thunder. A protective elemental skin envelops you, covering you and your gear. You gain 5 temporary hit points per spell level for the duration. In addition, if a creature hits you with a melee attack while you have these temporary hit points, the creature takes 5 damage of the chosen type per spell level.
-[*][b]Thunderous Smite[/b]: Your next hit causes additional thunder damage that is audible within 300 feet of you.
-[*][b]Wrathful Smite[/b]: Your next hit causes additional psychic damage and your target mind explodes in pain.
+[*][b]Thunderous Smite[/b]: On your next hit your weapon rings with thunder and the attack deals an extra 2d6 thunder damage to the target. Additionally, if the target is a creature, it must succeed on a Strength saving throw or be pushed 10 feet away from you and knocked prone.
+[*][b]Wrathful Smite[/b]: Your next hit deals additional 1d6 psychic damage. If target fails WIS saving throw its mind explodes in pain and it becomes frightened. 
 [*][b]Mirror Image[/b]: Three illusory duplicates of yourself appear in your space. Until the spell ends, each time a creature targets you with an attack, roll a d20 to determine whether the attack instead targets one of your duplicates.
 If you have 3 duplicates, you must roll a 6 or higher to change the attack's target to a duplicate. With 2 duplicates, you must roll an 8 or higher. With 1 duplicate, you must roll an 11 or higher.
 A duplicate's AC equals 10 + your Dexterity modifier. If an attack hits a duplicate, the duplicate is destroyed. A duplicate can be destroyed only by an attack that hits it. It ignores all other damage and effects. The spell ends when all three duplicates are destroyed.
@@ -391,7 +419,8 @@ Skeletons are animated by dark magic. They used to be living creatures but are n
 [*][b]Raise Skeleton Archer[/b]: Summons <b>Skeleton Archer</b>:
 Skeletons are animated by dark magic. They used to be living creatures but are now empty shells of hate, arisen from tombs or battlefields and craving for life… to kill.
 [*][b]Shadow Blade[/b]: You weave together threads of shadow to create a sword of solidified gloom in your hand.
-[*][b]Blinding Smite[/b]: Your next hit causes additional radiant damage with your weapon flaring with a bright light. Additionally, the target must succeed on a Constitution saving throw or be blinded for 1 minute.
+[*][b]Blinding Smite[/b]: On your next hit your weapon flares with a bright light, and the attack deals an extra 3d8 radiant damage to the target. Additionally, the target must succeed on a Constitution saving throw or be blinded until the spell ends.
+A creature blinded by this spell makes another Constitution saving throw at the end of each of its turns. On a successful save, it is no longer blinded.
 [*][b]Raise Ghoul[/b]: Summons <b>Ghoul</b>:
 A ravenous undead creature, constantly searching for flesh to eat.
 [*][b]Spirit Shroud[/b]: You call forth spirits of the dead, which flit around you for the spell's duration. The spirits are intangible and invulnerable.
@@ -401,8 +430,8 @@ When you cast this spell using a spell slot of 4th level or higher, the damage i
 [*][b]Winter's Breath[/b]: Create a blast of cold wind to chill your enemies and knock them prone.
 [*][b]Raise Skeletal Enforcer[/b]: Summons <b>Skeletal Enforcer</b>:
 A powerful undead creature armed with an axe and a shield.
-[*][b]Staggering Smite[/b]: Your next hit causes additional psychic damage with your weapon. The target must make a Wisdom saving throw. On a failed save, it has disadvantage on attack rolls and ability checks, and can't take reactions, until the end of its next turn.
-[*][b]Banishing Smite[/b]: Your next hit causes additional force damage with your weapon. Additionally, if this attack reduces the target to 50 hit points of fewer, you banish it for 1 min.
+[*][b]Staggering Smite[/b]: The next time you hit a creature with a weapon attack during this spell's duration, your weapon pierces both body and mind, and the attack deals an extra 4d6 psychic damage to the target. The target must make a Wisdom saving throw. On a failed save, it has disadvantage on attack rolls and ability checks, and can't take reactions, until the end of its next turn.
+[*][b]Banishing Smite[/b]: Your next hit deals additional 5d10 force damage with your weapon. Additionally, if this attack reduces the target to 50 hit points of fewer, you banish it for 1 min.
 [*][b]Far Step[/b]: You teleport up to 60 feet to an unoccupied space you can see. On each of your turns before the spell ends, you can use a bonus action to teleport in this way again.
 [*][b]Raise Skeletal Knight[/b]: Summons <b>Skeletal Knight</b>:
 A powerful undead creature, created by raising a dead knight.
@@ -468,13 +497,13 @@ A powerful wight, trained to withstand the light of day.
 
 [list]
 
-[*][b]Zappastuff[/b]: maintenance, mod UI, infrastructure, gameplay, feats, fighting styles, invocations, rules, spells, quality of life, Half-elf variants, Blade Dancer, Ancient Forest, College of Guts, College of Life, Dead Master, Field Manipulator, Way of The Silhouette, Wild Master, Multiclass
-[*][b]TPABOBAP[/b]: game UI, infrastructure, gameplay, feats, invocations, spells, quality of life, Dead Master, Elementalist, Moonlit, RiftWalker, SoulBlade, Tactician, Way of The Distant Hand, Inventor
+[*][b]Zappastuff[/b]: maintenance, mod UI, infrastructure, gameplay, feats, fighting styles, invocations, rules, spells, quality of life, Half-elf variants, Ancient Forest, Blade Dancer, College of Guts, College of Life, Dead Master, Duelist, Field Manipulator, Way of The Discordance, Way of The Silhouette, Wild Master, Multiclass
+[*][b]TPABOBAP[/b]: game UI, infrastructure, gameplay, feats, invocations, spells, quality of life, Dead Master, Elementalist, Moonlit, RiftWalker, SoulBlade, Tactician, Way of Distant Hand, Inventor
 [*][b]Nd[/b]: College of Harlequin, College of War Dancer, Marshal, Opportunist, Raven, Spell Shield
 [*][b]ImpPhil[/b]: api, builders, gameplay, rules, quality of life
 [*][b]ChrisJohnDigital[/b]: builders, gameplay, feats, fighting styles, original Tinkerer, original Wizard subclasses, Arcane Fighter, Spell Master, Spell Shield
 [*][b]SilverGriffon[/b]: gameplay, visuals, spells, Dark Elf, Draconic Kobold, Grey Dwarf, Divine Heart
-[*][b]Haxermn[/b]: spells, Oath of Ancient, Oath of Hatred, Way of The Dragon
+[*][b]Haxermn[/b]: spells, Oath of Ancient, Oath of Hatred, Way of Dragon
 [*][b]tivie[/b]: Circle of The Night, Path of The Spirits
 [*][b]ElAntonius[/b]: feats, fighting styles, Arcanist
 [*][b]DubhHerder[/b]: quality of life, spells, original Warlock subclasses
@@ -485,7 +514,8 @@ A powerful wight, trained to withstand the light of day.
 [*][b]Pikachar2[/b]: spells
 [*][b]Prioritizer[/b]: Russian translations
 [*][b]xxy961216[/b]: Chinese translations
+[*][b]Taco[/b]: homebrew content design [feats, metamagic, subclasses], power and weapon icons
+[*][b]HiddenHax[/b]: homebrew content design [subclasses]
 [*][b]Balmz[/b]: some power and spell icons
-[*][b]Taco[/b]: some weapon icons
 [/list]
 

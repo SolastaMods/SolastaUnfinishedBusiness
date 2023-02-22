@@ -1,6 +1,6 @@
-﻿using SolastaUnfinishedBusiness.Api;
-using SolastaUnfinishedBusiness.Builders;
+﻿using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
+using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomDefinitions;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Properties;
@@ -75,25 +75,25 @@ internal static class CommonBuilders
         .Create("PowerCasterFightingWarMagic")
         .SetGuiPresentation(Category.Feature)
         .SetUsesFixed(ActivationTime.OnSpellCast)
-        .SetEffectDescription(
-            EffectDescriptionBuilder
-                .Create()
-                .SetTargetingData(Side.Enemy, RangeType.Self, 0, TargetType.Self)
-                .SetDurationData(DurationType.Round, 1)
-                .SetEffectForms(
-                    EffectFormBuilder
-                        .Create()
-                        .SetConditionForm(
-                            ConditionDefinitionBuilder
-                                .Create("ConditionCasterFightingWarMagic")
-                                .SetGuiPresentationNoContent(true)
-                                .AddFeatures(DatabaseHelper.FeatureDefinitionAttackModifiers
-                                    .AttackModifierBerserkerFrenzy)
-                                .AddToDB(),
-                            ConditionForm.ConditionOperation.Add)
-                        .Build()
-                )
-                .Build())
+        .SetEffectDescription(EffectDescriptionBuilder.Create()
+            .SetTargetingData(Side.Enemy, RangeType.Self, 0, TargetType.Self)
+            .SetDurationData(DurationType.Round, 1, TurnOccurenceType.StartOfTurn)
+            .SetEffectForms(EffectFormBuilder.Create()
+                .SetConditionForm(ConditionDefinitionBuilder
+                        .Create("ConditionCasterFightingWarMagic")
+                        .SetGuiPresentationNoContent(true)
+                        .AddFeatures(FeatureDefinitionAttackModifierBuilder
+                            .Create("PowerCasterFightingWarMagicAttack")
+                            .SetGuiPresentation("PowerCasterFightingWarMagic", Category.Feature)
+                            .SetDamageRollModifier(1)
+                            .SetCustomSubFeatures(
+                                new AddExtraMainHandAttack(ActionDefinitions.ActionType.Bonus, false))
+                            .AddToDB())
+                        .AddToDB(),
+                    ConditionForm.ConditionOperation.Add)
+                .Build()
+            )
+            .Build())
         .AddToDB();
 
     internal static readonly FeatureDefinitionPower PowerCasterCommandUndead = FeatureDefinitionPowerBuilder

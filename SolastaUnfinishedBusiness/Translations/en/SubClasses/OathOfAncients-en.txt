@@ -1,12 +1,10 @@
-﻿Condition/&ConditionOathOfAncientsNaturesWrathDescription=You are entangled in vines preventing movement, disadvantage on Dexterity saving throws, and attackers have an advantage. At the end of your turn, make a Strength saving throw to escape.
-Condition/&ConditionOathOfAncientsNaturesWrathTitle=Entangled
-Condition/&ConditionOathOfAncientsAuraWardingDescription=Gain resistance to spell damage.
+﻿Condition/&ConditionOathOfAncientsAuraWardingDescription=Gain resistance to spell damage.
 Condition/&ConditionOathOfAncientsAuraWardingTitle=Warded
-Feature/&PowerOathOfAncientsNaturesWrathDescription=Conjure vines on a target, the target is restrained on a failed Strength saving throw. The target rolls a Strength saving throwing to escape at the end of their turn.
+Feature/&PowerOathOfAncientsNaturesWrathDescription=You can use your Channel Divinity to invoke primeval forces to ensnare a foe. As an action, you can cause spectral vines to spring up and reach for a creature within 10 feet of you that you can see. The creature must succeed on a Strength saving throw or be restrained. While restrained by the vines, the creature repeats the saving throw at the end of each of its turns. On a success, it frees itself and the vines vanish.
 Feature/&PowerOathOfAncientsNaturesWrathTitle=Channel Divinity: Natures Wrath
-Feature/&PowerOathOfAncientsTurnFaithlessDescription=Perform a prayer, Fey, Fiends, and Elementals that are near must make a Wisdom saving throw, on failure they are turned.
+Feature/&PowerOathOfAncientsTurnFaithlessDescription=You can use your Channel Divinity to utter ancient words that are painful for fey and fiends to hear. As an action, you present your holy symbol, and each fey or fiend within 30 feet of you that can hear you must make a Wisdom saving throw. On a failed save, the creature is turned for 1 minute or until it takes damage.
 Feature/&PowerOathOfAncientsTurnFaithlessTitle=Channel Divinity: Turn the Faithless
-Feature/&PowerOathOfAncientsAuraWardingDescription=Grant you and those around you an ancient ward reducing damage from spells.
+Feature/&PowerOathOfAncientsAuraWardingDescription=Starting at 7th level, ancient magic lies so heavily upon you that it forms an eldritch ward. You and friendly creatures within 10 feet of you have resistance to damage from spells.
 Feature/&PowerOathOfAncientsAuraWardingTitle=Aura of Warding
 Subclass/&OathOfAncientsDescription=An Oath from a more primitive time which one dedicates themself to utilizing nature for good.
 Subclass/&OathOfAncientsTitle=Oath of Ancients

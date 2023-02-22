@@ -127,6 +127,12 @@ internal static class ToolsDisplay
 
         UI.Label();
 
+        toggle = Main.Settings.EnableCharacterChecker;
+        if (UI.Toggle(Gui.Localize("ModUi/&EnableCharacterChecker"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.EnableCharacterChecker = toggle;
+        }
+
         toggle = Main.Settings.EnableHotkeyDebugOverlay;
         if (UI.Toggle(Gui.Localize("ModUi/&EnableHotkeyDebugOverlay"), ref toggle, UI.AutoWidth()))
         {

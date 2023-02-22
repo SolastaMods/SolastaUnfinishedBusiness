@@ -68,6 +68,8 @@ internal sealed class MartialMarshal : AbstractSubclass
     internal override FeatureDefinitionSubclassChoice SubclassChoice =>
         FeatureDefinitionSubclassChoices.SubclassChoiceFighterMartialArchetypes;
 
+    internal override DeityDefinition DeityDefinition { get; }
+
     private static int GetKnowledgeLevelOfEnemy(RulesetCharacter enemy)
     {
         return ServiceRepository.GetService<IGameLoreService>().Bestiary.TryGetBestiaryEntry(enemy, out var entry)
@@ -223,6 +225,13 @@ internal sealed class MartialMarshal : AbstractSubclass
 
         GlobalUniqueEffects.AddToGroup(GlobalUniqueEffects.Group.Familiar, powerMarshalSummonEternalComrade);
 
+        var hpBonus = FeatureDefinitionAttributeModifierBuilder
+            .Create("AttributeModifierMarshalEternalComradeHP")
+            .SetGuiPresentationNoContent(true)
+            .SetModifier(FeatureDefinitionAttributeModifier.AttributeModifierOperation.AddConditionAmount,
+                AttributeDefinitions.HitPoints)
+            .AddToDB();
+
         var conditionMarshalEternalComradeAc = ConditionDefinitionBuilder
             .Create(ConditionKindredSpiritBondAC, "ConditionMarshalEternalComradeAC")
             .SetGuiPresentationNoContent(true)
@@ -250,9 +259,8 @@ internal sealed class MartialMarshal : AbstractSubclass
         var conditionMarshalEternalComradeHp = ConditionDefinitionBuilder
             .Create(ConditionKindredSpiritBondHP, "ConditionMarshalEternalComradeHP")
             .SetGuiPresentationNoContent(true)
-            .SetAmountOrigin(ExtraOriginOfAmount.SourceClassLevel)
-            .AllowMultipleInstances()
-            .SetAdditionalDamageType(FighterClass)
+            .SetAmountOrigin(ExtraOriginOfAmount.SourceClassLevel, FighterClass)
+            .SetFeatures(hpBonus, hpBonus) // 2 HP per level
             .AddToDB();
 
         var summoningAffinityMarshalEternalComrade = FeatureDefinitionSummoningAffinityBuilder
@@ -264,7 +272,6 @@ internal sealed class MartialMarshal : AbstractSubclass
                 conditionMarshalEternalComradeSavingThrow,
                 conditionMarshalEternalComradeDamage,
                 conditionMarshalEternalComradeHit,
-                conditionMarshalEternalComradeHp,
                 conditionMarshalEternalComradeHp)
             .AddToDB();
 
@@ -469,11 +476,12 @@ internal sealed class MartialMarshal : AbstractSubclass
         public void ComputeAttackModifier(
             RulesetCharacter myself,
             RulesetCharacter defender,
+            BattleDefinitions.AttackProximity attackProximity,
             RulesetAttackMode attackMode,
             ref ActionModifier attackModifier)
         {
-            // no spell attack
-            if (attackMode == null || defender == null)
+            if (attackProximity != BattleDefinitions.AttackProximity.PhysicalRange &&
+                attackProximity != BattleDefinitions.AttackProximity.PhysicalReach)
             {
                 return;
             }

@@ -16,7 +16,7 @@
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
     "title": "Feat/&FeatGroupRevenantGreatSwordTitle",
-    "description": "Feat/&FeatGroupRevenantGreatSwordDescription",
+    "description": "Increase your Dexterity or Strength score by 1, to a maximum of 20. While you are holding a great sword,  you gain a +1 bonus to Armor Class and you can use your Dexterity on to hit and to damage bonuses.",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",

@@ -27,12 +27,15 @@ public class Settings : UnityModManager.ModSettings
     // SETTINGS UI TOGGLES
     //
     public bool DisplayRacesToggle { get; set; } = true;
+    public bool DisplayBackgroundsToggle { get; set; } = true;
+    public bool DisplayDeitiesToggle { get; set; } = true;
     public bool DisplayClassesToggle { get; set; } = true;
     public bool DisplaySubclassesToggle { get; set; } = true;
     public bool DisplayFeatsToggle { get; set; } = true;
     public bool DisplayFeatGroupsToggle { get; set; } = true;
     public bool DisplayFightingStylesToggle { get; set; } = true;
     public bool DisplayInvocationsToggle { get; set; } = true;
+    public bool DisplayMetamagicToggle { get; set; } = true;
     public bool DisplayCraftingToggle { get; set; }
     public bool DisplayMerchantsToggle { get; set; } = true;
     public SerializableDictionary<string, bool> DisplaySpellListsToggle { get; set; } = new();
@@ -48,6 +51,7 @@ public class Settings : UnityModManager.ModSettings
     public bool EnableMultiLineSpellPanel { get; set; } = true;
     public bool EnableSameWidthFeatSelection { get; set; } = true;
     public bool EnableSameWidthInvocationSelection { get; set; } = true;
+    public bool EnableSameWidthMetamagicSelection { get; set; } = true;
     public bool EnableSortingFightingStyles { get; set; } = true;
     public bool EnableSortingSubclasses { get; set; } = true;
     public bool EnableSortingFutureFeatures { get; set; } = true;
@@ -64,6 +68,7 @@ public class Settings : UnityModManager.ModSettings
     public bool EnableAlternateHuman { get; set; }
     public bool EnableFlexibleBackgrounds { get; set; }
     public bool EnableFlexibleRaces { get; set; }
+    public bool DisableClassPrerequisitesOnModFeats { get; set; }
     public bool DisableRacePrerequisitesOnModFeats { get; set; }
     public bool AddHumanoidFavoredEnemyToRanger { get; set; }
     public bool EnableEpicPointsAndArray { get; set; }
@@ -101,13 +106,17 @@ public class Settings : UnityModManager.ModSettings
 
     public int RaceSliderPosition { get; set; } = ModUi.DontDisplayDescription;
     public List<string> RaceEnabled { get; } = new();
+    public int BackgroundSliderPosition { get; set; } = ModUi.DontDisplayDescription;
+    public List<string> BackgroundEnabled { get; } = new();
+    public int DeitySliderPosition { get; set; } = ModUi.DontDisplayDescription;
+    public List<string> DeityEnabled { get; } = new();
     public int ClassSliderPosition { get; set; } = ModUi.DontDisplayDescription;
     public List<string> ClassEnabled { get; } = new();
     public int SubclassSliderPosition { get; set; } = ModUi.DontDisplayDescription;
     public List<string> SubclassEnabled { get; } = new();
 
     //
-    // Characters - Feats, Groups, Fighting Styles and Invocations
+    // Characters - Feats, Groups, Fighting Styles, Invocations and Metamagic
     //
 
     public int FeatSliderPosition { get; set; } = ModUi.DontDisplayDescription;
@@ -122,6 +131,9 @@ public class Settings : UnityModManager.ModSettings
     public int InvocationSliderPosition { get; set; } = ModUi.DontDisplayDescription;
     public List<string> InvocationEnabled { get; } = new();
 
+    public int MetamagicSliderPosition { get; set; } = ModUi.DontDisplayDescription;
+    public List<string> MetamagicEnabled { get; } = new();
+
     //
     // Characters - Spells
     //
@@ -135,7 +147,6 @@ public class Settings : UnityModManager.ModSettings
     //
 
     // SRD
-    public bool FixSorcererTwinnedLogic { get; set; }
     public bool ApplySrdWeightToFoodRations { get; set; }
     public bool UseOfficialAdvantageDisadvantageRules { get; set; }
     public bool IdentifyAfterRest { get; set; }
@@ -162,11 +173,14 @@ public class Settings : UnityModManager.ModSettings
     public bool AllowDruidToWearMetalArmor { get; set; }
 
     public bool FullyControlConjurations { get; set; }
+    public bool IncreaseMaxAttunedItems { get; set; }
     public bool MakeLargeWildshapeFormsMedium { get; set; }
     public bool MakeAllMagicStaveArcaneFoci { get; set; }
 
     public int IncreaseSenseNormalVision { get; set; } = SrdAndHouseRulesContext.DefaultVisionRange;
+    public int CriticalHitModeAllies { get; set; }
 
+    public int CriticalHitModeEnemies { get; set; }
     //
     // Gameplay - Items, Crafting & Merchants
     //
@@ -237,7 +251,7 @@ public class Settings : UnityModManager.ModSettings
     public bool AllowMoreRealStateOnRestPanel { get; set; }
     public bool AddMonkKiPointsToggle { get; set; }
     public bool AddPaladinSmiteToggle { get; set; }
-    public bool AddWildshapeSwapAttackToggle { get; set; }
+    public bool AddMonsterSwapAttackToggle { get; set; }
     public int FormationGridSelectedSet { get; set; } = -1;
 
     public int[][][] FormationGridSets { get; set; } =
@@ -297,6 +311,7 @@ public class Settings : UnityModManager.ModSettings
     //
 
     public bool EnableSortingDungeonMakerAssets { get; set; }
+    public bool EnableCharacterChecker { get; set; }
     public bool EnableHotkeyDebugOverlay { get; set; }
     public bool AllowGadgetsAndPropsToBePlacedAnywhere { get; set; }
     public bool UnleashNpcAsEnemy { get; set; }
@@ -318,9 +333,7 @@ public class Settings : UnityModManager.ModSettings
 
     // Debug
     public bool DebugDisableVerifyDefinitionNameIsNotInUse { get; set; }
-#if DEBUG
     public bool DebugLogDefinitionCreation { get; set; }
     public bool DebugLogFieldInitialization { get; set; }
     public bool DebugLogVariantMisuse { get; set; }
-#endif
 }

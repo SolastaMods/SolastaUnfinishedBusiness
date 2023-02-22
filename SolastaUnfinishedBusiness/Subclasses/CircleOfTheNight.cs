@@ -168,6 +168,8 @@ internal sealed class CircleOfTheNight : AbstractSubclass
     internal override FeatureDefinitionSubclassChoice SubclassChoice =>
         FeatureDefinitionSubclassChoices.SubclassChoiceDruidCircle;
 
+    internal override DeityDefinition DeityDefinition { get; }
+
     // custom wild shapes
 
     /**

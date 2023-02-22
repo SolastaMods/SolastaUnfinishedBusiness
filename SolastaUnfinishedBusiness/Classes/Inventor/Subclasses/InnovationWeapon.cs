@@ -175,7 +175,10 @@ public static class InnovationWeapon
                 .SetParticleEffectParameters(ConjureElementalAir)
                 .Build())
             .SetUniqueInstance()
-            .SetCustomSubFeatures(SkipEffectRemovalOnLocationChange.Always, ValidatorsPowerUse.NotInCombat)
+            .SetCustomSubFeatures(
+                new ShouldTerminatePowerEffect(SummonSteelDefenderPower),
+                SkipEffectRemovalOnLocationChange.Always,
+                ValidatorsPowerUse.NotInCombat)
             .AddToDB();
     }
 
@@ -335,7 +338,6 @@ public static class InnovationWeapon
                 FeatureDefinitionActionAffinityBuilder
                     .Create("ActionAffinitySteelDefenderBasic")
                     .SetGuiPresentationNoContent()
-                    .SetDefaultAllowedActionTypes()
                     .SetForbiddenActions(Id.AttackMain, Id.AttackOff, Id.AttackReadied, Id.AttackOpportunity, Id.Ready,
                         Id.Shove, Id.PowerMain, Id.PowerBonus, Id.PowerReaction, Id.SpendPower)
                     .SetCustomSubFeatures(new SummonerHasConditionOrKOd())
@@ -488,8 +490,15 @@ public static class InnovationWeapon
             }
 
             var character = locationCharacter.RulesetCharacter;
-            var newCondition = RulesetCondition.CreateActiveCondition(character.Guid, condition, DurationType.Round, 1,
-                TurnOccurenceType.StartOfTurn, locationCharacter.Guid, character.CurrentFaction.Name);
+            var newCondition = RulesetCondition.CreateActiveCondition(
+                character.Guid,
+                condition,
+                DurationType.Round,
+                1,
+                TurnOccurenceType.StartOfTurn,
+                locationCharacter.Guid,
+                character.CurrentFaction.Name);
+
             character.AddConditionOfCategory(AttributeDefinitions.TagCombat, newCondition);
             GameConsoleHelper.LogCharacterUsedPower(character, power);
         }

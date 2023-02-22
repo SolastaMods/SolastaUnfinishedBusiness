@@ -5,7 +5,7 @@ namespace SolastaUnfinishedBusiness.Api.Extensions;
 internal static class GameGadgetExtensions
 {
     private const string Invisible = "Invisible";
-    internal const string Triggered = "Triggered";
+    // internal const string Triggered = "Triggered";
 
     /// <summary>
     ///     Returns state of Invisible parameter, or false if not present

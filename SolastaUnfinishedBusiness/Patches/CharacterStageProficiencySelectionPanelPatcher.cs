@@ -3,6 +3,7 @@ using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using HarmonyLib;
 using JetBrains.Annotations;
+using SolastaUnfinishedBusiness.Models;
 using static HeroDefinitions.PointsPoolType;
 
 namespace SolastaUnfinishedBusiness.Patches;
@@ -132,6 +133,20 @@ public static class CharacterStageProficiencySelectionPanelPatcher
             });
 
             return false;
+        }
+    }
+
+    //PATCH: allow refreshing custom metamagic options to avoid requires restart when tweaking mod ui options
+    [HarmonyPatch(typeof(CharacterStageProficiencySelectionPanel),
+        nameof(CharacterStageProficiencySelectionPanel.EnterStage))]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
+    public static class EnterStage_Patch
+    {
+        [UsedImplicitly]
+        public static void Prefix(CharacterStageProficiencySelectionPanel __instance)
+        {
+            GameUiContext.RefreshMetamagicOffering(__instance.metamagicSubPanel);
         }
     }
 }

@@ -10,7 +10,7 @@ using static SolastaUnfinishedBusiness.Displays.CharacterDisplay;
 using static SolastaUnfinishedBusiness.Displays.CreditsDisplay;
 using static SolastaUnfinishedBusiness.Displays.DungeonMakerDisplay;
 using static SolastaUnfinishedBusiness.Displays.EncountersDisplay;
-using static SolastaUnfinishedBusiness.Displays.FeatsFightingStylesInvocationsDisplay;
+using static SolastaUnfinishedBusiness.Displays.ProficienciesDisplay;
 using static SolastaUnfinishedBusiness.Displays.GameServicesDisplay;
 using static SolastaUnfinishedBusiness.Displays.GameUiDisplay;
 using static SolastaUnfinishedBusiness.Displays.ItemsAndCraftingDisplay;
@@ -42,7 +42,7 @@ namespace SolastaUnfinishedBusiness.Displays
                     DisplayCharacter),
                 new NamedAction(Gui.Localize("ModUi/&RacesClassesSubclasses"),
                     DisplayClassesAndSubclasses),
-                new NamedAction(Gui.Localize("ModUi/&FeatsFightingStylesInvocations"),
+                new NamedAction(Gui.Localize("Screen/&FeatureListingProficienciesTitle"),
                     DisplayFeatsFightingStylesInvocations),
                 new NamedAction(Gui.Localize("ModUi/&SpellsMenu"),
                     DisplaySpells));

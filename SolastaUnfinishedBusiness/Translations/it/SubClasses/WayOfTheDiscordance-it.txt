@@ -1,0 +1,12 @@
+﻿Condition/&ConditionWayOfTheDiscordanceDiscordanceDescription=La tua mente esploderà in danni psichici se entri in discordanza per la terza volta.
+Condition/&ConditionWayOfTheDiscordanceDiscordanceTitle=Discordanza
+Feature/&FeatureSetWayOfTheDiscordanceDiscordanceDescription=A partire dal 3° livello, impari a manipolare la disarmonia interiore dei tuoi nemici per creare ondate di energia distorcente. Ogni volta che colpisci una creatura con un'arma da monaco o un attacco senz'armi, la creatura riceve un'istanza della condizione Discordanza per 1 minuto. Quando una creatura riceve la terza istanza, tutte le istanze vengono rimosse e la creatura riceve danni psichici pari al tuo dado di Arti Marziali + metà del tuo bonus di competenza.
+Feature/&FeatureSetWayOfTheDiscordanceDiscordanceTitle=Discordanza
+Feature/&FeatureSetWayOfTheDiscordanceSchismDescription=A partire dal 6° livello, applichi un'istanza aggiuntiva della condizione Discordanza quando stordisci con successo una creatura con la tua abilità Colpo Stordente. Inoltre, mentre la condizione di stordimento dura, la creatura stordita riceve un'ulteriore istanza di Discordanza dai tuoi attacchi e abilità.
+Feature/&FeatureSetWayOfTheDiscordanceSchismTitle=Scisma
+Feature/&PowerWayOfTheDiscordanceBurstOfDisharmonyDescription=All'11° livello, ottieni la capacità di provocare un'esplosione di energia negativa accumulata. Puoi aumentare il danno spendendo punti ki. Ogni punto speso, fino a un massimo del tuo bonus di competenza, aumenta il danno di 1d6.
+Feature/&PowerWayOfTheDiscordanceBurstOfDisharmonyTitle=Esplosione di disarmonia
+Feature/&PowerWayOfTheDiscordanceSubBurstOfDisharmonyDescription=Spendi {0} Ki Point per infliggere {1}d6 danni.
+Feature/&PowerWayOfTheDiscordanceSubBurstOfDisharmonyTitle=Esplosione di Disarmonia [{0} Ki]
+Subclass/&WayOfTheDiscordanceDescription=Mentre la maggior parte dei monaci cerca l'illuminazione attraverso la contemplazione e il raggiungimento della pace interiore, i monaci della Via della Discordanza, d'altra parte, si concentrano sull'imbrigliare le energie caotiche dell'universo. Questi mistici studiosi della disarmonia sfruttano i conflitti interiori dei loro nemici manipolando il loro ki, devastandoli con esplosioni di energia distorcente.
+Subclass/&WayOfTheDiscordanceTitle=Via della discordia

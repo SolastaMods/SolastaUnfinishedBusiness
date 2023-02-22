@@ -31,6 +31,8 @@ internal static class SpellsContext
     internal static readonly SpellDefinition FarStep = BuildFarStep();
     internal static readonly SpellDefinition SearingSmite = BuildSearingSmite();
     internal static readonly SpellDefinition SunlightBlade = BuildSunlightBlade();
+
+    // ReSharper disable once MemberCanBePrivate.Global
     internal static HashSet<SpellDefinition> Spells { get; set; } = new();
 
     [NotNull]
@@ -104,12 +106,6 @@ internal static class SpellsContext
                     .OfType<FeatureDefinitionCastSpell>()
                     .FirstOrDefault();
 
-                // this is an exception to comport Warlock Variant and force the original game one
-                if (characterClass == DatabaseHelper.CharacterClassDefinitions.Warlock)
-                {
-                    featureDefinitionCastSpell = DatabaseHelper.FeatureDefinitionCastSpells.CastSpellWarlock;
-                }
-
                 // NOTE: don't use featureDefinitionCastSpell?. which bypasses Unity object lifetime check
                 if (!featureDefinitionCastSpell
                     || !featureDefinitionCastSpell.SpellListDefinition
@@ -118,19 +114,17 @@ internal static class SpellsContext
                     continue;
                 }
 
+                spellLists.Add(title, featureDefinitionCastSpell.SpellListDefinition);
+
+                foreach (var spell in featureDefinitionCastSpell.SpellListDefinition.SpellsByLevel.SelectMany(
+                             x => x.Spells))
                 {
-                    spellLists.Add(title, featureDefinitionCastSpell.SpellListDefinition);
-
-                    foreach (var spell in featureDefinitionCastSpell.SpellListDefinition.SpellsByLevel.SelectMany(
-                                 x => x.Spells))
+                    if (!SpellSpellListMap.ContainsKey(spell))
                     {
-                        if (!SpellSpellListMap.ContainsKey(spell))
-                        {
-                            SpellSpellListMap.Add(spell, new List<SpellListDefinition>());
-                        }
-
-                        SpellSpellListMap[spell].Add(featureDefinitionCastSpell.SpellListDefinition);
+                        SpellSpellListMap.Add(spell, new List<SpellListDefinition>());
                     }
+
+                    SpellSpellListMap[spell].Add(featureDefinitionCastSpell.SpellListDefinition);
                 }
             }
 
@@ -209,7 +203,7 @@ internal static class SpellsContext
         // 1st level
         RegisterSpell(BuildChromaticOrb(), 0, SpellListSorcerer, SpellListWizard);
         RegisterSpell(BuildEarthTremor(), 0, SpellListBard, SpellListDruid, SpellListSorcerer, SpellListWizard);
-        RegisterSpell(EnsnaringStrike, 0, SpellListPaladin);
+        RegisterSpell(EnsnaringStrike, 0, SpellListRanger);
         RegisterSpell(BuildMule(), 0, SpellListWizard);
         RegisterSpell(BuildRadiantMotes(), 0, SpellListWizard, spellListInventorClass);
         RegisterSpell(SearingSmite, 0, SpellListPaladin, SpellListRanger);
@@ -431,6 +425,16 @@ internal static class SpellsContext
                     {
                         SpellListAllCantrips.AddSpell(spellDefinition);
                     }
+
+                    //Add to spell sniper lists
+                    var className = spellListName.Replace("SpellList", string.Empty);
+
+                    if (spellDefinition.SpellLevel == 0 &&
+                        DatabaseHelper.TryGetDefinition<SpellListDefinition>($"SpellListFeatSpellSniper{className}",
+                            out var spellList))
+                    {
+                        spellList.AddSpell(spellDefinition);
+                    }
                 }
 
                 Main.Settings.SpellListSpellEnabled[spellListName].TryAdd(spellName);
@@ -454,6 +458,19 @@ internal static class SpellsContext
                     if (spellDefinition.SpellLevel == 0)
                     {
                         foreach (var spellsByLevel in SpellListAllCantrips.SpellsByLevel)
+                        {
+                            spellsByLevel.Spells.RemoveAll(x => x == spellDefinition);
+                        }
+                    }
+
+                    //Remove from spell sniper lists
+                    var className = spellListName.Replace("SpellList", string.Empty);
+
+                    if (spellDefinition.SpellLevel == 0 &&
+                        DatabaseHelper.TryGetDefinition<SpellListDefinition>($"SpellListFeatSpellSniper{className}",
+                            out var spellList))
+                    {
+                        foreach (var spellsByLevel in spellList.SpellsByLevel)
                         {
                             spellsByLevel.Spells.RemoveAll(x => x == spellDefinition);
                         }

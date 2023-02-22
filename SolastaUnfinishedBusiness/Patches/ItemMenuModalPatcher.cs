@@ -5,9 +5,7 @@ using System.Linq;
 using System.Reflection.Emit;
 using HarmonyLib;
 using JetBrains.Annotations;
-using SolastaUnfinishedBusiness.Api.Extensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
-using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionMagicAffinitys;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
@@ -50,7 +48,7 @@ public static class ItemMenuModalPatcher
             GuiEquipmentItem guiEquipmentItem)
         {
             if (guiEquipmentItem.EquipementItem is not RulesetItemDevice rulesetItemDevice ||
-                rulesetItemDevice.UsableFunctions[0] is not { } rulesetDeviceFunction)
+                rulesetItemDevice.UsableFunctions[0] is not { })
             {
                 return rulesetCharacterHero.SpellRepertoires;
             }

@@ -4,9 +4,10 @@
   "parentCondition": null,
   "conditionType": "Beneficial",
   "features": [
-    "Definition:AttributeModifierKindredSpiritBondHP:ff7c622dcfe531c44a1da9cc466cd395"
+    "Definition:AttributeModifierMarshalEternalComradeHP:0ba92264-f9ec-5a08-a70c-2132ea5cc610",
+    "Definition:AttributeModifierMarshalEternalComradeHP:0ba92264-f9ec-5a08-a70c-2132ea5cc610"
   ],
-  "allowMultipleInstances": true,
+  "allowMultipleInstances": false,
   "silentWhenAdded": true,
   "silentWhenRemoved": true,
   "terminateWhenRemoved": false,

@@ -87,7 +87,6 @@ internal sealed class PathOfTheLight : AbstractSubclass
                 ConditionDefinition = conditionPathOfTheLightIlluminated
             })
             .SetLightSourceForm(lightSourceForm)
-            .SetRequiredProperty(RestrictedContextRequiredProperty.None)
             .SetAdvancement(AdditionalDamageAdvancement.ClassLevel, 1, 1, 10)
             .SetCustomSubFeatures(new BarbarianHolder())
             .AddToDB();
@@ -309,6 +308,8 @@ internal sealed class PathOfTheLight : AbstractSubclass
 
     internal override FeatureDefinitionSubclassChoice SubclassChoice =>
         FeatureDefinitionSubclassChoices.SubclassChoiceBarbarianPrimalPath;
+
+    internal override DeityDefinition DeityDefinition { get; }
 
     private static void ApplyLightsProtectionHealing(ulong sourceGuid)
     {

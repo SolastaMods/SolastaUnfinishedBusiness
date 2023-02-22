@@ -4,12 +4,12 @@ ModUi/&AddCustomIconsToOfficialItems=Añade iconos personalizados a los elemento
 ModUi/&AddHelpActionToAllRaces=Agrega la acción <color=#D89555>Ayuda</color> a todas las razas jugables <i><color=#F0DAA0>[puedes ayudar a una criatura amiga a atacar a una criatura a 5 pies de ti]</color></i>
 ModUi/&AddHumanoidFavoredEnemyToRanger=Añadir enemigo preferido humanoide a <color=#D89555>Rangers</color>
 ModUi/&AddMonkKiPointsToggle=Agrega un interruptor para permitir que <color=#D89555>Monjes</color> habiliten o deshabiliten los Puntos Ki <i><color=#F0DAA0>[útil para minimizar las indicaciones de reacción]</color></i>
+ModUi/&AddMonsterSwapAttackToggle=Agregue un interruptor para permitir que los <color=#D89555>druidas</color> en forma salvaje seleccionen qué ataque usar primero <i><color=#F0DAA0>[útil con una combinación de ataques cuerpo a cuerpo y a distancia]</color> </i>
 ModUi/&AddNewBrightEyeColors=Añadir nuevos colores de ojos brillantes
 ModUi/&AddNewWeaponsAndRecipesToShops=Agregue nuevas armas y recetas a las tiendas <i><color=#F0DAA0>[atados de mano, alabardas, picas, mazas largas, ballestas de mano]</color></i> <b><i><color=#C04040E0> [Requiere reiniciar]</color></i></b>
 ModUi/&AddPaladinSmiteToggle=Agregue un interruptor para permitir que <color=#D89555>paladines</color> solo habiliten castigos en golpes críticos <i><color=#F0DAA0>[útil para minimizar las indicaciones de reacción]</color></i>
 ModUi/&AddPickPocketableLoot=Agregar botín de carterista <i><color=#F0DAA0>[sugerido si la característica <color=#D89555>Carterista</color> está habilitada]</color></i>
 ModUi/&AddToStore=Añadir a la tienda
-ModUi/&AddWildshapeSwapAttackToggle=Agregue un interruptor para permitir que los <color=#D89555>druidas</color> en forma salvaje seleccionen qué ataque usar primero <i><color=#F0DAA0>[útil con una combinación de ataques cuerpo a cuerpo y a distancia]</color> </i>
 ModUi/&Advanced=<color=#F0DAA0>Avanzado:</color> <b><i><color=#C04040E0>[Requiere reinicio]</color></i></b>
 ModUi/&AdvancedHelp=. <b><color=#C04040E0>ATENCIÓN:</color></b> Esta configuración requerirá que el jugador tenga este mod instalado
 ModUi/&Adventure=<color=#F0DAA0>Aventura:</color>
@@ -30,6 +30,7 @@ ModUi/&AllRecipesInDm=Todas las recetas en DM
 ModUi/&AltOnlyHighlightItemsInPartyFieldOfView=La tecla <color=#1E81B0>ALT</color> solo resalta los dispositivos en el campo de visión del grupo <i><color=#F0DAA0>[solo mazmorras personalizadas]</color></i>
 ModUi/&ApplySRDWeightToFoodRations=Reducir el peso de la ración de alimentos a 2 libras
 ModUi/&ArcaneShieldstaffOptions=Permitir que cualquier clase sintonice <color=#D89555>Bastón de escudo arcano</color>
+ModUi/&Backgrounds=<color=#F0DAA0>Fondos:</color>
 ModUi/&Basic=<color=#F0DAA0>Básico:</color>
 ModUi/&Bestiary=Bestiario
 ModUi/&BestowCurseNoConcentrationRequiredForSlotLevel5OrAbove=<color=#D89555>Otorgar maldición</color> no requiere concentración cuando se lanza con un espacio de hechizo L5+
@@ -46,8 +47,15 @@ ModUi/&Crafting=<color=#F0DAA0>Fabricación:</color>
 ModUi/&CraftingHelp=. Presiona el botón para aprender recetas al instante en el grupo activo\n. Los artículos agregados a las tiendas pueden necesitar que el grupo se aleje de la ubicación y regrese
 ModUi/&Credits=Créditos
 ModUi/&CreditsAndDiagnostics=Créditos y Diagnósticos
+ModUi/&Critical=<color=#F0DAA0>Golpe crítico:</color>
+ModUi/&CriticalOption0=. 0: predeterminado del juego, tira cualquier dado de daño dos veces, agrega el resultado y agrega modificadores <i><color=#F0DAA0>[XdY+XdY+Z]</color></i>
+ModUi/&CriticalOption1=. 1: suma el resultado máximo de los dados de daño y súmalo al daño del ataque <i><color=#F0DAA0>[XdY+(X*Y)+Z]</color></i>
+ModUi/&CriticalOption2=. 2: sigue tirando cualquier dado de daño que arroje el resultado más alto posible y súmalo al daño total
+ModUi/&CriticalOption3=. 3: Duplica el daño total de tu ataque en lugar de tirar dados adicionales. <i><color=#F0DAA0>[(XdY+Z)*2]</color></i>
 ModUi/&DeadEyeAndPowerAttackBaseBaseValue=<color=white>Establece el valor básico del modificador Deadeye y Power Attack</color>\n<i><color=#F0DAA0>[la fórmula es -mod para golpear / mod + tu bonificación de competencia para dañar]</color></i>
+ModUi/&Deities=<color=#F0DAA0>Deidades:</color>
 ModUi/&DisableAutoEquip=Deshabilitar el equipamiento automático de artículos en el inventario
+ModUi/&DisableClassPrerequisitesOnModFeats=Deshabilitar los requisitos previos de nivel en las hazañas vinculadas a la clase proporcionadas por este mod
 ModUi/&DisableRacePrerequisitesOnModFeats=Deshabilitar los requisitos previos de carrera en las hazañas proporcionadas por este mod
 ModUi/&DisableSenseDarkVisionFromAllRaces=Desactiva <color=#D89555>Sense Dark Vision</color> de todas las razas jugables <b><i><color=#C04040E0>[Requiere reinicio]</color></i></b>
 ModUi/&DisableSenseSuperiorDarkVisionFromAllRaces=Deshabilita <color=#D89555>Superior Sense Dark Vision</color> de todas las razas jugables <b><i><color=#C04040E0>[Requiere reinicio]</color></i></b>
@@ -64,6 +72,7 @@ ModUi/&EnableAdditionalItemsInDungeonMaker=<i>+ Agregar nuevos elementos a Dunge
 ModUi/&EnableAlternateHuman=Habilitar el humano alternativo <i><color=#F0DAA0>[+1 hazaña / +2 opciones de atributos / +1 habilidad]</color></i>
 ModUi/&EnableBetaContent=Habilitar contenido beta <b><i><color=#C04040E0>[Requiere reiniciar]</color></i></b>
 ModUi/&EnableCancelEditOnRightMouseClick=Habilite las acciones de cancelación con el botón derecho del mouse
+ModUi/&EnableCharacterChecker=Habilite el Comprobador de caracteres en la pantalla principal > Caracteres
 ModUi/&EnableCharacterExport=Habilite <color=#1E81B0>CTRL-SHIFT-(E)</color> para exportar el carácter
 ModUi/&EnableCheatMenu=Habilitar el menú de trucos
 ModUi/&EnableDungeonMakerModdedContent=Habilite Dungeon Maker Pro\n<i><color=#F0DAA0>[incluya habitaciones planas, tamaños de mazmorras de 150 x 150 y 200 x 200 y elementos sencillos que mezclen recursos de todos los entornos]</color></i>
@@ -101,10 +110,8 @@ ModUi/&FasterTimeModifier=<color=white>Modificador de tiempo de juego al presion
 ModUi/&FeatGroups=<color=#F0DAA0>Grupos de características</color>
 ModUi/&FeatGroupsHelp=. Cada grupo es una consolidación de hazañas similares <i><color=#F0DAA0>[es decir, credos, estilos de lucha, metamagia, etc.]</color></i>\n. Las dotes en estos grupos ya no serán visibles directamente en la etapa de selección de competencia\n. El grupo, cuando se selecciona, los ofrece en una lista desplegable para despejar la pantalla del juego.
 ModUi/&Feats=<color=#F0DAA0>Dotes</color>
-ModUi/&FeatsFightingStylesInvocations=Dotes, estilos e invocaciones
 ModUi/&FightingStyles=<color=#F0DAA0>Estilos de lucha</color>
 ModUi/&FixEldritchBlastRange=Cambia el rango de <color=#D89555>Explosión sobrenatural</color> a 24 <i><color=#F0DAA0>[en lugar de 16]</color></i>
-ModUi/&FixSorcererTwinnedLogic=Se corrigió el uso metamágico gemelo de <color=#D89555>Sorcerer</color> <i><color=#F0DAA0>[debe ser incapaz de apuntar a más de una criatura en el nivel actual del hechizo]</color></i>
 ModUi/&Formation=<color=#F0DAA0>Formación:</color>
 ModUi/&FormationError=<color=#C04040E0>No puedes cambiar tu formación durante una partida multijugador...</color>
 ModUi/&FormationHelp1=. Use los botones numéricos para editar un conjunto determinado <i><color=#F0DAA0>[considere habilitar las teclas de acceso rápido en la entrada]</color></i>
@@ -125,6 +132,7 @@ ModUi/&House=<color=#F0DAA0>Casa:</color>
 ModUi/&IdentifyAfterRest=Añade un poder para identificar objetos mágicos durante un descanso corto o largo
 ModUi/&IgnoreHandXbowFreeHandRequirements=No requiere mano libre para usar ballestas de mano
 ModUi/&IncreaseGameTimeBy=Aumenta el tiempo de juego en
+ModUi/&IncreaseMaxAttunedItems=Aumente el máximo de elementos sintonizados a 4 en el nivel 10 y 5 en el nivel 18
 ModUi/&IncreaseSenseNormalVision=<color=white>Aumenta el alcance de <color=#D89555>Sensor de visión normal</color> para permitir ataques de largo alcance</color> <b><i><color=#C04040E0>[Requiere reinicio]</color></i></b>
 ModUi/&IncreaseSenseNormalVisionHelp=<i><color=#F0DAA0>[40 es ideal para evitar que los enemigos se unan desde demasiado lejos]</color></i>
 ModUi/&InitialChoices=<color=#F0DAA0>Creación:</color>
@@ -143,6 +151,7 @@ ModUi/&MakeLargeWildshapeFormsMedium=Haga que todas las formas grandes de forma 
 ModUi/&MarkInvisibleTeleportersOnLevelMap=<i>+ También marque la ubicación de los teletransportadores invisibles en el mapa de nivel después del descubrimiento</i>
 ModUi/&MaxAllowedClasses=<color=white>Clases máximas permitidas</color>
 ModUi/&Merchants=<color=#F0DAA0>Comerciantes:</color>
+ModUi/&Metamagic=<color=#F0DAA0>Metamagia</color>
 ModUi/&Monsters=<color=#F0DAA0>Monstruos:</color>
 ModUi/&MulticlassKeyHelp=<color=#1E81B0>MAYÚS</color> al hacer clic en un hechizo se invierte el tipo de espacio de repertorio predeterminado consumido\n<i><color=#F0DAA0>[<color=#D89555>Brujo</color> gasta espacios de hechizo blancos y otros gastan verdes de pacto]</color></i>
 ModUi/&MultiplyTheExperienceGainedBy=<color=white>Multiplica la experiencia ganada por</color> <color=#C04040E0>[%]</color>

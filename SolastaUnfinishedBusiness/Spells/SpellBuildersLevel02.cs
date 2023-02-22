@@ -48,7 +48,7 @@ internal static partial class SpellBuilders
             .SetDurationData(DurationType.Minute, 1)
             .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
             .SetEffectForms(EffectFormBuilder.Create()
-                .SetConditionForm(condition, ConditionForm.ConditionOperation.Add, true, false)
+                .SetConditionForm(condition, ConditionForm.ConditionOperation.Add)
                 .Build())
             .SetParticleEffectParameters(Blur)
             .Build();
@@ -132,7 +132,7 @@ internal static partial class SpellBuilders
             .SetSpellLevel(2)
             .SetEffectDescription(EffectDescriptionBuilder
                 .Create(SpikeGrowth.EffectDescription)
-                .SetTargetingData(Side.All, RangeType.Distance, 1, TargetType.Sphere, 0)
+                .SetTargetingData(Side.All, RangeType.Distance, 6, TargetType.Sphere, 3)
                 .SetDurationData(DurationType.Minute, 10)
                 .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel, additionalDicePerIncrement: 1)
                 .SetRecurrentEffect(RecurrentEffect.OnEnter)

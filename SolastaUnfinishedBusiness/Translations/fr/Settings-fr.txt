@@ -4,12 +4,12 @@ ModUi/&AddCustomIconsToOfficialItems=Ajoutez des icônes personnalisées aux él
 ModUi/&AddHelpActionToAllRaces=Ajoutez l'action <color=#D89555>Aide</color> à toutes les races jouables <i><color=#F0DAA0>[vous pouvez aider une créature alliée à attaquer une créature à moins de 1,50 mètre de vous]</color></i>
 ModUi/&AddHumanoidFavoredEnemyToRanger=Ajouter un ennemi préféré humanoïde aux <color=#D89555>Rangers</color>
 ModUi/&AddMonkKiPointsToggle=Ajoutez une bascule pour permettre aux <color=#D89555>Moines</color> d'activer/désactiver les points Ki <i><color=#F0DAA0>[utile pour minimiser les invites de réaction]</color></i>
+ModUi/&AddMonsterSwapAttackToggle=Ajoutez une bascule pour permettre aux <color=#D89555>Druides</color> sous forme sauvage de sélectionner l'attaque à utiliser en premier <i><color=#F0DAA0>[utile avec un mélange d'attaques de mêlée et à distance]</color> </i>
 ModUi/&AddNewBrightEyeColors=Ajouter de nouvelles couleurs vives pour les yeux
 ModUi/&AddNewWeaponsAndRecipesToShops=Ajoutez de nouvelles armes et recettes aux boutiques <i><color=#F0DAA0>[bandages à main, hallebardes, piques, masses longues, arbalètes à main]</color></i> <b><i><color=#C04040E0> [Nécessite un redémarrage]</color></i></b>
 ModUi/&AddPaladinSmiteToggle=Ajoutez une bascule pour permettre aux <color=#D89555>Paladins</color> d'activer uniquement les châtiments sur les coups critiques <i><color=#F0DAA0>[utile pour minimiser les invites de réaction]</color></i>
 ModUi/&AddPickPocketableLoot=Ajouter un butin pickpocketable <i><color=#F0DAA0>[suggéré si la fonctionnalité <color=#D89555>Pickpocket</color> est activée]</color></i>
 ModUi/&AddToStore=Ajouter au magasin
-ModUi/&AddWildshapeSwapAttackToggle=Ajoutez une bascule pour permettre aux <color=#D89555>Druides</color> sous forme sauvage de sélectionner l'attaque à utiliser en premier <i><color=#F0DAA0>[utile avec un mélange d'attaques de mêlée et à distance]</color> </i>
 ModUi/&Advanced=<color=#F0DAA0>Avancé:</color> <b><i><color=#C04040E0>[Nécessite un redémarrage]</color></i></b>
 ModUi/&AdvancedHelp=. <b><color=#C04040E0>ATTENTION:</color></b> Ces paramètres nécessiteront que le joueur ait installé ce mod
 ModUi/&Adventure=<color=#F0DAA0>Aventure:</color>
@@ -30,6 +30,7 @@ ModUi/&AllRecipesInDm=Toutes les recettes en DM
 ModUi/&AltOnlyHighlightItemsInPartyFieldOfView=La touche <color=#1E81B0>ALT</color> ne met en évidence que les gadgets dans le champ de vision du groupe <i><color=#F0DAA0>[donjons personnalisés uniquement]</color></i>
 ModUi/&ApplySRDWeightToFoodRations=Réduire le poids de la ration alimentaire à 2 livres
 ModUi/&ArcaneShieldstaffOptions=Permet à <color=#D89555>Arcane Shieldstaff</color> d'être harmonisé par n'importe quelle classe
+ModUi/&Backgrounds=<color=#F0DAA0>Arrière-plans :</color>
 ModUi/&Basic=<color=#F0DAA0>De base:</color>
 ModUi/&Bestiary=Bestiaire
 ModUi/&BestowCurseNoConcentrationRequiredForSlotLevel5OrAbove=<color=#D89555>Bestow Curse</color> ne nécessite pas de concentration lorsqu'il est lancé avec un emplacement de sort L5+
@@ -46,9 +47,16 @@ ModUi/&Crafting=<color=#F0DAA0>Artisanat:</color>
 ModUi/&CraftingHelp=. Appuyez sur le bouton pour apprendre des recettes instantanément sur le groupe actif\n. Les articles ajoutés aux magasins peuvent nécessiter que la fête s'éloigne de l'emplacement et revienne
 ModUi/&Credits=Crédits
 ModUi/&CreditsAndDiagnostics=Crédits & Diagnostics
+ModUi/&Critical=<color=#F0DAA0>Coup critique:</color>
+ModUi/&CriticalOption0=. 0: défaut du jeu, lancez deux fois les dés de dégâts, ajoutez le résultat et ajoutez les modificateurs <i><color=#F0DAA0>[XdY+XdY+Z]</color></i>
+ModUi/&CriticalOption1=. 1: additionnez le résultat maximum des dés de dégâts et ajoutez-le aux dégâts de l'attaque <i><color=#F0DAA0>[XdY+(X*Y)+Z]</color></i>
+ModUi/&CriticalOption2=. 2: continuez à relancer tous les dés de dégâts qui obtiennent le résultat le plus élevé possible et ajoutez-le au total des dégâts
+ModUi/&CriticalOption3=. 3 : Doublez les dégâts totaux de votre attaque au lieu de lancer des dés supplémentaires. <i><color=#F0DAA0>[(XdY+Z)*2]</color></i>
 ModUi/&DeadEyeAndPowerAttackBaseBaseValue=<color=white>Définir la valeur de base du modificateur Deadeye et Power Attack</color>\n<i><color=#F0DAA0>[la formule est -mod to hit / mod + votre bonus de compétence pour les dégâts]</color></i>
+ModUi/&Deities=<color=#F0DAA0>Divinités :</color>
 ModUi/&DisableAutoEquip=Désactiver l'équipement automatique des objets dans l'inventaire
-ModUi/&DisableRacePrerequisitesOnModFeats=Désactiver les pré-requis de course sur les exploits fournis par ce mod
+ModUi/&DisableClassPrerequisitesOnModFeats=Désactiver les prérequis de niveau sur les exploits liés à la classe fournis par ce mod
+ModUi/&DisableRacePrerequisitesOnModFeats=Désactiver les pré-requis de race sur les exploits fournis par ce mod
 ModUi/&DisableSenseDarkVisionFromAllRaces=Désactivez <color=#D89555>Sense Dark Vision</color> de toutes les races jouables <b><i><color=#C04040E0>[Nécessite un redémarrage]</color></i></b>
 ModUi/&DisableSenseSuperiorDarkVisionFromAllRaces=Désactivez <color=#D89555>Superior Sense Dark Vision</color> de toutes les races jouables <b><i><color=#C04040E0>[Nécessite un redémarrage]</color></i></b>
 ModUi/&DisplayAllKnownSpellsDuringLevelUp=<i>+ Afficher tous les sorts connus des autres classes lors de la montée de niveau</i>
@@ -64,6 +72,7 @@ ModUi/&EnableAdditionalItemsInDungeonMaker=<i>+ Ajouter de nouveaux éléments �
 ModUi/&EnableAlternateHuman=Activer l'humain alternatif <i><color=#F0DAA0>[+1 feat / +2 choix d'attributs / +1 skill]</color></i>
 ModUi/&EnableBetaContent=Activer le contenu bêta <b><i><color=#C04040E0>[Nécessite un redémarrage]</color></i></b>
 ModUi/&EnableCancelEditOnRightMouseClick=Activer les actions d'annulation avec un clic droit de la souris
+ModUi/&EnableCharacterChecker=Activer le vérificateur de caractères sur l'écran principal > Personnages
 ModUi/&EnableCharacterExport=Activez <color=#1E81B0>CTRL-SHIFT-(E)</color> pour exporter le caractère
 ModUi/&EnableCheatMenu=Activer le menu de triche
 ModUi/&EnableDungeonMakerModdedContent=Activer DungeonMakerPro\n<i><color=#F0DAA0>[inclure des pièces plates, des tailles de donjon de 150x150 et 200x200 et mélanger sans fioritures les ressources de tous les environnements]</color></i>
@@ -101,10 +110,8 @@ ModUi/&FasterTimeModifier=<color=white>Modificateur de temps de jeu en appuyant 
 ModUi/&FeatGroups=<color=#F0DAA0>Groupes de fonctions</color>
 ModUi/&FeatGroupsHelp=. Chaque groupe est une consolidation d'exploits similaires <i><color=#F0DAA0>[c'est-à-dire: croyances, styles de combat, métamagie, etc.]</color></i>\n. Les exploits de ces groupes ne seront plus directement visibles lors de l'étape de sélection des compétences\n. Le groupe, lorsqu'il est sélectionné, les propose sur une liste déroulante pour désencombrer l'écran de jeu
 ModUi/&Feats=<color=#F0DAA0>Exploits</color>
-ModUi/&FeatsFightingStylesInvocations=Exploits, styles et invocations
 ModUi/&FightingStyles=<color=#F0DAA0>Styles de combat</color>
 ModUi/&FixEldritchBlastRange=Changez la plage <color=#D89555>Eldritch Blast</color> à 24 <i><color=#F0DAA0>[au lieu de 16]</color></i>
-ModUi/&FixSorcererTwinnedLogic=Correction de l'utilisation de la métamagie jumelée <color=#D89555>Sorcier</color> <i><color=#F0DAA0>[doit être incapable de cibler plus d'une créature au niveau actuel du sort]</color></i>
 ModUi/&Formation=<color=#F0DAA0>Formation:</color>
 ModUi/&FormationError=<color=#C04040E0>Vous ne pouvez pas changer de formation pendant une partie multijoueur...</color>
 ModUi/&FormationHelp1=. Utilisez les touches numériques pour modifier un ensemble donné <i><color=#F0DAA0>[envisagez d'activer les raccourcis clavier sous saisie]</color></i>
@@ -125,6 +132,7 @@ ModUi/&House=<color=#F0DAA0>Maison:</color>
 ModUi/&IdentifyAfterRest=Ajouter un pouvoir pour identifier les objets magiques sur un repos court ou long
 ModUi/&IgnoreHandXbowFreeHandRequirements=Ne nécessite pas de main libre pour utiliser les arbalètes à main
 ModUi/&IncreaseGameTimeBy=Augmentez le temps de jeu de
+ModUi/&IncreaseMaxAttunedItems=Augmenter le nombre maximum d'objets accordés à 4 au niveau 10 et 5 au niveau 18
 ModUi/&IncreaseSenseNormalVision=<color=white>Augmenter la plage <color=#D89555>Détecter la vision normale</color> pour permettre des attaques à longue portée</color> <b><i><color=#C04040E0>[Nécessite un redémarrage]</color></i></b>
 ModUi/&IncreaseSenseNormalVisionHelp=<i><color=#F0DAA0>[40 est idéal pour éviter que les ennemis ne se joignent de trop loin]</color></i>
 ModUi/&InitialChoices=<color=#F0DAA0>Création:</color>
@@ -143,6 +151,7 @@ ModUi/&MakeLargeWildshapeFormsMedium=Faites en sorte que toutes les grandes form
 ModUi/&MarkInvisibleTeleportersOnLevelMap=<i>+Marquer également l'emplacement des téléporteurs invisibles sur la carte de niveau après la découverte</i>
 ModUi/&MaxAllowedClasses=<color=white>Classes maximales autorisées</color>
 ModUi/&Merchants=<color=#F0DAA0>Commerçants:</color>
+ModUi/&Metamagic=<color=#F0DAA0>Métamagie</color>
 ModUi/&Monsters=<color=#F0DAA0>Monstres:</color>
 ModUi/&MulticlassKeyHelp=Un clic <color=#1E81B0>SHIFT</color> sur un sort inverse le type d'emplacement par défaut du répertoire consommé\n<i><color=#F0DAA0>[<color=#D89555>Warlock</color> dépense des emplacements de sorts blancs et d'autres dépensent des pactes verts]</color></i>
 ModUi/&MultiplyTheExperienceGainedBy=<color=white>Multipliez l'expérience acquise par</color> <color=#C04040E0>[%]</color>
@@ -175,7 +184,7 @@ ModUi/&SelectAll=Tout sélectionner
 ModUi/&SelectSuggested=Sélectionnez Suggéré
 ModUi/&Services=Prestations de service
 ModUi/&SetBeltOfDwarvenKindBeardChances=<color=#D89555>Ceinture des Nains</color> <color=white>possibilités d'apparition de la barbe</color>
-ModUi/&Settings=<color=#F0DAA0>Paramètres :</color>
+ModUi/&Settings=<color=#F0DAA0>Paramètres:</color>
 ModUi/&SettingsExport=Exporter
 ModUi/&SettingsHelp=. En tant qu'hôte, vous pouvez exporter votre configuration actuelle, ouvrir le dossier des exportations et partager facilement avec vos pairs\n. En tant qu'invité, vous pouvez ouvrir le dossier des exportations, coller le fichier partagé depuis l'hôte et le charger sur <b><i><color=#C04040E0>[Nécessite un redémarrage]</color></i></b>
 ModUi/&SettingsLoad=. Charger un paramètre exporté

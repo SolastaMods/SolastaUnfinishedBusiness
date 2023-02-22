@@ -11,9 +11,7 @@
   "hasFamilyTag": false,
   "familyTag": "",
   "knownFeatsPrerequisite": [],
-  "features": [
-    "Definition:OnAttackHitEffectFeatPoisonousSkin:636cdb4f-932c-5790-b0d7-5fe2d2b9e4e6"
-  ],
+  "features": [],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,

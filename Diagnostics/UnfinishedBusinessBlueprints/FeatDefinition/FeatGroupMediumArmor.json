@@ -16,7 +16,7 @@
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
     "title": "Feat/&FeatGroupMediumArmorTitle",
-    "description": "Feat/&FeatGroupMediumArmorDescription",
+    "description": "Increase your Strength or Dexterity by 1, to a maximum of 20.\nYou gain proficiency with medium armor and shields.",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",

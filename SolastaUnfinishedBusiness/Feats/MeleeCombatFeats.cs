@@ -2,6 +2,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using JetBrains.Annotations;
+using SolastaUnfinishedBusiness.Api.Extensions;
+using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Api.Infrastructure;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
@@ -65,6 +67,9 @@ internal static class MeleeCombatFeats
         GroupFeats.FeatGroupPiercer.AddFeats(
             featPiercerDex,
             featPiercerStr);
+
+        GroupFeats.FeatGroupUnarmoredCombat.AddFeats(
+            featGroupCrusher);
 
         GroupFeats.MakeGroup("FeatGroupMeleeCombat", null,
             GroupFeats.FeatGroupElementalTouch,
@@ -234,8 +239,14 @@ internal static class MeleeCombatFeats
             GameLocationBattleManager manager, GameLocationActionManager actionManager, ReactionRequest request)
         {
             var character = attacker.RulesetCharacter;
-            var rulesetCondition = RulesetCondition.CreateActiveCondition(character.Guid, conditionDamage,
-                DurationType.Round, 1, TurnOccurenceType.StartOfTurn, character.Guid, string.Empty);
+            var rulesetCondition = RulesetCondition.CreateActiveCondition(
+                character.Guid,
+                conditionDamage,
+                DurationType.Round,
+                1,
+                TurnOccurenceType.StartOfTurn,
+                character.Guid,
+                string.Empty);
 
             character.AddConditionOfCategory(AttributeDefinitions.TagCombat, rulesetCondition);
 
@@ -295,8 +306,8 @@ internal static class MeleeCombatFeats
                     .SetGuiPresentation(Category.Feature)
                     .SetAttackRollModifier(1)
                     .SetCustomSubFeatures(
-                        new RestrictedContextValidator(OperationType.Set,
-                            ValidatorsCharacter.MainHandHasWeaponType(SpearType)),
+                        new RestrictedContextValidator((_, _, character, _, ranged, mode, _) =>
+                            (OperationType.Set, !ranged && validWeapon(mode, null, character))),
                         new UpgradeWeaponDice((_, _) => (1, DieType.D8, DieType.D10), validWeapon))
                     .AddToDB())
             .AddToDB();
@@ -345,10 +356,7 @@ internal static class MeleeCombatFeats
     private static readonly FeatureDefinitionPower PowerFeatCrusherHit = FeatureDefinitionPowerBuilder
         .Create("PowerFeatCrusherHit")
         .SetGuiPresentationNoContent(true)
-        .SetUsesFixed(ActivationTime.OnAttackHitMelee, RechargeRate.TurnStart)
-        .SetCustomSubFeatures(
-            new RestrictReactionAttackMode((mode, _, _) =>
-                ValidatorsWeapon.IsOfDamageType(mode, DamageTypeBludgeoning)))
+        .SetUsesFixed(ActivationTime.NoCost, RechargeRate.TurnStart)
         .SetShowCasting(false)
         .SetEffectDescription(EffectDescriptionBuilder
             .Create()
@@ -364,10 +372,27 @@ internal static class MeleeCombatFeats
     private static readonly FeatureDefinition FeatureFeatCrusher = FeatureDefinitionAdditionalDamageBuilder
         .Create("FeatureFeatCrusher")
         .SetGuiPresentationNoContent(true)
+        .SetTriggerCondition(ExtraAdditionalDamageTriggerCondition.UsePowerReaction)
+        .SetFrequencyLimit(FeatureLimitedUsage.OncePerTurn)
+        .SetDamageDice(DieType.D1, 0)
+        .SetSpecificDamageType(PowerFeatCrusherHit.Name) // use specific type to pass power name to UsePowerReaction
+        .SetRequiredProperty(RestrictedContextRequiredProperty.MeleeWeapon)
+        .SetCustomSubFeatures(
+            new RestrictedContextValidator((_, _, _, _, ranged, mode, _) =>
+                (OperationType.Set,
+                    !ranged && ValidatorsWeapon.IsOfDamageType(DamageTypeBludgeoning)(mode, null, null))))
+        .AddToDB();
+
+    private static readonly FeatureDefinition FeatureFeatCrusherCriticalHit = FeatureDefinitionAdditionalDamageBuilder
+        .Create("FeatureFeatCrusherCriticalHit")
+        .SetGuiPresentationNoContent(true)
         .SetFrequencyLimit(FeatureLimitedUsage.OncePerTurn)
         .SetDamageDice(DieType.D1, 0)
         .SetNotificationTag(GroupFeats.Crusher)
         .SetCustomSubFeatures(
+            new RestrictedContextValidator((_, _, character, _, ranged, mode, _) =>
+                (OperationType.Set,
+                    !ranged && ValidatorsWeapon.IsOfDamageType(DamageTypeBludgeoning)(mode, null, character))),
             new AfterAttackEffectFeatCrusher(
                 ConditionDefinitionBuilder
                     .Create("ConditionFeatCrusherCriticalHit")
@@ -388,7 +413,8 @@ internal static class MeleeCombatFeats
         .Create("FeatureFeatPiercer")
         .SetGuiPresentationNoContent(true)
         .SetCustomSubFeatures(
-            new BeforeAttackEffectFeatPiercer(ConditionDefinitionBuilder
+            new BeforeAttackEffectFeatPiercer(
+                ConditionDefinitionBuilder
                     .Create("ConditionFeatPiercerNonMagic")
                     .SetGuiPresentationNoContent(true)
                     .SetSilent(Silent.WhenAddedOrRemoved)
@@ -449,7 +475,7 @@ internal static class MeleeCombatFeats
 
     #endregion
 
-    #region GroupFeats.Crusher
+    #region Crusher
 
     private static FeatDefinition BuildCrusherStr()
     {
@@ -458,10 +484,12 @@ internal static class MeleeCombatFeats
             .SetGuiPresentation(Category.Feat)
             .SetFeatures(
                 FeatureDefinitionAttributeModifiers.AttributeModifierCreed_Of_Einar,
-                PowerFeatCrusherHit,
-                FeatureFeatCrusher)
+                FeatureFeatCrusher,
+                FeatureFeatCrusherCriticalHit,
+                PowerFeatCrusherHit)
             .SetFeatFamily(GroupFeats.Crusher)
             .SetAbilityScorePrerequisite(AttributeDefinitions.Strength, 13)
+            //.SetCustomSubFeatures(ValidatorsCharacter.MainHandIsOfDamageType(DamageTypeBludgeoning))
             .AddToDB();
     }
 
@@ -472,10 +500,12 @@ internal static class MeleeCombatFeats
             .SetGuiPresentation(Category.Feat)
             .SetFeatures(
                 FeatureDefinitionAttributeModifiers.AttributeModifierCreed_Of_Arun,
-                PowerFeatCrusherHit,
-                FeatureFeatCrusher)
+                FeatureFeatCrusher,
+                FeatureFeatCrusherCriticalHit,
+                PowerFeatCrusherHit)
             .SetFeatFamily(GroupFeats.Crusher)
             .SetAbilityScorePrerequisite(AttributeDefinitions.Constitution, 13)
+            //.SetCustomSubFeatures(ValidatorsCharacter.MainHandIsOfDamageType(DamageTypeBludgeoning))
             .AddToDB();
     }
 
@@ -535,6 +565,8 @@ internal static class MeleeCombatFeats
 
         var weaponTypes = new[] { ShortswordType, LongswordType, ScimitarType, RapierType, GreatswordType };
 
+        var validWeapon = ValidatorsWeapon.IsOfWeaponType(weaponTypes);
+
         var conditionBladeMastery = ConditionDefinitionBuilder
             .Create($"Condition{NAME}")
             .SetGuiPresentation(NAME, Category.Feat)
@@ -567,7 +599,9 @@ internal static class MeleeCombatFeats
                             true)
                         .Build())
                     .Build())
-            .SetCustomSubFeatures(new ValidatorsPowerUse(ValidatorsCharacter.MainHandHasWeaponType(weaponTypes)))
+            .SetCustomSubFeatures(
+                new RestrictedContextValidator((_, _, character, _, ranged, mode, _) =>
+                    (OperationType.Set, !ranged && validWeapon(mode, null, character))))
             .AddToDB();
 
         return FeatDefinitionBuilder
@@ -593,11 +627,21 @@ internal static class MeleeCombatFeats
         public void ComputeAttackModifier(
             RulesetCharacter myself,
             RulesetCharacter defender,
+            BattleDefinitions.AttackProximity attackProximity,
             RulesetAttackMode attackMode,
             ref ActionModifier attackModifier)
         {
-            if (attackMode == null || defender == null ||
-                attackMode.actionType != ActionDefinitions.ActionType.Reaction)
+            if (attackProximity != BattleDefinitions.AttackProximity.PhysicalRange &&
+                attackProximity != BattleDefinitions.AttackProximity.PhysicalReach)
+            {
+                return;
+            }
+
+            var battle = Gui.Battle;
+
+            // the second check handle cases where you can attack when enemy misses you on a hit
+            if (attackMode.actionType != ActionDefinitions.ActionType.Reaction &&
+                battle.ActiveContender.RulesetCharacter != defender && battle.DefenderContender != null)
             {
                 return;
             }
@@ -607,9 +651,8 @@ internal static class MeleeCombatFeats
                 return;
             }
 
-            attackModifier.attackAdvantageTrends.Add(new TrendInfo(1,
-                FeatureSourceType.CharacterFeature, "Feature/&ModifyAttackModeFeatBladeMasteryTitle",
-                null));
+            attackModifier.attackAdvantageTrends.Add(
+                new TrendInfo(1, FeatureSourceType.Feat, "Feature/&ModifyAttackModeFeatBladeMasteryTitle", null));
         }
     }
 
@@ -623,23 +666,49 @@ internal static class MeleeCombatFeats
 
         var weaponTypes = new[] { BattleaxeType, GreataxeType, HandaxeType, MaulType, WarhammerType };
 
-        return FeatDefinitionBuilder
+        var fellHandedAdvantage = FeatureDefinitionPowerBuilder
+            .Create($"Power{NAME}Advantage")
+            .SetGuiPresentation(NAME, Category.Feat, $"Feature/&Power{NAME}AdvantageDescription", hidden: true)
+            .SetUsesFixed(ActivationTime.Reaction)
+            .SetEffectDescription(EffectDescriptionBuilder.Create()
+                .SetTargetingData(Side.Enemy, RangeType.Touch, 1, TargetType.Individuals)
+                .SetEffectForms(EffectFormBuilder.Create()
+                    .SetMotionForm(MotionForm.MotionType.FallProne)
+                    .Build())
+                .Build())
+            .AddToDB();
+
+        var feat = FeatDefinitionBuilder
             .Create(NAME)
             .SetGuiPresentation(Category.Feat)
             .SetCustomSubFeatures(
-                new AfterAttackEffectFeatFellHanded(weaponTypes),
+                new AfterAttackEffectFeatFellHanded(fellHandedAdvantage, weaponTypes),
                 new ModifyAttackModeForWeaponTypeFilter(
                     $"Feature/&ModifyAttackMode{NAME}Title", weaponTypes))
             .AddToDB();
+
+        return feat;
     }
 
     private sealed class AfterAttackEffectFeatFellHanded : IAfterAttackEffect
     {
+        private const string SuretyText = "Feedback/&FeatFeatFellHandedDisadvantage";
+        private const string SuretyTitle = "Feat/&FeatFellHandedTitle";
+        private const string SuretyDescription = "Feature/&PowerFeatFellHandedDisadvantageDescription";
         private readonly List<WeaponTypeDefinition> _weaponTypeDefinition = new();
+        private readonly DamageForm damage;
+        private readonly FeatureDefinitionPower power;
 
-        public AfterAttackEffectFeatFellHanded(params WeaponTypeDefinition[] weaponTypeDefinition)
+        public AfterAttackEffectFeatFellHanded(FeatureDefinitionPower power,
+            params WeaponTypeDefinition[] weaponTypeDefinition)
         {
+            this.power = power;
             _weaponTypeDefinition.AddRange(weaponTypeDefinition);
+
+            damage = new DamageForm
+            {
+                DamageType = DamageTypeBludgeoning, DieType = DieType.D1, DiceNumber = 0, BonusDamage = 0
+            };
         }
 
         public void AfterOnAttackHit(
@@ -656,47 +725,78 @@ internal static class MeleeCombatFeats
                 return;
             }
 
+            var rulesetAttacker = attacker.RulesetCharacter;
+            var rulesetDefender = defender.RulesetCharacter;
+            var modifier = attackMode.ToHitBonus + attackModifier.AttackRollModifier;
+
             switch (attackModifier.AttackAdvantageTrend)
             {
-                case >= 0 when outcome is RollOutcome.Success or RollOutcome.CriticalSuccess:
+                case > 0 when outcome is RollOutcome.Success or RollOutcome.CriticalSuccess:
                     var lowerRoll = Math.Min(Global.FirstAttackRoll, Global.SecondAttackRoll);
-                    var totalRoll = lowerRoll + attackMode.ToHitBonus;
-                    var defenderAc = defender.RulesetCharacter.GetAttribute(AttributeDefinitions.ArmorClass)
-                        .CurrentValue;
 
-                    if (totalRoll >= defenderAc)
+                    var lowOutcome =
+                        GameLocationBattleManagerTweaks.GetAttackResult(lowerRoll, modifier, rulesetDefender);
+
+                    Gui.Game.GameConsole.AttackRolled(
+                        rulesetAttacker,
+                        rulesetDefender,
+                        power,
+                        lowOutcome,
+                        lowerRoll + modifier,
+                        lowerRoll,
+                        modifier,
+                        attackModifier.AttacktoHitTrends,
+                        new List<TrendInfo>());
+
+                    if (lowOutcome is RollOutcome.Success or RollOutcome.CriticalSuccess)
                     {
-                        var console = Gui.Game.GameConsole;
-                        var entry = new GameConsoleEntry("Feedback/&FeatFellHanded", console.consoleTableDefinition);
-                        var successfulOutcome = Gui.Format("Feedback/&AttackSuccessOutcome", totalRoll.ToString());
-                        
-                        console.AddCharacterEntry(defender.RulesetActor, entry);
-                        entry.AddParameter(ConsoleStyleDuplet.ParameterType.Base, $"{lowerRoll}+{attackMode.ToHitBonus}");
-                        entry.AddParameter(ConsoleStyleDuplet.ParameterType.SuccessfulRoll, successfulOutcome);
-                        console.AddEntry(entry);
+                        var usablePower = UsablePowersProvider.Get(power, rulesetAttacker);
+                        ServiceRepository.GetService<IRulesetImplementationService>()
+                            .InstantiateEffectPower(rulesetAttacker, usablePower, false)
+                            .ApplyEffectOnCharacter(rulesetDefender, true, defender.LocationPosition);
 
-                        var usablePower = new RulesetUsablePower(
-                            FeatureDefinitionPowers.PowerTraditionOpenHandOpenHandTechniqueKnockProne, null, null);
-
-                        var effectPower = new RulesetEffectPower(attacker.RulesetCharacter, usablePower)
-                        {
-                            EffectDescription = { hasSavingThrow = false }
-                        };
-
-                        effectPower.ApplyEffectOnCharacter(defender.RulesetCharacter, true, defender.LocationPosition);
+                        GameConsoleHelper.LogCharacterAffectedByCondition(rulesetDefender,
+                            ConditionDefinitions.ConditionProne);
                     }
 
                     break;
                 case < 0 when outcome is RollOutcome.Failure or RollOutcome.CriticalFailure:
-                    var strength = attacker.RulesetCharacter.GetAttribute(AttributeDefinitions.Strength)
+                    var higherRoll = Math.Max(Global.FirstAttackRoll, Global.SecondAttackRoll);
+
+                    var strength = rulesetAttacker.GetAttribute(AttributeDefinitions.Strength)
                         .CurrentValue;
                     var strengthMod = AttributeDefinitions.ComputeAbilityScoreModifier(strength);
 
-                    if (strengthMod > 0)
+                    if (strengthMod <= 0)
                     {
-                        defender.RulesetCharacter.SustainDamage(strengthMod, DamageTypeBludgeoning, false,
-                            attacker.Guid, null, out _);
+                        break;
                     }
+
+                    var higherOutcome =
+                        GameLocationBattleManagerTweaks.GetAttackResult(higherRoll, modifier, rulesetDefender);
+
+                    if (higherOutcome is not (RollOutcome.Success or RollOutcome.CriticalSuccess))
+                    {
+                        break;
+                    }
+
+                    GameConsoleHelper.LogCharacterAffectsTarget(rulesetAttacker, rulesetDefender,
+                        SuretyTitle, SuretyText, tooltipContent: SuretyDescription);
+
+                    damage.BonusDamage = strengthMod;
+                    RulesetActor.InflictDamage(
+                        strengthMod,
+                        damage,
+                        DamageTypeBludgeoning,
+                        new RulesetImplementationDefinitions.ApplyFormsParams { targetCharacter = rulesetDefender },
+                        rulesetDefender,
+                        false,
+                        attacker.Guid,
+                        false,
+                        attackMode.AttackTags,
+                        new RollInfo(DieType.D1, new List<int>(), strengthMod),
+                        true,
+                        out _);
 
                     break;
             }
@@ -705,7 +805,7 @@ internal static class MeleeCombatFeats
 
     #endregion
 
-    #region GroupFeats.Piercer
+    #region Piercer
 
     private static FeatDefinition BuildPiercerDex()
     {
@@ -764,7 +864,7 @@ internal static class MeleeCombatFeats
                 _conditionDefinition,
                 DurationType.Round,
                 1,
-                TurnOccurenceType.EndOfTurn,
+                TurnOccurenceType.StartOfTurn,
                 attacker.RulesetCharacter.Guid,
                 attacker.RulesetCharacter.CurrentFaction.Name);
 
@@ -856,6 +956,8 @@ internal static class MeleeCombatFeats
                         .SetConditionForm(conditionPowerAttack, ConditionForm.ConditionOperation.Add)
                         .Build())
                 .Build())
+            .SetCustomSubFeatures(
+                new ValidatorsPowerUse(ValidatorsCharacter.HasNoneOfConditions(conditionPowerAttack.Name)))
             .AddToDB();
 
         Global.PowersThatIgnoreInterruptions.Add(powerAttack);
@@ -993,7 +1095,7 @@ internal static class MeleeCombatFeats
                 defender.RulesetCharacter.Guid,
                 _criticalConditionDefinition,
                 DurationType.Round,
-                0,
+                1,
                 TurnOccurenceType.StartOfTurn,
                 attacker.RulesetCharacter.Guid,
                 attacker.RulesetCharacter.CurrentFaction.Name);

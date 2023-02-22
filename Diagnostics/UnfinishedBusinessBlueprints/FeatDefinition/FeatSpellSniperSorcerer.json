@@ -13,6 +13,7 @@
   "knownFeatsPrerequisite": [],
   "features": [
     "Definition:CastSpellFeatSpellSniperSorcerer:8397ac76-53ff-5be9-8a92-735a792bc28b",
+    "Definition:CombatAffinityFeatSpellSniperSorcerer:a6896e0b-a4b8-572c-a17a-c09446509ce3",
     "Definition:PointPoolFeatSpellSniperSorcererCantrip:88df28aa-b72f-5b73-9414-9637486d054a"
   ],
   "guiPresentation": {

@@ -213,7 +213,6 @@ internal sealed class AddExtraUnarmedAttack : AddExtraAttackBase
     }
 }
 
-#if false
 internal sealed class AddExtraMainHandAttack : AddExtraAttackBase
 {
     internal AddExtraMainHandAttack(
@@ -230,7 +229,13 @@ internal sealed class AddExtraMainHandAttack : AddExtraAttackBase
         var mainHandItem = hero.CharacterInventory.InventorySlotsByName[EquipmentDefinitions.SlotTypeMainHand]
             .EquipedItem;
 
-        var strikeDefinition = mainHandItem.ItemDefinition;
+        // don't use ?? on Unity Objects as it bypasses the lifetime check on the underlying object
+        var strikeDefinition = mainHandItem?.ItemDefinition;
+
+        if (strikeDefinition == null)
+        {
+            strikeDefinition = hero.UnarmedStrikeDefinition;
+        }
 
         var attackModifiers = hero.attackModifiers;
 
@@ -250,7 +255,6 @@ internal sealed class AddExtraMainHandAttack : AddExtraAttackBase
         return new List<RulesetAttackMode> { attackMode };
     }
 }
-#endif
 
 internal sealed class AddExtraRangedAttack : AddExtraAttackBase
 {

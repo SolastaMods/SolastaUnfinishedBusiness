@@ -1,0 +1,12 @@
+﻿Condition/&ConditionWayOfTheDiscordanceDiscordanceDescription=Your mind will blow in psychic damage if you get in discordance for a 3rd time.
+Condition/&ConditionWayOfTheDiscordanceDiscordanceTitle=Discordance
+Feature/&FeatureSetWayOfTheDiscordanceDiscordanceDescription= Starting at 3rd level, you learn to manipulate the inner disharmony of your foes to create waves of distorting energy. Each time you hit a creature with a monk weapon or unarmed attack, the creature receives one instance of Discordance condition for 1 minute. When a creature receives the 3rd instance, all instances are removed, and the creature receives Psychic damage equal to your Martial Arts die + half your proficiency bonus.
+Feature/&FeatureSetWayOfTheDiscordanceDiscordanceTitle=Discordance
+Feature/&FeatureSetWayOfTheDiscordanceSchismDescription=Starting at 6th level, you apply one additional instance of Discordance condition when you successfully stun a creature with your Stunning Strike ability. Furthermore, while the stun condition lasts, the stunned creature receives an extra instance of Discordance from your attacks and abilities.
+Feature/&FeatureSetWayOfTheDiscordanceSchismTitle=Schism
+Feature/&PowerWayOfTheDiscordanceBurstOfDisharmonyDescription=At 11th level, you gain the ability to cause an eruption of accumulated negative energy. You can increase the damage by spending ki points. Each point you spend, to a maximum of your Proficiency bonus, increases the damage by 1d6.
+Feature/&PowerWayOfTheDiscordanceBurstOfDisharmonyTitle=Burst of Disharmony
+Feature/&PowerWayOfTheDiscordanceSubBurstOfDisharmonyDescription=Spend {0} Ki Point to deal {1}d6 damage.
+Feature/&PowerWayOfTheDiscordanceSubBurstOfDisharmonyTitle=Burst of Disharmony [{0} Ki]
+Subclass/&WayOfTheDiscordanceDescription=While most monks seek enlightenment through contemplation and achieving inner peace, monks of the Way of Discordance on the other hand are focused on harnessing the chaotic energies of the universe. These mystical scholars of disharmony exploit the inner conflicts of their enemies by manipulating their ki, devastating them with bursts of distorting energy.
+Subclass/&WayOfTheDiscordanceTitle=Way of Discordance

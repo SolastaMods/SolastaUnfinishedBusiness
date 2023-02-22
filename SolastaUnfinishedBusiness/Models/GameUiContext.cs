@@ -110,6 +110,28 @@ internal static class GameUiContext
         };
     }
 
+    internal static void RefreshMetamagicOffering(MetaMagicSubPanel __instance)
+    {
+        __instance.relevantMetamagicOptions.Clear();
+
+        foreach (var allElement in DatabaseRepository.GetDatabase<MetamagicOptionDefinition>().GetAllElements())
+        {
+            if (!allElement.GuiPresentation.Hidden)
+            {
+                __instance.relevantMetamagicOptions.Add(allElement);
+            }
+        }
+
+        __instance.relevantMetamagicOptions.Sort(MetamagicContext.CompareMetamagic);
+
+        Gui.ReleaseChildrenToPool(__instance.Table);
+
+        while (__instance.Table.childCount < __instance.relevantMetamagicOptions.Count)
+        {
+            Gui.GetPrefabFromPool(__instance.ItemPrefab, __instance.Table);
+        }
+    }
+
     internal static void SpellSelectionPanelMultilineUnbind()
     {
         foreach (var spellTable in SpellLineTables
@@ -742,34 +764,34 @@ internal static class GameUiContext
             .AddToDB();
     }
 
-    private static FeatureDefinitionActionAffinity ActionAffinityWildshapeSwapAttackToggle { get; set; }
+    private static FeatureDefinitionActionAffinity ActionAffinityMonsterSwapAttackToggle { get; set; }
 
-    private static void LoadWildshapeSwapAttackToggle()
+    private static void LoadMonsterSwapAttackToggle()
     {
         _ = ActionDefinitionBuilder
-            .Create(DatabaseHelper.ActionDefinitions.MetamagicToggle, "WildshapeSwapAttackToggle")
+            .Create(DatabaseHelper.ActionDefinitions.MetamagicToggle, "MonsterSwapAttackToggle")
             .SetOrUpdateGuiPresentation(Category.Action)
             .RequiresAuthorization()
-            .SetActionId(ExtraActionId.WildshapeSwapAttackToggle)
+            .SetActionId(ExtraActionId.MonsterSwapAttackToggle)
             .AddToDB();
 
-        ActionAffinityWildshapeSwapAttackToggle = FeatureDefinitionActionAffinityBuilder
+        ActionAffinityMonsterSwapAttackToggle = FeatureDefinitionActionAffinityBuilder
             .Create(DatabaseHelper.FeatureDefinitionActionAffinitys.ActionAffinitySorcererMetamagicToggle,
-                "ActionAffinityWildshapeSwapAttackToggle")
+                "ActionAffinityMonsterSwapAttackToggle")
             .SetGuiPresentationNoContent(true)
-            .SetAuthorizedActions((ActionDefinitions.Id)ExtraActionId.WildshapeSwapAttackToggle)
+            .SetAuthorizedActions((ActionDefinitions.Id)ExtraActionId.MonsterSwapAttackToggle)
             .AddToDB();
     }
 
-    internal static void AddWildshapeSwapAttackToggle(RulesetCharacterMonster monster)
+    internal static void AddMonsterSwapAttackToggle(RulesetCharacterMonster monster)
     {
         var monsterDefinition = monster.MonsterDefinition;
 
-        if (Main.Settings.AddWildshapeSwapAttackToggle &&
+        if (Main.Settings.AddMonsterSwapAttackToggle &&
             monsterDefinition.AttackIterations.Count > 1 &&
             monsterDefinition.AttackIterations[0] != monsterDefinition.AttackIterations[1])
         {
-            monster.ActiveFeatures.Add(ActionAffinityWildshapeSwapAttackToggle);
+            monster.ActiveFeatures.Add(ActionAffinityMonsterSwapAttackToggle);
         }
     }
 
@@ -858,7 +880,7 @@ internal static class GameUiContext
         LoadRemoveBugVisualModels();
         LoadMonkKiPointsToggle();
         LoadPaladinSmiteToggle();
-        LoadWildshapeSwapAttackToggle();
+        LoadMonsterSwapAttackToggle();
         LoadFormationGrid();
 
         var inputService = ServiceRepository.GetService<IInputService>();

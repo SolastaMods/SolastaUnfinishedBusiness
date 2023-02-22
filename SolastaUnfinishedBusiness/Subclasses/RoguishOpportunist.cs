@@ -75,15 +75,19 @@ internal sealed class RoguishOpportunist : AbstractSubclass
     internal override FeatureDefinitionSubclassChoice SubclassChoice =>
         FeatureDefinitionSubclassChoices.SubclassChoiceRogueRoguishArchetypes;
 
+    internal override DeityDefinition DeityDefinition { get; }
+
     private sealed class OnComputeAttackModifierOpportunistQuickStrike : IOnComputeAttackModifier
     {
         public void ComputeAttackModifier(
             RulesetCharacter myself,
             RulesetCharacter defender,
+            BattleDefinitions.AttackProximity attackProximity,
             RulesetAttackMode attackMode,
             ref ActionModifier attackModifier)
         {
-            if (attackMode == null || defender == null)
+            if (attackProximity != BattleDefinitions.AttackProximity.PhysicalRange &&
+                attackProximity != BattleDefinitions.AttackProximity.PhysicalReach)
             {
                 return;
             }

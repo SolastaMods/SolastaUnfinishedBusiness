@@ -19,6 +19,8 @@ namespace SolastaUnfinishedBusiness.Models;
 
 internal static class BootContext
 {
+    private const string BaseURL = "https://github.com/SolastaMods/SolastaUnfinishedBusiness/releases/latest/download";
+
     internal static void Startup()
     {
 #if DEBUG
@@ -101,6 +103,9 @@ internal static class BootContext
             // Custom invocations
             InvocationsContext.LateLoad();
 
+            // Custom metamagic
+            MetamagicContext.LateLoad();
+
             // Divine Smite fixes and final switches
             SrdAndHouseRulesContext.LateLoad();
 
@@ -140,10 +145,7 @@ internal static class BootContext
 
     private static void ExpandColorTables()
     {
-        //
-        // BUGFIX: expand color tables
-        //
-
+        //BUGFIX: expand color tables
         for (var i = 21; i < 33; i++)
         {
             Gui.ModifierColors.Add(i, new Color32(0, 164, byte.MaxValue, byte.MaxValue));
@@ -221,9 +223,6 @@ internal static class BootContext
 
     private static bool ShouldUpdate(out string version, [NotNull] out string changeLog)
     {
-        const string BASE_URL =
-            "https://raw.githubusercontent.com/SolastaMods/SolastaUnfinishedBusiness/master/SolastaUnfinishedBusiness";
-
         var hasUpdate = false;
 
         version = "";
@@ -236,7 +235,7 @@ internal static class BootContext
         try
         {
             var installedVersion = GetInstalledVersion();
-            var infoPayload = wc.DownloadString($"{BASE_URL}/Info.json");
+            var infoPayload = wc.DownloadString($"{BaseURL}/Info.json");
             var infoJson = JsonConvert.DeserializeObject<JObject>(infoPayload);
 
             // ReSharper disable once AssignNullToNotNullAttribute
@@ -248,7 +247,7 @@ internal static class BootContext
             var v2 = a2[0] + a2[1] + a2[2] + Int32.Parse(a2[3]).ToString("D3");
 
             hasUpdate = String.Compare(v2, v1, StringComparison.Ordinal) > 0;
-            changeLog = wc.DownloadString($"{BASE_URL}/Changelog.txt");
+            changeLog = wc.DownloadString($"{BaseURL}/Changelog.txt");
         }
         catch
         {
@@ -260,8 +259,6 @@ internal static class BootContext
 
     private static void UpdateMod(string version)
     {
-        const string BASE_URL = "https://github.com/SolastaMods/SolastaUnfinishedBusiness";
-
         var destFiles = new[] { "Info.json", "SolastaUnfinishedBusiness.dll" };
 
         using var wc = new WebClient();
@@ -272,7 +269,7 @@ internal static class BootContext
         var zipFile = $"SolastaUnfinishedBusiness-{version}.zip";
         var fullZipFile = Path.Combine(Main.ModFolder, zipFile);
         var fullZipFolder = Path.Combine(Main.ModFolder, "SolastaUnfinishedBusiness");
-        var url = $"{BASE_URL}/releases/download/{version}/{zipFile}";
+        var url = $"{BaseURL}/{zipFile}";
 
         try
         {
@@ -311,7 +308,7 @@ internal static class BootContext
             message,
             "Donate",
             "Message/&MessageOkTitle",
-            OpenDonate,
+            OpenDonatePayPal,
             () => { }); // keep like this - don't use null here
     }
 
@@ -325,7 +322,7 @@ internal static class BootContext
         Gui.GuiService.ShowMessage(
             MessageModal.Severity.Attention2,
             "Message/&MessageModWelcomeTitle",
-            $"Version {version} is now available.\n\n{changeLog}\n\nWould you like to update?",
+            $"Version {version} is now available.\n\n{changeLog}\n\nWould you like to update?\n\nThe donate button will take you to PayPal by default. There are other donation options under Mod UI > Character.",
             "Message/&MessageOkTitle",
             "Message/&MessageCancelTitle",
             () => UpdateMod(version),
@@ -340,7 +337,7 @@ internal static class BootContext
             "Message/&MessageModWelcomeDescription",
             "Donate",
             "Message/&MessageOkTitle",
-            OpenDonate,
+            OpenDonatePayPal,
             () => { }); // keep like this - don't use null here
     }
 
@@ -349,7 +346,17 @@ internal static class BootContext
         OpenUrl("https://github.com/SolastaMods/SolastaUnfinishedBusiness/wiki");
     }
 
-    internal static void OpenDonate()
+    internal static void OpenDonateGithubSponsors()
+    {
+        OpenUrl("https://github.com/sponsors/ThyWoof");
+    }
+
+    internal static void OpenDonatePatreon()
+    {
+        OpenUrl("https://patreon.com/SolastaMods");
+    }
+
+    internal static void OpenDonatePayPal()
     {
         OpenUrl("https://www.paypal.com/donate/?business=JG4FX47DNHQAG&item_name=Support+Solasta+Unfinished+Business");
     }
@@ -373,7 +380,7 @@ internal static class BootContext
         }
         catch
         {
-            // hack because of this: https://github.com/dotnet/corefx/issues/10361
+            // because of this: https://github.com/dotnet/corefx/issues/10361
             if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
             {
                 url = url.Replace("&", "^&");

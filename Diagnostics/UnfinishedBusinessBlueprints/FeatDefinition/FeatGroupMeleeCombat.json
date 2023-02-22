@@ -16,7 +16,7 @@
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
     "title": "Feat/&FeatGroupMeleeCombatTitle",
-    "description": "Feat/&FeatGroupMeleeCombatDescription",
+    "description": "Blade Mastery, Crusher, Daunting Push, Defensive Duelist, Distracting Gambit, Elemental Touch, Fell Handed, Piercer, Power Attack, Reckless Attack, Savage Attack, Slasher, Spear Mastery, Trip Attack",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",

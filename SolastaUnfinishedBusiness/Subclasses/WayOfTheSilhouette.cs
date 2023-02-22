@@ -110,4 +110,6 @@ internal sealed class WayOfTheSilhouette : AbstractSubclass
 
     internal override FeatureDefinitionSubclassChoice SubclassChoice =>
         FeatureDefinitionSubclassChoices.SubclassChoiceMonkMonasticTraditions;
+
+    internal override DeityDefinition DeityDefinition { get; }
 }

@@ -1,4 +1,5 @@
-﻿using JetBrains.Annotations;
+﻿using System.Linq;
+using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.Extensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
@@ -184,6 +185,8 @@ internal sealed class WizardBladeDancer : AbstractSubclass
     internal override FeatureDefinitionSubclassChoice SubclassChoice =>
         FeatureDefinitionSubclassChoices.SubclassChoiceWizardArcaneTraditions;
 
+    internal override DeityDefinition DeityDefinition { get; }
+
     private static bool IsBladeDanceValid(RulesetCharacter hero)
     {
         return !hero.IsWearingMediumArmor()
@@ -199,24 +202,13 @@ internal sealed class WizardBladeDancer : AbstractSubclass
             return;
         }
 
-        if (hero.HasConditionOfCategoryAndType(AttributeDefinitions.TagEffect, ConditionBladeDancerBladeDance.Name))
+        foreach (var rulesetCondition in hero.allConditions
+                     .Where(x => x.ConditionDefinition == ConditionBladeDancerBladeDance ||
+                                 x.ConditionDefinition == ConditionBladeDancerDanceOfDefense ||
+                                 x.ConditionDefinition == ConditionBladeDancerDanceOfVictory)
+                     .ToList())
         {
-            hero.RemoveConditionOfCategory(AttributeDefinitions.TagEffect,
-                RulesetCondition.CreateCondition(hero.guid, ConditionBladeDancerBladeDance));
-        }
-
-        if (hero.HasConditionOfCategoryAndType(AttributeDefinitions.TagEffect,
-                ConditionBladeDancerDanceOfDefense.Name))
-        {
-            hero.RemoveConditionOfCategory(AttributeDefinitions.TagEffect,
-                RulesetCondition.CreateCondition(hero.guid, ConditionBladeDancerDanceOfDefense));
-        }
-
-        if (hero.HasConditionOfCategoryAndType(AttributeDefinitions.TagEffect,
-                ConditionBladeDancerDanceOfVictory.Name))
-        {
-            hero.RemoveConditionOfCategory(AttributeDefinitions.TagEffect,
-                RulesetCondition.CreateCondition(hero.guid, ConditionBladeDancerDanceOfVictory));
+            hero.RemoveCondition(rulesetCondition);
         }
     }
 }

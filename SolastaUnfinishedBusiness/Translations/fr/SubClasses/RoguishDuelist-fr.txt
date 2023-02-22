@@ -1,0 +1,14 @@
+﻿Feature/&AdditionalDamageRoguishDuelistDaringDuelDescription=Vous n'avez pas besoin d'avantage au jet d'attaque pour utiliser votre attaque sournoise contre une créature si vous êtes à 1,50 mètre ou moins d'elle, si aucune autre créature n'est à 1,50 mètre de vous et que vous n'avez pas de désavantage au jet d'attaque. Toutes les autres règles d'attaque sournoise s'appliquent toujours.
+Feature/&AdditionalDamageRoguishDuelistDaringDuelTitle=Duel audacieux
+Feature/&AdditionalDamageRoguishDuelistSureFootedDescription=Gagnez votre modificateur de compétence en tant que dégâts supplémentaires avec des attaques de finesse ou à distance.
+Feature/&AdditionalDamageRoguishDuelistSureFootedTitle=Pied sûr
+Feature/&AttributeModifierRoguishDuelistSureFootedDescription=Gagnez une CA supplémentaire égale à la moitié de votre bonus de compétence.
+Feature/&AttributeModifierRoguishDuelistSureFootedTitle=Pied sûr
+Feature/&ActionAffinityRoguishDuelistSwirlingDanceTitle=Danse tourbillonnante
+Feature/&ActionAffinityRoguishDuelistSwirlingDanceDescription=À partir du niveau 9, lorsqu'une créature vous manque lors d'un jet d'attaque au corps à corps, vous pouvez utiliser votre réaction pour effectuer une attaque d'opportunité immédiate contre cette créature.
+Feature/&FeatureSetRoguishDuelistSureFootedDescription=Sans armure ou portant une armure légère sans bouclier, gagnez une CA et une initiative supplémentaires égales à la moitié de votre bonus de compétence. De plus, si votre main secondaire est vide, gagnez votre modificateur de compétence en tant que dégâts supplémentaires avec finesse ou avec des armes à distance.
+Feature/&FeatureSetRoguishDuelistSureFootedTitle=Pied sûr
+Feedback/&AdditionalDamageSureFootedFormat=Pied sûr
+Feedback/&AdditionalDamageSureFootedLine=Sure Footed inflige +{2} dégâts supplémentaires !
+Subclass/&RoguishDuelistDescription=Les duellistes possèdent une bravade fanfaronne. Ils sont vifs d'esprit, autonomes et dangereux pour les ennemis isolés.
+Subclass/&RoguishDuelistTitle=Duelliste

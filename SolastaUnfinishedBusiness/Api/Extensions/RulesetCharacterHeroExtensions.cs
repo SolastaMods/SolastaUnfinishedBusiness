@@ -131,6 +131,18 @@ internal static class RulesetCharacterHeroExtensions
     {
         var limit = 3;
 
+        if (Main.Settings.IncreaseMaxAttunedItems && hero != null)
+        {
+            var characterLevel = hero.GetAttribute(AttributeDefinitions.CharacterLevel).CurrentValue;
+
+            limit = characterLevel switch
+            {
+                >= 18 => 5,
+                >= 10 => 4,
+                _ => limit
+            };
+        }
+
         if (hero == null)
         {
             return limit;
@@ -151,6 +163,7 @@ internal static class RulesetCharacterHeroExtensions
         }
 
         hero.CharacterInventory.EnumerateAllItems(hero.Items);
+
         return hero.Items.Any(item => item.NeedsIdentification());
     }
 }

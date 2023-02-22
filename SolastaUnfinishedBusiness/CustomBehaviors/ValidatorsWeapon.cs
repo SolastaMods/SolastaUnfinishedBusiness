@@ -14,9 +14,9 @@ internal static class ValidatorsWeapon
 {
     internal static readonly IsWeaponValidHandler AlwaysValid = (_, _, _) => true;
 
-    internal static bool IsOfDamageType([CanBeNull] RulesetAttackMode attack, string damageType)
+    internal static IsWeaponValidHandler IsOfDamageType(string damageType)
     {
-        return attack?.EffectDescription.FindFirstDamageForm()?.damageType == damageType;
+        return (mode, _, _) => mode?.EffectDescription.FindFirstDamageForm()?.DamageType == damageType;
     }
 
     internal static IsWeaponValidHandler IsOfWeaponType(params WeaponTypeDefinition[] weaponTypeDefinitions)

@@ -10,7 +10,7 @@ using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
 
 namespace SolastaUnfinishedBusiness.Subclasses;
 
-internal sealed class PatronRiftWalker : AbstractSubclass
+internal class PatronRiftWalker : AbstractSubclass
 {
     internal PatronRiftWalker()
     {
@@ -118,6 +118,8 @@ internal sealed class PatronRiftWalker : AbstractSubclass
 
     internal override FeatureDefinitionSubclassChoice SubclassChoice =>
         FeatureDefinitionSubclassChoices.SubclassChoiceWarlockOtherworldlyPatrons;
+
+    internal override DeityDefinition DeityDefinition { get; }
 
     private sealed class PreventRemoveConcentrationRiftWalker : IPreventRemoveConcentrationWithPowerUse
     {

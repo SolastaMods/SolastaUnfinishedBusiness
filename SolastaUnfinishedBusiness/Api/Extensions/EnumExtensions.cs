@@ -21,8 +21,7 @@ internal enum ExtraSituationalContext
     // MainWeaponIsFinesseOrLightRange = 1002,
     // MainWeaponIsVersatileWithoutShield = 1003,
     TargetIsNotEffectSource = 1004,
-    SummonerIsNextToBeast = 1005,
-    MainWeaponIsGreatSword = 1006
+    SummonerIsNextToBeast = 1005
 }
 
 #if false
@@ -122,7 +121,9 @@ internal enum ExtraAdditionalDamageTriggerCondition
     // SpellDamagesTarget = AdditionalDamageTriggerCondition.SpellDamagesTarget,
     // NotWearingHeavyArmor = AdditionalDamageTriggerCondition.NotWearingHeavyArmor,
 
-    TargetWithin10Ft = 9000
+    TargetWithin10Ft = 9000,
+    UsePowerReaction = 9001,
+    TargetIsDuelingWithYou = 9002
 }
 
 public enum ExtraConditionInterruption
@@ -185,7 +186,7 @@ internal enum ExtraActionId
     DoNothingReaction = 9012,
     MonkKiPointsToggle = 9013,
     PaladinSmiteToggle = 9014,
-    WildshapeSwapAttackToggle = 9015
+    MonsterSwapAttackToggle = 9015
 }
 
 internal static class EnumImplementation

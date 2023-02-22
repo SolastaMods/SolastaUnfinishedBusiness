@@ -12,10 +12,17 @@ internal static class CharacterDisplay
 
         using (UI.HorizontalScope())
         {
-            UI.ActionButton("Donate".Bold().Khaki(), BootContext.OpenDonate, UI.Width(150));
-            UI.ActionButton("Discord".Bold().Khaki(), BootContext.OpenDiscord, UI.Width(150));
-            UI.ActionButton("Wiki".Bold().Khaki(), BootContext.OpenWiki, UI.Width(150));
-            UI.ActionButton("Change History".Bold().Khaki(), BootContext.OpenChangeLog, UI.Width(150));
+            UI.ActionButton("Discord".Bold().Khaki(), BootContext.OpenDiscord, UI.Width(200));
+            UI.ActionButton("Wiki".Bold().Khaki(), BootContext.OpenWiki, UI.Width(200));
+            UI.ActionButton("Change History".Bold().Khaki(), BootContext.OpenChangeLog, UI.Width(200));
+        }
+
+        using (UI.HorizontalScope())
+        {
+            UI.ActionButton("<b>Donate:</b> GitHub Sponsors".Khaki(), BootContext.OpenDonateGithubSponsors,
+                UI.Width(200));
+            UI.ActionButton("<b>Donate:</b> Patreon".Khaki(), BootContext.OpenDonatePatreon, UI.Width(200));
+            UI.ActionButton("<b>Donate:</b> PayPal".Khaki(), BootContext.OpenDonatePayPal, UI.Width(200));
         }
 
         UI.Label();
@@ -27,12 +34,6 @@ internal static class CharacterDisplay
         {
             Main.Settings.AddHelpActionToAllRaces = toggle;
             CharacterContext.SwitchHelpPower();
-        }
-
-        toggle = Main.Settings.DisableRacePrerequisitesOnModFeats;
-        if (UI.Toggle(Gui.Localize("ModUi/&DisableRacePrerequisitesOnModFeats"), ref toggle, UI.AutoWidth()))
-        {
-            Main.Settings.DisableRacePrerequisitesOnModFeats = toggle;
         }
 
         toggle = Main.Settings.DisableSenseDarkVisionFromAllRaces;
@@ -66,6 +67,22 @@ internal static class CharacterDisplay
         {
             Main.Settings.EnableAlternateHuman = toggle;
             CharacterContext.SwitchFirstLevelTotalFeats();
+        }
+
+        UI.Label();
+
+
+        toggle = Main.Settings.DisableClassPrerequisitesOnModFeats;
+        if (UI.Toggle(Gui.Localize("ModUi/&DisableClassPrerequisitesOnModFeats"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.DisableClassPrerequisitesOnModFeats = toggle;
+        }
+
+
+        toggle = Main.Settings.DisableRacePrerequisitesOnModFeats;
+        if (UI.Toggle(Gui.Localize("ModUi/&DisableRacePrerequisitesOnModFeats"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.DisableRacePrerequisitesOnModFeats = toggle;
         }
 
         UI.Label();

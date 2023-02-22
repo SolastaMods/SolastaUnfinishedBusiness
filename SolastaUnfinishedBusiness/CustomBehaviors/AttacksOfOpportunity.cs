@@ -206,7 +206,7 @@ internal class CustomReactionAttack
     public IsWeaponValidHandler WeaponValidator { get; set; }
     public Handler BeforeReaction { get; set; }
     public Handler AfterReaction { get; set; }
-    protected bool IgnoreReactionUses { get; set; }
+    [UsedImplicitly] public bool IgnoreReactionUses { get; set; }
     public bool AccountAoOImmunity { get; set; }
 
     internal bool IsValid(GameLocationCharacter attacker, GameLocationCharacter mover)
@@ -266,6 +266,6 @@ internal class CustomReactionAttack
             defender,
             attackModifier) { StringParameter2 = Name };
 
-        return new ReactionRequestWarcaster(reactionParams);
+        return new ReactionRequestWarcaster(Name, reactionParams);
     }
 }

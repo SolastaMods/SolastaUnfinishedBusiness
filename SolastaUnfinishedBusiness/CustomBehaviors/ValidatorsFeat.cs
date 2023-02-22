@@ -2,7 +2,9 @@
 using System.Linq;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.Extensions;
+using SolastaUnfinishedBusiness.Classes.Inventor;
 using SolastaUnfinishedBusiness.Races;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterClassDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterRaceDefinitions;
 
 namespace SolastaUnfinishedBusiness.CustomBehaviors;
@@ -13,17 +15,38 @@ internal static class ValidatorsFeat
     // validation routines for FeatDefinitionWithPrerequisites
     //
 
-    // ReSharper disable once InconsistentNaming
-    private static readonly Func<FeatDefinition, RulesetCharacterHero, (bool result, string output)> _isDragonborn;
+    internal static readonly Func<FeatDefinition, RulesetCharacterHero, (bool result, string output)> IsBardLevel4 =
+        ValidateIsClass(Bard.FormatTitle(), 4, Bard);
+
+    internal static readonly Func<FeatDefinition, RulesetCharacterHero, (bool result, string output)> IsClericLevel4 =
+        ValidateIsClass(Cleric.FormatTitle(), 4, Cleric);
+
+    internal static readonly Func<FeatDefinition, RulesetCharacterHero, (bool result, string output)> IsDruidLevel4 =
+        ValidateIsClass(Druid.FormatTitle(), 4, Druid);
+
+    internal static readonly Func<FeatDefinition, RulesetCharacterHero, (bool result, string output)> IsInventorLevel4 =
+        ValidateIsClass(InventorClass.Class.FormatTitle(), 4, InventorClass.Class);
+
+    internal static readonly Func<FeatDefinition, RulesetCharacterHero, (bool result, string output)> IsPaladinLevel1 =
+        ValidateIsClass(Paladin.FormatTitle(), 1, Paladin);
+
+    internal static readonly Func<FeatDefinition, RulesetCharacterHero, (bool result, string output)> IsPaladinLevel8 =
+        ValidateIsClass(Paladin.FormatTitle(), 8, Paladin);
+
+    internal static readonly Func<FeatDefinition, RulesetCharacterHero, (bool result, string output)> IsRogueLevel4 =
+        ValidateIsClass(Rogue.FormatTitle(), 4, Rogue);
+
+    internal static readonly Func<FeatDefinition, RulesetCharacterHero, (bool result, string output)> IsSorcererLevel4 =
+        ValidateIsClass(Sorcerer.FormatTitle(), 4, Sorcerer);
+
+    internal static readonly Func<FeatDefinition, RulesetCharacterHero, (bool result, string output)> IsWizardLevel4 =
+        ValidateIsClass(Wizard.FormatTitle(), 4, Wizard);
 
     internal static readonly Func<FeatDefinition, RulesetCharacterHero, (bool result, string output)> IsDragonborn =
-        _isDragonborn ??= ValidateIsRace(Dragonborn.FormatTitle(), Dragonborn);
-
-    // ReSharper disable once InconsistentNaming
-    private static readonly Func<FeatDefinition, RulesetCharacterHero, (bool result, string output)> _isElfOfHalfElf;
+        ValidateIsRace(Dragonborn.FormatTitle(), Dragonborn);
 
     internal static readonly Func<FeatDefinition, RulesetCharacterHero, (bool result, string output)> IsElfOfHalfElf =
-        _isElfOfHalfElf ??= ValidateIsRace(
+        ValidateIsRace(
             $"{Elf.FormatTitle()}, {HalfElf.FormatTitle()}",
             Elf, ElfHigh, ElfSylvan, HalfElf,
             DarkelfSubraceBuilder.SubraceDarkelf,
@@ -34,6 +57,14 @@ internal static class ValidatorsFeat
 
     internal static readonly Func<FeatDefinition, RulesetCharacterHero, (bool result, string output)> IsGnome =
         ValidateIsRace(GnomeRaceBuilder.RaceGnome.FormatTitle(), GnomeRaceBuilder.RaceGnome);
+
+    internal static readonly Func<FeatDefinition, RulesetCharacterHero, (bool result, string output)> IsSmallRace =
+        ValidateIsRace(
+            $"{Dwarf.FormatTitle()}, {GnomeRaceBuilder.RaceGnome.FormatTitle()}, {Halfling.FormatTitle()}",
+            Dwarf, DwarfHill, DwarfSnow,
+            GrayDwarfSubraceBuilder.SubraceGrayDwarf,
+            GnomeRaceBuilder.RaceGnome,
+            Halfling, HalflingIsland, HalflingMarsh);
 
 #if false
     internal static Func<FeatDefinition, RulesetCharacterHero, (bool result, string output)> HasCantrips()
@@ -108,10 +139,32 @@ internal static class ValidatorsFeat
 
         return (_, hero) =>
         {
-            var isNotClass = !hero.ClassesAndLevels.ContainsKey(characterClassDefinition);
+            var isNotClass = hero.ClassesHistory.Last() != characterClassDefinition;
             var guiFormat = Gui.Format("Tooltip/&PreReqIsNot", className);
 
             return isNotClass
+                ? (true, guiFormat)
+                : (false, Gui.Colorize(guiFormat, Gui.ColorFailure));
+        };
+    }
+
+    [NotNull]
+    private static Func<FeatDefinition, RulesetCharacterHero, (bool result, string output)> ValidateIsClass(
+        string description, int minLevels, CharacterClassDefinition characterClassDefinition)
+    {
+        return (_, hero) =>
+        {
+            var guiFormat = Gui.Format("Tooltip/&PreReqIsWithLevel", description, minLevels.ToString());
+
+            if (!hero.ClassesHistory.Contains(characterClassDefinition))
+            {
+                return (false, Gui.Colorize(guiFormat, Gui.ColorFailure));
+            }
+
+            var levels = hero.ClassesHistory.Count;
+
+            return (Main.Settings.DisableClassPrerequisitesOnModFeats || levels >= minLevels) &&
+                   hero.ClassesHistory.Last() == characterClassDefinition
                 ? (true, guiFormat)
                 : (false, Gui.Colorize(guiFormat, Gui.ColorFailure));
         };

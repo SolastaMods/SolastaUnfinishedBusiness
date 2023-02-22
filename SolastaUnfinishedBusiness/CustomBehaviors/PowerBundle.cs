@@ -251,35 +251,49 @@ internal static class PowerBundle
 
     internal static EffectDescription ModifySpellEffect(EffectDescription original, [NotNull] RulesetEffectSpell spell)
     {
-        return ModifyMagicEffect(original, spell.SpellDefinition, spell.Caster);
+        return ModifyMagicEffect(original, spell.SpellDefinition, spell.Caster, spell);
     }
 
     internal static EffectDescription ModifySpellEffect([NotNull] SpellDefinition spell, RulesetCharacter caster)
     {
-        return ModifyMagicEffect(spell.EffectDescription, spell, caster);
+        return ModifyMagicEffect(spell.EffectDescription, spell, caster, null);
     }
 
     internal static EffectDescription ModifyPowerEffect(EffectDescription original, [NotNull] RulesetEffectPower power)
     {
-        return ModifyMagicEffect(original, power.PowerDefinition, power.User);
+        return ModifyMagicEffect(original, power.PowerDefinition, power.User, power);
     }
 
-    private static string Key(BaseDefinition definition)
+    private static string Key(BaseDefinition definition, BaseDefinition metamagic)
     {
-        return $"{definition.GetType()}:{definition.Name}";
+        var key = $"{definition.GetType()}:{definition.Name}:";
+
+        if (metamagic != null)
+        {
+            key += metamagic.Name;
+        }
+
+        return key;
     }
 
-    private static EffectDescription GetCachedEffect(RulesetEntity caster, BaseDefinition definition)
+    private static EffectDescription GetCachedEffect(
+        RulesetEntity caster,
+        BaseDefinition definition,
+        BaseDefinition metamagic)
     {
         if (!SpellEffectCache.TryGetValue(caster.Guid, out var effects))
         {
             return null;
         }
 
-        return !effects.TryGetValue(Key(definition), out var effect) ? null : effect;
+        return !effects.TryGetValue(Key(definition, metamagic), out var effect) ? null : effect;
     }
 
-    private static void CacheEffect(RulesetEntity caster, BaseDefinition definition, EffectDescription effect)
+    private static void CacheEffect(
+        RulesetEntity caster,
+        BaseDefinition definition,
+        BaseDefinition metamagic,
+        EffectDescription effect)
     {
         Dictionary<string, EffectDescription> effects;
 
@@ -293,7 +307,7 @@ internal static class PowerBundle
             effects = SpellEffectCache[caster.Guid];
         }
 
-        effects.AddOrReplace(Key(definition), effect);
+        effects.AddOrReplace(Key(definition, metamagic), effect);
     }
 
     internal static void ClearSpellEffectCache(RulesetCharacter caster)
@@ -304,7 +318,8 @@ internal static class PowerBundle
     private static EffectDescription ModifyMagicEffect(
         EffectDescription original,
         BaseDefinition definition,
-        [CanBeNull] RulesetCharacter caster)
+        [CanBeNull] RulesetCharacter caster,
+        [CanBeNull] RulesetEffect effect)
     {
         var currentAction = Global.CurrentAction;
 
@@ -328,7 +343,10 @@ internal static class PowerBundle
             return result;
         }
 
-        var cached = GetCachedEffect(caster, definition);
+
+        var metamagic = effect is RulesetEffectSpell spell ? spell.MetamagicOption : null;
+
+        var cached = GetCachedEffect(caster, definition, metamagic);
 
         if (cached != null)
         {
@@ -351,13 +369,18 @@ internal static class PowerBundle
         //process features from spell/power
         modifiers.AddRange(definition.GetAllSubFeaturesOfType<IModifyMagicEffect>());
 
+        if (metamagic != null)
+        {
+            modifiers.AddRange(metamagic.GetAllSubFeaturesOfType<IModifyMagicEffect>());
+        }
+
         if (!modifiers.Empty())
         {
             result = modifiers.Aggregate(EffectDescriptionBuilder.Create(result).Build(),
                 (current, f) => f.ModifyEffect(definition, current, caster));
         }
 
-        CacheEffect(caster, definition, result);
+        CacheEffect(caster, definition, metamagic, result);
 
         return result;
     }
@@ -366,7 +389,7 @@ internal static class PowerBundle
     internal static EffectDescription ModifyMagicEffectGui(EffectDescription original,
         [NotNull] BaseDefinition definition)
     {
-        return ModifyMagicEffect(original, definition, Global.CurrentCharacter);
+        return ModifyMagicEffect(original, definition, Global.CurrentCharacter, null);
     }
 
     internal static bool ValidatePrerequisites(

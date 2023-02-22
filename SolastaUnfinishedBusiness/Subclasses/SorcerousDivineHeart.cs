@@ -155,4 +155,6 @@ internal sealed class SorcerousDivineHeart : AbstractSubclass
 
     internal override FeatureDefinitionSubclassChoice SubclassChoice =>
         FeatureDefinitionSubclassChoices.SubclassChoiceSorcerousOrigin;
+
+    internal override DeityDefinition DeityDefinition { get; }
 }
