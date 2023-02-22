@@ -76,25 +76,28 @@ internal sealed class DomainDefiler : AbstractSubclass
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
-                    .SetParticleEffectParameters(
-                        PowerWightLord_CircleOfDeath.EffectDescription.effectParticleParameters)
-                    .SetTargetingData(Side.Enemy, RangeType.Self, 0, TargetType.Sphere, 6)
+                    .SetParticleEffectParameters(PowerWightLord_CircleOfDeath)
+                    .SetTargetingData(Side.Enemy, RangeType.Self, 1, TargetType.Sphere, 3)
                     .AddImmuneCreatureFamilies(CharacterFamilyDefinitions.Undead)
-                    .SetEffectAdvancement(EffectIncrementMethod.CasterLevelTable, 1, 0, 1)
                     .SetSavingThrowData(
                         false,
                         AttributeDefinitions.Constitution,
                         true,
                         EffectDifficultyClassComputation.AbilityScoreAndProficiency,
-                        AttributeDefinitions.Constitution,
-                        12)
+                        AttributeDefinitions.Constitution)
                     .SetEffectForms(
                         EffectFormBuilder
                             .Create()
                             .HasSavingThrow(EffectSavingThrowType.HalfDamage)
-                            .SetDamageForm(DamageTypeNecrotic, 4, DieType.D6)
-                            .SetLevelAdvancement(EffectForm.LevelApplianceType.DiceNumberByLevelTable,
-                                LevelSourceType.CharacterLevel)
+                            .SetDamageForm(DamageTypeNecrotic, 1, DieType.D6)
+                            .SetDiceByRankTable(
+                                EffectForm.LevelApplianceType.DiceNumberByLevelTable,
+                                LevelSourceType.CharacterLevel,
+                                1,
+                                1,
+                                2,
+                                6,
+                                5)
                             .Build())
                     .Build())
             .AddToDB();
@@ -121,7 +124,7 @@ internal sealed class DomainDefiler : AbstractSubclass
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
-                    .SetDurationData(DurationType.Round, 3, TurnOccurenceType.StartOfTurn)
+                    .SetDurationData(DurationType.Round, 1)
                     .SetTargetingData(Side.Enemy, RangeType.Distance, 6, TargetType.Individuals)
                     .SetEffectForms(
                         EffectFormBuilder
@@ -142,7 +145,7 @@ internal sealed class DomainDefiler : AbstractSubclass
         var additionalDamageDivineStrikeDefiler = FeatureDefinitionAdditionalDamageBuilder
             .Create($"AdditionalDamage{NAME}DivineStrike")
             .SetGuiPresentation(Category.Feature)
-            .SetNotificationTag("Divine Strike! " + DamageTypeNecrotic)
+            .SetNotificationTag("DivineStrike")
             .SetSpecificDamageType(DamageTypeNecrotic)
             .SetDamageDice(DieType.D8, 1)
             .SetFrequencyLimit(FeatureLimitedUsage.OnceInMyTurn)
@@ -152,7 +155,9 @@ internal sealed class DomainDefiler : AbstractSubclass
         Subclass = CharacterSubclassDefinitionBuilder
             .Create(NAME)
             .SetGuiPresentation(Category.Subclass, SorcerousHauntedSoul)
-            .AddFeaturesAtLevel(1, autoPreparedSpellsDomainDefiler, featureInsidiousDeathMagic,
+            .AddFeaturesAtLevel(1, 
+                autoPreparedSpellsDomainDefiler,
+                featureInsidiousDeathMagic,
                 bonusCantripDomainDefiler)
             .AddFeaturesAtLevel(2, powerDefileLife)
             .AddFeaturesAtLevel(6, powerMarkForDeath)

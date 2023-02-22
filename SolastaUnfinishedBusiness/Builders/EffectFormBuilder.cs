@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using SolastaUnfinishedBusiness.Api.Extensions;
+using SolastaUnfinishedBusiness.Api.Infrastructure;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 using static RuleDefinitions;
@@ -56,6 +57,22 @@ internal class EffectFormBuilder
         effectForm.applyLevel = applyLevel;
         effectForm.levelType = levelType;
         effectForm.levelMultiplier = levelMultiplier;
+        return this;
+    }
+    
+    internal EffectFormBuilder SetDiceByRankTable(
+        EffectForm.LevelApplianceType applyLevel,
+        LevelSourceType levelType,
+        int levelMultiplier = 1,
+        int start = 0,
+        int increment = 1,
+        int step = 1,
+        int begin = 1)
+    {
+        effectForm.applyLevel = applyLevel;
+        effectForm.levelType = levelType;
+        effectForm.levelMultiplier = levelMultiplier;
+        effectForm.diceByLevelTable.SetRange(DiceByRankBuilder.BuildDiceByRankTable(start, increment, step, begin));
         return this;
     }
 

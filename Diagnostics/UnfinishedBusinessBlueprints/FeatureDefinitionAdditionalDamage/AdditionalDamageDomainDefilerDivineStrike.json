@@ -1,6 +1,6 @@
 {
   "$type": "FeatureDefinitionAdditionalDamage, Assembly-CSharp",
-  "notificationTag": "Divine Strike! DamageNecrotic",
+  "notificationTag": "DivineStrike",
   "limitedUsage": "OnceInMyTurn",
   "firstTargetOnly": true,
   "targetSide": "Enemy",
