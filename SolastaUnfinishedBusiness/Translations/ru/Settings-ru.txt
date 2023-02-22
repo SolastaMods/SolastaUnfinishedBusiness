@@ -55,7 +55,7 @@ ModUi/&CriticalOption3=. 3: Удвойте общий урон вашей ата
 ModUi/&DeadEyeAndPowerAttackBaseBaseValue=<color=white>Установить для «Меткий глаз» и «Мощная атака» базовое значение модификатора </color>\n<i><color=#F0DAA0>[formula is -mod to hit / mod + PB to damage]</color></i>
 ModUi/&Deities=<color=#F0DAA0>Божества:</color>
 ModUi/&DisableAutoEquip=Отключить автоматическое надевание предметов из инвентаря
-ModUi/&DisableClassPrerequisitesOnModFeats=Отключить Расовые предустановки на Классы предлагаемые этим модом
+ModUi/&DisableClassPrerequisitesOnModFeats=Отключите предварительные условия уровня для умений, связанных с классом, предоставляемых этим модом.
 ModUi/&DisableRacePrerequisitesOnModFeats=Отключить Расовые предустановки на черты предлагаемые этим модом
 ModUi/&DisableSenseDarkVisionFromAllRaces=Отключите <color=#D89555>Sense Dark Vision</color> для всех игровых рас <b><i><color=#C04040E0>[Требуется перезагрузка]</color></i></b>
 ModUi/&DisableSenseSuperiorDarkVisionFromAllRaces=Отключите <color=#D89555>Superior Sense Dark Vision</color> для всех игровых рас <b><i><color=#C04040E0>[Требуется перезагрузка]</color></i></b>

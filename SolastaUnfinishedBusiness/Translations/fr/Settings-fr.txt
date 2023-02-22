@@ -55,7 +55,7 @@ ModUi/&CriticalOption3=. 3 : Doublez les dégâts totaux de votre attaque au lie
 ModUi/&DeadEyeAndPowerAttackBaseBaseValue=<color=white>Définir la valeur de base du modificateur Deadeye et Power Attack</color>\n<i><color=#F0DAA0>[la formule est -mod to hit / mod + votre bonus de compétence pour les dégâts]</color></i>
 ModUi/&Deities=<color=#F0DAA0>Divinités :</color>
 ModUi/&DisableAutoEquip=Désactiver l'équipement automatique des objets dans l'inventaire
-ModUi/&DisableClassPrerequisitesOnModFeats=Désactiver les pré-requis de course sur les exploits fournis par ce mod
+ModUi/&DisableClassPrerequisitesOnModFeats=Désactiver les prérequis de niveau sur les exploits liés à la classe fournis par ce mod
 ModUi/&DisableRacePrerequisitesOnModFeats=Désactiver les pré-requis de race sur les exploits fournis par ce mod
 ModUi/&DisableSenseDarkVisionFromAllRaces=Désactivez <color=#D89555>Sense Dark Vision</color> de toutes les races jouables <b><i><color=#C04040E0>[Nécessite un redémarrage]</color></i></b>
 ModUi/&DisableSenseSuperiorDarkVisionFromAllRaces=Désactivez <color=#D89555>Superior Sense Dark Vision</color> de toutes les races jouables <b><i><color=#C04040E0>[Nécessite un redémarrage]</color></i></b>

@@ -151,11 +151,6 @@ internal static class ValidatorsFeat
     {
         return (_, hero) =>
         {
-            if (Main.Settings.DisableClassPrerequisitesOnModFeats)
-            {
-                return (true, string.Empty);
-            }
-
             var guiFormat = Gui.Format("Tooltip/&PreReqIsWithLevel", description, minLevels.ToString());
 
             if (!hero.ClassesHistory.Contains(characterClassDefinition))
@@ -165,7 +160,8 @@ internal static class ValidatorsFeat
 
             var levels = hero.ClassesHistory.Count;
 
-            return levels >= minLevels && hero.ClassesHistory.Last() == characterClassDefinition
+            return (Main.Settings.DisableClassPrerequisitesOnModFeats || levels >= minLevels) &&
+                   hero.ClassesHistory.Last() == characterClassDefinition
                 ? (true, guiFormat)
                 : (false, Gui.Colorize(guiFormat, Gui.ColorFailure));
         };

@@ -55,7 +55,7 @@ ModUi/&CriticalOption3=. 3: Duplica el daño total de tu ataque en lugar de tira
 ModUi/&DeadEyeAndPowerAttackBaseBaseValue=<color=white>Establece el valor básico del modificador Deadeye y Power Attack</color>\n<i><color=#F0DAA0>[la fórmula es -mod para golpear / mod + tu bonificación de competencia para dañar]</color></i>
 ModUi/&Deities=<color=#F0DAA0>Deidades:</color>
 ModUi/&DisableAutoEquip=Deshabilitar el equipamiento automático de artículos en el inventario
-ModUi/&DisableClassPrerequisitesOnModFeats=Deshabilitar los requisitos previos de clase en las hazañas proporcionadas por este mod
+ModUi/&DisableClassPrerequisitesOnModFeats=Deshabilitar los requisitos previos de nivel en las hazañas vinculadas a la clase proporcionadas por este mod
 ModUi/&DisableRacePrerequisitesOnModFeats=Deshabilitar los requisitos previos de carrera en las hazañas proporcionadas por este mod
 ModUi/&DisableSenseDarkVisionFromAllRaces=Desactiva <color=#D89555>Sense Dark Vision</color> de todas las razas jugables <b><i><color=#C04040E0>[Requiere reinicio]</color></i></b>
 ModUi/&DisableSenseSuperiorDarkVisionFromAllRaces=Deshabilita <color=#D89555>Superior Sense Dark Vision</color> de todas las razas jugables <b><i><color=#C04040E0>[Requiere reinicio]</color></i></b>

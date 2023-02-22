@@ -55,7 +55,7 @@ ModUi/&CriticalOption3=. 3: Raddoppia il danno totale del tuo attacco invece di 
 ModUi/&DeadEyeAndPowerAttackBaseBaseValue=<color=white>Imposta il valore del modificatore base di Deadeye e Attacco Poderoso</color>\n<i><color=#F0DAA0>[la formula è -mod per colpire / mod + il tuo bonus di competenza per i danni]</color></io>
 ModUi/&Deities=<color=#F0DAA0> Divinità:</color>
 ModUi/&DisableAutoEquip=Disattiva l'equipaggiamento automatico degli articoli nell'inventario
-ModUi/&DisableClassPrerequisitesOnModFeats=Disabilita i prerequisiti di classi sui talenti forniti da questa mod
+ModUi/&DisableClassPrerequisitesOnModFeats=Disabilita i prerequisiti di livello sui talenti legati alla classe forniti da questa mod
 ModUi/&DisableRacePrerequisitesOnModFeats=Disabilita i prerequisiti di razza sui talenti forniti da questa mod
 ModUi/&DisableSenseDarkVisionFromAllRaces=Disabilita <color=#D89555>Percepisci Visione Oscura</color> da tutte le razze giocabili <b><i><color=#C04040E0>[Richiede il riavvio]</color></i></b>
 ModUi/&DisableSenseSuperiorDarkVisionFromAllRaces=Disabilita <color=#D89555>Oscuro Senso Superiore</color> da tutte le razze giocabili <b><i><color=#C04040E0>[Richiede il riavvio]</color></i></b>
