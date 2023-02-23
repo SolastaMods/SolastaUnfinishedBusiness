@@ -22,7 +22,8 @@ internal static class DeitiesContext
         }
     }
 
-    private static void LoadDeity([NotNull] DeityDefinition deityDefinition)
+    [UsedImplicitly]
+    internal static void LoadDeity([NotNull] DeityDefinition deityDefinition)
     {
         if (!Deities.Contains(deityDefinition))
         {

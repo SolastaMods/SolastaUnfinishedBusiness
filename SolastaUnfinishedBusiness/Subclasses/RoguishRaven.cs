@@ -1,5 +1,4 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
@@ -193,32 +192,6 @@ internal sealed class RoguishRaven : AbstractSubclass
             .SetGuiPresentation(Category.Feature)
             .AddFeatureSet(powerRavenHeartSeekingShot, powerRavenTurnOffHeartSeekingShot)
             .AddToDB();
-    }
-
-    private sealed class HeartSeekingShotDamage : CustomAdditionalDamage
-    {
-        public HeartSeekingShotDamage(IAdditionalDamageProvider provider) : base(provider)
-        {
-        }
-
-        internal override bool IsValid(
-            GameLocationBattleManager battleManager,
-            GameLocationCharacter attacker,
-            GameLocationCharacter defender,
-            ActionModifier attackModifier,
-            RulesetAttackMode attackMode,
-            bool rangedAttack,
-            AdvantageType advantageType,
-            List<EffectForm> actualEffectForms,
-            RulesetEffect rulesetEffect,
-            bool criticalHit,
-            bool firstTarget,
-            out CharacterActionParams reactionParams)
-        {
-            reactionParams = null;
-
-            return attackMode != null && ValidatorsCharacter.HasTwoHandedRangedWeapon(attacker.RulesetCharacter);
-        }
     }
 
     // marker to reroll any damage die including sneak attack

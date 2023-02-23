@@ -121,7 +121,7 @@ internal static class Main
         {
             return false;
         }
-        
+
         filename = string.Concat(filename.Split(Path.GetInvalidFileNameChars()));
         filename = Path.GetFileName(filename) + ".xml";
 

@@ -452,7 +452,6 @@ internal static partial class DatabaseHelper
         internal static FeatureDefinitionDamageAffinity DamageAffinityAcidResistance { get; } = GetDefinition<FeatureDefinitionDamageAffinity>("DamageAffinityAcidResistance");
         internal static FeatureDefinitionDamageAffinity DamageAffinityBludgeoningImmunity { get; } = GetDefinition<FeatureDefinitionDamageAffinity>("DamageAffinityBludgeoningImmunity");
         internal static FeatureDefinitionDamageAffinity DamageAffinityBludgeoningResistance { get; } = GetDefinition<FeatureDefinitionDamageAffinity>("DamageAffinityBludgeoningResistance");
-        internal static FeatureDefinitionDamageAffinity DamageAffinityBludgeoningVulnerability { get; } = GetDefinition<FeatureDefinitionDamageAffinity>("DamageAffinityBludgeoningVulnerability");
         internal static FeatureDefinitionDamageAffinity DamageAffinityColdImmunity { get; } = GetDefinition<FeatureDefinitionDamageAffinity>("DamageAffinityColdImmunity");
         internal static FeatureDefinitionDamageAffinity DamageAffinityColdResistance { get; } = GetDefinition<FeatureDefinitionDamageAffinity>("DamageAffinityColdResistance");
         internal static FeatureDefinitionDamageAffinity DamageAffinityFireImmunity { get; } = GetDefinition<FeatureDefinitionDamageAffinity>("DamageAffinityFireImmunity");
@@ -463,14 +462,12 @@ internal static partial class DatabaseHelper
         internal static FeatureDefinitionDamageAffinity DamageAffinityNecroticImmunity { get; } = GetDefinition<FeatureDefinitionDamageAffinity>("DamageAffinityNecroticImmunity");
         internal static FeatureDefinitionDamageAffinity DamageAffinityNecroticResistance { get; } = GetDefinition<FeatureDefinitionDamageAffinity>("DamageAffinityNecroticResistance");
         internal static FeatureDefinitionDamageAffinity DamageAffinityPiercingResistance { get; } = GetDefinition<FeatureDefinitionDamageAffinity>("DamageAffinityPiercingResistance");
-        internal static FeatureDefinitionDamageAffinity DamageAffinityPiercingVulnerability { get; } = GetDefinition<FeatureDefinitionDamageAffinity>("DamageAffinityPiercingVulnerability");
         internal static FeatureDefinitionDamageAffinity DamageAffinityPoisonImmunity { get; } = GetDefinition<FeatureDefinitionDamageAffinity>("DamageAffinityPoisonImmunity");
         internal static FeatureDefinitionDamageAffinity DamageAffinityPoisonResistance { get; } = GetDefinition<FeatureDefinitionDamageAffinity>("DamageAffinityPoisonResistance");
         internal static FeatureDefinitionDamageAffinity DamageAffinityPsychicImmunity { get; } = GetDefinition<FeatureDefinitionDamageAffinity>("DamageAffinityPsychicImmunity");
         internal static FeatureDefinitionDamageAffinity DamageAffinityPsychicResistance { get; } = GetDefinition<FeatureDefinitionDamageAffinity>("DamageAffinityPsychicResistance");
         internal static FeatureDefinitionDamageAffinity DamageAffinityRadiantResistance { get; } = GetDefinition<FeatureDefinitionDamageAffinity>("DamageAffinityRadiantResistance");
         internal static FeatureDefinitionDamageAffinity DamageAffinitySlashingResistance { get; } = GetDefinition<FeatureDefinitionDamageAffinity>("DamageAffinitySlashingResistance");
-        internal static FeatureDefinitionDamageAffinity DamageAffinitySlashingVulnerability { get; } = GetDefinition<FeatureDefinitionDamageAffinity>("DamageAffinitySlashingVulnerability");
         internal static FeatureDefinitionDamageAffinity DamageAffinityThunderImmunity { get; } = GetDefinition<FeatureDefinitionDamageAffinity>("DamageAffinityThunderImmunity");
         internal static FeatureDefinitionDamageAffinity DamageAffinityThunderResistance { get; } = GetDefinition<FeatureDefinitionDamageAffinity>("DamageAffinityThunderResistance");
     }

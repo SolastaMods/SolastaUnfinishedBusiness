@@ -22,7 +22,8 @@ internal static class BackgroundsContext
         }
     }
 
-    private static void LoadBackground([NotNull] CharacterBackgroundDefinition characterBackgroundDefinition)
+    [UsedImplicitly]
+    internal static void LoadBackground([NotNull] CharacterBackgroundDefinition characterBackgroundDefinition)
     {
         if (!Backgrounds.Contains(characterBackgroundDefinition))
         {
