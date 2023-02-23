@@ -67,10 +67,19 @@ internal sealed class DomainDefiler : AbstractSubclass
         // Level 2 (5, 11, 17)
         //
 
+        const string DEFILE_LIFE_DESCRIPTION = "Feature/&PowerDomainDefilerDefileLifeDescription";
+
+        var powerDefileSprite = Sprites.GetSprite("PowerDefileLife", Resources.PowerDefileLife, 128, 64);
+
+        static string PowerDefileDescription(int x)
+        {
+            return Gui.Format(DEFILE_LIFE_DESCRIPTION, x.ToString());
+        }
+
         var powerDefileLife2 = FeatureDefinitionPowerBuilder
             .Create($"Power{NAME}DefileLife2")
-            .SetGuiPresentation($"Power{NAME}DefileLife", Category.Feature,
-                Sprites.GetSprite("PowerDefileLife", Resources.PowerDefileLife, 128, 64))
+            .SetGuiPresentation($"Power{NAME}DefileLife", Category.Feature, PowerDefileDescription(1),
+                powerDefileSprite)
             .SetUsesFixed(ActivationTime.Action, RechargeRate.ChannelDivinity)
             .SetEffectDescription(
                 EffectDescriptionBuilder
@@ -94,8 +103,8 @@ internal sealed class DomainDefiler : AbstractSubclass
 
         var powerDefileLife5 = FeatureDefinitionPowerBuilder
             .Create($"Power{NAME}DefileLife5")
-            .SetGuiPresentation($"Power{NAME}DefileLife", Category.Feature,
-                Sprites.GetSprite("PowerDefileLife", Resources.PowerDefileLife, 128, 64))
+            .SetGuiPresentation($"Power{NAME}DefileLife", Category.Feature, PowerDefileDescription(3),
+                powerDefileSprite)
             .SetUsesFixed(ActivationTime.Action, RechargeRate.ChannelDivinity)
             .SetOverriddenPower(powerDefileLife2)
             .SetEffectDescription(
@@ -120,8 +129,8 @@ internal sealed class DomainDefiler : AbstractSubclass
 
         var powerDefileLife11 = FeatureDefinitionPowerBuilder
             .Create($"Power{NAME}DefileLife11")
-            .SetGuiPresentation($"Power{NAME}DefileLife", Category.Feature,
-                Sprites.GetSprite("PowerDefileLife", Resources.PowerDefileLife, 128, 64))
+            .SetGuiPresentation($"Power{NAME}DefileLife", Category.Feature, PowerDefileDescription(5),
+                powerDefileSprite)
             .SetUsesFixed(ActivationTime.Action, RechargeRate.ChannelDivinity)
             .SetOverriddenPower(powerDefileLife5)
             .SetEffectDescription(
@@ -146,8 +155,8 @@ internal sealed class DomainDefiler : AbstractSubclass
 
         var powerDefileLife17 = FeatureDefinitionPowerBuilder
             .Create($"Power{NAME}DefileLife17")
-            .SetGuiPresentation($"Power{NAME}DefileLife", Category.Feature,
-                Sprites.GetSprite("PowerDefileLife", Resources.PowerDefileLife, 128, 64))
+            .SetGuiPresentation($"Power{NAME}DefileLife", Category.Feature, PowerDefileDescription(7),
+                powerDefileSprite)
             .SetUsesFixed(ActivationTime.Action, RechargeRate.ChannelDivinity)
             .SetOverriddenPower(powerDefileLife11)
             .SetEffectDescription(
@@ -165,7 +174,7 @@ internal sealed class DomainDefiler : AbstractSubclass
                         EffectFormBuilder
                             .Create()
                             .HasSavingThrow(EffectSavingThrowType.HalfDamage)
-                            .SetDamageForm(DamageTypeNecrotic, 5, DieType.D6)
+                            .SetDamageForm(DamageTypeNecrotic, 7, DieType.D6)
                             .Build())
                     .Build())
             .AddToDB();
@@ -174,9 +183,17 @@ internal sealed class DomainDefiler : AbstractSubclass
         // Level 6 (14)
         //
 
+        const string DIVINE_STRIKE_DESCRIPTION = "Feature/&AdditionalDamageDomainDefilerDivineStrikeDescription";
+
+        static string PowerDivineStrikeDescription(int x)
+        {
+            return Gui.Format(DIVINE_STRIKE_DESCRIPTION, x.ToString());
+        }
+
         var additionalDamageDivineStrike6 = FeatureDefinitionAdditionalDamageBuilder
-            .Create($"AdditionalDamage{NAME}DivineStrike")
-            .SetGuiPresentation(Category.Feature)
+            .Create($"AdditionalDamage{NAME}DivineStrike6")
+            .SetGuiPresentation($"AdditionalDamage{NAME}DivineStrike", Category.Feature,
+                PowerDivineStrikeDescription(1))
             .SetNotificationTag("DivineStrike")
             .SetSpecificDamageType(DamageTypeNecrotic)
             .SetDamageDice(DieType.D8, 1)
@@ -194,9 +211,10 @@ internal sealed class DomainDefiler : AbstractSubclass
 
         var additionalDamageDivineStrike14 = FeatureDefinitionBuilder
             .Create($"AdditionalDamage{NAME}DivineStrike14")
-            .SetGuiPresentation($"AdditionalDamage{NAME}DivineStrike", Category.Feature)
+            .SetGuiPresentation($"AdditionalDamage{NAME}DivineStrike", Category.Feature,
+                PowerDivineStrikeDescription(2))
             .AddToDB();
-        
+
         var damageAffinityDivineImmunity = FeatureDefinitionDamageAffinityBuilder
             .Create($"DamageAffinity{NAME}DivineImmunity")
             .SetGuiPresentation(Category.Feature)

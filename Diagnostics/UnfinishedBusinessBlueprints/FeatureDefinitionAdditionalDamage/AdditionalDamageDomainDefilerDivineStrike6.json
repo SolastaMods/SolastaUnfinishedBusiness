@@ -150,7 +150,7 @@
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "Feature/&AdditionalDamageDomainDefilerDivineStrikeTitle",
-    "description": "Feature/&AdditionalDamageDomainDefilerDivineStrikeDescription",
+    "description": "Once per turn, deal +1d8 necrotic damage on weapon attacks.",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -170,7 +170,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "320cd4cd-21c7-5f0e-a8ff-60a87283c3e5",
+  "guid": "386df67d-4155-5961-8345-719ab269cbe5",
   "contentPack": 9999,
-  "name": "AdditionalDamageDomainDefilerDivineStrike"
+  "name": "AdditionalDamageDomainDefilerDivineStrike6"
 }
