@@ -86,3 +86,7 @@ Feat/&FeatGroupDefenseCombatDescription={0}
 Feat/&FeatGroupDefenseCombatTitle=Combate: Defensa
 Feat/&FeatGroupSupportCombatDescription={0}
 Feat/&FeatGroupSupportCombatTitle=Combate: Apoyo
+Feat/&FeatGroupPotentSpellcasterDescription=Puedes agregar tu modificador de atributo de lanzador de hechizos al daño que infliges con cualquier cantrip en tu repertorio.
+Feat/&FeatGroupPotentSpellcasterTitle=Lanzador de hechizos potente
+Feat/&FeatGroupBlessedSoulDescription=Tu uso de la magia divina ha dejado una marca espiritual en tu alma, permitiéndote expresar tu fe con más frecuencia. Aumenta tu puntuación de Carisma o Sabiduría en 1, hasta un máximo de 20. Ganas un uso adicional de Canalizar Divinidad entre descansos.
+Feat/&FeatGroupBlessedSoulTitle=alma bendita

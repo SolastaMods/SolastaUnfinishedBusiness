@@ -2,6 +2,7 @@
 using System.Linq;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.Extensions;
+using SolastaUnfinishedBusiness.Classes.Inventor;
 using SolastaUnfinishedBusiness.Races;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterClassDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterRaceDefinitions;
@@ -14,17 +15,29 @@ internal static class ValidatorsFeat
     // validation routines for FeatDefinitionWithPrerequisites
     //
 
+    internal static readonly Func<FeatDefinition, RulesetCharacterHero, (bool result, string output)> IsBardLevel4 =
+        ValidateIsClass(Bard.FormatTitle(), 4, Bard);
+
     internal static readonly Func<FeatDefinition, RulesetCharacterHero, (bool result, string output)> IsClericLevel4 =
         ValidateIsClass(Cleric.FormatTitle(), 4, Cleric);
 
     internal static readonly Func<FeatDefinition, RulesetCharacterHero, (bool result, string output)> IsDruidLevel4 =
         ValidateIsClass(Druid.FormatTitle(), 4, Druid);
 
+    internal static readonly Func<FeatDefinition, RulesetCharacterHero, (bool result, string output)> IsInventorLevel4 =
+        ValidateIsClass(InventorClass.Class.FormatTitle(), 4, InventorClass.Class);
+
     internal static readonly Func<FeatDefinition, RulesetCharacterHero, (bool result, string output)> IsPaladinLevel1 =
         ValidateIsClass(Paladin.FormatTitle(), 1, Paladin);
 
+    internal static readonly Func<FeatDefinition, RulesetCharacterHero, (bool result, string output)> IsPaladinLevel8 =
+        ValidateIsClass(Paladin.FormatTitle(), 8, Paladin);
+
     internal static readonly Func<FeatDefinition, RulesetCharacterHero, (bool result, string output)> IsRogueLevel4 =
         ValidateIsClass(Rogue.FormatTitle(), 4, Rogue);
+
+    internal static readonly Func<FeatDefinition, RulesetCharacterHero, (bool result, string output)> IsSorcererLevel4 =
+        ValidateIsClass(Sorcerer.FormatTitle(), 4, Sorcerer);
 
     internal static readonly Func<FeatDefinition, RulesetCharacterHero, (bool result, string output)> IsWizardLevel4 =
         ValidateIsClass(Wizard.FormatTitle(), 4, Wizard);
@@ -141,11 +154,6 @@ internal static class ValidatorsFeat
     {
         return (_, hero) =>
         {
-            if (Main.Settings.DisableClassPrerequisitesOnModFeats)
-            {
-                return (true, string.Empty);
-            }
-
             var guiFormat = Gui.Format("Tooltip/&PreReqIsWithLevel", description, minLevels.ToString());
 
             if (!hero.ClassesHistory.Contains(characterClassDefinition))
@@ -155,7 +163,8 @@ internal static class ValidatorsFeat
 
             var levels = hero.ClassesHistory.Count;
 
-            return levels >= minLevels && hero.ClassesHistory.Last() == characterClassDefinition
+            return (Main.Settings.DisableClassPrerequisitesOnModFeats || levels >= minLevels) &&
+                   hero.ClassesHistory.Last() == characterClassDefinition
                 ? (true, guiFormat)
                 : (false, Gui.Colorize(guiFormat, Gui.ColorFailure));
         };

@@ -11,15 +11,12 @@
   "hasFamilyTag": false,
   "familyTag": "",
   "knownFeatsPrerequisite": [],
-  "features": [
-    "Definition:AttributeModifierClericChannelDivinityAdd:5f8d0b3220239994ca321752da71c5c5",
-    "Definition:AttributeModifierCreed_Of_Arun:448b8ab9ee9cd784b81e82a65d5810f0"
-  ],
+  "features": [],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
-    "title": "Feat/&FeatBlessedSoulTitle",
-    "description": "Feat/&FeatBlessedSoulDescription",
+    "title": "Potent Spellcaster [Sorcerer]",
+    "description": "You can add your spellcaster attribute modifier to the damage you deal with any Sorcerer cantrip in your repertoire.",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -39,7 +36,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "52311a90-cb6a-59eb-8256-b037cd9819fe",
+  "guid": "615f0f15-ddac-5b65-b72d-193ed4b2ebeb",
   "contentPack": 9999,
-  "name": "FeatBlessedSoul"
+  "name": "FeatPotentSpellcasterSorcerer"
 }

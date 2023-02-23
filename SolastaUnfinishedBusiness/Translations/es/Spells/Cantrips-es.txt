@@ -38,3 +38,7 @@ Spell/&ThornyVinesDescription=Creas una enredadera larga con forma de látigo cu
 Spell/&ThornyVinesTitle=Vides espinosas
 Spell/&ThunderStrikeDescription=Crea un estallido de sonido atronador que obliga a las criaturas adyacentes a realizar una tirada de salvación de Constitución o recibir 1d6 de daño por trueno.\nEl daño de este hechizo aumenta en 1d6 cuando alcanzas el nivel 5 (2d6), el nivel 11 (3d6) y el nivel 17. nivel (4d6).
 Spell/&ThunderStrikeTitle=Ráfaga de sonido
+Condition/&ConditionWrackDescription=No puede realizar la acción de correr o desconectarse.
+Condition/&ConditionWrackTitle=arruinado
+Spell/&WrackDescription=Desata una ola de dolor paralizante a una criatura dentro del alcance. El objetivo debe hacer una tirada de salvación de Constitución o recibir 1d8 de daño necrótico, y evitar que se lance o se desenganche.
+Spell/&WrackTitle=Estante

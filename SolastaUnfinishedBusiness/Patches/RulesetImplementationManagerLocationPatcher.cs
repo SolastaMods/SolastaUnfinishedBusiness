@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
+using System.Linq;
 using HarmonyLib;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.Extensions;
@@ -190,6 +191,76 @@ public static class RulesetImplementationManagerLocationPatcher
                 }
                 default:
                     return true;
+            }
+        }
+    }
+
+    //PATCH: allows shape changers to get bonuses effects defined in features / feats / etc.
+    [HarmonyPatch(typeof(RulesetImplementationManagerLocation),
+        nameof(RulesetImplementationManagerLocation.ApplyShapeChangeForm))]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
+    public static class ApplyShapeChangeForm_Patch
+    {
+        [UsedImplicitly]
+        public static void Postfix(
+            RulesetImplementationManagerLocation __instance,
+            EffectForm effectForm,
+            RulesetImplementationDefinitions.ApplyFormsParams formsParams)
+        {
+            var source = formsParams.sourceCharacter;
+            var sourceAbilityBonus = formsParams.activeEffect.ComputeSourceAbilityBonus(source);
+            var proficiencyBonus = formsParams.activeEffect.ComputeSourceProficiencyBonus(source);
+            var creatureTags = formsParams.targetSubstitute.CreatureTags;
+
+            __instance.TryFindSubstituteOfCharacter(source, out var characterMonster);
+
+            foreach (var summoningAffinity in source
+                         .GetFeaturesByType<FeatureDefinitionSummoningAffinity>()
+                         .Where(x => creatureTags.Contains(x.RequiredMonsterTag)))
+            {
+                foreach (var addedCondition in summoningAffinity.AddedConditions)
+                {
+                    var sourceAmount = 0;
+
+                    // ReSharper disable once SwitchStatementMissingSomeEnumCasesNoDefault
+                    switch (addedCondition.AmountOrigin)
+                    {
+                        case ConditionDefinition.OriginOfAmount.SourceHalfHitPoints:
+                            sourceAmount = addedCondition.BaseAmount +
+                                           (source.TryGetAttributeValue(AttributeDefinitions.HitPoints) / 2);
+                            break;
+                        case ConditionDefinition.OriginOfAmount.SourceSpellCastingAbility:
+                            var num1 = source.SpellRepertoires
+                                .Select(spellRepertoire => AttributeDefinitions.ComputeAbilityScoreModifier(
+                                    source.TryGetAttributeValue(spellRepertoire.SpellCastingAbility)))
+                                .Prepend(0)
+                                .Max();
+
+                            sourceAmount = num1;
+                            break;
+                        case ConditionDefinition.OriginOfAmount.SourceSpellAttack:
+                            var num2 = source.SpellRepertoires
+                                .Select(spellRepertoire => spellRepertoire.SpellAttackBonus)
+                                .Prepend(0)
+                                .Max();
+
+                            sourceAmount = num2;
+                            break;
+                    }
+
+                    characterMonster.InflictCondition(addedCondition.Name, formsParams.durationType,
+                        formsParams.durationParameter, formsParams.endOfEffect, "11Effect", source.Guid,
+                        source.CurrentFaction.Name, formsParams.effectLevel, string.Empty, sourceAmount,
+                        sourceAbilityBonus,
+                        proficiencyBonus);
+
+                    // we need to re-assign max hit points as we're on a postfix
+                    characterMonster.currentHitPoints =
+                        characterMonster.GetAttribute(AttributeDefinitions.HitPoints).MaxValue;
+
+                    characterMonster.RefreshAll();
+                }
             }
         }
     }

@@ -86,3 +86,7 @@ Feat/&FeatGroupDefenseCombatDescription={0}
 Feat/&FeatGroupDefenseCombatTitle=Combattimento: difesa
 Feat/&FeatGroupSupportCombatDescription={0}
 Feat/&FeatGroupSupportCombatTitle=Combattimento: Supporto
+Feat/&FeatGroupPotentSpellcasterDescription=Puoi aggiungere il tuo modificatore di attributo incantatore al danno che infliggi con qualsiasi trucchetto nel tuo repertorio.
+Feat/&FeatGroupPotentSpellcasterTitle=Potente Incantatore
+Feat/&FeatGroupBlessedSoulDescription=Il tuo uso della magia divina ha lasciato un segno spirituale nella tua anima, permettendoti di esprimere la tua fede più frequentemente. Aumenta il tuo punteggio di Carisma o Saggezza di 1, fino a un massimo di 20. Ottieni un ulteriore utilizzo di Incanalare Divinità tra i riposi.
+Feat/&FeatGroupBlessedSoulTitle=Anima benedetta

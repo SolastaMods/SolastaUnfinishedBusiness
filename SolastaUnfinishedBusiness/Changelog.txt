@@ -1,5 +1,6 @@
-- fixed Awaken The Beast not adding Druid class based additional hit points
-- fixed Barbarian to have ASI at level 16
-- fixed interaction between Sentinel and Sunlit Blade through War Caster
-- improved Roguish Duelist and Way of Discordance translations
-- improved Way of Discordance's discordance damage to also add PB/2 bonus
+- expanded Potent Spellcaster to Bards, Clerics, Druids, Sorcerers and Inventors
+- expanded Blessed Soul to Paladins
+- fixed null exception on settings export if user doesn't type a filename
+- fixed piercer condition staying 1 round longer than it should
+- fixed wildshape forms not getting benefits from hero summoning affinities
+- fixed wrong spell effect level calculation with multiclass Warlock

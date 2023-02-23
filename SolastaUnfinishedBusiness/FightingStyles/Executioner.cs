@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using SolastaUnfinishedBusiness.Api.Extensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
@@ -16,15 +15,21 @@ internal sealed class Executioner : AbstractFightingStyle
     internal override FightingStyleDefinition FightingStyle { get; } = FightingStyleBuilder
         .Create(ExecutionerName)
         .SetGuiPresentation(Category.FightingStyle, PathMagebane)
-        .SetFeatures(FeatureDefinitionBuilder
-            .Create("FeatureFightingStyleExecutioner")
+        .SetFeatures(FeatureDefinitionAdditionalDamageBuilder
+            .Create("AdditionalDamageFightingStyleExecutioner")
             .SetGuiPresentationNoContent(true)
-            .SetCustomSubFeatures(new ExecutionerDamage(FeatureDefinitionAdditionalDamageBuilder
-                .Create("AdditionalDamageFightingStyleExecutioner")
-                .SetGuiPresentationNoContent(true)
-                .SetNotificationTag(ExecutionerName)
-                .SetDamageValueDetermination(AdditionalDamageValueDetermination.ProficiencyBonus)
-                .AddToDB()))
+            .SetNotificationTag(ExecutionerName)
+            .SetDamageValueDetermination(AdditionalDamageValueDetermination.ProficiencyBonus)
+            .SetRequiredProperty(RestrictedContextRequiredProperty.Weapon)
+            .SetCustomSubFeatures(
+                ValidatorsCharacter.HasAnyOfConditions(
+                    ConditionBlinded,
+                    ConditionFrightened,
+                    ConditionRestrained,
+                    ConditionIncapacitated,
+                    ConditionParalyzed,
+                    ConditionProne,
+                    ConditionStunned))
             .AddToDB())
         .AddToDB();
 
@@ -32,35 +37,4 @@ internal sealed class Executioner : AbstractFightingStyle
     {
         FightingStyleChampionAdditional, FightingStyleFighter, FightingStylePaladin, FightingStyleRanger
     };
-
-    private sealed class ExecutionerDamage : CustomAdditionalDamage
-    {
-        public ExecutionerDamage(IAdditionalDamageProvider provider) : base(provider)
-        {
-        }
-
-        internal override bool IsValid(GameLocationBattleManager battleManager, GameLocationCharacter attacker,
-            GameLocationCharacter defender,
-            ActionModifier attackModifier, RulesetAttackMode attackMode, bool rangedAttack, AdvantageType advantageType,
-            List<EffectForm> actualEffectForms, RulesetEffect rulesetEffect, bool criticalHit, bool firstTarget,
-            out CharacterActionParams reactionParams)
-        {
-            reactionParams = null;
-
-            if (attackMode == null)
-            {
-                return false;
-            }
-
-            return defender.RulesetCharacter.HasAnyConditionOfType(
-                ConditionBlinded,
-                ConditionFrightened,
-                ConditionRestrained,
-                ConditionIncapacitated,
-                ConditionParalyzed,
-                ConditionProne,
-                ConditionStunned
-            );
-        }
-    }
 }

@@ -41,6 +41,7 @@ internal sealed class PatronSoulBlade : AbstractSubclass
             .SetUniqueInstance()
             .SetCustomSubFeatures(
                 new ShouldTerminatePowerEffect(PowerSoulBladeEmpowerWeaponName),
+                ExtraCarefulTrackedItem.Marker,
                 SkipEffectRemovalOnLocationChange.Always,
                 new CustomItemFilter(CanWeaponBeEmpowered))
             .SetUsesFixed(ActivationTime.Action, RechargeRate.ShortRest)
@@ -69,9 +70,7 @@ internal sealed class PatronSoulBlade : AbstractSubclass
             .Create(PowerSoulBladeSummonPactWeaponName)
             .SetGuiPresentation(Category.Feature, SpiritualWeapon)
             .SetUniqueInstance()
-            .SetCustomSubFeatures(
-                new ShouldTerminatePowerEffect(PowerSoulBladeSummonPactWeaponName),
-                SkipEffectRemovalOnLocationChange.Always)
+            .SetCustomSubFeatures(SkipEffectRemovalOnLocationChange.Always)
             .SetUsesFixed(ActivationTime.NoCost, RechargeRate.ShortRest)
             .SetExplicitAbilityScore(AttributeDefinitions.Charisma)
             .SetEffectDescription(

@@ -30,6 +30,7 @@ ModUi/&AllRecipesInDm=Все рецепты в DM
 ModUi/&AltOnlyHighlightItemsInPartyFieldOfView=<color=#1E81B0>ALT</color> подсвечивает предметы только в поле зрения сопартийцев <i><color=#F0DAA0>[только в авторских подземельях]</color></i>
 ModUi/&ApplySRDWeightToFoodRations=Уменьшить весь Рациона до 2 фунтов
 ModUi/&ArcaneShieldstaffOptions=Разрешить <color=#D89555>Arcane Shieldstaff</color> быть привязанным любым классом
+ModUi/&Backgrounds=<color=#F0DAA0>Фон:</color>
 ModUi/&Basic=<color=#F0DAA0>Basic:</color>
 ModUi/&Bestiary=Бестиарий
 ModUi/&BestowCurseNoConcentrationRequiredForSlotLevel5OrAbove=<color=#D89555>Проклятие</color> не требует концентрации, если кастуется слотом Ур.5+.
@@ -52,8 +53,9 @@ ModUi/&CriticalOption1=. 1: суммируйте максимальный рез
 ModUi/&CriticalOption2=. 2: продолжайте перебрасывать любые кубики урона, которые выбрасывают максимально возможный результат, и добавляйте его к общему урону.
 ModUi/&CriticalOption3=. 3: Удвойте общий урон вашей атаки вместо того, чтобы бросать дополнительные кубики. <i><color=#F0DAA0>[(XdY+Z)*2]</color></i>
 ModUi/&DeadEyeAndPowerAttackBaseBaseValue=<color=white>Установить для «Меткий глаз» и «Мощная атака» базовое значение модификатора </color>\n<i><color=#F0DAA0>[formula is -mod to hit / mod + PB to damage]</color></i>
+ModUi/&Deities=<color=#F0DAA0>Божества:</color>
 ModUi/&DisableAutoEquip=Отключить автоматическое надевание предметов из инвентаря
-ModUi/&DisableClassPrerequisitesOnModFeats=Отключить Расовые предустановки на Классы предлагаемые этим модом
+ModUi/&DisableClassPrerequisitesOnModFeats=Отключите предварительные условия уровня для умений, связанных с классом, предоставляемых этим модом.
 ModUi/&DisableRacePrerequisitesOnModFeats=Отключить Расовые предустановки на черты предлагаемые этим модом
 ModUi/&DisableSenseDarkVisionFromAllRaces=Отключите <color=#D89555>Sense Dark Vision</color> для всех игровых рас <b><i><color=#C04040E0>[Требуется перезагрузка]</color></i></b>
 ModUi/&DisableSenseSuperiorDarkVisionFromAllRaces=Отключите <color=#D89555>Superior Sense Dark Vision</color> для всех игровых рас <b><i><color=#C04040E0>[Требуется перезагрузка]</color></i></b>
@@ -130,6 +132,7 @@ ModUi/&House=<color=#F0DAA0>Дом:</color>
 ModUi/&IdentifyAfterRest=Добавьте способность идентифицировать магические предметы во время короткого или длительного отдыха.
 ModUi/&IgnoreHandXbowFreeHandRequirements=Не требуется свободная рука для использования ручных арбалетов.
 ModUi/&IncreaseGameTimeBy=Увеличьте время игры на
+ModUi/&IncreaseMaxAttunedItems=Увеличьте максимальное количество настроенных предметов до 4 на уровне 10 и до 5 на уровне 18.
 ModUi/&IncreaseSenseNormalVision=<color=white>Увеличить дальностьcolor=#D89555>Нормального зрения</color> чтобы атаковать на дальней дистанции</color> <b><i><color=#C04040E0>[Требуется Перезапуск]</color></i></b>
 ModUi/&IncreaseSenseNormalVisionHelp=<i><color=#F0DAA0>[40 это идеально, что избегания присоединения врагов с дальней дистанции]</color></i>
 ModUi/&InitialChoices=<color=#F0DAA0>Создание:</color>
@@ -218,4 +221,3 @@ ModUi/&UnlockSkinColors=Разблокировать цвет скинов
 ModUi/&UseHeightOneCylinderEffect=Используйте эффект цилиндра высотой 1 при кастовании <color=#D89555>Черные Тентакли, Опутать, Масло</color> <i><color=#F0DAA0>[square]</color></i> или <color=#D89555>Spike Growth</color> <i><color=#F0DAA0>[round]</color></i>
 ModUi/&UseOfficialAdvantageDisadvantageRules=Использоваться официальные правила штрафов и бонусов
 ModUi/&Visuals=<color=#F0DAA0>Visuals:</color> <b><i><color=#C04040E0>[Требуется Перезапуск]</color></i></b>
-ModUi/&IncreaseMaxAttunedItems=Увеличьте максимальное количество настроенных предметов до 4 на уровне 10 и до 5 на уровне 18.

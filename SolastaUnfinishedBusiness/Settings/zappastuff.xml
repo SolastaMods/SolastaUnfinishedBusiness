@@ -118,7 +118,7 @@
   <EnableEpicPointsAndArray>true</EnableEpicPointsAndArray>
   <TotalFeatsGrantedFirstLevel>1</TotalFeatsGrantedFirstLevel>
   <EnablesAsiAndFeat>false</EnablesAsiAndFeat>
-  <EnableFeatsAtEvenLevels>false</EnableFeatsAtEvenLevels>
+  <EnableFeatsAtEvenLevels>true</EnableFeatsAtEvenLevels>
   <EnableFighterArmamentAdroitness>false</EnableFighterArmamentAdroitness>
   <EnableLevel20>true</EnableLevel20>
   <EnableMulticlass>true</EnableMulticlass>
@@ -353,6 +353,7 @@
     <string>FeatGroupUnarmoredCombat</string>
     <string>FeatGroupAwakenTheBeastWithin</string>
     <string>FeatGroupClassBound</string>
+    <string>FeatGroupSquatNimbleness</string>
   </FeatGroupEnabled>
   <FightingStyleSliderPosition>4</FightingStyleSliderPosition>
   <FightingStyleEnabled>
@@ -1066,4 +1067,7 @@
   <EnableEnemiesControlledByPlayer>false</EnableEnemiesControlledByPlayer>
   <EnableHeroesControlledByComputer>false</EnableHeroesControlledByComputer>
   <DebugDisableVerifyDefinitionNameIsNotInUse>false</DebugDisableVerifyDefinitionNameIsNotInUse>
+  <DebugLogDefinitionCreation>false</DebugLogDefinitionCreation>
+  <DebugLogFieldInitialization>false</DebugLogFieldInitialization>
+  <DebugLogVariantMisuse>false</DebugLogVariantMisuse>
 </Settings>

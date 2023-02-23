@@ -7,6 +7,8 @@ using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Models;
+using UnityEngine;
+using UnityEngine.UI;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
@@ -60,7 +62,7 @@ public static class ArchetypesPreviewModalPatcher
     public static class Show_Patch
     {
         [UsedImplicitly]
-        public static void Prefix(ref List<string> subclasses)
+        public static void Prefix(ArchetypesPreviewModal __instance, ref List<string> subclasses)
         {
             //PATCH: only presents the subclass already taken if one was already selected for this class (MULTICLASS)
             var hero = Global.LevelUpHero;
@@ -82,6 +84,22 @@ public static class ArchetypesPreviewModalPatcher
                     DatabaseHelper.GetDefinition<CharacterSubclassDefinition>(left).FormatTitle(),
                     DatabaseHelper.GetDefinition<CharacterSubclassDefinition>(right).FormatTitle(),
                     StringComparison.CurrentCultureIgnoreCase));
+
+            //PATCH: changes the layout to allow a better display if more than 10 subs
+            var gridLayoutGroup = __instance.subclassesTable.GetComponent<GridLayoutGroup>();
+            var rectTransform = __instance.subclassesTable.GetComponent<RectTransform>();
+            var count = subclasses.Count;
+
+            if (count > 10)
+            {
+                gridLayoutGroup.constraintCount = 6;
+                rectTransform.localScale = new Vector3(0.8f, 0.8f, 0.8f);
+            }
+            else
+            {
+                gridLayoutGroup.constraintCount = 5;
+                rectTransform.localScale = new Vector3(1f, 1f, 1f);
+            }
         }
     }
 }

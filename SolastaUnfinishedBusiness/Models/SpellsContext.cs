@@ -31,6 +31,7 @@ internal static class SpellsContext
     internal static readonly SpellDefinition FarStep = BuildFarStep();
     internal static readonly SpellDefinition SearingSmite = BuildSearingSmite();
     internal static readonly SpellDefinition SunlightBlade = BuildSunlightBlade();
+    internal static readonly SpellDefinition Wrack = BuildWrack();
 
     // ReSharper disable once MemberCanBePrivate.Global
     internal static HashSet<SpellDefinition> Spells { get; set; } = new();
@@ -199,6 +200,7 @@ internal static class SpellsContext
         RegisterSpell(BuildThornyVines(), 0, SpellListDruid, spellListInventorClass);
         RegisterSpell(BuildThunderStrike(), 0, SpellListDruid, SpellListSorcerer, SpellListWizard,
             spellListInventorClass);
+        RegisterSpell(Wrack, 0, SpellListCleric);
 
         // 1st level
         RegisterSpell(BuildChromaticOrb(), 0, SpellListSorcerer, SpellListWizard);
