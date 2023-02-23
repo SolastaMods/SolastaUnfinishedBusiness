@@ -2,7 +2,7 @@
 Condition/&ConditionDomainDefilerInsidiousDeathMagicTitle=Insidiosa magia della morte
 Condition/&ConditionDomainDefilerMarkForDeathDescription=Sei stato marchiato per la morte, diventando vulnerabile ai danni necrotici.
 Condition/&ConditionDomainDefilerMarkForDeathTitle=Marchiato a morte
-Feature/&AdditionalDamageDomainDefilerDivineStrikeDescription=Una volta per turno, infligge +1d8 danni necrotici agli attacchi con le armi. Questo danno aumenta a +2d8 al 14°.
+Feature/&AdditionalDamageDomainDefilerDivineStrikeDescription=Una volta per turno, infliggi +{0}d8 danni necrotici agli attacchi con le armi.
 Feature/&AdditionalDamageDomainDefilerDivineStrikeTitle=Colpo Divino
 Feature/&BonusCantripDomainDefilerDescription=Ottieni i trucchetti bonus <b>Ray of Frost</b> e <b>Wrack</b>.
 Feature/&BonusCantripDomainDefilerTitle=Bonus Trucchetto
@@ -12,7 +12,7 @@ Feature/&DamageAffinityDomainDefilerDivineImmunityDescription=Hai immunità al d
 Feature/&DamageAffinityDomainDefilerDivineImmunityTitle=Immunità Divina
 Feature/&FeatureDomainDefilerInsidiousDeathMagicDescription=Le creature a cui infliggi danni necrotici tramite incantesimi, abilità o armi non possono curarsi per un numero di turni pari al tuo livello.
 Feature/&FeatureDomainDefilerInsidiousDeathMagicTitle=Insidiosa magia della morte
-Feature/&PowerDomainDefilerDefileLifeDescription=Scatena un'ondata di energia necrotica intorno a te. Ogni creatura non morta in un raggio di 3 caselle deve effettuare un tiro salvezza su Costituzione. Le creature subiscono +1d6 danni necrotici se falliscono il tiro salvezza, o la metà se lo superano. Questo danno aumenta a +3d6 al 5°, +5d6 all'11° e +7d6 al 17°.
+Feature/&PowerDomainDefilerDefileLifeDescription=Scatena un'ondata di energia necrotica intorno a te. Ogni creatura non morta in un raggio di 15 piedi deve effettuare un tiro salvezza su Costituzione. Le creature subiscono +{0}d6 danni necrotici se falliscono il tiro salvezza, o la metà se lo superano.
 Feature/&PowerDomainDefilerDefileLifeTitle=Contaminare la vita
 Feature/&PowerDomainDefilerMarkForDeathDescription=Segna un nemico per la morte. Diventano vulnerabili al danno necrotico e devono effettuare un tiro salvezza su Carisma per negarlo.
 Feature/&PowerDomainDefilerMarkForDeathTitle=Marchio per la morte

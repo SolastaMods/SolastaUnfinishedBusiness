@@ -1,6 +1,8 @@
+- added Defiler Domain subclass under Maraike deity
 - expanded Potent Spellcaster to Bards, Clerics, Druids, Sorcerers and Inventors
 - expanded Blessed Soul to Paladins
-- fixed null exception on settings export if user doesn't type a filename
-- fixed piercer condition staying 1 round longer than it should
-- fixed wildshape forms not getting benefits from hero summoning affinities
-- fixed wrong spell effect level calculation with multiclass Warlock
+- fixed Awaken The Beast not applying hit points bonus to wildshape forms
+- fixed Piercer staying 1 round longer than supposed
+- fixed Raven heart seeking shot applying extra damage with non ranged attacks
+- fixed Soul Blade summon weapon not properly removing effects
+- fixed Warlock using wrong spell level if multiclass

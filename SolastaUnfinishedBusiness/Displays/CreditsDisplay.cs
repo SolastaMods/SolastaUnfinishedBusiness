@@ -19,21 +19,19 @@ internal static class CreditsDisplay
         ("TPABOBAP",
             "game UI, infrastructure, gameplay, feats, invocations, spells, quality of life, Dead Master, Elementalist, Moonlit, RiftWalker, SoulBlade, Tactician, Way of Distant Hand, Inventor"),
         ("Nd", "College of Harlequin, College of War Dancer, Marshal, Opportunist, Raven, Spell Shield"),
+        ("Haxermn", "spells, Defiler Domain, Oath of Ancient, Oath of Hatred, Way of Dragon"),
+        ("SilverGriffon", "gameplay, visuals, spells, Dark Elf, Draconic Kobold, Grey Dwarf, Divine Heart"),
         ("ImpPhil", "api, builders, gameplay, rules, quality of life"),
         ("ChrisJohnDigital",
             "builders, gameplay, feats, fighting styles, original Tinkerer, original Wizard subclasses, Arcane Fighter, Spell Master, Spell Shield"),
-        ("SilverGriffon", "gameplay, visuals, spells, Dark Elf, Draconic Kobold, Grey Dwarf, Divine Heart"),
-        ("Haxermn", "spells, Oath of Ancient, Oath of Hatred, Way of Dragon"),
         ("tivie", "Circle of The Night, Path of The Spirits"),
         ("ElAntonius", "feats, fighting styles, Arcanist"),
-        ("DubhHerder", "quality of life, spells, original Warlock subclasses"),
-        ("Holic75", "spells, Bolgrif, Gnome"),
         ("RedOrca", "Path of The Light"),
         ("DreadMaker", "Forest Guardian"),
+        ("DubhHerder", "quality of life, spells, original Warlock subclasses"),
+        ("Holic75", "spells, Bolgrif, Gnome"),
         ("Bazou", "fighting styles, rules, spells"),
         ("Pikachar2", "spells"),
-        ("Prioritizer", "Russian translations"),
-        ("xxy961216", "Chinese translations"),
         ("Taco", "homebrew content design [feats, metamagic, subclasses], power and weapon icons"),
         ("HiddenHax", "homebrew content design [subclasses]"),
         ("Balmz", "some power and spell icons")
@@ -66,9 +64,9 @@ internal static class CreditsDisplay
         if (IsUnityExplorerInstalled && !IsUnityExplorerEnabled)
         {
             UI.ActionButton("Unity Explorer UI".Bold().Khaki(), EnableUnityExplorerUi, UI.Width(150));
+            UI.Label();
         }
 
-        UI.Label();
         UI.DisclosureToggle(Gui.Localize("ModUi/&Patches"), ref _displayPatches, 200);
         UI.Label();
 

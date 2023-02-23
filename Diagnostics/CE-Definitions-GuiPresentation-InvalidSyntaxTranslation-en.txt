@@ -1,3 +1,5 @@
+AdditionalDamageDomainDefilerDivineStrike14	Description='Once per turn, deal +2d8 necrotic damage on weapon attacks.'.
+AdditionalDamageDomainDefilerDivineStrike6	Description='Once per turn, deal +1d8 necrotic damage on weapon attacks.'.
 CastSpellFeatMagicInitiateBard	Title='Initiate'.
 CastSpellFeatMagicInitiateBard	Description='You learn two cantrips of your choice from the Bard spell list. In addition, choose one 1st-level spell to learn from that same list. Using this feat, you can cast the spell once at its lowest level, and you must finish a long rest before you can cast it in this way again.'.
 CastSpellFeatMagicInitiateCleric	Title='Initiate'.
@@ -647,6 +649,10 @@ PowerCreateSpellStoringWandOfSeeInvisibility	Description='Create a wand that can
 PowerCreateSpellStoringWandOfSpiderClimb	Title='Spider Climb'.
 PowerCreateSpellStoringWandOfSpiderClimb	Description='Create a wand that can cast <b>Spider Climb (II)</b> spell using your Inventor spell attack modifier and save DC.'.
 PowerDeadeye	Description='You have learned to trade accuracy to land deadlier shots. When attacking with ranged weapons, you can choose to take a -3 penalty to your to hit in order to do additional damage equal to 3 + your proficiency bonus. Attacking at long range doesn't impose disadvantage and your ranged weapon attacks ignore half cover and three-quarters cover.'.
+PowerDomainDefilerDefileLife11	Description='Unleash a wave of necrotic energy around you. Each non undead creature in a 15' radius must make a Constitution saving throw. Creatures take +5d6 necrotic damage on a failed saving throw, or half that amount on a successful one.'.
+PowerDomainDefilerDefileLife17	Description='Unleash a wave of necrotic energy around you. Each non undead creature in a 15' radius must make a Constitution saving throw. Creatures take +7d6 necrotic damage on a failed saving throw, or half that amount on a successful one.'.
+PowerDomainDefilerDefileLife2	Description='Unleash a wave of necrotic energy around you. Each non undead creature in a 15' radius must make a Constitution saving throw. Creatures take +1d6 necrotic damage on a failed saving throw, or half that amount on a successful one.'.
+PowerDomainDefilerDefileLife5	Description='Unleash a wave of necrotic energy around you. Each non undead creature in a 15' radius must make a Constitution saving throw. Creatures take +3d6 necrotic damage on a failed saving throw, or half that amount on a successful one.'.
 PowerFeatNaturalFluidityGainSlot1	Title='Gain Slot Level 1'.
 PowerFeatNaturalFluidityGainSlot1	Description='Gain 1 additional slot level 1 by using one WildShape form.'.
 PowerFeatNaturalFluidityGainSlot2	Title='Gain Slot Level 2'.

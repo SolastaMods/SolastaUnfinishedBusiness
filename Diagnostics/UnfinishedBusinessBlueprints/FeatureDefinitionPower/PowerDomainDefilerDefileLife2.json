@@ -335,7 +335,7 @@
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "Feature/&PowerDomainDefilerDefileLifeTitle",
-    "description": "Feature/&PowerDomainDefilerDefileLifeDescription",
+    "description": "Unleash a wave of necrotic energy around you. Each non undead creature in a 15' radius must make a Constitution saving throw. Creatures take +1d6 necrotic damage on a failed saving throw, or half that amount on a successful one.",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "65fca59b-3cc8-501c-8387-4f25faf8aa05",

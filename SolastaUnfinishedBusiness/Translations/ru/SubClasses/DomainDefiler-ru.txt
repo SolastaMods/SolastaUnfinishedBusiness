@@ -2,7 +2,7 @@
 Condition/&ConditionDomainDefilerInsidiousDeathMagicTitle=Коварная магия смерти
 Condition/&ConditionDomainDefilerMarkForDeathDescription=Вы были отмечены смертью, получив уязвимость к некротическому урону.
 Condition/&ConditionDomainDefilerMarkForDeathTitle=Отмечены для смерти
-Feature/&AdditionalDamageDomainDefilerDivineStrikeDescription=Один раз за ход нанесите +1к8 урона некротической энергией при атаках оружием. Этот урон увеличивается до +2d8 на 14-м.
+Feature/&AdditionalDamageDomainDefilerDivineStrikeDescription=Один раз за ход наносит урон некротической энергией +{0}d8 при атаках оружием.
 Feature/&AdditionalDamageDomainDefilerDivineStrikeTitle=Божественный удар
 Feature/&BonusCantripDomainDefilerDescription=Получите дополнительные заговоры <b>Ледяной луч</b> и <b>Разрушение</b>.
 Feature/&BonusCantripDomainDefilerTitle=Бонус колдовства
@@ -12,7 +12,7 @@ Feature/&DamageAffinityDomainDefilerDivineImmunityDescription=У вас есть
 Feature/&DamageAffinityDomainDefilerDivineImmunityTitle=Божественный иммунитет
 Feature/&FeatureDomainDefilerInsidiousDeathMagicDescription=Существа, которым вы наносите урон некротической энергией с помощью заклинаний, способностей или оружия, не могут лечиться в течение количества ходов, равного вашему уровню.
 Feature/&FeatureDomainDefilerInsidiousDeathMagicTitle=Коварная магия смерти
-Feature/&PowerDomainDefilerDefileLifeDescription=Выпустить вокруг себя волну некротической энергии. Каждое существо, не являющееся нежитью, в радиусе 3 клеток должно совершить спасбросок Телосложения. Существа получают урон некротической энергией +1d6 при провале спасброска или половину этого количества при успехе. Этот урон увеличивается до +3d6 на 5-м, +5d6 на 11-м и +7d6 на 17-м.
+Feature/&PowerDomainDefilerDefileLifeDescription=Выпустить вокруг себя волну некротической энергии. Каждое существо, не являющееся нежитью, в радиусе 15 футов должно совершить спасбросок Телосложения. Существа получают урон некротической энергией +{0}d6 при провале спасброска или половину этого количества при успехе.
 Feature/&PowerDomainDefilerDefileLifeTitle=Осквернение жизни
 Feature/&PowerDomainDefilerMarkForDeathDescription=Отметить врага на смерть. Они получают уязвимость к некротическому урону и должны сделать спасбросок Харизмы, чтобы свести его на нет.
 Feature/&PowerDomainDefilerMarkForDeathTitle=Знак смерти
