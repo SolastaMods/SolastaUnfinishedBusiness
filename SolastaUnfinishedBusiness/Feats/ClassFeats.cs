@@ -34,6 +34,7 @@ internal static class ClassFeats
         var awakenTheBeastWithinGroup = BuildAwakenTheBeastWithin(feats);
         var blessedSoulGroup = BuildBlessedSoul(feats);
         var potentSpellcasterGroup = BuildPotentSpellcaster(feats);
+        var primalRageGroup = BuildPrimalRage(feats);
 
         feats.AddRange(
             featCallForCharge,
@@ -57,7 +58,8 @@ internal static class ClassFeats
             featSpiritualFluidity,
             awakenTheBeastWithinGroup,
             blessedSoulGroup,
-            potentSpellcasterGroup);
+            potentSpellcasterGroup,
+            primalRageGroup);
     }
 
     #region Awaken The Beast Within
@@ -190,7 +192,7 @@ internal static class ClassFeats
             .SetGuiPresentation(Category.Feat)
             .SetFeatures(
                 AttributeModifierClericChannelDivinityAdd,
-                AttributeModifierCreed_Of_Arun)
+                AttributeModifierCreed_Of_Maraike)
             .SetValidators(ValidatorsFeat.IsClericLevel4)
             .AddToDB();
 
@@ -200,13 +202,45 @@ internal static class ClassFeats
             .SetFeatures(
                 AttributeModifierClericChannelDivinityAdd,
                 AttributeModifierCreed_Of_Solasta)
-            .SetValidators(ValidatorsFeat.IsPaladinLevel8)
+            .SetValidators(ValidatorsFeat.IsPaladinLevel4)
             .AddToDB();
 
         feats.AddRange(blessedSoulCleric, blessedSoulPaladin);
 
         return GroupFeats.MakeGroup(
             "FeatGroupBlessedSoul", null, blessedSoulCleric, blessedSoulPaladin);
+    }
+
+    #endregion
+
+    #region Primal Rage
+
+    private static FeatDefinition BuildPrimalRage(List<FeatDefinition> feats)
+    {
+        const string Name = "FeatPrimalRage";
+
+        var primalRageStr = FeatDefinitionWithPrerequisitesBuilder
+            .Create($"{Name}Str")
+            .SetGuiPresentation(Category.Feat)
+            .SetFeatures(
+                AttributeModifierBarbarianRagePointsAdd,
+                AttributeModifierCreed_Of_Einar)
+            .SetValidators(ValidatorsFeat.IsBarbarianLevel4)
+            .AddToDB();
+
+        var primalRageCon = FeatDefinitionWithPrerequisitesBuilder
+            .Create($"{Name}Con")
+            .SetGuiPresentation(Category.Feat)
+            .SetFeatures(
+                AttributeModifierBarbarianRagePointsAdd,
+                AttributeModifierCreed_Of_Arun)
+            .SetValidators(ValidatorsFeat.IsBarbarianLevel4)
+            .AddToDB();
+
+        feats.AddRange(primalRageStr, primalRageCon);
+
+        return GroupFeats.MakeGroup(
+            "FeatGroupPrimalRage", Name, primalRageStr, primalRageCon);
     }
 
     #endregion

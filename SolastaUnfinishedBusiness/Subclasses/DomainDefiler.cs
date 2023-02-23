@@ -27,13 +27,14 @@ internal sealed class DomainDefiler : AbstractSubclass
         var autoPreparedSpellsDomainDefiler = FeatureDefinitionAutoPreparedSpellsBuilder
             .Create($"AutoPreparedSpells{NAME}")
             .SetGuiPresentation("DomainSpells", Category.Feature)
+            .SetAutoTag("Domain")
             .SetPreparedSpellGroups(
                 BuildSpellGroup(1, FalseLife, InflictWounds), //Ray of Sickness maybe later
                 BuildSpellGroup(3, Blindness, RayOfEnfeeblement),
                 BuildSpellGroup(5, BestowCurse, Fear),
                 BuildSpellGroup(7, Blight, PhantasmalKiller),
                 BuildSpellGroup(9, CloudKill, Contagion)) //Anti life shell maybe later
-            .SetSpellcastingClass(CharacterClassDefinitions.Paladin)
+            .SetSpellcastingClass(CharacterClassDefinitions.Cleric)
             .AddToDB();
 
         var bonusCantripDomainDefiler = FeatureDefinitionBonusCantripsBuilder
@@ -101,6 +102,16 @@ internal sealed class DomainDefiler : AbstractSubclass
                     .Build())
             .AddToDB();
 
+        var featureSetDefileLife2 = FeatureDefinitionFeatureSetBuilder
+            .Create($"FeatureSet{NAME}DefileLife2")
+            .SetGuiPresentation(
+                Gui.Localize("Feature/&ClericChannelDivinityTitle") + ": " +
+                Gui.Localize($"Feature/&Power{NAME}DefileLifeTitle"),
+                PowerDefileDescription(1),
+                powerDefileSprite)
+            .AddFeatureSet(powerDefileLife2)
+            .AddToDB();
+
         var powerDefileLife5 = FeatureDefinitionPowerBuilder
             .Create($"Power{NAME}DefileLife5")
             .SetGuiPresentation($"Power{NAME}DefileLife", Category.Feature, PowerDefileDescription(3),
@@ -125,6 +136,16 @@ internal sealed class DomainDefiler : AbstractSubclass
                             .SetDamageForm(DamageTypeNecrotic, 3, DieType.D6)
                             .Build())
                     .Build())
+            .AddToDB();
+
+        var featureSetDefileLife5 = FeatureDefinitionFeatureSetBuilder
+            .Create($"FeatureSet{NAME}DefileLife5")
+            .SetGuiPresentation(
+                Gui.Localize("Feature/&ClericChannelDivinityTitle") + ": " +
+                Gui.Localize($"Feature/&Power{NAME}DefileLifeTitle"),
+                PowerDefileDescription(3),
+                powerDefileSprite)
+            .AddFeatureSet(powerDefileLife5)
             .AddToDB();
 
         var powerDefileLife11 = FeatureDefinitionPowerBuilder
@@ -153,6 +174,16 @@ internal sealed class DomainDefiler : AbstractSubclass
                     .Build())
             .AddToDB();
 
+        var featureSetDefileLife11 = FeatureDefinitionFeatureSetBuilder
+            .Create($"FeatureSet{NAME}DefileLife11")
+            .SetGuiPresentation(
+                Gui.Localize("Feature/&ClericChannelDivinityTitle") + ": " +
+                Gui.Localize($"Feature/&Power{NAME}DefileLifeTitle"),
+                PowerDefileDescription(5),
+                powerDefileSprite)
+            .AddFeatureSet(powerDefileLife11)
+            .AddToDB();
+
         var powerDefileLife17 = FeatureDefinitionPowerBuilder
             .Create($"Power{NAME}DefileLife17")
             .SetGuiPresentation($"Power{NAME}DefileLife", Category.Feature, PowerDefileDescription(7),
@@ -179,6 +210,16 @@ internal sealed class DomainDefiler : AbstractSubclass
                     .Build())
             .AddToDB();
 
+        var featureSetDefileLife17 = FeatureDefinitionFeatureSetBuilder
+            .Create($"FeatureSet{NAME}DefileLife17")
+            .SetGuiPresentation(
+                Gui.Localize("Feature/&ClericChannelDivinityTitle") + ": " +
+                Gui.Localize($"Feature/&Power{NAME}DefileLifeTitle"),
+                PowerDefileDescription(7),
+                powerDefileSprite)
+            .AddFeatureSet(powerDefileLife17)
+            .AddToDB();
+
         //
         // Level 6 (14)
         //
@@ -197,9 +238,9 @@ internal sealed class DomainDefiler : AbstractSubclass
             .SetNotificationTag("DivineStrike")
             .SetSpecificDamageType(DamageTypeNecrotic)
             .SetDamageDice(DieType.D8, 1)
-            .SetAdvancement(AdditionalDamageAdvancement.ClassLevel, 1, 0, 1, 14)
+            .SetAdvancement(AdditionalDamageAdvancement.ClassLevel, 1, 1, 8, 6)
             .SetFrequencyLimit(FeatureLimitedUsage.OnceInMyTurn)
-            .SetAttackOnly()
+            .SetAttackModeOnly()
             .AddToDB();
 
         var damageAffinityDivineResistance = FeatureDefinitionDamageAffinityBuilder
@@ -267,6 +308,16 @@ internal sealed class DomainDefiler : AbstractSubclass
                     .Build())
             .AddToDB();
 
+        var featureSetMarkForDeath = FeatureDefinitionFeatureSetBuilder
+            .Create($"FeatureSet{NAME}MarkForDeath")
+            .SetGuiPresentation(
+                Gui.Localize("Feature/&ClericChannelDivinityTitle") + ": " +
+                Gui.Localize($"Feature/&Power{NAME}MarkForDeathTitle"),
+                Gui.Localize($"Feature/&Power{NAME}MarkForDeathDescription"),
+                powerDefileSprite)
+            .AddFeatureSet(powerMarkForDeath)
+            .AddToDB();
+
         Subclass = CharacterSubclassDefinitionBuilder
             .Create(NAME)
             .SetGuiPresentation(Category.Subclass, SorcerousHauntedSoul)
@@ -275,23 +326,23 @@ internal sealed class DomainDefiler : AbstractSubclass
                 featureInsidiousDeathMagic,
                 bonusCantripDomainDefiler)
             .AddFeaturesAtLevel(2,
-                powerDefileLife2)
+                featureSetDefileLife2)
             .AddFeaturesAtLevel(5,
-                powerDefileLife5)
+                featureSetDefileLife5)
             .AddFeaturesAtLevel(6,
                 additionalDamageDivineStrike6,
                 damageAffinityDivineResistance)
             .AddFeaturesAtLevel(8,
-                powerMarkForDeath)
+                featureSetMarkForDeath)
             .AddFeaturesAtLevel(10,
                 PowerClericDivineInterventionPaladin)
             .AddFeaturesAtLevel(11,
-                powerDefileLife11)
+                featureSetDefileLife11)
             .AddFeaturesAtLevel(14,
                 additionalDamageDivineStrike14,
                 damageAffinityDivineImmunity)
             .AddFeaturesAtLevel(17,
-                powerDefileLife17)
+                featureSetDefileLife17)
             .AddToDB();
     }
 
@@ -313,19 +364,14 @@ internal sealed class DomainDefiler : AbstractSubclass
             EffectDescription effect,
             RulesetCharacter caster)
         {
-            if (definition is not SpellDefinition spellDefinition ||
-                !SpellListDefinitions.SpellListCleric.SpellsByLevel.Any(x =>
-                    x.Spells.Contains(spellDefinition) && spellDefinition.EffectDescription.HasDamageForm()))
+            var damage = effect.FindFirstDamageForm();
+
+            if (damage is not { DamageType: DamageTypeNecrotic } || definition is not SpellDefinition)
             {
                 return effect;
             }
 
-            var damage = effect.FindFirstDamageForm();
-
-            if (damage.DamageType == DamageTypeNecrotic)
-            {
-                effect.effectForms.Add(_effectInsidiousDeathMagic);
-            }
+            effect.effectForms.Add(_effectInsidiousDeathMagic);
 
             return effect;
         }
@@ -358,13 +404,23 @@ internal sealed class DomainDefiler : AbstractSubclass
                 return;
             }
 
+            var hero = attacker.RulesetCharacter as RulesetCharacterHero ??
+                       attacker.RulesetCharacter.OriginalFormCharacter as RulesetCharacterHero;
+
+            if (hero == null)
+            {
+                return;
+            }
+
+            hero.ClassesAndLevels.TryGetValue(CharacterClassDefinitions.Cleric, out var levels);
+
             foreach (var rulesetCondition in attackMode.EffectDescription.effectForms
                          .Where(x => x.DamageForm.DamageType == DamageTypeNecrotic)
                          .Select(_ => RulesetCondition.CreateActiveCondition(
                              defender.RulesetCharacter.Guid,
                              _conditionInsidiousDeathMagic,
                              DurationType.Round,
-                             5,
+                             levels,
                              TurnOccurenceType.StartOfTurn,
                              attacker.RulesetCharacter.Guid,
                              attacker.RulesetCharacter.CurrentFaction.Name)))

@@ -264,6 +264,8 @@ You gain proficiency with medium armor and shields.
 [*][b]Potent Spellcaster [Sorcerer][/b]: You can add your spellcaster attribute modifier to the damage you deal with any Sorcerer cantrip in your repertoire.
 [*][b]Potent Spellcaster [Wizard][/b]: You can add your spellcaster attribute modifier to the damage you deal with any Wizard cantrip in your repertoire.
 [*][b]Power Attack[/b]: You have learned to trade accuracy to land deadlier blows. When attacking with melee weapons, you can choose to take a -3 penalty to your to hit in order to do additional damage equal to 3 + your proficiency bonus.
+[*][b]Primal Rage [Con][/b]: Increase your Constitution score by 1, to a maximum of 20. You gain one additional Rage usage between rests.
+[*][b]Primal Rage [Str][/b]: Increase your Strength score by 1, to a maximum of 20. You gain one additional Rage usage between rests.
 [*][b]Protection[/b]: When a creature you can see attacks a target other than you that is within one cell of you, you can use your reaction to impose disadvantage on the attack roll. You must be wielding a shield.
 [*][b]Pugilist[/b]: Your unarmed strikes deal an additional 1d4 bludgeoning damage and you can punch with your offhand as a bonus action. You can shove as a bonus action if you have free hand.
 [*][b]Ranged Expert[/b]: Your expert training with ranged weapons grants you these benefits:

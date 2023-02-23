@@ -12,14 +12,14 @@
   "familyTag": "",
   "knownFeatsPrerequisite": [],
   "features": [
-    "Definition:AttributeModifierClericChannelDivinityAdd:5f8d0b3220239994ca321752da71c5c5",
-    "Definition:AttributeModifierCreed_Of_Maraike:7fd526d5e743c6f48bad92aac9b1738d"
+    "Definition:AttributeModifierBarbarianRagePointsAdd:a972ffba165be34418cd0a6fa8b85f10",
+    "Definition:AttributeModifierCreed_Of_Einar:38c2a545af534bb45ad92ffe7f30d62e"
   ],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
-    "title": "Feat/&FeatBlessedSoulClericTitle",
-    "description": "Feat/&FeatBlessedSoulClericDescription",
+    "title": "Feat/&FeatPrimalRageStrTitle",
+    "description": "Feat/&FeatPrimalRageStrDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -39,7 +39,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "703ec57a-73fe-5c74-896c-2f31a2b73a01",
+  "guid": "c5c65231-20e3-5f39-b081-976cfc8f5898",
   "contentPack": 9999,
-  "name": "FeatBlessedSoulCleric"
+  "name": "FeatPrimalRageStr"
 }

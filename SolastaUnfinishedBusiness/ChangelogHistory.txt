@@ -1,5 +1,13 @@
 ﻿CHANGES:
 
+1.4.33.47:
+
+- added Primal Rage feat
+- fixed Blessed Soul requirements and attribute score modifier
+- fixed Defiler Domain missing domain spells and divine strike damage
+- improved Defiler Domain descriptions
+- improved College of War Dance descriptions
+
 1.4.33.46:
 
 - added Defiler Domain subclass under Maraike deity

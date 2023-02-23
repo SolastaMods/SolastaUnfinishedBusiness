@@ -43,7 +43,7 @@
       ]
     }
   ],
-  "spellcastingClass": "Definition:Paladin:b2e60f3a15ee5de40a14cce2d16f02ba",
+  "spellcastingClass": "Definition:Cleric:ae0f550f733a7e04aa225da694b2827c",
   "affinityRace": null,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
