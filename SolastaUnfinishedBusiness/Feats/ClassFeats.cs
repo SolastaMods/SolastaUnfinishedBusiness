@@ -202,7 +202,7 @@ internal static class ClassFeats
             .SetFeatures(
                 AttributeModifierClericChannelDivinityAdd,
                 AttributeModifierCreed_Of_Solasta)
-            .SetValidators(ValidatorsFeat.IsPaladinLevel8)
+            .SetValidators(ValidatorsFeat.IsPaladinLevel4)
             .AddToDB();
 
         feats.AddRange(blessedSoulCleric, blessedSoulPaladin);
@@ -225,7 +225,7 @@ internal static class ClassFeats
             .SetFeatures(
                 AttributeModifierBarbarianRagePointsAdd,
                 AttributeModifierCreed_Of_Einar)
-            .SetValidators(ValidatorsFeat.IsClericLevel4)
+            .SetValidators(ValidatorsFeat.IsBarbarianLevel4)
             .AddToDB();
 
         var primalRageCon = FeatDefinitionWithPrerequisitesBuilder
@@ -234,7 +234,7 @@ internal static class ClassFeats
             .SetFeatures(
                 AttributeModifierBarbarianRagePointsAdd,
                 AttributeModifierCreed_Of_Arun)
-            .SetValidators(ValidatorsFeat.IsPaladinLevel8)
+            .SetValidators(ValidatorsFeat.IsBarbarianLevel4)
             .AddToDB();
 
         feats.AddRange(primalRageStr, primalRageCon);
