@@ -7,12 +7,10 @@ using SolastaUnfinishedBusiness.Properties;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterSubclassDefinitions;
-using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionDamageAffinitys;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPowers;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
 using static SolastaUnfinishedBusiness.Builders.Features.AutoPreparedSpellsGroupBuilder;
 using static SolastaUnfinishedBusiness.Models.SpellsContext;
-
 
 namespace SolastaUnfinishedBusiness.Subclasses;
 
@@ -47,6 +45,7 @@ internal sealed class DomainDefiler : AbstractSubclass
         var conditionInsidiousDeathMagic = ConditionDefinitionBuilder
             .Create($"Condition{NAME}InsidiousDeathMagic")
             .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionFrightenedFear)
+            .SetConditionType(ConditionType.Detrimental)
             .SetFeatures(FeatureDefinitionHealingModifiers.HealingModifierChilledByTouch)
             .SetSpecialDuration(DurationType.Round, 5)
             .AddToDB();
@@ -68,36 +67,105 @@ internal sealed class DomainDefiler : AbstractSubclass
         // Level 2
         //
 
-        var powerDefileLife = FeatureDefinitionPowerBuilder
-            .Create($"Power{NAME}DefileLife")
-            .SetGuiPresentation(Category.Feature,
+        var powerDefileLife2 = FeatureDefinitionPowerBuilder
+            .Create($"Power{NAME}DefileLife2")
+            .SetGuiPresentation($"Power{NAME}DefileLife", Category.Feature,
                 Sprites.GetSprite("PowerDefileLife", Resources.PowerDefileLife, 128, 64))
             .SetUsesFixed(ActivationTime.Action, RechargeRate.ChannelDivinity)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
                     .SetParticleEffectParameters(PowerWightLord_CircleOfDeath)
-                    .SetTargetingData(Side.Enemy, RangeType.Self, 1, TargetType.Sphere, 3)
+                    .SetTargetingData(Side.Enemy, RangeType.Self, 0, TargetType.Sphere, 3)
                     .AddImmuneCreatureFamilies(CharacterFamilyDefinitions.Undead)
                     .SetSavingThrowData(
                         false,
                         AttributeDefinitions.Constitution,
                         true,
-                        EffectDifficultyClassComputation.AbilityScoreAndProficiency,
-                        AttributeDefinitions.Constitution)
+                        EffectDifficultyClassComputation.SpellCastingFeature)
                     .SetEffectForms(
                         EffectFormBuilder
                             .Create()
                             .HasSavingThrow(EffectSavingThrowType.HalfDamage)
                             .SetDamageForm(DamageTypeNecrotic, 1, DieType.D6)
-                            .SetDiceByRankTable(
-                                EffectForm.LevelApplianceType.DiceNumberByLevelTable,
-                                LevelSourceType.CharacterLevel,
-                                1,
-                                1,
-                                2,
-                                6,
-                                5)
+                            .Build())
+                    .Build())
+            .AddToDB();
+
+        var powerDefileLife5 = FeatureDefinitionPowerBuilder
+            .Create($"Power{NAME}DefileLife5")
+            .SetGuiPresentation($"Power{NAME}DefileLife", Category.Feature,
+                Sprites.GetSprite("PowerDefileLife", Resources.PowerDefileLife, 128, 64))
+            .SetUsesFixed(ActivationTime.Action, RechargeRate.ChannelDivinity)
+            .SetOverriddenPower(powerDefileLife2)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetParticleEffectParameters(PowerWightLord_CircleOfDeath)
+                    .SetTargetingData(Side.Enemy, RangeType.Self, 0, TargetType.Sphere, 3)
+                    .AddImmuneCreatureFamilies(CharacterFamilyDefinitions.Undead)
+                    .SetSavingThrowData(
+                        false,
+                        AttributeDefinitions.Constitution,
+                        true,
+                        EffectDifficultyClassComputation.SpellCastingFeature)
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .HasSavingThrow(EffectSavingThrowType.HalfDamage)
+                            .SetDamageForm(DamageTypeNecrotic, 3, DieType.D6)
+                            .Build())
+                    .Build())
+            .AddToDB();
+
+        var powerDefileLife11 = FeatureDefinitionPowerBuilder
+            .Create($"Power{NAME}DefileLife11")
+            .SetGuiPresentation($"Power{NAME}DefileLife", Category.Feature,
+                Sprites.GetSprite("PowerDefileLife", Resources.PowerDefileLife, 128, 64))
+            .SetUsesFixed(ActivationTime.Action, RechargeRate.ChannelDivinity)
+            .SetOverriddenPower(powerDefileLife5)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetParticleEffectParameters(PowerWightLord_CircleOfDeath)
+                    .SetTargetingData(Side.Enemy, RangeType.Self, 0, TargetType.Sphere, 3)
+                    .AddImmuneCreatureFamilies(CharacterFamilyDefinitions.Undead)
+                    .SetSavingThrowData(
+                        false,
+                        AttributeDefinitions.Constitution,
+                        true,
+                        EffectDifficultyClassComputation.SpellCastingFeature)
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .HasSavingThrow(EffectSavingThrowType.HalfDamage)
+                            .SetDamageForm(DamageTypeNecrotic, 5, DieType.D6)
+                            .Build())
+                    .Build())
+            .AddToDB();
+
+        var powerDefileLife17 = FeatureDefinitionPowerBuilder
+            .Create($"Power{NAME}DefileLife17")
+            .SetGuiPresentation($"Power{NAME}DefileLife", Category.Feature,
+                Sprites.GetSprite("PowerDefileLife", Resources.PowerDefileLife, 128, 64))
+            .SetUsesFixed(ActivationTime.Action, RechargeRate.ChannelDivinity)
+            .SetOverriddenPower(powerDefileLife11)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetParticleEffectParameters(PowerWightLord_CircleOfDeath)
+                    .SetTargetingData(Side.Enemy, RangeType.Self, 0, TargetType.Sphere, 3)
+                    .AddImmuneCreatureFamilies(CharacterFamilyDefinitions.Undead)
+                    .SetSavingThrowData(
+                        false,
+                        AttributeDefinitions.Constitution,
+                        true,
+                        EffectDifficultyClassComputation.SpellCastingFeature)
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .HasSavingThrow(EffectSavingThrowType.HalfDamage)
+                            .SetDamageForm(DamageTypeNecrotic, 5, DieType.D6)
                             .Build())
                     .Build())
             .AddToDB();
@@ -106,29 +174,60 @@ internal sealed class DomainDefiler : AbstractSubclass
         // Level 6
         //
 
+        var additionalDamageDivineStrike = FeatureDefinitionAdditionalDamageBuilder
+            .Create($"AdditionalDamage{NAME}DivineStrike")
+            .SetGuiPresentation(Category.Feature)
+            .SetNotificationTag("DivineStrike")
+            .SetSpecificDamageType(DamageTypeNecrotic)
+            .SetDamageDice(DieType.D8, 1)
+            .SetAdvancement(AdditionalDamageAdvancement.ClassLevel, 1, 0, 1, 14)
+            .SetFrequencyLimit(FeatureLimitedUsage.OnceInMyTurn)
+            .SetAttackOnly()
+            .AddToDB();
+
+        var damageAffinityDivineResistance = FeatureDefinitionDamageAffinityBuilder
+            .Create($"DamageAffinity{NAME}DivineResistance")
+            .SetGuiPresentation(Category.Feature)
+            .SetDamageAffinityType(DamageAffinityType.Resistance)
+            .SetDamageType(DamageTypeNecrotic)
+            .AddToDB();
+
+        //
+        // Level 8
+        //
+
         var conditionMarkForDeath = ConditionDefinitionBuilder
             .Create($"Condition{NAME}MarkForDeath")
             .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionDead)
+            .SetConditionType(ConditionType.Detrimental)
             .CopyParticleReferences(ConditionDefinitions.ConditionChilled)
             .AddFeatures(
-                DamageAffinityBludgeoningVulnerability,
-                DamageAffinityPiercingVulnerability,
-                DamageAffinitySlashingVulnerability)
+                FeatureDefinitionDamageAffinityBuilder
+                    .Create("DamageAffinityNecroticVulnerability")
+                    .SetDamageAffinityType(DamageAffinityType.Vulnerability)
+                    .SetDamageType(DamageTypeNecrotic)
+                    .AddToDB())
             .AddToDB();
 
         var powerMarkForDeath = FeatureDefinitionPowerBuilder
             .Create($"Power{NAME}MarkForDeath")
             .SetGuiPresentation(Category.Feature,
                 Sprites.GetSprite("PowerMarkForDeath", Resources.PowerMarkForDeath, 128, 64))
-            .SetUsesFixed(ActivationTime.Action, RechargeRate.ChannelDivinity)
+            .SetUsesFixed(ActivationTime.BonusAction, RechargeRate.ChannelDivinity)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
-                    .SetDurationData(DurationType.Round, 1)
+                    .SetDurationData(DurationType.Minute, 1)
                     .SetTargetingData(Side.Enemy, RangeType.Distance, 6, TargetType.Individuals)
+                    .SetSavingThrowData(
+                        false,
+                        AttributeDefinitions.Charisma,
+                        true,
+                        EffectDifficultyClassComputation.SpellCastingFeature)
                     .SetEffectForms(
                         EffectFormBuilder
                             .Create()
+                            .CanSaveToCancel(TurnOccurenceType.EndOfTurn)
                             .SetConditionForm(
                                 conditionMarkForDeath,
                                 ConditionForm.ConditionOperation.Add,
@@ -138,37 +237,34 @@ internal sealed class DomainDefiler : AbstractSubclass
                     .Build())
             .AddToDB();
 
-        //
-        // Level 8
-        //
-
-        var additionalDamageDivineStrikeDefiler = FeatureDefinitionAdditionalDamageBuilder
-            .Create($"AdditionalDamage{NAME}DivineStrike")
-            .SetGuiPresentation(Category.Feature)
-            .SetNotificationTag("DivineStrike")
-            .SetSpecificDamageType(DamageTypeNecrotic)
-            .SetDamageDice(DieType.D8, 1)
-            .SetFrequencyLimit(FeatureLimitedUsage.OnceInMyTurn)
-            .SetAttackOnly()
-            .AddToDB();
-
         Subclass = CharacterSubclassDefinitionBuilder
             .Create(NAME)
             .SetGuiPresentation(Category.Subclass, SorcerousHauntedSoul)
-            .AddFeaturesAtLevel(1, 
+            .AddFeaturesAtLevel(1,
                 autoPreparedSpellsDomainDefiler,
                 featureInsidiousDeathMagic,
                 bonusCantripDomainDefiler)
-            .AddFeaturesAtLevel(2, powerDefileLife)
-            .AddFeaturesAtLevel(6, powerMarkForDeath)
-            .AddFeaturesAtLevel(8, additionalDamageDivineStrikeDefiler)
-            .AddFeaturesAtLevel(10, PowerClericDivineInterventionPaladin)
+            .AddFeaturesAtLevel(2,
+                powerDefileLife2)
+            .AddFeaturesAtLevel(5,
+                powerDefileLife5)
+            .AddFeaturesAtLevel(6,
+                additionalDamageDivineStrike,
+                damageAffinityDivineResistance)
+            .AddFeaturesAtLevel(8,
+                powerMarkForDeath)
+            .AddFeaturesAtLevel(10,
+                PowerClericDivineInterventionPaladin)
+            .AddFeaturesAtLevel(11,
+                powerDefileLife11)
+            .AddFeaturesAtLevel(17,
+                powerDefileLife17)
             .AddToDB();
     }
 
     internal override CharacterSubclassDefinition Subclass { get; }
     internal override FeatureDefinitionSubclassChoice SubclassChoice { get; }
-    internal override DeityDefinition DeityDefinition { get; } = DeityDefinitions.Maraike;
+    internal override DeityDefinition DeityDefinition => DeityDefinitions.Maraike;
 
     private sealed class DeathMagicModifyMagic : IModifyMagicEffect
     {
@@ -231,7 +327,7 @@ internal sealed class DomainDefiler : AbstractSubclass
 
             foreach (var rulesetCondition in attackMode.EffectDescription.effectForms
                          .Where(x => x.DamageForm.DamageType == DamageTypeNecrotic)
-                         .Select(x => RulesetCondition.CreateActiveCondition(
+                         .Select(_ => RulesetCondition.CreateActiveCondition(
                              defender.RulesetCharacter.Guid,
                              _conditionInsidiousDeathMagic,
                              DurationType.Round,

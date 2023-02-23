@@ -18,23 +18,43 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:PowerDomainDefilerDefileLife:fcffca6e-8c07-50d2-9da3-726d3b0c8f4e",
+      "featureDefinition": "Definition:PowerDomainDefilerDefileLife2:44dca297-725b-5882-a54a-d5bfc01d2128",
       "level": 2
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:PowerDomainDefilerMarkForDeath:bf4ca333-c8a0-50f5-942d-4add30b35ef3",
+      "featureDefinition": "Definition:PowerDomainDefilerDefileLife5:7c4edb48-9d74-5b4c-85fc-fc1741a9f931",
+      "level": 5
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:DamageAffinityDomainDefilerDivineResistance:f97c531f-66f1-57f3-a51f-fe1cb8ad00ec",
       "level": 6
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:AdditionalDamageDomainDefilerDivineStrike:320cd4cd-21c7-5f0e-a8ff-60a87283c3e5",
+      "level": 6
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:PowerDomainDefilerMarkForDeath:bf4ca333-c8a0-50f5-942d-4add30b35ef3",
       "level": 8
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:PowerClericDivineInterventionPaladin:4f9a2e4ff332b204aae612753dada617",
       "level": 10
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:PowerDomainDefilerDefileLife11:a492ce53-3a9c-504d-8198-07f66d52be3b",
+      "level": 11
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:PowerDomainDefilerDefileLife17:3c096288-7e70-54fa-8d6e-26cd6c2f0bee",
+      "level": 17
     }
   ],
   "personalityFlagOccurences": [],

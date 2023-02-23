@@ -2,11 +2,9 @@
   "$type": "ConditionDefinition, Assembly-CSharp",
   "inDungeonEditor": false,
   "parentCondition": null,
-  "conditionType": "Beneficial",
+  "conditionType": "Detrimental",
   "features": [
-    "Definition:DamageAffinityBludgeoningVulnerability:189796af61e45a44d89d4c4fb7805a27",
-    "Definition:DamageAffinityPiercingVulnerability:7479235d736f37c4090f536b604d52bf",
-    "Definition:DamageAffinitySlashingVulnerability:f789e6285bb4a4f40b79d334009f9c99"
+    "Definition:DamageAffinityNecroticVulnerability:a4a3aa9d-6cc9-520b-a6ce-174d9237c9dc"
   ],
   "allowMultipleInstances": false,
   "silentWhenAdded": false,
