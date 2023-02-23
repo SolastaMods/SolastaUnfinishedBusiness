@@ -192,7 +192,7 @@ internal static class ClassFeats
             .SetGuiPresentation(Category.Feat)
             .SetFeatures(
                 AttributeModifierClericChannelDivinityAdd,
-                AttributeModifierCreed_Of_Arun)
+                AttributeModifierCreed_Of_Maraike)
             .SetValidators(ValidatorsFeat.IsClericLevel4)
             .AddToDB();
 
