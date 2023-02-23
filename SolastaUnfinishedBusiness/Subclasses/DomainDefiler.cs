@@ -64,7 +64,7 @@ internal sealed class DomainDefiler : AbstractSubclass
             .AddToDB();
 
         //
-        // Level 2
+        // Level 2 (5, 11, 17)
         //
 
         var powerDefileLife2 = FeatureDefinitionPowerBuilder
@@ -171,10 +171,10 @@ internal sealed class DomainDefiler : AbstractSubclass
             .AddToDB();
 
         //
-        // Level 6
+        // Level 6 (14)
         //
 
-        var additionalDamageDivineStrike = FeatureDefinitionAdditionalDamageBuilder
+        var additionalDamageDivineStrike6 = FeatureDefinitionAdditionalDamageBuilder
             .Create($"AdditionalDamage{NAME}DivineStrike")
             .SetGuiPresentation(Category.Feature)
             .SetNotificationTag("DivineStrike")
@@ -189,6 +189,18 @@ internal sealed class DomainDefiler : AbstractSubclass
             .Create($"DamageAffinity{NAME}DivineResistance")
             .SetGuiPresentation(Category.Feature)
             .SetDamageAffinityType(DamageAffinityType.Resistance)
+            .SetDamageType(DamageTypeNecrotic)
+            .AddToDB();
+
+        var additionalDamageDivineStrike14 = FeatureDefinitionBuilder
+            .Create($"AdditionalDamage{NAME}DivineStrike14")
+            .SetGuiPresentation($"AdditionalDamage{NAME}DivineStrike", Category.Feature)
+            .AddToDB();
+        
+        var damageAffinityDivineImmunity = FeatureDefinitionDamageAffinityBuilder
+            .Create($"DamageAffinity{NAME}DivineImmunity")
+            .SetGuiPresentation(Category.Feature)
+            .SetDamageAffinityType(DamageAffinityType.Immunity)
             .SetDamageType(DamageTypeNecrotic)
             .AddToDB();
 
@@ -249,7 +261,7 @@ internal sealed class DomainDefiler : AbstractSubclass
             .AddFeaturesAtLevel(5,
                 powerDefileLife5)
             .AddFeaturesAtLevel(6,
-                additionalDamageDivineStrike,
+                additionalDamageDivineStrike6,
                 damageAffinityDivineResistance)
             .AddFeaturesAtLevel(8,
                 powerMarkForDeath)
@@ -257,6 +269,9 @@ internal sealed class DomainDefiler : AbstractSubclass
                 PowerClericDivineInterventionPaladin)
             .AddFeaturesAtLevel(11,
                 powerDefileLife11)
+            .AddFeaturesAtLevel(14,
+                additionalDamageDivineStrike14,
+                damageAffinityDivineImmunity)
             .AddFeaturesAtLevel(17,
                 powerDefileLife17)
             .AddToDB();

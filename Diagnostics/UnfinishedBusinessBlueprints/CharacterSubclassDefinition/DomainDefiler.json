@@ -53,6 +53,16 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:DamageAffinityDomainDefilerDivineImmunity:762bd2b0-0bc5-582b-b02b-d0f33517daf9",
+      "level": 14
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:AdditionalDamageDomainDefilerDivineStrike14:d2271466-ab0d-51d7-a9cb-751e9ffe34c5",
+      "level": 14
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:PowerDomainDefilerDefileLife17:3c096288-7e70-54fa-8d6e-26cd6c2f0bee",
       "level": 17
     }
