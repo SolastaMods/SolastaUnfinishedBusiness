@@ -1,5 +1,5 @@
 {
-  "$type": "FeatDefinition, Assembly-CSharp",
+  "$type": "SolastaUnfinishedBusiness.CustomDefinitions.FeatDefinitionWithPrerequisites, SolastaUnfinishedBusiness",
   "compatibleClassesPrerequisite": [],
   "mustCastSpellsPrerequisite": false,
   "compatibleRacesPrerequisite": [],
@@ -11,12 +11,15 @@
   "hasFamilyTag": false,
   "familyTag": "",
   "knownFeatsPrerequisite": [],
-  "features": [],
+  "features": [
+    "Definition:AttributeModifierBarbarianRagePointsAdd:a972ffba165be34418cd0a6fa8b85f10",
+    "Definition:AttributeModifierCreed_Of_Einar:38c2a545af534bb45ad92ffe7f30d62e"
+  ],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
-    "title": "Feat/&FeatGroupClassBoundTitle",
-    "description": "Awaken The Beast, Blessed Soul, Call for Charge, Cunning Escape, Natural Fluidity, Potent Spellcaster, Primal Rage, Spiritual Fluidity",
+    "title": "Feat/&FeatPrimalRageStrTitle",
+    "description": "Feat/&FeatPrimalRageStrDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -36,7 +39,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "c98daa86-03c4-5550-86f8-80178d6ec6f5",
+  "guid": "c5c65231-20e3-5f39-b081-976cfc8f5898",
   "contentPack": 9999,
-  "name": "FeatGroupClassBound"
+  "name": "FeatPrimalRageStr"
 }

@@ -8,15 +8,15 @@
   "minimalAbilityScoreName": "Strength",
   "armorProficiencyPrerequisite": false,
   "armorProficiencyCategory": "",
-  "hasFamilyTag": false,
-  "familyTag": "",
+  "hasFamilyTag": true,
+  "familyTag": "FeatPrimalRage",
   "knownFeatsPrerequisite": [],
   "features": [],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
-    "title": "Feat/&FeatGroupClassBoundTitle",
-    "description": "Awaken The Beast, Blessed Soul, Call for Charge, Cunning Escape, Natural Fluidity, Potent Spellcaster, Primal Rage, Spiritual Fluidity",
+    "title": "Feat/&FeatGroupPrimalRageTitle",
+    "description": "Increase your Strength or Constitution score by 1, to a maximum of 20. You gain one additional Rage usage between rests.",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -36,7 +36,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "c98daa86-03c4-5550-86f8-80178d6ec6f5",
+  "guid": "fe465cae-c21b-50d6-b5ca-7d8102ef5a44",
   "contentPack": 9999,
-  "name": "FeatGroupClassBound"
+  "name": "FeatGroupPrimalRage"
 }
