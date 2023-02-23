@@ -18,12 +18,12 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:PowerDomainDefilerDefileLife2:44dca297-725b-5882-a54a-d5bfc01d2128",
+      "featureDefinition": "Definition:FeatureSetDomainDefilerDefileLife2:7e871290-e5f9-5f7e-97a5-9ced333fb8ce",
       "level": 2
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:PowerDomainDefilerDefileLife5:7c4edb48-9d74-5b4c-85fc-fc1741a9f931",
+      "featureDefinition": "Definition:FeatureSetDomainDefilerDefileLife5:07d38c25-4e61-5bbe-964c-34abb8fd144a",
       "level": 5
     },
     {
@@ -38,7 +38,7 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:PowerDomainDefilerMarkForDeath:bf4ca333-c8a0-50f5-942d-4add30b35ef3",
+      "featureDefinition": "Definition:FeatureSetDomainDefilerMarkForDeath:92474773-54e8-5908-a328-a2cf39db0c4a",
       "level": 8
     },
     {
@@ -48,7 +48,7 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:PowerDomainDefilerDefileLife11:a492ce53-3a9c-504d-8198-07f66d52be3b",
+      "featureDefinition": "Definition:FeatureSetDomainDefilerDefileLife11:27f4fc49-f7b9-59ed-bcd6-3bba266ce99f",
       "level": 11
     },
     {
@@ -63,7 +63,7 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:PowerDomainDefilerDefileLife17:3c096288-7e70-54fa-8d6e-26cd6c2f0bee",
+      "featureDefinition": "Definition:FeatureSetDomainDefilerDefileLife17:f7736993-eb65-5230-9937-ff85831b0e2f",
       "level": 17
     }
   ],
