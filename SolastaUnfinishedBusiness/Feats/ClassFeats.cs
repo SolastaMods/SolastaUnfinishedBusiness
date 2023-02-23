@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 using JetBrains.Annotations;
@@ -7,6 +8,7 @@ using SolastaUnfinishedBusiness.Api.Extensions;
 using SolastaUnfinishedBusiness.Api.Infrastructure;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
+using SolastaUnfinishedBusiness.Classes.Inventor;
 using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomUI;
@@ -24,40 +26,38 @@ internal static class ClassFeats
 {
     internal static void CreateFeats([NotNull] List<FeatDefinition> feats)
     {
-        var featBlessedSoul = BuildBlessedSoul();
         var featCallForCharge = BuildCallForCharge();
         var featCunningEscape = BuildCunningEscape();
         var featNaturalFluidity = BuildNaturalFluidity();
-        var featPotentSpellcaster = BuildPotentSpellcaster();
         var featSpiritualFluidity = BuildSpiritualFluidity();
 
         var awakenTheBeastWithinGroup = BuildAwakenTheBeastWithin(feats);
+        var blessedSoulGroup = BuildBlessedSoul(feats);
+        var potentSpellcasterGroup = BuildPotentSpellcaster(feats);
 
         feats.AddRange(
-            featBlessedSoul,
             featCallForCharge,
             featCunningEscape,
             featNaturalFluidity,
-            featPotentSpellcaster,
             featSpiritualFluidity);
 
         GroupFeats.FeatGroupAgilityCombat.AddFeats(
             featCunningEscape);
 
         GroupFeats.FeatGroupSpellCombat.AddFeats(
-            featPotentSpellcaster);
+            potentSpellcasterGroup);
 
         GroupFeats.FeatGroupSupportCombat.AddFeats(
             featCallForCharge);
 
         GroupFeats.MakeGroup("FeatGroupClassBound", null,
-            featBlessedSoul,
             featCallForCharge,
             featCunningEscape,
             featNaturalFluidity,
-            featPotentSpellcaster,
             featSpiritualFluidity,
-            awakenTheBeastWithinGroup);
+            awakenTheBeastWithinGroup,
+            blessedSoulGroup,
+            potentSpellcasterGroup);
     }
 
     #region Awaken The Beast Within
@@ -175,19 +175,38 @@ internal static class ClassFeats
 
     #region Blessed Soul
 
-    private static FeatDefinition BuildBlessedSoul()
+    private static FeatDefinition BuildBlessedSoul(List<FeatDefinition> feats)
     {
-        const string NAME = "FeatBlessedSoul";
+        const string Name = "FeatBlessedSoul";
 
-        return
-            FeatDefinitionWithPrerequisitesBuilder
-                .Create(NAME)
-                .SetGuiPresentation(Category.Feat)
-                .SetFeatures(
-                    AttributeModifierClericChannelDivinityAdd,
-                    AttributeModifierCreed_Of_Arun)
-                .SetValidators(ValidatorsFeat.IsClericLevel4)
-                .AddToDB();
+        // BACKWARD COMPATIBILITY
+        _ = FeatDefinitionBuilder
+            .Create(Name)
+            .SetGuiPresentationNoContent(true)
+            .AddToDB();
+
+        var blessedSoulCleric = FeatDefinitionWithPrerequisitesBuilder
+            .Create($"{Name}Cleric")
+            .SetGuiPresentation(Category.Feat)
+            .SetFeatures(
+                AttributeModifierClericChannelDivinityAdd,
+                AttributeModifierCreed_Of_Arun)
+            .SetValidators(ValidatorsFeat.IsClericLevel4)
+            .AddToDB();
+
+        var blessedSoulPaladin = FeatDefinitionWithPrerequisitesBuilder
+            .Create($"{Name}Paladin")
+            .SetGuiPresentation(Category.Feat)
+            .SetFeatures(
+                AttributeModifierClericChannelDivinityAdd,
+                AttributeModifierCreed_Of_Solasta)
+            .SetValidators(ValidatorsFeat.IsPaladinLevel8)
+            .AddToDB();
+
+        feats.AddRange(blessedSoulCleric, blessedSoulPaladin);
+
+        return GroupFeats.MakeGroup(
+            "FeatGroupBlessedSoul", null, blessedSoulCleric, blessedSoulPaladin);
     }
 
     #endregion
@@ -216,8 +235,12 @@ internal static class ClassFeats
             var actingCharacter = action.ActingCharacter.RulesetCharacter;
 
             var condition = RulesetCondition.CreateActiveCondition(
-                actingCharacter.Guid, ConditionDefinitions.ConditionDisengaging, DurationType.Round, 0,
-                TurnOccurenceType.EndOfTurn, actingCharacter.Guid, actingCharacter.CurrentFaction.Name);
+                actingCharacter.Guid,
+                ConditionDefinitions.ConditionDisengaging,
+                DurationType.Round,
+                0,
+                TurnOccurenceType.EndOfTurn,
+                actingCharacter.Guid, actingCharacter.CurrentFaction.Name);
 
             actingCharacter.AddConditionOfCategory(AttributeDefinitions.TagCombat, condition);
         }
@@ -413,26 +436,89 @@ internal static class ClassFeats
 
     #region Potent Spellcaster
 
-    private static FeatDefinition BuildPotentSpellcaster()
+    private static FeatDefinition BuildPotentSpellcaster(List<FeatDefinition> feats)
     {
-        return FeatDefinitionWithPrerequisitesBuilder
-            .Create("FeatPotentSpellcaster")
-            .SetGuiPresentation(Category.Feat)
-            .SetCustomSubFeatures(new ModifyMagicEffectFeatPotentSpellcaster())
-            .SetValidators(ValidatorsFeat.IsWizardLevel4)
+        const string Name = "FeatPotentSpellcaster";
+
+        // BACKWARD COMPATIBILITY
+        _ = FeatDefinitionBuilder
+            .Create(Name)
+            .SetGuiPresentationNoContent(true)
             .AddToDB();
+
+        var spellLists = new List<SpellListDefinition>
+        {
+            SpellListDefinitions.SpellListBard,
+            SpellListDefinitions.SpellListCleric,
+            SpellListDefinitions.SpellListDruid,
+            SpellListDefinitions.SpellListSorcerer,
+            SpellListDefinitions.SpellListWizard,
+            InventorClass.SpellList
+        };
+
+        var validators = new List<Func<FeatDefinition, RulesetCharacterHero, (bool result, string output)>>
+        {
+            ValidatorsFeat.IsBardLevel4,
+            ValidatorsFeat.IsClericLevel4,
+            ValidatorsFeat.IsDruidLevel4,
+            ValidatorsFeat.IsSorcererLevel4,
+            ValidatorsFeat.IsWizardLevel4,
+            ValidatorsFeat.IsInventorLevel4
+        };
+
+        var potentSpellcasterFeats = new List<FeatDefinition>();
+
+        for (var i = 0; i < spellLists.Count; i++)
+        {
+            var spellList = spellLists[i];
+            var validator = validators[i];
+            var className = spellList.Name.Replace("SpellList", String.Empty);
+            var classTitle = GetDefinition<CharacterClassDefinition>(className).FormatTitle();
+            var featPotentSpellcaster = FeatDefinitionWithPrerequisitesBuilder
+                .Create($"{Name}{className}")
+                .SetGuiPresentation(
+                    Gui.Format("Feat/&FeatPotentSpellcasterTitle", classTitle),
+                    Gui.Format("Feat/&FeatPotentSpellcasterDescription", classTitle))
+                .SetCustomSubFeatures(new ModifyMagicEffectFeatPotentSpellcaster(spellList))
+                .SetValidators(validator)
+                .AddToDB();
+
+            potentSpellcasterFeats.Add(featPotentSpellcaster);
+        }
+
+        var potentSpellcasterGroup = GroupFeats.MakeGroup(
+            "FeatGroupPotentSpellcaster", null, potentSpellcasterFeats);
+
+        feats.AddRange(potentSpellcasterFeats);
+
+        return potentSpellcasterGroup;
     }
 
     private sealed class ModifyMagicEffectFeatPotentSpellcaster : IModifyMagicEffect
     {
+        private readonly SpellListDefinition _spellListDefinition;
+
+        public ModifyMagicEffectFeatPotentSpellcaster(SpellListDefinition spellListDefinition)
+        {
+            _spellListDefinition = spellListDefinition;
+        }
+
         public EffectDescription ModifyEffect(
             BaseDefinition definition,
             EffectDescription effect,
             RulesetCharacter character)
         {
             if (definition is not SpellDefinition spellDefinition ||
-                !SpellListDefinitions.SpellListWizard.SpellsByLevel.Any(x =>
+                !_spellListDefinition.SpellsByLevel.Any(x =>
                     x.Level == 0 && x.Spells.Contains(spellDefinition)))
+            {
+                return effect;
+            }
+
+            var rulesetSpellRepertoire = character.SpellRepertoires.Find(x =>
+                x.SpellCastingFeature.SpellListDefinition == _spellListDefinition);
+
+            if (rulesetSpellRepertoire == null || rulesetSpellRepertoire.KnownCantrips.All(x => x != spellDefinition))
             {
                 return effect;
             }
@@ -444,8 +530,31 @@ internal static class ClassFeats
                 return effect;
             }
 
+            string attribute;
+
+            if (_spellListDefinition == SpellListDefinitions.SpellListBard ||
+                _spellListDefinition == SpellListDefinitions.SpellListSorcerer)
+
+            {
+                attribute = AttributeDefinitions.Charisma;
+            }
+            else if (_spellListDefinition == SpellListDefinitions.SpellListCleric ||
+                     _spellListDefinition == SpellListDefinitions.SpellListDruid)
+            {
+                attribute = AttributeDefinitions.Wisdom;
+            }
+            else if (_spellListDefinition == SpellListDefinitions.SpellListWizard ||
+                     _spellListDefinition == InventorClass.SpellList)
+            {
+                attribute = AttributeDefinitions.Intelligence;
+            }
+            else
+            {
+                return effect;
+            }
+
             var bonus = AttributeDefinitions.ComputeAbilityScoreModifier(
-                character.GetAttribute(AttributeDefinitions.Intelligence).CurrentValue);
+                character.GetAttribute(attribute).CurrentValue);
 
             damage.BonusDamage += bonus;
             damage.DamageBonusTrends.Add(new TrendInfo(bonus, FeatureSourceType.CharacterFeature,

@@ -102,6 +102,7 @@ internal static class CustomReactionsContext
 
         if (parent.childCount < 3)
         {
+            // ReSharper disable once Unity.UnknownResource
             var prefab = Resources.Load<GameObject>("Gui/Prefabs/CharacterEdition/PersonalityFlagToggle");
             var asset = Object.Instantiate(prefab, parent, false);
 

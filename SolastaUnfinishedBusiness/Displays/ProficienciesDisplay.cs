@@ -3,7 +3,7 @@ using SolastaUnfinishedBusiness.Models;
 
 namespace SolastaUnfinishedBusiness.Displays;
 
-internal static class FeatsFightingStylesInvocationsDisplay
+internal static class ProficienciesDisplay
 {
     internal static void DisplayFeatsFightingStylesInvocations()
     {

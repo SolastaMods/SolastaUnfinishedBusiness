@@ -10,7 +10,7 @@ using static SolastaUnfinishedBusiness.Displays.CharacterDisplay;
 using static SolastaUnfinishedBusiness.Displays.CreditsDisplay;
 using static SolastaUnfinishedBusiness.Displays.DungeonMakerDisplay;
 using static SolastaUnfinishedBusiness.Displays.EncountersDisplay;
-using static SolastaUnfinishedBusiness.Displays.FeatsFightingStylesInvocationsDisplay;
+using static SolastaUnfinishedBusiness.Displays.ProficienciesDisplay;
 using static SolastaUnfinishedBusiness.Displays.GameServicesDisplay;
 using static SolastaUnfinishedBusiness.Displays.GameUiDisplay;
 using static SolastaUnfinishedBusiness.Displays.ItemsAndCraftingDisplay;

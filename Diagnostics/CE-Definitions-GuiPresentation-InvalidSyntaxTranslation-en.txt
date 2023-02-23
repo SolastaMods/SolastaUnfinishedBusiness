@@ -1,3 +1,5 @@
+AdditionalDamageDomainDefilerDivineStrike14	Description='Once per turn, deal +2d8 necrotic damage on weapon attacks.'.
+AdditionalDamageDomainDefilerDivineStrike6	Description='Once per turn, deal +1d8 necrotic damage on weapon attacks.'.
 CastSpellFeatMagicInitiateBard	Title='Initiate'.
 CastSpellFeatMagicInitiateBard	Description='You learn two cantrips of your choice from the Bard spell list. In addition, choose one 1st-level spell to learn from that same list. Using this feat, you can cast the spell once at its lowest level, and you must finish a long rest before you can cast it in this way again.'.
 CastSpellFeatMagicInitiateCleric	Title='Initiate'.
@@ -410,6 +412,7 @@ FeatGroupApothecary	Description='Increase one of your mental attributes by 1, to
 You gain proficiency with herbalism kit and Arcana, or expertise if already proficient.'.
 FeatGroupArmor	Description='Armor Master, Discretion of the Coedymwarth, Heavy Armor Master, Medium Armor, Might of the Iron Legion, Sturdiness of the Tundra'.
 FeatGroupAwakenTheBeastWithin	Description='Increase any ability score by 1, to a maximum of 20. Whenever you use your Wild Shape ability to transform into a beast, you gain temporary hit points equal to twice your druid level.'.
+FeatGroupBlessedSoul	Description='Your use of divine magic has left a spiritual mark on your soul, allowing you to express your faith more frequently. Increase your Charisma or Wisdom score by 1, to a maximum of 20. You gain one additional Channel Divinity usage between rests.'.
 FeatGroupBodyResilience	Description='Badlands Marauder, Blessing of the Elements, Enduring Body, Focused Sleeper, Hard to Kill, Hauler, Robust, Tough'.
 FeatGroupCelestialTouched	Description='Increase one of your mental attributes by 1, to a maximum of 20.
 You gain the ability to cast the healing word, cure wounds and lesser restoration spells once per long rest and you can cast these spells with your spell slots.'.
@@ -438,6 +441,7 @@ FeatGroupPiercer	Description='Increase your Strength or Dexterity by 1, to a max
 When you hit a creature with an attack that deals piercing damage, you can re-roll dice when you roll a 1 and you must use the new roll. When you score a critical hit you can roll one additional damage die when determining the extra piercing damage the target takes.'.
 FeatGroupPlaneTouchedMagic	Description='You are touched by some other plane and can cast some spells associated with that plane.
 One of your mental attributes is raised by 1 to a maximum of 20.'.
+FeatGroupPotentSpellcaster	Description='You can add your spellcaster attribute modifier to the damage you deal with any cantrip in your repertoire.'.
 FeatGroupPrecisionFocused	Description='Increase one of your mental attributes by 1, to a maximum of 20.
 You can use a bonus action to make weapon attacks count as magical and use selected mental attribute for attack and damage rolls for 1 minute. This feature can be used Proficiency Bonus times per long rest'.
 FeatGroupRaceBound	Description='Dragon Wings, Elven Accuracy, Fade Away, Revenant Great Sword, Squat Nimbleness'.
@@ -445,7 +449,7 @@ FeatGroupRangedCombat	Description='Bow Mastery, Deadeye, Discretion of the Coedy
 FeatGroupRevenantGreatSword	Description='Increase your Dexterity or Strength score by 1, to a maximum of 20. While you are holding a great sword,  you gain a +1 bonus to Armor Class and you can use your Dexterity on to hit and to damage bonuses.'.
 FeatGroupShadowTouched	Description='Increase one of your mental attributes by 1, to a maximum of 20.
 You gain the ability to cast the invisibility, inflict wounds, and false life spells once per long rest and you can cast these spells with your spell slots.'.
-FeatGroupSkills	Description='Healer, Manipulator, Pickpocket'.
+FeatGroupSkills	Description='Arcane Appraiser, Healer, Manipulator, Pickpocket'.
 FeatGroupSlasher	Description='Increase your Strength or Dexterity by 1, to a maximum of 20.
 When you hit a creature with an attack that deals slashing damage, you can reduce the speed of the target by 10 feet until the start of your next turn. When you score a critical hit you grievously wound it. Until the start of your next turn, the target has disadvantage on all attack rolls.'.
 FeatGroupSpellCombat	Description='Elemental Adept, Flawless Concentration, Potent Spellcaster, Powerful Cantrip, Spell Sniper, War Caster'.
@@ -475,6 +479,18 @@ FeatMagicInitiateWarlock	Title='Magic Initiate [Warlock]'.
 FeatMagicInitiateWarlock	Description='You learn two cantrips of your choice from the Warlock spell list. In addition, choose one 1st-level spell to learn from that same list. Using this feat, you can cast the spell once at its lowest level, and you must finish a long rest before you can cast it in this way again.'.
 FeatMagicInitiateWizard	Title='Magic Initiate [Wizard]'.
 FeatMagicInitiateWizard	Description='You learn two cantrips of your choice from the Wizard spell list. In addition, choose one 1st-level spell to learn from that same list. Using this feat, you can cast the spell once at its lowest level, and you must finish a long rest before you can cast it in this way again.'.
+FeatPotentSpellcasterBard	Title='Potent Spellcaster [Bard]'.
+FeatPotentSpellcasterBard	Description='You can add your spellcaster attribute modifier to the damage you deal with any Bard cantrip in your repertoire.'.
+FeatPotentSpellcasterCleric	Title='Potent Spellcaster [Cleric]'.
+FeatPotentSpellcasterCleric	Description='You can add your spellcaster attribute modifier to the damage you deal with any Cleric cantrip in your repertoire.'.
+FeatPotentSpellcasterDruid	Title='Potent Spellcaster [Druid]'.
+FeatPotentSpellcasterDruid	Description='You can add your spellcaster attribute modifier to the damage you deal with any Druid cantrip in your repertoire.'.
+FeatPotentSpellcasterInventor	Title='Potent Spellcaster [Inventor]'.
+FeatPotentSpellcasterInventor	Description='You can add your spellcaster attribute modifier to the damage you deal with any Inventor cantrip in your repertoire.'.
+FeatPotentSpellcasterSorcerer	Title='Potent Spellcaster [Sorcerer]'.
+FeatPotentSpellcasterSorcerer	Description='You can add your spellcaster attribute modifier to the damage you deal with any Sorcerer cantrip in your repertoire.'.
+FeatPotentSpellcasterWizard	Title='Potent Spellcaster [Wizard]'.
+FeatPotentSpellcasterWizard	Description='You can add your spellcaster attribute modifier to the damage you deal with any Wizard cantrip in your repertoire.'.
 FeatPowerAttack	Description='You have learned to trade accuracy to land deadlier blows. When attacking with melee weapons, you can choose to take a -3 penalty to your to hit in order to do additional damage equal to 3 + your proficiency bonus.'.
 FeatSpellSniperDruid	Title='Spell Sniper [Druid]'.
 FeatSpellSniperDruid	Description='You learn two cantrips of your choice from the Druid spell list. When you cast a spell that requires you to make an attack roll, the spell's range is doubled. Your ranged spell attacks ignore half cover and three-quarters cover.'.
@@ -633,6 +649,10 @@ PowerCreateSpellStoringWandOfSeeInvisibility	Description='Create a wand that can
 PowerCreateSpellStoringWandOfSpiderClimb	Title='Spider Climb'.
 PowerCreateSpellStoringWandOfSpiderClimb	Description='Create a wand that can cast <b>Spider Climb (II)</b> spell using your Inventor spell attack modifier and save DC.'.
 PowerDeadeye	Description='You have learned to trade accuracy to land deadlier shots. When attacking with ranged weapons, you can choose to take a -3 penalty to your to hit in order to do additional damage equal to 3 + your proficiency bonus. Attacking at long range doesn't impose disadvantage and your ranged weapon attacks ignore half cover and three-quarters cover.'.
+PowerDomainDefilerDefileLife11	Description='Unleash a wave of necrotic energy around you. Each non undead creature in a 15' radius must make a Constitution saving throw. Creatures take +5d6 necrotic damage on a failed saving throw, or half that amount on a successful one.'.
+PowerDomainDefilerDefileLife17	Description='Unleash a wave of necrotic energy around you. Each non undead creature in a 15' radius must make a Constitution saving throw. Creatures take +7d6 necrotic damage on a failed saving throw, or half that amount on a successful one.'.
+PowerDomainDefilerDefileLife2	Description='Unleash a wave of necrotic energy around you. Each non undead creature in a 15' radius must make a Constitution saving throw. Creatures take +1d6 necrotic damage on a failed saving throw, or half that amount on a successful one.'.
+PowerDomainDefilerDefileLife5	Description='Unleash a wave of necrotic energy around you. Each non undead creature in a 15' radius must make a Constitution saving throw. Creatures take +3d6 necrotic damage on a failed saving throw, or half that amount on a successful one.'.
 PowerFeatNaturalFluidityGainSlot1	Title='Gain Slot Level 1'.
 PowerFeatNaturalFluidityGainSlot1	Description='Gain 1 additional slot level 1 by using one WildShape form.'.
 PowerFeatNaturalFluidityGainSlot2	Title='Gain Slot Level 2'.

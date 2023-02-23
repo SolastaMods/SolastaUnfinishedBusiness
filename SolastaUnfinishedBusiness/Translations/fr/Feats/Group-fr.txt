@@ -86,3 +86,8 @@ Feat/&FeatGroupDefenseCombatDescription={0}
 Feat/&FeatGroupDefenseCombatTitle=Combat : Défense
 Feat/&FeatGroupSupportCombatDescription={0}
 Feat/&FeatGroupSupportCombatTitle=Combattre : Soutien
+Feat/&FeatGroupPotentSpellcasterDescription=Vous pouvez ajouter votre modificateur d'attribut de lanceur de sorts aux dégâts que vous infligez avec n'importe quel sort mineur de votre répertoire.
+Feat/&FeatGroupPotentSpellcasterTitle=Puissant lanceur de sorts
+
+Feat/&FeatGroupBlessedSoulDescription=Votre utilisation de la magie divine a laissé une marque spirituelle sur votre âme, vous permettant d'exprimer votre foi plus fréquemment. Augmentez votre score de Charisme ou de Sagesse de 1, jusqu'à un maximum de 20. Vous gagnez une utilisation supplémentaire de Canalisation divine entre les repos.
+Feat/&FeatGroupBlessedSoulTitle=Âme bénie

@@ -3,6 +3,8 @@
   <EnableDiagsDump>0</EnableDiagsDump>
   <HideWelcomeMessage>true</HideWelcomeMessage>
   <DisplayRacesToggle>false</DisplayRacesToggle>
+  <DisplayBackgroundsToggle>false</DisplayBackgroundsToggle>
+  <DisplayDeitiesToggle>false</DisplayDeitiesToggle>
   <DisplayClassesToggle>false</DisplayClassesToggle>
   <DisplaySubclassesToggle>false</DisplaySubclassesToggle>
   <DisplayFeatsToggle>false</DisplayFeatsToggle>
@@ -11,7 +13,7 @@
   <DisplayInvocationsToggle>false</DisplayInvocationsToggle>
   <DisplayMetamagicToggle>false</DisplayMetamagicToggle>
   <DisplayCraftingToggle>false</DisplayCraftingToggle>
-  <DisplayMerchantsToggle>true</DisplayMerchantsToggle>
+  <DisplayMerchantsToggle>false</DisplayMerchantsToggle>
   <DisplaySpellListsToggle>
     <item>
       <key>
@@ -114,11 +116,11 @@
   <EnableFlexibleRaces>false</EnableFlexibleRaces>
   <DisableClassPrerequisitesOnModFeats>false</DisableClassPrerequisitesOnModFeats>
   <DisableRacePrerequisitesOnModFeats>false</DisableRacePrerequisitesOnModFeats>
-  <AddHumanoidFavoredEnemyToRanger>false</AddHumanoidFavoredEnemyToRanger>
+  <AddHumanoidFavoredEnemyToRanger>true</AddHumanoidFavoredEnemyToRanger>
   <EnableEpicPointsAndArray>true</EnableEpicPointsAndArray>
   <TotalFeatsGrantedFirstLevel>1</TotalFeatsGrantedFirstLevel>
   <EnablesAsiAndFeat>false</EnablesAsiAndFeat>
-  <EnableFeatsAtEvenLevels>false</EnableFeatsAtEvenLevels>
+  <EnableFeatsAtEvenLevels>true</EnableFeatsAtEvenLevels>
   <EnableFighterArmamentAdroitness>false</EnableFighterArmamentAdroitness>
   <EnableLevel20>true</EnableLevel20>
   <EnableMulticlass>true</EnableMulticlass>
@@ -142,12 +144,16 @@
   <RaceEnabled>
     <string>RaceBolgrif</string>
     <string>RaceDarkelf</string>
-    <string>RaceGrayDwarf</string>
-    <string>RaceKobold</string>
     <string>RaceGnome</string>
+    <string>RaceGrayDwarf</string>
     <string>RaceHalfElfVariant</string>
+    <string>RaceKobold</string>
     <string>RaceTiefling</string>
   </RaceEnabled>
+  <BackgroundSliderPosition>4</BackgroundSliderPosition>
+  <BackgroundEnabled />
+  <DeitySliderPosition>4</DeitySliderPosition>
+  <DeityEnabled />
   <ClassSliderPosition>4</ClassSliderPosition>
   <ClassEnabled>
     <string>Inventor</string>
@@ -155,40 +161,41 @@
   <SubclassSliderPosition>4</SubclassSliderPosition>
   <SubclassEnabled>
     <string>PathOfTheLight</string>
+    <string>PathOfTheSpirits</string>
+    <string>CollegeOfGuts</string>
+    <string>CollegeOfHarlequin</string>
+    <string>CollegeOfLife</string>
+    <string>CollegeOfWarDancer</string>
+    <string>DomainDefiler</string>
+    <string>CircleOfTheAncientForest</string>
+    <string>CircleOfTheForestGuardian</string>
+    <string>CircleOfTheNight</string>
     <string>MartialMarshal</string>
+    <string>MartialRoyalKnight</string>
     <string>MartialSpellShield</string>
+    <string>MartialTactician</string>
+    <string>OathOfAltruism</string>
+    <string>OathOfAncients</string>
+    <string>OathOfHatred</string>
     <string>RangerArcanist</string>
+    <string>RangerWildMaster</string>
+    <string>RoguishDuelist</string>
     <string>RoguishOpportunist</string>
     <string>RoguishRaven</string>
     <string>SorcerousDivineHeart</string>
+    <string>FieldManipulator</string>
+    <string>WayOfTheDiscordance</string>
     <string>WayOfTheDistantHand</string>
-    <string>PatronSoulBlade</string>
-    <string>WizardBladeDancer</string>
-    <string>WizardDeadMaster</string>
-    <string>RangerWildMaster</string>
+    <string>WayOfTheDragon</string>
     <string>WayOfSilhouette</string>
-    <string>PatronRiftWalker</string>
-    <string>WizardArcaneFighter</string>
-    <string>WizardSpellMaster</string>
-    <string>CollegeOfGuts</string>
     <string>PatronElementalist</string>
     <string>PatronMoonlit</string>
-    <string>CollegeOfLife</string>
-    <string>FieldManipulator</string>
-    <string>CircleOfTheForestGuardian</string>
-    <string>CircleOfTheAncientForest</string>
-    <string>CircleOfTheNight</string>
-    <string>PathOfTheSpirits</string>
-    <string>MartialRoyalKnight</string>
-    <string>CollegeOfHarlequin</string>
-    <string>MartialTactician</string>
-    <string>CollegeOfWarDancer</string>
-    <string>OathOfHatred</string>
-    <string>OathOfAncients</string>
-    <string>WayOfTheDragon</string>
-    <string>OathOfAltruism</string>
-    <string>RoguishDuelist</string>
-    <string>WayOfTheDiscordance</string>
+    <string>PatronRiftWalker</string>
+    <string>PatronSoulBlade</string>
+    <string>WizardArcaneFighter</string>
+    <string>WizardBladeDancer</string>
+    <string>WizardDeadMaster</string>
+    <string>WizardSpellMaster</string>
   </SubclassEnabled>
   <FeatSliderPosition>4</FeatSliderPosition>
   <FeatEnabled>
@@ -198,23 +205,49 @@
     <string>FeatArcaneDefense</string>
     <string>FeatArcanePrecision</string>
     <string>FeatArchery</string>
+    <string>FeatAstralArms</string>
+    <string>FeatAwakenTheBeastWithinCharisma</string>
+    <string>FeatAwakenTheBeastWithinConstitution</string>
+    <string>FeatAwakenTheBeastWithinDexterity</string>
+    <string>FeatAwakenTheBeastWithinIntelligence</string>
+    <string>FeatAwakenTheBeastWithinStrength</string>
+    <string>FeatAwakenTheBeastWithinWisdom</string>
+    <string>FeatBladeMastery</string>
+    <string>FeatBlessedSoulCleric</string>
+    <string>FeatBlessedSoulPaladin</string>
     <string>FeatBlindFighting</string>
+    <string>FeatBowMastery</string>
+    <string>FeatCallForCharge</string>
     <string>FeatCelestialTouchedCha</string>
     <string>FeatCelestialTouchedInt</string>
     <string>FeatCelestialTouchedWis</string>
     <string>FeatCharismaticDefense</string>
     <string>FeatCharismaticPrecision</string>
     <string>FeatCrippling</string>
+    <string>FeatCrusherCon</string>
+    <string>FeatCrusherStr</string>
+    <string>FeatCunningEscape</string>
     <string>FeatDeadeye</string>
     <string>FeatDefense</string>
+    <string>FeatDefensiveDuelist</string>
+    <string>FeatDragonWings</string>
     <string>FeatDualFlurry</string>
     <string>FeatDualWeaponDefense</string>
     <string>FeatDueling</string>
+    <string>FeatEldritchAdept</string>
+    <string>FeatElementalAdeptDamageAcid</string>
+    <string>FeatElementalAdeptDamageCold</string>
+    <string>FeatElementalAdeptDamageFire</string>
+    <string>FeatElementalAdeptDamageLightning</string>
+    <string>FeatElementalAdeptDamageThunder</string>
     <string>FeatElvenAccuracyCharisma</string>
     <string>FeatElvenAccuracyDexterity</string>
     <string>FeatElvenAccuracyIntelligence</string>
     <string>FeatElvenAccuracyWisdom</string>
     <string>FeatExecutioner</string>
+    <string>FeatFadeAwayDex</string>
+    <string>FeatFadeAwayInt</string>
+    <string>FeatFellHanded</string>
     <string>FeatFeyTeleportationCha</string>
     <string>FeatFeyTeleportationInt</string>
     <string>FeatFeyTeleportationWis</string>
@@ -224,18 +257,40 @@
     <string>FeatGreatWeapon</string>
     <string>FeatHandAndAHalf</string>
     <string>FeatHealer</string>
+    <string>FeatHeavyArmorMaster</string>
     <string>FeatImprovedCritical</string>
     <string>FeatInspiringLeader</string>
+    <string>FeatMagicInitiateBard</string>
+    <string>FeatMagicInitiateCleric</string>
+    <string>FeatMagicInitiateDruid</string>
+    <string>FeatMagicInitiateSorcerer</string>
+    <string>FeatMagicInitiateWarlock</string>
+    <string>FeatMagicInitiateWizard</string>
     <string>FeatMediumArmorDex</string>
     <string>FeatMediumArmorStr</string>
     <string>FeatMerciless</string>
+    <string>FeatMetamagicAdept</string>
+    <string>FeatMobile</string>
+    <string>FeatMonkInitiate</string>
+    <string>FeatNaturalFluidity</string>
     <string>FeatPickPocket</string>
+    <string>FeatPiercerDex</string>
+    <string>FeatPiercerStr</string>
+    <string>FeatPoisonousSkin</string>
     <string>FeatPolearmExpert</string>
+    <string>FeatPotentSpellcasterBard</string>
+    <string>FeatPotentSpellcasterCleric</string>
+    <string>FeatPotentSpellcasterDruid</string>
+    <string>FeatPotentSpellcasterInventor</string>
+    <string>FeatPotentSpellcasterSorcerer</string>
+    <string>FeatPotentSpellcasterWizard</string>
     <string>FeatPowerAttack</string>
     <string>FeatProtection</string>
     <string>FeatPugilist</string>
     <string>FeatRangedExpert</string>
     <string>FeatRecklessAttack</string>
+    <string>FeatRevenantGreatSwordDex</string>
+    <string>FeatRevenantGreatSwordStr</string>
     <string>FeatSavageAttack</string>
     <string>FeatCraftyScriber</string>
     <string>FeatSentinel</string>
@@ -243,6 +298,16 @@
     <string>FeatShadowTouchedInt</string>
     <string>FeatShadowTouchedWis</string>
     <string>FeatShieldExpert</string>
+    <string>FeatSlasherDex</string>
+    <string>FeatSlasherStr</string>
+    <string>FeatSpearMastery</string>
+    <string>FeatSpellSniperDruid</string>
+    <string>FeatSpellSniperSorcerer</string>
+    <string>FeatSpellSniperWarlock</string>
+    <string>FeatSpellSniperWizard</string>
+    <string>FeatSpiritualFluidity</string>
+    <string>FeatSquatNimblenessDex</string>
+    <string>FeatSquatNimblenessStr</string>
     <string>FeatSuperiorCritical</string>
     <string>FeatTelekineticCha</string>
     <string>FeatTelekineticInt</string>
@@ -256,103 +321,54 @@
     <string>FeatWarCaster</string>
     <string>FeatWiseDefense</string>
     <string>FeatWisePrecision</string>
-    <string>FeatHeavyArmorMaster</string>
-    <string>FeatMobile</string>
-    <string>FeatPiercerDex</string>
-    <string>FeatPiercerStr</string>
-    <string>FeatDragonWings</string>
-    <string>FeatFadeAwayDex</string>
-    <string>FeatFadeAwayInt</string>
-    <string>FeatRevenantGreatSwordDex</string>
-    <string>FeatRevenantGreatSwordStr</string>
-    <string>FeatAstralArms</string>
-    <string>FeatBowMastery</string>
-    <string>FeatPoisonousSkin</string>
-    <string>FeatCrusherCon</string>
-    <string>FeatCrusherStr</string>
-    <string>FeatMonkInitiate</string>
-    <string>FeatSlasherDex</string>
-    <string>FeatSlasherStr</string>
-    <string>FeatEldritchAdept</string>
-    <string>FeatMetamagicAdept</string>
-    <string>FeatMagicInitiateBard</string>
-    <string>FeatMagicInitiateCleric</string>
-    <string>FeatMagicInitiateDruid</string>
-    <string>FeatMagicInitiateSorcerer</string>
-    <string>FeatMagicInitiateWarlock</string>
-    <string>FeatMagicInitiateWizard</string>
-    <string>FeatDefensiveDuelist</string>
-    <string>FeatSpellSniperDruid</string>
-    <string>FeatSpellSniperSorcerer</string>
-    <string>FeatSpellSniperWarlock</string>
-    <string>FeatSpellSniperWizard</string>
-    <string>FeatElementalAdeptDamageAcid</string>
-    <string>FeatElementalAdeptDamageCold</string>
-    <string>FeatElementalAdeptDamageFire</string>
-    <string>FeatElementalAdeptDamageLightning</string>
-    <string>FeatElementalAdeptDamageThunder</string>
-    <string>FeatBladeMastery</string>
-    <string>FeatFellHanded</string>
-    <string>FeatSpearMastery</string>
-    <string>FeatCallForCharge</string>
-    <string>FeatAwakenTheBeastWithinCharisma</string>
-    <string>FeatAwakenTheBeastWithinConstitution</string>
-    <string>FeatAwakenTheBeastWithinDexterity</string>
-    <string>FeatAwakenTheBeastWithinIntelligence</string>
-    <string>FeatAwakenTheBeastWithinStrength</string>
-    <string>FeatAwakenTheBeastWithinWisdom</string>
-    <string>FeatCunningEscape</string>
-    <string>FeatPotentSpellcaster</string>
-    <string>FeatBlessedSoul</string>
-    <string>FeatSpiritualFluidity</string>
-    <string>FeatNaturalFluidity</string>
-    <string>FeatSquatNimblenessDex</string>
-    <string>FeatSquatNimblenessStr</string>
   </FeatEnabled>
   <FeatGroupSliderPosition>4</FeatGroupSliderPosition>
   <FeatGroupEnabled>
     <string>FeatGroupAlchemist</string>
     <string>FeatGroupApothecary</string>
     <string>FeatGroupArmor</string>
+    <string>FeatGroupAwakenTheBeastWithin</string>
+    <string>FeatGroupBlessedSoul</string>
     <string>FeatGroupBodyResilience</string>
     <string>FeatGroupCelestialTouched</string>
+    <string>FeatGroupClassBound</string>
+    <string>FeatGroupAgilityCombat</string>
+    <string>FeatGroupDefenseCombat</string>
+    <string>FeatGroupMeleeCombat</string>
+    <string>FeatGroupRangedCombat</string>
+    <string>FeatGroupSpellCombat</string>
+    <string>FeatGroupSupportCombat</string>
+    <string>FeatGroupTwoHandedCombat</string>
+    <string>FeatGroupTwoWeaponCombat</string>
+    <string>FeatGroupUnarmoredCombat</string>
     <string>FeatGroupCreed</string>
     <string>FeatGroupCriticalVirtuoso</string>
+    <string>FeatGroupCrusher</string>
+    <string>FeatGroupElementalAdept</string>
     <string>FeatGroupElementalTouch</string>
     <string>FeatGroupElvenAccuracy</string>
     <string>FeatGroupEnchanter</string>
+    <string>FeatGroupFadeAway</string>
     <string>FeatGroupTeleportation</string>
     <string>FeatGroupFightingStyle</string>
     <string>FeatGroupFlameTouched</string>
+    <string>FeatGroupMagicInitiate</string>
     <string>FeatGroupMediumArmor</string>
-    <string>FeatGroupMeleeCombat</string>
+    <string>FeatGroupPiercer</string>
     <string>FeatGroupPlaneTouchedMagic</string>
+    <string>FeatGroupPotentSpellcaster</string>
     <string>FeatGroupPrecisionFocused</string>
-    <string>FeatGroupRangedCombat</string>
+    <string>FeatGroupRaceBound</string>
+    <string>FeatGroupRevenantGreatSword</string>
     <string>FeatGroupShadowTouched</string>
     <string>FeatGroupSkills</string>
-    <string>FeatGroupSpellCombat</string>
+    <string>FeatGroupSlasher</string>
+    <string>FeatGroupSpellSniper</string>
+    <string>FeatGroupSquatNimbleness</string>
     <string>FeatGroupTelekinetic</string>
     <string>FeatGroupTools</string>
     <string>FeatGroupToxicologist</string>
-    <string>FeatGroupTwoHandedCombat</string>
-    <string>FeatGroupTwoWeaponCombat</string>
     <string>FeatGroupDefenseExpert</string>
-    <string>FeatGroupPiercer</string>
-    <string>FeatGroupFadeAway</string>
-    <string>FeatGroupRaceBound</string>
-    <string>FeatGroupRevenantGreatSword</string>
-    <string>FeatGroupCrusher</string>
-    <string>FeatGroupSlasher</string>
-    <string>FeatGroupElementalAdept</string>
-    <string>FeatGroupMagicInitiate</string>
-    <string>FeatGroupSpellSniper</string>
-    <string>FeatGroupAgilityCombat</string>
-    <string>FeatGroupDefenseCombat</string>
-    <string>FeatGroupSupportCombat</string>
-    <string>FeatGroupUnarmoredCombat</string>
-    <string>FeatGroupAwakenTheBeastWithin</string>
-    <string>FeatGroupClassBound</string>
   </FeatGroupEnabled>
   <FightingStyleSliderPosition>4</FightingStyleSliderPosition>
   <FightingStyleEnabled>
@@ -369,31 +385,31 @@
   </FightingStyleEnabled>
   <InvocationSliderPosition>4</InvocationSliderPosition>
   <InvocationEnabled>
+    <string>InvocationAbilitiesOfTheChainMaster</string>
     <string>InvocationAspectOfTheMoon</string>
-    <string>InvocationBondOfTheTalisman</string>
-    <string>InvocationEldritchMind</string>
-    <string>InvocationEldritchSmite</string>
-    <string>InvocationGiftOfTheEverLivingOnes</string>
-    <string>InvocationGiftOfTheProtectors</string>
-    <string>InvocationGraspingBlast</string>
-    <string>InvocationHinderingBlast</string>
-    <string>InvocationImprovedPactWeapon</string>
-    <string>InvocationShroudOfShadow</string>
-    <string>InvocationSuperiorPactWeapon</string>
-    <string>InvocationTrickstersEscape</string>
-    <string>InvocationUltimatePactWeapon</string>
-    <string>InvocationUndyingServitude</string>
     <string>InvocationBreakerAndBanisher</string>
     <string>InvocationChillingBlast</string>
     <string>InvocationCorrosiveBlast</string>
     <string>InvocationDiscerningGaze</string>
+    <string>InvocationEldritchMind</string>
+    <string>InvocationEldritchSmite</string>
+    <string>InvocationBondOfTheTalisman</string>
     <string>InvocationFieryBlast</string>
     <string>InvocationFulminateBlast</string>
+    <string>InvocationGiftOfTheEverLivingOnes</string>
     <string>InvocationGiftOfTheHunter</string>
+    <string>InvocationGiftOfTheProtectors</string>
+    <string>InvocationGraspingBlast</string>
+    <string>InvocationHinderingBlast</string>
+    <string>InvocationImprovedPactWeapon</string>
     <string>InvocationKinesis</string>
+    <string>InvocationShroudOfShadow</string>
     <string>InvocationSpectralShield</string>
     <string>InvocationStasis</string>
-    <string>InvocationAbilitiesOfTheChainMaster</string>
+    <string>InvocationSuperiorPactWeapon</string>
+    <string>InvocationTrickstersEscape</string>
+    <string>InvocationUltimatePactWeapon</string>
+    <string>InvocationUndyingServitude</string>
   </InvocationEnabled>
   <MetamagicSliderPosition>4</MetamagicSliderPosition>
   <MetamagicEnabled>
@@ -512,6 +528,7 @@
         <ArrayOfString>
           <string>AirBlast</string>
           <string>BurstOfRadiance</string>
+          <string>Wrack</string>
           <string>ProtectThreshold</string>
           <string>SpiritShroud</string>
           <string>MassHeal</string>
@@ -695,12 +712,12 @@
   <AllowAnyClassToWearSylvanArmor>true</AllowAnyClassToWearSylvanArmor>
   <AllowDruidToWearMetalArmor>true</AllowDruidToWearMetalArmor>
   <FullyControlConjurations>true</FullyControlConjurations>
-  <IncreaseMaxAttunedItems>false</IncreaseMaxAttunedItems>
+  <IncreaseMaxAttunedItems>true</IncreaseMaxAttunedItems>
   <MakeLargeWildshapeFormsMedium>true</MakeLargeWildshapeFormsMedium>
   <MakeAllMagicStaveArcaneFoci>true</MakeAllMagicStaveArcaneFoci>
   <IncreaseSenseNormalVision>16</IncreaseSenseNormalVision>
-  <CriticalHitModeAllies>0</CriticalHitModeAllies>
-  <CriticalHitModeEnemies>0</CriticalHitModeEnemies>
+  <CriticalHitModeAllies>2</CriticalHitModeAllies>
+  <CriticalHitModeEnemies>2</CriticalHitModeEnemies>
   <AddCustomIconsToOfficialItems>true</AddCustomIconsToOfficialItems>
   <AddNewWeaponsAndRecipesToShops>true</AddNewWeaponsAndRecipesToShops>
   <AddNewWeaponsAndRecipesToEditor>true</AddNewWeaponsAndRecipesToEditor>
@@ -1056,7 +1073,7 @@
   <HideMonsterHitPoints>true</HideMonsterHitPoints>
   <RemoveBugVisualModels>false</RemoveBugVisualModels>
   <EnableSortingDungeonMakerAssets>true</EnableSortingDungeonMakerAssets>
-  <EnableCharacterChecker>true</EnableCharacterChecker>
+  <EnableCharacterChecker>false</EnableCharacterChecker>
   <EnableHotkeyDebugOverlay>false</EnableHotkeyDebugOverlay>
   <AllowGadgetsAndPropsToBePlacedAnywhere>true</AllowGadgetsAndPropsToBePlacedAnywhere>
   <UnleashNpcAsEnemy>true</UnleashNpcAsEnemy>
@@ -1066,4 +1083,7 @@
   <EnableEnemiesControlledByPlayer>false</EnableEnemiesControlledByPlayer>
   <EnableHeroesControlledByComputer>false</EnableHeroesControlledByComputer>
   <DebugDisableVerifyDefinitionNameIsNotInUse>false</DebugDisableVerifyDefinitionNameIsNotInUse>
+  <DebugLogDefinitionCreation>false</DebugLogDefinitionCreation>
+  <DebugLogFieldInitialization>false</DebugLogFieldInitialization>
+  <DebugLogVariantMisuse>false</DebugLogVariantMisuse>
 </Settings>

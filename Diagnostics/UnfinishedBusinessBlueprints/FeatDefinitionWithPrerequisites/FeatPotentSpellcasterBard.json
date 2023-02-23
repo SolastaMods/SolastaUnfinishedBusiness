@@ -15,8 +15,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
-    "title": "Feat/&FeatPotentSpellcasterTitle",
-    "description": "Feat/&FeatPotentSpellcasterDescription",
+    "title": "Potent Spellcaster [Bard]",
+    "description": "You can add your spellcaster attribute modifier to the damage you deal with any Bard cantrip in your repertoire.",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -36,7 +36,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "e79833b9-04a7-5e85-b582-bc6f6d684bba",
+  "guid": "786c72cc-a7a0-54d0-bf2c-e0c327c9b71f",
   "contentPack": 9999,
-  "name": "FeatPotentSpellcaster"
+  "name": "FeatPotentSpellcasterBard"
 }

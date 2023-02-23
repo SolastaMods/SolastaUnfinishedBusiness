@@ -27,6 +27,8 @@ public class Settings : UnityModManager.ModSettings
     // SETTINGS UI TOGGLES
     //
     public bool DisplayRacesToggle { get; set; } = true;
+    public bool DisplayBackgroundsToggle { get; set; } = true;
+    public bool DisplayDeitiesToggle { get; set; } = true;
     public bool DisplayClassesToggle { get; set; } = true;
     public bool DisplaySubclassesToggle { get; set; } = true;
     public bool DisplayFeatsToggle { get; set; } = true;
@@ -104,6 +106,10 @@ public class Settings : UnityModManager.ModSettings
 
     public int RaceSliderPosition { get; set; } = ModUi.DontDisplayDescription;
     public List<string> RaceEnabled { get; } = new();
+    public int BackgroundSliderPosition { get; set; } = ModUi.DontDisplayDescription;
+    public List<string> BackgroundEnabled { get; } = new();
+    public int DeitySliderPosition { get; set; } = ModUi.DontDisplayDescription;
+    public List<string> DeityEnabled { get; } = new();
     public int ClassSliderPosition { get; set; } = ModUi.DontDisplayDescription;
     public List<string> ClassEnabled { get; } = new();
     public int SubclassSliderPosition { get; set; } = ModUi.DontDisplayDescription;

@@ -1,5 +1,16 @@
 ﻿CHANGES:
 
+1.4.33.46:
+
+- added Defiler Domain subclass under Maraike deity
+- expanded Potent Spellcaster to Bards, Clerics, Druids, Sorcerers and Inventors
+- expanded Blessed Soul to Paladins
+- fixed Awaken The Beast not applying hit points bonus to wildshape forms
+- fixed Piercer staying 1 round longer than supposed
+- fixed Raven heart seeking shot applying extra damage with non ranged attacks
+- fixed Soul Blade summon weapon not properly removing effects
+- fixed Warlock using wrong spell level if multiclass
+
 1.4.33.45:
 
 - fixed Awaken The Beast not adding Druid class based additional hit points

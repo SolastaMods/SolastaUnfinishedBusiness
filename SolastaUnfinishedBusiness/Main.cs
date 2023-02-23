@@ -117,13 +117,12 @@ internal static class Main
 
     private static bool ValidateFilename(ref string filename)
     {
-        filename = string.Concat(filename.Split(Path.GetInvalidFileNameChars()));
-
         if (string.IsNullOrEmpty(filename))
         {
             return false;
         }
 
+        filename = string.Concat(filename.Split(Path.GetInvalidFileNameChars()));
         filename = Path.GetFileName(filename) + ".xml";
 
         return true;

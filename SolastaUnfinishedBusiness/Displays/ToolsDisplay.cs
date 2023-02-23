@@ -72,7 +72,8 @@ internal static class ToolsDisplay
 
     private static int CurrentItemsWeaponTagsFilterIndex { get; set; }
 
-    private static string ExportFileName { get; set; }
+    private static string ExportFileName { get; set; } =
+        ServiceRepository.GetService<INetworkingService>().GetUserName();
 
     private static void SetFactionRelation(string name, int value)
     {

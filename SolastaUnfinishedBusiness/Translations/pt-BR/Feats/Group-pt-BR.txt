@@ -86,3 +86,7 @@ Feat/&FeatGroupDefenseCombatDescription={0}
 Feat/&FeatGroupDefenseCombatTitle=Combate: Defesa
 Feat/&FeatGroupSupportCombatDescription={0}
 Feat/&FeatGroupSupportCombatTitle=Combate: Suporte
+Feat/&FeatGroupPotentSpellcasterDescription=Você pode adicionar seu modificador de atributo de conjurador ao dano causado com qualquer truque em seu repertório.
+Feat/&FeatGroupPotentSpellcasterTitle=Feiticeiro Potente
+Feat/&FeatGroupBlessedSoulDescription=O uso da magia divina deixou uma marca espiritual em sua alma, permitindo que você expresse sua fé com mais frequência. Aumente seu valor de Carisma ou Sabedoria em 1, até um máximo de 20. Você ganha um uso adicional de Canalizar Divindade entre os descansos.
+Feat/&FeatGroupBlessedSoulTitle=alma abençoada
