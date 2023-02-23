@@ -238,8 +238,8 @@ internal sealed class DomainDefiler : AbstractSubclass
             .SetNotificationTag("DivineStrike")
             .SetSpecificDamageType(DamageTypeNecrotic)
             .SetDamageDice(DieType.D8, 1)
-            .SetAdvancement(AdditionalDamageAdvancement.ClassLevel, 1, 0, 1, 14)
-            .SetFrequencyLimit(FeatureLimitedUsage.OncePerTurn)
+            .SetAdvancement(AdditionalDamageAdvancement.ClassLevel, 1, 1, 8, 6)
+            .SetFrequencyLimit(FeatureLimitedUsage.OnceInMyTurn)
             .SetAttackModeOnly()
             .AddToDB();
 
