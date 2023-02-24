@@ -1,5 +1,4 @@
-- added Primal Rage feat
-- fixed Blessed Soul requirements and attribute score modifier
-- fixed Defiler Domain missing domain spells and divine strike damage
-- improved Defiler Domain descriptions
-- improved College of War Dance descriptions
+- changed College of Life's healing pool to be offered as a power bundle
+- fixed Defensive Duelist to only keep additional AC until start of next turn
+- fixed Insidious Death Magic to apply on any effect as far as damage is Necrotic
+- fixed Level 20 experience threshold calculation on levels 19 and 20

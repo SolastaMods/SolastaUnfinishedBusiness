@@ -1,8 +1,8 @@
-﻿Condition/&AfterRestIdentifyDescription=Опознать магический предмет.
-Condition/&AfterRestIdentifyTitle=Опознать
-Condition/&ConditionDistractedByAllyDescription=Существо отвлечено.
-Condition/&ConditionDistractedByAllyTitle=Отвлечен
-Condition/&ConditionLightSensitivityDescription=У Вас штраф на проверки Мудрости (Восприятия) на ярвком свету, также получите -1d4 пенальти при бросках на попадание.
-Condition/&ConditionLightSensitivityTitle=Чувствительность к свету
-Condition/&ConditionStopMovementDescription=Не может передвигаться. Скорость равна 0.
-Condition/&ConditionStopMovementTitle=Остановлен
+﻿Condition/&AfterRestIdentifyDescription=Распознавание магических предметов
+Condition/&AfterRestIdentifyTitle=Идентификация
+Condition/&ConditionDistractedByAllyDescription=Это существо было отвлечено.
+Condition/&ConditionDistractedByAllyTitle=Несосредоточенный
+Condition/&ConditionLightSensitivityDescription=Вы совершаете Недостаток по проверкам Мудрости (Восприятие) при ярком свете и получаете штраф -1к4 к броскам атаки.
+Condition/&ConditionLightSensitivityTitle=Светочувствительность
+Condition/&ConditionStopMovementDescription=Не в состоянии двигаться. Скорость установлена ​​на 0.
+Condition/&ConditionStopMovementTitle=Остановлено

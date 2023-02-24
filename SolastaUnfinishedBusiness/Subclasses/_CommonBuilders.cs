@@ -98,7 +98,8 @@ internal static class CommonBuilders
 
     internal static readonly FeatureDefinitionPower PowerCasterCommandUndead = FeatureDefinitionPowerBuilder
         .Create("PowerCasterCommandUndead")
-        .SetGuiPresentation(Category.Feature, Sprites.GetSprite("PowerHelp", Resources.PowerCommandUndead, 128))
+        .SetGuiPresentation(Category.Feature,
+            Sprites.GetSprite("PowerCommandUndead", Resources.PowerCommandUndead, 256, 128))
         .SetUsesProficiencyBonus(ActivationTime.Action)
         .SetEffectDescription(
             EffectDescriptionBuilder

@@ -2,6 +2,6 @@
 Feat/&FeatBowMasteryTitle=Bogenbeherrschung
 Feat/&FeatDeadeyeDescription=Sie haben gelernt, Genauigkeit einzutauschen, um tödlichere Schüsse zu landen. Wenn du mit Fernkampfwaffen angreifst, kannst du einen Malus von -{0} auf deinen Treffer erleiden, um zusätzlichen Schaden in Höhe von {0} + deinem Fertigkeitsbonus zu verursachen. Angriffe aus großer Entfernung bringen keinen Nachteil mit sich und Ihre Fernwaffenangriffe ignorieren Halb- und Dreivierteldeckung.
 Feat/&FeatDeadeyeTitle=Deadeye
-Feat/&FeatRangedExpertDescription=Ihr fachmännisches Training mit Fernkampfwaffen gewährt Ihnen folgende Vorteile:\n• Sie haben keinen Nachteil mehr bei Fernkampfangriffen, wenn sich ein Feind innerhalb von 1,50 m um Sie befindet.\n• Wenn Sie in Ihrem Zug die Angriffsaktion ausführen, können Sie dies tun Verwenden Sie eine Bonusaktion, um einen Angriff mit einer einhändigen Fernkampf- oder Wurfwaffe durchzuführen.
+Feat/&FeatRangedExpertDescription=Ihr fachmännisches Training mit Fernkampfwaffen gewährt Ihnen folgende Vorteile:\n• Sie haben keinen Nachteil mehr bei Fernkampfangriffen, wenn sich ein Feind im Umkreis von 1,50 m um Sie befindet.\n• Wenn Sie die Angriffsaktion in Ihrem Zug ausführen, können Sie dies tun Verwenden Sie eine Bonusaktion, um einen Angriff mit einer einhändigen Fernkampf- oder Wurfwaffe durchzuführen.
 Feat/&FeatRangedExpertTitle=Fernkampfexperte
 Tooltip/&DeadeyeConcentration=Deadeye deaktivieren.

@@ -1,11 +1,11 @@
-﻿Feature/&AdditionalActionRavenKillingSpreeDescription=Vous pouvez effectuer une attaque supplémentaire la première fois que vous tuez un ennemi à votre tour. De plus, chaque fois que vous tuez un ennemi, votre attaque sournoise peut être réutilisée au même tour.
+﻿Feature/&AdditionalActionRavenKillingSpreeDescription=Vous pouvez faire une attaque supplémentaire la première fois que vous tuez un ennemi à votre tour. De plus, chaque fois que vous tuez un ennemi, votre attaque sournoise peut être réutilisée au même tour.
 Feature/&AdditionalActionRavenKillingSpreeTitle=Tuerie
 Feature/&AttackModifierRavenHeartSeekingShotDescription=Votre attaque subit un malus de -4 pour toucher.
 Feature/&AttackModifierRavenHeartSeekingShotTitle=Coup de coeur à la recherche
 Feature/&AttributeModifierRavenHeartSeekingShotCriticalThresholdDescription=Votre seuil critique est réduit de 2.
 Feature/&AttributeModifierRavenHeartSeekingShotCriticalThresholdTitle=Coup de coeur à la recherche
 Feature/&DieRollModifierRavenPainMakerDescription=Vous relancez tous les 1 lorsque vous lancez des dégâts. Vous devez conserver le deuxième rouleau.
-Feature/&DieRollModifierRavenPainMakerReroll={0} fait mal et relance le {1} dé d'un {2} à un {3}.
+Feature/&DieRollModifierRavenPainMakerReroll=À cause de Pain Maker {0} relance le {1} dé d'un {2} à un {3}.
 Feature/&DieRollModifierRavenPainMakerTitle=Faiseur de douleur
 Feature/&FeatureSetRavenHeartSeekingShotDescription=Vous visez un point vital d'un ennemi. Lorsque vous effectuez une attaque avec une arme à distance à deux mains, vous subissez un malus de -4 au jet d'attaque mais votre portée de menace critique augmente de 2. De plus, votre attaque inflige 1d6 dégâts supplémentaires. Les dégâts supplémentaires augmentent de 1d6 tous les 4 niveaux de Voleur.
 Feature/&FeatureSetRavenHeartSeekingShotTitle=Coup de coeur à la recherche

@@ -4,4 +4,4 @@ Feat/&FeatDeadeyeDescription=Hai imparato a scambiare la precisione per mettere 
 Feat/&FeatDeadeyeTitle=Occhio morto
 Feat/&FeatRangedExpertDescription=Il tuo addestramento esperto con le armi a distanza ti garantisce questi vantaggi:\n• Non hai più svantaggi sugli attacchi a distanza quando c'è un nemico entro 1,5 metri da te.\n• Se esegui l'azione Attacco nel tuo turno, puoi usa un'azione bonus per effettuare un attacco con un'arma a distanza o da lancio a una mano.
 Feat/&FeatRangedExpertTitle=Esperto a distanza
-Tooltip/&DeadeyeConcentration=Disabilita Occhio morto.
+Tooltip/&DeadeyeConcentration=Disabilita Deadeye.

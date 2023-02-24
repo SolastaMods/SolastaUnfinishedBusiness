@@ -1,10 +1,10 @@
-﻿Feature/&FeatureSetWayOfSilhouetteSilhouetteArtsDescription=Comenzando cuando eliges esta tradición en el nivel 3, puedes gastar 2 puntos de ki para lanzar oscuridad, visión en la oscuridad, pasar sin dejar rastro o silenciar, sin proporcionar componentes materiales. Además, obtienes el cantrip de luz si aún no lo conoces.
+﻿Feature/&FeatureSetWayOfSilhouetteSilhouetteArtsDescription=Comenzando cuando eliges esta tradición en el nivel 3, puedes gastar 2 puntos de Ki para lanzar oscuridad, visión en la oscuridad, pasar sin dejar rastro o silenciar, sin proporcionar componentes materiales. Además, obtienes el cantrip de luz si aún no lo conoces.
 Feature/&FeatureSetWayOfSilhouetteSilhouetteArtsTitle=Silueta artes
 Feature/&LightAffinityWayOfSilhouetteCloakOfSilhouettesStrongDescription=Capa de siluetas ahora funciona con poca luz y oscuridad mágica además de la oscuridad natural.
 Feature/&LightAffinityWayOfSilhouetteCloakOfSilhouettesStrongTitle=Capa de siluetas mejorada
 Feature/&LightAffinityWayOfSilhouetteCloakOfSilhouettesWeakDescription=Si comienzas tu turno en la oscuridad natural, te vuelves invisible. Salir de la oscuridad, atacar o usar cualquier poder o hechizo que no solo te apunte a ti mismo rompe la invisibilidad.
 Feature/&LightAffinityWayOfSilhouetteCloakOfSilhouettesWeakTitle=Capa de siluetas
-Feature/&PowerWayOfSilhouetteImprovedSilhouetteStepDescription=Rodeado brevemente por la energía del ki, ahora puedes traer un aliado contigo cuando te teletransportes y el alcance ha aumentado.
+Feature/&PowerWayOfSilhouetteImprovedSilhouetteStepDescription=Rodeado brevemente por la energía del Ki, ahora puedes traer un aliado contigo cuando te teletransportes y el alcance ha aumentado.
 Feature/&PowerWayOfSilhouetteImprovedSilhouetteStepTitle=Paso de silueta mejorado
 Feature/&PowerWayOfSilhouetteSilhouetteStepDescription=Puedes teletransportarte como acción adicional hasta 30 pies a un espacio desocupado que puedas ver. Puedes usar este poder un número de veces por descanso prolongado igual a tu bonificador de competencia.
 Feature/&PowerWayOfSilhouetteSilhouetteStepTitle=Paso de silueta

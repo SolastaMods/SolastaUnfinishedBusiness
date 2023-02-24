@@ -630,14 +630,16 @@ internal static partial class SpellBuilders
         var conditionWrack = ConditionDefinitionBuilder
             .Create($"Condition{NAME}")
             .SetGuiPresentation(Category.Condition, ConditionHindered)
-            .AddFeatures(FeatureDefinitionActionAffinityBuilder
-                .Create($"ActionAffinity{NAME}")
-                .SetForbiddenActions(
-                    ActionDefinitions.Id.DisengageMain,
-                    ActionDefinitions.Id.DisengageBonus,
-                    ActionDefinitions.Id.DashMain,
-                    ActionDefinitions.Id.DashBonus)
-                .AddToDB())
+            .AddFeatures(
+                FeatureDefinitionActionAffinityBuilder
+                    .Create($"ActionAffinity{NAME}")
+                    .SetGuiPresentationNoContent(true)
+                    .SetForbiddenActions(
+                        ActionDefinitions.Id.DisengageMain,
+                        ActionDefinitions.Id.DisengageBonus,
+                        ActionDefinitions.Id.DashMain,
+                        ActionDefinitions.Id.DashBonus)
+                    .AddToDB())
             .AddToDB();
 
         var effectDescription = EffectDescriptionBuilder

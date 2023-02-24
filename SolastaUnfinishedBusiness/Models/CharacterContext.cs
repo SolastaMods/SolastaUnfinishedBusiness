@@ -79,7 +79,7 @@ internal static class CharacterContext
 
     private static void LoadHelpPower()
     {
-        var sprite = Sprites.GetSprite("PowerHelp", Resources.PowerHelp, 128);
+        var sprite = Sprites.GetSprite("PowerHelp", Resources.PowerHelp, 256, 128);
         var effectDescription = EffectDescriptionBuilder
             .Create(TrueStrike.EffectDescription)
             .SetTargetingData(Side.Enemy, RangeType.Touch, 1, TargetType.Individuals)

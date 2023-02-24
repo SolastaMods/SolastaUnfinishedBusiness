@@ -4,5 +4,5 @@ Feature/&CastSpellDarkelfMagicDescription=Du kennst den Cantrip <b>Dancing Light
 Feature/&CastSpellDarkelfMagicTitle=Magie der Dunkelelfen
 Feature/&ProficiencyDarkelfWeaponTrainingDescription=Sie beherrschen den Umgang mit Degen, Kurzschwertern und Handarmbrüsten.
 Feature/&ProficiencyDarkelfWeaponTrainingTitle=Waffentraining der Dunkelelfen
-Race/&RaceDarkelfDescription=Dunkelelfen sind Nachkommen von Elfen, die sich im Laufe der Zeit durch das Leben in den unwirtlichen Badlands verändert haben. Dunkelelfen sind größtenteils nachtaktiv und haben sich an das Leben in alten Ruinen der Ödlande angepasst, insbesondere in vergrabenen unterirdischen Ruinen. Sie neigen zu dunkler Haut und hellem Haar.
+Race/&RaceDarkelfDescription=Dunkelelfen sind Nachkommen von Elfen, die sich im Laufe der Zeit durch das Leben in den unwirtlichen Badlands verändert haben. Dunkelelfen sind weitgehend nachtaktiv und haben sich an das Leben in alten Ruinen der Ödlande angepasst, insbesondere in vergrabenen unterirdischen Ruinen. Sie neigen zu dunkler Haut und hellem Haar.
 Race/&RaceDarkelfTitle=Dunkelelf

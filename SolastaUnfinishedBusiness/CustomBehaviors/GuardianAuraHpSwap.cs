@@ -4,6 +4,8 @@ using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.Extensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
+using SolastaUnfinishedBusiness.Builders;
+using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomUI;
 using static ActionDefinitions;
 
@@ -11,7 +13,10 @@ namespace SolastaUnfinishedBusiness.CustomBehaviors;
 
 internal static class GuardianAuraHpSwap
 {
-    private static readonly FeatureDefinitionPower DummyAuraGuardianPower = new();
+    private static readonly FeatureDefinitionPower DummyAuraGuardianPower = FeatureDefinitionPowerBuilder
+        .Create("GuardianAura")
+        .SetGuiPresentation(DatabaseHelper.SpellDefinitions.ShieldOfFaith.guiPresentation)
+        .AddToDB();
 
     internal static readonly object AuraGuardianConditionMarker = new GuardianAuraCondition();
     internal static readonly object AuraGuardianUserMarker = new GuardianAuraUser();
@@ -127,9 +132,6 @@ internal static class GuardianAuraHpSwap
             unit.RulesetCharacter.SustainDamage(
                 damageAmount, damage.DamageType, false, attacker.Guid, null, out _);
         }
-
-        DummyAuraGuardianPower.name = "GuardianAura";
-        DummyAuraGuardianPower.guiPresentation = DatabaseHelper.SpellDefinitions.ShieldOfFaith.guiPresentation;
 
         GameConsoleHelper.LogCharacterUsedPower(unit.RulesetCharacter, DummyAuraGuardianPower,
             "Feedback/&GuardianAuraHeal");
