@@ -1,0 +1,8 @@
+Feature/&AttributeModifierDarkelfCharismaAbilityScoreIncreaseDescription=Харизма +1
+Feature/&AttributeModifierDarkelfCharismaAbilityScoreIncreaseTitle=Увеличение показателя способности
+Feature/&CastSpellDarkelfMagicDescription=Вы знаете заговор <b>Танцующие огни</b>. На 3-м уровне вы изучаете <b>Волшебный огонь</b>, а на 5-м уровне — <b>Тьму</b>. Оба можно использовать один раз за продолжительный отдых.
+Feature/&CastSpellDarkelfMagicTitle=Магия темных эльфов
+Feature/&ProficiencyDarkelfWeaponTrainingDescription=Вы владеете рапирами, короткими мечами и ручными арбалетами.
+Feature/&ProficiencyDarkelfWeaponTrainingTitle=Тренировка с оружием темных эльфов
+Race/&RaceDarkelfDescription=Темные эльфы — потомки эльфов, которые со временем изменились, живя в негостеприимных бесплодных землях. Темные эльфы в основном ведут ночной образ жизни и приспособились к жизни в древних руинах Бесплодных земель, особенно в погребенных под землей руинах. У них, как правило, темная кожа и светлые волосы.
+Race/&RaceDarkelfTitle=Темный эльф

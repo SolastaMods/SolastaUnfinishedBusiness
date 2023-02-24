@@ -1,0 +1,2 @@
+﻿Feature/&MartialChampionSuperiorCriticalDescription=Ваши атаки оружием засчитывают критическое попадание при броске 18, 19 или 20.
+Feature/&MartialChampionSuperiorCriticalTitle=Улучшенный критический

@@ -1,0 +1,10 @@
+﻿Feature/&AttackModifierSoulBladeEmpowerWeaponDescription=Оружие использует модификатор Харизмы для бросков атаки и урона и считается магическим до длительного отдыха.
+Feature/&AttackModifierSoulBladeEmpowerWeaponTitle=Сила души
+Feature/&PowerSoulBladeEmpowerWeaponDescription=Один раз за продолжительный отдых вы можете усилить оружие силой душ. Оружие использует модификатор Харизмы для бросков атаки и урона и считается магическим. Только одно оружие может находиться под этим эффектом.
+Feature/&PowerSoulBladeEmpowerWeaponTitle=Сила души
+Feature/&PowerSoulBladeSoulShieldDescription=Один раз за короткий отдых вы используете силу душ, чтобы защитить себя. Используя бонусное действие, вы получаете временные ОЗ, равные вашему уровню + модификатор Харизмы.
+Feature/&PowerSoulBladeSoulShieldTitle=Щит души
+Feature/&PowerSoulBladeSummonPactWeaponDescription=Один раз за короткий отдых вы можете призвать духовную форму оружия из вашего договора в качестве свободного действия. В качестве бонусного действия вы можете направить оружие по своему желанию, чтобы атаковать своих противников. Оружие перемещается на 20 футов каждый раз перед ударом.
+Feature/&PowerSoulBladeSummonPactWeaponTitle=Оружие духовного договора
+Subclass/&PatronSoulBladeDescription=Вы заключили сделку с разумным оружием, которому вы кормите души в обмен на силу.
+Subclass/&PatronSoulBladeTitle=Клинок души

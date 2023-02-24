@@ -1,0 +1,17 @@
+Condition/&ConditionDarkKoboldGrovelCowerAndBegDescription=你对你的狗头人盟友 10 英尺内的敌人的攻击检定具有优势。
+Condition/&ConditionDarkKoboldGrovelCowerAndBegTitle=卑躬屈膝、畏缩和乞求
+Feature/&CastSpellDraconicKoboldMagicDescription=你知道你从巫师法术列表中选择的一个戏法。魅力是你对它的施法能力。
+Feature/&CastSpellDraconicKoboldMagicTitle=狗头人魔法
+Feature/&PowerDarkKoboldGrovelCowerAndBegDescription=作为轮到你的一个动作，你可以可怜地蜷缩以分散附近敌人的注意力。直到你的下一个回合结束，你的盟友在对你 10 英尺内可以看到你的敌人进行攻击检定时获得优势。一旦你使用了这个特性，在你完成一次短休或长休之前你不能再次使用它。
+Feature/&PowerDarkKoboldGrovelCowerAndBegTitle=卑躬屈膝、畏缩和乞求
+Feature/&PowerDraconicKoboldDraconicCryDescription=作为一个附赠动作，你对 10 英尺范围内的敌人大喊一声。在你的下一轮开始之前，你和你的盟友在对任何能听到你的敌人的攻击检定上具有优势。你可以使用此特性的次数等于你的熟练加值，并且在你完成长休后恢复所有消耗的使用次数。
+Feature/&PowerDraconicKoboldDraconicCryTitle=龙之怒吼
+Feature/&ProficiencyKoboldAbilityScoreIncrease=一个能力值增加 2，另一个能力值增加 1，或者三个不同的值增加 1。
+Feature/&ProficiencyKoboldLanguagesDescription=普通，龙语。
+Feature/&ProficiencyKoboldLanguagesTitle=语言
+Race/&RaceDarkKoboldDescription=黑暗狗头人是小型隐居生物。最近，一些更高级的狗头人部落选择了现身并与其他种族互动。这与龙裔出名同时发生并非巧合，因为最先进的狗头人似乎在许多方面模仿龙裔，甚至以类似的风格命名自己。由于与龙裔混居，他们甚至可能比其他狗头人更先进。
+Race/&RaceDarkKoboldTitle=黑暗狗头人
+Race/&RaceDraconicKoboldDescription=龙类狗头人是小型隐居生物。最近，一些更高级的狗头人部落选择了现身并与其他种族互动。这与龙裔出名同时发生并非巧合，因为最先进的狗头人似乎在许多方面模仿龙裔，甚至以类似的风格命名自己。由于与龙裔混居，他们甚至可能比其他狗头人更先进。
+Race/&RaceDraconicKoboldTitle=龙族狗头人
+Race/&RaceKoboldDescription=狗头人是小型隐居生物。最近，一些更高级的狗头人部落选择了现身并与其他种族互动。这与龙裔出名同时发生并非巧合，因为最先进的狗头人似乎在许多方面模仿龙裔，甚至以类似的风格命名自己。由于与龙裔混居，他们甚至可能比其他狗头人更先进。
+Race/&RaceKoboldTitle=狗头人

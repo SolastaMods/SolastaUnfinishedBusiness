@@ -1,0 +1,6 @@
+﻿Feature/&AdditionalDamageStaggeringSmiteDescription=Вы получили психический урон.
+Feature/&AdditionalDamageStaggeringSmiteTitle=Ошеломляющий удар
+Feedback/&AdditionalDamageStaggeringSmiteFormat=Ошеломляющий удар!
+Feedback/&AdditionalDamageStaggeringSmiteLine={0} наносит больше урона {1} ошеломляющим ударом (+{2})
+Spell/&StaggeringSmiteDescription=В следующий раз, когда вы попадете по существу атакой оружием во время действия этого заклинания, ваше оружие пронзит и тело, и разум, и атака нанесет цели дополнительный психический урон 4d6. Цель должна совершить спасбросок Мудрости. При провале он совершает с помехой броски атаки и проверки характеристик и не может совершать реакции до конца своего следующего хода.
+Spell/&StaggeringSmiteTitle=Ошеломляющий удар

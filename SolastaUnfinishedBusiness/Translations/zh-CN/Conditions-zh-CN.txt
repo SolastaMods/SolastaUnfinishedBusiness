@@ -1,0 +1,8 @@
+﻿Condition/&AfterRestIdentifyDescription=识别魔法物品
+Condition/&AfterRestIdentifyTitle=识别
+Condition/&ConditionDistractedByAllyDescription=这个生物已经分心了。
+Condition/&ConditionDistractedByAllyTitle=分心
+Condition/&ConditionLightSensitivityDescription=你在强光下的感知（感知）检定处于劣势，并且在攻击检定上受到 -1d4 惩罚。
+Condition/&ConditionLightSensitivityTitle=感光度
+Condition/&ConditionStopMovementDescription=不能动。速度设置为 0。
+Condition/&ConditionStopMovementTitle=停止

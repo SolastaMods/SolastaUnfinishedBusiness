@@ -1,0 +1,10 @@
+Condition/&ConditionOpportunistDebilitatedDescription=身体虚弱。
+Condition/&ConditionOpportunistDebilitatedTitle=身体虚弱
+Feature/&FeatureRoguishOpportunistSeizeTheChanceDescription=当一个敌人在豁免检定中失败并且还没有轮到你时，你可以使用你的反应对其进行攻击。您可以使用此功能触发偷袭。
+Feature/&FeatureRoguishOpportunistSeizeTheChanceTitle=趁机
+Feature/&OnComputeAttackModifierOpportunistQuickStrikeDescription=你有优势攻击主动性低于你的敌人。此外，你在进行借机攻击时也有优势。
+Feature/&OnComputeAttackModifierOpportunistQuickStrikeTitle=快速打击
+Feature/&PowerOpportunistDebilitatingStrikeDescription=你的偷袭使目标进行一次体质豁免（DC 8 + 你的熟练加值 + 你的敏捷调整值）或豁免降低 1D6 一轮。
+Feature/&PowerOpportunistDebilitatingStrikeTitle=虚弱打击
+Subclass/&RoguishOpportunistDescription=机会主义者是那些从不放过消灭敌人的机会的人。他们刺得快，刺得要紧。面对他们，没有多少人能毫发无损地逃脱。
+Subclass/&RoguishOpportunistTitle=机会主义者

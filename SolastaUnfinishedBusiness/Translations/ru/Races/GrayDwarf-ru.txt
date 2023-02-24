@@ -1,0 +1,12 @@
+Condition/&ConditionGrayDwarfStoneStrengthDescription=Преимущество на проверках Силы и спасбросках. +1к4 к урону оружием ближнего боя Силы
+Condition/&ConditionGrayDwarfStoneStrengthTitle=Каменная сила
+Feature/&AttributeModifierGrayDwarfStrengthAbilityScoreIncreaseDescription=Сила +1
+Feature/&AttributeModifierGrayDwarfStrengthAbilityScoreIncreaseTitle=Увеличение показателя способности
+Feature/&FeatureSetGrayDwarfAncestryDescription=Преимущество в спасбросках от Очарования, Паралича и Иллюзий
+Feature/&FeatureSetGrayDwarfAncestryTitle=Родословная серых карликов
+Feature/&PowerGrayDwarfInvisibilityDescription=Вы можете волшебным образом стать невидимым на срок до 1 минуты. Эта невидимость прерывается, если вы предпринимаете какие-либо наступательные действия. После того, как вы использовали эту способность, вы не можете использовать ее снова, пока не закончите короткий или продолжительный отдых.
+Feature/&PowerGrayDwarfInvisibilityTitle=Невидимость
+Feature/&PowerGrayDwarfStoneStrengthDescription=Бонусным действием вы получаете Силу камня на 1 минуту. Вы совершаете с преимуществом проверки Силы и спасброски Силы. Вы также наносите дополнительный урон 1d4 оружием ближнего боя, основанным на Силе. После того, как вы использовали эту способность, вы не можете использовать ее снова, пока не закончите короткий или продолжительный отдых.
+Feature/&PowerGrayDwarfStoneStrengthTitle=Каменная сила
+Race/&RaceGrayDwarfDescription=Серые гномы — это дварфы, которые изменились всего лишь после того, как несколько поколений подверглись воздействию таинственной магии Бесплодных земель. Они в основном ведут ночной образ жизни и живут в основном в погребенных руинах. Цвет их кожи имеет тенденцию к серому или даже угольно-черному. В отличие от большинства гномов, у них не растут бороды.
+Race/&RaceGrayDwarfTitle=Серый карлик
