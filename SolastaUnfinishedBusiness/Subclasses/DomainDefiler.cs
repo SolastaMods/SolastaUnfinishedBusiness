@@ -366,7 +366,7 @@ internal sealed class DomainDefiler : AbstractSubclass
         {
             var damage = effect.FindFirstDamageForm();
 
-            if (damage is not { DamageType: DamageTypeNecrotic } || definition is not SpellDefinition)
+            if (damage is not { DamageType: DamageTypeNecrotic })
             {
                 return effect;
             }
