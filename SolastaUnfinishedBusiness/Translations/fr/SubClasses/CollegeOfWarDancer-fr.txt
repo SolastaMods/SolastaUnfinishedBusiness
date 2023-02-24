@@ -17,7 +17,6 @@ Feature/&PowerWarDancerWarDanceTitle=Danse de guerre
 Feedback/&AdditionalDamageMomentumFormat=Frappe dynamique
 Feedback/&AdditionalDamageMomentumLine=Momentum Strike inflige +{2} dégâts supplémentaires!
 Reaction/&CustomReactionDanceOfWarOnMissDescription={0} a raté une attaque et peut dépenser un dé d'inspiration bardique pour conserver l'effet de la danse guerrière et tout l'élan.
-Reaction/&CustomReactionDanceOfWarOnMissDescription=Dépensez le dé d'inspiration bardique pour conserver l'effet de la danse de guerre et tout l'élan.
 Reaction/&CustomReactionDanceOfWarOnMissReactTitle=Dépenser le dé
 Reaction/&CustomReactionDanceOfWarOnMissTitle=En arrière
 Subclass/&CollegeOfWarDancerDescription=Les bardes College of War Dancer maîtrisent l'art du combat et considèrent que le champ de bataille est leur scène et que l'arme dans leur main est le meilleur instrument. Leur mouvement rapide et leurs attaques sans fin sont généralement le dernier beau souvenir de ceux qui les ont rencontrés.

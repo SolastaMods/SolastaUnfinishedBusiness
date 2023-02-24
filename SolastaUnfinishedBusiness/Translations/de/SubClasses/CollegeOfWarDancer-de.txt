@@ -17,7 +17,6 @@ Feature/&PowerWarDancerWarDanceTitle=Tanz des Krieges
 Feedback/&AdditionalDamageMomentumFormat=Schwungschlag
 Feedback/&AdditionalDamageMomentumLine=Schwungstoß verursacht zusätzlichen +{2} Schaden!
 Reaction/&CustomReactionDanceOfWarOnMissDescription={0} haben einen Angriff verpasst und können den Bardischen Inspirationswürfel ausgeben, um den Effekt von Kriegstanz und den ganzen Schwung beizubehalten.
-Reaction/&CustomReactionDanceOfWarOnMissDescription=Gib den Bardischen Inspirationswürfel aus, um den Effekt von Kriegstanz und den ganzen Schwung beizubehalten.
 Reaction/&CustomReactionDanceOfWarOnMissReactTitle=Verbringen Sie sterben
 Reaction/&CustomReactionDanceOfWarOnMissTitle=Zurücksetzen
 Subclass/&CollegeOfWarDancerDescription=College of War Dancer-Barden sind Meister der Kampfkunst, für die das Schlachtfeld ihre Bühne und die Waffe in ihrer Hand das beste Instrument ist. Ihre schnelle Bewegung und ihre endlosen Angriffe sind normalerweise die letzte schöne Erinnerung derjenigen, denen sie begegnet sind.

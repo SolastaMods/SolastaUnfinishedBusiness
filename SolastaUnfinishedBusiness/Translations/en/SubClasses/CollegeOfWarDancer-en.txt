@@ -17,7 +17,6 @@ Feature/&PowerWarDancerWarDanceTitle=Dance Of War
 Feedback/&AdditionalDamageMomentumFormat=Momentum Strike
 Feedback/&AdditionalDamageMomentumLine=Momentum Strike deals extra +{2} damage!
 Reaction/&CustomReactionDanceOfWarOnMissDescription={0} have missed an attack and can spend Bardic Inspiration Die to keep the effect of War Dance and all the momentum.
-Reaction/&CustomReactionDanceOfWarOnMissDescription=Spend Bardic Inspiration Die to keep effect of War Dance and all the momentum.
 Reaction/&CustomReactionDanceOfWarOnMissReactTitle=Spend Die
 Reaction/&CustomReactionDanceOfWarOnMissTitle=Set Back
 Subclass/&CollegeOfWarDancerDescription=College of War Dancer bards are master the art of fighting who considers the battle field is their stage and the weapon in their hand is the finest instrument. Their swift movement and endless attacks are usually the last beautiful memoire of those encountered them.

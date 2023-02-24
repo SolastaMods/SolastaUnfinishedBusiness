@@ -17,7 +17,6 @@ Feature/&PowerWarDancerWarDanceTitle=Danza di guerra
 Feedback/&AdditionalDamageMomentumFormat=Colpo di slancio
 Feedback/&AdditionalDamageMomentumLine=Momentum Strike infligge +{2} danni extra!
 Reaction/&CustomReactionDanceOfWarOnMissDescription={0} hanno mancato un attacco e possono spendere un Dado di Ispirazione Bardica per mantenere l'effetto di Danza di Guerra e tutto lo slancio.
-Reaction/&CustomReactionDanceOfWarOnMissDescription=Spendi il dado di ispirazione bardica per mantenere l'effetto della danza di guerra e tutto lo slancio.
 Reaction/&CustomReactionDanceOfWarOnMissReactTitle=Spendere morire
 Reaction/&CustomReactionDanceOfWarOnMissTitle=Mettiti indietro
 Subclass/&CollegeOfWarDancerDescription=I bardi del College of War Dancer sono maestri nell'arte del combattimento che considerano il campo di battaglia il loro palcoscenico e l'arma nelle loro mani lo strumento migliore. I loro movimenti rapidi e gli attacchi infiniti sono di solito l'ultimo bel ricordo di coloro che li hanno incontrati.
