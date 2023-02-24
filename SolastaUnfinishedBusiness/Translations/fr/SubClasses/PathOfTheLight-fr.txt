@@ -1,4 +1,4 @@
-Condition/&ConditionPathOfTheLightEyesOfTruthDescription=Peut percevoir les créatures invisibles.
+Condition/&ConditionPathOfTheLightEyesOfTruthDescription=Peut percevoir des créatures invisibles.
 Condition/&ConditionPathOfTheLightEyesOfTruthTitle=Vue d'invisibilité
 Condition/&ConditionPathOfTheLightIlluminatedDescription=Distrait par Illuminating Strike.
 Condition/&ConditionPathOfTheLightIlluminatedTitle=Illuminé

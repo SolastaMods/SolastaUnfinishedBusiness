@@ -1,5 +1,5 @@
 ﻿Feat/&FeatBowMasteryDescription=Você ganha um bônus de +1 nas jogadas de dano feitas com arcos curtos e arcos longos. Quando você usa a ação de Ataque com um arco curto no seu turno, você pode fazer um ataque de arma à distância como uma ação bônus. Você pode usar Força em vez de Destreza para as jogadas de ataque e dano que você faz com arcos longos.
-Feat/&FeatBowMasteryTitle=Domínio do arco
+Feat/&FeatBowMasteryTitle=Domínio do Arco
 Feat/&FeatDeadeyeDescription=Você aprendeu a trocar precisão para acertar tiros mais mortais. Ao atacar com armas de longo alcance, você pode optar por receber uma penalidade de -{0} em seu acerto para causar dano adicional igual a {0} + seu bônus de proficiência. Atacar a longa distância não impõe desvantagem e seus ataques com armas à distância ignoram meia cobertura e três quartos de cobertura.
 Feat/&FeatDeadeyeTitle=Deadeye
 Feat/&FeatRangedExpertDescription=Seu treinamento especializado com armas de longo alcance concede a você os seguintes benefícios:\n• Você não tem mais desvantagem em ataques de longo alcance quando há um inimigo a até 1,5 metro de você.\n• Se você realizar a ação Atacar no seu turno, poderá use uma ação bônus para fazer um ataque com uma arma à distância ou de arremesso de uma mão.

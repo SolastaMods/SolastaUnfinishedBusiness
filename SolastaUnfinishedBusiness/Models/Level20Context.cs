@@ -44,6 +44,8 @@ internal static class Level20Context
 
     internal static void Load()
     {
+        InitExperienceThresholdsTable();
+
         BarbarianLoad();
         BardLoad();
         ClericLoad();
@@ -173,6 +175,17 @@ internal static class Level20Context
                 Main.Error($"Failed to apply Level20Transpiler patch to {method.DeclaringType}.{method.Name}");
             }
         }
+    }
+
+    private static void InitExperienceThresholdsTable()
+    {
+        var len = ExperienceThresholds.Length;
+        var experience = new int[len + 1];
+
+        Array.Copy(ExperienceThresholds, experience, len);
+        experience[len] = experience[len - 1];
+
+        ExperienceThresholds = experience;
     }
 
     private static void BarbarianLoad()

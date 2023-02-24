@@ -11,4 +11,4 @@ Feature/&PowerCasterCommandUndeadTitle=Comandar mortos-vivos
 Feature/&PowerCasterFightingWarMagicDescription=Você pode usar sua ação bônus para atacar usando a arma em sua mão principal após lançar um feitiço.
 Feature/&PowerCasterFightingWarMagicTitle=Magia de guerra
 Feature/&ReplaceAttackWithCantripCasterFightingDescription=Você pode substituir um de seus ataques por um truque.
-Feature/&ReplaceAttackWithCantripCasterFightingTitle=Truque de ataque
+Feature/&ReplaceAttackWithCantripCasterFightingTitle=Truque de Ataque

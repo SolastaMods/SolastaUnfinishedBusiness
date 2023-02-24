@@ -1,7 +1,7 @@
-﻿Feat/&FeatBowMasteryDescription=你用短弓和长弓进行的伤害检定获得+1 加值。 当你在你的回合使用短弓进行攻击时，你可以用附赠动作再进行一次远程武器攻击。 你可以使用力量而不是敏捷来进行长弓的攻击和伤害检定。
-Feat/&FeatBowMasteryTitle=弓箭掌控
-Feat/&FeatDeadeyeDescription=你已经学会了如何牺牲准确性来换取更致命的射击。当使用远程武器攻击时，你可以选择对你的攻击进行 -{0} 惩罚，以便造成额外的伤害，该伤害等于 {0} + 你的熟练加值。 你的远程武器攻击检定不会因攻击常规射程外的目标而具有劣势。你的远程武器攻击会忽略半掩护和四分之三掩护。
-Feat/&FeatDeadeyeTitle=神射手
-Feat/&FeatRangedExpertDescription=你对远程武器的专业训练赋予你以下好处：\n• 当你周围 5 英尺内有敌人时，你在远程攻击中不再处于劣势。\n• 如果你在你的回合内采取攻击行动时，你可以使用 用附赠动作进行单手远程或投掷武器攻击。
+﻿Feat/&FeatBowMasteryDescription=你用短弓和长弓进行的伤害检定获得+1 加值。当你在你的回合使用短弓使用攻击动作时，你可以用附赠动作进行一次远程武器攻击。您可以使用力量而不是敏捷来进行长弓的攻击和伤害检定。
+Feat/&FeatBowMasteryTitle=弓精通
+Feat/&FeatDeadeyeDescription=您已经学会了用准确性换取更致命的击球。当使用远程武器攻击时，您可以选择对您的命中率进行 -{0} 惩罚，以便造成额外的伤害，该伤害等于 {0} + 您的熟练加值。远程攻击不会造成劣势，您的远程武器攻击会忽略半掩护和四分之三掩护。
+Feat/&FeatDeadeyeTitle=神枪手
+Feat/&FeatRangedExpertDescription=您对远程武器的专业训练使您获得以下好处：\n• 当您周围 5 英尺内有敌人时，您在远程攻击中不再处于劣势。\n• 如果您在轮到您时采取攻击行动，您可以使用附赠动作用单手远程或投掷武器进行攻击。
 Feat/&FeatRangedExpertTitle=远程专家
-Tooltip/&DeadeyeConcentration=禁用神射手
+Tooltip/&DeadeyeConcentration=禁用死眼。

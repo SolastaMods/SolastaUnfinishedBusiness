@@ -1,2 +1,2 @@
-﻿Feature/&MartialChampionSuperiorCriticalDescription=Your weapon attacks score a critical hit on a roll of 18, 19 or 20.
-Feature/&MartialChampionSuperiorCriticalTitle=Superior Critical
+﻿Feature/&MartialChampionSuperiorCriticalDescription=Ваши атаки оружием засчитывают критическое попадание при броске 18, 19 или 20.
+Feature/&MartialChampionSuperiorCriticalTitle=Улучшенный критический

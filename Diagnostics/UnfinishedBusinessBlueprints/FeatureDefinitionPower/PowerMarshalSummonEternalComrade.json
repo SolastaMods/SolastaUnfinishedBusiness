@@ -331,7 +331,7 @@
     "description": "Feature/&PowerMarshalSummonEternalComradeDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "d87fe611-34b7-5f11-be58-b73c3399de92",
+      "m_AssetGUID": "7045cfb8-d4cc-5a1e-b3c4-7ff9abf3a336",
       "m_SubObjectName": null,
       "m_SubObjectType": null
     },

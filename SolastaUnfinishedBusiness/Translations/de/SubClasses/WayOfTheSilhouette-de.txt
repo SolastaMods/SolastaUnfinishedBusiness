@@ -2,11 +2,11 @@
 Feature/&FeatureSetWayOfSilhouetteSilhouetteArtsTitle=Silhouetten-Kunst
 Feature/&LightAffinityWayOfSilhouetteCloakOfSilhouettesStrongDescription=Umhang der Silhouetten funktioniert jetzt zusätzlich zu natürlicher Dunkelheit auch bei schwachem Licht und magischer Dunkelheit.
 Feature/&LightAffinityWayOfSilhouetteCloakOfSilhouettesStrongTitle=Verbesserter Umhang der Silhouetten
-Feature/&LightAffinityWayOfSilhouetteCloakOfSilhouettesWeakDescription=Wenn Sie Ihren Zug in natürlicher Dunkelheit beginnen, werden Sie unsichtbar. Sich aus der Dunkelheit zu bewegen, anzugreifen oder eine Kraft oder einen Zauber einzusetzen, der nicht nur auf sich selbst abzielt, bricht die Unsichtbarkeit.
+Feature/&LightAffinityWayOfSilhouetteCloakOfSilhouettesWeakDescription=Wenn Sie Ihren Zug in natürlicher Dunkelheit beginnen, werden Sie unsichtbar. Sich aus der Dunkelheit zu bewegen, anzugreifen oder eine Kraft oder einen Zauber zu verwenden, der nicht nur auf sich selbst abzielt, bricht die Unsichtbarkeit.
 Feature/&LightAffinityWayOfSilhouetteCloakOfSilhouettesWeakTitle=Umhang aus Silhouetten
 Feature/&PowerWayOfSilhouetteImprovedSilhouetteStepDescription=Kurzzeitig von der Energie des Ki umgeben, kannst du beim Teleportieren jetzt einen Verbündeten mitnehmen und die Reichweite hat sich erhöht.
 Feature/&PowerWayOfSilhouetteImprovedSilhouetteStepTitle=Verbesserter Silhouettenschritt
-Feature/&PowerWayOfSilhouetteSilhouetteStepDescription=Als Bonusaktion kannst du dich bis zu 30 Fuß weit auf ein unbesetztes Feld teleportieren, das du sehen kannst. Du kannst diese Kraft so oft pro langer Pause einsetzen, wie es deinem Kompetenzbonus entspricht.
+Feature/&PowerWayOfSilhouetteSilhouetteStepDescription=Du kannst dich als Bonusaktion bis zu 30 Fuß zu einem unbesetzten Feld teleportieren, das du sehen kannst. Du kannst diese Kraft so oft pro langer Pause einsetzen, wie es deinem Kompetenzbonus entspricht.
 Feature/&PowerWayOfSilhouetteSilhouetteStepTitle=Silhouettenschritt
 Subclass/&WayOfSilhouetteDescription=Praktizierende des Weges der Silhouette folgen einer Tradition, die Wert auf Heimlichkeit und Ausflüchte legt. Diese Mönche dienen als Spione und Attentäter. Manchmal sind die Mitglieder eines Ninja-Klosters Familienmitglieder, die einen Clan bilden, der zur Geheimhaltung ihrer Künste und Missionen verpflichtet ist. Andere Klöster ähneln eher Diebesgilden, die ihre Dienste an Adlige, reiche Kaufleute oder jeden anderen vermieten, der ihre Gebühren bezahlen kann. Ungeachtet ihrer Methoden erwarten die Leiter dieser Klöster den unbedingten Gehorsam ihrer Schüler.
 Subclass/&WayOfSilhouetteTitle=Weg der Silhouette

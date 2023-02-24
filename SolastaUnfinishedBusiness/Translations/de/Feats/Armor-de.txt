@@ -1,4 +1,4 @@
-Feat/&FeatHeavyArmorMasterDescription=Sie können Ihre Rüstung verwenden, um Schläge abzuwehren, die andere töten würden. Erhöhe deinen Stärkewert um 1 bis maximal 20. Während du schwere Rüstung trägst, wird Knüppel-, Stich- und Hiebschaden, den du durch Angriffe erleidest, um 3 verringert.
+Feat/&FeatHeavyArmorMasterDescription=Sie können Ihre Rüstung verwenden, um Schläge abzuwehren, die andere töten würden. Erhöhe deinen Stärkewert um 1 bis maximal 20. Während du schwere Rüstung trägst, wird der Knüppel-, Stich- und Hiebschaden, den du durch Angriffe erleidest, um 3 verringert.
 Feat/&FeatHeavyArmorMasterTitle=Meister der schweren Rüstung
 Feat/&FeatMediumArmorDexDescription=Erhöhe deine Geschicklichkeit um 1 bis zu einem Maximum von 20.\nDu erlangst Erfahrung im Umgang mit mittlerer Rüstung und Schilden.
 Feat/&FeatMediumArmorDexTitle=Mittlere Rüstung [Ges]

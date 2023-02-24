@@ -275,6 +275,7 @@ internal sealed class DomainDefiler : AbstractSubclass
             .AddFeatures(
                 FeatureDefinitionDamageAffinityBuilder
                     .Create("DamageAffinityNecroticVulnerability")
+                    .SetGuiPresentationNoContent(true)
                     .SetDamageAffinityType(DamageAffinityType.Vulnerability)
                     .SetDamageType(DamageTypeNecrotic)
                     .AddToDB())
@@ -366,7 +367,7 @@ internal sealed class DomainDefiler : AbstractSubclass
         {
             var damage = effect.FindFirstDamageForm();
 
-            if (damage is not { DamageType: DamageTypeNecrotic } || definition is not SpellDefinition)
+            if (damage is not { DamageType: DamageTypeNecrotic })
             {
                 return effect;
             }

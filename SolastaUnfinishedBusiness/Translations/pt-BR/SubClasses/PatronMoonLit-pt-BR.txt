@@ -16,5 +16,5 @@ Feature/&PowerMoonlitFullMoonDescription=Você pode lançar <b>Daylight<b> um n�
 Feature/&PowerMoonlitFullMoonTitle=Lua cheia
 Feature/&PowerMoonlitMoonTouchedDescription=Você conjura a atração gravitacional da lua em uma pequena área, fazendo com que as criaturas que falham em um teste de resistência flutuem para cima.
 Feature/&PowerMoonlitMoonTouchedTitle=Lua Tocada
-Subclass/&PatronMoonlitDescription=Seu patrono é um espírito da lua, uma entidade que incorpora a natureza cíclica da luz e da escuridão. Esses espíritos procuram manter o poder da lua sobre o céu noturno enquanto mantêm os poderes profanos que perseguem a escuridão sob controle e encarregam seus feiticeiros com o mesmo, concedendo-lhes o comando sobre os poderes da lua e seus efeitos.
+Subclass/&PatronMoonlitDescription=Seu patrono é um espírito da lua, uma entidade que incorpora a natureza cíclica da luz e da escuridão. Esses espíritos procuram manter o poder da lua sobre o céu noturno enquanto mantêm os poderes profanos que espreitam a escuridão à distância e encarregam seus feiticeiros com o mesmo, concedendo-lhes o comando sobre os poderes da lua e seus efeitos.
 Subclass/&PatronMoonlitTitle=O luar

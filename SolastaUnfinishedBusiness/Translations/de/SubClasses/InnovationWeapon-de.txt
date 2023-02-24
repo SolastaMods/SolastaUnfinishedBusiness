@@ -1,5 +1,5 @@
 Condition/&ConditionInnovationWeaponSummonSteelDefenderSpellAttackTitle=Zauberangriffsbonus seines Schöpfers
-Feature/&AttributeModifierInnovationWeaponExtraAttackDescription=Du kannst zweimal statt einmal angreifen, wenn du die Angriffs- oder Stoßaktionen verwendest.
+Feature/&AttributeModifierInnovationWeaponExtraAttackDescription=Sie können zweimal statt einmal angreifen, wenn Sie die Angriffs- oder Stoßaktionen verwenden.
 Feature/&AttributeModifierInnovationWeaponExtraAttackTitle=Extra-Angriff
 Feature/&AutoPreparedSpellsInnovationWeaponDescription=Lernen und immer vorbereitet sein:\n{0}\n\n
 Feature/&AutoPreparedSpellsInnovationWeaponTitle=Waffenschmied-Zauber
@@ -25,7 +25,7 @@ Reaction/&SpendPowerPowerInnovationWeaponArcaneJoltDescription=Kanalisiere magis
 Reaction/&SpendPowerPowerInnovationWeaponArcaneJoltReactDescription=Verwenden Sie diese Kraft, um zusätzlichen Schaden zu verursachen.
 Reaction/&SpendPowerPowerInnovationWeaponArcaneJoltReactTitle=Reagieren
 Reaction/&SpendPowerPowerInnovationWeaponArcaneJoltTitle=Ruck erzwingen
-Screen/&InventorWeaponsmithSpellDescription=Dieser Waffenschmied-Zauber gilt immer als vorbereitet. \nEs zählt nicht zu deinem Zaubervorbereitungslimit.
+Screen/&InventorWeaponsmithSpellDescription=Dieser Waffenschmied-Zauber gilt immer als vorbereitet.\nEs zählt nicht zu deinem Zaubervorbereitungslimit.
 Screen/&InventorWeaponsmithSpellTitle=Waffenschmied
 Subclass/&InnovationWeaponDescription=Waffenschmiede konzentrieren ihre Studien auf magische Waffen und wie man sie effektiv einsetzt.
 Subclass/&InnovationWeaponTitle=Waffenschmied

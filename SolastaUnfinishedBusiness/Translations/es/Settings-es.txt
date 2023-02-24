@@ -48,11 +48,11 @@ ModUi/&CraftingHelp=. Presiona el botón para aprender recetas al instante en el
 ModUi/&Credits=Créditos
 ModUi/&CreditsAndDiagnostics=Créditos y Diagnósticos
 ModUi/&Critical=<color=#F0DAA0>Golpe crítico:</color>
-ModUi/&CriticalOption0=. 0: predeterminado del juego, tira cualquier dado de daño dos veces, agrega el resultado y agrega modificadores <i><color=#F0DAA0>[XdY+XdY+Z]</color></i>
-ModUi/&CriticalOption1=. 1: suma el resultado máximo de los dados de daño y súmalo al daño del ataque <i><color=#F0DAA0>[XdY+(X*Y)+Z]</color></i>
-ModUi/&CriticalOption2=. 2: sigue tirando cualquier dado de daño que arroje el resultado más alto posible y súmalo al daño total
-ModUi/&CriticalOption3=. 3: Duplica el daño total de tu ataque en lugar de tirar dados adicionales. <i><color=#F0DAA0>[(XdY+Z)*2]</color></i>
-ModUi/&DeadEyeAndPowerAttackBaseBaseValue=<color=white>Establece el valor básico del modificador Deadeye y Power Attack</color>\n<i><color=#F0DAA0>[la fórmula es -mod para golpear / mod + tu bonificación de competencia para dañar]</color></i>
+ModUi/&CriticalOption0=<color=#D89555><b>0</b></color>: predeterminado del juego, tira cualquier dado de daño dos veces, suma el resultado y agrega modificadores <i><color=#F0DAA0>[XdY+XdY+Z] </color></i>
+ModUi/&CriticalOption1=<color=#D89555><b>1</b></color>: suma el resultado máximo de los dados de daño y súmalo al daño del ataque <i><color=#F0DAA0>[XdY+(X*Y) +Z]</color></i>
+ModUi/&CriticalOption2=<color=#D89555><b>2</b></color>: sigue tirando los dados de daño que obtengan el resultado más alto posible y súmalo al daño total
+ModUi/&CriticalOption3=<color=#D89555><b>3</b></color>: duplica el daño total de tu ataque en lugar de tirar dados adicionales. <i><color=#F0DAA0>[(XdY+Z)*2]</color></i>
+ModUi/&DeadEyeAndPowerAttackBaseBaseValue=<color=white>Establece el valor del modificador base Deadeye y Power Attack</color>\n<i><color=#F0DAA0>[la fórmula es -mod para golpear / mod + tu PB para dañar]</color></i>
 ModUi/&Deities=<color=#F0DAA0>Deidades:</color>
 ModUi/&DisableAutoEquip=Deshabilitar el equipamiento automático de artículos en el inventario
 ModUi/&DisableClassPrerequisitesOnModFeats=Deshabilitar los requisitos previos de nivel en las hazañas vinculadas a la clase proporcionadas por este mod
@@ -72,7 +72,7 @@ ModUi/&EnableAdditionalItemsInDungeonMaker=<i>+ Agregar nuevos elementos a Dunge
 ModUi/&EnableAlternateHuman=Habilitar el humano alternativo <i><color=#F0DAA0>[+1 hazaña / +2 opciones de atributos / +1 habilidad]</color></i>
 ModUi/&EnableBetaContent=Habilitar contenido beta <b><i><color=#C04040E0>[Requiere reiniciar]</color></i></b>
 ModUi/&EnableCancelEditOnRightMouseClick=Habilite las acciones de cancelación con el botón derecho del mouse
-ModUi/&EnableCharacterChecker=Habilite el Comprobador de caracteres en la pantalla principal > Caracteres
+ModUi/&EnableCharacterChecker=Habilite el botón Verificador de caracteres en la pantalla principal > Caracteres
 ModUi/&EnableCharacterExport=Habilite <color=#1E81B0>CTRL-SHIFT-(E)</color> para exportar el carácter
 ModUi/&EnableCheatMenu=Habilitar el menú de trucos
 ModUi/&EnableDungeonMakerModdedContent=Habilite Dungeon Maker Pro\n<i><color=#F0DAA0>[incluya habitaciones planas, tamaños de mazmorras de 150 x 150 y 200 x 200 y elementos sencillos que mezclen recursos de todos los entornos]</color></i>
@@ -186,7 +186,7 @@ ModUi/&Services=Servicios
 ModUi/&SetBeltOfDwarvenKindBeardChances=<color=#D89555>Cinturón de raza enana</color> <color=blanco>posibilidades de aparición de barba</color>
 ModUi/&Settings=<color=#F0DAA0>Configuración:</color>
 ModUi/&SettingsExport=Exportar
-ModUi/&SettingsHelp=. Como anfitrión, puede exportar su configuración actual, abrir la carpeta de exportaciones y compartirla fácilmente con sus pares\n. Como invitado, puede abrir la carpeta de exportaciones, pegar el archivo compartido desde el host y cargarlo <b><i><color=#C04040E0>[Requiere reinicio]</color></i></b>
+ModUi/&SettingsHelp=. Como anfitrión, puede exportar su configuración actual, abrir la carpeta de exportaciones y compartirla fácilmente con sus pares\n. Como invitado, puede abrir la carpeta de exportaciones, pegar el archivo compartido desde el host y cargarlo en <b><i><color=#C04040E0>[Requiere reinicio]</color></i></b>
 ModUi/&SettingsLoad=. Cargar una configuración exportada
 ModUi/&SettingsOpenFolder=Abra la carpeta de configuración exportada
 ModUi/&SettingsRefresh=Actualizar

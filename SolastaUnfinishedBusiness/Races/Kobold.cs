@@ -120,7 +120,7 @@ internal static class KoboldRaceBuilder
         var powerDraconicKoboldDraconicCry = FeatureDefinitionPowerBuilder
             .Create("PowerDraconicKoboldDraconicCry")
             .SetGuiPresentation(Category.Feature,
-                Sprites.GetSprite("PowerDraconicCry", Resources.PowerDraconicCry, 128))
+                Sprites.GetSprite("PowerDraconicCry", Resources.PowerDraconicCry, 256, 128))
             .SetUsesProficiencyBonus(ActivationTime.BonusAction)
             .SetEffectDescription(EffectDescriptionBuilder
                 .Create()

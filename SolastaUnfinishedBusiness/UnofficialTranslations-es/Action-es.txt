@@ -9,20 +9,20 @@ Action/&ActionStatusNoLongerAvailableDescription=Acción no disponible: se ha se
 Action/&ActionStatusOutOfUsesDescription=Acción no disponible: sin usos/munición.
 Action/&ActionStatusSpentDescription=La acción ya se usó este turno.
 Action/&ActionStatusUnavailableDescription=Acción no disponible este turno.
-Action/&ActionTypeBonusAvailableMultipleDescription=¡Esta acción adicional está disponible!
-Action/&ActionTypeBonusAvailableSingleDescription=¡Tu acción de bonificación está disponible!
+Action/&ActionTypeBonusAvailableMultipleDescription=Esta acción adicional está disponible!
+Action/&ActionTypeBonusAvailableSingleDescription=Tu acción de bonificación está disponible!
 Action/&ActionTypeBonusDescription=Se otorga una acción de bonificación por poderes y hechizos especiales, o cuando se equipa un arma con la mano izquierda.
 Action/&ActionTypeBonusTitle=Prima
 Action/&ActionTypeBonusUnavailableMultipleDescription=Has utilizado esta acción de bonificación.
 Action/&ActionTypeBonusUnavailableSingleDescription=Has utilizado tu acción de bonificación.
-Action/&ActionTypeFreeOnceAvailableMultipleDescription=¡Esta acción gratuita está disponible!
-Action/&ActionTypeFreeOnceAvailableSingleDescription=¡Tu acción gratuita está disponible!
+Action/&ActionTypeFreeOnceAvailableMultipleDescription=Esta acción gratuita está disponible!
+Action/&ActionTypeFreeOnceAvailableSingleDescription=Tu acción gratuita está disponible!
 Action/&ActionTypeFreeOnceDescription=Puedes realizar ciertas acciones gratuitas durante tu turno, como envainar un arma o dejar caer un objeto.
 Action/&ActionTypeFreeOnceTitle=Gratis
 Action/&ActionTypeFreeOnceUnavailableMultipleDescription=Has utilizado esta acción gratuita.
 Action/&ActionTypeFreeOnceUnavailableSingleDescription=Has usado tu acción gratuita.
-Action/&ActionTypeMainAvailableMultipleDescription=¡Esta acción principal está disponible!
-Action/&ActionTypeMainAvailableSingleDescription=¡Tu acción principal está disponible!
+Action/&ActionTypeMainAvailableMultipleDescription=Esta acción principal está disponible!
+Action/&ActionTypeMainAvailableSingleDescription=Tu acción principal está disponible!
 Action/&ActionTypeMainDescription=Tu acción principal es lo principal que haces durante tu turno, como moverte, atacar, lanzar un hechizo o usar una habilidad.
 Action/&ActionTypeMainTitle=Acciones principales
 Action/&ActionTypeMainUnavailableMultipleDescription=Ha utilizado esta acción principal.
@@ -31,8 +31,8 @@ Action/&ActionTypeMoveDescription=La acción de movimiento generalmente implica 
 Action/&ActionTypeMoveTitle=Moverse
 Action/&ActionTypeOtherDescription=Otras acciones se pueden realizar libremente o gastando puntos de movimiento.
 Action/&ActionTypeOtherTitle=Otro
-Action/&ActionTypeReactionAvailableMultipleDescription=¡Esta reacción está disponible!
-Action/&ActionTypeReactionAvailableSingleDescription=¡Tu reacción está disponible!
+Action/&ActionTypeReactionAvailableMultipleDescription=Esta reacción está disponible!
+Action/&ActionTypeReactionAvailableSingleDescription=Tu reacción está disponible!
 Action/&ActionTypeReactionDescription=Las condiciones específicas pueden desencadenar una reacción, como un ataque de oportunidad.
 Action/&ActionTypeReactionTitle=Reacción
 Action/&ActionTypeReactionUnavailableMultipleDescription=Has usado esta reacción.
@@ -44,8 +44,8 @@ Action/&AttackCoverFullDescription=El objetivo tiene cobertura total detrás de 
 Action/&AttackCoverHalfDescription=El objetivo tiene media cobertura ({0} AC).\n
 Action/&AttackCoverThreeQuartersDescription=El objetivo tiene tres cuartas partes de cobertura ({0} AC).\n
 Action/&AttackDescription=Ataca a un objetivo enemigo con esta arma: {0} ({1} para impactar)\n{2}
-Action/&AttackExecuteAdvantageDescription=¡Ataca al objetivo con ventaja!
-Action/&AttackExecuteDescription=¡Ataca al objetivo!
+Action/&AttackExecuteAdvantageDescription=Ataca al objetivo con ventaja!
+Action/&AttackExecuteDescription=Ataca al objetivo!
 Action/&AttackExecuteDisadvantageDescription=Ataque al objetivo con desventaja.
 Action/&AttackIterativeDescription=Puedes atacar {0} veces durante tu turno e intercalar tus ataques entre movimientos.
 Action/&AttackTitle=Ataque
@@ -150,8 +150,8 @@ Action/&RecallItemDescription=Recupera el elemento creado por el efecto {0}.
 Action/&ReapplyEffectTitle=Volver a aplicar efecto
 Action/&ReapplyEffectDescription=Vuelva a aplicar el efecto {0}
 Action/&ActionStatusMissingFreeHandDescription=Debes tener una mano libre para realizar esta acción.
-Action/&AttackExecuteAdvantageGamepadDescription=¡Presiona <sprite index={0}> para atacar al objetivo con ventaja!
-Action/&AttackExecuteGamepadDescription=¡Presiona <sprite index={0}> para atacar al objetivo!
+Action/&AttackExecuteAdvantageGamepadDescription=Presiona <sprite index={0}> para atacar al objetivo con ventaja!
+Action/&AttackExecuteGamepadDescription=Presiona <sprite index={0}> para atacar al objetivo!
 Action/&AttackExecuteDisadvantageGamepadDescription=Presiona <sprite index={0}> para atacar al objetivo con desventaja.
 Action/&SpellExecuteGamepadDescription=Presiona <sprite index={0}> para seleccionar este objetivo para tu hechizo.
 Action/&CastInvocationTitle=Invocación

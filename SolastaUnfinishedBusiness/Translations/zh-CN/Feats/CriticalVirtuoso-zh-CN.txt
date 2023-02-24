@@ -1,2 +1,2 @@
-﻿Feature/&MartialChampionSuperiorCriticalDescription=你在攻击掷骰为18、19、20时造成重击
-Feature/&MartialChampionSuperiorCriticalTitle=高等重击
+﻿Feature/&MartialChampionSuperiorCriticalDescription=如果掷出 18、19 或 20，您的武器攻击将获得重击。
+Feature/&MartialChampionSuperiorCriticalTitle=超级关键
