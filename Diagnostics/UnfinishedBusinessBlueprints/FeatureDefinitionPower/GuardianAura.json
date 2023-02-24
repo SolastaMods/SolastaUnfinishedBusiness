@@ -136,7 +136,7 @@
   "delegatedToAction": false,
   "surrogateToSpell": null,
   "triggeredBySpecialMove": false,
-  "activationTime": "BonusAction",
+  "activationTime": "Action",
   "autoActivationRequiredTargetSenseType": "None",
   "autoActivationRequiredTargetCreatureTag": "",
   "autoActivationPowerTag": "",
@@ -151,13 +151,13 @@
   "canUseInDialog": false,
   "disableIfConditionIsOwned": null,
   "disableIfTargetConditionIsOwned": null,
-  "rechargeRate": "LongRest",
+  "rechargeRate": "AtWill",
   "costPerUse": 1,
   "spellcastingFeature": null,
-  "usesDetermination": "ProficiencyBonus",
+  "usesDetermination": "Fixed",
   "abilityScoreDetermination": "Explicit",
   "usesAbilityScoreName": "Charisma",
-  "fixedUsesPerRecharge": 0,
+  "fixedUsesPerRecharge": 1,
   "abilityScore": "Intelligence",
   "attackHitComputation": "AbilityScore",
   "fixedAttackHit": 0,
@@ -171,13 +171,13 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&PowerSharedPoolCollegeOfLifeHealingPoolTitle",
-    "description": "Feature/&PowerSharedPoolCollegeOfLifeHealingPoolDescription",
+    "title": "Spell/&ShieldOfFaithTitle",
+    "description": "Spell/&ShieldOfFaithDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "",
-      "m_SubObjectName": null,
-      "m_SubObjectType": null
+      "m_AssetGUID": "42d9d312013d64043a49b3d3e82a0ba3",
+      "m_SubObjectName": "ShieldOfFaith",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
@@ -192,7 +192,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "e197ef97-b732-5855-9dc2-a455625e4ef6",
+  "guid": "40e7a087-eeb0-5924-bca1-d8f9eaeebcdc",
   "contentPack": 9999,
-  "name": "PowerSharedPoolCollegeOfLifeHealingPool"
+  "name": "GuardianAura"
 }

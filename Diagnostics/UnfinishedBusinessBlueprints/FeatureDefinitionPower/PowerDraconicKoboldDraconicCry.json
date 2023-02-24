@@ -328,7 +328,7 @@
     "description": "Feature/&PowerDraconicKoboldDraconicCryDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "1c5c4b1b-e1e0-5d06-874d-7828276bc366",
+      "m_AssetGUID": "c051aef4-3e31-563a-8001-a0fb7e45381b",
       "m_SubObjectName": null,
       "m_SubObjectType": null
     },
