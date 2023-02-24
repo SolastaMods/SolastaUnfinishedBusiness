@@ -1,8 +1,0 @@
-﻿Condition/&AfterRestIdentifyDescription=Опознать магический предмет.
-Condition/&AfterRestIdentifyTitle=Опознать
-Condition/&ConditionDistractedByAllyDescription=Существо отвлечено.
-Condition/&ConditionDistractedByAllyTitle=Отвлечен
-Condition/&ConditionLightSensitivityDescription=У Вас штраф на проверки Мудрости (Восприятия) на ярвком свету, также получите -1d4 пенальти при бросках на попадание.
-Condition/&ConditionLightSensitivityTitle=Чувствительность к свету
-Condition/&ConditionStopMovementDescription=Не может передвигаться. Скорость равна 0.
-Condition/&ConditionStopMovementTitle=Остановлен

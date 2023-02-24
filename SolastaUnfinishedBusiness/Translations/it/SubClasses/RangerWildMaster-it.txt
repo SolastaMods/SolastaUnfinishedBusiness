@@ -1,5 +1,5 @@
 ﻿Condition/&ConditionWildMasterSummonSpiritBeastBonusTitle=Bonus Wild Master
-Feature/&FeatureSetWildMaster03Description=Ottieni un compagno Spirit Beast che ti accompagna nelle tue avventure ed è addestrato a combattere al tuo fianco. Guadagna il tuo modificatore di Saggezza alla classe armatura, ai tiri per colpire e ai tiri per i danni. Guadagna inoltre 4 PS per livello del personaggio e può eseguire l'azione Schivare solo nel suo turno, a meno che tu non gli ordini di fare altrimenti.\nSpirito Bestia ed Evocatore condividono la stessa iniziativa e puoi scegliere un Orso, un'Aquila o un Lupo :\n. L'Orso può sputare un cono di fuoco\n. L'Aquila una linea elettrica\n. Il Lupo un cono di freddo.
+Feature/&FeatureSetWildMaster03Description=Ottieni un compagno Spirit Beast che ti accompagna nelle tue avventure ed è addestrato a combattere al tuo fianco. Guadagna il tuo modificatore di Saggezza alla classe armatura, ai tiri per colpire e ai tiri per i danni. Guadagna inoltre 4 PS per livello del personaggio e può eseguire l'azione Schivare solo nel suo turno, a meno che tu non gli ordini di fare altrimenti.\nSpirito Bestia ed Evocatore condividono la stessa iniziativa e puoi scegliere un Orso, un'Aquila o un Lupo:\n. L'Orso può sputare un cono di fuoco\n. L'Aquila una linea elettrica\n. Il Lupo un cono di freddo.
 Feature/&PowerSpiritBeastBreathWeaponBlueTitle=Arma fulminea
 Feature/&PowerSpiritBeastBreathWeaponGoldTitle=Arma da fuoco
 Feature/&PowerSpiritBeastBreathWeaponSilverTitle=Arma fredda
@@ -13,7 +13,7 @@ Feature/&FeatureSetWildMaster11Description=La Bestia spirituale ora può utilizz
 Feature/&FeatureSetWildMaster11Title=Competenza del Maestro
 Feature/&FeatureSetWildMaster15Description=Lo Spirit Beast ora può agire in modo indipendente, non può essere sorpreso e usa poteri simili a Eyebite.
 Feature/&FeatureSetWildMaster15Title=Libero arbitrio
-Feature/&FeatureWildMasterBeastIsNextToSummonerDescription=Tu e la tua bestia spirituale vi aiutate a vicenda sul campo. Lo Spirit Beast ottiene un vantaggio di attacco ogni volta che ingaggia un nemico accanto a te.
+Feature/&FeatureWildMasterBeastIsNextToSummonerDescription=Tu e la tua bestia spirituale vi aiutate a vicenda sul campo. Lo Spirit Beast ottiene un vantaggio di attacco ogni volta che ingaggia un nemico vicino a te.
 Feature/&FeatureWildMasterBeastIsNextToSummonerTitle=Integrazione profonda
 Feature/&PowerWildMasterInvisibilityDescription=Diventa invisibile per 1 ora.
 Feature/&PowerWildMasterInvisibilityTitle=Diventa invisibile

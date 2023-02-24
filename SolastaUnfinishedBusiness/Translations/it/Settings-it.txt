@@ -48,16 +48,16 @@ ModUi/&CraftingHelp=. Premi il pulsante per imparare le ricette all'istante sull
 ModUi/&Credits=Crediti
 ModUi/&CreditsAndDiagnostics=Crediti e diagnostica
 ModUi/&Critical=<color=#F0DAA0> Colpo critico:</color>
-ModUi/&CriticalOption0=. 0: impostazione predefinita del gioco, tira due volte i dadi di danno, somma il risultato e aggiungi i modificatori <i><color=#F0DAA0>[XdY+XdY+Z]</color></i>
-ModUi/&CriticalOption1=. 1: somma il risultato massimo per i dadi di danno e aggiungilo al danno dell'attacco <i><color=#F0DAA0>[XdY+(X*Y)+Z]</color></i>
-ModUi/&CriticalOption2=. 2: continua a ripetere i tiri dei dadi danno che ottengono il risultato più alto possibile e aggiungilo al danno totale
-ModUi/&CriticalOption3=. 3: Raddoppia il danno totale del tuo attacco invece di tirare dadi aggiuntivi. <i><color=#F0DAA0>[(XdY+Z)*2]</color></i>
-ModUi/&DeadEyeAndPowerAttackBaseBaseValue=<color=white>Imposta il valore del modificatore base di Deadeye e Attacco Poderoso</color>\n<i><color=#F0DAA0>[la formula è -mod per colpire / mod + il tuo bonus di competenza per i danni]</color></io>
+ModUi/&CriticalOption0=<color=#D89555><b>0</b></color>: impostazione predefinita del gioco, tira due volte i dadi di danno, somma il risultato e aggiungi i modificatori <i><color=#F0DAA0>[XdY+XdY+Z] </color></i>
+ModUi/&CriticalOption1=<color=#D89555><b>1</b></color>: somma il risultato massimo per i dadi di danno e sommalo al danno dell'attacco <i><color=#F0DAA0>[XdY+(X*Y) +Z]</color></i>
+ModUi/&CriticalOption2=<color=#D89555><b>2</b></color>: continua a ripetere il tiro di tutti i dadi danno che ottengono il risultato più alto possibile e aggiungilo al danno totale
+ModUi/&CriticalOption3=<color=#D89555><b>3</b></color>: raddoppia il danno totale del tuo attacco invece di tirare dadi aggiuntivi. <i><color=#F0DAA0>[(XdY+Z)*2]</color></i>
+ModUi/&DeadEyeAndPowerAttackBaseBaseValue=<color=white>Imposta il valore del modificatore base di Deadeye e Attacco Poderoso</color>\n<i><color=#F0DAA0>[la formula è -mod per colpire / mod + il tuo PB per danneggiare]</color></i>
 ModUi/&Deities=<color=#F0DAA0> Divinità:</color>
 ModUi/&DisableAutoEquip=Disattiva l'equipaggiamento automatico degli articoli nell'inventario
 ModUi/&DisableClassPrerequisitesOnModFeats=Disabilita i prerequisiti di livello sui talenti legati alla classe forniti da questa mod
 ModUi/&DisableRacePrerequisitesOnModFeats=Disabilita i prerequisiti di razza sui talenti forniti da questa mod
-ModUi/&DisableSenseDarkVisionFromAllRaces=Disabilita <color=#D89555>Percepisci Visione Oscura</color> da tutte le razze giocabili <b><i><color=#C04040E0>[Richiede il riavvio]</color></i></b>
+ModUi/&DisableSenseDarkVisionFromAllRaces=Disabilita <color=#D89555>Percepisci la visione oscura</color> da tutte le razze giocabili <b><i><color=#C04040E0>[Richiede il riavvio]</color></i></b>
 ModUi/&DisableSenseSuperiorDarkVisionFromAllRaces=Disabilita <color=#D89555>Oscuro Senso Superiore</color> da tutte le razze giocabili <b><i><color=#C04040E0>[Richiede il riavvio]</color></i></b>
 ModUi/&DisplayAllKnownSpellsDuringLevelUp=<i>+ Mostra tutti gli incantesimi conosciuti di altre classi durante l'aumento di livello</i>
 ModUi/&DisplayPactSlotsOnSpellSelectionPanel=<i>+ Mostra slot patto <color=#D89555>Stregone</color> sulla selezione degli incantesimi invece che sul pannello del personaggio</i>
@@ -69,10 +69,10 @@ ModUi/&EmpressGarbAppearance=Aspetto <color=#D89555>Abito da Imperatrice</color>
 ModUi/&EnableAdditionalBackstoryDisplay=Abilita la visualizzazione aggiuntiva del retroscena durante l'ispezione in background
 ModUi/&EnableAdditionalIconsOnLevelMap=Abilita icone aggiuntive per accampamenti, uscite e teletrasporto sulla mappa del livello
 ModUi/&EnableAdditionalItemsInDungeonMaker=<i>+ Aggiungi nuovi elementi a Dungeon Maker</i>
-ModUi/&EnableAlternateHuman=Abilita l'umano alternativo <i><color=#F0DAA0>[+1 talento / +2 scelte attributi / +1 abilità]</color></i>
+ModUi/&EnableAlternateHuman=Abilita l'umano alternativo <i><color =#f0daa0> [ +1 feat / +2 scelte di attributo / +1 abilità] </ color></i>
 ModUi/&EnableBetaContent=Abilita i contenuti beta <b><i><color=#C04040E0>[Richiede il riavvio]</color></i></b>
 ModUi/&EnableCancelEditOnRightMouseClick=Abilita le azioni di annullamento con il clic destro del mouse
-ModUi/&EnableCharacterChecker=Abilita il controllo caratteri nella schermata principale > Caratteri
+ModUi/&EnableCharacterChecker=Abilita il pulsante Controllo caratteri nella schermata principale > Personaggi
 ModUi/&EnableCharacterExport=Abilita <color=#1E81B0>CTRL-MAIUSC-(E)</color> per esportare il personaggio
 ModUi/&EnableCheatMenu=Abilita il menu dei trucchi
 ModUi/&EnableDungeonMakerModdedContent=Abilita Dungeon Maker Pro\n<i><color=#F0DAA0>[includi stanze piatte, dungeon di dimensioni 150x150 e 200x200 e senza fronzoli che mescolano risorse da tutti gli ambienti]</color></i>
@@ -131,7 +131,7 @@ ModUi/&HideMonsterHitPoints=Mostra la salute dei mostri in passi del 25% / 50% /
 ModUi/&House=<color=#F0DAA0>Casa:</color>
 ModUi/&IdentifyAfterRest=Aggiunge un potere per identificare gli oggetti magici durante un riposo breve o lungo
 ModUi/&IgnoreHandXbowFreeHandRequirements=Non è necessaria la mano libera per usare le balestre a mano
-ModUi/&IncreaseGameTimeBy=Aumenta il tempo di gioco di
+ModUi/&IncreaseGameTimeBy=Aumenta il tempo di gioco da
 ModUi/&IncreaseMaxAttunedItems=Aumenta il numero massimo di oggetti sintonizzati a 4 al livello 10 e 5 al livello 18
 ModUi/&IncreaseSenseNormalVision=<color=white>Aumenta il raggio di <color=#D89555>Percepisci visione normale</color> per consentire attacchi a lungo raggio</color> <b><i><color=#C04040E0>[Richiede il riavvio]</color></i></b>
 ModUi/&IncreaseSenseNormalVisionHelp=<i><color=#F0DAA0>[40 è l'ideale per evitare che i nemici si uniscano da troppo lontano]</color></i>
@@ -151,7 +151,7 @@ ModUi/&MakeLargeWildshapeFormsMedium=Rendi tutte le grandi forme selvagge di med
 ModUi/&MarkInvisibleTeleportersOnLevelMap=<i>+ Contrassegna anche la posizione dei teletrasporti invisibili sulla mappa del livello dopo la scoperta</i>
 ModUi/&MaxAllowedClasses=<color=white>Classi massime consentite</color>
 ModUi/&Merchants=<color=#F0DAA0> Commercianti:</color>
-ModUi/&Metamagic=<color=#F0DAA0> Metamagia</color>
+ModUi/&Metamagic=<color=#F0DAA0>Metamagia</color>
 ModUi/&Monsters=<color=#F0DAA0>Mostri:</color>
 ModUi/&MulticlassKeyHelp=Fare clic su <color=#1E81B0>MAIUSC</color> su un incantesimo inverte il tipo di slot del repertorio predefinito consumato\n<i><color=#F0DAA0>[<color=#D89555>Stregone</color> spende slot incantesimo bianchi e altri spendono patti verdi]</color></i>
 ModUi/&MultiplyTheExperienceGainedBy=<color=white>Moltiplica l'esperienza acquisita per</color> <color=#C04040E0>[%]</color>
@@ -189,7 +189,7 @@ ModUi/&SettingsExport=Esportare
 ModUi/&SettingsHelp=. In qualità di host puoi esportare la tua configurazione attuale, aprire la cartella delle esportazioni e condividerla facilmente con i tuoi colleghi\n. Come ospite puoi aprire la cartella delle esportazioni, incollare il file condiviso dall'host e caricarlo su <b><i><color=#C04040E0>[Richiede il riavvio]</color></i></b>
 ModUi/&SettingsLoad=. Carica un'impostazione esportata
 ModUi/&SettingsOpenFolder=Apri la cartella delle impostazioni esportate
-ModUi/&SettingsRefresh=ricaricare
+ModUi/&SettingsRefresh=Ricaricare
 ModUi/&SettingsRemove=Rimuovere
 ModUi/&ShowCraftedItemOnRecipeIcon=Mostra l'icona dell'oggetto creato accanto all'oggetto della ricetta nel negozio e nell'inventario. Passando il mouse su di esso verrà visualizzato il suggerimento per l'oggetto creato
 ModUi/&ShowCraftingRecipeInDetailedTooltips=Mostra la ricetta di creazione in suggerimenti dettagliati
@@ -204,7 +204,7 @@ ModUi/&StockHugoStoreWithAdditionalFoci=Fai scorta del negozio di Hugo con <colo
 ModUi/&Subclasses=<color=#F0DAA0>Sottoclassi</color>
 ModUi/&SwapCraftedItemAndRecipeIcons=<i>+ Scambia le icone delle ricette e degli oggetti realizzati nel negozio</i>
 ModUi/&TargetLanguage=Lingua di destinazione
-ModUi/&Tools=Strumenti
+ModUi/&Tools=Utensili
 ModUi/&TotalCraftingTimeModifier=<color=white>Riduci il tempo di creazione di</color>
 ModUi/&TotalFeatsGrantedFirstLevel=<color=white>Talenti totali concessi al primo livello</color>
 ModUi/&Translate=Tradurre

@@ -1,8 +1,0 @@
-Feature/&MagicAffinityFieldManipulatorDCDescription=Врагам сложнее сопротивляться вашим заклинаниям. Уровень сложности спасброска увеличен на 2.
-Feature/&MagicAffinityFieldManipulatorDCTitle=Силы Арканы
-Feature/&PowerFieldManipulatorDominatePersonDescription=Вы можете использовать Подчинение личности столько раз за долгий отдых, скольки равен Ваш Модификатор Харизмы.
-Feature/&PowerFieldManipulatorDominatePersonTitle=Подчинение личности
-Feature/&ProficiencyFieldManipulatorMentalSavingThrowsDescription=Получите мастерство в спасбросках Интеллекта и Мудрости.
-Feature/&ProficiencyFieldManipulatorMentalSavingThrowsTitle=Ментальная сопротивляемость
-Subclass/&FieldManipulatorDescription=Мастера манипуляторы превосходно контролируют поле боя и не позволяют врагам атаковать их.
-Subclass/&FieldManipulatorTitle=Манипулятор

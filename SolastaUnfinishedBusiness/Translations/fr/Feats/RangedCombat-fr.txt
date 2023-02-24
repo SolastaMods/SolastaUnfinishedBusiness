@@ -2,6 +2,6 @@
 Feat/&FeatBowMasteryTitle=Maîtrise de l'arc
 Feat/&FeatDeadeyeDescription=Vous avez appris à échanger la précision pour décrocher des tirs plus meurtriers. Lorsque vous attaquez avec des armes à distance, vous pouvez choisir de subir un malus de -{0} pour toucher afin d'infliger des dégâts supplémentaires égaux à {0} + votre bonus de maîtrise. Attaquer à longue distance n'impose pas de désavantage et vos attaques à l'arme à distance ignorent la demi-couverture et les trois quarts de la couverture.
 Feat/&FeatDeadeyeTitle=Deadeye
-Feat/&FeatRangedExpertDescription=Votre entraînement expert aux armes à distance vous confère les avantages suivants:\n• Vous n'avez plus de désavantage sur les attaques à distance lorsqu'il y a un ennemi à moins de 1,5mètre de vous.\n• Si vous effectuez l'action Attaquer à votre tour, vous pouvez utilisez une action bonus pour effectuer une attaque avec une arme à distance ou de jet à une main.
+Feat/&FeatRangedExpertDescription=Votre entraînement expert aux armes à distance vous confère les avantages suivants:\n• Vous n'avez plus de désavantage sur les attaques à distance lorsqu'il y a un ennemi à moins de 1,5 mètre de vous.\n• Si vous effectuez l'action Attaquer à votre tour, vous pouvez utilisez une action bonus pour effectuer une attaque avec une arme à distance ou de jet à une main.
 Feat/&FeatRangedExpertTitle=Expert à distance
 Tooltip/&DeadeyeConcentration=Désactivez Deadeye.

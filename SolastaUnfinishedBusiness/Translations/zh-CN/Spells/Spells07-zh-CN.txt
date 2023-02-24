@@ -1,4 +1,0 @@
-﻿Condition/&ConditionReverseGravityDescription=获得反重力效果
-Condition/&ConditionReverseGravityTitle=反重力
-Spell/&ReverseGravityDescription=此法术以施法距离内一点为中心，创造一个半径50英尺、高100英尺柱状的重力反转区域
-Spell/&ReverseGravityTitle=反重力

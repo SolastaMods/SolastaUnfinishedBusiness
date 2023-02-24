@@ -1,7 +1,7 @@
 Background/&PointPoolBackgroundSkillSelect2Description=Wählen Sie 2 Fähigkeiten aus.
-Background/&PointPoolBackgroundSkillSelect2Title=Kompetenzen
+Background/&PointPoolBackgroundSkillSelect2Title=Fähigkeiten
 Background/&PointPoolBackgroundSkillSelect3Description=Wählen Sie 3 Fähigkeiten aus.
-Background/&PointPoolBackgroundSkillSelect3Title=Kompetenzen
+Background/&PointPoolBackgroundSkillSelect3Title=Fähigkeiten
 Background/&PointPoolBackgroundToolSelect2Description=Wählen Sie 2 Werkzeugkenntnisse aus.
 Background/&PointPoolBackgroundToolSelect2Title=Werkzeug
 Background/&PointPoolBackgroundToolSelectDescription=Wählen Sie eine Werkzeugkompetenz aus.

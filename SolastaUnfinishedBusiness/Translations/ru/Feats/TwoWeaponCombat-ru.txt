@@ -1,6 +1,0 @@
-﻿Condition/&ConditionDualFlurryGrantDescription=Ваши враги пошатываются!
-Condition/&ConditionDualFlurryGrantTitle=Шквал Ударов!
-Feat/&FeatDualFlurryDescription=Вы мастер боя парным оружием. В любой ход, когда вы использовали оружие в каждой руке и дважды попали в ближнем бою, то можете совершить дополнительную атаку неосновным оружием если будете атаковать бонусным действием.
-Feat/&FeatDualFlurryTitle=Шквал Ударов
-Feat/&FeatDualWeaponDefenseDescription=Получите бонус +1 КД, если носите два оружия, по одному в каждой руке.
-Feat/&FeatDualWeaponDefenseTitle=Защита Парным Оружием

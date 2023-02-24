@@ -2,7 +2,7 @@
 Condition/&ConditionInnovationAlchemyDamageNecroticTitle=Nécrose
 Condition/&ConditionInnovationAlchemyDamagePoisonDescription=La cible est désavantagée au prochain jet d'attaque.
 Condition/&ConditionInnovationAlchemyDamagePsychicDescription=Obtient -1d4 aux jets de sauvegarde de Force, Dextérité et Constitution
-Condition/&ConditionInnovationAlchemyDamagePsychicTitle=Submergé
+Condition/&ConditionInnovationAlchemyDamagePsychicTitle=Dépassé
 Condition/&ConditionInnovationAlchemyDamageThunderDescription=Obtient -1d4 aux jets de sauvegarde d'Intelligence, de Sagesse et de Charisme
 Condition/&ConditionInnovationAlchemyDamageThunderTitle=Commotionné
 Feature/&ActionAffinityInnovationAlchemyFastHandsDescription=Vous avez appris à mélanger les réactifs et à utiliser divers appareils rapidement. Vous pouvez utiliser une action bonus pour activer n'importe quel appareil.
@@ -47,7 +47,7 @@ Feature/&PowerInnovationAlchemyMarkerDamageThunderDescription=Les bombes inflige
 Feature/&PowerInnovationAlchemyMarkerDamageThunderTitle=Bombes de tonnerre
 Feature/&PowerInnovationAlchemyPoolDescription=Vous gagnez 6 points d'alchimie à ce niveau, et 1 point de plus à chaque niveau.
 Feature/&PowerInnovationAlchemyPoolTitle=Points d'alchimie
-Screen/&InventorGrenadierSpellDescription=Ce sort Grenadier est toujours considéré comme préparé. \nCela ne compte pas dans votre limite de préparation de sorts.
+Screen/&InventorGrenadierSpellDescription=Ce sort Grenadier est toujours considéré comme préparé.\nCela ne compte pas dans votre limite de préparation de sorts.
 Screen/&InventorGrenadierSpellTitle=Grenadier
 Subclass/&InnovationAlchemyDescription=Les grenadiers étudient les substances instables et leur utilisation pour créer des explosions de différents types.
 Subclass/&InnovationAlchemyTitle=Grenadier

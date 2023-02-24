@@ -1,17 +1,17 @@
 Tutorial/&Factions_Title=Relaciones de facciones
 Tutorial/&Factions_Description=Las <b>cinco</b> facciones del Consejo tienen representantes en Caer Cyflen. Pueden venderte equipo, hechizos y muchas otras cosas. Cuanto mejor sea su relación con una facción, más tendrá para ofrecer y más bajos serán sus precios.\nSin embargo, estas facciones compiten entre sí, lo que significa que no puede complacerlas a todas. Varias misiones secundarias te darán la oportunidad de mejorar tu relación con una facción u otra.\nEcha un vistazo a la sección Facción del <b>Diario</b>.
-Tutorial/&LightAsAWeapon_Title=¡Enciende la luz!
+Tutorial/&LightAsAWeapon_Title=Enciende la luz!
 Tutorial/&PartyStash_Title=Alijo de fiesta
 Tutorial/&PartyStash_Description=Este cofre es tuyo para usar. Nadie puede saquearlo, puedes esconder hasta 50 artículos dentro. Muchos aventureros usan este servicio Scavenger para almacenar algunas de sus cosas.
 Tutorial/&QuickShopping_Title=Compras rápidas
 Tutorial/&QuickShopping_Description=Cerca de un comerciante, encontrará una interacción de compra rápida. Esto pasa por alto la discusión para abrir instantáneamente la interfaz comercial. Aún puede hablar con el comerciante NPC si es necesario.
-Tutorial/&LightAsAWeapon_Description=No olvides que la luz es fundamental para luchar contra ciertos enemigos en Solasta.\nLos Soraks, por ejemplo, son más poderosos en la penumbra, y aún más en la oscuridad total.\nEsto es fundamental para tu supervivencia. Use hechizos de luz y antorchas: ¡compruebe que los soportes de antorchas se iluminen en el entorno!
+Tutorial/&LightAsAWeapon_Description=No olvides que la luz es fundamental para luchar contra ciertos enemigos en Solasta.\nLos Soraks, por ejemplo, son más poderosos en la penumbra, y aún más en la oscuridad total.\nEsto es fundamental para tu supervivencia. Use hechizos de luz y antorchas: compruebe que los soportes de antorchas se iluminen en el entorno!
 Tutorial/&DiffSettings_Title=Ajustes de dificultad
 Tutorial/&DiffSettings_Description=Puedes cambiar la configuración de dificultad del juego sobre la marcha. Solo tienes que abrir el menú, cambiar la configuración y volver a jugar: se aplican los cambios.\n\nPuedes elegir una dificultad predefinida o explorar las opciones detalladas para una experiencia más personalizada.
 Tutorial/&Tutorial_Highlight_Title=Resaltar objetos interactivos
 Tutorial/&Tutorial_Highlight_Description=Mantenga presionada la tecla ALT para resaltar varios objetos interactivos: puertas, cofres, etc.
 Tutorial/&EgoPuzzle_Title=El rompecabezas enloquecedor
-Tutorial/&EgoPuzzle_Description=Esta sección del nivel es para entusiastas de los rompecabezas. ¡Cuidado! Toma el atajo de la derecha y experimentarás la aventura con normalidad. Si estás listo para un desafío 3D giratorio y colorido, ve a la izquierda tras el botín de la Mente del Maestro. Si cambias de opinión, tendrás que volver a cargar. Por cierto, solo guardamos automáticamente para ti.
+Tutorial/&EgoPuzzle_Description=Esta sección del nivel es para entusiastas de los rompecabezas. Cuidado! Toma el atajo de la derecha y experimentarás la aventura con normalidad. Si estás listo para un desafío 3D giratorio y colorido, ve a la izquierda tras el botín de la Mente del Maestro. Si cambias de opinión, tendrás que volver a cargar. Por cierto, solo guardamos automáticamente para ti.
 Tutorial/&PartyStash_Description_DLC3=Este cofre es tuyo para usar. Nadie puede saquearlo y puedes esconder hasta 50 artículos en su interior.
 Tutorial/&Tutorial_HighlightXbox_Description=Mantén presionados <sprite index={8}> y <sprite index={9}> juntos para resaltar varios objetos interactivos: puertas, cofres, etc.
 Tutorials/&Tuto_DLCFaction_Orenetis_Title=Facción: El Dominio

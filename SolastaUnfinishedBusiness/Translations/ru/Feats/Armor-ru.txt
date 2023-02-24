@@ -1,8 +1,0 @@
-Feat/&FeatHeavyArmorMasterDescription=Вы можете использовать свою броню, чтобы отражать удары, которые могут убить других. Увеличьте показатель Силы на 1, максимум до 20. Пока вы носите тяжелую броню, дробящий, колющий и рубящий урон, который вы получаете от атак, уменьшается на 3.
-Feat/&FeatHeavyArmorMasterTitle=Мастер Тяжелого Доспеха
-Feat/&FeatMediumArmorDexDescription=Увеличьте свою Ловкость на 1, максимум до 20.\nВы получаете владение средними доспехами и щитами.
-Feat/&FeatMediumArmorDexTitle=Средняя броня (ЛВК)
-Feat/&FeatMediumArmorStrDescription=Увеличьте свою Силу на 1, максимум до 20.\nВы получаете владение средними доспехами и щитами.
-Feat/&FeatMediumArmorStrTitle=Средняя броня (СИЛА)
-Feedback/&HeavyArmorMasterFormat=Мастер Тяжелого Доспеха!
-Feedback/&HeavyArmorMasterLine=Мастер Тяжелого Доспеха снижает урон от цели!
