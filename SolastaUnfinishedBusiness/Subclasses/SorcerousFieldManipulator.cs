@@ -13,7 +13,8 @@ internal sealed class SorcerousFieldManipulator : AbstractSubclass
     {
         var autoPreparedSpellsFieldManipulator = FeatureDefinitionAutoPreparedSpellsBuilder
             .Create("AutoPreparedSpellsFieldManipulator")
-            .SetGuiPresentation("DomainSpells", Category.Feature)
+            .SetGuiPresentation("ExpandedSpells", Category.Feature)
+            .SetAutoTag("Origin")
             .SetSpellcastingClass(CharacterClassDefinitions.Sorcerer)
             .AddPreparedSpellGroup(1, Sleep)
             .AddPreparedSpellGroup(2, Invisibility)

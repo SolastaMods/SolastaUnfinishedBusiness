@@ -14,6 +14,7 @@ internal sealed class SorcerousDivineHeart : AbstractSubclass
         var autoPreparedSpellsDivineHeartArun = FeatureDefinitionAutoPreparedSpellsBuilder
             .Create("AutoPreparedSpellsDivineHeartArun")
             .SetGuiPresentation(Category.Feature)
+            .SetAutoTag("Origin")
             .SetSpellcastingClass(CharacterClassDefinitions.Sorcerer)
             .AddPreparedSpellGroup(1, ProtectionFromEvilGood)
             .AddToDB();
@@ -21,6 +22,7 @@ internal sealed class SorcerousDivineHeart : AbstractSubclass
         var autoPreparedSpellsDivineHeartEinar = FeatureDefinitionAutoPreparedSpellsBuilder
             .Create("AutoPreparedSpellsDivineHeartEinar")
             .SetGuiPresentation(Category.Feature)
+            .SetAutoTag("Origin")
             .SetSpellcastingClass(CharacterClassDefinitions.Sorcerer)
             .AddPreparedSpellGroup(1, InflictWounds)
             .AddToDB();
@@ -28,6 +30,7 @@ internal sealed class SorcerousDivineHeart : AbstractSubclass
         var autoPreparedSpellsDivineHeartMariake = FeatureDefinitionAutoPreparedSpellsBuilder
             .Create("AutoPreparedSpellsDivineHeartMariake")
             .SetGuiPresentation(Category.Feature)
+            .SetAutoTag("Origin")
             .SetSpellcastingClass(CharacterClassDefinitions.Sorcerer)
             .AddPreparedSpellGroup(1, CureWounds)
             .AddToDB();
@@ -35,6 +38,7 @@ internal sealed class SorcerousDivineHeart : AbstractSubclass
         var autoPreparedSpellsDivineHeartMisaye = FeatureDefinitionAutoPreparedSpellsBuilder
             .Create("AutoPreparedSpellsDivineHeartMisaye")
             .SetGuiPresentation(Category.Feature)
+            .SetAutoTag("Origin")
             .SetSpellcastingClass(CharacterClassDefinitions.Sorcerer)
             .AddPreparedSpellGroup(1, Bane)
             .AddToDB();
@@ -42,6 +46,7 @@ internal sealed class SorcerousDivineHeart : AbstractSubclass
         var autoPreparedSpellsDivineHeartPakri = FeatureDefinitionAutoPreparedSpellsBuilder
             .Create("AutoPreparedSpellsDivineHeartPakri")
             .SetGuiPresentation(Category.Feature)
+            .SetAutoTag("Origin")
             .SetSpellcastingClass(CharacterClassDefinitions.Sorcerer)
             .AddPreparedSpellGroup(1, Bless)
             .AddToDB();

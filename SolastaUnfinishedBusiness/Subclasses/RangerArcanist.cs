@@ -31,6 +31,7 @@ internal sealed class RangerArcanist : AbstractSubclass
         var autoPreparedSpellsArcanist = FeatureDefinitionAutoPreparedSpellsBuilder
             .Create("AutoPreparedSpellsArcanist")
             .SetGuiPresentation(Category.Feature)
+            .SetAutoTag("Ranger")
             .SetSpellcastingClass(CharacterClassDefinitions.Ranger)
             .SetPreparedSpellGroups(
                 BuildSpellGroup(2, Shield),

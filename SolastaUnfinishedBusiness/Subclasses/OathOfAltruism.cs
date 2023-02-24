@@ -20,7 +20,8 @@ internal sealed class OathOfAltruism : AbstractSubclass
     {
         var autoPreparedSpellsAltruism = FeatureDefinitionAutoPreparedSpellsBuilder
             .Create($"AutoPreparedSpells{Name}")
-            .SetGuiPresentation("DomainSpells", Category.Feature)
+            .SetGuiPresentation("ExpandedSpells", Category.Feature)
+            .SetAutoTag("Oath")
             .SetPreparedSpellGroups(
                 BuildSpellGroup(3, HealingWord, ShieldOfFaith),
                 BuildSpellGroup(5, CalmEmotions, HoldPerson),

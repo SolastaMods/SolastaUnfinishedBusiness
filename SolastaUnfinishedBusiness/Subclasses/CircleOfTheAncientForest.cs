@@ -31,7 +31,8 @@ internal sealed class CircleOfTheAncientForest : AbstractSubclass
 
         var autoPreparedSpellsForestGuardian = FeatureDefinitionAutoPreparedSpellsBuilder
             .Create("AutoPreparedSpellsAncientForest")
-            .SetGuiPresentation("DomainSpells", Category.Feature)
+            .SetGuiPresentation("ExpandedSpells", Category.Feature)
+            .SetAutoTag("Circle")
             .SetPreparedSpellGroups(
                 BuildSpellGroup(2, Goodberry, Entangle),
                 BuildSpellGroup(3, ProtectionFromPoison, SpikeGrowth),
