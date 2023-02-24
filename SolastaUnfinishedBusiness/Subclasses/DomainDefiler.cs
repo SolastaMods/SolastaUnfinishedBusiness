@@ -275,6 +275,7 @@ internal sealed class DomainDefiler : AbstractSubclass
             .AddFeatures(
                 FeatureDefinitionDamageAffinityBuilder
                     .Create("DamageAffinityNecroticVulnerability")
+                    .SetGuiPresentationNoContent(true)
                     .SetDamageAffinityType(DamageAffinityType.Vulnerability)
                     .SetDamageType(DamageTypeNecrotic)
                     .AddToDB())
