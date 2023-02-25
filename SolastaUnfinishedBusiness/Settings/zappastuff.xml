@@ -196,6 +196,7 @@
     <string>WizardBladeDancer</string>
     <string>WizardDeadMaster</string>
     <string>WizardSpellMaster</string>
+    <string>RoguishArcaneScoundrel</string>
   </SubclassEnabled>
   <FeatSliderPosition>4</FeatSliderPosition>
   <FeatEnabled>
@@ -321,6 +322,8 @@
     <string>FeatWarCaster</string>
     <string>FeatWiseDefense</string>
     <string>FeatWisePrecision</string>
+    <string>FeatPrimalRageCon</string>
+    <string>FeatPrimalRageStr</string>
   </FeatEnabled>
   <FeatGroupSliderPosition>4</FeatGroupSliderPosition>
   <FeatGroupEnabled>
@@ -369,6 +372,7 @@
     <string>FeatGroupTools</string>
     <string>FeatGroupToxicologist</string>
     <string>FeatGroupDefenseExpert</string>
+    <string>FeatGroupPrimalRage</string>
   </FeatGroupEnabled>
   <FightingStyleSliderPosition>4</FightingStyleSliderPosition>
   <FightingStyleEnabled>
@@ -529,6 +533,7 @@
           <string>AirBlast</string>
           <string>BurstOfRadiance</string>
           <string>Wrack</string>
+          <string>Sanctuary</string>
           <string>ProtectThreshold</string>
           <string>SpiritShroud</string>
           <string>MassHeal</string>
@@ -550,6 +555,7 @@
           <string>PetalStorm</string>
           <string>ProtectThreshold</string>
           <string>WinterBreath</string>
+          <string>MantleOfThorns</string>
           <string>ReverseGravity</string>
           <string>Shapechange</string>
         </ArrayOfString>
@@ -581,6 +587,7 @@
           <string>WrathfulSmite</string>
           <string>ProtectThreshold</string>
           <string>BlindingSmite</string>
+          <string>CrusadersMantle</string>
           <string>SpiritShroud</string>
           <string>StaggeringSmite</string>
           <string>BanishingSmite</string>
@@ -1083,7 +1090,4 @@
   <EnableEnemiesControlledByPlayer>false</EnableEnemiesControlledByPlayer>
   <EnableHeroesControlledByComputer>false</EnableHeroesControlledByComputer>
   <DebugDisableVerifyDefinitionNameIsNotInUse>false</DebugDisableVerifyDefinitionNameIsNotInUse>
-  <DebugLogDefinitionCreation>false</DebugLogDefinitionCreation>
-  <DebugLogFieldInitialization>false</DebugLogFieldInitialization>
-  <DebugLogVariantMisuse>false</DebugLogVariantMisuse>
 </Settings>
