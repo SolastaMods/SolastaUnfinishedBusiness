@@ -1,6 +1,6 @@
 {
   "$type": "FeatureDefinitionAutoPreparedSpells, Assembly-CSharp",
-  "autopreparedTag": "Domain",
+  "autopreparedTag": "Oath",
   "autoPreparedSpellsGroups": [
     {
       "$type": "FeatureDefinitionAutoPreparedSpells+AutoPreparedSpellsGroup, Assembly-CSharp",
@@ -40,8 +40,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&DomainSpellsTitle",
-    "description": "Feature/&DomainSpellsDescription",
+    "title": "Feature/&ExpandedSpellsTitle",
+    "description": "Feature/&ExpandedSpellsDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
