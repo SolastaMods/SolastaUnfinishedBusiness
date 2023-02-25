@@ -28,11 +28,6 @@
   </Target>
 
   <ItemGroup>
-    <Compile Remove="Api\ModKit\Utility\Extensions\CodeInstructionExtensions.cs" />
-    <Compile Remove="Api\ModKit\Utility\NamedTypes.cs" />
-  </ItemGroup>
-
-  <ItemGroup>
     <PackageReference Include="Publicise.MSBuild.Task" Version="1.6.0">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
@@ -304,4 +299,8 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>
+
+  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+    <Exec Command="echo “Hello=““ world””&#xA;" />
+  </Target>
 </Project>

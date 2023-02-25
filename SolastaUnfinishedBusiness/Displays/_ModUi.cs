@@ -37,7 +37,7 @@ namespace SolastaUnfinishedBusiness.Displays
 
         public void OnGUI(UnityModManager.ModEntry modEntry)
         {
-            DisplaySubMenu(ref characterSelectedPane,
+            DisplaySubMenu(ref characterSelectedPane, Gui.Localize("Character Options"),
                 new NamedAction(Gui.Localize("ModUi/&GeneralMenu"),
                     DisplayCharacter),
                 new NamedAction(Gui.Localize("ModUi/&RacesClassesSubclasses"),
@@ -48,11 +48,17 @@ namespace SolastaUnfinishedBusiness.Displays
                     DisplaySpells));
         }
 
-        internal static void DisplaySubMenu(ref int selectedPane, params NamedAction[] actions)
+        internal static void DisplaySubMenu(ref int selectedPane, string title = null, params NamedAction[] actions)
         {
             if (Main.Enabled)
             {
-                UI.TabBar(ref selectedPane, null, actions);
+                if (title != null)
+                {
+                    UI.Div();
+                    UI.Label(title.color(RGBA.orange).bold());
+                    UI.Space(7);
+                }
+                UI.SubMenu(ref selectedPane,title != null, null, actions);
             }
         }
 
@@ -116,7 +122,6 @@ namespace SolastaUnfinishedBusiness.Displays
 
             // UI.Slider("slide left for description / right to collapse".white().bold().italic(), ref sliderPosition, 1, maxColumns, 1, "");
 
-            UI.Div();
             UI.Label();
 
             var flip = false;
@@ -182,7 +187,7 @@ namespace SolastaUnfinishedBusiness.Displays
 
         public void OnGUI(UnityModManager.ModEntry modEntry)
         {
-            ModUi.DisplaySubMenu(ref gamePlaySelectedPane,
+            ModUi.DisplaySubMenu(ref gamePlaySelectedPane, Gui.Localize("Gameplay Options"),
                 new NamedAction(Gui.Localize("ModUi/&Rules"), DisplayRules),
                 new NamedAction(Gui.Localize("ModUi/&ItemsCraftingMerchants"), DisplayItemsAndCrafting),
                 new NamedAction(Gui.Localize("ModUi/&Tools"), DisplayTools));
@@ -199,7 +204,7 @@ namespace SolastaUnfinishedBusiness.Displays
 
         public void OnGUI(UnityModManager.ModEntry modEntry)
         {
-            ModUi.DisplaySubMenu(ref interfaceSelectedPane,
+            ModUi.DisplaySubMenu(ref interfaceSelectedPane, Gui.Localize("Interface Options"),
                 new NamedAction(Gui.Localize("ModUi/&GameUi"), DisplayGameUi),
                 new NamedAction(Gui.Localize("ModUi/&DungeonMakerMenu"), DisplayDungeonMaker),
                 new NamedAction(Gui.Localize("ModUi/&Translations"), DisplayTranslations));
@@ -216,7 +221,7 @@ namespace SolastaUnfinishedBusiness.Displays
 
         public void OnGUI(UnityModManager.ModEntry modEntry)
         {
-            ModUi.DisplaySubMenu(ref encountersSelectedPane,
+            ModUi.DisplaySubMenu(ref encountersSelectedPane, Gui.Localize("Encounter Options"),
                 new NamedAction(Gui.Localize("ModUi/&GeneralMenu"), DisplayEncountersGeneral),
                 new NamedAction(Gui.Localize("ModUi/&Bestiary"), DisplayBestiary),
                 new NamedAction(Gui.Localize("ModUi/&CharactersPool"), DisplayNpcs));
@@ -233,7 +238,7 @@ namespace SolastaUnfinishedBusiness.Displays
 
         public void OnGUI(UnityModManager.ModEntry modEntry)
         {
-            ModUi.DisplaySubMenu(ref creditsSelectedPane,
+            ModUi.DisplaySubMenu(ref creditsSelectedPane, null,
                 new NamedAction(Gui.Localize("ModUi/&Credits"), DisplayCredits),
 #if DEBUG
                 new NamedAction("Diagnostics", DisplayDiagnostics),

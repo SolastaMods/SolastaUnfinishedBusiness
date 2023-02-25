@@ -5,54 +5,198 @@ namespace SolastaUnfinishedBusiness.Api.ModKit;
 
 internal static partial class UI
 {
-    private static Texture2D _fillTexture;
 
-    private static readonly Color FillColor = new(1f, 1f, 1f, 0.65f);
+    private static Texture2D fillTexture = null;
+    private static GUIStyle fillStyle = null;
+    private static Color fillColor = new(1f, 1f, 1f, 0.65f);
+    private static Color FillColor => fillColor;
+    public static int point(this int x) => UnityModManager.UI.Scale(x);
+    public static int Point(this int x) => UnityModManager.UI.Scale(x);
 
-    private static GUIStyle _toggleStyle;
-
-    private static GUIStyle _divStyle;
-
-    private static GUIStyle ToggleStyle =>
-        _toggleStyle ??= new GUIStyle(GUI.skin.label) { alignment = TextAnchor.MiddleLeft };
-
-    private static int Point(this int x)
+    public static GUIStyle FillStyle(Color color)
     {
-        return UnityModManager.UI.Scale(x);
+        if (fillTexture == null)
+            fillTexture = new Texture2D(1, 1);
+        if (fillStyle == null)
+            fillStyle = new GUIStyle();
+        fillTexture.SetPixel(0, 0, color);
+        fillTexture.Apply();
+        fillStyle.normal.background = fillTexture;
+        return fillStyle;
     }
 
-    private static void Div(Color color, float indent = 0, float height = 0, float width = 0)
+    private static GUIStyle _buttonStyle;
+    public static GUIStyle buttonStyle
     {
-        if (_fillTexture == null)
+        get
         {
-            _fillTexture = new Texture2D(1, 1);
+            if (_buttonStyle == null)
+                _buttonStyle = new GUIStyle(GUI.skin.button) { alignment = TextAnchor.MiddleLeft };
+            return _buttonStyle;
         }
+    }
 
-        _divStyle = new GUIStyle { fixedHeight = 1 };
-        _fillTexture.SetPixel(0, 0, color);
-        _fillTexture.Apply();
-        _divStyle.normal.background = _fillTexture;
-
-        if (_divStyle.margin == null)
+    private static GUIStyle _largeStyle;
+    public static GUIStyle largeStyle
+    {
+        get
         {
-            _divStyle.margin = new RectOffset((int)indent, 0, 4, 4);
+            if (_largeStyle == null)
+                _largeStyle = new GUIStyle(GUI.skin.box)
+                {
+                    richText = true
+                };
+            _largeStyle.fixedHeight = 24.point();
+            //_largeStyle.contentOffset = new Vector2(0, -6.point());
+            _largeStyle.padding = new RectOffset(0, 0, -3.point(), 0);
+#pragma warning disable CS0618 // Type or member is obsolete
+            _largeStyle.clipOffset = new Vector2(0, 3.point());
+#pragma warning restore CS0618 // Type or member is obsolete
+            _largeStyle.fontSize = 21.point();
+            _largeStyle.fontStyle = FontStyle.Bold;
+            _largeStyle.normal.background = GUI.skin.label.normal.background;
+
+            return _largeStyle;
+        }
+    }
+    private static GUIStyle _textBoxStyle;
+    public static GUIStyle textBoxStyle
+    {
+        get
+        {
+            if (_textBoxStyle == null)
+                _textBoxStyle = new GUIStyle(GUI.skin.box)
+                {
+                    richText = true
+                };
+            _textBoxStyle.fontSize = 14.point();
+            _textBoxStyle.fixedHeight = 19.point();
+            _textBoxStyle.margin = new RectOffset(2.point(), 2.point(), 1.point(), 2.point());
+            _textBoxStyle.padding = new RectOffset(2.point(), 2.point(), 0.point(), 0);
+            _textBoxStyle.contentOffset = new Vector2(0, 2.point());
+#pragma warning disable CS0618 // Type or member is obsolete
+            _textBoxStyle.clipOffset = new Vector2(0, 2.point());
+#pragma warning restore CS0618 // Type or member is obsolete
+
+            return _textBoxStyle;
+        }
+    }
+
+    private static GUIStyle _toggleStyle;
+    public static GUIStyle toggleStyle
+    {
+        get
+        {
+            if (_toggleStyle == null)
+                _toggleStyle = new GUIStyle(GUI.skin.label) { alignment = TextAnchor.MiddleLeft };
+            return _toggleStyle;
+        }
+    }
+    public static GUIStyle ToggleStyle => toggleStyle;
+    public static GUIStyle divStyle;
+    public static void Div(Color color, float indent = 0, float height = 0, float width = 0)
+    {
+        if (fillTexture == null)
+            fillTexture = new Texture2D(1, 1);
+        //if (divStyle == null) {
+        divStyle = new GUIStyle
+        {
+            fixedHeight = 1,
+        };
+        //}
+        fillTexture.SetPixel(0, 0, color);
+        fillTexture.Apply();
+        divStyle.normal.background = fillTexture;
+        if (divStyle.margin == null)
+        {
+            divStyle.margin = new RectOffset((int)indent, 0, 4, 4);
         }
         else
         {
-            _divStyle.margin.left = (int)indent + 3;
+            divStyle.margin.left = (int)indent + 3;
         }
-
         if (width > 0)
-        {
-            _divStyle.fixedWidth = width;
-        }
+            divStyle.fixedWidth = width;
         else
-        {
-            _divStyle.fixedWidth = 0;
-        }
-
-        Space(2f * height / 3f);
-        GUILayout.Box(GUIContent.none, _divStyle);
+            divStyle.fixedWidth = 0;
+        Space((2f * height) / 3f);
+        GUILayout.Box(GUIContent.none, divStyle);
         Space(height / 3f);
+    }
+
+    private static Texture2D _rarityTexture = null;
+    public static Texture2D RarityTexture
+    {
+        get
+        {
+            if (_rarityTexture == null)
+                _rarityTexture = new Texture2D(1, 1);
+            _rarityTexture.SetPixel(0, 0, RGBA.black.color());
+            _rarityTexture.Apply();
+            return _rarityTexture;
+        }
+    }
+    private static GUIStyle _rarityStyle;
+    public static GUIStyle rarityStyle
+    {
+        get
+        {
+            if (_rarityStyle == null)
+            {
+                _rarityStyle = new GUIStyle(GUI.skin.button);
+                _rarityStyle.normal.background = RarityTexture;
+            }
+            return _rarityStyle;
+        }
+    }
+    private static GUIStyle _rarityButtonStyle;
+    public static GUIStyle rarityButtonStyle
+    {
+        get
+        {
+            if (_rarityButtonStyle == null)
+            {
+                _rarityButtonStyle = new GUIStyle(GUI.skin.button)
+                {
+                    alignment = TextAnchor.MiddleLeft
+                };
+                _rarityButtonStyle.normal.background = RarityTexture;
+            }
+            return _rarityButtonStyle;
+        }
+    }
+
+    private static Texture2D _submenuTexture = null;
+    public static Texture2D SubmenuTexture
+    {
+        get
+        {
+            if (_submenuTexture == null)
+            {
+                _submenuTexture = new Texture2D(1, 1);
+                _submenuTexture.SetPixel(0, 0, new Color(0.3f, 0.3f, 0.3f, 0.65f));
+            }
+            _submenuTexture.Apply();
+            return _submenuTexture;
+        }
+    }
+    private static GUIStyle _submenuButtonStyle;
+    public static GUIStyle submenuButtonStyle
+    {
+        get
+        {
+            if (_submenuButtonStyle == null)
+            {
+                _submenuButtonStyle = new GUIStyle(GUI.skin.button);
+#if false
+                {
+                    alignment = TextAnchor.MiddleLeft
+                };
+
+#endif
+                _submenuButtonStyle.normal.background = SubmenuTexture;
+            }
+            return _submenuButtonStyle;
+        }
     }
 }

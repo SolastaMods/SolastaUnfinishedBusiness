@@ -45,8 +45,11 @@ internal sealed class MenuManager : INotifyPropertyChanged
         get => _tabIndex;
         set
         {
-            _tabIndex = value;
-            NotifyPropertyChanged();
+            if (_tabIndex != value)
+            {
+                _tabIndex = value;
+                NotifyPropertyChanged();
+            }
         }
     }
 
@@ -136,16 +139,12 @@ internal sealed class MenuManager : INotifyPropertyChanged
                 {
                     if (hasPriorPage)
                     {
-                        GUILayout.Space(10f);
+                        //GUILayout.Space(10f);
                     }
-
-                    TabIndex = GUILayout.Toolbar(TabIndex, _selectablePages.Select(page => page.Name).ToArray());
-
-                    GUILayout.Space(10f);
+                    var tabIndex = _tabIndex;
+                    UI.TabBar(ref tabIndex, null, _selectablePages.Select(page => new NamedAction(page.Name, () => page.OnGUI(modEntry))).ToArray());
+                    TabIndex = tabIndex;
                 }
-
-                _selectablePages[TabIndex].OnGUI(modEntry);
-                hasPriorPage = true;
             }
 
             if (_bottomPages.Count <= 0)
