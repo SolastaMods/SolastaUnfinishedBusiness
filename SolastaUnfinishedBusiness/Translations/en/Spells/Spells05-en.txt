@@ -8,3 +8,5 @@ Spell/&BanishingSmiteDescription=Your next hit deals additional 5d10 force damag
 Spell/&BanishingSmiteTitle=Banishing Smite
 Spell/&FarStepDescription=You teleport up to 60 feet to an unoccupied space you can see. On each of your turns before the spell ends, you can use a bonus action to teleport in this way again.
 Spell/&FarStepTitle=Far Step
+Spell/&MantleOfThornsDescription=Surround yourself with an aura of thorns. Those that start or walk through take 2d8 piercing damage. This damage scales at higher levels by 1d8 per slot.
+Spell/&MantleOfThornsTitle=Mantle of Thorns
