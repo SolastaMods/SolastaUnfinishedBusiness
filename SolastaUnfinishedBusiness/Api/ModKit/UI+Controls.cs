@@ -3,7 +3,6 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using SolastaUnfinishedBusiness.Api.Infrastructure;
 using UnityEngine;
 using GL = UnityEngine.GUILayout;
 
@@ -11,39 +10,58 @@ namespace SolastaUnfinishedBusiness.Api.ModKit;
 
 internal static partial class UI
 {
-    private static readonly HashSet<Type> widthTypes = new() {
-            Width(0).GetType(),
-            MinWidth(0).GetType(),
-            MaxWidth(0).GetType(),
-            AutoWidth().GetType()
-        };
+    private const int sliderTop = 3;
+    private const int sliderBottom = -7;
+
+    private static readonly HashSet<Type> widthTypes = new()
+    {
+        Width(0).GetType(), MinWidth(0).GetType(), MaxWidth(0).GetType(), AutoWidth().GetType()
+    };
+
     public static GUILayoutOption[] AddDefaults(this GUILayoutOption[] options, params GUILayoutOption[] desired)
     {
         foreach (var option in options)
         {
             if (widthTypes.Contains(option.GetType()))
+            {
                 return options;
+            }
         }
+
         if (desired.Length > 0)
+        {
             options = options.Concat(desired).ToArray();
+        }
         else
+        {
             options = options.Append(AutoWidth()).ToArray();
+        }
+
         return options;
     }
 
     // Labels
 
-    public static void Label(string title = "", params GUILayoutOption[] options) =>
+    public static void Label(string title = "", params GUILayoutOption[] options)
+    {
         // var content = tooltip == null ? new GUIContent(title) : new GUIContent(title, tooltip);
         GL.Label(title, options.AddDefaults());
-    public static void Label(string title, GUIStyle style, params GUILayoutOption[] options) =>
+    }
+
+    public static void Label(string title, GUIStyle style, params GUILayoutOption[] options)
+    {
         // var content = tooltip == null ? new GUIContent(title) : new GUIContent(title, tooltip);
         //  if (options.Length == 0) { options = new GUILayoutOption[] { GL.Width(150f) }; }
         GL.Label(title, style, options.AddDefaults());
-    public static void Label(GUIContent content, params GUILayoutOption[] options) =>
+    }
+
+    public static void Label(GUIContent content, params GUILayoutOption[] options)
+    {
         // var content = tooltip == null ? new GUIContent(title) : new GUIContent(title, tooltip);
         //  if (options.Length == 0) { options = new GUILayoutOption[] { GL.Width(150f) }; }
         GL.Label(content, options);
+    }
+
     public static void DescriptiveLabel(string title, string description, params GUILayoutOption[] options)
     {
         options = options.AddDefaults(Width(300));
@@ -54,7 +72,9 @@ internal static partial class UI
             Label(description);
         }
     }
-    public static bool EditableLabel(ref string label, ref (string, string) editState, float minWidth, GUIStyle style, Func<string, string> formatter = null, params GUILayoutOption[] options)
+
+    public static bool EditableLabel(ref string label, ref (string, string) editState, float minWidth, GUIStyle style,
+        Func<string, string> formatter = null, params GUILayoutOption[] options)
     {
         var changed = false;
         if (editState.Item1 != label)
@@ -80,8 +100,9 @@ internal static partial class UI
                 {
                     editState = (null, null);
                 }
+
                 if (GL.Button("✔".green(), GUI.skin.box, AutoWidth())
-                    ||UserHasHitReturn && FocusedControlName == label)
+                    || (UserHasHitReturn && FocusedControlName == label))
                 {
                     label = editState.Item2;
                     changed = true;
@@ -89,18 +110,26 @@ internal static partial class UI
                 }
             }
         }
+
         return changed;
     }
-    public static bool EditableLabel(ref string label, ref (string, string) editState, float minWidth, Func<string, string> formatter = null, params GUILayoutOption[] options) => EditableLabel(ref label, ref editState, minWidth, GUI.skin.label, formatter, options);
+
+    public static bool EditableLabel(ref string label, ref (string, string) editState, float minWidth,
+        Func<string, string> formatter = null, params GUILayoutOption[] options)
+    {
+        return EditableLabel(ref label, ref editState, minWidth, GUI.skin.label, formatter, options);
+    }
 
     // Text Fields
 
     public static string TextField(ref string text, string name = null, params GUILayoutOption[] options)
     {
         if (name != null) { GUI.SetNextControlName(name); }
+
         text = GL.TextField(text, options.AddDefaults());
         return text;
     }
+
     public static int IntTextField(ref int value, string name = null, params GUILayoutOption[] options)
     {
         var text = $"{value}";
@@ -108,6 +137,7 @@ internal static partial class UI
         int.TryParse(text, out value);
         return value;
     }
+
     public static float FloatTextField(ref float value, string name = null, params GUILayoutOption[] options)
     {
         var text = $"{value}";
@@ -116,34 +146,44 @@ internal static partial class UI
         {
             value = val;
         }
+
         return value;
     }
 
     // Action Text Fields
 
     public static void ActionTextField(ref string text,
-            string name,
-            Action<string> action,
-            Action enterAction,
-            params GUILayoutOption[] options
-        )
+        string name,
+        Action<string> action,
+        Action enterAction,
+        params GUILayoutOption[] options
+    )
     {
         if (name != null)
+        {
             GUI.SetNextControlName(name);
+        }
+
         var newText = GL.TextField(text, options.AddDefaults());
         if (newText != text)
         {
             text = newText;
             action?.Invoke(text);
         }
+
         if (name != null && enterAction != null && UserHasHitReturn && FocusedControlName == name)
         {
             enterAction();
         }
     }
+
     public static void ActionTextField(ref string text,
         Action<string> action,
-        params GUILayoutOption[] options) => ActionTextField(ref text, null, action, null, options);
+        params GUILayoutOption[] options)
+    {
+        ActionTextField(ref text, null, action, null, options);
+    }
+
     public static void ActionIntTextField(
         ref int value,
         string name,
@@ -159,35 +199,47 @@ internal static partial class UI
         var str = $"{value}";
         ActionTextField(ref str,
             name,
-            (text) => { changed = true; },
+            text => { changed = true; },
             () => { hitEnter = true; },
             options);
         int.TryParse(str, out value);
         value = Math.Min(max, Math.Max(value, min));
         if (changed) { action?.Invoke(value); }
+
         if (hitEnter && enterAction != null) { enterAction(); }
     }
+
     public static void ActionIntTextField(
-            ref int value,
-            string name,
-            Action<int> action,
-            Action enterAction,
-            params GUILayoutOption[] options) => ActionIntTextField(ref value, name, action, enterAction, int.MinValue, int.MaxValue, options);
+        ref int value,
+        string name,
+        Action<int> action,
+        Action enterAction,
+        params GUILayoutOption[] options)
+    {
+        ActionIntTextField(ref value, name, action, enterAction, int.MinValue, int.MaxValue, options);
+    }
+
     public static void ActionIntTextField(
-            ref int value,
-            Action<int> action,
-            params GUILayoutOption[] options) => ActionIntTextField(ref value, null, action, null, int.MinValue, int.MaxValue, options);
+        ref int value,
+        Action<int> action,
+        params GUILayoutOption[] options)
+    {
+        ActionIntTextField(ref value, null, action, null, int.MinValue, int.MaxValue, options);
+    }
 
     // Buttons
 
     public static bool Button(string title, ref bool pressed, params GUILayoutOption[] options)
     {
         if (GL.Button(title, options.AddDefaults())) { pressed = true; }
+
         return pressed;
     }
+
     public static bool Button(string title, ref bool pressed, GUIStyle style, params GUILayoutOption[] options)
     {
         if (GL.Button(title, style, options.AddDefaults())) { pressed = true; }
+
         return pressed;
     }
 
@@ -197,12 +249,14 @@ internal static partial class UI
     {
         if (GL.Button(title, options.AddDefaults())) { action?.Invoke(); }
     }
+
     public static void ActionButton(string title, Action action, GUIStyle style, params GUILayoutOption[] options)
     {
         if (GL.Button(title, style, options.AddDefaults())) { action?.Invoke(); }
     }
 
-    public static void DangerousActionButton(string title, string warning, ref bool areYouSureState, Action action, params GUILayoutOption[] options)
+    public static void DangerousActionButton(string title, string warning, ref bool areYouSureState, Action action,
+        params GUILayoutOption[] options)
     {
         using (HorizontalScope())
         {
@@ -219,6 +273,7 @@ internal static partial class UI
                 Space(25);
                 Label(warning.orange());
             }
+
             areYouSureState = areYouSure;
         }
     }
@@ -229,40 +284,53 @@ internal static partial class UI
     {
         var v = value;
         if (v > min)
+        {
             ActionButton(" < ", () => { v = Math.Max(v - increment, min); }, textBoxStyle, AutoWidth());
+        }
         else
         {
             Space(-21);
             ActionButton("min ".cyan(), () => { }, textBoxStyle, AutoWidth());
         }
+
         Space(-8);
         var temp = false;
         Button($"{v}".orange().bold(), ref temp, textBoxStyle, AutoWidth());
         Space(-8);
         if (v < max)
+        {
             ActionButton(" > ", () => { v = Math.Min(v + increment, max); }, textBoxStyle, AutoWidth());
+        }
         else
         {
             ActionButton(" max".cyan(), () => { }, textBoxStyle, AutoWidth());
             Space(-27);
         }
+
         if (v != value)
         {
             value = v;
             return true;
         }
+
         return false;
     }
-    public static bool ValueAdjuster(Func<int> get, Action<int> set, int increment = 1, int min = 0, int max = int.MaxValue)
+
+    public static bool ValueAdjuster(Func<int> get, Action<int> set, int increment = 1, int min = 0,
+        int max = int.MaxValue)
     {
         var value = get();
         var changed = ValueAdjuster(ref value, increment, min, max);
         if (changed)
+        {
             set(value);
+        }
+
         return changed;
     }
 
-    public static bool ValueAdjuster(string title, ref int value, int increment = 1, int min = 0, int max = int.MaxValue, params GUILayoutOption[] options)
+    public static bool ValueAdjuster(string title, ref int value, int increment = 1, int min = 0,
+        int max = int.MaxValue, params GUILayoutOption[] options)
     {
         var changed = false;
         using (HorizontalScope(options))
@@ -270,9 +338,12 @@ internal static partial class UI
             Label(title);
             changed = ValueAdjuster(ref value, increment, min, max);
         }
+
         return changed;
     }
-    public static bool ValueAdjuster(string title, Func<int> get, Action<int> set, int increment = 1, int min = 0, int max = int.MaxValue)
+
+    public static bool ValueAdjuster(string title, Func<int> get, Action<int> set, int increment = 1, int min = 0,
+        int max = int.MaxValue)
     {
         var changed = false;
         using (HorizontalScope(Width(400)))
@@ -282,11 +353,16 @@ internal static partial class UI
             var value = get();
             changed = ValueAdjuster(ref value, increment, min, max);
             if (changed)
+            {
                 set(value);
+            }
         }
+
         return changed;
     }
-    public static bool ValueAdjuster(string title, Func<int> get, Action<int> set, int increment = 1, int min = 0, int max = int.MaxValue, params GUILayoutOption[] options)
+
+    public static bool ValueAdjuster(string title, Func<int> get, Action<int> set, int increment = 1, int min = 0,
+        int max = int.MaxValue, params GUILayoutOption[] options)
     {
         var changed = false;
         using (HorizontalScope())
@@ -296,14 +372,18 @@ internal static partial class UI
             var value = get();
             changed = ValueAdjuster(ref value, increment, min, max);
             if (changed)
+            {
                 set(value);
+            }
         }
+
         return changed;
     }
 
     // Value Editors 
 
-    public static bool ValueEditor(string title, Func<int> get, Action<int> set, ref int increment, int min = 0, int max = int.MaxValue, params GUILayoutOption[] options)
+    public static bool ValueEditor(string title, Func<int> get, Action<int> set, ref int increment, int min = 0,
+        int max = int.MaxValue, params GUILayoutOption[] options)
     {
         var changed = false;
         var value = get();
@@ -318,38 +398,44 @@ internal static partial class UI
                 set(value);
                 changed = true;
             }
+
             Space(50);
-            ActionIntTextField(ref inc, title, (v) => { }, null, Width(fieldWidth + 25));
+            ActionIntTextField(ref inc, title, v => { }, null, Width(fieldWidth + 25));
             increment = inc;
         }
+
         return changed;
     }
 
     // Sliders
 
-    public static bool Slider(ref float value, float min, float max, float defaultValue = 1.0f, int decimals = 0, string units = "", params GUILayoutOption[] options)
+    public static bool Slider(ref float value, float min, float max, float defaultValue = 1.0f, int decimals = 0,
+        string units = "", params GUILayoutOption[] options)
     {
-        value = Math.Max(min, Math.Min(max, value));    // clamp it
+        value = Math.Max(min, Math.Min(max, value)); // clamp it
         var newValue = (float)Math.Round(GL.HorizontalSlider(value, min, max, Width(200)), decimals);
         using (HorizontalScope(options))
         {
             Space(25);
             FloatTextField(ref newValue, null, Width(75));
             if (units.Length > 0)
+            {
                 Label($"{units}".orange().bold(), Width(25 + GUI.skin.label.CalcSize(new GUIContent(units)).x));
+            }
+
             Space(25);
             ActionButton("Reset", () => { newValue = defaultValue; }, AutoWidth());
         }
+
         var changed = value != newValue;
         value = newValue;
         return changed;
     }
 
-    private const int sliderTop = 3;
-    private const int sliderBottom = -7;
-    public static bool Slider(string title, ref float value, float min, float max, float defaultValue = 1.0f, int decimals = 0, string units = "", params GUILayoutOption[] options)
+    public static bool Slider(string title, ref float value, float min, float max, float defaultValue = 1.0f,
+        int decimals = 0, string units = "", params GUILayoutOption[] options)
     {
-        value = Math.Max(min, Math.Min(max, value));    // clamp it
+        value = Math.Max(min, Math.Min(max, value)); // clamp it
         var newValue = value;
         using (HorizontalScope(options))
         {
@@ -359,6 +445,7 @@ internal static partial class UI
                 Label(title.cyan(), Width(300));
                 Space(sliderBottom.point());
             }
+
             Space(25);
             using (VerticalScope(Width(200)))
             {
@@ -366,6 +453,7 @@ internal static partial class UI
                 newValue = (float)Math.Round(GL.HorizontalSlider(value, min, max, Width(200)), decimals);
                 Space(sliderBottom.point());
             }
+
             Space(25);
             using (VerticalScope(Width(75)))
             {
@@ -373,8 +461,12 @@ internal static partial class UI
                 FloatTextField(ref newValue, null, Width(75));
                 Space(sliderBottom.point());
             }
+
             if (units.Length > 0)
+            {
                 Label($"{units}".orange().bold(), Width(25 + GUI.skin.label.CalcSize(new GUIContent(units)).x));
+            }
+
             Space(25);
             using (VerticalScope(AutoWidth()))
             {
@@ -383,46 +475,65 @@ internal static partial class UI
                 Space(sliderBottom.point());
             }
         }
+
         var changed = value != newValue;
         value = Math.Min(max, Math.Max(min, newValue));
         value = newValue;
         return changed;
     }
-    public static bool Slider(string title, Func<float> get, Action<float> set, float min, float max, float defaultValue = 1.0f, int decimals = 0, string units = "", params GUILayoutOption[] options)
+
+    public static bool Slider(string title, Func<float> get, Action<float> set, float min, float max,
+        float defaultValue = 1.0f, int decimals = 0, string units = "", params GUILayoutOption[] options)
     {
         var value = get();
         var changed = Slider(title, ref value, min, max, defaultValue, decimals, units, options);
         if (changed)
+        {
             set(value);
-        return changed;
-    }
-    public static bool Slider(string title, ref int value, int min, int max, int defaultValue = 1, string units = "", params GUILayoutOption[] options)
-    {
-        float fvalue = value;
-        var changed = Slider(title, ref fvalue, min, max, (float)defaultValue, 0, units, options);
-        value = (int)fvalue;
-        return changed;
-    }
-    public static bool Slider(string title, Func<int> get, Action<int> set, int min, int max, int defaultValue = 1, string units = "", params GUILayoutOption[] options)
-    {
-        float fvalue = get();
-        var changed = Slider(title, ref fvalue, min, max, (float)defaultValue, 0, units, options);
-        if (changed)
-            set((int)fvalue);
+        }
+
         return changed;
     }
 
-    public static bool Slider(ref int value, int min, int max, int defaultValue = 1, string units = "", params GUILayoutOption[] options)
+    public static bool Slider(string title, ref int value, int min, int max, int defaultValue = 1, string units = "",
+        params GUILayoutOption[] options)
     {
         float fvalue = value;
-        var changed = Slider(ref fvalue, min, max, (float)defaultValue, 0, units, options);
+        var changed = Slider(title, ref fvalue, min, max, defaultValue, 0, units, options);
         value = (int)fvalue;
         return changed;
     }
-    public static bool LogSlider(string title, ref float value, float min, float max, float defaultValue = 1.0f, int decimals = 0, string units = "", params GUILayoutOption[] options)
+
+    public static bool Slider(string title, Func<int> get, Action<int> set, int min, int max, int defaultValue = 1,
+        string units = "", params GUILayoutOption[] options)
+    {
+        float fvalue = get();
+        var changed = Slider(title, ref fvalue, min, max, defaultValue, 0, units, options);
+        if (changed)
+        {
+            set((int)fvalue);
+        }
+
+        return changed;
+    }
+
+    public static bool Slider(ref int value, int min, int max, int defaultValue = 1, string units = "",
+        params GUILayoutOption[] options)
+    {
+        float fvalue = value;
+        var changed = Slider(ref fvalue, min, max, defaultValue, 0, units, options);
+        value = (int)fvalue;
+        return changed;
+    }
+
+    public static bool LogSlider(string title, ref float value, float min, float max, float defaultValue = 1.0f,
+        int decimals = 0, string units = "", params GUILayoutOption[] options)
     {
         if (min < 0)
+        {
             throw new Exception("LogSlider - min value: {min} must be >= 0");
+        }
+
         BeginHorizontal(options);
         using (VerticalScope(Width(300)))
         {
@@ -430,8 +541,9 @@ internal static partial class UI
             Label(title.cyan(), Width(300));
             Space(sliderBottom.point());
         }
+
         Space(25);
-        value = Math.Max(min, Math.Min(max, value));    // clamp it
+        value = Math.Max(min, Math.Min(max, value)); // clamp it
         var offset = 1;
         var places = (int)Math.Max(0, Math.Min(15, decimals + 1.01 - Math.Log10(value + offset)));
         var logMin = 100f * (float)Math.Log10(min + offset);
@@ -441,9 +553,10 @@ internal static partial class UI
         using (VerticalScope(Width(200)))
         {
             Space((sliderTop + 4).point());
-            logNewValue = (float)(GL.HorizontalSlider(logValue, logMin, logMax, Width(200)));
+            logNewValue = GL.HorizontalSlider(logValue, logMin, logMax, Width(200));
             Space(sliderBottom.point());
         }
+
         var newValue = (float)Math.Round(Math.Pow(10, logNewValue / 100f) - offset, places);
         Space(25);
         using (VerticalScope(Width(75)))
@@ -452,8 +565,12 @@ internal static partial class UI
             FloatTextField(ref newValue, null, Width(75));
             Space(sliderBottom.point());
         }
+
         if (units.Length > 0)
+        {
             Label($"{units}".orange().bold(), Width(25 + GUI.skin.label.CalcSize(new GUIContent(units)).x));
+        }
+
         Space(25);
         using (VerticalScope(AutoWidth()))
         {
@@ -461,18 +578,23 @@ internal static partial class UI
             ActionButton("Reset", () => { newValue = defaultValue; }, AutoWidth());
             Space(sliderBottom.point());
         }
+
         EndHorizontal();
         var changed = value != newValue;
         value = Math.Min(max, Math.Max(min, newValue));
         return changed;
     }
-    public static bool LogSlider(string title, Func<float> get, Action<float> set, float min, float max, float defaultValue = 1.0f, int decimals = 0, string units = "", params GUILayoutOption[] options)
+
+    public static bool LogSlider(string title, Func<float> get, Action<float> set, float min, float max,
+        float defaultValue = 1.0f, int decimals = 0, string units = "", params GUILayoutOption[] options)
     {
         var value = get();
         var changed = LogSlider(title, ref value, min, max, defaultValue, decimals, units, options);
         if (changed)
+        {
             set(value);
-        return changed;
+        }
 
+        return changed;
     }
 }

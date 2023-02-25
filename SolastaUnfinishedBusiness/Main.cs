@@ -1,4 +1,4 @@
-﻿                        using System;
+﻿using System;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
@@ -10,6 +10,7 @@ using UnityModManagerNet;
 using Debug = UnityEngine.Debug;
 
 namespace SolastaUnfinishedBusiness;
+
 //#if DEBUG
 //[EnableReloading]
 //#endif

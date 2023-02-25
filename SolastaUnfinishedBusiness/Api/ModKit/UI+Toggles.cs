@@ -17,8 +17,16 @@ internal enum ToggleState
 
 internal static partial class UI
 {
-    internal static bool IsOn(this ToggleState state) => state == ToggleState.On;
-    internal static bool IsOff(this ToggleState state) => state == ToggleState.Off;
+    internal static bool IsOn(this ToggleState state)
+    {
+        return state == ToggleState.On;
+    }
+
+    internal static bool IsOff(this ToggleState state)
+    {
+        return state == ToggleState.Off;
+    }
+
     internal static ToggleState Flip(this ToggleState state)
     {
         return state switch
@@ -105,16 +113,23 @@ internal static partial class UI
 
         return changed;
     }
-    internal static void ToggleButton(ref ToggleState toggle, string title, Action<ToggleState> applyToChildren, params GUILayoutOption[] options)
+
+    internal static void ToggleButton(ref ToggleState toggle, string title, Action<ToggleState> applyToChildren,
+        params GUILayoutOption[] options)
     {
         var isOn = toggle.IsOn();
         var isEmpty = toggle == ToggleState.None;
         var state = toggle;
         if (TogglePrivate("", ref isOn, isEmpty, true, 0, options))
+        {
             state = state.Flip();
+        }
+
         Space(-10);
         if (state == ToggleState.None)
+        {
             Space(35);
+        }
         else
         {
             var deepTitle = state switch
@@ -123,29 +138,45 @@ internal static partial class UI
                 ToggleState.Off => "≫",
                 _ => ""
             };
-            ActionButton(deepTitle, () => {
+            ActionButton(deepTitle, () =>
+            {
                 state = state.Flip();
                 applyToChildren(state);
             }, toggleStyle, Width(35));
         }
+
         Label(title, toggleStyle);
         toggle = state;
     }
 
-    public static bool Toggle(string title, ref bool value, string on, string off, float width = 0, GUIStyle stateStyle = null, GUIStyle labelStyle = null, params GUILayoutOption[] options)
+    public static bool Toggle(string title, ref bool value, string on, string off, float width = 0,
+        GUIStyle stateStyle = null, GUIStyle labelStyle = null, params GUILayoutOption[] options)
     {
         var changed = false;
         if (stateStyle == null)
+        {
             stateStyle = GUI.skin.box;
+        }
+
         if (labelStyle == null)
+        {
             labelStyle = GUI.skin.box;
+        }
+
         if (width == 0)
         {
-            width = toggleStyle.CalcSize(new GUIContent(title.bold())).x + GUI.skin.box.CalcSize(Private.UI.CheckOn).x + 10;
+            width = toggleStyle.CalcSize(new GUIContent(title.bold())).x + GUI.skin.box.CalcSize(Private.UI.CheckOn).x +
+                    10;
         }
+
         options = options.AddItem(width == 0 ? AutoWidth() : Width(width)).ToArray();
         title = value ? title.bold() : title.color(RGBA.medgrey).bold();
-        if (Private.UI.Toggle(title, value, on, off, stateStyle, labelStyle, options)) { value = !value; changed = true; }
+        if (Private.UI.Toggle(title, value, on, off, stateStyle, labelStyle, options))
+        {
+            value = !value;
+            changed = true;
+        }
+
         return changed;
     }
 #if false
@@ -158,43 +189,48 @@ internal static partial class UI
     }
 #endif
     public static bool ActionToggle(
-            string title,
-            Func<bool> get,
-            Action<bool> set,
-            float width = 0,
-            params GUILayoutOption[] options)
+        string title,
+        Func<bool> get,
+        Action<bool> set,
+        float width = 0,
+        params GUILayoutOption[] options)
     {
         var value = get();
         if (TogglePrivate(title, ref value, false, false, width, options))
         {
             set(value);
         }
+
         return value;
     }
 
     public static bool ActionToggle(
-            string title,
-            Func<bool> get,
-            Action<bool> set,
-            Func<bool> isEmpty,
-            float width = 0,
-            params GUILayoutOption[] options)
+        string title,
+        Func<bool> get,
+        Action<bool> set,
+        Func<bool> isEmpty,
+        float width = 0,
+        params GUILayoutOption[] options)
     {
         var value = get();
         var empty = isEmpty();
         if (TogglePrivate(title, ref value, empty, false, width, options))
         {
             if (!empty)
+            {
                 set(value);
+            }
         }
+
         return value;
     }
+
     public static bool ToggleCallback(
-            string title,
-            ref bool value,
-            Action<bool> callback,
-            float width = 0,
-            params GUILayoutOption[] options)
+        string title,
+        ref bool value,
+        Action<bool> callback,
+        float width = 0,
+        params GUILayoutOption[] options)
     {
         var result = TogglePrivate(title, ref value, false, false, width, options);
         if (result)
@@ -204,18 +240,20 @@ internal static partial class UI
 
         return result;
     }
+
     public static bool BitFieldToggle(
-            string title,
-            ref int bitfield,
-            int offset,
-            float width = 0,
-            params GUILayoutOption[] options
-        )
+        string title,
+        ref int bitfield,
+        int offset,
+        float width = 0,
+        params GUILayoutOption[] options
+    )
     {
         var bit = ((1 << offset) & bitfield) != 0;
         var newBit = bit;
         TogglePrivate(title, ref newBit, false, false, width, options);
         if (bit != newBit) { bitfield ^= 1 << offset; }
+
         return bit != newBit;
     }
 #if false
@@ -233,7 +271,9 @@ internal static partial class UI
         If(value, actions);
         return changed;
     }
-    public static bool DisclosureBitFieldToggle(string title, ref int bitfield, int offset, bool exclusive = true, float width = 175, params Action[] actions)
+
+    public static bool DisclosureBitFieldToggle(string title, ref int bitfield, int offset, bool exclusive = true,
+        float width = 175, params Action[] actions)
     {
         var bit = ((1 << offset) & bitfield) != 0;
         var newBit = bit;
@@ -242,13 +282,14 @@ internal static partial class UI
         {
             if (exclusive)
             {
-                bitfield = (newBit ? 1 << offset : 0);
+                bitfield = newBit ? 1 << offset : 0;
             }
             else
             {
-                bitfield ^= (1 << offset);
+                bitfield ^= 1 << offset;
             }
         }
+
         If(newBit, actions);
         return bit != newBit;
     }

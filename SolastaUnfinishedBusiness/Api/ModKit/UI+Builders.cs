@@ -113,7 +113,8 @@ internal static partial class UI
         actions[selected].Action();
         GL.EndVertical();
     }
-    internal static void SubMenu(ref int selected, bool div = true,  Action header = null, params NamedAction[] actions)
+
+    internal static void SubMenu(ref int selected, bool div = true, Action header = null, params NamedAction[] actions)
     {
         if (selected >= actions.Length)
         {
@@ -124,16 +125,17 @@ internal static partial class UI
         var titles = actions.Select((a, i) => i == sel ? a.Name.Orange().Bold() : a.Name);
         var enumerable = titles as string[] ?? titles.ToArray();
         //SelectionGrid(ref selected, enumerable.ToArray(), enumerable.Length, 6, ExpandWidth(false));
-        using (UI.HorizontalScope(GUI.skin.scrollView))
+        using (HorizontalScope(GUI.skin.scrollView))
         {
-            using (UI.VerticalScope())
+            using (VerticalScope())
             {
-                SelectionGrid(ref selected, enumerable.ToArray(), 0, UI.submenuButtonStyle, UI.AutoWidth());
+                SelectionGrid(ref selected, enumerable.ToArray(), 0, submenuButtonStyle, AutoWidth());
                 if (div)
                 {
-                    UI.DivLast(20);
-                    UI.Space(-25);
+                    DivLast(20);
+                    Space(-25);
                 }
+
                 header?.Invoke();
                 actions[selected].Action();
             }

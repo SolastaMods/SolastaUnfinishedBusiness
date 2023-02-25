@@ -77,7 +77,8 @@ internal static class GameServicesDisplay
             }
 
 
-            UI.ActionSelectionGrid(ref _selectedRawDataType, TargetNames, 5, (s) => {
+            UI.ActionSelectionGrid(ref _selectedRawDataType, TargetNames, 5, s =>
+            {
                 ResetTree();
             });
             // target selection

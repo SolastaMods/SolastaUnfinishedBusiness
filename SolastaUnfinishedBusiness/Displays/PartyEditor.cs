@@ -1,29 +1,23 @@
 ﻿// Copyright < 2021 > Narria (github user Cabarius) - License: MIT
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 using SolastaUnfinishedBusiness.Api.ModKit;
-using UnityEngine;
 
-namespace SolastaUnfinishedBusiness.Displays {
-    public class PartyEditor
+namespace SolastaUnfinishedBusiness.Displays;
+
+public class PartyEditor
+{
+    public void OnGUI()
     {
-
-        public void OnGUI()
+        var service = ServiceRepository.GetService<IGameService>();
+        var party = service.Game.GameCampaign.Party;
+        using (UI.VerticalScope())
         {
-            IGameService service = ServiceRepository.GetService<IGameService>();
-            var party = service.Game.GameCampaign.Party;
-            using (UI.VerticalScope())
+            foreach (var ch in party.charactersList)
             {
-                foreach  (var ch  in party.charactersList)
-                {
-                    UI.Label(ch.Name);
-                }
+                UI.Label(ch.Name);
             }
-
         }
+    }
 #if false
         public static Settings settings => Main.settings;
 
@@ -213,7 +207,8 @@ namespace SolastaUnfinishedBusiness.Displays {
                     Label(distance < 1 ? "" : distance.ToString("0") + "m", Width(75));
                     Space(5);
                     int nextLevel;
-                    for (nextLevel = level; progression.Experience >= xpTable.GetBonus(nextLevel + 1) && xpTable.HasBonusForLevel(nextLevel + 1); nextLevel++) { }
+                    for (nextLevel =
+ level; progression.Experience >= xpTable.GetBonus(nextLevel + 1) && xpTable.HasBonusForLevel(nextLevel + 1); nextLevel++) { }
                     if (nextLevel <= level || !isOnTeam)
                         Label((level < 10 ? "   lvl" : "   lv").green() + $" {level}", Width(90));
                     else
@@ -255,7 +250,8 @@ namespace SolastaUnfinishedBusiness.Displays {
                     {
                         if (showClasses)
                         {
-                            selectedCharacter = ch; selectedToggle = ToggleChoice.Classes; Mod.Trace($"selected {ch.CharacterName}");
+                            selectedCharacter = ch; selectedToggle =
+ ToggleChoice.Classes; Mod.Trace($"selected {ch.CharacterName}");
                         }
                         else { selectedToggle = ToggleChoice.None; }
                     }
@@ -340,7 +336,8 @@ namespace SolastaUnfinishedBusiness.Displays {
                         Space(100);
                         ActionToggle("Allow Levels Past 20",
                             () => {
-                                var hasValue = settings.perSave.charIsLegendaryHero.TryGetValue(ch.HashKey(), out var isLegendaryHero);
+                                var hasValue =
+ settings.perSave.charIsLegendaryHero.TryGetValue(ch.HashKey(), out var isLegendaryHero);
                                 return hasValue && isLegendaryHero;
                             },
                             (val) => {
@@ -373,10 +370,12 @@ namespace SolastaUnfinishedBusiness.Displays {
                         {
                             Space(100);
                             Label("Character Level".cyan(), Width(250));
-                            ActionButton("<", () => prog.CharacterLevel = Math.Max(0, prog.CharacterLevel - 1), AutoWidth());
+                            ActionButton("<", () => prog.CharacterLevel =
+ Math.Max(0, prog.CharacterLevel - 1), AutoWidth());
                             Space(25);
                             Label("level".green() + $": {prog.CharacterLevel}", Width(100f));
-                            ActionButton(">", () => prog.CharacterLevel = Math.Min(prog.MaxCharacterLevel, prog.CharacterLevel + 1), AutoWidth());
+                            ActionButton(">", () => prog.CharacterLevel =
+ Math.Min(prog.MaxCharacterLevel, prog.CharacterLevel + 1), AutoWidth());
                             Space(25);
                             ActionButton("Reset", () => ch.resetClassLevel(), Width(125));
                             Space(23);
@@ -426,9 +425,11 @@ namespace SolastaUnfinishedBusiness.Displays {
                             Label("This sets your mythic experience to match the current value of mythic level. Note that mythic experience is 1 point per level".green());
                         }
                         var classCount = classData.Count(x => !x.CharacterClass.IsMythic);
-                        var gestaltCount = classData.Count(cd => !cd.CharacterClass.IsMythic && ch.IsClassGestalt(cd.CharacterClass));
+                        var gestaltCount =
+ classData.Count(cd => !cd.CharacterClass.IsMythic && ch.IsClassGestalt(cd.CharacterClass));
                         var mythicCount = classData.Count(x => x.CharacterClass.IsMythic);
-                        var mythicGestaltCount = classData.Count(cd => cd.CharacterClass.IsMythic && ch.IsClassGestalt(cd.CharacterClass));
+                        var mythicGestaltCount =
+ classData.Count(cd => cd.CharacterClass.IsMythic && ch.IsClassGestalt(cd.CharacterClass));
                         foreach (var cd in classData)
                         {
                             var showedGestalt = false;
@@ -547,7 +548,8 @@ namespace SolastaUnfinishedBusiness.Displays {
                     using (HorizontalScope())
                     {
                         Space(528);
-                        ActionButton("Reset", () => { ch.Descriptor.State.Size = ch.Descriptor.OriginalSize; }, Width(197));
+                        ActionButton("Reset", () => { ch.Descriptor.State.Size =
+ ch.Descriptor.OriginalSize; }, Width(197));
                     }
                     Div(100, 20, 755);
                     using (HorizontalScope())
@@ -581,7 +583,8 @@ namespace SolastaUnfinishedBusiness.Displays {
                         }
 
                         var key = $"{ch.CharacterName}-{statType}";
-                        var storedValue = statEditorStorage.ContainsKey(key) ? statEditorStorage[key] : modifiableValue.BaseValue;
+                        var storedValue =
+ statEditorStorage.ContainsKey(key) ? statEditorStorage[key] : modifiableValue.BaseValue;
                         var statName = statType.ToString();
                         if (statName == "BaseAttackBonus" || statName == "SkillAthletics" || statName == "HitPoints")
                         {
@@ -667,7 +670,8 @@ namespace SolastaUnfinishedBusiness.Displays {
                         if (editSpellbooks)
                         {
                             spellbookEditCharacter = ch;
-                            var blueprints = BlueprintExensions.GetBlueprints<BlueprintSpellbook>().OrderBy((bp) => bp.GetDisplayName());
+                            var blueprints =
+ BlueprintExensions.GetBlueprints<BlueprintSpellbook>().OrderBy((bp) => bp.GetDisplayName());
                             todo = BlueprintListUI.OnGUI(ch, blueprints, 100);
                         }
                         else
@@ -682,7 +686,8 @@ namespace SolastaUnfinishedBusiness.Displays {
                                     Enumerable.Range(0, spellbook.Blueprint.MaxSpellLevel + 1),
                                     0,
                                     (lvl) => {
-                                        var levelText = spellbook.Blueprint.SpellsPerDay.GetCount(casterLevel, lvl) != null ? $"L{lvl}".bold() : $"L{lvl}".grey();
+                                        var levelText =
+ spellbook.Blueprint.SpellsPerDay.GetCount(casterLevel, lvl) != null ? $"L{lvl}".bold() : $"L{lvl}".grey();
                                         var knownCount = spellbook.GetKnownSpells(lvl).Count;
                                         var countText = knownCount > 0 ? $" ({knownCount})".white() : "";
                                         return levelText + countText;
@@ -723,7 +728,8 @@ namespace SolastaUnfinishedBusiness.Displays {
                     else {
                         spellbookEditCharacter = ch;
                         editSpellbooks = true;
-                        var blueprints = BlueprintExensions.GetBlueprints<BlueprintSpellbook>().OrderBy((bp) => bp.GetDisplayName());
+                        var blueprints =
+ BlueprintExensions.GetBlueprints<BlueprintSpellbook>().OrderBy((bp) => bp.GetDisplayName());
                         todo = BlueprintListUI.OnGUI(ch, blueprints, 100);
                     }
 #endif
@@ -758,5 +764,4 @@ namespace SolastaUnfinishedBusiness.Displays {
             if (charToUnrecruit != null) { charToUnrecruit.Ensure<UnitPartCompanion>().SetState(CompanionState.None); charToUnrecruit.Remove<UnitPartCompanion>(); }
         }
 #endif
-    }
 }

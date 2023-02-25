@@ -13,22 +13,41 @@ namespace SolastaUnfinishedBusiness.Api.ModKit;
 internal static partial class UI
 {
     // UI for picking items from a collection
-    public static void Toolbar(ref int value, string[] texts, params GUILayoutOption[] options) => value = GL.Toolbar(value, texts, options);
-    public static void Toolbar(ref int value, string[] texts, GUIStyle style, params GUILayoutOption[] options) => value = GL.Toolbar(value, texts, style, options);
+    public static void Toolbar(ref int value, string[] texts, params GUILayoutOption[] options)
+    {
+        value = GL.Toolbar(value, texts, options);
+    }
+
+    public static void Toolbar(ref int value, string[] texts, GUIStyle style, params GUILayoutOption[] options)
+    {
+        value = GL.Toolbar(value, texts, style, options);
+    }
+
     public static bool SelectionGrid(ref int selected, string[] texts, int xCols, params GUILayoutOption[] options)
     {
         if (xCols <= 0)
+        {
             xCols = texts.Count();
+        }
+
         if (IsNarrow)
+        {
             xCols = Math.Min(4, xCols);
+        }
+
         var sel = selected;
         var titles = texts.Select((a, i) => i == sel ? a.orange().bold() : a);
         if (xCols <= 0)
+        {
             xCols = texts.Count();
+        }
+
         selected = GL.SelectionGrid(selected, titles.ToArray(), xCols, options);
         return sel != selected;
     }
-    public static bool SelectionGrid(string title, ref int selected, string[] texts, int xCols, params GUILayoutOption[] options)
+
+    public static bool SelectionGrid(string title, ref int selected, string[] texts, int xCols,
+        params GUILayoutOption[] options)
     {
         using (HorizontalScope())
         {
@@ -37,46 +56,80 @@ internal static partial class UI
             return SelectionGrid(ref selected, texts, xCols, options);
         }
     }
-    public static bool SelectionGrid(ref int selected, string[] texts, int xCols, GUIStyle style, params GUILayoutOption[] options)
+
+    public static bool SelectionGrid(ref int selected, string[] texts, int xCols, GUIStyle style,
+        params GUILayoutOption[] options)
     {
         if (xCols <= 0)
+        {
             xCols = texts.Count();
+        }
+
         if (IsNarrow)
+        {
             xCols = Math.Min(4, xCols);
+        }
+
         var sel = selected;
         var titles = texts.Select((a, i) => i == sel ? a.orange().bold() : a);
         if (xCols <= 0)
+        {
             xCols = texts.Count();
+        }
+
         selected = GL.SelectionGrid(selected, titles.ToArray(), xCols, style, options);
         return sel != selected;
     }
+
     public static bool SelectionGrid<T>(ref int selected, T[] items, int xCols, params GUILayoutOption[] options)
     {
         if (xCols <= 0)
+        {
             xCols = items.Count();
+        }
+
         if (IsNarrow)
+        {
             xCols = Math.Min(4, xCols);
+        }
+
         var sel = selected;
         var titles = items.Select((a, i) => i == sel ? $"{a}".orange().bold() : $"{a}");
         if (xCols <= 0)
+        {
             xCols = items.Count();
+        }
+
         selected = GL.SelectionGrid(selected, titles.ToArray(), xCols, options);
         return sel != selected;
     }
-    public static bool SelectionGrid<T>(ref int selected, T[] items, int xCols, GUIStyle style, params GUILayoutOption[] options)
+
+    public static bool SelectionGrid<T>(ref int selected, T[] items, int xCols, GUIStyle style,
+        params GUILayoutOption[] options)
     {
         if (xCols <= 0)
+        {
             xCols = items.Count();
+        }
+
         if (IsNarrow)
+        {
             xCols = Math.Min(4, xCols);
+        }
+
         var sel = selected;
         var titles = items.Select((a, i) => i == sel ? $"{a}".orange().bold() : $"{a}");
         if (xCols <= 0)
+        {
             xCols = items.Count();
+        }
+
         selected = GL.SelectionGrid(selected, titles.ToArray(), xCols, style, options);
         return sel != selected;
     }
-    internal static bool SelectionGrid(ref int selected, [NotNull] string[] texts, int xCols, int maxColsIfNarrow = 4, params GUILayoutOption[] options)
+
+    internal static bool SelectionGrid(ref int selected, [NotNull] string[] texts, int xCols, int maxColsIfNarrow = 4,
+        params GUILayoutOption[] options)
     {
         if (xCols <= 0)
         {
@@ -100,12 +153,17 @@ internal static partial class UI
 
         return sel != selected;
     }
-    public static void ActionSelectionGrid(ref int selected, string[] texts, int xCols, Action<int> action, params GUILayoutOption[] options)
+
+    public static void ActionSelectionGrid(ref int selected, string[] texts, int xCols, Action<int> action,
+        params GUILayoutOption[] options)
     {
         var sel = selected;
         var titles = texts.Select((a, i) => i == sel ? a.orange().bold() : a);
         if (xCols <= 0)
+        {
             xCols = texts.Count();
+        }
+
         sel = GL.SelectionGrid(selected, titles.ToArray(), xCols, options);
         if (selected != sel)
         {
@@ -113,12 +171,17 @@ internal static partial class UI
             action(selected);
         }
     }
-    public static void ActionSelectionGrid(ref int selected, string[] texts, int xCols, Action<int> action, GUIStyle style, params GUILayoutOption[] options)
+
+    public static void ActionSelectionGrid(ref int selected, string[] texts, int xCols, Action<int> action,
+        GUIStyle style, params GUILayoutOption[] options)
     {
         var sel = selected;
         var titles = texts.Select((a, i) => i == sel ? a.orange().bold() : a);
         if (xCols <= 0)
+        {
             xCols = texts.Count();
+        }
+
         sel = GL.SelectionGrid(selected, titles.ToArray(), xCols, style, options);
         if (selected != sel)
         {
@@ -129,7 +192,8 @@ internal static partial class UI
 
     // EnumGrids
 
-    public static void EnumGrid<TEnum>(Func<TEnum> get, Action<TEnum> set, int xCols, params GUILayoutOption[] options) where TEnum : struct
+    public static void EnumGrid<TEnum>(Func<TEnum> get, Action<TEnum> set, int xCols, params GUILayoutOption[] options)
+        where TEnum : struct
     {
         var value = get();
         var names = Enum.GetNames(typeof(TEnum));
@@ -142,7 +206,9 @@ internal static partial class UI
             }
         }
     }
-    public static bool EnumGrid<TEnum>(ref TEnum value, int xCols, Func<string, TEnum, string> titleFormater = null, GUIStyle style = null, params GUILayoutOption[] options) where TEnum : struct
+
+    public static bool EnumGrid<TEnum>(ref TEnum value, int xCols, Func<string, TEnum, string> titleFormater = null,
+        GUIStyle style = null, params GUILayoutOption[] options) where TEnum : struct
     {
         var changed = false;
         options = options.AddDefaults();
@@ -150,10 +216,15 @@ internal static partial class UI
         var formatedNames = names;
         var nameToEnum = value.NameToValueDictionary();
         if (titleFormater != null)
-            formatedNames = names.Select((n) => titleFormater(n, nameToEnum[n])).ToArray();
+        {
+            formatedNames = names.Select(n => titleFormater(n, nameToEnum[n])).ToArray();
+        }
+
         var index = Array.IndexOf(names, value.ToString());
         var oldIndex = index;
-        if (style == null ? SelectionGrid(ref index, formatedNames, xCols, options) : SelectionGrid(ref index, formatedNames, xCols, style, options))
+        if (style == null
+                ? SelectionGrid(ref index, formatedNames, xCols, options)
+                : SelectionGrid(ref index, formatedNames, xCols, style, options))
         {
             if (Enum.TryParse(names[index], out TEnum newValue))
             {
@@ -161,12 +232,29 @@ internal static partial class UI
                 changed = true;
             }
         }
+
         return changed;
     }
-    public static bool EnumGrid<TEnum>(ref TEnum value, int xCols, Func<string, TEnum, string> titleFormater = null, params GUILayoutOption[] options) where TEnum : struct => EnumGrid(ref value, xCols, titleFormater, null, options);
-    public static bool EnumGrid<TEnum>(ref TEnum value, int xCols, params GUILayoutOption[] options) where TEnum : struct => EnumGrid(ref value, xCols, null, options);
-    public static bool EnumGrid<TEnum>(ref TEnum value, params GUILayoutOption[] options) where TEnum : struct => EnumGrid(ref value, 0, null, options);
-    public static bool EnumGrid<TEnum>(string title, ref TEnum value, int xCols, params GUILayoutOption[] options) where TEnum : struct
+
+    public static bool EnumGrid<TEnum>(ref TEnum value, int xCols, Func<string, TEnum, string> titleFormater = null,
+        params GUILayoutOption[] options) where TEnum : struct
+    {
+        return EnumGrid(ref value, xCols, titleFormater, null, options);
+    }
+
+    public static bool EnumGrid<TEnum>(ref TEnum value, int xCols, params GUILayoutOption[] options)
+        where TEnum : struct
+    {
+        return EnumGrid(ref value, xCols, null, options);
+    }
+
+    public static bool EnumGrid<TEnum>(ref TEnum value, params GUILayoutOption[] options) where TEnum : struct
+    {
+        return EnumGrid(ref value, 0, null, options);
+    }
+
+    public static bool EnumGrid<TEnum>(string title, ref TEnum value, int xCols, params GUILayoutOption[] options)
+        where TEnum : struct
     {
         var changed = false;
         using (HorizontalScope())
@@ -175,9 +263,12 @@ internal static partial class UI
             Space(25);
             changed = EnumGrid(ref value, xCols, null, options);
         }
+
         return changed;
     }
-    public static bool EnumGrid<TEnum>(string title, ref TEnum value, params GUILayoutOption[] options) where TEnum : struct
+
+    public static bool EnumGrid<TEnum>(string title, ref TEnum value, params GUILayoutOption[] options)
+        where TEnum : struct
     {
         var changed = false;
         using (HorizontalScope())
@@ -186,10 +277,12 @@ internal static partial class UI
             Space(25);
             changed = EnumGrid(ref value, 0, null, options);
         }
+
         return changed;
     }
 
-    public static bool EnumGrid<TEnum>(string title, ref TEnum value, int xCols, GUIStyle style = null, params GUILayoutOption[] options) where TEnum : struct
+    public static bool EnumGrid<TEnum>(string title, ref TEnum value, int xCols, GUIStyle style = null,
+        params GUILayoutOption[] options) where TEnum : struct
     {
         var changed = false;
         using (HorizontalScope())
@@ -198,10 +291,12 @@ internal static partial class UI
             Space(25);
             changed = EnumGrid(ref value, xCols, null, style, options);
         }
+
         return changed;
     }
 
-    public static bool EnumGrid<TEnum>(string title, ref TEnum value, int xCols, Func<string, TEnum, string> titleFormater = null, params GUILayoutOption[] options) where TEnum : struct
+    public static bool EnumGrid<TEnum>(string title, ref TEnum value, int xCols,
+        Func<string, TEnum, string> titleFormater = null, params GUILayoutOption[] options) where TEnum : struct
     {
         var changed = false;
         using (HorizontalScope())
@@ -210,9 +305,13 @@ internal static partial class UI
             Space(25);
             changed = EnumGrid(ref value, xCols, titleFormater, options);
         }
+
         return changed;
     }
-    public static bool EnumGrid<TEnum>(string title, ref TEnum value, int xCols, Func<string, TEnum, string> titleFormater = null, GUIStyle style = null, params GUILayoutOption[] options) where TEnum : struct
+
+    public static bool EnumGrid<TEnum>(string title, ref TEnum value, int xCols,
+        Func<string, TEnum, string> titleFormater = null, GUIStyle style = null, params GUILayoutOption[] options)
+        where TEnum : struct
     {
         var changed = false;
         using (HorizontalScope())
@@ -221,9 +320,12 @@ internal static partial class UI
             Space(25);
             changed = EnumGrid(ref value, xCols, titleFormater, style, options);
         }
+
         return changed;
     }
-    public static bool EnumGrid<TEnum>(string title, Func<TEnum> get, Action<TEnum> set, params GUILayoutOption[] options) where TEnum : struct
+
+    public static bool EnumGrid<TEnum>(string title, Func<TEnum> get, Action<TEnum> set,
+        params GUILayoutOption[] options) where TEnum : struct
     {
         var changed = false;
         using (HorizontalScope())
@@ -233,41 +335,58 @@ internal static partial class UI
             var value = get();
             changed = EnumGrid(ref value, 0, null, options);
             if (changed)
+            {
                 set(value);
+            }
         }
+
         return changed;
     }
 
     // EnumerablePicker
 
     public static void EnumerablePicker<T>(
-            string title,
-            ref int selected,
-            IEnumerable<T> range,
-            int xCols,
-            Func<T, string> titleFormater = null,
-            params GUILayoutOption[] options
-        )
+        string title,
+        ref int selected,
+        IEnumerable<T> range,
+        int xCols,
+        Func<T, string> titleFormater = null,
+        params GUILayoutOption[] options
+    )
     {
         if (titleFormater == null)
-            titleFormater = (a) => $"{a}";
+        {
+            titleFormater = a => $"{a}";
+        }
+
         if (selected > range.Count())
+        {
             selected = 0;
+        }
+
         var sel = selected;
         var titles = range.Select((a, i) => i == sel ? titleFormater(a).orange().bold() : titleFormater(a));
         if (xCols > range.Count())
+        {
             xCols = range.Count();
+        }
+
         if (xCols <= 0)
+        {
             xCols = range.Count();
+        }
+
         Label(title, AutoWidth());
         Space(25);
         selected = GL.SelectionGrid(selected, titles.ToArray(), xCols, options);
     }
+
     public static NamedFunc<T> TypePicker<T>(string title, ref int selectedIndex, NamedFunc<T>[] items) where T : class
     {
         var sel = selectedIndex;
         var titles = items.Select((item, i) => i == sel ? item.name.orange().bold() : item.name).ToArray();
         if (title?.Length > 0) { Label(title); }
+
         selectedIndex = GL.SelectionGrid(selectedIndex, titles, 6);
         return items[selectedIndex];
     }
@@ -275,35 +394,39 @@ internal static partial class UI
     // GridPicker
 
     public static bool GridPicker<T>(
-            string title,
-            ref T selected,
-            List<T> items,
-            string unselectedTitle,
-            Func<T, string> titler,
-            ref string searchText,
-            int xCols,
-            GUIStyle style,
-            params GUILayoutOption[] options
-            ) where T : class
+        string title,
+        ref T selected,
+        List<T> items,
+        string unselectedTitle,
+        Func<T, string> titler,
+        ref string searchText,
+        int xCols,
+        GUIStyle style,
+        params GUILayoutOption[] options
+    ) where T : class
     {
         options = options.AddDefaults();
         if (style == null)
+        {
             style = GUI.skin.button;
+        }
+
         var changed = false;
         if (searchText != null)
         {
             ActionTextField(
                 ref searchText,
                 "itemSearchText",
-                (text) => { changed = true; },
+                text => { changed = true; },
                 () => { },
-                xCols == 1 ? options : new GUILayoutOption[] { Width(300) });
+                xCols == 1 ? options : new[] { Width(300) });
             if (searchText?.Length > 0)
             {
                 var searchStr = searchText.ToLower();
                 items = items.Where(i => titler(i).ToLower().Contains(searchStr)).ToList();
             }
         }
+
         var selectedItemIndex = items.IndexOf(selected);
         if (items.Count() > 0)
         {
@@ -312,15 +435,17 @@ internal static partial class UI
             var hasUnselectedTitle = unselectedTitle != null;
             if (hasUnselectedTitle)
             {
-                titles = titles.Prepend<string>(unselectedTitle);
+                titles = titles.Prepend(unselectedTitle);
                 selectedItemIndex += 1;
             }
+
             var adjustedIndex = Math.Max(0, selectedItemIndex);
             if (adjustedIndex != selectedItemIndex)
             {
                 selectedItemIndex = adjustedIndex;
                 changed = true;
             }
+
             ActionSelectionGrid(
                 ref selectedItemIndex,
                 titles.ToArray(),
@@ -329,7 +454,10 @@ internal static partial class UI
                 style,
                 options);
             if (hasUnselectedTitle)
+            {
                 selectedItemIndex -= 1;
+            }
+
             selected = selectedItemIndex >= 0 ? items[selectedItemIndex] : null;
             //if (changed) Mod.Log($"sel index: {selectedItemIndex} sel: {selected}");
         }
@@ -337,67 +465,89 @@ internal static partial class UI
         {
             Label("No Items".grey(), options);
         }
+
         return changed;
     }
+
     public static bool GridPicker<T>(
-            string title,
-            ref T selected, List<T> items,
-            string unselectedTitle,
-            Func<T, string> titler,
-            ref string searchText,
-            int xCols,
-            params GUILayoutOption[] options
-            ) where T : class
-        => GridPicker(title, ref selected, items, unselectedTitle, titler, ref searchText, xCols, buttonStyle, options);
+        string title,
+        ref T selected, List<T> items,
+        string unselectedTitle,
+        Func<T, string> titler,
+        ref string searchText,
+        int xCols,
+        params GUILayoutOption[] options
+    ) where T : class
+    {
+        return GridPicker(title, ref selected, items, unselectedTitle, titler, ref searchText, xCols, buttonStyle,
+            options);
+    }
+
     public static bool GridPicker<T>(
-            string title,
-            ref T selected, List<T> items,
-            string unselectedTitle,
-            Func<T, string> titler,
-            ref string searchText,
-            params GUILayoutOption[] options
-            ) where T : class
-        => GridPicker(title, ref selected, items, unselectedTitle, titler, ref searchText, 6, buttonStyle, options);
+        string title,
+        ref T selected, List<T> items,
+        string unselectedTitle,
+        Func<T, string> titler,
+        ref string searchText,
+        params GUILayoutOption[] options
+    ) where T : class
+    {
+        return GridPicker(title, ref selected, items, unselectedTitle, titler, ref searchText, 6, buttonStyle, options);
+    }
 
     // VPicker
     public static bool VPicker<T>(
-            string title,
-            ref T selected, List<T> items,
-            string unselectedTitle,
-            Func<T, string> titler,
-            ref string searchText,
-            Action extras,
-            GUIStyle style,
-            params GUILayoutOption[] options
-        ) where T : class
+        string title,
+        ref T selected, List<T> items,
+        string unselectedTitle,
+        Func<T, string> titler,
+        ref string searchText,
+        Action extras,
+        GUIStyle style,
+        params GUILayoutOption[] options
+    ) where T : class
     {
         if (style == null)
+        {
             style = GUI.skin.button;
+        }
+
         var changed = false;
         if (title != null)
+        {
             Label(title, options);
+        }
+
         extras?.Invoke();
         Div();
         changed = GridPicker(title, ref selected, items, unselectedTitle, titler, ref searchText, 1, options);
         return changed;
     }
+
     public static bool VPicker<T>(
-            string title,
-            ref T selected, List<T> items,
-            string unselectedTitle,
-            Func<T, string> titler,
-            ref string searchText,
-            Action extras,
-            params GUILayoutOption[] options
-            ) where T : class
-        => VPicker(title, ref selected, items, unselectedTitle, titler, ref searchText, extras, buttonStyle, options);
+        string title,
+        ref T selected, List<T> items,
+        string unselectedTitle,
+        Func<T, string> titler,
+        ref string searchText,
+        Action extras,
+        params GUILayoutOption[] options
+    ) where T : class
+    {
+        return VPicker(title, ref selected, items, unselectedTitle, titler, ref searchText, extras, buttonStyle,
+            options);
+    }
+
     public static bool VPicker<T>(
-            string title,
-            ref T selected, List<T> items,
-            string unselectedTitle,
-            Func<T, string> titler,
-            ref string searchText,
-            params GUILayoutOption[] options
-            ) where T : class
-        => VPicker(title, ref selected, items, unselectedTitle, titler, ref searchText, () => { }, buttonStyle, options);
+        string title,
+        ref T selected, List<T> items,
+        string unselectedTitle,
+        Func<T, string> titler,
+        ref string searchText,
+        params GUILayoutOption[] options
+    ) where T : class
+    {
+        return VPicker(title, ref selected, items, unselectedTitle, titler, ref searchText, () => { }, buttonStyle,
+            options);
+    }
 }

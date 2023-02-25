@@ -50,16 +50,19 @@ namespace SolastaUnfinishedBusiness.Displays
 
         internal static void DisplaySubMenu(ref int selectedPane, string title = null, params NamedAction[] actions)
         {
-            if (Main.Enabled)
+            if (!Main.Enabled)
             {
-                if (title != null)
-                {
-                    UI.Div();
-                    UI.Label(title.color(RGBA.orange).bold());
-                    UI.Space(7);
-                }
-                UI.SubMenu(ref selectedPane,title != null, null, actions);
+                return;
             }
+
+            if (title != null)
+            {
+                UI.Div();
+                UI.Label(title.color(RGBA.orange).bold());
+                UI.Space(7);
+            }
+
+            UI.SubMenu(ref selectedPane, title != null, null, actions);
         }
 
         internal static void DisplayDefinitions<T>(

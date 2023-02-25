@@ -19,9 +19,19 @@ internal sealed class ModManager<TCore, TSettings>
     where TCore : class, new()
     where TSettings : UnityModManager.ModSettings, new()
 {
+    #region Settings
+
+    private void HandleSaveGUI(UnityModManager.ModEntry modEntry)
+    {
+        UnityModManager.ModSettings.Save(Settings, modEntry);
+    }
+
+    #endregion
+
     #region Toggle
-    string ModID;
-    Harmony HarmonyInstance;
+
+    private string ModID;
+    private Harmony HarmonyInstance;
 
     internal void Enable([NotNull] UnityModManager.ModEntry modEntry, Assembly assembly)
     {
@@ -44,8 +54,11 @@ internal sealed class ModManager<TCore, TSettings>
             if (!Patched)
             {
                 ModID = modEntry.Info.Id;
-                if (HarmonyInstance == null) 
-                    HarmonyInstance = new(modEntry.Info.Id);
+                if (HarmonyInstance == null)
+                {
+                    HarmonyInstance = new Harmony(modEntry.Info.Id);
+                }
+
                 foreach (var type in types)
                 {
                     var harmonyMethods = HarmonyMethodExtensions.GetFromType(type);
@@ -73,9 +86,9 @@ internal sealed class ModManager<TCore, TSettings>
             if (!LoadedOnce)
             {
                 _eventHandlers = types.Where(type => type != typeof(TCore) &&
-                                                 !type.IsInterface && !type.IsAbstract &&
-                                                 typeof(IModEventHandler).IsAssignableFrom(type))
-                .Select(type => Activator.CreateInstance(type, true) as IModEventHandler).ToList();
+                                                     !type.IsInterface && !type.IsAbstract &&
+                                                     typeof(IModEventHandler).IsAssignableFrom(type))
+                    .Select(type => Activator.CreateInstance(type, true) as IModEventHandler).ToList();
                 if (Core is IModEventHandler core)
                 {
                     _eventHandlers.Add(core);
@@ -88,8 +101,8 @@ internal sealed class ModManager<TCore, TSettings>
                     t.HandleModEnable();
                 }
             }
-            LoadedOnce = true;
 
+            LoadedOnce = true;
         }
         catch (Exception e)
         {
@@ -97,19 +110,12 @@ internal sealed class ModManager<TCore, TSettings>
             throw;
         }
     }
-    internal  void Unload()
+
+    internal void Unload()
     {
         HarmonyInstance.UnpatchAll();
         Enabled = false;
         Patched = false;
-    }
-    #endregion
-
-    #region Settings
-
-    private void HandleSaveGUI(UnityModManager.ModEntry modEntry)
-    {
-        UnityModManager.ModSettings.Save(Settings, modEntry);
     }
 
     #endregion
@@ -126,7 +132,6 @@ internal sealed class ModManager<TCore, TSettings>
 
     private bool Patched { get; set; }
     private bool LoadedOnce { get; set; }
-
 
     #endregion
 }

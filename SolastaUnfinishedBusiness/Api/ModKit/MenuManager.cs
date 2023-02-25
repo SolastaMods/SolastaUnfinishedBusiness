@@ -141,8 +141,11 @@ internal sealed class MenuManager : INotifyPropertyChanged
                     {
                         //GUILayout.Space(10f);
                     }
+
                     var tabIndex = _tabIndex;
-                    UI.TabBar(ref tabIndex, null, _selectablePages.Select(page => new NamedAction(page.Name, () => page.OnGUI(modEntry))).ToArray());
+                    UI.TabBar(ref tabIndex, null,
+                        _selectablePages.Select(page => new NamedAction(page.Name, () => page.OnGUI(modEntry)))
+                            .ToArray());
                     TabIndex = tabIndex;
                 }
             }
