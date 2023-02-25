@@ -12,6 +12,49 @@ namespace SolastaUnfinishedBusiness.Spells;
 internal static partial class SpellBuilders
 {
     #region LEVEL 04
+        
+    internal static SpellDefinition BuildMantleOfThorns()
+    {
+        const string NAME = "MantleOfThorns";
+
+        var effectMantleOfThorns = EffectProxyDefinitionBuilder
+            .Create(EffectProxyDefinitions.ProxySpikeGrowth, "EffectMantleOfThorns")
+            .SetCanMove()
+            .SetCanMoveOnCharacters()
+            .AddToDB();
+
+        var effectdescription = EffectDescriptionBuilder
+            .Create()
+            .SetParticleEffectParameters(SpikeGrowth)
+            .SetTargetingData(Side.Enemy, RangeType.Self, 0, TargetType.Sphere, 3)
+            .SetDurationData(DurationType.Minute, 1)
+            .SetRecurrentEffect(RecurrentEffect.OnEnter | RecurrentEffect.OnMove | RecurrentEffect.OnTurnStart)
+            .AddEffectForms(EffectFormBuilder
+            .Create()
+            .SetSummonEffectProxyForm(effectMantleOfThorns)
+            .SetDamageForm(DamageTypePiercing, 2, DieType.D8)
+            .SetTopologyForm(TopologyForm.Type.DangerousZone, false)
+            .Build(), EffectFormBuilder
+            .Create()
+            .SetDamageForm(DamageTypePiercing, 2, DieType.D8)
+            .Build(),
+             SpikeGrowth.EffectDescription
+             .effectForms.Find(e => e.formType == EffectForm.EffectFormType.Topology))
+            .Build();
+
+        var spell = SpellDefinitionBuilder
+        .Create(NAME)
+        .SetGuiPresentation(Category.Spell, SpikeGrowth)
+        .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolTransmutation)
+        .SetSpellLevel(4)
+        .SetCastingTime(ActivationTime.Action)
+        .SetVerboseComponent(true)
+        .SetRequiresConcentration(true)
+        .SetEffectDescription(effectdescription)
+        .AddToDB();
+
+        return spell;
+    }
 
     internal static SpellDefinition BuildStaggeringSmite()
     {
