@@ -1,0 +1,12 @@
+﻿Condition/&ConditionRoguishArcaneScoundrelDistractingAmbushDescription=Vous subissez un malus de -2 aux jets de sauvegarde et êtes incapable de réagir.
+Condition/&ConditionRoguishArcaneScoundrelDistractingAmbushTitle=Embuscade distrayante
+Feature/&AdditionalDamageRoguishArcaneScoundrelDistractingAmbushDescription=Chaque fois que vous infligez des dégâts d'attaque sournoise à une créature, cette créature subit une pénalité de -2 aux jets de sauvegarde et est incapable de réagir jusqu'à la fin de votre prochain tour.
+Feature/&AdditionalDamageRoguishArcaneScoundrelDistractingAmbushTitle=Embuscade distrayante
+Feature/&PowerRoguishArcaneScoundrelArcaneBackslashDescription=Vous infligez votre attaque sournoise sous forme de dégâts de force à une créature chaque fois que vous contrecarrez un sort de celle-ci.
+Feature/&PowerRoguishArcaneScoundrelArcaneBackslashTitle=Contrecoup arcanique
+Feature/&CastSpellRoguishArcaneScoundrelDescription=Lancez des sorts et des cantrips de magicien.
+Feature/&CastSpellRoguishArcaneScoundrelTitle=Lancer des sorts
+Feature/&ProficiencyRoguishArcaneScoundrelArcanaDescription=Gagnez en compétence avec la compétence Arcana. Si vous êtes déjà compétent, acquérez plutôt une expertise.
+Feature/&ProficiencyRoguishArcaneScoundrelArcanaTitle=Affinité arcanique
+Subclass/&RoguishArcaneScoundrelDescription=Avec des pieds rapides et un esprit vif, les Arcane Scoundrels utilisent une série de tours magiques pour déjouer et affaiblir leurs adversaires.
+Subclass/&RoguishArcaneScoundrelTitle=Scélérat arcanique

@@ -37,6 +37,12 @@ internal class FeatureDefinitionAdditionalDamageBuilder
         return this;
     }
 
+    internal FeatureDefinitionAdditionalDamageBuilder SetFirstTargetOnly(bool value)
+    {
+        Definition.firstTargetOnly = value;
+        return this;
+    }
+
     internal FeatureDefinitionAdditionalDamageBuilder SetAdvancement(
         RuleDefinitions.AdditionalDamageAdvancement advancement,
         int start = 0,

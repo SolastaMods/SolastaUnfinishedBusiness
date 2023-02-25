@@ -128,6 +128,7 @@ All settings start disabled by default.
 [*][b]Oath of Hatred[/b]: An Oath of Hatred paladin has dedicated himself to the punishment of evil doers by channeling hate.
 [*][b]Arcanist[/b]: The Arcanist melds their Ranger skills with arcane abilities. Their weapons can afflict their opponents with the Arcanist's Mark, and have learned how to cast some Wizard spells as part of their Ranger spell repertoire.
 [*][b]Wild Master[/b]: The Wild Master archetype embodies a friendship between the civilized races and the beasts of the world. United in focus, spirit and ranger work as one to fight the monstrous foes that threaten civilization and the wilderness alike.
+[*][b]Arcane Scoundrel[/b]: With quickness of feet and sharpness of wit, Arcane Scoundrels utilize a series of magical tricks to outsmart and debilitate their opponents.
 [*][b]Duelist[/b]: Duelists possess a swaggering bravado. They are quick-witted, self-sufficient, and dangerous to isolated enemies.
 [*][b]Opportunist[/b]: Opportunist are those who never let a chance to finish their enemies slide. They stab fast and stab where it matters. Not many facing them can escape unscratched.
 [*][b]Raven[/b]: Ravens are ranged weapon specialists that are trained to take down enemies quickly and effectively.

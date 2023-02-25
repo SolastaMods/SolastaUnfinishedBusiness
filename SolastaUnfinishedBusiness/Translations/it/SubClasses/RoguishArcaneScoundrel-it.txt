@@ -1,0 +1,12 @@
+﻿Condition/&ConditionRoguishArcaneScoundrelDistractingAmbushDescription=Si subisce una penalità di -2 ai tiri salvezza e non si è in grado di effettuare reazioni.
+Condition/&ConditionRoguishArcaneScoundrelDistractingAmbushTitle=Agguato che distrae
+Feature/&AdditionalDamageRoguishArcaneScoundrelDistractingAmbushDescription=Ogni volta che infliggi danni da attacco furtivo a una creatura, quella creatura subisce una penalità di -2 ai tiri salvezza e non è in grado di effettuare reazioni fino alla fine del tuo prossimo turno.
+Feature/&AdditionalDamageRoguishArcaneScoundrelDistractingAmbushTitle=Agguato che distrae
+Feature/&PowerRoguishArcaneScoundrelArcaneBackslashDescription=Infliggi il tuo attacco furtivo come danno da forza a una creatura ogni volta che ne neutralizza un incantesimo.
+Feature/&PowerRoguishArcaneScoundrelArcaneBackslashTitle=Contraccolpo Arcano
+Feature/&CastSpellRoguishArcaneScoundrelDescription=Lancia incantesimi e trucchetti da mago.
+Feature/&CastSpellRoguishArcaneScoundrelTitle=Incantesimi
+Feature/&ProficiencyRoguishArcaneScoundrelArcanaDescription=Ottieni competenza con l'abilità Arcana. Se sei già esperto, acquisisci invece esperienza.
+Feature/&ProficiencyRoguishArcaneScoundrelArcanaTitle=Affinità Arcana
+Subclass/&RoguishArcaneScoundrelDescription=Con rapidità di piedi e acutezza di ingegno, gli Arcane Scoundrels utilizzano una serie di trucchi magici per superare in astuzia e debilitare i loro avversari.
+Subclass/&RoguishArcaneScoundrelTitle=Canaglia Arcana

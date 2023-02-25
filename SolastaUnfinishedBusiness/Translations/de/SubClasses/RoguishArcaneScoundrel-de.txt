@@ -1,0 +1,12 @@
+﻿Condition/&ConditionRoguishArcaneScoundrelDistractingAmbushDescription=Du erleidest einen Malus von -2 auf Rettungswürfe und bist nicht in der Lage, Reaktionen zu ertragen.
+Condition/&ConditionRoguishArcaneScoundrelDistractingAmbushTitle=Ablenkender Hinterhalt
+Feature/&AdditionalDamageRoguishArcaneScoundrelDistractingAmbushDescription=Immer wenn du einer Kreatur hinterhältigen Angriffsschaden zufügst, erleidet diese Kreatur einen Malus von -2 auf Rettungswürfe und kann bis zum Ende deines nächsten Zuges keine Reaktionen einstecken.
+Feature/&AdditionalDamageRoguishArcaneScoundrelDistractingAmbushTitle=Ablenkender Hinterhalt
+Feature/&PowerRoguishArcaneScoundrelArcaneBackslashDescription=Du fügst einer Kreatur deinen Hinterhältigen Angriff als Machtschaden zu, wenn du einen Zauber von ihr konterst.
+Feature/&PowerRoguishArcaneScoundrelArcaneBackslashTitle=Arkane Gegenreaktion
+Feature/&CastSpellRoguishArcaneScoundrelDescription=Wirke Zaubererzauber und Cantrips.
+Feature/&CastSpellRoguishArcaneScoundrelTitle=Zaubern
+Feature/&ProficiencyRoguishArcaneScoundrelArcanaDescription=Erwerben Sie Kenntnisse in der Arcana-Fertigkeit. Wenn Sie bereits kompetent sind, erwerben Sie stattdessen Fachwissen.
+Feature/&ProficiencyRoguishArcaneScoundrelArcanaTitle=Arkane Affinität
+Subclass/&RoguishArcaneScoundrelDescription=Mit schnellen Füßen und scharfem Verstand wenden Arcane Scoundrels eine Reihe magischer Tricks an, um ihre Gegner zu überlisten und zu schwächen.
+Subclass/&RoguishArcaneScoundrelTitle=Arkaner Schurke
