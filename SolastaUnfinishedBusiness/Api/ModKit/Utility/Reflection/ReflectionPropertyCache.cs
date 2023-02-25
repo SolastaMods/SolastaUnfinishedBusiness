@@ -3,64 +3,65 @@ using System.Linq;
 using System.Reflection;
 using System.Reflection.Emit;
 
-namespace SolastaUnfinishedBusiness.Api.ModKit.Utility;
+namespace SolastaUnfinishedBusiness.Api.ModKit.Utility.Reflection;
 
 public static partial class ReflectionCache
 {
-    private static readonly DoubleDictionary<Type, string, WeakReference> _propertieCache = new();
+    private static readonly DoubleDictionary<Type, string, WeakReference> PropertiesCache = new();
 
     private static CachedProperty<TProperty> GetPropertyCache<T, TProperty>(string name)
     {
         object cache = null;
-        if (_propertieCache.TryGetValue(typeof(T), name, out var weakRef))
+        if (PropertiesCache.TryGetValue(typeof(T), name, out var weakRef))
         {
             cache = weakRef.Target;
         }
 
-        if (cache == null)
+        if (cache != null)
         {
-            if (typeof(T).IsValueType)
-            {
-                cache = new CachedPropertyOfStruct<T, TProperty>(name);
-            }
-            else
-            {
-                cache = new CachedPropertyOfClass<T, TProperty>(name);
-            }
-
-            _propertieCache[typeof(T), name] = new WeakReference(cache);
-            EnqueueCache(cache);
+            return cache as CachedProperty<TProperty>;
         }
 
-        return cache as CachedProperty<TProperty>;
+        if (typeof(T).IsValueType)
+        {
+            cache = new CachedPropertyOfStruct<T, TProperty>(name);
+        }
+        else
+        {
+            cache = new CachedPropertyOfClass<T, TProperty>(name);
+        }
+
+        PropertiesCache[typeof(T), name] = new WeakReference(cache);
+        EnqueueCache(cache);
+
+        return (CachedProperty<TProperty>)cache;
     }
 
     private static CachedProperty<TProperty> GetPropertyCache<TProperty>(Type type, string name)
     {
         object cache = null;
-        if (_propertieCache.TryGetValue(type, name, out var weakRef))
+        if (PropertiesCache.TryGetValue(type, name, out var weakRef))
         {
             cache = weakRef.Target;
         }
 
-        if (cache == null)
+        if (cache != null)
         {
-            cache =
-                IsStatic(type)
-                    ? new CachedPropertyOfStatic<TProperty>(type, name)
-                    :
-                    type.IsValueType
-                        ?
-                        Activator.CreateInstance(
-                            typeof(CachedPropertyOfStruct<,>).MakeGenericType(type, typeof(TProperty)),
-                            name)
-                        :
-                        Activator.CreateInstance(
-                            typeof(CachedPropertyOfClass<,>).MakeGenericType(type, typeof(TProperty)),
-                            name);
-            _propertieCache[type, name] = new WeakReference(cache);
-            EnqueueCache(cache);
+            return cache as CachedProperty<TProperty>;
         }
+
+        cache =
+            IsStatic(type)
+                ? new CachedPropertyOfStatic<TProperty>(type, name)
+                : type.IsValueType
+                    ? Activator.CreateInstance(
+                        typeof(CachedPropertyOfStruct<,>).MakeGenericType(type, typeof(TProperty)),
+                        name)
+                    : Activator.CreateInstance(
+                        typeof(CachedPropertyOfClass<,>).MakeGenericType(type, typeof(TProperty)),
+                        name);
+        PropertiesCache[type, name] = new WeakReference(cache);
+        EnqueueCache(cache);
 
         return cache as CachedProperty<TProperty>;
     }
@@ -122,7 +123,7 @@ public static partial class ReflectionCache
 
         protected CachedProperty(Type type, string name)
         {
-            Info = type.GetProperties(ALL_FLAGS).FirstOrDefault(item => item.Name == name);
+            Info = type.GetProperties(AllFlags).FirstOrDefault(item => item.Name == name);
 
             if (Info == null || Info.PropertyType != typeof(TProperty))
             {
@@ -131,7 +132,7 @@ public static partial class ReflectionCache
 
             if (Info.DeclaringType != type)
             {
-                Info = Info.DeclaringType.GetProperties(ALL_FLAGS).FirstOrDefault(item => item.Name == name);
+                Info = Info.DeclaringType.GetProperties(AllFlags).FirstOrDefault(item => item.Name == name);
             }
         }
 
@@ -143,44 +144,46 @@ public static partial class ReflectionCache
 
         protected Delegate CreateGetter(Type delType, MethodInfo getter, bool isInstByRef)
         {
-            if (getter.IsStatic)
+            if (!getter.IsStatic)
             {
-                DynamicMethod method = new(
-                    "get_" + Info.Name,
-                    Info.PropertyType,
-                    new[] { isInstByRef ? Info.DeclaringType.MakeByRefType() : Info.DeclaringType },
-                    typeof(CachedProperty<TProperty>),
-                    true);
-                method.DefineParameter(1, ParameterAttributes.In, "instance");
-                var il = method.GetILGenerator();
-                il.Emit(OpCodes.Call, getter);
-                il.Emit(OpCodes.Ret);
-                return method.CreateDelegate(delType);
+                return Delegate.CreateDelegate(delType, getter);
             }
 
-            return Delegate.CreateDelegate(delType, getter);
+            DynamicMethod method = new(
+                "get_" + Info.Name,
+                Info.PropertyType,
+                new[] { isInstByRef ? Info.DeclaringType.MakeByRefType() : Info.DeclaringType },
+                typeof(CachedProperty<TProperty>),
+                true);
+            method.DefineParameter(1, ParameterAttributes.In, "instance");
+            var il = method.GetILGenerator();
+            il.Emit(OpCodes.Call, getter);
+            il.Emit(OpCodes.Ret);
+            return method.CreateDelegate(delType);
+
         }
 
         protected Delegate CreateSetter(Type delType, MethodInfo setter, bool isInstByRef)
         {
-            if (setter.IsStatic)
+            if (!setter.IsStatic)
             {
-                DynamicMethod method = new(
-                    "set_" + Info.Name,
-                    null,
-                    new[] { isInstByRef ? Info.DeclaringType.MakeByRefType() : Info.DeclaringType, Info.PropertyType },
-                    typeof(CachedProperty<TProperty>),
-                    true);
-                method.DefineParameter(1, ParameterAttributes.In, "instance");
-                method.DefineParameter(2, ParameterAttributes.In, "value");
-                var il = method.GetILGenerator();
-                il.Emit(OpCodes.Ldarg_1);
-                il.Emit(OpCodes.Call, setter);
-                il.Emit(OpCodes.Ret);
-                return method.CreateDelegate(delType);
+                return Delegate.CreateDelegate(delType, setter);
             }
 
-            return Delegate.CreateDelegate(delType, setter);
+            DynamicMethod method = new(
+                "set_" + Info.Name,
+                null,
+                new[] { isInstByRef ? Info.DeclaringType.MakeByRefType() : Info.DeclaringType, Info.PropertyType },
+                typeof(CachedProperty<TProperty>),
+                true);
+            method.DefineParameter(1, ParameterAttributes.In, "instance");
+            method.DefineParameter(2, ParameterAttributes.In, "value");
+            var il = method.GetILGenerator();
+            il.Emit(OpCodes.Ldarg_1);
+            il.Emit(OpCodes.Call, setter);
+            il.Emit(OpCodes.Ret);
+            return method.CreateDelegate(delType);
+
         }
     }
 

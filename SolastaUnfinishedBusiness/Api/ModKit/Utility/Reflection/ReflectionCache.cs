@@ -9,36 +9,36 @@ using System.Collections;
 using System.Reflection;
 using System.Reflection.Emit;
 
-namespace SolastaUnfinishedBusiness.Api.ModKit.Utility;
+namespace SolastaUnfinishedBusiness.Api.ModKit.Utility.Reflection;
 
 public static partial class ReflectionCache
 {
-    private const BindingFlags ALL_FLAGS =
+    private const BindingFlags AllFlags =
         BindingFlags.Instance | BindingFlags.Static | BindingFlags.Public |
         BindingFlags.NonPublic /*| BindingFlags.FlattenHierarchy*/;
 
-    private static readonly Queue _cache = new();
+    private static readonly Queue Cache = new();
 
-    public static int Count => _cache.Count;
+    public static int Count => Cache.Count;
 
-    public static int SizeLimit { get; set; } = 1000;
+    private static int SizeLimit => 1000;
 
     public static void Clear()
     {
-        _fieldCache.Clear();
-        _propertieCache.Clear();
-        _methodCache.Clear();
-        _cache.Clear();
+        FieldCache.Clear();
+        PropertiesCache.Clear();
+        MethodCache.Clear();
+        Cache.Clear();
     }
 
     private static void EnqueueCache(object obj)
     {
-        while (_cache.Count >= SizeLimit && _cache.Count > 0)
+        while (Cache.Count >= SizeLimit && Cache.Count > 0)
         {
-            _cache.Dequeue();
+            Cache.Dequeue();
         }
 
-        _cache.Enqueue(obj);
+        Cache.Enqueue(obj);
     }
 
     private static bool IsStatic(Type type)

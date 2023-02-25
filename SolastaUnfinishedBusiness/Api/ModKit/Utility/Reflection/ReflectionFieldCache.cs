@@ -3,62 +3,63 @@ using System.Linq;
 using System.Reflection;
 using System.Reflection.Emit;
 
-namespace SolastaUnfinishedBusiness.Api.ModKit.Utility;
+namespace SolastaUnfinishedBusiness.Api.ModKit.Utility.Reflection;
 
 public static partial class ReflectionCache
 {
-    private static readonly DoubleDictionary<Type, string, WeakReference> _fieldCache = new();
+    private static readonly DoubleDictionary<Type, string, WeakReference> FieldCache = new();
 
     private static CachedField<TField> GetFieldCache<T, TField>(string name)
     {
         object cache = default;
-        if (_fieldCache.TryGetValue(typeof(T), name, out var weakRef))
+        if (FieldCache.TryGetValue(typeof(T), name, out var weakRef))
         {
             cache = weakRef.Target;
         }
 
-        if (cache == null)
+        if (cache != null)
         {
-            if (typeof(T).IsValueType)
-            {
-                cache = new CachedFieldOfStruct<T, TField>(name);
-            }
-            else
-            {
-                cache = new CachedFieldOfClass<T, TField>(name);
-            }
-
-            _fieldCache[typeof(T), name] = new WeakReference(cache);
-            EnqueueCache(cache);
+            return cache as CachedField<TField>;
         }
 
-        return cache as CachedField<TField>;
+        if (typeof(T).IsValueType)
+        {
+            cache = new CachedFieldOfStruct<T, TField>(name);
+        }
+        else
+        {
+            cache = new CachedFieldOfClass<T, TField>(name);
+        }
+
+        FieldCache[typeof(T), name] = new WeakReference(cache);
+        EnqueueCache(cache);
+
+        return (CachedField<TField>)cache;
     }
 
     private static CachedField<TField> GetFieldCache<TField>(Type type, string name)
     {
         object cache = null;
-        if (_fieldCache.TryGetValue(type, name, out var weakRef))
+        if (FieldCache.TryGetValue(type, name, out var weakRef))
         {
             cache = weakRef.Target;
         }
 
-        if (cache == null)
+        if (cache != null)
         {
-            cache =
-                IsStatic(type)
-                    ? new CachedFieldOfStatic<TField>(type, name)
-                    :
-                    type.IsValueType
-                        ?
-                        Activator.CreateInstance(typeof(CachedFieldOfStruct<,>).MakeGenericType(type, typeof(TField)),
-                            name)
-                        :
-                        Activator.CreateInstance(typeof(CachedFieldOfClass<,>).MakeGenericType(type, typeof(TField)),
-                            name);
-            _fieldCache[type, name] = new WeakReference(cache);
-            EnqueueCache(cache);
+            return cache as CachedField<TField>;
         }
+
+        cache =
+            IsStatic(type)
+                ? new CachedFieldOfStatic<TField>(type, name)
+                : type.IsValueType
+                    ? Activator.CreateInstance(typeof(CachedFieldOfStruct<,>).MakeGenericType(type, typeof(TField)),
+                        name)
+                    : Activator.CreateInstance(typeof(CachedFieldOfClass<,>).MakeGenericType(type, typeof(TField)),
+                        name);
+        FieldCache[type, name] = new WeakReference(cache);
+        EnqueueCache(cache);
 
         return cache as CachedField<TField>;
     }
@@ -127,9 +128,9 @@ public static partial class ReflectionCache
     {
         public readonly FieldInfo Info;
 
-        public CachedField(Type type, string name)
+        protected CachedField(IReflect type, string name)
         {
-            Info = type.GetFields(ALL_FLAGS).FirstOrDefault(item => item.Name == name);
+            Info = type.GetFields(AllFlags).FirstOrDefault(item => item.Name == name);
 
             if (Info == null || Info.FieldType != typeof(TField))
             {

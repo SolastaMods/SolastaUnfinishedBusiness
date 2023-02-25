@@ -4,11 +4,11 @@ using System.Linq;
 using System.Reflection;
 using System.Reflection.Emit;
 
-namespace SolastaUnfinishedBusiness.Api.ModKit.Utility;
+namespace SolastaUnfinishedBusiness.Api.ModKit.Utility.Reflection;
 
 public static partial class ReflectionCache
 {
-    private static readonly HashSet<Type> ACTION_AND_FUNC_TYPES = new()
+    private static readonly HashSet<Type> ActionAndFuncTypes = new()
     {
         typeof(Action),
         typeof(Action<>),
@@ -46,45 +46,49 @@ public static partial class ReflectionCache
         typeof(Func<,,,,,,,,,,,,,,,,>)
     };
 
-    private static readonly TripleDictionary<Type, string, Type, WeakReference> _methodCache = new();
+    private static readonly TripleDictionary<Type, string, Type, WeakReference> MethodCache = new();
 
     private static CachedMethod<TMethod> GetMethodCache<T, TMethod>(string name) where TMethod : Delegate
     {
         object cache = null;
-        if (_methodCache.TryGetValue(typeof(T), name, typeof(TMethod), out var weakRef))
+        if (MethodCache.TryGetValue(typeof(T), name, typeof(TMethod), out var weakRef))
         {
             cache = weakRef.Target;
         }
 
-        if (cache == null)
+        if (cache != null)
         {
-            cache = new CachedMethodOfNonStatic<T, TMethod>(name);
-            _methodCache[typeof(T), name, typeof(TMethod)] = new WeakReference(cache);
-            EnqueueCache(cache);
+            return cache as CachedMethod<TMethod>;
         }
 
-        return cache as CachedMethod<TMethod>;
+        cache = new CachedMethodOfNonStatic<T, TMethod>(name);
+        MethodCache[typeof(T), name, typeof(TMethod)] = new WeakReference(cache);
+        EnqueueCache(cache);
+
+        return (CachedMethod<TMethod>)cache;
     }
 
     private static CachedMethod<TMethod> GetMethodCache<TMethod>(Type type, string name) where TMethod : Delegate
     {
         object cache = null;
-        if (_methodCache.TryGetValue(type, name, typeof(TMethod), out var weakRef))
+        if (MethodCache.TryGetValue(type, name, typeof(TMethod), out var weakRef))
         {
             cache = weakRef.Target;
         }
 
-        if (cache == null)
+        if (cache != null)
         {
-            cache =
-                IsStatic(type)
-                    ? Activator.CreateInstance(typeof(CachedMethodOfStatic<>).MakeGenericType(typeof(TMethod)), type,
-                        name)
-                    : Activator.CreateInstance(
-                        typeof(CachedMethodOfNonStatic<,>).MakeGenericType(type, typeof(TMethod)), name);
-            _methodCache[type, name, typeof(TMethod)] = new WeakReference(cache);
-            EnqueueCache(cache);
+            return cache as CachedMethod<TMethod>;
         }
+
+        cache =
+            IsStatic(type)
+                ? Activator.CreateInstance(typeof(CachedMethodOfStatic<>).MakeGenericType(typeof(TMethod)), type,
+                    name)
+                : Activator.CreateInstance(
+                    typeof(CachedMethodOfNonStatic<,>).MakeGenericType(type, typeof(TMethod)), name);
+        MethodCache[type, name, typeof(TMethod)] = new WeakReference(cache);
+        EnqueueCache(cache);
 
         return cache as CachedMethod<TMethod>;
     }
@@ -127,7 +131,7 @@ public static partial class ReflectionCache
         protected CachedMethod(Type type, string name, bool hasThis)
         {
             var delType = typeof(TMethod);
-            var delSign = delType.GetMethod("Invoke", ALL_FLAGS);
+            var delSign = delType.GetMethod("Invoke", AllFlags);
             var delParams = delSign.GetParameters();
 
             if (hasThis)
@@ -150,8 +154,8 @@ public static partial class ReflectionCache
                 }
             }
 
-            IEnumerable<MethodInfo> methods = type.GetMethods(ALL_FLAGS);
-            if (delType.IsGenericType && !ACTION_AND_FUNC_TYPES.Contains(delType.GetGenericTypeDefinition()))
+            IEnumerable<MethodInfo> methods = type.GetMethods(AllFlags);
+            if (delType.IsGenericType && !ActionAndFuncTypes.Contains(delType.GetGenericTypeDefinition()))
             {
                 if (hasThis)
                 {
@@ -199,15 +203,17 @@ public static partial class ReflectionCache
         public TMethod Del
             => _delegate ??= CreateDelegate();
 
-        private static bool CheckParamsOfGenericMethod(ParameterInfo[] @params, ParameterInfo[] delParams,
-            Type[] delGenericArgs)
+        private static bool CheckParamsOfGenericMethod(
+            IReadOnlyList<ParameterInfo> @params,
+            IReadOnlyList<ParameterInfo> delParams,
+            IReadOnlyList<Type> delGenericArgs)
         {
-            if (@params.Length != delParams.Length)
+            if (@params.Count != delParams.Count)
             {
                 return false;
             }
 
-            for (var i = 0; i < @params.Length; i++)
+            for (var i = 0; i < @params.Count; i++)
             {
                 if (!@params[i].ParameterType.IsGenericParameter)
                 {
@@ -272,7 +278,7 @@ public static partial class ReflectionCache
         {
             var type = typeof(T);
             var parameters = Info.GetParameters();
-            DynamicMethod method = new(
+            var method = new DynamicMethod(
                 Info.Name,
                 Info.ReturnType,
                 new[] { type.IsValueType ? type.MakeByRefType() : type }
@@ -282,6 +288,7 @@ public static partial class ReflectionCache
             method.DefineParameter(1, ParameterAttributes.In, "instance");
 
             var il = method.GetILGenerator();
+            
             if (Info.IsStatic)
             {
                 for (var i = 1; i <= parameters.Length; i++)
@@ -299,14 +306,7 @@ public static partial class ReflectionCache
                     il.Emit(OpCodes.Ldarg, i);
                 }
 
-                if (Info.IsVirtual)
-                {
-                    il.Emit(OpCodes.Callvirt, Info);
-                }
-                else
-                {
-                    il.Emit(OpCodes.Call, Info);
-                }
+                il.Emit(Info.IsVirtual ? OpCodes.Callvirt : OpCodes.Call, Info);
             }
 
             il.Emit(OpCodes.Ret);
