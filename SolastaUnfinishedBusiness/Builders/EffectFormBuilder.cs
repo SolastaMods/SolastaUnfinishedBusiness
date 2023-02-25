@@ -67,6 +67,7 @@ internal class EffectFormBuilder
         int step = 1,
         int begin = 1)
     {
+        effectForm.levelType = levelType;
         effectForm.applyLevel = EffectForm.LevelApplianceType.DiceNumberByLevelTable;
         effectForm.DiceByLevelTable.SetRange(DiceByRankBuilder.BuildDiceByRankTable(start, increment, step, begin));
         return this;
