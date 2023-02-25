@@ -20,6 +20,8 @@ internal sealed class ModManager<TCore, TSettings>
     where TSettings : UnityModManager.ModSettings, new()
 {
     #region Toggle
+    string ModID;
+    Harmony HarmonyInstance;
 
     internal void Enable([NotNull] UnityModManager.ModEntry modEntry, Assembly assembly)
     {
@@ -30,15 +32,20 @@ internal sealed class ModManager<TCore, TSettings>
 
         try
         {
-            modEntry.OnSaveGUI += HandleSaveGUI;
-            Settings = UnityModManager.ModSettings.Load<TSettings>(modEntry);
-            Core = new TCore();
+            if (!LoadedOnce)
+            {
+                modEntry.OnSaveGUI += HandleSaveGUI;
+                Settings = UnityModManager.ModSettings.Load<TSettings>(modEntry);
+                Core = new TCore();
+            }
 
             var types = assembly.GetTypes();
 
             if (!Patched)
             {
-                Harmony harmonyInstance = new(modEntry.Info.Id);
+                ModID = modEntry.Info.Id;
+                if (HarmonyInstance == null) 
+                    HarmonyInstance = new(modEntry.Info.Id);
                 foreach (var type in types)
                 {
                     var harmonyMethods = HarmonyMethodExtensions.GetFromType(type);
@@ -49,7 +56,7 @@ internal sealed class ModManager<TCore, TSettings>
 
                     try
                     {
-                        var patchProcessor = harmonyInstance.CreateClassProcessor(type);
+                        var patchProcessor = HarmonyInstance.CreateClassProcessor(type);
                         patchProcessor.Patch();
                     }
                     catch (Exception e)
@@ -63,21 +70,26 @@ internal sealed class ModManager<TCore, TSettings>
 
             Enabled = true;
 
-            _eventHandlers = types.Where(type => type != typeof(TCore) &&
+            if (!LoadedOnce)
+            {
+                _eventHandlers = types.Where(type => type != typeof(TCore) &&
                                                  !type.IsInterface && !type.IsAbstract &&
                                                  typeof(IModEventHandler).IsAssignableFrom(type))
                 .Select(type => Activator.CreateInstance(type, true) as IModEventHandler).ToList();
-            if (Core is IModEventHandler core)
-            {
-                _eventHandlers.Add(core);
-            }
+                if (Core is IModEventHandler core)
+                {
+                    _eventHandlers.Add(core);
+                }
 
-            _eventHandlers.Sort((x, y) => x.Priority - y.Priority);
+                _eventHandlers.Sort((x, y) => x.Priority - y.Priority);
 
-            foreach (var t in _eventHandlers)
-            {
-                t.HandleModEnable();
+                foreach (var t in _eventHandlers)
+                {
+                    t.HandleModEnable();
+                }
             }
+            LoadedOnce = true;
+
         }
         catch (Exception e)
         {
@@ -85,7 +97,12 @@ internal sealed class ModManager<TCore, TSettings>
             throw;
         }
     }
-
+    internal  void Unload()
+    {
+        HarmonyInstance.UnpatchAll();
+        Enabled = false;
+        Patched = false;
+    }
     #endregion
 
     #region Settings
@@ -108,6 +125,8 @@ internal sealed class ModManager<TCore, TSettings>
     private bool Enabled { get; set; }
 
     private bool Patched { get; set; }
+    private bool LoadedOnce { get; set; }
+
 
     #endregion
 }
