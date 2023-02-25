@@ -260,6 +260,111 @@ internal static partial class SpellBuilders
             }
         }
     }
+    
+        private sealed class SanctuaryBeforeAttackHitPossible : IAttackHitPossible
+    {
+        private readonly ConditionDefinition _conditionSanctuaryBuff;
+
+        internal SanctuaryBeforeAttackHitPossible(ConditionDefinition conditionSanctuaryBuff)
+        {
+            _conditionSanctuaryBuff = conditionSanctuaryBuff;
+        }
+
+        public IEnumerator DefenderAttackHitPossible(
+            GameLocationBattleManager battle,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            RulesetAttackMode attackMode,
+            RulesetEffect rulesetEffect,
+            ActionModifier attackModifier,
+            int attackRoll
+            )
+        {
+            if (battle.Battle == null)
+            {
+                yield break;
+            }
+
+            var modifierTrend = attacker.RulesetCharacter.actionModifier.savingThrowModifierTrends;
+            var advantageTrends = attacker.RulesetCharacter.actionModifier.savingThrowAdvantageTrends;
+            var attackerWisModifier = AttributeDefinitions.ComputeAbilityScoreModifier(attacker.RulesetCharacter
+                .GetAttribute(AttributeDefinitions.Wisdom).CurrentValue);
+            var profBonus = AttributeDefinitions.ComputeProficiencyBonus(defender.RulesetCharacter
+                .GetAttribute(AttributeDefinitions.CharacterLevel).CurrentValue);
+            var defenderWisModifier = AttributeDefinitions.ComputeAbilityScoreModifier(defender.RulesetCharacter
+                .GetAttribute(AttributeDefinitions.Wisdom).CurrentValue);
+
+            attacker.RulesetCharacter.RollSavingThrow(0, AttributeDefinitions.Wisdom, null, modifierTrend,
+                advantageTrends, attackerWisModifier, 8 + profBonus + defenderWisModifier + 20, false, out var savingOutcome,
+                out _);
+
+            if (savingOutcome is RollOutcome.Success or RollOutcome.CriticalSuccess)
+            {
+                yield break;
+            }
+
+            var rulesetCondition = RulesetCondition.CreateActiveCondition(
+               defender.RulesetCharacter.Guid,
+               _conditionSanctuaryBuff,
+               DurationType.Round,
+               1,
+               TurnOccurenceType.StartOfTurn,
+               defender.RulesetCharacter.Guid,
+               defender.RulesetCharacter.CurrentFaction.Name
+           );
+
+            defender.RulesetCharacter.AddConditionOfCategory(AttributeDefinitions.TagCombat, rulesetCondition);
+
+        }
+    }
+
+    private sealed class SanctuaryBeforeAttackHitConfirmed : IDefenderBeforeAttackHitConfirmed
+    {
+        private readonly ConditionDefinition _conditionSanctuaryBuff;
+
+        internal SanctuaryBeforeAttackHitConfirmed(ConditionDefinition conditionSanctuaryBuff)
+        {
+            _conditionSanctuaryBuff = conditionSanctuaryBuff;
+        }
+
+
+        public IEnumerator DefenderBeforeAttackHitConfirmed(
+        GameLocationBattleManager battle,
+        GameLocationCharacter attacker,
+        GameLocationCharacter defender,
+        ActionModifier attackModifier,
+        RulesetAttackMode attackMode,
+        bool rangedAttack,
+        RuleDefinitions.AdvantageType advantageType,
+        List<EffectForm> actualEffectForms,
+        RulesetEffect rulesetEffect,
+        bool criticalHit,
+        bool firstTarget)
+        {
+            if(battle.Battle == null)
+            {
+                yield break;
+            }
+
+           if(criticalHit == false)
+            {
+                yield break;
+            }
+
+            var rulesetCondition = RulesetCondition.CreateActiveCondition(
+                defender.RulesetCharacter.Guid,
+                _conditionSanctuaryBuff,
+                DurationType.Round,
+                1,
+                TurnOccurenceType.StartOfTurn,
+                defender.RulesetCharacter.Guid,
+                defender.RulesetCharacter.CurrentFaction.Name
+            );
+
+            defender.RulesetCharacter.AddConditionOfCategory(AttributeDefinitions.TagCombat, rulesetCondition);
+
+        }
+    }
 
     #endregion
 }
