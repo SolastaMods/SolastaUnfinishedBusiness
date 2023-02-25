@@ -4,11 +4,11 @@
   "parentCondition": null,
   "conditionType": "Beneficial",
   "features": [
-    "Definition:DamageAffinitySkinOfRetributionDamageThunder:e650335f-f032-551e-9748-62e8cac89aa2"
+    "Definition:AdditionalDamageDivineFavor:1dff78f3c21bcea43a4a13fd1c35d89f"
   ],
   "allowMultipleInstances": false,
   "silentWhenAdded": true,
-  "silentWhenRemoved": false,
+  "silentWhenRemoved": true,
   "terminateWhenRemoved": false,
   "specialDuration": false,
   "durationType": "Hour",
@@ -86,7 +86,7 @@
   },
   "timeToWaitBeforeApplyingShader": 0.5,
   "timeToWaitBeforeRemovingShader": 0.5,
-  "possessive": true,
+  "possessive": false,
   "amountOrigin": "None",
   "baseAmount": 0,
   "additiveAmount": false,
@@ -128,13 +128,13 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Condition/&ConditionSkinOfRetributionTitle",
-    "description": "If a creature hits you with a melee attack while you have these temporary hit points, the creature takes 5 Thunder Damage per spell level.",
+    "title": "Condition/&ConditionCrusadersMantleTitle",
+    "description": "Condition/&ConditionCrusadersMantleDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "2190a678-d008-5cd6-90e0-a269c474877f",
-      "m_SubObjectName": null,
-      "m_SubObjectType": null
+      "m_AssetGUID": "df79a8d92a082eb40a000919a6f5b27a",
+      "m_SubObjectName": "ConditionDivineFavor",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
@@ -149,7 +149,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "75f38f06-77b8-5f1f-9b93-5286f8f63027",
+  "guid": "04a3a8c7-cf68-5a07-a0c1-9aabc911cad9",
   "contentPack": 9999,
-  "name": "ConditionSkinOfRetributionDamageThunder"
+  "name": "ConditionCrusadersMantle"
 }

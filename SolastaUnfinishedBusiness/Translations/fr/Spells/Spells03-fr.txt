@@ -1,4 +1,6 @@
-﻿Condition/&ConditionSpiritShroudNoHealDescription=Impossible de gagner des points de vie. Si mort-vivant, désavantage en attaquant le lanceur.
+﻿Condition/&ConditionCrusadersMantleDescription=Gagnez un bonus de 1d4 dégâts radiants sur vos attaques.
+Condition/&ConditionCrusadersMantleTitle=Mantelet de croisé
+Condition/&ConditionSpiritShroudNoHealDescription=Impossible de gagner des points de vie. Si mort-vivant, désavantage en attaquant le lanceur.
 Condition/&ConditionSpiritShroudNoHealTitle=Linceul touché
 Feature/&AdditionalDamageBlindingSmiteDescription=Vous êtes touché par des dégâts radiants.
 Feature/&AdditionalDamageBlindingSmiteTitle=Châtiment aveuglant
@@ -12,6 +14,8 @@ Feedback/&AdditionalDamageSpiritShroudDamageRadiantFormat=Voile spirituel!
 Feedback/&AdditionalDamageSpiritShroudDamageRadiantLine={0} inflige {2} dégâts radiants à {1} avec Spirit Shroud!
 Spell/&BlindingSmiteDescription=Lors de votre prochain coup, votre arme s'embrase d'une lumière vive et l'attaque inflige 3d8 dégâts radiants supplémentaires à la cible. De plus, la cible doit réussir un jet de sauvegarde de Constitution ou être aveuglée jusqu'à la fin du sort.\nUne créature aveuglée par ce sort effectue un autre jet de sauvegarde de Constitution à la fin de chacun de ses tours. En cas de sauvegarde réussie, il n'est plus aveuglé.
 Spell/&BlindingSmiteTitle=Châtiment aveuglant
+Spell/&CrusadersMantleDescription=Entourez-vous d'une aura magique. Les alliés dans l'aura gagnent un bonus de 1d4 dégâts radiants sur leurs attaques.
+Spell/&CrusadersMantleTitle=Mantelet de croisé
 Spell/&SpiritShroudDamageColdDescription=Inflige des dégâts de froid supplémentaires.
 Spell/&SpiritShroudDamageColdTitle=Voile spirituel (froid)
 Spell/&SpiritShroudDamageNecroticDescription=Inflige des dégâts nécrotiques supplémentaires.

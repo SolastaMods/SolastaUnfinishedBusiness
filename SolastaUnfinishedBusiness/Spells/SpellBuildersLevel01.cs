@@ -352,8 +352,8 @@ internal static partial class SpellBuilders
         };
 
         const string SUB_SPELL_DESCRIPTION = $"Spell/&SubSpell{NAME}Description";
-        const string SUB_SPELL_CONDITION_DESCRIPTION = $"Spell/&Condition{NAME}Description";
-        const string SUB_SPELL_CONDITION_TITLE = $"Spell/&Condition{NAME}Title";
+        const string SUB_SPELL_CONDITION_DESCRIPTION = $"Condition/&Condition{NAME}Description";
+        const string SUB_SPELL_CONDITION_TITLE = $"Condition/&Condition{NAME}Title";
 
         // ReSharper disable once LoopCanBeConvertedToQuery
         foreach (var damageType in damageTypes)
@@ -581,12 +581,13 @@ internal static partial class SpellBuilders
     {
         const string NAME = "Sanctuary";
 
-        var conditionSanctuaryBuff1 = ConditionDefinitionBuilder
-            .Create($"Condition{NAME}Buff1")
+        var conditionSanctuaryArmorClass = ConditionDefinitionBuilder
+            .Create($"Condition{NAME}ArmorClass")
             .SetGuiPresentationNoContent(true)
             .SetSilent(Silent.WhenAddedOrRemoved)
             .AddFeatures(FeatureDefinitionAttributeModifierBuilder
-                .Create($"AttributeModifier{NAME}Buff")
+                .Create($"AttributeModifier{NAME}ArmorClass")
+                .SetGuiPresentationNoContent(true)
                 .SetModifier(
                     FeatureDefinitionAttributeModifier.AttributeModifierOperation.Additive,
                     AttributeDefinitions.ArmorClass,
@@ -595,8 +596,8 @@ internal static partial class SpellBuilders
             .AddSpecialInterruptions(ConditionInterruption.Attacked)
             .AddToDB();
 
-        var conditionSanctuaryBuff2 = ConditionDefinitionBuilder
-            .Create($"Condition{NAME}Buff2")
+        var conditionSanctuaryDamageResistance = ConditionDefinitionBuilder
+            .Create($"Condition{NAME}DamageResistance")
             .SetGuiPresentationNoContent(true)
             .SetSilent(Silent.WhenAddedOrRemoved)
             .AddFeatures(
@@ -619,8 +620,10 @@ internal static partial class SpellBuilders
         //Attack possible is skipped when crit, so I am just going to halve the damage on critical
         var featureSanctuary = FeatureDefinitionBuilder
             .Create($"Feature{NAME}")
-            .SetCustomSubFeatures(new SanctuaryBeforeAttackHitConfirmed(conditionSanctuaryBuff2),
-                new SanctuaryBeforeAttackHitPossible(conditionSanctuaryBuff1))
+            .SetGuiPresentationNoContent(true)
+            .SetCustomSubFeatures(
+                new SanctuaryBeforeAttackHitPossible(conditionSanctuaryArmorClass),
+                new SanctuaryBeforeAttackHitConfirmed(conditionSanctuaryDamageResistance))
             .AddToDB();
 
         var conditionSanctuary = ConditionDefinitionBuilder

@@ -8,3 +8,5 @@ Spell/&BanishingSmiteDescription=Tu próximo golpe inflige 5d10 de daño de fuer
 Spell/&BanishingSmiteTitle=Castigo de destierro
 Spell/&FarStepDescription=Te teletransportas hasta 60 pies a un espacio desocupado que puedas ver. En cada uno de tus turnos antes de que finalice el hechizo, puedes usar una acción adicional para teletransportarte de esta manera nuevamente.
 Spell/&FarStepTitle=Paso lejano
+Spell/&MantleOfThornsDescription=Rodéate de un aura de espinas. Los que empiezan o caminan reciben 2d8 de daño perforante. Este daño aumenta a niveles más altos en 1d8 por ranura.
+Spell/&MantleOfThornsTitle=Manto de espinas

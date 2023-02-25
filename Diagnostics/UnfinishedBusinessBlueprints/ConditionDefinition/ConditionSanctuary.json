@@ -4,10 +4,10 @@
   "parentCondition": null,
   "conditionType": "Beneficial",
   "features": [
-    "Definition:DamageAffinitySkinOfRetributionDamageThunder:e650335f-f032-551e-9748-62e8cac89aa2"
+    "Definition:FeatureSanctuary:b21149d4-6d11-55ea-88bb-efecd5341671"
   ],
   "allowMultipleInstances": false,
-  "silentWhenAdded": true,
+  "silentWhenAdded": false,
   "silentWhenRemoved": false,
   "terminateWhenRemoved": false,
   "specialDuration": false,
@@ -16,7 +16,9 @@
   "durationParameter": 1,
   "forceTurnOccurence": false,
   "turnOccurence": "EndOfTurn",
-  "specialInterruptions": [],
+  "specialInterruptions": [
+    "Attacks"
+  ],
   "interruptionRequiresSavingThrow": false,
   "interruptionSavingThrowComputationMethod": "SaveOverride",
   "interruptionSavingThrowAbility": "",
@@ -86,7 +88,7 @@
   },
   "timeToWaitBeforeApplyingShader": 0.5,
   "timeToWaitBeforeRemovingShader": 0.5,
-  "possessive": true,
+  "possessive": false,
   "amountOrigin": "None",
   "baseAmount": 0,
   "additiveAmount": false,
@@ -128,13 +130,13 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Condition/&ConditionSkinOfRetributionTitle",
-    "description": "If a creature hits you with a melee attack while you have these temporary hit points, the creature takes 5 Thunder Damage per spell level.",
+    "title": "Condition/&ConditionSanctuaryTitle",
+    "description": "Condition/&ConditionSanctuaryDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "2190a678-d008-5cd6-90e0-a269c474877f",
-      "m_SubObjectName": null,
-      "m_SubObjectType": null
+      "m_AssetGUID": "04f42c446dd0c5143bcc4d3b56edfbb2",
+      "m_SubObjectName": "ConditionShieldedByFaith",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
@@ -149,7 +151,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "75f38f06-77b8-5f1f-9b93-5286f8f63027",
+  "guid": "a81385c4-353b-5e6d-b3d8-c69f99443eb0",
   "contentPack": 9999,
-  "name": "ConditionSkinOfRetributionDamageThunder"
+  "name": "ConditionSanctuary"
 }

@@ -128,23 +128,23 @@ internal static partial class SpellBuilders
             .AddFeatures(FeatureDefinitionAdditionalDamages.AdditionalDamageDivineFavor)
             .AddToDB();
 
-        var effectDescription = EffectDescriptionBuilder
-            .Create()
-            .SetParticleEffectParameters(DivineFavor)
-            .SetTargetFiltering(TargetFilteringMethod.CharacterOnly)
-            .SetTargetingData(Side.Ally, RangeType.Self, 1, TargetType.Sphere, 6, 6)
-            .SetDurationData(DurationType.Minute, 1)
-            .SetRecurrentEffect(RecurrentEffect.OnActivation | RecurrentEffect.OnTurnStart | RecurrentEffect.OnEnter)
-            .AddEffectForms(EffectFormBuilder
-                .Create()
-                .SetConditionForm(conditionCrusadersMantle, ConditionForm.ConditionOperation.Add)
-                .Build())
-            .Build();
-
         var spell = SpellDefinitionBuilder
             .Create(NAME)
             .SetGuiPresentation(Category.Spell, Bless)
-            .SetEffectDescription(effectDescription)
+            .SetEffectDescription(EffectDescriptionBuilder
+                .Create()
+                .SetParticleEffectParameters(DivineFavor)
+                .SetTargetFiltering(TargetFilteringMethod.CharacterOnly)
+                .SetTargetingData(Side.Ally, RangeType.Self, 1, TargetType.Sphere, 6)
+                .SetDurationData(DurationType.Minute, 1)
+                .SetRecurrentEffect(RecurrentEffect.OnActivation |
+                                    RecurrentEffect.OnTurnStart |
+                                    RecurrentEffect.OnEnter)
+                .AddEffectForms(EffectFormBuilder
+                    .Create()
+                    .SetConditionForm(conditionCrusadersMantle, ConditionForm.ConditionOperation.Add)
+                    .Build())
+                .Build())
             .SetCastingTime(ActivationTime.Action)
             .SetRequiresConcentration(true)
             .SetSpellLevel(3)
