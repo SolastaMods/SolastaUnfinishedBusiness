@@ -2,6 +2,8 @@
 Condition/&AdditionalConditionEnsnaringStrikeTitle=Ensnared
 Condition/&ConditionMuleDescription=Your speed is not reduced by encumbrance or heavy armor. You can carry 20 additional pounds.
 Condition/&ConditionMuleTitle=Mule
+Condition/&ConditionSanctuaryDescription=Attacks against you must make a wisdom saving throw. On a failled saving throw, the attack misses. Critical strikes deal half.
+Condition/&ConditionSanctuaryTitle=Warded by Sanctuary
 Feature/&AdditionalDamageEnsnaringStrikeDescription=You are ensnared by vines.
 Feature/&AdditionalDamageEnsnaringStrikeTitle=Ensnaring Strike
 Feature/&AdditionalDamageSearingSmiteDescription=You ignites in flames.
@@ -40,3 +42,5 @@ Spell/&ThunderousSmiteDescription=On your next hit your weapon rings with thunde
 Spell/&ThunderousSmiteTitle=Thunderous Smite
 Spell/&WrathfulSmiteDescription=Your next hit deals additional 1d6 psychic damage. If target fails WIS saving throw its mind explodes in pain and it becomes frightened.
 Spell/&WrathfulSmiteTitle=Wrathful Smite
+Spell/&SanctuaryDescription=Ward an ally within 30 feet. Attacks against them must make a wisdom saving throw. On a failed saving throw, the attack misses. Critical strikes deal half.
+Spell/&SanctuaryTitle=Sanctuary

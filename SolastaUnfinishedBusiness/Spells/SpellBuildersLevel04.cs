@@ -12,7 +12,7 @@ namespace SolastaUnfinishedBusiness.Spells;
 internal static partial class SpellBuilders
 {
     #region LEVEL 04
-
+        
     internal static SpellDefinition BuildStaggeringSmite()
     {
         const string NAME = "StaggeringSmite";
