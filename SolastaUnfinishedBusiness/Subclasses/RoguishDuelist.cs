@@ -2,6 +2,7 @@
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
+using static RuleDefinitions;
 using static FeatureDefinitionAttributeModifier;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterSubclassDefinitions;
@@ -12,38 +13,40 @@ namespace SolastaUnfinishedBusiness.Subclasses;
 internal sealed class RoguishDuelist : AbstractSubclass
 {
     private const string Name = "RoguishDuelist";
+    private const string SureFooted = "SureFooted";
 
     internal RoguishDuelist()
     {
         var additionalDamageDaringDuel = FeatureDefinitionAdditionalDamageBuilder
             .Create(AdditionalDamageRogueSneakAttack, $"AdditionalDamage{Name}DaringDuel")
             .SetGuiPresentation(Category.Feature)
-            .SetNotificationTag("SneakAttack")
-            .SetDamageDice(RuleDefinitions.DieType.D6, 1)
-            .SetAdvancement(RuleDefinitions.AdditionalDamageAdvancement.ClassLevel, 1, 1, 2, 2)
+            // need to set next 3 even with a template as builder clears them out
+            .SetNotificationTag(TagsDefinitions.AdditionalDamageSneakAttackTag)
+            .SetDamageDice(DieType.D6, 1)
+            .SetAdvancement(AdditionalDamageAdvancement.ClassLevel, 1, 1, 2, 2)
             .SetTriggerCondition(ExtraAdditionalDamageTriggerCondition.TargetIsDuelingWithYou)
-            .SetRequiredProperty(RuleDefinitions.RestrictedContextRequiredProperty.FinesseOrRangeWeapon)
+            .SetRequiredProperty(RestrictedContextRequiredProperty.FinesseOrRangeWeapon)
             .AddToDB();
 
         var additionalDamageSureFooted = FeatureDefinitionAdditionalDamageBuilder
-            .Create($"AdditionalDamage{Name}SureFooted")
+            .Create($"AdditionalDamage{Name}{SureFooted}")
             .SetGuiPresentation(Category.Feature)
-            .SetNotificationTag("SureFooted")
-            .SetDamageValueDetermination(RuleDefinitions.AdditionalDamageValueDetermination.ProficiencyBonus)
-            .SetRequiredProperty(RuleDefinitions.RestrictedContextRequiredProperty.FinesseOrRangeWeapon)
+            .SetNotificationTag(SureFooted)
+            .SetDamageValueDetermination(AdditionalDamageValueDetermination.ProficiencyBonus)
+            .SetRequiredProperty(RestrictedContextRequiredProperty.FinesseOrRangeWeapon)
             .SetCustomSubFeatures(ValidatorsCharacter.HasFreeOffHand)
             .AddToDB();
 
         var attributeModifierSureFooted = FeatureDefinitionAttributeModifierBuilder
-            .Create($"AttributeModifier{Name}SureFooted")
+            .Create($"AttributeModifier{Name}{SureFooted}")
             .SetGuiPresentation(Category.Feature)
             .SetModifier(AttributeModifierOperation.AddHalfProficiencyBonus, AttributeDefinitions.ArmorClass, 1)
-            .SetSituationalContext((RuleDefinitions.SituationalContext)
+            .SetSituationalContext((SituationalContext)
                 ExtraSituationalContext.WearingNoArmorOrLightArmorWithoutShield)
             .AddToDB();
 
         var featureSetSureFooted = FeatureDefinitionFeatureSetBuilder
-            .Create($"FeatureSet{Name}SureFooted")
+            .Create($"FeatureSet{Name}{SureFooted}")
             .SetGuiPresentation(Category.Feature)
             .AddFeatureSet(
                 FeatureDefinitionCombatAffinitys.CombatAffinityEagerForBattle,

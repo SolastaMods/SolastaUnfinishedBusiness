@@ -1,4 +1,5 @@
-- changed College of Life's healing pool to be offered as a power bundle
-- fixed Defensive Duelist to only keep additional AC until start of next turn
-- fixed Insidious Death Magic to apply on any effect as far as damage is Necrotic
-- fixed Level 20 experience threshold calculation on levels 19 and 20
+- added Crusader's Mantle spell
+- added Mantle of Thorns spell
+- added Sanctuary spell
+- added Roguish Arcane Scoundrel subclass
+- added Party Editor [experimental preview] by Narria Toy Maker

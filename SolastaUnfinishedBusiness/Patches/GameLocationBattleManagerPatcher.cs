@@ -376,6 +376,31 @@ public static class GameLocationBattleManagerPatcher
             {
                 yield return blockEvents.Current;
             }
+
+            //PATCH: support for 'IAttackHitPossible'
+            var character = defender.RulesetCharacter;
+
+            if (character == null)
+            {
+                yield break;
+            }
+
+            foreach (var extra in character
+                         .GetSubFeaturesByType<IAttackHitPossible>()
+                         .Select(feature => feature.DefenderAttackHitPossible(
+                             __instance,
+                             attacker,
+                             defender,
+                             attackMode,
+                             rulesetEffect,
+                             attackModifier,
+                             attackRoll)))
+            {
+                while (extra.MoveNext())
+                {
+                    yield return extra.Current;
+                }
+            }
         }
     }
 

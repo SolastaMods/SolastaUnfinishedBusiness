@@ -128,7 +128,7 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Spell/&ConditionSkinOfRetributionTitle",
+    "title": "Condition/&ConditionSkinOfRetributionTitle",
     "description": "If a creature hits you with a melee attack while you have these temporary hit points, the creature takes 5 Acid Damage per spell level.",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",

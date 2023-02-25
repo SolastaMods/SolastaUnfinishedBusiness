@@ -1,6 +1,6 @@
 {
   "$type": "FeatureDefinitionAutoPreparedSpells, Assembly-CSharp",
-  "autopreparedTag": "DeadMaster",
+  "autopreparedTag": "College",
   "autoPreparedSpellsGroups": [
     {
       "$type": "FeatureDefinitionAutoPreparedSpells+AutoPreparedSpellsGroup, Assembly-CSharp",

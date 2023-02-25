@@ -1,4 +1,6 @@
-﻿Condition/&ConditionSpiritShroudNoHealDescription=Non può guadagnare punti ferita. Se non morto, svantaggio nell'attaccare l'incantatore.
+﻿Condition/&ConditionCrusadersMantleDescription=Ottieni un bonus di 1d4 danni radianti ai tuoi attacchi.
+Condition/&ConditionCrusadersMantleTitle=Mantello del Crociato
+Condition/&ConditionSpiritShroudNoHealDescription=Non può guadagnare punti ferita. Se non morto, svantaggio nell'attaccare l'incantatore.
 Condition/&ConditionSpiritShroudNoHealTitle=Sindone toccato
 Feature/&AdditionalDamageBlindingSmiteDescription=Sei colpito da un danno radiante.
 Feature/&AdditionalDamageBlindingSmiteTitle=Punizione Accecante
@@ -12,6 +14,8 @@ Feedback/&AdditionalDamageSpiritShroudDamageRadiantFormat=Spirito Sindone!
 Feedback/&AdditionalDamageSpiritShroudDamageRadiantLine={0} infligge {2} danni radiosi a {1} da Spirit Shroud!
 Spell/&BlindingSmiteDescription=Al tuo prossimo colpo, la tua arma brilla di una luce intensa e l'attacco infligge 3d8 danni radiosi extra al bersaglio. Inoltre, il bersaglio deve superare un tiro salvezza su Costituzione o essere accecato fino al termine dell'incantesimo.\nUna creatura accecata da questo incantesimo effettua un altro tiro salvezza su Costituzione alla fine di ciascuno dei suoi turni. Se il tiro salvezza ha successo, non è più accecato.
 Spell/&BlindingSmiteTitle=Punizione Accecante
+Spell/&CrusadersMantleDescription=Circondati di un'aura magica. Gli alleati all'interno dell'aura ottengono un bonus di 1d4 danni radianti ai loro attacchi.
+Spell/&CrusadersMantleTitle=Mantello del Crociato
 Spell/&SpiritShroudDamageColdDescription=Infliggi danni da freddo bonus.
 Spell/&SpiritShroudDamageColdTitle=Velo spirituale (freddo)
 Spell/&SpiritShroudDamageNecroticDescription=Infliggi danni necrotici bonus.

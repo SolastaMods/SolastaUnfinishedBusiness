@@ -1,4 +1,6 @@
-﻿Condition/&ConditionSpiritShroudNoHealDescription=Cannot gain hit points. If undead, disadvantage on attacking the caster.
+﻿Condition/&ConditionCrusadersMantleDescription=Gain a bonus 1d4 radiant damage on your attacks.
+Condition/&ConditionCrusadersMantleTitle=Crusader's Mantle
+Condition/&ConditionSpiritShroudNoHealDescription=Cannot gain hit points. If undead, disadvantage on attacking the caster.
 Condition/&ConditionSpiritShroudNoHealTitle=Shroud Touched
 Feature/&AdditionalDamageBlindingSmiteDescription=You're hit by radiant damage.
 Feature/&AdditionalDamageBlindingSmiteTitle=Blinding Smite
@@ -12,6 +14,8 @@ Feedback/&AdditionalDamageSpiritShroudDamageRadiantFormat=Spirit Shroud!
 Feedback/&AdditionalDamageSpiritShroudDamageRadiantLine={0} deals {2} radiant damage to {1} from Spirit Shroud!
 Spell/&BlindingSmiteDescription=On your next hit your weapon flares with a bright light, and the attack deals an extra 3d8 radiant damage to the target. Additionally, the target must succeed on a Constitution saving throw or be blinded until the spell ends.\nA creature blinded by this spell makes another Constitution saving throw at the end of each of its turns. On a successful save, it is no longer blinded.
 Spell/&BlindingSmiteTitle=Blinding Smite
+Spell/&CrusadersMantleDescription=Surround yourself with a magical aura. Allies within the aura gain a bonus 1d4 radiant damage on their attacks.
+Spell/&CrusadersMantleTitle=Crusader's Mantle
 Spell/&SpiritShroudDamageColdDescription=Deal bonus cold damage.
 Spell/&SpiritShroudDamageColdTitle=Spirit Shroud (Cold)
 Spell/&SpiritShroudDamageNecroticDescription=Deal bonus necrotic damage.

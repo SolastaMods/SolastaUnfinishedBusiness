@@ -113,6 +113,7 @@ internal static partial class DatabaseHelper
     {
         internal static ConditionDefinition ConditionAcidArrowed { get; } = GetDefinition<ConditionDefinition>("ConditionAcidArrowed");
         internal static ConditionDefinition ConditionAcidSpit { get; } = GetDefinition<ConditionDefinition>("ConditionAcidSpit");
+        internal static ConditionDefinition ConditionAuraOfProtection { get; } = GetDefinition<ConditionDefinition>("ConditionAuraOfProtection");
         internal static ConditionDefinition ConditionBaned { get; } = GetDefinition<ConditionDefinition>("ConditionBaned");
         internal static ConditionDefinition ConditionBanished { get; } = GetDefinition<ConditionDefinition>("ConditionBanished");
         internal static ConditionDefinition ConditionBardicInspiration { get; } = GetDefinition<ConditionDefinition>("ConditionBardicInspiration");
@@ -140,6 +141,7 @@ internal static partial class DatabaseHelper
         internal static ConditionDefinition ConditionDead { get; } = GetDefinition<ConditionDefinition>("ConditionDead");
         internal static ConditionDefinition ConditionDisengaging { get; } = GetDefinition<ConditionDefinition>("ConditionDisengaging");
         internal static ConditionDefinition ConditionDistracted { get; } = GetDefinition<ConditionDefinition>("ConditionDistracted");
+        internal static ConditionDefinition ConditionDivineFavor { get; } = GetDefinition<ConditionDefinition>("ConditionDivineFavor");
         internal static ConditionDefinition ConditionDoomLaughter { get; } = GetDefinition<ConditionDefinition>("ConditionDoomLaughter");
         internal static ConditionDefinition ConditionEncumbered { get; } = GetDefinition<ConditionDefinition>("ConditionEncumbered");
         internal static ConditionDefinition ConditionEnfeebled { get; } = GetDefinition<ConditionDefinition>("ConditionEnfeebled");
@@ -320,6 +322,7 @@ internal static partial class DatabaseHelper
     {
         internal static FeatureDefinitionAdditionalDamage AdditionalDamageBrandingSmite { get; } = GetDefinition<FeatureDefinitionAdditionalDamage>("AdditionalDamageBrandingSmite");
         internal static FeatureDefinitionAdditionalDamage AdditionalDamageCircleBalanceColdEmbrace { get; } = GetDefinition<FeatureDefinitionAdditionalDamage>("AdditionalDamageCircleBalanceColdEmbrace");
+        internal static FeatureDefinitionAdditionalDamage AdditionalDamageDivineFavor { get; } = GetDefinition<FeatureDefinitionAdditionalDamage>("AdditionalDamageDivineFavor");
         internal static FeatureDefinitionAdditionalDamage AdditionalDamageHuntersMark { get; } = GetDefinition<FeatureDefinitionAdditionalDamage>("AdditionalDamageHuntersMark");
         internal static FeatureDefinitionAdditionalDamage AdditionalDamageInvocationAgonizingBlast { get; } = GetDefinition<FeatureDefinitionAdditionalDamage>("AdditionalDamageInvocationAgonizingBlast");
         internal static FeatureDefinitionAdditionalDamage AdditionalDamageLifedrinker { get; } = GetDefinition<FeatureDefinitionAdditionalDamage>("AdditionalDamageLifedrinker");
@@ -1251,6 +1254,7 @@ internal static partial class DatabaseHelper
         internal static SpellDefinition Disintegrate { get; } = GetDefinition<SpellDefinition>("Disintegrate");
         internal static SpellDefinition DispelEvilAndGood { get; } = GetDefinition<SpellDefinition>("DispelEvilAndGood");
         internal static SpellDefinition DispelMagic { get; } = GetDefinition<SpellDefinition>("DispelMagic");
+        internal static SpellDefinition DivineFavor { get; } = GetDefinition<SpellDefinition>("DivineFavor");
         internal static SpellDefinition DominateBeast { get; } = GetDefinition<SpellDefinition>("DominateBeast");
         internal static SpellDefinition DominatePerson { get; } = GetDefinition<SpellDefinition>("DominatePerson");
         internal static SpellDefinition DreadfulOmen { get; } = GetDefinition<SpellDefinition>("DreadfulOmen");

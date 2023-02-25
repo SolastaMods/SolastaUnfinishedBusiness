@@ -11,6 +11,9 @@ using Debug = UnityEngine.Debug;
 
 namespace SolastaUnfinishedBusiness;
 
+//#if DEBUG
+//[EnableReloading]
+//#endif
 internal static class Main
 {
     internal static readonly bool IsDebugBuild = Debug.isDebugBuild;
@@ -71,6 +74,10 @@ internal static class Main
             var assembly = Assembly.GetExecutingAssembly();
 
             ModEntry = modEntry;
+#if DEBUG
+            modEntry.OnUnload = Unload;
+#endif
+
             Mod = new ModManager<Core, Settings>();
             Mod.Enable(modEntry, assembly);
 
@@ -101,6 +108,13 @@ internal static class Main
 
         return true;
     }
+#if DEBUG
+    private static bool Unload(UnityModManager.ModEntry modEntry)
+    {
+        Mod.Unload();
+        return true;
+    }
+#endif
 
     internal static void LoadSettingFilenames()
     {

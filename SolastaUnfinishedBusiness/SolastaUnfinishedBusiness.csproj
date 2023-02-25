@@ -3,7 +3,7 @@
   <PropertyGroup>
     <LangVersion>10</LangVersion>
     <TargetFramework>net472</TargetFramework>
-    <AssemblyVersion>1.4.33.48</AssemblyVersion>
+    <AssemblyVersion>1.4.33.49</AssemblyVersion>
     <RepositoryUrl>https://github.com/SolastaMods/SolastaUnfinishedBusiness</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
     <Configurations>Debug;Release;Debug Install;Release Install</Configurations>
@@ -13,6 +13,7 @@
     <NeutralLanguage>en-US</NeutralLanguage>
     <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
     <IsPackable>false</IsPackable>
+    <RunPostBuildEvent>Always</RunPostBuildEvent>
   </PropertyGroup>
 
   <Target Name="CheckEnvironmentVars">
@@ -25,6 +26,11 @@
     </ItemGroup>
     <Publicise AssemblyPath="@(PubliciseInputAssemblies)" OutputPath="$(SolutionDir)lib/" />
   </Target>
+
+  <ItemGroup>
+    <Compile Remove="Api\ModKit\Utility\Extensions\CodeInstructionExtensions.cs" />
+    <Compile Remove="Api\ModKit\Utility\NamedTypes.cs" />
+  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Publicise.MSBuild.Task" Version="1.6.0">

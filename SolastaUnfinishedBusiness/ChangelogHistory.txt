@@ -1,5 +1,13 @@
 ﻿CHANGES:
 
+1.4.33.49:
+
+- added Crusader's Mantle spell
+- added Mantle of Thorns spell
+- added Sanctuary spell
+- added Roguish Arcane Scoundrel subclass
+- added Party Editor [experimental preview] by Narria Toy Maker
+
 1.4.33.48:
 
 - changed College of Life's healing pool to be offered as a power bundle

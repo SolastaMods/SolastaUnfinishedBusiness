@@ -1,4 +1,6 @@
-﻿Condition/&ConditionSpiritShroudNoHealDescription=Kann keine Trefferpunkte gewinnen. Wenn untot, Nachteil beim Angriff auf den Zaubernden.
+﻿Condition/&ConditionCrusadersMantleDescription=Erhalte einen Bonus von 1W4 Strahlenschaden bei deinen Angriffen.
+Condition/&ConditionCrusadersMantleTitle=Kreuzfahrermantel
+Condition/&ConditionSpiritShroudNoHealDescription=Kann keine Trefferpunkte gewinnen. Wenn untot, Nachteil beim Angriff auf den Zaubernden.
 Condition/&ConditionSpiritShroudNoHealTitle=Leichentuch berührt
 Feature/&AdditionalDamageBlindingSmiteDescription=Du wirst von Strahlungsschaden getroffen.
 Feature/&AdditionalDamageBlindingSmiteTitle=Blendendes Smite
@@ -12,6 +14,8 @@ Feedback/&AdditionalDamageSpiritShroudDamageRadiantFormat=Geisterschleier!
 Feedback/&AdditionalDamageSpiritShroudDamageRadiantLine={0} fügt {1} durch Spirit Shroud {2} strahlenden Schaden zu!
 Spell/&BlindingSmiteDescription=Bei deinem nächsten Treffer lodert deine Waffe mit einem hellen Licht auf, und der Angriff fügt dem Ziel zusätzlich 3W8 Strahlungsschaden zu. Außerdem muss dem Ziel ein Konstitutionsrettungswurf gelingen oder es wird geblendet, bis der Zauber endet.\n Eine von diesem Zauber geblendete Kreatur legt am Ende jedes ihrer Züge einen weiteren Konstitutionsrettungswurf ab. Bei einem erfolgreichen Speichern wird es nicht mehr geblendet.
 Spell/&BlindingSmiteTitle=Blendendes Smite
+Spell/&CrusadersMantleDescription=Umgeben Sie sich mit einer magischen Aura. Verbündete innerhalb der Aura erhalten bei ihren Angriffen einen Bonus von 1W4 Strahlenschaden.
+Spell/&CrusadersMantleTitle=Kreuzfahrermantel
 Spell/&SpiritShroudDamageColdDescription=Füge zusätzlichen Kälteschaden zu.
 Spell/&SpiritShroudDamageColdTitle=Geisterschleier (kalt)
 Spell/&SpiritShroudDamageNecroticDescription=Füge zusätzlichen nekrotischen Schaden zu.

@@ -19,7 +19,8 @@ internal sealed class CircleOfTheForestGuardian : AbstractSubclass
     {
         var autoPreparedSpellsForestGuardian = FeatureDefinitionAutoPreparedSpellsBuilder
             .Create("AutoPreparedSpellsForestGuardian")
-            .SetGuiPresentation("DomainSpells", Category.Feature)
+            .SetGuiPresentation("ExpandedSpells", Category.Feature)
+            .SetAutoTag("Circle")
             .SetPreparedSpellGroups(
                 BuildSpellGroup(2, Shield, FogCloud),
                 BuildSpellGroup(3, Blur, FlameBlade),

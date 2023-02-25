@@ -1,0 +1,12 @@
+﻿Condition/&ConditionRoguishArcaneScoundrelDistractingAmbushDescription=You suffer -2 penalty to saving throws, and is unable to take reactions.
+Condition/&ConditionRoguishArcaneScoundrelDistractingAmbushTitle=Distracting Ambush
+Feature/&AdditionalDamageRoguishArcaneScoundrelDistractingAmbushDescription=Whenever you deal sneak attack damage to a creature, that creature suffers -2 penalty to saving throws, and is unable to take reactions, until the end of your next turn.
+Feature/&AdditionalDamageRoguishArcaneScoundrelDistractingAmbushTitle=Distracting Ambush
+Feature/&PowerRoguishArcaneScoundrelArcaneBackslashDescription=You deal your sneak attack as force damage to a creature whenever you counter a spell from it.
+Feature/&PowerRoguishArcaneScoundrelArcaneBackslashTitle=Arcane Backlash
+Feature/&CastSpellRoguishArcaneScoundrelDescription=Cast Wizard spells and cantrips.
+Feature/&CastSpellRoguishArcaneScoundrelTitle=Spellcasting
+Feature/&ProficiencyRoguishArcaneScoundrelArcanaDescription=Gain proficiency with Arcana skill. If you are already proficient, gain expertise instead.
+Feature/&ProficiencyRoguishArcaneScoundrelArcanaTitle=Arcane Affinity
+Subclass/&RoguishArcaneScoundrelDescription=With quickness of feet and sharpness of wit, Arcane Scoundrels utilize a series of magical tricks to outsmart and debilitate their opponents.
+Subclass/&RoguishArcaneScoundrelTitle=Arcane Scoundrel

@@ -8,3 +8,5 @@ Spell/&BanishingSmiteDescription=Il tuo prossimo colpo infligge 5d10 danni da fo
 Spell/&BanishingSmiteTitle=Punizione del bando
 Spell/&FarStepDescription=Ti teletrasporti fino a 18 metri in uno spazio non occupato che puoi vedere. In ciascuno dei tuoi turni prima che l'incantesimo termini, puoi usare un'azione bonus per teletrasportarti di nuovo in questo modo.
 Spell/&FarStepTitle=Passo lontano
+Spell/&MantleOfThornsDescription=Circondati di un'aura di spine. Quelli che iniziano o attraversano subiscono 2d8 danni perforanti. Questo danno aumenta ai livelli più alti di 1d8 per slot.
+Spell/&MantleOfThornsTitle=Manto di Spine
