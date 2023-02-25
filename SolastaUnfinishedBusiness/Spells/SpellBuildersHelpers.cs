@@ -296,7 +296,7 @@ internal static partial class SpellBuilders
                 .GetAttribute(AttributeDefinitions.Wisdom).CurrentValue);
 
             attacker.RulesetCharacter.RollSavingThrow(0, AttributeDefinitions.Wisdom, null, modifierTrend,
-                advantageTrends, attackerWisModifier, 8 + profBonus + defenderWisModifier + 20, false,
+                advantageTrends, attackerWisModifier, 8 + profBonus + defenderWisModifier, false,
                 out var savingOutcome,
                 out _);
 
