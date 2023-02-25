@@ -304,7 +304,7 @@ internal static class Infusions
             .SetGuiPresentation(guiName, Category.Feature, icon)
             .SetSharedPool(ActivationTime.Action, InventorClass.InfusionPool)
             .SetCustomSubFeatures(
-                new ShouldTerminatePowerEffect(powerName),
+                DoNotTerminateWhileUnconscious.Marker,
                 ExtraCarefulTrackedItem.Marker,
                 SkipEffectRemovalOnLocationChange.Always,
                 InventorClass.InfusionLimiter,
@@ -351,7 +351,7 @@ internal static class Infusions
             .SetGuiPresentation(Category.Feature, item)
             .SetSharedPool(ActivationTime.Action, InventorClass.InfusionPool)
             .SetCustomSubFeatures(
-                new ShouldTerminatePowerEffect(powerName),
+                DoNotTerminateWhileUnconscious.Marker,
                 ExtraCarefulTrackedItem.Marker,
                 SkipEffectRemovalOnLocationChange.Always,
                 InventorClass.InfusionLimiter,
