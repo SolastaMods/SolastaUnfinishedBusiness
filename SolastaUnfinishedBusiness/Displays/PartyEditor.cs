@@ -1,20 +1,48 @@
 ﻿// Copyright < 2021 > Narria (github user Cabarius) - License: MIT
-
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using SolastaUnfinishedBusiness.Api.Infrastructure;
 using SolastaUnfinishedBusiness.Api.ModKit;
+using static SolastaUnfinishedBusiness.Api.ModKit.UI;
+using UnityEngine;
 
-namespace SolastaUnfinishedBusiness.Displays;
-
-public class PartyEditor
-{
-    public void OnGUI()
+namespace SolastaUnfinishedBusiness.Displays {
+    public class PartyEditor
     {
-        var service = ServiceRepository.GetService<IGameService>();
-        var party = service.Game.GameCampaign.Party;
-        using (UI.VerticalScope())
+        private static (string, string) nameEditState = (null, null);
+        private static (string, string) surnameEditState = (null, null);
+        public static void OnGUI()
         {
-            foreach (var ch in party.charactersList)
+            IGameService gameService = ServiceRepository.GetService<IGameService>();
+            ICharacterPoolService characterPoolService = ServiceRepository.GetService<ICharacterPoolService>();
+            var party = gameService?.Game?.GameCampaign?.Party;
+            if (party != null)
             {
-                UI.Label(ch.Name);
+                using (UI.VerticalScope())
+                {
+                    foreach (var ch in party.charactersList)
+                    {
+                        using (UI.HorizontalScope())
+                        {
+                            var name = ch.Name;
+                            if (EditableLabel(ref name, ref nameEditState, 200, n => n.orange().bold(), MinWidth(100), MaxWidth(600)))
+                            {
+                                ch.RulesetCharacter.Name = name;
+                            }
+                            if (ch.RulesetCharacter is RulesetCharacterHero hero)
+                            {
+                                var surname = hero.SurName;
+                                if (EditableLabel(ref surname, ref surnameEditState, 200, n => n.orange().bold(), MinWidth(100), MaxWidth(600)))
+                                {
+                                    hero.SurName = surname;
+                                }
+                            }
+                        }
+                    }
+                }
             }
         }
     }
