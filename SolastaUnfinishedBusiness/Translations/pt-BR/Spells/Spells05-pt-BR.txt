@@ -8,3 +8,5 @@ Spell/&BanishingSmiteDescription=Seu próximo golpe causa 5d10 de dano de força
 Spell/&BanishingSmiteTitle=Golpe de Banimento
 Spell/&FarStepDescription=Você se teletransporta até 18 metros para um espaço desocupado que possa ver. Em cada um de seus turnos antes do feitiço terminar, você pode usar uma ação bônus para se teletransportar desta forma novamente.
 Spell/&FarStepTitle=Passo distante
+Spell/&MantleOfThornsDescription=Cerque-se de uma aura de espinhos. Aqueles que começam ou atravessam recebem 2d8 de dano perfurante. Esse dano aumenta em níveis mais altos em 1d8 por slot.
+Spell/&MantleOfThornsTitle=manto de espinhos

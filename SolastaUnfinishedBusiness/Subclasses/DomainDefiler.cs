@@ -26,7 +26,7 @@ internal sealed class DomainDefiler : AbstractSubclass
 
         var autoPreparedSpellsDomainDefiler = FeatureDefinitionAutoPreparedSpellsBuilder
             .Create($"AutoPreparedSpells{NAME}")
-            .SetGuiPresentation("DomainSpells", Category.Feature)
+            .SetGuiPresentation("ExpandedSpells", Category.Feature)
             .SetAutoTag("Domain")
             .SetPreparedSpellGroups(
                 BuildSpellGroup(1, FalseLife, InflictWounds), //Ray of Sickness maybe later

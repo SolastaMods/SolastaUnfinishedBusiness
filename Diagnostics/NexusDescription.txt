@@ -128,6 +128,7 @@ All settings start disabled by default.
 [*][b]Oath of Hatred[/b]: An Oath of Hatred paladin has dedicated himself to the punishment of evil doers by channeling hate.
 [*][b]Arcanist[/b]: The Arcanist melds their Ranger skills with arcane abilities. Their weapons can afflict their opponents with the Arcanist's Mark, and have learned how to cast some Wizard spells as part of their Ranger spell repertoire.
 [*][b]Wild Master[/b]: The Wild Master archetype embodies a friendship between the civilized races and the beasts of the world. United in focus, spirit and ranger work as one to fight the monstrous foes that threaten civilization and the wilderness alike.
+[*][b]Arcane Scoundrel[/b]: With quickness of feet and sharpness of wit, Arcane Scoundrels utilize a series of magical tricks to outsmart and debilitate their opponents.
 [*][b]Duelist[/b]: Duelists possess a swaggering bravado. They are quick-witted, self-sufficient, and dangerous to isolated enemies.
 [*][b]Opportunist[/b]: Opportunist are those who never let a chance to finish their enemies slide. They stab fast and stab where it matters. Not many facing them can escape unscratched.
 [*][b]Raven[/b]: Ravens are ranged weapon specialists that are trained to take down enemies quickly and effectively.
@@ -406,6 +407,7 @@ At 5th level, the melee attack deals an extra 1d8 radiant damage to the target. 
 [*][b]Mule[/b]: The recipient of this spell is able to ignore the effects of heavy loads or armor on movement speed. They can also carry slightly more weight.
 [*][b]Radiant Motes[/b]: Unleashes a swarm of 4 radiant projectiles that deal 1d4 radiant damage each.
 When you cast this spell using a spell slot of 2nd level or higher, the spell creates 1 more projectile for each slot above 1st.
+[*][b]Sanctuary[/b]: Ward an ally within 30 feet. Attacks against them must make a wisdom saving throw. On a failed saving throw, the attack misses. Critical strikes deal half.
 [*][b]Searing Smite[/b]: On your next hit your weapon flares with white-hot intensity, and the attack deals an extra 1d6 fire damage to the target and causes the target to ignite in flames.
 At the start of each of its turns the target must make a successful Constitution saving throw to stop burning, or take 1d6 fire damage.
 <b>Higher Levels:</b> for each slot level above 1st, the initial extra damage dealt by the attack increases by 1d6.
@@ -425,6 +427,7 @@ Skeletons are animated by dark magic. They used to be living creatures but are n
 [*][b]Shadow Blade[/b]: You weave together threads of shadow to create a sword of solidified gloom in your hand.
 [*][b]Blinding Smite[/b]: On your next hit your weapon flares with a bright light, and the attack deals an extra 3d8 radiant damage to the target. Additionally, the target must succeed on a Constitution saving throw or be blinded until the spell ends.
 A creature blinded by this spell makes another Constitution saving throw at the end of each of its turns. On a successful save, it is no longer blinded.
+[*][b]Crusader's Mantle[/b]: Surround yourself with a magical aura. Allies within the aura gain a bonus 1d4 radiant damage on their attacks.
 [*][b]Raise Ghoul[/b]: Summons <b>Ghoul</b>:
 A ravenous undead creature, constantly searching for flesh to eat.
 [*][b]Spirit Shroud[/b]: You call forth spirits of the dead, which flit around you for the spell's duration. The spirits are intangible and invulnerable.
@@ -437,6 +440,7 @@ A powerful undead creature armed with an axe and a shield.
 [*][b]Staggering Smite[/b]: The next time you hit a creature with a weapon attack during this spell's duration, your weapon pierces both body and mind, and the attack deals an extra 4d6 psychic damage to the target. The target must make a Wisdom saving throw. On a failed save, it has disadvantage on attack rolls and ability checks, and can't take reactions, until the end of its next turn.
 [*][b]Banishing Smite[/b]: Your next hit deals additional 5d10 force damage with your weapon. Additionally, if this attack reduces the target to 50 hit points of fewer, you banish it for 1 min.
 [*][b]Far Step[/b]: You teleport up to 60 feet to an unoccupied space you can see. On each of your turns before the spell ends, you can use a bonus action to teleport in this way again.
+[*][b]Mantle of Thorns[/b]: Surround yourself with an aura of thorns. Those that start or walk through take 2d8 piercing damage. This damage scales at higher levels by 1d8 per slot.
 [*][b]Raise Skeletal Knight[/b]: Summons <b>Skeletal Knight</b>:
 A powerful undead creature, created by raising a dead knight.
 [*][b]Raise Skeletal Marksman[/b]: Summons <b>Skeletal Marksman</b>:

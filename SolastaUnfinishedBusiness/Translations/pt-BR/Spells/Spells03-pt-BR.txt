@@ -1,4 +1,6 @@
-﻿Condition/&ConditionSpiritShroudNoHealDescription=Não pode ganhar pontos de vida. Se morto-vivo, desvantagem ao atacar o lançador.
+﻿Condition/&ConditionCrusadersMantleDescription=Ganhe um bônus de 1d4 de dano radiante em seus ataques.
+Condition/&ConditionCrusadersMantleTitle=Manto do Cruzado
+Condition/&ConditionSpiritShroudNoHealDescription=Não pode ganhar pontos de vida. Se morto-vivo, desvantagem ao atacar o lançador.
 Condition/&ConditionSpiritShroudNoHealTitle=Sudário tocado
 Feature/&AdditionalDamageBlindingSmiteDescription=Você é atingido por dano radiante.
 Feature/&AdditionalDamageBlindingSmiteTitle=Golpe Cegante
@@ -12,6 +14,8 @@ Feedback/&AdditionalDamageSpiritShroudDamageRadiantFormat=Mortalha Espiritual!
 Feedback/&AdditionalDamageSpiritShroudDamageRadiantLine={0} causa {2} de dano radiante a {1} de Spirit Shroud!
 Spell/&BlindingSmiteDescription=Em seu próximo golpe, sua arma brilha com uma luz brilhante e o ataque causa 3d8 de dano radiante extra ao alvo. Além disso, o alvo deve ser bem sucedido em um teste de resistência de Constituição ou ficará cego até o fim do feitiço.\nUma criatura cegada por este feitiço faz outro teste de resistência de Constituição no final de cada um de seus turnos. Em um salvamento bem-sucedido, ele não fica mais cego.
 Spell/&BlindingSmiteTitle=Golpe Cegante
+Spell/&CrusadersMantleDescription=Rodeie-se de uma aura mágica. Aliados dentro da aura ganham um bônus de 1d4 de dano radiante em seus ataques.
+Spell/&CrusadersMantleTitle=Manto do Cruzado
 Spell/&SpiritShroudDamageColdDescription=Causa dano de frio adicional.
 Spell/&SpiritShroudDamageColdTitle=Mortalha Espiritual (Frio)
 Spell/&SpiritShroudDamageNecroticDescription=Causa dano necrótico adicional.

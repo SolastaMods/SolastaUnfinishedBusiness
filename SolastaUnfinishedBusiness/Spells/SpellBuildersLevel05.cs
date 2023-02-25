@@ -89,5 +89,54 @@ internal static partial class SpellBuilders
             .AddToDB();
     }
 
+    internal static SpellDefinition BuildMantleOfThorns()
+    {
+        const string NAME = "MantleOfThorns";
+
+        var effectMantleOfThorns = EffectProxyDefinitionBuilder
+            .Create(EffectProxyDefinitions.ProxySpikeGrowth, $"EffectProxy{NAME}")
+            .SetCanMove()
+            .SetCanMoveOnCharacters()
+            .AddToDB();
+
+        var effectDescription = EffectDescriptionBuilder
+            .Create()
+            .SetParticleEffectParameters(SpikeGrowth)
+            .SetTargetingData(Side.Enemy, RangeType.Self, 0, TargetType.Sphere, 3)
+            .SetDurationData(DurationType.Minute, 1)
+            .SetRecurrentEffect(RecurrentEffect.OnEnter | RecurrentEffect.OnMove | RecurrentEffect.OnTurnStart)
+            .AddEffectForms(
+                EffectFormBuilder
+                    .Create()
+                    .SetDamageForm(DamageTypePiercing, 2, DieType.D8)
+                    .Build(),
+                EffectFormBuilder
+                    .Create()
+                    .SetSummonEffectProxyForm(effectMantleOfThorns)
+                    .Build(),
+                EffectFormBuilder
+                    .Create()
+                    .SetTopologyForm(TopologyForm.Type.DangerousZone, false)
+                    .Build(),
+                EffectFormBuilder
+                    .Create()
+                    .SetTopologyForm(TopologyForm.Type.DifficultThrough, false)
+                    .Build())
+            .Build();
+
+        var spell = SpellDefinitionBuilder
+            .Create(NAME)
+            .SetGuiPresentation(Category.Spell, SpikeGrowth)
+            .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolTransmutation)
+            .SetSpellLevel(5)
+            .SetCastingTime(ActivationTime.Action)
+            .SetVerboseComponent(true)
+            .SetRequiresConcentration(true)
+            .SetEffectDescription(effectDescription)
+            .AddToDB();
+
+        return spell;
+    }
+
     #endregion
 }

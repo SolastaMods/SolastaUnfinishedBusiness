@@ -37,7 +37,7 @@ namespace SolastaUnfinishedBusiness.Displays
 
         public void OnGUI(UnityModManager.ModEntry modEntry)
         {
-            DisplaySubMenu(ref characterSelectedPane,
+            DisplaySubMenu(ref characterSelectedPane, Name,
                 new NamedAction(Gui.Localize("ModUi/&GeneralMenu"),
                     DisplayCharacter),
                 new NamedAction(Gui.Localize("ModUi/&RacesClassesSubclasses"),
@@ -48,12 +48,21 @@ namespace SolastaUnfinishedBusiness.Displays
                     DisplaySpells));
         }
 
-        internal static void DisplaySubMenu(ref int selectedPane, params NamedAction[] actions)
+        internal static void DisplaySubMenu(ref int selectedPane, string title = null, params NamedAction[] actions)
         {
-            if (Main.Enabled)
+            if (!Main.Enabled)
             {
-                UI.TabBar(ref selectedPane, null, actions);
+                return;
             }
+
+            if (title != null)
+            {
+                UI.Div();
+                UI.Label(title.color(RGBA.orange).bold());
+                UI.Space(7);
+            }
+
+            UI.SubMenu(ref selectedPane, title != null, null, actions);
         }
 
         internal static void DisplayDefinitions<T>(
@@ -116,7 +125,6 @@ namespace SolastaUnfinishedBusiness.Displays
 
             // UI.Slider("slide left for description / right to collapse".white().bold().italic(), ref sliderPosition, 1, maxColumns, 1, "");
 
-            UI.Div();
             UI.Label();
 
             var flip = false;
@@ -182,7 +190,7 @@ namespace SolastaUnfinishedBusiness.Displays
 
         public void OnGUI(UnityModManager.ModEntry modEntry)
         {
-            ModUi.DisplaySubMenu(ref gamePlaySelectedPane,
+            ModUi.DisplaySubMenu(ref gamePlaySelectedPane, Name,
                 new NamedAction(Gui.Localize("ModUi/&Rules"), DisplayRules),
                 new NamedAction(Gui.Localize("ModUi/&ItemsCraftingMerchants"), DisplayItemsAndCrafting),
                 new NamedAction(Gui.Localize("ModUi/&Tools"), DisplayTools));
@@ -199,10 +207,23 @@ namespace SolastaUnfinishedBusiness.Displays
 
         public void OnGUI(UnityModManager.ModEntry modEntry)
         {
-            ModUi.DisplaySubMenu(ref interfaceSelectedPane,
+            ModUi.DisplaySubMenu(ref interfaceSelectedPane, Name,
                 new NamedAction(Gui.Localize("ModUi/&GameUi"), DisplayGameUi),
                 new NamedAction(Gui.Localize("ModUi/&DungeonMakerMenu"), DisplayDungeonMaker),
                 new NamedAction(Gui.Localize("ModUi/&Translations"), DisplayTranslations));
+        }
+    }
+
+    [UsedImplicitly]
+    internal class PartyEditorViewer : IMenuSelectablePage
+    {
+        public string Name => Gui.Localize("Party Editor");
+
+        public int Priority => 400;
+
+        public void OnGUI(UnityModManager.ModEntry modEntry)
+        {
+            PartyEditor.OnGUI();
         }
     }
 
@@ -212,11 +233,11 @@ namespace SolastaUnfinishedBusiness.Displays
         private int encountersSelectedPane;
         public string Name => Gui.Localize("ModUi/&Encounters");
 
-        public int Priority => 400;
+        public int Priority => 500;
 
         public void OnGUI(UnityModManager.ModEntry modEntry)
         {
-            ModUi.DisplaySubMenu(ref encountersSelectedPane,
+            ModUi.DisplaySubMenu(ref encountersSelectedPane, Name,
                 new NamedAction(Gui.Localize("ModUi/&GeneralMenu"), DisplayEncountersGeneral),
                 new NamedAction(Gui.Localize("ModUi/&Bestiary"), DisplayBestiary),
                 new NamedAction(Gui.Localize("ModUi/&CharactersPool"), DisplayNpcs));
@@ -233,7 +254,7 @@ namespace SolastaUnfinishedBusiness.Displays
 
         public void OnGUI(UnityModManager.ModEntry modEntry)
         {
-            ModUi.DisplaySubMenu(ref creditsSelectedPane,
+            ModUi.DisplaySubMenu(ref creditsSelectedPane, null,
                 new NamedAction(Gui.Localize("ModUi/&Credits"), DisplayCredits),
 #if DEBUG
                 new NamedAction("Diagnostics", DisplayDiagnostics),

@@ -1,4 +1,6 @@
-﻿Condition/&ConditionSpiritShroudNoHealDescription=无法获得生命值。如果是不死生物，则在攻击施法者时处于劣势。
+﻿Condition/&ConditionCrusadersMantleDescription=在你的攻击中获得额外的 1d4 光耀伤害。
+Condition/&ConditionCrusadersMantleTitle=十字军衬肩
+Condition/&ConditionSpiritShroudNoHealDescription=无法获得生命值。如果是不死生物，则在攻击施法者时处于劣势。
 Condition/&ConditionSpiritShroudNoHealTitle=触摸裹尸布
 Feature/&AdditionalDamageBlindingSmiteDescription=你受到辐射伤害。
 Feature/&AdditionalDamageBlindingSmiteTitle=致盲打击
@@ -12,6 +14,8 @@ Feedback/&AdditionalDamageSpiritShroudDamageRadiantFormat=精神裹尸布！
 Feedback/&AdditionalDamageSpiritShroudDamageRadiantLine={0} 从 Spirit Shroud 对 {1} 造成 {2} 光辉伤害！
 Spell/&BlindingSmiteDescription=在你的下一次攻击中，你的武器会发出耀眼的光芒，并且这次攻击会对目标造成额外的 3d8 辐射伤害。此外，目标必须成功通过体质豁免，否则将被目盲，直到法术结束。\n被此法术目盲的生物在其每个回合结束时进行另一次体质豁免。豁免成功后，它不再目盲。
 Spell/&BlindingSmiteTitle=致盲打击
+Spell/&CrusadersMantleDescription=用神奇的光环包围自己。光环内的盟友在攻击时获得额外的 1d4 光辉伤害。
+Spell/&CrusadersMantleTitle=十字军衬肩
 Spell/&SpiritShroudDamageColdDescription=造成额外的寒冷伤害。
 Spell/&SpiritShroudDamageColdTitle=精神裹尸布（冷）
 Spell/&SpiritShroudDamageNecroticDescription=造成额外坏死伤害。

@@ -1,0 +1,59 @@
+{
+  "$type": "CharacterSubclassDefinition, Assembly-CSharp",
+  "featureUnlocks": [
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:ProficiencyRoguishArcaneScoundrelArcana:1483b08d-e6da-5fd9-a144-23d2467c96d9",
+      "level": 3
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:CastSpellRoguishArcaneScoundrel:6b1a6d49-cd56-55d8-91e2-1ce39bbffe9b",
+      "level": 3
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:AdditionalDamageRoguishArcaneScoundrelDistractingAmbush:8bc23293-e4bc-55c7-818a-75c2e1ea933a",
+      "level": 9
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:PowerRoguishArcaneScoundrelArcaneBackslash:180f3958-536c-5334-99e8-1fa40c0cdccd",
+      "level": 13
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:AutoPreparedSpellsRoguishArcaneScoundrelArcaneBackslash:6d19223d-761e-504f-99c4-1eb9a7d733d4",
+      "level": 13
+    }
+  ],
+  "personalityFlagOccurences": [],
+  "morphotypeSubclassFilterTag": "Default",
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Subclass/&RoguishArcaneScoundrelTitle",
+    "description": "Subclass/&RoguishArcaneScoundrelDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "2bc90f386449dab49a7897bfa72b4e16",
+      "m_SubObjectName": "Ranger_SwiftBlade",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "2289e53b-8a88-5180-befd-e767ab88039a",
+  "contentPack": 9999,
+  "name": "RoguishArcaneScoundrel"
+}

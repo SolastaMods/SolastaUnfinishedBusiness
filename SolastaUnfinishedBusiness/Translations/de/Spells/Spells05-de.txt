@@ -8,3 +8,5 @@ Spell/&BanishingSmiteDescription=Dein nächster Treffer verursacht mit deiner Wa
 Spell/&BanishingSmiteTitle=Verbannung von Smite
 Spell/&FarStepDescription=Sie teleportieren bis zu 60 Fuß zu einem unbesetzten Feld, das Sie sehen können. In jedem deiner Züge, bevor der Zauber endet, kannst du eine Bonusaktion nutzen, um dich erneut auf diese Weise zu teleportieren.
 Spell/&FarStepTitle=Weiter Schritt
+Spell/&MantleOfThornsDescription=Umgeben Sie sich mit einer Aura aus Dornen. Diejenigen, die anfangen oder hindurchgehen, erleiden 2W8 Stichschaden. Dieser Schaden skaliert auf höheren Stufen um 1W8 pro Slot.
+Spell/&MantleOfThornsTitle=Dornenmantel

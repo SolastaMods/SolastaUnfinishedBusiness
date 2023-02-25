@@ -124,7 +124,6 @@ internal sealed class RoguishRaven : AbstractSubclass
                     .Create("AdditionalDamageRavenHeartSeekingShot")
                     .SetGuiPresentationNoContent(true)
                     .SetNotificationTag("HeartSeekingShot")
-                    .SetFrequencyLimit(FeatureLimitedUsage.None)
                     .SetTriggerCondition(AdditionalDamageTriggerCondition.AlwaysActive)
                     .SetAdditionalDamageType(AdditionalDamageType.SameAsBaseDamage)
                     .SetCustomSubFeatures(

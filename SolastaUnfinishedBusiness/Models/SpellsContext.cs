@@ -208,6 +208,7 @@ internal static class SpellsContext
         RegisterSpell(EnsnaringStrike, 0, SpellListRanger);
         RegisterSpell(BuildMule(), 0, SpellListWizard);
         RegisterSpell(BuildRadiantMotes(), 0, SpellListWizard, spellListInventorClass);
+        RegisterSpell(BuildSanctuary(), 0, SpellListCleric);
         RegisterSpell(SearingSmite, 0, SpellListPaladin, SpellListRanger);
         RegisterSpell(BuildSkinOfRetribution(), 0, SpellListWarlock);
         RegisterSpell(BuildThunderousSmite(), 0, SpellListPaladin);
@@ -221,6 +222,7 @@ internal static class SpellsContext
 
         // 3rd level
         RegisterSpell(BuildBlindingSmite(), 0, SpellListPaladin);
+        RegisterSpell(BuildCrusadersMantle(), 0, SpellListPaladin);
         RegisterSpell(BuildWinterBreath(), 0, SpellListDruid, SpellListSorcerer, SpellListWizard);
         RegisterSpell(BuildSpiritShroud(), 0, SpellListCleric, SpellListPaladin, SpellListWarlock, SpellListWizard);
 
@@ -230,6 +232,7 @@ internal static class SpellsContext
         //5th level
         RegisterSpell(BuildBanishingSmite(), 0, SpellListPaladin);
         RegisterSpell(FarStep, 0, SpellListSorcerer, SpellListWarlock, SpellListWizard);
+        RegisterSpell(BuildMantleOfThorns(), 0, SpellListDruid);
 
         // 7th level
         RegisterSpell(BuildReverseGravity(), 0, SpellListDruid, SpellListSorcerer, SpellListWizard);

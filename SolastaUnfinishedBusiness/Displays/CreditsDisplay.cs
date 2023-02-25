@@ -24,6 +24,8 @@ internal static class CreditsDisplay
         ("ImpPhil", "api, builders, gameplay, rules, quality of life"),
         ("ChrisJohnDigital",
             "builders, gameplay, feats, fighting styles, original Tinkerer, original Wizard subclasses, Arcane Fighter, Spell Master, Spell Shield"),
+        ("N".color(RGBA.cyan).bold() + "arria " + "T".color(RGBA.pink).bold() + "oy ".orange() + "M".yellow().bold() + "aker",
+            "ModKit, UI Improvements, Party Editor (coming  soon)"),
         ("tivie", "Circle of The Night, Path of The Spirits"),
         ("ElAntonius", "feats, fighting styles, Arcanist"),
         ("RedOrca", "Path of The Light"),

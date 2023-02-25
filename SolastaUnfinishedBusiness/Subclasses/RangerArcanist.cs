@@ -31,6 +31,7 @@ internal sealed class RangerArcanist : AbstractSubclass
         var autoPreparedSpellsArcanist = FeatureDefinitionAutoPreparedSpellsBuilder
             .Create("AutoPreparedSpellsArcanist")
             .SetGuiPresentation(Category.Feature)
+            .SetAutoTag("Ranger")
             .SetSpellcastingClass(CharacterClassDefinitions.Ranger)
             .SetPreparedSpellGroups(
                 BuildSpellGroup(2, Shield),
@@ -76,7 +77,6 @@ internal sealed class RangerArcanist : AbstractSubclass
                     Operation = ConditionOperationDescription.ConditionOperation.Remove
                 })
             .SetAdvancement(AdditionalDamageAdvancement.ClassLevel, 1, 1, 10)
-            .SetFrequencyLimit(FeatureLimitedUsage.None)
             .SetImpactParticleReference(MagicMissile.EffectDescription.EffectParticleParameters.impactParticleReference)
             .AddToDB();
 
