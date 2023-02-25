@@ -116,6 +116,47 @@ internal static partial class SpellBuilders
 
         return spell;
     }
+    
+     internal static SpellDefinition BuildCrusadersMantle()
+    {
+        const string NAME = "CrusadersMantle";
+
+        var conditionCrusadersMantle = ConditionDefinitionBuilder
+            .Create($"Condition{NAME}")
+            .SetGuiPresentation(Category.Condition, ConditionDivineFavor)
+            .SetSilent(Silent.WhenAddedOrRemoved)
+            .AddFeatures(FeatureDefinitionAdditionalDamages.AdditionalDamageDivineFavor)
+            .AddToDB();
+
+        var effectDescription = EffectDescriptionBuilder
+            .Create()
+            .SetParticleEffectParameters(DivineFavor)
+            .SetTargetFiltering(TargetFilteringMethod.CharacterOnly)
+            .SetTargetingData(Side.Ally, RangeType.Self, 1, TargetType.Sphere, 6, 6)
+            .SetDurationData(DurationType.Minute, 1)
+            .SetRecurrentEffect(RecurrentEffect.OnActivation
+                                    | RecurrentEffect.OnTurnStart
+                                    | RecurrentEffect.OnEnter)
+            .AddEffectForms(EffectFormBuilder
+                .Create()
+                .SetConditionForm(conditionCrusadersMantle,ConditionForm.ConditionOperation.Add)
+                .Build())
+            .Build();
+
+        var spell = SpellDefinitionBuilder
+            .Create(NAME)
+            .SetGuiPresentation(Category.Spell, Bless)
+            .SetEffectDescription(effectDescription)
+            .SetCastingTime(ActivationTime.Action)
+            .SetRequiresConcentration(true)
+            .SetSpellLevel(3)
+            .SetVocalSpellSameType(VocalSpellSemeType.Buff)
+            .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolEvocation)
+            .AddToDB();
+
+        return spell;
+    }
+
 
     #region Spirit Shroud
 
