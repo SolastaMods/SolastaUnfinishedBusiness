@@ -26,11 +26,13 @@ namespace SolastaUnfinishedBusiness.Displays {
             else
             {
                 var commandService = ServiceRepository.GetService<ICommandService>();
-                HStack("Quickies", 2,
+                Space(15);
+                HStack("Quickies".Localized(), 2,
                     () => ActionButton($"Long Rest", () => commandService.StartRest(RuleDefinitions.RestType.LongRest, false),
                     AutoWidth())
                     );
                 Div();
+                Label("Current Party".Localized().Cyan().Bold());
                 using (UI.VerticalScope())
                 {
                     foreach (var ch in party.charactersList)
