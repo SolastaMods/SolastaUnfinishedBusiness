@@ -142,8 +142,8 @@ internal sealed class RoguishArcaneScoundrel : AbstractSubclass
 
     private sealed class ModifyMagicEffectCounterSpell : IOnAfterActionFeature
     {
-        private readonly FeatureDefinitionPower _featureDefinitionPower;
         private readonly ConditionDefinition _conditionDefinition;
+        private readonly FeatureDefinitionPower _featureDefinitionPower;
 
         public ModifyMagicEffectCounterSpell(
             FeatureDefinitionPower featureDefinitionPower,
@@ -179,7 +179,7 @@ internal sealed class RoguishArcaneScoundrel : AbstractSubclass
                     _conditionDefinition,
                     DurationType.Round,
                     1,
-                    RuleDefinitions.TurnOccurenceType.EndOfTurn,
+                    TurnOccurenceType.EndOfTurn,
                     rulesetCharacter.Guid,
                     rulesetCharacter.CurrentFaction.Name);
 

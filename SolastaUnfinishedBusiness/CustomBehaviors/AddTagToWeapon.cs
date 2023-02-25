@@ -9,9 +9,9 @@ namespace SolastaUnfinishedBusiness.CustomBehaviors;
  */
 public class AddTagToWeapon
 {
+    private readonly TagsDefinitions.Criticity criticity;
     private readonly IsWeaponValidHandler isWeaponValid;
     private readonly string tag;
-    private readonly TagsDefinitions.Criticity criticity;
     private readonly IsCharacterValidHandler[] validators;
 
     internal AddTagToWeapon(string tag, TagsDefinitions.Criticity criticity,

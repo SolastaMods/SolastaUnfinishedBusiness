@@ -635,7 +635,7 @@ internal static partial class SpellBuilders
 
         var spell = SpellDefinitionBuilder
             .Create(NAME)
-            .SetGuiPresentation(Category.Spell, 
+            .SetGuiPresentation(Category.Spell,
                 Sprites.GetSprite("Sanctuary", Resources.Sanctuary, 128))
             .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolAbjuration)
             .SetSpellLevel(1)

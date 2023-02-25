@@ -45,8 +45,9 @@ internal static class RulesetCharacterExtensions
     {
         return validators.All(v => v(instance));
     }
-    
-    internal static bool IsValid(this RulesetCharacter instance, [NotNull] IEnumerable<IsCharacterValidHandler> validators)
+
+    internal static bool IsValid(this RulesetCharacter instance,
+        [NotNull] IEnumerable<IsCharacterValidHandler> validators)
     {
         return validators.All(v => v(instance));
     }

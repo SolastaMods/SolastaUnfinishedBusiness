@@ -532,7 +532,7 @@ public static class RulesetImplementationManagerPatcher
             var isWeapon = typeof(ItemDefinition).GetMethod("get_IsWeapon");
             var customWeaponDescription =
                 new Func<ItemDefinition, WeaponDescription>(ShieldAttack.CustomWeaponDescription).Method;
-            
+
             //PATCH: support for AddTagToWeapon
             var weaponTags = typeof(WeaponDescription)
                 .GetProperty(nameof(WeaponDescription.WeaponTags))

@@ -6,6 +6,7 @@ namespace SolastaUnfinishedBusiness.CustomBehaviors;
 internal class DoNotTerminateWhileUnconscious : IShouldTerminateEffect
 {
     public static readonly IShouldTerminateEffect Marker = new DoNotTerminateWhileUnconscious();
+
     private DoNotTerminateWhileUnconscious()
     {
     }

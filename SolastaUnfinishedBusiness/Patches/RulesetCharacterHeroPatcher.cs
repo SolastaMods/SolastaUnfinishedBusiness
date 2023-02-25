@@ -291,7 +291,7 @@ public static class RulesetCharacterHeroPatcher
 
             return num;
         }
-        
+
         [UsedImplicitly]
         public static void Prefix(
             RulesetCharacterHero __instance,

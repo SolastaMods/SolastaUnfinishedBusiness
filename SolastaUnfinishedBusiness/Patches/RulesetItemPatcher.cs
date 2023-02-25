@@ -25,7 +25,7 @@ public static class RulesetItemPatcher
 
             //PATCH: add custom tags from sub-features
             AddTagToWeapon.TryAddTags(context as RulesetCharacter, __instance, tagsMap);
-            
+
             //PATCH: adds custom weapon tags (like `Polearm`) to appropriate weapons
             CustomWeaponsContext.AddCustomTags(item, tagsMap);
 
