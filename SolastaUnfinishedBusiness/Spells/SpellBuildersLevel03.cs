@@ -116,8 +116,8 @@ internal static partial class SpellBuilders
 
         return spell;
     }
-    
-     internal static SpellDefinition BuildCrusadersMantle()
+
+    internal static SpellDefinition BuildCrusadersMantle()
     {
         const string NAME = "CrusadersMantle";
 
@@ -134,12 +134,10 @@ internal static partial class SpellBuilders
             .SetTargetFiltering(TargetFilteringMethod.CharacterOnly)
             .SetTargetingData(Side.Ally, RangeType.Self, 1, TargetType.Sphere, 6, 6)
             .SetDurationData(DurationType.Minute, 1)
-            .SetRecurrentEffect(RecurrentEffect.OnActivation
-                                    | RecurrentEffect.OnTurnStart
-                                    | RecurrentEffect.OnEnter)
+            .SetRecurrentEffect(RecurrentEffect.OnActivation | RecurrentEffect.OnTurnStart | RecurrentEffect.OnEnter)
             .AddEffectForms(EffectFormBuilder
                 .Create()
-                .SetConditionForm(conditionCrusadersMantle,ConditionForm.ConditionOperation.Add)
+                .SetConditionForm(conditionCrusadersMantle, ConditionForm.ConditionOperation.Add)
                 .Build())
             .Build();
 
@@ -156,7 +154,6 @@ internal static partial class SpellBuilders
 
         return spell;
     }
-
 
     #region Spirit Shroud
 

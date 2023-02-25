@@ -88,8 +88,8 @@ internal static partial class SpellBuilders
                 .Build())
             .AddToDB();
     }
-    
-      internal static SpellDefinition BuildMantleOfThorns()
+
+    internal static SpellDefinition BuildMantleOfThorns()
     {
         const string NAME = "MantleOfThorns";
 
@@ -106,32 +106,31 @@ internal static partial class SpellBuilders
             .SetDurationData(DurationType.Minute, 1)
             .SetRecurrentEffect(RecurrentEffect.OnEnter | RecurrentEffect.OnMove | RecurrentEffect.OnTurnStart)
             .AddEffectForms(EffectFormBuilder
-            .Create()
-            .SetSummonEffectProxyForm(effectMantleOfThorns)
-            .SetDamageForm(DamageTypePiercing, 2, DieType.D8)
-            .SetTopologyForm(TopologyForm.Type.DangerousZone, false)
-            .Build(), EffectFormBuilder
-            .Create()
-            .SetDamageForm(DamageTypePiercing, 2, DieType.D8)
-            .Build(),
-             SpikeGrowth.EffectDescription
-             .effectForms.Find(e => e.formType == EffectForm.EffectFormType.Topology))
+                    .Create()
+                    .SetSummonEffectProxyForm(effectMantleOfThorns)
+                    .SetDamageForm(DamageTypePiercing, 2, DieType.D8)
+                    .SetTopologyForm(TopologyForm.Type.DangerousZone, false)
+                    .Build(), EffectFormBuilder
+                    .Create()
+                    .SetDamageForm(DamageTypePiercing, 2, DieType.D8)
+                    .Build(),
+                SpikeGrowth.EffectDescription
+                    .effectForms.Find(e => e.formType == EffectForm.EffectFormType.Topology))
             .Build();
 
         var spell = SpellDefinitionBuilder
-        .Create(NAME)
-        .SetGuiPresentation(Category.Spell, SpikeGrowth)
-        .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolTransmutation)
-        .SetSpellLevel(5)
-        .SetCastingTime(ActivationTime.Action)
-        .SetVerboseComponent(true)
-        .SetRequiresConcentration(true)
-        .SetEffectDescription(effectdescription)
-        .AddToDB();
+            .Create(NAME)
+            .SetGuiPresentation(Category.Spell, SpikeGrowth)
+            .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolTransmutation)
+            .SetSpellLevel(5)
+            .SetCastingTime(ActivationTime.Action)
+            .SetVerboseComponent(true)
+            .SetRequiresConcentration(true)
+            .SetEffectDescription(effectdescription)
+            .AddToDB();
 
         return spell;
     }
-
 
     #endregion
 }

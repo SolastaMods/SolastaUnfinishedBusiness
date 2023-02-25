@@ -4,10 +4,11 @@ using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Properties;
+using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.ConditionDefinitions;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionDamageAffinitys;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
-using static RuleDefinitions;
 
 namespace SolastaUnfinishedBusiness.Spells;
 
@@ -575,8 +576,8 @@ internal static partial class SpellBuilders
 
         return spell;
     }
-    
-        internal static SpellDefinition BuildSanctuary()
+
+    internal static SpellDefinition BuildSanctuary()
     {
         const string NAME = "Sanctuary";
 
@@ -599,27 +600,27 @@ internal static partial class SpellBuilders
             .SetGuiPresentationNoContent(true)
             .SetSilent(Silent.WhenAddedOrRemoved)
             .AddFeatures(
-             DamageAffinityAcidResistance,
-             DamageAffinityBludgeoningResistance,
-             DamageAffinityColdResistance,
-             DamageAffinityFireResistance,
-             DamageAffinityForceDamageResistance,
-             DamageAffinityLightningResistance,
-             DamageAffinityNecroticResistance,
-             DamageAffinityPiercingResistance,
-             DamageAffinityPoisonResistance,
-             DamageAffinityPsychicResistance,
-             DamageAffinityRadiantResistance,
-             DamageAffinitySlashingResistance,
-             DamageAffinityThunderResistance)
+                DamageAffinityAcidResistance,
+                DamageAffinityBludgeoningResistance,
+                DamageAffinityColdResistance,
+                DamageAffinityFireResistance,
+                DamageAffinityForceDamageResistance,
+                DamageAffinityLightningResistance,
+                DamageAffinityNecroticResistance,
+                DamageAffinityPiercingResistance,
+                DamageAffinityPoisonResistance,
+                DamageAffinityPsychicResistance,
+                DamageAffinityRadiantResistance,
+                DamageAffinitySlashingResistance,
+                DamageAffinityThunderResistance)
             .AddSpecialInterruptions(ConditionInterruption.Attacked)
             .AddToDB();
 
-        //Attack possible is skipped when crit, so I am just going to halve the damage on crits.
+        //Attack possible is skipped when crit, so I am just going to halve the damage on critical
         var featureSanctuary = FeatureDefinitionBuilder
             .Create($"Feature{NAME}")
             .SetCustomSubFeatures(new SanctuaryBeforeAttackHitConfirmed(conditionSanctuaryBuff2),
-            new SanctuaryBeforeAttackHitPossible(conditionSanctuaryBuff1))
+                new SanctuaryBeforeAttackHitPossible(conditionSanctuaryBuff1))
             .AddToDB();
 
         var conditionSanctuary = ConditionDefinitionBuilder
@@ -651,7 +652,6 @@ internal static partial class SpellBuilders
 
         return spell;
     }
-
 
     #endregion
 }
