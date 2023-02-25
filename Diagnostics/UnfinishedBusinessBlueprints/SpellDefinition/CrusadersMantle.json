@@ -321,9 +321,9 @@
     "description": "Spell/&CrusadersMantleDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "a09b3bfa05921d743a1bbe2126c87a68",
-      "m_SubObjectName": "Bless",
-      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+      "m_AssetGUID": "c144fd0a-c201-51ba-aa31-cdc1eb14427f",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
