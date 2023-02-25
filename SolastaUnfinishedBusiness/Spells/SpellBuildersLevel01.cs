@@ -473,6 +473,7 @@ internal static partial class SpellBuilders
             .SetNotificationTag(NAME)
             .SetDamageDice(DieType.D6, 2)
             .SetSpecificDamageType(DamageTypeThunder)
+            .SetCustomSubFeatures(ValidatorsRestrictedContext.WeaponAttack)
             .SetSavingThrowData( //explicitly stating all relevant properties (even default ones) for readability
                 EffectDifficultyClassComputation.SpellCastingFeature,
                 EffectSavingThrowType.None,
