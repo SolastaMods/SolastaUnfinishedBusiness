@@ -17,6 +17,12 @@ public sealed class Core
 public class Settings : UnityModManager.ModSettings
 {
     //
+    // UI Saved State
+    //
+
+    public int SelectedTab { get; set; } = 0;
+
+    //
     // Welcome Message
     //
 

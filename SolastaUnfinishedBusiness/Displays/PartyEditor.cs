@@ -24,7 +24,7 @@ namespace SolastaUnfinishedBusiness.Displays {
             var party = Gui.GameCampaign == null ? null : Gui.GameCampaign.Party;
 #pragma warning restore IDE0031
 
-            Label("Experimental Preview: ".Orange().bold() + "This simple party editor lets you edit characters in a loaded game session. Right now it lets you edit your character's first and last name. More features are coming soon (tm). Please click on the following to report issues:".Localized().green());
+            Label("Experimental Preview:".Localized().Orange().bold() + " " + "This simple party editor lets you edit characters in a loaded game session. Right now it lets you edit your character's first and last name. More features are coming soon (tm). Please click on the following to report issues:".Localized().green());
             LinkButton("https://github.com/SolastaMods/SolastaUnfinishedBusiness/issues", "https://github.com/SolastaMods/SolastaUnfinishedBusiness/issues");
             if (party == null)
                 Label("****** Party Editor unavailable: Please load a save game ******".Localized().yellow().bold());
