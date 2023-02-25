@@ -196,7 +196,6 @@ internal static partial class SpellBuilders
                                 .SetGuiPresentationNoContent(true)
                                 .SetNotificationTag($"SpiritShroud{damage}")
                                 .SetTriggerCondition(ExtraAdditionalDamageTriggerCondition.TargetWithin10Ft)
-                                .SetFrequencyLimit(FeatureLimitedUsage.None)
                                 .SetAttackOnly()
                                 .SetConditionOperations(new ConditionOperationDescription
                                 {
