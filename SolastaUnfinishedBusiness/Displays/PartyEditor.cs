@@ -18,7 +18,12 @@ namespace SolastaUnfinishedBusiness.Displays {
         {
             IGameService gameService = ServiceRepository.GetService<IGameService>();
             ICharacterPoolService characterPoolService = ServiceRepository.GetService<ICharacterPoolService>();
-            var party = gameService?.Game?.GameCampaign?.Party;
+            
+#pragma warning disable IDE0031
+            // don't use ? or ?? or a type deriving from an UnityEngine.Object to avoid bypassing lifetime check
+            var party = Gui.GameCampaign == null ? null : Gui.GameCampaign.Party;
+#pragma warning restore IDE0031
+
             Label("Experimental Preview: ".Orange().bold() + "This simple party editor lets you edit characters in a loaded game session. Right now it lets you edit your character's first and last name. More features are coming soon (tm). Please click on the following to report issues:".Localized().green());
             LinkButton("https://github.com/SolastaMods/SolastaUnfinishedBusiness/issues", "https://github.com/SolastaMods/SolastaUnfinishedBusiness/issues");
             if (party == null)
