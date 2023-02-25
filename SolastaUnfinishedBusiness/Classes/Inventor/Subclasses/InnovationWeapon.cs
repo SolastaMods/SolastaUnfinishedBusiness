@@ -176,7 +176,7 @@ public static class InnovationWeapon
                 .Build())
             .SetUniqueInstance()
             .SetCustomSubFeatures(
-                new ShouldTerminatePowerEffect(SummonSteelDefenderPower),
+                DoNotTerminateWhileUnconscious.Marker,
                 SkipEffectRemovalOnLocationChange.Always,
                 ValidatorsPowerUse.NotInCombat)
             .AddToDB();
