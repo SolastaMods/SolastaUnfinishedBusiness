@@ -11,11 +11,14 @@ public class AddTagToWeapon
 {
     private readonly IsWeaponValidHandler isWeaponValid;
     private readonly string tag;
+    private readonly TagsDefinitions.Criticity criticity;
     private readonly IsCharacterValidHandler[] validators;
 
-    internal AddTagToWeapon(string tag, IsWeaponValidHandler isWeaponValid, params IsCharacterValidHandler[] validators)
+    internal AddTagToWeapon(string tag, TagsDefinitions.Criticity criticity,
+        IsWeaponValidHandler isWeaponValid, params IsCharacterValidHandler[] validators)
     {
         this.tag = tag;
+        this.criticity = criticity;
         this.isWeaponValid = isWeaponValid;
         this.validators = validators;
     }
@@ -23,6 +26,21 @@ public class AddTagToWeapon
     private bool IsValid(RulesetCharacter character, RulesetItem weapon)
     {
         return character.IsValid(validators) && isWeaponValid(null, weapon, character);
+    }
+
+    internal static void TryAddTags(RulesetCharacter character, RulesetItem item,
+        Dictionary<string, TagsDefinitions.Criticity> tags)
+    {
+        var mods = character.GetSubFeaturesByType<AddTagToWeapon>();
+        if (mods.Empty())
+        {
+            return;
+        }
+
+        foreach (var mod in mods.Where(mod => mod.IsValid(character, item)))
+        {
+            tags.TryAdd(mod.tag, mod.criticity);
+        }
     }
 
     internal static List<string> GetCustomWeaponTags(
