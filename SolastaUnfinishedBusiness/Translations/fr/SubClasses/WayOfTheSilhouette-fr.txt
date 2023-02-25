@@ -1,10 +1,10 @@
-﻿Feature/&FeatureSetWayOfSilhouetteSilhouetteArtsDescription=À partir du moment où vous choisissez cette tradition au niveau 3, vous pouvez dépenser 2 points de ki pour lancer ténèbres, vision dans le noir, passage sans trace ou silence, sans fournir de composants matériels. De plus, vous gagnez le sort mineur léger si vous ne le connaissez pas déjà.
+﻿Feature/&FeatureSetWayOfSilhouetteSilhouetteArtsDescription=À partir du moment où vous choisissez cette tradition au niveau 3, vous pouvez dépenser 2 points de Ki pour lancer ténèbres, vision dans le noir, passage sans trace ou silence, sans fournir de composants matériels. De plus, vous gagnez le sort mineur léger si vous ne le connaissez pas déjà.
 Feature/&FeatureSetWayOfSilhouetteSilhouetteArtsTitle=Arts de la silhouette
-Feature/&LightAffinityWayOfSilhouetteCloakOfSilhouettesStrongDescription=Cape de silhouettes fonctionne désormais dans la pénombre et l'obscurité magique en plus de l'obscurité naturelle.
+Feature/&LightAffinityWayOfSilhouetteCloakOfSilhouettesStrongDescription=Cape of Silhouettes fonctionne désormais dans la pénombre et l'obscurité magique en plus de l'obscurité naturelle.
 Feature/&LightAffinityWayOfSilhouetteCloakOfSilhouettesStrongTitle=Cape de silhouettes améliorée
 Feature/&LightAffinityWayOfSilhouetteCloakOfSilhouettesWeakDescription=Si vous commencez votre tour dans l'obscurité naturelle, vous devenez invisible. Sortir des ténèbres, attaquer ou utiliser n'importe quel pouvoir ou sort qui ne cible pas seulement vous-même brise l'invisibilité.
 Feature/&LightAffinityWayOfSilhouetteCloakOfSilhouettesWeakTitle=Cape de silhouettes
-Feature/&PowerWayOfSilhouetteImprovedSilhouetteStepDescription=Brièvement entouré par l'énergie du ki, vous pouvez désormais amener un allié avec vous lors de la téléportation et la portée a augmenté.
+Feature/&PowerWayOfSilhouetteImprovedSilhouetteStepDescription=Brièvement entouré par l'énergie du Ki, vous pouvez désormais amener un allié avec vous lors de la téléportation et la portée a augmenté.
 Feature/&PowerWayOfSilhouetteImprovedSilhouetteStepTitle=Étape de silhouette améliorée
 Feature/&PowerWayOfSilhouetteSilhouetteStepDescription=Vous pouvez vous téléporter en tant qu'action bonus jusqu'à 9 mètres dans un espace inoccupé que vous pouvez voir. Vous pouvez utiliser ce pouvoir un nombre de fois par repos long égal à votre bonus de maîtrise.
 Feature/&PowerWayOfSilhouetteSilhouetteStepTitle=Étape de la silhouette

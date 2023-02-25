@@ -170,7 +170,7 @@
   "includeBaseDescription": false,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
-    "hidden": true,
+    "hidden": false,
     "title": "Feature/&PowerSharedPoolCollegeOfLifeHealingPoolTitle",
     "description": "Feature/&PowerSharedPoolCollegeOfLifeHealingPoolDescription",
     "spriteReference": {

@@ -328,7 +328,7 @@
     "description": "Feature/&PowerFeatHealerMedKitDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "87119124-0f25-5339-b937-0645d8be26b2",
+      "m_AssetGUID": "e845ae18-2b75-59c5-89c3-db06c1ad36df",
       "m_SubObjectName": null,
       "m_SubObjectType": null
     },

@@ -1,8 +1,8 @@
 Feat/&FeatDragonWingsDescription=你长出了龙的翅膀。如果你没有穿着重甲，你将获得有限时间的飞行能力。
 Feat/&FeatDragonWingsTitle=龙翼
-Feat/&FeatFadeAwayDexDescription=你学会了一个在受到伤害时消失的神奇技巧。将你的敏捷值提高 1，最高为 20。在你受到伤害后，你可以立即使用一种反应神奇地隐形，直到你的下一轮结束或直到你攻击、造成伤害或强迫某人进行豁免扔。一旦你使用了这个能力，在你完成一次短休或长休之前你不能再次使用。
+Feat/&FeatFadeAwayDexDescription=你学会了一个在受到伤害时消失的神奇技巧。将您的敏捷值提高 1，最高为 20。在您受到伤害后，您可以立即使用一种反应神奇地隐形，直到您的下一轮结束或直到您攻击、造成伤害或强迫某人进行豁免扔。一旦你使用了这个能力，在你完成一次短休或长休之前你不能再次使用。
 Feat/&FeatFadeAwayDexTitle=淡出 [Dex]
-Feat/&FeatFadeAwayIntDescription=你学会了一个在受到伤害时消失的神奇技巧。将你的智力值提高 1，最高为 20。在你受到伤害后，你可以立即使用一个反应神奇地隐形，直到你的下一轮结束或直到你攻击、造成伤害或强迫某人进行豁免扔。一旦你使用了这个能力，在你完成一次短休或长休之前你不能再次使用。
+Feat/&FeatFadeAwayIntDescription=你学会了一个在受到伤害时消失的神奇技巧。将你的智力值提高 1，最高为 20。在你受到伤害后，你可以立即使用一种反应神奇地隐形，直到你的下一轮结束或直到你攻击、造成伤害或强迫某人进行豁免扔。一旦你使用了这个能力，在你完成一次短休或长休之前你不能再次使用。
 Feat/&FeatFadeAwayIntTitle=淡出 [Int]
 Feat/&FeatRevenantGreatSwordDexDescription=将你的敏捷值提高 1，最高为 20。当你拿着一把大剑时，你的防御等级获得 +1 加值，并且你可以使用你的敏捷来命中和伤害加值。
 Feat/&FeatRevenantGreatSwordDexTitle=Revenant 大剑 [Dex]

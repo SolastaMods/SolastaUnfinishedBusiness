@@ -24,7 +24,8 @@ internal sealed class OathOfHatred : AbstractSubclass
         //Paladins subclass spells based off 5e Oath of Vengeance
         var autoPreparedSpellsHatred = FeatureDefinitionAutoPreparedSpellsBuilder
             .Create("AutoPreparedSpellsHatred")
-            .SetGuiPresentation("DomainSpells", Category.Feature)
+            .SetGuiPresentation("ExpandedSpells", Category.Feature)
+            .SetAutoTag("Oath")
             .SetPreparedSpellGroups(
                 BuildSpellGroup(3, Bane, HuntersMark),
                 BuildSpellGroup(5, HoldPerson, MistyStep),

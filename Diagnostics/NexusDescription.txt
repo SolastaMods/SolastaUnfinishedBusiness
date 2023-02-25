@@ -115,6 +115,7 @@ All settings start disabled by default.
 [*][b]College of Harlequin[/b]: College of Harlequins bards see no distinction between art and war. They see it is their duty to keep the legend of the great battle of the Cataclysm alive through their terrific performance, either on stage or on the battle field.
 [*][b]College of Life[/b]: Masters of manipulating both matter and life energy.
 [*][b]College of War Dancer[/b]: College of War Dancer bards are master the art of fighting who considers the battle field is their stage and the weapon in their hand is the finest instrument. Their swift movement and endless attacks are usually the last beautiful memoire of those encountered them.
+[*][b]Defiler[/b]: Defilers worship patrons of death, corruption, and blight, seeking power and corruption for their own ends: to please their gods, or for more selfish reasons.
 [*][b]Circle of The Ancient Forest[/b]: You have forged a relationship with a powerful nature entity: Ancient Dryads, Archdruids, Manifestations of the Feywild bleeding into the material plane, Forgotten gods from a primal age. It may wish for you to protect the natural world, travel to far off lands that it cannot, or it may have another motive that seems inscrutable to short-lived mortals.
 [*][b]Circle of the Forest Guardian[/b]: Circle of the Forest Guardian Druids are sworn to protect the forests and all that dwell within them. Skilled in the use of Abjuration magic and martial combat, members of this druidic circle are fearsome opponents on the battlefield.
 [*][b]Circle of the Night[/b]: Druids of the Circle of the Night are fierce guardians of the wilds. Their order gathers under the full moon to share news and trade warnings. They haunt the deepest parts of the wilderness, where they might go for weeks on end before crossing paths with another humanoid creature, let alone another druid.
@@ -130,10 +131,10 @@ All settings start disabled by default.
 [*][b]Duelist[/b]: Duelists possess a swaggering bravado. They are quick-witted, self-sufficient, and dangerous to isolated enemies.
 [*][b]Opportunist[/b]: Opportunist are those who never let a chance to finish their enemies slide. They stab fast and stab where it matters. Not many facing them can escape unscratched.
 [*][b]Raven[/b]: Ravens are ranged weapon specialists that are trained to take down enemies quickly and effectively.
-[*][b]Divine Heart[/b]: Your innate magic has been imparted to you by a Deity for a purpose you may or may not understand. 
+[*][b]Divine Heart[/b]: Your innate magic has been imparted to you by a Deity for a purpose you may or may not understand.
 [*][b]Field Manipulator[/b]: Field Manipulators excel at controlling the battlefield and preventing their enemies from being able to attack them.
-[*][b]Way of Discordance[/b]: While most monks seek enlightenment through contemplation and achieving inner peace, monks of the Way of Discordance on the other hand are focused on harnessing the chaotic energies of the universe. These mystical scholars of disharmony exploit the inner conflicts of their enemies by manipulating their ki, devastating them with bursts of distorting energy.
-[*][b]Way of Distant Hand[/b]: Practitioners of the Way of Distant Hand train to make arrows an extension of their hands. They are proficient in using bows and delivering ki-empowered effects through arrows.
+[*][b]Way of Discordance[/b]: While most monks seek enlightenment through contemplation and achieving inner peace, monks of the Way of Discordance on the other hand are focused on harnessing the chaotic energies of the universe. These mystical scholars of disharmony exploit the inner conflicts of their enemies by manipulating their Ki, devastating them with bursts of distorting energy.
+[*][b]Way of Distant Hand[/b]: Practitioners of the Way of Distant Hand train to make arrows an extension of their hands. They are proficient in using bows and delivering Ki-empowered effects through arrows.
 [*][b]Way of Dragon[/b]: Practitioners of the Way of Dragon devote themselves to learning the powerful beasts, gaining draconic abilities.
 [*][b]Way of Silhouette[/b]: Practitioners of the Way of Silhouette follow a tradition that values stealth and subterfuge. These monks serve as spies and assassins. Sometimes the members of a ninja monastery are family members, forming a clan sworn to secrecy about their arts and missions. Other monasteries are more like thieves' guilds, hiring out their services to nobles, rich merchants, or anyone else who can pay their fees. Regardless of their methods, the heads of these monasteries expect the unquestioning obedience of their students.
 [*][b]The Elementalist[/b]: You've been made a pact with and been changed by primordials present in the elemental badlands. The elemental chaos of the patron has suffused your soul, letting you use the power of different elemental types.
@@ -191,7 +192,7 @@ You can use a bonus action to select a weapon. Its attacks count as magical and 
 [*][b]Cunning Escape[/b]: Whenever you use the Dash action as a bonus action, your movement doesn't provoke opportunity attacks for the rest of the turn.
 [*][b]Deadeye[/b]: You have learned to trade accuracy to land deadlier shots. When attacking with ranged weapons, you can choose to take a -3 penalty to your to hit in order to do additional damage equal to 3 + your proficiency bonus. Attacking at long range doesn't impose disadvantage and your ranged weapon attacks ignore half cover and three-quarters cover.
 [*][b]Defense[/b]: While you are wearing armor, you gain a +1 bonus to AC.
-[*][b]Defensive Duelist[/b]: When you are wielding a finesse weapon with which you are proficient and another creature hits you with a melee attack, you can use your reaction to add your proficiency bonus to your AC for that attack, potentially causing the attack to miss you.
+[*][b]Defensive Duelist[/b]: When you are wielding a finesse weapon with which you are proficient and another creature hits you with a melee attack, you can use your reaction to add your proficiency bonus to your AC for that attack, and all subsequent attacks that creature makes against you, potentially causing the attacks to miss you, until the start of your next turn.
 [*][b]Dragon Wings[/b]: You sprout draconic wings. You gain the ability to fly for a limited time if you aren't wearing heavy armor.
 [*][b]Dual Flurry[/b]: You are a master of fighting with paired weapons. On any turn where you hit twice with melee attacks while wielding a weapon in each hand, you may make an additional off-hand attack when attacking with your bonus action.
 [*][b]Dual Weapon Defense[/b]: You gain a +1 bonus to AC while you are wielding a separate melee weapon in each hand.
@@ -247,7 +248,7 @@ You gain proficiency with medium armor and shields.
 [*][b]Merciless[/b]: When you reduce a target to 0 HP using a melee weapon attack on your turn, enemies within a radius of the downed target equal to half of your proficiency bonus (rounded up) who can see the target must make a Wisdom save (DC equal to 8 + your proficiency bonus + your Strength modifier) or become frightened of you until the end of their next turn. If the triggering attack is a critical hit, the radius is instead equal to your proficiency bonus.
 [*][b]Metamagic Adept[/b]: You learn two metamagic options of your choice from the sorcerer class and gain 2 sorcery points to spend on it.
 [*][b]Mobile[/b]: You are exceptionally speedy and agile. Your speed increases by 10 feet and you are immune to difficult terrain when dashing. When you make a melee attack against a creature you are immune to attack of opportunity from the creature unless it has immunity to that.
-[*][b]Monk Initiate[/b]: You have learned some of the ways of the monk. You gain ki points equals to your proficiency bonus, which you can spend to use Flurry of Blows, Patient Defense, or Step of the Wind.
+[*][b]Monk Initiate[/b]: You have learned some of the ways of the monk. You gain Ki points equals to your proficiency bonus, which you can spend to use Flurry of Blows, Patient Defense, or Step of the Wind.
 [*][b]Natural Fluidity[/b]: You may use a WildShape form to restore a spent spell slot, up to the maximum of a 3rd level spell slot. Alternatively, you may spend a 3rd level or higher spell slot to regain up to 2 WildShape forms. You can use it once per long rest.
 [*][b]Pickpocket[/b]: You gain proficiency with Sleight of Hand, or expertise if already proficient. You also have advantage on Sleight of Hand Dexterity checks.
 [*][b]Piercer [Dex][/b]: You have achieved a penetrating precision in combat. Increase your Dexterity by 1, to a maximum of 20. When you hit a creature with an attack that deals piercing damage, you can re-roll dice when you roll a 1 and you must use the new roll. When you score a critical hit you can roll one additional damage die when determining the extra piercing damage the target takes.
@@ -263,6 +264,8 @@ You gain proficiency with medium armor and shields.
 [*][b]Potent Spellcaster [Sorcerer][/b]: You can add your spellcaster attribute modifier to the damage you deal with any Sorcerer cantrip in your repertoire.
 [*][b]Potent Spellcaster [Wizard][/b]: You can add your spellcaster attribute modifier to the damage you deal with any Wizard cantrip in your repertoire.
 [*][b]Power Attack[/b]: You have learned to trade accuracy to land deadlier blows. When attacking with melee weapons, you can choose to take a -3 penalty to your to hit in order to do additional damage equal to 3 + your proficiency bonus.
+[*][b]Primal Rage [Con][/b]: Increase your Constitution score by 1, to a maximum of 20. You gain one additional Rage usage between rests.
+[*][b]Primal Rage [Str][/b]: Increase your Strength score by 1, to a maximum of 20. You gain one additional Rage usage between rests.
 [*][b]Protection[/b]: When a creature you can see attacks a target other than you that is within one cell of you, you can use your reaction to impose disadvantage on the attack roll. You must be wielding a shield.
 [*][b]Pugilist[/b]: Your unarmed strikes deal an additional 1d4 bludgeoning damage and you can punch with your offhand as a bonus action. You can shove as a bonus action if you have free hand.
 [*][b]Ranged Expert[/b]: Your expert training with ranged weapons grants you these benefits:
@@ -395,6 +398,7 @@ This spell's damage increases by 1d6 when you reach 5th level (2d6), 11th level 
 At 5th level, the melee attack deals an extra 1d8 radiant damage to the target. The damage increases by another 1d8 at 11th level and 17th level.
 [*][b]Sword Storm[/b]: You create a momentary circle of spectral blades that sweep around you. All other creatures within 5 feet of you must each succeed on a Dexterity saving throw or take 1d6 force damage.
 [*][b]Thorny Vines[/b]: You create a long, whip-like vine covered in thorns that lashes out at your command toward a creature in range. Make a ranged spell attack against the target. If the attack hits, the creature takes 1d6 piercing damage, and you pull the creature up to 10 feet closer to you.
+[*][b]Wrack[/b]: Unleash a wave of crippling pain at a creature within range. The target must make a Constitution saving throw or take 1d8 necrotic damage, and preventing them from dashing or disengaging.
 [*][b]Chromatic Orb[/b]: You hurl a 4-inch-diameter sphere of energy at a creature that you can see within range. You choose acid, cold, fire, lightning, poison, or thunder for the type of orb you create, and then make a ranged spell attack against the target. If the attack hits, the creature takes 3d8 damage of the type you chose.
 [*][b]Earth Tremor[/b]: You strike the ground and unleash a tremor of seismic force, hurling up earth, rock, and sand.
 [*][b]Ensnaring Strike[/b]: Your next hit ensnares your target in vines - it receives 1d6 piercing damage each turn and can roll STR saving thrown at the end of each turn to stop this effect
@@ -407,7 +411,7 @@ At the start of each of its turns the target must make a successful Constitution
 <b>Higher Levels:</b> for each slot level above 1st, the initial extra damage dealt by the attack increases by 1d6.
 [*][b]Skin of Retribution[/b]: Choose a type: Acid, Cold, Fire, Lightning, Poison, or Thunder. A protective elemental skin envelops you, covering you and your gear. You gain 5 temporary hit points per spell level for the duration. In addition, if a creature hits you with a melee attack while you have these temporary hit points, the creature takes 5 damage of the chosen type per spell level.
 [*][b]Thunderous Smite[/b]: On your next hit your weapon rings with thunder and the attack deals an extra 2d6 thunder damage to the target. Additionally, if the target is a creature, it must succeed on a Strength saving throw or be pushed 10 feet away from you and knocked prone.
-[*][b]Wrathful Smite[/b]: Your next hit deals additional 1d6 psychic damage. If target fails WIS saving throw its mind explodes in pain and it becomes frightened. 
+[*][b]Wrathful Smite[/b]: Your next hit deals additional 1d6 psychic damage. If target fails WIS saving throw its mind explodes in pain and it becomes frightened.
 [*][b]Mirror Image[/b]: Three illusory duplicates of yourself appear in your space. Until the spell ends, each time a creature targets you with an attack, roll a d20 to determine whether the attack instead targets one of your duplicates.
 If you have 3 duplicates, you must roll a 6 or higher to change the attack's target to a duplicate. With 2 duplicates, you must roll an 8 or higher. With 1 duplicate, you must roll an 11 or higher.
 A duplicate's AC equals 10 + your Dexterity modifier. If an attack hits a duplicate, the duplicate is destroyed. A duplicate can be destroyed only by an attack that hits it. It ignores all other damage and effects. The spell ends when all three duplicates are destroyed.
@@ -446,7 +450,7 @@ A Wight
 [*][b]Raise Wight Lord[/b]: Summons <b>Wight Lord</b>:
 A powerful wight, trained to withstand the light of day.
 [*][b]Foresight[/b]: You touch a willing creature and bestow a limited ability to see into the immediate future. For the duration, the target can't be surprised and has advantage on attack rolls, ability checks, and saving throws. Additionally, other creatures have disadvantage on attack rolls against the target for the duration.
-[*][b]Mass Heal[/b]: A flood of healing energy flows from you into injured creatures around you. You restore 120 hit points each to 6 creatures that you can see within range. Creatures healed by this spell are also cured of all diseases and any effect making them blinded or deafened. This spell has no effect on undead or constructs. 
+[*][b]Mass Heal[/b]: A flood of healing energy flows from you into injured creatures around you. You restore 120 hit points each to 6 creatures that you can see within range. Creatures healed by this spell are also cured of all diseases and any effect making them blinded or deafened. This spell has no effect on undead or constructs.
 [*][b]Meteor Swarm [Single Target][/b]: Blazing orbs of fire plummet to the ground at a single point you can see within range. Each creature in a 40-foot-radius sphere centered on the point you choose must make a Dexterity saving throw. The sphere spreads around corners. A creature takes 20d6 fire damage and 20d6 bludgeoning damage on a failed save, or half as much damage on a successful one. A creature in the area of more than one fiery burst is affected only once.
 [*][b]Power Word Heal[/b]: A wave of healing energy washes over the creature you touch. The target regains all its hit points. If the creature is charmed, frightened, paralyzed, or stunned, the condition ends. If the creature is prone, it can use its reaction to stand up. This spell has no effect on undead or constructs.
 [*][b]Power Word Kill[/b]: You utter a word of power that can compel one creature you can see within range to die instantly. If the creature you choose has 100 hit points or fewer, it dies. Otherwise, the spell has no effect.
@@ -500,20 +504,18 @@ A powerful wight, trained to withstand the light of day.
 [*][b]Zappastuff[/b]: maintenance, mod UI, infrastructure, gameplay, feats, fighting styles, invocations, rules, spells, quality of life, Half-elf variants, Ancient Forest, Blade Dancer, College of Guts, College of Life, Dead Master, Duelist, Field Manipulator, Way of The Discordance, Way of The Silhouette, Wild Master, Multiclass
 [*][b]TPABOBAP[/b]: game UI, infrastructure, gameplay, feats, invocations, spells, quality of life, Dead Master, Elementalist, Moonlit, RiftWalker, SoulBlade, Tactician, Way of Distant Hand, Inventor
 [*][b]Nd[/b]: College of Harlequin, College of War Dancer, Marshal, Opportunist, Raven, Spell Shield
+[*][b]Haxermn[/b]: spells, Defiler Domain, Oath of Ancient, Oath of Hatred, Way of Dragon
+[*][b]SilverGriffon[/b]: gameplay, visuals, spells, Dark Elf, Draconic Kobold, Grey Dwarf, Divine Heart
 [*][b]ImpPhil[/b]: api, builders, gameplay, rules, quality of life
 [*][b]ChrisJohnDigital[/b]: builders, gameplay, feats, fighting styles, original Tinkerer, original Wizard subclasses, Arcane Fighter, Spell Master, Spell Shield
-[*][b]SilverGriffon[/b]: gameplay, visuals, spells, Dark Elf, Draconic Kobold, Grey Dwarf, Divine Heart
-[*][b]Haxermn[/b]: spells, Oath of Ancient, Oath of Hatred, Way of Dragon
 [*][b]tivie[/b]: Circle of The Night, Path of The Spirits
 [*][b]ElAntonius[/b]: feats, fighting styles, Arcanist
-[*][b]DubhHerder[/b]: quality of life, spells, original Warlock subclasses
-[*][b]Holic75[/b]: spells, Bolgrif, Gnome
 [*][b]RedOrca[/b]: Path of The Light
 [*][b]DreadMaker[/b]: Forest Guardian
+[*][b]DubhHerder[/b]: quality of life, spells, original Warlock subclasses
+[*][b]Holic75[/b]: spells, Bolgrif, Gnome
 [*][b]Bazou[/b]: fighting styles, rules, spells
 [*][b]Pikachar2[/b]: spells
-[*][b]Prioritizer[/b]: Russian translations
-[*][b]xxy961216[/b]: Chinese translations
 [*][b]Taco[/b]: homebrew content design [feats, metamagic, subclasses], power and weapon icons
 [*][b]HiddenHax[/b]: homebrew content design [subclasses]
 [*][b]Balmz[/b]: some power and spell icons

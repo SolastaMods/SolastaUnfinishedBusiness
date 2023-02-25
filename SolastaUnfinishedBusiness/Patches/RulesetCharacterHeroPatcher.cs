@@ -636,43 +636,17 @@ public static class RulesetCharacterHeroPatcher
         [UsedImplicitly]
         public static bool Prefix(RulesetCharacterHero __instance, ref bool __result)
         {
-            // don't do anything on main screen
-            if (Gui.Game == null)
-            {
-                return true;
-            }
+            var maxLevel = Gui.Game == null ? Level20Context.GameMaxLevel : Gui.Game.CampaignDefinition.LevelCap;
+            var levelCap = Main.Settings.EnableLevel20 ? Level20Context.ModMaxLevel : maxLevel;
+            var level = __instance.GetAttribute(AttributeDefinitions.CharacterLevel).CurrentValue;
+            var experience = __instance.GetAttribute(AttributeDefinitions.Experience).CurrentValue;
+            var nextLevelThreshold = RuleDefinitions.ComputeNextLevelThreshold(level + 1);
 
-            if (Main.Settings.NoExperienceOnLevelUp)
-            {
-                var levelCap = Main.Settings.EnableLevel20
-                    ? Level20Context.ModMaxLevel
-                    : Level20Context.GameMaxLevel;
+            __result = (Main.Settings.NoExperienceOnLevelUp ||
+                        (nextLevelThreshold > 0 && experience >= nextLevelThreshold)) &&
+                       __instance.ClassesHistory.Count < levelCap;
 
-                __result = __instance.ClassesHistory.Count < levelCap;
-
-                return false;
-            }
-
-            if (!Main.Settings.EnableLevel20)
-            {
-                return true;
-            }
-
-            {
-                var levelCap = Main.Settings.EnableLevel20
-                    ? Level20Context.ModMaxLevel
-                    : Level20Context.GameMaxLevel;
-                // If the game doesn't know how much XP to reach the next level it uses -1 to determine if the character can level up.
-                // When a character is level 20, this ends up meaning the character can now level up forever unless we stop it here.
-                if (__instance.ClassesHistory.Count < levelCap)
-                {
-                    return true;
-                }
-
-                __result = false;
-
-                return false;
-            }
+            return false;
         }
     }
 

@@ -115,7 +115,7 @@ internal static class OtherFeats
 
     private static FeatDefinition BuildHealer()
     {
-        var spriteMedKit = Sprites.GetSprite("PowerMedKit", Resources.PowerMedKit, 128);
+        var spriteMedKit = Sprites.GetSprite("PowerMedKit", Resources.PowerMedKit, 256, 128);
         var powerFeatHealerMedKit = FeatureDefinitionPowerBuilder
             .Create("PowerFeatHealerMedKit")
             .SetGuiPresentation(Category.Feature, spriteMedKit)
@@ -138,7 +138,7 @@ internal static class OtherFeats
                 .Build())
             .AddToDB();
 
-        var spriteResuscitate = Sprites.GetSprite("PowerResuscitate", Resources.PowerResuscitate, 128);
+        var spriteResuscitate = Sprites.GetSprite("PowerResuscitate", Resources.PowerResuscitate, 256, 128);
         var powerFeatHealerResuscitate = FeatureDefinitionPowerBuilder
             .Create("PowerFeatHealerResuscitate")
             .SetGuiPresentation(Category.Feature, spriteResuscitate)
@@ -160,7 +160,7 @@ internal static class OtherFeats
                 .Build())
             .AddToDB();
 
-        var spriteStabilize = Sprites.GetSprite("PowerStabilize", Resources.PowerStabilize, 128);
+        var spriteStabilize = Sprites.GetSprite("PowerStabilize", Resources.PowerStabilize, 256, 128);
         var powerFeatHealerStabilize = FeatureDefinitionPowerBuilder
             .Create("PowerFeatHealerStabilize")
             .SetGuiPresentation(Category.Feature, spriteStabilize)
@@ -629,8 +629,8 @@ internal static class OtherFeats
                 attacker.RulesetCharacter.Guid,
                 _conditionDefinition,
                 DurationType.Round,
-                1,
-                TurnOccurenceType.StartOfTurn,
+                0,
+                TurnOccurenceType.EndOfTurn,
                 attacker.RulesetCharacter.Guid,
                 attacker.RulesetCharacter.CurrentFaction.Name);
 

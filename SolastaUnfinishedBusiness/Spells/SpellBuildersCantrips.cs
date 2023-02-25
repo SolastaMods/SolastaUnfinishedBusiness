@@ -622,18 +622,24 @@ internal static partial class SpellBuilders
 
         return spell;
     }
-    
-        internal static SpellDefinition BuildWrack()
+
+    internal static SpellDefinition BuildWrack()
     {
         const string NAME = "Wrack";
 
         var conditionWrack = ConditionDefinitionBuilder
-            .Create("ConditionWrack")
+            .Create($"Condition{NAME}")
             .SetGuiPresentation(Category.Condition, ConditionHindered)
-            .AddFeatures(FeatureDefinitionActionAffinityBuilder
-            .Create("ActionAffinityWrack")
-            .SetForbiddenActions(ActionDefinitions.Id.DisengageMain, ActionDefinitions.Id.DisengageBonus, ActionDefinitions.Id.DashMain, ActionDefinitions.Id.DashBonus)
-            .AddToDB())
+            .AddFeatures(
+                FeatureDefinitionActionAffinityBuilder
+                    .Create($"ActionAffinity{NAME}")
+                    .SetGuiPresentationNoContent(true)
+                    .SetForbiddenActions(
+                        ActionDefinitions.Id.DisengageMain,
+                        ActionDefinitions.Id.DisengageBonus,
+                        ActionDefinitions.Id.DashMain,
+                        ActionDefinitions.Id.DashBonus)
+                    .AddToDB())
             .AddToDB();
 
         var effectDescription = EffectDescriptionBuilder
@@ -652,7 +658,7 @@ internal static partial class SpellBuilders
             .SetEffectForms(
                 EffectFormBuilder
                     .Create()
-                    .SetConditionForm(conditionWrack,ConditionForm.ConditionOperation.Add)
+                    .SetConditionForm(conditionWrack, ConditionForm.ConditionOperation.Add)
                     .HasSavingThrow(EffectSavingThrowType.Negates)
                     .Build(),
                 EffectFormBuilder
@@ -664,7 +670,7 @@ internal static partial class SpellBuilders
 
         var spell = SpellDefinitionBuilder
             .Create(NAME)
-            .SetGuiPresentation(Category.Spell, VampiricTouch)
+            .SetGuiPresentation(Category.Spell, Sprites.GetSprite("Wrack", Resources.Wrack, 128))
             .SetEffectDescription(effectDescription)
             .SetCastingTime(ActivationTime.Action)
             .SetSpellLevel(0)

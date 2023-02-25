@@ -11,7 +11,7 @@ Equipment/&HerbalBrewDamageAffinityNecroticResistanceTitle=Gebräu des nekrotisc
 Equipment/&HerbalBrewDamageAffinityPoisonResistanceDescription=Erhalte 1 Stunde lang Resistenz gegen Giftschaden.
 Equipment/&HerbalBrewDamageAffinityPoisonResistanceTitle=Gebräu des Giftschutzes
 Equipment/&HerbalBrewDamageAffinityRadiantResistanceDescription=Erhaltet 1 Stunde lang Resistenz gegen Strahlungsschaden.
-Equipment/&HerbalBrewDamageAffinityRadiantResistanceTitle=Gebräu aus strahlendem Schutz
+Equipment/&HerbalBrewDamageAffinityRadiantResistanceTitle=Gebräu des strahlenden Schutzes
 Equipment/&HerbalBrewHealingTitle=Gebräu der Beschleunigung
 Equipment/&HerbalBrewToxifyingTitle=Gebräu der Vergiftung
 Feature/&AttributeModifierAncientForestBarkskinDescription=AC ist auf 16 eingestellt.
@@ -24,11 +24,11 @@ Feature/&LightAffinityAncientForestPhotosynthesisDescription=Sie können Energie
 Feature/&LightAffinityAncientForestPhotosynthesisTitle=Photosynthese
 Feature/&OnMagicalAttackDamageEffectAncientForestLifeSapDescription=Wenn du einem Feind mit einem Zauber Schaden zufügst, heilst du einmal pro Zug HP in Höhe deiner halben Stufe. Wenn du weniger als die Hälfte deiner HP hast, heilst du stattdessen HP in Höhe deines Levels, aber nur bis zur Hälfte deiner maximalen HP.
 Feature/&OnMagicalAttackDamageEffectAncientForestLifeSapTitle=Lebenssaft
-Feature/&PowerAncientForestRegrowthDescription=Sie haben einen Pool an Heilkraft, der sich füllt, wenn Sie sich lange ausruhen. Mit diesem Pool können Sie eine Gesamtzahl an Trefferpunkten wiederherstellen, die Ihrer Druidenstufe x 5 entspricht.
+Feature/&PowerAncientForestRegrowthDescription=Sie haben einen Pool an Heilkraft, der sich füllt, wenn Sie sich lange ausruhen. Mit diesem Pool können Sie eine Gesamtzahl an Trefferpunkten wiederherstellen, die Ihrer Druidenstufe × 5 entspricht.
 Feature/&PowerAncientForestRegrowthTitle=Nachwachsen
 Feature/&PowerAncientForestRootedDescription=Baumranken wachsen aus deinen Füßen und graben sich in den Boden. Deine Geschwindigkeit wird 0 und du erhältst einen Vorteil bei Rettungswürfen, um dich zu stoßen, zu ziehen oder dich zu Boden zu werfen. Du kannst Verschränken nach Belieben wirken.
 Feature/&PowerAncientForestRootedTitle=Verwurzelt
-Feature/&PowerPoolAncientForestHerbalBrewDescription=Können Sie Kräutersud herstellen, die jeweils bis zur nächsten langen Pause reichen. Du braust insgesamt Gebräue in Höhe deines Kompetenzbonus. Wähle für jedes Gebräu einen der folgenden Effekte: \n<color=#add8e6ff>Stärkendes Gebräu</color>: gewährt 1 Stunde lang Resistenz gegen verschiedene Schadensarten.\n<color=#add8e6ff>Beschleunigendes Gebräu</color> color>: Bietet 2W4 Trefferpunkte.\n<color=#add8e6ff>Toxifying Brew</color>: wirkt als Gift, das auf eine Waffe aufgetragen werden kann und 1Minute lang anhält. Wenn der Treffer landet, erleidet das Ziel bei jedem Treffer 1W4 Giftschaden.
+Feature/&PowerPoolAncientForestHerbalBrewDescription=Sie können Kräutersud herstellen, die jeweils bis zur nächsten langen Ruhezeit reichen. Du braust insgesamt Gebräue in Höhe deines Kompetenzbonus. Wähle für jedes Gebräu einen der folgenden Effekte:\n<color=#add8e6ff>Stärkendes Gebräu</color>: gewährt 1 Stunde lang Resistenz gegen verschiedene Schadensarten.\n<color=#add8e6ff>Beschleunigendes Gebräu</color> color>: Bietet 2W4 Trefferpunkte.\n<color=#add8e6ff>Toxifying Brew</color>: wirkt als Gift, das auf eine Waffe aufgetragen werden kann und 1 Minute lang anhält. Wenn der Treffer landet, erleidet das Ziel bei jedem Treffer 1W4 Giftschaden.
 Feature/&PowerPoolAncientForestHerbalBrewTitle=Kräuterbrauen
 Feature/&PowerPoolAncientForestWallOfThornsDescription=Du kannst Wall of Thorns so oft wirken, wie es deinem Weisheitsmodifikator entspricht. Es lädt sich bei langen Pausen wieder auf.
 Feature/&PowerPoolAncientForestWallOfThornsTitle=Dornenwand

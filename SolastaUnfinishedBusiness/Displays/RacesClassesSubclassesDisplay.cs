@@ -42,7 +42,7 @@ internal static class RacesClassesSubclassesDisplay
             ref sliderPos);
         Main.Settings.DisplayDeitiesToggle = displayToggle;
         Main.Settings.DeitySliderPosition = sliderPos;
-        
+
         displayToggle = Main.Settings.DisplayClassesToggle;
         sliderPos = Main.Settings.ClassSliderPosition;
         ModUi.DisplayDefinitions(

@@ -1,5 +1,31 @@
 ﻿CHANGES:
 
+1.4.33.48:
+
+- changed College of Life's healing pool to be offered as a power bundle
+- fixed Defensive Duelist to only keep additional AC until start of next turn
+- fixed Insidious Death Magic to apply on any effect as far as damage is Necrotic
+- fixed Level 20 experience threshold calculation on levels 19 and 20
+
+1.4.33.47:
+
+- added Primal Rage feat
+- fixed Blessed Soul requirements and attribute score modifier
+- fixed Defiler Domain missing domain spells and divine strike damage
+- improved Defiler Domain descriptions
+- improved College of War Dance descriptions
+
+1.4.33.46:
+
+- added Defiler Domain subclass under Maraike deity
+- expanded Potent Spellcaster to Bards, Clerics, Druids, Sorcerers and Inventors
+- expanded Blessed Soul to Paladins
+- fixed Awaken The Beast not applying hit points bonus to wildshape forms
+- fixed Piercer staying 1 round longer than supposed
+- fixed Raven heart seeking shot applying extra damage with non ranged attacks
+- fixed Soul Blade summon weapon not properly removing effects
+- fixed Warlock using wrong spell level if multiclass
+
 1.4.33.45:
 
 - fixed Awaken The Beast not adding Druid class based additional hit points

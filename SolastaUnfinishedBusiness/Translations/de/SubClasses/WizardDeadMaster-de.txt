@@ -1,15 +1,13 @@
 ﻿Feature/&AutoPreparedSpellsDeadMasterDescription={0}.
 Feature/&AutoPreparedSpellsDeadMasterTitle=Zauber des toten Meisters
-Feature/&BypassSpellConcentrationDeadMasterDescription=Du hast die Methoden der Nekromantie erlernt. Wenn Sie auf den Kopf gestellt werden, benötigen Sie keine Konzentration, um Tote zu erwecken.
+Feature/&BypassSpellConcentrationDeadMasterDescription=Du hast die Methoden der Nekromantie erlernt. Wenn Sie auf den Kopf gestellt werden, brauchen Sie keine Konzentration, um Tote zu erwecken.
 Feature/&BypassSpellConcentrationDeadMasterTitle=Streuen
 Feature/&FeatureSetDeadMasterNecromancyBonusDCDescription=Beim Wirken von Nekromantiezaubern erhältst du einen SG-Bonus von +1.
 Feature/&FeatureSetDeadMasterNecromancyBonusDCTitle=Experte für Nekromantie
-Feature/&SummoningAffinityDeadMasterUndeadChainsDescription=Von Ihnen erstellte Untote haben ein um 2 HP pro Zauberstufe erhöhtes Trefferpunktmaximum und addieren Ihren Fertigkeitsbonus zu den Angriffswürfen.
+Feature/&SummoningAffinityDeadMasterUndeadChainsDescription=Von Ihnen erstellte Untote haben ein um 2 TP erhöhtes Trefferpunktmaximum pro Zaubererstufe und addieren Ihren Fertigkeitsbonus zu Angriffswürfen.
 Feature/&SummoningAffinityDeadMasterUndeadChainsTitle=Untote Ketten
 Feature/&TargetReducedToZeroHpDeadMasterStarkHarvestDescription=Wenn Sie einmal pro Zug eine Kreatur mit einem Zauber der 1. Stufe oder höher töten, erhalten Sie Trefferpunkte in Höhe des doppelten Grades des Zaubers oder des dreifachen Grades des Zaubers zurück, wenn der Zauber zur Schule der Nekromantie gehört. Wenn Ihre Gesundheit voll ist, erhalten Sie stattdessen vorübergehende Trefferpunkte. Du erhältst diesen Vorteil nicht, wenn du Konstrukte oder Untote tötest.
 Feature/&TargetReducedToZeroHpDeadMasterStarkHarvestTitle=Starke Ernte
-Screen/&DeadMasterSpellDescription=Dieser Dead Master-Zauber ist immer vorbereitet.
-Screen/&DeadMasterSpellTitle=Untote
 Spell/&SpellRaiseDeadFormatDescription=Vorladung <b>{0}</b>:\n{1}
 Spell/&SpellRaiseDeadFormatTitle=Erhöhe {0}
 Subclass/&WizardDeadMasterDescription=Tote Meister lernen, die Energie zu manipulieren, die alle Lebewesen belebt. Während Sie Fortschritte machen, lernen Sie, einer Kreatur die Lebenskraft zu entziehen, während Ihre Magie ihren Körper zerstört und diese Lebensenergie in magische Kraft umwandelt, die Sie manipulieren können.

@@ -102,6 +102,7 @@ internal sealed class RoguishRaven : AbstractSubclass
         var conditionRavenHeartSeekingShot = ConditionDefinitionBuilder
             .Create("ConditionRavenHeartSeekingShot")
             .SetGuiPresentation("FeatureSetRavenHeartSeekingShot", Category.Feature)
+            .SetPossessive()
             .AddFeatures(
                 FeatureDefinitionAttributeModifierBuilder
                     .Create("AttributeModifierRavenHeartSeekingShotCriticalThreshold")
@@ -123,11 +124,10 @@ internal sealed class RoguishRaven : AbstractSubclass
                     .Create("AdditionalDamageRavenHeartSeekingShot")
                     .SetGuiPresentationNoContent(true)
                     .SetNotificationTag("HeartSeekingShot")
-                    .SetFrequencyLimit(FeatureLimitedUsage.None)
                     .SetTriggerCondition(AdditionalDamageTriggerCondition.AlwaysActive)
                     .SetAdditionalDamageType(AdditionalDamageType.SameAsBaseDamage)
                     .SetCustomSubFeatures(
-                        new RestrictedContextValidator(OperationType.Set, ValidatorsCharacter.HasTwoHandedRangedWeapon),
+                        ValidatorsCharacter.HasTwoHandedRangedWeapon,
                         new HeartSeekingShotAdditionalDamageOnCritMarker(CharacterClassDefinitions.Rogue))
                     .SetRequiredProperty(RestrictedContextRequiredProperty.RangeWeapon)
                     .SetDamageDice(DieType.D6, 1)

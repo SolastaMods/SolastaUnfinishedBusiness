@@ -149,9 +149,4 @@ internal static class RulesetActorExtensions
                && !(actor is RulesetCharacter character &&
                     character.MoveModes.ContainsKey((int)RuleDefinitions.MoveMode.Fly));
     }
-
-    internal static bool HasAnyConditionOfType(this RulesetActor actor, params string[] conditions)
-    {
-        return conditions.Any(actor.HasConditionOfType);
-    }
 }

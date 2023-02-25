@@ -72,8 +72,14 @@ internal static class BootContext
         // Races may rely on spells and powers being in the DB before they can properly load.
         RacesContext.Load();
 
+        // Backgrounds may rely on spells and powers being in the DB before they can properly load.
+        BackgroundsContext.Load();
+
         // Subclasses may rely on spells and powers being in the DB before they can properly load.
         SubclassesContext.Load();
+
+        // Deities may rely on spells and powers being in the DB before they can properly load.
+        DeitiesContext.Load();
 
         // Classes may rely on spells and powers being in the DB before they can properly load.
         ClassesContext.Load();

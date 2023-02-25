@@ -1,6 +1,6 @@
-﻿Feat/&FeatArcaneDefenseDescription=智力+1，最高20点\n当你没有穿戴任何盔甲时，你的AC等于10+敏捷调整值+智力调整值
+﻿Feat/&FeatArcaneDefenseDescription=将您的智力提高 1，最高达到 20。\n当您没有穿着任何盔甲或盾牌时，您的 AC 等于 10 + 敏捷调整值 + 智力调整值。
 Feat/&FeatArcaneDefenseTitle=奥术防御
-Feat/&FeatCharismaticDefenseDescription=魅力+1，最高20点\n当你没有穿戴任何盔甲时，你的AC等于10+敏捷调整值+魅力调整值
-Feat/&FeatCharismaticDefenseTitle=诡魅防御
-Feat/&FeatWiseDefenseDescription=感知+1，最高20点\n当你没有穿戴任何盔甲时，你的AC等于10+敏捷调整值+感知调整值
-Feat/&FeatWiseDefenseTitle=直觉防御
+Feat/&FeatCharismaticDefenseDescription=将您的魅力提高 1，最高为 20。\n当您没有穿着任何盔甲或盾牌时，您的 AC 等于 10 + 敏捷调整值 + 魅力调整值。
+Feat/&FeatCharismaticDefenseTitle=魅力防御
+Feat/&FeatWiseDefenseDescription=将您的智慧提高 1，最大为 20。\n当您没有穿着任何盔甲或盾牌时，您的 AC 等于 10 + 敏捷调整值 + 感知调整值。
+Feat/&FeatWiseDefenseTitle=明智的防御

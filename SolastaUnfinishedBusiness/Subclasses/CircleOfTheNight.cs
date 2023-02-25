@@ -402,8 +402,8 @@ internal sealed class CircleOfTheNight : AbstractSubclass
                     actingCharacter.Guid,
                     _wildshapeActionCondition,
                     DurationType.Round,
-                    1,
-                    TurnOccurenceType.StartOfTurn,
+                    0,
+                    TurnOccurenceType.EndOfTurn,
                     actingCharacter.Guid,
                     hero.CurrentFaction.Name);
 
@@ -419,8 +419,8 @@ internal sealed class CircleOfTheNight : AbstractSubclass
                 actingCharacter.Guid,
                 _anyActionCondition,
                 DurationType.Round,
-                1,
-                TurnOccurenceType.StartOfTurn,
+                0,
+                TurnOccurenceType.EndOfTurn,
                 actingCharacter.Guid,
                 hero.CurrentFaction.Name);
 

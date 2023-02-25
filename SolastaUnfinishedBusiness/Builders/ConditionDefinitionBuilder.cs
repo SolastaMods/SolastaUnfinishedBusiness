@@ -132,12 +132,6 @@ internal class ConditionDefinitionBuilder
         return this;
     }
 
-    internal ConditionDefinitionBuilder SetAdditionalDamageType(string damageType)
-    {
-        Definition.additionalDamageType = damageType;
-        return this;
-    }
-
     internal ConditionDefinitionBuilder SetTerminateWhenRemoved()
     {
         Definition.terminateWhenRemoved = true;

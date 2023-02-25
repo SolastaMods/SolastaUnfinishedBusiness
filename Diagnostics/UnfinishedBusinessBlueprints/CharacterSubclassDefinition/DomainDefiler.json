@@ -1,0 +1,99 @@
+{
+  "$type": "CharacterSubclassDefinition, Assembly-CSharp",
+  "featureUnlocks": [
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:BonusCantripDomainDefiler:af19c04e-4bf9-55fa-9eb9-84ef0060f1da",
+      "level": 1
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:AutoPreparedSpellsDomainDefiler:ca071051-32fc-5ba7-a850-03fc7d521d8e",
+      "level": 1
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:FeatureDomainDefilerInsidiousDeathMagic:5474f82c-c10e-5694-af52-5a3f797685a7",
+      "level": 1
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:FeatureSetDomainDefilerDefileLife2:7e871290-e5f9-5f7e-97a5-9ced333fb8ce",
+      "level": 2
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:FeatureSetDomainDefilerDefileLife5:07d38c25-4e61-5bbe-964c-34abb8fd144a",
+      "level": 5
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:DamageAffinityDomainDefilerDivineResistance:f97c531f-66f1-57f3-a51f-fe1cb8ad00ec",
+      "level": 6
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:AdditionalDamageDomainDefilerDivineStrike6:386df67d-4155-5961-8345-719ab269cbe5",
+      "level": 6
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:FeatureSetDomainDefilerMarkForDeath:92474773-54e8-5908-a328-a2cf39db0c4a",
+      "level": 8
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:PowerClericDivineInterventionPaladin:4f9a2e4ff332b204aae612753dada617",
+      "level": 10
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:FeatureSetDomainDefilerDefileLife11:27f4fc49-f7b9-59ed-bcd6-3bba266ce99f",
+      "level": 11
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:DamageAffinityDomainDefilerDivineImmunity:762bd2b0-0bc5-582b-b02b-d0f33517daf9",
+      "level": 14
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:AdditionalDamageDomainDefilerDivineStrike14:d2271466-ab0d-51d7-a9cb-751e9ffe34c5",
+      "level": 14
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:FeatureSetDomainDefilerDefileLife17:f7736993-eb65-5230-9937-ff85831b0e2f",
+      "level": 17
+    }
+  ],
+  "personalityFlagOccurences": [],
+  "morphotypeSubclassFilterTag": "Default",
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Subclass/&DomainDefilerTitle",
+    "description": "Subclass/&DomainDefilerDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "94bc07c7c4be00649b94c86fa9886a5a",
+      "m_SubObjectName": "Sorcerer_HauntedSoul",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "7b9c4832-5d8f-5740-99a7-2c0a89a8c571",
+  "contentPack": 9999,
+  "name": "DomainDefiler"
+}

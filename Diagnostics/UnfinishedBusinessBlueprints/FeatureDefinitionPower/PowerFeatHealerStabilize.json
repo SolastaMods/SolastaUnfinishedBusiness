@@ -331,7 +331,7 @@
     "description": "Feature/&PowerFeatHealerStabilizeDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "a169fdca-abd5-5af5-ab47-f15256a2e2ea",
+      "m_AssetGUID": "b06666e3-3aa1-5fa7-889d-a5300c6c0d93",
       "m_SubObjectName": null,
       "m_SubObjectType": null
     },

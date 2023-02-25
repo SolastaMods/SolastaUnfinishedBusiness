@@ -1,10 +1,10 @@
 ﻿Condition/&ConditionFarStepDescription=Puedes usar una acción adicional para teletransportarte hasta 60 pies a un espacio desocupado que puedas ver.
-Condition/&ConditionFarStepTitle=paso lejano
+Condition/&ConditionFarStepTitle=Paso lejano
 Feature/&AdditionalDamageBanishingSmiteDescription=Eres golpeado por daño de fuerza.
 Feature/&AdditionalDamageBanishingSmiteTitle=Castigo de destierro
-Feedback/&AdditionalDamageBanishingSmiteFormat=¡Destierro de Smite!
+Feedback/&AdditionalDamageBanishingSmiteFormat=Destierro de Smite!
 Feedback/&AdditionalDamageBanishingSmiteLine={0} inflige más daño a {1} a través de un golpe de destierro (+{2})
 Spell/&BanishingSmiteDescription=Tu próximo golpe inflige 5d10 de daño de fuerza adicional con tu arma. Además, si este ataque reduce al objetivo a 50 puntos de golpe o menos, lo destierras durante 1 min.
 Spell/&BanishingSmiteTitle=Castigo de destierro
 Spell/&FarStepDescription=Te teletransportas hasta 60 pies a un espacio desocupado que puedas ver. En cada uno de tus turnos antes de que finalice el hechizo, puedes usar una acción adicional para teletransportarte de esta manera nuevamente.
-Spell/&FarStepTitle=paso lejano
+Spell/&FarStepTitle=Paso lejano

@@ -275,7 +275,14 @@ internal static class TranslatorContext
 
             text = Glossary.Aggregate(text, (current, kvp) => current.Replace(kvp.Key, kvp.Value));
 
-            result.TryAdd(term, text);
+            if (result.ContainsKey(term))
+            {
+                Main.Error($"duplicate term {term}");
+            }
+            else
+            {
+                result.Add(term, text);
+            }
         }
 
         return result;

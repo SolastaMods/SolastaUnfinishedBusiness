@@ -1,6 +1,6 @@
-Feature/&PointPoolAbilityScore3Description=Повысьте 3 очка атрибутов в любой комбинации по вашему выбору.
-Feature/&PointPoolAbilityScore3Title=Увеличенные Атрибуты
-Feature/&PointPoolAbilityScore4Description=Повысьте 4 очка атрибутов в любой комбинации по вашему выбору.
-Feature/&PointPoolAbilityScore4Title=Увеличенные Атрибуты
-Feature/&PointPoolSelectBonusFeatsDescription=Выберите {0} дополнительные черты для персонажа.
-Feature/&PointPoolSelectBonusFeatsTitle={0} Бонусные черты
+Feature/&PointPoolAbilityScore3Description=Используйте три повышения характеристик в любой комбинации по вашему выбору.
+Feature/&PointPoolAbilityScore3Title=Увеличение показателя способности
+Feature/&PointPoolAbilityScore4Description=Используйте четыре повышения характеристик в любой комбинации по вашему выбору.
+Feature/&PointPoolAbilityScore4Title=Увеличение показателя способности
+Feature/&PointPoolSelectBonusFeatsDescription=Выберите {0} дополнительных умений для своего персонажа.
+Feature/&PointPoolSelectBonusFeatsTitle={0} Бонусные навыки

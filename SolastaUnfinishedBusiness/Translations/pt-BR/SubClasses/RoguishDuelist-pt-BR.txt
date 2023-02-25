@@ -1,14 +1,14 @@
 ﻿Feature/&AdditionalDamageRoguishDuelistDaringDuelDescription=Você não precisa de vantagem na jogada de ataque para usar seu Ataque Furtivo contra uma criatura se estiver a até 1,5 metro dela, nenhuma outra criatura estiver a até 1,5 metro de você e você não tiver desvantagem na jogada de ataque. Todas as outras regras de Ataque Furtivo ainda se aplicam.
-Feature/&AdditionalDamageRoguishDuelistDaringDuelTitle=duelo ousado
+Feature/&AdditionalDamageRoguishDuelistDaringDuelTitle=Duelo ousado
 Feature/&AdditionalDamageRoguishDuelistSureFootedDescription=Ganhe seu modificador de proficiência como um dano extra com sutileza ou ataques de armas à distância.
 Feature/&AdditionalDamageRoguishDuelistSureFootedTitle=Pé Seguro
 Feature/&AttributeModifierRoguishDuelistSureFootedDescription=Ganhe CA adicional igual à metade do seu bônus de proficiência.
 Feature/&AttributeModifierRoguishDuelistSureFootedTitle=Pé Seguro
-Feature/&ActionAffinityRoguishDuelistSwirlingDanceTitle=dança rodopiante
+Feature/&ActionAffinityRoguishDuelistSwirlingDanceTitle=Dança rodopiante
 Feature/&ActionAffinityRoguishDuelistSwirlingDanceDescription=A partir do 9º nível, quando uma criatura erra em você com uma jogada de ataque corpo a corpo, você pode usar sua reação para fazer um ataque de oportunidade imediato contra aquela criatura.
 Feature/&FeatureSetRoguishDuelistSureFootedDescription=Enquanto estiver sem armadura ou usando armadura leve sem escudo, ganhe CA adicional e iniciativa igual à metade do seu bônus de proficiência. Além disso, se sua mão inábil estiver vazia, ganhe seu modificador de proficiência como um dano extra com sutileza ou ataques de armas à distância.
 Feature/&FeatureSetRoguishDuelistSureFootedTitle=Pé Seguro
 Feedback/&AdditionalDamageSureFootedFormat=Pé Seguro
 Feedback/&AdditionalDamageSureFootedLine=Sure Footed causa +{2} de dano extra!
 Subclass/&RoguishDuelistDescription=Os duelistas possuem uma bravata arrogante. Eles são perspicazes, autossuficientes e perigosos para inimigos isolados.
-Subclass/&RoguishDuelistTitle=duelista
+Subclass/&RoguishDuelistTitle=Duelista

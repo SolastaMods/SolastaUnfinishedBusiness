@@ -23,14 +23,14 @@ ModUi/&AllowDungeonsMaxLevel20=Autoriser les donjons avec un niveau maximum de 2
 ModUi/&AllowGadgetsAndPropsToBePlacedAnywhere=Activez le clic <color=#1E81B0>CTRL</color> pour ignorer toute vérification lors du placement de gadgets ou d'accessoires
 ModUi/&AllowHornsOnAllRaces=Autoriser les cornes sur toutes les courses <i><color=#F0DAA0>[les résultats peuvent sembler terribles selon la race, la tête et la corne]</color></i>
 ModUi/&AllowMoreRealStateOnRestPanel=Autoriser plus d'état réel sur le panneau de repos <i><color=#F0DAA0>[masquer après les actions de repos sur le panneau avant et les fonctionnalités de récupération sur le panneau après]</color></i>
-ModUi/&AllowStackedMaterialComponent=Autoriser le composant de matériau empilé <i><color=#F0DAA0>[par ex. 2x500po de diamant équivaut à 1000po de diamant]</color></i>
+ModUi/&AllowStackedMaterialComponent=Autoriser le composant de matériau empilé <i><color=#F0DAA0>[par ex. 2 x 500 po de diamant équivaut à 1 000 po de diamant]</color></i>
 ModUi/&AllowTargetingSelectionWhenCastingChainLightningSpell=Autoriser la sélection de cible lors du lancement du sort <color=#D89555>Chain Lightning</color>
 ModUi/&AllowUnmarkedSorcerers=Autoriser <color=#D89555>Sorcier</color> sans marques d'origine ni tatouages
 ModUi/&AllRecipesInDm=Toutes les recettes en DM
 ModUi/&AltOnlyHighlightItemsInPartyFieldOfView=La touche <color=#1E81B0>ALT</color> ne met en évidence que les gadgets dans le champ de vision du groupe <i><color=#F0DAA0>[donjons personnalisés uniquement]</color></i>
 ModUi/&ApplySRDWeightToFoodRations=Réduire le poids de la ration alimentaire à 2 livres
 ModUi/&ArcaneShieldstaffOptions=Permet à <color=#D89555>Arcane Shieldstaff</color> d'être harmonisé par n'importe quelle classe
-ModUi/&Backgrounds=<color=#F0DAA0>Arrière-plans :</color>
+ModUi/&Backgrounds=<color=#F0DAA0>Arrière-plans:</color>
 ModUi/&Basic=<color=#F0DAA0>De base:</color>
 ModUi/&Bestiary=Bestiaire
 ModUi/&BestowCurseNoConcentrationRequiredForSlotLevel5OrAbove=<color=#D89555>Bestow Curse</color> ne nécessite pas de concentration lorsqu'il est lancé avec un emplacement de sort L5+
@@ -48,15 +48,15 @@ ModUi/&CraftingHelp=. Appuyez sur le bouton pour apprendre des recettes instanta
 ModUi/&Credits=Crédits
 ModUi/&CreditsAndDiagnostics=Crédits & Diagnostics
 ModUi/&Critical=<color=#F0DAA0>Coup critique:</color>
-ModUi/&CriticalOption0=. 0: défaut du jeu, lancez deux fois les dés de dégâts, ajoutez le résultat et ajoutez les modificateurs <i><color=#F0DAA0>[XdY+XdY+Z]</color></i>
-ModUi/&CriticalOption1=. 1: additionnez le résultat maximum des dés de dégâts et ajoutez-le aux dégâts de l'attaque <i><color=#F0DAA0>[XdY+(X*Y)+Z]</color></i>
-ModUi/&CriticalOption2=. 2: continuez à relancer tous les dés de dégâts qui obtiennent le résultat le plus élevé possible et ajoutez-le au total des dégâts
-ModUi/&CriticalOption3=. 3 : Doublez les dégâts totaux de votre attaque au lieu de lancer des dés supplémentaires. <i><color=#F0DAA0>[(XdY+Z)*2]</color></i>
-ModUi/&DeadEyeAndPowerAttackBaseBaseValue=<color=white>Définir la valeur de base du modificateur Deadeye et Power Attack</color>\n<i><color=#F0DAA0>[la formule est -mod to hit / mod + votre bonus de compétence pour les dégâts]</color></i>
-ModUi/&Deities=<color=#F0DAA0>Divinités :</color>
+ModUi/&CriticalOption0=<color=#D89555><b>0</b></color>: jeu par défaut, lancez deux fois les dés de dégâts, ajoutez le résultat et ajoutez les modificateurs <i><color=#F0DAA0>[XdY+XdY+Z] </color></i>
+ModUi/&CriticalOption1=<color=#D89555><b>1</b></color>: additionnez le résultat maximum des dés de dégâts et ajoutez-le aux dégâts de l'attaque <i><color=#F0DAA0>[XdY+(X*Y) +Z]</color></i>
+ModUi/&CriticalOption2=<color=#D89555><b>2</b></color>: continuez à relancer tous les dés de dégâts qui obtiennent le résultat le plus élevé possible et ajoutez-le au total des dégâts
+ModUi/&CriticalOption3=<color=#D89555><b>3</b></color>: Doublez les dégâts totaux de votre attaque au lieu de lancer des dés supplémentaires. <i><color=#F0DAA0>[(XdY+Z)*2]</color></i>
+ModUi/&DeadEyeAndPowerAttackBaseBaseValue=<color=white>Définir la valeur du modificateur de base Deadeye et Power Attack</color>\n<i><color=#F0DAA0>[la formule est -mod pour frapper / mod + votre PB pour endommager]</color></i>
+ModUi/&Deities=<color=#F0DAA0>Divinités:</color>
 ModUi/&DisableAutoEquip=Désactiver l'équipement automatique des objets dans l'inventaire
 ModUi/&DisableClassPrerequisitesOnModFeats=Désactiver les prérequis de niveau sur les exploits liés à la classe fournis par ce mod
-ModUi/&DisableRacePrerequisitesOnModFeats=Désactiver les pré-requis de race sur les exploits fournis par ce mod
+ModUi/&DisableRacePrerequisitesOnModFeats=Désactiver les pré-requis de course sur les exploits fournis par ce mod
 ModUi/&DisableSenseDarkVisionFromAllRaces=Désactivez <color=#D89555>Sense Dark Vision</color> de toutes les races jouables <b><i><color=#C04040E0>[Nécessite un redémarrage]</color></i></b>
 ModUi/&DisableSenseSuperiorDarkVisionFromAllRaces=Désactivez <color=#D89555>Superior Sense Dark Vision</color> de toutes les races jouables <b><i><color=#C04040E0>[Nécessite un redémarrage]</color></i></b>
 ModUi/&DisplayAllKnownSpellsDuringLevelUp=<i>+ Afficher tous les sorts connus des autres classes lors de la montée de niveau</i>
@@ -72,10 +72,10 @@ ModUi/&EnableAdditionalItemsInDungeonMaker=<i>+ Ajouter de nouveaux éléments �
 ModUi/&EnableAlternateHuman=Activer l'humain alternatif <i><color=#F0DAA0>[+1 feat / +2 choix d'attributs / +1 skill]</color></i>
 ModUi/&EnableBetaContent=Activer le contenu bêta <b><i><color=#C04040E0>[Nécessite un redémarrage]</color></i></b>
 ModUi/&EnableCancelEditOnRightMouseClick=Activer les actions d'annulation avec un clic droit de la souris
-ModUi/&EnableCharacterChecker=Activer le vérificateur de caractères sur l'écran principal > Personnages
+ModUi/&EnableCharacterChecker=Activez le bouton Vérificateur de caractères sur l'écran principal > Personnages
 ModUi/&EnableCharacterExport=Activez <color=#1E81B0>CTRL-SHIFT-(E)</color> pour exporter le caractère
 ModUi/&EnableCheatMenu=Activer le menu de triche
-ModUi/&EnableDungeonMakerModdedContent=Activer DungeonMakerPro\n<i><color=#F0DAA0>[inclure des pièces plates, des tailles de donjon de 150x150 et 200x200 et mélanger sans fioritures les ressources de tous les environnements]</color></i>
+ModUi/&EnableDungeonMakerModdedContent=Activer Dungeon Maker Pro\n<i><color=#F0DAA0>[inclure des pièces plates, des tailles de donjon de 150 x 150 et 200 x 200 et mélanger sans fioritures les éléments de tous les environnements]</color></i>
 ModUi/&EnableEpicPointsAndArray=Activer un système d'achat épique de 35 points et un tableau <i><color=#F0DAA0>[17,15,13,12,10,8]</color></i> <b><i><color=#C04040E0>[Nécessite un redémarrage]</color></i></b>
 ModUi/&EnableFeatsAtEvenLevels=Activer la sélection des exploits aux niveaux de classe 2, 6, 10 et 14
 ModUi/&EnableFighterArmamentAdroitness=Activez <color=#D89555>Combattant</color> <b>Entraînement aux armes</b> aux niveaux de classe 2, 6, 10 et 14 <i><color=#F0DAA0>[choisissez un type d'arme pour obtenir +1 à frapper et endommager]</color></i>
@@ -89,7 +89,7 @@ ModUi/&EnableInventoryTintKnownRecipesRed=Recettes connues de teinte rouge
 ModUi/&EnableInvisibleCrownOfTheMagister=Masquez la <color=#D89555>couronne du magistère</color> sur l'interface utilisateur du jeu
 ModUi/&EnableLevel20=Activer le niveau 20 <b><i><color=#C04040E0>[Nécessite un redémarrage]</color></i></b>
 ModUi/&EnableLogDialoguesToConsole=Activer les dialogues de journal sur la console de jeu pendant les séquences narratives
-ModUi/&EnableMinInOutAttributes=<i>+Appliquer les scores de capacité minimum des prérequis d'entrée et de sortie</i>
+ModUi/&EnableMinInOutAttributes=<i>+ Appliquer les scores de capacité minimum des prérequis d'entrée et de sortie</i>
 ModUi/&EnableMulticlass=Activer multiclasse <b><i><color=#C04040E0>[Nécessite un redémarrage]</color></i></b>
 ModUi/&EnableRejoinParty=Activez <color=#1E81B0>CTRL-SHIFT-(R)</color> pour rejoindre le groupe <i><color=#F0DAA0>[utile avec des groupes de 5 ou 6]</color></i>
 ModUi/&EnableRelearnSpells=<i>+ Peut sélectionner des tours mineurs ou des sorts déjà appris d'autres classes</i>
@@ -127,7 +127,7 @@ ModUi/&GameUi=Interface utilisateur du jeu
 ModUi/&General=<color=#F0DAA0>Général:</color>
 ModUi/&GeneralMenu=Général
 ModUi/&HideExitAndTeleporterGizmosIfNotDiscovered=Masquer les sorties et les effets visuels des téléporteurs s'ils ne sont pas encore découverts
-ModUi/&HideMonsterHitPoints=Affiche la santé des monstres par paliers de 25% / 50% / 75% / 100% au lieu des points de vie exacts
+ModUi/&HideMonsterHitPoints=Affiche la santé des monstres par paliers de 25 % / 50 % / 75 % / 100 % au lieu des points de vie exacts
 ModUi/&House=<color=#F0DAA0>Maison:</color>
 ModUi/&IdentifyAfterRest=Ajouter un pouvoir pour identifier les objets magiques sur un repos court ou long
 ModUi/&IgnoreHandXbowFreeHandRequirements=Ne nécessite pas de main libre pour utiliser les arbalètes à main
@@ -148,7 +148,7 @@ ModUi/&ItemsHelp1=<color=#C04040E0>Ouvrez l'écran d'inspection des personnages 
 ModUi/&ItemsHelp2=<b>Appuyez sur + pour ajouter des éléments au conteneur terrestre</b>
 ModUi/&MakeAllMagicStaveArcaneFoci=Faire de tous les bâtons magiques des foyers arcaniques <i><color=#F0DAA0>[sauf le <color=#D89555>Bâton de guérison</color> qui est universel]</color></i>
 ModUi/&MakeLargeWildshapeFormsMedium=Faites en sorte que toutes les grandes formes sauvages soient de taille moyenne
-ModUi/&MarkInvisibleTeleportersOnLevelMap=<i>+Marquer également l'emplacement des téléporteurs invisibles sur la carte de niveau après la découverte</i>
+ModUi/&MarkInvisibleTeleportersOnLevelMap=<i>+ Marquer également l'emplacement des téléporteurs invisibles sur la carte de niveau après la découverte</i>
 ModUi/&MaxAllowedClasses=<color=white>Classes maximales autorisées</color>
 ModUi/&Merchants=<color=#F0DAA0>Commerçants:</color>
 ModUi/&Metamagic=<color=#F0DAA0>Métamagie</color>
@@ -178,7 +178,7 @@ ModUi/&RestockArcaneum=Réapprovisionner Arcaneum <i><color=#F0DAA0>[Heddlon Sur
 ModUi/&RestockCircleOfDanantar=Réapprovisionner le Cercle de Danantar <i><color=#F0DAA0>[Joriel Foxeye]</color></i>
 ModUi/&RestockHelp=. Remplacez les valeurs par défaut pour forcer le stock de tous les marchands à se réapprovisionner au fil du temps <i><color=#F0DAA0>[à l'exception des manuels et des tomes]</color></i>\n. Notez que certains articles peuvent prendre jusqu'à 7 jours de jeu pour se réapprovisionner
 ModUi/&RestockTowerOfKnowledge=Réapprovisionner la tour du savoir <i><color=#F0DAA0>[Maddy Greenisle]</color></i>
-ModUi/&Rules=Des règles
+ModUi/&Rules=Règles
 ModUi/&ScaleMerchantPricesCorrectly=Mettre à l'échelle les prix marchands correctement/exactement <i><color=#F0DAA0>[plus d'erreurs d'arrondi lors de la conversion des valeurs des pièces]</color></i>
 ModUi/&SelectAll=Tout sélectionner
 ModUi/&SelectSuggested=Sélectionnez Suggéré

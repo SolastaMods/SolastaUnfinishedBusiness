@@ -1,10 +1,10 @@
 ModUi/&AddAllToStore=Adicionar tudo à loja
 ModUi/&AddBleedingToLesserRestoration=Adicione a condição <color=#D89555>Sangramento</color> àquelas removidas por <color=#D89555>Maior</color> e <color=#D89555>Menor Restauração</color>
-ModUi/&AddCustomIconsToOfficialItems=Adicione ícones personalizados aos itens oficiais do jogo <i><color=#F0DAA0>[munição, receitas, kits, etc.]</color></i> <b><i><color=#C04040E0>[Requer reinicialização] </color></i></b>
-ModUi/&AddHelpActionToAllRaces=Adicione a ação <color=#D89555>Ajuda</color> a todas as raças jogáveis <i><color=#F0DAA0>[você pode ajudar uma criatura aliada a atacar uma criatura a até 1,5 metro de você]</color></i>
+ModUi/&AddCustomIconsToOfficialItems=Adicione ícones personalizados aos itens oficiais do jogo <i><color=#F0DAA0>[munição, receitas, kits etc.]</color></i> <b><i><color=#C04040E0>[Requer reinicialização] </color></i></b>
+ModUi/&AddHelpActionToAllRaces=Adicione a ação <color=#D89555>Ajuda</color> a todas as raças jogáveis <i><color=#F0DAA0>[você pode ajudar uma criatura amiga a atacar uma criatura a até 1,5 metro de você]</color></i>
 ModUi/&AddHumanoidFavoredEnemyToRanger=Adicione o inimigo preferencial humanóide a <color=#D89555>Rangers</color>
 ModUi/&AddMonkKiPointsToggle=Adicione uma alternância para permitir que <color=#D89555>Monks</color> habilite/desabilite Pontos Ki <i><color=#F0DAA0>[útil para minimizar solicitações de reação]</color></i>
-ModUi/&AddMonsterSwapAttackToggle=Adicionada uma alternância para permitir que <color=#D89555>Druidas</color> em forma selvagem selecionem qual ataque usar primeiro <i><color=#F0DAA0>[útil com uma mistura de corpo a corpo e à distância]</color> </i>
+ModUi/&AddMonsterSwapAttackToggle=Adicionada uma alternância para permitir que <color=#D89555>Druidas</color> na forma selvagem selecionem qual ataque usar primeiro <i><color=#F0DAA0>[útil com uma mistura de ataques corpo a corpo e à distância]</color> </i>
 ModUi/&AddNewBrightEyeColors=Adicione novas cores de olhos brilhantes
 ModUi/&AddNewWeaponsAndRecipesToShops=Adicione novas armas e receitas às lojas <i><color=#F0DAA0>[bandagens de mão, alabardas, lanças, maças longas, bestas de mão]</color></i> <b><i><color=#C04040E0> [Requer reinicialização]</color></i></b>
 ModUi/&AddPaladinSmiteToggle=Adicionada uma alternância para permitir que <color=#D89555>Paladins</color> habilite smites apenas em acertos críticos <i><color=#F0DAA0>[útil para minimizar solicitações de reação]</color></i>
@@ -16,7 +16,7 @@ ModUi/&Adventure=<color=#F0DAA0>Aventura:</color>
 ModUi/&AllItemInDm=Todos os itens na DM
 ModUi/&AllowAllPlayersOnNarrativeSequences=<i>+ Permitir todos os jogadores em sequências narrativas</i>
 ModUi/&AllowAnyClassToWearSylvanArmor=Permita que qualquer classe use <color=#D89555>Armadura Silvestre</color> ou <color=#D89555>Roupas Portadoras da Luz</color>
-ModUi/&AllowAssigningOfficialSpells=Permitir que feitiços oficiais sejam exibidos nestas listas
+ModUi/&AllowAssigningOfficialSpells=Permitir que os feitiços oficiais sejam exibidos nessas listas
 ModUi/&AllowBeardlessDwarves=Permitir <color=#D89555>Anões</color> sem barba
 ModUi/&AllowDruidToWearMetalArmor=Permitir que <color=#D89555>Druida</color> use armadura de metal
 ModUi/&AllowDungeonsMaxLevel20=Permitir masmorras com nível máximo 20
@@ -48,11 +48,11 @@ ModUi/&CraftingHelp=. Pressione o botão para aprender receitas instantaneamente
 ModUi/&Credits=Créditos
 ModUi/&CreditsAndDiagnostics=Créditos e Diagnósticos
 ModUi/&Critical=<color=#F0DAA0>Acerto crítico:</color>
-ModUi/&CriticalOption0=. 0: jogo padrão, role qualquer dado de dano duas vezes, adicione o resultado e adicione modificadores <i><color=#F0DAA0>[XdY+XdY+Z]</color></i>
-ModUi/&CriticalOption1=. 1: soma o resultado máximo dos dados de dano e adiciona ao dano do ataque <i><color=#F0DAA0>[XdY+(X*Y)+Z]</color></i>
-ModUi/&CriticalOption2=. 2: continue rolando novamente qualquer dado de dano que role o resultado mais alto possível e adicione-o ao dano total
-ModUi/&CriticalOption3=. 3: Duplique o dano total do seu ataque em vez de rolar dados adicionais. <i><color=#F0DAA0>[(XdY+Z)*2]</color></i>
-ModUi/&DeadEyeAndPowerAttackBaseBaseValue=<color=white>Definir o valor do modificador base Deadeye e Power Attack</color>\n<i><color=#F0DAA0>[a fórmula é -mod para acertar / mod + seu bônus de proficiência para danificar]</color></i>
+ModUi/&CriticalOption0=<color=#D89555><b>0</b></color>: padrão do jogo, role qualquer dado de dano duas vezes, some o resultado e adicione modificadores <i><color=#F0DAA0>[XdY+XdY+Z] </color></i>
+ModUi/&CriticalOption1=<color=#D89555><b>1</b></color>: soma o resultado máximo dos dados de dano e adiciona ao dano do ataque <i><color=#F0DAA0>[XdY+(X*Y) +Z]</color></i>
+ModUi/&CriticalOption2=<color=#D89555><b>2</b></color>: continue jogando novamente qualquer dado de dano que role o resultado mais alto possível e adicione-o ao dano total
+ModUi/&CriticalOption3=<color=#D89555><b>3</b></color>: Duplique o dano total do seu ataque em vez de rolar dados adicionais. <i><color=#F0DAA0>[(XdY+Z)*2]</color></i>
+ModUi/&DeadEyeAndPowerAttackBaseBaseValue=<color=white>Defina o valor do modificador base Deadeye e Power Attack</color>\n<i><color=#F0DAA0>[a fórmula é -mod para acertar / mod + seu PB para danificar]</color></i>
 ModUi/&Deities=<color=#F0DAA0>Divindades:</color>
 ModUi/&DisableAutoEquip=Desativar o equipamento automático de itens no inventário
 ModUi/&DisableClassPrerequisitesOnModFeats=Desative os pré-requisitos de nível em talentos vinculados à classe fornecidos por este mod
@@ -72,7 +72,7 @@ ModUi/&EnableAdditionalItemsInDungeonMaker=<i>+ Adicionar novos itens ao Dungeon
 ModUi/&EnableAlternateHuman=Habilite o humano alternativo <i><color=#F0DAA0>[+1 talento / +2 opções de atributo / +1 habilidade]</color></i>
 ModUi/&EnableBetaContent=Habilitar conteúdo beta <b><i><color=#C04040E0>[Requer reinicialização]</color></i></b>
 ModUi/&EnableCancelEditOnRightMouseClick=Habilitar ações de cancelamento com o botão direito do mouse
-ModUi/&EnableCharacterChecker=Habilite o verificador de caracteres na tela principal > Personagens
+ModUi/&EnableCharacterChecker=Ative o botão Verificador de caracteres na tela principal > Personagens
 ModUi/&EnableCharacterExport=Ative <color=#1E81B0>CTRL-SHIFT-(E)</color> para exportar o caractere
 ModUi/&EnableCheatMenu=Ative o menu de truques
 ModUi/&EnableDungeonMakerModdedContent=Ative o Dungeon Maker Pro\n<i><color=#F0DAA0>[inclua salas planas, tamanhos de masmorras de 150 x 150 e 200 x 200 e mistura sem frescuras de todos os ambientes]</color></i>
@@ -98,7 +98,7 @@ ModUi/&EnablesAsiAndFeat=Ative o aumento de pontuação de atributos e a seleç�
 ModUi/&EnableSaveByLocation=Ativar salvar por campanhas / locais
 ModUi/&EnableSortingDungeonMakerAssets=Ativar classificação de recursos no editor do Dungeon Maker
 ModUi/&EnableStatsOnHeroTooltip=Exibir estatísticas na dica de ferramenta do herói <i><color=#F0DAA0>[ou seja: acertos críticos, falhas críticas, etc.]</color></i>
-ModUi/&EnableTeleportParty=Habilite <color=#1E81B0>CTRL-SHIFT-(T)</color> para teletransportar o grupo <i><color=#F0DAA0>[você pode interromper as missões se teletransportar para um lugar desconhecido]</color></i>
+ModUi/&EnableTeleportParty=Habilite <color=#1E81B0>CTRL-SHIFT-(T)</color> para teletransportar o grupo <i><color=#F0DAA0>[você pode interromper missões se teletransportar para um lugar desconhecido]</color></i>
 ModUi/&EnableTogglesToOverwriteDefaultTestParty=Ative a alternância no pool de personagens para definir seu jogo padrão e grupo de teste
 ModUi/&EnableUpcastConjureElementalAndFey=Habilitar upcast de <color=#D89555>Conjure Elemental</color> e <color=#D89555>Conjure Fey</color>
 ModUi/&EncounterPercentageChance=<color=white>Definir chances de porcentagem de encontros aleatórios</color>
@@ -133,7 +133,7 @@ ModUi/&IdentifyAfterRest=Adicione um poder para identificar itens mágicos duran
 ModUi/&IgnoreHandXbowFreeHandRequirements=Não requer mão livre para usar bestas de mão
 ModUi/&IncreaseGameTimeBy=Aumente o tempo de jogo em
 ModUi/&IncreaseMaxAttunedItems=Aumente o máximo de itens sintonizados para 4 no nível 10 e 5 no nível 18
-ModUi/&IncreaseSenseNormalVision=<color=white>Aumente o alcance do <color=#D89555>Sentir visão normal</color> para permitir ataques de longo alcance</color> <b><i><color=#C04040E0>[Requer reinicialização]</color></i></b>
+ModUi/&IncreaseSenseNormalVision=<color=white>Aumente o alcance de <color=#D89555>Sentir visão normal</color> para permitir ataques de longo alcance</color> <b><i><color=#C04040E0>[Requer reinicialização]</color></i></b>
 ModUi/&IncreaseSenseNormalVisionHelp=<i><color=#F0DAA0>[40 é ideal para evitar que inimigos se juntem de longe]</color></i>
 ModUi/&InitialChoices=<color=#F0DAA0>Criação:</color>
 ModUi/&Input=<color=#F0DAA0>Entrada:</color>
@@ -156,7 +156,7 @@ ModUi/&Monsters=<color=#F0DAA0>Monstros:</color>
 ModUi/&MulticlassKeyHelp=<color=#1E81B0>SHIFT</color> clique em um feitiço inverte o tipo de slot de repertório padrão consumido\n<i><color=#F0DAA0>[<color=#D89555>Warlock</color> gasta slots de feitiço branco e outros gastam pacto verde]</color></i>
 ModUi/&MultiplyTheExperienceGainedBy=<color=white>Multiplique a experiência adquirida por</color> <color=#C04040E0>[%]</color>
 ModUi/&NoExperienceOnLevelUp=Nenhuma experiência é necessária para subir de nível
-ModUi/&OfferAdditionalLoreFriendlyNames=Ofereça nomes amigáveis de lore adicionais na criação de personagens
+ModUi/&OfferAdditionalLoreFriendlyNames=Ofereça nomes amigáveis de lore adicionais na criação de personagem
 ModUi/&OnlyShowMostPowerfulUpcastConjuredElementalOrFey=<i>+ Mostrar apenas as criaturas mais poderosas na lista de conjuração</i>
 ModUi/&OverrideMinMaxLevel=Substitua os níveis mínimo e máximo necessários ao iniciar novas aventuras
 ModUi/&OverridePartySize=<color=white>Substituir o tamanho da festa</color>
@@ -179,7 +179,7 @@ ModUi/&RestockCircleOfDanantar=Reabastecer Círculo de Danantar <i><color=#F0DAA
 ModUi/&RestockHelp=. Substitua os padrões para forçar o estoque de todos os comerciantes a reabastecer com o tempo <i><color=#F0DAA0>[excluindo manuais e tomos]</color></i>\n. Observe que alguns itens podem levar até 7 dias de jogo para reabastecer
 ModUi/&RestockTowerOfKnowledge=Reabastecer a Torre do Conhecimento <i><color=#F0DAA0>[Maddy Greenisle]</color></i>
 ModUi/&Rules=Regras
-ModUi/&ScaleMerchantPricesCorrectly=Escale os preços dos comerciantes corretamente / exatamente <i><color=#F0DAA0>[sem mais erros de arredondamento ao converter valores de moeda]</color></i>
+ModUi/&ScaleMerchantPricesCorrectly=Escale os preços dos comerciantes corretamente / exatamente <i><color=#F0DAA0>[sem mais erros de arredondamento ao converter valores de moedas]</color></i>
 ModUi/&SelectAll=Selecionar tudo
 ModUi/&SelectSuggested=Selecione Sugerido
 ModUi/&Services=Serviços

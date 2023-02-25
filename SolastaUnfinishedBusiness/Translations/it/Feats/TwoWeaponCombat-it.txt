@@ -2,5 +2,5 @@
 Condition/&ConditionDualFlurryGrantTitle=Doppia raffica
 Feat/&FeatDualFlurryDescription=Sei un maestro del combattimento con armi accoppiate. In qualsiasi turno in cui colpisci due volte con attacchi in mischia mentre impugni un'arma in ciascuna mano, puoi effettuare un attacco secondario aggiuntivo quando attacchi con la tua azione bonus.
 Feat/&FeatDualFlurryTitle=Doppia raffica
-Feat/&FeatDualWeaponDefenseDescription=Ottieni un bonus di +1 alla CA mentre impugni un'arma da mischia separata in ciascuna mano.
+Feat/&FeatDualWeaponDefenseDescription=Ottieni un bonus di +1 alla CA mentre impugni un'arma da mischia separata in ogni mano.
 Feat/&FeatDualWeaponDefenseTitle=Difesa con doppia arma

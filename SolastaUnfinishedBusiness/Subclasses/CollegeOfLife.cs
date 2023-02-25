@@ -2,12 +2,12 @@
 using SolastaUnfinishedBusiness.Api.Infrastructure;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
+using SolastaUnfinishedBusiness.CustomBehaviors;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterSubclassDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.ConditionDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionDamageAffinitys;
-using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPowers;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
 using static SolastaUnfinishedBusiness.Subclasses.CommonBuilders;
 
@@ -34,7 +34,7 @@ internal sealed class CollegeOfLife : AbstractSubclass
 
         var powerSharedPoolCollegeOfLifeHealingPool = FeatureDefinitionPowerBuilder
             .Create("PowerSharedPoolCollegeOfLifeHealingPool")
-            .SetGuiPresentation(Category.Feature, hidden: true)
+            .SetGuiPresentation(Category.Feature)
             .SetUsesProficiencyBonus(ActivationTime.BonusAction)
             .AddToDB();
 
@@ -46,7 +46,7 @@ internal sealed class CollegeOfLife : AbstractSubclass
 
         var powerSharedPoolCollegeOfLifeDarkvision = FeatureDefinitionPowerSharedPoolBuilder
             .Create("PowerSharedPoolCollegeOfLifeDarkvision")
-            .SetGuiPresentation(Category.Feature, PowerDomainBattleDivineWrath)
+            .SetGuiPresentation(Category.Feature)
             .SetSharedPool(ActivationTime.BonusAction, powerSharedPoolCollegeOfLifeHealingPool)
             .SetEffectDescription(
                 EffectDescriptionBuilder
@@ -77,7 +77,7 @@ internal sealed class CollegeOfLife : AbstractSubclass
 
         var powerSharedPoolCollegeOfLifePoison = FeatureDefinitionPowerSharedPoolBuilder
             .Create("PowerSharedPoolCollegeOfLifeElementalResistance")
-            .SetGuiPresentation(Category.Feature, PowerDomainElementalFireBurst)
+            .SetGuiPresentation(Category.Feature)
             .SetSharedPool(ActivationTime.BonusAction, powerSharedPoolCollegeOfLifeHealingPool)
             .SetEffectDescription(
                 EffectDescriptionBuilder
@@ -101,7 +101,7 @@ internal sealed class CollegeOfLife : AbstractSubclass
 
         var powerSharedPoolCollegeOfLifeConstitution = FeatureDefinitionPowerSharedPoolBuilder
             .Create("PowerSharedPoolCollegeOfLifeConstitution")
-            .SetGuiPresentation(Category.Feature, PowerPaladinAuraOfCourage)
+            .SetGuiPresentation(Category.Feature)
             .SetSharedPool(ActivationTime.BonusAction, powerSharedPoolCollegeOfLifeHealingPool)
             .SetEffectDescription(
                 EffectDescriptionBuilder
@@ -119,7 +119,7 @@ internal sealed class CollegeOfLife : AbstractSubclass
 
         var powerSharedPoolCollegeOfLifeFly = FeatureDefinitionPowerSharedPoolBuilder
             .Create("PowerSharedPoolCollegeOfLifeFly")
-            .SetGuiPresentation(Category.Feature, Fly)
+            .SetGuiPresentation(Category.Feature)
             .SetSharedPool(ActivationTime.BonusAction, powerSharedPoolCollegeOfLifeHealingPool)
             .SetEffectDescription(
                 EffectDescriptionBuilder
@@ -136,17 +136,25 @@ internal sealed class CollegeOfLife : AbstractSubclass
 
         var powerSharedPoolCollegeOfLifeHeal = FeatureDefinitionPowerSharedPoolBuilder
             .Create("PowerSharedPoolCollegeOfLifeHeal")
-            .SetGuiPresentation(Category.Feature, MassHealingWord)
+            .SetGuiPresentation(Category.Feature)
             .SetSharedPool(ActivationTime.BonusAction, powerSharedPoolCollegeOfLifeHealingPool)
             .SetEffectDescription(MassHealingWord.EffectDescription)
             .AddToDB();
 
         var powerSharedPoolCollegeOfLifeRevive = FeatureDefinitionPowerSharedPoolBuilder
             .Create("PowerSharedPoolCollegeOfLifeRevive")
-            .SetGuiPresentation(Category.Feature, Revivify)
+            .SetGuiPresentation(Category.Feature)
             .SetSharedPool(ActivationTime.BonusAction, powerSharedPoolCollegeOfLifeHealingPool)
             .SetEffectDescription(Revivify.EffectDescription)
             .AddToDB();
+
+        PowerBundle.RegisterPowerBundle(powerSharedPoolCollegeOfLifeHealingPool, false,
+            powerSharedPoolCollegeOfLifeDarkvision,
+            powerSharedPoolCollegeOfLifePoison,
+            powerSharedPoolCollegeOfLifeConstitution,
+            powerSharedPoolCollegeOfLifeFly,
+            powerSharedPoolCollegeOfLifeHeal,
+            powerSharedPoolCollegeOfLifeRevive);
 
         Subclass = CharacterSubclassDefinitionBuilder
             .Create("CollegeOfLife")
@@ -155,13 +163,7 @@ internal sealed class CollegeOfLife : AbstractSubclass
                 MagicAffinityCollegeOfLifeHeightened)
             .AddFeaturesAtLevel(6,
                 damageAffinityCollegeOfLifeNecroticResistance,
-                powerSharedPoolCollegeOfLifeHealingPool,
-                powerSharedPoolCollegeOfLifeDarkvision,
-                powerSharedPoolCollegeOfLifePoison,
-                powerSharedPoolCollegeOfLifeConstitution,
-                powerSharedPoolCollegeOfLifeFly,
-                powerSharedPoolCollegeOfLifeHeal,
-                powerSharedPoolCollegeOfLifeRevive)
+                powerSharedPoolCollegeOfLifeHealingPool)
             .AddFeaturesAtLevel(14,
                 DamageAffinityGenericHardenToNecrotic,
                 PowerCasterCommandUndeadCharisma)

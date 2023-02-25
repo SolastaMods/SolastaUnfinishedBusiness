@@ -38,5 +38,5 @@ Spell/&SubSpellChromaticOrbDescription=The creature takes 3d8 {0} damage.
 Spell/&SubSpellSkinOfRetributionDescription=The creature takes 5 {0} per spell level.
 Spell/&ThunderousSmiteDescription=On your next hit your weapon rings with thunder and the attack deals an extra 2d6 thunder damage to the target. Additionally, if the target is a creature, it must succeed on a Strength saving throw or be pushed 10 feet away from you and knocked prone.
 Spell/&ThunderousSmiteTitle=Thunderous Smite
-Spell/&WrathfulSmiteDescription=Your next hit deals additional 1d6 psychic damage. If target fails WIS saving throw its mind explodes in pain and it becomes frightened. 
+Spell/&WrathfulSmiteDescription=Your next hit deals additional 1d6 psychic damage. If target fails WIS saving throw its mind explodes in pain and it becomes frightened.
 Spell/&WrathfulSmiteTitle=Wrathful Smite

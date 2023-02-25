@@ -73,6 +73,7 @@ internal sealed class WizardArcaneFighter : AbstractSubclass
                     .Build())
             .SetCustomSubFeatures(
                 new ShouldTerminatePowerEffect(PowerArcaneFighterEnchantWeapon),
+                ExtraCarefulTrackedItem.Marker,
                 SkipEffectRemovalOnLocationChange.Always)
             .AddToDB();
 
