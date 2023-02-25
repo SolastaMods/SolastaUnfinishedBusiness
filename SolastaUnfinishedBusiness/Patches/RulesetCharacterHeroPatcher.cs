@@ -291,6 +291,17 @@ public static class RulesetCharacterHeroPatcher
 
             return num;
         }
+        
+        [UsedImplicitly]
+        public static void Prefix(
+            RulesetCharacterHero __instance,
+            List<IAttackModificationProvider> attackModifiers)
+        {
+            //PATCH: validate damage features
+            attackModifiers.RemoveAll(provider =>
+                provider is BaseDefinition feature
+                && !__instance.IsValid(feature.GetAllSubFeaturesOfType<IsCharacterValidHandler>()));
+        }
 
         [UsedImplicitly]
         public static void Postfix(
