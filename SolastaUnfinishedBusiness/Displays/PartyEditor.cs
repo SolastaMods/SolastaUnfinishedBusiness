@@ -19,7 +19,11 @@ namespace SolastaUnfinishedBusiness.Displays {
             IGameService gameService = ServiceRepository.GetService<IGameService>();
             ICharacterPoolService characterPoolService = ServiceRepository.GetService<ICharacterPoolService>();
             var party = gameService?.Game?.GameCampaign?.Party;
-            if (party != null)
+            Label("Experimental Preview: ".Orange().bold() + "This simple party editor lets you edit characters in a loaded game session. Right now it lets you edit your character's first and last name. More features are coming soon (tm). Please click on the following to report issues:".Localized().green());
+            LinkButton("https://github.com/SolastaMods/SolastaUnfinishedBusiness/issues", "https://github.com/SolastaMods/SolastaUnfinishedBusiness/issues");
+            if (party == null)
+                Label("****** Party Editor unavailable: Please load a save game ******".Localized().yellow().bold());
+            else
             {
                 using (UI.VerticalScope())
                 {
@@ -39,6 +43,10 @@ namespace SolastaUnfinishedBusiness.Displays {
                                 {
                                     hero.SurName = surname;
                                 }
+                            }
+                            using (UI.HorizontalScope(UI.ExpandWidth(true)))
+                            {
+                                UI.Label("");
                             }
                         }
                     }
