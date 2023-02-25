@@ -575,6 +575,83 @@ internal static partial class SpellBuilders
 
         return spell;
     }
+    
+        internal static SpellDefinition BuildSanctuary()
+    {
+        const string NAME = "Sanctuary";
+
+        var conditionSanctuaryBuff1 = ConditionDefinitionBuilder
+            .Create($"Condition{NAME}Buff1")
+            .SetGuiPresentationNoContent(true)
+            .SetSilent(Silent.WhenAddedOrRemoved)
+            .AddFeatures(FeatureDefinitionAttributeModifierBuilder
+                .Create($"AttributeModifier{NAME}Buff")
+                .SetModifier(
+                    FeatureDefinitionAttributeModifier.AttributeModifierOperation.Additive,
+                    AttributeDefinitions.ArmorClass,
+                    30)
+                .AddToDB())
+            .AddSpecialInterruptions(ConditionInterruption.Attacked)
+            .AddToDB();
+
+        var conditionSanctuaryBuff2 = ConditionDefinitionBuilder
+            .Create($"Condition{NAME}Buff2")
+            .SetGuiPresentationNoContent(true)
+            .SetSilent(Silent.WhenAddedOrRemoved)
+            .AddFeatures(
+             DamageAffinityAcidResistance,
+             DamageAffinityBludgeoningResistance,
+             DamageAffinityColdResistance,
+             DamageAffinityFireResistance,
+             DamageAffinityForceDamageResistance,
+             DamageAffinityLightningResistance,
+             DamageAffinityNecroticResistance,
+             DamageAffinityPiercingResistance,
+             DamageAffinityPoisonResistance,
+             DamageAffinityPsychicResistance,
+             DamageAffinityRadiantResistance,
+             DamageAffinitySlashingResistance,
+             DamageAffinityThunderResistance)
+            .AddSpecialInterruptions(ConditionInterruption.Attacked)
+            .AddToDB();
+
+        //Attack possible is skipped when crit, so I am just going to halve the damage on crits.
+        var featureSanctuary = FeatureDefinitionBuilder
+            .Create($"Feature{NAME}")
+            .SetCustomSubFeatures(new SanctuaryBeforeAttackHitConfirmed(conditionSanctuaryBuff2),
+            new SanctuaryBeforeAttackHitPossible(conditionSanctuaryBuff1))
+            .AddToDB();
+
+        var conditionSanctuary = ConditionDefinitionBuilder
+            .Create($"Condition{NAME}")
+            .SetGuiPresentation(Category.Condition, ConditionAuraOfProtection)
+            .AddSpecialInterruptions(ConditionInterruption.Attacks)
+            .SetFeatures(featureSanctuary)
+            .AddToDB();
+
+        var spell = SpellDefinitionBuilder
+            .Create(NAME)
+            .SetGuiPresentation(Category.Spell, BeaconOfHope)
+            .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolAbjuration)
+            .SetSpellLevel(1)
+            .SetCastingTime(ActivationTime.BonusAction)
+            .SetVerboseComponent(true)
+            .SetRequiresConcentration(true)
+            .SetEffectDescription(EffectDescriptionBuilder
+                .Create()
+                .SetTargetingData(Side.Ally, RangeType.Distance, 6, TargetType.Individuals)
+                .SetDurationData(DurationType.Minute, 1)
+                .SetEffectForms(EffectFormBuilder
+                    .Create()
+                    .SetConditionForm(conditionSanctuary, ConditionForm.ConditionOperation.Add)
+                    .Build())
+                .ExcludeCaster()
+                .Build())
+            .AddToDB();
+
+        return spell;
+    }
+
 
     #endregion
 }
