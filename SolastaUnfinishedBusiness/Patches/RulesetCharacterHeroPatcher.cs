@@ -199,11 +199,28 @@ public static class RulesetCharacterHeroPatcher
             var method = typeof(IAttackModificationProvider).GetMethod("get_AttackRollModifier");
             var custom = new Func<IAttackModificationProvider, RulesetCharacterHero, int>(GetAttackRollModifier)
                 .Method;
+            
+            //PATCH: support for AddTagToWeapon
+            var weaponTags = typeof(WeaponDescription)
+                .GetProperty(nameof(WeaponDescription.WeaponTags))
+                .GetGetMethod();
+            var customWeaponTags = new Func<
+                WeaponDescription,
+                RulesetCharacter,
+                RulesetItem,
+                List<string>
+            >(AddTagToWeapon.GetCustomWeaponTags).Method;
 
-            return instructions.ReplaceCalls(method,
-                "RulesetCharacterHero.RefreshAttackMode",
-                new CodeInstruction(OpCodes.Ldarg_0),
-                new CodeInstruction(OpCodes.Call, custom));
+            return instructions
+                .ReplaceCalls(method,
+                    "RulesetCharacterHero.RefreshAttackMode.AttackRollModifier",
+                    new CodeInstruction(OpCodes.Ldarg_0),
+                    new CodeInstruction(OpCodes.Call, custom))
+                .ReplaceCalls(weaponTags,
+                    "RulesetCharacterHero.RefreshAttackMode.WeaponTags",
+                    new CodeInstruction(OpCodes.Ldarg_0),
+                    new CodeInstruction(OpCodes.Ldarg, 9),
+                    new CodeInstruction(OpCodes.Call, customWeaponTags));
         }
 
         private static int GetAttackRollModifier(IAttackModificationProvider provider, RulesetCharacterHero hero)
