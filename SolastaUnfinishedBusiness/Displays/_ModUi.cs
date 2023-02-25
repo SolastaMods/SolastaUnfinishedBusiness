@@ -181,6 +181,19 @@ namespace SolastaUnfinishedBusiness.Displays
     }
 
     [UsedImplicitly]
+    internal class PartyEditorViewer : IMenuSelectablePage
+    {
+        public string Name => Gui.Localize("Party Editor");
+
+        public int Priority => 200;
+
+        public void OnGUI(UnityModManager.ModEntry modEntry)
+        {
+            PartyEditor.OnGUI();
+        }
+    }
+
+    [UsedImplicitly]
     internal class GameplayViewer : IMenuSelectablePage
     {
         private int gamePlaySelectedPane;

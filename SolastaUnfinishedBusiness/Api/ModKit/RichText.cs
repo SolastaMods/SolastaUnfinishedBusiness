@@ -111,4 +111,6 @@ public static class RichText
     {
         return _ = $"<size={percent}%>{s}</size>";
     }
+
+    public static string Localized(this string s) => Gui.Localize(s);
 }
