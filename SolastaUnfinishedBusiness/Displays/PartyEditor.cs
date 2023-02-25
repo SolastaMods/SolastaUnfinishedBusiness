@@ -30,6 +30,14 @@ namespace SolastaUnfinishedBusiness.Displays {
                 Label("****** Party Editor unavailable: Please load a save game ******".Localized().yellow().bold());
             else
             {
+                var commandService = ServiceRepository.GetService<ICommandService>();
+                Space(15);
+                HStack("Quickies".Localized(), 2,
+                    () => ActionButton($"Long Rest", () => commandService.StartRest(RuleDefinitions.RestType.LongRest, false),
+                    AutoWidth())
+                    );
+                Div();
+                Label("Current Party".Localized().Cyan().Bold());
                 using (UI.VerticalScope())
                 {
                     foreach (var ch in party.charactersList)
