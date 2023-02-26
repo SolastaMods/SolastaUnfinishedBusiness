@@ -164,16 +164,17 @@ internal static partial class SpellBuilders
                 EffectSavingThrowType.None,
                 AttributeDefinitions.Strength)
             .SetCustomSubFeatures(new AdditionalEffectFormOnDamageHandler((attacker, _, provider) =>
-                new List<EffectForm>
-                {
-                    EffectFormBuilder.Create()
-                        .SetConditionForm(ensnared, ConditionForm.ConditionOperation.Add)
-                        .HasSavingThrow(EffectSavingThrowType.Negates)
-                        .CanSaveToCancel(TurnOccurenceType.EndOfTurn)
-                        .OverrideSavingThrowInfo(AttributeDefinitions.Strength,
-                            GameLocationBattleManagerTweaks.ComputeSavingThrowDC(attacker.RulesetCharacter, provider))
-                        .Build()
-                }),
+                    new List<EffectForm>
+                    {
+                        EffectFormBuilder.Create()
+                            .SetConditionForm(ensnared, ConditionForm.ConditionOperation.Add)
+                            .HasSavingThrow(EffectSavingThrowType.Negates)
+                            .CanSaveToCancel(TurnOccurenceType.EndOfTurn)
+                            .OverrideSavingThrowInfo(AttributeDefinitions.Strength,
+                                GameLocationBattleManagerTweaks.ComputeSavingThrowDC(attacker.RulesetCharacter,
+                                    provider))
+                            .Build()
+                    }),
                 ValidatorsRestrictedContext.WeaponAttack)
             .AddToDB();
 
@@ -187,7 +188,7 @@ internal static partial class SpellBuilders
 
         var spell = SpellDefinitionBuilder
             .Create(NAME)
-            .SetGuiPresentation(Category.Spell, Entangle)
+            .SetGuiPresentation(Category.Spell, Sprites.GetSprite("EnsnaringStrike", Resources.EnsnaringStrike, 128))
             .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolConjuration)
             .SetSpellLevel(1)
             .SetMaterialComponent(MaterialComponentType.None)
@@ -244,7 +245,8 @@ internal static partial class SpellBuilders
 
         var spell = SpellDefinitionBuilder
             .Create(NAME)
-            .SetGuiPresentation(Category.Spell, Longstrider)
+            .SetGuiPresentation(Category.Spell,
+                Sprites.GetSprite("Mule", Resources.Mule, 128))
             .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolTransmutation)
             .SetSpellLevel(1)
             .SetCastingTime(ActivationTime.Action)
