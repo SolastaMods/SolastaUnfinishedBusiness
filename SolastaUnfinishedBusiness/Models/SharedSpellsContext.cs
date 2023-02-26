@@ -48,6 +48,7 @@ internal static class SharedSpellsContext
     private static Dictionary<string, CasterProgression> SubclassCasterType { get; } = new()
     {
         { MartialSpellblade.Name, CasterProgression.OneThird },
+        { RoguishArcaneScoundrel.Name, CasterProgression.OneThird },
         { RoguishShadowCaster.Name, CasterProgression.OneThird },
         { MartialSpellShield.Name, CasterProgression.OneThird }
     };
@@ -212,8 +213,8 @@ internal static class SharedSpellsContext
         const BindingFlags PrivateBinding = BindingFlags.Instance | BindingFlags.NonPublic;
 
         var harmony = new Harmony("SolastaUnfinishedBusiness");
-        var transpiler = new Func<IEnumerable<CodeInstruction>, IEnumerable<CodeInstruction>>(SharedSpellsTranspiler)
-            .Method;
+        var transpiler =
+            new Func<IEnumerable<CodeInstruction>, IEnumerable<CodeInstruction>>(SharedSpellsTranspiler).Method;
         var methods = new[]
         {
             typeof(CharacterBuildingManager).GetMethod("ApplyFeatureCastSpell", PrivateBinding),
