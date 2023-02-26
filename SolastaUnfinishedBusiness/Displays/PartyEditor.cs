@@ -111,6 +111,8 @@ namespace SolastaUnfinishedBusiness.Displays {
                                 var attrName = attr.Key;
                                 var attribute = attr.Value;
                                 var baseValue = attribute.baseValue;
+                                var modifiers = attribute.ActiveModifiers.Select(m => $"{m.Value.ToString("+0;-#")} {String.Join(" ",m.Tags).TrimStart('0', '1', '2', '3', '4', '5', '6', '7', '8', '9').Cyan()}").ToArray();
+                                var modifiersString = String.Join(" ", modifiers);
                                 using (HorizontalScope())
                                 {
                                     Space(100);
@@ -122,19 +124,19 @@ namespace SolastaUnfinishedBusiness.Displays {
                                         changed = true;
                                     }, GUI.skin.box, AutoWidth());
                                     Space(20);
-                                    Label($"{baseValue}".orange().bold(), Width(50f));
+                                    Label($"{attribute.currentValue}".orange().bold(), Width(50f));
                                     ActionButton(" > ", () =>
                                     {
                                         attribute.baseValue += 1;
                                         changed = true;
                                     }, GUI.skin.box, AutoWidth());
-#if false
                                     Space(25);
-                                    ActionIntTextField(ref storedValue, (v) => {
-                                        modifiableValue.BaseValue = v;
+                                    ActionIntTextField(ref baseValue, (v) => {
+                                        attribute.baseValue = v;
+                                        changed = true;
                                     }, Width(75));
-                                    statEditorStorage[key] = storedValue;
-#endif
+                                    Space(10);
+                                    Label($"{modifiersString}");
                                 }
                             }
                             if (changed)
