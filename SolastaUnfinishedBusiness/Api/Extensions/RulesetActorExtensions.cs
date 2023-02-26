@@ -113,10 +113,19 @@ internal static class RulesetActorExtensions
     [NotNull]
     internal static List<T> GetSubFeaturesByType<T>(this RulesetActor actor, params Type[] typesToSkip) where T : class
     {
-        return AllActiveDefinitions(actor)
+        var list = AllActiveDefinitions(actor)
             .Where(f => !typesToSkip.Contains(f.GetType()))
             .SelectMany(f => f.GetAllSubFeaturesOfType<T>())
             .ToList();
+
+        //also add sub-features from original form of wild-shaped character
+        if (Main.Settings.EnumerateOriginSubFeatures
+            && actor is RulesetCharacterMonster {originalFormCharacter: RulesetCharacterHero hero})
+        {
+            list.AddRange(hero.GetSubFeaturesByType<T>());
+        }
+
+        return list;
     }
 
     internal static bool HasSubFeatureOfType<T>(this RulesetActor actor, params Type[] typesToSkip) where T : class
