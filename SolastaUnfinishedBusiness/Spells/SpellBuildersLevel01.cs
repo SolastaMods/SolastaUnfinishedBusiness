@@ -159,6 +159,10 @@ internal static partial class SpellBuilders
             .SetDamageDice(DieType.D6, 1)
             .SetSpecificDamageType(DamageTypePiercing)
             .SetAdvancement(AdditionalDamageAdvancement.SlotLevel)
+            .SetSavingThrowData(
+                EffectDifficultyClassComputation.SpellCastingFeature,
+                EffectSavingThrowType.None,
+                AttributeDefinitions.Strength)
             .SetCustomSubFeatures(new AdditionalEffectFormOnDamageHandler((attacker, _, provider) =>
                 new List<EffectForm>
                 {
