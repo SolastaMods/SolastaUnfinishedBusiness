@@ -38,16 +38,16 @@ internal sealed class MenuManager : INotifyPropertyChanged
     private readonly List<IMenuBottomPage> _bottomPages = new();
     private readonly List<IMenuSelectablePage> _selectablePages = new();
     private readonly List<IMenuTopPage> _topPages = new();
-    private int _tabIndex;
+    static private int _tabIndex =>  Main.Settings.SelectedTab;
 
     private int TabIndex
     {
         get => _tabIndex;
         set
         {
-            if (_tabIndex != value)
+            if (Main.Settings.SelectedTab != value)
             {
-                _tabIndex = value;
+                Main.Settings.SelectedTab = value;
                 NotifyPropertyChanged();
             }
         }

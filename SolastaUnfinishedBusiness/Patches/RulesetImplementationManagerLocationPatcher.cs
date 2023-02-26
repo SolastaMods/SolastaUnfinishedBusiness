@@ -173,25 +173,8 @@ public static class RulesetImplementationManagerLocationPatcher
         [UsedImplicitly]
         public static bool Prefix(RulesetEffect activeEffect)
         {
-            switch (activeEffect)
-            {
-                case RulesetEffectPower rulesetEffectPower:
-                {
-                    var shouldTerminate = rulesetEffectPower.PowerDefinition
-                        .GetFirstSubFeatureOfType<IShouldTerminateEffect>();
-
-                    return shouldTerminate == null || !shouldTerminate.Validate(activeEffect);
-                }
-                case RulesetEffectSpell rulesetEffectSpell:
-                {
-                    var shouldTerminate = rulesetEffectSpell.SpellDefinition
-                        .GetFirstSubFeatureOfType<IShouldTerminateEffect>();
-
-                    return shouldTerminate == null || !shouldTerminate.Validate(activeEffect);
-                }
-                default:
-                    return true;
-            }
+            var shouldTerminate = activeEffect.SourceDefinition.GetFirstSubFeatureOfType<IShouldTerminateEffect>();
+            return shouldTerminate == null || shouldTerminate.Validate(activeEffect);
         }
     }
 

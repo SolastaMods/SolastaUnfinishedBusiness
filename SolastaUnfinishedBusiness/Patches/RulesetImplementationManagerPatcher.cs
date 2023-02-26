@@ -532,12 +532,28 @@ public static class RulesetImplementationManagerPatcher
             var isWeapon = typeof(ItemDefinition).GetMethod("get_IsWeapon");
             var customWeaponDescription =
                 new Func<ItemDefinition, WeaponDescription>(ShieldAttack.CustomWeaponDescription).Method;
+
+            //PATCH: support for AddTagToWeapon
+            var weaponTags = typeof(WeaponDescription)
+                .GetProperty(nameof(WeaponDescription.WeaponTags))
+                .GetGetMethod();
+            var customWeaponTags = new Func<
+                WeaponDescription,
+                RulesetCharacter,
+                RulesetAttackMode,
+                List<string>
+            >(AddTagToWeapon.GetCustomWeaponTags).Method;
             var customIsWeapon = new Func<ItemDefinition, bool>(ShieldAttack.CustomIsWeapon).Method;
 
             return instructions
                 .ReplaceCalls(weaponDescription,
                     "RulesetImplementationManager.IsValidContextForRestrictedContextProvider.WeaponDescription",
                     new CodeInstruction(OpCodes.Call, customWeaponDescription))
+                .ReplaceCalls(weaponTags,
+                    "RulesetImplementationManager.IsValidContextForRestrictedContextProvider.WeaponTags",
+                    new CodeInstruction(OpCodes.Ldarg_2),
+                    new CodeInstruction(OpCodes.Ldarg, 5),
+                    new CodeInstruction(OpCodes.Call, customWeaponTags))
                 .ReplaceCalls(isWeapon,
                     "RulesetImplementationManager.IsValidContextForRestrictedContextProvider.IsWeapon",
                     new CodeInstruction(OpCodes.Call, customIsWeapon));

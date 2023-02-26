@@ -1,5 +1,6 @@
 ﻿using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.Extensions;
+using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
@@ -41,6 +42,37 @@ internal sealed class RoguishArcaneScoundrel : AbstractSubclass
             .SetProficiencies(ProficiencyType.SkillOrExpertise, DatabaseHelper.SkillDefinitions.Arcana.Name)
             .AddToDB();
 
+        var conditionDistractingAmbush = ConditionDefinitionBuilder
+            .Create($"Condition{Name}{DistractingAmbush}")
+            .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionDistracted)
+            .SetConditionType(ConditionType.Detrimental)
+            .SetPossessive()
+            .SetSpecialDuration(DurationType.Round, 1)
+            .SetFeatures(
+                FeatureDefinitionActionAffinityBuilder
+                    .Create($"ActionAffinity{Name}{DistractingAmbush}")
+                    .SetGuiPresentationNoContent(true)
+                    .SetAllowedActionTypes()
+                    .SetForbiddenActions(
+                        ActionDefinitions.Id.AttackOpportunity,
+                        ActionDefinitions.Id.CastReaction,
+                        ActionDefinitions.Id.PowerReaction,
+                        ActionDefinitions.Id.UncannyDodge)
+                    .AddToDB(),
+                FeatureDefinitionSavingThrowAffinityBuilder
+                    .Create($"SavingThrowAffinity{Name}{DistractingAmbush}")
+                    .SetGuiPresentationNoContent(true)
+                    .SetModifiers(FeatureDefinitionSavingThrowAffinity.ModifierType.RemoveDice,
+                        DieType.D1, 2, false,
+                        AttributeDefinitions.Charisma,
+                        AttributeDefinitions.Constitution,
+                        AttributeDefinitions.Dexterity,
+                        AttributeDefinitions.Intelligence,
+                        AttributeDefinitions.Strength,
+                        AttributeDefinitions.Wisdom)
+                    .AddToDB())
+            .AddToDB();
+
         var additionalDamageDistractingAmbush = FeatureDefinitionAdditionalDamageBuilder
             .Create($"AdditionalDamage{Name}{DistractingAmbush}")
             .SetGuiPresentation(Category.Feature)
@@ -54,36 +86,7 @@ internal sealed class RoguishArcaneScoundrel : AbstractSubclass
                 {
                     hasSavingThrow = false,
                     operation = ConditionOperationDescription.ConditionOperation.Add,
-                    conditionDefinition = ConditionDefinitionBuilder
-                        .Create($"Condition{Name}{DistractingAmbush}")
-                        .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionDistracted)
-                        .SetConditionType(ConditionType.Detrimental)
-                        .SetPossessive()
-                        .SetSpecialDuration(DurationType.Round, 1)
-                        .SetFeatures(
-                            FeatureDefinitionActionAffinityBuilder
-                                .Create($"ActionAffinity{Name}{DistractingAmbush}")
-                                .SetGuiPresentationNoContent(true)
-                                .SetAllowedActionTypes()
-                                .SetForbiddenActions(
-                                    ActionDefinitions.Id.AttackOpportunity,
-                                    ActionDefinitions.Id.CastReaction,
-                                    ActionDefinitions.Id.PowerReaction,
-                                    ActionDefinitions.Id.UncannyDodge)
-                                .AddToDB(),
-                            FeatureDefinitionSavingThrowAffinityBuilder
-                                .Create($"SavingThrowAffinity{Name}{DistractingAmbush}")
-                                .SetGuiPresentationNoContent(true)
-                                .SetModifiers(FeatureDefinitionSavingThrowAffinity.ModifierType.RemoveDice,
-                                    DieType.D1, 2, false,
-                                    AttributeDefinitions.Charisma,
-                                    AttributeDefinitions.Constitution,
-                                    AttributeDefinitions.Dexterity,
-                                    AttributeDefinitions.Intelligence,
-                                    AttributeDefinitions.Strength,
-                                    AttributeDefinitions.Wisdom)
-                                .AddToDB())
-                        .AddToDB()
+                    conditionDefinition = conditionDistractingAmbush
                 })
             .AddToDB();
 
@@ -106,7 +109,7 @@ internal sealed class RoguishArcaneScoundrel : AbstractSubclass
 
         powerArcaneBacklash.SetCustomSubFeatures(
             PowerVisibilityModifier.Hidden,
-            new ModifyMagicEffectCounterSpell(powerArcaneBacklash));
+            new ModifyMagicEffectCounterSpell(powerArcaneBacklash, conditionDistractingAmbush));
 
         var autoPreparedSpellsArcaneBackslash = FeatureDefinitionAutoPreparedSpellsBuilder
             .Create($"AutoPreparedSpells{Name}ArcaneBackslash")
@@ -139,11 +142,15 @@ internal sealed class RoguishArcaneScoundrel : AbstractSubclass
 
     private sealed class ModifyMagicEffectCounterSpell : IOnAfterActionFeature
     {
+        private readonly ConditionDefinition _conditionDefinition;
         private readonly FeatureDefinitionPower _featureDefinitionPower;
 
-        public ModifyMagicEffectCounterSpell(FeatureDefinitionPower featureDefinitionPower)
+        public ModifyMagicEffectCounterSpell(
+            FeatureDefinitionPower featureDefinitionPower,
+            ConditionDefinition conditionDefinition)
         {
             _featureDefinitionPower = featureDefinitionPower;
+            _conditionDefinition = conditionDefinition;
         }
 
         public void OnAfterAction(CharacterAction action)
@@ -161,8 +168,22 @@ internal sealed class RoguishArcaneScoundrel : AbstractSubclass
 
             foreach (var gameLocationCharacter in action.actionParams.TargetCharacters)
             {
-                effectPower.ApplyEffectOnCharacter(gameLocationCharacter.RulesetCharacter, true,
+                var defenderRulesetCharacter = gameLocationCharacter.RulesetCharacter;
+
+                GameConsoleHelper.LogCharacterUsedPower(rulesetCharacter, _featureDefinitionPower);
+                effectPower.ApplyEffectOnCharacter(defenderRulesetCharacter, true,
                     gameLocationCharacter.LocationPosition);
+
+                var rulesetCondition = RulesetCondition.CreateActiveCondition(
+                    defenderRulesetCharacter.Guid,
+                    _conditionDefinition,
+                    DurationType.Round,
+                    1,
+                    TurnOccurenceType.EndOfTurn,
+                    rulesetCharacter.Guid,
+                    rulesetCharacter.CurrentFaction.Name);
+
+                defenderRulesetCharacter.AddConditionOfCategory(AttributeDefinitions.TagCombat, rulesetCondition);
             }
         }
     }

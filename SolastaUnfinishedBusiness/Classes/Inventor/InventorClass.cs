@@ -706,7 +706,7 @@ internal static class InventorClass
             .SetSharedPool(ActivationTime.Action, pool)
             .SetUniqueInstance()
             .SetCustomSubFeatures(
-                new ShouldTerminatePowerEffect(powerName),
+                DoNotTerminateWhileUnconscious.Marker,
                 ExtraCarefulTrackedItem.Marker,
                 SkipEffectRemovalOnLocationChange.Always)
             .SetEffectDescription(EffectDescriptionBuilder

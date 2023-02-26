@@ -288,7 +288,7 @@ public static partial class ReflectionCache
             method.DefineParameter(1, ParameterAttributes.In, "instance");
 
             var il = method.GetILGenerator();
-            
+
             if (Info.IsStatic)
             {
                 for (var i = 1; i <= parameters.Length; i++)

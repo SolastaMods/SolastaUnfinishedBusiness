@@ -126,7 +126,8 @@ internal static partial class SpellBuilders
 
         var spell = SpellDefinitionBuilder
             .Create(NAME)
-            .SetGuiPresentation(Category.Spell, SpikeGrowth)
+            .SetGuiPresentation(Category.Spell,
+                Sprites.GetSprite("MantleOfThorns", Resources.MantleOfThorns, 128))
             .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolTransmutation)
             .SetSpellLevel(5)
             .SetCastingTime(ActivationTime.Action)

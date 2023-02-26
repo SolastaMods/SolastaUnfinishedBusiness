@@ -18,9 +18,13 @@ public static class RulesetItemPatcher
         [UsedImplicitly]
         public static void Postfix(
             RulesetItem __instance,
-            Dictionary<string, TagsDefinitions.Criticity> tagsMap)
+            Dictionary<string, TagsDefinitions.Criticity> tagsMap,
+            object context)
         {
             var item = __instance.itemDefinition;
+
+            //PATCH: add custom tags from sub-features
+            AddTagToWeapon.TryAddTags(context as RulesetCharacter, __instance, tagsMap);
 
             //PATCH: adds custom weapon tags (like `Polearm`) to appropriate weapons
             CustomWeaponsContext.AddCustomTags(item, tagsMap);

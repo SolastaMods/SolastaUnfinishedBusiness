@@ -130,7 +130,8 @@ internal static partial class SpellBuilders
 
         var spell = SpellDefinitionBuilder
             .Create(NAME)
-            .SetGuiPresentation(Category.Spell, Bless)
+            .SetGuiPresentation(Category.Spell,
+                Sprites.GetSprite("CrusadersMantle", Resources.CrusadersMantle, 128))
             .SetEffectDescription(EffectDescriptionBuilder
                 .Create()
                 .SetParticleEffectParameters(DivineFavor)

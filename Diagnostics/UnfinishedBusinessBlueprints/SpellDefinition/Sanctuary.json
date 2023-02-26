@@ -321,9 +321,9 @@
     "description": "Spell/&SanctuaryDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "fc5fc5cd94bc94b4a9c7bffffbee855f",
-      "m_SubObjectName": "BeaconOfHope",
-      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+      "m_AssetGUID": "9fefb0b3-0dd1-58bf-9aa9-d1d64cca8a93",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",

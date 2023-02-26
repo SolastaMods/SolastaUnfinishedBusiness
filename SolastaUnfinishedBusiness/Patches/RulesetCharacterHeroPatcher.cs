@@ -196,14 +196,44 @@ public static class RulesetCharacterHeroPatcher
             //PATCH: enables `AttackRollModifierMethod` support for hero attack modification
             //default implementation just gets flat value and ignores other methods
             //replaces call to `AttackRollModifier` getter with custom method that returns proper values
-            var method = typeof(IAttackModificationProvider).GetMethod("get_AttackRollModifier");
-            var custom = new Func<IAttackModificationProvider, RulesetCharacterHero, int>(GetAttackRollModifier)
-                .Method;
+            var attackRollMethod = typeof(IAttackModificationProvider).GetMethod("get_AttackRollModifier");
+            var customAttackRoll =
+                new Func<IAttackModificationProvider, RulesetCharacterHero, int>(GetAttackRollModifier)
+                    .Method;
 
-            return instructions.ReplaceCalls(method,
-                "RulesetCharacterHero.RefreshAttackMode",
-                new CodeInstruction(OpCodes.Ldarg_0),
-                new CodeInstruction(OpCodes.Call, custom));
+            //PATCH: enables `DamageRollModifierMethod` support for hero attack modification
+            //default implementation just gets flat value and ignores other methods
+            //replaces call to `DamageRollModifier` getter with custom method that returns proper values
+            var damageRollMethod = typeof(IAttackModificationProvider).GetMethod("get_DamageRollModifier");
+            var customDamageRoll =
+                new Func<IAttackModificationProvider, RulesetCharacterHero, int>(GetDamageRollModifier)
+                    .Method;
+
+            //PATCH: support for AddTagToWeapon
+            var weaponTags = typeof(WeaponDescription)
+                .GetProperty(nameof(WeaponDescription.WeaponTags))
+                .GetGetMethod();
+            var customWeaponTags = new Func<
+                WeaponDescription,
+                RulesetCharacter,
+                RulesetItem,
+                List<string>
+            >(AddTagToWeapon.GetCustomWeaponTags).Method;
+
+            return instructions
+                .ReplaceCalls(attackRollMethod,
+                    "RulesetCharacterHero.RefreshAttackMode.AttackRollModifier",
+                    new CodeInstruction(OpCodes.Ldarg_0),
+                    new CodeInstruction(OpCodes.Call, customAttackRoll))
+                .ReplaceCalls(damageRollMethod,
+                    "RulesetCharacterHero.RefreshAttackMode.DamageRollModifier",
+                    new CodeInstruction(OpCodes.Ldarg_0),
+                    new CodeInstruction(OpCodes.Call, customDamageRoll))
+                .ReplaceCalls(weaponTags,
+                    "RulesetCharacterHero.RefreshAttackMode.WeaponTags",
+                    new CodeInstruction(OpCodes.Ldarg_0),
+                    new CodeInstruction(OpCodes.Ldarg, 9),
+                    new CodeInstruction(OpCodes.Call, customWeaponTags));
         }
 
         private static int GetAttackRollModifier(IAttackModificationProvider provider, RulesetCharacterHero hero)
@@ -225,12 +255,52 @@ public static class RulesetCharacterHeroPatcher
                 case RuleDefinitions.AttackModifierMethod.FlatValue:
                     break;
                 case RuleDefinitions.AttackModifierMethod.AddProficiencyBonus:
+                    num += hero.TryGetAttributeValue(AttributeDefinitions.ProficiencyBonus);
                     break;
                 default:
                     throw new ArgumentOutOfRangeException(nameof(provider));
             }
 
             return num;
+        }
+
+        private static int GetDamageRollModifier(IAttackModificationProvider provider, RulesetCharacterHero hero)
+        {
+            var num = provider.DamageRollModifier;
+
+            switch (provider.DamageRollModifierMethod)
+            {
+                case RuleDefinitions.AttackModifierMethod.SourceConditionAmount:
+                    num = hero.FindFirstConditionHoldingFeature(provider as FeatureDefinition).Amount;
+                    break;
+                case RuleDefinitions.AttackModifierMethod.AddAbilityScoreBonus when
+                    !string.IsNullOrEmpty(provider.DamageRollAbilityScore):
+                    num += AttributeDefinitions.ComputeAbilityScoreModifier(
+                        hero.TryGetAttributeValue(provider.DamageRollAbilityScore));
+                    break;
+                case RuleDefinitions.AttackModifierMethod.None:
+                    break;
+                case RuleDefinitions.AttackModifierMethod.FlatValue:
+                    break;
+                case RuleDefinitions.AttackModifierMethod.AddProficiencyBonus:
+                    num += hero.TryGetAttributeValue(AttributeDefinitions.ProficiencyBonus);
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException(nameof(provider));
+            }
+
+            return num;
+        }
+
+        [UsedImplicitly]
+        public static void Prefix(
+            RulesetCharacterHero __instance,
+            List<IAttackModificationProvider> attackModifiers)
+        {
+            //PATCH: validate damage features
+            attackModifiers.RemoveAll(provider =>
+                provider is BaseDefinition feature
+                && !__instance.IsValid(feature.GetAllSubFeaturesOfType<IsCharacterValidHandler>()));
         }
 
         [UsedImplicitly]

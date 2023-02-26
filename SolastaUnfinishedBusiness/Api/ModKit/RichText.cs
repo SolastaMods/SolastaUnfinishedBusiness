@@ -1,5 +1,6 @@
 ﻿// borrowed shamelessly and enhanced from Bag of Tricks https://www.nexusmods.com/pathfinderkingmaker/mods/26, which is under the MIT License
 
+using System;
 using UnityEngine;
 
 namespace SolastaUnfinishedBusiness.Api.ModKit;
@@ -112,5 +113,5 @@ public static class RichText
         return _ = $"<size={percent}%>{s}</size>";
     }
 
-    public static string Localized(this string s) => Gui.Localize(s);
+    public static string Localized(this string s, string category = "UI") => Gui.Localize(String.Format("{0}/&{1}", category, s));
 }
