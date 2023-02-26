@@ -1,6 +1,6 @@
 ﻿UI/&Quickies=Quickies
 UI/&Current Party=Current Party
 UI/&Party Editor=Party Editor
-UI/&Experimental Preview:=Experimental Preview: 
-UI/&This simple party editor lets you edit characters in a loaded game session. Right now it lets you edit your character's first and last name. More features are coming soon (tm). Please click on the following to report issues:=This simple party editor lets you edit characters in a loaded game session. Right now it lets you edit your character's first and last name. More features are coming soon (tm). Please click on the following to report issues:
+UI/&Experimental Preview:=Experimental Preview (<color=Yellow>backup save before using</color>): 
+UI/&This simple party editor lets you edit characters in a loaded game session. Right now it lets you edit your character's first and last name. More features are coming soon (tm). Please click on the following to report issues:=This simple party editor lets you edit characters in a loaded game session. Right now it lets you edit your character's name and stats. More features are coming soon (tm). Please click on the following to report issues:
 UI/&****** Party Editor unavailable: Please load a save game ******=****** Party Editor unavailable: Please load a save game ******
