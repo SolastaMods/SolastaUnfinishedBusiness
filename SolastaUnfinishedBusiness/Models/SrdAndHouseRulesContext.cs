@@ -122,6 +122,7 @@ internal static class SrdAndHouseRulesContext
         FixMartialArtsProgression();
         DistantHandMartialArtsDie();
         FixTwinnedMetamagic();
+        FixBrandingSmite();
     }
 
     internal static void ModifyAttackModeAndDamage(
@@ -587,6 +588,13 @@ internal static class SrdAndHouseRulesContext
                 failure = FailureFlagInvalidSingleTarget;
                 result = false;
             }));
+    }
+
+    private static void FixBrandingSmite()
+    {
+        //BUGFIX: fix Brandiong Smite applying bonus damage to spells
+        FeatureDefinitionAdditionalDamages.AdditionalDamageBrandingSmite
+            .AddCustomSubFeatures(ValidatorsRestrictedContext.WeaponAttack);
     }
 
     internal static void SwitchEnableUpcastConjureElementalAndFey()
