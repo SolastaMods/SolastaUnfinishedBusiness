@@ -1,0 +1,49 @@
+{
+  "$type": "CharacterSubclassDefinition, Assembly-CSharp",
+  "featureUnlocks": [
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:FeatureRoguishSlayerElimination:b500c091-69a7-5ce4-b9f3-bf69ad6b26d3",
+      "level": 3
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:AdditionalDamageRoguishSlayerChainOfExecution:334cc375-7bdd-570d-a559-f9f7cdd62fb6",
+      "level": 9
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:PowerRoguishSlayerCloakOfShadows:d6cf376e-3767-5b29-a15b-21af771767ac",
+      "level": 13
+    }
+  ],
+  "personalityFlagOccurences": [],
+  "morphotypeSubclassFilterTag": "Default",
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Subclass/&RoguishSlayerTitle",
+    "description": "Subclass/&RoguishSlayerDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "e2e75a8dfa5339a4486b00747f23310e",
+      "m_SubObjectName": "Ranger_Shadow_Tamer",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "b470bb84-1ec3-5289-8e81-bda5c5371d51",
+  "contentPack": 9999,
+  "name": "RoguishSlayer"
+}

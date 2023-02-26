@@ -132,6 +132,7 @@ All settings start disabled by default.
 [*][b]Duelist[/b]: Duelists possess a swaggering bravado. They are quick-witted, self-sufficient, and dangerous to isolated enemies.
 [*][b]Opportunist[/b]: Opportunist are those who never let a chance to finish their enemies slide. They stab fast and stab where it matters. Not many facing them can escape unscratched.
 [*][b]Raven[/b]: Ravens are ranged weapon specialists that are trained to take down enemies quickly and effectively.
+[*][b]Slayer[/b]: Slayers focus their training on the grim art of death. Those who adhere to this archetype are diverse: hired killers, spies, bounty hunters, and even specially anointed priests trained to exterminate the enemies of their deity. Stealth, poison, and disguise help you eliminate your foes with deadly efficiency.
 [*][b]Divine Heart[/b]: Your innate magic has been imparted to you by a Deity for a purpose you may or may not understand.
 [*][b]Field Manipulator[/b]: Field Manipulators excel at controlling the battlefield and preventing their enemies from being able to attack them.
 [*][b]Way of Discordance[/b]: While most monks seek enlightenment through contemplation and achieving inner peace, monks of the Way of Discordance on the other hand are focused on harnessing the chaotic energies of the universe. These mystical scholars of disharmony exploit the inner conflicts of their enemies by manipulating their Ki, devastating them with bursts of distorting energy.
