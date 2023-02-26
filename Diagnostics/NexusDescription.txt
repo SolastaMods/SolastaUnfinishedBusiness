@@ -273,8 +273,14 @@ You gain proficiency with medium armor and shields.
 • You no longer have disadvantage on ranged attacks when there is an enemy within 5 feet of you.
 • If you take the Attack action on your turn, you can use a bonus action to make an attack with a one-handed ranged or thrown weapon.
 [*][b]Reckless Attack[/b]: Before you make your first attack on your turn, you can decide to attack recklessly. Doing so gives you advantage on melee weapon attack rolls using Strength during this turn, but attack rolls against you have advantage until your next turn.
-[*][b]Revenant Great Sword [Dex][/b]: Increase your Dexterity score by 1, to a maximum of 20. While you are holding a great sword,  you gain a +1 bonus to Armor Class and you can use your Dexterity on to hit and to damage bonuses.
-[*][b]Revenant Great Sword [Str][/b]: Increase your Strength score by 1, to a maximum of 20. While you are holding a great sword,  you gain a +1 bonus to Armor Class and you can use your Dexterity on to hit and to damage bonuses.
+[*][b]Revenant Great Sword [Dex][/b]: You are descended from a master of the great sword, and some of that mastery has passed on to you. You gain the following benefits:
+• Increase your Dexterity score by 1, to a maximum of 20.
+• While you are holding a great sword, you gain a +1 bonus to Armor Class.
+•Great sword has the finesse property when you wield it.
+[*][b]Revenant Great Sword [Str][/b]: You are descended from a master of the great sword, and some of that mastery has passed on to you. You gain the following benefits:
+• Increase your Strength score by 1, to a maximum of 20.
+• While you are holding a great sword, you gain a +1 bonus to Armor Class.
+•Great sword has the finesse property when you wield it.
 [*][b]Savage Attack[/b]: Reroll weapon and spell damage dice when you roll a 1 (Not all damage sources re-roll dice. For example, sneak attack and smite damage are not re-rolled).
 [*][b]Scriber[/b]: Increase your Intelligence by 1, to a maximum of 20.
 You gain proficiency with scroll kit and Arcana, or expertise if already proficient.
@@ -512,6 +518,7 @@ A powerful wight, trained to withstand the light of day.
 [*][b]SilverGriffon[/b]: gameplay, visuals, spells, Dark Elf, Draconic Kobold, Grey Dwarf, Divine Heart
 [*][b]ImpPhil[/b]: api, builders, gameplay, rules, quality of life
 [*][b]ChrisJohnDigital[/b]: builders, gameplay, feats, fighting styles, original Tinkerer, original Wizard subclasses, Arcane Fighter, Spell Master, Spell Shield
+[*][b]<b><color=#00FFFFFF>N</color></b>arria <b><color=#F03399FF>T</color></b><color=orange>oy </color><b><color=yellow>M</color></b>aker[/b]: ModKit, UI Improvements, Party Editor (coming  soon)
 [*][b]tivie[/b]: Circle of The Night, Path of The Spirits
 [*][b]ElAntonius[/b]: feats, fighting styles, Arcanist
 [*][b]RedOrca[/b]: Path of The Light

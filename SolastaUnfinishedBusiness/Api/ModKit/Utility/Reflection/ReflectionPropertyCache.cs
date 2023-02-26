@@ -160,7 +160,6 @@ public static partial class ReflectionCache
             il.Emit(OpCodes.Call, getter);
             il.Emit(OpCodes.Ret);
             return method.CreateDelegate(delType);
-
         }
 
         protected Delegate CreateSetter(Type delType, MethodInfo setter, bool isInstByRef)
@@ -183,7 +182,6 @@ public static partial class ReflectionCache
             il.Emit(OpCodes.Call, setter);
             il.Emit(OpCodes.Ret);
             return method.CreateDelegate(delType);
-
         }
     }
 

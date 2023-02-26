@@ -1,5 +1,13 @@
 ﻿CHANGES:
 
+1.4.33.50:
+
+- fixed effects termination when unconscious [Arcane Fighter, Inventor, Soul Blade]
+- improved Arcane Scoundrel levels 9th and 13th features interaction
+- improved Crusader's Mantle, Mantle of Thorns and Sanctuary with custom icons by @Taco
+- improved Duelist sure footed damage to not spam combat log and clearly show on inspection
+- improved Revenant Great Sword to be considered a finesse weapon and work well with Rogues
+
 1.4.33.49:
 
 - added Crusader's Mantle spell

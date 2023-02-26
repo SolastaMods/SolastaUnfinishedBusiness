@@ -40,7 +40,7 @@ internal sealed class PatronSoulBlade : AbstractSubclass
             .SetGuiPresentation(Category.Feature, PowerOathOfDevotionSacredWeapon)
             .SetUniqueInstance()
             .SetCustomSubFeatures(
-                new ShouldTerminatePowerEffect(PowerSoulBladeEmpowerWeaponName),
+                DoNotTerminateWhileUnconscious.Marker,
                 ExtraCarefulTrackedItem.Marker,
                 SkipEffectRemovalOnLocationChange.Always,
                 new CustomItemFilter(CanWeaponBeEmpowered))

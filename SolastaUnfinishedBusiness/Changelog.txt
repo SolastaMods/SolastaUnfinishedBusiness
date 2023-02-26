@@ -1,5 +1,5 @@
-- added Crusader's Mantle spell
-- added Mantle of Thorns spell
-- added Sanctuary spell
-- added Roguish Arcane Scoundrel subclass
-- added Party Editor [experimental preview] by Narria Toy Maker
+- fixed effects termination when unconscious [Arcane Fighter, Inventor, Soul Blade]
+- improved Arcane Scoundrel levels 9th and 13th features interaction
+- improved Crusader's Mantle, Mantle of Thorns and Sanctuary with custom icons by @Taco
+- improved Duelist sure footed damage to not spam combat log and clearly show on inspection
+- improved Revenant Great Sword to be considered a finesse weapon and work well with Rogues

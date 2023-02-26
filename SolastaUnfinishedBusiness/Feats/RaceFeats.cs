@@ -146,7 +146,8 @@ internal static class RaceFeats
         var modifyAttackModeFeatRevenantGreatSword = FeatureDefinitionBuilder
             .Create("ModifyAttackModeFeatRevenantGreatSword")
             .SetGuiPresentationNoContent(true)
-            .SetCustomSubFeatures(new CanUseAttributeForWeapon(AttributeDefinitions.Dexterity,
+            .SetCustomSubFeatures(new AddTagToWeapon(TagsDefinitions.WeaponTagFinesse,
+                TagsDefinitions.Criticity.Important,
                 ValidatorsWeapon.IsOfWeaponType(DatabaseHelper.WeaponTypeDefinitions.GreatswordType)))
             .AddToDB();
 

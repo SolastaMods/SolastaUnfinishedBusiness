@@ -46,6 +46,12 @@ internal static class RulesetCharacterExtensions
         return validators.All(v => v(instance));
     }
 
+    internal static bool IsValid(this RulesetCharacter instance,
+        [NotNull] IEnumerable<IsCharacterValidHandler> validators)
+    {
+        return validators.All(v => v(instance));
+    }
+
     internal static bool HasPower(
         this RulesetCharacter instance,
         [CanBeNull] FeatureDefinitionPower power)

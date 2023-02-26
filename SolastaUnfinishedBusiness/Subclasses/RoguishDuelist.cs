@@ -28,11 +28,10 @@ internal sealed class RoguishDuelist : AbstractSubclass
             .SetRequiredProperty(RestrictedContextRequiredProperty.FinesseOrRangeWeapon)
             .AddToDB();
 
-        var additionalDamageSureFooted = FeatureDefinitionAdditionalDamageBuilder
+        var additionalDamageSureFooted = FeatureDefinitionAttackModifierBuilder
             .Create($"AdditionalDamage{Name}{SureFooted}")
             .SetGuiPresentation(Category.Feature)
-            .SetNotificationTag(SureFooted)
-            .SetDamageValueDetermination(AdditionalDamageValueDetermination.ProficiencyBonus)
+            .SetDamageRollModifier(method: AttackModifierMethod.AddProficiencyBonus)
             .SetRequiredProperty(RestrictedContextRequiredProperty.FinesseOrRangeWeapon)
             .SetCustomSubFeatures(ValidatorsCharacter.HasFreeOffHand)
             .AddToDB();

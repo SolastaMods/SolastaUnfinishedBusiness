@@ -403,9 +403,9 @@
     "description": "Spell/&MantleOfThornsDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "208062c7f85b58542808ed3ba0d821dc",
-      "m_SubObjectName": "SpikeGrowth",
-      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+      "m_AssetGUID": "3a821813-d46b-5918-9f4b-8ab2168a2f5d",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",

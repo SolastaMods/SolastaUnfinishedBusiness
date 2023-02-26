@@ -16,7 +16,7 @@ internal static class GameServicesDisplay
     private static readonly Dictionary<string, Func<object>> TargetList = new()
     {
         { "None", null },
-        { "IGamingPlatformService", ServiceRepository.GetService<IGamingPlatformService> },
+        { "Game", () => ServiceRepository.GetService<IGameService>()?.Game },
         { "ICharacterBuildingService", ServiceRepository.GetService<ICharacterBuildingService> },
         { "ICharacterPoolService", ServiceRepository.GetService<ICharacterPoolService> },
         { "IGameCampaignService", ServiceRepository.GetService<IGameCampaignService> },
@@ -46,7 +46,9 @@ internal static class GameServicesDisplay
         { "IGameSerializationService", ServiceRepository.GetService<IGameSerializationService> },
         { "IGameService", ServiceRepository.GetService<IGameService> },
         { "IGameSettingsService", ServiceRepository.GetService<IGameSettingsService> },
-        { "IGameVariableService", ServiceRepository.GetService<IGameVariableService> }
+        { "IGameVariableService", ServiceRepository.GetService<IGameVariableService> },
+        { "IGamingPlatformService", ServiceRepository.GetService<IGamingPlatformService> },
+        { "CharacterCreationScreen", Gui.GuiService.GetScreen<CharacterCreationScreen> }
     };
 
     private static readonly string[] TargetNames = TargetList.Keys.ToArray();
