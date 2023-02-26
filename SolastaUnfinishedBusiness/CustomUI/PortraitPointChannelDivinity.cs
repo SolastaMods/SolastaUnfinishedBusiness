@@ -1,4 +1,6 @@
-﻿using SolastaUnfinishedBusiness.CustomInterfaces;
+﻿using SolastaUnfinishedBusiness.Api.ModKit;
+using SolastaUnfinishedBusiness.Builders;
+using SolastaUnfinishedBusiness.CustomInterfaces;
 using UnityEngine.AddressableAssets;
 
 namespace SolastaUnfinishedBusiness.CustomUI;
@@ -16,7 +18,7 @@ public class PortraitPointChannelDivinity : ICustomPortraitPointPoolProvider
     {
         var max = character.TryGetAttributeValue(AttributeDefinitions.ChannelDivinityNumber);
         var used = character.UsedChannelDivinity;
-        return Gui.Format("Tooltip/&ChannelDivinityPortraitPoolFormat", (max - used).ToString(), max.ToString());
+        return "ChannelDivinityPortraitPoolFormat".Formatted(Category.Tooltip, max - used, max);
     }
 
     public AssetReferenceSprite Icon => Sprites.ChannelDivinityResourceIcon;
