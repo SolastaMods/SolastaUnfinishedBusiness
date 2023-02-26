@@ -159,6 +159,10 @@ internal static partial class SpellBuilders
             .SetDamageDice(DieType.D6, 1)
             .SetSpecificDamageType(DamageTypePiercing)
             .SetAdvancement(AdditionalDamageAdvancement.SlotLevel)
+            .SetSavingThrowData(
+                EffectDifficultyClassComputation.SpellCastingFeature,
+                EffectSavingThrowType.None,
+                AttributeDefinitions.Strength)
             .SetCustomSubFeatures(new AdditionalEffectFormOnDamageHandler((attacker, _, provider) =>
                 new List<EffectForm>
                 {
@@ -169,7 +173,8 @@ internal static partial class SpellBuilders
                         .OverrideSavingThrowInfo(AttributeDefinitions.Strength,
                             GameLocationBattleManagerTweaks.ComputeSavingThrowDC(attacker.RulesetCharacter, provider))
                         .Build()
-                }))
+                }),
+                ValidatorsRestrictedContext.WeaponAttack)
             .AddToDB();
 
         var conditionEnsnaringStrike = ConditionDefinitionBuilder
@@ -288,6 +293,7 @@ internal static partial class SpellBuilders
             .Create($"AdditionalDamage{NAME}")
             .SetGuiPresentation(Category.Feature)
             .SetNotificationTag(NAME)
+            .SetCustomSubFeatures(ValidatorsRestrictedContext.WeaponAttack)
             .SetDamageDice(DieType.D6, 1)
             .SetSpecificDamageType(DamageTypeFire)
             .SetAdvancement(AdditionalDamageAdvancement.SlotLevel, 1)
@@ -471,6 +477,7 @@ internal static partial class SpellBuilders
             .Create($"AdditionalDamage{NAME}")
             .SetGuiPresentation(Category.Feature)
             .SetNotificationTag(NAME)
+            .SetCustomSubFeatures(ValidatorsRestrictedContext.WeaponAttack)
             .SetDamageDice(DieType.D6, 2)
             .SetSpecificDamageType(DamageTypeThunder)
             .SetSavingThrowData( //explicitly stating all relevant properties (even default ones) for readability
@@ -528,6 +535,7 @@ internal static partial class SpellBuilders
             .Create($"AdditionalDamage{NAME}")
             .SetGuiPresentation(Category.Feature)
             .SetNotificationTag(NAME)
+            .SetCustomSubFeatures(ValidatorsRestrictedContext.WeaponAttack)
             .SetDamageDice(DieType.D6, 1)
             .SetSpecificDamageType(DamageTypePsychic)
             .SetAdvancement(AdditionalDamageAdvancement.SlotLevel, 1)
