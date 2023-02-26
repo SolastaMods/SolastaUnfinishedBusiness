@@ -2,6 +2,8 @@
 using System.Linq;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.Extensions;
+using SolastaUnfinishedBusiness.Api.ModKit;
+using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Subclasses;
 using static ActionDefinitions;
@@ -101,8 +103,8 @@ internal static class DefensiveStrikeAttack
             new ActionModifier()
         )
         {
-            StringParameter = Gui.Format($"Reaction/&CustomReaction{OathOfAltruism.Name2}Description",
-                defender.Name, attacker.Name, bonus.ToString())
+            StringParameter = $"CustomReaction{OathOfAltruism.DefensiveStrike}Description"
+                .Formatted(Category.Reaction, defender.Name, attacker.Name, bonus)
         };
 
         var actionManager = ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
@@ -112,7 +114,7 @@ internal static class DefensiveStrikeAttack
             yield break;
         }
 
-        var reactionRequest = new ReactionRequestCustom(OathOfAltruism.Name2, temp)
+        var reactionRequest = new ReactionRequestCustom(OathOfAltruism.DefensiveStrike, temp)
         {
             Resource = ReactionResourceChannelDivinity.Instance
         };
@@ -140,7 +142,7 @@ internal static class DefensiveStrikeAttack
         opportunityAttackMode.toHitBonus += bonus;
 
         opportunityAttackMode.ToHitBonusTrends.Add(new RuleDefinitions.TrendInfo(bonus,
-            RuleDefinitions.FeatureSourceType.CharacterFeature, OathOfAltruism.Name2, unit));
+            RuleDefinitions.FeatureSourceType.CharacterFeature, OathOfAltruism.DefensiveStrike, unit));
 
         //Create and execute attack
         var enums = new CharacterActionAttack(new CharacterActionParams(

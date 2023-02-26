@@ -17,6 +17,6 @@ public class ReactionResourceChannelDivinity : ICustomReactionResource
     {
         var max = character.TryGetAttributeValue(AttributeDefinitions.ChannelDivinityNumber);
         var used = character.UsedChannelDivinity;
-        return $"{max - used}/{max}";
+        return $"{max - used}";
     }
 }
