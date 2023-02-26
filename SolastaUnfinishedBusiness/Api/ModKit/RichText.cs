@@ -1,6 +1,7 @@
 ﻿// borrowed shamelessly and enhanced from Bag of Tricks https://www.nexusmods.com/pathfinderkingmaker/mods/26, which is under the MIT License
 
-using System;
+using System.Linq;
+using SolastaUnfinishedBusiness.Builders;
 using UnityEngine;
 
 namespace SolastaUnfinishedBusiness.Api.ModKit;
@@ -113,5 +114,8 @@ public static class RichText
         return _ = $"<size={percent}%>{s}</size>";
     }
 
-    public static string Localized(this string s, string category = "UI") => Gui.Localize(String.Format("{0}/&{1}", category, s));
+    public static string Localized(this string s, Category category = Category.UI) => Gui.Localize($"{category}/&{s}");
+
+    public static string Formatted(this string s, Category category, params object[] args) =>
+        Gui.Format($"{category}/&{s}", args.Select(a => $"{a}").ToArray());
 }
