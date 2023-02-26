@@ -111,7 +111,7 @@ namespace SolastaUnfinishedBusiness.Displays {
                                 var attrName = attr.Key;
                                 var attribute = attr.Value;
                                 var baseValue = attribute.baseValue;
-                                var modifiers = attribute.ActiveModifiers.Select(m => $"{m.Value.ToString("+0;-#")} {String.Join(" ",m.Tags).TrimStart('0', '1', '2', '3', '4', '5', '6', '7', '8', '9').Cyan()}").ToArray();
+                                var modifiers = attribute.ActiveModifiers.Where(m => m.Value != 0).Select(m => $"{m.Value.ToString("+0;-#")} {String.Join(" ",m.Tags).TrimStart('0', '1', '2', '3', '4', '5', '6', '7', '8', '9').Cyan()}").ToArray();
                                 var modifiersString = String.Join(" ", modifiers);
                                 using (HorizontalScope())
                                 {
