@@ -14,7 +14,6 @@ internal sealed class OathOfAltruism : AbstractSubclass
 {
     private const string Name = "OathOfAltruism";
     internal const string Name2 = $"Feature{Name}DefensiveStrike";
-    internal const string Name3 = $"Feature{Name}DefensiveStrikeAlly";
 
     internal OathOfAltruism()
     {
@@ -41,7 +40,7 @@ internal sealed class OathOfAltruism : AbstractSubclass
         var featureDefensiveStrike = FeatureDefinitionBuilder
             .Create(Name2)
             .SetGuiPresentation(Category.Feature, PowerDomainBattleDecisiveStrike)
-            .SetCustomSubFeatures(DefensiveStrikeAttack.DefensiveStrikeMarker)
+            .SetCustomSubFeatures(DefensiveStrikeMarker.Mark)
             .AddToDB();
 
         var featureAuraOfTheGuardian = FeatureDefinitionBuilder

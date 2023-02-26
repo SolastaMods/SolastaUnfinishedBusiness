@@ -522,6 +522,16 @@ namespace SolastaUnfinishedBusiness.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
+        public static byte[] ChannelDivinityResourceIcon {
+            get {
+                object obj = ResourceManager.GetObject("ChannelDivinityResourceIcon", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
         public static byte[] checkOff {
             get {
                 object obj = ResourceManager.GetObject("checkOff", resourceCulture);
