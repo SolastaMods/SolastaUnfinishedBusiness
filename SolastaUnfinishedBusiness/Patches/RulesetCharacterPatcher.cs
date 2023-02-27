@@ -1283,6 +1283,15 @@ public static class RulesetCharacterPatcher
                 }
             }
 
+            if (hero.ActiveFeatures
+                .SelectMany(k => k.Value)
+                .OfType<FeatureDefinitionPower>()
+                .Any(power => hero.GetPowerFromDefinition(power) == null))
+            {
+                Main.Log($"Hero [{hero.Name}] had missing powers, granting them");
+                hero.GrantPowers();
+            }
+
             hero.RefreshAll();
         }
     }
