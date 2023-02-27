@@ -189,7 +189,7 @@ internal enum ExtraActionId
     MonkKiPointsToggle = 9013,
     PaladinSmiteToggle = 9014,
     MonsterSwapAttackToggle = 9015,
-    WildShapeBonus = 9016,
+    CombatWildShape = 9016,
 }
 
 #if false

@@ -20,7 +20,6 @@ public static class CustomActionIdContext
         BuildCustomPushedAction();
         BuildFarStepAction();
         BuildDoNothingActions();
-        BuildWildShapeActions();
     }
 
     private static void BuildCustomInvocationActions()
@@ -171,22 +170,6 @@ public static class CustomActionIdContext
             .OverrideClassName("DoNothing")
             .AddToDB();
     }
-    
-    private static void BuildWildShapeActions()
-    {
-        if (!DatabaseHelper.TryGetDefinition<ActionDefinition>("WildShape", out var baseAction))
-        {
-            return;
-        }
-
-        ActionDefinitionBuilder
-            .Create(baseAction, "WildShapeBonus")
-            .OverrideClassName("WildShape")
-            .SetActionId(ExtraActionId.WildShapeBonus)
-            .SetActionType(ActionType.Bonus)
-            .SetActionScope(ActionScope.All)
-            .AddToDB();
-    }
 
     public static void ProcessCustomActionIds(
         GameLocationCharacter locationCharacter,
@@ -196,6 +179,23 @@ public static class CustomActionIdContext
         ActionStatus actionTypeStatus,
         bool ignoreMovePoints)
     {
+        var action = ServiceRepository.GetService<IGameLocationActionService>().AllActionDefinitions[actionId];
+        var actionType = action.actionType;
+        var character = locationCharacter.RulesetCharacter;
+
+        if (actionId == (Id)ExtraActionId.CombatWildShape)
+        {
+            var power = character.GetPowerFromDefinition(action.ActivatedPower);
+            if (power is not {RemainingUses: > 0} ||
+                character is RulesetCharacterMonster monster &&
+                monster.MonsterDefinition.CreatureTags.Contains(TagsDefinitions.CreatureTagWildShape))
+            {
+                result = ActionStatus.Unavailable;
+            }
+
+            return;
+        }
+
         var isInvocationAction = IsInvocationActionId(actionId);
         var isPowerUse = IsPowerUseActionId(actionId);
 
@@ -203,10 +203,6 @@ public static class CustomActionIdContext
         {
             return;
         }
-
-        var action = ServiceRepository.GetService<IGameLocationActionService>().AllActionDefinitions[actionId];
-        var actionType = action.actionType;
-        var character = locationCharacter.RulesetCharacter;
 
         if (actionTypeStatus == ActionStatus.Irrelevant)
         {

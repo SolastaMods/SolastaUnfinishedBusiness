@@ -39,6 +39,12 @@ internal abstract class
         Definition.delegatedToAction = value;
         return (TBuilder)this;
     }
+    
+    internal TBuilder SetActivationTime(ActivationTime activationTime)
+    {
+        Definition.activationTime = activationTime;
+        return (TBuilder)this;
+    }
 
     internal TBuilder SetUsesFixed(
         ActivationTime activationTime,

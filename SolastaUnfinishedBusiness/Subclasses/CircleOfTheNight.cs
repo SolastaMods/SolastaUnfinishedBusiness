@@ -3,7 +3,6 @@ using SolastaUnfinishedBusiness.Api.Extensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
-using SolastaUnfinishedBusiness.CustomInterfaces;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterSubclassDefinitions;
@@ -23,30 +22,6 @@ internal sealed class CircleOfTheNight : AbstractSubclass
 
     internal CircleOfTheNight()
     {
-        var shapeOptions = new List<ShapeOptionDescription>
-        {
-            ShapeBuilder(2, WildShapeBadlandsSpider),
-            ShapeBuilder(2, WildshapeDirewolf),
-            ShapeBuilder(2, WildShapeBrownBear),
-            ShapeBuilder(4, WildshapeDeepSpider),
-            ShapeBuilder(4, HbWildShapeDireBear()),
-            ShapeBuilder(6, WildShapeApe),
-            // flying
-            ShapeBuilder(8, WildshapeTiger_Drake),
-            ShapeBuilder(8, WildShapeGiant_Eagle),
-            // don't use future features
-            // ShapeBuilder(10, WildShapeTundraTiger),
-            // elementals
-            // According to the rules, transforming into an elemental should cost 2 Wild Shape Charges
-            // However elementals in this game are nerfed, since they don't have special attacks, such as Whirlwind
-            //TODO: Create a new feature for elemental transformation.
-            //TODO: Add special attacks to elemental forms (whirlwind, Whelm, Earth Glide maybe)
-            ShapeBuilder(10, HbWildShapeAirElemental()),
-            ShapeBuilder(10, HbWildShapeFireElemental()),
-            ShapeBuilder(10, HbWildShapeEarthElemental()),
-            ShapeBuilder(10, HbWildShapeWaterElemental())
-        };
-
         // 2nd level
 
         #region Unused definitions kept to not break existing characters
@@ -63,22 +38,15 @@ internal sealed class CircleOfTheNight : AbstractSubclass
             .SetSilent(Silent.WhenAddedOrRemoved)
             .AddToDB();
 
-        var emptyFeatureForCompat = FeatureDefinitionBuilder
-            .Create("OnAfterActionWildShape")
-            .SetGuiPresentationNoContent(true)
-            .AddToDB();
-
         #endregion
 
-        // Combat Wildshape 
-        // Bonus Action for wild shape and extra form progression
-        // Official rules are CR = 1/3 of druid level. However in solasta the selection of beasts is greatly reduced
-        var combatWildShape = FeatureDefinitionActionAffinityBuilder
-            .Create("PowerCircleOfTheNightWildShapeCombat")
-            .SetGuiPresentation(Category.Feature)
-            .SetAuthorizedActions((ActionDefinitions.Id) ExtraActionId.WildShapeBonus)
+        var combatWildshape = BuildWildShapePower();
+        
+        //remove regular WS action
+        var blockRegularWildshape = FeatureDefinitionActionAffinityBuilder
+            .Create("OnAfterActionWildShape")
+            .SetGuiPresentationNoContent(true)
             .SetForbiddenActions(ActionDefinitions.Id.WildShape)
-            .SetCustomSubFeatures(new ChangeShapeOptionsCircleOfTheNightWildShapeCombat(shapeOptions))
             .AddToDB();
 
         // Combat Wild Shape Healing
@@ -139,8 +107,8 @@ internal sealed class CircleOfTheNight : AbstractSubclass
             .Create(CircleOfTheNightName)
             .SetGuiPresentation(Category.Subclass, PathClaw)
             .AddFeaturesAtLevel(2,
-                emptyFeatureForCompat,
-                combatWildShape,
+                combatWildshape,
+                blockRegularWildshape,
                 powerCircleOfTheNightWildShapeHealing)
             .AddFeaturesAtLevel(6,
                 powerCircleOfTheNightPrimalStrike,
@@ -149,6 +117,67 @@ internal sealed class CircleOfTheNight : AbstractSubclass
                 featureSetCircleOfTheNightElementalForms,
                 powerCircleOfTheNightWildShapeSuperiorHealing)
             .AddToDB();
+    }
+    
+    private static FeatureDefinitionPower BuildWildShapePower()
+    {
+        if (!TryGetDefinition<ActionDefinition>("WildShape", out var baseAction))
+        {
+            Main.Error("Couldn't fine WildShape action!");
+            return null;
+        }
+        
+        // Official rules are CR = 1/3 of druid level. However in solasta the selection of beasts is greatly reduced
+        var shapeOptions = new List<ShapeOptionDescription>
+        {
+            ShapeBuilder(2, WildShapeBadlandsSpider),
+            ShapeBuilder(2, WildshapeDirewolf),
+            ShapeBuilder(2, WildShapeBrownBear),
+            ShapeBuilder(4, WildshapeDeepSpider),
+            ShapeBuilder(4, HbWildShapeDireBear()),
+            ShapeBuilder(6, WildShapeApe),
+            // flying
+            ShapeBuilder(8, WildshapeTiger_Drake),
+            ShapeBuilder(8, WildShapeGiant_Eagle),
+            // don't use future features
+            // ShapeBuilder(10, WildShapeTundraTiger),
+            // elementals
+            // According to the rules, transforming into an elemental should cost 2 Wild Shape Charges
+            // However elementals in this game are nerfed, since they don't have special attacks, such as Whirlwind
+            //TODO: Create a new feature for elemental transformation.
+            //TODO: Add special attacks to elemental forms (whirlwind, Whelm, Earth Glide maybe)
+            ShapeBuilder(10, HbWildShapeAirElemental()),
+            ShapeBuilder(10, HbWildShapeFireElemental()),
+            ShapeBuilder(10, HbWildShapeEarthElemental()),
+            ShapeBuilder(10, HbWildShapeWaterElemental())
+        };
+
+        const string NAME = "PowerCircleOfTheNightWildShapeCombat";
+        var power = FeatureDefinitionPowerBuilder
+            .Create(PowerDruidWildShape, NAME)
+            .SetGuiPresentation(Category.Feature)
+            .SetOverriddenPower(PowerDruidWildShape)
+            .SetActivationTime(ActivationTime.BonusAction)
+            .SetEffectDescription(EffectDescriptionBuilder.Create()
+                .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
+                .SetDurationData(DurationType.HalfClassLevelHours)
+                .SetEffectForms(EffectFormBuilder.Create()
+                    .SetShapeChangeForm(ShapeChangeForm.Type.ClassLevelListSelection, true,
+                        ConditionDefinitions.ConditionWildShapeSubstituteForm, shapeOptions)
+                    .Build())
+                .Build())
+            .AddToDB();
+
+        ActionDefinitionBuilder
+            .Create(baseAction, "CombatWildShape")
+            .SetGuiPresentation(NAME, Category.Feature, baseAction)
+            .OverrideClassName("WildShape")
+            .SetActionId(ExtraActionId.CombatWildShape)
+            .SetActionType(ActionDefinitions.ActionType.Bonus)
+            .SetActivatedPower(power)
+            .AddToDB();
+
+        return power;
     }
 
     internal override CharacterSubclassDefinition Subclass { get; }
@@ -314,17 +343,5 @@ internal sealed class CircleOfTheNight : AbstractSubclass
     {
         return new ValidatorsPowerUse(
             ValidatorsCharacter.HasAnyOfConditions(ConditionDefinitions.ConditionWildShapeSubstituteForm.name));
-    }
-
-    private sealed class ChangeShapeOptionsCircleOfTheNightWildShapeCombat : IChangeShapeOptions
-    {
-        public ChangeShapeOptionsCircleOfTheNightWildShapeCombat(
-            List<ShapeOptionDescription> shapeOptionDescriptions)
-        {
-            ShapeOptions = shapeOptionDescriptions;
-        }
-
-        public ConditionDefinition SpecialSubstituteCondition => ConditionDefinitions.ConditionWildShapeSubstituteForm;
-        public List<ShapeOptionDescription> ShapeOptions { get; }
     }
 }
