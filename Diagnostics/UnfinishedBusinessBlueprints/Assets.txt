@@ -1097,6 +1097,7 @@ FeatureFeatRangedExpert	FeatureDefinition	FeatureDefinition	bd17c938-af36-59bc-9
 FeatureFeatSlasher	FeatureDefinition	FeatureDefinition	de775d90-7155-534a-b21f-d8c00d22ae87
 FeatureFeatSpearMastery	FeatureDefinition	FeatureDefinition	8b94f1ca-b946-5cec-8695-f760bc871fc4
 FeatureFeatSpearMasteryReach	FeatureDefinition	FeatureDefinition	f89dec71-415b-5375-ada8-6a66fbacb34b
+FeatureFightingStyleExecutioner	FeatureDefinition	FeatureDefinition	44cbdc12-60f2-546b-8b9a-2be9e29b7c23
 FeatureGambitBrace	FeatureDefinition	FeatureDefinition	658fc369-f155-5aea-aa29-b8b92f31c36f
 FeatureGambitLunging	FeatureDefinition	FeatureDefinition	2ffdc03f-7b58-50a5-9a1a-5320fa1cbdd1
 FeatureGambitParry	FeatureDefinition	FeatureDefinition	a7b0af78-bde3-5abd-a988-ad3226730cbb

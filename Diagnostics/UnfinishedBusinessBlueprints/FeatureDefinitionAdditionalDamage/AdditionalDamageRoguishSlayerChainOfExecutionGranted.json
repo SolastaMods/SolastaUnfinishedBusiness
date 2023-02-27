@@ -27,42 +27,42 @@
     {
       "$type": "DiceByRank, Assembly-CSharp",
       "rank": 1,
-      "diceNumber": 0
+      "diceNumber": 1
     },
     {
       "$type": "DiceByRank, Assembly-CSharp",
       "rank": 2,
-      "diceNumber": 0
+      "diceNumber": 1
     },
     {
       "$type": "DiceByRank, Assembly-CSharp",
       "rank": 3,
-      "diceNumber": 0
+      "diceNumber": 1
     },
     {
       "$type": "DiceByRank, Assembly-CSharp",
       "rank": 4,
-      "diceNumber": 0
+      "diceNumber": 1
     },
     {
       "$type": "DiceByRank, Assembly-CSharp",
       "rank": 5,
-      "diceNumber": 0
+      "diceNumber": 2
     },
     {
       "$type": "DiceByRank, Assembly-CSharp",
       "rank": 6,
-      "diceNumber": 0
+      "diceNumber": 2
     },
     {
       "$type": "DiceByRank, Assembly-CSharp",
       "rank": 7,
-      "diceNumber": 0
+      "diceNumber": 2
     },
     {
       "$type": "DiceByRank, Assembly-CSharp",
       "rank": 8,
-      "diceNumber": 0
+      "diceNumber": 2
     },
     {
       "$type": "DiceByRank, Assembly-CSharp",

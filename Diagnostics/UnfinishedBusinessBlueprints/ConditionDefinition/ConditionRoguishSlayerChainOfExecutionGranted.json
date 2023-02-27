@@ -11,7 +11,7 @@
   "silentWhenRemoved": false,
   "terminateWhenRemoved": false,
   "specialDuration": true,
-  "durationType": "Round",
+  "durationType": "Minute",
   "durationParameterDie": "D1",
   "durationParameter": 1,
   "forceTurnOccurence": false,
