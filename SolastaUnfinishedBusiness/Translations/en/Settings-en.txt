@@ -4,7 +4,7 @@ ModUi/&AddCustomIconsToOfficialItems=Add custom icons to official game items  <i
 ModUi/&AddHelpActionToAllRaces=Add the <color=#D89555>Help</color> action to all playable races <i><color=#F0DAA0>[you can aid a friendly creature in attacking a creature within 5 feet of you]</color></i>
 ModUi/&AddHumanoidFavoredEnemyToRanger=Add humanoid preferred enemy to <color=#D89555>Rangers</color>
 ModUi/&AddMonkKiPointsToggle=Add a toggle to allow <color=#D89555>Monks</color> to enable/disable Ki Points <i><color=#F0DAA0>[useful to minimize reaction prompts]</color></i>
-ModUi/&AddMonsterSwapAttackToggle=Add a toggle to allow <color=#D89555>Druids</color> in wildshape form to select which attack to use first <i><color=#F0DAA0>[useful with a mix of melee and ranged ones]</color></i>
+ModUi/&AddMonsterSwapAttackToggle=Add a toggle to allow <color=#D89555>Druids</color> in wildshape form or controlled monsters to select which attack to use first <i><color=#F0DAA0>[useful with a mix of melee and ranged ones]</color></i>
 ModUi/&AddNewBrightEyeColors=Add new bright eye colors
 ModUi/&AddNewWeaponsAndRecipesToShops=Add new weapons and recipes to shops <i><color=#F0DAA0>[hand wraps, halberds, pikes, long maces, hand crossbows]</color></i> <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
 ModUi/&AddPaladinSmiteToggle=Add a toggle to allow <color=#D89555>Paladins</color> to only enable smites on critical hits <i><color=#F0DAA0>[useful to minimize reaction prompts]</color></i>
@@ -103,7 +103,7 @@ ModUi/&EnableTogglesToOverwriteDefaultTestParty=Enable toggles on character pool
 ModUi/&EnableUpcastConjureElementalAndFey=Enable upcast of <color=#D89555>Conjure Elemental</color> and <color=#D89555>Conjure Fey</color>
 ModUi/&EncounterPercentageChance=<color=white>Set random encounters percentage chances</color>
 ModUi/&Encounters=Encounters
-ModUi/&EnumerateOriginSubFeatures=<b><color=#C04040E0>[BETA]</color></b> Allow features from wild-shaped characters work on wild-shaped form
+ModUi/&EnumerateOriginSubFeatures=<b><color=#C04040E0>[BETA]</color></b> Allow features from heroes to work while in <color=#D89555>Wildshape</color> form
 ModUi/&ExpandAll=Expand All
 ModUi/&FactionHelp=<color=#C04040E0>Load an official campaign game to modify faction relations...</color>
 ModUi/&FactionRelations=<color=#F0DAA0>Factions:</color>
@@ -192,7 +192,7 @@ ModUi/&SettingsLoad=. Load an exported setting
 ModUi/&SettingsOpenFolder=Open exported settings folder
 ModUi/&SettingsRefresh=Refresh
 ModUi/&SettingsRemove=Remove
-ModUi/&ShowChannelDivinityOnPortrait=Show how many Channel Divinity uses character has on their portrait, similar to Sorcery Points
+ModUi/&ShowChannelDivinityOnPortrait=Show how many <color=#D89555>Channel Divinity</color> uses a hero has on their portrait, similar to sorcery points
 ModUi/&ShowCraftedItemOnRecipeIcon=Show crafted item icon near recipe item in shop and inventory. Hovering over it will show tooltip for crafted item
 ModUi/&ShowCraftingRecipeInDetailedTooltips=Show crafting recipe in detailed tooltips
 ModUi/&ShowDescriptions=Show Descriptions

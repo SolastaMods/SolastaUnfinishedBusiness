@@ -4,7 +4,7 @@ ModUi/&AddCustomIconsToOfficialItems=Benutzerdefinierte Symbole zu offiziellen S
 ModUi/&AddHelpActionToAllRaces=Füge allen spielbaren Völkern die Aktion <color=#D89555>Hilfe</color> hinzu <i><color=#F0DAA0>[du kannst einer freundlichen Kreatur dabei helfen, eine Kreatur innerhalb von 1,50 m von dir anzugreifen]</color></i>
 ModUi/&AddHumanoidFavoredEnemyToRanger=Füge <color=#D89555>Waldläufern</color> humanoiden bevorzugten Feind hinzu
 ModUi/&AddMonkKiPointsToggle=Fügen Sie einen Schalter hinzu, um <color=#D89555>Mönchen</color> zu erlauben, Ki-Punkte zu aktivieren/deaktivieren <i><color=#F0DAA0>[nützlich, um Reaktionsaufforderungen zu minimieren]</color></i>
-ModUi/&AddMonsterSwapAttackToggle=Füge einen Schalter hinzu, damit <color=#D89555>Druiden</color> in Wildform auswählen können, welcher Angriff zuerst verwendet werden soll <i><color=#F0DAA0>[nützlich bei einer Mischung aus Nah- und Fernkampf]</color> </i>
+ModUi/&AddMonsterSwapAttackToggle=Füge einen Schalter hinzu, damit <color=#D89555>Druiden</color> in Wildform oder kontrollierte Monster auswählen können, welcher Angriff zuerst verwendet werden soll <i><color=#F0DAA0>[nützlich bei einer Mischung aus Nah- und Fernkampf]</Farbe></i>
 ModUi/&AddNewBrightEyeColors=Füge neue leuchtende Augenfarben hinzu
 ModUi/&AddNewWeaponsAndRecipesToShops=Füge den Läden neue Waffen und Rezepte hinzu <i><color=#F0DAA0>[Handbandagen, Hellebarden, Piken, lange Keulen, Handarmbrüste]</color></i> <b><i><color=#C04040E0> [Neustart erforderlich]</color></i></b>
 ModUi/&AddPaladinSmiteToggle=Fügen Sie einen Umschalter hinzu, um <color=#D89555>Paladins</color> zu erlauben, Smites nur bei kritischen Treffern zu aktivieren <i><color=#F0DAA0>[nützlich, um Reaktionsaufforderungen zu minimieren]</color></i>
@@ -103,6 +103,7 @@ ModUi/&EnableTogglesToOverwriteDefaultTestParty=Aktivieren Sie Umschalter im Cha
 ModUi/&EnableUpcastConjureElementalAndFey=Upcast von <color=#D89555>Elementar beschwören</color> und <color=#D89555>Feen beschwören</color> aktivieren
 ModUi/&EncounterPercentageChance=<color=white>Stellen Sie die prozentualen Chancen für zufällige Begegnungen ein</color>
 ModUi/&Encounters=Begegnungen
+ModUi/&EnumerateOriginSubFeatures=<b><color=#C04040E0>[BETA]</color></b> Lassen Sie zu, dass Funktionen von Helden in <color=#D89555>Wildgestalt</color> funktionieren
 ModUi/&ExpandAll=Alle erweitern
 ModUi/&FactionHelp=<color=#C04040E0>Laden Sie ein offizielles Kampagnenspiel, um die Fraktionsbeziehungen zu ändern...</color>
 ModUi/&FactionRelations=<color=#F0DAA0>Fraktionen:</color>
@@ -191,7 +192,7 @@ ModUi/&SettingsLoad=. Laden Sie eine exportierte Einstellung
 ModUi/&SettingsOpenFolder=Öffnen Sie den Ordner mit den exportierten Einstellungen
 ModUi/&SettingsRefresh=Aktualisierung
 ModUi/&SettingsRemove=Entfernen
-ModUi/&ShowChannelDivinityOnPortrait=Zeigt an, wie viele Channel Divinity-Verwendungen ein Charakter auf seinem Porträt hat, ähnlich wie bei Zaubereipunkten
+ModUi/&ShowChannelDivinityOnPortrait=Zeigt an, wie viele <color=#D89555>Göttlichkeit kanalisieren</color> ein Held auf seinem Porträt verwendet, ähnlich wie Zauberpunkte
 ModUi/&ShowCraftedItemOnRecipeIcon=Zeigen Sie das Symbol für hergestellte Gegenstände in der Nähe des Rezeptgegenstands im Shop und im Inventar an. Wenn Sie den Mauszeiger darüber bewegen, wird ein Tooltip für hergestellte Gegenstände angezeigt
 ModUi/&ShowCraftingRecipeInDetailedTooltips=Handwerksrezept in detaillierten Tooltips anzeigen
 ModUi/&ShowDescriptions=Beschreibungen anzeigen
