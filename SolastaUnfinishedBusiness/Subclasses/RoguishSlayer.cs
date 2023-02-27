@@ -13,21 +13,38 @@ namespace SolastaUnfinishedBusiness.Subclasses;
 internal sealed class RoguishSlayer : AbstractSubclass
 {
     private const string Name = "RoguishSlayer";
+    private const string Elimination = "Elimination";
     private const string ChainOfExecution = "ChainOfExecution";
     private const string CloakOfShadows = "CloakOfShadows";
-    private const string Elimination = "Elimination";
 
     internal RoguishSlayer()
     {
         //
         // Elimination
         //
+
+        var attributeModifierElimination = FeatureDefinitionAttributeModifierBuilder
+            .Create($"AttributeModifier{Name}{Elimination}")
+            .SetGuiPresentationNoContent(true)
+            .SetModifier(FeatureDefinitionAttributeModifier.AttributeModifierOperation.Set,
+                AttributeDefinitions.CriticalThreshold, 1)
+            .AddToDB();
+
+        var conditionElimination = ConditionDefinitionBuilder
+            .Create($"Condition{Name}{Elimination}")
+            .SetGuiPresentationNoContent(true)
+            .SetSilent(Silent.WhenAddedOrRemoved)
+            .SetSpecialDuration(DurationType.Round, 1, TurnOccurenceType.StartOfTurn)
+            .SetFeatures(attributeModifierElimination)
+            .AddToDB();
+
         var featureElimination = FeatureDefinitionBuilder
             .Create($"Feature{Name}{Elimination}")
             .SetGuiPresentation(Category.Feature)
             .AddToDB();
 
-        featureElimination.SetCustomSubFeatures(new CustomBehaviorElimination(featureElimination));
+        featureElimination.SetCustomSubFeatures(
+            new CustomBehaviorElimination(featureElimination, conditionElimination));
 
         //
         // Chain of Execution
@@ -50,7 +67,7 @@ internal sealed class RoguishSlayer : AbstractSubclass
             .Create($"Condition{Name}{ChainOfExecution}Granted")
             .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionBleeding)
             .SetPossessive()
-            .SetSpecialDuration(DurationType.Minute, 1)
+            .SetSpecialDuration(DurationType.Round, 1)
             .SetFeatures(additionalDamageChainOfExecutionGranted)
             .AddToDB();
 
@@ -62,10 +79,10 @@ internal sealed class RoguishSlayer : AbstractSubclass
             .SetSpecialDuration(DurationType.Round, 1, TurnOccurenceType.StartOfTurn)
             .AddToDB();
 
-        var customSubFeature =
+        var customBehaviorChainOfExecution =
             new CustomBehaviorChainOfExecution(conditionChainOfExecution, conditionChainOfExecutionGranted);
 
-        conditionChainOfExecution.SetCustomSubFeatures(customSubFeature);
+        conditionChainOfExecution.SetCustomSubFeatures(customBehaviorChainOfExecution);
 
         var additionalDamageChainOfExecution = FeatureDefinitionAdditionalDamageBuilder
             .Create($"AdditionalDamage{Name}{ChainOfExecution}")
@@ -82,7 +99,7 @@ internal sealed class RoguishSlayer : AbstractSubclass
                     operation = ConditionOperationDescription.ConditionOperation.Add,
                     conditionDefinition = conditionChainOfExecution
                 })
-            .SetCustomSubFeatures(customSubFeature)
+            .SetCustomSubFeatures(customBehaviorChainOfExecution)
             .AddToDB();
 
         var powerCloakOfShadows = FeatureDefinitionPowerBuilder
@@ -112,44 +129,15 @@ internal sealed class RoguishSlayer : AbstractSubclass
 
     internal override DeityDefinition DeityDefinition { get; }
 
-    private sealed class CustomBehaviorElimination : IOnComputeAttackModifier, IChangeDieRoll
+    private sealed class CustomBehaviorElimination : IOnComputeAttackModifier
     {
+        private readonly ConditionDefinition _conditionDefinition;
         private readonly FeatureDefinition _featureDefinition;
 
-        public CustomBehaviorElimination(FeatureDefinition featureDefinition)
+        public CustomBehaviorElimination(FeatureDefinition featureDefinition, ConditionDefinition conditionDefinition)
         {
             _featureDefinition = featureDefinition;
-        }
-
-        public void ChangeDieRoll(
-            DieType dieType,
-            AdvantageType advantageType,
-            ref int firstRoll,
-            ref int secondRoll,
-            float rollAlterationScore,
-            RulesetActor actor,
-            RollContext rollContext,
-            ref int result)
-        {
-            if (rollContext != RollContext.AttackRoll)
-            {
-                return;
-            }
-
-            var defender = Gui.Battle?.DefenderContender?.RulesetCharacter;
-
-            if (defender == null)
-            {
-                return;
-            }
-
-            if (defender.AllConditions.All(x => x.ConditionDefinition != ConditionDefinitions.ConditionSurprised))
-            {
-                return;
-            }
-
-            result += 20 - firstRoll;
-            firstRoll = 20;
+            _conditionDefinition = conditionDefinition;
         }
 
         public void ComputeAttackModifier(
@@ -168,6 +156,38 @@ internal sealed class RoguishSlayer : AbstractSubclass
 
                 return;
             }
+
+            //
+            // allow critical hit if defender is surprised
+            //
+
+            if (defender.HasAnyConditionOfType(ConditionSurprised))
+            {
+                var rulesetCondition = RulesetCondition.CreateActiveCondition(
+                    myself.guid,
+                    _conditionDefinition,
+                    DurationType.Round,
+                    0,
+                    TurnOccurenceType.StartOfTurn,
+                    myself.guid,
+                    myself.CurrentFaction.Name);
+
+                myself.AddConditionOfCategory(AttributeDefinitions.TagCombat, rulesetCondition);
+            }
+            else
+            {
+                var rulesetCondition =
+                    myself.AllConditions.FirstOrDefault(x => x.ConditionDefinition == _conditionDefinition);
+
+                if (rulesetCondition != null)
+                {
+                    myself.RemoveConditionOfCategory(AttributeDefinitions.TagCombat, rulesetCondition);
+                }
+            }
+
+            //
+            // Allow advantage if first round and higher initiative order vs defender
+            //
 
             if (battle.CurrentRound > 1)
             {
@@ -241,15 +261,15 @@ internal sealed class RoguishSlayer : AbstractSubclass
                 rulesetCharacter.Guid,
                 _conditionChainOfExecutionGranted,
                 DurationType.Round,
-                2,
-                TurnOccurenceType.EndOfTurn,
+                1,
+                TurnOccurenceType.EndOfSourceTurn,
                 rulesetCharacter.Guid,
                 rulesetCharacter.CurrentFaction.Name);
 
             rulesetCharacter.AddConditionOfCategory(AttributeDefinitions.TagCombat, rulesetCondition);
         }
     }
-    
+
     private sealed class RogueHolder : IClassHoldingFeature
     {
         // allows Chain of Execution damage to scale with rogue level
