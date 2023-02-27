@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using SolastaUnfinishedBusiness.Api;
+using SolastaUnfinishedBusiness.Api.Extensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
@@ -49,47 +49,35 @@ internal sealed class CircleOfTheNight : AbstractSubclass
 
         // 2nd level
 
-        // Wildshape as a bonus action
-        var additionalActionCircleOfTheNightWildshape = FeatureDefinitionAdditionalActionBuilder
-            .Create("AdditionalActionCircleOfTheNightWildshape")
-            .SetGuiPresentationNoContent(true)
-            .SetActionType(ActionDefinitions.ActionType.Main)
-            .SetRestrictedActions(ActionDefinitions.Id.WildShape)
-            .AddToDB();
+        #region Unused definitions kept to not break existing characters
 
-        var conditionCircleOfTheNightWildshape = ConditionDefinitionBuilder
+        ConditionDefinitionBuilder
             .Create("ConditionCircleOfTheNightWildshape")
             .SetGuiPresentationNoContent(true)
             .SetSilent(Silent.WhenAddedOrRemoved)
-            .SetFeatures(additionalActionCircleOfTheNightWildshape)
             .AddToDB();
 
-        var additionalActionCircleOfTheNightWildshapeAny = FeatureDefinitionAdditionalActionBuilder
-            .Create("AdditionalActionCircleOfTheNightWildshapeAny")
-            .SetGuiPresentationNoContent(true)
-            .SetActionType(ActionDefinitions.ActionType.Main)
-            .SetForbiddenActions(ActionDefinitions.Id.WildShape)
-            .AddToDB();
-
-        var conditionCircleOfTheNightWildshapeAny = ConditionDefinitionBuilder
+        ConditionDefinitionBuilder
             .Create("ConditionCircleOfTheNightWildshapeAny")
             .SetGuiPresentationNoContent(true)
             .SetSilent(Silent.WhenAddedOrRemoved)
-            .SetFeatures(additionalActionCircleOfTheNightWildshapeAny)
             .AddToDB();
 
-        var onAfterActionWildShape = FeatureDefinitionBuilder
+        var emptyFeatureForCompat = FeatureDefinitionBuilder
             .Create("OnAfterActionWildShape")
-            .SetGuiPresentation(Category.Feature)
-            .SetCustomSubFeatures(
-                new OnAfterActionWildShape(conditionCircleOfTheNightWildshape, conditionCircleOfTheNightWildshapeAny))
+            .SetGuiPresentationNoContent(true)
             .AddToDB();
+
+        #endregion
 
         // Combat Wildshape 
+        // Bonus Action for wild shape and extra form progression
         // Official rules are CR = 1/3 of druid level. However in solasta the selection of beasts is greatly reduced
-        var powerCircleOfTheNightWildShapeCombat = FeatureDefinitionBuilder
+        var combatWildShape = FeatureDefinitionActionAffinityBuilder
             .Create("PowerCircleOfTheNightWildShapeCombat")
             .SetGuiPresentation(Category.Feature)
+            .SetAuthorizedActions((ActionDefinitions.Id) ExtraActionId.WildShapeBonus)
+            .SetForbiddenActions(ActionDefinitions.Id.WildShape)
             .SetCustomSubFeatures(new ChangeShapeOptionsCircleOfTheNightWildShapeCombat(shapeOptions))
             .AddToDB();
 
@@ -151,8 +139,8 @@ internal sealed class CircleOfTheNight : AbstractSubclass
             .Create(CircleOfTheNightName)
             .SetGuiPresentation(Category.Subclass, PathClaw)
             .AddFeaturesAtLevel(2,
-                onAfterActionWildShape,
-                powerCircleOfTheNightWildShapeCombat,
+                emptyFeatureForCompat,
+                combatWildShape,
                 powerCircleOfTheNightWildShapeHealing)
             .AddFeaturesAtLevel(6,
                 powerCircleOfTheNightPrimalStrike,
@@ -168,7 +156,7 @@ internal sealed class CircleOfTheNight : AbstractSubclass
     internal override FeatureDefinitionSubclassChoice SubclassChoice =>
         FeatureDefinitionSubclassChoices.SubclassChoiceDruidCircle;
 
-    internal override DeityDefinition DeityDefinition { get; }
+    internal override DeityDefinition DeityDefinition => null;
 
     // custom wild shapes
 
@@ -338,93 +326,5 @@ internal sealed class CircleOfTheNight : AbstractSubclass
 
         public ConditionDefinition SpecialSubstituteCondition => ConditionDefinitions.ConditionWildShapeSubstituteForm;
         public List<ShapeOptionDescription> ShapeOptions { get; }
-    }
-
-    private class OnAfterActionWildShape : IOnAfterActionFeature
-    {
-        private readonly ConditionDefinition _anyActionCondition;
-        private readonly ConditionDefinition _wildshapeActionCondition;
-
-        public OnAfterActionWildShape(
-            ConditionDefinition wildshapeActionCondition,
-            ConditionDefinition anyActionCondition)
-        {
-            _wildshapeActionCondition = wildshapeActionCondition;
-            _anyActionCondition = anyActionCondition;
-        }
-
-        /*
-         * CASE 1: Main Attack
-         */
-
-        public void OnAfterAction(CharacterAction action)
-        {
-            if (Gui.Battle == null)
-            {
-                return;
-            }
-
-            var actingCharacter = action.ActingCharacter;
-            var rulesetCharacter = actingCharacter.RulesetCharacter;
-
-            // already in wildshape so there is nothing else to do
-            if (rulesetCharacter is not RulesetCharacterHero hero)
-            {
-                return;
-            }
-
-            // handle bonus action behavior
-            if (action.ActionType == ActionDefinitions.ActionType.Bonus)
-            {
-                // remove extra wild shape main action after a bonus action
-                if (hero.HasConditionOfCategoryAndType(AttributeDefinitions.TagCombat, _wildshapeActionCondition.Name))
-                {
-                    hero.RemoveAllConditionsOfCategoryAndType(AttributeDefinitions.TagCombat,
-                        _wildshapeActionCondition.Name);
-                }
-
-                return;
-            }
-
-            // get off here if not a main action or a bonus action not available anymore
-            var bonusActionStatus = actingCharacter.GetActionTypeStatus(ActionDefinitions.ActionType.Bonus);
-
-            if (action.ActionType != ActionDefinitions.ActionType.Main ||
-                bonusActionStatus != ActionDefinitions.ActionStatus.Available)
-            {
-                return;
-            }
-
-            // allows a wildshape action after a non wildshape main action
-            if (action.ActionDefinition != DatabaseHelper.ActionDefinitions.WildShape)
-            {
-                var rulesetCondition = RulesetCondition.CreateActiveCondition(
-                    actingCharacter.Guid,
-                    _wildshapeActionCondition,
-                    DurationType.Round,
-                    0,
-                    TurnOccurenceType.EndOfTurn,
-                    actingCharacter.Guid,
-                    hero.CurrentFaction.Name);
-
-                hero.AddConditionOfCategory(AttributeDefinitions.TagCombat, rulesetCondition);
-
-                return;
-            }
-
-            // otherwise consumes the bonus action and allows another main action
-            actingCharacter.SpendActionType(ActionDefinitions.ActionType.Bonus);
-
-            var rulesetConditionAny = RulesetCondition.CreateActiveCondition(
-                actingCharacter.Guid,
-                _anyActionCondition,
-                DurationType.Round,
-                0,
-                TurnOccurenceType.EndOfTurn,
-                actingCharacter.Guid,
-                hero.CurrentFaction.Name);
-
-            hero.AddConditionOfCategory(AttributeDefinitions.TagCombat, rulesetConditionAny);
-        }
     }
 }

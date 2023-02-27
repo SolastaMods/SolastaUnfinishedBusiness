@@ -20,6 +20,7 @@ public static class CustomActionIdContext
         BuildCustomPushedAction();
         BuildFarStepAction();
         BuildDoNothingActions();
+        BuildWildShapeActions();
     }
 
     private static void BuildCustomInvocationActions()
@@ -168,6 +169,22 @@ public static class CustomActionIdContext
             .SetActionType(ActionType.Reaction)
             .SetActionScope(ActionScope.All)
             .OverrideClassName("DoNothing")
+            .AddToDB();
+    }
+    
+    private static void BuildWildShapeActions()
+    {
+        if (!DatabaseHelper.TryGetDefinition<ActionDefinition>("WildShape", out var baseAction))
+        {
+            return;
+        }
+
+        ActionDefinitionBuilder
+            .Create(baseAction, "WildShapeBonus")
+            .OverrideClassName("WildShape")
+            .SetActionId(ExtraActionId.WildShapeBonus)
+            .SetActionType(ActionType.Bonus)
+            .SetActionScope(ActionScope.All)
             .AddToDB();
     }
 
