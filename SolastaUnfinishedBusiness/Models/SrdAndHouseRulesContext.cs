@@ -106,7 +106,7 @@ internal static class SrdAndHouseRulesContext
         FixMeleeHitEffectsRange();
         FixMountaineerBonusShoveRestrictions();
         FixRecklessAttackForReachWeapons();
-        MinorFixes();
+        SpellsMinorFixes();
         AddBleedingToRestoration();
         SwitchFilterOnHideousLaughter();
         SwitchRecurringEffectOnEntangle();
@@ -349,7 +349,7 @@ internal static class SrdAndHouseRulesContext
         }
     }
 
-    private static void MinorFixes()
+    private static void SpellsMinorFixes()
     {
         // Shows Concentration tag in UI
         BladeBarrier.requiresConcentration = true;
@@ -358,17 +358,16 @@ internal static class SrdAndHouseRulesContext
         // BUGFIX: spells durations
         //
 
-        // Use our logic to calculate duration for DominatePerson/Beast/Monster
-        DominateBeast.EffectDescription.EffectAdvancement.alteredDuration =
-            (AdvancementDuration)ExtraAdvancementDuration.Minutes_1_10_480_1440_Level4;
-        DominatePerson.EffectDescription.EffectAdvancement.alteredDuration =
-            (AdvancementDuration)ExtraAdvancementDuration.Minutes_1_10_480_1440_Level5;
-
         // Stops upcasting assigning non-SRD durations
         var spells = new IMagicEffect[]
         {
-            ProtectionFromEnergy, ProtectionFromEnergyAcid, ProtectionFromEnergyCold, ProtectionFromEnergyFire,
-            ProtectionFromEnergyLightning, ProtectionFromEnergyThunder, ProtectionFromPoison
+            ProtectionFromEnergy,
+            ProtectionFromEnergyAcid,
+            ProtectionFromEnergyCold,
+            ProtectionFromEnergyFire,
+            ProtectionFromEnergyLightning,
+            ProtectionFromEnergyThunder,
+            ProtectionFromPoison
         };
 
         foreach (var spell in spells)

@@ -151,6 +151,7 @@ internal enum ExtraAdditionalDamageAdvancement
     CharacterLevel = 9000
 }
 
+#if false
 internal enum ExtraAdvancementDuration
 {
     // None = AdvancementDuration.None,
@@ -168,6 +169,7 @@ internal enum ExtraAdvancementDuration
     // ReSharper disable once InconsistentNaming
     Minutes_1_10_480_1440_Level5 = -9003
 }
+#endif
 
 internal enum ExtraActionId
 {
@@ -189,6 +191,7 @@ internal enum ExtraActionId
     MonsterSwapAttackToggle = 9015
 }
 
+#if false
 internal static class EnumImplementation
 {
     internal static bool ComputeExtraAdvancementDuration(
@@ -248,3 +251,4 @@ internal static class EnumImplementation
         return false;
     }
 }
+#endif
