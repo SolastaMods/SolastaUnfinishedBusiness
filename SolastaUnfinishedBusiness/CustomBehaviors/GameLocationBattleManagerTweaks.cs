@@ -739,8 +739,8 @@ internal static class GameLocationBattleManagerTweaks
              */
             var validProperty = true;
 
-            if (attackMode != null && validUses &&
-                provider.RequiredProperty != RuleDefinitions.RestrictedContextRequiredProperty.None
+            if ((attackMode != null && validUses &&
+                 provider.RequiredProperty != RuleDefinitions.RestrictedContextRequiredProperty.None)
                 //[CE] ignore other restrictions and check context if we have custom validator for it
                 || featureDefinition.HasSubFeatureOfType<IRestrictedContextProvider>())
             {

@@ -361,13 +361,8 @@ internal static class SrdAndHouseRulesContext
         // Stops upcasting assigning non-SRD durations
         var spells = new IMagicEffect[]
         {
-            ProtectionFromEnergy,
-            ProtectionFromEnergyAcid,
-            ProtectionFromEnergyCold,
-            ProtectionFromEnergyFire,
-            ProtectionFromEnergyLightning,
-            ProtectionFromEnergyThunder,
-            ProtectionFromPoison
+            ProtectionFromEnergy, ProtectionFromEnergyAcid, ProtectionFromEnergyCold, ProtectionFromEnergyFire,
+            ProtectionFromEnergyLightning, ProtectionFromEnergyThunder, ProtectionFromPoison
         };
 
         foreach (var spell in spells)
@@ -594,7 +589,7 @@ internal static class SrdAndHouseRulesContext
         //BUGFIX: fix Brandiong Smite applying bonus damage to spells
         FeatureDefinitionAdditionalDamages.AdditionalDamageBrandingSmite
             .AddCustomSubFeatures(ValidatorsRestrictedContext.WeaponAttack);
-        
+
         //BUGFIX: fix Divine Favor applying bonus damage to spells
         FeatureDefinitionAdditionalDamages.AdditionalDamageDivineFavor
             .AddCustomSubFeatures(ValidatorsRestrictedContext.WeaponAttack);

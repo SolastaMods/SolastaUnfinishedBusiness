@@ -41,7 +41,7 @@ internal sealed class CircleOfTheNight : AbstractSubclass
         #endregion
 
         var combatWildshape = BuildWildShapePower();
-        
+
         //remove regular WS action
         var blockRegularWildshape = FeatureDefinitionActionAffinityBuilder
             .Create("OnAfterActionWildShape")
@@ -118,7 +118,14 @@ internal sealed class CircleOfTheNight : AbstractSubclass
                 powerCircleOfTheNightWildShapeSuperiorHealing)
             .AddToDB();
     }
-    
+
+    internal override CharacterSubclassDefinition Subclass { get; }
+
+    internal override FeatureDefinitionSubclassChoice SubclassChoice =>
+        FeatureDefinitionSubclassChoices.SubclassChoiceDruidCircle;
+
+    internal override DeityDefinition DeityDefinition => null;
+
     private static FeatureDefinitionPower BuildWildShapePower()
     {
         if (!TryGetDefinition<ActionDefinition>("WildShape", out var baseAction))
@@ -126,7 +133,7 @@ internal sealed class CircleOfTheNight : AbstractSubclass
             Main.Error("Couldn't fine WildShape action!");
             return null;
         }
-        
+
         // Official rules are CR = 1/3 of druid level. However in solasta the selection of beasts is greatly reduced
         var shapeOptions = new List<ShapeOptionDescription>
         {
@@ -172,7 +179,7 @@ internal sealed class CircleOfTheNight : AbstractSubclass
 
         ActionDefinitionBuilder
             .Create(baseAction, "CombatWildShape")
-            .SetGuiPresentation(NAME, Category.Feature, baseAction, sortOrder: baseAction.GuiPresentation.SortOrder)
+            .SetGuiPresentation(NAME, Category.Feature, baseAction, baseAction.GuiPresentation.SortOrder)
             .OverrideClassName("WildShape")
             .SetActionId(ExtraActionId.CombatWildShape)
             .SetActionType(ActionDefinitions.ActionType.Bonus)
@@ -181,13 +188,6 @@ internal sealed class CircleOfTheNight : AbstractSubclass
 
         return power;
     }
-
-    internal override CharacterSubclassDefinition Subclass { get; }
-
-    internal override FeatureDefinitionSubclassChoice SubclassChoice =>
-        FeatureDefinitionSubclassChoices.SubclassChoiceDruidCircle;
-
-    internal override DeityDefinition DeityDefinition => null;
 
     // custom wild shapes
 

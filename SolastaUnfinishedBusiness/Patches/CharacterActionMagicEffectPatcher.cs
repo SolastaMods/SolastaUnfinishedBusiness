@@ -183,8 +183,9 @@ public static class CharacterActionMagicEffectPatcher
             }
 
             __instance.actionParams.activeEffect.EffectDescription.rangeType = saveRangeType;
-            
+
             var customAction = definition.GetFirstSubFeatureOfType<ICustomMagicEffectAction>();
+
             if (customAction != null)
             {
                 var enums = customAction.ProcessCustomEffect(__instance);

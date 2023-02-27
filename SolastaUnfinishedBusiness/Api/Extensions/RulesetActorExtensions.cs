@@ -63,7 +63,7 @@ internal static class RulesetActorExtensions
         }
         //also add sub-features from original form of wild-shaped character
         else if (Main.Settings.EnumerateOriginSubFeatures
-                 && actor is RulesetCharacterMonster {originalFormCharacter: RulesetCharacterHero hero2})
+                 && actor is RulesetCharacterMonster { originalFormCharacter: RulesetCharacterHero hero2 })
         {
             hero = hero2;
             list.AddRange(FeaturesByType<BaseDefinition>(hero)

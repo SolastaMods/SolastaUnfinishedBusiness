@@ -186,9 +186,9 @@ public static class CustomActionIdContext
         if (actionId == (Id)ExtraActionId.CombatWildShape)
         {
             var power = character.GetPowerFromDefinition(action.ActivatedPower);
-            if (power is not {RemainingUses: > 0} ||
-                character is RulesetCharacterMonster monster &&
-                monster.MonsterDefinition.CreatureTags.Contains(TagsDefinitions.CreatureTagWildShape))
+            if (power is not { RemainingUses: > 0 } ||
+                (character is RulesetCharacterMonster monster &&
+                 monster.MonsterDefinition.CreatureTags.Contains(TagsDefinitions.CreatureTagWildShape)))
             {
                 result = ActionStatus.Unavailable;
             }

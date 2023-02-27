@@ -23,7 +23,7 @@ internal sealed class RoguishDuelist : AbstractSubclass
             // need to set next 3 even with a template as builder clears them out
             .SetNotificationTag(TagsDefinitions.AdditionalDamageSneakAttackTag)
             .SetDamageDice(DieType.D6, 1)
-            .SetAdvancement(AdditionalDamageAdvancement.ClassLevel, 1, 1, 2, 1)
+            .SetAdvancement(AdditionalDamageAdvancement.ClassLevel, 1, 1, 2)
             .SetTriggerCondition(ExtraAdditionalDamageTriggerCondition.TargetIsDuelingWithYou)
             .SetRequiredProperty(RestrictedContextRequiredProperty.FinesseOrRangeWeapon)
             .AddToDB();

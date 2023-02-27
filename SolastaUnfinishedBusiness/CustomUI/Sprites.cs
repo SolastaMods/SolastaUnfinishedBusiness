@@ -11,20 +11,20 @@ namespace SolastaUnfinishedBusiness.CustomUI;
 
 public static class Sprites
 {
-    #region Misc
-
-    internal static AssetReferenceSprite GambitResourceIcon =>
-        GetSprite("GambitResourceIcon", Resources.GambitResourceIcon, 64);
-    
-    internal static AssetReferenceSprite ChannelDivinityResourceIcon =>
-        GetSprite("ChannelDivinityResourceIcon", Resources.ChannelDivinityResourceIcon, 64);
-
-    #endregion
-
     #region Map Icons
 
     internal static AssetReferenceSprite Teleport =>
         GetSprite("Teleport", Resources.Teleport, 24);
+
+    #endregion
+
+    #region Misc
+
+    internal static AssetReferenceSprite GambitResourceIcon =>
+        GetSprite("GambitResourceIcon", Resources.GambitResourceIcon, 64);
+
+    internal static AssetReferenceSprite ChannelDivinityResourceIcon =>
+        GetSprite("ChannelDivinityResourceIcon", Resources.ChannelDivinityResourceIcon, 64);
 
     #endregion
 

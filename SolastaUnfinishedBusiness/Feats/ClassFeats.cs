@@ -395,19 +395,6 @@ internal static class ClassFeats
             this.wildShapeAmount = wildShapeAmount;
         }
 
-        public bool CanUsePower(RulesetCharacter character, FeatureDefinitionPower power)
-        {
-            var remaining = 0;
-
-            character.GetClassSpellRepertoire(CharacterClassDefinitions.Druid)?
-                .GetSlotsNumber(slotLevel, out remaining, out _);
-
-            var notMax = character.GetMaxUsesForPool(PowerDruidWildShape) >
-                         character.GetRemainingPowerUses(PowerDruidWildShape);
-
-            return remaining > 0 && notMax;
-        }
-
         public IEnumerator ProcessCustomEffect(CharacterActionMagicEffect action)
         {
             var character = action.ActingCharacter.RulesetCharacter;
@@ -421,6 +408,19 @@ internal static class ClassFeats
 
             repertoire.SpendSpellSlot(slotLevel);
             character.UpdateUsageForPowerPool(-wildShapeAmount, rulesetUsablePower);
+        }
+
+        public bool CanUsePower(RulesetCharacter character, FeatureDefinitionPower power)
+        {
+            var remaining = 0;
+
+            character.GetClassSpellRepertoire(CharacterClassDefinitions.Druid)?
+                .GetSlotsNumber(slotLevel, out remaining, out _);
+
+            var notMax = character.GetMaxUsesForPool(PowerDruidWildShape) >
+                         character.GetRemainingPowerUses(PowerDruidWildShape);
+
+            return remaining > 0 && notMax;
         }
     }
 
@@ -521,8 +521,8 @@ internal static class ClassFeats
 
     private sealed class ModifyMagicEffectFeatPotentSpellcaster : IModifyMagicEffect
     {
-        private readonly SpellListDefinition _spellListDefinition;
         private readonly CharacterClassDefinition _characterClassDefinition;
+        private readonly SpellListDefinition _spellListDefinition;
 
         public ModifyMagicEffectFeatPotentSpellcaster(
             CharacterClassDefinition characterClassDefinition,

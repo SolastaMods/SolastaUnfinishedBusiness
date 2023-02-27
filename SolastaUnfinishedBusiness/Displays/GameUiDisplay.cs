@@ -146,7 +146,7 @@ internal static class GameUiDisplay
         {
             Main.Settings.ShowChannelDivinityOnPortrait = toggle;
         }
-        
+
         toggle = Main.Settings.EnableStatsOnHeroTooltip;
         if (UI.Toggle(Gui.Localize("ModUi/&EnableStatsOnHeroTooltip"), ref toggle, UI.AutoWidth()))
         {

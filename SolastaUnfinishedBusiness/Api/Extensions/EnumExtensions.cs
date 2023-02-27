@@ -1,7 +1,4 @@
-﻿using JetBrains.Annotations;
-using static RuleDefinitions;
-
-namespace SolastaUnfinishedBusiness.Api.Extensions;
+﻿namespace SolastaUnfinishedBusiness.Api.Extensions;
 
 internal enum ExtraReactionContext
 {
