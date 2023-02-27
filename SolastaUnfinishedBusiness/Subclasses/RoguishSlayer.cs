@@ -36,20 +36,20 @@ internal sealed class RoguishSlayer : AbstractSubclass
         var additionalDamageChainOfExecutionGranted = FeatureDefinitionAdditionalDamageBuilder
             .Create($"AdditionalDamage{Name}{ChainOfExecution}Granted")
             .SetGuiPresentationNoContent(true)
-            // need to set next 3 even with a template as builder clears them out
             .SetNotificationTag(ChainOfExecution)
             .SetDamageDice(DieType.D6, 1)
-            .SetAdvancement(AdditionalDamageAdvancement.ClassLevel, 3, 1, 4, 9)
-            .SetFrequencyLimit(FeatureLimitedUsage.OncePerTurn)
-            .SetTriggerCondition(AdditionalDamageTriggerCondition.AdvantageOrNearbyAlly)
+            .SetAdvancement(AdditionalDamageAdvancement.ClassLevel, 1, 1, 4)
             .SetRequiredProperty(RestrictedContextRequiredProperty.FinesseOrRangeWeapon)
+            .SetTriggerCondition(AdditionalDamageTriggerCondition.AdvantageOrNearbyAlly)
+            .SetFirstTargetOnly(true)
+            .SetFrequencyLimit(FeatureLimitedUsage.OncePerTurn)
             .AddToDB();
 
         var conditionChainOfExecutionGranted = ConditionDefinitionBuilder
             .Create($"Condition{Name}{ChainOfExecution}Granted")
             .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionBleeding)
             .SetPossessive()
-            .SetSpecialDuration(DurationType.Round, 1)
+            .SetSpecialDuration(DurationType.Minute, 1)
             .SetFeatures(additionalDamageChainOfExecutionGranted)
             .AddToDB();
 
