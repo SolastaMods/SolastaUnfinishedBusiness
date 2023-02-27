@@ -55,7 +55,23 @@ internal static class RulesetActorExtensions
     {
         var list = FeaturesByType<BaseDefinition>(actor);
 
-        if (actor is not RulesetCharacterHero hero)
+        RulesetCharacterHero hero = null;
+
+        if (actor is RulesetCharacterHero hero1)
+        {
+            hero = hero1;
+        }
+        //also add sub-features from original form of wild-shaped character
+        else if (Main.Settings.EnumerateOriginSubFeatures
+                 && actor is RulesetCharacterMonster {originalFormCharacter: RulesetCharacterHero hero2})
+        {
+            hero = hero2;
+            list.AddRange(FeaturesByType<BaseDefinition>(hero)
+                .Where(f => !list.Contains(f))
+                .ToList());
+        }
+
+        if (hero == null)
         {
             return list;
         }
@@ -117,13 +133,6 @@ internal static class RulesetActorExtensions
             .Where(f => !typesToSkip.Contains(f.GetType()))
             .SelectMany(f => f.GetAllSubFeaturesOfType<T>())
             .ToList();
-
-        //also add sub-features from original form of wild-shaped character
-        if (Main.Settings.EnumerateOriginSubFeatures
-            && actor is RulesetCharacterMonster {originalFormCharacter: RulesetCharacterHero hero})
-        {
-            list.AddRange(hero.GetSubFeaturesByType<T>());
-        }
 
         return list;
     }
