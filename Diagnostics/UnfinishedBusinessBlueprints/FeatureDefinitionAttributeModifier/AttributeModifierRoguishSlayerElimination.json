@@ -1,10 +1,17 @@
 {
-  "$type": "FeatureDefinition, Assembly-CSharp",
+  "$type": "FeatureDefinitionAttributeModifier, Assembly-CSharp",
+  "modifiedAttribute": "CriticalThreshold",
+  "modifierOperation": "Set",
+  "modifierValue": 1,
+  "modifierAbilityScore": "Constitution",
+  "situationalContext": "None",
+  "minimum1": false,
+  "useBonusFromCaster": false,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
-    "hidden": false,
-    "title": "Feature/&PowerCircleOfTheNightWildShapeCombatTitle",
-    "description": "Feature/&PowerCircleOfTheNightWildShapeCombatDescription",
+    "hidden": true,
+    "title": "Feature/&NoContentTitle",
+    "description": "Feature/&NoContentTitle",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -24,7 +31,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "c619b94c-d2d8-5e01-8921-65cdd7f32872",
+  "guid": "41462010-d65e-5bd0-9422-a0a2e586f2f3",
   "contentPack": 9999,
-  "name": "PowerCircleOfTheNightWildShapeCombat"
+  "name": "AttributeModifierRoguishSlayerElimination"
 }

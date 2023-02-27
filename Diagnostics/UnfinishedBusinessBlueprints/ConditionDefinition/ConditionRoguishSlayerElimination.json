@@ -4,18 +4,18 @@
   "parentCondition": null,
   "conditionType": "Beneficial",
   "features": [
-    "Definition:AdditionalDamageRoguishSlayerChainOfExecutionGranted:1810c892-cfc3-54da-8bfb-c2cd7f3c7d2f"
+    "Definition:AttributeModifierRoguishSlayerElimination:41462010-d65e-5bd0-9422-a0a2e586f2f3"
   ],
   "allowMultipleInstances": false,
-  "silentWhenAdded": false,
-  "silentWhenRemoved": false,
+  "silentWhenAdded": true,
+  "silentWhenRemoved": true,
   "terminateWhenRemoved": false,
   "specialDuration": true,
   "durationType": "Round",
   "durationParameterDie": "D1",
   "durationParameter": 1,
   "forceTurnOccurence": false,
-  "turnOccurence": "EndOfTurn",
+  "turnOccurence": "StartOfTurn",
   "specialInterruptions": [],
   "interruptionRequiresSavingThrow": false,
   "interruptionSavingThrowComputationMethod": "SaveOverride",
@@ -86,7 +86,7 @@
   },
   "timeToWaitBeforeApplyingShader": 0.5,
   "timeToWaitBeforeRemovingShader": 0.5,
-  "possessive": true,
+  "possessive": false,
   "amountOrigin": "None",
   "baseAmount": 0,
   "additiveAmount": false,
@@ -127,14 +127,14 @@
   },
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
-    "hidden": false,
-    "title": "Condition/&ConditionRoguishSlayerChainOfExecutionGrantedTitle",
-    "description": "Condition/&ConditionRoguishSlayerChainOfExecutionGrantedDescription",
+    "hidden": true,
+    "title": "Feature/&NoContentTitle",
+    "description": "Feature/&NoContentTitle",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "702a30e6f872d834eb3c82b89c686f49",
-      "m_SubObjectName": "ConditionBleeding",
-      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+      "m_AssetGUID": "",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
@@ -149,7 +149,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "f88776db-f20a-5b9b-9ee4-cbc640a538b4",
+  "guid": "25ba884c-3590-58c8-aeac-359dff8ee107",
   "contentPack": 9999,
-  "name": "ConditionRoguishSlayerChainOfExecutionGranted"
+  "name": "ConditionRoguishSlayerElimination"
 }

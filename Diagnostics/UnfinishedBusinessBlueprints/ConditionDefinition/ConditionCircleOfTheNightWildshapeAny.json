@@ -3,9 +3,7 @@
   "inDungeonEditor": false,
   "parentCondition": null,
   "conditionType": "Beneficial",
-  "features": [
-    "Definition:AdditionalActionCircleOfTheNightWildshapeAny:a6fb8de8-f474-50e8-9d3f-dcb7bcd7249d"
-  ],
+  "features": [],
   "allowMultipleInstances": false,
   "silentWhenAdded": true,
   "silentWhenRemoved": true,
