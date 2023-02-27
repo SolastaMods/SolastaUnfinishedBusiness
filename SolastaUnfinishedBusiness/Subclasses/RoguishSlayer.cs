@@ -43,6 +43,7 @@ internal sealed class RoguishSlayer : AbstractSubclass
             .SetTriggerCondition(AdditionalDamageTriggerCondition.AdvantageOrNearbyAlly)
             .SetFirstTargetOnly(true)
             .SetFrequencyLimit(FeatureLimitedUsage.OncePerTurn)
+            .SetCustomSubFeatures(new RogueHolder())
             .AddToDB();
 
         var conditionChainOfExecutionGranted = ConditionDefinitionBuilder
@@ -247,5 +248,11 @@ internal sealed class RoguishSlayer : AbstractSubclass
 
             rulesetCharacter.AddConditionOfCategory(AttributeDefinitions.TagCombat, rulesetCondition);
         }
+    }
+    
+    private sealed class RogueHolder : IClassHoldingFeature
+    {
+        // allows Chain of Execution damage to scale with rogue level
+        public CharacterClassDefinition Class => CharacterClassDefinitions.Rogue;
     }
 }
