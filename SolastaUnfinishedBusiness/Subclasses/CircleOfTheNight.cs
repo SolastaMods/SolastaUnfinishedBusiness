@@ -172,7 +172,7 @@ internal sealed class CircleOfTheNight : AbstractSubclass
 
         ActionDefinitionBuilder
             .Create(baseAction, "CombatWildShape")
-            .SetGuiPresentation(NAME, Category.Feature, baseAction)
+            .SetGuiPresentation(NAME, Category.Feature, baseAction, sortOrder: baseAction.GuiPresentation.SortOrder)
             .OverrideClassName("WildShape")
             .SetActionId(ExtraActionId.CombatWildShape)
             .SetActionType(ActionDefinitions.ActionType.Bonus)
