@@ -77,6 +77,15 @@ public class Settings : UnityModManager.ModSettings
     public bool DisableClassPrerequisitesOnModFeats { get; set; }
     public bool DisableRacePrerequisitesOnModFeats { get; set; }
     public bool AddHumanoidFavoredEnemyToRanger { get; set; }
+    
+    private bool enumerateOriginSubFeatures;
+
+    public bool EnumerateOriginSubFeatures
+    {
+        get => enumerateOriginSubFeatures && EnableBetaContent;
+        set => enumerateOriginSubFeatures = value;
+    }
+
     public bool EnableEpicPointsAndArray { get; set; }
     public int TotalFeatsGrantedFirstLevel { get; set; }
 
