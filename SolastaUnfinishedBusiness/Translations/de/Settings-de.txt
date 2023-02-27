@@ -23,11 +23,11 @@ ModUi/&AllowDungeonsMaxLevel20=Erlaube Dungeons mit max. Stufe 20
 ModUi/&AllowGadgetsAndPropsToBePlacedAnywhere=Aktivieren Sie den <color=#1E81B0>CTRL</color>-Klick, um alle Überprüfungen beim Platzieren von Gadgets oder Requisiten zu umgehen
 ModUi/&AllowHornsOnAllRaces=Hörner für alle Rassen zulassen <i><color=#F0DAA0>[Ergebnisse können je nach Rasse, Kopf und Horn schrecklich aussehen]</color></i>
 ModUi/&AllowMoreRealStateOnRestPanel=Erlauben Sie mehr realen Status im Ruhebereich <i><color=#F0DAA0>[Aktionen nach der Ruhe im Bereich „Vorher“ und Wiederherstellungsfunktionen im Bereich „Nachher“ ausblenden]</color></i>
-ModUi/&AllowStackedMaterialComponent=Gestapelte Materialkomponente zulassen <i><color=#F0DAA0>[z.B. 2x500gp Diamant entspricht 1000gp Diamant]</color></i>
+ModUi/&AllowStackedMaterialComponent=Gestapelte Materialkomponente zulassen <i><color=#F0DAA0>[z.B. 2 x 500 gp Diamant entsprechen 1000 gp Diamant]</color></i>
 ModUi/&AllowTargetingSelectionWhenCastingChainLightningSpell=Zielauswahl zulassen, wenn der Zauberspruch <color=#D89555>Kettenblitz</color> gewirkt wird
 ModUi/&AllowUnmarkedSorcerers=Erlaube <color=#D89555>Zauberer</color> ohne Ursprungsmarkierungen und Tätowierungen
 ModUi/&AllRecipesInDm=Alle Rezepte in DM
-ModUi/&AltOnlyHighlightItemsInPartyFieldOfView=<color =#1E81B0> Alt </color> Schlüssel zeigt nur Geräte im Party -Sichtfeld <i><color =#f0daa0> [Nur benutzerdefinierte Dungeons] </color></i>
+ModUi/&AltOnlyHighlightItemsInPartyFieldOfView=Die <color=#1E81B0>ALT</color>-Taste hebt nur Gadgets im Sichtfeld der Gruppe hervor <i><color=#F0DAA0>[nur benutzerdefinierte Dungeons]</color></i>
 ModUi/&ApplySRDWeightToFoodRations=Reduzieren Sie das Gewicht der Futterration auf 2 Pfund
 ModUi/&ArcaneShieldstaffOptions=<color=#D89555>Arkaner Schildstab</color> kann von jeder Klasse eingestimmt werden
 ModUi/&Backgrounds=<color=#F0DAA0>Hintergründe:</color>
@@ -80,13 +80,13 @@ ModUi/&EnableEpicPointsAndArray=Aktivieren Sie ein episches 35-Punkte-Kaufsystem
 ModUi/&EnableFeatsAtEvenLevels=Aktivieren Sie die Talentauswahl auf den Klassenstufen 2, 6, 10 und 14
 ModUi/&EnableFighterArmamentAdroitness=Aktivieren Sie <color=#D89555>Kämpfer</color> <b>Waffentraining</b> auf Klassenstufen 2, 6, 10 und 14 <i><color=#F0DAA0>[wählen Sie einen Waffentyp aus, auf den Sie +1 erhalten treffen und beschädigen]</color></i>
 ModUi/&EnableFlexibleBackgrounds=Aktivieren Sie flexible Hintergründe <i><color=#F0DAA0>[Fähigkeiten und Werkzeugkenntnisse aus Hintergründen auswählen]</color></i>
-ModUi/&EnableFlexibleRaces=Aktivieren Sie flexible Rassen <i><color=#F0DAA0>[weisen Sie Fähigkeitspunktepunkte anstelle der rassischen Standardeinstellungen zu]</color></i>
+ModUi/&EnableFlexibleRaces=Aktivieren Sie flexible Rassen <i><color=#F0DAA0>[weisen Sie Fähigkeitspunktepunkte anstelle der rassischen Standardwerte zu]</color></i>
 ModUi/&EnableHotkeyDebugOverlay=Aktivieren Sie <color=#1E81B0>CTRL-SHIFT-(D)</color>, um das Debug-Overlay anzuzeigen
 ModUi/&EnableHotkeyToggleHud=Aktivieren Sie <color=#1E81B0>CTRL-SHIFT-(H)</color>, um die HUD-Anzeige umzuschalten
 ModUi/&EnableInventoryFilteringAndSorting=Inventarfilterung und -sortierung aktivieren
-ModUi/&EnableInventoryTaintNonProficientItemsRed=Färbe alle Gegenstände, mit denen der Held nicht vertraut ist, rot ein
+ModUi/&EnableInventoryTaintNonProficientItemsRed=Färbe jeden Gegenstand rot ein, mit dem der Held nicht vertraut ist
 ModUi/&EnableInventoryTintKnownRecipesRed=Rot tönen bekannte Rezepte
-ModUi/&EnableInvisibleCrownOfTheMagister=Blenden Sie die <color=#D89555>Krone des Magisters</color> auf der Spieloberfläche aus
+ModUi/&EnableInvisibleCrownOfTheMagister=Blenden Sie die <color=#D89555>Krone des Magisters</color> auf der Benutzeroberfläche des Spiels aus
 ModUi/&EnableLevel20=Stufe 20 aktivieren <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>
 ModUi/&EnableLogDialoguesToConsole=Aktivieren Sie Protokolldialoge zur Spielkonsole während narrativer Sequenzen
 ModUi/&EnableMinInOutAttributes=<i>+ Mindestvoraussetzungen für Fähigkeitswerte erzwingen</i>
@@ -127,14 +127,14 @@ ModUi/&GameUi=Benutzeroberfläche des Spiels
 ModUi/&General=<color=#F0DAA0>Allgemein:</color>
 ModUi/&GeneralMenu=Allgemein
 ModUi/&HideExitAndTeleporterGizmosIfNotDiscovered=Blenden Sie die visuellen Effekte von Ausgängen und Teleportern aus, wenn sie noch nicht entdeckt wurden
-ModUi/&HideMonsterHitPoints=Zeigt die Gesundheit der Monster in Schritten von 25 % / 50 % / 75 % / 100 % anstelle der exakten Trefferpunkte an
+ModUi/&HideMonsterHitPoints=Zeigt die Gesundheit von Monstern in Schritten von 25 % / 50 % / 75 % / 100 % anstelle der genauen Trefferpunkte an
 ModUi/&House=<color=#F0DAA0>Haus:</color>
 ModUi/&IdentifyAfterRest=Fügen Sie eine Kraft hinzu, um magische Gegenstände über eine kurze oder lange Pause zu identifizieren
 ModUi/&IgnoreHandXbowFreeHandRequirements=Benötigen Sie keine freie Hand, um Handarmbrüste zu verwenden
 ModUi/&IncreaseGameTimeBy=Erhöhen Sie die Spielzeit um
 ModUi/&IncreaseMaxAttunedItems=Erhöhen Sie die max. abgestimmten Gegenstände auf 4 auf Stufe 10 und 5 auf Stufe 18
 ModUi/&IncreaseSenseNormalVision=<color=white>Erhöhen Sie die Reichweite der <color=#D89555>Normalen Sicht wahrnehmen</color>, um Langstreckenangriffe zu ermöglichen</color> <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>
-ModUi/&IncreaseSenseNormalVisionHelp=<i><color=#F0DAA0>[40 ist ideal, um zu verhindern, dass sich Feinde von zu weit her anschließen]</color></i>
+ModUi/&IncreaseSenseNormalVisionHelp=<i><color=#F0DAA0>[40 ist ideal, um zu vermeiden, dass sich Feinde von zu weit her anschließen]</color></i>
 ModUi/&InitialChoices=<color=#F0DAA0>Erstellung:</color>
 ModUi/&Input=<color=#F0DAA0>Eingabe:</color>
 ModUi/&Interface=Schnittstelle
@@ -156,7 +156,7 @@ ModUi/&Monsters=<color=#F0DAA0>Monster:</color>
 ModUi/&MulticlassKeyHelp=<color=#1E81B0>SHIFT</color>-Klick auf einen Zauber kehrt den verbrauchten Standard-Repertoire-Slot-Typ um\n<i><color=#F0DAA0>[<color=#D89555>Warlock</color> gibt weiße Zauberslots aus und andere geben Paktgrüne aus]</color></i>
 ModUi/&MultiplyTheExperienceGainedBy=<color=white>Multipliziere die gewonnene Erfahrung mit</color> <color=#C04040E0>[%]</color>
 ModUi/&NoExperienceOnLevelUp=Es ist keine Erfahrung erforderlich, um aufzusteigen
-ModUi/&OfferAdditionalLoreFriendlyNames=Bieten Sie zusätzliche Lore-freundliche Namen bei der Charaktererstellung an
+ModUi/&OfferAdditionalLoreFriendlyNames=Bieten Sie bei der Charaktererstellung zusätzliche Lore-freundliche Namen an
 ModUi/&OnlyShowMostPowerfulUpcastConjuredElementalOrFey=<i>+ Nur die mächtigsten Kreaturen in der Beschwörungsliste anzeigen</i>
 ModUi/&OverrideMinMaxLevel=Überschreiben Sie die erforderlichen Mindest- und Höchststufen, wenn Sie neue Abenteuer beginnen
 ModUi/&OverridePartySize=<color=white>Gruppengröße überschreiben</color>
@@ -186,11 +186,12 @@ ModUi/&Services=Dienstleistungen
 ModUi/&SetBeltOfDwarvenKindBeardChances=<color=#D89555>Gürtel der Zwerge</color> <color=white>Erscheinungschancen für Bart</color>
 ModUi/&Settings=<color=#F0DAA0>Einstellungen:</color>
 ModUi/&SettingsExport=Export
-ModUi/&SettingsHelp=. Als Host können Sie Ihre aktuelle Konfiguration exportieren, den Exportordner öffnen und ganz einfach mit Ihren Kollegen teilen\n. Als Gast können Sie den Exportordner öffnen, die freigegebene Datei vom Host einfügen und über <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b> laden
+ModUi/&SettingsHelp=. Als Host können Sie Ihre aktuelle Konfiguration exportieren, den Exportordner öffnen und einfach mit Ihren Kollegen teilen\n. Als Gast können Sie den Exportordner öffnen, die freigegebene Datei vom Host einfügen und über <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b> laden
 ModUi/&SettingsLoad=. Laden Sie eine exportierte Einstellung
 ModUi/&SettingsOpenFolder=Öffnen Sie den Ordner mit den exportierten Einstellungen
 ModUi/&SettingsRefresh=Aktualisierung
 ModUi/&SettingsRemove=Entfernen
+ModUi/&ShowChannelDivinityOnPortrait=Zeigt an, wie viele Channel Divinity-Verwendungen ein Charakter auf seinem Porträt hat, ähnlich wie bei Zaubereipunkten
 ModUi/&ShowCraftedItemOnRecipeIcon=Zeigen Sie das Symbol für hergestellte Gegenstände in der Nähe des Rezeptgegenstands im Shop und im Inventar an. Wenn Sie den Mauszeiger darüber bewegen, wird ein Tooltip für hergestellte Gegenstände angezeigt
 ModUi/&ShowCraftingRecipeInDetailedTooltips=Handwerksrezept in detaillierten Tooltips anzeigen
 ModUi/&ShowDescriptions=Beschreibungen anzeigen

@@ -1,0 +1,6 @@
+﻿UI/&Quickies=rapiditos
+UI/&Current Party=Partido actual
+UI/&Party Editor=Editor de fiestas
+UI/&Experimental Preview:=Vista previa experimental (<color=Yellow>guardar copia de seguridad antes de usar</color>):
+UI/&This simple party editor lets you edit characters in a loaded game session. Right now it lets you edit your character's first and last name. More features are coming soon (tm). Please click on the following to report issues:=Este sencillo editor de grupos te permite editar personajes en una sesión de juego cargada. En este momento te permite editar el nombre y las estadísticas de tu personaje. Próximamente habrá más funciones (tm). Haga clic en lo siguiente para informar problemas:
+UI/&****** Party Editor unavailable: Please load a save game ******=****** Party Editor no disponible: Cargue un juego guardado ******

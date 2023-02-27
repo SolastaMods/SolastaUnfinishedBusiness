@@ -1,10 +1,10 @@
 ModUi/&AddAllToStore=Добавить все в магазин
 ModUi/&AddBleedingToLesserRestoration=Добавьте состояние <color=#D89555>Кровотечение</color> к состояниям, удаленным с помощью <color=#D89555>Большого</color> и <color=#D89555>Малого восстановления</color>.
 ModUi/&AddCustomIconsToOfficialItems=Добавьте пользовательские значки к официальным игровым предметам <i><color=#F0DAA0>[боеприпасы, рецепты, наборы и т. д.]</color></i> <b><i><color=#C04040E0>[Требуется перезагрузка] </цвет></i></b>
-ModUi/&AddHelpActionToAllRaces=Добавьте действие <color=#D89555>Помощь</color> для всех игровых рас <i><color=#F0DAA0>[вы можете помочь дружественному существу атаковать существо в пределах 5 футов от вас]</color></i>я>
+ModUi/&AddHelpActionToAllRaces=Добавьте действие <color=#D89555>Помощь</color> для всех игровых рас <i><color=#F0DAA0>[вы можете помочь дружественному существу атаковать существо в пределах 5 футов от вас]</color></i>
 ModUi/&AddHumanoidFavoredEnemyToRanger=Добавить предпочитаемого врага-гуманоида к <color=#D89555>Рейнджерам</color>
 ModUi/&AddMonkKiPointsToggle=Добавьте переключатель, позволяющий <color=#D89555>монахам</color> включать/отключать точки Ки <i><color=#F0DAA0>[полезно для минимизации запросов на реакцию]</color></i>
-ModUi/&AddMonsterSwapAttackToggle=Добавьте переключатель, позволяющий <color=#D89555>Друидам</color> в форме дикой формы выбирать, какую атаку использовать первой <i><color=#F0DAA0>[полезно при сочетании атак ближнего и дальнего боя]</color> </i>
+ModUi/&AddMonsterSwapAttackToggle=Добавьте переключатель, позволяющий <color=#D89555>Друидам</color> в форме дикой формы выбирать, какую атаку использовать в первую очередь <i><color=#F0DAA0>[полезно при сочетании атак ближнего и дальнего боя]</color> </i>
 ModUi/&AddNewBrightEyeColors=Добавьте новые яркие цвета глаз
 ModUi/&AddNewWeaponsAndRecipesToShops=Добавьте новое оружие и рецепты в магазины <i><color=#F0DAA0>[бинты, алебарды, пики, длинные булавы, ручные арбалеты]</color></i> <b><i><color=#C04040E0> [Требуется перезагрузка]</color></i></b>
 ModUi/&AddPaladinSmiteToggle=Добавьте переключатель, позволяющий <color=#D89555>Paladins</color> включать удары только при критических ударах <i><color=#F0DAA0>[полезно для минимизации подсказок реакции]</color></i>
@@ -23,13 +23,13 @@ ModUi/&AllowDungeonsMaxLevel20=Разрешить подземелья с мак
 ModUi/&AllowGadgetsAndPropsToBePlacedAnywhere=Включите <color=#1E81B0>CTRL</color>, чтобы обойти любую проверку при размещении гаджетов или реквизита.
 ModUi/&AllowHornsOnAllRaces=Разрешить рога для всех рас <i><color=#F0DAA0>[результаты могут выглядеть ужасно в зависимости от расы, головы и рога]</color></i>
 ModUi/&AllowMoreRealStateOnRestPanel=Разрешить более реальное состояние на панели покоя <i><color=#F0DAA0>[скрыть действия после отдыха на панели до и функции восстановления на панели после]</color></i>
-ModUi/&AllowStackedMaterialComponent=Разрешить составной компонент материала <i><color=#F0DAA0>[например, 2 алмаза по 500 зм эквивалентны бриллианту по 1000 зм]</color></i>
+ModUi/&AllowStackedMaterialComponent=Разрешить составной компонент материала <i><color=#F0DAA0>[например, 2 бриллианта по 500 зм эквивалентны бриллианту по 1000 зм]</color></i>
 ModUi/&AllowTargetingSelectionWhenCastingChainLightningSpell=Разрешить выбор цели при использовании заклинания <color=#D89555>Цепная молния</color>
 ModUi/&AllowUnmarkedSorcerers=Разрешить <color=#D89555>Sorcerer</color> без опознавательных знаков и татуировок
 ModUi/&AllRecipesInDm=Все рецепты в DM
 ModUi/&AltOnlyHighlightItemsInPartyFieldOfView=Клавиша <color=#1E81B0>ALT</color> выделяет гаджеты только в поле зрения группы <i><color=#F0DAA0>[только пользовательские подземелья]</color></i>
 ModUi/&ApplySRDWeightToFoodRations=Уменьшить вес пищевого рациона до 2 фунтов
-ModUi/&ArcaneShieldstaffOptions=Разрешить настройку <color=#D89555>Arcane Shieldstaff</color> для любого класса
+ModUi/&ArcaneShieldstaffOptions=Разрешить настройку <color=#D89555>Чародейского щитового посоха</color> любому классу
 ModUi/&Backgrounds=<color=#F0DAA0>Фон:</color>
 ModUi/&Basic=<color=#F0DAA0>Базовый:</color>
 ModUi/&Bestiary=Бестиарий
@@ -52,7 +52,7 @@ ModUi/&CriticalOption0=<color=#D89555><b>0</b></color>: игра по умолч
 ModUi/&CriticalOption1=<color=#D89555><b>1</b></color>: суммируйте максимальный результат кубиков урона и добавьте его к урону атаки <i><color=#F0DAA0>[XdY+(X*Y) +Z]</color></i>
 ModUi/&CriticalOption2=<color=#D89555><b>2</b></color>: продолжайте перебрасывать любые кубики урона, которые дают максимально возможный результат, и добавляйте его к общему урону.
 ModUi/&CriticalOption3=<color=#D89555><b>3</b></color>: удвойте общий урон вашей атаки вместо того, чтобы бросать дополнительные кубики. <i><color=#F0DAA0>[(XdY+Z)*2]</color></i>
-ModUi/&DeadEyeAndPowerAttackBaseBaseValue=<color=white>Установите базовое значение модификатора «Меткий глаз» и «Мощная атака»</color>\n<i><color=#F0DAA0>[формула: -mod на попадание / mod + ваш PB на урон]</color></i>я>
+ModUi/&DeadEyeAndPowerAttackBaseBaseValue=<color=white>Установите базовое значение модификатора «Меткий глаз» и «Мощная атака»</color>\n<i><color=#F0DAA0>[формула: -mod на попадание / mod + ваш PB на урон]</color></i>
 ModUi/&Deities=<color=#F0DAA0>Божества:</color>
 ModUi/&DisableAutoEquip=Отключить автоэкипировку предметов в инвентаре
 ModUi/&DisableClassPrerequisitesOnModFeats=Отключите предварительные условия уровня для умений, связанных с классом, предоставляемых этим модом.
@@ -98,7 +98,7 @@ ModUi/&EnablesAsiAndFeat=Включить увеличение значений 
 ModUi/&EnableSaveByLocation=Включить сохранение по кампаниям/местоположениям
 ModUi/&EnableSortingDungeonMakerAssets=Включить сортировку ресурсов в редакторе Dungeon Maker
 ModUi/&EnableStatsOnHeroTooltip=Отображать статистику во всплывающей подсказке героя <i><color=#F0DAA0>[т.е.: критические удары, критические провалы и т. д.]</color></i>
-ModUi/&EnableTeleportParty=Включите <color=#1E81B0>CTRL-SHIFT-(T)</color>, чтобы телепортировать группу <i><color=#F0DAA0>[вы можете прервать квесты, если телепортируетесь в неизвестное место]</color></i>я>
+ModUi/&EnableTeleportParty=Включите <color=#1E81B0>CTRL-SHIFT-(T)</color>, чтобы телепортировать группу <i><color=#F0DAA0>[вы можете прервать квесты, если телепортируетесь в неизвестное место]</color></i>
 ModUi/&EnableTogglesToOverwriteDefaultTestParty=Включите переключатели в пуле персонажей, чтобы установить игру по умолчанию и тестовую группу.
 ModUi/&EnableUpcastConjureElementalAndFey=Включить восходящее использование <color=#D89555>Сотворения элементаля</color> и <color=#D89555>Сотворения фей</color>
 ModUi/&EncounterPercentageChance=<color=white>Установить процент случайных встреч</color>
@@ -176,10 +176,10 @@ ModUi/&RemoveRecurringEffectOnEntangle=Применяйте эффект <color=
 ModUi/&RestockAntiquarians=Restock Antiquarians <i><color=#F0DAA0>[Halman Summer]</color></i>
 ModUi/&RestockArcaneum=Восстановите запасы Arcaneum <i><color=#F0DAA0>[Heddlon Surespell]</color></i>
 ModUi/&RestockCircleOfDanantar=Пополнение Круга Данантара <i><color=#F0DAA0>[Джориэль Фоксай]</color></i>
-ModUi/&RestockHelp=. Переопределить значения по умолчанию, чтобы все запасы продавца пополнялись с течением времени <i><color=#F0DAA0>[кроме руководств и фолиантов]</color></i>\n. Обратите внимание, что для пополнения запасов некоторых предметов может потребоваться до 7 игровых дней.
+ModUi/&RestockHelp=. Переопределить значения по умолчанию, чтобы все запасы продавца пополнялись с течением времени <i><color=#F0DAA0>[за исключением руководств и фолиантов]</color></i>\n. Обратите внимание, что для пополнения запасов некоторых предметов может потребоваться до 7 игровых дней.
 ModUi/&RestockTowerOfKnowledge=Пополнение Башни знаний <i><color=#F0DAA0>[Мэдди Гринайл]</color></i>
 ModUi/&Rules=Правила
-ModUi/&ScaleMerchantPricesCorrectly=Правильно / точно масштабируйте цены продавца <i><color=#F0DAA0>[устранены ошибки округления при конвертации стоимости монет]</color></i>
+ModUi/&ScaleMerchantPricesCorrectly=Правильно / точно масштабируйте цены продавца <i><color=#F0DAA0>[устранены ошибки округления при преобразовании стоимости монет]</color></i>
 ModUi/&SelectAll=Выбрать все
 ModUi/&SelectSuggested=Выберите предложенный
 ModUi/&Services=Услуги
@@ -191,6 +191,7 @@ ModUi/&SettingsLoad=. Загрузить экспортированный пар
 ModUi/&SettingsOpenFolder=Открыть папку с экспортированными настройками
 ModUi/&SettingsRefresh=Обновить
 ModUi/&SettingsRemove=Удалять
+ModUi/&ShowChannelDivinityOnPortrait=Покажите, сколько Channel Divinity использует персонаж на своем портрете, аналогично волшебным очкам.
 ModUi/&ShowCraftedItemOnRecipeIcon=Показывать значок созданного предмета рядом с предметом рецепта в магазине и инвентаре. При наведении на него появится всплывающая подсказка для созданного предмета.
 ModUi/&ShowCraftingRecipeInDetailedTooltips=Показать рецепт крафта в подробных всплывающих подсказках
 ModUi/&ShowDescriptions=Показать описания
@@ -200,7 +201,7 @@ ModUi/&SpellsMenu=Заклинания
 ModUi/&SRD=<color=#F0DAA0>SRD:</color>
 ModUi/&StockGorimStoreWithAllNonMagicalClothing=Магазин Горима со всей немагической одеждой <b><i><color=#C04040E0>[Требуется перезагрузка]</color></i></b>
 ModUi/&StockGorimStoreWithAllNonMagicalInstruments=Магазин Горима со всеми немагическими музыкальными инструментами <b><i><color=#C04040E0>[Требуется перезагрузка]</color></i></b>
-ModUi/&StockHugoStoreWithAdditionalFoci=В магазине Хьюго есть <color=#D89555>Чародейский посох</color>, <color=#D89555>Шея друида</color>, <color=#D89555>Посох</color> и <color=#D89555>Дубинка</color> установить как фокусные элементы
+ModUi/&StockHugoStoreWithAdditionalFoci=В магазине Хьюго есть <color=#D89555>Чародейский посох</color>, <color=#D89555>Шея друида</color>, <color=#D89555>Посох</color> и <color=#D89555>Дубинка</color> установить как элементы фокуса
 ModUi/&Subclasses=<color=#F0DAA0>Подклассы</color>
 ModUi/&SwapCraftedItemAndRecipeIcons=<i>+ Обмен значками рецептов и созданных предметов в магазине</i>
 ModUi/&TargetLanguage=Язык перевода
