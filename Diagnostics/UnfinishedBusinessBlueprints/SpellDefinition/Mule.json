@@ -321,9 +321,9 @@
     "description": "Spell/&MuleDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "205d0c12bfe517341bf9993bf94954eb",
-      "m_SubObjectName": "Longstrider",
-      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+      "m_AssetGUID": "ed5c1c03-42e5-5cf3-a45d-2cfc3682577d",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",

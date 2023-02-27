@@ -5,7 +5,7 @@ using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionFeatu
 
 namespace SolastaUnfinishedBusiness.Builders;
 
-internal enum Category
+public enum Category
 {
     Action = 1,
     Background,
@@ -23,7 +23,9 @@ internal enum Category
     Reaction,
     RestActivity,
     Spell,
-    Subclass
+    Subclass,
+    Tooltip,
+    UI,
 }
 
 internal static class Sorting

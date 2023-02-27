@@ -30,6 +30,11 @@ internal static class IconsOnPortrait
 
         // setup/update relevant custom controls
         var pools = character.GetSubFeaturesByType<ICustomPortraitPointPoolProvider>();
+        if (Main.Settings.ShowChannelDivinityOnPortrait
+            && character.TryGetAttributeValue(AttributeDefinitions.ChannelDivinityNumber) > 0)
+        {
+            pools.Add(PortraitPointChannelDivinity.Instance);
+        }
 
         foreach (var provider in pools)
         {

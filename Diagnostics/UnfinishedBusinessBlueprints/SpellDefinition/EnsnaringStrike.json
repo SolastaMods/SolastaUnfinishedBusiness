@@ -321,9 +321,9 @@
     "description": "Spell/&EnsnaringStrikeDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "3567ccebbdb2bc043a8e651701b16bbc",
-      "m_SubObjectName": "Entangle",
-      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+      "m_AssetGUID": "71a89b4e-ca27-5e13-ad82-58b82d326e80",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",

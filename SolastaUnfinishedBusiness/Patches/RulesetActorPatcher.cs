@@ -331,6 +331,14 @@ public static class RulesetActorPatcher
                 return result;
             }
 
+            var changeDieRolls = actor.GetSubFeaturesByType<IChangeDieRoll>();
+
+            foreach (var changeDieRoll in changeDieRolls)
+            {
+                changeDieRoll.ChangeDieRoll(dieType, advantageType, ref firstRoll, ref secondRoll, rollAlterationScore,
+                    actor, rollContext, ref result);
+            }
+
             Global.FirstAttackRoll = firstRoll;
             Global.SecondAttackRoll = secondRoll;
 

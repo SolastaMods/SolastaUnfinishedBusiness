@@ -13,8 +13,7 @@ namespace SolastaUnfinishedBusiness.Subclasses;
 internal sealed class OathOfAltruism : AbstractSubclass
 {
     private const string Name = "OathOfAltruism";
-    internal const string Name2 = $"Feature{Name}DefensiveStrike";
-    internal const string Name3 = $"Feature{Name}DefensiveStrikeAlly";
+    internal const string DefensiveStrike = $"Feature{Name}DefensiveStrike";
 
     internal OathOfAltruism()
     {
@@ -39,9 +38,9 @@ internal sealed class OathOfAltruism : AbstractSubclass
             .AddToDB();
 
         var featureDefensiveStrike = FeatureDefinitionBuilder
-            .Create(Name2)
+            .Create(DefensiveStrike)
             .SetGuiPresentation(Category.Feature, PowerDomainBattleDecisiveStrike)
-            .SetCustomSubFeatures(DefensiveStrikeAttack.DefensiveStrikeMarker)
+            .SetCustomSubFeatures(DefensiveStrikeMarker.Mark)
             .AddToDB();
 
         var featureAuraOfTheGuardian = FeatureDefinitionBuilder

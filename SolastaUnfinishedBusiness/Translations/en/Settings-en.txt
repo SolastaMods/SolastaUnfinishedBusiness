@@ -191,6 +191,7 @@ ModUi/&SettingsLoad=. Load an exported setting
 ModUi/&SettingsOpenFolder=Open exported settings folder
 ModUi/&SettingsRefresh=Refresh
 ModUi/&SettingsRemove=Remove
+ModUi/&ShowChannelDivinityOnPortrait=Show how many Channel Divinity uses character has on their portrait, similar to Sorcery Points
 ModUi/&ShowCraftedItemOnRecipeIcon=Show crafted item icon near recipe item in shop and inventory. Hovering over it will show tooltip for crafted item
 ModUi/&ShowCraftingRecipeInDetailedTooltips=Show crafting recipe in detailed tooltips
 ModUi/&ShowDescriptions=Show Descriptions

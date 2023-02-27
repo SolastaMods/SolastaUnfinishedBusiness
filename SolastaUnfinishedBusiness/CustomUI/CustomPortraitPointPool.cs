@@ -79,14 +79,14 @@ internal class CustomPortraitPointPool : MonoBehaviour
 
         if (label != null)
         {
-            label.Text = $"{provider.GetPoints(character)}";
+            label.Text = provider.GetPoints(character);
         }
 
         var tooltip = GetComponent<GuiTooltip>();
 
         if (tooltip != null)
         {
-            tooltip.Content = provider.Tooltip;
+            tooltip.Content = provider.Tooltip(character);
         }
     }
 }

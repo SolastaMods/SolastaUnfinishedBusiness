@@ -15,7 +15,7 @@ namespace SolastaUnfinishedBusiness.Subclasses;
 
 internal sealed class RoguishArcaneScoundrel : AbstractSubclass
 {
-    private const string Name = "RoguishArcaneScoundrel";
+    internal const string Name = "RoguishArcaneScoundrel";
     private const string DistractingAmbush = "DistractingAmbush";
 
     internal RoguishArcaneScoundrel()
