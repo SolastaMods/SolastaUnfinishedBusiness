@@ -153,14 +153,16 @@ internal sealed class CircleOfTheNight : AbstractSubclass
         };
 
         const string NAME = "PowerCircleOfTheNightWildShapeCombat";
-        var power = FeatureDefinitionPowerBuilder
-            .Create(PowerDruidWildShape, NAME)
+        var power = FeatureDefinitionPowerSharedPoolBuilder
+            .Create(NAME)
             .SetGuiPresentation(Category.Feature)
             .SetOverriddenPower(PowerDruidWildShape)
-            .SetActivationTime(ActivationTime.BonusAction)
+            .SetSharedPool(ActivationTime.BonusAction, PowerDruidWildShape)
+            .DelegatedToAction()
             .SetEffectDescription(EffectDescriptionBuilder.Create()
                 .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
                 .SetDurationData(DurationType.HalfClassLevelHours)
+                .SetParticleEffectParameters(PowerDruidWildShape)
                 .SetEffectForms(EffectFormBuilder.Create()
                     .SetShapeChangeForm(ShapeChangeForm.Type.ClassLevelListSelection, true,
                         ConditionDefinitions.ConditionWildShapeSubstituteForm, shapeOptions)
