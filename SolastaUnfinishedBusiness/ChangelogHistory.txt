@@ -1,5 +1,19 @@
 ﻿CHANGES:
 
+1.4.33.51:
+
+- added Interface > Game UI option to show remaining uses of Channel Divinity on portrait
+- added Slayer subclass [beta]
+- fixed Arcane Scoundrel compatibility with multiclass
+- fixed Blade Master causing a null exception off combat
+- fixed Divine Favor and Smite spells applying bonus damage to spells
+- fixed Duelist daring duel's sneak dice progression
+- fixed Ensnaring Strike DC
+- fixed Executioner damage consideration
+- improved Ensnaring Strike, Mantle of Thorns, Mule and Help sprites by Taco 
+- improved Oath of Altruism's defensive strike behavior
+- improved Party Editor
+
 1.4.33.50:
 
 - fixed effects termination when unconscious [Arcane Fighter, Inventor, Soul Blade]

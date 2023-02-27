@@ -11,7 +11,7 @@ ModUi/&AddPaladinSmiteToggle=Aggiungi un interruttore per consentire ai <color=#
 ModUi/&AddPickPocketableLoot=Aggiungi bottino borseggiatore <i><color=#F0DAA0>[suggerito se il talento <color=#D89555> Borseggiatore</color> è abilitato]</color></i>
 ModUi/&AddToStore=Aggiungi al negozio
 ModUi/&Advanced=<color=#F0DAA0>Avanzate:</color> <b><i><color=#C04040E0>[Richiede il riavvio]</color></i></b>
-ModUi/&AdvancedHelp=. <b><color=#C04040E0>ATTENZIONE:</color></b> Queste impostazioni richiedono che il giocatore abbia questa mod installata
+ModUi/&AdvancedHelp=. <b><color=#C04040E0>ATTENZIONE:</color></b> Queste impostazioni richiedono che il giocatore abbia installato questa mod
 ModUi/&Adventure=<color=#F0DAA0>Avventura:</color>
 ModUi/&AllItemInDm=Tutti gli articoli in DM
 ModUi/&AllowAllPlayersOnNarrativeSequences=<i>+ Consenti a tutti i giocatori nelle sequenze narrative</i>
@@ -57,8 +57,8 @@ ModUi/&Deities=<color=#F0DAA0> Divinità:</color>
 ModUi/&DisableAutoEquip=Disattiva l'equipaggiamento automatico degli articoli nell'inventario
 ModUi/&DisableClassPrerequisitesOnModFeats=Disabilita i prerequisiti di livello sui talenti legati alla classe forniti da questa mod
 ModUi/&DisableRacePrerequisitesOnModFeats=Disabilita i prerequisiti di razza sui talenti forniti da questa mod
-ModUi/&DisableSenseDarkVisionFromAllRaces=Disabilita <color=#D89555>Percepisci la visione oscura</color> da tutte le razze giocabili <b><i><color=#C04040E0>[Richiede il riavvio]</color></i></b>
-ModUi/&DisableSenseSuperiorDarkVisionFromAllRaces=Disabilita <color=#D89555>Oscuro Senso Superiore</color> da tutte le razze giocabili <b><i><color=#C04040E0>[Richiede il riavvio]</color></i></b>
+ModUi/&DisableSenseDarkVisionFromAllRaces=Disabilita <color=#D89555>Percepisci Visione Oscura</color> da tutte le razze giocabili <b><i><color=#C04040E0>[Richiede il riavvio]</color></i></b>
+ModUi/&DisableSenseSuperiorDarkVisionFromAllRaces=Disabilita <color=#D89555>Superior Sense Dark Vision</color> da tutte le razze giocabili <b><i><color=#C04040E0>[Richiede il riavvio]</color></i></b>
 ModUi/&DisplayAllKnownSpellsDuringLevelUp=<i>+ Mostra tutti gli incantesimi conosciuti di altre classi durante l'aumento di livello</i>
 ModUi/&DisplayPactSlotsOnSpellSelectionPanel=<i>+ Mostra slot patto <color=#D89555>Stregone</color> sulla selezione degli incantesimi invece che sul pannello del personaggio</i>
 ModUi/&DontFollowCharacterInBattle=La telecamera di battaglia non segue quando il personaggio è già sullo schermo
@@ -69,7 +69,7 @@ ModUi/&EmpressGarbAppearance=Aspetto <color=#D89555>Abito da Imperatrice</color>
 ModUi/&EnableAdditionalBackstoryDisplay=Abilita la visualizzazione aggiuntiva del retroscena durante l'ispezione in background
 ModUi/&EnableAdditionalIconsOnLevelMap=Abilita icone aggiuntive per accampamenti, uscite e teletrasporto sulla mappa del livello
 ModUi/&EnableAdditionalItemsInDungeonMaker=<i>+ Aggiungi nuovi elementi a Dungeon Maker</i>
-ModUi/&EnableAlternateHuman=Abilita l'umano alternativo <i><color =#f0daa0> [ +1 feat / +2 scelte di attributo / +1 abilità] </ color></i>
+ModUi/&EnableAlternateHuman=Abilita l'umano alternativo <i><color=#F0DAA0>[+1 talento / +2 scelte attributi / +1 abilità]</color></i>
 ModUi/&EnableBetaContent=Abilita i contenuti beta <b><i><color=#C04040E0>[Richiede il riavvio]</color></i></b>
 ModUi/&EnableCancelEditOnRightMouseClick=Abilita le azioni di annullamento con il clic destro del mouse
 ModUi/&EnableCharacterChecker=Abilita il pulsante Controllo caratteri nella schermata principale > Personaggi
@@ -97,7 +97,7 @@ ModUi/&EnableRespec=Abilita l'azione RESPEC dopo il riposo
 ModUi/&EnablesAsiAndFeat=Abilita sia l'aumento dei punteggi degli attributi che la selezione dei talenti <i><color=#F0DAA0>[invece di una scelta esclusiva]</color></i>
 ModUi/&EnableSaveByLocation=Abilita il salvataggio per campagne/località
 ModUi/&EnableSortingDungeonMakerAssets=Abilita l'ordinamento delle risorse nell'editor di Dungeon Maker
-ModUi/&EnableStatsOnHeroTooltip=Mostra le statistiche sul tooltip dell'eroe <i><color=#F0DAA0>[ad esempio: colpi critici, fallimenti critici, ecc.]</color></i>
+ModUi/&EnableStatsOnHeroTooltip=Mostra le statistiche sul tooltip dell'eroe <i><color=#F0DAA0>[ad es.: colpi critici, fallimenti critici, ecc.]</color></i>
 ModUi/&EnableTeleportParty=Abilita <color=#1E81B0>CTRL-MAIUSC-(T)</color> per teletrasportare il gruppo <i><color=#F0DAA0>[potresti interrompere le missioni se ti teletrasporti in un luogo sconosciuto]</color></i>
 ModUi/&EnableTogglesToOverwriteDefaultTestParty=Attiva/disattiva il pool di personaggi per impostare il gruppo di gioco e di prova predefinito
 ModUi/&EnableUpcastConjureElementalAndFey=Abilita l'upcast di <color=#D89555> Evoca Elementale</color> e <color=#D89555> Evoca Folletto</color>
@@ -108,7 +108,7 @@ ModUi/&FactionHelp=<color=#C04040E0>Carica un gioco della campagna ufficiale per
 ModUi/&FactionRelations=<color=#F0DAA0> Fazioni:</color>
 ModUi/&FasterTimeModifier=<color=white>Modificatore del tempo di gioco quando si preme la barra spaziatrice</color>
 ModUi/&FeatGroups=<color=#F0DAA0>Gruppi di talenti</color>
-ModUi/&FeatGroupsHelp=. Ogni gruppo è un consolidamento di talenti simili <i><color=#F0DAA0>[ad es.: credo, stili di combattimento, metamagia, ecc.]</color></i>\n. I talenti in questi gruppi non saranno più direttamente visibili nella fase di selezione delle competenze\n. Il gruppo, quando selezionato, li offre in un elenco a discesa per riordinare la schermata di gioco
+ModUi/&FeatGroupsHelp=. Ogni gruppo è un consolidamento di talenti simili <i><color=#F0DAA0>[ad es.: credi, stili di combattimento, metamagia, ecc.]</color></i>\n. I talenti in questi gruppi non saranno più direttamente visibili nella fase di selezione delle competenze\n. Il gruppo, quando selezionato, li offre in un elenco a discesa per riordinare la schermata di gioco
 ModUi/&Feats=<color=#F0DAA0> Talenti</color>
 ModUi/&FightingStyles=<color=#F0DAA0>Stili di combattimento</color>
 ModUi/&FixEldritchBlastRange=Cambia la portata di <color=#D89555>Eldritch Blast</color> a 24 <i><color=#F0DAA0>[invece di 16]</color></i>
@@ -131,7 +131,7 @@ ModUi/&HideMonsterHitPoints=Mostra la salute dei mostri in passi del 25% / 50% /
 ModUi/&House=<color=#F0DAA0>Casa:</color>
 ModUi/&IdentifyAfterRest=Aggiunge un potere per identificare gli oggetti magici durante un riposo breve o lungo
 ModUi/&IgnoreHandXbowFreeHandRequirements=Non è necessaria la mano libera per usare le balestre a mano
-ModUi/&IncreaseGameTimeBy=Aumenta il tempo di gioco da
+ModUi/&IncreaseGameTimeBy=Aumenta il tempo di gioco di
 ModUi/&IncreaseMaxAttunedItems=Aumenta il numero massimo di oggetti sintonizzati a 4 al livello 10 e 5 al livello 18
 ModUi/&IncreaseSenseNormalVision=<color=white>Aumenta il raggio di <color=#D89555>Percepisci visione normale</color> per consentire attacchi a lungo raggio</color> <b><i><color=#C04040E0>[Richiede il riavvio]</color></i></b>
 ModUi/&IncreaseSenseNormalVisionHelp=<i><color=#F0DAA0>[40 è l'ideale per evitare che i nemici si uniscano da troppo lontano]</color></i>
@@ -139,7 +139,7 @@ ModUi/&InitialChoices=<color=#F0DAA0>Creazione:</color>
 ModUi/&Input=<color=#F0DAA0>Inserimento:</color>
 ModUi/&Interface=Interfaccia
 ModUi/&InventoryAndItems=<color=#F0DAA0>Inventario e oggetti:</color>
-ModUi/&InvertAltBehaviorOnTooltips=Inverti il comportamento del tasto <color=#1E81B0>ALT</color> nei suggerimenti
+ModUi/&InvertAltBehaviorOnTooltips=Inverti il ​​comportamento del tasto <color=#1E81B0>ALT</color> nei suggerimenti
 ModUi/&Invocations=<color=#F0DAA0>Invocazioni</color>
 ModUi/&ItemInDm=Articoli in DM
 ModUi/&Items=<color=#F0DAA0>Oggetti:</color>
@@ -151,7 +151,7 @@ ModUi/&MakeLargeWildshapeFormsMedium=Rendi tutte le grandi forme selvagge di med
 ModUi/&MarkInvisibleTeleportersOnLevelMap=<i>+ Contrassegna anche la posizione dei teletrasporti invisibili sulla mappa del livello dopo la scoperta</i>
 ModUi/&MaxAllowedClasses=<color=white>Classi massime consentite</color>
 ModUi/&Merchants=<color=#F0DAA0> Commercianti:</color>
-ModUi/&Metamagic=<color=#F0DAA0>Metamagia</color>
+ModUi/&Metamagic=<color=#F0DAA0> Metamagia</color>
 ModUi/&Monsters=<color=#F0DAA0>Mostri:</color>
 ModUi/&MulticlassKeyHelp=Fare clic su <color=#1E81B0>MAIUSC</color> su un incantesimo inverte il tipo di slot del repertorio predefinito consumato\n<i><color=#F0DAA0>[<color=#D89555>Stregone</color> spende slot incantesimo bianchi e altri spendono patti verdi]</color></i>
 ModUi/&MultiplyTheExperienceGainedBy=<color=white>Moltiplica l'esperienza acquisita per</color> <color=#C04040E0>[%]</color>
@@ -159,7 +159,7 @@ ModUi/&NoExperienceOnLevelUp=Non è richiesta alcuna esperienza per salire di li
 ModUi/&OfferAdditionalLoreFriendlyNames=Offri nomi amichevoli aggiuntivi sulla creazione del personaggio
 ModUi/&OnlyShowMostPowerfulUpcastConjuredElementalOrFey=<i>+ Mostra solo le creature più potenti nell'elenco delle evocazioni</i>
 ModUi/&OverrideMinMaxLevel=Ignora i livelli minimo e massimo richiesti quando inizi nuove avventure
-ModUi/&OverridePartySize=<color=white> Sostituisci le dimensioni del gruppo</color>
+ModUi/&OverridePartySize=<color=white>Sostituisci le dimensioni del gruppo</color>
 ModUi/&Patches=<color=#F0DAA0> Patch:</color>
 ModUi/&PrimedItems=Articoli innescati
 ModUi/&Progression=<color=#F0DAA0>Progressione:</color>
@@ -189,8 +189,9 @@ ModUi/&SettingsExport=Esportare
 ModUi/&SettingsHelp=. In qualità di host puoi esportare la tua configurazione attuale, aprire la cartella delle esportazioni e condividerla facilmente con i tuoi colleghi\n. Come ospite puoi aprire la cartella delle esportazioni, incollare il file condiviso dall'host e caricarlo su <b><i><color=#C04040E0>[Richiede il riavvio]</color></i></b>
 ModUi/&SettingsLoad=. Carica un'impostazione esportata
 ModUi/&SettingsOpenFolder=Apri la cartella delle impostazioni esportate
-ModUi/&SettingsRefresh=Ricaricare
+ModUi/&SettingsRefresh=ricaricare
 ModUi/&SettingsRemove=Rimuovere
+ModUi/&ShowChannelDivinityOnPortrait=Mostra quanti Channel Divinity usa il personaggio ha sul suo ritratto, simile ai Punti Stregoneria
 ModUi/&ShowCraftedItemOnRecipeIcon=Mostra l'icona dell'oggetto creato accanto all'oggetto della ricetta nel negozio e nell'inventario. Passando il mouse su di esso verrà visualizzato il suggerimento per l'oggetto creato
 ModUi/&ShowCraftingRecipeInDetailedTooltips=Mostra la ricetta di creazione in suggerimenti dettagliati
 ModUi/&ShowDescriptions=Mostra descrizioni
@@ -220,4 +221,4 @@ ModUi/&UnlockMarkAndTattoosForAllCharacters=Sblocca i segni di origine e i tatua
 ModUi/&UnlockSkinColors=Sblocca i colori della pelle
 ModUi/&UseHeightOneCylinderEffect=Usa un effetto cilindro di altezza 1 quando lanci <color=#D89555>Tentacoli neri, Intralcio, Grasso</color> <i><color=#F0DAA0>[square]</color></i> o <color=#D89555>Picchi di Crescita</color> <i><color=#F0DAA0>[round]</color></i>
 ModUi/&UseOfficialAdvantageDisadvantageRules=Usa le regole ufficiali di vantaggio/svantaggio
-ModUi/&Visuals=<color=#F0DAA0> Immagini:</color> <b><i><color=#C04040E0>[Richiede il riavvio]</color></i></b>
+ModUi/&Visuals=<color=#F0DAA0>Visuali:</color> <b><i><color=#C04040E0>[Richiede il riavvio]</color></i></b>

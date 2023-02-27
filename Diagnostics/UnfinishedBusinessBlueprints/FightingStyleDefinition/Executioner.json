@@ -1,7 +1,7 @@
 {
   "$type": "FightingStyleDefinition, Assembly-CSharp",
   "features": [
-    "Definition:AdditionalDamageFightingStyleExecutioner:62bdad0b-d7b8-5454-8f69-acf886966250"
+    "Definition:FeatureFightingStyleExecutioner:44cbdc12-60f2-546b-8b9a-2be9e29b7c23"
   ],
   "condition": "RangedWeaponAttack",
   "guiPresentation": {

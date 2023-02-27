@@ -640,7 +640,7 @@ internal static class MeleeCombatFeats
             var battle = Gui.Battle;
 
             // the second check handle cases where you can attack when enemy misses you on a hit
-            if (attackMode.actionType != ActionDefinitions.ActionType.Reaction &&
+            if (attackMode.actionType != ActionDefinitions.ActionType.Reaction && battle != null &&
                 battle.ActiveContender.RulesetCharacter != defender && battle.DefenderContender != null)
             {
                 return;

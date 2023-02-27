@@ -159,17 +159,23 @@ internal static partial class SpellBuilders
             .SetDamageDice(DieType.D6, 1)
             .SetSpecificDamageType(DamageTypePiercing)
             .SetAdvancement(AdditionalDamageAdvancement.SlotLevel)
+            .SetSavingThrowData(
+                EffectDifficultyClassComputation.SpellCastingFeature,
+                EffectSavingThrowType.None,
+                AttributeDefinitions.Strength)
             .SetCustomSubFeatures(new AdditionalEffectFormOnDamageHandler((attacker, _, provider) =>
-                new List<EffectForm>
-                {
-                    EffectFormBuilder.Create()
-                        .SetConditionForm(ensnared, ConditionForm.ConditionOperation.Add)
-                        .HasSavingThrow(EffectSavingThrowType.Negates)
-                        .CanSaveToCancel(TurnOccurenceType.EndOfTurn)
-                        .OverrideSavingThrowInfo(AttributeDefinitions.Strength,
-                            GameLocationBattleManagerTweaks.ComputeSavingThrowDC(attacker.RulesetCharacter, provider))
-                        .Build()
-                }))
+                    new List<EffectForm>
+                    {
+                        EffectFormBuilder.Create()
+                            .SetConditionForm(ensnared, ConditionForm.ConditionOperation.Add)
+                            .HasSavingThrow(EffectSavingThrowType.Negates)
+                            .CanSaveToCancel(TurnOccurenceType.EndOfTurn)
+                            .OverrideSavingThrowInfo(AttributeDefinitions.Strength,
+                                GameLocationBattleManagerTweaks.ComputeSavingThrowDC(attacker.RulesetCharacter,
+                                    provider))
+                            .Build()
+                    }),
+                ValidatorsRestrictedContext.WeaponAttack)
             .AddToDB();
 
         var conditionEnsnaringStrike = ConditionDefinitionBuilder
@@ -182,7 +188,7 @@ internal static partial class SpellBuilders
 
         var spell = SpellDefinitionBuilder
             .Create(NAME)
-            .SetGuiPresentation(Category.Spell, Entangle)
+            .SetGuiPresentation(Category.Spell, Sprites.GetSprite("EnsnaringStrike", Resources.EnsnaringStrike, 128))
             .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolConjuration)
             .SetSpellLevel(1)
             .SetMaterialComponent(MaterialComponentType.None)
@@ -239,7 +245,8 @@ internal static partial class SpellBuilders
 
         var spell = SpellDefinitionBuilder
             .Create(NAME)
-            .SetGuiPresentation(Category.Spell, Longstrider)
+            .SetGuiPresentation(Category.Spell,
+                Sprites.GetSprite("Mule", Resources.Mule, 128))
             .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolTransmutation)
             .SetSpellLevel(1)
             .SetCastingTime(ActivationTime.Action)
@@ -288,6 +295,7 @@ internal static partial class SpellBuilders
             .Create($"AdditionalDamage{NAME}")
             .SetGuiPresentation(Category.Feature)
             .SetNotificationTag(NAME)
+            .SetCustomSubFeatures(ValidatorsRestrictedContext.WeaponAttack)
             .SetDamageDice(DieType.D6, 1)
             .SetSpecificDamageType(DamageTypeFire)
             .SetAdvancement(AdditionalDamageAdvancement.SlotLevel, 1)
@@ -471,6 +479,7 @@ internal static partial class SpellBuilders
             .Create($"AdditionalDamage{NAME}")
             .SetGuiPresentation(Category.Feature)
             .SetNotificationTag(NAME)
+            .SetCustomSubFeatures(ValidatorsRestrictedContext.WeaponAttack)
             .SetDamageDice(DieType.D6, 2)
             .SetSpecificDamageType(DamageTypeThunder)
             .SetSavingThrowData( //explicitly stating all relevant properties (even default ones) for readability
@@ -528,6 +537,7 @@ internal static partial class SpellBuilders
             .Create($"AdditionalDamage{NAME}")
             .SetGuiPresentation(Category.Feature)
             .SetNotificationTag(NAME)
+            .SetCustomSubFeatures(ValidatorsRestrictedContext.WeaponAttack)
             .SetDamageDice(DieType.D6, 1)
             .SetSpecificDamageType(DamageTypePsychic)
             .SetAdvancement(AdditionalDamageAdvancement.SlotLevel, 1)

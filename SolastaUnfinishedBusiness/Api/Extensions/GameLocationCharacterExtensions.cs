@@ -16,7 +16,7 @@ public static class GameLocationCharacterExtensions
 
         foreach (var mode in instance.RulesetCharacter.AttackModes)
         {
-            if (!mode.Reach)
+            if (!ValidatorsWeapon.IsMelee(mode))
             {
                 continue;
             }

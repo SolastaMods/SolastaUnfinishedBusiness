@@ -1,0 +1,6 @@
+﻿UI/&Quickies=Быстрый секс
+UI/&Current Party=Текущая вечеринка
+UI/&Party Editor=Партийный редактор
+UI/&Experimental Preview:=Экспериментальный предварительный просмотр (<color=Yellow>сохраните резервную копию перед использованием</color>):
+UI/&This simple party editor lets you edit characters in a loaded game session. Right now it lets you edit your character's first and last name. More features are coming soon (tm). Please click on the following to report issues:=Этот простой редактор групп позволяет редактировать персонажей в загруженной игровой сессии. Прямо сейчас он позволяет вам редактировать имя и характеристики вашего персонажа. Скоро появятся дополнительные функции (tm). Нажмите на следующее, чтобы сообщить о проблемах:
+UI/&****** Party Editor unavailable: Please load a save game ******=****** Редактор вечеринок недоступен: пожалуйста, загрузите сохранение ******

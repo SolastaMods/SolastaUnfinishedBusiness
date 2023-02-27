@@ -1,0 +1,14 @@
+﻿Condition/&ConditionRoguishSlayerChainOfExecutionGrantedDescription=Increase the damage of your next sneak attack by an extra 3d6, until the end of your next turn. This damage increases to 4d6 at 13th level, and 5d6 at 17th level.
+Condition/&ConditionRoguishSlayerChainOfExecutionGrantedTitle=Chain of Execution
+Condition/&ConditionRoguishSlayerChainOfExecutionDescription=You are marked by the Slayer.
+Condition/&ConditionRoguishSlayerChainOfExecutionTitle=Chain of Execution
+Feature/&AdditionalDamageRoguishSlayerChainOfExecutionDescription=Whenever you reduce a creature to 0 hit points, or whenever a creature damaged by your sneak attack dies before the start of your next turn, increase the damage of your next sneak attack by an extra 3d6, until the end of your next turn. This damage increases to 4d6 at 13th level, and 5d6 at 17th level.
+Feature/&AdditionalDamageRoguishSlayerChainOfExecutionTitle=Chain of Execution
+Feature/&FeatureRoguishSlayerEliminationDescription=Starting at 3rd level, you are at your deadliest when you get the drop on your enemies. You have advantage on attack rolls against any creature that hasn't taken a turn in the combat yet. In addition, any hit you score against a creature that is surprised is a critical hit.
+Feature/&FeatureRoguishSlayerEliminationTitle=Elimination
+Feature/&PowerRoguishSlayerCloakOfShadowsDescription=You can use your bonus action to become invisible for 1 minute. You can use this feature once per short rest.
+Feature/&PowerRoguishSlayerCloakOfShadowsTitle=Cloak of Shadows
+Feedback/&AdditionalDamageChainOfExecutionFormat=Chain of Execution
+Feedback/&AdditionalDamageChainOfExecutionLine=Chain of Execution deals extra +{2} damage!
+Subclass/&RoguishSlayerDescription=Slayers focus their training on the grim art of death. Those who adhere to this archetype are diverse: hired killers, spies, bounty hunters, and even specially anointed priests trained to exterminate the enemies of their deity. Stealth, poison, and disguise help you eliminate your foes with deadly efficiency.
+Subclass/&RoguishSlayerTitle=Slayer

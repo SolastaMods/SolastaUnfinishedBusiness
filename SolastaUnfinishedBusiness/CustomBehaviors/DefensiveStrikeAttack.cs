@@ -2,6 +2,8 @@
 using System.Linq;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.Extensions;
+using SolastaUnfinishedBusiness.Api.ModKit;
+using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Subclasses;
 using static ActionDefinitions;
@@ -11,9 +13,6 @@ namespace SolastaUnfinishedBusiness.CustomBehaviors;
 //Old Attack of Opportunity before it became too narrow to use
 internal static class DefensiveStrikeAttack
 {
-    private const string NotAoOTag = "NotAoO"; //Used to distinguish reaction attacks from AoO
-    internal static readonly object DefensiveStrikeMarker = new DefensiveStrikeMarker();
-
     internal static IEnumerator ProcessOnCharacterAttackFinished(
         GameLocationBattleManager battleManager,
         GameLocationCharacter attacker,
@@ -37,8 +36,6 @@ internal static class DefensiveStrikeAttack
             yield break;
         }
 
-        //Process features on attacker or defender
-
         var units = battle.AllContenders
             .Where(u => !u.RulesetCharacter.IsDeadOrDyingOrUnconscious)
             .ToArray();
@@ -59,29 +56,70 @@ internal static class DefensiveStrikeAttack
         GameLocationCharacter defender,
         GameLocationBattleManager battleManager)
     {
+        var unitCharacter = unit.RulesetCharacter;
         if (!attacker.IsOppositeSide(unit.Side) || defender.Side != unit.Side || unit == defender
-            || !(unit.RulesetCharacter?.HasSubFeatureOfType<DefensiveStrikeMarker>() ?? false)
-            || !CanMakeAoO(defender, attacker, out var opportunityAttackMode, out var actionModifier, battleManager))
+            || !unitCharacter.HasSubFeatureOfType<DefensiveStrikeMarker>())
         {
             yield break;
         }
 
-        if (unit.RulesetCharacter.UsedChannelDivinity == 1)
+        //Is this unit able to react (not paralyzed, prone etc.)?
+        if (!unit.CanReact(true))
         {
             yield break;
         }
+
+        //Is defender able to use reaction (has reaction available and not paralyzed, prone etc.)?
+        if (!defender.CanReact())
+        {
+            yield break;
+        }
+
+        //Does unit has enough Channel Divinity uses left?
+        var maxUses = unitCharacter.TryGetAttributeValue(AttributeDefinitions.ChannelDivinityNumber);
+        if (unitCharacter.UsedChannelDivinity >= maxUses)
+        {
+            yield break;
+        }
+
+        //Find defender's attack mode
+        var (opportunityAttackMode, actionModifier) = defender.GetFirstMeleeModeThatCanAttack(attacker, battleManager);
+        if (opportunityAttackMode == null || actionModifier == null)
+        {
+            yield break;
+        }
+
+        //Calculate bonus
+        var charisma = unitCharacter.TryGetAttributeValue(AttributeDefinitions.Charisma);
+        var bonus = AttributeDefinitions.ComputeAbilityScoreModifier(charisma);
 
         var actionService = ServiceRepository.GetService<IGameLocationActionService>();
         var count = actionService.PendingReactionRequestGroups.Count;
         var temp = new CharacterActionParams(
             unit,
-            (Id)ExtraActionId.DoNothingReaction,
+            (Id)ExtraActionId.DoNothingFree,
             opportunityAttackMode,
             defender,
             new ActionModifier()
-        );
+        )
+        {
+            StringParameter = $"CustomReaction{OathOfAltruism.DefensiveStrike}Description"
+                .Formatted(Category.Reaction, defender.Name, attacker.Name, bonus)
+        };
 
-        RequestCustomReaction(OathOfAltruism.Name2, temp);
+        var actionManager = ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
+
+        if (actionManager == null)
+        {
+            yield break;
+        }
+
+        var reactionRequest = new ReactionRequestCustom(OathOfAltruism.DefensiveStrike, temp)
+        {
+            Resource = ReactionResourceChannelDivinity.Instance
+        };
+
+        actionManager.AddInterruptRequest(reactionRequest);
 
         yield return battleManager.WaitForReactions(unit, actionService, count);
 
@@ -90,116 +128,45 @@ internal static class DefensiveStrikeAttack
             yield break;
         }
 
-        actionService = ServiceRepository.GetService<IGameLocationActionService>();
-        count = actionService.PendingReactionRequestGroups.Count;
+        //spend resources
+        unitCharacter.UsedChannelDivinity++;
+        defender.SpendActionType(ActionType.Reaction);
 
-        if (opportunityAttackMode != null)
-        {
-            var damage = opportunityAttackMode.EffectDescription.FindFirstDamageForm();
+        //create attack mode copy so we won't affect real one
+        var tmp = RulesetAttackMode.AttackModesPool.Get();
+        tmp.Copy(opportunityAttackMode);
+        opportunityAttackMode = tmp;
 
-            damage.bonusDamage +=
-                AttributeDefinitions.ComputeAbilityScoreModifier(unit.RulesetCharacter
-                    .GetAttribute(AttributeDefinitions.Charisma).CurrentValue) + unit.RulesetCharacter
-                    .GetAttribute(AttributeDefinitions.CharacterLevel).CurrentValue;
+        //Apply bonus to hit and damage of the attack mode
+        opportunityAttackMode.EffectDescription.FindFirstDamageForm().bonusDamage += bonus;
+        opportunityAttackMode.toHitBonus += bonus;
 
-            opportunityAttackMode.toHitBonus +=
-                AttributeDefinitions.ComputeAbilityScoreModifier(unit.RulesetCharacter
-                    .GetAttribute(AttributeDefinitions.Charisma).CurrentValue) + unit.RulesetCharacter
-                    .GetAttribute(AttributeDefinitions.CharacterLevel).CurrentValue;
-        }
+        opportunityAttackMode.ToHitBonusTrends.Add(new RuleDefinitions.TrendInfo(bonus,
+            RuleDefinitions.FeatureSourceType.CharacterFeature, OathOfAltruism.DefensiveStrike, unit));
 
-        var actionParams = new CharacterActionParams(
+        //Create and execute attack
+        var enums = new CharacterActionAttack(new CharacterActionParams(
             defender,
             Id.AttackOpportunity,
             opportunityAttackMode,
             attacker,
-            actionModifier);
+            actionModifier)).Execute();
 
-        RequestReactionAttack(OathOfAltruism.Name3, actionParams);
-
-        yield return battleManager.WaitForReactions(defender, actionService, count);
-
-        if (!actionParams.reactionValidated)
+        while (enums.MoveNext())
         {
-            yield break;
+            yield return enums.Current;
         }
 
-        unit.RulesetCharacter.usedChannelDivinity++;
-    }
-
-    private static void RequestReactionAttack(string type, CharacterActionParams actionParams)
-    {
-        var actionManager = ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
-
-        if (actionManager == null)
-        {
-            return;
-        }
-
-        actionParams.AttackMode?.AddAttackTagAsNeeded(NotAoOTag);
-        actionManager.AddInterruptRequest(new ReactionRequestReactionAttack(type, actionParams));
-    }
-
-    private static void RequestCustomReaction(string type, CharacterActionParams actionParams)
-    {
-        var actionManager = ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
-
-        if (actionManager == null)
-        {
-            return;
-        }
-
-        var reactionRequest = new ReactionRequestCustom(type, actionParams);
-
-        actionManager.AddInterruptRequest(reactionRequest);
-    }
-
-    private static bool CanMakeAoO(GameLocationCharacter attacker, GameLocationCharacter defender,
-        [CanBeNull] out RulesetAttackMode attackMode, [NotNull] out ActionModifier actionModifier,
-        IGameLocationBattleService battleManager = null)
-    {
-        battleManager ??= ServiceRepository.GetService<IGameLocationBattleService>();
-        actionModifier = new ActionModifier();
-        attackMode = null;
-
-        if (!battleManager.IsValidAttackerForOpportunityAttackOnCharacter(attacker, defender))
-        {
-            return false;
-        }
-
-        attackMode = attacker.FindActionAttackMode(Id.AttackOpportunity);
-
-        if (attackMode == null)
-        {
-            return false;
-        }
-
-        var evaluationParams = new BattleDefinitions.AttackEvaluationParams();
-
-        evaluationParams.FillForPhysicalReachAttack(attacker, attacker.LocationPosition, attackMode, defender,
-            defender.LocationPosition, actionModifier);
-
-        return battleManager.CanAttack(evaluationParams);
+        //Rerturn our copied attack mode to the pool
+        RulesetAttackMode.AttackModesPool.Return(opportunityAttackMode);
     }
 }
 
 internal sealed class DefensiveStrikeMarker
 {
-}
-
-#if false
-internal sealed class CanMakeAoOOnReachEnteredDefensiveStrike
-{
-    private readonly IsCharacterValidHandler[] validators;
-
-    internal CanMakeAoOOnReachEnteredDefensiveStrike(params IsCharacterValidHandler[] validators)
+    private DefensiveStrikeMarker()
     {
-        this.validators = validators;
     }
 
-    internal bool IsValid([CanBeNull] RulesetCharacter character)
-    {
-        return character != null && character.IsValid(validators);
-    }
+    public static DefensiveStrikeMarker Mark { get; } = new();
 }
-#endif

@@ -16,36 +16,27 @@ public enum LogLevel
 
 public static class Mod
 {
-    private static ModEntry.ModLogger modLogger;
-
-    public static LogLevel logLevel = LogLevel.Info;
+    public static LogLevel logLevel = LogLevel.Trace;
     public static ModEntry modEntry { get; set; }
     public static string modEntryPath { get; set; }
 
 
-    public static void OnLoad(ModEntry modEntry)
-    {
-        Mod.modEntry = modEntry;
-        modLogger = modEntry.Logger;
-        modEntryPath = modEntry.Path;
-    }
-
     public static void Error(string str)
     {
         str = str.yellow().bold();
-        modLogger?.Error(str + "\n" + Environment.StackTrace);
+        Mod.Error(str + "\n" + Environment.StackTrace);
     }
 
     public static void Error(Exception ex)
     {
-        Error(ex.ToString());
+        Mod.Error(ex.ToString());
     }
 
     public static void Warn(string str)
     {
         if (logLevel >= LogLevel.Warning)
         {
-            modLogger?.Log("[Warn] ".orange().bold() + str);
+            Main.Log("[Warn] ".orange().bold() + str);
         }
     }
 
@@ -53,7 +44,7 @@ public static class Mod
     {
         if (logLevel >= LogLevel.Info)
         {
-            modLogger?.Log("[Info] " + str);
+            Main.Log("[Info] " + str);
         }
     }
 
@@ -61,7 +52,7 @@ public static class Mod
     {
         if (logLevel >= LogLevel.Debug)
         {
-            modLogger?.Log("[Debug] ".green() + str);
+            Main.Log("[Debug] ".green() + str);
         }
     }
 
@@ -69,7 +60,7 @@ public static class Mod
     {
         if (logLevel >= LogLevel.Trace)
         {
-            modLogger?.Log("[Trace] ".color(RGBA.lightblue) + str);
+            Main.Log("[Trace] ".color(RGBA.lightblue) + str);
         }
     }
 }
