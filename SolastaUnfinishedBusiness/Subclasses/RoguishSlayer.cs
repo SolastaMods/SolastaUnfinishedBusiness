@@ -158,14 +158,27 @@ internal sealed class RoguishSlayer : AbstractSubclass
             RulesetAttackMode attackMode,
             ref ActionModifier attackModifier)
         {
-            if (defender.AllConditions.All(x => x.ConditionDefinition != ConditionDefinitions.ConditionSurprised))
+            var battle = Gui.Battle;
+
+            if (battle == null)
+            {
+                attackModifier.AttackAdvantageTrends.Add(
+                    new TrendInfo(1, FeatureSourceType.CharacterFeature, _featureDefinition.Name, _featureDefinition));
+
+                return;
+            }
+
+            if (battle.CurrentRound > 1)
             {
                 return;
             }
 
+            var gameLocationAttacker = GameLocationCharacter.GetFromActor(myself);
             var gameLocationDefender = GameLocationCharacter.GetFromActor(defender);
+            var attackerAttackOrder = battle.initiativeSortedContenders.IndexOf(gameLocationAttacker);
+            var defenderAttackOrder = battle.initiativeSortedContenders.IndexOf(gameLocationDefender);
 
-            if (gameLocationDefender.hasAttackedSinceLastTurn)
+            if (defenderAttackOrder >= 0 && attackerAttackOrder > defenderAttackOrder)
             {
                 return;
             }
