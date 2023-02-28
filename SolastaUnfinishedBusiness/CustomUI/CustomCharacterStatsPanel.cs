@@ -70,6 +70,7 @@ public class CustomCharacterStatsPanel
     }
 
     public static CustomCharacterStatsPanel Instance => instance ??= new CustomCharacterStatsPanel();
+    public static CustomCharacterStatsPanel MaybeInstance => instance;
 
     private void UpdateVisibility()
     {

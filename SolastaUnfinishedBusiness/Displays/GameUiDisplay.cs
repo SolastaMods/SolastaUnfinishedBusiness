@@ -1,4 +1,5 @@
 ﻿using SolastaUnfinishedBusiness.Api.ModKit;
+using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Models;
 using UnityEngine;
 
@@ -8,7 +9,7 @@ internal static class GameUiDisplay
 {
     private static bool _selectedForSwap;
     private static int _selectedX, _selectedY;
-    private static readonly string[] SetNames = { "1", "2", "3", "4", "5" };
+    private static readonly string[] SetNames = {"1", "2", "3", "4", "5"};
 
     private static void DisplayFormationGrid()
     {
@@ -369,6 +370,19 @@ internal static class GameUiDisplay
         if (UI.Toggle(Gui.Localize("ModUi/&RemoveBugVisualModels"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.RemoveBugVisualModels = toggle;
+        }
+
+        if (Main.Settings.EnableBetaContent)
+        {
+            toggle = Main.Settings.ShowButtonWithControlledMonsterInfo;
+            if (UI.Toggle(Gui.Localize("ModUi/&ShowButtonWithControlledMonsterInfo"), ref toggle, UI.AutoWidth()))
+            {
+                Main.Settings.ShowButtonWithControlledMonsterInfo = toggle;
+                if (!toggle)
+                {
+                    CustomCharacterStatsPanel.MaybeInstance?.Unbind();
+                }
+            }
         }
 
         #endregion
