@@ -1,12 +1,16 @@
 ﻿using System.Collections;
+using System.Collections.Generic;
 using System.Linq;
 using SolastaUnfinishedBusiness.Api.Extensions;
+using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
+using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterSubclassDefinitions;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionAdditionalDamages;
 
 namespace SolastaUnfinishedBusiness.Subclasses;
 
@@ -50,42 +54,74 @@ internal sealed class RoguishSlayer : AbstractSubclass
         // Chain of Execution
         //
 
-        var additionalDamageChainOfExecutionGranted = FeatureDefinitionAdditionalDamageBuilder
-            .Create($"AdditionalDamage{Name}{ChainOfExecution}Granted")
+        var rogueHolder = new RogueHolder();
+
+        var additionalDamageChainOfExecution = FeatureDefinitionAdditionalDamageBuilder
+            .Create($"AdditionalDamage{Name}{ChainOfExecution}")
             .SetGuiPresentationNoContent(true)
-            .SetNotificationTag(ChainOfExecution)
+            .SetNotificationTag(TagsDefinitions.AdditionalDamageSneakAttackTag)
             .SetDamageDice(DieType.D6, 1)
-            .SetAdvancement(AdditionalDamageAdvancement.ClassLevel, 1, 1, 4)
+            .SetAdvancement(AdditionalDamageAdvancement.ClassLevel, 1, 1, 2)
             .SetRequiredProperty(RestrictedContextRequiredProperty.FinesseOrRangeWeapon)
             .SetTriggerCondition(AdditionalDamageTriggerCondition.AdvantageOrNearbyAlly)
             .SetFirstTargetOnly(true)
             .SetFrequencyLimit(FeatureLimitedUsage.OncePerTurn)
-            .SetCustomSubFeatures(new RogueHolder())
+            .SetCustomSubFeatures(rogueHolder)
             .AddToDB();
 
-        var conditionChainOfExecutionGranted = ConditionDefinitionBuilder
-            .Create($"Condition{Name}{ChainOfExecution}Granted")
+        // add the additional chain of execution dice based off sneak attack ones
+        additionalDamageChainOfExecution.DiceByRankTable.ForEach(x =>
+        {
+            switch (x.Rank)
+            {
+                case >= 17:
+                    x.diceNumber += 5;
+                    break;
+                case >= 13:
+                    x.diceNumber += 4;
+                    break;
+                case >= 9:
+                    x.diceNumber += 3;
+                    break;
+            }
+        });
+
+        var additionalDamageChainOfExecutionSneakAttack = FeatureDefinitionAdditionalDamageBuilder
+            .Create($"AdditionalDamage{Name}{ChainOfExecution}SneakAttack")
+            .SetGuiPresentationNoContent(true)
+            .SetNotificationTag(TagsDefinitions.AdditionalDamageSneakAttackTag)
+            .SetDamageDice(DieType.D6, 1)
+            .SetAdvancement(AdditionalDamageAdvancement.ClassLevel, 1, 1, 2)
+            .SetRequiredProperty(RestrictedContextRequiredProperty.FinesseOrRangeWeapon)
+            .SetTriggerCondition(AdditionalDamageTriggerCondition.AdvantageOrNearbyAlly)
+            .SetFirstTargetOnly(true)
+            .SetFrequencyLimit(FeatureLimitedUsage.OncePerTurn)
+            .SetCustomSubFeatures(rogueHolder)
+            .AddToDB();
+
+        var conditionChainOfExecutionBeneficial = ConditionDefinitionBuilder
+            .Create($"Condition{Name}{ChainOfExecution}Beneficial")
             .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionBleeding)
             .SetPossessive()
             .SetSpecialDuration(DurationType.Round, 1)
-            .SetFeatures(additionalDamageChainOfExecutionGranted)
             .AddToDB();
 
-        var conditionChainOfExecution = ConditionDefinitionBuilder
-            .Create($"Condition{Name}{ChainOfExecution}")
+        var conditionChainOfExecutionDetrimental = ConditionDefinitionBuilder
+            .Create($"Condition{Name}{ChainOfExecution}Detrimental")
             .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionBleeding)
             .SetConditionType(ConditionType.Detrimental)
             .SetPossessive()
             .SetSpecialDuration(DurationType.Round, 1, TurnOccurenceType.StartOfTurn)
             .AddToDB();
 
-        var customBehaviorChainOfExecution =
-            new CustomBehaviorChainOfExecution(conditionChainOfExecution, conditionChainOfExecutionGranted);
+        var customBehaviorChainOfExecution = new CustomBehaviorChainOfExecution(
+            conditionChainOfExecutionBeneficial,
+            conditionChainOfExecutionDetrimental);
 
-        conditionChainOfExecution.SetCustomSubFeatures(customBehaviorChainOfExecution);
+        conditionChainOfExecutionDetrimental.SetCustomSubFeatures(customBehaviorChainOfExecution);
 
-        var additionalDamageChainOfExecution = FeatureDefinitionAdditionalDamageBuilder
-            .Create($"AdditionalDamage{Name}{ChainOfExecution}")
+        var additionalDamageChainOfExecutionTrigger = FeatureDefinitionAdditionalDamageBuilder
+            .Create($"AdditionalDamage{Name}{ChainOfExecution}Trigger")
             .SetGuiPresentation(Category.Feature)
             .SetDamageValueDetermination(AdditionalDamageValueDetermination.None)
             .SetRequiredProperty(RestrictedContextRequiredProperty.FinesseOrRangeWeapon)
@@ -97,10 +133,21 @@ internal sealed class RoguishSlayer : AbstractSubclass
                 {
                     hasSavingThrow = false,
                     operation = ConditionOperationDescription.ConditionOperation.Add,
-                    conditionDefinition = conditionChainOfExecution
+                    conditionDefinition = conditionChainOfExecutionDetrimental
                 })
-            .SetCustomSubFeatures(customBehaviorChainOfExecution)
             .AddToDB();
+
+        additionalDamageChainOfExecutionTrigger.SetCustomSubFeatures(
+            customBehaviorChainOfExecution,
+            new CustomAdditionalDamageSneakAttack(additionalDamageChainOfExecutionSneakAttack),
+            new CustomAdditionalDamageChainOfExecution(
+                additionalDamageChainOfExecution,
+                additionalDamageChainOfExecutionTrigger,
+                conditionChainOfExecutionBeneficial));
+
+        //
+        // Cloak of Shadows
+        //
 
         var powerCloakOfShadows = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}{CloakOfShadows}")
@@ -117,7 +164,7 @@ internal sealed class RoguishSlayer : AbstractSubclass
             .Create(Name)
             .SetGuiPresentation(Category.Subclass, RangerShadowTamer)
             .AddFeaturesAtLevel(3, featureElimination)
-            .AddFeaturesAtLevel(9, additionalDamageChainOfExecution)
+            .AddFeaturesAtLevel(9, additionalDamageChainOfExecutionTrigger)
             .AddFeaturesAtLevel(13, powerCloakOfShadows)
             .AddToDB();
     }
@@ -127,7 +174,12 @@ internal sealed class RoguishSlayer : AbstractSubclass
     internal override FeatureDefinitionSubclassChoice SubclassChoice =>
         FeatureDefinitionSubclassChoices.SubclassChoiceRogueRoguishArchetypes;
 
+    // ReSharper disable once UnassignedGetOnlyAutoProperty
     internal override DeityDefinition DeityDefinition { get; }
+
+    //
+    // Elimination
+    //
 
     private sealed class CustomBehaviorElimination : IOnComputeAttackModifier
     {
@@ -209,17 +261,111 @@ internal sealed class RoguishSlayer : AbstractSubclass
         }
     }
 
-    private sealed class CustomBehaviorChainOfExecution : INotifyConditionRemoval, ITargetReducedToZeroHp
+    //
+    // Chain of Execution
+    //
+
+    private sealed class CustomAdditionalDamageChainOfExecution : CustomAdditionalDamage
     {
-        private readonly ConditionDefinition _conditionChainOfExecution;
-        private readonly ConditionDefinition _conditionChainOfExecutionGranted;
+        private readonly ConditionDefinition _conditionDefinition;
+        private readonly FeatureDefinition _featureDefinition;
+
+        public CustomAdditionalDamageChainOfExecution(
+            IAdditionalDamageProvider provider,
+            FeatureDefinition featureDefinition,
+            ConditionDefinition conditionDefinition) : base(provider)
+        {
+            _featureDefinition = featureDefinition;
+            _conditionDefinition = conditionDefinition;
+        }
+
+        internal override bool IsValid(
+            GameLocationBattleManager battleManager,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            ActionModifier attackModifier,
+            RulesetAttackMode attackMode,
+            bool rangedAttack,
+            AdvantageType advantageType,
+            List<EffectForm> actualEffectForms,
+            RulesetEffect rulesetEffect,
+            bool criticalHit,
+            bool firstTarget,
+            out CharacterActionParams reactionParams)
+        {
+            reactionParams = null;
+
+            var rulesetAttacker = attacker.RulesetCharacter;
+
+            if (attackMode == null ||
+                !rulesetAttacker.HasAnyConditionOfType($"Condition{Name}{ChainOfExecution}Beneficial"))
+            {
+                return false;
+            }
+
+            GameConsoleHelper.LogCharacterUsedFeature(rulesetAttacker, _featureDefinition);
+
+            var rulesetCondition =
+                rulesetAttacker.AllConditions.FirstOrDefault(x => x.ConditionDefinition == _conditionDefinition);
+
+            if (rulesetCondition != null)
+            {
+                rulesetAttacker.RemoveConditionOfCategory(
+                    AttributeDefinitions.TagCombat, rulesetCondition, true, true, true);
+            }
+
+            return true;
+        }
+    }
+
+    private sealed class CustomAdditionalDamageSneakAttack : CustomAdditionalDamage
+    {
+        public CustomAdditionalDamageSneakAttack(IAdditionalDamageProvider provider) : base(provider)
+        {
+        }
+
+        internal override bool IsValid(
+            GameLocationBattleManager battleManager,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            ActionModifier attackModifier,
+            RulesetAttackMode attackMode,
+            bool rangedAttack,
+            AdvantageType advantageType,
+            List<EffectForm> actualEffectForms,
+            RulesetEffect rulesetEffect,
+            bool criticalHit,
+            bool firstTarget,
+            out CharacterActionParams reactionParams)
+        {
+            reactionParams = null;
+
+            return attackMode != null &&
+                   !attacker.RulesetCharacter.HasAnyConditionOfType($"Condition{Name}{ChainOfExecution}Beneficial");
+        }
+    }
+
+    private sealed class CustomBehaviorChainOfExecution :
+        INotifyConditionRemoval, ITargetReducedToZeroHp, IFeatureDefinitionCustomCode
+    {
+        private readonly ConditionDefinition _conditionChainOfExecutionBeneficial;
+        private readonly ConditionDefinition _conditionChainOfExecutionDetrimental;
 
         public CustomBehaviorChainOfExecution(
-            ConditionDefinition conditionChainOfExecution,
-            ConditionDefinition conditionChainOfExecutionGranted)
+            ConditionDefinition conditionChainOfExecutionBeneficial,
+            ConditionDefinition conditionChainOfExecutionDetrimental)
         {
-            _conditionChainOfExecution = conditionChainOfExecution;
-            _conditionChainOfExecutionGranted = conditionChainOfExecutionGranted;
+            _conditionChainOfExecutionBeneficial = conditionChainOfExecutionBeneficial;
+            _conditionChainOfExecutionDetrimental = conditionChainOfExecutionDetrimental;
+        }
+
+        // remove original sneak attack as we've added a conditional one
+        public void ApplyFeature(RulesetCharacterHero hero, string tag)
+        {
+            foreach (var featureDefinitions in hero.ActiveFeatures.Values)
+            {
+                featureDefinitions.RemoveAll(x => x == AdditionalDamageRogueSneakAttack);
+            }
         }
 
         public void AfterConditionRemoved(RulesetActor removedFrom, RulesetCondition rulesetCondition)
@@ -229,7 +375,7 @@ internal sealed class RoguishSlayer : AbstractSubclass
 
         public void BeforeDyingWithCondition(RulesetActor rulesetActor, RulesetCondition rulesetCondition)
         {
-            if (rulesetCondition.ConditionDefinition != _conditionChainOfExecution ||
+            if (rulesetCondition.ConditionDefinition != _conditionChainOfExecutionDetrimental ||
                 !RulesetEntity.TryGetEntity<RulesetCharacter>(rulesetCondition.sourceGuid, out var rulesetCharacter))
             {
                 return;
@@ -252,17 +398,17 @@ internal sealed class RoguishSlayer : AbstractSubclass
         private void ApplyConditionChainOfExecutionGranted(RulesetCharacter rulesetCharacter)
         {
             if (rulesetCharacter.HasConditionOfCategoryAndType(AttributeDefinitions.TagCombat,
-                    _conditionChainOfExecutionGranted.Name))
+                    _conditionChainOfExecutionBeneficial.Name))
             {
                 return;
             }
 
             var rulesetCondition = RulesetCondition.CreateActiveCondition(
                 rulesetCharacter.Guid,
-                _conditionChainOfExecutionGranted,
+                _conditionChainOfExecutionBeneficial,
                 DurationType.Round,
                 1,
-                TurnOccurenceType.EndOfSourceTurn,
+                TurnOccurenceType.EndOfTurn,
                 rulesetCharacter.Guid,
                 rulesetCharacter.CurrentFaction.Name);
 
