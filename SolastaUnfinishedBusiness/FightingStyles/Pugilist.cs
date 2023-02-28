@@ -52,8 +52,9 @@ internal sealed class Pugilist : AbstractFightingStyle
                 return;
             }
 
-            var additionalDice = EffectFormBuilder.Create()
-                .SetDamageForm(DamageTypeBludgeoning, 1, DieType.D4)
+            var additionalDice = EffectFormBuilder
+                .Create()
+                .SetDamageForm(damage.damageType, 1, DieType.D4)
                 .Build();
 
             effectDescription.EffectForms.Insert(k + 1, additionalDice);
