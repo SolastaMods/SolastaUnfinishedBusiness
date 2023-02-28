@@ -122,7 +122,7 @@ internal static class SrdAndHouseRulesContext
         FixMartialArtsProgression();
         DistantHandMartialArtsDie();
         FixTwinnedMetamagic();
-        FixAttackBuffsAffectingSpellDamamge();
+        FixAttackBuffsAffectingSpellDamage();
         FixMissingWildShapeTagOnSomeForms();
     }
 
@@ -585,9 +585,9 @@ internal static class SrdAndHouseRulesContext
             }));
     }
 
-    private static void FixAttackBuffsAffectingSpellDamamge()
+    private static void FixAttackBuffsAffectingSpellDamage() 
     {
-        //BUGFIX: fix Brandiong Smite applying bonus damage to spells
+        //BUGFIX: fix Branding Smite applying bonus damage to spells
         FeatureDefinitionAdditionalDamages.AdditionalDamageBrandingSmite
             .AddCustomSubFeatures(ValidatorsRestrictedContext.WeaponAttack);
 
