@@ -1,9 +1,9 @@
 ﻿Condition/&ConditionRoguishSlayerChainOfExecutionBeneficialDescription=Erhöhe den Schaden deines nächsten Hinterhältigen Angriffs um zusätzliche 3W6 bis zum Ende deines nächsten Zuges. Dieser Schaden steigt auf 4W6 auf der 13. Stufe und 5W6 auf der 17. Stufe.
 Condition/&ConditionRoguishSlayerChainOfExecutionBeneficialTitle=Ausführungskette
-Condition/&ConditionRoguishSlayerChainOfExecutionDetrimentalDescription=Du bist vom Slayer gezeichnet und wenn du stirbst, werden sie noch tödlicher.
+Condition/&ConditionRoguishSlayerChainOfExecutionDetrimentalDescription=Du bist vom Slayer.
 Condition/&ConditionRoguishSlayerChainOfExecutionDetrimentalTitle=Zeichen des Jägers
-Feature/&AdditionalDamageRoguishSlayerChainOfExecutionTriggerDescription=Ab der 9. Stufe erhöhst du jedes Mal, wenn du eine Kreatur auf 0 Trefferpunkte reduzierst oder wenn eine durch deinen Hinterhältigen Angriff beschädigte Kreatur vor Beginn deines nächsten Zuges stirbt, den Schaden deines nächsten Hinterhältigen Angriffs bis zum Ende um zusätzliche 3W6 deine nächste Runde. Dieser Schaden steigt auf 4W6 auf der 13. Stufe und 5W6 auf der 17. Stufe.
-Feature/&AdditionalDamageRoguishSlayerChainOfExecutionTriggerTitle=Ausführungskette
+Feature/&FeatureRoguishSlayerChainOfExecutionDescription=Ab der 9. Stufe erhöhst du jedes Mal, wenn du eine Kreatur auf 0 Trefferpunkte reduzierst oder wenn eine durch deinen Hinterhältigen Angriff beschädigte Kreatur vor Beginn deines nächsten Zuges stirbt, den Schaden deines nächsten Hinterhältigen Angriffs bis zum Ende um zusätzliche 3W6 deine nächste Runde. Dieser Schaden steigt auf 4W6 auf der 13. Stufe und 5W6 auf der 17. Stufe.
+Feature/&FeatureRoguishSlayerChainOfExecutionTitle=Ausführungskette
 Feature/&FeatureRoguishSlayerEliminationDescription=Ab der 3. Stufe sind Sie am tödlichsten, wenn Sie Ihre Feinde treffen. Du hast einen Vorteil bei Angriffswürfen gegen jede Kreatur, die im Kampf noch keine Runde gemacht hat. Außerdem ist jeder Treffer, den du gegen eine überraschte Kreatur erzielst, ein kritischer Treffer.
 Feature/&FeatureRoguishSlayerEliminationTitle=Beseitigung
 Feature/&PowerRoguishSlayerCloakOfShadowsDescription=Ab der 13. Stufe kannst du mit deiner Bonusaktion 1 Minute lang unsichtbar werden. Sie können diese Funktion einmal pro kurzer Pause verwenden.

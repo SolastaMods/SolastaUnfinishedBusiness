@@ -1,9 +1,9 @@
 ﻿Condition/&ConditionRoguishSlayerChainOfExecutionBeneficialDescription=Augmente les dégâts de votre prochaine attaque sournoise de 3d6 supplémentaires, jusqu'à la fin de votre prochain tour. Ces dégâts passent à 4d6 au niveau 13 et à 5d6 au niveau 17.
 Condition/&ConditionRoguishSlayerChainOfExecutionBeneficialTitle=Chaîne d'exécution
-Condition/&ConditionRoguishSlayerChainOfExecutionDetrimentalDescription=Vous êtes marqué par le Slayer et si vous mourez, ils deviendront plus meurtriers.
+Condition/&ConditionRoguishSlayerChainOfExecutionDetrimentalDescription=Vous êtes marqué par le Slayer.
 Condition/&ConditionRoguishSlayerChainOfExecutionDetrimentalTitle=Marque du tueur
-Feature/&AdditionalDamageRoguishSlayerChainOfExecutionTriggerDescription=À partir du niveau 9, chaque fois que vous réduisez une créature à 0 points de vie, ou chaque fois qu'une créature endommagée par votre attaque sournoise meurt avant le début de votre prochain tour, augmentez les dégâts de votre prochaine attaque sournoise de 3d6 supplémentaires, jusqu'à la fin de votre prochain tour. Ces dégâts passent à 4d6 au niveau 13 et à 5d6 au niveau 17.
-Feature/&AdditionalDamageRoguishSlayerChainOfExecutionTriggerTitle=Chaîne d'exécution
+Feature/&FeatureRoguishSlayerChainOfExecutionDescription=À partir du niveau 9, chaque fois que vous réduisez une créature à 0 points de vie, ou chaque fois qu'une créature endommagée par votre attaque sournoise meurt avant le début de votre prochain tour, augmentez les dégâts de votre prochaine attaque sournoise de 3d6 supplémentaires, jusqu'à la fin de votre prochain tour. Ces dégâts passent à 4d6 au niveau 13 et à 5d6 au niveau 17.
+Feature/&FeatureRoguishSlayerChainOfExecutionTitle=Chaîne d'exécution
 Feature/&FeatureRoguishSlayerEliminationDescription=À partir du niveau 3, vous êtes le plus meurtrier lorsque vous obtenez le drop sur vos ennemis. Vous avez l'avantage aux jets d'attaque contre toute créature qui n'a pas encore pris part au combat. De plus, tout coup que vous infligez à une créature qui est surprise est un coup critique.
 Feature/&FeatureRoguishSlayerEliminationTitle=Élimination
 Feature/&PowerRoguishSlayerCloakOfShadowsDescription=À partir du niveau 13, vous pouvez utiliser votre action bonus pour devenir invisible pendant 1 minute. Vous pouvez utiliser cette fonctionnalité une fois par repos court.
