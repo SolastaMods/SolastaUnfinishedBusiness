@@ -126,8 +126,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Condition/&ConditionRoguishSlayerChainOfExecutionTitle",
-    "description": "Condition/&ConditionRoguishSlayerChainOfExecutionDescription",
+    "title": "Condition/&ConditionRoguishSlayerChainOfExecutionDetrimentalTitle",
+    "description": "Condition/&ConditionRoguishSlayerChainOfExecutionDetrimentalDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "702a30e6f872d834eb3c82b89c686f49",
@@ -147,7 +147,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "701e5bbd-2536-5147-9aa7-32e0d4624675",
+  "guid": "8d38262c-43b3-5ecd-ad01-e93d66a39717",
   "contentPack": 9999,
-  "name": "ConditionRoguishSlayerChainOfExecution"
+  "name": "ConditionRoguishSlayerChainOfExecutionDetrimental"
 }

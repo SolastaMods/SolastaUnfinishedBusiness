@@ -406,8 +406,8 @@ internal static class OtherFeats
             .SetCustomSubFeatures(
                 new CanMakeAoOOnReachEntered
                 {
-                    WeaponValidator = (mode, weapon, _) =>
-                        ValidatorsWeapon.IsUnarmedWeapon(weapon ?? mode?.SourceObject as RulesetItem)
+                    WeaponValidator = (mode, _, character) =>
+                        ModifyAttackModeForWeaponFeatAstralArms.ValidWeapon(character, mode)
                 },
                 new ModifyAttackModeForWeaponFeatAstralArms())
             .AddToDB();
@@ -417,13 +417,18 @@ internal static class OtherFeats
     {
         public void ModifyAttackMode(RulesetCharacter character, RulesetAttackMode attackMode)
         {
-            if (!ValidatorsWeapon.IsUnarmedWeapon(character, attackMode) || attackMode.ranged)
+            if (!ValidWeapon(character, attackMode))
             {
                 return;
             }
 
             attackMode.reach = true;
             attackMode.reachRange = 2;
+        }
+
+        public static bool ValidWeapon(RulesetCharacter character, RulesetAttackMode attackMode)
+        {
+            return ValidatorsWeapon.IsUnarmedWeapon(character, attackMode) && !attackMode.ranged;
         }
     }
 

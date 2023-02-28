@@ -3,17 +3,19 @@
   "inDungeonEditor": false,
   "parentCondition": null,
   "conditionType": "Beneficial",
-  "features": [],
+  "features": [
+    "Definition:AttributeModifierRoguishSlayerElimination:41462010-d65e-5bd0-9422-a0a2e586f2f3"
+  ],
   "allowMultipleInstances": false,
   "silentWhenAdded": true,
   "silentWhenRemoved": true,
   "terminateWhenRemoved": false,
-  "specialDuration": false,
-  "durationType": "Hour",
-  "durationParameterDie": "D4",
+  "specialDuration": true,
+  "durationType": "Round",
+  "durationParameterDie": "D1",
   "durationParameter": 1,
   "forceTurnOccurence": false,
-  "turnOccurence": "EndOfTurn",
+  "turnOccurence": "StartOfTurn",
   "specialInterruptions": [],
   "interruptionRequiresSavingThrow": false,
   "interruptionSavingThrowComputationMethod": "SaveOverride",
@@ -147,7 +149,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "36ffe554-e8cf-5e8f-be63-8c9583a8191b",
+  "guid": "25ba884c-3590-58c8-aeac-359dff8ee107",
   "contentPack": 9999,
-  "name": "ConditionCircleOfTheNightWildshape"
+  "name": "ConditionRoguishSlayerElimination"
 }

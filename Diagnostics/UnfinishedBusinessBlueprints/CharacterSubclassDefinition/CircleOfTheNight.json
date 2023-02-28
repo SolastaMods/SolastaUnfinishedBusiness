@@ -3,17 +3,17 @@
   "featureUnlocks": [
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:OnAfterActionWildShape:2bfebc0c-2088-57d0-83f5-c756e102a4c3",
-      "level": 2
-    },
-    {
-      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:PowerCircleOfTheNightWildShapeHealing:cb305d39-ceb2-5be4-a23b-384715e5ea8b",
       "level": 2
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:PowerCircleOfTheNightWildShapeCombat:c619b94c-d2d8-5e01-8921-65cdd7f32872",
+      "level": 2
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:OnAfterActionWildShape:2bfebc0c-2088-57d0-83f5-c756e102a4c3",
       "level": 2
     },
     {

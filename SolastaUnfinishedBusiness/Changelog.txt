@@ -1,11 +1,4 @@
-- added Interface > Game UI option to show remaining uses of Channel Divinity on portrait
-- added Slayer subclass [beta]
-- fixed Arcane Scoundrel compatibility with multiclass
-- fixed Blade Master causing a null exception off combat
-- fixed Divine Favor and Smite spells applying bonus damage to spells
-- fixed Duelist daring duel's sneak dice progression
-- fixed Ensnaring Strike DC
-- fixed Executioner damage consideration
-- improved Ensnaring Strike, Mantle of Thorns, Mule and Help sprites by Taco
-- improved Oath of Altruism's defensive strike behavior
-- improved Party Editor
+- added setting to improve wildshape usage with mod custom features
+- changed Pugilist damage dice to always be of bludgeoning type
+- improved Circle of The Night's wildshape action
+- improved Roguish Slayer's elimination and chain of execution features

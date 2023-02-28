@@ -319,6 +319,11 @@ internal sealed class DomainDefiler : AbstractSubclass
             .AddFeatureSet(powerMarkForDeath)
             .AddToDB();
 
+        /*
+        Level 17 - Death's Usher
+        Your banal distaste for life seems to help usher the dying to their end. Starting at 17th level, creatures (other than yourself) within 30 feet of you, make their death saving throws at disadvantage, and they begin their death saves with 1 marked failure.
+        */
+
         Subclass = CharacterSubclassDefinitionBuilder
             .Create(NAME)
             .SetGuiPresentation(Category.Subclass, SorcerousHauntedSoul)
@@ -348,7 +353,10 @@ internal sealed class DomainDefiler : AbstractSubclass
     }
 
     internal override CharacterSubclassDefinition Subclass { get; }
+
+    // ReSharper disable once UnassignedGetOnlyAutoProperty
     internal override FeatureDefinitionSubclassChoice SubclassChoice { get; }
+
     internal override DeityDefinition DeityDefinition => DeityDefinitions.Maraike;
 
     private sealed class DeathMagicModifyMagic : IModifyMagicEffect

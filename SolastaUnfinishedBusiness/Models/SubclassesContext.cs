@@ -62,7 +62,7 @@ internal static class SubclassesContext
         LoadSubclass(new RoguishDuelist());
         LoadSubclass(new RoguishOpportunist());
         LoadSubclass(new RoguishRaven());
-        LoadSubclass(new RoguishSlayer(), true);
+        LoadSubclass(new RoguishSlayer());
 
         // Sorcerer
         LoadSubclass(new SorcerousDivineHeart());

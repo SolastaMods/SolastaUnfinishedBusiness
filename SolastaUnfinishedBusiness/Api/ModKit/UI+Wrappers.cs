@@ -105,53 +105,53 @@ internal static partial class UI
 
     public static GUILayout.AreaScope AreaScope(Rect screenRect)
     {
-        return new(screenRect);
+        return new GUILayout.AreaScope(screenRect);
     }
 
     public static GUILayout.AreaScope AreaScope(Rect screenRect, string text)
     {
-        return new(screenRect, text);
+        return new GUILayout.AreaScope(screenRect, text);
     }
 
     public static GUILayout.HorizontalScope HorizontalScope(params GUILayoutOption[] options)
     {
-        return new(options);
+        return new GUILayout.HorizontalScope(options);
     }
 
     public static GUILayout.HorizontalScope HorizontalScope(float width)
     {
-        return new(Width(width));
+        return new GUILayout.HorizontalScope(Width(width));
     }
 
     public static GUILayout.HorizontalScope HorizontalScope(GUIStyle style, params GUILayoutOption[] options)
     {
-        return new(style, options);
+        return new GUILayout.HorizontalScope(style, options);
     }
 
     public static GUILayout.HorizontalScope HorizontalScope(GUIStyle style, float width)
     {
-        return new(style, Width(width));
+        return new GUILayout.HorizontalScope(style, Width(width));
     }
 
     public static GUILayout.VerticalScope VerticalScope(params GUILayoutOption[] options)
     {
-        return new(options);
+        return new GUILayout.VerticalScope(options);
     }
 
     public static GUILayout.VerticalScope VerticalScope(GUIStyle style, params GUILayoutOption[] options)
     {
-        return new(style, options);
+        return new GUILayout.VerticalScope(style, options);
     }
 
     public static GUILayout.ScrollViewScope ScrollViewScope(Vector2 scrollPosition, params GUILayoutOption[] options)
     {
-        return new(scrollPosition, options);
+        return new GUILayout.ScrollViewScope(scrollPosition, options);
     }
 
     public static GUILayout.ScrollViewScope ScrollViewScope(Vector2 scrollPosition, GUIStyle style,
         params GUILayoutOption[] options)
     {
-        return new(scrollPosition, style, options);
+        return new GUILayout.ScrollViewScope(scrollPosition, style, options);
     }
 
     public static void BeginVertical(params GUILayoutOption[] options)

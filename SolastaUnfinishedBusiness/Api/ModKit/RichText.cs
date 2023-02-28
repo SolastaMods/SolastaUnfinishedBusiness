@@ -114,8 +114,13 @@ public static class RichText
         return _ = $"<size={percent}%>{s}</size>";
     }
 
-    public static string Localized(this string s, Category category = Category.UI) => Gui.Localize($"{category}/&{s}");
+    public static string Localized(this string s, Category category = Category.UI)
+    {
+        return Gui.Localize($"{category}/&{s}");
+    }
 
-    public static string Formatted(this string s, Category category, params object[] args) =>
-        Gui.Format($"{category}/&{s}", args.Select(a => $"{a}").ToArray());
+    public static string Formatted(this string s, Category category, params object[] args)
+    {
+        return Gui.Format($"{category}/&{s}", args.Select(a => $"{a}").ToArray());
+    }
 }

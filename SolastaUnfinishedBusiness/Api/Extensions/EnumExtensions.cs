@@ -1,7 +1,4 @@
-﻿using JetBrains.Annotations;
-using static RuleDefinitions;
-
-namespace SolastaUnfinishedBusiness.Api.Extensions;
+﻿namespace SolastaUnfinishedBusiness.Api.Extensions;
 
 internal enum ExtraReactionContext
 {
@@ -188,7 +185,8 @@ internal enum ExtraActionId
     DoNothingReaction = 9012,
     MonkKiPointsToggle = 9013,
     PaladinSmiteToggle = 9014,
-    MonsterSwapAttackToggle = 9015
+    MonsterSwapAttackToggle = 9015,
+    CombatWildShape = 9016,
 }
 
 #if false

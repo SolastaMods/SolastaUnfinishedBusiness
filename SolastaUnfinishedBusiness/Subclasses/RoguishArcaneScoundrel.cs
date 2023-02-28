@@ -119,6 +119,11 @@ internal sealed class RoguishArcaneScoundrel : AbstractSubclass
             .SetSpellcastingClass(CharacterClassDefinitions.Rogue)
             .AddToDB();
 
+        /*
+        Level 17 - Scoundrel's Gambit
+        Starting at 17th level, you can use your action to cast Mirror Image as 2nd level spell, without expanding a spell slot, once per short rest.
+        */
+
         Subclass = CharacterSubclassDefinitionBuilder
             .Create(Name)
             .SetGuiPresentation(Category.Subclass, RangerSwiftBlade)
@@ -138,6 +143,7 @@ internal sealed class RoguishArcaneScoundrel : AbstractSubclass
     internal override FeatureDefinitionSubclassChoice SubclassChoice =>
         FeatureDefinitionSubclassChoices.SubclassChoiceRogueRoguishArchetypes;
 
+    // ReSharper disable once UnassignedGetOnlyAutoProperty
     internal override DeityDefinition DeityDefinition { get; }
 
     private sealed class ModifyMagicEffectCounterSpell : IOnAfterActionFeature

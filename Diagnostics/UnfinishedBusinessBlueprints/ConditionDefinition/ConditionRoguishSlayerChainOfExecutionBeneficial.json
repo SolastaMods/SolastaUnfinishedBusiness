@@ -3,15 +3,13 @@
   "inDungeonEditor": false,
   "parentCondition": null,
   "conditionType": "Beneficial",
-  "features": [
-    "Definition:AdditionalDamageRoguishSlayerChainOfExecutionGranted:1810c892-cfc3-54da-8bfb-c2cd7f3c7d2f"
-  ],
+  "features": [],
   "allowMultipleInstances": false,
   "silentWhenAdded": false,
   "silentWhenRemoved": false,
   "terminateWhenRemoved": false,
   "specialDuration": true,
-  "durationType": "Minute",
+  "durationType": "Round",
   "durationParameterDie": "D1",
   "durationParameter": 1,
   "forceTurnOccurence": false,
@@ -128,12 +126,12 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Condition/&ConditionRoguishSlayerChainOfExecutionGrantedTitle",
-    "description": "Condition/&ConditionRoguishSlayerChainOfExecutionGrantedDescription",
+    "title": "Condition/&ConditionRoguishSlayerChainOfExecutionBeneficialTitle",
+    "description": "Condition/&ConditionRoguishSlayerChainOfExecutionBeneficialDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "702a30e6f872d834eb3c82b89c686f49",
-      "m_SubObjectName": "ConditionBleeding",
+      "m_AssetGUID": "7e058de2206b3f74881faf121820130b",
+      "m_SubObjectName": "ConditionEnhancedAbility",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
@@ -149,7 +147,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "f88776db-f20a-5b9b-9ee4-cbc640a538b4",
+  "guid": "40c7d93b-b6aa-5719-b223-7d09048e6060",
   "contentPack": 9999,
-  "name": "ConditionRoguishSlayerChainOfExecutionGranted"
+  "name": "ConditionRoguishSlayerChainOfExecutionBeneficial"
 }
