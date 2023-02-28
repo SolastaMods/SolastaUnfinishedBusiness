@@ -303,13 +303,18 @@ internal sealed class RoguishSlayer : AbstractSubclass
             reactionParams = null;
 
             var rulesetAttacker = attacker.RulesetCharacter;
+            var isConsciousCharacterOfSideNextToCharacter = battleManager.IsConsciousCharacterOfSideNextToCharacter(
+                defender, attacker.Side, attacker);
 
             if ((attackMode == null && (rulesetEffect == null || _featureDefinitionAdditionalDamage.RequiredProperty !=
                     RestrictedContextRequiredProperty.SpellWithAttackRoll)) ||
                 (advantageType != AdvantageType.Advantage && (advantageType == AdvantageType.Disadvantage ||
-                                                              !battleManager.IsConsciousCharacterOfSideNextToCharacter(
-                                                                  defender, attacker.Side, attacker))) ||
-                rulesetAttacker.HasAnyConditionOfType($"Condition{Name}{ChainOfExecution}Beneficial"))
+                                                              !isConsciousCharacterOfSideNextToCharacter)))
+            {
+                return false;
+            }
+
+            if (!rulesetAttacker.HasAnyConditionOfType($"Condition{Name}{ChainOfExecution}Beneficial"))
             {
                 return false;
             }
