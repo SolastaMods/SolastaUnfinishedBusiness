@@ -192,6 +192,7 @@ ModUi/&SettingsLoad=. Charger un paramètre exporté
 ModUi/&SettingsOpenFolder=Ouvrir le dossier des paramètres exportés
 ModUi/&SettingsRefresh=Rafraîchir
 ModUi/&SettingsRemove=Retirer
+ModUi/&ShowButtonWithControlledMonsterInfo=<b><color=#C04040E0>[BETA]</color></b> Afficher le bouton qui ouvre des informations sur les monstres contrôlés <i><color=#F0DAA0>[druides de forme sauvage, invocations, suiveurs de PNJ, etc. ]</color></i>
 ModUi/&ShowChannelDivinityOnPortrait=Montre combien d'utilisations <color=#D89555>Channel Divinity</color> un héros a sur son portrait, similaire aux points de sorcellerie
 ModUi/&ShowCraftedItemOnRecipeIcon=Afficher l'icône de l'objet fabriqué près de l'objet de la recette dans la boutique et l'inventaire. Passer la souris dessus affichera une info-bulle pour l'objet fabriqué
 ModUi/&ShowCraftingRecipeInDetailedTooltips=Afficher la recette d'artisanat dans des infobulles détaillées

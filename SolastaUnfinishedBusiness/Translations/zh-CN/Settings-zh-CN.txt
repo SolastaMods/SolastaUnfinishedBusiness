@@ -192,6 +192,7 @@ ModUi/&SettingsLoad=.加载导出的设置
 ModUi/&SettingsOpenFolder=打开导出的设置文件夹
 ModUi/&SettingsRefresh=刷新
 ModUi/&SettingsRemove=消除
+ModUi/&ShowButtonWithControlledMonsterInfo=<b><color=#C04040E0>[BETA]</color></b> 显示按钮，打开有关受控怪物的信息 <i><color=#F0DAA0>[野性德鲁伊、召唤物、NPC 追随者等。 ]</颜色></i>
 ModUi/&ShowChannelDivinityOnPortrait=显示英雄在他们的肖像上有多少<color=#D89555>Channel Divinity</color>用途，类似于法术点数
 ModUi/&ShowCraftedItemOnRecipeIcon=在商店和库存中的配方项目附近显示制作的项目图标。将鼠标悬停在它上面将显示制作物品的工具提示
 ModUi/&ShowCraftingRecipeInDetailedTooltips=在详细的工具提示中显示制作配方
