@@ -1,13 +1,25 @@
 {
-  "$type": "FeatureDefinitionAdditionalAction, Assembly-CSharp",
-  "actionType": "Main",
+  "$type": "FeatureDefinitionActionAffinity, Assembly-CSharp",
+  "allowedActionTypes": [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+  ],
+  "eitherMainOrBonus": false,
+  "maxAttacksNumber": -1,
   "forbiddenActions": [
     "WildShape"
   ],
   "authorizedActions": [],
   "restrictedActions": [],
-  "maxAttacksNumber": -1,
-  "triggerCondition": "None",
+  "actionExecutionModifiers": [],
+  "specialBehaviour": "None",
+  "randomBehaviorDie": "D10",
+  "randomBehaviourOptions": [],
+  "rechargeReactionsAtEveryTurn": false,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
@@ -32,7 +44,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "a6fb8de8-f474-50e8-9d3f-dcb7bcd7249d",
+  "guid": "2bfebc0c-2088-57d0-83f5-c756e102a4c3",
   "contentPack": 9999,
-  "name": "AdditionalActionCircleOfTheNightWildshapeAny"
+  "name": "OnAfterActionWildShape"
 }

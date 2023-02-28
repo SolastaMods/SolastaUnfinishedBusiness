@@ -106,7 +106,7 @@ internal static class SrdAndHouseRulesContext
         FixMeleeHitEffectsRange();
         FixMountaineerBonusShoveRestrictions();
         FixRecklessAttackForReachWeapons();
-        MinorFixes();
+        SpellsMinorFixes();
         AddBleedingToRestoration();
         SwitchFilterOnHideousLaughter();
         SwitchRecurringEffectOnEntangle();
@@ -349,7 +349,7 @@ internal static class SrdAndHouseRulesContext
         }
     }
 
-    private static void MinorFixes()
+    private static void SpellsMinorFixes()
     {
         // Shows Concentration tag in UI
         BladeBarrier.requiresConcentration = true;
@@ -357,12 +357,6 @@ internal static class SrdAndHouseRulesContext
         //
         // BUGFIX: spells durations
         //
-
-        // Use our logic to calculate duration for DominatePerson/Beast/Monster
-        DominateBeast.EffectDescription.EffectAdvancement.alteredDuration =
-            (AdvancementDuration)ExtraAdvancementDuration.Minutes_1_10_480_1440_Level4;
-        DominatePerson.EffectDescription.EffectAdvancement.alteredDuration =
-            (AdvancementDuration)ExtraAdvancementDuration.Minutes_1_10_480_1440_Level5;
 
         // Stops upcasting assigning non-SRD durations
         var spells = new IMagicEffect[]
@@ -595,7 +589,7 @@ internal static class SrdAndHouseRulesContext
         //BUGFIX: fix Brandiong Smite applying bonus damage to spells
         FeatureDefinitionAdditionalDamages.AdditionalDamageBrandingSmite
             .AddCustomSubFeatures(ValidatorsRestrictedContext.WeaponAttack);
-        
+
         //BUGFIX: fix Divine Favor applying bonus damage to spells
         FeatureDefinitionAdditionalDamages.AdditionalDamageDivineFavor
             .AddCustomSubFeatures(ValidatorsRestrictedContext.WeaponAttack);

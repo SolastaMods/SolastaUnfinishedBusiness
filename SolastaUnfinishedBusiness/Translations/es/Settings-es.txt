@@ -4,7 +4,7 @@ ModUi/&AddCustomIconsToOfficialItems=Añade iconos personalizados a los elemento
 ModUi/&AddHelpActionToAllRaces=Agrega la acción <color=#D89555>Ayuda</color> a todas las razas jugables <i><color=#F0DAA0>[puedes ayudar a una criatura amiga a atacar a una criatura a 5 pies de ti]</color></i>
 ModUi/&AddHumanoidFavoredEnemyToRanger=Añadir enemigo preferido humanoide a <color=#D89555>Rangers</color>
 ModUi/&AddMonkKiPointsToggle=Agrega un interruptor para permitir que <color=#D89555>Monjes</color> habiliten o deshabiliten los Puntos Ki <i><color=#F0DAA0>[útil para minimizar las indicaciones de reacción]</color></i>
-ModUi/&AddMonsterSwapAttackToggle=Agregue un interruptor para permitir que los <color=#D89555>druidas</color> en forma salvaje seleccionen qué ataque usar primero <i><color=#F0DAA0>[útil con una combinación de ataques cuerpo a cuerpo y a distancia]</color> </i>
+ModUi/&AddMonsterSwapAttackToggle=Add a toggle to allow <color=#D89555>Druids</color> in wildshape form or controlled monsters to select which attack to use first <i><color=#F0DAA0>[useful with a mix of melee and ranged ones]</color></i>
 ModUi/&AddNewBrightEyeColors=Añadir nuevos colores de ojos brillantes
 ModUi/&AddNewWeaponsAndRecipesToShops=Agregue nuevas armas y recetas a las tiendas <i><color=#F0DAA0>[atados de mano, alabardas, picas, mazas largas, ballestas de mano]</color></i> <b><i><color=#C04040E0> [Requiere reiniciar]</color></i></b>
 ModUi/&AddPaladinSmiteToggle=Agregue un interruptor para permitir que <color=#D89555>paladines</color> solo habiliten castigos en golpes críticos <i><color=#F0DAA0>[útil para minimizar las indicaciones de reacción]</color></i>
@@ -103,6 +103,7 @@ ModUi/&EnableTogglesToOverwriteDefaultTestParty=Habilite los interruptores en el
 ModUi/&EnableUpcastConjureElementalAndFey=Habilitar upcast de <color=#D89555>Conjure Elemental</color> y <color=#D89555>Conjure Fey</color>
 ModUi/&EncounterPercentageChance=<color=white>Establecer porcentajes de probabilidad de encuentros aleatorios</color>
 ModUi/&Encounters=Encuentros
+ModUi/&EnumerateOriginSubFeatures=<b><color=#C04040E0>[BETA]</color></b> Allow features from heroes to work while in <color=#D89555>Wildshape</color> form
 ModUi/&ExpandAll=Expandir todo
 ModUi/&FactionHelp=<color=#C04040E0>Cargar un juego de campaña oficial para modificar las relaciones entre facciones...</color>
 ModUi/&FactionRelations=<color=#F0DAA0>Facciones:</color>
@@ -191,7 +192,7 @@ ModUi/&SettingsLoad=. Cargar una configuración exportada
 ModUi/&SettingsOpenFolder=Abra la carpeta de configuración exportada
 ModUi/&SettingsRefresh=Actualizar
 ModUi/&SettingsRemove=Eliminar
-ModUi/&ShowChannelDivinityOnPortrait=Muestre cuántos usos de Channel Divinity tiene el personaje en su retrato, similar a los puntos de hechicería
+ModUi/&ShowChannelDivinityOnPortrait=Show how many <color=#D89555>Channel Divinity</color> uses a hero has on their portrait, similar to sorcery points
 ModUi/&ShowCraftedItemOnRecipeIcon=Muestre el ícono del artículo elaborado cerca del artículo de la receta en la tienda y el inventario. Al pasar el cursor sobre él, se mostrará información sobre herramientas para el artículo creado.
 ModUi/&ShowCraftingRecipeInDetailedTooltips=Mostrar receta de elaboración en información detallada sobre herramientas
 ModUi/&ShowDescriptions=Mostrar descripciones

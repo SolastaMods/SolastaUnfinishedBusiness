@@ -5,11 +5,11 @@ namespace SolastaUnfinishedBusiness.CustomUI;
 
 public class ReactionResourceChannelDivinity : ICustomReactionResource
 {
-    public static ReactionResourceChannelDivinity Instance { get; } = new();
-
     private ReactionResourceChannelDivinity()
     {
     }
+
+    public static ReactionResourceChannelDivinity Instance { get; } = new();
 
     public AssetReferenceSprite Icon => Sprites.ChannelDivinityResourceIcon;
 
