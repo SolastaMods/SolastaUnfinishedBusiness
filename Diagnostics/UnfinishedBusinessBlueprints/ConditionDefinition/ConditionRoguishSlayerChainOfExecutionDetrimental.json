@@ -2,20 +2,18 @@
   "$type": "ConditionDefinition, Assembly-CSharp",
   "inDungeonEditor": false,
   "parentCondition": null,
-  "conditionType": "Beneficial",
-  "features": [
-    "Definition:AdditionalDamageRoguishSlayerChainOfExecutionGranted:1810c892-cfc3-54da-8bfb-c2cd7f3c7d2f"
-  ],
+  "conditionType": "Detrimental",
+  "features": [],
   "allowMultipleInstances": false,
   "silentWhenAdded": false,
   "silentWhenRemoved": false,
   "terminateWhenRemoved": false,
   "specialDuration": true,
-  "durationType": "Minute",
+  "durationType": "Round",
   "durationParameterDie": "D1",
   "durationParameter": 1,
   "forceTurnOccurence": false,
-  "turnOccurence": "EndOfTurn",
+  "turnOccurence": "StartOfTurn",
   "specialInterruptions": [],
   "interruptionRequiresSavingThrow": false,
   "interruptionSavingThrowComputationMethod": "SaveOverride",
@@ -128,8 +126,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Condition/&ConditionRoguishSlayerChainOfExecutionGrantedTitle",
-    "description": "Condition/&ConditionRoguishSlayerChainOfExecutionGrantedDescription",
+    "title": "Condition/&ConditionRoguishSlayerChainOfExecutionDetrimentalTitle",
+    "description": "Condition/&ConditionRoguishSlayerChainOfExecutionDetrimentalDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "702a30e6f872d834eb3c82b89c686f49",
@@ -149,7 +147,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "f88776db-f20a-5b9b-9ee4-cbc640a538b4",
+  "guid": "8d38262c-43b3-5ecd-ad01-e93d66a39717",
   "contentPack": 9999,
-  "name": "ConditionRoguishSlayerChainOfExecutionGranted"
+  "name": "ConditionRoguishSlayerChainOfExecutionDetrimental"
 }

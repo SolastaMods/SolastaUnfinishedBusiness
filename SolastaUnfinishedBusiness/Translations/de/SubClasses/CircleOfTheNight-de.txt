@@ -1,10 +1,8 @@
 Feature/&FeatureSetCircleOfTheNightElementalFormsDescription=Auf der 10. Stufe kannst du Wildform einmal verwenden, um dich in einen Luftelementar, einen Erdelementar oder einen Feuerelementar zu verwandeln.
 Feature/&FeatureSetCircleOfTheNightElementalFormsTitle=Elementare Formen
-Feature/&OnAfterActionWildShapeDescription=Sie erhalten Ihre Hauptaktion zurück, wenn Sie wildformen, auf Kosten einer Bonusaktion, falls Sie sie noch nicht verwendet haben.
-Feature/&OnAfterActionWildShapeTitle=Bonus-Wild-Form
 Feature/&PowerCircleOfTheNightPrimalStrikeDescription=Ab der 6. Stufe zählen deine Angriffe in Bestiengestalt als magisch, um Widerstand und Immunität gegen nicht magische Angriffe und Schaden zu überwinden. Du kannst dich auch in eine Bestie verwandeln, deren Herausforderungswert so hoch ist wie deine Druidenstufe geteilt durch 3, abgerundet.
 Feature/&PowerCircleOfTheNightPrimalStrikeTitle=Urschlag
-Feature/&PowerCircleOfTheNightWildShapeCombatDescription=Die Riten deines Zirkels gewähren dir die Fähigkeit, dich in gefährlichere Tiergestalten zu verwandeln. Ab der 2. Stufe kannst du dich mit deiner wilden Gestalt in eine Bestie mit einem Herausforderungswert von bis zu 1 verwandeln.
+Feature/&PowerCircleOfTheNightWildShapeCombatDescription=Die Riten deines Zirkels gewähren dir die Fähigkeit, dich schneller und in gefährlichere Tiergestalten zu verwandeln. Sie verwenden Bonusaktion anstelle der Hauptaktion für Wild Shape und haben eine verbesserte Auswahl der Bestienform.
 Feature/&PowerCircleOfTheNightWildShapeCombatTitle=Wilde Form bekämpfen
 Feature/&PowerCircleOfTheNightWildShapeHealingDescription=In wilder Form kannst du dich mit einer Bonusaktion um 1W8 Trefferpunkte heilen. Sie können diese Funktion so oft verwenden, wie es Ihrem Fertigkeitsmodifikator pro Form entspricht, die Sie pro langer Pause annehmen.
 Feature/&PowerCircleOfTheNightWildShapeHealingTitle=Heilung bekämpfen

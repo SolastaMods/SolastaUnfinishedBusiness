@@ -16,11 +16,12 @@ public sealed class Core
 [XmlRoot(ElementName = "Settings")]
 public class Settings : UnityModManager.ModSettings
 {
+    private bool enumerateOriginSubFeatures;
     //
     // UI Saved State
     //
 
-    public int SelectedTab { get; set; } = 0;
+    public int SelectedTab { get; set; }
 
     //
     // Welcome Message
@@ -77,6 +78,13 @@ public class Settings : UnityModManager.ModSettings
     public bool DisableClassPrerequisitesOnModFeats { get; set; }
     public bool DisableRacePrerequisitesOnModFeats { get; set; }
     public bool AddHumanoidFavoredEnemyToRanger { get; set; }
+
+    public bool EnumerateOriginSubFeatures
+    {
+        get => enumerateOriginSubFeatures && EnableBetaContent;
+        set => enumerateOriginSubFeatures = value;
+    }
+
     public bool EnableEpicPointsAndArray { get; set; }
     public int TotalFeatsGrantedFirstLevel { get; set; }
 

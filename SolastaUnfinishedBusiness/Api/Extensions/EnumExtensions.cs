@@ -1,7 +1,4 @@
-﻿using JetBrains.Annotations;
-using static RuleDefinitions;
-
-namespace SolastaUnfinishedBusiness.Api.Extensions;
+﻿namespace SolastaUnfinishedBusiness.Api.Extensions;
 
 internal enum ExtraReactionContext
 {
@@ -151,6 +148,7 @@ internal enum ExtraAdditionalDamageAdvancement
     CharacterLevel = 9000
 }
 
+#if false
 internal enum ExtraAdvancementDuration
 {
     // None = AdvancementDuration.None,
@@ -168,6 +166,7 @@ internal enum ExtraAdvancementDuration
     // ReSharper disable once InconsistentNaming
     Minutes_1_10_480_1440_Level5 = -9003
 }
+#endif
 
 internal enum ExtraActionId
 {
@@ -186,9 +185,11 @@ internal enum ExtraActionId
     DoNothingReaction = 9012,
     MonkKiPointsToggle = 9013,
     PaladinSmiteToggle = 9014,
-    MonsterSwapAttackToggle = 9015
+    MonsterSwapAttackToggle = 9015,
+    CombatWildShape = 9016,
 }
 
+#if false
 internal static class EnumImplementation
 {
     internal static bool ComputeExtraAdvancementDuration(
@@ -248,3 +249,4 @@ internal static class EnumImplementation
         return false;
     }
 }
+#endif

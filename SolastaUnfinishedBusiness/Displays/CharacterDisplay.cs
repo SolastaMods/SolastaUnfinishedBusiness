@@ -94,6 +94,15 @@ internal static class CharacterDisplay
             CharacterContext.SwitchRangerHumanoidFavoredEnemy();
         }
 
+        if (Main.Settings.EnableBetaContent)
+        {
+            toggle = Main.Settings.EnumerateOriginSubFeatures;
+            if (UI.Toggle(Gui.Localize("ModUi/&EnumerateOriginSubFeatures"), ref toggle, UI.AutoWidth()))
+            {
+                Main.Settings.EnumerateOriginSubFeatures = toggle;
+            }
+        }
+
         UI.Label();
 
         toggle = Main.Settings.EnableEpicPointsAndArray;

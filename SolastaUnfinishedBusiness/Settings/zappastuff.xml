@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Settings xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <SelectedTab>2</SelectedTab>
   <EnableDiagsDump>0</EnableDiagsDump>
   <HideWelcomeMessage>true</HideWelcomeMessage>
   <DisplayRacesToggle>false</DisplayRacesToggle>
@@ -117,6 +118,7 @@
   <DisableClassPrerequisitesOnModFeats>false</DisableClassPrerequisitesOnModFeats>
   <DisableRacePrerequisitesOnModFeats>false</DisableRacePrerequisitesOnModFeats>
   <AddHumanoidFavoredEnemyToRanger>true</AddHumanoidFavoredEnemyToRanger>
+  <EnumerateOriginSubFeatures>true</EnumerateOriginSubFeatures>
   <EnableEpicPointsAndArray>true</EnableEpicPointsAndArray>
   <TotalFeatsGrantedFirstLevel>1</TotalFeatsGrantedFirstLevel>
   <EnablesAsiAndFeat>false</EnablesAsiAndFeat>
@@ -197,6 +199,7 @@
     <string>WizardDeadMaster</string>
     <string>WizardSpellMaster</string>
     <string>RoguishArcaneScoundrel</string>
+    <string>RoguishSlayer</string>
   </SubclassEnabled>
   <FeatSliderPosition>4</FeatSliderPosition>
   <FeatEnabled>
@@ -864,6 +867,7 @@
   <DefaultPartyHeroes />
   <DontFollowCharacterInBattle>true</DontFollowCharacterInBattle>
   <DontFollowMargin>5</DontFollowMargin>
+  <ShowChannelDivinityOnPortrait>true</ShowChannelDivinityOnPortrait>
   <EnableStatsOnHeroTooltip>true</EnableStatsOnHeroTooltip>
   <EnableAdditionalBackstoryDisplay>true</EnableAdditionalBackstoryDisplay>
   <EnableLogDialoguesToConsole>true</EnableLogDialoguesToConsole>

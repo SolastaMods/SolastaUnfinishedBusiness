@@ -1,12 +1,10 @@
 Feature/&FeatureSetCircleOfTheNightElementalFormsDescription=在第 10 级时，你可以花费 1 次 Wild Shape 的使用次数来转变为风元素、土元素或火元素。
 Feature/&FeatureSetCircleOfTheNightElementalFormsTitle=元素形态
-Feature/&OnAfterActionWildShapeDescription=如果你还没有使用它，你会在野外变身时重新获得你的主要动作，但要付出额外的代价。
-Feature/&OnAfterActionWildShapeTitle=奖金野生形状
 Feature/&PowerCircleOfTheNightPrimalStrikeDescription=从第 6 级开始，为了克服对非魔法攻击和伤害的抵抗力和免疫力，你在野兽形态下的攻击算作魔法攻击。你也可以变身为野兽，挑战等级等于你的德鲁伊等级除以 3，向下取整。
 Feature/&PowerCircleOfTheNightPrimalStrikeTitle=原始打击
-Feature/&PowerCircleOfTheNightWildShapeCombatDescription=你圈子的仪式赋予你转变为更危险的动物形态的能力。从第 2 级开始，您可以使用您的 Wild Shape 变身为挑战等级高达 1 的野兽。
+Feature/&PowerCircleOfTheNightWildShapeCombatDescription=你圈子的仪式使你能够更快地转变为更危险的动物形态。您使用 Bonus Action，而不是 Wild Shape 的主要 Action，并且改进了野兽形态选择。
 Feature/&PowerCircleOfTheNightWildShapeCombatTitle=战斗狂野变身
-Feature/&PowerCircleOfTheNightWildShapeHealingDescription=处于野外形态时，你可以使用附赠动作来治疗自己 1d8 点生命值。你可以使用此特性的次数等于你在每次长休中采用的每个形态的熟练调整值。
+Feature/&PowerCircleOfTheNightWildShapeHealingDescription=在野性状态下，你可以使用附赠动作来治疗自己 1d8 点生命值。你可以使用此特性的次数等于你在每次长休中采用的每个形态的熟练调整值。
 Feature/&PowerCircleOfTheNightWildShapeHealingTitle=战斗治疗
 Feature/&PowerCircleOfTheNightWildShapeImprovedHealingDescription=你的战斗治疗现在可以治疗你 2d8+3 点生命值。
 Feature/&PowerCircleOfTheNightWildShapeImprovedHealingTitle=改善战斗治疗

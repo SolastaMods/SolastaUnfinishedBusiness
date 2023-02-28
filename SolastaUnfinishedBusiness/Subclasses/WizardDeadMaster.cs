@@ -221,12 +221,14 @@ internal sealed class WizardDeadMaster : AbstractSubclass
                 var description = Gui.Format("Spell/&SpellRaiseDeadFormatDescription",
                     monster.FormatTitle(),
                     monster.FormatDescription());
-                var incrementMethod = spell switch
+
+                var duration = clazz switch
                 {
-                    2 => (AdvancementDuration)ExtraAdvancementDuration.Minutes_1_10_480_1440_Level2,
-                    3 => (AdvancementDuration)ExtraAdvancementDuration.Minutes_1_10_480_1440_Level3,
-                    4 => (AdvancementDuration)ExtraAdvancementDuration.Minutes_1_10_480_1440_Level4,
-                    _ => AdvancementDuration.Hours_1_8_24
+                    >= 15 => 24 * 60,
+                    >= 13 => 8 * 60,
+                    >= 9 => 60,
+                    >= 5 => 10,
+                    _ => 1
                 };
 
                 var createDeadSpell = SpellDefinitionBuilder
@@ -237,13 +239,12 @@ internal sealed class WizardDeadMaster : AbstractSubclass
                     .SetSpellLevel(spell)
                     .SetMaterialComponent(MaterialComponentType.Mundane)
                     .SetVocalSpellSameType(VocalSpellSemeType.Debuff)
-                    .SetUniqueInstance()
                     .SetCastingTime(ActivationTime.Action)
                     .SetEffectDescription(EffectDescriptionBuilder.Create()
                         .SetTargetingData(Side.All, RangeType.Distance, 6, TargetType.Position, count)
-                        .SetDurationData(DurationType.Minute, 1)
-                        .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel,
-                            alteredDuration: incrementMethod)
+                        .SetDurationData(DurationType.Minute, duration)
+                        .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel, 2,
+                            additionalSummonsPerIncrement: 1)
                         .SetParticleEffectParameters(VampiricTouch)
                         .SetEffectForms(EffectFormBuilder.Create()
                             .SetSummonCreatureForm(1, monster.Name)

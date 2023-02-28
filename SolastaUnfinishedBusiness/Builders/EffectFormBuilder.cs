@@ -330,6 +330,26 @@ internal class EffectFormBuilder
         return this;
     }
 
+    internal EffectFormBuilder SetShapeChangeForm(
+        ShapeChangeForm.Type shapeChangeType,
+        bool keepMentalAbilityScores,
+        ConditionDefinition specialSubstituteCondition,
+        List<ShapeOptionDescription> shapeOptions)
+    {
+        var shapeChangeForm = new ShapeChangeForm
+        {
+            shapeChangeType = shapeChangeType,
+            keepMentalAbilityScores = keepMentalAbilityScores,
+            specialSubstituteCondition = specialSubstituteCondition,
+            shapeOptions = shapeOptions,
+        };
+
+        effectForm.shapeChangeForm = shapeChangeForm;
+        effectForm.FormType = EffectForm.EffectFormType.ShapeChange;
+
+        return this;
+    }
+
     internal EffectFormBuilder SetSummonCreatureForm(
         int number,
         string monsterDefinitionName)
