@@ -1083,6 +1083,7 @@
   <SwapCraftedItemAndRecipeIcons>true</SwapCraftedItemAndRecipeIcons>
   <HideMonsterHitPoints>true</HideMonsterHitPoints>
   <RemoveBugVisualModels>false</RemoveBugVisualModels>
+  <ShowButtonWithControlledMonsterInfo>true</ShowButtonWithControlledMonsterInfo>
   <EnableSortingDungeonMakerAssets>true</EnableSortingDungeonMakerAssets>
   <EnableCharacterChecker>false</EnableCharacterChecker>
   <EnableHotkeyDebugOverlay>false</EnableHotkeyDebugOverlay>

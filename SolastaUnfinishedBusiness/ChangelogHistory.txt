@@ -1,5 +1,11 @@
 ﻿CHANGES:
 
+1.4.33.53:
+
+- added Interface > Game UI > Monsters setting to enable an info button on game UI
+- fixed Slayer spamming sneak attacks under any context
+- fixed some wildshape forms showing the wildshape action button
+
 1.4.33.52:
 
 - added setting to improve wildshape usage with mod custom features

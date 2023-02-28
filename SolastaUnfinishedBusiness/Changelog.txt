@@ -1,4 +1,3 @@
-- added setting to improve wildshape usage with mod custom features
-- changed Pugilist damage dice to always be of bludgeoning type
-- improved Circle of The Night's wildshape action
-- improved Roguish Slayer's elimination and chain of execution features
+- added Interface > Game UI > Monsters setting to enable an info button on game UI
+- fixed Slayer spamming sneak attacks under any context
+- fixed some wildshape forms showing the wildshape action button
