@@ -288,8 +288,12 @@ public static class InnovationArmor
         {
         }
 
-        protected override List<RulesetAttackMode> GetAttackModes(RulesetCharacterHero hero)
+        protected override List<RulesetAttackMode> GetAttackModes(RulesetCharacter character)
         {
+            if (character is not RulesetCharacterHero hero)
+            {
+                return null;
+            }
             var strikeDefinition = CustomWeaponsContext.ThunderGauntlet;
 
             var attackModifiers = hero.attackModifiers;
@@ -349,9 +353,11 @@ public static class InnovationArmor
             return modes;
         }
 
-        protected override AttackModeOrder GetOrder(RulesetCharacterHero hero)
+        protected override AttackModeOrder GetOrder(RulesetCharacter character)
         {
-            return hero.HasEmptyMainHand() ? AttackModeOrder.Start : base.GetOrder(hero);
+            return (character is RulesetCharacterHero hero && hero.HasEmptyMainHand()) 
+                ? AttackModeOrder.Start 
+                : base.GetOrder(character);
         }
     }
 
@@ -362,8 +368,12 @@ public static class InnovationArmor
         {
         }
 
-        protected override List<RulesetAttackMode> GetAttackModes(RulesetCharacterHero hero)
+        protected override List<RulesetAttackMode> GetAttackModes(RulesetCharacter character)
         {
+            if (character is not RulesetCharacterHero hero)
+            {
+                return null;
+            }
             var strikeDefinition = CustomWeaponsContext.LightningLauncher;
             var attackModifiers = hero.attackModifiers;
             var attackMode = hero.RefreshAttackMode(

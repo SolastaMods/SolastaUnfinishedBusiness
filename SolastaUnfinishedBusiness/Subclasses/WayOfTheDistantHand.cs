@@ -360,7 +360,7 @@ internal sealed class WayOfTheDistantHand : AbstractSubclass
     internal override FeatureDefinitionSubclassChoice SubclassChoice =>
         FeatureDefinitionSubclassChoices.SubclassChoiceMonkMonasticTraditions;
 
-    internal override DeityDefinition DeityDefinition { get; }
+    internal override DeityDefinition DeityDefinition => null;
 
     private static bool IsMonkWeapon(RulesetAttackMode attackMode, RulesetItem weapon, RulesetCharacter character)
     {
@@ -500,13 +500,17 @@ internal sealed class WayOfTheDistantHand : AbstractSubclass
 
         public static AddFlurryOfArrowsAttacks Mark { get; } = new();
 
-        protected override AttackModeOrder GetOrder(RulesetCharacterHero hero)
+        protected override AttackModeOrder GetOrder(RulesetCharacter character)
         {
             return AttackModeOrder.Start;
         }
 
-        protected override List<RulesetAttackMode> GetAttackModes(RulesetCharacterHero hero)
+        protected override List<RulesetAttackMode> GetAttackModes(RulesetCharacter character)
         {
+            if (character is not RulesetCharacterHero hero)
+            {
+                return null;
+            }
             var mainHandItem = hero.CharacterInventory.InventorySlotsByName[EquipmentDefinitions.SlotTypeMainHand]
                 .EquipedItem;
 

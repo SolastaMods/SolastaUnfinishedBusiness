@@ -469,4 +469,39 @@ internal static class RulesetCharacterExtensions
 
         rulesetCharacter.ToggledPowersOn.Remove(toggleName);
     }
+
+    internal static RulesetAttackMode TryRefreshAttackMode(
+        this RulesetCharacter character,
+        ActionType actionType,
+        ItemDefinition itemDefinition,
+        WeaponDescription weaponDescription,
+        bool freeOffHand,
+        bool canAddAbilityDamageBonus,
+        string slotName,
+        List<IAttackModificationProvider> attackModifiers,
+        Dictionary<FeatureDefinition, FeatureOrigin> featuresOrigin,
+        RulesetItem weapon = null)
+    {
+        return character switch
+        {
+            RulesetCharacterHero hero => hero.RefreshAttackMode(
+                actionType,
+                itemDefinition,
+                weaponDescription,
+                freeOffHand,
+                canAddAbilityDamageBonus,
+                slotName,
+                attackModifiers,
+                featuresOrigin,
+                weapon),
+            RulesetCharacterMonster monster => monster.RefreshAttackMode(
+                actionType,
+                itemDefinition,
+                weaponDescription,
+                canAddAbilityDamageBonus,
+                attackModifiers,
+                featuresOrigin),
+            _ => null
+        };
+    }
 }

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
+using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.Extensions;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using static RuleDefinitions;
@@ -31,16 +32,14 @@ internal abstract class AddExtraAttackBase : IAddExtraAttack
 
     public void TryAddExtraAttack(RulesetCharacter character)
     {
-        var hero = character as RulesetCharacterHero ?? character.OriginalFormCharacter as RulesetCharacterHero;
-
-        if (hero == null || !hero.IsValid(validators))
+        if (!character.IsValid(validators))
         {
             return;
         }
 
         var attackModes = character.AttackModes;
 
-        var newAttacks = GetAttackModes(hero);
+        var newAttacks = GetAttackModes(character);
 
         if (newAttacks == null || newAttacks.Empty())
         {
@@ -65,7 +64,8 @@ internal abstract class AddExtraAttackBase : IAddExtraAttack
             }
             else
             {
-                switch (GetOrder(hero))
+                var order = GetOrder(character);
+                switch (order)
                 {
                     case AttackModeOrder.Start:
                         attackModes.Insert(0, attackMode);
@@ -74,7 +74,7 @@ internal abstract class AddExtraAttackBase : IAddExtraAttack
                         attackModes.Add(attackMode);
                         break;
                     default:
-                        throw new ArgumentOutOfRangeException(nameof(hero));
+                        throw new ArgumentOutOfRangeException(order.ToString());
                 }
             }
         }
@@ -90,9 +90,9 @@ internal abstract class AddExtraAttackBase : IAddExtraAttack
     }
 #endif
 
-    protected abstract List<RulesetAttackMode> GetAttackModes(RulesetCharacterHero hero);
+    protected abstract List<RulesetAttackMode> GetAttackModes(RulesetCharacter character);
 
-    protected virtual AttackModeOrder GetOrder(RulesetCharacterHero hero)
+    protected virtual AttackModeOrder GetOrder(RulesetCharacter character)
     {
         return AttackModeOrder.End;
     }
@@ -160,20 +160,30 @@ internal sealed class AddExtraUnarmedAttack : AddExtraAttackBase
         // Empty
     }
 
-    [NotNull]
-    protected override List<RulesetAttackMode> GetAttackModes([NotNull] RulesetCharacterHero hero)
+    protected override List<RulesetAttackMode> GetAttackModes([NotNull] RulesetCharacter character)
     {
-        var mainHandItem = hero.CharacterInventory.InventorySlotsByName[EquipmentDefinitions.SlotTypeMainHand]
+        var hero = character as RulesetCharacterHero;
+        var hero2 = hero ?? character.OriginalFormCharacter as RulesetCharacterHero;
+        var monster = character as RulesetCharacterMonster;
+
+        if (hero == null && monster == null)
+        {
+            return null;
+        }
+
+        var mainHandItem = hero?.CharacterInventory.InventorySlotsByName[EquipmentDefinitions.SlotTypeMainHand]
             .EquipedItem;
 
         var isUnarmedWeapon = mainHandItem != null && ValidatorsWeapon.IsUnarmedWeapon(mainHandItem);
         var strikeDefinition = isUnarmedWeapon
             ? mainHandItem.ItemDefinition
-            : hero.UnarmedStrikeDefinition;
+            : hero2 != null
+                ? hero2.UnarmedStrikeDefinition
+                : DatabaseHelper.ItemDefinitions.UnarmedStrikeBase;
 
-        var attackModifiers = hero.attackModifiers;
+        var attackModifiers = hero?.attackModifiers ?? monster?.attackModifiers;
 
-        var attackMode = hero.RefreshAttackMode(
+        var attackMode = character.TryRefreshAttackMode(
             ActionType,
             strikeDefinition,
             strikeDefinition.WeaponDescription,
@@ -181,7 +191,7 @@ internal sealed class AddExtraUnarmedAttack : AddExtraAttackBase
             true,
             EquipmentDefinitions.SlotTypeMainHand,
             attackModifiers,
-            hero.FeaturesOrigin,
+            character.FeaturesOrigin,
             isUnarmedWeapon ? mainHandItem : null
         );
 
@@ -198,9 +208,13 @@ internal sealed class AddExtraMainHandAttack : AddExtraAttackBase
         // Empty
     }
 
-    [NotNull]
-    protected override List<RulesetAttackMode> GetAttackModes([NotNull] RulesetCharacterHero hero)
+    protected override List<RulesetAttackMode> GetAttackModes([NotNull] RulesetCharacter character)
     {
+        if (character is not RulesetCharacterHero hero)
+        {
+            return null;
+        }
+
         var mainHandItem = hero.CharacterInventory.InventorySlotsByName[EquipmentDefinitions.SlotTypeMainHand]
             .EquipedItem;
 
@@ -243,9 +257,13 @@ internal sealed class AddExtraRangedAttack : AddExtraAttackBase
         this.weaponValidator = weaponValidator;
     }
 
-    [NotNull]
-    protected override List<RulesetAttackMode> GetAttackModes([NotNull] RulesetCharacterHero hero)
+    protected override List<RulesetAttackMode> GetAttackModes([NotNull] RulesetCharacter character)
     {
+        if (character is not RulesetCharacterHero hero)
+        {
+            return null;
+        }
+        
         var result = new List<RulesetAttackMode>();
 
         AddItemAttack(result, EquipmentDefinitions.SlotTypeMainHand, hero);
@@ -296,9 +314,12 @@ internal sealed class AddPolearmFollowupAttack : AddExtraAttackBase
         // Empty
     }
 
-    [NotNull]
-    protected override List<RulesetAttackMode> GetAttackModes([NotNull] RulesetCharacterHero hero)
+    protected override List<RulesetAttackMode> GetAttackModes([NotNull] RulesetCharacter character)
     {
+        if (character is not RulesetCharacterHero hero)
+        {
+            return null;
+        }
         var result = new List<RulesetAttackMode>();
 
         AddItemAttack(result, EquipmentDefinitions.SlotTypeMainHand, hero);
@@ -363,8 +384,12 @@ internal sealed class AddBonusShieldAttack : AddExtraAttackBase
     }
 
     [CanBeNull]
-    protected override List<RulesetAttackMode> GetAttackModes([NotNull] RulesetCharacterHero hero)
+    protected override List<RulesetAttackMode> GetAttackModes([NotNull] RulesetCharacter character)
     {
+        if (character is not RulesetCharacterHero hero)
+        {
+            return null;
+        }
         var inventorySlotsByName = hero.CharacterInventory.InventorySlotsByName;
         var offHandItem = inventorySlotsByName[EquipmentDefinitions.SlotTypeOffHand].EquipedItem;
 
@@ -435,9 +460,12 @@ internal sealed class AddBonusTorchAttack : AddExtraAttackBase
         this.torchPower = torchPower;
     }
 
-    [NotNull]
-    protected override List<RulesetAttackMode> GetAttackModes([NotNull] RulesetCharacterHero hero)
+    protected override List<RulesetAttackMode> GetAttackModes([NotNull] RulesetCharacter character)
     {
+        if (character is not RulesetCharacterHero hero)
+        {
+            return null;
+        }
         var result = new List<RulesetAttackMode>();
 
         AddItemAttack(result, EquipmentDefinitions.SlotTypeOffHand, hero);

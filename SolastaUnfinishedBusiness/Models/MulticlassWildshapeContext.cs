@@ -88,9 +88,8 @@ internal static class MulticlassWildshapeContext
             {
                 var strikeDefinition = hero.UnarmedStrikeDefinition;
 
-                bonusUnarmedAttack = hero.RefreshAttackMode(ActionType.Bonus, strikeDefinition,
-                    strikeDefinition.WeaponDescription, true, true, EquipmentDefinitions.SlotTypeMainHand,
-                    monster.attackModifiers, monster.FeaturesOrigin);
+                bonusUnarmedAttack = monster.RefreshAttackMode(ActionType.Bonus, strikeDefinition,
+                    strikeDefinition.WeaponDescription, true, monster.attackModifiers, monster.FeaturesOrigin);
                 bonusUnarmedAttack.AttacksNumber = attackModifier.AdditionalBonusUnarmedStrikeAttacksCount;
                 if (!string.IsNullOrEmpty(attackModifier.AdditionalBonusUnarmedStrikeAttacksTag))
                 {
