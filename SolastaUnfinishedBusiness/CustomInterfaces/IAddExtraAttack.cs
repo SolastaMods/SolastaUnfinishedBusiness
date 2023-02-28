@@ -2,5 +2,5 @@
 
 public interface IAddExtraAttack
 {
-    public void TryAddExtraAttack(RulesetCharacterHero hero);
+    public void TryAddExtraAttack(RulesetCharacter character);
 }

@@ -283,13 +283,17 @@ public static class InnovationArmor
 
     private class AddGauntletAttack : AddExtraAttackBase
     {
-        public AddGauntletAttack() : base(ActionDefinitions.ActionType.Main, false, InGuardianMode,
+        public AddGauntletAttack() : base(ActionDefinitions.ActionType.Main, InGuardianMode,
             ValidatorsCharacter.HasFreeHand)
         {
         }
 
-        protected override List<RulesetAttackMode> GetAttackModes(RulesetCharacterHero hero)
+        protected override List<RulesetAttackMode> GetAttackModes(RulesetCharacter character)
         {
+            if (character is not RulesetCharacterHero hero)
+            {
+                return null;
+            }
             var strikeDefinition = CustomWeaponsContext.ThunderGauntlet;
 
             var attackModifiers = hero.attackModifiers;
@@ -349,21 +353,27 @@ public static class InnovationArmor
             return modes;
         }
 
-        protected override AttackModeOrder GetOrder(RulesetCharacterHero hero)
+        protected override AttackModeOrder GetOrder(RulesetCharacter character)
         {
-            return hero.HasEmptyMainHand() ? AttackModeOrder.Start : base.GetOrder(hero);
+            return (character is RulesetCharacterHero hero && hero.HasEmptyMainHand()) 
+                ? AttackModeOrder.Start 
+                : base.GetOrder(character);
         }
     }
 
 
     private class AddLauncherAttack : AddExtraAttackBase
     {
-        public AddLauncherAttack() : base(ActionDefinitions.ActionType.Main, false, InInfiltratorMode)
+        public AddLauncherAttack() : base(ActionDefinitions.ActionType.Main, InInfiltratorMode)
         {
         }
 
-        protected override List<RulesetAttackMode> GetAttackModes(RulesetCharacterHero hero)
+        protected override List<RulesetAttackMode> GetAttackModes(RulesetCharacter character)
         {
+            if (character is not RulesetCharacterHero hero)
+            {
+                return null;
+            }
             var strikeDefinition = CustomWeaponsContext.LightningLauncher;
             var attackModifiers = hero.attackModifiers;
             var attackMode = hero.RefreshAttackMode(
