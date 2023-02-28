@@ -123,6 +123,11 @@ internal sealed class WayOfTheDiscordance : AbstractSubclass
             .SetGuiPresentation(Category.Feature)
             .AddToDB();
 
+        /*
+        Level 17 - Profound Turmoil
+        Starting at 17th level, increase the damage of your Discordance and Burst of Disharmony by an amount equal to your Wisdom modifier.
+        */
+
         Subclass = CharacterSubclassDefinitionBuilder
             .Create(Name)
             .SetOrUpdateGuiPresentation(Category.Subclass, CharacterSubclassDefinitions.RoguishShadowCaster)
@@ -140,6 +145,7 @@ internal sealed class WayOfTheDiscordance : AbstractSubclass
     internal override FeatureDefinitionSubclassChoice SubclassChoice =>
         FeatureDefinitionSubclassChoices.SubclassChoiceMonkMonasticTraditions;
 
+    // ReSharper disable once UnassignedGetOnlyAutoProperty
     internal override DeityDefinition DeityDefinition { get; }
 
     // apply the logic to add discordance conditions and to determine if it's time to explode

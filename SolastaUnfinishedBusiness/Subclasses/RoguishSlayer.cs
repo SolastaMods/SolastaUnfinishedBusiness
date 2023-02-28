@@ -165,6 +165,11 @@ internal sealed class RoguishSlayer : AbstractSubclass
                 .Build())
             .AddToDB();
 
+        /*
+        Level 17 - Fatal Strike
+        Starting at 17th level, when you attack and hit a creature during the first round of combat, it must make a Constitution saving throw (DC 8 + your Dexterity modifier + your proficiency bonus). On a failed save, double the damage of your attack against the creature. 
+        */
+
         Subclass = CharacterSubclassDefinitionBuilder
             .Create(Name)
             .SetGuiPresentation(Category.Subclass, RangerShadowTamer)
