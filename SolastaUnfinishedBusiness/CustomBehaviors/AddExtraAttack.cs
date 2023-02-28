@@ -19,50 +19,26 @@ internal abstract class AddExtraAttackBase : IAddExtraAttack
     protected readonly ActionDefinitions.ActionType ActionType;
 
     // private readonly List<string> additionalTags = new();
-    private readonly bool clearSameType;
     private readonly IsCharacterValidHandler[] validators;
 
     protected AddExtraAttackBase(
         ActionDefinitions.ActionType actionType,
-        bool clearSameType,
         params IsCharacterValidHandler[] validators)
     {
         ActionType = actionType;
-        this.clearSameType = clearSameType;
         this.validators = validators;
     }
 
-    protected AddExtraAttackBase(
-        ActionDefinitions.ActionType actionType,
-        params IsCharacterValidHandler[] validators) :
-        this(actionType, false, validators)
+    public void TryAddExtraAttack(RulesetCharacter character)
     {
-    }
+        var hero = character as RulesetCharacterHero ?? character.OriginalFormCharacter as RulesetCharacterHero;
 
-    public void TryAddExtraAttack(RulesetCharacterHero hero)
-    {
-        if (!hero.IsValid(validators))
+        if (hero == null || !hero.IsValid(validators))
         {
             return;
         }
 
-        var attackModes = hero.AttackModes;
-
-        if (clearSameType)
-        {
-            for (var i = attackModes.Count - 1; i > 0; i--)
-            {
-                var mode = attackModes[i];
-
-                if (mode.ActionType != ActionType)
-                {
-                    continue;
-                }
-
-                RulesetAttackMode.AttackModesPool.Return(mode);
-                attackModes.RemoveAt(i);
-            }
-        }
+        var attackModes = character.AttackModes;
 
         var newAttacks = GetAttackModes(hero);
 
@@ -217,8 +193,7 @@ internal sealed class AddExtraMainHandAttack : AddExtraAttackBase
 {
     internal AddExtraMainHandAttack(
         ActionDefinitions.ActionType actionType,
-        bool clearSameType,
-        params IsCharacterValidHandler[] validators) : base(actionType, clearSameType, validators)
+        params IsCharacterValidHandler[] validators) : base(actionType, validators)
     {
         // Empty
     }
@@ -315,8 +290,8 @@ internal sealed class AddExtraRangedAttack : AddExtraAttackBase
 
 internal sealed class AddPolearmFollowupAttack : AddExtraAttackBase
 {
-    internal AddPolearmFollowupAttack() : base(ActionDefinitions.ActionType.Bonus, false,
-        ValidatorsCharacter.HasAttacked, ValidatorsCharacter.HasPolearm)
+    internal AddPolearmFollowupAttack() : base(ActionDefinitions.ActionType.Bonus, ValidatorsCharacter.HasAttacked,
+        ValidatorsCharacter.HasPolearm)
     {
         // Empty
     }
@@ -382,7 +357,7 @@ internal sealed class AddPolearmFollowupAttack : AddExtraAttackBase
 
 internal sealed class AddBonusShieldAttack : AddExtraAttackBase
 {
-    internal AddBonusShieldAttack() : base(ActionDefinitions.ActionType.Bonus, false)
+    internal AddBonusShieldAttack() : base(ActionDefinitions.ActionType.Bonus)
     {
         // Empty
     }
@@ -455,7 +430,7 @@ internal sealed class AddBonusTorchAttack : AddExtraAttackBase
 {
     private readonly FeatureDefinitionPower torchPower;
 
-    internal AddBonusTorchAttack(FeatureDefinitionPower torchPower) : base(ActionDefinitions.ActionType.Bonus, false)
+    internal AddBonusTorchAttack(FeatureDefinitionPower torchPower) : base(ActionDefinitions.ActionType.Bonus)
     {
         this.torchPower = torchPower;
     }

@@ -283,7 +283,7 @@ public static class InnovationArmor
 
     private class AddGauntletAttack : AddExtraAttackBase
     {
-        public AddGauntletAttack() : base(ActionDefinitions.ActionType.Main, false, InGuardianMode,
+        public AddGauntletAttack() : base(ActionDefinitions.ActionType.Main, InGuardianMode,
             ValidatorsCharacter.HasFreeHand)
         {
         }
@@ -358,7 +358,7 @@ public static class InnovationArmor
 
     private class AddLauncherAttack : AddExtraAttackBase
     {
-        public AddLauncherAttack() : base(ActionDefinitions.ActionType.Main, false, InInfiltratorMode)
+        public AddLauncherAttack() : base(ActionDefinitions.ActionType.Main, InInfiltratorMode)
         {
         }
 

@@ -850,7 +850,7 @@ internal sealed class ModifyProducedFlameDice : ModifyAttackModeForWeaponBase
 
 internal sealed class AddThrowProducedFlameAttack : AddExtraAttackBase
 {
-    internal AddThrowProducedFlameAttack() : base(ActionDefinitions.ActionType.Main, false)
+    internal AddThrowProducedFlameAttack() : base(ActionDefinitions.ActionType.Main)
     {
     }
 
