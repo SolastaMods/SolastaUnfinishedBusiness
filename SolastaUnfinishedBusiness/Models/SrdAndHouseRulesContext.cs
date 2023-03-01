@@ -124,6 +124,7 @@ internal static class SrdAndHouseRulesContext
         FixTwinnedMetamagic();
         FixAttackBuffsAffectingSpellDamage();
         FixMissingWildShapeTagOnSomeForms();
+        MakeGorillaWildShapeRocksUnlimited();
     }
 
     internal static void ModifyAttackModeAndDamage(
@@ -604,6 +605,13 @@ internal static class SrdAndHouseRulesContext
         {
             option.substituteMonster.CreatureTags.TryAdd(TagsDefinitions.CreatureTagWildShape);
         }
+    }
+
+    private static void MakeGorillaWildShapeRocksUnlimited()
+    {
+        //CHANGE: makes Wildshape Gorilla form having unlimted rock toss attacks 
+        MonsterAttackDefinitions.Attack_Wildshape_Ape_Toss_Rock.limitedUse = false;
+        MonsterAttackDefinitions.Attack_Wildshape_Ape_Toss_Rock.maxUses = -1;
     }
 
     internal static void SwitchEnableUpcastConjureElementalAndFey()
