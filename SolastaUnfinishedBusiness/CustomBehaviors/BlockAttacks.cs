@@ -1,10 +1,12 @@
 ﻿using System.Collections;
 using System.Linq;
 using JetBrains.Annotations;
-using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.Extensions;
+using SolastaUnfinishedBusiness.Api.ModKit;
+using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.CustomUI;
 using static ActionDefinitions;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 
 namespace SolastaUnfinishedBusiness.CustomBehaviors;
 
@@ -63,13 +65,39 @@ internal static class BlockAttacks
         int attackRoll
     )
     {
+        var unitCharacter = unit.RulesetCharacter;
+        var defenderCharacter = defender.RulesetCharacter;
         if (!attacker.IsOppositeSide(unit.Side) || defender.Side != unit.Side || unit == defender
-            || !(unit.RulesetCharacter?.HasSubFeatureOfType<SpiritualShielding>() ?? false))
+            || !unitCharacter.HasSubFeatureOfType<SpiritualShielding>())
         {
             yield break;
         }
 
-        if (unit.RulesetCharacter.UsedChannelDivinity == 1)
+        //Is this unit able to react (not paralyzed, prone etc.)?
+        if (!unit.CanReact(true))
+        {
+            yield break;
+        }
+
+        //Does this unit has enough Channel Divinity uses left?
+        var maxUses = unitCharacter.TryGetAttributeValue(AttributeDefinitions.ChannelDivinityNumber);
+        if (unitCharacter.UsedChannelDivinity >= maxUses)
+        {
+            yield break;
+        }
+
+        //Is defender already shielded?
+        if (defenderCharacter.HasConditionOfType(ConditionDefinitions.ConditionShielded))
+        {
+            yield break;
+        }
+
+        var totalAttack = attackRoll
+            + attackMode?.ToHitBonus ?? rulesetEffect?.MagicAttackBonus ?? 0
+            + attackModifier.AttackRollModifier;
+
+        //Can shielding prevent hit?
+        if (!defenderCharacter.CanMagicEffectPreventHit(SpellDefinitions.Shield, totalAttack))
         {
             yield break;
         }
@@ -77,32 +105,10 @@ internal static class BlockAttacks
         var actionService = ServiceRepository.GetService<IGameLocationActionService>();
         var count = actionService.PendingReactionRequestGroups.Count;
 
-        if (defender.RulesetCharacter.GetAttribute(AttributeDefinitions.ArmorClass).CurrentValue + 5 <= attackRoll +
-            (attackMode?.ToHitBonus ?? rulesetEffect.MagicAttackBonus) + attackModifier.AttackRollModifier)
+        var temp = new CharacterActionParams(unit, (Id)ExtraActionId.DoNothingReaction)
         {
-            yield break;
-        }
-
-        if (defender.RulesetCharacter.GetAttribute(AttributeDefinitions.ArmorClass).CurrentValue > attackRoll +
-            (attackMode?.ToHitBonus ?? rulesetEffect.MagicAttackBonus) + attackModifier.AttackRollModifier)
-        {
-            yield break;
-        }
-
-        attackMode ??= defender.FindActionAttackMode(Id.AttackMain);
-
-        var guiUnit = new GuiCharacter(unit);
-        var guiDefender = new GuiCharacter(defender);
-
-        var temp = new CharacterActionParams(
-            unit,
-            (Id)ExtraActionId.DoNothingReaction,
-            attackMode,
-            defender,
-            new ActionModifier())
-        {
-            StringParameter = Gui.Format("Reaction/&CustomReactionSpiritualShieldingDescription", guiUnit.Name,
-                guiDefender.Name)
+            StringParameter = "CustomReactionSpiritualShieldingDescription"
+                .Formatted(Category.Reaction, defender.Name, attacker.Name)
         };
 
         RequestCustomReaction("SpiritualShielding", temp);
@@ -114,18 +120,19 @@ internal static class BlockAttacks
             yield break;
         }
 
-        unit.RulesetCharacter.usedChannelDivinity++;
+        //Spend resources
+        unitCharacter.usedChannelDivinity++;
 
         var rulesetCondition = RulesetCondition.CreateActiveCondition(
-            defender.RulesetCharacter.Guid,
-            DatabaseHelper.ConditionDefinitions.ConditionShielded,
+            defenderCharacter.Guid,
+            ConditionDefinitions.ConditionShielded,
             RuleDefinitions.DurationType.Round,
             1,
             RuleDefinitions.TurnOccurenceType.StartOfTurn,
-            unit.RulesetCharacter.Guid,
-            unit.RulesetCharacter.CurrentFaction.Name);
+            unitCharacter.Guid,
+            unitCharacter.CurrentFaction.Name);
 
-        defender.RulesetCharacter.AddConditionOfCategory(AttributeDefinitions.TagCombat, rulesetCondition);
+        defenderCharacter.AddConditionOfCategory(AttributeDefinitions.TagCombat, rulesetCondition);
     }
 
     private static void RequestCustomReaction(string type, CharacterActionParams actionParams)
@@ -137,7 +144,10 @@ internal static class BlockAttacks
             return;
         }
 
-        var reactionRequest = new ReactionRequestCustom(type, actionParams);
+        var reactionRequest = new ReactionRequestCustom(type, actionParams)
+        {
+            Resource = ReactionResourceChannelDivinity.Instance
+        };
 
         actionManager.AddInterruptRequest(reactionRequest);
     }
