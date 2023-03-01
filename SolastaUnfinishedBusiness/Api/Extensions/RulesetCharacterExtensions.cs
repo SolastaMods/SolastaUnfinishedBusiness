@@ -504,4 +504,14 @@ internal static class RulesetCharacterExtensions
             _ => null
         };
     }
+
+    internal static bool CanMagicEffectPreventHit(
+        this RulesetCharacter character,
+        IMagicEffect effect,
+        int totalAttack)
+    {
+        return character.CanAttackOutcomeFromAlterationMagicalEffectFail(
+            effect.EffectDescription.EffectForms,
+            totalAttack);
+    }
 }
