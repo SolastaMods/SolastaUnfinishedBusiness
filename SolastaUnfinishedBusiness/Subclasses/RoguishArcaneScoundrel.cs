@@ -48,7 +48,8 @@ internal sealed class RoguishArcaneScoundrel : AbstractSubclass
             .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionDistracted)
             .SetConditionType(ConditionType.Detrimental)
             .SetPossessive()
-            .SetSpecialDuration(DurationType.Round, 1)
+            .SetSpecialDuration(DurationType.Round, 1, TurnOccurenceType.EndOfSourceTurn)
+            .SetSpecialInterruptions(ConditionInterruption.AbilityCheck, ConditionInterruption.SavingThrow)
             .SetFeatures(
                 FeatureDefinitionAbilityCheckAffinityBuilder
                     .Create($"AbilityCheckAffinity{Name}{DistractingAmbush}")
