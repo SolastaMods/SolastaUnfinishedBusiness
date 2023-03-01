@@ -2,11 +2,9 @@
 Feature/&AdditionalDamageRoguishDuelistDaringDuelTitle=Daring Duel
 Feature/&AdditionalDamageRoguishDuelistSureFootedDescription=Gain your proficiency modifier as an extra damage with finesse or ranged weapon attacks.
 Feature/&AdditionalDamageRoguishDuelistSureFootedTitle=Sure Footed
-Feature/&AttributeModifierRoguishDuelistSureFootedDescription=Gain additional AC equal to half your proficiency bonus.
-Feature/&AttributeModifierRoguishDuelistSureFootedTitle=Sure Footed
 Feature/&ActionAffinityRoguishDuelistSwirlingDanceTitle=Swirling Dance
 Feature/&ActionAffinityRoguishDuelistSwirlingDanceDescription=Starting at 9th level, when a creature misses you with a melee attack roll, you can use your reaction to make an immediate attack of opportunity against that creature.
-Feature/&FeatureSetRoguishDuelistSureFootedDescription=While unarmored or wearing light armor with no shield, gain additional AC to half your proficiency bonus and advantage on initiative rolls. Also, if your off hand is empty, gain your proficiency modifier as an extra damage with finesse or ranged weapon attacks.
+Feature/&FeatureSetRoguishDuelistSureFootedDescription=While unarmored or wearing light armor with no shield, gain additional AC to half your proficiency bonus and advantage on initiative rolls.
 Feature/&FeatureSetRoguishDuelistSureFootedTitle=Sure Footed
 Feedback/&AdditionalDamageSureFootedFormat=Sure Footed
 Feedback/&AdditionalDamageSureFootedLine=Sure Footed deals extra +{2} damage!
