@@ -759,7 +759,6 @@ internal static class InventorClass
         const string TEXT = "PowerInventorFlashOfGenius";
         var sprite = Sprites.GetSprite("InventorQuickWit", Resources.InventorQuickWit, 256, 128);
 
-        //ideally should be visible to player, but unusable, so remaining uses can be tracked
         var bonusPower = FeatureDefinitionPowerBuilder
             .Create("PowerInventorFlashOfGeniusBonus")
             .SetGuiPresentation(TEXT, Category.Feature, sprite)
@@ -846,6 +845,11 @@ internal class FlashOfGenius : ConditionSourceCanUsePowerToImproveFailedSaveRoll
         RollOutcome saveOutcome,
         int saveOutcomeDelta)
     {
+        if (helper.IsOppositeSide(defender.Side))
+        {
+            return false;
+        }
+        
         if (helper.GetActionTypeStatus(ActionDefinitions.ActionType.Reaction) !=
             ActionDefinitions.ActionStatus.Available)
         {

@@ -1,6 +1,6 @@
 ﻿Condition/&ConditionRoguishArcaneScoundrelDistractingAmbushDescription=Vous subissez un désavantage lors de vos jets de sauvegarde ou de vos tests de capacité.
 Condition/&ConditionRoguishArcaneScoundrelDistractingAmbushTitle=Embuscade distrayante
-Feature/&AdditionalDamageRoguishArcaneScoundrelDistractingAmbushDescription=Chaque fois que vous infligez des dégâts d'attaque sournoise à une créature, cette créature subit un désavantage lors de ses jets de sauvegarde ou de ses tests de caractéristique jusqu'à la fin de votre prochain tour.
+Feature/&AdditionalDamageRoguishArcaneScoundrelDistractingAmbushDescription=Chaque fois que vous infligez des dégâts d'attaque sournoise à une créature, cette créature subit un désavantage lors de son prochain jet de sauvegarde ou test de caractéristique jusqu'à la fin de votre prochain tour.
 Feature/&AdditionalDamageRoguishArcaneScoundrelDistractingAmbushTitle=Embuscade distrayante
 Feature/&PowerRoguishArcaneScoundrelArcaneBackslashDescription=Vous infligez votre attaque sournoise sous forme de dégâts de force à une créature chaque fois que vous contrecarrez un sort de celle-ci.
 Feature/&PowerRoguishArcaneScoundrelArcaneBackslashTitle=Contrecoup arcanique

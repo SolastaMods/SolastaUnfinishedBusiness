@@ -1,6 +1,6 @@
 ﻿Condition/&ConditionRoguishArcaneScoundrelDistractingAmbushDescription=Subisci svantaggio ai tiri salvezza o alle prove di caratteristica.
 Condition/&ConditionRoguishArcaneScoundrelDistractingAmbushTitle=Agguato che distrae
-Feature/&AdditionalDamageRoguishArcaneScoundrelDistractingAmbushDescription=Ogni volta che infliggi danni da attacco furtivo a una creatura, quella creatura subisce svantaggio ai suoi tiri salvezza o prove di caratteristica fino alla fine del tuo prossimo turno.
+Feature/&AdditionalDamageRoguishArcaneScoundrelDistractingAmbushDescription=Ogni volta che infliggi danni da attacco furtivo a una creatura, quella creatura subisce svantaggio al successivo tiro salvezza o prova di caratteristica fino alla fine del tuo prossimo turno.
 Feature/&AdditionalDamageRoguishArcaneScoundrelDistractingAmbushTitle=Agguato che distrae
 Feature/&PowerRoguishArcaneScoundrelArcaneBackslashDescription=Infliggi il tuo attacco furtivo come danno da forza a una creatura ogni volta che ne neutralizza un incantesimo.
 Feature/&PowerRoguishArcaneScoundrelArcaneBackslashTitle=Contraccolpo Arcano
