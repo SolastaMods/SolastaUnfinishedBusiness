@@ -79,6 +79,12 @@ internal static class BlockAttacks
             yield break;
         }
 
+        //Can this unit see defender?
+        if (!unit.PerceivedAllies.Contains(defender))
+        {
+            yield break;
+        }
+
         //Does this unit has enough Channel Divinity uses left?
         var maxUses = unitCharacter.TryGetAttributeValue(AttributeDefinitions.ChannelDivinityNumber);
         if (unitCharacter.UsedChannelDivinity >= maxUses)
