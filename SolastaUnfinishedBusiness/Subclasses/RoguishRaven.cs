@@ -98,6 +98,9 @@ internal sealed class RoguishRaven : AbstractSubclass
                     .AddToDB())
             .AddToDB();
 
+        var validateHasTwoHandedRangedWeapon =
+            new RestrictedContextValidator(OperationType.Set, ValidatorsCharacter.HasTwoHandedRangedWeapon);
+        
         // -4 attack roll but critical threshold is 18 and deal 3d6 additional damage
         var conditionRavenHeartSeekingShot = ConditionDefinitionBuilder
             .Create("ConditionRavenHeartSeekingShot")
@@ -109,15 +112,14 @@ internal sealed class RoguishRaven : AbstractSubclass
                     .SetGuiPresentation(Category.Feature)
                     .SetModifier(FeatureDefinitionAttributeModifier.AttributeModifierOperation.Additive,
                         AttributeDefinitions.CriticalThreshold, -2)
-                    .SetCustomSubFeatures(
-                        new ValidatorsDefinitionApplication(ValidatorsCharacter.HasTwoHandedRangedWeapon))
+                    .SetCustomSubFeatures(validateHasTwoHandedRangedWeapon)
+                    .SetSituationalContext(SituationalContext.AttackingWithRangedWeapon)
                     .AddToDB(),
                 FeatureDefinitionAttackModifierBuilder
                     .Create("AttackModifierRavenHeartSeekingShot")
                     .SetGuiPresentation(Category.Feature)
                     .SetAttackRollModifier(-4)
-                    .SetCustomSubFeatures(
-                        new RestrictedContextValidator(OperationType.Set, ValidatorsCharacter.HasTwoHandedRangedWeapon))
+                    .SetCustomSubFeatures(validateHasTwoHandedRangedWeapon)
                     .SetRequiredProperty(RestrictedContextRequiredProperty.RangeWeapon)
                     .AddToDB(),
                 FeatureDefinitionAdditionalDamageBuilder
