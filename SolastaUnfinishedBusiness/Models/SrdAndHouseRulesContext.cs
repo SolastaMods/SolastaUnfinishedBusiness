@@ -122,7 +122,8 @@ internal static class SrdAndHouseRulesContext
         FixMartialArtsProgression();
         DistantHandMartialArtsDie();
         FixTwinnedMetamagic();
-        FixAttackBuffsAffectingSpellDamamge();
+        FixAttackBuffsAffectingSpellDamage();
+        FixMissingWildShapeTagOnSomeForms();
     }
 
     internal static void ModifyAttackModeAndDamage(
@@ -584,15 +585,25 @@ internal static class SrdAndHouseRulesContext
             }));
     }
 
-    private static void FixAttackBuffsAffectingSpellDamamge()
+    private static void FixAttackBuffsAffectingSpellDamage()
     {
-        //BUGFIX: fix Brandiong Smite applying bonus damage to spells
+        //BUGFIX: fix Branding Smite applying bonus damage to spells
         FeatureDefinitionAdditionalDamages.AdditionalDamageBrandingSmite
             .AddCustomSubFeatures(ValidatorsRestrictedContext.WeaponAttack);
 
         //BUGFIX: fix Divine Favor applying bonus damage to spells
         FeatureDefinitionAdditionalDamages.AdditionalDamageDivineFavor
             .AddCustomSubFeatures(ValidatorsRestrictedContext.WeaponAttack);
+    }
+
+    private static void FixMissingWildShapeTagOnSomeForms()
+    {
+        //BUGFIX: fix some Wild Shape forms missing proper tag, making wild shape action button visible while wild-shaped
+        var wildShape = FeatureDefinitionPowers.PowerDruidWildShape;
+        foreach (var option in wildShape.EffectDescription.FindFirstShapeChangeForm().ShapeOptions)
+        {
+            option.substituteMonster.CreatureTags.TryAdd(TagsDefinitions.CreatureTagWildShape);
+        }
     }
 
     internal static void SwitchEnableUpcastConjureElementalAndFey()

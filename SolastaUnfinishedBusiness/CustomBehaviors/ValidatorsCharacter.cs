@@ -25,7 +25,7 @@ internal static class ValidatorsCharacter
     internal static readonly IsCharacterValidHandler HasFreeHand = character =>
         character.HasFreeHandSlot() && !ValidatorsWeapon.IsTwoHanded(character.GetMainWeapon());
 
-    internal static readonly IsCharacterValidHandler HasFreeOffHand = IsFreeOffhand;
+    // internal static readonly IsCharacterValidHandler HasFreeOffHand = IsFreeOffhand;
 
     internal static readonly IsCharacterValidHandler HasAttacked = character => character.ExecutedAttacks > 0;
 

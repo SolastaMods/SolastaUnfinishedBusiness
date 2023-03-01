@@ -1,12 +1,12 @@
 ﻿Feature/&AdditionalDamageRoguishDuelistDaringDuelDescription=Você não precisa de vantagem na jogada de ataque para usar seu Ataque Furtivo contra uma criatura se estiver a até 1,5 metro dela, nenhuma outra criatura estiver a até 1,5 metro de você e você não tiver desvantagem na jogada de ataque. Todas as outras regras de Ataque Furtivo ainda se aplicam.
 Feature/&AdditionalDamageRoguishDuelistDaringDuelTitle=duelo ousado
-Feature/&AdditionalDamageRoguishDuelistSureFootedDescription=Ganhe seu modificador de proficiência como um dano extra com sutileza ou ataques de armas à distância.
-Feature/&AdditionalDamageRoguishDuelistSureFootedTitle=Pé Seguro
 Feature/&AttributeModifierRoguishDuelistSureFootedDescription=Ganhe CA adicional igual à metade do seu bônus de proficiência.
 Feature/&AttributeModifierRoguishDuelistSureFootedTitle=Pé Seguro
+Feature/&ActionAffinityRoguishDuelistGracefulTakeDownDescription=A partir do 13º nível, você pode usar sua ação bônus para fazer uma tentativa de empurrão.
+Feature/&ActionAffinityRoguishDuelistGracefulTakeDownTitle=Queda Graciosa
 Feature/&ActionAffinityRoguishDuelistSwirlingDanceTitle=dança rodopiante
 Feature/&ActionAffinityRoguishDuelistSwirlingDanceDescription=A partir do 9º nível, quando uma criatura erra em você com uma jogada de ataque corpo a corpo, você pode usar sua reação para fazer um ataque de oportunidade imediato contra aquela criatura.
-Feature/&FeatureSetRoguishDuelistSureFootedDescription=Enquanto estiver sem armadura ou usando armadura leve sem escudo, ganhe CA adicional para metade do seu bônus de proficiência e vantagem nas jogadas de iniciativa. Além disso, se sua mão inábil estiver vazia, ganhe seu modificador de proficiência como um dano extra com sutileza ou ataques de armas à distância.
+Feature/&FeatureSetRoguishDuelistSureFootedDescription=Enquanto estiver sem armadura ou usando armadura leve sem escudo, ganhe CA adicional para metade do seu bônus de proficiência e vantagem nas jogadas de iniciativa.
 Feature/&FeatureSetRoguishDuelistSureFootedTitle=Pé Seguro
 Feedback/&AdditionalDamageSureFootedFormat=Pé Seguro
 Feedback/&AdditionalDamageSureFootedLine=Sure Footed causa +{2} de dano extra!

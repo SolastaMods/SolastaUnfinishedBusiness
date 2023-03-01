@@ -1189,7 +1189,52 @@ internal static class GameLocationBattleManagerTweaks
 
         foreach (var feature in attacker.RulesetCharacter.GetSubFeaturesByType<CustomAdditionalDamage>())
         {
-            if (!feature.IsValid(
+            var validUses = true;
+            var featureDefinition = feature.Provider as FeatureDefinitionAdditionalDamage;
+            var provider = feature.Provider;
+
+            if (provider.LimitedUsage != RuleDefinitions.FeatureLimitedUsage.None)
+            {
+                // ReSharper disable once SwitchStatementHandlesSomeKnownEnumValuesWithDefault
+                switch (provider.LimitedUsage)
+                {
+                    case RuleDefinitions.FeatureLimitedUsage.OnceInMyTurn
+                        when attacker.UsedSpecialFeatures.ContainsKey(featureDefinition.Name) ||
+                             (instance.Battle != null && instance.Battle.ActiveContender != attacker):
+                    case RuleDefinitions.FeatureLimitedUsage.OncePerTurn
+                        when attacker.UsedSpecialFeatures.ContainsKey(featureDefinition.Name):
+                        validUses = false;
+                        break;
+
+                    default:
+                    {
+                        if (attacker.UsedSpecialFeatures.Count > 0)
+                        {
+                            // Check if there is not already a used feature with the same tag (special sneak attack for Rogue Hoodlum / COTM-18228)
+                            foreach (var kvp in attacker.UsedSpecialFeatures)
+                            {
+                                // ReSharper disable once InvertIf
+                                if (DatabaseRepository.GetDatabase<FeatureDefinitionAdditionalDamage>()
+                                    .TryGetElement(kvp.Key, out var previousFeature))
+                                {
+                                    if (previousFeature.NotificationTag == provider.NotificationTag)
+                                    {
+                                        validUses = false;
+                                    }
+                                }
+                            }
+                        }
+
+                        break;
+                    }
+                }
+            }
+
+            var validProperty = rulesetImplementation.IsValidContextForRestrictedContextProvider(
+                provider, attacker.RulesetCharacter, attackMode.SourceDefinition as ItemDefinition, rangedAttack,
+                attackMode, rulesetEffect);
+
+            if (!validUses || !validProperty || !feature.IsValid(
                     instance, attacker, defender, attackModifier, attackMode, rangedAttack, advantageType,
                     actualEffectForms, rulesetEffect, criticalHit, firstTarget, out var reactionParams))
             {

@@ -1,8 +1,8 @@
-﻿Condition/&ConditionRoguishArcaneScoundrelDistractingAmbushDescription=Вы получаете штраф -2 к спасброскам и не можете совершать реакции.
+﻿Condition/&ConditionRoguishArcaneScoundrelDistractingAmbushDescription=Вы подвергаетесь помехе своим спасброскам или проверкам характеристик.
 Condition/&ConditionRoguishArcaneScoundrelDistractingAmbushTitle=Отвлекающая засада
-Feature/&AdditionalDamageRoguishArcaneScoundrelDistractingAmbushDescription=Всякий раз, когда вы наносите урон скрытой атакой существу, это существо получает штраф -2 к спасброскам и не может совершать реакции до конца вашего следующего хода.
+Feature/&AdditionalDamageRoguishArcaneScoundrelDistractingAmbushDescription=Всякий раз, когда вы наносите урон скрытой атакой существу, это существо получает помеху в своих спасбросках или проверках характеристик до конца вашего следующего хода.
 Feature/&AdditionalDamageRoguishArcaneScoundrelDistractingAmbushTitle=Отвлекающая засада
-Feature/&PowerRoguishArcaneScoundrelArcaneBackslashDescription=Вы наносите атаку исподтишка как силовой урон существу каждый раз, когда отменяете заклинание от него.
+Feature/&PowerRoguishArcaneScoundrelArcaneBackslashDescription=Вы наносите свою атаку исподтишка как силовой урон существу каждый раз, когда отменяете заклинание от него.
 Feature/&PowerRoguishArcaneScoundrelArcaneBackslashTitle=Чародейская ответная реакция
 Feature/&CastSpellRoguishArcaneScoundrelDescription=Используйте заклинания и колдовство волшебников.
 Feature/&CastSpellRoguishArcaneScoundrelTitle=Колдовство

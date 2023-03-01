@@ -134,7 +134,18 @@
   "savingThrowDC": 10,
   "savingThrowDCAbilityModifier": "Dexterity",
   "damageSaveAffinity": "None",
-  "conditionOperations": [],
+  "conditionOperations": [
+    {
+      "$type": "ConditionOperationDescription, Assembly-CSharp",
+      "hasSavingThrow": false,
+      "operation": "Add",
+      "conditionName": "",
+      "conditionDefinition": "Definition:ConditionRoguishSlayerChainOfExecutionDetrimental:8d38262c-43b3-5ecd-ad01-e93d66a39717",
+      "saveAffinity": "None",
+      "canSaveToCancel": false,
+      "saveOccurence": "EndOfTurn"
+    }
+  ],
   "addLightSource": false,
   "lightSourceForm": null,
   "impactParticleReference": null,

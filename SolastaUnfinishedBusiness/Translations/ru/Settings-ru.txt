@@ -192,6 +192,7 @@ ModUi/&SettingsLoad=. Загрузить экспортированный пар
 ModUi/&SettingsOpenFolder=Открыть папку с экспортированными настройками
 ModUi/&SettingsRefresh=Обновить
 ModUi/&SettingsRemove=Удалять
+ModUi/&ShowButtonWithControlledMonsterInfo=<b><color=#C04040E0>[BETA]</color></b> Показать кнопку, которая открывает информацию о контролируемом монстре <i><color=#F0DAA0>[диких друидах, призываемых, последователях NPC и т. д. ]</цвет></i>
 ModUi/&ShowChannelDivinityOnPortrait=Показывает, сколько <color=#D89555>Channel Divinity</color> использует герой на своем портрете, подобно очкам волшебства.
 ModUi/&ShowCraftedItemOnRecipeIcon=Показывать значок созданного предмета рядом с предметом рецепта в магазине и инвентаре. При наведении на него появится всплывающая подсказка для созданного предмета.
 ModUi/&ShowCraftingRecipeInDetailedTooltips=Показать рецепт крафта в подробных всплывающих подсказках

@@ -1,7 +1,6 @@
 ﻿using SolastaUnfinishedBusiness.Api.Extensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
-using SolastaUnfinishedBusiness.CustomBehaviors;
 using static RuleDefinitions;
 using static FeatureDefinitionAttributeModifier;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
@@ -28,14 +27,6 @@ internal sealed class RoguishDuelist : AbstractSubclass
             .SetRequiredProperty(RestrictedContextRequiredProperty.FinesseOrRangeWeapon)
             .AddToDB();
 
-        var additionalDamageSureFooted = FeatureDefinitionAttackModifierBuilder
-            .Create($"AdditionalDamage{Name}{SureFooted}")
-            .SetGuiPresentation(Category.Feature)
-            .SetDamageRollModifier(method: AttackModifierMethod.AddProficiencyBonus)
-            .SetRequiredProperty(RestrictedContextRequiredProperty.FinesseOrRangeWeapon)
-            .SetCustomSubFeatures(ValidatorsCharacter.HasFreeOffHand)
-            .AddToDB();
-
         var attributeModifierSureFooted = FeatureDefinitionAttributeModifierBuilder
             .Create($"AttributeModifier{Name}{SureFooted}")
             .SetGuiPresentation(Category.Feature)
@@ -49,7 +40,6 @@ internal sealed class RoguishDuelist : AbstractSubclass
             .SetGuiPresentation(Category.Feature)
             .AddFeatureSet(
                 FeatureDefinitionCombatAffinitys.CombatAffinityEagerForBattle,
-                additionalDamageSureFooted,
                 attributeModifierSureFooted)
             .AddToDB();
 
@@ -62,10 +52,15 @@ internal sealed class RoguishDuelist : AbstractSubclass
 
         var actionAffinityGracefulTakeDown = FeatureDefinitionActionAffinityBuilder
             .Create($"ActionAffinity{Name}GracefulTakeDown")
-            .SetGuiPresentationNoContent(true)
+            .SetGuiPresentation(Category.Feature)
             .SetAllowedActionTypes()
             .SetAuthorizedActions(ActionDefinitions.Id.ShoveBonus)
             .AddToDB();
+
+        /*
+        Level 17 - Master Duelist
+        Starting at 17th level, your mastery of the blade lets you turn failure into success in combat. If you miss with an attack roll, you can roll it again with advantage. Once you do so, you can't use this feature again until you finish a short or long rest.
+        */
 
         Subclass = CharacterSubclassDefinitionBuilder
             .Create(Name)
@@ -81,5 +76,6 @@ internal sealed class RoguishDuelist : AbstractSubclass
     internal override FeatureDefinitionSubclassChoice SubclassChoice =>
         FeatureDefinitionSubclassChoices.SubclassChoiceRogueRoguishArchetypes;
 
+    // ReSharper disable once UnassignedGetOnlyAutoProperty
     internal override DeityDefinition DeityDefinition { get; }
 }

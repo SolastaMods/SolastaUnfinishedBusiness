@@ -8,7 +8,7 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:AdditionalDamageRoguishSlayerChainOfExecutionTrigger:9bb33d90-3a1d-5581-891c-8cbad21fbfee",
+      "featureDefinition": "Definition:FeatureRoguishSlayerChainOfExecution:dfdc52f8-f2e7-5f59-b9f3-ef6894635e32",
       "level": 9
     },
     {

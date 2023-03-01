@@ -331,9 +331,9 @@
     "description": "Feature/&PowerRoyalKnightRallyingCryDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "1b13c9ff1006ea1489bdbcb09ca7a31d",
-      "m_SubObjectName": "HealingWord",
-      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+      "m_AssetGUID": "b79b6ce2-b8d4-5cb0-b68e-28afe9c5c07a",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",

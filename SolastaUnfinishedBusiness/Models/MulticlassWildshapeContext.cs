@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using SolastaUnfinishedBusiness.Api;
+using SolastaUnfinishedBusiness.Api.Extensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using UnityEngine;
@@ -31,6 +31,8 @@ internal static class MulticlassWildshapeContext
         AttributeDefinitions.Intelligence, AttributeDefinitions.Wisdom, AttributeDefinitions.Charisma
     };
 
+
+    // BACKWARD COMPATIBILITY
     private static readonly ConditionDefinition ConditionWildshapeFlurryOfBlows = ConditionDefinitionBuilder
         .Create("ConditionWildshapeFlurryOfBlows")
         .SetGuiPresentationNoContent(true)
@@ -51,29 +53,51 @@ internal static class MulticlassWildshapeContext
         FixShapeShiftedAc(monster);
     }
 
-    internal static void HandleFlurryOfBlows(RulesetCharacter __instance, ConditionDefinition conditionDefinition)
+    internal static void HandleExtraUnarmedAttacks(RulesetCharacterMonster monster)
     {
-        if (__instance is not RulesetCharacterMonster { IsSubstitute: true } monster ||
-            conditionDefinition != DatabaseHelper.ConditionDefinitions.ConditionMonkFlurryOfBlowsUnarmedStrikeBonus)
+        if (monster.originalFormCharacter is not RulesetCharacterHero hero)
         {
             return;
         }
 
-        var gameLocationCharacter = GameLocationCharacter.GetFromActor(monster);
+        RulesetAttackMode bonusUnarmedAttack = null;
 
-        var rulesetCondition = RulesetCondition.CreateActiveCondition(
-            gameLocationCharacter.Guid,
-            ConditionWildshapeFlurryOfBlows,
-            RuleDefinitions.DurationType.Round,
-            0,
-            RuleDefinitions.TurnOccurenceType.EndOfTurn,
-            gameLocationCharacter.Guid,
-            gameLocationCharacter.RulesetCharacter.CurrentFaction.Name);
+        monster.attackModifiers = monster.GetSubFeaturesByType<IAttackModificationProvider>();
 
-        gameLocationCharacter.HasAttackedSinceLastTurn = false;
-        gameLocationCharacter.UsedMainAttacks = 0;
-        gameLocationCharacter.RulesetCharacter.AddConditionOfCategory(AttributeDefinitions.TagCombat, rulesetCondition);
-        gameLocationCharacter.RefundActionUse(ActionType.Main);
+        foreach (var attackModifier in monster.attackModifiers
+                     .Where(attackModifier => attackModifier.AdditionalBonusUnarmedStrikeAttacksFromMain))
+        {
+            if (bonusUnarmedAttack != null)
+            {
+                if (attackModifier.AdditionalBonusUnarmedStrikeAttacksCount <= bonusUnarmedAttack.AttacksNumber)
+                {
+                    continue;
+                }
+
+                bonusUnarmedAttack.AttacksNumber = attackModifier.AdditionalBonusUnarmedStrikeAttacksCount;
+
+                if (!string.IsNullOrEmpty(attackModifier.AdditionalBonusUnarmedStrikeAttacksTag))
+                {
+                    bonusUnarmedAttack.AddAttackTagAsNeeded(attackModifier.AdditionalBonusUnarmedStrikeAttacksTag);
+                }
+            }
+            else
+            {
+                var strikeDefinition = hero.UnarmedStrikeDefinition;
+
+                bonusUnarmedAttack = monster.RefreshAttackMode(ActionType.Bonus, strikeDefinition,
+                    strikeDefinition.WeaponDescription, true, monster.attackModifiers, monster.FeaturesOrigin);
+                bonusUnarmedAttack.AttacksNumber = attackModifier.AdditionalBonusUnarmedStrikeAttacksCount;
+
+                if (!string.IsNullOrEmpty(attackModifier.AdditionalBonusUnarmedStrikeAttacksTag))
+                {
+                    bonusUnarmedAttack.AddAttackTagAsNeeded(attackModifier.AdditionalBonusUnarmedStrikeAttacksTag);
+                }
+
+                bonusUnarmedAttack.HasPriority = true;
+                monster.AttackModes.Add(bonusUnarmedAttack);
+            }
+        }
     }
 
     private static void UpdateSenses(RulesetCharacterMonster monster)
@@ -122,6 +146,7 @@ internal static class MulticlassWildshapeContext
             {
                 var heroAttr = hero.GetAttribute(attribute);
                 var monsterAttr = monster.GetAttribute(attribute);
+
                 monsterAttr.BaseValue = heroAttr.BaseValue;
                 //copy all race/class/subclass modifiers
                 monsterAttr.ActiveModifiers.AddRange(heroAttr.ActiveModifiers
