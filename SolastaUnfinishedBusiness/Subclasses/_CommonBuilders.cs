@@ -87,7 +87,7 @@ internal static class CommonBuilders
                             .SetGuiPresentation("PowerCasterFightingWarMagic", Category.Feature)
                             .SetDamageRollModifier(1)
                             .SetCustomSubFeatures(
-                                new AddExtraMainHandAttack(ActionDefinitions.ActionType.Bonus, false))
+                                new AddExtraMainHandAttack(ActionDefinitions.ActionType.Bonus))
                             .AddToDB())
                         .AddToDB(),
                     ConditionForm.ConditionOperation.Add)

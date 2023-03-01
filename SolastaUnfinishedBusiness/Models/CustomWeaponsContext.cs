@@ -850,14 +850,19 @@ internal sealed class ModifyProducedFlameDice : ModifyAttackModeForWeaponBase
 
 internal sealed class AddThrowProducedFlameAttack : AddExtraAttackBase
 {
-    internal AddThrowProducedFlameAttack() : base(ActionDefinitions.ActionType.Main, false)
+    internal AddThrowProducedFlameAttack() : base(ActionDefinitions.ActionType.Main)
     {
     }
 
-    [NotNull]
-    protected override List<RulesetAttackMode> GetAttackModes([NotNull] RulesetCharacterHero hero)
+    protected override List<RulesetAttackMode> GetAttackModes([NotNull] RulesetCharacter character)
     {
+        if (character is not RulesetCharacterHero hero)
+        {
+            return null;
+        }
+
         var result = new List<RulesetAttackMode>();
+
         AddItemAttack(result, EquipmentDefinitions.SlotTypeMainHand, hero);
         AddItemAttack(result, EquipmentDefinitions.SlotTypeOffHand, hero);
         return result;
@@ -867,6 +872,7 @@ internal sealed class AddThrowProducedFlameAttack : AddExtraAttackBase
         [NotNull] RulesetCharacterHero hero)
     {
         var item = hero.CharacterInventory.InventorySlotsByName[slot].EquipedItem;
+
         if (item == null || item.ItemDefinition != ItemDefinitions.ProducedFlame)
         {
             return;

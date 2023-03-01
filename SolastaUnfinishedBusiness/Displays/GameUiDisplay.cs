@@ -1,4 +1,5 @@
 ﻿using SolastaUnfinishedBusiness.Api.ModKit;
+using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Models;
 using UnityEngine;
 
@@ -369,6 +370,19 @@ internal static class GameUiDisplay
         if (UI.Toggle(Gui.Localize("ModUi/&RemoveBugVisualModels"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.RemoveBugVisualModels = toggle;
+        }
+
+        if (Main.Settings.EnableBetaContent)
+        {
+            toggle = Main.Settings.ShowButtonWithControlledMonsterInfo;
+            if (UI.Toggle(Gui.Localize("ModUi/&ShowButtonWithControlledMonsterInfo"), ref toggle, UI.AutoWidth()))
+            {
+                Main.Settings.ShowButtonWithControlledMonsterInfo = toggle;
+                if (!toggle)
+                {
+                    CustomCharacterStatsPanel.MaybeInstance?.Unbind();
+                }
+            }
         }
 
         #endregion

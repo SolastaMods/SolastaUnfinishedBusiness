@@ -8,6 +8,7 @@ using SolastaUnfinishedBusiness.CustomInterfaces;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterSubclassDefinitions;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionAdditionalDamages;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
 using static SolastaUnfinishedBusiness.Builders.Features.AutoPreparedSpellsGroupBuilder;
 
@@ -49,38 +50,41 @@ internal sealed class RoguishArcaneScoundrel : AbstractSubclass
             .SetPossessive()
             .SetSpecialDuration(DurationType.Round, 1)
             .SetFeatures(
-                FeatureDefinitionActionAffinityBuilder
-                    .Create($"ActionAffinity{Name}{DistractingAmbush}")
+                FeatureDefinitionAbilityCheckAffinityBuilder
+                    .Create($"AbilityCheckAffinity{Name}{DistractingAmbush}")
                     .SetGuiPresentationNoContent(true)
-                    .SetAllowedActionTypes()
-                    .SetForbiddenActions(
-                        ActionDefinitions.Id.AttackOpportunity,
-                        ActionDefinitions.Id.CastReaction,
-                        ActionDefinitions.Id.PowerReaction,
-                        ActionDefinitions.Id.UncannyDodge)
+                    .BuildAndSetAffinityGroups(CharacterAbilityCheckAffinity.Disadvantage,
+                        AttributeDefinitions.Strength,
+                        AttributeDefinitions.Dexterity,
+                        AttributeDefinitions.Constitution,
+                        AttributeDefinitions.Intelligence,
+                        AttributeDefinitions.Wisdom,
+                        AttributeDefinitions.Charisma)
                     .AddToDB(),
                 FeatureDefinitionSavingThrowAffinityBuilder
                     .Create($"SavingThrowAffinity{Name}{DistractingAmbush}")
                     .SetGuiPresentationNoContent(true)
-                    .SetModifiers(FeatureDefinitionSavingThrowAffinity.ModifierType.RemoveDice,
-                        DieType.D1, 2, false,
-                        AttributeDefinitions.Charisma,
-                        AttributeDefinitions.Constitution,
-                        AttributeDefinitions.Dexterity,
-                        AttributeDefinitions.Intelligence,
+                    .SetAffinities(CharacterSavingThrowAffinity.Disadvantage, true,
                         AttributeDefinitions.Strength,
-                        AttributeDefinitions.Wisdom)
+                        AttributeDefinitions.Dexterity,
+                        AttributeDefinitions.Constitution,
+                        AttributeDefinitions.Intelligence,
+                        AttributeDefinitions.Wisdom,
+                        AttributeDefinitions.Charisma)
                     .AddToDB())
             .AddToDB();
 
         var additionalDamageDistractingAmbush = FeatureDefinitionAdditionalDamageBuilder
             .Create($"AdditionalDamage{Name}{DistractingAmbush}")
             .SetGuiPresentation(Category.Feature)
-            .SetDamageValueDetermination(AdditionalDamageValueDetermination.None)
+            .SetNotificationTag(TagsDefinitions.AdditionalDamageSneakAttackTag)
+            .SetDamageDice(DieType.D6, 1)
+            .SetAdvancement(AdditionalDamageAdvancement.ClassLevel, 1, 1, 2)
             .SetRequiredProperty(RestrictedContextRequiredProperty.FinesseOrRangeWeapon)
             .SetTriggerCondition(AdditionalDamageTriggerCondition.AdvantageOrNearbyAlly)
             .SetFirstTargetOnly(true)
             .SetFrequencyLimit(FeatureLimitedUsage.OncePerTurn)
+            .SetCustomSubFeatures(new FeatureDefinitionCustomCodeDistractingAmbush())
             .SetConditionOperations(
                 new ConditionOperationDescription
                 {
@@ -119,6 +123,11 @@ internal sealed class RoguishArcaneScoundrel : AbstractSubclass
             .SetSpellcastingClass(CharacterClassDefinitions.Rogue)
             .AddToDB();
 
+        /*
+        Level 17 - Scoundrel's Gambit
+        Starting at 17th level, you can use your action to cast Mirror Image as 2nd level spell, without expanding a spell slot, once per short rest.
+        */
+
         Subclass = CharacterSubclassDefinitionBuilder
             .Create(Name)
             .SetGuiPresentation(Category.Subclass, RangerSwiftBlade)
@@ -138,6 +147,7 @@ internal sealed class RoguishArcaneScoundrel : AbstractSubclass
     internal override FeatureDefinitionSubclassChoice SubclassChoice =>
         FeatureDefinitionSubclassChoices.SubclassChoiceRogueRoguishArchetypes;
 
+    // ReSharper disable once UnassignedGetOnlyAutoProperty
     internal override DeityDefinition DeityDefinition { get; }
 
     private sealed class ModifyMagicEffectCounterSpell : IOnAfterActionFeature
@@ -184,6 +194,18 @@ internal sealed class RoguishArcaneScoundrel : AbstractSubclass
                     rulesetCharacter.CurrentFaction.Name);
 
                 defenderRulesetCharacter.AddConditionOfCategory(AttributeDefinitions.TagCombat, rulesetCondition);
+            }
+        }
+    }
+
+    private sealed class FeatureDefinitionCustomCodeDistractingAmbush : IFeatureDefinitionCustomCode
+    {
+        // remove original sneak attack as we've added a conditional one otherwise ours will never trigger
+        public void ApplyFeature(RulesetCharacterHero hero, string tag)
+        {
+            foreach (var featureDefinitions in hero.ActiveFeatures.Values)
+            {
+                featureDefinitions.RemoveAll(x => x == AdditionalDamageRogueSneakAttack);
             }
         }
     }

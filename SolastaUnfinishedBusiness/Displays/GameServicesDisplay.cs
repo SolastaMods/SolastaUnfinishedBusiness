@@ -48,7 +48,12 @@ internal static class GameServicesDisplay
         { "IGameSettingsService", ServiceRepository.GetService<IGameSettingsService> },
         { "IGameVariableService", ServiceRepository.GetService<IGameVariableService> },
         { "IGamingPlatformService", ServiceRepository.GetService<IGamingPlatformService> },
-        { "CharacterCreationScreen", Gui.GuiService.GetScreen<CharacterCreationScreen> }
+        { "CharacterCreationScreen", Gui.GuiService.GetScreen<CharacterCreationScreen> },
+        {
+            "Party Heroes",
+            () => ServiceRepository.GetService<IGameLocationCharacterService>()?.PartyCharacters
+                ?.Select(ch => ch.RulesetCharacter)
+        }
     };
 
     private static readonly string[] TargetNames = TargetList.Keys.ToArray();

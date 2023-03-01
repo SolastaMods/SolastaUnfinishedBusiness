@@ -56,6 +56,25 @@ public static class RulesetCharacterPatcher
         }
     }
 
+    [HarmonyPatch(typeof(RulesetCharacter), nameof(RulesetCharacter.IsWieldingMonkWeapon))]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
+    public static class IsWieldingMonkWeapon_Patch
+    {
+        [UsedImplicitly]
+        public static void Postfix(RulesetCharacter __instance, ref bool __result)
+        {
+            //PATCH: count wild-shaped heroes with monk classes as wielding monk weapons
+            if (__instance is not RulesetCharacterMonster ||
+                __instance.OriginalFormCharacter is not RulesetCharacterHero hero)
+            {
+                return;
+            }
+
+            __result = hero.GetClassLevel(Monk) > 0;
+        }
+    }
+
     [HarmonyPatch(typeof(RulesetCharacter), nameof(RulesetCharacter.TerminateMatchingUniquePower))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
@@ -91,9 +110,6 @@ public static class RulesetCharacterPatcher
         public static void Postfix(RulesetCharacter __instance, RulesetCondition activeCondition)
         {
             var definition = activeCondition.ConditionDefinition;
-
-            //PATCH: allow flurry of blows to correctly work with druid under wildshape
-            MulticlassWildshapeContext.HandleFlurryOfBlows(__instance, definition);
 
             //PATCH: notifies custom condition features that condition is applied
             definition.GetAllSubFeaturesOfType<ICustomConditionFeature>()
@@ -1288,7 +1304,7 @@ public static class RulesetCharacterPatcher
                 .OfType<FeatureDefinitionPower>()
                 .Any(power => hero.GetPowerFromDefinition(power) == null))
             {
-                Main.Log($"Hero [{hero.Name}] had missing powers, granting them");
+                Main.Info($"Hero [{hero.Name}] had missing powers, granting them");
                 hero.GrantPowers();
             }
 

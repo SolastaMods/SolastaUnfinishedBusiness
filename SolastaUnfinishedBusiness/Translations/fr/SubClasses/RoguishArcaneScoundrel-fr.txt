@@ -1,6 +1,6 @@
-﻿Condition/&ConditionRoguishArcaneScoundrelDistractingAmbushDescription=Vous subissez un malus de -2 aux jets de sauvegarde et êtes incapable de réagir.
+﻿Condition/&ConditionRoguishArcaneScoundrelDistractingAmbushDescription=Vous subissez un désavantage lors de vos jets de sauvegarde ou de vos tests de capacité.
 Condition/&ConditionRoguishArcaneScoundrelDistractingAmbushTitle=Embuscade distrayante
-Feature/&AdditionalDamageRoguishArcaneScoundrelDistractingAmbushDescription=Chaque fois que vous infligez des dégâts d'attaque sournoise à une créature, cette créature subit une pénalité de -2 aux jets de sauvegarde et est incapable de réagir jusqu'à la fin de votre prochain tour.
+Feature/&AdditionalDamageRoguishArcaneScoundrelDistractingAmbushDescription=Chaque fois que vous infligez des dégâts d'attaque sournoise à une créature, cette créature subit un désavantage lors de ses jets de sauvegarde ou de ses tests de caractéristique jusqu'à la fin de votre prochain tour.
 Feature/&AdditionalDamageRoguishArcaneScoundrelDistractingAmbushTitle=Embuscade distrayante
 Feature/&PowerRoguishArcaneScoundrelArcaneBackslashDescription=Vous infligez votre attaque sournoise sous forme de dégâts de force à une créature chaque fois que vous contrecarrez un sort de celle-ci.
 Feature/&PowerRoguishArcaneScoundrelArcaneBackslashTitle=Contrecoup arcanique
@@ -8,5 +8,5 @@ Feature/&CastSpellRoguishArcaneScoundrelDescription=Lancez des sorts et des cant
 Feature/&CastSpellRoguishArcaneScoundrelTitle=Lancer des sorts
 Feature/&ProficiencyRoguishArcaneScoundrelArcanaDescription=Gagnez en compétence avec la compétence Arcana. Si vous êtes déjà compétent, acquérez plutôt une expertise.
 Feature/&ProficiencyRoguishArcaneScoundrelArcanaTitle=Affinité arcanique
-Subclass/&RoguishArcaneScoundrelDescription=Avec des pieds rapides et un esprit vif, les Arcane Scoundrels utilisent une série de tours magiques pour déjouer et affaiblir leurs adversaires.
+Subclass/&RoguishArcaneScoundrelDescription=Avec la rapidité des pieds et l'acuité de l'esprit, les Arcane Scoundrels utilisent une série d'astuces magiques pour déjouer et affaiblir leurs adversaires.
 Subclass/&RoguishArcaneScoundrelTitle=Scélérat arcanique

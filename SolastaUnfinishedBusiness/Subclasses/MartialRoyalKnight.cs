@@ -1,5 +1,7 @@
 ﻿using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
+using SolastaUnfinishedBusiness.CustomUI;
+using SolastaUnfinishedBusiness.Properties;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPowers;
@@ -47,7 +49,8 @@ internal sealed class MartialRoyalKnight : AbstractSubclass
 
         var powerRoyalKnightRallyingCry = FeatureDefinitionPowerBuilder
             .Create("PowerRoyalKnightRallyingCry")
-            .SetGuiPresentation(Category.Feature, SpellDefinitions.HealingWord)
+            .SetGuiPresentation(Category.Feature,
+                Sprites.GetSprite("PowerRallyingCry", Resources.PowerRallyingCry, 256, 128))
             .SetUsesAbilityBonus(ActivationTime.BonusAction, RechargeRate.ShortRest, AttributeDefinitions.Charisma)
             .SetEffectDescription(effectDescription)
             .SetOverriddenPower(PowerFighterSecondWind)

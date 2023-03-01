@@ -35,6 +35,7 @@ internal class FeatureDefinitionAdditionalActionBuilder
         return this;
     }
 
+#if false
     internal FeatureDefinitionAdditionalActionBuilder SetForbiddenActions(
         params ActionDefinitions.Id[] forbiddenActions)
     {
@@ -42,6 +43,7 @@ internal class FeatureDefinitionAdditionalActionBuilder
         Definition.ForbiddenActions.Sort();
         return this;
     }
+#endif
 
     #region Constructors
 

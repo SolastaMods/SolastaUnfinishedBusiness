@@ -1,9 +1,9 @@
 ﻿Condition/&ConditionRoguishSlayerChainOfExecutionBeneficialDescription=Aumenta il danno del tuo prossimo attacco furtivo di 3d6 extra, fino alla fine del tuo prossimo turno. Questo danno aumenta a 4d6 al 13° livello e a 5d6 al 17° livello.
 Condition/&ConditionRoguishSlayerChainOfExecutionBeneficialTitle=Catena di esecuzione
-Condition/&ConditionRoguishSlayerChainOfExecutionDetrimentalDescription=Sei marchiato dallo Slayer e se muori diventeranno più letali.
+Condition/&ConditionRoguishSlayerChainOfExecutionDetrimentalDescription=Sei marchiato dallo Slayer.
 Condition/&ConditionRoguishSlayerChainOfExecutionDetrimentalTitle=Marchio dell'uccisore
-Feature/&AdditionalDamageRoguishSlayerChainOfExecutionTriggerDescription=A partire dal 9° livello, ogni volta che riduci una creatura a 0 punti ferita, o ogni volta che una creatura danneggiata dal tuo attacco furtivo muore prima dell'inizio del tuo prossimo turno, aumenta il danno del tuo prossimo attacco furtivo di 3d6 extra, fino alla fine del il tuo prossimo turno. Questo danno aumenta a 4d6 al 13° livello e a 5d6 al 17° livello.
-Feature/&AdditionalDamageRoguishSlayerChainOfExecutionTriggerTitle=Catena di esecuzione
+Feature/&FeatureRoguishSlayerChainOfExecutionDescription=A partire dal 9° livello, ogni volta che riduci una creatura a 0 punti ferita, o ogni volta che una creatura danneggiata dal tuo attacco furtivo muore prima dell'inizio del tuo prossimo turno, aumenta il danno del tuo prossimo attacco furtivo di 3d6 extra, fino alla fine del il tuo prossimo turno. Questo danno aumenta a 4d6 al 13° livello e a 5d6 al 17° livello.
+Feature/&FeatureRoguishSlayerChainOfExecutionTitle=Catena di esecuzione
 Feature/&FeatureRoguishSlayerEliminationDescription=A partire dal 3° livello, sei più letale quando abbatti i tuoi nemici. Hai vantaggio ai tiri per colpire contro qualsiasi creatura che non abbia ancora svolto un turno nel combattimento. Inoltre, qualsiasi colpo messo a segno contro una creatura sorpresa è un colpo critico.
 Feature/&FeatureRoguishSlayerEliminationTitle=Eliminazione
 Feature/&PowerRoguishSlayerCloakOfShadowsDescription=A partire dal 13° livello, puoi usare la tua azione bonus per diventare invisibile per 1 minuto. Puoi usare questo privilegio una volta per riposo breve.

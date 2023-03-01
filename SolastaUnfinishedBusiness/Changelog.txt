@@ -1,4 +1,7 @@
-- added setting to improve wildshape usage with mod custom features
-- changed Pugilist damage dice to always be of bludgeoning type
-- improved Circle of The Night's wildshape action
-- improved Roguish Slayer's elimination and chain of execution features
+- added Interface > Game UI > Monsters setting to enable an info button on UI panel
+- added Royal Knight's rallying cry sprite
+- changed Arcane Scoundrel's distracting ambush
+- changed Duelist's sure footed
+- changed code to support additional bonus attacks for wild-shaped heroes [mostly for monks]
+- fixed Slayer spamming sneak attacks without checking for context
+- fixed some wildshape forms wrongly showing the wildshape action button

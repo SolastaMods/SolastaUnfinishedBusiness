@@ -67,6 +67,14 @@ internal sealed class WayOfTheDragon : AbstractSubclass
                 .Build())
             .AddToDB();
 
+        /*
+        Level 17 - Ascension
+        As a free action, you may spend 4 Ki points to grow a pair of wings and gain the effects of Fly spell, without needing to concentrate for up to 1 minute. While this ability lasts, you gain +2 AC and access to Wing Sweep ability.
+
+        Level 17 - Wing Sweep
+        When you successfully land an unarmed strike, you may spend 2 Ki points as a reaction to impose a Strength saving throw upon all hostile creatures within 5 feet (DC = 8 + proficiency + Wisdom). Any creature that fails the save receives damage equal to your martial arts die + Strength or Dexterity modifier (whichever is higher) and gets knocked back 10 ft and knocked prone.
+        */
+
         Subclass = CharacterSubclassDefinitionBuilder
             .Create(Name)
             .SetGuiPresentation(Category.Subclass, SorcerousDraconicBloodline)
@@ -81,6 +89,7 @@ internal sealed class WayOfTheDragon : AbstractSubclass
     internal override FeatureDefinitionSubclassChoice SubclassChoice =>
         FeatureDefinitionSubclassChoices.SubclassChoiceMonkMonasticTraditions;
 
+    // ReSharper disable once UnassignedGetOnlyAutoProperty
     internal override DeityDefinition DeityDefinition { get; }
 
     private static FeatureDefinitionFeatureSet BuildDiscipleFeatureSet()

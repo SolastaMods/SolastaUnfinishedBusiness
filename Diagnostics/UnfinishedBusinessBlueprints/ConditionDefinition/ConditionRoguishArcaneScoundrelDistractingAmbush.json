@@ -4,7 +4,7 @@
   "parentCondition": null,
   "conditionType": "Detrimental",
   "features": [
-    "Definition:ActionAffinityRoguishArcaneScoundrelDistractingAmbush:8f0adabb-bc5f-5432-b89f-784de2f58d82",
+    "Definition:AbilityCheckAffinityRoguishArcaneScoundrelDistractingAmbush:860a2797-24b0-5ffe-b554-08a5a8b1a5d4",
     "Definition:SavingThrowAffinityRoguishArcaneScoundrelDistractingAmbush:1679b032-2a91-5682-948a-307ae8fb86ce"
   ],
   "allowMultipleInstances": false,
