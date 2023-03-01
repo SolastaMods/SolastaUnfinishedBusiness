@@ -294,6 +294,7 @@ public static class InnovationArmor
             {
                 return null;
             }
+
             var strikeDefinition = CustomWeaponsContext.ThunderGauntlet;
 
             var attackModifiers = hero.attackModifiers;
@@ -355,8 +356,8 @@ public static class InnovationArmor
 
         protected override AttackModeOrder GetOrder(RulesetCharacter character)
         {
-            return (character is RulesetCharacterHero hero && hero.HasEmptyMainHand()) 
-                ? AttackModeOrder.Start 
+            return character is RulesetCharacterHero hero && hero.HasEmptyMainHand()
+                ? AttackModeOrder.Start
                 : base.GetOrder(character);
         }
     }
@@ -374,6 +375,7 @@ public static class InnovationArmor
             {
                 return null;
             }
+
             var strikeDefinition = CustomWeaponsContext.LightningLauncher;
             var attackModifiers = hero.attackModifiers;
             var attackMode = hero.RefreshAttackMode(

@@ -39,7 +39,7 @@ public static class RulesetCharacterMonsterExtensions
 
         var dexterity = monster.TryGetAttributeValue(AttributeDefinitions.Dexterity);
         var strength = monster.TryGetAttributeValue(AttributeDefinitions.Strength);
-        
+
         if (weaponDescription.WeaponTags.Contains(TagsDefinitions.WeaponTagFinesse))
         {
             if (dexterity > strength)
@@ -151,7 +151,7 @@ public static class RulesetCharacterMonsterExtensions
 
         var abilityScoreModifier =
             AttributeDefinitions.ComputeAbilityScoreModifier(monster.Attributes[attackMode.AbilityScore].CurrentValue);
-        
+
         attackMode.ToHitBonus += abilityScoreModifier;
         attackMode.ToHitBonusTrends.Add(new TrendInfo(abilityScoreModifier,
             FeatureSourceType.AbilityScore, attackMode.AbilityScore, null));

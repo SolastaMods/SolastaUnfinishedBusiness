@@ -143,11 +143,11 @@ public static class RulesetCharacterMonsterPatcher
         {
             //PATCH: allow monk bonus unarmed attacks on wild-shaped characters
             MulticlassWildshapeContext.HandleExtraUnarmedAttacks(__instance);
-            
+
             //PATCH: Allows adding extra attack modes
             __instance.GetSubFeaturesByType<IAddExtraAttack>()
                 .ForEach(provider => provider.TryAddExtraAttack(__instance));
-            
+
             //PATCH: Allows changing damage and other stats of an attack mode
             var modifiers = __instance.GetSubFeaturesByType<IModifyAttackModeForWeapon>();
 
@@ -181,7 +181,7 @@ public static class RulesetCharacterMonsterPatcher
             ConditionsBeforeDeath.SetRange(__instance.AllConditions.ToList());
         }
     }
-    
+
     [HarmonyPatch(typeof(RulesetCharacterMonster), nameof(RulesetCharacterMonster.GetRemainingAttackUses))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
@@ -196,7 +196,7 @@ public static class RulesetCharacterMonsterPatcher
                 return;
             }
 
-            int attackModeRank = __instance.GetAttackModeRank(mode);
+            var attackModeRank = __instance.GetAttackModeRank(mode);
             if (attackModeRank == -1 && mode.ActionType == ActionDefinitions.ActionType.Bonus)
             {
                 __result = -1;

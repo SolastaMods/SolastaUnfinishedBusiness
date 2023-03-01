@@ -6,7 +6,6 @@ namespace SolastaUnfinishedBusiness.CustomUI;
 
 public class CustomCharacterStatsPanel
 {
-    private static CustomCharacterStatsPanel instance;
     private readonly AbilityScoresListingPanel abilities;
     private readonly AttackModesPanel attacks;
     private readonly Button button;
@@ -26,6 +25,7 @@ public class CustomCharacterStatsPanel
         root.localPosition = new Vector3(225, 125, 0);
         root.gameObject.SetActive(false);
 
+        // ReSharper disable once Unity.UnknownResource
         var prefab = Resources.Load<GameObject>("Gui/Prefabs/Component/SmallButtonRoundImage");
         button = Object.Instantiate(prefab).GetComponent<Button>();
         button.gameObject.SetActive(false);
@@ -69,8 +69,8 @@ public class CustomCharacterStatsPanel
         #endregion
     }
 
-    public static CustomCharacterStatsPanel Instance => instance ??= new CustomCharacterStatsPanel();
-    public static CustomCharacterStatsPanel MaybeInstance => instance;
+    public static CustomCharacterStatsPanel Instance => MaybeInstance ??= new CustomCharacterStatsPanel();
+    public static CustomCharacterStatsPanel MaybeInstance { get; private set; }
 
     private void UpdateVisibility()
     {

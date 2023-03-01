@@ -17,6 +17,7 @@ public sealed class Core
 public class Settings : UnityModManager.ModSettings
 {
     private bool enumerateOriginSubFeatures;
+
     private bool showButtonWithControlledMonsterInfo;
     //
     // UI Saved State
@@ -321,7 +322,7 @@ public class Settings : UnityModManager.ModSettings
     // Monsters
     public bool HideMonsterHitPoints { get; set; }
     public bool RemoveBugVisualModels { get; set; }
-    
+
     public bool ShowButtonWithControlledMonsterInfo
     {
         get => showButtonWithControlledMonsterInfo && EnableBetaContent;

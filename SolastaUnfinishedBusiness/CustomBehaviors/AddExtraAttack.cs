@@ -263,7 +263,7 @@ internal sealed class AddExtraRangedAttack : AddExtraAttackBase
         {
             return null;
         }
-        
+
         var result = new List<RulesetAttackMode>();
 
         AddItemAttack(result, EquipmentDefinitions.SlotTypeMainHand, hero);
@@ -320,6 +320,7 @@ internal sealed class AddPolearmFollowupAttack : AddExtraAttackBase
         {
             return null;
         }
+
         var result = new List<RulesetAttackMode>();
 
         AddItemAttack(result, EquipmentDefinitions.SlotTypeMainHand, hero);
@@ -390,6 +391,7 @@ internal sealed class AddBonusShieldAttack : AddExtraAttackBase
         {
             return null;
         }
+
         var inventorySlotsByName = hero.CharacterInventory.InventorySlotsByName;
         var offHandItem = inventorySlotsByName[EquipmentDefinitions.SlotTypeOffHand].EquipedItem;
 
@@ -466,6 +468,7 @@ internal sealed class AddBonusTorchAttack : AddExtraAttackBase
         {
             return null;
         }
+
         var result = new List<RulesetAttackMode>();
 
         AddItemAttack(result, EquipmentDefinitions.SlotTypeOffHand, hero);

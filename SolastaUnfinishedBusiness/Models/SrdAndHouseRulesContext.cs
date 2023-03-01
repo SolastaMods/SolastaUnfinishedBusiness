@@ -585,7 +585,7 @@ internal static class SrdAndHouseRulesContext
             }));
     }
 
-    private static void FixAttackBuffsAffectingSpellDamage() 
+    private static void FixAttackBuffsAffectingSpellDamage()
     {
         //BUGFIX: fix Branding Smite applying bonus damage to spells
         FeatureDefinitionAdditionalDamages.AdditionalDamageBrandingSmite

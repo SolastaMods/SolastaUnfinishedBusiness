@@ -32,7 +32,7 @@ internal static class MulticlassWildshapeContext
     };
 
 
-    //leaving this so existing characters won't crash
+    // BACKWARD COMPATIBILITY
     private static readonly ConditionDefinition ConditionWildshapeFlurryOfBlows = ConditionDefinitionBuilder
         .Create("ConditionWildshapeFlurryOfBlows")
         .SetGuiPresentationNoContent(true)
@@ -64,13 +64,9 @@ internal static class MulticlassWildshapeContext
 
         monster.attackModifiers = monster.GetSubFeaturesByType<IAttackModificationProvider>();
 
-        foreach (IAttackModificationProvider attackModifier in monster.attackModifiers)
+        foreach (var attackModifier in monster.attackModifiers
+                     .Where(attackModifier => attackModifier.AdditionalBonusUnarmedStrikeAttacksFromMain))
         {
-            if (!attackModifier.AdditionalBonusUnarmedStrikeAttacksFromMain)
-            {
-                continue;
-            }
-
             if (bonusUnarmedAttack != null)
             {
                 if (attackModifier.AdditionalBonusUnarmedStrikeAttacksCount <= bonusUnarmedAttack.AttacksNumber)
@@ -79,6 +75,7 @@ internal static class MulticlassWildshapeContext
                 }
 
                 bonusUnarmedAttack.AttacksNumber = attackModifier.AdditionalBonusUnarmedStrikeAttacksCount;
+
                 if (!string.IsNullOrEmpty(attackModifier.AdditionalBonusUnarmedStrikeAttacksTag))
                 {
                     bonusUnarmedAttack.AddAttackTagAsNeeded(attackModifier.AdditionalBonusUnarmedStrikeAttacksTag);
@@ -91,6 +88,7 @@ internal static class MulticlassWildshapeContext
                 bonusUnarmedAttack = monster.RefreshAttackMode(ActionType.Bonus, strikeDefinition,
                     strikeDefinition.WeaponDescription, true, monster.attackModifiers, monster.FeaturesOrigin);
                 bonusUnarmedAttack.AttacksNumber = attackModifier.AdditionalBonusUnarmedStrikeAttacksCount;
+
                 if (!string.IsNullOrEmpty(attackModifier.AdditionalBonusUnarmedStrikeAttacksTag))
                 {
                     bonusUnarmedAttack.AddAttackTagAsNeeded(attackModifier.AdditionalBonusUnarmedStrikeAttacksTag);
@@ -148,6 +146,7 @@ internal static class MulticlassWildshapeContext
             {
                 var heroAttr = hero.GetAttribute(attribute);
                 var monsterAttr = monster.GetAttribute(attribute);
+
                 monsterAttr.BaseValue = heroAttr.BaseValue;
                 //copy all race/class/subclass modifiers
                 monsterAttr.ActiveModifiers.AddRange(heroAttr.ActiveModifiers

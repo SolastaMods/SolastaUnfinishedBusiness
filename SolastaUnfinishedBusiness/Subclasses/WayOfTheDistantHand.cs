@@ -511,6 +511,7 @@ internal sealed class WayOfTheDistantHand : AbstractSubclass
             {
                 return null;
             }
+
             var mainHandItem = hero.CharacterInventory.InventorySlotsByName[EquipmentDefinitions.SlotTypeMainHand]
                 .EquipedItem;
 

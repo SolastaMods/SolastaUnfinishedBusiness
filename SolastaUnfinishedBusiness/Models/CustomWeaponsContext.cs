@@ -860,7 +860,9 @@ internal sealed class AddThrowProducedFlameAttack : AddExtraAttackBase
         {
             return null;
         }
+
         var result = new List<RulesetAttackMode>();
+
         AddItemAttack(result, EquipmentDefinitions.SlotTypeMainHand, hero);
         AddItemAttack(result, EquipmentDefinitions.SlotTypeOffHand, hero);
         return result;
@@ -870,6 +872,7 @@ internal sealed class AddThrowProducedFlameAttack : AddExtraAttackBase
         [NotNull] RulesetCharacterHero hero)
     {
         var item = hero.CharacterInventory.InventorySlotsByName[slot].EquipedItem;
+
         if (item == null || item.ItemDefinition != ItemDefinitions.ProducedFlame)
         {
             return;
