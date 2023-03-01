@@ -1,5 +1,14 @@
 ﻿CHANGES:
 
+1.4.33.54:
+
+- changed Arcane Scoundrel's distracting ambush to interrupt on ability checks or saving throws
+- changed Gorilla wildshape to have unlimited rocks ammo
+- changed Oath of Altruism's defensive strike to only trigger if paladin can see ally
+- fixed Duelist's daring duel to not trigger if enemy isn't next to you
+- fixed Inventor's quick wit to not prompt on enemies that were friendly recently
+- refactored Oath of Altruism's spiritual shielding
+
 1.4.33.53:
 
 - added Interface > Game UI > Monsters setting to enable an info button on UI panel

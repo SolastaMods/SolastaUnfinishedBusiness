@@ -997,6 +997,7 @@ internal static class GameLocationBattleManagerTweaks
                         .TargetIsDuelingWithYou:
                     {
                         validTrigger = advantageType != RuleDefinitions.AdvantageType.Disadvantage &&
+                                       instance.IsWithin1Cell(attacker, defender) &&
                                        Gui.Battle.AllContenders
                                            .Where(x => x != attacker && x != defender)
                                            .All(x => !instance.IsWithin1Cell(attacker, x));

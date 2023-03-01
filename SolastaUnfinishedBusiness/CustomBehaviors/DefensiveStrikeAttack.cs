@@ -75,6 +75,12 @@ internal static class DefensiveStrikeAttack
             yield break;
         }
 
+        //Can this unit see defender?
+        if (!unit.PerceivedAllies.Contains(defender))
+        {
+            yield break;
+        }
+        
         //Does unit has enough Channel Divinity uses left?
         var maxUses = unitCharacter.TryGetAttributeValue(AttributeDefinitions.ChannelDivinityNumber);
         if (unitCharacter.UsedChannelDivinity >= maxUses)
@@ -95,13 +101,7 @@ internal static class DefensiveStrikeAttack
 
         var actionService = ServiceRepository.GetService<IGameLocationActionService>();
         var count = actionService.PendingReactionRequestGroups.Count;
-        var temp = new CharacterActionParams(
-            unit,
-            (Id)ExtraActionId.DoNothingFree,
-            opportunityAttackMode,
-            defender,
-            new ActionModifier()
-        )
+        var temp = new CharacterActionParams(unit, (Id)ExtraActionId.DoNothingFree)
         {
             StringParameter = $"CustomReaction{OathOfAltruism.DefensiveStrike}Description"
                 .Formatted(Category.Reaction, defender.Name, attacker.Name, bonus)

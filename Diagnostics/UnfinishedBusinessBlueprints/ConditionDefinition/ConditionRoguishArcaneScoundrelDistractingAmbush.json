@@ -16,8 +16,11 @@
   "durationParameterDie": "D1",
   "durationParameter": 1,
   "forceTurnOccurence": false,
-  "turnOccurence": "EndOfTurn",
-  "specialInterruptions": [],
+  "turnOccurence": "EndOfSourceTurn",
+  "specialInterruptions": [
+    "AbilityCheck",
+    "SavingThrow"
+  ],
   "interruptionRequiresSavingThrow": false,
   "interruptionSavingThrowComputationMethod": "SaveOverride",
   "interruptionSavingThrowAbility": "",

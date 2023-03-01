@@ -1,6 +1,6 @@
 ﻿Condition/&ConditionRoguishArcaneScoundrelDistractingAmbushDescription=You suffer disadvantage on your saving throws or ability checks.
 Condition/&ConditionRoguishArcaneScoundrelDistractingAmbushTitle=Distracting Ambush
-Feature/&AdditionalDamageRoguishArcaneScoundrelDistractingAmbushDescription=Whenever you deal sneak attack damage to a creature, that creature suffers disadvantage on their saving throws or ability checks until the end of your next turn.
+Feature/&AdditionalDamageRoguishArcaneScoundrelDistractingAmbushDescription=Whenever you deal sneak attack damage to a creature, that creature suffers disadvantage on their next saving throw or ability check until the end of your next turn.
 Feature/&AdditionalDamageRoguishArcaneScoundrelDistractingAmbushTitle=Distracting Ambush
 Feature/&PowerRoguishArcaneScoundrelArcaneBackslashDescription=You deal your sneak attack as force damage to a creature whenever you counter a spell from it.
 Feature/&PowerRoguishArcaneScoundrelArcaneBackslashTitle=Arcane Backlash
