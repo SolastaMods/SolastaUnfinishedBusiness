@@ -53,7 +53,7 @@ internal sealed class RoguishDuelist : AbstractSubclass
 
         var actionAffinityGracefulTakeDown = FeatureDefinitionActionAffinityBuilder
             .Create($"ActionAffinity{Name}GracefulTakeDown")
-            .SetGuiPresentationNoContent(true)
+            .SetGuiPresentation(Category.Feature)
             .SetAllowedActionTypes()
             .SetAuthorizedActions(ActionDefinitions.Id.ShoveBonus)
             .AddToDB();

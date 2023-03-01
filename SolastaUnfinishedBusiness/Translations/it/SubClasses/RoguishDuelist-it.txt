@@ -1,7 +1,9 @@
 ﻿Feature/&AdditionalDamageRoguishDuelistDaringDuelDescription=Non hai bisogno di vantaggio al tiro per colpire per usare il tuo attacco furtivo contro una creatura se sei entro 1,5 metri da essa, nessun'altra creatura si trova entro 1,5 metri da te e non hai svantaggio al tiro per colpire. Tutte le altre regole dell'Attacco Furtivo si applicano ancora.
 Feature/&AdditionalDamageRoguishDuelistDaringDuelTitle=Duello audace
-Feature/&AdditionalDamageRoguishDuelistSureFootedDescription=Ottieni il tuo modificatore di competenza come danno extra con precisione o attacchi con armi a distanza.
-Feature/&AdditionalDamageRoguishDuelistSureFootedTitle=Sicuro di piede
+Feature/&AttributeModifierRoguishDuelistSureFootedDescription=Ottieni CA aggiuntiva pari alla metà del tuo bonus di competenza.
+Feature/&AttributeModifierRoguishDuelistSureFootedTitle=Sicuro di piede
+Feature/&ActionAffinityRoguishDuelistGracefulTakeDownDescription=A partire dal 13° livello, puoi usare la tua azione bonus per fare un tentativo di spinta.
+Feature/&ActionAffinityRoguishDuelistGracefulTakeDownTitle=Abbattimento aggraziato
 Feature/&ActionAffinityRoguishDuelistSwirlingDanceTitle=Danza vorticosa
 Feature/&ActionAffinityRoguishDuelistSwirlingDanceDescription=A partire dal 9° livello, quando una creatura ti manca con un tiro per colpire in mischia, puoi usare la tua reazione per effettuare un attacco di opportunità immediato contro quella creatura.
 Feature/&FeatureSetRoguishDuelistSureFootedDescription=Mentre sei disarmato o indossi armature leggere senza scudo, ottieni CA aggiuntiva per dimezzare il tuo bonus di competenza e vantaggio ai tiri di iniziativa.
