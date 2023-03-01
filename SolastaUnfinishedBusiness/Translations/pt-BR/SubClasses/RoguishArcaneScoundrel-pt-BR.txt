@@ -1,6 +1,6 @@
-﻿Condition/&ConditionRoguishArcaneScoundrelDistractingAmbushDescription=Você sofre -2 de penalidade nos testes de resistência e é incapaz de realizar reações.
+﻿Condition/&ConditionRoguishArcaneScoundrelDistractingAmbushDescription=Você sofre desvantagem em seus testes de resistência ou testes de habilidade.
 Condition/&ConditionRoguishArcaneScoundrelDistractingAmbushTitle=Emboscada Distrativa
-Feature/&AdditionalDamageRoguishArcaneScoundrelDistractingAmbushDescription=Sempre que você causar dano de ataque furtivo a uma criatura, essa criatura sofre -2 de penalidade nos testes de resistência e é incapaz de realizar reações até o final do seu próximo turno.
+Feature/&AdditionalDamageRoguishArcaneScoundrelDistractingAmbushDescription=Sempre que você causar dano de ataque furtivo a uma criatura, essa criatura sofre desvantagem em seus testes de resistência ou testes de habilidade até o final do seu próximo turno.
 Feature/&AdditionalDamageRoguishArcaneScoundrelDistractingAmbushTitle=Emboscada Distrativa
 Feature/&PowerRoguishArcaneScoundrelArcaneBackslashDescription=Você causa seu ataque furtivo como dano de força a uma criatura sempre que anula uma magia dela.
 Feature/&PowerRoguishArcaneScoundrelArcaneBackslashTitle=Reação Arcana
