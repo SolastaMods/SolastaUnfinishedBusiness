@@ -460,16 +460,6 @@ internal static class ClassFeats
             .SetGuiPresentationNoContent(true)
             .AddToDB();
 
-        var classes = new List<CharacterClassDefinition>
-        {
-            CharacterClassDefinitions.Bard,
-            CharacterClassDefinitions.Cleric,
-            CharacterClassDefinitions.Druid,
-            CharacterClassDefinitions.Sorcerer,
-            CharacterClassDefinitions.Wizard,
-            InventorClass.Class
-        };
-
         var spellLists = new List<SpellListDefinition>
         {
             SpellListDefinitions.SpellListBard,
@@ -495,7 +485,6 @@ internal static class ClassFeats
         for (var i = 0; i < spellLists.Count; i++)
         {
             var spellList = spellLists[i];
-            var klass = classes[i];
             var validator = validators[i];
             var className = spellList.Name.Replace("SpellList", String.Empty);
             var classTitle = GetDefinition<CharacterClassDefinition>(className).FormatTitle();
@@ -504,7 +493,7 @@ internal static class ClassFeats
                 .SetGuiPresentation(
                     Gui.Format("Feat/&FeatPotentSpellcasterTitle", classTitle),
                     Gui.Format("Feat/&FeatPotentSpellcasterDescription", classTitle))
-                .SetCustomSubFeatures(new ModifyMagicEffectFeatPotentSpellcaster(klass, spellList))
+                .SetCustomSubFeatures(new ModifyMagicEffectFeatPotentSpellcaster(spellList))
                 .SetValidators(validator)
                 .AddToDB();
 
@@ -521,15 +510,11 @@ internal static class ClassFeats
 
     private sealed class ModifyMagicEffectFeatPotentSpellcaster : IModifyMagicEffect
     {
-        private readonly CharacterClassDefinition _characterClassDefinition;
         private readonly SpellListDefinition _spellListDefinition;
 
-        public ModifyMagicEffectFeatPotentSpellcaster(
-            CharacterClassDefinition characterClassDefinition,
-            SpellListDefinition spellListDefinition)
+        public ModifyMagicEffectFeatPotentSpellcaster(SpellListDefinition spellListDefinition)
         {
             _spellListDefinition = spellListDefinition;
-            _characterClassDefinition = characterClassDefinition;
         }
 
         public EffectDescription ModifyEffect(
@@ -538,17 +523,8 @@ internal static class ClassFeats
             RulesetCharacter character)
         {
             if (definition is not SpellDefinition spellDefinition ||
-                !_spellListDefinition.SpellsByLevel.Any(x =>
-                    x.Level == 0 && x.Spells.Contains(spellDefinition)))
-            {
-                return effect;
-            }
-
-            var rulesetSpellRepertoire = character.SpellRepertoires.Find(x =>
-                x.SpellCastingFeature.SpellListDefinition == _spellListDefinition &&
-                x.SpellCastingClass == _characterClassDefinition);
-
-            if (rulesetSpellRepertoire == null || rulesetSpellRepertoire.KnownCantrips.All(x => x != spellDefinition))
+                !_spellListDefinition.SpellsByLevel
+                    .Any(x => x.Level == 0 && x.Spells.Contains(spellDefinition)))
             {
                 return effect;
             }
