@@ -2,9 +2,13 @@
 
 1.4.33.53:
 
-- added Interface > Game UI > Monsters setting to enable an info button on game UI
-- fixed Slayer spamming sneak attacks under any context
-- fixed some wildshape forms showing the wildshape action button
+- added Interface > Game UI > Monsters setting to enable an info button on UI panel
+- added Royal Knight's rallying cry sprite
+- changed Arcane Scoundrel's distracting ambush
+- changed Duelist's sure footed
+- changed code to support additional bonus attacks for wild-shaped heroes [mostly for monks]
+- fixed Slayer spamming sneak attacks without checking for context
+- fixed some wildshape forms wrongly showing the wildshape action button
 
 1.4.33.52:
 
