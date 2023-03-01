@@ -1,6 +1,6 @@
 ﻿Condition/&ConditionRoguishArcaneScoundrelDistractingAmbushDescription=Você sofre desvantagem em seus testes de resistência ou testes de habilidade.
 Condition/&ConditionRoguishArcaneScoundrelDistractingAmbushTitle=Emboscada Distrativa
-Feature/&AdditionalDamageRoguishArcaneScoundrelDistractingAmbushDescription=Sempre que você causar dano de ataque furtivo a uma criatura, essa criatura sofre desvantagem em seus testes de resistência ou testes de habilidade até o final do seu próximo turno.
+Feature/&AdditionalDamageRoguishArcaneScoundrelDistractingAmbushDescription=Sempre que você causar dano de ataque furtivo a uma criatura, essa criatura sofre desvantagem em seu próximo teste de resistência ou teste de habilidade até o final do seu próximo turno.
 Feature/&AdditionalDamageRoguishArcaneScoundrelDistractingAmbushTitle=Emboscada Distrativa
 Feature/&PowerRoguishArcaneScoundrelArcaneBackslashDescription=Você causa seu ataque furtivo como dano de força a uma criatura sempre que anula uma magia dela.
 Feature/&PowerRoguishArcaneScoundrelArcaneBackslashTitle=Reação Arcana

@@ -1,6 +1,6 @@
 ﻿Condition/&ConditionRoguishArcaneScoundrelDistractingAmbushDescription=Вы подвергаетесь помехе своим спасброскам или проверкам характеристик.
 Condition/&ConditionRoguishArcaneScoundrelDistractingAmbushTitle=Отвлекающая засада
-Feature/&AdditionalDamageRoguishArcaneScoundrelDistractingAmbushDescription=Всякий раз, когда вы наносите урон скрытой атакой существу, это существо получает помеху в своих спасбросках или проверках характеристик до конца вашего следующего хода.
+Feature/&AdditionalDamageRoguishArcaneScoundrelDistractingAmbushDescription=Всякий раз, когда вы наносите урон скрытой атакой существу, это существо получает помеху при следующем спасброске или проверке характеристики до конца вашего следующего хода.
 Feature/&AdditionalDamageRoguishArcaneScoundrelDistractingAmbushTitle=Отвлекающая засада
 Feature/&PowerRoguishArcaneScoundrelArcaneBackslashDescription=Вы наносите свою атаку исподтишка как силовой урон существу каждый раз, когда отменяете заклинание от него.
 Feature/&PowerRoguishArcaneScoundrelArcaneBackslashTitle=Чародейская ответная реакция
