@@ -52,7 +52,6 @@ ModUi/&CriticalOption0=<color=#D89555><b>0</b></color>：游戏默认，掷任�
 ModUi/&CriticalOption1=<color=#D89555><b>1</b></color>：将伤害骰子的最大结果加到攻击伤害中 <i><color=#F0DAA0>[XdY+(X*Y) +Z]</color></i>
 ModUi/&CriticalOption2=<color=#D89555><b>2</b></color>：继续重新掷出任何可能获得最高结果的伤害骰子，并将其添加到总伤害中
 ModUi/&CriticalOption3=<color=#D89555><b>3</b></color>：将攻击的总伤害加倍，而不是掷额外的骰子。 <i><color=#F0DAA0>[(XdY+Z)*2]</color></i>
-ModUi/&DeadEyeAndPowerAttackBaseBaseValue=<color=white>设置 Deadeye 和 Power Attack 基础修正值</color>\n<i><color=#F0DAA0>[公式是 -mod 命中 / mod + 你的 PB 伤害]</color></我>
 ModUi/&Deities=<color=#F0DAA0>神灵：</color>
 ModUi/&DisableAutoEquip=禁用自动装备物品栏中的物品
 ModUi/&DisableClassPrerequisitesOnModFeats=禁用此 mod 提供的类绑定专长的级别先决条件

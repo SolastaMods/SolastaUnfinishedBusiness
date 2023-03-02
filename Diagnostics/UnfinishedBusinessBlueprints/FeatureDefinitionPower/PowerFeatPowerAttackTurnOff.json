@@ -31,8 +31,8 @@
     "targetConditionName": "",
     "targetConditionAsset": null,
     "targetSide": "Ally",
-    "durationType": "Permanent",
-    "durationParameter": 0,
+    "durationType": "Round",
+    "durationParameter": 1,
     "endOfEffect": "EndOfTurn",
     "hasSavingThrow": false,
     "disableSavingThrowOnAllies": false,
@@ -77,40 +77,11 @@
         "saveOccurence": "EndOfTurn",
         "conditionForm": {
           "$type": "ConditionForm, Assembly-CSharp",
-          "conditionDefinitionName": "ConditionDeadeyeTrigger",
-          "conditionDefinition": "Definition:ConditionDeadeyeTrigger:149fba33-3747-5520-b0f3-046926a9aebf",
-          "operation": "Add",
+          "conditionDefinitionName": "ConditionFeatPowerAttack",
+          "conditionDefinition": "Definition:ConditionFeatPowerAttack:9138a303-cd3a-551f-95e6-94dba23f85b2",
+          "operation": "Remove",
           "conditionsList": [
-            "Definition:ConditionDeadeyeTrigger:149fba33-3747-5520-b0f3-046926a9aebf"
-          ],
-          "applyToSelf": false,
-          "forceOnSelf": false
-        },
-        "hasFilterId": false,
-        "filterId": 0
-      },
-      {
-        "$type": "EffectForm, Assembly-CSharp",
-        "formType": "Condition",
-        "addBonusMode": "None",
-        "applyLevel": "No",
-        "levelType": "ClassLevel",
-        "levelMultiplier": 1,
-        "diceByLevelTable": [],
-        "createdByCharacter": false,
-        "createdByCondition": false,
-        "hasSavingThrow": false,
-        "savingThrowAffinity": "None",
-        "dcModifier": 0,
-        "canSaveToCancel": false,
-        "saveOccurence": "EndOfTurn",
-        "conditionForm": {
-          "$type": "ConditionForm, Assembly-CSharp",
-          "conditionDefinitionName": "ConditionDeadeye",
-          "conditionDefinition": "Definition:ConditionDeadeye:d875955d-676c-5a6c-9551-e22349d25b31",
-          "operation": "Add",
-          "conditionsList": [
-            "Definition:ConditionDeadeye:d875955d-676c-5a6c-9551-e22349d25b31"
+            "Definition:ConditionFeatPowerAttack:9138a303-cd3a-551f-95e6-94dba23f85b2"
           ],
           "applyToSelf": false,
           "forceOnSelf": false
@@ -354,12 +325,12 @@
   "includeBaseDescription": false,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
-    "hidden": false,
-    "title": "Feat/&FeatDeadeyeTitle",
-    "description": "You have learned to trade accuracy to land deadlier shots. When attacking with ranged weapons, you can choose to take a -3 penalty to your to hit in order to do additional damage equal to 3 + your proficiency bonus. Attacking at long range doesn't impose disadvantage and your ranged weapon attacks ignore half cover and three-quarters cover.",
+    "hidden": true,
+    "title": "Feature/&NoContentTitle",
+    "description": "Feature/&NoContentTitle",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "9a520f02-972e-5046-add6-87d70ec26157",
+      "m_AssetGUID": "",
       "m_SubObjectName": null,
       "m_SubObjectType": null
     },
@@ -376,7 +347,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "a16ac37a-8ced-52d8-8c63-e3d100ee3979",
+  "guid": "d5d3ae3a-b172-5540-9e82-4b06f7c657d4",
   "contentPack": 9999,
-  "name": "PowerDeadeye"
+  "name": "PowerFeatPowerAttackTurnOff"
 }

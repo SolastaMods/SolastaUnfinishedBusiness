@@ -52,7 +52,6 @@ ModUi/&CriticalOption0=<color=#D89555><b>0</b></color>: predeterminado del juego
 ModUi/&CriticalOption1=<color=#D89555><b>1</b></color>: suma el resultado máximo de los dados de daño y súmalo al daño del ataque <i><color=#F0DAA0>[XdY+(X*Y) +Z]</color></i>
 ModUi/&CriticalOption2=<color=#D89555><b>2</b></color>: sigue tirando los dados de daño que obtengan el resultado más alto posible y súmalo al daño total
 ModUi/&CriticalOption3=<color=#D89555><b>3</b></color>: duplica el daño total de tu ataque en lugar de tirar dados adicionales. <i><color=#F0DAA0>[(XdY+Z)*2]</color></i>
-ModUi/&DeadEyeAndPowerAttackBaseBaseValue=<color=white>Establece el valor del modificador base Deadeye y Power Attack</color>\n<i><color=#F0DAA0>[la fórmula es -mod para golpear / mod + tu PB para dañar]</color></i>
 ModUi/&Deities=<color=#F0DAA0>Deidades:</color>
 ModUi/&DisableAutoEquip=Deshabilitar el equipamiento automático de artículos en el inventario
 ModUi/&DisableClassPrerequisitesOnModFeats=Deshabilitar los requisitos previos de nivel en las hazañas vinculadas a la clase proporcionadas por este mod

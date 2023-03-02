@@ -4,7 +4,7 @@
   "parentCondition": null,
   "conditionType": "Beneficial",
   "features": [
-    "Definition:TriggerFeatureDeadeye:fd32790a-bd67-5619-b497-deac030c1cd3"
+    "Definition:ModifyAttackModeForWeaponFeatCleavingAttack:6a2192e6-edd9-53c7-81d0-519e1585309e"
   ],
   "allowMultipleInstances": false,
   "silentWhenAdded": true,
@@ -127,14 +127,14 @@
   },
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
-    "hidden": true,
-    "title": "Feature/&NoContentTitle",
-    "description": "Feature/&NoContentTitle",
+    "hidden": false,
+    "title": "Feat/&FeatCleavingAttackTitle",
+    "description": "Feat/&FeatCleavingAttackDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "",
-      "m_SubObjectName": null,
-      "m_SubObjectType": null
+      "m_AssetGUID": "df79a8d92a082eb40a000919a6f5b27a",
+      "m_SubObjectName": "ConditionDivineFavor",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
@@ -149,7 +149,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "149fba33-3747-5520-b0f3-046926a9aebf",
+  "guid": "54761e94-7473-5954-8fcb-785683bde2f8",
   "contentPack": 9999,
-  "name": "ConditionDeadeyeTrigger"
+  "name": "ConditionFeatCleavingAttack"
 }

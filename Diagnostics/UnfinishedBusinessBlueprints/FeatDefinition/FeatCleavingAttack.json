@@ -12,14 +12,14 @@
   "familyTag": "",
   "knownFeatsPrerequisite": [],
   "features": [
-    "Definition:PowerFeatDeadeye:6b6652ad-65b7-566f-b7bd-9e39cec7c35a",
-    "Definition:PowerFeatDeadeyeTurnOff:010980db-5af3-5c2c-866f-f14171d83568"
+    "Definition:PowerFeatCleavingAttack:6eb76d0e-6592-5a16-8cd8-77c11ed8f649",
+    "Definition:PowerFeatCleavingAttackTurnOff:d8ee2c18-1e49-55ec-8e09-96020537c490"
   ],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
-    "title": "Feat/&FeatDeadeyeTitle",
-    "description": "Feat/&FeatDeadeyeDescription",
+    "title": "Feat/&FeatCleavingAttackTitle",
+    "description": "Feat/&FeatCleavingAttackDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -39,7 +39,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "0e725cf6-1b88-5534-ab03-1f6d1a71454a",
+  "guid": "1daf77b5-c8ca-570e-b5dc-72519a7c2196",
   "contentPack": 9999,
-  "name": "FeatDeadeye"
+  "name": "FeatCleavingAttack"
 }

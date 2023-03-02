@@ -77,40 +77,11 @@
         "saveOccurence": "EndOfTurn",
         "conditionForm": {
           "$type": "ConditionForm, Assembly-CSharp",
-          "conditionDefinitionName": "ConditionPowerAttackTrigger",
-          "conditionDefinition": "Definition:ConditionPowerAttackTrigger:6239f107-6462-5445-85bc-8fe5ffabbf5e",
+          "conditionDefinitionName": "ConditionFeatCleavingAttack",
+          "conditionDefinition": "Definition:ConditionFeatCleavingAttack:54761e94-7473-5954-8fcb-785683bde2f8",
           "operation": "Remove",
           "conditionsList": [
-            "Definition:ConditionPowerAttackTrigger:6239f107-6462-5445-85bc-8fe5ffabbf5e"
-          ],
-          "applyToSelf": false,
-          "forceOnSelf": false
-        },
-        "hasFilterId": false,
-        "filterId": 0
-      },
-      {
-        "$type": "EffectForm, Assembly-CSharp",
-        "formType": "Condition",
-        "addBonusMode": "None",
-        "applyLevel": "No",
-        "levelType": "ClassLevel",
-        "levelMultiplier": 1,
-        "diceByLevelTable": [],
-        "createdByCharacter": false,
-        "createdByCondition": false,
-        "hasSavingThrow": false,
-        "savingThrowAffinity": "None",
-        "dcModifier": 0,
-        "canSaveToCancel": false,
-        "saveOccurence": "EndOfTurn",
-        "conditionForm": {
-          "$type": "ConditionForm, Assembly-CSharp",
-          "conditionDefinitionName": "ConditionPowerAttack",
-          "conditionDefinition": "Definition:ConditionPowerAttack:943c2260-338c-5247-b588-58d9bf2598ac",
-          "operation": "Remove",
-          "conditionsList": [
-            "Definition:ConditionPowerAttack:943c2260-338c-5247-b588-58d9bf2598ac"
+            "Definition:ConditionFeatCleavingAttack:54761e94-7473-5954-8fcb-785683bde2f8"
           ],
           "applyToSelf": false,
           "forceOnSelf": false
@@ -376,7 +347,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "b7a7cf91-4a15-59ac-bf18-13136deebcc6",
+  "guid": "d8ee2c18-1e49-55ec-8e09-96020537c490",
   "contentPack": 9999,
-  "name": "PowerTurnOffPowerAttack"
+  "name": "PowerFeatCleavingAttackTurnOff"
 }

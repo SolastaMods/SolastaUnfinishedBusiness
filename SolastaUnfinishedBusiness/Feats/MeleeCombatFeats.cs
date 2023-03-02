@@ -25,7 +25,7 @@ internal static class MeleeCombatFeats
     internal static void CreateFeats([NotNull] List<FeatDefinition> feats)
     {
         var featBladeMastery = BuildBladeMastery();
-        // var featCleavingAttack = BuildCleavingAttack();
+        var featCleavingAttack = BuildCleavingAttack();
         var featCrusherStr = BuildCrusherStr();
         var featCrusherCon = BuildCrusherCon();
         var featDefensiveDuelist = BuildDefensiveDuelist();
@@ -41,7 +41,7 @@ internal static class MeleeCombatFeats
 
         feats.AddRange(
             featBladeMastery,
-            // featCleavingAttack,
+            featCleavingAttack,
             featCrusherStr,
             featCrusherCon,
             featDefensiveDuelist,
@@ -80,7 +80,7 @@ internal static class MeleeCombatFeats
             FeatDefinitions.DistractingGambit,
             FeatDefinitions.TripAttack,
             featBladeMastery,
-            // featCleavingAttack,
+            featCleavingAttack,
             featDefensiveDuelist,
             featFellHanded,
             featPowerAttack,
@@ -458,7 +458,7 @@ internal static class MeleeCombatFeats
 
     private static FeatDefinition BuildCleavingAttack()
     {
-        const string Name = "CleavingAttack";
+        const string Name = "FeatCleavingAttack";
 
         var concentrationProvider = new StopPowerConcentrationProvider(
             Name,
@@ -479,14 +479,14 @@ internal static class MeleeCombatFeats
 
         var conditionCleavingAttack = ConditionDefinitionBuilder
             .Create($"Condition{Name}")
-            .SetGuiPresentation($"Feat{Name}", Category.Feat, ConditionDefinitions.ConditionHeraldOfBattle)
+            .SetGuiPresentation(Name, Category.Feat, ConditionDefinitions.ConditionHeraldOfBattle)
             .SetSilent(Silent.WhenAddedOrRemoved)
             .SetFeatures(modifyAttackModeForWeapon)
             .AddToDB();
 
-        var cleavingAttack = FeatureDefinitionPowerBuilder
+        var powerCleavingAttack = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}")
-            .SetGuiPresentation($"Feat{Name}", Category.Feat,
+            .SetGuiPresentation(Name, Category.Feat,
                 Sprites.GetSprite("CleavingAttackIcon", Resources.PowerAttackIcon, 128, 64))
             .SetUsesFixed(ActivationTime.NoCost)
             .SetEffectDescription(EffectDescriptionBuilder
@@ -506,7 +506,7 @@ internal static class MeleeCombatFeats
                     ValidatorsCharacter.HasNoneOfConditions(conditionCleavingAttack.Name)))
             .AddToDB();
 
-        Global.PowersThatIgnoreInterruptions.Add(cleavingAttack);
+        Global.PowersThatIgnoreInterruptions.Add(powerCleavingAttack);
 
         var powerTurnOffCleavingAttack = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}TurnOff")
@@ -525,16 +525,16 @@ internal static class MeleeCombatFeats
             .AddToDB();
 
         Global.PowersThatIgnoreInterruptions.Add(powerTurnOffCleavingAttack);
-        concentrationProvider.StopPower = powerTurnOffCleavingAttack;
 
         var featCleavingAttack = FeatDefinitionBuilder
-            .Create($"Feat{Name}")
+            .Create(Name)
             .SetGuiPresentation(Category.Feat)
             .SetFeatures(
-                cleavingAttack,
+                powerCleavingAttack,
                 powerTurnOffCleavingAttack)
             .AddToDB();
 
+        concentrationProvider.StopPower = powerTurnOffCleavingAttack;
         modifyAttackModeForWeapon
             .SetCustomSubFeatures(
                 concentrationProvider,
@@ -1068,37 +1068,27 @@ internal static class MeleeCombatFeats
 
     private static FeatDefinition BuildPowerAttack()
     {
+        const string Name = "FeatPowerAttack";
+
         var concentrationProvider = new StopPowerConcentrationProvider("PowerAttack",
             "Tooltip/&PowerAttackConcentration",
             Sprites.GetSprite("PowerAttackConcentrationIcon", Resources.PowerAttackConcentrationIcon, 64, 64));
 
-        var conditionPowerAttackTrigger = ConditionDefinitionBuilder
-            .Create("ConditionPowerAttackTrigger")
+        var modifyAttackModeForWeapon = FeatureDefinitionBuilder
+            .Create($"ModifyAttackModeForWeapon{Name}")
             .SetGuiPresentationNoContent(true)
-            .SetSilent(Silent.WhenAddedOrRemoved)
-            .SetFeatures(FeatureDefinitionBuilder
-                .Create("TriggerFeaturePowerAttack")
-                .SetGuiPresentationNoContent(true)
-                .SetCustomSubFeatures(concentrationProvider)
-                .AddToDB())
             .AddToDB();
 
         var conditionPowerAttack = ConditionDefinitionBuilder
-            .Create("ConditionPowerAttack")
-            .SetGuiPresentation("FeatPowerAttack", Category.Feat, ConditionDefinitions.ConditionHeraldOfBattle)
+            .Create($"Condition{Name}")
+            .SetGuiPresentation(Name, Category.Feat, ConditionDefinitions.ConditionHeraldOfBattle)
             .SetSilent(Silent.WhenAddedOrRemoved)
-            .SetFeatures(
-                FeatureDefinitionBuilder
-                    .Create("ModifyAttackModeForWeaponFeatPowerAttack")
-                    .SetGuiPresentation("FeatPowerAttack", Category.Feat)
-                    .SetCustomSubFeatures(new ModifyAttackModeForWeaponFeatPowerAttack())
-                    .AddToDB())
+            .SetFeatures(modifyAttackModeForWeapon)
             .AddToDB();
 
         var powerAttack = FeatureDefinitionPowerBuilder
-            .Create("PowerAttack")
-            .SetGuiPresentation("Feat/&FeatPowerAttackTitle",
-                Gui.Format("Feat/&FeatPowerAttackDescription", Main.Settings.DeadEyeAndPowerAttackBaseValue.ToString()),
+            .Create($"Power{Name}")
+            .SetGuiPresentation(Name, Category.Feat,
                 Sprites.GetSprite("PowerAttackIcon", Resources.PowerAttackIcon, 128, 64))
             .SetUsesFixed(ActivationTime.NoCost)
             .SetEffectDescription(EffectDescriptionBuilder
@@ -1106,10 +1096,6 @@ internal static class MeleeCombatFeats
                 .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
                 .SetDurationData(DurationType.Permanent)
                 .SetEffectForms(
-                    EffectFormBuilder
-                        .Create()
-                        .SetConditionForm(conditionPowerAttackTrigger, ConditionForm.ConditionOperation.Add)
-                        .Build(),
                     EffectFormBuilder
                         .Create()
                         .SetConditionForm(conditionPowerAttack, ConditionForm.ConditionOperation.Add)
@@ -1122,7 +1108,7 @@ internal static class MeleeCombatFeats
         Global.PowersThatIgnoreInterruptions.Add(powerAttack);
 
         var powerTurnOffPowerAttack = FeatureDefinitionPowerBuilder
-            .Create("PowerTurnOffPowerAttack")
+            .Create($"Power{Name}TurnOff")
             .SetGuiPresentationNoContent(true)
             .SetUsesFixed(ActivationTime.NoCost)
             .SetEffectDescription(EffectDescriptionBuilder
@@ -1132,31 +1118,40 @@ internal static class MeleeCombatFeats
                 .SetEffectForms(
                     EffectFormBuilder
                         .Create()
-                        .SetConditionForm(conditionPowerAttackTrigger, ConditionForm.ConditionOperation.Remove)
-                        .Build(),
-                    EffectFormBuilder
-                        .Create()
                         .SetConditionForm(conditionPowerAttack, ConditionForm.ConditionOperation.Remove)
                         .Build())
                 .Build())
             .AddToDB();
 
         Global.PowersThatIgnoreInterruptions.Add(powerTurnOffPowerAttack);
-        concentrationProvider.StopPower = powerTurnOffPowerAttack;
 
-        return FeatDefinitionBuilder
-            .Create("FeatPowerAttack")
-            .SetGuiPresentation("Feat/&FeatPowerAttackTitle",
-                Gui.Format("Feat/&FeatPowerAttackDescription", Main.Settings.DeadEyeAndPowerAttackBaseValue.ToString()))
+        var featPowerAttack = FeatDefinitionBuilder
+            .Create(Name)
+            .SetGuiPresentation(Category.Feat)
             .SetFeatures(
                 powerAttack,
                 powerTurnOffPowerAttack
             )
             .AddToDB();
+
+        concentrationProvider.StopPower = powerTurnOffPowerAttack;
+        modifyAttackModeForWeapon
+            .SetCustomSubFeatures(
+                concentrationProvider,
+                new ModifyAttackModeForWeaponFeatPowerAttack(featPowerAttack));
+
+        return featPowerAttack;
     }
 
     private sealed class ModifyAttackModeForWeaponFeatPowerAttack : IModifyAttackModeForWeapon
     {
+        private readonly FeatDefinition _featDefinition;
+
+        public ModifyAttackModeForWeaponFeatPowerAttack(FeatDefinition featDefinition)
+        {
+            _featDefinition = featDefinition;
+        }
+
         public void ModifyAttackMode(RulesetCharacter character, RulesetAttackMode attackMode)
         {
             if (!ValidatorsWeapon.IsMelee(attackMode) && !ValidatorsWeapon.IsUnarmedWeapon(character, attackMode))
@@ -1164,7 +1159,24 @@ internal static class MeleeCombatFeats
                 return;
             }
 
-            SrdAndHouseRulesContext.ModifyAttackModeAndDamage(character, "Feat/&FeatPowerAttackTitle", attackMode);
+            var damage = attackMode?.EffectDescription?.FindFirstDamageForm();
+
+            if (damage == null)
+            {
+                return;
+            }
+
+            const int TO_HIT = -3;
+            var proficiency = character.GetAttribute(AttributeDefinitions.ProficiencyBonus).CurrentValue;
+            var toDamage = 3 + proficiency;
+
+            attackMode.ToHitBonus += TO_HIT;
+            attackMode.ToHitBonusTrends.Add(new TrendInfo(TO_HIT, FeatureSourceType.Feat, _featDefinition.Name,
+                _featDefinition));
+
+            damage.BonusDamage += toDamage;
+            damage.DamageBonusTrends.Add(new TrendInfo(toDamage, FeatureSourceType.Feat, _featDefinition.Name,
+                _featDefinition));
         }
     }
 

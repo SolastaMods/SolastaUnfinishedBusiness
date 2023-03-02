@@ -3,19 +3,17 @@
   "inDungeonEditor": false,
   "parentCondition": null,
   "conditionType": "Beneficial",
-  "features": [
-    "Definition:TriggerFeaturePowerAttack:a77152a0-5587-512f-bbd0-7ee8d4c20ed8"
-  ],
+  "features": [],
   "allowMultipleInstances": false,
   "silentWhenAdded": true,
   "silentWhenRemoved": true,
   "terminateWhenRemoved": false,
-  "specialDuration": false,
-  "durationType": "Hour",
-  "durationParameterDie": "D4",
+  "specialDuration": true,
+  "durationType": "Round",
+  "durationParameterDie": "D1",
   "durationParameter": 1,
   "forceTurnOccurence": false,
-  "turnOccurence": "EndOfTurn",
+  "turnOccurence": "StartOfTurn",
   "specialInterruptions": [],
   "interruptionRequiresSavingThrow": false,
   "interruptionSavingThrowComputationMethod": "SaveOverride",
@@ -149,7 +147,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "6239f107-6462-5445-85bc-8fe5ffabbf5e",
+  "guid": "be63ca7b-720e-5701-a26b-3e7a44cc8e81",
   "contentPack": 9999,
-  "name": "ConditionPowerAttackTrigger"
+  "name": "ConditionFeatCleavingAttackFinish"
 }

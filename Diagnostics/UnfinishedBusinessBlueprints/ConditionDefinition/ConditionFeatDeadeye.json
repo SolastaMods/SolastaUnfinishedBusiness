@@ -4,6 +4,7 @@
   "parentCondition": null,
   "conditionType": "Beneficial",
   "features": [
+    "Definition:CombatAffinityFeatDeadeye:c0a8218e-2e56-5fef-a0ce-c904017593ca",
     "Definition:ModifyAttackModeForWeaponFeatDeadeye:42805bb4-2752-500f-8da5-6ba0ea295296"
   ],
   "allowMultipleInstances": false,
@@ -132,9 +133,9 @@
     "description": "Feat/&FeatDeadeyeDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "",
-      "m_SubObjectName": null,
-      "m_SubObjectType": null
+      "m_AssetGUID": "df79a8d92a082eb40a000919a6f5b27a",
+      "m_SubObjectName": "ConditionDivineFavor",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
@@ -149,7 +150,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "d875955d-676c-5a6c-9551-e22349d25b31",
+  "guid": "e52567dc-e3ed-5410-b116-8f57973a2422",
   "contentPack": 9999,
-  "name": "ConditionDeadeye"
+  "name": "ConditionFeatDeadeye"
 }
