@@ -80,14 +80,7 @@ internal static class RangedCombatFeats
             .SetGuiPresentation(Name, Category.Feat,
                 DatabaseHelper.ConditionDefinitions.ConditionHeraldOfBattle)
             .SetSilent(Silent.WhenAddedOrRemoved)
-            .SetFeatures(
-                modifyAttackModeForWeapon,
-                FeatureDefinitionCombatAffinityBuilder
-                    .Create($"CombatAffinity{Name}")
-                    .SetGuiPresentation(Name, Category.Feat)
-                    .SetIgnoreCover()
-                    .SetCustomSubFeatures(new BumpWeaponAttackRangeToMax(ValidatorsWeapon.AlwaysValid))
-                    .AddToDB())
+            .SetFeatures(modifyAttackModeForWeapon)
             .AddToDB();
 
         var powerDeadeye = FeatureDefinitionPowerBuilder
@@ -136,7 +129,13 @@ internal static class RangedCombatFeats
             .SetGuiPresentation(Category.Feat)
             .SetFeatures(
                 powerDeadeye,
-                powerTurnOffDeadeye)
+                powerTurnOffDeadeye,
+                FeatureDefinitionCombatAffinityBuilder
+                    .Create($"CombatAffinity{Name}")
+                    .SetGuiPresentation(Name, Category.Feat)
+                    .SetIgnoreCover()
+                    .SetCustomSubFeatures(new BumpWeaponAttackRangeToMax(ValidatorsWeapon.AlwaysValid))
+                    .AddToDB())
             .AddToDB();
 
         concentrationProvider.StopPower = powerTurnOffDeadeye;
@@ -181,7 +180,7 @@ internal static class RangedCombatFeats
 
         public void ModifyAttackMode(RulesetCharacter character, [CanBeNull] RulesetAttackMode attackMode)
         {
-            if (!ValidatorsWeapon.IsRanged(attackMode))
+            if (!attackMode.Ranged)
             {
                 return;
             }
