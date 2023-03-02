@@ -499,9 +499,6 @@ internal static class MeleeCombatFeats
                     .Build())
                 .Build())
             .SetCustomSubFeatures(
-                new AddExtraMainHandAttack(
-                    ActionDefinitions.ActionType.Bonus,
-                    ValidatorsCharacter.HasAnyOfConditions(conditionCleavingAttackFinish.Name)),
                 new ValidatorsPowerUse(
                     ValidatorsCharacter.HasNoneOfConditions(conditionCleavingAttack.Name)))
             .AddToDB();
@@ -532,6 +529,10 @@ internal static class MeleeCombatFeats
             .SetFeatures(
                 powerCleavingAttack,
                 powerTurnOffCleavingAttack)
+            .SetCustomSubFeatures(
+                new AddExtraMainHandAttack(
+                    ActionDefinitions.ActionType.Bonus,
+                    ValidatorsCharacter.HasAnyOfConditions(conditionCleavingAttackFinish.Name)))
             .AddToDB();
 
         concentrationProvider.StopPower = powerTurnOffCleavingAttack;
@@ -575,12 +576,12 @@ internal static class MeleeCombatFeats
                 return;
             }
 
-            TryToApplyCondition(attacker.RulesetCharacter, attackMode);
+            TryToApplyCondition(attacker.RulesetCharacter);
         }
 
         public void ModifyAttackMode(RulesetCharacter character, RulesetAttackMode attackMode)
         {
-            if (!Validate(attackMode))
+            if (attackMode.Ranged || !Validate(attackMode))
             {
                 return;
             }
@@ -621,17 +622,18 @@ internal static class MeleeCombatFeats
                 yield break;
             }
 
-            TryToApplyCondition(attacker.RulesetCharacter, attackMode);
+            TryToApplyCondition(attacker.RulesetCharacter);
         }
 
         private static bool Validate(RulesetAttackMode attackMode)
         {
             var itemDefinition = attackMode.SourceDefinition as ItemDefinition;
 
-            return ValidatorsWeapon.IsMelee(itemDefinition) && ValidatorsWeapon.HasAnyWeaponTag(itemDefinition);
+            return ValidatorsWeapon.IsMelee(itemDefinition) &&
+                   ValidatorsWeapon.HasAnyWeaponTag(itemDefinition, TagsDefinitions.WeaponTagHeavy);
         }
 
-        private void TryToApplyCondition(RulesetCharacter rulesetCharacter, RulesetAttackMode attackMode)
+        private void TryToApplyCondition(RulesetCharacter rulesetCharacter)
         {
             var rulesetCondition = RulesetCondition.CreateActiveCondition(
                 rulesetCharacter.Guid,
