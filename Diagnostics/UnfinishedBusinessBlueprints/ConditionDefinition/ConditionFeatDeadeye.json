@@ -4,7 +4,6 @@
   "parentCondition": null,
   "conditionType": "Beneficial",
   "features": [
-    "Definition:CombatAffinityFeatDeadeye:c0a8218e-2e56-5fef-a0ce-c904017593ca",
     "Definition:ModifyAttackModeForWeaponFeatDeadeye:42805bb4-2752-500f-8da5-6ba0ea295296"
   ],
   "allowMultipleInstances": false,
