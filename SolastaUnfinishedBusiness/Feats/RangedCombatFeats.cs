@@ -180,7 +180,8 @@ internal static class RangedCombatFeats
 
         public void ModifyAttackMode(RulesetCharacter character, [CanBeNull] RulesetAttackMode attackMode)
         {
-            if (!attackMode.Ranged)
+            if (!ValidatorsWeapon.IsOfWeaponType(LongbowType, ShortbowType, HeavyCrossbowType, LightCrossbowType,
+                    CustomWeaponsContext.HandXbowWeaponType)(attackMode, null, null))
             {
                 return;
             }
