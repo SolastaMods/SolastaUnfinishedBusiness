@@ -1232,7 +1232,7 @@ internal static class GameLocationBattleManagerTweaks
             }
 
             var validProperty = rulesetImplementation.IsValidContextForRestrictedContextProvider(
-                provider, attacker.RulesetCharacter, attackMode.SourceDefinition as ItemDefinition, rangedAttack,
+                provider, attacker.RulesetCharacter, attackMode?.SourceDefinition as ItemDefinition, rangedAttack,
                 attackMode, rulesetEffect);
 
             if (!validUses || !validProperty || !feature.IsValid(

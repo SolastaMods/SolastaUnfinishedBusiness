@@ -77,40 +77,11 @@
         "saveOccurence": "EndOfTurn",
         "conditionForm": {
           "$type": "ConditionForm, Assembly-CSharp",
-          "conditionDefinitionName": "ConditionDeadeyeTrigger",
-          "conditionDefinition": "Definition:ConditionDeadeyeTrigger:149fba33-3747-5520-b0f3-046926a9aebf",
+          "conditionDefinitionName": "ConditionFeatCleavingAttack",
+          "conditionDefinition": "Definition:ConditionFeatCleavingAttack:54761e94-7473-5954-8fcb-785683bde2f8",
           "operation": "Remove",
           "conditionsList": [
-            "Definition:ConditionDeadeyeTrigger:149fba33-3747-5520-b0f3-046926a9aebf"
-          ],
-          "applyToSelf": false,
-          "forceOnSelf": false
-        },
-        "hasFilterId": false,
-        "filterId": 0
-      },
-      {
-        "$type": "EffectForm, Assembly-CSharp",
-        "formType": "Condition",
-        "addBonusMode": "None",
-        "applyLevel": "No",
-        "levelType": "ClassLevel",
-        "levelMultiplier": 1,
-        "diceByLevelTable": [],
-        "createdByCharacter": false,
-        "createdByCondition": false,
-        "hasSavingThrow": false,
-        "savingThrowAffinity": "None",
-        "dcModifier": 0,
-        "canSaveToCancel": false,
-        "saveOccurence": "EndOfTurn",
-        "conditionForm": {
-          "$type": "ConditionForm, Assembly-CSharp",
-          "conditionDefinitionName": "ConditionDeadeye",
-          "conditionDefinition": "Definition:ConditionDeadeye:d875955d-676c-5a6c-9551-e22349d25b31",
-          "operation": "Remove",
-          "conditionsList": [
-            "Definition:ConditionDeadeye:d875955d-676c-5a6c-9551-e22349d25b31"
+            "Definition:ConditionFeatCleavingAttack:54761e94-7473-5954-8fcb-785683bde2f8"
           ],
           "applyToSelf": false,
           "forceOnSelf": false
@@ -376,7 +347,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "875cd397-c247-560b-959b-7e6d752d48aa",
+  "guid": "d8ee2c18-1e49-55ec-8e09-96020537c490",
   "contentPack": 9999,
-  "name": "PowerTurnOffDeadeye"
+  "name": "PowerFeatCleavingAttackTurnOff"
 }

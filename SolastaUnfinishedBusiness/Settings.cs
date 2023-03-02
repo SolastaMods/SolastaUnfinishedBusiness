@@ -181,8 +181,6 @@ public class Settings : UnityModManager.ModSettings
     public bool UseHeightOneCylinderEffect { get; set; }
 
     // House
-    public int DeadEyeAndPowerAttackBaseValue { get; set; } = 3;
-
     public bool AllowStackedMaterialComponent { get; set; }
     public bool AllowAnyClassToWearSylvanArmor { get; set; }
     public bool AllowDruidToWearMetalArmor { get; set; }
