@@ -1,5 +1,14 @@
 ﻿CHANGES:
 
+1.4.33.55:
+
+- RESPEC any hero who took Deadeye or Power Attack feats before this update
+- added Cleaving Attack feat to behave like Great Weapon Master
+- changed Deadeye feat to behave like Sharpshooter
+- changed Power Attack feat back to original design at -3/+3+PB for any unarmed or melee
+- fixed additional damage validators causing a null exception with spell casters
+- fixed Blade Mastery granting more advantage than it should
+
 1.4.33.54:
 
 - changed Arcane Scoundrel's distracting ambush to interrupt on ability checks or saving throws
