@@ -151,7 +151,7 @@ internal static class ValidatorsWeapon
         return HasAnyWeaponTag(item?.ItemDefinition, tags);
     }
 
-    private static bool HasAnyWeaponTag(ItemDefinition item, [NotNull] params string[] tags)
+    internal static bool HasAnyWeaponTag(ItemDefinition item, [NotNull] params string[] tags)
     {
         var weaponTags = GetWeaponTags(item);
 
