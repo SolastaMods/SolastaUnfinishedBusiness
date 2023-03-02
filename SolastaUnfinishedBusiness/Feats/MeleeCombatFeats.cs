@@ -533,9 +533,11 @@ internal static class MeleeCombatFeats
                 FeatureDefinitionBuilder
                     .Create($"Feature{Name}")
                     .SetGuiPresentationNoContent(true)
-                    .SetCustomSubFeatures(new AddExtraMainHandAttack(
-                        ActionDefinitions.ActionType.Bonus,
-                        ValidatorsCharacter.HasAnyOfConditions(conditionCleavingAttackFinish.Name)))
+                    .SetCustomSubFeatures(
+                        new AddExtraAttackFeatCleavingAttack(conditionCleavingAttackFinish),
+                        new AddExtraMainHandAttack(
+                            ActionDefinitions.ActionType.Bonus,
+                            ValidatorsCharacter.HasAnyOfConditions(conditionCleavingAttackFinish.Name)))
                     .AddToDB())
             .AddToDB();
 
@@ -543,22 +545,24 @@ internal static class MeleeCombatFeats
         modifyAttackModeForWeapon
             .SetCustomSubFeatures(
                 concentrationProvider,
-                new ModifyAttackModeForWeaponFeatCleavingAttack(featCleavingAttack, conditionCleavingAttackFinish));
+                new ModifyAttackModeForWeaponFeatCleavingAttack(featCleavingAttack));
 
         return featCleavingAttack;
     }
 
-    private sealed class ModifyAttackModeForWeaponFeatCleavingAttack :
-        IModifyAttackModeForWeapon, IAfterAttackEffect, ITargetReducedToZeroHp
+    private sealed class AddExtraAttackFeatCleavingAttack : IAfterAttackEffect, ITargetReducedToZeroHp
     {
         private readonly ConditionDefinition _conditionDefinition;
-        private readonly FeatDefinition _featDefinition;
 
-        public ModifyAttackModeForWeaponFeatCleavingAttack(
-            FeatDefinition featDefinition,
-            ConditionDefinition conditionDefinition)
+        private static bool Validate(RulesetAttackMode attackMode)
         {
-            _featDefinition = featDefinition;
+            var itemDefinition = attackMode.SourceDefinition as ItemDefinition;
+
+            return !attackMode.Ranged && ValidatorsWeapon.IsMelee(itemDefinition);
+        }
+
+        public AddExtraAttackFeatCleavingAttack(ConditionDefinition conditionDefinition)
+        {
             _conditionDefinition = conditionDefinition;
         }
 
@@ -583,9 +587,56 @@ internal static class MeleeCombatFeats
             TryToApplyCondition(attacker.RulesetCharacter);
         }
 
+        public IEnumerator HandleCharacterReducedToZeroHp(
+            GameLocationCharacter attacker,
+            GameLocationCharacter downedCreature,
+            RulesetAttackMode attackMode,
+            RulesetEffect activeEffect)
+        {
+            if (!Validate(attackMode))
+            {
+                yield break;
+            }
+
+            // activeEffect != null means a magical attack
+            if (activeEffect != null)
+            {
+                yield break;
+            }
+
+            TryToApplyCondition(attacker.RulesetCharacter);
+        }
+
+        private void TryToApplyCondition(RulesetCharacter rulesetCharacter)
+        {
+            var rulesetCondition = RulesetCondition.CreateActiveCondition(
+                rulesetCharacter.Guid,
+                _conditionDefinition,
+                DurationType.Round,
+                1,
+                TurnOccurenceType.StartOfTurn,
+                rulesetCharacter.Guid,
+                rulesetCharacter.CurrentFaction.Name);
+
+            rulesetCharacter.AddConditionOfCategory(AttributeDefinitions.TagCombat, rulesetCondition);
+        }
+    }
+
+    private sealed class ModifyAttackModeForWeaponFeatCleavingAttack : IModifyAttackModeForWeapon
+    {
+        private readonly FeatDefinition _featDefinition;
+
+        public ModifyAttackModeForWeaponFeatCleavingAttack(FeatDefinition featDefinition)
+        {
+            _featDefinition = featDefinition;
+        }
+
         public void ModifyAttackMode(RulesetCharacter character, RulesetAttackMode attackMode)
         {
-            if (attackMode.Ranged || !Validate(attackMode))
+            var itemDefinition = attackMode.SourceDefinition as ItemDefinition;
+
+            if (attackMode.Ranged || !ValidatorsWeapon.IsMelee(itemDefinition) ||
+                !ValidatorsWeapon.HasAnyWeaponTag(itemDefinition, TagsDefinitions.WeaponTagHeavy))
             {
                 return;
             }
@@ -607,48 +658,6 @@ internal static class MeleeCombatFeats
             damage.BonusDamage += TO_DAMAGE;
             damage.DamageBonusTrends.Add(new TrendInfo(TO_DAMAGE, FeatureSourceType.Feat,
                 _featDefinition.Name, _featDefinition));
-        }
-
-        public IEnumerator HandleCharacterReducedToZeroHp(
-            GameLocationCharacter attacker,
-            GameLocationCharacter downedCreature,
-            RulesetAttackMode attackMode,
-            RulesetEffect activeEffect)
-        {
-            if (!Validate(attackMode))
-            {
-                yield break;
-            }
-
-            // activeEffect != null means a magical attack
-            if (activeEffect != null)
-            {
-                yield break;
-            }
-
-            TryToApplyCondition(attacker.RulesetCharacter);
-        }
-
-        private static bool Validate(RulesetAttackMode attackMode)
-        {
-            var itemDefinition = attackMode.SourceDefinition as ItemDefinition;
-
-            return ValidatorsWeapon.IsMelee(itemDefinition) &&
-                   ValidatorsWeapon.HasAnyWeaponTag(itemDefinition, TagsDefinitions.WeaponTagHeavy);
-        }
-
-        private void TryToApplyCondition(RulesetCharacter rulesetCharacter)
-        {
-            var rulesetCondition = RulesetCondition.CreateActiveCondition(
-                rulesetCharacter.Guid,
-                _conditionDefinition,
-                DurationType.Round,
-                1,
-                TurnOccurenceType.StartOfTurn,
-                rulesetCharacter.Guid,
-                rulesetCharacter.CurrentFaction.Name);
-
-            rulesetCharacter.AddConditionOfCategory(AttributeDefinitions.TagCombat, rulesetCondition);
         }
     }
 
