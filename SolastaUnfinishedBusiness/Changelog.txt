@@ -9,3 +9,4 @@ CHANGES:
 - changed Power Attack feat back to original design at -3/+3+PB for any unarmed or melee attack
 - fixed additional damage validators causing a null exception with spell casters
 - fixed Blade Mastery granting more advantage than it should
+- fixed War Caster to only allow cantrips that target individuals
