@@ -12,14 +12,14 @@
   "familyTag": "",
   "knownFeatsPrerequisite": [],
   "features": [
-    "Definition:PowerAttack:2108ef64-ddf2-52bc-962f-402bb91dae75",
-    "Definition:PowerTurnOffPowerAttack:b7a7cf91-4a15-59ac-bf18-13136deebcc6"
+    "Definition:PowerFeatPowerAttack:e1511a66-bde7-544f-8baf-278e5c08e731",
+    "Definition:PowerFeatPowerAttackTurnOff:d5d3ae3a-b172-5540-9e82-4b06f7c657d4"
   ],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
     "title": "Feat/&FeatPowerAttackTitle",
-    "description": "You have learned to trade accuracy to land deadlier blows. When attacking with melee weapons, you can choose to take a -3 penalty to your to hit in order to do additional damage equal to 3 + your proficiency bonus.",
+    "description": "Feat/&FeatPowerAttackDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",

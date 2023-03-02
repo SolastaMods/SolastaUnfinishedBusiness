@@ -1,5 +1,7 @@
 ﻿using System.Collections.Generic;
 using JetBrains.Annotations;
+using SolastaUnfinishedBusiness.Api;
+using SolastaUnfinishedBusiness.Api.Extensions;
 using SolastaUnfinishedBusiness.Api.Infrastructure;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
@@ -61,41 +63,29 @@ internal static class RangedCombatFeats
 
     private static FeatDefinition BuildDeadEye()
     {
-        const string NAME = "FeatDeadeye";
-
-        var conditionDeadeye = ConditionDefinitionBuilder
-            .Create("ConditionDeadeye")
-            .SetGuiPresentation(NAME, Category.Feat)
-            .SetSilent(Silent.WhenAddedOrRemoved)
-            .SetFeatures(
-                FeatureDefinitionBuilder
-                    .Create("ModifyAttackModeForWeaponFeatDeadeye")
-                    .SetGuiPresentation(NAME, Category.Feat)
-                    .SetCustomSubFeatures(new ModifyAttackModeForWeaponFeatDeadeye())
-                    .AddToDB())
-            .AddToDB();
+        const string Name = "FeatDeadeye";
 
         var concentrationProvider = new StopPowerConcentrationProvider(
             "Deadeye",
             "Tooltip/&DeadeyeConcentration",
             Sprites.GetSprite("DeadeyeConcentrationIcon", Resources.DeadeyeConcentrationIcon, 64, 64));
 
-        var conditionDeadeyeTrigger = ConditionDefinitionBuilder
-            .Create("ConditionDeadeyeTrigger")
+        var modifyAttackModeForWeapon = FeatureDefinitionBuilder
+            .Create($"ModifyAttackModeForWeapon{Name}")
             .SetGuiPresentationNoContent(true)
+            .AddToDB();
+
+        var conditionDeadeye = ConditionDefinitionBuilder
+            .Create($"Condition{Name}")
+            .SetGuiPresentation(Name, Category.Feat,
+                DatabaseHelper.ConditionDefinitions.ConditionHeraldOfBattle)
             .SetSilent(Silent.WhenAddedOrRemoved)
-            .SetFeatures(
-                FeatureDefinitionBuilder
-                    .Create("TriggerFeatureDeadeye")
-                    .SetGuiPresentationNoContent(true)
-                    .SetCustomSubFeatures(concentrationProvider)
-                    .AddToDB())
+            .SetFeatures(modifyAttackModeForWeapon)
             .AddToDB();
 
         var powerDeadeye = FeatureDefinitionPowerBuilder
-            .Create("PowerDeadeye")
-            .SetGuiPresentation("Feat/&FeatDeadeyeTitle",
-                Gui.Format("Feat/&FeatDeadeyeDescription", Main.Settings.DeadEyeAndPowerAttackBaseValue.ToString()),
+            .Create($"Power{Name}")
+            .SetGuiPresentation(Name, Category.Feat,
                 Sprites.GetSprite("DeadeyeIcon", Resources.DeadeyeIcon, 128, 64))
             .SetUsesFixed(ActivationTime.NoCost)
             .SetEffectDescription(
@@ -104,10 +94,6 @@ internal static class RangedCombatFeats
                     .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
                     .SetDurationData(DurationType.Permanent)
                     .SetEffectForms(
-                        EffectFormBuilder
-                            .Create()
-                            .SetConditionForm(conditionDeadeyeTrigger, ConditionForm.ConditionOperation.Add)
-                            .Build(),
                         EffectFormBuilder
                             .Create()
                             .SetConditionForm(conditionDeadeye, ConditionForm.ConditionOperation.Add)
@@ -120,7 +106,7 @@ internal static class RangedCombatFeats
         Global.PowersThatIgnoreInterruptions.Add(powerDeadeye);
 
         var powerTurnOffDeadeye = FeatureDefinitionPowerBuilder
-            .Create("PowerTurnOffDeadeye")
+            .Create($"Power{Name}TurnOff")
             .SetGuiPresentationNoContent(true)
             .SetUsesFixed(ActivationTime.NoCost)
             .SetEffectDescription(
@@ -131,32 +117,34 @@ internal static class RangedCombatFeats
                     .SetEffectForms(
                         EffectFormBuilder
                             .Create()
-                            .SetConditionForm(conditionDeadeyeTrigger, ConditionForm.ConditionOperation.Remove)
-                            .Build(),
-                        EffectFormBuilder
-                            .Create()
                             .SetConditionForm(conditionDeadeye, ConditionForm.ConditionOperation.Remove)
                             .Build())
                     .Build())
             .AddToDB();
 
         Global.PowersThatIgnoreInterruptions.Add(powerTurnOffDeadeye);
-        concentrationProvider.StopPower = powerTurnOffDeadeye;
 
-        return FeatDefinitionBuilder
-            .Create(NAME)
-            .SetGuiPresentation("Feat/&FeatDeadeyeTitle",
-                Gui.Format("Feat/&FeatDeadeyeDescription", Main.Settings.DeadEyeAndPowerAttackBaseValue.ToString()))
+        var featDeadeye = FeatDefinitionBuilder
+            .Create(Name)
+            .SetGuiPresentation(Category.Feat)
             .SetFeatures(
                 powerDeadeye,
                 powerTurnOffDeadeye,
                 FeatureDefinitionCombatAffinityBuilder
-                    .Create("CombatAffinityDeadeyeIgnoreDefender")
-                    .SetGuiPresentation(NAME, Category.Feat)
+                    .Create($"CombatAffinity{Name}")
+                    .SetGuiPresentation(Name, Category.Feat)
                     .SetIgnoreCover()
                     .SetCustomSubFeatures(new BumpWeaponAttackRangeToMax(ValidatorsWeapon.AlwaysValid))
                     .AddToDB())
             .AddToDB();
+
+        concentrationProvider.StopPower = powerTurnOffDeadeye;
+        modifyAttackModeForWeapon
+            .SetCustomSubFeatures(
+                concentrationProvider,
+                new ModifyAttackModeForWeaponFeatDeadeye(featDeadeye));
+
+        return featDeadeye;
     }
 
     private static FeatDefinition BuildRangedExpert()
@@ -183,14 +171,38 @@ internal static class RangedCombatFeats
 
     private sealed class ModifyAttackModeForWeaponFeatDeadeye : IModifyAttackModeForWeapon
     {
+        private readonly FeatDefinition _featDefinition;
+
+        public ModifyAttackModeForWeaponFeatDeadeye(FeatDefinition featDefinition)
+        {
+            _featDefinition = featDefinition;
+        }
+
         public void ModifyAttackMode(RulesetCharacter character, [CanBeNull] RulesetAttackMode attackMode)
         {
-            if (!ValidatorsWeapon.IsRanged(attackMode))
+            if (!ValidatorsWeapon.IsOfWeaponType(LongbowType, ShortbowType, HeavyCrossbowType, LightCrossbowType,
+                    CustomWeaponsContext.HandXbowWeaponType)(attackMode, null, null))
             {
                 return;
             }
 
-            SrdAndHouseRulesContext.ModifyAttackModeAndDamage(character, "Feat/&FeatDeadEyeTitle", attackMode);
+            var damage = attackMode?.EffectDescription?.FindFirstDamageForm();
+
+            if (damage == null)
+            {
+                return;
+            }
+
+            const int TO_HIT = -5;
+            const int TO_DAMAGE = +10;
+
+            attackMode.ToHitBonus += TO_HIT;
+            attackMode.ToHitBonusTrends.Add(new TrendInfo(TO_HIT, FeatureSourceType.Feat, _featDefinition.Name,
+                _featDefinition));
+
+            damage.BonusDamage += TO_DAMAGE;
+            damage.DamageBonusTrends.Add(new TrendInfo(TO_DAMAGE, FeatureSourceType.Feat, _featDefinition.Name,
+                _featDefinition));
         }
     }
 }

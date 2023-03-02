@@ -104,7 +104,6 @@
   <EnableMultiLineSpellPanel>true</EnableMultiLineSpellPanel>
   <EnableSameWidthFeatSelection>true</EnableSameWidthFeatSelection>
   <EnableSameWidthInvocationSelection>true</EnableSameWidthInvocationSelection>
-  <EnableSameWidthMetamagicSelection>true</EnableSameWidthMetamagicSelection>
   <EnableSortingFightingStyles>true</EnableSortingFightingStyles>
   <EnableSortingSubclasses>true</EnableSortingSubclasses>
   <EnableSortingFutureFeatures>true</EnableSortingFutureFeatures>
@@ -327,6 +326,7 @@
     <string>FeatWisePrecision</string>
     <string>FeatPrimalRageCon</string>
     <string>FeatPrimalRageStr</string>
+    <string>FeatCleavingAttack</string>
   </FeatEnabled>
   <FeatGroupSliderPosition>4</FeatGroupSliderPosition>
   <FeatGroupEnabled>
@@ -717,7 +717,6 @@
   <ChangeSleetStormToCube>true</ChangeSleetStormToCube>
   <FixEldritchBlastRange>true</FixEldritchBlastRange>
   <UseHeightOneCylinderEffect>true</UseHeightOneCylinderEffect>
-  <DeadEyeAndPowerAttackBaseValue>3</DeadEyeAndPowerAttackBaseValue>
   <AllowStackedMaterialComponent>true</AllowStackedMaterialComponent>
   <AllowAnyClassToWearSylvanArmor>true</AllowAnyClassToWearSylvanArmor>
   <AllowDruidToWearMetalArmor>true</AllowDruidToWearMetalArmor>

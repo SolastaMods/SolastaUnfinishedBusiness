@@ -52,7 +52,6 @@ ModUi/&CriticalOption0=<color=#D89555><b>0</b></color>: impostazione predefinita
 ModUi/&CriticalOption1=<color=#D89555><b>1</b></color>: somma il risultato massimo per i dadi di danno e sommalo al danno dell'attacco <i><color=#F0DAA0>[XdY+(X*Y) +Z]</color></i>
 ModUi/&CriticalOption2=<color=#D89555><b>2</b></color>: continua a ripetere il tiro di tutti i dadi danno che ottengono il risultato più alto possibile e aggiungilo al danno totale
 ModUi/&CriticalOption3=<color=#D89555><b>3</b></color>: raddoppia il danno totale del tuo attacco invece di tirare dadi aggiuntivi. <i><color=#F0DAA0>[(XdY+Z)*2]</color></i>
-ModUi/&DeadEyeAndPowerAttackBaseBaseValue=<color=white>Imposta il valore del modificatore base di Deadeye e Attacco Poderoso</color>\n<i><color=#F0DAA0>[la formula è -mod per colpire / mod + il tuo PB per danneggiare]</color></i>
 ModUi/&Deities=<color=#F0DAA0> Divinità:</color>
 ModUi/&DisableAutoEquip=Disattiva l'equipaggiamento automatico degli articoli nell'inventario
 ModUi/&DisableClassPrerequisitesOnModFeats=Disabilita i prerequisiti di livello sui talenti legati alla classe forniti da questa mod

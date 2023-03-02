@@ -52,7 +52,6 @@ ModUi/&CriticalOption0=<color=#D89555><b>0</b></color>: Spielstandard, wirf alle
 ModUi/&CriticalOption1=<color=#D89555><b>1</b></color>: Summiere das maximale Ergebnis für die Schadenswürfel und addiere es zum Schaden des Angriffs <i><color=#F0DAA0>[XdY+(X*Y) +Z]</color></i>
 ModUi/&CriticalOption2=<color=#D89555><b>2</b></color>: Wirf alle Schadenswürfel, die das höchstmögliche Ergebnis erzielen, immer wieder neu und füge es dem Gesamtschaden hinzu
 ModUi/&CriticalOption3=<color=#D89555><b>3</b></color>: Verdopple den Gesamtschaden deines Angriffs, anstatt zusätzliche Würfel zu werfen. <i><color=#F0DAA0>[(XdY+Z)*2]</color></i>
-ModUi/&DeadEyeAndPowerAttackBaseBaseValue=<color=white>Stellen Sie den Basismodifikatorwert für Deadeye und Power Attack ein</color>\n<i><color=#F0DAA0>[Formel ist -Mod zum Treffer / Mod + Ihr PB zum Schaden]</color></i>
 ModUi/&Deities=<color=#F0DAA0>Gottheiten:</color>
 ModUi/&DisableAutoEquip=Deaktiviere das automatische Ausrüsten von Gegenständen im Inventar
 ModUi/&DisableClassPrerequisitesOnModFeats=Deaktivieren Sie die Stufenvoraussetzungen für klassengebundene Leistungen, die von diesem Mod bereitgestellt werden

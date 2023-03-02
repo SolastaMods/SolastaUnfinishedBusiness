@@ -121,8 +121,14 @@ internal class ReactionRequestWarcaster : ReactionRequest
 
         cantrips.RemoveAll(cantrip =>
         {
-            if (cantrip.ActivationTime != RuleDefinitions.ActivationTime.Action
-                && cantrip.ActivationTime != RuleDefinitions.ActivationTime.BonusAction)
+            if (cantrip.ActivationTime != RuleDefinitions.ActivationTime.Action &&
+                cantrip.ActivationTime != RuleDefinitions.ActivationTime.BonusAction)
+            {
+                return true;
+            }
+
+            if (cantrip.EffectDescription.TargetType != RuleDefinitions.TargetType.Individuals &&
+                cantrip.EffectDescription.TargetType != RuleDefinitions.TargetType.IndividualsUnique)
             {
                 return true;
             }

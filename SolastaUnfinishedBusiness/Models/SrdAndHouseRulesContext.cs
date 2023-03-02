@@ -127,29 +127,6 @@ internal static class SrdAndHouseRulesContext
         MakeGorillaWildShapeRocksUnlimited();
     }
 
-    internal static void ModifyAttackModeAndDamage(
-        RulesetCharacter character,
-        string sourceName,
-        [CanBeNull] RulesetAttackMode attackMode)
-    {
-        var damage = attackMode?.EffectDescription?.FindFirstDamageForm();
-
-        if (damage == null)
-        {
-            return;
-        }
-
-        var proficiency = character.GetAttribute(AttributeDefinitions.ProficiencyBonus).CurrentValue;
-        var toHit = -Main.Settings.DeadEyeAndPowerAttackBaseValue;
-        var toDamage = Main.Settings.DeadEyeAndPowerAttackBaseValue + proficiency;
-
-        attackMode.ToHitBonus += toHit;
-        attackMode.ToHitBonusTrends.Add(new TrendInfo(toHit, FeatureSourceType.Feat, sourceName, null));
-
-        damage.BonusDamage += toDamage;
-        damage.DamageBonusTrends.Add(new TrendInfo(toDamage, FeatureSourceType.Feat, sourceName, null));
-    }
-
     internal static void SwitchUniversalSylvanArmorAndLightbringer()
     {
         GreenmageArmor.RequiredAttunementClasses.Clear();

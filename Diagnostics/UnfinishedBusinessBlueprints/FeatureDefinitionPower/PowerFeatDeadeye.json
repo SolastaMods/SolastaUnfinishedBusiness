@@ -77,40 +77,11 @@
         "saveOccurence": "EndOfTurn",
         "conditionForm": {
           "$type": "ConditionForm, Assembly-CSharp",
-          "conditionDefinitionName": "ConditionDeadeyeTrigger",
-          "conditionDefinition": "Definition:ConditionDeadeyeTrigger:149fba33-3747-5520-b0f3-046926a9aebf",
+          "conditionDefinitionName": "ConditionFeatDeadeye",
+          "conditionDefinition": "Definition:ConditionFeatDeadeye:e52567dc-e3ed-5410-b116-8f57973a2422",
           "operation": "Add",
           "conditionsList": [
-            "Definition:ConditionDeadeyeTrigger:149fba33-3747-5520-b0f3-046926a9aebf"
-          ],
-          "applyToSelf": false,
-          "forceOnSelf": false
-        },
-        "hasFilterId": false,
-        "filterId": 0
-      },
-      {
-        "$type": "EffectForm, Assembly-CSharp",
-        "formType": "Condition",
-        "addBonusMode": "None",
-        "applyLevel": "No",
-        "levelType": "ClassLevel",
-        "levelMultiplier": 1,
-        "diceByLevelTable": [],
-        "createdByCharacter": false,
-        "createdByCondition": false,
-        "hasSavingThrow": false,
-        "savingThrowAffinity": "None",
-        "dcModifier": 0,
-        "canSaveToCancel": false,
-        "saveOccurence": "EndOfTurn",
-        "conditionForm": {
-          "$type": "ConditionForm, Assembly-CSharp",
-          "conditionDefinitionName": "ConditionDeadeye",
-          "conditionDefinition": "Definition:ConditionDeadeye:d875955d-676c-5a6c-9551-e22349d25b31",
-          "operation": "Add",
-          "conditionsList": [
-            "Definition:ConditionDeadeye:d875955d-676c-5a6c-9551-e22349d25b31"
+            "Definition:ConditionFeatDeadeye:e52567dc-e3ed-5410-b116-8f57973a2422"
           ],
           "applyToSelf": false,
           "forceOnSelf": false
@@ -356,7 +327,7 @@
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "Feat/&FeatDeadeyeTitle",
-    "description": "You have learned to trade accuracy to land deadlier shots. When attacking with ranged weapons, you can choose to take a -3 penalty to your to hit in order to do additional damage equal to 3 + your proficiency bonus. Attacking at long range doesn't impose disadvantage and your ranged weapon attacks ignore half cover and three-quarters cover.",
+    "description": "Feat/&FeatDeadeyeDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "9a520f02-972e-5046-add6-87d70ec26157",
@@ -376,7 +347,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "a16ac37a-8ced-52d8-8c63-e3d100ee3979",
+  "guid": "6b6652ad-65b7-566f-b7bd-9e39cec7c35a",
   "contentPack": 9999,
-  "name": "PowerDeadeye"
+  "name": "PowerFeatDeadeye"
 }

@@ -25,6 +25,7 @@ internal static class MeleeCombatFeats
     internal static void CreateFeats([NotNull] List<FeatDefinition> feats)
     {
         var featBladeMastery = BuildBladeMastery();
+        var featCleavingAttack = BuildCleavingAttack();
         var featCrusherStr = BuildCrusherStr();
         var featCrusherCon = BuildCrusherCon();
         var featDefensiveDuelist = BuildDefensiveDuelist();
@@ -40,6 +41,7 @@ internal static class MeleeCombatFeats
 
         feats.AddRange(
             featBladeMastery,
+            featCleavingAttack,
             featCrusherStr,
             featCrusherCon,
             featDefensiveDuelist,
@@ -78,6 +80,7 @@ internal static class MeleeCombatFeats
             FeatDefinitions.DistractingGambit,
             FeatDefinitions.TripAttack,
             featBladeMastery,
+            featCleavingAttack,
             featDefensiveDuelist,
             featFellHanded,
             featPowerAttack,
@@ -351,7 +354,316 @@ internal static class MeleeCombatFeats
 
     #endregion
 
-    #region Common Features
+    #region Blade Mastery
+
+    private static FeatDefinition BuildBladeMastery()
+    {
+        const string NAME = "FeatBladeMastery";
+
+        var weaponTypes = new[] { ShortswordType, LongswordType, ScimitarType, RapierType, GreatswordType };
+
+        var validWeapon = ValidatorsWeapon.IsOfWeaponType(weaponTypes);
+
+        var conditionBladeMastery = ConditionDefinitionBuilder
+            .Create($"Condition{NAME}")
+            .SetGuiPresentation(NAME, Category.Feat)
+            .SetSilent(Silent.WhenAddedOrRemoved)
+            .SetFeatures(FeatureDefinitionAttributeModifierBuilder
+                .Create($"AttributeModifier{NAME}")
+                .SetGuiPresentationNoContent(true)
+                .SetModifier(
+                    FeatureDefinitionAttributeModifier.AttributeModifierOperation.Additive,
+                    AttributeDefinitions.ArmorClass,
+                    1)
+                .AddToDB())
+            .AddToDB();
+
+        var powerBladeMastery = FeatureDefinitionPowerBuilder
+            .Create($"Power{NAME}")
+            .SetGuiPresentation(NAME, Category.Feat)
+            .SetUsesFixed(ActivationTime.Reaction)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetDurationData(DurationType.Round, 1, TurnOccurenceType.StartOfTurn)
+                    .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
+                    .SetEffectForms(EffectFormBuilder
+                        .Create()
+                        .SetConditionForm(
+                            conditionBladeMastery,
+                            ConditionForm.ConditionOperation.Add,
+                            true,
+                            true)
+                        .Build())
+                    .Build())
+            .SetCustomSubFeatures(
+                new RestrictedContextValidator((_, _, character, _, ranged, mode, _) =>
+                    (OperationType.Set, !ranged && validWeapon(mode, null, character))))
+            .AddToDB();
+
+        return FeatDefinitionBuilder
+            .Create(NAME)
+            .SetGuiPresentation(Category.Feat)
+            .SetFeatures(powerBladeMastery)
+            .SetCustomSubFeatures(
+                new OnComputeAttackModifierFeatBladeMastery(weaponTypes),
+                new ModifyAttackModeForWeaponTypeFilter($"Feature/&ModifyAttackMode{NAME}Title", weaponTypes))
+            .AddToDB();
+    }
+
+    private sealed class OnComputeAttackModifierFeatBladeMastery : IOnComputeAttackModifier
+    {
+        private readonly List<WeaponTypeDefinition> _weaponTypeDefinition = new();
+
+        public OnComputeAttackModifierFeatBladeMastery(params WeaponTypeDefinition[] weaponTypeDefinition)
+        {
+            _weaponTypeDefinition.AddRange(weaponTypeDefinition);
+        }
+
+        public void ComputeAttackModifier(
+            RulesetCharacter myself,
+            RulesetCharacter defender,
+            BattleDefinitions.AttackProximity attackProximity,
+            RulesetAttackMode attackMode,
+            ref ActionModifier attackModifier)
+        {
+            if (attackProximity != BattleDefinitions.AttackProximity.PhysicalRange &&
+                attackProximity != BattleDefinitions.AttackProximity.PhysicalReach)
+            {
+                return;
+            }
+
+            var battle = Gui.Battle;
+
+            // the second check handle cases where you can attack when enemy misses you on a hit
+            if (attackMode.actionType != ActionDefinitions.ActionType.Reaction && battle != null &&
+                battle.ActiveContender.RulesetCharacter != defender && battle.DefenderContender != null)
+            {
+                return;
+            }
+
+            if (!ValidatorsWeapon.IsOfWeaponType(_weaponTypeDefinition.ToArray())(attackMode, null, null))
+            {
+                return;
+            }
+
+            attackModifier.attackAdvantageTrends.Add(
+                new TrendInfo(1, FeatureSourceType.Feat, "Feature/&ModifyAttackModeFeatBladeMasteryTitle", null));
+        }
+    }
+
+    #endregion
+
+    #region Cleaving Attack
+
+    private static FeatDefinition BuildCleavingAttack()
+    {
+        const string Name = "FeatCleavingAttack";
+
+        var concentrationProvider = new StopPowerConcentrationProvider(
+            Name,
+            "Tooltip/&CleavingAttackConcentration",
+            Sprites.GetSprite(nameof(Resources.PowerAttackConcentrationIcon), Resources.PowerAttackConcentrationIcon,
+                64, 64));
+
+        var modifyAttackModeForWeapon = FeatureDefinitionBuilder
+            .Create("ModifyAttackModeForWeaponFeatCleavingAttack")
+            .SetGuiPresentationNoContent(true)
+            .AddToDB();
+
+        var conditionCleavingAttackFinish = ConditionDefinitionBuilder
+            .Create($"Condition{Name}Finish")
+            .SetGuiPresentationNoContent(true)
+            .SetSilent(Silent.WhenAddedOrRemoved)
+            .SetSpecialDuration(DurationType.Round, 1, TurnOccurenceType.StartOfTurn)
+            .AddToDB();
+
+        var conditionCleavingAttack = ConditionDefinitionBuilder
+            .Create($"Condition{Name}")
+            .SetGuiPresentation(Name, Category.Feat, ConditionDefinitions.ConditionHeraldOfBattle)
+            .SetSilent(Silent.WhenAddedOrRemoved)
+            .SetFeatures(modifyAttackModeForWeapon)
+            .AddToDB();
+
+        var powerCleavingAttack = FeatureDefinitionPowerBuilder
+            .Create($"Power{Name}")
+            .SetGuiPresentation(Name, Category.Feat,
+                Sprites.GetSprite(nameof(Resources.PowerAttackIcon), Resources.PowerAttackIcon, 128, 64))
+            .SetUsesFixed(ActivationTime.NoCost)
+            .SetEffectDescription(EffectDescriptionBuilder
+                .Create()
+                .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
+                .SetDurationData(DurationType.Permanent)
+                .SetEffectForms(EffectFormBuilder
+                    .Create()
+                    .SetConditionForm(conditionCleavingAttack, ConditionForm.ConditionOperation.Add)
+                    .Build())
+                .Build())
+            .SetCustomSubFeatures(
+                new ValidatorsPowerUse(
+                    ValidatorsCharacter.HasNoneOfConditions(conditionCleavingAttack.Name)))
+            .AddToDB();
+
+        Global.PowersThatIgnoreInterruptions.Add(powerCleavingAttack);
+
+        var powerTurnOffCleavingAttack = FeatureDefinitionPowerBuilder
+            .Create($"Power{Name}TurnOff")
+            .SetGuiPresentationNoContent(true)
+            .SetUsesFixed(ActivationTime.NoCost)
+            .SetEffectDescription(EffectDescriptionBuilder
+                .Create()
+                .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
+                .SetDurationData(DurationType.Round, 1)
+                .SetEffectForms(
+                    EffectFormBuilder
+                        .Create()
+                        .SetConditionForm(conditionCleavingAttack, ConditionForm.ConditionOperation.Remove)
+                        .Build())
+                .Build())
+            .AddToDB();
+
+        Global.PowersThatIgnoreInterruptions.Add(powerTurnOffCleavingAttack);
+
+        var featCleavingAttack = FeatDefinitionBuilder
+            .Create(Name)
+            .SetGuiPresentation(Category.Feat)
+            .SetFeatures(
+                powerCleavingAttack,
+                powerTurnOffCleavingAttack,
+                FeatureDefinitionBuilder
+                    .Create($"Feature{Name}")
+                    .SetGuiPresentationNoContent(true)
+                    .SetCustomSubFeatures(
+                        new AddExtraAttackFeatCleavingAttack(conditionCleavingAttackFinish),
+                        new AddExtraMainHandAttack(
+                            ActionDefinitions.ActionType.Bonus,
+                            ValidatorsCharacter.HasAnyOfConditions(conditionCleavingAttackFinish.Name)))
+                    .AddToDB())
+            .AddToDB();
+
+        concentrationProvider.StopPower = powerTurnOffCleavingAttack;
+        modifyAttackModeForWeapon
+            .SetCustomSubFeatures(
+                concentrationProvider,
+                new ModifyAttackModeForWeaponFeatCleavingAttack(featCleavingAttack));
+
+        return featCleavingAttack;
+    }
+
+    private sealed class AddExtraAttackFeatCleavingAttack : IAfterAttackEffect, ITargetReducedToZeroHp
+    {
+        private readonly ConditionDefinition _conditionDefinition;
+
+        private static bool Validate(RulesetAttackMode attackMode)
+        {
+            var itemDefinition = attackMode.SourceDefinition as ItemDefinition;
+
+            return !attackMode.Ranged && ValidatorsWeapon.IsMelee(itemDefinition);
+        }
+
+        public AddExtraAttackFeatCleavingAttack(ConditionDefinition conditionDefinition)
+        {
+            _conditionDefinition = conditionDefinition;
+        }
+
+        public void AfterOnAttackHit(
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            RollOutcome outcome,
+            CharacterActionParams actionParams,
+            RulesetAttackMode attackMode,
+            ActionModifier attackModifier)
+        {
+            if (outcome != RollOutcome.CriticalSuccess)
+            {
+                return;
+            }
+
+            if (!Validate(attackMode))
+            {
+                return;
+            }
+
+            TryToApplyCondition(attacker.RulesetCharacter);
+        }
+
+        public IEnumerator HandleCharacterReducedToZeroHp(
+            GameLocationCharacter attacker,
+            GameLocationCharacter downedCreature,
+            RulesetAttackMode attackMode,
+            RulesetEffect activeEffect)
+        {
+            if (!Validate(attackMode))
+            {
+                yield break;
+            }
+
+            // activeEffect != null means a magical attack
+            if (activeEffect != null)
+            {
+                yield break;
+            }
+
+            TryToApplyCondition(attacker.RulesetCharacter);
+        }
+
+        private void TryToApplyCondition(RulesetCharacter rulesetCharacter)
+        {
+            var rulesetCondition = RulesetCondition.CreateActiveCondition(
+                rulesetCharacter.Guid,
+                _conditionDefinition,
+                DurationType.Round,
+                1,
+                TurnOccurenceType.StartOfTurn,
+                rulesetCharacter.Guid,
+                rulesetCharacter.CurrentFaction.Name);
+
+            rulesetCharacter.AddConditionOfCategory(AttributeDefinitions.TagCombat, rulesetCondition);
+        }
+    }
+
+    private sealed class ModifyAttackModeForWeaponFeatCleavingAttack : IModifyAttackModeForWeapon
+    {
+        private readonly FeatDefinition _featDefinition;
+
+        public ModifyAttackModeForWeaponFeatCleavingAttack(FeatDefinition featDefinition)
+        {
+            _featDefinition = featDefinition;
+        }
+
+        public void ModifyAttackMode(RulesetCharacter character, RulesetAttackMode attackMode)
+        {
+            var itemDefinition = attackMode.SourceDefinition as ItemDefinition;
+
+            if (attackMode.Ranged || !ValidatorsWeapon.IsMelee(itemDefinition) ||
+                !ValidatorsWeapon.HasAnyWeaponTag(itemDefinition, TagsDefinitions.WeaponTagHeavy))
+            {
+                return;
+            }
+
+            var damage = attackMode.EffectDescription.FindFirstDamageForm();
+
+            if (damage == null)
+            {
+                return;
+            }
+
+            const int TO_HIT = -5;
+            const int TO_DAMAGE = +10;
+
+            attackMode.ToHitBonus += TO_HIT;
+            attackMode.ToHitBonusTrends.Add(new TrendInfo(TO_HIT, FeatureSourceType.Feat,
+                _featDefinition.Name, _featDefinition));
+
+            damage.BonusDamage += TO_DAMAGE;
+            damage.DamageBonusTrends.Add(new TrendInfo(TO_DAMAGE, FeatureSourceType.Feat,
+                _featDefinition.Name, _featDefinition));
+        }
+    }
+
+    #endregion
+
+    #region Crusher
 
     private static readonly FeatureDefinitionPower PowerFeatCrusherHit = FeatureDefinitionPowerBuilder
         .Create("PowerFeatCrusherHit")
@@ -408,74 +720,6 @@ internal static class MeleeCombatFeats
                     .AddToDB(),
                 DamageTypeBludgeoning))
         .AddToDB();
-
-    private static readonly FeatureDefinition FeatureFeatPiercer = FeatureDefinitionBuilder
-        .Create("FeatureFeatPiercer")
-        .SetGuiPresentationNoContent(true)
-        .SetCustomSubFeatures(
-            new BeforeAttackEffectFeatPiercer(
-                ConditionDefinitionBuilder
-                    .Create("ConditionFeatPiercerNonMagic")
-                    .SetGuiPresentationNoContent(true)
-                    .SetSilent(Silent.WhenAddedOrRemoved)
-                    .SetSpecialDuration(DurationType.Round, 1)
-                    .SetSpecialInterruptions(ConditionInterruption.Attacked)
-                    .SetFeatures(
-                        FeatureDefinitionDieRollModifierBuilder
-                            .Create("DieRollModifierFeatPiercerNonMagic")
-                            .SetGuiPresentation("ConditionFeatPiercerNonMagic", Category.Condition)
-                            .SetModifiers(AttackDamageValueRoll, 1, 1, 1, "Feat/&FeatPiercerReroll")
-                            .AddToDB())
-                    .AddToDB(),
-                DamageTypePiercing),
-            new CustomAdditionalDamageFeatPiercer(
-                FeatureDefinitionAdditionalDamageBuilder
-                    .Create("AdditionalDamageFeatPiercer")
-                    .SetGuiPresentation(Category.Feature)
-                    .SetNotificationTag(GroupFeats.Piercer)
-                    .SetDamageValueDetermination(AdditionalDamageValueDetermination.SameAsBaseWeaponDie)
-                    .SetIgnoreCriticalDoubleDice(true)
-                    .AddToDB(),
-                DamageTypePiercing))
-        .AddToDB();
-
-    private static readonly FeatureDefinition FeatureFeatSlasher = FeatureDefinitionBuilder
-        .Create("FeatureFeatSlasher")
-        .SetGuiPresentationNoContent(true)
-        .SetCustomSubFeatures(
-            new AfterAttackEffectFeatSlasher(
-                ConditionDefinitionBuilder
-                    .Create("ConditionFeatSlasherHit")
-                    .SetGuiPresentation(Category.Condition)
-                    .SetConditionType(ConditionType.Detrimental)
-                    .SetSpecialDuration(DurationType.Round, 1)
-                    .SetPossessive()
-                    .SetFeatures(
-                        FeatureDefinitionMovementAffinityBuilder
-                            .Create("MovementAffinityFeatSlasher")
-                            .SetGuiPresentation("ConditionFeatSlasherHit", Category.Condition)
-                            .SetBaseSpeedAdditiveModifier(-2)
-                            .AddToDB())
-                    .AddToDB(),
-                ConditionDefinitionBuilder
-                    .Create("ConditionFeatSlasherCriticalHit")
-                    .SetGuiPresentation(Category.Condition)
-                    .SetConditionType(ConditionType.Detrimental)
-                    .SetSpecialDuration(DurationType.Round, 1)
-                    .SetPossessive()
-                    .SetFeatures(
-                        FeatureDefinitionCombatAffinityBuilder
-                            .Create("CombatAffinityFeatSlasher")
-                            .SetGuiPresentation("ConditionFeatSlasherCriticalHit", Category.Condition)
-                            .SetMyAttackAdvantage(AdvantageType.Disadvantage)
-                            .AddToDB())
-                    .AddToDB(),
-                DamageTypeSlashing))
-        .AddToDB();
-
-    #endregion
-
-    #region Crusher
 
     private static FeatDefinition BuildCrusherStr()
     {
@@ -552,107 +796,6 @@ internal static class MeleeCombatFeats
                 attacker.RulesetCharacter.CurrentFaction.Name);
 
             defender.RulesetCharacter.AddConditionOfCategory(AttributeDefinitions.TagCombat, rulesetCondition);
-        }
-    }
-
-    #endregion
-
-    #region Blade Mastery
-
-    private static FeatDefinition BuildBladeMastery()
-    {
-        const string NAME = "FeatBladeMastery";
-
-        var weaponTypes = new[] { ShortswordType, LongswordType, ScimitarType, RapierType, GreatswordType };
-
-        var validWeapon = ValidatorsWeapon.IsOfWeaponType(weaponTypes);
-
-        var conditionBladeMastery = ConditionDefinitionBuilder
-            .Create($"Condition{NAME}")
-            .SetGuiPresentation(NAME, Category.Feat)
-            .SetSilent(Silent.WhenAddedOrRemoved)
-            .SetFeatures(FeatureDefinitionAttributeModifierBuilder
-                .Create($"AttributeModifier{NAME}")
-                .SetGuiPresentationNoContent(true)
-                .SetModifier(
-                    FeatureDefinitionAttributeModifier.AttributeModifierOperation.Additive,
-                    AttributeDefinitions.ArmorClass,
-                    1)
-                .AddToDB())
-            .AddToDB();
-
-        var powerBladeMastery = FeatureDefinitionPowerBuilder
-            .Create($"Power{NAME}")
-            .SetGuiPresentation(NAME, Category.Feat)
-            .SetUsesFixed(ActivationTime.Reaction)
-            .SetEffectDescription(
-                EffectDescriptionBuilder
-                    .Create()
-                    .SetDurationData(DurationType.Round, 1, TurnOccurenceType.StartOfTurn)
-                    .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
-                    .SetEffectForms(EffectFormBuilder
-                        .Create()
-                        .SetConditionForm(
-                            conditionBladeMastery,
-                            ConditionForm.ConditionOperation.Add,
-                            true,
-                            true)
-                        .Build())
-                    .Build())
-            .SetCustomSubFeatures(
-                new RestrictedContextValidator((_, _, character, _, ranged, mode, _) =>
-                    (OperationType.Set, !ranged && validWeapon(mode, null, character))))
-            .AddToDB();
-
-        return FeatDefinitionBuilder
-            .Create(NAME)
-            .SetGuiPresentation(Category.Feat)
-            .SetFeatures(powerBladeMastery)
-            .SetCustomSubFeatures(
-                new OnComputeAttackModifierFeatBladeMastery(weaponTypes),
-                new ModifyAttackModeForWeaponTypeFilter($"Feature/&ModifyAttackMode{NAME}Title", weaponTypes))
-            .AddToDB();
-    }
-
-
-    private sealed class OnComputeAttackModifierFeatBladeMastery : IOnComputeAttackModifier
-    {
-        private readonly List<WeaponTypeDefinition> _weaponTypeDefinition = new();
-
-        public OnComputeAttackModifierFeatBladeMastery(params WeaponTypeDefinition[] weaponTypeDefinition)
-        {
-            _weaponTypeDefinition.AddRange(weaponTypeDefinition);
-        }
-
-        public void ComputeAttackModifier(
-            RulesetCharacter myself,
-            RulesetCharacter defender,
-            BattleDefinitions.AttackProximity attackProximity,
-            RulesetAttackMode attackMode,
-            ref ActionModifier attackModifier)
-        {
-            if (attackProximity != BattleDefinitions.AttackProximity.PhysicalRange &&
-                attackProximity != BattleDefinitions.AttackProximity.PhysicalReach)
-            {
-                return;
-            }
-
-            var battle = Gui.Battle;
-
-            // the second check handle cases where you can attack when enemy misses you on a hit
-            if (attackMode.actionType != ActionDefinitions.ActionType.Reaction && battle != null &&
-                battle.ActiveContender.RulesetCharacter != defender && battle.DefenderContender != null)
-            {
-                return;
-            }
-
-            if (!ValidatorsWeapon.IsOfWeaponType(_weaponTypeDefinition.ToArray())(attackMode, null, null))
-            {
-                return;
-            }
-
-            attackModifier.attackAdvantageTrends.Add(
-                new TrendInfo(1, FeatureSourceType.Feat, "Feature/&ModifyAttackModeFeatBladeMasteryTitle", null));
         }
     }
 
@@ -807,6 +950,36 @@ internal static class MeleeCombatFeats
 
     #region Piercer
 
+    private static readonly FeatureDefinition FeatureFeatPiercer = FeatureDefinitionBuilder
+        .Create("FeatureFeatPiercer")
+        .SetGuiPresentationNoContent(true)
+        .SetCustomSubFeatures(
+            new BeforeAttackEffectFeatPiercer(
+                ConditionDefinitionBuilder
+                    .Create("ConditionFeatPiercerNonMagic")
+                    .SetGuiPresentationNoContent(true)
+                    .SetSilent(Silent.WhenAddedOrRemoved)
+                    .SetSpecialDuration(DurationType.Round, 1)
+                    .SetSpecialInterruptions(ConditionInterruption.Attacked)
+                    .SetFeatures(
+                        FeatureDefinitionDieRollModifierBuilder
+                            .Create("DieRollModifierFeatPiercerNonMagic")
+                            .SetGuiPresentation("ConditionFeatPiercerNonMagic", Category.Condition)
+                            .SetModifiers(AttackDamageValueRoll, 1, 1, 1, "Feat/&FeatPiercerReroll")
+                            .AddToDB())
+                    .AddToDB(),
+                DamageTypePiercing),
+            new CustomAdditionalDamageFeatPiercer(
+                FeatureDefinitionAdditionalDamageBuilder
+                    .Create("AdditionalDamageFeatPiercer")
+                    .SetGuiPresentation(Category.Feature)
+                    .SetNotificationTag(GroupFeats.Piercer)
+                    .SetDamageValueDetermination(AdditionalDamageValueDetermination.SameAsBaseWeaponDie)
+                    .SetIgnoreCriticalDoubleDice(true)
+                    .AddToDB(),
+                DamageTypePiercing))
+        .AddToDB();
+
     private static FeatDefinition BuildPiercerDex()
     {
         return FeatDefinitionBuilder
@@ -909,37 +1082,27 @@ internal static class MeleeCombatFeats
 
     private static FeatDefinition BuildPowerAttack()
     {
+        const string Name = "FeatPowerAttack";
+
         var concentrationProvider = new StopPowerConcentrationProvider("PowerAttack",
             "Tooltip/&PowerAttackConcentration",
             Sprites.GetSprite("PowerAttackConcentrationIcon", Resources.PowerAttackConcentrationIcon, 64, 64));
 
-        var conditionPowerAttackTrigger = ConditionDefinitionBuilder
-            .Create("ConditionPowerAttackTrigger")
+        var modifyAttackModeForWeapon = FeatureDefinitionBuilder
+            .Create($"ModifyAttackModeForWeapon{Name}")
             .SetGuiPresentationNoContent(true)
-            .SetSilent(Silent.WhenAddedOrRemoved)
-            .SetFeatures(FeatureDefinitionBuilder
-                .Create("TriggerFeaturePowerAttack")
-                .SetGuiPresentationNoContent(true)
-                .SetCustomSubFeatures(concentrationProvider)
-                .AddToDB())
             .AddToDB();
 
         var conditionPowerAttack = ConditionDefinitionBuilder
-            .Create("ConditionPowerAttack")
-            .SetGuiPresentation("FeatPowerAttack", Category.Feat, ConditionDefinitions.ConditionHeraldOfBattle)
+            .Create($"Condition{Name}")
+            .SetGuiPresentation(Name, Category.Feat, ConditionDefinitions.ConditionHeraldOfBattle)
             .SetSilent(Silent.WhenAddedOrRemoved)
-            .SetFeatures(
-                FeatureDefinitionBuilder
-                    .Create("ModifyAttackModeForWeaponFeatPowerAttack")
-                    .SetGuiPresentation("FeatPowerAttack", Category.Feat)
-                    .SetCustomSubFeatures(new ModifyAttackModeForWeaponFeatPowerAttack())
-                    .AddToDB())
+            .SetFeatures(modifyAttackModeForWeapon)
             .AddToDB();
 
         var powerAttack = FeatureDefinitionPowerBuilder
-            .Create("PowerAttack")
-            .SetGuiPresentation("Feat/&FeatPowerAttackTitle",
-                Gui.Format("Feat/&FeatPowerAttackDescription", Main.Settings.DeadEyeAndPowerAttackBaseValue.ToString()),
+            .Create($"Power{Name}")
+            .SetGuiPresentation(Name, Category.Feat,
                 Sprites.GetSprite("PowerAttackIcon", Resources.PowerAttackIcon, 128, 64))
             .SetUsesFixed(ActivationTime.NoCost)
             .SetEffectDescription(EffectDescriptionBuilder
@@ -947,10 +1110,6 @@ internal static class MeleeCombatFeats
                 .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
                 .SetDurationData(DurationType.Permanent)
                 .SetEffectForms(
-                    EffectFormBuilder
-                        .Create()
-                        .SetConditionForm(conditionPowerAttackTrigger, ConditionForm.ConditionOperation.Add)
-                        .Build(),
                     EffectFormBuilder
                         .Create()
                         .SetConditionForm(conditionPowerAttack, ConditionForm.ConditionOperation.Add)
@@ -963,7 +1122,7 @@ internal static class MeleeCombatFeats
         Global.PowersThatIgnoreInterruptions.Add(powerAttack);
 
         var powerTurnOffPowerAttack = FeatureDefinitionPowerBuilder
-            .Create("PowerTurnOffPowerAttack")
+            .Create($"Power{Name}TurnOff")
             .SetGuiPresentationNoContent(true)
             .SetUsesFixed(ActivationTime.NoCost)
             .SetEffectDescription(EffectDescriptionBuilder
@@ -973,31 +1132,40 @@ internal static class MeleeCombatFeats
                 .SetEffectForms(
                     EffectFormBuilder
                         .Create()
-                        .SetConditionForm(conditionPowerAttackTrigger, ConditionForm.ConditionOperation.Remove)
-                        .Build(),
-                    EffectFormBuilder
-                        .Create()
                         .SetConditionForm(conditionPowerAttack, ConditionForm.ConditionOperation.Remove)
                         .Build())
                 .Build())
             .AddToDB();
 
         Global.PowersThatIgnoreInterruptions.Add(powerTurnOffPowerAttack);
-        concentrationProvider.StopPower = powerTurnOffPowerAttack;
 
-        return FeatDefinitionBuilder
-            .Create("FeatPowerAttack")
-            .SetGuiPresentation("Feat/&FeatPowerAttackTitle",
-                Gui.Format("Feat/&FeatPowerAttackDescription", Main.Settings.DeadEyeAndPowerAttackBaseValue.ToString()))
+        var featPowerAttack = FeatDefinitionBuilder
+            .Create(Name)
+            .SetGuiPresentation(Category.Feat)
             .SetFeatures(
                 powerAttack,
                 powerTurnOffPowerAttack
             )
             .AddToDB();
+
+        concentrationProvider.StopPower = powerTurnOffPowerAttack;
+        modifyAttackModeForWeapon
+            .SetCustomSubFeatures(
+                concentrationProvider,
+                new ModifyAttackModeForWeaponFeatPowerAttack(featPowerAttack));
+
+        return featPowerAttack;
     }
 
     private sealed class ModifyAttackModeForWeaponFeatPowerAttack : IModifyAttackModeForWeapon
     {
+        private readonly FeatDefinition _featDefinition;
+
+        public ModifyAttackModeForWeaponFeatPowerAttack(FeatDefinition featDefinition)
+        {
+            _featDefinition = featDefinition;
+        }
+
         public void ModifyAttackMode(RulesetCharacter character, RulesetAttackMode attackMode)
         {
             if (!ValidatorsWeapon.IsMelee(attackMode) && !ValidatorsWeapon.IsUnarmedWeapon(character, attackMode))
@@ -1005,13 +1173,64 @@ internal static class MeleeCombatFeats
                 return;
             }
 
-            SrdAndHouseRulesContext.ModifyAttackModeAndDamage(character, "Feat/&FeatPowerAttackTitle", attackMode);
+            var damage = attackMode?.EffectDescription?.FindFirstDamageForm();
+
+            if (damage == null)
+            {
+                return;
+            }
+
+            const int TO_HIT = -3;
+            var proficiency = character.GetAttribute(AttributeDefinitions.ProficiencyBonus).CurrentValue;
+            var toDamage = 3 + proficiency;
+
+            attackMode.ToHitBonus += TO_HIT;
+            attackMode.ToHitBonusTrends.Add(new TrendInfo(TO_HIT, FeatureSourceType.Feat, _featDefinition.Name,
+                _featDefinition));
+
+            damage.BonusDamage += toDamage;
+            damage.DamageBonusTrends.Add(new TrendInfo(toDamage, FeatureSourceType.Feat, _featDefinition.Name,
+                _featDefinition));
         }
     }
 
     #endregion
 
     #region Slasher
+
+    private static readonly FeatureDefinition FeatureFeatSlasher = FeatureDefinitionBuilder
+        .Create("FeatureFeatSlasher")
+        .SetGuiPresentationNoContent(true)
+        .SetCustomSubFeatures(
+            new AfterAttackEffectFeatSlasher(
+                ConditionDefinitionBuilder
+                    .Create("ConditionFeatSlasherHit")
+                    .SetGuiPresentation(Category.Condition)
+                    .SetConditionType(ConditionType.Detrimental)
+                    .SetSpecialDuration(DurationType.Round, 1)
+                    .SetPossessive()
+                    .SetFeatures(
+                        FeatureDefinitionMovementAffinityBuilder
+                            .Create("MovementAffinityFeatSlasher")
+                            .SetGuiPresentation("ConditionFeatSlasherHit", Category.Condition)
+                            .SetBaseSpeedAdditiveModifier(-2)
+                            .AddToDB())
+                    .AddToDB(),
+                ConditionDefinitionBuilder
+                    .Create("ConditionFeatSlasherCriticalHit")
+                    .SetGuiPresentation(Category.Condition)
+                    .SetConditionType(ConditionType.Detrimental)
+                    .SetSpecialDuration(DurationType.Round, 1)
+                    .SetPossessive()
+                    .SetFeatures(
+                        FeatureDefinitionCombatAffinityBuilder
+                            .Create("CombatAffinityFeatSlasher")
+                            .SetGuiPresentation("ConditionFeatSlasherCriticalHit", Category.Condition)
+                            .SetMyAttackAdvantage(AdvantageType.Disadvantage)
+                            .AddToDB())
+                    .AddToDB(),
+                DamageTypeSlashing))
+        .AddToDB();
 
     private static FeatDefinition BuildSlasherDex()
     {

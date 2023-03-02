@@ -52,7 +52,6 @@ ModUi/&CriticalOption0=<color=#D89555><b>0</b></color>: padrão do jogo, role qu
 ModUi/&CriticalOption1=<color=#D89555><b>1</b></color>: soma o resultado máximo dos dados de dano e adiciona ao dano do ataque <i><color=#F0DAA0>[XdY+(X*Y) +Z]</color></i>
 ModUi/&CriticalOption2=<color=#D89555><b>2</b></color>: continue jogando novamente qualquer dado de dano que role o resultado mais alto possível e adicione-o ao dano total
 ModUi/&CriticalOption3=<color=#D89555><b>3</b></color>: Duplique o dano total do seu ataque em vez de rolar dados adicionais. <i><color=#F0DAA0>[(XdY+Z)*2]</color></i>
-ModUi/&DeadEyeAndPowerAttackBaseBaseValue=<color=white>Defina o valor do modificador base Deadeye e Power Attack</color>\n<i><color=#F0DAA0>[a fórmula é -mod para acertar / mod + seu PB para danificar]</color></i>
 ModUi/&Deities=<color=#F0DAA0>Divindades:</color>
 ModUi/&DisableAutoEquip=Desativar o equipamento automático de itens no inventário
 ModUi/&DisableClassPrerequisitesOnModFeats=Desative os pré-requisitos de nível em talentos vinculados à classe fornecidos por este mod
