@@ -463,7 +463,8 @@ internal static class MeleeCombatFeats
         var concentrationProvider = new StopPowerConcentrationProvider(
             Name,
             "Tooltip/&CleavingAttackConcentration",
-            Sprites.GetSprite("CleavingAttackConcentrationIcon", Resources.PowerAttackConcentrationIcon, 64, 64));
+            Sprites.GetSprite(nameof(Resources.PowerAttackConcentrationIcon), Resources.PowerAttackConcentrationIcon,
+                64, 64));
 
         var modifyAttackModeForWeapon = FeatureDefinitionBuilder
             .Create("ModifyAttackModeForWeaponFeatCleavingAttack")
@@ -487,7 +488,7 @@ internal static class MeleeCombatFeats
         var powerCleavingAttack = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}")
             .SetGuiPresentation(Name, Category.Feat,
-                Sprites.GetSprite("CleavingAttackIcon", Resources.PowerAttackIcon, 128, 64))
+                Sprites.GetSprite(nameof(Resources.PowerAttackIcon), Resources.PowerAttackIcon, 128, 64))
             .SetUsesFixed(ActivationTime.NoCost)
             .SetEffectDescription(EffectDescriptionBuilder
                 .Create()
@@ -528,11 +529,14 @@ internal static class MeleeCombatFeats
             .SetGuiPresentation(Category.Feat)
             .SetFeatures(
                 powerCleavingAttack,
-                powerTurnOffCleavingAttack)
-            .SetCustomSubFeatures(
-                new AddExtraMainHandAttack(
-                    ActionDefinitions.ActionType.Bonus,
-                    ValidatorsCharacter.HasAnyOfConditions(conditionCleavingAttackFinish.Name)))
+                powerTurnOffCleavingAttack,
+                FeatureDefinitionBuilder
+                    .Create($"Feature{Name}")
+                    .SetGuiPresentationNoContent(true)
+                    .SetCustomSubFeatures(new AddExtraMainHandAttack(
+                        ActionDefinitions.ActionType.Bonus,
+                        ValidatorsCharacter.HasAnyOfConditions(conditionCleavingAttackFinish.Name)))
+                    .AddToDB())
             .AddToDB();
 
         concentrationProvider.StopPower = powerTurnOffCleavingAttack;
