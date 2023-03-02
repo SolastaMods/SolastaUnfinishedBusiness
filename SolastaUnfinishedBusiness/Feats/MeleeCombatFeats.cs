@@ -570,22 +570,17 @@ internal static class MeleeCombatFeats
                 return;
             }
 
-            var rulesetCharacter = attacker.RulesetCharacter;
-
-            // activeEffect != null means a magical attack
-            if (!ValidatorsWeapon.HasAnyWeaponTag(
-                    attackMode.SourceDefinition as ItemDefinition, TagsDefinitions.WeaponTagHeavy))
+            if (!Validate(attackMode))
             {
                 return;
             }
 
-            TryToApplyCondition(rulesetCharacter, attackMode);
+            TryToApplyCondition(attacker.RulesetCharacter, attackMode);
         }
 
         public void ModifyAttackMode(RulesetCharacter character, RulesetAttackMode attackMode)
         {
-            if (!ValidatorsWeapon.HasAnyWeaponTag(
-                    attackMode.SourceDefinition as ItemDefinition, TagsDefinitions.WeaponTagHeavy))
+            if (!Validate(attackMode))
             {
                 return;
             }
@@ -615,7 +610,10 @@ internal static class MeleeCombatFeats
             RulesetAttackMode attackMode,
             RulesetEffect activeEffect)
         {
-            var rulesetCharacter = attacker.RulesetCharacter;
+            if (!Validate(attackMode))
+            {
+                yield break;
+            }
 
             // activeEffect != null means a magical attack
             if (activeEffect != null)
@@ -623,17 +621,18 @@ internal static class MeleeCombatFeats
                 yield break;
             }
 
-            TryToApplyCondition(rulesetCharacter, attackMode);
+            TryToApplyCondition(attacker.RulesetCharacter, attackMode);
+        }
+
+        private static bool Validate(RulesetAttackMode attackMode)
+        {
+            var itemDefinition = attackMode.SourceDefinition as ItemDefinition;
+
+            return ValidatorsWeapon.IsMelee(itemDefinition) && ValidatorsWeapon.HasAnyWeaponTag(itemDefinition);
         }
 
         private void TryToApplyCondition(RulesetCharacter rulesetCharacter, RulesetAttackMode attackMode)
         {
-            if (!ValidatorsWeapon.HasAnyWeaponTag(
-                    attackMode.SourceDefinition as ItemDefinition, TagsDefinitions.WeaponTagHeavy))
-            {
-                return;
-            }
-
             var rulesetCondition = RulesetCondition.CreateActiveCondition(
                 rulesetCharacter.Guid,
                 _conditionDefinition,
