@@ -39,7 +39,7 @@ internal static class ValidatorsWeapon
         return weapon.IsMagicalWeapon() || ShieldAttack.IsMagicShield(weapon);
     }
 
-    private static bool IsMelee([CanBeNull] ItemDefinition itemDefinition)
+    internal static bool IsMelee([CanBeNull] ItemDefinition itemDefinition)
     {
         return itemDefinition != null &&
                (itemDefinition.WeaponDescription?.WeaponTypeDefinition.WeaponProximity ==
