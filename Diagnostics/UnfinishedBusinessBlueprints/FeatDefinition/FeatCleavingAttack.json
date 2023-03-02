@@ -12,6 +12,7 @@
   "familyTag": "",
   "knownFeatsPrerequisite": [],
   "features": [
+    "Definition:FeatureFeatCleavingAttack:16a5ffc5-3e26-5c4a-afb0-a3212426c5fa",
     "Definition:PowerFeatCleavingAttack:6eb76d0e-6592-5a16-8cd8-77c11ed8f649",
     "Definition:PowerFeatCleavingAttackTurnOff:d8ee2c18-1e49-55ec-8e09-96020537c490"
   ],

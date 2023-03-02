@@ -330,7 +330,7 @@
     "description": "Feat/&FeatCleavingAttackDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "a8b3e6e7-79f7-5480-8e44-41645f0064e2",
+      "m_AssetGUID": "09a7e454-274f-5b56-af1c-156b29b9ae52",
       "m_SubObjectName": null,
       "m_SubObjectType": null
     },
