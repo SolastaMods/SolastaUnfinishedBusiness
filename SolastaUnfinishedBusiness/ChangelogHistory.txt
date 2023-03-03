@@ -2,6 +2,16 @@
 
 1.4.33.56:
 
+ATTENTION:
+
+- ADDED a rollback button under Gameplay > Tools in case you don't read [HAVE YOU READ?]
+- RESPEC any hero who took Deadeye or Power Attack feats before or on 1.4.33.54 version
+- we aren't to be blamed if you don't read these update messages
+
+CHANGES:
+
+- added Gameplay > Tools > Disable auto update setting
+- fixed Cleaving Attack null exception under certain scenarios
 - fixed Mantle of Thorns spell not following caster
 - changed Oath of Altruism's guardian aura to require reaction to be available
 - improved RESPEC to terminate effects as well as use standard TA code on guid swap
