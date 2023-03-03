@@ -75,32 +75,6 @@ public static class RulesetCharacterPatcher
         }
     }
 
-    [HarmonyPatch(typeof(RulesetCharacter), nameof(RulesetCharacter.TerminateMatchingUniquePower))]
-    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    [UsedImplicitly]
-    public static class TerminateMatchingUniquePower_Patch
-    {
-        [UsedImplicitly]
-        public static void Postfix(RulesetCharacter __instance, FeatureDefinitionPower powerDefinition)
-        {
-            //PATCH: terminates all matching spells and powers of same group
-            GlobalUniqueEffects.TerminateMatchingUniquePower(__instance, powerDefinition);
-        }
-    }
-
-    [HarmonyPatch(typeof(RulesetCharacter), nameof(RulesetCharacter.TerminateMatchingUniqueSpell))]
-    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
-    [UsedImplicitly]
-    public static class TerminateMatchingUniqueSpell_Patch
-    {
-        [UsedImplicitly]
-        public static void Postfix(RulesetCharacter __instance, SpellDefinition spellDefinition)
-        {
-            //PATCH: terminates all matching spells and powers of same group
-            GlobalUniqueEffects.TerminateMatchingUniqueSpell(__instance, spellDefinition);
-        }
-    }
-
     [HarmonyPatch(typeof(RulesetCharacter), nameof(RulesetCharacter.OnConditionAdded))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]

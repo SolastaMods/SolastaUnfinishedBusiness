@@ -52,6 +52,7 @@ internal sealed class OathOfAltruism : AbstractSubclass
         var conditionAuraOfTheGuardian = ConditionDefinitionBuilder
             .Create($"Condition{Name}AuraOfTheGuardian")
             .SetGuiPresentation(Category.Condition, ConditionShielded)
+            .SetSilent(Silent.WhenAddedOrRemoved)
             .SetFeatures(featureAuraOfTheGuardian)
             .AddToDB();
 

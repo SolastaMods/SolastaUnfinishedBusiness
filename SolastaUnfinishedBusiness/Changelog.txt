@@ -1,11 +1,14 @@
 ATTENTION:
 
-- RESPEC any hero who took Deadeye or Power Attack feats before this update
+- ADDED a rollback button under Gameplay > Tools in case you don't read [HAVE YOU READ?]
+- RESPEC any hero who took Deadeye or Power Attack feats before or on 1.4.33.54 version
+- we aren't to be blamed if you don't read these update messages
 
 CHANGES:
 
-- added Cleaving Attack feat to behave like Great Weapon Master
-- changed Deadeye feat to behave like Sharpshooter
-- changed Power Attack feat back to original design at -3/+3+PB for any unarmed or melee attack
-- fixed additional damage validators causing a null exception with spell casters
-- fixed Blade Mastery granting more advantage than it should
+- added Gameplay > Tools > Disable auto update setting
+- fixed Cleaving Attack null exception under certain scenarios
+- fixed Mantle of Thorns spell not following caster
+- changed Oath of Altruism's guardian aura to require reaction to be available
+- improved RESPEC to terminate effects as well as use standard TA code on guid swap
+- improved Piercer to allow damage dice reroll on any Piercing damage type

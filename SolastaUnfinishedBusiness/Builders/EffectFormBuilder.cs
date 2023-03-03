@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using SolastaUnfinishedBusiness.Api.Extensions;
 using SolastaUnfinishedBusiness.Api.Infrastructure;
@@ -8,6 +9,7 @@ using static RuleDefinitions;
 
 namespace SolastaUnfinishedBusiness.Builders;
 
+[SuppressMessage("ReSharper", "MemberCanBePrivate.Global")]
 internal class EffectFormBuilder
 {
     private readonly EffectForm effectForm;
@@ -165,6 +167,40 @@ internal class EffectFormBuilder
         return this;
     }
 #endif
+    internal static EffectForm DamageForm(string damageType = DamageTypeBludgeoning,
+        int diceNumber = 0,
+        DieType dieType = DieType.D1,
+        int bonusDamage = 0,
+        HealFromInflictedDamage healFromInflictedDamage = HealFromInflictedDamage.Never,
+        bool overrideWithBardicInspirationDie = false)
+    {
+        return CreateDamageForm(
+            damageType,
+            diceNumber,
+            dieType,
+            bonusDamage,
+            healFromInflictedDamage,
+            overrideWithBardicInspirationDie
+        ).Build();
+    }
+
+    internal static EffectFormBuilder CreateDamageForm(string damageType = DamageTypeBludgeoning,
+        int diceNumber = 0,
+        DieType dieType = DieType.D1,
+        int bonusDamage = 0,
+        HealFromInflictedDamage healFromInflictedDamage = HealFromInflictedDamage.Never,
+        bool overrideWithBardicInspirationDie = false)
+    {
+        return Create().SetDamageForm(
+            damageType,
+            diceNumber,
+            dieType,
+            bonusDamage,
+            healFromInflictedDamage,
+            overrideWithBardicInspirationDie
+        );
+    }
+
 
     internal EffectFormBuilder SetDamageForm(
         string damageType = DamageTypeBludgeoning,
@@ -424,6 +460,16 @@ internal class EffectFormBuilder
         effectForm.temporaryHitPointsForm = tempHpForm;
         effectForm.FormType = EffectForm.EffectFormType.TemporaryHitPoints;
         return this;
+    }
+
+    internal static EffectForm TopologyForm(TopologyForm.Type changeType, bool impactsFlyingCharacters)
+    {
+        return CreateTopologyForm(changeType, impactsFlyingCharacters).Build();
+    }
+    
+    internal static EffectFormBuilder CreateTopologyForm(TopologyForm.Type changeType, bool impactsFlyingCharacters)
+    {
+        return Create().SetTopologyForm(changeType, impactsFlyingCharacters);
     }
 
     internal EffectFormBuilder SetTopologyForm(TopologyForm.Type changeType, bool impactsFlyingCharacters)
