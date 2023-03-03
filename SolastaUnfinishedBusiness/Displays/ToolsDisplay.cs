@@ -101,7 +101,21 @@ internal static class ToolsDisplay
         UI.Label(Gui.Localize("ModUi/&General"));
         UI.Label();
 
-        var toggle = Main.Settings.EnableBetaContent;
+        var rollback = false;
+        if (UI.Button("ModUi/&Rollback", ref rollback))
+        {
+            BootContext.RollbackMod();
+        }
+
+        UI.Label();
+
+        var toggle = Main.Settings.DisableAutoUpdate;
+        if (UI.Toggle(Gui.Localize("ModUi/&DisableAutoUpdate"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.DisableAutoUpdate = toggle;
+        }
+
+        toggle = Main.Settings.EnableBetaContent;
         if (UI.Toggle(Gui.Localize("ModUi/&EnableBetaContent"), ref toggle, UI.AutoWidth()))
         {
             Main.Settings.EnableBetaContent = toggle;

@@ -223,3 +223,5 @@ ModUi/&UnlockSkinColors=Desbloquear cores de pele
 ModUi/&UseHeightOneCylinderEffect=Use um efeito de 1 cilindro de altura ao conjurar <color=#D89555>Tentáculos Negros, Enredar, Graxa</color> <i><color=#F0DAA0>[quadrado]</color></i> ou <color=#D89555>Crescimento do pico</color> <i><color=#F0DAA0>[rodada]</color></i>
 ModUi/&UseOfficialAdvantageDisadvantageRules=Use as regras oficiais de vantagem/desvantagem
 ModUi/&Visuals=<color=#F0DAA0>Visuais:</color> <b><i><color=#C04040E0>[Requer reinicialização]</color></i></b>
+ModUi/&DisableAutoUpdate=Desativar atualização automática
+ModUi/&Rollback=Reversão para a versão anterior [feche a interface do usuário do mod para confirmar]
