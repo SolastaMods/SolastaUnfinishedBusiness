@@ -58,6 +58,7 @@ internal sealed class PatronSoulBlade : AbstractSubclass
                             FeatureDefinitionAttackModifierBuilder
                                 .Create("AttackModifierSoulBladeEmpowerWeapon")
                                 .SetGuiPresentation(Category.Feature, PowerOathOfDevotionSacredWeapon)
+                                .SetCustomSubFeatures(ExtraCarefulTrackedItem.Marker)
                                 .SetMagicalWeapon()
                                 .SetAbilityScoreReplacement(AbilityScoreReplacement.SpellcastingAbility)
                                 .AddToDB(),
