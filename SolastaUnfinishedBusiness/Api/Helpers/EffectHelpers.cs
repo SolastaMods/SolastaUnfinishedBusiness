@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using SolastaUnfinishedBusiness.Api.Extensions;
 
 namespace SolastaUnfinishedBusiness.Api.Helpers;
@@ -129,6 +130,43 @@ internal static class EffectHelpers
             _ => null
         };
     }
+    
+    internal static List<RulesetEffect> GetAllEffectsBySourceGuid(ulong guid)
+    {
+        return ServiceRepository.GetService<IRulesetEntityService>().RulesetEntities.Values
+            .OfType<RulesetEffect>()
+            .Where(e => e.SourceGuid == guid)
+            .ToList();
+    }
+    
+    
+    internal static List<RulesetCondition> GetAllConditionsBySourceGuid(ulong guid)
+    {
+        return ServiceRepository.GetService<IRulesetEntityService>().RulesetEntities.Values
+            .OfType<RulesetCondition>()
+            .Where(e => e.SourceGuid == guid)
+            .ToList();
+    }
+
+    internal static void DoTerminate(this RulesetEffect effect, RulesetCharacter source = null)
+    {
+        source ??= GetCharacterByGuid(effect.SourceGuid);
+
+        if (source != null)
+        {
+            switch (effect)
+            {
+                case RulesetEffectPower power:
+                    source.TerminatePower(power);
+                    return;
+                case RulesetEffectSpell spell:
+                    source.TerminateSpell(spell);
+                    return;
+            }
+        }
+
+        effect.Terminate(true);
+    }
 
     internal static (RulesetCharacter, BaseDefinition) GetCharacterAndSourceDefinitionByEffectGuid(ulong guid)
     {
@@ -148,5 +186,18 @@ internal static class EffectHelpers
             RulesetEffectPower power => (power.User, power.PowerDefinition),
             _ => (null, null)
         };
+    }
+
+    internal static void SetGuid(this RulesetEffect effect, ulong guid)
+    {
+        switch (effect)
+        {
+            case RulesetEffectPower power:
+                power.userId = guid;
+                break;
+            case RulesetEffectSpell spell:
+                spell.casterId = guid;
+                break;
+        }
     }
 }
