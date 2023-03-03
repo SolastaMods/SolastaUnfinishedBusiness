@@ -61,8 +61,9 @@ internal static class GlobalUniqueEffects
 
         var character = action.ActingCharacter.RulesetCharacter;
         var effects = GetLimitedPowerEffects(character, limiter);
+        effects.Sort((a, b) => a.Guid.CompareTo(b.Guid));
         var limit = limiter.GetLimit(character);
-        var remove = 1 + effects.Count - limit;
+        var remove = effects.Count - limit;
 
         for (var i = 0; i < remove; i++)
         {
