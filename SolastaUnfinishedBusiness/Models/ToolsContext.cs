@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using JetBrains.Annotations;
+using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Builders;
 using TA;
 using UnityEngine;
@@ -191,7 +192,6 @@ internal static class ToolsContext
         private static void FinalizeRespec([NotNull] RulesetCharacter oldHero,
             [NotNull] RulesetCharacter newHero)
         {
-            var guid = oldHero.Guid;
             var tags = oldHero.Tags;
             var experience = oldHero.GetAttribute(AttributeDefinitions.Experience);
             var gameCampaignCharacters = Gui.GameCampaign.Party.CharactersList;
@@ -202,10 +202,20 @@ internal static class ToolsContext
 
             if (gameLocationCharacterService != null)
             {
-                var gameLocationCharacter =
-                    gameLocationCharacterService.PartyCharacters.Find(x => x.RulesetCharacter == oldHero);
+                var gameLocationCharacter = GameLocationCharacter.GetFromActor(oldHero);
 
-                newHero.guid = guid;
+                var oldGuid = oldHero.Guid;
+                var newGuid = newHero.Guid;
+                
+                //Terminate all effects started by old character
+                EffectHelpers.GetAllEffectsBySourceGuid(oldGuid).ForEach(e => e.DoTerminate(oldHero));
+                //Replace source for all effects of new character
+                EffectHelpers.GetAllEffectsBySourceGuid(newGuid).ForEach(e => e.SetGuid(oldGuid));
+                //Replace source for all conditions of new character
+                EffectHelpers.GetAllConditionsBySourceGuid(newGuid).ForEach(c => c.sourceGuid = oldGuid);
+                //Replace old character with new
+                ServiceRepository.GetService<IRulesetEntityService>().SwapEntities(oldHero, newHero);
+
                 newHero.Tags.AddRange(tags);
                 newHero.Attributes[AttributeDefinitions.Experience] = experience;
 
