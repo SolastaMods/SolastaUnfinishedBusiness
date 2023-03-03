@@ -61,8 +61,9 @@ internal static class GlobalUniqueEffects
 
         var character = action.ActingCharacter.RulesetCharacter;
         var effects = GetLimitedPowerEffects(character, limiter);
+        effects.Sort((a, b) => a.Guid.CompareTo(b.Guid));
         var limit = limiter.GetLimit(character);
-        var remove = 1 + effects.Count - limit;
+        var remove = effects.Count - limit;
 
         for (var i = 0; i < remove; i++)
         {
@@ -96,12 +97,13 @@ internal static class GlobalUniqueEffects
     internal static void TerminateMatchingUniqueEffect(RulesetCharacter character, RulesetEffect uniqueEffect)
     {
         var group = GetSameGroupItems(uniqueEffect.SourceDefinition);
-        if (uniqueEffect is RulesetEffectPower {PowerDefinition.UniqueInstance: true} 
+        if (uniqueEffect is RulesetEffectPower {PowerDefinition.UniqueInstance: true}
             or RulesetEffectSpell {SpellDefinition.UniqueInstance: true})
         {
             //ensure we try to properly terminate unique effects not in groups
-            group.Add(uniqueEffect.SourceDefinition); 
+            group.Add(uniqueEffect.SourceDefinition);
         }
+
         var allSubDefinitions = new HashSet<BaseDefinition>();
 
         foreach (var definition in group)
