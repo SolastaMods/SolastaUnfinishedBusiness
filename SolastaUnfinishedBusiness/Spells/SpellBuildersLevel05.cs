@@ -94,7 +94,8 @@ internal static partial class SpellBuilders
     {
         const string NAME = "MantleOfThorns";
 
-        var effectMantleOfThorns = EffectProxyDefinitionBuilder
+        //Leaving this proxy in case someone already has spell in effect
+        EffectProxyDefinitionBuilder
             .Create(EffectProxyDefinitions.ProxySpikeGrowth, $"EffectProxy{NAME}")
             .SetCanMove()
             .SetCanMoveOnCharacters()
@@ -110,10 +111,6 @@ internal static partial class SpellBuilders
                 EffectFormBuilder
                     .Create()
                     .SetDamageForm(DamageTypePiercing, 2, DieType.D8)
-                    .Build(),
-                EffectFormBuilder
-                    .Create()
-                    .SetSummonEffectProxyForm(effectMantleOfThorns)
                     .Build(),
                 EffectFormBuilder
                     .Create()
