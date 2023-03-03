@@ -102,7 +102,7 @@ internal static class ToolsDisplay
         UI.Label();
 
         var rollback = false;
-        if (UI.Button("ModUi/&Rollback", ref rollback))
+        if (UI.Button(Gui.Localize("ModUi/&Rollback"), ref rollback))
         {
             BootContext.RollbackMod();
         }
