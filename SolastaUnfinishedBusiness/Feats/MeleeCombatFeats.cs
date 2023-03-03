@@ -556,6 +556,11 @@ internal static class MeleeCombatFeats
 
         private static bool Validate(RulesetAttackMode attackMode)
         {
+            if (attackMode == null)
+            {
+                return false;
+            }
+
             var itemDefinition = attackMode.SourceDefinition as ItemDefinition;
 
             return !attackMode.Ranged && ValidatorsWeapon.IsMelee(itemDefinition);
@@ -635,7 +640,9 @@ internal static class MeleeCombatFeats
         {
             var itemDefinition = attackMode.SourceDefinition as ItemDefinition;
 
-            if (attackMode.Ranged || !ValidatorsWeapon.IsMelee(itemDefinition) ||
+            if (attackMode == null ||
+                attackMode.Ranged ||
+                !ValidatorsWeapon.IsMelee(itemDefinition) ||
                 !ValidatorsWeapon.HasAnyWeaponTag(itemDefinition, TagsDefinitions.WeaponTagHeavy))
             {
                 return;
