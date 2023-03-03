@@ -4,6 +4,7 @@ using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.Extensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
+using SolastaUnfinishedBusiness.Api.ModKit;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomUI;
@@ -76,6 +77,11 @@ internal static class GuardianAuraHpSwap
             yield break;
         }
 
+        if (!unit.CanReact(true))
+        {
+            yield break;
+        }
+
         if (defender.RulesetCharacter.isDeadOrDyingOrUnconscious)
         {
             yield break;
@@ -88,18 +94,10 @@ internal static class GuardianAuraHpSwap
 
         var actionService = ServiceRepository.GetService<IGameLocationActionService>();
         var count = actionService.PendingReactionRequestGroups.Count;
-        var attackMode = defender.FindActionAttackMode(Id.AttackMain);
-        var guiUnit = new GuiCharacter(unit);
-        var guiDefender = new GuiCharacter(defender);
-        var actionParams = new CharacterActionParams(
-            unit,
-            (Id)ExtraActionId.DoNothingReaction,
-            attackMode,
-            defender,
-            new ActionModifier())
+        var actionParams = new CharacterActionParams(unit, (Id)ExtraActionId.DoNothingReaction)
         {
-            StringParameter = Gui.Format(
-                "Reaction/&CustomReactionGuardianAuraDescription", guiUnit.Name, guiDefender.Name)
+            StringParameter = "CustomReactionGuardianAuraDescription"
+                .Formatted(Category.Reaction, defender.Name, damageAmount)
         };
 
         RequestCustomReaction("GuardianAura", actionParams);

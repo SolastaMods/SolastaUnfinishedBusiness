@@ -94,35 +94,23 @@ internal static partial class SpellBuilders
     {
         const string NAME = "MantleOfThorns";
 
-        var effectMantleOfThorns = EffectProxyDefinitionBuilder
+        //Leaving this proxy in case someone already has spell in effect
+        EffectProxyDefinitionBuilder
             .Create(EffectProxyDefinitions.ProxySpikeGrowth, $"EffectProxy{NAME}")
             .SetCanMove()
             .SetCanMoveOnCharacters()
             .AddToDB();
 
-        var effectDescription = EffectDescriptionBuilder
-            .Create()
+        var effectDescription = EffectDescriptionBuilder.Create()
             .SetParticleEffectParameters(SpikeGrowth)
             .SetTargetingData(Side.Enemy, RangeType.Self, 0, TargetType.Sphere, 3)
             .SetDurationData(DurationType.Minute, 1)
             .SetRecurrentEffect(RecurrentEffect.OnEnter | RecurrentEffect.OnMove | RecurrentEffect.OnTurnStart)
             .AddEffectForms(
-                EffectFormBuilder
-                    .Create()
-                    .SetDamageForm(DamageTypePiercing, 2, DieType.D8)
-                    .Build(),
-                EffectFormBuilder
-                    .Create()
-                    .SetSummonEffectProxyForm(effectMantleOfThorns)
-                    .Build(),
-                EffectFormBuilder
-                    .Create()
-                    .SetTopologyForm(TopologyForm.Type.DangerousZone, false)
-                    .Build(),
-                EffectFormBuilder
-                    .Create()
-                    .SetTopologyForm(TopologyForm.Type.DifficultThrough, false)
-                    .Build())
+                EffectFormBuilder.DamageForm(DamageTypePiercing, 2, DieType.D8),
+                EffectFormBuilder.TopologyForm(TopologyForm.Type.DangerousZone, false),
+                EffectFormBuilder.TopologyForm(TopologyForm.Type.DifficultThrough, false)
+            )
             .Build();
 
         var spell = SpellDefinitionBuilder

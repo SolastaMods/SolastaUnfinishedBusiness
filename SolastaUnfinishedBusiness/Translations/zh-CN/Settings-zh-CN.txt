@@ -223,3 +223,5 @@ ModUi/&UnlockSkinColors=解锁肤色
 ModUi/&UseHeightOneCylinderEffect=施放<color=#D89555>黑色触手、纠缠、油脂</color> <i><color=#F0DAA0>[square]</color></i> 或 <color=#D89555 时使用高度为 1 的圆柱体效果>尖峰生长</color> <i><color=#F0DAA0>[圆形]</color></i>
 ModUi/&UseOfficialAdvantageDisadvantageRules=使用官方优势/劣势规则
 ModUi/&Visuals=<color=#F0DAA0>视觉效果：</color> <b><i><color=#C04040E0>[需要重启]</color></i></b>
+ModUi/&DisableAutoUpdate=禁用自动更新
+ModUi/&Rollback=回滚到以前的版本 [关闭 mod UI 以确认]

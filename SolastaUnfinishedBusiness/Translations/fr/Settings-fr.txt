@@ -223,3 +223,5 @@ ModUi/&UnlockSkinColors=Déverrouiller les couleurs de peau
 ModUi/&UseHeightOneCylinderEffect=Utilisez un effet de cylindre de hauteur 1 lors du lancement de <color=#D89555>Tentacules noires, Enchevêtrement, Graisse</color> <i><color=#F0DAA0>[carré]</color></i> ou <color=#D89555>Croissance en pointe</color> <i><color=#F0DAA0>[rond]</color></i>
 ModUi/&UseOfficialAdvantageDisadvantageRules=Utiliser les règles officielles d'avantage/désavantage
 ModUi/&Visuals=<color=#F0DAA0>Visuels:</color> <b><i><color=#C04040E0>[Nécessite un redémarrage]</color></i></b>
+ModUi/&DisableAutoUpdate=Désactiver la mise à jour automatique
+ModUi/&Rollback=Retour à la version précédente [fermer l'interface utilisateur du mod pour confirmer]

@@ -181,14 +181,25 @@ public static class RulesetImplementationManagerPatcher
             bool canRerollDice,
             EffectGroupInfo effectGroupInfo)
         {
-            if (!criticalSuccess || rulesetActor is not RulesetCharacter rulesetCharacter)
+            var hero = rulesetActor as RulesetCharacterHero ??
+                       (rulesetActor as RulesetCharacter)?.OriginalFormCharacter as RulesetCharacterHero;
+
+            //TODO: make this a proper interface in case we need to support other use cases
+            if (hero != null &&
+                hero.TrainedFeats.Any(x => x.Name is "FeatPiercerDex" or "FeatPiercerStr") &&
+                damageForm.damageType == RuleDefinitions.DamageTypePiercing)
+            {
+                canRerollDice = true;
+            }
+
+            if (!criticalSuccess || hero == null)
             {
                 return rulesetActor.RollDamage(
                     damageForm, addDice, criticalSuccess, additionalDamage, damageRollReduction,
                     damageMultiplier, useVersatileDamage, attackModeDamage, rolledValues, canRerollDice);
             }
 
-            return rulesetCharacter.Side switch
+            return hero.Side switch
             {
                 RuleDefinitions.Side.Enemy => Main.Settings.CriticalHitModeEnemies switch
                 {

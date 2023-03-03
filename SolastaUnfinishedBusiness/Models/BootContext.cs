@@ -206,9 +206,9 @@ internal static class BootContext
 
     private static void Load()
     {
-        if (ShouldUpdate(out var version, out var changeLog))
+        if (!Main.Settings.DisableAutoUpdate && ShouldUpdate(out var version, out var changeLog))
         {
-            DisplayUpdateMessage(version, changeLog);
+            DisplayUpdateMessage(version, changeLog, "Would you like to update?");
         }
         else if (!Main.Settings.HideWelcomeMessage)
         {
@@ -225,6 +225,26 @@ internal static class BootContext
 
         // ReSharper disable once AssignNullToNotNullAttribute
         return infoJson["Version"].Value<string>();
+    }
+
+    private static string GetPreviousVersion()
+    {
+        var infoPayload = File.ReadAllText(Path.Combine(Main.ModFolder, "Info.json"));
+        var infoJson = JsonConvert.DeserializeObject<JObject>(infoPayload);
+        // ReSharper disable once AssignNullToNotNullAttribute
+        var installedVersion = infoJson["Version"].Value<string>();
+        var a1 = installedVersion.Split('.');
+        var minor = Int32.Parse(a1[3]);
+
+        a1[3] = (--minor).ToString();
+
+        // ReSharper disable once AssignNullToNotNullAttribute
+        return string.Join(".", a1);
+    }
+
+    internal static void RollbackMod()
+    {
+        DisplayUpdateMessage(GetPreviousVersion(), string.Empty, "Would you like to rollback?");
     }
 
     private static bool ShouldUpdate(out string version, [NotNull] out string changeLog)
@@ -275,7 +295,8 @@ internal static class BootContext
         var zipFile = $"SolastaUnfinishedBusiness-{version}.zip";
         var fullZipFile = Path.Combine(Main.ModFolder, zipFile);
         var fullZipFolder = Path.Combine(Main.ModFolder, "SolastaUnfinishedBusiness");
-        var url = $"{BaseURL}/{zipFile}";
+        var baseUrlByVersion = BaseURL.Replace("latest/download", $"download/{version}");
+        var url = $"{baseUrlByVersion}/{zipFile}";
 
         try
         {
@@ -318,17 +339,12 @@ internal static class BootContext
             () => { }); // keep like this - don't use null here
     }
 
-    private static void DisplayUpdateMessage(string version, string changeLog)
+    private static void DisplayUpdateMessage(string version, string changeLog, string question)
     {
-        if (changeLog == string.Empty)
-        {
-            changeLog = "- no changelog found";
-        }
-
         Gui.GuiService.ShowMessage(
             MessageModal.Severity.Attention2,
             "Message/&MessageModWelcomeTitle",
-            $"Version {version} is now available.\n\n{changeLog}\n\nWould you like to update?\n\nThe donate button will take you to PayPal by default. There are other donation options under Mod UI > Character.",
+            $"Version {version} is now available.\n\n{changeLog}\n\n{question}",
             "Message/&MessageOkTitle",
             "Message/&MessageCancelTitle",
             () => UpdateMod(version),

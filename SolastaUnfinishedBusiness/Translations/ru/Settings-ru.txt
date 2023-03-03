@@ -223,3 +223,5 @@ ModUi/&UnlockSkinColors=Разблокировать цвета кожи
 ModUi/&UseHeightOneCylinderEffect=Используйте эффект цилиндра высотой 1 при использовании <color=#D89555>Black Tentacles, Entangle, Grease</color> <i><color=#F0DAA0>[квадрат]</color></i> или <color=#D89555>Скачкообразный рост</color> <i><color=#F0DAA0>[round]</color></i>
 ModUi/&UseOfficialAdvantageDisadvantageRules=Используйте официальные правила преимуществ/недостатков
 ModUi/&Visuals=<color=#F0DAA0>Визуальные эффекты:</color> <b><i><color=#C04040E0>[Требуется перезагрузка]</color></i></b>
+ModUi/&DisableAutoUpdate=Отключить автоматическое обновление
+ModUi/&Rollback=Откат к предыдущей версии [закройте пользовательский интерфейс мода для подтверждения]
