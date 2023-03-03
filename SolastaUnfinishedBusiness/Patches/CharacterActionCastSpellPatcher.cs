@@ -7,6 +7,7 @@ using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.Extensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
+using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.Models;
 
@@ -164,6 +165,23 @@ public static class CharacterActionCastSpellPatcher
             return currentAction is not CharacterActionUsePower characterActionUsePower || characterActionUsePower
                     .activePower.PowerDefinition.GetFirstSubFeatureOfType<IPreventRemoveConcentrationWithPowerUse>() ==
                 null;
+        }
+    }
+
+    [HarmonyPatch(typeof(CharacterActionCastSpell), nameof(CharacterActionCastSpell.HandleEffectUniqueness))]
+    [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
+    [UsedImplicitly]
+    public static class HandleEffectUniqueness_Patch
+    {
+        [UsedImplicitly]
+        public static bool Prefix([NotNull] CharacterActionCastSpell __instance)
+        {
+            //PATCH: terminates all matching spells and powers of same group
+            GlobalUniqueEffects.TerminateMatchingUniqueEffect(
+                __instance.ActingCharacter.RulesetCharacter,
+                __instance.ActiveSpell);
+
+            return false;
         }
     }
 }
