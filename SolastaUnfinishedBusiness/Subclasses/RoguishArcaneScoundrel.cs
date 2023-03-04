@@ -5,6 +5,8 @@ using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomInterfaces;
+using SolastaUnfinishedBusiness.CustomUI;
+using SolastaUnfinishedBusiness.Properties;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterSubclassDefinitions;
@@ -131,7 +133,7 @@ internal sealed class RoguishArcaneScoundrel : AbstractSubclass
 
         Subclass = CharacterSubclassDefinitionBuilder
             .Create(Name)
-            .SetGuiPresentation(Category.Subclass, RangerSwiftBlade)
+            .SetGuiPresentation(Category.Subclass, Sprites.GetSprite("ArcaneScoundrel", Resources.ArcaneScoundrel, 256))
             .AddFeaturesAtLevel(3,
                 castSpell,
                 proficiencyCraftyArcana)
