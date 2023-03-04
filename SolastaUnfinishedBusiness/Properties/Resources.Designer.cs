@@ -452,7 +452,7 @@ namespace SolastaUnfinishedBusiness.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        public static byte[] ArcaneScoundrel {
+        public static byte[] RoguishArcaneScoundrel {
             get {
                 object obj = ResourceManager.GetObject("ArcaneScoundrel", resourceCulture);
                 return ((byte[])(obj));
@@ -1618,6 +1618,16 @@ namespace SolastaUnfinishedBusiness.Properties {
         public static byte[] ReverseGravity {
             get {
                 object obj = ResourceManager.GetObject("ReverseGravity", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        public static byte[] RoguishDuelist {
+            get {
+                object obj = ResourceManager.GetObject("RoguishDuelist", resourceCulture);
                 return ((byte[])(obj));
             }
         }

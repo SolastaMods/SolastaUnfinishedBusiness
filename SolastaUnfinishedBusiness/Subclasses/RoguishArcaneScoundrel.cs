@@ -133,7 +133,8 @@ internal sealed class RoguishArcaneScoundrel : AbstractSubclass
 
         Subclass = CharacterSubclassDefinitionBuilder
             .Create(Name)
-            .SetGuiPresentation(Category.Subclass, Sprites.GetSprite("ArcaneScoundrel", Resources.ArcaneScoundrel, 256))
+            .SetGuiPresentation(Category.Subclass,
+                Sprites.GetSprite("ArcaneScoundrel", Resources.RoguishArcaneScoundrel, 256))
             .AddFeaturesAtLevel(3,
                 castSpell,
                 proficiencyCraftyArcana)
