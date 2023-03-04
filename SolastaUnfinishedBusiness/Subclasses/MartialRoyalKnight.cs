@@ -31,7 +31,7 @@ internal sealed class MartialRoyalKnight : AbstractSubclass
             .AddToDB();
 
         var effectDescription = EffectDescriptionBuilder
-            .Create(PowerDomainLifePreserveLife.EffectDescription)
+            .Create()
             .SetEffectForms(
                 EffectFormBuilder
                     .Create()
@@ -57,11 +57,11 @@ internal sealed class MartialRoyalKnight : AbstractSubclass
             .AddToDB();
 
         var powerRoyalKnightInspiringSurge = FeatureDefinitionPowerBuilder
-            .Create(PowerDomainLifePreserveLife, "PowerRoyalKnightInspiringSurge")
+            .Create("PowerRoyalKnightInspiringSurge")
             .SetGuiPresentation(Category.Feature, SpellDefinitions.Heroism)
             .SetUsesFixed(ActivationTime.BonusAction, RechargeRate.LongRest)
             .SetEffectDescription(EffectDescriptionBuilder
-                .Create(PowerDomainLifePreserveLife.EffectDescription)
+                .Create()
                 .SetTargetingData(Side.Ally, RangeType.Distance, 20, TargetType.Individuals)
                 .SetTargetFiltering(
                     TargetFilteringMethod.CharacterOnly,
