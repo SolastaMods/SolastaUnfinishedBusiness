@@ -62,7 +62,8 @@ internal sealed class RoguishRaven : AbstractSubclass
 
         Subclass = CharacterSubclassDefinitionBuilder
             .Create("RoguishRaven")
-            .SetGuiPresentation(Category.Subclass, RangerShadowTamer)
+            .SetGuiPresentation(Category.Subclass,
+                Sprites.GetSprite("RoguishRaven", Resources.RoguishRaven, 256))
             .AddFeaturesAtLevel(3,
                 featureSetRavenSharpShooter,
                 BuildHeartSeekingShot())

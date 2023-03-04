@@ -452,16 +452,6 @@ namespace SolastaUnfinishedBusiness.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        public static byte[] RoguishArcaneScoundrel {
-            get {
-                object obj = ResourceManager.GetObject("ArcaneScoundrel", resourceCulture);
-                return ((byte[])(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Byte[].
-        /// </summary>
         public static byte[] ArtisanToolSmithTools {
             get {
                 object obj = ResourceManager.GetObject("ArtisanToolSmithTools", resourceCulture);
@@ -1625,9 +1615,39 @@ namespace SolastaUnfinishedBusiness.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
+        public static byte[] RoguishArcaneScoundrel {
+            get {
+                object obj = ResourceManager.GetObject("RoguishArcaneScoundrel", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
         public static byte[] RoguishDuelist {
             get {
                 object obj = ResourceManager.GetObject("RoguishDuelist", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        public static byte[] RoguishRaven {
+            get {
+                object obj = ResourceManager.GetObject("RoguishRaven", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        public static byte[] RoguishSlayer {
+            get {
+                object obj = ResourceManager.GetObject("RoguishSlayer", resourceCulture);
                 return ((byte[])(obj));
             }
         }
