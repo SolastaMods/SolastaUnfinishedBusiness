@@ -33,7 +33,7 @@ internal sealed class DomainSmith : AbstractSubclass
             .SetPreparedSpellGroups(
                 BuildSpellGroup(1, Identify, SearingSmite), 
                 BuildSpellGroup(3, HeatMetal, MagicWeapon),
-                BuildSpellGroup(5, ProtectionFromEnergy, Haste), //Elemental Weapon later
+                BuildSpellGroup(5, ProtectionFromEnergy, ElementalWeapon),
                 BuildSpellGroup(7, WallOfFire, Stoneskin),
                 BuildSpellGroup(9, FlameStrike, HoldMonster)) 
             .SetSpellcastingClass(CharacterClassDefinitions.Cleric)
