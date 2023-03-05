@@ -31,7 +31,7 @@ internal sealed class MartialRoyalKnight : AbstractSubclass
             .AddToDB();
 
         var effectDescription = EffectDescriptionBuilder
-            .Create()
+            .Create(PowerDomainLifePreserveLife.EffectDescription)
             .SetEffectForms(
                 EffectFormBuilder
                     .Create()
@@ -61,7 +61,7 @@ internal sealed class MartialRoyalKnight : AbstractSubclass
             .SetGuiPresentation(Category.Feature, SpellDefinitions.Heroism)
             .SetUsesFixed(ActivationTime.BonusAction, RechargeRate.LongRest)
             .SetEffectDescription(EffectDescriptionBuilder
-                .Create()
+                .Create(PowerDomainLifePreserveLife.EffectDescription)
                 .SetTargetingData(Side.Ally, RangeType.Distance, 20, TargetType.Individuals)
                 .SetTargetFiltering(
                     TargetFilteringMethod.CharacterOnly,
