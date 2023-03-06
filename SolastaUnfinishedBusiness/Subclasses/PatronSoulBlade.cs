@@ -2,6 +2,8 @@
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
+using SolastaUnfinishedBusiness.CustomUI;
+using SolastaUnfinishedBusiness.Properties;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPowers;
@@ -103,7 +105,8 @@ internal sealed class PatronSoulBlade : AbstractSubclass
 
         Subclass = CharacterSubclassDefinitionBuilder
             .Create("PatronSoulBlade")
-            .SetGuiPresentation(Category.Subclass, CharacterSubclassDefinitions.OathOfTheMotherland)
+            .SetGuiPresentation(Category.Subclass,
+                Sprites.GetSprite("PatronSoulBlade", Resources.PatronSoulBlade, 256))
             .AddFeaturesAtLevel(1,
                 FeatureSetCasterFightingProficiency,
                 magicAffinitySoulBladeExpandedSpells,
@@ -120,6 +123,7 @@ internal sealed class PatronSoulBlade : AbstractSubclass
     internal override FeatureDefinitionSubclassChoice SubclassChoice =>
         FeatureDefinitionSubclassChoices.SubclassChoiceWarlockOtherworldlyPatrons;
 
+    // ReSharper disable once UnassignedGetOnlyAutoProperty
     internal override DeityDefinition DeityDefinition { get; }
 
     private static bool CanWeaponBeEmpowered(RulesetCharacter character, RulesetItem item)

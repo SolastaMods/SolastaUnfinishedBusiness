@@ -5,15 +5,16 @@ using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomInterfaces;
+using SolastaUnfinishedBusiness.CustomUI;
 using UnityEngine;
 using static RuleDefinitions;
-using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterSubclassDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionAttributeModifiers;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionDamageAffinitys;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPowers;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.ItemDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
 using static SolastaUnfinishedBusiness.Builders.Features.AutoPreparedSpellsGroupBuilder;
+using Resources = SolastaUnfinishedBusiness.Properties.Resources;
 
 namespace SolastaUnfinishedBusiness.Subclasses;
 
@@ -168,7 +169,8 @@ internal sealed class CircleOfTheAncientForest : AbstractSubclass
 
         Subclass = CharacterSubclassDefinitionBuilder
             .Create("CircleOfTheAncientForest")
-            .SetGuiPresentation(Category.Subclass, TraditionGreenmage)
+            .SetGuiPresentation(Category.Subclass,
+                Sprites.GetSprite("CircleOfTheAncientForest", Resources.CircleOfTheAncientForest, 256))
             .AddFeaturesAtLevel(2,
                 autoPreparedSpellsForestGuardian,
                 attributeModifierAncientForestRegrowth,
@@ -192,6 +194,7 @@ internal sealed class CircleOfTheAncientForest : AbstractSubclass
     internal override FeatureDefinitionSubclassChoice SubclassChoice => DatabaseHelper.FeatureDefinitionSubclassChoices
         .SubclassChoiceDruidCircle;
 
+    // ReSharper disable once UnassignedGetOnlyAutoProperty
     internal override DeityDefinition DeityDefinition { get; }
 
     private static FeatureDefinitionPower BuildHerbalBrew(

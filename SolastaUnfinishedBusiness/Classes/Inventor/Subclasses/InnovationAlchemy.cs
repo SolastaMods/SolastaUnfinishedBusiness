@@ -30,7 +30,8 @@ public static class InnovationAlchemy
 
         return CharacterSubclassDefinitionBuilder
             .Create("InnovationAlchemy")
-            .SetGuiPresentation(Category.Subclass, CharacterSubclassDefinitions.DomainElementalFire)
+            .SetGuiPresentation(Category.Subclass,
+                Sprites.GetSprite("InventorAlchemist", Resources.InventorAlchemist, 256))
             .AddFeaturesAtLevel(3, AlchemyPool, BuildBombs(), BuildFastHands(), BuildAutoPreparedSpells())
             .AddFeaturesAtLevel(5, ElementalBombs, BuildOverchargeFeature())
             .AddFeaturesAtLevel(9, AdvancedBombs)
