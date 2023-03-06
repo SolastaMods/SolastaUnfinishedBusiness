@@ -5,12 +5,13 @@ using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomInterfaces;
+using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Models;
+using SolastaUnfinishedBusiness.Properties;
 using static ActionDefinitions;
 using static FeatureDefinitionAttributeModifier;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
-using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterSubclassDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
 
 namespace SolastaUnfinishedBusiness.Subclasses;
@@ -299,7 +300,8 @@ internal sealed class RangerWildMaster : AbstractSubclass
 
         Subclass = CharacterSubclassDefinitionBuilder
             .Create("RangerWildMaster")
-            .SetGuiPresentation(Category.Subclass, PatronFiend)
+            .SetGuiPresentation(Category.Subclass,
+                Sprites.GetSprite("RangerWildMaster", Resources.RangerWildMaster, 256))
             .AddFeaturesAtLevel(3,
                 featureSetWildMaster03,
                 featureSetWildMasterBeastIsNextToSummoner)
@@ -367,6 +369,7 @@ internal sealed class RangerWildMaster : AbstractSubclass
     internal override FeatureDefinitionSubclassChoice SubclassChoice =>
         FeatureDefinitionSubclassChoices.SubclassChoiceRangerArchetypes;
 
+    // ReSharper disable once UnassignedGetOnlyAutoProperty
     internal override DeityDefinition DeityDefinition { get; }
 
     private static FeatureDefinitionPower BuildSpiritBeastPower(

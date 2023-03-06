@@ -8,7 +8,6 @@ using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Properties;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
-using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterSubclassDefinitions;
 
 namespace SolastaUnfinishedBusiness.Subclasses;
 
@@ -78,6 +77,7 @@ internal sealed class RoguishRaven : AbstractSubclass
     internal override FeatureDefinitionSubclassChoice SubclassChoice =>
         FeatureDefinitionSubclassChoices.SubclassChoiceRogueRoguishArchetypes;
 
+    // ReSharper disable once UnassignedGetOnlyAutoProperty
     internal override DeityDefinition DeityDefinition { get; }
 
     private static FeatureDefinitionFeatureSet BuildHeartSeekingShot()
@@ -101,7 +101,7 @@ internal sealed class RoguishRaven : AbstractSubclass
 
         var validateHasTwoHandedRangedWeapon =
             new RestrictedContextValidator(OperationType.Set, ValidatorsCharacter.HasTwoHandedRangedWeapon);
-        
+
         // -4 attack roll but critical threshold is 18 and deal 3d6 additional damage
         var conditionRavenHeartSeekingShot = ConditionDefinitionBuilder
             .Create("ConditionRavenHeartSeekingShot")
