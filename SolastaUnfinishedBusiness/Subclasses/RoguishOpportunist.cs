@@ -75,6 +75,7 @@ internal sealed class RoguishOpportunist : AbstractSubclass
     internal override FeatureDefinitionSubclassChoice SubclassChoice =>
         FeatureDefinitionSubclassChoices.SubclassChoiceRogueRoguishArchetypes;
 
+    // ReSharper disable once UnassignedGetOnlyAutoProperty
     internal override DeityDefinition DeityDefinition { get; }
 
     private sealed class OnComputeAttackModifierOpportunistQuickStrike : IOnComputeAttackModifier
@@ -94,6 +95,11 @@ internal sealed class RoguishOpportunist : AbstractSubclass
 
             var hero = GameLocationCharacter.GetFromActor(myself);
             var target = GameLocationCharacter.GetFromActor(defender);
+
+            if (attackMode == null)
+            {
+                return;
+            }
 
             // refresh sneak attack
             if (attackMode.AttackTags.Contains("RefreshSneakAttack"))
@@ -121,6 +127,11 @@ internal sealed class RoguishOpportunist : AbstractSubclass
             GameLocationCharacter me, GameLocationCharacter target, ActionModifier saveModifier, bool hasHitVisual,
             bool hasBorrowedLuck)
         {
+            if (target.RulesetCharacter == null)
+            {
+                yield break;
+            }
+
             if (target.Side == me.Side || me == target ||
                 me.GetActionTypeStatus(ActionDefinitions.ActionType.Reaction) !=
                 ActionDefinitions.ActionStatus.Available)
@@ -129,6 +140,12 @@ internal sealed class RoguishOpportunist : AbstractSubclass
             }
 
             var attackMode = me.FindActionAttackMode(ActionDefinitions.Id.AttackMain);
+
+            if (attackMode == null)
+            {
+                yield break;
+            }
+
             attackMode.AttackTags.Add("RefreshSneakAttack");
 
             var attackParam = new BattleDefinitions.AttackEvaluationParams();
