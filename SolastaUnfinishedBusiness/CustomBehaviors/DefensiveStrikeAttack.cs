@@ -80,7 +80,7 @@ internal static class DefensiveStrikeAttack
         {
             yield break;
         }
-        
+
         //Does unit has enough Channel Divinity uses left?
         var maxUses = unitCharacter.TryGetAttributeValue(AttributeDefinitions.ChannelDivinityNumber);
         if (unitCharacter.UsedChannelDivinity >= maxUses)

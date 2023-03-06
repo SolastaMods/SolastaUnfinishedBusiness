@@ -130,7 +130,7 @@ internal static class EffectHelpers
             _ => null
         };
     }
-    
+
     internal static List<RulesetEffect> GetAllEffectsBySourceGuid(ulong guid)
     {
         return ServiceRepository.GetService<IRulesetEntityService>().RulesetEntities.Values
@@ -138,8 +138,7 @@ internal static class EffectHelpers
             .Where(e => e.SourceGuid == guid)
             .ToList();
     }
-    
-    
+
     internal static List<RulesetCondition> GetAllConditionsBySourceGuid(ulong guid)
     {
         return ServiceRepository.GetService<IRulesetEntityService>().RulesetEntities.Values
