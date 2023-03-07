@@ -570,6 +570,7 @@ internal static partial class DatabaseHelper
         internal static FeatureDefinitionPower PowerClericTurnUndead14 { get; } = GetDefinition<FeatureDefinitionPower>("PowerClericTurnUndead14");
         internal static FeatureDefinitionPower PowerDomainBattleDecisiveStrike { get; } = GetDefinition<FeatureDefinitionPower>("PowerDomainBattleDecisiveStrike");
         internal static FeatureDefinitionPower PowerDomainElementalLightningBlade { get; } = GetDefinition<FeatureDefinitionPower>("PowerDomainElementalLightningBlade");
+        internal static FeatureDefinitionPower PowerDomainElementalHeraldOfTheElementsThunder { get; } = GetDefinition<FeatureDefinitionPower>("PowerDomainElementalHeraldOfTheElementsThunder");
         internal static FeatureDefinitionPower PowerDomainLifePreserveLife { get; } = GetDefinition<FeatureDefinitionPower>("PowerDomainLifePreserveLife");
         internal static FeatureDefinitionPower PowerDomainSunHeraldOfTheSun { get; } = GetDefinition<FeatureDefinitionPower>("PowerDomainSunHeraldOfTheSun");
         internal static FeatureDefinitionPower PowerDragonbornBreathWeaponBlack { get; } = GetDefinition<FeatureDefinitionPower>("PowerDragonbornBreathWeaponBlack");

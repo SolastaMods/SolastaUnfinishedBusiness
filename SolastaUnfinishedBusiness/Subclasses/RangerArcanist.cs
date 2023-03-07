@@ -4,9 +4,9 @@ using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Properties;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
-using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterSubclassDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionAdditionalDamages;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionMagicAffinitys;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPowers;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
 using static SolastaUnfinishedBusiness.Builders.Features.AutoPreparedSpellsGroupBuilder;
 
@@ -131,7 +131,7 @@ internal sealed class RangerArcanist : AbstractSubclass
 
         Subclass = CharacterSubclassDefinitionBuilder
             .Create("RangerArcanist")
-            .SetGuiPresentation(Category.Subclass, RoguishShadowCaster)
+            .SetGuiPresentation(Category.Subclass, Sprites.GetSprite("RangerArcanist", Resources.RangerArcanist, 256))
             .AddFeaturesAtLevel(3,
                 autoPreparedSpellsArcanist,
                 magicAffinityRangerArcanist,
@@ -162,7 +162,7 @@ internal sealed class RangerArcanist : AbstractSubclass
         return FeatureDefinitionPowerBuilder
             .Create(name)
             .SetGuiPresentation("PowerArcanistArcanePulse", Category.Feature,
-                Sprites.GetSprite("RangerArcanist", Resources.RangerArcanist, 256))
+                PowerDomainElementalHeraldOfTheElementsThunder)
             .SetUsesAbilityBonus(ActivationTime.Action, RechargeRate.LongRest, AttributeDefinitions.Wisdom)
             .SetEffectDescription(EffectDescriptionBuilder
                 .Create(MagicMissile.EffectDescription)
