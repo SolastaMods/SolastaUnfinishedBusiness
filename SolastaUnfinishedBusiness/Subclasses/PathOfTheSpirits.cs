@@ -3,6 +3,8 @@ using SolastaUnfinishedBusiness.Api.Extensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomInterfaces;
+using SolastaUnfinishedBusiness.CustomUI;
+using SolastaUnfinishedBusiness.Properties;
 using static FeatureDefinitionAttributeModifier;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
@@ -101,7 +103,8 @@ internal sealed class PathOfTheSpirits : AbstractSubclass
 
         Subclass = CharacterSubclassDefinitionBuilder
             .Create(SubclassName)
-            .SetGuiPresentation(Category.Subclass, MartialMountaineer)
+            .SetGuiPresentation(Category.Subclass,
+                Sprites.GetSprite("PathOfTheSpirits", Resources.PathOfTheSpirits, 256))
             .AddFeaturesAtLevel(3,
                 featureSetPathOfTheSpiritsSpiritSeeker,
                 featureSetPathOfTheSpiritsAnimalSpirit)

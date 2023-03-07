@@ -4,6 +4,8 @@ using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomInterfaces;
+using SolastaUnfinishedBusiness.CustomUI;
+using SolastaUnfinishedBusiness.Properties;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterSubclassDefinitions;
@@ -290,7 +292,8 @@ internal sealed class PathOfTheLight : AbstractSubclass
 
         Subclass = CharacterSubclassDefinitionBuilder
             .Create("PathOfTheLight")
-            .SetGuiPresentation(Category.Subclass, DomainSun)
+            .SetGuiPresentation(Category.Subclass,
+                Sprites.GetSprite("PathOfTheLight", Resources.PathOfTheLight, 256))
             .AddFeaturesAtLevel(3,
                 featureSetPathOfTheLightIlluminatingStrike,
                 featureSetPathOfTheLightPierceTheDarkness)
