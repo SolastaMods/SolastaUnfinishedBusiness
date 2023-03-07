@@ -1,8 +1,8 @@
 ﻿Feature/&FeatureSetRoyalKnightRoyalEnvoyDescription=Ajoutez la moitié de votre bonus de maîtrise (arrondi au supérieur) à tout test de Charisme que vous effectuez et qui n'utilise pas déjà votre bonus de maîtrise. De plus, vous maîtrisez les jets de sauvegarde de Charisme.
 Feature/&FeatureSetRoyalKnightRoyalEnvoyTitle=Envoyé royal
-Feature/&PowerRoyalKnightInspiringSurgeDescription=Confère à un allié une action principale supplémentaire pendant 1 tour. Ne se cumule pas avec Action Surge.
+Feature/&PowerRoyalKnightInspiringSurgeDescription=Par une action bonus, vous pouvez accorder à un allié une action principale supplémentaire pendant 1 tour. Cette action ne se cumule pas avec Action Surge. Une fois que vous avez utilisé cette fonctionnalité, vous ne pouvez plus l'utiliser tant que vous n'avez pas terminé un repos long.
 Feature/&PowerRoyalKnightInspiringSurgeTitle=Surtension inspirante
-Feature/&PowerRoyalKnightRallyingCryDescription=Remplace Second Wind par un pouvoir permettant de restaurer 4 fois les points de vie des niveaux de combattant à un ou plusieurs alliés dans un rayon de 6 cellules, jusqu'à leur maximum de points de vie.
+Feature/&PowerRoyalKnightRallyingCryDescription=Remplace Second Wind par un pouvoir qui restaure des points de vie égaux à 4x votre niveau de combattant, répartis uniformément, à un ou plusieurs alliés dans un rayon de 6 cases. Peut être utilisé un nombre de fois égal à votre modificateur de CHA (minimum d'une fois) par repos court.
 Feature/&PowerRoyalKnightRallyingCryTitle=Cri de ralliement
 Subclass/&MartialRoyalKnightDescription=Un chevalier qui inspire la grandeur chez les autres en commettant des actes courageux au combat. Un chevalier royal est un guerrier habile, mais celui qui dirige une bande d'alliés peut transformer même la milice la moins bien équipée en une bande de guerre féroce.
 Subclass/&MartialRoyalKnightTitle=Chevalier royal
