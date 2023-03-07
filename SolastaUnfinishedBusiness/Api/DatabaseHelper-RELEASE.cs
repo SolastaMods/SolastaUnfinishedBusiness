@@ -208,6 +208,7 @@ internal static partial class DatabaseHelper
     internal static class DeityDefinitions
     {
         internal static DeityDefinition Maraike { get; } = GetDefinition<DeityDefinition>("Maraike");
+        internal static DeityDefinition Pakri { get; } = GetDefinition<DeityDefinition>("Pakri");
     }
     internal static class EffectProxyDefinitions
     {
@@ -340,6 +341,7 @@ internal static partial class DatabaseHelper
     internal static class FeatureDefinitionAttackModifiers
     {
         internal static FeatureDefinitionAttackModifier AttackModifierMagicWeapon { get; } = GetDefinition<FeatureDefinitionAttackModifier>("AttackModifierMagicWeapon");
+        internal static FeatureDefinitionAttackModifier AttackModifierMagicWeapon2 { get; } = GetDefinition<FeatureDefinitionAttackModifier>("AttackModifierMagicWeapon2");
         internal static FeatureDefinitionAttackModifier AttackModifierMagicWeapon3 { get; } = GetDefinition<FeatureDefinitionAttackModifier>("AttackModifierMagicWeapon3");
         internal static FeatureDefinitionAttackModifier AttackModifierMonkFlurryOfBlowsUnarmedStrikeBonus { get; } = GetDefinition<FeatureDefinitionAttackModifier>("AttackModifierMonkFlurryOfBlowsUnarmedStrikeBonus");
         internal static FeatureDefinitionAttackModifier AttackModifierMonkFlurryOfBlowsUnarmedStrikeBonusFreedom { get; } = GetDefinition<FeatureDefinitionAttackModifier>("AttackModifierMonkFlurryOfBlowsUnarmedStrikeBonusFreedom");
@@ -408,6 +410,7 @@ internal static partial class DatabaseHelper
     }
     internal static class FeatureDefinitionCombatAffinitys
     {
+        internal static FeatureDefinitionCombatAffinity CombatAffinityAdamantinePlateArmor { get; } = GetDefinition<FeatureDefinitionCombatAffinity>("CombatAffinityAdamantinePlateArmor");
         internal static FeatureDefinitionCombatAffinity CombatAffinityBlessed { get; } = GetDefinition<FeatureDefinitionCombatAffinity>("CombatAffinityBlessed");
         internal static FeatureDefinitionCombatAffinity CombatAffinityBlurred { get; } = GetDefinition<FeatureDefinitionCombatAffinity>("CombatAffinityBlurred");
         internal static FeatureDefinitionCombatAffinity CombatAffinityDisengaging { get; } = GetDefinition<FeatureDefinitionCombatAffinity>("CombatAffinityDisengaging");
@@ -595,6 +598,7 @@ internal static partial class DatabaseHelper
         internal static FeatureDefinitionPower PowerInvocationRepellingBlast { get; } = GetDefinition<FeatureDefinitionPower>("PowerInvocationRepellingBlast");
         internal static FeatureDefinitionPower PowerMartialCommanderInvigoratingShout { get; } = GetDefinition<FeatureDefinitionPower>("PowerMartialCommanderInvigoratingShout");
         internal static FeatureDefinitionPower PowerMonkPatientDefense { get; } = GetDefinition<FeatureDefinitionPower>("PowerMonkPatientDefense");
+        internal static FeatureDefinitionPower PowerOathOfDevotionTurnUnholy { get; } = GetDefinition<FeatureDefinitionPower>("PowerOathOfDevotionTurnUnholy");
         internal static FeatureDefinitionPower PowerOathOfDevotionSacredWeapon { get; } = GetDefinition<FeatureDefinitionPower>("PowerOathOfDevotionSacredWeapon");
         internal static FeatureDefinitionPower PowerOathOfJugementWeightOfJustice { get; } = GetDefinition<FeatureDefinitionPower>("PowerOathOfJugementWeightOfJustice");
         internal static FeatureDefinitionPower PowerOathOfTirmarGoldenSpeech { get; } = GetDefinition<FeatureDefinitionPower>("PowerOathOfTirmarGoldenSpeech");
@@ -717,6 +721,7 @@ internal static partial class DatabaseHelper
     }
     internal static class FightingStyleDefinitions
     {
+        internal static FightingStyleDefinition GreatWeapon { get; } = GetDefinition<FightingStyleDefinition>("GreatWeapon");
         internal static FightingStyleDefinition TwoWeapon { get; } = GetDefinition<FightingStyleDefinition>("TwoWeapon");
     }
     internal static class FormationDefinitions
@@ -1251,6 +1256,7 @@ internal static partial class DatabaseHelper
         internal static SpellDefinition DominatePerson { get; } = GetDefinition<SpellDefinition>("DominatePerson");
         internal static SpellDefinition DreadfulOmen { get; } = GetDefinition<SpellDefinition>("DreadfulOmen");
         internal static SpellDefinition EldritchBlast { get; } = GetDefinition<SpellDefinition>("EldritchBlast");
+        internal static SpellDefinition ElementalWeapon { get; } = GetDefinition<SpellDefinition>("ElementalWeapon");
         internal static SpellDefinition EnhanceAbility { get; } = GetDefinition<SpellDefinition>("EnhanceAbility");
         internal static SpellDefinition Entangle { get; } = GetDefinition<SpellDefinition>("Entangle");
         internal static SpellDefinition ExpeditiousRetreat { get; } = GetDefinition<SpellDefinition>("ExpeditiousRetreat");
@@ -1303,6 +1309,7 @@ internal static partial class DatabaseHelper
         internal static SpellDefinition Light { get; } = GetDefinition<SpellDefinition>("Light");
         internal static SpellDefinition LightningBolt { get; } = GetDefinition<SpellDefinition>("LightningBolt");
         internal static SpellDefinition Longstrider { get; } = GetDefinition<SpellDefinition>("Longstrider");
+        internal static SpellDefinition MageArmor { get; } = GetDefinition<SpellDefinition>("MageArmor");
         internal static SpellDefinition MagicMissile { get; } = GetDefinition<SpellDefinition>("MagicMissile");
         internal static SpellDefinition MagicWeapon { get; } = GetDefinition<SpellDefinition>("MagicWeapon");
         internal static SpellDefinition MassCureWounds { get; } = GetDefinition<SpellDefinition>("MassCureWounds");
