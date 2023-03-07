@@ -638,7 +638,7 @@ internal static class MeleeCombatFeats
 
         public void ModifyAttackMode(RulesetCharacter character, RulesetAttackMode attackMode)
         {
-            var itemDefinition = attackMode.SourceDefinition as ItemDefinition;
+            var itemDefinition = attackMode?.SourceDefinition as ItemDefinition;
 
             if (attackMode == null ||
                 attackMode.Ranged ||

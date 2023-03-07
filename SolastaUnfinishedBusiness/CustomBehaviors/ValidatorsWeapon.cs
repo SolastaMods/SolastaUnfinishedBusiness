@@ -102,10 +102,12 @@ internal static class ValidatorsWeapon
         return HasAnyWeaponTag(weapon, TagsDefinitions.WeaponTagRange, TagsDefinitions.WeaponTagThrown);
     }
 
+#if false
     internal static bool IsRanged([CanBeNull] RulesetAttackMode attack)
     {
         return attack is { Reach: false, Ranged: true } or { Reach: false, Thrown: true };
     }
+#endif
 
     internal static bool IsThrownWeapon([CanBeNull] RulesetItem weapon)
     {
