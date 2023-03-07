@@ -56,9 +56,9 @@
     "description": "Subclass/&PatronMoonlitDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "e2e75a8dfa5339a4486b00747f23310e",
-      "m_SubObjectName": "Ranger_Shadow_Tamer",
-      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+      "m_AssetGUID": "dd6fa7d2-99ae-54f7-9f47-8614d2428b44",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",

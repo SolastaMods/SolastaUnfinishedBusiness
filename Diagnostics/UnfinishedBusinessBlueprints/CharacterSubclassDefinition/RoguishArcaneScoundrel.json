@@ -36,9 +36,9 @@
     "description": "Subclass/&RoguishArcaneScoundrelDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "2bc90f386449dab49a7897bfa72b4e16",
-      "m_SubObjectName": "Ranger_SwiftBlade",
-      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+      "m_AssetGUID": "3e73a2c2-af6c-59c1-8e47-77947b9d900a",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",

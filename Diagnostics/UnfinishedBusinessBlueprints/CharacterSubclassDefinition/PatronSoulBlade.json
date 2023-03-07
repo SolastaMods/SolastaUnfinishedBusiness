@@ -36,9 +36,9 @@
     "description": "Subclass/&PatronSoulBladeDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "0850c648d07d8b44b8a07c6562372816",
-      "m_SubObjectName": "Paladin_Oath_Of_The_Motherland",
-      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+      "m_AssetGUID": "257f8679-5269-57a3-8edf-aa0c5f476846",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",

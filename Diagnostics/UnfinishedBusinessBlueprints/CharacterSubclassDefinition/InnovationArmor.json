@@ -36,9 +36,9 @@
     "description": "Subclass/&InnovationArmorDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "204f9387786340a42bbbadd75d56cc98",
-      "m_SubObjectName": "Defense",
-      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+      "m_AssetGUID": "1d3f4f9d-d969-5a93-bc02-beed433271c4",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
