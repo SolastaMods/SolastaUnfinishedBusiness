@@ -1,0 +1,16 @@
+﻿Condition/&ConditionDomainSmithAdamantBenedictionDescription=Eure Rüstung wird zu Diamanten verstärkt, wodurch der kritische Schaden halbiert wird.
+Condition/&ConditionDomainSmithAdamantBenedictionTitle=Diamantene Rüstung
+Feature/&AttributeModifierDomainSmithReinforceArmorDescription=Diese Rüstung wurde verstärkt und bietet eine zusätzliche +{0} RK.
+Feature/&AttributeModifierDomainSmithReinforceArmorTitle=Verstärkt
+Feature/&AttributeModifierDomainSmithForgeMasteryDescription=Erhalte Feuerresistenz und während du eine Rüstung trägst erhältst du +1 RK.
+Feature/&AttributeModifierDomainSmithForgeMasteryTitle=Meisterschaft schmieden
+Feature/&AdditionalDamageDomainSmithDivineStrikeDescription=Verursache einmal pro Runde +{0}W8 Feuerschaden bei Waffenangriffen.
+Feature/&AdditionalDamageDomainSmithDivineStrikeTitle=Göttlicher Schlag
+Feature/&PowerDomainSmithAdamantBenedictionDescription=Mit einer Aktion die Rüstung von Verbündeten in einem Radius von 30 Fuß stärken. Ihre Rüstung erhält die Stärke einer diamantenen Rüstung und wird für eine Minute immun gegen kritische Treffer.
+Feature/&PowerDomainSmithAdamantBenedictionTitle=Channel Divinity: Adamant Segen
+Feature/&PowerDomainSmithReinforceArmorDescription=Einmal pro langer Pause, kannst du ein nichtmagisches Rüstungs- oder Schild verstärken. Das verstärkte Objekt erhält zusätzlich +{0} RK.
+Feature/&PowerDomainSmithReinforceArmorTitle=Rüstung verstärken
+Feature/&BonusProficiencyDomainSmithDescription=Erwerben Sie Kenntnisse im Schmieden von Werkzeugen und schwerer Rüstung.
+Feature/&BonusProficiencyDomainSmithTitle=Bonus-Kenntnisse
+Subclass/&DomainSmithTitle=Schmied
+Subclass/&DomainSmithDescription=Heilige Schmiede, die ihren Glauben durch Stahl und Schmieden kanalisieren. Verstärkte Panzerung der Verbündeten und rüstet sich selbst stark auf.
