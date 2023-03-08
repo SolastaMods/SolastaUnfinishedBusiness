@@ -157,7 +157,7 @@ internal static class DefensiveStrikeAttack
             yield return enums.Current;
         }
 
-        //Rerturn our copied attack mode to the pool
+        //return our copied attack mode to the pool
         RulesetAttackMode.AttackModesPool.Return(opportunityAttackMode);
     }
 }

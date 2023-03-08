@@ -119,6 +119,7 @@ internal sealed class PathOfTheSpirits : AbstractSubclass
     internal override FeatureDefinitionSubclassChoice SubclassChoice =>
         FeatureDefinitionSubclassChoices.SubclassChoiceBarbarianPrimalPath;
 
+    // ReSharper disable once UnassignedGetOnlyAutoProperty
     internal override DeityDefinition DeityDefinition { get; }
 
     private static FeatureDefinition BuildSpiritSeekerSpell(SpellDefinition spellDefinition)

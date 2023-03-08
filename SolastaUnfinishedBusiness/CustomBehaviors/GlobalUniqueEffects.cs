@@ -72,7 +72,7 @@ internal static class GlobalUniqueEffects
     }
 
     private static List<RulesetEffectPower> GetLimitedPowerEffects(
-        RulesetCharacter character,
+        RulesetEntity character,
         ILimitEffectInstances limit)
     {
         return EffectHelpers.GetAllEffectsBySourceGuid(character.Guid)

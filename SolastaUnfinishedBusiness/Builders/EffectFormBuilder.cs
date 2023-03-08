@@ -377,7 +377,7 @@ internal class EffectFormBuilder
             shapeChangeType = shapeChangeType,
             keepMentalAbilityScores = keepMentalAbilityScores,
             specialSubstituteCondition = specialSubstituteCondition,
-            shapeOptions = shapeOptions,
+            shapeOptions = shapeOptions
         };
 
         effectForm.shapeChangeForm = shapeChangeForm;

@@ -5,8 +5,8 @@ ATTENTION:
 CHANGES:
 
 - added Domain Smith subclass
+- added custom sprites to 28 subclasses by TACO [awesome work there, he deserve all the kudos on Discord]
 - added Elemental Weapon spell
-- added custom sprites to 22 subclasses by TACO [awesome work there]
 - fixed Opportunist null exception when targeting gadgets
-- fixed a null exception when exporting heroes with certain behaviors
+- fixed a null exception when exporting Inventors at campaign end
 - improved Royal Knight descriptions

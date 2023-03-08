@@ -36,6 +36,7 @@ public static class Mod
     {
         if (logLevel >= LogLevel.Warning)
         {
+            // ReSharper disable once InvocationIsSkipped
             Main.Log("[Warn] ".orange().bold() + str);
         }
     }
@@ -44,6 +45,7 @@ public static class Mod
     {
         if (logLevel >= LogLevel.Info)
         {
+            // ReSharper disable once InvocationIsSkipped
             Main.Log("[Info] " + str);
         }
     }
@@ -52,6 +54,7 @@ public static class Mod
     {
         if (logLevel >= LogLevel.Debug)
         {
+            // ReSharper disable once InvocationIsSkipped
             Main.Log("[Debug] ".green() + str);
         }
     }
@@ -60,6 +63,7 @@ public static class Mod
     {
         if (logLevel >= LogLevel.Trace)
         {
+            // ReSharper disable once InvocationIsSkipped
             Main.Log("[Trace] ".color(RGBA.lightblue) + str);
         }
     }
