@@ -1,12 +1,12 @@
 ﻿using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
+using SolastaUnfinishedBusiness.Models;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPowers;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
 using static SolastaUnfinishedBusiness.Builders.Features.AutoPreparedSpellsGroupBuilder;
-using static SolastaUnfinishedBusiness.Models.SpellsContext;
 
 namespace SolastaUnfinishedBusiness.Subclasses;
 
@@ -25,9 +25,9 @@ internal sealed class DomainSmith : AbstractSubclass
             .SetGuiPresentation("ExpandedSpells", Category.Feature)
             .SetAutoTag("Domain")
             .SetPreparedSpellGroups(
-                BuildSpellGroup(1, Identify, SearingSmite),
+                BuildSpellGroup(1, Identify, SpellsContext.SearingSmite),
                 BuildSpellGroup(3, HeatMetal, MagicWeapon),
-                BuildSpellGroup(5, ProtectionFromEnergy, ElementalWeapon),
+                BuildSpellGroup(5, ProtectionFromEnergy, SpellsContext.ElementalWeapon),
                 BuildSpellGroup(7, WallOfFire, Stoneskin),
                 BuildSpellGroup(9, FlameStrike, HoldMonster))
             .SetSpellcastingClass(CharacterClassDefinitions.Cleric)
