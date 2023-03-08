@@ -12,7 +12,6 @@ using SolastaUnfinishedBusiness.CustomUI;
 using UnityEngine;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
-using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterSubclassDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.ConditionDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.DecisionPackageDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionActionAffinitys;
@@ -48,7 +47,8 @@ internal sealed class MartialMarshal : AbstractSubclass
 
         Subclass = CharacterSubclassDefinitionBuilder
             .Create("MartialMarshal")
-            .SetGuiPresentation(Category.Subclass, OathOfJugement)
+            .SetGuiPresentation(Category.Subclass,
+                Sprites.GetSprite("MartialMarshal", Resources.MartialMarshal, 256))
             .AddFeaturesAtLevel(3,
                 BuildMarshalCoordinatedAttack(),
                 BuildFeatureSetMarshalKnowYourEnemyFeatureSet(),
@@ -68,6 +68,7 @@ internal sealed class MartialMarshal : AbstractSubclass
     internal override FeatureDefinitionSubclassChoice SubclassChoice =>
         FeatureDefinitionSubclassChoices.SubclassChoiceFighterMartialArchetypes;
 
+    // ReSharper disable once UnassignedGetOnlyAutoProperty
     internal override DeityDefinition DeityDefinition { get; }
 
     private static int GetKnowledgeLevelOfEnemy(RulesetCharacter enemy)

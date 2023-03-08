@@ -2,9 +2,10 @@
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomInterfaces;
+using SolastaUnfinishedBusiness.CustomUI;
+using SolastaUnfinishedBusiness.Properties;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
-using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterSubclassDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.ConditionDefinitions;
 using static SolastaUnfinishedBusiness.Subclasses.CommonBuilders;
 using static AttributeDefinitions;
@@ -79,7 +80,8 @@ internal sealed class MartialSpellShield : AbstractSubclass
 
         Subclass = CharacterSubclassDefinitionBuilder
             .Create(Name)
-            .SetGuiPresentation(Category.Subclass, DomainBattle)
+            .SetGuiPresentation(Category.Subclass,
+                Sprites.GetSprite("MartialSpellShield", Resources.MartialSpellShield, 256))
             .AddFeaturesAtLevel(3,
                 MagicAffinityCasterFightingCombatMagic,
                 castSpellSpellShield)

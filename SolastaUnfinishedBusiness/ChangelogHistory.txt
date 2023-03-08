@@ -1,5 +1,20 @@
 ﻿CHANGES:
 
+1.4.33.57:
+
+ATTENTION:
+
+- RESPEC any hero who took Deadeye or Power Attack feats before or on 1.4.33.54 version
+
+CHANGES:
+
+- added Domain Smith subclass
+- added Elemental Weapon spell
+- added custom sprites to 22 subclasses by TACO [awesome work there]
+- fixed Opportunist null exception when targeting gadgets
+- fixed a null exception when exporting heroes with certain behaviors
+- improved Royal Knight descriptions
+
 1.4.33.56:
 
 ATTENTION:

@@ -76,7 +76,8 @@ internal sealed class MartialRoyalKnight : AbstractSubclass
 
         Subclass = CharacterSubclassDefinitionBuilder
             .Create("MartialRoyalKnight")
-            .SetGuiPresentation(Category.Subclass, CharacterSubclassDefinitions.OathOfDevotion)
+            .SetGuiPresentation(Category.Subclass,
+                Sprites.GetSprite("MartialRoyalKnight", Resources.MartialRoyalKnight, 256))
             .AddFeaturesAtLevel(3,
                 powerRoyalKnightRallyingCry)
             .AddFeaturesAtLevel(7,

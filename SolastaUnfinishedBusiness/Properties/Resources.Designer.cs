@@ -1222,6 +1222,46 @@ namespace SolastaUnfinishedBusiness.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
+        public static byte[] MartialMarshal {
+            get {
+                object obj = ResourceManager.GetObject("MartialMarshal", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        public static byte[] MartialRoyalKnight {
+            get {
+                object obj = ResourceManager.GetObject("MartialRoyalKnight", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        public static byte[] MartialSpellShield {
+            get {
+                object obj = ResourceManager.GetObject("MartialSpellShield", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        public static byte[] MartialTactician {
+            get {
+                object obj = ResourceManager.GetObject("MartialTactician", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
         public static byte[] MeteorSwarm {
             get {
                 object obj = ResourceManager.GetObject("MeteorSwarm", resourceCulture);
