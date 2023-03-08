@@ -1,0 +1,176 @@
+{
+  "$type": "FeatureDefinitionAdditionalDamage, Assembly-CSharp",
+  "notificationTag": "ElementalWeapon",
+  "limitedUsage": "None",
+  "firstTargetOnly": true,
+  "targetSide": "Enemy",
+  "otherSimilarAdditionalDamages": [],
+  "triggerCondition": "AlwaysActive",
+  "requiredProperty": "None",
+  "attackModeOnly": false,
+  "attackOnly": true,
+  "requiredTargetCondition": null,
+  "requiredTargetSenseType": "Darkvision",
+  "requiredTargetCreatureTag": "",
+  "requiredCharacterFamily": null,
+  "requiredSpecificSpell": null,
+  "requiredAncestryType": "Sorcerer",
+  "damageValueDetermination": "Die",
+  "flatBonus": 0,
+  "damageDieType": "D4",
+  "damageDiceNumber": 2,
+  "additionalDamageType": "Specific",
+  "specificDamageType": "DamageLightning",
+  "ancestryTypeForDamageType": "Sorcerer",
+  "damageAdvancement": "SlotLevel",
+  "diceByRankTable": [
+    {
+      "$type": "DiceByRank, Assembly-CSharp",
+      "rank": 1,
+      "diceNumber": 0
+    },
+    {
+      "$type": "DiceByRank, Assembly-CSharp",
+      "rank": 2,
+      "diceNumber": 1
+    },
+    {
+      "$type": "DiceByRank, Assembly-CSharp",
+      "rank": 3,
+      "diceNumber": 2
+    },
+    {
+      "$type": "DiceByRank, Assembly-CSharp",
+      "rank": 4,
+      "diceNumber": 3
+    },
+    {
+      "$type": "DiceByRank, Assembly-CSharp",
+      "rank": 5,
+      "diceNumber": 4
+    },
+    {
+      "$type": "DiceByRank, Assembly-CSharp",
+      "rank": 6,
+      "diceNumber": 5
+    },
+    {
+      "$type": "DiceByRank, Assembly-CSharp",
+      "rank": 7,
+      "diceNumber": 6
+    },
+    {
+      "$type": "DiceByRank, Assembly-CSharp",
+      "rank": 8,
+      "diceNumber": 7
+    },
+    {
+      "$type": "DiceByRank, Assembly-CSharp",
+      "rank": 9,
+      "diceNumber": 8
+    },
+    {
+      "$type": "DiceByRank, Assembly-CSharp",
+      "rank": 10,
+      "diceNumber": 9
+    },
+    {
+      "$type": "DiceByRank, Assembly-CSharp",
+      "rank": 11,
+      "diceNumber": 10
+    },
+    {
+      "$type": "DiceByRank, Assembly-CSharp",
+      "rank": 12,
+      "diceNumber": 11
+    },
+    {
+      "$type": "DiceByRank, Assembly-CSharp",
+      "rank": 13,
+      "diceNumber": 12
+    },
+    {
+      "$type": "DiceByRank, Assembly-CSharp",
+      "rank": 14,
+      "diceNumber": 13
+    },
+    {
+      "$type": "DiceByRank, Assembly-CSharp",
+      "rank": 15,
+      "diceNumber": 14
+    },
+    {
+      "$type": "DiceByRank, Assembly-CSharp",
+      "rank": 16,
+      "diceNumber": 15
+    },
+    {
+      "$type": "DiceByRank, Assembly-CSharp",
+      "rank": 17,
+      "diceNumber": 16
+    },
+    {
+      "$type": "DiceByRank, Assembly-CSharp",
+      "rank": 18,
+      "diceNumber": 17
+    },
+    {
+      "$type": "DiceByRank, Assembly-CSharp",
+      "rank": 19,
+      "diceNumber": 18
+    },
+    {
+      "$type": "DiceByRank, Assembly-CSharp",
+      "rank": 20,
+      "diceNumber": 19
+    }
+  ],
+  "familiesWithAdditionalDice": [],
+  "familiesDiceNumber": 1,
+  "ignoreCriticalDoubleDice": false,
+  "hasSavingThrow": false,
+  "savingThrowAbility": "Dexterity",
+  "dcComputation": "FixedValue",
+  "savingThrowDC": 10,
+  "savingThrowDCAbilityModifier": "Dexterity",
+  "damageSaveAffinity": "None",
+  "conditionOperations": [],
+  "addLightSource": false,
+  "lightSourceForm": null,
+  "impactParticleReference": null,
+  "particlesBasedOnAncestryDamageType": false,
+  "ancestryType": "Sorcerer",
+  "acidImpactParticleReference": null,
+  "coldImpactParticleReference": null,
+  "fireImpactParticleReference": null,
+  "lightningImpactParticleReference": null,
+  "poisonImpactParticleReference": null,
+  "computeDescription": false,
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feature/&AdditionalDamageElementalWeaponTitle",
+    "description": "This weapon is imbued with 2d4 DamageLightning.",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "cdbd83e68b3d8d44eb03f6852a7fd63b",
+      "m_SubObjectName": "MagicWeapon",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "f01ea769-5c4f-514c-85ba-6b64c876e99f",
+  "contentPack": 9999,
+  "name": "AdditionalDamageDamageLightningElementalWeapon1"
+}

@@ -158,6 +158,171 @@ internal static partial class SpellBuilders
         return spell;
     }
 
+    #region Elemental Weapon
+
+    internal static SpellDefinition BuildElementalWeapon()
+    {
+        const string NAME = "ElementalWeapon";
+
+        var spell = SpellDefinitionBuilder
+            .Create(NAME)
+            .SetGuiPresentation(Category.Spell, MagicWeapon)
+            .SetEffectDescription(EffectDescriptionBuilder
+                .Create()
+                .SetDurationData(DurationType.Minute, 1)
+                .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel, additionalDicePerIncrement: 1)
+                .Build())
+            .SetCastingTime(ActivationTime.Action)
+            .SetRequiresConcentration(true)
+            .SetSpellLevel(3)
+            .SetVocalSpellSameType(VocalSpellSemeType.Buff)
+            .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolTransmutation)
+            .SetSubSpells(BuildElementalWeaponSubspell(DamageTypeAcid),
+                BuildElementalWeaponSubspell(DamageTypeCold),
+                BuildElementalWeaponSubspell(DamageTypeFire),
+                BuildElementalWeaponSubspell(DamageTypeLightning),
+                BuildElementalWeaponSubspell(DamageTypeThunder)
+            )
+            .AddToDB();
+
+        return spell;
+    }
+
+    private static SpellDefinition BuildElementalWeaponSubspell(string damageType)
+    {
+        const string NOTIFICATION_TAG = "ElementalWeapon";
+
+        const string ELEMENTAL_WEAPON_ADDITIONAL_DESCRIPTION = "Feature/&AdditionalDamageElementalWeaponDescription";
+
+        const string ELEMENTAL_WEAPON_ADDITIONAL_DESCRIPTION1 = "Feature/&AdditionalDamageElementalWeapon1Description";
+
+        const string ELEMENTAL_WEAPON_ADDITIONAL_DESCRIPTION2 = "Feature/&AdditionalDamageElementalWeapon2Description";
+
+        const string ELEMENTAL_WEAPON_MODIFIER_DESCRIPTION = "Feature/&AttackModifierElementalWeaponDescription";
+
+        static string AdditionalDamageElementalWeaponDescription(string x)
+        {
+            return Gui.Format(ELEMENTAL_WEAPON_ADDITIONAL_DESCRIPTION, x);
+        }
+
+        static string AdditionalDamageElementalWeaponDescription1(string x)
+        {
+            return Gui.Format(ELEMENTAL_WEAPON_ADDITIONAL_DESCRIPTION1, x);
+        }
+
+        static string AdditionalDamageElementalWeaponDescription2(string x)
+        {
+            return Gui.Format(ELEMENTAL_WEAPON_ADDITIONAL_DESCRIPTION2, x);
+        }
+
+        static string AttackModifierElementalWeaponDescription(int x)
+        {
+            return Gui.Format(ELEMENTAL_WEAPON_MODIFIER_DESCRIPTION, x.ToString());
+        }
+
+        var additionalDamageElementalWeapon = FeatureDefinitionAdditionalDamageBuilder
+            .Create($"AdditionalDamage{damageType}ElementalWeapon")
+            .SetGuiPresentation("AdditionalDamageElementalWeapon", Category.Feature,
+                AdditionalDamageElementalWeaponDescription(damageType), MagicWeapon.guiPresentation.SpriteReference)
+            .SetAdditionalDamageType(AdditionalDamageType.Specific)
+            .SetSpecificDamageType(damageType)
+            .SetAttackOnly()
+            .SetDamageDice(DieType.D4, 1)
+            .SetAdvancement(AdditionalDamageAdvancement.SlotLevel)
+            .SetNotificationTag(NOTIFICATION_TAG)
+            .AddToDB();
+
+        var additionalDamageElementalWeapon1 = FeatureDefinitionAdditionalDamageBuilder
+            .Create($"AdditionalDamage{damageType}ElementalWeapon1")
+            .SetGuiPresentation("AdditionalDamageElementalWeapon", Category.Feature,
+                AdditionalDamageElementalWeaponDescription1(damageType), MagicWeapon.guiPresentation.SpriteReference)
+            .SetAdditionalDamageType(AdditionalDamageType.Specific)
+            .SetSpecificDamageType(damageType)
+            .SetAttackOnly()
+            .SetDamageDice(DieType.D4, 2)
+            .SetAdvancement(AdditionalDamageAdvancement.SlotLevel)
+            .SetNotificationTag(NOTIFICATION_TAG)
+            .AddToDB();
+
+        var additionalDamageElementalWeapon2 = FeatureDefinitionAdditionalDamageBuilder
+            .Create($"AdditionalDamage{damageType}ElementalWeapon2")
+            .SetGuiPresentation("AdditionalDamageElementalWeapon", Category.Feature,
+                AdditionalDamageElementalWeaponDescription2(damageType), MagicWeapon.guiPresentation.SpriteReference)
+            .SetAdditionalDamageType(AdditionalDamageType.Specific)
+            .SetSpecificDamageType(damageType)
+            .SetAttackOnly()
+            .SetDamageDice(DieType.D4, 3)
+            .SetAdvancement(AdditionalDamageAdvancement.SlotLevel)
+            .SetNotificationTag(NOTIFICATION_TAG)
+            .AddToDB();
+
+        var attackModifierElementalWeapon = FeatureDefinitionAttackModifierBuilder
+            .Create(FeatureDefinitionAttackModifiers.AttackModifierMagicWeapon,
+                $"AttackModifier{damageType}ElementalWeapon")
+            .SetGuiPresentation("AttackModifierElementalWeapon", Category.Feature,
+                AttackModifierElementalWeaponDescription(1), MagicWeapon.guiPresentation.SpriteReference)
+            .AddToDB();
+
+        var attackModifierElementalWeapon1 = FeatureDefinitionAttackModifierBuilder
+            .Create(FeatureDefinitionAttackModifiers.AttackModifierMagicWeapon2,
+                $"AttackModifier{damageType}ElementalWeapon1")
+            .SetGuiPresentation("AttackModifierElementalWeapon", Category.Feature,
+                AttackModifierElementalWeaponDescription(2), MagicWeapon.guiPresentation.SpriteReference)
+            .AddToDB();
+
+        var attackModifierElementalWeapon2 = FeatureDefinitionAttackModifierBuilder
+            .Create(FeatureDefinitionAttackModifiers.AttackModifierMagicWeapon3,
+                $"AttackModifier{damageType}ElementalWeapon2")
+            .SetGuiPresentation("AttackModifierElementalWeapon", Category.Feature,
+                AttackModifierElementalWeaponDescription(3), MagicWeapon.guiPresentation.SpriteReference)
+            .AddToDB();
+
+        var spell = SpellDefinitionBuilder
+            .Create($"ElementalWeapon{damageType}")
+            .SetGuiPresentation(Category.Spell, MagicWeapon)
+            .SetCustomSubFeatures(ExtraCarefulTrackedItem.Marker)
+            .SetEffectDescription(EffectDescriptionBuilder.Create(MagicWeapon)
+                .SetDurationData(DurationType.Minute, 1)
+                .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel, additionalDicePerIncrement: 1)
+                .SetEffectForms(EffectFormBuilder
+                    .Create()
+                    .SetDiceAdvancement(LevelSourceType.EffectLevel)
+                    .SetLevelAdvancement(EffectForm.LevelApplianceType.MultiplyDice, LevelSourceType.EffectLevel)
+                    .SetItemPropertyForm(ItemPropertyUsage.Unlimited, 1,
+                        new FeatureUnlockByLevel(attackModifierElementalWeapon, 3),
+                        new FeatureUnlockByLevel(attackModifierElementalWeapon, 4),
+                        new FeatureUnlockByLevel(attackModifierElementalWeapon1, 5),
+                        new FeatureUnlockByLevel(attackModifierElementalWeapon1, 6),
+                        new FeatureUnlockByLevel(attackModifierElementalWeapon2, 7),
+                        new FeatureUnlockByLevel(attackModifierElementalWeapon2, 8),
+                        new FeatureUnlockByLevel(attackModifierElementalWeapon2, 9))
+                    .Build(), EffectFormBuilder
+                    .Create()
+                    .SetDiceAdvancement(LevelSourceType.EffectLevel)
+                    .SetLevelAdvancement(EffectForm.LevelApplianceType.MultiplyDice, LevelSourceType.EffectLevel)
+                    .SetItemPropertyForm(ItemPropertyUsage.Unlimited, 1,
+                        new FeatureUnlockByLevel(additionalDamageElementalWeapon, 3),
+                        new FeatureUnlockByLevel(additionalDamageElementalWeapon, 4),
+                        new FeatureUnlockByLevel(additionalDamageElementalWeapon1, 5),
+                        new FeatureUnlockByLevel(additionalDamageElementalWeapon1, 6),
+                        new FeatureUnlockByLevel(additionalDamageElementalWeapon2, 7),
+                        new FeatureUnlockByLevel(additionalDamageElementalWeapon2, 8),
+                        new FeatureUnlockByLevel(additionalDamageElementalWeapon2, 9))
+                    .Build())
+                .Build())
+            .SetCastingTime(ActivationTime.Action)
+            .SetRequiresConcentration(true)
+            .SetUniqueInstance()
+            .SetSpellLevel(3)
+            .SetVocalSpellSameType(VocalSpellSemeType.Buff)
+            .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolTransmutation)
+            .AddToDB();
+
+        return spell;
+    }
+
+    #endregion
+
     #region Spirit Shroud
 
     internal static SpellDefinition BuildSpiritShroud()

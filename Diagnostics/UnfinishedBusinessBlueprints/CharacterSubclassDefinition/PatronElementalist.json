@@ -36,9 +36,9 @@
     "description": "Subclass/&PatronElementalistDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "c65d64ec5cd37a544a153c3b919e123b",
-      "m_SubObjectName": "Wizard_Scholar",
-      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+      "m_AssetGUID": "d38a67f6-8826-5260-a378-37e65fd05ee0",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",

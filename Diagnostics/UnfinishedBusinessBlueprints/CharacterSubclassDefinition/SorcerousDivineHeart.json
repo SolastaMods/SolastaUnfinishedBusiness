@@ -46,9 +46,9 @@
     "description": "Subclass/&SorcerousDivineHeartDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "f13740c3947aa0f49a79fa8da3a44eba",
-      "m_SubObjectName": "DomainLife",
-      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+      "m_AssetGUID": "36cc8d8d-4982-57ff-bd59-14e742efd3db",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",

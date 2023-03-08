@@ -36,9 +36,9 @@
     "description": "Subclass/&InnovationWeaponDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "0f2d6e477012b904d99d09f537a30478",
-      "m_SubObjectName": "Paladin_Oath_Of_Jugement",
-      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+      "m_AssetGUID": "d9be1669-1516-5e67-b671-ad3dfc03f6a7",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",

@@ -3,10 +3,11 @@ using SolastaUnfinishedBusiness.Api.Extensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomInterfaces;
+using SolastaUnfinishedBusiness.CustomUI;
+using SolastaUnfinishedBusiness.Properties;
 using static FeatureDefinitionAttributeModifier;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
-using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterSubclassDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionDamageAffinitys;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionActionAffinitys;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionCombatAffinitys;
@@ -101,7 +102,8 @@ internal sealed class PathOfTheSpirits : AbstractSubclass
 
         Subclass = CharacterSubclassDefinitionBuilder
             .Create(SubclassName)
-            .SetGuiPresentation(Category.Subclass, MartialMountaineer)
+            .SetGuiPresentation(Category.Subclass,
+                Sprites.GetSprite("PathOfTheSpirits", Resources.PathOfTheSpirits, 256))
             .AddFeaturesAtLevel(3,
                 featureSetPathOfTheSpiritsSpiritSeeker,
                 featureSetPathOfTheSpiritsAnimalSpirit)
@@ -117,6 +119,7 @@ internal sealed class PathOfTheSpirits : AbstractSubclass
     internal override FeatureDefinitionSubclassChoice SubclassChoice =>
         FeatureDefinitionSubclassChoices.SubclassChoiceBarbarianPrimalPath;
 
+    // ReSharper disable once UnassignedGetOnlyAutoProperty
     internal override DeityDefinition DeityDefinition { get; }
 
     private static FeatureDefinition BuildSpiritSeekerSpell(SpellDefinition spellDefinition)

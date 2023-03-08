@@ -586,7 +586,7 @@ internal static class SrdAndHouseRulesContext
 
     private static void MakeGorillaWildShapeRocksUnlimited()
     {
-        //CHANGE: makes Wildshape Gorilla form having unlimted rock toss attacks 
+        //CHANGE: makes Wildshape Gorilla form having unlimited rock toss attacks 
         MonsterAttackDefinitions.Attack_Wildshape_Ape_Toss_Rock.limitedUse = false;
         MonsterAttackDefinitions.Attack_Wildshape_Ape_Toss_Rock.maxUses = -1;
     }

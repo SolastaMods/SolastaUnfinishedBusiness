@@ -26,7 +26,7 @@ public static class InnovationWeapon
     {
         return CharacterSubclassDefinitionBuilder
             .Create("InnovationWeapon")
-            .SetGuiPresentation(Category.Subclass, CharacterSubclassDefinitions.OathOfJugement)
+            .SetGuiPresentation(Category.Subclass, Sprites.GetSprite("InventorWeapon", Resources.InventorWeapon, 256))
             .AddFeaturesAtLevel(3, BuildBattleReady(), BuildAutoPreparedSpells(), BuildSteelDefenderFeatureSet())
             .AddFeaturesAtLevel(5, BuildExtraAttack())
             .AddFeaturesAtLevel(9, BuildArcaneJolt())

@@ -1,0 +1,16 @@
+﻿Condition/&ConditionDomainSmithAdamantBenedictionDescription=Sua armadura se torna adamantina, reduzindo o dano crítico pela metade.
+Condition/&ConditionDomainSmithAdamantBenedictionTitle=Armadura Adamantina
+Feature/&AttributeModifierDomainSmithReinforceArmorDescription=Esta armadura foi reforçada fornecendo +{0} CA adicional.
+Feature/&AttributeModifierDomainSmithReinforceArmorTitle=Reforçado
+Feature/&AttributeModifierDomainSmithForgeMasteryDescription=Ganhe resistência ao fogo e enquanto estiver usando armadura ganhe +1 AC.
+Feature/&AttributeModifierDomainSmithForgeMasteryTitle=Maestria da Forja
+Feature/&AdditionalDamageDomainSmithDivineStrikeDescription=Uma vez por turno, cause +{0}d8 de dano de fogo em ataques com armas.
+Feature/&AdditionalDamageDomainSmithDivineStrikeTitle=Golpe Divino
+Feature/&PowerDomainSmithAdamantBenedictionDescription=Usando uma ação, colete a armadura de aliados em um raio de 9 metros. Sua armadura ganha a força da armadura adamantina, ganhando imunidade a críticos por um minuto.
+Feature/&PowerDomainSmithAdamantBenedictionTitle=Canalizar Divindade: Bênção Inflexível
+Feature/&PowerDomainSmithReinforceArmorDescription=Um por descanso longo, você pode reforçar uma peça não mágica de armadura ou escudo. O objeto reforçado ganha +{0} CA adicional.
+Feature/&PowerDomainSmithReinforceArmorTitle=Reforçar Armadura
+Feature/&BonusProficiencyDomainSmithDescription=Ganhe proficiência em ferramentas de forja e armaduras pesadas.
+Feature/&BonusProficiencyDomainSmithTitle=Proficiências bônus
+Subclass/&DomainSmithTitle=ferreiro
+Subclass/&DomainSmithDescription=Ferreiros sagrados que canalizam sua fé através do aço e das forjas. Reforçando a armadura aliada e blindando-se pesadamente.

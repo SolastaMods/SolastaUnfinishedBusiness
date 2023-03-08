@@ -10,10 +10,10 @@ using SolastaUnfinishedBusiness.CustomDefinitions;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Models;
+using SolastaUnfinishedBusiness.Properties;
 using UnityEngine.AddressableAssets;
 using static ActionDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
-using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterSubclassDefinitions;
 using static RuleDefinitions;
 
 namespace SolastaUnfinishedBusiness.Subclasses;
@@ -53,7 +53,8 @@ internal sealed class MartialTactician : AbstractSubclass
         EverVigilant = BuildEverVigilant();
         Subclass = CharacterSubclassDefinitionBuilder
             .Create("MartialTactician")
-            .SetGuiPresentation(Category.Subclass, RoguishShadowCaster)
+            .SetGuiPresentation(Category.Subclass,
+                Sprites.GetSprite("MartialTactician", Resources.MartialTactician, 256))
             .AddFeaturesAtLevel(3, BuildSharpMind(), GambitPool, learnInitial, EverVigilant)
             .AddFeaturesAtLevel(5, BuildGambitDieSize(DieType.D8), learn1Gambit)
             .AddFeaturesAtLevel(7, BuildGambitPoolIncrease(), learn1Gambit, unlearn, BuildSharedVigilance())

@@ -1,8 +1,8 @@
 ﻿Feature/&FeatureSetRoyalKnightRoyalEnvoyDescription=Añade la mitad de tu bonificación por competencia (redondeando hacia arriba) a cualquier prueba de Carisma que realices y que aún no utilice tu bonificación por competencia. Además, te vuelves competente con las tiradas de salvación de Carisma.
 Feature/&FeatureSetRoyalKnightRoyalEnvoyTitle=Enviado real
-Feature/&PowerRoyalKnightInspiringSurgeDescription=Otorga a un aliado una acción principal adicional durante 1 ronda. No se acumula con Action Surge.
+Feature/&PowerRoyalKnightInspiringSurgeDescription=Como acción adicional, puedes otorgar a un aliado una acción principal adicional durante 1 ronda. Esta acción no se acumula con Action Surge. Una vez que usas esta función, no puedes volver a usarla hasta que termines un descanso prolongado.
 Feature/&PowerRoyalKnightInspiringSurgeTitle=Oleada inspiradora
-Feature/&PowerRoyalKnightRallyingCryDescription=Reemplaza Second Wind con un poder para restaurar 4x puntos de golpe de los niveles de luchador a uno o más aliados dentro de 6 celdas, hasta su máximo de puntos de golpe.
+Feature/&PowerRoyalKnightRallyingCryDescription=Reemplaza Second Wind con un poder que restaura puntos de golpe equivalentes a 4x tu nivel de luchador, distribuidos uniformemente, a uno o más aliados dentro de 6 celdas. Se puede usar un número de veces igual a tu modificador de CHA (mínimo una vez) por descanso breve.
 Feature/&PowerRoyalKnightRallyingCryTitle=Grito de guerra
 Subclass/&MartialRoyalKnightDescription=Un caballero que inspira grandeza en los demás al cometer hazañas valientes en la batalla. Un Caballero Real es un guerrero habilidoso, pero uno que lidera una banda de aliados puede transformar incluso a la milicia peor equipada en una feroz banda de guerra.
 Subclass/&MartialRoyalKnightTitle=Caballero real

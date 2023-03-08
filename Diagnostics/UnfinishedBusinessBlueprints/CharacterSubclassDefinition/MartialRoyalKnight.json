@@ -26,9 +26,9 @@
     "description": "Subclass/&MartialRoyalKnightDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "55acd77506e2dcd4895f675370bd5595",
-      "m_SubObjectName": "Paladin_Oath_Of_Devotion",
-      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+      "m_AssetGUID": "ff91b484-3707-57d1-892a-33fd61fd3caa",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",

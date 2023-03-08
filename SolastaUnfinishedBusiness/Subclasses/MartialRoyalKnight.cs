@@ -57,7 +57,7 @@ internal sealed class MartialRoyalKnight : AbstractSubclass
             .AddToDB();
 
         var powerRoyalKnightInspiringSurge = FeatureDefinitionPowerBuilder
-            .Create(PowerDomainLifePreserveLife, "PowerRoyalKnightInspiringSurge")
+            .Create("PowerRoyalKnightInspiringSurge")
             .SetGuiPresentation(Category.Feature, SpellDefinitions.Heroism)
             .SetUsesFixed(ActivationTime.BonusAction, RechargeRate.LongRest)
             .SetEffectDescription(EffectDescriptionBuilder
@@ -76,7 +76,8 @@ internal sealed class MartialRoyalKnight : AbstractSubclass
 
         Subclass = CharacterSubclassDefinitionBuilder
             .Create("MartialRoyalKnight")
-            .SetGuiPresentation(Category.Subclass, CharacterSubclassDefinitions.OathOfDevotion)
+            .SetGuiPresentation(Category.Subclass,
+                Sprites.GetSprite("MartialRoyalKnight", Resources.MartialRoyalKnight, 256))
             .AddFeaturesAtLevel(3,
                 powerRoyalKnightRallyingCry)
             .AddFeaturesAtLevel(7,
@@ -91,5 +92,6 @@ internal sealed class MartialRoyalKnight : AbstractSubclass
     internal override FeatureDefinitionSubclassChoice SubclassChoice =>
         FeatureDefinitionSubclassChoices.SubclassChoiceFighterMartialArchetypes;
 
+    // ReSharper disable once UnassignedGetOnlyAutoProperty
     internal override DeityDefinition DeityDefinition { get; }
 }

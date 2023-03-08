@@ -554,18 +554,6 @@ internal static class MeleeCombatFeats
     {
         private readonly ConditionDefinition _conditionDefinition;
 
-        private static bool Validate(RulesetAttackMode attackMode)
-        {
-            if (attackMode == null)
-            {
-                return false;
-            }
-
-            var itemDefinition = attackMode.SourceDefinition as ItemDefinition;
-
-            return !attackMode.Ranged && ValidatorsWeapon.IsMelee(itemDefinition);
-        }
-
         public AddExtraAttackFeatCleavingAttack(ConditionDefinition conditionDefinition)
         {
             _conditionDefinition = conditionDefinition;
@@ -612,6 +600,18 @@ internal static class MeleeCombatFeats
             TryToApplyCondition(attacker.RulesetCharacter);
         }
 
+        private static bool Validate(RulesetAttackMode attackMode)
+        {
+            if (attackMode == null)
+            {
+                return false;
+            }
+
+            var itemDefinition = attackMode.SourceDefinition as ItemDefinition;
+
+            return !attackMode.Ranged && ValidatorsWeapon.IsMelee(itemDefinition);
+        }
+
         private void TryToApplyCondition(RulesetCharacter rulesetCharacter)
         {
             var rulesetCondition = RulesetCondition.CreateActiveCondition(
@@ -638,7 +638,7 @@ internal static class MeleeCombatFeats
 
         public void ModifyAttackMode(RulesetCharacter character, RulesetAttackMode attackMode)
         {
-            var itemDefinition = attackMode.SourceDefinition as ItemDefinition;
+            var itemDefinition = attackMode?.SourceDefinition as ItemDefinition;
 
             if (attackMode == null ||
                 attackMode.Ranged ||

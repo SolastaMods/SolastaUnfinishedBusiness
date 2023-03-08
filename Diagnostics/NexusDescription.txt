@@ -116,6 +116,7 @@ All settings start disabled by default.
 [*][b]College of Life[/b]: Masters of manipulating both matter and life energy.
 [*][b]College of War Dancer[/b]: College of War Dancer bards are master the art of fighting who considers the battle field is their stage and the weapon in their hand is the finest instrument. Their swift movement and endless attacks are usually the last beautiful memoire of those encountered them.
 [*][b]Defiler[/b]: Defilers worship patrons of death, corruption, and blight, seeking power and corruption for their own ends: to please their gods, or for more selfish reasons.
+[*][b]Smith[/b]: Holy smiths who channel their faith through steel and forges. Reinforcing allied armor and heavily armoring themselves.
 [*][b]Circle of The Ancient Forest[/b]: You have forged a relationship with a powerful nature entity: Ancient Dryads, Archdruids, Manifestations of the Feywild bleeding into the material plane, Forgotten gods from a primal age. It may wish for you to protect the natural world, travel to far off lands that it cannot, or it may have another motive that seems inscrutable to short-lived mortals.
 [*][b]Circle of the Forest Guardian[/b]: Circle of the Forest Guardian Druids are sworn to protect the forests and all that dwell within them. Skilled in the use of Abjuration magic and martial combat, members of this druidic circle are fearsome opponents on the battlefield.
 [*][b]Circle of the Night[/b]: Druids of the Circle of the Night are fierce guardians of the wilds. Their order gathers under the full moon to share news and trade warnings. They haunt the deepest parts of the wilderness, where they might go for weeks on end before crossing paths with another humanoid creature, let alone another druid.
@@ -440,6 +441,7 @@ Skeletons are animated by dark magic. They used to be living creatures but are n
 [*][b]Blinding Smite[/b]: On your next hit your weapon flares with a bright light, and the attack deals an extra 3d8 radiant damage to the target. Additionally, the target must succeed on a Constitution saving throw or be blinded until the spell ends.
 A creature blinded by this spell makes another Constitution saving throw at the end of each of its turns. On a successful save, it is no longer blinded.
 [*][b]Crusader's Mantle[/b]: Surround yourself with a magical aura. Allies within the aura gain a bonus 1d4 radiant damage on their attacks.
+[*][b]Elemental Weapon[/b]: Imbue a non-magical weapon with elemental magic. It gains a +1 to attack and damage rolls, and it gains 1d4 of the corresponding element's damage. When casting with a 5 or 6 spell slots, the effects increased by one die while casting at a spell slot 7 or higher increases the effects by 2.
 [*][b]Raise Ghoul[/b]: Summons <b>Ghoul</b>:
 A ravenous undead creature, constantly searching for flesh to eat.
 [*][b]Spirit Shroud[/b]: You call forth spirits of the dead, which flit around you for the spell's duration. The spirits are intangible and invulnerable.

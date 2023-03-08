@@ -51,9 +51,9 @@
     "description": "Subclass/&InnovationAlchemyDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "6546b72bf75bd1f4b8e16068391909f9",
-      "m_SubObjectName": "Cleric_Red",
-      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+      "m_AssetGUID": "93b808c9-66dd-579f-a282-ef431fbed4f0",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",

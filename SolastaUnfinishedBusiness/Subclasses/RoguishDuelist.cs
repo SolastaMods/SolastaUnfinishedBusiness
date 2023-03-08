@@ -1,10 +1,11 @@
 ﻿using SolastaUnfinishedBusiness.Api.Extensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
+using SolastaUnfinishedBusiness.CustomUI;
+using SolastaUnfinishedBusiness.Properties;
 using static RuleDefinitions;
 using static FeatureDefinitionAttributeModifier;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
-using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterSubclassDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionAdditionalDamages;
 
 namespace SolastaUnfinishedBusiness.Subclasses;
@@ -64,7 +65,8 @@ internal sealed class RoguishDuelist : AbstractSubclass
 
         Subclass = CharacterSubclassDefinitionBuilder
             .Create(Name)
-            .SetGuiPresentation(Category.Subclass, RangerSwiftBlade)
+            .SetGuiPresentation(Category.Subclass,
+                Sprites.GetSprite("RoguishDuelist", Resources.RoguishDuelist, 256))
             .AddFeaturesAtLevel(3, additionalDamageDaringDuel, featureSetSureFooted)
             .AddFeaturesAtLevel(9, actionAffinitySwirlingDance)
             .AddFeaturesAtLevel(13, actionAffinityGracefulTakeDown)

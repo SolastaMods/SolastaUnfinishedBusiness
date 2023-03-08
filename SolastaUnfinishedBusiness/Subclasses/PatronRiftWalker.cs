@@ -1,6 +1,8 @@
 ﻿using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomInterfaces;
+using SolastaUnfinishedBusiness.CustomUI;
+using SolastaUnfinishedBusiness.Properties;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionConditionAffinitys;
@@ -97,8 +99,7 @@ internal class PatronRiftWalker : AbstractSubclass
 
         Subclass = CharacterSubclassDefinitionBuilder
             .Create("PatronRiftWalker")
-            .SetGuiPresentation(Category.Subclass,
-                CharacterSubclassDefinitions.PathMagebane)
+            .SetGuiPresentation(Category.Subclass, Sprites.GetSprite("PatronMoonlit", Resources.PatronMoonlit, 256))
             .AddFeaturesAtLevel(1,
                 magicAffinityRiftWalkerExpandedSpells,
                 powerRiftWalkerRiftWalk,
@@ -119,6 +120,7 @@ internal class PatronRiftWalker : AbstractSubclass
     internal override FeatureDefinitionSubclassChoice SubclassChoice =>
         FeatureDefinitionSubclassChoices.SubclassChoiceWarlockOtherworldlyPatrons;
 
+    // ReSharper disable once UnassignedGetOnlyAutoProperty
     internal override DeityDefinition DeityDefinition { get; }
 
     private sealed class PreventRemoveConcentrationRiftWalker : IPreventRemoveConcentrationWithPowerUse

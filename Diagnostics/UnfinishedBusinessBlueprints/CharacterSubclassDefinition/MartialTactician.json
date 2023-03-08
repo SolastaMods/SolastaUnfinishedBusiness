@@ -96,9 +96,9 @@
     "description": "Subclass/&MartialTacticianDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "29d762aa92314b04ea0c8f607efe10ae",
-      "m_SubObjectName": "Rogue_Shadowcaster",
-      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+      "m_AssetGUID": "f68f213e-5242-5e83-bd07-57cd5a76b7ff",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",

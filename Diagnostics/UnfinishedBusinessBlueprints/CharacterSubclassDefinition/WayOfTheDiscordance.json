@@ -26,9 +26,9 @@
     "description": "Subclass/&WayOfTheDiscordanceDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "29d762aa92314b04ea0c8f607efe10ae",
-      "m_SubObjectName": "Rogue_Shadowcaster",
-      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+      "m_AssetGUID": "ab091e5c-b6ee-5555-b9e8-e05680de9720",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",

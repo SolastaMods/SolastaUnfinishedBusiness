@@ -36,9 +36,9 @@
     "description": "Subclass/&RangerWildMasterDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "2557092e14bff94498b29e2be1b063d4",
-      "m_SubObjectName": "Warlock_Fiend",
-      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+      "m_AssetGUID": "b060a34f-057e-5a8d-9472-4e25057a60b5",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",

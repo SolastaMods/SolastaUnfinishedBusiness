@@ -14,6 +14,7 @@ internal class DoNotTerminateWhileUnconscious : IShouldTerminateEffect
     public bool Validate(RulesetEffect rulesetEffect)
     {
         var user = EffectHelpers.GetCharacterByGuid(rulesetEffect.SourceGuid);
-        return !user.IsUnconscious;
+
+        return user is not { IsUnconscious: true };
     }
 }
