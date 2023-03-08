@@ -767,6 +767,12 @@
   <data name="RoguishSlayer" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Subclasses\RoguishSlayer.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="SorcererDivineHeart" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Subclasses\SorcererDivineHeart.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="SorcererFieldManipulator" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Subclasses\SorcererFieldManipulator.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="WayOfTheDiscordance" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Subclasses\WayOfTheDiscordance.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
