@@ -1256,7 +1256,6 @@ internal static partial class DatabaseHelper
         internal static SpellDefinition DominatePerson { get; } = GetDefinition<SpellDefinition>("DominatePerson");
         internal static SpellDefinition DreadfulOmen { get; } = GetDefinition<SpellDefinition>("DreadfulOmen");
         internal static SpellDefinition EldritchBlast { get; } = GetDefinition<SpellDefinition>("EldritchBlast");
-        internal static SpellDefinition ElementalWeapon { get; } = GetDefinition<SpellDefinition>("ElementalWeapon");
         internal static SpellDefinition EnhanceAbility { get; } = GetDefinition<SpellDefinition>("EnhanceAbility");
         internal static SpellDefinition Entangle { get; } = GetDefinition<SpellDefinition>("Entangle");
         internal static SpellDefinition ExpeditiousRetreat { get; } = GetDefinition<SpellDefinition>("ExpeditiousRetreat");
