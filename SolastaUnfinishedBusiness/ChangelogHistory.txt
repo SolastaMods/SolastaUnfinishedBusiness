@@ -9,7 +9,7 @@ ATTENTION:
 CHANGES:
 
 - added Domain Smith subclass
-- added custom sprites to 28 subclasses by TACO [awesome work there, he deserve all the kudos on Discord]
+- added custom sprites to 28 subclasses by TACO [awesome work there, he deserves all kudos on Discord]
 - added Elemental Weapon spell
 - fixed Opportunist null exception when targeting gadgets
 - fixed a null exception when exporting Inventors at campaign end
