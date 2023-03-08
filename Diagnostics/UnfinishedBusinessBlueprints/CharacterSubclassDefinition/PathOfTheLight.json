@@ -41,9 +41,9 @@
     "description": "Subclass/&PathOfTheLightDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "68e9a23b8059ee54b8e7230258b11d7d",
-      "m_SubObjectName": "DomainSun",
-      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+      "m_AssetGUID": "504447f3-954d-5359-940f-7de3516aabe8",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",

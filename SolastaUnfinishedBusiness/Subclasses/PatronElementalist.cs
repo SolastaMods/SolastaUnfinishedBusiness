@@ -158,7 +158,8 @@ internal sealed class PatronElementalist : AbstractSubclass
             .AddToDB();
 
         Subclass = CharacterSubclassDefinitionBuilder.Create(Name)
-            .SetGuiPresentation(Category.Subclass, CharacterSubclassDefinitions.TraditionLoremaster)
+            .SetGuiPresentation(Category.Subclass,
+                Sprites.GetSprite("PatronElementalist", Resources.PatronElementalist, 256))
             .AddFeaturesAtLevel(1,
                 magicAffinityElementalistExpandedSpells,
                 powerElementalistElementalFormPool)
@@ -176,6 +177,7 @@ internal sealed class PatronElementalist : AbstractSubclass
     internal override FeatureDefinitionSubclassChoice SubclassChoice => FeatureDefinitionSubclassChoices
         .SubclassChoiceWarlockOtherworldlyPatrons;
 
+    // ReSharper disable once UnassignedGetOnlyAutoProperty
     internal override DeityDefinition DeityDefinition { get; }
 
     private static GuiPresentation GuiPresentation(

@@ -6,7 +6,6 @@ using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Properties;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
-using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterSubclassDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPowers;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
 using static SolastaUnfinishedBusiness.Builders.Features.AutoPreparedSpellsGroupBuilder;
@@ -326,7 +325,7 @@ internal sealed class DomainDefiler : AbstractSubclass
 
         Subclass = CharacterSubclassDefinitionBuilder
             .Create(NAME)
-            .SetGuiPresentation(Category.Subclass, SorcerousHauntedSoul)
+            .SetGuiPresentation(Category.Subclass, Sprites.GetSprite("DomainDefiler", Resources.DomainDefiler, 256))
             .AddFeaturesAtLevel(1,
                 autoPreparedSpellsDomainDefiler,
                 featureInsidiousDeathMagic,

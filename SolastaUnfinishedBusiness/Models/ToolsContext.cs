@@ -206,7 +206,7 @@ internal static class ToolsContext
 
                 var oldGuid = oldHero.Guid;
                 var newGuid = newHero.Guid;
-                
+
                 //Terminate all effects started by old character
                 EffectHelpers.GetAllEffectsBySourceGuid(oldGuid).ForEach(e => e.DoTerminate(oldHero));
                 //Replace source for all effects of new character

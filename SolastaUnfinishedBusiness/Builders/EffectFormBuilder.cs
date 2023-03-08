@@ -377,7 +377,7 @@ internal class EffectFormBuilder
             shapeChangeType = shapeChangeType,
             keepMentalAbilityScores = keepMentalAbilityScores,
             specialSubstituteCondition = specialSubstituteCondition,
-            shapeOptions = shapeOptions,
+            shapeOptions = shapeOptions
         };
 
         effectForm.shapeChangeForm = shapeChangeForm;
@@ -466,7 +466,7 @@ internal class EffectFormBuilder
     {
         return CreateTopologyForm(changeType, impactsFlyingCharacters).Build();
     }
-    
+
     internal static EffectFormBuilder CreateTopologyForm(TopologyForm.Type changeType, bool impactsFlyingCharacters)
     {
         return Create().SetTopologyForm(changeType, impactsFlyingCharacters);

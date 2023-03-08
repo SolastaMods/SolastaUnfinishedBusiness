@@ -50,8 +50,7 @@ internal static class GameServicesDisplay
         { "IGamingPlatformService", ServiceRepository.GetService<IGamingPlatformService> },
         { "CharacterCreationScreen", Gui.GuiService.GetScreen<CharacterCreationScreen> },
         {
-            "Party Heroes",
-            () => ServiceRepository.GetService<IGameLocationCharacterService>()?.PartyCharacters
+            "Party Heroes", () => ServiceRepository.GetService<IGameLocationCharacterService>()?.PartyCharacters
                 ?.Select(ch => ch.RulesetCharacter)
         }
     };

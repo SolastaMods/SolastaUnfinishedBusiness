@@ -6,9 +6,9 @@ using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Models;
+using SolastaUnfinishedBusiness.Properties;
 using static FeatureDefinitionAttributeModifier;
 using static RuleDefinitions;
-using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
 
 namespace SolastaUnfinishedBusiness.Classes.Inventor.Subclasses;
@@ -22,7 +22,7 @@ public static class InnovationArmor
     {
         return CharacterSubclassDefinitionBuilder
             .Create("InnovationArmor")
-            .SetGuiPresentation(Category.Subclass, FightingStyleDefinitions.Defense)
+            .SetGuiPresentation(Category.Subclass, Sprites.GetSprite("InventorArmor", Resources.InventorArmor, 256))
             .AddFeaturesAtLevel(3, BuildArmoredUp(), BuildAutoPreparedSpells(), BuildArmorModes())
             .AddFeaturesAtLevel(5, BuildExtraAttack())
             .AddFeaturesAtLevel(9, BuildArmorModification())

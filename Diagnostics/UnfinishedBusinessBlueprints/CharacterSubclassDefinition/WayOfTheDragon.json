@@ -36,9 +36,9 @@
     "description": "Subclass/&WayOfTheDragonDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "927ebfae5abe6664b882dd8ee980e94d",
-      "m_SubObjectName": "Sorcerer_DraconicBloodline",
-      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+      "m_AssetGUID": "b28e2cbf-dabf-5ff6-aa69-bea2e8b8e15c",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",

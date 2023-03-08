@@ -46,9 +46,9 @@
     "description": "Subclass/&CircleOfTheForestGuardianDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "66614872ccbd31747b1555dcb689b144",
-      "m_SubObjectName": "Mountaineer",
-      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+      "m_AssetGUID": "7cde1392-f8a0-56dc-bdbc-7bd330377f26",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",

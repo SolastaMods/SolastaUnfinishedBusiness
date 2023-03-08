@@ -46,9 +46,9 @@
     "description": "Subclass/&CircleOfTheNightDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "5f539a2f6114d7b4992669555b45cf63",
-      "m_SubObjectName": "Barbarian_Path_Claw",
-      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+      "m_AssetGUID": "718cf31d-21e8-56f9-8994-73e6de3fd353",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",

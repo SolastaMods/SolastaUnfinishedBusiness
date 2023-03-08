@@ -72,7 +72,7 @@ internal static class GlobalUniqueEffects
     }
 
     private static List<RulesetEffectPower> GetLimitedPowerEffects(
-        RulesetCharacter character,
+        RulesetEntity character,
         ILimitEffectInstances limit)
     {
         return EffectHelpers.GetAllEffectsBySourceGuid(character.Guid)
@@ -97,8 +97,8 @@ internal static class GlobalUniqueEffects
     internal static void TerminateMatchingUniqueEffect(RulesetCharacter character, RulesetEffect uniqueEffect)
     {
         var group = GetSameGroupItems(uniqueEffect.SourceDefinition);
-        if (uniqueEffect is RulesetEffectPower {PowerDefinition.UniqueInstance: true}
-            or RulesetEffectSpell {SpellDefinition.UniqueInstance: true})
+        if (uniqueEffect is RulesetEffectPower { PowerDefinition.UniqueInstance: true }
+            or RulesetEffectSpell { SpellDefinition.UniqueInstance: true })
         {
             //ensure we try to properly terminate unique effects not in groups
             group.Add(uniqueEffect.SourceDefinition);

@@ -4,9 +4,10 @@ using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomInterfaces;
+using SolastaUnfinishedBusiness.CustomUI;
+using SolastaUnfinishedBusiness.Properties;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
-using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterSubclassDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.ConditionDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPowers;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
@@ -290,7 +291,8 @@ internal sealed class PathOfTheLight : AbstractSubclass
 
         Subclass = CharacterSubclassDefinitionBuilder
             .Create("PathOfTheLight")
-            .SetGuiPresentation(Category.Subclass, DomainSun)
+            .SetGuiPresentation(Category.Subclass,
+                Sprites.GetSprite("PathOfTheLight", Resources.PathOfTheLight, 256))
             .AddFeaturesAtLevel(3,
                 featureSetPathOfTheLightIlluminatingStrike,
                 featureSetPathOfTheLightPierceTheDarkness)
@@ -309,6 +311,7 @@ internal sealed class PathOfTheLight : AbstractSubclass
     internal override FeatureDefinitionSubclassChoice SubclassChoice =>
         FeatureDefinitionSubclassChoices.SubclassChoiceBarbarianPrimalPath;
 
+    // ReSharper disable once UnassignedGetOnlyAutoProperty
     internal override DeityDefinition DeityDefinition { get; }
 
     private static void ApplyLightsProtectionHealing(ulong sourceGuid)

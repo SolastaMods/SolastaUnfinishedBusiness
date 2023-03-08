@@ -80,7 +80,7 @@ internal static class DefensiveStrikeAttack
         {
             yield break;
         }
-        
+
         //Does unit has enough Channel Divinity uses left?
         var maxUses = unitCharacter.TryGetAttributeValue(AttributeDefinitions.ChannelDivinityNumber);
         if (unitCharacter.UsedChannelDivinity >= maxUses)
@@ -157,7 +157,7 @@ internal static class DefensiveStrikeAttack
             yield return enums.Current;
         }
 
-        //Rerturn our copied attack mode to the pool
+        //return our copied attack mode to the pool
         RulesetAttackMode.AttackModesPool.Return(opportunityAttackMode);
     }
 }

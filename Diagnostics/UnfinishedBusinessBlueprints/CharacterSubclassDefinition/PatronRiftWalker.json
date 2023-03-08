@@ -51,9 +51,9 @@
     "description": "Subclass/&PatronRiftWalkerDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "41f600f15c0f69149b5d8c2cff9a44bb",
-      "m_SubObjectName": "Barbarian_Path_Magebane",
-      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+      "m_AssetGUID": "dd6fa7d2-99ae-54f7-9f47-8614d2428b44",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",

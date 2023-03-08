@@ -1,9 +1,10 @@
 ﻿using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
+using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Models;
+using SolastaUnfinishedBusiness.Properties;
 using static RuleDefinitions;
-using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterSubclassDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionFeatureSets;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionMovementAffinitys;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionMoveModes;
@@ -156,7 +157,7 @@ internal sealed class PatronMoonlit : AbstractSubclass
 
         Subclass = CharacterSubclassDefinitionBuilder
             .Create("PatronMoonlit")
-            .SetGuiPresentation(Category.Subclass, RangerShadowTamer)
+            .SetGuiPresentation(Category.Subclass, Sprites.GetSprite("PatronMoonlit", Resources.PatronMoonlit, 256))
             .AddFeaturesAtLevel(1,
                 lightAffinityMoonlitWeak,
                 magicAffinityMoonlitExpandedSpells,
@@ -178,5 +179,6 @@ internal sealed class PatronMoonlit : AbstractSubclass
     internal override FeatureDefinitionSubclassChoice SubclassChoice => DatabaseHelper.FeatureDefinitionSubclassChoices
         .SubclassChoiceWarlockOtherworldlyPatrons;
 
+    // ReSharper disable once UnassignedGetOnlyAutoProperty
     internal override DeityDefinition DeityDefinition { get; }
 }

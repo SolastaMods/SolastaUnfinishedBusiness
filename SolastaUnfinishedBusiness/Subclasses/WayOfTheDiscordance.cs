@@ -130,7 +130,8 @@ internal sealed class WayOfTheDiscordance : AbstractSubclass
 
         Subclass = CharacterSubclassDefinitionBuilder
             .Create(Name)
-            .SetOrUpdateGuiPresentation(Category.Subclass, CharacterSubclassDefinitions.RoguishShadowCaster)
+            .SetGuiPresentation(Category.Subclass,
+                Sprites.GetSprite("WayOfTheDiscordance", Resources.WayOfTheDiscordance, 256))
             .AddFeaturesAtLevel(3,
                 featureSetDiscordance)
             .AddFeaturesAtLevel(6,

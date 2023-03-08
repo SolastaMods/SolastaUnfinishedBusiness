@@ -3,9 +3,10 @@ using SolastaUnfinishedBusiness.Api.Extensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
+using SolastaUnfinishedBusiness.CustomUI;
+using SolastaUnfinishedBusiness.Properties;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
-using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterSubclassDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPowers;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.MonsterDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.MonsterAttackDefinitions;
@@ -105,7 +106,8 @@ internal sealed class CircleOfTheNight : AbstractSubclass
 
         Subclass = CharacterSubclassDefinitionBuilder
             .Create(CircleOfTheNightName)
-            .SetGuiPresentation(Category.Subclass, PathClaw)
+            .SetGuiPresentation(Category.Subclass,
+                Sprites.GetSprite("CircleOfTheNight", Resources.CircleOfTheNight, 256))
             .AddFeaturesAtLevel(2,
                 combatWildshape,
                 blockRegularWildshape,

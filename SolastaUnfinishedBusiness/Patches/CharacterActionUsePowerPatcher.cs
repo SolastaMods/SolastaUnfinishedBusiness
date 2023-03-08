@@ -62,7 +62,7 @@ public static class CharacterActionUsePowerPatcher
             GlobalUniqueEffects.TerminateMatchingUniqueEffect(
                 __instance.ActingCharacter.RulesetCharacter,
                 __instance.activePower);
-            
+
             //PATCH: Support for limited power effect instances
             //terminates earliest power effect instances of same limit, if limit reached
             //used to limit Inventor's infusions

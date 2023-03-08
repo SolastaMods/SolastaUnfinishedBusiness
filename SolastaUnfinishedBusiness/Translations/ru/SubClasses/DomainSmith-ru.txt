@@ -1,0 +1,16 @@
+﻿Condition/&ConditionDomainSmithAdamantBenedictionDescription=Ваша броня становится адамантиновой, вдвое уменьшая критический урон.
+Condition/&ConditionDomainSmithAdamantBenedictionTitle=Адамантиновая броня
+Feature/&AttributeModifierDomainSmithReinforceArmorDescription=Эта броня была усилена, обеспечивая дополнительный +{0} AC.
+Feature/&AttributeModifierDomainSmithReinforceArmorTitle=Усиленный
+Feature/&AttributeModifierDomainSmithForgeMasteryDescription=Получите сопротивление огню и при ношении доспехов получите +1 AC.
+Feature/&AttributeModifierDomainSmithForgeMasteryTitle=Мастерство кузницы
+Feature/&AdditionalDamageDomainSmithDivineStrikeDescription=Один раз за ход наносит +{0}d8 урона от огня при атаках оружием.
+Feature/&AdditionalDamageDomainSmithDivineStrikeTitle=Божественный удар
+Feature/&PowerDomainSmithAdamantBenedictionDescription=Действием накройте доспехи союзников в радиусе 30 футов. Их доспехи обретают силу адамантовых доспехов, получая невосприимчивость к критическим ударам на минуту.
+Feature/&PowerDomainSmithAdamantBenedictionTitle=Channel Divinity: Непреклонное благословение
+Feature/&PowerDomainSmithReinforceArmorDescription=По одному за продолжительный отдых вы можете усилить немагический элемент доспеха или щита. Усиленный объект получает дополнительный +{0} AC.
+Feature/&PowerDomainSmithReinforceArmorTitle=Укрепить броню
+Feature/&BonusProficiencyDomainSmithDescription=Получите мастерство в кузнечных инструментах и ​​тяжелых доспехах.
+Feature/&BonusProficiencyDomainSmithTitle=Бонусные навыки
+Subclass/&DomainSmithTitle=Смит
+Subclass/&DomainSmithDescription=Святые кузнецы, которые направляют свою веру через сталь и кузницы. Усиление союзной брони и усиленная броня себя.
