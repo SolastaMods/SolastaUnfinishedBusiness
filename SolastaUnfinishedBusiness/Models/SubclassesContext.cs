@@ -36,6 +36,7 @@ internal static class SubclassesContext
 
         // Cleric
         LoadSubclass(new DomainDefiler());
+        LoadSubclass(new DomainSmith());
 
         // Druid
         LoadSubclass(new CircleOfTheAncientForest());

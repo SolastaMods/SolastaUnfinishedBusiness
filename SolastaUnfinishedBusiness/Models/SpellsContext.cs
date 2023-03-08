@@ -27,6 +27,7 @@ internal static class SpellsContext
     private static readonly SortedList<string, SpellListDefinition> spellLists = new();
     private static readonly Dictionary<SpellDefinition, List<SpellListDefinition>> SpellSpellListMap = new();
 
+    internal static readonly SpellDefinition ElementalWeapon = BuildElementalWeapon();
     internal static readonly SpellDefinition EnsnaringStrike = BuildEnsnaringStrike();
     internal static readonly SpellDefinition FarStep = BuildFarStep();
     internal static readonly SpellDefinition SearingSmite = BuildSearingSmite();
@@ -223,10 +224,10 @@ internal static class SpellsContext
         // 3rd level
         RegisterSpell(BuildBlindingSmite(), 0, SpellListPaladin);
         RegisterSpell(BuildCrusadersMantle(), 0, SpellListPaladin);
-        RegisterSpell(BuildElementalWeapon(), 0, SpellListCleric, SpellListPaladin);
+        RegisterSpell(ElementalWeapon, 0, SpellListCleric, SpellListPaladin);
         RegisterSpell(BuildSpiritShroud(), 0, SpellListCleric, SpellListPaladin, SpellListWarlock, SpellListWizard);
         RegisterSpell(BuildWinterBreath(), 0, SpellListDruid, SpellListSorcerer, SpellListWizard);
-        
+
         // 4th level
         RegisterSpell(BuildStaggeringSmite(), 0, SpellListPaladin);
 
