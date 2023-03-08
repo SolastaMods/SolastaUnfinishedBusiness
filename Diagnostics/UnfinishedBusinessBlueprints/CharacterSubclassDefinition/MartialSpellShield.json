@@ -46,9 +46,9 @@
     "description": "Subclass/&MartialSpellShieldDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "a934d22a89555934da76c63cc0346839",
-      "m_SubObjectName": "Cleric_Battler",
-      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+      "m_AssetGUID": "703948bf-edf5-5dab-ab65-16fb6fa4cf8d",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
