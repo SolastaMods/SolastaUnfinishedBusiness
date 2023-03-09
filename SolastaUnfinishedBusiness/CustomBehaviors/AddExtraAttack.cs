@@ -215,8 +215,7 @@ internal sealed class AddExtraMainHandAttack : AddExtraAttackBase
             return null;
         }
 
-        var mainHandItem = hero.CharacterInventory.InventorySlotsByName[EquipmentDefinitions.SlotTypeMainHand]
-            .EquipedItem;
+        var mainHandItem = hero.GetMainWeapon();
 
         // don't use ?? on Unity Objects as it bypasses the lifetime check on the underlying object
         var strikeDefinition = mainHandItem?.ItemDefinition;
@@ -392,8 +391,7 @@ internal sealed class AddBonusShieldAttack : AddExtraAttackBase
             return null;
         }
 
-        var inventorySlotsByName = hero.CharacterInventory.InventorySlotsByName;
-        var offHandItem = inventorySlotsByName[EquipmentDefinitions.SlotTypeOffHand].EquipedItem;
+        var offHandItem = hero.GetOffhandWeapon();
 
         if (!ShieldStrike.IsShield(offHandItem))
         {
