@@ -65,8 +65,19 @@ internal static class ValidatorsCharacter
 
     internal static readonly IsCharacterValidHandler NotHeavyArmor = character =>
         !HasArmorCategory(character, EquipmentDefinitions.HeavyArmorCategory);
+
     // internal static readonly IsCharacterValidHandler EmptyOffhand = character =>
     //     character.CharacterInventory.InventorySlotsByName[EquipmentDefinitions.SlotTypeOffHand].EquipedItem == null;
+
+    internal static IsCharacterValidHandler HasUsedSpecialFeature(string feature)
+    {
+        return character =>
+        {
+            var gameLocationCharacter = GameLocationCharacter.GetFromActor(character);
+
+            return gameLocationCharacter != null && gameLocationCharacter.UsedSpecialFeatures.ContainsKey(feature);
+        };
+    }
 
     internal static IsCharacterValidHandler HasAnyOfConditions(params string[] conditions)
     {
