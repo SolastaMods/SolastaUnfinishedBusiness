@@ -3,6 +3,8 @@ using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomInterfaces;
+using SolastaUnfinishedBusiness.CustomUI;
+using SolastaUnfinishedBusiness.Properties;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionFightingStyleChoices;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterSubclassDefinitions;
 
@@ -14,7 +16,7 @@ internal sealed class HandAndAHalf : AbstractFightingStyle
 
     internal override FightingStyleDefinition FightingStyle { get; } = FightingStyleBuilder
         .Create(HandAndAHalfName)
-        .SetGuiPresentation(Category.FightingStyle, OathOfJugement)
+        .SetGuiPresentation(Category.FightingStyle, Sprites.GetSprite("HandAndAHalf", Resources.HandAndAHalf, 256))
         .SetFeatures(
             FeatureDefinitionAttackModifierBuilder
                 .Create("AttackModifierHandAndAHalf")

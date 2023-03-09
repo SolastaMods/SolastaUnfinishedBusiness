@@ -3,6 +3,8 @@ using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
+using SolastaUnfinishedBusiness.CustomUI;
+using SolastaUnfinishedBusiness.Properties;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionFightingStyleChoices;
 
 namespace SolastaUnfinishedBusiness.FightingStyles;
@@ -13,7 +15,7 @@ internal class ShieldExpert : AbstractFightingStyle
 
     internal override FightingStyleDefinition FightingStyle { get; } = FightingStyleBuilder
         .Create(ShieldExpertName)
-        .SetGuiPresentation(Category.FightingStyle, DatabaseHelper.CharacterSubclassDefinitions.DomainBattle)
+        .SetGuiPresentation(Category.FightingStyle, Sprites.GetSprite("ShieldExpert", Resources.ShieldExpert, 256))
         .SetFeatures(FeatureDefinitionBuilder
                 .Create("AddExtraAttackShieldExpert")
                 .SetGuiPresentationNoContent(true)
