@@ -2,7 +2,7 @@
 using SolastaUnfinishedBusiness.CustomDefinitions;
 using static ActionDefinitions;
 
-namespace SolastaUnfinishedBusiness.Api.Extensions;
+namespace SolastaUnfinishedBusiness.Api.GameExtensions;
 
 public static class InvocationDefinitionExtensions
 {

@@ -3,7 +3,7 @@ using SolastaUnfinishedBusiness.CustomBehaviors;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace SolastaUnfinishedBusiness.Api.Extensions;
+namespace SolastaUnfinishedBusiness.Api.GameExtensions;
 
 internal static class SubpowerSelectionModalExtensions
 {

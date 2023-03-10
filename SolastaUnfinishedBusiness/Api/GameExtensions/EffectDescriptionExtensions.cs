@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 
-namespace SolastaUnfinishedBusiness.Api.Extensions;
+namespace SolastaUnfinishedBusiness.Api.GameExtensions;
 
 internal static class EffectDescriptionExtensions
 {

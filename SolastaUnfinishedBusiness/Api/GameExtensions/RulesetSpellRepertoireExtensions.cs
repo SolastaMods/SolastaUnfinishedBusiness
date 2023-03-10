@@ -1,7 +1,7 @@
 ﻿using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Models;
 
-namespace SolastaUnfinishedBusiness.Api.Extensions;
+namespace SolastaUnfinishedBusiness.Api.GameExtensions;
 
 public static class RulesetSpellRepertoireExtensions
 {

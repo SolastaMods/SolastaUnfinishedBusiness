@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using static RuleDefinitions;
 
-namespace SolastaUnfinishedBusiness.Api.Extensions;
+namespace SolastaUnfinishedBusiness.Api.GameExtensions;
 
 public static class RulesetCharacterMonsterExtensions
 {

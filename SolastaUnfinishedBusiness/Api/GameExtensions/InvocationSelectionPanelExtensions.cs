@@ -1,7 +1,7 @@
 ﻿using UnityEngine.UI;
 using static ActionDefinitions;
 
-namespace SolastaUnfinishedBusiness.Api.Extensions;
+namespace SolastaUnfinishedBusiness.Api.GameExtensions;
 
 public static class InvocationSelectionPanelExtensions
 {

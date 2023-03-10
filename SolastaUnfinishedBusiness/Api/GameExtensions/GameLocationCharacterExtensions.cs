@@ -3,7 +3,7 @@ using SolastaUnfinishedBusiness.CustomBehaviors;
 using TA;
 using static ActionDefinitions;
 
-namespace SolastaUnfinishedBusiness.Api.Extensions;
+namespace SolastaUnfinishedBusiness.Api.GameExtensions;
 
 public static class GameLocationCharacterExtensions
 {

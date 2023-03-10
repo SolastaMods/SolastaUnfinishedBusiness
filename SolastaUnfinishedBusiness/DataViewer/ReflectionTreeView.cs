@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using SolastaUnfinishedBusiness.Api.Infrastructure;
+using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Api.ModKit;
 using SolastaUnfinishedBusiness.Displays;
 using UnityEngine;

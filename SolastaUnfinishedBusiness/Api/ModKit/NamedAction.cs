@@ -48,23 +48,23 @@ public class NamedFunc<T>
     private Func<bool> CanPerform { get; }
 }
 
-public class NamedMutator<Target, T>
+public class NamedMutator<TV, T>
 {
     public NamedMutator(
         string name,
-        Action<Target, T, int> action,
-        Func<Target, T, bool> canPerform = null,
+        Action<TV, T, int> action,
+        Func<TV, T, bool> canPerform = null,
         bool isRepeatable = false
     )
     {
-        this.name = name;
-        this.action = action;
-        this.canPerform = canPerform ?? ((target, value) => true);
-        this.isRepeatable = isRepeatable;
+        Name = name;
+        Action = action;
+        CanPerform = canPerform ?? ((target, value) => true);
+        IsRepeatable = isRepeatable;
     }
 
-    public string name { get; }
-    public Action<Target, T, int> action { get; }
-    public Func<Target, T, bool> canPerform { get; }
-    public bool isRepeatable { get; }
+    public string Name { get; }
+    public Action<TV, T, int> Action { get; }
+    public Func<TV, T, bool> CanPerform { get; }
+    public bool IsRepeatable { get; }
 }

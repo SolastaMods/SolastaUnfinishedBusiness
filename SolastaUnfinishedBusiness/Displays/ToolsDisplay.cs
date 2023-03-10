@@ -2,7 +2,7 @@
 using System.Diagnostics;
 using System.Linq;
 using HarmonyLib;
-using SolastaUnfinishedBusiness.Api.Infrastructure;
+using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Api.ModKit;
 using SolastaUnfinishedBusiness.Models;
 using UnityEngine;

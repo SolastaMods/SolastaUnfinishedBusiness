@@ -1,7 +1,7 @@
 ﻿using System;
 using JetBrains.Annotations;
 
-namespace SolastaUnfinishedBusiness.Api.Infrastructure;
+namespace SolastaUnfinishedBusiness.Api.LanguageExtensions;
 
 internal static class ArrayExtensions
 {

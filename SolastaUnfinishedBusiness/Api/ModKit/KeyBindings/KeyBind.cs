@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using Newtonsoft.Json;
-using SolastaUnfinishedBusiness.Api.Infrastructure;
+using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using UnityEngine;
 
 namespace SolastaUnfinishedBusiness.Api.ModKit;
@@ -76,16 +76,15 @@ internal static partial class UI
     [JsonObject(MemberSerialization.OptIn)]
     public class KeyBind
     {
-        [JsonProperty] public readonly string ID;
-        [JsonProperty] public bool Alt;
-
         [JsonProperty] public readonly bool Cmd;
 
         [JsonProperty] public readonly bool Ctrl;
+        [JsonProperty] public readonly string ID;
 
         [JsonProperty] public readonly KeyCode Key;
 
         [JsonProperty] public readonly bool Shift;
+        [JsonProperty] public bool Alt;
 
         public KeyBind(string identifier, KeyCode key = KeyCode.None, bool ctrl = false, bool alt = false,
             bool cmd = false, bool shift = false)

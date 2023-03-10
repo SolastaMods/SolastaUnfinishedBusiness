@@ -3,8 +3,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using SolastaUnfinishedBusiness.Api.Infrastructure;
-using SolastaUnfinishedBusiness.Api.ModKit.Utility.Extensions;
+using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using UnityEngine;
 using GL = UnityEngine.GUILayout;
 
@@ -88,12 +87,12 @@ internal static partial class UI
             {
                 TextField(ref editState.Item2, null, MinWidth(minWidth), AutoWidth());
                 Space(15);
-                if (GL.Button(RichText.Red("✖"), GUI.skin.box, AutoWidth()))
+                if (GL.Button("✖".Red(), GUI.skin.box, AutoWidth()))
                 {
                     editState = (null, null);
                 }
 
-                if (!GL.Button(RichText.Green("✔"), GUI.skin.box, AutoWidth())
+                if (!GL.Button("✔".Green(), GUI.skin.box, AutoWidth())
                     && (!UserHasHitReturn || FocusedControlName != label))
                 {
                     return changed;
@@ -261,11 +260,11 @@ internal static partial class UI
                 Space(25);
                 Label("Are you sure?".Yellow());
                 Space(25);
-                ActionButton(RichText.Bold("YES".Yellow()), action);
+                ActionButton("YES".Yellow().Bold(), action);
                 Space(10);
-                ActionButton(RichText.Green("NO"), () => areYouSure = false);
+                ActionButton("NO".Green(), () => areYouSure = false);
                 Space(25);
-                Label(RichText.Orange(warning));
+                Label(warning.Orange());
             }
 
             areYouSureState = areYouSure;
@@ -284,12 +283,12 @@ internal static partial class UI
         else
         {
             Space(-21);
-            ActionButton(RichText.Cyan("min "), () => { }, TextBoxStyle, AutoWidth());
+            ActionButton("min ".Cyan(), () => { }, TextBoxStyle, AutoWidth());
         }
 
         Space(-8);
         var temp = false;
-        Button(RichText.Bold($"{v}"), ref temp, TextBoxStyle, AutoWidth());
+        Button($"{v}".Bold(), ref temp, TextBoxStyle, AutoWidth());
         Space(-8);
         if (v < max)
         {
@@ -297,7 +296,7 @@ internal static partial class UI
         }
         else
         {
-            ActionButton(RichText.Cyan(" max"), () => { }, TextBoxStyle, AutoWidth());
+            ActionButton(" max".Cyan(), () => { }, TextBoxStyle, AutoWidth());
             Space(-27);
         }
 
@@ -342,7 +341,7 @@ internal static partial class UI
         var changed = false;
         using (HorizontalScope(Width(400)))
         {
-            Label(RichText.Cyan(title), Width(300));
+            Label(title.Cyan(), Width(300));
             Space(15);
             var value = get();
             changed = ValueAdjuster(ref value, increment, min, max);
@@ -361,7 +360,7 @@ internal static partial class UI
         var changed = false;
         using (HorizontalScope())
         {
-            Label(RichText.Cyan(title), options);
+            Label(title.Cyan(), options);
             Space(15);
             var value = get();
             changed = ValueAdjuster(ref value, increment, min, max);
@@ -384,7 +383,7 @@ internal static partial class UI
         var inc = increment;
         using (HorizontalScope(options))
         {
-            Label(RichText.Cyan(title), ExpandWidth(true));
+            Label(title.Cyan(), ExpandWidth(true));
             Space(25);
             var fieldWidth = GUI.skin.textField.CalcSize(new GUIContent(max.ToString())).x;
             if (ValueAdjuster(ref value, inc, min, max))
@@ -436,7 +435,7 @@ internal static partial class UI
             using (VerticalScope(Width(300)))
             {
                 Space((SliderTop - 1).Point());
-                Label(RichText.Cyan(title), Width(300));
+                Label(title.Cyan(), Width(300));
                 Space(SliderBottom.Point());
             }
 
@@ -458,7 +457,7 @@ internal static partial class UI
 
             if (units.Length > 0)
             {
-                Label(RichText.Bold($"{units}"), Width(25 + GUI.skin.label.CalcSize(new GUIContent(units)).x));
+                Label($"{units}".Bold(), Width(25 + GUI.skin.label.CalcSize(new GUIContent(units)).x));
             }
 
             Space(25);
@@ -532,7 +531,7 @@ internal static partial class UI
         using (VerticalScope(Width(300)))
         {
             Space((SliderTop - 1).Point());
-            Label(RichText.Cyan(title), Width(300));
+            Label(title.Cyan(), Width(300));
             Space(SliderBottom.Point());
         }
 
@@ -562,7 +561,7 @@ internal static partial class UI
 
         if (units.Length > 0)
         {
-            Label(RichText.Bold($"{units}"), Width(25 + GUI.skin.label.CalcSize(new GUIContent(units)).x));
+            Label($"{units}".Bold(), Width(25 + GUI.skin.label.CalcSize(new GUIContent(units)).x));
         }
 
         Space(25);

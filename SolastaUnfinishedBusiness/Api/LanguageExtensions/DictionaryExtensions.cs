@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace SolastaUnfinishedBusiness.Api.Infrastructure;
+namespace SolastaUnfinishedBusiness.Api.LanguageExtensions;
 
 public static class DictionaryExtensions
 {

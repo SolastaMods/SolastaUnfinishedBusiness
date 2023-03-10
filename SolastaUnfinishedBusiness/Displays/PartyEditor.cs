@@ -3,8 +3,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using SolastaUnfinishedBusiness.Api.Infrastructure;
-using SolastaUnfinishedBusiness.Api.ModKit.Utility.Extensions;
+using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using UnityEngine;
 using static SolastaUnfinishedBusiness.Api.ModKit.UI;
 
@@ -37,17 +36,16 @@ public static class PartyEditor
 
     public static void OnGUI()
     {
-        Label(RichText.Bold(RichText.Orange("Experimental Preview:".Localized())) + " " +
-              RichText.Green(
-                  "This simple party editor lets you edit characters in a loaded game session. Right now it lets you edit your character's first and last name. More features are coming soon (tm). Please click on the following to report issues:"
-                      .Localized()));
+        Label("Experimental Preview:".Localized().Orange().Bold() + " " +
+              "This simple party editor lets you edit characters in a loaded game session. Right now it lets you edit your character's first and last name. More features are coming soon (tm). Please click on the following to report issues:"
+                  .Localized().Green());
         LinkButton("https://github.com/SolastaMods/SolastaUnfinishedBusiness/issues",
             "https://github.com/SolastaMods/SolastaUnfinishedBusiness/issues");
         var characters = GetCharacterList();
         if (characters == null)
         {
-            Label(RichText.Bold("****** Party Editor unavailable: Please load a save game ******".Localized()
-                .Yellow()));
+            Label("****** Party Editor unavailable: Please load a save game ******".Localized()
+                .Yellow().Bold());
         }
         else
         {
@@ -59,7 +57,7 @@ public static class PartyEditor
                     AutoWidth())
             );
             Div();
-            Label(RichText.Bold(RichText.Cyan("Current Party".Localized())));
+            Label("Current Party".Localized().Cyan().Bold());
             using (VerticalScope())
             {
                 foreach (var ch in characters)
@@ -73,7 +71,7 @@ public static class PartyEditor
                         if (ch is RulesetCharacterHero hero)
                         {
                             name = hero.Name + " " + hero.SurName;
-                            if (EditableLabel(ref name, ref nameEditState, 200, n => RichText.Bold(RichText.Orange(n)),
+                            if (EditableLabel(ref name, ref nameEditState, 200, n => n.Orange().Bold(),
                                     MinWidth(100),
                                     MaxWidth(600)))
                             {
@@ -93,7 +91,7 @@ public static class PartyEditor
                                 changed = true;
                             }
                         }
-                        else if (EditableLabel(ref name, ref nameEditState, 200, n => RichText.Bold(RichText.Orange(n)),
+                        else if (EditableLabel(ref name, ref nameEditState, 200, n => n.Orange().Bold(),
                                      MinWidth(100),
                                      MaxWidth(600)))
                         {
@@ -102,7 +100,7 @@ public static class PartyEditor
                         }
 
                         Space(5);
-                        Label(RichText.Green(level < 10 ? "   lvl" : "   lv") + $" {level}", Width(90));
+                        Label((level < 10 ? "   lvl" : "   lv").Green() + $" {level}", Width(90));
                         Space(5);
                         var showStats = ch == selectedCharacter && selectedToggle == ToggleChoice.Stats;
                         if (DisclosureToggle("Stats", ref showStats, 125))
@@ -126,7 +124,7 @@ public static class PartyEditor
                             var attribute = attr.Value;
                             var baseValue = attribute.baseValue;
                             var modifiers = attribute.ActiveModifiers.Where(m => m.Value != 0).Select(m =>
-                                    $"{m.Value:+0;-#} {RichText.Cyan(String.Join(" ", m.Tags).TrimStart('0', '1', '2', '3', '4', '5', '6', '7', '8', '9'))}")
+                                    $"{m.Value:+0;-#} {String.Join(" ", m.Tags).TrimStart('0', '1', '2', '3', '4', '5', '6', '7', '8', '9').Cyan()}")
                                 .ToArray();
                             var modifiersString = String.Join(" ", modifiers);
                             using (HorizontalScope())
@@ -140,7 +138,7 @@ public static class PartyEditor
                                     changed = true;
                                 }, GUI.skin.box, AutoWidth());
                                 Space(20);
-                                Label(RichText.Bold(RichText.Orange($"{attribute.currentValue}")), Width(50f));
+                                Label($"{attribute.currentValue}".Orange().Bold(), Width(50f));
                                 ActionButton(" > ", () =>
                                 {
                                     attribute.baseValue += 1;
@@ -190,11 +188,13 @@ public static class PartyEditor
             ? null
             : Gui.GameCampaign.Party.CharactersList.Select(ch => ch.RulesetCharacter).ToList();
 #if DEBUG
-        if (chars == null)
+        if (chars != null)
         {
-            chars = CharacterPool;
-            editingFromPool = true;
+            return chars;
         }
+
+        chars = CharacterPool;
+        editingFromPool = true;
 #endif
 #pragma warning restore IDE0031
         return chars;

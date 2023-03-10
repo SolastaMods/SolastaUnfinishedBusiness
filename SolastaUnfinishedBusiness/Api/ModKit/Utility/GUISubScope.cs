@@ -1,5 +1,5 @@
 ﻿using System;
-using SolastaUnfinishedBusiness.Api.Infrastructure;
+using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using UnityEngine;
 
 namespace SolastaUnfinishedBusiness.Api.ModKit.Utility;

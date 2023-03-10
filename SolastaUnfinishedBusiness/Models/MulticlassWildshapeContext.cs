@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using SolastaUnfinishedBusiness.Api.Extensions;
+using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using UnityEngine;
@@ -33,7 +33,9 @@ internal static class MulticlassWildshapeContext
 
 
     // BACKWARD COMPATIBILITY
+#pragma warning disable IDE0052
     private static readonly ConditionDefinition ConditionWildshapeFlurryOfBlows = ConditionDefinitionBuilder
+#pragma warning restore IDE0052
         .Create("ConditionWildshapeFlurryOfBlows")
         .SetGuiPresentationNoContent(true)
         .SetSilent(Silent.WhenAddedOrRemoved)

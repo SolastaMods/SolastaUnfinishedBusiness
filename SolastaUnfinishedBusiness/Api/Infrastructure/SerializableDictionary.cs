@@ -1,19 +1,28 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using System.Xml;
 using System.Xml.Schema;
 using System.Xml.Serialization;
-using JetBrains.Annotations;
+using SolastaUnfinishedBusiness.Api.ModKit;
 
 namespace SolastaUnfinishedBusiness.Api.Infrastructure;
 
 [XmlRoot("SerializableDictionary")]
-public class SerializableDictionary<TKey, TValue> : Dictionary<TKey, TValue>, IXmlSerializable
+public class SerializableDictionary<TKey, TValue> : Dictionary<TKey, TValue>, IXmlSerializable, IUpdatableSettings
 {
-    internal SerializableDictionary()
+    public SerializableDictionary()
     {
     }
 
-    internal SerializableDictionary([NotNull] IDictionary<TKey, TValue> dictionary) : base(dictionary) { }
+    public SerializableDictionary(IDictionary<TKey, TValue> dictionary) : base(dictionary) { }
+
+    public void AddMissingKeys(IUpdatableSettings from)
+    {
+        if (from is SerializableDictionary<TKey, TValue> fromDict)
+        {
+            _ = this.Union(fromDict.Where(k => !ContainsKey(k.Key))).ToDictionary(k => k.Key, v => v.Value);
+        }
+    }
 
     public XmlSchema GetSchema()
     {
@@ -26,7 +35,7 @@ public class SerializableDictionary<TKey, TValue> : Dictionary<TKey, TValue>, IX
         XmlSerializer valueSerializer = new(typeof(TValue));
 
         var wasEmpty = reader.IsEmptyElement;
-
+        
         reader.Read();
 
         if (wasEmpty)
@@ -37,20 +46,19 @@ public class SerializableDictionary<TKey, TValue> : Dictionary<TKey, TValue>, IX
         while (reader.NodeType != XmlNodeType.EndElement)
         {
             reader.ReadStartElement("item");
-
             reader.ReadStartElement("key");
-
+            
             var key = (TKey)keySerializer.Deserialize(reader);
-
+            
             reader.ReadEndElement();
-
             reader.ReadStartElement("value");
-
+            
             var value = (TValue)valueSerializer.Deserialize(reader);
-
+            
             reader.ReadEndElement();
 
             Add(key, value);
+
             reader.ReadEndElement();
             reader.MoveToContent();
         }
@@ -66,15 +74,13 @@ public class SerializableDictionary<TKey, TValue> : Dictionary<TKey, TValue>, IX
         foreach (var key in Keys)
         {
             writer.WriteStartElement("item");
-
             writer.WriteStartElement("key");
             keySerializer.Serialize(writer, key);
             writer.WriteEndElement();
-
             writer.WriteStartElement("value");
-
+            
             var value = this[key];
-
+            
             valueSerializer.Serialize(writer, value);
             writer.WriteEndElement();
             writer.WriteEndElement();

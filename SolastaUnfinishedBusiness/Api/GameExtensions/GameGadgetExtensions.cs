@@ -1,6 +1,6 @@
 ﻿using JetBrains.Annotations;
 
-namespace SolastaUnfinishedBusiness.Api.Extensions;
+namespace SolastaUnfinishedBusiness.Api.GameExtensions;
 
 internal static class GameGadgetExtensions
 {

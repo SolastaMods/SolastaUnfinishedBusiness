@@ -1,4 +1,4 @@
-﻿namespace SolastaUnfinishedBusiness.Api.Extensions;
+﻿namespace SolastaUnfinishedBusiness.Api.GameExtensions;
 
 internal enum ExtraReactionContext
 {

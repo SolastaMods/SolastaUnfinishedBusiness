@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace SolastaUnfinishedBusiness.Api.Infrastructure;
+namespace SolastaUnfinishedBusiness.Api.LanguageExtensions;
 
 internal static class StringExtensions
 {

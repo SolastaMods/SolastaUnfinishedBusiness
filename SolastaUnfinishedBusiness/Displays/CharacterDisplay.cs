@@ -1,4 +1,4 @@
-﻿using SolastaUnfinishedBusiness.Api.Infrastructure;
+﻿using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Api.ModKit;
 using SolastaUnfinishedBusiness.Models;
 

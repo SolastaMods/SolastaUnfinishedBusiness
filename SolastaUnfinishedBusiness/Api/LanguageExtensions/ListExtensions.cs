@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using JetBrains.Annotations;
 
-namespace SolastaUnfinishedBusiness.Api.Infrastructure;
+namespace SolastaUnfinishedBusiness.Api.LanguageExtensions;
 
 internal static class ListExtensions
 {

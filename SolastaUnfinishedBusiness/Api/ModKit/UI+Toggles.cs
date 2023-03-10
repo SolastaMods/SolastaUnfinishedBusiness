@@ -3,7 +3,7 @@
 using System;
 using System.Linq;
 using HarmonyLib;
-using SolastaUnfinishedBusiness.Api.Infrastructure;
+using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using UnityEngine;
 
 namespace SolastaUnfinishedBusiness.Api.ModKit;

@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using SolastaUnfinishedBusiness.Api.LanguageExtensions;
+using UnityEngine;
 using UnityModManagerNet;
 
 namespace SolastaUnfinishedBusiness.Api.ModKit;
@@ -78,7 +79,7 @@ internal static partial class UI
                 _rarityTexture = new Texture2D(1, 1);
             }
 
-            _rarityTexture.SetPixel(0, 0, Rgba.Black.Color());
+            _rarityTexture.SetPixel(0, 0, RichText.Rgba.Black.Color());
             _rarityTexture.Apply();
             return _rarityTexture;
         }

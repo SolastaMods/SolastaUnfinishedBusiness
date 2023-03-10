@@ -4,7 +4,7 @@ using System.Reflection;
 using JetBrains.Annotations;
 using Object = UnityEngine.Object;
 
-namespace SolastaUnfinishedBusiness.Api.Infrastructure;
+namespace SolastaUnfinishedBusiness.Api.LanguageExtensions;
 
 internal static class ObjectExtensions
 {

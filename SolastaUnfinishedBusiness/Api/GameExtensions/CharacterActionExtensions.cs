@@ -1,7 +1,7 @@
 ﻿using System;
 using static RuleDefinitions;
 
-namespace SolastaUnfinishedBusiness.Api.Extensions;
+namespace SolastaUnfinishedBusiness.Api.GameExtensions;
 
 internal static class CharacterActionExtensions
 {
