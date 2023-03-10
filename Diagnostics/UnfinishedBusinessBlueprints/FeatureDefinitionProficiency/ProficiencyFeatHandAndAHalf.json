@@ -12,9 +12,9 @@
     "description": "FightingStyle/&HandAndAHalfDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "0f2d6e477012b904d99d09f537a30478",
-      "m_SubObjectName": "Paladin_Oath_Of_Jugement",
-      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+      "m_AssetGUID": "2c603e75-2abc-541d-a0d2-93054ef8daa6",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
