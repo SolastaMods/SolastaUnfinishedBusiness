@@ -10,7 +10,7 @@ using HarmonyLib;
 
 namespace SolastaUnfinishedBusiness.Api.ModKit;
 
-public static class Utilties
+public static class Utilities
 {
     public static TValue GetValueOrDefault<TKey, TValue>(this Dictionary<TKey, TValue> dictionary, TKey key,
         TValue defaultValue = default)
@@ -22,7 +22,7 @@ public static class Utilties
         return dictionary.TryGetValue(key, out var value) ? value : defaultValue;
     }
 
-    public static object GetPropValue(this object obj, string name)
+    private static object GetPropValue(this object obj, string name)
     {
         foreach (var part in name.Split('.'))
         {
@@ -40,11 +40,11 @@ public static class Utilties
 
     public static T GetPropValue<T>(this object obj, string name)
     {
-        var retval = GetPropValue(obj, name);
-        if (retval == null) { return default; }
+        var retValue = GetPropValue(obj, name);
+        if (retValue == null) { return default; }
 
         // throws InvalidCastException if types are incompatible
-        return (T)retval;
+        return (T)retValue;
     }
 
     public static object SetPropValue(this object obj, string name, object value)
@@ -76,16 +76,7 @@ public static class Utilties
         return null;
     }
 
-    public static T SetPropValue<T>(this object obj, string name, T value)
-    {
-        object retval = SetPropValue(obj, name, value);
-        if (retval == null) { return default; }
-
-        // throws InvalidCastException if types are incompatible
-        return (T)retval;
-    }
-
-    public static string StripHTML(this string s)
+    public static string StripHtml(this string s)
     {
         return Regex.Replace(s, "<.*?>", string.Empty);
     }
@@ -121,46 +112,30 @@ public static class Utilties
             i++;
         }
 
-        if (trim)
-        {
-            return stringBuilder.ToString().Trim();
-        }
-
-        return stringBuilder.ToString();
+        return trim ? stringBuilder.ToString().Trim() : stringBuilder.ToString();
     }
 
-    public static string ReplaceLastOccurrence(this string Source, string Find, string Replace)
+    public static string ReplaceLastOccurrence(this string source, string find, string replace)
     {
-        var place = Source.LastIndexOf(Find);
+        var place = source.LastIndexOf(find, StringComparison.CurrentCulture);
 
         if (place == -1)
         {
-            return Source;
+            return source;
         }
 
-        var result = Source.Remove(place, Find.Length).Insert(place, Replace);
+        var result = source.Remove(place, find.Length).Insert(place, replace);
         return result;
     }
 
-    public static string[] getObjectInfo(object o)
+    public static string[] GetObjectInfo(object o)
     {
-        var fields = "";
-        foreach (var field in Traverse.Create(o).Fields())
-        {
-            fields = fields + field + ", ";
-        }
+        var fields = Traverse.Create(o).Fields().Aggregate("", (current, field) => current + field + ", ");
 
-        var methods = "";
-        foreach (var method in Traverse.Create(o).Methods())
-        {
-            methods = methods + method + ", ";
-        }
+        var methods = Traverse.Create(o).Methods().Aggregate("", (current, method) => current + method + ", ");
 
-        var properties = "";
-        foreach (var property in Traverse.Create(o).Properties())
-        {
-            properties = properties + property + ", ";
-        }
+        var properties = Traverse.Create(o).Properties()
+            .Aggregate("", (current, property) => current + property + ", ");
 
         return new[] { fields, methods, properties };
     }
@@ -168,16 +143,16 @@ public static class Utilties
     public static string SubstringBetweenCharacters(this string input, char charFrom, char charTo)
     {
         var posFrom = input.IndexOf(charFrom);
-        if (posFrom != -1) //if found char
+        if (posFrom == -1) //if found char
         {
-            var posTo = input.IndexOf(charTo, posFrom + 1);
-            if (posTo != -1) //if found char
-            {
-                return input.Substring(posFrom + 1, posTo - posFrom - 1);
-            }
+            return string.Empty;
         }
 
-        return string.Empty;
+        var posTo = input.IndexOf(charTo, posFrom + 1);
+        return posTo != -1
+            ? //if found char
+            input.Substring(posFrom + 1, posTo - posFrom - 1)
+            : string.Empty;
     }
 
     public static string[] TrimCommonPrefix(this string[] values)
@@ -185,20 +160,27 @@ public static class Utilties
         var prefix = string.Empty;
         int? resultLength = null;
 
-        if (values != null)
+        if (values == null)
         {
-            if (values.Length > 1)
+            return prefix.Length > 0 ? values.Select(s => s.Replace(prefix, "")).ToArray() : values;
+        }
+
+        switch (values.Length)
+        {
+            case > 1:
             {
                 var min = values.Min(value => value.Length);
                 for (var charIndex = 0; charIndex < min; charIndex++)
                 {
                     for (var valueIndex = 1; valueIndex < values.Length; valueIndex++)
                     {
-                        if (values[0][charIndex] != values[valueIndex][charIndex])
+                        if (values[0][charIndex] == values[valueIndex][charIndex])
                         {
-                            resultLength = charIndex;
-                            break;
+                            continue;
                         }
+
+                        resultLength = charIndex;
+                        break;
                     }
 
                     if (resultLength.HasValue)
@@ -207,16 +189,16 @@ public static class Utilties
                     }
                 }
 
-                if (resultLength.HasValue &&
-                    resultLength.Value > 0)
+                if (resultLength is > 0)
                 {
                     prefix = values[0].Substring(0, resultLength.Value);
                 }
+
+                break;
             }
-            else if (values.Length > 0)
-            {
+            case > 0:
                 prefix = values[0];
-            }
+                break;
         }
 
         return prefix.Length > 0 ? values.Select(s => s.Replace(prefix, "")).ToArray() : values;
@@ -255,17 +237,17 @@ public static class MK
 
 public static class CloneUtil<T>
 {
-    private static readonly Func<T, object> clone;
+    private static readonly Func<T, object> Clone;
 
     static CloneUtil()
     {
         var cloneMethod = typeof(T).GetMethod("MemberwiseClone", BindingFlags.Instance | BindingFlags.NonPublic);
-        clone = (Func<T, object>)cloneMethod.CreateDelegate(typeof(Func<T, object>));
+        Clone = (Func<T, object>)cloneMethod.CreateDelegate(typeof(Func<T, object>));
     }
 
     public static T ShallowClone(T obj)
     {
-        return (T)clone(obj);
+        return (T)Clone(obj);
     }
 }
 

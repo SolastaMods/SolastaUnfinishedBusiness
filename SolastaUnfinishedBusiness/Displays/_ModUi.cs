@@ -19,6 +19,7 @@ using static SolastaUnfinishedBusiness.Displays.RulesDisplay;
 using static SolastaUnfinishedBusiness.Displays.SpellsDisplay;
 using static SolastaUnfinishedBusiness.Displays.ToolsDisplay;
 using static SolastaUnfinishedBusiness.Displays.TranslationsDisplay;
+
 #if DEBUG
 using static SolastaUnfinishedBusiness.Displays.DiagnosticsDisplay;
 #endif
@@ -58,7 +59,7 @@ namespace SolastaUnfinishedBusiness.Displays
             if (title != null)
             {
                 UI.Div();
-                UI.Label(title.color(RGBA.Orange).bold());
+                UI.Label(title);
                 UI.Space(7);
             }
 

@@ -69,7 +69,8 @@ internal static class EncountersDisplay
                 UI.Label($"HD: {hero.MaxHitDiceCount():0#}{hero.MainHitDie}".Khaki(), UI.Width(72));
                 UI.Label($"XP: {hero.GetAttribute(AttributeDefinitions.Experience).CurrentValue}".White(),
                     UI.Width(72));
-                UI.Label($"LV: {hero.GetAttribute(AttributeDefinitions.CharacterLevel).CurrentValue:0#}".White(),
+                UI.Label(
+                    $"LV: {hero.GetAttribute(AttributeDefinitions.CharacterLevel).CurrentValue:0#}".White(),
                     UI.Width(48));
             }
 

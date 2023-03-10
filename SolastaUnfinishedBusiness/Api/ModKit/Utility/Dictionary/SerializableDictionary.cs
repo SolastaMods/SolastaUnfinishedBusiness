@@ -19,7 +19,7 @@ public class SerializableDictionary<TKey, TValue> : Dictionary<TKey, TValue>, IX
     {
         if (from is SerializableDictionary<TKey, TValue> fromDict)
         {
-            this.Union(fromDict.Where(k => !ContainsKey(k.Key))).ToDictionary(k => k.Key, v => v.Value);
+            _ = this.Union(fromDict.Where(k => !ContainsKey(k.Key))).ToDictionary(k => k.Key, v => v.Value);
         }
     }
 

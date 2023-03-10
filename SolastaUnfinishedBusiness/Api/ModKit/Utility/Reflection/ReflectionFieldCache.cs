@@ -317,7 +317,7 @@ public static partial class ReflectionCache
         private Getter _getter;
         private Setter _setter;
 
-        public CachedFieldOfStatic(Type type, string name) : base(type, name)
+        public CachedFieldOfStatic(IReflect type, string name) : base(type, name)
         {
             //if (!IsStatic(type))
             //    throw new InvalidOperationException();

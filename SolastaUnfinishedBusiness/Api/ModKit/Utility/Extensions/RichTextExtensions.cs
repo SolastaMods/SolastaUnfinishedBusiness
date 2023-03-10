@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Text;
 using System.Text.RegularExpressions;
+using SolastaUnfinishedBusiness.Api.Infrastructure;
 using UnityEngine;
 
 namespace SolastaUnfinishedBusiness.Api.ModKit.Utility.Extensions;
@@ -33,11 +34,13 @@ public static class StringExtensions
             //source = source.Replace(source, other.Cyan()).Bold();
 #else
         var index = source.IndexOf(other, StringComparison.InvariantCultureIgnoreCase);
-        if (index != -1)
+        if (index == -1)
         {
-            var substr = source.Substring(index, other.Length);
-            source = source.Replace(substr, substr.Cyan()).Bold();
+            return source;
         }
+
+        var substr = source.Substring(index, other.Length);
+        source = source.Replace(substr, substr.Cyan()).Bold();
 #endif
         return source;
     }
@@ -87,7 +90,7 @@ public static class RichTextExtensions
         silver = 0xD0D0D0ff,
         grey = 0xC0C0C0ff,
         lightgrey = 0xE8E8E8ff,
-        white = 0xffffffff,
+        white = 0xffffffff
     }
 
     public static string ToHtmlString(this RGBA color)
@@ -110,64 +113,59 @@ public static class RichTextExtensions
         return $"<color=#{color:X}>{str}</color>";
     }
 
-    public static string Color(this string str, string rrggbbaa)
-    {
-        return $"<color=#{rrggbbaa}>{str}</color>";
-    }
-
-    public static string color(this string s, string color)
+    public static string Color(this string s, string color)
     {
         return _ = $"<color={color}>{s}</color>";
     }
 
     public static string White(this string s)
     {
-        return _ = s.color("white");
+        return _ = RichText.Color(s, "white");
     }
 
     public static string Grey(this string s)
     {
-        return _ = s.color("#A0A0A0FF");
+        return _ = RichText.Color(s, "#A0A0A0FF");
     }
 
     public static string Red(this string s)
     {
-        return _ = s.color("#C04040E0");
+        return _ = RichText.Color(s, "#C04040E0");
     }
 
     public static string Pink(this string s)
     {
-        return _ = s.color("#FFA0A0E0");
+        return _ = RichText.Color(s, "#FFA0A0E0");
     }
 
     public static string Green(this string s)
     {
-        return _ = s.color("#00ff00ff");
+        return _ = RichText.Color(s, "#00ff00ff");
     }
 
     public static string Blue(this string s)
     {
-        return _ = s.color("blue");
+        return _ = RichText.Color(s, "blue");
     }
 
     public static string Cyan(this string s)
     {
-        return _ = s.color("cyan");
+        return _ = RichText.Color(s, "cyan");
     }
 
     public static string Magenta(this string s)
     {
-        return _ = s.color("magenta");
+        return _ = RichText.Color(s, "magenta");
     }
 
     public static string Yellow(this string s)
     {
-        return _ = s.color("yellow");
+        return _ = RichText.Color(s, "yellow");
     }
 
     public static string Orange(this string s)
     {
-        return _ = s.color("orange");
+        return _ = RichText.Color(s, "orange");
     }
 
 

@@ -3,7 +3,7 @@
 namespace SolastaUnfinishedBusiness.Api.ModKit;
 
 // https://docs.unity3d.com/Manual/StyledText.html
-public enum RGBA : uint
+public enum Rgba : uint
 {
     Aqua = 0x00ffffff,
     Blue = 0x8080ffff,
@@ -40,7 +40,7 @@ public enum RGBA : uint
 
 public static class ColorUtils
 {
-    public static Color Color(this RGBA rga, float adjust = 0)
+    public static Color Color(this Rgba rga, float adjust = 0)
     {
         var red = ((long)rga >> 24) / 256f;
         var green = (0xFF & ((long)rga >> 16)) / 256f;

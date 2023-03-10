@@ -186,7 +186,11 @@ public static class CharacterActionMagicEffectPatcher
 
             var customAction = definition.GetFirstSubFeatureOfType<ICustomMagicEffectAction>();
 
-            if (customAction != null)
+            if (customAction == null)
+            {
+                yield break;
+            }
+
             {
                 var enums = customAction.ProcessCustomEffect(__instance);
 

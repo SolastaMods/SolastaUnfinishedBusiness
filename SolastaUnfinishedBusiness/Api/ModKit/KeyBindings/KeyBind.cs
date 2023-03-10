@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using Newtonsoft.Json;
+using SolastaUnfinishedBusiness.Api.Infrastructure;
 using UnityEngine;
 
 namespace SolastaUnfinishedBusiness.Api.ModKit;
@@ -15,22 +16,19 @@ internal static partial class UI
         Command
     }
 
-    private static readonly HashSet<KeyCode> allowedMouseButtons =
+    private static readonly HashSet<KeyCode> AllowedMouseButtons =
         new() { KeyCode.Mouse3, KeyCode.Mouse4, KeyCode.Mouse5, KeyCode.Mouse6 };
 
     private static GUIStyle _hotkeyStyle;
 
-    public static GUIStyle hotkeyStyle
+    private static GUIStyle HotkeyStyle
     {
         get
         {
-            if (_hotkeyStyle == null)
-            {
-                _hotkeyStyle = new GUIStyle(GUI.skin.textArea) { margin = new RectOffset(3, 3, 3, 3), richText = true };
-            }
+            _hotkeyStyle ??= new GUIStyle(GUI.skin.textArea) { margin = new RectOffset(3, 3, 3, 3), richText = true };
 
-            _hotkeyStyle.fontSize = 11.point();
-            _hotkeyStyle.fixedHeight = 17.point();
+            _hotkeyStyle.fontSize = 11.Point();
+            _hotkeyStyle.fixedHeight = 17.Point();
 
             return _hotkeyStyle;
         }
@@ -49,53 +47,50 @@ internal static partial class UI
         };
     }
 
-    public static bool IsModifier(this KeyCode code)
+    private static bool IsModifier(this KeyCode code)
     {
-        return code == KeyCode.LeftControl || code == KeyCode.RightControl
-                                           || code == KeyCode.LeftAlt || code == KeyCode.RightAlt
-                                           || code == KeyCode.LeftShift || code == KeyCode.RightShift
-                                           || code == KeyCode.LeftCommand || code == KeyCode.RightCommand;
+        return code is KeyCode.LeftControl or KeyCode.RightControl or KeyCode.LeftAlt or KeyCode.RightAlt
+            or KeyCode.LeftShift or KeyCode.RightShift or KeyCode.LeftCommand or KeyCode.RightCommand;
     }
 
     public static bool IsControl(this KeyCode code)
     {
-        return code == KeyCode.LeftControl || code == KeyCode.RightControl;
+        return code is KeyCode.LeftControl or KeyCode.RightControl;
     }
 
     public static bool IsAlt(this KeyCode code)
     {
-        return code == KeyCode.LeftAlt || code == KeyCode.RightAlt;
+        return code is KeyCode.LeftAlt or KeyCode.RightAlt;
     }
 
     public static bool IsCommand(this KeyCode code)
     {
-        return code == KeyCode.LeftCommand || code == KeyCode.RightCommand;
+        return code is KeyCode.LeftCommand or KeyCode.RightCommand;
     }
 
     public static bool IsShift(this KeyCode code)
     {
-        return code == KeyCode.LeftShift || code == KeyCode.RightShift;
+        return code is KeyCode.LeftShift or KeyCode.RightShift;
     }
 
     [JsonObject(MemberSerialization.OptIn)]
     public class KeyBind
     {
+        [JsonProperty] public readonly string ID;
         [JsonProperty] public bool Alt;
 
-        [JsonProperty] public bool Cmd;
+        [JsonProperty] public readonly bool Cmd;
 
-        [JsonProperty] public bool Ctrl;
+        [JsonProperty] public readonly bool Ctrl;
 
-        [JsonProperty] public string ID;
+        [JsonProperty] public readonly KeyCode Key;
 
-        [JsonProperty] public KeyCode Key;
+        [JsonProperty] public readonly bool Shift;
 
-        [JsonProperty] public bool Shift;
-
-        public KeyBind(string identifer, KeyCode key = KeyCode.None, bool ctrl = false, bool alt = false,
+        public KeyBind(string identifier, KeyCode key = KeyCode.None, bool ctrl = false, bool alt = false,
             bool cmd = false, bool shift = false)
         {
-            ID = identifer;
+            ID = identifier;
             Key = key;
             Ctrl = ctrl;
             Alt = alt;
@@ -115,7 +110,7 @@ internal static partial class UI
                     return false;
                 }
 
-                if (allowedMouseButtons.Contains(Key))
+                if (AllowedMouseButtons.Contains(Key))
                 {
                     return Input.GetKey(Key);
                 }
@@ -153,20 +148,9 @@ internal static partial class UI
             }
         }
 
-        public bool IsModifierActive
-        {
-            get
-            {
-                if (Event.current == null)
-                {
-                    return false;
-                }
+        public bool IsModifierActive => Event.current != null && Input.GetKey(Key);
 
-                return Input.GetKey(Key);
-            }
-        }
-
-        public string bindCode => ToString();
+        public string BindCode => ToString();
 
         public bool Conflicts(KeyBind kb)
         {
@@ -202,20 +186,20 @@ internal static partial class UI
             var result = "";
             if (Ctrl)
             {
-                result += "^".cyan();
+                result += "^".Cyan();
             }
 
             if (Shift)
             {
-                result += "⇑".cyan();
+                result += "⇑".Cyan();
             }
 
             if (Alt || Cmd)
             {
-                result += "Alt".cyan();
+                result += "Alt".Cyan();
             }
 
-            return result + (Ctrl || Shift || Alt ? "+".cyan() : "") + Key;
+            return result + (Ctrl || Shift || Alt ? "+".Cyan() : "") + Key;
         }
     }
 }

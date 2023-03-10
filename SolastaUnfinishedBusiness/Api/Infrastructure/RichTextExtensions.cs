@@ -1,6 +1,9 @@
 ﻿// borrowed shamelessly and enhanced from Bag of Tricks https://www.nexusmods.com/pathfinderkingmaker/mods/26, which is under the MIT License
 
+using System.Linq;
 using JetBrains.Annotations;
+using SolastaUnfinishedBusiness.Api.ModKit.Utility.Extensions;
+using SolastaUnfinishedBusiness.Builders;
 
 namespace SolastaUnfinishedBusiness.Api.Infrastructure;
 
@@ -92,5 +95,26 @@ internal static class RichText
     internal static string Orange(this string s)
     {
         return s.Color("orange");
+    }
+
+
+    public static string WarningLargeRedFormat(this string s)
+    {
+        return _ = s.Red().Size(16).Bold();
+    }
+
+    public static string SizePercent(this string s, int percent)
+    {
+        return _ = $"<size={percent}%>{s}</size>";
+    }
+
+    public static string Localized(this string s, Category category = Category.UI)
+    {
+        return Gui.Localize($"{category}/&{s}");
+    }
+
+    public static string Formatted(this string s, Category category, params object[] args)
+    {
+        return Gui.Format($"{category}/&{s}", args.Select(a => $"{a}").ToArray());
     }
 }

@@ -81,7 +81,8 @@ internal static class PatchesDisplay
                         {
                             foreach (var patch in patches)
                             {
-                                GUILayout.Label(patch.owner.Color($"#{_modIdsToColor[patch.owner]}").Bold(),
+                                GUILayout.Label(
+                                    patch.owner.Color($"#{_modIdsToColor[patch.owner]}").Bold(),
                                     GUI.skin.label);
                             }
                         }

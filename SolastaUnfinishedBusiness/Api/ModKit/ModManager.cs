@@ -54,10 +54,7 @@ internal sealed class ModManager<TCore, TSettings>
             if (!Patched)
             {
                 ModID = modEntry.Info.Id;
-                if (HarmonyInstance == null)
-                {
-                    HarmonyInstance = new Harmony(modEntry.Info.Id);
-                }
+                HarmonyInstance ??= new Harmony(modEntry.Info.Id);
 
                 foreach (var type in types)
                 {

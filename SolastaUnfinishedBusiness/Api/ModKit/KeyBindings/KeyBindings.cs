@@ -10,7 +10,7 @@ internal static partial class UI
 {
     public static IEnumerable<string> Conflicts(this KeyBind keyBind)
     {
-        return KeyBindings.conflicts.GetValueOrDefault(keyBind.bindCode, new List<string>())
+        return KeyBindings.conflicts.GetValueOrDefault(keyBind.BindCode, new List<string>())
             .Where(id => id != keyBind.ID);
     }
 
@@ -58,55 +58,55 @@ internal static partial class UI
             foreach (var binding in bindings)
             {
                 var keyBind = binding.Value;
-                if (!keyBind.IsEmpty)
+                if (keyBind.IsEmpty)
                 {
-                    var identifier = binding.Key;
-                    var bindCode = keyBind.ToString();
-                    var conflict = conflicts.GetValueOrDefault(bindCode, new List<string>());
-                    conflict.Add(identifier);
-                    conflicts[bindCode] = conflict;
+                    continue;
                 }
+
+                var identifier = binding.Key;
+                var bindCode = keyBind.ToString();
+                var conflict = conflicts.GetValueOrDefault(bindCode, new List<string>());
+                conflict.Add(identifier);
+                conflicts[bindCode] = conflict;
             }
 
             conflicts = conflicts.Filter(kvp => kvp.Value.Count > 1);
             //Logger.Log($"conflicts: {String.Join(", ", conflicts.Select(kvp => $"{kvp.Key.orange()} : {kvp.Value.Count}".cyan())).yellow()}");
         }
 
-        public static void OnLoad(ModEntry modEntry)
+        public static void OnLoad(ModEntry modEntryIn)
         {
-            if (KeyBindings.modEntry == null)
+            modEntry ??= modEntryIn;
+
+            if (bindings != null)
             {
-                KeyBindings.modEntry = modEntry;
+                return;
             }
 
-            if (bindings == null)
-            {
-                modEntry.LoadSettings("bindings.json", ref bindings);
-                BindingsDidChange = true;
-            }
+            modEntryIn.LoadSettings("bindings.json", ref bindings);
+            BindingsDidChange = true;
         }
 
         public static void OnGUI()
         {
-            if (BindingsDidChange)
+            if (!BindingsDidChange)
             {
-                UpdateConflicts();
-                BindingsDidChange = false;
+                return;
             }
+
+            UpdateConflicts();
+            BindingsDidChange = false;
         }
 
         public static void OnUpdate()
         {
-            if (lastTriggered != null)
-            {
+            if (lastTriggered is { IsActive: false })
                 //if (debugKeyBind)
                 //    Logger.Log($"    lastTriggered: {lastTriggered} - IsActive: {lastTriggered.IsActive}");
-                if (!lastTriggered.IsActive)
-                {
-                    //if (debugKeyBind)
-                    //    Logger.Log($"    lastTriggered: {lastTriggered} - Finished".green());
-                    lastTriggered = null;
-                }
+            {
+                //if (debugKeyBind)
+                //    Logger.Log($"    lastTriggered: {lastTriggered} - Finished".green());
+                lastTriggered = null;
             }
 
             //if (debugKeyBind)
@@ -118,19 +118,23 @@ internal static partial class UI
                 var active = binding.IsActive;
                 //if (debugKeyBind)
                 //    Logger.Log($"    checking: {binding.ToString()} - IsActive: {(active ? "True".cyan() : "False")} action: {actions.ContainsKey(identifier)}");
-                if (active && actions.ContainsKey(identifier))
+                if (!active || !actions.ContainsKey(identifier))
                 {
-                    //if (debugKeyBind)
-                    //    Logger.Log($"    binding: {binding.ToString()} - lastTriggered: {lastTriggered}");
-                    if (binding != lastTriggered)
-                    {
-                        //if (debugKeyBind)
-                        //    Logger.Log($"    firing action: {identifier}".cyan());
-                        actions.TryGetValue(identifier, out var action);
-                        action();
-                        lastTriggered = binding;
-                    }
+                    continue;
                 }
+
+                //if (debugKeyBind)
+                //    Logger.Log($"    binding: {binding.ToString()} - lastTriggered: {lastTriggered}");
+                if (lastTriggered != null && binding == lastTriggered)
+                {
+                    continue;
+                }
+
+                //if (debugKeyBind)
+                //    Logger.Log($"    firing action: {identifier}".cyan());
+                actions.TryGetValue(identifier, out var action);
+                action();
+                lastTriggered = binding;
             }
         }
     }

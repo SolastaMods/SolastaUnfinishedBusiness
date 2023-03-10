@@ -33,16 +33,18 @@ internal static class ModSettings
             foreach (var res in assembly.GetManifestResourceNames())
             {
                 //Logger.Log("found resource: " + res);
-                if (res.Contains(fileName))
+                if (!res.Contains(fileName))
                 {
-                    var stream = assembly.GetManifestResourceStream(res);
-                    using StreamReader reader = new(stream);
-                    var text = reader.ReadToEnd();
-                    //Logger.Log($"read: {text}");
-                    settings = JsonConvert.DeserializeObject<T>(text);
-
-                    //Logger.Log($"read settings: {string.Join(Environment.NewLine, settings)}");
+                    continue;
                 }
+
+                var stream = assembly.GetManifestResourceStream(res);
+                using StreamReader reader = new(stream);
+                var text = reader.ReadToEnd();
+                //Logger.Log($"read: {text}");
+                settings = JsonConvert.DeserializeObject<T>(text);
+
+                //Logger.Log($"read settings: {string.Join(Environment.NewLine, settings)}");
             }
         }
         catch (Exception e)

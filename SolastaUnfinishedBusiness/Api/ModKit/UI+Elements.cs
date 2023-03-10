@@ -33,12 +33,14 @@ internal static partial class UI
 
     public static void Wrap(bool condition, float indent = 0, float space = 10)
     {
-        if (condition)
+        if (!condition)
         {
-            EndHorizontal();
-            Space(space);
-            BeginHorizontal();
-            Space(indent);
+            return;
         }
+
+        EndHorizontal();
+        Space(space);
+        BeginHorizontal();
+        Space(indent);
     }
 }

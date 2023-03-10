@@ -10,7 +10,7 @@ public class NamedAction
     {
         Name = name;
         Action = action;
-        CanPerform = canPerform ?? (() => { return true; });
+        CanPerform = canPerform ?? (() => true);
     }
 
     public string Name { get; }
@@ -22,28 +22,30 @@ public class NamedAction<T>
 {
     public NamedAction(string name, Action<T> action, Func<T, bool> canPerform = null)
     {
-        this.name = name;
-        this.action = action;
-        this.canPerform = canPerform ?? (T => { return true; });
+        Name = name;
+        Action = action;
+        CanPerform = canPerform ?? (T => true);
     }
 
-    public string name { get; }
-    public Action<T> action { get; }
-    public Func<T, bool> canPerform { get; }
+    public string Name { get; }
+    public Action<T> Action { get; }
+    public Func<T, bool> CanPerform { get; }
 }
 
 public class NamedFunc<T>
 {
     public NamedFunc(string name, Func<T> func, Func<bool> canPerform = null)
     {
-        this.name = name;
-        this.func = func;
-        this.canPerform = canPerform ?? (() => { return true; });
+        Name = name;
+        Func = func;
+        CanPerform = canPerform ?? (() => true);
     }
 
-    public string name { get; }
-    public Func<T> func { get; }
-    public Func<bool> canPerform { get; }
+    public string Name { get; }
+
+    private Func<T> Func { get; }
+
+    private Func<bool> CanPerform { get; }
 }
 
 public class NamedMutator<Target, T>

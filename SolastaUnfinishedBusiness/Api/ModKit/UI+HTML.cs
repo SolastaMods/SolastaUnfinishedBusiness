@@ -8,40 +8,44 @@ namespace SolastaUnfinishedBusiness.Api.ModKit;
 
 internal static partial class UI
 {
-    private static GUIStyle linkStyle;
+    private static GUIStyle _linkStyle;
 
     public static bool LinkButton(string title, string url, Action action = null, params GUILayoutOption[] options)
     {
         if (options.Length == 0) { options = new[] { AutoWidth() }; }
 
-        if (linkStyle == null)
+        if (_linkStyle == null)
         {
-            linkStyle = new GUIStyle(GUI.skin.toggle) { wordWrap = false };
-            //linkStyle.normal.background = RarityTexture;
-            // Match selection color which works nicely for both light and dark skins
-            linkStyle.padding = new RectOffset(-3.point(), 0, 0, 0);
+            _linkStyle = new GUIStyle(GUI.skin.toggle)
+            {
+                wordWrap = false, //linkStyle.normal.background = RarityTexture;
+                // Match selection color which works nicely for both light and dark skins
+                padding = new RectOffset(-3.Point(), 0, 0, 0)
+            };
 #pragma warning disable CS0618 // Type or member is obsolete
-            linkStyle.clipOffset = new Vector2(3.point(), 0);
+            _linkStyle.clipOffset = new Vector2(3.Point(), 0);
 #pragma warning restore CS0618 // Type or member is obsolete
-            linkStyle.normal.textColor = new Color(0f, 0.75f, 1f);
-            linkStyle.stretchWidth = false;
+            _linkStyle.normal.textColor = new Color(0f, 0.75f, 1f);
+            _linkStyle.stretchWidth = false;
         }
 
         bool result;
         Rect rect;
         using (HorizontalScope())
         {
-            Space(4.point());
-            result = GL.Button(title, linkStyle, options);
+            Space(4.Point());
+            result = GL.Button(title, _linkStyle, options);
             rect = GUILayoutUtility.GetLastRect();
         }
 
-        Div(linkStyle.normal.textColor, 0, 0, rect.width + 4.point());
-        if (result)
+        Div(_linkStyle.normal.textColor, 0, 0, rect.width + 4.Point());
+        if (!result)
         {
-            Application.OpenURL(url);
-            action?.Invoke();
+            return result;
         }
+
+        Application.OpenURL(url);
+        action?.Invoke();
 
         return result;
     }

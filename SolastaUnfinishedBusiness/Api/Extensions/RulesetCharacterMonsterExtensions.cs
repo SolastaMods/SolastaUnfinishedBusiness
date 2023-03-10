@@ -156,7 +156,11 @@ public static class RulesetCharacterMonsterExtensions
         attackMode.ToHitBonusTrends.Add(new TrendInfo(abilityScoreModifier,
             FeatureSourceType.AbilityScore, attackMode.AbilityScore, null));
         var firstDamageForm1 = attackMode.EffectDescription.FindFirstDamageForm();
-        if (firstDamageForm1 != null)
+        if (firstDamageForm1 == null)
+        {
+            return attackMode;
+        }
+
         {
             firstDamageForm1.DamageBonusTrends.Clear();
             if (canAddAbilityDamageBonus)
@@ -178,15 +182,16 @@ public static class RulesetCharacterMonsterExtensions
                          && attackModifier.DamageRollModifierMethod != AttackModifierMethod.None)
                 {
                     var num = attackModifier.DamageRollModifier;
-                    if (attackModifier.DamageRollModifierMethod == AttackModifierMethod.SourceConditionAmount)
+                    switch (attackModifier.DamageRollModifierMethod)
                     {
-                        num = monster.FindFirstConditionHoldingFeature(attackModifier as FeatureDefinition).Amount;
-                    }
-                    else if (attackModifier.DamageRollModifierMethod == AttackModifierMethod.AddAbilityScoreBonus
-                             && !string.IsNullOrEmpty(attackModifier.DamageRollAbilityScore))
-                    {
-                        num += AttributeDefinitions.ComputeAbilityScoreModifier(
-                            monster.TryGetAttributeValue(attackModifier.DamageRollAbilityScore));
+                        case AttackModifierMethod.SourceConditionAmount:
+                            num = monster.FindFirstConditionHoldingFeature(attackModifier as FeatureDefinition).Amount;
+                            break;
+                        case AttackModifierMethod.AddAbilityScoreBonus
+                            when !string.IsNullOrEmpty(attackModifier.DamageRollAbilityScore):
+                            num += AttributeDefinitions.ComputeAbilityScoreModifier(
+                                monster.TryGetAttributeValue(attackModifier.DamageRollAbilityScore));
+                            break;
                     }
 
                     firstDamageForm1.BonusDamage += num;

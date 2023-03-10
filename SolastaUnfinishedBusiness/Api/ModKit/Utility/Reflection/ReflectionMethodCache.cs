@@ -169,12 +169,13 @@ public static partial class ReflectionCache
                     m.ReturnType == delSign.ReturnType &&
                     m.GetGenericArguments().Length == delGenericArgs.Length &&
                     CheckParamsOfGenericMethod(m.GetParameters(), delParams, delGenericArgs));
-                if (methods.Count() > 1)
+                var methodInfos = methods as MethodInfo[] ?? methods.ToArray();
+                if (methodInfos.Length > 1)
                 {
                     throw new AmbiguousMatchException();
                 }
 
-                Info = methods.FirstOrDefault()?.MakeGenericMethod(delGenericArgs);
+                Info = methodInfos.FirstOrDefault()?.MakeGenericMethod(delGenericArgs);
             }
             else
             {
@@ -186,12 +187,14 @@ public static partial class ReflectionCache
                     m.Name == name &&
                     m.ReturnType == delSign.ReturnType &&
                     m.GetParameters().Select(p => p.ParameterType).SequenceEqual(delParamTypes));
-                if (methods.Count() > 1)
+                var methodInfos = methods as MethodInfo[] ?? methods.ToArray();
+                var count = methodInfos.Length;
+                if (count > 1)
                 {
                     throw new AmbiguousMatchException();
                 }
 
-                Info = methods.FirstOrDefault();
+                Info = methodInfos.FirstOrDefault();
             }
 
             if (Info == null)

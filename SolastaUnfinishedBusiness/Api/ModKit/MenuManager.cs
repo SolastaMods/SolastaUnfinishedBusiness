@@ -40,16 +40,18 @@ internal sealed class MenuManager : INotifyPropertyChanged
     private readonly List<IMenuTopPage> _topPages = new();
     private static int _tabIndex => Main.Settings.SelectedTab;
 
-    private int TabIndex
+    public int TabIndex
     {
         get => _tabIndex;
         set
         {
-            if (Main.Settings.SelectedTab != value)
+            if (Main.Settings.SelectedTab == value)
             {
-                Main.Settings.SelectedTab = value;
-                NotifyPropertyChanged();
+                return;
             }
+
+            Main.Settings.SelectedTab = value;
+            NotifyPropertyChanged();
         }
     }
 
@@ -104,9 +106,11 @@ internal sealed class MenuManager : INotifyPropertyChanged
         {
             if (_caughtException != null)
             {
-                GUILayout.Label("ERROR".Red().Bold() + $": caught exception {_caughtException}");
+                GUILayout.Label("ERROR".Red().Bold() +
+                                $": caught exception {_caughtException}");
 
-                if (GUILayout.Button("Reset".Orange().Bold(), GUILayout.ExpandWidth(false)))
+                if (GUILayout.Button("Reset".Orange().Bold(),
+                        GUILayout.ExpandWidth(false)))
                 {
                     _caughtException = null;
                 }
@@ -133,21 +137,18 @@ internal sealed class MenuManager : INotifyPropertyChanged
                 }
             }
 
-            if (_selectablePages.Count > 0)
+            if (_selectablePages.Count is > 0 and > 1)
             {
-                if (_selectablePages.Count > 1)
+                if (hasPriorPage)
                 {
-                    if (hasPriorPage)
-                    {
-                        //GUILayout.Space(10f);
-                    }
-
-                    var tabIndex = _tabIndex;
-                    UI.TabBar(ref tabIndex, null,
-                        _selectablePages.Select(page => new NamedAction(page.Name, () => page.OnGUI(modEntry)))
-                            .ToArray());
-                    TabIndex = tabIndex;
+                    //GUILayout.Space(10f);
                 }
+
+                var tabIndex = _tabIndex;
+                UI.TabBar(ref tabIndex, null,
+                    _selectablePages.Select(page => new NamedAction(page.Name, () => page.OnGUI(modEntry)))
+                        .ToArray());
+                TabIndex = tabIndex;
             }
 
             if (_bottomPages.Count <= 0)

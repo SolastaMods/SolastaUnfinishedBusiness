@@ -156,7 +156,8 @@ internal static class BlueprintDisplay
             {
                 if (GetBlueprints() == null)
                 {
-                    GUILayout.Label("Loading: " + BlueprintLoader.Shared.Progress.ToString("P2").Cyan().Bold());
+                    GUILayout.Label("Loading: " +
+                                    BlueprintLoader.Shared.Progress.ToString("P2").Cyan().Bold());
                     return;
                 }
 

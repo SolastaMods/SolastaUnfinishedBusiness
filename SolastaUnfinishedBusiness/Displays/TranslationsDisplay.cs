@@ -45,7 +45,8 @@ internal static class TranslationsDisplay
             {
                 string buttonLabel;
 
-                UI.Label(userCampaign.Author.Substring(0, Math.Min(16, userCampaign.Author.Length)).Bold().Orange(),
+                UI.Label(
+                    userCampaign.Author.Substring(0, Math.Min(16, userCampaign.Author.Length)).Bold().Orange(),
                     UI.Width(120));
                 UI.Label(userCampaign.Title.Bold().Italic(), UI.Width(300));
 

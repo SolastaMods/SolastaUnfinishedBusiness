@@ -4,13 +4,13 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using SolastaUnfinishedBusiness.Api.Infrastructure;
-using SolastaUnfinishedBusiness.Api.ModKit;
+using SolastaUnfinishedBusiness.Api.ModKit.Utility.Extensions;
 using UnityEngine;
 using static SolastaUnfinishedBusiness.Api.ModKit.UI;
 
 namespace SolastaUnfinishedBusiness.Displays;
 
-public class PartyEditor
+public static class PartyEditor
 {
     private static ToggleChoice selectedToggle = ToggleChoice.None;
     private static int selectedCharacterIndex;
@@ -37,15 +37,17 @@ public class PartyEditor
 
     public static void OnGUI()
     {
-        Label("Experimental Preview:".Localized().Orange().bold() + " " +
-              "This simple party editor lets you edit characters in a loaded game session. Right now it lets you edit your character's first and last name. More features are coming soon (tm). Please click on the following to report issues:"
-                  .Localized().green());
+        Label(RichText.Bold(RichText.Orange("Experimental Preview:".Localized())) + " " +
+              RichText.Green(
+                  "This simple party editor lets you edit characters in a loaded game session. Right now it lets you edit your character's first and last name. More features are coming soon (tm). Please click on the following to report issues:"
+                      .Localized()));
         LinkButton("https://github.com/SolastaMods/SolastaUnfinishedBusiness/issues",
             "https://github.com/SolastaMods/SolastaUnfinishedBusiness/issues");
         var characters = GetCharacterList();
         if (characters == null)
         {
-            Label("****** Party Editor unavailable: Please load a save game ******".Localized().yellow().bold());
+            Label(RichText.Bold("****** Party Editor unavailable: Please load a save game ******".Localized()
+                .Yellow()));
         }
         else
         {
@@ -57,10 +59,9 @@ public class PartyEditor
                     AutoWidth())
             );
             Div();
-            Label("Current Party".Localized().Cyan().Bold());
+            Label(RichText.Bold(RichText.Cyan("Current Party".Localized())));
             using (VerticalScope())
             {
-                var chIndex = 0;
                 foreach (var ch in characters)
                 {
                     var selectedCharacter = GetSelectedCharacter();
@@ -72,7 +73,8 @@ public class PartyEditor
                         if (ch is RulesetCharacterHero hero)
                         {
                             name = hero.Name + " " + hero.SurName;
-                            if (EditableLabel(ref name, ref nameEditState, 200, n => n.orange().bold(), MinWidth(100),
+                            if (EditableLabel(ref name, ref nameEditState, 200, n => RichText.Bold(RichText.Orange(n)),
+                                    MinWidth(100),
                                     MaxWidth(600)))
                             {
                                 var parts = name.Split();
@@ -91,7 +93,8 @@ public class PartyEditor
                                 changed = true;
                             }
                         }
-                        else if (EditableLabel(ref name, ref nameEditState, 200, n => n.orange().bold(), MinWidth(100),
+                        else if (EditableLabel(ref name, ref nameEditState, 200, n => RichText.Bold(RichText.Orange(n)),
+                                     MinWidth(100),
                                      MaxWidth(600)))
                         {
                             ch.Name = name;
@@ -99,7 +102,7 @@ public class PartyEditor
                         }
 
                         Space(5);
-                        Label((level < 10 ? "   lvl" : "   lv").green() + $" {level}", Width(90));
+                        Label(RichText.Green(level < 10 ? "   lvl" : "   lv") + $" {level}", Width(90));
                         Space(5);
                         var showStats = ch == selectedCharacter && selectedToggle == ToggleChoice.Stats;
                         if (DisclosureToggle("Stats", ref showStats, 125))
@@ -123,7 +126,7 @@ public class PartyEditor
                             var attribute = attr.Value;
                             var baseValue = attribute.baseValue;
                             var modifiers = attribute.ActiveModifiers.Where(m => m.Value != 0).Select(m =>
-                                    $"{m.Value.ToString("+0;-#")} {String.Join(" ", m.Tags).TrimStart('0', '1', '2', '3', '4', '5', '6', '7', '8', '9').Cyan()}")
+                                    $"{m.Value:+0;-#} {RichText.Cyan(String.Join(" ", m.Tags).TrimStart('0', '1', '2', '3', '4', '5', '6', '7', '8', '9'))}")
                                 .ToArray();
                             var modifiersString = String.Join(" ", modifiers);
                             using (HorizontalScope())
@@ -137,7 +140,7 @@ public class PartyEditor
                                     changed = true;
                                 }, GUI.skin.box, AutoWidth());
                                 Space(20);
-                                Label($"{attribute.currentValue}".orange().bold(), Width(50f));
+                                Label(RichText.Bold(RichText.Orange($"{attribute.currentValue}")), Width(50f));
                                 ActionButton(" > ", () =>
                                 {
                                     attribute.baseValue += 1;
@@ -172,8 +175,6 @@ public class PartyEditor
                     {
                         selectedCharacterIndex = GetCharacterList().IndexOf(selectedCharacter);
                     }
-
-                    chIndex += 1;
                 }
             }
         }
@@ -220,12 +221,10 @@ public class PartyEditor
         characterPool = new List<RulesetCharacter>();
         poolService.EnumeratePool();
 
-        foreach (var item in poolService.Pool)
+        foreach (var filename in poolService.Pool.Select(item => item.Key))
         {
-            var filename = item.Key;
             Main.Log("Loading: " + filename);
-            var snapshot = item.Value;
-            poolService.LoadCharacter(filename, out var h, out var s);
+            poolService.LoadCharacter(filename, out var h, out _);
 #if false
                         Mod.Debug(h.Name + " " + h);
                         PropertyInfo[] infos = h.GetType().GetProperties();

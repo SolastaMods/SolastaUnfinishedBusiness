@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using SolastaUnfinishedBusiness.Api.Infrastructure;
 using UnityEngine;
 using GL = UnityEngine.GUILayout;
 
@@ -7,8 +8,8 @@ namespace SolastaUnfinishedBusiness.Api.ModKit;
 
 internal static partial class UI
 {
-    private static string selectedIdentifier;
-    private static KeyBind oldValue;
+    private static string _selectedIdentifier;
+    private static KeyBind _oldValue;
 
     public static KeyBind EditKeyBind(string identifier, bool showHint = true, bool allowModifierOnly = false,
         params GUILayoutOption[] options)
@@ -19,36 +20,37 @@ internal static partial class UI
         }
 
         var keyBind = KeyBindings.GetBinding(identifier);
-        var isEditing = identifier == selectedIdentifier;
-        var isEditingOther = selectedIdentifier != null && identifier != selectedIdentifier && oldValue != null;
-        var label = keyBind.IsEmpty ? isEditing ? "Cancel" : "Bind" : keyBind.ToString().orange().bold();
+        var isEditing = identifier == _selectedIdentifier;
+        var isEditingOther = _selectedIdentifier != null && identifier != _selectedIdentifier && _oldValue != null;
+        var label = keyBind.IsEmpty ? isEditing ? "Cancel" : "Bind" : keyBind.ToString().Orange().Bold();
         showHint = showHint && isEditing;
         var conflicts = keyBind.Conflicts();
         using (VerticalScope(options))
         {
-            Space(3.point());
-            if (GL.Button(label, hotkeyStyle, AutoWidth()))
+            Space(3.Point());
+            if (GL.Button(label, HotkeyStyle, AutoWidth()))
             {
                 if (isEditing || isEditingOther)
                 {
-                    KeyBindings.SetBinding(selectedIdentifier, oldValue);
+                    KeyBindings.SetBinding(_selectedIdentifier, _oldValue);
                     if (isEditing)
                     {
-                        selectedIdentifier = null;
-                        oldValue = null;
+                        _selectedIdentifier = null;
+                        _oldValue = null;
                         return KeyBindings.GetBinding(identifier);
                     }
                 }
 
-                selectedIdentifier = identifier;
-                oldValue = keyBind;
+                _selectedIdentifier = identifier;
+                _oldValue = keyBind;
                 keyBind = new KeyBind(identifier);
                 KeyBindings.SetBinding(identifier, keyBind);
             }
 
-            if (conflicts.Count() > 0)
+            var enumerable = conflicts as string[] ?? conflicts.ToArray();
+            if (enumerable.Any())
             {
-                Label("conflicts".orange().bold() + "\n" + string.Join("\n", conflicts));
+                Label("conflicts".Orange().Bold() + "\n" + string.Join("\n", enumerable));
             }
 
             if (showHint)
@@ -56,64 +58,63 @@ internal static partial class UI
                 var hint = "";
                 if (keyBind.IsEmpty)
                 {
-                    hint = oldValue == null ? "set key binding".green() : "press key".green();
+                    hint = _oldValue == null ? "set key binding".Green() : "press key".Green();
                 }
 
                 Label(hint);
             }
         }
 
-        if (isEditing && keyBind.IsEmpty && Event.current != null)
+        if (!isEditing || !keyBind.IsEmpty || Event.current == null)
         {
-            var isCtrlDown = Input.GetKey(KeyCode.LeftControl) || Input.GetKey(KeyCode.RightControl);
-            var isAltDown = Input.GetKey(KeyCode.LeftAlt) || Input.GetKey(KeyCode.RightAlt);
-            var isCmdDown = Input.GetKey(KeyCode.LeftAlt) || Input.GetKey(KeyCode.RightAlt);
-            var isShiftDown = Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift);
-            var keyCode = Event.current.keyCode;
-            //Logger.Log($"    {keyCode.ToString()} ctrl:{isCtrlDown} alt:{isAltDown} cmd: {isCmdDown} shift: {isShiftDown}");
-            if (keyCode == KeyCode.Escape || keyCode == KeyCode.Backspace)
-            {
-                selectedIdentifier = null;
-                oldValue = null;
-                //Logger.Log("   unbound");
-                return KeyBindings.GetBinding(identifier);
-            }
+            return keyBind;
+        }
 
-            if (Event.current.isKey && !keyCode.IsModifier())
-            {
+        var isCtrlDown = Input.GetKey(KeyCode.LeftControl) || Input.GetKey(KeyCode.RightControl);
+        var isAltDown = Input.GetKey(KeyCode.LeftAlt) || Input.GetKey(KeyCode.RightAlt);
+        var isCmdDown = Input.GetKey(KeyCode.LeftAlt) || Input.GetKey(KeyCode.RightAlt);
+        var isShiftDown = Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift);
+        var keyCode = Event.current.keyCode;
+        //Logger.Log($"    {keyCode.ToString()} ctrl:{isCtrlDown} alt:{isAltDown} cmd: {isCmdDown} shift: {isShiftDown}");
+        if (keyCode is KeyCode.Escape or KeyCode.Backspace)
+        {
+            _selectedIdentifier = null;
+            _oldValue = null;
+            //Logger.Log("   unbound");
+            return KeyBindings.GetBinding(identifier);
+        }
+
+        switch (Event.current.isKey)
+        {
+            case true when !keyCode.IsModifier():
                 keyBind = new KeyBind(identifier, keyCode, isCtrlDown, isAltDown, isCmdDown, isShiftDown);
+                // ReSharper disable once InvocationIsSkipped
                 Main.Log($"    currentEvent isKey - bind: {keyBind}");
                 KeyBindings.SetBinding(identifier, keyBind);
-                selectedIdentifier = null;
-                oldValue = null;
+                _selectedIdentifier = null;
+                _oldValue = null;
                 Input.ResetInputAxes();
                 return keyBind;
-            }
-
-            // Allow raw modifier keys as keybinds
-            if (Event.current.isKey && keyCode.IsModifier() && allowModifierOnly)
-            {
+            // Allow raw modifier keys as key binds
+            case true when keyCode.IsModifier() && allowModifierOnly:
                 keyBind = new KeyBind(identifier, keyCode);
+                // ReSharper disable once InvocationIsSkipped
                 Main.Log($"    currentEvent isKey - bind: {keyBind}");
                 KeyBindings.SetBinding(identifier, keyBind);
-                selectedIdentifier = null;
-                oldValue = null;
+                _selectedIdentifier = null;
+                _oldValue = null;
                 Input.ResetInputAxes();
                 return keyBind;
-            }
+        }
 
-            foreach (var mouseButton in allowedMouseButtons)
-            {
-                if (Input.GetKey(mouseButton))
-                {
-                    keyBind = new KeyBind(identifier, mouseButton, isCtrlDown, isAltDown, isCmdDown, isShiftDown);
-                    KeyBindings.SetBinding(identifier, keyBind);
-                    selectedIdentifier = null;
-                    oldValue = null;
-                    Input.ResetInputAxes();
-                    return keyBind;
-                }
-            }
+        foreach (var mouseButton in AllowedMouseButtons.Where(Input.GetKey))
+        {
+            keyBind = new KeyBind(identifier, mouseButton, isCtrlDown, isAltDown, isCmdDown, isShiftDown);
+            KeyBindings.SetBinding(identifier, keyBind);
+            _selectedIdentifier = null;
+            _oldValue = null;
+            Input.ResetInputAxes();
+            return keyBind;
         }
 
         return keyBind;
@@ -124,7 +125,7 @@ internal static partial class UI
         using (HorizontalScope())
         {
             Space(indent);
-            Label(title.bold(), titleWidth == 0 ? ExpandWidth(false) : Width(titleWidth));
+            Label(title.Bold(), titleWidth == 0 ? ExpandWidth(false) : Width(titleWidth));
             Space(25);
             EditKeyBind(identifier);
         }
@@ -134,7 +135,7 @@ internal static partial class UI
     {
         using (HorizontalScope())
         {
-            Label(title.bold(), titleWidth == 0 ? ExpandWidth(false) : Width(titleWidth));
+            Label(title.Bold(), titleWidth == 0 ? ExpandWidth(false) : Width(titleWidth));
             Space(25);
             EditKeyBind(identifier, true, true);
         }
