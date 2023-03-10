@@ -511,9 +511,8 @@ public static class RulesetCharacterHeroPatcher
                 return;
             }
 
-            var inventorySlots = __instance.characterInventory.InventorySlotsByName;
-            var main = inventorySlots[EquipmentDefinitions.SlotTypeMainHand].EquipedItem;
-            var off = inventorySlots[EquipmentDefinitions.SlotTypeOffHand].EquipedItem;
+            var main = __instance.GetMainWeapon();
+            var off = __instance.GetOffhandWeapon();
             __result = WayOfTheDistantHand.IsMonkWeapon(__instance, main)
                        || WayOfTheDistantHand.IsMonkWeapon(__instance, off);
         }

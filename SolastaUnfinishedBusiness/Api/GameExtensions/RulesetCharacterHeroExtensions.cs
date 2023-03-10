@@ -95,8 +95,7 @@ internal static class RulesetCharacterHeroExtensions
 
     internal static bool HasEmptyMainHand([NotNull] this RulesetCharacterHero hero)
     {
-        return hero.characterInventory.InventorySlotsByName[EquipmentDefinitions.SlotTypeMainHand]
-            .EquipedItem == null;
+        return hero.GetMainWeapon() == null;
     }
 
     internal static int GetClassLevel(this RulesetCharacterHero hero, CharacterClassDefinition classDefinition)

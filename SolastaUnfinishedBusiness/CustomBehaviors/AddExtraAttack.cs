@@ -163,7 +163,7 @@ internal sealed class AddExtraUnarmedAttack : AddExtraAttackBase
     protected override List<RulesetAttackMode> GetAttackModes([NotNull] RulesetCharacter character)
     {
         var hero = character as RulesetCharacterHero;
-        var hero2 = hero ?? character.OriginalFormCharacter as RulesetCharacterHero;
+        var originalHero = hero ?? character.OriginalFormCharacter as RulesetCharacterHero;
         var monster = character as RulesetCharacterMonster;
 
         if (hero == null && monster == null)
@@ -171,14 +171,12 @@ internal sealed class AddExtraUnarmedAttack : AddExtraAttackBase
             return null;
         }
 
-        var mainHandItem = hero?.CharacterInventory.InventorySlotsByName[EquipmentDefinitions.SlotTypeMainHand]
-            .EquipedItem;
-
+        var mainHandItem = hero.GetMainWeapon();
         var isUnarmedWeapon = mainHandItem != null && ValidatorsWeapon.IsUnarmedWeapon(mainHandItem);
         var strikeDefinition = isUnarmedWeapon
             ? mainHandItem.ItemDefinition
-            : hero2 != null
-                ? hero2.UnarmedStrikeDefinition
+            : originalHero != null
+                ? originalHero.UnarmedStrikeDefinition
                 : DatabaseHelper.ItemDefinitions.UnarmedStrikeBase;
 
         var attackModifiers = hero?.attackModifiers ?? monster?.attackModifiers;
