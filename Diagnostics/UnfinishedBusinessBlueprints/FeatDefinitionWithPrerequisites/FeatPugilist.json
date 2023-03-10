@@ -21,9 +21,9 @@
     "description": "FightingStyle/&PugilistDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "1975c73ed4f14184b8964a8b2126c684",
-      "m_SubObjectName": "Monk_OpenHand",
-      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+      "m_AssetGUID": "4588cea5-c0a5-53ec-8d91-3229339c29ba",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",

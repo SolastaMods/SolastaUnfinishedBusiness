@@ -4,7 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using JetBrains.Annotations;
-using SolastaUnfinishedBusiness.Api.Infrastructure;
+using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Api.ModKit;
 using SolastaUnfinishedBusiness.DataMiner;
 using SolastaUnfinishedBusiness.Models;

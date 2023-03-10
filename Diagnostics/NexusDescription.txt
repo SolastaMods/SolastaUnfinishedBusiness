@@ -519,24 +519,24 @@ A powerful wight, trained to withstand the light of day.
 
 [list]
 
-[*][b]Zappastuff[/b]: maintenance, mod UI, infrastructure, gameplay, feats, fighting styles, invocations, rules, spells, quality of life, Half-elf variants, Circle of The Ancient Forest, Arcane Scoundrel, Blade Dancer, College of Guts, College of Life, Dead Master, Duelist, Field Manipulator, Slayer, Way of The Discordance, Way of The Silhouette, Wild Master, Multiclass
+[*][b]Zappastuff[/b]: maintenance, mod UI, infrastructure, gameplay, feats, fighting styles, invocations, rules, spells, quality of life, Half-elf variants, Circle of The Ancient Forest, Arcane Scoundrel, Blade Dancer, College of Guts, College of Life, Dead Master, Duelist, Field Manipulator, Ranger Wild Master, Slayer, Way of The Discordance, Way of The Silhouette, Multiclass
 [*][b]TPABOBAP[/b]: custom behaviors, game UI, infrastructure, gameplay, feats, fighting styles, invocations, spells, quality of life, Dead Master, Elementalist, Moonlit, RiftWalker, SoulBlade, Tactician, Way of Distant Hand, Inventor
-[*][b]Nd[/b]: College of Harlequin, College of War Dancer, Marshal, Opportunist, Raven
-[*][b]Haxermn[/b]: spells, Defiler Domain, Oath of Ancient, Oath of Hatred, Way of Dragon
-[*][b]SilverGriffon[/b]: gameplay, visuals, spells, Dark Elf, Draconic Kobold, Grey Dwarf, Divine Heart
 [*][b]ImpPhil[/b]: api, builders, gameplay, rules, quality of life
 [*][b]ChrisJohnDigital[/b]: builders, gameplay, feats, fighting styles, Arcane Fighter, Spell Master, Spell Shield
-[*][b]<b><color=#00FFFFFF>N</color></b>arria <b><color=#F03399FF>T</color></b><color=orange>oy </color><b><color=yellow>M</color></b>aker[/b]: ModKit, UI Improvements, Party Editor (coming  soon)
+[*][b]Haxermn[/b]: spells, Defiler Domain, Oath of Ancient, Oath of Hatred, Smith Domain, Way of Dragon
+[*][b]Nd[/b]: College of Harlequin, College of War Dancer, Marshal, Opportunist, Raven
+[*][b]SilverGriffon[/b]: gameplay, visuals, spells, Dark Elf, Draconic Kobold, Grey Dwarf, Divine Heart
+[*][b]DubhHerder[/b]: quality of life, spells, homebrew content design [subclasses]
+[*][b]Taco[/b]: homebrew content design [feats, metamagic, subclasses], subclasses, powers and weapons icons
+[*][b]HiddenHax[/b]: homebrew content design [subclasses]
 [*][b]tivie[/b]: Circle of The Night, Path of The Spirits
-[*][b]ElAntonius[/b]: feats, fighting styles, Arcanist
+[*][b]ElAntonius[/b]: feats, fighting styles, Ranger Arcanist
 [*][b]RedOrca[/b]: Path of The Light
 [*][b]DreadMaker[/b]: Circle of The Forest Guardian
-[*][b]DubhHerder[/b]: quality of life, spells, homebrew content design [subclasses]
 [*][b]Holic75[/b]: spells, Bolgrif, Gnome
 [*][b]Bazou[/b]: fighting styles, rules, spells
 [*][b]Pikachar2[/b]: spells
-[*][b]Taco[/b]: homebrew content design [feats, metamagic, subclasses], power and weapon icons
-[*][b]HiddenHax[/b]: homebrew content design [subclasses]
-[*][b]Balmz[/b]: some power and spell icons
+[*][b]Narria[/b]: modKit, UI Improvements, Party Editor
+[*][b]Balmz[/b]: powers and spells icons
 [/list]
 

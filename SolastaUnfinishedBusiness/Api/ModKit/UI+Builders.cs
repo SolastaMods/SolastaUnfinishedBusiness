@@ -2,7 +2,7 @@
 
 using System;
 using System.Linq;
-using SolastaUnfinishedBusiness.Api.Infrastructure;
+using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using UnityEngine;
 using GL = UnityEngine.GUILayout;
 
@@ -81,7 +81,7 @@ internal static partial class UI
                 }
                 else
                 {
-                    Space(153);
+                    Space((float)153);
                 }
             }
 
@@ -104,7 +104,8 @@ internal static partial class UI
         }
 
         var sel = selected;
-        var titles = actions.Select((a, i) => i == sel ? a.Name.Orange().Bold() : a.Name);
+        var titles = actions.Select((a, i) =>
+            i == sel ? a.Name.Orange().Bold() : a.Name);
         var enumerable = titles as string[] ?? titles.ToArray();
 
         SelectionGrid(ref selected, enumerable.ToArray(), enumerable.Length, 6, ExpandWidth(true));
@@ -122,18 +123,19 @@ internal static partial class UI
         }
 
         var sel = selected;
-        var titles = actions.Select((a, i) => i == sel ? a.Name.Orange().Bold() : a.Name);
+        var titles = actions.Select((a, i) =>
+            i == sel ? a.Name.Orange().Bold() : a.Name);
         var enumerable = titles as string[] ?? titles.ToArray();
         //SelectionGrid(ref selected, enumerable.ToArray(), enumerable.Length, 6, ExpandWidth(false));
         using (HorizontalScope(GUI.skin.scrollView))
         {
             using (VerticalScope())
             {
-                SelectionGrid(ref selected, enumerable.ToArray(), 0, submenuButtonStyle, AutoWidth());
+                SelectionGrid(ref selected, enumerable.ToArray(), 0, SubmenuButtonStyle, AutoWidth());
                 if (div)
                 {
                     DivLast(20);
-                    Space(-25);
+                    Space((float)-25);
                 }
 
                 header?.Invoke();

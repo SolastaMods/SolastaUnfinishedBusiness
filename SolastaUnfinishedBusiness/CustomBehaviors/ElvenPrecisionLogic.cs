@@ -1,4 +1,4 @@
-﻿using SolastaUnfinishedBusiness.Api.Extensions;
+﻿using SolastaUnfinishedBusiness.Api.GameExtensions;
 using static RuleDefinitions;
 
 namespace SolastaUnfinishedBusiness.CustomBehaviors;

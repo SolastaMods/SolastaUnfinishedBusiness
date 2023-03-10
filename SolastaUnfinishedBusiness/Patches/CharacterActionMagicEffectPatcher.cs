@@ -4,7 +4,7 @@ using System.Reflection;
 using System.Reflection.Emit;
 using HarmonyLib;
 using JetBrains.Annotations;
-using SolastaUnfinishedBusiness.Api.Extensions;
+using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomInterfaces;
@@ -186,7 +186,11 @@ public static class CharacterActionMagicEffectPatcher
 
             var customAction = definition.GetFirstSubFeatureOfType<ICustomMagicEffectAction>();
 
-            if (customAction != null)
+            if (customAction == null)
+            {
+                yield break;
+            }
+
             {
                 var enums = customAction.ProcessCustomEffect(__instance);
 

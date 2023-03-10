@@ -3,7 +3,7 @@
 using System;
 using System.Linq;
 using HarmonyLib;
-using SolastaUnfinishedBusiness.Api.Infrastructure;
+using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using UnityEngine;
 
 namespace SolastaUnfinishedBusiness.Api.ModKit;
@@ -34,7 +34,7 @@ internal static partial class UI
             ToggleState.Off => ToggleState.On,
             ToggleState.On => ToggleState.Off,
             ToggleState.None => ToggleState.None,
-            _ => ToggleState.None,
+            _ => ToggleState.None
         };
     }
 
@@ -125,10 +125,10 @@ internal static partial class UI
             state = state.Flip();
         }
 
-        Space(-10);
+        Space((float)-10);
         if (state == ToggleState.None)
         {
-            Space(35);
+            Space((float)35);
         }
         else
         {
@@ -142,10 +142,10 @@ internal static partial class UI
             {
                 state = state.Flip();
                 applyToChildren(state);
-            }, toggleStyle, Width(35));
+            }, ToggleStyle, Width((float)35));
         }
 
-        Label(title, toggleStyle);
+        Label(title, ToggleStyle);
         toggle = state;
     }
 
@@ -153,29 +153,26 @@ internal static partial class UI
         GUIStyle stateStyle = null, GUIStyle labelStyle = null, params GUILayoutOption[] options)
     {
         var changed = false;
-        if (stateStyle == null)
-        {
-            stateStyle = GUI.skin.box;
-        }
+        stateStyle ??= GUI.skin.box;
 
-        if (labelStyle == null)
-        {
-            labelStyle = GUI.skin.box;
-        }
+        labelStyle ??= GUI.skin.box;
 
         if (width == 0)
         {
-            width = toggleStyle.CalcSize(new GUIContent(title.bold())).x + GUI.skin.box.CalcSize(Private.UI.CheckOn).x +
+            width = ToggleStyle.CalcSize(new GUIContent(title.Bold())).x + GUI.skin.box.CalcSize(Private.UI.CheckOn).x +
                     10;
         }
 
         options = options.AddItem(width == 0 ? AutoWidth() : Width(width)).ToArray();
-        title = value ? title.bold() : title.color(RGBA.medgrey).bold();
-        if (Private.UI.Toggle(title, value, on, off, stateStyle, labelStyle, options))
+        title = value ? title.Bold() : title.MedGrey().Bold();
+
+        if (!Private.UI.Toggle(title, value, on, off, stateStyle, labelStyle, options))
         {
-            value = !value;
-            changed = true;
+            return changed;
         }
+
+        value = !value;
+        changed = true;
 
         return changed;
     }
@@ -214,12 +211,14 @@ internal static partial class UI
     {
         var value = get();
         var empty = isEmpty();
-        if (TogglePrivate(title, ref value, empty, false, width, options))
+        if (!TogglePrivate(title, ref value, empty, false, width, options))
         {
-            if (!empty)
-            {
-                set(value);
-            }
+            return value;
+        }
+
+        if (!empty)
+        {
+            set(value);
         }
 
         return value;

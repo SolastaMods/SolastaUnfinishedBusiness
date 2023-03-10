@@ -1,6 +1,6 @@
 ﻿using System;
 using JetBrains.Annotations;
-using SolastaUnfinishedBusiness.Api.Infrastructure;
+using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 
 namespace SolastaUnfinishedBusiness.Builders.Features;
 

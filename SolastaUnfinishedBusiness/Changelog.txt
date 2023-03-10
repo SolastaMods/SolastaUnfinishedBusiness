@@ -1,12 +1,4 @@
-ATTENTION:
-
-- RESPEC any hero who took Deadeye or Power Attack feats before or on 1.4.33.54 version
-
-CHANGES:
-
-- added Domain Smith subclass
-- added custom sprites to 28 subclasses by TACO [awesome work there, he deserves all kudos on Discord]
-- added Elemental Weapon spell
-- fixed Opportunist null exception when targeting gadgets
-- fixed a null exception when exporting Inventors at campaign end
-- improved Royal Knight descriptions
+- added Fighting Styles sprites
+- added Tiefling race sprite
+- fixed Bow Mastery allowing extra attack if first one was melee and hero switches to shortbow
+- fixed Cleaving Attack allowing extra attack if first one was melee and hero switches to ranged

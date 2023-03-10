@@ -30,8 +30,7 @@ internal sealed class ModManager<TCore, TSettings>
 
     #region Toggle
 
-    private string ModID;
-    private Harmony HarmonyInstance;
+    private Harmony harmonyInstance;
 
     internal void Enable([NotNull] UnityModManager.ModEntry modEntry, Assembly assembly)
     {
@@ -53,11 +52,7 @@ internal sealed class ModManager<TCore, TSettings>
 
             if (!Patched)
             {
-                ModID = modEntry.Info.Id;
-                if (HarmonyInstance == null)
-                {
-                    HarmonyInstance = new Harmony(modEntry.Info.Id);
-                }
+                harmonyInstance ??= new Harmony(modEntry.Info.Id);
 
                 foreach (var type in types)
                 {
@@ -69,7 +64,7 @@ internal sealed class ModManager<TCore, TSettings>
 
                     try
                     {
-                        var patchProcessor = HarmonyInstance.CreateClassProcessor(type);
+                        var patchProcessor = harmonyInstance.CreateClassProcessor(type);
                         patchProcessor.Patch();
                     }
                     catch (Exception e)
@@ -113,7 +108,7 @@ internal sealed class ModManager<TCore, TSettings>
 
     internal void Unload()
     {
-        HarmonyInstance.UnpatchAll();
+        harmonyInstance.UnpatchAll();
         Enabled = false;
         Patched = false;
     }

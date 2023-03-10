@@ -33,7 +33,7 @@ internal static partial class UI
         return GL.Width(v);
     }
 
-    public static GUILayoutOption width(this int v)
+    public static GUILayoutOption Width(this int v)
     {
         return GL.Width(v);
     }
@@ -78,7 +78,7 @@ internal static partial class UI
         GL.Space(size);
     }
 
-    public static void space(this int size)
+    public static void Space(this int size)
     {
         GL.Space(size);
     }

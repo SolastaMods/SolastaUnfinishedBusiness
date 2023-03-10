@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
-using SolastaUnfinishedBusiness.Api.Infrastructure;
+using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Api.ModKit;
 using SolastaUnfinishedBusiness.DataViewer;
 using UnityEngine;
@@ -156,7 +156,8 @@ internal static class BlueprintDisplay
             {
                 if (GetBlueprints() == null)
                 {
-                    GUILayout.Label("Loading: " + BlueprintLoader.Shared.Progress.ToString("P2").Cyan().Bold());
+                    GUILayout.Label("Loading: " +
+                                    BlueprintLoader.Shared.Progress.ToString("P2").Cyan().Bold());
                     return;
                 }
 

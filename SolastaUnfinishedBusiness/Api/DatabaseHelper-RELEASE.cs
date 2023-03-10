@@ -1,4 +1,4 @@
-// manually generated on 01/25/23
+// manually generated on 03/09/23
 using TA.AI;
 // ReSharper disable IdentifierTypo
 // ReSharper disable InconsistentNaming
@@ -8,6 +8,7 @@ internal static partial class DatabaseHelper
 {
     internal static class ActionDefinitions
     {
+        internal static ActionDefinition AttackMain { get; } = GetDefinition<ActionDefinition>("AttackMain");
         internal static ActionDefinition DashBonus { get; } = GetDefinition<ActionDefinition>("DashBonus");
         internal static ActionDefinition MetamagicToggle { get; } = GetDefinition<ActionDefinition>("MetamagicToggle");
         internal static ActionDefinition OneWithShadowsTurnInvisible { get; } = GetDefinition<ActionDefinition>("OneWithShadowsTurnInvisible");
@@ -85,13 +86,9 @@ internal static partial class DatabaseHelper
         internal static CharacterSubclassDefinition DomainOblivion { get; } = GetDefinition<CharacterSubclassDefinition>("DomainOblivion");
         internal static CharacterSubclassDefinition DomainSun { get; } = GetDefinition<CharacterSubclassDefinition>("DomainSun");
         internal static CharacterSubclassDefinition MartialCommander { get; } = GetDefinition<CharacterSubclassDefinition>("MartialCommander");
-        internal static CharacterSubclassDefinition MartialMountaineer { get; } = GetDefinition<CharacterSubclassDefinition>("MartialMountaineer");
         internal static CharacterSubclassDefinition MartialSpellblade { get; } = GetDefinition<CharacterSubclassDefinition>("MartialSpellblade");
-        internal static CharacterSubclassDefinition OathOfJugement { get; } = GetDefinition<CharacterSubclassDefinition>("OathOfJugement");
-        internal static CharacterSubclassDefinition PathMagebane { get; } = GetDefinition<CharacterSubclassDefinition>("PathMagebane");
         internal static CharacterSubclassDefinition PatronTree { get; } = GetDefinition<CharacterSubclassDefinition>("PatronTree");
         internal static CharacterSubclassDefinition RangerMarksman { get; } = GetDefinition<CharacterSubclassDefinition>("RangerMarksman");
-        internal static CharacterSubclassDefinition RangerShadowTamer { get; } = GetDefinition<CharacterSubclassDefinition>("RangerShadowTamer");
         internal static CharacterSubclassDefinition RangerSwiftBlade { get; } = GetDefinition<CharacterSubclassDefinition>("RangerSwiftBlade");
         internal static CharacterSubclassDefinition RoguishDarkweaver { get; } = GetDefinition<CharacterSubclassDefinition>("RoguishDarkweaver");
         internal static CharacterSubclassDefinition RoguishShadowCaster { get; } = GetDefinition<CharacterSubclassDefinition>("RoguishShadowCaster");
@@ -99,8 +96,7 @@ internal static partial class DatabaseHelper
         internal static CharacterSubclassDefinition SorcerousDraconicBloodline { get; } = GetDefinition<CharacterSubclassDefinition>("SorcerousDraconicBloodline");
         internal static CharacterSubclassDefinition SorcerousHauntedSoul { get; } = GetDefinition<CharacterSubclassDefinition>("SorcerousHauntedSoul");
         internal static CharacterSubclassDefinition SorcerousManaPainter { get; } = GetDefinition<CharacterSubclassDefinition>("SorcerousManaPainter");
-        internal static CharacterSubclassDefinition TraditionLight { get; } = GetDefinition<CharacterSubclassDefinition>("TraditionLight"); 
-        internal static CharacterSubclassDefinition TraditionOpenHand { get; } = GetDefinition<CharacterSubclassDefinition>("TraditionOpenHand");
+        internal static CharacterSubclassDefinition TraditionLight { get; } = GetDefinition<CharacterSubclassDefinition>("TraditionLight");
     }
     internal static class ConditionDefinitions
     {

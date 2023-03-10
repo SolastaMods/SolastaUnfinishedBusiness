@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api;
-using SolastaUnfinishedBusiness.Api.Extensions;
+using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using static RuleDefinitions;
 
@@ -163,7 +163,7 @@ internal sealed class AddExtraUnarmedAttack : AddExtraAttackBase
     protected override List<RulesetAttackMode> GetAttackModes([NotNull] RulesetCharacter character)
     {
         var hero = character as RulesetCharacterHero;
-        var hero2 = hero ?? character.OriginalFormCharacter as RulesetCharacterHero;
+        var originalHero = hero ?? character.OriginalFormCharacter as RulesetCharacterHero;
         var monster = character as RulesetCharacterMonster;
 
         if (hero == null && monster == null)
@@ -171,14 +171,12 @@ internal sealed class AddExtraUnarmedAttack : AddExtraAttackBase
             return null;
         }
 
-        var mainHandItem = hero?.CharacterInventory.InventorySlotsByName[EquipmentDefinitions.SlotTypeMainHand]
-            .EquipedItem;
-
+        var mainHandItem = hero.GetMainWeapon();
         var isUnarmedWeapon = mainHandItem != null && ValidatorsWeapon.IsUnarmedWeapon(mainHandItem);
         var strikeDefinition = isUnarmedWeapon
             ? mainHandItem.ItemDefinition
-            : hero2 != null
-                ? hero2.UnarmedStrikeDefinition
+            : originalHero != null
+                ? originalHero.UnarmedStrikeDefinition
                 : DatabaseHelper.ItemDefinitions.UnarmedStrikeBase;
 
         var attackModifiers = hero?.attackModifiers ?? monster?.attackModifiers;
@@ -215,8 +213,7 @@ internal sealed class AddExtraMainHandAttack : AddExtraAttackBase
             return null;
         }
 
-        var mainHandItem = hero.CharacterInventory.InventorySlotsByName[EquipmentDefinitions.SlotTypeMainHand]
-            .EquipedItem;
+        var mainHandItem = hero.GetMainWeapon();
 
         // don't use ?? on Unity Objects as it bypasses the lifetime check on the underlying object
         var strikeDefinition = mainHandItem?.ItemDefinition;
@@ -392,8 +389,7 @@ internal sealed class AddBonusShieldAttack : AddExtraAttackBase
             return null;
         }
 
-        var inventorySlotsByName = hero.CharacterInventory.InventorySlotsByName;
-        var offHandItem = inventorySlotsByName[EquipmentDefinitions.SlotTypeOffHand].EquipedItem;
+        var offHandItem = hero.GetOffhandWeapon();
 
         if (!ShieldStrike.IsShield(offHandItem))
         {

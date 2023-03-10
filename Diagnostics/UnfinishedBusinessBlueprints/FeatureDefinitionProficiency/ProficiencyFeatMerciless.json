@@ -12,9 +12,9 @@
     "description": "FightingStyle/&MercilessDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "94bc07c7c4be00649b94c86fa9886a5a",
-      "m_SubObjectName": "Sorcerer_HauntedSoul",
-      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+      "m_AssetGUID": "e0b4a203-382b-5ab4-acfa-af309c1a019c",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",

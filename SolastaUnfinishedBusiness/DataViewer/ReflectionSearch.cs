@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using SolastaUnfinishedBusiness.Displays;
 using UnityEngine;
-using static SolastaUnfinishedBusiness.Api.Infrastructure.StringExtensions;
+using static SolastaUnfinishedBusiness.Api.LanguageExtensions.StringExtensions;
 
 namespace SolastaUnfinishedBusiness.DataViewer;
 

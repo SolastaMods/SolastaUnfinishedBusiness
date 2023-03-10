@@ -79,9 +79,8 @@ internal static class UI
                 //                || stateStyle.alignment == TextAnchor.UpperLeft
                 //                || stateStyle.alignment == TextAnchor.LowerLeft
                 //                ;
-                var rightAlign = stateStyle.alignment == TextAnchor.MiddleRight
-                                 || stateStyle.alignment == TextAnchor.UpperRight
-                                 || stateStyle.alignment == TextAnchor.LowerRight
+                var rightAlign =
+                        stateStyle.alignment is TextAnchor.MiddleRight or TextAnchor.UpperRight or TextAnchor.LowerRight
                     ;
                 // stateStyle.alignment determines position of state element
                 var state = isEmpty ? DisclosureEmpty : value ? on : off;

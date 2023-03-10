@@ -3,50 +3,49 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using SolastaUnfinishedBusiness.Api.Infrastructure;
-using SolastaUnfinishedBusiness.Api.ModKit;
+using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using UnityEngine;
 using static SolastaUnfinishedBusiness.Api.ModKit.UI;
-using static RulesetCharacterHero;
 
 namespace SolastaUnfinishedBusiness.Displays;
 
-public class PartyEditor
+public static class PartyEditor
 {
-    private static ToggleChoice selectedToggle = ToggleChoice.None;
-    private static int selectedCharacterIndex;
-    private static bool editingFromPool;
+    private static ToggleChoice _selectedToggle = ToggleChoice.None;
+    private static int _selectedCharacterIndex;
+    private static bool _editingFromPool;
 
-    private static (string, string) nameEditState = (null, null);
+    private static (string, string) _nameEditState = (null, null);
 
-    private static List<RulesetCharacter> characterPool;
-    private static ICharacterPoolService poolService => ServiceRepository.GetService<ICharacterPoolService>();
+    private static List<RulesetCharacter> _characterPool;
+    private static ICharacterPoolService PoolService => ServiceRepository.GetService<ICharacterPoolService>();
 
     public static List<RulesetCharacter> CharacterPool
     {
         get
         {
-            if (characterPool == null)
+            if (_characterPool == null)
             {
                 RefreshPool();
             }
 
-            return characterPool;
+            return _characterPool;
         }
-        set => characterPool = value;
+        set => _characterPool = value;
     }
 
     public static void OnGUI()
     {
-        Label("Experimental Preview:".Localized().Orange().bold() + " " +
+        Label("Experimental Preview:".Localized().Orange().Bold() + " " +
               "This simple party editor lets you edit characters in a loaded game session. Right now it lets you edit your character's first and last name. More features are coming soon (tm). Please click on the following to report issues:"
-                  .Localized().green());
+                  .Localized().Green());
         LinkButton("https://github.com/SolastaMods/SolastaUnfinishedBusiness/issues",
             "https://github.com/SolastaMods/SolastaUnfinishedBusiness/issues");
         var characters = GetCharacterList();
         if (characters == null)
         {
-            Label("****** Party Editor unavailable: Please load a save game ******".Localized().yellow().bold());
+            Label("****** Party Editor unavailable: Please load a save game ******".Localized()
+                .Yellow().Bold());
         }
         else
         {
@@ -61,7 +60,6 @@ public class PartyEditor
             Label("Current Party".Localized().Cyan().Bold());
             using (VerticalScope())
             {
-                var chIndex = 0;
                 foreach (var ch in characters)
                 {
                     var selectedCharacter = GetSelectedCharacter();
@@ -73,7 +71,8 @@ public class PartyEditor
                         if (ch is RulesetCharacterHero hero)
                         {
                             name = hero.Name + " " + hero.SurName;
-                            if (EditableLabel(ref name, ref nameEditState, 200, n => n.orange().bold(), MinWidth(100),
+                            if (EditableLabel(ref name, ref _nameEditState, 200, n => n.Orange().Bold(),
+                                    MinWidth(100),
                                     MaxWidth(600)))
                             {
                                 var parts = name.Split();
@@ -92,7 +91,8 @@ public class PartyEditor
                                 changed = true;
                             }
                         }
-                        else if (EditableLabel(ref name, ref nameEditState, 200, n => n.orange().bold(), MinWidth(100),
+                        else if (EditableLabel(ref name, ref _nameEditState, 200, n => n.Orange().Bold(),
+                                     MinWidth(100),
                                      MaxWidth(600)))
                         {
                             ch.Name = name;
@@ -100,21 +100,21 @@ public class PartyEditor
                         }
 
                         Space(5);
-                        Label((level < 10 ? "   lvl" : "   lv").green() + $" {level}", Width(90));
+                        Label((level < 10 ? "   lvl" : "   lv").Green() + $" {level}", Width(90));
                         Space(5);
-                        var showStats = ch == selectedCharacter && selectedToggle == ToggleChoice.Stats;
+                        var showStats = ch == selectedCharacter && _selectedToggle == ToggleChoice.Stats;
                         if (DisclosureToggle("Stats", ref showStats, 125))
                         {
                             if (showStats)
                             {
                                 selectedCharacter = ch;
-                                selectedToggle = ToggleChoice.Stats;
+                                _selectedToggle = ToggleChoice.Stats;
                             }
-                            else { selectedToggle = ToggleChoice.None; }
+                            else { _selectedToggle = ToggleChoice.None; }
                         }
                     }
 
-                    if (ch == selectedCharacter && selectedToggle == ToggleChoice.Stats)
+                    if (ch == selectedCharacter && _selectedToggle == ToggleChoice.Stats)
                     {
                         Div(100, 20, 755);
 
@@ -124,7 +124,7 @@ public class PartyEditor
                             var attribute = attr.Value;
                             var baseValue = attribute.baseValue;
                             var modifiers = attribute.ActiveModifiers.Where(m => m.Value != 0).Select(m =>
-                                    $"{m.Value.ToString("+0;-#")} {String.Join(" ", m.Tags).TrimStart('0', '1', '2', '3', '4', '5', '6', '7', '8', '9').Cyan()}")
+                                    $"{m.Value:+0;-#} {String.Join(" ", m.Tags).TrimStart('0', '1', '2', '3', '4', '5', '6', '7', '8', '9').Cyan()}")
                                 .ToArray();
                             var modifiersString = String.Join(" ", modifiers);
                             using (HorizontalScope())
@@ -138,7 +138,7 @@ public class PartyEditor
                                     changed = true;
                                 }, GUI.skin.box, AutoWidth());
                                 Space(20);
-                                Label($"{attribute.currentValue}".orange().bold(), Width(50f));
+                                Label($"{attribute.currentValue}".Orange().Bold(), Width(50f));
                                 ActionButton(" > ", () =>
                                 {
                                     attribute.baseValue += 1;
@@ -161,20 +161,20 @@ public class PartyEditor
                         }
                     }
 
-                    if (changed && editingFromPool && ch is RulesetCharacterHero h)
+                    if (changed && _editingFromPool && ch is RulesetCharacterHero h)
                     {
-                        Mod.Debug(String.Format("Saving Pool Character: " + h.Name));
-                        Mod.Debug(poolService.SaveCharacter(h));
+                        // ReSharper disable once InvocationIsSkipped
+                        Main.Log(String.Format("Saving Pool Character: " + h.Name));
+                        // ReSharper disable once InvocationIsSkipped
+                        Main.Log(PoolService.SaveCharacter(h));
                         // h.RefreshAll();
                         // RefreshPool();
                     }
 
                     if (selectedCharacter != GetSelectedCharacter())
                     {
-                        selectedCharacterIndex = GetCharacterList().IndexOf(selectedCharacter);
+                        _selectedCharacterIndex = GetCharacterList().IndexOf(selectedCharacter);
                     }
-
-                    chIndex += 1;
                 }
             }
         }
@@ -182,7 +182,7 @@ public class PartyEditor
 
     private static List<RulesetCharacter> GetCharacterList()
     {
-        editingFromPool = false;
+        _editingFromPool = false;
 
 #pragma warning disable IDE0031
         // don't use ? or ?? or a type deriving from an UnityEngine.Object to avoid bypassing lifetime check
@@ -190,11 +190,13 @@ public class PartyEditor
             ? null
             : Gui.GameCampaign.Party.CharactersList.Select(ch => ch.RulesetCharacter).ToList();
 #if DEBUG
-        if (chars == null)
+        if (chars != null)
         {
-            chars = CharacterPool;
-            editingFromPool = true;
+            return chars;
         }
+
+        chars = CharacterPool;
+        _editingFromPool = true;
 #endif
 #pragma warning restore IDE0031
         return chars;
@@ -208,27 +210,24 @@ public class PartyEditor
             return null;
         }
 
-        if (selectedCharacterIndex >= characterList.Count)
+        if (_selectedCharacterIndex >= characterList.Count)
         {
-            selectedCharacterIndex = 0;
+            _selectedCharacterIndex = 0;
         }
 
-        return characterList[selectedCharacterIndex];
+        return characterList[_selectedCharacterIndex];
     }
 
     private static void RefreshPool()
     {
-        characterPool = new List<RulesetCharacter>();
-        var poolService = ServiceRepository.GetService<ICharacterPoolService>();
+        _characterPool = new List<RulesetCharacter>();
+        PoolService.EnumeratePool();
 
-        poolService.EnumeratePool();
-        foreach (var item in poolService.Pool)
+        foreach (var filename in PoolService.Pool.Select(item => item.Key))
         {
-            var filename = item.Key;
-            Mod.Log("Loading: " + filename);
-            var snapshot = item.Value;
-            Snapshot s;
-            poolService.LoadCharacter(filename, out var h, out s);
+            // ReSharper disable once InvocationIsSkipped
+            Main.Log("Loading: " + filename);
+            PoolService.LoadCharacter(filename, out var h, out _);
 #if false
                         Mod.Debug(h.Name + " " + h);
                         PropertyInfo[] infos = h.GetType().GetProperties();
@@ -238,10 +237,11 @@ public class PartyEditor
                             Mod.Debug(String.Format("    {0} : {1}", info.Name, info.GetValue(h, null)?.ToString()) ?? "null");
                         }
 #endif
-            characterPool.Add(h);
+            _characterPool.Add(h);
         }
 
-        Mod.Log($"{characterPool.Count} Characters Loaded");
+        // ReSharper disable once InvocationIsSkipped
+        Main.Log($"{_characterPool.Count} Characters Loaded");
     }
 
     private enum ToggleChoice
@@ -253,6 +253,6 @@ public class PartyEditor
         Buffs,
         Abilities,
         Spells,
-        None,
+        None
     }
 }

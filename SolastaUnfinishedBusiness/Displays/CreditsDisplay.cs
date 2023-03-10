@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.IO;
-using SolastaUnfinishedBusiness.Api.Infrastructure;
+using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Api.ModKit;
 using UnityExplorer;
 using static SolastaUnfinishedBusiness.Displays.PatchesDisplay;
@@ -24,7 +24,7 @@ internal static class CreditsDisplay
         ("Nd", "College of Harlequin, College of War Dancer, Marshal, Opportunist, Raven"),
         ("SilverGriffon", "gameplay, visuals, spells, Dark Elf, Draconic Kobold, Grey Dwarf, Divine Heart"),
         ("DubhHerder", "quality of life, spells, homebrew content design [subclasses]"),
-        ("Taco", "homebrew content design [feats, metamagic, subclasses], subclasses, powers and weapons icons"),
+        ("Taco", "homebrew content design [feats, metamagic, subclasses], fighting styles, races, subclasses, powers and weapons icons"),
         ("HiddenHax", "homebrew content design [subclasses]"),
         ("tivie", "Circle of The Night, Path of The Spirits"),
         ("ElAntonius", "feats, fighting styles, Ranger Arcanist"),
@@ -63,7 +63,7 @@ internal static class CreditsDisplay
 
         if (IsUnityExplorerInstalled && !IsUnityExplorerEnabled)
         {
-            UI.ActionButton("Unity Explorer UI".Bold().Khaki(), EnableUnityExplorerUi, UI.Width(150));
+            UI.ActionButton("Unity Explorer UI".Bold().Khaki(), EnableUnityExplorerUi, UI.Width((float)150));
             UI.Label();
         }
 
@@ -81,8 +81,8 @@ internal static class CreditsDisplay
             {
                 using (UI.HorizontalScope())
                 {
-                    UI.Label(author.Orange(), UI.Width(150));
-                    UI.Label(content, UI.Width(600));
+                    UI.Label(author.Orange(), UI.Width((float)150));
+                    UI.Label(content, UI.Width((float)600));
                 }
             }
         }

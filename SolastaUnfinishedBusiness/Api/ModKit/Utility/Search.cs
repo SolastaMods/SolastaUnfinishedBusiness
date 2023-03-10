@@ -18,31 +18,31 @@ namespace SolastaUnfinishedBusiness.Api.ModKit
         {
             public static bool HasMatches(this ISearchable searchable, float scoreThreshold = 10)
             {
-                return searchable.Matches == null || searchable.Matches
-                    .Where(m => m.Value.IsMatch && m.Value.Score >= scoreThreshold).Any();
+                return searchable.Matches == null ||
+                       searchable.Matches.Any(m => m.Value.IsMatch && m.Value.Score >= scoreThreshold);
             }
         }
 
         public class MatchResult
         {
-            public int BestRun;
+            public readonly MatchQuery Context;
+            private readonly string key;
+            private readonly List<Span> spans = new();
+
+            private readonly ISearchable target;
+            public readonly string Text;
+            private int bestRun;
             public float Bonus;
-            public MatchQuery Context;
-            public string Key;
             public int MatchedCharacters;
             public float Penalty;
-            public int SingleRuns;
-            public List<Span> spans = new();
-
-            public ISearchable Target;
+            private int singleRuns;
             public float TargetRatio;
-            public string Text;
             public int TotalMatched;
 
             public MatchResult(ISearchable target, string key, string text, MatchQuery context)
             {
-                Target = target;
-                Key = key;
+                this.target = target;
+                this.key = key;
                 Text = text;
                 Context = context;
             }
@@ -51,21 +51,21 @@ namespace SolastaUnfinishedBusiness.Api.ModKit
             public float MatchRatio => TotalMatched / (float)Context.SearchText.Length;
             public int GoodRuns => spans.Count(x => x.Length > 2); //> 2);
 
-            public float Score => (TargetRatio * MatchRatio * 1.0f) + (BestRun * 4) + (GoodRuns * 2) - Penalty + Bonus;
+            public float Score => (TargetRatio * MatchRatio * 1.0f) + (bestRun * 4) + (GoodRuns * 2) - Penalty + Bonus;
 
             public void AddSpan(Span span)
             {
                 spans.Add(span);
 
                 //update some stats that get used for scoring
-                if (span.Length > BestRun)
+                if (span.Length > bestRun)
                 {
-                    BestRun = span.Length;
+                    bestRun = span.Length;
                 }
 
                 if (span.Length == 1)
                 {
-                    SingleRuns++;
+                    singleRuns++;
                 }
 
                 TotalMatched += span.Length;
@@ -73,7 +73,7 @@ namespace SolastaUnfinishedBusiness.Api.ModKit
 
             public struct Span
             {
-                public UInt16 From;
+                public readonly UInt16 From;
                 public UInt16 Length;
 
                 public Span(int start, int length = -1)
@@ -89,22 +89,22 @@ namespace SolastaUnfinishedBusiness.Api.ModKit
             }
         }
 
-        public class MatchQuery
+        public abstract class MatchQuery
         {
-            public Dictionary<string, string> RestrictedSearchTexts; // restricted to certain provider keys
-            public string SearchText; // general search text
+            private readonly Dictionary<string, string> restrictedSearchTexts; // restricted to certain provider keys
+            public readonly string SearchText; // general search text
 
-            public MatchQuery(string queryText)
+            protected MatchQuery(string queryText)
             {
                 var unrestricted = new List<string>();
-                RestrictedSearchTexts = new Dictionary<string, string>();
+                restrictedSearchTexts = new Dictionary<string, string>();
                 var terms = queryText.Split(' ');
                 foreach (var term in terms)
                 {
                     if (term.Contains(':'))
                     {
                         var pair = term.Split(':');
-                        RestrictedSearchTexts[pair[0]] = pair[1];
+                        restrictedSearchTexts[pair[0]] = pair[1];
                     }
                     else
                     {
@@ -118,13 +118,15 @@ namespace SolastaUnfinishedBusiness.Api.ModKit
             private MatchResult Match(string searchText, ISearchable searchable, string key, string text)
             {
                 var result = new MatchResult(searchable, key, text, this);
-                var index = text.IndexOf(searchText);
-                if (index >= 0)
+                var index = text.IndexOf(searchText, StringComparison.CurrentCulture);
+                if (index < 0)
                 {
-                    var span = new MatchResult.Span(index, searchText.Length);
-                    result.AddSpan(span);
-                    result.TargetRatio = result.TotalMatched / (float)text.Length;
+                    return result;
                 }
+
+                var span = new MatchResult.Span(index, searchText.Length);
+                result.AddSpan(span);
+                result.TargetRatio = result.TotalMatched / (float)text.Length;
 
                 return result;
             }
@@ -134,20 +136,18 @@ namespace SolastaUnfinishedBusiness.Api.ModKit
                 var result = new MatchResult(searchable, key, text, this);
 
                 var searchTextIndex = 0;
-                var targetIndex = -1;
-
                 var searchText = result.Context.SearchText;
                 var target = result.Text;
 
-                // find a common prefix if any, so n:cat h:catsgrace is better than n:cat h:blahcatsgrace
-                targetIndex = target.IndexOf(searchText[searchTextIndex]);
+                // find a common prefix if any, so n:cat h:cats grace is better than n:cat h:blah cats grace
+                var targetIndex = target.IndexOf(searchText[searchTextIndex]);
                 if (targetIndex == 0)
                 {
                     result.Bonus = 2.0f;
                 }
 
                 // penalise matches that don't have a common prefix, while increasing searchTextIndex and targetIndex to the first match, so:
-                // n:bOb  h:hellOworldbob
+                // n:bOb  h:Hello World
                 //    ^         ^
                 while (targetIndex == -1 && searchTextIndex < searchText.Length)
                 {
@@ -200,9 +200,9 @@ namespace SolastaUnfinishedBusiness.Api.ModKit
                 return result;
             }
 
-            public ISearchable Evaluate(ISearchable searchable)
+            private ISearchable Evaluate(ISearchable searchable)
             {
-                if (SearchText?.Length > 0 || RestrictedSearchTexts.Count > 0)
+                if (SearchText?.Length > 0 || restrictedSearchTexts.Count > 0)
                 {
                     searchable.Matches = new Dictionary<string, MatchResult>();
                     foreach (var provider in searchable.Providers)
@@ -210,14 +210,11 @@ namespace SolastaUnfinishedBusiness.Api.ModKit
                         var key = provider.Key;
                         var text = provider.Value();
                         var foundRestricted = false;
-                        foreach (var entry in RestrictedSearchTexts)
+                        foreach (var entry in restrictedSearchTexts.Where(entry => key.StartsWith(entry.Key)))
                         {
-                            if (key.StartsWith(entry.Key))
-                            {
-                                searchable.Matches[key] = Match(entry.Value, searchable, key, text);
-                                foundRestricted = true;
-                                break;
-                            }
+                            searchable.Matches[key] = Match(entry.Value, searchable, key, text);
+                            foundRestricted = true;
+                            break;
                         }
 
                         if (!foundRestricted && SearchText?.Length > 0)

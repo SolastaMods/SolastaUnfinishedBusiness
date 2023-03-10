@@ -1,4 +1,5 @@
 ﻿using System;
+using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using UnityEngine;
 
 namespace SolastaUnfinishedBusiness.Api.ModKit.Utility;
@@ -11,7 +12,7 @@ public class GUISubScope : IDisposable
     {
         if (!string.IsNullOrEmpty(subtitle))
         {
-            GUILayout.Label(subtitle.bold());
+            GUILayout.Label(subtitle.Bold());
         }
 
         GUILayout.BeginHorizontal();
@@ -21,6 +22,7 @@ public class GUISubScope : IDisposable
 
     public void Dispose()
     {
+        GC.SuppressFinalize(this);
         GUILayout.EndVertical();
         GUILayout.EndHorizontal();
     }

@@ -22,9 +22,9 @@ internal static class GameUiDisplay
                     _selectedForSwap = false;
                     GameUiContext.ResetAllFormationGrids();
                 },
-                UI.Width(110));
+                UI.Width((float)110));
 
-            if (UI.SelectionGrid(ref selectedSet, SetNames, SetNames.Length, SetNames.Length, UI.Width(165)))
+            if (UI.SelectionGrid(ref selectedSet, SetNames, SetNames.Length, SetNames.Length, UI.Width((float)165)))
             {
                 _selectedForSwap = false;
                 Main.Settings.FormationGridSelectedSet = selectedSet;
@@ -48,11 +48,11 @@ internal static class GameUiDisplay
                             _selectedForSwap = false;
                             GameUiContext.ResetFormationGrid(Main.Settings.FormationGridSelectedSet);
                         },
-                        UI.Width(110));
+                        UI.Width((float)110));
                 }
                 else
                 {
-                    UI.Label("", UI.Width(110));
+                    UI.Label("", UI.Width((float)110));
                 }
 
                 for (var x = 0; x < GameUiContext.GridSize; x++)
@@ -102,7 +102,7 @@ internal static class GameUiDisplay
                             _selectedY = localY;
                             _selectedForSwap = true;
                         }
-                    }, UI.Width(30));
+                    }, UI.Width((float)30));
 
                     GUI.color = saveColor;
                 }

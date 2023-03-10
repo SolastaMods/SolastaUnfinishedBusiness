@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
-using SolastaUnfinishedBusiness.Api.Extensions;
+using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
@@ -134,8 +134,7 @@ internal sealed class CollegeOfWarDancer : AbstractSubclass
 
     private static DieType GetMomentumDice(RulesetCharacter character)
     {
-        var slotsByName = character.CharacterInventory.InventorySlotsByName;
-        var item = slotsByName[EquipmentDefinitions.SlotTypeMainHand].EquipedItem;
+        var item = character.GetMainWeapon();
 
         if (item == null || !item.itemDefinition.isWeapon)
         {
@@ -160,8 +159,7 @@ internal sealed class CollegeOfWarDancer : AbstractSubclass
             .SelectMany(x => x.Value)
             .Count(x => x.ConditionDefinition == WarDanceMomentum);
 
-        var slotsByName = character.CharacterInventory.InventorySlotsByName;
-        var item = slotsByName[EquipmentDefinitions.SlotTypeMainHand].EquipedItem;
+        var item = character.GetMainWeapon();
 
         if (item == null || !item.itemDefinition.isWeapon)
         {
@@ -422,8 +420,7 @@ internal sealed class CollegeOfWarDancer : AbstractSubclass
                 return;
             }
 
-            var slotsByName = hero.RulesetCharacter.CharacterInventory.InventorySlotsByName;
-            var item = slotsByName[EquipmentDefinitions.SlotTypeMainHand].EquipedItem;
+            var item = hero.RulesetCharacter.GetMainWeapon();
 
             if (item == null || !item.itemDefinition.isWeapon)
             {
