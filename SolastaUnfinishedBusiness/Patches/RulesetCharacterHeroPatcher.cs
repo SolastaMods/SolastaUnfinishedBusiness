@@ -212,7 +212,7 @@ public static class RulesetCharacterHeroPatcher
             //PATCH: support for AddTagToWeapon
             var weaponTags = typeof(WeaponDescription)
                 .GetProperty(nameof(WeaponDescription.WeaponTags))
-                .GetGetMethod();
+                ?.GetGetMethod();
             var customWeaponTags = new Func<
                 WeaponDescription,
                 RulesetCharacter,
@@ -704,7 +704,7 @@ public static class RulesetCharacterHeroPatcher
     public static class CanLevelUp_Getter_Patch
     {
         [UsedImplicitly]
-        public static bool Prefix(RulesetCharacterHero __instance, ref bool __result)
+        public static bool Prefix(RulesetCharacterHero __instance, out bool __result)
         {
             var maxLevel = Gui.Game == null ? Level20Context.GameMaxLevel : Gui.Game.CampaignDefinition.LevelCap;
             var levelCap = Main.Settings.EnableLevel20 ? Level20Context.ModMaxLevel : maxLevel;

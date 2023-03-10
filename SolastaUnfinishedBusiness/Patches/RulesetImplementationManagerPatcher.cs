@@ -547,7 +547,7 @@ public static class RulesetImplementationManagerPatcher
             //PATCH: support for AddTagToWeapon
             var weaponTags = typeof(WeaponDescription)
                 .GetProperty(nameof(WeaponDescription.WeaponTags))
-                .GetGetMethod();
+                ?.GetGetMethod();
             var customWeaponTags = new Func<
                 WeaponDescription,
                 RulesetCharacter,
