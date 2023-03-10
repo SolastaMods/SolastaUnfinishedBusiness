@@ -141,7 +141,7 @@ internal class ReflectionTreeView
                 {
                     searchText = searchText.Trim();
                     ReflectionSearch.Shared.StartSearch(_tree.RootNode, searchText, UpdateCounts, _searchResults);
-                }, UI.Width(250));
+                }, UI.Width((float)250));
                 GUILayout.Space(10f);
                 var isSearching = ReflectionSearch.Shared.IsSearching;
                 UI.ActionButton(isSearching ? "Stop" : "Search", () =>

@@ -22,6 +22,7 @@ public class GUISubScope : IDisposable
 
     public void Dispose()
     {
+        GC.SuppressFinalize(this);
         GUILayout.EndVertical();
         GUILayout.EndHorizontal();
     }

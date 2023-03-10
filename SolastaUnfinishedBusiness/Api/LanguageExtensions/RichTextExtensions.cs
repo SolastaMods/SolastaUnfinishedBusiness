@@ -10,7 +10,6 @@ public static class RichText
 {
     public enum Rgba : uint
     {
-        Aqua = 0x00ffffff,
         Blue = 0x8080ffff,
         Brown = 0xC09050ff,
         Crimson = 0x7b0340ff,
@@ -18,7 +17,6 @@ public static class RichText
         Darkblue = 0x0000a0ff,
         Darkgrey = 0x808080ff,
         Darkred = 0xa0333bff,
-        Fuchsia = 0xff40ffff,
         Green = 0x40C040ff,
         Gold = 0xED9B1Aff,
         Lightblue = 0xd8e6ff,
@@ -187,7 +185,7 @@ public static class RichText
         //return string.Concat(str.Select(c => char.IsUpper(c) ? " " + c : c.ToString())).TrimStart(' ');
     }
 
-    public static string Size(this string str, int size)
+    private static string Size(this string str, int size)
     {
         return $"<size={size}>{str}</size>";
     }

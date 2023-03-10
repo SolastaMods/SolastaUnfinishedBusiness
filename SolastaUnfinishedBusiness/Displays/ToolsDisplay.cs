@@ -197,7 +197,7 @@ internal static class ToolsDisplay
 
         var intValue = Main.Settings.MultiplyTheExperienceGainedBy;
         if (UI.Slider(Gui.Localize("ModUi/&MultiplyTheExperienceGainedBy"), ref intValue, 0, 200, 100, string.Empty,
-                UI.Width(100)))
+                UI.Width((float)100)))
         {
             Main.Settings.MultiplyTheExperienceGainedBy = intValue;
             ToolsContext.SwitchEncounterPercentageChance();
@@ -263,11 +263,11 @@ internal static class ToolsDisplay
 
         using (UI.HorizontalScope())
         {
-            UI.Label(Gui.Localize("ModUi/&IncreaseGameTimeBy"), UI.Width(300));
-            UI.ActionButton("1 hour", () => gameTime.UpdateTime(60 * 60), UI.Width(100));
-            UI.ActionButton("6 hours", () => gameTime.UpdateTime(60 * 60 * 6), UI.Width(100));
-            UI.ActionButton("12 hours", () => gameTime.UpdateTime(60 * 60 * 12), UI.Width(100));
-            UI.ActionButton("24 hours", () => gameTime.UpdateTime(60 * 60 * 24), UI.Width(100));
+            UI.Label(Gui.Localize("ModUi/&IncreaseGameTimeBy"), UI.Width((float)300));
+            UI.ActionButton("1 hour", () => gameTime.UpdateTime(60 * 60), UI.Width((float)100));
+            UI.ActionButton("6 hours", () => gameTime.UpdateTime(60 * 60 * 6), UI.Width((float)100));
+            UI.ActionButton("12 hours", () => gameTime.UpdateTime(60 * 60 * 12), UI.Width((float)100));
+            UI.ActionButton("24 hours", () => gameTime.UpdateTime(60 * 60 * 24), UI.Width((float)100));
         }
     }
 
@@ -362,29 +362,29 @@ internal static class ToolsDisplay
         using (UI.HorizontalScope())
         {
             UI.Space(40f);
-            UI.Label("Category".Bold(), UI.Width(100));
+            UI.Label("Category".Bold(), UI.Width((float)100));
 
             if (CurrentItemsFilterIndex == 11 /* Weapons */)
             {
                 UI.Space(40f);
-                UI.Label("Weapon Tag".Bold(), UI.Width(100));
+                UI.Label("Weapon Tag".Bold(), UI.Width((float)100));
             }
 
             UI.Space(40f);
-            UI.Label("Item Tag".Bold(), UI.Width(100));
+            UI.Label("Item Tag".Bold(), UI.Width((float)100));
 
             UI.Space(40f);
             UI.Label(Gui.Localize("ModUi/&ItemsHelp2"));
         }
 
-        using (UI.HorizontalScope(UI.Width(800), UI.Height(400)))
+        using (UI.HorizontalScope(UI.Width((float)800), UI.Height(400)))
         {
             var intValue = CurrentItemsFilterIndex;
             if (UI.SelectionGrid(
                     ref intValue,
                     ItemsFiltersLabels,
                     ItemsFiltersLabels.Length,
-                    1, UI.Width(140)))
+                    1, UI.Width((float)140)))
             {
                 CurrentItemsFilterIndex = intValue;
 
@@ -401,7 +401,7 @@ internal static class ToolsDisplay
                         ref intValue,
                         ItemsWeaponTagsFiltersLabels,
                         ItemsWeaponTagsFiltersLabels.Length,
-                        1, UI.Width(140)))
+                        1, UI.Width((float)140)))
                 {
                     CurrentItemsWeaponTagsFilterIndex = intValue;
                 }
@@ -412,7 +412,7 @@ internal static class ToolsDisplay
                     ref intValue,
                     ItemsItemTagsFiltersLabels,
                     ItemsItemTagsFiltersLabels.Length,
-                    1, UI.Width(140)))
+                    1, UI.Width((float)140)))
             {
                 CurrentItemsItemTagsFilterIndex = intValue;
             }
@@ -449,7 +449,7 @@ internal static class ToolsDisplay
 
                         characterInspectionScreen.externalContainer.AddSubItem(rulesetItem);
                     },
-                    UI.Width(30));
+                    UI.Width((float)30));
 
                 var label = item.GuiPresentation.Title.StartsWith("Equipment/&CraftingManual")
                     ? Gui.Format(item.GuiPresentation.Title,
@@ -486,28 +486,28 @@ internal static class ToolsDisplay
             UI.ActionButton(Gui.Localize("ModUi/&SettingsExport"), () =>
             {
                 Main.SaveSettings(ExportFileName);
-            }, UI.Width(144));
+            }, UI.Width((float)144));
 
             UI.ActionButton(Gui.Localize("ModUi/&SettingsRemove"), () =>
             {
                 Main.RemoveSettings(ExportFileName);
-            }, UI.Width(144));
+            }, UI.Width((float)144));
 
             var text = ExportFileName;
 
-            UI.ActionTextField(ref text, String.Empty, s => { ExportFileName = s; }, null, UI.Width(144));
+            UI.ActionTextField(ref text, String.Empty, s => { ExportFileName = s; }, null, UI.Width((float)144));
         }
 
         using (UI.HorizontalScope())
         {
-            UI.ActionButton(Gui.Localize("ModUi/&SettingsRemove"), Main.LoadSettingFilenames, UI.Width(144));
+            UI.ActionButton(Gui.Localize("ModUi/&SettingsRemove"), Main.LoadSettingFilenames, UI.Width((float)144));
             UI.ActionButton(Gui.Localize("ModUi/&SettingsOpenFolder"), () =>
             {
                 Process.Start(new ProcessStartInfo
                 {
                     FileName = Main.SettingsFolder, UseShellExecute = true, Verb = "open"
                 });
-            }, UI.Width(292));
+            }, UI.Width((float)292));
         }
 
         UI.Label();
@@ -521,7 +521,7 @@ internal static class ToolsDisplay
         UI.Label();
 
         var intValue = -1;
-        if (UI.SelectionGrid(ref intValue, Main.SettingsFiles, Main.SettingsFiles.Length, 4, UI.Width(440)))
+        if (UI.SelectionGrid(ref intValue, Main.SettingsFiles, Main.SettingsFiles.Length, 4, UI.Width((float)440)))
         {
             Main.LoadSettings(Main.SettingsFiles[intValue]);
         }

@@ -139,7 +139,7 @@ namespace SolastaUnfinishedBusiness.Api.ModKit
                 var searchText = result.Context.SearchText;
                 var target = result.Text;
 
-                // find a common prefix if any, so n:cat h:catsgrace is better than n:cat h:blahcatsgrace
+                // find a common prefix if any, so n:cat h:cats grace is better than n:cat h:blah cats grace
                 var targetIndex = target.IndexOf(searchText[searchTextIndex]);
                 if (targetIndex == 0)
                 {
@@ -147,7 +147,7 @@ namespace SolastaUnfinishedBusiness.Api.ModKit
                 }
 
                 // penalise matches that don't have a common prefix, while increasing searchTextIndex and targetIndex to the first match, so:
-                // n:bOb  h:hellOworldbob
+                // n:bOb  h:Hello World
                 //    ^         ^
                 while (targetIndex == -1 && searchTextIndex < searchText.Length)
                 {

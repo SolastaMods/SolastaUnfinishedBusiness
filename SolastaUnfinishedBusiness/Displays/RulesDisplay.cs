@@ -199,10 +199,10 @@ internal static class RulesDisplay
 
         using (UI.HorizontalScope())
         {
-            UI.Label(Gui.Localize("Caption/&TargetFilteringAllyCreature"), UI.Width(100));
+            UI.Label(Gui.Localize("Caption/&TargetFilteringAllyCreature"), UI.Width((float)100));
 
             intValue = Main.Settings.CriticalHitModeAllies;
-            if (UI.SelectionGrid(ref intValue, Options, Options.Length, 4, UI.Width(220)))
+            if (UI.SelectionGrid(ref intValue, Options, Options.Length, 4, UI.Width((float)220)))
             {
                 Main.Settings.CriticalHitModeAllies = intValue;
             }
@@ -210,10 +210,10 @@ internal static class RulesDisplay
 
         using (UI.HorizontalScope())
         {
-            UI.Label(Gui.Localize("Caption/&TargetFilteringEnemyCreature"), UI.Width(100));
+            UI.Label(Gui.Localize("Caption/&TargetFilteringEnemyCreature"), UI.Width((float)100));
 
             intValue = Main.Settings.CriticalHitModeEnemies;
-            if (UI.SelectionGrid(ref intValue, Options, Options.Length, 4, UI.Width(220)))
+            if (UI.SelectionGrid(ref intValue, Options, Options.Length, 4, UI.Width((float)220)))
             {
                 Main.Settings.CriticalHitModeEnemies = intValue;
             }

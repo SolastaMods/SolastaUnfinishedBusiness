@@ -33,7 +33,7 @@ internal static partial class UI
         Rect rect;
         using (HorizontalScope())
         {
-            Space(4.Point());
+            Space((float)4.Point());
             result = GL.Button(title, _linkStyle, options);
             rect = GUILayoutUtility.GetLastRect();
         }

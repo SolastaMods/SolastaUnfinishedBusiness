@@ -43,9 +43,13 @@ public class NamedFunc<T>
 
     public string Name { get; }
 
+#pragma warning disable IDE0052
     private Func<T> Func { get; }
+#pragma warning restore IDE0052
 
+#pragma warning disable IDE0052
     private Func<bool> CanPerform { get; }
+#pragma warning restore IDE0052
 }
 
 public class NamedMutator<TV, T>

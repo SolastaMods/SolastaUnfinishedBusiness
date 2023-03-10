@@ -81,7 +81,7 @@ internal static partial class UI
                 }
                 else
                 {
-                    Space(153);
+                    Space((float)153);
                 }
             }
 
@@ -135,7 +135,7 @@ internal static partial class UI
                 if (div)
                 {
                     DivLast(20);
-                    Space(-25);
+                    Space((float)-25);
                 }
 
                 header?.Invoke();

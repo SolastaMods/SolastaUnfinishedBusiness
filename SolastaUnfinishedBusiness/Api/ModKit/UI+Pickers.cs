@@ -51,8 +51,8 @@ internal static partial class UI
     {
         using (HorizontalScope())
         {
-            Label(title.Cyan(), Width(300));
-            Space(25);
+            Label(title.Cyan(), Width((float)300));
+            Space((float)25);
             return SelectionGrid(ref selected, texts, xCols, options);
         }
     }
@@ -273,8 +273,8 @@ internal static partial class UI
         var changed = false;
         using (HorizontalScope())
         {
-            Label(title.Cyan(), Width(300));
-            Space(25);
+            Label(title.Cyan(), Width((float)300));
+            Space((float)25);
             changed = EnumGrid(ref value, xCols, null, options);
         }
 
@@ -287,8 +287,8 @@ internal static partial class UI
         var changed = false;
         using (HorizontalScope())
         {
-            Label(title.Cyan(), Width(300));
-            Space(25);
+            Label(title.Cyan(), Width((float)300));
+            Space((float)25);
             changed = EnumGrid(ref value, 0, null, options);
         }
 
@@ -301,8 +301,8 @@ internal static partial class UI
         var changed = false;
         using (HorizontalScope())
         {
-            Label(title.Cyan(), Width(300));
-            Space(25);
+            Label(title.Cyan(), Width((float)300));
+            Space((float)25);
             changed = EnumGrid(ref value, xCols, null, style, options);
         }
 
@@ -315,8 +315,8 @@ internal static partial class UI
         var changed = false;
         using (HorizontalScope())
         {
-            Label(title.Cyan(), Width(300));
-            Space(25);
+            Label(title.Cyan(), Width((float)300));
+            Space((float)25);
             changed = EnumGrid(ref value, xCols, titleFormatter, options);
         }
 
@@ -330,8 +330,8 @@ internal static partial class UI
         var changed = false;
         using (HorizontalScope())
         {
-            Label(title.Cyan(), Width(300));
-            Space(25);
+            Label(title.Cyan(), Width((float)300));
+            Space((float)25);
             changed = EnumGrid(ref value, xCols, titleFormatter, style, options);
         }
 
@@ -344,8 +344,8 @@ internal static partial class UI
         var changed = false;
         using (HorizontalScope())
         {
-            Label(title.Cyan(), Width(300));
-            Space(25);
+            Label(title.Cyan(), Width((float)300));
+            Space((float)25);
             var value = get();
             changed = EnumGrid(ref value, 0, null, options);
             if (changed)
@@ -389,7 +389,7 @@ internal static partial class UI
         }
 
         Label(title, AutoWidth());
-        Space(25);
+        Space((float)25);
         selected = GL.SelectionGrid(selected, titles.ToArray(), xCols, options);
     }
 
@@ -426,7 +426,7 @@ internal static partial class UI
                 "itemSearchText",
                 text => { changed = true; },
                 () => { },
-                xCols == 1 ? options : new[] { Width(300) });
+                xCols == 1 ? options : new[] { Width((float)300) });
             if (searchText?.Length > 0)
             {
                 var searchStr = searchText.ToLower();

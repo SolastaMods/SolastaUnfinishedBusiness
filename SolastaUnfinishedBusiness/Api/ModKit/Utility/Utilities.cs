@@ -3,7 +3,6 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Reflection;
 using System.Text;
 using System.Text.RegularExpressions;
 using HarmonyLib;
@@ -51,15 +50,9 @@ public static class Utilities
     {
         var parts = name.Split('.');
         var final = parts.Last();
-        if (final == null)
-        {
-            return null;
-        }
 
         foreach (var part in parts)
         {
-            if (obj == null) { return null; }
-
             var type = obj.GetType();
             var info = type.GetProperty(part);
             if (info == null) { return null; }
@@ -224,37 +217,5 @@ public static class Utilities
         Predicate<KeyValuePair<K, V>> pred)
     {
         return dict.Where(it => pred(it)).ToDictionary(it => it.Key, it => it.Value);
-    }
-}
-
-public static class MK
-{
-    public static bool IsKindOf(this Type type, Type baseType)
-    {
-        return type.IsSubclassOf(baseType) || type == baseType;
-    }
-}
-
-public static class CloneUtil<T>
-{
-    private static readonly Func<T, object> Clone;
-
-    static CloneUtil()
-    {
-        var cloneMethod = typeof(T).GetMethod("MemberwiseClone", BindingFlags.Instance | BindingFlags.NonPublic);
-        Clone = (Func<T, object>)cloneMethod.CreateDelegate(typeof(Func<T, object>));
-    }
-
-    public static T ShallowClone(T obj)
-    {
-        return (T)Clone(obj);
-    }
-}
-
-public static class CloneUtil
-{
-    public static T ShallowClone<T>(this T obj)
-    {
-        return CloneUtil<T>.ShallowClone(obj);
     }
 }

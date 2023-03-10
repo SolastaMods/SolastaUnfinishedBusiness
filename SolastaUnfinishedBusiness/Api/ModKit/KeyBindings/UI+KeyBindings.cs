@@ -27,7 +27,7 @@ internal static partial class UI
         var conflicts = keyBind.Conflicts();
         using (VerticalScope(options))
         {
-            Space(3.Point());
+            Space((float)3.Point());
             if (GL.Button(label, HotkeyStyle, AutoWidth()))
             {
                 if (isEditing || isEditingOther)
@@ -126,7 +126,7 @@ internal static partial class UI
         {
             Space(indent);
             Label(title.Bold(), titleWidth == 0 ? ExpandWidth(false) : Width(titleWidth));
-            Space(25);
+            Space((float)25);
             EditKeyBind(identifier);
         }
     }
@@ -136,7 +136,7 @@ internal static partial class UI
         using (HorizontalScope())
         {
             Label(title.Bold(), titleWidth == 0 ? ExpandWidth(false) : Width(titleWidth));
-            Space(25);
+            Space((float)25);
             EditKeyBind(identifier, true, true);
         }
     }
@@ -149,7 +149,7 @@ internal static partial class UI
         var action = KeyBindings.GetAction(title);
         if (GL.Button(title, options)) { action(); }
 
-        EditKeyBind(title, true, false, Width(200));
+        EditKeyBind(title, true, false, Width((float)200));
     }
 
     // Action button designed to live in a collection with a BindableActionButton
@@ -159,7 +159,7 @@ internal static partial class UI
 
         if (GL.Button(title, options)) { action(); }
 
-        Space(204);
+        Space((float)204);
         if (Event.current.type == EventType.Layout)
         {
             KeyBindings.RegisterAction(title, action);

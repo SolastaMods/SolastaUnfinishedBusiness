@@ -11,27 +11,27 @@ namespace SolastaUnfinishedBusiness.Displays;
 
 public static class PartyEditor
 {
-    private static ToggleChoice selectedToggle = ToggleChoice.None;
-    private static int selectedCharacterIndex;
-    private static bool editingFromPool;
+    private static ToggleChoice _selectedToggle = ToggleChoice.None;
+    private static int _selectedCharacterIndex;
+    private static bool _editingFromPool;
 
-    private static (string, string) nameEditState = (null, null);
+    private static (string, string) _nameEditState = (null, null);
 
-    private static List<RulesetCharacter> characterPool;
-    private static ICharacterPoolService poolService => ServiceRepository.GetService<ICharacterPoolService>();
+    private static List<RulesetCharacter> _characterPool;
+    private static ICharacterPoolService PoolService => ServiceRepository.GetService<ICharacterPoolService>();
 
     public static List<RulesetCharacter> CharacterPool
     {
         get
         {
-            if (characterPool == null)
+            if (_characterPool == null)
             {
                 RefreshPool();
             }
 
-            return characterPool;
+            return _characterPool;
         }
-        set => characterPool = value;
+        set => _characterPool = value;
     }
 
     public static void OnGUI()
@@ -71,7 +71,7 @@ public static class PartyEditor
                         if (ch is RulesetCharacterHero hero)
                         {
                             name = hero.Name + " " + hero.SurName;
-                            if (EditableLabel(ref name, ref nameEditState, 200, n => n.Orange().Bold(),
+                            if (EditableLabel(ref name, ref _nameEditState, 200, n => n.Orange().Bold(),
                                     MinWidth(100),
                                     MaxWidth(600)))
                             {
@@ -91,7 +91,7 @@ public static class PartyEditor
                                 changed = true;
                             }
                         }
-                        else if (EditableLabel(ref name, ref nameEditState, 200, n => n.Orange().Bold(),
+                        else if (EditableLabel(ref name, ref _nameEditState, 200, n => n.Orange().Bold(),
                                      MinWidth(100),
                                      MaxWidth(600)))
                         {
@@ -102,19 +102,19 @@ public static class PartyEditor
                         Space(5);
                         Label((level < 10 ? "   lvl" : "   lv").Green() + $" {level}", Width(90));
                         Space(5);
-                        var showStats = ch == selectedCharacter && selectedToggle == ToggleChoice.Stats;
+                        var showStats = ch == selectedCharacter && _selectedToggle == ToggleChoice.Stats;
                         if (DisclosureToggle("Stats", ref showStats, 125))
                         {
                             if (showStats)
                             {
                                 selectedCharacter = ch;
-                                selectedToggle = ToggleChoice.Stats;
+                                _selectedToggle = ToggleChoice.Stats;
                             }
-                            else { selectedToggle = ToggleChoice.None; }
+                            else { _selectedToggle = ToggleChoice.None; }
                         }
                     }
 
-                    if (ch == selectedCharacter && selectedToggle == ToggleChoice.Stats)
+                    if (ch == selectedCharacter && _selectedToggle == ToggleChoice.Stats)
                     {
                         Div(100, 20, 755);
 
@@ -161,17 +161,19 @@ public static class PartyEditor
                         }
                     }
 
-                    if (changed && editingFromPool && ch is RulesetCharacterHero h)
+                    if (changed && _editingFromPool && ch is RulesetCharacterHero h)
                     {
+                        // ReSharper disable once InvocationIsSkipped
                         Main.Log(String.Format("Saving Pool Character: " + h.Name));
-                        Main.Log(poolService.SaveCharacter(h));
+                        // ReSharper disable once InvocationIsSkipped
+                        Main.Log(PoolService.SaveCharacter(h));
                         // h.RefreshAll();
                         // RefreshPool();
                     }
 
                     if (selectedCharacter != GetSelectedCharacter())
                     {
-                        selectedCharacterIndex = GetCharacterList().IndexOf(selectedCharacter);
+                        _selectedCharacterIndex = GetCharacterList().IndexOf(selectedCharacter);
                     }
                 }
             }
@@ -180,7 +182,7 @@ public static class PartyEditor
 
     private static List<RulesetCharacter> GetCharacterList()
     {
-        editingFromPool = false;
+        _editingFromPool = false;
 
 #pragma warning disable IDE0031
         // don't use ? or ?? or a type deriving from an UnityEngine.Object to avoid bypassing lifetime check
@@ -208,23 +210,24 @@ public static class PartyEditor
             return null;
         }
 
-        if (selectedCharacterIndex >= characterList.Count)
+        if (_selectedCharacterIndex >= characterList.Count)
         {
-            selectedCharacterIndex = 0;
+            _selectedCharacterIndex = 0;
         }
 
-        return characterList[selectedCharacterIndex];
+        return characterList[_selectedCharacterIndex];
     }
 
     private static void RefreshPool()
     {
-        characterPool = new List<RulesetCharacter>();
-        poolService.EnumeratePool();
+        _characterPool = new List<RulesetCharacter>();
+        PoolService.EnumeratePool();
 
-        foreach (var filename in poolService.Pool.Select(item => item.Key))
+        foreach (var filename in PoolService.Pool.Select(item => item.Key))
         {
+            // ReSharper disable once InvocationIsSkipped
             Main.Log("Loading: " + filename);
-            poolService.LoadCharacter(filename, out var h, out _);
+            PoolService.LoadCharacter(filename, out var h, out _);
 #if false
                         Mod.Debug(h.Name + " " + h);
                         PropertyInfo[] infos = h.GetType().GetProperties();
@@ -234,10 +237,11 @@ public static class PartyEditor
                             Mod.Debug(String.Format("    {0} : {1}", info.Name, info.GetValue(h, null)?.ToString()) ?? "null");
                         }
 #endif
-            characterPool.Add(h);
+            _characterPool.Add(h);
         }
 
-        Main.Log($"{characterPool.Count} Characters Loaded");
+        // ReSharper disable once InvocationIsSkipped
+        Main.Log($"{_characterPool.Count} Characters Loaded");
     }
 
     private enum ToggleChoice

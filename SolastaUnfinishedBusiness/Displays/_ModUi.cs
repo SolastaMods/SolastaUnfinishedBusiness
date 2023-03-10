@@ -60,7 +60,7 @@ namespace SolastaUnfinishedBusiness.Displays
             {
                 UI.Div();
                 UI.Label(title);
-                UI.Space(7);
+                UI.Space((float)7);
             }
 
             UI.SubMenu(ref selectedPane, title != null, null, actions);
