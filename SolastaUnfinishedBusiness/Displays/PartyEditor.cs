@@ -7,7 +7,6 @@ using SolastaUnfinishedBusiness.Api.Infrastructure;
 using SolastaUnfinishedBusiness.Api.ModKit;
 using UnityEngine;
 using static SolastaUnfinishedBusiness.Api.ModKit.UI;
-using static RulesetCharacterHero;
 
 namespace SolastaUnfinishedBusiness.Displays;
 
@@ -163,8 +162,8 @@ public class PartyEditor
 
                     if (changed && editingFromPool && ch is RulesetCharacterHero h)
                     {
-                        Mod.Debug(String.Format("Saving Pool Character: " + h.Name));
-                        Mod.Debug(poolService.SaveCharacter(h));
+                        Main.Log(String.Format("Saving Pool Character: " + h.Name));
+                        Main.Log(poolService.SaveCharacter(h));
                         // h.RefreshAll();
                         // RefreshPool();
                     }
@@ -219,16 +218,14 @@ public class PartyEditor
     private static void RefreshPool()
     {
         characterPool = new List<RulesetCharacter>();
-        var poolService = ServiceRepository.GetService<ICharacterPoolService>();
-
         poolService.EnumeratePool();
+
         foreach (var item in poolService.Pool)
         {
             var filename = item.Key;
-            Mod.Log("Loading: " + filename);
+            Main.Log("Loading: " + filename);
             var snapshot = item.Value;
-            Snapshot s;
-            poolService.LoadCharacter(filename, out var h, out s);
+            poolService.LoadCharacter(filename, out var h, out var s);
 #if false
                         Mod.Debug(h.Name + " " + h);
                         PropertyInfo[] infos = h.GetType().GetProperties();
@@ -241,7 +238,7 @@ public class PartyEditor
             characterPool.Add(h);
         }
 
-        Mod.Log($"{characterPool.Count} Characters Loaded");
+        Main.Log($"{characterPool.Count} Characters Loaded");
     }
 
     private enum ToggleChoice
@@ -253,6 +250,6 @@ public class PartyEditor
         Buffs,
         Abilities,
         Spells,
-        None,
+        None
     }
 }

@@ -27,7 +27,7 @@ internal static partial class UI
     {
         if (xCols <= 0)
         {
-            xCols = texts.Count();
+            xCols = texts.Length;
         }
 
         if (IsNarrow)
@@ -39,7 +39,7 @@ internal static partial class UI
         var titles = texts.Select((a, i) => i == sel ? a.orange().bold() : a);
         if (xCols <= 0)
         {
-            xCols = texts.Count();
+            xCols = texts.Length;
         }
 
         selected = GL.SelectionGrid(selected, titles.ToArray(), xCols, options);
@@ -62,7 +62,7 @@ internal static partial class UI
     {
         if (xCols <= 0)
         {
-            xCols = texts.Count();
+            xCols = texts.Length;
         }
 
         if (IsNarrow)
@@ -74,7 +74,7 @@ internal static partial class UI
         var titles = texts.Select((a, i) => i == sel ? a.orange().bold() : a);
         if (xCols <= 0)
         {
-            xCols = texts.Count();
+            xCols = texts.Length;
         }
 
         selected = GL.SelectionGrid(selected, titles.ToArray(), xCols, style, options);
@@ -85,7 +85,7 @@ internal static partial class UI
     {
         if (xCols <= 0)
         {
-            xCols = items.Count();
+            xCols = items.Length;
         }
 
         if (IsNarrow)
@@ -97,7 +97,7 @@ internal static partial class UI
         var titles = items.Select((a, i) => i == sel ? $"{a}".orange().bold() : $"{a}");
         if (xCols <= 0)
         {
-            xCols = items.Count();
+            xCols = items.Length;
         }
 
         selected = GL.SelectionGrid(selected, titles.ToArray(), xCols, options);
@@ -109,7 +109,7 @@ internal static partial class UI
     {
         if (xCols <= 0)
         {
-            xCols = items.Count();
+            xCols = items.Length;
         }
 
         if (IsNarrow)
@@ -121,7 +121,7 @@ internal static partial class UI
         var titles = items.Select((a, i) => i == sel ? $"{a}".orange().bold() : $"{a}");
         if (xCols <= 0)
         {
-            xCols = items.Count();
+            xCols = items.Length;
         }
 
         selected = GL.SelectionGrid(selected, titles.ToArray(), xCols, style, options);
@@ -161,15 +161,18 @@ internal static partial class UI
         var titles = texts.Select((a, i) => i == sel ? a.orange().bold() : a);
         if (xCols <= 0)
         {
-            xCols = texts.Count();
+            xCols = texts.Length;
         }
 
         sel = GL.SelectionGrid(selected, titles.ToArray(), xCols, options);
-        if (selected != sel)
+
+        if (selected == sel)
         {
-            selected = sel;
-            action(selected);
+            return;
         }
+
+        selected = sel;
+        action(selected);
     }
 
     public static void ActionSelectionGrid(ref int selected, string[] texts, int xCols, Action<int> action,
@@ -179,15 +182,18 @@ internal static partial class UI
         var titles = texts.Select((a, i) => i == sel ? a.orange().bold() : a);
         if (xCols <= 0)
         {
-            xCols = texts.Count();
+            xCols = texts.Length;
         }
 
         sel = GL.SelectionGrid(selected, titles.ToArray(), xCols, style, options);
-        if (selected != sel)
+
+        if (selected == sel)
         {
-            selected = sel;
-            action(selected);
+            return;
         }
+
+        selected = sel;
+        action(selected);
     }
 
     // EnumGrids
@@ -428,7 +434,8 @@ internal static partial class UI
         }
 
         var selectedItemIndex = items.IndexOf(selected);
-        if (items.Count() > 0)
+
+        if (items.Count > 0)
         {
             var newSelected = selected;
             var titles = items.Select(i => titler(i));

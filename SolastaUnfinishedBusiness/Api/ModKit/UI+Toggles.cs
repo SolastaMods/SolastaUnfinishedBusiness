@@ -170,7 +170,7 @@ internal static partial class UI
         }
 
         options = options.AddItem(width == 0 ? AutoWidth() : Width(width)).ToArray();
-        title = value ? title.bold() : title.color(RGBA.medgrey).bold();
+        title = value ? title.bold() : title.color(RGBA.MedGrey).bold();
         if (Private.UI.Toggle(title, value, on, off, stateStyle, labelStyle, options))
         {
             value = !value;

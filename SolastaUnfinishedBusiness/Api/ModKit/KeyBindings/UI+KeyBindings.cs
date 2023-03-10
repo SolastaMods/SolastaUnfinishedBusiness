@@ -82,7 +82,7 @@ internal static partial class UI
             if (Event.current.isKey && !keyCode.IsModifier())
             {
                 keyBind = new KeyBind(identifier, keyCode, isCtrlDown, isAltDown, isCmdDown, isShiftDown);
-                Mod.Trace($"    currentEvent isKey - bind: {keyBind}");
+                Main.Log($"    currentEvent isKey - bind: {keyBind}");
                 KeyBindings.SetBinding(identifier, keyBind);
                 selectedIdentifier = null;
                 oldValue = null;
@@ -94,7 +94,7 @@ internal static partial class UI
             if (Event.current.isKey && keyCode.IsModifier() && allowModifierOnly)
             {
                 keyBind = new KeyBind(identifier, keyCode);
-                Mod.Trace($"    currentEvent isKey - bind: {keyBind}");
+                Main.Log($"    currentEvent isKey - bind: {keyBind}");
                 KeyBindings.SetBinding(identifier, keyBind);
                 selectedIdentifier = null;
                 oldValue = null;

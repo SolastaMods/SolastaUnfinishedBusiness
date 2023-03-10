@@ -58,7 +58,7 @@ namespace SolastaUnfinishedBusiness.Displays
             if (title != null)
             {
                 UI.Div();
-                UI.Label(title.color(RGBA.orange).bold());
+                UI.Label(title.color(RGBA.Orange).bold());
                 UI.Space(7);
             }
 

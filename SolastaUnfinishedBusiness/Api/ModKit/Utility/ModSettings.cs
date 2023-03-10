@@ -47,7 +47,7 @@ internal static class ModSettings
         }
         catch (Exception e)
         {
-            Mod.Error($"{fileName} resource is not present or is malformed. exception: {e}");
+            Main.Error($"{fileName} resource is not present or is malformed. exception: {e}");
             settings = new T();
         }
 
@@ -62,9 +62,9 @@ internal static class ModSettings
             }
             catch
             {
-                Mod.Error("Failed to load user settings. Settings will be rebuilt.");
+                Main.Error("Failed to load user settings. Settings will be rebuilt.");
                 try { File.Copy(userPath, userConfigFolder + $"{Path.DirectorySeparatorChar}BROKEN_{fileName}", true); }
-                catch { Mod.Error("Failed to archive broken settings."); }
+                catch { Main.Error("Failed to archive broken settings."); }
             }
         }
 

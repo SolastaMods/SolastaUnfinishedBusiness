@@ -106,7 +106,7 @@ internal static partial class UI
                 _rarityTexture = new Texture2D(1, 1);
             }
 
-            _rarityTexture.SetPixel(0, 0, RGBA.black.color());
+            _rarityTexture.SetPixel(0, 0, RGBA.Black.Color());
             _rarityTexture.Apply();
             return _rarityTexture;
         }
