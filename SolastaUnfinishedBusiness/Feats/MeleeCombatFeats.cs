@@ -476,6 +476,7 @@ internal static class MeleeCombatFeats
             .SetGuiPresentationNoContent(true)
             .SetSilent(Silent.WhenAddedOrRemoved)
             .SetSpecialDuration(DurationType.Round, 1, TurnOccurenceType.StartOfTurn)
+            .SetSpecialInterruptions(ConditionInterruption.Attacked)
             .AddToDB();
 
         var conditionCleavingAttack = ConditionDefinitionBuilder
@@ -537,6 +538,7 @@ internal static class MeleeCombatFeats
                         new AddExtraAttackFeatCleavingAttack(conditionCleavingAttackFinish),
                         new AddExtraMainHandAttack(
                             ActionDefinitions.ActionType.Bonus,
+                            ValidatorsCharacter.MainHandIsMeleeWeapon,
                             ValidatorsCharacter.HasAnyOfConditions(conditionCleavingAttackFinish.Name)))
                     .AddToDB())
             .AddToDB();
