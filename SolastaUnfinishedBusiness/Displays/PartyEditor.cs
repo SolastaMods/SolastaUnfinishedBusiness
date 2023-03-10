@@ -196,7 +196,7 @@ public static class PartyEditor
         }
 
         chars = CharacterPool;
-        editingFromPool = true;
+        _editingFromPool = true;
 #endif
 #pragma warning restore IDE0031
         return chars;
