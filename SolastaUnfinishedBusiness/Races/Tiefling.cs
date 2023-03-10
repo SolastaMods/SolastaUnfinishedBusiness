@@ -41,7 +41,7 @@ internal static class TieflingRaceBuilder
 
         #region subraces
 
-        var tieflingSpriteReference = Sprites.GetSprite("Tiefling", Resources.HalfDarkelf, 1024, 512);
+        var tieflingSpriteReference = Sprites.GetSprite("Tiefling", Resources.Tiefling, 1024, 512);
 
         var attributeModifierTieflingIntelligenceAbilityScoreIncrease = FeatureDefinitionAttributeModifierBuilder
             .Create("AttributeModifierTieflingIntelligenceAbilityScoreIncrease")
