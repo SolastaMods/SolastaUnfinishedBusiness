@@ -68,7 +68,6 @@ public static class GameLocationBattleManagerPatcher
                         ActionDefinitions.Id, // actionId,
                         bool, // getWithMostAttackNb,
                         bool, // onlyIfRemainingUses,
-                        ActionDefinitions.ReadyActionType,// readyActionType
                         RulesetAttackMode //result
                     >(FindActionAttackMode)
                     .Method;
@@ -92,13 +91,12 @@ public static class GameLocationBattleManagerPatcher
             GameLocationCharacter character,
             ActionDefinitions.Id actionId,
             bool getWithMostAttackNb,
-            bool onlyIfRemainingUses,
-            ActionDefinitions.ReadyActionType readyActionType
+            bool onlyIfRemainingUses
         )
         {
-            var attackMode = character.FindActionAttackMode(actionId, getWithMostAttackNb, onlyIfRemainingUses, readyActionType);
+            var attackMode = character.FindActionAttackMode(actionId, getWithMostAttackNb, onlyIfRemainingUses);
 
-            if (readyActionType != ActionDefinitions.ReadyActionType.Ranged)
+            if (character.ReadiedAction != ActionDefinitions.ReadyActionType.Ranged)
             {
                 return attackMode;
             }

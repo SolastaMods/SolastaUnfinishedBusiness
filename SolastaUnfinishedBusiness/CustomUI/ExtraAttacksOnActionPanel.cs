@@ -12,7 +12,6 @@ internal static class ExtraAttacksOnActionPanel
         Id actionId,
         bool getWithMostAttackNb,
         bool onlyIfRemainingUses,
-        ReadyActionType readyActionType,
         GuiCharacterAction guiAction)
     {
         if (actionId != Id.AttackOff || guiAction.ForcedAttackMode == null)
@@ -28,7 +27,6 @@ internal static class ExtraAttacksOnActionPanel
         Id actionId,
         bool getWithMostAttackNb,
         bool onlyIfRemainingUses,
-        ReadyActionType readyActionType,
         [CanBeNull] RulesetAttackMode forcedAttack)
     {
         if (actionId != Id.AttackOff || forcedAttack == null)

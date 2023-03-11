@@ -3,7 +3,6 @@ using HarmonyLib;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Models;
-using UnityEngine;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
@@ -19,35 +18,34 @@ public static class SpellBoxPatcher
 
         [UsedImplicitly]
         public static void Prefix(
-            ref bool autoPrepared,
-            ref bool extraSpell,
-            ref string tag)
+            ref string autoPreparedTag,
+            ref string extraSpellTag)
         {
-            if (string.IsNullOrEmpty(tag))
+            if (string.IsNullOrEmpty(extraSpellTag))
             {
                 return;
             }
 
             //PATCH: show actual class/subclass name in the multiclass tag during spell selection on level up
-            if (tag.StartsWith(LevelUpContext.ExtraClassTag)
-                || tag.StartsWith(LevelUpContext.ExtraSubclassTag))
+            if (extraSpellTag.StartsWith(LevelUpContext.ExtraClassTag)
+                || extraSpellTag.StartsWith(LevelUpContext.ExtraSubclassTag))
             {
                 //store original extra tag and reset both - actual texts would be handled on Postfix for this case
-                _extraTag = tag;
-                autoPrepared = false;
-                extraSpell = false;
+                _extraTag = extraSpellTag;
+                autoPreparedTag = null;
+                extraSpellTag = null;
                 return;
             }
 
             //PATCH: if extra spell tag has no translation, but auto prepared translation for same tag exists - use that one.
-            if (TranslatorContext.HasTranslation($"Screen/&{tag}ExtraSpellTitle")
-                || !TranslatorContext.HasTranslation($"Screen/&{tag}SpellTitle"))
+            if (TranslatorContext.HasTranslation($"Screen/&{extraSpellTag}ExtraSpellTitle")
+                || !TranslatorContext.HasTranslation($"Screen/&{extraSpellTag}SpellTitle"))
             {
                 return;
             }
 
-            autoPrepared = true;
-            extraSpell = false;
+            autoPreparedTag = extraSpellTag;
+            extraSpellTag = null;
         }
 
         [UsedImplicitly]
