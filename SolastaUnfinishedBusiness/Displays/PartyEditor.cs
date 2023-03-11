@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
+using SolastaUnfinishedBusiness.CustomDefinitions;
 using SolastaUnfinishedBusiness.DataViewer;
 using UnityEngine;
 using static SolastaUnfinishedBusiness.Api.ModKit.UI;
@@ -58,7 +59,12 @@ public static class PartyEditor
                     () => commandService.StartRest(RuleDefinitions.RestType.LongRest, false),
                     AutoWidth()),
                 () => ActionButton("Refresh Powers",
-                    () => characters.ForEach(ch => { ch.GrantPowers(); ch.GrantInvocations(); ch.GrantFixedSpells(); }),
+                    () => characters.ForEach(ch =>
+                    {
+                        ch.GrantPowers();
+                        ch.GrantInvocations();
+                        ch.GrantFixedSpells();
+                    }),
                     AutoWidth()),
                 () => { }
             );
@@ -67,6 +73,7 @@ public static class PartyEditor
             using (VerticalScope())
             {
                 foreach (var ch in characters)
+                {
                     if (ch is RulesetCharacterHero hero)
                     {
                         var changed = false;
@@ -144,6 +151,7 @@ public static class PartyEditor
                                 }
                             }
                         }
+
                         if (ch == _selectedCharacter && BlueprintLoader.Shared.LoadInProgress())
                         {
                             using (HorizontalScope())
@@ -151,6 +159,7 @@ public static class PartyEditor
                                 GUILayout.Label("Loading: " +
                                                 BlueprintLoader.Shared.Progress.ToString("P2").Cyan().Bold());
                             }
+
                             continue;
                         }
 #if false
@@ -182,8 +191,10 @@ public static class PartyEditor
 #endif
                         if (ch == _selectedCharacter && _selectedToggle == ToggleChoice.Skills)
                         {
-                            var skills = BlueprintDisplay.GetBlueprints()?.OfType<SkillDefinition>().Cast<BaseDefinition>();
-                            var tools = BlueprintDisplay.GetBlueprints()?.OfType<ToolTypeDefinition>().Cast<BaseDefinition>();
+                            var skills = BlueprintDisplay.GetBlueprints()?.OfType<SkillDefinition>()
+                                .Cast<BaseDefinition>();
+                            var tools = BlueprintDisplay.GetBlueprints()?.OfType<ToolTypeDefinition>()
+                                .Cast<BaseDefinition>();
                             if (skills != null && tools != null)
                             {
                                 var available = skills.Union(tools);
@@ -193,129 +204,202 @@ public static class PartyEditor
                                 var currentTools = hero.TrainedToolTypes.Cast<BaseDefinition>();
                                 var current = currentSkills.Union(currentTools).ToList();
                                 Browser<RulesetCharacterHero, BaseDefinition, BaseDefinition>.OnGUI(
-                                        _selectedToggle.ToString(),
-                                        hero,
-                                        current,
-                                        available,
-                                        item => skillsDict[item.Name],
-                                        def => def.Name,
-                                        def => def.Name,
-                                        def => def.FormatDescription(),
-                                        item => skillsDict.ContainsKey(item.Name)
-                                                    ? expertisesHash.Contains(item.Name)
-                                                        ? "Expert".Localized()
-                                                        : "Skilled".Localized()
-                                                    : "-",
-                                        null,
-                                        (hero, item) => { // Increment
-                                            if (skillsDict.ContainsKey(item.Name))
-                                                if (expertisesHash.Contains(item.Name))
-                                                    return null;
-                                                else
-                                                    return () => hero.TrainedExpertises.Add(item.Name);
-                                            else
-                                                return () =>
-                                                {
-                                                    if (item is SkillDefinition skill) hero.TrainedSkills.Add(skill);
-                                                    else if (item is ToolTypeDefinition tool) hero.TrainedToolTypes.Add(tool);
-                                                };
-                                        },
-                                        (hero, item) => { // Decrement
-                                            if (skillsDict.ContainsKey(item.Name))
-                                                if (expertisesHash.Contains(item.Name))
-                                                    return () => hero.TrainedExpertises.Remove(item.Name);
-                                                else
-                                                    return () =>
-                                                    {
-                                                        if (item is SkillDefinition skill) hero.TrainedSkills.Remove(skill);
-                                                        else if (item is ToolTypeDefinition tool) hero.TrainedToolTypes.Remove(tool);
-                                                        hero.TrainedExpertises.Remove(item.Name);
-                                                    };
-                                            else
+                                    _selectedToggle.ToString(),
+                                    hero,
+                                    current,
+                                    available,
+                                    item => skillsDict[item.Name],
+                                    def => def.Name,
+                                    def => def.Name,
+                                    def => def.FormatDescription(),
+                                    item => skillsDict.ContainsKey(item.Name)
+                                        ? expertisesHash.Contains(item.Name)
+                                            ? "Expert".Localized()
+                                            : "Skilled".Localized()
+                                        : "-",
+                                    null,
+                                    (hero, item) =>
+                                    {
+                                        // Increment
+                                        if (skillsDict.ContainsKey(item.Name))
+                                        {
+                                            if (expertisesHash.Contains(item.Name))
+                                            {
                                                 return null;
-                                        }, 
-                                        (hero, def) => { // Add
-                                            if (def is SkillDefinition skill && !hero.TrainedSkills.Contains(skill))
-                                                return () => hero.TrainedSkills.Add(skill);
-                                            else if (def is ToolTypeDefinition tool && !hero.TrainedToolTypes.Contains(tool)) 
-                                                return () => hero.TrainedToolTypes.Add(tool);
-                                            else
-                                                return null;
-                                        },
-                                        (hero, def) => { // Remove
-                                            if (def is SkillDefinition skill && hero.TrainedSkills.Contains(skill))
-                                                return () => { hero.TrainedSkills.Remove(skill); hero.TrainedExpertises.Remove(skill.Name); };
-                                            else if (def is ToolTypeDefinition tool && hero.TrainedToolTypes.Contains(tool))
-                                                return () => { hero.TrainedToolTypes.Remove(tool); hero.TrainedExpertises.Remove(tool.Name); };
-                                            else
-                                                return null;
+                                            }
 
+                                            return () => hero.TrainedExpertises.Add(item.Name);
                                         }
-                                        );
+
+                                        return () =>
+                                        {
+                                            if (item is SkillDefinition skill)
+                                            {
+                                                hero.TrainedSkills.Add(skill);
+                                            }
+                                            else if (item is ToolTypeDefinition tool)
+                                            {
+                                                hero.TrainedToolTypes.Add(tool);
+                                            }
+                                        };
+                                    },
+                                    (hero, item) =>
+                                    {
+                                        // Decrement
+                                        if (skillsDict.ContainsKey(item.Name))
+                                        {
+                                            if (expertisesHash.Contains(item.Name))
+                                            {
+                                                return () => hero.TrainedExpertises.Remove(item.Name);
+                                            }
+
+                                            return () =>
+                                            {
+                                                if (item is SkillDefinition skill)
+                                                {
+                                                    hero.TrainedSkills.Remove(skill);
+                                                }
+                                                else if (item is ToolTypeDefinition tool)
+                                                {
+                                                    hero.TrainedToolTypes.Remove(tool);
+                                                }
+
+                                                hero.TrainedExpertises.Remove(item.Name);
+                                            };
+                                        }
+
+                                        return null;
+                                    },
+                                    (hero, def) =>
+                                    {
+                                        // Add
+                                        if (def is SkillDefinition skill && !hero.TrainedSkills.Contains(skill))
+                                        {
+                                            return () => hero.TrainedSkills.Add(skill);
+                                        }
+
+                                        if (def is ToolTypeDefinition tool && !hero.TrainedToolTypes.Contains(tool))
+                                        {
+                                            return () => hero.TrainedToolTypes.Add(tool);
+                                        }
+
+                                        return null;
+                                    },
+                                    (hero, def) =>
+                                    {
+                                        // Remove
+                                        if (def is SkillDefinition skill && hero.TrainedSkills.Contains(skill))
+                                        {
+                                            return () =>
+                                            {
+                                                hero.TrainedSkills.Remove(skill);
+                                                hero.TrainedExpertises.Remove(skill.Name);
+                                            };
+                                        }
+
+                                        if (def is ToolTypeDefinition tool && hero.TrainedToolTypes.Contains(tool))
+                                        {
+                                            return () =>
+                                            {
+                                                hero.TrainedToolTypes.Remove(tool);
+                                                hero.TrainedExpertises.Remove(tool.Name);
+                                            };
+                                        }
+
+                                        return null;
+                                    }
+                                );
                             }
                         }
+
                         if (ch == _selectedCharacter && _selectedToggle == ToggleChoice.Feats)
                         {
                             var available = BlueprintDisplay.GetBlueprints()?.OfType<FeatDefinition>();
                             if (available != null)
+                            {
                                 Browser<RulesetCharacterHero, FeatDefinition, FeatDefinition>.OnGUI(
                                     _selectedToggle.ToString(),
                                     hero,
                                     hero.TrainedFeats,
                                     available,
-                                    (feat) => feat,
-                                    (feat) => feat.Name,
-                                    (feat) => feat.Name,
-                                    (feat) => feat.FormatDescription(),
+                                    feat => feat,
+                                    feat => feat.Name,
+                                    feat => feat.Name,
+                                    feat => feat.FormatDescription(),
                                     null,
                                     null,
                                     null,
                                     null,
-                                    (hero, feat) => !hero.TrainedFeats.Contains(feat) ? () => {
-                                        hero.TrainFeats(new List<FeatDefinition>() { feat }); changed = true;
-                                    }
-                                    : null,
-                                    (hero, feat) => hero.TrainedFeats.Contains(feat) ? () => {
-                                        hero.TrainedFeats.Remove(feat); changed = true;
-                                    }
-                                    : null
-                                    );
+                                    (hero, feat) => !hero.TrainedFeats.Contains(feat)
+                                        ? () =>
+                                        {
+                                            hero.TrainFeats(new List<FeatDefinition> { feat });
+                                            changed = true;
+                                        }
+                                        : null,
+                                    (hero, feat) => hero.TrainedFeats.Contains(feat)
+                                        ? () =>
+                                        {
+                                            hero.TrainedFeats.Remove(feat);
+                                            changed = true;
+                                        }
+                                        : null
+                                );
+                            }
+
                             if (changed)
+                            {
                                 hero.GrantPowers();
+                            }
                         }
+
                         if (ch == _selectedCharacter && _selectedToggle == ToggleChoice.Invocations)
                         {
-                            var available = BlueprintDisplay.GetBlueprints()?.OfType<InvocationDefinition>();
+                            var available = BlueprintDisplay.GetBlueprints()?.OfType<InvocationDefinition>()
+                                .Where(x => x is not InvocationDefinitionCustom);
                             if (available != null)
+                            {
                                 Browser<RulesetCharacterHero, InvocationDefinition, InvocationDefinition>.OnGUI(
                                     _selectedToggle.ToString(),
                                     hero,
                                     hero.TrainedInvocations,
                                     available,
-                                    (item) => item,
-                                    (def) => def.Name,
-                                    (def) => def.Name,
-                                    (def) => def.FormatDescription(),
+                                    item => item,
+                                    def => def.Name,
+                                    def => def.Name,
+                                    def => def.FormatDescription(),
                                     null,
                                     null,
                                     null,
                                     null,
-                                    (hero, def) => !hero.TrainedInvocations.Contains(def) ? () => {
-                                        hero.TrainInvocations(new List<InvocationDefinition>() { def }); changed = true;
-                                    }
-                                    : null,
-                                    (hero, def) => hero.TrainedInvocations.Contains(def) ? () => {
-                                        hero.TrainedInvocations.Remove(def); changed = true;
-                                    }
-                                    : null
-                                    );
+                                    (hero, def) => !hero.TrainedInvocations.Contains(def)
+                                        ? () =>
+                                        {
+                                            hero.TrainInvocations(new List<InvocationDefinition> { def });
+                                            changed = true;
+                                        }
+                                        : null,
+                                    (hero, def) => hero.TrainedInvocations.Contains(def)
+                                        ? () =>
+                                        {
+                                            hero.TrainedInvocations.Remove(def);
+                                            changed = true;
+                                        }
+                                        : null
+                                );
+                            }
+
                             if (changed)
+                            {
                                 hero.GrantInvocations();
+                            }
                         }
+
                         if (changed)
                         {
                             ch.RefreshAll();
                         }
+
                         if (changed && _editingFromPool && ch is RulesetCharacterHero h)
                         {
                             // ReSharper disable once InvocationIsSkipped
@@ -331,9 +415,11 @@ public static class PartyEditor
                             _selectedCharacterIndex = GetCharacterList().IndexOf(_selectedCharacter);
                         }
                     }
+                }
             }
         }
     }
+
     internal static void OnDetailToggle(ToggleChoice choice, RulesetCharacter ch)
     {
         var show = ch == _selectedCharacter && _selectedToggle == choice;
@@ -346,7 +432,6 @@ public static class PartyEditor
             }
             else { _selectedToggle = ToggleChoice.None; }
         }
-
     }
 
     private static List<RulesetCharacter> GetCharacterList()
