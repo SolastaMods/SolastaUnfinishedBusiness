@@ -301,8 +301,6 @@ internal sealed class MartialMarshal : AbstractSubclass
             .SetFeatures(
                 FeatureDefinitionCombatAffinitys.CombatAffinityBlessed,
                 FeatureDefinitionSavingThrowAffinitys.SavingThrowAffinityConditionBlessed)
-            .SetSpecialDuration(DurationType.Permanent, 0, TurnOccurenceType.StartOfTurn)
-            .AddConditionTags("Buff")
             .AddToDB();
     }
 
