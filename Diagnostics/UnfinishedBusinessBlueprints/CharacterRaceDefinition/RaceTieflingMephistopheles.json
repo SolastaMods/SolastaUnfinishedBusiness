@@ -223,7 +223,7 @@
   },
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
-    "hidden": true,
+    "hidden": false,
     "title": "Race/&RaceTieflingMephistophelesTitle",
     "description": "Race/&RaceTieflingMephistophelesDescription",
     "spriteReference": {
