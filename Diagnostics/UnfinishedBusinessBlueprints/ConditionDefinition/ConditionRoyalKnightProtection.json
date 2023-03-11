@@ -4,19 +4,19 @@
   "parentCondition": null,
   "conditionType": "Beneficial",
   "features": [
-    "Definition:AdditionalDamageSoulBladeHex:dd3accaa-c01a-5e52-bed5-4e0873ce38a3",
-    "Definition:AttributeModifierSoulBladeHex:f44b9888-7338-5f73-8496-aa65a040336e"
+    "Definition:CombatAffinityBlessed:dfb4c85b4bcf8ea46822f0996ead93af",
+    "Definition:SavingThrowAffinityConditionBlessed:b5cbcccf984fdec45be2f818f4757921"
   ],
   "allowMultipleInstances": false,
   "silentWhenAdded": true,
   "silentWhenRemoved": true,
   "terminateWhenRemoved": false,
-  "specialDuration": true,
-  "durationType": "Round",
-  "durationParameterDie": "D1",
+  "specialDuration": false,
+  "durationType": "Hour",
+  "durationParameterDie": "D4",
   "durationParameter": 1,
   "forceTurnOccurence": false,
-  "turnOccurence": "StartOfTurn",
+  "turnOccurence": "EndOfTurn",
   "specialInterruptions": [],
   "interruptionRequiresSavingThrow": false,
   "interruptionSavingThrowComputationMethod": "SaveOverride",
@@ -128,14 +128,14 @@
   },
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
-    "hidden": true,
-    "title": "Feature/&NoContentTitle",
-    "description": "Feature/&NoContentTitle",
+    "hidden": false,
+    "title": "Feature/&PowerRoyalKnightProtectionTitle",
+    "description": "Feature/&PowerRoyalKnightProtectionDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "",
-      "m_SubObjectName": null,
-      "m_SubObjectType": null
+      "m_AssetGUID": "7e8c5d4d891953345b54b82e51c6d884",
+      "m_SubObjectName": "ConditionPositive",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
@@ -150,7 +150,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "16816bb1-0f32-5c0f-9d63-a7b35f16b50f",
+  "guid": "934ff18e-2973-5e88-a069-58eb3c23ad13",
   "contentPack": 9999,
-  "name": "ConditionSoulBladeHexAttacker"
+  "name": "ConditionRoyalKnightProtection"
 }

@@ -36,9 +36,9 @@
     "description": "Subclass/&CollegeOfLifeDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "c291e4e1949a73241806e4d7d93d71bb",
-      "m_SubObjectName": "Rogue_Spider",
-      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+      "m_AssetGUID": "6ef69ac6-aafd-5e26-a233-2f4f5492a6a2",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",

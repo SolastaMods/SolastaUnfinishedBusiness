@@ -26,9 +26,9 @@
     "description": "Subclass/&RoguishOpportunistDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "6e38136baf8d11c43a62c239f48b8f21",
-      "m_SubObjectName": "Commander",
-      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+      "m_AssetGUID": "ce7a5290-6729-5635-8891-f78257c5db3f",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",

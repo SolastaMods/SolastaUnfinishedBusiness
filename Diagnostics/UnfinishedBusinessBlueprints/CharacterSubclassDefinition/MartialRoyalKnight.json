@@ -15,6 +15,11 @@
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:PowerRoyalKnightInspiringSurge:b64d023d-ddbb-56d5-b0aa-c38525a2e6c4",
       "level": 10
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:PowerRoyalKnightProtection:01c1d769-c23c-5d21-a78d-84929bebd928",
+      "level": 15
     }
   ],
   "personalityFlagOccurences": [],

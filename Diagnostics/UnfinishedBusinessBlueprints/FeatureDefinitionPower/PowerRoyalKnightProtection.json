@@ -2,13 +2,13 @@
   "$type": "FeatureDefinitionPower, Assembly-CSharp",
   "effectDescription": {
     "$type": "EffectDescription, Assembly-CSharp",
-    "rangeType": "Distance",
-    "rangeParameter": 12,
+    "rangeType": "Self",
+    "rangeParameter": 0,
     "halfDamageOnAMiss": false,
     "hitAffinitiesByTargetTag": [],
-    "targetType": "IndividualsUnique",
+    "targetType": "Cube",
     "itemSelectionType": "None",
-    "targetParameter": 1,
+    "targetParameter": 5,
     "targetParameter2": 2,
     "emissiveBorder": "None",
     "emissiveParameter": 1,
@@ -22,7 +22,7 @@
     "requiresVisibilityForPosition": true,
     "inviteOptionalAlly": false,
     "slotTypes": [],
-    "recurrentEffect": "No",
+    "recurrentEffect": "OnActivation, OnTurnStart, OnEnter",
     "retargetAfterDeath": false,
     "retargetActionType": "Bonus",
     "poolFilterDiceNumber": 5,
@@ -30,9 +30,9 @@
     "trapRangeType": "Triggerer",
     "targetConditionName": "",
     "targetConditionAsset": null,
-    "targetSide": "Enemy",
-    "durationType": "Minute",
-    "durationParameter": 1,
+    "targetSide": "Ally",
+    "durationType": "Permanent",
+    "durationParameter": 0,
     "endOfEffect": "EndOfTurn",
     "hasSavingThrow": false,
     "disableSavingThrowOnAllies": false,
@@ -77,12 +77,10 @@
         "saveOccurence": "EndOfTurn",
         "conditionForm": {
           "$type": "ConditionForm, Assembly-CSharp",
-          "conditionDefinitionName": "ConditionSoulBladeHexDefender",
-          "conditionDefinition": "Definition:ConditionSoulBladeHexDefender:bb7f4c4e-c04d-52de-9f24-a18c7bd6a3f4",
+          "conditionDefinitionName": "ConditionRoyalKnightProtection",
+          "conditionDefinition": "Definition:ConditionRoyalKnightProtection:934ff18e-2973-5e88-a069-58eb3c23ad13",
           "operation": "Add",
-          "conditionsList": [
-            "Definition:ConditionSoulBladeHexDefender:bb7f4c4e-c04d-52de-9f24-a18c7bd6a3f4"
-          ],
+          "conditionsList": [],
           "applyToSelf": false,
           "forceOnSelf": false
         },
@@ -291,7 +289,7 @@
   "delegatedToAction": false,
   "surrogateToSpell": null,
   "triggeredBySpecialMove": false,
-  "activationTime": "BonusAction",
+  "activationTime": "PermanentUnlessIncapacitated",
   "autoActivationRequiredTargetSenseType": "None",
   "autoActivationRequiredTargetCreatureTag": "",
   "autoActivationPowerTag": "",
@@ -306,7 +304,7 @@
   "canUseInDialog": false,
   "disableIfConditionIsOwned": null,
   "disableIfTargetConditionIsOwned": null,
-  "rechargeRate": "ShortRest",
+  "rechargeRate": "AtWill",
   "costPerUse": 1,
   "spellcastingFeature": null,
   "usesDetermination": "Fixed",
@@ -319,20 +317,20 @@
   "abilityScoreBonusToAttack": false,
   "proficiencyBonusToAttack": false,
   "uniqueInstance": false,
-  "showCasting": true,
+  "showCasting": false,
   "shortTitleOverride": "",
   "overriddenPower": null,
   "includeBaseDescription": false,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&PowerSoulBladeHexTitle",
-    "description": "Feature/&PowerSoulBladeHexDescription",
+    "title": "Feature/&PowerRoyalKnightProtectionTitle",
+    "description": "Feature/&PowerRoyalKnightProtectionDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "30ba6176-14b5-5b9a-8a8e-488b89a0bc98",
-      "m_SubObjectName": null,
-      "m_SubObjectType": null
+      "m_AssetGUID": "a09b3bfa05921d743a1bbe2126c87a68",
+      "m_SubObjectName": "Bless",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
@@ -347,7 +345,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "69e37e4d-0066-59f9-b884-ac9c4c35279c",
+  "guid": "01c1d769-c23c-5d21-a78d-84929bebd928",
   "contentPack": 9999,
-  "name": "PowerSoulBladeHex"
+  "name": "PowerRoyalKnightProtection"
 }

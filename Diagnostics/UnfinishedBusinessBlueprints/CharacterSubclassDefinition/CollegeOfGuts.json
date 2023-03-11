@@ -36,9 +36,9 @@
     "description": "Subclass/&CollegeOfGutsDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "a934d22a89555934da76c63cc0346839",
-      "m_SubObjectName": "Cleric_Battler",
-      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+      "m_AssetGUID": "12ffc3dc-b91f-5d7c-af90-7bd458711b47",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
