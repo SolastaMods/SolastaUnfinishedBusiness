@@ -4,7 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Newtonsoft.Json.Linq;
-using SolastaUnfinishedBusiness.Api.ModKit.Utility.Extensions;
+using SolastaUnfinishedBusiness.Api.LanguageExtensions;
+using SolastaUnfinishedBusiness.Api.ModKit.Utility;
 using UnityEngine;
 
 namespace SolastaUnfinishedBusiness.Api.ModKit;
@@ -50,7 +51,7 @@ internal static partial class UI
                 ActionIntTextField(ref searchLimit, "searchLimit", null, () => { searchChanged = true; }, Width(175));
                 if (searchLimit > 1000) { searchLimit = 1000; }
                 25.space();
-                searchChanged |= DisclosureToggle("Show All".orange().bold(), ref showAll);
+                searchChanged |= DisclosureToggle("Show All".Orange().Bold(), ref showAll);
             }
             using (HorizontalScope())
             {
@@ -59,8 +60,8 @@ internal static partial class UI
                 Space(25);
                 if (matchCount > 0 && searchText.Length > 0)
                 {
-                    var matchesText = "Matches: ".green().bold() + $"{matchCount}".orange().bold();
-                    if (matchCount > searchLimit) { matchesText += " => ".cyan() + $"{searchLimit}".cyan().bold(); }
+                    var matchesText = "Matches: ".Green().Bold() + $"{matchCount}".Orange().Bold();
+                    if (matchCount > searchLimit) { matchesText += " => ".Cyan() + $"{searchLimit}".Cyan().Bold(); }
                     Label(matchesText, ExpandWidth(false));
                 }
             }
@@ -108,7 +109,7 @@ internal static partial class UI
                 {
                     Space(100); remWidth -= 100;
                     var titleWidth = (ummWidth / (IsWide ? 3.0f : 4.0f)) - 100;
-                    string text = title(definition).cyan().bold();
+                    string text = title(definition).Cyan().Bold();
                     Label(text, Width(titleWidth));
                     remWidth -= titleWidth;
                     Space(10); remWidth -= 10;
@@ -119,7 +120,7 @@ internal static partial class UI
                         else
                             63.space();
                         Space(10f);
-                        Label($"{stringValue}".orange().bold(), Width(30));
+                        Label($"{stringValue}".Orange().Bold(), Width(30));
                         if (incrementValue != null && incrementValue(target, item) is Action incrementer)
                             ActionButton(">", incrementer, 60.width());
                         else
@@ -143,7 +144,7 @@ internal static partial class UI
                     {
                         if (description != null)
                         {
-                            Label(description(definition).StripHTML().green(), Width(remWidth - 100));
+                            Label(description(definition).StripHTML().Green(), Width(remWidth - 100));
                         }
                     }
                 }

@@ -4,7 +4,7 @@ namespace SolastaUnfinishedBusiness.Api.LanguageExtensions;
 
 internal static class StringExtensions
 {
-    internal static bool Matches(string source, string other)
+    internal static bool Matches(this string source, string other)
     {
         if (source == null || other == null)
         {

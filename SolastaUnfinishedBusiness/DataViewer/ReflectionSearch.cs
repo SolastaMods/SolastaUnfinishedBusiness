@@ -172,7 +172,7 @@ internal class ReflectionSearch : MonoBehaviour
 
             try
             {
-                if (Matches(node.Name, searchText) || Matches(node.ValueText, searchText))
+                if (node.Name.Matches(searchText) || node.ValueText.Matches(searchText))
                 {
                     foundMatch = true;
                     updater(visitCount, depth, breadth);

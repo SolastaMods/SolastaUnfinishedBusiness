@@ -25,7 +25,7 @@ internal static partial class UI
     private static GUIStyle _submenuButtonStyle;
     private static Color FillColor { get; } = new(1f, 1f, 1f, 0.65f);
 
-    private static GUIStyle ButtonStyle =>
+    internal static GUIStyle ButtonStyle =>
         _buttonStyle ??= new GUIStyle(GUI.skin.button) { alignment = TextAnchor.MiddleLeft };
 
     public static GUIStyle LargeStyle
@@ -48,7 +48,7 @@ internal static partial class UI
         }
     }
 
-    private static GUIStyle TextBoxStyle
+    internal static GUIStyle TextBoxStyle
     {
         get
         {
@@ -67,10 +67,10 @@ internal static partial class UI
         }
     }
 
-    private static GUIStyle ToggleStyle =>
+    internal static GUIStyle ToggleStyle =>
         _toggleStyle ??= new GUIStyle(GUI.skin.label) { alignment = TextAnchor.MiddleLeft };
 
-    private static Texture2D RarityTexture
+    internal static Texture2D RarityTexture
     {
         get
         {

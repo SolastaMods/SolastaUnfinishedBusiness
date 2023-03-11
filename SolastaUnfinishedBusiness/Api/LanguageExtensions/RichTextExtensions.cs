@@ -149,7 +149,7 @@ public static class RichText
         return Gui.Format($"{category}/&{s}", args.Select(a => $"{a}").ToArray());
     }
 
-    public static string ToHtmlString(this Rgba color)
+    public static string ToHTMLString(this Rgba color)
     {
         return $"{color:X}";
     }
