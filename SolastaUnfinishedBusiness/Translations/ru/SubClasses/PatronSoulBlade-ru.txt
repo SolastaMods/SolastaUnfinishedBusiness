@@ -1,12 +1,12 @@
 ﻿Condition/&ConditionSoulBladeHexDefenderDescription=Проклят клинком души.
 Condition/&ConditionSoulBladeHexDefenderTitle=Проклятие души
-Feature/&AttackModifierSoulBladeEmpowerWeaponDescription=Оружие использует модификатор Харизмы для бросков атаки и урона и считается магическим до длительного отдыха.
+Feature/&AttackModifierSoulBladeEmpowerWeaponDescription=Считается магическим и использует модификатор Харизмы для бросков атаки и урона.
 Feature/&AttackModifierSoulBladeEmpowerWeaponTitle=Сила души
 Feature/&FeatureSetSoulBladeMasterHexDescription=Теперь вы можете использовать Soul Hex дважды за короткий отдых.
 Feature/&FeatureSetSoulBladeMasterHexTitle=Мастер Хекс
-Feature/&PowerSoulBladeEmpowerWeaponDescription=Вы можете усилить оружие силой душ. Оружие использует модификатор Харизмы для бросков атаки и урона и считается магическим.
+Feature/&PowerSoulBladeEmpowerWeaponDescription=Вы можете усилить оружие душами. Он считается магическим и использует модификатор Харизмы для бросков атаки и урона.
 Feature/&PowerSoulBladeEmpowerWeaponTitle=Сила души
-Feature/&PowerSoulBladeHexDescription=Вы можете проклясть одно существо, которое видите в пределах 30 футов. Пока оно не закончится:\n• Вы добавляете свой бонус мастерства к урону.\n• Ваш диапазон критической угрозы увеличивается на 1.\n• Вы получаете количество жизней, равное вашему уровню чернокнижника + ваш модификатор Харизмы, когда вы убиваете его.
+Feature/&PowerSoulBladeHexDescription=Вы можете проклясть одно существо, которое видите в пределах 30 футов. Пока оно не закончится, вы:\n• добавите свой бонус мастерства к урону.\n• получите количество жизней, равное вашему уровню чернокнижника + ваш модификатор харизмы, если вы его убьете.\n• диапазон критической угрозы увеличится на 1.
 Feature/&PowerSoulBladeHexTitle=Проклятие души
 Feature/&PowerSoulBladeSoulShieldDescription=Один раз за короткий отдых вы используете силу душ, чтобы защитить себя. Используя бонусное действие, вы получаете временные ОЗ, равные вашему уровню чернокнижника + ваш модификатор Харизмы.
 Feature/&PowerSoulBladeSoulShieldTitle=Щит души

@@ -1,12 +1,12 @@
 ﻿Condition/&ConditionSoulBladeHexDefenderDescription=Verflucht von einer Seelenklinge.
 Condition/&ConditionSoulBladeHexDefenderTitle=Seelen-Hex
-Feature/&AttackModifierSoulBladeEmpowerWeaponDescription=Die Waffe verwendet den Charisma-Modifikator für Angriffs- und Schadenswürfe und zählt bis zur langen Pause als magisch.
+Feature/&AttackModifierSoulBladeEmpowerWeaponDescription=Zählt als magisch und verwendet den Charisma-Modifikator für Angriffs- und Schadenswürfe.
 Feature/&AttackModifierSoulBladeEmpowerWeaponTitle=Seele ermächtigt
 Feature/&FeatureSetSoulBladeMasterHexDescription=Du kannst Seelenhex jetzt zweimal pro kurzer Pause verwenden.
 Feature/&FeatureSetSoulBladeMasterHexTitle=Meister Hex
-Feature/&PowerSoulBladeEmpowerWeaponDescription=Du kannst eine Waffe mit der Macht der Seelen stärken. Die Waffe verwendet den Charisma-Modifikator für Angriffs- und Schadenswürfe und zählt als magisch.
-Feature/&PowerSoulBladeEmpowerWeaponTitle=Seelenkraft
-Feature/&PowerSoulBladeHexDescription=Du kannst eine Kreatur verfluchen, die du innerhalb von 30 Fuß sehen kannst. Bis zum Ende:\n• Sie addieren Ihren Fähigkeitsbonus zum Schaden.\n• Ihre kritische Bedrohungsreichweite erhöht sich um 1.\n• Sie erhalten HP in Höhe Ihrer Hexenmeisterstufe + Ihres Charisma-Modifikators, wenn Sie ihn töten.
+Feature/&PowerSoulBladeEmpowerWeaponDescription=Du kannst eine Waffe mit Seelen stärken. Es zählt als magisch und verwendet den Charisma-Modifikator für Angriffs- und Schadenswürfe.
+Feature/&PowerSoulBladeEmpowerWeaponTitle=Seelenstärke
+Feature/&PowerSoulBladeHexDescription=Du kannst eine Kreatur verfluchen, die du innerhalb von 30 Fuß sehen kannst. Bis zum Ende:\n• Addierst du deinen Fähigkeitsbonus zum Schaden hinzu.\n• Erhalte HP in Höhe deines Warlock-Levels + deines Charisma-Modifikators, wenn du ihn tötest.\n• Deine kritische Bedrohungsreichweite erhöht sich um 1.
 Feature/&PowerSoulBladeHexTitle=Seelen-Hex
 Feature/&PowerSoulBladeSoulShieldDescription=Einmal pro kurzer Rast nutzt du die Kraft der Seelen, um dich zu verteidigen. Mit einer Bonusaktion erhältst du temporäre HP in Höhe deines Hexenmeister-Levels + deines Charisma-Modifikators.
 Feature/&PowerSoulBladeSoulShieldTitle=Seelenschild

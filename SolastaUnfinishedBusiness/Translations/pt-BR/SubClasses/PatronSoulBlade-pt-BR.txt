@@ -1,12 +1,12 @@
 ﻿Condition/&ConditionSoulBladeHexDefenderDescription=Amaldiçoado por uma Soul Blade.
 Condition/&ConditionSoulBladeHexDefenderTitle=Feitiço da Alma
-Feature/&AttackModifierSoulBladeEmpowerWeaponDescription=A arma usa o modificador de Carisma para jogadas de ataque e dano e conta como mágica até um longo descanso.
+Feature/&AttackModifierSoulBladeEmpowerWeaponDescription=Conta como mágico e usa o modificador de Carisma para jogadas de ataque e dano.
 Feature/&AttackModifierSoulBladeEmpowerWeaponTitle=Alma Empoderada
 Feature/&FeatureSetSoulBladeMasterHexDescription=Agora você pode usar Soul Hex duas vezes por descanso curto.
 Feature/&FeatureSetSoulBladeMasterHexTitle=Hex Mestre
-Feature/&PowerSoulBladeEmpowerWeaponDescription=Você pode fortalecer uma arma com o poder das almas. A arma usa modificador de Carisma para jogadas de ataque e dano e conta como mágica.
+Feature/&PowerSoulBladeEmpowerWeaponDescription=Você pode fortalecer uma arma com almas. Ele conta como mágico e usa o modificador de Carisma para jogadas de ataque e dano.
 Feature/&PowerSoulBladeEmpowerWeaponTitle=Empoderamento da Alma
-Feature/&PowerSoulBladeHexDescription=Você pode amaldiçoar uma criatura que possa ver a até 9 metros. Até que termine:\n• Você adiciona seu bônus de proficiência ao dano.\n• Seu alcance de ameaça crítica aumenta em 1.\n• Você ganha HP igual ao seu nível de bruxo + seu modificador de Carisma ao matá-lo.
+Feature/&PowerSoulBladeHexDescription=Você pode amaldiçoar uma criatura que possa ver a até 9 metros. Até que termine, você:\n• Adiciona seu bônus de proficiência ao dano.\n• Ganha HP igual ao seu nível de bruxo + seu modificador de Carisma se você matá-lo.\n• Seu alcance de ameaça crítica aumenta em 1.
 Feature/&PowerSoulBladeHexTitle=Feitiço da Alma
 Feature/&PowerSoulBladeSoulShieldDescription=Uma vez por descanso curto, você usa o poder das almas para se defender. Usando uma ação bônus, você ganha PV temporário igual ao seu nível de bruxo + seu modificador de Carisma.
 Feature/&PowerSoulBladeSoulShieldTitle=Escudo da Alma

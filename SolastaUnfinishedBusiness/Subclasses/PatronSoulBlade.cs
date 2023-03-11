@@ -21,9 +21,6 @@ internal sealed class PatronSoulBlade : AbstractSubclass
 {
     internal PatronSoulBlade()
     {
-        const string PowerSoulBladeEmpowerWeaponName = "PowerSoulBladeEmpowerWeapon";
-        const string PowerSoulBladeSummonPactWeaponName = "PowerSoulBladeSummonPactWeapon";
-
         var spellListSoulBlade = SpellListDefinitionBuilder
             .Create(SpellListDefinitions.SpellListWizard, "SpellListSoulBlade")
             .SetGuiPresentationNoContent(true)
@@ -43,8 +40,9 @@ internal sealed class PatronSoulBlade : AbstractSubclass
             .AddToDB();
 
         var powerSoulBladeEmpowerWeapon = FeatureDefinitionPowerBuilder
-            .Create(PowerSoulBladeEmpowerWeaponName)
-            .SetGuiPresentation(Category.Feature, PowerOathOfDevotionSacredWeapon)
+            .Create("PowerSoulBladeEmpowerWeapon")
+            .SetGuiPresentation(Category.Feature,
+                Sprites.GetSprite("PowerSoulEmpower", Resources.PowerSoulEmpower, 256, 128))
             .SetUniqueInstance()
             .SetCustomSubFeatures(
                 DoNotTerminateWhileUnconscious.Marker,
@@ -118,9 +116,11 @@ internal sealed class PatronSoulBlade : AbstractSubclass
                 new OnComputeAttackModifierHex(conditionHexAttacker, conditionHexDefender))
             .AddToDB();
 
-        var powerHex = FeatureDefinitionPowerBuilder
+        var spriteSoulHex = Sprites.GetSprite("PowerSoulHex", Resources.PowerSoulHex, 256, 128);
+
+        var powerSoulHex = FeatureDefinitionPowerBuilder
             .Create("PowerSoulBladeHex")
-            .SetGuiPresentation(Category.Feature)
+            .SetGuiPresentation(Category.Feature, spriteSoulHex)
             .SetUsesFixed(ActivationTime.BonusAction, RechargeRate.ShortRest)
             .SetShowCasting(true)
             .SetEffectDescription(
@@ -138,7 +138,7 @@ internal sealed class PatronSoulBlade : AbstractSubclass
 
         var powerMasterHex = FeatureDefinitionPowerBuilder
             .Create("PowerSoulBladeMasterHex")
-            .SetGuiPresentation("PowerSoulBladeHex", Category.Feature)
+            .SetGuiPresentation("PowerSoulBladeHex", Category.Feature, spriteSoulHex)
             .SetUsesFixed(ActivationTime.BonusAction, RechargeRate.ShortRest, 1, 2)
             .SetShowCasting(true)
             .SetEffectDescription(
@@ -152,7 +152,7 @@ internal sealed class PatronSoulBlade : AbstractSubclass
                             .SetConditionForm(conditionHexDefender, ConditionForm.ConditionOperation.Add)
                             .Build())
                     .Build())
-            .SetOverriddenPower(powerHex)
+            .SetOverriddenPower(powerSoulHex)
             .AddToDB();
 
         var featureSetMasterHex = FeatureDefinitionFeatureSetBuilder
@@ -162,7 +162,7 @@ internal sealed class PatronSoulBlade : AbstractSubclass
             .AddToDB();
 
         var powerSoulBladeSummonPactWeapon = FeatureDefinitionPowerBuilder
-            .Create(PowerSoulBladeSummonPactWeaponName)
+            .Create("PowerSoulBladeSummonPactWeapon")
             .SetGuiPresentation(Category.Feature, SpiritualWeapon)
             .SetUniqueInstance()
             .SetCustomSubFeatures(SkipEffectRemovalOnLocationChange.Always)
@@ -203,7 +203,7 @@ internal sealed class PatronSoulBlade : AbstractSubclass
                 FeatureSetCasterFightingProficiency,
                 magicAffinitySoulBladeExpandedSpells,
                 featureHex,
-                powerHex,
+                powerSoulHex,
                 powerSoulBladeEmpowerWeapon)
             .AddFeaturesAtLevel(6,
                 powerSoulBladeSummonPactWeapon)
