@@ -86,8 +86,6 @@ internal static class GameServicesDisplay
             {
                 ResetTree();
             });
-            // target selection
-//            GUIHelper.SelectionGrid(ref _selectedRawDataType, TargetNames, 8, ResetTree);
 
             // tree view
             if (_selectedRawDataType == 0)

@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
+using SolastaUnfinishedBusiness.DataViewer;
 using UnityEngine;
 using static SolastaUnfinishedBusiness.Api.ModKit.UI;
 
@@ -13,6 +14,7 @@ public static class PartyEditor
 {
     private static ToggleChoice _selectedToggle = ToggleChoice.None;
     private static int _selectedCharacterIndex;
+    private static RulesetCharacter _selectedCharacter;
     private static bool _editingFromPool;
 
     private static (string, string) _nameEditState = (null, null);
@@ -34,8 +36,15 @@ public static class PartyEditor
         set => _characterPool = value;
     }
 
-    public static void OnGUI()
+    internal static void OnGUI()
     {
+        if (BlueprintDisplay.GetBlueprints() == null)
+        {
+            GUILayout.Label("Loading: " +
+                            BlueprintLoader.Shared.Progress.ToString("P2").Cyan().Bold());
+            return;
+        }
+
         Label("Experimental Preview:".Localized().Orange().Bold() + " " +
               "This simple party editor lets you edit characters in a loaded game session. Right now it lets you edit your character's first and last name. More features are coming soon (tm). Please click on the following to report issues:"
                   .Localized().Green());
@@ -61,16 +70,13 @@ public static class PartyEditor
             using (VerticalScope())
             {
                 foreach (var ch in characters)
-                {
-                    var selectedCharacter = GetSelectedCharacter();
-                    var changed = false;
-                    var level = ch.TryGetAttributeValue("CharacterLevel");
-                    using (HorizontalScope())
+                    if (ch is RulesetCharacterHero hero)
                     {
-                        var name = ch.Name;
-                        if (ch is RulesetCharacterHero hero)
+                        var changed = false;
+                        var level = ch.TryGetAttributeValue("CharacterLevel");
+                        using (HorizontalScope())
                         {
-                            name = hero.Name + " " + hero.SurName;
+                            var name = hero.Name + " " + hero.SurName;
                             if (EditableLabel(ref name, ref _nameEditState, 200, n => n.Orange().Bold(),
                                     MinWidth(100),
                                     MaxWidth(600)))
@@ -90,94 +96,115 @@ public static class PartyEditor
 
                                 changed = true;
                             }
-                        }
-                        else if (EditableLabel(ref name, ref _nameEditState, 200, n => n.Orange().Bold(),
-                                     MinWidth(100),
-                                     MaxWidth(600)))
-                        {
-                            ch.Name = name;
-                            changed = true;
+
+                            Space(5);
+                            Label((level < 10 ? "   lvl" : "   lv").Green() + $" {level}", Width(90));
+                            Space(5);
+                            OnDetailToggle(ToggleChoice.Stats, ch);
+                            OnDetailToggle(ToggleChoice.Skills, ch);
                         }
 
-                        Space(5);
-                        Label((level < 10 ? "   lvl" : "   lv").Green() + $" {level}", Width(90));
-                        Space(5);
-                        var showStats = ch == selectedCharacter && _selectedToggle == ToggleChoice.Stats;
-                        if (DisclosureToggle("Stats", ref showStats, 125))
+                        if (ch == _selectedCharacter && _selectedToggle == ToggleChoice.Stats)
                         {
-                            if (showStats)
+                            Div(100, 20, 755);
+
+                            foreach (var attr in ch.Attributes)
                             {
-                                selectedCharacter = ch;
-                                _selectedToggle = ToggleChoice.Stats;
-                            }
-                            else { _selectedToggle = ToggleChoice.None; }
-                        }
-                    }
-
-                    if (ch == selectedCharacter && _selectedToggle == ToggleChoice.Stats)
-                    {
-                        Div(100, 20, 755);
-
-                        foreach (var attr in ch.Attributes)
-                        {
-                            var attrName = attr.Key;
-                            var attribute = attr.Value;
-                            var baseValue = attribute.baseValue;
-                            var modifiers = attribute.ActiveModifiers.Where(m => m.Value != 0).Select(m =>
-                                    $"{m.Value:+0;-#} {String.Join(" ", m.Tags).TrimStart('0', '1', '2', '3', '4', '5', '6', '7', '8', '9').Cyan()}")
-                                .ToArray();
-                            var modifiersString = String.Join(" ", modifiers);
-                            using (HorizontalScope())
-                            {
-                                Space(100);
-                                Label(attrName, Width(400f));
-                                Space(25);
-                                ActionButton(" < ", () =>
+                                var attrName = attr.Key;
+                                var attribute = attr.Value;
+                                var baseValue = attribute.baseValue;
+                                var modifiers = attribute.ActiveModifiers.Where(m => m.Value != 0).Select(m =>
+                                        $"{m.Value:+0;-#} {String.Join(" ", m.Tags).TrimStart('0', '1', '2', '3', '4', '5', '6', '7', '8', '9').Cyan()}")
+                                    .ToArray();
+                                var modifiersString = String.Join(" ", modifiers);
+                                using (HorizontalScope())
                                 {
-                                    attribute.baseValue -= 1;
-                                    changed = true;
-                                }, GUI.skin.box, AutoWidth());
-                                Space(20);
-                                Label($"{attribute.currentValue}".Orange().Bold(), Width(50f));
-                                ActionButton(" > ", () =>
-                                {
-                                    attribute.baseValue += 1;
-                                    changed = true;
-                                }, GUI.skin.box, AutoWidth());
-                                Space(25);
-                                ActionIntTextField(ref baseValue, v =>
-                                {
-                                    attribute.baseValue = v;
-                                    changed = true;
-                                }, Width(75));
-                                Space(10);
-                                Label($"{modifiersString}");
+                                    Space(100);
+                                    Label(attrName, Width(400f));
+                                    Space(25);
+                                    ActionButton(" < ", () =>
+                                    {
+                                        attribute.baseValue -= 1;
+                                        changed = true;
+                                    }, GUI.skin.box, AutoWidth());
+                                    Space(20);
+                                    Label($"{attribute.currentValue}".Orange().Bold(), Width(50f));
+                                    ActionButton(" > ", () =>
+                                    {
+                                        attribute.baseValue += 1;
+                                        changed = true;
+                                    }, GUI.skin.box, AutoWidth());
+                                    Space(25);
+                                    ActionIntTextField(ref baseValue, v =>
+                                    {
+                                        attribute.baseValue = v;
+                                        changed = true;
+                                    }, Width(75));
+                                    Space(10);
+                                    Label($"{modifiersString}");
+                                }
                             }
                         }
-
+                        if (ch == _selectedCharacter && _selectedToggle == ToggleChoice.Skills)
+                        {
+                            var skillDefs = BlueprintDisplay.GetBlueprints()?.OfType<SkillDefinition>();
+                            if (skillDefs != null)
+                                Browser<RulesetCharacterHero, SkillDefinition, SkillDefinition>.OnGUI(
+                                    _selectedToggle.ToString(),
+                                    hero,
+                                    hero.TrainedSkills,
+                                    skillDefs,
+                                    (skill) => skill,
+                                    (skill) => skill.Name,
+                                    (skill) => skill.Name,
+                                    (skill) => skill.FormatDescription(),
+                                    null,
+                                    null,
+                                    null,
+                                    null,
+                                    (hero, skill) => !hero.TrainedSkills.Contains(skill) ?  () => { 
+                                        hero.TrainedSkills.Add(skill); changed = true; 
+                                    } : null,
+                                    (hero, skill) => hero.TrainedSkills.Contains(skill) ? () => { 
+                                        hero.TrainedSkills.Remove(skill); changed = true; 
+                                    } : null
+                                    );
+                        }
                         if (changed)
                         {
                             ch.RefreshAll();
                         }
-                    }
+                        if (changed && _editingFromPool && ch is RulesetCharacterHero h)
+                        {
+                            // ReSharper disable once InvocationIsSkipped
+                            Main.Log(String.Format("Saving Pool Character: " + h.Name));
+                            // ReSharper disable once InvocationIsSkipped
+                            Main.Log(PoolService.SaveCharacter(h));
+                            // h.RefreshAll();
+                            // RefreshPool();
+                        }
 
-                    if (changed && _editingFromPool && ch is RulesetCharacterHero h)
-                    {
-                        // ReSharper disable once InvocationIsSkipped
-                        Main.Log(String.Format("Saving Pool Character: " + h.Name));
-                        // ReSharper disable once InvocationIsSkipped
-                        Main.Log(PoolService.SaveCharacter(h));
-                        // h.RefreshAll();
-                        // RefreshPool();
+                        if (_selectedCharacter != GetSelectedCharacter())
+                        {
+                            _selectedCharacterIndex = GetCharacterList().IndexOf(_selectedCharacter);
+                        }
                     }
-
-                    if (selectedCharacter != GetSelectedCharacter())
-                    {
-                        _selectedCharacterIndex = GetCharacterList().IndexOf(selectedCharacter);
-                    }
-                }
             }
         }
+    }
+    internal static void OnDetailToggle(ToggleChoice choice, RulesetCharacter ch)
+    {
+        var show = ch == _selectedCharacter && _selectedToggle == choice;
+        if (DisclosureToggle(choice.ToString(), ref show, 125))
+        {
+            if (show)
+            {
+                _selectedCharacter = ch;
+                _selectedToggle = choice;
+            }
+            else { _selectedToggle = ToggleChoice.None; }
+        }
+
     }
 
     private static List<RulesetCharacter> GetCharacterList()
@@ -210,7 +237,7 @@ public static class PartyEditor
             return null;
         }
 
-        if (_selectedCharacterIndex >= characterList.Count)
+        if (_selectedCharacterIndex >= characterList.Count || _selectedCharacterIndex < 0)
         {
             _selectedCharacterIndex = 0;
         }
@@ -244,14 +271,12 @@ public static class PartyEditor
         Main.Log($"{_characterPool.Count} Characters Loaded");
     }
 
-    private enum ToggleChoice
+    internal enum ToggleChoice
     {
         Classes,
         Stats,
-        Facts,
-        Features,
-        Buffs,
-        Abilities,
+        Skills,
+        Feats,
         Spells,
         None
     }

@@ -40,7 +40,7 @@ internal static class BlueprintDisplay
 
     private static readonly GUIStyle ButtonStyle = new(GUI.skin.button) { alignment = TextAnchor.MiddleLeft };
 
-    private static IEnumerable<BaseDefinition> GetBlueprints()
+    internal static IEnumerable<BaseDefinition> GetBlueprints()
     {
         if (_allBlueprints != null)
         {

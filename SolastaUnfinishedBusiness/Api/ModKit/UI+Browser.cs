@@ -11,7 +11,7 @@ using UnityEngine;
 namespace SolastaUnfinishedBusiness.Api.ModKit;
 internal static partial class UI
 {
-    internal class Browser<T, Item, Def> // for many things the item will be the definition
+    internal static class Browser<T, Item, Def> // for many things the item will be the definition
     {
         public static IEnumerable<Def> filteredDefitions = null;
         private static string prevCallerKey = "";
@@ -20,9 +20,9 @@ internal static partial class UI
         public static int matchCount = 0;
         private static bool showAll = false;
 
-        internal List<Action> OnGUI(string callerKey,
+        internal static void OnGUI(string callerKey,
                                     T target,
-                                    Func<T, List<Item>> current,
+                                    List<Item> current,
                                     IEnumerable<Def> available,
                                     Func<Item, Def> definition,
                                     Func<Def, string> searchAndSortKey,
@@ -37,20 +37,19 @@ internal static partial class UI
                                     Func<T, Item, Action> removeItem = null
                 )
         {
-            List<Action> todo = new();
             var searchChanged = false;
 //            var refreshTree = false;
             if (callerKey != prevCallerKey) { searchChanged = true; showAll = false; }
             prevCallerKey = callerKey;
             using (HorizontalScope())
             {
-                100.space();
+                100.Space();
                 ActionTextField(ref searchText, "searhText", null, () => { searchChanged = true; }, Width(320));
-                25.space();
+                25.Space();
                 Label("Limit", ExpandWidth(false));
                 ActionIntTextField(ref searchLimit, "searchLimit", null, () => { searchChanged = true; }, Width(175));
                 if (searchLimit > 1000) { searchLimit = 1000; }
-                25.space();
+                25.Space();
                 searchChanged |= DisclosureToggle("Show All".Orange().Bold(), ref showAll);
             }
             using (HorizontalScope())
@@ -66,29 +65,36 @@ internal static partial class UI
                 }
             }
             var remainingWidth = ummWidth;
+            var currentDict = current.ToDictionary(c => definition(c), c => c);
+            List<Def> definitions = null;
             if (showAll)
             {
                 UpdateSearchResults(searchText, available, searchAndSortKey);
-                
+                definitions = filteredDefitions.ToList();
+            }
+            else
+            {
+                definitions = currentDict.Keys.ToList();
             }
             var terms = searchText.Split(' ').Select(s => s.ToLower()).ToHashSet();
 
-            var sorted = current(target).OrderBy((item) => title(definition(item)));
+            var sorted = definitions.OrderBy(def => title(def));
             matchCount = 0;
             Div(100);
-            foreach (var item in sorted)
+            foreach (var def in sorted)
             {
-                var name = title(definition(item));
+                var name = title(def);
                 var nameLower = name.ToLower();
                 if (name != null && name.Length > 0 && (searchText.Length == 0 || terms.All(term => nameLower.Contains(term))))
                 {
-
-                    OnRowGUI(target, definition(item), item, title, description, value, setValue, incrementValue, decrementValue, addItem, removeItem);
+                    Item item = default(Item);
+                    currentDict.TryGetValue(def, out item);
+                    OnRowGUI(target, def, item, title, description, value, setValue, incrementValue, decrementValue, addItem, removeItem);
                 }
             }
-            return todo;
         }
-        internal static void OnRowGUI(T target,
+        internal static void OnRowGUI(
+                                    T target,
                                     Def definition,
                                     Item item,
                                     Func<Def, string> title,
@@ -102,54 +108,53 @@ internal static partial class UI
                                    )
         {
             var remWidth = ummWidth;
-            if (item == null) return;
+            matchCount++;
+            using (HorizontalScope())
             {
-                matchCount++;
-                using (HorizontalScope())
+                Space(100); remWidth -= 100;
+                var titleWidth = (ummWidth / (IsWide ? 3.0f : 4.0f)) - 100;
+                string text = title(definition);
+                if (item != null)
+                    text = text.Cyan().Bold();
+                Label(text, Width(titleWidth));
+                remWidth -= titleWidth;
+                Space(10); remWidth -= 10;
+                if (item != null && value != null && value(item) is string stringValue)
                 {
-                    Space(100); remWidth -= 100;
-                    var titleWidth = (ummWidth / (IsWide ? 3.0f : 4.0f)) - 100;
-                    string text = title(definition).Cyan().Bold();
-                    Label(text, Width(titleWidth));
-                    remWidth -= titleWidth;
-                    Space(10); remWidth -= 10;
-                    if (value != null && value(item) is string stringValue)
-                    {
-                        if (decrementValue != null && decrementValue(target, item) is Action decrementer)
-                            ActionButton("<", decrementer, 60.width());
-                        else
-                            63.space();
-                        Space(10f);
-                        Label($"{stringValue}".Orange().Bold(), Width(30));
-                        if (incrementValue != null && incrementValue(target, item) is Action incrementer)
-                            ActionButton(">", incrementer, 60.width());
-                        else
-                            63.space();
-                        remWidth -= 166;
-                    }
-                    UI.Space(30);
-                    if (addItem != null && addItem(target, definition) is Action add)
-                        ActionButton("@UI/Add".Localized(), add, 150.width());
+                    if (decrementValue != null && decrementValue(target, item) is Action decrementer)
+                        ActionButton("<", decrementer, 60.Width());
                     else
-                        153.space();
-                    remWidth -= 153;
-                    Space(10); remWidth -= 10;
-                    if (removeItem != null && removeItem(target, item) is Action remove)
-                        ActionButton("@UI/Add".Localized(), remove, 175.width());
+                        63.Space();
+                    Space(10f);
+                    Label($"{stringValue}".Orange().Bold(), Width(30));
+                    if (incrementValue != null && incrementValue(target, item) is Action incrementer)
+                        ActionButton(">", incrementer, 60.Width());
                     else
-                        178.space();
-                    remWidth -= 178;
-                    Space(20); remWidth -= 20;
-                    using (VerticalScope(Width(remWidth - 100)))
+                        63.Space();
+                    remWidth -= 166;
+                }
+                UI.Space(30);
+                if (addItem != null && addItem(target, definition) is Action add)
+                    ActionButton("Add".Localized(), add, 150.Width());
+                else
+                    153.Space();
+                remWidth -= 153;
+                Space(10); remWidth -= 10;
+                if (item != null && removeItem != null && removeItem(target, item) is Action remove)
+                    ActionButton("Remove".Localized(), remove, 175.Width());
+                else
+                    178.Space();
+                remWidth -= 178;
+                Space(20); remWidth -= 20;
+                using (VerticalScope())
+                {
+                    if (description != null)
                     {
-                        if (description != null)
-                        {
-                            Label(description(definition).StripHTML().Green(), Width(remWidth - 100));
-                        }
+                        Label(description(definition).StripHTML().Green(), AutoWidth());
                     }
                 }
-                Div(100);
             }
+            Div(100);
         }
         internal static void UpdateSearchResults(string searchText, IEnumerable<Def> definitions, Func<Def, string> searchAndSortKey)
         {
@@ -176,6 +181,4 @@ internal static partial class UI
             filteredDefitions = filtered.OrderBy(def => searchAndSortKey(def)).Take(searchLimit).ToArray();
         }
     }
-
-    internal class Browser<T, Item> : Browser<T, Item, Item> { }
 }
