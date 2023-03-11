@@ -69,7 +69,7 @@ public static class Utilities
         return null;
     }
 
-    public static string StripHtml(this string s)
+    public static string StripHTML(this string s)
     {
         return Regex.Replace(s, "<.*?>", string.Empty);
     }
