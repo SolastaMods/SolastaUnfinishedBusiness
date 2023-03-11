@@ -527,7 +527,7 @@ A powerful wight, trained to withstand the light of day.
 [*][b]Nd[/b]: College of Harlequin, College of War Dancer, Marshal, Opportunist, Raven
 [*][b]SilverGriffon[/b]: gameplay, visuals, spells, Dark Elf, Draconic Kobold, Grey Dwarf, Divine Heart
 [*][b]DubhHerder[/b]: quality of life, spells, homebrew content design [subclasses]
-[*][b]Taco[/b]: homebrew content design [feats, metamagic, subclasses], subclasses, powers and weapons icons
+[*][b]Taco[/b]: homebrew content design [feats, metamagic, subclasses], fighting styles, races, subclasses, powers and weapons icons
 [*][b]HiddenHax[/b]: homebrew content design [subclasses]
 [*][b]tivie[/b]: Circle of The Night, Path of The Spirits
 [*][b]ElAntonius[/b]: feats, fighting styles, Ranger Arcanist

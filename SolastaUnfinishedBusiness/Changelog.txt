@@ -1,4 +1,3 @@
 - added Fighting Styles sprites
-- added Tiefling race sprite
-- fixed Bow Mastery allowing extra attack if first one was melee and hero switches to shortbow
+- fixed Bow Mastery allowing extra attack if first one was melee and hero switches to a shortbow
 - fixed Cleaving Attack allowing extra attack if first one was melee and hero switches to ranged
