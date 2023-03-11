@@ -38,13 +38,6 @@ public static class PartyEditor
 
     internal static void OnGUI()
     {
-        if (BlueprintDisplay.GetBlueprints() == null)
-        {
-            GUILayout.Label("Loading: " +
-                            BlueprintLoader.Shared.Progress.ToString("P2").Cyan().Bold());
-            return;
-        }
-
         Label("Experimental Preview:".Localized().Orange().Bold() + " " +
               "This simple party editor lets you edit characters in a loaded game session. Right now it lets you edit your character's first and last name. More features are coming soon (tm). Please click on the following to report issues:"
                   .Localized().Green());
@@ -150,6 +143,15 @@ public static class PartyEditor
                                     Label($"{modifiersString}");
                                 }
                             }
+                        }
+                        if (ch == _selectedCharacter && BlueprintLoader.Shared.LoadInProgress())
+                        {
+                            using (HorizontalScope())
+                            {
+                                GUILayout.Label("Loading: " +
+                                                BlueprintLoader.Shared.Progress.ToString("P2").Cyan().Bold());
+                            }
+                            continue;
                         }
                         if (ch == _selectedCharacter && _selectedToggle == ToggleChoice.Skills)
                         {
@@ -279,7 +281,7 @@ public static class PartyEditor
         // don't use ? or ?? or a type deriving from an UnityEngine.Object to avoid bypassing lifetime check
         var chars = Gui.GameCampaign == null
             ? null
-            : Gui.GameCampaign.Party.CharactersList.Select(ch => ch.RulesetCharacter).ToList();
+            : Gui.GameCampaign.Party?.CharactersList?.Select(ch => ch.RulesetCharacter).ToList();
 #if DEBUG
         if (chars != null)
         {
