@@ -11,8 +11,15 @@ namespace SolastaUnfinishedBusiness.Api.ModKit;
 
 internal static partial class UI
 {
+<<<<<<< HEAD
     private const int SliderTop = 3;
     private const int SliderBottom = -7;
+=======
+    public static bool UserHasHitReturn = false;
+    public static string FocusedControlName = null;
+    private const int sliderTop = 3;
+    private const int sliderBottom = -7;
+>>>>>>> Initial implementation of generic feature browser/editor
 
     private static readonly HashSet<Type> WidthTypes = new()
     {
