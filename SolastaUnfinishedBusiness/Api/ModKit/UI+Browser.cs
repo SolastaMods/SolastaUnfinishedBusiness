@@ -112,7 +112,7 @@ internal static partial class UI
             using (HorizontalScope())
             {
                 Space(100); remWidth -= 100;
-                var titleWidth = (ummWidth / (IsWide ? 3.0f : 4.0f)) - 100;
+                var titleWidth = ((int)(ummWidth / (IsWide ? 3.0f : 4.0f))).Point();
                 string text = title(definition);
                 if (item != null)
                     text = text.Cyan().Bold();
