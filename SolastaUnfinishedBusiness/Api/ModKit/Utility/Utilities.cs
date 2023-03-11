@@ -7,7 +7,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using HarmonyLib;
 
-namespace SolastaUnfinishedBusiness.Api.ModKit;
+namespace SolastaUnfinishedBusiness.Api.ModKit.Utility;
 
 public static class Utilities
 {
@@ -213,8 +213,8 @@ public static class Utilities
             .ToDictionary(e => e, e => Enum.GetName(enumType, e));
     }
 
-    public static Dictionary<K, V> Filter<K, V>(this Dictionary<K, V> dict,
-        Predicate<KeyValuePair<K, V>> pred)
+    public static Dictionary<TK, TV> Filter<TK, TV>(this Dictionary<TK, TV> dict,
+        Predicate<KeyValuePair<TK, TV>> pred)
     {
         return dict.Where(it => pred(it)).ToDictionary(it => it.Key, it => it.Value);
     }

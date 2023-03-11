@@ -4,7 +4,7 @@ using System.Reflection;
 using Newtonsoft.Json;
 using static UnityModManagerNet.UnityModManager;
 
-namespace SolastaUnfinishedBusiness.Api.ModKit;
+namespace SolastaUnfinishedBusiness.Api.ModKit.Utility;
 
 public interface IUpdatableSettings
 {

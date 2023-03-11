@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
+using SolastaUnfinishedBusiness.Api.ModKit.Utility;
 using UnityEngine;
 using GL = UnityEngine.GUILayout;
 
@@ -217,7 +218,7 @@ internal static partial class UI
         }
     }
 
-    public static bool EnumGrid<TEnum>(ref TEnum value, int xCols, Func<string, TEnum, string> titleFormater = null,
+    public static bool EnumGrid<TEnum>(ref TEnum value, int xCols, Func<string, TEnum, string> titleFormatter = null,
         GUIStyle style = null, params GUILayoutOption[] options) where TEnum : struct
     {
         var changed = false;
@@ -225,9 +226,9 @@ internal static partial class UI
         var names = Enum.GetNames(typeof(TEnum));
         var formattedNames = names;
         var nameToEnum = value.NameToValueDictionary();
-        if (titleFormater != null)
+        if (titleFormatter != null)
         {
-            formattedNames = names.Select(n => titleFormater(n, nameToEnum[n])).ToArray();
+            formattedNames = names.Select(n => titleFormatter(n, nameToEnum[n])).ToArray();
         }
 
         var index = Array.IndexOf(names, value.ToString());
@@ -250,10 +251,10 @@ internal static partial class UI
         return changed;
     }
 
-    public static bool EnumGrid<TEnum>(ref TEnum value, int xCols, Func<string, TEnum, string> titleFormater = null,
+    public static bool EnumGrid<TEnum>(ref TEnum value, int xCols, Func<string, TEnum, string> titleFormatter = null,
         params GUILayoutOption[] options) where TEnum : struct
     {
-        return EnumGrid(ref value, xCols, titleFormater, null, options);
+        return EnumGrid(ref value, xCols, titleFormatter, null, options);
     }
 
     public static bool EnumGrid<TEnum>(ref TEnum value, int xCols, params GUILayoutOption[] options)
@@ -424,7 +425,7 @@ internal static partial class UI
             ActionTextField(
                 ref searchText,
                 "itemSearchText",
-                text => { changed = true; },
+                _ => { changed = true; },
                 () => { },
                 xCols == 1 ? options : new[] { Width((float)300) });
             if (searchText?.Length > 0)
@@ -457,7 +458,7 @@ internal static partial class UI
                 ref selectedItemIndex,
                 titles.ToArray(),
                 xCols,
-                index => { changed = true; },
+                _ => { changed = true; },
                 style,
                 options);
             if (hasUnselectedTitle)
@@ -478,24 +479,24 @@ internal static partial class UI
 
     public static bool GridPicker<T>(ref T selected, List<T> items,
         string unselectedTitle,
-        Func<T, string> titler,
+        Func<T, string> titleFunc,
         ref string searchText,
         int xCols,
         params GUILayoutOption[] options
     ) where T : class
     {
-        return GridPicker(ref selected, items, unselectedTitle, titler, ref searchText, xCols, ButtonStyle,
+        return GridPicker(ref selected, items, unselectedTitle, titleFunc, ref searchText, xCols, ButtonStyle,
             options);
     }
 
     public static bool GridPicker<T>(ref T selected, List<T> items,
         string unselectedTitle,
-        Func<T, string> titler,
+        Func<T, string> titleFunc,
         ref string searchText,
         params GUILayoutOption[] options
     ) where T : class
     {
-        return GridPicker(ref selected, items, unselectedTitle, titler, ref searchText, 6, ButtonStyle, options);
+        return GridPicker(ref selected, items, unselectedTitle, titleFunc, ref searchText, 6, ButtonStyle, options);
     }
 
     // VPicker
@@ -503,7 +504,7 @@ internal static partial class UI
         string title,
         ref T selected, List<T> items,
         string unselectedTitle,
-        Func<T, string> titler,
+        Func<T, string> titleFunc,
         ref string searchText,
         Action extras,
         GUIStyle style,
@@ -520,20 +521,20 @@ internal static partial class UI
         extras?.Invoke();
         Div();
 
-        return GridPicker(ref selected, items, unselectedTitle, titler, ref searchText, 1, options);
+        return GridPicker(ref selected, items, unselectedTitle, titleFunc, ref searchText, 1, options);
     }
 
     public static bool VPicker<T>(
         string title,
         ref T selected, List<T> items,
         string unselectedTitle,
-        Func<T, string> titler,
+        Func<T, string> titleFunc,
         ref string searchText,
         Action extras,
         params GUILayoutOption[] options
     ) where T : class
     {
-        return VPicker(title, ref selected, items, unselectedTitle, titler, ref searchText, extras, ButtonStyle,
+        return VPicker(title, ref selected, items, unselectedTitle, titleFunc, ref searchText, extras, ButtonStyle,
             options);
     }
 
@@ -541,12 +542,12 @@ internal static partial class UI
         string title,
         ref T selected, List<T> items,
         string unselectedTitle,
-        Func<T, string> titler,
+        Func<T, string> titleFunc,
         ref string searchText,
         params GUILayoutOption[] options
     ) where T : class
     {
-        return VPicker(title, ref selected, items, unselectedTitle, titler, ref searchText, () => { }, ButtonStyle,
+        return VPicker(title, ref selected, items, unselectedTitle, titleFunc, ref searchText, () => { }, ButtonStyle,
             options);
     }
 }

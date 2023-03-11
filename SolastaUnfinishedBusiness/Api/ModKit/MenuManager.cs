@@ -38,11 +38,10 @@ internal sealed class MenuManager : INotifyPropertyChanged
     private readonly List<IMenuBottomPage> _bottomPages = new();
     private readonly List<IMenuSelectablePage> _selectablePages = new();
     private readonly List<IMenuTopPage> _topPages = new();
-    private static int _tabIndex => Main.Settings.SelectedTab;
+    private static int SelectedTab => Main.Settings.SelectedTab;
 
-    public int TabIndex
+    private int TabIndex
     {
-        get => _tabIndex;
         set
         {
             if (Main.Settings.SelectedTab == value)
@@ -144,7 +143,7 @@ internal sealed class MenuManager : INotifyPropertyChanged
                     //GUILayout.Space(10f);
                 }
 
-                var tabIndex = _tabIndex;
+                var tabIndex = SelectedTab;
                 UI.TabBar(ref tabIndex, null,
                     _selectablePages.Select(page => new NamedAction(page.Name, () => page.OnGUI(modEntry)))
                         .ToArray());

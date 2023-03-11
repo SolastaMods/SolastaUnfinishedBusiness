@@ -152,29 +152,28 @@ internal static partial class UI
     public static bool Toggle(string title, ref bool value, string on, string off, float width = 0,
         GUIStyle stateStyle = null, GUIStyle labelStyle = null, params GUILayoutOption[] options)
     {
-        var changed = false;
         stateStyle ??= GUI.skin.box;
 
         labelStyle ??= GUI.skin.box;
 
         if (width == 0)
         {
-            width = ToggleStyle.CalcSize(new GUIContent(title.Bold())).x + GUI.skin.box.CalcSize(Private.UI.CheckOn).x +
+            width = ToggleStyle.CalcSize(new GUIContent(title.Bold())).x +
+                    GUI.skin.box.CalcSize(Utility.Private.UI.CheckOn).x +
                     10;
         }
 
         options = options.AddItem(width == 0 ? AutoWidth() : Width(width)).ToArray();
         title = value ? title.Bold() : title.MedGrey().Bold();
 
-        if (!Private.UI.Toggle(title, value, on, off, stateStyle, labelStyle, options))
+        if (!Utility.Private.UI.Toggle(title, value, on, off, stateStyle, labelStyle, options))
         {
-            return changed;
+            return false;
         }
 
         value = !value;
-        changed = true;
 
-        return changed;
+        return true;
     }
 #if false
     public static bool Toggle(string title, ref bool value, params GUILayoutOption[] options)

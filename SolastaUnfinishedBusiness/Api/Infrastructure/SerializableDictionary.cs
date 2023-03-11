@@ -3,7 +3,7 @@ using System.Linq;
 using System.Xml;
 using System.Xml.Schema;
 using System.Xml.Serialization;
-using SolastaUnfinishedBusiness.Api.ModKit;
+using SolastaUnfinishedBusiness.Api.ModKit.Utility;
 
 namespace SolastaUnfinishedBusiness.Api.Infrastructure;
 

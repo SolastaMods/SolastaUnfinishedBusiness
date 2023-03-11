@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿#if false
+using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Text;
@@ -75,3 +76,4 @@ public static class EmbeddedResourceUtils
         return fileName == null ? null : new string(fileName.Reverse().ToArray());
     }
 }
+#endif

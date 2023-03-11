@@ -192,7 +192,7 @@ internal static partial class UI
         var str = $"{value}";
         ActionTextField(ref str,
             name,
-            text => { changed = true; },
+            _ => { changed = true; },
             () => { hitEnter = true; },
             options);
         _ = int.TryParse(str, out value);
@@ -248,8 +248,7 @@ internal static partial class UI
         if (GL.Button(title, style, options.AddDefaults())) { action?.Invoke(); }
     }
 
-    public static void DangerousActionButton(string title, string warning, ref bool areYouSureState, Action action,
-        params GUILayoutOption[] options)
+    public static void DangerousActionButton(string title, string warning, ref bool areYouSureState, Action action)
     {
         using (HorizontalScope())
         {
@@ -393,7 +392,7 @@ internal static partial class UI
             }
 
             Space((float)50);
-            ActionIntTextField(ref inc, title, v => { }, null, Width(fieldWidth + 25));
+            ActionIntTextField(ref inc, title, _ => { }, null, Width(fieldWidth + 25));
             increment = inc;
         }
 

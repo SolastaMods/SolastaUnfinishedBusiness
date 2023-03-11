@@ -1,4 +1,5 @@
-﻿using System;
+﻿#if false
+using System;
 using System.Collections.Generic;
 
 namespace SolastaUnfinishedBusiness.Api.Infrastructure;
@@ -69,3 +70,4 @@ public class TripleDictionary<TKey1, TKey2, TKey3, TValue>
         return value;
     }
 }
+#endif

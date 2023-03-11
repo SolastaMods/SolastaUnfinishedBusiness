@@ -1,33 +1,40 @@
-﻿using UnityEngine;
+﻿using JetBrains.Annotations;
+using UnityEngine;
 
-namespace SolastaUnfinishedBusiness.Api.ModKit.Private;
+namespace SolastaUnfinishedBusiness.Api.ModKit.Utility.Private;
 
 internal static class UI
 {
-    // Helper functionality.
+    // Helper functionality
 
-    private static readonly GUIContent _LabelContent = new();
-    public static readonly GUIContent CheckOn = new(ModKit.UI.ChecklyphOn);
-    public static readonly GUIContent CheckOff = new(ModKit.UI.CheckGlyphOff);
-    public static readonly GUIContent DisclosureOn = new(ModKit.UI.DisclosureGlyphOn);
-    public static readonly GUIContent DisclosureOff = new(ModKit.UI.DisclosureGlyphOff);
-    public static readonly GUIContent DisclosureEmpty = new(ModKit.UI.DisclosureGlyphEmpty);
+    private static readonly GUIContent Content = new();
+
+    internal static readonly GUIContent CheckOn = new(ModKit.UI.CheckGlyphOn);
+
+    private static readonly GUIContent CheckOff = new(ModKit.UI.CheckGlyphOff);
+    private static readonly GUIContent DisclosureOn = new(ModKit.UI.DisclosureGlyphOn);
+    private static readonly GUIContent DisclosureOff = new(ModKit.UI.DisclosureGlyphOff);
+    private static readonly GUIContent DisclosureEmpty = new(ModKit.UI.DisclosureGlyphEmpty);
+
+    private static readonly int ButtonHint = "MyGUI.Button".GetHashCode();
 
     private static GUIContent LabelContent(string text)
     {
-        _LabelContent.text = text;
-        _LabelContent.image = null;
-        _LabelContent.tooltip = null;
-        return _LabelContent;
+        Content.text = text;
+        Content.image = null;
+        Content.tooltip = null;
+        return Content;
     }
 
-    private static readonly int s_ButtonHint = "MyGUI.Button".GetHashCode();
-
-    public static bool Toggle(Rect rect, GUIContent label, bool value, bool isEmpty, GUIContent on, GUIContent off,
-        GUIStyle stateStyle, GUIStyle labelStyle)
+    [UsedImplicitly]
+    public static bool Toggle(
+        Rect rect, GUIContent label, bool value, bool isEmpty, GUIContent on, GUIContent off, GUIStyle stateStyle,
+        GUIStyle labelStyle)
     {
-        var controlID = GUIUtility.GetControlID(s_ButtonHint, FocusType.Passive, rect);
+        var controlID = GUIUtility.GetControlID(ButtonHint, FocusType.Passive, rect);
         var result = false;
+
+        // ReSharper disable once SwitchStatementMissingSomeEnumCasesNoDefault
         switch (Event.current.GetTypeForControl(controlID))
         {
             case EventType.MouseDown:
@@ -107,18 +114,7 @@ internal static class UI
 
     // Button Control - Layout Version
 
-#if false
-        static Vector2 cachedArrowSize = new Vector2(0, 0);
-        public static bool Toggle(GUIContent label, bool value, GUIContent on, GUIContent off, GUIStyle stateStyle, GUIStyle labelStyle, params GUILayoutOption[] options) {
-            var style = new GUIStyle(labelStyle);
-            if (cachedArrowSize.x == 0)
-                cachedArrowSize = style.CalcSize(off);
-            RectOffset padding = new RectOffset(0, (int)cachedArrowSize.x + 10, 0, 0);
-            style.padding = padding;
-            Rect rect = GUILayoutUtility.GetRect(label, style, options);
-            return Toggle(rect, label, value, on, off, stateStyle, style);
-        }
-#else
+    [UsedImplicitly]
     public static bool Toggle(GUIContent label, bool value, GUIContent on, GUIContent off, GUIStyle stateStyle,
         GUIStyle labelStyle, bool isEmpty = false, params GUILayoutOption[] options)
     {
@@ -129,20 +125,13 @@ internal static class UI
         lStyle.fixedHeight = stateSize.y - 2;
         var padding = new RectOffset(0, (int)stateSize.x + 5, 0, 0);
         lStyle.padding = padding;
-        var rect = GUILayoutUtility.GetRect(label, lStyle, options);
-#if false
-            var labelSize = lStyle.CalcSize(label);
-            var width = stateSize.x + 10 + stateSize.x;
-            var height = Mathf.Max(stateSize.y, labelSize.y);
-            var rect = GUILayoutUtility.GetRect(width, height);
-            int controlID = GUIUtility.GetControlID(s_ButtonHint, FocusType.Passive, rect);
-            var eventType = Event.current.GetTypeForControl(controlID);
 
-            Logger.Log($"event: {eventType.ToString()} label: {label.text} w: {width} h: {height} rect: {rect} options: {options.Length}");
-#endif
+        var rect = GUILayoutUtility.GetRect(label, lStyle, options);
+
         return Toggle(rect, label, value, isEmpty, on, off, stateStyle, labelStyle);
     }
-#endif
+
+    [UsedImplicitly]
     public static bool Toggle(string label, bool value, string on, string off, GUIStyle stateStyle, GUIStyle labelStyle,
         params GUILayoutOption[] options)
     {
@@ -151,6 +140,7 @@ internal static class UI
     }
 
     // Disclosure Toggles
+    [UsedImplicitly]
     public static bool DisclosureToggle(GUIContent label, bool value, bool isEmpty = false,
         params GUILayoutOption[] options)
     {
@@ -158,6 +148,7 @@ internal static class UI
             options);
     }
 
+    [UsedImplicitly]
     public static bool DisclosureToggle(string label, bool value, GUIStyle stateStyle, GUIStyle labelStyle,
         bool isEmpty = false, params GUILayoutOption[] options)
     {
@@ -165,6 +156,7 @@ internal static class UI
             options);
     }
 
+    [UsedImplicitly]
     public static bool DisclosureToggle(string label, bool value, bool isEmpty = false,
         params GUILayoutOption[] options)
     {
@@ -172,17 +164,20 @@ internal static class UI
     }
 
     // CheckBox 
+    [UsedImplicitly]
     public static bool CheckBox(GUIContent label, bool value, bool isEmpty, params GUILayoutOption[] options)
     {
         return Toggle(label, value, CheckOn, CheckOff, GUI.skin.textArea, GUI.skin.label, isEmpty, options);
     }
 
+    [UsedImplicitly]
     public static bool CheckBox(string label, bool value, bool isEmpty, GUIStyle style,
         params GUILayoutOption[] options)
     {
         return Toggle(LabelContent(label), value, CheckOn, CheckOff, GUI.skin.box, style, isEmpty, options);
     }
 
+    [UsedImplicitly]
     public static bool CheckBox(string label, bool value, bool isEmpty, params GUILayoutOption[] options)
     {
         return CheckBox(label, value, isEmpty, GUI.skin.label, options);

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace SolastaUnfinishedBusiness.Api.ModKit
+namespace SolastaUnfinishedBusiness.Api.ModKit.Utility
 {
     namespace BlueprintExplorer
     {
@@ -14,6 +14,7 @@ namespace SolastaUnfinishedBusiness.Api.ModKit
             Dictionary<string, MatchResult> Matches { get; set; } // place to store search results
         }
 
+#if false
         public static class MatchHelpers
         {
             public static bool HasMatches(this ISearchable searchable, float scoreThreshold = 10)
@@ -22,34 +23,38 @@ namespace SolastaUnfinishedBusiness.Api.ModKit
                        searchable.Matches.Any(m => m.Value.IsMatch && m.Value.Score >= scoreThreshold);
             }
         }
+#endif
 
         public class MatchResult
         {
             public readonly MatchQuery Context;
-            private readonly string key;
+
+            // private readonly string key;
             private readonly List<Span> spans = new();
 
-            private readonly ISearchable target;
+            // private readonly ISearchable target;
             public readonly string Text;
             private int bestRun;
             public float Bonus;
             public int MatchedCharacters;
+
             public float Penalty;
-            private int singleRuns;
+
+            // private int singleRuns;
             public float TargetRatio;
             public int TotalMatched;
 
             public MatchResult(ISearchable target, string key, string text, MatchQuery context)
             {
-                this.target = target;
-                this.key = key;
+                // this.target = target;
+                // this.key = key;
                 Text = text;
                 Context = context;
             }
 
             public bool IsMatch => TotalMatched > 0;
-            public float MatchRatio => TotalMatched / (float)Context.SearchText.Length;
-            public int GoodRuns => spans.Count(x => x.Length > 2); //> 2);
+            private float MatchRatio => TotalMatched / (float)Context.SearchText.Length;
+            private int GoodRuns => spans.Count(x => x.Length > 2); //> 2);
 
             public float Score => (TargetRatio * MatchRatio * 1.0f) + (bestRun * 4) + (GoodRuns * 2) - Penalty + Bonus;
 
@@ -63,10 +68,12 @@ namespace SolastaUnfinishedBusiness.Api.ModKit
                     bestRun = span.Length;
                 }
 
+#if false
                 if (span.Length == 1)
                 {
                     singleRuns++;
                 }
+#endif
 
                 TotalMatched += span.Length;
             }
@@ -168,7 +175,7 @@ namespace SolastaUnfinishedBusiness.Api.ModKit
                 while (searchTextIndex < searchText.Length)
                 {
                     // find the next point in target that matches searchIndex:
-                    // n:bOb h:helloworldBob
+                    // n:bOb h:hello world Bob
                     //     ^             ^
                     targetIndex = target.IndexOf(searchText[searchTextIndex], targetIndex);
                     if (targetIndex == -1)
@@ -181,7 +188,7 @@ namespace SolastaUnfinishedBusiness.Api.ModKit
                     while (targetIndex < target.Length && searchTextIndex < searchText.Length &&
                            searchText[searchTextIndex] == target[targetIndex])
                     {
-                        //if this span is rooted at the start of the word give a bonus because start is most importatn
+                        //if this span is rooted at the start of the word give a bonus because start is most important
                         if (span.From == 0 && searchTextIndex > 0)
                         {
                             result.Bonus += result.Bonus;

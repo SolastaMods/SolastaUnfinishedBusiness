@@ -6,9 +6,11 @@ namespace SolastaUnfinishedBusiness.Api.ModKit;
 
 internal static partial class UI
 {
-    public const string ChecklyphOn = "<color=green><b>✔</b></color>";
+    public const string CheckGlyphOn = "<color=green><b>✔</b></color>";
+
     public const string CheckGlyphOff = "<color=#B8B8B8FF>✖</color>"; // #A0A0A0E0
-    public const string CheckGlyphEmpty = " <color=#B8B8B8FF>▪</color> ";
+
+    // public const string CheckGlyphEmpty = " <color=#B8B8B8FF>▪</color> ";
     public const string DisclosureGlyphOn = "<color=orange><b>▼</b></color>"; // ▼▲∧⋀
     public const string DisclosureGlyphOff = "<color=#C0C0C0FF><b>▶</b></color>"; // ▶▲∨⋁
     public const string DisclosureGlyphEmpty = " <color=#B8B8B8FF>▪</color> ";
@@ -25,7 +27,7 @@ internal static partial class UI
         Div(FillColor, indent, height, width);
     }
 
-    public static void DivLast(float height = 0)
+    private static void DivLast(float height = 0)
     {
         var rect = GUILayoutUtility.GetLastRect();
         Div(FillColor, rect.x, height, rect.width + 3);

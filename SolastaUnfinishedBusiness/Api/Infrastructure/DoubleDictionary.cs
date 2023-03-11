@@ -1,4 +1,5 @@
-﻿using System;
+﻿#if false
+using System;
 using System.Collections.Generic;
 
 namespace SolastaUnfinishedBusiness.Api.Infrastructure;
@@ -54,3 +55,4 @@ public class DoubleDictionary<TKey1, TKey2, TValue>
         return value;
     }
 }
+#endif

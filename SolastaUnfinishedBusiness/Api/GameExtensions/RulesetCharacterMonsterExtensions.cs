@@ -119,6 +119,7 @@ public static class RulesetCharacterMonsterExtensions
                     var firstDamageForm = attackMode.EffectDescription.FindFirstDamageForm();
                     if (firstDamageForm != null)
                     {
+                        // ReSharper disable once SwitchStatementMissingSomeEnumCasesNoDefault
                         switch (attackModifier.DamageDieReplacement)
                         {
                             case DamageDieReplacement.FirstDamageForm:
@@ -182,6 +183,7 @@ public static class RulesetCharacterMonsterExtensions
                          && attackModifier.DamageRollModifierMethod != AttackModifierMethod.None)
                 {
                     var num = attackModifier.DamageRollModifier;
+                    // ReSharper disable once SwitchStatementMissingSomeEnumCasesNoDefault
                     switch (attackModifier.DamageRollModifierMethod)
                     {
                         case AttackModifierMethod.SourceConditionAmount:

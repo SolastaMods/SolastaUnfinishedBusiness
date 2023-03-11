@@ -1,6 +1,7 @@
 ﻿// Copyright < 2021 > Narria (github user Cabarius) - License: MIT
 
 using System;
+using JetBrains.Annotations;
 
 namespace SolastaUnfinishedBusiness.Api.ModKit;
 
@@ -13,9 +14,9 @@ public class NamedAction
         CanPerform = canPerform ?? (() => true);
     }
 
-    public string Name { get; }
-    public Action Action { get; }
-    public Func<bool> CanPerform { get; }
+    [UsedImplicitly] public string Name { [UsedImplicitly] get; }
+    [UsedImplicitly] public Action Action { [UsedImplicitly] get; }
+    [UsedImplicitly] public Func<bool> CanPerform { [UsedImplicitly] get; }
 }
 
 public class NamedAction<T>
@@ -24,12 +25,12 @@ public class NamedAction<T>
     {
         Name = name;
         Action = action;
-        CanPerform = canPerform ?? (T => true);
+        CanPerform = canPerform ?? (_ => true);
     }
 
-    public string Name { get; }
-    public Action<T> Action { get; }
-    public Func<T, bool> CanPerform { get; }
+    [UsedImplicitly] public string Name { [UsedImplicitly] get; }
+    [UsedImplicitly] public Action<T> Action { [UsedImplicitly] get; }
+    [UsedImplicitly] public Func<T, bool> CanPerform { [UsedImplicitly] get; }
 }
 
 public class NamedFunc<T>
@@ -41,15 +42,9 @@ public class NamedFunc<T>
         CanPerform = canPerform ?? (() => true);
     }
 
-    public string Name { get; }
-
-#pragma warning disable IDE0052
-    private Func<T> Func { get; }
-#pragma warning restore IDE0052
-
-#pragma warning disable IDE0052
-    private Func<bool> CanPerform { get; }
-#pragma warning restore IDE0052
+    [UsedImplicitly] public string Name { [UsedImplicitly] get; }
+    [UsedImplicitly] public Func<T> Func { [UsedImplicitly] get; }
+    [UsedImplicitly] public Func<bool> CanPerform { [UsedImplicitly] get; }
 }
 
 public class NamedMutator<TV, T>
@@ -63,12 +58,12 @@ public class NamedMutator<TV, T>
     {
         Name = name;
         Action = action;
-        CanPerform = canPerform ?? ((target, value) => true);
+        CanPerform = canPerform ?? ((_, _) => true);
         IsRepeatable = isRepeatable;
     }
 
-    public string Name { get; }
-    public Action<TV, T, int> Action { get; }
-    public Func<TV, T, bool> CanPerform { get; }
-    public bool IsRepeatable { get; }
+    [UsedImplicitly] public string Name { [UsedImplicitly] get; }
+    [UsedImplicitly] public Action<TV, T, int> Action { [UsedImplicitly] get; }
+    [UsedImplicitly] public Func<TV, T, bool> CanPerform { [UsedImplicitly] get; }
+    [UsedImplicitly] public bool IsRepeatable { [UsedImplicitly] get; }
 }
