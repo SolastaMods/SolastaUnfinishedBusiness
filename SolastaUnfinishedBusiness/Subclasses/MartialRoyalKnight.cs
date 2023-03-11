@@ -12,8 +12,10 @@ internal sealed class MartialRoyalKnight : AbstractSubclass
 {
     internal MartialRoyalKnight()
     {
-        var abilityCheckAffinityRoyalKnightRoyalEnvoy = FeatureDefinitionAbilityCheckAffinityBuilder
-            .Create("AbilityCheckAffinityRoyalKnightRoyalEnvoy")
+        const string Name = "RoyalKnight";
+
+        var abilityCheckAffinityRoyalEnvoy = FeatureDefinitionAbilityCheckAffinityBuilder
+            .Create($"AbilityCheckAffinity{Name}RoyalEnvoy")
             .SetGuiPresentationNoContent()
             .BuildAndSetAffinityGroups(
                 CharacterAbilityCheckAffinity.HalfProficiencyWhenNotProficient,
@@ -22,42 +24,40 @@ internal sealed class MartialRoyalKnight : AbstractSubclass
                 (AttributeDefinitions.Charisma, null))
             .AddToDB();
 
-        var featureSetRoyalKnightRoyalEnvoy = FeatureDefinitionFeatureSetBuilder
-            .Create("FeatureSetRoyalKnightRoyalEnvoy")
+        var featureSetRoyalEnvoy = FeatureDefinitionFeatureSetBuilder
+            .Create($"FeatureSet{Name}RoyalEnvoy")
             .SetGuiPresentation(Category.Feature)
             .AddFeatureSet(
-                abilityCheckAffinityRoyalKnightRoyalEnvoy,
+                abilityCheckAffinityRoyalEnvoy,
                 FeatureDefinitionSavingThrowAffinitys.SavingThrowAffinityCreedOfSolasta)
             .AddToDB();
 
-        var effectDescription = EffectDescriptionBuilder
-            .Create(PowerDomainLifePreserveLife.EffectDescription)
-            .SetEffectForms(
-                EffectFormBuilder
-                    .Create()
-                    .SetHealingForm(
-                        HealingComputation.Dice,
-                        0,
-                        DieType.D1,
-                        4,
-                        false,
-                        HealingCap.MaximumHitPoints,
-                        EffectForm.LevelApplianceType.MultiplyBonus)
-                    .Build())
-            .SetTargetFiltering(TargetFilteringMethod.CharacterOnly, TargetFilteringTag.No, 5, DieType.D8)
-            .Build();
-
-        var powerRoyalKnightRallyingCry = FeatureDefinitionPowerBuilder
-            .Create("PowerRoyalKnightRallyingCry")
+        var powerRallyingCry = FeatureDefinitionPowerBuilder
+            .Create($"Power{Name}RallyingCry")
             .SetGuiPresentation(Category.Feature,
                 Sprites.GetSprite("PowerRallyingCry", Resources.PowerRallyingCry, 256, 128))
             .SetUsesAbilityBonus(ActivationTime.BonusAction, RechargeRate.ShortRest, AttributeDefinitions.Charisma)
-            .SetEffectDescription(effectDescription)
+            .SetEffectDescription(EffectDescriptionBuilder
+                .Create(PowerDomainLifePreserveLife.EffectDescription)
+                .SetEffectForms(
+                    EffectFormBuilder
+                        .Create()
+                        .SetHealingForm(
+                            HealingComputation.Dice,
+                            0,
+                            DieType.D1,
+                            4,
+                            false,
+                            HealingCap.MaximumHitPoints,
+                            EffectForm.LevelApplianceType.MultiplyBonus)
+                        .Build())
+                .SetTargetFiltering(TargetFilteringMethod.CharacterOnly, TargetFilteringTag.No, 5, DieType.D8)
+                .Build())
             .SetOverriddenPower(PowerFighterSecondWind)
             .AddToDB();
 
-        var powerRoyalKnightInspiringSurge = FeatureDefinitionPowerBuilder
-            .Create("PowerRoyalKnightInspiringSurge")
+        var powerInspiringSurge = FeatureDefinitionPowerBuilder
+            .Create($"Power{Name}InspiringSurge")
             .SetGuiPresentation(Category.Feature, SpellDefinitions.Heroism)
             .SetUsesFixed(ActivationTime.BonusAction, RechargeRate.LongRest)
             .SetEffectDescription(EffectDescriptionBuilder
@@ -74,16 +74,48 @@ internal sealed class MartialRoyalKnight : AbstractSubclass
                 .Build())
             .AddToDB();
 
+        var conditionProtection = ConditionDefinitionBuilder
+            .Create($"Condition{Name}Protection")
+            .SetGuiPresentation($"Power{Name}Protection", Category.Feature, ConditionDefinitions.ConditionBlessed)
+            .SetSilent(Silent.WhenAddedOrRemoved)
+            .SetFeatures(
+                FeatureDefinitionCombatAffinitys.CombatAffinityBlessed,
+                FeatureDefinitionSavingThrowAffinitys.SavingThrowAffinityConditionBlessed)
+            .AddToDB();
+
+        var powerProtection = FeatureDefinitionPowerBuilder
+            .Create($"Power{Name}Protection")
+            .SetGuiPresentation(Category.Feature, SpellDefinitions.Bless)
+            .SetUsesFixed(ActivationTime.PermanentUnlessIncapacitated)
+            .SetEffectDescription(EffectDescriptionBuilder
+                .Create()
+                .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Cube, 5)
+                .SetDurationData(DurationType.Permanent)
+                .SetRecurrentEffect(
+                    RecurrentEffect.OnActivation | RecurrentEffect.OnEnter | RecurrentEffect.OnTurnStart)
+                .SetEffectForms(
+                    EffectFormBuilder
+                        .Create()
+                        .SetConditionForm(conditionProtection, ConditionForm.ConditionOperation.Add,
+                            false,
+                            false)
+                        .Build())
+                .Build())
+            .SetShowCasting(false)
+            .AddToDB();
+
         Subclass = CharacterSubclassDefinitionBuilder
-            .Create("MartialRoyalKnight")
+            .Create($"Martial{Name}")
             .SetGuiPresentation(Category.Subclass,
                 Sprites.GetSprite("MartialRoyalKnight", Resources.MartialRoyalKnight, 256))
             .AddFeaturesAtLevel(3,
-                powerRoyalKnightRallyingCry)
+                powerRallyingCry)
             .AddFeaturesAtLevel(7,
-                featureSetRoyalKnightRoyalEnvoy)
+                featureSetRoyalEnvoy)
             .AddFeaturesAtLevel(10,
-                powerRoyalKnightInspiringSurge)
+                powerInspiringSurge)
+            .AddFeaturesAtLevel(15,
+                powerProtection)
             .AddToDB();
     }
 

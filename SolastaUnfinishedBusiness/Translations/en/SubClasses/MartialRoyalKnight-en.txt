@@ -2,7 +2,9 @@
 Feature/&FeatureSetRoyalKnightRoyalEnvoyTitle=Royal Envoy
 Feature/&PowerRoyalKnightInspiringSurgeDescription=As a bonus action, you can grant an ally an additional main action for 1 round. This action does not stack with Action Surge. Once you use this feature, you can't use it again until you finish a long rest.
 Feature/&PowerRoyalKnightInspiringSurgeTitle=Inspiring Surge
-Feature/&PowerRoyalKnightRallyingCryDescription=Replaces Second Wind with a power that restores hit points equal to 4x your Fighter Level, distributed evenly, to one or more allies within 6 cells. Can be used a number of times equal to your CHA modifier (minimum of once) per short rest.
+Feature/&PowerRoyalKnightProtectionDescription=The inspiration of the royal knight inspires his party member. Allies within 10 feet of him add 1d4 to attack roll and saving throw.
+Feature/&PowerRoyalKnightProtectionTitle=Protection
+Feature/&PowerRoyalKnightRallyingCryDescription=Replaces Second Wind with a power that restores hit points equal to 4x your Fighter Level, distributed evenly, to one or more allies within 6 cells. You can use a number of times equal to your charisma modifier per short rest.
 Feature/&PowerRoyalKnightRallyingCryTitle=Rallying Cry
 Subclass/&MartialRoyalKnightDescription=A knight who inspires greatness in others by committing brave deeds in battle. A Royal Knight is a skilled warrior, but one leading a band of allies can transform even the most poorly equipped militia into a ferocious war band.
 Subclass/&MartialRoyalKnightTitle=Royal Knight

@@ -2,7 +2,9 @@
 Feature/&FeatureSetRoyalKnightRoyalEnvoyTitle=皇家特使
 Feature/&PowerRoyalKnightInspiringSurgeDescription=作为附赠动作，你可以授予一个盟友一个额外的主要动作，持续 1 轮。此动作不与 Action Surge 叠加。一旦你使用了这个特性，在你完成一次长休之前你不能再次使用它。
 Feature/&PowerRoyalKnightInspiringSurgeTitle=鼓舞人心的浪潮
-Feature/&PowerRoyalKnightRallyingCryDescription=用恢复 4 倍战士等级生命值的力量取代复苏之风，平均分配给 6 格内的一个或多个盟友。每次短休可以使用的次数等于您的 CHA 修正值（最少一次）。
+Feature/&PowerRoyalKnightProtectionDescription=皇家骑士的灵感启发了他的党员。他 10 英尺内的盟友在攻击掷骰和豁免检定上增加 1d4。
+Feature/&PowerRoyalKnightProtectionTitle=保护
+Feature/&PowerRoyalKnightRallyingCryDescription=将复苏之风替换为一种恢复生命值的力量，该力量等于您战士等级的 4 倍，均匀分配给 6 格内的一个或多个盟友。你每次短休可以使用的次数等于你的魅力调整值。
 Feature/&PowerRoyalKnightRallyingCryTitle=集结呐喊
-Subclass/&MartialRoyalKnightDescription=一个通过在战斗中做出勇敢的事迹来激发他人伟大的骑士。皇家骑士是一名技术娴熟的战士，但领导一队盟友甚至可以将装备最差的民兵转变为一支凶猛的战队。
+Subclass/&MartialRoyalKnightDescription=一个通过在战斗中做出勇敢的事迹来激发他人伟大的骑士。皇家骑士是一名技术娴熟的战士，但领导一队盟友甚至可以将装备最差的民兵变成一支凶猛的战队。
 Subclass/&MartialRoyalKnightTitle=皇家骑士
