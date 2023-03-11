@@ -602,6 +602,46 @@ namespace SolastaUnfinishedBusiness.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
+        public static byte[] CollegeOfGuts {
+            get {
+                object obj = ResourceManager.GetObject("CollegeOfGuts", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        public static byte[] CollegeOfHarlequin {
+            get {
+                object obj = ResourceManager.GetObject("CollegeOfHarlequin", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        public static byte[] CollegeOfLife {
+            get {
+                object obj = ResourceManager.GetObject("CollegeOfLife", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        public static byte[] CollegeOfWarDancer {
+            get {
+                object obj = ResourceManager.GetObject("CollegeOfWarDancer", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
         public static byte[] ConditionGambit {
             get {
                 object obj = ResourceManager.GetObject("ConditionGambit", resourceCulture);
@@ -1898,6 +1938,16 @@ namespace SolastaUnfinishedBusiness.Properties {
         public static byte[] RoguishDuelist {
             get {
                 object obj = ResourceManager.GetObject("RoguishDuelist", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        public static byte[] RoguishOpportunist {
+            get {
+                object obj = ResourceManager.GetObject("RoguishOpportunist", resourceCulture);
                 return ((byte[])(obj));
             }
         }

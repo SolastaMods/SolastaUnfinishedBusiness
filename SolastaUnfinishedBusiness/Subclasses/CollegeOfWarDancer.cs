@@ -8,6 +8,7 @@ using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomUI;
+using SolastaUnfinishedBusiness.Properties;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 
@@ -85,7 +86,8 @@ internal sealed class CollegeOfWarDancer : AbstractSubclass
 
         Subclass = CharacterSubclassDefinitionBuilder
             .Create("CollegeOfWarDancer")
-            .SetOrUpdateGuiPresentation(Category.Subclass, CharacterSubclassDefinitions.RangerSwiftBlade)
+            .SetGuiPresentation(Category.Subclass,
+                Sprites.GetSprite("CollegeOfWarDancer", Resources.CollegeOfWarDancer, 256))
             .AddFeaturesAtLevel(3, warDance, CommonBuilders.FeatureSetCasterFightingProficiency,
                 CommonBuilders.MagicAffinityCasterFightingCombatMagic)
             .AddFeaturesAtLevel(6, ImproveWarDance)

@@ -3,9 +3,10 @@ using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
+using SolastaUnfinishedBusiness.CustomUI;
+using SolastaUnfinishedBusiness.Properties;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
-using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterSubclassDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.ConditionDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionDamageAffinitys;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
@@ -158,7 +159,7 @@ internal sealed class CollegeOfLife : AbstractSubclass
 
         Subclass = CharacterSubclassDefinitionBuilder
             .Create("CollegeOfLife")
-            .SetGuiPresentation(Category.Subclass, RoguishDarkweaver)
+            .SetGuiPresentation(Category.Subclass, Sprites.GetSprite("CollegeOfLife", Resources.CollegeOfLife, 256))
             .AddFeaturesAtLevel(3,
                 MagicAffinityCollegeOfLifeHeightened)
             .AddFeaturesAtLevel(6,
