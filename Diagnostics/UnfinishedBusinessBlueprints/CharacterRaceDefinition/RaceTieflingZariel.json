@@ -217,7 +217,7 @@
   },
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
-    "hidden": false,
+    "hidden": true,
     "title": "Race/&RaceTieflingZarielTitle",
     "description": "Race/&RaceTieflingZarielDescription",
     "spriteReference": {
