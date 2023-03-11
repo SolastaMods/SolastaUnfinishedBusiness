@@ -13,7 +13,17 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:FeatureSoulBladeHex:96d71670-85c0-50d0-bb43-68e3f760a5dd",
+      "level": 1
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:PowerSoulBladeEmpowerWeapon:f0387894-e020-5e52-92d5-f5b88bb6997d",
+      "level": 1
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:PowerSoulBladeHex:69e37e4d-0066-59f9-b884-ac9c4c35279c",
       "level": 1
     },
     {
@@ -25,6 +35,11 @@
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:PowerSoulBladeSoulShield:66b84def-ee8c-59de-bf91-055011cf192b",
       "level": 10
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:FeatureSetSoulBladeMasterHex:b96d1a43-4f11-5e10-8475-8752ad95ad74",
+      "level": 14
     }
   ],
   "personalityFlagOccurences": [],
