@@ -319,7 +319,8 @@ internal sealed class MartialMarshal : AbstractSubclass
                 .SetEffectForms(
                     EffectFormBuilder
                         .Create()
-                        .SetConditionForm(ConditionEncourage, ConditionForm.ConditionOperation.Add, false,
+                        .SetConditionForm(ConditionEncourage, ConditionForm.ConditionOperation.Add,
+                            false,
                             false)
                         .Build())
                 .Build())
@@ -336,14 +337,15 @@ internal sealed class MartialMarshal : AbstractSubclass
             .SetUsesFixed(ActivationTime.PermanentUnlessIncapacitated)
             .SetEffectDescription(EffectDescriptionBuilder
                 .Create()
-                .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Cube, 13)
+                .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Cube, 9)
                 .SetDurationData(DurationType.Permanent)
                 .SetRecurrentEffect(
                     RecurrentEffect.OnActivation | RecurrentEffect.OnEnter | RecurrentEffect.OnTurnStart)
                 .SetEffectForms(
                     EffectFormBuilder
                         .Create()
-                        .SetConditionForm(ConditionEncourage, ConditionForm.ConditionOperation.Add, false,
+                        .SetConditionForm(ConditionEncourage, ConditionForm.ConditionOperation.Add,
+                            false,
                             false)
                         .Build())
                 .Build())
