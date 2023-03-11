@@ -6,3 +6,5 @@ UI/&This simple party editor lets you edit characters in a loaded game session. 
 UI/&****** Party Editor unavailable: Please load a save game ******=****** Party Editor unavailable: Please load a save game ******
 UI/&Add=Add
 UI/&Remove=Remove
+UI/&Skilled=Skilled
+UI/&Expert=Expert

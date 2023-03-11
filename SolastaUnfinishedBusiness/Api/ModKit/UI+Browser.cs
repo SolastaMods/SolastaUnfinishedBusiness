@@ -126,24 +126,18 @@ internal static partial class UI
                     else
                         63.Space();
                     Space(10f);
-                    Label($"{stringValue}".Orange().Bold(), Width(30));
+                    Label($"{stringValue}".Orange().Bold(), Width(100));
                     if (incrementValue != null && incrementValue(target, item) is Action incrementer)
                         ActionButton(">", incrementer, 60.Width());
                     else
                         63.Space();
-                    remWidth -= 166;
                 }
                 UI.Space(30);
                 if (addItem != null && addItem(target, definition) is Action add)
                     ActionButton("Add".Localized(), add, 150.Width());
-                else
-                    153.Space();
-                remWidth -= 153;
-                Space(10); remWidth -= 10;
+               Space(10); remWidth -= 10;
                 if (item != null && removeItem != null && removeItem(target, item) is Action remove)
                     ActionButton("Remove".Localized(), remove, 175.Width());
-                else
-                    178.Space();
                 remWidth -= 178;
                 Space(20); remWidth -= 20;
                 using (VerticalScope())
