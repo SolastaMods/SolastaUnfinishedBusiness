@@ -2,9 +2,11 @@
 
 1.4.33.58:
 
-- added Fighting Styles sprites
+- changed Soul Blade with a new Hex power on 1, a Master Hex on 14 and a new expanded spell list
 - fixed Bow Mastery allowing extra attack if first one was melee and hero switches to a shortbow
 - fixed Cleaving Attack allowing extra attack if first one was melee and hero switches to ranged
+- fixed Martial Marshal's encouragement granting the condition to allies outside the effect area
+- removed Gnome and Tiefling races from mod UI but still kept backward compatibility until 05/23
 
 1.4.33.57:
 

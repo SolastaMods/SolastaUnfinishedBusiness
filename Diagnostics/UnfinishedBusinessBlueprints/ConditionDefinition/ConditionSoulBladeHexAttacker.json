@@ -4,19 +4,20 @@
   "parentCondition": null,
   "conditionType": "Beneficial",
   "features": [
-    "Definition:CombatAffinityBlessed:dfb4c85b4bcf8ea46822f0996ead93af",
-    "Definition:SavingThrowAffinityConditionBlessed:b5cbcccf984fdec45be2f818f4757921"
+    "Definition:AdditionalDamageSoulBladeHex:dd3accaa-c01a-5e52-bed5-4e0873ce38a3",
+    "Definition:AttributeModifierSoulBladeHex:f44b9888-7338-5f73-8496-aa65a040336e",
+    "Definition:TargetReducedToZeroHpSoulBladeHex:4f093382-c977-552b-a75b-86ab564badb2"
   ],
   "allowMultipleInstances": false,
   "silentWhenAdded": true,
   "silentWhenRemoved": true,
   "terminateWhenRemoved": false,
-  "specialDuration": false,
-  "durationType": "Hour",
-  "durationParameterDie": "D4",
+  "specialDuration": true,
+  "durationType": "Round",
+  "durationParameterDie": "D1",
   "durationParameter": 1,
   "forceTurnOccurence": false,
-  "turnOccurence": "EndOfTurn",
+  "turnOccurence": "StartOfTurn",
   "specialInterruptions": [],
   "interruptionRequiresSavingThrow": false,
   "interruptionSavingThrowComputationMethod": "SaveOverride",
@@ -128,14 +129,14 @@
   },
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
-    "hidden": false,
-    "title": "Feature/&PowerMarshalEncouragementTitle",
-    "description": "Feature/&PowerMarshalEncouragementDescription",
+    "hidden": true,
+    "title": "Feature/&NoContentTitle",
+    "description": "Feature/&NoContentTitle",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "7e8c5d4d891953345b54b82e51c6d884",
-      "m_SubObjectName": "ConditionPositive",
-      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+      "m_AssetGUID": "",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
@@ -150,7 +151,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "d912ad3f-cfe9-5be7-85e5-db5f3baf823b",
+  "guid": "16816bb1-0f32-5c0f-9d63-a7b35f16b50f",
   "contentPack": 9999,
-  "name": "ConditionMarshalEncouraged"
+  "name": "ConditionSoulBladeHexAttacker"
 }

@@ -2,14 +2,11 @@
   "$type": "ConditionDefinition, Assembly-CSharp",
   "inDungeonEditor": false,
   "parentCondition": null,
-  "conditionType": "Beneficial",
-  "features": [
-    "Definition:CombatAffinityBlessed:dfb4c85b4bcf8ea46822f0996ead93af",
-    "Definition:SavingThrowAffinityConditionBlessed:b5cbcccf984fdec45be2f818f4757921"
-  ],
+  "conditionType": "Detrimental",
+  "features": [],
   "allowMultipleInstances": false,
-  "silentWhenAdded": true,
-  "silentWhenRemoved": true,
+  "silentWhenAdded": false,
+  "silentWhenRemoved": false,
   "terminateWhenRemoved": false,
   "specialDuration": false,
   "durationType": "Hour",
@@ -129,12 +126,12 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&PowerMarshalEncouragementTitle",
-    "description": "Feature/&PowerMarshalEncouragementDescription",
+    "title": "Condition/&ConditionSoulBladeHexDefenderTitle",
+    "description": "Condition/&ConditionSoulBladeHexDefenderDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "7e8c5d4d891953345b54b82e51c6d884",
-      "m_SubObjectName": "ConditionPositive",
+      "m_AssetGUID": "94b1c2ba7b2f95049af55da16899fc86",
+      "m_SubObjectName": "ConditionTargeted",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {
@@ -150,7 +147,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "d912ad3f-cfe9-5be7-85e5-db5f3baf823b",
+  "guid": "bb7f4c4e-c04d-52de-9f24-a18c7bd6a3f4",
   "contentPack": 9999,
-  "name": "ConditionMarshalEncouraged"
+  "name": "ConditionSoulBladeHexDefender"
 }

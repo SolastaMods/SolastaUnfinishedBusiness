@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Settings xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <SelectedTab>2</SelectedTab>
+  <SelectedTab>0</SelectedTab>
   <EnableDiagsDump>0</EnableDiagsDump>
   <HideWelcomeMessage>true</HideWelcomeMessage>
   <DisplayRacesToggle>false</DisplayRacesToggle>
@@ -145,11 +145,9 @@
   <RaceEnabled>
     <string>RaceBolgrif</string>
     <string>RaceDarkelf</string>
-    <string>RaceGnome</string>
     <string>RaceGrayDwarf</string>
     <string>RaceHalfElfVariant</string>
     <string>RaceKobold</string>
-    <string>RaceTiefling</string>
   </RaceEnabled>
   <BackgroundSliderPosition>4</BackgroundSliderPosition>
   <BackgroundEnabled />
@@ -168,6 +166,7 @@
     <string>CollegeOfLife</string>
     <string>CollegeOfWarDancer</string>
     <string>DomainDefiler</string>
+    <string>DomainSmith</string>
     <string>CircleOfTheAncientForest</string>
     <string>CircleOfTheForestGuardian</string>
     <string>CircleOfTheNight</string>
@@ -180,9 +179,11 @@
     <string>OathOfHatred</string>
     <string>RangerArcanist</string>
     <string>RangerWildMaster</string>
+    <string>RoguishArcaneScoundrel</string>
     <string>RoguishDuelist</string>
     <string>RoguishOpportunist</string>
     <string>RoguishRaven</string>
+    <string>RoguishSlayer</string>
     <string>SorcerousDivineHeart</string>
     <string>FieldManipulator</string>
     <string>WayOfTheDiscordance</string>
@@ -197,8 +198,6 @@
     <string>WizardBladeDancer</string>
     <string>WizardDeadMaster</string>
     <string>WizardSpellMaster</string>
-    <string>RoguishArcaneScoundrel</string>
-    <string>RoguishSlayer</string>
   </SubclassEnabled>
   <FeatSliderPosition>4</FeatSliderPosition>
   <FeatEnabled>
@@ -851,6 +850,7 @@
   <RestockArcaneum>true</RestockArcaneum>
   <RestockCircleOfDanantar>true</RestockCircleOfDanantar>
   <RestockTowerOfKnowledge>true</RestockTowerOfKnowledge>
+  <DisableAutoUpdate>false</DisableAutoUpdate>
   <EnableBetaContent>true</EnableBetaContent>
   <EnableSaveByLocation>true</EnableSaveByLocation>
   <EnableRespec>true</EnableRespec>

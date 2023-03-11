@@ -12,8 +12,8 @@
       "$type": "SpellListDefinition+SpellsByLevelDuplet, Assembly-CSharp",
       "level": 1,
       "spells": [
-        "Definition:FalseLife:97d70ac4c94f31540aa7b7e1555b7a49",
-        "Definition:Shield:f69bd9c9375fc074a90043c42f9868fe"
+        "Definition:Shield:f69bd9c9375fc074a90043c42f9868fe",
+        "Definition:WrathfulSmite:c1a7d5e1-d9f5-589a-a27e-8b97119c31c3"
       ]
     },
     {
@@ -28,24 +28,24 @@
       "$type": "SpellListDefinition+SpellsByLevelDuplet, Assembly-CSharp",
       "level": 3,
       "spells": [
-        "Definition:Haste:134efafc59c7c58438b711271fb2c785",
-        "Definition:Slow:ee93dd5046aabe14e90ba99da310fbb4"
+        "Definition:BlindingSmite:4840cef2-e39f-58f6-8a1d-0968f87008e7",
+        "Definition:ElementalWeapon:f928808f-2083-5f5b-b72c-241c312bdac4"
       ]
     },
     {
       "$type": "SpellListDefinition+SpellsByLevelDuplet, Assembly-CSharp",
       "level": 4,
       "spells": [
-        "Definition:BlackTentacles:3ed042e75b44763479efbc4b9680dd3a",
-        "Definition:PhantasmalKiller:d132436fd5250d34f973848ca4ac985f"
+        "Definition:PhantasmalKiller:d132436fd5250d34f973848ca4ac985f",
+        "Definition:StaggeringSmite:3a1b232b-486f-5dcb-b5ab-1ab4bd378fb7"
       ]
     },
     {
       "$type": "SpellListDefinition+SpellsByLevelDuplet, Assembly-CSharp",
       "level": 5,
       "spells": [
-        "Definition:ConeOfCold:4014172b09c7b0347911d81077d7ba0c",
-        "Definition:MindTwist:88c5c5e07eb13684998c75c11492fdd5"
+        "Definition:BanishingSmite:ee3bc0bd-17a3-5c6f-ab87-978f4e86e3ab",
+        "Definition:ConeOfCold:4014172b09c7b0347911d81077d7ba0c"
       ]
     },
     {

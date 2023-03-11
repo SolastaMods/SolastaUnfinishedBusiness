@@ -1,0 +1,40 @@
+{
+  "$type": "FeatureDefinitionFeatureSet, Assembly-CSharp",
+  "featureSet": [
+    "Definition:PowerSoulBladeMasterHex:a7c9e76b-7132-58dd-bea7-a70bce4166d9"
+  ],
+  "mode": "Union",
+  "ancestryDamageTypeMap": [],
+  "ancestryType": "Sorcerer",
+  "defaultSelection": 0,
+  "uniqueChoices": false,
+  "enumerateInDescription": false,
+  "hasRacialAffinity": false,
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feature/&FeatureSetSoulBladeMasterHexTitle",
+    "description": "Feature/&FeatureSetSoulBladeMasterHexDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "b96d1a43-4f11-5e10-8475-8752ad95ad74",
+  "contentPack": 9999,
+  "name": "FeatureSetSoulBladeMasterHex"
+}

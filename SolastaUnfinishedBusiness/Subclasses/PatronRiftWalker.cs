@@ -99,7 +99,7 @@ internal class PatronRiftWalker : AbstractSubclass
 
         Subclass = CharacterSubclassDefinitionBuilder
             .Create("PatronRiftWalker")
-            .SetGuiPresentation(Category.Subclass, Sprites.GetSprite("PatronMoonlit", Resources.PatronMoonlit, 256))
+            .SetGuiPresentation(Category.Subclass, Sprites.GetSprite("PatronRiftWalker", Resources.PatronRiftWalker, 256))
             .AddFeaturesAtLevel(1,
                 magicAffinityRiftWalkerExpandedSpells,
                 powerRiftWalkerRiftWalk,
