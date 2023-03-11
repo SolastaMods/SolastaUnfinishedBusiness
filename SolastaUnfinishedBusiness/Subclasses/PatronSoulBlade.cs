@@ -83,8 +83,8 @@ internal sealed class PatronSoulBlade : AbstractSubclass
         var attributeModifierHex = FeatureDefinitionAttributeModifierBuilder
             .Create("AttributeModifierSoulBladeHex")
             .SetGuiPresentationNoContent(true)
-            .SetModifier(FeatureDefinitionAttributeModifier.AttributeModifierOperation.Set,
-                AttributeDefinitions.CriticalThreshold, 19)
+            .SetModifier(FeatureDefinitionAttributeModifier.AttributeModifierOperation.Additive,
+                AttributeDefinitions.CriticalThreshold, -1)
             .AddToDB();
 
         var targetReducedToZeroHpSoulBladeHex = FeatureDefinitionBuilder
