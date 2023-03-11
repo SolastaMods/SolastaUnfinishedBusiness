@@ -40,7 +40,7 @@ public static class PartyEditor
     internal static void OnGUI()
     {
         Label("Experimental Preview:".Localized().Orange().Bold() + " " +
-              "This simple party editor lets you edit characters in a loaded game session. Right now it lets you edit your character's first and last name. More features are coming soon (tm). Please click on the following to report issues:"
+              "This simple party editor lets you edit characters in a loaded game session. Please click on the following to report issues:"
                   .Localized().Green());
         LinkButton("https://github.com/SolastaMods/SolastaUnfinishedBusiness/issues",
             "https://github.com/SolastaMods/SolastaUnfinishedBusiness/issues");
