@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Linq;
+﻿using System.Linq;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Builders;
@@ -21,6 +20,10 @@ internal sealed class PatronSoulBlade : AbstractSubclass
 {
     internal PatronSoulBlade()
     {
+        //
+        // LEVEL 01
+        //
+
         var spellListSoulBlade = SpellListDefinitionBuilder
             .Create(SpellListDefinitions.SpellListWizard, "SpellListSoulBlade")
             .SetGuiPresentationNoContent(true)
@@ -73,9 +76,7 @@ internal sealed class PatronSoulBlade : AbstractSubclass
                 .Build())
             .AddToDB();
 
-        // Soul Hex
-
-        var spriteSoulHex = Sprites.GetSprite("PowerSoulHex", Resources.PowerSoulHex, 256, 128);
+        // Common Hex Feature
 
         var additionalDamageHex = FeatureDefinitionAdditionalDamageBuilder
             .Create("AdditionalDamageSoulBladeHex")
@@ -105,7 +106,6 @@ internal sealed class PatronSoulBlade : AbstractSubclass
             .SetConditionType(ConditionType.Detrimental)
             .AddToDB();
 
-        // keep this apart to support both Soul Hex and Master Hex
         var featureHex = FeatureDefinitionBuilder
             .Create("FeatureSoulBladeHex")
             .SetGuiPresentationNoContent(true)
@@ -113,9 +113,13 @@ internal sealed class PatronSoulBlade : AbstractSubclass
                 new OnComputeAttackModifierHex(conditionHexAttacker, conditionHexDefender))
             .AddToDB();
 
-        var powerSoulHex = FeatureDefinitionPowerBuilder
-            .Create("PowerSoulBladeHex")
-            .SetGuiPresentation(Category.Feature, spriteSoulHex)
+        var spriteSoulHex = Sprites.GetSprite("PowerSoulHex", Resources.PowerSoulHex, 256, 128);
+
+        // Soul Hex - Basic
+
+        var powerBasicHex = FeatureDefinitionPowerBuilder
+            .Create("PowerSoulBladeBasicHex")
+            .SetGuiPresentation("PowerSoulBladeHex", Category.Feature, spriteSoulHex)
             .SetUsesFixed(ActivationTime.BonusAction, RechargeRate.ShortRest)
             .SetShowCasting(true)
             .SetEffectDescription(
@@ -131,7 +135,32 @@ internal sealed class PatronSoulBlade : AbstractSubclass
                     .Build())
             .AddToDB();
 
-        conditionHexDefender.SetCustomSubFeatures(new NotifyConditionRemovalHex(powerSoulHex, conditionHexDefender));
+        conditionHexDefender.SetCustomSubFeatures(new NotifyConditionRemovalHex(powerBasicHex, conditionHexDefender));
+
+        //
+        // LEVEL 06
+        //
+
+        // Soul Hex - Intermediate
+
+        var powerIntermediateHex = FeatureDefinitionPowerBuilder
+            .Create("PowerSoulBladeIntermediateHex")
+            .SetGuiPresentation("PowerSoulBladeHex", Category.Feature, spriteSoulHex)
+            .SetUsesFixed(ActivationTime.BonusAction, RechargeRate.ShortRest, 1, 2)
+            .SetShowCasting(true)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetTargetingData(Side.Enemy, RangeType.Distance, 12, TargetType.IndividualsUnique)
+                    .SetDurationData(DurationType.Minute, 1)
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .SetConditionForm(conditionHexDefender, ConditionForm.ConditionOperation.Add)
+                            .Build())
+                    .Build())
+            .SetOverriddenPower(powerBasicHex)
+            .AddToDB();
 
         // Summon Pact Weapon
 
@@ -150,33 +179,24 @@ internal sealed class PatronSoulBlade : AbstractSubclass
 
         powerSoulBladeSummonPactWeapon.EffectDescription.savingThrowDifficultyAbility = AttributeDefinitions.Charisma;
 
-        // Soul Shield
-
-        var powerSoulBladeSoulShield = FeatureDefinitionPowerBuilder
-            .Create("PowerSoulBladeSoulShield")
-            .SetGuiPresentation(Category.Feature, PowerFighterSecondWind)
-            .SetUsesFixed(ActivationTime.BonusAction, RechargeRate.ShortRest)
-            .SetExplicitAbilityScore(AttributeDefinitions.Charisma)
-            .SetEffectDescription(
-                EffectDescriptionBuilder
-                    .Create(PowerFighterSecondWind.EffectDescription)
-                    .SetDurationData(DurationType.UntilLongRest)
-                    .SetEffectForms(
-                        EffectFormBuilder
-                            .Create()
-                            .SetTempHpForm()
-                            .SetLevelAdvancement(EffectForm.LevelApplianceType.AddBonus, LevelSourceType.ClassLevel)
-                            .SetBonusMode(AddBonusMode.AbilityBonus)
-                            .Build())
-                    .Build())
+        var featureSetLevel06 = FeatureDefinitionFeatureSetBuilder
+            .Create("FeatureSetSoulBladeLevel06")
+            .SetGuiPresentation(Category.Feature)
+            .AddFeatureSet(
+                powerIntermediateHex,
+                powerSoulBladeSummonPactWeapon)
             .AddToDB();
 
-        // Master Hex
+        //
+        // LEVEL 10
+        //
 
-        var powerMasterHex = FeatureDefinitionPowerBuilder
-            .Create("PowerSoulBladeMasterHex")
+        // Soul Hex - Advanced
+
+        var powerAdvancedHex = FeatureDefinitionPowerBuilder
+            .Create("PowerSoulBladeAdvancedHex")
             .SetGuiPresentation("PowerSoulBladeHex", Category.Feature, spriteSoulHex)
-            .SetUsesFixed(ActivationTime.BonusAction, RechargeRate.ShortRest, 1, 2)
+            .SetUsesFixed(ActivationTime.BonusAction, RechargeRate.ShortRest, 1, 3)
             .SetShowCasting(true)
             .SetEffectDescription(
                 EffectDescriptionBuilder
@@ -189,13 +209,89 @@ internal sealed class PatronSoulBlade : AbstractSubclass
                             .SetConditionForm(conditionHexDefender, ConditionForm.ConditionOperation.Add)
                             .Build())
                     .Build())
-            .SetOverriddenPower(powerSoulHex)
+            .SetOverriddenPower(powerBasicHex)
             .AddToDB();
 
-        var featureSetMasterHex = FeatureDefinitionFeatureSetBuilder
-            .Create("FeatureSetSoulBladeMasterHex")
+        // Soul Shield
+
+        var effectDescriptionSoulShield = EffectDescriptionBuilder
+            .Create()
+            .SetDurationData(DurationType.Round, 1, TurnOccurenceType.StartOfTurn)
+            .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
+            .SetEffectForms(
+                EffectFormBuilder
+                    .Create()
+                    .SetConditionForm(
+                        ConditionDefinitionBuilder
+                            .Create("ConditionSoulBladeSoulShield")
+                            .SetFeatures(
+                                FeatureDefinitionAttributeModifierBuilder
+                                    .Create("AttributeModifierSoulBladeSoulShield")
+                                    .SetGuiPresentation("PowerSoulBladeSoulShield", Category.Feature)
+                                    .SetModifier(
+                                        FeatureDefinitionAttributeModifier.AttributeModifierOperation.Additive,
+                                        AttributeDefinitions.ArmorClass,
+                                        5)
+                                    .AddToDB())
+                            .AddToDB(),
+                        ConditionForm.ConditionOperation.Add)
+                    .Build())
+            .Build();
+
+        var powerSoulBladeSoulShieldBasic = FeatureDefinitionPowerBuilder
+            .Create("PowerSoulBladeSoulShieldBasic")
+            .SetGuiPresentation("PowerSoulBladeSoulShield", Category.Feature, PowerFighterSecondWind)
+            .SetUsesFixed(ActivationTime.Reaction, RechargeRate.ShortRest)
+            .SetEffectDescription(effectDescriptionSoulShield)
+            .SetReactionContext(ReactionTriggerContext.HitByMelee)
+            .AddToDB();
+
+        var featureSetLevel10 = FeatureDefinitionFeatureSetBuilder
+            .Create("FeatureSetSoulBladeLevel10")
             .SetGuiPresentation(Category.Feature)
-            .AddFeatureSet(powerMasterHex)
+            .AddFeatureSet(
+                powerAdvancedHex,
+                powerSoulBladeSoulShieldBasic)
+            .AddToDB();
+
+        // Master Hex
+
+        var powerMasterHex = FeatureDefinitionPowerBuilder
+            .Create("PowerSoulBladeMasterHex")
+            .SetGuiPresentation("PowerSoulBladeHex", Category.Feature, spriteSoulHex)
+            .SetUsesFixed(ActivationTime.BonusAction, RechargeRate.ShortRest, 1, 4)
+            .SetShowCasting(true)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetTargetingData(Side.Enemy, RangeType.Distance, 12, TargetType.IndividualsUnique)
+                    .SetDurationData(DurationType.Minute, 1)
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .SetConditionForm(conditionHexDefender, ConditionForm.ConditionOperation.Add)
+                            .Build())
+                    .Build())
+            .SetOverriddenPower(powerIntermediateHex)
+            .AddToDB();
+
+        // Master Soul Shield
+
+        var powerSoulBladeSoulShieldAdvanced = FeatureDefinitionPowerBuilder
+            .Create("PowerSoulBladeSoulShieldAdvanced")
+            .SetGuiPresentation("PowerSoulBladeSoulShield", Category.Feature, PowerFighterSecondWind)
+            .SetUsesFixed(ActivationTime.Reaction, RechargeRate.ShortRest, 2)
+            .SetEffectDescription(effectDescriptionSoulShield)
+            .SetReactionContext(ReactionTriggerContext.HitByMelee)
+            .SetOverriddenPower(powerSoulBladeSoulShieldBasic)
+            .AddToDB();
+
+        var featureSetLevel14 = FeatureDefinitionFeatureSetBuilder
+            .Create("FeatureSetSoulBladeLevel14")
+            .SetGuiPresentation(Category.Feature)
+            .AddFeatureSet(
+                powerMasterHex,
+                powerSoulBladeSoulShieldAdvanced)
             .AddToDB();
 
         Subclass = CharacterSubclassDefinitionBuilder
@@ -206,14 +302,14 @@ internal sealed class PatronSoulBlade : AbstractSubclass
                 FeatureSetCasterFightingProficiency,
                 magicAffinitySoulBladeExpandedSpells,
                 featureHex,
-                powerSoulHex,
+                powerBasicHex,
                 powerSoulBladeEmpowerWeapon)
             .AddFeaturesAtLevel(6,
-                powerSoulBladeSummonPactWeapon)
+                featureSetLevel06)
             .AddFeaturesAtLevel(10,
-                powerSoulBladeSoulShield)
+                featureSetLevel10)
             .AddFeaturesAtLevel(14,
-                featureSetMasterHex)
+                featureSetLevel14)
             .AddToDB();
     }
 
@@ -298,8 +394,8 @@ internal sealed class PatronSoulBlade : AbstractSubclass
 
     private sealed class NotifyConditionRemovalHex : INotifyConditionRemoval
     {
-        private readonly FeatureDefinition _featureUsed;
         private readonly ConditionDefinition _conditionHexDefender;
+        private readonly FeatureDefinition _featureUsed;
 
         public NotifyConditionRemovalHex(FeatureDefinition featureUsed, ConditionDefinition conditionHexDefender)
         {
