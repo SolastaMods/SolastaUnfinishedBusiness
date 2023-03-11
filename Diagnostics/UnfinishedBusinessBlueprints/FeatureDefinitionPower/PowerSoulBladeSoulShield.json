@@ -8,7 +8,7 @@
     "hitAffinitiesByTargetTag": [],
     "targetType": "Self",
     "itemSelectionType": "Equiped",
-    "targetParameter": 1,
+    "targetParameter": 0,
     "targetParameter2": 2,
     "emissiveBorder": "None",
     "emissiveParameter": 1,
@@ -31,9 +31,9 @@
     "targetConditionName": "",
     "targetConditionAsset": null,
     "targetSide": "Enemy",
-    "durationType": "UntilLongRest",
+    "durationType": "Round",
     "durationParameter": 0,
-    "endOfEffect": "EndOfTurn",
+    "endOfEffect": "StartOfTurn",
     "hasSavingThrow": false,
     "disableSavingThrowOnAllies": false,
     "savingThrowAbility": "Dexterity",
@@ -42,7 +42,7 @@
     "rollSaveOnlyIfRelevantForms": false,
     "hasShoveRoll": false,
     "createdByCharacter": true,
-    "difficultyClassComputation": "AbilityScoreAndProficiency",
+    "difficultyClassComputation": "SpellCastingFeature",
     "savingThrowDifficultyAbility": "Wisdom",
     "fixedSavingThrowDifficultyClass": 15,
     "savingThrowAffinitiesBySense": [],
@@ -62,25 +62,27 @@
     "effectForms": [
       {
         "$type": "EffectForm, Assembly-CSharp",
-        "formType": "TemporaryHitPoints",
-        "addBonusMode": "AbilityBonus",
-        "applyLevel": "AddBonus",
+        "formType": "Condition",
+        "addBonusMode": "None",
+        "applyLevel": "No",
         "levelType": "ClassLevel",
         "levelMultiplier": 1,
         "diceByLevelTable": [],
-        "createdByCharacter": false,
+        "createdByCharacter": true,
         "createdByCondition": false,
         "hasSavingThrow": false,
         "savingThrowAffinity": "None",
         "dcModifier": 0,
         "canSaveToCancel": false,
         "saveOccurence": "EndOfTurn",
-        "temporaryHitPointsForm": {
-          "$type": "TemporaryHitPointsForm, Assembly-CSharp",
-          "diceNumber": 0,
-          "dieType": "D1",
-          "bonusHitPoints": 0,
-          "applyToSelf": false
+        "conditionForm": {
+          "$type": "ConditionForm, Assembly-CSharp",
+          "conditionDefinitionName": "ConditionShielded",
+          "conditionDefinition": "Definition:ConditionShielded:1ff7c2c05dd59b14abcc111867470c62",
+          "operation": "Add",
+          "conditionsList": [],
+          "applyToSelf": false,
+          "forceOnSelf": false
         },
         "hasFilterId": false,
         "filterId": 0
@@ -89,7 +91,7 @@
     "specialFormsDescription": "",
     "effectAdvancement": {
       "$type": "EffectAdvancement, Assembly-CSharp",
-      "effectIncrementMethod": "CasterLevelTable",
+      "effectIncrementMethod": "None",
       "incrementMultiplier": 1,
       "additionalTargetsPerIncrement": 0,
       "additionalSubtargetsPerIncrement": 0,
@@ -103,8 +105,8 @@
       "additionalWeaponDie": 0,
       "alteredDuration": "None"
     },
-    "speedType": "Instant",
-    "speedParameter": 10.0,
+    "speedType": "Fixed",
+    "speedParameter": 0.07,
     "offsetImpactTimeBasedOnDistance": false,
     "offsetImpactTimeBasedOnDistanceFactor": 0.1,
     "offsetImpactTimePerTarget": 0.0,
@@ -112,7 +114,7 @@
       "$type": "EffectParticleParameters, Assembly-CSharp",
       "casterParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "22cc9688abd50d746b794ad66897eaba",
+        "m_AssetGUID": "6a8b8119774067740a6895a72319a60d",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -124,7 +126,7 @@
       },
       "casterQuickSpellParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "",
+        "m_AssetGUID": "68726c9b0b4ffc7499d07d4b4c4f4ec1",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -245,7 +247,7 @@
       },
       "conditionStartParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "",
+        "m_AssetGUID": "a9d1125f03ed66a4482a3dc3be9308fc",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -257,7 +259,7 @@
       },
       "conditionEndParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "",
+        "m_AssetGUID": "e3712590851cdf84ba480fad91059b34",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -287,7 +289,7 @@
   "delegatedToAction": false,
   "surrogateToSpell": null,
   "triggeredBySpecialMove": false,
-  "activationTime": "BonusAction",
+  "activationTime": "Reaction",
   "autoActivationRequiredTargetSenseType": "None",
   "autoActivationRequiredTargetCreatureTag": "",
   "autoActivationPowerTag": "",
@@ -309,7 +311,7 @@
   "abilityScoreDetermination": "Explicit",
   "usesAbilityScoreName": "Charisma",
   "fixedUsesPerRecharge": 1,
-  "abilityScore": "Charisma",
+  "abilityScore": "Intelligence",
   "attackHitComputation": "AbilityScore",
   "fixedAttackHit": 0,
   "abilityScoreBonusToAttack": false,
