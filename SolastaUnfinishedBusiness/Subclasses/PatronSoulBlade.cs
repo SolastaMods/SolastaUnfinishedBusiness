@@ -107,7 +107,7 @@ internal sealed class PatronSoulBlade : AbstractSubclass
 
         var conditionHexDefender = ConditionDefinitionBuilder
             .Create("ConditionSoulBladeHexDefender")
-            .SetGuiPresentation(Category.Condition)
+            .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionBranded)
             .SetConditionType(ConditionType.Detrimental)
             .AddToDB();
 
@@ -138,13 +138,13 @@ internal sealed class PatronSoulBlade : AbstractSubclass
 
         var powerMasterHex = FeatureDefinitionPowerBuilder
             .Create("PowerSoulBladeMasterHex")
-            .SetGuiPresentation(Category.Feature)
-            .SetUsesFixed(ActivationTime.BonusAction, RechargeRate.ShortRest)
+            .SetGuiPresentation("PowerSoulBladeHex", Category.Feature)
+            .SetUsesFixed(ActivationTime.BonusAction, RechargeRate.ShortRest, 1, 2)
             .SetShowCasting(true)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
-                    .SetTargetingData(Side.Enemy, RangeType.Distance, 12, TargetType.IndividualsUnique, 3)
+                    .SetTargetingData(Side.Enemy, RangeType.Distance, 12, TargetType.IndividualsUnique)
                     .SetDurationData(DurationType.Minute, 1)
                     .SetEffectForms(
                         EffectFormBuilder

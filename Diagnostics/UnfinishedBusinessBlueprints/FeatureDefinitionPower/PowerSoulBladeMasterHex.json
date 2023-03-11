@@ -8,7 +8,7 @@
     "hitAffinitiesByTargetTag": [],
     "targetType": "IndividualsUnique",
     "itemSelectionType": "None",
-    "targetParameter": 3,
+    "targetParameter": 1,
     "targetParameter2": 2,
     "emissiveBorder": "None",
     "emissiveParameter": 1,
@@ -312,7 +312,7 @@
   "usesDetermination": "Fixed",
   "abilityScoreDetermination": "Explicit",
   "usesAbilityScoreName": "Charisma",
-  "fixedUsesPerRecharge": 1,
+  "fixedUsesPerRecharge": 2,
   "abilityScore": "Intelligence",
   "attackHitComputation": "AbilityScore",
   "fixedAttackHit": 0,
@@ -326,8 +326,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&PowerSoulBladeMasterHexTitle",
-    "description": "Feature/&PowerSoulBladeMasterHexDescription",
+    "title": "Feature/&PowerSoulBladeHexTitle",
+    "description": "Feature/&PowerSoulBladeHexDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
