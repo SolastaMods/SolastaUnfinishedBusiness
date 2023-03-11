@@ -63,7 +63,11 @@ public static class PartyEditor
             HStack("Quickies".Localized(), 2,
                 () => ActionButton("Long Rest",
                     () => commandService.StartRest(RuleDefinitions.RestType.LongRest, false),
-                    AutoWidth())
+                    AutoWidth()),
+                () => ActionButton("Refresh Powers",
+                    () => characters.ForEach(ch => { ch.GrantPowers(); ch.GrantInvocations(); ch.GrantFixedSpells(); }),
+                    AutoWidth()),
+                () => { }
             );
             Div();
             Label("Current Party".Localized().Cyan().Bold());
@@ -103,6 +107,7 @@ public static class PartyEditor
                             OnDetailToggle(ToggleChoice.Stats, ch);
                             OnDetailToggle(ToggleChoice.Skills, ch);
                             OnDetailToggle(ToggleChoice.Feats, ch);
+                            OnDetailToggle(ToggleChoice.Invocations, ch);
                         }
 
                         if (ch == _selectedCharacter && _selectedToggle == ToggleChoice.Stats)
@@ -197,11 +202,41 @@ public static class PartyEditor
                                     }
                                     : null
                                     );
+                            if (changed)
+                                hero.GrantPowers();
+                        }
+                        if (ch == _selectedCharacter && _selectedToggle == ToggleChoice.Invocations)
+                        {
+                            var available = BlueprintDisplay.GetBlueprints()?.OfType<InvocationDefinition>();
+                            if (available != null)
+                                Browser<RulesetCharacterHero, InvocationDefinition, InvocationDefinition>.OnGUI(
+                                    _selectedToggle.ToString(),
+                                    hero,
+                                    hero.TrainedInvocations,
+                                    available,
+                                    (item) => item,
+                                    (def) => def.Name,
+                                    (def) => def.Name,
+                                    (def) => def.FormatDescription(),
+                                    null,
+                                    null,
+                                    null,
+                                    null,
+                                    (hero, def) => !hero.TrainedInvocations.Contains(def) ? () => {
+                                        hero.TrainInvocations(new List<InvocationDefinition>() { def }); changed = true;
+                                    }
+                                    : null,
+                                    (hero, def) => hero.TrainedInvocations.Contains(def) ? () => {
+                                        hero.TrainedInvocations.Remove(def); changed = true;
+                                    }
+                                    : null
+                                    );
+                            if (changed)
+                                hero.GrantInvocations();
                         }
                         if (changed)
                         {
                             ch.RefreshAll();
-                            hero.GrantPowers();
                         }
                         if (changed && _editingFromPool && ch is RulesetCharacterHero h)
                         {
@@ -306,6 +341,7 @@ public static class PartyEditor
         Stats,
         Skills,
         Feats,
+        Invocations,
         Spells,
         None
     }
