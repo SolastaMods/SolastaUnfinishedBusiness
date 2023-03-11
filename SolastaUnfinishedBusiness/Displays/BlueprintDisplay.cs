@@ -94,7 +94,7 @@ internal static class BlueprintDisplay
         if (!string.IsNullOrEmpty(_selectionSearchText))
         {
             _bpTypes = _bpTypes
-                .Where(type => type == null || StringExtensions.Matches(type.Name, _selectionSearchText))
+                .Where(type => type == null || type.Name.Matches(_selectionSearchText))
                 .ToArray();
         }
 

@@ -11,10 +11,10 @@ namespace SolastaUnfinishedBusiness.Api.ModKit;
 
 internal static partial class UI
 {
-    public static bool UserHasHitReturn = false;
-    public static string FocusedControlName = null;
     private const int SliderTop = 3;
     private const int SliderBottom = -7;
+    public static bool UserHasHitReturn = false;
+    public static string FocusedControlName = null;
 
     private static readonly HashSet<Type> WidthTypes = new()
     {

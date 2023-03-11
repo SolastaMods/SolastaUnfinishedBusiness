@@ -12,11 +12,11 @@ internal static partial class UI
 {
     public static string focusedControlName = null;
 
-    public static Rect ummRect = new();
-    public static float ummWidth = 960f;
-    public static int ummTabID = 0;
-    public static bool IsNarrow => ummWidth < 1200;
-    public static bool IsWide => ummWidth >= 1920;
+    public static Rect UmmRect = new();
+    private const float UmmWidth = 960f;
+    public static int UmmTabID = 0;
+    private static bool IsNarrow => UmmWidth < 1200;
+    private static bool IsWide => UmmWidth >= 1920;
 
 //    public static Vector2[] ummScrollPosition;
 

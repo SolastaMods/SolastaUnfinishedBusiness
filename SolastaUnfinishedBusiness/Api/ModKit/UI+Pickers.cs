@@ -156,31 +156,44 @@ internal static partial class UI
         return sel != selected;
     }
 
-    public static void ActionSelectionGrid(ref int selected, string[] texts, int xCols, Action<int> action, params GUILayoutOption[] options)
+    public static void ActionSelectionGrid(ref int selected, string[] texts, int xCols, Action<int> action,
+        params GUILayoutOption[] options)
     {
         var sel = selected;
         var titles = texts.Select((a, i) => i == sel ? a.Orange().Bold() : a);
         if (xCols <= 0)
-            xCols = texts.Count();
+        {
+            xCols = texts.Length;
+        }
+
         sel = GL.SelectionGrid(selected, titles.ToArray(), xCols, options);
-        if (selected != sel)
+        if (selected == sel)
         {
-            selected = sel;
-            action(selected);
+            return;
         }
+
+        selected = sel;
+        action(selected);
     }
-    public static void ActionSelectionGrid(ref int selected, string[] texts, int xCols, Action<int> action, GUIStyle style, params GUILayoutOption[] options)
+
+    public static void ActionSelectionGrid(ref int selected, string[] texts, int xCols, Action<int> action,
+        GUIStyle style, params GUILayoutOption[] options)
     {
         var sel = selected;
         var titles = texts.Select((a, i) => i == sel ? a.Orange().Bold() : a);
         if (xCols <= 0)
-            xCols = texts.Count();
-        sel = GL.SelectionGrid(selected, titles.ToArray(), xCols, style, options);
-        if (selected != sel)
         {
-            selected = sel;
-            action(selected);
+            xCols = texts.Length;
         }
+
+        sel = GL.SelectionGrid(selected, titles.ToArray(), xCols, style, options);
+        if (selected == sel)
+        {
+            return;
+        }
+
+        selected = sel;
+        action(selected);
     }
 
     // EnumGrids
