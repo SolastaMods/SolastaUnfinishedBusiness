@@ -1,8 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
-using SolastaUnfinishedBusiness.Builders;
-using SolastaUnfinishedBusiness.Builders.Features;
 using UnityEngine;
 using static ActionDefinitions;
 using static FeatureDefinitionFeatureSet;
@@ -30,23 +28,6 @@ internal static class MulticlassWildshapeContext
     {
         AttributeDefinitions.Intelligence, AttributeDefinitions.Wisdom, AttributeDefinitions.Charisma
     };
-
-
-    // BACKWARD COMPATIBILITY
-#pragma warning disable IDE0052
-    private static readonly ConditionDefinition ConditionWildshapeFlurryOfBlows = ConditionDefinitionBuilder
-#pragma warning restore IDE0052
-        .Create("ConditionWildshapeFlurryOfBlows")
-        .SetGuiPresentationNoContent(true)
-        .SetSilent(Silent.WhenAddedOrRemoved)
-        .SetFeatures(FeatureDefinitionActionAffinityBuilder
-            .Create("ActionAffinityWildshapeFlurryOfBlows")
-            .SetGuiPresentationNoContent(true)
-            .SetAuthorizedActions(Id.AttackMain)
-            .SetForbiddenActions(Id.DashMain, Id.DisengageMain, Id.Dodge, Id.HideMain, Id.Ready, Id.Shove)
-            .SetMaxAttackNumber(-1)
-            .AddToDB())
-        .AddToDB();
 
     internal static void FinalizeMonster(RulesetCharacterMonster monster, bool keepMentalAbilityScores)
     {
