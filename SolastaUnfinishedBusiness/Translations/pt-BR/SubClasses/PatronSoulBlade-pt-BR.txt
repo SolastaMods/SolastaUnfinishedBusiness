@@ -1,4 +1,4 @@
-﻿Condition/&ConditionSoulBladeHexDefenderDescription=Amaldiçoado por uma Soul Blade.
+﻿Condition/&ConditionSoulBladeHexDefenderDescription=Amaldiçoado por um Soul Hex.
 Condition/&ConditionSoulBladeHexDefenderTitle=Feitiço da Alma
 Feature/&AttackModifierSoulBladeEmpowerWeaponDescription=Conta como mágico e usa o modificador de Carisma para jogadas de ataque e dano.
 Feature/&AttackModifierSoulBladeEmpowerWeaponTitle=Alma Empoderada
@@ -6,7 +6,7 @@ Feature/&FeatureSetSoulBladeMasterHexDescription=Agora você pode usar Soul Hex 
 Feature/&FeatureSetSoulBladeMasterHexTitle=Hex Mestre
 Feature/&PowerSoulBladeEmpowerWeaponDescription=Você pode fortalecer uma arma com almas. Ele conta como mágico e usa o modificador de Carisma para jogadas de ataque e dano.
 Feature/&PowerSoulBladeEmpowerWeaponTitle=Empoderamento da Alma
-Feature/&PowerSoulBladeHexDescription=Você pode amaldiçoar uma criatura que possa ver a até 9 metros. Até que termine, você:\n• Adiciona seu bônus de proficiência ao dano.\n• Ganha HP igual ao seu nível de bruxo + seu modificador de Carisma se você matá-lo.\n• Seu alcance de ameaça crítica aumenta em 1.
+Feature/&PowerSoulBladeHexDescription=Você pode amaldiçoar uma criatura que possa ver a até 9 metros. Quando amaldiçoado:\n• Você adiciona seu bônus de proficiência ao dano.\n• Seu alcance de ameaça crítica aumenta em 1.\n• Você ganha HP ou HP temporário igual ao seu nível de bruxo + seu modificador de Carisma quando ele morre.
 Feature/&PowerSoulBladeHexTitle=Feitiço da Alma
 Feature/&PowerSoulBladeSoulShieldDescription=Uma vez por descanso curto, você usa o poder das almas para se defender. Usando uma ação bônus, você ganha PV temporário igual ao seu nível de bruxo + seu modificador de Carisma.
 Feature/&PowerSoulBladeSoulShieldTitle=Escudo da Alma

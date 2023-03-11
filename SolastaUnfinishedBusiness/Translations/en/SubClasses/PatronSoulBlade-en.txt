@@ -1,4 +1,4 @@
-﻿Condition/&ConditionSoulBladeHexDefenderDescription=Cursed by a Soul Blade.
+﻿Condition/&ConditionSoulBladeHexDefenderDescription=Cursed by a Soul Hex.
 Condition/&ConditionSoulBladeHexDefenderTitle=Soul Hex
 Feature/&AttackModifierSoulBladeEmpowerWeaponDescription=Counts as magical and uses Charisma modifier for attack and damage rolls.
 Feature/&AttackModifierSoulBladeEmpowerWeaponTitle=Soul Empowered
@@ -6,7 +6,7 @@ Feature/&FeatureSetSoulBladeMasterHexDescription=You can now use Soul Hex twice 
 Feature/&FeatureSetSoulBladeMasterHexTitle=Master Hex
 Feature/&PowerSoulBladeEmpowerWeaponDescription=You can empower a weapon with souls. It counts as magical and uses Charisma modifier for attack and damage rolls.
 Feature/&PowerSoulBladeEmpowerWeaponTitle=Soul Empower
-Feature/&PowerSoulBladeHexDescription=You can curse one creature you can see within 30 feet. Until it ends, you:\n• Add your proficiency bonus to damage.\n• Gain hp equal to your warlock level + your Charisma modifier if you kill it.\n• Your critical threat range increases by 1.
+Feature/&PowerSoulBladeHexDescription=You can curse one creature you can see within 30 feet. When cursed:\n• You add your proficiency bonus to damage.\n• Your critical threat range increases by 1.\n• You gain hp or temp hp equal to your warlock level + your Charisma modifier when it dies.
 Feature/&PowerSoulBladeHexTitle=Soul Hex
 Feature/&PowerSoulBladeSoulShieldDescription=Once per short rest, you use the power of souls to defend yourself. Using a bonus action, you gain temp hp equal to your warlock level + your Charisma modifier.
 Feature/&PowerSoulBladeSoulShieldTitle=Soul Shield

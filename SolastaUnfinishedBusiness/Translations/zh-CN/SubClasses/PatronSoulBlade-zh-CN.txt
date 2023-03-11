@@ -1,4 +1,4 @@
-﻿Condition/&ConditionSoulBladeHexDefenderDescription=被魂刃诅咒。
+﻿Condition/&ConditionSoulBladeHexDefenderDescription=被灵魂诅咒诅咒。
 Condition/&ConditionSoulBladeHexDefenderTitle=灵魂魔咒
 Feature/&AttackModifierSoulBladeEmpowerWeaponDescription=算作魔法并使用魅力修正值进行攻击和伤害检定。
 Feature/&AttackModifierSoulBladeEmpowerWeaponTitle=灵魂赋能
@@ -6,7 +6,7 @@ Feature/&FeatureSetSoulBladeMasterHexDescription=您现在可以在每次短休�
 Feature/&FeatureSetSoulBladeMasterHexTitle=十六进制大师
 Feature/&PowerSoulBladeEmpowerWeaponDescription=你可以用灵魂赋予武器力量。它算作魔法并使用魅力修正来进行攻击和伤害检定。
 Feature/&PowerSoulBladeEmpowerWeaponTitle=灵魂赋能
-Feature/&PowerSoulBladeHexDescription=你可以诅咒 30 英尺内你能看到的一个生物。直到它结束，你：\n• 将你的熟练加值加到伤害上。\n• 获得等于你的术士等级 + 如果你杀死它你的魅力调整值的生命值。\n• 你的关键威胁范围增加 1。
+Feature/&PowerSoulBladeHexDescription=你可以诅咒 30 英尺内你能看到的一个生物。被诅咒时：\n• 你将你的熟练加值加到伤害上。\n• 你的严重威胁范围增加 1。\n• 你获得的生命值或临时生命值等于你的术士等级 + 你的魅力调整值。
 Feature/&PowerSoulBladeHexTitle=灵魂魔咒
 Feature/&PowerSoulBladeSoulShieldDescription=每次短暂的休息，你都会使用灵魂的力量来保护自己。使用附赠动作，你获得的临时生命值等于你的术士等级 + 你的魅力调整值。
 Feature/&PowerSoulBladeSoulShieldTitle=灵魂之盾

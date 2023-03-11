@@ -1,4 +1,4 @@
-﻿Condition/&ConditionSoulBladeHexDefenderDescription=Maldito por un Soul Blade.
+﻿Condition/&ConditionSoulBladeHexDefenderDescription=Maldito por un maleficio del alma.
 Condition/&ConditionSoulBladeHexDefenderTitle=Maleficio del alma
 Feature/&AttackModifierSoulBladeEmpowerWeaponDescription=Cuenta como mágico y usa el modificador Carisma para las tiradas de ataque y daño.
 Feature/&AttackModifierSoulBladeEmpowerWeaponTitle=alma empoderada
@@ -6,7 +6,7 @@ Feature/&FeatureSetSoulBladeMasterHexDescription=Ahora puedes usar Soul Hex dos 
 Feature/&FeatureSetSoulBladeMasterHexTitle=Hexágono maestro
 Feature/&PowerSoulBladeEmpowerWeaponDescription=Puedes potenciar un arma con almas. Cuenta como mágico y usa el modificador Carisma para las tiradas de ataque y daño.
 Feature/&PowerSoulBladeEmpowerWeaponTitle=Empoderamiento del alma
-Feature/&PowerSoulBladeHexDescription=Puedes maldecir a una criatura que puedas ver en un radio de 30 pies. Hasta que termine, tú:\n• Añades tu bonificación de competencia al daño.\n• Ganas puntos de vida equivalentes a tu nivel de brujo + tu modificador de Carisma si lo matas.\n• Tu rango de amenaza crítica aumenta en 1.
+Feature/&PowerSoulBladeHexDescription=Puedes maldecir a una criatura que puedas ver en un radio de 30 pies. Cuando está maldito:\n• Agregas tu bonificación de competencia al daño.\n• Tu rango de amenaza crítica aumenta en 1.\n• Ganas hp o hp temporal igual a tu nivel de brujo + tu modificador de Carisma cuando muere.
 Feature/&PowerSoulBladeHexTitle=Maleficio del alma
 Feature/&PowerSoulBladeSoulShieldDescription=Una vez por breve descanso, usas el poder de las almas para defenderte. Usando una acción de bonificación, obtienes HP temporales igual a tu nivel de brujo + tu modificador de Carisma.
 Feature/&PowerSoulBladeSoulShieldTitle=Escudo del alma
