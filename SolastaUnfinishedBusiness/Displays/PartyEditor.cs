@@ -102,6 +102,7 @@ public static class PartyEditor
                             Space(5);
                             OnDetailToggle(ToggleChoice.Stats, ch);
                             OnDetailToggle(ToggleChoice.Skills, ch);
+                            OnDetailToggle(ToggleChoice.Feats, ch);
                         }
 
                         if (ch == _selectedCharacter && _selectedToggle == ToggleChoice.Stats)
@@ -147,14 +148,14 @@ public static class PartyEditor
                         }
                         if (ch == _selectedCharacter && _selectedToggle == ToggleChoice.Skills)
                         {
-                            var skillDefs = BlueprintDisplay.GetBlueprints()?.OfType<SkillDefinition>();
-                            if (skillDefs != null)
+                            var available = BlueprintDisplay.GetBlueprints()?.OfType<SkillDefinition>();
+                            if (available != null)
                                 Browser<RulesetCharacterHero, SkillDefinition, SkillDefinition>.OnGUI(
                                     _selectedToggle.ToString(),
                                     hero,
                                     hero.TrainedSkills,
-                                    skillDefs,
-                                    (skill) => skill,
+                                    available,
+                                    (i) => i,
                                     (skill) => skill.Name,
                                     (skill) => skill.Name,
                                     (skill) => skill.FormatDescription(),
@@ -170,9 +171,37 @@ public static class PartyEditor
                                     } : null
                                     );
                         }
+                        if (ch == _selectedCharacter && _selectedToggle == ToggleChoice.Feats)
+                        {
+                            var available = BlueprintDisplay.GetBlueprints()?.OfType<FeatDefinition>();
+                            if (available != null)
+                                Browser<RulesetCharacterHero, FeatDefinition, FeatDefinition>.OnGUI(
+                                    _selectedToggle.ToString(),
+                                    hero,
+                                    hero.TrainedFeats,
+                                    available,
+                                    (feat) => feat,
+                                    (feat) => feat.Name,
+                                    (feat) => feat.Name,
+                                    (feat) => feat.FormatDescription(),
+                                    null,
+                                    null,
+                                    null,
+                                    null,
+                                    (hero, feat) => !hero.TrainedFeats.Contains(feat) ? () => {
+                                        hero.TrainFeats(new List<FeatDefinition>() { feat }); changed = true;
+                                    }
+                                    : null,
+                                    (hero, feat) => hero.TrainedFeats.Contains(feat) ? () => {
+                                        hero.TrainedFeats.Remove(feat); changed = true;
+                                    }
+                                    : null
+                                    );
+                        }
                         if (changed)
                         {
                             ch.RefreshAll();
+                            hero.GrantPowers();
                         }
                         if (changed && _editingFromPool && ch is RulesetCharacterHero h)
                         {
