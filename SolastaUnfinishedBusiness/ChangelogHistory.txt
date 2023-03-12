@@ -2,10 +2,10 @@
 
 1.4.33.58:
 
-- added custom sprites to all 10 fighting styles, 7 additional subclasses, 2 powers and 1 spell
-- added level 1 and 14 Hex powers to Soul Blade, changed soul shield and tweaked the spell list
-- added level 15 powers to Oath of Ancients, Oath of Hatred and Royal Knight
+- added custom sprites to all fighting styles and all remaining subclasses
 - improved Party Editor with skills, feats and invocations browser and editor
+- improved Soul Blade with hex power at 1 and 14, new soul shield and spell list
+- improved Royal Knight, Oath of Ancients and Oath of Hatred with level 15 features
 - fixed Bow Mastery allowing extra attack if first one was melee and hero switches to a shortbow
 - fixed Cleaving Attack allowing extra attack if first one was melee and hero switches to ranged
 - fixed Martial Marshal's encouragement granting the condition to allies outside the effect area

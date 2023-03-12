@@ -106,7 +106,7 @@ internal sealed class ModManager<TCore, TSettings>
         }
     }
 
-#if false
+#if DEBUG
     internal void Unload()
     {
         harmonyInstance.UnpatchAll();

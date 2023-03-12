@@ -46,9 +46,9 @@
     "description": "Subclass/&WizardSpellMasterDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "e20d6cdf94ce68f4b8c0dfbeb0a3bbb6",
-      "m_SubObjectName": "Archetype_Cleric_Insight",
-      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+      "m_AssetGUID": "4d7745bc-47f0-5c9b-a779-21257093d1d1",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",

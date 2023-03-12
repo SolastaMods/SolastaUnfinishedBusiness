@@ -41,9 +41,9 @@
     "description": "Subclass/&OathOfHatredDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "94bc07c7c4be00649b94c86fa9886a5a",
-      "m_SubObjectName": "Sorcerer_HauntedSoul",
-      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+      "m_AssetGUID": "35163f2a-b9c3-57ab-8c41-53eec6eb83c9",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",

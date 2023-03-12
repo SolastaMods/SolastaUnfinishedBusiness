@@ -36,9 +36,9 @@
     "description": "Subclass/&OathOfAncientsDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "0c34ece6b6c3ce24cbfbfa4072329436",
-      "m_SubObjectName": "Warlock_Tree",
-      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+      "m_AssetGUID": "11d6a7f7-4693-5525-8724-ebd25188f1fa",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
