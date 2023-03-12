@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Api.ModKit;
+using SolastaUnfinishedBusiness.Api.ModKit.Utility;
 using SolastaUnfinishedBusiness.Displays;
 using UnityEngine;
 
@@ -282,7 +283,7 @@ internal class ReflectionTreeView
             // value
             var originalColor = GUI.contentColor;
             GUI.contentColor = node.IsException ? Color.red : node.IsNull ? Color.grey : originalColor;
-            GUILayout.TextArea(node.ValueText.MarkedSubstring(searchText));
+            GUILayout.TextArea(node.ValueText.StripHTML());
             GUI.contentColor = originalColor;
 
             // instance type

@@ -162,33 +162,6 @@ public static class PartyEditor
 
                             continue;
                         }
-#if false
-                        if (ch == _selectedCharacter && _selectedToggle == ToggleChoice.Skills)
-                        {
-                            var available = BlueprintDisplay.GetBlueprints()?.OfType<SkillDefinition>();
-                            if (available != null)
-                                Browser<RulesetCharacterHero, SkillDefinition, SkillDefinition>.OnGUI(
-                                    _selectedToggle.ToString(),
-                                    hero,
-                                    hero.TrainedSkills,
-                                    available,
-                                    (i) => i,
-                                    (skill) => skill.Name,
-                                    (skill) => skill.Name,
-                                    (skill) => skill.FormatDescription(),
-                                    null,
-                                    null,
-                                    null,
-                                    null,
-                                    (hero, skill) => !hero.TrainedSkills.Contains(skill) ?  () => { 
-                                        hero.TrainedSkills.Add(skill); changed = true; 
-                                    } : null,
-                                    (hero, skill) => hero.TrainedSkills.Contains(skill) ? () => { 
-                                        hero.TrainedSkills.Remove(skill); changed = true; 
-                                    } : null
-                                    );
-                        }
-#endif
                         if (ch == _selectedCharacter && _selectedToggle == ToggleChoice.Skills)
                         {
                             var skills = BlueprintDisplay.GetBlueprints()?.OfType<SkillDefinition>()
