@@ -211,16 +211,6 @@ internal sealed class RoguishSlayer : AbstractSubclass
             RulesetAttackMode attackMode,
             ref ActionModifier attackModifier)
         {
-            var battle = Gui.Battle;
-
-            if (battle == null)
-            {
-                attackModifier.AttackAdvantageTrends.Add(
-                    new TrendInfo(1, FeatureSourceType.CharacterFeature, _featureDefinition.Name, _featureDefinition));
-
-                return;
-            }
-
             //
             // allow critical hit if defender is surprised
             //
@@ -252,12 +242,23 @@ internal sealed class RoguishSlayer : AbstractSubclass
             //
             // Allow advantage if first round and higher initiative order vs defender
             //
+            var battle = Gui.Battle;
+
+            // always grant advantage on battle round zero
+            if (battle == null)
+            {
+                attackModifier.AttackAdvantageTrends.Add(
+                    new TrendInfo(1, FeatureSourceType.CharacterFeature, _featureDefinition.Name, _featureDefinition));
+
+                return;
+            }
 
             if (battle.CurrentRound > 1)
             {
                 return;
             }
 
+            // battle round one from here
             var gameLocationAttacker = GameLocationCharacter.GetFromActor(myself);
             var gameLocationDefender = GameLocationCharacter.GetFromActor(defender);
             var attackerAttackOrder = battle.initiativeSortedContenders.IndexOf(gameLocationAttacker);

@@ -95,7 +95,8 @@ internal sealed class WayOfTheSilhouette : AbstractSubclass
 
         Subclass = CharacterSubclassDefinitionBuilder
             .Create("WayOfSilhouette")
-            .SetGuiPresentation(Category.Subclass, Sprites.GetSprite("WayOfTheSilhouette", Resources.WayOfTheSilhouette, 256))
+            .SetGuiPresentation(Category.Subclass,
+                Sprites.GetSprite("WayOfTheSilhouette", Resources.WayOfTheSilhouette, 256))
             .AddFeaturesAtLevel(3,
                 featureSetWayOfSilhouetteSilhouetteArts,
                 lightAffinityWayOfSilhouetteCloakOfSilhouettesWeak,
