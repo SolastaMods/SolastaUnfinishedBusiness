@@ -78,7 +78,7 @@ internal sealed class MartialRoyalKnight : AbstractSubclass
 
         var conditionProtection = ConditionDefinitionBuilder
             .Create($"Condition{Name}Protection")
-            .SetGuiPresentation(Category.Feature, ConditionDefinitions.ConditionBlessed)
+            .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionBlessed)
             .SetSilent(Silent.WhenAddedOrRemoved)
             .AddToDB();
 
@@ -100,6 +100,7 @@ internal sealed class MartialRoyalKnight : AbstractSubclass
                             false)
                         .Build())
                 .Build())
+            .SetShowCasting(false)
             .SetCustomSubFeatures(new CharacterTurnStartListenerProtection())
             .AddToDB();
 

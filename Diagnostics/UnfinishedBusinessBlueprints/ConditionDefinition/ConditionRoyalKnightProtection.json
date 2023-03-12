@@ -3,10 +3,7 @@
   "inDungeonEditor": false,
   "parentCondition": null,
   "conditionType": "Beneficial",
-  "features": [
-    "Definition:CombatAffinityBlessed:dfb4c85b4bcf8ea46822f0996ead93af",
-    "Definition:SavingThrowAffinityConditionBlessed:b5cbcccf984fdec45be2f818f4757921"
-  ],
+  "features": [],
   "allowMultipleInstances": false,
   "silentWhenAdded": true,
   "silentWhenRemoved": true,
@@ -129,8 +126,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&PowerRoyalKnightProtectionTitle",
-    "description": "Feature/&PowerRoyalKnightProtectionDescription",
+    "title": "Condition/&ConditionRoyalKnightProtectionTitle",
+    "description": "Condition/&ConditionRoyalKnightProtectionDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "7e8c5d4d891953345b54b82e51c6d884",
