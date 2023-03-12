@@ -14,16 +14,19 @@ namespace SolastaUnfinishedBusiness.Api.ModKit;
 internal static partial class UI
 {
     // UI for picking items from a collection
+    [UsedImplicitly]
     public static void Toolbar(ref int value, string[] texts, params GUILayoutOption[] options)
     {
         value = GL.Toolbar(value, texts, options);
     }
 
+    [UsedImplicitly]
     public static void Toolbar(ref int value, string[] texts, GUIStyle style, params GUILayoutOption[] options)
     {
         value = GL.Toolbar(value, texts, style, options);
     }
 
+    [UsedImplicitly]
     public static bool SelectionGrid(ref int selected, string[] texts, int xCols, params GUILayoutOption[] options)
     {
         if (xCols <= 0)
@@ -47,6 +50,7 @@ internal static partial class UI
         return sel != selected;
     }
 
+    [UsedImplicitly]
     public static bool SelectionGrid(string title, ref int selected, string[] texts, int xCols,
         params GUILayoutOption[] options)
     {
@@ -58,6 +62,7 @@ internal static partial class UI
         }
     }
 
+    [UsedImplicitly]
     public static bool SelectionGrid(ref int selected, string[] texts, int xCols, GUIStyle style,
         params GUILayoutOption[] options)
     {
@@ -82,6 +87,7 @@ internal static partial class UI
         return sel != selected;
     }
 
+    [UsedImplicitly]
     public static bool SelectionGrid<T>(ref int selected, T[] items, int xCols, params GUILayoutOption[] options)
     {
         if (xCols <= 0)
@@ -105,6 +111,7 @@ internal static partial class UI
         return sel != selected;
     }
 
+    [UsedImplicitly]
     public static bool SelectionGrid<T>(ref int selected, T[] items, int xCols, GUIStyle style,
         params GUILayoutOption[] options)
     {
@@ -129,7 +136,8 @@ internal static partial class UI
         return sel != selected;
     }
 
-    internal static bool SelectionGrid(ref int selected, [NotNull] string[] texts, int xCols, int maxColsIfNarrow = 4,
+    [UsedImplicitly]
+    public static bool SelectionGrid(ref int selected, [NotNull] string[] texts, int xCols, int maxColsIfNarrow = 4,
         params GUILayoutOption[] options)
     {
         if (xCols <= 0)
@@ -156,6 +164,7 @@ internal static partial class UI
         return sel != selected;
     }
 
+    [UsedImplicitly]
     public static void ActionSelectionGrid(ref int selected, string[] texts, int xCols, Action<int> action,
         params GUILayoutOption[] options)
     {
@@ -176,6 +185,7 @@ internal static partial class UI
         action(selected);
     }
 
+    [UsedImplicitly]
     public static void ActionSelectionGrid(ref int selected, string[] texts, int xCols, Action<int> action,
         GUIStyle style, params GUILayoutOption[] options)
     {
@@ -198,6 +208,7 @@ internal static partial class UI
 
     // EnumGrids
 
+    [UsedImplicitly]
     public static void EnumGrid<TEnum>(Func<TEnum> get, Action<TEnum> set, int xCols, params GUILayoutOption[] options)
         where TEnum : struct
     {
@@ -215,10 +226,10 @@ internal static partial class UI
         }
     }
 
+    [UsedImplicitly]
     public static bool EnumGrid<TEnum>(ref TEnum value, int xCols, Func<string, TEnum, string> titleFormatter = null,
         GUIStyle style = null, params GUILayoutOption[] options) where TEnum : struct
     {
-        var changed = false;
         options = options.AddDefaults();
         var names = Enum.GetNames(typeof(TEnum));
         var formattedNames = names;
@@ -234,37 +245,40 @@ internal static partial class UI
                 ? !SelectionGrid(ref index, formattedNames, xCols, options)
                 : !SelectionGrid(ref index, formattedNames, xCols, style, options))
         {
-            return changed;
+            return false;
         }
 
         if (!Enum.TryParse(names[index], out TEnum newValue))
         {
-            return changed;
+            return false;
         }
 
         value = newValue;
-        changed = true;
 
-        return changed;
+        return true;
     }
 
+    [UsedImplicitly]
     public static bool EnumGrid<TEnum>(ref TEnum value, int xCols, Func<string, TEnum, string> titleFormatter = null,
         params GUILayoutOption[] options) where TEnum : struct
     {
         return EnumGrid(ref value, xCols, titleFormatter, null, options);
     }
 
+    [UsedImplicitly]
     public static bool EnumGrid<TEnum>(ref TEnum value, int xCols, params GUILayoutOption[] options)
         where TEnum : struct
     {
         return EnumGrid(ref value, xCols, null, options);
     }
 
+    [UsedImplicitly]
     public static bool EnumGrid<TEnum>(ref TEnum value, params GUILayoutOption[] options) where TEnum : struct
     {
         return EnumGrid(ref value, 0, null, options);
     }
 
+    [UsedImplicitly]
     public static bool EnumGrid<TEnum>(string title, ref TEnum value, int xCols, params GUILayoutOption[] options)
         where TEnum : struct
     {
@@ -279,6 +293,7 @@ internal static partial class UI
         return changed;
     }
 
+    [UsedImplicitly]
     public static bool EnumGrid<TEnum>(string title, ref TEnum value, params GUILayoutOption[] options)
         where TEnum : struct
     {
@@ -293,6 +308,7 @@ internal static partial class UI
         return changed;
     }
 
+    [UsedImplicitly]
     public static bool EnumGrid<TEnum>(string title, ref TEnum value, int xCols, GUIStyle style = null,
         params GUILayoutOption[] options) where TEnum : struct
     {
@@ -307,6 +323,7 @@ internal static partial class UI
         return changed;
     }
 
+    [UsedImplicitly]
     public static bool EnumGrid<TEnum>(string title, ref TEnum value, int xCols,
         Func<string, TEnum, string> titleFormatter = null, params GUILayoutOption[] options) where TEnum : struct
     {
@@ -321,6 +338,7 @@ internal static partial class UI
         return changed;
     }
 
+    [UsedImplicitly]
     public static bool EnumGrid<TEnum>(string title, ref TEnum value, int xCols,
         Func<string, TEnum, string> titleFormatter = null, GUIStyle style = null, params GUILayoutOption[] options)
         where TEnum : struct
@@ -336,6 +354,7 @@ internal static partial class UI
         return changed;
     }
 
+    [UsedImplicitly]
     public static bool EnumGrid<TEnum>(string title, Func<TEnum> get, Action<TEnum> set,
         params GUILayoutOption[] options) where TEnum : struct
     {
@@ -357,6 +376,7 @@ internal static partial class UI
 
     // EnumerablePicker
 
+    [UsedImplicitly]
     public static void EnumerablePicker<T>(
         string title,
         ref int selected,
@@ -391,6 +411,7 @@ internal static partial class UI
         selected = GL.SelectionGrid(selected, titles.ToArray(), xCols, options);
     }
 
+    [UsedImplicitly]
     public static NamedFunc<T> TypePicker<T>(string title, ref int selectedIndex, NamedFunc<T>[] items) where T : class
     {
         var sel = selectedIndex;
@@ -403,6 +424,7 @@ internal static partial class UI
 
     // GridPicker
 
+    [UsedImplicitly]
     private static bool GridPicker<T>(ref T selected,
         List<T> items,
         string unselectedTitle,
@@ -474,6 +496,7 @@ internal static partial class UI
         return changed;
     }
 
+    [UsedImplicitly]
     public static bool GridPicker<T>(ref T selected, List<T> items,
         string unselectedTitle,
         Func<T, string> titleFunc,
@@ -486,6 +509,7 @@ internal static partial class UI
             options);
     }
 
+    [UsedImplicitly]
     public static bool GridPicker<T>(ref T selected, List<T> items,
         string unselectedTitle,
         Func<T, string> titleFunc,
@@ -496,6 +520,7 @@ internal static partial class UI
         return GridPicker(ref selected, items, unselectedTitle, titleFunc, ref searchText, 6, ButtonStyle, options);
     }
 
+    [UsedImplicitly]
     // VPicker
     public static bool VPicker<T>(
         string title,
@@ -521,6 +546,7 @@ internal static partial class UI
         return GridPicker(ref selected, items, unselectedTitle, titleFunc, ref searchText, 1, options);
     }
 
+    [UsedImplicitly]
     public static bool VPicker<T>(
         string title,
         ref T selected, List<T> items,
@@ -535,6 +561,7 @@ internal static partial class UI
             options);
     }
 
+    [UsedImplicitly]
     public static bool VPicker<T>(
         string title,
         ref T selected, List<T> items,

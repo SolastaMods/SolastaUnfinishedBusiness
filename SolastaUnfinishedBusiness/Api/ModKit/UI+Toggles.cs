@@ -3,12 +3,13 @@
 using System;
 using System.Linq;
 using HarmonyLib;
+using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using UnityEngine;
 
 namespace SolastaUnfinishedBusiness.Api.ModKit;
 
-internal enum ToggleState
+public enum ToggleState
 {
     Off = 0,
     On = 1,
@@ -17,17 +18,20 @@ internal enum ToggleState
 
 internal static partial class UI
 {
-    internal static bool IsOn(this ToggleState state)
+    [UsedImplicitly]
+    public static bool IsOn(this ToggleState state)
     {
         return state == ToggleState.On;
     }
 
-    internal static bool IsOff(this ToggleState state)
+    [UsedImplicitly]
+    public static bool IsOff(this ToggleState state)
     {
         return state == ToggleState.Off;
     }
 
-    internal static ToggleState Flip(this ToggleState state)
+    [UsedImplicitly]
+    public static ToggleState Flip(this ToggleState state)
     {
         return state switch
         {
@@ -80,7 +84,8 @@ internal static partial class UI
         return true;
     }
 
-    internal static void ToggleButton(ref ToggleState toggle, string title, params GUILayoutOption[] options)
+    [UsedImplicitly]
+    public static void ToggleButton(ref ToggleState toggle, string title, params GUILayoutOption[] options)
     {
         var isOn = toggle.IsOn();
         var isEmpty = toggle == ToggleState.None;
@@ -91,7 +96,8 @@ internal static partial class UI
         }
     }
 
-    internal static bool Toggle(string title, ref bool value, params GUILayoutOption[] options)
+    [UsedImplicitly]
+    public static bool Toggle(string title, ref bool value, params GUILayoutOption[] options)
     {
         options = options.AddDefaults();
 
@@ -105,7 +111,8 @@ internal static partial class UI
         return true;
     }
 
-    internal static bool DisclosureToggle(string title, ref bool value, float width = 175, params Action[] actions)
+    [UsedImplicitly]
+    public static bool DisclosureToggle(string title, ref bool value, float width = 175, params Action[] actions)
     {
         var changed = TogglePrivate(title, ref value, false, true, width);
 
@@ -114,7 +121,8 @@ internal static partial class UI
         return changed;
     }
 
-    internal static void ToggleButton(ref ToggleState toggle, string title, Action<ToggleState> applyToChildren,
+    [UsedImplicitly]
+    public static void ToggleButton(ref ToggleState toggle, string title, Action<ToggleState> applyToChildren,
         params GUILayoutOption[] options)
     {
         var isOn = toggle.IsOn();
@@ -149,6 +157,7 @@ internal static partial class UI
         toggle = state;
     }
 
+    [UsedImplicitly]
     public static bool Toggle(string title, ref bool value, string on, string off, float width = 0,
         GUIStyle stateStyle = null, GUIStyle labelStyle = null, params GUILayoutOption[] options)
     {
@@ -184,6 +193,8 @@ internal static partial class UI
         return changed;
     }
 #endif
+
+    [UsedImplicitly]
     public static bool ActionToggle(
         string title,
         Func<bool> get,
@@ -200,6 +211,7 @@ internal static partial class UI
         return value;
     }
 
+    [UsedImplicitly]
     public static bool ActionToggle(
         string title,
         Func<bool> get,
@@ -223,6 +235,7 @@ internal static partial class UI
         return value;
     }
 
+    [UsedImplicitly]
     public static bool ToggleCallback(
         string title,
         ref bool value,
@@ -239,6 +252,7 @@ internal static partial class UI
         return result;
     }
 
+    [UsedImplicitly]
     public static bool BitFieldToggle(
         string title,
         ref int bitfield,
@@ -263,6 +277,8 @@ internal static partial class UI
     }
 
 #endif
+
+    [UsedImplicitly]
     public static bool DisclosureToggle(string title, ref bool value, params Action[] actions)
     {
         var changed = TogglePrivate(title, ref value, false, true, 175);
@@ -270,6 +286,7 @@ internal static partial class UI
         return changed;
     }
 
+    [UsedImplicitly]
     public static bool DisclosureBitFieldToggle(string title, ref int bitfield, int offset, bool exclusive = true,
         float width = 175, params Action[] actions)
     {

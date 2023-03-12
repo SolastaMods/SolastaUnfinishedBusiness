@@ -10,10 +10,10 @@ namespace SolastaUnfinishedBusiness.Api.ModKit;
 
 internal static partial class UI
 {
+    private const float UmmWidth = 960f;
     public static string focusedControlName = null;
 
     public static Rect UmmRect = new();
-    private const float UmmWidth = 960f;
     public static int UmmTabID = 0;
     private static bool IsNarrow => UmmWidth < 1200;
     private static bool IsWide => UmmWidth >= 1920;
@@ -62,7 +62,7 @@ internal static partial class UI
         }
     }
 
-    internal static void HStack(string title = null, int stride = 0, params Action[] actions)
+    public static void HStack(string title = null, int stride = 0, params Action[] actions)
     {
         var length = actions.Length;
         if (stride < 1) { stride = length; }
@@ -101,7 +101,7 @@ internal static partial class UI
         }
     }
 
-    internal static void TabBar(ref int selected, Action header = null, params NamedAction[] actions)
+    public static void TabBar(ref int selected, Action header = null, params NamedAction[] actions)
     {
         if (selected >= actions.Length)
         {
@@ -120,7 +120,7 @@ internal static partial class UI
         GL.EndVertical();
     }
 
-    internal static void SubMenu(ref int selected, bool div = true, Action header = null, params NamedAction[] actions)
+    public static void SubMenu(ref int selected, bool div = true, Action header = null, params NamedAction[] actions)
     {
         if (selected >= actions.Length)
         {

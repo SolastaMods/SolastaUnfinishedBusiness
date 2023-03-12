@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using UnityEngine;
 using GL = UnityEngine.GUILayout;
@@ -11,6 +12,7 @@ internal static partial class UI
     private static string _selectedIdentifier;
     private static KeyBind _oldValue;
 
+    [UsedImplicitly]
     public static KeyBind EditKeyBind(string identifier, bool showHint = true, bool allowModifierOnly = false,
         params GUILayoutOption[] options)
     {
@@ -120,6 +122,7 @@ internal static partial class UI
         return keyBind;
     }
 
+    [UsedImplicitly]
     public static void KeyBindPicker(string identifier, string title, float indent = 0, float titleWidth = 0)
     {
         using (HorizontalScope())
@@ -131,6 +134,7 @@ internal static partial class UI
         }
     }
 
+    [UsedImplicitly]
     public static void ModifierPicker(string identifier, string title, float titleWidth = 0)
     {
         using (HorizontalScope())
@@ -141,6 +145,7 @@ internal static partial class UI
         }
     }
 
+    [UsedImplicitly]
     // One stop shopping for making an instant button that you want to let a player bind to a key in game
     public static void BindableActionButton(string title, params GUILayoutOption[] options)
     {
@@ -152,6 +157,7 @@ internal static partial class UI
         EditKeyBind(title, true, false, Width((float)200));
     }
 
+    [UsedImplicitly]
     // Action button designed to live in a collection with a BindableActionButton
     public static void NonBindableActionButton(string title, Action action, params GUILayoutOption[] options)
     {

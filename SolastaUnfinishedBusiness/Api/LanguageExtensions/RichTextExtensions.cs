@@ -149,6 +149,7 @@ public static class RichText
         return Gui.Format($"{category}/&{s}", args.Select(a => $"{a}").ToArray());
     }
 
+    // ReSharper disable once InconsistentNaming
     public static string ToHTMLString(this Rgba color)
     {
         return $"{color:X}";

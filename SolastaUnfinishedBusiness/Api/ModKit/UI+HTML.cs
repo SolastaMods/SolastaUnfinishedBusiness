@@ -41,12 +41,12 @@ internal static partial class UI
         Div(_linkStyle.normal.textColor, 0, 0, rect.width + 4.Point());
         if (!result)
         {
-            return result;
+            return false;
         }
 
         Application.OpenURL(url);
         action?.Invoke();
 
-        return result;
+        return true;
     }
 }

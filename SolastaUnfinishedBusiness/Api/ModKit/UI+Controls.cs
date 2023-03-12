@@ -3,6 +3,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using UnityEngine;
 using GL = UnityEngine.GUILayout;
@@ -35,12 +36,14 @@ internal static partial class UI
 
     // Labels
 
+    [UsedImplicitly]
     public static void Label(string title = "", params GUILayoutOption[] options)
     {
         // var content = tooltip == null ? new GUIContent(title) : new GUIContent(title, tooltip);
         GL.Label(title, options.AddDefaults());
     }
 
+    [UsedImplicitly]
     public static void Label(string title, GUIStyle style, params GUILayoutOption[] options)
     {
         // var content = tooltip == null ? new GUIContent(title) : new GUIContent(title, tooltip);
@@ -48,6 +51,7 @@ internal static partial class UI
         GL.Label(title, style, options.AddDefaults());
     }
 
+    [UsedImplicitly]
     public static void Label(GUIContent content, params GUILayoutOption[] options)
     {
         // var content = tooltip == null ? new GUIContent(title) : new GUIContent(title, tooltip);
@@ -55,6 +59,7 @@ internal static partial class UI
         GL.Label(content, options);
     }
 
+    [UsedImplicitly]
     public static void DescriptiveLabel(string title, string description, params GUILayoutOption[] options)
     {
         options = options.AddDefaults(Width((float)300));
@@ -66,6 +71,7 @@ internal static partial class UI
         }
     }
 
+    [UsedImplicitly]
     public static bool EditableLabel(ref string label, ref (string, string) editState, float minWidth, GUIStyle style,
         Func<string, string> formatter = null, params GUILayoutOption[] options)
     {
@@ -113,6 +119,7 @@ internal static partial class UI
         return changed;
     }
 
+    [UsedImplicitly]
     public static bool EditableLabel(ref string label, ref (string, string) editState, float minWidth,
         Func<string, string> formatter = null, params GUILayoutOption[] options)
     {
@@ -121,6 +128,7 @@ internal static partial class UI
 
     // Text Fields
 
+    [UsedImplicitly]
     public static string TextField(ref string text, string name = null, params GUILayoutOption[] options)
     {
         if (name != null) { GUI.SetNextControlName(name); }
@@ -129,6 +137,7 @@ internal static partial class UI
         return text;
     }
 
+    [UsedImplicitly]
     public static int IntTextField(ref int value, string name = null, params GUILayoutOption[] options)
     {
         var text = $"{value}";
@@ -137,6 +146,7 @@ internal static partial class UI
         return value;
     }
 
+    [UsedImplicitly]
     public static float FloatTextField(ref float value, string name = null, params GUILayoutOption[] options)
     {
         var text = $"{value}";
@@ -151,6 +161,7 @@ internal static partial class UI
 
     // Action Text Fields
 
+    [UsedImplicitly]
     public static void ActionTextField(ref string text,
         string name,
         Action<string> action,
@@ -176,6 +187,7 @@ internal static partial class UI
         }
     }
 
+    [UsedImplicitly]
     public static void ActionTextField(ref string text,
         Action<string> action,
         params GUILayoutOption[] options)
@@ -183,6 +195,7 @@ internal static partial class UI
         ActionTextField(ref text, null, action, null, options);
     }
 
+    [UsedImplicitly]
     public static void ActionIntTextField(
         ref int value,
         string name,
@@ -208,6 +221,7 @@ internal static partial class UI
         if (hitEnter && enterAction != null) { enterAction(); }
     }
 
+    [UsedImplicitly]
     public static void ActionIntTextField(
         ref int value,
         string name,
@@ -218,6 +232,7 @@ internal static partial class UI
         ActionIntTextField(ref value, name, action, enterAction, int.MinValue, int.MaxValue, options);
     }
 
+    [UsedImplicitly]
     public static void ActionIntTextField(
         ref int value,
         Action<int> action,
@@ -228,6 +243,7 @@ internal static partial class UI
 
     // Buttons
 
+    [UsedImplicitly]
     public static bool Button(string title, ref bool pressed, params GUILayoutOption[] options)
     {
         if (GL.Button(title, options.AddDefaults())) { pressed = true; }
@@ -235,6 +251,7 @@ internal static partial class UI
         return pressed;
     }
 
+    [UsedImplicitly]
     public static bool Button(string title, ref bool pressed, GUIStyle style, params GUILayoutOption[] options)
     {
         if (GL.Button(title, style, options.AddDefaults())) { pressed = true; }
@@ -244,16 +261,19 @@ internal static partial class UI
 
     // Action Buttons
 
+    [UsedImplicitly]
     public static void ActionButton(string title, Action action, params GUILayoutOption[] options)
     {
         if (GL.Button(title, options.AddDefaults())) { action?.Invoke(); }
     }
 
+    [UsedImplicitly]
     public static void ActionButton(string title, Action action, GUIStyle style, params GUILayoutOption[] options)
     {
         if (GL.Button(title, style, options.AddDefaults())) { action?.Invoke(); }
     }
 
+    [UsedImplicitly]
     public static void DangerousActionButton(string title, string warning, ref bool areYouSureState, Action action)
     {
         using (HorizontalScope())
@@ -278,6 +298,7 @@ internal static partial class UI
 
     // Value Adjusters
 
+    [UsedImplicitly]
     public static bool ValueAdjuster(ref int value, int increment = 1, int min = 0, int max = int.MaxValue)
     {
         var v = value;
@@ -314,6 +335,7 @@ internal static partial class UI
         return true;
     }
 
+    [UsedImplicitly]
     public static bool ValueAdjuster(Func<int> get, Action<int> set, int increment = 1, int min = 0,
         int max = int.MaxValue)
     {
@@ -327,6 +349,7 @@ internal static partial class UI
         return changed;
     }
 
+    [UsedImplicitly]
     public static bool ValueAdjuster(string title, ref int value, int increment = 1, int min = 0,
         int max = int.MaxValue, params GUILayoutOption[] options)
     {
@@ -340,6 +363,7 @@ internal static partial class UI
         return changed;
     }
 
+    [UsedImplicitly]
     public static bool ValueAdjuster(string title, Func<int> get, Action<int> set, int increment = 1, int min = 0,
         int max = int.MaxValue)
     {
@@ -359,6 +383,7 @@ internal static partial class UI
         return changed;
     }
 
+    [UsedImplicitly]
     public static bool ValueAdjuster(string title, Func<int> get, Action<int> set, int increment = 1, int min = 0,
         int max = int.MaxValue, params GUILayoutOption[] options)
     {
@@ -380,6 +405,7 @@ internal static partial class UI
 
     // Value Editors 
 
+    [UsedImplicitly]
     public static bool ValueEditor(string title, Func<int> get, Action<int> set, ref int increment, int min = 0,
         int max = int.MaxValue, params GUILayoutOption[] options)
     {
@@ -407,6 +433,7 @@ internal static partial class UI
 
     // Sliders
 
+    [UsedImplicitly]
     public static bool Slider(ref float value, float min, float max, float defaultValue = 1.0f, int decimals = 0,
         string units = "", params GUILayoutOption[] options)
     {
@@ -430,6 +457,7 @@ internal static partial class UI
         return changed;
     }
 
+    [UsedImplicitly]
     public static bool Slider(string title, ref float value, float min, float max, float defaultValue = 1.0f,
         int decimals = 0, string units = "", params GUILayoutOption[] options)
     {
@@ -480,6 +508,7 @@ internal static partial class UI
         return changed;
     }
 
+    [UsedImplicitly]
     public static bool Slider(string title, Func<float> get, Action<float> set, float min, float max,
         float defaultValue = 1.0f, int decimals = 0, string units = "", params GUILayoutOption[] options)
     {
@@ -493,6 +522,7 @@ internal static partial class UI
         return changed;
     }
 
+    [UsedImplicitly]
     public static bool Slider(string title, ref int value, int min, int max, int defaultValue = 1, string units = "",
         params GUILayoutOption[] options)
     {
@@ -502,6 +532,7 @@ internal static partial class UI
         return changed;
     }
 
+    [UsedImplicitly]
     public static bool Slider(string title, Func<int> get, Action<int> set, int min, int max, int defaultValue = 1,
         string units = "", params GUILayoutOption[] options)
     {
@@ -515,6 +546,7 @@ internal static partial class UI
         return changed;
     }
 
+    [UsedImplicitly]
     public static bool Slider(ref int value, int min, int max, int defaultValue = 1, string units = "",
         params GUILayoutOption[] options)
     {
@@ -524,6 +556,7 @@ internal static partial class UI
         return changed;
     }
 
+    [UsedImplicitly]
     public static bool LogSlider(string title, ref float value, float min, float max, float defaultValue = 1.0f,
         int decimals = 0, string units = "", params GUILayoutOption[] options)
     {
@@ -583,6 +616,7 @@ internal static partial class UI
         return changed;
     }
 
+    [UsedImplicitly]
     public static bool LogSlider(string title, Func<float> get, Action<float> set, float min, float max,
         float defaultValue = 1.0f, int decimals = 0, string units = "", params GUILayoutOption[] options)
     {

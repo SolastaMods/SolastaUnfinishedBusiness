@@ -76,11 +76,13 @@ internal class ConditionDefinitionBuilder
         return this;
     }
 
+#if false
     internal ConditionDefinitionBuilder AddConditionTags(params string[] tags)
     {
         Definition.conditionTags.AddRange(tags);
         return this;
     }
+#endif
 
     internal ConditionDefinitionBuilder SetConditionType(RuleDefinitions.ConditionType value)
     {

@@ -138,7 +138,8 @@ internal static partial class UI
                 //if (debugKeyBind)
                 //    Logger.Log($"    firing action: {identifier}".cyan());
                 Actions.TryGetValue(identifier, out var action);
-                action();
+                action?.Invoke();
+
                 _lastTriggered = binding;
             }
         }

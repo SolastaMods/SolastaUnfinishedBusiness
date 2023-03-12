@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using JetBrains.Annotations;
 using Newtonsoft.Json;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using UnityEngine;
@@ -51,32 +52,38 @@ internal static partial class UI
     }
 #endif
 
+    [UsedImplicitly]
     private static bool IsModifier(this KeyCode code)
     {
         return code is KeyCode.LeftControl or KeyCode.RightControl or KeyCode.LeftAlt or KeyCode.RightAlt
             or KeyCode.LeftShift or KeyCode.RightShift or KeyCode.LeftCommand or KeyCode.RightCommand;
     }
 
+    [UsedImplicitly]
     public static bool IsControl(this KeyCode code)
     {
         return code is KeyCode.LeftControl or KeyCode.RightControl;
     }
 
+    [UsedImplicitly]
     public static bool IsAlt(this KeyCode code)
     {
         return code is KeyCode.LeftAlt or KeyCode.RightAlt;
     }
 
+    [UsedImplicitly]
     public static bool IsCommand(this KeyCode code)
     {
         return code is KeyCode.LeftCommand or KeyCode.RightCommand;
     }
 
+    [UsedImplicitly]
     public static bool IsShift(this KeyCode code)
     {
         return code is KeyCode.LeftShift or KeyCode.RightShift;
     }
 
+    [UsedImplicitly]
     [JsonObject(MemberSerialization.OptIn)]
     public class KeyBind
     {

@@ -6,11 +6,13 @@ using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 using HarmonyLib;
+using JetBrains.Annotations;
 
 namespace SolastaUnfinishedBusiness.Api.ModKit.Utility;
 
 public static class Utilities
 {
+    [UsedImplicitly]
     public static TValue GetValueOrDefault<TKey, TValue>(this Dictionary<TKey, TValue> dictionary, TKey key,
         TValue defaultValue = default)
     {
@@ -21,6 +23,7 @@ public static class Utilities
         return dictionary.TryGetValue(key, out var value) ? value : defaultValue;
     }
 
+    [UsedImplicitly]
     private static object GetPropValue(this object obj, string name)
     {
         foreach (var part in name.Split('.'))
@@ -37,6 +40,7 @@ public static class Utilities
         return obj;
     }
 
+    [UsedImplicitly]
     public static T GetPropValue<T>(this object obj, string name)
     {
         var retValue = GetPropValue(obj, name);
@@ -46,6 +50,7 @@ public static class Utilities
         return (T)retValue;
     }
 
+    [UsedImplicitly]
     public static object SetPropValue(this object obj, string name, object value)
     {
         var parts = name.Split('.');
@@ -69,11 +74,14 @@ public static class Utilities
         return null;
     }
 
+    // ReSharper disable once InconsistentNaming
+    [UsedImplicitly]
     public static string StripHTML(this string s)
     {
         return Regex.Replace(s, "<.*?>", string.Empty);
     }
 
+    [UsedImplicitly]
     public static string UnityRichTextToHtml(string s)
     {
         s = s.Replace("<color=", "<font color=");
@@ -85,6 +93,7 @@ public static class Utilities
         return s;
     }
 
+    [UsedImplicitly]
     public static string MergeSpaces(this string str, bool trim = false)
     {
         if (str == null)
@@ -108,6 +117,7 @@ public static class Utilities
         return trim ? stringBuilder.ToString().Trim() : stringBuilder.ToString();
     }
 
+    [UsedImplicitly]
     public static string ReplaceLastOccurrence(this string source, string find, string replace)
     {
         var place = source.LastIndexOf(find, StringComparison.CurrentCulture);
@@ -121,6 +131,7 @@ public static class Utilities
         return result;
     }
 
+    [UsedImplicitly]
     public static string[] GetObjectInfo(object o)
     {
         var fields = Traverse.Create(o).Fields().Aggregate("", (current, field) => current + field + ", ");
@@ -133,6 +144,7 @@ public static class Utilities
         return new[] { fields, methods, properties };
     }
 
+    [UsedImplicitly]
     public static string SubstringBetweenCharacters(this string input, char charFrom, char charTo)
     {
         var posFrom = input.IndexOf(charFrom);
@@ -148,6 +160,7 @@ public static class Utilities
             : string.Empty;
     }
 
+    [UsedImplicitly]
     public static string[] TrimCommonPrefix(this string[] values)
     {
         var prefix = string.Empty;
@@ -197,6 +210,7 @@ public static class Utilities
         return prefix.Length > 0 ? values.Select(s => s.Replace(prefix, "")).ToArray() : values;
     }
 
+    [UsedImplicitly]
     public static Dictionary<string, TEnum> NameToValueDictionary<TEnum>(this TEnum enumValue) where TEnum : struct
     {
         var enumType = enumValue.GetType();
@@ -205,6 +219,7 @@ public static class Utilities
             .ToDictionary(e => Enum.GetName(enumType, e), e => e);
     }
 
+    [UsedImplicitly]
     public static Dictionary<TEnum, string> ValueToNameDictionary<TEnum>(this TEnum enumValue) where TEnum : struct
     {
         var enumType = enumValue.GetType();
@@ -213,6 +228,7 @@ public static class Utilities
             .ToDictionary(e => e, e => Enum.GetName(enumType, e));
     }
 
+    [UsedImplicitly]
     public static Dictionary<TK, TV> Filter<TK, TV>(this Dictionary<TK, TV> dict,
         Predicate<KeyValuePair<TK, TV>> pred)
     {

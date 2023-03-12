@@ -39,6 +39,12 @@ internal static class ModSettings
                 }
 
                 var stream = assembly.GetManifestResourceStream(res);
+
+                if (stream == null)
+                {
+                    continue;
+                }
+
                 using StreamReader reader = new(stream);
                 var text = reader.ReadToEnd();
                 //Logger.Log($"read: {text}");

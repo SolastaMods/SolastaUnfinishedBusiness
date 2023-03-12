@@ -1,4 +1,5 @@
-﻿using SolastaUnfinishedBusiness.Api.LanguageExtensions;
+﻿using JetBrains.Annotations;
+using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using UnityEngine;
 using UnityModManagerNet;
 
@@ -25,9 +26,11 @@ internal static partial class UI
     private static GUIStyle _submenuButtonStyle;
     private static Color FillColor { get; } = new(1f, 1f, 1f, 0.65f);
 
-    internal static GUIStyle ButtonStyle =>
+    [UsedImplicitly]
+    public static GUIStyle ButtonStyle =>
         _buttonStyle ??= new GUIStyle(GUI.skin.button) { alignment = TextAnchor.MiddleLeft };
 
+    [UsedImplicitly]
     public static GUIStyle LargeStyle
     {
         get
@@ -48,7 +51,8 @@ internal static partial class UI
         }
     }
 
-    internal static GUIStyle TextBoxStyle
+    [UsedImplicitly]
+    public static GUIStyle TextBoxStyle
     {
         get
         {
@@ -67,10 +71,12 @@ internal static partial class UI
         }
     }
 
-    internal static GUIStyle ToggleStyle =>
+    [UsedImplicitly]
+    public static GUIStyle ToggleStyle =>
         _toggleStyle ??= new GUIStyle(GUI.skin.label) { alignment = TextAnchor.MiddleLeft };
 
-    internal static Texture2D RarityTexture
+    [UsedImplicitly]
+    public static Texture2D RarityTexture
     {
         get
         {
@@ -85,15 +91,18 @@ internal static partial class UI
         }
     }
 
+    [UsedImplicitly]
     public static GUIStyle RarityStyle =>
         _rarityStyle ??= new GUIStyle(GUI.skin.button) { normal = { background = RarityTexture } };
 
+    [UsedImplicitly]
     public static GUIStyle RarityButtonStyle =>
         _rarityButtonStyle ??= new GUIStyle(GUI.skin.button)
         {
             alignment = TextAnchor.MiddleLeft, normal = { background = RarityTexture }
         };
 
+    [UsedImplicitly]
     private static Texture2D SubmenuTexture
     {
         get
@@ -109,6 +118,7 @@ internal static partial class UI
         }
     }
 
+    [UsedImplicitly]
     private static GUIStyle SubmenuButtonStyle
     {
         get
@@ -131,11 +141,13 @@ internal static partial class UI
         }
     }
 
+    [UsedImplicitly]
     private static int Point(this int x)
     {
         return UnityModManager.UI.Scale(x);
     }
 
+    [UsedImplicitly]
     private static GUIStyle FillStyle(Color color)
     {
         if (_fillTexture == null)
@@ -151,6 +163,7 @@ internal static partial class UI
         return _fillStyle;
     }
 
+    [UsedImplicitly]
     private static void Div(Color color, float indent = 0, float height = 0, float width = 0)
     {
         if (_fillTexture == null)

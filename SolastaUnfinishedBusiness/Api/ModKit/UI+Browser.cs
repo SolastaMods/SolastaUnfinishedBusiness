@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Api.ModKit.Utility;
 
@@ -8,7 +9,7 @@ namespace SolastaUnfinishedBusiness.Api.ModKit;
 
 internal static partial class UI
 {
-    internal static class Browser<T, TItem, TDef> // for many things the item will be the definition
+    public static class Browser<T, TItem, TDef> // for many things the item will be the definition
     {
         private static IEnumerable<TDef> _filteredDefinitions;
         private static string prevCallerKey = "";
@@ -17,7 +18,7 @@ internal static partial class UI
         private static int matchCount;
         private static bool showAll;
 
-        internal static void OnGUI(string callerKey,
+        public static void OnGUI(string callerKey,
             T target,
             IEnumerable<TItem> current,
             IEnumerable<TDef> available,
@@ -71,7 +72,7 @@ internal static partial class UI
             }
 
             var currentDict = current.ToDictionary(definition, c => c);
-            List<TDef> definitions = null;
+            List<TDef> definitions;
             if (showAll)
             {
                 UpdateSearchResults(searchText, available, searchAndSortKey);
@@ -103,7 +104,8 @@ internal static partial class UI
             }
         }
 
-        internal static void OnRowGUI(
+        [UsedImplicitly]
+        public static void OnRowGUI(
             T target,
             TDef definition,
             TItem item,
@@ -185,7 +187,8 @@ internal static partial class UI
             Div(100);
         }
 
-        internal static void UpdateSearchResults(string searchTextParam, IEnumerable<TDef> definitions,
+        [UsedImplicitly]
+        public static void UpdateSearchResults(string searchTextParam, IEnumerable<TDef> definitions,
             Func<TDef, string> searchAndSortKey)
         {
             if (definitions == null)
