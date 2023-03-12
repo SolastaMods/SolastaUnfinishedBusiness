@@ -655,6 +655,7 @@ internal static partial class SpellBuilders
                 AttributeDefinitions.Wisdom,
                 12)
             .SetTargetingData(Side.Enemy, RangeType.Distance, 12, TargetType.Individuals)
+            .AddImmuneCreatureFamilies(CharacterFamilyDefinitions.Construct, CharacterFamilyDefinitions.Undead)
             .SetEffectForms(
                 EffectFormBuilder
                     .Create()
@@ -677,7 +678,7 @@ internal static partial class SpellBuilders
             .SetVocalSpellSameType(VocalSpellSemeType.Attack)
             .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolNecromancy)
             .AddToDB();
-
+        
         return spell;
     }
 
