@@ -1,6 +1,5 @@
 ﻿using System.Linq;
 using System.Text.RegularExpressions;
-using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Builders;
 using UnityEngine;
 
@@ -8,6 +7,7 @@ namespace SolastaUnfinishedBusiness.Api.LanguageExtensions;
 
 public static class RichText
 {
+    // ReSharper disable file UnusedMember.Global
     public enum Rgba : uint
     {
         Blue = 0x8080ffff,
@@ -41,97 +41,79 @@ public static class RichText
         White = 0xffffffff
     }
 
-    [NotNull]
     internal static string Bold(this string s)
     {
         return _ = $"<b>{s}</b>";
     }
 
-    [NotNull]
     internal static string Italic(this string s)
     {
         return _ = $"<i>{s}</i>";
     }
 
-    [NotNull]
     internal static string Color(this string s, string color)
     {
         return _ = $"<color={color}>{s}</color>";
     }
 
-    [NotNull]
+    public static string Pink(this string s)
+    {
+        return _ = s.Color("#FFA0A0E0");
+    }
+
+    public static string Blue(this string s)
+    {
+        return _ = s.Color("blue");
+    }
+
+    public static string Yellow(this string s)
+    {
+        return _ = s.Color("yellow");
+    }
+
     internal static string Khaki(this string s)
     {
         return s.Color("#F0DAA0");
     }
 
-    [NotNull]
     internal static string White(this string s)
     {
         return s.Color("white");
     }
 
-    [NotNull]
     internal static string Grey(this string s)
     {
         return s.Color("#A0A0A0FF");
     }
 
-    [NotNull]
     internal static string MedGrey(this string s)
     {
         return s.Color("#A8A8A8ff");
     }
 
-    [NotNull]
     internal static string Red(this string s)
     {
         return s.Color("#C04040E0");
     }
 
-    [NotNull]
     internal static string Green(this string s)
     {
         return s.Color("#00ff00ff");
     }
 
-#if false
-    [NotNull]
-    internal static string Blue(this string s)
-    {
-        return s.Color("blue");
-    }
-#endif
-
-    [NotNull]
     internal static string Cyan(this string s)
     {
         return s.Color("cyan");
     }
 
-    [NotNull]
     internal static string Magenta(this string s)
     {
         return s.Color("magenta");
     }
 
-#if false
-    [NotNull]
-    internal static string Yellow(this string s)
-    {
-        return s.Color("yellow");
-    }
-#endif
-
-    [NotNull]
     internal static string Orange(this string s)
     {
         return s.Color("orange");
-    }
-
-    public static string WarningLargeRedFormat(this string s)
-    {
-        return _ = s.Red().Size(16).Bold();
     }
 
     public static string SizePercent(this string s, int percent)
@@ -155,38 +137,13 @@ public static class RichText
         return $"{color:X}";
     }
 
-    public static string Color(this string str, Color color)
-    {
-        return $"<color=#{ColorUtility.ToHtmlStringRGBA(color)}>{str}</color>";
-    }
-
-    public static string Color(this string str, Rgba color)
-    {
-        return $"<color=#{color:X}>{str}</color>";
-    }
-
-    public static string Pink(this string s)
-    {
-        return _ = s.Color("#FFA0A0E0");
-    }
-
-    public static string Blue(this string s)
-    {
-        return _ = s.Color("blue");
-    }
-
-    public static string Yellow(this string s)
-    {
-        return _ = s.Color("yellow");
-    }
-
     public static string ToSentence(this string str)
     {
         return Regex.Replace(str, @"((?<=\p{Ll})\p{Lu})|\p{Lu}(?=\p{Ll})", " $0").TrimStart();
         //return string.Concat(str.Select(c => char.IsUpper(c) ? " " + c : c.ToString())).TrimStart(' ');
     }
 
-    private static string Size(this string str, int size)
+    public static string Size(this string str, int size)
     {
         return $"<size={size}>{str}</size>";
     }

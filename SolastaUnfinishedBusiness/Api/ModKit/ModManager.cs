@@ -106,12 +106,14 @@ internal sealed class ModManager<TCore, TSettings>
         }
     }
 
+#if false
     internal void Unload()
     {
         harmonyInstance.UnpatchAll();
         Enabled = false;
         Patched = false;
     }
+#endif
 
     #endregion
 

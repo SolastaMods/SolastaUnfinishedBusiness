@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.Infrastructure;
 using SolastaUnfinishedBusiness.Api.ModKit.Utility;
 using static UnityModManagerNet.UnityModManager;
@@ -23,8 +24,7 @@ internal static partial class UI
         private static readonly Dictionary<string, Action> Actions = new();
         internal static Dictionary<string, List<string>> ConflictList = new();
         private static bool _bindingsDidChange;
-
-        private static KeyBind _lastTriggered;
+        // private static KeyBind _lastTriggered;
 
 #if false
         public static bool IsActive(string identifier)
@@ -79,6 +79,7 @@ internal static partial class UI
             //Logger.Log($"conflicts: {String.Join(", ", conflicts.Select(kvp => $"{kvp.Key.orange()} : {kvp.Value.Count}".cyan())).yellow()}");
         }
 
+        [UsedImplicitly]
         public static void OnLoad(ModEntry modEntryIn)
         {
             _modEntry ??= modEntryIn;
@@ -103,6 +104,7 @@ internal static partial class UI
             _bindingsDidChange = false;
         }
 
+#if false
         public static void OnUpdate()
         {
             if (_lastTriggered is { IsActive: false })
@@ -143,5 +145,6 @@ internal static partial class UI
                 _lastTriggered = binding;
             }
         }
+#endif
     }
 }

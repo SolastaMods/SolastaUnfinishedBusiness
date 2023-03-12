@@ -168,7 +168,7 @@ public static class Utilities
 
         if (values == null)
         {
-            return prefix.Length > 0 ? values.Select(s => s.Replace(prefix, "")).ToArray() : values;
+            return null;
         }
 
         switch (values.Length)

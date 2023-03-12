@@ -10,13 +10,13 @@ namespace SolastaUnfinishedBusiness.Api.ModKit;
 
 internal static partial class UI
 {
-    private const float UmmWidth = 960f;
-    public static string focusedControlName = null;
-
-    public static Rect UmmRect = new();
-    public static int UmmTabID = 0;
-    private static bool IsNarrow => UmmWidth < 1200;
-    private static bool IsWide => UmmWidth >= 1920;
+    // ReSharper disable once InconsistentNaming
+    private const float UMMWidth = 960f;
+    // public static string focusedControlName = null;
+    // public static Rect UmmRect = new();
+    // public static int UmmTabID = 0;
+    private static bool IsNarrow => UMMWidth < 1200;
+    private static bool IsWide => UMMWidth >= 1920;
 
 //    public static Vector2[] ummScrollPosition;
 

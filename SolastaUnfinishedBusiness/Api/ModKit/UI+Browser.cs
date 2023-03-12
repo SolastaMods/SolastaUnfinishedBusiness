@@ -35,6 +35,7 @@ internal static partial class UI
             Func<T, TItem, Action> removeItem = null
         )
         {
+            // ReSharper disable once NotAccessedVariable
             var searchChanged = false;
 //            var refreshTree = false;
             if (callerKey != prevCallerKey)
@@ -119,13 +120,13 @@ internal static partial class UI
             Func<T, TItem, Action> removeItem = null
         )
         {
-            var remWidth = UmmWidth;
+            // var remWidth = UmmWidth;
             matchCount++;
             using (HorizontalScope())
             {
                 Space(100);
-                remWidth -= 100;
-                var titleWidth = ((int)(UmmWidth / (IsWide ? 3.0f : 4.0f))).Point();
+                // remWidth -= 100;
+                var titleWidth = ((int)(UMMWidth / (IsWide ? 3.0f : 4.0f))).Point();
                 var text = title(definition);
                 if (item != null)
                 {
@@ -133,9 +134,9 @@ internal static partial class UI
                 }
 
                 Label(text, Width(titleWidth));
-                remWidth -= titleWidth;
+                // remWidth -= titleWidth;
                 Space(10);
-                remWidth -= 10;
+                // remWidth -= 10;
                 if (item != null && value?.Invoke(item) is { } stringValue)
                 {
                     if (decrementValue?.Invoke(target, item) is { } decrementAction)
@@ -166,15 +167,15 @@ internal static partial class UI
                 }
 
                 Space(10);
-                remWidth -= 10;
+                // remWidth -= 10;
                 if (item != null && removeItem?.Invoke(target, item) is { } remove)
                 {
                     ActionButton("Remove".Localized(), remove, 175.Width());
                 }
 
-                remWidth -= 178;
+                // remWidth -= 178;
                 Space(20);
-                remWidth -= 20;
+                // remWidth -= 20;
                 using (VerticalScope())
                 {
                     if (description != null)
