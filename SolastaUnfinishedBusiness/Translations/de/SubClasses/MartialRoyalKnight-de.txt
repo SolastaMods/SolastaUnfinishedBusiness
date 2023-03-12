@@ -1,10 +1,10 @@
-﻿Condition/&ConditionRoyalKnightProtectionDescription=Zu Beginn deines Inspiring Protector-Zuges erhältst du temporäre HP in Höhe ihres Kompetenzbonus.
+﻿Condition/&ConditionRoyalKnightProtectionDescription=Du erhältst +1 auf deine Rüstungsklasse, wenn deine Gesundheit unter 25 % liegt.
 Condition/&ConditionRoyalKnightProtectionTitle=Inspirierender Schutz
 Feature/&FeatureSetRoyalKnightRoyalEnvoyDescription=Addiere die Hälfte deines Kompetenzbonus zu jedem Charisma-Check, den du machst, der deinen Kompetenzbonus nicht bereits nutzt. Außerdem werden Sie mit Charisma-Rettungswürfen vertraut.
 Feature/&FeatureSetRoyalKnightRoyalEnvoyTitle=Königlicher Gesandter
 Feature/&PowerRoyalKnightInspiringSurgeDescription=Als Bonusaktion kannst du einem Verbündeten für 1 Runde eine zusätzliche Hauptaktion gewähren. Diese Aktion ist nicht mit Aktionsschub stapelbar.
 Feature/&PowerRoyalKnightInspiringSurgeTitle=Inspirierende Welle
-Feature/&PowerRoyalKnightProtectionDescription=Deine Inspiration heilt. Sie und Verbündete, die ihren Zug innerhalb von 9 m von Ihnen beginnen, erhalten vorübergehende Trefferpunkte in Höhe Ihres Fertigkeitsbonus.
+Feature/&PowerRoyalKnightProtectionDescription=Deine Taten inspirieren andere, weiterzukämpfen. Zu Beginn jedes Ihrer Züge erhalten Sie und Ihre Verbündeten innerhalb von 30 Fuß temporäre Trefferpunkte in Höhe des Doppelten Ihres Fertigkeitsbonus. Ihre Verbündeten erhalten +1 auf ihre Rüstungsklasse, wenn ihre Gesundheit unter 25 % liegt.
 Feature/&PowerRoyalKnightProtectionTitle=Inspirierender Schutz
 Feature/&PowerRoyalKnightRallyingCryDescription=Ersetzt „Zweiter Wind“ durch eine Kraft, die Trefferpunkte in Höhe des 4-fachen eurer Kämpferstufe wiederherstellt, gleichmäßig verteilt, bei einem oder mehreren Verbündeten innerhalb von 30 Fuß.
 Feature/&PowerRoyalKnightRallyingCryTitle=Sammelnder Schrei

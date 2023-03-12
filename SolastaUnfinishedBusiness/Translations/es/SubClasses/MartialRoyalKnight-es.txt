@@ -1,10 +1,10 @@
-﻿Condition/&ConditionRoyalKnightProtectionDescription=Al comienzo de tu turno de Protector inspirador, recibes hp temporales equivalentes a su bonificación por competencia.
+﻿Condition/&ConditionRoyalKnightProtectionDescription=Recibes +1 a tu clase de armadura si tu salud está por debajo del 25%.
 Condition/&ConditionRoyalKnightProtectionTitle=Protección inspiradora
 Feature/&FeatureSetRoyalKnightRoyalEnvoyDescription=Suma la mitad de tu bonificación por competencia a cualquier prueba de Carisma que realices y que aún no utilice tu bonificación por competencia. Además, te vuelves competente con las tiradas de salvación de Carisma.
 Feature/&FeatureSetRoyalKnightRoyalEnvoyTitle=enviado real
 Feature/&PowerRoyalKnightInspiringSurgeDescription=Como acción adicional, puedes otorgar a un aliado una acción principal adicional durante 1 ronda. Esta acción no se acumula con Action Surge.
 Feature/&PowerRoyalKnightInspiringSurgeTitle=Oleada inspiradora
-Feature/&PowerRoyalKnightProtectionDescription=Tu inspiración cura. Tú y tus aliados que comienzan su turno dentro de los 30 pies de ti reciben puntos de golpe temporales equivalentes a tu bonificación de competencia.
+Feature/&PowerRoyalKnightProtectionDescription=Tus acciones inspiran a otros a seguir luchando. Al comienzo de cada uno de tus turnos, tú y tus aliados en un radio de 30 pies obtienen puntos de golpe temporales equivalentes al doble de tu bonificación de competencia. Tus aliados reciben +1 en su clase de armadura si su salud está por debajo del 25 %.
 Feature/&PowerRoyalKnightProtectionTitle=Protección inspiradora
 Feature/&PowerRoyalKnightRallyingCryDescription=Reemplaza Second Wind con un poder que restaura puntos de golpe equivalentes a 4 veces tu nivel de luchador, distribuidos uniformemente, a uno o más aliados dentro de los 30 pies.
 Feature/&PowerRoyalKnightRallyingCryTitle=Grito de guerra

@@ -1,10 +1,10 @@
-﻿Condition/&ConditionRoyalKnightProtectionDescription=At the start of your Inspiring Protector turn, you receive temp hp equals to their proficiency bonus.
+﻿Condition/&ConditionRoyalKnightProtectionDescription=You receive +1 to your armor class if your health is below 25%.
 Condition/&ConditionRoyalKnightProtectionTitle=Inspiring Protection
 Feature/&FeatureSetRoyalKnightRoyalEnvoyDescription=Add half of your proficiency bonus to any Charisma check you make that doesn't already use your proficiency bonus. In addition, you become proficient with Charisma saving throws.
 Feature/&FeatureSetRoyalKnightRoyalEnvoyTitle=Royal Envoy
 Feature/&PowerRoyalKnightInspiringSurgeDescription=As a bonus action, you can grant an ally an additional main action for 1 round. This action doesn't stack with Action Surge.
 Feature/&PowerRoyalKnightInspiringSurgeTitle=Inspiring Surge
-Feature/&PowerRoyalKnightProtectionDescription=Your inspiration heals. You and allies that start their turn within 30 feet of you receive temporary hit points equal to your proficiency bonus.
+Feature/&PowerRoyalKnightProtectionDescription=Your actions inspire others to keep on fighting. At the start of each of your turns, you and your allies within 30 ft gain temporary hit points equal to twice your proficiency bonus. Your allies receive +1 to their armor class if their health is below 25%.
 Feature/&PowerRoyalKnightProtectionTitle=Inspiring Protection
 Feature/&PowerRoyalKnightRallyingCryDescription=Replaces Second Wind with a power that restores hit points equal to 4x your Fighter Level, distributed evenly, to one or more allies within 30 ft.
 Feature/&PowerRoyalKnightRallyingCryTitle=Rallying Cry

@@ -1,11 +1,13 @@
 ﻿using System.Linq;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
+using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Properties;
-using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
+using static FeatureDefinitionAttributeModifier;
 using static RuleDefinitions;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPowers;
 
 namespace SolastaUnfinishedBusiness.Subclasses;
@@ -80,6 +82,14 @@ internal sealed class MartialRoyalKnight : AbstractSubclass
             .Create($"Condition{Name}Protection")
             .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionBlessed)
             .SetSilent(Silent.WhenAddedOrRemoved)
+            .SetFeatures(
+                FeatureDefinitionAttributeModifierBuilder
+                    .Create($"AttributeModifier{Name}Protection")
+                    .SetGuiPresentation($"Power{Name}Protection", Category.Feature,
+                        GuiPresentationBuilder.NoContentTitle)
+                    .SetModifier(AttributeModifierOperation.Additive, AttributeDefinitions.ArmorClass, 1)
+                    .SetCustomSubFeatures(ValidatorsCharacter.HasLessThan25PercentHealth)
+                    .AddToDB())
             .AddToDB();
 
         var powerProtection = FeatureDefinitionPowerBuilder
@@ -139,7 +149,7 @@ internal sealed class MartialRoyalKnight : AbstractSubclass
             }
 
             var healingAmount =
-                locationCharacter.RulesetCharacter.TryGetAttributeValue(AttributeDefinitions.ProficiencyBonus);
+                2 * locationCharacter.RulesetCharacter.TryGetAttributeValue(AttributeDefinitions.ProficiencyBonus);
 
             foreach (var rulesetCharacter in battle.PlayerContenders.Select(x => x.RulesetCharacter))
             {
@@ -147,6 +157,10 @@ internal sealed class MartialRoyalKnight : AbstractSubclass
                 {
                     rulesetCharacter.ReceiveTemporaryHitPoints(healingAmount, DurationType.Minute, 1,
                         TurnOccurenceType.EndOfTurn, locationCharacter.Guid);
+                }
+
+                if (rulesetCharacter.MissingHitPoints > rulesetCharacter.CurrentHitPoints)
+                {
                 }
             }
         }

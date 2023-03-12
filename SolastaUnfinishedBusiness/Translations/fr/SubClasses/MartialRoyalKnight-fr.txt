@@ -1,10 +1,10 @@
-﻿Condition/&ConditionRoyalKnightProtectionDescription=Au début de votre tour Inspiring Protector, vous recevez des PV temporaires égaux à leur bonus de compétence.
+﻿Condition/&ConditionRoyalKnightProtectionDescription=Vous recevez +1 à votre classe d'armure si votre santé est inférieure à 25 %.
 Condition/&ConditionRoyalKnightProtectionTitle=Protection inspirante
 Feature/&FeatureSetRoyalKnightRoyalEnvoyDescription=Ajoutez la moitié de votre bonus de maîtrise à tout test de Charisme que vous effectuez et qui n'utilise pas déjà votre bonus de maîtrise. De plus, vous maîtrisez les jets de sauvegarde de Charisme.
 Feature/&FeatureSetRoyalKnightRoyalEnvoyTitle=Envoyé royal
 Feature/&PowerRoyalKnightInspiringSurgeDescription=Par une action bonus, vous pouvez accorder à un allié une action principale supplémentaire pendant 1 round. Cette action ne se cumule pas avec Action Surge.
 Feature/&PowerRoyalKnightInspiringSurgeTitle=Surtension inspirante
-Feature/&PowerRoyalKnightProtectionDescription=Votre inspiration guérit. Vous et vos alliés qui commencez leur tour à moins de 9 mètres de vous recevez des points de vie temporaires égaux à votre bonus de compétence.
+Feature/&PowerRoyalKnightProtectionDescription=Vos actions inspirent les autres à continuer à se battre. Au début de chacun de vos tours, vous et vos alliés dans un rayon de 9 mètres gagnez des points de vie temporaires égaux à deux fois votre bonus de maîtrise. Vos alliés reçoivent +1 à leur classe d'armure si leur santé est inférieure à 25 %.
 Feature/&PowerRoyalKnightProtectionTitle=Protection inspirante
 Feature/&PowerRoyalKnightRallyingCryDescription=Remplace Second Wind par un pouvoir qui restaure des points de vie égaux à 4x votre niveau de combattant, répartis uniformément, à un ou plusieurs alliés à moins de 9 mètres.
 Feature/&PowerRoyalKnightRallyingCryTitle=Cri de ralliement

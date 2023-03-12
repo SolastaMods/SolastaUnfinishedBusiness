@@ -1,10 +1,10 @@
-﻿Condition/&ConditionRoyalKnightProtectionDescription=All'inizio del tuo turno di Protettore ispiratore, ricevi HP temporanei pari al loro bonus di competenza.
+﻿Condition/&ConditionRoyalKnightProtectionDescription=Ricevi +1 alla tua classe di armatura se la tua salute è inferiore al 25%.
 Condition/&ConditionRoyalKnightProtectionTitle=Protezione ispiratrice
 Feature/&FeatureSetRoyalKnightRoyalEnvoyDescription=Aggiungi metà del tuo bonus di competenza a qualsiasi prova di Carisma che effettui che non utilizzi già il tuo bonus di competenza. Inoltre, diventi competente nei tiri salvezza di Carisma.
 Feature/&FeatureSetRoyalKnightRoyalEnvoyTitle=Inviato Reale
 Feature/&PowerRoyalKnightInspiringSurgeDescription=Come azione bonus, puoi concedere a un alleato un'azione principale aggiuntiva per 1 round. Questa azione non è cumulabile con Action Surge.
 Feature/&PowerRoyalKnightInspiringSurgeTitle=Impulso ispiratore
-Feature/&PowerRoyalKnightProtectionDescription=La tua ispirazione guarisce. Tu e gli alleati che iniziano il loro turno entro 9 metri da te ricevete punti ferita temporanei pari al vostro bonus di competenza.
+Feature/&PowerRoyalKnightProtectionDescription=Le tue azioni ispirano gli altri a continuare a combattere. All'inizio di ogni tuo turno, tu e i tuoi alleati entro 9 metri ottenete punti ferita temporanei pari al doppio del vostro bonus di competenza. I tuoi alleati ricevono +1 alla loro classe armatura se la loro salute è inferiore al 25%.
 Feature/&PowerRoyalKnightProtectionTitle=Protezione ispiratrice
 Feature/&PowerRoyalKnightRallyingCryDescription=Sostituisce Second Wind con un potere che ripristina punti ferita pari a 4 volte il tuo livello di combattente, distribuiti equamente, a uno o più alleati entro 9 metri.
 Feature/&PowerRoyalKnightRallyingCryTitle=Grido di battaglia
