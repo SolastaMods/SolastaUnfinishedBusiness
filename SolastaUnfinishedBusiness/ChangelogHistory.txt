@@ -2,7 +2,7 @@
 
 1.4.33.58:
 
-- added custom sprites to all 10 fighting styles, 5 additional subclasses, 2 powers and 1 spell
+- added custom sprites to all 10 fighting styles, 7 additional subclasses, 2 powers and 1 spell
 - added level 1 and 14 Hex powers to Soul Blade, changed soul shield and tweaked the spell list
 - added level 15 powers to Oath of Ancients, Oath of Hatred and Royal Knight
 - improved Party Editor with skills, feats and invocations browser and editor
