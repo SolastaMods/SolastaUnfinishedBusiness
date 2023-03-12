@@ -179,7 +179,7 @@ internal sealed class OathOfHatred : AbstractSubclass
                 return;
             }
 
-            if (attackMode.actionType != ActionDefinitions.ActionType.Reaction)
+            if (attackMode?.actionType != ActionDefinitions.ActionType.Reaction)
             {
                 return;
             }
