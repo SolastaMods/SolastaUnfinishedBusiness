@@ -1,10 +1,12 @@
-﻿Feature/&FeatureSetRoyalKnightRoyalEnvoyDescription=Adicione metade do seu bônus de proficiência (arredondado para cima) a qualquer teste de Carisma que você fizer que ainda não use seu bônus de proficiência. Além disso, você se torna proficiente em testes de resistência de Carisma.
+﻿Condition/&ConditionRoyalKnightProtectionDescription=No início do seu turno de Protetor Inspirador, você recebe hp temporário igual ao bônus de proficiência dele.
+Condition/&ConditionRoyalKnightProtectionTitle=Proteção inspiradora
+Feature/&FeatureSetRoyalKnightRoyalEnvoyDescription=Adicione metade do seu bônus de proficiência a qualquer teste de Carisma que você fizer que ainda não use seu bônus de proficiência. Além disso, você se torna proficiente em testes de resistência de Carisma.
 Feature/&FeatureSetRoyalKnightRoyalEnvoyTitle=enviado real
-Feature/&PowerRoyalKnightInspiringSurgeDescription=Como uma ação bônus, você pode conceder a um aliado uma ação principal adicional por 1 rodada. Esta ação não se acumula com Action Surge. Depois de usar esse recurso, você não pode usá-lo novamente até terminar um descanso longo.
+Feature/&PowerRoyalKnightInspiringSurgeDescription=Como uma ação bônus, você pode conceder a um aliado uma ação principal adicional por 1 rodada. Esta ação não se acumula com Action Surge.
 Feature/&PowerRoyalKnightInspiringSurgeTitle=Onda Inspiradora
-Feature/&PowerRoyalKnightProtectionDescription=Sua inspiração leva os membros do seu grupo para a batalha. Qualquer aliado a até 9 metros de você tem vantagem em suas jogadas de iniciativa.
-Feature/&PowerRoyalKnightProtectionTitle=Começo Inspirador
-Feature/&PowerRoyalKnightRallyingCryDescription=Substitui Second Wind por um poder que restaura pontos de vida iguais a 4x seu nível de lutador, distribuídos uniformemente, para um ou mais aliados dentro de 6 células. Você pode usar um número de vezes igual ao seu modificador de carisma por descanso curto.
+Feature/&PowerRoyalKnightProtectionDescription=Sua inspiração cura. Você e seus aliados que começam o turno a até 9 metros de você recebem pontos de vida temporários iguais ao seu bônus de proficiência.
+Feature/&PowerRoyalKnightProtectionTitle=Proteção inspiradora
+Feature/&PowerRoyalKnightRallyingCryDescription=Substitui Second Wind por um poder que restaura pontos de vida iguais a 4x seu nível de lutador, distribuídos uniformemente, para um ou mais aliados em um raio de 30 pés.
 Feature/&PowerRoyalKnightRallyingCryTitle=Grito de guerra
 Subclass/&MartialRoyalKnightDescription=Um cavaleiro que inspira grandeza nos outros ao cometer atos corajosos em batalha. Um Cavaleiro Real é um guerreiro habilidoso, mas quem lidera um bando de aliados pode transformar até a milícia mais mal equipada em um bando de guerra feroz.
 Subclass/&MartialRoyalKnightTitle=Cavaleiro real

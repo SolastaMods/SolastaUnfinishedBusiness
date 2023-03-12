@@ -1,5 +1,7 @@
-﻿using SolastaUnfinishedBusiness.Builders;
+﻿using System.Linq;
+using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
+using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Properties;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
@@ -76,9 +78,8 @@ internal sealed class MartialRoyalKnight : AbstractSubclass
 
         var conditionProtection = ConditionDefinitionBuilder
             .Create($"Condition{Name}Protection")
-            .SetGuiPresentation($"Power{Name}Protection", Category.Feature, ConditionDefinitions.ConditionBlessed)
+            .SetGuiPresentation(Category.Feature, ConditionDefinitions.ConditionBlessed)
             .SetSilent(Silent.WhenAddedOrRemoved)
-            .SetFeatures(FeatureDefinitionCombatAffinitys.CombatAffinityEagerForBattle)
             .AddToDB();
 
         var powerProtection = FeatureDefinitionPowerBuilder
@@ -87,10 +88,10 @@ internal sealed class MartialRoyalKnight : AbstractSubclass
             .SetUsesFixed(ActivationTime.PermanentUnlessIncapacitated)
             .SetEffectDescription(EffectDescriptionBuilder
                 .Create()
-                .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Cube, 5)
+                .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Cube, 13)
                 .SetDurationData(DurationType.Permanent)
                 .SetRecurrentEffect(
-                    RecurrentEffect.OnActivation | RecurrentEffect.OnEnter | RecurrentEffect.OnTurnStart)
+                    RecurrentEffect.OnActivation | RecurrentEffect.OnTurnStart)
                 .SetEffectForms(
                     EffectFormBuilder
                         .Create()
@@ -99,7 +100,7 @@ internal sealed class MartialRoyalKnight : AbstractSubclass
                             false)
                         .Build())
                 .Build())
-            .SetShowCasting(false)
+            .SetCustomSubFeatures(new CharacterTurnStartListenerProtection())
             .AddToDB();
 
         Subclass = CharacterSubclassDefinitionBuilder
@@ -124,4 +125,29 @@ internal sealed class MartialRoyalKnight : AbstractSubclass
 
     // ReSharper disable once UnassignedGetOnlyAutoProperty
     internal override DeityDefinition DeityDefinition { get; }
+
+    private sealed class CharacterTurnStartListenerProtection : ICharacterTurnStartListener
+    {
+        public void OnCharacterTurnStarted(GameLocationCharacter locationCharacter)
+        {
+            var battle = Gui.Battle;
+
+            if (battle == null)
+            {
+                return;
+            }
+
+            var healingAmount =
+                locationCharacter.RulesetCharacter.TryGetAttributeValue(AttributeDefinitions.ProficiencyBonus);
+
+            foreach (var rulesetCharacter in battle.PlayerContenders.Select(x => x.RulesetCharacter))
+            {
+                if (rulesetCharacter.TemporaryHitPoints <= healingAmount)
+                {
+                    rulesetCharacter.ReceiveTemporaryHitPoints(healingAmount, DurationType.Minute, 1,
+                        TurnOccurenceType.EndOfTurn, locationCharacter.Guid);
+                }
+            }
+        }
+    }
 }
