@@ -2,8 +2,8 @@
 Feature/&FeatureSetRoyalKnightRoyalEnvoyTitle=Envoyé royal
 Feature/&PowerRoyalKnightInspiringSurgeDescription=Par une action bonus, vous pouvez accorder à un allié une action principale supplémentaire pendant 1 round. Cette action ne se cumule pas avec Action Surge. Une fois que vous avez utilisé cette fonctionnalité, vous ne pouvez plus l'utiliser tant que vous n'avez pas terminé un repos long.
 Feature/&PowerRoyalKnightInspiringSurgeTitle=Surtension inspirante
-Feature/&PowerRoyalKnightProtectionDescription=L'inspiration du chevalier royal inspire son membre du parti. Les alliés à moins de 3 mètres de lui ajoutent 1d4 au jet d'attaque et au jet de sauvegarde.
-Feature/&PowerRoyalKnightProtectionTitle=protection
+Feature/&PowerRoyalKnightProtectionDescription=Votre inspiration empresse les membres de votre groupe à se battre. Tout allié à moins de 9 mètres de vous a un avantage dans ses jets d'initiative.
+Feature/&PowerRoyalKnightProtectionTitle=Début inspirant
 Feature/&PowerRoyalKnightRallyingCryDescription=Remplace Second Wind par un pouvoir qui restaure des points de vie égaux à 4x votre niveau de combattant, répartis uniformément, à un ou plusieurs alliés dans un rayon de 6 cases. Vous pouvez utiliser un nombre de fois égal à votre modificateur de charisme par repos court.
 Feature/&PowerRoyalKnightRallyingCryTitle=Cri de ralliement
 Subclass/&MartialRoyalKnightDescription=Un chevalier qui inspire la grandeur chez les autres en commettant des actes courageux au combat. Un chevalier royal est un guerrier habile, mais celui qui dirige une bande d'alliés peut transformer même la milice la moins bien équipée en une bande de guerre féroce.

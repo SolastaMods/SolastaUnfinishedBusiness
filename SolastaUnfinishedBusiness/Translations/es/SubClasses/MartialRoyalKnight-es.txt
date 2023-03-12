@@ -2,8 +2,8 @@
 Feature/&FeatureSetRoyalKnightRoyalEnvoyTitle=enviado real
 Feature/&PowerRoyalKnightInspiringSurgeDescription=Como acción adicional, puedes otorgar a un aliado una acción principal adicional durante 1 ronda. Esta acción no se acumula con Action Surge. Una vez que usas esta función, no puedes volver a usarla hasta que termines un descanso prolongado.
 Feature/&PowerRoyalKnightInspiringSurgeTitle=Oleada inspiradora
-Feature/&PowerRoyalKnightProtectionDescription=La inspiración del caballero real inspira a su miembro del grupo. Los aliados a 10 pies de él suman 1d4 a la tirada de ataque y la tirada de salvación.
-Feature/&PowerRoyalKnightProtectionTitle=Proteccion
+Feature/&PowerRoyalKnightProtectionDescription=Tu inspiración anima a los miembros de tu grupo a la batalla. Cualquier aliado dentro de los 30 pies de ti tiene ventaja en sus tiradas de iniciativa.
+Feature/&PowerRoyalKnightProtectionTitle=Comienzo inspirador
 Feature/&PowerRoyalKnightRallyingCryDescription=Reemplaza Second Wind con un poder que restaura puntos de golpe equivalentes a 4x tu nivel de luchador, distribuidos uniformemente, a uno o más aliados dentro de 6 celdas. Puedes usar un número de veces igual a tu modificador de carisma por descanso breve.
 Feature/&PowerRoyalKnightRallyingCryTitle=Grito de guerra
 Subclass/&MartialRoyalKnightDescription=Un caballero que inspira grandeza en los demás al cometer hazañas valientes en la batalla. Un Caballero Real es un guerrero habilidoso, pero uno que lidera una banda de aliados puede transformar incluso a la milicia peor equipada en una feroz banda de guerra.

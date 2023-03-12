@@ -2,8 +2,8 @@
 Feature/&FeatureSetRoyalKnightRoyalEnvoyTitle=Inviato Reale
 Feature/&PowerRoyalKnightInspiringSurgeDescription=Come azione bonus, puoi concedere a un alleato un'azione principale aggiuntiva per 1 round. Questa azione non è cumulabile con Action Surge. Una volta che usi questo privilegio, non puoi usarlo di nuovo finché non finisci un riposo lungo.
 Feature/&PowerRoyalKnightInspiringSurgeTitle=Impulso ispiratore
-Feature/&PowerRoyalKnightProtectionDescription=L'ispirazione del cavaliere reale ispira il suo membro del partito. Gli alleati entro 3 metri da lui aggiungono 1d4 al tiro per colpire e al tiro salvezza.
-Feature/&PowerRoyalKnightProtectionTitle=Protezione
+Feature/&PowerRoyalKnightProtectionDescription=La tua ispirazione porta i membri del tuo gruppo in battaglia. Qualsiasi alleato entro 9 metri da te ha vantaggio nei tiri di iniziativa.
+Feature/&PowerRoyalKnightProtectionTitle=Inizio stimolante
 Feature/&PowerRoyalKnightRallyingCryDescription=Sostituisce Second Wind con un potere che ripristina punti ferita pari a 4 volte il tuo livello di combattente, distribuiti equamente, a uno o più alleati entro 6 caselle. Puoi usare un numero di volte pari al tuo modificatore di carisma per riposo breve.
 Feature/&PowerRoyalKnightRallyingCryTitle=Grido di battaglia
 Subclass/&MartialRoyalKnightDescription=Un cavaliere che ispira grandezza negli altri commettendo azioni coraggiose in battaglia. Un Royal Knight è un abile guerriero, ma chi guida una banda di alleati può trasformare anche la milizia meno equipaggiata in una feroce banda da guerra.

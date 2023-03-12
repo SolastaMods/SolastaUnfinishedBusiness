@@ -2,8 +2,8 @@
 Feature/&FeatureSetRoyalKnightRoyalEnvoyTitle=Königlicher Gesandter
 Feature/&PowerRoyalKnightInspiringSurgeDescription=Als Bonusaktion kannst du einem Verbündeten für 1 Runde eine zusätzliche Hauptaktion gewähren. Diese Aktion ist nicht mit Aktionsschub stapelbar. Sobald Sie diese Funktion verwendet haben, können Sie sie nicht erneut verwenden, bis Sie eine lange Pause beendet haben.
 Feature/&PowerRoyalKnightInspiringSurgeTitle=Inspirierende Welle
-Feature/&PowerRoyalKnightProtectionDescription=Die Inspiration des königlichen Ritters inspiriert sein Parteimitglied. Verbündete innerhalb von 3 m um ihn addieren 1W4 zum Angriffs- und Rettungswurf.
-Feature/&PowerRoyalKnightProtectionTitle=Schutz
+Feature/&PowerRoyalKnightProtectionDescription=Deine Inspiration treibt deine Gruppenmitglieder in die Schlacht. Jeder Verbündete innerhalb von 30 Fuß von Ihnen hat einen Vorteil bei seinen Initiativewürfen.
+Feature/&PowerRoyalKnightProtectionTitle=Inspirierender Auftakt
 Feature/&PowerRoyalKnightRallyingCryDescription=Ersetzt „Zweiter Wind“ durch eine Kraft, die Trefferpunkte in Höhe des 4-fachen deines Kämpferlevels wiederherstellt, gleichmäßig verteilt, auf einen oder mehrere Verbündete innerhalb von 6 Zellen. Sie können eine Anzahl von Malen in Höhe Ihres Charisma-Modifikators pro kurzer Pause verwenden.
 Feature/&PowerRoyalKnightRallyingCryTitle=Sammelnder Schrei
 Subclass/&MartialRoyalKnightDescription=Ein Ritter, der andere zu Größe inspiriert, indem er mutige Taten im Kampf begeht. Ein königlicher Ritter ist ein erfahrener Krieger, aber einer, der eine Gruppe von Verbündeten anführt, kann selbst die am schlechtesten ausgerüstete Miliz in eine wilde Kriegsbande verwandeln.

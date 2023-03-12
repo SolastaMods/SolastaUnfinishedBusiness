@@ -78,9 +78,7 @@ internal sealed class MartialRoyalKnight : AbstractSubclass
             .Create($"Condition{Name}Protection")
             .SetGuiPresentation($"Power{Name}Protection", Category.Feature, ConditionDefinitions.ConditionBlessed)
             .SetSilent(Silent.WhenAddedOrRemoved)
-            .SetFeatures(
-                FeatureDefinitionCombatAffinitys.CombatAffinityBlessed,
-                FeatureDefinitionSavingThrowAffinitys.SavingThrowAffinityConditionBlessed)
+            .SetFeatures(FeatureDefinitionCombatAffinitys.CombatAffinityEagerForBattle)
             .AddToDB();
 
         var powerProtection = FeatureDefinitionPowerBuilder
