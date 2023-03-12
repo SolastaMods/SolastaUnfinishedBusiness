@@ -118,9 +118,22 @@ internal sealed class OathOfHatred : AbstractSubclass
 
         //Dauntless Pursuer being a carried by the wind that only processes on successful reaction hit
         var featureDauntlessPursuer = FeatureDefinitionBuilder
-            .Create("FeatureDauntlessPursuer")
+            .Create("FeatureHatredDauntlessPursuer")
             .SetGuiPresentation(Category.Feature)
             .SetCustomSubFeatures(new OnAttackEffectsDauntlessPursuer(conditionDauntlessPursuer))
+            .AddToDB();
+
+        //
+        // Level 15
+        //
+
+        var featureSetHatredResistance = FeatureDefinitionFeatureSetBuilder
+            .Create("FeatureSetHatredResistance")
+            .SetGuiPresentation(Category.Feature)
+            .AddFeatureSet(
+                FeatureDefinitionDamageAffinitys.DamageAffinityBludgeoningResistance,
+                FeatureDefinitionDamageAffinitys.DamageAffinityPiercingResistance,
+                FeatureDefinitionDamageAffinitys.DamageAffinitySlashingResistance)
             .AddToDB();
 
         Subclass = CharacterSubclassDefinitionBuilder
@@ -132,6 +145,7 @@ internal sealed class OathOfHatred : AbstractSubclass
                 powerHatredHatefulGaze,
                 powerHatredScornfulPrayer)
             .AddFeaturesAtLevel(7, featureDauntlessPursuer)
+            .AddFeaturesAtLevel(15, featureSetHatredResistance)
             .AddToDB();
     }
 

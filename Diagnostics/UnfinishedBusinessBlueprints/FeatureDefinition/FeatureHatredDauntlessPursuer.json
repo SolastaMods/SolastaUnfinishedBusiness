@@ -3,8 +3,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&FeatureDauntlessPursuerTitle",
-    "description": "Feature/&FeatureDauntlessPursuerDescription",
+    "title": "Feature/&FeatureHatredDauntlessPursuerTitle",
+    "description": "Feature/&FeatureHatredDauntlessPursuerDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -24,7 +24,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "7b03bc40-f783-5e19-8021-c0e0ef6f7c7f",
+  "guid": "f3b49825-68cd-539c-ad2f-18d93af67b0f",
   "contentPack": 9999,
-  "name": "FeatureDauntlessPursuer"
+  "name": "FeatureHatredDauntlessPursuer"
 }

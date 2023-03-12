@@ -153,6 +153,15 @@ internal sealed class OathOfAncients : AbstractSubclass
             .SetConditionForm(conditionAuraWarding, ConditionForm.ConditionOperation.Add)
             .Build();
 
+        //
+        // Level 15
+        //
+
+        var damageAffinityUndyingSentinel = FeatureDefinitionDamageAffinityBuilder
+            .Create(DamageAffinityHalfOrcRelentlessEndurance, $"DamageAffinity{NAME}UndyingSentinel")
+            .SetOrUpdateGuiPresentation(Category.Feature)
+            .AddToDB();
+
         Subclass = CharacterSubclassDefinitionBuilder
             .Create(NAME)
             .SetGuiPresentation(Category.Subclass, PatronTree)
@@ -161,6 +170,7 @@ internal sealed class OathOfAncients : AbstractSubclass
                 powerNaturesWrath,
                 powerTurnFaithless)
             .AddFeaturesAtLevel(7, powerAuraWarding)
+            .AddFeaturesAtLevel(15, damageAffinityUndyingSentinel)
             .AddToDB();
     }
 
