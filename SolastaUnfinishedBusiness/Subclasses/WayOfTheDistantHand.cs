@@ -323,7 +323,8 @@ internal sealed class WayOfTheDistantHand : AbstractSubclass
 
         Subclass = CharacterSubclassDefinitionBuilder
             .Create("WayOfTheDistantHand")
-            .SetOrUpdateGuiPresentation(Category.Subclass, CharacterSubclassDefinitions.RangerMarksman)
+            .SetGuiPresentation(Category.Subclass,
+                Sprites.GetSprite("WayOfTheDistantHand", Resources.WayOfTheDistantHand, 256))
             .AddFeaturesAtLevel(3,
                 proficiencyWayOfTheDistantHandCombat,
                 powerWayOfTheDistantHandZenArrowTechnique)
