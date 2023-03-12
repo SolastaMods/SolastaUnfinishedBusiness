@@ -1,9 +1,10 @@
 ﻿using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
+using SolastaUnfinishedBusiness.CustomUI;
+using SolastaUnfinishedBusiness.Properties;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
-using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterSubclassDefinitions;
 using static SolastaUnfinishedBusiness.Subclasses.CommonBuilders;
 
 namespace SolastaUnfinishedBusiness.Subclasses;
@@ -79,7 +80,8 @@ internal sealed class WizardArcaneFighter : AbstractSubclass
 
         Subclass = CharacterSubclassDefinitionBuilder
             .Create("WizardArcaneFighter")
-            .SetGuiPresentation(Category.Subclass, MartialSpellblade)
+            .SetGuiPresentation(Category.Subclass,
+                Sprites.GetSprite("WizardArcaneFighter", Resources.WizardArcaneFighter, 256))
             .AddFeaturesAtLevel(2,
                 FeatureSetCasterFightingProficiency,
                 magicAffinityArcaneFighterConcentrationAdvantage,

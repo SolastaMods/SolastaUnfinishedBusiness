@@ -1,6 +1,8 @@
 ﻿using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomInterfaces;
+using SolastaUnfinishedBusiness.CustomUI;
+using SolastaUnfinishedBusiness.Properties;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterSubclassDefinitions;
@@ -139,7 +141,7 @@ internal sealed class OathOfHatred : AbstractSubclass
 
         Subclass = CharacterSubclassDefinitionBuilder
             .Create("OathOfHatred")
-            .SetGuiPresentation(Category.Subclass, SorcerousHauntedSoul)
+            .SetGuiPresentation(Category.Subclass, Sprites.GetSprite("OathOfHatred", Resources.OathOfHatred, 256))
             .AddFeaturesAtLevel(3,
                 autoPreparedSpellsHatred,
                 featureSetHatredElevatedHate,
