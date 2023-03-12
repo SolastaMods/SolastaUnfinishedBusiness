@@ -12,6 +12,7 @@ internal static partial class UI
 {
     // ReSharper disable once InconsistentNaming
     private const float UMMWidth = 960f;
+
     // public static string focusedControlName = null;
     // public static Rect UmmRect = new();
     // public static int UmmTabID = 0;

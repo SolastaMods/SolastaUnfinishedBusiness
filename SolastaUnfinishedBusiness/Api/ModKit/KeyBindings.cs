@@ -23,6 +23,7 @@ internal static partial class UI
         private static SerializableDictionary<string, KeyBind> _bindings;
         private static readonly Dictionary<string, Action> Actions = new();
         internal static Dictionary<string, List<string>> ConflictList = new();
+
         private static bool _bindingsDidChange;
         // private static KeyBind _lastTriggered;
 

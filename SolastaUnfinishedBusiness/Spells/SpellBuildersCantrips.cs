@@ -678,7 +678,7 @@ internal static partial class SpellBuilders
             .SetVocalSpellSameType(VocalSpellSemeType.Attack)
             .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolNecromancy)
             .AddToDB();
-        
+
         return spell;
     }
 

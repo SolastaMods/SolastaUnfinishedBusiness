@@ -162,6 +162,7 @@ public static class PartyEditor
 
                             continue;
                         }
+
                         if (ch == _selectedCharacter && _selectedToggle == ToggleChoice.Skills)
                         {
                             var skills = BlueprintDisplay.GetBlueprints()?.OfType<SkillDefinition>()

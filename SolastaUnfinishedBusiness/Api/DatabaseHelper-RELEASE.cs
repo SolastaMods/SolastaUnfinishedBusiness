@@ -86,7 +86,6 @@ internal static partial class DatabaseHelper
         internal static CharacterSubclassDefinition DomainOblivion { get; } = GetDefinition<CharacterSubclassDefinition>("DomainOblivion");
         internal static CharacterSubclassDefinition DomainSun { get; } = GetDefinition<CharacterSubclassDefinition>("DomainSun");
         internal static CharacterSubclassDefinition MartialSpellblade { get; } = GetDefinition<CharacterSubclassDefinition>("MartialSpellblade");
-        internal static CharacterSubclassDefinition PatronTree { get; } = GetDefinition<CharacterSubclassDefinition>("PatronTree");
         internal static CharacterSubclassDefinition RangerSwiftBlade { get; } = GetDefinition<CharacterSubclassDefinition>("RangerSwiftBlade");
         internal static CharacterSubclassDefinition RoguishShadowCaster { get; } = GetDefinition<CharacterSubclassDefinition>("RoguishShadowCaster");
         internal static CharacterSubclassDefinition SorcerousChildRift { get; } = GetDefinition<CharacterSubclassDefinition>("SorcerousChildRift");
