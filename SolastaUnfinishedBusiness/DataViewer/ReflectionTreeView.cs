@@ -1,7 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using SolastaUnfinishedBusiness.Api.Infrastructure;
+using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Api.ModKit;
+using SolastaUnfinishedBusiness.Api.ModKit.Utility;
 using SolastaUnfinishedBusiness.Displays;
 using UnityEngine;
 
@@ -141,7 +142,7 @@ internal class ReflectionTreeView
                 {
                     searchText = searchText.Trim();
                     ReflectionSearch.Shared.StartSearch(_tree.RootNode, searchText, UpdateCounts, _searchResults);
-                }, UI.Width(250));
+                }, UI.Width((float)250));
                 GUILayout.Space(10f);
                 var isSearching = ReflectionSearch.Shared.IsSearching;
                 UI.ActionButton(isSearching ? "Stop" : "Search", () =>
@@ -275,13 +276,14 @@ internal class ReflectionTreeView
                 name + " : " + (
                     node.IsBaseType ? node.Type.Name.Grey() :
                     node.IsGameObject ? node.Type.Name.Magenta() :
-                    node.IsEnumerable ? node.Type.Name.Cyan() : node.Type.Name.Orange()), GUILayout.ExpandWidth(false),
+                    node.IsEnumerable ? node.Type.Name.Cyan() : node.Type.Name.Orange()),
+                GUILayout.ExpandWidth(false),
                 GUILayout.MinWidth(TitleMinWidth));
 
             // value
             var originalColor = GUI.contentColor;
             GUI.contentColor = node.IsException ? Color.red : node.IsNull ? Color.grey : originalColor;
-            GUILayout.TextArea(node.ValueText.MarkedSubstring(searchText));
+            GUILayout.TextArea(node.ValueText.StripHTML());
             GUI.contentColor = originalColor;
 
             // instance type

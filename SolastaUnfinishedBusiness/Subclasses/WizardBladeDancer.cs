@@ -1,12 +1,13 @@
 ﻿using System.Linq;
 using JetBrains.Annotations;
-using SolastaUnfinishedBusiness.Api.Extensions;
+using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
+using SolastaUnfinishedBusiness.CustomUI;
+using SolastaUnfinishedBusiness.Properties;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
-using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterSubclassDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.ConditionDefinitions;
 using static SolastaUnfinishedBusiness.Subclasses.CommonBuilders;
 
@@ -160,7 +161,8 @@ internal sealed class WizardBladeDancer : AbstractSubclass
 
         Subclass = CharacterSubclassDefinitionBuilder
             .Create("WizardBladeDancer")
-            .SetGuiPresentation(Category.Subclass, RangerSwiftBlade)
+            .SetGuiPresentation(Category.Subclass,
+                Sprites.GetSprite("WizardBladeDancer", Resources.WizardBladeDancer, 256))
             .AddFeaturesAtLevel(2,
                 featureSetCasterBladeDancerFighting,
                 featureSetBladeDancerBladeDance)

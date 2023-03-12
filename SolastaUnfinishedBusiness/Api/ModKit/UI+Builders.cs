@@ -2,7 +2,7 @@
 
 using System;
 using System.Linq;
-using SolastaUnfinishedBusiness.Api.Infrastructure;
+using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using UnityEngine;
 using GL = UnityEngine.GUILayout;
 
@@ -10,10 +10,16 @@ namespace SolastaUnfinishedBusiness.Api.ModKit;
 
 internal static partial class UI
 {
-    private const float UmmWidth = 960f;
-    internal static bool UserHasHitReturn = false;
-    internal static string FocusedControlName = null;
-    private static bool IsNarrow => UmmWidth < 1200;
+    // ReSharper disable once InconsistentNaming
+    private const float UMMWidth = 960f;
+
+    // public static string focusedControlName = null;
+    // public static Rect UmmRect = new();
+    // public static int UmmTabID = 0;
+    private static bool IsNarrow => UMMWidth < 1200;
+    private static bool IsWide => UMMWidth >= 1920;
+
+//    public static Vector2[] ummScrollPosition;
 
     /*** UI Builders
      * 
@@ -57,7 +63,7 @@ internal static partial class UI
         }
     }
 
-    internal static void HStack(string title = null, int stride = 0, params Action[] actions)
+    public static void HStack(string title = null, int stride = 0, params Action[] actions)
     {
         var length = actions.Length;
         if (stride < 1) { stride = length; }
@@ -81,7 +87,7 @@ internal static partial class UI
                 }
                 else
                 {
-                    Space(153);
+                    Space((float)153);
                 }
             }
 
@@ -96,7 +102,7 @@ internal static partial class UI
         }
     }
 
-    internal static void TabBar(ref int selected, Action header = null, params NamedAction[] actions)
+    public static void TabBar(ref int selected, Action header = null, params NamedAction[] actions)
     {
         if (selected >= actions.Length)
         {
@@ -104,7 +110,8 @@ internal static partial class UI
         }
 
         var sel = selected;
-        var titles = actions.Select((a, i) => i == sel ? a.Name.Orange().Bold() : a.Name);
+        var titles = actions.Select((a, i) =>
+            i == sel ? a.Name.Orange().Bold() : a.Name);
         var enumerable = titles as string[] ?? titles.ToArray();
 
         SelectionGrid(ref selected, enumerable.ToArray(), enumerable.Length, 6, ExpandWidth(true));
@@ -114,7 +121,7 @@ internal static partial class UI
         GL.EndVertical();
     }
 
-    internal static void SubMenu(ref int selected, bool div = true, Action header = null, params NamedAction[] actions)
+    public static void SubMenu(ref int selected, bool div = true, Action header = null, params NamedAction[] actions)
     {
         if (selected >= actions.Length)
         {
@@ -122,18 +129,19 @@ internal static partial class UI
         }
 
         var sel = selected;
-        var titles = actions.Select((a, i) => i == sel ? a.Name.Orange().Bold() : a.Name);
+        var titles = actions.Select((a, i) =>
+            i == sel ? a.Name.Orange().Bold() : a.Name);
         var enumerable = titles as string[] ?? titles.ToArray();
         //SelectionGrid(ref selected, enumerable.ToArray(), enumerable.Length, 6, ExpandWidth(false));
         using (HorizontalScope(GUI.skin.scrollView))
         {
             using (VerticalScope())
             {
-                SelectionGrid(ref selected, enumerable.ToArray(), 0, submenuButtonStyle, AutoWidth());
+                SelectionGrid(ref selected, enumerable.ToArray(), 0, SubmenuButtonStyle, AutoWidth());
                 if (div)
                 {
                     DivLast(20);
-                    Space(-25);
+                    Space((float)-25);
                 }
 
                 header?.Invoke();

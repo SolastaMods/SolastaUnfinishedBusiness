@@ -1,6 +1,10 @@
 ﻿UI/&Quickies=Sveltine
 UI/&Current Party=Partito attuale
 UI/&Party Editor=Redattore di partito
-UI/&Experimental Preview:=Anteprima sperimentale (<color=Yellow>salvataggio di backup prima dell'uso</color>):
-UI/&This simple party editor lets you edit characters in a loaded game session. Right now it lets you edit your character's first and last name. More features are coming soon (tm). Please click on the following to report issues:=Questo semplice editor di party ti consente di modificare i personaggi in una sessione di gioco caricata. In questo momento ti consente di modificare il nome e le statistiche del tuo personaggio. Presto arriveranno altre funzionalità (tm). Fare clic su quanto segue per segnalare problemi:
+UI/&Experimental Preview:=Anteprima sperimentale <i><color=Yellow>[salvataggio di backup prima dell'uso]</color></i>:
+UI/&This simple party editor lets you edit characters in a loaded game session. Please click on the following to report issues:=Questo semplice editor di party ti consente di modificare i personaggi in una sessione di gioco caricata. Fare clic su quanto segue per segnalare problemi:
 UI/&****** Party Editor unavailable: Please load a save game ******=****** Party Editor non disponibile: carica un salvataggio ******
+UI/&Add=Add
+UI/&Remove=Rimuovere
+UI/&Skilled=Abile
+UI/&Expert=Esperto

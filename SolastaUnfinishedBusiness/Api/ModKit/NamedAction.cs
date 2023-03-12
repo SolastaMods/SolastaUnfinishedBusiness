@@ -1,6 +1,7 @@
 ﻿// Copyright < 2021 > Narria (github user Cabarius) - License: MIT
 
 using System;
+using JetBrains.Annotations;
 
 namespace SolastaUnfinishedBusiness.Api.ModKit;
 
@@ -10,59 +11,59 @@ public class NamedAction
     {
         Name = name;
         Action = action;
-        CanPerform = canPerform ?? (() => { return true; });
+        CanPerform = canPerform ?? (() => true);
     }
 
-    public string Name { get; }
-    public Action Action { get; }
-    public Func<bool> CanPerform { get; }
+    [UsedImplicitly] public string Name { [UsedImplicitly] get; }
+    [UsedImplicitly] public Action Action { [UsedImplicitly] get; }
+    [UsedImplicitly] public Func<bool> CanPerform { [UsedImplicitly] get; }
 }
 
 public class NamedAction<T>
 {
     public NamedAction(string name, Action<T> action, Func<T, bool> canPerform = null)
     {
-        this.name = name;
-        this.action = action;
-        this.canPerform = canPerform ?? (T => { return true; });
+        Name = name;
+        Action = action;
+        CanPerform = canPerform ?? (_ => true);
     }
 
-    public string name { get; }
-    public Action<T> action { get; }
-    public Func<T, bool> canPerform { get; }
+    [UsedImplicitly] public string Name { [UsedImplicitly] get; }
+    [UsedImplicitly] public Action<T> Action { [UsedImplicitly] get; }
+    [UsedImplicitly] public Func<T, bool> CanPerform { [UsedImplicitly] get; }
 }
 
 public class NamedFunc<T>
 {
     public NamedFunc(string name, Func<T> func, Func<bool> canPerform = null)
     {
-        this.name = name;
-        this.func = func;
-        this.canPerform = canPerform ?? (() => { return true; });
+        Name = name;
+        Func = func;
+        CanPerform = canPerform ?? (() => true);
     }
 
-    public string name { get; }
-    public Func<T> func { get; }
-    public Func<bool> canPerform { get; }
+    [UsedImplicitly] public string Name { [UsedImplicitly] get; }
+    [UsedImplicitly] public Func<T> Func { [UsedImplicitly] get; }
+    [UsedImplicitly] public Func<bool> CanPerform { [UsedImplicitly] get; }
 }
 
-public class NamedMutator<Target, T>
+public class NamedMutator<TV, T>
 {
     public NamedMutator(
         string name,
-        Action<Target, T, int> action,
-        Func<Target, T, bool> canPerform = null,
+        Action<TV, T, int> action,
+        Func<TV, T, bool> canPerform = null,
         bool isRepeatable = false
     )
     {
-        this.name = name;
-        this.action = action;
-        this.canPerform = canPerform ?? ((target, value) => true);
-        this.isRepeatable = isRepeatable;
+        Name = name;
+        Action = action;
+        CanPerform = canPerform ?? ((_, _) => true);
+        IsRepeatable = isRepeatable;
     }
 
-    public string name { get; }
-    public Action<Target, T, int> action { get; }
-    public Func<Target, T, bool> canPerform { get; }
-    public bool isRepeatable { get; }
+    [UsedImplicitly] public string Name { [UsedImplicitly] get; }
+    [UsedImplicitly] public Action<TV, T, int> Action { [UsedImplicitly] get; }
+    [UsedImplicitly] public Func<TV, T, bool> CanPerform { [UsedImplicitly] get; }
+    [UsedImplicitly] public bool IsRepeatable { [UsedImplicitly] get; }
 }

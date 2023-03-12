@@ -2,9 +2,10 @@
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomInterfaces;
+using SolastaUnfinishedBusiness.CustomUI;
+using SolastaUnfinishedBusiness.Properties;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
-using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterSubclassDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.ConditionDefinitions;
 
 namespace SolastaUnfinishedBusiness.Subclasses;
@@ -61,7 +62,8 @@ internal sealed class RoguishOpportunist : AbstractSubclass
 
         Subclass = CharacterSubclassDefinitionBuilder
             .Create("RoguishOpportunist")
-            .SetGuiPresentation(Category.Subclass, MartialCommander)
+            .SetGuiPresentation(Category.Subclass,
+                Sprites.GetSprite("RoguishOpportunist", Resources.RoguishOpportunist, 256))
             .AddFeaturesAtLevel(3,
                 onComputeAttackModifierOpportunistQuickStrike)
             .AddFeaturesAtLevel(9,

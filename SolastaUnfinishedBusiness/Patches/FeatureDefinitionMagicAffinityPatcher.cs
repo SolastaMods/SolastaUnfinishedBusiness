@@ -47,7 +47,7 @@ public static class FeatureDefinitionMagicAffinityPatcher
                 spells.Remove(level);
             }
 
-            var spellList = "\n" + string.Join("\n",
+            var spellList = string.Join("\n",
                 spells.Select(e =>
                     $"{FormatSpellLevel(e.Key)}\t{string.Join(", ", e.Value.Select(s => s.FormatTitle()))}"));
 

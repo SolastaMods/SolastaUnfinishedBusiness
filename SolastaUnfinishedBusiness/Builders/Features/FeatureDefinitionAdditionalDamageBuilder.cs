@@ -1,7 +1,7 @@
 ﻿using System;
 using JetBrains.Annotations;
-using SolastaUnfinishedBusiness.Api.Extensions;
-using SolastaUnfinishedBusiness.Api.Infrastructure;
+using SolastaUnfinishedBusiness.Api.GameExtensions;
+using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using UnityEngine.AddressableAssets;
 
 namespace SolastaUnfinishedBusiness.Builders.Features;

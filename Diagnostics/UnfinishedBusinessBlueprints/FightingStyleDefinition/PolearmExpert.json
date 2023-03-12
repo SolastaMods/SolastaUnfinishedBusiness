@@ -11,9 +11,9 @@
     "description": "FightingStyle/&PolearmExpertDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "f2733f10f4843734fa82a117017a9d7c",
-      "m_SubObjectName": "Sorcerer_ChildOfTheRift",
-      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+      "m_AssetGUID": "4b56c077-b3ab-5cac-b4ae-1aa5a3ecdfd5",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",

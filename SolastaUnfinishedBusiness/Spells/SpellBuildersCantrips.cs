@@ -1,4 +1,4 @@
-﻿using SolastaUnfinishedBusiness.Api.Extensions;
+﻿using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
@@ -655,6 +655,7 @@ internal static partial class SpellBuilders
                 AttributeDefinitions.Wisdom,
                 12)
             .SetTargetingData(Side.Enemy, RangeType.Distance, 12, TargetType.Individuals)
+            .AddImmuneCreatureFamilies(CharacterFamilyDefinitions.Construct, CharacterFamilyDefinitions.Undead)
             .SetEffectForms(
                 EffectFormBuilder
                     .Create()

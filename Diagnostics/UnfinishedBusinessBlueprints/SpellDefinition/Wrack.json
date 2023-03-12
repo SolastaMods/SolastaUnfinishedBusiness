@@ -64,7 +64,10 @@
     "velocityCellsPerRound": 2,
     "velocityType": "AwayFromSourceOriginalPosition",
     "restrictedCreatureFamilies": [],
-    "immuneCreatureFamilies": [],
+    "immuneCreatureFamilies": [
+      "Construct",
+      "Undead"
+    ],
     "restrictedCharacterSizes": [],
     "hasLimitedEffectPool": false,
     "effectPoolAmount": 60,

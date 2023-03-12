@@ -31,9 +31,9 @@
     "description": "Subclass/&CollegeOfWarDancerDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "2bc90f386449dab49a7897bfa72b4e16",
-      "m_SubObjectName": "Ranger_SwiftBlade",
-      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+      "m_AssetGUID": "be1a2b73-dc55-5d97-ba0b-90725b354740",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",

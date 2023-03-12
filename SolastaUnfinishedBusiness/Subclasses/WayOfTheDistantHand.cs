@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using SolastaUnfinishedBusiness.Api.Extensions;
+using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
@@ -323,7 +323,8 @@ internal sealed class WayOfTheDistantHand : AbstractSubclass
 
         Subclass = CharacterSubclassDefinitionBuilder
             .Create("WayOfTheDistantHand")
-            .SetOrUpdateGuiPresentation(Category.Subclass, CharacterSubclassDefinitions.RangerMarksman)
+            .SetGuiPresentation(Category.Subclass,
+                Sprites.GetSprite("WayOfTheDistantHand", Resources.WayOfTheDistantHand, 256))
             .AddFeaturesAtLevel(3,
                 proficiencyWayOfTheDistantHandCombat,
                 powerWayOfTheDistantHandZenArrowTechnique)
@@ -423,8 +424,7 @@ internal sealed class WayOfTheDistantHand : AbstractSubclass
 
     private static bool WieldsZenArcherWeapon(RulesetCharacter character)
     {
-        var mainHandItem =
-            character.CharacterInventory.InventorySlotsByName[EquipmentDefinitions.SlotTypeMainHand].EquipedItem;
+        var mainHandItem = character.GetMainWeapon();
 
         return IsZenArcherWeapon(character, mainHandItem?.ItemDefinition);
     }
@@ -512,13 +512,9 @@ internal sealed class WayOfTheDistantHand : AbstractSubclass
                 return null;
             }
 
-            var mainHandItem = hero.CharacterInventory.InventorySlotsByName[EquipmentDefinitions.SlotTypeMainHand]
-                .EquipedItem;
-
+            var mainHandItem = hero.GetMainWeapon();
             var strikeDefinition = mainHandItem.itemDefinition;
-
             var attackModifiers = hero.attackModifiers;
-
             var attackMode = hero.RefreshAttackMode(
                 ActionType,
                 strikeDefinition,
@@ -530,7 +526,9 @@ internal sealed class WayOfTheDistantHand : AbstractSubclass
                 hero.FeaturesOrigin,
                 mainHandItem
             );
+
             attackMode.attacksNumber = 2;
+
             return new List<RulesetAttackMode> { attackMode };
         }
     }

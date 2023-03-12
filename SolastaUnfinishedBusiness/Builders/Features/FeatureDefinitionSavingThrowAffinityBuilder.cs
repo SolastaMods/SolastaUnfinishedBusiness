@@ -1,6 +1,6 @@
 ﻿using System;
 using JetBrains.Annotations;
-using SolastaUnfinishedBusiness.Api.Infrastructure;
+using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using static FeatureDefinitionSavingThrowAffinity;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SchoolOfMagicDefinitions;
 

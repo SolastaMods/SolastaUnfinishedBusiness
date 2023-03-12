@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
-using SolastaUnfinishedBusiness.Api.Infrastructure;
+using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Api.ModKit;
 using UnityModManagerNet;
 using static SolastaUnfinishedBusiness.Displays.BlueprintDisplay;
@@ -19,6 +19,7 @@ using static SolastaUnfinishedBusiness.Displays.RulesDisplay;
 using static SolastaUnfinishedBusiness.Displays.SpellsDisplay;
 using static SolastaUnfinishedBusiness.Displays.ToolsDisplay;
 using static SolastaUnfinishedBusiness.Displays.TranslationsDisplay;
+
 #if DEBUG
 using static SolastaUnfinishedBusiness.Displays.DiagnosticsDisplay;
 #endif
@@ -58,8 +59,8 @@ namespace SolastaUnfinishedBusiness.Displays
             if (title != null)
             {
                 UI.Div();
-                UI.Label(title.color(RGBA.orange).bold());
-                UI.Space(7);
+                UI.Label(title);
+                UI.Space((float)7);
             }
 
             UI.SubMenu(ref selectedPane, title != null, null, actions);

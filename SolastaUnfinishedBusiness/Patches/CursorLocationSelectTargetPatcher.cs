@@ -1,6 +1,6 @@
 ﻿using HarmonyLib;
 using JetBrains.Annotations;
-using SolastaUnfinishedBusiness.Api.Extensions;
+using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 
 namespace SolastaUnfinishedBusiness.Patches;

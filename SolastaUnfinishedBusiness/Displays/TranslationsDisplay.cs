@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Linq;
-using SolastaUnfinishedBusiness.Api.Infrastructure;
+using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Api.ModKit;
 using SolastaUnfinishedBusiness.Models;
 
@@ -16,7 +16,7 @@ internal static class TranslationsDisplay
 
         using (UI.HorizontalScope())
         {
-            UI.Label(Gui.Localize("ModUi/&TargetLanguage"), UI.Width(120));
+            UI.Label(Gui.Localize("ModUi/&TargetLanguage"), UI.Width((float)120));
 
             var intValue = Array.IndexOf(TranslatorContext.AvailableLanguages, Main.Settings.SelectedLanguageCode);
 
@@ -24,7 +24,7 @@ internal static class TranslationsDisplay
                     ref intValue,
                     TranslatorContext.AvailableLanguages,
                     TranslatorContext.AvailableLanguages.Length,
-                    3, UI.Width(300)))
+                    3, UI.Width((float)300)))
             {
                 Main.Settings.SelectedLanguageCode = TranslatorContext.AvailableLanguages[intValue];
             }
@@ -45,9 +45,10 @@ internal static class TranslationsDisplay
             {
                 string buttonLabel;
 
-                UI.Label(userCampaign.Author.Substring(0, Math.Min(16, userCampaign.Author.Length)).Bold().Orange(),
-                    UI.Width(120));
-                UI.Label(userCampaign.Title.Bold().Italic(), UI.Width(300));
+                UI.Label(
+                    userCampaign.Author.Substring(0, Math.Min(16, userCampaign.Author.Length)).Bold().Orange(),
+                    UI.Width((float)120));
+                UI.Label(userCampaign.Title.Bold().Italic(), UI.Width((float)300));
 
                 if (TranslatorContext.TranslatorBehaviour.CurrentExports.TryGetValue(exportName, out var status))
                 {
@@ -71,7 +72,7 @@ internal static class TranslationsDisplay
                             TranslatorContext.TranslatorBehaviour.Cancel(userCampaign.Title);
                         }
                     },
-                    UI.Width(200));
+                    UI.Width((float)200));
             }
         }
 

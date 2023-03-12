@@ -21,9 +21,9 @@
     "description": "FightingStyle/&CripplingDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "e2e75a8dfa5339a4486b00747f23310e",
-      "m_SubObjectName": "Ranger_Shadow_Tamer",
-      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+      "m_AssetGUID": "107d6ee7-3196-5f3c-8ebb-a4066da34bd2",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",

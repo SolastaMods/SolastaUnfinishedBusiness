@@ -1,4 +1,4 @@
-﻿Feature/&AdditionalDamageRoguishDuelistDaringDuelDescription=You don't need advantage on the attack roll to use your Sneak Attack against a creature if you are within 5 feet of it, no other creatures are within 5 feet of you, and you don't have disadvantage on the attack roll. All the other Sneak Attack rules still apply.
+﻿Feature/&AdditionalDamageRoguishDuelistDaringDuelDescription=You don't need advantage on the attack roll to use your Sneak Attack against a creature if you are within 5 ft of it, no other creatures are within 5 ft of you, and you don't have disadvantage on the attack roll. All the other Sneak Attack rules still apply.
 Feature/&AdditionalDamageRoguishDuelistDaringDuelTitle=Daring Duel
 Feature/&AttributeModifierRoguishDuelistSureFootedDescription=Gain additional AC equal to half your proficiency bonus.
 Feature/&AttributeModifierRoguishDuelistSureFootedTitle=Sure Footed

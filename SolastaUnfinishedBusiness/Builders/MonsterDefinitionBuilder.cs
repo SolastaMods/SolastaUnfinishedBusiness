@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Linq;
 using JetBrains.Annotations;
-using SolastaUnfinishedBusiness.Api.Infrastructure;
+using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using TA.AI;
 using static BestiaryDefinitions;
 using static RuleDefinitions;

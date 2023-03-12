@@ -14,11 +14,11 @@ internal static class ItemsAndCraftingDisplay
         using (UI.HorizontalScope(UI.AutoWidth()))
         {
             UI.ActionButton(CraftingContext.RecipeTitles[key], () => CraftingContext.LearnRecipes(key),
-                UI.Width(180));
-            UI.Space(20);
+                UI.Width((float)180));
+            UI.Space((float)20);
 
             var toggle = Main.Settings.CraftingInStore.Contains(key);
-            if (UI.Toggle(Gui.Localize("ModUi/&AddToStore"), ref toggle, UI.Width(125)))
+            if (UI.Toggle(Gui.Localize("ModUi/&AddToStore"), ref toggle, UI.Width((float)125)))
             {
                 if (toggle)
                 {
@@ -33,7 +33,7 @@ internal static class ItemsAndCraftingDisplay
             }
 
             toggle = Main.Settings.CraftingRecipesInDm.Contains(key);
-            if (UI.Toggle(Gui.Localize("ModUi/&RecipesInDm"), ref toggle, UI.Width(125)))
+            if (UI.Toggle(Gui.Localize("ModUi/&RecipesInDm"), ref toggle, UI.Width((float)125)))
             {
                 if (toggle)
                 {
@@ -51,7 +51,7 @@ internal static class ItemsAndCraftingDisplay
             {
                 toggle = Main.Settings.CraftingItemsInDm.Contains(key);
 
-                if (!UI.Toggle(Gui.Localize("ModUi/&ItemInDm"), ref toggle, UI.Width(125)))
+                if (!UI.Toggle(Gui.Localize("ModUi/&ItemInDm"), ref toggle, UI.Width((float)125)))
                 {
                     return;
                 }
@@ -169,7 +169,7 @@ internal static class ItemsAndCraftingDisplay
 
         intValue = Main.Settings.SetBeltOfDwarvenKindBeardChances;
         if (UI.Slider(Gui.Localize("ModUi/&SetBeltOfDwarvenKindBeardChances"), ref intValue,
-                0, 100, 50, "%", UI.Width(500)))
+                0, 100, 50, "%", UI.Width((float)500)))
         {
             Main.Settings.SetBeltOfDwarvenKindBeardChances = intValue;
             ItemCraftingMerchantContext.SwitchSetBeltOfDwarvenKindBeardChances();
@@ -179,11 +179,11 @@ internal static class ItemsAndCraftingDisplay
 
         using (UI.HorizontalScope())
         {
-            UI.Label(Gui.Localize("ModUi/&EmpressGarbAppearance"), UI.Width(325));
+            UI.Label(Gui.Localize("ModUi/&EmpressGarbAppearance"), UI.Width((float)325));
 
             intValue = Main.Settings.EmpressGarbAppearanceIndex;
             if (UI.SelectionGrid(ref intValue, ItemCraftingMerchantContext.EmpressGarbAppearances,
-                    ItemCraftingMerchantContext.EmpressGarbAppearances.Length, 2, UI.Width(440)))
+                    ItemCraftingMerchantContext.EmpressGarbAppearances.Length, 2, UI.Width((float)440)))
             {
                 Main.Settings.EmpressGarbAppearanceIndex = intValue;
                 GameUiContext.SwitchEmpressGarb();
@@ -206,10 +206,10 @@ internal static class ItemsAndCraftingDisplay
 
             using (UI.HorizontalScope(UI.AutoWidth()))
             {
-                UI.Space(204);
+                UI.Space((float)204);
 
                 toggle = CraftingContext.RecipeBooks.Keys.Count == Main.Settings.CraftingInStore.Count;
-                if (UI.Toggle(Gui.Localize("ModUi/&AddAllToStore"), ref toggle, UI.Width(125)))
+                if (UI.Toggle(Gui.Localize("ModUi/&AddAllToStore"), ref toggle, UI.Width((float)125)))
                 {
                     Main.Settings.CraftingInStore.Clear();
 
@@ -220,7 +220,7 @@ internal static class ItemsAndCraftingDisplay
                 }
 
                 toggle = CraftingContext.RecipeBooks.Keys.Count == Main.Settings.CraftingRecipesInDm.Count;
-                if (UI.Toggle(Gui.Localize("ModUi/&AllRecipesInDm"), ref toggle, UI.Width(125)))
+                if (UI.Toggle(Gui.Localize("ModUi/&AllRecipesInDm"), ref toggle, UI.Width((float)125)))
                 {
                     Main.Settings.CraftingRecipesInDm.Clear();
 
@@ -231,7 +231,7 @@ internal static class ItemsAndCraftingDisplay
                 }
 
                 toggle = CraftingContext.RecipeBooks.Keys.Count == Main.Settings.CraftingItemsInDm.Count;
-                if (UI.Toggle(Gui.Localize("ModUi/&AllItemInDm"), ref toggle, UI.Width(125)))
+                if (UI.Toggle(Gui.Localize("ModUi/&AllItemInDm"), ref toggle, UI.Width((float)125)))
                 {
                     Main.Settings.CraftingItemsInDm.Clear();
 

@@ -1,9 +1,10 @@
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomInterfaces;
+using SolastaUnfinishedBusiness.CustomUI;
+using SolastaUnfinishedBusiness.Properties;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
-using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterSubclassDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionDamageAffinitys;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPowers;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
@@ -153,14 +154,24 @@ internal sealed class OathOfAncients : AbstractSubclass
             .SetConditionForm(conditionAuraWarding, ConditionForm.ConditionOperation.Add)
             .Build();
 
+        //
+        // Level 15
+        //
+
+        var damageAffinityUndyingSentinel = FeatureDefinitionDamageAffinityBuilder
+            .Create(DamageAffinityHalfOrcRelentlessEndurance, $"DamageAffinity{NAME}UndyingSentinel")
+            .SetOrUpdateGuiPresentation(Category.Feature)
+            .AddToDB();
+
         Subclass = CharacterSubclassDefinitionBuilder
             .Create(NAME)
-            .SetGuiPresentation(Category.Subclass, PatronTree)
+            .SetGuiPresentation(Category.Subclass, Sprites.GetSprite("OathOfAncients", Resources.OathOfAncients, 256))
             .AddFeaturesAtLevel(3,
                 autoPreparedSpellsOathAncients,
                 powerNaturesWrath,
                 powerTurnFaithless)
             .AddFeaturesAtLevel(7, powerAuraWarding)
+            .AddFeaturesAtLevel(15, damageAffinityUndyingSentinel)
             .AddToDB();
     }
 

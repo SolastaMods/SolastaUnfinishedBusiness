@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api;
-using SolastaUnfinishedBusiness.Api.Extensions;
-using SolastaUnfinishedBusiness.Api.Infrastructure;
+using SolastaUnfinishedBusiness.Api.GameExtensions;
+using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
@@ -51,12 +51,15 @@ internal static class RangedCombatFeats
                     .SetGuiPresentation(NAME, Category.Feat)
                     .SetDamageRollModifier(1)
                     .SetCustomSubFeatures(
+                        new AfterAttackEffectBowMastery(),
                         new RestrictedContextValidator((_, _, character, _, _, mode, _) =>
                             (OperationType.Set, validWeapon(mode, null, character))),
                         new CanUseAttributeForWeapon(AttributeDefinitions.Strength,
                             ValidatorsWeapon.IsOfWeaponType(LongbowType)),
-                        new AddExtraRangedAttack(ValidatorsWeapon.IsOfWeaponType(ShortbowType),
-                            ActionDefinitions.ActionType.Bonus, ValidatorsCharacter.HasAttacked))
+                        new AddExtraRangedAttack(
+                            ValidatorsWeapon.IsOfWeaponType(ShortbowType),
+                            ActionDefinitions.ActionType.Bonus,
+                            ValidatorsCharacter.HasUsedSpecialFeature(nameof(ShortbowType))))
                     .AddToDB())
             .AddToDB();
     }
@@ -168,6 +171,26 @@ internal static class RangedCombatFeats
     //
     // HELPERS
     //
+
+    private sealed class AfterAttackEffectBowMastery : IAfterAttackEffect
+    {
+        public void AfterOnAttackHit(
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            RollOutcome outcome,
+            CharacterActionParams actionParams,
+            RulesetAttackMode attackMode,
+            ActionModifier attackModifier)
+        {
+            if (actionParams.ActionDefinition != DatabaseHelper.ActionDefinitions.AttackMain ||
+                !ValidatorsWeapon.IsOfWeaponType(ShortbowType)(attackMode, null, null))
+            {
+                return;
+            }
+
+            attacker.UsedSpecialFeatures.Add(nameof(ShortbowType), 1);
+        }
+    }
 
     private sealed class ModifyAttackModeForWeaponFeatDeadeye : IModifyAttackModeForWeapon
     {

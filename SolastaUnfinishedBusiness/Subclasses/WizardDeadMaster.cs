@@ -2,18 +2,18 @@
 using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
-using SolastaUnfinishedBusiness.Api.Extensions;
+using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
-using SolastaUnfinishedBusiness.Api.Infrastructure;
+using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomUI;
+using SolastaUnfinishedBusiness.Properties;
 using UnityEngine.AddressableAssets;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterFamilyDefinitions;
-using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterSubclassDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.ItemDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.MonsterDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
@@ -106,7 +106,8 @@ internal sealed class WizardDeadMaster : AbstractSubclass
 
         Subclass = CharacterSubclassDefinitionBuilder
             .Create(WizardDeadMasterName)
-            .SetGuiPresentation(Category.Subclass, SorcerousHauntedSoul)
+            .SetGuiPresentation(Category.Subclass,
+                Sprites.GetSprite("WizardDeadMaster", Resources.WizardDeadMaster, 256))
             .AddFeaturesAtLevel(2,
                 bypassSpellConcentrationDeadMaster,
                 featureSetDeadMasterNecromancyBonusDc,

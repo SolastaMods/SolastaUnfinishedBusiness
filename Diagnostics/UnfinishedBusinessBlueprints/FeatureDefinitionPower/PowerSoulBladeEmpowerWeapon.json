@@ -331,9 +331,9 @@
     "description": "Feature/&PowerSoulBladeEmpowerWeaponDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "0fe1cea935b34b9478e878c754746923",
-      "m_SubObjectName": "SacredWeapon",
-      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+      "m_AssetGUID": "eca9772b-24f1-56ae-806e-c9284d65f822",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",

@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿#if false
+using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Text;
@@ -43,28 +44,29 @@ public static class EmbeddedResourceUtils
              resourceNameIndex >= 0;
              resourceNameIndex--)
         {
-            if (resourceName[resourceNameIndex] == '_')
+            switch (resourceName[resourceNameIndex])
             {
-                escapeDot = true;
-                continue;
-            }
-
-            if (resourceName[resourceNameIndex] == '.')
-            {
-                if (!escapeDot)
+                case '_':
+                    escapeDot = true;
+                    continue;
+                case '.':
                 {
-                    if (haveExtension)
+                    if (!escapeDot)
                     {
-                        stringBuilder.Append('\\');
-                        continue;
+                        if (haveExtension)
+                        {
+                            stringBuilder.Append('\\');
+                            continue;
+                        }
+
+                        haveExtension = true;
                     }
 
-                    haveExtension = true;
+                    break;
                 }
-            }
-            else
-            {
-                escapeDot = false;
+                default:
+                    escapeDot = false;
+                    break;
             }
 
             stringBuilder.Append(resourceName[resourceNameIndex]);
@@ -74,3 +76,4 @@ public static class EmbeddedResourceUtils
         return fileName == null ? null : new string(fileName.Reverse().ToArray());
     }
 }
+#endif

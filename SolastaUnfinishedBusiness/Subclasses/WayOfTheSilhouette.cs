@@ -1,6 +1,8 @@
 ﻿using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
+using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Models;
+using SolastaUnfinishedBusiness.Properties;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
@@ -93,7 +95,8 @@ internal sealed class WayOfTheSilhouette : AbstractSubclass
 
         Subclass = CharacterSubclassDefinitionBuilder
             .Create("WayOfSilhouette")
-            .SetOrUpdateGuiPresentation(Category.Subclass, CharacterSubclassDefinitions.RoguishShadowCaster)
+            .SetGuiPresentation(Category.Subclass,
+                Sprites.GetSprite("WayOfTheSilhouette", Resources.WayOfTheSilhouette, 256))
             .AddFeaturesAtLevel(3,
                 featureSetWayOfSilhouetteSilhouetteArts,
                 lightAffinityWayOfSilhouetteCloakOfSilhouettesWeak,

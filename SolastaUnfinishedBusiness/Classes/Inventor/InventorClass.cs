@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using SolastaUnfinishedBusiness.Api;
-using SolastaUnfinishedBusiness.Api.Extensions;
+using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
@@ -687,8 +687,13 @@ internal static class InventorClass
             .Cast<FeatureDefinitionPower>()
             .ToArray();
 
-        GlobalUniqueEffects.AddToGroup(GlobalUniqueEffects.Group.InventorSpellStoringItem, powers);
         PowerBundle.RegisterPowerBundle(master, true, powers);
+
+        // need this extra step to avoid co-variant array conversion warning
+        var baseDefinitions = new List<BaseDefinition>();
+
+        baseDefinitions.AddRange(powers);
+        GlobalUniqueEffects.AddToGroup(GlobalUniqueEffects.Group.InventorSpellStoringItem, baseDefinitions.ToArray());
 
         return master;
     }

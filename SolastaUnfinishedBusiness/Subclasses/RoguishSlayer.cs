@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using SolastaUnfinishedBusiness.Api.Extensions;
+using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
@@ -31,7 +31,7 @@ internal sealed class RoguishSlayer : AbstractSubclass
         var attributeModifierElimination = FeatureDefinitionAttributeModifierBuilder
             .Create($"AttributeModifier{Name}{Elimination}")
             .SetGuiPresentationNoContent(true)
-            .SetModifier(FeatureDefinitionAttributeModifier.AttributeModifierOperation.Set,
+            .SetModifier(FeatureDefinitionAttributeModifier.AttributeModifierOperation.ForceAnyway,
                 AttributeDefinitions.CriticalThreshold, 1)
             .AddToDB();
 
@@ -41,6 +41,7 @@ internal sealed class RoguishSlayer : AbstractSubclass
             .SetSilent(Silent.WhenAddedOrRemoved)
             .SetSpecialDuration(DurationType.Round, 1, TurnOccurenceType.StartOfTurn)
             .SetFeatures(attributeModifierElimination)
+            .SetSpecialInterruptions(ConditionInterruption.Attacks)
             .AddToDB();
 
         var featureElimination = FeatureDefinitionBuilder
@@ -211,16 +212,6 @@ internal sealed class RoguishSlayer : AbstractSubclass
             RulesetAttackMode attackMode,
             ref ActionModifier attackModifier)
         {
-            var battle = Gui.Battle;
-
-            if (battle == null)
-            {
-                attackModifier.AttackAdvantageTrends.Add(
-                    new TrendInfo(1, FeatureSourceType.CharacterFeature, _featureDefinition.Name, _featureDefinition));
-
-                return;
-            }
-
             //
             // allow critical hit if defender is surprised
             //
@@ -252,12 +243,23 @@ internal sealed class RoguishSlayer : AbstractSubclass
             //
             // Allow advantage if first round and higher initiative order vs defender
             //
+            var battle = Gui.Battle;
+
+            // always grant advantage on battle round zero
+            if (battle == null)
+            {
+                attackModifier.AttackAdvantageTrends.Add(
+                    new TrendInfo(1, FeatureSourceType.CharacterFeature, _featureDefinition.Name, _featureDefinition));
+
+                return;
+            }
 
             if (battle.CurrentRound > 1)
             {
                 return;
             }
 
+            // battle round one from here
             var gameLocationAttacker = GameLocationCharacter.GetFromActor(myself);
             var gameLocationDefender = GameLocationCharacter.GetFromActor(defender);
             var attackerAttackOrder = battle.initiativeSortedContenders.IndexOf(gameLocationAttacker);

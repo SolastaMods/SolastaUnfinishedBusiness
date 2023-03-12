@@ -4,7 +4,7 @@ using System.Reflection;
 using Newtonsoft.Json;
 using static UnityModManagerNet.UnityModManager;
 
-namespace SolastaUnfinishedBusiness.Api.ModKit;
+namespace SolastaUnfinishedBusiness.Api.ModKit.Utility;
 
 public interface IUpdatableSettings
 {
@@ -33,21 +33,29 @@ internal static class ModSettings
             foreach (var res in assembly.GetManifestResourceNames())
             {
                 //Logger.Log("found resource: " + res);
-                if (res.Contains(fileName))
+                if (!res.Contains(fileName))
                 {
-                    var stream = assembly.GetManifestResourceStream(res);
-                    using StreamReader reader = new(stream);
-                    var text = reader.ReadToEnd();
-                    //Logger.Log($"read: {text}");
-                    settings = JsonConvert.DeserializeObject<T>(text);
-
-                    //Logger.Log($"read settings: {string.Join(Environment.NewLine, settings)}");
+                    continue;
                 }
+
+                var stream = assembly.GetManifestResourceStream(res);
+
+                if (stream == null)
+                {
+                    continue;
+                }
+
+                using StreamReader reader = new(stream);
+                var text = reader.ReadToEnd();
+                //Logger.Log($"read: {text}");
+                settings = JsonConvert.DeserializeObject<T>(text);
+
+                //Logger.Log($"read settings: {string.Join(Environment.NewLine, settings)}");
             }
         }
         catch (Exception e)
         {
-            Mod.Error($"{fileName} resource is not present or is malformed. exception: {e}");
+            Main.Error($"{fileName} resource is not present or is malformed. exception: {e}");
             settings = new T();
         }
 
@@ -62,9 +70,9 @@ internal static class ModSettings
             }
             catch
             {
-                Mod.Error("Failed to load user settings. Settings will be rebuilt.");
+                Main.Error("Failed to load user settings. Settings will be rebuilt.");
                 try { File.Copy(userPath, userConfigFolder + $"{Path.DirectorySeparatorChar}BROKEN_{fileName}", true); }
-                catch { Mod.Error("Failed to archive broken settings."); }
+                catch { Main.Error("Failed to archive broken settings."); }
             }
         }
 

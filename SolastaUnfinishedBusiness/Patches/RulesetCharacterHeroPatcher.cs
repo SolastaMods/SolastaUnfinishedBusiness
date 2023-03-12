@@ -6,9 +6,9 @@ using System.Reflection.Emit;
 using HarmonyLib;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api;
-using SolastaUnfinishedBusiness.Api.Extensions;
+using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
-using SolastaUnfinishedBusiness.Api.Infrastructure;
+using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomDefinitions;
 using SolastaUnfinishedBusiness.CustomInterfaces;
@@ -212,7 +212,7 @@ public static class RulesetCharacterHeroPatcher
             //PATCH: support for AddTagToWeapon
             var weaponTags = typeof(WeaponDescription)
                 .GetProperty(nameof(WeaponDescription.WeaponTags))
-                .GetGetMethod();
+                ?.GetGetMethod();
             var customWeaponTags = new Func<
                 WeaponDescription,
                 RulesetCharacter,
@@ -511,9 +511,8 @@ public static class RulesetCharacterHeroPatcher
                 return;
             }
 
-            var inventorySlots = __instance.characterInventory.InventorySlotsByName;
-            var main = inventorySlots[EquipmentDefinitions.SlotTypeMainHand].EquipedItem;
-            var off = inventorySlots[EquipmentDefinitions.SlotTypeOffHand].EquipedItem;
+            var main = __instance.GetMainWeapon();
+            var off = __instance.GetOffhandWeapon();
             __result = WayOfTheDistantHand.IsMonkWeapon(__instance, main)
                        || WayOfTheDistantHand.IsMonkWeapon(__instance, off);
         }
@@ -704,7 +703,7 @@ public static class RulesetCharacterHeroPatcher
     public static class CanLevelUp_Getter_Patch
     {
         [UsedImplicitly]
-        public static bool Prefix(RulesetCharacterHero __instance, ref bool __result)
+        public static bool Prefix(RulesetCharacterHero __instance, out bool __result)
         {
             var maxLevel = Gui.Game == null ? Level20Context.GameMaxLevel : Gui.Game.CampaignDefinition.LevelCap;
             var levelCap = Main.Settings.EnableLevel20 ? Level20Context.ModMaxLevel : maxLevel;

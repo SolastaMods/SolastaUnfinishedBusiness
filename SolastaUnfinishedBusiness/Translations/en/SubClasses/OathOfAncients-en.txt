@@ -1,10 +1,12 @@
 ﻿Condition/&ConditionOathOfAncientsAuraWardingDescription=Gain resistance to spell damage.
 Condition/&ConditionOathOfAncientsAuraWardingTitle=Warded
-Feature/&PowerOathOfAncientsNaturesWrathDescription=You can use your Channel Divinity to invoke primeval forces to ensnare a foe. As an action, you can cause spectral vines to spring up and reach for a creature within 10 feet of you that you can see. The creature must succeed on a Strength saving throw or be restrained. While restrained by the vines, the creature repeats the saving throw at the end of each of its turns. On a success, it frees itself and the vines vanish.
+Feature/&DamageAffinityOathOfAncientsUndyingSentinelDescription=When you are reduced to 0 hit points but not killed outright, you drop to 1 hit point instead. You can't benefit from this feature again until you finish a long rest.
+Feature/&DamageAffinityOathOfAncientsUndyingSentinelTitle=Undying Sentinel
+Feature/&PowerOathOfAncientsNaturesWrathDescription=You can use your Channel Divinity to invoke primeval forces to ensnare a foe. As an action, you can cause spectral vines to spring up and reach for a creature within 10 ft of you that you can see. The creature must succeed on a Strength saving throw or be restrained. While restrained by the vines, the creature repeats the saving throw at the end of each of its turns. On a success, it frees itself and the vines vanish.
 Feature/&PowerOathOfAncientsNaturesWrathTitle=Channel Divinity: Natures Wrath
-Feature/&PowerOathOfAncientsTurnFaithlessDescription=You can use your Channel Divinity to utter ancient words that are painful for fey and fiends to hear. As an action, you present your holy symbol, and each fey or fiend within 30 feet of you that can hear you must make a Wisdom saving throw. On a failed save, the creature is turned for 1 minute or until it takes damage.
+Feature/&PowerOathOfAncientsTurnFaithlessDescription=You can use your Channel Divinity to utter ancient words that are painful for fey and fiends to hear. As an action, you present your holy symbol, and each fey or fiend within 30 ft of you that can hear you must make a Wisdom saving throw. On a failed save, the creature is turned for 1 minute or until it takes damage.
 Feature/&PowerOathOfAncientsTurnFaithlessTitle=Channel Divinity: Turn the Faithless
-Feature/&PowerOathOfAncientsAuraWardingDescription=Starting at 7th level, ancient magic lies so heavily upon you that it forms an eldritch ward. You and friendly creatures within 10 feet of you have resistance to damage from spells.
+Feature/&PowerOathOfAncientsAuraWardingDescription=Starting at 7th level, ancient magic lies so heavily upon you that it forms an eldritch ward. You and friendly creatures within 10 ft of you have resistance to damage from spells.
 Feature/&PowerOathOfAncientsAuraWardingTitle=Aura of Warding
 Subclass/&OathOfAncientsDescription=An Oath from a more primitive time which one dedicates themself to utilizing nature for good.
 Subclass/&OathOfAncientsTitle=Oath of Ancients

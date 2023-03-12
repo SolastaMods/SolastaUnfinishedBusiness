@@ -2,6 +2,8 @@
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
+using SolastaUnfinishedBusiness.CustomUI;
+using SolastaUnfinishedBusiness.Properties;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionFightingStyleChoices;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPowers;
@@ -43,7 +45,7 @@ internal sealed class Torchbearer : AbstractFightingStyle
 
     internal override FightingStyleDefinition FightingStyle { get; } = FightingStyleBuilder
         .Create("Torchbearer")
-        .SetGuiPresentation(Category.FightingStyle, CharacterSubclassDefinitions.DomainElementalFire)
+        .SetGuiPresentation(Category.FightingStyle, Sprites.GetSprite("Torchbearer", Resources.Torchbearer, 256))
         .SetFeatures(
             FeatureDefinitionBuilder
                 .Create("AddExtraAttackTorchbearer")

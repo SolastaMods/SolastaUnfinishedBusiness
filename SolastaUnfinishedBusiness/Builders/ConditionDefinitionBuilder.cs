@@ -2,8 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
-using SolastaUnfinishedBusiness.Api.Extensions;
+using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Infrastructure;
+using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using UnityEngine.AddressableAssets;
 
 namespace SolastaUnfinishedBusiness.Builders;
@@ -75,11 +76,13 @@ internal class ConditionDefinitionBuilder
         return this;
     }
 
+#if false
     internal ConditionDefinitionBuilder AddConditionTags(params string[] tags)
     {
         Definition.conditionTags.AddRange(tags);
         return this;
     }
+#endif
 
     internal ConditionDefinitionBuilder SetConditionType(RuleDefinitions.ConditionType value)
     {

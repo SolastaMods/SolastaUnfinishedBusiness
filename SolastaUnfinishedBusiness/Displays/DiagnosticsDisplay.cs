@@ -4,7 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using JetBrains.Annotations;
-using SolastaUnfinishedBusiness.Api.Infrastructure;
+using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Api.ModKit;
 using SolastaUnfinishedBusiness.DataMiner;
 using SolastaUnfinishedBusiness.Models;
@@ -237,7 +237,7 @@ All settings start disabled by default.
                     {
                         BlueprintExporter.Cancel(DiagnosticsContext.Ta);
                     }
-                }, UI.Width(200));
+                }, 200.Width());
 
                 UI.ActionButton(exportCeLabel, () =>
                 {
@@ -249,7 +249,7 @@ All settings start disabled by default.
                     {
                         BlueprintExporter.Cancel(DiagnosticsContext.Ce);
                     }
-                }, UI.Width(200));
+                }, 200.Width());
 
                 UI.ActionButton(exportTaLabel2, () =>
                 {
@@ -261,16 +261,16 @@ All settings start disabled by default.
                     {
                         BlueprintExporter.Cancel(DiagnosticsContext.Ta2);
                     }
-                }, UI.Width(200));
+                }, 200.Width());
             }
 
             using (UI.HorizontalScope())
             {
                 UI.ActionButton("Create TA diagnostics", DiagnosticsContext.CreateTaDefinitionDiagnostics,
-                    UI.Width(200));
+                    200.Width());
                 UI.ActionButton("Create UB diagnostics", DiagnosticsContext.CreateCeDefinitionDiagnostics,
-                    UI.Width(200));
-                UI.ActionButton("Dump Descriptions", DisplayDumpDescription, UI.Width(200));
+                    200.Width());
+                UI.ActionButton("Dump Descriptions", DisplayDumpDescription, 200.Width());
             }
 
             UI.Label();

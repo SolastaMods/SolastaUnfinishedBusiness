@@ -1,6 +1,6 @@
 ﻿using System.Linq;
 using SolastaUnfinishedBusiness.Api;
-using SolastaUnfinishedBusiness.Api.Extensions;
+using SolastaUnfinishedBusiness.Api.GameExtensions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.WeaponTypeDefinitions;
 
 namespace SolastaUnfinishedBusiness.CustomBehaviors;
@@ -26,6 +26,9 @@ internal static class ValidatorsCharacter
         character.HasFreeHandSlot() && !ValidatorsWeapon.IsTwoHanded(character.GetMainWeapon());
 
     // internal static readonly IsCharacterValidHandler HasFreeOffHand = IsFreeOffhand;
+
+    internal static readonly IsCharacterValidHandler HasLessThan25PercentHealth = character =>
+        (float)character.CurrentHitPoints / (character.CurrentHitPoints + character.MissingHitPoints) <= 0.25f;
 
     internal static readonly IsCharacterValidHandler HasAttacked = character => character.ExecutedAttacks > 0;
 
@@ -65,8 +68,19 @@ internal static class ValidatorsCharacter
 
     internal static readonly IsCharacterValidHandler NotHeavyArmor = character =>
         !HasArmorCategory(character, EquipmentDefinitions.HeavyArmorCategory);
+
     // internal static readonly IsCharacterValidHandler EmptyOffhand = character =>
     //     character.CharacterInventory.InventorySlotsByName[EquipmentDefinitions.SlotTypeOffHand].EquipedItem == null;
+
+    internal static IsCharacterValidHandler HasUsedSpecialFeature(string feature)
+    {
+        return character =>
+        {
+            var gameLocationCharacter = GameLocationCharacter.GetFromActor(character);
+
+            return gameLocationCharacter != null && gameLocationCharacter.UsedSpecialFeatures.ContainsKey(feature);
+        };
+    }
 
     internal static IsCharacterValidHandler HasAnyOfConditions(params string[] conditions)
     {
