@@ -1,8 +1,7 @@
-- added 10 new Fighting Styles, 5 new Subclasses, 2 new Powers, and 1 new Spell custom sprites
+- added custom sprites to all 10 fighting styles, 5 additional subclasses, 2 powers and 1 spell
 - added level 1 and 14 Hex power to Soul Blade, changed Soul Shield and tweaked the spell list
-- added level 15 feature to Oath of Ancients and Oath of Hatred and level 14 one to Royal Knight
+- added a level 14 feature to Royal Knight and a level 15 one to Oath of Ancients, and Hatred 
 - changed Party Editor with setting to add/remove skills, feats and invocations to/from heroes
 - fixed Bow Mastery allowing extra attack if first one was melee and hero switches to a shortbow
 - fixed Cleaving Attack allowing extra attack if first one was melee and hero switches to ranged
 - fixed Martial Marshal's encouragement granting the condition to allies outside the effect area
-- removed Gnome and Tiefling races from mod UI but still kept backward compatibility until May
