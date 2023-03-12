@@ -337,7 +337,7 @@ internal sealed class MartialMarshal : AbstractSubclass
             .SetUsesFixed(ActivationTime.PermanentUnlessIncapacitated)
             .SetEffectDescription(EffectDescriptionBuilder
                 .Create()
-                .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Cube, 9)
+                .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Cube, 13)
                 .SetDurationData(DurationType.Permanent)
                 .SetRecurrentEffect(
                     RecurrentEffect.OnActivation | RecurrentEffect.OnEnter | RecurrentEffect.OnTurnStart)
