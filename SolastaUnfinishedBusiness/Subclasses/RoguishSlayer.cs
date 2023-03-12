@@ -31,7 +31,7 @@ internal sealed class RoguishSlayer : AbstractSubclass
         var attributeModifierElimination = FeatureDefinitionAttributeModifierBuilder
             .Create($"AttributeModifier{Name}{Elimination}")
             .SetGuiPresentationNoContent(true)
-            .SetModifier(FeatureDefinitionAttributeModifier.AttributeModifierOperation.Set,
+            .SetModifier(FeatureDefinitionAttributeModifier.AttributeModifierOperation.ForceAnyway,
                 AttributeDefinitions.CriticalThreshold, 1)
             .AddToDB();
 
@@ -41,6 +41,7 @@ internal sealed class RoguishSlayer : AbstractSubclass
             .SetSilent(Silent.WhenAddedOrRemoved)
             .SetSpecialDuration(DurationType.Round, 1, TurnOccurenceType.StartOfTurn)
             .SetFeatures(attributeModifierElimination)
+            .SetSpecialInterruptions(ConditionInterruption.Attacks)
             .AddToDB();
 
         var featureElimination = FeatureDefinitionBuilder
