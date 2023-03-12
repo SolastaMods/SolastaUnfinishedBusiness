@@ -74,7 +74,11 @@ internal static partial class UI
         {
             using (HorizontalScope(options.AddDefaults()))
             {
-                Label(formatter(label), style, AutoWidth());
+                if (formatter != null)
+                {
+                    Label(formatter(label), style, AutoWidth());
+                }
+
                 Space((float)5);
                 if (GL.Button("✎", GUI.skin.box, AutoWidth()))
                 {
