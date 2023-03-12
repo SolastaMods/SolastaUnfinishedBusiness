@@ -171,7 +171,8 @@ public static class PartyEditor
                             if (skills != null && tools != null)
                             {
                                 var available = skills.Union(tools);
-                                var skillsDict = available.ToDictionary(e => e.Name, e => e);
+                                var baseDefinitions = available as BaseDefinition[] ?? available.ToArray();
+                                var skillsDict = baseDefinitions.ToDictionary(e => e.Name, e => e);
                                 var expertisesHash = hero.TrainedExpertises.ToHashSet();
                                 var currentSkills = hero.TrainedSkills.Cast<BaseDefinition>();
                                 var currentTools = hero.TrainedToolTypes.Cast<BaseDefinition>();
@@ -180,7 +181,7 @@ public static class PartyEditor
                                     _selectedToggle.ToString(),
                                     hero,
                                     current,
-                                    available,
+                                    baseDefinitions,
                                     item => skillsDict[item.Name],
                                     def => def.Name,
                                     def => def.Name,
