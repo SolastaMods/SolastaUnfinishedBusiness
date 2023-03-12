@@ -95,7 +95,7 @@ internal sealed class OathOfHatred : AbstractSubclass
                                 false)
                             .Build())
                     .SetDurationData(DurationType.Round, 3)
-                    .SetTargetingData(Side.Enemy, RangeType.Distance, 10, TargetType.Individuals)
+                    .SetTargetingData(Side.Enemy, RangeType.Distance, 12, TargetType.Individuals)
                     .SetSavingThrowData(
                         false,
                         AttributeDefinitions.Wisdom,
@@ -127,6 +127,7 @@ internal sealed class OathOfHatred : AbstractSubclass
         // Level 15
         //
 
+        // TODO: implement Soul of Vengeance instead
         var featureSetHatredResistance = FeatureDefinitionFeatureSetBuilder
             .Create("FeatureSetHatredResistance")
             .SetGuiPresentation(Category.Feature)
