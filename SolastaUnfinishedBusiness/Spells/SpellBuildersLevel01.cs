@@ -654,7 +654,7 @@ internal static partial class SpellBuilders
             .SetRequiresConcentration(true)
             .SetEffectDescription(EffectDescriptionBuilder
                 .Create()
-                .SetTargetingData(Side.Ally, RangeType.Distance, 6, TargetType.Individuals)
+                .SetTargetingData(Side.Ally, RangeType.Distance, 6, TargetType.IndividualsUnique)
                 .SetDurationData(DurationType.Minute, 1)
                 .SetEffectForms(EffectFormBuilder
                     .Create()
