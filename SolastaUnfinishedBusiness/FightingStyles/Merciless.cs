@@ -58,7 +58,7 @@ internal sealed class Merciless : AbstractFightingStyle
 
             // activeEffect != null means a magical attack
             if (activeEffect != null || (!ValidatorsWeapon.IsMelee(attackMode) &&
-                                         !ValidatorsWeapon.IsUnarmedWeapon(rulesetCharacter, attackMode)))
+                                         !ValidatorsWeapon.IsUnarmed(rulesetCharacter, attackMode)))
             {
                 yield break;
             }

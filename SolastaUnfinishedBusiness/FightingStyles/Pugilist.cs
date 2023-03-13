@@ -39,7 +39,7 @@ internal sealed class Pugilist : AbstractFightingStyle
     {
         public void ModifyAttackMode(RulesetCharacter character, RulesetAttackMode attackMode)
         {
-            if (!ValidatorsWeapon.IsUnarmedWeapon(character, attackMode) || attackMode.ranged)
+            if (!ValidatorsWeapon.IsUnarmed(character, attackMode) || attackMode.ranged)
             {
                 return;
             }

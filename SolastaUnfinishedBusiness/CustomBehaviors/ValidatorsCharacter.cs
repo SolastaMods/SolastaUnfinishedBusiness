@@ -41,7 +41,7 @@ internal static class ValidatorsCharacter
     internal static readonly IsCharacterValidHandler HasPolearm = character =>
         ValidatorsWeapon.IsPolearm(character.GetMainWeapon()) ||
         ValidatorsWeapon.IsPolearm(character.GetOffhandWeapon());
-    
+
     internal static readonly IsCharacterValidHandler HasQuarterstaff = character =>
         ValidatorsWeapon.IsWeaponType(character.GetMainWeapon(), QuarterstaffType) ||
         ValidatorsWeapon.IsWeaponType(character.GetOffhandWeapon(), QuarterstaffType);
@@ -50,19 +50,11 @@ internal static class ValidatorsCharacter
         ValidatorsWeapon.IsWeaponType(character.GetMainWeapon(),
             LongbowType, ShortbowType, HeavyCrossbowType, LightCrossbowType);
 
-    internal static readonly IsCharacterValidHandler MainHandIsFinesseWeapon = character =>
-        ValidatorsWeapon.HasAnyWeaponTag(character.GetMainWeapon(),
-            TagsDefinitions.WeaponTagFinesse);
-
-    internal static readonly IsCharacterValidHandler MainHandIsVersatileWeaponNoShield = character =>
-        ValidatorsWeapon.HasAnyWeaponTag(character.GetMainWeapon(),
-            TagsDefinitions.WeaponTagVersatile) && IsFreeOffhand(character);
-
     internal static readonly IsCharacterValidHandler MainHandIsMeleeWeapon = character =>
         ValidatorsWeapon.IsMelee(character.GetMainWeapon());
 
     internal static readonly IsCharacterValidHandler MainHandIsUnarmed = character =>
-        ValidatorsWeapon.IsUnarmedWeapon(character.GetMainWeapon());
+        ValidatorsWeapon.IsUnarmed(null, character.GetMainWeapon()?.ItemDefinition);
 
     internal static readonly IsCharacterValidHandler LightArmor = character =>
         HasArmorCategory(character, EquipmentDefinitions.LightArmorCategory);

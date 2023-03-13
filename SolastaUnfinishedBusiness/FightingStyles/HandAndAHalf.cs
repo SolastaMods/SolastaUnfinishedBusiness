@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
@@ -23,8 +24,13 @@ internal sealed class HandAndAHalf : AbstractFightingStyle
                 .SetAttackRollModifier(1)
                 .SetDamageRollModifier(1)
                 .SetCustomSubFeatures(
-                    new RestrictedContextValidator(OperationType.Set,
-                        ValidatorsCharacter.MainHandIsVersatileWeaponNoShield))
+                    new RestrictedContextValidator((_, _, _, _, _, mode, _) =>
+                        (OperationType.Set,
+                            ValidatorsWeapon.HasAnyWeaponTag(mode?.SourceDefinition as ItemDefinition,
+                                TagsDefinitions.WeaponTagVersatile))),
+                    new RestrictedContextValidator((_, _, character, _, _, _, _) =>
+                        (OperationType.And,
+                            ValidatorsWeapon.IsUnarmed(null, character.GetOffhandWeapon()?.ItemDefinition))))
                 .AddToDB())
         .AddToDB();
 

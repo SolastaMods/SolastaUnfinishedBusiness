@@ -428,7 +428,7 @@ internal static class OtherFeats
 
         public static bool ValidWeapon(RulesetCharacter character, RulesetAttackMode attackMode)
         {
-            return ValidatorsWeapon.IsUnarmedWeapon(character, attackMode) && !attackMode.ranged;
+            return ValidatorsWeapon.IsUnarmed(character, attackMode) && !attackMode.ranged;
         }
     }
 
@@ -694,7 +694,7 @@ internal static class OtherFeats
         {
             var rulesetAttacker = attacker.RulesetCharacter;
 
-            if (!ValidatorsWeapon.IsUnarmedWeapon(rulesetAttacker, attackMode) || attackMode.ranged ||
+            if (!ValidatorsWeapon.IsUnarmed(rulesetAttacker, attackMode) || attackMode.ranged ||
                 outcome is RollOutcome.Failure or RollOutcome.CriticalFailure)
             {
                 return;
