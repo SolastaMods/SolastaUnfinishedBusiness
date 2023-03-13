@@ -188,7 +188,7 @@ internal static class RangedCombatFeats
                 return;
             }
 
-            attacker.UsedSpecialFeatures.Add(nameof(ShortbowType), 1);
+            attacker.UsedSpecialFeatures.TryAdd(nameof(ShortbowType), 1);
         }
     }
 
