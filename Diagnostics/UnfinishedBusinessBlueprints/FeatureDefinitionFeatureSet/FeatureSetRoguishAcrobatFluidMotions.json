@@ -1,0 +1,41 @@
+{
+  "$type": "FeatureDefinitionFeatureSet, Assembly-CSharp",
+  "featureSet": [
+    "Definition:MovementAffinityRoguishAcrobatFluidMotions:0308d92d-8877-5bfd-bc60-29c215ebabcb",
+    "Definition:SavingThrowAffinityRoguishAcrobatFluidMotions:92364e63-f360-50ef-9ae1-4e7fdfbd2ad4"
+  ],
+  "mode": "Union",
+  "ancestryDamageTypeMap": [],
+  "ancestryType": "Sorcerer",
+  "defaultSelection": 0,
+  "uniqueChoices": false,
+  "enumerateInDescription": false,
+  "hasRacialAffinity": false,
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feature/&FeatureSetRoguishAcrobatFluidMotionsTitle",
+    "description": "Feature/&FeatureSetRoguishAcrobatFluidMotionsDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "545251f0-c53f-5bad-986d-9d7d97e1639a",
+  "contentPack": 9999,
+  "name": "FeatureSetRoguishAcrobatFluidMotions"
+}

@@ -1,0 +1,10 @@
+﻿Feature/&AttributeModifierRoguishAcrobatAcrobaticPerformerDescription=Du fügst deiner Rüstungsklasse die Hälfte deines Fähigkeitsbonus hinzu, während du einen Kampfstab trägst, und du trägst keine Rüstung oder leichte Rüstung ohne Schild.
+Feature/&AttributeModifierRoguishAcrobatAcrobaticPerformerTitle=Akrobatischer Darsteller
+Feature/&FeatureSetRoguishAcrobatAcrobaticPerformerDescription=Ab der 3. Stufe werden Sie geübt im Kampfstab und erhalten die Fähigkeit, ihn als Finesse-Waffe einzusetzen. Deine Reichweite mit Kampfstab erhöht sich auf 3 m. Der Schadenswürfel ändert sich von W8 auf W10, wenn er mit zwei Händen geführt wird.\nWenn du die Angriffsaktion mit Kampfstab ausführst, kannst du deine Bonusaktion für einen Nahkampfangriff verwenden das andere Ende der Waffe. Dieser Angriff verwendet denselben Attributsmodifikator wie der Primärangriff und verursacht 1W4 Wuchtschaden.\nDu addierst die Hälfte deines Fertigkeitsbonus zu deiner Rüstungsklasse, während du einen Kampfstab trägst, und du trägst keine Rüstung oder leichte Rüstung ohne Schild.\n Sie erwerben auch Kenntnisse in der Akrobaten-Fähigkeit, falls Sie diese noch nicht haben, oder Fachwissen, falls Sie diese besitzen.
+Feature/&FeatureSetRoguishAcrobatAcrobaticPerformerTitle=Akrobatischer Darsteller
+Feature/&FeatureSetRoguishAcrobatSwiftWindDescription=Ab der 9. Stufe kannst du dich mit einem Kampfstab an Wänden entlang bewegen, das Klettern kostet dich keine zusätzliche Bewegung mehr, du kannst 3 Meter weiter springen und hast weniger Fallschaden.
+Feature/&FeatureSetRoguishAcrobatSwiftWindTitle=Schnell wie der Wind
+Feature/&FeatureSetRoguishAcrobatFluidMotionsDescription=Ab der 13. Stufe sind Sie beim Führen eines Kampfstabs von schwierigem Gelände unbeeinflusst und haben einen Vorteil bei Liegend- und Stoßversuchen gegen Sie.
+Feature/&FeatureSetRoguishAcrobatFluidMotionsTitle=Fließende Bewegungen
+Subclass/&RoguishAcrobatDescription=Der Acrobat Rogue ist ein natürlicher Performer. Wo Gelände und Hindernisse sind, sieht der Akrobat ein Mittel zu einem ganz bestimmten Zweck: Leistung!
+Subclass/&RoguishAcrobatTitle=Akrobat

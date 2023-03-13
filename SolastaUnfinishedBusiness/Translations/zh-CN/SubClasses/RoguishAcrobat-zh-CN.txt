@@ -1,0 +1,10 @@
+﻿Feature/&AttributeModifierRoguishAcrobatAcrobaticPerformerDescription=你在挥舞木棍时将一半的熟练加值加到你的盔甲等级上，并且你没有穿着盔甲或没有盾牌的轻型盔甲。
+Feature/&AttributeModifierRoguishAcrobatAcrobaticPerformerTitle=杂技演员
+Feature/&FeatureSetRoguishAcrobatAcrobaticPerformerDescription=从第 3 级开始，你熟练使用木棍并获得将其用作灵巧武器的能力。你使用木棍的范围增加到 10 英尺。当用双手挥动时，伤害骰子从 d8 变为 d10。\n当你使用木棍进行攻击动作时，你可以使用你的附赠动作进行近战攻击武器的另一端。此攻击使用与主要攻击相同的能力修正值并造成 1d4 钝击伤害。\n您在挥舞木棍时将一半的熟练加值加到您的盔甲等级上，并且您没有穿盔甲或没有盾牌的轻型盔甲。\n如果您还没有 Acrobat 技能，您还可以熟练掌握它，或者如果您有的话，您还可以获得专业知识。
+Feature/&FeatureSetRoguishAcrobatAcrobaticPerformerTitle=杂技演员
+Feature/&FeatureSetRoguishAcrobatSwiftWindDescription=从第 9 级开始，当你挥舞着木棍时，你可以沿着墙壁移动，攀爬不再消耗你额外的移动，你可以额外跳跃 10 英尺并且你降低了坠落伤害。
+Feature/&FeatureSetRoguishAcrobatSwiftWindTitle=疾如风
+Feature/&FeatureSetRoguishAcrobatFluidMotionsDescription=从第 13 级开始，当你挥舞着木杖时，你不受困难地形的影响，并且你在俯卧和推挤攻击你时具有优势。
+Feature/&FeatureSetRoguishAcrobatFluidMotionsTitle=流体运动
+Subclass/&RoguishAcrobatDescription=Acrobat Rogue 是天生的表演者。在有地形和障碍物的地方，Acrobat 会看到一种达到非常特定目的的方法：表演！
+Subclass/&RoguishAcrobatTitle=杂技演员

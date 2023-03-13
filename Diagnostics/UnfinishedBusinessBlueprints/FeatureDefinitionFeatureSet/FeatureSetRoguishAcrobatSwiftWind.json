@@ -1,0 +1,41 @@
+{
+  "$type": "FeatureDefinitionFeatureSet, Assembly-CSharp",
+  "featureSet": [
+    "Definition:CombatAffinityRoguishAcrobatSwiftWind:b9a910bb-6532-59d8-9a14-601ebe8ceaf6",
+    "Definition:MovementAffinityRoguishAcrobatSwiftWind:02b26025-0d4c-5d57-b10f-adc36b3fe642"
+  ],
+  "mode": "Union",
+  "ancestryDamageTypeMap": [],
+  "ancestryType": "Sorcerer",
+  "defaultSelection": 0,
+  "uniqueChoices": false,
+  "enumerateInDescription": false,
+  "hasRacialAffinity": false,
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feature/&FeatureSetRoguishAcrobatSwiftWindTitle",
+    "description": "Feature/&FeatureSetRoguishAcrobatSwiftWindDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "b77c6cf4-3fdc-503a-a542-22ab6eb64033",
+  "contentPack": 9999,
+  "name": "FeatureSetRoguishAcrobatSwiftWind"
+}
