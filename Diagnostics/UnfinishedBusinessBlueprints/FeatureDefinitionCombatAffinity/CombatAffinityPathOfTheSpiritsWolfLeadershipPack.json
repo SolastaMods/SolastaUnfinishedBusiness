@@ -34,8 +34,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&ConditionPathOfTheSpiritsWolfLeadershipPackTitle",
-    "description": "Feature/&ConditionPathOfTheSpiritsWolfLeadershipPackDescription",
+    "title": "Condition/&ConditionPathOfTheSpiritsWolfLeadershipPackTitle",
+    "description": "Condition/&ConditionPathOfTheSpiritsWolfLeadershipPackDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",

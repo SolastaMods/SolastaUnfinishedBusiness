@@ -1,8 +1,9 @@
 {
   "$type": "FeatureDefinitionFeatureSet, Assembly-CSharp",
   "featureSet": [
-    "Definition:MovementAffinityRoguishAcrobatFluidMotions:0308d92d-8877-5bfd-bc60-29c215ebabcb",
-    "Definition:SavingThrowAffinityRoguishAcrobatFluidMotions:92364e63-f360-50ef-9ae1-4e7fdfbd2ad4"
+    "Definition:SavingThrowAffinityDomainLawUnyieldingEnforcerMotionForm:2de509cbd56bfe74c9b8869563c8b82b",
+    "Definition:AbilityCheckAffinityDomainLawUnyieldingEnforcerShove:98057eed22001f448b150bd0aaed29a9",
+    "Definition:MovementAffinityRoguishAcrobatFluidMotions:0308d92d-8877-5bfd-bc60-29c215ebabcb"
   ],
   "mode": "Union",
   "ancestryDamageTypeMap": [],

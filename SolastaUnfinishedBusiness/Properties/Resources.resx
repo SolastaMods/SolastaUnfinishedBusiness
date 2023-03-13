@@ -813,6 +813,9 @@
   <data name="RangerWildMaster" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Subclasses\RangerWildMaster.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="RoguishAcrobat" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Subclasses\RoguishAcrobat.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="RoguishArcaneScoundrel" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Subclasses\RoguishArcaneScoundrel.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>

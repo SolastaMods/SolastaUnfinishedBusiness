@@ -520,7 +520,7 @@ A powerful wight, trained to withstand the light of day.
 
 [list]
 
-[*][b]Zappastuff[/b]: maintenance, mod UI, infrastructure, gameplay, feats, fighting styles, invocations, rules, spells, quality of life, Half-elf variants, Circle of The Ancient Forest, Arcane Scoundrel, Blade Dancer, College of Guts, College of Life, Dead Master, Duelist, Field Manipulator, Ranger Wild Master, Slayer, Way of The Discordance, Way of The Silhouette, Multiclass
+[*][b]Zappastuff[/b]: maintenance, mod UI, infrastructure, gameplay, feats, fighting styles, invocations, rules, spells, quality of life, Half-elf variants, Acrobat, Arcane Scoundrel, Blade Dancer, College of Guts, Circle of The Ancient Forest, College of Life, Dead Master, Duelist, Field Manipulator, Ranger Wild Master, Slayer, Way of The Discordance, Way of The Silhouette, Multiclass
 [*][b]TPABOBAP[/b]: custom behaviors, game UI, infrastructure, gameplay, feats, fighting styles, invocations, spells, quality of life, Dead Master, Elementalist, Moonlit, RiftWalker, SoulBlade, Tactician, Way of Distant Hand, Inventor
 [*][b]ImpPhil[/b]: api, builders, gameplay, rules, quality of life
 [*][b]ChrisJohnDigital[/b]: builders, gameplay, feats, fighting styles, Arcane Fighter, Spell Master, Spell Shield

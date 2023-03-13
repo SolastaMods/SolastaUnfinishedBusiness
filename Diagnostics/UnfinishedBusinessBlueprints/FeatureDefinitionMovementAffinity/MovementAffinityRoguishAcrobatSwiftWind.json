@@ -12,7 +12,7 @@
   "speedAddBase": false,
   "fastClimber": true,
   "expertClimber": true,
-  "canMoveOnWalls": true,
+  "canMoveOnWalls": false,
   "canFlyWithWalkSpeed": false,
   "enhancedJump": true,
   "additionalJumpCells": 2,

@@ -473,6 +473,7 @@ internal static partial class DatabaseHelper
     {
         internal static FeatureDefinitionFeatureSet AdditionalDamageRangerFavoredEnemyChoice { get; } = GetDefinition<FeatureDefinitionFeatureSet>("AdditionalDamageRangerFavoredEnemyChoice");
         internal static FeatureDefinitionFeatureSet FeatureSetAbilityScoreChoice { get; } = GetDefinition<FeatureDefinitionFeatureSet>("FeatureSetAbilityScoreChoice");
+        internal static FeatureDefinitionFeatureSet FeatureSetDomainLawUnyieldingEnforcer { get; } = GetDefinition<FeatureDefinitionFeatureSet>("FeatureSetDomainLawUnyieldingEnforcer");
         internal static FeatureDefinitionFeatureSet FeatureSetDragonbornBreathWeapon { get; } = GetDefinition<FeatureDefinitionFeatureSet>("FeatureSetDragonbornBreathWeapon");
         internal static FeatureDefinitionFeatureSet FeatureSetInvocationDevilsSight { get; } = GetDefinition<FeatureDefinitionFeatureSet>("FeatureSetInvocationDevilsSight");
         internal static FeatureDefinitionFeatureSet FeatureSetElfFeyAncestry { get; } = GetDefinition<FeatureDefinitionFeatureSet>("FeatureSetElfFeyAncestry");
@@ -676,7 +677,6 @@ internal static partial class DatabaseHelper
         internal static FeatureDefinitionSavingThrowAffinity SavingThrowAffinityConditionRaging { get; } = GetDefinition<FeatureDefinitionSavingThrowAffinity>("SavingThrowAffinityConditionRaging");
         internal static FeatureDefinitionSavingThrowAffinity SavingThrowAffinityCreedOfArun { get; } = GetDefinition<FeatureDefinitionSavingThrowAffinity>("SavingThrowAffinityCreedOfArun");
         internal static FeatureDefinitionSavingThrowAffinity SavingThrowAffinityCreedOfSolasta { get; } = GetDefinition<FeatureDefinitionSavingThrowAffinity>("SavingThrowAffinityCreedOfSolasta");
-        internal static FeatureDefinitionSavingThrowAffinity SavingThrowAffinityDomainLawUnyieldingEnforcerMotionForm { get; } = GetDefinition<FeatureDefinitionSavingThrowAffinity>("SavingThrowAffinityDomainLawUnyieldingEnforcerMotionForm");
         internal static FeatureDefinitionSavingThrowAffinity SavingThrowAffinityGemIllusion { get; } = GetDefinition<FeatureDefinitionSavingThrowAffinity>("SavingThrowAffinityGemIllusion");
         internal static FeatureDefinitionSavingThrowAffinity SavingThrowAffinityPatronHiveWeakeningPheromones { get; } = GetDefinition<FeatureDefinitionSavingThrowAffinity>("SavingThrowAffinityPatronHiveWeakeningPheromones");
         internal static FeatureDefinitionSavingThrowAffinity SavingThrowAffinityShelteringBreeze { get; } = GetDefinition<FeatureDefinitionSavingThrowAffinity>("SavingThrowAffinityShelteringBreeze");

@@ -1,15 +1,10 @@
 {
-  "$type": "FeatureDefinitionProficiency, Assembly-CSharp",
-  "proficiencyType": "SkillOrExpertise",
-  "proficiencies": [
-    "Acrobatics"
-  ],
-  "forbiddenItemTags": [],
+  "$type": "FeatureDefinition, Assembly-CSharp",
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
-    "hidden": true,
-    "title": "Feature/&NoContentTitle",
-    "description": "Feature/&NoContentTitle",
+    "hidden": false,
+    "title": "Feature/&FeatureRoguishAcrobatWarriorTitle",
+    "description": "Feature/&FeatureRoguishAcrobatWarriorDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -29,7 +24,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "aa436175-8580-569c-a4de-418b76b62134",
+  "guid": "fd10d66b-eec7-552a-82f4-7416e22923d6",
   "contentPack": 9999,
-  "name": "ProficiencyRoguishAcrobatAcrobaticPerformer"
+  "name": "FeatureRoguishAcrobatWarrior"
 }
