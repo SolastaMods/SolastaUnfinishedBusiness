@@ -172,7 +172,7 @@ internal sealed class AddExtraUnarmedAttack : AddExtraAttackBase
         }
 
         var mainHandItem = hero.GetMainWeapon();
-        var isUnarmedWeapon = mainHandItem != null && ValidatorsWeapon.IsUnarmed(null, mainHandItem?.ItemDefinition);
+        var isUnarmedWeapon = mainHandItem != null && ValidatorsWeapon.IsUnarmed(null, mainHandItem.ItemDefinition);
         var strikeDefinition = isUnarmedWeapon
             ? mainHandItem.ItemDefinition
             : originalHero != null
@@ -462,7 +462,7 @@ internal sealed class AddBonusShieldAttack : AddExtraAttackBase
 
         var offHandItem = hero.GetOffhandWeapon();
 
-        if (!ShieldStrike.IsShield(offHandItem))
+        if (offHandItem == null || !ShieldStrike.IsShield(offHandItem))
         {
             return null;
         }
