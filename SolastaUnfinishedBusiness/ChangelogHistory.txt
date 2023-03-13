@@ -1,5 +1,10 @@
 ﻿CHANGES:
 
+1.4.33.59:
+
+- added Roguish Acrobat subclass
+- fixed Bow Mastery soft lock
+
 1.4.33.58:
 
 - added custom sprites to all fighting styles and all remaining subclasses
