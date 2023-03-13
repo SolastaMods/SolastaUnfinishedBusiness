@@ -374,6 +374,77 @@ internal sealed class AddPolearmFollowupAttack : AddExtraAttackBase
     }
 }
 
+internal sealed class AddQuarterstaffFollowupAttack : AddExtraAttackBase
+{
+    internal AddQuarterstaffFollowupAttack() : base(ActionDefinitions.ActionType.Bonus, ValidatorsCharacter.HasAttacked,
+        ValidatorsCharacter.HasPolearm)
+    {
+        // Empty
+    }
+
+    protected override List<RulesetAttackMode> GetAttackModes([NotNull] RulesetCharacter character)
+    {
+        if (character is not RulesetCharacterHero hero)
+        {
+            return null;
+        }
+
+        var result = new List<RulesetAttackMode>();
+
+        AddItemAttack(result, EquipmentDefinitions.SlotTypeMainHand, hero);
+        AddItemAttack(result, EquipmentDefinitions.SlotTypeOffHand, hero);
+
+        return result;
+    }
+
+    private void AddItemAttack(
+        ICollection<RulesetAttackMode> attackModes,
+        [NotNull] string slot,
+        [NotNull] RulesetCharacterHero hero)
+    {
+        var item = hero.CharacterInventory.InventorySlotsByName[slot].EquipedItem;
+
+        if (item == null || !ValidatorsWeapon.IsWeaponType(item, DatabaseHelper.WeaponTypeDefinitions.QuarterstaffType))
+        {
+            return;
+        }
+
+        var strikeDefinition = item.ItemDefinition;
+        var attackMode = hero.RefreshAttackMode(
+            ActionType,
+            strikeDefinition,
+            strikeDefinition.WeaponDescription,
+            ValidatorsCharacter.IsFreeOffhand(hero),
+            true,
+            slot,
+            hero.attackModifiers,
+            hero.FeaturesOrigin,
+            item
+        );
+
+        attackMode.Reach = true;
+        attackMode.Ranged = false;
+        attackMode.Thrown = false;
+
+        var damage = DamageForm.GetCopy(attackMode.EffectDescription.FindFirstDamageForm());
+
+        damage.DieType = DieType.D4;
+        damage.VersatileDieType = DieType.D4;
+        damage.versatile = false;
+        damage.DiceNumber = 1;
+        damage.DamageType = DamageTypeBludgeoning;
+
+        var effectForm = EffectForm.Get();
+
+        effectForm.FormType = EffectForm.EffectFormType.Damage;
+        effectForm.DamageForm = damage;
+        attackMode.EffectDescription.Clear();
+        attackMode.EffectDescription.EffectForms.Add(effectForm);
+
+        attackModes.Add(attackMode);
+    }
+}
+
 internal sealed class AddBonusShieldAttack : AddExtraAttackBase
 {
     internal AddBonusShieldAttack() : base(ActionDefinitions.ActionType.Bonus)
