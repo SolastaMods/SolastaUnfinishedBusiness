@@ -32,8 +32,7 @@ internal sealed class RoguishDuelist : AbstractSubclass
             .Create($"AttributeModifier{Name}{SureFooted}")
             .SetGuiPresentation(Category.Feature)
             .SetModifier(AttributeModifierOperation.AddHalfProficiencyBonus, AttributeDefinitions.ArmorClass, 1)
-            .SetSituationalContext((SituationalContext)
-                ExtraSituationalContext.WearingNoArmorOrLightArmorWithoutShield)
+            .SetSituationalContext(ExtraSituationalContext.WearingNoArmorOrLightArmorWithoutShield)
             .AddToDB();
 
         var featureSetSureFooted = FeatureDefinitionFeatureSetBuilder
