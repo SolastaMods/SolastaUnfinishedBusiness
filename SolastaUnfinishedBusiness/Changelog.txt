@@ -1,2 +1,3 @@
 - added Roguish Acrobat subclass
-- fixed Bow Mastery soft lock
+- changed some mod spell sprites
+- fixed Bow Mastery soft locking
