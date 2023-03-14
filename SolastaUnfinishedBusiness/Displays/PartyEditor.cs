@@ -478,9 +478,9 @@ public static class PartyEditor
         Skills,
         Feats,
         Invocations,
+        Spells,
         Classes,
         Stats,
-        Spells,
         None
     }
 }
