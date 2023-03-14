@@ -10,8 +10,8 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&AttributeModifierRoguishAcrobatDefenderTitle",
-    "description": "Feature/&AttributeModifierRoguishAcrobatDefenderDescription",
+    "title": "Feature/&AttributeModifierRoguishAcrobatProtectorTitle",
+    "description": "Feature/&AttributeModifierRoguishAcrobatProtectorDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -31,7 +31,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "3629702d-8e6c-5b90-aac1-b38ed3c92496",
+  "guid": "c67d0548-f770-521a-99a5-e8b2c13ed77a",
   "contentPack": 9999,
-  "name": "AttributeModifierRoguishAcrobatDefender"
+  "name": "AttributeModifierRoguishAcrobatProtector"
 }

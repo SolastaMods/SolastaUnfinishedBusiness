@@ -3,17 +3,17 @@
   "featureUnlocks": [
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:ProficiencyRoguishAcrobatConnoisseur:ac3bcec1-478f-5887-a0c5-3401d261515b",
+      "featureDefinition": "Definition:FeatureRoguishAcrobatTrooper:4b5bd5de-d25b-5b05-9015-a3ff2fa8b15c",
       "level": 3
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:AttributeModifierRoguishAcrobatDefender:3629702d-8e6c-5b90-aac1-b38ed3c92496",
+      "featureDefinition": "Definition:ProficiencyRoguishAcrobatMaven:66f7a075-3ef7-5e72-90c7-a6f638a50b34",
       "level": 3
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:FeatureRoguishAcrobatWarrior:fd10d66b-eec7-552a-82f4-7416e22923d6",
+      "featureDefinition": "Definition:AttributeModifierRoguishAcrobatProtector:c67d0548-f770-521a-99a5-e8b2c13ed77a",
       "level": 3
     },
     {
@@ -29,6 +29,11 @@
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:MovementAffinityRoguishAcrobatFluidMotions:0308d92d-8877-5bfd-bc60-29c215ebabcb",
+      "level": 13
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:CombatAffinityRoguishAcrobatFluidMotions:a18c050f-93b7-5cd7-bbc5-a2da036a6671",
       "level": 13
     }
   ],

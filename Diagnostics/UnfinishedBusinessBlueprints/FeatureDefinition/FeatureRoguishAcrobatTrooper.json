@@ -1,15 +1,10 @@
 {
-  "$type": "FeatureDefinitionProficiency, Assembly-CSharp",
-  "proficiencyType": "SkillOrExpertise",
-  "proficiencies": [
-    "Acrobatics"
-  ],
-  "forbiddenItemTags": [],
+  "$type": "FeatureDefinition, Assembly-CSharp",
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&ProficiencyRoguishAcrobatConnoisseurTitle",
-    "description": "Feature/&ProficiencyRoguishAcrobatConnoisseurDescription",
+    "title": "Feature/&FeatureRoguishAcrobatTrooperTitle",
+    "description": "Feature/&FeatureRoguishAcrobatTrooperDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -29,7 +24,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "ac3bcec1-478f-5887-a0c5-3401d261515b",
+  "guid": "4b5bd5de-d25b-5b05-9015-a3ff2fa8b15c",
   "contentPack": 9999,
-  "name": "ProficiencyRoguishAcrobatConnoisseur"
+  "name": "FeatureRoguishAcrobatTrooper"
 }
