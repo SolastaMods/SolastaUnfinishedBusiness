@@ -104,7 +104,7 @@ internal sealed class RoguishAcrobat : AbstractSubclass
         var powerReflexes = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}Reflexes")
             .SetGuiPresentation(Category.Feature,
-                Sprites.GetSprite("PowerReflexes", Resources.PowerFarStep, 256, 128))
+                Sprites.GetSprite("PowerReflexes", Resources.PowerReflexes, 256, 128))
             .SetUsesAbilityBonus(ActivationTime.BonusAction, RechargeRate.LongRest, AttributeDefinitions.Dexterity)
             .SetEffectDescription(
                 EffectDescriptionBuilder
