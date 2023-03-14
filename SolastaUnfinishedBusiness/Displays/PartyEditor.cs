@@ -179,7 +179,7 @@ public static class PartyEditor
                                 var currentTools = hero.TrainedToolTypes.Cast<BaseDefinition>();
                                 var current = currentSkills.Union(currentTools).ToList();
                                 Browser<RulesetCharacterHero, BaseDefinition, BaseDefinition>.OnGUI(
-                                    _selectedToggle.ToString(),
+                                    _selectedToggle.ToString(), ref changed,
                                     hero,
                                     current,
                                     baseDefinitions,
@@ -293,7 +293,7 @@ public static class PartyEditor
                             if (available != null)
                             {
                                 Browser<RulesetCharacterHero, FeatDefinition, FeatDefinition>.OnGUI(
-                                    _selectedToggle.ToString(),
+                                    _selectedToggle.ToString(), ref changed,
                                     hero,
                                     hero.TrainedFeats,
                                     available,
@@ -306,18 +306,10 @@ public static class PartyEditor
                                     null,
                                     null,
                                     (hero, feat) => !hero.TrainedFeats.Contains(feat)
-                                        ? () =>
-                                        {
-                                            hero.TrainFeats(new List<FeatDefinition> { feat });
-                                            changed = true;
-                                        }
+                                        ? () => hero.TrainFeats(new List<FeatDefinition> { feat })
                                         : null,
                                     (hero, feat) => hero.TrainedFeats.Contains(feat)
-                                        ? () =>
-                                        {
-                                            hero.TrainedFeats.Remove(feat);
-                                            changed = true;
-                                        }
+                                        ? () => hero.TrainedFeats.Remove(feat)
                                         : null
                                 );
                             }
@@ -335,7 +327,7 @@ public static class PartyEditor
                             if (available != null)
                             {
                                 Browser<RulesetCharacterHero, InvocationDefinition, InvocationDefinition>.OnGUI(
-                                    _selectedToggle.ToString(),
+                                    _selectedToggle.ToString(), ref changed,
                                     hero,
                                     hero.TrainedInvocations,
                                     available,
@@ -348,18 +340,10 @@ public static class PartyEditor
                                     null,
                                     null,
                                     (hero, def) => !hero.TrainedInvocations.Contains(def)
-                                        ? () =>
-                                        {
-                                            hero.TrainInvocations(new List<InvocationDefinition> { def });
-                                            changed = true;
-                                        }
+                                        ? () => hero.TrainInvocations(new List<InvocationDefinition> { def })
                                         : null,
                                     (hero, def) => hero.TrainedInvocations.Contains(def)
-                                        ? () =>
-                                        {
-                                            hero.TrainedInvocations.Remove(def);
-                                            changed = true;
-                                        }
+                                        ? () => hero.TrainedInvocations.Remove(def)
                                         : null
                                 );
                             }

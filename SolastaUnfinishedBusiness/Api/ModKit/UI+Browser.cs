@@ -161,7 +161,7 @@ internal static partial class UI
                 {
                     if (decrementValue?.Invoke(target, item) is { } decrementAction)
                     {
-                        ActionButton("<", decrementAction, 60.Width());
+                        if (ActionButton("<", () => decrementAction(), 60.Width())) changed = true;
                     }
                     else
                     {
@@ -172,7 +172,7 @@ internal static partial class UI
                     Label($"{stringValue}".Orange().Bold(), Width(100));
                     if (incrementValue?.Invoke(target, item) is { } incrementer)
                     {
-                        ActionButton(">", incrementer, 60.Width());
+                        if (ActionButton(">", incrementer, 60.Width())) changed = true;
                     }
                     else
                     {
@@ -183,14 +183,14 @@ internal static partial class UI
                 30.Space();
                 if (addItem?.Invoke(target, definition) is { } add)
                 {
-                    ActionButton("Add".Localized(), add, 150.Width());
+                    if (ActionButton("Add".Localized(), add, 150.Width())) changed = true;
                 }
 
                 Space(10);
                 // remWidth -= 10;
                 if (item != null && removeItem?.Invoke(target, item) is { } remove)
                 {
-                    ActionButton("Remove".Localized(), remove, 175.Width());
+                    if (ActionButton("Remove".Localized(), remove, 175.Width())) changed = true;
                 }
 
                 // remWidth -= 178;
