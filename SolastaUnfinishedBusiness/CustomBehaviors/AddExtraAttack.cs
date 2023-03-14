@@ -6,6 +6,7 @@ using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using static RuleDefinitions;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.WeaponTypeDefinitions;
 
 namespace SolastaUnfinishedBusiness.CustomBehaviors;
 
@@ -305,7 +306,9 @@ internal sealed class AddExtraRangedAttack : AddExtraAttackBase
 
 internal sealed class AddPolearmFollowupAttack : AddExtraAttackBase
 {
-    internal AddPolearmFollowupAttack() : base(ActionDefinitions.ActionType.Bonus, ValidatorsCharacter.HasAttacked,
+    internal AddPolearmFollowupAttack() : base(
+        ActionDefinitions.ActionType.Bonus,
+        ValidatorsCharacter.HasUsedSpecialFeature(nameof(QuarterstaffType), nameof(SpearType)),
         ValidatorsCharacter.HasPolearm)
     {
         // Empty
@@ -376,7 +379,8 @@ internal sealed class AddPolearmFollowupAttack : AddExtraAttackBase
 
 internal sealed class AddQuarterstaffFollowupAttack : AddExtraAttackBase
 {
-    internal AddQuarterstaffFollowupAttack() : base(ActionDefinitions.ActionType.Bonus, ValidatorsCharacter.HasAttacked,
+    internal AddQuarterstaffFollowupAttack() : base(ActionDefinitions.ActionType.Bonus,
+        ValidatorsCharacter.HasUsedSpecialFeature(nameof(QuarterstaffType)),
         ValidatorsCharacter.HasQuarterstaffTwoHanded)
     {
         // Empty

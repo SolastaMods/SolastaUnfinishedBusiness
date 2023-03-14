@@ -51,7 +51,6 @@ internal static class RangedCombatFeats
                     .SetGuiPresentation(NAME, Category.Feat)
                     .SetDamageRollModifier(1)
                     .SetCustomSubFeatures(
-                        new AfterAttackEffectBowMastery(),
                         new RestrictedContextValidator((_, _, character, _, _, mode, _) =>
                             (OperationType.Set, validWeapon(mode, null, character))),
                         new CanUseAttributeForWeapon(AttributeDefinitions.Strength,
@@ -162,8 +161,10 @@ internal static class RangedCombatFeats
                 .SetGuiPresentationNoContent(true)
                 .SetCustomSubFeatures(
                     new RangedAttackInMeleeDisadvantageRemover(),
-                    new AddExtraRangedAttack(ValidatorsWeapon.IsOfWeaponType(CustomWeaponsContext.HandXbowWeaponType),
-                        ActionDefinitions.ActionType.Bonus, ValidatorsCharacter.HasAttacked))
+                    new AddExtraRangedAttack(
+                        ValidatorsWeapon.IsOfWeaponType(CustomWeaponsContext.HandXbowWeaponType),
+                        ActionDefinitions.ActionType.Bonus,
+                        ValidatorsCharacter.HasAttacked))
                 .AddToDB())
             .AddToDB();
     }
@@ -171,26 +172,6 @@ internal static class RangedCombatFeats
     //
     // HELPERS
     //
-
-    private sealed class AfterAttackEffectBowMastery : IAfterAttackEffect
-    {
-        public void AfterOnAttackHit(
-            GameLocationCharacter attacker,
-            GameLocationCharacter defender,
-            RollOutcome outcome,
-            CharacterActionParams actionParams,
-            RulesetAttackMode attackMode,
-            ActionModifier attackModifier)
-        {
-            if (actionParams.ActionDefinition != DatabaseHelper.ActionDefinitions.AttackMain ||
-                !ValidatorsWeapon.IsOfWeaponType(ShortbowType)(attackMode, null, null))
-            {
-                return;
-            }
-
-            attacker.UsedSpecialFeatures.TryAdd(nameof(ShortbowType), 1);
-        }
-    }
 
     private sealed class ModifyAttackModeForWeaponFeatDeadeye : IModifyAttackModeForWeapon
     {

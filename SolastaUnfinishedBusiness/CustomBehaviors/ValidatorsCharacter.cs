@@ -68,13 +68,14 @@ internal static class ValidatorsCharacter
     // internal static readonly IsCharacterValidHandler EmptyOffhand = character =>
     //     character.CharacterInventory.InventorySlotsByName[EquipmentDefinitions.SlotTypeOffHand].EquipedItem == null;
 
-    internal static IsCharacterValidHandler HasUsedSpecialFeature(string feature)
+    internal static IsCharacterValidHandler HasUsedSpecialFeature(params string[] features)
     {
         return character =>
         {
             var gameLocationCharacter = GameLocationCharacter.GetFromActor(character);
 
-            return gameLocationCharacter != null && gameLocationCharacter.UsedSpecialFeatures.ContainsKey(feature);
+            return gameLocationCharacter != null &&
+                   features.Any(feature => gameLocationCharacter.UsedSpecialFeatures.ContainsKey(feature));
         };
     }
 
