@@ -94,7 +94,7 @@ internal static class ValidatorsWeapon
         return item != null
                && item.ItemDefinition != null
                && item.ItemDefinition.IsWeapon
-               && weaponTypeDefinitions.Contains(item.ItemDefinition.WeaponDescription.WeaponTypeDefinition);
+               && weaponTypeDefinitions.Contains(item.ItemDefinition.WeaponDescription?.WeaponTypeDefinition);
     }
 
     internal static bool IsRanged([CanBeNull] RulesetItem weapon)

@@ -5,6 +5,7 @@ using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.CustomInterfaces;
+using SolastaUnfinishedBusiness.Models;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.WeaponTypeDefinitions;
 
@@ -186,7 +187,7 @@ internal sealed class AddExtraUnarmedAttack : AddExtraAttackBase
             ActionType,
             strikeDefinition,
             strikeDefinition.WeaponDescription,
-            ValidatorsCharacter.IsFreeOffhandForUnarmedTa(hero),
+            ValidatorsCharacter.IsFreeOffhandVanilla(hero),
             true,
             EquipmentDefinitions.SlotTypeMainHand,
             attackModifiers,
@@ -304,11 +305,11 @@ internal sealed class AddExtraRangedAttack : AddExtraAttackBase
     }
 }
 
-internal sealed class AddPolearmFollowupAttack : AddExtraAttackBase
+internal sealed class AddPolearmFollowUpAttack : AddExtraAttackBase
 {
-    internal AddPolearmFollowupAttack() : base(
+    internal AddPolearmFollowUpAttack() : base(
         ActionDefinitions.ActionType.Bonus,
-        ValidatorsCharacter.HasUsedSpecialFeature(nameof(QuarterstaffType), nameof(SpearType)),
+        ValidatorsCharacter.HasUsedSpecialFeature(CustomWeaponsContext.PolearmWeaponTypes.ToArray()),
         ValidatorsCharacter.HasPolearm)
     {
         // Empty
@@ -336,7 +337,7 @@ internal sealed class AddPolearmFollowupAttack : AddExtraAttackBase
     {
         var item = hero.CharacterInventory.InventorySlotsByName[slot].EquipedItem;
 
-        if (item == null || !ValidatorsWeapon.IsPolearm(item))
+        if (item == null || !ValidatorsWeapon.IsWeaponType(item))
         {
             return;
         }
@@ -377,11 +378,11 @@ internal sealed class AddPolearmFollowupAttack : AddExtraAttackBase
     }
 }
 
-internal sealed class AddQuarterstaffFollowupAttack : AddExtraAttackBase
+internal sealed class AddTwoHandedQuarterstaffFollowUpAttack : AddExtraAttackBase
 {
-    internal AddQuarterstaffFollowupAttack() : base(ActionDefinitions.ActionType.Bonus,
+    internal AddTwoHandedQuarterstaffFollowUpAttack() : base(ActionDefinitions.ActionType.Bonus,
         ValidatorsCharacter.HasUsedSpecialFeature(nameof(QuarterstaffType)),
-        ValidatorsCharacter.HasQuarterstaffTwoHanded)
+        ValidatorsCharacter.HasTwoHandedQuarterstaff)
     {
         // Empty
     }

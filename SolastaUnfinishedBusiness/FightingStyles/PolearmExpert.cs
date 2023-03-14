@@ -22,7 +22,7 @@ internal sealed class PolearmExpert : AbstractFightingStyle
                     WeaponValidator = (mode, weapon, _) =>
                         ValidatorsWeapon.IsPolearm(weapon ?? mode?.SourceObject as RulesetItem)
                 },
-                new AddPolearmFollowupAttack())
+                new AddPolearmFollowUpAttack())
             .AddToDB())
         .AddToDB();
 

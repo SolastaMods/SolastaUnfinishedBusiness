@@ -35,7 +35,7 @@ internal sealed class RoguishAcrobat : AbstractSubclass
             .Create($"AttributeModifier{Name}Protector")
             .SetGuiPresentation(Category.Feature)
             .SetModifier(AttributeModifierOperation.AddHalfProficiencyBonus, AttributeDefinitions.ArmorClass, 1)
-            .SetSituationalContext(ExtraSituationalContext.WearingNoArmorOrLightArmorWithQuarterstaffTwoHanded)
+            .SetSituationalContext(ExtraSituationalContext.WearingNoArmorOrLightArmorWithTwoHandedQuarterstaff)
             .AddToDB();
 
         // Acrobat Trooper
@@ -43,7 +43,7 @@ internal sealed class RoguishAcrobat : AbstractSubclass
             .Create($"Feature{Name}Trooper")
             .SetGuiPresentation(Category.Feature)
             .SetCustomSubFeatures(
-                new AddQuarterstaffFollowupAttack(),
+                new AddTwoHandedQuarterstaffFollowUpAttack(),
                 new AddTagToWeapon(TagsDefinitions.WeaponTagFinesse, TagsDefinitions.Criticity.Important, validWeapon),
                 new ModifyAttackModeForWeaponTypeQuarterstaff(validWeapon))
             .AddToDB();
@@ -57,19 +57,19 @@ internal sealed class RoguishAcrobat : AbstractSubclass
             .SetGuiPresentationNoContent(true)
             .SetClimbing(true, true)
             .SetEnhancedJump(2)
-            .SetCustomSubFeatures(ValidatorsCharacter.HasQuarterstaffTwoHanded)
+            .SetCustomSubFeatures(ValidatorsCharacter.HasTwoHandedQuarterstaff)
             .AddToDB();
 
         var savingThrowAffinitySwiftWind = FeatureDefinitionSavingThrowAffinityBuilder
             .Create(SavingThrowAffinityDomainLawUnyieldingEnforcerMotionForm, $"SavingThrowAffinity{Name}SwiftWind")
             .SetOrUpdateGuiPresentation(SWIFT_WIND, Category.Feature)
-            .SetCustomSubFeatures(ValidatorsCharacter.HasQuarterstaffTwoHanded)
+            .SetCustomSubFeatures(ValidatorsCharacter.HasTwoHandedQuarterstaff)
             .AddToDB();
 
         var abilityCheckAffinitySwiftWind = FeatureDefinitionAbilityCheckAffinityBuilder
             .Create(AbilityCheckAffinityDomainLawUnyieldingEnforcerShove, $"AbilityCheckAffinity{Name}SwiftWind")
             .SetOrUpdateGuiPresentation(SWIFT_WIND, Category.Feature)
-            .SetCustomSubFeatures(ValidatorsCharacter.HasQuarterstaffTwoHanded)
+            .SetCustomSubFeatures(ValidatorsCharacter.HasTwoHandedQuarterstaff)
             .AddToDB();
 
         var featureSwiftWind = FeatureDefinitionBuilder
@@ -94,7 +94,7 @@ internal sealed class RoguishAcrobat : AbstractSubclass
             .Create($"CombatAffinity{Name}FluidMotions")
             .SetGuiPresentationNoContent(true)
             .SetAttackOfOpportunityOnMeAdvantage(AdvantageType.Disadvantage)
-            .SetCustomSubFeatures(ValidatorsCharacter.HasQuarterstaffTwoHanded)
+            .SetCustomSubFeatures(ValidatorsCharacter.HasTwoHandedQuarterstaff)
             .AddToDB();
 
         var movementAffinityFluidMotions = FeatureDefinitionMovementAffinityBuilder
@@ -104,7 +104,7 @@ internal sealed class RoguishAcrobat : AbstractSubclass
             .SetClimbing(canMoveOnWalls: true)
             .SetEnhancedJump(3)
             .SetImmunities(difficultTerrainImmunity: true)
-            .SetCustomSubFeatures(ValidatorsCharacter.HasQuarterstaffTwoHanded)
+            .SetCustomSubFeatures(ValidatorsCharacter.HasTwoHandedQuarterstaff)
             .AddToDB();
 
         var powerReflexes = FeatureDefinitionPowerBuilder

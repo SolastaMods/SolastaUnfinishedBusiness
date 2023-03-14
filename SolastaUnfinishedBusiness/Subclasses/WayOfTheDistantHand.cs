@@ -519,7 +519,7 @@ internal sealed class WayOfTheDistantHand : AbstractSubclass
                 ActionType,
                 strikeDefinition,
                 strikeDefinition.WeaponDescription,
-                ValidatorsCharacter.IsFreeOffhandForUnarmedTa(hero),
+                ValidatorsCharacter.IsFreeOffhandVanilla(hero),
                 true,
                 EquipmentDefinitions.SlotTypeMainHand,
                 attackModifiers,

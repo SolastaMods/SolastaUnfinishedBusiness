@@ -10,22 +10,10 @@ internal delegate bool IsCharacterValidHandler(RulesetCharacter character);
 internal static class ValidatorsCharacter
 {
     internal static readonly IsCharacterValidHandler HasLightSourceOffHand = character =>
-    {
-        // required for wildshape scenarios
-        if (character is not RulesetCharacterHero)
-        {
-            return false;
-        }
-
-        var offItem = character.GetOffhandWeapon();
-
-        return offItem != null && offItem.ItemDefinition != null && offItem.ItemDefinition.IsLightSourceItem;
-    };
+        character is RulesetCharacterHero && character.GetOffhandWeapon()?.ItemDefinition.IsLightSourceItem == true;
 
     internal static readonly IsCharacterValidHandler HasFreeHand = character =>
         character.HasFreeHandSlot() && !ValidatorsWeapon.IsTwoHanded(character.GetMainWeapon());
-
-    // internal static readonly IsCharacterValidHandler HasFreeOffHand = IsFreeOffhand;
 
     internal static readonly IsCharacterValidHandler HasLessThan25PercentHealth = character =>
         (float)character.CurrentHitPoints / (character.CurrentHitPoints + character.MissingHitPoints) <= 0.25f;
@@ -38,13 +26,21 @@ internal static class ValidatorsCharacter
 
     internal static readonly IsCharacterValidHandler HasShield = character => character.IsWearingShield();
 
+    internal static readonly IsCharacterValidHandler HasLightArmor = character =>
+        HasArmorCategory(character, EquipmentDefinitions.LightArmorCategory);
+
+    internal static readonly IsCharacterValidHandler HasHeavyArmor = character =>
+        HasArmorCategory(character, EquipmentDefinitions.HeavyArmorCategory);
+
+    internal static readonly IsCharacterValidHandler DoesNotHaveHeavyArmor = character =>
+        !HasArmorCategory(character, EquipmentDefinitions.HeavyArmorCategory);
+
     internal static readonly IsCharacterValidHandler HasPolearm = character =>
         ValidatorsWeapon.IsPolearm(character.GetMainWeapon()) ||
         ValidatorsWeapon.IsPolearm(character.GetOffhandWeapon());
 
-    internal static readonly IsCharacterValidHandler HasQuarterstaffTwoHanded = character =>
-        ValidatorsWeapon.IsWeaponType(character.GetMainWeapon(), QuarterstaffType) &&
-        character.GetOffhandWeapon() == null;
+    internal static readonly IsCharacterValidHandler HasTwoHandedQuarterstaff = character =>
+        ValidatorsWeapon.IsWeaponType(character.GetMainWeapon(), QuarterstaffType) && IsFreeOffhand(character);
 
     internal static readonly IsCharacterValidHandler HasTwoHandedRangedWeapon = character =>
         ValidatorsWeapon.IsWeaponType(character.GetMainWeapon(),
@@ -55,18 +51,6 @@ internal static class ValidatorsCharacter
 
     internal static readonly IsCharacterValidHandler MainHandIsUnarmed = character =>
         ValidatorsWeapon.IsUnarmed(null, character.GetMainWeapon()?.ItemDefinition);
-
-    internal static readonly IsCharacterValidHandler LightArmor = character =>
-        HasArmorCategory(character, EquipmentDefinitions.LightArmorCategory);
-
-    internal static readonly IsCharacterValidHandler HeavyArmor = character =>
-        HasArmorCategory(character, EquipmentDefinitions.HeavyArmorCategory);
-
-    internal static readonly IsCharacterValidHandler NotHeavyArmor = character =>
-        !HasArmorCategory(character, EquipmentDefinitions.HeavyArmorCategory);
-
-    // internal static readonly IsCharacterValidHandler EmptyOffhand = character =>
-    //     character.CharacterInventory.InventorySlotsByName[EquipmentDefinitions.SlotTypeOffHand].EquipedItem == null;
 
     internal static IsCharacterValidHandler HasUsedSpecialFeature(params string[] features)
     {
@@ -90,7 +74,7 @@ internal static class ValidatorsCharacter
     }
 
     // does character has free offhand in TA's terms as used in RefreshAttackModes for bonus unarmed attack for Monk?
-    internal static bool IsFreeOffhandForUnarmedTa(RulesetCharacter character)
+    internal static bool IsFreeOffhandVanilla(RulesetCharacter character)
     {
         var offHand = character.GetOffhandWeapon();
 
