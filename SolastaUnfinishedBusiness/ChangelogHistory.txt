@@ -3,8 +3,9 @@
 1.4.33.59:
 
 - added Roguish Acrobat subclass
-- changed some mod spell sprites
-- fixed Bow Mastery soft locking
+- changed some modded spell sprites
+- fixed Bow Mastery soft locking on multiple attacks
+- improved attribute modifiers presentation
 
 1.4.33.58:
 
