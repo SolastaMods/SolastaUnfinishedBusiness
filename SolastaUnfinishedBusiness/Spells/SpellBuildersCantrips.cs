@@ -46,17 +46,15 @@ internal static partial class SpellBuilders
             .Create()
             .SetEffectAdvancement(EffectIncrementMethod.CasterLevelTable, 5, additionalDicePerIncrement: 1)
             .SetDurationData(DurationType.Instantaneous)
-            .SetTargetingData(Side.Enemy, RangeType.MeleeHit, 1, TargetType.Individuals)
+            .SetTargetingData(Side.Enemy, RangeType.MeleeHit, 1, TargetType.IndividualsUnique)
             .SetEffectForms(
                 EffectFormBuilder
                     .Create()
                     .SetDamageForm(DamageTypeAcid, 1, DieType.D8)
-                    .HasSavingThrow(EffectSavingThrowType.None)
                     .Build(),
                 EffectFormBuilder
                     .Create()
                     .SetConditionForm(AcidClawCondition, ConditionForm.ConditionOperation.Add)
-                    .HasSavingThrow(EffectSavingThrowType.None)
                     .Build())
             .Build();
 
