@@ -50,7 +50,7 @@ internal sealed class RoguishAcrobat : AbstractSubclass
 
         // LEVEL 09 - Swift as the Wind
 
-        const string SWIFT_WIND_NAME = $"FeatureSet{Name}SwiftWind";
+        const string SWIFT_WIND = $"FeatureSet{Name}SwiftWind";
 
         var movementAffinitySwiftWind = FeatureDefinitionMovementAffinityBuilder
             .Create($"MovementAffinity{Name}SwiftWind")
@@ -62,13 +62,13 @@ internal sealed class RoguishAcrobat : AbstractSubclass
 
         var savingThrowAffinitySwiftWind = FeatureDefinitionSavingThrowAffinityBuilder
             .Create(SavingThrowAffinityDomainLawUnyieldingEnforcerMotionForm, $"SavingThrowAffinity{Name}SwiftWind")
-            .SetOrUpdateGuiPresentation(SWIFT_WIND_NAME, Category.Feature)
+            .SetOrUpdateGuiPresentation(SWIFT_WIND, Category.Feature)
             .SetCustomSubFeatures(ValidatorsCharacter.HasQuarterstaffTwoHanded)
             .AddToDB();
 
         var abilityCheckAffinitySwiftWind = FeatureDefinitionAbilityCheckAffinityBuilder
             .Create(AbilityCheckAffinityDomainLawUnyieldingEnforcerShove, $"AbilityCheckAffinity{Name}SwiftWind")
-            .SetOrUpdateGuiPresentation(SWIFT_WIND_NAME, Category.Feature)
+            .SetOrUpdateGuiPresentation(SWIFT_WIND, Category.Feature)
             .SetCustomSubFeatures(ValidatorsCharacter.HasQuarterstaffTwoHanded)
             .AddToDB();
 
@@ -80,21 +80,23 @@ internal sealed class RoguishAcrobat : AbstractSubclass
             .AddToDB();
 
         var featureSetSwiftWind = FeatureDefinitionFeatureSetBuilder
-            .Create($"FeatureSet{Name}SwiftWind")
+            .Create(SWIFT_WIND)
             .SetGuiPresentation(Category.Feature)
             .AddFeatureSet(
                 movementAffinitySwiftWind,
                 savingThrowAffinitySwiftWind,
                 abilityCheckAffinitySwiftWind,
                 combatAffinitySwiftWind)
-            .SetCustomSubFeatures(new UpgradeWeaponDice((_, _) => (1, DieType.D6, DieType.D10), validWeapon))
+            .SetCustomSubFeatures(
+                new CanMakeAoOOnReachEntered { WeaponValidator = validWeapon },
+                new UpgradeWeaponDice((_, _) => (1, DieType.D6, DieType.D10), validWeapon))
             .AddToDB();
 
         // LEVEL 13 - Fluid Motions
 
         var movementAffinityFluidMotions = FeatureDefinitionMovementAffinityBuilder
             .Create($"MovementAffinity{Name}FluidMotions")
-            .SetGuiPresentationNoContent(true)
+            .SetGuiPresentation(Category.Feature)
             .SetAdditionalFallThreshold(4)
             .SetClimbing(canMoveOnWalls: true)
             .SetEnhancedJump(3)
@@ -104,7 +106,8 @@ internal sealed class RoguishAcrobat : AbstractSubclass
 
         var powerReflexes = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}Reflexes")
-            .SetGuiPresentation(Category.Feature)
+            .SetGuiPresentation(Category.Feature,
+                Sprites.GetSprite("PowerReflexes", Resources.PowerDefensiveField, 256, 128))
             .SetUsesAbilityBonus(ActivationTime.BonusAction, RechargeRate.LongRest, AttributeDefinitions.Dexterity)
             .SetEffectDescription(
                 EffectDescriptionBuilder
@@ -121,6 +124,17 @@ internal sealed class RoguishAcrobat : AbstractSubclass
                     .Build())
             .AddToDB();
 
+        // LEVEL 17
+        
+        /*
+         
+        Heroic Uncanny Dodge
+
+        if an attack roll would have successfully hit you, you may use your reaction to force the attack to miss instead. 
+        you may use this ability a number of times per long rest equal to your Dexterity modifier.
+
+        */
+        
         // MAIN
 
         Subclass = CharacterSubclassDefinitionBuilder
