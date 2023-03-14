@@ -3,17 +3,17 @@
   "featureUnlocks": [
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:FeatureRoguishAcrobatTrooper:4b5bd5de-d25b-5b05-9015-a3ff2fa8b15c",
-      "level": 3
-    },
-    {
-      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:ProficiencyRoguishAcrobatMaven:66f7a075-3ef7-5e72-90c7-a6f638a50b34",
       "level": 3
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:AttributeModifierRoguishAcrobatProtector:c67d0548-f770-521a-99a5-e8b2c13ed77a",
+      "level": 3
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:FeatureRoguishAcrobatTrooper:4b5bd5de-d25b-5b05-9015-a3ff2fa8b15c",
       "level": 3
     },
     {

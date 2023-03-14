@@ -2,6 +2,7 @@
   "$type": "FeatureDefinitionFeatureSet, Assembly-CSharp",
   "featureSet": [
     "Definition:MovementAffinityRoguishAcrobatSwiftWind:02b26025-0d4c-5d57-b10f-adc36b3fe642",
+    "Definition:FeatureRoguishAcrobatSwiftWind:e52d2d71-c3f2-5397-a240-391302c086a9",
     "Definition:SavingThrowAffinityRoguishAcrobatSwiftWind:25cebe17-094b-5a02-a1a4-988040be773f",
     "Definition:AbilityCheckAffinityRoguishAcrobatSwiftWind:5e29062e-1795-5d49-b4d1-8e2aef40a901"
   ],
