@@ -72,14 +72,20 @@ internal sealed class RoguishAcrobat : AbstractSubclass
             .SetCustomSubFeatures(ValidatorsCharacter.HasQuarterstaffTwoHanded)
             .AddToDB();
 
+        var featureSwiftWind = FeatureDefinitionBuilder
+            .Create($"Feature{Name}SwiftWind")
+            .SetGuiPresentationNoContent(true)
+            .SetCustomSubFeatures(new UpgradeWeaponDice((_, _) => (1, DieType.D6, DieType.D10), validWeapon))
+            .AddToDB();
+
         var featureSetSwiftWind = FeatureDefinitionFeatureSetBuilder
             .Create(SWIFT_WIND)
             .SetGuiPresentation(Category.Feature)
             .AddFeatureSet(
                 movementAffinitySwiftWind,
                 savingThrowAffinitySwiftWind,
-                abilityCheckAffinitySwiftWind)
-            .SetCustomSubFeatures(new UpgradeWeaponDice((_, _) => (1, DieType.D6, DieType.D10), validWeapon))
+                abilityCheckAffinitySwiftWind,
+                featureSwiftWind)
             .AddToDB();
 
         // LEVEL 13 - Fluid Motions
@@ -90,7 +96,7 @@ internal sealed class RoguishAcrobat : AbstractSubclass
             .SetAttackOfOpportunityOnMeAdvantage(AdvantageType.Disadvantage)
             .SetCustomSubFeatures(ValidatorsCharacter.HasQuarterstaffTwoHanded)
             .AddToDB();
-        
+
         var movementAffinityFluidMotions = FeatureDefinitionMovementAffinityBuilder
             .Create($"MovementAffinity{Name}FluidMotions")
             .SetGuiPresentation(Category.Feature)
@@ -122,7 +128,7 @@ internal sealed class RoguishAcrobat : AbstractSubclass
             .AddToDB();
 
         // LEVEL 17
-        
+
         /*
          
         Heroic Uncanny Dodge
@@ -131,7 +137,7 @@ internal sealed class RoguishAcrobat : AbstractSubclass
         you may use this ability a number of times per long rest equal to your Dexterity modifier.
 
         */
-        
+
         // MAIN
 
         Subclass = CharacterSubclassDefinitionBuilder
