@@ -330,7 +330,7 @@
     "description": "Feature/&PowerRoguishAcrobatReflexesDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "",
+      "m_AssetGUID": "5455f583-1fca-5177-b9f0-5df5736602e4",
       "m_SubObjectName": null,
       "m_SubObjectType": null
     },
