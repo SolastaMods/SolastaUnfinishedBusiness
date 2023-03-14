@@ -143,7 +143,7 @@ internal static partial class UI
                 if (childrenOnGUI == null)
                 {
                     Label(text, Width(titleWidth));
-                    remWidth -= titleWidth;
+                    // remWidth -= titleWidth;
                 }
                 else
                 {
