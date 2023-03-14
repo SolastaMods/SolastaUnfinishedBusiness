@@ -1,4 +1,4 @@
-﻿Condition/&ConditionForesightDescription=在所有攻击检定、能力检定和豁免检定上具有优势。其他生物在攻击检定上具有劣势。
+﻿Condition/&ConditionForesightDescription=在所有攻击检定、能力检定和豁免检定上具有优势。其他生物在攻击检定上有劣势。
 Condition/&ConditionForesightTitle=远见卓识
 Condition/&ConditionTimeStopDescription=受影响生物的时间被冻结。
 Condition/&ConditionTimeStopTitle=时间停止

@@ -135,25 +135,29 @@ internal sealed class UpgradeWeaponDice : ModifyAttackModeForWeaponBase
 {
     private readonly GetWeaponDiceHandler getWeaponDice;
 
-    internal UpgradeWeaponDice(GetWeaponDiceHandler getWeaponDice, IsWeaponValidHandler isWeaponValid,
+    internal UpgradeWeaponDice(
+        GetWeaponDiceHandler getWeaponDice,
+        IsWeaponValidHandler isWeaponValid,
         params IsCharacterValidHandler[] validators) : base(isWeaponValid, validators)
     {
         this.getWeaponDice = getWeaponDice;
     }
 
-    protected override void TryModifyAttackMode(RulesetCharacter character, [NotNull] RulesetAttackMode attackMode,
+    protected override void TryModifyAttackMode(
+        RulesetCharacter character,
+        [NotNull] RulesetAttackMode attackMode,
         RulesetItem weapon)
     {
         var effectDescription = attackMode.EffectDescription;
         var damage = effectDescription?.FindFirstDamageForm();
 
-        if (damage == null)
+        // we don't want to upgrade the dice on a bonus attack to avoid cheesing
+        if (damage == null || attackMode.actionType != ActionDefinitions.ActionType.Main)
         {
             return;
         }
 
         var (newNumber, newDie, newVersatileDie) = getWeaponDice(character, weapon);
-
         var newDamage = RuleDefinitions.DieAverage(newDie) * newNumber;
         var oldDamage = RuleDefinitions.DieAverage(damage.DieType) * damage.DiceNumber;
 

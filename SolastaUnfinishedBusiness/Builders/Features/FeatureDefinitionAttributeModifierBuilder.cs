@@ -1,5 +1,6 @@
 ﻿using System;
 using JetBrains.Annotations;
+using SolastaUnfinishedBusiness.Api.GameExtensions;
 using static FeatureDefinitionAttributeModifier;
 
 namespace SolastaUnfinishedBusiness.Builders.Features;
@@ -56,6 +57,13 @@ internal class FeatureDefinitionAttributeModifierBuilder
         RuleDefinitions.SituationalContext situationalContext)
     {
         Definition.situationalContext = situationalContext;
+        return this;
+    }
+
+    internal FeatureDefinitionAttributeModifierBuilder SetSituationalContext(
+        ExtraSituationalContext situationalContext)
+    {
+        Definition.situationalContext = (RuleDefinitions.SituationalContext)situationalContext;
         return this;
     }
 

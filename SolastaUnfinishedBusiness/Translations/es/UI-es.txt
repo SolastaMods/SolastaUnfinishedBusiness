@@ -1,4 +1,4 @@
-﻿UI/&Quickies=rapiditos
+﻿UI/&Quickies=Rapiditos
 UI/&Current Party=Partido actual
 UI/&Party Editor=Editor de fiestas
 UI/&Experimental Preview:=Vista previa experimental <i><color=Yellow>[guardar copia de seguridad antes de usar]</color></i>:

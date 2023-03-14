@@ -7,7 +7,7 @@
   <DisplayBackgroundsToggle>false</DisplayBackgroundsToggle>
   <DisplayDeitiesToggle>false</DisplayDeitiesToggle>
   <DisplayClassesToggle>false</DisplayClassesToggle>
-  <DisplaySubclassesToggle>false</DisplaySubclassesToggle>
+  <DisplaySubclassesToggle>true</DisplaySubclassesToggle>
   <DisplayFeatsToggle>false</DisplayFeatsToggle>
   <DisplayFeatGroupsToggle>false</DisplayFeatGroupsToggle>
   <DisplayFightingStylesToggle>false</DisplayFightingStylesToggle>
@@ -198,6 +198,7 @@
     <string>WizardBladeDancer</string>
     <string>WizardDeadMaster</string>
     <string>WizardSpellMaster</string>
+    <string>RoguishAcrobat</string>
   </SubclassEnabled>
   <FeatSliderPosition>4</FeatSliderPosition>
   <FeatEnabled>

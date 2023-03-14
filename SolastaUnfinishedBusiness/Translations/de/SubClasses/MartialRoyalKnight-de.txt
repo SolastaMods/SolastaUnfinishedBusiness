@@ -9,4 +9,4 @@ Feature/&PowerRoyalKnightProtectionTitle=Inspirierender Schutz
 Feature/&PowerRoyalKnightRallyingCryDescription=Ersetzt „Zweiter Wind“ durch eine Kraft, die Trefferpunkte in Höhe des 4-fachen eurer Kämpferstufe wiederherstellt, gleichmäßig verteilt, bei einem oder mehreren Verbündeten innerhalb von 30 Fuß.
 Feature/&PowerRoyalKnightRallyingCryTitle=Sammelnder Schrei
 Subclass/&MartialRoyalKnightDescription=Ein Ritter, der andere zu Größe inspiriert, indem er mutige Taten im Kampf begeht. Ein königlicher Ritter ist ein erfahrener Krieger, aber einer, der eine Gruppe von Verbündeten anführt, kann selbst die am schlechtesten ausgerüstete Miliz in eine wilde Kriegsbande verwandeln.
-Subclass/&MartialRoyalKnightTitle=königlicher Ritter
+Subclass/&MartialRoyalKnightTitle=Königlicher Ritter

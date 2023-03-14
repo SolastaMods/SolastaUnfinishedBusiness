@@ -1,5 +1,5 @@
 ﻿Condition/&ConditionOathOfAncientsAuraWardingDescription=Gana resistencia al daño de hechizos.
-Condition/&ConditionOathOfAncientsAuraWardingTitle=custodiado
+Condition/&ConditionOathOfAncientsAuraWardingTitle=Custodiado
 Feature/&DamageAffinityOathOfAncientsUndyingSentinelDescription=Cuando te reducen a 0 puntos de vida pero no te matan directamente, en su lugar, bajas a 1 punto de vida. No puedes volver a beneficiarte de esta función hasta que finalices un descanso prolongado.
 Feature/&DamageAffinityOathOfAncientsUndyingSentinelTitle=Centinela inmortal
 Feature/&PowerOathOfAncientsNaturesWrathDescription=Puedes usar tu canalizar divinidad para invocar fuerzas primigenias para atrapar a un enemigo. Como acción, puedes hacer que broten enredaderas espectrales y alcancen a una criatura a 10 pies de ti que puedas ver. La criatura debe tener éxito en una tirada de salvación de Fuerza o ser inmovilizada. Mientras está sujeta por las enredaderas, la criatura repite la tirada de salvación al final de cada uno de sus turnos. Si tiene éxito, se libera y las enredaderas desaparecen.

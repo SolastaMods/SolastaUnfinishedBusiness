@@ -6,6 +6,7 @@ using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using static RuleDefinitions;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.WeaponTypeDefinitions;
 
 namespace SolastaUnfinishedBusiness.CustomBehaviors;
 
@@ -172,7 +173,7 @@ internal sealed class AddExtraUnarmedAttack : AddExtraAttackBase
         }
 
         var mainHandItem = hero.GetMainWeapon();
-        var isUnarmedWeapon = mainHandItem != null && ValidatorsWeapon.IsUnarmedWeapon(mainHandItem);
+        var isUnarmedWeapon = mainHandItem != null && ValidatorsWeapon.IsUnarmed(null, mainHandItem.ItemDefinition);
         var strikeDefinition = isUnarmedWeapon
             ? mainHandItem.ItemDefinition
             : originalHero != null
@@ -296,7 +297,7 @@ internal sealed class AddExtraRangedAttack : AddExtraAttackBase
 
         attackMode.Reach = false;
         attackMode.Ranged = true;
-        attackMode.Thrown = ValidatorsWeapon.IsThrownWeapon(item);
+        attackMode.Thrown = ValidatorsWeapon.IsThrown(item);
         attackMode.AttackTags.Remove(TagsDefinitions.WeaponTagMelee);
 
         attackModes.Add(attackMode);
@@ -305,7 +306,9 @@ internal sealed class AddExtraRangedAttack : AddExtraAttackBase
 
 internal sealed class AddPolearmFollowupAttack : AddExtraAttackBase
 {
-    internal AddPolearmFollowupAttack() : base(ActionDefinitions.ActionType.Bonus, ValidatorsCharacter.HasAttacked,
+    internal AddPolearmFollowupAttack() : base(
+        ActionDefinitions.ActionType.Bonus,
+        ValidatorsCharacter.HasUsedSpecialFeature(nameof(QuarterstaffType), nameof(SpearType)),
         ValidatorsCharacter.HasPolearm)
     {
         // Empty
@@ -374,6 +377,78 @@ internal sealed class AddPolearmFollowupAttack : AddExtraAttackBase
     }
 }
 
+internal sealed class AddQuarterstaffFollowupAttack : AddExtraAttackBase
+{
+    internal AddQuarterstaffFollowupAttack() : base(ActionDefinitions.ActionType.Bonus,
+        ValidatorsCharacter.HasUsedSpecialFeature(nameof(QuarterstaffType)),
+        ValidatorsCharacter.HasQuarterstaffTwoHanded)
+    {
+        // Empty
+    }
+
+    protected override List<RulesetAttackMode> GetAttackModes([NotNull] RulesetCharacter character)
+    {
+        if (character is not RulesetCharacterHero hero)
+        {
+            return null;
+        }
+
+        var result = new List<RulesetAttackMode>();
+
+        AddItemAttack(result, EquipmentDefinitions.SlotTypeMainHand, hero);
+        AddItemAttack(result, EquipmentDefinitions.SlotTypeOffHand, hero);
+
+        return result;
+    }
+
+    private void AddItemAttack(
+        ICollection<RulesetAttackMode> attackModes,
+        [NotNull] string slot,
+        [NotNull] RulesetCharacterHero hero)
+    {
+        var item = hero.CharacterInventory.InventorySlotsByName[slot].EquipedItem;
+
+        if (item == null || !ValidatorsWeapon.IsWeaponType(item, QuarterstaffType))
+        {
+            return;
+        }
+
+        var strikeDefinition = item.ItemDefinition;
+        var attackMode = hero.RefreshAttackMode(
+            ActionType,
+            strikeDefinition,
+            strikeDefinition.WeaponDescription,
+            ValidatorsCharacter.IsFreeOffhand(hero),
+            true,
+            slot,
+            hero.attackModifiers,
+            hero.FeaturesOrigin,
+            item
+        );
+
+        attackMode.Reach = true;
+        attackMode.Ranged = false;
+        attackMode.Thrown = false;
+
+        var damage = DamageForm.GetCopy(attackMode.EffectDescription.FindFirstDamageForm());
+
+        damage.DieType = DieType.D4;
+        damage.VersatileDieType = DieType.D4;
+        damage.versatile = false;
+        damage.DiceNumber = 1;
+        damage.DamageType = DamageTypeBludgeoning;
+
+        var effectForm = EffectForm.Get();
+
+        effectForm.FormType = EffectForm.EffectFormType.Damage;
+        effectForm.DamageForm = damage;
+        attackMode.EffectDescription.Clear();
+        attackMode.EffectDescription.EffectForms.Add(effectForm);
+
+        attackModes.Add(attackMode);
+    }
+}
+
 internal sealed class AddBonusShieldAttack : AddExtraAttackBase
 {
     internal AddBonusShieldAttack() : base(ActionDefinitions.ActionType.Bonus)
@@ -391,7 +466,7 @@ internal sealed class AddBonusShieldAttack : AddExtraAttackBase
 
         var offHandItem = hero.GetOffhandWeapon();
 
-        if (!ShieldStrike.IsShield(offHandItem))
+        if (offHandItem == null || !ShieldStrike.IsShield(offHandItem))
         {
             return null;
         }

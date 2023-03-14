@@ -459,7 +459,7 @@ FeatGroupCrusher	Description='Increase your Strength or Constitution by 1, to a 
 When you hit a creature with an attack that deals bludgeoning damage, once per turn you push the enemy by 5ft. When you score a critical hit attack rolls against that creature are made with advantage until the start of your next turn.'.
 FeatGroupDefenseCombat	Description='Cloak and Dagger, Defensive Duelist, Dual Weapon Defense, Fade Away, Raise Shield, Twin Blade , Unarmored Expert'.
 FeatGroupDefenseExpert	Description='Increase one of your mental attributes by 1, to a maximum of 20.
-While you are not wearing any armor, your AC equals 10 + your Dexterity modifier + the selected mental attribute modifier.'.
+While you are not wearing any armor, your armor class is equal to 10 + your Dexterity modifier + the selected mental attribute modifier.'.
 FeatGroupElementalAdept	Description='When you gain this feat, choose one of the following damage types: acid, cold, fire, lightning, or thunder. Spells you cast ignore resistance to damage of the chosen type. In addition, when you roll damage for a spell you cast that deals damage of that type, you can reroll any 1s.'.
 FeatGroupElementalTouch	Description='The first time each turn that you deal damage with an unarmed attack or weapon, you deal additional elemental damage equal to your proficiency bonus.'.
 FeatGroupElvenAccuracy	Description='You have uncanny aim with attacks that rely on precision rather than brute force. Increase your Dexterity or one of your mental attributes by 1, to a maximum of 20. Whenever you have advantage on an attack roll using Dexterity, Intelligence, Wisdom, or Charisma, you can reroll one of the dice once.'.
@@ -699,10 +699,10 @@ PowerDomainDefilerDefileLife11	Description='Unleash a wave of necrotic energy ar
 PowerDomainDefilerDefileLife17	Description='Unleash a wave of necrotic energy around you. Each non undead creature in a 15' radius must make a Constitution saving throw. Creatures take +7d6 necrotic damage on a failed saving throw, or half that amount on a successful one.'.
 PowerDomainDefilerDefileLife2	Description='Unleash a wave of necrotic energy around you. Each non undead creature in a 15' radius must make a Constitution saving throw. Creatures take +1d6 necrotic damage on a failed saving throw, or half that amount on a successful one.'.
 PowerDomainDefilerDefileLife5	Description='Unleash a wave of necrotic energy around you. Each non undead creature in a 15' radius must make a Constitution saving throw. Creatures take +3d6 necrotic damage on a failed saving throw, or half that amount on a successful one.'.
-PowerDomainSmithReinforceArmor1	Description=' One per long rest, you may reinforce a nonmagical piece of armor or shield. The reinforced object gains an additional +1 AC.'.
-PowerDomainSmithReinforceArmor11	Description=' One per long rest, you may reinforce a nonmagical piece of armor or shield. The reinforced object gains an additional +3 AC.'.
-PowerDomainSmithReinforceArmor16	Description=' One per long rest, you may reinforce a nonmagical piece of armor or shield. The reinforced object gains an additional +4 AC.'.
-PowerDomainSmithReinforceArmor6	Description=' One per long rest, you may reinforce a nonmagical piece of armor or shield. The reinforced object gains an additional +2 AC.'.
+PowerDomainSmithReinforceArmor1	Description='Once per long rest, you may reinforce a non magical piece of armor or shield. The reinforced object gains an additional +1 AC.'.
+PowerDomainSmithReinforceArmor11	Description='Once per long rest, you may reinforce a non magical piece of armor or shield. The reinforced object gains an additional +3 AC.'.
+PowerDomainSmithReinforceArmor16	Description='Once per long rest, you may reinforce a non magical piece of armor or shield. The reinforced object gains an additional +4 AC.'.
+PowerDomainSmithReinforceArmor6	Description='Once per long rest, you may reinforce a non magical piece of armor or shield. The reinforced object gains an additional +2 AC.'.
 PowerFeatNaturalFluidityGainSlot1	Title='Gain Slot Level 1'.
 PowerFeatNaturalFluidityGainSlot1	Description='Gain 1 additional slot level 1 by using one WildShape form.'.
 PowerFeatNaturalFluidityGainSlot2	Title='Gain Slot Level 2'.

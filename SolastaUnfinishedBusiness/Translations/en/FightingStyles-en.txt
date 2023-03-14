@@ -1,4 +1,4 @@
-Condition/&ConditionFightingStyleCripplingDescription=Your speed is reduced by 10 ft and your AC by 1.
+Condition/&ConditionFightingStyleCripplingDescription=Your speed is reduced by 10 ft and your armor class by 1.
 Condition/&ConditionFightingStyleCripplingTitle=Crippled
 Feature/&PowerFightingStyleTorchbearerDescription=Attempt to set a melee target on fire!
 Feature/&PowerFightingStyleTorchbearerTitle=Torchbearer

@@ -28,6 +28,13 @@ internal class FeatureDefinitionCombatAffinityBuilder
         return this;
     }
 
+    internal FeatureDefinitionCombatAffinityBuilder SetAttackOfOpportunityOnMeAdvantage(
+        RuleDefinitions.AdvantageType advantage)
+    {
+        Definition.attackOfOpportunityOnMeAdvantageType = advantage;
+        return this;
+    }
+
     internal FeatureDefinitionCombatAffinityBuilder SetAttackOnMeAdvantage(
         RuleDefinitions.AdvantageType advantage,
         int attackOnMeCountLimit = -1)

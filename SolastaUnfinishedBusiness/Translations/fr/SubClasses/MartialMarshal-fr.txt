@@ -22,4 +22,4 @@ Reaction/&ReactToAttackFinishedMarshalCoordinatedAttackReactTitle=Attaque
 Reaction/&ReactToAttackFinishedMarshalCoordinatedAttackTitle=Attaque coordonnée
 Reaction/&SubitemSelectReactToAttackFinishedMarshalCoordinatedAttackTitle=Sélectionnez l'action
 Subclass/&MartialMarshalDescription=Habiles à étudier les faiblesses des ennemis et à coordonner les attaques des autres membres du groupe pour les exploiter, les combattants qui se sont entraînés dans cette partie martiale sont de célèbres orchestrateurs du champ de bataille.
-Subclass/&MartialMarshalTitle=maréchal
+Subclass/&MartialMarshalTitle=Maréchal

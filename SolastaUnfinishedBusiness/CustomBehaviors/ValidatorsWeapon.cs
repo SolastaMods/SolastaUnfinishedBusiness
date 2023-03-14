@@ -24,7 +24,7 @@ internal static class ValidatorsWeapon
         return (mode, weapon, _) => IsWeaponType(weapon ?? mode?.sourceObject as RulesetItem, weaponTypeDefinitions);
     }
 
-    internal static bool IsMagic(RulesetAttackMode attackMode, RulesetItem weapon, RulesetCharacter _)
+    internal static bool IsMagical(RulesetAttackMode attackMode, RulesetItem weapon, RulesetCharacter _)
     {
         if (attackMode.Magical)
         {
@@ -51,23 +51,23 @@ internal static class ValidatorsWeapon
         return weapon != null && IsMelee(weapon.ItemDefinition);
     }
 
-    internal static bool IsMelee([CanBeNull] RulesetAttackMode attack)
+    internal static bool IsMelee([CanBeNull] RulesetAttackMode attackMode)
     {
-        return attack is { SourceDefinition: ItemDefinition itemDefinition } && IsMelee(itemDefinition);
+        return attackMode is { SourceDefinition: ItemDefinition itemDefinition } && IsMelee(itemDefinition);
     }
 
-    internal static bool IsOneHanded(RulesetAttackMode attackMode)
+    internal static bool IsOneHanded([CanBeNull] RulesetItem weapon)
+    {
+        return !HasAnyWeaponTag(weapon, TagsDefinitions.WeaponTagTwoHanded);
+    }
+
+    internal static bool IsOneHanded([CanBeNull] RulesetAttackMode attackMode)
     {
         if (attackMode is not { SourceDefinition: ItemDefinition weapon })
         {
             return false;
         }
 
-        return !HasAnyWeaponTag(weapon, TagsDefinitions.WeaponTagTwoHanded);
-    }
-
-    internal static bool IsOneHanded(RulesetItem weapon)
-    {
         return !HasAnyWeaponTag(weapon, TagsDefinitions.WeaponTagTwoHanded);
     }
 
@@ -97,33 +97,23 @@ internal static class ValidatorsWeapon
                && weaponTypeDefinitions.Contains(item.ItemDefinition.WeaponDescription.WeaponTypeDefinition);
     }
 
-    internal static bool IsRanged(RulesetItem weapon)
+    internal static bool IsRanged([CanBeNull] RulesetItem weapon)
     {
         return HasAnyWeaponTag(weapon, TagsDefinitions.WeaponTagRange, TagsDefinitions.WeaponTagThrown);
     }
 
-#if false
-    internal static bool IsRanged([CanBeNull] RulesetAttackMode attack)
+    internal static bool IsThrown([CanBeNull] RulesetItem weapon)
     {
-        return attack is { Reach: false, Ranged: true } or { Reach: false, Thrown: true };
-    }
-#endif
-
-    internal static bool IsThrownWeapon([CanBeNull] RulesetItem weapon)
-    {
-        return weapon != null && weapon.itemDefinition.isWeapon &&
-               weapon.itemDefinition.WeaponDescription.WeaponTags.Contains(TagsDefinitions.WeaponTagThrown);
+        return HasAnyWeaponTag(weapon, TagsDefinitions.WeaponTagThrown);
     }
 
     //
     // UNARMED
     //
 
-    private static bool IsUnarmedWeapon(
-        [CanBeNull] RulesetAttackMode attackMode,
-        RulesetItem weapon)
+    internal static bool IsUnarmed([CanBeNull] RulesetAttackMode attackMode, ItemDefinition itemDefinition)
     {
-        var item = attackMode?.SourceDefinition as ItemDefinition ?? weapon?.ItemDefinition;
+        var item = attackMode?.SourceDefinition as ItemDefinition ?? itemDefinition;
 
         if (item != null)
         {
@@ -131,17 +121,12 @@ internal static class ValidatorsWeapon
                    DatabaseHelper.WeaponTypeDefinitions.UnarmedStrikeType;
         }
 
-        return weapon == null;
+        return itemDefinition == null;
     }
 
-    internal static bool IsUnarmedWeapon(RulesetCharacter rulesetCharacter, RulesetAttackMode attackMode)
+    internal static bool IsUnarmed(RulesetCharacter rulesetCharacter, RulesetAttackMode attackMode)
     {
-        return rulesetCharacter is RulesetCharacterMonster || IsUnarmedWeapon(attackMode, null);
-    }
-
-    internal static bool IsUnarmedWeapon(RulesetItem weapon)
-    {
-        return IsUnarmedWeapon(null, weapon);
+        return rulesetCharacter is RulesetCharacterMonster || IsUnarmed(attackMode, null);
     }
 
     //

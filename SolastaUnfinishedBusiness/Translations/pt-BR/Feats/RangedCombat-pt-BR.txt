@@ -1,7 +1,7 @@
-﻿Feat/&FeatBowMasteryDescription=Você ganha um bônus de +1 nas jogadas de dano feitas com arcos curtos e arcos longos. Quando você usa a ação de Ataque com um arco curto no seu turno, você pode fazer um ataque de arma à distância como uma ação bônus. Você pode usar Força em vez de Destreza para as jogadas de ataque e dano que você faz com arcos longos.
-Feat/&FeatBowMasteryTitle=Domínio do Arco
-Feat/&FeatDeadeyeDescription=Você aprendeu a trocar a precisão para acertar tiros mais mortíferos:\n• Ao atacar com armas de longo alcance, você pode optar por sofrer uma penalidade de -5 em seu acerto para causar +10 de dano adicional.\n• Atacar a longa distância o alcance não impõe desvantagem e seus ataques com armas à distância ignoram meia cobertura e cobertura de três quartos.
+﻿Feat/&FeatBowMasteryDescription=Você ganha um bônus de +1 nas jogadas de dano feitas com arco curto e arco longo. Quando você usa a ação de Ataque com um arco curto no seu turno, você pode fazer um ataque de arma à distância como uma ação bônus. Você pode usar Força em vez de Destreza para as jogadas de ataque e dano que fizer com o arco longo.
+Feat/&FeatBowMasteryTitle=Domínio do arco
+Feat/&FeatDeadeyeDescription=Você aprendeu a trocar a precisão para acertar tiros mais mortais:\n• Ao atacar com uma arma de longo alcance, você pode optar por receber uma penalidade de -5 em seu acerto para causar +10 de dano adicional.\n• Atacar em longo alcance não impõe desvantagem e seu ataque de arma à distância ignora meia cobertura e cobertura de três quartos.
 Feat/&FeatDeadeyeTitle=Deadeye
-Feat/&FeatRangedExpertDescription=Seu treinamento especializado com armas de longo alcance concede a você os seguintes benefícios:\n• Você não tem mais desvantagem em ataques de longo alcance quando há um inimigo a até 1,5 metro de você.\n• Se você realizar a ação Atacar no seu turno, poderá use uma ação bônus para fazer um ataque com uma arma à distância ou de arremesso de uma mão.
-Feat/&FeatRangedExpertTitle=Especialista à Distância
+Feat/&FeatRangedExpertDescription=Seu treinamento especializado com armas de longo alcance concede a você os seguintes benefícios:\n• Você não tem mais desvantagem em ataques de longo alcance quando há um inimigo a até 1,5 m de você.\n• Se você realizar a ação Atacar no seu turno, poderá use uma ação bônus para fazer um ataque com uma arma à distância de uma mão.
+Feat/&FeatRangedExpertTitle=Especialista à distância
 Tooltip/&DeadeyeConcentration=Desativar Deadeye.

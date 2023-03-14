@@ -1,8 +1,8 @@
-Condition/&ConditionDarkKoboldGrovelCowerAndBegDescription=Tienes ventaja en tus tiradas de ataque contra enemigos a 10 pies de tu aliado Kobold.
+Condition/&ConditionDarkKoboldGrovelCowerAndBegDescription=Tienes ventaja en tus tiradas de ataque contra enemigos en un radio de 10 pies de tu aliado Kobold.
 Condition/&ConditionDarkKoboldGrovelCowerAndBegTitle=Arrastrarse, acobardarse y rogar
 Feature/&CastSpellDraconicKoboldMagicDescription=Conoces un cantrip de tu elección de la lista de hechizos del Hechicero. Carisma es tu habilidad para lanzar hechizos.
 Feature/&CastSpellDraconicKoboldMagicTitle=Magia de kóbold
-Feature/&PowerDarkKoboldGrovelCowerAndBegDescription=Como acción en tu turno, puedes encogerte patéticamente para distraer a los enemigos cercanos. Hasta el final de tu próximo turno, tus aliados obtienen ventaja en las tiradas de ataque contra enemigos a 10 pies de ti que puedan verte. Una vez que usas este rasgo, no puedes volver a usarlo hasta que termines un descanso corto o largo.
+Feature/&PowerDarkKoboldGrovelCowerAndBegDescription=Como acción en tu turno, puedes encogerte patéticamente para distraer a los enemigos cercanos. Hasta el final de tu próximo turno, tus aliados ganan ventaja en las tiradas de ataque contra enemigos a 10 pies de ti que puedan verte. Una vez que usas este rasgo, no puedes volver a usarlo hasta que termines un descanso corto o largo.
 Feature/&PowerDarkKoboldGrovelCowerAndBegTitle=Arrastrarse, acobardarse y rogar
 Feature/&PowerDraconicKoboldDraconicCryDescription=Como acción adicional, lanzas un grito a tus enemigos a 10 pies de ti. Hasta el comienzo de tu próximo turno, tus aliados y tú tenéis ventaja en las tiradas de ataque contra cualquiera de esos enemigos que os puedan oír. Puedes usar este rasgo un número de veces igual a tu bonificador de competencia, y recuperas todos los usos gastados cuando finalizas un descanso prolongado.
 Feature/&PowerDraconicKoboldDraconicCryTitle=Grito dracónico

@@ -1,0 +1,43 @@
+{
+  "$type": "FeatureDefinitionFeatureSet, Assembly-CSharp",
+  "featureSet": [
+    "Definition:MovementAffinityRoguishAcrobatSwiftWind:02b26025-0d4c-5d57-b10f-adc36b3fe642",
+    "Definition:FeatureRoguishAcrobatSwiftWind:e52d2d71-c3f2-5397-a240-391302c086a9",
+    "Definition:SavingThrowAffinityRoguishAcrobatSwiftWind:25cebe17-094b-5a02-a1a4-988040be773f",
+    "Definition:AbilityCheckAffinityRoguishAcrobatSwiftWind:5e29062e-1795-5d49-b4d1-8e2aef40a901"
+  ],
+  "mode": "Union",
+  "ancestryDamageTypeMap": [],
+  "ancestryType": "Sorcerer",
+  "defaultSelection": 0,
+  "uniqueChoices": false,
+  "enumerateInDescription": false,
+  "hasRacialAffinity": false,
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feature/&FeatureSetRoguishAcrobatSwiftWindTitle",
+    "description": "Feature/&FeatureSetRoguishAcrobatSwiftWindDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "b77c6cf4-3fdc-503a-a542-22ab6eb64033",
+  "contentPack": 9999,
+  "name": "FeatureSetRoguishAcrobatSwiftWind"
+}

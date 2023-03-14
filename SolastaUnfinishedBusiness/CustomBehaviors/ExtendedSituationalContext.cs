@@ -25,19 +25,14 @@ internal static class CustomSituationalContext
                 ValidatorsCharacter.MainHandIsUnarmed(contextParams.source),
 
             ExtraSituationalContext.WearingNoArmorOrLightArmorWithoutShield =>
-                ValidatorsCharacter.HasNoArmor(contextParams.source)
-                || (ValidatorsCharacter.LightArmor(contextParams.source)
-                    && ValidatorsCharacter.HasNoShield(contextParams.source)),
+                (ValidatorsCharacter.HasNoArmor(contextParams.source) ||
+                 ValidatorsCharacter.LightArmor(contextParams.source)) &&
+                ValidatorsCharacter.HasNoShield(contextParams.source),
 
-#if false
-            ExtraSituationalContext.MainWeaponIsFinesseOrLightRange =>
-                ValidatorsCharacter.MainHandIsFinesseWeapon(contextParams.source)
-                || ValidatorsCharacter.HasLightRangeWeapon(contextParams.source),
-
-            ExtraSituationalContext.MainWeaponIsVersatileWithoutShield =>
-                ValidatorsCharacter.MainHandIsVersatileWeapon(contextParams.source)
-                && ValidatorsCharacter.NoShield(contextParams.source),
-#endif
+            ExtraSituationalContext.WearingNoArmorOrLightArmorWithQuarterstaffTwoHanded =>
+                (ValidatorsCharacter.HasNoArmor(contextParams.source) ||
+                 ValidatorsCharacter.LightArmor(contextParams.source)) &&
+                ValidatorsCharacter.HasQuarterstaffTwoHanded(contextParams.source),
 
             ExtraSituationalContext.TargetIsNotEffectSource =>
                 contextParams.target != effectSource,

@@ -116,11 +116,13 @@ internal static class RulesetCharacterHeroExtensions
             .FirstOrDefault(x => x.Name == className));
     }
 
+    [CanBeNull]
     internal static RulesetItem GetMainWeapon(this RulesetCharacterHero hero)
     {
         return hero.GetItemInSlot(EquipmentDefinitions.SlotTypeMainHand);
     }
 
+    [CanBeNull]
     internal static RulesetItem GetOffhandWeapon(this RulesetCharacterHero hero)
     {
         return hero.GetItemInSlot(EquipmentDefinitions.SlotTypeOffHand);

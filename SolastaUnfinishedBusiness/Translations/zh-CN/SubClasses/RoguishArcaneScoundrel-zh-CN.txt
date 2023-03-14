@@ -1,6 +1,6 @@
 ﻿Condition/&ConditionRoguishArcaneScoundrelDistractingAmbushDescription=你在豁免或能力检定上处于劣势。
 Condition/&ConditionRoguishArcaneScoundrelDistractingAmbushTitle=分散伏击
-Feature/&AdditionalDamageRoguishArcaneScoundrelDistractingAmbushDescription=每当你对一个生物造成偷袭伤害时，该生物在下一次豁免或属性检定中处于劣势，直到你的下一轮结束。
+Feature/&AdditionalDamageRoguishArcaneScoundrelDistractingAmbushDescription=每当你对一个生物造成偷袭伤害时，该生物在下一次豁免检定或属性检定中处于劣势，直到你的下一轮结束。
 Feature/&AdditionalDamageRoguishArcaneScoundrelDistractingAmbushTitle=分散伏击
 Feature/&PowerRoguishArcaneScoundrelArcaneBackslashDescription=每当你反击一个生物的咒语时，你对一个生物造成的偷袭作为力场伤害。
 Feature/&PowerRoguishArcaneScoundrelArcaneBackslashTitle=奥术反弹
@@ -8,5 +8,5 @@ Feature/&CastSpellRoguishArcaneScoundrelDescription=施放法师咒语和咒语�
 Feature/&CastSpellRoguishArcaneScoundrelTitle=施法
 Feature/&ProficiencyRoguishArcaneScoundrelArcanaDescription=熟练掌握至宝技能。如果您已经精通，请获得专业知识。
 Feature/&ProficiencyRoguishArcaneScoundrelArcanaTitle=奥术亲和力
-Subclass/&RoguishArcaneScoundrelDescription=凭借敏捷的脚步和敏锐的智慧，奥术恶棍利用一系列魔法技巧来智取和削弱他们的对手。
+Subclass/&RoguishArcaneScoundrelDescription=凭借敏捷的脚法和敏锐的智慧，奥术恶棍利用一系列魔法技巧来智取和削弱他们的对手。
 Subclass/&RoguishArcaneScoundrelTitle=奥术恶棍

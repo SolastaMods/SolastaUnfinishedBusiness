@@ -107,7 +107,7 @@ internal static partial class UI
                 if (!GL.Button("✔".Green(), GUI.skin.box, AutoWidth())
                     && (!UserHasHitReturn || FocusedControlName != label))
                 {
-                    return changed;
+                    return false;
                 }
 
                 label = editState.Item2;
@@ -262,15 +262,29 @@ internal static partial class UI
     // Action Buttons
 
     [UsedImplicitly]
-    public static void ActionButton(string title, Action action, params GUILayoutOption[] options)
+    public static bool ActionButton(string title, Action action, params GUILayoutOption[] options)
     {
-        if (GL.Button(title, options.AddDefaults())) { action?.Invoke(); }
+        if (!GL.Button(title, options.AddDefaults()))
+        {
+            return false;
+        }
+
+        action?.Invoke();
+
+        return true;
     }
 
     [UsedImplicitly]
-    public static void ActionButton(string title, Action action, GUIStyle style, params GUILayoutOption[] options)
+    public static bool ActionButton(string title, Action action, GUIStyle style, params GUILayoutOption[] options)
     {
-        if (GL.Button(title, style, options.AddDefaults())) { action?.Invoke(); }
+        if (!GL.Button(title, style, options.AddDefaults()))
+        {
+            return false;
+        }
+
+        action?.Invoke();
+
+        return true;
     }
 
     [UsedImplicitly]
@@ -353,7 +367,7 @@ internal static partial class UI
     public static bool ValueAdjuster(string title, ref int value, int increment = 1, int min = 0,
         int max = int.MaxValue, params GUILayoutOption[] options)
     {
-        var changed = false;
+        bool changed;
         using (HorizontalScope(options))
         {
             Label(title);
@@ -367,7 +381,7 @@ internal static partial class UI
     public static bool ValueAdjuster(string title, Func<int> get, Action<int> set, int increment = 1, int min = 0,
         int max = int.MaxValue)
     {
-        var changed = false;
+        bool changed;
         using (HorizontalScope(Width((float)400)))
         {
             Label(title.Cyan(), Width((float)300));
@@ -387,7 +401,7 @@ internal static partial class UI
     public static bool ValueAdjuster(string title, Func<int> get, Action<int> set, int increment = 1, int min = 0,
         int max = int.MaxValue, params GUILayoutOption[] options)
     {
-        var changed = false;
+        bool changed;
         using (HorizontalScope())
         {
             Label(title.Cyan(), options);
@@ -462,7 +476,7 @@ internal static partial class UI
         int decimals = 0, string units = "", params GUILayoutOption[] options)
     {
         value = Math.Max(min, Math.Min(max, value)); // clamp it
-        var newValue = value;
+        float newValue;
         using (HorizontalScope(options))
         {
             using (VerticalScope(Width((float)300)))
@@ -580,7 +594,7 @@ internal static partial class UI
         var logMin = 100f * (float)Math.Log10(min + OFFSET);
         var logMax = 100f * (float)Math.Log10(max + OFFSET);
         var logValue = 100f * (float)Math.Log10(value + OFFSET);
-        var logNewValue = logValue;
+        float logNewValue;
         using (VerticalScope(Width((float)200)))
         {
             Space((float)(SliderTop + 4).Point());

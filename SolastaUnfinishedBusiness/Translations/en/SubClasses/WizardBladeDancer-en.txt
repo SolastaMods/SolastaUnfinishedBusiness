@@ -2,9 +2,9 @@
 Condition/&ConditionBladeDancerBladeDanceTitle=Blade Dancing
 Feature/&AttackModifierBladeDancerDanceOfVictoryDescription=You add a +5 to the damage of your weapon attacks while your blade dance is active.
 Feature/&AttackModifierBladeDancerDanceOfVictoryTitle=Dance of Victory
-Feature/&AttributeModifierBladeDancerBladeDanceDescription=You gain a bonus to your AC equal to your Intelligence modifier.
+Feature/&AttributeModifierBladeDancerBladeDanceDescription=You gain a bonus to your armor class equal to your Intelligence modifier.
 Feature/&AttributeModifierBladeDancerBladeDanceTitle=Blade Dance
-Feature/&FeatureBladeDanceDescription=You can use a bonus action to start the blade dance, which lasts for 1 minute. It ends early if you are incapacitated, if you use medium armor, heavy armor or a shield, or if you wield a two-handed to make an attack with a weapon:\n• You gain a bonus to your AC equal to your Intelligence modifier.\n• Your walking speed increases by 10 ft.\n• You have advantage on Dexterity (Acrobatics) checks.\n• You have a +4 bonus on Constitution checks.\nYou can use this feature a number of times equal to your proficiency bonus, and you regain all expended uses of it when you finish a long rest.
+Feature/&FeatureBladeDanceDescription=You can use a bonus action to start the blade dance, which lasts for 1 minute. It ends early if you are incapacitated, if you use medium armor, heavy armor or a shield, or if you wield a two-handed to make an attack with a weapon:\n• You gain a bonus to your armor class equal to your Intelligence modifier.\n• Your walking speed increases by 10 ft.\n• You have advantage on Dexterity (Acrobatics) checks.\n• You have a +4 bonus on Constitution checks.\nYou can use this feature a number of times equal to your proficiency bonus, and you regain all expended uses of it when you finish a long rest.
 Feature/&FeatureBladeDanceTitle=Blade Dance
 Feature/&FeatureSetCasterBladeDancerFightingDescription=You can wear Light Armor and also gain proficiency with martial weapons.
 Feature/&FeatureSetCasterBladeDancerFightingTitle=Dance Fighting

@@ -14,7 +14,7 @@ Equipment/&HerbalBrewDamageAffinityRadiantResistanceDescription=获得 1 小时�
 Equipment/&HerbalBrewDamageAffinityRadiantResistanceTitle=辐射防护佳酿
 Equipment/&HerbalBrewHealingTitle=加速酿造
 Equipment/&HerbalBrewToxifyingTitle=剧毒佳酿
-Feature/&AttributeModifierAncientForestBarkskinDescription=AC 设置为 16。
+Feature/&AttributeModifierAncientForestBarkskinDescription=装甲等级设置为 16。
 Feature/&AttributeModifierAncientForestBarkskinTitle=树皮
 Feature/&BonusCantripAncientForestDescription=您将学习有关自然魔法和生命能量如何联系的秘密。您学习 Shillelagh 和 Chill Touch。
 Feature/&BonusCantripAncientForestTitle=远古森林奖金戏法
@@ -28,7 +28,7 @@ Feature/&PowerAncientForestRegrowthDescription=当你进行长时间的休息时
 Feature/&PowerAncientForestRegrowthTitle=再生
 Feature/&PowerAncientForestRootedDescription=树栖的卷须从你的脚上长出来并深入地下。你的速度变为 0，并且你在任何推你、拉你或击倒你的豁免检定中获得优势。你可以随意施展纠缠。
 Feature/&PowerAncientForestRootedTitle=根
-Feature/&PowerPoolAncientForestHerbalBrewDescription=你可以制作草药饮品，每次都持续到下一次长休息。你创造的酿造总量等于你的熟练加值。对于每种酿造，选择以下效果之一：\n<color=#add8e6ff>Fortifying Brew</color>：提供对不同伤害类型的抵抗力，持续 1 小时。\n<color=#add8e6ff>Quickening Brew</color> color>：提供 2d4 点生命值。\n<color=#add8e6ff>Toxifying Brew</color>：作为毒药作用于武器，持续 1 分钟。如果击中目标，则每次击中目标都会受到 1d4 毒伤害。
+Feature/&PowerPoolAncientForestHerbalBrewDescription=你可以制作草药饮品，每次都持续到下一次长休息。你创造的酿造总量等于你的熟练加值。对于每种酿造，选择以下效果之一：\n<color=#add8e6ff>Fortifying Brew</color>：在 1 小时内抵抗不同的伤害类型。\n<color=#add8e6ff>Quickening Brew</color> color>：提供 2d4 生命值。\n<color=#add8e6ff>Toxifying Brew</color>：作为毒药作用于武器，持续 1 分钟。如果击中目标，则每次击中目标都会受到 1d4 毒伤害。
 Feature/&PowerPoolAncientForestHerbalBrewTitle=草药酿造
 Feature/&PowerPoolAncientForestWallOfThornsDescription=你可以施放荆棘墙的次数等于你的感知调整值。它在长时间休息时充电。
 Feature/&PowerPoolAncientForestWallOfThornsTitle=荆棘墙

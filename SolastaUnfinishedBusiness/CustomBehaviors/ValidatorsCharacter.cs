@@ -42,23 +42,19 @@ internal static class ValidatorsCharacter
         ValidatorsWeapon.IsPolearm(character.GetMainWeapon()) ||
         ValidatorsWeapon.IsPolearm(character.GetOffhandWeapon());
 
+    internal static readonly IsCharacterValidHandler HasQuarterstaffTwoHanded = character =>
+        ValidatorsWeapon.IsWeaponType(character.GetMainWeapon(), QuarterstaffType) &&
+        character.GetOffhandWeapon() == null;
+
     internal static readonly IsCharacterValidHandler HasTwoHandedRangedWeapon = character =>
         ValidatorsWeapon.IsWeaponType(character.GetMainWeapon(),
             LongbowType, ShortbowType, HeavyCrossbowType, LightCrossbowType);
-
-    internal static readonly IsCharacterValidHandler MainHandIsFinesseWeapon = character =>
-        ValidatorsWeapon.HasAnyWeaponTag(character.GetMainWeapon(),
-            TagsDefinitions.WeaponTagFinesse);
-
-    internal static readonly IsCharacterValidHandler MainHandIsVersatileWeaponNoShield = character =>
-        ValidatorsWeapon.HasAnyWeaponTag(character.GetMainWeapon(),
-            TagsDefinitions.WeaponTagVersatile) && IsFreeOffhand(character);
 
     internal static readonly IsCharacterValidHandler MainHandIsMeleeWeapon = character =>
         ValidatorsWeapon.IsMelee(character.GetMainWeapon());
 
     internal static readonly IsCharacterValidHandler MainHandIsUnarmed = character =>
-        ValidatorsWeapon.IsUnarmedWeapon(character.GetMainWeapon());
+        ValidatorsWeapon.IsUnarmed(null, character.GetMainWeapon()?.ItemDefinition);
 
     internal static readonly IsCharacterValidHandler LightArmor = character =>
         HasArmorCategory(character, EquipmentDefinitions.LightArmorCategory);
@@ -72,13 +68,14 @@ internal static class ValidatorsCharacter
     // internal static readonly IsCharacterValidHandler EmptyOffhand = character =>
     //     character.CharacterInventory.InventorySlotsByName[EquipmentDefinitions.SlotTypeOffHand].EquipedItem == null;
 
-    internal static IsCharacterValidHandler HasUsedSpecialFeature(string feature)
+    internal static IsCharacterValidHandler HasUsedSpecialFeature(params string[] features)
     {
         return character =>
         {
             var gameLocationCharacter = GameLocationCharacter.GetFromActor(character);
 
-            return gameLocationCharacter != null && gameLocationCharacter.UsedSpecialFeatures.ContainsKey(feature);
+            return gameLocationCharacter != null &&
+                   features.Any(feature => gameLocationCharacter.UsedSpecialFeatures.ContainsKey(feature));
         };
     }
 

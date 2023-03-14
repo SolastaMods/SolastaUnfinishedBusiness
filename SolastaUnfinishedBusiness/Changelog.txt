@@ -1,7 +1,4 @@
-- added custom sprites to all fighting styles and all remaining subclasses
-- improved Party Editor with skills, feats and invocations browser and editor
-- improved Soul Blade with hex power at 1 and 14, new soul shield and spell list
-- improved Royal Knight, Oath of Ancients and Oath of Hatred with level 15 features
-- fixed Bow Mastery allowing extra attack if first one was melee and hero switches to a shortbow
-- fixed Cleaving Attack allowing extra attack if first one was melee and hero switches to ranged
-- fixed Martial Marshal's encouragement granting the condition to allies outside the effect area
+- added Roguish Acrobat subclass
+- changed some modded spell sprites
+- fixed Bow Mastery soft locking on multiple attacks
+- improved attribute modifiers presentation

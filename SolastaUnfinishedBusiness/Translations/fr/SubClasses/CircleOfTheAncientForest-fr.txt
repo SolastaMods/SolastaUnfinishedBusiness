@@ -14,7 +14,7 @@ Equipment/&HerbalBrewDamageAffinityRadiantResistanceDescription=Gagne une résis
 Equipment/&HerbalBrewDamageAffinityRadiantResistanceTitle=Breuvage de Radiant Protection
 Equipment/&HerbalBrewHealingTitle=Breuvage de vivacité
 Equipment/&HerbalBrewToxifyingTitle=Breuvage de Toxification
-Feature/&AttributeModifierAncientForestBarkskinDescription=CA est réglé sur 16.
+Feature/&AttributeModifierAncientForestBarkskinDescription=La classe d'armure est fixée à 16.
 Feature/&AttributeModifierAncientForestBarkskinTitle=Écorce
 Feature/&BonusCantripAncientForestDescription=Vous apprendrez des secrets sur la nature de la connexion entre la magie naturelle et l'énergie vitale. Vous apprenez Shillelagh et Chill Touch.
 Feature/&BonusCantripAncientForestTitle=Tours mineurs bonus de la forêt ancienne
@@ -28,7 +28,7 @@ Feature/&PowerAncientForestRegrowthDescription=Vous avez un réservoir de pouvoi
 Feature/&PowerAncientForestRegrowthTitle=Repousse
 Feature/&PowerAncientForestRootedDescription=Des vrilles arboricoles poussent à partir de vos pieds et s'enfoncent dans le sol. Votre vitesse passe à 0 et vous bénéficiez d'un avantage à tous les jets de sauvegarde pour vous pousser, vous tirer ou vous assommer. Vous pouvez lancer enchevêtrement à volonté.
 Feature/&PowerAncientForestRootedTitle=Enraciné
-Feature/&PowerPoolAncientForestHerbalBrewDescription=Vous pouvez créer des breuvages à base de plantes, dont chacun dure jusqu'au prochain repos long. Vous créez un total d'infusions égal à votre bonus de compétence. Pour chaque infusion, choisissez l'un des effets suivants:\n<color=#add8e6ff>Infusion fortifiante</color>: confère une résistance à différents types de dégâts pendant 1 heure.\n<color=#add8e6ff>Infusion vivifiante</color> color>: fournit 2d4 points de vie.\n<color=#add8e6ff>Infusion toxifiante</color>: agit comme un poison qui peut être appliqué sur une arme pendant 1 minute. Si le coup touche, la cible subit 1d4 dégâts de poison à chaque coup.
+Feature/&PowerPoolAncientForestHerbalBrewDescription=Vous pouvez créer des breuvages à base de plantes, dont chacun dure jusqu'au prochain repos long. Vous créez un total d'infusions égal à votre bonus de compétence. Pour chaque infusion, choisissez l'un des effets suivants :\n<color=#add8e6ff>Infusion fortifiante</color> : confère une résistance à différents types de dégâts pendant 1 heure.\n<color=#add8e6ff>Infusion vivifiante</color> color> : fournit 2d4 points de vie.\n<color=#add8e6ff>Infusion toxifiante</color> : agit comme un poison qui peut être appliqué sur une arme pendant 1 minute. Si le coup touche, la cible subit 1d4 dégâts de poison à chaque coup.
 Feature/&PowerPoolAncientForestHerbalBrewTitle=Brassage aux herbes
 Feature/&PowerPoolAncientForestWallOfThornsDescription=Vous pouvez lancer Mur d'épines un nombre de fois égal à votre modificateur de Sagesse. Il se recharge sur de longs repos.
 Feature/&PowerPoolAncientForestWallOfThornsTitle=Mur d'épines
@@ -39,5 +39,5 @@ Feedback/&AncientForestHerbalBrewDamageAffinityPoisonResistancePowerUsedWhileTra
 Feedback/&AncientForestHerbalBrewDamageAffinityRadiantResistancePowerUsedWhileTravellingFormat={0} crée {1}
 Feedback/&AncientForestHerbalBrewHealingPowerUsedWhileTravellingFormat={0} crée {1}
 Feedback/&AncientForestHerbalBrewToxifyingPowerUsedWhileTravellingFormat={0} crée {1}
-Subclass/&CircleOfTheAncientForestDescription=Vous avez forgé une relation avec une entité naturelle puissante: Dryades antiques, Archidruides, Manifestations de la Feywild saignant dans le plan matériel, Dieux oubliés d'un âge primitif. Il peut souhaiter que vous protégiez le monde naturel, voyager dans des terres lointaines qu'il ne peut pas, ou il peut avoir un autre motif qui semble impénétrable aux mortels de courte durée.
+Subclass/&CircleOfTheAncientForestDescription=Vous avez forgé une relation avec une entité naturelle puissante : Dryades antiques, Archidruides, Manifestations de la Feywild saignant dans le plan matériel, Dieux oubliés d'un âge primitif. Il peut souhaiter que vous protégiez le monde naturel, voyager dans des terres lointaines qu'il ne peut pas, ou il peut avoir un autre motif qui semble impénétrable aux mortels de courte durée.
 Subclass/&CircleOfTheAncientForestTitle=Cercle de l'ancienne forêt

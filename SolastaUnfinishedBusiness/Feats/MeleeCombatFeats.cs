@@ -129,7 +129,11 @@ internal static class MeleeCombatFeats
                             true)
                         .Build())
                     .Build())
-            .SetCustomSubFeatures(new ValidatorsPowerUse(ValidatorsCharacter.MainHandIsFinesseWeapon))
+            .SetCustomSubFeatures(
+                new RestrictedContextValidator((_, _, _, _, _, mode, _) =>
+                    (OperationType.Set,
+                        ValidatorsWeapon.HasAnyWeaponTag(mode?.SourceDefinition as ItemDefinition,
+                            TagsDefinitions.WeaponTagFinesse))))
             .AddToDB();
 
         return FeatDefinitionBuilder
@@ -1177,7 +1181,7 @@ internal static class MeleeCombatFeats
 
         public void ModifyAttackMode(RulesetCharacter character, RulesetAttackMode attackMode)
         {
-            if (!ValidatorsWeapon.IsMelee(attackMode) && !ValidatorsWeapon.IsUnarmedWeapon(character, attackMode))
+            if (!ValidatorsWeapon.IsMelee(attackMode) && !ValidatorsWeapon.IsUnarmed(character, attackMode))
             {
                 return;
             }

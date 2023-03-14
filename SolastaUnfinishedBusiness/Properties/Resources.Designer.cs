@@ -1775,6 +1775,16 @@ namespace SolastaUnfinishedBusiness.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
+        public static byte[] PowerReflexes {
+            get {
+                object obj = ResourceManager.GetObject("PowerReflexes", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
         public static byte[] PowerResuscitate {
             get {
                 object obj = ResourceManager.GetObject("PowerResuscitate", resourceCulture);
@@ -1938,6 +1948,16 @@ namespace SolastaUnfinishedBusiness.Properties {
         public static byte[] ReverseGravity {
             get {
                 object obj = ResourceManager.GetObject("ReverseGravity", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        public static byte[] RoguishAcrobat {
+            get {
+                object obj = ResourceManager.GetObject("RoguishAcrobat", resourceCulture);
                 return ((byte[])(obj));
             }
         }
