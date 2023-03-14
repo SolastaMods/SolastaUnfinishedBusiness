@@ -2,9 +2,9 @@
 Feature/&AttributeModifierRoguishAcrobatDefenderTitle=Acrobat Defender
 Feature/&FeatureRoguishAcrobatWarriorDescription=You become proficient with quarterstaff, gain the ability to use it as finesse weapon and the quarterstaff reach increases to 10 ft.\nWhen you take the Attack action with a quarterstaff, you can use your bonus action to make a melee attack with the opposite end of the weapon. This attack uses the same ability modifier as the primary attack and deals 1d4 bludgeoning damage.
 Feature/&FeatureRoguishAcrobatWarriorTitle=Acrobat Warrior
-Feature/&FeatureSetRoguishAcrobatSwiftWindDescription=Your quarterstaff damage die changes from a d8 to a d10 when wielded with two hands. \nYou have advantage on prone and shove attempts, and opportunity attacks are made with disadvantage against you. Climbing no longer costs you extra movement and you can jump an additional 10 feet while wielding a quarterstaff in two hands.
+Feature/&FeatureSetRoguishAcrobatSwiftWindDescription=Your quarterstaff damage die changes from a d8 to a d10 when wielded with two hands and enemies provoke an attack of opportunity when entering your quarterstaff reach. \nYou have advantage on prone and shove attempts, and opportunity attacks are made with disadvantage against you.\nClimbing no longer costs you extra movement and you can jump an additional 10 feet. You must be wielding a quarterstaff in two hands for these to work.
 Feature/&FeatureSetRoguishAcrobatSwiftWindTitle=Swift as the Wind
-Feature/&MovementAffinityRoguishAcrobatFluidMotionsDescription=You are unaffected by difficult terrain, you can move along walls and you don't take damage on falls up to 30 feet while wielding a quarterstaff in two hands.
+Feature/&MovementAffinityRoguishAcrobatFluidMotionsDescription=You are unaffected by difficult terrain, you can move along walls and you don't take damage on falls up to 30 feet. You must be wielding a quarterstaff in two hands for these to work.
 Feature/&MovementAffinityRoguishAcrobatFluidMotionsTitle=Fluid Motions
 Feature/&PowerRoguishAcrobatReflexesDescription=You can take dodge as a bonus action a number of times equals to your dexterity modifier.
 Feature/&PowerRoguishAcrobatReflexesTitle=Acrobat Reflexes

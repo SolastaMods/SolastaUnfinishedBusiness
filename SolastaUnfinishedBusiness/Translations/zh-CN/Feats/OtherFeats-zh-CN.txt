@@ -1,6 +1,6 @@
 Condition/&ConditionFeatMobileAfterDashDescription=免疫移动限制以及被束缚。
 Condition/&ConditionFeatMobileAfterDashTitle=自由
-Feat/&FeatAstralArmsDescription=将您的智慧提高 1，最高为 20。\n当您在轮到您进行徒手攻击时，您的触及范围为 10 英尺。当其他生物进入你的徒手攻击范围时，它们会引发你的借机攻击。
+Feat/&FeatAstralArmsDescription=将您的智慧提高 1，最高为 20。\n当您在轮到您进行徒手攻击时，您的攻击范围为 10 英尺。其他生物进入您的徒手攻击范围时会引发您的借机攻击.
 Feat/&FeatAstralArmsTitle=星际延伸
 Feat/&FeatEldritchAdeptDescription=您可以从术士课程中选择一种 Eldritch Invocation 选项。如果调用有先决条件，则只有当你是术士并且满足先决条件时才能选择该调用。每当您获得一个等级时，您就可以用另一个来自术士等级的调用来替换该调用。
 Feat/&FeatEldritchAdeptTitle=异能专家
@@ -16,7 +16,7 @@ Feat/&FeatMetamagicAdeptDescription=您从巫师课程中学习了两个您选�
 Feat/&FeatMetamagicAdeptTitle=超魔专家
 Feat/&FeatMobileDescription=你非常敏捷和敏捷。你的速度增加 10 英尺，并且你在冲刺时免疫困难地形。当你对一个生物进行近战攻击时，你免疫该生物的借机攻击，除非它对此免疫。
 Feat/&FeatMobileTitle=移动的
-Feat/&FeatMonkInitiateDescription=你已经学会了和尚的一些方式。您获得的 ki 点数等于您的熟练度加值，您可以用它来使用 Flurry of Blows、Patient Defense 或 Step of the Wind。
+Feat/&FeatMonkInitiateDescription=你已经学会了和尚的一些方式。您获得的 Ki 点数等于您的熟练加值，您可以使用这些点数来使用连击、耐心防御或风之步。
 Feat/&FeatMonkInitiateTitle=修道士
 Feat/&FeatPickPocketDescription=你获得手上功夫的熟练项，如果已经熟练，则获得专业知识。你在手上的灵巧检定上也有优势。
 Feat/&FeatPickPocketTitle=扒手

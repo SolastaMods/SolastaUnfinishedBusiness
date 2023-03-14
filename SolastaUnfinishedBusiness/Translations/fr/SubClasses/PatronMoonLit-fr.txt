@@ -2,7 +2,7 @@
 Condition/&ConditionMoonlitMoonTouchedTitle=Lune touchée
 Feature/&BonusCantripsMoonlitDescription=Votre contrôle de la lumière de la lune a atteint un nouveau niveau. Vous pouvez lancer les sorts <b>Rayon de lune</b> et <b>Feu des fées</b> à volonté.
 Feature/&BonusCantripsMoonlitTitle=Contrôle de la lumière
-Feature/&FeatureSetMoonlitSuperiorSightDescription=Vous pouvez voir parfaitement dans toutes les conditions d'éclairage et avoir une vision aveugle jusqu'à 16 cellules, vous permettant de percevoir les ennemis même à travers l'invisibilité et l'obscurité magique.
+Feature/&FeatureSetMoonlitSuperiorSightDescription=Vous pouvez voir parfaitement dans toutes les conditions d'éclairage et avoir une vue aveugle jusqu'à 80 pieds, vous permettant de percevoir les ennemis même à travers l'invisibilité et l'obscurité magique.
 Feature/&FeatureSetMoonlitSuperiorSightTitle=Vue supérieure
 Feature/&LightAffinityMoonlitStrongDescription=La cape ombrale fonctionne désormais dans la pénombre et les ténèbres magiques.
 Feature/&LightAffinityMoonlitStrongTitle=Cape ombrale améliorée
@@ -16,5 +16,5 @@ Feature/&PowerMoonlitFullMoonDescription=Vous pouvez lancer <b>Lumière du jour<
 Feature/&PowerMoonlitFullMoonTitle=Pleine lune
 Feature/&PowerMoonlitMoonTouchedDescription=Vous invoquez l'attraction gravitationnelle de la lune dans une petite zone, ce qui fait flotter vers le haut les créatures qui échouent à un jet de sauvegarde.
 Feature/&PowerMoonlitMoonTouchedTitle=Lune touchée
-Subclass/&PatronMoonlitDescription=Votre patron est un esprit de la lune, une entité qui incarne la nature cyclique de la lumière et des ténèbres. Ces esprits cherchent à maintenir le pouvoir de la lune sur le ciel nocturne tout en gardant à distance les pouvoirs profanes qui traquent les ténèbres et en chargent leurs sorciers, leur accordant le contrôle des pouvoirs de la lune et de ses effets.
+Subclass/&PatronMoonlitDescription=Votre patron est un esprit de la lune, une entité qui incarne la nature cyclique de la lumière et des ténèbres. Ces esprits cherchent à maintenir le pouvoir de la lune sur le ciel nocturne tout en gardant à distance les pouvoirs profanes qui traquent les ténèbres et chargent leurs sorciers de le faire, leur accordant le contrôle des pouvoirs de la lune et de ses effets.
 Subclass/&PatronMoonlitTitle=Le clair de lune

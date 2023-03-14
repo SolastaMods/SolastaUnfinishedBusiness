@@ -8,5 +8,5 @@ Feature/&CastSpellRoguishArcaneScoundrelDescription=Lancez des sorts et des cant
 Feature/&CastSpellRoguishArcaneScoundrelTitle=Lancer des sorts
 Feature/&ProficiencyRoguishArcaneScoundrelArcanaDescription=Gagnez en compétence avec la compétence Arcana. Si vous êtes déjà compétent, acquérez plutôt une expertise.
 Feature/&ProficiencyRoguishArcaneScoundrelArcanaTitle=Affinité arcanique
-Subclass/&RoguishArcaneScoundrelDescription=Avec la rapidité des pieds et l'acuité de l'esprit, les Arcane Scoundrels utilisent une série d'astuces magiques pour déjouer et affaiblir leurs adversaires.
+Subclass/&RoguishArcaneScoundrelDescription=Avec rapidité et finesse d'esprit, les Arcane Scoundrels utilisent une série d'astuces magiques pour déjouer et affaiblir leurs adversaires.
 Subclass/&RoguishArcaneScoundrelTitle=Scélérat arcanique

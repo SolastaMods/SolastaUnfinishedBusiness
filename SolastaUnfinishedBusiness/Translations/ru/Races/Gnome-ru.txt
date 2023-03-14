@@ -9,6 +9,6 @@ Feature/&ProficiencyGnomeLanguagesTitle=Языки
 Feature/&SavingThrowAffinityGnomeCunningFeatureDescription=Вы совершаете с преимуществом все спасброски Интеллекта, Мудрости и Харизмы против магии.
 Feature/&SavingThrowAffinityGnomeCunningFeatureTitle=Хитрость
 Language/&LanguageGnomishDescription=Старый соласанский язык, сохраненный гномами, живущими в дремучих лесах Соласты, пережил Катаклизм.
-Language/&LanguageGnomishTitle=Гномский
+Language/&LanguageGnomishTitle=гномский
 Race/&RaceGnomeDescription=Постоянный гул занятой деятельности пронизывает лабиринты и кварталы, где гномы образуют свои сплоченные сообщества. Гул перемежается более громкими звуками: здесь хруст скрежещущих шестеренок, там небольшой взрыв, визг удивления или триумфа и особенно взрывы смеха. Гномы наслаждаются жизнью, наслаждаясь каждым моментом изобретения, исследования, исследования, творчества и игры.
 Race/&RaceGnomeTitle=Гном

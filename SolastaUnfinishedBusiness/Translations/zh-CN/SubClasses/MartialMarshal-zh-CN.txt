@@ -22,4 +22,4 @@ Reaction/&ReactToAttackFinishedMarshalCoordinatedAttackReactTitle=攻击
 Reaction/&ReactToAttackFinishedMarshalCoordinatedAttackTitle=协同攻击
 Reaction/&SubitemSelectReactToAttackFinishedMarshalCoordinatedAttackTitle=选择动作
 Subclass/&MartialMarshalDescription=擅长研究敌人的弱点并协调其他党员的攻击以利用它们，在这个军事部分训练的战士是战场上著名的协调者。
-Subclass/&MartialMarshalTitle=马歇尔
+Subclass/&MartialMarshalTitle=元帅

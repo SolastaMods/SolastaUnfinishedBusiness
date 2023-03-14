@@ -22,4 +22,4 @@ Reaction/&ReactToAttackFinishedMarshalCoordinatedAttackReactTitle=Атака
 Reaction/&ReactToAttackFinishedMarshalCoordinatedAttackTitle=Скоординированная атака
 Reaction/&SubitemSelectReactToAttackFinishedMarshalCoordinatedAttackTitle=Выберите действие
 Subclass/&MartialMarshalDescription=Искусные в изучении слабостей врагов и координации атак других членов группы, чтобы использовать их, бойцы, которые тренировались в этой боевой части, являются известными организаторами поля боя.
-Subclass/&MartialMarshalTitle=Маршалл
+Subclass/&MartialMarshalTitle=Маршал

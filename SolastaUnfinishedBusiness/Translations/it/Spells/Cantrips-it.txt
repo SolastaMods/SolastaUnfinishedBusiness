@@ -1,4 +1,4 @@
-﻿Condition/&ConditionAcidClawsDescription=AC è diminuito di 1
+﻿Condition/&ConditionAcidClawsDescription=La classe armatura è ridotta di 1
 Condition/&ConditionAcidClawsTitle=Ustione da acido
 Condition/&ConditionMindSpikeDescription=Sottrae 1d4 dal prossimo tiro salvezza.
 Condition/&ConditionMindSpikeTitle=Mente Spike
@@ -36,7 +36,7 @@ Spell/&SunlightBladeDescription=Effettua un attacco in mischia con un'arma. Se c
 Spell/&SunlightBladeTitle=Lama illuminata dal sole
 Spell/&SwordStormDescription=Crei un cerchio momentaneo di lame spettrali che si muovono intorno a te. Tutte le altre creature entro 1,5 metri da te devono superare un tiro salvezza su Destrezza o subire 1d6 danni da forza.
 Spell/&SwordStormTitle=Tempesta di spade
-Spell/&ThornyVinesDescription=Crei una lunga vite simile a una frusta ricoperta di spine che si scaglia al tuo comando verso una creatura a gittata. Effettua un attacco con incantesimo a distanza contro il bersaglio. Se l'attacco va a segno, la creatura subisce 1d6 danni perforanti e la avvicini a sé di un massimo di 3 metri.
+Spell/&ThornyVinesDescription=Crei una lunga vite simile a una frusta ricoperta di spine che si scaglia al tuo comando verso una creatura a gittata. Effettua un attacco con incantesimo a distanza contro il bersaglio. Se l'attacco va a segno, la creatura subisce 1d6 danni perforanti e la attiri fino a 3 metri più vicino a te.
 Spell/&ThornyVinesTitle=Viti spinose
 Spell/&ThunderStrikeDescription=Crea un'esplosione di suoni tonanti, costringendo le creature adiacenti a te a effettuare un tiro salvezza su Costituzione o a subire 1d6 danni da tuono.\nI danni di questo incantesimo aumentano di 1d6 quando raggiungi il 5° livello (2d6), l'11° livello (3d6) e il 17° livello (4d6).
 Spell/&ThunderStrikeTitle=Scoppio sonoro

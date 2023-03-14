@@ -2,7 +2,7 @@
 Condition/&ConditionDomainDefilerInsidiousDeathMagicTitle=Magie de la mort insidieuse
 Condition/&ConditionDomainDefilerMarkForDeathDescription=Vous avez été marqué pour la mort, gagnant en vulnérabilité aux dégâts nécrotiques.
 Condition/&ConditionDomainDefilerMarkForDeathTitle=Marqué pour la mort
-Feature/&AdditionalDamageDomainDefilerDivineStrikeDescription=Une fois par tour, inflige +{0}d8 dégâts nécrotiques aux attaques avec une arme.
+Feature/&AdditionalDamageDomainDefilerDivineStrikeDescription=Une fois par tour, inflige +{0}d8 dégâts nécrotiques aux attaques avec une arme.
 Feature/&AdditionalDamageDomainDefilerDivineStrikeTitle=Frappe divine
 Feature/&BonusCantripDomainDefilerDescription=Gagnez les sorts mineurs bonus <b>Ray of Frost</b> et <b>Wrack</b>.
 Feature/&BonusCantripDomainDefilerTitle=Bonus de sortie mineure
@@ -17,4 +17,4 @@ Feature/&PowerDomainDefilerDefileLifeTitle=Profaner la vie
 Feature/&PowerDomainDefilerMarkForDeathDescription=Marquez un ennemi pour la mort. Ils gagnent en vulnérabilité aux dégâts nécrotiques et doivent effectuer un jet de sauvegarde de Charisme pour l'annuler.
 Feature/&PowerDomainDefilerMarkForDeathTitle=Marquer pour la mort
 Subclass/&DomainDefilerTitle=Défenseurs
-Subclass/&DomainDefilerDescription=Les profanateurs adorent les patrons de la mort, de la corruption et du fléau, recherchant le pouvoir et la corruption à leurs propres fins: pour plaire à leurs dieux ou pour des raisons plus égoïstes.
+Subclass/&DomainDefilerDescription=Les profanateurs adorent les patrons de la mort, de la corruption et du fléau, recherchant le pouvoir et la corruption à leurs propres fins : pour plaire à leurs dieux ou pour des raisons plus égoïstes.

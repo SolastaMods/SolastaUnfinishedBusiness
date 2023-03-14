@@ -2,7 +2,7 @@
 Condition/&ConditionMoonlitMoonTouchedTitle=月触
 Feature/&BonusCantripsMoonlitDescription=你对月光的控制已经提高到一个新的水平。您可以随意施放法术<b>Moonbeam</b> 和<b>Faerie Fire</b>。
 Feature/&BonusCantripsMoonlitTitle=灯光控制
-Feature/&FeatureSetMoonlitSuperiorSightDescription=您可以在所有照明条件下完美地看到，并拥有多达 16 个细胞的盲视，即使在隐形和魔法黑暗中，您也可以感知敌人。
+Feature/&FeatureSetMoonlitSuperiorSightDescription=您可以在所有照明条件下完美地看到，盲视可达 80 英尺，让您即使在隐形和魔法黑暗中也能看到敌人。
 Feature/&FeatureSetMoonlitSuperiorSightTitle=优越的视野
 Feature/&LightAffinityMoonlitStrongDescription=Umbral Cloak 现在可以在昏暗的光线和魔法黑暗中使用。
 Feature/&LightAffinityMoonlitStrongTitle=改进的暗影斗篷

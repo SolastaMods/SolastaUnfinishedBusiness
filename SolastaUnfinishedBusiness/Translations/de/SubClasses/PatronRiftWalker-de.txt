@@ -2,7 +2,7 @@
 Condition/&ConditionAffinityRiftWalkerRestrainedImmunityTitle=Rift-Freiheit
 Feature/&BonusCantripRiftWalkWardingBondDescription=Deine Kontrolle über Rissportale hat sich so weit erhöht, dass du jetzt anderen den Schutz des Risses gewähren kannst. Du kannst nach Belieben abwehrenden Bund wirken (ohne Schaden zu teilen).
 Feature/&BonusCantripRiftWalkWardingBondTitle=Rift-Umhang
-Feature/&DamageAffinityRiftWalkerFadeIntoTheVoidDescription=Wenn Sie auf 0 Trefferpunkte reduziert, aber nicht direkt getötet werden, fallen Sie stattdessen auf 1 Trefferpunkt, wenn Sie kurz in die Leere verschwinden, um den Schaden zu verringern. Sie können diese Funktion erst wieder verwenden, wenn Sie eine lange Pause beendet haben.
+Feature/&DamageAffinityRiftWalkerFadeIntoTheVoidDescription=Wenn Sie auf 0 Trefferpunkte reduziert, aber nicht direkt getötet werden, fallen Sie stattdessen auf 1 Trefferpunkt, während Sie kurz in die Leere verschwinden, um den Schaden zu verringern. Sie können diese Funktion erst wieder verwenden, wenn Sie eine lange Pause beendet haben.
 Feature/&DamageAffinityRiftWalkerFadeIntoTheVoidTitle=In die Leere verblassen
 Feature/&PowerRiftWalkerBlinkDescription=Als Bonusaktion verschwindest du von deiner aktuellen Existenzebene und verhinderst jeglichen Schaden. Zu Beginn deines nächsten Zuges kehrst du auf das Feld zurück, von dem du verschwunden bist.
 Feature/&PowerRiftWalkerBlinkTitle=Blinken

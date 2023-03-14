@@ -1,10 +1,10 @@
-﻿Feature/&FeatureSetWayOfSilhouetteSilhouetteArtsDescription=当你在第 3 级选择此传统时，你可以花费 2 点气来施展黑暗术、黑暗视觉、无踪无踪或沉默术，而无需提供材料成分。此外，如果您还不知道，您将获得光之咒语。
+﻿Feature/&FeatureSetWayOfSilhouetteSilhouetteArtsDescription=当你在第 3 级选择此传统时，你可以花费 2 点 Ki 来施展黑暗、黑暗视觉、无踪无踪或沉默，而无需提供材料成分。此外，如果您还不知道，您将获得光之咒语。
 Feature/&FeatureSetWayOfSilhouetteSilhouetteArtsTitle=剪影艺术
 Feature/&LightAffinityWayOfSilhouetteCloakOfSilhouettesStrongDescription=除了自然黑暗之外，剪影斗篷现在还可以在昏暗的光线和魔法黑暗中工作。
 Feature/&LightAffinityWayOfSilhouetteCloakOfSilhouettesStrongTitle=改进型轮廓斗篷
 Feature/&LightAffinityWayOfSilhouetteCloakOfSilhouettesWeakDescription=如果你在自然黑暗中开始你的回合，你就会变得隐形。走出黑暗，攻击或使用任何不只针对自己的力量或法术都会打破隐形。
 Feature/&LightAffinityWayOfSilhouetteCloakOfSilhouettesWeakTitle=剪影斗篷
-Feature/&PowerWayOfSilhouetteImprovedSilhouetteStepDescription=短暂地被 ki 的能量包围，你现在可以在传送时带上一个盟友，并且范围增加了。
+Feature/&PowerWayOfSilhouetteImprovedSilhouetteStepDescription=短暂地被 Ki 的能量包围，你现在可以在传送时带上一个盟友，并且范围增加了。
 Feature/&PowerWayOfSilhouetteImprovedSilhouetteStepTitle=改进的轮廓步骤
 Feature/&PowerWayOfSilhouetteSilhouetteStepDescription=你可以用附赠动作传送最远 30 英尺到一个你能看到的未被占据的空间。每次长休你可以使用此异能的次数等于你的熟练加值。
 Feature/&PowerWayOfSilhouetteSilhouetteStepTitle=剪影步骤

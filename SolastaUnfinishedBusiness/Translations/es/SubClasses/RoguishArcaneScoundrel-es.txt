@@ -1,6 +1,6 @@
 ﻿Condition/&ConditionRoguishArcaneScoundrelDistractingAmbushDescription=Sufres desventaja en tus tiradas de salvación o pruebas de habilidad.
 Condition/&ConditionRoguishArcaneScoundrelDistractingAmbushTitle=Emboscada que distrae
-Feature/&AdditionalDamageRoguishArcaneScoundrelDistractingAmbushDescription=Cada vez que infliges daño de ataque furtivo a una criatura, esa criatura sufre desventaja en su próxima tirada de salvación o prueba de habilidad hasta el final de tu próximo turno.
+Feature/&AdditionalDamageRoguishArcaneScoundrelDistractingAmbushDescription=Cada vez que infliges daño de ataque furtivo a una criatura, esa criatura sufre desventaja en su próxima tirada de salvación o prueba de característica hasta el final de tu próximo turno.
 Feature/&AdditionalDamageRoguishArcaneScoundrelDistractingAmbushTitle=Emboscada que distrae
 Feature/&PowerRoguishArcaneScoundrelArcaneBackslashDescription=Infliges tu ataque furtivo como daño de fuerza a una criatura cada vez que contrarrestas un hechizo de ella.
 Feature/&PowerRoguishArcaneScoundrelArcaneBackslashTitle=Contragolpe Arcano

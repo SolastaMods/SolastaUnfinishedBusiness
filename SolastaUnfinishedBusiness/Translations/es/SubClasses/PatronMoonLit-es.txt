@@ -2,7 +2,7 @@
 Condition/&ConditionMoonlitMoonTouchedTitle=Luna tocada
 Feature/&BonusCantripsMoonlitDescription=Tu control de la luz de la luna ha aumentado a un nuevo nivel. Puedes lanzar los hechizos <b>Rayo de luna</b> y <b>Fuego feérico</b> a voluntad.
 Feature/&BonusCantripsMoonlitTitle=Control de luz
-Feature/&FeatureSetMoonlitSuperiorSightDescription=Puedes ver perfectamente en todas las condiciones de iluminación y tener visión ciega de hasta 16 celdas, lo que te permite percibir a los enemigos incluso a través de la invisibilidad y la oscuridad mágica.
+Feature/&FeatureSetMoonlitSuperiorSightDescription=Puede ver perfectamente en todas las condiciones de iluminación y tener vista ciega hasta 80 pies, lo que le permite percibir a los enemigos incluso a través de la invisibilidad y la oscuridad mágica.
 Feature/&FeatureSetMoonlitSuperiorSightTitle=Vista superior
 Feature/&LightAffinityMoonlitStrongDescription=Umbral Cloak ahora funciona con poca luz y oscuridad mágica.
 Feature/&LightAffinityMoonlitStrongTitle=Capa Umbral Mejorada

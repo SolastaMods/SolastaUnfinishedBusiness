@@ -20,5 +20,5 @@ Feature/&PowerElementalistElementalFormPoolDescription=Você pode alternar entre
 Feature/&PowerElementalistElementalFormPoolTitle=Formas elementares
 Feedback/&AdditionalDamageElementalDamageFormat=Dano Elemental
 Feedback/&AdditionalDamageElementalDamageLine=A forma elementar concede dano adicional
-Subclass/&PatronElementalistDescription=Você fez um pacto e foi alterado por primordiais presentes nas terras áridas dos elementais. O caos elementar do patrono inundou sua alma, permitindo que você use o poder de diferentes tipos de elementais.
+Subclass/&PatronElementalistDescription=Você fez um pacto e foi alterado por primordiais presentes nos desertos elementais. O caos elemental do patrono inundou sua alma, permitindo que você use o poder de diferentes tipos de elementais.
 Subclass/&PatronElementalistTitle=O Elementalista

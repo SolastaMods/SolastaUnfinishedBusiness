@@ -1,4 +1,4 @@
-Condition/&ConditionFightingStyleCripplingDescription=你的速度降低 10 英尺，你的 AC 降低 1。
+Condition/&ConditionFightingStyleCripplingDescription=你的速度降低 10 英尺，你的装甲等级降低 1。
 Condition/&ConditionFightingStyleCripplingTitle=残废的
 Feature/&PowerFightingStyleTorchbearerDescription=尝试点燃近战目标！
 Feature/&PowerFightingStyleTorchbearerTitle=火炬手
@@ -6,7 +6,7 @@ Feedback/&AdditionalDamageCripplingFormat=残废伤害！
 Feedback/&AdditionalDamageCripplingLine={1} 遭受严重伤害。
 Feedback/&AdditionalDamageExecutionerFormat=执行！
 Feedback/&AdditionalDamageExecutionerLine={0} 执行 {1} +{2} 额外伤害！
-FightingStyle/&BlindFightingDescription=你有 10 英尺范围内的盲视。在这个范围内，即使你失明或处于黑暗中，你也可以有效地看到任何不在完全掩护后面的东西。此外，你可以看到该范围内的隐形生物，除非该生物成功躲避了你。
+FightingStyle/&BlindFightingDescription=你有 10 英尺范围的盲视。在这个范围内，你可以有效地看到任何不在完全掩护后面的东西，即使你是盲目的或在黑暗中。此外，你可以看到该范围内的隐形生物，除非该生物成功躲避了你。
 FightingStyle/&BlindFightingTitle=盲斗
 FightingStyle/&CripplingDescription=近战攻击命中后，您可以将对手的速度降低 10 英尺，并将他们的护甲等级降低 1，持续 2 回合。
 FightingStyle/&CripplingTitle=致残

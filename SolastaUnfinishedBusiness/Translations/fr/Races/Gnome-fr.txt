@@ -10,5 +10,5 @@ Feature/&SavingThrowAffinityGnomeCunningFeatureDescription=Vous avez un avantage
 Feature/&SavingThrowAffinityGnomeCunningFeatureTitle=Ruse
 Language/&LanguageGnomishDescription=Ancienne langue solastane, préservée par les gnomes vivant dans les forêts profondes de Solasta, elle a survécu au cataclysme.
 Language/&LanguageGnomishTitle=Gnome
-Race/&RaceGnomeDescription=Un bourdonnement constant d'activités animées imprègne les dédales et les quartiers où les gnomes forment leurs communautés très unies. Des sons plus forts ponctuent le bourdonnement: ici un craquement d'engrenages grinçants, là une petite explosion, un cri de surprise ou de triomphe, et surtout des éclats de rire. Les gnomes prennent plaisir à la vie, profitant de chaque instant d'invention, d'exploration, d'investigation, de création et de jeu.
+Race/&RaceGnomeDescription=Un bourdonnement constant d'activités animées imprègne les dédales et les quartiers où les gnomes forment leurs communautés très unies. Des sons plus forts ponctuent le bourdonnement : ici un craquement d'engrenages grinçants, là une petite explosion, un cri de surprise ou de triomphe, et surtout des éclats de rire. Les gnomes prennent plaisir à la vie, profitant de chaque instant d'invention, d'exploration, d'investigation, de création et de jeu.
 Race/&RaceGnomeTitle=Gnome
