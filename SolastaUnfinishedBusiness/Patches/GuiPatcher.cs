@@ -3,6 +3,7 @@ using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using HarmonyLib;
 using JetBrains.Annotations;
+using static FeatureDefinitionAttributeModifier;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
@@ -30,7 +31,17 @@ public static class GuiPatcher
                     output += "\n";
                 }
 
-                output += Gui.Format("{0}: {1}", trend.value.ToString("+0;-#"), Gui.FormatTrendInfo(trend));
+                var fixAdditive =
+                    trend.attributeModifier?.operation is AttributeModifierOperation.Additive or
+                        AttributeModifierOperation.AddConditionAmount or
+                        AttributeModifierOperation.AddProficiencyBonus or
+                        AttributeModifierOperation.AddSurroundingEnemies or
+                        AttributeModifierOperation.AddAbilityScoreBonus or
+                        AttributeModifierOperation.AddHalfProficiencyBonus;
+
+                var value = fixAdditive || trend.additive ? trend.value.ToString("+0;-#") : trend.value.ToString();
+
+                output += Gui.Format("{0}: {1}", value, Gui.FormatTrendInfo(trend));
             }
 
             __result = output;
