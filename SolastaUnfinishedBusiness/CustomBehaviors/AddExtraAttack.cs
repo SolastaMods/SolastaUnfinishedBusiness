@@ -408,7 +408,7 @@ internal sealed class AddQuarterstaffFollowupAttack : AddExtraAttackBase
     {
         var item = hero.CharacterInventory.InventorySlotsByName[slot].EquipedItem;
 
-        if (item == null || !ValidatorsWeapon.IsWeaponType(item, DatabaseHelper.WeaponTypeDefinitions.QuarterstaffType))
+        if (item == null || !ValidatorsWeapon.IsWeaponType(item, QuarterstaffType))
         {
             return;
         }

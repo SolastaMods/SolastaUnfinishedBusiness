@@ -264,31 +264,27 @@ internal static partial class UI
     [UsedImplicitly]
     public static bool ActionButton(string title, Action action, params GUILayoutOption[] options)
     {
-        var changed = false;
         if (!GL.Button(title, options.AddDefaults()))
         {
-            return changed;
+            return false;
         }
 
         action?.Invoke();
-        changed = true;
 
-        return changed;
+        return true;
     }
 
     [UsedImplicitly]
     public static bool ActionButton(string title, Action action, GUIStyle style, params GUILayoutOption[] options)
     {
-        var changed = false;
         if (!GL.Button(title, style, options.AddDefaults()))
         {
-            return changed;
+            return false;
         }
 
         action?.Invoke();
-        changed = true;
 
-        return changed;
+        return true;
     }
 
     [UsedImplicitly]

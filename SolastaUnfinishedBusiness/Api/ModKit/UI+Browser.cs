@@ -36,6 +36,7 @@ internal static partial class UI
             Func<T, TItem, Action> decrementValue = null,
             Func<T, TDef, Action> addItem = null,
             Func<T, TItem, Action> removeItem = null,
+            // ReSharper disable once UnusedParameter.Global
             Func<T, TItem, Action> childrenOnGUI = null
         )
         {
@@ -119,6 +120,7 @@ internal static partial class UI
             Func<TDef, string> title,
             Func<TDef, string> description = null,
             Func<TItem, string> value = null,
+            // ReSharper disable once UnusedParameter.Local
             Action<T, TItem, string> setValue = null,
             Func<T, TItem, Action> incrementValue = null,
             Func<T, TItem, Action> decrementValue = null,
