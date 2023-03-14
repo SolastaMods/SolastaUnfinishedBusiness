@@ -66,7 +66,7 @@ internal class FeatureDefinitionAttributeModifierBuilder
         Definition.situationalContext = (RuleDefinitions.SituationalContext)situationalContext;
         return this;
     }
-    
+
     #region Constructors
 
     protected FeatureDefinitionAttributeModifierBuilder(string name, Guid namespaceGuid) : base(name, namespaceGuid)

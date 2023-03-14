@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
-using Mono.CSharp;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Api.ModKit.Utility;
 
@@ -12,13 +11,14 @@ internal static partial class UI
 {
     public static class Browser<T, TItem, TDef> // for many things the item will be the definition
     {
+        // ReSharper disable file StaticMemberInGenericType
         private static IEnumerable<TDef> _filteredDefinitions;
-        private static Dictionary<string, bool> disclosureStates = new Dictionary<string, bool>();
-        private static string prevCallerKey = "";
-        private static string searchText = "";
-        private static int searchLimit = 100;
-        private static int matchCount;
-        private static bool showAll;
+        private static readonly Dictionary<string, bool> DisclosureStates = new();
+        private static string _prevCallerKey = "";
+        private static string _searchText = "";
+        private static int _searchLimit = 100;
+        private static int _matchCount;
+        private static bool _showAll;
 
         internal static void OnGUI(
             string callerKey, ref bool changed,
@@ -42,25 +42,25 @@ internal static partial class UI
             // ReSharper disable once NotAccessedVariable
             var searchChanged = false;
 //            var refreshTree = false;
-            if (callerKey != prevCallerKey)
+            if (callerKey != _prevCallerKey)
             {
                 searchChanged = true;
-                showAll = false;
-                disclosureStates.Clear();
+                _showAll = false;
+                DisclosureStates.Clear();
             }
 
-            prevCallerKey = callerKey;
+            _prevCallerKey = callerKey;
             using (HorizontalScope())
             {
                 100.Space();
-                ActionTextField(ref searchText, "searchText", null, () => { searchChanged = true; }, Width(320));
+                ActionTextField(ref _searchText, "searchText", null, () => { searchChanged = true; }, Width(320));
                 25.Space();
                 Label("Limit", ExpandWidth(false));
-                ActionIntTextField(ref searchLimit, "searchLimit", null, () => { searchChanged = true; }, Width(175));
-                if (searchLimit > 1000) { searchLimit = 1000; }
+                ActionIntTextField(ref _searchLimit, "searchLimit", null, () => { searchChanged = true; }, Width(175));
+                if (_searchLimit > 1000) { _searchLimit = 1000; }
 
                 25.Space();
-                searchChanged |= DisclosureToggle("Show All".Orange().Bold(), ref showAll);
+                searchChanged |= DisclosureToggle("Show All".Orange().Bold(), ref _showAll);
             }
 
             using (HorizontalScope())
@@ -68,10 +68,10 @@ internal static partial class UI
                 Space(100);
                 ActionButton("Search", () => { searchChanged = true; }, AutoWidth());
                 Space(25);
-                if (matchCount > 0 && searchText.Length > 0)
+                if (_matchCount > 0 && _searchText.Length > 0)
                 {
-                    var matchesText = "Matches: ".Green().Bold() + $"{matchCount}".Orange().Bold();
-                    if (matchCount > searchLimit) { matchesText += " => ".Cyan() + $"{searchLimit}".Cyan().Bold(); }
+                    var matchesText = "Matches: ".Green().Bold() + $"{_matchCount}".Orange().Bold();
+                    if (_matchCount > _searchLimit) { matchesText += " => ".Cyan() + $"{_searchLimit}".Cyan().Bold(); }
 
                     Label(matchesText, ExpandWidth(false));
                 }
@@ -79,9 +79,9 @@ internal static partial class UI
 
             var currentDict = current.ToDictionary(definition, c => c);
             List<TDef> definitions;
-            if (showAll)
+            if (_showAll)
             {
-                UpdateSearchResults(searchText, available, searchAndSortKey);
+                UpdateSearchResults(_searchText, available, searchAndSortKey);
                 definitions = _filteredDefinitions.ToList();
             }
             else
@@ -89,28 +89,29 @@ internal static partial class UI
                 definitions = currentDict.Keys.ToList();
             }
 
-            var terms = searchText.Split(' ').Select(s => s.ToLower()).ToHashSet();
+            var terms = _searchText.Split(' ').Select(s => s.ToLower()).ToHashSet();
 
             var sorted = definitions.OrderBy(title);
-            matchCount = 0;
+            _matchCount = 0;
             Div(100);
             foreach (var def in sorted)
             {
                 var name = title(def);
                 var nameLower = name.ToLower();
                 if (name is not { Length: > 0 } ||
-                    (searchText.Length != 0 && !terms.All(term => nameLower.Contains(term))))
+                    (_searchText.Length != 0 && !terms.All(term => nameLower.Contains(term))))
                 {
                     continue;
                 }
 
                 currentDict.TryGetValue(def, out var item);
-                OnRowGUI(callerKey, ref changed, target, def, item, title, description, value, setValue, incrementValue, decrementValue,
+                OnRowGUI(callerKey, ref changed, target, def, item, title, description, value, setValue, incrementValue,
+                    decrementValue,
                     addItem, removeItem);
             }
         }
 
-        internal static void OnRowGUI(
+        private static void OnRowGUI(
             string callerKey, ref bool changed,
             T target,
             TDef definition,
@@ -127,7 +128,7 @@ internal static partial class UI
         )
         {
             // var remWidth = UmmWidth;
-            matchCount++;
+            _matchCount++;
             using (HorizontalScope())
             {
                 Space(100);
@@ -147,21 +148,23 @@ internal static partial class UI
                 }
                 else
                 {
-                    bool show = false;
-                    disclosureStates.TryGetValue(titleKey, out show);
+                    DisclosureStates.TryGetValue(titleKey, out var show);
                     if (DisclosureToggle(text, ref show, titleWidth))
                     {
-                        disclosureStates[titleKey] = show;
+                        DisclosureStates[titleKey] = show;
                     }
-
                 }
+
                 Space(10);
                 // remWidth -= 10;
                 if (item != null && value?.Invoke(item) is { } stringValue)
                 {
                     if (decrementValue?.Invoke(target, item) is { } decrementAction)
                     {
-                        if (ActionButton("<", () => decrementAction(), 60.Width())) changed = true;
+                        if (ActionButton("<", () => decrementAction(), 60.Width()))
+                        {
+                            changed = true;
+                        }
                     }
                     else
                     {
@@ -172,7 +175,10 @@ internal static partial class UI
                     Label($"{stringValue}".Orange().Bold(), Width(100));
                     if (incrementValue?.Invoke(target, item) is { } incrementer)
                     {
-                        if (ActionButton(">", incrementer, 60.Width())) changed = true;
+                        if (ActionButton(">", incrementer, 60.Width()))
+                        {
+                            changed = true;
+                        }
                     }
                     else
                     {
@@ -183,14 +189,20 @@ internal static partial class UI
                 30.Space();
                 if (addItem?.Invoke(target, definition) is { } add)
                 {
-                    if (ActionButton("Add".Localized(), add, 150.Width())) changed = true;
+                    if (ActionButton("Add".Localized(), add, 150.Width()))
+                    {
+                        changed = true;
+                    }
                 }
 
                 Space(10);
                 // remWidth -= 10;
                 if (item != null && removeItem?.Invoke(target, item) is { } remove)
                 {
-                    if (ActionButton("Remove".Localized(), remove, 175.Width())) changed = true;
+                    if (ActionButton("Remove".Localized(), remove, 175.Width()))
+                    {
+                        changed = true;
+                    }
                 }
 
                 // remWidth -= 178;
@@ -236,8 +248,8 @@ internal static partial class UI
                 }
             }
 
-            matchCount = filtered.Count;
-            _filteredDefinitions = filtered.OrderBy(searchAndSortKey).Take(searchLimit).ToArray();
+            _matchCount = filtered.Count;
+            _filteredDefinitions = filtered.OrderBy(searchAndSortKey).Take(_searchLimit).ToArray();
         }
     }
 }
