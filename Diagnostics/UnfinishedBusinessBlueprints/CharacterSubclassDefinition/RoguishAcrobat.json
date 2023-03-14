@@ -23,7 +23,12 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:FeatureSetRoguishAcrobatFluidMotions:545251f0-c53f-5bad-986d-9d7d97e1639a",
+      "featureDefinition": "Definition:PowerRoguishAcrobatReflexes:c6aea9f8-cd38-55f9-8b90-6024ac4a64c4",
+      "level": 13
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:MovementAffinityRoguishAcrobatFluidMotions:0308d92d-8877-5bfd-bc60-29c215ebabcb",
       "level": 13
     }
   ],

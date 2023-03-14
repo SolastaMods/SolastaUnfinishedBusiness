@@ -377,7 +377,7 @@ internal sealed class AddPolearmFollowupAttack : AddExtraAttackBase
 internal sealed class AddQuarterstaffFollowupAttack : AddExtraAttackBase
 {
     internal AddQuarterstaffFollowupAttack() : base(ActionDefinitions.ActionType.Bonus, ValidatorsCharacter.HasAttacked,
-        ValidatorsCharacter.HasPolearm)
+        ValidatorsCharacter.HasQuarterstaffTwoHanded)
     {
         // Empty
     }

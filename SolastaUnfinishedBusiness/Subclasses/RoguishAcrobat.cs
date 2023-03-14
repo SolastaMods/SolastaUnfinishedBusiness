@@ -8,6 +8,8 @@ using SolastaUnfinishedBusiness.Properties;
 using static RuleDefinitions;
 using static FeatureDefinitionAttributeModifier;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionAbilityCheckAffinitys;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionSavingThrowAffinitys;
 
 namespace SolastaUnfinishedBusiness.Subclasses;
 
@@ -15,62 +17,77 @@ internal sealed class RoguishAcrobat : AbstractSubclass
 {
     private const string Name = "RoguishAcrobat";
 
-    private static readonly IsWeaponValidHandler IsQuarterstaff =
-        ValidatorsWeapon.IsOfWeaponType(WeaponTypeDefinitions.QuarterstaffType);
-
     internal RoguishAcrobat()
     {
         // LEVEL 03
 
-        // Acrobatic Connoisseur
-        var proficiencyAcrobaticConnoisseur = FeatureDefinitionProficiencyBuilder
+        var validWeapon = ValidatorsWeapon.IsOfWeaponType(WeaponTypeDefinitions.QuarterstaffType);
+
+        // Acrobat Connoisseur
+        var proficiencyAcrobatConnoisseur = FeatureDefinitionProficiencyBuilder
             .Create($"Proficiency{Name}Connoisseur")
             .SetGuiPresentation(Category.Feature)
             .SetProficiencies(ProficiencyType.SkillOrExpertise, SkillDefinitions.Acrobatics)
             .AddToDB();
 
-        // Acrobatic Defender
-        var attributeModifierAcrobaticDefender = FeatureDefinitionAttributeModifierBuilder
+        // Acrobat Defender
+        var attributeModifierAcrobatDefender = FeatureDefinitionAttributeModifierBuilder
             .Create($"AttributeModifier{Name}Defender")
             .SetGuiPresentation(Category.Feature)
             .SetModifier(AttributeModifierOperation.AddHalfProficiencyBonus, AttributeDefinitions.ArmorClass, 1)
-            .SetSituationalContext(ExtraSituationalContext.WearingNoArmorOrLightArmorWithQuarterstaffWithoutShield)
+            .SetSituationalContext(ExtraSituationalContext.WearingNoArmorOrLightArmorWithQuarterstaffTwoHanded)
             .AddToDB();
 
-        // Acrobatic Warrior
-        var featureAcrobaticWarrior = FeatureDefinitionBuilder
+        // Acrobat Warrior
+        var featureAcrobatWarrior = FeatureDefinitionBuilder
             .Create($"Feature{Name}Warrior")
             .SetGuiPresentation(Category.Feature)
             .SetCustomSubFeatures(
                 new AddQuarterstaffFollowupAttack(),
-                new AddTagToWeapon(
-                    TagsDefinitions.WeaponTagFinesse, TagsDefinitions.Criticity.Important, IsQuarterstaff),
-                new ModifyAttackModeForWeaponTypeQuarterstaff(IsQuarterstaff),
-                new UpgradeWeaponDice((_, _) => (1, DieType.D6, DieType.D10), IsQuarterstaff))
+                new AddTagToWeapon(TagsDefinitions.WeaponTagFinesse, TagsDefinitions.Criticity.Important, validWeapon),
+                new ModifyAttackModeForWeaponTypeQuarterstaff(validWeapon))
             .AddToDB();
 
         // LEVEL 09 - Swift as the Wind
+
+        const string SWIFT_WIND_NAME = $"FeatureSet{Name}SwiftWind";
+
+        var movementAffinitySwiftWind = FeatureDefinitionMovementAffinityBuilder
+            .Create($"MovementAffinity{Name}SwiftWind")
+            .SetGuiPresentationNoContent(true)
+            .SetClimbing(true, true)
+            .SetEnhancedJump(2)
+            .SetCustomSubFeatures(ValidatorsCharacter.HasQuarterstaffTwoHanded)
+            .AddToDB();
+
+        var savingThrowAffinitySwiftWind = FeatureDefinitionSavingThrowAffinityBuilder
+            .Create(SavingThrowAffinityDomainLawUnyieldingEnforcerMotionForm, $"SavingThrowAffinity{Name}SwiftWind")
+            .SetOrUpdateGuiPresentation(SWIFT_WIND_NAME, Category.Feature)
+            .SetCustomSubFeatures(ValidatorsCharacter.HasQuarterstaffTwoHanded)
+            .AddToDB();
+
+        var abilityCheckAffinitySwiftWind = FeatureDefinitionAbilityCheckAffinityBuilder
+            .Create(AbilityCheckAffinityDomainLawUnyieldingEnforcerShove, $"AbilityCheckAffinity{Name}SwiftWind")
+            .SetOrUpdateGuiPresentation(SWIFT_WIND_NAME, Category.Feature)
+            .SetCustomSubFeatures(ValidatorsCharacter.HasQuarterstaffTwoHanded)
+            .AddToDB();
 
         var combatAffinitySwiftWind = FeatureDefinitionCombatAffinityBuilder
             .Create($"CombatAffinity{Name}SwiftWind")
             .SetGuiPresentationNoContent(true)
             .SetAttackOfOpportunityOnMeAdvantage(AdvantageType.Disadvantage)
-            .SetCustomSubFeatures(ValidatorsCharacter.HasQuarterstaff)
-            .AddToDB();
-
-        var movementAffinitySwiftWind = FeatureDefinitionMovementAffinityBuilder
-            .Create($"MovementAffinity{Name}SwiftWind")
-            .SetGuiPresentationNoContent(true)
-            .SetAdditionalFallThreshold(3)
-            .SetClimbing(true, true)
-            .SetEnhancedJump(2)
-            .SetCustomSubFeatures(ValidatorsCharacter.HasQuarterstaff)
+            .SetCustomSubFeatures(ValidatorsCharacter.HasQuarterstaffTwoHanded)
             .AddToDB();
 
         var featureSetSwiftWind = FeatureDefinitionFeatureSetBuilder
             .Create($"FeatureSet{Name}SwiftWind")
             .SetGuiPresentation(Category.Feature)
-            .AddFeatureSet(combatAffinitySwiftWind, movementAffinitySwiftWind)
+            .AddFeatureSet(
+                movementAffinitySwiftWind,
+                savingThrowAffinitySwiftWind,
+                abilityCheckAffinitySwiftWind,
+                combatAffinitySwiftWind)
+            .SetCustomSubFeatures(new UpgradeWeaponDice((_, _) => (1, DieType.D6, DieType.D10), validWeapon))
             .AddToDB();
 
         // LEVEL 13 - Fluid Motions
@@ -78,18 +95,31 @@ internal sealed class RoguishAcrobat : AbstractSubclass
         var movementAffinityFluidMotions = FeatureDefinitionMovementAffinityBuilder
             .Create($"MovementAffinity{Name}FluidMotions")
             .SetGuiPresentationNoContent(true)
-            .SetClimbing(true, true, true)
+            .SetAdditionalFallThreshold(4)
+            .SetClimbing(canMoveOnWalls: true)
+            .SetEnhancedJump(3)
             .SetImmunities(difficultTerrainImmunity: true)
-            .SetCustomSubFeatures(ValidatorsCharacter.HasQuarterstaff)
+            .SetCustomSubFeatures(ValidatorsCharacter.HasQuarterstaffTwoHanded)
             .AddToDB();
 
-        // no need to have quarterstaff check here. by design although description should state that
-        var featureSetFluidMotions = FeatureDefinitionFeatureSetBuilder
-            .Create(FeatureDefinitionFeatureSets.FeatureSetDomainLawUnyieldingEnforcer, $"FeatureSet{Name}FluidMotions")
+        var powerReflexes = FeatureDefinitionPowerBuilder
+            .Create($"Power{Name}Reflexes")
             .SetGuiPresentation(Category.Feature)
+            .SetUsesAbilityBonus(ActivationTime.BonusAction, RechargeRate.LongRest, AttributeDefinitions.Dexterity)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetDurationData(DurationType.Round, 1, TurnOccurenceType.StartOfTurn)
+                    .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .SetConditionForm(
+                                ConditionDefinitions.ConditionDodging,
+                                ConditionForm.ConditionOperation.Add)
+                            .Build())
+                    .Build())
             .AddToDB();
-
-        featureSetFluidMotions.FeatureSet.Add(movementAffinityFluidMotions);
 
         // MAIN
 
@@ -97,13 +127,14 @@ internal sealed class RoguishAcrobat : AbstractSubclass
             .Create(Name)
             .SetGuiPresentation(Category.Subclass, Sprites.GetSprite("RoguishAcrobat", Resources.RoguishAcrobat, 256))
             .AddFeaturesAtLevel(3,
-                proficiencyAcrobaticConnoisseur,
-                attributeModifierAcrobaticDefender,
-                featureAcrobaticWarrior)
+                proficiencyAcrobatConnoisseur,
+                attributeModifierAcrobatDefender,
+                featureAcrobatWarrior)
             .AddFeaturesAtLevel(9,
                 featureSetSwiftWind)
             .AddFeaturesAtLevel(13,
-                featureSetFluidMotions)
+                movementAffinityFluidMotions,
+                powerReflexes)
             .AddToDB();
     }
 

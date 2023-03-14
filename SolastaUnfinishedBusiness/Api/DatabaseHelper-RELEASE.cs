@@ -127,6 +127,7 @@ internal static partial class DatabaseHelper
         internal static ConditionDefinition ConditionDisengaging { get; } = GetDefinition<ConditionDefinition>("ConditionDisengaging");
         internal static ConditionDefinition ConditionDistracted { get; } = GetDefinition<ConditionDefinition>("ConditionDistracted");
         internal static ConditionDefinition ConditionDivineFavor { get; } = GetDefinition<ConditionDefinition>("ConditionDivineFavor");
+        internal static ConditionDefinition ConditionDodging { get; } = GetDefinition<ConditionDefinition>("ConditionDodging");
         internal static ConditionDefinition ConditionDoomLaughter { get; } = GetDefinition<ConditionDefinition>("ConditionDoomLaughter");
         internal static ConditionDefinition ConditionEncumbered { get; } = GetDefinition<ConditionDefinition>("ConditionEncumbered");
         internal static ConditionDefinition ConditionEnfeebled { get; } = GetDefinition<ConditionDefinition>("ConditionEnfeebled");
@@ -280,6 +281,7 @@ internal static partial class DatabaseHelper
         internal static FeatureDefinitionAbilityCheckAffinity AbilityCheckAffinityConditionEaglesSplendor { get; } = GetDefinition<FeatureDefinitionAbilityCheckAffinity>("AbilityCheckAffinityConditionEaglesSplendor");
         internal static FeatureDefinitionAbilityCheckAffinity AbilityCheckAffinityConditionFoxsCunning { get; } = GetDefinition<FeatureDefinitionAbilityCheckAffinity>("AbilityCheckAffinityConditionFoxsCunning");
         internal static FeatureDefinitionAbilityCheckAffinity AbilityCheckAffinityConditionOwlsWisdom { get; } = GetDefinition<FeatureDefinitionAbilityCheckAffinity>("AbilityCheckAffinityConditionOwlsWisdom");
+        internal static FeatureDefinitionAbilityCheckAffinity AbilityCheckAffinityDomainLawUnyieldingEnforcerShove { get; } = GetDefinition<FeatureDefinitionAbilityCheckAffinity>("AbilityCheckAffinityDomainLawUnyieldingEnforcerShove");
         internal static FeatureDefinitionAbilityCheckAffinity AbilityCheckAffinityFeatLockbreaker { get; } = GetDefinition<FeatureDefinitionAbilityCheckAffinity>("AbilityCheckAffinityFeatLockbreaker");
         internal static FeatureDefinitionAbilityCheckAffinity AbilityCheckAffinityIslandHalflingAcrobatics { get; } = GetDefinition<FeatureDefinitionAbilityCheckAffinity>("AbilityCheckAffinityIslandHalflingAcrobatics");
         internal static FeatureDefinitionAbilityCheckAffinity AbilityCheckAffinityKeenSight { get; } = GetDefinition<FeatureDefinitionAbilityCheckAffinity>("AbilityCheckAffinityKeenSight");
@@ -473,7 +475,6 @@ internal static partial class DatabaseHelper
     {
         internal static FeatureDefinitionFeatureSet AdditionalDamageRangerFavoredEnemyChoice { get; } = GetDefinition<FeatureDefinitionFeatureSet>("AdditionalDamageRangerFavoredEnemyChoice");
         internal static FeatureDefinitionFeatureSet FeatureSetAbilityScoreChoice { get; } = GetDefinition<FeatureDefinitionFeatureSet>("FeatureSetAbilityScoreChoice");
-        internal static FeatureDefinitionFeatureSet FeatureSetDomainLawUnyieldingEnforcer { get; } = GetDefinition<FeatureDefinitionFeatureSet>("FeatureSetDomainLawUnyieldingEnforcer");
         internal static FeatureDefinitionFeatureSet FeatureSetDragonbornBreathWeapon { get; } = GetDefinition<FeatureDefinitionFeatureSet>("FeatureSetDragonbornBreathWeapon");
         internal static FeatureDefinitionFeatureSet FeatureSetInvocationDevilsSight { get; } = GetDefinition<FeatureDefinitionFeatureSet>("FeatureSetInvocationDevilsSight");
         internal static FeatureDefinitionFeatureSet FeatureSetElfFeyAncestry { get; } = GetDefinition<FeatureDefinitionFeatureSet>("FeatureSetElfFeyAncestry");
@@ -677,6 +678,7 @@ internal static partial class DatabaseHelper
         internal static FeatureDefinitionSavingThrowAffinity SavingThrowAffinityConditionRaging { get; } = GetDefinition<FeatureDefinitionSavingThrowAffinity>("SavingThrowAffinityConditionRaging");
         internal static FeatureDefinitionSavingThrowAffinity SavingThrowAffinityCreedOfArun { get; } = GetDefinition<FeatureDefinitionSavingThrowAffinity>("SavingThrowAffinityCreedOfArun");
         internal static FeatureDefinitionSavingThrowAffinity SavingThrowAffinityCreedOfSolasta { get; } = GetDefinition<FeatureDefinitionSavingThrowAffinity>("SavingThrowAffinityCreedOfSolasta");
+        internal static FeatureDefinitionSavingThrowAffinity SavingThrowAffinityDomainLawUnyieldingEnforcerMotionForm { get; } = GetDefinition<FeatureDefinitionSavingThrowAffinity>("SavingThrowAffinityDomainLawUnyieldingEnforcerMotionForm");
         internal static FeatureDefinitionSavingThrowAffinity SavingThrowAffinityGemIllusion { get; } = GetDefinition<FeatureDefinitionSavingThrowAffinity>("SavingThrowAffinityGemIllusion");
         internal static FeatureDefinitionSavingThrowAffinity SavingThrowAffinityPatronHiveWeakeningPheromones { get; } = GetDefinition<FeatureDefinitionSavingThrowAffinity>("SavingThrowAffinityPatronHiveWeakeningPheromones");
         internal static FeatureDefinitionSavingThrowAffinity SavingThrowAffinityShelteringBreeze { get; } = GetDefinition<FeatureDefinitionSavingThrowAffinity>("SavingThrowAffinityShelteringBreeze");

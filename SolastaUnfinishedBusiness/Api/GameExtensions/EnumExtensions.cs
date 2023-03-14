@@ -14,7 +14,7 @@ internal enum ExtraSituationalContext
 {
     MainWeaponIsMeleeOrUnarmed = 1000,
     WearingNoArmorOrLightArmorWithoutShield = 1001,
-    WearingNoArmorOrLightArmorWithQuarterstaffWithoutShield = 1002,
+    WearingNoArmorOrLightArmorWithQuarterstaffTwoHanded = 1002,
     TargetIsNotEffectSource = 1004,
     SummonerIsNextToBeast = 1005
 }

@@ -21,7 +21,7 @@
   "disableDrop": false,
   "disableJump": false,
   "disableClimb": false,
-  "additionalFallThreshold": 3,
+  "additionalFallThreshold": 0,
   "encumbranceImmunity": false,
   "heavyArmorImmunity": false,
   "situationalContext": "None",

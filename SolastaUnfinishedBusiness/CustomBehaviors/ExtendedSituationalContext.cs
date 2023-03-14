@@ -27,8 +27,8 @@ internal static class CustomSituationalContext
             ExtraSituationalContext.WearingNoArmorOrLightArmorWithoutShield =>
                 (ValidatorsCharacter.HasNoArmor(contextParams.source) || ValidatorsCharacter.LightArmor(contextParams.source)) && ValidatorsCharacter.HasNoShield(contextParams.source),
             
-            ExtraSituationalContext.WearingNoArmorOrLightArmorWithQuarterstaffWithoutShield =>
-                (ValidatorsCharacter.HasNoArmor(contextParams.source) || ValidatorsCharacter.LightArmor(contextParams.source)) && ValidatorsCharacter.HasNoShield(contextParams.source) && ValidatorsCharacter.HasQuarterstaff(contextParams.source),
+            ExtraSituationalContext.WearingNoArmorOrLightArmorWithQuarterstaffTwoHanded =>
+                (ValidatorsCharacter.HasNoArmor(contextParams.source) || ValidatorsCharacter.LightArmor(contextParams.source)) && ValidatorsCharacter.HasQuarterstaffTwoHanded(contextParams.source),
 
             ExtraSituationalContext.TargetIsNotEffectSource =>
                 contextParams.target != effectSource,
