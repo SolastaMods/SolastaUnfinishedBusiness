@@ -1,9 +1,9 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
-using SolastaUnfinishedBusiness.Api;
-using SolastaUnfinishedBusiness.CustomBehaviors;
+using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.FightingStyles;
+using static SolastaUnfinishedBusiness.Models.CustomWeaponsContext;
 
 namespace SolastaUnfinishedBusiness.Models;
 
@@ -97,6 +97,7 @@ internal static class FightingStyleContext
         {
             var isActive = trainedFightingStyle.contentPack == CeContentPackContext.CeContentPack;
 
+            // activate all modded fighting styles by default
             if (isActive)
             {
                 hero.activeFightingStyles.TryAdd(trainedFightingStyle);
@@ -107,53 +108,37 @@ internal static class FightingStyleContext
             // ReSharper disable once SwitchStatementMissingSomeEnumCasesNoDefault
             switch (trainedFightingStyle.Condition)
             {
-                // Make hand crossbows benefit from Archery Fighting Style
+                // allow hand crossbows benefit from Archery Fighting Style
                 case FightingStyleDefinition.TriggerCondition.RangedWeaponAttack:
                 {
-                    bool HasHandXbowInHands(string slotName)
+                    static bool HasHandXbowInHands(RulesetItem rulesetItem)
                     {
-                        var rulesetInventorySlot =
-                            hero.CharacterInventory.InventorySlotsByName[slotName];
-
-                        return rulesetInventorySlot.EquipedItem != null
-                               && rulesetInventorySlot.EquipedItem.ItemDefinition.IsWeapon
-                               && rulesetInventorySlot.EquipedItem.ItemDefinition.WeaponDescription.WeaponType ==
-                               CustomWeaponsContext.CeHandXbowType;
+                        return rulesetItem != null && rulesetItem.ItemDefinition.IsWeapon &&
+                               rulesetItem.ItemDefinition.WeaponDescription.WeaponType == CeHandXbowType;
                     }
 
-                    isActive = HasHandXbowInHands(EquipmentDefinitions.SlotTypeMainHand) ||
-                               HasHandXbowInHands(EquipmentDefinitions.SlotTypeOffHand);
+                    isActive = HasHandXbowInHands(hero.GetMainWeapon()) ||
+                               HasHandXbowInHands(hero.GetOffhandWeapon());
                     break;
                 }
 
+                // allow Shield Expert benefit from Two Weapon Fighting Style
                 case FightingStyleDefinition.TriggerCondition.TwoMeleeWeaponsWielded:
                 {
-                    // Make Shield Expert benefit from Two Weapon Fighting Style
-                    var hasShieldExpert = hero.TrainedFeats.Any(x =>
-                                              x.Name.Contains(ShieldExpert.ShieldExpertName)) ||
-                                          hero.TrainedFightingStyles.Any(x =>
-                                              x.Name.Contains(ShieldExpert.ShieldExpertName));
+                    var mainHandSlot = hero.GetMainWeapon();
+                    var offHandSlot = hero.GetOffhandWeapon();
+                    var hasShieldExpert =
+                        hero.TrainedFeats.Any(x => x.Name.Contains(ShieldExpert.ShieldExpertName)) ||
+                        hero.TrainedFightingStyles.Any(x => x.Name.Contains(ShieldExpert.ShieldExpertName));
 
-                    var mainHandSlot =
-                        hero.CharacterInventory.InventorySlotsByName[EquipmentDefinitions.SlotTypeMainHand];
-                    var offHandSlot =
-                        hero.CharacterInventory.InventorySlotsByName[EquipmentDefinitions.SlotTypeOffHand];
+                    isActive = hasShieldExpert &&
+                               mainHandSlot != null && mainHandSlot.ItemDefinition.IsWeapon &&
+                               offHandSlot != null && offHandSlot.ItemDefinition.IsArmor;
 
-                    if (hasShieldExpert
-                        && mainHandSlot.EquipedItem != null
-                        && mainHandSlot.EquipedItem.ItemDefinition.IsWeapon)
-                    {
-                        var weaponType = mainHandSlot.EquipedItem.ItemDefinition.WeaponDescription.WeaponType;
+                    break;
+                }
 
-                        if (DatabaseHelper.GetDefinition<WeaponTypeDefinition>(weaponType).WeaponProximity ==
-                            RuleDefinitions.AttackProximity.Melee
-                            && offHandSlot.EquipedItem != null
-                            && offHandSlot.EquipedItem.ItemDefinition.IsArmor)
-                        {
-                            isActive = true;
-                        }
-                    }
-
+#if false
                     // Make One Handed Crossbow not benefit from Two Weapon Fighting Style
                     if (mainHandSlot.EquipedItem != null && ValidatorsWeapon.IsRanged(mainHandSlot.EquipedItem) &&
                         ValidatorsWeapon.IsOneHanded(mainHandSlot.EquipedItem))
@@ -166,9 +151,9 @@ internal static class FightingStyleContext
                     {
                         isActive = false;
                     }
-
+                
                     break;
-                }
+#endif
             }
 
             if (isActive)
