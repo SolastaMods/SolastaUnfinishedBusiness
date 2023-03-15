@@ -1,3 +1,5 @@
 - added Elemental Master feats with immunity to some damage types
 - allowed Two Weapon fighting style to trigger with hand crossbow
+- fixed Way of Distant Hand's flurry of blows when used in melee
 - improved Polearm Master validator against the weapon swap trick
+- improved Ranged Combat feats description to make intention clear
