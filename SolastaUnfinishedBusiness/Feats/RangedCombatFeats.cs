@@ -40,7 +40,7 @@ internal static class RangedCombatFeats
     {
         const string NAME = "FeatBowMastery";
 
-        var validWeapon = ValidatorsWeapon.IsOfWeaponType(LongbowType, ShortbowType);
+        var isLongOrShortbow = ValidatorsWeapon.IsOfWeaponType(LongbowType, ShortbowType);
 
         return FeatDefinitionBuilder
             .Create(NAME)
@@ -52,12 +52,13 @@ internal static class RangedCombatFeats
                     .SetDamageRollModifier(1)
                     .SetCustomSubFeatures(
                         new RestrictedContextValidator((_, _, character, _, _, mode, _) =>
-                            (OperationType.Set, validWeapon(mode, null, character))),
-                        new CanUseAttributeForWeapon(AttributeDefinitions.Strength,
+                            (OperationType.Set, isLongOrShortbow(mode, null, character))),
+                        new CanUseAttributeForWeapon(
+                            AttributeDefinitions.Strength,
                             ValidatorsWeapon.IsOfWeaponType(LongbowType)),
                         new AddExtraRangedAttack(
-                            ValidatorsWeapon.IsOfWeaponType(ShortbowType),
                             ActionDefinitions.ActionType.Bonus,
+                            ValidatorsWeapon.IsOfWeaponType(ShortbowType),
                             ValidatorsCharacter.HasUsedWeaponType(ShortbowType)))
                     .AddToDB())
             .AddToDB();
@@ -162,8 +163,8 @@ internal static class RangedCombatFeats
                 .SetCustomSubFeatures(
                     new RangedAttackInMeleeDisadvantageRemover(),
                     new AddExtraRangedAttack(
-                        ValidatorsWeapon.IsOfWeaponType(CustomWeaponsContext.HandXbowWeaponType),
                         ActionDefinitions.ActionType.Bonus,
+                        ValidatorsWeapon.IsOfWeaponType(CustomWeaponsContext.HandXbowWeaponType),
                         ValidatorsCharacter.HasAttacked))
                 .AddToDB())
             .AddToDB();

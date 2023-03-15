@@ -237,9 +237,8 @@ internal sealed class AddExtraRangedAttack : AddExtraAttackBase
 {
     private readonly IsWeaponValidHandler weaponValidator;
 
-    internal AddExtraRangedAttack(
+    internal AddExtraRangedAttack(ActionDefinitions.ActionType actionType,
         IsWeaponValidHandler weaponValidator,
-        ActionDefinitions.ActionType actionType,
         params IsCharacterValidHandler[] validators) : base(actionType, validators)
     {
         this.weaponValidator = weaponValidator;
