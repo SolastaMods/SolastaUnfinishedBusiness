@@ -1,12 +1,12 @@
 ﻿using System.Collections.Generic;
-using System.Linq;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomUI;
-using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Properties;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionFightingStyleChoices;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.WeaponTypeDefinitions;
+using static SolastaUnfinishedBusiness.Models.CustomWeaponsContext;
 
 namespace SolastaUnfinishedBusiness.FightingStyles;
 
@@ -23,11 +23,14 @@ internal sealed class PolearmExpert : AbstractFightingStyle
                 {
                     WeaponValidator = (mode, weapon, _) =>
                         ValidatorsWeapon.IsWeaponType(
-                            mode?.SourceObject as RulesetItem ?? weapon, CustomWeaponsContext.PolearmWeaponTypes)
+                            mode?.SourceObject as RulesetItem ?? weapon,
+                            QuarterstaffType, SpearType, HalberdWeaponType, PikeWeaponType, LongMaceWeaponType)
                 },
-                CustomWeaponsContext.PolearmWeaponTypes
-                    .Select(weaponType => new AddPolearmFollowUpAttack(weaponType))
-                    .ToArray())
+                new AddPolearmFollowUpAttack(QuarterstaffType),
+                new AddPolearmFollowUpAttack(SpearType),
+                new AddPolearmFollowUpAttack(HalberdWeaponType),
+                new AddPolearmFollowUpAttack(PikeWeaponType),
+                new AddPolearmFollowUpAttack(LongMaceWeaponType))
             .AddToDB())
         .AddToDB();
 
