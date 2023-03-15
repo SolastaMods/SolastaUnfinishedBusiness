@@ -542,7 +542,7 @@ internal static class MeleeCombatFeats
                         new AddExtraAttackFeatCleavingAttack(conditionCleavingAttackFinish),
                         new AddExtraMainHandAttack(
                             ActionDefinitions.ActionType.Bonus,
-                            ValidatorsCharacter.MainHandIsMeleeWeapon,
+                            ValidatorsCharacter.HasMeleeWeaponInMainHand,
                             ValidatorsCharacter.HasAnyOfConditions(conditionCleavingAttackFinish.Name)))
                     .AddToDB())
             .AddToDB();

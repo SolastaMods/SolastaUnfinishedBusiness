@@ -58,7 +58,7 @@ internal static class RangedCombatFeats
                         new AddExtraRangedAttack(
                             ValidatorsWeapon.IsOfWeaponType(ShortbowType),
                             ActionDefinitions.ActionType.Bonus,
-                            ValidatorsCharacter.HasUsedSpecialFeature(nameof(ShortbowType))))
+                            ValidatorsCharacter.HasUsedWeaponType(ShortbowType)))
                     .AddToDB())
             .AddToDB();
     }

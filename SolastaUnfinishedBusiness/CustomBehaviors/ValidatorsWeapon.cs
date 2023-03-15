@@ -1,14 +1,15 @@
-﻿using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
 using JetBrains.Annotations;
-using SolastaUnfinishedBusiness.Api;
-using SolastaUnfinishedBusiness.Models;
 using static RuleDefinitions;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.ArmorTypeDefinitions;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.WeaponTypeDefinitions;
 
 namespace SolastaUnfinishedBusiness.CustomBehaviors;
 
-internal delegate bool IsWeaponValidHandler(RulesetAttackMode attackMode, RulesetItem weapon,
-    RulesetCharacter character);
+internal delegate bool IsWeaponValidHandler(
+    RulesetAttackMode attackMode,
+    RulesetItem rulesetItem,
+    RulesetCharacter rulesetCharacter);
 
 internal static class ValidatorsWeapon
 {
@@ -16,27 +17,19 @@ internal static class ValidatorsWeapon
 
     internal static IsWeaponValidHandler IsOfDamageType(string damageType)
     {
-        return (mode, _, _) => mode?.EffectDescription.FindFirstDamageForm()?.DamageType == damageType;
+        return (attackMode, _, _) => attackMode?.EffectDescription.FindFirstDamageForm()?.DamageType == damageType;
     }
 
     internal static IsWeaponValidHandler IsOfWeaponType(params WeaponTypeDefinition[] weaponTypeDefinitions)
     {
-        return (mode, weapon, _) => IsWeaponType(weapon ?? mode?.sourceObject as RulesetItem, weaponTypeDefinitions);
+        return (attackMode, rulesetItem, _) =>
+            IsWeaponType(attackMode?.sourceObject as RulesetItem ?? rulesetItem, weaponTypeDefinitions);
     }
 
-    internal static bool IsMagical(RulesetAttackMode attackMode, RulesetItem weapon, RulesetCharacter _)
+    internal static bool IsMagical(RulesetAttackMode attackMode, RulesetItem rulesetItem, RulesetCharacter _)
     {
-        if (attackMode.Magical)
-        {
-            return true;
-        }
-
-        if (weapon == null)
-        {
-            return false;
-        }
-
-        return weapon.IsMagicalWeapon() || ShieldAttack.IsMagicShield(weapon);
+        return attackMode.Magical || (rulesetItem != null &&
+                                      (rulesetItem.IsMagicalWeapon() || ShieldAttack.IsMagicalShield(rulesetItem)));
     }
 
     internal static bool IsMelee([CanBeNull] ItemDefinition itemDefinition)
@@ -46,9 +39,9 @@ internal static class ValidatorsWeapon
                    AttackProximity.Melee || itemDefinition.IsArmor /* for shields */);
     }
 
-    internal static bool IsMelee([CanBeNull] RulesetItem weapon)
+    internal static bool IsMelee([CanBeNull] RulesetItem rulesetItem)
     {
-        return weapon != null && IsMelee(weapon.ItemDefinition);
+        return rulesetItem != null && IsMelee(rulesetItem.ItemDefinition);
     }
 
     internal static bool IsMelee([CanBeNull] RulesetAttackMode attackMode)
@@ -56,155 +49,71 @@ internal static class ValidatorsWeapon
         return attackMode is { SourceDefinition: ItemDefinition itemDefinition } && IsMelee(itemDefinition);
     }
 
-    internal static bool IsOneHanded([CanBeNull] RulesetItem weapon)
-    {
-        return !HasAnyWeaponTag(weapon, TagsDefinitions.WeaponTagTwoHanded);
-    }
-
     internal static bool IsOneHanded([CanBeNull] RulesetAttackMode attackMode)
     {
-        if (attackMode is not { SourceDefinition: ItemDefinition weapon })
-        {
-            return false;
-        }
-
-        return !HasAnyWeaponTag(weapon, TagsDefinitions.WeaponTagTwoHanded);
+        return attackMode is { SourceDefinition: ItemDefinition itemDefinition } &&
+               !HasAnyWeaponTag(itemDefinition, TagsDefinitions.WeaponTagTwoHanded);
     }
 
-    internal static bool IsTwoHanded([CanBeNull] RulesetItem weapon)
+    internal static bool IsShield([CanBeNull] ItemDefinition itemDefinition)
     {
-        return HasAnyWeaponTag(weapon, TagsDefinitions.WeaponTagTwoHanded);
+        return itemDefinition != null &&
+               itemDefinition.IsArmor &&
+               itemDefinition.ArmorDescription != null &&
+               itemDefinition.ArmorDescription.ArmorType == ShieldType.Name;
     }
 
-    internal static bool IsPolearm([CanBeNull] RulesetItem weapon)
+    internal static bool IsShield([CanBeNull] RulesetItem rulesetItem)
     {
-        return weapon != null
-               && IsPolearm(weapon.ItemDefinition);
+        return rulesetItem != null && IsShield(rulesetItem.ItemDefinition);
     }
 
-    internal static bool IsPolearm([CanBeNull] ItemDefinition weapon)
+    internal static bool IsWeaponType(
+        [CanBeNull] ItemDefinition itemDefinition,
+        params WeaponTypeDefinition[] weaponTypeDefinitions)
     {
-        return weapon != null
-               && weapon.IsWeapon
-               && CustomWeaponsContext.PolearmWeaponTypes.Contains(weapon.WeaponDescription?.WeaponType);
+        return itemDefinition != null &&
+               itemDefinition.IsWeapon &&
+               itemDefinition.WeaponDescription != null &&
+               weaponTypeDefinitions.Contains(itemDefinition.WeaponDescription.WeaponTypeDefinition);
     }
 
-    internal static bool IsWeaponType([CanBeNull] RulesetItem item, params WeaponTypeDefinition[] weaponTypeDefinitions)
+    internal static bool IsWeaponType(
+        [CanBeNull] RulesetItem rulesetItem,
+        params WeaponTypeDefinition[] weaponTypeDefinitions)
     {
-        return item != null
-               && item.ItemDefinition != null
-               && item.ItemDefinition.IsWeapon
-               && weaponTypeDefinitions.Contains(item.ItemDefinition.WeaponDescription?.WeaponTypeDefinition);
+        return rulesetItem != null && IsWeaponType(rulesetItem.ItemDefinition, weaponTypeDefinitions);
     }
 
-    internal static bool IsRanged([CanBeNull] RulesetItem weapon)
+    internal static bool IsUnarmed(
+        [CanBeNull] ItemDefinition itemDefinition,
+        [CanBeNull] RulesetAttackMode attackMode)
     {
-        return HasAnyWeaponTag(weapon, TagsDefinitions.WeaponTagRange, TagsDefinitions.WeaponTagThrown);
+        itemDefinition = attackMode?.SourceDefinition as ItemDefinition ?? itemDefinition;
+
+        return itemDefinition == null ||
+               (itemDefinition.IsWeapon &&
+                itemDefinition.WeaponDescription != null &&
+                itemDefinition.WeaponDescription.WeaponTypeDefinition == UnarmedStrikeType);
     }
 
-    internal static bool IsThrown([CanBeNull] RulesetItem weapon)
+    internal static bool IsUnarmed(
+        [CanBeNull] RulesetCharacter rulesetCharacter,
+        [CanBeNull] RulesetAttackMode attackMode)
     {
-        return HasAnyWeaponTag(weapon, TagsDefinitions.WeaponTagThrown);
+        return rulesetCharacter is RulesetCharacterMonster || IsUnarmed((ItemDefinition)null, attackMode);
     }
 
-    //
-    // UNARMED
-    //
-
-    internal static bool IsUnarmed([CanBeNull] RulesetAttackMode attackMode, ItemDefinition itemDefinition)
+    internal static bool HasAnyWeaponTag([CanBeNull] ItemDefinition itemDefinition, [NotNull] params string[] tags)
     {
-        var item = attackMode?.SourceDefinition as ItemDefinition ?? itemDefinition;
-
-        if (item != null)
-        {
-            return item.WeaponDescription?.WeaponTypeDefinition ==
-                   DatabaseHelper.WeaponTypeDefinitions.UnarmedStrikeType;
-        }
-
-        return itemDefinition == null;
+        return itemDefinition != null &&
+               itemDefinition.IsWeapon &&
+               itemDefinition.WeaponDescription != null &&
+               tags.Any(t => itemDefinition.WeaponDescription.WeaponTags.Contains(t));
     }
 
-    internal static bool IsUnarmed(RulesetCharacter rulesetCharacter, RulesetAttackMode attackMode)
+    internal static bool HasAnyWeaponTag([CanBeNull] RulesetItem rulesetItem, [NotNull] params string[] tags)
     {
-        return rulesetCharacter is RulesetCharacterMonster || IsUnarmed(attackMode, null);
+        return rulesetItem != null && HasAnyWeaponTag(rulesetItem.ItemDefinition, tags);
     }
-
-    //
-    // TAGS
-    //
-
-    internal static bool HasAnyWeaponTag([CanBeNull] RulesetItem item, [NotNull] params string[] tags)
-    {
-        return HasAnyWeaponTag(item?.ItemDefinition, tags);
-    }
-
-    internal static bool HasAnyWeaponTag(ItemDefinition item, [NotNull] params string[] tags)
-    {
-        var weaponTags = GetWeaponTags(item);
-
-        return tags.Any(t => weaponTags.Contains(t));
-    }
-
-    private static List<string> GetWeaponTags([CanBeNull] ItemDefinition item)
-    {
-        if (item != null && item.IsWeapon)
-        {
-            return item.WeaponDescription.WeaponTags;
-        }
-
-        return new List<string>();
-    }
-
-#if false
-    internal static bool IsReactionAttackMode(
-        RulesetAttackMode attackMode,
-        RulesetItem weapon,
-        RulesetCharacter character)
-    {
-        return attackMode is {ActionType: ActionDefinitions.ActionType.Reaction};
-    }
-
-    internal static bool HasAnyTag(RulesetItem item, params string[] tags)
-    {
-        var tagsMap = new Dictionary<string, TagsDefinitions.Criticity>();
-
-        item?.FillTags(tagsMap, null, true);
-
-        return tagsMap.Keys.Any(tags.Contains);
-    }
-    
-    private static bool HasActiveTag(RulesetAttackMode mode, RulesetItem weapon, string tag)
-    {
-        var hasTag = false;
-
-        if (mode != null)
-        {
-            hasTag = mode.AttackTags.Contains(tag);
-
-            if (!hasTag)
-            {
-                var tags = GetWeaponTags(mode.SourceDefinition as ItemDefinition);
-
-                if (tags != null && tags.Contains(tag))
-                {
-                    hasTag = true;
-                }
-            }
-    
-            return hasTag;
-        }
-    
-        if (weapon != null)
-        {
-            var tags = GetWeaponTags(weapon.ItemDefinition);
-
-            if (tags != null && tags.Contains(tag))
-            {
-                hasTag = true;
-            }
-        }
-
-        return hasTag;
-    }
-#endif
 }

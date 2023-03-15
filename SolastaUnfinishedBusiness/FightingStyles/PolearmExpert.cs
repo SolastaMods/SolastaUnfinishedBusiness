@@ -1,8 +1,10 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomUI;
+using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Properties;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionFightingStyleChoices;
 
@@ -20,9 +22,12 @@ internal sealed class PolearmExpert : AbstractFightingStyle
                 new CanMakeAoOOnReachEntered
                 {
                     WeaponValidator = (mode, weapon, _) =>
-                        ValidatorsWeapon.IsPolearm(weapon ?? mode?.SourceObject as RulesetItem)
+                        ValidatorsWeapon.IsWeaponType(
+                            mode?.SourceObject as RulesetItem ?? weapon, CustomWeaponsContext.PolearmWeaponTypes)
                 },
-                new AddPolearmFollowUpAttack())
+                CustomWeaponsContext.PolearmWeaponTypes
+                    .Select(weaponType => new AddPolearmFollowUpAttack(weaponType))
+                    .ToArray())
             .AddToDB())
         .AddToDB();
 

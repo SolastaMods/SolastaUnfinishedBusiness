@@ -9,13 +9,13 @@ using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Properties;
 using UnityEngine.AddressableAssets;
-using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
-using static SolastaUnfinishedBusiness.Models.ItemPropertyDescriptionsContext;
 using static RuleDefinitions;
 using static RuleDefinitions.ItemRarity;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
+using static SolastaUnfinishedBusiness.Models.ItemPropertyDescriptionsContext;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.WeaponTypeDefinitions;
 
 // ReSharper disable InconsistentNaming
-
 namespace SolastaUnfinishedBusiness.Models;
 
 internal static class CustomWeaponsContext
@@ -25,20 +25,17 @@ internal static class CustomWeaponsContext
     internal const string CeHandXbowType = "CEHandXbowType";
     internal const string AttackedWithLauncherConditionName = "ConditionLauncherAttackMarker";
 
+    internal static WeaponTypeDefinition HandXbowWeaponType, LightningLauncherType, ThunderGauntletType;
     private static WeaponTypeDefinition HalberdWeaponType, PikeWeaponType, LongMaceWeaponType;
+
+    internal static ItemDefinition LightningLauncher, ProducedFlameDart, ThunderGauntlet;
     private static ItemDefinition HandwrapsOfForce, HandwrapsOfPulling;
     private static ItemDefinition Halberd, HalberdPrimed, HalberdPlus1, HalberdPlus2, HalberdLightning;
     private static ItemDefinition Pike, PikePrimed, PikePlus1, PikePlus2, PikePsychic;
     private static ItemDefinition LongMace, LongMacePrimed, LongMacePlus1, LongMacePlus2, LongMaceThunder;
     private static ItemDefinition HandXbow, HandXbowPrimed, HandXbowPlus1, HandXbowPlus2, HandXbowAcid;
 
-    internal static WeaponTypeDefinition HandXbowWeaponType, LightningLauncherType, ThunderGauntletType;
-    internal static ItemDefinition LightningLauncher, ProducedFlameDart, ThunderGauntlet;
-
-    internal static readonly List<string> PolearmWeaponTypes = new()
-    {
-        WeaponTypeDefinitions.QuarterstaffType.Name, WeaponTypeDefinitions.SpearType.Name
-    };
+    internal static WeaponTypeDefinition[] PolearmWeaponTypes { get; private set; }
 
     internal static void Load()
     {
@@ -51,7 +48,8 @@ internal static class CustomWeaponsContext
         BuildThunderGauntlet();
         BuildLightningLauncher();
 
-        PolearmWeaponTypes.AddRange(new[] { HalberdWeaponType.Name, PikeWeaponType.Name, LongMaceWeaponType.Name });
+        PolearmWeaponTypes =
+            new[] { QuarterstaffType, SpearType, HalberdWeaponType, PikeWeaponType, LongMaceWeaponType };
     }
 
     [NotNull]
@@ -200,7 +198,7 @@ internal static class CustomWeaponsContext
         var scale = new CustomScale(z: 3.5f);
 
         HalberdWeaponType = WeaponTypeDefinitionBuilder
-            .Create(WeaponTypeDefinitions.GreataxeType, "CEHalberdType")
+            .Create(GreataxeType, "CEHalberdType")
             .SetGuiPresentation(Category.Item, Gui.NoLocalization)
             .SetWeaponCategory(WeaponCategoryDefinitions.MartialWeaponCategory)
             .AddToDB();
@@ -276,7 +274,7 @@ internal static class CustomWeaponsContext
         var scale = new CustomScale(z: 3.5f);
 
         PikeWeaponType = WeaponTypeDefinitionBuilder
-            .Create(WeaponTypeDefinitions.SpearType, "CEPikeType")
+            .Create(SpearType, "CEPikeType")
             .SetGuiPresentation(Category.Item, Gui.NoLocalization)
             .SetWeaponCategory(WeaponCategoryDefinitions.MartialWeaponCategory)
             .AddToDB();
@@ -359,7 +357,7 @@ internal static class CustomWeaponsContext
         var scale = new CustomScale(z: 3.5f);
 
         LongMaceWeaponType = WeaponTypeDefinitionBuilder
-            .Create(WeaponTypeDefinitions.MaulType, "CELongMaceType")
+            .Create(MaulType, "CELongMaceType")
             .SetGuiPresentation(Category.Item, Gui.NoLocalization)
             .SetWeaponCategory(WeaponCategoryDefinitions.MartialWeaponCategory)
             .AddToDB();
@@ -435,7 +433,7 @@ internal static class CustomWeaponsContext
         var scale = new CustomScale(0.5f);
 
         HandXbowWeaponType = WeaponTypeDefinitionBuilder
-            .Create(WeaponTypeDefinitions.LightCrossbowType, CeHandXbowType)
+            .Create(LightCrossbowType, CeHandXbowType)
             .SetGuiPresentation(Category.Item, Gui.NoLocalization)
             .SetWeaponCategory(WeaponCategoryDefinitions.MartialWeaponCategory)
             .SetAnimationTag("Rapier")
@@ -554,7 +552,7 @@ internal static class CustomWeaponsContext
     private static void BuildThunderGauntlet()
     {
         ThunderGauntletType = WeaponTypeDefinitionBuilder
-            .Create(WeaponTypeDefinitions.UnarmedStrikeType, "CEThunderGauntletType")
+            .Create(UnarmedStrikeType, "CEThunderGauntletType")
             .SetGuiPresentation("Item/&CEThunderGauntletTitle", Gui.NoLocalization)
             .SetWeaponCategory(WeaponCategoryDefinitions.SimpleWeaponCategory)
             .AddToDB();
@@ -598,7 +596,7 @@ internal static class CustomWeaponsContext
     private static void BuildLightningLauncher()
     {
         LightningLauncherType = WeaponTypeDefinitionBuilder
-            .Create(WeaponTypeDefinitions.ShortbowType, "CELightningLauncherType")
+            .Create(ShortbowType, "CELightningLauncherType")
             .SetGuiPresentation("Item/&CELightningLauncherTitle", Gui.NoLocalization)
             .SetWeaponCategory(WeaponCategoryDefinitions.SimpleWeaponCategory)
             .SetAnimationTag("Rapier")
@@ -664,7 +662,7 @@ internal static class CustomWeaponsContext
 
     internal static void AddCustomTags(ItemDefinition item, Dictionary<string, TagsDefinitions.Criticity> tags)
     {
-        if (ValidatorsWeapon.IsPolearm(item))
+        if (ValidatorsWeapon.IsWeaponType(item, PolearmWeaponTypes))
         {
             tags.TryAdd(PolearmWeaponTag, TagsDefinitions.Criticity.Normal);
         }
@@ -673,7 +671,7 @@ internal static class CustomWeaponsContext
     internal static ItemDefinition GetStandardWeaponOfType(string type)
     {
         //Darts for some reason are not marked as `Standard`, so return regular Dart for this type 
-        if (type == WeaponTypeDefinitions.DartType.Name)
+        if (type == DartType.Name)
         {
             return ItemDefinitions.Dart;
         }

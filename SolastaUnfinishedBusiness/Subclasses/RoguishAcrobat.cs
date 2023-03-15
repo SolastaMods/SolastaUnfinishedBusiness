@@ -10,6 +10,7 @@ using static FeatureDefinitionAttributeModifier;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionAbilityCheckAffinitys;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionSavingThrowAffinitys;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.WeaponTypeDefinitions;
 
 namespace SolastaUnfinishedBusiness.Subclasses;
 
@@ -21,7 +22,7 @@ internal sealed class RoguishAcrobat : AbstractSubclass
     {
         // LEVEL 03
 
-        var validWeapon = ValidatorsWeapon.IsOfWeaponType(WeaponTypeDefinitions.QuarterstaffType);
+        var validWeapon = ValidatorsWeapon.IsOfWeaponType(QuarterstaffType);
 
         // Acrobat Maven
         var proficiencyAcrobatConnoisseur = FeatureDefinitionProficiencyBuilder
@@ -43,7 +44,7 @@ internal sealed class RoguishAcrobat : AbstractSubclass
             .Create($"Feature{Name}Trooper")
             .SetGuiPresentation(Category.Feature)
             .SetCustomSubFeatures(
-                new AddTwoHandedQuarterstaffFollowUpAttack(),
+                new AddPolearmFollowUpAttack(QuarterstaffType),
                 new AddTagToWeapon(TagsDefinitions.WeaponTagFinesse, TagsDefinitions.Criticity.Important, validWeapon),
                 new ModifyAttackModeForWeaponTypeQuarterstaff(validWeapon))
             .AddToDB();

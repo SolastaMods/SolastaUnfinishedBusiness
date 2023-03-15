@@ -5,7 +5,6 @@ using System.Linq;
 using System.Reflection.Emit;
 using HarmonyLib;
 using JetBrains.Annotations;
-using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.CustomBehaviors;
@@ -132,18 +131,8 @@ public static class GameLocationCharacterPatcher
                 effect.AfterOnAttackHit(__instance, target, outcome, actionParams, attackMode, attackModifier);
             }
 
-            //PATCH: registers which weapon type was used on main attacks
-            if (actionParams.ActionDefinition != DatabaseHelper.ActionDefinitions.AttackMain ||
-                attackMode?.SourceDefinition is not ItemDefinition itemDefinition)
-            {
-                return;
-            }
-
-            var type = itemDefinition.IsWeapon
-                ? itemDefinition.WeaponDescription.WeaponType
-                : itemDefinition.ArmorDescription.ArmorType;
-
-            __instance.UsedSpecialFeatures.TryAdd(type, 1);
+            //PATCH: registers which weapon types were used so far on attacks
+            ValidatorsCharacter.RegisterWeaponTypeUsed(__instance, attackMode);
         }
     }
 

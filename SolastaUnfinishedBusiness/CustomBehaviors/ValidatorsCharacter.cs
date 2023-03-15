@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.Linq;
 using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.WeaponTypeDefinitions;
@@ -9,16 +10,10 @@ internal delegate bool IsCharacterValidHandler(RulesetCharacter character);
 
 internal static class ValidatorsCharacter
 {
-    internal static readonly IsCharacterValidHandler HasLightSourceOffHand = character =>
-        character is RulesetCharacterHero && character.GetOffhandWeapon()?.ItemDefinition.IsLightSourceItem == true;
-
-    internal static readonly IsCharacterValidHandler HasFreeHand = character =>
-        character.HasFreeHandSlot() && !ValidatorsWeapon.IsTwoHanded(character.GetMainWeapon());
+    internal static readonly IsCharacterValidHandler HasAttacked = character => character.ExecutedAttacks > 0;
 
     internal static readonly IsCharacterValidHandler HasLessThan25PercentHealth = character =>
         (float)character.CurrentHitPoints / (character.CurrentHitPoints + character.MissingHitPoints) <= 0.25f;
-
-    internal static readonly IsCharacterValidHandler HasAttacked = character => character.ExecutedAttacks > 0;
 
     internal static readonly IsCharacterValidHandler HasNoArmor = character => !character.IsWearingArmor();
 
@@ -35,9 +30,12 @@ internal static class ValidatorsCharacter
     internal static readonly IsCharacterValidHandler DoesNotHaveHeavyArmor = character =>
         !HasArmorCategory(character, EquipmentDefinitions.HeavyArmorCategory);
 
-    internal static readonly IsCharacterValidHandler HasPolearm = character =>
-        ValidatorsWeapon.IsPolearm(character.GetMainWeapon()) ||
-        ValidatorsWeapon.IsPolearm(character.GetOffhandWeapon());
+    internal static readonly IsCharacterValidHandler HasLightSourceOffHand = character =>
+        character is RulesetCharacterHero && character.GetOffhandWeapon()?.ItemDefinition.IsLightSourceItem == true;
+
+    internal static readonly IsCharacterValidHandler HasFreeHand = character =>
+        character.HasFreeHandSlot() &&
+        !ValidatorsWeapon.HasAnyWeaponTag(character.GetMainWeapon(), TagsDefinitions.WeaponTagTwoHanded);
 
     internal static readonly IsCharacterValidHandler HasTwoHandedQuarterstaff = character =>
         ValidatorsWeapon.IsWeaponType(character.GetMainWeapon(), QuarterstaffType) && IsFreeOffhand(character);
@@ -46,22 +44,11 @@ internal static class ValidatorsCharacter
         ValidatorsWeapon.IsWeaponType(character.GetMainWeapon(),
             LongbowType, ShortbowType, HeavyCrossbowType, LightCrossbowType);
 
-    internal static readonly IsCharacterValidHandler MainHandIsMeleeWeapon = character =>
+    internal static readonly IsCharacterValidHandler HasMeleeWeaponInMainHand = character =>
         ValidatorsWeapon.IsMelee(character.GetMainWeapon());
 
-    internal static readonly IsCharacterValidHandler MainHandIsUnarmed = character =>
-        ValidatorsWeapon.IsUnarmed(null, character.GetMainWeapon()?.ItemDefinition);
-
-    internal static IsCharacterValidHandler HasUsedSpecialFeature(params string[] features)
-    {
-        return character =>
-        {
-            var gameLocationCharacter = GameLocationCharacter.GetFromActor(character);
-
-            return gameLocationCharacter != null &&
-                   features.Any(feature => gameLocationCharacter.UsedSpecialFeatures.ContainsKey(feature));
-        };
-    }
+    internal static readonly IsCharacterValidHandler IsUnarmedInMainHand = character =>
+        ValidatorsWeapon.IsUnarmed(character.GetMainWeapon()?.ItemDefinition, null);
 
     internal static IsCharacterValidHandler HasAnyOfConditions(params string[] conditions)
     {
@@ -73,11 +60,50 @@ internal static class ValidatorsCharacter
         return character => !conditions.Any(character.HasConditionOfType);
     }
 
-    // does character has free offhand in TA's terms as used in RefreshAttackModes for bonus unarmed attack for Monk?
+    internal static IsCharacterValidHandler HasWeaponType(params WeaponTypeDefinition[] weaponTypeDefinition)
+    {
+        return character =>
+            ValidatorsWeapon.IsWeaponType(character.GetMainWeapon(), weaponTypeDefinition) ||
+            ValidatorsWeapon.IsWeaponType(character.GetOffhandWeapon(), weaponTypeDefinition);
+    }
+
+    internal static IsCharacterValidHandler HasUsedWeaponType(WeaponTypeDefinition weaponTypeDefinition)
+    {
+        return character =>
+        {
+            var gameLocationCharacter = GameLocationCharacter.GetFromActor(character);
+
+            return gameLocationCharacter != null &&
+                   gameLocationCharacter.UsedSpecialFeatures.ContainsKey(nameof(weaponTypeDefinition));
+        };
+    }
+
+    internal static void RegisterWeaponTypeUsed(
+        GameLocationCharacter gameLocationCharacter,
+        RulesetAttackMode attackMode)
+    {
+        if (attackMode?.SourceDefinition is not ItemDefinition itemDefinition)
+        {
+            return;
+        }
+
+        var type = itemDefinition.IsWeapon
+            ? itemDefinition.WeaponDescription.WeaponType
+            : itemDefinition.ArmorDescription.ArmorType;
+
+        gameLocationCharacter.UsedSpecialFeatures.TryAdd(type, 0);
+        gameLocationCharacter.UsedSpecialFeatures[type]++;
+    }
+
+    //
+    // BOOL VALIDATORS
+    //
+
     internal static bool IsFreeOffhandVanilla(RulesetCharacter character)
     {
         var offHand = character.GetOffhandWeapon();
 
+        // does character has free offhand in TA's terms as used in RefreshAttackModes for Monk bonus unarmed attack?
         return offHand == null || !offHand.ItemDefinition.IsWeapon;
     }
 

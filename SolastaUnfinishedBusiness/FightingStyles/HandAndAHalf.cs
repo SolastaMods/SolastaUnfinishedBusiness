@@ -26,11 +26,12 @@ internal sealed class HandAndAHalf : AbstractFightingStyle
                 .SetCustomSubFeatures(
                     new RestrictedContextValidator((_, _, _, _, _, mode, _) =>
                         (OperationType.Set,
-                            ValidatorsWeapon.HasAnyWeaponTag(mode?.SourceDefinition as ItemDefinition,
+                            ValidatorsWeapon.HasAnyWeaponTag(
+                                mode?.SourceDefinition as ItemDefinition,
                                 TagsDefinitions.WeaponTagVersatile))),
                     new RestrictedContextValidator((_, _, character, _, _, _, _) =>
                         (OperationType.And,
-                            ValidatorsWeapon.IsUnarmed(null, character.GetOffhandWeapon()?.ItemDefinition))))
+                            ValidatorsWeapon.IsUnarmed(character.GetOffhandWeapon()?.ItemDefinition, null))))
                 .AddToDB())
         .AddToDB();
 
