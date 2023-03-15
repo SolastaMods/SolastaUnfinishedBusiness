@@ -2,14 +2,13 @@
 
 1.4.33.60:
 
-- added Breath of The Night invocation
-- added Call of The Beast invocation
-- added Elemental Master feat
-- added Tenacious Plague invocation
-- allowed Two Weapon fighting style to trigger with hand crossbow
-- fixed Way of Distant Hand's flurry of blows when target is at melee distance
-- improved Polearm Master validator against the weapon swap trick
-- improved Ranged Combat feats description to make intention clear
+- added feats, invocations and spell sprites
+- fixed Heavy Armor Master damage reduction
+- fixed Hand Crossbow interaction with TWF
+- fixed Skin of Retribution interaction with metamagic
+- fixed Way of Distant Hand's flurry of blows
+- improved Polearm Master weapon validators
+- improved Ranged Expert feat description
 
 1.4.33.59:
 
