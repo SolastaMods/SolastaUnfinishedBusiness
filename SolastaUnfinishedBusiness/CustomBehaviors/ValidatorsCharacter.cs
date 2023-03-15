@@ -74,7 +74,7 @@ internal static class ValidatorsCharacter
             var gameLocationCharacter = GameLocationCharacter.GetFromActor(character);
 
             return gameLocationCharacter != null &&
-                   gameLocationCharacter.UsedSpecialFeatures.ContainsKey(nameof(weaponTypeDefinition));
+                   gameLocationCharacter.UsedSpecialFeatures.ContainsKey(weaponTypeDefinition.Name);
         };
     }
 
