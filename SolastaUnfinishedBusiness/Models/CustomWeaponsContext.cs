@@ -26,16 +26,14 @@ internal static class CustomWeaponsContext
     internal const string AttackedWithLauncherConditionName = "ConditionLauncherAttackMarker";
 
     internal static WeaponTypeDefinition HandXbowWeaponType, LightningLauncherType, ThunderGauntletType;
-    private static WeaponTypeDefinition HalberdWeaponType, PikeWeaponType, LongMaceWeaponType;
-
+    internal static WeaponTypeDefinition HalberdWeaponType, PikeWeaponType, LongMaceWeaponType;
     internal static ItemDefinition LightningLauncher, ProducedFlameDart, ThunderGauntlet;
+
     private static ItemDefinition HandwrapsOfForce, HandwrapsOfPulling;
     private static ItemDefinition Halberd, HalberdPrimed, HalberdPlus1, HalberdPlus2, HalberdLightning;
     private static ItemDefinition Pike, PikePrimed, PikePlus1, PikePlus2, PikePsychic;
     private static ItemDefinition LongMace, LongMacePrimed, LongMacePlus1, LongMacePlus2, LongMaceThunder;
     private static ItemDefinition HandXbow, HandXbowPrimed, HandXbowPlus1, HandXbowPlus2, HandXbowAcid;
-
-    internal static WeaponTypeDefinition[] PolearmWeaponTypes { get; private set; }
 
     internal static void Load()
     {
@@ -47,9 +45,6 @@ internal static class CustomWeaponsContext
         WeaponizeProducedFlame();
         BuildThunderGauntlet();
         BuildLightningLauncher();
-
-        PolearmWeaponTypes =
-            new[] { QuarterstaffType, SpearType, HalberdWeaponType, PikeWeaponType, LongMaceWeaponType };
     }
 
     [NotNull]
@@ -660,9 +655,10 @@ internal static class CustomWeaponsContext
         hero.CharacterInventory.DefineWieldedItemsConfiguration(num, null, mode.SlotName);
     }
 
-    internal static void AddCustomTags(ItemDefinition item, Dictionary<string, TagsDefinitions.Criticity> tags)
+    internal static void AddPolearmWeaponTag(ItemDefinition item, Dictionary<string, TagsDefinitions.Criticity> tags)
     {
-        if (ValidatorsWeapon.IsWeaponType(item, PolearmWeaponTypes))
+        if (ValidatorsWeapon.IsWeaponType(item,
+                QuarterstaffType, SpearType, HalberdWeaponType, PikeWeaponType, LongMaceWeaponType))
         {
             tags.TryAdd(PolearmWeaponTag, TagsDefinitions.Criticity.Normal);
         }
