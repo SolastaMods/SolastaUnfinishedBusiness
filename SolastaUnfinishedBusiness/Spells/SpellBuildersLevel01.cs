@@ -381,7 +381,6 @@ internal static partial class SpellBuilders
                                 .SetDamageForm(damageType, bonusDamage: TEMP_HP_PER_LEVEL)
                                 .Build())
                         .Build())
-                .SetUniqueInstance()
                 .SetCustomSubFeatures(new ModifyMagicEffectSkinOfRetribution())
                 .AddToDB();
 
