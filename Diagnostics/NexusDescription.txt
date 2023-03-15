@@ -178,7 +178,10 @@ When you make an unarmed strike on your turn, your reach for it is 10 ft. Other 
 [*][b]Blessed Soul [Cleric][/b]: Your use of divine magic has left a spiritual mark on your soul, allowing you to express your faith more frequently. Increase your Wisdom score by 1, to a maximum of 20. You gain one additional Channel Divinity usage between rests.
 [*][b]Blessed Soul [Paladin][/b]: Your use of divine magic has left a spiritual mark on your soul, allowing you to express your faith more frequently. Increase your Charisma score by 1, to a maximum of 20. You gain one additional Channel Divinity usage between rests.
 [*][b]Blind Fighting[/b]: You have blind sight with a range of 10 ft. Within that range, you can effectively see anything that isn't behind total cover, even if you're blinded or in darkness. Moreover, you can see an invisible creature within that range, unless the creature successfully hides from you.
-[*][b]Bow Mastery[/b]: You gain a +1 bonus to damage rolls you make with shortbow and longbow. When you use the Attack action with a shortbow on your turn, you can make one ranged weapon attack as a bonus action. You can use Strength instead of Dexterity for the attack and damage rolls you make with longbow.
+[*][b]Bow Mastery[/b]: Your expert training with bows grants you these benefits:
+• You gain a +1 bonus to damage rolls you make with shortbow and longbow:
+• When you use the Attack action with a shortbow on your turn, you can make one ranged weapon attack as a bonus action, adding your attribute modifier to damage.
+• You can use Strength instead of Dexterity on attack and damage rolls you make with longbow.
 [*][b]Call for Charge[/b]: You may use your bonus action to call for a charge. When you do, until the start of your next turn, you and your allies speed increase by 15 ft, and each one have advantage on their first attack roll. You can use this power a number of times per long rest equal to your Charisma modifier.
 [*][b]Celestial Touched [Cha][/b]: Increase your Charisma attribute by 1, to a maximum of 20.
 You gain the ability to cast the healing word, cure wounds and lesser restoration spells once per long rest and you can cast these spells with your spell slots.
@@ -199,7 +202,7 @@ You can use a bonus action to select a weapon. Its attacks count as magical and 
 [*][b]Cunning Escape[/b]: Whenever you use the Dash action as a bonus action, your movement doesn't provoke opportunity attacks for the rest of the turn.
 [*][b]Deadeye[/b]: You have learned to trade accuracy to land deadlier shots:
 • When attacking with a ranged weapon, you can choose to take a -5 penalty to your to hit in order to do additional +10 damage.
-• Attacking at long range doesn't impose disadvantage and your ranged weapon attack ignores half cover and three-quarters cover.
+• Attacks at long range don't impose disadvantage and ranged weapon attack ignores half cover and three-quarters cover.
 [*][b]Defense[/b]: While you are wearing armor, you gain a +1 bonus to AC.
 [*][b]Defensive Duelist[/b]: When you are wielding a finesse weapon with which you are proficient and another creature hits you with a melee attack, you can use your reaction to add your proficiency bonus to your armor class for that attack, and all subsequent attacks that creature makes against you, potentially causing the attacks to miss you, until the start of your next turn.
 [*][b]Dragon Wings[/b]: You sprout draconic wings. You gain the ability to fly for a limited time if you aren't wearing heavy armor.
@@ -283,8 +286,8 @@ You gain proficiency with medium armor and shields.
 [*][b]Protection[/b]: When a creature you can see attacks a target other than you that is within one cell of you, you can use your reaction to impose disadvantage on the attack roll. You must be wielding a shield.
 [*][b]Pugilist[/b]: Your unarmed strikes deal an additional 1d4 bludgeoning damage and you can punch with your offhand as a bonus action. You can shove as a bonus action if you have free hand.
 [*][b]Ranged Expert[/b]: Your expert training with ranged weapons grants you these benefits:
-• You no longer have disadvantage on ranged attacks when there is an enemy within 5 ft of you.
-• If you take the Attack action on your turn, you can use a bonus action to make an attack with an one-handed ranged weapon.
+• Attacks at melee range don't impose disadvantage.
+• If you take the Attack action on your turn, you can make one one-handed ranged attack a bonus action, adding your attribute modifier to damage.
 [*][b]Reckless Attack[/b]: Before you make your first attack on your turn, you can decide to attack recklessly. Doing so gives you advantage on melee weapon attack rolls using Strength during this turn, but attack rolls against you have advantage until your next turn.
 [*][b]Revenant Great Sword [Dex][/b]: You are descended from a master of the great sword, and some of that mastery has passed on to you. You gain the following benefits:
 • Increase your Dexterity score by 1, to a maximum of 20.
@@ -374,6 +377,8 @@ You can use a bonus action to select a weapon. Its attacks count as magical and 
 [*][b]Abilities of the Chain Master[/b]: Gain additional effects when bound to a creature. When bound to Imp gain greater invisibility, when bound to Pseudo Dragon gain flight and attacks imbued with poison, when bound to Quasit gain an additional main action and advantage on Dexterity saving throws, and when bound to Sprite get an armor class score of at least 16 and attackers have disadvantage against you.
 [*][b]Aspect of The Moon[/b]: You no longer need to sleep and can keep watch, lowering the chances of attack and ensuring you are awake if camp is attacked.
 [*][b]Breaker and Banisher[/b]: You can cast <b>Dispel Evil and Good</b> using your pact slot once per long rest.
+[*][b]Breath of The Night[/b]: You can cast <b>Fog Cloud</b> at will, without expending a spell slot.
+[*][b]Call of The Beast[/b]: You can cast <b>Conjure Animals</b> using your pact slot once per long rest.
 [*][b]Chilling Blast[/b]: You can change the damage type of the eldritch blast to cold damage instead of force damage.
 [*][b]Corrosive Blast[/b]: You can change the damage type of the eldritch blast to acid damage instead of force damage.
 [*][b]Discerning Gaze[/b]: You can cast <b>Detect Evil and Good</b> without using a spell slot. Once you do so, you can't cast it in this way again until you finish a long rest.
@@ -393,6 +398,7 @@ You can use a bonus action to select a weapon. Its attacks count as magical and 
 [*][b]Spectral Shield[/b]: You can cast <b>Shield of Faith</b> without using a spell slot. Once you do so, you can't cast it in this way again until you finish a long rest.
 [*][b]Stasis[/b]: You can cast <b>Slow</b> without using a spell slot. When casting using this ability you don't need to maintain concentration. Once you do so, you can't cast it in this way again until you finish a long rest.
 [*][b]Superior Pact Weapon[/b]: Your weapon gains a +1 bonus to its attack and damage rolls.
+[*][b]Tenacious Plague[/b]: You can cast <b>Insect Plague</b> using your pact slot once per long rest.
 [*][b]Trickster's Escape[/b]: You can cast <b>Freedom of Movement</b> without using a spell slot. Once you do so, you can't cast it in this way again until you finish a long rest.
 [*][b]Ultimate Pact Weapon[/b]: Your weapon gains a +1 bonus to its attack and damage rolls.
 [*][b]Undying Servitude[/b]: You can cast <b>Raise Skeletal Enforcer</b> without using a spell slot. Once you do so, you can't cast it in this way again until you finish a long rest.

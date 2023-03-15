@@ -1222,6 +1222,7 @@ internal static partial class DatabaseHelper
         internal static SpellDefinition Command { get; } = GetDefinition<SpellDefinition>("Command");
         internal static SpellDefinition ConeOfCold { get; } = GetDefinition<SpellDefinition>("ConeOfCold");
         internal static SpellDefinition Confusion { get; } = GetDefinition<SpellDefinition>("Confusion");
+        internal static SpellDefinition ConjureAnimals { get; } = GetDefinition<SpellDefinition>("ConjureAnimals");
         internal static SpellDefinition ConjureAnimalsOneBeast { get; } = GetDefinition<SpellDefinition>("ConjureAnimalsOneBeast");
         internal static SpellDefinition ConjureElemental { get; } = GetDefinition<SpellDefinition>("ConjureElemental");
         internal static SpellDefinition ConjureElementalAir { get; } = GetDefinition<SpellDefinition>("ConjureElementalAir");
