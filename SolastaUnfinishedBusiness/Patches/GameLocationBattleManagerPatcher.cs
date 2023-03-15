@@ -477,8 +477,15 @@ public static class GameLocationBattleManagerPatcher
             foreach (var feature in defenderCharacter
                          .GetFeaturesByType<FeatureDefinitionReduceDamage>())
             {
-                var canReact = !defenderCharacter.isDeadOrDyingOrUnconscious
-                               && defender.GetActionTypeStatus(ActionDefinitions.ActionType.Reaction) ==
+                var isValid = defenderCharacter.IsValid(feature.GetAllSubFeaturesOfType<IsCharacterValidHandler>());
+
+                if (!isValid)
+                {
+                    continue;
+                }
+
+                var canReact = !defenderCharacter.isDeadOrDyingOrUnconscious &&
+                               defender.GetActionTypeStatus(ActionDefinitions.ActionType.Reaction) ==
                                ActionDefinitions.ActionStatus.Available;
 
                 //TODO: add ability to specify whether this feature can reduce magic damage
@@ -489,12 +496,14 @@ public static class GameLocationBattleManagerPatcher
                 if (rulesetEffect?.EffectDescription != null)
                 {
                     var canForceHalfDamage = false;
+
                     if (rulesetEffect is RulesetEffectSpell activeSpell)
                     {
                         canForceHalfDamage = attacker.RulesetCharacter.CanForceHalfDamage(activeSpell.SpellDefinition);
                     }
 
                     var effectDescription = rulesetEffect.EffectDescription;
+
                     if (rolledSavingThrow)
                     {
                         damage = saveOutcomeSuccess
@@ -551,6 +560,7 @@ public static class GameLocationBattleManagerPatcher
                         };
 
                         actionService.ReactToSpendSpellSlot(reactionParams);
+
                         yield return __instance.WaitForReactions(defender, actionService, previousReactionCount);
 
                         if (!reactionParams.ReactionValidated)
@@ -598,6 +608,7 @@ public static class GameLocationBattleManagerPatcher
 
                 var trendInfo = new RuleDefinitions.TrendInfo(totalReducedDamage,
                     RuleDefinitions.FeatureSourceType.CharacterFeature, feature.FormatTitle(), feature);
+
                 damage.bonusDamage -= totalReducedDamage;
                 damage.DamageBonusTrends.Add(trendInfo);
                 defenderCharacter.DamageReduced(defenderCharacter, feature, totalReducedDamage);
