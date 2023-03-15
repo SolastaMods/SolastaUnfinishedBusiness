@@ -1,4 +1,3 @@
-- added Roguish Acrobat subclass
-- changed some modded spell sprites
-- fixed Bow Mastery soft locking on multiple attacks
-- improved attribute modifiers presentation
+- added Elemental Master feats with immunity to some damage types
+- allowed Two Weapon fighting style to trigger with hand crossbow
+- improved Polearm Master validator against the weapon swap trick

@@ -7,7 +7,7 @@
   <DisplayBackgroundsToggle>false</DisplayBackgroundsToggle>
   <DisplayDeitiesToggle>false</DisplayDeitiesToggle>
   <DisplayClassesToggle>false</DisplayClassesToggle>
-  <DisplaySubclassesToggle>true</DisplaySubclassesToggle>
+  <DisplaySubclassesToggle>false</DisplaySubclassesToggle>
   <DisplayFeatsToggle>false</DisplayFeatsToggle>
   <DisplayFeatGroupsToggle>false</DisplayFeatGroupsToggle>
   <DisplayFightingStylesToggle>false</DisplayFightingStylesToggle>
@@ -121,7 +121,7 @@
   <EnableEpicPointsAndArray>true</EnableEpicPointsAndArray>
   <TotalFeatsGrantedFirstLevel>1</TotalFeatsGrantedFirstLevel>
   <EnablesAsiAndFeat>false</EnablesAsiAndFeat>
-  <EnableFeatsAtEvenLevels>true</EnableFeatsAtEvenLevels>
+  <EnableFeatsAtEvenLevels>false</EnableFeatsAtEvenLevels>
   <EnableFighterArmamentAdroitness>false</EnableFighterArmamentAdroitness>
   <EnableLevel20>true</EnableLevel20>
   <EnableMulticlass>true</EnableMulticlass>
@@ -327,6 +327,11 @@
     <string>FeatPrimalRageCon</string>
     <string>FeatPrimalRageStr</string>
     <string>FeatCleavingAttack</string>
+    <string>FeatElementalMasterDamageAcid</string>
+    <string>FeatElementalMasterDamageCold</string>
+    <string>FeatElementalMasterDamageFire</string>
+    <string>FeatElementalMasterDamageLightning</string>
+    <string>FeatElementalMasterDamageThunder</string>
   </FeatEnabled>
   <FeatGroupSliderPosition>4</FeatGroupSliderPosition>
   <FeatGroupEnabled>
@@ -376,6 +381,7 @@
     <string>FeatGroupToxicologist</string>
     <string>FeatGroupDefenseExpert</string>
     <string>FeatGroupPrimalRage</string>
+    <string>FeatGroupElementalMaster</string>
   </FeatGroupEnabled>
   <FightingStyleSliderPosition>4</FightingStyleSliderPosition>
   <FightingStyleEnabled>
@@ -538,6 +544,7 @@
           <string>Wrack</string>
           <string>Sanctuary</string>
           <string>ProtectThreshold</string>
+          <string>ElementalWeapon</string>
           <string>SpiritShroud</string>
           <string>MassHeal</string>
           <string>PowerWordHeal</string>
@@ -591,6 +598,7 @@
           <string>ProtectThreshold</string>
           <string>BlindingSmite</string>
           <string>CrusadersMantle</string>
+          <string>ElementalWeapon</string>
           <string>SpiritShroud</string>
           <string>StaggeringSmite</string>
           <string>BanishingSmite</string>
@@ -688,8 +696,8 @@
           <string>RadiantMotes</string>
           <string>MirrorImage</string>
           <string>ShadowBlade</string>
-          <string>WinterBreath</string>
           <string>SpiritShroud</string>
+          <string>WinterBreath</string>
           <string>FarStep</string>
           <string>ReverseGravity</string>
           <string>MindBlank</string>
@@ -719,14 +727,14 @@
   <UseHeightOneCylinderEffect>true</UseHeightOneCylinderEffect>
   <AllowStackedMaterialComponent>true</AllowStackedMaterialComponent>
   <AllowAnyClassToWearSylvanArmor>true</AllowAnyClassToWearSylvanArmor>
-  <AllowDruidToWearMetalArmor>true</AllowDruidToWearMetalArmor>
+  <AllowDruidToWearMetalArmor>false</AllowDruidToWearMetalArmor>
   <FullyControlConjurations>true</FullyControlConjurations>
   <IncreaseMaxAttunedItems>true</IncreaseMaxAttunedItems>
   <MakeLargeWildshapeFormsMedium>true</MakeLargeWildshapeFormsMedium>
   <MakeAllMagicStaveArcaneFoci>true</MakeAllMagicStaveArcaneFoci>
   <IncreaseSenseNormalVision>16</IncreaseSenseNormalVision>
   <CriticalHitModeAllies>2</CriticalHitModeAllies>
-  <CriticalHitModeEnemies>2</CriticalHitModeEnemies>
+  <CriticalHitModeEnemies>0</CriticalHitModeEnemies>
   <AddCustomIconsToOfficialItems>true</AddCustomIconsToOfficialItems>
   <AddNewWeaponsAndRecipesToShops>true</AddNewWeaponsAndRecipesToShops>
   <AddNewWeaponsAndRecipesToEditor>true</AddNewWeaponsAndRecipesToEditor>

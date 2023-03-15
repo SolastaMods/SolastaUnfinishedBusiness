@@ -1,5 +1,11 @@
 ﻿CHANGES:
 
+1.4.33.60:
+
+- added Elemental Master feats with immunity to some damage types
+- allowed Two Weapon fighting style to trigger with hand crossbow
+- improved Polearm Master validator against the weapon swap trick
+
 1.4.33.59:
 
 - added Roguish Acrobat subclass
