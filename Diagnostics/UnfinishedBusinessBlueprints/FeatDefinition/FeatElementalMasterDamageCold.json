@@ -1,7 +1,7 @@
 {
   "$type": "FeatDefinition, Assembly-CSharp",
   "compatibleClassesPrerequisite": [],
-  "mustCastSpellsPrerequisite": false,
+  "mustCastSpellsPrerequisite": true,
   "compatibleRacesPrerequisite": [],
   "minimalAbilityScorePrerequisite": false,
   "minimalAbilityScoreValue": 13,
@@ -10,13 +10,18 @@
   "armorProficiencyCategory": "",
   "hasFamilyTag": false,
   "familyTag": "",
-  "knownFeatsPrerequisite": [],
-  "features": [],
+  "knownFeatsPrerequisite": [
+    "FeatElementalAdeptDamageCold"
+  ],
+  "features": [
+    "Definition:DamageAffinityFeatElementalMasterDamageCold:66a45252-bae2-5867-81fe-671d5fc615d6",
+    "Definition:DieRollModifierDamageTypeDependentFeatElementalMasterDamageCold:4650b491-44af-5caf-bf28-12baa1d53ada"
+  ],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
-    "title": "Feat/&FeatGroupSpellCombatTitle",
-    "description": "Elemental Adept, Elemental Master, Flawless Concentration, Potent Spellcaster, Powerful Cantrip, Spell Sniper, War Caster",
+    "title": "Elemental Master [Cold]",
+    "description": "Cold damage type spells you cast ignore target's resistance to damage. In addition, when you roll attack for these spells, you can reroll any 1s.",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -36,7 +41,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "3c9a2ed6-0790-5712-90af-eea863da7ed0",
+  "guid": "adb15206-0316-5f76-b42b-f113431ff19f",
   "contentPack": 9999,
-  "name": "FeatGroupSpellCombat"
+  "name": "FeatElementalMasterDamageCold"
 }
