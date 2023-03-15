@@ -39,7 +39,8 @@ internal sealed class WayOfTheDistantHand : AbstractSubclass
             .SetCustomSubFeatures(
                 new ZenArcherMarker(),
                 new RangedAttackInMeleeDisadvantageRemover(
-                    IsMonkWeapon, ValidatorsCharacter.HasNoArmor, ValidatorsCharacter.HasNoShield),
+                    (attackMode, _, rulesetActor) => IsMonkWeapon(rulesetActor, attackMode),
+                    ValidatorsCharacter.HasNoArmor, ValidatorsCharacter.HasNoShield),
                 new AddTagToWeaponAttack(ZenArrowTag, IsZenArrowAttack))
             .AddToDB();
 
@@ -339,80 +340,66 @@ internal sealed class WayOfTheDistantHand : AbstractSubclass
 
     internal override CharacterSubclassDefinition Subclass { get; }
 
-    // private class ExtendWeaponRange : IModifyAttackModeForWeapon
-    // {
-    //     internal void ModifyAttackMode(RulesetCharacter character, RulesetAttackMode attackMode, RulesetItem weapon)
-    //     {
-    //         if (attackMode == null || attackMode.Magical || (!attackMode.Ranged && !attackMode.Thrown))
-    //         {
-    //             return;
-    //         }
-    //
-    //         if (!Monk.IsMonkWeapon(character, attackMode))
-    //         {
-    //             return;
-    //         }
-    //
-    //         attackMode.CloseRange = Math.Min(16, attackMode.CloseRange * 2);
-    //         attackMode.MaxRange = Math.Min(32, attackMode.MaxRange * 2);
-    //     }
-    // }
-
     internal override FeatureDefinitionSubclassChoice SubclassChoice =>
         FeatureDefinitionSubclassChoices.SubclassChoiceMonkMonasticTraditions;
 
-    internal override DeityDefinition DeityDefinition => null;
+    // ReSharper disable once UnassignedGetOnlyAutoProperty
+    internal override DeityDefinition DeityDefinition { get; }
 
-    private static bool IsMonkWeapon(RulesetAttackMode attackMode, RulesetItem weapon, RulesetCharacter character)
+    internal static bool IsMonkWeapon(RulesetActor rulesetActor, WeaponDescription weaponDescription)
     {
-        return IsMonkWeapon(character, attackMode) || IsMonkWeapon(character, weapon);
+        return weaponDescription != null &&
+               (weaponDescription.IsMonkWeaponOrUnarmed() ||
+                IsZenArcherWeapon(rulesetActor, weaponDescription));
     }
 
-    private static bool IsMonkWeapon(RulesetActor character, RulesetAttackMode attackMode)
+    private static bool IsMonkWeapon(
+        RulesetActor rulesetActor,
+        RulesetAttackMode attackMode)
     {
-        return attackMode is { SourceDefinition: ItemDefinition item } && IsMonkWeapon(character, item);
+        return attackMode is { SourceDefinition: ItemDefinition itemDefinition } &&
+               IsMonkWeapon(rulesetActor, itemDefinition);
     }
 
-    internal static bool IsMonkWeapon(RulesetActor actor, RulesetItem weapon)
+    internal static bool IsMonkWeapon(
+        RulesetActor rulesetActor,
+        RulesetItem rulesetItem)
     {
-        return weapon == null || IsMonkWeapon(actor, weapon.ItemDefinition);
+        return rulesetItem == null || IsMonkWeapon(rulesetActor, rulesetItem.ItemDefinition);
     }
 
-    private static bool IsMonkWeapon(RulesetActor actor, ItemDefinition weapon)
+    private static bool IsMonkWeapon(RulesetActor rulesetActor, ItemDefinition itemDefinition)
     {
-        return weapon != null && IsMonkWeapon(actor, weapon.WeaponDescription);
+        return itemDefinition != null && IsMonkWeapon(rulesetActor, itemDefinition.WeaponDescription);
     }
 
-    internal static bool IsMonkWeapon(RulesetActor actor, WeaponDescription weapon)
+    private static bool IsZenArcherWeapon(RulesetActor rulesetActor, WeaponDescription weaponDescription)
     {
-        if (weapon == null)
+        if (rulesetActor == null || weaponDescription == null)
         {
             return false;
         }
 
-        return weapon.IsMonkWeaponOrUnarmed() || IsZenArcherWeapon(actor, weapon);
-    }
-
-    private static bool IsZenArcherWeapon(RulesetActor actor, ItemDefinition item)
-    {
-        return IsZenArcherWeapon(actor, item.WeaponDescription);
-    }
-
-    private static bool IsZenArcherWeapon(RulesetActor actor, WeaponDescription weapon)
-    {
-        if (actor == null || weapon == null)
-        {
-            return false;
-        }
-
-        var typeDefinition = weapon.WeaponTypeDefinition;
+        var typeDefinition = weaponDescription.WeaponTypeDefinition;
 
         if (typeDefinition == null)
         {
             return false;
         }
 
-        return actor.HasSubFeatureOfType<ZenArcherMarker>() && ZenArcherWeapons.Contains(typeDefinition);
+        return rulesetActor.HasSubFeatureOfType<ZenArcherMarker>() && ZenArcherWeapons.Contains(typeDefinition);
+    }
+
+    private static bool IsZenArcherWeapon(RulesetCharacter rulesetCharacter)
+    {
+        var rulesetItem = rulesetCharacter.GetMainWeapon();
+
+        return IsZenArcherWeapon(rulesetCharacter, rulesetItem?.ItemDefinition);
+    }
+
+    private static bool IsZenArcherWeapon(RulesetActor rulesetActor, ItemDefinition itemDefinition)
+    {
+        return itemDefinition != null && IsZenArcherWeapon(rulesetActor, itemDefinition.WeaponDescription);
     }
 
     private static bool IsZenArrowAttack(RulesetAttackMode mode, RulesetItem weapon, RulesetCharacter character)
@@ -420,13 +407,6 @@ internal sealed class WayOfTheDistantHand : AbstractSubclass
         return mode != null
                && (mode.Ranged || mode.Thrown)
                && IsZenArcherWeapon(character, mode.SourceDefinition as ItemDefinition);
-    }
-
-    private static bool WieldsZenArcherWeapon(RulesetCharacter character)
-    {
-        var mainHandItem = character.GetMainWeapon();
-
-        return IsZenArcherWeapon(character, mainHandItem?.ItemDefinition);
     }
 
     private sealed class ZenArcherMarker
@@ -494,7 +474,7 @@ internal sealed class WayOfTheDistantHand : AbstractSubclass
     private sealed class AddFlurryOfArrowsAttacks : AddExtraAttackBase
     {
         private AddFlurryOfArrowsAttacks() : base(ActionDefinitions.ActionType.Bonus, ValidatorsCharacter.HasNoArmor,
-            ValidatorsCharacter.HasNoShield, WieldsZenArcherWeapon)
+            ValidatorsCharacter.HasNoShield, IsZenArcherWeapon)
         {
         }
 
@@ -513,7 +493,15 @@ internal sealed class WayOfTheDistantHand : AbstractSubclass
             }
 
             var mainHandItem = hero.GetMainWeapon();
-            var strikeDefinition = mainHandItem.itemDefinition;
+
+            // don't use ?? on Unity Objects as it bypasses the lifetime check on the underlying object
+            var strikeDefinition = mainHandItem?.ItemDefinition;
+
+            if (strikeDefinition == null)
+            {
+                strikeDefinition = hero.UnarmedStrikeDefinition;
+            }
+
             var attackModifiers = hero.attackModifiers;
             var attackMode = hero.RefreshAttackMode(
                 ActionType,
