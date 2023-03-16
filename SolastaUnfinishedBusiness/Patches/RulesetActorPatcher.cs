@@ -235,13 +235,13 @@ public static class RulesetActorPatcher
         public static float MayModulateSustainedDamage(
             IRulesetImplementationService service,
             IDamageAffinityProvider provider,
+            string actualProviderDamageType,
             RulesetActor actor,
             string damageType,
             float multiplier,
             List<string> sourceTags,
             bool wasFirstDamage,
             out int damageReduction,
-            out string ancestryDamageType,
             ulong sourceGuid)
         {
             ServiceRepository.GetService<IRulesetEntityService>().TryGetEntityByGuid(sourceGuid, out var rulesetEntity);
@@ -251,13 +251,12 @@ public static class RulesetActorPatcher
 
             if (!features.Any(feature => feature.CanIgnoreDamageAffinity(provider, damageType)))
             {
-                return service.ModulateSustainedDamage(provider, actor, damageType, multiplier, sourceTags,
-                    wasFirstDamage,
-                    out damageReduction, out ancestryDamageType);
+                return service.ModulateSustainedDamage(provider, actualProviderDamageType, actor, damageType,
+                    multiplier, sourceTags,
+                    wasFirstDamage, out damageReduction);
             }
 
             damageReduction = 0;
-            ancestryDamageType = string.Empty;
 
             return multiplier;
         }
