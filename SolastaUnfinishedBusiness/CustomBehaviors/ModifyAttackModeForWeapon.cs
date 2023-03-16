@@ -151,8 +151,9 @@ internal sealed class UpgradeWeaponDice : ModifyAttackModeForWeaponBase
         var effectDescription = attackMode.EffectDescription;
         var damage = effectDescription?.FindFirstDamageForm();
 
-        // we don't want to upgrade the dice on a bonus attack to avoid cheesing
-        if (damage == null || attackMode.actionType != ActionDefinitions.ActionType.Main)
+        // if we don't want to upgrade the dice on a bonus attack to avoid cheesing add below to IF
+        // || attackMode.actionType != ActionDefinitions.ActionType.Main)
+        if (damage == null)
         {
             return;
         }
