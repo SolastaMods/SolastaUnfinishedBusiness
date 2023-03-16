@@ -902,6 +902,16 @@ namespace SolastaUnfinishedBusiness.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
+        public static byte[] FarStep {
+            get {
+                object obj = ResourceManager.GetObject("FarStep", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
         public static byte[] FeatTelekinetic {
             get {
                 object obj = ResourceManager.GetObject("FeatTelekinetic", resourceCulture);
@@ -1400,31 +1410,27 @@ namespace SolastaUnfinishedBusiness.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Dwarf	Female	Abagtha
-        ///Dwarf	Female	Bera
-        ///Dwarf	Female	Birsha
-        ///Dwarf	Female	Brallesyl
-        ///Dwarf	Female	Bretri
-        ///Dwarf	Female	Bronnura
-        ///Dwarf	Female	Clauda
-        ///Dwarf	Female	Dabareh
-        ///Dwarf	Female	Dearma
-        ///Dwarf	Female	Demelza
-        ///Dwarf	Female	Dodai
-        ///Dwarf	Female	Dura
-        ///Dwarf	Female	Gath
-        ///Dwarf	Female	Hadar
-        ///Dwarf	Female	Hagar
-        ///Dwarf	Female	Halah
-        ///Dwarf	Female	Hanan
-        ///Dwarf	Female	Iddo
-        ///Dwarf	Female	Jenndora
-        ///Dwarf	Female	Jenrin
-        ///Dwarf	Female	Juttah
-        ///Dwarf	Female	Melea
-        ///Dwarf	Female	Meribah
-        ///Dwarf	Female	Misnan
-        ///Dwarf	Femal [rest of string was truncated]&quot;;.
+        ///   Looks up a localized string similar to Dragonborn	Female	Akra
+        ///Dragonborn	Female	Biri
+        ///Dragonborn	Female	Daar
+        ///Dragonborn	Female	Farideh
+        ///Dragonborn	Female	Harann
+        ///Dragonborn	Female	Havilar
+        ///Dragonborn	Female	Jheri
+        ///Dragonborn	Female	Kava
+        ///Dragonborn	Female	Korinn
+        ///Dragonborn	Female	Mishann
+        ///Dragonborn	Female	Nala
+        ///Dragonborn	Female	Perra
+        ///Dragonborn	Female	Raiann
+        ///Dragonborn	Female	Sora
+        ///Dragonborn	Female	Surina
+        ///Dragonborn	Female	Thava
+        ///Dragonborn	Female	Uadjit
+        ///Dragonborn	Male	Arjhan
+        ///Dragonborn	Male	Balasar
+        ///Dragonborn	Male	Bharash
+        ///Dragonbo [rest of string was truncated]&quot;;.
         /// </summary>
         public static string Names {
             get {
@@ -1875,6 +1881,16 @@ namespace SolastaUnfinishedBusiness.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
+        public static byte[] RadiantMotes {
+            get {
+                object obj = ResourceManager.GetObject("RadiantMotes", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
         public static byte[] RangerArcanist {
             get {
                 object obj = ResourceManager.GetObject("RangerArcanist", resourceCulture);
@@ -2108,26 +2124,6 @@ namespace SolastaUnfinishedBusiness.Properties {
         public static byte[] SpearMasteryReach {
             get {
                 object obj = ResourceManager.GetObject("SpearMasteryReach", resourceCulture);
-                return ((byte[])(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Byte[].
-        /// </summary>
-        public static byte[] SpellFarStep {
-            get {
-                object obj = ResourceManager.GetObject("SpellFarStep", resourceCulture);
-                return ((byte[])(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Byte[].
-        /// </summary>
-        public static byte[] SpellRadiantMotes {
-            get {
-                object obj = ResourceManager.GetObject("SpellRadiantMotes", resourceCulture);
                 return ((byte[])(obj));
             }
         }

@@ -160,8 +160,8 @@ public static class Sprites
 
     #region Spells
 
-    internal static AssetReferenceSprite SpellFarStep =>
-        GetSprite("SpellFarStep", Resources.SpellFarStep, 128);
+    internal static AssetReferenceSprite FarStep =>
+        GetSprite("FarStep", Resources.FarStep, 128);
 
     internal static AssetReferenceSprite SpellRaiseSkeleton =>
         GetSprite("SpellRaiseSkeleton", Resources.SpellRaiseSkeleton, 128);
