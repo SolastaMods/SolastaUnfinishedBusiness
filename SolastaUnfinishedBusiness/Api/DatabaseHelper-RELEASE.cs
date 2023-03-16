@@ -1,4 +1,4 @@
-// manually generated on 03/09/23
+// manually generated on 03/14/23
 using TA.AI;
 // ReSharper disable IdentifierTypo
 // ReSharper disable InconsistentNaming
@@ -8,7 +8,6 @@ internal static partial class DatabaseHelper
 {
     internal static class ActionDefinitions
     {
-        internal static ActionDefinition AttackMain { get; } = GetDefinition<ActionDefinition>("AttackMain");
         internal static ActionDefinition DashBonus { get; } = GetDefinition<ActionDefinition>("DashBonus");
         internal static ActionDefinition MetamagicToggle { get; } = GetDefinition<ActionDefinition>("MetamagicToggle");
         internal static ActionDefinition OneWithShadowsTurnInvisible { get; } = GetDefinition<ActionDefinition>("OneWithShadowsTurnInvisible");
@@ -1223,6 +1222,7 @@ internal static partial class DatabaseHelper
         internal static SpellDefinition Command { get; } = GetDefinition<SpellDefinition>("Command");
         internal static SpellDefinition ConeOfCold { get; } = GetDefinition<SpellDefinition>("ConeOfCold");
         internal static SpellDefinition Confusion { get; } = GetDefinition<SpellDefinition>("Confusion");
+        internal static SpellDefinition ConjureAnimals { get; } = GetDefinition<SpellDefinition>("ConjureAnimals");
         internal static SpellDefinition ConjureAnimalsOneBeast { get; } = GetDefinition<SpellDefinition>("ConjureAnimalsOneBeast");
         internal static SpellDefinition ConjureElemental { get; } = GetDefinition<SpellDefinition>("ConjureElemental");
         internal static SpellDefinition ConjureElementalAir { get; } = GetDefinition<SpellDefinition>("ConjureElementalAir");

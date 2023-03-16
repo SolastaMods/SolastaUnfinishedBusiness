@@ -79,7 +79,7 @@ internal sealed class CollegeOfWarDancer : AbstractSubclass
                 )
                 .Build())
             .SetCustomSubFeatures(
-                ValidatorsCharacter.MainHandIsMeleeWeapon,
+                ValidatorsCharacter.HasMeleeWeaponInMainHand,
                 ValidatorsPowerUse.HasNoneOfConditions(ConditionWarDance.Name),
                 new WarDanceRefundOneAttackOfMainAction())
             .AddToDB();

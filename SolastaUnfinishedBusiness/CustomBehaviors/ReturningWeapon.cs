@@ -70,7 +70,7 @@ internal class ReturningWeapon
         return proximity;
     }
 
-    internal static void AddCustomTags(RulesetItem item, Dictionary<string, TagsDefinitions.Criticity> tags)
+    internal static void AddReturningWeaponTag(RulesetItem item, Dictionary<string, TagsDefinitions.Criticity> tags)
     {
         if (item.HasSubFeatureOfType<ReturningWeapon>())
         {

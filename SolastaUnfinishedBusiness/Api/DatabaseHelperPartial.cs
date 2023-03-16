@@ -48,4 +48,9 @@ internal static partial class DatabaseHelper
         return db.TryGetElement(key, out definition);
 #endif
     }
+
+    internal static class ArmorTypeDefinitions
+    {
+        internal static ArmorTypeDefinition ShieldType { get; } = GetDefinition<ArmorTypeDefinition>("ShieldType");
+    }
 }

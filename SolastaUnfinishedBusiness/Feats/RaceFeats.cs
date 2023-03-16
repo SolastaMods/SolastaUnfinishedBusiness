@@ -30,7 +30,7 @@ internal static class RaceFeats
                     .Create("PowerFeatDragonWings")
                     .SetGuiPresentation("FeatDragonWings", Category.Feat)
                     .SetUsesProficiencyBonus(ActivationTime.BonusAction)
-                    .SetCustomSubFeatures(new ValidatorsPowerUse(ValidatorsCharacter.NotHeavyArmor))
+                    .SetCustomSubFeatures(new ValidatorsPowerUse(ValidatorsCharacter.DoesNotHaveHeavyArmor))
                     .SetEffectDescription(
                         EffectDescriptionBuilder
                             .Create()

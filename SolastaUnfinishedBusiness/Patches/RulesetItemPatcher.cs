@@ -26,13 +26,13 @@ public static class RulesetItemPatcher
             //PATCH: add custom tags from sub-features
             AddTagToWeapon.TryAddTags(context as RulesetCharacter, __instance, tagsMap);
 
-            //PATCH: adds custom weapon tags (like `Polearm`) to appropriate weapons
-            CustomWeaponsContext.AddCustomTags(item, tagsMap);
+            //PATCH: adds `Polearm` tag to appropriate weapons
+            CustomWeaponsContext.AddPolearmWeaponTag(item, tagsMap);
 
-            //PATCH: adds custom `Returning` tag to appropriate weapons
-            ReturningWeapon.AddCustomTags(__instance, tagsMap);
+            //PATCH: adds `Returning` tag to appropriate weapons
+            ReturningWeapon.AddReturningWeaponTag(__instance, tagsMap);
 
-            //PATCH: removes `Loading` and `Ammunition` tags to appropriate weapons
+            //PATCH: removes `Loading` and `Ammunition` tags from appropriate weapons
             RepeatingShot.ModifyTags(__instance, tagsMap);
 
             //PATCH: adds `Unfinished Business` tag to all CE items 

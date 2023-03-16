@@ -52,6 +52,41 @@ internal static class InvocationsBuilders
             .AddToDB();
     }
 
+    internal static InvocationDefinition BuildBreathOfTheNight()
+    {
+        const string NAME = "InvocationBreathOfTheNight";
+
+        return InvocationDefinitionBuilder
+            .Create(NAME)
+            .SetGuiPresentation(Category.Invocation, SpellDefinitions.FogCloud)
+            .SetGrantedSpell(SpellDefinitions.FogCloud)
+            .AddToDB();
+    }
+
+    internal static InvocationDefinition BuildCallOfTheBeast()
+    {
+        const string NAME = "InvocationCallOfTheBeast";
+
+        return InvocationDefinitionBuilder
+            .Create(NAME)
+            .SetGuiPresentation(Category.Invocation, SpellDefinitions.ConjureAnimals)
+            .SetGrantedSpell(SpellDefinitions.ConjureAnimals, true, true)
+            .SetRequirements(5)
+            .AddToDB();
+    }
+
+    internal static InvocationDefinition BuildTenaciousPlague()
+    {
+        const string NAME = "InvocationTenaciousPlague";
+
+        return InvocationDefinitionBuilder
+            .Create(NAME)
+            .SetGuiPresentation(Category.Invocation, SpellDefinitions.InsectPlague)
+            .SetGrantedSpell(SpellDefinitions.InsectPlague, true, true)
+            .SetRequirements(9, pact: FeatureSetPactChain)
+            .AddToDB();
+    }
+
     internal static InvocationDefinition BuildUndyingServitude()
     {
         const string NAME = "InvocationUndyingServitude";

@@ -74,7 +74,7 @@ internal static partial class SpellBuilders
 
         return SpellDefinitionBuilder
             .Create("FarStep")
-            .SetGuiPresentation(Category.Spell, Sprites.SpellFarStep)
+            .SetGuiPresentation(Category.Spell, Sprites.FarStep)
             .SetSpellLevel(5)
             .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolConjuration)
             .SetCastingTime(ActivationTime.BonusAction)

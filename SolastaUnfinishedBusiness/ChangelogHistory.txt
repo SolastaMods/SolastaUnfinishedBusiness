@@ -1,5 +1,15 @@
 ﻿CHANGES:
 
+1.4.33.60:
+
+- added feats, invocations and spell sprites
+- fixed Hand Crossbow and Two Weapon Fighting
+- fixed Heavy Armor Master triggering logic
+- fixed Polearm Master weapon validators
+- fixed Skin of Retribution and Shared Spell
+- fixed Spear Mastery to allow benefits on offhand
+- fixed Distant Hand's flurry of blows in melee
+
 1.4.33.59:
 
 - added Roguish Acrobat subclass

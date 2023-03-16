@@ -19,8 +19,8 @@ public static class GuiItemDefinitionPatcher
             var tags = __instance.itemTags;
             var item = __instance.ItemDefinition;
 
-            //PATCH: adds custom weapon tags (like `Polearm`) to appropriate weapons
-            CustomWeaponsContext.AddCustomTags(item, tags);
+            //PATCH: adds `Polearm` tag to appropriate weapons
+            CustomWeaponsContext.AddPolearmWeaponTag(item, tags);
 
             //PATCH: adds `Unfinished Business` tag to all CE items
             CeContentPackContext.AddCeTag(item, tags);

@@ -15,23 +15,6 @@ internal static class ShieldStrike
 
     [NotNull] internal static WeaponTypeDefinition ShieldWeaponType => _shieldWeaponType ??= BuildShieldWeaponType();
 
-    internal static bool IsShield([CanBeNull] RulesetItem item)
-    {
-        return item != null && IsShield(item.ItemDefinition);
-    }
-
-    internal static bool IsShield([CanBeNull] ItemDefinition item)
-    {
-        if (item == null || !item.IsArmor)
-        {
-            return false;
-        }
-
-        var armorDescription = item.ArmorDescription;
-
-        return armorDescription.ArmorType == "ShieldType";
-    }
-
     [NotNull]
     private static WeaponTypeDefinition BuildShieldWeaponType()
     {

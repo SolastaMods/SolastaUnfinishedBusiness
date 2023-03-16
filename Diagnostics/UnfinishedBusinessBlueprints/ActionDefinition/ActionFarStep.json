@@ -51,7 +51,7 @@
     "description": "Action/&FarStepDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "b613391c-2036-51f3-8d47-b584b77bc354",
+      "m_AssetGUID": "7700d04f-363d-5399-b53d-2788b08c58af",
       "m_SubObjectName": null,
       "m_SubObjectType": null
     },

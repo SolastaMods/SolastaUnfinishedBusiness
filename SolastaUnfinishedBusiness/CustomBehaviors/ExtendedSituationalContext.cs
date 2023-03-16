@@ -21,18 +21,18 @@ internal static class CustomSituationalContext
         return (ExtraSituationalContext)context switch
         {
             ExtraSituationalContext.MainWeaponIsMeleeOrUnarmed =>
-                ValidatorsCharacter.MainHandIsMeleeWeapon(contextParams.source) ||
-                ValidatorsCharacter.MainHandIsUnarmed(contextParams.source),
+                ValidatorsCharacter.HasMeleeWeaponInMainHand(contextParams.source) ||
+                ValidatorsCharacter.IsUnarmedInMainHand(contextParams.source),
 
             ExtraSituationalContext.WearingNoArmorOrLightArmorWithoutShield =>
                 (ValidatorsCharacter.HasNoArmor(contextParams.source) ||
-                 ValidatorsCharacter.LightArmor(contextParams.source)) &&
+                 ValidatorsCharacter.HasLightArmor(contextParams.source)) &&
                 ValidatorsCharacter.HasNoShield(contextParams.source),
 
-            ExtraSituationalContext.WearingNoArmorOrLightArmorWithQuarterstaffTwoHanded =>
+            ExtraSituationalContext.WearingNoArmorOrLightArmorWithTwoHandedQuarterstaff =>
                 (ValidatorsCharacter.HasNoArmor(contextParams.source) ||
-                 ValidatorsCharacter.LightArmor(contextParams.source)) &&
-                ValidatorsCharacter.HasQuarterstaffTwoHanded(contextParams.source),
+                 ValidatorsCharacter.HasLightArmor(contextParams.source)) &&
+                ValidatorsCharacter.HasTwoHandedQuarterstaff(contextParams.source),
 
             ExtraSituationalContext.TargetIsNotEffectSource =>
                 contextParams.target != effectSource,

@@ -175,13 +175,14 @@ internal static partial class UI
             xCols = texts.Length;
         }
 
-        sel = GL.SelectionGrid(selected, titles.ToArray(), xCols, options);
-        if (selected == sel)
+        // don't reuse sel to avoid warnings on lambda sel variable capture above
+        var sel2 = GL.SelectionGrid(selected, titles.ToArray(), xCols, options);
+        if (selected == sel2)
         {
             return;
         }
 
-        selected = sel;
+        selected = sel2;
         action(selected);
     }
 
@@ -196,13 +197,14 @@ internal static partial class UI
             xCols = texts.Length;
         }
 
-        sel = GL.SelectionGrid(selected, titles.ToArray(), xCols, style, options);
-        if (selected == sel)
+        // don't reuse sel to avoid warnings on lambda sel variable capture above
+        var sel2 = GL.SelectionGrid(selected, titles.ToArray(), xCols, style, options);
+        if (selected == sel2)
         {
             return;
         }
 
-        selected = sel;
+        selected = sel2;
         action(selected);
     }
 

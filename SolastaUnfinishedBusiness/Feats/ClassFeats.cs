@@ -34,6 +34,7 @@ internal static class ClassFeats
 
         var awakenTheBeastWithinGroup = BuildAwakenTheBeastWithin(feats);
         var blessedSoulGroup = BuildBlessedSoul(feats);
+        var hardyGroup = BuildHardy(feats);
         var potentSpellcasterGroup = BuildPotentSpellcaster(feats);
         var primalRageGroup = BuildPrimalRage(feats);
 
@@ -50,7 +51,8 @@ internal static class ClassFeats
             potentSpellcasterGroup);
 
         GroupFeats.FeatGroupSupportCombat.AddFeats(
-            featCallForCharge);
+            featCallForCharge,
+            hardyGroup);
 
         GroupFeats.MakeGroup("FeatGroupClassBound", null,
             featCallForCharge,
@@ -59,6 +61,7 @@ internal static class ClassFeats
             featSpiritualFluidity,
             awakenTheBeastWithinGroup,
             blessedSoulGroup,
+            hardyGroup,
             potentSpellcasterGroup,
             primalRageGroup);
     }
@@ -278,6 +281,67 @@ internal static class ClassFeats
                 actingCharacter.Guid, actingCharacter.CurrentFaction.Name);
 
             actingCharacter.AddConditionOfCategory(AttributeDefinitions.TagCombat, condition);
+        }
+    }
+
+    #endregion
+
+    #region Hardy
+
+    private static FeatDefinition BuildHardy(List<FeatDefinition> feats)
+    {
+        const string Name = "FeatHardy";
+
+        var feature = FeatureDefinitionBuilder
+            .Create($"Feature{Name}")
+            .SetGuiPresentationNoContent(true)
+            .SetCustomSubFeatures(new OnAfterActionHardy())
+            .AddToDB();
+
+        var hardyStr = FeatDefinitionWithPrerequisitesBuilder
+            .Create($"{Name}Str")
+            .SetGuiPresentation(Category.Feat)
+            .SetFeatures(
+                feature,
+                AttributeModifierCreed_Of_Einar)
+            .SetValidators(ValidatorsFeat.IsFighterLevel4)
+            .AddToDB();
+
+        var hardyCon = FeatDefinitionWithPrerequisitesBuilder
+            .Create($"{Name}Con")
+            .SetGuiPresentation(Category.Feat)
+            .SetFeatures(
+                feature,
+                AttributeModifierCreed_Of_Arun)
+            .SetValidators(ValidatorsFeat.IsFighterLevel4)
+            .AddToDB();
+
+        feats.AddRange(hardyStr, hardyCon);
+
+        return GroupFeats.MakeGroup(
+            "FeatGroupHardy", Name, hardyStr, hardyCon);
+    }
+
+    private sealed class OnAfterActionHardy : IOnAfterActionFeature
+    {
+        public void OnAfterAction(CharacterAction action)
+        {
+            if (action is not CharacterActionUsePower characterActionUsePower ||
+                characterActionUsePower.activePower.PowerDefinition != PowerFighterSecondWind)
+            {
+                return;
+            }
+
+            var rulesetCharacter = action.ActingCharacter.RulesetCharacter;
+            var characterLevel = rulesetCharacter.GetAttribute(AttributeDefinitions.CharacterLevel).CurrentValue;
+            var dieRoll = RollDie(DieType.D10, AdvantageType.None, out _, out _);
+            var healingReceived = characterLevel + dieRoll;
+
+            if (rulesetCharacter.TemporaryHitPoints <= healingReceived)
+            {
+                rulesetCharacter.ReceiveTemporaryHitPoints(healingReceived, DurationType.Minute, 10,
+                    TurnOccurenceType.EndOfTurn, rulesetCharacter.Guid);
+            }
         }
     }
 
