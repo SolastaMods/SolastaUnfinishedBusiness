@@ -1,6 +1,6 @@
 {
   "$type": "MonsterDefinition, Assembly-CSharp",
-  "dungeonMakerPresence": "None",
+  "dungeonMakerPresence": "Monster",
   "overrideSpawnDecision": null,
   "characterFamily": "Celestial",
   "creatureTags": [],
@@ -137,7 +137,7 @@
   "forbidFastTravel": false,
   "forceHasComplexActions": false,
   "forcePersistentBody": false,
-  "bestiaryEntry": "None",
+  "bestiaryEntry": "Full",
   "bestiaryReference": null,
   "bestiaryCameraOffset": {
     "$type": "UnityEngine.Vector3, UnityEngine.CoreModule",
@@ -274,6 +274,6 @@
   },
   "contentCopyright": "TacticalAdventuresContent",
   "guid": "7bc69c0905d6dde4a833e77f4236c71d",
-  "contentPack": "BaseGame",
+  "contentPack": "PalaceOfIce",
   "name": "Kutkartal_MonsterDefinition"
 }

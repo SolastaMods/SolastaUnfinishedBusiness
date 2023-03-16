@@ -1,5 +1,6 @@
 {
   "$type": "BiomeDefinition, Assembly-CSharp",
+  "dungeonMakerPresence": true,
   "terrainType": "Forest",
   "encounterTable": "Definition:PrincipalityForestEncounter:b060fe3c9e643a644ba2d806f6691705",
   "narrativeEventBasicLines": [
@@ -13,11 +14,12 @@
     "Definition:EncounterHamlet_LocationDB:b824d2fd019f0f84681289b5c5d16c9c",
     "Definition:EncounterWaterfall_LocationDB:d8798cdee1aaf304d93e9cfc4bb0d6b9"
   ],
+  "defaultIngredientLoot": "Definition:RandomTravelIngredient_Principality_Forest:9bf834a8e27c98e49babbaeff7512740",
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&NoContentTitle",
-    "description": "Feature/&NoContentTitle",
+    "title": "Biome/&Biome_PrincipalityForest_Title",
+    "description": "Biome/&Biome_PrincipalityForest_Description",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -32,7 +34,7 @@
       "a": 1.0
     },
     "symbolChar": "221E",
-    "sortOrder": 0,
+    "sortOrder": 3,
     "unusedInSolastaCOTM": false,
     "usedInValleyDLC": false
   },

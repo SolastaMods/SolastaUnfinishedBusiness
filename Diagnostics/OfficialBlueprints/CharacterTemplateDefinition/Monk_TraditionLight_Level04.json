@@ -4,7 +4,7 @@
   "isPremade": false,
   "premadeFilename": "",
   "firstName": "Lightl4",
-  "surName": "Monk",
+  "surName": "Race/&HumanSurName16Title",
   "abilityScores": [
     15,
     18,
@@ -119,7 +119,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "OpenGameContent",
-  "guid": "1431bf5d7b9f41e0adb85198fce1778b",
+  "guid": "2b35f4d628c166944bf3a19fd1dc2530",
   "contentPack": "BaseGame",
   "name": "Monk_TraditionLight_Level04"
 }

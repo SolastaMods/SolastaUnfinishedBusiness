@@ -1,6 +1,6 @@
 {
   "$type": "MonsterDefinition, Assembly-CSharp",
-  "dungeonMakerPresence": "None",
+  "dungeonMakerPresence": "Monster",
   "overrideSpawnDecision": "Definition:IdleGuard_NoIntercept:81e247c4ebe23c741800c91fd18c473e",
   "characterFamily": "Dragon",
   "creatureTags": [],
@@ -137,7 +137,9 @@
     "Definition:DamageAffinityColdImmunity:de8ec1fc795a48a41b7cece77d95bc1c",
     "Definition:PowerDragonFrightfulPresence:afa9d44eb9c7a1b479e4caa0bb92111c",
     "Definition:PowerDragonBreath_Cold:6c2a4d59651fc9a4281fd253bc85a5bd",
-    "Definition:ConditionAffinityProneImmunity:abedf907fa238ce4c91865e7ab06c78d"
+    "Definition:ConditionAffinityProneImmunity:abedf907fa238ce4c91865e7ab06c78d",
+    "Definition:ConditionAffinityWeatherChilledImmunity:bc4e3a662c267ae498bb1f3c1d754980",
+    "Definition:ConditionAffinityWeatherFrozenImmunity:6eedca541acbb494fa8aea97c7ff074a"
   ],
   "attackIterations": [
     {
@@ -169,7 +171,7 @@
   "forbidFastTravel": false,
   "forceHasComplexActions": false,
   "forcePersistentBody": false,
-  "bestiaryEntry": "None",
+  "bestiaryEntry": "Full",
   "bestiaryReference": null,
   "bestiaryCameraOffset": {
     "$type": "UnityEngine.Vector3, UnityEngine.CoreModule",
@@ -315,6 +317,6 @@
   },
   "contentCopyright": "TacticalAdventuresContent",
   "guid": "3472c3a577b48e64c8e2896ef1811b88",
-  "contentPack": "BaseGame",
+  "contentPack": "PalaceOfIce",
   "name": "WhiteDragon_MonsterDefinition"
 }

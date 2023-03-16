@@ -134,7 +134,7 @@
       "$type": "EffectParticleParameters, Assembly-CSharp",
       "casterParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "",
+        "m_AssetGUID": "d84be4c521905044c84f2882076f1d4a",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -182,7 +182,7 @@
       },
       "impactParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "",
+        "m_AssetGUID": "483954b672766974b994d40d183c07f0",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -313,6 +313,8 @@
   "useAnimationTag": false,
   "animationTag": "NoWeapon",
   "isMultiattack": false,
+  "multiattackParticles": [],
+  "multiattackImpactParticles": [],
   "chargePrepareParticle": {
     "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
     "m_AssetGUID": "",
@@ -350,10 +352,10 @@
           "guid": "E07EEA51-E76E-4219-92C0-6F0E1AA3C15A",
           "name": "E07EEA51-E76E-4219-92C0-6F0E1AA3C15A"
         },
-        "objectName": "Claw_Heavy",
-        "id": 1423590348,
-        "guid": "A16416FB-C4A3-4682-B4FE-E8E5743FC4A4",
-        "name": "A16416FB-C4A3-4682-B4FE-E8E5743FC4A4"
+        "objectName": "Claw",
+        "id": 3737052860,
+        "guid": "063FB752-6335-4E3A-A75F-364A9721A123",
+        "name": "063FB752-6335-4E3A-A75F-364A9721A123"
       },
       "groupIdInternal": 0,
       "groupGuidInternal": {

@@ -8,11 +8,13 @@
   "spellListDefinition": "Definition:SpellListKebra:7270f82786d3150429a4a00552545188",
   "restrictedSchools": [],
   "spellKnowledge": "FixedList",
+  "fixedSpellTag": "",
   "spellReadyness": "AllKnown",
   "spellPreparationCount": "AbilityBonusPlusLevel",
   "slotsRecharge": "LongRest",
   "uniqueLevelSlots": false,
   "spellCastingLevel": 6,
+  "cantripsOnly": false,
   "knownCantrips": [
     1,
     1,

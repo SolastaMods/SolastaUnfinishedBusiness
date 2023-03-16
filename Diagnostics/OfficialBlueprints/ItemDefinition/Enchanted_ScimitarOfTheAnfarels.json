@@ -21,7 +21,7 @@
   "defaultStackCount": -1,
   "costs": [
     0,
-    1900,
+    7025,
     0,
     0,
     0
@@ -180,7 +180,7 @@
           "damageForm": {
             "$type": "DamageForm, Assembly-CSharp",
             "versatile": false,
-            "diceNumber": 2,
+            "diceNumber": 4,
             "dieType": "D1",
             "overrideWithBardicInspirationDie": false,
             "versatileDieType": "D1",
@@ -543,6 +543,7 @@
     "femaleArmorAddressableName": "",
     "useCustomArmorMaterial": false,
     "customArmorMaterial": "",
+    "ignoreCustomArmorMaterialOnCommonClothes": false,
     "hasCrownVariationMask": false,
     "crownVariationMask": 0,
     "sameBehavioursForMaleAndFemale": true,
@@ -551,8 +552,7 @@
     "itemFlags": [],
     "serializedVersion": 1
   },
-  "clue": null,
-  "clueSuspect": null,
+  "clueSuspectPairs": [],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
@@ -578,6 +578,6 @@
   },
   "contentCopyright": "OpenGameContent",
   "guid": "f70efa9136a6c9f42ba6e5bff41be910",
-  "contentPack": "LostValley",
+  "contentPack": "BaseGame",
   "name": "Enchanted_ScimitarOfTheAnfarels"
 }

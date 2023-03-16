@@ -25,6 +25,11 @@
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:ActionAffinityShadowTamerSwiftRetaliation:ee2724b6cb6fa8340b422498336376ec",
       "level": 11
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:SavingThrowAffinityShadowTamerAtHomeInTheDark:1e21ce8d2b7ab16409b4d90bce889544",
+      "level": 15
     }
   ],
   "personalityFlagOccurences": [],

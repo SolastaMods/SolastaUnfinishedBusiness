@@ -7,7 +7,7 @@
   "openingPlacement": true,
   "openingLowPlacement": false,
   "openingHighPlacement": false,
-  "propPlacement": false,
+  "propPlacement": true,
   "lightSources": [],
   "category": "Ornaments",
   "dimensions": {
@@ -40,6 +40,16 @@
       "prefabReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
         "m_AssetGUID": "d3e12d09cfaf6e84ca1c88035e318243",
+        "m_SubObjectName": "",
+        "m_SubObjectType": ""
+      }
+    },
+    {
+      "$type": "BaseBlueprint+PrefabByEnvironmentDescription, Assembly-CSharp",
+      "environment": "DwarfInterior",
+      "prefabReference": {
+        "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
+        "m_AssetGUID": "b74ffc61ef5b4fa4da34a862bf9c7499",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       }

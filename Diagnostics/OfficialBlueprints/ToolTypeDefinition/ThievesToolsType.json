@@ -4,6 +4,7 @@
   "toolCategory": "ThievesToolCategory",
   "mainAbilityScore": "Dexterity",
   "requiredProficiencyOptions": [],
+  "hideWhenNoTool": false,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,

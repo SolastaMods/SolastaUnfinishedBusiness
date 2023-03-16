@@ -225,7 +225,7 @@
     },
     "femaleModelScale": 0.6553079,
     "wieldedItemsScale": 1.0,
-    "hideWieldedItemsWhenPassive": false,
+    "hideWieldedItemsWhenPassive": true,
     "hideDuringCutscene": false,
     "hasLightingCutscene": true,
     "canGeneratePortrait": false,

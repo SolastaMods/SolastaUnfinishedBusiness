@@ -114,7 +114,7 @@
       "$type": "EffectParticleParameters, Assembly-CSharp",
       "casterParticleReference": {
         "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
-        "m_AssetGUID": "",
+        "m_AssetGUID": "a0d09c5799993824a985192a9026fb4f",
         "m_SubObjectName": "",
         "m_SubObjectType": ""
       },
@@ -283,7 +283,7 @@
       "sortingScoreMultiplier": 1.0,
       "dynamicCooldown": false
     },
-    "animationMagicEffect": "Animation0",
+    "animationMagicEffect": "Animation1",
     "lightCounterDispellsEffect": false
   },
   "delegatedToAction": false,
@@ -328,8 +328,8 @@
     "description": "Feature/&PowerMarilithParryDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "a13e50e4e5feb744c9a2aec280c8eb3d",
-      "m_SubObjectName": "SolidColorWhite",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {

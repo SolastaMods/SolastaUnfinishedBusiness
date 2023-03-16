@@ -1,5 +1,6 @@
 {
   "$type": "BiomeDefinition, Assembly-CSharp",
+  "dungeonMakerPresence": true,
   "terrainType": "Desert",
   "encounterTable": "Definition:AridBadlandsEncounter:f8549634a71a0bf4899d0bd5f1787f20",
   "narrativeEventBasicLines": [
@@ -13,11 +14,12 @@
     "Definition:Encounter_Desert_LocationDB:13ffa145096dbad4ea277bd84ee3307c",
     "Definition:EncounterCanyon_LocationDB:53de98c0cd86f2948bccee8ac0d06fd0"
   ],
+  "defaultIngredientLoot": "Definition:RandomTravelIngredient_Badlands_Arid:6eddf3e63a9ee4d428fb00d69c257edc",
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&NoContentTitle",
-    "description": "Feature/&NoContentTitle",
+    "title": "Biome/&Biome_AridBadlands_Title",
+    "description": "Biome/&Biome_DLC3_Badlands_Description",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",

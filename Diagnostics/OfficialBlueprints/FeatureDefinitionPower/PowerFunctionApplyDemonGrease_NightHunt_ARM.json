@@ -378,7 +378,7 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&PowerFunctionApplyGreaseTitle",
+    "title": "Feature/&PowerFunctionApplyGreaseSelfTitle",
     "description": "Feature/&PowerFunctionApplyGreaseArmorDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",

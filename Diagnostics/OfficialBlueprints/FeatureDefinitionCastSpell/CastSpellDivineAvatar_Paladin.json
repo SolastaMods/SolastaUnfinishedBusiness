@@ -8,11 +8,13 @@
   "spellListDefinition": "Definition:SpellListDivine_Avatar_Paladin:dd4de0c5039fa054586d6cd789d836aa",
   "restrictedSchools": [],
   "spellKnowledge": "FixedList",
+  "fixedSpellTag": "",
   "spellReadyness": "AllKnown",
   "spellPreparationCount": "AbilityBonusPlusLevel",
   "slotsRecharge": "LongRest",
   "uniqueLevelSlots": false,
   "spellCastingLevel": 10,
+  "cantripsOnly": false,
   "knownCantrips": [
     3,
     3,

@@ -1,9 +1,10 @@
 {
   "$type": "RecipeDefinition, Assembly-CSharp",
+  "dungeonMakerPresence": true,
   "craftedItem": "Definition:Bolt_Poisoned_BasicPoison:c7138bdb36b24ee43b06f266cd016574",
   "stackCount": 5,
-  "craftingHours": 16,
-  "craftingDC": 12,
+  "craftingHours": 2,
+  "craftingDC": 10,
   "toolTypeDefinition": "Definition:PoisonersKitType:2dd58398fc1262f45942184f61a81dd9",
   "ingredients": [
     {

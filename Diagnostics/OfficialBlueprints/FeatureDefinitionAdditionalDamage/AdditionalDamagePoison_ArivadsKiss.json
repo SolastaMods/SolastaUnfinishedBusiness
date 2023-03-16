@@ -30,9 +30,9 @@
   "hasSavingThrow": true,
   "savingThrowAbility": "Constitution",
   "dcComputation": "FixedValue",
-  "savingThrowDC": 12,
+  "savingThrowDC": 13,
   "savingThrowDCAbilityModifier": "Dexterity",
-  "damageSaveAffinity": "Negates",
+  "damageSaveAffinity": "HalfDamage",
   "conditionOperations": [],
   "addLightSource": false,
   "lightSourceForm": {

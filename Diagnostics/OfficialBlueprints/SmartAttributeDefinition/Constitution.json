@@ -3,6 +3,7 @@
   "modifiedAttributes": [
     "HitPointBonusPerLevel"
   ],
+  "autoRefresh": true,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,

@@ -19,7 +19,7 @@
   "defaultStackCount": -1,
   "costs": [
     0,
-    800,
+    2000,
     0,
     0,
     0
@@ -41,6 +41,14 @@
       "appliesOnItemOnly": false,
       "type": "Feature",
       "featureDefinition": "Definition:DamageAffinityColdResistance:277b59ebffdc36946879acc4e946affd",
+      "conditionDefinition": null,
+      "knowledgeAffinity": "InactiveAndHidden"
+    },
+    {
+      "$type": "ItemPropertyDescription, Assembly-CSharp",
+      "appliesOnItemOnly": false,
+      "type": "Feature",
+      "featureDefinition": "Definition:ConditionAffinityWeatherChilledImmunity:bc4e3a662c267ae498bb1f3c1d754980",
       "conditionDefinition": null,
       "knowledgeAffinity": "InactiveAndHidden"
     }
@@ -186,6 +194,7 @@
     "femaleArmorAddressableName": "",
     "useCustomArmorMaterial": false,
     "customArmorMaterial": "",
+    "ignoreCustomArmorMaterialOnCommonClothes": false,
     "hasCrownVariationMask": false,
     "crownVariationMask": 0,
     "sameBehavioursForMaleAndFemale": true,
@@ -194,8 +203,7 @@
     "itemFlags": [],
     "serializedVersion": 1
   },
-  "clue": null,
-  "clueSuspect": null,
+  "clueSuspectPairs": [],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,

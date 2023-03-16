@@ -1,7 +1,7 @@
 {
   "$type": "ConditionDefinition, Assembly-CSharp",
   "inDungeonEditor": false,
-  "parentCondition": "Definition:ConditionChilled:fff1fdd70a2b7464ca19605fb9b19694",
+  "parentCondition": null,
   "conditionType": "Detrimental",
   "features": [
     "Definition:MovementAffinityConditionFrozen:f381404a8ef2d9146b091942468d1710",
@@ -11,6 +11,7 @@
   "allowMultipleInstances": false,
   "silentWhenAdded": false,
   "silentWhenRemoved": false,
+  "silentWhenRefreshed": true,
   "terminateWhenRemoved": false,
   "specialDuration": false,
   "durationType": "Hour",
@@ -265,12 +266,12 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Rules/&ChilledBaby",
-    "description": "Rules/&ConditionBlindedDescription",
+    "title": "Rules/&ConditionFrozenTitle",
+    "description": "Rules/&ConditionFrozenDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "ea67a592abc14f94bb33fe9919d2652d",
-      "m_SubObjectName": "ConditionBlinded",
+      "m_AssetGUID": "7c2a423570022644c9ebcd59b3a29ffc",
+      "m_SubObjectName": "ConditionFrozen",
       "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
     },
     "color": {

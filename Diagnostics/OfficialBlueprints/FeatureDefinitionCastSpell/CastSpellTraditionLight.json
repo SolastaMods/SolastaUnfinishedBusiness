@@ -8,11 +8,13 @@
   "spellListDefinition": "Definition:SpellListMonkTraditionLight:42728d375aa32254d88dda6898bc7462",
   "restrictedSchools": [],
   "spellKnowledge": "FixedList",
+  "fixedSpellTag": "",
   "spellReadyness": "AllKnown",
   "spellPreparationCount": "AbilityBonusPlusLevel",
   "slotsRecharge": "AtWill",
   "uniqueLevelSlots": false,
   "spellCastingLevel": -1,
+  "cantripsOnly": false,
   "knownCantrips": [
     0,
     0,

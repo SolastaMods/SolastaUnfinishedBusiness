@@ -1,9 +1,10 @@
 {
   "$type": "RecipeDefinition, Assembly-CSharp",
+  "dungeonMakerPresence": true,
   "craftedItem": "Definition:Bolt_Poisoned_ArunsLight:bd6e2bbbd17bec94691f5b512e5ef702",
   "stackCount": 5,
-  "craftingHours": 24,
-  "craftingDC": 15,
+  "craftingHours": 3,
+  "craftingDC": 14,
   "toolTypeDefinition": "Definition:PoisonersKitType:2dd58398fc1262f45942184f61a81dd9",
   "ingredients": [
     {

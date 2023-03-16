@@ -19,7 +19,7 @@
   "defaultStackCount": -1,
   "costs": [
     0,
-    2600,
+    4050,
     0,
     0,
     0
@@ -33,7 +33,7 @@
   "requiresAttunement": false,
   "requiresIdentification": true,
   "requiredAttunementClasses": [],
-  "itemRarity": "VeryRare",
+  "itemRarity": "Rare",
   "incompatibleWithMonkReturnMissile": false,
   "staticProperties": [
     {
@@ -478,7 +478,7 @@
   "itemPresentation": {
     "$type": "ItemPresentation, Assembly-CSharp",
     "unidentifiedTitle": "Equipment/&MagnificientHeavyCrossbow_Title",
-    "unidentifiedDescription": "Equipment/&MagnificientCrossbowGenericPresentation",
+    "unidentifiedDescription": "Equipment/&MagnificientHeavyCrossbow_Description",
     "overrideSubtype": "None",
     "assetReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReference, Unity.Addressables",
@@ -494,6 +494,7 @@
     "femaleArmorAddressableName": "",
     "useCustomArmorMaterial": false,
     "customArmorMaterial": "",
+    "ignoreCustomArmorMaterialOnCommonClothes": false,
     "hasCrownVariationMask": false,
     "crownVariationMask": 0,
     "sameBehavioursForMaleAndFemale": true,
@@ -502,8 +503,7 @@
     "itemFlags": [],
     "serializedVersion": 1
   },
-  "clue": null,
-  "clueSuspect": null,
+  "clueSuspectPairs": [],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,

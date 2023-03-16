@@ -1693,7 +1693,7 @@
     {
       "$type": "StockUnitDescription, Assembly-CSharp",
       "initialized": true,
-      "itemDefinition": "Definition:CraftingManual_Enchant_Dagger_EldritchWounds:081970c911c936445bee945da1b2579e",
+      "itemDefinition": "Definition:CraftingManual_Enchant_Dagger_Souldrinker:13a5b88ec3e9ef94d9f23464f7a3493f",
       "stackCount": 1,
       "initialAmount": 1,
       "minAmount": 0,
