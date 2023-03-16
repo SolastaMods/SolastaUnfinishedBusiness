@@ -21,7 +21,7 @@
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
     "title": "Elemental Master [Cold]",
-    "description": "Cold damage type spells you cast ignore target's resistance to damage. In addition, when you roll attack for these spells, you can reroll any 1s.",
+    "description": "Cold damage type spells you cast ignore target's immunity to damage. In addition, when you roll attack for these spells, you can reroll any 1s.",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
