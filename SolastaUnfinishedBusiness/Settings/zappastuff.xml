@@ -148,6 +148,8 @@
     <string>RaceGrayDwarf</string>
     <string>RaceHalfElfVariant</string>
     <string>RaceKobold</string>
+    <string>RaceGnome</string>
+    <string>RaceTiefling</string>
   </RaceEnabled>
   <BackgroundSliderPosition>4</BackgroundSliderPosition>
   <BackgroundEnabled />
@@ -332,6 +334,8 @@
     <string>FeatElementalMasterDamageFire</string>
     <string>FeatElementalMasterDamageLightning</string>
     <string>FeatElementalMasterDamageThunder</string>
+    <string>FeatHardyCon</string>
+    <string>FeatHardyStr</string>
   </FeatEnabled>
   <FeatGroupSliderPosition>4</FeatGroupSliderPosition>
   <FeatGroupEnabled>
@@ -382,6 +386,7 @@
     <string>FeatGroupDefenseExpert</string>
     <string>FeatGroupPrimalRage</string>
     <string>FeatGroupElementalMaster</string>
+    <string>FeatGroupHardy</string>
   </FeatGroupEnabled>
   <FightingStyleSliderPosition>4</FightingStyleSliderPosition>
   <FightingStyleEnabled>
@@ -423,6 +428,9 @@
     <string>InvocationTrickstersEscape</string>
     <string>InvocationUltimatePactWeapon</string>
     <string>InvocationUndyingServitude</string>
+    <string>InvocationBreathOfTheNight</string>
+    <string>InvocationCallOfTheBeast</string>
+    <string>InvocationTenaciousPlague</string>
   </InvocationEnabled>
   <MetamagicSliderPosition>4</MetamagicSliderPosition>
   <MetamagicEnabled>

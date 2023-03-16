@@ -2,13 +2,12 @@
 
 1.4.33.60:
 
-- added feats, invocations and spell sprites
+- added feats, invocations & spell sprites
 - fixed Hand Crossbow interaction with TWF
-- fixed Heavy Armor Master without armor
-- fixed Skin of Retribution metamagic interaction 
-- fixed Way of Distant Hand's flurry of blows
-- improved Polearm Master weapon validators
-- improved Ranged Expert feat description
+- fixed Heavy Armor Master trigger logic
+- fixed Polearm Master weapon validators
+- fixed Skin of Retribution interactions
+- fixed Distant Hand's flurry of blows
 
 1.4.33.59:
 
