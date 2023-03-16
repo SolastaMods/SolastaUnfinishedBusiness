@@ -16,8 +16,7 @@ internal static class ValidatorsFeat
     //
 
     internal static readonly Func<FeatDefinition, RulesetCharacterHero, (bool result, string output)>
-        IsBarbarianLevel4 =
-            ValidateIsClass(Barbarian.FormatTitle(), 4, Barbarian);
+        IsBarbarianLevel4 = ValidateIsClass(Barbarian.FormatTitle(), 4, Barbarian);
 
     internal static readonly Func<FeatDefinition, RulesetCharacterHero, (bool result, string output)> IsBardLevel4 =
         ValidateIsClass(Bard.FormatTitle(), 4, Bard);
@@ -27,6 +26,9 @@ internal static class ValidatorsFeat
 
     internal static readonly Func<FeatDefinition, RulesetCharacterHero, (bool result, string output)> IsDruidLevel4 =
         ValidateIsClass(Druid.FormatTitle(), 4, Druid);
+
+    internal static readonly Func<FeatDefinition, RulesetCharacterHero, (bool result, string output)>
+        IsFighterLevel4 = ValidateIsClass(Fighter.FormatTitle(), 4, Fighter);
 
     internal static readonly Func<FeatDefinition, RulesetCharacterHero, (bool result, string output)> IsInventorLevel4 =
         ValidateIsClass(InventorClass.Class.FormatTitle(), 4, InventorClass.Class);

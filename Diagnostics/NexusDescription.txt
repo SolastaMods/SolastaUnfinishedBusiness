@@ -179,7 +179,7 @@ When you make an unarmed strike on your turn, your reach for it is 10 ft. Other 
 [*][b]Blessed Soul [Paladin][/b]: Your use of divine magic has left a spiritual mark on your soul, allowing you to express your faith more frequently. Increase your Charisma score by 1, to a maximum of 20. You gain one additional Channel Divinity usage between rests.
 [*][b]Blind Fighting[/b]: You have blind sight with a range of 10 ft. Within that range, you can effectively see anything that isn't behind total cover, even if you're blinded or in darkness. Moreover, you can see an invisible creature within that range, unless the creature successfully hides from you.
 [*][b]Bow Mastery[/b]: Your expert training with bows grants you these benefits:
-• You gain a +1 bonus to damage rolls you make with shortbow and longbow:
+• You gain a +1 bonus to damage rolls you make with shortbow and longbow.
 • When you use the Attack action with a shortbow on your turn, you can make one ranged weapon attack as a bonus action, adding your attribute modifier to damage.
 • You can use Strength instead of Dexterity on attack and damage rolls you make with longbow.
 [*][b]Call for Charge[/b]: You may use your bonus action to call for a charge. When you do, until the start of your next turn, you and your allies speed increase by 15 ft, and each one have advantage on their first attack roll. You can use this power a number of times per long rest equal to your Charisma modifier.
@@ -215,11 +215,11 @@ You can use a bonus action to select a weapon. Its attacks count as magical and 
 [*][b]Elemental Adept [Fire][/b]: Fire damage type spells you cast ignore target's resistance to damage. In addition, when you roll damage for these spells, you can reroll any 1s.
 [*][b]Elemental Adept [Lightning][/b]: Lightning damage type spells you cast ignore target's resistance to damage. In addition, when you roll damage for these spells, you can reroll any 1s.
 [*][b]Elemental Adept [Thunder][/b]: Thunder damage type spells you cast ignore target's resistance to damage. In addition, when you roll damage for these spells, you can reroll any 1s.
-[*][b]Elemental Master [Acid][/b]: Acid damage type spells you cast ignore target's resistance to damage. In addition, when you roll attack for these spells, you can reroll any 1s.
-[*][b]Elemental Master [Cold][/b]: Cold damage type spells you cast ignore target's resistance to damage. In addition, when you roll attack for these spells, you can reroll any 1s.
-[*][b]Elemental Master [Fire][/b]: Fire damage type spells you cast ignore target's resistance to damage. In addition, when you roll attack for these spells, you can reroll any 1s.
-[*][b]Elemental Master [Lightning][/b]: Lightning damage type spells you cast ignore target's resistance to damage. In addition, when you roll attack for these spells, you can reroll any 1s.
-[*][b]Elemental Master [Thunder][/b]: Thunder damage type spells you cast ignore target's resistance to damage. In addition, when you roll attack for these spells, you can reroll any 1s.
+[*][b]Elemental Master [Acid][/b]: Acid damage type spells you cast ignore target's immunity to damage. In addition, when you roll attack for these spells, you can reroll any 1s.
+[*][b]Elemental Master [Cold][/b]: Cold damage type spells you cast ignore target's immunity to damage. In addition, when you roll attack for these spells, you can reroll any 1s.
+[*][b]Elemental Master [Fire][/b]: Fire damage type spells you cast ignore target's immunity to damage. In addition, when you roll attack for these spells, you can reroll any 1s.
+[*][b]Elemental Master [Lightning][/b]: Lightning damage type spells you cast ignore target's immunity to damage. In addition, when you roll attack for these spells, you can reroll any 1s.
+[*][b]Elemental Master [Thunder][/b]: Thunder damage type spells you cast ignore target's immunity to damage. In addition, when you roll attack for these spells, you can reroll any 1s.
 [*][b]Elven Precision [Cha][/b]: You have uncanny aim with attacks that rely on precision rather than brute force. Increase your Charisma by 1, to a maximum of 20. Whenever you have advantage on an attack roll using Dexterity, Intelligence, Wisdom, or Charisma, you can reroll one of the dice once.
 [*][b]Elven Precision [Dex][/b]: You have uncanny aim with attacks that rely on precision rather than brute force. Increase your Dexterity by 1, to a maximum of 20. Whenever you have advantage on an attack roll using Dexterity, Intelligence, Wisdom, or Charisma, you can reroll one of the dice once.
 [*][b]Elven Precision [Int][/b]: You have uncanny aim with attacks that rely on precision rather than brute force. Increase your Intelligence by 1, to a maximum of 20. Whenever you have advantage on an attack roll using Dexterity, Intelligence, Wisdom, or Charisma, you can reroll one of the dice once.
@@ -248,6 +248,8 @@ You gain the ability to cast the burning hands, hellish rebuke and scorching ray
 You gain the ability to cast the burning hands, hellish rebuke and scorching ray spells once per long rest and you can cast these spells with your spell slots.
 [*][b]Great Weapon Fighting[/b]: When you roll a 1 or 2 on a damage die for an attack you make with a melee weapon that you are wielding with two hands, you can reroll the die. You must use the new roll, even if it is a 1 or a 2. The weapon must have the two-handed or versatile property for you to gain this benefit.
 [*][b]Hand-and-a-Half[/b]: You gain +1 to hit and +1 to damage rolls when you use a versatile weapon in two hands.
+[*][b]Hardy[/b]: Increase your Strength score by 1, to a maximum of 20. Whenever you use your second wind feature, you gain 1D10 + your character level temporary hit points.
+[*][b]Hardy[/b]: Increase your Constitution score by 1, to a maximum of 20. Whenever you use your second wind feature, you gain 1D10 + your character level temporary hit points.
 [*][b]Healer[/b]: You gain proficiency or expertise in Medicine checks. You gain the ability to stabilize a dying creature as well as to revive a creature that died within the last 12 seconds once per long rest. You can use an action to restore 1d6 + 4 + character level hit points a number of times per short rest equal to your Wisdom modifier.
 [*][b]Heavy Armor Master[/b]: You can use your armor to deflect strikes that would kill others. Increase your Strength score by 1, to a maximum of 20. While you are wearing heavy armor, bludgeoning, piercing, and slashing damage that you take from attacks is reduced by 3.
 [*][b]Improved Critical[/b]: Your weapon attacks score a critical hit on a roll of 19 or 20.

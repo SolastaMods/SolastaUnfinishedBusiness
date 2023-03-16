@@ -8,15 +8,15 @@
   "minimalAbilityScoreName": "Strength",
   "armorProficiencyPrerequisite": false,
   "armorProficiencyCategory": "",
-  "hasFamilyTag": false,
-  "familyTag": "",
+  "hasFamilyTag": true,
+  "familyTag": "FeatHardy",
   "knownFeatsPrerequisite": [],
   "features": [],
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
-    "title": "Feat/&FeatGroupClassBoundTitle",
-    "description": "Awaken The Beast, Blessed Soul, Call for Charge, Cunning Escape, Hardy, Natural Fluidity, Potent Spellcaster, Primal Rage, Spiritual Fluidity",
+    "title": "Feat/&FeatGroupHardyTitle",
+    "description": "Increase your Strength or Constitution score by 1, to a maximum of 20. Whenever you use your second wind feature, you gain 1D10 + your character level temporary hit points.",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -36,7 +36,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "c98daa86-03c4-5550-86f8-80178d6ec6f5",
+  "guid": "43734d1c-ff07-5ffc-8895-7c9b356cb46d",
   "contentPack": 9999,
-  "name": "FeatGroupClassBound"
+  "name": "FeatGroupHardy"
 }

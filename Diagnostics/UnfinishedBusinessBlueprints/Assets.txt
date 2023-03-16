@@ -691,6 +691,7 @@ FeatGroupEnchanter	FeatDefinition	FeatDefinition	f3ff3f2a-49fe-5333-8c0b-84eb3ad
 FeatGroupFadeAway	SolastaUnfinishedBusiness.CustomDefinitions.FeatDefinitionWithPrerequisites	FeatDefinition	b6aa78a6-05c3-593b-ae5f-e177740a73c2
 FeatGroupFightingStyle	FeatDefinition	FeatDefinition	a9395b1c-83fc-5649-9eb2-508ed6e87571
 FeatGroupFlameTouched	FeatDefinition	FeatDefinition	d56829e9-dad7-5512-a8e3-7a221bcc5774
+FeatGroupHardy	FeatDefinition	FeatDefinition	43734d1c-ff07-5ffc-8895-7c9b356cb46d
 FeatGroupMagicInitiate	FeatDefinition	FeatDefinition	c9eb9385-67a0-5edb-8e5f-f87b91ab96c1
 FeatGroupMediumArmor	FeatDefinition	FeatDefinition	787303d6-ad88-510c-a74d-15bd56d1ad02
 FeatGroupMeleeCombat	FeatDefinition	FeatDefinition	76afeff2-9e1c-50bc-91b5-fdcd072eeb7e
@@ -717,6 +718,8 @@ FeatGroupTwoHandedCombat	FeatDefinition	FeatDefinition	00b1dcb6-8c27-5c86-aa90-c
 FeatGroupTwoWeaponCombat	FeatDefinition	FeatDefinition	62597d02-7727-525e-ac88-4d150234369c
 FeatGroupUnarmoredCombat	FeatDefinition	FeatDefinition	af80122b-d06d-5b88-99db-09e33e54fe63
 FeatHandAndAHalf	SolastaUnfinishedBusiness.CustomDefinitions.FeatDefinitionWithPrerequisites	FeatDefinition	494a65aa-32fa-5e8a-b1f1-4f3b351b291f
+FeatHardyCon	SolastaUnfinishedBusiness.CustomDefinitions.FeatDefinitionWithPrerequisites	FeatDefinition	5071951b-daaf-5905-853e-7c14dde363f4
+FeatHardyStr	SolastaUnfinishedBusiness.CustomDefinitions.FeatDefinitionWithPrerequisites	FeatDefinition	6c01cae2-1420-5459-a5ee-a697bd0ef7a7
 FeatHealer	FeatDefinition	FeatDefinition	ee119cd3-9155-52da-997e-df56f6261fd0
 FeatHeavyArmorMaster	FeatDefinition	FeatDefinition	11579677-d4cf-5d95-bcb5-d706ab05d47a
 FeatImprovedCritical	SolastaUnfinishedBusiness.CustomDefinitions.FeatDefinitionWithPrerequisites	FeatDefinition	597848f3-18fb-5372-a54b-994c4bc9b65f
@@ -1160,6 +1163,7 @@ FeatureDruidBeastSpells	FeatureDefinition	FeatureDefinition	a5f5e743-c777-5fb0-a
 FeatureFeatCleavingAttack	FeatureDefinition	FeatureDefinition	16a5ffc5-3e26-5c4a-afb0-a3212426c5fa
 FeatureFeatCrusher	FeatureDefinitionAdditionalDamage	FeatureDefinition	64e6fea6-765a-5c24-ad0d-83be18d62d96
 FeatureFeatCrusherCriticalHit	FeatureDefinitionAdditionalDamage	FeatureDefinition	fd7dbcf1-90b9-57d6-9c36-2e0bc17c86a3
+FeatureFeatHardy	FeatureDefinition	FeatureDefinition	b4f8d7ee-079f-57dd-b420-f0980b030849
 FeatureFeatPiercer	FeatureDefinition	FeatureDefinition	338a8e7d-d1be-5434-b3b1-8d23c2346a90
 FeatureFeatRangedExpert	FeatureDefinition	FeatureDefinition	bd17c938-af36-59bc-9a57-26f65e6a9297
 FeatureFeatSlasher	FeatureDefinition	FeatureDefinition	de775d90-7155-534a-b21f-d8c00d22ae87

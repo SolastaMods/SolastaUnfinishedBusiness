@@ -1,7 +1,7 @@
 - added feats, invocations and spell sprites
-- fixed Heavy Armor Master damage reduction
 - fixed Hand Crossbow interaction with TWF
-- fixed Skin of Retribution interaction with metamagic
+- fixed Heavy Armor Master without armor
+- fixed Skin of Retribution metamagic interaction 
 - fixed Way of Distant Hand's flurry of blows
 - improved Polearm Master weapon validators
 - improved Ranged Expert feat description
