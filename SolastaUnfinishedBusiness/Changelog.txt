@@ -1,6 +1,6 @@
-- added feats, invocations & spell sprites
-- fixed Hand Crossbow interaction with TWF
-- fixed Heavy Armor Master trigger logic
+- added feats, invocations and spell sprites
+- fixed Hand Crossbow and Two Weapon Fighting
+- fixed Heavy Armor Master triggering logic
 - fixed Polearm Master weapon validators
-- fixed Skin of Retribution interactions
-- fixed Distant Hand's flurry of blows
+- fixed Skin of Retribution and Shared Spell
+- fixed Distant Hand's flurry of blows in melee

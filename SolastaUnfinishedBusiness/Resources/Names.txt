@@ -540,6 +540,11 @@ RaceKobold	Female	Clikka
 RaceKobold	Female	Cyiy
 RaceKobold	Female	Dhel
 RaceKobold	Female	Erel
+RaceKobold	Female	Khniksil
+RaceKobold	Female	Khriy
+RaceKobold	Female	Nilpa
+RaceKobold	Female	Rabla
+RaceKobold	Female	Ress
 RaceKobold	Female	Snin
 RaceKobold	Female	Szaggni
 RaceKobold	Female	Van
@@ -549,6 +554,11 @@ RaceKobold	Male	Chimcang
 RaceKobold	Male	Clubberk
 RaceKobold	Male	Gedre
 RaceKobold	Male	Geikud
+RaceKobold	Male	Hehlo
+RaceKobold	Male	Hido
+RaceKobold	Male	Ked
+RaceKobold	Male	Kerc
+RaceKobold	Male	Knork
 RaceKobold	Male	Krikverg
 RaceKobold	Male	Krox
 RaceKobold	Male	Rid
@@ -565,6 +575,11 @@ RaceKobold	Sur	Hazegaze
 RaceKobold	Sur	Hornbow
 RaceKobold	Sur	Pinegrip
 RaceKobold	Sur	Shattermaul
+RaceKobold	Sur	Knork
+RaceKobold	Sur	Hazegaze
+RaceKobold	Sur	Chimcang
+RaceKobold	Sur	Krox
+RaceKobold	Sur	Vred
 RaceTiefling	Female	Akta
 RaceTiefling	Female	Anakis
 RaceTiefling	Female	Bryseis
