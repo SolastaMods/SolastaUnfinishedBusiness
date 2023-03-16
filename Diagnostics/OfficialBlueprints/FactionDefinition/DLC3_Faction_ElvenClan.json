@@ -1,0 +1,47 @@
+{
+  "$type": "FactionDefinition, Assembly-CSharp",
+  "builtIn": false,
+  "minRelationCap": -100,
+  "maxRelationCap": 100,
+  "stealingPenalty": 10,
+  "attackingPenalty": 0,
+  "killingPenalty": 5,
+  "prominentMembers": [
+    "Definition:DLC3_ElvenClans_Estorgath:3dcecb34b67cc0640b56f7e16aa8eacf"
+  ],
+  "smallSpriteReference": {
+    "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+    "m_AssetGUID": "c4e46fb12ad811048a6b2615c579d8e3",
+    "m_SubObjectName": "DLC3_Faction_Flag_ElvenClans",
+    "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+  },
+  "failsQuestOnLowRelation": false,
+  "questFailThreshold": -70,
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Faction/&DLC3_ElvenClan_Title",
+    "description": "Faction/&DLC3_ElvenClan_Description",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "c4e46fb12ad811048a6b2615c579d8e3",
+      "m_SubObjectName": "DLC3_Faction_Flag_ElvenClans",
+      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "TacticalAdventuresContent",
+  "guid": "09c52c7c4de20c941a9aca5dc2f5689f",
+  "contentPack": "PalaceOfIce",
+  "name": "DLC3_Faction_ElvenClan"
+}

@@ -1,0 +1,98 @@
+{
+  "$type": "SpellListDefinition, Assembly-CSharp",
+  "hasCantrips": true,
+  "maxSpellLevel": 6,
+  "spellsByLevel": [
+    {
+      "$type": "SpellListDefinition+SpellsByLevelDuplet, Assembly-CSharp",
+      "level": 0,
+      "spells": [
+        "Definition:RayOfFrost:637a3697f05a4614e8200abfa5daaaff",
+        "Definition:Shillelagh:2143d3cd84db2c540b80fe022d0adf1d",
+        "Definition:Resistance:384dce9da39ad4e4b82106fa7829c17c"
+      ]
+    },
+    {
+      "$type": "SpellListDefinition+SpellsByLevelDuplet, Assembly-CSharp",
+      "level": 1,
+      "spells": [
+        "Definition:Entangle:0224dcb79ea69f34eb9a51546fc78d0d",
+        "Definition:FogCloud:c0914cf3ec2124242b9f64d267e94c17",
+        "Definition:Thunderwave:6c670662de0366842bca44119e9104da"
+      ]
+    },
+    {
+      "$type": "SpellListDefinition+SpellsByLevelDuplet, Assembly-CSharp",
+      "level": 2,
+      "spells": [
+        "Definition:HoldPerson:cbc582b44f08e7f4b8ea69077471bc64",
+        "Definition:Barkskin:fcb74f4deaec07b40814328a9d5aa5f6",
+        "Definition:Silence:2bdf5914091beca4ab1da6383af0feac"
+      ]
+    },
+    {
+      "$type": "SpellListDefinition+SpellsByLevelDuplet, Assembly-CSharp",
+      "level": 3,
+      "spells": [
+        "Definition:ConjureAnimals:f0e0d1125df2d554eb10d3dde3a2050d",
+        "Definition:SleetStorm:180d1c76c4d7ace4bae4ab9ad6b21b82",
+        "Definition:WindWall:c76d03525ff3cff4b81e13884aa155f9"
+      ]
+    },
+    {
+      "$type": "SpellListDefinition+SpellsByLevelDuplet, Assembly-CSharp",
+      "level": 4,
+      "spells": [
+        "Definition:DominateBeast:c3d07b9ef913f2d4ab8682c01ce7a3e1",
+        "Definition:FireShieldCold:806fcfbdce4846e46b74920a4e07e0c7",
+        "Definition:IceStorm:433fb934e19f1b5409b89bfa7fed3e3d"
+      ]
+    },
+    {
+      "$type": "SpellListDefinition+SpellsByLevelDuplet, Assembly-CSharp",
+      "level": 5,
+      "spells": [
+        "Definition:ConeOfCold:4014172b09c7b0347911d81077d7ba0c",
+        "Definition:ConjureElemental:7b1c584f8e18f6a4194eba7bc80d3643",
+        "Definition:ConjureElemental:7b1c584f8e18f6a4194eba7bc80d3643"
+      ]
+    },
+    {
+      "$type": "SpellListDefinition+SpellsByLevelDuplet, Assembly-CSharp",
+      "level": 6,
+      "spells": [
+        "Definition:WallOfThorns:1ce3e76ff87b4d84ab97b8d2b8357c75",
+        "Definition:Heal:daa623d899a2bed43963b3bf60f731eb"
+      ]
+    }
+  ],
+  "compositeSpellList": false,
+  "sourceSpellLists": [],
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "SpellList/&SpellListDruidTitle",
+    "description": "Feature/&NoContentTitle",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "3d40c5b9bf01dd84d92dd96dc41a009f",
+  "contentPack": "BaseGame",
+  "name": "SpellList_DLC3_MountainDruid"
+}

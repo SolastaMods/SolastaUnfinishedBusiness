@@ -1,0 +1,65 @@
+{
+  "$type": "EncounterDefinition, Assembly-CSharp",
+  "dungeonMakerPresence": true,
+  "type": "Battle",
+  "challengeRating": 16,
+  "locationOverride": null,
+  "locationBlacklist": [
+    "Definition:DLC3_Encounter_Bridge_LocationDB:f47b81abfe1f999419aa2529f700dc6a",
+    "Definition:DLC3_Encounter_Canyon_LocationDB:56f8620f7dfe96b46aeb0b307a0eb2a5",
+    "Definition:DLC3_Encounter_Desert_LocationDB:91899f0bcb29cdd44bd61e73d596cf12",
+    "Definition:DLC3_Encounter_OldElf_LocationDB:556c29ac135510c48b6887013a7f8321",
+    "Definition:DLC3_Encounter_Cemetery_LocationDB:0809e5c0d751d21489c47f6c99e0f6f6"
+  ],
+  "monsterOccurences": [
+    {
+      "$type": "MonsterOccurenceDescription, Assembly-CSharp",
+      "monsterDefinition": "Definition:DLC3_PeaksAbomination_MonsterDefinition:cdb5cb01b68339248b155d1392c7173d",
+      "number": 2,
+      "encounterPlacementDecision": "Definition:EncounterSpawn_Skirmisher:0d019499ee5d57b4b88dd9a23f926141",
+      "creatureSex": "Random",
+      "presentationDefinitionIndex": 0,
+      "randomHumanoidPresentation": true,
+      "overrideFaction": false,
+      "factionName": ""
+    },
+    {
+      "$type": "MonsterOccurenceDescription, Assembly-CSharp",
+      "monsterDefinition": "Definition:DLC3_PeaksTerror_MonsterDefinition:0d3bb4c33a103b14f81adc38a370b105",
+      "number": 3,
+      "encounterPlacementDecision": "Definition:EncounterSpawn_PackMedium:e31ffe17fd246524babea266f9755888",
+      "creatureSex": "Random",
+      "presentationDefinitionIndex": 0,
+      "randomHumanoidPresentation": true,
+      "overrideFaction": false,
+      "factionName": ""
+    }
+  ],
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Encounter/&DLC3_CR16_PeaksTerrors_PeaksAbominations_Title",
+    "description": "Encounter/&DLC3_PolarPredators_Description",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": "",
+      "m_SubObjectType": ""
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "OpenGameContent",
+  "guid": "0ea6380968f979340af557a2c59dd6f5",
+  "contentPack": "PalaceOfIce",
+  "name": "CR16_DLC3_Peaks"
+}
