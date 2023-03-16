@@ -248,8 +248,8 @@ You gain the ability to cast the burning hands, hellish rebuke and scorching ray
 You gain the ability to cast the burning hands, hellish rebuke and scorching ray spells once per long rest and you can cast these spells with your spell slots.
 [*][b]Great Weapon Fighting[/b]: When you roll a 1 or 2 on a damage die for an attack you make with a melee weapon that you are wielding with two hands, you can reroll the die. You must use the new roll, even if it is a 1 or a 2. The weapon must have the two-handed or versatile property for you to gain this benefit.
 [*][b]Hand-and-a-Half[/b]: You gain +1 to hit and +1 to damage rolls when you use a versatile weapon in two hands.
-[*][b]Hardy[/b]: Increase your Strength score by 1, to a maximum of 20. Whenever you use your second wind feature, you gain 1D10 + your character level temporary hit points.
-[*][b]Hardy[/b]: Increase your Constitution score by 1, to a maximum of 20. Whenever you use your second wind feature, you gain 1D10 + your character level temporary hit points.
+[*][b]Hardy [Con][/b]: Increase your Constitution score by 1, to a maximum of 20. Whenever you use your second wind feature, you gain 1D10 + your character level temporary hit points.
+[*][b]Hardy [Str][/b]: Increase your Strength score by 1, to a maximum of 20. Whenever you use your second wind feature, you gain 1D10 + your character level temporary hit points.
 [*][b]Healer[/b]: You gain proficiency or expertise in Medicine checks. You gain the ability to stabilize a dying creature as well as to revive a creature that died within the last 12 seconds once per long rest. You can use an action to restore 1d6 + 4 + character level hit points a number of times per short rest equal to your Wisdom modifier.
 [*][b]Heavy Armor Master[/b]: You can use your armor to deflect strikes that would kill others. Increase your Strength score by 1, to a maximum of 20. While you are wearing heavy armor, bludgeoning, piercing, and slashing damage that you take from attacks is reduced by 3.
 [*][b]Improved Critical[/b]: Your weapon attacks score a critical hit on a roll of 19 or 20.
