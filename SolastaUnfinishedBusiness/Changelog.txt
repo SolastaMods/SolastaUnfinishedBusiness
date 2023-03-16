@@ -3,4 +3,5 @@
 - fixed Heavy Armor Master triggering logic
 - fixed Polearm Master weapon validators
 - fixed Skin of Retribution and Shared Spell
+- fixed Spear Mastery to allow benefits on offhand
 - fixed Distant Hand's flurry of blows in melee
