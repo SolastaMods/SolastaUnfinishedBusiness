@@ -3,16 +3,6 @@
   "featureUnlocks": [
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:PowerPathOfTheReaverBloodbath:230396a2-ea8f-53bb-8bfa-337eaa74bcb5",
-      "level": 3
-    },
-    {
-      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:PowerPathOfTheReaverCorruptedBlood:10ee7dc0-05df-548c-9ae0-d53b76b62980",
-      "level": 3
-    },
-    {
-      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:AdditionalDamagePathOfTheReaverVoraciousFury:fec25391-08b5-5663-a4b3-9311e079b5ae",
       "level": 3
     },

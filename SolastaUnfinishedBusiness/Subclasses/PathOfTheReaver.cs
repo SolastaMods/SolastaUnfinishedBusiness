@@ -1,6 +1,6 @@
 ﻿using System.Collections;
+using System.Collections.Generic;
 using System.Linq;
-using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Builders;
@@ -102,7 +102,7 @@ internal sealed class PathOfTheReaver : AbstractSubclass
         Subclass = CharacterSubclassDefinitionBuilder
             .Create(Name)
             .SetGuiPresentation(Category.Subclass, Sprites.GetSprite(Name, Resources.PathOfTheReaver, 256))
-            .AddFeaturesAtLevel(3, additionalDamageVoraciousFury, powerBloodbath, powerCorruptedBlood)
+            .AddFeaturesAtLevel(3, additionalDamageVoraciousFury)
             .AddFeaturesAtLevel(6, featureSetProfaneVitality)
             .AddFeaturesAtLevel(10, powerBloodbath)
             .AddFeaturesAtLevel(14, powerCorruptedBlood)
@@ -151,14 +151,30 @@ internal sealed class PathOfTheReaver : AbstractSubclass
                 return;
             }
 
+            var rulesetAttacker = attacker.RulesetCharacter;
             var rulesetDefender = defender.RulesetCharacter;
             var constitution = rulesetDefender.TryGetAttributeValue(AttributeDefinitions.Constitution);
             var totalDamage = AttributeDefinitions.ComputeAbilityScoreModifier(constitution);
+            var damageForm = new DamageForm
+            {
+                DamageType = DamageTypeNecrotic, DieType = DieType.D1, DiceNumber = 0, BonusDamage = totalDamage
+            };
 
             GameConsoleHelper.LogCharacterUsedPower(rulesetDefender, _featureDefinitionPower);
 
-            attacker.RulesetCharacter.SustainDamage(
-                totalDamage, DamageTypeNecrotic, false, defender.Guid, null, out _);
+            RulesetActor.InflictDamage(
+                totalDamage,
+                damageForm,
+                DamageTypeNecrotic,
+                new RulesetImplementationDefinitions.ApplyFormsParams { targetCharacter = rulesetAttacker },
+                rulesetAttacker,
+                false,
+                attacker.Guid,
+                false,
+                attackMode.AttackTags,
+                new RollInfo(DieType.D1, new List<int>(), totalDamage),
+                true,
+                out _);
         }
     }
 
