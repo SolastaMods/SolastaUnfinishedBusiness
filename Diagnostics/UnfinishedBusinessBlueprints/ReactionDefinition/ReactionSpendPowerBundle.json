@@ -1,7 +1,7 @@
 {
   "$type": "ReactionDefinition, Assembly-CSharp",
-  "reactTitle": "Reaction/&OpportunityAttackReactTitle",
-  "reactDescription": "Reaction/&OpportunityAttackReactDescription",
+  "reactTitle": "",
+  "reactDescription": "",
   "validationDismissesSimilarReactions": false,
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",

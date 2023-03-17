@@ -1121,10 +1121,6 @@ internal static partial class DatabaseHelper
         internal static MorphotypeElementDefinition FaceShape_NPC_Aksha { get; } = GetDefinition<MorphotypeElementDefinition>("FaceShape_NPC_Aksha");
         internal static MorphotypeElementDefinition HairColorSilver { get; } = GetDefinition<MorphotypeElementDefinition>("HairColorSilver");
     }
-    internal static class ReactionDefinitions
-    {
-        internal static ReactionDefinition OpportunityAttack { get; } = GetDefinition<ReactionDefinition>("OpportunityAttack");
-    }
     internal static class RecipeDefinitions
     {
         internal static RecipeDefinition RecipeBasic_Arrows { get; } = GetDefinition<RecipeDefinition>("RecipeBasic_Arrows");
