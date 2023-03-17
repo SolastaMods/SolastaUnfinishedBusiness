@@ -798,6 +798,9 @@
   <data name="PathOfTheLight" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Subclasses\PathOfTheLight.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="PathOfTheReaver" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Subclasses\PathOfTheReaver.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="PathOfTheSpirits" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Subclasses\PathOfTheSpirits.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>

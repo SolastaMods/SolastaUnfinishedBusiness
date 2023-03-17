@@ -1,0 +1,16 @@
+﻿Feature/&AdditionalDamagePathOfTheReaverVoraciousFuryDescription=A partir del 3er nivel, puedes canalizar tu corrupción interna en tus ataques con armas cuerpo a cuerpo. Mientras estás en furia, la primera criatura a la que golpeas en cada uno de tus turnos con un ataque de arma cuerpo a cuerpo sufre un daño necrótico adicional igual a tu competencia y recuperas la misma cantidad de puntos de golpe. El daño y la curación se duplican con un golpe crítico.
+Feature/&AdditionalDamagePathOfTheReaverVoraciousFuryTitle=Furia voraz
+Feature/&FeatureSetPathOfTheReaverProfaneVitalityDescription=A partir del nivel 6, obtienes resistencia al daño necrótico y de veneno.
+Feature/&FeatureSetPathOfTheReaverProfaneVitalityTitle=Vitalidad profana
+Feature/&PowerPathOfTheReaverCorruptedBloodDescription=A partir del nivel 14, tu sangre se corrompe permanentemente y daña a las criaturas que entran en contacto con ella. Siempre que una criatura a 5 pies te ataque con un ataque cuerpo a cuerpo, esa criatura sufre un daño necrótico igual a tu modificador de Constitución.
+Feature/&PowerPathOfTheReaverCorruptedBloodTitle=Matanza
+Feature/&PowerPathOfTheReaverBloodbathDescription=Comenzando en el nivel 10, mientras estás en furia, siempre que reduzcas una criatura a 0 puntos de golpe usando un ataque con un arma cuerpo a cuerpo, puedes usar tu reacción para destripar a esa criatura, recuperando una cantidad de puntos de golpe igual a 2x tu modificador de Constitución + tu Bárbaro. nivel.
+Feature/&PowerPathOfTheReaverBloodbathTitle=Matanza
+Feedback/&AdditionalDamageVoraciousFuryFormat=Furia voraz
+Feedback/&AdditionalDamageVoraciousFuryLine={0} está furioso e inflige Furia voraz en {1} (+{2})
+Reaction/&ReactionBloodbathDescription=Puedes usar tu reacción para destripar a esta criatura, recuperando una cantidad de puntos de golpe igual a 2x tu modificador de Constitución + tu nivel de Bárbaro.
+Reaction/&ReactionBloodbathTitle=Matanza
+Reaction/&ReactionBloodbathReactDescription=Eviscerar a esta criatura.
+Reaction/&ReactionBloodbathReactTitle=Destripar
+Subclass/&PathOfTheReaverDescription=Cualquier Reaver se somete a un ritual que consiste en beber sangre contaminada de un dragón, infundiendo permanentemente en sus cuerpos una pizca de poder y voracidad dracónicos, a costa de aumentar gradualmente la corrupción. Estos temibles guerreros se deleitan con la muerte, recuperando energía del sufrimiento de sus enemigos.
+Subclass/&PathOfTheReaverTitle=Camino del Saqueador

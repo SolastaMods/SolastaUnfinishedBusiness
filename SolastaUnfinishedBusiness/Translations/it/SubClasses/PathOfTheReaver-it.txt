@@ -1,0 +1,16 @@
+﻿Feature/&AdditionalDamagePathOfTheReaverVoraciousFuryDescription=A partire dal 3° livello, puoi incanalare la tua corruzione interiore nei tuoi colpi con armi da mischia. Mentre sei in preda all'ira, la prima creatura che colpisci in ciascuno dei tuoi turni con un attacco con un'arma da mischia subisce danni necrotici aggiuntivi pari alla tua competenza e recuperi un pari ammontare di punti ferita. I danni e le cure vengono raddoppiati in caso di colpo critico.
+Feature/&AdditionalDamagePathOfTheReaverVoraciousFuryTitle=Furia vorace
+Feature/&FeatureSetPathOfTheReaverProfaneVitalityDescription=A partire dal 6° livello, ottieni resistenza ai danni necrotici e da veleno.
+Feature/&FeatureSetPathOfTheReaverProfaneVitalityTitle=Vitalità profana
+Feature/&PowerPathOfTheReaverCorruptedBloodDescription=A partire dal 14° livello, il tuo sangue viene permanentemente corrotto, danneggiando le creature che entrano in contatto con esso. Ogni volta che una creatura entro 1,5 metri ti colpisce con un attacco in mischia, quella creatura subisce danni necrotici pari al tuo modificatore di Costituzione.
+Feature/&PowerPathOfTheReaverCorruptedBloodTitle=Bagno di sangue
+Feature/&PowerPathOfTheReaverBloodbathDescription=A partire dal 10° livello, mentre sei in preda all'ira, ogni volta che riduci una creatura a 0 punti ferita usando un attacco con un'arma da mischia, puoi usare la tua reazione per sventrare quella creatura, recuperando un numero di punti ferita pari a 2 volte il tuo modificatore di Costituzione + il tuo Barbaro livello.
+Feature/&PowerPathOfTheReaverBloodbathTitle=Bagno di sangue
+Feedback/&AdditionalDamageVoraciousFuryFormat=Furia vorace
+Feedback/&AdditionalDamageVoraciousFuryLine={0} è infuriato e infligge Furia Vorace su {1} (+{2})
+Reaction/&ReactionBloodbathDescription=Puoi usare la tua reazione per sviscerare questa creatura, recuperando un numero di punti ferita pari a 2 volte il tuo modificatore di Costituzione + il tuo livello da Barbaro.
+Reaction/&ReactionBloodbathTitle=Bagno di sangue
+Reaction/&ReactionBloodbathReactDescription=Sviscera questa creatura.
+Reaction/&ReactionBloodbathReactTitle=Sviscerare
+Subclass/&PathOfTheReaverDescription=Qualsiasi Reaver si sottopone a un rituale che prevede di bere il sangue contaminato di un drago, infondendo permanentemente nei loro corpi un frammento di potenza e voracità draconica, a costo di aumentare gradualmente la corruzione. Questi temibili guerrieri si dilettano nella morte, recuperando energia dalla sofferenza dei loro nemici.
+Subclass/&PathOfTheReaverTitle=Sentiero del Predone

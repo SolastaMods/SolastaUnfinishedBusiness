@@ -1,0 +1,16 @@
+﻿Feature/&AdditionalDamagePathOfTheReaverVoraciousFuryDescription=Ab der 3. Stufe kannst du deine innere Verderbnis in deine Nahkampfwaffenschläge kanalisieren. Während du tobst, erleidet die erste Kreatur, die du in jedem deiner Züge mit einem Nahkampfwaffenangriff triffst, zusätzlichen nekrotischen Schaden in Höhe deines Könnens und du gewinnst die gleiche Anzahl an Trefferpunkten zurück. Schaden und Heilung werden bei einem kritischen Treffer verdoppelt.
+Feature/&AdditionalDamagePathOfTheReaverVoraciousFuryTitle=Gefräßige Wut
+Feature/&FeatureSetPathOfTheReaverProfaneVitalityDescription=Ab der 6. Stufe erhältst du Resistenz gegen nekrotischen und Giftschaden.
+Feature/&FeatureSetPathOfTheReaverProfaneVitalityTitle=Profane Vitalität
+Feature/&PowerPathOfTheReaverCorruptedBloodDescription=Ab der 14. Stufe wird dein Blut dauerhaft verdorben und fügt Kreaturen, die damit in Kontakt kommen, Schaden zu. Immer wenn dich eine Kreatur innerhalb von 1,50 m mit einem Nahkampfangriff trifft, erleidet diese Kreatur nekrotischen Schaden in Höhe deines Konstitutionsmodifikators.
+Feature/&PowerPathOfTheReaverCorruptedBloodTitle=Blutbad
+Feature/&PowerPathOfTheReaverBloodbathDescription=Ab der 10. Stufe kannst du, während du tobst, jedes Mal, wenn du eine Kreatur mit einem Nahkampfangriff auf 0 Trefferpunkte reduzierst, deine Reaktion nutzen, um diese Kreatur auszuweiden, wodurch du eine Anzahl von Trefferpunkten zurückgewinnst, die dem Doppelten deines Konstitutionsmodifikators + deinem Barbaren entspricht eben.
+Feature/&PowerPathOfTheReaverBloodbathTitle=Blutbad
+Feedback/&AdditionalDamageVoraciousFuryFormat=Gefräßige Wut
+Feedback/&AdditionalDamageVoraciousFuryLine={0} tobt und fügt {1} (+{2}) unersättliche Wut zu
+Reaction/&ReactionBloodbathDescription=Du kannst deine Reaktion nutzen, um diese Kreatur auszuweiden, wodurch du eine Anzahl an Trefferpunkten zurückgewinnst, die dem Doppelten deines Konstitutionsmodifikators + deiner Barbarenstufe entspricht.
+Reaction/&ReactionBloodbathTitle=Blutbad
+Reaction/&ReactionBloodbathReactDescription=Eviszere diese Kreatur.
+Reaction/&ReactionBloodbathReactTitle=Ausweiden
+Subclass/&PathOfTheReaverDescription=Jeder Reaver unterzieht sich einem Ritual, bei dem das verdorbene Blut eines Drachen getrunken wird, wodurch seine Körper dauerhaft mit einem Hauch drakonischer Macht und Gier erfüllt werden, auf Kosten einer allmählich zunehmenden Verderbnis. Diese furchterregenden Krieger schwelgen im Tod und gewinnen Energie aus dem Leiden ihrer Feinde.
+Subclass/&PathOfTheReaverTitle=Pfad des Räubers
