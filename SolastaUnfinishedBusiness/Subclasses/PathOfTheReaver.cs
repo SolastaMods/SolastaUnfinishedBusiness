@@ -28,8 +28,12 @@ internal sealed class PathOfTheReaver : AbstractSubclass
             .Create(AdditionalDamageConditionRaging, $"AdditionalDamage{Name}VoraciousFury")
             .SetGuiPresentation(Category.Feature)
             .SetNotificationTag("VoraciousFury")
+            .SetFrequencyLimit(FeatureLimitedUsage.OncePerTurn)
+            .SetRequiredProperty(RestrictedContextRequiredProperty.MeleeStrengthWeapon)
+            .SetTriggerCondition(AdditionalDamageTriggerCondition.NotWearingHeavyArmor)
+            .SetDamageValueDetermination(AdditionalDamageValueDetermination.ProficiencyBonus)
             .SetSpecificDamageType(DamageTypeNecrotic)
-            .SetAdvancement(AdditionalDamageAdvancement.ClassLevel, 2, 1, 4)
+            .SetFirstTargetOnly(true)
             .SetCustomSubFeatures(new RestrictedContextValidator((_, _, character, _, _, _, _) =>
                 (OperationType.Set, ValidatorsCharacter.HasAnyOfConditions(ConditionRaging)(character))))
             .AddToDB();
@@ -46,20 +50,14 @@ internal sealed class PathOfTheReaver : AbstractSubclass
 
         // LEVEL 10
 
-        var reactionBloodbath = ReactionDefinitionBuilder
-            .Create("ReactionBloodbath")
-            .SetGuiPresentation(Category.Reaction)
-            .SetReact("ReactionBloodbath")
-            .AddToDB();
-
         var powerBloodbath = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}Bloodbath")
             .SetGuiPresentation(Category.Feature)
-            .SetUsesFixed(ActivationTime.Reaction)
+            .SetUsesFixed(ActivationTime.Reaction, RechargeRate.ShortRest)
             .SetReactionContext(ExtraReactionContext.Custom)
             .AddToDB();
 
-        powerBloodbath.SetCustomSubFeatures(new TargetReducedToZeroHpBloodbath(powerBloodbath, reactionBloodbath));
+        powerBloodbath.SetCustomSubFeatures(new TargetReducedToZeroHpBloodbath(powerBloodbath));
 
         // LEVEL 14
 
@@ -181,14 +179,10 @@ internal sealed class PathOfTheReaver : AbstractSubclass
     private class TargetReducedToZeroHpBloodbath : ITargetReducedToZeroHp
     {
         private readonly FeatureDefinitionPower _featureDefinitionPower;
-        private readonly ReactionDefinition _reactionDefinition;
 
-        public TargetReducedToZeroHpBloodbath(
-            FeatureDefinitionPower featureDefinitionPower,
-            ReactionDefinition reactionDefinition)
+        public TargetReducedToZeroHpBloodbath(FeatureDefinitionPower featureDefinitionPower)
         {
             _featureDefinitionPower = featureDefinitionPower;
-            _reactionDefinition = reactionDefinition;
         }
 
         public IEnumerator HandleCharacterReducedToZeroHp(
@@ -219,9 +213,21 @@ internal sealed class PathOfTheReaver : AbstractSubclass
                 yield break;
             }
 
-            var reactionParams = new CharacterActionParams(attacker, (ActionDefinitions.Id)ExtraActionId.DoNothingFree);
+            if (rulesetAttacker.GetRemainingPowerCharges(_featureDefinitionPower) <= 0)
+            {
+                yield break;
+            }
+
+            var characterLevel = rulesetAttacker.TryGetAttributeValue(AttributeDefinitions.CharacterLevel);
+            var totalHealing = 2 * characterLevel;
+            var reactionParams =
+                new CharacterActionParams(attacker, (ActionDefinitions.Id)ExtraActionId.DoNothingFree)
+                {
+                    StringParameter =
+                        Gui.Format("Reaction/&CustomReactionBloodbathDescription", totalHealing.ToString())
+                };
             var previousReactionCount = gameLocationActionService.PendingReactionRequestGroups.Count;
-            var reactionRequest = new ReactionRequest(_reactionDefinition.Name, reactionParams);
+            var reactionRequest = new ReactionRequestCustom("Bloodbath", reactionParams);
 
             gameLocationActionService.AddInterruptRequest(reactionRequest);
 
@@ -233,11 +239,7 @@ internal sealed class PathOfTheReaver : AbstractSubclass
                 yield break;
             }
 
-            var characterLevel = rulesetAttacker.TryGetAttributeValue(AttributeDefinitions.CharacterLevel);
-            var constitution = rulesetAttacker.TryGetAttributeValue(AttributeDefinitions.Constitution);
-            var constitutionModifier = AttributeDefinitions.ComputeAbilityScoreModifier(constitution);
-            var totalHealing = constitutionModifier * 2 + characterLevel;
-
+            rulesetAttacker.UpdateUsageForPower(_featureDefinitionPower, _featureDefinitionPower.CostPerUse);
             GameConsoleHelper.LogCharacterUsedPower(rulesetAttacker, _featureDefinitionPower);
             rulesetAttacker.ReceiveHealing(totalHealing, true, rulesetAttacker.Guid);
         }
