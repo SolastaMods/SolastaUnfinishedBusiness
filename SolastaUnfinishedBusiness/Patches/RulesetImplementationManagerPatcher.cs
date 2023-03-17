@@ -78,6 +78,11 @@ public static class RulesetImplementationManagerPatcher
             var total = 0;
             var maxDie = RuleDefinitions.DiceMaxValue[(int)diceType];
 
+            if (maxDie == 1)
+            {
+                return 1;
+            }
+
             for (var index = 0; index < diceNumber; ++index)
             {
                 var roll = maxDie;
