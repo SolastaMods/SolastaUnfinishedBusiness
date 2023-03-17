@@ -75,24 +75,27 @@ public static class RulesetImplementationManagerPatcher
         {
             rulesetActor.EnumerateFeaturesToBrowse<IDieRollModificationProvider>(rulesetActor.featuresToBrowse);
 
-            var total = 0;
             var maxDie = RuleDefinitions.DiceMaxValue[(int)diceType];
-
-            if (maxDie == 1)
-            {
-                return 1;
-            }
+            var total = 0;
 
             for (var index = 0; index < diceNumber; ++index)
             {
                 var roll = maxDie;
 
-                while (roll == maxDie)
+                if (maxDie > 1)
                 {
-                    roll = rulesetActor.RollDie(diceType, context, false, RuleDefinitions.AdvantageType.None,
-                        out _, out _, false, canRerollDice, skill);
-                    rolledValues?.Add(roll);
-                    total += roll;
+                    while (roll == maxDie)
+                    {
+                        roll = rulesetActor.RollDie(diceType, context, false, RuleDefinitions.AdvantageType.None,
+                            out _, out _, false, canRerollDice, skill);
+                        rolledValues?.Add(roll);
+                        total += roll;
+                    }
+                }
+                else
+                {
+                    rolledValues?.Add(1);
+                    total += 1;
                 }
             }
 

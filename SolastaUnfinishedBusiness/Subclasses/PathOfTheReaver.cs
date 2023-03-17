@@ -11,7 +11,6 @@ using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Properties;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
-using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionAdditionalDamages;
 
 namespace SolastaUnfinishedBusiness.Subclasses;
 
@@ -24,18 +23,25 @@ internal sealed class PathOfTheReaver : AbstractSubclass
     {
         // LEVEL 03
 
-        var additionalDamageVoraciousFury = FeatureDefinitionAdditionalDamageBuilder
-            .Create(AdditionalDamageConditionRaging, $"AdditionalDamage{Name}VoraciousFury")
+        var featureVoraciousFury = FeatureDefinitionBuilder
+            .Create($"Feature{Name}VoraciousFury")
             .SetGuiPresentation(Category.Feature)
-            .SetNotificationTag("VoraciousFury")
-            .SetFrequencyLimit(FeatureLimitedUsage.OncePerTurn)
-            .SetRequiredProperty(RestrictedContextRequiredProperty.MeleeStrengthWeapon)
-            .SetTriggerCondition(AdditionalDamageTriggerCondition.NotWearingHeavyArmor)
-            .SetDamageValueDetermination(AdditionalDamageValueDetermination.ProficiencyBonus)
-            .SetSpecificDamageType(DamageTypeNecrotic)
-            .SetFirstTargetOnly(true)
-            .SetCustomSubFeatures(new RestrictedContextValidator((_, _, character, _, _, _, _) =>
-                (OperationType.Set, ValidatorsCharacter.HasAnyOfConditions(ConditionRaging)(character))))
+            .SetCustomSubFeatures(
+                new AfterAttackEffectVoraciousFury(),
+                new CustomAdditionalDamageVoraciousFury(
+                    FeatureDefinitionAdditionalDamageBuilder
+                        .Create($"AdditionalDamage{Name}VoraciousFury")
+                        .SetGuiPresentation($"Feature{Name}VoraciousFury", Category.Feature)
+                        .SetNotificationTag("VoraciousFury")
+                        .SetFrequencyLimit(FeatureLimitedUsage.OncePerTurn)
+                        .SetTriggerCondition(AdditionalDamageTriggerCondition.AlwaysActive)
+                        .SetDamageValueDetermination(AdditionalDamageValueDetermination.Die)
+                        .SetDamageDice(DieType.D1, 2)
+                        .SetAdvancement(AdditionalDamageAdvancement.ClassLevel, 2, 1, 4)
+                        .SetSpecificDamageType(DamageTypeNecrotic)
+                        .SetFirstTargetOnly(true)
+                        .SetCustomSubFeatures(new BarbarianHolder())
+                        .AddToDB()))
             .AddToDB();
 
         // LEVEL 06
@@ -100,7 +106,7 @@ internal sealed class PathOfTheReaver : AbstractSubclass
         Subclass = CharacterSubclassDefinitionBuilder
             .Create(Name)
             .SetGuiPresentation(Category.Subclass, Sprites.GetSprite(Name, Resources.PathOfTheReaver, 256))
-            .AddFeaturesAtLevel(3, additionalDamageVoraciousFury)
+            .AddFeaturesAtLevel(3, featureVoraciousFury)
             .AddFeaturesAtLevel(6, featureSetProfaneVitality)
             .AddFeaturesAtLevel(10, powerBloodbath)
             .AddFeaturesAtLevel(14, powerCorruptedBlood)
@@ -114,6 +120,10 @@ internal sealed class PathOfTheReaver : AbstractSubclass
 
     // ReSharper disable once UnassignedGetOnlyAutoProperty
     internal override DeityDefinition DeityDefinition { get; }
+
+    //
+    // Corrupted Blood
+    //
 
     private class AfterAttackEffectCorruptedBlood : IAfterAttackEffect
     {
@@ -136,7 +146,7 @@ internal sealed class PathOfTheReaver : AbstractSubclass
             RulesetAttackMode attackMode,
             ActionModifier attackModifier)
         {
-            if (outcome is not RollOutcome.Success or RollOutcome.CriticalSuccess)
+            if (outcome != RollOutcome.Success && outcome != RollOutcome.CriticalSuccess)
             {
                 return;
             }
@@ -175,6 +185,10 @@ internal sealed class PathOfTheReaver : AbstractSubclass
                 out _);
         }
     }
+
+    //
+    // Bloodbath
+    //
 
     private class TargetReducedToZeroHpBloodbath : ITargetReducedToZeroHp
     {
@@ -243,5 +257,85 @@ internal sealed class PathOfTheReaver : AbstractSubclass
             GameConsoleHelper.LogCharacterUsedPower(rulesetAttacker, _featureDefinitionPower);
             rulesetAttacker.ReceiveHealing(totalHealing, true, rulesetAttacker.Guid);
         }
+    }
+
+    //
+    // Voracious Fury
+    //
+
+    private sealed class CustomAdditionalDamageVoraciousFury : CustomAdditionalDamage
+    {
+        public CustomAdditionalDamageVoraciousFury(IAdditionalDamageProvider provider) : base(provider)
+        {
+        }
+
+        internal override bool IsValid(
+            GameLocationBattleManager battleManager,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            ActionModifier attackModifier,
+            RulesetAttackMode attackMode,
+            bool rangedAttack,
+            AdvantageType advantageType,
+            List<EffectForm> actualEffectForms,
+            RulesetEffect rulesetEffect,
+            bool criticalHit,
+            bool firstTarget,
+            out CharacterActionParams reactionParams)
+        {
+            reactionParams = null;
+
+            return IsVoraciousFuryValidContext(attacker.RulesetCharacter, attackMode);
+        }
+    }
+
+    private sealed class AfterAttackEffectVoraciousFury : IAfterAttackEffect
+    {
+        private const string SpecialFeatureName = $"AdditionalHealing{Name}VoraciousFury";
+
+        public void AfterOnAttackHit(
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            RollOutcome outcome,
+            CharacterActionParams actionParams,
+            RulesetAttackMode attackMode,
+            ActionModifier attackModifier)
+        {
+            if (outcome != RollOutcome.Success && outcome != RollOutcome.CriticalSuccess)
+            {
+                return;
+            }
+
+            var rulesetAttacker = attacker.RulesetCharacter;
+
+            if (!IsVoraciousFuryValidContext(rulesetAttacker, attackMode) ||
+                attacker.UsedSpecialFeatures.ContainsKey(SpecialFeatureName))
+            {
+                return;
+            }
+
+            attacker.UsedSpecialFeatures.Add(SpecialFeatureName, 1);
+
+            var proficiencyBonus = rulesetAttacker.TryGetAttributeValue(AttributeDefinitions.ProficiencyBonus);
+            var multiplier = outcome is RollOutcome.Success ? 1 : 2;
+
+            rulesetAttacker.ReceiveHealing(multiplier * proficiencyBonus, true, rulesetAttacker.Guid);
+        }
+    }
+
+    private sealed class BarbarianHolder : IClassHoldingFeature
+    {
+        // allows Illuminating Strike damage to scale with barbarian level
+        public CharacterClassDefinition Class => CharacterClassDefinitions.Barbarian;
+    }
+
+    private static bool IsVoraciousFuryValidContext(RulesetCharacter rulesetCharacter, RulesetAttackMode attackMode)
+    {
+        var isValid = (ValidatorsWeapon.IsMelee(attackMode) ||
+                       ValidatorsWeapon.IsUnarmed(rulesetCharacter, attackMode)) &&
+                      ValidatorsCharacter.DoesNotHaveHeavyArmor(rulesetCharacter) &&
+                      ValidatorsCharacter.HasAnyOfConditions(ConditionRaging)(rulesetCharacter);
+
+        return isValid;
     }
 }
