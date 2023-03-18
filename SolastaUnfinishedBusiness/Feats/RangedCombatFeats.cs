@@ -157,16 +157,24 @@ internal static class RangedCombatFeats
         return FeatDefinitionBuilder
             .Create(NAME)
             .SetGuiPresentation(Category.Feat)
-            .SetFeatures(FeatureDefinitionBuilder
-                .Create($"Feature{NAME}")
-                .SetGuiPresentationNoContent(true)
-                .SetCustomSubFeatures(
-                    new RangedAttackInMeleeDisadvantageRemover(),
-                    new AddExtraRangedAttack(
-                        ActionDefinitions.ActionType.Bonus,
-                        ValidatorsWeapon.IsOfWeaponType(CustomWeaponsContext.HandXbowWeaponType),
-                        ValidatorsCharacter.HasAttacked))
-                .AddToDB())
+            .SetFeatures(
+                FeatureDefinitionAttackModifierBuilder
+                    .Create(DatabaseHelper.FeatureDefinitionAttackModifiers.AttackModifierFightingStyleTwoWeapon,
+                        $"AttackModifier{NAME}")
+                    .SetGuiPresentationNoContent(true)
+                    .SetCustomSubFeatures(
+                        ValidatorsCharacter.HasOffhandWeaponType(CustomWeaponsContext.HandXbowWeaponType))
+                    .AddToDB(),
+                FeatureDefinitionBuilder
+                    .Create($"Feature{NAME}")
+                    .SetGuiPresentationNoContent(true)
+                    .SetCustomSubFeatures(
+                        new RangedAttackInMeleeDisadvantageRemover(),
+                        new AddExtraRangedAttack(
+                            ActionDefinitions.ActionType.Bonus,
+                            ValidatorsWeapon.IsOfWeaponType(CustomWeaponsContext.HandXbowWeaponType),
+                            ValidatorsCharacter.HasAttacked))
+                    .AddToDB())
             .AddToDB();
     }
 
