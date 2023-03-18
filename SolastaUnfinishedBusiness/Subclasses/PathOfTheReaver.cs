@@ -242,8 +242,8 @@ internal sealed class PathOfTheReaver : AbstractSubclass
                 yield break;
             }
 
-            var characterLevel = rulesetAttacker.TryGetAttributeValue(AttributeDefinitions.CharacterLevel);
-            var totalHealing = 2 * characterLevel;
+            var classLevel = rulesetAttacker.GetClassLevel(CharacterClassDefinitions.Barbarian);
+            var totalHealing = 2 * classLevel;
             var reactionParams =
                 new CharacterActionParams(attacker, (ActionDefinitions.Id)ExtraActionId.DoNothingFree)
                 {

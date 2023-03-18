@@ -155,7 +155,6 @@ internal sealed class PathOfTheSpirits : AbstractSubclass
             .Create("ConditionPathOfTheSpiritsBearResistance")
             .SetGuiPresentation("PowerPathOfTheSpiritsBearResistance", Category.Feature,
                 ConditionDefinitions.ConditionBarkskin)
-            .SetConditionType(ConditionType.Beneficial)
             .SetPossessive()
             .SetSpecialInterruptions(ConditionInterruption.RageStop, ConditionInterruption.BattleEnd)
             .SetFeatures(
