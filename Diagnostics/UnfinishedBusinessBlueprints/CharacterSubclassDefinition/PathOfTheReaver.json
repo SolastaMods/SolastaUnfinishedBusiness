@@ -3,7 +3,7 @@
   "featureUnlocks": [
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:AdditionalDamagePathOfTheReaverVoraciousFury:fec25391-08b5-5663-a4b3-9311e079b5ae",
+      "featureDefinition": "Definition:FeaturePathOfTheReaverVoraciousFury:16daa10c-3424-56c5-a74b-07dae503661f",
       "level": 3
     },
     {

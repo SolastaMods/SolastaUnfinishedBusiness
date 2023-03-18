@@ -1199,6 +1199,7 @@ FeatureOathOfAncientsAuraWarding	FeatureDefinition	FeatureDefinition	2ef3deba-17
 FeatureOvercomingStrategy	FeatureDefinition	FeatureDefinition	acddf05f-e1fa-5a26-8057-62d774eb9328
 FeaturePathOfTheLightIlluminatingStrikeImprovement	FeatureDefinition	FeatureDefinition	0ab67b30-21ea-5f14-8bf2-c9f540ebc812
 FeaturePathOfTheReaverCorruptedBlood	FeatureDefinition	FeatureDefinition	6cc62c37-3930-5521-8ef0-18c2df862f1e
+FeaturePathOfTheReaverVoraciousFury	FeatureDefinition	FeatureDefinition	16daa10c-3424-56c5-a74b-07dae503661f
 FeaturePolearm	FeatureDefinition	FeatureDefinition	8e6e835a-2424-5900-8677-034801779b88
 FeatureProducedFlameThrower	FeatureDefinition	FeatureDefinition	be97c29d-f954-54ce-bfd7-99320e3b9899
 FeatureRoguishAcrobatSwiftWind	FeatureDefinition	FeatureDefinition	e52d2d71-c3f2-5397-a240-391302c086a9
@@ -6376,7 +6377,6 @@ WorkTable_B~TownInterior~MOD	PropBlueprint	PropBlueprint	89384b40-cdbe-5f33-b494
 WorkTable_B~ValleyPalace~MOD	PropBlueprint	PropBlueprint	bcfd02d0-de86-5e3e-86bd-23940fe25c88
 WorkTable_C~Stronghold~MOD	PropBlueprint	PropBlueprint	fd6adc9c-29c5-576c-8e4b-88d907b68e5b
 WorkTable_C~TownInterior~MOD	PropBlueprint	PropBlueprint	14c2596a-27fd-5ede-ac14-a7ef9619a359
-ReactionBloodbath	ReactionDefinition	ReactionDefinition	9ba730a7-e25d-5409-949c-a95a21fd7e78
 ReactionSpendPowerBundle	ReactionDefinition	ReactionDefinition	59c7d7ad-440d-5b79-81d1-7d46f8076eef
 ReactionWarcaster	ReactionDefinition	ReactionDefinition	3968d453-c366-5e67-83ea-262e18737bb6
 RecipeEnchantBreastplate_Deflection	RecipeDefinition	RecipeDefinition	4e5506c3-f7bd-56e3-8f33-1994c03c86b5

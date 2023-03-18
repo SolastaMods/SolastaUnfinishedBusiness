@@ -33,7 +33,7 @@ internal sealed class PathOfTheReaver : AbstractSubclass
                         .Create($"AdditionalDamage{Name}VoraciousFury")
                         .SetGuiPresentation($"Feature{Name}VoraciousFury", Category.Feature)
                         .SetNotificationTag("VoraciousFury")
-                        .SetFrequencyLimit(FeatureLimitedUsage.OncePerTurn)
+                        .SetFrequencyLimit(FeatureLimitedUsage.OnceInMyTurn)
                         .SetTriggerCondition(AdditionalDamageTriggerCondition.AlwaysActive)
                         .SetDamageValueDetermination(AdditionalDamageValueDetermination.Die)
                         .SetDamageDice(DieType.D1, 2)
@@ -120,6 +120,16 @@ internal sealed class PathOfTheReaver : AbstractSubclass
 
     // ReSharper disable once UnassignedGetOnlyAutoProperty
     internal override DeityDefinition DeityDefinition { get; }
+
+    private static bool IsVoraciousFuryValidContext(RulesetCharacter rulesetCharacter, RulesetAttackMode attackMode)
+    {
+        var isValid = (ValidatorsWeapon.IsMelee(attackMode) ||
+                       ValidatorsWeapon.IsUnarmed(rulesetCharacter, attackMode)) &&
+                      ValidatorsCharacter.DoesNotHaveHeavyArmor(rulesetCharacter) &&
+                      ValidatorsCharacter.HasAnyOfConditions(ConditionRaging)(rulesetCharacter);
+
+        return isValid;
+    }
 
     //
     // Corrupted Blood
@@ -327,15 +337,5 @@ internal sealed class PathOfTheReaver : AbstractSubclass
     {
         // allows Illuminating Strike damage to scale with barbarian level
         public CharacterClassDefinition Class => CharacterClassDefinitions.Barbarian;
-    }
-
-    private static bool IsVoraciousFuryValidContext(RulesetCharacter rulesetCharacter, RulesetAttackMode attackMode)
-    {
-        var isValid = (ValidatorsWeapon.IsMelee(attackMode) ||
-                       ValidatorsWeapon.IsUnarmed(rulesetCharacter, attackMode)) &&
-                      ValidatorsCharacter.DoesNotHaveHeavyArmor(rulesetCharacter) &&
-                      ValidatorsCharacter.HasAnyOfConditions(ConditionRaging)(rulesetCharacter);
-
-        return isValid;
     }
 }

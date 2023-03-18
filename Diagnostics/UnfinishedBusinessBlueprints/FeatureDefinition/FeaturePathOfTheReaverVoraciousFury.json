@@ -1,13 +1,10 @@
 {
-  "$type": "ReactionDefinition, Assembly-CSharp",
-  "reactTitle": "Reaction/&ReactionBloodbathReactTitle",
-  "reactDescription": "Reaction/&ReactionReactionBloodbathReactDescription",
-  "validationDismissesSimilarReactions": false,
+  "$type": "FeatureDefinition, Assembly-CSharp",
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Reaction/&ReactionBloodbathTitle",
-    "description": "Reaction/&ReactionBloodbathDescription",
+    "title": "Feature/&FeaturePathOfTheReaverVoraciousFuryTitle",
+    "description": "Feature/&FeaturePathOfTheReaverVoraciousFuryDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -27,7 +24,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "9ba730a7-e25d-5409-949c-a95a21fd7e78",
+  "guid": "16daa10c-3424-56c5-a74b-07dae503661f",
   "contentPack": 9999,
-  "name": "ReactionBloodbath"
+  "name": "FeaturePathOfTheReaverVoraciousFury"
 }
