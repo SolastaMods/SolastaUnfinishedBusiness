@@ -51,6 +51,14 @@ internal static class CustomizedSubFeatureDefinitions
             return results;
         }
 
+        if (definition is FeatureDefinitionFeatureSet featureDefinitionFeatureSet)
+        {
+            foreach (var featureDefinition in featureDefinitionFeatureSet.FeatureSet)
+            {
+                results.AddRange(GetAllSubFeaturesOfType<T>(featureDefinition));
+            }
+        }
+
         if (definition is T custom)
         {
             results.Add(custom);
@@ -74,9 +82,20 @@ internal static class CustomizedSubFeatureDefinitions
             return null;
         }
 
-        if (definition is T custom)
+        switch (definition)
         {
-            return custom;
+            case T custom:
+                return custom;
+            case FeatureDefinitionFeatureSet featureDefinitionFeatureSet:
+            {
+                foreach (var result in featureDefinitionFeatureSet.FeatureSet
+                             .Select(GetFirstSubFeatureOfType<T>)
+                             .Where(result => result != null))
+                {
+                    return result;
+                }
+                break;
+            }
         }
 
         return GetForKey(definition)?.OfType<T>().FirstOrDefault();
