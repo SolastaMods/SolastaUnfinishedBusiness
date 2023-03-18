@@ -153,9 +153,11 @@ internal sealed class PathOfTheSpirits : AbstractSubclass
     {
         var conditionPathOfTheSpiritsBearResistance = ConditionDefinitionBuilder
             .Create("ConditionPathOfTheSpiritsBearResistance")
-            .SetGuiPresentation("PowerPathOfTheSpiritsBearResistance", Category.Feature)
-            .SetSilent(Silent.WhenAddedOrRemoved)
-            .SetSpecialInterruptions(ConditionInterruption.RageStop)
+            .SetGuiPresentation("PowerPathOfTheSpiritsBearResistance", Category.Feature,
+                ConditionDefinitions.ConditionBarkskin)
+            .SetConditionType(ConditionType.Beneficial)
+            .SetPossessive()
+            .SetSpecialInterruptions(ConditionInterruption.RageStop, ConditionInterruption.BattleEnd)
             .SetFeatures(
                 DamageAffinityAcidResistance,
                 DamageAffinityBludgeoningResistance,
@@ -175,7 +177,8 @@ internal sealed class PathOfTheSpirits : AbstractSubclass
             .SetGuiPresentation(Category.Feature)
             .SetUsesFixed(ActivationTime.OnRageStartAutomatic)
             .SetEffectDescription(EffectDescriptionBuilder.Create()
-                .SetDurationData(DurationType.Permanent)
+                .SetDurationData(DurationType.Dispelled)
+                .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
                 .SetEffectForms(EffectFormBuilder
                     .Create()
                     .SetConditionForm(conditionPathOfTheSpiritsBearResistance, ConditionForm.ConditionOperation.Add)
