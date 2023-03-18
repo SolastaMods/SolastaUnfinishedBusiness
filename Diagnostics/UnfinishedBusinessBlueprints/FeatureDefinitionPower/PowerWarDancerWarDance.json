@@ -80,9 +80,7 @@
           "conditionDefinitionName": "ConditionWarDance",
           "conditionDefinition": "Definition:ConditionWarDance:60cb6a58-0596-5844-b181-763b1badb445",
           "operation": "Add",
-          "conditionsList": [
-            "Definition:ConditionWarDance:60cb6a58-0596-5844-b181-763b1badb445"
-          ],
+          "conditionsList": [],
           "applyToSelf": false,
           "forceOnSelf": false
         },
@@ -109,9 +107,7 @@
           "conditionDefinitionName": "ConditionBardicInspiration",
           "conditionDefinition": "Definition:ConditionBardicInspiration:e76c421c0a8f49046909673053aec5d6",
           "operation": "Add",
-          "conditionsList": [
-            "Definition:ConditionBardicInspiration:e76c421c0a8f49046909673053aec5d6"
-          ],
+          "conditionsList": [],
           "applyToSelf": false,
           "forceOnSelf": false
         },

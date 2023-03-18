@@ -80,9 +80,7 @@
           "conditionDefinitionName": "ConditionInnovationAlchemyMarkerDamageLightning",
           "conditionDefinition": "Definition:ConditionInnovationAlchemyMarkerDamageLightning:33e6438c-7dc6-552e-8616-1f7928f79187",
           "operation": "Add",
-          "conditionsList": [
-            "Definition:ConditionInnovationAlchemyMarkerDamageLightning:33e6438c-7dc6-552e-8616-1f7928f79187"
-          ],
+          "conditionsList": [],
           "applyToSelf": false,
           "forceOnSelf": false
         },

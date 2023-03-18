@@ -403,15 +403,12 @@ internal static partial class SpellBuilders
 
             var spell = SpellDefinitionBuilder
                 .Create(NAME + damageType)
-                .SetGuiPresentation(title,
-                    Gui.Format(SUB_SPELL_DESCRIPTION, title),
-                    Sprites.GetSprite(NAME, Resources.SkinOfRetribution, 128)
-                )
+                .SetGuiPresentation(title, Gui.Format(SUB_SPELL_DESCRIPTION, title),
+                    Sprites.GetSprite(NAME, Resources.SkinOfRetribution, 128))
                 .SetSchoolOfMagic(SchoolOfMagicDefinitions.SchoolAbjuration)
                 .SetVerboseComponent(false)
                 .SetVocalSpellSameType(VocalSpellSemeType.Defense)
                 .SetSpellLevel(1)
-                .SetUniqueInstance()
                 .SetEffectDescription(EffectDescriptionBuilder
                     .Create()
                     .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
@@ -423,8 +420,7 @@ internal static partial class SpellBuilders
                             .Build(),
                         EffectFormBuilder
                             .Create()
-                            .SetConditionForm(conditionSkinOfRetribution, ConditionForm.ConditionOperation.Add, true,
-                                false)
+                            .SetConditionForm(conditionSkinOfRetribution, ConditionForm.ConditionOperation.Add)
                             .Build())
                     .SetEffectAdvancement(EffectIncrementMethod.PerAdditionalSlotLevel,
                         additionalTempHpPerIncrement: TEMP_HP_PER_LEVEL)

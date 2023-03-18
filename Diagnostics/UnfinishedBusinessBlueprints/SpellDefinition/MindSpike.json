@@ -126,9 +126,7 @@
           "conditionDefinitionName": "ConditionMindSpike",
           "conditionDefinition": "Definition:ConditionMindSpike:13d9079f-dec3-5edb-bc7d-f9685fa38fc0",
           "operation": "Add",
-          "conditionsList": [
-            "Definition:ConditionMindSpike:13d9079f-dec3-5edb-bc7d-f9685fa38fc0"
-          ],
+          "conditionsList": [],
           "applyToSelf": false,
           "forceOnSelf": false
         },

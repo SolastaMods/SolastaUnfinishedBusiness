@@ -80,9 +80,7 @@
           "conditionDefinitionName": "ConditionFeatCleavingAttack",
           "conditionDefinition": "Definition:ConditionFeatCleavingAttack:54761e94-7473-5954-8fcb-785683bde2f8",
           "operation": "Remove",
-          "conditionsList": [
-            "Definition:ConditionFeatCleavingAttack:54761e94-7473-5954-8fcb-785683bde2f8"
-          ],
+          "conditionsList": [],
           "applyToSelf": false,
           "forceOnSelf": false
         },

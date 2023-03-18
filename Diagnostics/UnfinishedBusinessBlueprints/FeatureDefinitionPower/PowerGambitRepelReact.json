@@ -105,9 +105,7 @@
           "conditionDefinitionName": "ConditionStopMovement",
           "conditionDefinition": "Definition:ConditionStopMovement:fc5e117a-fd71-5022-b457-042edb57b0e8",
           "operation": "Add",
-          "conditionsList": [
-            "Definition:ConditionStopMovement:fc5e117a-fd71-5022-b457-042edb57b0e8"
-          ],
+          "conditionsList": [],
           "applyToSelf": false,
           "forceOnSelf": false
         },

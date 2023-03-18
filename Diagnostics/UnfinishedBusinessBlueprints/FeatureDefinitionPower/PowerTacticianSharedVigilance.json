@@ -80,9 +80,7 @@
           "conditionDefinitionName": "ConditionTacticianSharedVigilance",
           "conditionDefinition": "Definition:ConditionTacticianSharedVigilance:3245290f-fb4b-56ca-9f01-9b8bb309684a",
           "operation": "Add",
-          "conditionsList": [
-            "Definition:ConditionTacticianSharedVigilance:3245290f-fb4b-56ca-9f01-9b8bb309684a"
-          ],
+          "conditionsList": [],
           "applyToSelf": false,
           "forceOnSelf": false
         },

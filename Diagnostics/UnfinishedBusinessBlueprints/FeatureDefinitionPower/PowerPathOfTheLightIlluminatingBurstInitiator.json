@@ -80,9 +80,7 @@
           "conditionDefinitionName": "ConditionPathOfTheLightSuppressedIlluminatingBurst",
           "conditionDefinition": "Definition:ConditionPathOfTheLightSuppressedIlluminatingBurst:3b33e142-aaaf-57ea-ad7d-a39c908a1aff",
           "operation": "Remove",
-          "conditionsList": [
-            "Definition:ConditionPathOfTheLightSuppressedIlluminatingBurst:3b33e142-aaaf-57ea-ad7d-a39c908a1aff"
-          ],
+          "conditionsList": [],
           "applyToSelf": false,
           "forceOnSelf": false
         },

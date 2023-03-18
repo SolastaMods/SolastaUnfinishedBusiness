@@ -80,9 +80,7 @@
           "conditionDefinitionName": "ConditionFlying12",
           "conditionDefinition": "Definition:ConditionFlying12:33fb0e0fb4c74604e8fe76b8d3370510",
           "operation": "Add",
-          "conditionsList": [
-            "Definition:ConditionFlying12:33fb0e0fb4c74604e8fe76b8d3370510"
-          ],
+          "conditionsList": [],
           "applyToSelf": false,
           "forceOnSelf": false
         },

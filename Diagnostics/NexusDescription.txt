@@ -290,7 +290,7 @@ You gain proficiency with medium armor and shields.
 [*][b]Pugilist[/b]: Your unarmed strikes deal an additional 1d4 bludgeoning damage and you can punch with your offhand as a bonus action. You can shove as a bonus action if you have free hand.
 [*][b]Ranged Expert[/b]: Your expert training with ranged weapons grants you these benefits:
 • Attacks at melee range don't impose disadvantage.
-• If you take the Attack action on your turn, you can make one one-handed ranged attack a bonus action, adding your attribute modifier to damage.
+• If you take the attack action on your turn, you can make one one-handed ranged bonus attack adding your attribute modifier to damage.
 [*][b]Reckless Attack[/b]: Before you make your first attack on your turn, you can decide to attack recklessly. Doing so gives you advantage on melee weapon attack rolls using Strength during this turn, but attack rolls against you have advantage until your next turn.
 [*][b]Revenant Great Sword [Dex][/b]: You are descended from a master of the great sword, and some of that mastery has passed on to you. You gain the following benefits:
 • Increase your Dexterity score by 1, to a maximum of 20.

@@ -80,9 +80,7 @@
           "conditionDefinitionName": "ConditionInnovationAlchemyMarkerDamageAcid",
           "conditionDefinition": "Definition:ConditionInnovationAlchemyMarkerDamageAcid:5a39302c-5ece-5332-a771-076451a8ec00",
           "operation": "Add",
-          "conditionsList": [
-            "Definition:ConditionInnovationAlchemyMarkerDamageAcid:5a39302c-5ece-5332-a771-076451a8ec00"
-          ],
+          "conditionsList": [],
           "applyToSelf": false,
           "forceOnSelf": false
         },

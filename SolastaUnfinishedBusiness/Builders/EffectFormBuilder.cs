@@ -103,17 +103,10 @@ internal class EffectFormBuilder
 
     internal EffectFormBuilder SetConditionForm(
         ConditionDefinition condition,
-        ConditionForm.ConditionOperation operation)
-    {
-        return SetConditionForm(condition, operation, false, false, condition);
-    }
-
-    internal EffectFormBuilder SetConditionForm(
-        ConditionDefinition condition,
         ConditionForm.ConditionOperation operation,
-        bool applyToSelf,
-        bool forceOnSelf,
-        params ConditionDefinition[] detrimentalConditions)
+        bool applyToSelf = false,
+        bool forceOnSelf = false,
+        params ConditionDefinition[] conditionsList)
     {
         effectForm.FormType = EffectForm.EffectFormType.Condition;
 
@@ -123,7 +116,7 @@ internal class EffectFormBuilder
             ConditionDefinition = condition,
             applyToSelf = applyToSelf,
             forceOnSelf = forceOnSelf,
-            conditionsList = detrimentalConditions.ToList()
+            conditionsList = conditionsList.ToList()
         };
 
         if (condition != null)

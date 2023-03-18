@@ -80,9 +80,7 @@
           "conditionDefinitionName": "ConditionOnFire1D4",
           "conditionDefinition": "Definition:ConditionOnFire1D4:c832b5142b6541b40a0d925d502e0f9d",
           "operation": "Add",
-          "conditionsList": [
-            "Definition:ConditionOnFire1D4:c832b5142b6541b40a0d925d502e0f9d"
-          ],
+          "conditionsList": [],
           "applyToSelf": false,
           "forceOnSelf": false
         },

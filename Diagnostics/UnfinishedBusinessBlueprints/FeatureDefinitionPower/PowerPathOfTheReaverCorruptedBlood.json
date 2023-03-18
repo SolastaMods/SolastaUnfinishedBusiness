@@ -80,9 +80,7 @@
           "conditionDefinitionName": "ConditionPathOfTheReaverCorruptedBlood",
           "conditionDefinition": "Definition:ConditionPathOfTheReaverCorruptedBlood:f6c1da8c-21ff-5aba-9bbe-00d1cec97b4b",
           "operation": "Add",
-          "conditionsList": [
-            "Definition:ConditionPathOfTheReaverCorruptedBlood:f6c1da8c-21ff-5aba-9bbe-00d1cec97b4b"
-          ],
+          "conditionsList": [],
           "applyToSelf": false,
           "forceOnSelf": false
         },

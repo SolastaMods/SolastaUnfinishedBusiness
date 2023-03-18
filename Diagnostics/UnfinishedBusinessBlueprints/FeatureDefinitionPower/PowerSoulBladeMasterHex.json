@@ -80,9 +80,7 @@
           "conditionDefinitionName": "ConditionSoulBladeHexDefender",
           "conditionDefinition": "Definition:ConditionSoulBladeHexDefender:bb7f4c4e-c04d-52de-9f24-a18c7bd6a3f4",
           "operation": "Add",
-          "conditionsList": [
-            "Definition:ConditionSoulBladeHexDefender:bb7f4c4e-c04d-52de-9f24-a18c7bd6a3f4"
-          ],
+          "conditionsList": [],
           "applyToSelf": false,
           "forceOnSelf": false
         },

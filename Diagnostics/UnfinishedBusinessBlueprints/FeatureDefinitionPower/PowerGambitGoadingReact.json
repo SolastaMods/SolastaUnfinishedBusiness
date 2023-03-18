@@ -80,9 +80,7 @@
           "conditionDefinitionName": "ConditionGambitGoadingEffect",
           "conditionDefinition": "Definition:ConditionGambitGoadingEffect:b91ad71f-ab9f-5ff6-ba9d-b966e1e6143e",
           "operation": "Add",
-          "conditionsList": [
-            "Definition:ConditionGambitGoadingEffect:b91ad71f-ab9f-5ff6-ba9d-b966e1e6143e"
-          ],
+          "conditionsList": [],
           "applyToSelf": false,
           "forceOnSelf": false
         },

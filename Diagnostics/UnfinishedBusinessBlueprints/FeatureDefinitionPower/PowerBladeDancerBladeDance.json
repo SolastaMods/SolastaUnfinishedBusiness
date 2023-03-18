@@ -80,9 +80,7 @@
           "conditionDefinitionName": "ConditionBladeDancerBladeDance",
           "conditionDefinition": "Definition:ConditionBladeDancerBladeDance:3034268e-3881-5845-ac11-11481d2d4155",
           "operation": "Add",
-          "conditionsList": [
-            "Definition:ConditionBladeDancerBladeDance:3034268e-3881-5845-ac11-11481d2d4155"
-          ],
+          "conditionsList": [],
           "applyToSelf": false,
           "forceOnSelf": false
         },

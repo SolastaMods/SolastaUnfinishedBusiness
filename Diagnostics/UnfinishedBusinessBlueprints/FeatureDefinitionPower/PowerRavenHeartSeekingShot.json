@@ -80,9 +80,7 @@
           "conditionDefinitionName": "ConditionRavenHeartSeekingShotTrigger",
           "conditionDefinition": "Definition:ConditionRavenHeartSeekingShotTrigger:4551fc51-74ca-5b5d-b390-bbfd6ce9e81e",
           "operation": "Add",
-          "conditionsList": [
-            "Definition:ConditionRavenHeartSeekingShotTrigger:4551fc51-74ca-5b5d-b390-bbfd6ce9e81e"
-          ],
+          "conditionsList": [],
           "applyToSelf": false,
           "forceOnSelf": false
         },
@@ -109,9 +107,7 @@
           "conditionDefinitionName": "ConditionRavenHeartSeekingShot",
           "conditionDefinition": "Definition:ConditionRavenHeartSeekingShot:a7797286-a493-54f1-89f1-01276315d67f",
           "operation": "Add",
-          "conditionsList": [
-            "Definition:ConditionRavenHeartSeekingShot:a7797286-a493-54f1-89f1-01276315d67f"
-          ],
+          "conditionsList": [],
           "applyToSelf": false,
           "forceOnSelf": false
         },

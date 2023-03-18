@@ -115,9 +115,7 @@
           "conditionDefinitionName": "ConditionInnovationAlchemyDamageRadiant",
           "conditionDefinition": "Definition:ConditionInnovationAlchemyDamageRadiant:cd460b7c-1cdf-551d-b437-c5882aaf0d77",
           "operation": "Add",
-          "conditionsList": [
-            "Definition:ConditionInnovationAlchemyDamageRadiant:cd460b7c-1cdf-551d-b437-c5882aaf0d77"
-          ],
+          "conditionsList": [],
           "applyToSelf": false,
           "forceOnSelf": false
         },

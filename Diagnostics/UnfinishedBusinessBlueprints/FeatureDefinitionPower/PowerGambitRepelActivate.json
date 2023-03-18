@@ -80,9 +80,7 @@
           "conditionDefinitionName": "ConditionGambitRepel",
           "conditionDefinition": "Definition:ConditionGambitRepel:f6ba119b-3ecd-5cad-9449-141afbe55a98",
           "operation": "Add",
-          "conditionsList": [
-            "Definition:ConditionGambitRepel:f6ba119b-3ecd-5cad-9449-141afbe55a98"
-          ],
+          "conditionsList": [],
           "applyToSelf": false,
           "forceOnSelf": false
         },

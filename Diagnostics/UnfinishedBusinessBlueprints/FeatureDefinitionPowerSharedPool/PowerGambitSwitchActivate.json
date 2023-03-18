@@ -105,9 +105,7 @@
           "conditionDefinitionName": "ConditionGambitSwitch",
           "conditionDefinition": "Definition:ConditionGambitSwitch:c2768a6f-6c9f-5507-ac44-9ab7f88205fa",
           "operation": "Add",
-          "conditionsList": [
-            "Definition:ConditionGambitSwitch:c2768a6f-6c9f-5507-ac44-9ab7f88205fa"
-          ],
+          "conditionsList": [],
           "applyToSelf": false,
           "forceOnSelf": false
         },

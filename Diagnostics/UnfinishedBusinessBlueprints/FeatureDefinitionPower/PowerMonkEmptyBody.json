@@ -80,9 +80,7 @@
           "conditionDefinitionName": "ConditionInvisibleGreater",
           "conditionDefinition": "Definition:ConditionInvisibleGreater:59190d77c6803cf4f8c35b057aab3737",
           "operation": "Add",
-          "conditionsList": [
-            "Definition:ConditionInvisibleGreater:59190d77c6803cf4f8c35b057aab3737"
-          ],
+          "conditionsList": [],
           "applyToSelf": false,
           "forceOnSelf": false
         },
@@ -109,9 +107,7 @@
           "conditionDefinitionName": "ConditionMonkEmptyBody",
           "conditionDefinition": "Definition:ConditionMonkEmptyBody:e63f7a84-446c-5053-91f6-9ba2c2b2ef74",
           "operation": "Add",
-          "conditionsList": [
-            "Definition:ConditionMonkEmptyBody:e63f7a84-446c-5053-91f6-9ba2c2b2ef74"
-          ],
+          "conditionsList": [],
           "applyToSelf": false,
           "forceOnSelf": false
         },

@@ -80,9 +80,7 @@
           "conditionDefinitionName": "ConditionPathOfTheLightEyesOfTruth",
           "conditionDefinition": "Definition:ConditionPathOfTheLightEyesOfTruth:e1651ba5-918b-56dd-987d-0996689dd75e",
           "operation": "Add",
-          "conditionsList": [
-            "Definition:ConditionPathOfTheLightEyesOfTruth:e1651ba5-918b-56dd-987d-0996689dd75e"
-          ],
+          "conditionsList": [],
           "applyToSelf": false,
           "forceOnSelf": false
         },

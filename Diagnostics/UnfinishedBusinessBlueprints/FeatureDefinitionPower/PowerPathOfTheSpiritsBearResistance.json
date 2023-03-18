@@ -80,9 +80,7 @@
           "conditionDefinitionName": "ConditionPathOfTheSpiritsBearResistance",
           "conditionDefinition": "Definition:ConditionPathOfTheSpiritsBearResistance:8257873c-04a1-5df1-9d65-3888968dc126",
           "operation": "Add",
-          "conditionsList": [
-            "Definition:ConditionPathOfTheSpiritsBearResistance:8257873c-04a1-5df1-9d65-3888968dc126"
-          ],
+          "conditionsList": [],
           "applyToSelf": false,
           "forceOnSelf": false
         },

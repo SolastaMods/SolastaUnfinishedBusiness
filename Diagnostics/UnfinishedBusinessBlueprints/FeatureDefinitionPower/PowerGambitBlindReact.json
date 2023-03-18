@@ -80,9 +80,7 @@
           "conditionDefinitionName": "ConditionBlinded",
           "conditionDefinition": "Definition:ConditionBlinded:0a89e8d8ad8f21649b744191035357b3",
           "operation": "Add",
-          "conditionsList": [
-            "Definition:ConditionBlinded:0a89e8d8ad8f21649b744191035357b3"
-          ],
+          "conditionsList": [],
           "applyToSelf": false,
           "forceOnSelf": false
         },

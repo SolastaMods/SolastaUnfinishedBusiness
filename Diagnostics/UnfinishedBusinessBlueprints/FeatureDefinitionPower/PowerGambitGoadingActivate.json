@@ -80,9 +80,7 @@
           "conditionDefinitionName": "ConditionGambitGoading",
           "conditionDefinition": "Definition:ConditionGambitGoading:8c5df3cf-7014-5578-85bb-bead0a2dac81",
           "operation": "Add",
-          "conditionsList": [
-            "Definition:ConditionGambitGoading:8c5df3cf-7014-5578-85bb-bead0a2dac81"
-          ],
+          "conditionsList": [],
           "applyToSelf": false,
           "forceOnSelf": false
         },
