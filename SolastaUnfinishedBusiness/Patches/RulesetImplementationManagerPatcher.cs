@@ -60,7 +60,7 @@ public static class RulesetImplementationManagerPatcher
             effectGroupInfo.bonusValue += bonusDamage;
 
             return rulesetActor.RollDamage(
-                damageForm, addDice, criticalSuccess, additionalDamage, damageRollReduction,
+                damageForm, addDice, false, additionalDamage, damageRollReduction,
                 damageMultiplier, useVersatileDamage, attackModeDamage, rolledValues, canRerollDice);
         }
 
