@@ -13,4 +13,4 @@ Reaction/&CustomReactionBloodbathTitle=Bloodbath
 Reaction/&CustomReactionBloodbathReactDescription=Eviscerate this creature.
 Reaction/&CustomReactionBloodbathReactTitle=Eviscerate
 Subclass/&PathOfTheReaverDescription=All Reavers undergo a ritual that involves drinking tainted blood of a dragon, permanently infusing their bodies with a sliver of draconic might and voracity, at the cost of gradually increasing corruption. These fearsome warriors revel in death, regaining energy from the suffering of their enemies.
-Subclass/&PathOfTheReaverTitle=Path of The Reaver
+Subclass/&PathOfTheReaverTitle=Path of the Reaver
