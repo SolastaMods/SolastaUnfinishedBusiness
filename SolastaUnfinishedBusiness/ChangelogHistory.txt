@@ -7,7 +7,9 @@
 - fixed Bear Resistance keeping effects off rage
 - fixed critical damage calculation feature
 - fixed Ranged Mastery feat offhand bonus damage
+- fixed Skin of Retribution and Shared Spell
 - fixed Wolf Leadership not granting on self
+- updated Bolgrif, Gnome and Petal Storm sprites
 
 1.4.33.60:
 
