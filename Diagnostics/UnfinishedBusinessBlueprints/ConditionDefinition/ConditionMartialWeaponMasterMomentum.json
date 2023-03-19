@@ -3,10 +3,12 @@
   "inDungeonEditor": false,
   "parentCondition": null,
   "conditionType": "Beneficial",
-  "features": [],
+  "features": [
+    "Definition:AdditionalActionMartialWeaponMasterMomentum:2dec1fc5-1327-5551-b82b-94ac1f4df962"
+  ],
   "allowMultipleInstances": false,
-  "silentWhenAdded": false,
-  "silentWhenRemoved": false,
+  "silentWhenAdded": true,
+  "silentWhenRemoved": true,
   "terminateWhenRemoved": false,
   "specialDuration": true,
   "durationType": "Round",

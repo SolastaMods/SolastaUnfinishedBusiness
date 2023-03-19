@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Linq;
 using JetBrains.Annotations;
-using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Builders;
@@ -60,16 +59,9 @@ internal sealed class MartialWeaponMaster : AbstractSubclass
                 .AddToDB();
         }
 
-        var attributeModifierSpecialization = FeatureDefinitionAttributeModifierBuilder
-            .Create($"AttributeModifier{Name}{Specialization}")
-            .SetGuiPresentation(Category.Feature)
-            .SetModifier(AttributeModifierOperation.Set, AttributeDefinitions.CriticalThreshold, 19)
-            .SetSituationalContext(ExtraSituationalContext.HasSpecializedWeaponInHands)
-            .AddToDB();
-
         var invocationPoolSpecialization = CustomInvocationPoolDefinitionBuilder
             .Create($"InvocationPool{Name}{Specialization}")
-            .SetGuiPresentationNoContent(true)
+            .SetGuiPresentation($"AttributeModifier{Name}{Specialization}", Category.Feature)
             .Setup(InvocationPoolTypeCustom.Pools.MartialWeaponMaster)
             .AddToDB();
 
@@ -112,11 +104,21 @@ internal sealed class MartialWeaponMaster : AbstractSubclass
 
         // LEVEL 07
 
+        // Momentum
+
         var conditionMomentum = ConditionDefinitionBuilder
             .Create($"Condition{Name}Momentum")
             .SetGuiPresentationNoContent(true)
+            .SetSilent(Silent.WhenAddedOrRemoved)
             .SetSpecialDuration(DurationType.Round, 1, TurnOccurenceType.StartOfTurn)
             .SetSpecialInterruptions(ConditionInterruption.AnyBattleTurnEnd)
+            .SetFeatures(FeatureDefinitionAdditionalActionBuilder
+                .Create($"AdditionalAction{Name}Momentum")
+                .SetGuiPresentationNoContent(true)
+                .SetActionType(ActionDefinitions.ActionType.Main)
+                .SetRestrictedActions(ActionDefinitions.Id.AttackMain)
+                .SetMaxAttacksNumber(1)
+                .AddToDB())
             .AddToDB();
 
         var featureMomentum = FeatureDefinitionBuilder
@@ -124,13 +126,11 @@ internal sealed class MartialWeaponMaster : AbstractSubclass
             .SetGuiPresentation(Category.Feature)
             .AddToDB();
 
-        featureMomentum.SetCustomSubFeatures(
-            new AddExtraMainHandAttack(
-                ActionDefinitions.ActionType.Bonus,
-                ValidatorsCharacter.HasAnyOfConditions(conditionMomentum.Name)),
-            new TargetReducedToZeroHpMomentum(featureMomentum, conditionMomentum));
+        featureMomentum.SetCustomSubFeatures(new TargetReducedToZeroHpMomentum(featureMomentum, conditionMomentum));
 
         // LEVEL 10
+
+        // Battle Stance
 
         var featureBattleStance = FeatureDefinitionBuilder
             .Create($"Feature{Name}BattleStance")
@@ -140,11 +140,11 @@ internal sealed class MartialWeaponMaster : AbstractSubclass
 
         // LEVEL 15
 
-        var attributeModifierMastery = FeatureDefinitionAttributeModifierBuilder
+        // Weapon Mastery
+
+        var attributeModifierMastery = FeatureDefinitionBuilder
             .Create($"AttributeModifier{Name}Mastery")
             .SetGuiPresentation(Category.Feature)
-            .SetModifier(AttributeModifierOperation.Set, AttributeDefinitions.CriticalThreshold, 18)
-            .SetSituationalContext(ExtraSituationalContext.HasSpecializedWeaponInHands)
             .AddToDB();
 
         // LEVEL 18
@@ -162,7 +162,7 @@ internal sealed class MartialWeaponMaster : AbstractSubclass
             .Create(Name)
             .SetGuiPresentation(Category.Subclass, Sprites.GetSprite(Name, Resources.MartialWeaponMaster, 256))
             .AddFeaturesAtLevel(3,
-                attributeModifierSpecialization,
+                FeatureDefinitionAttributeModifiers.AttributeModifierMartialChampionImprovedCritical,
                 invocationPoolSpecialization,
                 powerFocusedStrikes)
             .AddFeaturesAtLevel(7,
@@ -170,6 +170,7 @@ internal sealed class MartialWeaponMaster : AbstractSubclass
             .AddFeaturesAtLevel(10,
                 featureBattleStance)
             .AddFeaturesAtLevel(15,
+                FeatureDefinitionAttributeModifiers.AttributeModifierMartialChampionSuperiorCritical,
                 attributeModifierMastery)
             .AddFeaturesAtLevel(18,
                 featurePerfectStrikes)
@@ -297,8 +298,8 @@ internal sealed class MartialWeaponMaster : AbstractSubclass
 
     private class TargetReducedToZeroHpMomentum : ITargetReducedToZeroHp
     {
-        private readonly FeatureDefinition _featureDefinition;
         private readonly ConditionDefinition _conditionDefinition;
+        private readonly FeatureDefinition _featureDefinition;
 
         public TargetReducedToZeroHpMomentum(
             FeatureDefinition featureDefinition,
@@ -376,6 +377,8 @@ internal sealed class MartialWeaponMaster : AbstractSubclass
 
     private sealed class BattleStartedBattleStance : ICharacterBattleStartedListener
     {
+        private const string Line = "Feedback/&ActivateRepaysLine";
+
         public void OnCharacterBattleStarted(GameLocationCharacter locationCharacter, bool surprise)
         {
             var rulesetCharacter = locationCharacter.RulesetCharacter;
@@ -401,9 +404,13 @@ internal sealed class MartialWeaponMaster : AbstractSubclass
             rulesetCharacter.ReceiveTemporaryHitPoints(
                 totalHealing, DurationType.Minute, 1, TurnOccurenceType.EndOfTurn, rulesetCharacter.guid);
 
+            //
+            // not the best code practice here but reuse this same interface for Focused Strikes 10th feature
+            //
+
             // Focused Strikes
-            var powerFocusedStrikes =
-                GetDefinition<FeatureDefinitionPower>($"Power{Name}FocusedStrikes{specializedWeapon.Name}");
+
+            var powerFocusedStrikes = GetDefinition<FeatureDefinitionPower>($"Power{Name}FocusedStrikes");
             var rulesetUsablePower = rulesetCharacter.UsablePowers.Find(x => x.PowerDefinition == powerFocusedStrikes);
 
             if (rulesetUsablePower == null || rulesetCharacter.GetRemainingUsesOfPower(rulesetUsablePower) > 0)
@@ -411,8 +418,8 @@ internal sealed class MartialWeaponMaster : AbstractSubclass
                 return;
             }
 
-            GameConsoleHelper.LogCharacterUsedPower(rulesetCharacter, powerFocusedStrikes);
-            rulesetUsablePower.AddUses(1);
+            GameConsoleHelper.LogCharacterUsedPower(rulesetCharacter, powerFocusedStrikes, Line);
+            rulesetUsablePower.RepayUse();
         }
     }
 

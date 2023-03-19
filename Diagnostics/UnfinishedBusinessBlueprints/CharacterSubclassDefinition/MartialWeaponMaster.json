@@ -8,12 +8,12 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:InvocationPoolMartialWeaponMasterSpecialization:ab0185d4-9c0b-5e24-b9b1-f6007a57bc17",
+      "featureDefinition": "Definition:AttributeModifierMartialChampionImprovedCritical:6e6f489cef90d6b4ebe16357f17daa56",
       "level": 3
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:AttributeModifierMartialWeaponMasterSpecialization:d892844f-306b-5f36-a100-23df9f33c27b",
+      "featureDefinition": "Definition:InvocationPoolMartialWeaponMasterSpecialization:ab0185d4-9c0b-5e24-b9b1-f6007a57bc17",
       "level": 3
     },
     {
@@ -25,6 +25,11 @@
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:FeatureMartialWeaponMasterBattleStance:314c6704-1ba0-5bbd-8137-99187d696634",
       "level": 10
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:AttributeModifierMartialChampionSuperiorCritical:be5054cc67fc986468ff9c0ca4b6cd5b",
+      "level": 15
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
