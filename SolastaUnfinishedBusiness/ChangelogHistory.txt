@@ -1,5 +1,14 @@
 ﻿CHANGES:
 
+1.4.33.61:
+
+- added Martial Weapon Master subclass
+- added Path of the Reaver subclass
+- fixed Bear Resistance keeping effects off rage
+- fixed critical damage calculation feature
+- fixed Ranged Mastery feat offhand bonus damage
+- fixed Wolf Leadership not granting on self
+
 1.4.33.60:
 
 - added feats, invocations and spell sprites
