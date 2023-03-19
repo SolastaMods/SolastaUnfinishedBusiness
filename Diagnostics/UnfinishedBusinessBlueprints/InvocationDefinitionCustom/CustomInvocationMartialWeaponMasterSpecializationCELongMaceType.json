@@ -1,0 +1,38 @@
+{
+  "$type": "SolastaUnfinishedBusiness.CustomDefinitions.InvocationDefinitionCustom, SolastaUnfinishedBusiness",
+  "requiredKnownSpell": null,
+  "requiredLevel": 1,
+  "requiredPact": null,
+  "grantedFeature": "Definition:FeatureMartialWeaponMasterSpecializationCELongMaceType:c8c8a5ce-3eab-5ef0-b411-6bc42be6d830",
+  "grantedSpell": null,
+  "consumesSpellSlot": false,
+  "longRestRecharge": false,
+  "overrideMaterialComponent": true,
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Item/&CELongMaceTypeTitle",
+    "description": "Feature/&AttributeModifierMartialWeaponMasterSpecializationDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "41126cd4-1da2-5990-9331-f51138019311",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "8a327bfe-6657-5a43-81dc-08c5572dd2b1",
+  "contentPack": 9999,
+  "name": "CustomInvocationMartialWeaponMasterSpecializationCELongMaceType"
+}

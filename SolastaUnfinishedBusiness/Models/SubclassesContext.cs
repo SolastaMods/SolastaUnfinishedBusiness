@@ -49,6 +49,7 @@ internal static class SubclassesContext
         LoadSubclass(new MartialRoyalKnight());
         LoadSubclass(new MartialSpellShield());
         LoadSubclass(new MartialTactician());
+        LoadSubclass(new MartialWeaponMaster());
 
         // Paladin
         LoadSubclass(new OathOfAltruism());

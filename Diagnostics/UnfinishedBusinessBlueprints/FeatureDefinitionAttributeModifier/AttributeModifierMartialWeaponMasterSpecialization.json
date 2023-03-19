@@ -1,0 +1,37 @@
+{
+  "$type": "FeatureDefinitionAttributeModifier, Assembly-CSharp",
+  "modifiedAttribute": "CriticalThreshold",
+  "modifierOperation": "Set",
+  "modifierValue": 19,
+  "modifierAbilityScore": "Constitution",
+  "situationalContext": 1006,
+  "minimum1": false,
+  "useBonusFromCaster": false,
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feature/&AttributeModifierMartialWeaponMasterSpecializationTitle",
+    "description": "Feature/&AttributeModifierMartialWeaponMasterSpecializationDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "d892844f-306b-5f36-a100-23df9f33c27b",
+  "contentPack": 9999,
+  "name": "AttributeModifierMartialWeaponMasterSpecialization"
+}
