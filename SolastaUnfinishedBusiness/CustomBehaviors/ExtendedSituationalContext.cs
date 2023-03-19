@@ -18,8 +18,18 @@ internal static class CustomSituationalContext
             RulesetEntity.TryGetEntity(contextParams.sourceEffectId, out effectSource);
         }
 
+        // supports Martial Weapon Master use case
+        static bool MainWeaponIsSpecialized(RulesetCharacter rulesetCharacter)
+        {
+            var specializedWeapon = Subclasses.MartialWeaponMaster.GetSpecializedWeaponType(rulesetCharacter);
+
+            return specializedWeapon != null && ValidatorsCharacter.HasWeaponType(specializedWeapon)(rulesetCharacter);
+        }
+
         return (ExtraSituationalContext)context switch
         {
+            ExtraSituationalContext.HasSpecializedWeaponInHands => MainWeaponIsSpecialized(contextParams.source),
+
             ExtraSituationalContext.MainWeaponIsMeleeOrUnarmed =>
                 ValidatorsCharacter.HasMeleeWeaponInMainHand(contextParams.source) ||
                 ValidatorsCharacter.IsUnarmedInMainHand(contextParams.source),

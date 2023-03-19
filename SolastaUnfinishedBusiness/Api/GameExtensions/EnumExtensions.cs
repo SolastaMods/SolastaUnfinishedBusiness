@@ -16,7 +16,8 @@ internal enum ExtraSituationalContext
     WearingNoArmorOrLightArmorWithoutShield = 1001,
     WearingNoArmorOrLightArmorWithTwoHandedQuarterstaff = 1002,
     TargetIsNotEffectSource = 1004,
-    SummonerIsNextToBeast = 1005
+    SummonerIsNextToBeast = 1005,
+    HasSpecializedWeaponInHands = 1006
 }
 
 #if false
