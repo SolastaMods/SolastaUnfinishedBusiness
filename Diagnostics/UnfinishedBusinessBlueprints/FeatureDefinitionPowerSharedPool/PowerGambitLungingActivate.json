@@ -80,9 +80,7 @@
           "conditionDefinitionName": "ConditionGambitLunging",
           "conditionDefinition": "Definition:ConditionGambitLunging:fc806863-d5b0-5b5d-a186-5cf2d6ccd238",
           "operation": "Add",
-          "conditionsList": [
-            "Definition:ConditionGambitLunging:fc806863-d5b0-5b5d-a186-5cf2d6ccd238"
-          ],
+          "conditionsList": [],
           "applyToSelf": false,
           "forceOnSelf": false
         },

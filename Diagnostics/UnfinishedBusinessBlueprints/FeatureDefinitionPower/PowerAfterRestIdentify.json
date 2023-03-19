@@ -80,9 +80,7 @@
           "conditionDefinitionName": "AfterRestIdentify",
           "conditionDefinition": "Definition:AfterRestIdentify:ab50d807-5d2b-5a30-82b4-92b68056c607",
           "operation": "Add",
-          "conditionsList": [
-            "Definition:AfterRestIdentify:ab50d807-5d2b-5a30-82b4-92b68056c607"
-          ],
+          "conditionsList": [],
           "applyToSelf": false,
           "forceOnSelf": false
         },

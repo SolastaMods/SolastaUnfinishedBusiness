@@ -2,6 +2,6 @@
 Feat/&FeatBowMasteryTitle=Bow Mastery
 Feat/&FeatDeadeyeDescription=You have learned to trade accuracy to land deadlier shots:\n• When attacking with a ranged weapon, you can choose to take a -5 penalty to your to hit in order to do additional +10 damage.\n• Attacks at long range don't impose disadvantage and ranged weapon attack ignores half cover and three-quarters cover.
 Feat/&FeatDeadeyeTitle=Deadeye
-Feat/&FeatRangedExpertDescription=Your expert training with ranged weapons grants you these benefits:\n• Attacks at melee range don't impose disadvantage.\n• If you take the Attack action on your turn, you can make one one-handed ranged attack a bonus action, adding your attribute modifier to damage.
+Feat/&FeatRangedExpertDescription=Your expert training with ranged weapons grants you these benefits:\n• Attacks at melee range don't impose disadvantage.\n• If you take the attack action on your turn, you can make one one-handed ranged bonus attack adding your attribute modifier to damage.
 Feat/&FeatRangedExpertTitle=Ranged Expert
 Tooltip/&DeadeyeConcentration=Disable Deadeye.

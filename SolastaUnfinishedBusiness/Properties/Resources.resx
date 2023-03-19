@@ -714,6 +714,9 @@
   <data name="PowerReflexes" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Powers\PowerReflexes.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="PowerFocusedStrikes" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Powers\PowerFocusedStrikes.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Wrack" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Spells\Wrack.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -783,6 +786,9 @@
   <data name="MartialTactician" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Subclasses\MartialTactician.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="MartialWeaponMaster" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Subclasses\MartialWeaponMaster.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="OathOfAltruism" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Subclasses\OathOfAltruism.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -798,6 +804,9 @@
   <data name="PathOfTheLight" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Subclasses\PathOfTheLight.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="PathOfTheReaver" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Subclasses\PathOfTheReaver.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="PathOfTheSpirits" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Subclasses\PathOfTheSpirits.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -812,6 +821,9 @@
   </data>
   <data name="RangerArcanist" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Subclasses\RangerArcanist.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="RangerLightBearer" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Subclasses\RangerLightBearer.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="RangerWildMaster" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Subclasses\RangerWildMaster.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>

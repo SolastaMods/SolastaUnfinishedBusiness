@@ -80,9 +80,7 @@
           "conditionDefinitionName": "ConditionFeatPowerAttack",
           "conditionDefinition": "Definition:ConditionFeatPowerAttack:9138a303-cd3a-551f-95e6-94dba23f85b2",
           "operation": "Add",
-          "conditionsList": [
-            "Definition:ConditionFeatPowerAttack:9138a303-cd3a-551f-95e6-94dba23f85b2"
-          ],
+          "conditionsList": [],
           "applyToSelf": false,
           "forceOnSelf": false
         },

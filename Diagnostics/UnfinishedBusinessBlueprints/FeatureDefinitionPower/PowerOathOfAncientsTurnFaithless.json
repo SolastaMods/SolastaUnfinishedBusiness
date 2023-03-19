@@ -84,9 +84,7 @@
           "conditionDefinitionName": "ConditionTurned",
           "conditionDefinition": "Definition:ConditionTurned:3e211ed923cf3f74993122e6a8b25808",
           "operation": "Add",
-          "conditionsList": [
-            "Definition:ConditionTurned:3e211ed923cf3f74993122e6a8b25808"
-          ],
+          "conditionsList": [],
           "applyToSelf": false,
           "forceOnSelf": false
         },

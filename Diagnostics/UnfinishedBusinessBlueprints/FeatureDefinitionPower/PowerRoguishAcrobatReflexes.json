@@ -80,9 +80,7 @@
           "conditionDefinitionName": "ConditionDodging",
           "conditionDefinition": "Definition:ConditionDodging:f3fc376a7fa72954dadc467627325195",
           "operation": "Add",
-          "conditionsList": [
-            "Definition:ConditionDodging:f3fc376a7fa72954dadc467627325195"
-          ],
+          "conditionsList": [],
           "applyToSelf": false,
           "forceOnSelf": false
         },

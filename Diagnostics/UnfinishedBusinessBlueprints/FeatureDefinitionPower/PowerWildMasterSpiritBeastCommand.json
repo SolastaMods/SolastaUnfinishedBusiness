@@ -80,9 +80,7 @@
           "conditionDefinitionName": "ConditionWildMasterSpiritBeastCommand",
           "conditionDefinition": "Definition:ConditionWildMasterSpiritBeastCommand:733150a1-a0fc-5299-8775-47a90bb4ae4e",
           "operation": "Add",
-          "conditionsList": [
-            "Definition:ConditionWildMasterSpiritBeastCommand:733150a1-a0fc-5299-8775-47a90bb4ae4e"
-          ],
+          "conditionsList": [],
           "applyToSelf": false,
           "forceOnSelf": false
         },

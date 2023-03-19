@@ -80,9 +80,7 @@
           "conditionDefinitionName": "ConditionCollegeOfHarlequinRegainBardicInspirationOnKill",
           "conditionDefinition": "Definition:ConditionCollegeOfHarlequinRegainBardicInspirationOnKill:c7ef688a-05fa-5e68-b1a0-5e1b17c80c0d",
           "operation": "Add",
-          "conditionsList": [
-            "Definition:ConditionCollegeOfHarlequinRegainBardicInspirationOnKill:c7ef688a-05fa-5e68-b1a0-5e1b17c80c0d"
-          ],
+          "conditionsList": [],
           "applyToSelf": false,
           "forceOnSelf": false
         },

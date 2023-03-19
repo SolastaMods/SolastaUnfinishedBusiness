@@ -80,9 +80,7 @@
           "conditionDefinitionName": "ConditionInnovationAlchemyMarkerDamagePoison",
           "conditionDefinition": "Definition:ConditionInnovationAlchemyMarkerDamagePoison:a164c7c3-e944-53c7-8e45-9aa667ddf205",
           "operation": "Add",
-          "conditionsList": [
-            "Definition:ConditionInnovationAlchemyMarkerDamagePoison:a164c7c3-e944-53c7-8e45-9aa667ddf205"
-          ],
+          "conditionsList": [],
           "applyToSelf": false,
           "forceOnSelf": false
         },

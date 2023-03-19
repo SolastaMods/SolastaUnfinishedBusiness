@@ -91,9 +91,7 @@
           "conditionDefinitionName": "ConditionStaggeringSmite",
           "conditionDefinition": "Definition:ConditionStaggeringSmite:f3db8774-2ada-595b-8e67-cbc987efbb81",
           "operation": "Add",
-          "conditionsList": [
-            "Definition:ConditionStaggeringSmite:f3db8774-2ada-595b-8e67-cbc987efbb81"
-          ],
+          "conditionsList": [],
           "applyToSelf": false,
           "forceOnSelf": false
         },

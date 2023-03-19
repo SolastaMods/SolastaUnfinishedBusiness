@@ -80,9 +80,7 @@
           "conditionDefinitionName": "ConditionWayOfTheDistantHandDistract",
           "conditionDefinition": "Definition:ConditionWayOfTheDistantHandDistract:0da721ff-f562-5bb4-8a1f-a3004f4cacc1",
           "operation": "Add",
-          "conditionsList": [
-            "Definition:ConditionWayOfTheDistantHandDistract:0da721ff-f562-5bb4-8a1f-a3004f4cacc1"
-          ],
+          "conditionsList": [],
           "applyToSelf": false,
           "forceOnSelf": false
         },

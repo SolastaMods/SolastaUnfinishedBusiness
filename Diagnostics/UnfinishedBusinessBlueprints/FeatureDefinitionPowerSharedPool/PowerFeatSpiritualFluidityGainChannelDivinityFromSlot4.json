@@ -80,9 +80,7 @@
           "conditionDefinitionName": "ConditionFeatSpiritualFluidityGainChannelDivinityFromSlot4",
           "conditionDefinition": "Definition:ConditionFeatSpiritualFluidityGainChannelDivinityFromSlot4:7babe170-a57e-5cf1-a034-e6e65eed9a62",
           "operation": "Add",
-          "conditionsList": [
-            "Definition:ConditionFeatSpiritualFluidityGainChannelDivinityFromSlot4:7babe170-a57e-5cf1-a034-e6e65eed9a62"
-          ],
+          "conditionsList": [],
           "applyToSelf": false,
           "forceOnSelf": false
         },

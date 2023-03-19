@@ -60,6 +60,11 @@ internal static class ValidatorsCharacter
         return character => !conditions.Any(character.HasConditionOfType);
     }
 
+    internal static IsCharacterValidHandler HasOffhandWeaponType(params WeaponTypeDefinition[] weaponTypeDefinition)
+    {
+        return character => ValidatorsWeapon.IsWeaponType(character.GetOffhandWeapon(), weaponTypeDefinition);
+    }
+    
     internal static IsCharacterValidHandler HasWeaponType(params WeaponTypeDefinition[] weaponTypeDefinition)
     {
         return character =>

@@ -91,9 +91,7 @@
           "conditionDefinitionName": "ConditionBanishingSmite",
           "conditionDefinition": "Definition:ConditionBanishingSmite:3f66db2a-5299-5c1b-98ab-f20063aa6a5f",
           "operation": "Add",
-          "conditionsList": [
-            "Definition:ConditionBanishingSmite:3f66db2a-5299-5c1b-98ab-f20063aa6a5f"
-          ],
+          "conditionsList": [],
           "applyToSelf": false,
           "forceOnSelf": false
         },

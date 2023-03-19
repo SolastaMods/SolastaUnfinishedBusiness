@@ -91,9 +91,7 @@
           "conditionDefinitionName": "ConditionThunderousSmite",
           "conditionDefinition": "Definition:ConditionThunderousSmite:f8010331-f4a8-5f86-9ab2-682108bb7943",
           "operation": "Add",
-          "conditionsList": [
-            "Definition:ConditionThunderousSmite:f8010331-f4a8-5f86-9ab2-682108bb7943"
-          ],
+          "conditionsList": [],
           "applyToSelf": false,
           "forceOnSelf": false
         },

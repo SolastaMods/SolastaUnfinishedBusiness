@@ -80,9 +80,7 @@
           "conditionDefinitionName": "ConditionFeatCallForCharge",
           "conditionDefinition": "Definition:ConditionFeatCallForCharge:c16ce32f-da15-54c8-ad3c-e26c5428988e",
           "operation": "Add",
-          "conditionsList": [
-            "Definition:ConditionFeatCallForCharge:c16ce32f-da15-54c8-ad3c-e26c5428988e"
-          ],
+          "conditionsList": [],
           "applyToSelf": false,
           "forceOnSelf": false
         },

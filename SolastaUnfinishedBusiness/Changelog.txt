@@ -1,7 +1,8 @@
-- added feats, invocations and spell sprites
-- fixed Hand Crossbow and Two Weapon Fighting
-- fixed Heavy Armor Master triggering logic
-- fixed Polearm Master weapon validators
+- added Martial Weapon Master subclass
+- added Path of the Reaver subclass
+- fixed Bear Resistance keeping effects off rage
+- fixed critical damage calculation feature
+- fixed Ranged Mastery feat offhand bonus damage
 - fixed Skin of Retribution and Shared Spell
-- fixed Spear Mastery to allow benefits on offhand
-- fixed Distant Hand's flurry of blows in melee
+- fixed Wolf Leadership not granting on self
+- updated Bolgrif, Gnome and Petal Storm sprites

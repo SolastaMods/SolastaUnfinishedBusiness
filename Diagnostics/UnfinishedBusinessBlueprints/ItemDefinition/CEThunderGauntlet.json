@@ -167,9 +167,7 @@
             "conditionDefinitionName": "ConditionThunderGauntletDistract",
             "conditionDefinition": "Definition:ConditionThunderGauntletDistract:74f50bae-04d6-56d6-94fe-9202a88a1173",
             "operation": "Add",
-            "conditionsList": [
-              "Definition:ConditionThunderGauntletDistract:74f50bae-04d6-56d6-94fe-9202a88a1173"
-            ],
+            "conditionsList": [],
             "applyToSelf": false,
             "forceOnSelf": false
           },

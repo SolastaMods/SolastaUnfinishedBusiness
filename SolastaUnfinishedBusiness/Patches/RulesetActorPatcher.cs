@@ -321,8 +321,25 @@ public static class RulesetActorPatcher
             }
             else
             {
-                result = RuleDefinitions.RollDie(dieType, advantageType, out firstRoll, out secondRoll,
-                    rollAlterationScore);
+                var changeDiceRollList = actor.GetSubFeaturesByType<IChangeDiceRoll>()
+                    .Where(x => x.IsValid(rollContext, actor as RulesetCharacter));
+
+                foreach (var changeDiceRoll in changeDiceRollList)
+                {
+                    changeDiceRoll.BeforeRoll(rollContext, actor as RulesetCharacter,
+                        ref dieType,
+                        ref advantageType);
+                }
+
+                result = RuleDefinitions.RollDie(
+                    dieType, advantageType, out firstRoll, out secondRoll, rollAlterationScore);
+
+                foreach (var changeDiceRoll in changeDiceRollList)
+                {
+                    changeDiceRoll.AfterRoll(rollContext, actor as RulesetCharacter,
+                        ref firstRoll,
+                        ref secondRoll);
+                }
             }
 
             if (rollContext != RuleDefinitions.RollContext.AttackRoll)
@@ -464,7 +481,7 @@ public static class RulesetActorPatcher
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
     [HarmonyPatch(typeof(RulesetActor), nameof(RulesetActor.RollDamage))]
-    internal class RulesetActor_RollDamage
+    internal class RulesetActor_RollDamage_Patch
     {
         internal static DamageForm CurrentDamageForm;
 
@@ -485,7 +502,7 @@ public static class RulesetActorPatcher
     [HarmonyPatch(typeof(RulesetActor), nameof(RulesetActor.RerollDieAsNeeded))]
     [SuppressMessage("Minor Code Smell", "S101:Types should be named in PascalCase", Justification = "Patch")]
     [UsedImplicitly]
-    public static class RulesetActor_RerollDieAsNeeded
+    public static class RulesetActor_RerollDieAsNeeded_Patch
     {
         [UsedImplicitly]
         public static bool Prefix(
@@ -495,9 +512,9 @@ public static class RulesetActorPatcher
         {
             if (dieRollModifier is not FeatureDefinitionDieRollModifierDamageTypeDependent
                     featureDefinitionDieRollModifierDamageTypeDependent
-                || RulesetActor_RollDamage.CurrentDamageForm == null
-                || featureDefinitionDieRollModifierDamageTypeDependent.damageTypes.Contains(RulesetActor_RollDamage
-                    .CurrentDamageForm.damageType))
+                || RulesetActor_RollDamage_Patch.CurrentDamageForm == null
+                || featureDefinitionDieRollModifierDamageTypeDependent.damageTypes.Contains(
+                    RulesetActor_RollDamage_Patch.CurrentDamageForm.damageType))
             {
                 return true;
             }

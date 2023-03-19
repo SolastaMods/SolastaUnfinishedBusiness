@@ -80,9 +80,7 @@
           "conditionDefinitionName": "ConditionFeatSpiritualFluidityGain2Slot",
           "conditionDefinition": "Definition:ConditionFeatSpiritualFluidityGain2Slot:734b5d88-950e-55b6-8cd8-ecc17306aeb6",
           "operation": "Add",
-          "conditionsList": [
-            "Definition:ConditionFeatSpiritualFluidityGain2Slot:734b5d88-950e-55b6-8cd8-ecc17306aeb6"
-          ],
+          "conditionsList": [],
           "applyToSelf": false,
           "forceOnSelf": false
         },

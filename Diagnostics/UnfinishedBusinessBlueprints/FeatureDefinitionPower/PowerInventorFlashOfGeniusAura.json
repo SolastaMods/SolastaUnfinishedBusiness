@@ -80,9 +80,7 @@
           "conditionDefinitionName": "ConditionInventorFlashOfGeniusAura",
           "conditionDefinition": "Definition:ConditionInventorFlashOfGeniusAura:c0fc5877-d0ef-5523-9f22-a43f93be29d6",
           "operation": "Add",
-          "conditionsList": [
-            "Definition:ConditionInventorFlashOfGeniusAura:c0fc5877-d0ef-5523-9f22-a43f93be29d6"
-          ],
+          "conditionsList": [],
           "applyToSelf": false,
           "forceOnSelf": false
         },

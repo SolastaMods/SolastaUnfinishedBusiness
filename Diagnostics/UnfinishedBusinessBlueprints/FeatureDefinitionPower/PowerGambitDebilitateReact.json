@@ -80,9 +80,7 @@
           "conditionDefinitionName": "ConditionGambitDebilitate",
           "conditionDefinition": "Definition:ConditionGambitDebilitate:264569bd-843a-5d33-9716-8283554315a4",
           "operation": "Add",
-          "conditionsList": [
-            "Definition:ConditionGambitDebilitate:264569bd-843a-5d33-9716-8283554315a4"
-          ],
+          "conditionsList": [],
           "applyToSelf": false,
           "forceOnSelf": false
         },

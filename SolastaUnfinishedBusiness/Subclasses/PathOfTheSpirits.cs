@@ -153,9 +153,10 @@ internal sealed class PathOfTheSpirits : AbstractSubclass
     {
         var conditionPathOfTheSpiritsBearResistance = ConditionDefinitionBuilder
             .Create("ConditionPathOfTheSpiritsBearResistance")
-            .SetGuiPresentation("PowerPathOfTheSpiritsBearResistance", Category.Feature)
-            .SetSilent(Silent.WhenAddedOrRemoved)
-            .SetSpecialInterruptions(ConditionInterruption.RageStop)
+            .SetGuiPresentation("PowerPathOfTheSpiritsBearResistance", Category.Feature,
+                ConditionDefinitions.ConditionBarkskin)
+            .SetPossessive()
+            .SetSpecialInterruptions(ConditionInterruption.RageStop, ConditionInterruption.BattleEnd)
             .SetFeatures(
                 DamageAffinityAcidResistance,
                 DamageAffinityBludgeoningResistance,
@@ -175,7 +176,8 @@ internal sealed class PathOfTheSpirits : AbstractSubclass
             .SetGuiPresentation(Category.Feature)
             .SetUsesFixed(ActivationTime.OnRageStartAutomatic)
             .SetEffectDescription(EffectDescriptionBuilder.Create()
-                .SetDurationData(DurationType.Permanent)
+                .SetDurationData(DurationType.Dispelled)
+                .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
                 .SetEffectForms(EffectFormBuilder
                     .Create()
                     .SetConditionForm(conditionPathOfTheSpiritsBearResistance, ConditionForm.ConditionOperation.Add)
@@ -300,7 +302,6 @@ internal sealed class PathOfTheSpirits : AbstractSubclass
             foreach (var targetLocationCharacter in battle.AllContenders
                          .Where(x =>
                              x.Side == sourceLocationCharacter.Side &&
-                             x != sourceLocationCharacter &&
                              gameLocationBattleService.IsWithinXCells(sourceLocationCharacter, x, 3)))
             {
                 var condition = RulesetCondition.CreateActiveCondition(

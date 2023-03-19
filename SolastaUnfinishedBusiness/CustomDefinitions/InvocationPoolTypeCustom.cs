@@ -137,6 +137,9 @@ internal class InvocationPoolTypeCustom
                 bonus: (Id)ExtraActionId.TacticianGambitBonus,
                 noCost: (Id)ExtraActionId.TacticianGambitNoCost);
 
+        internal static readonly InvocationPoolTypeCustom MartialWeaponMaster =
+            Register("MartialWeaponMaster", CharacterClassDefinitions.Fighter.ClassPictogramReference, hidden: true);
+
         internal static readonly InvocationPoolTypeCustom PlaneMagic =
             Register("PlaneMagic",
                 hidden: true,

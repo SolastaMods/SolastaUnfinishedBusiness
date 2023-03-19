@@ -33,9 +33,7 @@ internal static partial class SpellBuilders
                             FeatureDefinitionConditionAffinitys.ConditionAffinityCalmEmotionCharmedImmunity,
                             FeatureDefinitionDamageAffinitys.DamageAffinityPsychicImmunity)
                         .AddToDB(),
-                    ConditionForm.ConditionOperation.Add,
-                    false,
-                    false)
+                    ConditionForm.ConditionOperation.Add)
                 .Build())
             .Build();
 

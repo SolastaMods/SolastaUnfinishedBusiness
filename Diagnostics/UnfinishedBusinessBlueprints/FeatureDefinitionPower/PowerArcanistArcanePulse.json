@@ -80,9 +80,7 @@
           "conditionDefinitionName": "ConditionMarkedByArcanist",
           "conditionDefinition": "Definition:ConditionMarkedByArcanist:b7349939-8da1-5aee-8181-afdc537bb413",
           "operation": "Add",
-          "conditionsList": [
-            "Definition:ConditionMarkedByArcanist:b7349939-8da1-5aee-8181-afdc537bb413"
-          ],
+          "conditionsList": [],
           "applyToSelf": false,
           "forceOnSelf": false
         },

@@ -80,9 +80,7 @@
           "conditionDefinitionName": "ConditionGambitBlind",
           "conditionDefinition": "Definition:ConditionGambitBlind:d838fcc8-c42f-5530-a1b2-6318f2695777",
           "operation": "Add",
-          "conditionsList": [
-            "Definition:ConditionGambitBlind:d838fcc8-c42f-5530-a1b2-6318f2695777"
-          ],
+          "conditionsList": [],
           "applyToSelf": false,
           "forceOnSelf": false
         },

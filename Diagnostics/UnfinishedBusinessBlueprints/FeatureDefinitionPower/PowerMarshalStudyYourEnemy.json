@@ -80,9 +80,7 @@
           "conditionDefinitionName": "ConditionMarshalStudyYourEnemy",
           "conditionDefinition": "Definition:ConditionMarshalStudyYourEnemy:b3e29bd8-e71b-581b-8094-a8d7e0a598b9",
           "operation": "Add",
-          "conditionsList": [
-            "Definition:ConditionMarshalStudyYourEnemy:b3e29bd8-e71b-581b-8094-a8d7e0a598b9"
-          ],
+          "conditionsList": [],
           "applyToSelf": false,
           "forceOnSelf": false
         },

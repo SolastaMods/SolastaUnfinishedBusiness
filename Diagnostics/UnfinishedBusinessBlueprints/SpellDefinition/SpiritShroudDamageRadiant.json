@@ -91,9 +91,7 @@
           "conditionDefinitionName": "ConditionSpiritShroudHinder",
           "conditionDefinition": "Definition:ConditionSpiritShroudHinder:89b5e148-47fb-55d4-9458-a029ac5a0447",
           "operation": "Add",
-          "conditionsList": [
-            "Definition:ConditionSpiritShroudHinder:89b5e148-47fb-55d4-9458-a029ac5a0447"
-          ],
+          "conditionsList": [],
           "applyToSelf": false,
           "forceOnSelf": false
         },

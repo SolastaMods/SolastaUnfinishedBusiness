@@ -332,6 +332,7 @@ internal static partial class DatabaseHelper
     }
     internal static class FeatureDefinitionAttackModifiers
     {
+        internal static FeatureDefinitionAttackModifier AttackModifierFightingStyleTwoWeapon { get; } = GetDefinition<FeatureDefinitionAttackModifier>("AttackModifierFightingStyleTwoWeapon");
         internal static FeatureDefinitionAttackModifier AttackModifierMagicWeapon { get; } = GetDefinition<FeatureDefinitionAttackModifier>("AttackModifierMagicWeapon");
         internal static FeatureDefinitionAttackModifier AttackModifierMagicWeapon2 { get; } = GetDefinition<FeatureDefinitionAttackModifier>("AttackModifierMagicWeapon2");
         internal static FeatureDefinitionAttackModifier AttackModifierMagicWeapon3 { get; } = GetDefinition<FeatureDefinitionAttackModifier>("AttackModifierMagicWeapon3");
@@ -1119,10 +1120,6 @@ internal static partial class DatabaseHelper
         internal static MorphotypeElementDefinition FaceAndSkin_Neutral { get; } = GetDefinition<MorphotypeElementDefinition>("FaceAndSkin_Neutral");
         internal static MorphotypeElementDefinition FaceShape_NPC_Aksha { get; } = GetDefinition<MorphotypeElementDefinition>("FaceShape_NPC_Aksha");
         internal static MorphotypeElementDefinition HairColorSilver { get; } = GetDefinition<MorphotypeElementDefinition>("HairColorSilver");
-    }
-    internal static class ReactionDefinitions
-    {
-        internal static ReactionDefinition OpportunityAttack { get; } = GetDefinition<ReactionDefinition>("OpportunityAttack");
     }
     internal static class RecipeDefinitions
     {

@@ -91,9 +91,7 @@
           "conditionDefinitionName": "ConditionCrusadersMantle",
           "conditionDefinition": "Definition:ConditionCrusadersMantle:04a3a8c7-cf68-5a07-a0c1-9aabc911cad9",
           "operation": "Add",
-          "conditionsList": [
-            "Definition:ConditionCrusadersMantle:04a3a8c7-cf68-5a07-a0c1-9aabc911cad9"
-          ],
+          "conditionsList": [],
           "applyToSelf": false,
           "forceOnSelf": false
         },
