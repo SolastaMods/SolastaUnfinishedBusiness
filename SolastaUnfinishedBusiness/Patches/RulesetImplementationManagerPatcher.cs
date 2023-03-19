@@ -60,7 +60,7 @@ public static class RulesetImplementationManagerPatcher
             effectGroupInfo.bonusValue += bonusDamage;
 
             return rulesetActor.RollDamage(
-                damageForm, addDice, false, additionalDamage, damageRollReduction,
+                damageForm, addDice, criticalSuccess, additionalDamage, damageRollReduction,
                 damageMultiplier, useVersatileDamage, attackModeDamage, rolledValues, canRerollDice);
         }
 
@@ -211,7 +211,7 @@ public static class RulesetImplementationManagerPatcher
             {
                 RuleDefinitions.Side.Enemy => Main.Settings.CriticalHitModeEnemies switch
                 {
-                    1 => RollDamageOption1(rulesetActor, damageForm, addDice, true, additionalDamage,
+                    1 => RollDamageOption1(rulesetActor, damageForm, addDice, false, additionalDamage,
                         damageRollReduction, damageMultiplier, useVersatileDamage, attackModeDamage, rolledValues,
                         canRerollDice, effectGroupInfo),
                     2 => RollDamageOption2(rulesetActor, damageForm, addDice, additionalDamage,
