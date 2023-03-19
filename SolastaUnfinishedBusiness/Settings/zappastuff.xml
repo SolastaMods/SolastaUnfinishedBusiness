@@ -201,6 +201,8 @@
     <string>WizardDeadMaster</string>
     <string>WizardSpellMaster</string>
     <string>RoguishAcrobat</string>
+    <string>PathOfTheReaver</string>
+    <string>MartialWeaponMaster</string>
   </SubclassEnabled>
   <FeatSliderPosition>4</FeatSliderPosition>
   <FeatEnabled>
