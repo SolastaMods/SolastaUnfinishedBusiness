@@ -80,9 +80,7 @@
           "conditionDefinitionName": "ConditionGambitKnockdown",
           "conditionDefinition": "Definition:ConditionGambitKnockdown:4916b052-0acd-54ea-bf49-931a89ee4951",
           "operation": "Add",
-          "conditionsList": [
-            "Definition:ConditionGambitKnockdown:4916b052-0acd-54ea-bf49-931a89ee4951"
-          ],
+          "conditionsList": [],
           "applyToSelf": false,
           "forceOnSelf": false
         },

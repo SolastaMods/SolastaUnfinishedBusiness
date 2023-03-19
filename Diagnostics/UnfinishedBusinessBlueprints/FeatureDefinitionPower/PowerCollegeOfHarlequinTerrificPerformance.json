@@ -80,9 +80,7 @@
           "conditionDefinitionName": "ConditionTerrifiedByHarlequinPerformance",
           "conditionDefinition": "Definition:ConditionTerrifiedByHarlequinPerformance:8d8c467d-99d0-5d74-874b-18396f97e421",
           "operation": "Add",
-          "conditionsList": [
-            "Definition:ConditionTerrifiedByHarlequinPerformance:8d8c467d-99d0-5d74-874b-18396f97e421"
-          ],
+          "conditionsList": [],
           "applyToSelf": false,
           "forceOnSelf": false
         },

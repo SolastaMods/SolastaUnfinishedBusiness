@@ -80,9 +80,7 @@
           "conditionDefinitionName": "ConditionOathOfAltruismAuraOfTheGuardian",
           "conditionDefinition": "Definition:ConditionOathOfAltruismAuraOfTheGuardian:4a66b77f-1f5d-5b37-ba7e-4d57922e2e0c",
           "operation": "Add",
-          "conditionsList": [
-            "Definition:ConditionOathOfAltruismAuraOfTheGuardian:4a66b77f-1f5d-5b37-ba7e-4d57922e2e0c"
-          ],
+          "conditionsList": [],
           "applyToSelf": false,
           "forceOnSelf": false
         },

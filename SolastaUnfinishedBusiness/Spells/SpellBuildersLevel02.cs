@@ -198,9 +198,7 @@ internal static partial class SpellBuilders
         weaponDescription.EffectDescription.EffectForms.Add(
             EffectFormBuilder
                 .Create()
-                .SetConditionForm(
-                    conditionShadowBlade,
-                    ConditionForm.ConditionOperation.Add)
+                .SetConditionForm(conditionShadowBlade, ConditionForm.ConditionOperation.Add)
                 .Build());
 
         var damageForm = weaponDescription.EffectDescription.FindFirstDamageForm();

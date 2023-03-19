@@ -80,9 +80,7 @@
           "conditionDefinitionName": "ConditionPathOfTheLightIlluminatingStrikeInitiator",
           "conditionDefinition": "Definition:ConditionPathOfTheLightIlluminatingStrikeInitiator:734c3a58-3170-51f2-8e6f-b11c359e1cf9",
           "operation": "Add",
-          "conditionsList": [
-            "Definition:ConditionPathOfTheLightIlluminatingStrikeInitiator:734c3a58-3170-51f2-8e6f-b11c359e1cf9"
-          ],
+          "conditionsList": [],
           "applyToSelf": false,
           "forceOnSelf": false
         },

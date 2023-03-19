@@ -80,9 +80,7 @@
           "conditionDefinitionName": "ConditionPoisoned",
           "conditionDefinition": "Definition:ConditionPoisoned:185ea6cfd1e758448bf574c4055af482",
           "operation": "Add",
-          "conditionsList": [
-            "Definition:ConditionPoisoned:185ea6cfd1e758448bf574c4055af482"
-          ],
+          "conditionsList": [],
           "applyToSelf": false,
           "forceOnSelf": false
         },

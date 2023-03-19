@@ -80,9 +80,7 @@
           "conditionDefinitionName": "ConditionCollegeOfHarlequinFightingAbilityEnhanced",
           "conditionDefinition": "Definition:ConditionCollegeOfHarlequinFightingAbilityEnhanced:d1e823fe-ae98-5788-9bf3-85e0f2ab2ee3",
           "operation": "Add",
-          "conditionsList": [
-            "Definition:ConditionCollegeOfHarlequinFightingAbilityEnhanced:d1e823fe-ae98-5788-9bf3-85e0f2ab2ee3"
-          ],
+          "conditionsList": [],
           "applyToSelf": false,
           "forceOnSelf": false
         },

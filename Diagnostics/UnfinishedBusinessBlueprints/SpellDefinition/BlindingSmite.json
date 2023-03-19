@@ -91,9 +91,7 @@
           "conditionDefinitionName": "ConditionBlindingSmite",
           "conditionDefinition": "Definition:ConditionBlindingSmite:2c93801f-485a-5dde-b448-a94fadf31253",
           "operation": "Add",
-          "conditionsList": [
-            "Definition:ConditionBlindingSmite:2c93801f-485a-5dde-b448-a94fadf31253"
-          ],
+          "conditionsList": [],
           "applyToSelf": false,
           "forceOnSelf": false
         },

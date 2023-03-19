@@ -80,9 +80,7 @@
           "conditionDefinitionName": "ConditionInventorWeaponSteelDefenerCommand",
           "conditionDefinition": "Definition:ConditionInventorWeaponSteelDefenerCommand:401eb5b1-cc21-52c1-9bb6-d26705e074ef",
           "operation": "Add",
-          "conditionsList": [
-            "Definition:ConditionInventorWeaponSteelDefenerCommand:401eb5b1-cc21-52c1-9bb6-d26705e074ef"
-          ],
+          "conditionsList": [],
           "applyToSelf": false,
           "forceOnSelf": false
         },

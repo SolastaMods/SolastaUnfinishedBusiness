@@ -80,9 +80,7 @@
           "conditionDefinitionName": "ConditionFeatNaturalFluidityGain3Slot",
           "conditionDefinition": "Definition:ConditionFeatNaturalFluidityGain3Slot:f22de049-5ea1-5ba8-b07a-8bf593a07e93",
           "operation": "Add",
-          "conditionsList": [
-            "Definition:ConditionFeatNaturalFluidityGain3Slot:f22de049-5ea1-5ba8-b07a-8bf593a07e93"
-          ],
+          "conditionsList": [],
           "applyToSelf": false,
           "forceOnSelf": false
         },

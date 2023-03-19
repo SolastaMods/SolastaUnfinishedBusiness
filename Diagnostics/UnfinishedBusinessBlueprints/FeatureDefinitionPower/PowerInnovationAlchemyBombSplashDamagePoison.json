@@ -115,9 +115,7 @@
           "conditionDefinitionName": "ConditionInnovationAlchemyDamagePoison",
           "conditionDefinition": "Definition:ConditionInnovationAlchemyDamagePoison:a2060437-057f-5de4-8b87-ab203595869a",
           "operation": "Add",
-          "conditionsList": [
-            "Definition:ConditionInnovationAlchemyDamagePoison:a2060437-057f-5de4-8b87-ab203595869a"
-          ],
+          "conditionsList": [],
           "applyToSelf": false,
           "forceOnSelf": false
         },

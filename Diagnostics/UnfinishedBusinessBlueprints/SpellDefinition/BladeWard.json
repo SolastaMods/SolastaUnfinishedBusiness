@@ -91,9 +91,7 @@
           "conditionDefinitionName": "ConditionBladeWard",
           "conditionDefinition": "Definition:ConditionBladeWard:8d3d76d9-b5f0-5d86-9b8e-a06f55ce639d",
           "operation": "Add",
-          "conditionsList": [
-            "Definition:ConditionBladeWard:8d3d76d9-b5f0-5d86-9b8e-a06f55ce639d"
-          ],
+          "conditionsList": [],
           "applyToSelf": false,
           "forceOnSelf": false
         },

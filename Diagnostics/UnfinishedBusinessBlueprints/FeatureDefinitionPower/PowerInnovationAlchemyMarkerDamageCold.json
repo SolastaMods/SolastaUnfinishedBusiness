@@ -80,9 +80,7 @@
           "conditionDefinitionName": "ConditionInnovationAlchemyMarkerDamageCold",
           "conditionDefinition": "Definition:ConditionInnovationAlchemyMarkerDamageCold:76fe6ab7-70e4-52dd-b9ce-a56ceead2eb3",
           "operation": "Add",
-          "conditionsList": [
-            "Definition:ConditionInnovationAlchemyMarkerDamageCold:76fe6ab7-70e4-52dd-b9ce-a56ceead2eb3"
-          ],
+          "conditionsList": [],
           "applyToSelf": false,
           "forceOnSelf": false
         },

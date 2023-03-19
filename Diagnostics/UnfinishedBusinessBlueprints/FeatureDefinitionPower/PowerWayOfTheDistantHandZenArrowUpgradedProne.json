@@ -105,9 +105,7 @@
           "conditionDefinitionName": "ConditionWayOfTheDistantHandZenArrowUpgradedSlow",
           "conditionDefinition": "Definition:ConditionWayOfTheDistantHandZenArrowUpgradedSlow:defdac99-3f37-50a0-a8cf-a5a837046ca1",
           "operation": "Add",
-          "conditionsList": [
-            "Definition:ConditionWayOfTheDistantHandZenArrowUpgradedSlow:defdac99-3f37-50a0-a8cf-a5a837046ca1"
-          ],
+          "conditionsList": [],
           "applyToSelf": false,
           "forceOnSelf": false
         },

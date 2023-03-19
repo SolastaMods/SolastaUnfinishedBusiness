@@ -115,9 +115,7 @@
           "conditionDefinitionName": "ConditionInnovationAlchemyDamageNecrotic",
           "conditionDefinition": "Definition:ConditionInnovationAlchemyDamageNecrotic:a414f3b0-c616-5d8f-8e38-4fd598d43881",
           "operation": "Add",
-          "conditionsList": [
-            "Definition:ConditionInnovationAlchemyDamageNecrotic:a414f3b0-c616-5d8f-8e38-4fd598d43881"
-          ],
+          "conditionsList": [],
           "applyToSelf": false,
           "forceOnSelf": false
         },

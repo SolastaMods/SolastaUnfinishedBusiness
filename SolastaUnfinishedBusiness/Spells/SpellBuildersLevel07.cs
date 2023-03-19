@@ -40,9 +40,7 @@ internal static partial class SpellBuilders
                                 FeatureDefinitionMoveModes.MoveModeFly2
                             )
                             .AddToDB(),
-                        ConditionForm.ConditionOperation.Add,
-                        false,
-                        false)
+                        ConditionForm.ConditionOperation.Add)
                     .HasSavingThrow(EffectSavingThrowType.Negates)
                     .Build(),
                 EffectFormBuilder

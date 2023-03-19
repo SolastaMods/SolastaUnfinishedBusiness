@@ -115,9 +115,7 @@
           "conditionDefinitionName": "ConditionPathOfTheLightIlluminatedByBurst",
           "conditionDefinition": "Definition:ConditionPathOfTheLightIlluminatedByBurst:459ef6e1-95ce-57ef-893b-7d33d4db9262",
           "operation": "Add",
-          "conditionsList": [
-            "Definition:ConditionPathOfTheLightIlluminatedByBurst:459ef6e1-95ce-57ef-893b-7d33d4db9262"
-          ],
+          "conditionsList": [],
           "applyToSelf": false,
           "forceOnSelf": false
         },

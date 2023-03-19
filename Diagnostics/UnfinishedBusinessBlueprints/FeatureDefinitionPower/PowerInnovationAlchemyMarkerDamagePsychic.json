@@ -80,9 +80,7 @@
           "conditionDefinitionName": "ConditionInnovationAlchemyMarkerDamagePsychic",
           "conditionDefinition": "Definition:ConditionInnovationAlchemyMarkerDamagePsychic:7a8c8d9b-b21b-591d-bd52-a6a2ddba9892",
           "operation": "Add",
-          "conditionsList": [
-            "Definition:ConditionInnovationAlchemyMarkerDamagePsychic:7a8c8d9b-b21b-591d-bd52-a6a2ddba9892"
-          ],
+          "conditionsList": [],
           "applyToSelf": false,
           "forceOnSelf": false
         },

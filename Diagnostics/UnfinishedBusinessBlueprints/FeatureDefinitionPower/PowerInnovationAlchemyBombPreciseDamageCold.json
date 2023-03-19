@@ -115,9 +115,7 @@
           "conditionDefinitionName": "ConditionHindered_By_Frost",
           "conditionDefinition": "Definition:ConditionHindered_By_Frost:c148df61de4a42345aeb1962d83f7b58",
           "operation": "Add",
-          "conditionsList": [
-            "Definition:ConditionHindered_By_Frost:c148df61de4a42345aeb1962d83f7b58"
-          ],
+          "conditionsList": [],
           "applyToSelf": false,
           "forceOnSelf": false
         },

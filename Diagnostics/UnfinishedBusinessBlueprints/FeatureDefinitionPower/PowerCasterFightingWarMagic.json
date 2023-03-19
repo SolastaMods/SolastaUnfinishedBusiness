@@ -80,9 +80,7 @@
           "conditionDefinitionName": "ConditionCasterFightingWarMagic",
           "conditionDefinition": "Definition:ConditionCasterFightingWarMagic:7673ca94-a0c8-5086-9d9e-cf632937cff6",
           "operation": "Add",
-          "conditionsList": [
-            "Definition:ConditionCasterFightingWarMagic:7673ca94-a0c8-5086-9d9e-cf632937cff6"
-          ],
+          "conditionsList": [],
           "applyToSelf": false,
           "forceOnSelf": false
         },
