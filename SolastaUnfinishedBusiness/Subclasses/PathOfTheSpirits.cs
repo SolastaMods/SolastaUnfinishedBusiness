@@ -302,7 +302,6 @@ internal sealed class PathOfTheSpirits : AbstractSubclass
             foreach (var targetLocationCharacter in battle.AllContenders
                          .Where(x =>
                              x.Side == sourceLocationCharacter.Side &&
-                             x != sourceLocationCharacter &&
                              gameLocationBattleService.IsWithinXCells(sourceLocationCharacter, x, 3)))
             {
                 var condition = RulesetCondition.CreateActiveCondition(
