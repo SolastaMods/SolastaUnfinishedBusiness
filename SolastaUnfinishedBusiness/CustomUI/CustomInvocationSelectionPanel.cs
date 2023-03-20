@@ -721,8 +721,8 @@ internal class CustomInvocationSelectionPanel : CharacterStagePanel
 
     public override void OnEndHide()
     {
-        learnedInvocations.Clear();
-        allPools.Clear();
+        // learnedInvocations.Clear();
+        // allPools.Clear();
 
         for (var i = 0; i < spellsByLevelTable.childCount; i++)
         {
@@ -737,9 +737,9 @@ internal class CustomInvocationSelectionPanel : CharacterStagePanel
             group.CustomUnbind();
         }
 
-        Gui.ReleaseChildrenToPool(spellsByLevelTable);
-        Gui.ReleaseChildrenToPool(learnStepsTable);
-        Gui.ReleaseChildrenToPool(levelButtonsTable);
+        // Gui.ReleaseChildrenToPool(spellsByLevelTable);
+        // Gui.ReleaseChildrenToPool(learnStepsTable);
+        // Gui.ReleaseChildrenToPool(levelButtonsTable);
 
         base.OnEndHide();
 
