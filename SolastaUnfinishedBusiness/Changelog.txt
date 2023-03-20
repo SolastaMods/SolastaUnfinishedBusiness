@@ -1,8 +1,7 @@
-- added Martial Weapon Master subclass
-- added Path of the Reaver subclass
-- fixed Bear Resistance keeping effects off rage
-- fixed critical damage calculation feature
-- fixed Ranged Mastery feat offhand bonus damage
-- fixed Skin of Retribution and Shared Spell
-- fixed Wolf Leadership not granting on self
-- updated Bolgrif, Gnome and Petal Storm sprites
+- added General > Character > Improve Ranger features selection setting
+- added Expand the Hunt, Longsword Finesse, Poisoner and Slay the Enemies feats
+- added level prerequisites to Critical Virtuoso feats
+- changed Weapon Specialization to grant on 8 and 16 instead of 2, 4, 10 and 12
+- changed feats selection from 2, 6, 10 and 14 to 4, 10 and 16
+- fixed Hand-and-a-Half weapon validator
+- improved Path of the Reaver and Weapon Master translations

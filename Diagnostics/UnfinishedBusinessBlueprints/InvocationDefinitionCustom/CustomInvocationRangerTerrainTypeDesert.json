@@ -15,7 +15,7 @@
     "description": "TerrainType/&DesertDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "",
+      "m_AssetGUID": "b94c4fa6-d16a-5d5f-9c51-c141b5e8aad5",
       "m_SubObjectName": null,
       "m_SubObjectType": null
     },

@@ -15,7 +15,7 @@
     "description": "TerrainType/&GrasslandDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "",
+      "m_AssetGUID": "efa48ca4-43fb-5c61-81b3-93cdbb3de28f",
       "m_SubObjectName": null,
       "m_SubObjectType": null
     },
