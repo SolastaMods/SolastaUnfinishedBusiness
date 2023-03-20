@@ -15,6 +15,12 @@ internal static class ValidatorsFeat
     // validation routines for FeatDefinitionWithPrerequisites
     //
 
+    internal static readonly Func<FeatDefinition, RulesetCharacterHero, (bool result, string output)> IsLevel4 =
+        ValidateIsClass(string.Empty, 4);
+
+    internal static readonly Func<FeatDefinition, RulesetCharacterHero, (bool result, string output)> IsLevel16 =
+        ValidateIsClass(string.Empty, 16, Fighter);
+
     internal static readonly Func<FeatDefinition, RulesetCharacterHero, (bool result, string output)>
         IsBarbarianLevel4 = ValidateIsClass(Barbarian.FormatTitle(), 4, Barbarian);
 
@@ -172,7 +178,7 @@ internal static class ValidatorsFeat
         {
             var guiFormat = Gui.Format("Tooltip/&PreReqIsWithLevel", description, minLevels.ToString());
 
-            if (!hero.ClassesHistory.Intersect(characterClassDefinition).Any())
+            if (characterClassDefinition.Length > 0 && !hero.ClassesHistory.Intersect(characterClassDefinition).Any())
             {
                 return (false, Gui.Colorize(guiFormat, Gui.ColorFailure));
             }
