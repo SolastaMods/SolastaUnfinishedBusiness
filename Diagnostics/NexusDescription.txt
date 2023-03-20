@@ -260,7 +260,7 @@ You gain the ability to cast the burning hands, hellish rebuke and scorching ray
 [*][b]Longsword Finesse[/b]: You are descended from a master of the longsword, and some of that mastery has passed on to you. You gain the following benefits:
 • Increase your Dexterity score by 1, to a maximum of 20.
 • While you are holding a longsword, you gain a +1 bonus to Armor Class.
-•Longsword has the finesse property when you wield it.
+• Longsword has the finesse property when you wield it.
 [*][b]Magic Initiate [Bard][/b]: You learn two cantrips of your choice from the Bard spell list. In addition, choose one 1st-level spell to learn from that same list. Using this feat, you can cast the spell once at its lowest level, and you must finish a long rest before you can cast it in this way again.
 [*][b]Magic Initiate [Cleric][/b]: You learn two cantrips of your choice from the Cleric spell list. In addition, choose one 1st-level spell to learn from that same list. Using this feat, you can cast the spell once at its lowest level, and you must finish a long rest before you can cast it in this way again.
 [*][b]Magic Initiate [Druid][/b]: You learn two cantrips of your choice from the Druid spell list. In addition, choose one 1st-level spell to learn from that same list. Using this feat, you can cast the spell once at its lowest level, and you must finish a long rest before you can cast it in this way again.
@@ -279,6 +279,10 @@ You gain proficiency with medium armor and shields.
 [*][b]Pickpocket[/b]: You gain proficiency with Sleight of Hand, or expertise if already proficient. You also have advantage on Sleight of Hand Dexterity checks.
 [*][b]Piercer [Dex][/b]: You have achieved a penetrating precision in combat. Increase your Dexterity by 1, to a maximum of 20. When you hit a creature with an attack that deals piercing damage, you can re-roll dice when you roll a 1 and you must use the new roll. When you score a critical hit you can roll one additional damage die when determining the extra piercing damage the target takes.
 [*][b]Piercer [Str][/b]: You have achieved a penetrating precision in combat. Increase your Strength by 1, to a maximum of 20. When you hit a creature with an attack that deals piercing damage, you can re-roll dice when you roll a 1 and you must use the new roll. When you score a critical hit you can roll one additional damage die when determining the extra piercing damage the target takes.
+[*][b]Poisoner[/b]: You have a profound understanding on how to manipulate poisons:
+• You gain proficiency with the poisoner's kit, or expertise if already proficient.
+• You gain the ability to apply a poison to your weapon as a bonus action.
+• You add twice your proficiency bonus to any ability checks you make to craft poisons and you craft them in half of the time.
 [*][b]Poisonous Skin[/b]: Any creature that grapples you or otherwise comes into direct contact with your skin must succeed on a saving throw or becomes poisoned for 1 minute.
 [*][b]Polearm Expert[/b]: Your expert training with a polearm grants you these benefits:
 • When you take the Attack action and attack with only a polearm weapon, you can use a bonus action to make a melee attack with the opposite end of the weapon. This attack uses the same ability modifier as the primary attack and deals 1d4 bludgeoning damage.

@@ -32,6 +32,7 @@ internal static class ClassFeats
         var featCunningEscape = BuildCunningEscape();
         var featExpandTheHunt = BuildExpandTheHunt();
         var featNaturalFluidity = BuildNaturalFluidity();
+        var featPoisoner = BuildPoisoner();
         var featSlayTheEnemies = BuildSlayTheEnemies();
         var featSpiritualFluidity = BuildSpiritualFluidity();
 
@@ -46,6 +47,7 @@ internal static class ClassFeats
             featCunningEscape,
             featExpandTheHunt,
             featNaturalFluidity,
+            featPoisoner,
             featSlayTheEnemies,
             featSpiritualFluidity);
 
@@ -64,6 +66,7 @@ internal static class ClassFeats
             featCunningEscape,
             featExpandTheHunt,
             featNaturalFluidity,
+            featPoisoner,
             featSlayTheEnemies,
             featSpiritualFluidity,
             awakenTheBeastWithinGroup,
@@ -535,6 +538,34 @@ internal static class ClassFeats
 
             yield break;
         }
+    }
+
+    #endregion
+
+    #region Poisoner
+
+    private static FeatDefinition BuildPoisoner()
+    {
+        const string Name = "FeatPoisoner";
+
+        return FeatDefinitionWithPrerequisitesBuilder
+            .Create(Name)
+            .SetGuiPresentation(Category.Feat)
+            .SetFeatures(
+                FeatureDefinitionActionAffinitys.ActionAffinityThiefFastHands,
+                FeatureDefinitionCraftingAffinityBuilder
+                    .Create($"CraftingAffinity{Name}")
+                    .SetGuiPresentationNoContent(true)
+                    .SetAffinityGroups(0.5f, true, ToolTypeDefinitions.ThievesToolsType,
+                        ToolTypeDefinitions.PoisonersKitType)
+                    .AddToDB(),
+                FeatureDefinitionProficiencyBuilder
+                    .Create($"Proficiency{Name}")
+                    .SetGuiPresentationNoContent(true)
+                    .SetProficiencies(ProficiencyType.SkillOrExpertise, PoisonersKitType)
+                    .AddToDB())
+            .SetValidators(ValidatorsFeat.IsRangerOrRogueLevel4)
+            .AddToDB();
     }
 
     #endregion

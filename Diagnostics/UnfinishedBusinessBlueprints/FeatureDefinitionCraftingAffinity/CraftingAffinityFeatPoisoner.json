@@ -1,0 +1,46 @@
+{
+  "$type": "FeatureDefinitionCraftingAffinity, Assembly-CSharp",
+  "affinityGroups": [
+    {
+      "$type": "FeatureDefinitionCraftingAffinity+CraftingAffinityGroup, Assembly-CSharp",
+      "tooltype": "Definition:ThievesToolsType:e66aec4e31070654080430e82b532bf8",
+      "durationMultiplier": 0.5,
+      "doubleProficiencyBonus": true
+    },
+    {
+      "$type": "FeatureDefinitionCraftingAffinity+CraftingAffinityGroup, Assembly-CSharp",
+      "tooltype": "Definition:PoisonersKitType:2dd58398fc1262f45942184f61a81dd9",
+      "durationMultiplier": 0.5,
+      "doubleProficiencyBonus": true
+    }
+  ],
+  "myselfFamilyRestrictions": [],
+  "otherCharacterFamilyRestrictions": [],
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": true,
+    "title": "Feature/&NoContentTitle",
+    "description": "Feature/&NoContentTitle",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "f707df26-1c81-5a45-b0c8-a656babf6aed",
+  "contentPack": 9999,
+  "name": "CraftingAffinity{Name}"
+}

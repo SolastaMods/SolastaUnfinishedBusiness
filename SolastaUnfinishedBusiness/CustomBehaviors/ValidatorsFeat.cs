@@ -48,6 +48,9 @@ internal static class ValidatorsFeat
     internal static readonly Func<FeatDefinition, RulesetCharacterHero, (bool result, string output)> IsRogueLevel4 =
         ValidateIsClass(Rogue.FormatTitle(), 4, Rogue);
 
+    internal static readonly Func<FeatDefinition, RulesetCharacterHero, (bool result, string output)>
+        IsRangerOrRogueLevel4 = ValidateIsClass($"{Ranger.FormatTitle()} | {Rogue.FormatTitle()}", 4, Ranger, Rogue);
+
     internal static readonly Func<FeatDefinition, RulesetCharacterHero, (bool result, string output)> IsSorcererLevel4 =
         ValidateIsClass(Sorcerer.FormatTitle(), 4, Sorcerer);
 
@@ -163,13 +166,13 @@ internal static class ValidatorsFeat
 
     [NotNull]
     private static Func<FeatDefinition, RulesetCharacterHero, (bool result, string output)> ValidateIsClass(
-        string description, int minLevels, CharacterClassDefinition characterClassDefinition)
+        string description, int minLevels, params CharacterClassDefinition[] characterClassDefinition)
     {
         return (_, hero) =>
         {
             var guiFormat = Gui.Format("Tooltip/&PreReqIsWithLevel", description, minLevels.ToString());
 
-            if (!hero.ClassesHistory.Contains(characterClassDefinition))
+            if (!hero.ClassesHistory.Intersect(characterClassDefinition).Any())
             {
                 return (false, Gui.Colorize(guiFormat, Gui.ColorFailure));
             }

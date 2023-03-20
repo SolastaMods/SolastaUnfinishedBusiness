@@ -16,7 +16,7 @@
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": true,
     "title": "Feat/&FeatGroupClassBoundTitle",
-    "description": "Awaken the Beast, Blessed Soul, Call for Charge, Cunning Escape, Hardy, Natural Fluidity, Potent Spellcaster, Primal Rage, Slay the Enemies, Spiritual Fluidity",
+    "description": "Awaken the Beast, Blessed Soul, Call for Charge, Cunning Escape, Expand the Hunt, Hardy, Natural Fluidity, Poisoner, Potent Spellcaster, Primal Rage, Slay the Enemies, Spiritual Fluidity",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
