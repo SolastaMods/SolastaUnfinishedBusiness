@@ -1,6 +1,6 @@
 Condition/&ConditionDivineHeartEmpoweredHealingDescription=If you cast a Healing spell this turn, you reroll a result of 1 or 2.
 Condition/&ConditionDivineHeartEmpoweredHealingTitle=Empowered Healing
-Feature/&AttributeModifierDivineHeartDivineFortitudeDescription=+1 Hit Point per level
+Feature/&AttributeModifierDivineHeartDivineFortitudeDescription=+1 Hit Point per level.
 Feature/&AttributeModifierDivineHeartDivineFortitudeTitle=Divine Fortitude
 Feature/&AutoPreparedSpellsDivineHeartArunDescription=Protection From Evil and Good is always known and prepared.
 Feature/&AutoPreparedSpellsDivineHeartArunTitle=Arun: Protection From Evil and Good
@@ -12,7 +12,7 @@ Feature/&AutoPreparedSpellsDivineHeartMisayeDescription=Misaye - Bane is always 
 Feature/&AutoPreparedSpellsDivineHeartMisayeTitle=Misaye: Bane
 Feature/&AutoPreparedSpellsDivineHeartPakriDescription=Pakri - Bless is always known and prepared.
 Feature/&AutoPreparedSpellsDivineHeartPakriTitle=Pakri: Bless
-Feature/&FeatureSetDivineHeartDeityChoiceDescription=Select the Divine source of your magic (and bonus prepared spell)
+Feature/&FeatureSetDivineHeartDeityChoiceDescription=Select the Divine source of your magic.
 Feature/&FeatureSetDivineHeartDeityChoiceTitle=Deity Choice
 Feature/&MagicAffinityDivineHeartClericSpellsListDescription=Your connection to the divine allows you to learn and cast Cleric spells as Sorcerer spells.
 Feature/&MagicAffinityDivineHeartClericSpellsListTitle=Divine Magic
