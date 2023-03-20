@@ -170,7 +170,7 @@
     "description": "Feature/&PowerFeatSlayTheEnemiesPoolDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "",
+      "m_AssetGUID": "8f342a3e-d88c-5302-b48f-a151246ad18c",
       "m_SubObjectName": null,
       "m_SubObjectType": null
     },

@@ -892,7 +892,8 @@ internal static class ClassFeats
 
         var powerPool = FeatureDefinitionPowerBuilder
             .Create($"Power{NAME}Pool")
-            .SetGuiPresentation(Category.Feature)
+            .SetGuiPresentation(Category.Feature,
+                Sprites.GetSprite("PowerSlayTheEnemies", Resources.PowerSlayTheEnemies, 256, 128))
             .SetUsesProficiencyBonus(ActivationTime.BonusAction)
             .AddToDB();
 
