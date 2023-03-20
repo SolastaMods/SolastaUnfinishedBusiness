@@ -18,6 +18,11 @@
     },
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:FeatureMartialWeaponMasterSpecializationDisadvantage:8e828a64-f8ce-5eb3-8c28-e88311a753da",
+      "level": 3
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:FeatureMartialWeaponMasterMomentum:a245219a-0f56-5160-b60f-54b9851167cc",
       "level": 7
     },
@@ -29,11 +34,6 @@
     {
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:AttributeModifierMartialChampionSuperiorCritical:be5054cc67fc986468ff9c0ca4b6cd5b",
-      "level": 15
-    },
-    {
-      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
-      "featureDefinition": "Definition:AttributeModifierMartialWeaponMasterMastery:7f66824f-1698-5553-ba3b-37d2917cec77",
       "level": 15
     },
     {

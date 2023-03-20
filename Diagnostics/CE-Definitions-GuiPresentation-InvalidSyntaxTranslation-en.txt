@@ -484,7 +484,7 @@ FeatGroupBlessedSoul	Description='Your use of divine magic has left a spiritual 
 FeatGroupBodyResilience	Description='Badlands Marauder, Blessing of the Elements, Enduring Body, Focused Sleeper, Hard to Kill, Hauler, Robust, Tough'.
 FeatGroupCelestialTouched	Description='Increase one of your mental attributes by 1, to a maximum of 20.
 You gain the ability to cast the healing word, cure wounds and lesser restoration spells once per long rest and you can cast these spells with your spell slots.'.
-FeatGroupClassBound	Description='Awaken the Beast, Blessed Soul, Call for Charge, Cunning Escape, Expand the Hunt, Hardy, Natural Fluidity, Poisoner, Potent Spellcaster, Primal Rage, Slay the Enemies, Spiritual Fluidity'.
+FeatGroupClassBound	Description='Awaken the Beast, Blessed Soul, Call for Charge, Cunning Escape, Expand the Hunt, Hardy, Natural Fluidity, Poisoner, Potent Spellcaster, Primal Rage, Slay thy Enemies, Spiritual Fluidity'.
 FeatGroupCreed	Description='Increase one of your attributes by 1, to a maximum of 20.
 Proficiency in saves of chosen attribute, if not already proficient; +1 otherwise.'.
 FeatGroupCriticalVirtuoso	Description='You dedicated your time learning how to leverage enemies weak spots to increase your chance to critical damage.'.
