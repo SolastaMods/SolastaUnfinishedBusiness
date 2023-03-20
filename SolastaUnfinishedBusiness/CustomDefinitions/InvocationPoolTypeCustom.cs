@@ -126,6 +126,13 @@ internal class InvocationPoolTypeCustom
         internal static readonly InvocationPoolTypeCustom ArmamentAdroitness =
             Register("ArmamentAdroitness", CharacterClassDefinitions.Fighter.ClassPictogramReference, hidden: true);
 
+        internal static readonly InvocationPoolTypeCustom RangerTerrainTypeAffinity =
+            Register("RangerTerrainTypeAffinity", CharacterClassDefinitions.Ranger.ClassPictogramReference,
+                hidden: true);
+
+        internal static readonly InvocationPoolTypeCustom RangerPreferredEnemy =
+            Register("RangerPreferredEnemy", CharacterClassDefinitions.Ranger.ClassPictogramReference, hidden: true);
+
         internal static readonly InvocationPoolTypeCustom Infusion =
             Register("Infusion", InventorClass.Pictogram, InventorClass.ClassName,
                 main: (Id)ExtraActionId.InventorInfusion);

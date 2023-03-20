@@ -4,10 +4,10 @@ ModUi/&AddCustomIconsToOfficialItems=为官方游戏物品添加自定义图标 
 ModUi/&AddHelpActionToAllRaces=为所有可玩种族添加<color=#D89555>帮助</color>动作<i><color=#F0DAA0>[你可以帮助友方生物攻击距离你5英尺以内的生物]</color></我>
 ModUi/&AddHumanoidFavoredEnemyToRanger=将人形首选敌人添加到<color=#D89555>Rangers</color>
 ModUi/&AddMonkKiPointsToggle=添加一个开关以允许<color=#D89555>僧侣</color>启用/禁用 Ki 点<i><color=#F0DAA0>[用于最小化反应提示]</color></i>
-ModUi/&AddMonsterSwapAttackToggle=添加一个开关以允许 <color=#D89555>德鲁伊</color> 处于 wildshape 形式或受控制的怪物选择首先使用哪种攻击<i><color=#F0DAA0>[对近战和远程攻击混合有用]</颜色></i>
+ModUi/&AddMonsterSwapAttackToggle=添加一个开关以允许 <color=#D89555>德鲁伊</color> 处于 wildshape 形式或受控怪物选择首先使用哪种攻击<i><color=#F0DAA0>[对于近战和远程攻击混合有用]</颜色></i>
 ModUi/&AddNewBrightEyeColors=添加新的明亮的眼睛颜色
-ModUi/&AddNewWeaponsAndRecipesToShops=向商店添加新的武器和配方<i><color=#F0DAA0>[护腕、长戟、长矛、长狼牙棒、手弩]</color></i> <b><i><color=#C04040E0> [需要重启]</color></i></b>
-ModUi/&AddPaladinSmiteToggle=添加一个开关以允许 <color=#D89555>Paladins</color> 仅在暴击时启用打击<i><color=#F0DAA0>[有助于最小化反应提示]</color></i>
+ModUi/&AddNewWeaponsAndRecipesToShops=向商店添加新的武器和配方<i><color=#F0DAA0>[护腕、戟、长矛、长狼牙棒、手弩]</color></i> <b><i><color=#C04040E0> [需要重启]</color></i></b>
+ModUi/&AddPaladinSmiteToggle=添加一个开关以允许 <color=#D89555>Paladins</color> 仅在暴击时启用击打 <i><color=#F0DAA0>[有助于最小化反应提示]</color></i>
 ModUi/&AddPickPocketableLoot=添加可扒窃的战利品<i><color=#F0DAA0>[如果启用<color=#D89555>Pickpocket</color>专长则建议]</color></i>
 ModUi/&AddToStore=添加到商店
 ModUi/&Advanced=<color=#F0DAA0>高级：</color> <b><i><color=#C04040E0>[需要重启]</color></i></b>
@@ -24,7 +24,7 @@ ModUi/&AllowGadgetsAndPropsToBePlacedAnywhere=在放置小工具或道具时启�
 ModUi/&AllowHornsOnAllRaces=允许所有种族使用喇叭<i><color=#F0DAA0>[根据种族、头和喇叭的不同，结果可能看起来很糟糕]</color></i>
 ModUi/&AllowMoreRealStateOnRestPanel=在休息面板上允许更多真实状态<i><color=#F0DAA0>[在面板前隐藏休息后动作，在面板后隐藏恢复功能]</color></i>
 ModUi/&AllowStackedMaterialComponent=允许堆叠材料组件 <i><color=#F0DAA0>[例如2x500gp钻石相当于1000gp钻石]</color></i>
-ModUi/&AllowTargetingSelectionWhenCastingChainLightningSpell=施放<color=#D89555>Chain Lightning</color>法术时允许选择目标
+ModUi/&AllowTargetingSelectionWhenCastingChainLightningSpell=允许在施展<color=#D89555>Chain Lightning</color>法术时选择目标
 ModUi/&AllowUnmarkedSorcerers=允许<color=#D89555>Sorcerer</color>没有起源标记和纹身
 ModUi/&AllRecipesInDm=DM中的所有食谱
 ModUi/&AltOnlyHighlightItemsInPartyFieldOfView=<color=#1E81B0>ALT</color> 键只高亮派对视野中的小工具<i><color=#F0DAA0>[仅限自定义地下城]</color></i>
@@ -97,7 +97,7 @@ ModUi/&EnablesAsiAndFeat=启用属性分数增加和专长选择<i><color=#F0DAA
 ModUi/&EnableSaveByLocation=启用按活动/位置保存
 ModUi/&EnableSortingDungeonMakerAssets=在 Dungeon Maker 编辑器上启用资产排序
 ModUi/&EnableStatsOnHeroTooltip=在英雄的工具提示上显示统计数据<i><color=#F0DAA0>[即：暴击、暴击等]</color></i>
-ModUi/&EnableTeleportParty=启用<color=#1E81B0>CTRL-SHIFT-(T)</color> 传送派对<i><color=#F0DAA0>[如果你传送到一个未被发现的地方，你可能会破坏任务]</color></我>
+ModUi/&EnableTeleportParty=启用<color=#1E81B0>CTRL-SHIFT-(T)</color>传送队伍<i><color=#F0DAA0>[如果你传送到一个未被发现的地方，你可能会破坏任务]</color></我>
 ModUi/&EnableTogglesToOverwriteDefaultTestParty=在角色池上启用切换以设置您的默认播放和测试方
 ModUi/&EnableUpcastConjureElementalAndFey=启用<color=#D89555>Conjure Elemental</color>和<color=#D89555>Conjure Fey</color>的升级
 ModUi/&EncounterPercentageChance=<color=white>设置随机遭遇百分比几率</color>
@@ -131,6 +131,7 @@ ModUi/&HideMonsterHitPoints=以 25% / 50% / 75% / 100% 的步长显示怪物的�
 ModUi/&House=<color=#F0DAA0>房子：</color>
 ModUi/&IdentifyAfterRest=通过短休或长休增加识别魔法物品的能力
 ModUi/&IgnoreHandXbowFreeHandRequirements=不需要空闲的手来使用手弩
+ModUi/&ImproveRangerFeaturesSelection=改进<color=#D89555>Ranger</color>首选敌人和偏好地形选择 UI<i><color=#F0DAA0>[如果您计划采用<color=#D89555>改进狩猎</color>专长，建议您使用] </颜色></i>
 ModUi/&IncreaseGameTimeBy=增加游戏时间
 ModUi/&IncreaseMaxAttunedItems=在第 10 级将最大同调物品增加到 4 个，在第 18 级增加到 5 个
 ModUi/&IncreaseSenseNormalVision=<color=white>增加<color=#D89555>Sense Normal Vision</color>范围以启用远程攻击</color> <b><i><color=#C04040E0>[需要重启]</color></i></b>
@@ -175,7 +176,7 @@ ModUi/&RemoveIdentificationRequirements=移除识别要求 <b><i><color=#C04040E
 ModUi/&RemoveRecurringEffectOnEntangle=仅在施法时应用<color=#D89555>纠缠</color>效果<i><color=#F0DAA0>[即：无重复效果]</color></i>
 ModUi/&RestockAntiquarians=补货古董<i><color=#F0DAA0>[Halman Summer]</color></i>
 ModUi/&RestockArcaneum=补充奥术 <i><color=#F0DAA0>[Heddlon Surespell]</color></i>
-ModUi/&RestockCircleOfDanantar=Danantar 补货圈 <i><color=#F0DAA0>[Joriel Foxeye]</color></i>
+ModUi/&RestockCircleOfDanantar=Danantar 的补货圈 <i><color=#F0DAA0>[Joriel Foxeye]</color></i>
 ModUi/&RestockHelp=.覆盖默认值以强制所有商家的库存随时间补货<i><color=#F0DAA0>[不包括手册和书籍]</color></i>\n。请注意，某些物品最多可能需要 7 个游戏日才能补货
 ModUi/&RestockTowerOfKnowledge=补充知识塔 <i><color=#F0DAA0>[Maddy Greenisle]</color></i>
 ModUi/&Rules=规则

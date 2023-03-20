@@ -489,6 +489,7 @@ internal static partial class DatabaseHelper
         internal static FeatureDefinitionFeatureSet FeatureSetPactChain { get; } = GetDefinition<FeatureDefinitionFeatureSet>("FeatureSetPactChain");
         internal static FeatureDefinitionFeatureSet FeatureSetPactTome { get; } = GetDefinition<FeatureDefinitionFeatureSet>("FeatureSetPactTome");
         internal static FeatureDefinitionFeatureSet FeatureSetSorcererDraconicChoice { get; } = GetDefinition<FeatureDefinitionFeatureSet>("FeatureSetSorcererDraconicChoice");
+        internal static FeatureDefinitionFeatureSet TerrainTypeAffinityRangerNaturalExplorerChoice { get; } = GetDefinition<FeatureDefinitionFeatureSet>("TerrainTypeAffinityRangerNaturalExplorerChoice");
     }
     internal static class FeatureDefinitionFightingStyleChoices
     {
@@ -543,6 +544,7 @@ internal static partial class DatabaseHelper
         internal static FeatureDefinitionPointPool PointPoolFighterSkillPoints { get; } = GetDefinition<FeatureDefinitionPointPool>("PointPoolFighterSkillPoints");
         internal static FeatureDefinitionPointPool PointPoolHalfElfSkillPool { get; } = GetDefinition<FeatureDefinitionPointPool>("PointPoolHalfElfSkillPool");
         internal static FeatureDefinitionPointPool PointPoolHumanSkillPool { get; } = GetDefinition<FeatureDefinitionPointPool>("PointPoolHumanSkillPool");
+        internal static FeatureDefinitionPointPool PointPoolBackgroundLanguageChoice_one { get; } = GetDefinition<FeatureDefinitionPointPool>("PointPoolBackgroundLanguageChoice_one");
         internal static FeatureDefinitionPointPool PointPoolMonkSkillPoints { get; } = GetDefinition<FeatureDefinitionPointPool>("PointPoolMonkSkillPoints");
         internal static FeatureDefinitionPointPool PointPoolPaladinSkillPoints { get; } = GetDefinition<FeatureDefinitionPointPool>("PointPoolPaladinSkillPoints");
         internal static FeatureDefinitionPointPool PointPoolRangerSkillPoints { get; } = GetDefinition<FeatureDefinitionPointPool>("PointPoolRangerSkillPoints");

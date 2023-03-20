@@ -87,6 +87,13 @@ internal static class CharacterDisplay
 
         UI.Label();
 
+        toggle = Main.Settings.ImproveRangerFeaturesSelection;
+        if (UI.Toggle(Gui.Localize("ModUi/&ImproveRangerFeaturesSelection"), ref toggle, UI.AutoWidth()))
+        {
+            Main.Settings.ImproveRangerFeaturesSelection = toggle;
+            CharacterContext.SwitchRangerHumanoidFavoredEnemy();
+        }
+
         toggle = Main.Settings.AddHumanoidFavoredEnemyToRanger;
         if (UI.Toggle(Gui.Localize("ModUi/&AddHumanoidFavoredEnemyToRanger"), ref toggle, UI.AutoWidth()))
         {

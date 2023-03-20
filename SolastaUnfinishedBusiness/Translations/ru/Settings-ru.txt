@@ -1,7 +1,7 @@
 ModUi/&AddAllToStore=Добавить все в магазин
 ModUi/&AddBleedingToLesserRestoration=Добавьте состояние <color=#D89555>Кровотечение</color> к состояниям, удаленным с помощью <color=#D89555>Большого</color> и <color=#D89555>Малого восстановления</color>.
 ModUi/&AddCustomIconsToOfficialItems=Добавьте пользовательские значки к официальным игровым предметам <i><color=#F0DAA0>[боеприпасы, рецепты, наборы и т. д.]</color></i> <b><i><color=#C04040E0>[Требуется перезагрузка] </цвет></i></b>
-ModUi/&AddHelpActionToAllRaces=Добавьте действие <color=#D89555>Помощь</color> для всех игровых рас <i><color=#F0DAA0>[вы можете помочь дружественному существу атаковать существо в пределах 5 футов от вас]</color></i>
+ModUi/&AddHelpActionToAllRaces=Добавьте действие <color=#D89555>Помощь</color> для всех игровых рас <i><color=#F0DAA0>[вы можете помочь дружественному существу атаковать существо в пределах 5 футов от вас]</color></ я>
 ModUi/&AddHumanoidFavoredEnemyToRanger=Добавить предпочитаемого врага-гуманоида к <color=#D89555>Рейнджерам</color>
 ModUi/&AddMonkKiPointsToggle=Добавьте переключатель, позволяющий <color=#D89555>монахам</color> включать/отключать точки Ки <i><color=#F0DAA0>[полезно, чтобы свести к минимуму подсказки о реакции]</color></i>
 ModUi/&AddMonsterSwapAttackToggle=Добавьте переключатель, позволяющий <color=#D89555>Друидам</color> в дикой форме или управляемым монстрам выбирать, какую атаку использовать в первую очередь <i><color=#F0DAA0>[полезно при сочетании атак ближнего и дальнего боя]</цвет></я>
@@ -97,7 +97,7 @@ ModUi/&EnablesAsiAndFeat=Включить увеличение значений 
 ModUi/&EnableSaveByLocation=Включить сохранение по кампаниям/местоположениям
 ModUi/&EnableSortingDungeonMakerAssets=Включить сортировку ресурсов в редакторе Dungeon Maker
 ModUi/&EnableStatsOnHeroTooltip=Отображать статистику во всплывающей подсказке героя <i><color=#F0DAA0>[т.е.: критические удары, критические провалы и т. д.]</color></i>
-ModUi/&EnableTeleportParty=Включите <color=#1E81B0>CTRL-SHIFT-(T)</color>, чтобы телепортировать группу <i><color=#F0DAA0>[вы можете прервать квесты, если телепортируетесь в неизвестное место]</color></i>
+ModUi/&EnableTeleportParty=Включите <color=#1E81B0>CTRL-SHIFT-(T)</color>, чтобы телепортировать группу <i><color=#F0DAA0>[вы можете прервать квесты, если телепортируетесь в неизвестное место]</color></ я>
 ModUi/&EnableTogglesToOverwriteDefaultTestParty=Включите переключатели в пуле персонажей, чтобы установить игру по умолчанию и тестовую группу.
 ModUi/&EnableUpcastConjureElementalAndFey=Включить восходящее использование <color=#D89555>Сотворения элементаля</color> и <color=#D89555>Сотворения фей</color>
 ModUi/&EncounterPercentageChance=<color=white>Установить процент случайных встреч</color>
@@ -131,6 +131,7 @@ ModUi/&HideMonsterHitPoints=Отображение здоровья монстр
 ModUi/&House=<color=#F0DAA0>Дом:</color>
 ModUi/&IdentifyAfterRest=Добавьте способность идентифицировать магические предметы во время короткого или длительного отдыха.
 ModUi/&IgnoreHandXbowFreeHandRequirements=Не требуется свободная рука для использования ручных арбалетов.
+ModUi/&ImproveRangerFeaturesSelection=Улучшить <color=#D89555>Рейнджер</color> предпочитаемый враг и интерфейс выбора предпочитаемой местности <i><color=#F0DAA0>[предлагается, если вы планируете использовать навык <color=#D89555>Улучшить охоту</color>] </цвет></я>
 ModUi/&IncreaseGameTimeBy=Увеличьте время игры на
 ModUi/&IncreaseMaxAttunedItems=Увеличьте максимальное количество настроенных предметов до 4 на 10-м уровне и до 5 на 18-м уровне.
 ModUi/&IncreaseSenseNormalVision=<color=white>Увеличьте дальность <color=#D89555>Sense Normal Vision</color>, чтобы активировать дальние атаки</color> <b><i><color=#C04040E0>[Требуется перезагрузка]</color></я></б>
