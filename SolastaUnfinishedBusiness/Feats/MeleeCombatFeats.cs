@@ -339,10 +339,7 @@ internal static class MeleeCombatFeats
             .SetGuiPresentation(Category.Feature)
             .SetModifier(FeatureDefinitionAttributeModifier.AttributeModifierOperation.Additive,
                 AttributeDefinitions.ArmorClass, 1)
-            .SetSituationalContext(SituationalContext.WieldingTwoHandedWeapon)
-            .SetCustomSubFeatures(
-                new RestrictedContextValidator((_, _, character, _, _, mode, _) =>
-                    (OperationType.Set, validWeapon(mode, null, character))))
+            .SetSituationalContext(ExtraSituationalContext.HasLongswordInHands)
             .AddToDB();
 
         var modifyAttackModeFinesse = FeatureDefinitionBuilder

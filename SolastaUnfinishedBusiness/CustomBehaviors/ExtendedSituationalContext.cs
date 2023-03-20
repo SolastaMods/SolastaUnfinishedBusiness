@@ -1,4 +1,5 @@
 ﻿using System.Linq;
+using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Subclasses;
 using static RuleDefinitions;
@@ -30,6 +31,14 @@ internal static class CustomSituationalContext
         return (ExtraSituationalContext)context switch
         {
             ExtraSituationalContext.HasSpecializedWeaponInHands => HasSpecializedWeaponInHands(contextParams.source),
+
+            ExtraSituationalContext.HasLongswordInHands =>
+                ValidatorsCharacter.HasWeaponType(DatabaseHelper.WeaponTypeDefinitions.LongswordType)
+                    (contextParams.source),
+            
+            ExtraSituationalContext.HasGreatswordInHands =>
+                ValidatorsCharacter.HasWeaponType(DatabaseHelper.WeaponTypeDefinitions.GreatswordType)
+                (contextParams.source),
 
             ExtraSituationalContext.MainWeaponIsMeleeOrUnarmed =>
                 ValidatorsCharacter.HasMeleeWeaponInMainHand(contextParams.source) ||
