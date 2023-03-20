@@ -140,12 +140,7 @@ internal sealed class MartialWeaponMaster : AbstractSubclass
 
         // LEVEL 15
 
-        // Weapon Mastery
-
-        var attributeModifierMastery = FeatureDefinitionBuilder
-            .Create($"AttributeModifier{Name}Mastery")
-            .SetGuiPresentation(Category.Feature)
-            .AddToDB();
+        // Superior Critical from vanilla Martial Champion
 
         // LEVEL 18
 
@@ -170,8 +165,7 @@ internal sealed class MartialWeaponMaster : AbstractSubclass
             .AddFeaturesAtLevel(10,
                 featureBattleStance)
             .AddFeaturesAtLevel(15,
-                FeatureDefinitionAttributeModifiers.AttributeModifierMartialChampionSuperiorCritical,
-                attributeModifierMastery)
+                FeatureDefinitionAttributeModifiers.AttributeModifierMartialChampionSuperiorCritical)
             .AddFeaturesAtLevel(18,
                 featurePerfectStrikes)
             .AddToDB();
@@ -252,6 +246,15 @@ internal sealed class MartialWeaponMaster : AbstractSubclass
         {
             if (attackMode is not { SourceDefinition: ItemDefinition { IsWeapon: true } itemDefinition } ||
                 itemDefinition.WeaponDescription.WeaponTypeDefinition == WeaponTypeDefinition)
+            {
+                return;
+            }
+
+            var hero = myself as RulesetCharacterHero ?? myself.OriginalFormCharacter as RulesetCharacterHero;
+
+            if (hero == null ||
+                hero.ClassesAndSubclasses.TryGetValue(CharacterClassDefinitions.Fighter,
+                    out var characterSubclassDefinition) && characterSubclassDefinition.Name == Name)
             {
                 return;
             }

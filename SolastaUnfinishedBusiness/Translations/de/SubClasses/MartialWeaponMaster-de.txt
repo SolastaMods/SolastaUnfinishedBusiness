@@ -1,8 +1,6 @@
 ﻿Condition/&ConditionMartialWeaponMasterFocusedStrikesDescription=Bis zum Ende deines Zuges bist du bei allen Angriffen mit deiner Spezialwaffe im Vorteil.
 Condition/&ConditionMartialWeaponMasterFocusedStrikesTitle=Fokussierte Schläge
-Feature/&AttributeModifierMartialWeaponMasterMasteryDescription=Du erhältst +2 auf Treffer- und Schadenswürfe mit deinem spezialisierten Waffentyp. Mit allen anderen Waffentypen haben Sie den Nachteil, anzugreifen.
-Feature/&AttributeModifierMartialWeaponMasterMasteryTitle=Waffenmeisterung
-Feature/&AttributeModifierMartialWeaponMasterSpecializationDescription=Du erhältst +1 auf Treffer- und Schadenswürfe mit deinem spezialisierten Waffentyp. Mit allen anderen Waffentypen haben Sie den Nachteil, anzugreifen.
+Feature/&AttributeModifierMartialWeaponMasterSpecializationDescription=Du erhältst +1 auf Treffer- und Schadenswürfe mit deinem spezialisierten Waffentyp. Ein Kampfwaffenmeister hat einen Nachteil, wenn er mit allen anderen Waffentypen angreift, erhält aber ab Stufe 15 einen Bonus von +2.
 Feature/&AttributeModifierMartialWeaponMasterSpecializationTitle=Waffenspezialisierung
 Feature/&FeatureMartialWeaponMasterBattleStanceDescription=Erhalten Sie temporäre Trefferpunkte in Höhe Ihrer Waffenmeisterstufe + Fertigkeitsbonus + Konstitutionsmodifikator, nachdem ein Kampf begonnen hat und Sie Ihre Spezialwaffe ausgerüstet haben.
 Feature/&FeatureMartialWeaponMasterBattleStanceTitle=Kampfhaltung

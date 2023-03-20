@@ -1,8 +1,6 @@
 ﻿Condition/&ConditionMartialWeaponMasterFocusedStrikesDescription=Tienes ventaja en todos los ataques con tu arma especializada hasta el final de tu turno.
 Condition/&ConditionMartialWeaponMasterFocusedStrikesTitle=Golpes enfocados
-Feature/&AttributeModifierMartialWeaponMasterMasteryDescription=Obtienes +2 a las tiradas para impactar y dañar con tu tipo de arma especializada. Tienes desventaja para atacar con todos los demás tipos de armas.
-Feature/&AttributeModifierMartialWeaponMasterMasteryTitle=Dominio de armas
-Feature/&AttributeModifierMartialWeaponMasterSpecializationDescription=Obtienes +1 en las tiradas para impactar y dañar con tu tipo de arma especializada. Tienes desventaja para atacar con todos los demás tipos de armas.
+Feature/&AttributeModifierMartialWeaponMasterSpecializationDescription=Obtienes +1 en las tiradas para impactar y dañar con tu tipo de arma especializada. Un maestro de armas marciales tendrá desventaja para atacar con todos los demás tipos de armas, pero obtendrá una bonificación de +2 a partir del nivel 15.
 Feature/&AttributeModifierMartialWeaponMasterSpecializationTitle=Especialización en armas
 Feature/&FeatureMartialWeaponMasterBattleStanceDescription=Obtenga puntos de golpe temporales equivalentes a su nivel de maestro de armas + bonificación de competencia + modificador de constitución después de que comience una batalla y tenga su arma especializada equipada.
 Feature/&FeatureMartialWeaponMasterBattleStanceTitle=Postura de batalla

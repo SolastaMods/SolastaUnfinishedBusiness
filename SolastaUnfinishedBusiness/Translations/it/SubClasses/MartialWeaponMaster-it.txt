@@ -1,8 +1,6 @@
 ﻿Condition/&ConditionMartialWeaponMasterFocusedStrikesDescription=Hai vantaggio su tutti gli attacchi con la tua arma specializzata fino alla fine del tuo turno.
 Condition/&ConditionMartialWeaponMasterFocusedStrikesTitle=Colpi mirati
-Feature/&AttributeModifierMartialWeaponMasterMasteryDescription=Ottieni +2 ai tiri per colpire e per i danni con il tuo tipo di arma specializzato. Hai lo svantaggio di attaccare con tutti gli altri tipi di armi.
-Feature/&AttributeModifierMartialWeaponMasterMasteryTitle=Padronanza delle armi
-Feature/&AttributeModifierMartialWeaponMasterSpecializationDescription=Ottieni +1 ai tiri per colpire e per i danni con il tuo tipo di arma specializzato. Hai lo svantaggio di attaccare con tutti gli altri tipi di armi.
+Feature/&AttributeModifierMartialWeaponMasterSpecializationDescription=Ottieni +1 ai tiri per colpire e per i danni con il tuo tipo di arma specializzato. Un Martial Weapon Master avrà lo svantaggio di attaccare con tutti gli altri tipi di armi, ma ottiene un bonus di +2 a partire dal livello 15.
 Feature/&AttributeModifierMartialWeaponMasterSpecializationTitle=Specializzazione delle armi
 Feature/&FeatureMartialWeaponMasterBattleStanceDescription=Ottieni punti ferita temporanei pari al tuo livello di maestro d'armi + bonus di competenza + modificatore di costituzione dopo l'inizio di una battaglia e hai equipaggiato la tua arma specializzata.
 Feature/&FeatureMartialWeaponMasterBattleStanceTitle=Posizione di battaglia
