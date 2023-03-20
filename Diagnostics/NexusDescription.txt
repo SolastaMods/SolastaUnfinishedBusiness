@@ -111,7 +111,7 @@ All settings start disabled by default.
 
 [*][b]Path of the Light[/b]: Barbarians who follow the Path of the Light illuminate the darkness and protect their allies from dangers that lurk within it.
 [*][b]Path of the Reaver[/b]: All Reavers undergo a ritual that involves drinking tainted blood of a dragon, permanently infusing their bodies with a sliver of draconic might and voracity, at the cost of gradually increasing corruption. These fearsome warriors revel in death, regaining energy from the suffering of their enemies.
-[*][b]Path Of The Spirits[/b]: Barbarians who follow the Path of the Spirits accept a spirit animal as guide, protector, and inspiration, that fills them with supernatural might, adding magical fuel to the barbarian rage.
+[*][b]Path Of the Spirits[/b]: Barbarians who follow the Path of the Spirits accept a spirit animal as guide, protector, and inspiration, that fills them with supernatural might, adding magical fuel to the barbarian rage.
 [*][b]College of Guts[/b]: Bards of the College of Guts gather in mead halls or around great bonfires to sing the deeds of the mighty, both past and present. They travel the land to witness great events firsthand and to ensure that the memory of those events doesn't pass from the world. With their songs, they inspire others to reach the same heights of accomplishment as the heroes of old.
 [*][b]College of Harlequin[/b]: College of Harlequins bards see no distinction between art and war. They see it is their duty to keep the legend of the great battle of the Cataclysm alive through their terrific performance, either on stage or on the battle field.
 [*][b]College of Life[/b]: Masters of manipulating both matter and life energy.
@@ -170,12 +170,12 @@ You can use a bonus action to select a weapon. Its attacks count as magical and 
 [*][b]Archery[/b]: You gain a +2 bonus to attack rolls with ranged weapons.
 [*][b]Astral Reach[/b]: Increase your Wisdom by 1, to a maximum of 20.
 When you make an unarmed strike on your turn, your reach for it is 10 ft. Other creatures provoke an opportunity attack from you when they enter the reach you have with unarmed.
-[*][b]Awaken The Beast [Cha][/b]: Increase your Charisma score by 1, to a maximum of 20. Whenever you use your Wild Shape ability to transform into a beast, you gain temporary hit points equal to twice your druid level.
-[*][b]Awaken The Beast [Con][/b]: Increase your Constitution score by 1, to a maximum of 20. Whenever you use your Wild Shape ability to transform into a beast, you gain temporary hit points equal to twice your druid level.
-[*][b]Awaken The Beast [Dex][/b]: Increase your Dexterity score by 1, to a maximum of 20. Whenever you use your Wild Shape ability to transform into a beast, you gain temporary hit points equal to twice your druid level.
-[*][b]Awaken The Beast [Int][/b]: Increase your Intelligence score by 1, to a maximum of 20. Whenever you use your Wild Shape ability to transform into a beast, you gain temporary hit points equal to twice your druid level.
-[*][b]Awaken The Beast [Str][/b]: Increase your Strength score by 1, to a maximum of 20. Whenever you use your Wild Shape ability to transform into a beast, you gain temporary hit points equal to twice your druid level.
-[*][b]Awaken The Beast [Wis][/b]: Increase your Wisdom score by 1, to a maximum of 20. Whenever you use your Wild Shape ability to transform into a beast, you gain temporary hit points equal to twice your druid level.
+[*][b]Awaken the Beast [Cha][/b]: Increase your Charisma score by 1, to a maximum of 20. Whenever you use your Wild Shape ability to transform into a beast, you gain temporary hit points equal to twice your druid level.
+[*][b]Awaken the Beast [Con][/b]: Increase your Constitution score by 1, to a maximum of 20. Whenever you use your Wild Shape ability to transform into a beast, you gain temporary hit points equal to twice your druid level.
+[*][b]Awaken the Beast [Dex][/b]: Increase your Dexterity score by 1, to a maximum of 20. Whenever you use your Wild Shape ability to transform into a beast, you gain temporary hit points equal to twice your druid level.
+[*][b]Awaken the Beast [Int][/b]: Increase your Intelligence score by 1, to a maximum of 20. Whenever you use your Wild Shape ability to transform into a beast, you gain temporary hit points equal to twice your druid level.
+[*][b]Awaken the Beast [Str][/b]: Increase your Strength score by 1, to a maximum of 20. Whenever you use your Wild Shape ability to transform into a beast, you gain temporary hit points equal to twice your druid level.
+[*][b]Awaken the Beast [Wis][/b]: Increase your Wisdom score by 1, to a maximum of 20. Whenever you use your Wild Shape ability to transform into a beast, you gain temporary hit points equal to twice your druid level.
 [*][b]Blade Mastery[/b]: You master the shortsword, longsword, scimitar, rapier, and greatsword. You gain the following benefits when using any of them: A +1 bonus to attack rolls you make with the weapon. On your turn, you can use your reaction to assume a parrying stance, provided you have the weapon in hand. Doing so grants you a +1 bonus to your armor class until the start of your next turn. When you make an opportunity attack with the weapon, you have advantage on the attack roll.
 [*][b]Blessed Soul [Cleric][/b]: Your use of divine magic has left a spiritual mark on your soul, allowing you to express your faith more frequently. Increase your Wisdom score by 1, to a maximum of 20. You gain one additional Channel Divinity usage between rests.
 [*][b]Blessed Soul [Paladin][/b]: Your use of divine magic has left a spiritual mark on your soul, allowing you to express your faith more frequently. Increase your Charisma score by 1, to a maximum of 20. You gain one additional Channel Divinity usage between rests.
@@ -322,6 +322,7 @@ You gain the ability to cast the invisibility, inflict wounds, and false life sp
 [*][b]Shield Expert[/b]: You have trained in the use of a shield as a weapon. It becomes a melee weapon that you are proficient with that deals 1d4 bludgeoning damage. You gain advantage on shove attempts while wielding a shield.
 [*][b]Slasher [Dex][/b]: You've learned where to cut to have the greatest results. Increase your Dexterity by 1, to a maximum of 20. When you hit a creature with an attack that deals slashing damage, you can reduce the speed of the target by 10 ft until the start of your next turn. When you score a critical hit you grievously wound it. Until the start of your next turn, the target has disadvantage on all attack rolls.
 [*][b]Slasher [Str][/b]: You've learned where to cut to have the greatest results. Increase your Strength by 1, to a maximum of 20. When you hit a creature with an attack that deals slashing damage, you can reduce the speed of the target by 10 ft until the start of your next turn. When you score a critical hit you grievously wound it. Until the start of your next turn, the target has disadvantage on all attack rolls.
+[*][b]Slay the Enemies[/b]: You can use your bonus action and consume one ranger spell slot to focus your hunting knowledge against your enemies. You have a bonus to attack and damage rolls equal to the spell slot level used up to a maximum of 3. If your target is a favored enemy, you have advantage instead. This effect lasts for 2 + the slot level rounds.
 [*][b]Spear Mastery[/b]: Though the spear is a simple weapon to learn, it rewards you for the time you have taken to master it:
 • You gain a +1 bonus to attack rolls you make with a spear and its damage die changes from a d6 to a d8, and from a d8 to a d10 when wielded with two hands.
 • As a bonus action you can brace your spear to intercept approaching enemies. You can use reaction to perform attack of opportunity with a spear on enemy that enters your reach and deal extra die of damage if that attack hits.
@@ -384,10 +385,10 @@ You can use a bonus action to select a weapon. Its attacks count as magical and 
 [list=1]
 
 [*][b]Abilities of the Chain Master[/b]: Gain additional effects when bound to a creature. When bound to Imp gain greater invisibility, when bound to Pseudo Dragon gain flight and attacks imbued with poison, when bound to Quasit gain an additional main action and advantage on Dexterity saving throws, and when bound to Sprite get an armor class score of at least 16 and attackers have disadvantage against you.
-[*][b]Aspect of The Moon[/b]: You no longer need to sleep and can keep watch, lowering the chances of attack and ensuring you are awake if camp is attacked.
+[*][b]Aspect of the Moon[/b]: You no longer need to sleep and can keep watch, lowering the chances of attack and ensuring you are awake if camp is attacked.
 [*][b]Breaker and Banisher[/b]: You can cast <b>Dispel Evil and Good</b> using your pact slot once per long rest.
-[*][b]Breath of The Night[/b]: You can cast <b>Fog Cloud</b> at will, without expending a spell slot.
-[*][b]Call of The Beast[/b]: You can cast <b>Conjure Animals</b> using your pact slot once per long rest.
+[*][b]Breath of the Night[/b]: You can cast <b>Fog Cloud</b> at will, without expending a spell slot.
+[*][b]Call of the Beast[/b]: You can cast <b>Conjure Animals</b> using your pact slot once per long rest.
 [*][b]Chilling Blast[/b]: You can change the damage type of the eldritch blast to cold damage instead of force damage.
 [*][b]Corrosive Blast[/b]: You can change the damage type of the eldritch blast to acid damage instead of force damage.
 [*][b]Discerning Gaze[/b]: You can cast <b>Detect Evil and Good</b> without using a spell slot. Once you do so, you can't cast it in this way again until you finish a long rest.
@@ -397,8 +398,8 @@ You can use a bonus action to select a weapon. Its attacks count as magical and 
 [*][b]Fiery Blast[/b]: You can change the damage type of the eldritch blast to fire damage instead of force damage.
 [*][b]Fulminate Blast[/b]: You can change the damage type of the eldritch blast to lightning damage instead of force damage.
 [*][b]Gift of the Ever-Living Ones[/b]: Regains the maximum number of hit points possible from any healing.
-[*][b]Gift of The Hunter[/b]: You can cast <b>Pass Without Trace</b> without using a spell slot. Once you do so, you can't cast it in this way again until you finish a long rest.
-[*][b]Gift of The Protectors[/b]: When you are reduced to 0 HP but not killed, you can drop to 1 HP instead.
+[*][b]Gift of the Hunter[/b]: You can cast <b>Pass Without Trace</b> without using a spell slot. Once you do so, you can't cast it in this way again until you finish a long rest.
+[*][b]Gift of the Protectors[/b]: When you are reduced to 0 HP but not killed, you can drop to 1 HP instead.
 [*][b]Grasping Blast[/b]: When you hit a creature with Eldritch Blast, you can pull the creature up to 10 ft towards you in a straight line.
 [*][b]Hindering Blast[/b]: When you hit a creature with your eldritch blast, you can reduce that creature's speed by 10 ft until the end of your next turn.
 [*][b]Improved Pact Weapon[/b]: Your weapon gains a +1 bonus to its attack and damage rolls.

@@ -32,6 +32,7 @@ internal static class ClassFeats
         var featCunningEscape = BuildCunningEscape();
         var featExpandTheHunt = BuildExpandTheHunt();
         var featNaturalFluidity = BuildNaturalFluidity();
+        var featSlayTheEnemies = BuildSlayTheEnemies();
         var featSpiritualFluidity = BuildSpiritualFluidity();
 
         var awakenTheBeastWithinGroup = BuildAwakenTheBeastWithin(feats);
@@ -45,6 +46,7 @@ internal static class ClassFeats
             featCunningEscape,
             featExpandTheHunt,
             featNaturalFluidity,
+            featSlayTheEnemies,
             featSpiritualFluidity);
 
         GroupFeats.FeatGroupAgilityCombat.AddFeats(
@@ -60,7 +62,9 @@ internal static class ClassFeats
         GroupFeats.MakeGroup("FeatGroupClassBound", null,
             featCallForCharge,
             featCunningEscape,
+            featExpandTheHunt,
             featNaturalFluidity,
+            featSlayTheEnemies,
             featSpiritualFluidity,
             awakenTheBeastWithinGroup,
             blessedSoulGroup,
@@ -839,6 +843,189 @@ internal static class ClassFeats
                     break;
                 }
             }
+        }
+    }
+
+    #endregion
+
+    #region Slay the Enemies
+
+    private static FeatDefinition BuildSlayTheEnemies()
+    {
+        const string NAME = "FeatSlayTheEnemies";
+
+        var powerPool = FeatureDefinitionPowerBuilder
+            .Create($"Power{NAME}Pool")
+            .SetGuiPresentation(Category.Feature)
+            .SetUsesProficiencyBonus(ActivationTime.BonusAction)
+            .AddToDB();
+
+        var powerPoolList = new List<FeatureDefinitionPower>();
+
+        for (var i = 3; i >= 1; i--)
+        {
+            // closure
+            var a = i;
+
+            var rounds = 2 + i;
+
+            var powerGainSlot = FeatureDefinitionPowerSharedPoolBuilder
+                .Create($"Power{NAME}{i}")
+                .SetGuiPresentation(
+                    Gui.Format($"Feature/&Power{NAME}Title", i.ToString(), rounds.ToString()),
+                    Gui.Format($"Feature/&Power{NAME}Description", i.ToString(), rounds.ToString()))
+                .SetSharedPool(ActivationTime.BonusAction, powerPool)
+                .SetEffectDescription(
+                    EffectDescriptionBuilder
+                        .Create()
+                        .SetDurationData(DurationType.Round, rounds)
+                        .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
+                        .SetEffectForms(
+                            EffectFormBuilder
+                                .Create()
+                                .SetConditionForm(
+                                    ConditionDefinitionBuilder
+                                        .Create($"Condition{NAME}{i}")
+                                        .SetGuiPresentation(
+                                            "Condition/&ConditionFeatSlayTheEnemiesTitle",
+                                            Gui.Format("Condition/&ConditionFeatSlayTheEnemiesDescription",
+                                                i.ToString()), ConditionDefinitions.ConditionTrueStrike)
+                                        .SetPossessive()
+                                        .AddToDB(),
+                                    ConditionForm.ConditionOperation.Add)
+                                .Build())
+                        .Build())
+                .SetCustomSubFeatures(
+                    new ValidatorsPowerUse(
+                        c =>
+                        {
+                            var remaining = 0;
+
+                            c.GetClassSpellRepertoire(CharacterClassDefinitions.Ranger)?
+                                .GetSlotsNumber(a, out remaining, out _);
+
+                            var noCondition = ValidatorsCharacter.HasNoneOfConditions(
+                                "ConditionFeatSlayTheEnemies1",
+                                "ConditionFeatSlayTheEnemies2",
+                                "ConditionFeatSlayTheEnemies3")(c);
+
+                            return remaining > 0 && noCondition;
+                        }))
+                .AddToDB();
+
+            powerPoolList.Add(powerGainSlot);
+        }
+
+        PowerBundle.RegisterPowerBundle(powerPool, false, powerPoolList);
+
+        return FeatDefinitionWithPrerequisitesBuilder
+            .Create(NAME)
+            .SetGuiPresentation(Category.Feat)
+            .SetFeatures(powerPool)
+            .SetValidators(ValidatorsFeat.IsRangerLevel1)
+            .SetCustomSubFeatures(
+                new OnComputeAttackModifierSlayTheEnemies(powerPool),
+                new OnAfterActionFeatureFeatSlayTheEnemies())
+            .AddToDB();
+    }
+
+    private sealed class OnComputeAttackModifierSlayTheEnemies : IOnComputeAttackModifier
+    {
+        private readonly FeatureDefinition _featureDefinition;
+
+        public OnComputeAttackModifierSlayTheEnemies(FeatureDefinition featureDefinition)
+        {
+            _featureDefinition = featureDefinition;
+        }
+
+        public void ComputeAttackModifier(
+            RulesetCharacter myself,
+            RulesetCharacter defender,
+            BattleDefinitions.AttackProximity attackProximity,
+            RulesetAttackMode attackMode,
+            ref ActionModifier attackModifier)
+        {
+            if (ValidatorsCharacter.HasNoneOfConditions(
+                    "ConditionFeatSlayTheEnemies1",
+                    "ConditionFeatSlayTheEnemies2",
+                    "ConditionFeatSlayTheEnemies3")(myself))
+            {
+                return;
+            }
+
+            if (attackMode.ToHitBonusTrends.Any(x => x.source as FeatureDefinition == _featureDefinition))
+            {
+                return;
+            }
+
+            var damage = attackMode?.EffectDescription?.FindFirstDamageForm();
+
+            if (damage == null)
+            {
+                return;
+            }
+
+            if (IsFavoriteEnemy(myself, defender))
+            {
+                attackModifier.attackAdvantageTrends.Add(
+                    new TrendInfo(1, FeatureSourceType.CharacterFeature, _featureDefinition.Name, _featureDefinition));
+            }
+            else
+            {
+                var spellLevel = 0;
+
+                if (ValidatorsCharacter.HasAnyOfConditions("ConditionFeatSlayTheEnemies1")(myself))
+                {
+                    spellLevel = 1;
+                }
+                else if (ValidatorsCharacter.HasAnyOfConditions("ConditionFeatSlayTheEnemies2")(myself))
+                {
+                    spellLevel = 2;
+                }
+                else if (ValidatorsCharacter.HasAnyOfConditions("ConditionFeatSlayTheEnemies3")(myself))
+                {
+                    spellLevel = 3;
+                }
+
+                attackMode.ToHitBonus += spellLevel;
+                attackMode.ToHitBonusTrends.Add(new TrendInfo(spellLevel, FeatureSourceType.CharacterFeature,
+                    _featureDefinition.Name, _featureDefinition));
+
+                damage.BonusDamage += spellLevel;
+                damage.DamageBonusTrends.Add(new TrendInfo(spellLevel, FeatureSourceType.CharacterFeature,
+                    _featureDefinition.Name, _featureDefinition));
+            }
+        }
+
+        private static bool IsFavoriteEnemy(RulesetActor attacker, RulesetCharacter defender)
+        {
+            var favoredEnemyChoices = FeatureDefinitionFeatureSets.AdditionalDamageRangerFavoredEnemyChoice.FeatureSet
+                .Cast<FeatureDefinitionAdditionalDamage>();
+            var characterAdditionalDamages = attacker.GetFeaturesByType<FeatureDefinitionAdditionalDamage>();
+
+            return favoredEnemyChoices
+                .Intersect(characterAdditionalDamages)
+                .Any(x => x.RequiredCharacterFamily.Name == defender.CharacterFamily);
+        }
+    }
+
+    private sealed class OnAfterActionFeatureFeatSlayTheEnemies : IOnAfterActionFeature
+    {
+        public void OnAfterAction(CharacterAction action)
+        {
+            if (action is not CharacterActionUsePower characterActionUsePowerSlayTheEnemies ||
+                !characterActionUsePowerSlayTheEnemies.activePower.PowerDefinition.Name.StartsWith(
+                    "PowerFeatSlayTheEnemies"))
+            {
+                return;
+            }
+
+            var character = action.ActingCharacter.RulesetCharacter;
+            var name = characterActionUsePowerSlayTheEnemies.activePower.PowerDefinition.Name;
+            var level = int.Parse(name.Substring(name.Length - 1, 1));
+            var repertoire = character.GetClassSpellRepertoire(CharacterClassDefinitions.Ranger);
+
+            repertoire?.SpendSpellSlot(level);
         }
     }
 
