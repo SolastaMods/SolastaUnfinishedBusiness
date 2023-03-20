@@ -475,8 +475,6 @@ internal static class CharacterContext
             var terrainTypeName = featureDefinitionTerrainTypeAffinity.TerrainType;
             var terrainType = GetDefinition<TerrainTypeDefinition>(terrainTypeName);
             var guiPresentation = terrainType.GuiPresentation;
-
-            Main.Error(terrainTypeName);
             var sprite = Sprites.GetSprite(terrainTypeName, terrainAffinitySprites[terrainTypeName], 128);
 
             _ = CustomInvocationDefinitionBuilder
