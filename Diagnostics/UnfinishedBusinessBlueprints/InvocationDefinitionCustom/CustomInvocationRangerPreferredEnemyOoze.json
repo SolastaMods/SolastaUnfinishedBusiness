@@ -3,7 +3,7 @@
   "requiredKnownSpell": null,
   "requiredLevel": 1,
   "requiredPact": null,
-  "grantedFeature": "Definition:AdditionalDamageRangerFavoredEnemyBeast:89dd93a7d53fb934a8bfa9a3d71045de",
+  "grantedFeature": "Definition:AdditionalDamageRangerFavoredEnemyOoze:b33301aba68b1db4d8355871a8d41f8f",
   "grantedSpell": null,
   "consumesSpellSlot": false,
   "longRestRecharge": false,
@@ -11,13 +11,13 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "CharacterFamily/&BeastTitle",
-    "description": "CharacterFamily/&BeastDescription",
+    "title": "CharacterFamily/&OozeTitle",
+    "description": "CharacterFamily/&OozeDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "",
-      "m_SubObjectName": "",
-      "m_SubObjectType": ""
+      "m_AssetGUID": "51f0861e-dec4-5c1e-85a8-da17c8185c2a",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
@@ -32,7 +32,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "7b17b73d-ca8e-50c5-a9bc-8e16e158e532",
+  "guid": "3826f0ea-c515-579e-984e-2198ade2e5bd",
   "contentPack": 9999,
-  "name": "CustomInvocationRangerPreferredEnemyAdditionalDamageRangerFavoredEnemyBeast"
+  "name": "CustomInvocationRangerPreferredEnemyOoze"
 }

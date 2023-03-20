@@ -3,7 +3,7 @@
   "requiredKnownSpell": null,
   "requiredLevel": 1,
   "requiredPact": null,
-  "grantedFeature": "Definition:AdditionalDamageRangerFavoredEnemyCelestial:edcb0cf4d49d3634687ec11a4c745180",
+  "grantedFeature": "Definition:AdditionalDamageRangerFavoredEnemyAberration:b530d1b42a948204997d810a963e2490",
   "grantedSpell": null,
   "consumesSpellSlot": false,
   "longRestRecharge": false,
@@ -11,13 +11,13 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "CharacterFamily/&CelestialTitle",
-    "description": "CharacterFamily/&CelestialDescription",
+    "title": "CharacterFamily/&AberrationTitle",
+    "description": "CharacterFamily/&AberrationDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "",
-      "m_SubObjectName": "",
-      "m_SubObjectType": ""
+      "m_AssetGUID": "39c38e65-e909-5ba1-9801-4e89916e8052",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
@@ -32,7 +32,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "259a19da-9151-5ad9-b0be-f06a6e835694",
+  "guid": "802b4efd-de1c-5104-b05c-5910cb51dbed",
   "contentPack": 9999,
-  "name": "CustomInvocationRangerPreferredEnemyAdditionalDamageRangerFavoredEnemyCelestial"
+  "name": "CustomInvocationRangerPreferredEnemyAberration"
 }

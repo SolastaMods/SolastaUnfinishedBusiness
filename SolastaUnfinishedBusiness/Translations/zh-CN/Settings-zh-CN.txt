@@ -131,7 +131,7 @@ ModUi/&HideMonsterHitPoints=以 25% / 50% / 75% / 100% 的步长显示怪物的�
 ModUi/&House=<color=#F0DAA0>房子：</color>
 ModUi/&IdentifyAfterRest=通过短休或长休增加识别魔法物品的能力
 ModUi/&IgnoreHandXbowFreeHandRequirements=不需要空闲的手来使用手弩
-ModUi/&ImproveRangerFeaturesSelection=改进<color=#D89555>Ranger</color>首选敌人和偏好地形选择 UI<i><color=#F0DAA0>[如果您计划采用<color=#D89555>改进狩猎</color>专长，建议您使用] </颜色></i>
+ModUi/&ImproveRangerFeaturesSelection=改进<color=#D89555>Ranger</color>首选敌人和偏好地形选择 UI<i><color=#F0DAA0>[如果您打算使用<color=#D89555>改进狩猎</color>，建议您使用]</color></i> <b><i><color=#C04040E0>[需要重启]</color></i></b>
 ModUi/&IncreaseGameTimeBy=增加游戏时间
 ModUi/&IncreaseMaxAttunedItems=在第 10 级将最大同调物品增加到 4 个，在第 18 级增加到 5 个
 ModUi/&IncreaseSenseNormalVision=<color=white>增加<color=#D89555>Sense Normal Vision</color>范围以启用远程攻击</color> <b><i><color=#C04040E0>[需要重启]</color></i></b>

@@ -163,7 +163,7 @@
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
     "title": "Slay the Enemies 3",
-    "description": "You gain +3 to hit and damage rolls against non favored enemies for 5 rounds. You gain advantage against favored ones instead. ",
+    "description": "You gain +3 to hit and damage rolls against non favored enemies for 5 rounds. You gain advantage against favored ones instead.",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",

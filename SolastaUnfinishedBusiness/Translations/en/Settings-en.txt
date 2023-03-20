@@ -131,7 +131,7 @@ ModUi/&HideMonsterHitPoints=Display Monsters' health in steps of 25% / 50% / 75%
 ModUi/&House=<color=#F0DAA0>House:</color>
 ModUi/&IdentifyAfterRest=Add a power to identify magic items over a short or long rest
 ModUi/&IgnoreHandXbowFreeHandRequirements=Do not require free hand to use Hand Crossbows
-ModUi/&ImproveRangerFeaturesSelection=Improve <color=#D89555>Ranger</color> preferred enemy and favored terrain selection UI <i><color=#F0DAA0>[suggested if you plan to take <color=#D89555>Improve the Hunt</color> feat]</color></i>
+ModUi/&ImproveRangerFeaturesSelection=Improve <color=#D89555>Ranger</color> preferred enemy and favored terrain selection UI <i><color=#F0DAA0>[suggested if you plan to take <color=#D89555>Improve the Hunt</color>]</color></i> <b><i><color=#C04040E0>[Requires Restart]</color></i></b>
 ModUi/&IncreaseGameTimeBy=Increase game time by
 ModUi/&IncreaseMaxAttunedItems=Increase max attuned items to 4 at level 10th and 5 at level 18th
 ModUi/&IncreaseSenseNormalVision=<color=white>Increase <color=#D89555>Sense Normal Vision</color> range to enable long range attacks</color> <b><i><color=#C04040E0>[Requires Restart]</color></i></b>

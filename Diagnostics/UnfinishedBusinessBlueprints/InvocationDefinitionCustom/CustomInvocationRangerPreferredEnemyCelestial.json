@@ -3,7 +3,7 @@
   "requiredKnownSpell": null,
   "requiredLevel": 1,
   "requiredPact": null,
-  "grantedFeature": "Definition:AdditionalDamageRangerFavoredEnemyDragon:e0fdd73bfdbd8d9478a7dbe75ea3a6e8",
+  "grantedFeature": "Definition:AdditionalDamageRangerFavoredEnemyCelestial:edcb0cf4d49d3634687ec11a4c745180",
   "grantedSpell": null,
   "consumesSpellSlot": false,
   "longRestRecharge": false,
@@ -11,13 +11,13 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "CharacterFamily/&DragonTitle",
-    "description": "CharacterFamily/&DragonDescription",
+    "title": "CharacterFamily/&CelestialTitle",
+    "description": "CharacterFamily/&CelestialDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "",
-      "m_SubObjectName": "",
-      "m_SubObjectType": ""
+      "m_AssetGUID": "1f04934e-3c76-551c-9308-136ece23db39",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
@@ -32,7 +32,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "186c30da-87e3-5d3f-867a-033b04b002c7",
+  "guid": "32b5862e-37cc-524b-b498-5d981b3665f4",
   "contentPack": 9999,
-  "name": "CustomInvocationRangerPreferredEnemyAdditionalDamageRangerFavoredEnemyDragon"
+  "name": "CustomInvocationRangerPreferredEnemyCelestial"
 }

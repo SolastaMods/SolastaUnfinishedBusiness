@@ -3,7 +3,7 @@
   "requiredKnownSpell": null,
   "requiredLevel": 1,
   "requiredPact": null,
-  "grantedFeature": "Definition:AdditionalDamageRangerFavoredEnemyFiend:711dbba70806e154b8c37fd2662b1d26",
+  "grantedFeature": "Definition:AdditionalDamageRangerFavoredEnemyPlant:5165b54009a616844b575cbe0485cad8",
   "grantedSpell": null,
   "consumesSpellSlot": false,
   "longRestRecharge": false,
@@ -11,13 +11,13 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "CharacterFamily/&FiendTitle",
-    "description": "CharacterFamily/&FiendDescription",
+    "title": "CharacterFamily/&PlantTitle",
+    "description": "CharacterFamily/&PlantDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "",
-      "m_SubObjectName": "",
-      "m_SubObjectType": ""
+      "m_AssetGUID": "95c22969-7281-547a-8227-4fad0923fdd2",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
@@ -32,7 +32,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "82864906-4743-5266-b354-8faad7c1c3ba",
+  "guid": "d178496c-fb49-55f4-98e7-d4184d11acde",
   "contentPack": 9999,
-  "name": "CustomInvocationRangerPreferredEnemyAdditionalDamageRangerFavoredEnemyFiend"
+  "name": "CustomInvocationRangerPreferredEnemyPlant"
 }

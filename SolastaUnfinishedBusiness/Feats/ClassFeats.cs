@@ -76,73 +76,6 @@ internal static class ClassFeats
             primalRageGroup);
     }
 
-    #region Awaken The Beast Within
-
-    private static FeatDefinition BuildAwakenTheBeastWithin([NotNull] List<FeatDefinition> feats)
-    {
-        const string NAME = "FeatAwakenTheBeastWithin";
-
-        var hpBonus = FeatureDefinitionAttributeModifierBuilder
-            .Create($"AttributeModifier{NAME}")
-            .SetGuiPresentationNoContent(true)
-            .SetModifier(AttributeModifierOperation.AddConditionAmount, AttributeDefinitions.HitPointBonusPerLevel)
-            .AddToDB();
-
-        var summoningAffinity = FeatureDefinitionSummoningAffinityBuilder
-            .Create($"SummoningAffinity{NAME}")
-            .SetGuiPresentationNoContent()
-            .SetRequiredMonsterTag(TagsDefinitions.CreatureTagWildShape)
-            .SetAddedConditions(
-                ConditionDefinitionBuilder
-                    .Create($"Condition{NAME}")
-                    .SetGuiPresentationNoContent()
-                    .SetSilent(Silent.WhenAddedOrRemoved)
-                    .SetAmountOrigin(ExtraOriginOfAmount.SourceClassLevel, DruidClass)
-                    .SetFeatures(hpBonus, hpBonus) // 2 HP per level
-                    .AddToDB())
-            .AddToDB();
-
-        var awakenTheBeastWithinFeats = AttributeDefinitions.AbilityScoreNames
-            .Select(abilityScore => new
-            {
-                abilityScore,
-                attributeModifier = DatabaseRepository.GetDatabase<FeatureDefinitionAttributeModifier>()
-                    .FirstOrDefault(x =>
-                        x.Name.StartsWith("AttributeModifierCreed") && x.ModifiedAttribute == abilityScore)
-            })
-            .Select(t =>
-                FeatDefinitionWithPrerequisitesBuilder
-                    .Create($"{NAME}{t.abilityScore}")
-                    .SetGuiPresentation(
-                        Gui.Format($"Feat/&{NAME}Title",
-                            CultureInfo.CurrentCulture.TextInfo.ToTitleCase(
-                                Gui.Localize($"Attribute/&{t.abilityScore}Title").ToLower())),
-                        Gui.Format($"Feat/&{NAME}Description", t.abilityScore))
-                    .SetFeatures(t.attributeModifier, summoningAffinity)
-                    .SetValidators(ValidatorsFeat.IsDruidLevel4)
-                    .AddToDB())
-            .ToArray();
-
-        // avoid run-time exception on write operation
-        var temp = new List<FeatDefinition>();
-
-        temp.AddRange(awakenTheBeastWithinFeats);
-
-        var awakenTheBeastWithinGroup = GroupFeats.MakeGroupWithPreRequisite(
-            "FeatGroupAwakenTheBeastWithin", NAME, ValidatorsFeat.IsDruidLevel4, temp.ToArray());
-
-        feats.AddRange(awakenTheBeastWithinFeats);
-
-        return awakenTheBeastWithinGroup;
-    }
-
-    private sealed  class DruidHolder : IClassHoldingFeature
-    {
-        public CharacterClassDefinition Class { get; } = CharacterClassDefinitions.Druid;
-    }
-    
-    #endregion
-
     #region Call for Charge
 
     private static FeatDefinition BuildCallForCharge()
@@ -276,10 +209,105 @@ internal static class ClassFeats
             .SetFeatures(
                 AttributeModifierCreed_Of_Maraike,
                 FeatureDefinitionPointPools.PointPoolBackgroundLanguageChoice_one,
-                SrdAndHouseRulesContext.InvocationPoolRangerPreferredEnemy,
-                SrdAndHouseRulesContext.InvocationPoolRangerTerrainType)
+                CharacterContext.InvocationPoolRangerPreferredEnemy,
+                CharacterContext.InvocationPoolRangerTerrainType)
             .SetValidators(ValidatorsFeat.IsRangerLevel4)
             .AddToDB();
+    }
+
+    #endregion
+
+    #region Poisoner
+
+    private static FeatDefinition BuildPoisoner()
+    {
+        const string Name = "FeatPoisoner";
+
+        return FeatDefinitionWithPrerequisitesBuilder
+            .Create(Name)
+            .SetGuiPresentation(Category.Feat)
+            .SetFeatures(
+                FeatureDefinitionActionAffinitys.ActionAffinityThiefFastHands,
+                FeatureDefinitionCraftingAffinityBuilder
+                    .Create($"CraftingAffinity{Name}")
+                    .SetGuiPresentationNoContent(true)
+                    .SetAffinityGroups(0.5f, true, ToolTypeDefinitions.ThievesToolsType,
+                        ToolTypeDefinitions.PoisonersKitType)
+                    .AddToDB(),
+                FeatureDefinitionProficiencyBuilder
+                    .Create($"Proficiency{Name}")
+                    .SetGuiPresentationNoContent(true)
+                    .SetProficiencies(ProficiencyType.SkillOrExpertise, PoisonersKitType)
+                    .AddToDB())
+            .SetValidators(ValidatorsFeat.IsRangerOrRogueLevel4)
+            .AddToDB();
+    }
+
+    #endregion
+
+    #region Awaken The Beast Within
+
+    private static FeatDefinition BuildAwakenTheBeastWithin([NotNull] List<FeatDefinition> feats)
+    {
+        const string NAME = "FeatAwakenTheBeastWithin";
+
+        var hpBonus = FeatureDefinitionAttributeModifierBuilder
+            .Create($"AttributeModifier{NAME}")
+            .SetGuiPresentationNoContent(true)
+            .SetModifier(AttributeModifierOperation.AddConditionAmount, AttributeDefinitions.HitPointBonusPerLevel)
+            .AddToDB();
+
+        var summoningAffinity = FeatureDefinitionSummoningAffinityBuilder
+            .Create($"SummoningAffinity{NAME}")
+            .SetGuiPresentationNoContent()
+            .SetRequiredMonsterTag(TagsDefinitions.CreatureTagWildShape)
+            .SetAddedConditions(
+                ConditionDefinitionBuilder
+                    .Create($"Condition{NAME}")
+                    .SetGuiPresentationNoContent()
+                    .SetSilent(Silent.WhenAddedOrRemoved)
+                    .SetAmountOrigin(ExtraOriginOfAmount.SourceClassLevel, DruidClass)
+                    .SetFeatures(hpBonus, hpBonus) // 2 HP per level
+                    .AddToDB())
+            .AddToDB();
+
+        var awakenTheBeastWithinFeats = AttributeDefinitions.AbilityScoreNames
+            .Select(abilityScore => new
+            {
+                abilityScore,
+                attributeModifier = DatabaseRepository.GetDatabase<FeatureDefinitionAttributeModifier>()
+                    .FirstOrDefault(x =>
+                        x.Name.StartsWith("AttributeModifierCreed") && x.ModifiedAttribute == abilityScore)
+            })
+            .Select(t =>
+                FeatDefinitionWithPrerequisitesBuilder
+                    .Create($"{NAME}{t.abilityScore}")
+                    .SetGuiPresentation(
+                        Gui.Format($"Feat/&{NAME}Title",
+                            CultureInfo.CurrentCulture.TextInfo.ToTitleCase(
+                                Gui.Localize($"Attribute/&{t.abilityScore}Title").ToLower())),
+                        Gui.Format($"Feat/&{NAME}Description", t.abilityScore))
+                    .SetFeatures(t.attributeModifier, summoningAffinity)
+                    .SetValidators(ValidatorsFeat.IsDruidLevel4)
+                    .AddToDB())
+            .ToArray();
+
+        // avoid run-time exception on write operation
+        var temp = new List<FeatDefinition>();
+
+        temp.AddRange(awakenTheBeastWithinFeats);
+
+        var awakenTheBeastWithinGroup = GroupFeats.MakeGroupWithPreRequisite(
+            "FeatGroupAwakenTheBeastWithin", NAME, ValidatorsFeat.IsDruidLevel4, temp.ToArray());
+
+        feats.AddRange(awakenTheBeastWithinFeats);
+
+        return awakenTheBeastWithinGroup;
+    }
+
+    private sealed class DruidHolder : IClassHoldingFeature
+    {
+        public CharacterClassDefinition Class { get; } = CharacterClassDefinitions.Druid;
     }
 
     #endregion
@@ -543,34 +571,6 @@ internal static class ClassFeats
 
             yield break;
         }
-    }
-
-    #endregion
-
-    #region Poisoner
-
-    private static FeatDefinition BuildPoisoner()
-    {
-        const string Name = "FeatPoisoner";
-
-        return FeatDefinitionWithPrerequisitesBuilder
-            .Create(Name)
-            .SetGuiPresentation(Category.Feat)
-            .SetFeatures(
-                FeatureDefinitionActionAffinitys.ActionAffinityThiefFastHands,
-                FeatureDefinitionCraftingAffinityBuilder
-                    .Create($"CraftingAffinity{Name}")
-                    .SetGuiPresentationNoContent(true)
-                    .SetAffinityGroups(0.5f, true, ToolTypeDefinitions.ThievesToolsType,
-                        ToolTypeDefinitions.PoisonersKitType)
-                    .AddToDB(),
-                FeatureDefinitionProficiencyBuilder
-                    .Create($"Proficiency{Name}")
-                    .SetGuiPresentationNoContent(true)
-                    .SetProficiencies(ProficiencyType.SkillOrExpertise, PoisonersKitType)
-                    .AddToDB())
-            .SetValidators(ValidatorsFeat.IsRangerOrRogueLevel4)
-            .AddToDB();
     }
 
     #endregion

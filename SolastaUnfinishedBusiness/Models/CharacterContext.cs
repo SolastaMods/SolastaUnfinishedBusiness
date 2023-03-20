@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
+using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
@@ -40,6 +41,20 @@ internal static class CharacterContext
 
     internal static FeatureDefinitionPower FeatureDefinitionPowerHelpAction { get; private set; }
 
+    internal static readonly FeatureDefinitionCustomInvocationPool InvocationPoolRangerTerrainType =
+        CustomInvocationPoolDefinitionBuilder
+            .Create("InvocationPoolRangerTerrainType")
+            .SetGuiPresentation("InvocationPoolRangerTerrainTypeAffinityLearn", Category.Feature)
+            .Setup(InvocationPoolTypeCustom.Pools.RangerTerrainTypeAffinity)
+            .AddToDB();
+
+    internal static readonly FeatureDefinitionCustomInvocationPool InvocationPoolRangerPreferredEnemy =
+        CustomInvocationPoolDefinitionBuilder
+            .Create("InvocationPoolRangerPreferredEnemy")
+            .SetGuiPresentation("InvocationPoolRangerPreferredEnemyLearn", Category.Feature)
+            .Setup(InvocationPoolTypeCustom.Pools.RangerPreferredEnemy)
+            .AddToDB();
+
     internal static void Load()
     {
         // create feats point pools
@@ -72,6 +87,7 @@ internal static class CharacterContext
         FlexibleRacesContext.SwitchFlexibleRaces();
         SwitchFirstLevelTotalFeats(); // alternate human here as well
         SwitchRangerHumanoidFavoredEnemy();
+        SwitchRangerToUseCustomInvocationPools();
         SwitchAsiAndFeat();
         SwitchEvenLevelFeats();
         SwitchFighterArmamentAdroitness();
@@ -429,6 +445,92 @@ internal static class CharacterContext
             AdditionalDamageRangerFavoredEnemyChoice.FeatureSet.Sort((x, y) =>
                 String.Compare(x.FormatTitle(), y.FormatTitle(), StringComparison.CurrentCulture));
         }
+    }
+
+
+    private static void SwitchRangerToUseCustomInvocationPools()
+    {
+        const string Name = "Ranger";
+
+        //
+        // Terrain Type Affinity
+        //
+
+        var dbFeatureDefinitionTerrainTypeAffinity =
+            DatabaseRepository.GetDatabase<FeatureDefinitionTerrainTypeAffinity>();
+
+        foreach (var featureDefinitionTerrainTypeAffinity in dbFeatureDefinitionTerrainTypeAffinity)
+        {
+            var terrainTypeName = featureDefinitionTerrainTypeAffinity.TerrainType;
+            var terrainType = GetDefinition<TerrainTypeDefinition>(terrainTypeName);
+            var guiPresentation = terrainType.GuiPresentation;
+
+            _ = CustomInvocationDefinitionBuilder
+                .Create($"CustomInvocation{Name}TerrainType{terrainTypeName}")
+                .SetGuiPresentation(guiPresentation.Title, guiPresentation.Description)
+                .SetPoolType(InvocationPoolTypeCustom.Pools.RangerTerrainTypeAffinity)
+                .SetGrantedFeature(featureDefinitionTerrainTypeAffinity)
+                .SetCustomSubFeatures(Hidden.Marker)
+                .AddToDB();
+        }
+
+        //
+        // Preferred Enemy
+        //
+
+        var preferredEnemies = AdditionalDamageRangerFavoredEnemyChoice.FeatureSet;
+
+        var preferredEnemySprites = new Dictionary<string, byte[]>
+        {
+            { "Aberration", Resources.PreferredEnemyAberration },
+            { "Beast", Resources.PreferredEnemyBeast },
+            { "Celestial", Resources.PreferredEnemyCelestial },
+            { "Construct", Resources.PreferredEnemyConstruct },
+            { "Dragon", Resources.PreferredEnemyDragon },
+            { "Elemental", Resources.PreferredEnemyElemental },
+            { "Fey", Resources.PreferredEnemyFey },
+            { "Fiend", Resources.PreferredEnemyFiend },
+            { "Giant", Resources.PreferredEnemyGiant },
+            { "Humanoid", Resources.PreferredEnemyHumanoid },
+            { "Monstrosity", Resources.PreferredEnemyMonstrosity },
+            { "Ooze", Resources.PreferredEnemyOoze },
+            { "Plant", Resources.PreferredEnemyPlant },
+            { "Undead", Resources.PreferredEnemyUndead }
+        };
+
+        foreach (var featureDefinitionPreferredEnemy in preferredEnemies.OfType<FeatureDefinitionAdditionalDamage>())
+        {
+            var preferredEnemyName = featureDefinitionPreferredEnemy.RequiredCharacterFamily.Name;
+            var guiPresentation = featureDefinitionPreferredEnemy.RequiredCharacterFamily.GuiPresentation;
+
+            var sprite = Sprites.GetSprite(preferredEnemyName, preferredEnemySprites[preferredEnemyName], 128);
+
+            _ = CustomInvocationDefinitionBuilder
+                .Create($"CustomInvocation{Name}PreferredEnemy{preferredEnemyName}")
+                .SetGuiPresentation(guiPresentation.Title, guiPresentation.Description, sprite)
+                .SetPoolType(InvocationPoolTypeCustom.Pools.RangerPreferredEnemy)
+                .SetGrantedFeature(featureDefinitionPreferredEnemy)
+                .SetCustomSubFeatures(Hidden.Marker)
+                .AddToDB();
+        }
+
+        // replace the original features with custom invocation pools
+
+        if (!Main.Settings.ImproveRangerFeaturesSelection)
+        {
+            return;
+        }
+
+        var replacedFeatures = Ranger.FeatureUnlocks
+            .Select(x =>
+                x.FeatureDefinition == TerrainTypeAffinityRangerNaturalExplorerChoice
+                    ? new FeatureUnlockByLevel(InvocationPoolRangerTerrainType, x.Level)
+                    : x.FeatureDefinition == AdditionalDamageRangerFavoredEnemyChoice
+                        ? new FeatureUnlockByLevel(InvocationPoolRangerPreferredEnemy, x.Level)
+                        : x)
+            .ToList();
+
+        Ranger.FeatureUnlocks.SetRange(replacedFeatures);
     }
 
     internal static void SwitchAsiAndFeat()

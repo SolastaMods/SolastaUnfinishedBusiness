@@ -3,7 +3,7 @@
   "requiredKnownSpell": null,
   "requiredLevel": 1,
   "requiredPact": null,
-  "grantedFeature": "Definition:AdditionalDamageRangerFavoredEnemyMonstrosity:a168863b41a8ba042ad0d2d5c315f1de",
+  "grantedFeature": "Definition:AdditionalDamageRangerFavoredEnemyGiant:1daa09da93242854b87610533c5f88b7",
   "grantedSpell": null,
   "consumesSpellSlot": false,
   "longRestRecharge": false,
@@ -11,13 +11,13 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "CharacterFamily/&MonstrosityTitle",
-    "description": "CharacterFamily/&MonstrosityDescription",
+    "title": "CharacterFamily/&GiantTitle",
+    "description": "CharacterFamily/&GiantDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "",
-      "m_SubObjectName": "",
-      "m_SubObjectType": ""
+      "m_AssetGUID": "6abc328e-bdb0-5cea-a96d-54b6581e70c0",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
@@ -32,7 +32,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "bb275db3-b2f8-5d65-95a2-b4d51ee87360",
+  "guid": "a5644129-4ac6-52c1-a150-75b863c5ac56",
   "contentPack": 9999,
-  "name": "CustomInvocationRangerPreferredEnemyAdditionalDamageRangerFavoredEnemyMonstrosity"
+  "name": "CustomInvocationRangerPreferredEnemyGiant"
 }

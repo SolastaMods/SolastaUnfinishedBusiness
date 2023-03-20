@@ -3,11 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
-using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
-using SolastaUnfinishedBusiness.CustomDefinitions;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Properties;
@@ -71,20 +69,6 @@ internal static class SrdAndHouseRulesContext
 
     private static readonly Dictionary<string, TagsDefinitions.Criticity> Tags = new();
 
-    internal static readonly FeatureDefinitionCustomInvocationPool InvocationPoolRangerTerrainType =
-        CustomInvocationPoolDefinitionBuilder
-            .Create("InvocationPoolRangerTerrainType")
-            .SetGuiPresentation("InvocationPoolRangerTerrainTypeAffinityLearn", Category.Feature)
-            .Setup(InvocationPoolTypeCustom.Pools.RangerTerrainTypeAffinity)
-            .AddToDB();
-
-    internal static readonly FeatureDefinitionCustomInvocationPool InvocationPoolRangerPreferredEnemy =
-        CustomInvocationPoolDefinitionBuilder
-            .Create("InvocationPoolRangerPreferredEnemy")
-            .SetGuiPresentation("InvocationPoolRangerPreferredEnemyLearn", Category.Feature)
-            .Setup(InvocationPoolTypeCustom.Pools.RangerPreferredEnemy)
-            .AddToDB();
-
     private static SpellDefinition ConjureElementalInvisibleStalker { get; set; }
 
     internal static void Load()
@@ -141,65 +125,6 @@ internal static class SrdAndHouseRulesContext
         FixAttackBuffsAffectingSpellDamage();
         FixMissingWildShapeTagOnSomeForms();
         MakeGorillaWildShapeRocksUnlimited();
-        ChangeRangerToUseCustomInvocationPools();
-    }
-
-    private static void ChangeRangerToUseCustomInvocationPools()
-    {
-        const string Name = "Ranger";
-
-        //
-        // Terrain Type Affinity
-        //
-
-        var dbFeatureDefinitionTerrainTypeAffinity =
-            DatabaseRepository.GetDatabase<FeatureDefinitionTerrainTypeAffinity>();
-
-        foreach (var featureDefinitionTerrainTypeAffinity in dbFeatureDefinitionTerrainTypeAffinity)
-        {
-            var terrainTypeName = featureDefinitionTerrainTypeAffinity.TerrainType;
-            var terrainType = GetDefinition<TerrainTypeDefinition>(terrainTypeName);
-
-            _ = CustomInvocationDefinitionBuilder
-                .Create($"CustomInvocation{Name}TerrainType{terrainTypeName}")
-                .SetGuiPresentation(terrainType.GuiPresentation)
-                .SetPoolType(InvocationPoolTypeCustom.Pools.RangerTerrainTypeAffinity)
-                .SetGrantedFeature(featureDefinitionTerrainTypeAffinity)
-                .SetCustomSubFeatures(Hidden.Marker)
-                .AddToDB();
-        }
-
-        //
-        // Preferred Enemy
-        //
-
-        var preferredEnemies = FeatureDefinitionFeatureSets.AdditionalDamageRangerFavoredEnemyChoice.FeatureSet;
-
-        foreach (var featureDefinitionPreferredEnemy in preferredEnemies.OfType<FeatureDefinitionAdditionalDamage>())
-        {
-            var preferredEnemyName = featureDefinitionPreferredEnemy.Name;
-
-            _ = CustomInvocationDefinitionBuilder
-                .Create($"CustomInvocation{Name}PreferredEnemy{preferredEnemyName}")
-                .SetGuiPresentation(featureDefinitionPreferredEnemy.RequiredCharacterFamily.GuiPresentation)
-                .SetPoolType(InvocationPoolTypeCustom.Pools.RangerPreferredEnemy)
-                .SetGrantedFeature(featureDefinitionPreferredEnemy)
-                .SetCustomSubFeatures(Hidden.Marker)
-                .AddToDB();
-        }
-
-        // replace the original features with custom invocation pools
-
-        var replacedFeatures = Ranger.FeatureUnlocks
-            .Select(x =>
-                x.FeatureDefinition == FeatureDefinitionFeatureSets.TerrainTypeAffinityRangerNaturalExplorerChoice
-                    ? new FeatureUnlockByLevel(InvocationPoolRangerTerrainType, x.Level)
-                    : x.FeatureDefinition == FeatureDefinitionFeatureSets.AdditionalDamageRangerFavoredEnemyChoice
-                        ? new FeatureUnlockByLevel(InvocationPoolRangerPreferredEnemy, x.Level)
-                        : x)
-            .ToList();
-
-        Ranger.FeatureUnlocks.SetRange(replacedFeatures);
     }
 
     internal static void SwitchUniversalSylvanArmorAndLightbringer()

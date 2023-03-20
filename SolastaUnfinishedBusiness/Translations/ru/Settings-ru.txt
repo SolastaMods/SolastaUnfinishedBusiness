@@ -131,7 +131,7 @@ ModUi/&HideMonsterHitPoints=Отображение здоровья монстр
 ModUi/&House=<color=#F0DAA0>Дом:</color>
 ModUi/&IdentifyAfterRest=Добавьте способность идентифицировать магические предметы во время короткого или длительного отдыха.
 ModUi/&IgnoreHandXbowFreeHandRequirements=Не требуется свободная рука для использования ручных арбалетов.
-ModUi/&ImproveRangerFeaturesSelection=Улучшить <color=#D89555>Рейнджер</color> предпочитаемый враг и интерфейс выбора предпочитаемой местности <i><color=#F0DAA0>[предлагается, если вы планируете использовать навык <color=#D89555>Улучшить охоту</color>] </цвет></я>
+ModUi/&ImproveRangerFeaturesSelection=Улучшить <color=#D89555>Рейнджер</color> предпочтительный враг и интерфейс выбора предпочитаемой местности <i><color=#F0DAA0>[предлагается, если вы планируете <color=#D89555>улучшить охоту</color>]</color></i> <b><i><color=#C04040E0>[Требуется перезагрузка]</color></i></b>
 ModUi/&IncreaseGameTimeBy=Увеличьте время игры на
 ModUi/&IncreaseMaxAttunedItems=Увеличьте максимальное количество настроенных предметов до 4 на 10-м уровне и до 5 на 18-м уровне.
 ModUi/&IncreaseSenseNormalVision=<color=white>Увеличьте дальность <color=#D89555>Sense Normal Vision</color>, чтобы активировать дальние атаки</color> <b><i><color=#C04040E0>[Требуется перезагрузка]</color></я></б>

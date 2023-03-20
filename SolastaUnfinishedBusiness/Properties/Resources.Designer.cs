@@ -1875,6 +1875,146 @@ namespace SolastaUnfinishedBusiness.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
+        public static byte[] PreferredEnemyAberration {
+            get {
+                object obj = ResourceManager.GetObject("PreferredEnemyAberration", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        public static byte[] PreferredEnemyBeast {
+            get {
+                object obj = ResourceManager.GetObject("PreferredEnemyBeast", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        public static byte[] PreferredEnemyCelestial {
+            get {
+                object obj = ResourceManager.GetObject("PreferredEnemyCelestial", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        public static byte[] PreferredEnemyConstruct {
+            get {
+                object obj = ResourceManager.GetObject("PreferredEnemyConstruct", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        public static byte[] PreferredEnemyDragon {
+            get {
+                object obj = ResourceManager.GetObject("PreferredEnemyDragon", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        public static byte[] PreferredEnemyElemental {
+            get {
+                object obj = ResourceManager.GetObject("PreferredEnemyElemental", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        public static byte[] PreferredEnemyFey {
+            get {
+                object obj = ResourceManager.GetObject("PreferredEnemyFey", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        public static byte[] PreferredEnemyFiend {
+            get {
+                object obj = ResourceManager.GetObject("PreferredEnemyFiend", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        public static byte[] PreferredEnemyGiant {
+            get {
+                object obj = ResourceManager.GetObject("PreferredEnemyGiant", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        public static byte[] PreferredEnemyHumanoid {
+            get {
+                object obj = ResourceManager.GetObject("PreferredEnemyHumanoid", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        public static byte[] PreferredEnemyMonstrosity {
+            get {
+                object obj = ResourceManager.GetObject("PreferredEnemyMonstrosity", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        public static byte[] PreferredEnemyOoze {
+            get {
+                object obj = ResourceManager.GetObject("PreferredEnemyOoze", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        public static byte[] PreferredEnemyPlant {
+            get {
+                object obj = ResourceManager.GetObject("PreferredEnemyPlant", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        public static byte[] PreferredEnemyUndead {
+            get {
+                object obj = ResourceManager.GetObject("PreferredEnemyUndead", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
         public static byte[] ProducedFlameThrow {
             get {
                 object obj = ResourceManager.GetObject("ProducedFlameThrow", resourceCulture);
