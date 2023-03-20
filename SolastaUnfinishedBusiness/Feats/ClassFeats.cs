@@ -85,7 +85,7 @@ internal static class ClassFeats
         var hpBonus = FeatureDefinitionAttributeModifierBuilder
             .Create($"AttributeModifier{NAME}")
             .SetGuiPresentationNoContent(true)
-            .SetModifier(AttributeModifierOperation.AddConditionAmount, AttributeDefinitions.HitPoints)
+            .SetModifier(AttributeModifierOperation.AddConditionAmount, AttributeDefinitions.HitPointBonusPerLevel)
             .AddToDB();
 
         var summoningAffinity = FeatureDefinitionSummoningAffinityBuilder
@@ -136,6 +136,11 @@ internal static class ClassFeats
         return awakenTheBeastWithinGroup;
     }
 
+    private sealed  class DruidHolder : IClassHoldingFeature
+    {
+        public CharacterClassDefinition Class { get; } = CharacterClassDefinitions.Druid;
+    }
+    
     #endregion
 
     #region Call for Charge
@@ -989,7 +994,7 @@ internal static class ClassFeats
                 return;
             }
 
-            var damage = attackMode?.EffectDescription?.FindFirstDamageForm();
+            var damage = attackMode.EffectDescription?.FindFirstDamageForm();
 
             if (damage == null)
             {
