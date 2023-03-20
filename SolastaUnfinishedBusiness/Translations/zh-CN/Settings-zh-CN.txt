@@ -77,7 +77,7 @@ ModUi/&EnableCheatMenu=启用作弊菜单
 ModUi/&EnableDungeonMakerModdedContent=启用 Dungeon Maker Pro\n<i><color=#F0DAA0>[包括平坦的房间、150x150 和 200x200 的地牢大小以及简洁的混合来自所有环境的资产]</color></i>
 ModUi/&EnableEpicPointsAndArray=启用史诗般的 35 点购买系统和数组 <i><color=#F0DAA0>[17,15,13,​​12,10,8]</color></i> <b><i><color=#C04040E0>[需要重启]</color></i></b>
 ModUi/&EnableFeatsAtEvenLevels=在等级 4、10 和 16 启用专长选择
-ModUi/&EnableFighterArmamentAdroitness=在等级 8 和 16 启用<color=#D89555>战斗机</color><b>武器训练</b><i><color=#F0DAA0>[选择一种武器类型以获得 +1击中并造成伤害]</color></i>
+ModUi/&EnableFighterArmamentAdroitness=在 8 级和 16 级启用<color=#D89555>战士</color><b>武器专业化</b><i><color=#F0DAA0>[获得 +1 命中和伤害，但与任何其他武器相比处于劣势武器类型]</color></i>
 ModUi/&EnableFlexibleBackgrounds=启用灵活的背景<i><color=#F0DAA0>[从背景中选择技能和工具熟练程度]</color></i>
 ModUi/&EnableFlexibleRaces=启用灵活的种族<i><color=#F0DAA0>[分配能力得分而不是种族默认值]</color></i>
 ModUi/&EnableHotkeyDebugOverlay=启用 <color=#1E81B0>CTRL-SHIFT-(D)</color> 以显示调试覆盖

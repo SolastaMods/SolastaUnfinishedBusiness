@@ -36,11 +36,6 @@ internal static class CharacterContext
     internal const int ModMaxAttribute = 17;
     internal const int ModBuyPoints = 35;
 
-    private static int PreviousTotalFeatsGrantedFirstLevel { get; set; } = -1;
-    private static bool PreviousAlternateHuman { get; set; }
-
-    internal static FeatureDefinitionPower FeatureDefinitionPowerHelpAction { get; private set; }
-
     internal static readonly FeatureDefinitionCustomInvocationPool InvocationPoolRangerTerrainType =
         CustomInvocationPoolDefinitionBuilder
             .Create("InvocationPoolRangerTerrainType")
@@ -54,6 +49,11 @@ internal static class CharacterContext
             .SetGuiPresentation("InvocationPoolRangerPreferredEnemyLearn", Category.Feature)
             .Setup(InvocationPoolTypeCustom.Pools.RangerPreferredEnemy)
             .AddToDB();
+
+    private static int PreviousTotalFeatsGrantedFirstLevel { get; set; } = -1;
+    private static bool PreviousAlternateHuman { get; set; }
+
+    internal static FeatureDefinitionPower FeatureDefinitionPowerHelpAction { get; private set; }
 
     internal static void Load()
     {
@@ -370,31 +370,6 @@ internal static class CharacterContext
             ? new[] { 17, 15, 13, 12, 10, 8 }
             : new[] { 15, 14, 13, 12, 10, 8 };
     }
-
-#if false
-    private static void LoadVision()
-    {
-        if (Main.Settings.DisableSenseDarkVisionFromAllRaces)
-        {
-            foreach (var featureUnlocks in DatabaseRepository.GetDatabase<CharacterRaceDefinition>()
-                         .Select(crd => crd.FeatureUnlocks))
-            {
-                featureUnlocks.RemoveAll(x => x.FeatureDefinition.name == "SenseDarkvision");
-                // Half-orcs have a different darkvision.
-                featureUnlocks.RemoveAll(x => x.FeatureDefinition.name == "SenseDarkvision12");
-            }
-        }
-
-        if (Main.Settings.DisableSenseSuperiorDarkVisionFromAllRaces)
-        {
-            foreach (var characterRaceDefinition in DatabaseRepository.GetDatabase<CharacterRaceDefinition>())
-            {
-                characterRaceDefinition.FeatureUnlocks.RemoveAll(x =>
-                    x.FeatureDefinition.name == "SenseSuperiorDarkvision");
-            }
-        }
-    }
-#endif
 
     internal static void SwitchHelpPower()
     {
@@ -780,6 +755,69 @@ internal static class CharacterContext
             .Any(crd => crd.SubRaces.Contains(raceDefinition));
     }
 
+    // BACKWARD COMPATIBILITY
+    private static void LoadFighterArmamentAdroitness()
+    {
+        _ = CustomInvocationPoolDefinitionBuilder
+            .Create("InvocationPoolFighterArmamentAdroitness")
+            .SetGuiPresentation(Category.Feature)
+            .Setup(InvocationPoolTypeCustom.Pools.MartialWeaponMaster)
+            .AddToDB();
+
+        var dbWeaponTypeDefinition = DatabaseRepository.GetDatabase<WeaponTypeDefinition>()
+            .Where(x => x != WeaponTypeDefinitions.UnarmedStrikeType &&
+                        x != CustomWeaponsContext.ThunderGauntletType &&
+                        x != CustomWeaponsContext.LightningLauncherType);
+
+        foreach (var weaponTypeDefinition in dbWeaponTypeDefinition)
+        {
+            var modifyAttackModeForWeaponFighterArmamentAdroitness = FeatureDefinitionBuilder
+                .Create($"ModifyAttackModeForWeaponFighterArmamentAdroitness{weaponTypeDefinition.name}")
+                .SetGuiPresentation("ModifyAttackModeForWeaponFighterArmamentAdroitness", Category.Feature)
+                .SetCustomSubFeatures(new ModifyAttackModeForWeaponFighterArmamentAdroitness(weaponTypeDefinition))
+                .AddToDB();
+
+            CustomInvocationDefinitionBuilder
+                .Create($"CustomInvocationArmamentAdroitness{weaponTypeDefinition.name}")
+                .SetGuiPresentation(
+                    weaponTypeDefinition.GuiPresentation.Title,
+                    modifyAttackModeForWeaponFighterArmamentAdroitness.GuiPresentation.Description,
+                    CustomWeaponsContext.GetStandardWeaponOfType(weaponTypeDefinition.Name))
+                .SetPoolType(InvocationPoolTypeCustom.Pools.ArmamentAdroitness)
+                .SetGrantedFeature(modifyAttackModeForWeaponFighterArmamentAdroitness)
+                .SetCustomSubFeatures(Hidden.Marker)
+                .AddToDB();
+        }
+    }
+
+    internal static void SwitchFighterArmamentAdroitness()
+    {
+        var levels = new[] { 8, 16 };
+
+        if (Main.Settings.EnableFighterArmamentAdroitness)
+        {
+            foreach (var level in levels)
+            {
+                Fighter.FeatureUnlocks.TryAdd(
+                    new FeatureUnlockByLevel(MartialWeaponMaster.InvocationPoolSpecialization, level));
+            }
+        }
+        else
+        {
+            foreach (var level in levels)
+            {
+                Fighter.FeatureUnlocks
+                    .RemoveAll(x => x.level == level &&
+                                    x.FeatureDefinition == MartialWeaponMaster.InvocationPoolSpecialization);
+            }
+        }
+
+        if (Main.Settings.EnableSortingFutureFeatures)
+        {
+            Fighter.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
+        }
+    }
+
     private sealed class ModifyAttackModeForWeaponFighterArmamentAdroitness : IModifyAttackModeForWeapon
     {
         private const string SourceName =
@@ -812,70 +850,6 @@ internal static class CharacterContext
 
             damage.BonusDamage += 1;
             damage.DamageBonusTrends.Add(new TrendInfo(1, FeatureSourceType.CharacterFeature, SourceName, null));
-        }
-    }
-
-    private static FeatureDefinitionCustomInvocationPool InvocationPoolFighterArmamentAdroitness { get; set; }
-
-    private static void LoadFighterArmamentAdroitness()
-    {
-        InvocationPoolFighterArmamentAdroitness = CustomInvocationPoolDefinitionBuilder
-            .Create("InvocationPoolFighterArmamentAdroitness")
-            .SetGuiPresentation(Category.Feature)
-            .Setup(InvocationPoolTypeCustom.Pools.ArmamentAdroitness)
-            .AddToDB();
-
-        var db = DatabaseRepository.GetDatabase<WeaponTypeDefinition>()
-            .Where(x => x != WeaponTypeDefinitions.UnarmedStrikeType &&
-                        x != CustomWeaponsContext.ThunderGauntletType &&
-                        x != CustomWeaponsContext.LightningLauncherType);
-
-        foreach (var weaponTypeDefinition in db)
-        {
-            var modifyAttackModeForWeaponFighterArmamentAdroitness = FeatureDefinitionBuilder
-                .Create($"ModifyAttackModeForWeaponFighterArmamentAdroitness{weaponTypeDefinition.name}")
-                .SetGuiPresentation("ModifyAttackModeForWeaponFighterArmamentAdroitness", Category.Feature)
-                .SetCustomSubFeatures(new ModifyAttackModeForWeaponFighterArmamentAdroitness(weaponTypeDefinition))
-                .AddToDB();
-
-            CustomInvocationDefinitionBuilder
-                .Create($"CustomInvocationArmamentAdroitness{weaponTypeDefinition.name}")
-                .SetGuiPresentation(
-                    weaponTypeDefinition.GuiPresentation.Title,
-                    modifyAttackModeForWeaponFighterArmamentAdroitness.GuiPresentation.Description,
-                    CustomWeaponsContext.GetStandardWeaponOfType(weaponTypeDefinition.Name))
-                .SetPoolType(InvocationPoolTypeCustom.Pools.ArmamentAdroitness)
-                .SetGrantedFeature(modifyAttackModeForWeaponFighterArmamentAdroitness)
-                .SetCustomSubFeatures(Hidden.Marker)
-                .AddToDB();
-        }
-    }
-
-    internal static void SwitchFighterArmamentAdroitness()
-    {
-        var levels = new[] { 8, 16 };
-
-        if (Main.Settings.EnableFighterArmamentAdroitness)
-        {
-            foreach (var level in levels)
-            {
-                Fighter.FeatureUnlocks.TryAdd(
-                    new FeatureUnlockByLevel(InvocationPoolFighterArmamentAdroitness, level));
-            }
-        }
-        else
-        {
-            foreach (var level in levels)
-            {
-                Fighter.FeatureUnlocks
-                    .RemoveAll(x => x.level == level &&
-                                    x.FeatureDefinition == InvocationPoolFighterArmamentAdroitness);
-            }
-        }
-
-        if (Main.Settings.EnableSortingFutureFeatures)
-        {
-            Fighter.FeatureUnlocks.Sort(Sorting.CompareFeatureUnlock);
         }
     }
 }

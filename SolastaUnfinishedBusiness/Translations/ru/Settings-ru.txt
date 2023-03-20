@@ -77,7 +77,7 @@ ModUi/&EnableCheatMenu=Включить меню читов
 ModUi/&EnableDungeonMakerModdedContent=Включите Dungeon Maker Pro\n<i><color=#F0DAA0>[включает плоские комнаты, размеры подземелий 150 x 150 и 200 x 200 и без излишеств смешивание ресурсов из всех сред]</color></i>
 ModUi/&EnableEpicPointsAndArray=Включить эпическую систему покупки 35 баллов и массив <i><color=#F0DAA0>[17,15,13,12,10,8]</color></i> <b><i><color=#C04040E0>[Требуется перезагрузка]</color></i></b>
 ModUi/&EnableFeatsAtEvenLevels=Включить выбор умений на уровнях класса 4, 10 и 16
-ModUi/&EnableFighterArmamentAdroitness=Включить <color=#D89555>Боец</color> <b>Обучение владению оружием</b> на уровнях класса 8 и 16 <i><color=#F0DAA0>[выберите тип оружия, чтобы получить +1 к удар и повреждение]</color></i>
+ModUi/&EnableFighterArmamentAdroitness=Включите <color=#D89555>Бойца</color> <b>Специализацию оружия</b> на уровнях класса 8 и 16 <i><color=#F0DAA0>[получите +1 к попаданию и урону, но в ущерб любому другому тип оружия]</color></i>
 ModUi/&EnableFlexibleBackgrounds=Включить гибкие фоны <i><color=#F0DAA0>[выбрать навык и владение инструментами из фона]</color></i>
 ModUi/&EnableFlexibleRaces=Включить гибкие расы <i><color=#F0DAA0>[назначить очки способностей вместо расовых значений по умолчанию]</color></i>
 ModUi/&EnableHotkeyDebugOverlay=Включите <color=#1E81B0>CTRL-SHIFT-(D)</color>, чтобы отобразить наложение отладки
