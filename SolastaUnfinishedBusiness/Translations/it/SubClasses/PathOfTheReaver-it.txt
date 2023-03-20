@@ -2,9 +2,9 @@
 Feature/&FeaturePathOfTheReaverVoraciousFuryTitle=Furia vorace
 Feature/&FeatureSetPathOfTheReaverProfaneVitalityDescription=A partire dal 6° livello, ottieni resistenza ai danni necrotici e da veleno.
 Feature/&FeatureSetPathOfTheReaverProfaneVitalityTitle=Vitalità profana
-Feature/&PowerPathOfTheReaverCorruptedBloodDescription=A partire dal 14° livello, il tuo sangue viene permanentemente corrotto, danneggiando le creature che entrano in contatto con esso. Ogni volta che una creatura entro 1,5 metri ti colpisce con un attacco in mischia, quella creatura subisce danni necrotici pari al tuo modificatore di Costituzione.
+Feature/&PowerPathOfTheReaverCorruptedBloodDescription=A partire dal 14° livello, il tuo sangue si corrompe permanentemente, danneggiando le creature che entrano in contatto con esso. Ogni volta che una creatura entro 1,5 metri ti colpisce con un attacco in mischia, quella creatura subisce danni necrotici pari al tuo modificatore di Costituzione.
 Feature/&PowerPathOfTheReaverCorruptedBloodTitle=Sangue Corrotto
-Feature/&PowerPathOfTheReaverBloodbathDescription=A partire dal 10° livello, mentre sei in preda all'ira, ogni volta che riduci una creatura a 0 punti ferita usando un attacco con un'arma da mischia, puoi sventrare quella creatura, recuperando un numero di punti ferita pari a 2 volte il tuo livello da barbaro. Puoi usare questo privilegio una volta per riposo breve.
+Feature/&PowerPathOfTheReaverBloodbathDescription=A partire dal 10° livello, mentre sei in preda all'ira, ogni volta che riduci una creatura a 0 punti ferita usando un attacco con un'arma da mischia, puoi sventrare quella creatura, recuperando un numero di punti ferita pari a 2 volte il tuo livello da Barbaro. Puoi usare questo privilegio una volta per riposo breve.
 Feature/&PowerPathOfTheReaverBloodbathTitle=Bagno di sangue
 Feedback/&AdditionalDamageVoraciousFuryFormat=Furia vorace
 Feedback/&AdditionalDamageVoraciousFuryLine={0} è infuriato e infligge Furia Vorace su {1} (+{2})

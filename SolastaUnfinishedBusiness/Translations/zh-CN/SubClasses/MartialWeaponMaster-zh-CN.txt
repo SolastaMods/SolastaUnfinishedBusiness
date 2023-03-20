@@ -1,7 +1,7 @@
 ﻿Condition/&ConditionMartialWeaponMasterFocusedStrikesDescription=在你的回合结束之前，你使用专用武器进行的所有攻击都具有优势。
 Condition/&ConditionMartialWeaponMasterFocusedStrikesTitle=集中打击
 Feature/&AttributeModifierMartialWeaponMasterMasteryDescription=你的特殊武器类型的命中和伤害检定获得+2。您在使用所有其他武器类型进行攻击时处于劣势。
-Feature/&AttributeModifierMartialWeaponMasterMasteryTitle=武器精通
+Feature/&AttributeModifierMartialWeaponMasterMasteryTitle=武器掌握
 Feature/&AttributeModifierMartialWeaponMasterSpecializationDescription=你的特殊武器类型的命中和伤害检定获得+1。您在使用所有其他武器类型进行攻击时处于劣势。
 Feature/&AttributeModifierMartialWeaponMasterSpecializationTitle=武器专精
 Feature/&FeatureMartialWeaponMasterBattleStanceDescription=战斗开始后获得武器大师等级+熟练加值+体质调整值的临时生命值，并装备专用武器。
@@ -14,7 +14,7 @@ Feature/&InvocationPoolMartialWeaponMasterLearnDescription=选择一种武器类
 Feature/&InvocationPoolMartialWeaponMasterLearnTitle=武器专精
 Feature/&PowerMartialWeaponMasterFocusedStrikesDescription=在你的回合结束之前，你可以使用你的附赠动作在使用你的专用武器进行的所有攻击中获得优势。每次长休您可以使用此功能 3 次。\n从第 10 级开始，当您掷出先攻并且没有剩余的集中攻击使用次数时，您可以重新使用一次。
 Feature/&PowerMartialWeaponMasterFocusedStrikesTitle=集中打击
-Feedback/&ActivateRepaysLine={0} 偿还 {1} 电力使用
+Feedback/&ActivateRepaysLine={0} 重新使用 {1}
 Reaction/&CustomReactionMomentumDescription=你发展势头，可以获得额外的攻击。
 Reaction/&CustomReactionMomentumReactDescription=增长势头。
 Reaction/&CustomReactionMomentumReactTitle=势头
