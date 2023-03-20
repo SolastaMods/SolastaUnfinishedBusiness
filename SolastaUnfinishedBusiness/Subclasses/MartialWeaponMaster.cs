@@ -35,7 +35,15 @@ internal sealed class MartialWeaponMaster : AbstractSubclass
         // LEVEL 03
 
         // Specialization
+        var featureSpecializationDisadvantage = FeatureDefinitionBuilder
+            .Create($"Feature{Name}{Specialization}Disadvantage")
+            .SetGuiPresentation($"AttributeModifier{Name}Specialization", Category.Feature, hidden: true)
+            .SetCustomSubFeatures()
+            .AddToDB();
 
+        featureSpecializationDisadvantage.SetCustomSubFeatures(
+            new OnComputeAttackModifierSpecializationDisadvantage(featureSpecializationDisadvantage));
+        
         var dbWeaponTypeDefinition = DatabaseRepository.GetDatabase<WeaponTypeDefinition>()
             .Where(x => x != WeaponTypeDefinitions.UnarmedStrikeType &&
                         x != CustomWeaponsContext.ThunderGauntletType &&
@@ -51,7 +59,7 @@ internal sealed class MartialWeaponMaster : AbstractSubclass
                 .AddToDB();
 
             featureSpecialization.SetCustomSubFeatures(
-                new CustomBehaviorSpecialization(weaponTypeDefinition, featureSpecialization));
+                new ModifyAttackModeForWeaponSpecialization(weaponTypeDefinition, featureSpecialization));
 
             _ = CustomInvocationDefinitionBuilder
                 .Create($"CustomInvocation{Name}{Specialization}{weaponTypeName}")
@@ -159,6 +167,7 @@ internal sealed class MartialWeaponMaster : AbstractSubclass
             .AddFeaturesAtLevel(3,
                 FeatureDefinitionAttributeModifiers.AttributeModifierMartialChampionImprovedCritical,
                 InvocationPoolSpecialization,
+                featureSpecializationDisadvantage,
                 powerFocusedStrikes)
             .AddFeaturesAtLevel(7,
                 featureMomentum)
@@ -183,10 +192,24 @@ internal sealed class MartialWeaponMaster : AbstractSubclass
     // Helpers
     //
 
+    private static bool IsWeaponMaster(RulesetCharacter rulesetCharacter)
+    {
+        var hero = rulesetCharacter as RulesetCharacterHero ??
+                   rulesetCharacter.OriginalFormCharacter as RulesetCharacterHero;
+
+        if (hero == null)
+        {
+            return false;
+        }
+
+        return hero.ClassesAndSubclasses.TryGetValue(CharacterClassDefinitions.Fighter,
+            out var characterSubclassDefinition) && characterSubclassDefinition.Name == Name;
+    }
+
     internal static IEnumerable<WeaponTypeDefinition> GetSpecializedWeaponTypes(RulesetActor rulesetCharacter)
     {
         return rulesetCharacter
-            .GetSubFeaturesByType<CustomBehaviorSpecialization>()
+            .GetSubFeaturesByType<ModifyAttackModeForWeaponSpecialization>()
             .Select(x => x.WeaponTypeDefinition)
             .ToList();
     }
@@ -195,12 +218,41 @@ internal sealed class MartialWeaponMaster : AbstractSubclass
     // Specialization
     //
 
-    private sealed class CustomBehaviorSpecialization : IModifyAttackModeForWeapon, IOnComputeAttackModifier
+    private sealed class OnComputeAttackModifierSpecializationDisadvantage : IOnComputeAttackModifier
+    {
+        private readonly FeatureDefinition _featureDefinition;
+
+        public OnComputeAttackModifierSpecializationDisadvantage(FeatureDefinition featureDefinition)
+        {
+            _featureDefinition = featureDefinition;
+        }
+
+        public void ComputeAttackModifier(
+            RulesetCharacter myself,
+            RulesetCharacter defender,
+            BattleDefinitions.AttackProximity attackProximity,
+            RulesetAttackMode attackMode,
+            ref ActionModifier attackModifier)
+        {
+            var specializedWeapons = GetSpecializedWeaponTypes(myself);
+
+            if (attackMode is not { SourceDefinition: ItemDefinition { IsWeapon: true } itemDefinition } ||
+                specializedWeapons.Any(x => x == itemDefinition.WeaponDescription.WeaponTypeDefinition))
+            {
+                return;
+            }
+
+            attackModifier.attackAdvantageTrends.Add(
+                new TrendInfo(-1, FeatureSourceType.CharacterFeature, _featureDefinition.Name, _featureDefinition));
+        }
+    }
+
+    private sealed class ModifyAttackModeForWeaponSpecialization : IModifyAttackModeForWeapon
     {
         private readonly FeatureDefinition _featureDefinition;
         public readonly WeaponTypeDefinition WeaponTypeDefinition;
 
-        public CustomBehaviorSpecialization(
+        public ModifyAttackModeForWeaponSpecialization(
             WeaponTypeDefinition weaponTypeDefinition,
             FeatureDefinition featureDefinition)
         {
@@ -223,10 +275,8 @@ internal sealed class MartialWeaponMaster : AbstractSubclass
                 return;
             }
 
-            var hasWeaponMastery = character.GetFeaturesByType<FeatureDefinition>()
-                .Any(x => x.Name == $"AttributeModifier{Name}Mastery");
-
-            var bonus = hasWeaponMastery ? 2 : 1;
+            var characterLevel = character.TryGetAttributeValue(AttributeDefinitions.CharacterLevel);
+            var bonus = IsWeaponMaster(character) && characterLevel >= 15 ? 2 : 1;
 
             attackMode.ToHitBonus += bonus;
             attackMode.ToHitBonusTrends.Add(new TrendInfo(bonus, FeatureSourceType.CharacterFeature,
@@ -235,32 +285,6 @@ internal sealed class MartialWeaponMaster : AbstractSubclass
             damage.BonusDamage += bonus;
             damage.DamageBonusTrends.Add(new TrendInfo(bonus, FeatureSourceType.CharacterFeature,
                 _featureDefinition.Name, _featureDefinition));
-        }
-
-        public void ComputeAttackModifier(
-            RulesetCharacter myself,
-            RulesetCharacter defender,
-            BattleDefinitions.AttackProximity attackProximity,
-            RulesetAttackMode attackMode,
-            ref ActionModifier attackModifier)
-        {
-            if (attackMode is not { SourceDefinition: ItemDefinition { IsWeapon: true } itemDefinition } ||
-                itemDefinition.WeaponDescription.WeaponTypeDefinition == WeaponTypeDefinition)
-            {
-                return;
-            }
-
-            var hero = myself as RulesetCharacterHero ?? myself.OriginalFormCharacter as RulesetCharacterHero;
-
-            if (hero == null ||
-                hero.ClassesAndSubclasses.TryGetValue(CharacterClassDefinitions.Fighter,
-                    out var characterSubclassDefinition) && characterSubclassDefinition.Name == Name)
-            {
-                return;
-            }
-
-            attackModifier.attackAdvantageTrends.Add(
-                new TrendInfo(-1, FeatureSourceType.CharacterFeature, _featureDefinition.Name, _featureDefinition));
         }
     }
 
