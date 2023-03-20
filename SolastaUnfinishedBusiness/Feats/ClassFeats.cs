@@ -13,6 +13,7 @@ using SolastaUnfinishedBusiness.Classes.Inventor;
 using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomUI;
+using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Properties;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
@@ -29,6 +30,7 @@ internal static class ClassFeats
     {
         var featCallForCharge = BuildCallForCharge();
         var featCunningEscape = BuildCunningEscape();
+        var featExpandTheHunt = BuildExpandTheHunt();
         var featNaturalFluidity = BuildNaturalFluidity();
         var featSpiritualFluidity = BuildSpiritualFluidity();
 
@@ -41,6 +43,7 @@ internal static class ClassFeats
         feats.AddRange(
             featCallForCharge,
             featCunningEscape,
+            featExpandTheHunt,
             featNaturalFluidity,
             featSpiritualFluidity);
 
@@ -245,6 +248,26 @@ internal static class ClassFeats
 
         return GroupFeats.MakeGroup(
             "FeatGroupPrimalRage", Name, primalRageStr, primalRageCon);
+    }
+
+    #endregion
+
+    #region Expand the Hunt
+
+    private static FeatDefinition BuildExpandTheHunt()
+    {
+        const string Name = "FeatExpandTheHunt";
+
+        return FeatDefinitionWithPrerequisitesBuilder
+            .Create(Name)
+            .SetGuiPresentation(Category.Feat)
+            .SetFeatures(
+                AttributeModifierCreed_Of_Maraike,
+                FeatureDefinitionPointPools.PointPoolBackgroundLanguageChoice_one,
+                SrdAndHouseRulesContext.InvocationPoolRangerPreferredEnemy,
+                SrdAndHouseRulesContext.InvocationPoolRangerTerrainType)
+            .SetValidators(ValidatorsFeat.IsRangerLevel4)
+            .AddToDB();
     }
 
     #endregion
