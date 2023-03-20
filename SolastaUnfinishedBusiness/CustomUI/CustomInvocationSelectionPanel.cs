@@ -498,6 +498,24 @@ internal class CustomInvocationSelectionPanel : CharacterStagePanel
         }
 
         var poolTag = GetClassTag();
+        var characterBuildingService = ServiceRepository.GetService<ICharacterBuildingService>();
+        var hero = characterBuildingService.CurrentLocalHeroCharacter;
+
+        // note we assume pools from feats are merged on class tags
+        if (hero != null)
+        {
+            var heroBuildingData = hero.GetHeroBuildingData();
+
+            gainedCustomFeatures.AddRange(heroBuildingData.LevelupTrainedFeats
+                .SelectMany(x => x.Value)
+                .SelectMany(f => f.Features)
+                .OfType<FeatureDefinitionCustomInvocationPool>()
+                .Where(x => x.PoolType != null)
+                .Select(f => (poolTag, f))
+            );
+        }
+
+        poolTag = GetClassTag();
 
         gainedCustomFeatures.AddRange(RulesetActorExtensions.FlattenFeatureList(gainedClass.FeatureUnlocks
                 .Where(f => f.Level == gainedClassLevel)
