@@ -921,4 +921,25 @@
   <data name="PreferredEnemyUndead" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\PreferredEnemy\PreferredEnemyUndead.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="TerrainAffinityArctic" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\TerrainAffinity\TerrainAffinityArctic.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="TerrainAffinityCoast" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\TerrainAffinity\TerrainAffinityCoast.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="TerrainAffinityDesert" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\TerrainAffinity\TerrainAffinityDesert.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="TerrainAffinityForest" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\TerrainAffinity\TerrainAffinityForest.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="TerrainAffinityGrassland" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\TerrainAffinity\TerrainAffinityGrassland.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="TerrainAffinityMountain" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\TerrainAffinity\TerrainAffinityMountain.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="TerrainAffinitySwamp" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\TerrainAffinity\TerrainAffinitySwamp.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
 </root>

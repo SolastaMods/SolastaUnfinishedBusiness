@@ -2495,6 +2495,76 @@ namespace SolastaUnfinishedBusiness.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
+        public static byte[] TerrainAffinityArctic {
+            get {
+                object obj = ResourceManager.GetObject("TerrainAffinityArctic", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        public static byte[] TerrainAffinityCoast {
+            get {
+                object obj = ResourceManager.GetObject("TerrainAffinityCoast", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        public static byte[] TerrainAffinityDesert {
+            get {
+                object obj = ResourceManager.GetObject("TerrainAffinityDesert", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        public static byte[] TerrainAffinityForest {
+            get {
+                object obj = ResourceManager.GetObject("TerrainAffinityForest", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        public static byte[] TerrainAffinityGrassland {
+            get {
+                object obj = ResourceManager.GetObject("TerrainAffinityGrassland", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        public static byte[] TerrainAffinityMountain {
+            get {
+                object obj = ResourceManager.GetObject("TerrainAffinityMountain", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        public static byte[] TerrainAffinitySwamp {
+            get {
+                object obj = ResourceManager.GetObject("TerrainAffinitySwamp", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
         public static byte[] ThornyVines {
             get {
                 object obj = ResourceManager.GetObject("ThornyVines", resourceCulture);

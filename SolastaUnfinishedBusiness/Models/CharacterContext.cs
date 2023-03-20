@@ -459,15 +459,29 @@ internal static class CharacterContext
         var dbFeatureDefinitionTerrainTypeAffinity =
             DatabaseRepository.GetDatabase<FeatureDefinitionTerrainTypeAffinity>();
 
+        var terrainAffinitySprites = new Dictionary<string, byte[]>
+        {
+            { "Arctic", Resources.TerrainAffinityArctic },
+            { "Coast", Resources.TerrainAffinityCoast },
+            { "Desert", Resources.TerrainAffinityDesert },
+            { "Forest", Resources.TerrainAffinityForest },
+            { "Grassland", Resources.TerrainAffinityGrassland },
+            { "Mountain", Resources.TerrainAffinityMountain },
+            { "Swamp", Resources.TerrainAffinitySwamp }
+        };
+
         foreach (var featureDefinitionTerrainTypeAffinity in dbFeatureDefinitionTerrainTypeAffinity)
         {
             var terrainTypeName = featureDefinitionTerrainTypeAffinity.TerrainType;
             var terrainType = GetDefinition<TerrainTypeDefinition>(terrainTypeName);
             var guiPresentation = terrainType.GuiPresentation;
 
+            Main.Error(terrainTypeName);
+            var sprite = Sprites.GetSprite(terrainTypeName, terrainAffinitySprites[terrainTypeName], 128);
+
             _ = CustomInvocationDefinitionBuilder
                 .Create($"CustomInvocation{Name}TerrainType{terrainTypeName}")
-                .SetGuiPresentation(guiPresentation.Title, guiPresentation.Description)
+                .SetGuiPresentation(guiPresentation.Title, guiPresentation.Description, sprite)
                 .SetPoolType(InvocationPoolTypeCustom.Pools.RangerTerrainTypeAffinity)
                 .SetGrantedFeature(featureDefinitionTerrainTypeAffinity)
                 .SetCustomSubFeatures(Hidden.Marker)
@@ -502,7 +516,6 @@ internal static class CharacterContext
         {
             var preferredEnemyName = featureDefinitionPreferredEnemy.RequiredCharacterFamily.Name;
             var guiPresentation = featureDefinitionPreferredEnemy.RequiredCharacterFamily.GuiPresentation;
-
             var sprite = Sprites.GetSprite(preferredEnemyName, preferredEnemySprites[preferredEnemyName], 128);
 
             _ = CustomInvocationDefinitionBuilder
