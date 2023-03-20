@@ -257,6 +257,10 @@ You gain the ability to cast the burning hands, hellish rebuke and scorching ray
 [*][b]Heavy Armor Master[/b]: You can use your armor to deflect strikes that would kill others. Increase your Strength score by 1, to a maximum of 20. While you are wearing heavy armor, bludgeoning, piercing, and slashing damage that you take from attacks is reduced by 3.
 [*][b]Improved Critical[/b]: Your weapon attacks score a critical hit on a roll of 19 or 20.
 [*][b]Inspiring Leader[/b]: You can spend 10 minutes to inspire all friendly creatures friendly creatures (including yourself) within 30 ft of you. Each creature gains temporary hit points equal to your level + your Charisma modifier.
+[*][b]Longsword Finesse[/b]: You are descended from a master of the longsword, and some of that mastery has passed on to you. You gain the following benefits:
+• Increase your Dexterity score by 1, to a maximum of 20.
+• While you are holding a longsword, you gain a +1 bonus to Armor Class.
+•Longsword has the finesse property when you wield it.
 [*][b]Magic Initiate [Bard][/b]: You learn two cantrips of your choice from the Bard spell list. In addition, choose one 1st-level spell to learn from that same list. Using this feat, you can cast the spell once at its lowest level, and you must finish a long rest before you can cast it in this way again.
 [*][b]Magic Initiate [Cleric][/b]: You learn two cantrips of your choice from the Cleric spell list. In addition, choose one 1st-level spell to learn from that same list. Using this feat, you can cast the spell once at its lowest level, and you must finish a long rest before you can cast it in this way again.
 [*][b]Magic Initiate [Druid][/b]: You learn two cantrips of your choice from the Druid spell list. In addition, choose one 1st-level spell to learn from that same list. Using this feat, you can cast the spell once at its lowest level, and you must finish a long rest before you can cast it in this way again.
