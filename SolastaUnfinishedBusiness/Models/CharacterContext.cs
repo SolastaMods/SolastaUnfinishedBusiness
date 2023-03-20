@@ -542,7 +542,7 @@ internal static class CharacterContext
 
     internal static void SwitchEvenLevelFeats()
     {
-        var levels = new[] { 2, 6, 10, 14 };
+        var levels = new[] { 4, 10, 16 };
         var dbCharacterClassDefinition = DatabaseRepository.GetDatabase<CharacterClassDefinition>();
         var pointPool1BonusFeats = GetDefinition<FeatureDefinitionPointPool>("PointPool1BonusFeats");
         var pointPool2BonusFeats = GetDefinition<FeatureDefinitionPointPool>("PointPool2BonusFeats");
@@ -842,7 +842,7 @@ internal static class CharacterContext
 
     internal static void SwitchFighterArmamentAdroitness()
     {
-        var levels = new[] { 2, 6, 10, 14 };
+        var levels = new[] { 8, 16 };
 
         if (Main.Settings.EnableFighterArmamentAdroitness)
         {

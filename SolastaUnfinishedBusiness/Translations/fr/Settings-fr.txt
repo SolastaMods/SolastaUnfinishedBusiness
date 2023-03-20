@@ -76,8 +76,8 @@ ModUi/&EnableCharacterExport=Activez <color=#1E81B0>CTRL-SHIFT-(E)</color> pour 
 ModUi/&EnableCheatMenu=Activer le menu de triche
 ModUi/&EnableDungeonMakerModdedContent=Activer Dungeon Maker Pro\n<i><color=#F0DAA0>[inclure des pièces plates, des tailles de donjon de 150 x 150 et 200 x 200 et mélanger sans fioritures les éléments de tous les environnements]</color></i>
 ModUi/&EnableEpicPointsAndArray=Activer un système d'achat épique de 35 points et un tableau <i><color=#F0DAA0>[17,15,13,12,10,8]</color></i> <b><i><color=#C04040E0>[Nécessite un redémarrage]</color></i></b>
-ModUi/&EnableFeatsAtEvenLevels=Activer la sélection des exploits aux niveaux de classe 2, 6, 10 et 14
-ModUi/&EnableFighterArmamentAdroitness=Activez <color=#D89555>Combattant</color> <b>Entraînement aux armes</b> aux niveaux de classe 2, 6, 10 et 14 <i><color=#F0DAA0>[choisissez un type d'arme pour obtenir +1 à frapper et endommager]</color></i>
+ModUi/&EnableFeatsAtEvenLevels=Activer la sélection des exploits aux niveaux de classe 4, 10 et 16
+ModUi/&EnableFighterArmamentAdroitness=Activez <color=#D89555>Combattant</color> <b>Entraînement aux armes</b> aux niveaux de classe 8 et 16 <i><color=#F0DAA0>[choisissez un type d'arme pour obtenir +1 à frapper et endommager]</color></i>
 ModUi/&EnableFlexibleBackgrounds=Activer les arrière-plans flexibles <i><color=#F0DAA0>[sélectionner les compétences et les outils parmi les arrière-plans]</color></i>
 ModUi/&EnableFlexibleRaces=Activer les races flexibles <i><color=#F0DAA0>[attribuer des points de score de capacité au lieu des valeurs raciales par défaut]</color></i>
 ModUi/&EnableHotkeyDebugOverlay=Activez <color=#1E81B0>CTRL-SHIFT-(D)</color> pour afficher la superposition de débogage

@@ -76,8 +76,8 @@ ModUi/&EnableCharacterExport=Aktivieren Sie <color=#1E81B0>CTRL-SHIFT-(E)</color
 ModUi/&EnableCheatMenu=Aktivieren Sie das Cheat-Menü
 ModUi/&EnableDungeonMakerModdedContent=Aktivieren Sie Dungeon Maker Pro\n<i><color=#F0DAA0>[einschließlich flacher Räume, Dungeongrößen von 150 x 150 und 200 x 200 und schnörkellosem Mischen von Assets aus allen Umgebungen]</color></i>
 ModUi/&EnableEpicPointsAndArray=Aktivieren Sie ein episches 35-Punkte-Kaufsystem und Array <i><color=#F0DAA0>[17,15,13,12,10,8]</color></i> <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>
-ModUi/&EnableFeatsAtEvenLevels=Aktivieren Sie die Talentauswahl auf den Klassenstufen 2, 6, 10 und 14
-ModUi/&EnableFighterArmamentAdroitness=Aktivieren Sie <color=#D89555>Kämpfer</color> <b>Waffentraining</b> auf Klassenstufen 2, 6, 10 und 14 <i><color=#F0DAA0>[wählen Sie einen Waffentyp aus, auf den Sie +1 erhalten treffen und beschädigen]</color></i>
+ModUi/&EnableFeatsAtEvenLevels=Aktivieren Sie die Talentauswahl auf den Klassenstufen 4, 10 und 16
+ModUi/&EnableFighterArmamentAdroitness=Aktivieren Sie <color=#D89555>Kämpfer</color> <b>Waffentraining</b> auf Klassenstufen 8 und 16 <i><color=#F0DAA0>[wählen Sie einen Waffentyp aus, auf den Sie +1 erhalten treffen und beschädigen]</color></i>
 ModUi/&EnableFlexibleBackgrounds=Aktivieren Sie flexible Hintergründe <i><color=#F0DAA0>[Fähigkeiten und Werkzeugkenntnisse aus Hintergründen auswählen]</color></i>
 ModUi/&EnableFlexibleRaces=Aktivieren Sie flexible Rassen <i><color=#F0DAA0>[weisen Sie Fähigkeitspunktepunkte anstelle der rassischen Standardwerte zu]</color></i>
 ModUi/&EnableHotkeyDebugOverlay=Aktivieren Sie <color=#1E81B0>CTRL-SHIFT-(D)</color>, um das Debug-Overlay anzuzeigen

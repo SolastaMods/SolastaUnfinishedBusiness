@@ -76,8 +76,8 @@ ModUi/&EnableCharacterExport=Habilite <color=#1E81B0>CTRL-SHIFT-(E)</color> para
 ModUi/&EnableCheatMenu=Habilitar el menú de trucos
 ModUi/&EnableDungeonMakerModdedContent=Habilite Dungeon Maker Pro\n<i><color=#F0DAA0>[incluya habitaciones planas, tamaños de mazmorras de 150 x 150 y 200 x 200 y elementos sencillos que mezclen recursos de todos los entornos]</color></i>
 ModUi/&EnableEpicPointsAndArray=Habilite un sistema de compra épico de 35 puntos y una matriz <i><color=#F0DAA0>[17,15,13,12,10,8]</color></i> <b><i><color=#C04040E0>[Requiere reinicio]</color></i></b>
-ModUi/&EnableFeatsAtEvenLevels=Habilitar la selección de dotes en los niveles de clase 2, 6, 10 y 14
-ModUi/&EnableFighterArmamentAdroitness=Activa <color=#D89555>Luchador</color> <b>Entrenamiento con armas</b> en los niveles de clase 2, 6, 10 y 14 <i><color=#F0DAA0>[elige un tipo de arma para obtener +1 a golpear y dañar]</color></i>
+ModUi/&EnableFeatsAtEvenLevels=Habilitar la selección de dotes en los niveles de clase 4, 10 y 16
+ModUi/&EnableFighterArmamentAdroitness=Activa <color=#D89555>Luchador</color> <b>Entrenamiento con armas</b> en los niveles de clase 8 y 16 <i><color=#F0DAA0>[elige un tipo de arma para obtener +1 a golpear y dañar]</color></i>
 ModUi/&EnableFlexibleBackgrounds=Habilite fondos flexibles <i><color=#F0DAA0>[seleccione competencias de habilidades y herramientas de los fondos]</color></i>
 ModUi/&EnableFlexibleRaces=Habilitar razas flexibles <i><color=#F0DAA0>[asignar puntos de puntaje de habilidad en lugar de los valores raciales predeterminados]</color></i>
 ModUi/&EnableHotkeyDebugOverlay=Habilite <color=#1E81B0>CTRL-SHIFT-(D)</color> para mostrar la superposición de depuración
