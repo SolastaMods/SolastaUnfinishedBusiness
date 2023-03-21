@@ -311,17 +311,15 @@ internal static class ClassFeats
         ref ActionDefinitions.ActionStatus __result,
         ActionDefinitions.Id actionId)
     {
-        if (actionId != ActionDefinitions.Id.UseItemBonus || Gui.Battle == null)
+        // no changes if not an available use item bonus action in battle
+        if (Gui.Battle == null ||
+            actionId != ActionDefinitions.Id.UseItemBonus ||
+            __result != ActionDefinitions.ActionStatus.Available)
         {
             return;
         }
 
-        if (__result != ActionDefinitions.ActionStatus.Available)
-        {
-            return;
-        }
-
-        // only Roguish Thief should be allowed to use any item as a bonus action
+        // no changes if character is Roguish Thief
         var hero = __instance.RulesetCharacter as RulesetCharacterHero ??
                    __instance.RulesetCharacter.OriginalFormCharacter as RulesetCharacterHero;
 
@@ -331,23 +329,19 @@ internal static class ClassFeats
             return;
         }
 
-        // check if held item is a poison otherwise change result to cannot perform
+        // no changes if device is poison
         __instance.RulesetCharacter.RefreshUsableDeviceFunctions();
 
-        foreach (var enumerateAvailableDevice in __instance.RulesetCharacter
-                     .EnumerateAvailableDevices(false))
+        if (__instance.RulesetCharacter.EnumerateAvailableDevices(false)
+            .Where(enumerateAvailableDevice =>
+                __instance.RulesetCharacter.UsableDeviceFunctionsByDevice.ContainsKey(enumerateAvailableDevice))
+            .All(enumerateAvailableDevice =>
+                enumerateAvailableDevice.UsableDeviceDescription.UsableDeviceTags.Contains("Poison")))
         {
-            if (!__instance.RulesetCharacter.UsableDeviceFunctionsByDevice.ContainsKey(enumerateAvailableDevice))
-            {
-                continue;
-            }
-
-            // change result if not a poison
-            if (!enumerateAvailableDevice.UsableDeviceDescription.UsableDeviceTags.Contains("Poison"))
-            {
-                __result = ActionDefinitions.ActionStatus.CannotPerform;
-            }
+            return;
         }
+
+        __result = ActionDefinitions.ActionStatus.CannotPerform;
     }
 
     #endregion
