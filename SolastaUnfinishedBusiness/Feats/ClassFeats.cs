@@ -997,12 +997,6 @@ internal static class ClassFeats
                 return;
             }
 
-            if (IsFavoriteEnemy(myself, defender))
-            {
-                attackModifier.attackAdvantageTrends.Add(
-                    new TrendInfo(1, FeatureSourceType.CharacterFeature, _featureDefinition.Name, _featureDefinition));
-            }
-
             var spellLevel = 0;
 
             if (ValidatorsCharacter.HasAnyOfConditions("ConditionFeatSlayTheEnemies1")(myself))
@@ -1018,9 +1012,18 @@ internal static class ClassFeats
                 spellLevel = 3;
             }
 
-            attackMode.ToHitBonus += spellLevel;
-            attackMode.ToHitBonusTrends.Add(new TrendInfo(spellLevel, FeatureSourceType.CharacterFeature,
-                _featureDefinition.Name, _featureDefinition));
+
+            if (IsFavoriteEnemy(myself, defender))
+            {
+                attackModifier.attackAdvantageTrends.Add(
+                    new TrendInfo(1, FeatureSourceType.CharacterFeature, _featureDefinition.Name, _featureDefinition));
+            }
+            else
+            {
+                attackMode.ToHitBonus += spellLevel;
+                attackMode.ToHitBonusTrends.Add(new TrendInfo(spellLevel, FeatureSourceType.CharacterFeature,
+                    _featureDefinition.Name, _featureDefinition));
+            }
 
             damage.BonusDamage += spellLevel;
             damage.DamageBonusTrends.Add(new TrendInfo(spellLevel, FeatureSourceType.CharacterFeature,
