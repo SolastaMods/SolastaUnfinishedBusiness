@@ -291,16 +291,7 @@ internal sealed class WayOfTheDiscordance : AbstractSubclass
         // return the Monk level factoring in wildshape multiclass scenarios
         private static int GetMonkLevel(RulesetCharacter rulesetCharacter)
         {
-            var rulesetCharacterHero = rulesetCharacter as RulesetCharacterHero ??
-                                       rulesetCharacter.OriginalFormCharacter as RulesetCharacterHero;
-
-            if (rulesetCharacterHero == null ||
-                !rulesetCharacterHero.ClassesAndLevels.ContainsKey(CharacterClassDefinitions.Monk))
-            {
-                return 0; // this shouldn't happen
-            }
-
-            return rulesetCharacterHero.ClassesAndLevels[CharacterClassDefinitions.Monk];
+            return rulesetCharacter.GetClassLevel(CharacterClassDefinitions.Monk);
         }
     }
 }
