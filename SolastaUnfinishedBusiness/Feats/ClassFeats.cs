@@ -1002,31 +1002,29 @@ internal static class ClassFeats
                 attackModifier.attackAdvantageTrends.Add(
                     new TrendInfo(1, FeatureSourceType.CharacterFeature, _featureDefinition.Name, _featureDefinition));
             }
-            else
+
+            var spellLevel = 0;
+
+            if (ValidatorsCharacter.HasAnyOfConditions("ConditionFeatSlayTheEnemies1")(myself))
             {
-                var spellLevel = 0;
-
-                if (ValidatorsCharacter.HasAnyOfConditions("ConditionFeatSlayTheEnemies1")(myself))
-                {
-                    spellLevel = 1;
-                }
-                else if (ValidatorsCharacter.HasAnyOfConditions("ConditionFeatSlayTheEnemies2")(myself))
-                {
-                    spellLevel = 2;
-                }
-                else if (ValidatorsCharacter.HasAnyOfConditions("ConditionFeatSlayTheEnemies3")(myself))
-                {
-                    spellLevel = 3;
-                }
-
-                attackMode.ToHitBonus += spellLevel;
-                attackMode.ToHitBonusTrends.Add(new TrendInfo(spellLevel, FeatureSourceType.CharacterFeature,
-                    _featureDefinition.Name, _featureDefinition));
-
-                damage.BonusDamage += spellLevel;
-                damage.DamageBonusTrends.Add(new TrendInfo(spellLevel, FeatureSourceType.CharacterFeature,
-                    _featureDefinition.Name, _featureDefinition));
+                spellLevel = 1;
             }
+            else if (ValidatorsCharacter.HasAnyOfConditions("ConditionFeatSlayTheEnemies2")(myself))
+            {
+                spellLevel = 2;
+            }
+            else if (ValidatorsCharacter.HasAnyOfConditions("ConditionFeatSlayTheEnemies3")(myself))
+            {
+                spellLevel = 3;
+            }
+
+            attackMode.ToHitBonus += spellLevel;
+            attackMode.ToHitBonusTrends.Add(new TrendInfo(spellLevel, FeatureSourceType.CharacterFeature,
+                _featureDefinition.Name, _featureDefinition));
+
+            damage.BonusDamage += spellLevel;
+            damage.DamageBonusTrends.Add(new TrendInfo(spellLevel, FeatureSourceType.CharacterFeature,
+                _featureDefinition.Name, _featureDefinition));
         }
 
         private static bool IsFavoriteEnemy(RulesetActor attacker, RulesetCharacter defender)
