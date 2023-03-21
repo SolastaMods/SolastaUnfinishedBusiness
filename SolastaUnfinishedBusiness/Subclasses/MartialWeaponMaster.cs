@@ -43,7 +43,7 @@ internal sealed class MartialWeaponMaster : AbstractSubclass
 
         featureSpecializationDisadvantage.SetCustomSubFeatures(
             new OnComputeAttackModifierSpecializationDisadvantage(featureSpecializationDisadvantage));
-        
+
         var dbWeaponTypeDefinition = DatabaseRepository.GetDatabase<WeaponTypeDefinition>()
             .Where(x => x != WeaponTypeDefinitions.UnarmedStrikeType &&
                         x != CustomWeaponsContext.ThunderGauntletType &&

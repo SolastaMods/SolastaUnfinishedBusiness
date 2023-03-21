@@ -11,6 +11,7 @@ using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Models;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterClassDefinitions;
 
 namespace SolastaUnfinishedBusiness.Patches;
 
@@ -223,6 +224,35 @@ public static class GameLocationCharacterPatcher
             //PATCH: support for custom invocation action ids
             CustomActionIdContext.ProcessCustomActionIds(__instance, ref __result, actionId, scope, actionTypeStatus,
                 ignoreMovePoints);
+
+            //PATCH: support `Poisoner` feat to only allow poisons to be used on use item bonus
+            var hero = __instance.RulesetCharacter as RulesetCharacterHero ??
+                       __instance.RulesetCharacter.OriginalFormCharacter as RulesetCharacterHero;
+
+            // only Roguish Thief should be allowed to use any item as a bonus action
+            if (actionId != ActionDefinitions.Id.UseItemBonus ||
+                (hero.ClassesAndSubclasses.TryGetValue(Rogue, out var characterSubclassDefinition) &&
+                 characterSubclassDefinition.Name == "RoguishThief"))
+            {
+                return;
+            }
+
+            __instance.RulesetCharacter.RefreshUsableDeviceFunctions();
+
+            foreach (var enumerateAvailableDevice in __instance.RulesetCharacter
+                         .EnumerateAvailableDevices(false))
+            {
+                if (!__instance.RulesetCharacter.UsableDeviceFunctionsByDevice.ContainsKey(enumerateAvailableDevice))
+                {
+                    continue;
+                }
+
+                // change result if not a poison
+                if (!enumerateAvailableDevice.UsableDeviceDescription.UsableDeviceTags.Contains("Poison"))
+                {
+                    __result = ActionDefinitions.ActionStatus.CannotPerform;
+                }
+            }
         }
     }
 

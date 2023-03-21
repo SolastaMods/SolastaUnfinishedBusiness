@@ -341,7 +341,7 @@ public static class PartyEditor
                     {
                         ch.RefreshAll();
                     }
-                    
+
                     // ReSharper disable once RedundantAssignment
                     if (changed && _editingFromPool && ch is RulesetCharacterHero h)
                     {
@@ -453,6 +453,7 @@ public static class PartyEditor
         Skills,
         Feats,
         Invocations,
+
         // Spells,
         // Classes,
         Stats,

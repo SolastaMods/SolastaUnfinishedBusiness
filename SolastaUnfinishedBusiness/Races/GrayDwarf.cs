@@ -115,8 +115,7 @@ internal static class GrayDwarfSubraceBuilder
                 .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
                 .SetEffectForms(EffectFormBuilder
                     .Create()
-                    .SetConditionForm(conditionGrayDwarfStoneStrength, ConditionForm.ConditionOperation.Add,
-                        false, false)
+                    .SetConditionForm(conditionGrayDwarfStoneStrength, ConditionForm.ConditionOperation.Add)
                     .Build())
                 .Build())
             .AddToDB();

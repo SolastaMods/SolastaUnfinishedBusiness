@@ -416,8 +416,7 @@ internal static partial class SpellBuilders
                             .SetFeatures(additionalDamageResonatingStrike)
                             .AddToDB(),
                         ConditionForm.ConditionOperation.Add,
-                        true,
-                        false)
+                        true)
                     .Build())
                 .Build())
             .AddToDB();
@@ -501,8 +500,7 @@ internal static partial class SpellBuilders
                                     .AddToDB())
                                 .AddToDB(),
                             ConditionForm.ConditionOperation.Add,
-                            true,
-                            false)
+                            true)
                         .Build(),
                     EffectFormBuilder
                         .Create()

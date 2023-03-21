@@ -105,9 +105,7 @@ internal sealed class MartialRoyalKnight : AbstractSubclass
                 .SetEffectForms(
                     EffectFormBuilder
                         .Create()
-                        .SetConditionForm(conditionProtection, ConditionForm.ConditionOperation.Add,
-                            false,
-                            false)
+                        .SetConditionForm(conditionProtection, ConditionForm.ConditionOperation.Add)
                         .Build())
                 .Build())
             .SetShowCasting(false)

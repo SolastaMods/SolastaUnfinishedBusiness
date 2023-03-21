@@ -35,10 +35,10 @@ internal static class CustomSituationalContext
             ExtraSituationalContext.HasLongswordInHands =>
                 ValidatorsCharacter.HasWeaponType(DatabaseHelper.WeaponTypeDefinitions.LongswordType)
                     (contextParams.source),
-            
+
             ExtraSituationalContext.HasGreatswordInHands =>
                 ValidatorsCharacter.HasWeaponType(DatabaseHelper.WeaponTypeDefinitions.GreatswordType)
-                (contextParams.source),
+                    (contextParams.source),
 
             ExtraSituationalContext.MainWeaponIsMeleeOrUnarmed =>
                 ValidatorsCharacter.HasMeleeWeaponInMainHand(contextParams.source) ||

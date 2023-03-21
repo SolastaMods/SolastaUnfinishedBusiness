@@ -123,10 +123,10 @@ public static class InnovationArmor
                 .SetDurationData(DurationType.Permanent)
                 .SetEffectForms(
                     EffectFormBuilder.Create()
-                        .SetConditionForm(infiltratorMarker, ConditionForm.ConditionOperation.Remove, true, false)
+                        .SetConditionForm(infiltratorMarker, ConditionForm.ConditionOperation.Remove, true)
                         .Build(),
                     EffectFormBuilder.Create()
-                        .SetConditionForm(guardianMarker, ConditionForm.ConditionOperation.Add, true, false)
+                        .SetConditionForm(guardianMarker, ConditionForm.ConditionOperation.Add, true)
                         .Build()
                 )
                 .Build())
@@ -146,10 +146,10 @@ public static class InnovationArmor
                 .SetDurationData(DurationType.Permanent)
                 .SetEffectForms(
                     EffectFormBuilder.Create()
-                        .SetConditionForm(guardianMarker, ConditionForm.ConditionOperation.Remove, true, false)
+                        .SetConditionForm(guardianMarker, ConditionForm.ConditionOperation.Remove, true)
                         .Build(),
                     EffectFormBuilder.Create()
-                        .SetConditionForm(infiltratorMarker, ConditionForm.ConditionOperation.Add, true, false)
+                        .SetConditionForm(infiltratorMarker, ConditionForm.ConditionOperation.Add, true)
                         .Build())
                 .Build())
             .AddToDB();

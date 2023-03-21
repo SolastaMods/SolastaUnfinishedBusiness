@@ -305,11 +305,6 @@ internal static class ClassFeats
         return awakenTheBeastWithinGroup;
     }
 
-    private sealed class DruidHolder : IClassHoldingFeature
-    {
-        public CharacterClassDefinition Class { get; } = CharacterClassDefinitions.Druid;
-    }
-
     #endregion
 
     #region Cunning Escape
