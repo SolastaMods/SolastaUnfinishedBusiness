@@ -1,9 +1,9 @@
 ﻿Condition/&ConditionInnovationAlchemyDamageNecroticDescription=Target can't heal and receives 2d6 necrotic damage at the end of its turn.
 Condition/&ConditionInnovationAlchemyDamageNecroticTitle=Necrosis
 Condition/&ConditionInnovationAlchemyDamagePoisonDescription=Target gets disadvantage on next attack roll.
-Condition/&ConditionInnovationAlchemyDamagePsychicDescription=Gets -1d4 on Strength, Dexterity and Constitution saving throws
+Condition/&ConditionInnovationAlchemyDamagePsychicDescription=Gets -1d4 on Strength, Dexterity and Constitution saving throws.
 Condition/&ConditionInnovationAlchemyDamagePsychicTitle=Overwhelmed
-Condition/&ConditionInnovationAlchemyDamageThunderDescription=Gets -1d4 on Intelligence, Wisdom and Charisma saving throws
+Condition/&ConditionInnovationAlchemyDamageThunderDescription=Gets -1d4 on Intelligence, Wisdom and Charisma saving throws.
 Condition/&ConditionInnovationAlchemyDamageThunderTitle=Concussed
 Feature/&ActionAffinityInnovationAlchemyFastHandsDescription=You have learned to mix reagents and use various devices quickly. You can use a bonus action to activate any device.
 Feature/&ActionAffinityInnovationAlchemyFastHandsTitle=Fast Hands

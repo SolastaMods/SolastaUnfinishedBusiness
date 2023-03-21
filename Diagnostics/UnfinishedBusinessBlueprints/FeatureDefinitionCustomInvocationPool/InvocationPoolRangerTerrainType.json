@@ -1,0 +1,30 @@
+{
+  "$type": "SolastaUnfinishedBusiness.CustomDefinitions.FeatureDefinitionCustomInvocationPool, SolastaUnfinishedBusiness",
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "Feature/&InvocationPoolRangerTerrainTypeAffinityLearnTitle",
+    "description": "Feature/&InvocationPoolRangerTerrainTypeAffinityLearnDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "10cbf2e0-3564-566d-b3b5-7fa2bedbbd1d",
+  "contentPack": 9999,
+  "name": "InvocationPoolRangerTerrainType"
+}

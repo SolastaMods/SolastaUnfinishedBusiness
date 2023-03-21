@@ -98,6 +98,14 @@ internal sealed class RangerWildMaster : AbstractSubclass
 
         #region EAGLE
 
+        var powerSpiritBeastEyebiteAsleep = FeatureDefinitionPowerBuilder
+            .Create(FeatureDefinitionPowers.PowerEyebiteAsleep, "PowerSpiritBeastEyebiteAsleep")
+            .AddToDB();
+
+        powerSpiritBeastEyebiteAsleep.EffectDescription.difficultyClassComputation =
+            EffectDifficultyClassComputation.FixedValue;
+        powerSpiritBeastEyebiteAsleep.EffectDescription.fixedSavingThrowDifficultyClass = 15;
+
         var powerSpiritBeastBreathWeaponBlue = FeatureDefinitionPowerBuilder
             .Create(FeatureDefinitionPowers.PowerDragonbornBreathWeaponBlue, "PowerSpiritBeastBreathWeaponBlue")
             .SetOrUpdateGuiPresentation(Category.Feature)
@@ -138,7 +146,7 @@ internal sealed class RangerWildMaster : AbstractSubclass
             powerSpiritBeastBreathWeaponBlue,
             FeatureDefinitionPowers.PowerFiendishResilienceLightning,
             powerWildMasterInvisibility,
-            FeatureDefinitionPowers.PowerEyebitePanicked,
+            powerSpiritBeastEyebiteAsleep,
             CharacterContext.FeatureDefinitionPowerHelpAction,
             perceptionAffinitySpiritBeast,
             combatAffinityWildMasterSummonerIsNextToBeast,
@@ -147,6 +155,14 @@ internal sealed class RangerWildMaster : AbstractSubclass
         #endregion
 
         #region BEAR
+
+        var powerSpiritBeastEyebitePanicked = FeatureDefinitionPowerBuilder
+            .Create(FeatureDefinitionPowers.PowerEyebitePanicked, "PowerSpiritBeastEyebitePanicked")
+            .AddToDB();
+
+        powerSpiritBeastEyebitePanicked.EffectDescription.difficultyClassComputation =
+            EffectDifficultyClassComputation.FixedValue;
+        powerSpiritBeastEyebitePanicked.EffectDescription.fixedSavingThrowDifficultyClass = 15;
 
         var powerSpiritBeastBreathWeaponGold = FeatureDefinitionPowerBuilder
             .Create(FeatureDefinitionPowers.PowerDragonbornBreathWeaponGold, "PowerSpiritBeastBreathWeaponGold")
@@ -188,7 +204,7 @@ internal sealed class RangerWildMaster : AbstractSubclass
             powerSpiritBeastBreathWeaponGold,
             FeatureDefinitionPowers.PowerFiendishResilienceFire,
             powerWildMasterInvisibility,
-            FeatureDefinitionPowers.PowerEyebitePanicked,
+            powerSpiritBeastEyebitePanicked,
             CharacterContext.FeatureDefinitionPowerHelpAction,
             perceptionAffinitySpiritBeast,
             combatAffinityWildMasterSummonerIsNextToBeast,
@@ -197,6 +213,14 @@ internal sealed class RangerWildMaster : AbstractSubclass
         #endregion
 
         #region WOLF
+
+        var powerSpiritBeastEyebiteSickened = FeatureDefinitionPowerBuilder
+            .Create(FeatureDefinitionPowers.PowerEyebiteSickened, "PowerSpiritBeastEyebiteSickened")
+            .AddToDB();
+
+        powerSpiritBeastEyebiteSickened.EffectDescription.difficultyClassComputation =
+            EffectDifficultyClassComputation.FixedValue;
+        powerSpiritBeastEyebiteSickened.EffectDescription.fixedSavingThrowDifficultyClass = 15;
 
         var powerSpiritBeastBreathWeaponSilver = FeatureDefinitionPowerBuilder
             .Create(FeatureDefinitionPowers.PowerDragonbornBreathWeaponSilver, "PowerSpiritBeastBreathWeaponSilver")
@@ -238,7 +262,7 @@ internal sealed class RangerWildMaster : AbstractSubclass
             powerSpiritBeastBreathWeaponSilver,
             FeatureDefinitionPowers.PowerFiendishResilienceCold,
             powerWildMasterInvisibility,
-            FeatureDefinitionPowers.PowerEyebiteAsleep,
+            powerSpiritBeastEyebiteSickened,
             CharacterContext.FeatureDefinitionPowerHelpAction,
             perceptionAffinitySpiritBeast,
             combatAffinityWildMasterSummonerIsNextToBeast,

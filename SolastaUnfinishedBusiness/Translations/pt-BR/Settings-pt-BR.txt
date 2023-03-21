@@ -1,14 +1,14 @@
 ModUi/&AddAllToStore=Adicionar tudo à loja
 ModUi/&AddBleedingToLesserRestoration=Adicione a condição <color=#D89555>Sangramento</color> àquelas removidas por <color=#D89555>Maior</color> e <color=#D89555>Menor Restauração</color>
-ModUi/&AddCustomIconsToOfficialItems=Adicione ícones personalizados aos itens oficiais do jogo <i><color=#F0DAA0>[munição, receitas, kits etc.]</color></i> <b><i><color=#C04040E0>[Requer reinicialização] </color></i></b>
-ModUi/&AddHelpActionToAllRaces=Adicione a ação <color=#D89555>Ajuda</color> a todas as raças jogáveis ​​<i><color=#F0DAA0>[você pode ajudar uma criatura aliada a atacar uma criatura a até 1,5 m de você]</color></i>
+ModUi/&AddCustomIconsToOfficialItems=Adicione ícones personalizados aos itens oficiais do jogo <i><color=#F0DAA0>[munição, receitas, kits, etc.]</color></i> <b><i><color=#C04040E0>[Requer reinicialização] </color></i></b>
+ModUi/&AddHelpActionToAllRaces=Adicione a ação <color=#D89555>Ajuda</color> a todas as raças jogáveis ​​<i><color=#F0DAA0>[você pode ajudar uma criatura aliada a atacar uma criatura a até 1,5 m de você]</color></ eu>
 ModUi/&AddHumanoidFavoredEnemyToRanger=Adicione o inimigo preferencial humanóide a <color=#D89555>Rangers</color>
 ModUi/&AddMonkKiPointsToggle=Adicione uma alternância para permitir que <color=#D89555>Monks</color> habilite/desabilite Pontos Ki <i><color=#F0DAA0>[útil para minimizar solicitações de reação]</color></i>
 ModUi/&AddMonsterSwapAttackToggle=Adicionada uma alternância para permitir que <color=#D89555>Druidas</color> em forma selvagem ou monstros controlados selecionem qual ataque usar primeiro <i><color=#F0DAA0>[útil com uma mistura de ataques corpo a corpo e à distância]</cor></i>
 ModUi/&AddNewBrightEyeColors=Adicione novas cores de olhos brilhantes
 ModUi/&AddNewWeaponsAndRecipesToShops=Adicione novas armas e receitas às lojas <i><color=#F0DAA0>[bandagens de mão, alabardas, lanças, maças longas, bestas de mão]</color></i> <b><i><color=#C04040E0> [Requer reinicialização]</color></i></b>
 ModUi/&AddPaladinSmiteToggle=Adicionada uma alternância para permitir que <color=#D89555>Paladins</color> habilite smites apenas em acertos críticos <i><color=#F0DAA0>[útil para minimizar solicitações de reação]</color></i>
-ModUi/&AddPickPocketableLoot=Adicionado pilhagem para furto <i><color=#F0DAA0>[sugerido se o talento <color=#D89555>Pickpocket</color> estiver ativado]</color></i>
+ModUi/&AddPickPocketableLoot=Adicionado pilhagem para furtos <i><color=#F0DAA0>[sugerido se o talento <color=#D89555>Pickpocket</color> estiver ativado]</color></i>
 ModUi/&AddToStore=Adicionar à loja
 ModUi/&Advanced=<color=#F0DAA0>Avançado:</color> <b><i><color=#C04040E0>[Requer reinicialização]</color></i></b>
 ModUi/&AdvancedHelp=. <b><color=#C04040E0>ATENÇÃO:</color></b> Estas configurações exigirão que o jogador tenha este mod instalado
@@ -76,8 +76,8 @@ ModUi/&EnableCharacterExport=Ative <color=#1E81B0>CTRL-SHIFT-(E)</color> para ex
 ModUi/&EnableCheatMenu=Ative o menu de truques
 ModUi/&EnableDungeonMakerModdedContent=Ative o Dungeon Maker Pro\n<i><color=#F0DAA0>[inclua salas planas, tamanhos de masmorras de 150 x 150 e 200 x 200 e mistura sem frescuras de todos os ambientes]</color></i>
 ModUi/&EnableEpicPointsAndArray=Habilite um épico sistema de compra de 35 pontos e array <i><color=#F0DAA0>[17,15,13,12,10,8]</color></i> <b><i><color=#C04040E0>[Requer reinicialização]</color></i></b>
-ModUi/&EnableFeatsAtEvenLevels=Habilite a seleção de talentos nos níveis de classe 2, 6, 10 e 14
-ModUi/&EnableFighterArmamentAdroitness=Habilite <color=#D89555>Fighter</color> <b>Weapon Training</b> nos níveis de classe 2, 6, 10 e 14 <i><color=#F0DAA0>[escolha um tipo de arma para obter +1 para acertar e danificar]</color></i>
+ModUi/&EnableFeatsAtEvenLevels=Habilite a seleção de talentos nos níveis de classe 4, 10 e 16
+ModUi/&EnableFighterArmamentAdroitness=Habilite <color=#D89555>Fighter</color> <b>Especialização em Arma</b> nos níveis de classe 8 e 16 <i><color=#F0DAA0>[obtenha +1 para acertar e causar dano, mas desvantagem com qualquer outro tipo de arma]</color></i>
 ModUi/&EnableFlexibleBackgrounds=Habilitar planos de fundo flexíveis <i><color=#F0DAA0>[selecionar proficiências de habilidades e ferramentas dos planos de fundo]</color></i>
 ModUi/&EnableFlexibleRaces=Habilite corridas flexíveis <i><color=#F0DAA0>[atribua pontos de pontuação de habilidade em vez dos padrões raciais]</color></i>
 ModUi/&EnableHotkeyDebugOverlay=Habilite <color=#1E81B0>CTRL-SHIFT-(D)</color> para exibir a sobreposição de depuração
@@ -97,7 +97,7 @@ ModUi/&EnablesAsiAndFeat=Ative o aumento de pontuação de atributos e a seleç�
 ModUi/&EnableSaveByLocation=Ativar salvar por campanhas / locais
 ModUi/&EnableSortingDungeonMakerAssets=Ativar classificação de recursos no editor do Dungeon Maker
 ModUi/&EnableStatsOnHeroTooltip=Exibir estatísticas na dica de ferramenta do herói <i><color=#F0DAA0>[ou seja: acertos críticos, falhas críticas, etc.]</color></i>
-ModUi/&EnableTeleportParty=Habilite <color=#1E81B0>CTRL-SHIFT-(T)</color> para teletransportar o grupo <i><color=#F0DAA0>[você pode interromper as missões se teletransportar para um lugar desconhecido]</color></i>
+ModUi/&EnableTeleportParty=Habilite <color=#1E81B0>CTRL-SHIFT-(T)</color> para teletransportar o grupo <i><color=#F0DAA0>[você pode interromper missões se teletransportar para um lugar desconhecido]</color></ eu>
 ModUi/&EnableTogglesToOverwriteDefaultTestParty=Ative a alternância no pool de personagens para definir seu jogo padrão e grupo de teste
 ModUi/&EnableUpcastConjureElementalAndFey=Habilitar upcast de <color=#D89555>Conjure Elemental</color> e <color=#D89555>Conjure Fey</color>
 ModUi/&EncounterPercentageChance=<color=white>Definir chances de porcentagem de encontros aleatórios</color>
@@ -131,9 +131,10 @@ ModUi/&HideMonsterHitPoints=Exibe a saúde dos monstros em etapas de 25% / 50% /
 ModUi/&House=<color=#F0DAA0>Casa:</color>
 ModUi/&IdentifyAfterRest=Adicione um poder para identificar itens mágicos durante um descanso curto ou longo
 ModUi/&IgnoreHandXbowFreeHandRequirements=Não requer mão livre para usar bestas de mão
+ModUi/&ImproveRangerFeaturesSelection=Melhorar <color=#D89555>Ranger</color> inimigo preferido e seleção de terreno favorito UI <i><color=#F0DAA0>[sugerido se você planeja fazer <color=#D89555>Melhorar a Caçada</color>]</color></i> <b><i><color=#C04040E0>[Requer reinicialização]</color></i></b>
 ModUi/&IncreaseGameTimeBy=Aumente o tempo de jogo em
 ModUi/&IncreaseMaxAttunedItems=Aumente o máximo de itens sintonizados para 4 no nível 10 e 5 no nível 18
-ModUi/&IncreaseSenseNormalVision=<color=white>Aumente o alcance de <color=#D89555>Sentir visão normal</color> para permitir ataques de longo alcance</color> <b><i><color=#C04040E0>[Requer reinicialização]</color></i></b>
+ModUi/&IncreaseSenseNormalVision=<color=white>Aumente o alcance do <color=#D89555>Sentir visão normal</color> para permitir ataques de longo alcance</color> <b><i><color=#C04040E0>[Requer reinicialização]</color></i></b>
 ModUi/&IncreaseSenseNormalVisionHelp=<i><color=#F0DAA0>[40 é ideal para evitar que inimigos se juntem de longe]</color></i>
 ModUi/&InitialChoices=<color=#F0DAA0>Criação:</color>
 ModUi/&Input=<color=#F0DAA0>Entrada:</color>
@@ -148,7 +149,7 @@ ModUi/&ItemsHelp1=<color=#C04040E0>Abra a tela de inspeção de personagem para 
 ModUi/&ItemsHelp2=<b>Pressione + para adicionar itens ao contêiner de solo</b>
 ModUi/&MakeAllMagicStaveArcaneFoci=Transforme todos os cajados mágicos em focos arcanos <i><color=#F0DAA0>[exceto <color=#D89555>Cajado de Cura</color> que é Universal]</color></i>
 ModUi/&MakeLargeWildshapeFormsMedium=Tornar todos os formulários de forma selvagem grandes de tamanho médio
-ModUi/&MarkInvisibleTeleportersOnLevelMap=<i>+ Marque também a localização dos teletransportadores invisíveis no mapa de nível após a descoberta</i>
+ModUi/&MarkInvisibleTeleportersOnLevelMap=<i>+ Marque também a localização dos teletransportadores invisíveis no mapa de níveis após a descoberta</i>
 ModUi/&MaxAllowedClasses=<color=white>Máximo de aulas permitidas</color>
 ModUi/&Merchants=<color=#F0DAA0>Comerciantes:</color>
 ModUi/&Metamagic=<color=#F0DAA0>Metamagia</color>
@@ -156,7 +157,7 @@ ModUi/&Monsters=<color=#F0DAA0>Monstros:</color>
 ModUi/&MulticlassKeyHelp=<color=#1E81B0>SHIFT</color> clique em um feitiço inverte o tipo de slot de repertório padrão consumido\n<i><color=#F0DAA0>[<color=#D89555>Warlock</color> gasta slots de feitiço branco e outros gastam pacto verde]</color></i>
 ModUi/&MultiplyTheExperienceGainedBy=<color=white>Multiplique a experiência adquirida por</color> <color=#C04040E0>[%]</color>
 ModUi/&NoExperienceOnLevelUp=Nenhuma experiência é necessária para subir de nível
-ModUi/&OfferAdditionalLoreFriendlyNames=Ofereça nomes amigáveis ​​de lore adicionais na criação de personagens
+ModUi/&OfferAdditionalLoreFriendlyNames=Ofereça nomes amigáveis ​​de lore adicionais na criação de personagem
 ModUi/&OnlyShowMostPowerfulUpcastConjuredElementalOrFey=<i>+ Mostrar apenas as criaturas mais poderosas na lista de conjuração</i>
 ModUi/&OverrideMinMaxLevel=Substitua os níveis mínimo e máximo necessários ao iniciar novas aventuras
 ModUi/&OverridePartySize=<color=white>Substituir o tamanho da festa</color>
@@ -214,7 +215,7 @@ ModUi/&TranslateCancel=Cancelar {0} em {1}
 ModUi/&Translations=Traduções
 ModUi/&UnleashEnemyAsNpc=Permitir que monstros sejam selecionados em dispositivos NPC
 ModUi/&UnleashNpcAsEnemy=Desbloqueie a seleção de monstros
-ModUi/&UnlockAllNpcFaces=Desbloqueie rostos de NPC
+ModUi/&UnlockAllNpcFaces=Desbloquear rostos NPC
 ModUi/&UnlockEyeStyles=Desbloqueie estilos de olhos
 ModUi/&UnlockGlowingColorsForAllMarksAndTattoos=Desbloqueie cores brilhantes para todas as marcas e tatuagens
 ModUi/&UnlockGlowingEyeColors=Adicione cores de olhos brilhantes

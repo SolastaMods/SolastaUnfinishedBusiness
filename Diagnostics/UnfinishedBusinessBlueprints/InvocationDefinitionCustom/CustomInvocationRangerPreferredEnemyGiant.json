@@ -1,0 +1,38 @@
+{
+  "$type": "SolastaUnfinishedBusiness.CustomDefinitions.InvocationDefinitionCustom, SolastaUnfinishedBusiness",
+  "requiredKnownSpell": null,
+  "requiredLevel": 1,
+  "requiredPact": null,
+  "grantedFeature": "Definition:AdditionalDamageRangerFavoredEnemyGiant:1daa09da93242854b87610533c5f88b7",
+  "grantedSpell": null,
+  "consumesSpellSlot": false,
+  "longRestRecharge": false,
+  "overrideMaterialComponent": true,
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "CharacterFamily/&GiantTitle",
+    "description": "CharacterFamily/&GiantDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "6abc328e-bdb0-5cea-a96d-54b6581e70c0",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "a5644129-4ac6-52c1-a150-75b863c5ac56",
+  "contentPack": 9999,
+  "name": "CustomInvocationRangerPreferredEnemyGiant"
+}

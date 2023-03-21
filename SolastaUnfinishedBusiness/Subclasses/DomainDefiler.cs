@@ -301,9 +301,7 @@ internal sealed class DomainDefiler : AbstractSubclass
                             .CanSaveToCancel(TurnOccurenceType.EndOfTurn)
                             .SetConditionForm(
                                 conditionMarkForDeath,
-                                ConditionForm.ConditionOperation.Add,
-                                false,
-                                false)
+                                ConditionForm.ConditionOperation.Add)
                             .Build())
                     .Build())
             .AddToDB();

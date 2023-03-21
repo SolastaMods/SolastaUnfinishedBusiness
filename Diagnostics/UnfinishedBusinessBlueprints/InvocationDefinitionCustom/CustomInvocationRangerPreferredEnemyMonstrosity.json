@@ -1,0 +1,38 @@
+{
+  "$type": "SolastaUnfinishedBusiness.CustomDefinitions.InvocationDefinitionCustom, SolastaUnfinishedBusiness",
+  "requiredKnownSpell": null,
+  "requiredLevel": 1,
+  "requiredPact": null,
+  "grantedFeature": "Definition:AdditionalDamageRangerFavoredEnemyMonstrosity:a168863b41a8ba042ad0d2d5c315f1de",
+  "grantedSpell": null,
+  "consumesSpellSlot": false,
+  "longRestRecharge": false,
+  "overrideMaterialComponent": true,
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "CharacterFamily/&MonstrosityTitle",
+    "description": "CharacterFamily/&MonstrosityDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "fac8eafa-e6e2-5548-9ee0-1246c8cd804d",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "9c84e5c7-ffa6-5a95-bf4c-ddcd597eee3b",
+  "contentPack": 9999,
+  "name": "CustomInvocationRangerPreferredEnemyMonstrosity"
+}

@@ -1,5 +1,7 @@
 ﻿using System.Linq;
+using SolastaUnfinishedBusiness.Api;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
+using SolastaUnfinishedBusiness.Subclasses;
 using static RuleDefinitions;
 
 namespace SolastaUnfinishedBusiness.CustomBehaviors;
@@ -19,16 +21,24 @@ internal static class CustomSituationalContext
         }
 
         // supports Martial Weapon Master use case
-        static bool MainWeaponIsSpecialized(RulesetCharacter rulesetCharacter)
+        static bool HasSpecializedWeaponInHands(RulesetCharacter rulesetCharacter)
         {
-            var specializedWeapon = Subclasses.MartialWeaponMaster.GetSpecializedWeaponType(rulesetCharacter);
+            var specializedWeapons = MartialWeaponMaster.GetSpecializedWeaponTypes(rulesetCharacter);
 
-            return specializedWeapon != null && ValidatorsCharacter.HasWeaponType(specializedWeapon)(rulesetCharacter);
+            return specializedWeapons.Any(x => ValidatorsCharacter.HasWeaponType(x)(rulesetCharacter));
         }
 
         return (ExtraSituationalContext)context switch
         {
-            ExtraSituationalContext.HasSpecializedWeaponInHands => MainWeaponIsSpecialized(contextParams.source),
+            ExtraSituationalContext.HasSpecializedWeaponInHands => HasSpecializedWeaponInHands(contextParams.source),
+
+            ExtraSituationalContext.HasLongswordInHands =>
+                ValidatorsCharacter.HasWeaponType(DatabaseHelper.WeaponTypeDefinitions.LongswordType)
+                    (contextParams.source),
+
+            ExtraSituationalContext.HasGreatswordInHands =>
+                ValidatorsCharacter.HasWeaponType(DatabaseHelper.WeaponTypeDefinitions.GreatswordType)
+                    (contextParams.source),
 
             ExtraSituationalContext.MainWeaponIsMeleeOrUnarmed =>
                 ValidatorsCharacter.HasMeleeWeaponInMainHand(contextParams.source) ||

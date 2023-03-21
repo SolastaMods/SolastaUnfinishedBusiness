@@ -1,6 +1,6 @@
 {
   "$type": "FeatureDefinitionAttributeModifier, Assembly-CSharp",
-  "modifiedAttribute": "HitPoints",
+  "modifiedAttribute": "HitPointBonusPerLevel",
   "modifierOperation": "AddConditionAmount",
   "modifierValue": 0,
   "modifierAbilityScore": "Constitution",

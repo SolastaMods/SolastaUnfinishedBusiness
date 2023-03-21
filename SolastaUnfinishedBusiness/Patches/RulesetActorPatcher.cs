@@ -322,7 +322,8 @@ public static class RulesetActorPatcher
             else
             {
                 var changeDiceRollList = actor.GetSubFeaturesByType<IChangeDiceRoll>()
-                    .Where(x => x.IsValid(rollContext, actor as RulesetCharacter));
+                    .Where(x => x.IsValid(rollContext, actor as RulesetCharacter))
+                    .ToList();
 
                 foreach (var changeDiceRoll in changeDiceRollList)
                 {

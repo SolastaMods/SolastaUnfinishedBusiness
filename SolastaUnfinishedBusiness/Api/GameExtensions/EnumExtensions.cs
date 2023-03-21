@@ -17,7 +17,9 @@ internal enum ExtraSituationalContext
     WearingNoArmorOrLightArmorWithTwoHandedQuarterstaff = 1002,
     TargetIsNotEffectSource = 1004,
     SummonerIsNextToBeast = 1005,
-    HasSpecializedWeaponInHands = 1006
+    HasSpecializedWeaponInHands = 1006,
+    HasLongswordInHands = 1007,
+    HasGreatswordInHands = 1008
 }
 
 #if false

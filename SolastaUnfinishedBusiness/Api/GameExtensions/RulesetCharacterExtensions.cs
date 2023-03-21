@@ -296,12 +296,16 @@ internal static class RulesetCharacterExtensions
 
     internal static int GetClassLevel(this RulesetCharacter instance, CharacterClassDefinition classDefinition)
     {
-        return instance is not RulesetCharacterHero hero ? 0 : hero.GetClassLevel(classDefinition);
+        var hero = instance as RulesetCharacterHero ?? instance.OriginalFormCharacter as RulesetCharacterHero;
+
+        return hero?.GetClassLevel(classDefinition) ?? 0;
     }
 
     internal static int GetClassLevel(this RulesetCharacter instance, string className)
     {
-        return instance is not RulesetCharacterHero hero ? 0 : hero.GetClassLevel(className);
+        var hero = instance as RulesetCharacterHero ?? instance.OriginalFormCharacter as RulesetCharacterHero;
+
+        return hero?.GetClassLevel(className) ?? 0;
     }
 
     internal static bool CanCastAnyInvocationOfActionId(this RulesetCharacter instance,

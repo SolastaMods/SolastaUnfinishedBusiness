@@ -13,4 +13,4 @@ Reaction/&CustomReactionBloodbathTitle=Banho de sangue
 Reaction/&CustomReactionBloodbathReactDescription=Eviscerar esta criatura.
 Reaction/&CustomReactionBloodbathReactTitle=Eviscerar
 Subclass/&PathOfTheReaverDescription=Todos os Reavers passam por um ritual que envolve beber sangue contaminado de um dragão, infundindo permanentemente seus corpos com uma lasca de poder dracônico e voracidade, ao custo de aumentar gradualmente a corrupção. Esses temíveis guerreiros deleitam-se com a morte, recuperando a energia do sofrimento de seus inimigos.
-Subclass/&PathOfTheReaverTitle=Caminho do Reaver
+Subclass/&PathOfTheReaverTitle=Caminho do saqueador

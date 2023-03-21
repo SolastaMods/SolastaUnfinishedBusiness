@@ -1,0 +1,38 @@
+{
+  "$type": "SolastaUnfinishedBusiness.CustomDefinitions.InvocationDefinitionCustom, SolastaUnfinishedBusiness",
+  "requiredKnownSpell": null,
+  "requiredLevel": 1,
+  "requiredPact": null,
+  "grantedFeature": "Definition:AdditionalDamageRangerFavoredEnemyDragon:e0fdd73bfdbd8d9478a7dbe75ea3a6e8",
+  "grantedSpell": null,
+  "consumesSpellSlot": false,
+  "longRestRecharge": false,
+  "overrideMaterialComponent": true,
+  "guiPresentation": {
+    "$type": "GuiPresentation, Assembly-CSharp",
+    "hidden": false,
+    "title": "CharacterFamily/&DragonTitle",
+    "description": "CharacterFamily/&DragonDescription",
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "b49b83f5-fa0e-52fb-8a97-705b3d59de1b",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
+    },
+    "color": {
+      "$type": "UnityEngine.Color, UnityEngine.CoreModule",
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    "symbolChar": "221E",
+    "sortOrder": 0,
+    "unusedInSolastaCOTM": false,
+    "usedInValleyDLC": false
+  },
+  "contentCopyright": "UserContent",
+  "guid": "d9d5eb9a-b555-55fd-b0f5-61e20935ed5e",
+  "contentPack": 9999,
+  "name": "CustomInvocationRangerPreferredEnemyDragon"
+}

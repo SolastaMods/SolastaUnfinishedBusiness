@@ -103,9 +103,7 @@ internal sealed class SorcerousDivineHeart : AbstractSubclass
                 .SetEffectForms(EffectFormBuilder.Create()
                     .SetConditionForm(
                         conditionDivineHeartEmpoweredHealing,
-                        ConditionForm.ConditionOperation.Add,
-                        false,
-                        false)
+                        ConditionForm.ConditionOperation.Add)
                     .Build())
                 .Build())
             .AddToDB();

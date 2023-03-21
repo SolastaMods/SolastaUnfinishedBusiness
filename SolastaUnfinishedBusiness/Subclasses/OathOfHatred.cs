@@ -58,9 +58,7 @@ internal sealed class OathOfHatred : AbstractSubclass
                             .Create()
                             .SetConditionForm(
                                 ConditionDefinitions.ConditionFrightenedFear,
-                                ConditionForm.ConditionOperation.Add,
-                                false,
-                                false)
+                                ConditionForm.ConditionOperation.Add)
                             .Build())
                     .Build())
             .AddToDB();
@@ -91,9 +89,7 @@ internal sealed class OathOfHatred : AbstractSubclass
                             .Create()
                             .SetConditionForm(
                                 conditionScornfulPrayer,
-                                ConditionForm.ConditionOperation.Add,
-                                false,
-                                false)
+                                ConditionForm.ConditionOperation.Add)
                             .Build())
                     .SetDurationData(DurationType.Round, 3)
                     .SetTargetingData(Side.Enemy, RangeType.Distance, 12, TargetType.Individuals)
