@@ -311,7 +311,7 @@ internal static class ClassFeats
         ref ActionDefinitions.ActionStatus __result,
         ActionDefinitions.Id actionId)
     {
-        if (actionId != ActionDefinitions.Id.UseItemBonus)
+        if (actionId != ActionDefinitions.Id.UseItemBonus || Gui.Battle == null)
         {
             return;
         }
