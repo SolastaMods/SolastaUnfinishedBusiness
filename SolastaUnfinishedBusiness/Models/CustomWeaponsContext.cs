@@ -616,7 +616,7 @@ internal static class CustomWeaponsContext
                 .Create(AttackedWithLauncherConditionName)
                 .SetGuiPresentationNoContent(true)
                 .SetSpecialDuration(DurationType.Round, 1, TurnOccurenceType.StartOfTurn)
-                .AddToDB(), ConditionForm.ConditionOperation.Add, true, false)
+                .AddToDB(), ConditionForm.ConditionOperation.Add, true)
             .Build());
 
         LightningLauncher = BuildWeapon("CELightningLauncher", baseItem, 0, true, Common, basePresentation,

@@ -16,6 +16,7 @@ using static RuleDefinitions;
 using static RuleDefinitions.RollContext;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionActionAffinitys;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionAttributeModifiers;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.WeaponTypeDefinitions;
 
 namespace SolastaUnfinishedBusiness.Feats;
@@ -30,6 +31,7 @@ internal static class MeleeCombatFeats
         var featCrusherCon = BuildCrusherCon();
         var featDefensiveDuelist = BuildDefensiveDuelist();
         var featFellHanded = BuildFellHanded();
+        var featLongSwordFinesse = BuildLongswordFinesse();
         var featPiercerDex = BuildPiercerDex();
         var featPiercerStr = BuildPiercerStr();
         var featPowerAttack = BuildPowerAttack();
@@ -45,6 +47,7 @@ internal static class MeleeCombatFeats
             featCrusherStr,
             featCrusherCon,
             featDefensiveDuelist,
+            featLongSwordFinesse,
             featFellHanded,
             featPiercerDex,
             featPiercerStr,
@@ -83,6 +86,7 @@ internal static class MeleeCombatFeats
             featCleavingAttack,
             featDefensiveDuelist,
             featFellHanded,
+            featLongSwordFinesse,
             featPowerAttack,
             featRecklessAttack,
             featSavageAttack,
@@ -296,7 +300,7 @@ internal static class MeleeCombatFeats
                 .SetTargetingData(Side.Ally, RangeType.Self, 1, TargetType.Self)
                 .SetEffectForms(EffectFormBuilder.Create()
                     .SetConditionForm(conditionFeatSpearMasteryCharge,
-                        ConditionForm.ConditionOperation.Add, true, false)
+                        ConditionForm.ConditionOperation.Add, true)
                     .Build())
                 .UseQuickAnimations()
                 .Build())
@@ -317,6 +321,42 @@ internal static class MeleeCombatFeats
                             (OperationType.Set, !ranged && validWeapon(mode, null, character))),
                         new UpgradeWeaponDice((_, _) => (1, DieType.D8, DieType.D10), validWeapon))
                     .AddToDB())
+            .AddToDB();
+    }
+
+    #endregion
+
+    #region Longsword Finesse
+
+    private static FeatDefinition BuildLongswordFinesse()
+    {
+        const string Name = "FeatLongswordFinesse";
+
+        var validWeapon = ValidatorsWeapon.IsOfWeaponType(LongswordType);
+
+        var attributeModifierArmorClass = FeatureDefinitionAttributeModifierBuilder
+            .Create($"AttributeModifier{Name}ArmorClass")
+            .SetGuiPresentation(Category.Feature)
+            .SetModifier(FeatureDefinitionAttributeModifier.AttributeModifierOperation.Additive,
+                AttributeDefinitions.ArmorClass, 1)
+            .SetSituationalContext(ExtraSituationalContext.HasLongswordInHands)
+            .AddToDB();
+
+        var modifyAttackModeFinesse = FeatureDefinitionBuilder
+            .Create($"ModifyAttackMode{Name}Finesse")
+            .SetGuiPresentationNoContent(true)
+            .SetCustomSubFeatures(
+                new AddTagToWeapon(TagsDefinitions.WeaponTagFinesse, TagsDefinitions.Criticity.Important, validWeapon))
+            .AddToDB();
+
+        return FeatDefinitionWithPrerequisitesBuilder
+            .Create(Name)
+            .SetGuiPresentation(Category.Feat)
+            .SetFeatures(
+                AttributeModifierCreed_Of_Misaye,
+                attributeModifierArmorClass,
+                modifyAttackModeFinesse)
+            .SetAbilityScorePrerequisite(AttributeDefinitions.Dexterity, 13)
             .AddToDB();
     }
 
@@ -740,7 +780,7 @@ internal static class MeleeCombatFeats
             .Create("FeatCrusherStr")
             .SetGuiPresentation(Category.Feat)
             .SetFeatures(
-                FeatureDefinitionAttributeModifiers.AttributeModifierCreed_Of_Einar,
+                AttributeModifierCreed_Of_Einar,
                 FeatureFeatCrusher,
                 FeatureFeatCrusherCriticalHit,
                 PowerFeatCrusherHit)
@@ -756,7 +796,7 @@ internal static class MeleeCombatFeats
             .Create("FeatCrusherCon")
             .SetGuiPresentation(Category.Feat)
             .SetFeatures(
-                FeatureDefinitionAttributeModifiers.AttributeModifierCreed_Of_Arun,
+                AttributeModifierCreed_Of_Arun,
                 FeatureFeatCrusher,
                 FeatureFeatCrusherCriticalHit,
                 PowerFeatCrusherHit)
@@ -999,7 +1039,7 @@ internal static class MeleeCombatFeats
             .Create("FeatPiercerDex")
             .SetGuiPresentation(Category.Feat)
             .SetFeatures(
-                FeatureDefinitionAttributeModifiers.AttributeModifierCreed_Of_Misaye,
+                AttributeModifierCreed_Of_Misaye,
                 FeatureFeatPiercer)
             .SetFeatFamily(GroupFeats.Piercer)
             .SetAbilityScorePrerequisite(AttributeDefinitions.Dexterity, 13)
@@ -1012,7 +1052,7 @@ internal static class MeleeCombatFeats
             .Create("FeatPiercerStr")
             .SetGuiPresentation(Category.Feat)
             .SetFeatures(
-                FeatureDefinitionAttributeModifiers.AttributeModifierCreed_Of_Einar,
+                AttributeModifierCreed_Of_Einar,
                 FeatureFeatPiercer)
             .SetFeatFamily(GroupFeats.Piercer)
             .SetAbilityScorePrerequisite(AttributeDefinitions.Strength, 13)
@@ -1251,7 +1291,7 @@ internal static class MeleeCombatFeats
             .Create("FeatSlasherDex")
             .SetGuiPresentation(Category.Feat)
             .SetFeatures(
-                FeatureDefinitionAttributeModifiers.AttributeModifierCreed_Of_Misaye,
+                AttributeModifierCreed_Of_Misaye,
                 FeatureFeatSlasher)
             .SetFeatFamily(GroupFeats.Slasher)
             .SetAbilityScorePrerequisite(AttributeDefinitions.Dexterity, 13)
@@ -1264,7 +1304,7 @@ internal static class MeleeCombatFeats
             .Create("FeatSlasherStr")
             .SetGuiPresentation(Category.Feat)
             .SetFeatures(
-                FeatureDefinitionAttributeModifiers.AttributeModifierCreed_Of_Einar,
+                AttributeModifierCreed_Of_Einar,
                 FeatureFeatSlasher)
             .SetFeatFamily(GroupFeats.Slasher)
             .SetAbilityScorePrerequisite(AttributeDefinitions.Strength, 13)

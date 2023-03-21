@@ -13,6 +13,7 @@ using SolastaUnfinishedBusiness.Classes.Inventor;
 using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomUI;
+using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Properties;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
@@ -29,7 +30,10 @@ internal static class ClassFeats
     {
         var featCallForCharge = BuildCallForCharge();
         var featCunningEscape = BuildCunningEscape();
+        var featExpandTheHunt = BuildExpandTheHunt();
         var featNaturalFluidity = BuildNaturalFluidity();
+        var featPoisoner = BuildPoisoner();
+        var featSlayTheEnemies = BuildSlayTheEnemies();
         var featSpiritualFluidity = BuildSpiritualFluidity();
 
         var awakenTheBeastWithinGroup = BuildAwakenTheBeastWithin(feats);
@@ -41,7 +45,10 @@ internal static class ClassFeats
         feats.AddRange(
             featCallForCharge,
             featCunningEscape,
+            featExpandTheHunt,
             featNaturalFluidity,
+            featPoisoner,
+            featSlayTheEnemies,
             featSpiritualFluidity);
 
         GroupFeats.FeatGroupAgilityCombat.AddFeats(
@@ -57,7 +64,10 @@ internal static class ClassFeats
         GroupFeats.MakeGroup("FeatGroupClassBound", null,
             featCallForCharge,
             featCunningEscape,
+            featExpandTheHunt,
             featNaturalFluidity,
+            featPoisoner,
+            featSlayTheEnemies,
             featSpiritualFluidity,
             awakenTheBeastWithinGroup,
             blessedSoulGroup,
@@ -65,68 +75,6 @@ internal static class ClassFeats
             potentSpellcasterGroup,
             primalRageGroup);
     }
-
-    #region Awaken The Beast Within
-
-    private static FeatDefinition BuildAwakenTheBeastWithin([NotNull] List<FeatDefinition> feats)
-    {
-        const string NAME = "FeatAwakenTheBeastWithin";
-
-        var hpBonus = FeatureDefinitionAttributeModifierBuilder
-            .Create($"AttributeModifier{NAME}")
-            .SetGuiPresentationNoContent(true)
-            .SetModifier(AttributeModifierOperation.AddConditionAmount, AttributeDefinitions.HitPoints)
-            .AddToDB();
-
-        var summoningAffinity = FeatureDefinitionSummoningAffinityBuilder
-            .Create($"SummoningAffinity{NAME}")
-            .SetGuiPresentationNoContent()
-            .SetRequiredMonsterTag(TagsDefinitions.CreatureTagWildShape)
-            .SetAddedConditions(
-                ConditionDefinitionBuilder
-                    .Create($"Condition{NAME}")
-                    .SetGuiPresentationNoContent()
-                    .SetSilent(Silent.WhenAddedOrRemoved)
-                    .SetAmountOrigin(ExtraOriginOfAmount.SourceClassLevel, DruidClass)
-                    .SetFeatures(hpBonus, hpBonus) // 2 HP per level
-                    .AddToDB())
-            .AddToDB();
-
-        var awakenTheBeastWithinFeats = AttributeDefinitions.AbilityScoreNames
-            .Select(abilityScore => new
-            {
-                abilityScore,
-                attributeModifier = DatabaseRepository.GetDatabase<FeatureDefinitionAttributeModifier>()
-                    .FirstOrDefault(x =>
-                        x.Name.StartsWith("AttributeModifierCreed") && x.ModifiedAttribute == abilityScore)
-            })
-            .Select(t =>
-                FeatDefinitionWithPrerequisitesBuilder
-                    .Create($"{NAME}{t.abilityScore}")
-                    .SetGuiPresentation(
-                        Gui.Format($"Feat/&{NAME}Title",
-                            CultureInfo.CurrentCulture.TextInfo.ToTitleCase(
-                                Gui.Localize($"Attribute/&{t.abilityScore}Title").ToLower())),
-                        Gui.Format($"Feat/&{NAME}Description", t.abilityScore))
-                    .SetFeatures(t.attributeModifier, summoningAffinity)
-                    .SetValidators(ValidatorsFeat.IsDruidLevel4)
-                    .AddToDB())
-            .ToArray();
-
-        // avoid run-time exception on write operation
-        var temp = new List<FeatDefinition>();
-
-        temp.AddRange(awakenTheBeastWithinFeats);
-
-        var awakenTheBeastWithinGroup = GroupFeats.MakeGroupWithPreRequisite(
-            "FeatGroupAwakenTheBeastWithin", NAME, ValidatorsFeat.IsDruidLevel4, temp.ToArray());
-
-        feats.AddRange(awakenTheBeastWithinFeats);
-
-        return awakenTheBeastWithinGroup;
-    }
-
-    #endregion
 
     #region Call for Charge
 
@@ -245,6 +193,116 @@ internal static class ClassFeats
 
         return GroupFeats.MakeGroup(
             "FeatGroupPrimalRage", Name, primalRageStr, primalRageCon);
+    }
+
+    #endregion
+
+    #region Expand the Hunt
+
+    private static FeatDefinition BuildExpandTheHunt()
+    {
+        const string Name = "FeatExpandTheHunt";
+
+        return FeatDefinitionWithPrerequisitesBuilder
+            .Create(Name)
+            .SetGuiPresentation(Category.Feat)
+            .SetFeatures(
+                AttributeModifierCreed_Of_Maraike,
+                FeatureDefinitionPointPools.PointPoolBackgroundLanguageChoice_one,
+                CharacterContext.InvocationPoolRangerPreferredEnemy,
+                CharacterContext.InvocationPoolRangerTerrainType)
+            .SetValidators(ValidatorsFeat.IsRangerLevel4)
+            .AddToDB();
+    }
+
+    #endregion
+
+    #region Poisoner
+
+    private static FeatDefinition BuildPoisoner()
+    {
+        const string Name = "FeatPoisoner";
+
+        return FeatDefinitionWithPrerequisitesBuilder
+            .Create(Name)
+            .SetGuiPresentation(Category.Feat)
+            .SetFeatures(
+                FeatureDefinitionActionAffinitys.ActionAffinityThiefFastHands,
+                FeatureDefinitionCraftingAffinityBuilder
+                    .Create($"CraftingAffinity{Name}")
+                    .SetGuiPresentationNoContent(true)
+                    .SetAffinityGroups(0.5f, true, ToolTypeDefinitions.ThievesToolsType,
+                        ToolTypeDefinitions.PoisonersKitType)
+                    .AddToDB(),
+                FeatureDefinitionProficiencyBuilder
+                    .Create($"Proficiency{Name}")
+                    .SetGuiPresentationNoContent(true)
+                    .SetProficiencies(ProficiencyType.SkillOrExpertise, PoisonersKitType)
+                    .AddToDB())
+            .SetValidators(ValidatorsFeat.IsRangerOrRogueLevel4)
+            .AddToDB();
+    }
+
+    #endregion
+
+    #region Awaken The Beast Within
+
+    private static FeatDefinition BuildAwakenTheBeastWithin([NotNull] List<FeatDefinition> feats)
+    {
+        const string NAME = "FeatAwakenTheBeastWithin";
+
+        var hpBonus = FeatureDefinitionAttributeModifierBuilder
+            .Create($"AttributeModifier{NAME}")
+            .SetGuiPresentationNoContent(true)
+            .SetModifier(AttributeModifierOperation.AddConditionAmount, AttributeDefinitions.HitPointBonusPerLevel)
+            .AddToDB();
+
+        var summoningAffinity = FeatureDefinitionSummoningAffinityBuilder
+            .Create($"SummoningAffinity{NAME}")
+            .SetGuiPresentationNoContent()
+            .SetRequiredMonsterTag(TagsDefinitions.CreatureTagWildShape)
+            .SetAddedConditions(
+                ConditionDefinitionBuilder
+                    .Create($"Condition{NAME}")
+                    .SetGuiPresentationNoContent()
+                    .SetSilent(Silent.WhenAddedOrRemoved)
+                    .SetAmountOrigin(ExtraOriginOfAmount.SourceClassLevel, DruidClass)
+                    .SetFeatures(hpBonus, hpBonus) // 2 HP per level
+                    .AddToDB())
+            .AddToDB();
+
+        var awakenTheBeastWithinFeats = AttributeDefinitions.AbilityScoreNames
+            .Select(abilityScore => new
+            {
+                abilityScore,
+                attributeModifier = DatabaseRepository.GetDatabase<FeatureDefinitionAttributeModifier>()
+                    .FirstOrDefault(x =>
+                        x.Name.StartsWith("AttributeModifierCreed") && x.ModifiedAttribute == abilityScore)
+            })
+            .Select(t =>
+                FeatDefinitionWithPrerequisitesBuilder
+                    .Create($"{NAME}{t.abilityScore}")
+                    .SetGuiPresentation(
+                        Gui.Format($"Feat/&{NAME}Title",
+                            CultureInfo.CurrentCulture.TextInfo.ToTitleCase(
+                                Gui.Localize($"Attribute/&{t.abilityScore}Title").ToLower())),
+                        Gui.Format($"Feat/&{NAME}Description", t.abilityScore))
+                    .SetFeatures(t.attributeModifier, summoningAffinity)
+                    .SetValidators(ValidatorsFeat.IsDruidLevel4)
+                    .AddToDB())
+            .ToArray();
+
+        // avoid run-time exception on write operation
+        var temp = new List<FeatDefinition>();
+
+        temp.AddRange(awakenTheBeastWithinFeats);
+
+        var awakenTheBeastWithinGroup = GroupFeats.MakeGroupWithPreRequisite(
+            "FeatGroupAwakenTheBeastWithin", NAME, ValidatorsFeat.IsDruidLevel4, temp.ToArray());
+
+        feats.AddRange(awakenTheBeastWithinFeats);
+
+        return awakenTheBeastWithinGroup;
     }
 
     #endregion
@@ -816,6 +874,191 @@ internal static class ClassFeats
                     break;
                 }
             }
+        }
+    }
+
+    #endregion
+
+    #region Slay the Enemies
+
+    private static FeatDefinition BuildSlayTheEnemies()
+    {
+        const string NAME = "FeatSlayTheEnemies";
+
+        var powerPool = FeatureDefinitionPowerBuilder
+            .Create($"Power{NAME}Pool")
+            .SetGuiPresentation(Category.Feature,
+                Sprites.GetSprite("PowerSlayTheEnemies", Resources.PowerSlayTheEnemies, 256, 128))
+            .SetUsesProficiencyBonus(ActivationTime.BonusAction)
+            .AddToDB();
+
+        var powerPoolList = new List<FeatureDefinitionPower>();
+
+        for (var i = 3; i >= 1; i--)
+        {
+            // closure
+            var a = i;
+
+            var rounds = 2 + i;
+
+            var powerGainSlot = FeatureDefinitionPowerSharedPoolBuilder
+                .Create($"Power{NAME}{i}")
+                .SetGuiPresentation(
+                    Gui.Format($"Feature/&Power{NAME}Title", i.ToString(), rounds.ToString()),
+                    Gui.Format($"Feature/&Power{NAME}Description", i.ToString(), rounds.ToString()))
+                .SetSharedPool(ActivationTime.BonusAction, powerPool)
+                .SetEffectDescription(
+                    EffectDescriptionBuilder
+                        .Create()
+                        .SetDurationData(DurationType.Round, rounds)
+                        .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
+                        .SetEffectForms(
+                            EffectFormBuilder
+                                .Create()
+                                .SetConditionForm(
+                                    ConditionDefinitionBuilder
+                                        .Create($"Condition{NAME}{i}")
+                                        .SetGuiPresentation(
+                                            "Condition/&ConditionFeatSlayTheEnemiesTitle",
+                                            Gui.Format("Condition/&ConditionFeatSlayTheEnemiesDescription",
+                                                i.ToString()), ConditionDefinitions.ConditionTrueStrike)
+                                        .SetPossessive()
+                                        .AddToDB(),
+                                    ConditionForm.ConditionOperation.Add)
+                                .Build())
+                        .Build())
+                .SetCustomSubFeatures(
+                    new ValidatorsPowerUse(
+                        c =>
+                        {
+                            var remaining = 0;
+
+                            c.GetClassSpellRepertoire(CharacterClassDefinitions.Ranger)?
+                                .GetSlotsNumber(a, out remaining, out _);
+
+                            var noCondition = ValidatorsCharacter.HasNoneOfConditions(
+                                "ConditionFeatSlayTheEnemies1",
+                                "ConditionFeatSlayTheEnemies2",
+                                "ConditionFeatSlayTheEnemies3")(c);
+
+                            return remaining > 0 && noCondition;
+                        }))
+                .AddToDB();
+
+            powerPoolList.Add(powerGainSlot);
+        }
+
+        PowerBundle.RegisterPowerBundle(powerPool, false, powerPoolList);
+
+        return FeatDefinitionWithPrerequisitesBuilder
+            .Create(NAME)
+            .SetGuiPresentation(Category.Feat)
+            .SetFeatures(powerPool)
+            .SetValidators(ValidatorsFeat.IsRangerLevel1)
+            .SetCustomSubFeatures(
+                new OnComputeAttackModifierSlayTheEnemies(powerPool),
+                new OnAfterActionFeatureFeatSlayTheEnemies())
+            .AddToDB();
+    }
+
+    private sealed class OnComputeAttackModifierSlayTheEnemies : IOnComputeAttackModifier
+    {
+        private readonly FeatureDefinition _featureDefinition;
+
+        public OnComputeAttackModifierSlayTheEnemies(FeatureDefinition featureDefinition)
+        {
+            _featureDefinition = featureDefinition;
+        }
+
+        public void ComputeAttackModifier(
+            RulesetCharacter myself,
+            RulesetCharacter defender,
+            BattleDefinitions.AttackProximity attackProximity,
+            RulesetAttackMode attackMode,
+            ref ActionModifier attackModifier)
+        {
+            if (ValidatorsCharacter.HasNoneOfConditions(
+                    "ConditionFeatSlayTheEnemies1",
+                    "ConditionFeatSlayTheEnemies2",
+                    "ConditionFeatSlayTheEnemies3")(myself))
+            {
+                return;
+            }
+
+            if (attackMode.ToHitBonusTrends.Any(x => x.source as FeatureDefinition == _featureDefinition))
+            {
+                return;
+            }
+
+            var damage = attackMode.EffectDescription?.FindFirstDamageForm();
+
+            if (damage == null)
+            {
+                return;
+            }
+
+            var spellLevel = 0;
+
+            if (ValidatorsCharacter.HasAnyOfConditions("ConditionFeatSlayTheEnemies1")(myself))
+            {
+                spellLevel = 1;
+            }
+            else if (ValidatorsCharacter.HasAnyOfConditions("ConditionFeatSlayTheEnemies2")(myself))
+            {
+                spellLevel = 2;
+            }
+            else if (ValidatorsCharacter.HasAnyOfConditions("ConditionFeatSlayTheEnemies3")(myself))
+            {
+                spellLevel = 3;
+            }
+
+
+            if (IsFavoriteEnemy(myself, defender))
+            {
+                attackModifier.attackAdvantageTrends.Add(
+                    new TrendInfo(1, FeatureSourceType.CharacterFeature, _featureDefinition.Name, _featureDefinition));
+            }
+            else
+            {
+                attackMode.ToHitBonus += spellLevel;
+                attackMode.ToHitBonusTrends.Add(new TrendInfo(spellLevel, FeatureSourceType.CharacterFeature,
+                    _featureDefinition.Name, _featureDefinition));
+            }
+
+            damage.BonusDamage += spellLevel;
+            damage.DamageBonusTrends.Add(new TrendInfo(spellLevel, FeatureSourceType.CharacterFeature,
+                _featureDefinition.Name, _featureDefinition));
+        }
+
+        private static bool IsFavoriteEnemy(RulesetActor attacker, RulesetCharacter defender)
+        {
+            var favoredEnemyChoices = FeatureDefinitionFeatureSets.AdditionalDamageRangerFavoredEnemyChoice.FeatureSet
+                .Cast<FeatureDefinitionAdditionalDamage>();
+            var characterAdditionalDamages = attacker.GetFeaturesByType<FeatureDefinitionAdditionalDamage>();
+
+            return favoredEnemyChoices
+                .Intersect(characterAdditionalDamages)
+                .Any(x => x.RequiredCharacterFamily.Name == defender.CharacterFamily);
+        }
+    }
+
+    private sealed class OnAfterActionFeatureFeatSlayTheEnemies : IOnAfterActionFeature
+    {
+        public void OnAfterAction(CharacterAction action)
+        {
+            if (action is not CharacterActionUsePower characterActionUsePowerSlayTheEnemies ||
+                !characterActionUsePowerSlayTheEnemies.activePower.PowerDefinition.Name.StartsWith(
+                    "PowerFeatSlayTheEnemies"))
+            {
+                return;
+            }
+
+            var character = action.ActingCharacter.RulesetCharacter;
+            var name = characterActionUsePowerSlayTheEnemies.activePower.PowerDefinition.Name;
+            var level = int.Parse(name.Substring(name.Length - 1, 1));
+            var repertoire = character.GetClassSpellRepertoire(CharacterClassDefinitions.Ranger);
+
+            repertoire?.SpendSpellSlot(level);
         }
     }
 

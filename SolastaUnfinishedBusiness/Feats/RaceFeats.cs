@@ -1,14 +1,15 @@
 ﻿using System.Collections.Generic;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api;
+using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
-using SolastaUnfinishedBusiness.CustomInterfaces;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionAttributeModifiers;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.WeaponTypeDefinitions;
 
 namespace SolastaUnfinishedBusiness.Feats;
 
@@ -130,17 +131,14 @@ internal static class RaceFeats
         // Revenant support
         //
 
-        var validWeapon = ValidatorsWeapon.IsOfWeaponType(DatabaseHelper.WeaponTypeDefinitions.GreatswordType);
+        var validWeapon = ValidatorsWeapon.IsOfWeaponType(GreatswordType);
 
         var attributeModifierFeatRevenantGreatSwordArmorClass = FeatureDefinitionAttributeModifierBuilder
             .Create("AttributeModifierFeatRevenantGreatSwordArmorClass")
             .SetGuiPresentation(Category.Feature)
             .SetModifier(FeatureDefinitionAttributeModifier.AttributeModifierOperation.Additive,
                 AttributeDefinitions.ArmorClass, 1)
-            .SetSituationalContext(SituationalContext.WieldingTwoHandedWeapon)
-            .SetCustomSubFeatures(
-                new RestrictedContextValidator((_, _, character, _, _, mode, _) =>
-                    (OperationType.Set, validWeapon(mode, null, character))))
+            .SetSituationalContext(ExtraSituationalContext.HasGreatswordInHands)
             .AddToDB();
 
         var modifyAttackModeFeatRevenantGreatSword = FeatureDefinitionBuilder

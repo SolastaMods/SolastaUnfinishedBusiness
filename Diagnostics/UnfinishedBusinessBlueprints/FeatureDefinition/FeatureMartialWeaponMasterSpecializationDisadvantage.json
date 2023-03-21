@@ -2,9 +2,9 @@
   "$type": "FeatureDefinition, Assembly-CSharp",
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
-    "hidden": false,
-    "title": "Feature/&AttributeModifierMartialWeaponMasterMasteryTitle",
-    "description": "Feature/&AttributeModifierMartialWeaponMasterMasteryDescription",
+    "hidden": true,
+    "title": "Feature/&AttributeModifierMartialWeaponMasterSpecializationTitle",
+    "description": "Feature/&AttributeModifierMartialWeaponMasterSpecializationDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
@@ -24,7 +24,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "7f66824f-1698-5553-ba3b-37d2917cec77",
+  "guid": "8e828a64-f8ce-5eb3-8c28-e88311a753da",
   "contentPack": 9999,
-  "name": "AttributeModifierMartialWeaponMasterMastery"
+  "name": "FeatureMartialWeaponMasterSpecializationDisadvantage"
 }

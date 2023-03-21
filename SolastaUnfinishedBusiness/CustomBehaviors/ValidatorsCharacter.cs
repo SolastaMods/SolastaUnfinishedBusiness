@@ -44,6 +44,10 @@ internal static class ValidatorsCharacter
         ValidatorsWeapon.IsWeaponType(character.GetMainWeapon(),
             LongbowType, ShortbowType, HeavyCrossbowType, LightCrossbowType);
 
+    internal static readonly IsCharacterValidHandler HasTwoHandedVersatileWeapon = character =>
+        ValidatorsWeapon.HasAnyWeaponTag(character.GetMainWeapon(), TagsDefinitions.WeaponTagVersatile) &&
+        IsFreeOffhand(character);
+
     internal static readonly IsCharacterValidHandler HasMeleeWeaponInMainHand = character =>
         ValidatorsWeapon.IsMelee(character.GetMainWeapon());
 
@@ -64,7 +68,7 @@ internal static class ValidatorsCharacter
     {
         return character => ValidatorsWeapon.IsWeaponType(character.GetOffhandWeapon(), weaponTypeDefinition);
     }
-    
+
     internal static IsCharacterValidHandler HasWeaponType(params WeaponTypeDefinition[] weaponTypeDefinition)
     {
         return character =>

@@ -21,4 +21,4 @@ Feature/&PowerPathOfTheSpiritsBearResistanceTitle=Bear Resistance
 Feature/&PowerPathOfTheSpiritsWolfLeadershipDescription=The spirit of the wolf makes you a leader of hunters. While raging, you and any ally within 15 ft have advantage on melee attack rolls.
 Feature/&PowerPathOfTheSpiritsWolfLeadershipTitle=Wolf Spirit
 Subclass/&PathOfTheSpiritsDescription=Barbarians who follow the Path of the Spirits accept a spirit animal as guide, protector, and inspiration, that fills them with supernatural might, adding magical fuel to the barbarian rage.
-Subclass/&PathOfTheSpiritsTitle=Path Of The Spirits
+Subclass/&PathOfTheSpiritsTitle=Path Of the Spirits

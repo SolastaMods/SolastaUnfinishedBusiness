@@ -116,6 +116,7 @@
   <EnableFlexibleRaces>false</EnableFlexibleRaces>
   <DisableClassPrerequisitesOnModFeats>false</DisableClassPrerequisitesOnModFeats>
   <DisableRacePrerequisitesOnModFeats>false</DisableRacePrerequisitesOnModFeats>
+  <ImproveRangerFeaturesSelection>true</ImproveRangerFeaturesSelection>
   <AddHumanoidFavoredEnemyToRanger>true</AddHumanoidFavoredEnemyToRanger>
   <EnumerateOriginSubFeatures>true</EnumerateOriginSubFeatures>
   <EnableEpicPointsAndArray>true</EnableEpicPointsAndArray>
@@ -338,6 +339,10 @@
     <string>FeatElementalMasterDamageThunder</string>
     <string>FeatHardyCon</string>
     <string>FeatHardyStr</string>
+    <string>FeatExpandTheHunt</string>
+    <string>FeatLongswordFinesse</string>
+    <string>FeatPoisoner</string>
+    <string>FeatSlayTheEnemies</string>
   </FeatEnabled>
   <FeatGroupSliderPosition>4</FeatGroupSliderPosition>
   <FeatGroupEnabled>

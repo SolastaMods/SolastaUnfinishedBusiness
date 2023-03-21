@@ -59,9 +59,7 @@ internal sealed class OathOfAncients : AbstractSubclass
                             .CanSaveToCancel(TurnOccurenceType.EndOfTurn)
                             .SetConditionForm(
                                 conditionNaturesWrath,
-                                ConditionForm.ConditionOperation.Add,
-                                false,
-                                false)
+                                ConditionForm.ConditionOperation.Add)
                             .Build())
                     .SetSavingThrowData(
                         false,

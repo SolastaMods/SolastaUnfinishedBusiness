@@ -78,6 +78,7 @@ public class Settings : UnityModManager.ModSettings
     public bool EnableFlexibleRaces { get; set; }
     public bool DisableClassPrerequisitesOnModFeats { get; set; }
     public bool DisableRacePrerequisitesOnModFeats { get; set; }
+    public bool ImproveRangerFeaturesSelection { get; set; }
     public bool AddHumanoidFavoredEnemyToRanger { get; set; }
 
     public bool EnumerateOriginSubFeatures

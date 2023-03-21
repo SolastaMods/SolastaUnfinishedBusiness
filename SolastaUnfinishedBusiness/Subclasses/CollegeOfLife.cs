@@ -57,8 +57,7 @@ internal sealed class CollegeOfLife : AbstractSubclass
                     .SetEffectForms(
                         EffectFormBuilder
                             .Create()
-                            .SetConditionForm(conditionCollegeOfLifeDarkvision, ConditionForm.ConditionOperation.Add,
-                                false, false)
+                            .SetConditionForm(conditionCollegeOfLifeDarkvision, ConditionForm.ConditionOperation.Add)
                             .Build())
                     .Build())
             .AddToDB();
@@ -88,8 +87,7 @@ internal sealed class CollegeOfLife : AbstractSubclass
                     .SetEffectForms(
                         EffectFormBuilder
                             .Create()
-                            .SetConditionForm(conditionCollegeOfLifePoison, ConditionForm.ConditionOperation.Add,
-                                false, false)
+                            .SetConditionForm(conditionCollegeOfLifePoison, ConditionForm.ConditionOperation.Add)
                             .Build())
                     .Build())
             .AddToDB();
@@ -112,8 +110,7 @@ internal sealed class CollegeOfLife : AbstractSubclass
                     .SetEffectForms(
                         EffectFormBuilder
                             .Create()
-                            .SetConditionForm(conditionCollegeOfLifeConstitution, ConditionForm.ConditionOperation.Add,
-                                false, false)
+                            .SetConditionForm(conditionCollegeOfLifeConstitution, ConditionForm.ConditionOperation.Add)
                             .Build())
                     .Build())
             .AddToDB();
@@ -130,7 +127,7 @@ internal sealed class CollegeOfLife : AbstractSubclass
                     .SetEffectForms(
                         EffectFormBuilder
                             .Create()
-                            .SetConditionForm(ConditionFlying12, ConditionForm.ConditionOperation.Add, false, false)
+                            .SetConditionForm(ConditionFlying12, ConditionForm.ConditionOperation.Add)
                             .Build())
                     .Build())
             .AddToDB();
