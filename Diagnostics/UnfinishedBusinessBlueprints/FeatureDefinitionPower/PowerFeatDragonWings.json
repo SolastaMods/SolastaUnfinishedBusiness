@@ -328,7 +328,7 @@
     "description": "Feat/&FeatDragonWingsDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "",
+      "m_AssetGUID": "e8a86dd2-37a3-5683-aea0-dfb46bfcc151",
       "m_SubObjectName": null,
       "m_SubObjectType": null
     },
