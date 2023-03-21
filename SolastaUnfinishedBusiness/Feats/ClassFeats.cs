@@ -324,8 +324,8 @@ internal static class ClassFeats
         var hero = __instance.RulesetCharacter as RulesetCharacterHero ??
                    __instance.RulesetCharacter.OriginalFormCharacter as RulesetCharacterHero;
 
-        if (hero == null || hero.ClassesAndSubclasses.TryGetValue(Rogue, out var characterSubclassDefinition) &&
-            characterSubclassDefinition.Name == "RoguishThief")
+        if (hero == null || (hero.ClassesAndSubclasses.TryGetValue(Rogue, out var characterSubclassDefinition) &&
+                             characterSubclassDefinition.Name == "RoguishThief"))
         {
             return;
         }
