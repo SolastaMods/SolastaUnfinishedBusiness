@@ -1,5 +1,5 @@
-﻿#if false
-using System.Linq;
+﻿using System.Linq;
+using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomInterfaces;
@@ -21,7 +21,9 @@ internal sealed class RangerLightBearer : AbstractSubclass
     {
         // LEVEL 03
 
-        var autoPreparedSpellsArcanist = FeatureDefinitionAutoPreparedSpellsBuilder
+        // Light Bearer Magic
+
+        var autoPreparedSpells = FeatureDefinitionAutoPreparedSpellsBuilder
             .Create($"AutoPreparedSpells{Name}")
             .SetGuiPresentation(Category.Feature)
             .SetAutoTag("Ranger")
@@ -32,10 +34,28 @@ internal sealed class RangerLightBearer : AbstractSubclass
                 BuildSpellGroup(9, SpellsContext.BlindingSmite),
                 BuildSpellGroup(13, SpellsContext.StaggeringSmite),
                 BuildSpellGroup(17, SpellsContext.BanishingSmite))
-            .SetCustomSubFeatures(new ModifyAttackModeForWeaponBlessedWarrior())
+            .AddToDB();
+
+        var powerLight = FeatureDefinitionPowerBuilder
+            .Create($"Power{Name}Light")
+            .SetGuiPresentation(Category.Feature)
+            .SetUsesFixed(ActivationTime.Action)
+            .SetEffectDescription(Light.EffectDescription)
+            .AddToDB();
+
+        var featureSetLight = FeatureDefinitionFeatureSetBuilder
+            .Create($"FeatureSet{Name}Light")
+            .SetGuiPresentationNoContent(true)
+            .AddFeatureSet(powerLight)
             .AddToDB();
 
         // Blessed Warrior
+
+        var conditionBlessedWarrior = ConditionDefinitionBuilder
+            .Create($"Condition{Name}BlessedWarrior")
+            .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionMarkedByBrandingSmite)
+            .SetConditionType(ConditionType.Detrimental)
+            .AddToDB();
 
         var powerBlessedWarrior = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}BlessedWarrior")
@@ -49,13 +69,43 @@ internal sealed class RangerLightBearer : AbstractSubclass
                     .SetEffectForms(
                         EffectFormBuilder
                             .Create()
-                            .SetConditionForm(
-                                ConditionDefinitionBuilder
-                                    .Create($"Condition{Name}BlessedWarrior")
-                                    .SetGuiPresentation(Category.Condition)
-                                    .SetConditionType(ConditionType.Detrimental)
-                                    .AddToDB(),
-                                ConditionForm.ConditionOperation.Add)
+                            .SetConditionForm(conditionBlessedWarrior, ConditionForm.ConditionOperation.Add)
+                            .Build())
+                    .Build())
+            .SetCustomSubFeatures(new ModifyAttackModeForWeaponBlessedWarrior(conditionBlessedWarrior))
+            .AddToDB();
+
+        // Lifebringer
+
+        var attributeModifierLifeBringerBase = FeatureDefinitionAttributeModifierBuilder
+            .Create($"AttributeModifier{Name}LifeBringerBase")
+            .SetGuiPresentationNoContent(true)
+            .SetModifier(
+                FeatureDefinitionAttributeModifier.AttributeModifierOperation.Set,
+                AttributeDefinitions.HealingPool, 5)
+            .AddToDB();
+
+        var attributeModifierLifeBringerMultiplier = FeatureDefinitionAttributeModifierBuilder
+            .Create($"AttributeModifier{Name}LifeBringerMultiplier")
+            .SetGuiPresentationNoContent(true)
+            .SetModifier(
+                FeatureDefinitionAttributeModifier.AttributeModifierOperation.MultiplyByClassLevel,
+                AttributeDefinitions.HealingPool)
+            .AddToDB();
+
+        var powerLifeBringer = FeatureDefinitionPowerBuilder
+            .Create(FeatureDefinitionPowers.PowerPaladinLayOnHands, $"Power{Name}LifeBringer")
+            .SetOrUpdateGuiPresentation(Category.Feature)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create(FeatureDefinitionPowers.PowerPaladinLayOnHands)
+                    .SetDurationData(DurationType.Instantaneous)
+                    .SetTargetingData(Side.Ally, RangeType.Touch, 0, TargetType.Individuals)
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .SetHealingForm(HealingComputation.Pool, 0, DieType.D1, 0, true,
+                                HealingCap.HalfMaximumHitPoints)
                             .Build())
                     .Build())
             .AddToDB();
@@ -64,7 +114,12 @@ internal sealed class RangerLightBearer : AbstractSubclass
             .Create(Name)
             .SetGuiPresentation(Category.Subclass, Sprites.GetSprite(Name, Resources.RangerLightBearer, 256))
             .AddFeaturesAtLevel(3,
-                autoPreparedSpellsArcanist)
+                autoPreparedSpells,
+                featureSetLight,
+                powerBlessedWarrior,
+                attributeModifierLifeBringerBase,
+                attributeModifierLifeBringerMultiplier,
+                powerLifeBringer)
             .AddFeaturesAtLevel(7)
             .AddFeaturesAtLevel(11)
             .AddFeaturesAtLevel(15)
@@ -79,16 +134,36 @@ internal sealed class RangerLightBearer : AbstractSubclass
     // ReSharper disable once UnassignedGetOnlyAutoProperty
     internal override DeityDefinition DeityDefinition { get; }
 
-    private sealed class ModifyAttackModeForWeaponBlessedWarrior : IOnComputeAttackModifier
+    private sealed class RangerHolder : IClassHoldingFeature
     {
-        public void ComputeAttackModifier(
-            RulesetCharacter myself,
-            RulesetCharacter defender,
-            BattleDefinitions.AttackProximity attackProximity,
-            RulesetAttackMode attackMode,
-            ref ActionModifier attackModifier)
+        public CharacterClassDefinition Class => CharacterClassDefinitions.Ranger;
+    }
+
+    private sealed class ModifyAttackModeForWeaponBlessedWarrior : IBeforeAttackEffect
+    {
+        private readonly ConditionDefinition _conditionDefinition;
+
+        public ModifyAttackModeForWeaponBlessedWarrior(ConditionDefinition conditionDefinition)
         {
-            if (attackMode == null)
+            _conditionDefinition = conditionDefinition;
+        }
+
+        public void BeforeOnAttackHit(
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            RollOutcome outcome,
+            CharacterActionParams actionParams,
+            RulesetAttackMode attackMode,
+            ActionModifier attackModifier)
+        {
+            if (attackMode == null || outcome is RollOutcome.Failure or RollOutcome.CriticalFailure)
+            {
+                return;
+            }
+
+            var rulesetDefender = defender.RulesetCharacter;
+
+            if (!rulesetDefender.HasAnyConditionOfType(_conditionDefinition.Name))
             {
                 return;
             }
@@ -104,18 +179,24 @@ internal sealed class RangerLightBearer : AbstractSubclass
             var damage = effectDescription.FindFirstDamageForm();
             var k = effectDescription.EffectForms.FindIndex(form => form.damageForm == damage);
 
-            if (k < 0)
-            {
-                return;
-            }
-
+            // add additional radiant dice
+            var classLevel = attacker.RulesetCharacter.GetClassLevel(CharacterClassDefinitions.Ranger);
+            var diceNumber = classLevel < 11 ? 1 : 2;
             var additionalDice = EffectFormBuilder
                 .Create()
-                .SetDamageForm(DamageTypeRadiant, 1, DieType.D8)
+                .SetDamageForm(DamageTypeRadiant, diceNumber, DieType.D8)
                 .Build();
 
             effectDescription.EffectForms.Insert(k + 1, additionalDice);
+
+            // remove condition on successful attack
+            var rulesetCondition =
+                rulesetDefender.AllConditions.FirstOrDefault(x => x.ConditionDefinition == _conditionDefinition);
+
+            if (rulesetCondition != null)
+            {
+                rulesetDefender.RemoveCondition(rulesetCondition);
+            }
         }
     }
 }
-#endif

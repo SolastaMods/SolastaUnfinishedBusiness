@@ -6,6 +6,8 @@ using SolastaUnfinishedBusiness.Api.LanguageExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
+using SolastaUnfinishedBusiness.CustomUI;
+using SolastaUnfinishedBusiness.Properties;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionAttributeModifiers;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
@@ -29,7 +31,8 @@ internal static class RaceFeats
             .SetFeatures(
                 FeatureDefinitionPowerBuilder
                     .Create("PowerFeatDragonWings")
-                    .SetGuiPresentation("FeatDragonWings", Category.Feat)
+                    .SetGuiPresentation("FeatDragonWings", Category.Feat,
+                        Sprites.GetSprite("PowerCallForCharge", Resources.PowerCallForCharge, 256, 128))
                     .SetUsesProficiencyBonus(ActivationTime.BonusAction)
                     .SetCustomSubFeatures(new ValidatorsPowerUse(ValidatorsCharacter.DoesNotHaveHeavyArmor))
                     .SetEffectDescription(

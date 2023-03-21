@@ -607,8 +607,9 @@ internal sealed class RangerWildMaster : AbstractSubclass
             }
 
             // force dodge action if not at level 7 yet
-            if (locationCharacter.RulesetCharacter.GetMySummoner()?.RulesetCharacter is RulesetCharacterHero hero
-                && hero.ClassesAndLevels[CharacterClassDefinitions.Ranger] < 7)
+            if (locationCharacter.RulesetCharacter
+                    .GetMySummoner()?.RulesetCharacter
+                    .GetClassLevel(CharacterClassDefinitions.Ranger) < 7)
             {
                 ServiceRepository.GetService<ICommandService>()
                     ?.ExecuteAction(new CharacterActionParams(locationCharacter, Id.Dodge), null, false);

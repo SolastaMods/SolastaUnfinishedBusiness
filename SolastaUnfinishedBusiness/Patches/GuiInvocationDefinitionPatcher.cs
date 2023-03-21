@@ -5,6 +5,7 @@ using System.Reflection.Emit;
 using HarmonyLib;
 using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api;
+using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.CustomDefinitions;
 
@@ -26,9 +27,7 @@ public static class GuiInvocationDefinitionPatcher
             RulesetCharacterHero hero,
             string attributeName)
         {
-            hero.ClassesAndLevels.TryGetValue(DatabaseHelper.CharacterClassDefinitions.Warlock, out var levels);
-
-            return levels;
+            return hero.GetClassLevel(DatabaseHelper.CharacterClassDefinitions.Warlock);
         }
 
         [NotNull]

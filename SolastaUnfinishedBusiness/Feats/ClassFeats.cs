@@ -19,6 +19,7 @@ using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPowers;
 using static FeatureDefinitionAttributeModifier;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterClassDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionAttributeModifiers;
 
@@ -87,7 +88,8 @@ internal static class ClassFeats
             .SetGuiPresentation(Category.Feat)
             .SetFeatures(FeatureDefinitionPowerBuilder
                 .Create($"Power{NAME}")
-                .SetGuiPresentation(Category.Feature, PowerOathOfTirmarGoldenSpeech)
+                .SetGuiPresentation(Category.Feature,
+                    Sprites.GetSprite("PowerCallForCharge", Resources.PowerCallForCharge, 256, 128))
                 .SetUsesAbilityBonus(ActivationTime.BonusAction, RechargeRate.LongRest, AttributeDefinitions.Charisma)
                 .SetEffectDescription(
                     EffectDescriptionBuilder
@@ -217,34 +219,6 @@ internal static class ClassFeats
 
     #endregion
 
-    #region Poisoner
-
-    private static FeatDefinition BuildPoisoner()
-    {
-        const string Name = "FeatPoisoner";
-
-        return FeatDefinitionWithPrerequisitesBuilder
-            .Create(Name)
-            .SetGuiPresentation(Category.Feat)
-            .SetFeatures(
-                FeatureDefinitionActionAffinitys.ActionAffinityThiefFastHands,
-                FeatureDefinitionCraftingAffinityBuilder
-                    .Create($"CraftingAffinity{Name}")
-                    .SetGuiPresentationNoContent(true)
-                    .SetAffinityGroups(0.5f, true, ToolTypeDefinitions.ThievesToolsType,
-                        ToolTypeDefinitions.PoisonersKitType)
-                    .AddToDB(),
-                FeatureDefinitionProficiencyBuilder
-                    .Create($"Proficiency{Name}")
-                    .SetGuiPresentationNoContent(true)
-                    .SetProficiencies(ProficiencyType.SkillOrExpertise, PoisonersKitType)
-                    .AddToDB())
-            .SetValidators(ValidatorsFeat.IsRangerOrRogueLevel4)
-            .AddToDB();
-    }
-
-    #endregion
-
     #region Awaken The Beast Within
 
     private static FeatDefinition BuildAwakenTheBeastWithin([NotNull] List<FeatDefinition> feats)
@@ -303,6 +277,72 @@ internal static class ClassFeats
         feats.AddRange(awakenTheBeastWithinFeats);
 
         return awakenTheBeastWithinGroup;
+    }
+
+    #endregion
+
+    #region Poisoner
+
+    private static FeatDefinition BuildPoisoner()
+    {
+        const string Name = "FeatPoisoner";
+
+        return FeatDefinitionWithPrerequisitesBuilder
+            .Create(Name)
+            .SetGuiPresentation(Category.Feat)
+            .SetFeatures(
+                FeatureDefinitionActionAffinitys.ActionAffinityThiefFastHands,
+                FeatureDefinitionCraftingAffinityBuilder
+                    .Create($"CraftingAffinity{Name}")
+                    .SetGuiPresentationNoContent(true)
+                    .SetAffinityGroups(0.5f, true, ToolTypeDefinitions.ThievesToolsType,
+                        ToolTypeDefinitions.PoisonersKitType)
+                    .AddToDB(),
+                FeatureDefinitionProficiencyBuilder
+                    .Create($"Proficiency{Name}")
+                    .SetGuiPresentationNoContent(true)
+                    .SetProficiencies(ProficiencyType.SkillOrExpertise, PoisonersKitType)
+                    .AddToDB())
+            .SetValidators(ValidatorsFeat.IsRangerOrRogueLevel4)
+            .AddToDB();
+    }
+
+    internal static void TweakUseItemBonusActionId(
+        IControllableCharacter __instance,
+        ref ActionDefinitions.ActionStatus __result,
+        ActionDefinitions.Id actionId)
+    {
+        // no changes if not an available use item bonus action in battle
+        if (Gui.Battle == null ||
+            actionId != ActionDefinitions.Id.UseItemBonus ||
+            __result != ActionDefinitions.ActionStatus.Available)
+        {
+            return;
+        }
+
+        // no changes if character is Roguish Thief
+        var hero = __instance.RulesetCharacter as RulesetCharacterHero ??
+                   __instance.RulesetCharacter.OriginalFormCharacter as RulesetCharacterHero;
+
+        if (hero == null || (hero.ClassesAndSubclasses.TryGetValue(Rogue, out var characterSubclassDefinition) &&
+                             characterSubclassDefinition.Name == "RoguishThief"))
+        {
+            return;
+        }
+
+        // no changes if device is poison
+        __instance.RulesetCharacter.RefreshUsableDeviceFunctions();
+
+        if (__instance.RulesetCharacter.EnumerateAvailableDevices(false)
+            .Where(enumerateAvailableDevice =>
+                __instance.RulesetCharacter.UsableDeviceFunctionsByDevice.ContainsKey(enumerateAvailableDevice))
+            .All(enumerateAvailableDevice =>
+                enumerateAvailableDevice.UsableDeviceDescription.UsableDeviceTags.Contains("Poison")))
+        {
+            return;
+        }
+
+        __result = ActionDefinitions.ActionStatus.CannotPerform;
     }
 
     #endregion
@@ -391,9 +431,9 @@ internal static class ClassFeats
             }
 
             var rulesetCharacter = action.ActingCharacter.RulesetCharacter;
-            var characterLevel = rulesetCharacter.GetAttribute(AttributeDefinitions.CharacterLevel).CurrentValue;
+            var classLevel = rulesetCharacter.GetClassLevel(Fighter);
             var dieRoll = RollDie(DieType.D10, AdvantageType.None, out _, out _);
-            var healingReceived = characterLevel + dieRoll;
+            var healingReceived = classLevel + dieRoll;
 
             if (rulesetCharacter.TemporaryHitPoints <= healingReceived)
             {
@@ -520,7 +560,7 @@ internal static class ClassFeats
         public IEnumerator ProcessCustomEffect(CharacterActionMagicEffect action)
         {
             var character = action.ActingCharacter.RulesetCharacter;
-            var repertoire = character.GetClassSpellRepertoire(CharacterClassDefinitions.Druid);
+            var repertoire = character.GetClassSpellRepertoire(Druid);
             var rulesetUsablePower = character.UsablePowers.Find(p => p.PowerDefinition == PowerDruidWildShape);
 
             if (repertoire == null || rulesetUsablePower == null)
@@ -536,7 +576,7 @@ internal static class ClassFeats
         {
             var remaining = 0;
 
-            character.GetClassSpellRepertoire(CharacterClassDefinitions.Druid)?
+            character.GetClassSpellRepertoire(Druid)?
                 .GetSlotsNumber(slotLevel, out remaining, out _);
 
             var notMax = character.GetMaxUsesForPool(PowerDruidWildShape) >
@@ -822,7 +862,7 @@ internal static class ClassFeats
                         {
                             var remaining = 0;
 
-                            c.GetClassSpellRepertoire(CharacterClassDefinitions.Cleric)?
+                            c.GetClassSpellRepertoire(Cleric)?
                                 .GetSlotsNumber(a, out remaining, out _);
 
                             return remaining > 0;
@@ -857,7 +897,7 @@ internal static class ClassFeats
                     var character = action.ActingCharacter.RulesetCharacter;
                     var name = characterActionUsePowerGainChannel.activePower.PowerDefinition.Name;
                     var level = int.Parse(name.Substring(name.Length - 1, 1));
-                    var repertoire = character.GetClassSpellRepertoire(CharacterClassDefinitions.Cleric);
+                    var repertoire = character.GetClassSpellRepertoire(Cleric);
 
                     repertoire?.SpendSpellSlot(level);
 
@@ -933,7 +973,7 @@ internal static class ClassFeats
                         {
                             var remaining = 0;
 
-                            c.GetClassSpellRepertoire(CharacterClassDefinitions.Ranger)?
+                            c.GetClassSpellRepertoire(Ranger)?
                                 .GetSlotsNumber(a, out remaining, out _);
 
                             var noCondition = ValidatorsCharacter.HasNoneOfConditions(
@@ -1056,7 +1096,7 @@ internal static class ClassFeats
             var character = action.ActingCharacter.RulesetCharacter;
             var name = characterActionUsePowerSlayTheEnemies.activePower.PowerDefinition.Name;
             var level = int.Parse(name.Substring(name.Length - 1, 1));
-            var repertoire = character.GetClassSpellRepertoire(CharacterClassDefinitions.Ranger);
+            var repertoire = character.GetClassSpellRepertoire(Ranger);
 
             repertoire?.SpendSpellSlot(level);
         }

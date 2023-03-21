@@ -1655,6 +1655,16 @@ namespace SolastaUnfinishedBusiness.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
+        public static byte[] PowerCallForCharge {
+            get {
+                object obj = ResourceManager.GetObject("PowerCallForCharge", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
         public static byte[] PowerCommandUndead {
             get {
                 object obj = ResourceManager.GetObject("PowerCommandUndead", resourceCulture);
@@ -1688,6 +1698,16 @@ namespace SolastaUnfinishedBusiness.Properties {
         public static byte[] PowerDraconicCry {
             get {
                 object obj = ResourceManager.GetObject("PowerDraconicCry", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        public static byte[] PowerDragonWings {
+            get {
+                object obj = ResourceManager.GetObject("PowerDragonWings", resourceCulture);
                 return ((byte[])(obj));
             }
         }
@@ -1768,6 +1788,16 @@ namespace SolastaUnfinishedBusiness.Properties {
         public static byte[] PowerInfiltratorMode {
             get {
                 object obj = ResourceManager.GetObject("PowerInfiltratorMode", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        public static byte[] PowerInspiringLeader {
+            get {
+                object obj = ResourceManager.GetObject("PowerInspiringLeader", resourceCulture);
                 return ((byte[])(obj));
             }
         }
