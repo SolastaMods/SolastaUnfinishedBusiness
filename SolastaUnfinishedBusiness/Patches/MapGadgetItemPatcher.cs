@@ -82,7 +82,12 @@ public static class MapGadgetItemPatcher
 
             var exit = Gui.Localize("Tooltip/&CustomMapMarkerExit");
             var destinations = string.Join("",
-                description.Destinations.Select(d => $"\n - {d.UserLocationName}"));
+                description.Destinations
+                    .Where(d => d is not null)
+                    .Where(d => !string.IsNullOrWhiteSpace(d.UserLocationName))
+                    .Where(d => !Gui.GameCampaign.UserLocationsStatus.ContainsKey(d.UserLocationName) || Gui.GameCampaign.UserLocationsStatus[d.UserLocationName] != LocationDefinitions.UserLocationStatus.Hidden)
+                    .Select(d => $"\n - {(string.IsNullOrWhiteSpace(d.DisplayedTitle) ? d.UserLocationName : d.DisplayedTitle)}"));
+
 
             return $"{exit}:{destinations}";
         }
