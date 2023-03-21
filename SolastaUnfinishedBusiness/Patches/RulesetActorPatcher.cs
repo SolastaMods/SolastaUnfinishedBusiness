@@ -441,6 +441,7 @@ public static class RulesetActorPatcher
                 foreach (var modifier in attribute.Value.ActiveModifiers
                              .Where(x => x.Operation
                                  is AttributeModifierOperation.MultiplyByClassLevel
+                                 or AttributeModifierOperation.Additive
                                  or AttributeModifierOperation.MultiplyByClassLevelBeforeAdditions))
                 {
                     var level = attribute.Key switch
@@ -457,6 +458,13 @@ public static class RulesetActorPatcher
                     if (level > 0)
                     {
                         modifier.Value = level;
+                    }
+
+                    //TODO: make this more generic. it supports Ranger Light Bearer subclass
+                    if (modifier.Operation == AttributeModifierOperation.Additive &&
+                        attribute.Key == AttributeDefinitions.HealingPool)
+                    {
+                        modifier.Value = hero.GetClassLevel(DatabaseHelper.CharacterClassDefinitions.Ranger) * 5;
                     }
                 }
             }

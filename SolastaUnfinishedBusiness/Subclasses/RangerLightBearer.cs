@@ -82,15 +82,15 @@ internal sealed class RangerLightBearer : AbstractSubclass
             .SetGuiPresentationNoContent(true)
             .SetModifier(
                 FeatureDefinitionAttributeModifier.AttributeModifierOperation.Set,
-                AttributeDefinitions.HealingPool, 5)
+                AttributeDefinitions.HealingPool, 0)
             .AddToDB();
 
-        var attributeModifierLifeBringerMultiplier = FeatureDefinitionAttributeModifierBuilder
-            .Create($"AttributeModifier{Name}LifeBringerMultiplier")
+        var attributeModifierLifeBringerAdditive = FeatureDefinitionAttributeModifierBuilder
+            .Create($"AttributeModifier{Name}LifeBringerAdditive")
             .SetGuiPresentationNoContent(true)
             .SetModifier(
-                FeatureDefinitionAttributeModifier.AttributeModifierOperation.MultiplyByClassLevel,
-                AttributeDefinitions.HealingPool)
+                FeatureDefinitionAttributeModifier.AttributeModifierOperation.Additive,
+                AttributeDefinitions.HealingPool, 1)
             .AddToDB();
 
         var powerLifeBringer = FeatureDefinitionPowerBuilder
@@ -101,6 +101,8 @@ internal sealed class RangerLightBearer : AbstractSubclass
                     .Create(FeatureDefinitionPowers.PowerPaladinLayOnHands)
                     .SetDurationData(DurationType.Instantaneous)
                     .SetTargetingData(Side.Ally, RangeType.Touch, 0, TargetType.Individuals)
+                    .SetRestrictedCreatureFamilies(
+                        CharacterFamilyDefinitions.Construct, CharacterFamilyDefinitions.Undead)
                     .SetEffectForms(
                         EffectFormBuilder
                             .Create()
@@ -110,6 +112,10 @@ internal sealed class RangerLightBearer : AbstractSubclass
                     .Build())
             .AddToDB();
 
+        // Level 07
+
+        // Blessed Glow
+
         Subclass = CharacterSubclassDefinitionBuilder
             .Create(Name)
             .SetGuiPresentation(Category.Subclass, Sprites.GetSprite(Name, Resources.RangerLightBearer, 256))
@@ -118,7 +124,7 @@ internal sealed class RangerLightBearer : AbstractSubclass
                 featureSetLight,
                 powerBlessedWarrior,
                 attributeModifierLifeBringerBase,
-                attributeModifierLifeBringerMultiplier,
+                attributeModifierLifeBringerAdditive,
                 powerLifeBringer)
             .AddFeaturesAtLevel(7)
             .AddFeaturesAtLevel(11)
