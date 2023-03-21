@@ -88,7 +88,8 @@ internal static class ClassFeats
             .SetGuiPresentation(Category.Feat)
             .SetFeatures(FeatureDefinitionPowerBuilder
                 .Create($"Power{NAME}")
-                .SetGuiPresentation(Category.Feature, PowerOathOfTirmarGoldenSpeech)
+                .SetGuiPresentation(Category.Feature,
+                    Sprites.GetSprite("PowerCallForCharge", Resources.PowerCallForCharge, 256, 128))
                 .SetUsesAbilityBonus(ActivationTime.BonusAction, RechargeRate.LongRest, AttributeDefinitions.Charisma)
                 .SetEffectDescription(
                     EffectDescriptionBuilder
