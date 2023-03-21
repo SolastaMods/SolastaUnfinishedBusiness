@@ -99,7 +99,9 @@ public static class RulesetCharacterHeroPatcher
             }
 
             // Only override if the character actually has levels in the class, to prevent errors
-            if (__instance.ClassesAndLevels.TryGetValue(classHolder, out var levelsInClass) && levelsInClass > 0)
+            var levels = __instance.GetClassLevel(classHolder);
+
+            if (levels > 0)
             {
                 __result = classHolder;
             }

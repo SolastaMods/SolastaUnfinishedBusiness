@@ -1,5 +1,11 @@
 ﻿CHANGES:
 
+1.4.33.63:
+
+- fixed action use soft lock introduced with Poison Expert feat
+- fixed Hardy feat to use fighter class level instead of character level
+- added new sprites to Call for Charge, Inspiring Leader, and Dragon Wings
+
 1.4.33.62:
 
 - added General > Character > Improve Ranger features selection setting

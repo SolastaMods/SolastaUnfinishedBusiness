@@ -127,7 +127,7 @@ public class CustomCharacterStatsPanel
         stats.initiativeBox.Bind(character.GetAttribute(AttributeDefinitions.Initiative), "+0;-#");
         stats.initiativeBox.Activate(true);
 
-        var proficiencyBonus = character.GetAttribute(AttributeDefinitions.ProficiencyBonus);
+        character.TryGetAttribute(AttributeDefinitions.ProficiencyBonus, out var proficiencyBonus);
         stats.proficiencyBox.Activate(proficiencyBonus != null);
         if (stats.proficiencyBox.Activated)
         {

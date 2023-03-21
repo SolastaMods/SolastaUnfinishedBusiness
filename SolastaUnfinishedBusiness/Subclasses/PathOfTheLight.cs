@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
+using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomInterfaces;
@@ -322,12 +323,8 @@ internal sealed class PathOfTheLight : AbstractSubclass
             return;
         }
 
-        if (!conditionSource.ClassesAndLevels.TryGetValue(CharacterClassDefinitions.Barbarian, out var levelsInClass))
-        {
-            return;
-        }
-
-        var amountHealed = (levelsInClass + 1) / 2;
+        var levels = conditionSource.GetClassLevel(CharacterClassDefinitions.Barbarian);
+        var amountHealed = (levels + 1) / 2;
 
         conditionSource.ReceiveHealing(amountHealed, true, sourceGuid);
     }

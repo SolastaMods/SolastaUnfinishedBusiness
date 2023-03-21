@@ -195,7 +195,8 @@ internal static class OtherFeats
     {
         var powerFeatInspiringLeader = FeatureDefinitionPowerBuilder
             .Create("PowerFeatInspiringLeader")
-            .SetGuiPresentation("FeatInspiringLeader", Category.Feat, PowerOathOfTirmarGoldenSpeech)
+            .SetGuiPresentation("FeatInspiringLeader", Category.Feat,
+                Sprites.GetSprite("PowerInspiringLeader", Resources.PowerInspiringLeader, 256, 128))
             .SetUsesFixed(ActivationTime.Minute10, RechargeRate.ShortRest)
             .SetExplicitAbilityScore(AttributeDefinitions.Charisma)
             .SetEffectDescription(EffectDescriptionBuilder.Create()
