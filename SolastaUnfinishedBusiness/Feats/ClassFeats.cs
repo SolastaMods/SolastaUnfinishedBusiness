@@ -391,9 +391,16 @@ internal static class ClassFeats
             }
 
             var rulesetCharacter = action.ActingCharacter.RulesetCharacter;
-            var characterLevel = rulesetCharacter.GetAttribute(AttributeDefinitions.CharacterLevel).CurrentValue;
+            var hero = rulesetCharacter as RulesetCharacterHero ??
+                       rulesetCharacter.OriginalFormCharacter as RulesetCharacterHero;
+
+            if (!hero.ClassesAndLevels.TryGetValue(CharacterClassDefinitions.Fighter, out var classLevel))
+            {
+                return;
+            }
+
             var dieRoll = RollDie(DieType.D10, AdvantageType.None, out _, out _);
-            var healingReceived = characterLevel + dieRoll;
+            var healingReceived = classLevel + dieRoll;
 
             if (rulesetCharacter.TemporaryHitPoints <= healingReceived)
             {
