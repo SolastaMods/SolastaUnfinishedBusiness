@@ -3,7 +3,7 @@
 1.4.33.62:
 
 - added General > Character > Improve Ranger features selection setting
-- added Expand the Hunt, Longsword Finesse, Poisoner and Slay thy Enemies feats
+- added Expand the Hunt, Longsword Finesse, Poison Expert and Slay thy Enemies feats
 - changed level prerequisites on Critical Virtuoso feats to 8 and 16
 - changed Weapon Specialization to grant on 8 and 16 instead of 2, 4, 10 and 12
 - changed extra feats selection to grant on 4, 10 and 16 instead of 2, 6, 10 and 14
