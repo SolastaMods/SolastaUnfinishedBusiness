@@ -987,9 +987,10 @@ public static class GameLocationBattleManagerPatcher
             }
 
             //PATCH: allow custom behavior when physical attack initiates
-            foreach (var feature in attacker.RulesetCharacter.GetSubFeaturesByType<IAttackInitiated>())
+            foreach (var attackInitiated in __instance.battle.GetOpposingContenders(attacker.Side)
+                         .SelectMany(x => x.RulesetCharacter.GetSubFeaturesByType<IAttackInitiated>()))
             {
-                yield return feature.OnAttackInitiated(
+                yield return attackInitiated.OnAttackInitiated(
                     __instance, action, attacker, defender, attackModifier, attackerAttackMode);
             }
         }
@@ -1021,7 +1022,8 @@ public static class GameLocationBattleManagerPatcher
             foreach (var feature in attacker.RulesetCharacter.GetSubFeaturesByType<IAttackFinished>())
             {
                 yield return feature.OnAttackFinished(
-                    __instance, attackAction, attacker, defender, attackerAttackMode, attackRollOutcome, damageAmount);
+                    __instance, attackAction, attacker, defender, attackerAttackMode, attackRollOutcome,
+                    damageAmount);
             }
         }
     }
