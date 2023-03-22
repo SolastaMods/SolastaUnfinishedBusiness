@@ -563,15 +563,27 @@ internal static class CharacterContext
     {
         var kindredSpirits = FeatureSetKindredSpiritChoice.FeatureSet;
 
+        var kindredSpiritsSprites = new Dictionary<string, byte[]>
+        {
+            { "PowerKindredSpiritApe", Resources.SpiritApe },
+            { "PowerKindredSpiritBear", Resources.SpiritBear },
+            { "PowerKindredSpiritEagle", Resources.SpiritEagle },
+            { "PowerKindredSpiritSpider", Resources.SpiritSpider },
+            { "PowerKindredSpiritViper", Resources.SpiritViper },
+            { "PowerKindredSpiritWolf", Resources.SpiritWolf }
+        };
+
         foreach (var featureDefinitionPower in kindredSpirits.OfType<FeatureDefinitionPower>())
         {
             var monsterName = featureDefinitionPower.EffectDescription.EffectForms[0].SummonForm.MonsterDefinitionName;
             var monsterDefinition = GetDefinition<MonsterDefinition>(monsterName);
             var guiPresentation = monsterDefinition.GuiPresentation;
+            var powerName = featureDefinitionPower.Name;
+            var sprite = Sprites.GetSprite(powerName, kindredSpiritsSprites[powerName], 128);
 
             _ = CustomInvocationDefinitionBuilder
                 .Create($"CustomInvocation{monsterName}")
-                .SetGuiPresentation(guiPresentation)
+                .SetGuiPresentation(guiPresentation.Title, guiPresentation.Description, sprite)
                 .SetPoolType(InvocationPoolTypeCustom.Pools.KindredSpiritChoice)
                 .SetGrantedFeature(featureDefinitionPower)
                 .SetCustomSubFeatures(Hidden.Marker)

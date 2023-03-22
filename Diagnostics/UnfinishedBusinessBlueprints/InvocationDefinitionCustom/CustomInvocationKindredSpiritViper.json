@@ -15,9 +15,9 @@
     "description": "Monster/&SpiritDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "34f5f50085bb7cb4e9918a6bf91a0caf",
-      "m_SubObjectName": "KindredSpiritViper",
-      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+      "m_AssetGUID": "e18f39e6-21c6-509c-9f86-9190c060ae61",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",

@@ -768,6 +768,9 @@
   <data name="PowerLight" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Powers\PowerLight.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="PowerTorchBearer" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Powers\PowerTorchBearer.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="CircleOfTheAncientForest" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Subclasses\CircleOfTheAncientForest.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -980,5 +983,23 @@
   </data>
   <data name="SilverDragon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Ancestries\SilverDragon.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="SpiritApe" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Spirits\SpiritApe.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="SpiritBear" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Spirits\SpiritBear.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="SpiritEagle" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Spirits\SpiritEagle.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="SpiritSpider" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Spirits\SpiritSpider.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="SpiritViper" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Spirits\SpiritViper.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="SpiritWolf" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Spirits\SpiritWolf.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

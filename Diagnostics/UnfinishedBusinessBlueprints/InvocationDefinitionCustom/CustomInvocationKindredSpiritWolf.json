@@ -15,9 +15,9 @@
     "description": "Monster/&SpiritDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
-      "m_AssetGUID": "f0c21bbf7b2430746a0e97ee7740ea79",
-      "m_SubObjectName": "KindredSpiritWolf",
-      "m_SubObjectType": "UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"
+      "m_AssetGUID": "cc3a8ee8-a352-5073-ab75-dd618840ba90",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",

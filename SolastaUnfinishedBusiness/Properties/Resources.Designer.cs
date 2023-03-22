@@ -2005,6 +2005,16 @@ namespace SolastaUnfinishedBusiness.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
+        public static byte[] PowerTorchBearer {
+            get {
+                object obj = ResourceManager.GetObject("PowerTorchBearer", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
         public static byte[] PreferredEnemyAberration {
             get {
                 object obj = ResourceManager.GetObject("PreferredEnemyAberration", resourceCulture);
@@ -2545,9 +2555,69 @@ namespace SolastaUnfinishedBusiness.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
+        public static byte[] SpiritApe {
+            get {
+                object obj = ResourceManager.GetObject("SpiritApe", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        public static byte[] SpiritBear {
+            get {
+                object obj = ResourceManager.GetObject("SpiritBear", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        public static byte[] SpiritEagle {
+            get {
+                object obj = ResourceManager.GetObject("SpiritEagle", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
         public static byte[] SpiritShroud {
             get {
                 object obj = ResourceManager.GetObject("SpiritShroud", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        public static byte[] SpiritSpider {
+            get {
+                object obj = ResourceManager.GetObject("SpiritSpider", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        public static byte[] SpiritViper {
+            get {
+                object obj = ResourceManager.GetObject("SpiritViper", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        public static byte[] SpiritWolf {
+            get {
+                object obj = ResourceManager.GetObject("SpiritWolf", resourceCulture);
                 return ((byte[])(obj));
             }
         }
