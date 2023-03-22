@@ -131,7 +131,7 @@ ModUi/&HideMonsterHitPoints=Muestra la salud de los monstruos en pasos de 25 %/5
 ModUi/&House=<color=#F0DAA0>Casa:</color>
 ModUi/&IdentifyAfterRest=Añade un poder para identificar objetos mágicos durante un descanso corto o largo
 ModUi/&IgnoreHandXbowFreeHandRequirements=No requiere mano libre para usar ballestas de mano
-ModUi/&ImproveRangerFeaturesSelection=Mejorar la interfaz de usuario de selección de terreno favorito y enemigo preferido de <color=#D89555>Ranger</color> <i><color=#F0DAA0>[sugerido si planea tomar <color=#D89555>Mejorar la caza</color>]</color></i> <b><i><color=#C04040E0>[Requiere reiniciar]</color></i></b>
+ModUi/&ImproveLevelUpFeaturesSelection=Mejorar la selección de funciones para subir de nivel <b><i><color=#C04040E0>[Requiere reiniciar]</color></i></b>\n<i><color=#F0DAA0>[impacta <color= #D89555>Ranger</color> Preferred Enemy and Terrain Affinity, <color=#D89555>Druid</color> Kindred Beast y subclases Draconic choice]</color></i>
 ModUi/&IncreaseGameTimeBy=Aumenta el tiempo de juego en
 ModUi/&IncreaseMaxAttunedItems=Aumente el máximo de elementos sintonizados a 4 en el nivel 10 y 5 en el nivel 18
 ModUi/&IncreaseSenseNormalVision=<color=white>Aumenta el alcance de <color=#D89555>Sensor de visión normal</color> para permitir ataques de largo alcance</color> <b><i><color=#C04040E0>[Requiere reinicio]</color></i></b>

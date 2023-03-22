@@ -36,17 +36,45 @@ internal static class CharacterContext
     internal const int ModMaxAttribute = 17;
     internal const int ModBuyPoints = 35;
 
+    private static readonly FeatureDefinitionCustomInvocationPool InvocationPoolPathClawDraconicChoice =
+        CustomInvocationPoolDefinitionBuilder
+            .Create("InvocationPoolPathClawDraconicChoice")
+            .SetGuiPresentation(FeatureSetPathClawDragonAncestry.GuiPresentation)
+            .Setup(InvocationPoolTypeCustom.Pools.PathClawDraconicChoice)
+            .AddToDB();
+
+    private static readonly FeatureDefinitionCustomInvocationPool InvocationPoolSorcererDraconicChoice =
+        CustomInvocationPoolDefinitionBuilder
+            .Create("InvocationPoolSorcererDraconicChoice")
+            .SetGuiPresentation(FeatureSetSorcererDraconicChoice.GuiPresentation)
+            .Setup(InvocationPoolTypeCustom.Pools.SorcererDraconicChoice)
+            .AddToDB();
+
+    private static readonly FeatureDefinitionCustomInvocationPool InvocationPoolWayOfTheDragonDraconicChoice =
+        CustomInvocationPoolDefinitionBuilder
+            .Create("InvocationPoolWayOfTheDragonDraconicChoice")
+            .SetGuiPresentation(WayOfTheDragon.FeatureSetPathOfTheDragonDisciple.GuiPresentation)
+            .Setup(InvocationPoolTypeCustom.Pools.WayOfTheDragonDraconicChoice)
+            .AddToDB();
+
+    private static readonly FeatureDefinitionCustomInvocationPool InvocationPoolKindredSpiritChoice =
+        CustomInvocationPoolDefinitionBuilder
+            .Create("InvocationPoolKindredSpiritChoice")
+            .SetGuiPresentation(FeatureSetKindredSpiritChoice.GuiPresentation)
+            .Setup(InvocationPoolTypeCustom.Pools.KindredSpiritChoice)
+            .AddToDB();
+
     internal static readonly FeatureDefinitionCustomInvocationPool InvocationPoolRangerTerrainType =
         CustomInvocationPoolDefinitionBuilder
             .Create("InvocationPoolRangerTerrainType")
-            .SetGuiPresentation("InvocationPoolRangerTerrainTypeAffinityLearn", Category.Feature)
+            .SetGuiPresentation(TerrainTypeAffinityRangerNaturalExplorerChoice.GuiPresentation)
             .Setup(InvocationPoolTypeCustom.Pools.RangerTerrainTypeAffinity)
             .AddToDB();
 
     internal static readonly FeatureDefinitionCustomInvocationPool InvocationPoolRangerPreferredEnemy =
         CustomInvocationPoolDefinitionBuilder
             .Create("InvocationPoolRangerPreferredEnemy")
-            .SetGuiPresentation("InvocationPoolRangerPreferredEnemyLearn", Category.Feature)
+            .SetGuiPresentation(AdditionalDamageRangerFavoredEnemyChoice.GuiPresentation)
             .Setup(InvocationPoolTypeCustom.Pools.RangerPreferredEnemy)
             .AddToDB();
 
@@ -86,11 +114,24 @@ internal static class CharacterContext
         FlexibleBackgroundsContext.SwitchFlexibleBackgrounds();
         FlexibleRacesContext.SwitchFlexibleRaces();
         SwitchFirstLevelTotalFeats(); // alternate human here as well
-        SwitchRangerHumanoidFavoredEnemy();
-        SwitchRangerToUseCustomInvocationPools();
         SwitchAsiAndFeat();
         SwitchEvenLevelFeats();
         SwitchFighterArmamentAdroitness();
+        SwitchRangerHumanoidFavoredEnemy();
+        SwitchRangerToUseCustomInvocationPools();
+        SwitchDruidKindredBeastToUseCustomInvocationPools();
+        SwitchSubclassAncestriesToUseCustomInvocationPools(
+            "PathClaw", PathClaw,
+            FeatureSetPathClawDragonAncestry, InvocationPoolPathClawDraconicChoice,
+            InvocationPoolTypeCustom.Pools.PathClawDraconicChoice);
+        SwitchSubclassAncestriesToUseCustomInvocationPools(
+            "Sorcerer", SorcerousDraconicBloodline,
+            FeatureSetSorcererDraconicChoice, InvocationPoolSorcererDraconicChoice,
+            InvocationPoolTypeCustom.Pools.SorcererDraconicChoice);
+        SwitchSubclassAncestriesToUseCustomInvocationPools(
+            "WayOfTheDragon", GetDefinition<CharacterSubclassDefinition>(WayOfTheDragon.Name),
+            WayOfTheDragon.FeatureSetPathOfTheDragonDisciple, InvocationPoolWayOfTheDragonDraconicChoice,
+            InvocationPoolTypeCustom.Pools.WayOfTheDragonDraconicChoice);
     }
 
     private static void LoadHelpPower()
@@ -422,7 +463,6 @@ internal static class CharacterContext
         }
     }
 
-
     private static void SwitchRangerToUseCustomInvocationPools()
     {
         const string Name = "Ranger";
@@ -502,7 +542,7 @@ internal static class CharacterContext
 
         // replace the original features with custom invocation pools
 
-        if (!Main.Settings.ImproveRangerFeaturesSelection)
+        if (!Main.Settings.ImproveLevelUpFeaturesSelection)
         {
             return;
         }
@@ -517,6 +557,93 @@ internal static class CharacterContext
             .ToList();
 
         Ranger.FeatureUnlocks.SetRange(replacedFeatures);
+    }
+
+    private static void SwitchDruidKindredBeastToUseCustomInvocationPools()
+    {
+        var kindredSpirits = FeatureSetKindredSpiritChoice.FeatureSet;
+
+        foreach (var featureDefinitionPower in kindredSpirits.OfType<FeatureDefinitionPower>())
+        {
+            var monsterName = featureDefinitionPower.EffectDescription.EffectForms[0].SummonForm.MonsterDefinitionName;
+            var monsterDefinition = GetDefinition<MonsterDefinition>(monsterName);
+            var guiPresentation = monsterDefinition.GuiPresentation;
+
+            _ = CustomInvocationDefinitionBuilder
+                .Create($"CustomInvocation{monsterName}")
+                .SetGuiPresentation(guiPresentation)
+                .SetPoolType(InvocationPoolTypeCustom.Pools.KindredSpiritChoice)
+                .SetGrantedFeature(featureDefinitionPower)
+                .SetCustomSubFeatures(Hidden.Marker)
+                .AddToDB();
+        }
+
+        // replace the original features with custom invocation pools
+
+        if (!Main.Settings.ImproveLevelUpFeaturesSelection)
+        {
+            return;
+        }
+
+        var replacedFeatures = CircleKindred.FeatureUnlocks
+            .Select(x => x.FeatureDefinition == FeatureSetKindredSpiritChoice
+                ? new FeatureUnlockByLevel(InvocationPoolKindredSpiritChoice, x.Level)
+                : x)
+            .ToList();
+
+        CircleKindred.FeatureUnlocks.SetRange(replacedFeatures);
+    }
+
+    private static void SwitchSubclassAncestriesToUseCustomInvocationPools(
+        string name,
+        CharacterSubclassDefinition characterSubclassDefinition,
+        FeatureDefinitionFeatureSet featureDefinitionFeatureSet,
+        FeatureDefinition featureDefinitionCustomInvocationPool,
+        InvocationPoolTypeCustom invocationPoolTypeCustom)
+    {
+        var draconicAncestries = featureDefinitionFeatureSet.FeatureSet;
+
+        var draconicAncestriesSprites = new Dictionary<string, byte[]>
+        {
+            { $"Ancestry{name}DraconicBlack", Resources.BlackDragon },
+            { $"Ancestry{name}DraconicBlue", Resources.BlueDragon },
+            { $"Ancestry{name}DraconicGold", Resources.GoldDragon },
+            { $"Ancestry{name}DraconicGreen", Resources.GreenDragon },
+            { $"Ancestry{name}DraconicSilver", Resources.SilverDragon }
+        };
+
+        foreach (var featureDefinitionAncestry in draconicAncestries.OfType<FeatureDefinitionAncestry>())
+        {
+            var ancestryName = featureDefinitionAncestry.Name;
+            var sprite = Sprites.GetSprite(ancestryName, draconicAncestriesSprites[$"{ancestryName}"], 128);
+
+            _ = CustomInvocationDefinitionBuilder
+                .Create($"CustomInvocation{ancestryName}")
+                .SetGuiPresentation(
+                    featureDefinitionAncestry.GuiPresentation.Title,
+                    Gui.Format("Feature/&AncestryLevelUpDraconicDescription",
+                        Gui.Localize($"Rules/&{featureDefinitionAncestry.damageType}Title")),
+                    sprite)
+                .SetPoolType(invocationPoolTypeCustom)
+                .SetGrantedFeature(featureDefinitionAncestry)
+                .SetCustomSubFeatures(Hidden.Marker)
+                .AddToDB();
+        }
+
+        // replace the original features with custom invocation pools
+
+        if (!Main.Settings.ImproveLevelUpFeaturesSelection)
+        {
+            return;
+        }
+
+        var replacedFeatures = characterSubclassDefinition.FeatureUnlocks
+            .Select(x => x.FeatureDefinition == featureDefinitionFeatureSet
+                ? new FeatureUnlockByLevel(featureDefinitionCustomInvocationPool, x.Level)
+                : x)
+            .ToList();
+
+        characterSubclassDefinition.FeatureUnlocks.SetRange(replacedFeatures);
     }
 
     internal static void SwitchAsiAndFeat()

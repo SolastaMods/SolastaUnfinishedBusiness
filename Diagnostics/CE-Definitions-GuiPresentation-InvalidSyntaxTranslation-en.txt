@@ -327,6 +327,21 @@ A powerful wight, trained to withstand the light of day.'.
 CreateDeadRisenWightNoConcentration	Title='Raise Wight'.
 CreateDeadRisenWightNoConcentration	Description='Summons <b>Wight</b>:
 A Wight'.
+CustomInvocationAncestryPathClawDraconicBlack	Description='Your draconic ancestry gives you an affinity to Acid damage type.'.
+CustomInvocationAncestryPathClawDraconicBlue	Description='Your draconic ancestry gives you an affinity to Lightning damage type.'.
+CustomInvocationAncestryPathClawDraconicGold	Description='Your draconic ancestry gives you an affinity to Fire damage type.'.
+CustomInvocationAncestryPathClawDraconicGreen	Description='Your draconic ancestry gives you an affinity to Poison damage type.'.
+CustomInvocationAncestryPathClawDraconicSilver	Description='Your draconic ancestry gives you an affinity to Cold damage type.'.
+CustomInvocationAncestrySorcererDraconicBlack	Description='Your draconic ancestry gives you an affinity to Acid damage type.'.
+CustomInvocationAncestrySorcererDraconicBlue	Description='Your draconic ancestry gives you an affinity to Lightning damage type.'.
+CustomInvocationAncestrySorcererDraconicGold	Description='Your draconic ancestry gives you an affinity to Fire damage type.'.
+CustomInvocationAncestrySorcererDraconicGreen	Description='Your draconic ancestry gives you an affinity to Poison damage type.'.
+CustomInvocationAncestrySorcererDraconicSilver	Description='Your draconic ancestry gives you an affinity to Cold damage type.'.
+CustomInvocationAncestryWayOfTheDragonDraconicBlack	Description='Your draconic ancestry gives you an affinity to Acid damage type.'.
+CustomInvocationAncestryWayOfTheDragonDraconicBlue	Description='Your draconic ancestry gives you an affinity to Lightning damage type.'.
+CustomInvocationAncestryWayOfTheDragonDraconicGold	Description='Your draconic ancestry gives you an affinity to Fire damage type.'.
+CustomInvocationAncestryWayOfTheDragonDraconicGreen	Description='Your draconic ancestry gives you an affinity to Poison damage type.'.
+CustomInvocationAncestryWayOfTheDragonDraconicSilver	Description='Your draconic ancestry gives you an affinity to Cold damage type.'.
 CustomInvocationCreateInfusedReplicaAmuletOfHealth	Title='Replica Amulet of Health'.
 CustomInvocationCreateInfusedReplicaAmuletOfHealth	Description='Create replica <b>Amulet of Health</b>:
 This amulet was created by Marsh halfling mages in the olden times to help sick people survive the hardships of Olme Fen. '.

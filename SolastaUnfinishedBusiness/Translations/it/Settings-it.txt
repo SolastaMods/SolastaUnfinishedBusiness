@@ -131,7 +131,7 @@ ModUi/&HideMonsterHitPoints=Mostra la salute dei mostri in passi del 25% / 50% /
 ModUi/&House=<color=#F0DAA0>Casa:</color>
 ModUi/&IdentifyAfterRest=Aggiunge un potere per identificare gli oggetti magici durante un riposo breve o lungo
 ModUi/&IgnoreHandXbowFreeHandRequirements=Non è necessaria la mano libera per usare le balestre a mano
-ModUi/&ImproveRangerFeaturesSelection=Migliora l'interfaccia utente <color=#D89555>Guardiano</color> nemico preferito e selezione del terreno preferito <i><color=#F0DAA0>[suggerito se prevedi di prendere <color=#D89555> Migliora la caccia</color>]</color></i> <b><i><color=#C04040E0>[Richiede il riavvio]</color></i></b>
+ModUi/&ImproveLevelUpFeaturesSelection=Migliora la selezione delle funzionalità per salire di livello <b><i><color=#C04040E0>[Richiede il riavvio]</color></i></b>\n<i><color=#F0DAA0>[impacts <color= #D89555>Ranger</color> Nemico preferito e affinità con il terreno, <color=#D89555>Druido</color> Kindred Beast e sottoclassi Scelte Draconiche]</color></i>
 ModUi/&IncreaseGameTimeBy=Aumenta il tempo di gioco di
 ModUi/&IncreaseMaxAttunedItems=Aumenta il numero massimo di oggetti sintonizzati a 4 al livello 10 e 5 al livello 18
 ModUi/&IncreaseSenseNormalVision=<color=white>Aumenta il raggio di <color=#D89555>Percepisci visione normale</color> per consentire attacchi a lungo raggio</color> <b><i><color=#C04040E0>[Richiede il riavvio]</color></i></b>

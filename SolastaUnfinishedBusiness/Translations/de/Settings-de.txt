@@ -131,7 +131,7 @@ ModUi/&HideMonsterHitPoints=Zeigt die Gesundheit von Monstern in Schritten von 2
 ModUi/&House=<color=#F0DAA0>Haus:</color>
 ModUi/&IdentifyAfterRest=Fügen Sie eine Kraft hinzu, um magische Gegenstände über eine kurze oder lange Pause zu identifizieren
 ModUi/&IgnoreHandXbowFreeHandRequirements=Benötigen Sie keine freie Hand, um Handarmbrüste zu verwenden
-ModUi/&ImproveRangerFeaturesSelection=Verbessere <color=#D89555>Waldläufer</color>-Benutzeroberfläche zur Auswahl bevorzugter Feinde und bevorzugter Gelände <i><color=#F0DAA0>[empfohlen, wenn du planst, <color=#D89555>Verbessere die Jagd</color>]</color></i> <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>
+ModUi/&ImproveLevelUpFeaturesSelection=Auswahl von Level-Up-Funktionen verbessern <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>\n<i><color=#F0DAA0>[beeinflusst <color= #D89555>Waldläufer</color> bevorzugter Feind und Geländeaffinität, <color=#D89555>Druide</color> verwandte Bestie und Unterklassen Drakonische Entscheidungen]</color></i>
 ModUi/&IncreaseGameTimeBy=Erhöhen Sie die Spielzeit um
 ModUi/&IncreaseMaxAttunedItems=Erhöhen Sie die maximale Anzahl abgestimmter Gegenstände auf 4 auf Stufe 10 und 5 auf Stufe 18
 ModUi/&IncreaseSenseNormalVision=<color=white>Erhöhen Sie die Reichweite der <color=#D89555>Normalen Sicht wahrnehmen</color>, um Langstreckenangriffe zu ermöglichen</color> <b><i><color=#C04040E0>[Neustart erforderlich]</color></i></b>

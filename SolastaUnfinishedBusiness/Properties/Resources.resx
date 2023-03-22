@@ -951,4 +951,19 @@
   <data name="TerrainAffinitySwamp" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\TerrainAffinity\TerrainAffinitySwamp.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="BlackDragon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Ancestries\BlackDragon.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="BlueDragon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Ancestries\BlueDragon.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="GoldDragon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Ancestries\GoldDragon.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="GreenDragon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Ancestries\GreenDragon.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="SilverDragon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Ancestries\SilverDragon.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
 </root>

@@ -19,7 +19,15 @@ namespace SolastaUnfinishedBusiness.Subclasses;
 
 internal sealed class WayOfTheDragon : AbstractSubclass
 {
-    private const string Name = "WayOfTheDragon";
+    internal const string Name = "WayOfTheDragon";
+
+    internal static readonly FeatureDefinitionFeatureSet FeatureSetPathOfTheDragonDisciple =
+        FeatureDefinitionFeatureSetBuilder
+            .Create($"FeatureSet{Name}Disciple")
+            .SetGuiPresentation("PathClawDragonAncestry", Category.Feature)
+            .SetMode(FeatureDefinitionFeatureSet.FeatureSetMode.Exclusion)
+            .SetAncestryType(ExtraAncestryType.WayOfTheDragon)
+            .AddToDB();
 
     internal WayOfTheDragon()
     {
@@ -95,13 +103,6 @@ internal sealed class WayOfTheDragon : AbstractSubclass
 
     private static FeatureDefinitionFeatureSet BuildDiscipleFeatureSet()
     {
-        var featureSetDisciple = FeatureDefinitionFeatureSetBuilder
-            .Create($"FeatureSet{Name}Disciple")
-            .SetGuiPresentation("PathClawDragonAncestry", Category.Feature)
-            .SetMode(FeatureDefinitionFeatureSet.FeatureSetMode.Exclusion)
-            .SetAncestryType(ExtraAncestryType.WayOfTheDragon)
-            .AddToDB();
-
         // ReSharper disable once ForeachCanBePartlyConvertedToQueryUsingAnotherGetEnumerator
         foreach (var featureDefinitionAncestry in DatabaseRepository.GetDatabase<FeatureDefinitionAncestry>()
                      .Where(x => x.Type == AncestryType.BarbarianClaw)
@@ -113,10 +114,10 @@ internal sealed class WayOfTheDragon : AbstractSubclass
                 .SetAncestry(ExtraAncestryType.WayOfTheDragon)
                 .AddToDB();
 
-            featureSetDisciple.FeatureSet.Add(ancestry);
+            FeatureSetPathOfTheDragonDisciple.FeatureSet.Add(ancestry);
         }
 
-        return featureSetDisciple;
+        return FeatureSetPathOfTheDragonDisciple;
     }
 
     private static FeatureDefinitionFeatureSet BuildDragonFeatureSet()

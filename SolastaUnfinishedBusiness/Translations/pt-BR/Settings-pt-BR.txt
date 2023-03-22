@@ -131,7 +131,7 @@ ModUi/&HideMonsterHitPoints=Exibe a saúde dos monstros em etapas de 25% / 50% /
 ModUi/&House=<color=#F0DAA0>Casa:</color>
 ModUi/&IdentifyAfterRest=Adicione um poder para identificar itens mágicos durante um descanso curto ou longo
 ModUi/&IgnoreHandXbowFreeHandRequirements=Não requer mão livre para usar bestas de mão
-ModUi/&ImproveRangerFeaturesSelection=Melhorar <color=#D89555>Ranger</color> inimigo preferido e seleção de terreno favorito UI <i><color=#F0DAA0>[sugerido se você planeja fazer <color=#D89555>Melhorar a Caçada</color>]</color></i> <b><i><color=#C04040E0>[Requer reinicialização]</color></i></b>
+ModUi/&ImproveLevelUpFeaturesSelection=Melhore a seleção de recursos de nível <b><i><color=#C04040E0>[Requer reinicialização]</color></i></b>\n<i><color=#F0DAA0>[impactos <color= #D89555>Ranger</color> Inimigo Preferido e Afinidade de Terreno, <color=#D89555>Druida</color> Kindred Beast e subclasses Escolhas Dracônicas]</color></i>
 ModUi/&IncreaseGameTimeBy=Aumente o tempo de jogo em
 ModUi/&IncreaseMaxAttunedItems=Aumente o máximo de itens sintonizados para 4 no nível 10 e 5 no nível 18
 ModUi/&IncreaseSenseNormalVision=<color=white>Aumente o alcance do <color=#D89555>Sentir visão normal</color> para permitir ataques de longo alcance</color> <b><i><color=#C04040E0>[Requer reinicialização]</color></i></b>

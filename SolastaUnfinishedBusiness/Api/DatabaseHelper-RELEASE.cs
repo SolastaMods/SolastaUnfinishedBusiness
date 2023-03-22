@@ -1,4 +1,4 @@
-// manually generated on 03/14/23
+// manually generated on 03/21/23
 using TA.AI;
 // ReSharper disable IdentifierTypo
 // ReSharper disable InconsistentNaming
@@ -74,6 +74,7 @@ internal static partial class DatabaseHelper
     }
     internal static class CharacterSubclassDefinitions
     {
+        internal static CharacterSubclassDefinition CircleKindred { get; } = GetDefinition<CharacterSubclassDefinition>("CircleKindred");
         internal static CharacterSubclassDefinition DomainBattle { get; } = GetDefinition<CharacterSubclassDefinition>("DomainBattle");
         internal static CharacterSubclassDefinition DomainElementalCold { get; } = GetDefinition<CharacterSubclassDefinition>("DomainElementalCold");
         internal static CharacterSubclassDefinition DomainElementalFire { get; } = GetDefinition<CharacterSubclassDefinition>("DomainElementalFire");
@@ -85,6 +86,7 @@ internal static partial class DatabaseHelper
         internal static CharacterSubclassDefinition DomainOblivion { get; } = GetDefinition<CharacterSubclassDefinition>("DomainOblivion");
         internal static CharacterSubclassDefinition DomainSun { get; } = GetDefinition<CharacterSubclassDefinition>("DomainSun");
         internal static CharacterSubclassDefinition MartialSpellblade { get; } = GetDefinition<CharacterSubclassDefinition>("MartialSpellblade");
+        internal static CharacterSubclassDefinition PathClaw { get; } = GetDefinition<CharacterSubclassDefinition>("PathClaw");
         internal static CharacterSubclassDefinition RangerSwiftBlade { get; } = GetDefinition<CharacterSubclassDefinition>("RangerSwiftBlade");
         internal static CharacterSubclassDefinition RoguishShadowCaster { get; } = GetDefinition<CharacterSubclassDefinition>("RoguishShadowCaster");
         internal static CharacterSubclassDefinition SorcerousChildRift { get; } = GetDefinition<CharacterSubclassDefinition>("SorcerousChildRift");
@@ -481,6 +483,8 @@ internal static partial class DatabaseHelper
         internal static FeatureDefinitionFeatureSet FeatureSetElfFeyAncestry { get; } = GetDefinition<FeatureDefinitionFeatureSet>("FeatureSetElfFeyAncestry");
         internal static FeatureDefinitionFeatureSet FeatureSetElfHighLanguages { get; } = GetDefinition<FeatureDefinitionFeatureSet>("FeatureSetElfHighLanguages");
         internal static FeatureDefinitionFeatureSet FeatureSetGreenmageWardenOfTheForest { get; } = GetDefinition<FeatureDefinitionFeatureSet>("FeatureSetGreenmageWardenOfTheForest");
+        internal static FeatureDefinitionFeatureSet FeatureSetKindredSpiritChoice { get; } = GetDefinition<FeatureDefinitionFeatureSet>("FeatureSetKindredSpiritChoice");
+        
         internal static FeatureDefinitionFeatureSet FeatureSetMonkDiamondSoul { get; } = GetDefinition<FeatureDefinitionFeatureSet>("FeatureSetMonkDiamondSoul");
         internal static FeatureDefinitionFeatureSet FeatureSetMonkFlurryOfBlows { get; } = GetDefinition<FeatureDefinitionFeatureSet>("FeatureSetMonkFlurryOfBlows");
         internal static FeatureDefinitionFeatureSet FeatureSetMonkStepOfTheWind { get; } = GetDefinition<FeatureDefinitionFeatureSet>("FeatureSetMonkStepOfTheWind");
@@ -489,6 +493,7 @@ internal static partial class DatabaseHelper
         internal static FeatureDefinitionFeatureSet FeatureSetPactBlade { get; } = GetDefinition<FeatureDefinitionFeatureSet>("FeatureSetPactBlade");
         internal static FeatureDefinitionFeatureSet FeatureSetPactChain { get; } = GetDefinition<FeatureDefinitionFeatureSet>("FeatureSetPactChain");
         internal static FeatureDefinitionFeatureSet FeatureSetPactTome { get; } = GetDefinition<FeatureDefinitionFeatureSet>("FeatureSetPactTome");
+        internal static FeatureDefinitionFeatureSet FeatureSetPathClawDragonAncestry { get; } = GetDefinition<FeatureDefinitionFeatureSet>("FeatureSetPathClawDragonAncestry");
         internal static FeatureDefinitionFeatureSet FeatureSetSorcererDraconicChoice { get; } = GetDefinition<FeatureDefinitionFeatureSet>("FeatureSetSorcererDraconicChoice");
         internal static FeatureDefinitionFeatureSet TerrainTypeAffinityRangerNaturalExplorerChoice { get; } = GetDefinition<FeatureDefinitionFeatureSet>("TerrainTypeAffinityRangerNaturalExplorerChoice");
     }

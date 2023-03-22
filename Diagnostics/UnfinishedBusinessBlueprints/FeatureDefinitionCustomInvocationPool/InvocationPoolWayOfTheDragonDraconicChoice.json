@@ -3,13 +3,13 @@
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
     "hidden": false,
-    "title": "Feature/&RangerFavoredEnemyTitle",
-    "description": "Feature/&RangerFavoredEnemyDescription",
+    "title": "Feature/&PathClawDragonAncestryTitle",
+    "description": "Feature/&PathClawDragonAncestryDescription",
     "spriteReference": {
       "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
       "m_AssetGUID": "",
-      "m_SubObjectName": "",
-      "m_SubObjectType": ""
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
     },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
@@ -24,7 +24,7 @@
     "usedInValleyDLC": false
   },
   "contentCopyright": "UserContent",
-  "guid": "f3acc0be-dbe4-594c-9d84-d2695748860c",
+  "guid": "299be5cd-6b37-5571-aa66-ff348eebe5ed",
   "contentPack": 9999,
-  "name": "InvocationPoolRangerPreferredEnemy"
+  "name": "InvocationPoolWayOfTheDragonDraconicChoice"
 }

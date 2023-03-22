@@ -130,6 +130,7 @@ All settings start disabled by default.
 [*][b]Oath of Ancients[/b]: An Oath from a more primitive time which one dedicates themself to utilizing nature for good.
 [*][b]Oath of Hatred[/b]: An Oath of Hatred paladin has dedicated himself to the punishment of evil doers by channeling hate.
 [*][b]Arcanist[/b]: The Arcanist melds their Ranger skills with arcane abilities. Their weapons can afflict their opponents with the Arcanist's Mark, and have learned how to cast some Wizard spells as part of their Ranger spell repertoire.
+[*][b]Light Bearer[/b]: The Light Bearer is a ranger that has been blessed by an inhabitant of the Upper Planes. These rangers, known for their good deeds toward nature and pious acts to all races, will have caught the attention of teh deities that live in such realms.
 [*][b]Wild Master[/b]: The Wild Master archetype embodies a friendship between the civilized races and the beasts of the world. United in focus, spirit and ranger work as one to fight the monstrous foes that threaten civilization and the wilderness alike.
 [*][b]Acrobat[/b]: The Acrobat Rogue is a natural performer. Where there is terrain and obstacles, the Acrobat sees a means to a very specific end: Performance!
 [*][b]Arcane Scoundrel[/b]: With quickness of ft and sharpness of wit, Arcane Scoundrels utilize a series of magical tricks to outsmart and debilitate their opponents.

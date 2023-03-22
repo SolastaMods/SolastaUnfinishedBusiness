@@ -131,7 +131,7 @@ ModUi/&HideMonsterHitPoints=Affiche la santé des monstres par paliers de 25 % 
 ModUi/&House=<color=#F0DAA0>Maison :</color>
 ModUi/&IdentifyAfterRest=Ajouter un pouvoir pour identifier les objets magiques sur un repos court ou long
 ModUi/&IgnoreHandXbowFreeHandRequirements=Ne nécessite pas de main libre pour utiliser les arbalètes à main
-ModUi/&ImproveRangerFeaturesSelection=Améliorer <color=#D89555>Ranger</color> ennemi préféré et interface de sélection de terrain préféré <i><color=#F0DAA0>[suggéré si vous prévoyez de prendre <color=#D89555>Améliorer la chasse</color>]</color></i> <b><i><color=#C04040E0>[Nécessite un redémarrage]</color></i></b>
+ModUi/&ImproveLevelUpFeaturesSelection=Améliorer la sélection des fonctionnalités de niveau supérieur <b><i><color=#C04040E0>[Nécessite un redémarrage]</color></i></b>\n<i><color=#F0DAA0>[impacts <color= #D89555>Ranger</color> Ennemi préféré et affinité avec le terrain, <color=#D89555>Druide</color> Kindred Beast et sous-classes Draconic choix]</color></i>
 ModUi/&IncreaseGameTimeBy=Augmentez le temps de jeu de
 ModUi/&IncreaseMaxAttunedItems=Augmenter le nombre maximum d'objets accordés à 4 au niveau 10 et 5 au niveau 18
 ModUi/&IncreaseSenseNormalVision=<color=white>Augmenter la plage <color=#D89555>Détecter la vision normale</color> pour permettre des attaques à longue portée</color> <b><i><color=#C04040E0>[Nécessite un redémarrage]</color></i></b>
