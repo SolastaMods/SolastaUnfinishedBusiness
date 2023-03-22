@@ -55,8 +55,7 @@ internal sealed class OathOfAncients : AbstractSubclass
                     .SetEffectForms(
                         EffectFormBuilder
                             .Create()
-                            .HasSavingThrow(EffectSavingThrowType.Negates)
-                            .CanSaveToCancel(TurnOccurenceType.EndOfTurn)
+                            .HasSavingThrow(EffectSavingThrowType.Negates, TurnOccurenceType.EndOfTurn, true)
                             .SetConditionForm(
                                 conditionNaturesWrath,
                                 ConditionForm.ConditionOperation.Add)
@@ -95,8 +94,7 @@ internal sealed class OathOfAncients : AbstractSubclass
                     .SetEffectForms(
                         EffectFormBuilder
                             .Create()
-                            .HasSavingThrow(EffectSavingThrowType.Negates)
-                            .CanSaveToCancel(TurnOccurenceType.EndOfTurn)
+                            .HasSavingThrow(EffectSavingThrowType.Negates, TurnOccurenceType.EndOfTurn, true)
                             .SetConditionForm(
                                 ConditionDefinitions.ConditionTurned,
                                 ConditionForm.ConditionOperation.Add)

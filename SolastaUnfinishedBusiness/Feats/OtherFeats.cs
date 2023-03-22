@@ -734,9 +734,8 @@ internal static class OtherFeats
                 AttributeDefinitions.Constitution)
             .SetEffectForms(EffectFormBuilder
                 .Create()
-                .HasSavingThrow(EffectSavingThrowType.Negates, TurnOccurenceType.StartOfTurn)
+                .HasSavingThrow(EffectSavingThrowType.Negates, TurnOccurenceType.EndOfTurn, true)
                 .SetConditionForm(ConditionDefinitions.ConditionPoisoned, ConditionForm.ConditionOperation.Add)
-                .CanSaveToCancel(TurnOccurenceType.EndOfTurn)
                 .Build())
             .SetDurationData(DurationType.Minute, 1)
             .SetRecurrentEffect(RecurrentEffect.OnTurnStart | RecurrentEffect.OnActivation)

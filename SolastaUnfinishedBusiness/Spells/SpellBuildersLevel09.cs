@@ -321,7 +321,6 @@ internal static partial class SpellBuilders
                         .AddToDB(),
                     ConditionForm.ConditionOperation.Add)
                 .HasSavingThrow(EffectSavingThrowType.Negates)
-                .CanSaveToCancel(TurnOccurenceType.EndOfTurn)
                 .Build())
             .Build();
 
