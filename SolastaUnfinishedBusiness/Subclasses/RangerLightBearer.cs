@@ -2,6 +2,7 @@
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
+using SolastaUnfinishedBusiness.CustomBehaviors;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Models;
@@ -60,7 +61,8 @@ internal sealed class RangerLightBearer : AbstractSubclass
         var powerBlessedWarrior = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}BlessedWarrior")
             .SetUsesFixed(ActivationTime.BonusAction)
-            .SetGuiPresentation(Category.Feature)
+            .SetGuiPresentation(Category.Feature,
+                Sprites.GetSprite("PowerBlessedWarrior", Resources.PowerBlessedWarrior, 256, 128))
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
@@ -95,7 +97,8 @@ internal sealed class RangerLightBearer : AbstractSubclass
 
         var powerLifeBringer = FeatureDefinitionPowerBuilder
             .Create(FeatureDefinitionPowers.PowerPaladinLayOnHands, $"Power{Name}LifeBringer")
-            .SetOrUpdateGuiPresentation(Category.Feature)
+            .SetGuiPresentation(Category.Feature,
+                Sprites.GetSprite("PowerLifeBringer", Resources.PowerLifeBringer, 256, 128))
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create(FeatureDefinitionPowers.PowerPaladinLayOnHands)
@@ -112,9 +115,88 @@ internal sealed class RangerLightBearer : AbstractSubclass
                     .Build())
             .AddToDB();
 
-        // Level 07
+        // LEVEL 07
 
         // Blessed Glow
+
+        /*
+        
+        You have the ability to conjure holy light. When you cast Light, you can force each creature of your choice within 20 ft of the light source to succeed on a constitution saving thrown against your spell saving DC or be blinded for 1 minute. An undead or fiend automatically fail this saving throw. 
+         
+        */
+
+        // LEVEL 11
+
+        // Angelic Form
+
+        var conditionAngelicForm = ConditionDefinitionBuilder
+            .Create($"Condition{Name}AngelicForm")
+            .AddFeatures(
+                FeatureDefinitionMovementAffinitys.MovementAffinityConditionFlyingAdaptive,
+                FeatureDefinitionAttackModifierBuilder
+                    .Create($"AttackModifier{Name}AngelicForm")
+                    .AddToDB())
+            .AddToDB();
+
+        var powerAngelicFormSprout = FeatureDefinitionPowerBuilder
+            .Create($"Power{Name}AngelicFormSprout")
+            .SetGuiPresentation(Category.Feature)
+            .SetUsesFixed(ActivationTime.Action, RechargeRate.LongRest)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetDurationData(DurationType.Minute, 1)
+                    .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .SetConditionForm(
+                                conditionAngelicForm,
+                                ConditionForm.ConditionOperation.Add)
+                            .Build())
+                    .Build())
+            .AddToDB();
+
+        powerAngelicFormSprout.SetCustomSubFeatures(new OnAfterActionFeatureAngelicForm(powerAngelicFormSprout));
+
+        var powerAngelicFormDismiss = FeatureDefinitionPowerBuilder
+            .Create($"Power{Name}AngelicFormDismiss")
+            .SetGuiPresentation(Category.Feature)
+            .SetUsesFixed(ActivationTime.BonusAction, RechargeRate.AtWill)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetDurationData(DurationType.Instantaneous)
+                    .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Self)
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .SetConditionForm(
+                                conditionAngelicForm,
+                                ConditionForm.ConditionOperation.Remove)
+                            .Build())
+                    .Build())
+            .SetCustomSubFeatures(
+                new ValidatorsPowerUse(ValidatorsCharacter.HasAnyOfConditions(conditionAngelicForm.Name)))
+            .AddToDB();
+
+        var featureSetAngelicForm = FeatureDefinitionFeatureSetBuilder
+            .Create($"FeatureSet{Name}AngelicForm")
+            .SetGuiPresentation($"Power{Name}AngelicFormSprout", Category.Feature)
+            .AddFeatureSet(powerAngelicFormSprout, powerAngelicFormDismiss)
+            .AddToDB();
+
+        // LEVEL 15
+
+        // Warding Light
+
+        /*
+        
+        You can use your holy light to temporarily blind assailants. When a creature within 60 ft makes an attack roll against a target and doesn't have advantage on the roll, you can use your reaction to impose disadvantage on it.
+        
+        */
+
+        // MAIN
 
         Subclass = CharacterSubclassDefinitionBuilder
             .Create(Name)
@@ -127,7 +209,8 @@ internal sealed class RangerLightBearer : AbstractSubclass
                 attributeModifierLifeBringerAdditive,
                 powerLifeBringer)
             .AddFeaturesAtLevel(7)
-            .AddFeaturesAtLevel(11)
+            .AddFeaturesAtLevel(11,
+                featureSetAngelicForm)
             .AddFeaturesAtLevel(15)
             .AddToDB();
     }
@@ -140,10 +223,9 @@ internal sealed class RangerLightBearer : AbstractSubclass
     // ReSharper disable once UnassignedGetOnlyAutoProperty
     internal override DeityDefinition DeityDefinition { get; }
 
-    private sealed class RangerHolder : IClassHoldingFeature
-    {
-        public CharacterClassDefinition Class => CharacterClassDefinitions.Ranger;
-    }
+    //
+    // Blessed Warrior
+    //
 
     private sealed class ModifyAttackModeForWeaponBlessedWarrior : IBeforeAttackEffect
     {
@@ -203,6 +285,35 @@ internal sealed class RangerLightBearer : AbstractSubclass
             {
                 rulesetDefender.RemoveCondition(rulesetCondition);
             }
+        }
+    }
+
+    //
+    // Angelic Form
+    //
+
+    private sealed class OnAfterActionFeatureAngelicForm : IOnAfterActionFeature
+    {
+        private static FeatureDefinitionPower _featureDefinitionPower;
+
+        public OnAfterActionFeatureAngelicForm(FeatureDefinitionPower featureDefinitionPower)
+        {
+            _featureDefinitionPower = featureDefinitionPower;
+        }
+
+        public void OnAfterAction(CharacterAction action)
+        {
+            if (action is not CharacterActionUsePower characterActionUsePower ||
+                characterActionUsePower.activePower.PowerDefinition != _featureDefinitionPower)
+            {
+                return;
+            }
+
+            var rulesetCharacter = action.ActingCharacter.RulesetCharacter;
+            var classLevel = rulesetCharacter.GetClassLevel(CharacterClassDefinitions.Ranger);
+
+            rulesetCharacter.ReceiveTemporaryHitPoints(
+                classLevel, DurationType.Minute, 1, TurnOccurenceType.EndOfTurn, rulesetCharacter.Guid);
         }
     }
 }
