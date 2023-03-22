@@ -1,5 +1,14 @@
 ﻿CHANGES:
 
+1.4.33.64:
+
+- added custom Ancestries level up selection screen
+- added custom Kindred Spirits level up selection screen
+- added Ranger Hell Walker subclass by Stuffies12
+- added Ranger Light Bearer subclass by Stuffies12
+- fixed Grenadier not able to use items as a bonus action
+- fixed interaction between Spear Mastery and Polearm Expert
+
 1.4.33.63:
 
 - fixed action use soft lock introduced with Poison Expert feat

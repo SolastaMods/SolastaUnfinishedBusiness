@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Settings xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <SelectedTab>4</SelectedTab>
+  <SelectedTab>0</SelectedTab>
   <EnableDiagsDump>0</EnableDiagsDump>
   <HideWelcomeMessage>true</HideWelcomeMessage>
   <DisplayRacesToggle>false</DisplayRacesToggle>
   <DisplayBackgroundsToggle>false</DisplayBackgroundsToggle>
   <DisplayDeitiesToggle>false</DisplayDeitiesToggle>
   <DisplayClassesToggle>false</DisplayClassesToggle>
-  <DisplaySubclassesToggle>true</DisplaySubclassesToggle>
+  <DisplaySubclassesToggle>false</DisplaySubclassesToggle>
   <DisplayFeatsToggle>false</DisplayFeatsToggle>
   <DisplayFeatGroupsToggle>false</DisplayFeatGroupsToggle>
   <DisplayFightingStylesToggle>false</DisplayFightingStylesToggle>
@@ -205,6 +205,7 @@
     <string>PathOfTheReaver</string>
     <string>MartialWeaponMaster</string>
     <string>RangerLightBearer</string>
+    <string>RangerHellWalker</string>
   </SubclassEnabled>
   <FeatSliderPosition>4</FeatSliderPosition>
   <FeatEnabled>
@@ -888,9 +889,7 @@
   <AllowAllPlayersOnNarrativeSequences>false</AllowAllPlayersOnNarrativeSequences>
   <FasterTimeModifier>1.5</FasterTimeModifier>
   <EncounterPercentageChance>5</EncounterPercentageChance>
-  <DefaultPartyHeroes>
-    <string>Farryn</string>
-  </DefaultPartyHeroes>
+  <DefaultPartyHeroes />
   <DontFollowCharacterInBattle>true</DontFollowCharacterInBattle>
   <DontFollowMargin>5</DontFollowMargin>
   <ShowChannelDivinityOnPortrait>true</ShowChannelDivinityOnPortrait>
@@ -1121,7 +1120,4 @@
   <EnableEnemiesControlledByPlayer>false</EnableEnemiesControlledByPlayer>
   <EnableHeroesControlledByComputer>false</EnableHeroesControlledByComputer>
   <DebugDisableVerifyDefinitionNameIsNotInUse>false</DebugDisableVerifyDefinitionNameIsNotInUse>
-  <DebugLogDefinitionCreation>false</DebugLogDefinitionCreation>
-  <DebugLogFieldInitialization>false</DebugLogFieldInitialization>
-  <DebugLogVariantMisuse>false</DebugLogVariantMisuse>
 </Settings>

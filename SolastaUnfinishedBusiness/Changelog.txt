@@ -1,3 +1,6 @@
-- fixed action use soft lock introduced with Poison Expert feat
-- fixed Hardy feat to use fighter class level instead of character level
-- added new sprites to Call for Charge, Inspiring Leader, and Dragon Wings
+- added custom Ancestries level up selection
+- added custom Kindred Spirits level up selection
+- added Ranger Hell Walker subclass
+- added Ranger Light Bearer subclass
+- fixed Grenadier not able to use items as a bonus action
+- fixed interaction between Spear Mastery and Polearm Expert
