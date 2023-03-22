@@ -1,6 +1,4 @@
-﻿Condition/&ConditionRangerLightBearerAngelicFormDescription=Ваша скорость полета равна скорости ходьбы, а ваши атаки также считаются магическими.
-Condition/&ConditionRangerLightBearerAngelicFormTitle=Ангельская форма
-Condition/&ConditionRangerLightBearerBlessedWarriorDescription=При попадании заклинателем атакой оружием метка взрывается, нанося урон излучением 1d8 пораженным и уничтожая метку. Начиная с 11 уровня урон от вашего Чародейского взрыва увеличивается до 2d8.
+﻿Condition/&ConditionRangerLightBearerBlessedWarriorDescription=При попадании заклинателем атакой оружием метка взрывается, нанося урон излучением 1d8 пораженным и уничтожая метку. Начиная с 11 уровня урон от вашего Чародейского взрыва увеличивается до 2d8.
 Condition/&ConditionRangerLightBearerBlessedWarriorTitle=Отмечен Благословенным Воином
 Feature/&AutoPreparedSpellsRangerLightBearerDescription=Вы можете сотворить свет действием и получить бонусные заклинания, которые считаются для вас заклинаниями следопыта и не учитываются при подсчете количества известных вам заклинаний:\n{0}
 Feature/&AutoPreparedSpellsRangerLightBearerTitle=Магия Несущих Свет

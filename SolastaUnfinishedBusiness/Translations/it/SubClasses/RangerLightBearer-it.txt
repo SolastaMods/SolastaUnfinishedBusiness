@@ -1,6 +1,4 @@
-﻿Condition/&ConditionRangerLightBearerAngelicFormDescription=Hai una velocità di volo pari alla tua velocità di camminata e anche i tuoi attacchi contano come magici.
-Condition/&ConditionRangerLightBearerAngelicFormTitle=Forma Angelica
-Condition/&ConditionRangerLightBearerBlessedWarriorDescription=Quando viene colpito dall'incantatore con un attacco con un'arma, il marchio esplode, infliggendo 1d8 danni radianti all'afflitto e distruggendo il marchio. A partire dall'11° livello, il danno della tua Detonazione Arcana aumenta a 2d8.
+﻿Condition/&ConditionRangerLightBearerBlessedWarriorDescription=Quando viene colpito dall'incantatore con un attacco con un'arma, il marchio esplode, infliggendo 1d8 danni radianti all'afflitto e distruggendo il marchio. A partire dall'11° livello, il danno della tua Detonazione Arcana aumenta a 2d8.
 Condition/&ConditionRangerLightBearerBlessedWarriorTitle=Contrassegnato dal Beato Guerriero
 Feature/&AutoPreparedSpellsRangerLightBearerDescription=Puoi lanciare luce come azione e ottenere incantesimi bonus che per te sono considerati incantesimi da ranger e non vengono conteggiati nel numero di incantesimi che conosci:\n{0}
 Feature/&AutoPreparedSpellsRangerLightBearerTitle=Magia del Portatore di Luce

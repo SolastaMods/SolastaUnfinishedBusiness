@@ -1,6 +1,4 @@
-﻿Condition/&ConditionRangerLightBearerAngelicFormDescription=Você tem um deslocamento de voo igual ao seu deslocamento de caminhada e seus ataques também contam como mágicos.
-Condition/&ConditionRangerLightBearerAngelicFormTitle=Forma angelical
-Condition/&ConditionRangerLightBearerBlessedWarriorDescription=Quando atingido pelo lançador com um ataque de arma, a marca detona, causando 1d8 de dano radiante ao afetado e destruindo a marca. Começando no 11º nível, o dano de sua Detonação Arcana aumenta para 2d8.
+﻿Condition/&ConditionRangerLightBearerBlessedWarriorDescription=Quando atingido pelo lançador com um ataque de arma, a marca detona, causando 1d8 de dano radiante ao afetado e destruindo a marca. Começando no 11º nível, o dano de sua Detonação Arcana aumenta para 2d8.
 Condition/&ConditionRangerLightBearerBlessedWarriorTitle=Marcado pelo Abençoado Guerreiro
 Feature/&AutoPreparedSpellsRangerLightBearerDescription=Você pode lançar luz como uma ação e ganhar feitiços de bônus que são considerados feitiços de ranger para você e não contam no número de feitiços que você conhece:\n{0}
 Feature/&AutoPreparedSpellsRangerLightBearerTitle=Magia do Portador de Luz

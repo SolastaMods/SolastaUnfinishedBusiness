@@ -1,6 +1,4 @@
-﻿Condition/&ConditionRangerLightBearerAngelicFormDescription=你的飞行速度等于你的步行速度，你的攻击也算作魔法。
-Condition/&ConditionRangerLightBearerAngelicFormTitle=天使形态
-Condition/&ConditionRangerLightBearerBlessedWarriorDescription=当施法者用武器攻击命中时，印记会爆炸，对受影响的人造成 1d8 光耀伤害并摧毁印记。从第 11 级开始，你的奥术爆炸造成的伤害增加到 2d8。
+﻿Condition/&ConditionRangerLightBearerBlessedWarriorDescription=当施法者用武器攻击命中时，印记会爆炸，对受影响的人造成 1d8 光耀伤害并摧毁印记。从第 11 级开始，你的奥术爆炸造成的伤害增加到 2d8。
 Condition/&ConditionRangerLightBearerBlessedWarriorTitle=被祝福的战士标记
 Feature/&AutoPreparedSpellsRangerLightBearerDescription=您可以将光作为一个动作施放并获得奖励法术，这些法术对您来说被视为游侠法术，并且不计入您已知的法术数量：\n{0}
 Feature/&AutoPreparedSpellsRangerLightBearerTitle=光之使者魔法

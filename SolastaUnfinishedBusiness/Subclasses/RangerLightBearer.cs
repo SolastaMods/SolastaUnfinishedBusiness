@@ -34,9 +34,9 @@ internal sealed class RangerLightBearer : AbstractSubclass
             .SetSpellcastingClass(CharacterClassDefinitions.Ranger)
             .SetPreparedSpellGroups(
                 BuildSpellGroup(3, Bless),
-                BuildSpellGroup(5, PassWithoutTrace),
+                BuildSpellGroup(5, BrandingSmite),
                 BuildSpellGroup(9, SpellsContext.BlindingSmite),
-                BuildSpellGroup(13, SpellsContext.StaggeringSmite),
+                BuildSpellGroup(13, GuardianOfFaith),
                 BuildSpellGroup(17, SpellsContext.BanishingSmite))
             .AddToDB();
 
@@ -60,6 +60,7 @@ internal sealed class RangerLightBearer : AbstractSubclass
             .Create($"Condition{Name}BlessedWarrior")
             .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionMarkedByBrandingSmite)
             .SetConditionType(ConditionType.Detrimental)
+            .CopyParticleReferences(ConditionDefinitions.ConditionMarkedByHunter)
             .AddToDB();
 
         var powerBlessedWarrior = FeatureDefinitionPowerBuilder
@@ -109,7 +110,10 @@ internal sealed class RangerLightBearer : AbstractSubclass
                     .SetDurationData(DurationType.Instantaneous)
                     .SetTargetingData(Side.Ally, RangeType.Touch, 0, TargetType.Individuals)
                     .SetRestrictedCreatureFamilies(
-                        CharacterFamilyDefinitions.Construct, CharacterFamilyDefinitions.Undead)
+                        DatabaseRepository.GetDatabase<CharacterFamilyDefinition>()
+                            .Where(x => x != CharacterFamilyDefinitions.Construct &&
+                                        x != CharacterFamilyDefinitions.Undead)
+                            .ToArray())
                     .SetEffectForms(
                         EffectFormBuilder
                             .Create()
@@ -126,7 +130,7 @@ internal sealed class RangerLightBearer : AbstractSubclass
         var powerBlessedGlow = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}BlessedGlow")
             .SetGuiPresentation(Category.Feature)
-            .SetUsesFixed(ActivationTime.Reaction)
+            .SetUsesFixed(ActivationTime.Reaction, RechargeRate.ShortRest)
             .SetReactionContext(ExtraReactionContext.Custom)
             .SetEffectDescription(
                 EffectDescriptionBuilder
@@ -144,7 +148,7 @@ internal sealed class RangerLightBearer : AbstractSubclass
                             .SetConditionForm(
                                 ConditionDefinitions.ConditionBlinded,
                                 ConditionForm.ConditionOperation.Add)
-                            .HasSavingThrow(EffectSavingThrowType.Negates)
+                            .HasSavingThrow(EffectSavingThrowType.Negates, TurnOccurenceType.EndOfTurn, true)
                             .Build())
                     .Build())
             .AddToDB();
@@ -173,10 +177,14 @@ internal sealed class RangerLightBearer : AbstractSubclass
 
         var conditionAngelicForm = ConditionDefinitionBuilder
             .Create($"Condition{Name}AngelicForm")
+            .SetGuiPresentationNoContent(true)
+            .SetSilent(Silent.WhenAddedOrRemoved)
             .AddFeatures(
-                FeatureDefinitionMovementAffinitys.MovementAffinityConditionFlyingAdaptive,
                 FeatureDefinitionAttackModifierBuilder
                     .Create($"AttackModifier{Name}AngelicForm")
+                    .SetGuiPresentationNoContent(true)
+                    .SetAdditionalAttackTag(TagsDefinitions.Magical)
+                    .SetMagicalWeapon()
                     .AddToDB())
             .AddToDB();
 
@@ -195,6 +203,12 @@ internal sealed class RangerLightBearer : AbstractSubclass
                             .Create()
                             .SetConditionForm(
                                 conditionAngelicForm,
+                                ConditionForm.ConditionOperation.Add)
+                            .Build(),
+                        EffectFormBuilder
+                            .Create()
+                            .SetConditionForm(
+                                ConditionDefinitions.ConditionFlyingAdaptive,
                                 ConditionForm.ConditionOperation.Add)
                             .Build())
                     .Build())
@@ -217,6 +231,12 @@ internal sealed class RangerLightBearer : AbstractSubclass
                             .Create()
                             .SetConditionForm(
                                 conditionAngelicForm,
+                                ConditionForm.ConditionOperation.Remove)
+                            .Build(),
+                        EffectFormBuilder
+                            .Create()
+                            .SetConditionForm(
+                                ConditionDefinitions.ConditionFlyingAdaptive,
                                 ConditionForm.ConditionOperation.Remove)
                             .Build())
                     .Build())
@@ -348,6 +368,14 @@ internal sealed class RangerLightBearer : AbstractSubclass
 
         public IEnumerator ProcessCustomEffect(CharacterActionMagicEffect action)
         {
+            var attacker = action.ActingCharacter;
+            var rulesetAttacker = attacker.RulesetCharacter;
+
+            if (rulesetAttacker.GetRemainingPowerCharges(_featureDefinitionPower) <= 0)
+            {
+                yield break;
+            }
+
             var gameLocationActionService =
                 ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
             var gameLocationBattleService =
@@ -358,8 +386,6 @@ internal sealed class RangerLightBearer : AbstractSubclass
                 yield break;
             }
 
-            var attacker = action.ActingCharacter;
-            var rulesetAttacker = attacker.RulesetCharacter;
             var reactionParams =
                 new CharacterActionParams(attacker, (ActionDefinitions.Id)ExtraActionId.DoNothingReaction)
                 {
@@ -380,19 +406,20 @@ internal sealed class RangerLightBearer : AbstractSubclass
 
             GameConsoleHelper.LogCharacterUsedPower(rulesetAttacker, _featureDefinitionPower);
 
-            var proficiencyBonus = rulesetAttacker.TryGetAttributeValue(AttributeDefinitions.ProficiencyBonus);
-            var wisdom = rulesetAttacker.TryGetAttributeValue(AttributeDefinitions.Wisdom);
-            var usablePower = new RulesetUsablePower(_featureDefinitionPower, null, null)
-            {
-                saveDC = ComputeAbilityScoreBasedDC(wisdom, proficiencyBonus)
-            };
+            var usablePower =
+                rulesetAttacker.UsablePowers.FirstOrDefault(x => x.PowerDefinition == _featureDefinitionPower);
+
             var effectPower = new RulesetEffectPower(rulesetAttacker, usablePower);
 
+            // was expecting 4 (20 ft) to work but game is odd on distance calculation so used 5
             foreach (var enemy in gameLocationBattleService.Battle.EnemyContenders
-                         .Where(enemy => rulesetAttacker.DistanceTo(enemy.RulesetActor) <= 4))
+                         .Where(enemy => rulesetAttacker.DistanceTo(enemy.RulesetActor) <= 5))
             {
                 effectPower.ApplyEffectOnCharacter(enemy.RulesetCharacter, true, enemy.LocationPosition);
             }
+
+            rulesetAttacker.UpdateUsageForPower(_featureDefinitionPower, _featureDefinitionPower.CostPerUse);
+            GameConsoleHelper.LogCharacterUsedPower(rulesetAttacker, _featureDefinitionPower);
         }
     }
 

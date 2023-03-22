@@ -1,6 +1,4 @@
-﻿Condition/&ConditionRangerLightBearerAngelicFormDescription=Tienes una velocidad de vuelo igual a tu velocidad al caminar, y tus ataques también cuentan como mágicos.
-Condition/&ConditionRangerLightBearerAngelicFormTitle=Forma angelical
-Condition/&ConditionRangerLightBearerBlessedWarriorDescription=Cuando es golpeado por el lanzador con un ataque de arma, la marca detona, infligiendo 1d8 de daño radiante a los afectados y destruyendo la marca. A partir del nivel 11, el daño de tu Detonación Arcana aumenta a 2d8.
+﻿Condition/&ConditionRangerLightBearerBlessedWarriorDescription=Cuando es golpeado por el lanzador con un ataque de arma, la marca detona, infligiendo 1d8 de daño radiante a los afectados y destruyendo la marca. A partir del nivel 11, el daño de tu Detonación Arcana aumenta a 2d8.
 Condition/&ConditionRangerLightBearerBlessedWarriorTitle=Marcado por Bendito Guerrero
 Feature/&AutoPreparedSpellsRangerLightBearerDescription=Puedes lanzar luz como una acción y obtener hechizos adicionales que se consideran hechizos de guardabosques para ti y no cuentan para la cantidad de hechizos que conoces:\n{0}
 Feature/&AutoPreparedSpellsRangerLightBearerTitle=Magia portadora de luz
