@@ -35,6 +35,19 @@ internal sealed class RangerHellWalker : AbstractSubclass
                 BuildSpellGroup(17, SpellsContext.FarStep))
             .AddToDB();
 
+        var powerFirebolt = FeatureDefinitionPowerBuilder
+            .Create($"Power{Name}Firebolt")
+            .SetGuiPresentation(FireBolt.GuiPresentation)
+            .SetUsesFixed(ActivationTime.Action)
+            .SetEffectDescription(FireBolt.EffectDescription)
+            .AddToDB();
+
+        var featureSetFirebolt = FeatureDefinitionFeatureSetBuilder
+            .Create($"FeatureSet{Name}Firebolt")
+            .SetGuiPresentationNoContent(true)
+            .AddFeatureSet(powerFirebolt)
+            .AddToDB();
+        
         // Damming Strike
 
         var conditionDammingStrike = ConditionDefinitionBuilder
@@ -54,7 +67,6 @@ internal sealed class RangerHellWalker : AbstractSubclass
         var additionalDamageDammingStrike = FeatureDefinitionAdditionalDamageBuilder
             .Create($"AdditionalDamage{Name}DammingStrike")
             .SetGuiPresentation(Category.Feature)
-            .SetNotificationTag(Name)
             .SetDamageDice(DieType.D1, 0)
             .SetSavingThrowData()
             .SetCustomSubFeatures(new AdditionalEffectFormOnDamageHandler((attacker, _, provider) =>
@@ -76,6 +88,7 @@ internal sealed class RangerHellWalker : AbstractSubclass
 
         var proficiencyCursedTongue = FeatureDefinitionProficiencyBuilder
             .Create($"Proficiency{Name}CursedTongue")
+            .SetGuiPresentation(Category.Feature)
             .SetProficiencies(ProficiencyType.Language, "Language_Abyssal", "LanguageInfernal")
             .AddToDB();
 
@@ -85,6 +98,7 @@ internal sealed class RangerHellWalker : AbstractSubclass
 
         var featureSetBurningConstitution = FeatureDefinitionFeatureSetBuilder
             .Create($"FeatureSet{Name}BurningConstitution")
+            .SetGuiPresentation(Category.Feature)
             .AddFeatureSet(
                 FeatureDefinitionDamageAffinitys.DamageAffinityFireResistance,
                 FeatureDefinitionDamageAffinitys.DamageAffinityNecroticResistance)
@@ -141,6 +155,7 @@ internal sealed class RangerHellWalker : AbstractSubclass
             .SetGuiPresentation(Category.Subclass, Sprites.GetSprite(Name, Resources.RangerHellWalker, 256))
             .AddFeaturesAtLevel(3,
                 autoPreparedSpells,
+                featureSetFirebolt,
                 additionalDamageDammingStrike,
                 proficiencyCursedTongue)
             .AddFeaturesAtLevel(7,

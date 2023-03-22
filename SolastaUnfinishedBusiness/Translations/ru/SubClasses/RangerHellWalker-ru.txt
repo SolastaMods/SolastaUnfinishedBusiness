@@ -1,0 +1,16 @@
+﻿Condition/&ConditionRangerHellWalkerDammingStrikeDescription=Вы получаете урон огнём 1к6 каждый раунд.
+Condition/&ConditionRangerHellWalkerDammingStrikeTitle=Забойный удар
+Condition/&ConditionRangerHellWalkerMarkOfTheDammedDescription=Вы получаете урон огнём 1к6 каждый раунд и напуганы.
+Condition/&ConditionRangerHellWalkerMarkOfTheDammedTitle=Отмечено проклятыми
+Feature/&AdditionalDamageRangerHellWalkerDammingStrikeDescription=Когда вы впервые попадаете по существу атакой оружием в свой ход, вы можете заставить его преуспеть в спасброске Телосложения от Сл вашего заклинания или пометить его. Пока существо помечено таким образом, оно получает урон огнём 1d6 в начале каждого своего хода в течение 1 минуты. В конце каждого своего хода существо может повторять этот спасбросок, оканчивая эффекты при успехе.
+Feature/&AdditionalDamageRangerHellWalkerDammingStrikeTitle=Забойный удар
+Feature/&AutoPreparedSpellsRangerHellWalkerDescription=Вы можете разыграть <b>Молнию</b> действием и получить бонусные заклинания, которые считаются для вас заклинаниями следопыта и не учитываются при подсчете количества известных вам заклинаний:\n{0}
+Feature/&AutoPreparedSpellsRangerHellWalkerTitle=Магия Адского Ходока
+Feature/&FeatureSetRangerHellWalkerBurningConstitutionDescription=Ваше тело купается в палящем зное Низших Планов. Вы получаете сопротивление огню и некротическому урону.
+Feature/&FeatureSetRangerHellWalkerBurningConstitutionTitle=Горящая Конституция
+Feature/&PowerRangerHellWalkerMarkOfTheDammedDescription=В качестве бонусного действия вы можете выбрать существо, отмеченное вашим умением Проклятый удар. Пока оно помечено, выбранное существо страдает от следующих эффектов:\n• Оно получает дополнительный урон огнём 1к6.\n• Оно пугается вас.\n• Оно теряет сопротивляемость вашим атакам урона огнём.\n • Вы совершаете с преимуществом спасброски от заклинаний и других магических эффектов, создаваемых им.\n Одновременно вы можете иметь только одно существо, находящееся под действием этого свойства.
+Feature/&PowerRangerHellWalkerMarkOfTheDammedTitle=Метка проклятых
+Feature/&ProficiencyRangerHellWalkerCursedTongueDescription=Ваша дьявольская близость позволяет вам понимать язык Низших Планов. Вы можете говорить, читать и писать на Abyssal и Infernal.
+Feature/&ProficiencyRangerHellWalkerCursedTongueTitle=Проклятый язык
+Subclass/&RangerHellWalkerDescription=Вы — Адский Ходок, рейнджер, окутанный магией Нижних Планов. Как вы оказались связанными с этой магией, знаете только вы сами. Возможно, ваш великий предок имел демоническое происхождение, или, может быть, ваша родословная несет демоническое проклятие. Какой бы ни была причина, магия теперь неразрывно связана с вами, ваше собственное присутствие навсегда связано с адскими существами внизу.
+Subclass/&RangerHellWalkerTitle=Адский Уокер

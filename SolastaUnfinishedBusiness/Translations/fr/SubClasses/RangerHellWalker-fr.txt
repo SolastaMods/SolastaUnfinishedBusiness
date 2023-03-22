@@ -1,0 +1,16 @@
+﻿Condition/&ConditionRangerHellWalkerDammingStrikeDescription=Vous subissez 1d6 dégâts de feu à chaque round.
+Condition/&ConditionRangerHellWalkerDammingStrikeTitle=Frappe de barrage
+Condition/&ConditionRangerHellWalkerMarkOfTheDammedDescription=Vous subissez 1d6 dégâts de feu à chaque round et êtes effrayé.
+Condition/&ConditionRangerHellWalkerMarkOfTheDammedTitle=Marqué par les Damnés
+Feature/&AdditionalDamageRangerHellWalkerDammingStrikeDescription=Lorsque vous touchez une créature avec une arme pour la première fois à votre tour, vous pouvez la forcer à réussir un jet de sauvegarde de constitution contre le DD de votre sort ou la faire marquer. Tant qu'une créature est marquée de cette manière, elle subit 1d6 dégâts de feu au début de chacun de ses tours pendant 1 minute. À la fin de chacun de ses tours, la créature peut répéter ce jet de sauvegarde, mettant fin aux effets en cas de réussite.
+Feature/&AdditionalDamageRangerHellWalkerDammingStrikeTitle=Frappe de barrage
+Feature/&AutoPreparedSpellsRangerHellWalkerDescription=Vous pouvez lancer <b>Éclair de feu</b> en tant qu'action et gagner des sorts bonus qui sont considérés comme des sorts de rôdeur pour vous et qui ne comptent pas dans le nombre de sorts que vous connaissez :\n{0}
+Feature/&AutoPreparedSpellsRangerHellWalkerTitle=Hell Walker Magie
+Feature/&FeatureSetRangerHellWalkerBurningConstitutionDescription=Votre corps a été baigné dans la chaleur torride des Plans Inférieurs. Vous gagnez en résistance au feu et aux dégâts nécrotiques.
+Feature/&FeatureSetRangerHellWalkerBurningConstitutionTitle=Constitution brûlante
+Feature/&PowerRangerHellWalkerMarkOfTheDammedDescription=Par une action bonus, vous pouvez choisir une créature qui a été marquée par votre capacité Frappe damnée. Tant qu'elle est marquée, la créature choisie subit les effets suivants :\n• Elle subit 1d6 dégâts de feu supplémentaires.\n• Elle a peur de vous.\n• Elle perd sa résistance contre vos attaques de dégâts de feu.\n • Vous bénéficiez d'un avantage aux jets de sauvegarde contre les sorts et autres effets magiques qu'il crée.\nVous ne pouvez avoir qu'une seule créature affectée par cette fonctionnalité à la fois.
+Feature/&PowerRangerHellWalkerMarkOfTheDammedTitle=Marqué des Damnés
+Feature/&ProficiencyRangerHellWalkerCursedTongueDescription=Votre affinité diabolique vous permet de comprendre le langage des plans inférieurs. Vous pouvez parler, lire et écrire l'abyssal et l'infernal.
+Feature/&ProficiencyRangerHellWalkerCursedTongueTitle=Langue maudite
+Subclass/&RangerHellWalkerDescription=Vous êtes un Hell Walker, un ranger enveloppé de la magie des plans inférieurs. Comment vous en êtes venu à être associé à cette magie, vous seul le savez vous-même. Peut-être que votre grand ancêtre était d'origine démoniaque, ou peut-être que votre lignée porte une malédiction démoniaque. Quelle que soit la raison, la magie est désormais inextricablement liée à vous, votre propre présence étant à jamais liée aux êtres infernaux ci-dessous.
+Subclass/&RangerHellWalkerTitle=Marcheur de l'enfer

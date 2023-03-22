@@ -1,0 +1,16 @@
+﻿Condition/&ConditionRangerHellWalkerDammingStrikeDescription=Du erleidest jede Runde 1W6 Feuerschaden.
+Condition/&ConditionRangerHellWalkerDammingStrikeTitle=Dammschlag
+Condition/&ConditionRangerHellWalkerMarkOfTheDammedDescription=Du erleidest jede Runde 1W6 Feuerschaden und hast Angst.
+Condition/&ConditionRangerHellWalkerMarkOfTheDammedTitle=Gekennzeichnet durch den Damm
+Feature/&AdditionalDamageRangerHellWalkerDammingStrikeDescription=Wenn du in deinem Zug zum ersten Mal eine Kreatur mit einem Waffenangriff triffst, kannst du sie dazu zwingen, einen Konstitutionsrettungswurf gegen deinen Zauber-SG zu bestehen oder sie markieren zu lassen. Solange eine Kreatur auf diese Weise markiert ist, erleidet sie zu Beginn jedes ihrer Züge 1 Minute lang 1W6 Feuerschaden. Am Ende jedes seiner Züge kann die Kreatur diesen Rettungswurf wiederholen, wodurch die Effekte bei einem Erfolg beendet werden.
+Feature/&AdditionalDamageRangerHellWalkerDammingStrikeTitle=Dammschlag
+Feature/&AutoPreparedSpellsRangerHellWalkerDescription=Du kannst <b>Feuerblitz</b> als Aktion wirken und Bonuszauber erhalten, die für dich als Waldläuferzauber gelten und nicht auf die Anzahl der Zauber zählen, die du kennst:\n{0}
+Feature/&AutoPreparedSpellsRangerHellWalkerTitle=Hellwalker-Magie
+Feature/&FeatureSetRangerHellWalkerBurningConstitutionDescription=Dein Körper wurde in die sengende Hitze der unteren Ebenen gebadet. Du erhältst Resistenz gegen Feuer und nekrotischen Schaden.
+Feature/&FeatureSetRangerHellWalkerBurningConstitutionTitle=Brennende Verfassung
+Feature/&PowerRangerHellWalkerMarkOfTheDammedDescription=Als Bonusaktion kannst du eine Kreatur auswählen, die von deinem Damning Strike-Feature markiert wurde. Während sie markiert ist, leidet die gewählte Kreatur unter den folgenden Effekten:\n• Sie erleidet zusätzlich 1W6 Feuerschaden.\n• Sie bekommt Angst vor dir.\n• Sie verliert Widerstand gegen deine Feuerschadensangriffe.\n • Du hast einen Vorteil bei Rettungswürfen gegen Zauber und andere magische Effekte, die dadurch verursacht werden.\nDu kannst nur eine Kreatur gleichzeitig von dieser Funktion beeinflussen lassen.
+Feature/&PowerRangerHellWalkerMarkOfTheDammedTitle=Markiert von den Dammed
+Feature/&ProficiencyRangerHellWalkerCursedTongueDescription=Ihre teuflische Affinität ermöglicht es Ihnen, die Sprache der Unteren Ebenen zu verstehen. Sie können Abyssal und Infernal sprechen, lesen und schreiben.
+Feature/&ProficiencyRangerHellWalkerCursedTongueTitle=Verfluchte Zunge
+Subclass/&RangerHellWalkerDescription=Du bist ein Hell Walker, ein Ranger, der in die Magie der Unteren Ebenen gehüllt ist. Wie Sie mit dieser Magie in Verbindung gebracht wurden, wissen nur Sie selbst. Vielleicht war Ihr großer Vorfahre dämonischen Ursprungs, oder vielleicht trägt Ihre Blutlinie einen dämonischen Fluch in sich. Was auch immer der Grund sein mag, die Magie ist jetzt untrennbar mit Ihnen verbunden, Ihre eigene Präsenz ist für immer mit den höllischen Wesen unter Ihnen verbunden.
+Subclass/&RangerHellWalkerTitle=Höllenläufer
