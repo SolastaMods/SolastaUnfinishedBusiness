@@ -320,12 +320,15 @@ internal static class ClassFeats
             return;
         }
 
-        // no changes if character is Roguish Thief
+        // no changes if character is Roguish Thief or Grenadier
         var hero = __instance.RulesetCharacter as RulesetCharacterHero ??
                    __instance.RulesetCharacter.OriginalFormCharacter as RulesetCharacterHero;
 
-        if (hero == null || (hero.ClassesAndSubclasses.TryGetValue(Rogue, out var characterSubclassDefinition) &&
-                             characterSubclassDefinition.Name == "RoguishThief"))
+        if (hero == null ||
+            (hero.ClassesAndSubclasses.TryGetValue(Rogue, out var rogueSub) &&
+             rogueSub.Name == "RoguishThief") ||
+            (hero.ClassesAndSubclasses.TryGetValue(InventorClass.Class, out var inventorSub) &&
+             inventorSub.Name == "InnovationAlchemy"))
         {
             return;
         }

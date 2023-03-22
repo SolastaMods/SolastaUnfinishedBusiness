@@ -1,4 +1,5 @@
-﻿using JetBrains.Annotations;
+﻿using System.Linq;
+using JetBrains.Annotations;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 
@@ -166,6 +167,13 @@ internal sealed class UpgradeWeaponDice : ModifyAttackModeForWeaponBase
         {
             damage.DieType = newDie;
             damage.DiceNumber = newNumber;
+        }
+
+        //TODO: treat this in a better way maybe with a marker to ignore dice upgrades
+        if (character.GetFeaturesByType<FeatureDefinition>().Any(x => x.Name == "FeaturePolearm") &&
+            ValidatorsCharacter.IsFreeOffhand(character))
+        {
+            return;
         }
 
         newDamage = RuleDefinitions.DieAverage(newVersatileDie) * newNumber;
