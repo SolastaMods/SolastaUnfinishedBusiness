@@ -2,5 +2,5 @@
 
 public interface IIgnoreDamageAffinity
 {
-    bool CanIgnoreDamageAffinity(IDamageAffinityProvider provider, string damageType);
+    bool CanIgnoreDamageAffinity(IDamageAffinityProvider provider, RulesetActor rulesetActor, string damageType);
 }

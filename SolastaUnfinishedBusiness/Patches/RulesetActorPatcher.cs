@@ -249,7 +249,7 @@ public static class RulesetActorPatcher
             var caster = rulesetEntity as RulesetCharacter;
             var features = caster.GetSubFeaturesByType<IIgnoreDamageAffinity>();
 
-            if (!features.Any(feature => feature.CanIgnoreDamageAffinity(provider, damageType)))
+            if (!features.Any(feature => feature.CanIgnoreDamageAffinity(provider, actor, damageType)))
             {
                 return service.ModulateSustainedDamage(provider, actor, damageType, multiplier, sourceTags,
                     wasFirstDamage,
