@@ -1,5 +1,8 @@
-﻿using System.Linq;
+﻿using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
+using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
@@ -39,7 +42,8 @@ internal sealed class RangerLightBearer : AbstractSubclass
 
         var powerLight = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}Light")
-            .SetGuiPresentation(Category.Feature)
+            .SetGuiPresentation(Category.Feature,
+                Sprites.GetSprite("PowerLight", Resources.PowerLight, 256, 128))
             .SetUsesFixed(ActivationTime.Action)
             .SetEffectDescription(Light.EffectDescription)
             .AddToDB();
@@ -84,7 +88,7 @@ internal sealed class RangerLightBearer : AbstractSubclass
             .SetGuiPresentationNoContent(true)
             .SetModifier(
                 FeatureDefinitionAttributeModifier.AttributeModifierOperation.Set,
-                AttributeDefinitions.HealingPool, 0)
+                AttributeDefinitions.HealingPool)
             .AddToDB();
 
         var attributeModifierLifeBringerAdditive = FeatureDefinitionAttributeModifierBuilder
@@ -119,11 +123,49 @@ internal sealed class RangerLightBearer : AbstractSubclass
 
         // Blessed Glow
 
-        /*
-        
-        You have the ability to conjure holy light. When you cast Light, you can force each creature of your choice within 20 ft of the light source to succeed on a constitution saving thrown against your spell saving DC or be blinded for 1 minute. An undead or fiend automatically fail this saving throw. 
-         
-        */
+        var powerBlessedGlow = FeatureDefinitionPowerBuilder
+            .Create($"Power{Name}BlessedGlow")
+            .SetGuiPresentation(Category.Feature)
+            .SetUsesFixed(ActivationTime.Reaction)
+            .SetReactionContext(ExtraReactionContext.Custom)
+            .SetEffectDescription(
+                EffectDescriptionBuilder
+                    .Create()
+                    .SetDurationData(DurationType.Minute, 1)
+                    .SetTargetingData(Side.Enemy, RangeType.Self, 0, TargetType.Sphere, 4)
+                    .SetSavingThrowData(
+                        false,
+                        AttributeDefinitions.Constitution,
+                        false,
+                        EffectDifficultyClassComputation.SpellCastingFeature)
+                    .SetEffectForms(
+                        EffectFormBuilder
+                            .Create()
+                            .SetConditionForm(
+                                ConditionDefinitions.ConditionBlinded,
+                                ConditionForm.ConditionOperation.Add)
+                            .HasSavingThrow(EffectSavingThrowType.Negates)
+                            .Build())
+                    .Build())
+            .AddToDB();
+
+        powerBlessedGlow.EffectDescription.savingThrowAffinitiesByFamily = new List<SaveAffinityByFamilyDescription>
+        {
+            new() { advantageType = AdvantageType.Disadvantage, family = CharacterFamilyDefinitions.Fiend.Name },
+            new() { advantageType = AdvantageType.Disadvantage, family = CharacterFamilyDefinitions.Undead.Name }
+        };
+
+        var powerLightEnhanced = FeatureDefinitionPowerBuilder
+            .Create(powerLight, $"Power{Name}LightEnhanced")
+            .SetCustomSubFeatures(new CustomMagicEffectActionBlessedGlow(powerBlessedGlow))
+            .SetOverriddenPower(powerLight)
+            .AddToDB();
+
+        var featureSetBlessedGlow = FeatureDefinitionFeatureSetBuilder
+            .Create($"FeatureSet{Name}BlessedGlow")
+            .SetGuiPresentation($"Power{Name}BlessedGlow", Category.Feature)
+            .AddFeatureSet(powerLightEnhanced, powerBlessedGlow)
+            .AddToDB();
 
         // LEVEL 11
 
@@ -140,7 +182,8 @@ internal sealed class RangerLightBearer : AbstractSubclass
 
         var powerAngelicFormSprout = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}AngelicFormSprout")
-            .SetGuiPresentation(Category.Feature)
+            .SetGuiPresentation(Category.Feature,
+                Sprites.GetSprite("PowerAngelicFormSprout", Resources.PowerAngelicFormSprout, 256, 128))
             .SetUsesFixed(ActivationTime.Action, RechargeRate.LongRest)
             .SetEffectDescription(
                 EffectDescriptionBuilder
@@ -161,8 +204,9 @@ internal sealed class RangerLightBearer : AbstractSubclass
 
         var powerAngelicFormDismiss = FeatureDefinitionPowerBuilder
             .Create($"Power{Name}AngelicFormDismiss")
-            .SetGuiPresentation(Category.Feature)
-            .SetUsesFixed(ActivationTime.BonusAction, RechargeRate.AtWill)
+            .SetGuiPresentation(Category.Feature,
+                Sprites.GetSprite("PowerAngelicFormDismiss", Resources.PowerAngelicFormDismiss, 256, 128))
+            .SetUsesFixed(ActivationTime.BonusAction)
             .SetEffectDescription(
                 EffectDescriptionBuilder
                     .Create()
@@ -208,7 +252,8 @@ internal sealed class RangerLightBearer : AbstractSubclass
                 attributeModifierLifeBringerBase,
                 attributeModifierLifeBringerAdditive,
                 powerLifeBringer)
-            .AddFeaturesAtLevel(7)
+            .AddFeaturesAtLevel(7,
+                featureSetBlessedGlow)
             .AddFeaturesAtLevel(11,
                 featureSetAngelicForm)
             .AddFeaturesAtLevel(15)
@@ -284,6 +329,69 @@ internal sealed class RangerLightBearer : AbstractSubclass
             if (rulesetCondition != null)
             {
                 rulesetDefender.RemoveCondition(rulesetCondition);
+            }
+        }
+    }
+
+    //
+    // Blessed Glow
+    //
+
+    private class CustomMagicEffectActionBlessedGlow : ICustomMagicEffectAction
+    {
+        private readonly FeatureDefinitionPower _featureDefinitionPower;
+
+        public CustomMagicEffectActionBlessedGlow(FeatureDefinitionPower featureDefinitionPower)
+        {
+            _featureDefinitionPower = featureDefinitionPower;
+        }
+
+        public IEnumerator ProcessCustomEffect(CharacterActionMagicEffect action)
+        {
+            var gameLocationActionService =
+                ServiceRepository.GetService<IGameLocationActionService>() as GameLocationActionManager;
+            var gameLocationBattleService =
+                ServiceRepository.GetService<IGameLocationBattleService>() as GameLocationBattleManager;
+
+            if (gameLocationActionService == null || gameLocationBattleService == null)
+            {
+                yield break;
+            }
+
+            var attacker = action.ActingCharacter;
+            var rulesetAttacker = attacker.RulesetCharacter;
+            var reactionParams =
+                new CharacterActionParams(attacker, (ActionDefinitions.Id)ExtraActionId.DoNothingReaction)
+                {
+                    StringParameter = "Reaction/&CustomReactionBlessedGlowDescription"
+                };
+            var previousReactionCount = gameLocationActionService.PendingReactionRequestGroups.Count;
+            var reactionRequest = new ReactionRequestCustom("BlessedGlow", reactionParams);
+
+            gameLocationActionService.AddInterruptRequest(reactionRequest);
+
+            yield return gameLocationBattleService.WaitForReactions(
+                attacker, gameLocationActionService, previousReactionCount);
+
+            if (!reactionParams.ReactionValidated)
+            {
+                yield break;
+            }
+
+            GameConsoleHelper.LogCharacterUsedPower(rulesetAttacker, _featureDefinitionPower);
+
+            var proficiencyBonus = rulesetAttacker.TryGetAttributeValue(AttributeDefinitions.ProficiencyBonus);
+            var wisdom = rulesetAttacker.TryGetAttributeValue(AttributeDefinitions.Wisdom);
+            var usablePower = new RulesetUsablePower(_featureDefinitionPower, null, null)
+            {
+                saveDC = ComputeAbilityScoreBasedDC(wisdom, proficiencyBonus)
+            };
+            var effectPower = new RulesetEffectPower(rulesetAttacker, usablePower);
+
+            foreach (var enemy in gameLocationBattleService.Battle.EnemyContenders
+                         .Where(enemy => rulesetAttacker.DistanceTo(enemy.RulesetActor) <= 4))
+            {
+                effectPower.ApplyEffectOnCharacter(enemy.RulesetCharacter, true, enemy.LocationPosition);
             }
         }
     }
