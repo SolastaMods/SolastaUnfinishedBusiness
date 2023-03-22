@@ -1,4 +1,6 @@
-﻿Condition/&ConditionRangerLightBearerBlessedWarriorDescription=Lorsqu'elle est touchée par le lanceur de sorts avec une arme, la marque explose, infligeant 1d8 dégâts radiants à l'affligé et détruisant la marque. À partir du niveau 11, les dégâts de votre Détonation des Arcanes passent à 2d8.
+﻿Condition/&ConditionRangerLightBearerAngelicFormDescription=Vous avez une vitesse de vol égale à votre vitesse de marche, et vos attaques comptent également comme magiques.
+Condition/&ConditionRangerLightBearerAngelicFormTitle=Forme Angélique
+Condition/&ConditionRangerLightBearerBlessedWarriorDescription=Lorsqu'elle est touchée par le lanceur de sorts avec une arme, la marque explose, infligeant 1d8 dégâts radiants à l'affligé et détruisant la marque. À partir du niveau 11, les dégâts de votre Détonation des Arcanes passent à 2d8.
 Condition/&ConditionRangerLightBearerBlessedWarriorTitle=Marqué par le Guerrier Béni
 Feature/&AutoPreparedSpellsRangerLightBearerDescription=Vous pouvez lancer la lumière en tant qu'action et gagner des sorts bonus qui sont considérés comme des sorts de rôdeur pour vous et qui ne comptent pas dans le nombre de sorts que vous connaissez :\n{0}
 Feature/&AutoPreparedSpellsRangerLightBearerTitle=Magie du Porteur de Lumière

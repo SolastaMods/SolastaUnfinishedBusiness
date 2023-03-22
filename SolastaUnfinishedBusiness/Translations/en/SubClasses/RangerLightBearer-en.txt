@@ -1,4 +1,6 @@
-﻿Condition/&ConditionRangerLightBearerBlessedWarriorDescription=When hit by the caster with a weapon attack, the mark detonates, dealing 1d8 radiant damage to the afflicted and destroying the mark. Starting at 11th level, the damage from your Arcane Detonation increases to 2d8.
+﻿Condition/&ConditionRangerLightBearerAngelicFormDescription=You have a flying speed equal to your walking speed, and your attacks also count as magical.
+Condition/&ConditionRangerLightBearerAngelicFormTitle=Angelic Form
+Condition/&ConditionRangerLightBearerBlessedWarriorDescription=When hit by the caster with a weapon attack, the mark detonates, dealing 1d8 radiant damage to the afflicted and destroying the mark. Starting at 11th level, the damage from your Arcane Detonation increases to 2d8.
 Condition/&ConditionRangerLightBearerBlessedWarriorTitle=Marked by Blessed Warrior
 Feature/&AutoPreparedSpellsRangerLightBearerDescription=You can cast light as an action and gain bonus spells that are considered ranger spells for you and don't count against the number of spells you know:\n{0}
 Feature/&AutoPreparedSpellsRangerLightBearerTitle=Light Bearer Magic

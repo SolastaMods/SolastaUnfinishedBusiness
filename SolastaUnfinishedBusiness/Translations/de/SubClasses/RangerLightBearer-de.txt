@@ -1,4 +1,6 @@
-﻿Condition/&ConditionRangerLightBearerBlessedWarriorDescription=Wenn es vom Zaubernden mit einem Waffenangriff getroffen wird, explodiert das Mal, fügt dem Betroffenen 1W8 Strahlungsschaden zu und zerstört das Mal. Ab der 11. Stufe erhöht sich der Schaden deiner Arkanen Detonation auf 2W8.
+﻿Condition/&ConditionRangerLightBearerAngelicFormDescription=Du hast eine Fluggeschwindigkeit, die deiner Schrittgeschwindigkeit entspricht, und deine Angriffe zählen ebenfalls als magisch.
+Condition/&ConditionRangerLightBearerAngelicFormTitle=Engelsform
+Condition/&ConditionRangerLightBearerBlessedWarriorDescription=Wenn es vom Zaubernden mit einem Waffenangriff getroffen wird, explodiert das Mal, fügt dem Betroffenen 1W8 Strahlungsschaden zu und zerstört das Mal. Ab der 11. Stufe erhöht sich der Schaden deiner Arkanen Detonation auf 2W8.
 Condition/&ConditionRangerLightBearerBlessedWarriorTitle=Gekennzeichnet durch den gesegneten Krieger
 Feature/&AutoPreparedSpellsRangerLightBearerDescription=Du kannst Licht als Aktion wirken und Bonuszauber erhalten, die für dich als Waldläuferzauber gelten und nicht auf die Anzahl der Zauber zählen, die du kennst:\n{0}
 Feature/&AutoPreparedSpellsRangerLightBearerTitle=Magie des Lichtträgers

@@ -6,6 +6,7 @@ using SolastaUnfinishedBusiness.Api.Helpers;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
 using SolastaUnfinishedBusiness.CustomBehaviors;
+using SolastaUnfinishedBusiness.CustomDefinitions;
 using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Models;
@@ -72,7 +73,7 @@ internal sealed class RangerLightBearer : AbstractSubclass
                 Sprites.GetSprite("PowerBlessedWarrior", Resources.PowerBlessedWarrior, 256, 128))
             .SetEffectDescription(
                 EffectDescriptionBuilder
-                    .Create()
+                    .Create(HuntersMark)
                     .SetDurationData(DurationType.Round, 1, TurnOccurenceType.StartOfTurn)
                     .SetTargetingData(Side.Enemy, RangeType.Distance, 6, TargetType.IndividualsUnique)
                     .SetEffectForms(
@@ -179,8 +180,7 @@ internal sealed class RangerLightBearer : AbstractSubclass
 
         var conditionAngelicForm = ConditionDefinitionBuilder
             .Create($"Condition{Name}AngelicForm")
-            .SetGuiPresentationNoContent(true)
-            .SetSilent(Silent.WhenAddedOrRemoved)
+            .SetGuiPresentation(Category.Condition)
             .AddFeatures(
                 FeatureDefinitionAttackModifierBuilder
                     .Create($"AttackModifier{Name}AngelicForm")
