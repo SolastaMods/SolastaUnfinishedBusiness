@@ -2,6 +2,8 @@
 Condition/&ConditionRangerLightBearerBlessedWarriorTitle=Отмечен Благословенным Воином
 Feature/&AutoPreparedSpellsRangerLightBearerDescription=Вы можете сотворить свет действием и получить бонусные заклинания, которые считаются для вас заклинаниями следопыта и не учитываются при подсчете количества известных вам заклинаний:\n{0}
 Feature/&AutoPreparedSpellsRangerLightBearerTitle=Магия Несущих Свет
+Feature/&FeatureRangerLightBearerWardingLightDescription=Вы можете использовать свой святой свет, чтобы временно ослепить нападавших. Когда существо в пределах 30 футов совершает бросок атаки по цели и не имеет преимущества в броске, вы можете реакцией наложить на него помеху.
+Feature/&FeatureRangerLightBearerWardingLightTitle=Защитный свет
 Feature/&PowerRangerLightBearerAngelicFormDismissDescription=Откажись от своего ангельского облика.
 Feature/&PowerRangerLightBearerAngelicFormDismissTitle=Отказаться от ангельской формы
 Feature/&PowerRangerLightBearerAngelicFormSproutDescription=Вы можете ненадолго превратиться в святую форму. В качестве действия на срок до 1 минуты вы можете придать себе скорость полета, равную вашей скорости ходьбы, и ваши атаки также считаются магическими. Кроме того, вы получаете количество временных жизней, равное вашему уровню рейнджера. Вы можете использовать эту способность один раз за продолжительный отдых.

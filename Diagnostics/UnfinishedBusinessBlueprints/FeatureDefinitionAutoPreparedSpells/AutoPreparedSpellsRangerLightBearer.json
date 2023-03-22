@@ -13,7 +13,7 @@
       "$type": "FeatureDefinitionAutoPreparedSpells+AutoPreparedSpellsGroup, Assembly-CSharp",
       "classLevel": 5,
       "spellsList": [
-        "Definition:PassWithoutTrace:f6e7156667938ea48ba53c669cc59019"
+        "Definition:BrandingSmite:1da57f03be1764642968c141460fe859"
       ]
     },
     {
@@ -27,7 +27,7 @@
       "$type": "FeatureDefinitionAutoPreparedSpells+AutoPreparedSpellsGroup, Assembly-CSharp",
       "classLevel": 13,
       "spellsList": [
-        "Definition:StaggeringSmite:3a1b232b-486f-5dcb-b5ab-1ab4bd378fb7"
+        "Definition:GuardianOfFaith:9a2e9a322fd95a94197cfb894349d665"
       ]
     },
     {

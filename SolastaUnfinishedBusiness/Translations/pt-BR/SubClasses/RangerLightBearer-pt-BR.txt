@@ -2,6 +2,8 @@
 Condition/&ConditionRangerLightBearerBlessedWarriorTitle=Marcado pelo Abençoado Guerreiro
 Feature/&AutoPreparedSpellsRangerLightBearerDescription=Você pode lançar luz como uma ação e ganhar feitiços de bônus que são considerados feitiços de ranger para você e não contam no número de feitiços que você conhece:\n{0}
 Feature/&AutoPreparedSpellsRangerLightBearerTitle=Magia do Portador de Luz
+Feature/&FeatureRangerLightBearerWardingLightDescription=Você pode usar sua luz sagrada para cegar temporariamente os assaltantes. Quando uma criatura a até 9 metros fizer uma jogada de ataque contra um alvo e não tiver vantagem na jogada, você pode usar sua reação para impor desvantagem a ela.
+Feature/&FeatureRangerLightBearerWardingLightTitle=Luz de proteção
 Feature/&PowerRangerLightBearerAngelicFormDismissDescription=Dispense sua forma angelical.
 Feature/&PowerRangerLightBearerAngelicFormDismissTitle=Dispensar Forma Angelical
 Feature/&PowerRangerLightBearerAngelicFormSproutDescription=Você é capaz de se transformar brevemente em uma forma sagrada. Como uma ação, por até 1 minuto, você pode dar a si mesmo um deslocamento de voo igual ao seu deslocamento de caminhada, e seus ataques também contam como mágicos. Além disso, você ganha um número de hp temporário igual ao seu nível de ranger. Você pode usar este poder uma vez por descanso longo.

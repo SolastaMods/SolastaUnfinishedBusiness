@@ -2,6 +2,8 @@
 Condition/&ConditionRangerLightBearerBlessedWarriorTitle=被祝福的战士标记
 Feature/&AutoPreparedSpellsRangerLightBearerDescription=您可以将光作为一个动作施放并获得奖励法术，这些法术对您来说被视为游侠法术，并且不计入您已知的法术数量：\n{0}
 Feature/&AutoPreparedSpellsRangerLightBearerTitle=光之使者魔法
+Feature/&FeatureRangerLightBearerWardingLightDescription=你可以用你的圣光使攻击者暂时失明。当 30 英尺内的生物对目标进行攻击检定并且在检定上没有优势时，你可以使用你的反应对其施加劣势。
+Feature/&FeatureRangerLightBearerWardingLightTitle=警示灯
 Feature/&PowerRangerLightBearerAngelicFormDismissDescription=放弃你的天使形象。
 Feature/&PowerRangerLightBearerAngelicFormDismissTitle=解散天使形态
 Feature/&PowerRangerLightBearerAngelicFormSproutDescription=你能够短暂地转变为神圣形态。作为一个动作，最多 1 分钟，你可以给自己一个等于你步行速度的飞行速度，你的攻击也算作魔法。此外，你还获得了等同于游侠等级的临时生命值。每次长休你可以使用此异能一次。

@@ -2,6 +2,8 @@
 Condition/&ConditionRangerLightBearerBlessedWarriorTitle=Contrassegnato dal Beato Guerriero
 Feature/&AutoPreparedSpellsRangerLightBearerDescription=Puoi lanciare luce come azione e ottenere incantesimi bonus che per te sono considerati incantesimi da ranger e non vengono conteggiati nel numero di incantesimi che conosci:\n{0}
 Feature/&AutoPreparedSpellsRangerLightBearerTitle=Magia del Portatore di Luce
+Feature/&FeatureRangerLightBearerWardingLightDescription=Puoi usare la tua luce sacra per accecare temporaneamente gli assalitori. Quando una creatura entro 9 metri effettua un tiro per colpire contro un bersaglio e non ha vantaggio sul tiro, puoi usare la tua reazione per imporle svantaggio.
+Feature/&FeatureRangerLightBearerWardingLightTitle=Luce difensiva
 Feature/&PowerRangerLightBearerAngelicFormDismissDescription=Abbandona la tua forma angelica.
 Feature/&PowerRangerLightBearerAngelicFormDismissTitle=Elimina la forma angelica
 Feature/&PowerRangerLightBearerAngelicFormSproutDescription=Sei in grado di trasformarti brevemente in una forma sacra. Come azione, per un massimo di 1 minuto, puoi darti una velocità di volo pari alla tua velocità di camminata, e anche i tuoi attacchi contano come magici. Inoltre ottieni un numero di HP temporanei pari al tuo livello di ranger. Puoi usare questo potere una volta per riposo lungo.

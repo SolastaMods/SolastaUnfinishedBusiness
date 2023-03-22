@@ -2,6 +2,8 @@
 Condition/&ConditionRangerLightBearerBlessedWarriorTitle=Marcado por Bendito Guerrero
 Feature/&AutoPreparedSpellsRangerLightBearerDescription=Puedes lanzar luz como una acción y obtener hechizos adicionales que se consideran hechizos de guardabosques para ti y no cuentan para la cantidad de hechizos que conoces:\n{0}
 Feature/&AutoPreparedSpellsRangerLightBearerTitle=Magia portadora de luz
+Feature/&FeatureRangerLightBearerWardingLightDescription=Puedes usar tu luz sagrada para cegar temporalmente a los asaltantes. Cuando una criatura a 30 pies hace una tirada de ataque contra un objetivo y no tiene ventaja en la tirada, puedes usar tu reacción para imponerle una desventaja.
+Feature/&FeatureRangerLightBearerWardingLightTitle=Luz protectora
 Feature/&PowerRangerLightBearerAngelicFormDismissDescription=Despide tu forma angelical.
 Feature/&PowerRangerLightBearerAngelicFormDismissTitle=Descartar forma angelical
 Feature/&PowerRangerLightBearerAngelicFormSproutDescription=Puedes transformarte brevemente en una forma sagrada. Como acción, durante un máximo de 1 minuto, puedes darte una velocidad de vuelo igual a tu velocidad al caminar, y tus ataques también cuentan como mágicos. Además, obtienes una cantidad de hp temporales igual a tu nivel de guardabosques. Puedes usar este poder una vez por descanso prolongado.

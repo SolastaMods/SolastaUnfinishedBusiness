@@ -53,8 +53,19 @@
     "velocityCellsPerRound": 2,
     "velocityType": "AwayFromSourceOriginalPosition",
     "restrictedCreatureFamilies": [
-      "Construct",
-      "Undead"
+      "Aberration",
+      "Beast",
+      "Celestial",
+      "Dragon",
+      "Elemental",
+      "Fey",
+      "Fiend",
+      "Giant",
+      "Giant_Rugan",
+      "Humanoid",
+      "Monstrosity",
+      "Ooze",
+      "Plant"
     ],
     "immuneCreatureFamilies": [],
     "restrictedCharacterSizes": [],

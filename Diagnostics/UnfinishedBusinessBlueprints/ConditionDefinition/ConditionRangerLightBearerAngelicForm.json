@@ -4,12 +4,11 @@
   "parentCondition": null,
   "conditionType": "Beneficial",
   "features": [
-    "Definition:AttackModifierRangerLightBearerAngelicForm:d78a9a92-1f85-58cd-89f5-5ec732b2461f",
-    "Definition:MovementAffinityConditionFlyingAdaptive:4f9ac82da0669a247bb79fb3858b6f64"
+    "Definition:AttackModifierRangerLightBearerAngelicForm:d78a9a92-1f85-58cd-89f5-5ec732b2461f"
   ],
   "allowMultipleInstances": false,
-  "silentWhenAdded": false,
-  "silentWhenRemoved": false,
+  "silentWhenAdded": true,
+  "silentWhenRemoved": true,
   "terminateWhenRemoved": false,
   "specialDuration": false,
   "durationType": "Hour",
@@ -128,10 +127,15 @@
   },
   "guiPresentation": {
     "$type": "GuiPresentation, Assembly-CSharp",
-    "hidden": false,
+    "hidden": true,
     "title": "Feature/&NoContentTitle",
     "description": "Feature/&NoContentTitle",
-    "spriteReference": null,
+    "spriteReference": {
+      "$type": "UnityEngine.AddressableAssets.AssetReferenceSprite, Unity.Addressables",
+      "m_AssetGUID": "",
+      "m_SubObjectName": null,
+      "m_SubObjectType": null
+    },
     "color": {
       "$type": "UnityEngine.Color, UnityEngine.CoreModule",
       "r": 1.0,

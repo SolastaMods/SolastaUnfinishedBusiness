@@ -40,6 +40,16 @@
       "$type": "FeatureUnlockByLevel, Assembly-CSharp",
       "featureDefinition": "Definition:FeatureSetRangerLightBearerAngelicForm:ab53bd9f-15ac-5049-80ca-e2ddd9904bbd",
       "level": 11
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:ActionAffinityRangerLightBearerWardingLight:69becd6a-7466-5c23-8cfd-c598e65ca738",
+      "level": 15
+    },
+    {
+      "$type": "FeatureUnlockByLevel, Assembly-CSharp",
+      "featureDefinition": "Definition:FeatureRangerLightBearerWardingLight:78c4478b-7ed0-54e5-a3b0-357e29defd74",
+      "level": 15
     }
   ],
   "personalityFlagOccurences": [],

@@ -10,10 +10,12 @@ using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Properties;
+using static ActionDefinitions;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
 using static SolastaUnfinishedBusiness.Builders.Features.AutoPreparedSpellsGroupBuilder;
+
 
 namespace SolastaUnfinishedBusiness.Subclasses;
 
@@ -254,11 +256,18 @@ internal sealed class RangerLightBearer : AbstractSubclass
 
         // Warding Light
 
-        /*
-        
-        You can use your holy light to temporarily blind assailants. When a creature within 60 ft makes an attack roll against a target and doesn't have advantage on the roll, you can use your reaction to impose disadvantage on it.
-        
-        */
+        var actionAffinityWardingLight = FeatureDefinitionActionAffinityBuilder
+            .Create($"ActionAffinity{Name}WardingLight")
+            .SetGuiPresentationNoContent(true)
+            .SetAllowedActionTypes()
+            .SetAuthorizedActions(Id.BlockAttack)
+            .AddToDB();
+
+        var featureWardingLight = FeatureDefinitionBuilder
+            .Create($"Feature{Name}WardingLight")
+            .SetGuiPresentation(Category.Feature)
+            .SetCustomSubFeatures(new AttackInitiatedWardingLight())
+            .AddToDB();
 
         // MAIN
 
@@ -276,7 +285,9 @@ internal sealed class RangerLightBearer : AbstractSubclass
                 featureSetBlessedGlow)
             .AddFeaturesAtLevel(11,
                 featureSetAngelicForm)
-            .AddFeaturesAtLevel(15)
+            .AddFeaturesAtLevel(15,
+                actionAffinityWardingLight,
+                featureWardingLight)
             .AddToDB();
     }
 
@@ -387,7 +398,7 @@ internal sealed class RangerLightBearer : AbstractSubclass
             }
 
             var reactionParams =
-                new CharacterActionParams(attacker, (ActionDefinitions.Id)ExtraActionId.DoNothingReaction)
+                new CharacterActionParams(attacker, (Id)ExtraActionId.DoNothingReaction)
                 {
                     StringParameter = "Reaction/&CustomReactionBlessedGlowDescription"
                 };
@@ -449,6 +460,37 @@ internal sealed class RangerLightBearer : AbstractSubclass
 
             rulesetCharacter.ReceiveTemporaryHitPoints(
                 classLevel, DurationType.Minute, 1, TurnOccurenceType.EndOfTurn, rulesetCharacter.Guid);
+        }
+    }
+
+    //
+    // Warding Light
+    //
+
+    private sealed class AttackInitiatedWardingLight : IAttackInitiated
+    {
+        public IEnumerator OnAttackInitiated(
+            GameLocationBattleManager __instance,
+            CharacterAction action,
+            GameLocationCharacter attacker,
+            GameLocationCharacter defender,
+            ActionModifier attackModifier,
+            RulesetAttackMode attackerAttackMode)
+        {
+            return __instance.battle
+                .GetOpposingContenders(attacker.Side)
+                .Where(opposingContender =>
+                    opposingContender != defender && opposingContender.RulesetCharacter is
+                    {
+                        IsDeadOrDyingOrUnconscious: false
+                    } && opposingContender.GetActionTypeStatus(ActionType.Reaction) == ActionStatus.Available &&
+                    __instance.IsWithinXCells(opposingContender, defender, 6) &&
+                    opposingContender.GetActionStatus(Id.BlockAttack, ActionScope.Battle, ActionStatus.Available) ==
+                    ActionStatus.Available)
+                .Select(opposingContender => __instance
+                    .PrepareAndReact(opposingContender, attacker, attacker, Id.BlockAttack, attackModifier,
+                        additionalTargetCharacter: defender))
+                .GetEnumerator();
         }
     }
 }

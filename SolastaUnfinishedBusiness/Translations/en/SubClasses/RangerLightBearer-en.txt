@@ -2,6 +2,8 @@
 Condition/&ConditionRangerLightBearerBlessedWarriorTitle=Marked by Blessed Warrior
 Feature/&AutoPreparedSpellsRangerLightBearerDescription=You can cast light as an action and gain bonus spells that are considered ranger spells for you and don't count against the number of spells you know:\n{0}
 Feature/&AutoPreparedSpellsRangerLightBearerTitle=Light Bearer Magic
+Feature/&FeatureRangerLightBearerWardingLightDescription=You can use your holy light to temporarily blind assailants. When a creature within 30 ft makes an attack roll against a target and doesn't have advantage on the roll, you can use your reaction to impose disadvantage on it.
+Feature/&FeatureRangerLightBearerWardingLightTitle=Warding Light
 Feature/&PowerRangerLightBearerAngelicFormDismissDescription=Dismiss your angelic form.
 Feature/&PowerRangerLightBearerAngelicFormDismissTitle=Dismiss Angelic Form
 Feature/&PowerRangerLightBearerAngelicFormSproutDescription=You are able to briefly transform into a holy form. As an action, for up to 1 minute, you can give yourself a flying speed equal to your walking speed, and your attacks also count as magical. Additionally you gain a number of temp hp equal to your ranger level. You can use this power once per long rest.

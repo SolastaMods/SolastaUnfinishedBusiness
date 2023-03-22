@@ -2,6 +2,8 @@
 Condition/&ConditionRangerLightBearerBlessedWarriorTitle=Gekennzeichnet durch den gesegneten Krieger
 Feature/&AutoPreparedSpellsRangerLightBearerDescription=Du kannst Licht als Aktion wirken und Bonuszauber erhalten, die für dich als Waldläuferzauber gelten und nicht auf die Anzahl der Zauber zählen, die du kennst:\n{0}
 Feature/&AutoPreparedSpellsRangerLightBearerTitle=Magie des Lichtträgers
+Feature/&FeatureRangerLightBearerWardingLightDescription=Sie können Ihr heiliges Licht verwenden, um Angreifer vorübergehend zu blenden. Wenn eine Kreatur innerhalb von 30 Fuß einen Angriffswurf gegen ein Ziel durchführt und bei diesem Wurf keinen Vorteil hat, kannst du deine Reaktion nutzen, um ihr einen Nachteil aufzuerlegen.
+Feature/&FeatureRangerLightBearerWardingLightTitle=Abwehrendes Licht
 Feature/&PowerRangerLightBearerAngelicFormDismissDescription=Entlasse deine Engelsgestalt.
 Feature/&PowerRangerLightBearerAngelicFormDismissTitle=Entlasse die Engelsform
 Feature/&PowerRangerLightBearerAngelicFormSproutDescription=Du bist in der Lage, dich kurzzeitig in eine heilige Form zu verwandeln. Als Aktion kannst du dir für bis zu 1 Minute eine Fluggeschwindigkeit geben, die deiner Schrittgeschwindigkeit entspricht, und deine Angriffe zählen ebenfalls als magisch. Zusätzlich erhältst du eine Anzahl temporärer HP in Höhe deines Ranger-Levels. Du kannst diese Kraft einmal pro langer Pause verwenden.
