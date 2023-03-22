@@ -119,7 +119,7 @@ internal sealed class PatronSoulBlade : AbstractSubclass
         var spriteSoulHex = Sprites.GetSprite("PowerSoulHex", Resources.PowerSoulHex, 256, 128);
 
         var effectDescriptionHex = EffectDescriptionBuilder
-            .Create()
+            .Create(Bane)
             .SetTargetingData(Side.Enemy, RangeType.Distance, 12, TargetType.IndividualsUnique)
             .SetDurationData(DurationType.Minute, 1)
             .SetParticleEffectParameters(Bane)
