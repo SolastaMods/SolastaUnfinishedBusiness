@@ -57,11 +57,13 @@ internal sealed class PatronSoulBlade : AbstractSubclass
                 new CustomItemFilter(CanWeaponBeEmpowered))
             .SetUsesFixed(ActivationTime.Action, RechargeRate.ShortRest)
             .SetExplicitAbilityScore(AttributeDefinitions.Charisma)
-            .SetEffectDescription(EffectDescriptionBuilder.Create()
+            .SetEffectDescription(EffectDescriptionBuilder
+                .Create()
                 .SetDurationData(DurationType.Permanent)
                 .SetTargetingData(Side.Ally, RangeType.Self, 0, TargetType.Item,
                     itemSelectionType: ActionDefinitions.ItemSelectionType.Carried)
-                .SetEffectForms(EffectFormBuilder.Create()
+                .SetEffectForms(EffectFormBuilder
+                    .Create()
                     .SetItemPropertyForm(
                         ItemPropertyUsage.Unlimited,
                         1, new FeatureUnlockByLevel(
@@ -119,7 +121,7 @@ internal sealed class PatronSoulBlade : AbstractSubclass
         var spriteSoulHex = Sprites.GetSprite("PowerSoulHex", Resources.PowerSoulHex, 256, 128);
 
         var effectDescriptionHex = EffectDescriptionBuilder
-            .Create(Bane)
+            .Create()
             .SetTargetingData(Side.Enemy, RangeType.Distance, 12, TargetType.IndividualsUnique)
             .SetDurationData(DurationType.Minute, 1)
             .SetParticleEffectParameters(Bane)
