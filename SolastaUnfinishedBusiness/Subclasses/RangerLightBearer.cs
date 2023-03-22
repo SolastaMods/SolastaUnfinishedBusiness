@@ -180,7 +180,7 @@ internal sealed class RangerLightBearer : AbstractSubclass
 
         var conditionAngelicForm = ConditionDefinitionBuilder
             .Create($"Condition{Name}AngelicForm")
-            .SetGuiPresentation(Category.Condition)
+            .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionShine)
             .AddFeatures(
                 FeatureDefinitionAttackModifierBuilder
                     .Create($"AttackModifier{Name}AngelicForm")
