@@ -1,7 +1,9 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
+using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
-using SolastaUnfinishedBusiness.CustomBehaviors;
+using SolastaUnfinishedBusiness.CustomInterfaces;
 using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Models;
 using SolastaUnfinishedBusiness.Properties;
@@ -47,7 +49,7 @@ internal sealed class RangerHellWalker : AbstractSubclass
             .SetGuiPresentationNoContent(true)
             .AddFeatureSet(powerFirebolt)
             .AddToDB();
-        
+
         // Damming Strike
 
         var conditionDammingStrike = ConditionDefinitionBuilder
@@ -67,21 +69,20 @@ internal sealed class RangerHellWalker : AbstractSubclass
         var additionalDamageDammingStrike = FeatureDefinitionAdditionalDamageBuilder
             .Create($"AdditionalDamage{Name}DammingStrike")
             .SetGuiPresentation(Category.Feature)
-            .SetDamageDice(DieType.D1, 0)
+            .SetAttackOnly()
+            .SetRequiredProperty(RestrictedContextRequiredProperty.Weapon)
+            .SetTriggerCondition(AdditionalDamageTriggerCondition.AlwaysActive)
+            .SetFrequencyLimit(FeatureLimitedUsage.OncePerTurn)
             .SetSavingThrowData()
-            .SetCustomSubFeatures(new AdditionalEffectFormOnDamageHandler((attacker, _, provider) =>
-                    new List<EffectForm>
-                    {
-                        EffectFormBuilder
-                            .Create()
-                            .SetConditionForm(conditionDammingStrike, ConditionForm.ConditionOperation.Add)
-                            .HasSavingThrow(EffectSavingThrowType.Negates)
-                            .OverrideSavingThrowInfo(AttributeDefinitions.Constitution,
-                                GameLocationBattleManagerTweaks.ComputeSavingThrowDC(attacker.RulesetCharacter,
-                                    provider))
-                            .Build()
-                    }),
-                ValidatorsRestrictedContext.WeaponAttack)
+            .SetConditionOperations(new ConditionOperationDescription
+            {
+                canSaveToCancel = true,
+                hasSavingThrow = true,
+                saveOccurence = TurnOccurenceType.StartOfTurn,
+                conditionDefinition = conditionDammingStrike,
+                operation = ConditionOperationDescription.ConditionOperation.Add,
+                saveAffinity = EffectSavingThrowType.Negates
+            })
             .AddToDB();
 
         // Cursed Tongue
@@ -110,15 +111,15 @@ internal sealed class RangerHellWalker : AbstractSubclass
 
         var conditionMarkOfTheDammed = ConditionDefinitionBuilder
             .Create($"Condition{Name}MarkOfTheDammed")
-            .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionOnFire)
+            .SetGuiPresentation(Category.Condition, ConditionDefinitions.ConditionDispellingEvilAndGood)
             .SetConditionType(ConditionType.Detrimental)
             .SetPossessive()
             .CopyParticleReferences(ConditionDefinitions.ConditionOnFire)
-            .SetParentCondition(conditionDammingStrike)
+            .SetFeatures(ConditionDefinitions.ConditionFrightened.Features)
             .SetRecurrentEffectForms(
                 EffectFormBuilder
                     .Create()
-                    .SetDamageForm(DamageTypeFire, 1, DieType.D6)
+                    .SetDamageForm(DamageTypeNecrotic, 1, DieType.D6)
                     .Build())
             .AddToDB();
 
@@ -132,21 +133,27 @@ internal sealed class RangerHellWalker : AbstractSubclass
                     .Create()
                     .SetDurationData(DurationType.Minute, 1)
                     .SetTargetingData(Side.Enemy, RangeType.Distance, 6, TargetType.Individuals)
-                    .Build())
-            .SetCustomSubFeatures(new AdditionalEffectFormOnDamageHandler((attacker, _, provider) =>
-                    new List<EffectForm>
-                    {
+                    .SetSavingThrowData(false, AttributeDefinitions.Constitution, true,
+                        EffectDifficultyClassComputation.SpellCastingFeature)
+                    .SetEffectForms(
                         EffectFormBuilder
                             .Create()
+                            .HasSavingThrow(EffectSavingThrowType.Negates, TurnOccurenceType.StartOfTurn, true)
                             .SetConditionForm(conditionMarkOfTheDammed, ConditionForm.ConditionOperation.Add)
-                            .HasSavingThrow(EffectSavingThrowType.Negates)
-                            .OverrideSavingThrowInfo(AttributeDefinitions.Constitution,
-                                GameLocationBattleManagerTweaks.ComputeSavingThrowDC(attacker.RulesetCharacter,
-                                    provider))
-                            .Build()
-                    }),
-                ValidatorsRestrictedContext.WeaponAttack)
+                            .Build())
+                    .Build())
             .AddToDB();
+
+        conditionDammingStrike.cancellingConditions = new List<ConditionDefinition> { conditionMarkOfTheDammed };
+
+        powerMarkOfTheDammed.SetCustomSubFeatures(
+            new CustomBehaviorMarkOfTheDammed(powerMarkOfTheDammed, conditionMarkOfTheDammed));
+
+        // LEVEL 15
+
+        // Fiendish Spawn
+
+        // You can cast summon fiend as a 6th level spell without expending a spell slot. When cast this way the spell duration becomes 1 min. You can use this feature once per long rest.
 
         // MAIN
 
@@ -173,4 +180,62 @@ internal sealed class RangerHellWalker : AbstractSubclass
 
     // ReSharper disable once UnassignedGetOnlyAutoProperty
     internal override DeityDefinition DeityDefinition { get; }
+
+    //
+    // Mark of the Dammed
+    //
+
+    private sealed class CustomBehaviorMarkOfTheDammed : IIgnoreDamageAffinity, IOnAfterActionFeature
+    {
+        private readonly ConditionDefinition _conditionDefinition;
+        private readonly FeatureDefinitionPower _featureDefinitionPower;
+
+        public CustomBehaviorMarkOfTheDammed(
+            FeatureDefinitionPower featureDefinitionPower,
+            ConditionDefinition conditionDefinition)
+        {
+            _featureDefinitionPower = featureDefinitionPower;
+            _conditionDefinition = conditionDefinition;
+        }
+
+        public bool CanIgnoreDamageAffinity(
+            IDamageAffinityProvider provider, RulesetActor rulesetActor, string damageType)
+        {
+            return !rulesetActor.HasConditionOfType(_conditionDefinition.Name) ||
+                   (provider.DamageAffinityType == DamageAffinityType.Resistance && damageType == DamageTypeFire);
+        }
+
+        public void OnAfterAction(CharacterAction action)
+        {
+            var battle = Gui.Battle;
+
+            if (battle == null || action is not CharacterActionUsePower characterActionUsePower ||
+                characterActionUsePower.activePower.PowerDefinition != _featureDefinitionPower)
+            {
+                return;
+            }
+
+            var gameLocationDefender = action.actionParams.targetCharacters[0];
+
+            // defender saved so no need to remove condition from other enemies
+            if (!gameLocationDefender.RulesetCharacter.HasConditionOfType(_conditionDefinition.Name))
+            {
+                return;
+            }
+
+            // remove this condition from any other enemy
+            foreach (var gameLocationCharacter in battle.EnemyContenders
+                         .Where(x => x != gameLocationDefender))
+            {
+                var rulesetDefender = gameLocationCharacter.RulesetCharacter;
+                var rulesetCondition = rulesetDefender.AllConditions
+                    .FirstOrDefault(x => x.ConditionDefinition == _conditionDefinition);
+
+                if (rulesetCondition != null)
+                {
+                    rulesetDefender.RemoveCondition(rulesetCondition);
+                }
+            }
+        }
+    }
 }
