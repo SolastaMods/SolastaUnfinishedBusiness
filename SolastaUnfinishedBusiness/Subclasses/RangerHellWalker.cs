@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
 using SolastaUnfinishedBusiness.Api.GameExtensions;
 using SolastaUnfinishedBusiness.Builders;
 using SolastaUnfinishedBusiness.Builders.Features;
@@ -133,18 +132,20 @@ internal sealed class RangerHellWalker : AbstractSubclass
                     .Create()
                     .SetDurationData(DurationType.Minute, 1)
                     .SetTargetingData(Side.Enemy, RangeType.Distance, 6, TargetType.Individuals)
-                    .SetSavingThrowData(false, AttributeDefinitions.Constitution, true,
-                        EffectDifficultyClassComputation.SpellCastingFeature)
+                    .SetTargetFiltering(TargetFilteringMethod.CharacterOnly, TargetFilteringTag.NotFlying)
+                    // .SetSavingThrowData(false, AttributeDefinitions.Constitution, true,
+                    //     EffectDifficultyClassComputation.SpellCastingFeature)
                     .SetEffectForms(
                         EffectFormBuilder
                             .Create()
-                            .HasSavingThrow(EffectSavingThrowType.Negates, TurnOccurenceType.StartOfTurn, true)
+                            //.HasSavingThrow(EffectSavingThrowType.Negates, TurnOccurenceType.StartOfTurn, true)
                             .SetConditionForm(conditionMarkOfTheDammed, ConditionForm.ConditionOperation.Add)
                             .Build())
                     .Build())
             .AddToDB();
 
-        conditionDammingStrike.cancellingConditions = new List<ConditionDefinition> { conditionMarkOfTheDammed };
+        conditionDammingStrike.SetCustomSubFeatures(
+            new NotifyConditionRemovalDammingStrike(conditionMarkOfTheDammed));
 
         powerMarkOfTheDammed.SetCustomSubFeatures(
             new CustomBehaviorMarkOfTheDammed(powerMarkOfTheDammed, conditionMarkOfTheDammed));
@@ -182,10 +183,41 @@ internal sealed class RangerHellWalker : AbstractSubclass
     internal override DeityDefinition DeityDefinition { get; }
 
     //
+    // DammingStrike
+    //
+
+    private sealed class NotifyConditionRemovalDammingStrike : INotifyConditionRemoval
+    {
+        private readonly ConditionDefinition _conditionDefinition;
+
+        public NotifyConditionRemovalDammingStrike(ConditionDefinition conditionDefinition)
+        {
+            _conditionDefinition = conditionDefinition;
+        }
+
+        public void AfterConditionRemoved(RulesetActor removedFrom, RulesetCondition rulesetCondition)
+        {
+            var otherRulesetCondition =
+                removedFrom.AllConditions.FirstOrDefault(x => x.ConditionDefinition == _conditionDefinition);
+
+            if (otherRulesetCondition != null)
+            {
+                removedFrom.RemoveCondition(otherRulesetCondition);
+            }
+        }
+
+        public void BeforeDyingWithCondition(RulesetActor rulesetActor, RulesetCondition rulesetCondition)
+        {
+            // Empty
+        }
+    }
+
+    //
     // Mark of the Dammed
     //
 
-    private sealed class CustomBehaviorMarkOfTheDammed : IIgnoreDamageAffinity, IOnAfterActionFeature
+    private sealed class CustomBehaviorMarkOfTheDammed :
+        IIgnoreDamageAffinity, IOnAfterActionFeature, IFilterTargetingMagicEffect
     {
         private readonly ConditionDefinition _conditionDefinition;
         private readonly FeatureDefinitionPower _featureDefinitionPower;
@@ -196,6 +228,18 @@ internal sealed class RangerHellWalker : AbstractSubclass
         {
             _featureDefinitionPower = featureDefinitionPower;
             _conditionDefinition = conditionDefinition;
+        }
+
+        public bool IsValid(CursorLocationSelectTarget __instance, GameLocationCharacter target)
+        {
+            var isValid = target.RulesetCharacter.HasConditionOfType("ConditionRangerHellWalkerDammingStrike");
+
+            if (!isValid)
+            {
+                __instance.actionModifier.FailureFlags.Add("Tooltip/&MustHaveDammingStrikeCondition");
+            }
+
+            return target.RulesetCharacter.HasConditionOfType("ConditionRangerHellWalkerDammingStrike");
         }
 
         public bool CanIgnoreDamageAffinity(
@@ -217,13 +261,7 @@ internal sealed class RangerHellWalker : AbstractSubclass
 
             var gameLocationDefender = action.actionParams.targetCharacters[0];
 
-            // defender saved so no need to remove condition from other enemies
-            if (!gameLocationDefender.RulesetCharacter.HasConditionOfType(_conditionDefinition.Name))
-            {
-                return;
-            }
-
-            // remove this condition from any other enemy
+            // remove this condition from all other enemies
             foreach (var gameLocationCharacter in battle.EnemyContenders
                          .Where(x => x != gameLocationDefender))
             {
