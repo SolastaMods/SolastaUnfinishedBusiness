@@ -71,11 +71,11 @@ internal sealed class RangerHellWalker : AbstractSubclass
         var additionalDamageDammingStrike = FeatureDefinitionAdditionalDamageBuilder
             .Create($"AdditionalDamage{Name}DammingStrike")
             .SetGuiPresentation(Category.Feature)
-            .SetAttackOnly()
             .SetRequiredProperty(RestrictedContextRequiredProperty.Weapon)
-            .SetTriggerCondition(AdditionalDamageTriggerCondition.AlwaysActive)
-            .SetFrequencyLimit(FeatureLimitedUsage.OncePerTurn)
+            .SetAttackModeOnly()
             .SetSavingThrowData()
+            .SetFrequencyLimit(FeatureLimitedUsage.OncePerTurn)
+            .SetIgnoreCriticalDoubleDice(true)
             .SetConditionOperations(new ConditionOperationDescription
             {
                 canSaveToCancel = true,
