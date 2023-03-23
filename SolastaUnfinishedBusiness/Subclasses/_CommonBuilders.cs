@@ -6,7 +6,9 @@ using SolastaUnfinishedBusiness.CustomUI;
 using SolastaUnfinishedBusiness.Properties;
 using static RuleDefinitions;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.CharacterFamilyDefinitions;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionAttackModifiers;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionDamageAffinitys;
+using static SolastaUnfinishedBusiness.Api.DatabaseHelper.FeatureDefinitionPowers;
 using static SolastaUnfinishedBusiness.Api.DatabaseHelper.SpellDefinitions;
 
 namespace SolastaUnfinishedBusiness.Subclasses;
@@ -119,4 +121,42 @@ internal static class CommonBuilders
             .Create("ReplaceAttackWithCantripCasterFighting")
             .SetGuiPresentation(Category.Feature)
             .AddToDB();
+
+    internal static readonly FeatureDefinitionPower PowerArcaneFighterEnchantWeapon = FeatureDefinitionPowerBuilder
+        .Create("PowerArcaneFighterEnchantWeapon")
+        .SetGuiPresentation(Category.Feature, PowerDomainElementalLightningBlade)
+        .SetUsesProficiencyBonus(ActivationTime.BonusAction, RechargeRate.ShortRest)
+        .SetEffectDescription(
+            EffectDescriptionBuilder
+                .Create()
+                .SetTargetingData(
+                    Side.Ally,
+                    RangeType.Touch,
+                    0,
+                    TargetType.Item,
+                    itemSelectionType: ActionDefinitions.ItemSelectionType.Weapon)
+                .SetDurationData(DurationType.Minute, 10)
+                .SetEffectForms(
+                    EffectFormBuilder
+                        .Create()
+                        .SetItemPropertyForm(
+                            ItemPropertyUsage.Unlimited,
+                            0,
+                            new FeatureUnlockByLevel(
+                                FeatureDefinitionAttackModifierBuilder
+                                    .Create("AttackModifierArcaneFighterIntBonus")
+                                    .SetGuiPresentation("PowerArcaneFighterEnchantWeapon", Category.Feature,
+                                        AttackModifierMagicWeapon)
+                                    .SetAbilityScoreReplacement(AbilityScoreReplacement.SpellcastingAbility)
+                                    .SetMagicalWeapon()
+                                    .SetAdditionalAttackTag(TagsDefinitions.Magical)
+                                    .AddToDB(),
+                                0))
+                        .Build())
+                .Build())
+        .SetCustomSubFeatures(
+            DoNotTerminateWhileUnconscious.Marker,
+            ExtraCarefulTrackedItem.Marker,
+            SkipEffectRemovalOnLocationChange.Always)
+        .AddToDB();
 }
